@@ -2,7 +2,7 @@
 . ~/.config/fish/myconf.d/*.fish
 . ~/.config/fish/myfuctions/*.fish
 
-umask 002
+umask 022
 
 ### VAR
 set -x EDITOR /home/linuxbrew/.linuxbrew/bin/nvim
@@ -14,6 +14,7 @@ set -x TMUX /home/linuxbrew/.linuxbrew/bin/tmux
 ### PATH
 set -g fish_user_paths "/home/linuxbrew/.linuxbrew/bin" $fish_user_paths
 set -g fish_user_paths "/home/linuxbrew/.linuxbrew/sbin" $fish_user_paths
+set -g fish_user_paths "/home/linuxbrew/.linuxbrew/bin/gem" $fish_user_paths
 set -g MANPATH /home/linuxbrew/.linuxbrew/share/man $MANPATH
 set -g INFOPATH /home/linuxbrew/.linuxbrew/share/info $INFOPATH
 #set -g TMUX_TMPDIR ~/.cache/tmp
