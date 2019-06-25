@@ -3,7 +3,7 @@
 
 set -x TMUX /home/linuxbrew/.linuxbrew/bin/tmux
 set -g fish_user_paths /home/linuxbrew/.linuxbrew/sbin $fish_user_paths
-set -x TERM tmux-256color
+set -x TERM screen-256color
 
 ## Never write "exec tmux" on script, or never access the WSL Distribution.
 
