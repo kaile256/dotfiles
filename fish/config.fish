@@ -1,5 +1,5 @@
-. ~/.config/fish/myconf.d/*.fish
-. ~/.config/fish/myfuctions/*.fish
+#. expand(~/.config/fish/myconf.d/*.fish)
+#. expand(~/.config/fish/myfuctions/*.fish)
 
 set -x TMUX /home/linuxbrew/.linuxbrew/bin/tmux
 set -g fish_user_paths /home/linuxbrew/.linuxbrew/sbin $fish_user_paths
