@@ -1,7 +1,10 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =5
-let g:netrw_dirhist_1='/home/kaile256/.ghq/github.com/kaile256/dotfiles'
-let g:netrw_dirhist_2='/home/kaile256/.ghq/github.com/kaile256/dotfiles/fish'
-let g:netrw_dirhist_3='/home/linuxbrew/.linuxbrew/bin'
-let g:netrw_dirhist_4='/home/linuxbrew/.linuxbrew/Cellar/tmux/2.9a/bin'
-let g:netrw_dirhist_5='/home/kaile256/.ghq/github.com/kaile256/dotfiles/fish'
+let g:netrw_dirhist_cnt =8
+let g:netrw_dirhist_1='/home/kaile256/.ghq/github.com/kaile256/dotfiles/nvim'
+let g:netrw_dirhist_2='/home/kaile256/.ghq/github.com/kaile256/dotfiles'
+let g:netrw_dirhist_3='/home/kaile256/.ghq/github.com/kaile256/dotfiles/nvim'
+let g:netrw_dirhist_4='/home/kaile256/.ghq/github.com/kaile256/dotfiles'
+let g:netrw_dirhist_5='/home/kaile256/.ghq/github.com/kaile256/dotfiles/tmux'
+let g:netrw_dirhist_6='/home/kaile256/.ghq/github.com/kaile256/dotfiles/nvim'
+let g:netrw_dirhist_7='/home/kaile256/.ghq/github.com/kaile256/dotfiles/nvim/vimrc.d'
+let g:netrw_dirhist_8='/home/kaile256/.ghq/github.com/kaile256/dotfiles/nvim'

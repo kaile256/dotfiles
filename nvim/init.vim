@@ -8,6 +8,12 @@ set ambiwidth=double
 
 "" Config GUI
 set number " show line number on left
+augroup noNumOnTermMode
+  au!
+  au TermOpen * set nonumber 
+  au TermClose * set number
+augroup END
+
 set showmatch  " 対応括弧の強調
 set cursorline  " 重ければ削除
 set wrap " wrap long text.
@@ -37,13 +43,14 @@ set wildmenu wildmode=list:longest
 set ignorecase
 set smartcase " strictly sense case with upper case.
 set noincsearch  " 順次検索しない
-set hlsearch " highlight on searched word.
-set nowrapscan " never roop on search.
+set hlsearch
+set nowrapscan
 set nofoldenable " マッチした行以外を畳む
 
 """" Config Mode
 "" Insert Tab
-set expandtab " tab文字の代わりにスペースを入力
+" insert space instead of tab char.
+set expandtab
 set softtabstop=2  " 空白文字の右に入力するtab文字幅
 set tabstop=2  " 表示されるtab文字幅
 
