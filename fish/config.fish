@@ -1,8 +1,8 @@
 #. expand(~/.config/fish/myconf.d/*.fish)
 #. expand(~/.config/fish/myfuctions/*.fish)
 
-set -x TMUX /home/linuxbrew/.linuxbrew/bin/tmux
-set -g fish_user_paths /home/linuxbrew/.linuxbrew/sbin $fish_user_paths
+#set -x TMUX /home/linuxbrew/.linuxbrew/bin/tmux
+#set -g fish_user_paths /home/linuxbrew/.linuxbrew/sbin $fish_user_paths
 set -x TERM screen-256color
 
 ## Never write "exec tmux" on script, or never access the WSL Distribution.
