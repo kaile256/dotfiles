@@ -1,0 +1,11 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =9
+let g:netrw_dirhist_1='/home/kaile256'
+let g:netrw_dirhist_2='/home/kaile256/.config'
+let g:netrw_dirhist_3='/home/kaile256/.config/nvim'
+let g:netrw_dirhist_4='/home/kaile256/.config/nvim/dein.d'
+let g:netrw_dirhist_5='/home/kaile256'
+let g:netrw_dirhist_6='/home/kaile256/dotfiles/fish'
+let g:netrw_dirhist_7='/home/kaile256/.pyenv/versions/pyvenv_neovim/bin'
+let g:netrw_dirhist_8='/home/kaile256/dotfiles/tmux'
+let g:netrw_dirhist_9='/home/kaile256'

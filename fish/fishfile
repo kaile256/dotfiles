@@ -1,0 +1,9 @@
+# for fisher, the plugin manager
+decors/fish-ghq
+oh-my-fish/plugin-balias
+sijad/gitignore
+#. fzf written in GO.
+fishpkg/fish-spin
+0rax/fish-bd
+daenney/pyenv
+gsamokovarov/jump
