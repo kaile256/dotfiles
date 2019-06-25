@@ -2,7 +2,11 @@
 # VERSION: 3.0
 SETUVAR --export DISPLAY:localhost\x3a0\x2e0
 SETUVAR --export EDITOR:/home/linuxbrew/\x2elinuxbrew/bin/nvim
-SETUVAR FZF_LEGACY_KEYBINDINGS:0
+SETUVAR FZF_DEFAULT_OPTS:\x2d\x2dheight\x2040\x25
+SETUVAR --export FZF_LEGACY_KEYBINDINGS:0
+SETUVAR FZF_PREVIEW_DIR_CMD:ls
+SETUVAR FZF_PREVIEW_FILE_CMD:head\x20\x2dn\x2010
+SETUVAR FZF_TMUX_HEIGHT:40\x25
 SETUVAR TERM:screen\x2d256color
 SETUVAR --export TMUX:/home/linuxbrew/\x2elinuxbrew/bin/tmux
 SETUVAR --export VISUAL:/home/linuxbrew/\x2elinuxbrew/bin/nvim

@@ -2,6 +2,9 @@
 let mapleader = "\<space>"
 
 """ Insert Mode
+"" back to normal mode, typing j&k simultaneously.
+nnoremap jk <Esc>
+nnoremap kj <Esc>
 "" windows-like
 inoremap <c-z> <c-o>u
 "" emacs-like
