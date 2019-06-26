@@ -19,10 +19,20 @@ augroup noNumOnTermMode
 augroup END
 
 set showmatch  " 対応括弧の強調
-set cursorline  " 重ければ削除
 set wrap " wrap long text.
 set list  " 空白と改行を可視化
+"" eol: 改行
+"" extends: when window-width omits on right end.
+"" precedes: when window-width omits on left.
+"" nbsp: for space
+"set listchars=tab:»-,trail:-,eol:↲,extends:»,precedes:«,nbsp:%
+
 set colorcolumn=81
+"augroup CursorlineOnlyOnActiveWindow
+"  au!
+"  au VimEnter,BufWinEnter,WinEnter * setlocal cursorline
+"  au WinLeave * setlocal nocursorline
+"augroup END
 
 "" Config Multiple Windows
 set splitbelow

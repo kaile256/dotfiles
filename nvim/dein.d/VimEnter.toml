@@ -48,7 +48,7 @@ on_ft = 'snippets'
 #on_event = 'VimEnter'
 [[plugins]]
 repo = 'majutsushi/tagbar'
-on_event = 'VimEnter'
+on_event = 'CursorMoved'
 
 # [[plugins]]
 # repo = 'liuchengxu/vista.vim'

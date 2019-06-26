@@ -1,11 +1,13 @@
 #!/bin/bash
+#
+# Dotfiles installer for Ubuntu1804
 
 set -u
 
 # get dir
-EXEC_DIR = $(cd $(dirname $0); pwd
+BASE_DIR = $(cd $(dirname $0); pwd
 
-cd $EXEC_DIR
+cd $BASE_DIR
 git submodule init
 git submodule update
 
@@ -23,15 +25,15 @@ done
 # neovim set up
 if
 	echo 'setup init.vim...'
-	cd ${EXEC_DIR}/
+	cd ${BASE_DIR}/
 	brew update
 
 fi
 
 cat << END
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 DOTFILES SETUP FINISHED
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 END
