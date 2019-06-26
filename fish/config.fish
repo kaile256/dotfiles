@@ -7,10 +7,9 @@ umask 022
 ### VAR
 set -x EDITOR /home/linuxbrew/.linuxbrew/bin/nvim
 set -x VISUAL /home/linuxbrew/.linuxbrew/bin/nvim
-set -x TMUX /home/linuxbrew/.linuxbrew/bin/tmux
+set -x TMUX   /home/linuxbrew/.linuxbrew/bin/tmux
 set -gx HOMEBREW_TEMP ~/tmp
-#set -x TMUX /home/linuxbrew/.linuxbrew/bin/tmux
-#set -x TERM screen-256color
+set -x TERM screen-256color
 
 ### PATH
 set -g fish_user_paths "/home/linuxbrew/.linuxbrew/bin" $fish_user_paths
