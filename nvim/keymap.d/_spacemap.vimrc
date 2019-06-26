@@ -1,3 +1,4 @@
+let s:mapleader = "\<space>"
 
 "" Save and Quit
 nnoremap <space>w :w!<CR>

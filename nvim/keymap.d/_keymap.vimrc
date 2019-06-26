@@ -1,6 +1,3 @@
-
-let mapleader = "\<space>"
-
 """ Insert Mode
 "" back to normal mode, typing j&k simultaneously.
 inoremap jk <Esc>
@@ -44,8 +41,9 @@ noremap <a-j> <C-w>-
 noremap <a-k> <C-w>+
 noremap <a-l> <C-w><
 " agressive resize
-noremap <C-w>m <c-w>_
-noremap <C-w>M <c-w>_<C-w>|
+noremap <C-w>m     <c-w>_
+noremap <C-w><C-m> <c-w>_
+noremap <C-w>M     <c-w>_<C-w>|
 " neutralize
 noremap <c-w>0 <c-w>=
 

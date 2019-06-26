@@ -1,8 +1,12 @@
 runtime! keymap.d/*.vimrc
 runtime! dein.vimrc
 
+""" Double-doublequotes Comment Out settings means satisfying by default.
+""" When make a setting off, set no**.
+
 "" Config Coding
 set enc=utf-8
+" for multi-byte code
 scriptencoding utf-8
 set ambiwidth=double
 
@@ -24,8 +28,9 @@ set colorcolumn=81
 set splitbelow
 set splitright
 
-"" Config Runtimes
+"" Config Speed
 set matchtime=1  " 対応括弧を1秒間表示
+""set ttyfast
 
 "" Config Backup
 set nobackup
@@ -35,15 +40,15 @@ set hidden
 
 "" Config Statusbar
 set title
-set ruler  " 座標表示
-set laststatus=2 " always shows the current status.
-set wildmenu wildmode=list:longest
+""set ruler " 座標表示
+""" always show the current status.
+""set laststatus=2
 
 "" Config Search
 set ignorecase
 set smartcase " strictly sense case with upper case.
-set noincsearch  " 順次検索しない
-set hlsearch
+set noincsearch " 順次検索しない
+""set hlsearch
 set nowrapscan
 set nofoldenable " マッチした行以外を畳む
 
@@ -51,12 +56,13 @@ set nofoldenable " マッチした行以外を畳む
 "" Insert Tab
 " insert space instead of tab char.
 set expandtab
-set softtabstop=2  " 空白文字の右に入力するtab文字幅
 set tabstop=2  " 表示されるtab文字幅
+set softtabstop=2  " 空白文字の右に入力するtab文字幅
 
 "" Insert Indent
+""set autoindent
 set shiftwidth=2  " 自動インデントの幅
-set smarttab  " 行頭余白でtabを打つと'shiftwidth'で指定した数だけindentする
+""set smarttab  " 行頭余白でtabを打つと'shiftwidth'で指定した数だけindentする
 set shiftround  " indentをshiftwidthの倍数に丸める
 
 "" Visual Mode
@@ -64,12 +70,21 @@ set virtualedit=block " 矩形選択で、文字がなくても右へ進める
 
 "" Commandline Mode
 set noshowcmd
-set history=10000  " コマンドライン履歴を確保 
+""set wildmenu
+" let completion on command-line
+set wildmode=list:longest
+"set history=10000
 
 "" Config Netrw
-let g:netrw_altv = 1 " 'v' opens on right.
-let g:netrw_alto = 1 " 'o' opens on below.  
-" let g:netrw_liststyle = 2 " always show tree view at first.
-
-if has('nvim')
-  endif
+" 0:show all, including hidden files.
+let g:netrw_hide = 0
+" 0:keep the current dir the same as the browsing dir
+"  ;no need to type 'c'
+let g:netrw_keepdir = 0
+" 'H':show bytes like 5K, 4M, 3G
+let g:netrw_sizestyle ='H'
+" 'v' opens on right.
+let g:netrw_altv = 1
+" 'o' opens on below.
+let g:netrw_alto = 1
+"let g:netrw_liststyle = 2 " always show tree view at first.

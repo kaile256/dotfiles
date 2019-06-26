@@ -1,19 +1,19 @@
 " the common settings
 set t_Co=256
 set termguicolors
-set bg=dark
+"set bg=light
 
-" when molokai/monokai theme
+" when molokai theme
 colorscheme molokai
 let g:rehash256 = 1
-"" make highlight clear on molokai.
-hi Visual              ctermbg=142
-hi Search              ctermbg=155
-hi Comment ctermfg=245
-
-" let g:solarized_termcolors=256
-" colo solarized
+" make highlight clear on molokai.
+augroup ModifyColo
+  au!
+  au CursorMoved * hi Visual              ctermbg=142
+  au CursorMoved * hi Search              ctermbg=155
+  au VimEnter    * hi Comment ctermfg=245
+augroup END
 
 "" when solarized theme
-" let g:solarized_termcolors=256
-" colo solarized
+"let g:solarized_termcolors=256
+"colo solarized
