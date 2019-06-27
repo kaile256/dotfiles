@@ -7,6 +7,14 @@
 # [[plugins]]
 # repo = 'Shougo/neoyank.vim'
 
+### Git
+# activates git cmd on vim_json_syntax_conceal
+# e.g., :Gblame <- git blame.
+[[plugins]]
+repo = 'tpope/vim-fugitive'
+on_event = 'VimEnter'
+type = 'git'
+
 #### Plugins Completion
 ## command ":CocConfig" to organize config of coc.
 # write custom-key config in plugin.vim

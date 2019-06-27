@@ -4,14 +4,14 @@ if &compatible
   set nocompatible
 endif
 
-filetype off
-
 let s:dein_cache_dir = '~/.cache/nvim/dein'
 let s:dein_itself = s:dein_cache_dir . '/repos/github.com/Shougo/dein.vim'
 
 "" The Path, dein.vim is installed.
 set rtp+=~/.cache/nvim/dein/repos/github.com/Shougo/dein.vim
 
+" dein#load_state includes 'set filetype off';
+" so 'set filetype on' after load dein & plugins.
 if dein#load_state(s:dein_cache_dir)
   call dein#begin(s:dein_cache_dir)
 

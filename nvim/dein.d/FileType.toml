@@ -1,11 +1,4 @@
 #### Filetype & Syntax
-### Git
-# activates git cmd on vim_json_syntax_conceal
-# e.g., :Gblame <- git blame.
-[[plugins]]
-repo = 'tpope/vim-fugitive'
-type = 'git'
-
 # judge filetype of the context under cursor.
 # [[plugins]]
 # repo = 'Shougo/context_filetype.vim'
@@ -15,6 +8,15 @@ type = 'git'
 # depends = ['context_filetype.vim']
 
 #### Depends on filetype #######################################################
+## Snippet
+[[plugins]]
+repo = 'Shougo/neosnippet-snippets'
+[[plugins]]
+repo = 'Shougo/neosnippet.vim'
+on_event = 'InsertEnter'
+on_ft = 'snippet'
+depends = 'neosnippet-snippets'
+
 # supports pip-packages, independently installed in shell, to work on vim
 [[plugins]]
 repo = 'plytophogy/vim-virtualenv'

@@ -25,9 +25,9 @@ nnoremap <space>vs :vs
 nnoremap <space>sp :sp 
 nnoremap <space>be :tabe 
 "" Current File
-nnoremap <space>cv :vs .<CR>
-nnoremap <space>cs :sp .<CR>
-nnoremap <space>cb :tabe .<CR>
+nnoremap <space>.v :vs .<CR>
+nnoremap <space>.s :sp .<CR>
+nnoremap <space>.b :tabe .<CR>
 "" Terminal
 if has('nvim')
   nnoremap <silent> <space>tb :<C-u>tabe<CR>:te<CR>i
