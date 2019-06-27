@@ -88,9 +88,8 @@ set wildmode=list:longest
 "" Config Netrw
 " 0:show all, including hidden files.
 let g:netrw_hide = 0
-" 0:keep the current dir the same as the browsing dir
-"  ;no need to type 'c'
-"let g:netrw_keepdir = 0
+" where .netrwhist is located.
+let g:netrw_home = "$XDG_CACHE_HOME/nvim/netrw"
 " 'H':show bytes like 5K, 4M, 3G
 let g:netrw_sizestyle ='H'
 " 'v' opens on right.
