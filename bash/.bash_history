@@ -52,3 +52,10 @@ set -x SHELL /home/linuxbrew/.linuxbrew/bin/fish
 echo $SHELL
 which fish
 chsh -s /home/linuxbrew/.linuxbrew/bin/fish
+tmux
+tmux a
+tmux
+tmux a
+tmux
+tmux a
+tmux

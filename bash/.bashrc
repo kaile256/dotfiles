@@ -1,3 +1,9 @@
+#### TMUX
+if which tmux > /dev/null 2>&1; then
+  # only when no session runs, start a new session.
+  test -z "$TMUX" && (tmux attach || tmux new-session)
+fi
+
 # ~/.bashrc: executed by bash(1) for non-login shells.
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples

@@ -90,7 +90,7 @@ set wildmode=list:longest
 let g:netrw_hide = 0
 " 0:keep the current dir the same as the browsing dir
 "  ;no need to type 'c'
-let g:netrw_keepdir = 0
+"let g:netrw_keepdir = 0
 " 'H':show bytes like 5K, 4M, 3G
 let g:netrw_sizestyle ='H'
 " 'v' opens on right.

@@ -2,17 +2,11 @@
 "" back to normal mode, typing j&k simultaneously.
 inoremap jk <Esc>
 inoremap kj <Esc>
-""" windows-like
-"inoremap <c-z> <c-o>u
-""" emacs-like
-"" top to end
-"inoremap <c-a> <c-o>^
-"inoremap <c-e> <c-o>$
-"" hjkl
-"inoremap <c-f> <c-o>w
-"inoremap <c-b> <c-o>b
-"inoremap <c-n> <Down>
-"inoremap <c-p> <Up>
+"" hjkl on insert mode
+inoremap <A-h> <Left>
+inoremap <A-j> <Down>
+inoremap <A-k> <Up>
+inoremap <A-l> <Right>
 
 """ NormalMode
 " Kill Ambiguities
