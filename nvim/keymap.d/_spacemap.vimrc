@@ -15,10 +15,10 @@ nnoremap <space>q :q<CR>
 nnoremap <space>so :so $XDG_CONFIG_HOME/nvim/init.vim<CR>
 """ Open New
 "" Stand-by a CloudNote
-nnoremap <space>ne :e    ~/CloudNote/_!
-nnoremap <space>ns :sp   ~/CloudNote/_!
-nnoremap <space>nv :vs   ~/CloudNote/_!
-nnoremap <space>nb :tabe ~/CloudNote/_!
+nnoremap <space>ne :e    ~/CloudNote/
+nnoremap <space>ns :sp   ~/CloudNote/
+nnoremap <space>nv :vs   ~/CloudNote/
+nnoremap <space>nb :tabe ~/CloudNote/
 "" Ready to edit
 nnoremap <space>e :e 
 nnoremap <space>vs :vs 
