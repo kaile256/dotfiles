@@ -1,5 +1,5 @@
 runtime! dein.vimrc
-runtime! keymap.d/*.vimrc
+runtime! keymap.d/*.vim
 
 """ Double-doublequotes Comment Out settings means satisfying by default.
 """ When make a setting off, set no**.
@@ -55,7 +55,7 @@ set title
 ""set laststatus=2
 
 "" Config Search
-set ignorecase
+set noignorecase
 set smartcase " strictly sense case with upper case.
 set noincsearch " 順次検索しない
 ""set hlsearch

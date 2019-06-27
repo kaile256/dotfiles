@@ -7,7 +7,20 @@
 # repo = 'osyo-manga/vim-precious'
 # depends = ['context_filetype.vim']
 
-#### Depends on filetype #######################################################
+### Depends on filetype #######################################################
+### Git
+# activates git cmd on vim_json_syntax_conceal
+# e.g., :Gblame <- git blame.
+[[plugins]]
+repo = 'tpope/vim-fugitive'
+on_event = 'VimEnter'
+type = 'git'
+## Tig; git client
+[[plugins]]
+repo = 'iberianpig/tig-explorer.vim'
+on_event = 'VimEnter'
+type = 'git'
+
 ## Snippet
 [[plugins]]
 repo = 'Shougo/neosnippet-snippets'
