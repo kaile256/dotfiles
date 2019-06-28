@@ -15,11 +15,13 @@ set ambiwidth=double
 
 "" Config GUI
 set number " show line number on left
-augroup noNumOnTermMode
-  au!
-  au TermOpen * set nonumber 
-  au TermClose * set number
-augroup END
+if has('nvim')
+  augroup noNumOnTermMode
+    au!
+    au TermOpen * set nonumber 
+    au TermClose * set number
+  augroup END
+endif
 
 set showmatch  " 対応括弧の強調
 set wrap " wrap long text.

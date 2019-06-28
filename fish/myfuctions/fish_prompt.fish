@@ -1,4 +1,4 @@
-# nama: kaile256
+# name: kaile256
 # based on oh-my-fish/theme-gnuykeaj
 # erased color setting to use default fish_config_theme, lava.
 #
