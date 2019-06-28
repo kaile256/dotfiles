@@ -1,1 +1,2 @@
-nmap <F8> :TagbarToggle<CR> 
+" C-tag
+nmap <a-g> :TagbarToggle<CR> 

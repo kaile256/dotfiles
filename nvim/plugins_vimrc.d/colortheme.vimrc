@@ -9,7 +9,6 @@ let g:rehash256 = 1
 " make highlight clear on molokai.
 augroup ModifyColo
   au!
-  au CursorMoved * hi Visual              ctermbg=142
   au CursorMoved * hi Search              ctermbg=155
   au VimEnter    * hi Comment ctermfg=245
 augroup END
