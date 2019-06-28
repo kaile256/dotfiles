@@ -5,7 +5,10 @@ runtime! keymap.d/*.vim
 """ When make a setting off, set no**.
 
 "" Config Coding
-set enc=utf-8
+""set enc=utf-8
+" when different from utf-8, convert it.
+set fenc=utf-8
+""set formatoptions=tcqj
 " for multi-byte code
 scriptencoding utf-8
 set ambiwidth=double

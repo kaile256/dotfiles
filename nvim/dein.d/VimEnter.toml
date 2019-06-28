@@ -1,12 +1,3 @@
-## Filer
-# for quick-open, preload Defx itself earlier.
-[[plugins]]
-repo = 'kristijanhusak/defx-git'
-on_map = ':Defx'
-[[plugins]]
-repo = 'kristijanhusak/defx-icons'
-on_map = ':Defx'
-
 # [[plugins]]
 # repo = 'Shougo/denite.nvim'
 # on_event = 'BufRead'

@@ -16,6 +16,18 @@ endif
 "let g:airline#extensions#tabline#left_sep = ' '
 "let g:airline#extensions#tabline#left_alt_sep = '|'
 let g:airline_theme='badwolf'
+"let g:airline_mode_map = {
+"    \ '__' : '-',
+"    \ 'n'  : 'N',
+"    \ 'i'  : 'I',
+"    \ 'R'  : 'R',
+"    \ 'c'  : 'C',
+"    \ 'v'  : 'V',
+"    \ 'V'  : 'V',
+"    \ ''   : 'V',
+"    \ 's'  : 'S',
+"    \ 'S'  : 'S',
+"    \ }
 
 " "" Config itchyny/lightline.vim until EOL
 " let g:lightline.colorscheme = 'solarized'

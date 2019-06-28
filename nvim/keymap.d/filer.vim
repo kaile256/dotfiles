@@ -1,13 +1,19 @@
 """" Initialize defx.nvim
-nnoremap <space>fe :Defx<cr>
-nnoremap <space>fv :vs .<cr>:Defx<cr>
-nnoremap <space>fs :sp .<cr>:Defx<cr>
-nnoremap <space>fb :tabe .<cr>:Defx<cr>
+nnoremap <space>fe :Defx ~<cr>
+nnoremap <space>fv :vs ~<cr>:Defx<cr>
+nnoremap <space>fs :sp $HOME<cr>:Defx<cr>
+nnoremap <space>fb :tabe $HOME<cr>:Defx<cr>
 
 """" Keybinds on Defx
 autocmd FileType defx call s:defx_my_settings()
 
 function! s:defx_my_settings() abort
+  " move between panes
+  nnoremap <C-h> <C-w>h
+  nnoremap <C-j> <C-w>j
+  nnoremap <C-k> <C-w>k
+  nnoremap <C-l> <C-w>l
+
   nnoremap <silent><buffer><expr> q
         \ defx#do_action('quit')
 
@@ -20,7 +26,7 @@ function! s:defx_my_settings() abort
   nnoremap <silent><buffer><expr> l
         \ defx#do_action('open')
   nnoremap <silent><buffer><expr> <CR>
-        \ defx#do_action('open')
+        \ defx#do_action('open', 'vsplit')
   nnoremap <silent><buffer><expr> o
         \ defx#do_action('open', 'split')
   nnoremap <silent><buffer><expr> v
@@ -29,6 +35,8 @@ function! s:defx_my_settings() abort
         \ defx#do_action('open', 'tab')
   nnoremap <silent><buffer><expr> p
         \ defx#do_action('open', 'pedit')
+  nnoremap <silent><buffer><expr> u
+        \ defx#do_action('open_or_close_tree')
 
  """ File-Management
   nnoremap <silent><buffer><expr> mc
@@ -55,9 +63,21 @@ function! s:defx_my_settings() abort
         \ defx#do_action('execute_system')
 
   """ Toggle
+  "" Ignored/Hidden File\
+  nnoremap <silent><buffer><expr> .
+        \ defx#do_action('toggle_ignored_files')
+  
   "" Sort
   nnoremap <silent><buffer><expr> st
         \ defx#do_action('toggle_sort', 'time')
+  nnoremap <silent><buffer><expr> sz
+        \ defx#do_action('toggle_sort', 'size')
+  nnoremap <silent><buffer><expr> sx
+        \ defx#do_action('toggle_sort', 'extention')
+  nnoremap <silent><buffer><expr> sn
+        \ defx#do_action('toggle_sort', 'filename')
+
+  "" Select
   nnoremap <silent><buffer><expr> <Space>
         \ defx#do_action('toggle_select') . 'j'
   nnoremap <silent><buffer><expr> *

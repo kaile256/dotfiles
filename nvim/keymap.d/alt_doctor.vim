@@ -1,7 +1,7 @@
 "" Checkhealth
 nnoremap <a-c><a-h> :Checkhealth<cr>
 "" Reload init.vim
-nnoremap <a-s><a-o> :So $XDG_CONFIG_HOME/nvim/init.vim<CR>
+nnoremap <a-s><a-o> :so $XDG_CONFIG_HOME/nvim/init.vim<CR>
 
 """ Dein
 "" Dein function

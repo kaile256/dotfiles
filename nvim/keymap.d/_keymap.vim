@@ -3,21 +3,15 @@
 inoremap jk <Esc>
 inoremap kj <Esc>
 "" hjkl on insert mode
-inoremap <A-h> <Left>
-inoremap <A-j> <Down>
-inoremap <A-k> <Up>
-inoremap <A-l> <Right>
+" DONT map i_<c-h>/<c-j>; should be default.
+inoremap <a-h> <Left>
+inoremap <a-j> <Down>
+inoremap <a-k> <Up>
+inoremap <a-l> <Right>
 
 """ NormalMode
 " Kill Ambiguities
 nnoremap Y y$
-nnoremap q: :q
-
-"" Put an empty without insert mode
-nnoremap <a-o> o<esc>k
-nnoremap <a-O> O<esc>j
-nnoremap <a-i> I<space><esc>l
-nnoremap <a-a> A<space><esc>h
 
 "" Research
 " find researched word at middle
@@ -28,29 +22,30 @@ noremap # #zz
 noremap g* g*zz
 noremap g# g#zz
 
-"" Pane
-" resize window by cursor keys
-noremap <a-h> <C-w>>
-noremap <a-j> <C-w>-
-noremap <a-k> <C-w>+
-noremap <a-l> <C-w><
-" agressive resize
-noremap <C-w>m     <c-w>_
-noremap <C-w><C-m> <c-w>_
-noremap <C-w>M     <c-w>_<C-w>|
-" neutralize
-noremap <c-w>0 <c-w>=
-
-" move around
-nmap <C-h> <C-w>h
-nmap <C-j> <C-w>j
-nmap <C-k> <C-w>k
-nmap <C-l> <C-w>l
+""" Pane
+"" Pane:move
+" move between panes
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
 " move window itself
-nmap <C-w><C-h> <C-w>H
-nmap <C-w><C-j> <C-w>J
-nmap <C-w><C-k> <C-w>K
-nmap <C-w><C-l> <C-w>L
+nnoremap <a-h> <C-w>H
+nnoremap <a-k> <C-w>J
+nnoremap <a-j> <C-w>K
+nnoremap <a-l> <C-w>L
+"" Pane:resize
+" resize window by cursor keys
+nnoremap <c-w>h <c-w>>
+nnoremap <C-w>j <C-w>-
+nnoremap <C-w>k <C-w>+
+nnoremap <C-w>l <C-w><
+" agressive resize
+nnoremap <C-w>m     <c-w>_
+nnoremap <C-w><C-m> <c-w>_
+nnoremap <C-w>M     <c-w>_<C-w>|
+" neutralize
+nnoremap <c-w>0 <c-w>=
 
 "" Terminal Mode
 " Normal-mode-like move on terminal mode
