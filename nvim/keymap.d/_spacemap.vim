@@ -11,8 +11,6 @@ nmap <space>P "+P
 "" Save and Quit
 nnoremap <space>w :w!<CR>
 nnoremap <space>q :q<CR>
-"" Reload
-nnoremap <space>so :so $XDG_CONFIG_HOME/nvim/init.vim<CR>
 """ Open New
 "" Stand-by a CloudNote
 nnoremap <space>ne :e    ~/CloudNote/

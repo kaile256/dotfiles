@@ -19,17 +19,11 @@ hook_add = '''
     \ }
   '''
 
-## Filer
+### Filer
 [[plugins]]
 repo = 'Shougo/defx.nvim'
-[[plugins]]
-repo = 'kristijanhusak/defx-git'
-depends = 'defx.nvim'
-[[plugins]]
-repo = 'kristijanhusak/defx-icons'
-depends = 'defx.nvim'
 
-#### Plugins Edit Smooth #######################################################
+#### Plugins Edit Smooth
 [[plugins]]
 repo = 'tpope/vim-surround'
 # Repeats even not-default editing by "."
@@ -46,7 +40,7 @@ repo = 'tpope/vim-repeat'
 #[[plugins]]
 #repo = 'thinca/vim-template'
 
-#### Plugins Visual ############################################################
+#### Plugins Visual
 ## Visual Color Themes
 [[plugins]]
 repo = 'tomasr/molokai'

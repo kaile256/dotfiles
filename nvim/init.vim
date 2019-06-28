@@ -1,4 +1,4 @@
-runtime! dein.vimrc
+runtime! plugin_manager.vimrc
 runtime! keymap.d/*.vim
 
 """ Double-doublequotes Comment Out settings means satisfying by default.

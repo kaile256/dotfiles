@@ -1,14 +1,15 @@
+"""" main plugin-manager is Shougo/dein.vim
 "" dein.vim manages dein.vim itself, too.
 
 if &compatible
   set nocompatible
 endif
 
-let s:dein_cache_dir = '~/.cache/nvim/dein'
-let s:dein_itself = s:dein_cache_dir . '/repos/github.com/Shougo/dein.vim'
-
 "" The Path, dein.vim is installed.
 set rtp+=~/.cache/nvim/dein/repos/github.com/Shougo/dein.vim
+
+let s:dein_cache_dir = '~/.cache/nvim/dein'
+let s:dein_itself = s:dein_cache_dir . '/repos/github.com/Shougo/dein.vim'
 
 " dein#load_state includes 'set filetype off';
 " so 'set filetype on' after load dein & plugins.
@@ -40,4 +41,4 @@ filetype plugin indent on
 syntax enable  " on は設定を無視して構文ハイライトする
 
 " managed plugins options should be loaded after dein activates
-runtime! vimrc.d/*.vimrc
+runtime! plugins_vimrc.d/*.vimrc

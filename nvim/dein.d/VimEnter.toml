@@ -1,4 +1,12 @@
 ## Filer
+# for quick-open, preload Defx itself earlier.
+[[plugins]]
+repo = 'kristijanhusak/defx-git'
+on_map = ':Defx'
+[[plugins]]
+repo = 'kristijanhusak/defx-icons'
+on_map = ':Defx'
+
 # [[plugins]]
 # repo = 'Shougo/denite.nvim'
 # on_event = 'BufRead'
@@ -30,9 +38,6 @@ on_event = 'InsertEnter'
 repo = 'Shougo/neosnippet.vim'
 on_event = 'InsertEnter'
 on_ft = 'snippets'
-# [[plugins]]
-# repo = 'honza/vim-snippets'
-# on_event = 'InsertEnter'
 
 ## open DevDocs from vim
 ## still need more settings
