@@ -13,10 +13,10 @@ nnoremap <space>w :w!<CR>
 nnoremap <space>q :q<CR>
 """ Open New
 "" Stand-by a CloudNote
-nnoremap <space>ne :e    ~/CloudNote/
-nnoremap <space>ns :sp   ~/CloudNote/
-nnoremap <space>nv :vs   ~/CloudNote/
-nnoremap <space>nb :tabe ~/CloudNote/
+nnoremap <space>ne :Defx          ~/CloudNote/
+nnoremap <space>ns :sp<cr>:Defx   ~/CloudNote/
+nnoremap <space>nv :vne<cr>:Defx  ~/CloudNote/
+nnoremap <space>nb :tabe<cr>:Defx ~/CloudNote/
 "" Ready to edit
 nnoremap <space>e :e 
 nnoremap <space>vs :vs 
@@ -28,7 +28,8 @@ nnoremap <space>.s :sp .<CR>
 nnoremap <space>.b :tabe .<CR>
 "" Terminal
 if has('nvim')
+  nnoremap <silent> <space>te :<c-u>         te<cr>i
   nnoremap <silent> <space>tb :<C-u>tabe<CR>:te<CR>i
-  nnoremap <silent> <space>ts :<C-u>sp<CR>:te<CR>i
-  nnoremap <silent> <space>tv :<C-u>vs<CR>:te<CR>i
+  nnoremap <silent> <space>ts :<C-u>sp<CR>  :te<CR>i
+  nnoremap <silent> <space>tv :<C-u>vs<CR>  :te<CR>i
 endif

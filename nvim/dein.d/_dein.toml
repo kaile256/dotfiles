@@ -21,11 +21,11 @@ hook_add = '''
 
 ### Filer
 [[plugins]]
-repo = 'Shougo/defx.nvim'
-[[plugins]]
 repo = 'kristijanhusak/defx-git'
 [[plugins]]
 repo = 'kristijanhusak/defx-icons'
+[[plugins]]
+repo = 'Shougo/defx.nvim'
 
 #### Plugins Edit Smooth
 [[plugins]]
