@@ -1,0 +1,85 @@
+#### Filetype & Syntax
+# judge filetype of the context under cursor.
+# [[plugins]]
+# repo = 'Shougo/context_filetype.vim'
+# # change filetype dependent on the context under cursor.
+# [[plugins]]
+# repo = 'osyo-manga/vim-precious'
+# depends = ['context_filetype.vim']
+
+### Depends on filetype #######################################################
+### Git
+# activates git cmd on vim_json_syntax_conceal
+# e.g., :Gblame <- git blame.
+[[plugins]]
+repo = 'tpope/vim-fugitive'
+on_event = 'VimEnter'
+type = 'git'
+[[plugins]]
+repo = 'gregsexton/gitv'
+on_event = 'VimEnter'
+type = 'git'
+## Tig; git client
+#[[plugins]]
+#repo = 'iberianpig/tig-explorer.vim'
+#on_event = 'VimEnter'
+#type = 'git'
+
+## Snippet
+[[plugins]]
+repo = 'Shougo/neosnippet-snippets'
+[[plugins]]
+repo = 'Shougo/neosnippet.vim'
+on_event = 'InsertEnter'
+on_ft = 'snippet'
+depends = 'neosnippet-snippets'
+
+# supports pip-packages, independently installed in shell, to work on vim
+[[plugins]]
+repo = 'plytophogy/vim-virtualenv'
+on_ft = 'python3'
+
+### Syntax
+## Language Console
+[[plugins]]
+repo = 'dag/vim-fish'
+on_ft = 'fish'
+[[plugins]]
+repo = 'ericpruitt/tmux.vim'
+on_ft = 'tmux'
+
+## Language Functional
+[[plugins]]
+repo = 'udalov/kotlin-vim'
+on_ft = 'kotlin'
+[[plugins]]
+repo = 'Alloyed/lua-lsp'
+on_ft = 'lua'
+
+## Language Expression
+[[plugins]]
+repo = 'tpope/vim-markdown'
+on_ft = 'markdown'
+[[plugins]]
+repo = 'elzr/vim-json'
+on_ft = 'json'
+hook_add = '''
+  " show up auto-hidden '"'.
+  let g:vim_json_syntax_conceal = 0
+  '''
+[[plugins]]
+repo = 'cespare/vim-toml' 
+on_ft = 'toml'
+# syntax highlight for 'hook_add'
+[[plugins]]
+repo = 'delphinus/vim-toml-dein' 
+on_ft = 'toml'
+
+## Unnecessary
+#[[plugins]]
+#repo = 'rhysd/accelerated-jk'
+#on_map = '<Plug>'
+#hook_add = '''
+#  nmap <silent>j <Plug>(accelerated_jk_gj)
+#  nmap <silent>k <Plug>(accelerated_jk_gk)
+#  '''

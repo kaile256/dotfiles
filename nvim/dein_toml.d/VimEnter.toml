@@ -1,0 +1,68 @@
+# [[plugins]]
+# repo = 'Shougo/denite.nvim'
+# on_event = 'BufRead'
+# depends = 'neoyank.vim'
+# # save yank history for denite.vim.
+# [[plugins]]
+# repo = 'Shougo/neoyank.vim'
+
+#### Plugins Completion
+## command ":CocConfig" to organize config of coc.
+# write custom-key config in plugin.vim
+[[plugins]]
+repo = 'neoclide/coc.nvim'
+on_event = 'VimEnter'
+hook_post_update = '''
+  au VimEnter * call coc#util#install()
+  au VimENter * CocInstall coc-json coc-tsserver coc-html coc-yaml coc-python 
+  \ coc-git coc-yank coc-vimlsp coc-highlight
+  '''
+
+## prepares fuzzy completion list
+[[plugins]]
+repo = 'junegunn/fzf'
+on_event = 'InsertEnter'
+[[plugins]]
+repo = 'Shougo/neosnippet-snippets'
+on_event = 'InsertEnter'
+[[plugins]]
+repo = 'Shougo/neosnippet.vim'
+on_event = 'InsertEnter'
+on_ft = 'snippets'
+
+## open DevDocs from vim
+## still need more settings
+#repo = 'rhysd/devdocs.vim'
+#on_map = '<Plug>'
+#hook_add = '''
+#  nnoremap K <Plug>(devdocs-under-cursor)
+#  '''
+
+## Tag
+#[[plugins]]
+#repo = 'ludovicchabant/vim-gutentags'
+#on_event = 'VimEnter'
+[[plugins]]
+repo = 'majutsushi/tagbar'
+on_event = 'CursorMoved'
+
+# [[plugins]]
+# repo = 'liuchengxu/vista.vim'
+# depends = ['coc.nvim']
+# on_event = 'InsertEnter'
+
+## Browser on vim
+[[plugins]]
+repo = 'tyru/open-browser.vim'
+on_map = '<Plug>'
+hook_add = '''
+  let g:netrw_nogx = 1 " disable netrw's gx mapping.
+  nnoremap gx <Plug>(openbrowser-smart-search)
+  vnoremap gx <Plug>(openbrowser-smart-search)
+  '''
+
+## On Terminal Mode
+[[plugins]]
+repo = 'mhinz/neovim-remote'
+on_event = 'TermOpen'
+
