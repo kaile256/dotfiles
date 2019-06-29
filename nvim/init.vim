@@ -55,7 +55,8 @@ set hidden
 
 "" Config Statusbar
 set title
-""set ruler " 座標表示
+" show coordinate; some plugins does instead more beautifully.
+"set ruler
 """ always show the current status.
 ""set laststatus=2
 
@@ -76,7 +77,10 @@ set softtabstop=2  " 空白文字の右に入力するtab文字幅
 
 "" Insert Indent
 ""set autoindent
+set nosmartindent
 set shiftwidth=2  " 自動インデントの幅
+au! FileType Javascript \
+  setlocal shiftwidth=4 tabstop=4 softtabstop=4
 ""set smarttab  " 行頭余白でtabを打つと'shiftwidth'で指定した数だけindentする
 set shiftround  " indentをshiftwidthの倍数に丸める
 

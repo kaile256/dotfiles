@@ -3,11 +3,6 @@
 inoremap jk <Esc>
 inoremap kj <Esc>
 """" hjkl
-" DONT map i_<c-h>/<c-j>; should be default.
-inoremap <a-h> <Left>
-inoremap <a-j> <Down>
-inoremap <a-k> <Up>
-inoremap <a-l> <Right>
 " move as you look.
 nnoremap j gj
 nnoremap k gk
@@ -34,17 +29,17 @@ nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
-" move window itself
-nnoremap <a-h> <C-w>H
-nnoremap <a-k> <C-w>J
-nnoremap <a-j> <C-w>K
-nnoremap <a-l> <C-w>L
-"" Pane:resize
 " resize window by cursor keys
-nnoremap <c-w>h <c-w>>
-nnoremap <C-w>j <C-w>-
-nnoremap <C-w>k <C-w>+
-nnoremap <C-w>l <C-w><
+" move window itself
+nnoremap <c-w>h <C-w>H
+nnoremap <C-w>j <C-w>J
+nnoremap <C-w>k <C-w>K
+nnoremap <C-w>l <C-w>L
+"" Pane:resize
+nnoremap <a-h> <c-w>>
+nnoremap <a-k> <C-w>-
+nnoremap <a-j> <C-w>+
+nnoremap <a-l> <C-w><
 " agressive resize
 nnoremap <C-w>m     <c-w>_
 nnoremap <C-w><C-m> <c-w>_

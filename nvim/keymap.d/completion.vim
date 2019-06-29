@@ -12,10 +12,10 @@
 inoremap <expr> <cr>
   \ pumvisible() ? '<C-y>' : '<C-g>u\<CR>' 
 
-noremap <space>gd <Plug>(coc-definition)
-noremap <space>gy <Plug>(coc-type-definition)
-noremap <space>gi <Plug>(coc-implementation)
-noremap <space>gr <Plug>(coc-references)
+noremap <space>cd <Plug>(coc-definition)
+noremap <space>cy <Plug>(coc-type-definition)
+noremap <space>ci <Plug>(coc-implementation)
+noremap <space>cr <Plug>(coc-references)
 "" show yank list
 noremap <space>by :<c-u>CocList -A --normal yank<cr>
 

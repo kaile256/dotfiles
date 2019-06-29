@@ -16,10 +16,10 @@ repo = 'tpope/vim-fugitive'
 on_event = 'VimEnter'
 type = 'git'
 ## Tig; git client
-[[plugins]]
-repo = 'iberianpig/tig-explorer.vim'
-on_event = 'VimEnter'
-type = 'git'
+#[[plugins]]
+#repo = 'iberianpig/tig-explorer.vim'
+#on_event = 'VimEnter'
+#type = 'git'
 
 ## Snippet
 [[plugins]]

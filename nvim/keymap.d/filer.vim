@@ -1,8 +1,24 @@
-"""" Initialize defx.nvim
+"""" Shortcut
+"" Home
 nnoremap <space>fe               :<c-u>Defx ~<cr>
 nnoremap <space>fv :<c-u>vne<cr> :<c-u>Defx ~<cr>
 nnoremap <space>fs :<c-u>sp<cr>  :<c-u>Defx ~<cr>
 nnoremap <space>fb :<c-u>tabe<cr>:<c-u>Defx ~<cr>
+"" Current File
+nnoremap <space>.fe               :<c-u>Defx .<cr>
+nnoremap <space>.fv :<c-u>vne<cr> :<c-u>Defx .<cr>
+nnoremap <space>.fs :<c-u>sp<cr>  :<c-u>Defx .<cr>
+nnoremap <space>.fb :<c-u>tabe<cr>:<c-u>Defx .<cr>
+"" init.vim
+nnoremap <space>ife :<c-u>Defx ~/dotfiles/nvim<CR>
+nnoremap <space>ifs :<c-u>Defx ~/dotfiles/nvim<CR>
+nnoremap <space>ifv :<c-u>Defx ~/dotfiles/nvim<CR>
+nnoremap <space>ifb :<c-u>Defx ~/dotfiles/nvim<CR>
+"" Stand-by a CloudNote
+nnoremap <space>nfe :<c-u>Defx          ~/CloudNote<C-i>
+nnoremap <space>nfs :<c-u>sp<cr>:Defx   ~/CloudNote<C-i>
+nnoremap <space>nfv :<c-u>vne<cr>:Defx  ~/CloudNote<C-i>
+nnoremap <space>nfb :<c-u>tabe<cr>:Defx ~/CloudNote<C-i>
 
 """" Keybinds on Defx
 autocmd FileType defx call s:defx_my_settings()
