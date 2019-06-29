@@ -2,12 +2,17 @@
 "" back to normal mode, typing j&k simultaneously.
 inoremap jk <Esc>
 inoremap kj <Esc>
-"" hjkl on insert mode
+"""" hjkl
 " DONT map i_<c-h>/<c-j>; should be default.
 inoremap <a-h> <Left>
 inoremap <a-j> <Down>
 inoremap <a-k> <Up>
 inoremap <a-l> <Right>
+" move as you look.
+nnoremap j gj
+nnoremap k gk
+xnoremap j gj
+xnoremap k gk
 
 """ NormalMode
 " Kill Ambiguities

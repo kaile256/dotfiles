@@ -1,8 +1,8 @@
 """" Initialize defx.nvim
-nnoremap <space>fe          :Defx ~<cr>
-nnoremap <space>fv :vne<cr> :Defx ~<cr>
-nnoremap <space>fs :sp<cr>  :Defx ~<cr>
-nnoremap <space>fb :tabe<cr>:Defx ~<cr>
+nnoremap <space>fe               :<c-u>Defx ~<cr>
+nnoremap <space>fv :<c-u>vne<cr> :<c-u>Defx ~<cr>
+nnoremap <space>fs :<c-u>sp<cr>  :<c-u>Defx ~<cr>
+nnoremap <space>fb :<c-u>tabe<cr>:<c-u>Defx ~<cr>
 
 """" Keybinds on Defx
 autocmd FileType defx call s:defx_my_settings()

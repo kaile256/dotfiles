@@ -6,18 +6,18 @@ let g:tig_explorer_keymap_split   = '<space>s'
 let g:tig_explorer_keymap_vsplit  = '<space>v'
 
 " tig with currentfile
-nnoremap <space>tc :TigOpenCurrentFile<cr>
+nnoremap <space>tc :<c-u>TigOpenCurrentFile<cr>
 " tig with project root path
-nnoremap <space>tr :TigOpenProjectRootDir<cr>
+nnoremap <space>tr :<c-u>TigOpenProjectRootDir<cr>
 
 """ Tig-Grep
-nnoremap <space>tg :TigGrep<cr>
+nnoremap <space>tg :<c-u>TigGrep<cr>
 " resume the last grep
-nnoremap <space>tr :TigGrepResume<cr>
+nnoremap <space>tr :<c-u>TigGrepResume<cr>
 " open tig grep with the word under cursor.
-nnoremap <space>tk :<C-u>:TigGrep<space><C-r><C-w><cr>
-vnoremap <space>tg :TigGrep<space><C-r>"<cr>
+nnoremap <space>tk :<c-u>TigGrep<space><C-r><C-w><cr>
+vnoremap <space>tg :<c-u>TigGrep<space><C-r>"<cr>
 
 "" Tig-Blame
 " tig-blame with current file.
-nnoremap <space>tb :TigBlame<cr>
+nnoremap <space>tb :<c-u>TigBlame<cr>

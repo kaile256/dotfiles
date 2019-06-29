@@ -1,2 +1,2 @@
 " C-tag
-nmap <a-g> :TagbarToggle<CR> 
+nmap <a-g> :<c-u>TagbarToggle<CR> 
