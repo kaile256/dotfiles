@@ -1,0 +1,144 @@
+"""" TODO
+"" show sym-links.
+command! -nargs=* -range -bar -complete=customlist,defx#util#complete
+      \ Defx
+      \ call defx#util#call_defx('Defx', <q-args>)
+
+"""" Shortcut
+"" Preceding Tree
+nmap <silent> <space>- :<c-u>Defx `expand('%:p:h')` -search=`expand('%:p')`<cr>
+"" Optional
+nmap <silent> <space><space>e :<c-u>Defx 
+nmap <silent> <space><space>s :<c-u>Defx -split=horizontal -winhight=50 -direction=topleft 
+nmap <silent> <space><space>v :<c-u>Defx -split=vertical -winwidth=40 -direction=topleft 
+nmap <silent> <space><space>b :<c-u>Defx -split=tab
+"" Home
+nmap <silent> <space>he :<c-u>Defx ~<cr>
+nmap <silent> <space>hv :<c-u>Defx -split=vertical -winwidth=40 -direction=topleft ~<cr>
+nmap <silent> <space>hs :<c-u>Defx -split=horizontal -winhight=50 -direction=topleft ~<cr>
+nmap <silent> <space>hb :<c-u>Defx -split=tab ~<cr>
+"" Current File
+nmap <silent> <space>.e :<c-u>Defx .<cr>
+nmap <silent> <space>.v :<c-u>Defx -split=vertical -winwidth=40 -direction=topleft .<cr>
+nmap <silent> <space>.s :<c-u>Defx -split=horizontal -winhight=50 -direction=topleft .<cr>
+nmap <silent> <space>.b :<c-u>Defx -split=tab .<cr>
+
+""" Praticular Dirs.
+let s:dotfiles_dir = '~/dotfiles'
+let s:nvim_dir     = s:dotfiles . '/nvim'
+let s:keymap_dir   = s:nvim_dir . '/keymap.d'
+let s:plugins_dir  = s:nvim_dir . '/dein_toml.d'
+let s:note_dir     = '~/CloudNote'
+
+"" Dotfiles
+nmap <silent> <space>de :<c-u>Defx s:dotfiles_dir<cr>
+nmap <silent> <space>dv :<c-u>Defx -split=vertical -winwidth=40 -direction=topleft s:dotfiles_dir<cr>
+nmap <silent> <space>ds :<c-u>Defx -split=horizontal -winhight=30 -direction=topleft s:dotfiles_dir<cr>
+nmap <silent> <space>db :<c-u>Defx -split=tab s:dotfiles_dir<cr>
+"" Config
+nmap <silent> <space>ce :<c-u>Defx s:nvim_dir<CR>
+nmap <silent> <space>cs :<c-u>Defx -split=horizontal -winhight=30 -direction=topleft s:nvim_dir<CR>
+nmap <silent> <space>cv :<c-u>Defx -split=vertical -winwidth=40 -direction=topleft s:nvim_dir<CR>
+nmap <silent> <space>cb :<c-u>Defx -split=tab s:nvim_dir<CR>
+"" Keymapping
+nmap <silent> <space>ke :<c-u>Defx s:keymap_dir<CR>
+nmap <silent> <space>ks :<c-u>Defx -split=horizontal -winhight=30 -direction=topleft s:keymap_dir<CR>
+nmap <silent> <space>kv :<c-u>Defx -split=vertical -winwidth=40 -direction=topleft s:keymap_dir<CR>
+nmap <silent> <space>kb :<c-u>Defx -split=tab s:keymap_dir<CR>
+"" Plugins list: dein's toml
+nmap <silent> <space>pe :<c-u>Defx s:plugins_dir<CR>
+nmap <silent> <space>ps :<c-u>Defx -split=horizontal -winhight=30 -direction=topleft s:plugins_dir<CR>
+nmap <silent> <space>pv :<c-u>Defx -split=vertical -winwidth=40 -direction=topleft s:plugins_dir<CR>
+nmap <silent> <space>pb :<c-u>Defx -split=tab s:plugins_dir<CR>
+"" Stand-by a CloudNote
+nmap <silent> <space>ne :<c-u>Defx s:note_dir
+nmap <silent> <space>ns :<c-u>Defx -split=horizontal -winhight=30 -direction=topleft s:note_dir
+nmap <silent> <space>nv :<c-u>Defx -split=vertical -winwidth=40 -direction=topleft s:note_dir
+nmap <silent> <space>nb :<c-u>Defx -split=tab s:note_dir
+
+"""" Keybinds only on Defx
+autocmd FileType defx call s:defx_my_settings()
+
+function! s:defx_my_settings() abort
+  nnoremap <silent><buffer><expr> q
+        \ defx#do_action('quit')
+
+  """ Explore Tree
+  nnoremap <silent><buffer><expr> ~
+        \ defx#do_action('cd')
+  nnoremap <silent><buffer><expr> f
+        \ defx#do_action('search')
+  "" hjkl
+  " h:back on tree
+  nnoremap <silent><buffer><expr> h
+        \ defx#do_action('cd', ['..'])
+  nnoremap <silent><buffer><expr> j
+        \ line('.') == line('$') ? 'gg' : 'j'
+  nnoremap <silent><buffer><expr> k
+        \ line('.') == 1 ? 'G' : 'k'
+  nnoremap <silent><buffer><expr> l
+        \ defx#do_action('open', 'vsplit')
+  "" netrw-like
+  nnoremap <silent><buffer><expr> -
+        \ defx#do_action('cd', ['..'])
+  nnoremap <silent><buffer><expr> <CR>
+        \ defx#do_action('open')
+  nnoremap <silent><buffer><expr> m
+        \ defx#do_action('open')
+  nnoremap <silent><buffer><expr> v
+        \ defx#do_action('open', 'vsplit')
+  nnoremap <silent><buffer><expr> o
+        \ defx#do_action('open', 'split')
+  nnoremap <silent><buffer><expr> p
+        \ defx#do_action('open', 'pedit')
+  nnoremap <silent><buffer><expr> u
+        \ defx#do_action('open_or_close_tree')
+
+ """ File-Management
+  " Clipboard
+  " show the path under cursor on status-bar.
+  nnoremap <silent><buffer><expr> mc
+        \ defx#do_action('copy')
+  nnoremap <silent><buffer><expr> mm
+        \ defx#do_action('move')
+  nnoremap <silent><buffer><expr> mp
+        \ defx#do_action('paste')
+  nnoremap <silent><buffer><expr> yy
+        \ defx#do_action('yank_path')
+  "" Select
+  nnoremap <silent><buffer><expr> <Space>
+        \ defx#do_action('toggle_select') . 'j'
+  " reverse all select conditions.
+  nnoremap <silent><buffer><expr> *
+        \ defx#do_action('toggle_select_all')
+  " netrw-like
+  nnoremap <silent><buffer><expr> c
+        \ defx#do_action('change_vim_cwd')
+  nnoremap <silent><buffer><expr> D
+        \ defx#do_action('remove')
+  nnoremap <silent><buffer><expr> R
+        \ defx#do_action('rename')
+  nnoremap <silent><buffer><expr> d
+        \ defx#do_action('new_directory')
+  nnoremap <silent><buffer><expr> %
+        \ defx#do_action('new_file')
+
+  nnoremap <silent><buffer><expr> !
+        \ defx#do_action('execute_system')
+
+  """ Toggle
+  "" Ignored/Hidden File\
+  nnoremap <silent><buffer><expr> .
+        \ defx#do_action('toggle_ignored_files')
+  
+  "" Sort
+  nnoremap <silent><buffer><expr> st
+        \ defx#do_action('toggle_sort', 'time')
+  nnoremap <silent><buffer><expr> sz
+        \ defx#do_action('toggle_sort', 'size')
+  nnoremap <silent><buffer><expr> sx
+        \ defx#do_action('toggle_sort', 'extention')
+  nnoremap <silent><buffer><expr> sn
+        \ defx#do_action('toggle_sort', 'filename')
+
+endfunction

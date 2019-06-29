@@ -64,3 +64,14 @@ tmux
 tmux a
 tmux
 tmux
+dotfiles/
+cd dotfiles
+tmux
+tmux
+tmux a
+tmux
+tmux
+tmux
+tmuc
+tmux
+tmux
