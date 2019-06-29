@@ -12,18 +12,17 @@ nnoremap <space>P "+P
 nnoremap <space>q :<c-u>q<CR>
 nnoremap <space>w :<c-u>w!<CR>
 nnoremap <space>z :<c-u>q!<CR>
-nnoremap <space>[count] :<c-u>[count]<CR>
 
 """" ACCESS
 "" Help
 nnoremap <space><space>h :<c-u>h 
+"" Manpage
+nnoremap <space><space>m :<c-u>Man 
 "" Ready to edit
 nnoremap <space><space>e :<c-u>e 
 nnoremap <space><space>v :<c-u>vs 
 nnoremap <space><space>s :<c-u>sp 
 nnoremap <space><space>b :<c-u>tabe 
-"" Coc
-nnoremap <space><space>c :<c-u>Coc
 
 """ dir/netrw
 "" root
@@ -33,12 +32,22 @@ nnoremap <silent> <space>.e :<c-u>e    .<CR>
 nnoremap <silent> <space>.v :<c-u>vs   .<CR>
 nnoremap <silent> <space>.s :<c-u>sp   .<CR>
 nnoremap <silent> <space>.b :<c-u>tabe .<CR>
-"" init.vim
+"" Home
+nnoremap <silent> <space>he :<c-u>e    ~<CR>
+nnoremap <silent> <space>hv :<c-u>vs   ~<CR>
+nnoremap <silent> <space>hs :<c-u>sp   ~<CR>
+nnoremap <silent> <space>hb :<c-u>tabe ~<CR>
+"" Init.vim
 nnoremap <silent> <space>ie :<c-u>e    ~/.config/nvim<CR>
 nnoremap <silent> <space>is :<c-u>sp   ~/.config/nvim<CR>
 nnoremap <silent> <space>iv :<c-u>vs   ~/.config/nvim<CR>
 nnoremap <silent> <space>ib :<c-u>tabe ~/.config/nvim<CR>
-"" dein-toml(plugin list)
+"" Keymaps
+nnoremap <silent> <space>ke :<c-u>e    ~/.config/nvim/keymap.d<CR>
+nnoremap <silent> <space>ks :<c-u>sp   ~/.config/nvim/keymap.d<CR>
+nnoremap <silent> <space>kv :<c-u>vs   ~/.config/nvim/keymap.d<CR>
+nnoremap <silent> <space>kb :<c-u>tabe ~/.config/nvim/keymap.d<CR>
+"" Plugin list: dein-toml
 nnoremap <silent> <space>pe :<c-u>e    /home/kaile256/.config/nvim/dein.d<cr>
 nnoremap <silent> <space>ps :<c-u>sp   /home/kaile256/.config/nvim/dein.d<cr>
 nnoremap <silent> <space>pv :<c-u>vs   /home/kaile256/.config/nvim/dein.d<cr>
@@ -51,3 +60,12 @@ if has('nvim')
   nnoremap <silent> <space>tv :<C-u>vs<CR>  :te<CR>i
   nnoremap <silent> <space>tb :<C-u>tabe<CR>:te<CR>i
 endif
+
+"""" Plugin
+"" Coc
+nnoremap <space><space>c :<c-u>Coc
+""" Git
+"" Fugitive
+nnoremap <silent> <space>gd :<c-u>Gdiff<cr>
+nnoremap <silent> <space>gd :<c-u>Gblame<cr>
+

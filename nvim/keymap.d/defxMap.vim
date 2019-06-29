@@ -1,24 +1,37 @@
 """" Shortcut
+"" on Sidebar
+nmap <silent> <space>sf :Defx -split=vertical -winwidth=50 -direction=topleft<cr>
+"" Optional
+nmap <silent> <space><space>fe               :<c-u>Defx 
+nmap <silent> <space><space>fv :<c-u>vne<cr> :<c-u>Defx 
+nmap <silent> <space><space>fs :<c-u>sp<cr>  :<c-u>Defx 
+nmap <silent> <space><space>fb :<c-u>tabe<cr>:<c-u>Defx 
 "" Home
-nnoremap <space>fe               :<c-u>Defx ~<cr>
-nnoremap <space>fv :<c-u>vne<cr> :<c-u>Defx ~<cr>
-nnoremap <space>fs :<c-u>sp<cr>  :<c-u>Defx ~<cr>
-nnoremap <space>fb :<c-u>tabe<cr>:<c-u>Defx ~<cr>
+nmap <silent> <space>fe               :<c-u>Defx ~<cr>
+nmap <silent> <space>fv :<c-u>vne<cr> :<c-u>Defx ~<cr>
+nmap <silent> <space>fs :<c-u>sp<cr>  :<c-u>Defx ~<cr>
+nmap <silent> <space>fb :<c-u>tabe<cr>:<c-u>Defx ~<cr>
 "" Current File
-nnoremap <space>.fe               :<c-u>Defx .<cr>
-nnoremap <space>.fv :<c-u>vne<cr> :<c-u>Defx .<cr>
-nnoremap <space>.fs :<c-u>sp<cr>  :<c-u>Defx .<cr>
-nnoremap <space>.fb :<c-u>tabe<cr>:<c-u>Defx .<cr>
+nmap <silent> <space>.fe               :<c-u>Defx .<cr>
+nmap <silent> <space>.fv :<c-u>vne<cr> :<c-u>Defx .<cr>
+nmap <silent> <space>.fs :<c-u>sp<cr>  :<c-u>Defx .<cr>
+nmap <silent> <space>.fb :<c-u>tabe<cr>:<c-u>Defx .<cr>
+nmap <silent> <space>f-  :<c-u>Defx `expand('%:p:h')` -search=`expand('%:p')`<cr>
 "" init.vim
-nnoremap <space>ife :<c-u>Defx ~/dotfiles/nvim<CR>
-nnoremap <space>ifs :<c-u>Defx ~/dotfiles/nvim<CR>
-nnoremap <space>ifv :<c-u>Defx ~/dotfiles/nvim<CR>
-nnoremap <space>ifb :<c-u>Defx ~/dotfiles/nvim<CR>
+nmap <silent> <space>ife :<c-u>Defx ~/dotfiles/nvim<CR>
+nmap <silent> <space>ifs :<c-u>Defx ~/dotfiles/nvim<CR>
+nmap <silent> <space>ifv :<c-u>Defx ~/dotfiles/nvim<CR>
+nmap <silent> <space>ifb :<c-u>Defx ~/dotfiles/nvim<CR>
+"" Plugins list: dein's toml
+nmap <silent> <space>pfe :<c-u>Defx ~/dotfiles/nvim/dein.d<CR>
+nmap <silent> <space>pfs :<c-u>Defx ~/dotfiles/nvim/dein.d<CR>
+nmap <silent> <space>pfv :<c-u>Defx ~/dotfiles/nvim/dein.d<CR>
+nmap <silent> <space>pfb :<c-u>Defx ~/dotfiles/nvim/dein.d<CR>
 "" Stand-by a CloudNote
-nnoremap <space>nfe :<c-u>Defx          ~/CloudNote<C-i>
-nnoremap <space>nfs :<c-u>sp<cr>:Defx   ~/CloudNote<C-i>
-nnoremap <space>nfv :<c-u>vne<cr>:Defx  ~/CloudNote<C-i>
-nnoremap <space>nfb :<c-u>tabe<cr>:Defx ~/CloudNote<C-i>
+nmap <silent> <space>nfe :<c-u>Defx          ~/CloudNote<C-i>
+nmap <silent> <space>nfs :<c-u>sp<cr>:Defx   ~/CloudNote<C-i>
+nmap <silent> <space>nfv :<c-u>vne<cr>:Defx  ~/CloudNote<C-i>
+nmap <silent> <space>nfb :<c-u>tabe<cr>:Defx ~/CloudNote<C-i>
 
 """" Keybinds on Defx
 autocmd FileType defx call s:defx_my_settings()
@@ -30,6 +43,8 @@ function! s:defx_my_settings() abort
   """ Explore Tree
   nnoremap <silent><buffer><expr> ~
         \ defx#do_action('cd')
+  nnoremap <silent><buffer><expr> f
+        \ defx#do_action('search')
   "" hjkl
   " h:back on tree
   nnoremap <silent><buffer><expr> h
@@ -41,8 +56,6 @@ function! s:defx_my_settings() abort
   nnoremap <silent><buffer><expr> l
         \ defx#do_action('open', 'vsplit')
   "" other open-actions
-  nnoremap <silent><buffer><expr> <CR>
-        \ defx#do_action('open', 'vsplit')
   nnoremap <silent><buffer><expr> v
         \ defx#do_action('open', 'vsplit')
   nnoremap <silent><buffer><expr> o
@@ -50,7 +63,9 @@ function! s:defx_my_settings() abort
   nnoremap <silent><buffer><expr> p
         \ defx#do_action('open', 'pedit')
   nnoremap <silent><buffer><expr> u
-        \ defx#do_action('open_or_close_tree', 'vsplit')
+        \ defx#do_action('open_or_close_tree')
+  nnoremap <silent><buffer><expr> <CR>
+        \ defx#do_action('open_or_close_tree')
 
  """ File-Management
   " Clipboard

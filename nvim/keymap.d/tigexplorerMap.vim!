@@ -1,9 +1,9 @@
 """" Tig
 " default keymap is <C-~~>.
-let g:tig_explorer_keymap_edit    = '<space>o'
-let g:tig_explorer_keymap_tabedit = '<space>t'
-let g:tig_explorer_keymap_split   = '<space>s'
-let g:tig_explorer_keymap_vsplit  = '<space>v'
+let g:tig_explorer_keymap_edit    = '<space>to'
+let g:tig_explorer_keymap_tabedit = '<space>tb'
+let g:tig_explorer_keymap_split   = '<space>ts'
+let g:tig_explorer_keymap_vsplit  = '<space>tv'
 
 " tig with currentfile
 nnoremap <space>tc :<c-u>TigOpenCurrentFile<cr>

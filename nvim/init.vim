@@ -4,7 +4,7 @@ runtime! keymap.d/*.vim
 """ Double-doublequotes Comment Out settings means satisfying by default.
 """ When make a setting off, set no**.
 
-"" Config Coding
+"" Encoding
 ""set enc=utf-8
 " when different from utf-8, convert it.
 set fenc=utf-8
@@ -13,7 +13,7 @@ set fenc=utf-8
 scriptencoding utf-8
 set ambiwidth=double
 
-"" Config GUI
+"" GUI
 set number " show line number on left
 "if has('nvim')
 "  augroup noNumOnTermMode
@@ -23,8 +23,10 @@ set number " show line number on left
 "  augroup END
 "endif
 
-set showmatch  " 対応括弧の強調
-set wrap " wrap long text.
+" show match parens.
+set showmatch
+" wrap long text.
+set wrap
 set list  " 空白と改行を可視化
 "" eol: 改行
 "" extends: when window-width omits on right end.
@@ -39,28 +41,28 @@ set colorcolumn=81
 "  au WinLeave * setlocal nocursorline
 "augroup END
 
-"" Config Multiple Windows
+"" Multiple Windows
 set splitbelow
 set splitright
 
-"" Config Speed
+"" Speed
 set matchtime=1  " 対応括弧を1秒間表示
 ""set ttyfast
 
-"" Config Backup
+"" Backup
 set nobackup
 set nowritebackup
 set noswapfile
 set hidden
 
-"" Config Statusbar
+"" Statusbar
 set title
 " show coordinate; some plugins does instead more beautifully.
 "set ruler
 """ always show the current status.
 ""set laststatus=2
 
-"" Config Search
+"" Search
 set noignorecase
 set smartcase " strictly sense case with upper case.
 set noincsearch " 順次検索しない
@@ -68,14 +70,14 @@ set noincsearch " 順次検索しない
 set nowrapscan
 set nofoldenable " マッチした行以外を畳む
 
-"""" Config Mode
+"""" Mode
 "" Insert Tab
 " insert space instead of tab char.
 set expandtab
 set tabstop=2  " 表示されるtab文字幅
 set softtabstop=2  " 空白文字の右に入力するtab文字幅
 
-"" Insert Indent
+""" Insert Indent
 ""set autoindent
 set nosmartindent
 set shiftwidth=2  " 自動インデントの幅
@@ -94,7 +96,7 @@ set noshowcmd
 set wildmode=list:longest
 "set history=10000
 
-"" Config Netrw
+"""" Netrw
 " 0:show all, including hidden files.
 let g:netrw_hide = 0
 " where .netrwhist is located.
