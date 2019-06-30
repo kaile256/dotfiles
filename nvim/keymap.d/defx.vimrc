@@ -7,6 +7,7 @@ command! -nargs=* -range -bar -complete=customlist,defx#util#complete
 """" Shortcut
 "" Preceding Tree
 nmap <silent> <space>- :<c-u>Defx `expand('%:p:h')` -search=`expand('%:p')`<cr>
+nmap <silent> <a-space><a--> :<c-u>Defx `expand('%:p:h')` -search=`expand('%:p')`<cr>
 "" Optional
 nmap <silent> <a-space><a-e> :<c-u>Defx 
 nmap <silent> <a-space><a-s> :<c-u>Defx -split=horizontal -winheight=50 -direction=topleft 
