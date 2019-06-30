@@ -41,6 +41,11 @@ nnoremap <left>      <c-w>>
 nnoremap <down>      <c-w>-
 nnoremap <up>        <c-w>+
 nnoremap <right>     <c-w><
+" another-resize commands
+nnoremap <a->>      <c-w>>
+nnoremap <a-->      <c-w>-
+nnoremap <a-+>        <c-w>+
+nnoremap <a-<>     <c-w><
 " agressive resize
 nnoremap <c-w>m     <c-w>_
 nnoremap <c-w><c-m> <c-w>_

@@ -8,53 +8,53 @@ command! -nargs=* -range -bar -complete=customlist,defx#util#complete
 "" Preceding Tree
 nmap <silent> <space>- :<c-u>Defx `expand('%:p:h')` -search=`expand('%:p')`<cr>
 "" Optional
-nmap <silent> <space><space>e :<c-u>Defx 
-nmap <silent> <space><space>s :<c-u>Defx -split=horizontal -winhight=50 -direction=topleft 
-nmap <silent> <space><space>v :<c-u>Defx -split=vertical -winwidth=40 -direction=topleft 
-nmap <silent> <space><space>b :<c-u>Defx -split=tab
+nmap <silent> <a-space><a-e> :<c-u>Defx 
+nmap <silent> <a-space><a-s> :<c-u>Defx -split=horizontal -winheight=50 -direction=topleft 
+nmap <silent> <a-space><a-v> :<c-u>Defx -split=vertical -winwidth=40 -direction=topleft 
+nmap <silent> <a-space><a-b> :<c-u>Defx -split=tab 
 "" Home
-nmap <silent> <space>he :<c-u>Defx ~<cr>
-nmap <silent> <space>hv :<c-u>Defx -split=vertical -winwidth=40 -direction=topleft ~<cr>
-nmap <silent> <space>hs :<c-u>Defx -split=horizontal -winhight=50 -direction=topleft ~<cr>
-nmap <silent> <space>hb :<c-u>Defx -split=tab ~<cr>
+nmap <silent> <a-h><a-e> :<c-u>Defx ~<cr>
+nmap <silent> <a-h><a-v> :<c-u>Defx -split=vertical -winwidth=40 -direction=topleft ~<cr>
+nmap <silent> <a-h><a-s> :<c-u>Defx -split=horizontal -winheight=50 -direction=topleft ~<cr>
+nmap <silent> <a-h><a-b> :<c-u>Defx -split=tab ~<cr>
 "" Current File
-nmap <silent> <space>.e :<c-u>Defx .<cr>
-nmap <silent> <space>.v :<c-u>Defx -split=vertical -winwidth=40 -direction=topleft .<cr>
-nmap <silent> <space>.s :<c-u>Defx -split=horizontal -winhight=50 -direction=topleft .<cr>
-nmap <silent> <space>.b :<c-u>Defx -split=tab .<cr>
+nmap <silent> <a-.><a-e> :<c-u>Defx .<cr>
+nmap <silent> <a-.><a-v> :<c-u>Defx -split=vertical -winwidth=40 -direction=topleft .<cr>
+nmap <silent> <a-.><a-s> :<c-u>Defx -split=horizontal -winhieght=50 -direction=topleft .<cr>
+nmap <silent> <a-.><a-b> :<c-u>Defx -split=tab .<cr>
 
 """ Praticular Dirs.
-let s:dotfiles_dir = '~/dotfiles'
-let s:nvim_dir     = s:dotfiles . '/nvim'
-let s:keymap_dir   = s:nvim_dir . '/keymap.d'
-let s:plugins_dir  = s:nvim_dir . '/dein_toml.d'
-let s:note_dir     = '~/CloudNote'
+"let s:dotfiles_dir =              '~/dotfiles'
+"let s:nvim_dir     = s:dotfiles . '/nvim'
+"let s:keymap_dir   = s:nvim_dir . '/keymap.d'
+"let s:plugins_dir  = s:nvim_dir . '/dein_toml.d'
+"let s:note_dir     =              '~/CloudNote'
 
 "" Dotfiles
-nmap <silent> <space>de :<c-u>Defx s:dotfiles_dir<cr>
-nmap <silent> <space>dv :<c-u>Defx -split=vertical -winwidth=40 -direction=topleft s:dotfiles_dir<cr>
-nmap <silent> <space>ds :<c-u>Defx -split=horizontal -winhight=30 -direction=topleft s:dotfiles_dir<cr>
-nmap <silent> <space>db :<c-u>Defx -split=tab s:dotfiles_dir<cr>
+nmap <silent> <a-d><a-e> :<c-u>Defx ~/dotfiles<cr>
+nmap <silent> <a-d><a-v> :<c-u>Defx -split=horizontal -winheight=30 -direction=topleft ~/dotfiles<cr>
+nmap <silent> <a-d><a-s> :<c-u>Defx -split=vertical   -winwidth=40 -direction=topleft ~/dotfiles<cr>
+nmap <silent> <a-d><a-b> :<c-u>Defx -split=tab ~/dotfiles<cr>
 "" Config
-nmap <silent> <space>ce :<c-u>Defx s:nvim_dir<CR>
-nmap <silent> <space>cs :<c-u>Defx -split=horizontal -winhight=30 -direction=topleft s:nvim_dir<CR>
-nmap <silent> <space>cv :<c-u>Defx -split=vertical -winwidth=40 -direction=topleft s:nvim_dir<CR>
-nmap <silent> <space>cb :<c-u>Defx -split=tab s:nvim_dir<CR>
+nmap <silent> <a-c><a-e> :<c-u>Defx ~/dotfiles/nvim<CR>
+nmap <silent> <a-c><a-v> :<c-u>Defx -split=horizontal -winheight=30 -direction=topleft ~/dotfiles/nvim<CR>
+nmap <silent> <a-c><a-s> :<c-u>Defx -split=vertical   -winwidth=40 -direction=topleft ~/dotfiles/nvim<CR>
+nmap <silent> <a-c><a-b> :<c-u>Defx -split=tab ~/dotfiles/nvim<CR>
 "" Keymapping
-nmap <silent> <space>ke :<c-u>Defx s:keymap_dir<CR>
-nmap <silent> <space>ks :<c-u>Defx -split=horizontal -winhight=30 -direction=topleft s:keymap_dir<CR>
-nmap <silent> <space>kv :<c-u>Defx -split=vertical -winwidth=40 -direction=topleft s:keymap_dir<CR>
-nmap <silent> <space>kb :<c-u>Defx -split=tab s:keymap_dir<CR>
+nmap <silent> <a-k><a-e> :<c-u>Defx ~/dotfiles/keymap.d<CR>
+nmap <silent> <a-k><a-v> :<c-u>Defx -split=horizontal -winheight=30 -direction=topleft ~/dotfiles/keymap.d<CR>
+nmap <silent> <a-k><a-s> :<c-u>Defx -split=vertical   -winwidth=40 -direction=topleft ~/dotfiles/keymap.d<CR>
+nmap <silent> <a-k><a-b> :<c-u>Defx -split=tab ~/dotfiles/keymap.d<CR>
 "" Plugins list: dein's toml
-nmap <silent> <space>pe :<c-u>Defx s:plugins_dir<CR>
-nmap <silent> <space>ps :<c-u>Defx -split=horizontal -winhight=30 -direction=topleft s:plugins_dir<CR>
-nmap <silent> <space>pv :<c-u>Defx -split=vertical -winwidth=40 -direction=topleft s:plugins_dir<CR>
-nmap <silent> <space>pb :<c-u>Defx -split=tab s:plugins_dir<CR>
+nmap <silent> <a-p><a-e> :<c-u>Defx ~/dotfiless/dein_toml.d<CR>
+nmap <silent> <a-p><a-v> :<c-u>Defx -split=horizontal -winheight=30 -direction=topleft ~/dotfiles/dein_toml.d<CR>
+nmap <silent> <a-p><a-s> :<c-u>Defx -split=vertical   -winwidth=40 -direction=topleft ~/dotfiles/dein_toml.d<CR>
+nmap <silent> <a-p><a-b> :<c-u>Defx -split=tab ~/dotfiles/dein_toml.d<CR>
 "" Stand-by a CloudNote
-nmap <silent> <space>ne :<c-u>Defx s:note_dir
-nmap <silent> <space>ns :<c-u>Defx -split=horizontal -winhight=30 -direction=topleft s:note_dir
-nmap <silent> <space>nv :<c-u>Defx -split=vertical -winwidth=40 -direction=topleft s:note_dir
-nmap <silent> <space>nb :<c-u>Defx -split=tab s:note_dir
+nmap <silent> <a-n><a-e> :<c-u>Defx ~/CloudNote
+nmap <silent> <a-n><a-v> :<c-u>Defx -split=horizontal -winheight=30 -direction=topleft ~/CloudNote
+nmap <silent> <a-n><a-s> :<c-u>Defx -split=vertical   -winwidth=40 -direction=topleft ~/CloudNote
+nmap <silent> <a-n><a-b> :<c-u>Defx -split=tab ~/CloudNote
 
 """" Keybinds only on Defx
 autocmd FileType defx call s:defx_my_settings()
