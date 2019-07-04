@@ -75,3 +75,41 @@ tmux
 tmuc
 tmux
 tmux
+nvim
+tmux
+tmux
+tmux
+tmux
+tmux
+exec bash
+tmux
+tmux
+tmux
+tmux
+tmux a
+chromium-browser
+tmux
+tmux
+tmux
+tmux
+exec openbox
+openbox
+nvim
+exec bash
+openbox
+echo DISPLAY
+echo $DISPLAY
+nvim
+exec bash
+ka
+tmux
+tmux
+tmux
+fish
+zsh
+openbox
+echo $DISPLAY
+cat /home/kaile256/.config/bash/.bashrc
+echo $DISPLAY
+openbox
+tmux

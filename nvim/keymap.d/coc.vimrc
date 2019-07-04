@@ -4,20 +4,21 @@
 "  \ <SID>check_back_space() ? '<TAB>' :
 "  \ coc#refresh()
 
-"" Use <C-space> to trigger completion.
-"imap <silent><expr> <C-space> coc#refresh()
+"" Insert Mode; Use <c-p>/<c-n> to trigger completion.
+inoremap <silent><expr> <c-p> coc#refresh()
+inoremap <silent><expr> <c-n> coc#refresh()
 
 "" use <cr> to confirm complete.
-"" \<C-g>u means break undo chain at current position.
+" \<C-g>u means break undo chain at current position.
 inoremap <expr> <cr>
-  \ pumvisible() ? '<C-y>' : '<C-g>u\<CR>' 
+  \ pumvisible() ? '<c-y>' : '<c-g>u\<cr>' 
 
-noremap <space>cd <Plug>(coc-definition)
-noremap <space>cy <Plug>(coc-type-definition)
-noremap <space>ci <Plug>(coc-implementation)
-noremap <space>cr <Plug>(coc-references)
+nnoremap <space>cd :<Plug>(coc-definition)
+nnoremap <space>cy :<Plug>(coc-type-definition)
+nnoremap <space>ci :<Plug>(coc-implementation)
+nnoremap <space>cr :<Plug>(coc-references)
 "" show yank list
-noremap <space>by :<c-u>CocList -A --normal yank<cr>
+nnoremap <space>by :<c-u>CocList -A --normal yank<cr>
 
 "" makes <cr> select the first completion item and confirm completion when no
 "" item have selected.

@@ -9,19 +9,19 @@ command! -nargs=* -range -bar -complete=customlist,defx#util#complete
 "" preceding tree
 nmap <silent> <space>- :<c-u>Defx `expand('%:p:h')` -search=`expand('%:p')`<cr>
 "" optional
-nmap <silent> <space><space>e :<c-u>Defx 
-nmap <silent> <space><space>s :<c-u>Defx -split=horizontal -winheight=50 -direction=topleft 
-nmap <silent> <space><space>v :<c-u>Defx -split=vertical -winwidth=40 -direction=topleft 
-nmap <silent> <space><space>b :<c-u>Defx -split=tab 
+nmap <space><space>e :<c-u>Defx 
+nmap <space><space>s :<c-u>Defx -split=horizontal -winheight=60 -direction=topleft 
+nmap <space><space>v :<c-u>Defx -split=vertical -winwidth=40 -winheight=60 -direction=topleft 
+nmap <space><space>b :<c-u>Defx -split=tab 
 "" Home
 nmap <silent> <space>he :<c-u>Defx ~<cr>
-nmap <silent> <space>hv :<c-u>Defx -split=vertical -winwidth=40 -direction=topleft ~<cr>
-nmap <silent> <space>hs :<c-u>Defx -split=horizontal -winheight=50 -direction=topleft ~<cr>
+nmap <silent> <space>hv :<c-u>Defx -split=vertical -winwidth=40 -winheight=60 -direction=topleft ~<cr>
+nmap <silent> <space>hs :<c-u>Defx -split=horizontal -winheight=60 -direction=topleft ~<cr>
 nmap <silent> <space>hb :<c-u>Defx -split=tab ~<cr>
 "" Current File
 nmap <silent> <space>.e :<c-u>Defx .<cr>
-nmap <silent> <space>.v :<c-u>Defx -split=vertical -winwidth=40 -direction=topleft .<cr>
-nmap <silent> <space>.s :<c-u>Defx -split=horizontal -winhieght=50 -direction=topleft .<cr>
+nmap <silent> <space>.v :<c-u>Defx -split=vertical -winwidth=40 -winheight=60 -direction=topleft .<cr>
+nmap <silent> <space>.s :<c-u>Defx -split=horizontal -winhieght=60 -direction=topleft .<cr>
 nmap <silent> <space>.b :<c-u>Defx -split=tab .<cr>
 
 """ Praticular Dirs.
@@ -33,46 +33,46 @@ nmap <silent> <space>.b :<c-u>Defx -split=tab .<cr>
 
 "" Dotfiles
 nmap <silent> <space>de :<c-u>Defx ~/dotfiles<cr>
-nmap <silent> <space>dv :<c-u>Defx -split=horizontal -winheight=30 -direction=topleft ~/dotfiles<cr>
-nmap <silent> <space>ds :<c-u>Defx -split=vertical   -winwidth=40 -direction=topleft ~/dotfiles<cr>
+nmap <silent> <space>dv :<c-u>Defx -split=horizontal -winheight=30 -winheight=60 -direction=topleft ~/dotfiles<cr>
+nmap <silent> <space>ds :<c-u>Defx -split=vertical   -winwidth=40 -winheight=60 -direction=topleft ~/dotfiles<cr>
 nmap <silent> <space>db :<c-u>Defx -split=tab ~/dotfiles<cr>
 "" Config
 nmap <silent> <space>ce :<c-u>Defx ~/dotfiles/nvim<CR>
 nmap <silent> <space>cv :<c-u>Defx -split=horizontal -winheight=30 -direction=topleft ~/dotfiles/nvim<CR>
-nmap <silent> <space>cs :<c-u>Defx -split=vertical   -winwidth=40 -direction=topleft ~/dotfiles/nvim<CR>
+nmap <silent> <space>cs :<c-u>Defx -split=vertical   -winwidth=40 -winheight=60 -direction=topleft ~/dotfiles/nvim<CR>
 nmap <silent> <space>cb :<c-u>Defx -split=tab ~/dotfiles/nvim<CR>
 "" Keymapping
 nmap <silent> <space>ke :<c-u>Defx ~/dotfiles/keymap.d<CR>
 nmap <silent> <space>kv :<c-u>Defx -split=horizontal -winheight=30 -direction=topleft ~/dotfiles/keymap.d<CR>
-nmap <silent> <space>ks :<c-u>Defx -split=vertical   -winwidth=40 -direction=topleft ~/dotfiles/keymap.d<CR>
+nmap <silent> <space>ks :<c-u>Defx -split=vertical   -winwidth=40 -winheight=60 -direction=topleft ~/dotfiles/keymap.d<CR>
 nmap <silent> <space>kb :<c-u>Defx -split=tab ~/dotfiles/keymap.d<CR>
 "" Plugins list: dein's toml
 nmap <silent> <space>pe :<c-u>Defx ~/dotfiless/dein_toml.d<CR>
 nmap <silent> <space>pv :<c-u>Defx -split=horizontal -winheight=30 -direction=topleft ~/dotfiles/dein_toml.d<CR>
-nmap <silent> <space>ps :<c-u>Defx -split=vertical   -winwidth=40 -direction=topleft ~/dotfiles/dein_toml.d<CR>
+nmap <silent> <space>ps :<c-u>Defx -split=vertical   -winwidth=40 -winheight=60 -direction=topleft ~/dotfiles/dein_toml.d<CR>
 nmap <silent> <space>pb :<c-u>Defx -split=tab ~/dotfiles/dein_toml.d<CR>
 "" Stand-by a CloudNote
-nmap <silent> <space>ne :<c-u>Defx ~/CloudNote
-nmap <silent> <space>nv :<c-u>Defx -split=horizontal -winheight=30 -direction=topleft ~/CloudNote
-nmap <silent> <space>ns :<c-u>Defx -split=vertical   -winwidth=40 -direction=topleft ~/CloudNote
-nmap <silent> <space>nb :<c-u>Defx -split=tab ~/CloudNote
+nmap <space>ne :<c-u>Defx ~/CloudNote
+nmap <space>nv :<c-u>Defx -split=horizontal -winheight=30 -direction=topleft ~/CloudNote
+nmap <space>ns :<c-u>Defx -split=vertical   -winwidth=40 -winheight=60 -direction=topleft ~/CloudNote
+nmap <space>nb :<c-u>Defx -split=tab ~/CloudNote
 
 "" Alt-map
 "nmap <silent> <a-space><a--> :<c-u>Defx `expand('%:p:h')` -search=`expand('%:p')`<cr>
 """ Optional
 "nmap <silent> <a-space><a-e> :<c-u>Defx 
-"nmap <silent> <a-space><a-s> :<c-u>Defx -split=horizontal -winheight=50 -direction=topleft 
+"nmap <silent> <a-space><a-s> :<c-u>Defx -split=horizontal -winheight=60 -direction=topleft 
 "nmap <silent> <a-space><a-v> :<c-u>Defx -split=vertical -winwidth=40 -direction=topleft 
 "nmap <silent> <a-space><a-b> :<c-u>Defx -split=tab 
 """ Home
 "nmap <silent> <a-h><a-e> :<c-u>Defx ~<cr>
 "nmap <silent> <a-h><a-v> :<c-u>Defx -split=vertical -winwidth=40 -direction=topleft ~<cr>
-"nmap <silent> <a-h><a-s> :<c-u>Defx -split=horizontal -winheight=50 -direction=topleft ~<cr>
+"nmap <silent> <a-h><a-s> :<c-u>Defx -split=horizontal -winheight=60 -direction=topleft ~<cr>
 "nmap <silent> <a-h><a-b> :<c-u>Defx -split=tab ~<cr>
 """ Current File
 "nmap <silent> <a-.><a-e> :<c-u>Defx .<cr>
 "nmap <silent> <a-.><a-v> :<c-u>Defx -split=vertical -winwidth=40 -direction=topleft .<cr>
-"nmap <silent> <a-.><a-s> :<c-u>Defx -split=horizontal -winhieght=50 -direction=topleft .<cr>
+"nmap <silent> <a-.><a-s> :<c-u>Defx -split=horizontal -winhieght=60 -direction=topleft .<cr>
 "nmap <silent> <a-.><a-b> :<c-u>Defx -split=tab .<cr>
 "
 """" Praticular Dirs.
@@ -145,6 +145,8 @@ function! s:defx_my_settings() abort
         \ defx#do_action('open', 'pedit')
   nnoremap <silent><buffer><expr> u
         \ defx#do_action('open_or_close_tree')
+	  nnoremap <silent><buffer><expr> <s-m>
+        \ defx#do_action('drop')
 
  """ File-Management
   " Clipboard

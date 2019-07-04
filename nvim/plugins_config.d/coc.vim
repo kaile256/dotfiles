@@ -1,7 +1,7 @@
-"""" Conifig Plugins
-"" coc.vim
 set updatetime=300 " shorter for CursorHold & CursorHoldI
-set shortmess+=c " not give ins-completion-menu message.
+" shorter message
+" c-option: not give ins-completion-menu message.
+"set shortmess+=c
 set signcolumn=yes " always show signcolumns.
 
 

@@ -1,0 +1,12 @@
+# main view: show commit-ID on Left
+set main-view = id date author:email-user commit-title:graph=yes,refs=yes
+
+# blame view: show line-number, interval=1
+set blame-view = date:default author:email-user id:yes,color line-number:yes,interval=1 text
+
+# default: line-number:no,interval=5
+set pager-view = line-number:yes,interval=1 text
+set stage-view = line-number:yes,interval=1 text
+set log-view = line-number:yes,interval=1 text
+set blob-view = line-number:yes,interval=1 text
+set diff-view = line-number:yes,interval=1 text,commit-title-overflow=no

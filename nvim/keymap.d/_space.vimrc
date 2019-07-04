@@ -66,7 +66,8 @@ endif
 "" Coc
 nnoremap <space><space>c :<c-u>Coc
 """ Git
-nnoremap <silent> <space>tg :!tig blame +<c-r>=line('.')<cr> %<cr>:redraw!<cr>
+"" Tig
+nnoremap <space>tg :silent! !tig blame +<c-r>=line('.')<cr> %<cr>:redraw!<cr>
 "" Fugitive
 nnoremap <silent> <space>gd :<c-u>Gdiff<cr>
 nnoremap <silent> <space>gb :<c-u>Gblame<cr>

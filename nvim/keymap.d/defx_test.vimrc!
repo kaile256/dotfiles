@@ -7,18 +7,18 @@ command! -nargs=* -range -bar -complete=customlist,defx#util#complete
 """" Shortcut
 """ Defx Style
 " edit-style: prefix-e adjust cloumn.
-let eDefx = Defx
-" tabe-style
-"let bDefx = tabe<cr>:Defx
+nnoremap <expr> eDefx Defx
 " sp-style: show multiple columns. TODO
-let sDefx = 'Defx -split=horizontal -winhight=50 -direction=topleft'
+nmap <expr> sDefx = 'Defx -split=horizontal -winhight=50 -direction=topleft'
 " vs-style: show like a sidebar.
-let g:vDefx = 'Defx -split=vertical -winwidth=40 -direction=topleft'
+nmap <expr> vDefx = 'Defx -split=vertical -winwidth=40 -direction=topleft'
+" tabe-style
+nmap <expr> bDefx = Defx -split=tab
 " open-style: keep sidebar-like style.
-let oDefx = 'Defx -split=vertical -winwidth=40 -direction=topleft'
+nmap <expr> oDefx = 'Defx -split=vertical -winwidth=40 -direction=topleft'
 
 "" Preceding Tree
-nmap <silent> <space>- :<c-u>g:vDefx `expand('%:p:h')` -search=`expand('%:p')`<cr>
+nmap <silent> <space>- :<c-u>vDefx `expand('%:p:h')` -search=`expand('%:p')`<cr>
 "" Optional
 nmap <silent> <space><space>e :eDefx 
 nmap <silent> <space><space>b :bDefx 
@@ -27,7 +27,7 @@ nmap <silent> <space><space>v :<c-u>vDefx
 "" Home
 nmap <silent> <space>he :eDefx ~<cr>
 nmap <silent> <space>hb :bDefx ~<cr>
-nmap <silent> <space>hv :<c-u>g:vDefx ~<cr>
+nmap <silent> <space>hv :<c-u>vDefx ~<cr>
 nmap <silent> <space>hs :sDefx ~<cr>
 "" Current File
 nmap <silent> <space>.e :eDefx .<cr>
@@ -43,30 +43,30 @@ let g:plugins_dir  = g:nvim_dir . '/dein_toml.d'
 let g:note_dir     = '~/CloudNote'
 
 "" Dotfiles
-nmap <silent> <space>de :eDefx g:dotfiles_dir<cr>
-nmap <silent> <space>db :bDefx g:dotfiles_dir<cr>
-nmap <silent> <space>dv :<c-u>vDefx g:dotfiles_dir<cr>
-nmap <silent> <space>ds :sDefx g:dotfiles_dir<cr>
+nmap <expr><silent> <space>de :eDefx g:dotfiles_dir<cr>
+nmap <expr><silent> <space>db :bDefx g:dotfiles_dir<cr>
+nmap <expr><silent> <space>dv :<c-u>vDefx g:dotfiles_dir<cr>
+nmap <expr><silent> <space>ds :sDefx g:dotfiles_dir<cr>
 "" Config
-nmap <silent> <space>ce :eDefx g:nvim_dir<CR>
-nmap <silent> <space>cs :sDefx g:nvim_dir<CR>
-nmap <silent> <space>cv :<c-u>vDefx g:nvim_dir<CR>
-nmap <silent> <space>cb :bDefx g:nvim_dir<CR>
+nmap <expr><silent> <space>ce :eDefx g:nvim_dir<CR>
+nmap <expr><silent> <space>cs :sDefx g:nvim_dir<CR>
+nmap <expr><silent> <space>cv :<c-u>vDefx g:nvim_dir<CR>
+nmap <expr><silent> <space>cb :bDefx g:nvim_dir<CR>
 "" Keymapping
-nmap <silent> <space>ke :eDefx g:keymap_dir<CR>
-nmap <silent> <space>ks :sDefx g:keymap_dir<CR>
-nmap <silent> <space>kv :<c-u>vDefx g:keymap_dir<CR>
-nmap <silent> <space>kb :bDefx g:keymap_dir<CR>
+nmap <expr><silent> <space>ke :eDefx g:keymap_dir<CR>
+nmap <expr><silent> <space>ks :sDefx g:keymap_dir<CR>
+nmap <expr><silent> <space>kv :<c-u>vDefx g:keymap_dir<CR>
+nmap <expr><silent> <space>kb :bDefx g:keymap_dir<CR>
 "" Plugins list: dein's toml
-nmap <silent> <space>pe :eDefx g:plugins_dir<CR>
-nmap <silent> <space>ps :sDefx g:plugins_dir<CR>
-nmap <silent> <space>pv :<c-u>vDefx g:plugins_dir<CR>
-nmap <silent> <space>pb :bDefx g:plugins_dir<CR>
+nmap <expr><silent> <space>pe :eDefx g:plugins_dir<CR>
+nmap <expr><silent> <space>ps :sDefx g:plugins_dir<CR>
+nmap <expr><silent> <space>pv :<c-u>vDefx g:plugins_dir<CR>
+nmap <expr><silent> <space>pb :bDefx g:plugins_dir<CR>
 "" Stand-by a CloudNote
-nmap <silent> <space>ne :eDefx g:note_dir
-nmap <silent> <space>ns :sDefx g:note_dir
-nmap <silent> <space>nv :<c-u>vDefx g:note_dir
-nmap <silent> <space>nb :bDefx g:note_dir
+nmap <expr><silent> <space>ne :eDefx g:note_dir
+nmap <expr><silent> <space>ns :sDefx g:note_dir
+nmap <expr><silent> <space>nv :<c-u>vDefx g:note_dir
+nmap <expr><silent> <space>nb :bDefx g:note_dir
 
 """" Keybinds only on Defx
 autocmd FileType defx call s:defx_my_settings()

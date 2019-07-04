@@ -1,10 +1,10 @@
-# [[plugins]]
-# repo = 'Shougo/denite.nvim'
-# on_event = 'BufRead'
-# depends = 'neoyank.vim'
-# # save yank history for denite.vim.
-# [[plugins]]
-# repo = 'Shougo/neoyank.vim'
+[[plugins]]
+repo = 'Shougo/denite.nvim'
+on_event = 'BufRead'
+# save yank history for denite.vim.
+[[plugins]]
+repo = 'Shougo/neoyank.vim'
+on_event = 'BufRead'
 
 #### Plugins Completion
 ## command ":CocConfig" to organize config of coc.

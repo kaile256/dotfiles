@@ -1,9 +1,9 @@
 {
   "suggest.triggerAfterInsertEnter": true,
   "suggest.timeout": 500,
-  "suggest.minTriggerInputLength": 1,
+  "suggest.minTriggerInputLength": 2,
   "suggest.acceptSuggestionOnCommitCharacter": true,
-  "suggest.noselect":false,
+  "suggest.noselect":true,
 
   "languageserver":{
     "rust": {

@@ -19,6 +19,10 @@ hook_add = '''
     \ }
   '''
 
+### Start Page
+[[plugins]]
+repo = 'mhinz/vim-startify'
+
 ### Filer
 [[plugins]]
 repo = 'kristijanhusak/defx-git'
