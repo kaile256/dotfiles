@@ -1,9 +1,12 @@
+"""" Tag
+" show list when multiple tags are.
+nnoremap <c-]> g<c-]>
 """ Insert Mode
-"" back to normal mode, typing j&k simultaneously.
-inoremap jk <Esc>
-inoremap kj <Esc>
+""" back to normal mode, typing j&k simultaneously.
+"inoremap jk <Esc>
+"inoremap kj <Esc>
 """" hjkl
-" move as you look.
+" move as it looks.
 nnoremap j gj
 nnoremap k gk
 xnoremap j gj

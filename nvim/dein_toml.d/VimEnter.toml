@@ -1,27 +1,54 @@
+### Buffer
 [[plugins]]
 repo = 'Shougo/denite.nvim'
 on_event = 'BufRead'
-# save yank history for denite.vim.
 [[plugins]]
 repo = 'Shougo/neoyank.vim'
 on_event = 'BufRead'
 
-#### Plugins Completion
-## command ":CocConfig" to organize config of coc.
-# write custom-key config in plugin.vim
+## Indent Line should be visible
 [[plugins]]
+repo = 'Yggdroot/indentLine'
+hook_add = '''
+  let g:indentline_color_term = 239
+  '''
+on_event = 'BufRead'
+
+#### Plugins Completion
+[[plugins]]
+# command ":CocConfig" to organize config of coc.
 repo = 'neoclide/coc.nvim'
 on_event = 'VimEnter'
 hook_post_update = '''
   au VimEnter * call coc#util#install()
-  au VimENter * CocInstall coc-json coc-tsserver coc-html coc-yaml coc-python 
+  au VimEnter * CocInstall coc-json coc-tsserver coc-html coc-yaml coc-python 
   \ coc-git coc-yank coc-vimlsp coc-highlight
   '''
 
-## prepares fuzzy completion list
+#### Plugins Edit Smooth
 [[plugins]]
-repo = 'junegunn/fzf'
-on_event = 'InsertEnter'
+repo = 'machakann/vim-sandwich'
+on_event = 'BufRead'
+[[plugins]]
+repo = 'tpope/vim-surround'
+on_event = 'BufRead'
+# Repeats even not-default editing by "."
+# e.g., surround.vim
+[[plugins]]
+repo = 'tpope/vim-repeat'
+on_event = 'BufRead'
+#[[plugins]]
+#repo = 'Lokaltog/vim-easymotion'
+#on_event = 'VimEnter'
+## move between Vim panes and Tmux splits seamlessly.
+#[[plugins]]
+#repo = 'christoomey/vim-tmux-navigator'
+#on_event = 'VimEnter'
+
+## prepares fuzzy completion list
+#[[plugins]]
+#repo = 'junegunn/fzf'
+#on_event = 'InsertEnter'
 [[plugins]]
 repo = 'Shougo/neosnippet-snippets'
 on_event = 'InsertEnter'
@@ -39,17 +66,28 @@ on_ft = 'snippets'
 #  '''
 
 ## Tag
+[[plugins]]
+repo = 'jsfaint/gen_tags.vim'
+on_event = 'VimEnter'
+[[plugins]]
+repo = 'szw/vim-tags'
+on_event = 'VimEnter'
 #[[plugins]]
 #repo = 'ludovicchabant/vim-gutentags'
 #on_event = 'VimEnter'
 [[plugins]]
 repo = 'majutsushi/tagbar'
-on_event = 'CursorMoved'
+on_event = 'BufRead'
+# No any .txt file
+#[[plugins]]
+## written by python
+## auto-delete entries that no longer exist.
+#repo = 'craigemery/vim-autotag'
+#hook_add = '''
+#  let g:autotagTagsFile='.tags'
+#  '''
+#on_event = 'VimEnter'
 
-# [[plugins]]
-# repo = 'liuchengxu/vista.vim'
-# depends = ['coc.nvim']
-# on_event = 'InsertEnter'
 
 ## Browser on vim
 [[plugins]]
@@ -61,8 +99,13 @@ hook_add = '''
   vnoremap gx <Plug>(openbrowser-smart-search)
   '''
 
-## On Terminal Mode
+## On Term Mode
 [[plugins]]
 repo = 'mhinz/neovim-remote'
 on_event = 'TermOpen'
+
+# [[plugins]]
+# repo = 'liuchengxu/vista.vim'
+# depends = ['coc.nvim']
+# on_event = 'InsertEnter'
 

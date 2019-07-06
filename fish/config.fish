@@ -10,6 +10,7 @@ set -x VISUAL /home/linuxbrew/.linuxbrew/bin/nvim
 set -x TMUX   /home/linuxbrew/.linuxbrew/bin/tmux
 set -gx HOMEBREW_TEMP ~/tmp
 set -x TERM screen-256color
+set -x WWW_HOME https://duckduckgo.com/
 
 ### PATH
 set -g fish_user_paths "/home/linuxbrew/.linuxbrew/bin" $fish_user_paths

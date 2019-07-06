@@ -7,7 +7,8 @@ command! -nargs=* -range -bar -complete=customlist,defx#util#complete
 """" shortcut
 """ Space-map
 "" preceding tree
-nmap <silent> <space>- :<c-u>Defx `expand('%:p:h')` -search=`expand('%:p')`<cr>
+nmap <silent> <space>- :<c-u>Defx `expand('%:p:h')` -search=`expand('%:p')` -split=vertical -winwidth=35 -winheight=60 -direction=topleft <cr>
+
 "" optional
 nmap <space><space>e :<c-u>Defx 
 nmap <space><space>s :<c-u>Defx -split=horizontal -winheight=60 -direction=topleft 
@@ -151,13 +152,13 @@ function! s:defx_my_settings() abort
  """ File-Management
   " Clipboard
   " show the path under cursor on status-bar.
-  nnoremap <silent><buffer><expr> mc
+  nnoremap <buffer><expr> mc
         \ defx#do_action('copy')
-  nnoremap <silent><buffer><expr> mm
+  nnoremap <buffer><expr> mm
         \ defx#do_action('move')
-  nnoremap <silent><buffer><expr> mp
+  nnoremap <buffer><expr> mp
         \ defx#do_action('paste')
-  nnoremap <silent><buffer><expr> yy
+  nnoremap <buffer><expr> yy
         \ defx#do_action('yank_path')
   "" Select
   nnoremap <silent><buffer><expr> <Space>

@@ -25,9 +25,12 @@ set number " show line number on left
 
 " show match parens.
 set showmatch
+" add '<' and '>' as a match pair
+set matchpairs& matchpairs+=<:>
 " wrap long text.
 set wrap
-set list  " 空白と改行を可視化
+" show space and CR
+set list
 "" eol: 改行
 "" extends: when window-width omits on right end.
 "" precedes: when window-width omits on left.

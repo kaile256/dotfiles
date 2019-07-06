@@ -1,0 +1,11 @@
+-V
+--recurse=yes
+--sort=yes
+--append=yes
+# record tags in relative path
+--tag-relative
+# regard .inc as PHP.
+--langmap=c:+.h
+--langmap=PHP:+.inc
+--langmap=Vim:+.vimrc
+--php-kinds=cfd

@@ -1,13 +1,8 @@
 #### Filetype & Syntax
-# judge filetype of the context under cursor.
-# [[plugins]]
-# repo = 'Shougo/context_filetype.vim'
-# # change filetype dependent on the context under cursor.
-# [[plugins]]
-# repo = 'osyo-manga/vim-precious'
-# depends = ['context_filetype.vim']
+#[[plugins]]
+## preset a template respectively.
+#repo = 'thinca/vim-template'
 
-### Depends on filetype #######################################################
 ### Git
 # activates git cmd on vim_json_syntax_conceal
 # e.g., :Gblame <- git blame.

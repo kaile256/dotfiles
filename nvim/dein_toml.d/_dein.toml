@@ -2,14 +2,13 @@
 [[plugins]]
 repo = 'Shougo/dein.vim'
 
-### Meta
-## Async
-# run vim asynchronously, inc., quickrun.
+### Async Processor
 [[plugins]]
+# run vim-plugins asynchronously, inc., quickrun.
 repo = 'Shougo/vimproc.vim'
 build = 'make'
 
-## Run Code
+### Run Code on vim
 [[plugins]]
 repo = 'thinca/vim-quickrun'
 hook_add = '''
@@ -26,32 +25,19 @@ repo = 'mhinz/vim-startify'
 ### Filer
 [[plugins]]
 repo = 'kristijanhusak/defx-git'
+depends = 'defx.nvim'
 [[plugins]]
 repo = 'kristijanhusak/defx-icons'
+depends = 'defx.nvim'
 [[plugins]]
 repo = 'Shougo/defx.nvim'
-
-#### Plugins Edit Smooth
-[[plugins]]
-repo = 'tpope/vim-surround'
-# Repeats even not-default editing by "."
-# e.g., surround.vim
-[[plugins]]
-repo = 'tpope/vim-repeat'
-#[[plugins]]
-#repo = 'Lokaltog/vim-easymotion'
-## move between Vim panes and Tmux splits seamlessly.
-#[[plugins]]
-#repo = 'christoomey/vim-tmux-navigator'
-
-## preset a template respectively.
-#[[plugins]]
-#repo = 'thinca/vim-template'
-
 #### Plugins Visual
-## Visual Color Themes
+## Color Themes
 [[plugins]]
 repo = 'tomasr/molokai'
+hook_post_update = '''
+  !ln -sfn $XDG_CACHE_HOME/nvim/dein/repos/github.com/tomasr/molokai/colors/molokai.vim
+  '''
 #[[plugins]]
 #repo = 'altercation/vim-colors-solarized'
 
@@ -64,16 +50,9 @@ repo = 'vim-airline/vim-airline'
 repo = 'vim-airline/vim-airline-themes'
 depends = 'vim-airline'
 
-## Indent Line should be visible
-[[plugins]]
-repo = 'Yggdroot/indentLine'
-hook_add = '''
-  let g:indentline_color_term = 239
-  '''
+#[[plugins]]
+## Show marks
+#repo = 'jacquesbh/vim-showmarks'
 
 #[[plugins]]
 #repo = 'tyru/qfpopup.vim'
-
-## Show marks
-#[[plugins]]
-#repo = 'jacquesbh/vim-showmarks'

@@ -113,3 +113,38 @@ cat /home/kaile256/.config/bash/.bashrc
 echo $DISPLAY
 openbox
 tmux
+tmux
+tmux
+nvim
+touh
+nvuin
+touch tmp
+nvim
+nvim tmp
+al
+la
+la
+tmux
+tmux
+tmux
+tmux
+tmux
+tmux
+tmux
+tmux
+tmux
+exec fish
+echo $DOTFILES
+tmux
+tmux
+echo $DOTFILES
+exec bash
+alacritty
+echo $DOTFILES
+tmux
+alacritty
+echo $PATH | grep cargo
+alacritty
+tmux
+chrome
+tmux

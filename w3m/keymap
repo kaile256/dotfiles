@@ -1,0 +1,19 @@
+# ESC-* also means M*/A-*.
+
+### In-page Navigation
+## Vi-like
+# move on page
+keymap C-f NEXT_PAGE
+keymap C-b PREV_PAGE
+# scroll
+keymap C-e UP
+keymap C-y DOWN
+# move on word
+keymap b PREV_WORD
+
+# BUFFER
+keymap C-i NEXT
+keymap C-o PREV
+
+# RELOAD
+keymap C-r RELOAD
