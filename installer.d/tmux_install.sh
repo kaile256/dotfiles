@@ -1,5 +1,6 @@
 #### Tmux Plugins
 # install tmux plugin manager
+echo "installing tmux..."
 ghq get https://github.com/tmux-plugins/tpm
 ln -sfn $HOME/.ghq/github.com/tmux-plugins/tpm $XDG_CACHE_HOME/tmux/tpm/tpm
 echo "Type C-Space & capital I to install tpm!"
