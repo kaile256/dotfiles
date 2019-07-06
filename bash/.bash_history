@@ -148,3 +148,5 @@ alacritty
 tmux
 chrome
 tmux
+la
+tmux

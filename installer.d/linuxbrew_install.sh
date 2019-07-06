@@ -1,11 +1,12 @@
 #!/bin/bash
+# install linuxbrew & brew formulae.
 
-echo 'setup for linuxbrew...'
-sudo apt-get install build-essential curl file git
-echo 'installing linuxbrew...'
-which brew > /dev/null 2>&1 || /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+echo "installing environment of kaile256..."
+echo "modify permissions..."
+sudo chown kaile256:kaile256 -R /home/linuxbrew
+ln -s /home/linuxbrew/.linuxbrew $HOME/.linuxbrew
+sudo chmod -R u+x $HOME/.linuxbrew/bin
 
-ln -s /home/linuxbrew/.linuxbrew .linuxbrew
 eval $(~/.linuxbrew/bin/brew shellenv)
 
 echo 'run brew doctor...'
@@ -17,7 +18,7 @@ which brew > /dev/null 2>&1 && brew update
 echo 'run brew upgrade...'
 brew upgrade --all
 
-formulas=(
+formulae=(
 	git
 	wget
 	curl
@@ -32,11 +33,35 @@ formulas=(
 )
 
 echo 'start brew install apps...'
-for formula in '${formulas[@]'; do
-	brew install $formulas || brew upgrade $forula
+for formula in '${formulae[@]'; do
+	brew install $formulae || brew upgrade $forulae
 done
 
+echo 'run brew cleanup...'
 brew cleanup
+
+### brew-fish
+brew install fish ghq fzf ripgrep
+echo /home/linuxbrew/.linuxbrew/bin/fish > /etc/shells
+
+### brew-neovim
+brew install ruby python yarn pyenv
+
+### brew-coc;
+# DONT brew install rust;
+# rustup-init would install rust, rustc, etc., and setup path recommended.
+brew install rustup
+
+### brew-tmux;
+# apm-server may help tmux-plugins show OS-battery-status.
+brew install tmux xclip screen apm-server
+chmod -R 700 $HOME/.linuxbrew/bin/tmux
+echo /home/linuxbrew/.linuxbrew/bin/tmux > /etc/shells
+
+### brew-others
+brew install kotlin tig
+## browser
+brew install chrome-cli
 
 cat << END
 
