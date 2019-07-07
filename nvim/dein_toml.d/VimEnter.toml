@@ -67,17 +67,18 @@ on_ft = 'snippets'
 
 ## Tag
 [[plugins]]
+# generate ctags & gtags.
 repo = 'jsfaint/gen_tags.vim'
 on_event = 'VimEnter'
 [[plugins]]
-repo = 'szw/vim-tags'
-on_event = 'VimEnter'
+repo = 'majutsushi/tagbar'
+on_event = 'BufRead'
+#[[plugins]]
+#repo = 'szw/vim-tags'
+#on_event = 'VimEnter'
 #[[plugins]]
 #repo = 'ludovicchabant/vim-gutentags'
 #on_event = 'VimEnter'
-[[plugins]]
-repo = 'majutsushi/tagbar'
-on_event = 'BufRead'
 # No any .txt file
 #[[plugins]]
 ## written by python

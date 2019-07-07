@@ -1,4 +1,16 @@
-"""" Coc.nvim
+"""" CONFIG
+set updatetime=300 " shorter for CursorHold & CursorHoldI
+" shorter message
+" c-option: not give ins-completion-menu message.
+"set shortmess+=c
+set signcolumn=yes " always show signcolumns.
+
+"""" KEYMAP
+" use <tab> for trigger completion and navigate to the next complete item
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1] =~ '\s'
+endfunction
 "inoremap <silent><expr> <TAB>
 "  \ pumvisible() ? '<C-n>' :
 "  \ <SID>check_back_space() ? '<TAB>' :
@@ -13,10 +25,10 @@ inoremap <silent><expr> <c-n> coc#refresh()
 inoremap <expr> <cr>
   \ pumvisible() ? '<c-y>' : '<c-g>u\<cr>' 
 
-nnoremap <space>cd :<Plug>(coc-definition)
-nnoremap <space>cy :<Plug>(coc-type-definition)
-nnoremap <space>ci :<Plug>(coc-implementation)
-nnoremap <space>cr :<Plug>(coc-references)
+nnoremap <space>cd :<Plug>(coc-definition)<cr>
+nnoremap <space>cy :<Plug>(coc-type-definition)<cr>
+nnoremap <space>ci :<Plug>(coc-implementation)<cr>
+nnoremap <space>cr :<Plug>(coc-references)<cr>
 "" show yank list
 nnoremap <space>by :<c-u>CocList -A --normal yank<cr>
 

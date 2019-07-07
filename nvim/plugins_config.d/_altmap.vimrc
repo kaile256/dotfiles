@@ -1,3 +1,5 @@
+"" NoHighlight
+nnoremap <silent> <a-n><a-h> :noh<cr>
 "" Checkhealth
 nnoremap <a-c><a-h> :<c-u>checkhealth<cr>
 "" Reload init.vim

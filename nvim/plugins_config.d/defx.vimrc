@@ -1,12 +1,35 @@
-"" show sym-links.
-command! -nargs=* -range -bar -complete=customlist,defx#util#complete
-      \ Defx
-      \ call defx#util#call_defx('Defx', <q-args>)
+"" TODO: show sym-links.
+"""" Config
+" when buffer-name is '_', the options are used fpr all buffers.
+call defx#custom#option('_',{
+ \ 'show_ignored_files': 0,
+ \ })
 
-  """ Open Preceding Tree
-  nmap <silent> <space>- :<c-u>Defx `expand('%:p:h')` -search=`expand('%:p')`<cr>
-  nmap <silent> <space>v :<c-u>Defx `expand('%:p:h')` -search=`expand('%:p')` -split=vertical -winwidth=35 -winheight=60 -direction=topleft <cr>
-  nmap <silent> <space>b :<c-u>Defx `expand('%:p:h')` -search=`expand('%:p')` -split=tab<cr>
+call defx#custom#column('filename', {
+      \ 'min_width': 40,
+      \ 'max_width': 40,
+      \ })
+
+call defx#custom#column('mark', {
+      \ 'readonly_icon': '✗',
+      \ 'selected_icon': '✓',
+      \ })
+
+let g:defx_git#indicators = {
+      \ 'Modified'  : '+',
+      \ 'Staged'    : '●',
+      \ 'Untracked' : '?',
+      \ 'Renamed'   : '➜',
+      \ 'Unmerged'  : '═',
+      \ 'Deleted'   : 'x',
+      \ 'Unknown'   : '?'
+      \ }
+
+"""" Keymap
+""" Open Preceding Tree
+nmap <silent> <space>- :<c-u>Defx `expand('%:p:h')` -search=`expand('%:p')`<cr>
+nmap <silent> <space>v :<c-u>Defx `expand('%:p:h')` -search=`expand('%:p')` -split=vertical -winwidth=35 -winheight=60 -direction=topleft <cr>
+nmap <silent> <space>b :<c-u>Defx `expand('%:p:h')` -search=`expand('%:p')` -split=tab<cr>
 
 augroup myDefx
   autocmd!
@@ -20,15 +43,21 @@ function! s:defx_my_shortcut() abort
   """ Paticular Dirs
   "" Optional
   nmap <buffer>         <space>e :<c-u>Defx 
-  "" Home
-  nmap <buffer><silent> <space>h :<c-u>Defx ~<cr>
   "" Current File
   nmap <buffer><silent> <space>. :<c-u>Defx .<cr>
 
   "" Dotfiles
   nmap <buffer><silent> <space>d :<c-u>Defx ~/dotfiles<cr>
   "" Stand-by a CloudNote
-  nmap <buffer>         <space>n :<c-u>Defx ~/CloudNote
+  nmap <buffer>         <space>n :<c-u>Defx ~/CloudNote/
+
+  "" VimConfig
+  nmap <buffer><silent> <space>c :<c-u>Defx ~/dotfiles/nvim/<cr>
+  nmap <buffer><silent> <space>t :<c-u>Defx ~/dotfiles/nvim/dein_toml.d/<cr>
+  nmap <buffer><silent> <space>p :<c-u>Defx ~/dotfiles/nvim/plugins_config.d/<cr>
+
+  "" Help txt
+  nmap <buffer><silent> <space>h :<c-u>Defx ~/.cache/nvim/dein/.cache/init.vim/.dein/doc<cr>
 
 endfunction
 
@@ -68,7 +97,7 @@ function! s:defx_my_settings() abort
         \ defx#do_action('open', 'pedit')
   nnoremap <silent><buffer><expr> u
         \ defx#do_action('open_or_close_tree')
-	  nnoremap <silent><buffer><expr> <s-m>
+  nnoremap <silent><buffer><expr> <s-m>
         \ defx#do_action('drop')
 
  """ File-Management

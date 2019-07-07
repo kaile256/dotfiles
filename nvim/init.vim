@@ -1,5 +1,4 @@
 runtime! dein.vim
-runtime! keymap.d/*.vimrc
 
 """ Double-doublequotes Comment Out settings means satisfying by default.
 """ When make a setting off, set no**.
