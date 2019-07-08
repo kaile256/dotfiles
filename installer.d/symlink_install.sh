@@ -1,16 +1,28 @@
-#!/bin/bash
+#! /bin/bash
 
+echo "Making symbolic links..."
 # $HOME
-ln -sf ~/dotfiles/tag/.ctags $HOME/.ctags
-ln -sf ~/dotfiles/tig/.tigrc $HOME/.tigrc
-
-ln -sf ~/dotfiles/keymap ~/.w3m/keymap
-ln -sf ~/dotfiles/nvim/init.vim ~/.vim/vimrc
-
+cd ~
+ln -sf ~/dotfiles/tag/.ctags
+ln -sf ~/dotfiles/tig/.tigrc
+ln -sf ~/dotfiles/w3m ~/.w3m
+ln -sf ~/dotfiles/vim ~/.vim
 
 # $XDG_CONFIG_HOME
-ln -sf ~/dotfiles/nvim $XDG_CONFIG_HOME/nvim
-ln -sf ~/dotfiles/tmux $XDG_CONFIG_HOME/tmux
-ln -sf ~/dotfiles/fish $XDG_CONFIG_HOME/fish
-ln -sf ~/dotfiles/bash $XDG_CONFIG_HOME/bash
+XDG_CONFIG_HOME="$HOME/.config"
+cd $XDG_CONFIG_HOME
+NVIM="$XDG_CONFIG_HOME/nvim"
+if [ -e $NVIM ]; then
+	rm -rf $XDG_CONFIG_HOME/nvim
+fi
+#TMUX="$XDG_CONFIG_HOME/tmux"
+#FISH="$XDG_CONFIG_HOME/fish"
+#BASH="$XDG_CONFIG_HOME/bash"
+ln -nfs ~/dotfiles/nvim
+ln -nfs ~/dotfiles/tmux
+ln -nfs ~/dotfiles/fish
+ln -nfs ~/dotfiles/bash
 
+cd ~
+
+echo "Done!"

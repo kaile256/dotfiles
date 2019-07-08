@@ -6,8 +6,12 @@ echo "modify permissions..."
 sudo chown kaile256:kaile256 -R /home/linuxbrew
 ln -s /home/linuxbrew/.linuxbrew $HOME/.linuxbrew
 sudo chmod -R u+x $HOME/.linuxbrew/bin
+echo "Done!"
 
-eval $(~/.linuxbrew/bin/brew shellenv)
+#echo 'export PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"' >> $HOME/.bash_profile
+#echo 'export PATH="/home/linuxbrew/.linuxbrew/sbin:$PATH"' >> $HOME/.bash_profile
+#exec bash
+#eval $(~/.linuxbrew/bin/brew shellenv)
 
 echo 'run brew doctor...'
 which brew > /dev/null 2>&1 && brew doctor
@@ -42,10 +46,11 @@ brew cleanup
 
 ### brew-fish
 brew install fish ghq fzf ripgrep
-echo /home/linuxbrew/.linuxbrew/bin/fish > /etc/shells
+echo "/home/linuxbrew/.linuxbrew/bin/fish" > /etc/shells
 
 ### brew-neovim
-brew install ruby python yarn pyenv
+brew install neovim ruby python yarn pyenv
+echo "/home/linuxbrew/.linuxbrew/bin/nvim" > /etc/shells
 
 ### brew-coc;
 # DONT brew install rust;
@@ -54,9 +59,10 @@ brew install rustup
 
 ### brew-tmux;
 # apm-server may help tmux-plugins show OS-battery-status.
-brew install tmux xclip screen apm-server
-chmod -R 700 $HOME/.linuxbrew/bin/tmux
-echo /home/linuxbrew/.linuxbrew/bin/tmux > /etc/shells
+#brew install tmux
+brew install xclip screen apm-server
+#chmod -R 700 $HOME/.linuxbrew/bin/tmux
+#echo /home/linuxbrew/.linuxbrew/bin/tmux > /etc/shells
 
 ### brew-others
 brew install kotlin tig

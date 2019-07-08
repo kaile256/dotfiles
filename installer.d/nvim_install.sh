@@ -1,3 +1,4 @@
+#! /bin/bash
 #### Neovim Plugins
 ### COC
 echo "install COC"
@@ -12,8 +13,11 @@ rustup update
 rustup component add rls rust-analysis rust-src
 ### CocInstall
 :CocInstall coc-phplsp coc-solargraph coc-rls
+echo "Done!"
 
 #### Neovim-Linkage to Language
 ## ruby
+echo "Installing neovim utiles..."
 gem install neovim
 pip3 install neovim neovim-remote
+echo "Done!"
