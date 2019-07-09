@@ -61,7 +61,7 @@ echo "Done! Placed .bash_profile & .bashrc on ${HOME}"
 ln -nsf ${XDG_CONFIG_HOME}/tmux/.tmux.conf .tmux.conf
 echo "Done! Placed .tmux.conf on ${HOME}"
 # Ctags
-ln -nsf ${XDG_CONFIG_HOME}/tag/.ctags
+ln -nsf ${XDG_CONFIG_HOME}/ctags/.ctags
 echo "Done! Made a symbolic link for ctags!"
 # Tig
 ln -nsf ${XDG_CONFIG_HOME}/tig/.tigrc
