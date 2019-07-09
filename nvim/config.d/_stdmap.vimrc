@@ -5,6 +5,7 @@ nnoremap <c-]> g<c-]>
 """ back to normal mode, typing j&k simultaneously.
 "inoremap jk <Esc>
 "inoremap kj <Esc>
+
 """" hjkl
 " move as it looks.
 nnoremap j gj
@@ -12,11 +13,13 @@ nnoremap k gk
 xnoremap j gj
 xnoremap k gk
 
-""" NormalMode
-" Kill Ambiguities
+"""" NormalMode
+"" Convinience
+nnoremap <c-g> ge
+"" Kill Ambiguities
 nnoremap Y y$
 
-"" Research
+""" Research
 " find researched word at middle
 noremap n  nzz
 noremap N  Nzz
