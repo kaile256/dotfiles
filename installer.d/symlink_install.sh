@@ -1,40 +1,85 @@
 #! /bin/bash
 
+# C-option: do not overwrite on redirect; replace '>' with '>|' to surely overwite a file.
+# e-option: stop if error (non 0); add '&& true' to continue even when error.
+# u-option: stop if an undefined variable is set, or undefined var shall be regarded as null.
+#           (e.g., var=foo && rm -fr ~/"$bar" shall remove all of '~')
 set -Ceu
 
+CURRENT_DIR=$PWD
+XDG_CACHE_HOME="${HOME}/.cache"
+XDG_CONFIG_HOME="${HOME}/.config"
 
-echo "Making symbolic links..."
-# $HOME
-cd ~
-ln -sf ~/dotfiles/tag/.ctags
-ln -sf ~/dotfiles/tig/.tigrc
-ln -sf ~/dotfiles/w3m ~/.w3m
-ln -sf ~/dotfiles/vim ~/.vim
+## Make sure 'dotfiles' are located at supported directory.
+if [ -d "${HOME}/dotfiles" ]; then
+	DOTFILES="${HOME}/dotfiles"
 
-XDG_CONFIG_HOME="$HOME/.config"
-#NVIM="$XDG_CONFIG_HOME/nvim"
-#if [ -d $NVIM ]; then
-#	rm -rf $XDG_CONFIG_HOME/nvim
-#fi
-#TMUX="$XDG_CONFIG_HOME/tmux"
-#FISH="$XDG_CONFIG_HOME/fish"
-#BASH="$XDG_CONFIG_HOME/bash"
+	elif [ -d "${HOME}/.cache/dotfiles" ]; then
+		DOTFILES="${HOME}/.cache/dotfiles"
 
-### $XDG_CONFIG_HOME
-cd $XDG_CONFIG_HOME
-ln -nfs ~/dotfiles/bash
-ln -nfs ~/dotfiles/nvim
-ln -nfs ~/dotfiles/tmux
-ln -nfs ~/dotfiles/fish
+	else 
+		echo "Please clone dotfiles either at ${HOME} or ${XDG_CACHE_HOME}"
+		exit 1
+fi
 
-ln -nfs $XDG_CONFIG_HOME/vim ~/.vim
-echo "Origanized .vim"
-ln -nfs $XDG_CONFIG_HOME/bash/.bash_profile ~/.bash_profile
-ln -nfs $XDG_CONFIG_HOME/bash/.bashrc ~/.bashrc
-echo "Placed .bash_profile & .bashrc on '$HOME'"
-ln -nfs $XDG_CONFIG_HOME/tmux/.tmux.conf ~/.tmux.conf
+## $XDG programs;
+## activate them, making symbolic links at $XDG_CONFIG_HOME from $DOTFILES.
+echo 'making symbolic links...'
+setting_list=(
+	nvim
+	bash
+	fish
+	tmux
+	ctags
+	tig
+	w3m
+	vim_origin
+)
 
-cd ~
+for setting in ${setting_list[@]}; do
+	dest_dir=${XDG_CONFIG_HOME}/${setting}
+
+	cd ${XDG_CONFIG_HOME}
+	ln -nsf ${DOTFILES}/${setting}
+	
+	echo "Done! The setting files of ${setting} are linked at ${XDG_CONFIG_HOME}"
+done
+
+echo ""
+echo "Done! All the dotfiles are linked to ${XDG_CONFIG_HOME}"
+
+### non-XDG programs;
+### activate them, making symbolic links at $HOME via $XDG_CONFIG_HOME.
+cd $HOME
+
+## Files
+# Bash
+ln -nsf ${XDG_CONFIG_HOME}/bash/.bash_profile .bash_profile
+ln -nsf ${XDG_CONFIG_HOME}/bash/.bashrc .bashrc
+echo "Done! Placed .bash_profile & .bashrc on ${HOME}"
+# Tmux
+ln -nsf ${XDG_CONFIG_HOME}/tmux/.tmux.conf .tmux.conf
+echo "Done! Placed .tmux.conf on ${HOME}"
+# Ctags
+ln -nsf ${XDG_CONFIG_HOME}/tag/.ctags
+echo "Done! Made a symbolic link for ctags!"
+# Tig
+ln -nsf ${XDG_CONFIG_HOME}/tig/.tigrc
+echo "Done! Made a symbolic link for tig!"
+
+## Directories
+ln -nsf ${XDG_CONFIG_HOME}/w3m .w3m
+echo "Done! Made a symbolic link for w3m browser!"
+# Vim
+
+if [ -f ${HOME}/.vim/.netrwhist ]; then
+	rm ${HOME}/.vim/.netrwhist
+  rm ${HOME}/.vim
+fi
+ln -nsfT ${XDG_CONFIG_HOME}/vim_origin .vim
+echo "Done! Made a symbolic link for vim!"
+
+cd $CURRENT_DIR
 
 cat << END
 

@@ -2,7 +2,6 @@
 
 set -Ceu
 
-
 formulae=(
   git
   wget
@@ -14,8 +13,8 @@ formulae=(
 )
 
 echo 'start brew install apps...'
-for formula in '${formulae[@]'; do
-	brew install $formulae || brew upgrade $forulae
+for formula in '${formulae[@]}'; do
+	brew install $formula || brew upgrade $formula
 done
 
 echo 'run brew cleanup...'
