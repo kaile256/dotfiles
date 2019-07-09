@@ -103,6 +103,11 @@ hook_add = '''
   vnoremap gx <Plug>(openbrowser-smart-search)
   '''
 
+## Memo
+[[plugins]]
+repo = 'glidenote/memolist.vim'
+on_map = '<leader>'
+
 ## On Term Mode
 [[plugins]]
 repo = 'mhinz/neovim-remote'
