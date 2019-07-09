@@ -25,9 +25,13 @@ if [ -d "$HOME/.local/bin" ] ; then
 fi
 
 ## PATH
-export PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"
-export PATH="/home/linuxbrew/.linuxbrew/sbin:$PATH"
-export PATH="$HOME/.cargo/bin:$PATH"
+LINUXBREW="/home/linuxbrew/.linuxbrew"
+export PATH="${LINUXBREW}/bin:$PATH"
+export PATH="${LINUXBREW}bin:$PATH"
+#export PATH="$HOME/.cargo/bin:$PATH"
+#export PATH="${LINUXBREW}/bin/nvim:$PATH"
+#export PATH="${LINUXBREW}/bin/w3m:$PATH"
+#export PATH="${LINUXBREW}/bin/fish:$PATH"
 
 ## ENV
 export DISPLAY="localhost:0.0"

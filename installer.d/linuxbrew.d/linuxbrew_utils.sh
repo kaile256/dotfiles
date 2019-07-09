@@ -3,13 +3,11 @@
 set -Ceu
 
 formulae=(
-  git
-  wget
-  curl
-  tree
   mysql
   sqlite
+  xclip
   ricty
+  w3m
 )
 
 echo 'start brew install apps...'
@@ -28,10 +26,6 @@ echo "/home/linuxbrew/.linuxbrew/bin/fish" > /etc/shells
 # DONT brew install rust;
 # rustup-init would install rust, rustc, etc., and setup path recommended.
 brew install rustup
-
-### brew-tmux;
-# apm-server may help tmux-plugins show OS-battery-status.
-brew install xclip
 
 ### brew-others
 brew install kotlin tig

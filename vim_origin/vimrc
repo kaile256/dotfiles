@@ -1,0 +1,3 @@
+runtime! ${HOME}/.config/nvim/init.vim
+colo murphy
+

@@ -99,10 +99,10 @@ set wildmode=list:longest
 "set history=10000
 
 """" Netrw
-" 0:show all, including hidden files.
-let g:netrw_hide = 0
 " where .netrwhist is located.
 let g:netrw_home = "$XDG_CACHE_HOME/nvim/netrw"
+" 0:show all, including hidden files.
+let g:netrw_hide = 0
 " 'H':show bytes like 5K, 4M, 3G
 let g:netrw_sizestyle ='H'
 " 'v' opens on right.
