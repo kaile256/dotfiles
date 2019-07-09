@@ -27,6 +27,9 @@ hook_post_update = '''
 
 #### Plugins Edit Smooth
 [[plugins]]
+repo = 'cohama/lexima.vim'
+on_event = 'InsertEnter'
+[[plugins]]
 repo = 'machakann/vim-sandwich'
 on_event = 'BufRead'
 [[plugins]]
