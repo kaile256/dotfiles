@@ -26,10 +26,10 @@ fi
 
 ## PATH
 export PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"
+export PATH="/home/linuxbrew/.linuxbrew/sbin:$PATH"
 export PATH="$HOME/.cargo/bin:$PATH"
 
 ## ENV
-export TMUX="/home/linuxbrew/.linuxbrew/bin/tmux"
 export DISPLAY="localhost:0.0"
 
 ## ORIGINAL ENV

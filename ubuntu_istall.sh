@@ -1,6 +1,8 @@
 #!/bin/bash
 #! /bin/bash
 
+set -Ceu
+
 # when Ubuntu
 INSTALLERS="$HOME/dotfiles/installer.d"
 XDG_CONFIG_HOME="$HOME/.config"

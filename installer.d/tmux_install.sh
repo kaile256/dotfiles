@@ -1,4 +1,7 @@
 #### Tmux Plugins
+
+set -Ceu
+
 # install tmux plugin manager
 echo "installing tmux..."
 ghq get https://github.com/tmux-plugins/tpm

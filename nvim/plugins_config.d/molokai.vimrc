@@ -3,7 +3,6 @@ set t_Co=256
 set termguicolors
 "set bg=light
 
-" when molokai theme
 colorscheme molokai
 let g:rehash256 = 1
 " make highlight clear on molokai.

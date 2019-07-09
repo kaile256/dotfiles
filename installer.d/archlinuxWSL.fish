@@ -1,3 +1,6 @@
+
+set -Ceu
+
 # user is root.
 ubuntu config --default-user root
 

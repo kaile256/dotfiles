@@ -1,4 +1,7 @@
 #! /bin/bash
+
+set -Ceu
+
 #### Neovim Plugins
 ### COC
 echo "install COC"
