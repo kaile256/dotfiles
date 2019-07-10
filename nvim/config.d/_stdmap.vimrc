@@ -1,5 +1,5 @@
 """" Tag
-" show list when multiple tags are.
+" when there are multiple tags, show list of tags.
 nnoremap <c-]> g<c-]>
 """ Insert Mode
 """ back to normal mode, typing j&k simultaneously.
@@ -16,6 +16,7 @@ xnoremap k gk
 """" NormalMode
 "" Convinience
 nnoremap <c-g> ge
+xnoremap <c-g> ge
 "" Kill Ambiguities
 nnoremap Y y$
 

@@ -1,8 +1,8 @@
 runtime! dein.vim
 runtime! config.d/*.vimrc
 
-""" Double-doublequotes Comment Out settings means satisfying by default.
-""" When make a setting off, set no**.
+" even when default is 'on' on NeoVim,
+" set options to share environment in vi & vim as much as possible.
 
 "" Encoding
 ""set enc=utf-8
@@ -74,28 +74,50 @@ set nowrapscan
 set nofoldenable " マッチした行以外を畳む
 
 """" Mode
+" IME will be off, when lmap is off.
+" lmap supports 3 modes: Insert, Commandline and Lang-Arg.
+set iminsert=0
+"" Tab Char
+augroup SolveTabComplex
+  au!
+  " replace all tab-chars with tab-settings on vimrcs.
+  " if replace spaces, too, ':retab!'.
+  au BufReadPre * retab
+augroup END
+
 "" Insert Tab
-" insert space instead of tab char.
+" insert spaces, instead of a tab-char.
 set expandtab
-set tabstop=2  " 表示されるtab文字幅
-set softtabstop=2  " 空白文字の右に入力するtab文字幅
+" number of spaces, inserted by tab-key, that a tab-char counts for.
+set tabstop=2
+" number of spaces, inserted by tab-key, next to tab-chars.
+set softtabstop=2
 
 """ Insert Indent
-""set autoindent
-set nosmartindent
-set shiftwidth=2  " 自動インデントの幅
-au! FileType Javascript \
-  setlocal shiftwidth=4 tabstop=4 softtabstop=4
-""set smarttab  " 行頭余白でtabを打つと'shiftwidth'で指定した数だけindentする
-set shiftround  " indentをshiftwidthの倍数に丸める
+" copy indent dependent on first char of current line.
+set autoindent
+" copy indent dependent on last char of current line.
+set smartindent
+" indent setting for c-lang.
+set cindent
+
+" number of spaces inserted by autoindent.
+set shiftwidth=2
+" for manual indent, insert spaces according to shiftwidth.
+set smarttab
+" for '<' & '>' indent, insert spaces according to shiftwidth.
+set shiftround
+" specific indent setting for Javascript
+au! FileType Javascript setlocal shiftwidth=4 tabstop=4 softtabstop=4
 
 "" Visual Mode
-set virtualedit=block " 矩形選択で、文字がなくても右へ進める
+" visualize even if there is no chars.
+set virtualedit=block
 
 "" Commandline Mode
 set noshowcmd
-""set wildmenu
-" let completion on command-line
+" activate completion on command-line
+set wildmenu
 set wildmode=list:longest
 "set history=10000
 
