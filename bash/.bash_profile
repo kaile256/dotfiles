@@ -44,7 +44,7 @@ export shortPWD="\w"
 export gitBranch='$(__git_ps1)'
 
 #export PS1="\[\033[0;32m\]\[\033[0m\033[0;32m\]\u\[\033[0;36m\]@\[\033[0;36m\]\h \w\[\033[0;32m\]$(__git_ps1)\[\033[0;32m\]\$ "
-export PS1="${green}\$ ${white}${shortPWD}${red}${gitBranch}${green}: "
+export PS1="${green}\$ ${white}${shortPWD}${red}${gitBranch}${green}:${cyan} "
 
 ## Original Env
 export DOTFILES="$HOME/.ghq/github.com/kaile256/dotfiles"
