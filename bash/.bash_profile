@@ -33,10 +33,10 @@ export yellow="\[\033[0;93m\]"
 export white="\[\033[0;97m\]"
 
 # dim colors
-export dGreen="\[\033[0;32m\]"
-export dYellow="\[\033[0;33m\]"
-export dCyan="\[\033[0;36m\]"
-export dWhite="\[\033[0;37m\]"
+export dgreen="\[\033[0;32m\]"
+export dyellow="\[\033[0;33m\]"
+export dcyan="\[\033[0;36m\]"
+export dwhite="\[\033[0;37m\]"
 
 export user="\u"
 export hostname="\h"
@@ -44,7 +44,7 @@ export shortPWD="\w"
 export gitBranch='$(__git_ps1)'
 
 #export PS1="\[\033[0;32m\]\[\033[0m\033[0;32m\]\u\[\033[0;36m\]@\[\033[0;36m\]\h \w\[\033[0;32m\]$(__git_ps1)\[\033[0;32m\]\$ "
-export PS1="${green}\$ ${white}${shortPWD}${red}${gitBranch}${green}:${cyan} "
+export PS1="${red}${user} ${dwhite}@ ${green}${shortPWD}${cyan}${gitBranch}${white}\$${cyan} "
 
 ## Original Env
 export DOTFILES="$HOME/.ghq/github.com/kaile256/dotfiles"
