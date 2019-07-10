@@ -33,6 +33,8 @@ export PATH="${LINUXBREW}bin:$PATH"
 #export PATH="${LINUXBREW}/bin/w3m:$PATH"
 #export PATH="${LINUXBREW}/bin/fish:$PATH"
 
+eval $(${LINUXBREW}/bin/brew shellenv)
+
 ## ENV
 export DISPLAY="localhost:0.0"
 
