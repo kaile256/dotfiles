@@ -24,19 +24,38 @@ if [ -d "$HOME/.local/bin" ] ; then
     PATH="$HOME/.local/bin:$PATH"
 fi
 
-## PATH
-LINUXBREW="/home/linuxbrew/.linuxbrew"
+#### ENVIROMENT VARIABLE
+## Prompt
+export red="\[\033[0;91m\]"
+export green="\[\033[0;92m\]"
+export cyan="\[\033[0;96m\]"
+export yellow="\[\033[0;93m\]"
+export white="\[\033[0;97m\]"
+
+# dim colors
+export dGreen="\[\033[0;32m\]"
+export dYellow="\[\033[0;33m\]"
+export dCyan="\[\033[0;36m\]"
+export dWhite="\[\033[0;37m\]"
+
+export user="\u"
+export hostname="\h"
+export shortPWD="\w"
+export gitBranch='$(__git_ps1)'
+
+#export PS1="\[\033[0;32m\]\[\033[0m\033[0;32m\]\u\[\033[0;36m\]@\[\033[0;36m\]\h \w\[\033[0;32m\]$(__git_ps1)\[\033[0;32m\]\$ "
+export PS1="${green}\$ ${white}${shortPWD}${red}${gitBranch}${green}: "
+
+## Original Env
+export DOTFILES="$HOME/.ghq/github.com/kaile256/dotfiles"
+export LINUXBREW="/home/linuxbrew/.linuxbrew"
+
+## Env
+export DISPLAY="localhost:0.0"
+
+## Path
 export PATH="${LINUXBREW}/bin:$PATH"
-export PATH="${LINUXBREW}bin:$PATH"
-#export PATH="$HOME/.cargo/bin:$PATH"
-#export PATH="${LINUXBREW}/bin/nvim:$PATH"
-#export PATH="${LINUXBREW}/bin/w3m:$PATH"
-#export PATH="${LINUXBREW}/bin/fish:$PATH"
+export PATH="${LINUXBREW}/sbin:$PATH"
 
 eval $(${LINUXBREW}/bin/brew shellenv)
 
-## ENV
-export DISPLAY="localhost:0.0"
-
-## ORIGINAL ENV
-export DOTFILES="$HOME/.ghq/github.com/kaile256/dotfiles"
