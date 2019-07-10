@@ -6,64 +6,61 @@
 #umask 022
 umask 002
 
-# if running bash
-if [ -n "$BASH_VERSION" ]; then
-    # include .bashrc if it exists
-    if [ -f "$HOME/.bashrc" ]; then
-	. "$HOME/.bashrc"
-    fi
-fi
+#### ENVIROMENT VARIABLE
+### Prompt
+## Color
+black="\[\033[0;90m\]"
+red="\[\033[0;91m\]"
+green="\[\033[0;92m\]"
+yellow="\[\033[0;93m\]"
+blue="\[\033[0;94m\]"
+purple="\[\033[0;95m\]"
+cyan="\[\033[0;96m\]"
+white="\[\033[0;97m\]"
 
-# set PATH so it includes user's private bin if it exists
+## Bold
+bcyan="\[\033[1;96m\]"
+
+## Dim color
+dgreen="\[\033[0;32m\]"
+dyellow="\[\033[0;33m\]"
+dcyan="\[\033[0;36m\]"
+dwhite="\[\033[0;37m\]"
+
+## Info
+user="\u"
+hostname="\h"
+shortPWD="\w"
+gitBranch='$(__git_ps1)'
+
+PS1="${red}${user} ${white}@ ${purple}${hostname} ${green}${shortPWD}${bcyan}${gitBranch} \n${white}\$${cyan} "
+
+# Private bin located as you like
 if [ -d "$HOME/bin" ] ; then
     PATH="$HOME/bin:$PATH"
 fi
 
-# set PATH so it includes user's private bin if it exists
 if [ -d "$HOME/.local/bin" ] ; then
     PATH="$HOME/.local/bin:$PATH"
 fi
 
-#### ENVIROMENT VARIABLE
-### Prompt
-## Color
-export black="\[\033[0;90m\]"
-export red="\[\033[0;91m\]"
-export green="\[\033[0;92m\]"
-export yellow="\[\033[0;93m\]"
-export blue="\[\033[0;94m\]"
-export purple="\[\033[0;95m\]"
-export cyan="\[\033[0;96m\]"
-export white="\[\033[0;97m\]"
-
-## Bold
-export bcyan="\[\033[1;96m\]"
-
-## Dim color
-export dgreen="\[\033[0;32m\]"
-export dyellow="\[\033[0;33m\]"
-export dcyan="\[\033[0;36m\]"
-export dwhite="\[\033[0;37m\]"
-
-## Info
-export user="\u"
-export hostname="\h"
-export shortPWD="\w"
-export gitBranch='$(__git_ps1)'
-
-#export PS1="\[\033[0;32m\]\[\033[0m\033[0;32m\]\u\[\033[0;36m\]@\[\033[0;36m\]\h \w\[\033[0;32m\]$(__git_ps1)\[\033[0;32m\]\$ "
-export PS1="${red}${user} ${white}@ ${purple}${hostname} ${green}${shortPWD}${bcyan}${gitBranch} \n${white}\$${cyan} "
-	
-## Original Env
-export DOTFILES="$HOME/.ghq/github.com/kaile256/dotfiles"
-export LINUXBREW="/home/linuxbrew/.linuxbrew"
+## Linuxbrew
+LINUXBREW="/home/linuxbrew/.linuxbrew"
+if [ -d ${LINUXBREW} ]; then
+  PATH="${LINUXBREW}/bin:$PATH"
+  PATH="${LINUXBREW}/sbin:$PATH"
+  eval $(${LINUXBREW}/bin/brew shellenv)
+fi
 
 ## Env
-export DISPLAY="localhost:0.0"
+DISPLAY="localhost:0.0"
 
-## Path
-export PATH="${LINUXBREW}/bin:$PATH"
-export PATH="${LINUXBREW}/sbin:$PATH"
 
-eval $(${LINUXBREW}/bin/brew shellenv)
+#### SOURCE
+# .bashrc
+if [ -n "$BASH_VERSION" ]; then
+    if [ -f "$HOME/.bashrc" ]; then
+	. "$HOME/.bashrc"
+    fi
+fi
 
