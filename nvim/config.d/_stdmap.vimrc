@@ -20,6 +20,10 @@ xnoremap <c-g> ge
 "" Kill Ambiguities
 nnoremap Y y$
 
+""" Buffer
+" jump to last buffer.
+nnoremap <a-o> <c-^>
+
 """ Research
 " find researched word at middle
 noremap n  nzz
@@ -62,9 +66,9 @@ nnoremap <c-w>0 <c-w>=
 
 """ Tab Page
 " send current tab to left.
-nnoremap <c-n> gt
+nnoremap <a-h> gt
 " send current tab to right.
-nnoremap <c-p> gT
+nnoremap <a-l> gT
 
 "" Terminal Mode
 " Normal-mode-like move on terminal mode
