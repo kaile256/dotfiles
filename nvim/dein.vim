@@ -16,6 +16,12 @@ let s:dein_itself    = s:dein_cache_dir . '/repos/github.com/Shougo/dein.vim'
 if dein#load_state(s:dein_cache_dir)
   call dein#begin(s:dein_cache_dir)
 
+  " make compatible on vim
+  if !has('nvim')
+    call dein#add('roxma/nvim-yarp')
+    call dein#add('roxma/vim-hug-neovim-rpc')
+  endif
+
   " list of plugins in toml, which dein manages.
   let s:dein_toml_dir     = '~/.config/nvim/dein_toml.d'
 

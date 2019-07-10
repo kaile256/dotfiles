@@ -71,13 +71,15 @@ nnoremap <a-h> gt
 nnoremap <a-l> gT
 
 "" Terminal Mode
-" Normal-mode-like move on terminal mode
-tnoremap <c-[> <c-\><c-n>
-tnoremap <ESC> <c-\><c-n>
+if has('nvim')
+  " Normal-mode-like move on terminal mode
+  tnoremap <c-[> <c-\><c-n>
+  tnoremap <ESC> <c-\><c-n>
 
-tnoremap <a-h> <c-\><c-n>h
-tnoremap <a-j> <c-\><c-n>j
-tnoremap <a-k> <c-\><c-n>k
-tnoremap <a-l> <c-\><c-n>l
+  tnoremap <a-h> <c-\><c-n>h
+  tnoremap <a-j> <c-\><c-n>j
+  tnoremap <a-k> <c-\><c-n>k
+  tnoremap <a-l> <c-\><c-n>l
 
-tnoremap <a-b> <c-\><c-n>b
+  tnoremap <a-b> <c-\><c-n>b
+endif
