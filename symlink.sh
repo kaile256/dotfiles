@@ -33,6 +33,7 @@ setting_list=(
 	ctags
 	git
 	w3m
+  tmuxinator
 )
 
 for setting in ${setting_list[@]}; do

@@ -83,7 +83,6 @@ Nvim="${LINUXBREW}/bin/nvim"
 if [ -f "${Nvim}" ]; then
   export EDITOR="$Nvim"
   export VISUAL="$Nvim"
-
 else
   export EDITOR="$vim"
   export VISUAL="$vim"
