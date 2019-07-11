@@ -2,15 +2,15 @@
 " add !:   for all buffers
 
 "" Current Marks
-noremap <a-c><a-m> :<c-u>DoShowMarks<cr>
+noremap <space>cm :<c-u>DoShowMarks<cr>
 "" All Marks
-noremap <a-a><a-m> :<c-u>DoShowMarks!<cr>
+noremap <space>am :<c-u>DoShowMarks!<cr>
 
 "" No Marks
-noremap <a-n><a-m> :<c-u>NoShowMarks!<cr>
+noremap <space>nm :<c-u>NoShowMarks!<cr>
 "" Preview Marks
-noremap <a-p><a-m> :<c-u>PreviewMarks<cr>
+noremap <space>pm :<c-u>PreviewMarks<cr>
 
 "" Show Marks with default-vim actions
-noremap ` :<c-u>ShowMarksOnce<cr>`
-noremap m :<c-u>ShowMarksOnce<cr>m
+noremap <silent> ` :<c-u>ShowMarksOnce<cr>`
+noremap <silent> m :<c-u>ShowMarksOnce<cr>m
