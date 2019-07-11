@@ -27,9 +27,12 @@ let g:defx_git#indicators = {
 
 """" Keymap
 """ Open Preceding Tree
-nmap <silent> <space>- :<c-u>Defx `expand('%:p:h')` -search=`expand('%:p')`<cr>
-nmap <silent> <space>v :<c-u>Defx `expand('%:p:h')` -search=`expand('%:p')` -split=vertical -winwidth=35 -winheight=60 -direction=topleft <cr>
-nmap <silent> <space>b :<c-u>Defx `expand('%:p:h')` -search=`expand('%:p')` -split=tab<cr>
+" type '-' to parent dir
+nmap <silent> <space>- :<c-u>defx 'expand('%:p:h')' -search=.expand('%:p')'<cr>
+" type 'v' to open like a filer
+nmap <silent> <space>v :<c-u>defx 'expand('%:p:h')' -search=.expand('%:p')' -split=vertical -winwidth=35 -winheight=60 -direction=topleft <cr>
+" type 'b' to new tab
+nmap <silent> <space>b :<c-u>defx 'expand('%:p:h')' -search=.expand('%:p')' -split=tab<cr>
 
 augroup myDefx
   autocmd!
