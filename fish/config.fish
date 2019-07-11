@@ -7,8 +7,7 @@ umask 022
 ### VAR
 set -x EDITOR /home/linuxbrew/.linuxbrew/bin/nvim
 set -x VISUAL /home/linuxbrew/.linuxbrew/bin/nvim
-set -x TMUX   /home/linuxbrew/.linuxbrew/bin/tmux
-set -gx HOMEBREW_TEMP ~/tmp
+#set -x TMUX   /home/linuxbrew/.linuxbrew/bin/tmux
 set -x TERM screen-256color
 set -x WWW_HOME https://duckduckgo.com/
 
@@ -18,6 +17,7 @@ set -g fish_user_paths "/home/linuxbrew/.linuxbrew/sbin" $fish_user_paths
 set -g fish_user_paths "/home/linuxbrew/.linuxbrew/bin/gem" $fish_user_paths
 set -g MANPATH /home/linuxbrew/.linuxbrew/share/man $MANPATH
 set -g INFOPATH /home/linuxbrew/.linuxbrew/share/info $INFOPATH
+set -gx HOMEBREW_TEMP ~/tmp
 set -g TMUX_TMPDIR ~/.cache/tmp
 
 ### Install fisher, the plugin manager

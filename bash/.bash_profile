@@ -33,6 +33,7 @@ export hostname="\h"
 export shortPWD="\w"
 export gitBranch='$(__git_ps1)'
 
+## Prompt Form
 export PS1="${red}${user} ${white}@ ${purple}${hostname} ${green}${shortPWD}${cyan}${gitBranch} \n${white}\$${cyan} "
 
 # Private bin located as you like
@@ -44,7 +45,7 @@ if [ -d "$HOME/.local/bin" ] ; then
     export PATH="$HOME/.local/bin:$PATH"
 fi
 
-## Linuxbrew
+### Linuxbrew
 LINUXBREW="/home/linuxbrew/.linuxbrew"
 if [ -d ${LINUXBREW} ]; then
   export PATH="${LINUXBREW}/bin:$PATH"
@@ -55,6 +56,7 @@ fi
 APPS=(
   nvim
   fish
+  tmux
 )
 for app in ${APPS[@]}; do
   app_path="${LINUXBREW}/bin/${app}"
@@ -63,15 +65,28 @@ for app in ${APPS[@]}; do
   fi
 done
 
-## Env
+### Env
 export DISPLAY="localhost:0.0"
-export TMUX="/usr/bin/tmux"
 export TERM="xterm-256color"
 
-NVIM="${LINUXBREW}/bin/nvim"
-if [ -f "${NVIM}" ]; then
-  export EDITOR="$NVIM"
-  export VISUAL="$NVIM"
+## Tmux
+tmux="${LINUXBREW}/bin/tmux"
+if [ -f "${tmux}" ]; then
+  export TMUX="$tmux"
+else
+  export TMUX="/usr/bin/tmux"
+fi
+
+## Vim/Neovim
+vim="/usr/bin/vim"
+Nvim="${LINUXBREW}/bin/nvim"
+if [ -f "${Nvim}" ]; then
+  export EDITOR="$Nvim"
+  export VISUAL="$Nvim"
+
+else
+  export EDITOR="$vim"
+  export VISUAL="$vim"
 fi
 
 #### SOURCE
