@@ -8,13 +8,16 @@ if expand('%') == '' && !&modified && line('$') <= 1 && getline(1) == ''
 endif
 set shortmess=aoO
 badd +1 ~/dotfiles/nvim
-badd +40 sessions/default.vim
+badd +1 sessions/default.vim
+badd +27 config.d/_spacemap.vimrc
+badd +0 config.d/netrw.vimrc
+badd +85 config.d/_stdmap.vimrc
 badd +1 config.d/_altmap.vimrc
-badd +47 config.d/_spacemap.vimrc
+badd +122 init.vim
 argglobal
 silent! argdel *
 $argadd ~/dotfiles/nvim
-edit config.d
+edit config.d/_spacemap.vimrc
 set splitbelow splitright
 wincmd t
 set winminheight=0
@@ -31,11 +34,11 @@ setlocal fml=1
 setlocal fdn=20
 setlocal nofen
 silent! normal! zE
-let s:l = 13 - ((12 * winheight(0) + 24) / 48)
+let s:l = 34 - ((33 * winheight(0) + 24) / 48)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-13
+34
 normal! 0
 lcd ~/dotfiles/nvim
 tabnext 1
