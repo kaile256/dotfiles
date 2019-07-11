@@ -16,9 +16,8 @@ endfunction
 "  \ <SID>check_back_space() ? '<TAB>' :
 "  \ coc#refresh()
 
-"" Insert Mode; Use <c-p>/<c-n> to trigger completion.
-inoremap <silent><expr> <c-p> coc#refresh()
-inoremap <silent><expr> <c-n> coc#refresh()
+"" Insert Mode; Use <TAB> to trigger completion.
+inoremap <silent><expr> <TAB> coc#refresh()
 
 "" use <cr> to confirm complete.
 " \<C-g>u means break undo chain at current position.

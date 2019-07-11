@@ -35,9 +35,7 @@ repo = 'Shougo/defx.nvim'
 ## Color Themes
 [[plugins]]
 repo = 'tomasr/molokai'
-hook_post_update = '''
-  !ln -sfn $XDG_CACHE_HOME/nvim/dein/repos/github.com/tomasr/molokai/colors/molokai.vim
-  '''
+ 
 #[[plugins]]
 #repo = 'altercation/vim-colors-solarized'
 
@@ -49,10 +47,3 @@ repo = 'vim-airline/vim-airline'
 [[plugins]]
 repo = 'vim-airline/vim-airline-themes'
 depends = 'vim-airline'
-
-#[[plugins]]
-## Show marks
-#repo = 'jacquesbh/vim-showmarks'
-
-#[[plugins]]
-#repo = 'tyru/qfpopup.vim'
