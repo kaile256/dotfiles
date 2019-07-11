@@ -1,5 +1,8 @@
 let s:mapleader = "\<space>"
 
+"" NoHighlight
+noremap <silent> <space>nh :noh<cr>
+
 """" Clipboard
 vnoremap <space>y "+y
 vnoremap <space>d "+d
@@ -31,14 +34,3 @@ if has('nvim')
   nnoremap <silent> <space>tv :<C-u>vs<CR>  :te<CR>i
   nnoremap <silent> <space>tb :<C-u>tabe<CR>:te<CR>i
 endif
-
-"""" Plugin
-"" Coc
-nnoremap <space><space>c :<c-u>Coc
-""" Git
-"" Tig
-nnoremap <space>tg :silent! !tig blame +<c-r>=line('.')<cr> %<cr>:redraw!<cr>
-"" Fugitive
-nnoremap <silent> <space>gd :<c-u>Gdiff<cr>
-nnoremap <silent> <space>gb :<c-u>Gblame<cr>
-
