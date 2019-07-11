@@ -33,7 +33,7 @@ export hostname="\h"
 export shortPWD="\w"
 export gitBranch='$(__git_ps1)'
 
-export PS1="${red}${user} ${white}@ ${purple}${hostname} ${green}${shortPWD}${bcyan}${gitBranch} \n${white}\$${cyan} "
+export PS1="${red}${user} ${white}@ ${purple}${hostname} ${green}${shortPWD}${cyan}${gitBranch} \n${white}\$${cyan} "
 
 # Private bin located as you like
 if [ -d "$HOME/bin" ] ; then
@@ -58,13 +58,21 @@ APPS=(
 )
 for app in ${APPS[@]}; do
   app_path="${LINUXBREW}/bin/${app}"
-  if [ -e ${app_path} ]; then
-    export PATH="${app_path}"
+  if [ -f ${app_path} ]; then
+    export PATH="${app_path}:$PATH"
   fi
 done
 
 ## Env
 export DISPLAY="localhost:0.0"
+export TMUX="/usr/bin/tmux"
+export TERM="xterm-256color"
+
+NVIM="${LINUXBREW}/bin/nvim"
+if [ -f "${NVIM}" ]; then
+  export EDITOR="$NVIM"
+  export VISUAL="$NVIM"
+fi
 
 #### SOURCE
 # .bashrc
