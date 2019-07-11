@@ -52,6 +52,17 @@ if [ -d ${LINUXBREW} ]; then
   eval $(${LINUXBREW}/bin/brew shellenv)
 fi
 
+APPS=(
+  nvim
+  fish
+)
+for app in ${APPS[@]}; do
+  app_path="${LINUXBREW}/bin/${app}"
+  if [ -e ${app_path} ]; then
+    export PATH="${app_path}"
+  fi
+done
+
 ## Env
 export DISPLAY="localhost:0.0"
 
