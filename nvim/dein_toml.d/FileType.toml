@@ -4,9 +4,9 @@
 #repo = 'thinca/vim-template'
 
 ### Git
+[[plugins]]
 # activates git cmd on vim_json_syntax_conceal
 # e.g., :Gblame <- git blame.
-[[plugins]]
 repo = 'tpope/vim-fugitive'
 on_event = 'VimEnter'
 type = 'git'
