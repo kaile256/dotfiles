@@ -6,18 +6,20 @@ set updatetime=300 " shorter for CursorHold & CursorHoldI
 set signcolumn=yes " always show signcolumns.
 
 """" KEYMAP
+"" Easy call
+nnoremap <space><space>c :<c-u>Coc
+
 " use <tab> for trigger completion and navigate to the next complete item
 function! s:check_back_space() abort
   let col = col('.') - 1
   return !col || getline('.')[col - 1] =~ '\s'
 endfunction
-"inoremap <silent><expr> <TAB>
-"  \ pumvisible() ? '<C-n>' :
-"  \ <SID>check_back_space() ? '<TAB>' :
-"  \ coc#refresh()
 
-"" Insert Mode; Use <TAB> to trigger completion.
-inoremap <silent><expr> <TAB> coc#refresh()
+"" Use <TAB> to trigger completion.
+inoremap <silent><expr> <TAB>
+  \ pumvisible() ? '<C-n>' :
+  \ <SID>check_back_space() ? '<TAB>' :
+  \ coc#refresh()
 
 "" use <cr> to confirm complete.
 " \<C-g>u means break undo chain at current position.
