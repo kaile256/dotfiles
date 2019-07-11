@@ -49,10 +49,7 @@ nnoremap <c-k>      <c-w>k
 nnoremap <c-l>      <c-w>l
 
 " avoid stack on command-line
-cnoremap <c-h> <c-c>
-cnoremap <c-j> <c-c>
 cnoremap <c-k> <c-c>
-cnoremap <c-l> <c-c>
 
 " resize window by cursor keys
 " move window itself
