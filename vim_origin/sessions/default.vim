@@ -7,11 +7,12 @@ if expand('%') == '' && !&modified && line('$') <= 1 && getline(1) == ''
   let s:wipebuf = bufnr('%')
 endif
 set shortmess=aoO
-badd +0 symlink.sh
+badd +1 ~/dotfiles
+badd +0 tmux/tmux.conf
 argglobal
 silent! argdel *
-$argadd symlink.sh
-edit symlink.sh
+$argadd ~/dotfiles
+edit tmux/tmux.conf
 set splitbelow splitright
 wincmd t
 set winminheight=0
@@ -28,12 +29,13 @@ setlocal fml=1
 setlocal fdn=20
 setlocal nofen
 silent! normal! zE
-let s:l = 46 - ((42 * winheight(0) + 24) / 48)
+let s:l = 1 - ((0 * winheight(0) + 24) / 48)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-46
-normal! 04|
+1
+normal! 0
+lcd ~/dotfiles
 tabnext 1
 if exists('s:wipebuf') && getbufvar(s:wipebuf, '&buftype') isnot# 'terminal'
   silent exe 'bwipe ' . s:wipebuf

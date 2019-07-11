@@ -77,6 +77,11 @@ else
   export TMUX="/usr/bin/tmux"
 fi
 
+# location: tmuxinator's config
+if [ -d ${XDG_CONFIG_HOME}/tmux/tmuxinator ]; then
+  export TMUXINATOR_CONFIG="${XDG_CONFIG_HOME}/tmux/tmuxinator"
+fi
+
 ## Vim/Neovim
 vim="/usr/bin/vim"
 Nvim="${LINUXBREW}/bin/nvim"

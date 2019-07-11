@@ -33,7 +33,6 @@ setting_list=(
 	ctags
 	git
 	w3m
-  tmuxinator
 )
 
 for setting in ${setting_list[@]}; do
@@ -58,7 +57,7 @@ ln -nsf ${XDG_CONFIG_HOME}/bash/.bash_profile .bash_profile
 ln -nsf ${XDG_CONFIG_HOME}/bash/.bashrc .bashrc
 echo "Done! Placed .bash_profile & .bashrc on ${HOME}"
 # Tmux
-ln -nsf ${XDG_CONFIG_HOME}/tmux/.tmux.conf .tmux.conf
+ln -nsf ${XDG_CONFIG_HOME}/tmux/tmux.conf .tmux.conf
 echo "Done! Placed .tmux.conf on ${HOME}"
 # Ctags
 ln -nsf ${XDG_CONFIG_HOME}/ctags/.ctags
