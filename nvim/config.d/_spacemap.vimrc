@@ -4,12 +4,16 @@ let s:mapleader = "\<space>"
 noremap <silent> <space>nh :noh<cr>
 
 """" Clipboard
+" registor
+nnoremap <space>y "+y
 vnoremap <space>y "+y
+nnoremap <space>d "+d
 vnoremap <space>d "+d
+" paste
 nnoremap <space>p "+p
-vnoremap <space>P "+P
-nnoremap <space>p "+p
+vnoremap <space>p "+p
 nnoremap <space>P "+P
+vnoremap <space>P "+P
 
 "" Save and Quit
 nnoremap <space>q :<c-u>q<CR>
@@ -17,6 +21,9 @@ nnoremap <space>w :<c-u>w!<CR>
 nnoremap <space>z :<c-u>q!<CR>
 
 """" ACCESS
+"" History
+nnoremap <space><space>/ :<c-r>q/<cr>
+nnoremap <space><space>: :<c-r>q:<cr>
 "" Help
 nnoremap <space><space>h :<c-u>h 
 "" Manpage
