@@ -10,7 +10,7 @@
 "map F <Plug>Sneak_S
 
 " replace f/t with one-char Sneak
-noremap f <Plug>Sneak_f
-noremap f <Plug>Sneak_F
-noremap t <Plug>Sneak_t
-noremap T <Plug>Sneak_T
+"noremap f <Plug>Sneak_f
+"noremap f <Plug>Sneak_F
+"noremap t <Plug>Sneak_t
+"noremap T <Plug>Sneak_T
