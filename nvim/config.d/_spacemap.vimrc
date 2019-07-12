@@ -1,4 +1,3 @@
-let s:mapleader = "\<space>"
 
 "" NoHighlight
 noremap <silent> <space>nh :noh<cr>
@@ -33,6 +32,12 @@ nnoremap <space><space>e :<c-u>e
 nnoremap <space><space>v :<c-u>vs 
 nnoremap <space><space>s :<c-u>sp 
 nnoremap <space><space>b :<c-u>tabe 
+
+""" Tab Page
+nnoremap <space>bp :tabprevious<cr>
+nnoremap <space>bn :tabnext<cr>
+nnoremap <space>bo :tabonly<cr>
+nnoremap <space>bc :tabclose<cr>
 
 """ Terminal
 if has('nvim')
