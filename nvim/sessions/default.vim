@@ -2,18 +2,21 @@ let SessionLoad = 1
 let s:so_save = &so | let s:siso_save = &siso | set so=0 siso=0
 let v:this_session=expand("<sfile>:p")
 silent only
-cd ~/dotfiles
+cd ~/dotfiles/nvim/config.d
 if expand('%') == '' && !&modified && line('$') <= 1 && getline(1) == ''
   let s:wipebuf = bufnr('%')
 endif
 set shortmess=aoO
-badd +38 nvim/config.d/_spacemap.vimrc
-badd +2 ~/dotfiles/nvim/config.d/fugitive.vimrc
-badd +18 ~/dotfiles/nvim/config.d/coc.vimrc
+badd +1 ~/dotfiles/nvim/config.d
+badd +8 fugitive.vimrc
+badd +2 tagbar.vimrc
+badd +2 vim-sneak.vimrc
+badd +1 ~/dotfiles/nvim/\[defx]\ default-0
+badd +1 sandwich.vimrc
 argglobal
 silent! argdel *
-$argadd nvim/config.d/_spacemap.vimrc
-edit nvim/config.d/_spacemap.vimrc
+$argadd ~/dotfiles/nvim/config.d
+edit sandwich.vimrc
 set splitbelow splitright
 wincmd t
 set winminheight=0
@@ -30,12 +33,13 @@ setlocal fml=1
 setlocal fdn=20
 setlocal nofen
 silent! normal! zE
-let s:l = 36 - ((35 * winheight(0) + 24) / 48)
+let s:l = 1 - ((0 * winheight(0) + 24) / 48)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-36
-normal! 0
+1
+normal! 07|
+lcd ~/dotfiles/nvim/config.d
 tabnext 1
 if exists('s:wipebuf') && getbufvar(s:wipebuf, '&buftype') isnot# 'terminal'
   silent exe 'bwipe ' . s:wipebuf
