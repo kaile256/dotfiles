@@ -5,14 +5,14 @@ noremap <silent> <space>nh :noh<cr>
 """" Clipboard
 " registor
 nnoremap <space>y "+y
-vnoremap <space>y "+y
+xnoremap <space>y "+y
 nnoremap <space>d "+d
-vnoremap <space>d "+d
+xnoremap <space>d "+d
 " paste
 nnoremap <space>p "+p
-vnoremap <space>p "+p
+xnoremap <space>p "+p
 nnoremap <space>P "+P
-vnoremap <space>P "+P
+xnoremap <space>P "+P
 
 "" Save and Quit
 nnoremap <space>q :<c-u>q<CR>
