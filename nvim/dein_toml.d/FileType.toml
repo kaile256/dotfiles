@@ -1,7 +1,9 @@
 #### Filetype & Syntax
-#[[plugins]]
-## preset a template respectively.
-#repo = 'thinca/vim-template'
+[[plugins]]
+# preset a template respectively.
+repo = 'thinca/vim-template'
+on_event = 'BufReadPre'
+on_ft = 'bash'
 
 ### Git
 [[plugins]]
