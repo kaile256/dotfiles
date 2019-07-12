@@ -1,13 +1,15 @@
 """" ADVANCED
 "" Dot-Repeat
-"" hjkl
-nnoremap <a-h> h.
-nnoremap <a-j> j.
-nnoremap <a-k> k.
-nnoremap <a-l> l.
+"" CAUTION: Never careless mapping on <a-hjkl>
 "" Jump
 nnoremap <a-;> ;.
 nnoremap <a-n> n.
+
+"" window leap
+inoremap <a-c-h> <c-w>h
+inoremap <a-c-j> <c-w>j
+inoremap <a-c-k> <c-w>k
+inoremap <a-c-l> <c-w>l
 
 "" Checkhealth
 noremap <a-c><a-h> :<c-u>checkhealth<cr>
