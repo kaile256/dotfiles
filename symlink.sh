@@ -33,15 +33,16 @@ setting_list=(
 	ctags
 	git
 	w3m
+	zsh
 )
 
-for setting in ${setting_list[@]}; do
-	dest_dir=${XDG_CONFIG_HOME}/${setting}
+for dir in ${setting_list[@]}; do
+	dest_dir=${XDG_CONFIG_HOME}/${dir}
 
 	cd ${XDG_CONFIG_HOME}
-	ln -nsf ${DOTFILES}/${setting}
+	ln -nsf ${DOTFILES}/${dir}
 	
-	echo "Done! The setting files of ${setting} are linked at ${XDG_CONFIG_HOME}"
+	echo "Done! The setting files of ${dir} are linked at ${XDG_CONFIG_HOME}"
 done
 
 echo ""
@@ -72,11 +73,16 @@ echo "Done! Made a symbolic link for git!"
 ln -nsf ${XDG_CONFIG_HOME}/w3m .w3m
 echo "Done! Made a symbolic link for w3m browser!"
 # Vim
-if [ -f ${HOME}/.vim/.netrwhist ]; then
-	rm ${HOME}/.vim/.netrwhist
+if [ -d ${HOME}/.vim ]; then
 	rm -rf  ${HOME}/.vim
+	echo "Deleted old .vim-dir!"
 fi
+#if [ -f ${HOME}/.vim/.netrwhist ]; then
+#	rm ${HOME}/.vim/.netrwhist
+#	rm -rf  ${HOME}/.vim
+#fi
 ln -nsfT ${XDG_CONFIG_HOME}/nvim .vim
+ln -nsfT ${XDG_CONFIG_HOME}/zsh/zplugin/zshenv_zplugin .zshenv
 echo "Done! Made a symbolic link for vim!"
 
 cd $CURRENT_DIR

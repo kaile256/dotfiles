@@ -1,0 +1,26 @@
+## Write Path on zsh like $ZDOTDIR
+export EDITOR=nvim
+export DISPLAY=:0.0 # Local Host don't have to be specified.
+export BROWSER=/usr/bin/lynx
+export ZDOTDIR="${HOME}/.config/zsh"
+
+## Zplugin Main Files
+# where Zplugin-code resides, e.g., */.zplugin/bin
+export HOME_DIR=$HOME/.local/share/zsh/zplugin
+# where Zplugin should create all working directories, e.g., */.zplugin
+export BIN_DIR=$HOME/.local/share/zsh/zplugin
+
+## Zplugin Cache Files
+export COMPLETIONS_DIR=$HOME/.cache/zsh/zplugin # */zplugin/completions
+export PLUGINS_DIR=$HOME/.cache/zsh/zplugin # */zplugin/plugins
+export SNIPPETS_DIR=$HOME/.cache/zsh/zplugin # */zplugin/snippets
+export COMPDUMP_PATH=$HOME/.cache/zsh/zplugin # .zcompdump file and so on
+
+# Pyenv
+export PYENV_ROOT=$HOME/devEnv/.pyenv
+export PATH=$PYENV_ROOT/bin:$PATH
+eval "$(pyenv init -)"
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="${HOME}/sdkman"
+[[ -s "${HOME}/sdkman/bin/sdkman-init.sh" ]] && source "${HOME}/sdkman/bin/sdkman-init.sh"
