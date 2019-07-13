@@ -84,8 +84,9 @@ unset color_prompt force_color_prompt
 # See /usr/share/doc/bash-doc/examples in the bash-doc package.
 
 XDG_CONFIG_HOME=$HOME/.config
-if [ -f ${XDG_CONFIG_HOME}/bash/.bash_aliases ]; then
-    .  ${XDG_CONFIG_HOME}/bash/.bash_aliases 
+ALIAS=${XDG_CONFIG_HOME}/bash/alias.bash
+if [ -f ${ALIAS} ]; then
+    .  ${ALIAS} 
 fi
 
 # enable programmable completion features (you don't need to enable
