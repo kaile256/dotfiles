@@ -10,6 +10,12 @@ CURRENT_DIR=$PWD
 XDG_CACHE_HOME="${HOME}/.cache"
 XDG_CONFIG_HOME="${HOME}/.config"
 
+if ! [ -d $XDG_CACHE_HOME ]; then
+	mkdir ${HOME}/.cache
+fi
+if ! [ -d $XDG_CONFIG_HOME ]; then
+	mkdir ${HOME}/.config
+fi
 ## Make sure 'dotfiles' are located at supported directory.
 if [ -d "${HOME}/dotfiles" ]; then
 	DOTFILES="${HOME}/dotfiles"
