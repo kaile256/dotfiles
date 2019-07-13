@@ -47,5 +47,4 @@ filetype plugin indent on
 syntax enable  " on は設定を無視して構文ハイライトする
 
 " managed plugins options should be loaded after dein activates
-runtime! plugins_config.d/*.vim
-runtime! plugins_config.d/*.vimrc
+runtime! config.d/*.vimrc
