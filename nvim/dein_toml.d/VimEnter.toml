@@ -13,6 +13,16 @@ repo = 'mhinz/neovim-remote'
 on_event = 'TermOpen'
 
 #### Smooth Edit 
+### Template
+[[plugins]]
+repo = 'mattn/sonictemplate-vim'
+on_event = 'BufRead'
+#[[plugins]]
+## preset a template respectively.
+#repo = 'thinca/vim-template'
+#on_event = 'BufReadPre'
+#on_ft = 'bash'
+
 ### Visual
 ## Indent
 [[plugins]]
