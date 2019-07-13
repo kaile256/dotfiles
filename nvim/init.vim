@@ -1,4 +1,4 @@
-runtime! dein.vim
+runtime! *.vim
 runtime! config.d/*.vimrc
 
 " even when default is 'on' on NeoVim,
