@@ -66,19 +66,20 @@ on_event = 'BufRead'
 #repo = 'tpope/vim-surround'
 #on_event = 'BufRead'
 
+[[plugins]]
+# auto close parens
+repo = 'cohama/lexima.vim'
+on_event = 'InsertEnter'
+
 #[[plugins]]
 #repo = 'Lokaltog/vim-easymotion'
 #on_event = 'VimEnter'
-## auto close parens
-#[[plugins]]
-#repo = 'cohama/lexima.vim'
-#on_event = 'InsertEnter'
 ## move between Vim panes and Tmux splits seamlessly.
 #[[plugins]]
 #repo = 'christoomey/vim-tmux-navigator'
 #on_event = 'VimEnter'
 
-## Tag
+## Ctags
 [[plugins]]
 # generate ctags & gtags.
 repo = 'jsfaint/gen_tags.vim'
