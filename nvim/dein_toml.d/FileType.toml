@@ -1,10 +1,3 @@
-#### Filetype & Syntax
-[[plugins]]
-# preset a template respectively.
-repo = 'thinca/vim-template'
-on_event = 'BufReadPre'
-on_ft = 'bash'
-
 ### Git
 [[plugins]]
 # activates git cmd on vim_json_syntax_conceal
@@ -25,16 +18,51 @@ type = 'git'
 ## Snippet
 [[plugins]]
 repo = 'Shougo/neosnippet-snippets'
+on_event = 'InsertEnter'
+on_ft = 'snippet'
 [[plugins]]
 repo = 'Shougo/neosnippet.vim'
 on_event = 'InsertEnter'
 on_ft = 'snippet'
 depends = 'neosnippet-snippets'
 
+[[plugins]]
+repo = 'mattn/sonictemplate-vim'
+on_event = 'BufReadPre'
+on_ft = 'bash'
+[[plugins]]
+# preset a template respectively.
+repo = 'thinca/vim-template'
+on_event = 'BufReadPre'
+on_ft = 'bash'
+
+#### Language Support
+### Python
 # supports pip-packages, independently installed in shell, to work on vim
 [[plugins]]
 repo = 'plytophogy/vim-virtualenv'
 on_ft = 'python3'
+
+### Markdown
+[[plugins]]
+repo = 'dhruvasagar/vim-table-mode'
+on_event = 'BufReadPre'
+on_ft = 'markdown'
+[[plugins]]
+repo = 'suan/vim-instant-markdown'
+on_event = 'BufRead'
+on_ft = 'markdown'
+
+### Html
+### Tag
+# auto-close tag
+[[plugins]]
+repo = 'alvan/vim-closetag'
+on_event = 'BufReadPre'
+on_ft = ['html', 'javascript']
+hook_add = '''
+  let g:cloesetag_filenames = '*.html,*.vue'
+  '''
 
 ### Syntax
 ## Language Console
