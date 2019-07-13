@@ -1,4 +1,7 @@
-runtime! *.vim
+if !1 | finish | endif
+
+runtime! path.vim
+runtime! filetype.vim
 runtime! config.d/*.vimrc
 
 " even when default is 'on' on NeoVim,

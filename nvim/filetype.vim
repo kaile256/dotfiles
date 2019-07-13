@@ -1,1 +1,1 @@
-#au BufNewFile,BufRead *.bash setfiletype bash
+"au BufNewFile,BufRead *.bash setfiletype bash
