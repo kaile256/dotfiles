@@ -46,52 +46,46 @@ if [ -d "$HOME/.local/bin" ] ; then
     export PATH="$HOME/.local/bin:$PATH"
 fi
 
-### Linuxbrew
-LINUXBREW="/home/linuxbrew/.linuxbrew"
-if [ -d ${LINUXBREW} ]; then
-  export PATH="${LINUXBREW}/bin:$PATH"
-  export PATH="${LINUXBREW}/sbin:$PATH"
-  eval $(${LINUXBREW}/bin/brew shellenv)
-fi
-
-APPS=(
-  nvim
-  fish
-  tmux
-)
-for app in ${APPS[@]}; do
-  app_path="${LINUXBREW}/bin/${app}"
-  if [ -f ${app_path} ]; then
-    export PATH="${app_path}:$PATH"
-  fi
-done
-
 ### Env
 export DISPLAY="localhost:0.0"
 export TERM="xterm-256color"
 
 ## Tmux
-tmux="${LINUXBREW}/bin/tmux"
-if [ -f "${tmux}" ]; then
-  export TMUX="$tmux"
-else
-  export TMUX="/usr/bin/tmux"
-fi
-
+export TMUX="$(which tmux)"
 # location: tmuxinator's config
 if [ -d ${XDG_CONFIG_HOME}/tmux/tmuxinator ]; then
   export TMUXINATOR_CONFIG="${XDG_CONFIG_HOME}/tmux/tmuxinator"
 fi
 
 ## Vim/Neovim
-vim="/usr/bin/vim"
-Nvim="${LINUXBREW}/bin/nvim"
+vim="$(which vim)"
+Nvim="$(which nvim)"
 if [ -f "${Nvim}" ]; then
   export EDITOR="$Nvim"
   export VISUAL="$Nvim"
 else
   export EDITOR="$vim"
   export VISUAL="$vim"
+fi
+
+### Linuxbrew
+if [ -d ${LINUXBREW} ]; then
+  LINUXBREW="/home/linuxbrew/.linuxbrew"
+  export PATH="${LINUXBREW}/bin:$PATH"
+  export PATH="${LINUXBREW}/sbin:$PATH"
+  eval $(${LINUXBREW}/bin/brew shellenv)
+#  APPS=(
+#  nvim
+#  fish
+#  tmux
+#  )
+#  for app in ${APPS[@]}; do
+#    app_path="${LINUXBREW}/bin/${app}"
+#    if [ -f ${app_path} ]; then
+#      export PATH="${app_path}:$PATH"
+#    fi
+#  done
+#
 fi
 
 #### SOURCE
