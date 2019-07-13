@@ -17,6 +17,7 @@ on_event = 'TermOpen'
 [[plugins]]
 repo = 'mattn/sonictemplate-vim'
 on_event = 'BufRead'
+
 #[[plugins]]
 ## preset a template respectively.
 #repo = 'thinca/vim-template'
