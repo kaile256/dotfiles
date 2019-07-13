@@ -73,14 +73,14 @@ echo "Done! Made a symbolic link for git!"
 ln -nsf ${XDG_CONFIG_HOME}/w3m .w3m
 echo "Done! Made a symbolic link for w3m browser!"
 # Vim
-if [ -d ${HOME}/.vim ]; then
-	rm -rf  ${HOME}/.vim
-	echo "Deleted old .vim-dir!"
-fi
-#if [ -f ${HOME}/.vim/.netrwhist ]; then
-#	rm ${HOME}/.vim/.netrwhist
+#if [ -d ${HOME}/.vim ]; then
 #	rm -rf  ${HOME}/.vim
+#	echo "Deleted old .vim-dir!"
 #fi
+if [ -f ${HOME}/.vim/.netrwhist ]; then
+	rm ${HOME}/.vim/.netrwhist
+	rm -rf  ${HOME}/.vim
+fi
 ln -nsfT ${XDG_CONFIG_HOME}/nvim .vim
 ln -nsfT ${XDG_CONFIG_HOME}/zsh/zplugin/zshenv_zplugin .zshenv
 echo "Done! Made a symbolic link for vim!"
