@@ -26,16 +26,6 @@ on_event = 'InsertEnter'
 on_ft = 'snippet'
 depends = 'neosnippet-snippets'
 
-[[plugins]]
-repo = 'mattn/sonictemplate-vim'
-on_event = 'BufReadPre'
-on_ft = 'bash'
-[[plugins]]
-# preset a template respectively.
-repo = 'thinca/vim-template'
-on_event = 'BufReadPre'
-on_ft = 'bash'
-
 #### Language Support
 ### Python
 # supports pip-packages, independently installed in shell, to work on vim
