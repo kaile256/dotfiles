@@ -6,7 +6,10 @@
 #umask 022
 umask 002
 
+source $HOME/.config/share/posix/env.sh
+source $HOME/.config/share/posix/alias.sh
 #### ENVIROMENT VARIABLE
+export HISTFILE="$XDG_DATA_HOME"/bash/history
 # Private bin located as you like
 if [ -d "$HOME/bin" ] ; then
     export PATH="$HOME/bin:$PATH"
