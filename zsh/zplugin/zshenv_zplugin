@@ -1,10 +1,10 @@
 ## source shared config
-source $HOME/.config/share/posix
+POSIX_SHARE=$HOME/.config/share/posix
+source ${POSIX_SHARE}/env.sh
+source ${POSIX_SHARE}/alias.sh
 
 ## Write Path on zsh like $ZDOTDIR
 export ZDOTDIR="${XDG_CONFIG_HOME}/zsh"
-export EDITOR=nvim
-export VISUAL=nvim
 export DISPLAY=:0.0 # Local Host don't have to be specified.
 export BROWSER=/usr/bin/lynx
 
