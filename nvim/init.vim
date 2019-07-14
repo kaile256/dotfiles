@@ -113,7 +113,7 @@ au! FileType Javascript setlocal shiftwidth=4 tabstop=4 softtabstop=4
 
 "" Visual Mode
 " visualize even if there is no chars.
-set virtualedit=block
+"set virtualedit=block
 
 "" Commandline Mode
 set noshowcmd
