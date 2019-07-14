@@ -2,9 +2,6 @@ runtime! path.vim
 runtime! filetype.vim
 runtime! dein.vim
 
-" even when default is 'on' on NeoVim,
-" set options to share environment in vi & vim as much as possible.
-
 "" Encoding
 ""set enc=utf-8
 " when different from utf-8, convert it.
