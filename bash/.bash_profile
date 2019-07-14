@@ -34,8 +34,14 @@ export  shortPWD="\w"
 export gitBranch='$(__git_ps1)'
 
 ## Prompt Form
-export PS1="\[\033[0;91m\]\u \[\033[0;97m\]@ \[\033[0;95m\]\h \[\033[0;92m\]\W\[\033[0;96m\] $(__git_ps1)  \n\[\033[0;97m\]\$\[\033[0;96m\] "
+#export PS1="\[\033[0;91m\]\u \[\033[0;97m\]@ \[\033[0;95m\]\h \[\033[0;92m\]\W\[\033[0;96m\] $(__git_ps1)  \n\[\033[0;97m\]\$\[\033[0;96m\] "
 #export PS1="${red}${user} ${white}@ ${purple}${hostname} ${green}${shortPWD}${cyan}${gitBranch} \n${white}\$${cyan} "
+
+PROMPT_GIT="${XDG_CACHE_HOME}/bash/repos/github.com/magicmonty/bash-git-prompt/gitprompt.sh"
+if [ -f "${PROMPT_GIT}" ]; then
+  GIT_PROMPT_ONLY_IN_REPO=1
+  source "${PROMPT_GIT}"
+fi
 
 # Private bin located as you like
 if [ -d "$HOME/bin" ] ; then
@@ -69,8 +75,8 @@ else
 fi
 
 ### Linuxbrew
+LINUXBREW="/home/linuxbrew/.linuxbrew"
 if [ -d ${LINUXBREW} ]; then
-  LINUXBREW="/home/linuxbrew/.linuxbrew"
   export PATH="${LINUXBREW}/bin:$PATH"
   export PATH="${LINUXBREW}/sbin:$PATH"
   eval $(${LINUXBREW}/bin/brew shellenv)
