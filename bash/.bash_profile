@@ -7,36 +7,6 @@
 umask 002
 
 #### ENVIROMENT VARIABLE
-### Prompt
-## Color
-export   black="\[\033[0;90m\]"
-export     red="\[\033[0;91m\]"
-export   green="\[\033[0;92m\]"
-export  yellow="\[\033[0;93m\]"
-export    blue="\[\033[0;94m\]"
-export  purple="\[\033[0;95m\]"
-export    cyan="\[\033[0;96m\]"
-export   white="\[\033[0;97m\]"
-
-## Bold
-export   bcyan="\[\033[1;96m\]"
-
-## Dim color
-export  dgreen="\[\033[0;32m\]"
-export dyellow="\[\033[0;33m\]"
-export   dcyan="\[\033[0;36m\]"
-export  dwhite="\[\033[0;37m\]"
-
-## Info
-export      user="\u"
-export  hostname="\h"
-export  shortPWD="\w"
-export gitBranch='$(__git_ps1)'
-
-## Prompt Form
-#export PS1="\[\033[0;91m\]\u \[\033[0;97m\]@ \[\033[0;95m\]\h \[\033[0;92m\]\W\[\033[0;96m\] $(__git_ps1)  \n\[\033[0;97m\]\$\[\033[0;96m\] "
-#export PS1="${red}${user} ${white}@ ${purple}${hostname} ${green}${shortPWD}${cyan}${gitBranch} \n${white}\$${cyan} "
-
 # Private bin located as you like
 if [ -d "$HOME/bin" ] ; then
     export PATH="$HOME/bin:$PATH"
