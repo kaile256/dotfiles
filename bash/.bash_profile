@@ -6,8 +6,11 @@
 #umask 022
 umask 002
 
-source $HOME/.config/share/posix/env.sh
-source $HOME/.config/share/posix/alias.sh
+## source shared config
+POSIX_SHARE=$HOME/.config/share/posix
+source ${POSIX_SHARE}/env.sh
+source ${POSIX_SHARE}/alias.sh
+
 #### ENVIROMENT VARIABLE
 export HISTFILE="$XDG_DATA_HOME"/bash/history
 # Private bin located as you like
