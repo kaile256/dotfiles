@@ -1,14 +1,15 @@
+## source shared config
+source $HOME/.config/share/posix
+
 ## Write Path on zsh like $ZDOTDIR
-export ZDOTDIR="${HOME}/.config/zsh"
+export ZDOTDIR="${XDG_CONFIG_HOME}/zsh"
 export EDITOR=nvim
 export VISUAL=nvim
 export DISPLAY=:0.0 # Local Host don't have to be specified.
 export BROWSER=/usr/bin/lynx
 
 ## XDG
-export XDG_CONFIG_HOME=$HOME/.config
-export XDG_CACH_HOME=$HOME/.cache
-export XDG_DATA_HOME=$HOME/.local/share
+export HISTFILE="$XDG_DATA_HOME"/zsh/history
 
 ## Zplugin Cache Files
 export COMPLETIONS_DIR=$XDG_CACH_HOME/zsh/zplugin # */zplugin/completions
