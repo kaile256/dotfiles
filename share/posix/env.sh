@@ -7,7 +7,6 @@ export XDG_DATA_HOME=$HOME/.local/share
 export EDITOR=nvim
 export VISUAL=nvim
 
-export HISTFILE="$XDG_DATA_HOME"/bash/history
 export BASH_COMPLETION_USER_FILE="$XDG_CONFIG_HOME"/bash/bash-completion
 export LESSHISTFILE="$XDG_CACHE_HOME"/less/history
 export LESSKEY="$XDG_CONFIG_HOME"/less/lesskey
