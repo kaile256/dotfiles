@@ -7,6 +7,7 @@
 set -Ceu
 
 CURRENT_DIR=$PWD
+POSIX_SHARE="${XDG_CONFIG_HOME}/share/posix"
 XDG_CACHE_HOME="${HOME}/.cache"
 XDG_CONFIG_HOME="${HOME}/.config"
 
@@ -31,7 +32,8 @@ fi
 ## $XDG programs;
 ## activate them, making symbolic links at $XDG_CONFIG_HOME from $DOTFILES.
 echo 'making symbolic links...'
-setting_list=(
+symlink_list=(
+	share
 	nvim
 	bash
 	fish
@@ -42,7 +44,7 @@ setting_list=(
 	zsh
 )
 
-for dir in ${setting_list[@]}; do
+for dir in ${symlink_list[@]}; do
 	dest_dir=${XDG_CONFIG_HOME}/${dir}
 
 	cd ${XDG_CONFIG_HOME}
