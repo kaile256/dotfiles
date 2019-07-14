@@ -1,8 +1,6 @@
-if !1 | finish | endif
-
 runtime! path.vim
 runtime! filetype.vim
-runtime! config.d/*.vimrc
+runtime! dein.vim
 
 " even when default is 'on' on NeoVim,
 " set options to share environment in vi & vim as much as possible.
