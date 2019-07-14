@@ -27,7 +27,6 @@ export XINITRC="$XDG_CONFIG_HOME"/X11/xinitrc
 export XSERVERRC="$XDG_CONFIG_HOME"/X11/xserverrc
 export WGETRC="$XDG_CONFIG_HOME/wgetrc"
 export SCREENRC="$XDG_CONFIG_HOME"/screen/screenrc
-# TODO: add in tmux.conf tmux -f "$XDG_CONFIG_HOME"/tmux/tmux.conf.
 export TMUX_TMPDIR="$XDG_RUNTIME_DIR"
 # TODO: prepare $XDG_CONFIG_HOME/texmf/web2c/texmf.cnf later
 export TEXMFCNF="${XDG_CONFIG_HOME}/texmf/web2c:$(kpsewhich --var-value='TEXMFCNF')"
