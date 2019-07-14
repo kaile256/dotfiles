@@ -1,1 +1,0 @@
-.zplugin/zshrc_zplugin
