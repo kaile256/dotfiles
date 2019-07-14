@@ -8,7 +8,7 @@ endif
 "" The Path, dein.vim is installed.
 set rtp+=~/.cache/nvim/dein/repos/github.com/Shougo/dein.vim
 
-let s:dein_cache_dir =                    '~/.cache/nvim/dein'
+let s:dein_cache_dir = '~/.cache/nvim/dein'
 
 " dein#load_state includes 'set filetype off';
 " so 'set filetype on' after load dein & plugins.
