@@ -1,8 +1,14 @@
 ## Write Path on zsh like $ZDOTDIR
+export ZDOTDIR="${HOME}/.config/zsh"
 export EDITOR=nvim
+export VISUAL=nvim
 export DISPLAY=:0.0 # Local Host don't have to be specified.
 export BROWSER=/usr/bin/lynx
-export ZDOTDIR="${HOME}/.config/zsh"
+
+## XDG
+export XDG_CONFIG_HOME=$HOME/.config
+export XDG_CACH_HOME=$HOME/.cache
+export XDG_DATA_HOME=$HOME/.local/share
 
 ## Zplugin Main Files
 # where Zplugin-code resides, e.g., */.zplugin/bin
