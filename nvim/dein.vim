@@ -9,18 +9,11 @@ endif
 set rtp+=~/.cache/nvim/dein/repos/github.com/Shougo/dein.vim
 
 let s:dein_cache_dir =                    '~/.cache/nvim/dein'
-let s:dein_itself    = s:dein_cache_dir . '/repos/github.com/Shougo/dein.vim'
 
 " dein#load_state includes 'set filetype off';
 " so 'set filetype on' after load dein & plugins.
 if dein#load_state(s:dein_cache_dir)
   call dein#begin(s:dein_cache_dir)
-
-  " make compatible on vim
-  if !has('nvim')
-    call dein#add('roxma/nvim-yarp')
-    call dein#add('roxma/vim-hug-neovim-rpc')
-  endif
 
   " list of plugins in toml, which dein manages.
   let s:dein_toml_dir     = '~/.config/nvim/dein_toml.d'
@@ -34,6 +27,12 @@ if dein#load_state(s:dein_cache_dir)
   call dein#load_toml(s:dein_VimEnter_toml, {'lazy': 1})
   call dein#load_toml(s:dein_FileType_toml, {'lazy': 1})
   
+  " make compatible on vim
+  if !has('nvim')
+    call dein#add('roxma/nvim-yarp')
+    call dein#add('roxma/vim-hug-neovim-rpc')
+  endif
+
   call dein#end()
   call dein#save_state()
 endif
