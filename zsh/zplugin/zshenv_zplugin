@@ -10,17 +10,17 @@ export XDG_CONFIG_HOME=$HOME/.config
 export XDG_CACH_HOME=$HOME/.cache
 export XDG_DATA_HOME=$HOME/.local/share
 
+## Zplugin Cache Files
+export COMPLETIONS_DIR=$XDG_CACH_HOME/zsh/zplugin # */zplugin/completions
+export PLUGINS_DIR=$XDG_CACH_HOME/zsh/zplugin # */zplugin/plugins
+export SNIPPETS_DIR=$XDG_CACH_HOME/zsh/zplugin # */zplugin/snippets
+export COMPDUMP_PATH=$XDG_CACH_HOME/zsh/zplugin # .zcompdump file and so on
+
 ## Zplugin Main Files
 # where Zplugin-code resides, e.g., */.zplugin/bin
-export HOME_DIR=$HOME/.local/share/zsh/zplugin
+export HOME_DIR=$XDG_DATA_HOME/zsh/zplugin
 # where Zplugin should create all working directories, e.g., */.zplugin
-export BIN_DIR=$HOME/.local/share/zsh/zplugin
-
-## Zplugin Cache Files
-export COMPLETIONS_DIR=$HOME/.cache/zsh/zplugin # */zplugin/completions
-export PLUGINS_DIR=$HOME/.cache/zsh/zplugin # */zplugin/plugins
-export SNIPPETS_DIR=$HOME/.cache/zsh/zplugin # */zplugin/snippets
-export COMPDUMP_PATH=$HOME/.cache/zsh/zplugin # .zcompdump file and so on
+export BIN_DIR=$XDG_DATA_HOME/zsh/zplugin
 
 # Pyenv
 export PYENV_ROOT=$HOME/devEnv/.pyenv
