@@ -7,9 +7,9 @@
 set -Ceu
 
 CURRENT_DIR=$PWD
-POSIX_SHARE="${XDG_CONFIG_HOME}/share/posix"
 XDG_CACHE_HOME="${HOME}/.cache"
 XDG_CONFIG_HOME="${HOME}/.config"
+POSIX_SHARE="${XDG_CONFIG_HOME}/share/posix"
 
 if ! [ -d $XDG_CACHE_HOME ]; then
 	mkdir ${HOME}/.cache
