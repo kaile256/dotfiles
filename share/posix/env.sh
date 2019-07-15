@@ -28,8 +28,6 @@ export XSERVERRC="$XDG_CONFIG_HOME"/X11/xserverrc
 export WGETRC="$XDG_CONFIG_HOME/wgetrc"
 export SCREENRC="$XDG_CONFIG_HOME"/screen/screenrc
 export TMUX_TMPDIR="$XDG_RUNTIME_DIR"
-# TODO: prepare $XDG_CONFIG_HOME/texmf/web2c/texmf.cnf later
-export TEXMFCNF="${XDG_CONFIG_HOME}/texmf/web2c:$(kpsewhich --var-value='TEXMFCNF')"
 ## ncurses
 export TERMINFO="$XDG_DATA_HOME"/terminfo
 export TERMINFO_DIRS="$XDG_DATA_HOME"/terminfo:/usr/share/terminfo
