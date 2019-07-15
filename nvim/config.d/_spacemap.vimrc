@@ -1,6 +1,6 @@
 
 "" NoHighlight
-noremap <silent> <space>nh :noh<cr>
+nnoremap <silent> <c-l> :noh<cr><c-l>
 
 """" Clipboard
 " registor
@@ -14,10 +14,13 @@ xnoremap <space>p "+p
 nnoremap <space>P "+P
 xnoremap <space>P "+P
 
-"" Save and Quit
+""" Save and Quit
 nnoremap <space>q :<c-u>q<CR>
 nnoremap <space>w :<c-u>w!<CR>
 nnoremap <space>z :<c-u>q!<CR>
+
+"" Git
+nnoremap <space>gw :<c-u>w! | ! git add % && git commit -m ''<left>
 
 """" ACCESS
 "" History
