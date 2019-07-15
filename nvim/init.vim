@@ -2,6 +2,10 @@ runtime! path.vim
 runtime! filetype.vim
 runtime! dein.vim
 
+"""" PATH: for the cmd ':find'
+let s:xdg_config_home=~/.config
+set path+=s:xdg_config_home
+
 "" Encoding
 ""set enc=utf-8
 " when different from utf-8, convert it.
@@ -65,9 +69,10 @@ set title
 
 "" Search
 set noignorecase
-set smartcase " strictly sense case with upper case.
-set noincsearch " 順次検索しない
-""set hlsearch
+" sensitive to case only with upper case.
+"set smartcase 
+set incsearch
+set hlsearch
 set nowrapscan
 set nofoldenable " マッチした行以外を畳む
 
