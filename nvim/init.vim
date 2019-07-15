@@ -3,8 +3,8 @@ runtime! filetype.vim
 runtime! dein.vim
 
 """" PATH: for the cmd ':find'
-let s:xdg_config_home='~/.config'
-set path+=s:xdg_config_home
+let s:xdg_config_path='~/.config/**'
+set path+=s:xdg_config_path
 
 "" Encoding
 ""set enc=utf-8
