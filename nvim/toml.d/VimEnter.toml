@@ -66,10 +66,10 @@ on_event = 'BufRead'
 #repo = 'tpope/vim-surround'
 #on_event = 'BufRead'
 
-[[plugins]]
-# auto close parens
-repo = 'cohama/lexima.vim'
-on_event = 'InsertEnter'
+#[[plugins]]
+## auto close parens
+#repo = 'cohama/lexima.vim'
+#on_event = 'InsertEnter'
 
 #[[plugins]]
 #repo = 'Lokaltog/vim-easymotion'
