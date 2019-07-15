@@ -20,7 +20,7 @@ nnoremap <space>w :<c-u>w!<CR>
 nnoremap <space>z :<c-u>q!<CR>
 
 "" Git
-nnoremap <space>gw :<c-u>w! | ! git add % && git commit -m ''<left>
+nnoremap <space>gw ':<c-u>w! | ! git add % && git commit -m ''<left>'
 
 """" ACCESS
 "" History
