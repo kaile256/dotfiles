@@ -1,6 +1,6 @@
 ## Never write "exec tmux" on script, or never access the WSL Distribution.
-. ~/.config/fish/myconf.d/*.fish
-. ~/.config/fish/myfuctions/*.fish
+source ~/.config/fish/myconf.d/*.fish
+source ~/.config/fish/myfuctions/*.fish
 
 umask 022
 
