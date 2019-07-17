@@ -11,8 +11,7 @@ endfunction
 function RetabToSpaces()
     " replace all tab-chars with tab-settings on vimrcs.
     " if replace spaces, too, ':retab!'.
-  if &readonly || ! &modifiable
-  else
+  if ! &readonly || &modifiable
     retab
   endif
 endfunction
