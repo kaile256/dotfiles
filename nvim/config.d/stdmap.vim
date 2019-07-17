@@ -117,10 +117,10 @@ xnoremap <space>P "+P
 
 """ Write and Quit
 " w! write even read-only file.
-nnoremap <space>q :<c-u>q<CR>
 nnoremap <space>w :<c-u>w<CR>
-nnoremap <space><S-Q> :<c-u>q!<CR>
+nnoremap <space>q :<c-u>q<CR>
 nnoremap <space><S-W> :<c-u>w!<CR>
+nnoremap <space><S-Q> :<c-u>q!<CR>
 
 """" ACCESS
 "" History
