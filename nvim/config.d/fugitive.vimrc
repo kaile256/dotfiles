@@ -1,5 +1,6 @@
 " add && commit
 nnoremap <space>gw :<c-u>Gw<cr>:Gcommit -m''<Left>
+cnoremap <space>gw :<c-u>Gw<cr>:Gcommit -m''<Left>
 " diff
 nnoremap <silent> <space>gd :<c-u>Gvdiffsplit<cr>
 " blame
