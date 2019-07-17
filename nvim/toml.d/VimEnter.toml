@@ -1,11 +1,14 @@
 ### Buffer
 [[plugins]]
 repo = 'Shougo/denite.nvim'
-on_event = 'BufRead'
+on_map = 'Denite'
 depend = 'neoyank.vim'
 [[plugins]]
 repo = 'Shougo/neoyank.vim'
-on_event = 'BufRead'
+on_map = 'Denite'
+[[plugins]]
+repo = 'ozelentok/denite-gtags'
+on_map = 'Denite'
 
 ## On Term Mode
 [[plugins]]
