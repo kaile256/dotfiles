@@ -4,12 +4,6 @@ if !has('gui_running')
   set t_Co=256
 endif
 
-" """ Config jacqusbh/vim-showmarks
-" "augroup show_marks_sync
-" "  autocmd!
-" "  autocmd BufReadPost * silent! DoShowMarks
-" "augroup END
-" 
 "" Config airline.vim
 let g:airline_theme='badwolf'
 "let g:airline#extensions#tabline#enabled = 1
