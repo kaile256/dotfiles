@@ -21,6 +21,9 @@ else
   export VISUAL="$vi"
 fi
 
+## Gtags
+# regard .h-files as cpp-file.
+export GTAGSFORCECPP=1
 
 ## Tmux
 export TMUX="$(which tmux)"
