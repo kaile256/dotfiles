@@ -3,7 +3,7 @@
 "set path+=s:xdg_config_path
 set path+=../**,
 set path+=~/.config/**,
-set path+=~/.cache/nvim/dein/repos/github.com/**,
+"set path+=~/.cache/nvim/dein/repos/github.com/**,
 set path-=**/yarn/**,
 set path-=**/*node*/**,
 
