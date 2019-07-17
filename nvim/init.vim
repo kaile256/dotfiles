@@ -77,15 +77,8 @@ set nofoldenable " マッチした行以外を畳む
 " IME will be off, when lmap is off.
 " lmap supports 3 modes: Insert, Commandline and Lang-Arg.
 set iminsert=0
-"" Tab Char
-augroup SolveTabComplex
-  au!
-  " replace all tab-chars with tab-settings on vimrcs.
-  " if replace spaces, too, ':retab!'.
-  au BufReadPost * retab
-augroup END
 
-"" Insert Tab
+"" Insert Tab-Char
 " insert spaces, instead of a tab-char.
 set expandtab
 " number of spaces, inserted by tab-key, that a tab-char counts for.
