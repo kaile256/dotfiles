@@ -52,8 +52,8 @@ config_list=(
 for cache_pair in ${cache_list[@]}; do
   echo cache_pair | awk -F'[/]' |
   #dest_cache=${XDG_CACHE_HOME}/${cache_dir}
-  export cache_dest=$1 &&
-  export cache_dir=$2
+  #export cache_dest=$1 &&
+  #export cache_dir=$2
 
   #cd ${XDG_CACHE_HOME}
   cd ${cache_dest}
