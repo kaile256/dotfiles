@@ -101,7 +101,7 @@ nnoremap <space> [None]
 
 "" NoHighlight
 " <c-l> is already used by window-leaping.
-nnoremap <silent> <space>nl :noh<cr><c-l>
+nnoremap <silent> <space>nh :noh<cr><c-l>
 
 """" Clipboard
 " registor
