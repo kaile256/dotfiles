@@ -1,6 +1,8 @@
 " git add && commit
-noremap <space>gw :<c-u>Gw<cr>:Gcommit -m''<Left>
+nnoremap <space>gw :<c-u>Gw<cr>:Gcommit -m''<Left>
 " git diff
-noremap <silent> <space>gd :<c-u>Gdiff<cr>
+nnoremap <silent> <space>gd :<c-u>Gdiff<cr>
 " git blame
-noremap <silent> <space>gb :<c-u>Gblame<cr>
+nnoremap <silent> <space>gb :<c-u>Gblame<cr>
+" git status
+nnoremap <silent> <space>gs :<c-u>Gstatus<cr>
