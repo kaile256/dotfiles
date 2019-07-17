@@ -1,4 +1,5 @@
-runtime! dein.vim
+runtime! config.d/*.vim
+runtime! config.d/*.vimrc
 
 "" Encoding
 ""set enc=utf-8
@@ -109,7 +110,7 @@ au! FileType Javascript setlocal shiftwidth=4 tabstop=4 softtabstop=4
 
 "" Visual Mode
 " visualize even if there is no chars.
-"set virtualedit=block
+set virtualedit=block
 
 "" Commandline Mode
 set noshowcmd
@@ -117,3 +118,5 @@ set noshowcmd
 set wildmenu
 set wildmode=list:longest
 "set history=10000
+"set wildoptions=pum
+"set pumblend=20
