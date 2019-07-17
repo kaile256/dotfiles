@@ -17,6 +17,7 @@ fi
 if ! [ -d $XDG_CONFIG_HOME ]; then
   mkdir ${HOME}/.config
 fi
+
 ## Make sure 'dotfiles' are located at supported directory.
 if [ -d "${HOME}/dotfiles" ]; then
   DOTFILES="${HOME}/dotfiles"
@@ -32,7 +33,11 @@ fi
 ## $XDG programs;
 ## activate them, making symbolic links at $XDG_CONFIG_HOME from $DOTFILES.
 echo 'making symbolic links...'
-symlink_list=(
+cache_list=(
+  nvim/backup
+  )
+
+config_list=(
   share
   nvim
   bash
@@ -44,13 +49,27 @@ symlink_list=(
   zsh
 )
 
-for dir in ${symlink_list[@]}; do
-  dest_dir=${XDG_CONFIG_HOME}/${dir}
+for cache_pair in ${cache_list[@]}; do
+  echo cache_pair | awk -F'[/]' |
+  #dest_cache=${XDG_CACHE_HOME}/${cache_dir}
+  export cache_dest=$1 &&
+  export cache_dir=$2
 
-  cd ${XDG_CONFIG_HOME}
-  ln -nsf ${DOTFILES}/${dir}
+  #cd ${XDG_CACHE_HOME}
+  cd ${cache_dest}
+  ln -nsf ${DOTFILES}/cache/${cache_pair}
   
-  echo "Done! The setting files of ${dir} are linked at ${XDG_CONFIG_HOME}"
+  echo "Done! The cache files of ${cache_pair} are linked at ${XDG_CACHE_HOME}"
+done
+
+for config_dir in ${config_list[@]}; do
+  config_dest=${XDG_CONFIG_HOME}/${config_dir}
+
+  #TODO: destinations should be decided like from directory.
+  cd ${XDG_CONFIG_HOME}/nvim
+  ln -nsf ${DOTFILES}/${config_dir}
+  
+  echo "Done! The config files of ${config_dir} are linked at ${XDG_CONFIG_HOME}"
 done
 
 echo ""
