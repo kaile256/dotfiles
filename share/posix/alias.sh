@@ -1,5 +1,3 @@
-unalias vi
-
 alias svn='svn --config-dir "$XDG_CONFIG_HOME"/subversion'
 alias tmux='tmux -f "$XDG_CONFIG_HOME"/tmux/tmux.conf'
 alias wget='wget --hsts-file="$XDG_CACHE_HOME/wget-hsts'
