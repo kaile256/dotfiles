@@ -43,33 +43,33 @@ noremap g# g#zz
 """ Pane: move
 " CAUTION: i_alt-hjkl would be useful as <esc>hjkl.
 " move between panes
-nnoremap <c-h>      <c-w>h
-nnoremap <c-j>      <c-w>j
-nnoremap <c-k>      <c-w>k
-nnoremap <c-l>      <c-w>l
+nnoremap <c-h> <c-w>h
+nnoremap <c-j> <c-w>j
+nnoremap <c-k> <c-w>k
+nnoremap <c-l> <c-w>l
 
 " avoid stack on command-line
 cnoremap <c-k> <c-c>
 
 " resize window by cursor keys
 " move window itself
-nnoremap <c-w>h     <c-w>H
-nnoremap <c-w>j     <c-w>J
-nnoremap <c-w>k     <c-w>K
-nnoremap <c-w>l     <c-w>L
+nnoremap <c-w>h <c-w>H
+nnoremap <c-w>j <c-w>J
+nnoremap <c-w>k <c-w>K
+nnoremap <c-w>l <c-w>L
 
 """ Pane:resize
-nnoremap <left>     <c-w>>
-nnoremap <down>     <c-w>-
-nnoremap <up>       <c-w>+
-nnoremap <right>    <c-w><
+nnoremap <left>  <c-w>>
+nnoremap <down>  <c-w>-
+nnoremap <up>    <c-w>+
+nnoremap <right> <c-w><
 " another-resize commands
-nnoremap <a->>      <c-w>>
-nnoremap <a-->      <c-w>-
-nnoremap <a-+>      <c-w>+
-nnoremap <a-<>      <c-w><
+nnoremap <a->> <c-w>>
+nnoremap <a--> <c-w>-
+nnoremap <a-+> <c-w>+
+nnoremap <a-<> <c-w><
 " agressive resize
-nnoremap <c-w>m     <c-w>_
+nnoremap <c-w>m <c-w>_
 nnoremap <c-w><c-m> <c-w>_<c-w>|
 "nnoremap <c-w><s-M>     <c-w>_<c-w>|
 " neutralize
