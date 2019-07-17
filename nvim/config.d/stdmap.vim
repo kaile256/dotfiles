@@ -100,7 +100,8 @@ endif
 nnoremap <space> [None]
 
 "" NoHighlight
-nnoremap <silent> <c-l> :noh<cr><c-l>
+" <c-l> is already used by window-leaping.
+nnoremap <silent> <space>nl :noh<cr><c-l>
 
 """" Clipboard
 " registor
