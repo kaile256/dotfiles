@@ -1,3 +1,4 @@
+nnoremap <space> [None]
 
 "" NoHighlight
 nnoremap <silent> <c-l> :noh<cr><c-l>
