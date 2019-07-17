@@ -54,6 +54,9 @@ on_event = 'BufRead'
 
 ## Jump
 [[plugins]]
+repo = 'jremmen/vim-ripgrep'
+on_map = 'Rg*'
+[[plugins]]
 repo = 'justinmk/vim-sneak'
 on_map = '<Plug>'
 depend = 'vim-repeat'
