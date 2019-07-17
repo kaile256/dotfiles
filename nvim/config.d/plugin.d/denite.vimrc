@@ -24,3 +24,7 @@ if executable('rg')
         \ ['rg', '--files', '--glob', '!.git'])
   call dein#custom#var('grep', 'command', ['rg'])
 endif
+
+
+""" Gtags
+
