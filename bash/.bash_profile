@@ -22,15 +22,15 @@ if [ -d "$HOME/.local/bin" ] ; then
 fi
 
 ### Env
-export DISPLAY="localhost:0.0"
+#export DISPLAY="localhost:0.0"
 export TERM="xterm-256color"
 
 ## Tmux
 export TMUX="$(which tmux)"
-# location: tmuxinator's config
-if [ -d ${XDG_CONFIG_HOME}/tmux/tmuxinator ]; then
-  export TMUXINATOR_CONFIG="${XDG_CONFIG_HOME}/tmux/tmuxinator"
-fi
+## location: tmuxinator's config
+#if [ -d ${XDG_CONFIG_HOME}/tmux/tmuxinator ]; then
+#  export TMUXINATOR_CONFIG="${XDG_CONFIG_HOME}/tmux/tmuxinator"
+#fi
 
 ## Vim/Neovim
 vim="$(which vim)"
