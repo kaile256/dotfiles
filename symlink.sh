@@ -12,45 +12,45 @@ XDG_CONFIG_HOME="${HOME}/.config"
 POSIX_SHARE="${XDG_CONFIG_HOME}/share/posix"
 
 if ! [ -d $XDG_CACHE_HOME ]; then
-	mkdir ${HOME}/.cache
+  mkdir ${HOME}/.cache
 fi
 if ! [ -d $XDG_CONFIG_HOME ]; then
-	mkdir ${HOME}/.config
+  mkdir ${HOME}/.config
 fi
 ## Make sure 'dotfiles' are located at supported directory.
 if [ -d "${HOME}/dotfiles" ]; then
-	DOTFILES="${HOME}/dotfiles"
+  DOTFILES="${HOME}/dotfiles"
 
-	elif [ -d "${HOME}/.cache/dotfiles" ]; then
-		DOTFILES="${HOME}/.cache/dotfiles"
+  elif [ -d "${HOME}/.cache/dotfiles" ]; then
+    DOTFILES="${HOME}/.cache/dotfiles"
 
-	else 
-		echo "Please clone dotfiles either at ${HOME} or ${XDG_CACHE_HOME}"
-		exit 1
+  else 
+    echo "Please clone dotfiles either at ${HOME} or ${XDG_CACHE_HOME}"
+    exit 1
 fi
 
 ## $XDG programs;
 ## activate them, making symbolic links at $XDG_CONFIG_HOME from $DOTFILES.
 echo 'making symbolic links...'
 symlink_list=(
-	share
-	nvim
-	bash
-	fish
-	tmux
-	ctags
-	git
-	w3m
-	zsh
+  share
+  nvim
+  bash
+  fish
+  tmux
+  ctags
+  git
+  w3m
+  zsh
 )
 
 for dir in ${symlink_list[@]}; do
-	dest_dir=${XDG_CONFIG_HOME}/${dir}
+  dest_dir=${XDG_CONFIG_HOME}/${dir}
 
-	cd ${XDG_CONFIG_HOME}
-	ln -nsf ${DOTFILES}/${dir}
-	
-	echo "Done! The setting files of ${dir} are linked at ${XDG_CONFIG_HOME}"
+  cd ${XDG_CONFIG_HOME}
+  ln -nsf ${DOTFILES}/${dir}
+  
+  echo "Done! The setting files of ${dir} are linked at ${XDG_CONFIG_HOME}"
 done
 
 echo ""
@@ -79,15 +79,15 @@ echo "Done! Made a symbolic link for git!"
 ## Directories
 # W3m
 ln -nsf ${XDG_CONFIG_HOME}/w3m .w3m
-echo "Done! Made a symbolic link for w3m browser!"
+echo "Done! Made a symbolic link for w3m!"
 # Vim
 #if [ -d ${HOME}/.vim ]; then
-#	rm -rf  ${HOME}/.vim
-#	echo "Deleted old .vim-dir!"
+# rm -rf  ${HOME}/.vim
+# echo "Deleted old .vim-dir!"
 #fi
 if [ -f ${HOME}/.vim/.netrwhist ]; then
-	rm ${HOME}/.vim/.netrwhist
-	rm -rf  ${HOME}/.vim
+  rm ${HOME}/.vim/.netrwhist
+  rm -rf  ${HOME}/.vim
 fi
 ln -nsfT ${XDG_CONFIG_HOME}/nvim .vim
 ln -nsfT ${XDG_CONFIG_HOME}/zsh/zplugin/zshenv_zplugin .zshenv
