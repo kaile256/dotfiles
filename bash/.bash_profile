@@ -8,8 +8,7 @@ umask 002
 
 ## source shared config
 POSIX_SHARE=$HOME/.config/share/posix
-source ${POSIX_SHARE}/env.sh
-source ${POSIX_SHARE}/alias.sh
+source ${POSIX_SHARE}/*.sh
 
 #### ENVIROMENT VARIABLE
 export HISTFILE="$XDG_DATA_HOME"/bash/history
