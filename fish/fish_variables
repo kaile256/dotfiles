@@ -7,19 +7,12 @@ SETUVAR FZF_PREVIEW_DIR_CMD:ls
 SETUVAR FZF_PREVIEW_FILE_CMD:head\x20\x2dn\x2010
 SETUVAR FZF_TMUX_HEIGHT:40\x25
 SETUVAR TERM:screen\x2d256color
-SETUVAR --export XDG_CACHE_HOME:/home/kaile256/\x2ecache
-SETUVAR --export XDG_CONFIG_HOME:/home/kaile256/\x2econfig
 SETUVAR ZO_CMD:zo
 SETUVAR Z_CMD:z
-SETUVAR Z_DATA:/home/kaile256/\x2elocal/share/z/data
-SETUVAR Z_DATA_DIR:/home/kaile256/\x2elocal/share/z
-SETUVAR Z_EXCLUDE:/home/kaile256
 SETUVAR __fish_init_2_39_8:\x1d
 SETUVAR __fish_init_2_3_0:\x1d
 SETUVAR __fish_init_3_x:\x1d
-SETUVAR _fish_abbr_note:nvim\x20/home/kaile256/CloudNote
 SETUVAR _fish_abbr_ti:nvim\x20\x2dc\x20\x22\x3ate\x22
-SETUVAR _fish_abbr_vimrc:nvim\x20/home/kaile256/dotfiles/nvim/tmp\x2evimrc
 SETUVAR _fish_abbr_wd:w3m\x20https\x3a//duckduckgo\x2ecom/
 SETUVAR fish_color_autosuggestion:FFC473
 SETUVAR fish_color_cancel:\x2dr
