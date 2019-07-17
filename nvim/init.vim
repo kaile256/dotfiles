@@ -54,6 +54,8 @@ set nobackup
 set nowritebackup
 set noswapfile
 set hidden
+set undofile
+set undodir=~/.cache/nvim/backup/undo.vim
 
 "" Statusbar
 set title
