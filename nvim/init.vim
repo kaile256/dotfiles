@@ -79,7 +79,7 @@ augroup SolveTabComplex
   au!
   " replace all tab-chars with tab-settings on vimrcs.
   " if replace spaces, too, ':retab!'.
-  au BufReadPre * retab
+  au BufReadPost * retab
 augroup END
 
 "" Insert Tab
