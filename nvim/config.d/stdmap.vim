@@ -146,10 +146,10 @@ nnoremap <space>bc :tabclose<cr>
 
 """ Terminal
 if has('nvim')
-  nnoremap <silent> <space>te :<c-u>        :te<cr>i
-  nnoremap <silent> <space>ts :<C-u>sp<CR>  :te<CR>i
-  nnoremap <silent> <space>tv :<C-u>vs<CR>  :te<CR>i
-  nnoremap <silent> <space>tb :<C-u>tabe<CR>:te<CR>i
+  nnoremap <silent> <space>te :<c-u>        :te<cr>
+  nnoremap <silent> <space>ts :<C-u>sp<CR>  :te<CR>
+  nnoremap <silent> <space>tv :<C-u>vs<CR>  :te<CR>
+  nnoremap <silent> <space>tb :<C-u>tabe<CR>:te<CR>
 endif
 
 """" ALT
