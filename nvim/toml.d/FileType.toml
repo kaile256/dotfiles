@@ -5,6 +5,9 @@
 repo = 'tpope/vim-fugitive'
 on_event = 'VimEnter'
 type = 'git'
+hook_add = '''
+  source g:plugin_conf_dir . '/fugitive.vimrc'
+  '''
 [[plugins]]
 repo = 'gregsexton/gitv'
 on_event = 'VimEnter'
@@ -25,6 +28,9 @@ repo = 'Shougo/neosnippet.vim'
 on_event = 'InsertEnter'
 on_ft = 'snippet'
 depends = 'neosnippet-snippets'
+hook_add = '''
+  source g:plugin_conf_dir . '/neosnippet.vimrc'
+  '''
 
 #### Language Support
 ### Python
