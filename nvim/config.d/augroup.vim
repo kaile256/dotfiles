@@ -2,18 +2,17 @@
 "  au! VimEnter,InsertEnter,WinEnter * checktime
 "augroup END
 
+""" Cursor Position
 augroup KeepLastCursor
   au!
   au VimLeavePre * exe "normal mp"
   au VimLeavePre * exe "normal mP"
 augroup END
-
-augroup ResizeIndent
-  au!
-  au FileType Javascript setlocal shiftwidth=4 tabstop=4 softtabstop=4
-  au FileType Ruby       setlocal shiftwidth=2 tabstop=2 softtabstop=2
-  au FileType Python     setlocal shiftwidth=2 tabstop=2 softtabstop=2
-augroup END
+"augroup CursorlineOnlyOnActiveWindow
+"  au!
+"  au VimEnter,BufWinEnter,WinEnter * setlocal cursorline
+"  au WinLeave * setlocal nocursorline
+"augroup END
 
 "" Read only
 augroup AlertReadOnly
@@ -33,9 +32,12 @@ augroup RetabToSpaces
   endif
 augroup END
 
-""" QuickFix
-augroup QuickFixModifiable
-  au! QuickFixCmdPost * setlocal modifiable
+""" Indent
+augroup ResizeIndent
+  au!
+  au FileType Javascript setlocal shiftwidth=4 tabstop=4 softtabstop=4
+  au FileType Ruby       setlocal shiftwidth=2 tabstop=2 softtabstop=2
+  au FileType Python     setlocal shiftwidth=2 tabstop=2 softtabstop=2
 augroup END
 
 """ Grep
@@ -46,6 +48,11 @@ augroup END
 """ Git
 augroup GItSpellCheck
   au! FileType gitcommit setlocal spell
+
+""" QuickFix
+augroup QuickFixModifiable
+  au! QuickFixCmdPost * setlocal modifiable
+augroup END
 
 """ Terminal
 if has('nvim' || 'terminal')
