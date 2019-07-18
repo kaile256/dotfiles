@@ -1,3 +1,9 @@
+"" IME
+" 0: IME will be off, when lmap is off.
+" lmap supports 3 modes: Insert, Commandline and Lang-Arg.
+inoremap <esc> <esc>:set iminsert=0<cr>
+lnoremap <cr>  <cr>:set imsearch=0<cr>
+
 """" Tag
 " when there are multiple tags, show list of tags.
 nnoremap <c-]> g<c-]>
@@ -134,10 +140,10 @@ nnoremap <space>bc :tabclose<cr>
 "" Dot-Repeat
 "" CAUTION: Never careless mapping on <a-hjkl>
 "" Window Leap
-inoremap <a-c-h> <c-w>h
-inoremap <a-c-j> <c-w>j
-inoremap <a-c-k> <c-w>k
-inoremap <a-c-l> <c-w>l
+inoremap <a-c-h> <esc><c-w>h
+inoremap <a-c-j> <esc><c-w>j
+inoremap <a-c-k> <esc><c-w>k
+inoremap <a-c-l> <esc><c-w>l
 
 "" Jump
 nnoremap <a-;> ;.
