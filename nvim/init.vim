@@ -100,8 +100,6 @@ set shiftwidth=2
 set smarttab
 " for '<' & '>' indent, insert spaces according to shiftwidth.
 set shiftround
-" specific indent setting for Javascript
-au! FileType Javascript setlocal shiftwidth=4 tabstop=4 softtabstop=4
 
 "" Visual Mode
 " visualize even if there is no chars.
