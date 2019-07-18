@@ -12,13 +12,6 @@ set ambiwidth=double
 
 "" GUI
 set number " show line number on left
-"if has('nvim')
-"  augroup noNumOnTermMode
-"    au!
-"    au TermOpen * set nonumber 
-"    au TermClose * set number
-"  augroup END
-"endif
 
 " show match parens.
 set showmatch
