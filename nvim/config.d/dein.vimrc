@@ -6,9 +6,12 @@ if &compatible
 endif
 
 "" The Path, dein.vim is installed.
+let s:dein_cache_dir = '~/.cache/nvim/dein'
+let s:dein_itself= s:dein_cache_dir . '/dein/repos/github.com/Shougo/dein.vim'
 set rtp+=~/.cache/nvim/dein/repos/github.com/Shougo/dein.vim
 
-let s:dein_cache_dir = '~/.cache/nvim/dein'
+"if ! isdirectory(s:dein_itself)
+"endif
 
 " dein#load_state includes 'set filetype off';
 " so 'set filetype on' after load dein & plugins.
