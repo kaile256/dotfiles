@@ -2,7 +2,9 @@
 [[plugins]]
 repo = 'Shougo/denite.nvim'
 on_map = 'Denite'
-hook_add = 'runtime! denite.vimrc'
+hook_add = '''
+  if exists('expand("g:python3_host_prog")') | runtime! denite.vimrc | endif
+  '''
 [[plugins]]
 repo = 'Shougo/neoyank.vim'
 on_map = 'Denite'
@@ -57,7 +59,9 @@ on_event = 'BufRead'
 [[plugins]]
 repo = 'jremmen/vim-ripgrep'
 on_map = 'Rg'
-hook_add = ' runtime! ripgrep.vimrc'
+hook_add = '''
+  if exists('expand("g:python3_host_prog")') | runtime! ripgrep.vimrc | endif
+  '''
 [[plugins]]
 repo = 'justinmk/vim-sneak'
 on_map = '<Plug>'
