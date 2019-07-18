@@ -25,6 +25,8 @@ nnoremap <c-g> ge
 xnoremap <c-g> ge
 "" Kill Ambiguities
 nnoremap Y y$
+nnoremap q: :q
+nnoremap q; q:
 
 """ Buffer
 " jump to last buffer.
