@@ -18,7 +18,7 @@
 
 "" Read only
 augroup AlertReadOnly
-  au! BufReadPost,BufEnter * \
+  au! BufReadPost,BufEnter *
   " inactive this function on :help.
   if &readonly && &modifiable
     colorscheme morning
@@ -28,7 +28,7 @@ augroup END
 augroup RetabToSpaces
   " replace all tab-chars with tab-settings on vimrcs.
   " :retab!; if replace spaces, too.
-  au! BufReadPost,BufEnter * \
+  au! BufReadPost,BufEnter *
   if ! &readonly || &modifiable
     retab
   endif
