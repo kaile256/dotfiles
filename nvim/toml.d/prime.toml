@@ -1,6 +1,10 @@
 #### Required
 [[plugins]]
 repo = 'Shougo/dein.vim'
+hook_add = '''
+  " source plugins configs after dein activates.
+  runtime! config.d/plugin.d/**.vimrc
+  '''
 
 ### Async Processor
 [[plugins]]
