@@ -1,20 +1,16 @@
-"au! BufReadPost,BufEnter * call AlertReadOnly()
-"au! BufReadPost,BufEnter * call RetabToSpaces()
-"
-"function AlertReadOnly()
-"  " inactive this function on :help.
-"  if &readonly && &buftype ==# ""
-"    colorscheme morning
-"  endif
-"endfunction
-" 
-"function RetabToSpaces()
-"    " replace all tab-chars with tab-settings on vimrcs.
-"    " if replace spaces, too, ':retab!'.
-"  if ! &readonly || &modifiable
-"    retab
-"  endif
-"endfunction
+"augroup CheckStartTime
+"  au! VimEnter,InsertEnter,WinEnter * checktime
+"augroup END
+
+augroup KeepLastCursor
+  au!
+  au VimLeavePre * exe "normal mp"
+  au VimLeavePre * exe "normal mP"
+augroup END
+
+augroup ResizeIndent
+  au! FileType Javascript setlocal shiftwidth=4 tabstop=4 softtabstop=4
+augroup END
 
 "" Read only
 augroup AlertReadOnly
@@ -34,6 +30,16 @@ augroup RetabToSpaces
   endif
 augroup END
 
+""" QuickFix
+augroup QuickFixModifiable
+  au! QuickFixCmdPost * set modifiable
+augroup END
+
+""" Grep
 augroup GrepOnQuickfix
   au! QuickFixCmdPost *grep* cwindow
 augroup END
+
+""" Git
+augroup GItSpellCheck
+  au! FileType gitcommit setlocal spell
