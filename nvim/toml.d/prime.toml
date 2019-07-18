@@ -3,7 +3,7 @@
 repo = 'Shougo/dein.vim'
 hook_add = '''
   " source plugins configs after dein activates.
-  runtime! config.d/plugin.d/**.vimrc
+  let g:plugin_config = $HOME/.config/nvim/config.d/plugin.d
   '''
 
 ### Async Processor
