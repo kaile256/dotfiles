@@ -20,9 +20,9 @@ noremap <silent> <space>d- :<C-u>Denite -resume -immediately -select=-1<CR>
 "
 " Ripgrep: replace default grep
 if executable('rg')
-  call dein#custom#var('file_rec', 'command',
+  call denite#custom#var('file_rec', 'command',
         \ ['rg', '--files', '--glob', '!.git'])
-  call dein#custom#var('grep', 'command', ['rg'])
+  call denite#custom#var('grep', 'command', ['rg'])
 endif
 
 
