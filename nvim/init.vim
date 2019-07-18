@@ -1,5 +1,5 @@
-runtime! config.d/*.vim
-runtime! config.d/*.vimrc
+" write in *.vimrc for the config dependent on plugins.
+runtime! config.d/**/*.vim
 
 "" Encoding
 ""set enc=utf-8
