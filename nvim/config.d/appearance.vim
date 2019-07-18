@@ -20,7 +20,7 @@ set list
 "" extends: when window-width omits on right end.
 "" precedes: when window-width omits on left.
 "" nbsp: for space
-set listchars=tab:»-,trail:-,eol:↲,extends:»,precedes:«,nbsp:%
+"set listchars=tab:»-,trail:-,eol:↲,extends:»,precedes:«,nbsp:%
 
 "" Multiple Windows
 set splitbelow
