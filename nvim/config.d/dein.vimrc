@@ -44,6 +44,3 @@ endif
 
 filetype plugin indent on
 syntax enable  " on は設定を無視して構文ハイライトする
-
-" managed plugins options should be loaded after dein activates
-runtime! config.d/plugin.d/**.vimrc
