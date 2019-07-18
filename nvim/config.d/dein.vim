@@ -6,15 +6,24 @@ if &compatible
 endif
 
 "" The Path, dein.vim is installed.
-let s:dein_cache_dir = '~/.cache/nvim/dein'
-let s:dein_itself= s:dein_cache_dir . '/dein/repos/github.com/Shougo/dein.vim'
-set rtp+=~/.cache/nvim/dein/repos/github.com/Shougo/dein.vim
 
 "if ! isdirectory(s:dein_itself)
 "endif
 
 " dein#load_state includes 'set filetype off';
 " so 'set filetype on' after load dein & plugins.
+
+let s:xdg_cache_home = empty($XDG_CACHE_HOME) ? expand('~/.cache') : $XDG_CACHE_HOME
+let s:dein_cache_dir = s:xdg_cache_home . '/dein'
+let s:dein_itself= s:dein_cache_dir . '/repos/github.com/Shougo/dein.vim'
+
+"" Auto-Install
+if ! isdirectory(s:dein_itself)
+  call system('git clone https://github.com/Shougo/dein.vim ' . shellescape(s:dein_itself))
+endif
+
+set rtp+=~/.cache/nvim/dein/repos/github.com/Shougo/dein.vim
+
 if dein#load_state(s:dein_cache_dir)
   call dein#begin(s:dein_cache_dir)
 
