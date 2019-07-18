@@ -19,6 +19,13 @@ repo = 'mhinz/neovim-remote'
 on_event = 'TermOpen'
 
 #### Smooth Edit 
+### QuickRun
+[[plugins]]
+repo = 'neomake/neomake'
+if = 'version >= 800'
+hook_add = 'runtime! neomake'
+on_map = 'make'
+
 ### Template
 [[plugins]]
 repo = 'mattn/sonictemplate-vim'
