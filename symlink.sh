@@ -34,7 +34,7 @@ fi
 ## activate them, making symbolic links at $XDG_CONFIG_HOME from $DOTFILES.
 echo 'making symbolic links...'
 cache_list=(
-  nvim/*
+  nvim/backup
   )
 
 config_list=(
@@ -55,7 +55,7 @@ for cache_pair in ${cache_list[@]}; do
   #export cache_dest=$1 &&
   #export cache_dir=$2
 
-  cd ${XDG_CACHE_HOME}/${cache_pair}
+  cd ${XDG_CACHE_HOME}/nvim
   #cd ${cache_dest}
   ln -nsf ${DOTFILES}/cache/${cache_pair}
   
