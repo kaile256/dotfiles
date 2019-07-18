@@ -19,11 +19,11 @@ if dein#load_state(s:dein_cache_dir)
   call dein#begin(s:dein_cache_dir)
 
   " list of plugins in toml, which dein manages.
-  let s:dein_toml_dir     = '~/.config/nvim/toml.d'
+  let s:dein_toml_dir     = '~/.config/nvim/config.d/toml.d'
 
-  let s:dein_toml         = s:dein_toml_dir . '/prime.toml'
-  let s:dein_VimEnter_toml= s:dein_toml_dir . '/VimEnter.toml'
-  let s:dein_FileType_toml= s:dein_toml_dir . '/FileType.toml'
+  let s:dein_toml         = s:dein_toml_dir . '/Prime.toml'
+  let s:dein_VimEnter_toml= s:dein_toml_dir . '/lazy.toml'
+  let s:dein_FileType_toml= s:dein_toml_dir . '/filetype.toml'
 
   " cache the plugin repositorys, listed in toml.
   call dein#load_toml(s:dein_toml,          {'lazy': 0})
