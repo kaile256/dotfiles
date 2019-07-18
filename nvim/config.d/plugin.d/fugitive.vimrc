@@ -13,3 +13,5 @@ nnoremap <silent> <space>gpl :<c-u>Gpull
 " push
 nnoremap <silent> <space>gps :<c-u>Gpush 
 
+" grep
+nnoremap <space>gg :<c-u>Ggrep 
