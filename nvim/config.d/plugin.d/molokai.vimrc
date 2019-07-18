@@ -10,10 +10,10 @@ if has('nvim')
   " make highlight clear on molokai.
   augroup myMolokai
     autocmd!
-    autocmd VimEnter * hi Search               ctermbg=155
-    autocmd VimEnter * hi Comment ctermfg=245
-    autocmd VimEnter * hi Number  ctermfg=245
-    autocmd VimEnter * hi Visual               ctermbg=227
+    autocmd ColorScheme * hi Search               ctermbg=155
+    autocmd ColorScheme * hi Comment ctermfg=245
+    autocmd ColorScheme * hi Number  ctermfg=245
+    autocmd ColorScheme * hi Visual               ctermbg=227
   augroup END
 
   "" when solarized theme
