@@ -55,8 +55,8 @@ for cache_pair in ${cache_list[@]}; do
   #export cache_dest=$1 &&
   #export cache_dir=$2
 
-  #cd ${XDG_CACHE_HOME}
-  cd ${cache_dest}
+  cd ${XDG_CACHE_HOME}/nvim
+  #cd ${cache_dest}
   ln -nsf ${DOTFILES}/cache/${cache_pair}
   
   echo "Done! The cache files of ${cache_pair} are linked at ${XDG_CACHE_HOME}"
@@ -66,7 +66,7 @@ for config_dir in ${config_list[@]}; do
   config_dest=${XDG_CONFIG_HOME}/${config_dir}
 
   #TODO: destinations should be decided like from directory.
-  cd ${XDG_CONFIG_HOME}/nvim
+  cd ${XDG_CONFIG_HOME}
   ln -nsf ${DOTFILES}/${config_dir}
   
   echo "Done! The config files of ${config_dir} are linked at ${XDG_CONFIG_HOME}"
