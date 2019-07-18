@@ -10,13 +10,13 @@ set fenc=utf-8
 scriptencoding utf-8
 set ambiwidth=double
 
-"" GUI
+"" UI
 set number " show line number on left
 
 " show match parens.
 set showmatch
 " add '<' and '>' as a match pair
-set matchpairs& matchpairs+=<:>
+set matchpairs+=<:>
 " wrap long text.
 set wrap
 " show space and CR
