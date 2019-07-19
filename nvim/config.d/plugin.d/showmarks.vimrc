@@ -13,8 +13,7 @@ noremap <silent> ` :<c-u>ShowMarksOnce<cr>`
 noremap <silent> ' :<c-u>ShowMarksOnce<cr>'
 noremap <silent> m :<c-u>ShowMarksOnce<cr>m
 
-" "augroup show_marks_sync
-" "  autocmd!
-" "  autocmd BufReadPost * silent! DoShowMarks
-" "augroup END
-" 
+augroup MarkWithCursor
+  autocmd! WinEnter,BufWinEnter * silent! :<c-u>ShowMarksOnce<cr>
+augroup END
+
