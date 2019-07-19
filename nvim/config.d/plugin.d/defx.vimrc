@@ -1,5 +1,5 @@
 "" TODO: show sym-links.
-"""" Config
+"""" CONFIG
 " when buffer-name is '_', the options are used fpr all buffers.
 call defx#custom#option('_',{
  \ 'show_ignored_files': 0,
@@ -25,7 +25,7 @@ let g:defx_git#indicators = {
       \ 'Unknown'   : '?'
       \ }
 
-"""" Keymap
+"""" KEYMAP
 """ Open Preceding Tree
 " type '-' to parent dir
 nmap <silent> <space>- :<c-u>Defx `expand('%:p:h')` -search=`expand('%:p')`<cr>
