@@ -10,7 +10,7 @@ xnoremap <space>p "+p
 nnoremap <space>P "+P
 xnoremap <space>P "+P
 
-"" Registor
+"" Register
 nnoremap <a-x> "_x
 nnoremap <a-d> "_d
 nnoremap <a-D> "_D
