@@ -1,5 +1,6 @@
 " write in *.vimrc for the config dependent on plugins.
 runtime! config.d/**/*.vim
+runtime! config.d/**/*.vimap
 
 "" Backup
 set nobackup
@@ -31,7 +32,7 @@ set autoindent
 " copy indent dependent on last char of current line.
 set smartindent
 " indent setting for c-lang.
-"set cindent
+set cindent
 
 " number of spaces inserted by autoindent.
 set shiftwidth=2
