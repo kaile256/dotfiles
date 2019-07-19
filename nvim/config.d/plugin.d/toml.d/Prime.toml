@@ -28,9 +28,9 @@ hook_add = '''
   '''
 
 ### Start Page
-[[plugins]]
-repo = 'mhinz/vim-startify'
-hook_add = 'runtime! startify.vimrc'
+#[[plugins]]
+#repo = 'mhinz/vim-startify'
+#hook_add = 'runtime! startify.vimrc'
 
 ### Filer
 [[plugins]]
