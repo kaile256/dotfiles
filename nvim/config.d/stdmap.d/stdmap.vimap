@@ -5,14 +5,12 @@ inoremap <silent> <esc> <esc>:set iminsert=0<cr>
 lnoremap <silent> <cr>  <cr>:set imsearch=0<cr>
 
 """" NormalMode
+""" SPACE
+nnoremap <space> [None]
 "" Kill Ambiguities
 nnoremap Y y$
 nnoremap q: :q
 nnoremap q; q:
-
-""" Buffer
-" jump to last buffer.
-nnoremap <a-o> <c-^>
 
 """" Window
 """" hjkl
@@ -28,14 +26,6 @@ nnoremap gk k
 xnoremap gj j
 xnoremap gk k
 
-""" Jump
-" jump to 1/4 or 3/4 posionsion of current window.
-nnoremap gh :<c-r>= (line('w$')/4 + line('w0')*3/4)<cr><cr>
-nnoremap gl :<c-r>= (line('w0')/4 + line('w$')*3/4)<cr><cr>
-
-" easier
-nnoremap <c-6> <c-^>
-
 """ Research
 " find researched word at middle
 noremap n  nzz
@@ -46,22 +36,10 @@ noremap g* g*zz
 noremap g# g#zz
 
 """" PANE
-"""" Tag
-" when there are multiple tags, show list of tags.
-nnoremap <c-]> g<c-]>
 """ Insert Mode
 """ back to normal mode, typing j&k simultaneously.
-"inoremap jk <Esc>
-"inoremap kj <Esc>
-
-""" Tab Page
-" send current tab to left.
-nnoremap <a-h> gt
-" send current tab to right.
-nnoremap <a-l> gT
-
-"""" SPACE
-nnoremap <space> [None]
+inoremap jk <Esc>
+inoremap kj <Esc>
 
 "" NoHighlight
 " <c-l> is already used by window-leaping.
@@ -69,24 +47,27 @@ nnoremap <silent> <space>nh :noh<cr><c-l>
 
 """ Write&Quit
 " w! write even read-only file.
-nnoremap <space>w :<c-u>w<CR>
-nnoremap <space>q :<c-u>q<CR>
-nnoremap <space>* :<c-u>qa<CR>
-nnoremap <space>8 :<c-u>qa<CR>
+nnoremap <space>w :<c-u>w<cr>
+nnoremap <space>q :<c-u>q<cr>
+nnoremap <space>2 :<c-u>w!<cr>
+nnoremap <space>1 :<c-u>q!<cr>
+
+nnoremap <space>* :<c-u>qa<cr>
+nnoremap <space>8 :<c-u>qa<cr>
 nnoremap <space>! :w !sudo tee % > /dev/null<cr> <bar> edit!
 
-"""" ACCESS
-"" Ready to edit
-nnoremap <space><space>e :<c-u>e 
-nnoremap <space><space>v :<c-u>vs 
-nnoremap <space><space>s :<c-u>sp 
-nnoremap <space><space>b :<c-u>tabe 
+"" Tab Page
+nnoremap <silent> <c-p> :tabprevious<cr>
+nnoremap <silent> <c-n> :tabnext<cr>
+nnoremap <silent> [t :tabprevious<cr>
+nnoremap <silent> ]t :tabnext<cr>
 
-""" Tab Page
-nnoremap <space>bp :tabprevious<cr>
-nnoremap <space>bn :tabnext<cr>
-nnoremap <space>bo :tabonly<cr>
-nnoremap <space>bc :tabclose<cr>
+"" QuickFix
+nnoremap <silent> <space>co :copen<cr>
+nnoremap <silent> [c :cprevious<cr>
+nnoremap <silent> ]c :cnext<cr>
+nnoremap <silent> [q :cprevious<cr>
+nnoremap <silent> ]q :cnext<cr>
 
 """" ALT
 """ ADVANCED
@@ -96,22 +77,16 @@ nnoremap <space>bc :tabclose<cr>
 nnoremap <a-;> ;.
 nnoremap <a-n> n.
 
-"" Registor
-nnoremap <a-x> "_x
-nnoremap <a-d> "_d
-nnoremap <a-D> "_D
-nnoremap <a-c> "_c
-nnoremap <a-C> "_C
-
 "" Checkhealth
 if has('nvim')
-  noremap <a-c><a-h> :<c-u>checkhealth<cr>
-  noremap <a-c>h :<c-u>checkhealth<cr>
-  cnoremap <a-c><a-h> :<c-u>checkhealth<cr>
-  cnoremap <a-c>h :<c-u>checkhealth<cr>
+   noremap <silent> <a-c><a-h> :<c-u>checkhealth<cr>
+   noremap <silent> <a-c>h :<c-u>checkhealth<cr>
+  cnoremap <silent> <a-c><a-h> :<c-u>checkhealth<cr>
+  cnoremap <silent> <a-c>h :<c-u>checkhealth<cr>
 endif
+
 "" Reload init.vim
-noremap <a-s><a-o> :<c-u>so $XDG_CONFIG_HOME/nvim/init.vim<CR>
-noremap <a-s>o :<c-u>so $XDG_CONFIG_HOME/nvim/init.vim<CR>
+ noremap <a-s><a-o> :<c-u>so $XDG_CONFIG_HOME/nvim/init.vim<CR>
+ noremap <a-s>o :<c-u>so $XDG_CONFIG_HOME/nvim/init.vim<CR>
 cnoremap <a-s><a-o> :<c-u>so $XDG_CONFIG_HOME/nvim/init.vim<CR>
 cnoremap <a-s>o :<c-u>so $XDG_CONFIG_HOME/nvim/init.vim<CR>
