@@ -1,8 +1,8 @@
 "" IME
 " 0: IME will be off, when lmap is off.
 " lmap supports 3 modes: Insert, Commandline and Lang-Arg.
-inoremap <esc> <esc>:set iminsert=0<cr>
-lnoremap <cr>  <cr>:set imsearch=0<cr>
+inoremap <silent> <esc> <esc>:set iminsert=0<cr>
+lnoremap <silent> <cr>  <cr>:set imsearch=0<cr>
 
 """" NormalMode
 "" Kill Ambiguities
@@ -32,6 +32,9 @@ xnoremap gk k
 " jump to 1/4 or 3/4 posionsion of current window.
 nnoremap gh :<c-r>= (line('w$')/4 + line('w0')*3/4)<cr><cr>
 nnoremap gl :<c-r>= (line('w0')/4 + line('w$')*3/4)<cr><cr>
+
+" easier
+nnoremap <c-6> <c-^>
 
 """ Research
 " find researched word at middle
