@@ -16,7 +16,7 @@ augroup END
 
 "" Read only
 augroup AlertReadOnly
-  au! BufReadPost,BufEnter,WinEnter *
+  au BufReadPost,BufEnter,WinEnter *
   " inactive this function on :help.
   if &readonly && &buftype ==# ""
     colorscheme morning
