@@ -64,6 +64,7 @@ nnoremap <silent> ]t :tabnext<cr>
 
 "" QuickFix
 nnoremap <silent> <space>co :copen<cr>
+nnoremap <silent> <space>cq :cclose<cr>
 nnoremap <silent> [c :cprevious<cr>
 nnoremap <silent> ]c :cnext<cr>
 nnoremap <silent> [q :cprevious<cr>
