@@ -4,14 +4,20 @@
 inoremap <esc> <esc>:set iminsert=0<cr>
 lnoremap <cr>  <cr>:set imsearch=0<cr>
 
-"""" Tag
-" when there are multiple tags, show list of tags.
-nnoremap <c-]> g<c-]>
-""" Insert Mode
-""" back to normal mode, typing j&k simultaneously.
-"inoremap jk <Esc>
-"inoremap kj <Esc>
+"""" NormalMode
+"" Convinience
+nnoremap <c-g> ge
+xnoremap <c-g> ge
+"" Kill Ambiguities
+nnoremap Y y$
+nnoremap q: :q
+nnoremap q; q:
 
+""" Buffer
+" jump to last buffer.
+nnoremap <a-o> <c-^>
+
+"""" Window
 """" hjkl
 " move as it looks.
 nnoremap j gj
@@ -25,18 +31,10 @@ nnoremap gk k
 xnoremap gj j
 xnoremap gk k
 
-"""" NormalMode
-"" Convinience
-nnoremap <c-g> ge
-xnoremap <c-g> ge
-"" Kill Ambiguities
-nnoremap Y y$
-nnoremap q: :q
-nnoremap q; q:
-
-""" Buffer
-" jump to last buffer.
-nnoremap <a-o> <c-^>
+""" Jump
+" jump to 1/4 or 3/4 posionsion of current window.
+nnoremap gh :<c-r>= (line('w0')/4 + line('w$')*3/4)<cr><cr>
+nnoremap gl :<c-r>= (line('w$')/4 + line('w0')*3/4)<cr><cr>
 
 """ Research
 " find researched word at middle
@@ -82,6 +80,15 @@ nnoremap <c-w><c-m> <c-w>_<c-w>|
 "nnoremap <c-w><s-M>     <c-w>_<c-w>|
 " neutralize
 nnoremap <c-w>0 <c-w>=
+
+"""" Tag
+" when there are multiple tags, show list of tags.
+nnoremap <c-]> g<c-]>
+""" Insert Mode
+""" back to normal mode, typing j&k simultaneously.
+"inoremap jk <Esc>
+"inoremap kj <Esc>
+
 
 """ Tab Page
 " send current tab to left.
