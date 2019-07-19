@@ -14,6 +14,6 @@ nnoremap <silent> <space>gl :<c-u>Glog<cr>
 nnoremap <space>gg :<c-u>Ggrep --color --all-match 
 
 " pull
-nnoremap <silent> <space>pl :<c-u>Gpull 
+nnoremap <silent> <space>pl :<c-u>Gpull<cr>
 " push
-nnoremap <silent> <space>ps :<c-u>Gpush 
+nnoremap <silent> <space>ps :<c-u>Gpush<cr>
