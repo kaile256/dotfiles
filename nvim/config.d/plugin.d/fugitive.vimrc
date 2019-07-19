@@ -7,6 +7,8 @@ nnoremap <silent> <space>gd :<c-u>Gvdiffsplit<cr>
 nnoremap <silent> <space>gb :<c-u>Gblame<cr>
 " status
 nnoremap <silent> <space>gs :<c-u>Gstatus<cr>
+" log
+nnoremap <silent> <space>gl :<c-u>Glog<cr>
 
 " grep
 nnoremap <space>gg :<c-u>Ggrep --color --all-match 
