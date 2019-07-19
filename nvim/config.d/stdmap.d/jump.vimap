@@ -4,8 +4,8 @@ nnoremap gh :<c-r>= (line('w$')/4 + line('w0')*3/4)<cr><cr>
 nnoremap gl :<c-r>= (line('w0')/4 + line('w$')*3/4)<cr><cr>
 
 """" Buffer
-nnoremap [b :bprevious<cr>
-nnoremap ]b :bnext<cr>
+nnoremap <silent> [b :bprevious<cr>
+nnoremap <silent> ]b :bnext<cr>
 nnoremap <c-6> <c-^>
 
 """" Tag
