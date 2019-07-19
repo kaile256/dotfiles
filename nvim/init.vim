@@ -1,6 +1,6 @@
 " write in *.vimrc for the config dependent on plugins.
 runtime! config.d/*.vim
-runtime! config.d/stdmap/*.vimap
+runtime! config.d/stdmap.d/*.vimap
 
 "" Backup
 set nobackup
