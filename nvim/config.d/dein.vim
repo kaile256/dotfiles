@@ -56,3 +56,16 @@ endif
 
 filetype plugin indent on
 syntax enable  " on は設定を無視して構文ハイライトする
+
+"""" KEYMAP
+" install plugins
+noremap <a-d><a-i> :<c-u>call dein#install()<cr>
+noremap <a-d>i :<c-u>call dein#install()<cr>
+cnoremap <a-d><a-i> :<c-u>call dein#install()<cr>
+cnoremap <a-d>i :<c-u>call dein#install()<cr>
+
+" update plugins
+noremap <a-d><a-u> :<c-u>call dein#update()<cr>
+noremap <a-d>u :<c-u>call dein#update()<cr>
+cnoremap <a-d><a-u> :<c-u>call dein#update()<cr>
+cnoremap <a-d>u :<c-u>call dein#update()<cr>
