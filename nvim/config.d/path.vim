@@ -13,6 +13,11 @@ set path-=*node/**,
 "let g:python3_host_prog = '/home/linuxbrew/.linuxbrew/bin/python3'
 "let g:python_host_prog = '/home/linuxbrew/.linuxbrew/bin/python'
 "let g:ruby_host_prog = '/home/linuxbrew/.linuxbrew/bin/ruby'
-let g:python3_host_prog = ''
+if has('python3')
+  let g:python3_host_prog = ''
+else
+  ""TODO: auto-pkgm-install python3 python3-pip
+  ""    : auto-pip3-install neovim neovim-remote
+endif
 let g:python_host_prog = ''
 let g:ruby_host_prog = ''
