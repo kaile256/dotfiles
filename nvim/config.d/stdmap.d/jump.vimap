@@ -1,0 +1,13 @@
+"""" WIndow
+" jump to 1/4 or 3/4 posionsion of current window.
+nnoremap gh :<c-r>= (line('w$')/4 + line('w0')*3/4)<cr><cr>
+nnoremap gl :<c-r>= (line('w0')/4 + line('w$')*3/4)<cr><cr>
+
+"""" Buffer
+nnoremap [b :bprevious
+nnoremap ]b :bnext
+nnoremap <c-6> <c-^>
+
+"""" Tag
+" when there are multiple tags, show list of tags.
+nnoremap <c-]> g<c-]>
