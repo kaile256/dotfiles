@@ -1,4 +1,9 @@
 if has('nvim') || ('terminal') 
+  """" CONFIG
+  """ Color
+  set termguicolors
+
+  """" KEYMAP
   "" Open Shortcut
   nnoremap <silent> <space>te :<c-u>        :te<cr>
   nnoremap <silent> <space>ts :<C-u>sp<CR>  :te<CR>
