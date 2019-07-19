@@ -2,7 +2,7 @@
 " 0: IME will be off, when lmap is off.
 " lmap supports 3 modes: Insert, Commandline and Lang-Arg.
 inoremap <silent> <esc> <esc>:set iminsert=0<cr>
-lnoremap <silent> <cr>  <cr>:set imsearch=0<cr>
+lnoremap <silent> <cr>   <cr>:set imsearch=0<cr>
 
 """" NormalMode
 """ SPACE
