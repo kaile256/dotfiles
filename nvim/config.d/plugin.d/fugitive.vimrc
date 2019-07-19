@@ -8,10 +8,10 @@ nnoremap <silent> <space>gb :<c-u>Gblame<cr>
 " status
 nnoremap <silent> <space>gs :<c-u>Gstatus<cr>
 
-" pull
-nnoremap <silent> <space>gpl :<c-u>Gpull 
-" push
-nnoremap <silent> <space>gps :<c-u>Gpush 
-
 " grep
-nnoremap <space>gg :<c-u>Ggrep 
+nnoremap <space>gg :<c-u>Ggrep --color --all-match 
+
+" pull
+nnoremap <silent> <space>pl :<c-u>Gpull 
+" push
+nnoremap <silent> <space>ps :<c-u>Gpush 
