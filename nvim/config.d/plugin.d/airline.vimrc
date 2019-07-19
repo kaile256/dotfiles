@@ -1,4 +1,7 @@
-"" Config Colorscheme
+"""" KEYMAP
+noremap <c-g> ge
+
+"""" CONFIG
 
 if !has('gui_running')
   set t_Co=256
