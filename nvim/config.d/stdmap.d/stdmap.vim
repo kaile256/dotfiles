@@ -33,8 +33,8 @@ xnoremap gk k
 
 """ Jump
 " jump to 1/4 or 3/4 posionsion of current window.
-nnoremap gh :<c-r>= (line('w0')/4 + line('w$')*3/4)<cr><cr>
-nnoremap gl :<c-r>= (line('w$')/4 + line('w0')*3/4)<cr><cr>
+nnoremap gh :<c-r>= (line('w$')/4 + line('w0')*3/4)<cr><cr>
+nnoremap gl :<c-r>= (line('w0')/4 + line('w$')*3/4)<cr><cr>
 
 """ Research
 " find researched word at middle
