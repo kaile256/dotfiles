@@ -31,4 +31,3 @@ nnoremap <c-w>m <c-w>_
 nnoremap <c-w><c-m> <c-w>_<c-w>|
 " neutralize
 nnoremap <c-w>0 <c-w>=
-
