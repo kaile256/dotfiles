@@ -69,11 +69,11 @@ on_map = 'Rg'
 hook_add = '''
   if exists('expand("g:python3_host_prog")') | runtime! ripgrep.vimrc | endif
   '''
-[[plugins]]
-repo = 'justinmk/vim-sneak'
-on_map = '<Plug>'
-depend = 'vim-repeat'
-hook_add = 'runtime! sneak.vimrc'
+#[[plugins]]
+#repo = 'justinmk/vim-sneak'
+#on_map = '<Plug>'
+#depend = 'vim-repeat'
+#hook_add = 'runtime! sneak.vimrc'
 [[plugins]]
 # Show marks
 repo = 'jacquesbh/vim-showmarks'
