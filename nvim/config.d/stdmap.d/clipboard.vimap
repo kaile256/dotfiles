@@ -10,3 +10,10 @@ xnoremap <space>p "+p
 nnoremap <space>P "+P
 xnoremap <space>P "+P
 
+"" Registor
+nnoremap <a-x> "_x
+nnoremap <a-d> "_d
+nnoremap <a-D> "_D
+nnoremap <a-c> "_c
+nnoremap <a-C> "_C
+
