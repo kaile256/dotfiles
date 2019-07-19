@@ -1,5 +1,7 @@
 set nostartofline
 """" WIndow
+nunmap gh
+nunmap gH
 " jump to the middle of current position and edge of current window.
 nnoremap <silent> gh :<c-r>= (line('w0') + line('.'))/2<cr><cr>
 nnoremap <silent> gl :<c-r>= (line('w$') + line('.'))/2<cr><cr>
