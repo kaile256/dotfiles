@@ -1,4 +1,3 @@
-"" Exclude the mapping that is appended to jump-list.
 "" CAUTION: Never careless mapping on <i_a-hjkl>
 "
 
@@ -35,9 +34,6 @@ nnoremap gk k
 xnoremap gj j
 xnoremap gk k
 
-""" Dot-Repeat
-nnoremap <a-;> ;.
-
 """ Hotkey
 "" NoHighlight
 " <c-l> is already used by window-leaping.
@@ -46,6 +42,8 @@ nnoremap <silent> <space>nh :noh<cr><c-l>
 "" Checkhealth
 if has('nvim')
    noremap <silent> <space>ch :<c-u>checkhealth<cr>
+   noremap <silent> <a-c><a-h> :<c-u>checkhealth<cr>
+  cnoremap <silent> <a-c><a-h> :<c-u>checkhealth<cr>
 endif
 
 "" Reload init.vim

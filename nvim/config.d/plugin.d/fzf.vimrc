@@ -1,1 +1,1 @@
-nnoremap <space>o :FZF<cr>
+nnoremap <silent> <space>o :FZF<cr>
