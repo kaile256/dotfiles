@@ -181,12 +181,14 @@ hook_post_source = 'runtime! YouCompleteMe.vimrc'
 #  \ coc-git coc-yank coc-vimlsp coc-highlight
 #  '''
 
-#[[plugins]]
-#repo = 'junegunn/fzf'
-#on_event = 'InsertEnter'
-#[[plugins]]
-#repo = 'junegunn/fzf.vim'
-#on_event = 'InsertEnter'
+### FZF
+[[plugins]]
+repo = 'junegunn/fzf'
+on_event = '[InsertEnter,CmdwinEnter]'
+[[plugins]]
+repo = 'junegunn/fzf.vim'
+on_event = '[InsertEnter,CmdwinEnter]'
+
 [[plugins]]
 repo = 'Shougo/neosnippet-snippets'
 on_event = 'InsertEnter'
