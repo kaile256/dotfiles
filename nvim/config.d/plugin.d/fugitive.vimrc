@@ -1,20 +1,23 @@
-" add && commit
-nnoremap <space>gw :<c-u>Gw<cr>:Gcommit -m''<Left>
-" add && status
-nnoremap <space>ga :<c-u>Gw<cr>:Gstatus<cr>
-" diff
-nnoremap <silent> <space>gd :<c-u>Gvdiffsplit<cr>
-" blame
-nnoremap <silent> <space>gb :<c-u>Gblame<cr>
-" status
+""" Status
 nnoremap <silent> <space>gs :<c-u>Gstatus<cr>
-" log
+""" Diff
+nnoremap <silent> <space>gd :<c-u>Gvdiffsplit<cr>
+""" Blame
+nnoremap <silent> <space>gb :<c-u>Gblame<cr>
+""" Log
 nnoremap <silent> <space>gl :<c-u>Glog<cr>
 
-" grep
-nnoremap <space>gg :<c-u>Ggrep --color --all-match --ignore-case 
-
-" pull
+""" Add && commit
+nnoremap <space>g' :<c-u>Gw<cr>:Gcommit -m''<Left>
+nnoremap <space>g" :<c-u>Gw<cr>:Gcommit -m""<Left>
+""" Add && status
+nnoremap <silent> <space>ga :<c-u>Gw<cr>:Gstatus<cr>
+""" Pull
 nnoremap <silent> <space>pl :<c-u>Gpull<cr>
-" push
+""" Push
 nnoremap <silent> <space>ps :<c-u>Gpush<cr>
+
+""" Grep
+nnoremap <space>gg :<c-u>Ggrep --color --all-match --ignore-case 
+"" Help
+nnoremap <space>gh :<c-u>Ggrep --pager<cr>
