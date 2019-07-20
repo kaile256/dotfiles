@@ -6,7 +6,32 @@
 set nostartofline
 
 """" KEYMAP
+""" Buffer
+nnoremap <silent> [b :bprevious<cr>
+nnoremap <silent> ]b :bnext<cr>
+nnoremap <c-6> <c-^>
+
+""" Tag
+" when there are multiple tags, show list of tags.
+nnoremap <c-]> g<c-]>
+
 """ Window
+"" Research
+" researched word will come up at middle of current window.
+noremap n   nzz
+noremap N   Nzz
+noremap *   *zz
+noremap #   #zz
+noremap g* g*zz
+noremap g# g#zz
+" repeat dot on n.
+nnoremap <a-n> n.
+
+"" ESC
+" back to normal mode, typing j&k simultaneously.
+inoremap jk <Esc>
+inoremap kj <Esc>
+
 "" Advanced HML
 " jump to the middle of current position and edge/middle of current window.
 nnoremap <silent> <c-h> :<c-r>= (line('w0') + line('.'))/2<cr><cr>
@@ -16,31 +41,6 @@ nnoremap <silent> <c-l> :<c-r>= (line('w$') + line('.'))/2<cr><cr>
 "nnoremap <silent> <c-j> :<c-r>= (line('w$') - line('0') + 2*line('.') +2)/4<cr><cr>
 "nnoremap <silent> <c-k> :<c-r>= (line('w$') - line('0') + 2*line('.') +2)/4<cr><cr>
 nnoremap <silent> <c-m> :<c-r>= (line('w$') - line('0') + 2*line('.') +2)/4<cr><cr>
-""" jump to 1/4 or 3/4 position of current window.
+"" jump to 1/4 or 3/4 position of current window.
 "nnoremap <silent> g<S-H> :<c-r>= (3*line('w0') + line('w$'))/4<cr><cr>
 "nnoremap <silent> g<S-L> :<c-r>= (3*line('w$') + line('w0'))/4<cr><cr>
-
-""" Research
-" researched word will come up at middle of current window.
-noremap n   nzz
-noremap N   Nzz
-noremap *   *zz
-noremap #   #zz
-noremap g* g*zz
-noremap g# g#zz
-"" Dot-Repeat
-nnoremap <a-n> n.
-
-""" ESC
-" back to normal mode, typing j&k simultaneously.
-inoremap jk <Esc>
-inoremap kj <Esc>
-
-""" Buffer
-nnoremap <silent> [b :bprevious<cr>
-nnoremap <silent> ]b :bnext<cr>
-nnoremap <c-6> <c-^>
-
-""" Tag
-" when there are multiple tags, show list of tags.
-nnoremap <c-]> g<c-]>
