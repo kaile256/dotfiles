@@ -1,13 +1,13 @@
 """ Move
 " CAUTION: i_alt-hjkl would be useful as <esc>hjkl.
-" move between panes
-nnoremap <c-h> <c-w>h
-nnoremap <c-j> <c-w>j
-nnoremap <c-k> <c-w>k
-nnoremap <c-l> <c-w>l
+" leap between panes
+nnoremap <a-h> <c-w>h
+nnoremap <a-j> <c-w>j
+nnoremap <a-k> <c-w>k
+nnoremap <a-l> <c-w>l
 
 " avoid stack on command-line
-cnoremap <c-k> <c-c>
+cnoremap <a-k> <c-c>
 
 " resize window by cursor keys
 " move window itself
