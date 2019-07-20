@@ -13,8 +13,8 @@ endif
 " dein#load_state includes 'set filetype off';
 " so 'set filetype on' after load dein & plugins.
 
-let s:xdg_cache_home = empty($XDG_CACHE_HOME) ? expand('~/.cache') : $XDG_CACHE_HOME
-let s:dein_cache_dir = s:xdg_cache_home . '/dein'
+let g:xdg_cache_home = empty($XDG_CACHE_HOME) ? expand('~/.cache') : $XDG_CACHE_HOME
+let s:dein_cache_dir = g:xdg_cache_home . '/dein'
 let s:dein_itself= s:dein_cache_dir . '/repos/github.com/Shougo/dein.vim'
 
 "" Auto-Install
