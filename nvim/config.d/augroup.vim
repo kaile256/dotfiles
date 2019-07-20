@@ -41,9 +41,9 @@ augroup ResizeIndent
 augroup END
 
 """ Grep
-augroup GrepOnQuickfix
-  au! QuickFixCmdPost *grep* :cwindow<cr>
-augroup END
+"augroup GrepOnQuickfix
+"  au! QuickFixCmdPost * :cwindow<cr>
+"augroup END
 
 """ Git
 augroup GItSpellCheck
