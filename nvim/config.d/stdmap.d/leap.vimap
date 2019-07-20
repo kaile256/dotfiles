@@ -18,17 +18,17 @@ noremap <silent> <c-l> gt
 
 """ Buffer
 " <c-[> to <esc>, <c-]> for tag-jump.
-noremap <silent> <c-p> :bprevious<cr>
 noremap <silent> <c-n> :bnext<cr>
-noremap <silent> <c-{> :bfirst<cr>
-noremap <silent> <c-}> :blast<cr>
+noremap <silent> <c-p> :bprevious<cr>
+noremap <silent> <c-}> :bfirst<cr>
+noremap <silent> <c-{> :blast<cr>
 noremap <c-6> <c-^>
 
 "" QuickFix
 noremap <silent> <space>co :copen<cr>
 noremap <silent> <space>cw :cwindow<cr>
 noremap <silent> <space>cc :cclose<cr>
-noremap <silent> <a-[> :cprevious<cr>
-noremap <silent> <a-]> :cnext<cr>
-noremap <silent> <a-{> :cfirst<cr>
-noremap <silent> <a-}> :clast<cr>
+noremap <silent> <a-]> :cprevious<cr>
+noremap <silent> <a-[> :cnext<cr>
+noremap <silent> <a-}> :cfirst<cr>
+noremap <silent> <a-{> :clast<cr>
