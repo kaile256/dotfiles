@@ -1,3 +1,5 @@
+node_module/
+yarn/
 GPATH
 GRTAGS
 GTAGS
