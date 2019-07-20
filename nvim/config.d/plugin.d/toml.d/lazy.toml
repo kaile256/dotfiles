@@ -11,12 +11,12 @@ hook_post_source = 'runtime! molokai.vimrc'
 [[plugins]]
 repo = 'skywind3000/asyncrun.vim'
 on_map = 'AsyncRun'
-hook_add = 'runtime! asyncrun.vimrc'
+hook_post_source = 'runtime! asyncrun.vimrc'
 [[plugins]]
 repo = 'thinca/vim-quickrun'
 on_map = 'QuickRun'
-hook_add = 'runtime! quickrun.vimrc'
-hook_add = '''
+hook_post_source = 'runtime! quickrun.vimrc'
+hook_post_source = '''
   let g:quickrun_config = {}
   let g:quickrun_config['markdown'] = {
     \ 'outputter': 'browser'
@@ -35,7 +35,7 @@ on_map = 'Defx'
 [[plugins]]
 repo = 'Shougo/defx.nvim'
 on_map = 'Defx'
-hook_add = '''
+hook_post_source = '''
   if exists('expand("g:python3_host_prog")') | runtime! defx.vimrc | endif
   '''
 
@@ -43,7 +43,7 @@ hook_add = '''
 [[plugins]]
 repo = 'Shougo/denite.nvim'
 on_map = 'Denite'
-hook_add = '''
+hook_post_source = '''
   if exists('expand("g:python3_host_prog")') | runtime! denite.vimrc | endif
   '''
 [[plugins]]
@@ -51,7 +51,7 @@ repo = 'Shougo/neoyank.vim'
 on_map = 'Denite'
 [[plugins]]
 repo = 'ozelentok/denite-gtags'
-hook_add = 'runtime! denite-gtags.vimrc'
+hook_post_source = 'runtime! denite-gtags.vimrc'
 on_map = 'Denite'
 
 ## On Term Mode
@@ -64,7 +64,7 @@ on_event = 'TermOpen'
 [[plugins]]
 repo = 'neomake/neomake'
 if = 'version >= 800'
-hook_add = 'runtime! neomake'
+hook_post_source = 'runtime! neomake'
 on_map = 'make'
 
 ### Template
@@ -83,7 +83,7 @@ on_event = 'BufRead'
 [[plugins]]
 # indent line should be visible
 repo = 'Yggdroot/indentLine'
-hook_add = '''
+hook_post_source = '''
   let g:indentline_color_term = 239
   '''
 on_event = 'BufReadPre'
@@ -91,7 +91,7 @@ on_event = 'BufReadPre'
 [[plugins]]
 repo = 'luochen1990/rainbow'
 on_event = 'WinEnter'
-hook_add = '''
+hook_post_source = '''
   " set 0 to active only on :RainbowToggle
   let g:reinbow_active = 1
   '''
@@ -107,19 +107,19 @@ on_event = 'BufRead'
 [[plugins]]
 repo = 'jremmen/vim-ripgrep'
 on_map = 'Rg'
-hook_add = '''
+hook_post_source = '''
   if exists('expand("g:python3_host_prog")') | runtime! ripgrep.vimrc | endif
   '''
 #[[plugins]]
 #repo = 'justinmk/vim-sneak'
 #on_map = '<Plug>'
 #depend = 'vim-repeat'
-#hook_add = 'runtime! sneak.vimrc'
+#hook_post_source = 'runtime! sneak.vimrc'
 [[plugins]]
 # Show marks
 repo = 'jacquesbh/vim-showmarks'
 on_map = '<c-u>'
-hook_add = 'runtime! showmarks.vimrc'
+hook_post_source = 'runtime! showmarks.vimrc'
 
 [[plugins]]
 repo = 'machakann/vim-sandwich'
@@ -160,21 +160,26 @@ on_event = 'BufRead'
 ## written by python
 ## auto-delete entries that no longer exist.
 #repo = 'craigemery/vim-autotag'
-#hook_add = '''
+#hook_post_source = '''
 #  let g:autotagTagsFile='.tags'
 #  '''
 #on_event = 'VimEnter'
 
 ### Completion
 [[plugins]]
-repo = 'neoclide/coc.nvim'
-hook_add = 'runtime! coc.vimrc'
-on_event = 'VimEnter'
-hook_post_update = '''
-  au VimEnter * call coc#util#install()
-  au VimEnter * CocInstall coc-json coc-tsserver coc-html coc-yaml coc-python 
-  \ coc-git coc-yank coc-vimlsp coc-highlight
-  '''
+repo = 'ycm-core/YouCompleteMe'
+on_event = 'InsertEnter'
+hook_post_source = 'runtime! YouCompleteMe.vimrc'
+
+#[[plugins]]
+#repo = 'neoclide/coc.nvim'
+#hook_post_source = 'runtime! coc.vimrc'
+#on_event = 'VimEnter'
+#hook_post_update = '''
+#  au VimEnter * call coc#util#install()
+#  au VimEnter * CocInstall coc-json coc-tsserver coc-html coc-yaml coc-python 
+#  \ coc-git coc-yank coc-vimlsp coc-highlight
+#  '''
 
 #[[plugins]]
 #repo = 'junegunn/fzf'
@@ -188,7 +193,7 @@ on_event = 'InsertEnter'
 on_ft = 'snippets'
 [[plugins]]
 repo = 'Shougo/neosnippet.vim'
-hook_add = 'runtime! neosnippet.vimrc'
+hook_post_source = 'runtime! neosnippet.vimrc'
 on_event = 'InsertEnter'
 on_ft = 'snippets'
 
@@ -196,9 +201,9 @@ on_ft = 'snippets'
 ## Browser on vim
 [[plugins]]
 repo = 'tyru/open-browser.vim'
-hook_add = 'runtime! open-browser.vimrc'
+hook_post_source = 'runtime! open-browser.vimrc'
 on_map = '<Plug>'
-hook_add = '''
+hook_post_source = '''
   let g:netrw_nogx = 1 " disable netrw's gx mapping.
   nnoremap gx <Plug>(openbrowser-smart-search)
   vnoremap gx <Plug>(openbrowser-smart-search)
@@ -207,7 +212,7 @@ hook_add = '''
 ## Memo
 [[plugins]]
 repo = 'glidenote/memolist.vim'
-hook_add = 'runtime! memolist.vimrc'
+hook_post_source = 'runtime! memolist.vimrc'
 on_map = '<leader>'
 
 #[[plugins]]
@@ -221,6 +226,6 @@ on_map = '<leader>'
 ## still need more settings
 #repo = 'rhysd/devdocs.vim'
 #on_map = '<Plug>'
-#hook_add = '''
+#hook_post_source = '''
 #  nnoremap K <Plug>(devdocs-under-cursor)
 #  '''
