@@ -1,13 +1,4 @@
 #### ENVIROMENT VARIABLE
-# Private bin located as you like
-if [ -d "$HOME/bin" ] ; then
-    export PATH="$HOME/bin:$PATH"
-fi
-
-if [ -d "$HOME/.local/bin" ] ; then
-    export PATH="$HOME/.local/bin:$PATH"
-fi
-
 export HISTFILE="$XDG_DATA_HOME"/bash/history
 export TERM=xterm-256color
 ## Vim/Neovim
