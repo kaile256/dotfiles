@@ -19,11 +19,8 @@ nnoremap q; q:
 " w! write even read-only file.
 nnoremap <space>w :<c-u>w<cr>
 nnoremap <space>q :<c-u>q<cr>
-nnoremap <space>2 :<c-u>w!<cr>
-nnoremap <space>1 :<c-u>q!<cr>
 
 nnoremap <space>* :<c-u>qa<cr>
-nnoremap <space>8 :<c-u>qa<cr>
 nnoremap <space>! :w !sudo tee % > /dev/null<cr> <bar> edit!
 
 """ hjkl
