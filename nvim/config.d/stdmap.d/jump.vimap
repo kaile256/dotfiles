@@ -3,8 +3,13 @@
 set nostartofline
 
 """" KEYMAP
-""" Window
-"" Research
+""” Research
+"" TODO: setlocal no-file path!
+"" Grep to QuickFix  # no dirty-hist
+nnoremap <space>/ :silent vimgrep  %<bar>cw<Left><Left><Left><Left><Left>
+"" Dot-Repeat
+nnoremap <a-n> n.
+nnoremap <a-;> ;.
 " researched word will come up at middle of current window.
 noremap n   nzz
 noremap N   Nzz
@@ -12,8 +17,7 @@ noremap *   *zz
 noremap #   #zz
 noremap g* g*zz
 noremap g# g#zz
-" repeat dot on n.
-nnoremap <a-n> n.
+
 
 "" ESC
 "" back to normal mode, typing j&k simultaneously.
