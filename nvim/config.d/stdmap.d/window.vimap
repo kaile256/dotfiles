@@ -29,25 +29,19 @@ nnoremap <space>! :w !sudo tee % > /dev/null<cr> <bar> edit!
 """ Hotkey
 "" Checkhealth
 if has('nvim')
-   noremap <silent> <a-c><a-h> :<c-u>checkhealth<cr>
-   noremap <silent> <a-c>h     :<c-u>checkhealth<cr>
-  cnoremap <silent> <a-c><a-h> :<c-u>checkhealth<cr>
-  cnoremap <silent> <a-c>h     :<c-u>checkhealth<cr>
+   noremap <silent> <space>ch :<c-u>checkhealth<cr>
+  cnoremap <silent> <space>ch  :<c-u>checkhealth<cr>
 endif
 
 "" Reload init.vim
- noremap <a-s><a-o> :<c-u>so $XDG_CONFIG_HOME/nvim/init.vim<CR>
- noremap <a-s>o     :<c-u>so $XDG_CONFIG_HOME/nvim/init.vim<CR>
-cnoremap <a-s><a-o> :<c-u>so $XDG_CONFIG_HOME/nvim/init.vim<CR>
-cnoremap <a-s>o     :<c-u>so $XDG_CONFIG_HOME/nvim/init.vim<CR>
+ noremap <space>so :<c-u>so $XDG_CONFIG_HOME/nvim/init.vim<CR>
+cnoremap <space>so :<c-u>so $XDG_CONFIG_HOME/nvim/init.vim<CR>
 
 "" QuickFix
 nnoremap <silent> <space>co :copen<cr>
 nnoremap <silent> <space>cc :cclose<cr>
-nnoremap <silent> [c :cprevious<cr>
-nnoremap <silent> ]c :cnext<cr>
-nnoremap <silent> [q :cprevious<cr>
-nnoremap <silent> ]q :cnext<cr>
+nnoremap <silent> <a-[> :cprevious<cr>
+nnoremap <silent> <a-]> :cnext<cr>
 
 """" PANE
 "" NoHighlight
@@ -67,12 +61,8 @@ xnoremap gj j
 xnoremap gk k
 
 """ Tab Page
-nnoremap <a-[> gT
-nnoremap <a-]> gt
-nnoremap <silent> <c-p> gT
-nnoremap <silent> <c-n> gt
-nnoremap <silent> [t gT
-nnoremap <silent> ]t gt
+nnoremap <silent> <c-h> gT
+nnoremap <silent> <c-l> gt
 
 """ Dot-Repeat
 "" CAUTION: Never careless mapping on <i_a-hjkl>

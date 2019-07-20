@@ -7,8 +7,8 @@ set nostartofline
 
 """" KEYMAP
 """ Buffer
-nnoremap <silent> [b :bprevious<cr>
-nnoremap <silent> ]b :bnext<cr>
+nnoremap <silent> <c-p> :bprevious<cr>
+nnoremap <silent> <c-n> :bnext<cr>
 nnoremap <c-6> <c-^>
 
 """ Tag
@@ -37,10 +37,10 @@ nnoremap <silent> <c-j> :<c-r>= (line('w$') + line('.'))/2<cr><cr>
 nnoremap <silent> <c-k> :<c-r>= (line('w0') + line('.'))/2<cr><cr>
 "" Advanced HML
 " jump to the middle of current position and edge/middle of current window.
-nnoremap <silent> <c-h> :<c-r>= (line('w0') + line('.'))/2<cr><cr>
-nnoremap <silent> <c-l> :<c-r>= (line('w$') + line('.'))/2<cr><cr>
+"nnoremap <silent> <c-h> :<c-r>= (line('w0') + line('.'))/2<cr><cr>
 "nnoremap <silent> <c-j> :<c-r>= (line('w$') - line('0') + 2*line('.') +2)/4<cr><cr>
 "nnoremap <silent> <c-k> :<c-r>= (line('w$') - line('0') + 2*line('.') +2)/4<cr><cr>
+"nnoremap <silent> <c-l> :<c-r>= (line('w$') + line('.'))/2<cr><cr>
 nnoremap <silent> <c-m> :<c-r>= (line('w$') - line('0') + 2*line('.') +2)/4<cr><cr>
 "" jump to 1/4 or 3/4 position of current window.
 "nnoremap <silent> g<S-H> :<c-r>= (3*line('w0') + line('w$'))/4<cr><cr>
