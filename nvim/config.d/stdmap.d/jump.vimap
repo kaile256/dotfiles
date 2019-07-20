@@ -2,9 +2,10 @@
 set nostartofline
 """" WIndow
 """ HML
-" jump to the middle of current position and edge of current window.
+" jump to the middle of current position and edge/middle of current window.
 nnoremap <silent> gh     :<c-r>=   (line('w0') + line('.'))/2<cr><cr>
 nnoremap <silent> gl     :<c-r>=   (line('w$') + line('.'))/2<cr><cr>
+nnoremap <silent> gm     :<c-r>=   (line('w$') - line('0') + 2*line('.') +2)/4<cr><cr>
 "" jump to 1/4 or 3/4 position of current window.
 nnoremap <silent> g<S-H> :<c-r>= (3*line('w0') + line('w$'))/4<cr><cr>
 nnoremap <silent> g<S-L> :<c-r>= (3*line('w$') + line('w0'))/4<cr><cr>
