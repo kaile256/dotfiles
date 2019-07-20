@@ -32,11 +32,12 @@ nnoremap <a-n> n.
 inoremap jk <Esc>
 inoremap kj <Esc>
 
+"" Advanced jk
+nnoremap <silent> <c-j> :<c-r>= (line('w$') + line('.'))/2<cr><cr>
+nnoremap <silent> <c-k> :<c-r>= (line('w0') + line('.'))/2<cr><cr>
 "" Advanced HML
 " jump to the middle of current position and edge/middle of current window.
 nnoremap <silent> <c-h> :<c-r>= (line('w0') + line('.'))/2<cr><cr>
-nnoremap <silent> <c-j> :<c-r>= (line('w$') + line('.'))/2<cr><cr>
-nnoremap <silent> <c-k> :<c-r>= (line('w0') + line('.'))/2<cr><cr>
 nnoremap <silent> <c-l> :<c-r>= (line('w$') + line('.'))/2<cr><cr>
 "nnoremap <silent> <c-j> :<c-r>= (line('w$') - line('0') + 2*line('.') +2)/4<cr><cr>
 "nnoremap <silent> <c-k> :<c-r>= (line('w$') - line('0') + 2*line('.') +2)/4<cr><cr>
