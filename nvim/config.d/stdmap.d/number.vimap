@@ -1,0 +1,25 @@
+nnoremap        1 :<c-u>q<cr>
+nnoremap        2 :<c-u>w<cr>
+nnoremap <space>1 :<c-u>q!<cr>
+nnoremap <space>2 :<c-u>w!<cr>
+nnoremap <space>8 :<c-u>qa<cr>
+
+noremap 32 @
+noremap 33 #
+noremap 34 =
+
+noremap 4 $
+noremap 5 %
+noremap 6 ^
+
+noremap 78 \
+noremap 88 *
+noremap 87 /
+
+noremap 89 "
+noremap 98 '
+
+noremap 99 (
+noremap 09 <
+noremap 90 >
+noremap 00 )
