@@ -1,6 +1,7 @@
 " add && commit
 nnoremap <space>gw :<c-u>Gw<cr>:Gcommit -m''<Left>
-cnoremap <space>gw :<c-u>Gw<cr>:Gcommit -m''<Left>
+" add && status
+nnoremap <space>ga :<c-u>Gw<cr>:Gstatus<cr>
 " diff
 nnoremap <silent> <space>gd :<c-u>Gvdiffsplit<cr>
 " blame
