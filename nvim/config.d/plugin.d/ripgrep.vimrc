@@ -1,3 +1,7 @@
+"if has('rg')
+"  curl https://sh.rustup.rs -sSf | sh
+"endif
+
 if executable('rg')
   let g:rg_highlight = true
   " true: fitde project root from cwd.
