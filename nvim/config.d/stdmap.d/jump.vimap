@@ -29,8 +29,8 @@ nnoremap <a-n> n.
 
 "" ESC
 " back to normal mode, typing j&k simultaneously.
-inoremap jk <Esc>
-inoremap kj <Esc>
+"inoremap jk <Esc>
+"inoremap kj <Esc>
 
 "" Advanced jk
 nnoremap <silent> <c-j> :<c-r>= (line('w$') + line('.'))/2<cr><cr>
