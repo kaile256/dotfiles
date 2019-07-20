@@ -1,20 +1,8 @@
-"" For those that is appended to jump-list.
-"
-
 "" CONFIG
 " cursor position of column is kept on jump.
 set nostartofline
 
 """" KEYMAP
-""" Buffer
-nnoremap <silent> <c-p> :bprevious<cr>
-nnoremap <silent> <c-n> :bnext<cr>
-nnoremap <c-6> <c-^>
-
-""" Tag
-" when there are multiple tags, show list of tags.
-nnoremap <c-]> g<c-]>
-
 """ Window
 "" Research
 " researched word will come up at middle of current window.
@@ -28,7 +16,7 @@ noremap g# g#zz
 nnoremap <a-n> n.
 
 "" ESC
-" back to normal mode, typing j&k simultaneously.
+"" back to normal mode, typing j&k simultaneously.
 "inoremap jk <Esc>
 "inoremap kj <Esc>
 

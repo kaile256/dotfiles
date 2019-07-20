@@ -1,0 +1,33 @@
+"""" KEYMAP
+""" Tag
+" when there are multiple tags, show list of tags.
+nnoremap <c-]> g<c-]>
+
+""" Pane
+" leap between panes
+nnoremap <a-h> <c-w>h
+nnoremap <a-j> <c-w>j
+nnoremap <a-k> <c-w>k
+nnoremap <a-l> <c-w>l
+" avoid stack on command-line
+cnoremap <a-k> <c-c>
+
+""" Tab Page
+nnoremap <silent> <c-h> gT
+nnoremap <silent> <c-l> gt
+
+""" Buffer
+nnoremap <silent> <c-[> :bprevious<cr>
+nnoremap <silent> <c-]> :bnext<cr>
+nnoremap <silent> <c-{> :bfirst<cr>
+nnoremap <silent> <c-}> :blast<cr>
+nnoremap <c-6> <c-^>
+
+"" QuickFix
+nnoremap <silent> <space>co :copen<cr>
+nnoremap <silent> <space>cc :cclose<cr>
+nnoremap <silent> <a-[> :cprevious<cr>
+nnoremap <silent> <a-]> :cnext<cr>
+nnoremap <silent> <a-{> :cfirst<cr>
+nnoremap <silent> <a-}> :clast<cr>
+

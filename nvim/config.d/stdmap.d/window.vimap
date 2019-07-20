@@ -1,4 +1,5 @@
 "" Exclude the mapping that is appended to jump-list.
+"" CAUTION: Never careless mapping on <i_a-hjkl>
 "
 
 """ IME
@@ -7,10 +8,8 @@
 inoremap <silent> <esc> <esc>:set iminsert=0<cr>
 lnoremap <silent> <cr>   <cr>:set imsearch=0<cr>
 
-""" SPACE
-nnoremap <space> [None]
-
 "" Kill Ambiguities
+nnoremap <space> [None]
 nnoremap Y y$
 nnoremap q: :q
 nnoremap q; q:
@@ -26,28 +25,6 @@ nnoremap <space>* :<c-u>qa<cr>
 nnoremap <space>8 :<c-u>qa<cr>
 nnoremap <space>! :w !sudo tee % > /dev/null<cr> <bar> edit!
 
-""" Hotkey
-"" Checkhealth
-if has('nvim')
-   noremap <silent> <space>ch :<c-u>checkhealth<cr>
-  cnoremap <silent> <space>ch  :<c-u>checkhealth<cr>
-endif
-
-"" Reload init.vim
- noremap <space>so :<c-u>so $XDG_CONFIG_HOME/nvim/init.vim<CR>
-cnoremap <space>so :<c-u>so $XDG_CONFIG_HOME/nvim/init.vim<CR>
-
-"" QuickFix
-nnoremap <silent> <space>co :copen<cr>
-nnoremap <silent> <space>cc :cclose<cr>
-nnoremap <silent> <a-[> :cprevious<cr>
-nnoremap <silent> <a-]> :cnext<cr>
-
-"""" PANE
-"" NoHighlight
-" <c-l> is already used by window-leaping.
-nnoremap <silent> <space>nh :noh<cr><c-l>
-
 """ hjkl
 " move as it looks.
 nnoremap j gj
@@ -60,10 +37,20 @@ nnoremap gk k
 xnoremap gj j
 xnoremap gk k
 
-""" Tab Page
-nnoremap <silent> <c-h> gT
-nnoremap <silent> <c-l> gt
-
 """ Dot-Repeat
-"" CAUTION: Never careless mapping on <i_a-hjkl>
 nnoremap <a-;> ;.
+
+""" Hotkey
+"" NoHighlight
+" <c-l> is already used by window-leaping.
+nnoremap <silent> <space>nh :noh<cr><c-l>
+
+"" Checkhealth
+if has('nvim')
+   noremap <silent> <space>ch :<c-u>checkhealth<cr>
+  cnoremap <silent> <space>ch :<c-u>checkhealth<cr>
+endif
+
+"" Reload init.vim
+ noremap <space>so :<c-u>so $XDG_CONFIG_HOME/nvim/init.vim<CR>
+cnoremap <space>so :<c-u>so $XDG_CONFIG_HOME/nvim/init.vim<CR>
