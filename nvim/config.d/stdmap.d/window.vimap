@@ -9,6 +9,7 @@ inoremap <silent> <esc> <esc>:set iminsert=0<cr>
 lnoremap <silent> <cr>   <cr>:set imsearch=0<cr>
 
 "" Kill Ambiguities
+inoremap <a-space>w <esc>:w<cr>
 nnoremap <space> [None]
 nnoremap Y y$
 nnoremap q: :q
