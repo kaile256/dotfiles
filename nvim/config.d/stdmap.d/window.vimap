@@ -1,0 +1,79 @@
+"" Exclude the mapping that is appended to jump-list.
+"
+
+""" IME
+" 0: IME will be off, when lmap is off.
+" lmap supports 3 modes: Insert, Commandline and Lang-Arg.
+inoremap <silent> <esc> <esc>:set iminsert=0<cr>
+lnoremap <silent> <cr>   <cr>:set imsearch=0<cr>
+
+""" SPACE
+nnoremap <space> [None]
+
+"" Kill Ambiguities
+nnoremap Y y$
+nnoremap q: :q
+nnoremap q; q:
+
+""" Write&Quit
+" w! write even read-only file.
+nnoremap <space>w :<c-u>w<cr>
+nnoremap <space>q :<c-u>q<cr>
+nnoremap <space>2 :<c-u>w!<cr>
+nnoremap <space>1 :<c-u>q!<cr>
+
+nnoremap <space>* :<c-u>qa<cr>
+nnoremap <space>8 :<c-u>qa<cr>
+nnoremap <space>! :w !sudo tee % > /dev/null<cr> <bar> edit!
+
+""" Hotkey
+"" Checkhealth
+if has('nvim')
+   noremap <silent> <a-c><a-h> :<c-u>checkhealth<cr>
+   noremap <silent> <a-c>h     :<c-u>checkhealth<cr>
+  cnoremap <silent> <a-c><a-h> :<c-u>checkhealth<cr>
+  cnoremap <silent> <a-c>h     :<c-u>checkhealth<cr>
+endif
+
+"" Reload init.vim
+ noremap <a-s><a-o> :<c-u>so $XDG_CONFIG_HOME/nvim/init.vim<CR>
+ noremap <a-s>o     :<c-u>so $XDG_CONFIG_HOME/nvim/init.vim<CR>
+cnoremap <a-s><a-o> :<c-u>so $XDG_CONFIG_HOME/nvim/init.vim<CR>
+cnoremap <a-s>o     :<c-u>so $XDG_CONFIG_HOME/nvim/init.vim<CR>
+
+"" QuickFix
+nnoremap <silent> <space>co :copen<cr>
+nnoremap <silent> <space>cc :cclose<cr>
+nnoremap <silent> [c :cprevious<cr>
+nnoremap <silent> ]c :cnext<cr>
+nnoremap <silent> [q :cprevious<cr>
+nnoremap <silent> ]q :cnext<cr>
+
+"""" PANE
+"" NoHighlight
+" <c-l> is already used by window-leaping.
+nnoremap <silent> <space>nh :noh<cr><c-l>
+
+""" hjkl
+" move as it looks.
+nnoremap j gj
+nnoremap k gk
+xnoremap j gj
+xnoremap k gk
+" swap roles.
+nnoremap gj j
+nnoremap gk k
+xnoremap gj j
+xnoremap gk k
+
+""" Tab Page
+nnoremap <a-[> gT
+nnoremap <a-]> gt
+nnoremap <silent> <c-p> gT
+nnoremap <silent> <c-n> gt
+nnoremap <silent> [t gT
+nnoremap <silent> ]t gt
+
+""" Dot-Repeat
+"" CAUTION: Never careless mapping on <i_a-hjkl>
+nnoremap <a-;> ;.
