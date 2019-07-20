@@ -42,7 +42,7 @@ augroup END
 
 """ Grep
 augroup GrepOnQuickfix
-  au! QuickFixCmdPost *grep* cwindow
+  au! QuickFixCmdPost *grep* :cwindow<cr>
 augroup END
 
 """ Git

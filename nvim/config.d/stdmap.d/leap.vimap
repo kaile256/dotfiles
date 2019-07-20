@@ -1,33 +1,34 @@
 """" KEYMAP
 """ Tag
 " when there are multiple tags, show list of tags.
-nnoremap <c-]> g<c-]>
+noremap <c-]> g<c-]>
 
 """ Pane
 " leap between panes
-nnoremap <a-h> <c-w>h
-nnoremap <a-j> <c-w>j
-nnoremap <a-k> <c-w>k
-nnoremap <a-l> <c-w>l
+noremap <a-h> <c-w>h
+noremap <a-j> <c-w>j
+noremap <a-k> <c-w>k
+noremap <a-l> <c-w>l
 " avoid stack on command-line
 cnoremap <a-k> <c-c>
 
 """ Tab Page
-nnoremap <silent> <c-h> gT
-nnoremap <silent> <c-l> gt
+noremap <silent> <c-h> gT
+noremap <silent> <c-l> gt
 
 """ Buffer
-nnoremap <silent> <c-[> :bprevious<cr>
-nnoremap <silent> <c-]> :bnext<cr>
-nnoremap <silent> <c-{> :bfirst<cr>
-nnoremap <silent> <c-}> :blast<cr>
-nnoremap <c-6> <c-^>
+" <c-[> to <esc>, <c-]> for tag-jump.
+noremap <silent> <c-p> :bprevious<cr>
+noremap <silent> <c-n> :bnext<cr>
+noremap <silent> <c-{> :bfirst<cr>
+noremap <silent> <c-}> :blast<cr>
+noremap <c-6> <c-^>
 
 "" QuickFix
-nnoremap <silent> <space>co :copen<cr>
-nnoremap <silent> <space>cc :cclose<cr>
-nnoremap <silent> <a-[> :cprevious<cr>
-nnoremap <silent> <a-]> :cnext<cr>
-nnoremap <silent> <a-{> :cfirst<cr>
-nnoremap <silent> <a-}> :clast<cr>
-
+noremap <silent> <space>co :copen<cr>
+noremap <silent> <space>cw :cwindow<cr>
+noremap <silent> <space>cc :cclose<cr>
+noremap <silent> <a-[> :cprevious<cr>
+noremap <silent> <a-]> :cnext<cr>
+noremap <silent> <a-{> :cfirst<cr>
+noremap <silent> <a-}> :clast<cr>

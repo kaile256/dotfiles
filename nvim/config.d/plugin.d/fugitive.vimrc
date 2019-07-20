@@ -11,7 +11,7 @@ nnoremap <silent> <space>gs :<c-u>Gstatus<cr>
 nnoremap <silent> <space>gl :<c-u>Glog<cr>
 
 " grep
-nnoremap <space>gg :<c-u>Ggrep --color --all-match 
+nnoremap <space>gg :<c-u>Ggrep --color --all-match --ignore-case 
 
 " pull
 nnoremap <silent> <space>pl :<c-u>Gpull<cr>
