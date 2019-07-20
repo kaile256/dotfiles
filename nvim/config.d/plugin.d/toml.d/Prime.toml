@@ -16,44 +16,12 @@ hook_done_update= '''
 repo = 'Shougo/vimproc.vim'
 build = 'make'
 
-### Run Code on vim
-[[plugins]]
-repo = 'thinca/vim-quickrun'
-hook_add = 'runtime! quickrun.vimrc'
-hook_add = '''
-  let g:quickrun_config = {}
-  let g:quickrun_config['markdown'] = {
-    \ 'outputter': 'browser'
-    \ }
-  '''
-
 ### Start Page
 #[[plugins]]
 #repo = 'mhinz/vim-startify'
 #hook_add = 'runtime! startify.vimrc'
 
-### Filer
-[[plugins]]
-repo = 'kristijanhusak/defx-git'
-depends = 'defx.nvim'
-[[plugins]]
-repo = 'kristijanhusak/defx-icons'
-depends = 'defx.nvim'
-[[plugins]]
-repo = 'Shougo/defx.nvim'
-hook_add = '''
-  if exists('expand("g:python3_host_prog")') | runtime! defx.vimrc | endif
-  '''
-
 #### Plugins Visual
-## Color Themes
-[[plugins]]
-repo = 'tomasr/molokai'
-hook_add = 'runtime! molokai.vimrc'
- 
-#[[plugins]]
-#repo = 'altercation/vim-colors-solarized'
-
 ## Status Bar
 #[[plugins]]
 #repo = 'itchyny/lightline.vim' # config is written in 'plugin.vim'
