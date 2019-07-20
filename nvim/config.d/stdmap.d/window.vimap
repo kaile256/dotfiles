@@ -49,9 +49,7 @@ nnoremap <silent> <space>nh :noh<cr><c-l>
 "" Checkhealth
 if has('nvim')
    noremap <silent> <space>ch :<c-u>checkhealth<cr>
-  cnoremap <silent> <space>ch :<c-u>checkhealth<cr>
 endif
 
 "" Reload init.vim
  noremap <space>so :<c-u>so $XDG_CONFIG_HOME/nvim/init.vim<CR>
-cnoremap <space>so :<c-u>so $XDG_CONFIG_HOME/nvim/init.vim<CR>
