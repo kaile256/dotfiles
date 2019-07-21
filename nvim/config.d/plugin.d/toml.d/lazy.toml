@@ -106,7 +106,7 @@ on_event = 'BufRead'
 ## Jump
 [[plugins]]
 repo = 'jremmen/vim-ripgrep'
-on_map = 'Rg'
+on_if = 'executable("rg")'
 hook_post_source = '''
   if exists('expand("g:python3_host_prog")') | runtime! ripgrep.vimrc | endif
   '''
@@ -118,7 +118,7 @@ hook_post_source = '''
 [[plugins]]
 # Show marks
 repo = 'jacquesbh/vim-showmarks'
-on_map = '<c-u>'
+on_map = "[m,`,']"
 hook_post_source = 'runtime! showmarks.vimrc'
 
 [[plugins]]
@@ -184,12 +184,10 @@ hook_post_update = '''
 ### FZF
 [[plugins]]
 repo = 'junegunn/fzf'
-#on_event = '[InsertEnter,CmdwinEnter]'
 on_event = 'VimEnter'
 [[plugins]]
 repo = 'junegunn/fzf.vim'
-#on_event = '[InsertEnter,CmdwinEnter]'
-on_event = 'VimEnter'
+on_event = 'executable("fzf")'
 hook_post_source = 'runtime! fzf.vimrc'
 
 [[plugins]]

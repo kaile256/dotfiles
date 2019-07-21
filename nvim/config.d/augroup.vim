@@ -2,6 +2,21 @@
 "  au! VimEnter,InsertEnter,WinEnter * checktime
 "augroup END
 
+""" MenuPopup
+augroup KeepAltEsc
+  au! MenuPopup * 
+augroup END
+
+""" Help
+augroup HelpConfig
+  au! FileType help runtime! help.vimrc
+augroup END
+
+""" Netrw
+augroup NetrwConfig
+  au! FileType netrw runtime! netrw.vimrc
+augroup END
+
 """ Cursor Position
 augroup KeepLastCursor
   au!

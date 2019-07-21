@@ -7,10 +7,11 @@ see -Ceu
 echo "install COC"
 ## coc-php
 npm i intelephense -g
-## coc-ruby
-gem install solargraph
+## coc-ruby:
+# solargraph is a lsp client.
+# vmail is a gmail client on vim.
+gem install solargraph vmail
 ## coc-rust
-rustup-init
 source $HOME/.cargo/env
 rustup update
 rustup component add rls rust-analysis rust-src
