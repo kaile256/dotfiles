@@ -19,6 +19,8 @@ export GTAGSFORCECPP=1
 ## Tmux
 export TMUX="$(which tmux)"
 
+## FZF
+
 ## For WSL
 #export DISPLAY="localhost:0.0"
 
