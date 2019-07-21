@@ -3,6 +3,10 @@ if !has('win')
   command Defx :Defx -columns=icons:indent:filename:type
 endif
 
+augroup DefxStartify
+  au! VimEnter Defx `expand('%:p:h')` -search=`expand('%:p')`
+augroup END
+
 "" TODO: show sym-links.
 """" CONFIG
 " when buffer-name is '_', the options are used fpr all buffers.
