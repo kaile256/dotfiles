@@ -6,7 +6,7 @@ set path+=~/.config/**,
 set path+=~/.cache/nvim/dein/repos/github.com/**,
 
 set path-=.git/**,
-set path-=*yarn/**,
+set path-=*yarn*/**,
 set path-=*node*/**,
 
 "!source /home/kaile256/.pyenv/versions/pyvenv_neovim/bin/activate.fish
