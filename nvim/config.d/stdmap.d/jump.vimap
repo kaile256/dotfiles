@@ -1,7 +1,6 @@
 "" CONFIG
 " cursor position of column is kept on jump.
 set nostartofline
-set timeoutlen=200
 
 """" KEYMAP
 "" Advanced jk/HML
@@ -15,6 +14,7 @@ map <silent> <c-j> [ToWinBottom]
 if !has('python3')
 nnoremap <space>/ :silent vimgrep  %<bar>cw<Left><Left><Left><Left><Left>
 endif
+
 "" Dot-Repeat
 nnoremap <a-n> n.
 nnoremap <a-;> ;.
@@ -64,7 +64,45 @@ noremap <silent> <a-[> :cnext<cr>
 noremap <silent> <a-}> :cfirst<cr>
 noremap <silent> <a-{> :clast<cr>
 
+if !exists('g:mark_inc_lower')
+  let g:mark_inc_lower = 'abcdefghijklmnopqrstuvwxyz'
+endif
+nnoremap <silent> m :<c-u>call <SID>AutoMarkInc()<cr>
+
+if !exists('g:mark_inc_upper')
+  let g:mark_inc_upper = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+endif
+
+augroup MarkOnWinLeave
+  if !exists('g:last_buffer')
+    au! BufWinLeave,WinLeave,VimLeavePre call <SID>AutoMarkIncOnBuffer()<cr>
+  endif
+  if exists('g:last_buffer')
+"    au! BufReadPost delmarks!<cr>
+  endif
+augroup END
+
 """" Definition
 noremap [ToWinTop]    :<c-r>= (line('w0') + line('.'))/2<cr><cr>
 noremap [ToWinBottom] :<c-r>= (line('w$') + line('.') + 1)/2<cr><cr>
 noremap [ToWinMiddle] :<c-r>= (line('w0') + line('w$') + 2*line('.'))/4<cr><cr>
+
+function! s:AutoMarkInc()
+  if !exists('b:last_mark')
+    let b:last_mark = 0
+  else
+    let b:last_mark = (b:last_mark + 1) % len(g:mark_inc_lower)
+  endif
+  execute 'mark' g:mark_inc_lower[b:last_mark]
+  echo 'marked' g:mark_inc_lower[b:last_mark]
+endfunction
+
+function! s:AutoMarkIncOnBuffer()
+  if !exists('g:last_buffer')
+    let g:last_buffer = 0
+  else
+    let g:last_buffer = (g:last_buffer + 1) % len(g:mark_inc_upper)
+  endif
+  execute 'mark' g:mark_inc_upper[g:last_buffer]
+  echo 'marked' g:mark_inc_upper[g:last_buffer]
+endfunction

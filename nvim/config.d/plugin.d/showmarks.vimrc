@@ -2,18 +2,13 @@
 " add !:   for all buffers
 
 "" No Marks
-noremap <space>nm :<c-u>NoShowMarks!<cr>
+nnoremap <a-"> :<c-u>NoShowMarks!<cr>
 "" Preview Marks
-noremap <space>` :DoShowMarks!<cr><c-u>PreviewMarks<cr>
-noremap <space>' :DoShowMarks!<cr><c-u>PreviewMarks<cr>
-noremap <space>m :DoShowMarks!<cr><c-u>PreviewMarks<cr>
+nnoremap <space>` :<c-u>PreviewMarks<cr>
+nnoremap <a-'> :<c-u>DoShowMarks!<cr>
+nmap m m:ShowMarksOnce<cr>
 
-"" Show Marks with default-vim actions
-noremap <silent> ` :<c-u>ShowMarksOnce<cr>`
-noremap <silent> ' :<c-u>ShowMarksOnce<cr>'
-noremap <silent> m :<c-u>ShowMarksOnce<cr>m
-
-augroup MarkWithCursor
-  au WinEnter,BufWinEnter * silent! <c-u>ShowMarksOnce<cr>
+augroup ShowMarkAuto
+  au WinEnter,BufWinEnter * ShowMarksOnce<cr>
 augroup END
 

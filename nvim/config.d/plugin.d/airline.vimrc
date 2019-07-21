@@ -1,5 +1,4 @@
 """" KEYMAP
-noremap <c-g> ge
 
 """" CONFIG
 
