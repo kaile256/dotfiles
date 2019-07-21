@@ -18,11 +18,9 @@ noremap #   #zz
 noremap g* g*zz
 noremap g# g#zz
 
-
-"" ESC
-"" back to normal mode, typing j&k simultaneously.
-"inoremap jk <Esc>
-"inoremap kj <Esc>
+"" Marks
+noremap <c-'> [`
+noremap <c-"> ]`
 
 "" Advanced jk
 nnoremap <silent> <c-j> :<c-r>= (line('w$') + line('.'))/2<cr><cr>
