@@ -1,3 +1,8 @@
+if !has('win')
+  command Defx :Defx -columns=git:markfilename:type
+  command Defx :Defx -columns=icons:indent:filename:type
+endif
+
 "" TODO: show sym-links.
 """" CONFIG
 " when buffer-name is '_', the options are used fpr all buffers.

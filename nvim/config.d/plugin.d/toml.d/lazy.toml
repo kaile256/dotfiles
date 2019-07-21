@@ -25,31 +25,26 @@ hook_post_source = '''
 
 ### Filer
 [[plugins]]
-repo = 'jarun/nnn'
-on_if = '!exists("expand(`g:python3_host_prog`)")'
-hook_post_source = 'nnn.vimrc'
-[[plugins]]
 repo = 'cocopon/vaffle.vim'
-on_if = '!exists("expand(`g:python3_host_prog`)")'
+on_if = '!has("python3")'
 hook_post_source = 'runtime! vaffle.vimrc'
 [[plugins]]
 repo = 'kristijanhusak/defx-git'
-depends = 'defx.nvim'
+on_map = 'Defx'
 [[plugins]]
 repo = 'kristijanhusak/defx-icons'
-depends = 'defx.nvim'
+on_map = 'Defx'
 [[plugins]]
 repo = 'Shougo/defx.nvim'
-on_if = 'exists("expand(`g:python3_host_prog`)")'
+on_if = 'has("python3")'
 hook_post_source = 'runtime! defx.vimrc'
+hook_post_update = 'UpdateRemotePlugins'
 
 ### Buffer
 [[plugins]]
 repo = 'Shougo/denite.nvim'
-on_map = 'Denite'
-hook_post_source = '''
-  if exists('expand("g:python3_host_prog")') | runtime! denite.vimrc | endif
-  '''
+on_if = 'has("python3")'
+hook_post_source = 'runtime! denite.vimrc'
 [[plugins]]
 repo = 'Shougo/neoyank.vim'
 on_map = 'Denite'
@@ -68,8 +63,8 @@ on_event = 'TermOpen'
 [[plugins]]
 repo = 'neomake/neomake'
 if = 'version >= 800'
-hook_post_source = 'runtime! neomake'
 on_map = 'make'
+hook_post_source = 'runtime! neomake'
 
 ### Template
 [[plugins]]
