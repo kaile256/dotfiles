@@ -25,19 +25,23 @@ hook_post_source = '''
 
 ### Filer
 [[plugins]]
+repo = 'jarun/nnn'
+on_if = '!exists("expand(`g:python3_host_prog`)")'
+hook_post_source = 'nnn.vimrc'
+[[plugins]]
+repo = 'cocopon/vaffle.vim'
+on_if = '!exists("expand(`g:python3_host_prog`)")'
+hook_post_source = 'runtime! vaffle.vimrc'
+[[plugins]]
 repo = 'kristijanhusak/defx-git'
 depends = 'defx.nvim'
-on_map = 'Defx'
 [[plugins]]
 repo = 'kristijanhusak/defx-icons'
 depends = 'defx.nvim'
-on_map = 'Defx'
 [[plugins]]
 repo = 'Shougo/defx.nvim'
-on_map = 'Defx'
-hook_post_source = '''
-  if exists('expand("g:python3_host_prog")') | runtime! defx.vimrc | endif
-  '''
+on_if = 'exists("expand(`g:python3_host_prog`)")'
+hook_post_source = 'runtime! defx.vimrc'
 
 ### Buffer
 [[plugins]]
