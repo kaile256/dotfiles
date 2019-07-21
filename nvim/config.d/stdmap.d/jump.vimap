@@ -1,26 +1,14 @@
 "" CONFIG
 " cursor position of column is kept on jump.
 set nostartofline
+set timeoutlen=200
 
 """" KEYMAP
-"" Advanced jk
-"nnoremap <silent> <c-j> :<c-r>= (line('w$') + line('.'))/2<cr><cr>
-"nnoremap <silent> <c-k> :<c-r>= (line('w0') + line('.'))/2<cr><cr>
-""" Advanced HML
-"nnoremap <silent> <c-m> :<c-r>= (line('w$') + line('w0') + 2*line('.'))/4<cr><cr>
-
+"" Advanced jk/HML
 map <silent> <c-k> [ToWinTop]
 map <silent> <c-m> [ToWinMiddle]
 map <silent> <c-j> [ToWinBottom]
 
-" jump to the middle of current position and edge/middle of current window.
-"nnoremap <silent> <c-h> :<c-r>= (line('w0') + line('.'))/2<cr><cr>
-"nnoremap <silent> <c-j> :<c-r>= (line('w$') - line('0') + 2*line('.') +2)/4<cr><cr>
-"nnoremap <silent> <c-k> :<c-r>= (line('w$') - line('0') + 2*line('.') +2)/4<cr><cr>
-"nnoremap <silent> <c-l> :<c-r>= (line('w$') + line('.'))/2<cr><cr>
-"" jump to 1/4 or 3/4 position of current window.
-"nnoremap <silent> g<S-H> :<c-r>= (3*line('w0') + line('w$'))/4<cr><cr>
-"nnoremap <silent> g<S-L> :<c-r>= (3*line('w$') + line('w0'))/4<cr><cr>
 ""” Research
 "" TODO: setlocal show result w/ no-file path but only file name.
 "" Grep to QuickFix  # no dirty-hist
