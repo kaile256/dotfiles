@@ -27,8 +27,11 @@ noremap g* g*zz
 noremap g# g#zz
 
 "" Marks
-noremap <c-'> [`
-noremap <c-"> ]`
+noremap <a-'> [`
+noremap <a-"> ]`
+nnoremap <silent> m :<c-u>call <SID>AutoMarkInc()<cr>
+nnoremap <silent> <space>m :<c-u>call <SID>AutoMarkIncOnBuffer()<cr>
+nnoremap <a-m> m
 
 """ Tag
 " when there are multiple tags, show list of tags.
@@ -67,18 +70,17 @@ noremap <silent> <a-{> :clast<cr>
 if !exists('g:mark_inc_lower')
   let g:mark_inc_lower = 'abcdefghijklmnopqrstuvwxyz'
 endif
-nnoremap <silent> m :<c-u>call <SID>AutoMarkInc()<cr>
 
 if !exists('g:mark_inc_upper')
-  let g:mark_inc_upper = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+  let g:mark_inc_upper = 'ABCDEFGHIJKLMNOQRSTUVWXYZ'
 endif
 
-augroup MarkOnWinLeave
-  if !exists('g:last_buffer')
-    au! BufWinLeave,WinLeave,VimLeavePre call <SID>AutoMarkIncOnBuffer()<cr>
-  endif
-  if exists('g:last_buffer')
-"    au! BufReadPost delmarks!<cr>
+augroup MarkOnWinLeave " # last mark is always `P.
+  if &modifiable
+    au!
+    au BufWinLeave,WinLeave,VimLeavePre * silent! call <SID>AutoMarkIncOnBuffer()
+    au BufWinLeave,WinLeave,VimLeavePre * nnoremap <buffer> m m
+    au BufWinLeave,WinLeave,VimLeavePre * normal mP 
   endif
 augroup END
 
