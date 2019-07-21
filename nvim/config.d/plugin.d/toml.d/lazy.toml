@@ -187,7 +187,7 @@ repo = 'junegunn/fzf'
 on_event = 'VimEnter'
 [[plugins]]
 repo = 'junegunn/fzf.vim'
-on_event = 'executable("fzf")'
+on_if = 'executable("fzf")'
 hook_post_source = 'runtime! fzf.vimrc'
 
 [[plugins]]
@@ -204,8 +204,8 @@ on_ft = 'snippets'
 ## Browser on vim
 [[plugins]]
 repo = 'tyru/open-browser.vim'
+on_if = 'executable("qutebrowser")'
 hook_post_source = 'runtime! open-browser.vimrc'
-on_map = '<Plug>'
 hook_post_source = '''
   let g:netrw_nogx = 1 " disable netrw's gx mapping.
   nnoremap gx <Plug>(openbrowser-smart-search)
