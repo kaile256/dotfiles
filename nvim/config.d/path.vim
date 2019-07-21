@@ -7,14 +7,12 @@ set path+=~/.cache/nvim/dein/repos/github.com/**,
 
 set path-=.git/**,
 set path-=*yarn/**,
-set path-=*node/**,
+set path-=*node*/**,
 
 "!source /home/kaile256/.pyenv/versions/pyvenv_neovim/bin/activate.fish
 "let g:python3_host_prog = '/home/linuxbrew/.linuxbrew/bin/python3'
 "let g:python_host_prog = '/home/linuxbrew/.linuxbrew/bin/python'
 "let g:ruby_host_prog = '/home/linuxbrew/.linuxbrew/bin/ruby'
-let g:xdg_cache_home = empty($XDG_CACHE_HOME) ? expand('~/.cache') : $XDG_CACHE_HOME
-let g:xdg_config_home = empty($XDG_CONFIG_HOME) ? expand('~/.config') : $XDG_CONFIG_HOME
 
 if has('python3')
   let g:python3_host_prog = ''

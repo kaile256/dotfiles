@@ -1,4 +1,9 @@
+"" XDG
+let g:xdg_cache_home = empty($XDG_CACHE_HOME) ? expand('~/.cache') : $XDG_CACHE_HOME
+let g:xdg_config_home = empty($XDG_CONFIG_HOME) ? expand('~/.config') : $XDG_CONFIG_HOME
+
 " write in *.vimrc for the config dependent on plugins.
+runtime! init.d/*.vim
 runtime! config.d/*.vim
 runtime! config.d/stdmap.d/*.vimap
 
