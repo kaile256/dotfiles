@@ -1,5 +1,5 @@
 "" Auto-Install: ripgrep
-let s:cargo_bin = g:xdg_cache_home . '/.cargo/bin'
+let s:cargo_bin = "$HOME/.cargo/bin"
 
 if executable('rg') || exists('s:cargo_bin')
 elseif ! exists('s:cargo_bin')
