@@ -1,5 +1,6 @@
 "" defx.vim is faster than netrw
 augroup NetrwConfig
+  au!
   au FileType netrw if executable('fzf') | runtime! fzf.vimrc | endif
   au FileType netrw if executable('rg') | runtime! ripgrep.vimrc | endif
 augroup END

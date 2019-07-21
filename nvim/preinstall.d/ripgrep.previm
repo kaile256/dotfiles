@@ -1,10 +1,9 @@
 "" Auto-Install: ripgrep
-let s:cargo_bin = "$HOME/.cargo/bin"
+let s:cargo_bin = expand("$HOME/.cargo/bin")
 
-if executable('rg') || exists('s:cargo_bin')
-elseif ! exists('s:cargo_bin')
+if !executable('rg') || !exists('s:cargo_bin')
   call system('curl https://sh.rustup.rs -sSf | sh')
   call system('cargo install ripgrep')
-else
+elseif exists('s:cargo_bin')
   call system('cargo install ripgrep')
 endif

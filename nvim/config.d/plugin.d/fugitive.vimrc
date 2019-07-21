@@ -32,6 +32,6 @@ nnoremap <silent> <space>ps :<c-u>Gpush<cr>
 
 """ Grep
 " -I: no binary files
-nnoremap <space>gg :<c-u>Ggrep -IHn -O=less --full-name
+nnoremap <space>gg :<c-u>silent Ggrep <bar>cw<Left><Left><Left>
 " show options
 nnoremap <space>gh :<c-u>Ggrep --help<cr>
