@@ -4,7 +4,7 @@ set nostartofline
 
 """" KEYMAP
 ""” Research
-"" TODO: setlocal no-file path!
+"" TODO: setlocal show result w/ no-file path but only file name.
 "" Grep to QuickFix  # no dirty-hist
 nnoremap <space>/ :silent vimgrep  %<bar>cw<Left><Left><Left><Left><Left>
 "" Dot-Repeat
