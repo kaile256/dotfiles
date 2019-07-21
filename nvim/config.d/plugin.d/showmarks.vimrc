@@ -4,9 +4,9 @@
 "" No Marks
 noremap <space>nm :<c-u>NoShowMarks!<cr>
 "" Preview Marks
-noremap <space>` :<c-u>PreviewMarks<cr>DoShowMarks!<cr>
-noremap <space>' :<c-u>PreviewMarks<cr>DoShowMarks!<cr>
-noremap <space>m :<c-u>PreviewMarks<cr>DoShowMarks!<cr>
+noremap <space>` :DoShowMarks!<cr><c-u>PreviewMarks<cr>
+noremap <space>' :DoShowMarks!<cr><c-u>PreviewMarks<cr>
+noremap <space>m :DoShowMarks!<cr><c-u>PreviewMarks<cr>
 
 "" Show Marks with default-vim actions
 noremap <silent> ` :<c-u>ShowMarksOnce<cr>`
@@ -14,6 +14,6 @@ noremap <silent> ' :<c-u>ShowMarksOnce<cr>'
 noremap <silent> m :<c-u>ShowMarksOnce<cr>m
 
 augroup MarkWithCursor
-  autocmd! WinEnter,BufWinEnter * silent! :<c-u>ShowMarksOnce<cr>
+  au WinEnter,BufWinEnter * silent! <c-u>ShowMarksOnce<cr>
 augroup END
 
