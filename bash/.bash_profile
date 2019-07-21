@@ -6,7 +6,7 @@
 umask 002
 
 ## Write Config on $POSIX_SHARE!
-POSIX_SHARE=$HOME/.config/share/posix
+POSIX_SHARE=$HOME/.config/bash/posix
 source ${POSIX_SHARE}/*.sh
 
 #### SOURCE
