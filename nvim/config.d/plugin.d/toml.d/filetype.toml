@@ -32,6 +32,11 @@ depends = 'neosnippet-snippets'
 hook_add = 'runtime! neosnippet.vimrc'
 
 #### Language Support
+### LaTex
+[[plugins]]
+repo = 'lervag/vimtex'
+on_ft = 'tex'
+hook_post_source = 'vimtex.vimrc'
 ### Python
 # supports pip-packages, independently installed in shell, to work on vim
 [[plugins]]
