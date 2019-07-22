@@ -5,9 +5,5 @@
 # for ssh logins, install and configure the libpam-umask package.
 if [ -d /data/data/com.termux ]; then
   cd ~
-<<<<<<< HEAD
   ./start-kali.sh
-=======
-  ./start-parrot.sh
->>>>>>> bf10095234744af9c87e60e3d06a7f7289f368e4
 fi
