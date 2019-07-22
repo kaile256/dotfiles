@@ -20,10 +20,10 @@ nmap <silent> <space><space> [refresh]
 
 """ Write&Quit
 "# w! write even read-only file.
-nnoremap <space>w :<c-u>w<cr>
-nnoremap <space>q :<c-u>q<cr>
-nnoremap <space>x :<c-u>w!<cr>
-nnoremap <space>z :<c-u>q!<cr>
+nnoremap          <space>w :<c-u>w<cr>
+nnoremap <silent> <space>q :<c-u>q<cr>
+nnoremap          <space>x :<c-u>w!<cr>
+nnoremap <silent> <space>z :<c-u>q!<cr>
 
 nnoremap <space>* :<c-u>qa<cr>
 nnoremap <space>! :w !sudo tee % > /dev/null<cr> <bar> edit!
