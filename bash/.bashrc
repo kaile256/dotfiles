@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 ##### TMUX
 #if which tmux > /dev/null 2>&1; then
 #  # only when no session runs, start a new session.
@@ -175,10 +176,8 @@ else
 fi
 
 ## Tags
-if ! [ -z uname | grep LINUX ]; then
   export GTAGSCONF=/usr/share/gtags/gtags.conf
   export GTAGSCLABEL=new-ctags
-fi
 # regard .h-files as cpp-file.
 export GTAGSFORCECPP=1
 
