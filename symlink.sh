@@ -11,9 +11,6 @@ XDG_CACHE_HOME="${HOME}/.cache"
 XDG_CONFIG_HOME="${HOME}/.config"
 POSIX_SHARE="${XDG_CONFIG_HOME}/share/posix"
 
-if ! [ -d $XDG_CACHE_HOME ]; then
-  mkdir ${HOME}/.cache
-fi
 if ! [ -d $XDG_CONFIG_HOME ]; then
   mkdir ${HOME}/.config
 fi
@@ -33,9 +30,6 @@ fi
 ## $XDG programs;
 ## activate them, making symbolic links at $XDG_CONFIG_HOME from $DOTFILES.
 echo 'making symbolic links...'
-cache_list=(
-  nvim/backup
-  )
 
 config_list=(
   share
@@ -49,23 +43,9 @@ config_list=(
   zsh
 )
 
-for cache_pair in ${cache_list[@]}; do
-  echo cache_pair | awk -F'[/]' |
-  #dest_cache=${XDG_CACHE_HOME}/${cache_dir}
-  #export cache_dest=$1 &&
-  #export cache_dir=$2
-
-  cd ${XDG_CACHE_HOME}/nvim
-  #cd ${cache_dest}
-  ln -nsf ${DOTFILES}/cache/${cache_pair}
-  
-  echo "Done! The cache files of ${cache_pair} are linked at ${XDG_CACHE_HOME}"
-done
-
 for config_dir in ${config_list[@]}; do
   config_dest=${XDG_CONFIG_HOME}/${config_dir}
 
-  #TODO: destinations should be decided like from directory.
   cd ${XDG_CONFIG_HOME}
   ln -nsf ${DOTFILES}/${config_dir}
   
