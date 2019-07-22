@@ -5,7 +5,7 @@ let g:xdg_config_home = empty($XDG_CONFIG_HOME) ? expand('~/.config') : $XDG_CON
 " write in *.vimrc for the config dependent on plugins.
 runtime! preinstall.d/*.vim
 runtime! config.d/*.vim
-runtime! config.d/stdmap.d/*.vimap
+runtime! config.d/vimap.d/*.vimap
 
 "" Backup
 set nobackup

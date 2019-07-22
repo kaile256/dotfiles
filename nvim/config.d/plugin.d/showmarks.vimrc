@@ -1,8 +1,9 @@
+"# Listed on 'lazy.toml'
 " default: for current buffer
 " add !:   for all buffers
 
 "" No Marks
-nnoremap <a-"> :<c-u>NoShowMarks!<cr>
+nmap <silent> <space><space> :<c-u>NoShowMarks!<cr>[g:refresh]
 "" Preview Marks
 nnoremap <space>` :<c-u>PreviewMarks<cr>
 nnoremap <a-'> :<c-u>DoShowMarks!<cr>

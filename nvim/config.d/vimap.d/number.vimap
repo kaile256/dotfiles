@@ -1,7 +1,7 @@
 nnoremap        1 :<c-u>q<cr>
 nnoremap        2 :<c-u>w<cr>
-nnoremap <space>1 :<c-u>q!<cr>
-nnoremap <space>2 :<c-u>w!<cr>
+nnoremap <space>1 :<c-u>q<cr>
+nnoremap <space>2 :<c-u>w<cr>
 nnoremap <space>8 :<c-u>qa<cr>
 
 noremap 32 @

@@ -3,9 +3,12 @@
 "augroup END
 
 """ MenuPopup
-augroup KeepAltEsc
-  au! MenuPopup * 
-augroup END
+"augroup KeepAltEscOnPMenu
+"  au! MenuPopup * 
+"  if input() != ['<c-p>','<c-n>','<c-j>','<c-m>']
+"    exe "normal <esc>" 
+"  endif
+"augroup END
 
 """ Cursor Position
 augroup KeepLastCursor
@@ -20,11 +23,9 @@ augroup END
 "augroup END
 
 "" Read only
-augroup AlertReadOnly
-  if &readonly && &buftype ==# ""
-  au BufReadPost,BufEnter,WinEnter *
-  " inactive this function on :help.
-    colorscheme morning
+augroup AlertWhenReadOnly
+  if &readonly && &buftype ==# qf
+    au BufReadPost,BufEnter,WinEnter * colorscheme morning
   endif
 augroup END
 

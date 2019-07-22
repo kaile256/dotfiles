@@ -1,11 +1,13 @@
-if !has('win')
-  command Defx :Defx -columns=git:markfilename:type
-  command Defx :Defx -columns=icons:indent:filename:type
-endif
+"# Listed on 'lazy.toml'
 
-augroup DefxStartify
-  au! VimEnter Defx `expand('%:p:h')` -search=`expand('%:p')`
-augroup END
+"if !has('win64')
+"  command Defx :Defx -columns=git:markfilename:type
+"  command Defx :Defx -columns=icons:indent:filename:type
+"endif
+"
+"augroup DefxStartify
+"  au! VimEnter * Defx `expand('%:p:h')` -search=`expand('%:p')`
+"augroup END
 
 "" TODO: show sym-links.
 """" CONFIG
@@ -37,16 +39,18 @@ let g:defx_git#indicators = {
 """" KEYMAP
 """ Open Preceding Tree
 " type '-' to parent dir
-nmap <silent> <space>- :<c-u>Defx `expand('%:p:h')` -search=`expand('%:p')`<cr>
 " type 'v' to open like a filer
-nmap <silent> <space>v :<c-u>Defx 'expand('%:p:h')' -search=.expand('%:p')' -split=vertical -winwidth=35 -winheight=60 -direction=topleft <cr>
 " type 'b' to new tab
-nmap <silent> <space>b :<c-u>Defx 'expand('%:p:h')' -search=.expand('%:p')' -split=tab<cr>
+"nnoremap <silent> <space>- :<c-u>Defx <c-r>=expand('s:parent_dir')<cr> <c-r>=expand('s:depth_1')<cr><cr>
+nnoremap <silent> <space>- :<c-u>Defx `expand('%:p:h')` -search=`expand('%:p')` -auto-recursive-level=1<cr>
+nnoremap <silent> <space>v :<c-u>Defx `expand('%:p:h')` -search=`expand('%:p')` -split=vertical -winwidth=35 -winheight=60 -direction=topleft <cr>
+nnoremap <silent> <space>t :<c-u>Defx `expand('%:p:h')` -search=`expand('%:p')` -split=tab<cr>
 
 augroup myDefx
-  autocmd!
-  autocmd FileType defx call s:defx_my_settings()
-  autocmd FileType defx call s:defx_my_shortcut()
+  au!
+  au FileType defx nunmap m
+  au FileType defx call s:defx_my_settings()
+  au FileType defx call s:defx_my_shortcut()
 augroup END
 
 """" shortcut
@@ -160,3 +164,6 @@ function! s:defx_my_settings() abort
         \ defx#do_action('toggle_sort', 'filename')
 
 endfunction
+
+let s:parent_dir = '`expand("%:p:h")` -search=`expand("%:p")`'
+let s:depth_1 = '-auto-recursive-level=1'

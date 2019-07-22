@@ -8,12 +8,16 @@ map <silent> <c-k> [ToWinTop]
 map <silent> <c-m> [ToWinMiddle]
 map <silent> <c-j> [ToWinBottom]
 
+""" Go-To
+" switch mapping
+noremap gf gF
+noremap gF gf
+noremap gd gD
+noremap gD gd
 ""” Research
 "" TODO: setlocal show result w/ no-file path but only file name.
 "" Grep to QuickFix  # no dirty-hist
-if !has('python3')
 nnoremap <space>/ :silent vimgrep  %<bar>cw<Left><Left><Left><Left><Left>
-endif
 
 "" Dot-Repeat
 nnoremap <a-n> n.
@@ -26,16 +30,19 @@ noremap #   #zz
 noremap g* g*zz
 noremap g# g#zz
 
-"" Marks
-noremap <a-'> [`
-noremap <a-"> ]`
-nnoremap <silent> m :<c-u>call <SID>AutoMarkInc()<cr>
-nnoremap <silent> <space>m :<c-u>call <SID>AutoMarkIncOnBuffer()<cr>
-nnoremap <a-m> m
-
 """ Tag
-" when there are multiple tags, show list of tags.
+"" Show List
+"# show list of tags only when there are more than two tags.
+"" Jump
 noremap <c-]> g<c-]>
+"# newer tag
+noremap <silent> <a-]> :tag<cr>
+"# older tag
+noremap <silent> <a-[> :pop<cr>
+"# last tag
+noremap <silent> <a-}> :0tag<cr>
+"# TODO: ???
+noremap <silent> <a-{> :$tag<cr>
 
 """ Pane
 " leap between panes
@@ -43,6 +50,9 @@ noremap <a-h> <c-w>h
 noremap <a-j> <c-w>j
 noremap <a-k> <c-w>k
 noremap <a-l> <c-w>l
+
+noremap <a-b> <c-w>b
+noremap <a-t> <c-w>t
 " avoid stack on command-line
 cnoremap <a-k> <c-c>
 
@@ -62,49 +72,16 @@ noremap <c-6> <c-^>
 noremap <silent> <space>co :copen<cr>
 noremap <silent> <space>cw :cwindow<cr>
 noremap <silent> <space>cc :cclose<cr>
-noremap <silent> <a-]> :cprevious<cr>
-noremap <silent> <a-[> :cnext<cr>
-noremap <silent> <a-}> :cfirst<cr>
-noremap <silent> <a-{> :clast<cr>
-
-if !exists('g:mark_inc_lower')
-  let g:mark_inc_lower = 'abcdefghijklmnopqrstuvwxyz'
-endif
-
-if !exists('g:mark_inc_upper')
-  let g:mark_inc_upper = 'ABCDEFGHIJKLMNOQRSTUVWXYZ'
-endif
-
-augroup MarkOnWinLeave " # last mark is always `P.
-  if &modifiable
-    au!
-    au BufWinLeave,WinLeave,VimLeavePre * silent! call <SID>AutoMarkIncOnBuffer()
-    au BufWinLeave,WinLeave,VimLeavePre * nnoremap <buffer> m m
-    au BufWinLeave,WinLeave,VimLeavePre * normal mP 
-  endif
+noremap <silent> <space>cc :cclose<cr>
+augroup QuickFixJump
+  au!
+  au FileType qf nnoremap <buffer> <a-]> :cprevious<cr>
+  au FileType qf nnoremap <buffer> <a-[> :cnext<cr>
+  au FileType qf nnoremap <buffer> <a-}> :cfirst<cr>
+  au FileType qf nnoremap <buffer> <a-{> :clast<cr>
 augroup END
 
-"""" Definition
+"""" DEFINITION
 noremap [ToWinTop]    :<c-r>= (line('w0') + line('.'))/2<cr><cr>
 noremap [ToWinBottom] :<c-r>= (line('w$') + line('.') + 1)/2<cr><cr>
 noremap [ToWinMiddle] :<c-r>= (line('w0') + line('w$') + 2*line('.'))/4<cr><cr>
-
-function! s:AutoMarkInc()
-  if !exists('b:last_mark')
-    let b:last_mark = 0
-  else
-    let b:last_mark = (b:last_mark + 1) % len(g:mark_inc_lower)
-  endif
-  execute 'mark' g:mark_inc_lower[b:last_mark]
-  echo 'marked' g:mark_inc_lower[b:last_mark]
-endfunction
-
-function! s:AutoMarkIncOnBuffer()
-  if !exists('g:last_buffer')
-    let g:last_buffer = 0
-  else
-    let g:last_buffer = (g:last_buffer + 1) % len(g:mark_inc_upper)
-  endif
-  execute 'mark' g:mark_inc_upper[g:last_buffer]
-  echo 'marked' g:mark_inc_upper[g:last_buffer]
-endfunction

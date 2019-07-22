@@ -1,3 +1,4 @@
+"# Listed on 'lazy.toml'
 """" CONFIG
 set updatetime=300 " shorter for CursorHold & CursorHoldI
 " shorter message
@@ -6,9 +7,6 @@ set updatetime=300 " shorter for CursorHold & CursorHoldI
 set signcolumn=yes " always show signcolumns.
 
 """" KEYMAP
-"" Easy call
-nnoremap <space><space>c :<c-u>Coc
-
 " use <tab> for trigger completion and navigate to the next complete item
 function! s:check_back_space() abort
   let col = col('.') - 1
@@ -16,9 +14,9 @@ function! s:check_back_space() abort
 endfunction
 
 "" Use <TAB> to trigger completion.
-inoremap <silent><expr> <TAB>
+inoremap <silent><expr> <c-p>
   \ pumvisible() ? '<C-n>' :
-  \ <SID>check_back_space() ? '<TAB>' :
+  \ <SID>check_back_space() ? '<c-p>' :
   \ coc#refresh()
 
 "" use <cr> to confirm complete.
@@ -31,7 +29,7 @@ nnoremap <space>cy :<Plug>(coc-type-definition)<cr>
 nnoremap <space>ci :<Plug>(coc-implementation)<cr>
 nnoremap <space>cr :<Plug>(coc-references)<cr>
 "" show yank list
-nnoremap <space>by :<c-u>CocList -A --normal yank<cr>
+nnoremap <space>sy :<c-u>CocList -A --normal yank<cr>
 
 "" makes <cr> select the first completion item and confirm completion when no
 "" item have selected.

@@ -1,3 +1,4 @@
+"# Listed on 'lazy.toml'
 """" HISTORY
 """ Status
 nnoremap <silent> <space>gs :<c-u>Gstatus<cr>

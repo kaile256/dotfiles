@@ -12,7 +12,11 @@ else
   export VISUAL="$vi"
 fi
 
-## Gtags
+## Tags
+if ! [ -z uname | grep LINUX ]; then
+  export GTAGSCONF=/usr/share/gtags/gtags.conf
+  export GTAGSCLABEL=new-ctags
+fi
 # regard .h-files as cpp-file.
 export GTAGSFORCECPP=1
 

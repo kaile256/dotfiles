@@ -1,5 +1,5 @@
 """" CONFIG
-"" ['▶', '▼'] is default. 
+"" ['▶', '▼'] isis default marks.
 "let g:tagbar_iconchars = ['+', '-']
 
 let g:tagbar_autofocus = 1

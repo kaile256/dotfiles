@@ -16,12 +16,6 @@ hook_post_source = 'runtime! asyncrun.vimrc'
 repo = 'thinca/vim-quickrun'
 on_map = 'QuickRun'
 hook_post_source = 'runtime! quickrun.vimrc'
-hook_post_source = '''
-  let g:quickrun_config = {}
-  let g:quickrun_config['markdown'] = {
-    \ 'outputter': 'browser'
-    \ }
-  '''
 
 ### Filer
 [[plugins]]
@@ -53,7 +47,7 @@ repo = 'ozelentok/denite-gtags'
 hook_post_source = 'runtime! denite-gtags.vimrc'
 on_map = 'Denite'
 
-## On Term Mode
+### On Term Mode
 [[plugins]]
 repo = 'mhinz/neovim-remote'
 on_event = 'TermOpen'
@@ -102,18 +96,25 @@ hook_post_source = '''
 repo = 'tpope/vim-repeat'
 on_event = 'BufRead'
 
-## Jump
+### Jump
 [[plugins]]
 repo = 'jremmen/vim-ripgrep'
-on_if = 'executable("rg")'
-hook_post_source = '''
-  if exists('expand("g:python3_host_prog")') | runtime! ripgrep.vimrc | endif
-  '''
+on_if = 'executable(`rg`)'
+hook_post_source = 'runtime! ripgrep.vimrc'
 #[[plugins]]
 #repo = 'justinmk/vim-sneak'
 #on_map = '<Plug>'
 #depend = 'vim-repeat'
 #hook_post_source = 'runtime! sneak.vimrc'
+#[[plugins]]
+#repo = 'Lokaltog/vim-easymotion'
+#on_event = 'VimEnter'
+## move between Vim panes and Tmux splits seamlessly.
+#[[plugins]]
+#repo = 'christoomey/vim-tmux-navigator'
+#on_event = 'VimEnter'
+
+### Marks
 [[plugins]]
 # Show marks
 repo = 'jacquesbh/vim-showmarks'
@@ -123,31 +124,27 @@ hook_post_source = 'runtime! showmarks.vimrc'
 [[plugins]]
 repo = 'machakann/vim-sandwich'
 on_event = 'BufRead'
+hook_post_source = 'runtime! sandwich.vimrc'
 #[[plugins]]
 #repo = 'tpope/vim-surround'
 #on_event = 'BufRead'
+#hook_post_source = 'runtime! surround.vimrc'
 
 #[[plugins]]
 ## auto close parens
 #repo = 'cohama/lexima.vim'
 #on_event = 'InsertEnter'
+#hook_post_source = 'runtime! lexima.vimrc'
 
-#[[plugins]]
-#repo = 'Lokaltog/vim-easymotion'
-#on_event = 'VimEnter'
-## move between Vim panes and Tmux splits seamlessly.
-#[[plugins]]
-#repo = 'christoomey/vim-tmux-navigator'
-#on_event = 'VimEnter'
-
-## Ctags
+### Tags
 [[plugins]]
-# generate ctags & gtags.
 repo = 'jsfaint/gen_tags.vim'
-on_event = 'VimEnter'
+on_map = ['g','<c-w>']
+hook_post_source = 'runtime! gen_tags.vimrc'
 [[plugins]]
 repo = 'majutsushi/tagbar'
 on_event = 'BufRead'
+hook_post_source = 'runtime! tagbar.vim'
 #[[plugins]]
 #repo = 'szw/vim-tags'
 #on_event = 'VimEnter'
@@ -169,7 +166,6 @@ on_event = 'BufRead'
 #repo = 'ycm-core/YouCompleteMe'
 #on_event = 'InsertEnter'
 #hook_post_source = 'runtime! YouCompleteMe.vimrc'
-
 [[plugins]]
 repo = 'neoclide/coc.nvim'
 hook_post_source = 'runtime! coc.vimrc'
@@ -182,11 +178,10 @@ hook_post_update = '''
 
 ### FZF
 [[plugins]]
-repo = 'junegunn/fzf'
 on_event = 'VimEnter'
 [[plugins]]
 repo = 'junegunn/fzf.vim'
-on_if = 'executable("fzf")'
+on_if = 'executable(`fzf`)'
 hook_post_source = 'runtime! fzf.vimrc'
 
 [[plugins]]
@@ -200,22 +195,18 @@ on_event = 'InsertEnter'
 on_ft = 'snippets'
 
 
-## Browser on vim
+### Browser
 [[plugins]]
 repo = 'tyru/open-browser.vim'
-on_if = 'executable("qutebrowser")'
+if = 'executable("qutebrowser")'
+on_map = '<space>'
 hook_post_source = 'runtime! open-browser.vimrc'
-hook_post_source = '''
-  let g:netrw_nogx = 1 " disable netrw's gx mapping.
-  nnoremap gx <Plug>(openbrowser-smart-search)
-  vnoremap gx <Plug>(openbrowser-smart-search)
-  '''
 
-## Memo
+### Memo
 [[plugins]]
 repo = 'glidenote/memolist.vim'
 hook_post_source = 'runtime! memolist.vimrc'
-on_map = '<leader>'
+on_map = '<space>'
 
 #[[plugins]]
 #repo = 'tyru/qfpopup.vim'

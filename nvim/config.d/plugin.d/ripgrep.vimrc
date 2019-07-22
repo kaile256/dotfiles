@@ -1,13 +1,5 @@
-"" Auto-Install
-let s:cargo_bin = g:xdg_cache_home . '/.cargo/bin'
+"# Listed on 'lazy.toml'
 
-if executable('rg') || exists('s:cargo_bin')
-  let g:rg_highlight = true
-  " true: fitde project root from cwd.
-  let g:rg_derive_root = true
-elseif ! exists('s:cargo_bin')
-  call system('curl https://sh.rustup.rs -sSf | sh')
-  call system('cargo install ripgrep')
-else
-  call system('cargo install ripgrep')
-endif
+"let g:rg_highlight = true
+" true: fitde project root from cwd.
+"let g:rg_derive_root = true

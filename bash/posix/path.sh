@@ -17,4 +17,9 @@ fi
 
 if [ -d "$HOME/.pyenv/bin" ]; then
   export PATH="$HOME/.pyenv/bin:$PATH"
+  eval "$(pyenv init -)"
+  eval "$(pyenv virtual-init -)"
+else
+  curl https://pyenv.run | bash
+  pyenv update
 fi

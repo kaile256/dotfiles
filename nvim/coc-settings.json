@@ -6,6 +6,12 @@
   "suggest.noselect":true,
 
   "languageserver":{
+    "bash": {
+      "command": "bash-language-server",
+      "args": ["start"],
+      "filetypes": ["sh"],
+      "ignoreRootPaths": ["~"]
+    },
     "rust": {
       "command": "ra_lsp_server",
       "filetypes": ["rust"],

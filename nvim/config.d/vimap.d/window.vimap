@@ -1,0 +1,75 @@
+"" CAUTION: Never careless mapping on <i_a-hjkl>
+"
+
+""" IME
+" 0: IME will be off, when lmap is off.
+" lmap supports 3 modes: Insert, Commandline and Lang-Arg.
+imap <silent> <esc> <esc>:set iminsert=0<cr>
+lmap <silent> <cr>   <cr>:set imsearch=0<cr>
+
+"" Kill Ambiguities
+inoremap <esc> <c-g>u<esc>
+imap <a-space>w <esc>:w<cr>
+nnoremap <space> [None]
+nnoremap Y y$
+
+""" Refresh
+"# <c-l> is already used by window-leaping.
+nnoremap [refresh] :<c-u>noh<cr><c-l>
+nmap <silent> <space><space> [refresh]
+
+""" Write&Quit
+"# w! write even read-only file.
+nnoremap <space>w :<c-u>w<cr>
+nnoremap <space>q :<c-u>q<cr>
+nnoremap <space>x :<c-u>w!<cr>
+nnoremap <space>z :<c-u>q!<cr>
+
+nnoremap <space>* :<c-u>qa<cr>
+nnoremap <space>! :w !sudo tee % > /dev/null<cr> <bar> edit!
+
+""" hjkl
+" move as it looks.
+nnoremap j gj
+nnoremap k gk
+xnoremap j gj
+xnoremap k gk
+" swap roles.
+nnoremap gj j
+nnoremap gk k
+xnoremap gj j
+xnoremap gk k
+
+""" Hotkey
+"" Checkhealth
+if has('nvim')
+   noremap <silent> <space>ch :<c-u>checkhealth<cr>
+   noremap <silent> <a-c><a-h> :<c-u>checkhealth<cr>
+  cnoremap <silent> <a-c><a-h> :<c-u>checkhealth<cr>
+endif
+
+"" Reload init.vim
+ noremap <space>so :<c-u>so $XDG_CONFIG_HOME/nvim/init.vim<CR>
+
+" CAUTION: i_alt-hjkl would be useful as <esc>hjkl.
+"" Move Window
+nnoremap <c-w>h <c-w>H
+nnoremap <c-w>j <c-w>J
+nnoremap <c-w>k <c-w>K
+nnoremap <c-w>l <c-w>L
+
+""" Resize
+nnoremap <left>  <c-w>>
+nnoremap <down>  <c-w>-
+nnoremap <up>    <c-w>+
+nnoremap <right> <c-w><
+" another-resize commands
+nnoremap <a->> <c-w>>
+nnoremap <a--> <c-w>-
+nnoremap <a-+> <c-w>+
+nnoremap <a-<> <c-w><
+" agressive resize
+nnoremap <c-w>m <c-w>_
+nnoremap <c-w><c-m> <c-w>_<c-w>|
+" neutralize
+nnoremap <c-w>0 <c-w>=

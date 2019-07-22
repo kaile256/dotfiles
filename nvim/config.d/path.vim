@@ -5,6 +5,7 @@ set path+=../**,
 set path+=~/.config/**,
 set path+=~/.cache/nvim/dein/repos/github.com/**,
 
+set path-=~
 set path-=.git/**,
 set path-=*yarn*/**,
 set path-=*node*/**,
