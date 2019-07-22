@@ -99,7 +99,7 @@ on_event = 'BufRead'
 ### Jump
 [[plugins]]
 repo = 'jremmen/vim-ripgrep'
-on_if = 'executable(`rg`)'
+on_if = 'executable("rg")'
 hook_post_source = 'runtime! ripgrep.vimrc'
 #[[plugins]]
 #repo = 'justinmk/vim-sneak'
@@ -181,7 +181,7 @@ hook_post_update = '''
 on_event = 'VimEnter'
 [[plugins]]
 repo = 'junegunn/fzf.vim'
-on_if = 'executable(`fzf`)'
+on_if = 'executable("fzf")'
 hook_post_source = 'runtime! fzf.vimrc'
 
 [[plugins]]
