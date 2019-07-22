@@ -15,8 +15,8 @@ nnoremap Y y$
 
 """ Refresh
 "# <c-l> is already used by window-leaping.
-nnoremap [refresh] :<c-u>noh<cr><c-l>
-nmap <silent> <space><space> [refresh]
+nnoremap [g:refresh] :<c-u>noh<cr><c-l>
+nmap <silent> <space><space> [g:refresh]
 
 """ Write&Quit
 "# w! write even read-only file.
