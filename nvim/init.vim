@@ -12,7 +12,7 @@ set nobackup
 set nowritebackup
 set noswapfile
 set hidden
-set undofile undodir=~/.cache/nvim/backup/undo.vim
+set undofile undodir=~/.cache/nvim/undo.vim
 
 "" Search
 set noignorecase

@@ -59,10 +59,10 @@ nnoremap <c-w>k <c-w>K
 nnoremap <c-w>l <c-w>L
 
 """ Resize
-nnoremap <left>  <c-w>>
-nnoremap <down>  <c-w>-
-nnoremap <up>    <c-w>+
-nnoremap <right> <c-w><
+nnoremap <C-left>  <c-w>>
+nnoremap <C-down>  <c-w>-
+nnoremap <C-up>    <c-w>+
+nnoremap <C-right> <c-w><
 " another-resize commands
 nnoremap <a->> <c-w>>
 nnoremap <a--> <c-w>-
