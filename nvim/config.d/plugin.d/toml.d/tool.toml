@@ -1,0 +1,95 @@
+#### By dein.vim
+
+### Completion
+[[plugins]]
+repo = 'neoclide/coc.nvim'
+hook_post_source = 'runtime! coc.vimrc'
+on_event = 'VimEnter'
+hook_post_update = '''
+  augroup CocInit
+    au!
+    au VimEnter call coc#util#install()
+    au VimEnter CocInstall coc-json coc-tsserver coc-html coc-yaml coc-python 
+    au VimEnter CocInstall coc-git coc-yank coc-vimlsp coc-highlight
+  augroup END
+  '''
+#[[plugins]]
+#repo = 'ycm-core/YouCompleteMe'
+#on_event = 'InsertEnter'
+#hook_post_source = 'runtime! YouCompleteMe.vimrc'
+
+### Git
+[[plugins]]
+repo = 'tpope/vim-fugitive'
+on_event = 'BufReadPre'
+hook_post_source = 'runtime! fugitive.vimrc'
+
+### Sneppets
+[[plugins]]
+repo = 'Shougo/neosnippet-snippets'
+on_event = 'InsertEnter'
+on_ft = 'snippets'
+[[plugins]]
+repo = 'Shougo/neosnippet.vim'
+hook_post_source = 'runtime! neosnippet.vimrc'
+on_event = 'InsertEnter'
+on_ft = 'snippets'
+
+### FZF
+[[plugins]]
+repo = 'junegunn/fzf'
+on_event = 'VimEnter'
+[[plugins]]
+repo = 'junegunn/fzf.vim'
+on_if = 'executable("fzf")'
+hook_post_source = 'runtime! fzf.vimrc'
+
+### Buffer
+[[plugins]]
+repo = 'Shougo/denite.nvim'
+on_if = 'has("python3")'
+hook_post_source = 'runtime! denite.vimrc'
+[[plugins]]
+repo = 'Shougo/neoyank.vim'
+on_map = 'Denite'
+[[plugins]]
+repo = 'ozelentok/denite-gtags'
+hook_post_source = 'runtime! denite-gtags.vimrc'
+on_map = 'Denite'
+
+### On Term Mode
+[[plugins]]
+repo = 'mhinz/neovim-remote'
+on_event = 'TermOpen'
+
+### Code Runner
+[[plugins]]
+repo = 'skywind3000/asyncrun.vim'
+on_map = 'AsyncRun'
+hook_post_source = 'runtime! asyncrun.vimrc'
+[[plugins]]
+repo = 'thinca/vim-quickrun'
+on_map = 'QuickRun'
+hook_post_source = 'runtime! quickrun.vimrc'
+[[plugins]]
+repo = 'neomake/neomake'
+if = 'version >= 800'
+on_map = 'make'
+hook_post_source = 'runtime! neomake'
+
+### Template
+[[plugins]]
+repo = 'mattn/sonictemplate-vim'
+on_event = 'BufRead'
+#[[plugins]]
+## preset a template respectively.
+#repo = 'thinca/vim-template'
+#on_event = 'BufReadPre'
+#on_ft = 'bash'
+
+#### Functional
+#[[plugins]]
+## Repeats even not-default editing by "."
+## e.g., surround.vim
+#repo = 'tpope/vim-repeat'
+#on_event = 'BufRead'

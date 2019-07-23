@@ -1,9 +1,11 @@
+"""" From: init.vim
 "" CONFIG
 " cursor position of column is kept on jump.
 set nostartofline
 
 """" KEYMAP
 "" Advanced jk/HML
+" <c-hjkl> get along with <c-fbdu>.
 map <silent> <c-k> [ToWinTop]
 map <silent> <c-m> [ToWinMiddle]
 map <silent> <c-j> [ToWinBottom]
@@ -17,7 +19,7 @@ noremap gD gd
 ""” Research
 "" TODO: setlocal show result w/ no-file path but only file name.
 "" Grep to QuickFix  # no dirty-hist
-nnoremap <space>/ :silent vimgrep  %<bar>cw<Left><Left><Left><Left><Left>
+nnoremap <space>/ :silent vimgrep  % <bar> cw<Left><Left><Left><Left><Left><Left><Left>
 
 "" Dot-Repeat
 nnoremap <a-n> n.
@@ -32,16 +34,16 @@ noremap g# g#zz
 
 """ Tag
 "" Show List
-"# show list of tags only when there are more than two tags.
+" show list of tags only when there are more than two tags.
 "" Jump
 noremap <c-]> g<c-]>
-"# newer tag
+"" Newer Tag
 noremap <silent> <a-]> :tag<cr>
-"# older tag
+"" Older Tag
 noremap <silent> <a-[> :pop<cr>
-"# last tag
+"" Last Tag
 noremap <silent> <a-}> :0tag<cr>
-"# TODO: ???
+" TODO: ???
 noremap <silent> <a-{> :$tag<cr>
 
 """ Pane

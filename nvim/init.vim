@@ -7,6 +7,7 @@ runtime! config.d/*.vim
 runtime! config.d/vimap.d/*.vimap
 
 "" Backup
+" Write, on path,vim, the file directory paths.
 set nobackup
 set nowritebackup
 set noswapfile
@@ -19,7 +20,8 @@ set noignorecase
 set incsearch
 set hlsearch
 set nowrapscan
-set nofoldenable " マッチした行以外を畳む
+"# fold all lines unmatched on {pattern}.
+set foldenable
 
 "" Insert Tab-Char
 " insert spaces, instead of a tab-char.

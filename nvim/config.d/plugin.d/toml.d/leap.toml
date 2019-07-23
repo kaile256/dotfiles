@@ -1,0 +1,109 @@
+#### By dein.vim
+### Filer
+[[plugins]]
+repo = 'cocopon/vaffle.vim'
+on_if = '!has("python3")'
+hook_post_source = 'runtime! vaffle.vimrc'
+[[plugins]]
+repo = 'kristijanhusak/defx-git'
+on_map = 'Defx'
+[[plugins]]
+repo = 'kristijanhusak/defx-icons'
+on_map = 'Defx'
+[[plugins]]
+repo = 'Shougo/defx.nvim'
+on_if = 'has("python3")'
+hook_post_source = 'runtime! defx.vimrc'
+
+### Jump
+[[plugins]]
+repo = 'jremmen/vim-ripgrep'
+on_if = 'executable("rg")'
+hook_post_source = 'runtime! ripgrep.vimrc'
+#[[plugins]]
+#repo = 'justinmk/vim-sneak'
+#on_map = '<Plug>'
+#depend = 'vim-repeat'
+#hook_post_source = 'runtime! sneak.vimrc'
+#[[plugins]]
+#repo = 'Lokaltog/vim-easymotion'
+#on_event = 'VimEnter'
+## move between Vim panes and Tmux splits seamlessly.
+#[[plugins]]
+#repo = 'christoomey/vim-tmux-navigator'
+#on_event = 'VimEnter'
+
+### Marks
+[[plugins]]
+# Show marks
+repo = 'jacquesbh/vim-showmarks'
+on_map = "[m,`,']"
+hook_post_source = 'runtime! showmarks.vimrc'
+
+[[plugins]]
+repo = 'machakann/vim-sandwich'
+on_event = 'BufRead'
+hook_post_source = 'runtime! sandwich.vimrc'
+#[[plugins]]
+#repo = 'tpope/vim-surround'
+#on_event = 'BufRead'
+#hook_post_source = 'runtime! surround.vimrc'
+
+#[[plugins]]
+## auto close parens
+#repo = 'cohama/lexima.vim'
+#on_event = 'InsertEnter'
+#hook_post_source = 'runtime! lexima.vimrc'
+
+### Tags
+[[plugins]]
+repo = 'jsfaint/gen_tags.vim'
+on_map = ['g','<c-w>']
+hook_post_source = 'runtime! gen_tags.vimrc'
+[[plugins]]
+repo = 'majutsushi/tagbar'
+on_event = 'BufRead'
+hook_post_source = 'runtime! tagbar.vim'
+#[[plugins]]
+#repo = 'szw/vim-tags'
+#on_event = 'VimEnter'
+#[[plugins]]
+#repo = 'ludovicchabant/vim-gutentags'
+#on_event = 'VimEnter'
+# No any .txt file
+#[[plugins]]
+## written by python
+## auto-delete entries that no longer exist.
+#repo = 'craigemery/vim-autotag'
+#hook_post_source = '''
+#  let g:autotagTagsFile='.tags'
+#  '''
+#on_event = 'VimEnter'
+
+### Browser
+[[plugins]]
+repo = 'tyru/open-browser.vim'
+if = 'executable("qutebrowser")'
+on_map = '<space>'
+hook_post_source = 'runtime! open-browser.vimrc'
+
+### Memo
+[[plugins]]
+repo = 'glidenote/memolist.vim'
+hook_post_source = 'runtime! memolist.vimrc'
+on_map = '<space>'
+
+#[[plugins]]
+#repo = 'tyru/qfpopup.vim'
+#[[plugins]]
+#repo = 'liuchengxu/vista.vim'
+#depends = ['coc.nvim']
+#on_event = 'InsertEnter'
+
+## open DevDocs from vim
+## still need more settings
+#repo = 'rhysd/devdocs.vim'
+#on_map = '<Plug>'
+#hook_post_source = '''
+#  nnoremap K <Plug>(devdocs-under-cursor)
+#  '''

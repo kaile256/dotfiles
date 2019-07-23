@@ -1,0 +1,35 @@
+#### By dein.vim
+
+### Color Themes
+[[plugins]]
+repo = 'tomasr/molokai'
+on_if = 'has("nvim")'
+hook_post_source = 'runtime! molokai.vimrc'
+#[[plugins]]
+#repo = 'altercation/vim-colors-solarized'
+
+#### Status Bar
+#[[plugins]]
+#repo = 'itchyny/lightline.vim' # config is written in 'plugin.vim'
+#on_event = 'VimEnter'
+#hook_post_source = 'runtime! lightline.vimrc'
+[[plugins]]
+repo = 'vim-airline/vim-airline'
+on_event = 'VimEnter'
+hook_post_source = 'runtime! airline.vimrc'
+[[plugins]]
+repo = 'vim-airline/vim-airline-themes'
+depends = 'vim-airline'
+
+#### Indent
+[[plugins]]
+# indent line should be visible
+repo = 'Yggdroot/indentLine'
+hook_post_source = 'runtime! indentline.vimrc'
+on_event = 'BufReadPre'
+
+#### Paren
+[[plugins]]
+repo = 'luochen1990/rainbow'
+on_event = 'BufReadPost'
+hook_post_source = 'runtime! rainboe.vimrc'

@@ -21,6 +21,8 @@ nnoremap <silent> <space>gr :<c-u>Gread<cr>
 """ Move  # rename current file and also the buffer.
 nnoremap <silent> <space>gn :<c-u>Gmove<cr>
 
+""" Add only
+nnoremap <silent> <space>ga :<c-u>Gw<cr>
 """ Add && commit
 nnoremap <space>g' :<c-u>Gw<cr>:Gcommit -m''<Left>
 nnoremap <space>g" :<c-u>Gw<cr>:Gcommit -m""<Left>

@@ -1,33 +1,22 @@
-#### Required
+#### By dein.vim
+
+### Required
 [[plugins]]
 repo = 'Shougo/dein.vim'
 hook_add = '''
   set rtp+=~/.config/nvim/config.d/plugin.d
   '''
 hook_done_update= '''
-  if exists('expand("g:python3_host_prog")') |\
-    au VimEnter * :UpdateRemotePlugins<cr> |\
-  endif
+    au VimEnter :UpdateRemotePlugins<cr>
   '''
 
 ### Async Processor
-[[plugins]]
-# run vim-plugins asynchronously, inc., quickrun.
-repo = 'Shougo/vimproc.vim'
-build = 'make'
+#[[plugins]]
+## run vim-plugins asynchronously, inc., quickrun.
+#repo = 'Shougo/vimproc.vim'
+#build = 'make'
 
 ### Start Page
 #[[plugins]]
 #repo = 'mhinz/vim-startify'
 #hook_add = 'runtime! startify.vimrc'
-
-#### Plugins Visual
-## Status Bar
-#[[plugins]]
-#repo = 'itchyny/lightline.vim' # config is written in 'plugin.vim'
-[[plugins]]
-repo = 'vim-airline/vim-airline'
-hook_add = 'runtime! airline.vimrc'
-[[plugins]]
-repo = 'vim-airline/vim-airline-themes'
-depends = 'vim-airline'
