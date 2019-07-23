@@ -83,7 +83,7 @@ export _Z_DATA="$XDG_DATA_HOME/z"
 ## vim
 export VIMINIT=":source $XDG_CONFIG_HOME/vim/vimrc"
 ## tmux
-export TMUX_TMPDIR="$XDG_RUNTIME_DIR"
+#export TMUX_TMPDIR="$XDG_RUNTIME_DIR"
 ## less
 export LESSKEY="$XDG_CONFIG_HOME/less/lesskey"
 ## MySQL
@@ -117,7 +117,7 @@ export XSERVERRC="$XDG_CONFIG_HOME/X11/xserverrc"
 ## coreutils source $(dircolors "$XDG_CONFIG_HOME/dircolors)"
 export LESSHISTFILE="$XDG_CACHE_HOME/less/history"
 ## urxvtd
-export RXVT_SOCKET="$XDG_RUNTIME_DIR/urxvtd"
+#export RXVT_SOCKET="$XDG_RUNTIME_DIR/urxvtd"
 
 ## nuget -- .NET
 export NUGET_PACKAGES="$XDG_CACHE_HOME/NuGetPackages"
