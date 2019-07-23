@@ -1,5 +1,4 @@
 "" CAUTION: Never careless mapping on <i_a-hjkl>
-"
 
 """ IME
 " 0: IME will be off, when lmap is off.
@@ -14,12 +13,14 @@ nnoremap <space> [None]
 nnoremap Y y$
 
 """ Refresh
-"# <c-l> is already used by window-leaping.
+"" Indent
+nnoremap <S-TAB> gg=G
+" <c-l> is already used by window-leaping.
 nnoremap [g:refresh] :<c-u>noh<cr><c-l>
 nmap <silent> <space><space> [g:refresh]
 
 """ Write&Quit
-"# w! write even read-only file.
+" w! write even read-only file.
 nnoremap          <space>w :<c-u>w<cr>
 nnoremap <silent> <space>q :<c-u>q<cr>
 nnoremap          <space>x :<c-u>w!<cr>
@@ -43,13 +44,13 @@ xnoremap gk k
 """ Hotkey
 "" Checkhealth
 if has('nvim')
-   noremap <silent> <space>ch :<c-u>checkhealth<cr>
-   noremap <silent> <a-c><a-h> :<c-u>checkhealth<cr>
+  noremap  <silent> <space>ch :<c-u>checkhealth<cr>
+  noremap  <silent> <a-c><a-h> :<c-u>checkhealth<cr>
   cnoremap <silent> <a-c><a-h> :<c-u>checkhealth<cr>
 endif
 
 "" Reload init.vim
- noremap <space>so :<c-u>so $XDG_CONFIG_HOME/nvim/init.vim<CR>
+noremap <space>so :<c-u>so $XDG_CONFIG_HOME/nvim/init.vim<CR>
 
 " CAUTION: i_alt-hjkl would be useful as <esc>hjkl.
 "" Move Window
@@ -69,7 +70,7 @@ nnoremap <a--> <c-w>-
 nnoremap <a-+> <c-w>+
 nnoremap <a-<> <c-w><
 " agressive resize
-nnoremap <c-w>m <c-w>_
+nnoremap <c-w>m     <c-w>_
 nnoremap <c-w><c-m> <c-w>_<c-w>|
 " neutralize
 nnoremap <c-w>0 <c-w>=
