@@ -13,6 +13,8 @@ fi
 if ! [ -d ~/.pyenv/bin ]; then
 	echo "Installing pyenv..."
   curl https://pyenv.run | bash
+  eval "$(pyenv init -)"
+  eval "$(pyenv virtualenv-init -)"
   echo "Done!"
 fi
 
