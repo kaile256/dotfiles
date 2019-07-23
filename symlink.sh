@@ -32,14 +32,13 @@ fi
 echo 'making symbolic links...'
 
 config_list=(
-  share
-  nvim
   bash
-  fish
-  tmux
   ctags
+  fish
   git
-  w3m
+  npm
+  nvim
+  tmux
   zsh
 )
 
@@ -61,12 +60,9 @@ cd $HOME
 
 ## Files
 # Bash
-ln -nsf ${XDG_CONFIG_HOME}/bash/.bash_profile .bash_profile
-ln -nsf ${XDG_CONFIG_HOME}/bash/.bashrc .bashrc
-echo "Done! Placed .bash_profile & .bashrc on ${HOME}"
-# Tmux
-ln -nsf ${XDG_CONFIG_HOME}/tmux/tmux.conf .tmux.conf
-echo "Done! Placed .tmux.conf on ${HOME}"
+ln -nsf ${XDG_CONFIG_HOME}/bash/.profile
+ln -nsf ${XDG_CONFIG_HOME}/bash/bashrc
+echo "Done! Placed .profile on ${HOME}"
 # Ctags
 ln -nsf ${XDG_CONFIG_HOME}/ctags/.ctags
 echo "Done! Made a symbolic link for ctags!"
@@ -75,25 +71,51 @@ ln -nsf ${XDG_CONFIG_HOME}/git/.tigrc
 ln -nsf ${XDG_CONFIG_HOME}/git/.gitconfig
 echo "Done! Made a symbolic link for git!"
 
-# Vim
-#if [ -d ${HOME}/.vim ]; then
-# rm -rf  ${HOME}/.vim
-# echo "Deleted old .vim-dir!"
-#fi
-#if [ -f ${HOME}/.vim/.netrwhist ]; then
-#  rm ${HOME}/.vim/.netrwhist
-#  rm -rf  ${HOME}/.vim
-#fi
-#ln -nsfT ${XDG_CONFIG_HOME}/nvim .vim
-#ln -nsfT ${XDG_CONFIG_HOME}/zsh/zplugin/zshenv_zplugin .zshenv
-#echo "Done! Made a symbolic link for vim!"
-
 cd $CURRENT_DIR
 
 cat << END
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 SYMBOLIC LINKS ARE COMPLETED
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 END
+
+### Dein
+echo "Installing dein.vim..."
+
+PLUGIN_DIR=$HOME/.cache//nvim/dein
+INSTALL_DIR="${PLUGIN_DIR}/repos/github.com/Shougo/dein.vim"
+echo "Install to \"$INSTALL_DIR\"..."
+if [ -e "$INSTALL_DIR" ]; then
+  echo "\"$INSTALL_DIR\" already exists!"
+fi
+
+echo ""
+
+# check git command
+type git || {
+  echo 'Please install git or update your path to include the git executable!'
+  exit 1
+}
+echo ""
+
+# make plugin dir and fetch dein
+if ! [ -e "$INSTALL_DIR" ]; then
+  echo "Begin fetching dein..."
+  mkdir -p "$PLUGIN_DIR"
+  git clone https://github.com/Shougo/dein.vim "$INSTALL_DIR"
+  echo "Done."
+  echo ""
+fi
+
+cat << EOD
+===============================================================================
+
+NOW, DEIN IS READY!!!
+
+===============================================================================
+
+EOD
