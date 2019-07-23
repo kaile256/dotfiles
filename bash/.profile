@@ -10,10 +10,9 @@ if [ -d /data/data/com.termux ]; then
   ./start-kali.sh
 fi
 
-source ~/.config/bash/xdg.sh
 source ~/.config/bash/bashrc
 
-if ! [ -z `echo "$SHELL" | grep zsh` ]; then
+if ! [ -z '`echo "$SHELL" | grep zsh`' ]; then
   source ${ZDOTDIR}/zshrc
 fi
 
