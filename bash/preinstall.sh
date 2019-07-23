@@ -33,28 +33,20 @@ if [ -e "$INSTALL_DIR" ]; then
   echo "\"$INSTALL_DIR\" already exists!"
 fi
 
-echo ""
-
-# check git command
-type git || {
-  echo 'Please install git or update your path to include the git executable!'
-exit 1
-}
-echo ""
 
 # make plugin dir and fetch dein
 if ! [ -e "$INSTALL_DIR" ]; then
+  # check git command
+  type git || {
+  echo ""
+    echo 'Please install git or update your path to include the git executable!'
+  exit 1
+  }
+  echo ""
+
   echo "Begin fetching dein..."
   mkdir -p "$PLUGIN_DIR"
   git clone https://github.com/Shougo/dein.vim "$INSTALL_DIR"
-  echo "Done."
+  echo "Done. Dein is Ready!!"
   echo ""
 fi
-cat << EOD
-  =============================================================================
-
-  DEIN INSTALLED!!
-
-  =============================================================================
-
-EOD
