@@ -11,7 +11,7 @@ fi
 
 ### Pyenv -- python
 if ! [ -d ~/.pyenv/bin ]; then
-	echo "Installing pyenv..."
+  echo "Installing pyenv..."
   curl https://pyenv.run | bash
   eval "$(pyenv init -)"
   eval "$(pyenv virtualenv-init -)"
@@ -20,28 +20,28 @@ fi
 
 ### Cargo -- rust
 if ! [ -d ~/.cargo/bin ]; then
-	echo "Installing cargo..."
+  echo "Installing cargo..."
   curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
   echo "Done"
-fi
-
-### Dein -- vim
-PLUGIN_DIR=$HOME/.cache//nvim/dein
-INSTALL_DIR="${PLUGIN_DIR}/repos/github.com/Shougo/dein.vim"
-echo "Install to \"$INSTALL_DIR\"..."
-if [ -e "$INSTALL_DIR" ]; then
-  echo "\"$INSTALL_DIR\" already exists!"
 fi
 
 
 # make plugin dir and fetch dein
 if ! [ -e "$INSTALL_DIR" ]; then
+  ### Dein -- vim
+  PLUGIN_DIR=$HOME/.cache//nvim/dein
+  INSTALL_DIR="${PLUGIN_DIR}/repos/github.com/Shougo/dein.vim"
+  echo "Install to \"$INSTALL_DIR\"..."
+  if [ -e "$INSTALL_DIR" ]; then
+    echo "\"$INSTALL_DIR\" already exists!"
+  fi
+
   # check git command
   type git || {
-  echo ""
-    echo 'Please install git or update your path to include the git executable!'
-  exit 1
-  }
+    echo ""
+      echo 'Please install git or update your path to include the git executable!'
+      exit 1
+    }
   echo ""
 
   echo "Begin fetching dein..."
