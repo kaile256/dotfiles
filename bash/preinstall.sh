@@ -19,15 +19,10 @@ if ! [ -d ~/.pyenv/bin ]; then
 fi
 
 ### Cargo -- rust
-if [ ! -d ~/.cargo/bin ]; then
-  if [ -d /data/data/com.termux ]; then
-    curl -y --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-    echo "Done"
-  else
+if [ ! -d ~/.cargo/bin ] && [ ! -d /data/data/com.termux ]; then
     echo "Installing cargo..."
     curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
     echo "Done"
-  fi
 fi
 
 ### Dein -- vim
