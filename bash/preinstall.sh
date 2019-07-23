@@ -10,7 +10,7 @@ if ! [ -d "$HOME/.cache/less" ]; then
 fi
 
 ### Pyenv -- python
-if ! [ -d ~/.pyenv/bin ];
+if ! [ -d ~/.pyenv/bin ]; then
 	echo "Installing pyenv..."
   curl https://pyenv.run | bash
   echo "Done!"
