@@ -5,8 +5,8 @@ set -Ceu
 # After xdg.sh
 
 ### less -- pager
-if ! [ -d "$XDG_CACHE_HOME"/less ]; then 
-  mkdir -p "$XDG_CACHE_HOME"/less
+if ! [ -d "$HOME/.cache/less" ]; then 
+  mkdir -p "$HOME/.cache/less"
 fi
 
 ### Pyenv -- python
