@@ -17,8 +17,8 @@ fi
 # ~/.profile: executed by Bourne-compatible login shells.
 
 if [ "$BASH" ]; then
-  if [ -f ~/.config/bash/bashrc ]; then
-    . ~/.config/bash/bashrc
+  if [ -f ~/.config/bash/.bashrc ]; then
+    . ~/.config/bash/.bashrc
   fi
 fi
 

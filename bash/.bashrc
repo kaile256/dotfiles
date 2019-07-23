@@ -5,5 +5,8 @@ umask 022
 source ~/.config/bash/preinstall.sh
 source ~/.config/bash/xdg.sh
 source ~/.config/bash/env.sh
-source ~/.config/bash/path.sh
-source ~/.config/bash/alias.sh
+
+export BASH_HOME="$HOME/.config/bash"
+
+source "${BASH_HOME}/path.sh"
+source "${BASH_HOME}/alias.sh"
