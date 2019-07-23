@@ -13,9 +13,9 @@ export XDG_DATA_HOME="${HOME}/.local/share"
 
 #### Preset
 ### vim
-if ! [ -d "XDG_DATA_HOME/vim/{undo,swap,backup}" ]; then
-  mkdir -p "$XDG_DATA_HOME/vim/{undo,swap,backup}"
-fi
+#if ! [ -d "XDG_DATA_HOME/vim/{undo,swap,backup}" ]; then
+#  mkdir -p "$XDG_DATA_HOME/vim/{undo,swap,backup}"
+#fi
 ### wine
 if ! [ -d "$XDG_DATA_HOME/wineprefixes" ]; then
   mkdir -p "$XDG_DATA_HOME/wineprefixes"
@@ -81,7 +81,7 @@ export _Z_DATA="$XDG_DATA_HOME/z"
 
 ### App
 ## vim
-export VIMINIT=":source $XDG_CONFIG_HOME/vim/vimrc"
+#export VIMINIT=":source $XDG_CONFIG_HOME/vim/vimrc"
 ## tmux
 #export TMUX_TMPDIR="$XDG_RUNTIME_DIR"
 ## less
