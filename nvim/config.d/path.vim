@@ -8,14 +8,14 @@ set backupdir=$XDG_DATA_HOME/vim/backup
 """" PATH: for the cmd ':find'
 "let s:xdg_config_path='~/.config/**'
 "set path+=s:xdg_config_path
-set path+=../**,
-set path+=~/.config/**,
-set path+=~/.cache/nvim/dein/repos/github.com/**,
+set path+=../**
+set path+=~/.config/**
+set path+=~/.cache/nvim/dein/repos/github.com/**
 
 set path-=~
-set path-=.git/**,
-set path-=*yarn*/**,
-set path-=*node*/**,
+set path-=.git/**
+set path-=*yarn*/**
+set path-=*node*/**
 
 "let g:python3_host_prog = '/home/linuxbrew/.linuxbrew/bin/python3'
 "let g:python_host_prog = '/home/linuxbrew/.linuxbrew/bin/python'

@@ -2,8 +2,6 @@
 
 set -Ceu
 
-export PATH="$XDG_CONFIG_HOME/bash:$PATH"
-
 ## Cargo -- rust
 export PATH="$HOME/.cargo/bin:$PATH"
 ## Pyenv -- python

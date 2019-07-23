@@ -38,3 +38,7 @@ nnoremap <silent> <space>ps :<c-u>Gpush<cr>
 nnoremap <space>gg :<c-u>silent Ggrep <bar>cw<Left><Left><Left>
 " show options
 nnoremap <space>gh :<c-u>Ggrep --help<cr>
+
+""" Others
+nnoremap <space>go :<c-u>Git checkout 
+

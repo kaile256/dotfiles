@@ -20,3 +20,15 @@ hook_done_update= '''
 #[[plugins]]
 #repo = 'mhinz/vim-startify'
 #hook_add = 'runtime! startify.vimrc'
+
+#### Status Bar
+#[[plugins]]
+#repo = 'itchyny/lightline.vim' # config is written in 'plugin.vim'
+#hook_post_source = 'runtime! lightline.vimrc'
+[[plugins]]
+repo = 'vim-airline/vim-airline'
+hook_post_source = 'runtime! airline.vimrc'
+[[plugins]]
+repo = 'vim-airline/vim-airline-themes'
+depends = 'vim-airline'
+
