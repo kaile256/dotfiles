@@ -61,7 +61,6 @@ cd $HOME
 ## Files
 # Bash
 ln -nsf ${XDG_CONFIG_HOME}/bash/.profile
-ln -nsf ${XDG_CONFIG_HOME}/bash/bashrc
 echo "Done! Placed .profile on ${HOME}"
 # Ctags
 ln -nsf ${XDG_CONFIG_HOME}/ctags/.ctags

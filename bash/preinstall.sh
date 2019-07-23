@@ -10,21 +10,17 @@ if ! [ -d "$XDG_CACHE_HOME"/less ]; then
 fi
 
 ### Pyenv -- python
-if [ -d ~/.pyenv/bin ];
-  export PATH="$HOME/.pyenv/bin:$PATH"
-  eval "$(pyenv init -)"
-  eval "$(pyenv virtualenv-init -)"
-else
+if ! [ -d ~/.pyenv/bin ];
+	echo "Installing pyenv..."
   curl https://pyenv.run | bash
-  exec -l bash
+  echo "Done!"
 fi
 
 ### Cargo -- rust
-if [ -d ~/.cargo/bin ]; then
-  export PATH="$HOME/.cargo/bin:$PATH"
-else
+if ! [ -d ~/.cargo/bin ]; then
+	echo "Installing cargo..."
   curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-  exec -l bash
+  echo "Done"
 fi
 
 ### Dein -- vim

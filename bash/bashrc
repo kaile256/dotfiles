@@ -1,6 +1,10 @@
 umask 022
 
-BASH_HOME="$XDG_CONFIG_HOME/bash"
+source ~/.config/bash/preinstall.sh
+source ~/.config/bash/xdg.sh
+source ~/.config/bash/env.sh
+
+export BASH_HOME="$XDG_CONFIG_HOME/bash"
 
 source "${BASH_HOME}/path.sh"
 source "${BASH_HOME}/alias.sh"
