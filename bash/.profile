@@ -10,10 +10,8 @@ if [ -d /data/data/com.termux ]; then
   ./start-kali.sh
 fi
 
-~/.config/bash/bashrc
-
-if ! [ -z '`echo "$SHELL" | grep zsh`' ]; then
-  source ${ZDOTDIR}/zshrc
+if [ "$ZSH" ]; then
+  . ~/.config/zsh/zshrc
 fi
 
 # ~/.profile: executed by Bourne-compatible login shells.
