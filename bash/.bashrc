@@ -7,7 +7,11 @@ source ~/.config/bash/preinstall.sh
 source ~/.config/bash/xdg.sh
 source ~/.config/bash/path.sh
 source ~/.config/bash/env.sh
+<<<<<<< HEAD
 
+=======
+source ~/.config/bash/path.sh
+>>>>>>> 1424fec4380db0a6713b0c674b5007189a550723
 source ~/.config/bash/alias.sh
 source ~/.config/bash/prompt.sh
 
