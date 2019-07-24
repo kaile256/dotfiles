@@ -3,6 +3,14 @@ if has('nvim') || ('terminal')
   """ Color
   set termguicolors
 
+  augroup ModifiableTermMode
+    au! TermOpen * setlocal modifiable
+  augroup END
+
+  augroup NoNumberOnTermMode
+    au! TermOpen * setlocal nonumber
+  augroup END
+
   """" KEYMAP
   """ Normal Mode
   "" Open Shortcut

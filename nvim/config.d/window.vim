@@ -1,6 +1,7 @@
-"" CAUTION: Never careless mapping on <i_a-hjkl>
+"""" From: 'init.vim'
+"""" CAUTION: Never careless mapping on <i_a-hjkl>
 
-"" Kill Ambiguities
+""" Kill Ambiguities
 nnoremap <space> [None]
 nnoremap Y y$
 
@@ -21,30 +22,6 @@ nnoremap <silent> <space>z :<c-u>q!<cr>
 nnoremap <space>* :<c-u>qa<cr>
 nnoremap <space>! :w !sudo tee % > /dev/null<cr> <bar> edit!
 
-""" hjkl
-" move as it looks.
-nnoremap j gj
-nnoremap k gk
-xnoremap j gj
-xnoremap k gk
-" swap roles.
-nnoremap gj j
-nnoremap gk k
-xnoremap gj j
-xnoremap gk k
-
-""" Hotkey
-"" Checkhealth
-if has('nvim')
-  noremap  <silent> <space>ch :<c-u>checkhealth<cr>
-  noremap  <silent> <a-c><a-h> :<c-u>checkhealth<cr>
-  cnoremap <silent> <a-c><a-h> :<c-u>checkhealth<cr>
-endif
-
-"" Reload init.vim
-noremap <space>so :<c-u>so $XDG_CONFIG_HOME/nvim/init.vim<CR>
-
-" CAUTION: i_alt-hjkl would be useful as <esc>hjkl.
 "" Move Window
 nnoremap <c-w>h <c-w>H
 nnoremap <c-w>j <c-w>J

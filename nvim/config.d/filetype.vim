@@ -1,2 +1,2 @@
-au BufNewFile,BufRead *.vimap setfiletype vim
-au BufNewFile,BufRead *.previm setfiletype vim
+au BufNewFile,BufRead *.vim! setfiletype vim
+au BufNewFile,BufRead *.vimrc! setfiletype vim

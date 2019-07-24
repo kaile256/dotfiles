@@ -17,7 +17,19 @@ set nowrapscan
 set foldenable
 
 """" KEYMAP
-"" Advanced jk/HML
+""" hjkl
+" move as it looks.
+nnoremap j gj
+nnoremap k gk
+xnoremap j gj
+xnoremap k gk
+" switch mapping.
+nnoremap gj j
+nnoremap gk k
+xnoremap gj j
+xnoremap gk k
+
+""" Advanced jk/HML
 " <c-hjkl> get along with <c-fbdu>.
 nmap <silent> <c-k> [ToWinTop]
 nmap <silent> <c-m> [ToWinMiddle]

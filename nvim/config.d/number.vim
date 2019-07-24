@@ -1,4 +1,4 @@
-"""" By init.vim
+"""" From: 'init.vim'
 
 "" CAUTION: never map on 0; that makes delay to 0-jump.
 nnoremap <silent>        1 :<c-u>q<cr>
@@ -14,6 +14,7 @@ noremap 34 =
 noremap 4 $
 noremap 5 %
 noremap 6 ^
+noremap <c-6> <c-^>
 
 noremap 78 \
 noremap 88 *
