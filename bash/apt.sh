@@ -5,9 +5,6 @@ set -Ceu
 #### After: xdg.sh
 #### For:   apt
 
-sudo apt update
-sudo apt upgrade
-
 #### LANGUAGE
 ### Python
 ## pip

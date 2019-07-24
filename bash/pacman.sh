@@ -5,8 +5,6 @@ set -Ceu
 #### For: pacman
 
 if [ -x $(which pacman) ]; then
-  sudo pacman -Syu
-
   #### LANGUAGE
   ### Python
   ## pip3
