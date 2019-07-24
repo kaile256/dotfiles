@@ -1,4 +1,4 @@
-#### By dein.vim
+#### From: dein.vim
 
 ### Completion
 [[plugins]]
@@ -18,7 +18,7 @@ hook_post_update = '''
 ### Git
 [[plugins]]
 repo = 'tpope/vim-fugitive'
-on_event = 'BufReadPre'
+on_event = 'VimEnter'
 hook_post_source = 'runtime! fugitive.vimrc'
 
 ### Sneppets
@@ -51,7 +51,6 @@ repo = 'Shougo/neoyank.vim'
 on_map = 'Denite'
 [[plugins]]
 repo = 'ozelentok/denite-gtags'
-hook_post_source = 'runtime! denite-gtags.vimrc'
 on_map = 'Denite'
 
 ### On Term Mode
@@ -72,12 +71,13 @@ hook_post_source = 'runtime! quickrun.vimrc'
 repo = 'neomake/neomake'
 if = 'version >= 800'
 on_map = 'make'
-hook_post_source = 'runtime! neomake'
+hook_post_source = 'runtime! neomake.vimrc'
 
 ### Template
 [[plugins]]
 repo = 'mattn/sonictemplate-vim'
 on_event = 'BufRead'
+hook_post_source = 'runtime! sonictemplate.vimrc'
 #[[plugins]]
 ## preset a template respectively.
 #repo = 'thinca/vim-template'
