@@ -84,8 +84,9 @@ noremap <a-t> <c-w>t
 cnoremap <a-k> <c-c>
 
 """ Tab Page
-noremap <silent> <c-h> gT
-noremap <silent> <c-l> gt
+noremap <c-h> gT
+noremap <c-l> gt
+noremap <c-w><c-t> <c-w>T
 
 """ Buffer
 " <c-[> to <esc>, <c-]> for tag-jump.
