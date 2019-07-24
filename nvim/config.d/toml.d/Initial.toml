@@ -27,18 +27,3 @@ hook_post_source = 'runtime! airline.vimrc'
 repo = 'vim-airline/vim-airline-themes'
 depends = 'vim-airline'
 
-### Git
-[[plugins]]
-repo = 'tpope/vim-fugitive'
-on_event = 'VimEnter'
-hook_post_source = 'runtime! fugitive.vimrc'
-
-### FZF
-[[plugins]]
-repo = 'junegunn/fzf'
-on_event = 'VimEnter'
-[[plugins]]
-repo = 'junegunn/fzf.vim'
-on_if = 'executable("fzf")'
-hook_post_source = 'runtime! fzf.vimrc'
-
