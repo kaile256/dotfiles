@@ -5,7 +5,7 @@
 repo = 'neoclide/coc.nvim'
 hook_post_source = 'runtime! coc.vimrc'
 on_event = 'VimEnter'
-hook_post_update = '''
+hook_done_update = '''
   call coc#util#install()
   CocInstall coc-json coc-tsserver coc-html coc-yaml coc-python 
   CocInstall coc-git coc-yank coc-vimlsp coc-highlight

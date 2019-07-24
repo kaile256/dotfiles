@@ -5,14 +5,14 @@
 # for ssh logins, install and configure the libpam-umask package.
 
 # Before .bashrc.
-if [ -d /data/data/com.termux ]; then
+if [ -d /data/data/com.termux ] && [ -x ~/start*.sh ]; then
   cd ~
   ./start-kali.sh
 fi
 
-if [ "$ZSH" ]; then
-  . ~/.config/zsh/zshrc
-fi
+#if [ "$ZSH" ]; then
+#  . ~/.config/zsh/zshrc
+#fi
 
 # ~/.profile: executed by Bourne-compatible login shells.
 
@@ -22,7 +22,7 @@ if [ "$BASH" ]; then
   fi
 fi
 
-mesg n || true
+#mesg n || true
 
 bash
 

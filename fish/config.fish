@@ -27,7 +27,7 @@ if not functions -q fisher
     fish -c fisher
 end
 
-if pwd | grep termux
+if pwd | grep termux; and test -x ~/plinux.sh
   cd
-  ./start-kali.sh
+  ./plinux.sh
 end
