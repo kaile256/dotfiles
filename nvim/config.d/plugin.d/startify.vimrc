@@ -15,7 +15,7 @@ let g:startify_session_dir = '~/.local/share/nvim/session'
 """ Session
 augroup AutoSaveSession
   " !: overwrite existing session.
-  au! VimLeave * SSave! 'LastSession.vim'
+  au! VimLeavePre * SSave! 'LastSession.vim'
 augroup END
 
 """" KEYMAP

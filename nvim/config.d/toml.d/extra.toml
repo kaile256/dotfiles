@@ -1,0 +1,34 @@
+#### From: dein.vim
+
+### Defx
+[[plugins]]
+repo = 'kristijanhusak/defx-git'
+on_if = 'has("python3")'
+[[plugins]]
+repo = 'kristijanhusak/defx-icons'
+on_if = 'has("python3")'
+hook_post_source = 'runtime! defx-extra.vimrc'
+
+### Denite
+[[plugins]]
+repo = 'Shougo/neoyank.vim'
+on_if = 'has("python3")'
+[[plugins]]
+repo = 'ozelentok/denite-gtags'
+on_if = 'has("python3")'
+[[plugins]]
+repo = 'rafi/vim-denite-session'
+on_if = 'has("python3")'
+[[plugins]]
+repo = 'neoclide/denite-git'
+on_if = 'has("python3")'
+[[plugins]]
+repo = 'Shougo/neomru.vim'
+on_if = 'has("python3")'
+
+### COC
+[[plugins]]
+repo = 'neoclide/coc-denite'
+on_if = 'has("python3")'
+
+

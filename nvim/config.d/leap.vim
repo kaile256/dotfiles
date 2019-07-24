@@ -32,8 +32,13 @@ xnoremap gk k
 """ Advanced jk/HML
 " <c-hjkl> get along with <c-fbdu>.
 nmap <silent> <c-k> [ToWinTop]
-nmap <silent> <c-m> [ToWinMiddle]
 nmap <silent> <c-j> [ToWinBottom]
+
+nmap <silent> <c-m> [ToWinMiddle]
+
+augroup TurnOff<c-m>
+  au! FileType qf nnoremap <buffer> <cr> <cr>
+augroup END
 
 """ Go-To
 " switch mapping

@@ -1,16 +1,9 @@
 """" From: 'init.vim'
 
 """" CONFIG
-""" Session
-augroup AutoSaveSession
-  au! VimLeave * mksession!
-augroup END
-
 """ Clipboard
 nnoremap <space>y "+y
 xnoremap <space>y "+y
-nnoremap <space>d "+d
-xnoremap <space>d "+d
 "" Paste
 nnoremap <space>p "+p
 xnoremap <space>p "+p

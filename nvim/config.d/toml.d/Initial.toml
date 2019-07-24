@@ -27,3 +27,27 @@ hook_post_source = 'runtime! airline.vimrc'
 repo = 'vim-airline/vim-airline-themes'
 depends = 'vim-airline'
 
+### FZF
+[[plugins]]
+repo = 'junegunn/fzf'
+[[plugins]]
+repo = 'junegunn/fzf.vim'
+hook_add = 'runtime! fzf.vimrc'
+
+### Git
+[[plugins]]
+repo = 'tpope/vim-fugitive'
+hook_add = 'runtime! fugitive.vimrc'
+
+### Deinte
+[[plugins]]
+repo = 'Shougo/denite.nvim'
+if = 'has("python3")'
+hook_add = 'runtime! denite.vimrc'
+#hook_add = 'runtime! denite-extra.vimrc'
+
+### Defx
+[[plugins]]
+repo = 'Shougo/defx.nvim'
+if = 'has("python3")'
+hook_post_source = 'runtime! defx.vimrc'

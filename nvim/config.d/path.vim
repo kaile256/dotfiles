@@ -14,6 +14,7 @@ let g:netrw_home = "~/.local/share/nvim"
 set path+=../**
 set path+=~/.config/**
 set path+=~/.cache/nvim/dein/repos/github.com/**
+set path+=~/.local/nvim/**
 
 set path-=~
 set path-=.git/**

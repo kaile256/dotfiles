@@ -1,37 +1,10 @@
-#### From: 'dein.vim'
+#### From: dein.vim
 
 ### Filer
 [[plugins]]
 repo = 'cocopon/vaffle.vim'
 on_if = '!has("python3")'
 hook_post_source = 'runtime! vaffle.vimrc'
-[[plugins]]
-repo = 'kristijanhusak/defx-git'
-on_if = 'has("python3")'
-[[plugins]]
-repo = 'kristijanhusak/defx-icons'
-on_if = 'has("python3")'
-[[plugins]]
-repo = 'Shougo/defx.nvim'
-on_if = 'has("python3")'
-hook_post_source = 'runtime! defx.vimrc'
-hook_post_source = 'runtime! defx-extra.vimrc'
-
-### Buffer
-[[plugins]]
-repo = 'Shougo/denite.nvim'
-on_if = 'has("python3")'
-hook_post_source = 'runtime! denite.vimrc'
-hook_post_source = 'runtime! denite-extra.vimrc'
-[[plugins]]
-repo = 'Shougo/neoyank.vim'
-on_if = 'has("python3")'
-[[plugins]]
-repo = 'ozelentok/denite-gtags'
-on_if = 'has("python3")'
-[[plugins]]
-repo = 'rafi/vim-denite-session'
-on_if = 'has("python3")'
 
 ### Jump
 [[plugins]]

@@ -15,12 +15,6 @@ hook_post_update = '''
 #on_event = 'InsertEnter'
 #hook_post_source = 'runtime! YouCompleteMe.vimrc'
 
-### Git
-[[plugins]]
-repo = 'tpope/vim-fugitive'
-on_event = 'VimEnter'
-hook_post_source = 'runtime! fugitive.vimrc'
-
 ### Sneppets
 [[plugins]]
 repo = 'Shougo/neosnippet-snippets'
@@ -31,15 +25,6 @@ repo = 'Shougo/neosnippet.vim'
 hook_post_source = 'runtime! neosnippet.vimrc'
 on_event = 'InsertEnter'
 on_ft = 'snippets'
-
-### FZF
-[[plugins]]
-repo = 'junegunn/fzf'
-on_event = 'VimEnter'
-[[plugins]]
-repo = 'junegunn/fzf.vim'
-on_if = 'executable("fzf")'
-hook_post_source = 'runtime! fzf.vimrc'
 
 ### On Term Mode
 [[plugins]]
