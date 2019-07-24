@@ -30,11 +30,15 @@ xnoremap gj j
 xnoremap gk k
 
 """ Advanced jk/HML
-" <c-hjkl> get along with <c-fbdu>.
-nmap <silent> <c-k> [ToWinTop]
-nmap <silent> <c-j> [ToWinBottom]
-
-nmap <silent> <c-m> [ToWinMiddle]
+" <a-hjkl> get along with <s-web>,
+" though <c-hjkl> get along with <c-fbud>;
+"nnoremap <silent> <a-h> :<c-r>=(               virtcol('.')) /2<cr>h
+"nnoremap <silent> <a-l> :<c-r>=(virtcol('0') - virtcol('.')) /2<cr>l
+nmap <silent> <a-j> [ToWinBottom]
+nmap <silent> <a-k> [ToWinTop]
+" CAUTION: <c-m> is identical with <cr>; <a-m> CANNOT be defined, why?
+nmap <silent> <a-u> [ToWinMiddle]
+nmap <silent> <a-i> [ToWinMiddle]
 
 augroup TurnOff<c-m>
   au! FileType qf nnoremap <buffer> <cr> <cr>
@@ -78,10 +82,10 @@ noremap <silent> <a-{> :$tag<cr>
 
 """ Pane
 " leap between panes
-noremap <a-h> <c-w>h
-noremap <a-j> <c-w>j
-noremap <a-k> <c-w>k
-noremap <a-l> <c-w>l
+noremap <c-h> <c-w>h
+noremap <c-j> <c-w>j
+noremap <c-k> <c-w>k
+noremap <c-l> <c-w>l
 
 noremap <a-b> <c-w>b
 noremap <a-t> <c-w>t
@@ -89,8 +93,11 @@ noremap <a-t> <c-w>t
 cnoremap <a-k> <c-c>
 
 """ Tab Page
-noremap <c-h> gT
-noremap <c-l> gt
+" mnemonic: <s-,>/<s-.> are < & >.
+noremap <c-,> gT
+noremap <c-.> gt
+noremap <a-h> gT
+noremap <a-l> gt
 noremap <c-w><c-t> <c-w>T
 
 """ Buffer
