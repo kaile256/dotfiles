@@ -1,14 +1,27 @@
 """" From: init.vim
-"" CONFIG
+
+"""" CONFIG
 " cursor position of column is kept on jump.
 set nostartofline
+" jump ignoring unwritten buffers.
+set hidden
+
+""" Search
+set noignorecase
+" sensitive to case only with upper case.
+"set smartcase 
+set incsearch
+set hlsearch
+set nowrapscan
+" fold all lines unmatched on {pattern}.
+set foldenable
 
 """" KEYMAP
 "" Advanced jk/HML
 " <c-hjkl> get along with <c-fbdu>.
-map <silent> <c-k> [ToWinTop]
-map <silent> <c-m> [ToWinMiddle]
-map <silent> <c-j> [ToWinBottom]
+nnoremap <silent> <c-k> [ToWinTop]
+nnoremap <silent> <c-m> [ToWinMiddle]
+nnoremap <silent> <c-j> [ToWinBottom]
 
 """ Go-To
 " switch mapping
@@ -84,6 +97,6 @@ augroup QuickFixJump
 augroup END
 
 """" DEFINITION
-noremap [ToWinTop]    :<c-r>= (line('w0') + line('.'))/2<cr><cr>
-noremap [ToWinBottom] :<c-r>= (line('w$') + line('.') + 1)/2<cr><cr>
-noremap [ToWinMiddle] :<c-r>= (line('w0') + line('w$') + 2*line('.'))/4<cr><cr>
+noremap [ToWinTop]    :<c-u><c-r>= (line('w0') + line('.'))/2<cr><cr>
+noremap [ToWinBottom] :<c-u><c-r>= (line('w$') + line('.') + 1)/2<cr><cr>
+noremap [ToWinMiddle] :<c-u><c-r>= (line('w0') + line('w$') + 2*line('.'))/4<cr><cr>

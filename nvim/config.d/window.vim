@@ -1,14 +1,6 @@
 "" CAUTION: Never careless mapping on <i_a-hjkl>
 
-""" IME
-" 0: IME will be off, when lmap is off.
-" lmap supports 3 modes: Insert, Commandline and Lang-Arg.
-imap <silent> <esc> <esc>:set iminsert=0<cr>
-lmap <silent> <cr>   <cr>:set imsearch=0<cr>
-
 "" Kill Ambiguities
-inoremap <esc> <c-g>u<esc>
-imap <a-space>w <esc>:w<cr>
 nnoremap <space> [None]
 nnoremap Y y$
 
