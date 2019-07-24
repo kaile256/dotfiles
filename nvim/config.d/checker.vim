@@ -1,13 +1,17 @@
 """" KEYMAP
 """ Checkhealth
 if has('nvim')
-  noremap  <silent> <space>ch :<c-u>checkhealth<cr>
-  noremap  <silent> <a-c><a-h> :<c-u>checkhealth<cr>
+  nnoremap <silent> <space>ch  :<c-u>checkhealth<cr>
+  nnoremap <silent> <a-c><a-h> :<c-u>checkhealth<cr>
+  nnoremap <silent> <a-c>h     :<c-u>checkhealth<cr>
   cnoremap <silent> <a-c><a-h> :<c-u>checkhealth<cr>
+  cnoremap <silent> <a-c>h     :<c-u>checkhealth<cr>
 endif
 
 """ Reload init.vim
-noremap <space>so :<c-u>so $XDG_CONFIG_HOME/nvim/init.vim<CR>
+noremap <space>so  :<c-u>so $XDG_CONFIG_HOME/nvim/init.vim<CR>
+noremap <a-s><a-o> :<c-u>so $XDG_CONFIG_HOME/nvim/init.vim<CR>
+noremap <a-s>o     :<c-u>so $XDG_CONFIG_HOME/nvim/init.vim<CR>
 
 "augroup CheckStartTime
 "  au! VimEnter,InsertEnter,WinEnter * checktime
