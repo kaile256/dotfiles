@@ -37,7 +37,7 @@ hook_post_source = 'runtime! ripgrep.vimrc'
 [[plugins]]
 # Show marks
 repo = 'jacquesbh/vim-showmarks'
-on_map = [m,`,']
+on_map = ['m','`',"'"]
 hook_post_source = 'runtime! showmarks.vimrc'
 
 [[plugins]]

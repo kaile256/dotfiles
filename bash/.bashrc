@@ -8,7 +8,11 @@ source ~/.config/bash/xdg.sh
 source ~/.config/bash/path.sh
 source ~/.config/bash/env.sh
 <<<<<<< HEAD
+<<<<<<< HEAD
 
+=======
+source ~/.config/bash/path.sh
+>>>>>>> 1424fec4380db0a6713b0c674b5007189a550723
 =======
 source ~/.config/bash/path.sh
 >>>>>>> 1424fec4380db0a6713b0c674b5007189a550723
