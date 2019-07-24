@@ -72,11 +72,16 @@ hook_post_source = 'runtime! sonictemplate.vimrc'
 #on_event = 'BufReadPre'
 #on_ft = 'bash'
 
-### Session
+### Start Page
 [[plugins]]
-repo = 'tpope/vim-obsesson.vim'
-on_event = 'VimLeavePre'
-hook_post_source = 'runtime! obsesson.vimrc'
+repo = 'mhinz/vim-startify'
+hook_post_source = 'runtime! startify.vimrc'
+
+### Memo
+[[plugins]]
+repo = 'glidenote/memolist.vim'
+hook_post_source = 'runtime! memolist.vimrc'
+on_map = '<space>'
 
 #### Functional
 #[[plugins]]

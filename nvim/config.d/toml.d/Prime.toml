@@ -1,4 +1,4 @@
-#### By dein.vim
+#### From: dein.vim
 
 ### Required
 [[plugins]]
@@ -15,11 +15,6 @@ hook_done_update= '''
 ## run vim-plugins asynchronously, inc., quickrun.
 #repo = 'Shougo/vimproc.vim'
 #build = 'make'
-
-### Start Page
-#[[plugins]]
-#repo = 'mhinz/vim-startify'
-#hook_add = 'runtime! startify.vimrc'
 
 ### Status Bar
 #[[plugins]]

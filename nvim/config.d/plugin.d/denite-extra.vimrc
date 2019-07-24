@@ -5,5 +5,5 @@
 let g:session_directory = '~/.local/share/nvim/session'
 
 augroup DeniteSession
-  au! FileType denite nnoremap <space>d :Denite session<cr>
+  au! FileType denite nnoremap ss :Denite session<cr>
 augroup END

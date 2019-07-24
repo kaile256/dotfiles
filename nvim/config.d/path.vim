@@ -25,11 +25,12 @@ set path-=*node*/**
 "let g:ruby_host_prog = '/home/linuxbrew/.linuxbrew/bin/ruby'
 
 if has('python3')
-  let g:python3_host_prog = system('(type pyenv &>/dev/null && echo -n "$(pyenv root)/versions/$(pyenv global | grep python3)/bin/python") || echo -n $(which python3)')
+  let g:python3_host_prog = '/usr/bin/python3'
+  "let g:python3_host_prog = system('(type pyenv &>/dev/null && echo -n "$(pyenv root)/versions/$(pyenv global | grep python3)/bin/python") || echo -n $(which python3)')
 endif
 
 if has('python2')
 let g:python_host_prog = system('(type pyenv &>/dev/null && echo -n "$(pyenv root)/versions/$(pyenv global | grep python2)/bin/python") || echo -n $(which python2)')
 endif
 
-let g:ruby_host_prog = '~/.cargo/bin'
+let g:ruby_host_prog = '/usr/bin/ruby'

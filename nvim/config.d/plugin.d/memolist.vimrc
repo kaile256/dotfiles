@@ -1,3 +1,5 @@
+"""" From: 'tool.toml'
+
 let g:memolist_path = "~/CloudNote/"
 
 " suffix type (default: markdown)

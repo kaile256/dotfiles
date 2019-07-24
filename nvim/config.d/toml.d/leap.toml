@@ -1,4 +1,5 @@
-#### By dein.vim
+#### From: 'dein.vim'
+
 ### Filer
 [[plugins]]
 repo = 'cocopon/vaffle.vim'
@@ -103,12 +104,6 @@ repo = 'tyru/open-browser.vim'
 if = 'executable("qutebrowser")'
 on_map = '<space>'
 hook_post_source = 'runtime! open-browser.vimrc'
-
-### Memo
-[[plugins]]
-repo = 'glidenote/memolist.vim'
-hook_post_source = 'runtime! memolist.vimrc'
-on_map = '<space>'
 
 #[[plugins]]
 #repo = 'tyru/qfpopup.vim'
