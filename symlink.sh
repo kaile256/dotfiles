@@ -22,13 +22,12 @@ if [ -d "${HOME}/dotfiles" ]; then
   elif [ -d "${HOME}/.cache/dotfiles" ]; then
     DOTFILES="${HOME}/.cache/dotfiles"
 
-  else 
+  else
     echo "Please clone dotfiles either at ${HOME} or ${XDG_CACHE_HOME}"
     exit 1
 fi
 
 ## $XDG programs;
-## activate them, making symbolic links at $XDG_CONFIG_HOME from $DOTFILES.
 echo 'making symbolic links...'
 
 config_list=(
