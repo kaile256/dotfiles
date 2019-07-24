@@ -19,9 +19,9 @@ set foldenable
 """" KEYMAP
 "" Advanced jk/HML
 " <c-hjkl> get along with <c-fbdu>.
-nnoremap <silent> <c-k> [ToWinTop]
-nnoremap <silent> <c-m> [ToWinMiddle]
-nnoremap <silent> <c-j> [ToWinBottom]
+nmap <silent> <c-k> [ToWinTop]
+nmap <silent> <c-m> [ToWinMiddle]
+nmap <silent> <c-j> [ToWinBottom]
 
 """ Go-To
 " switch mapping

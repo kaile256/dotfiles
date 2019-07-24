@@ -81,40 +81,40 @@ SYMBOLIC LINKS ARE COMPLETED
 ================================================================================
 
 END
-
-### Dein
-echo "Installing dein.vim..."
-
-PLUGIN_DIR=$HOME/.cache//nvim/dein
-INSTALL_DIR="${PLUGIN_DIR}/repos/github.com/Shougo/dein.vim"
-echo "Install to \"$INSTALL_DIR\"..."
-if [ -e "$INSTALL_DIR" ]; then
-  echo "\"$INSTALL_DIR\" already exists!"
-fi
-
-echo ""
-
-# check git command
-type git || {
-  echo 'Please install git or update your path to include the git executable!'
-  exit 1
-}
-echo ""
-
-# make plugin dir and fetch dein
-if ! [ -e "$INSTALL_DIR" ]; then
-  echo "Begin fetching dein..."
-  mkdir -p "$PLUGIN_DIR"
-  git clone https://github.com/Shougo/dein.vim "$INSTALL_DIR"
-  echo "Done."
-  echo ""
-fi
-
-cat << EOD
-===============================================================================
-
-NOW, DEIN IS READY!!!
-
-===============================================================================
-
-EOD
+#
+#### Dein
+#echo "Installing dein.vim..."
+#
+#PLUGIN_DIR=$HOME/.cache//nvim/dein
+#INSTALL_DIR="${PLUGIN_DIR}/repos/github.com/Shougo/dein.vim"
+#echo "Install to \"$INSTALL_DIR\"..."
+#if [ -e "$INSTALL_DIR" ]; then
+#  echo "\"$INSTALL_DIR\" already exists!"
+#fi
+#
+#echo ""
+#
+## check git command
+#type git || {
+#  echo 'Please install git or update your path to include the git executable!'
+#  exit 1
+#}
+#echo ""
+#
+## make plugin dir and fetch dein
+#if ! [ -e "$INSTALL_DIR" ]; then
+#  echo "Begin fetching dein..."
+#  mkdir -p "$PLUGIN_DIR"
+#  git clone https://github.com/Shougo/dein.vim "$INSTALL_DIR"
+#  echo "Done."
+#  echo ""
+#fi
+#
+#cat << EOD
+#===============================================================================
+#
+#NOW, DEIN IS READY!!!
+#
+#===============================================================================
+#
+#EOD
