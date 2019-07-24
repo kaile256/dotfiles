@@ -24,8 +24,8 @@ nnoremap <silent> <space>gn :<c-u>Gmove<cr>
 """ Add only
 nnoremap <silent> <space>ga :<c-u>Gw<cr>
 """ Add && commit
-nnoremap <space>g' :<c-u>Gw<cr>:Gcommit -m''<Left>
-nnoremap <space>g" :<c-u>Gw<cr>:Gcommit -m""<Left>
+nnoremap <space>g' :<c-u>Gw<cr>:Gcommit -m ''<Left>
+nnoremap <space>g" :<c-u>Gw<cr>:Gcommit -m ""<Left>
 """ Add && status
 nnoremap <silent> <space>gw :<c-u>Gw<cr>:Gstatus<cr>
 """ Pull
@@ -35,7 +35,7 @@ nnoremap <silent> <space>ps :<c-u>Gpush<cr>
 
 """ Grep
 " -I: no binary files
-nnoremap <space>gg :<c-u>silent Ggrep <bar>cw<Left><Left><Left>
+nnoremap <space>gg :<c-u>silent Ggrep <bar> cw<Left><Left><Left><Left><Left>
 " show options
 nnoremap <space>gh :<c-u>Ggrep --help<cr>
 
