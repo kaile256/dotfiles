@@ -1,9 +1,10 @@
 """" XDG Base Repository
-set undodir=$XDG_DATA_HOME/vim/undo.vim
-set directory=$XDG_DATA_HOME/vim/swap.vim
-set backupdir=$XDG_DATA_HOME/vim/backup.vim
+"set undodir=$XDG_DATA_HOME/nvim/undo
+set directory=$XDG_DATA_HOME/nvim/swap
+"set backupdir=$XDG_DATA_HOME/nvim/backup
 "set viminfo='1000,n$XDG_DATA_HOME/vim/viminfo
 "set runtimepath=$XDG_CONFIG_HOME/vim,$VIMRUNTIME,$XDG_CONFIG_HOME/vim/after
+let g:netrw_home = $XDG_DATA_HOME/nvim
 
 """" PATH: for the cmd ':find'
 "let s:xdg_config_path='~/.config/**'
