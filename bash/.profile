@@ -27,5 +27,3 @@ fi
 bash
 
 export PATH="$HOME/.cargo/bin:$PATH"
-
-export PATH="/home/kaile256/.local/share/cargo/bin:$PATH"

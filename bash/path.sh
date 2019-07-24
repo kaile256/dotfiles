@@ -2,7 +2,10 @@
 
 set -Ceu
 
-## Cargo -- rust
+### 
+export PATH="$HOME/.local/bin:$PATH"
+
+### Cargo -- rust
 export PATH="$HOME/.cargo/bin:$PATH"
-## Pyenv -- python
+### Pyenv -- python
 export PATH="$HOME/.pyenv/bin:$PATH"

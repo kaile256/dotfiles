@@ -2,14 +2,21 @@
 
 set -Ceu
 
-# After xdg.sh
+#### After: xdg.sh
+#### For:   apt
 
-### less -- pager
-if ! [ -d "$HOME/.cache/less" ]; then 
-  mkdir -p "$HOME/.cache/less"
+sudo apt update
+sudo apt upgrade
+
+#### LANGUAGE
+### Python
+## pip
+if ! [ -e $(which pip3) ]; then
+  echo "Installing pip3..."
+  sudo apt install pip3
 fi
 
-### Pyenv -- python
+## pyenv
 if ! [ -d ~/.pyenv/bin ]; then
   echo "Installing pyenv..."
   curl https://pyenv.run | bash
@@ -18,15 +25,24 @@ if ! [ -d ~/.pyenv/bin ]; then
   echo "Done!"
 fi
 
-### Cargo -- rust
+### Rust
+## Cargo
 if [ ! -d ~/.cargo/bin ] && [ ! -d /data/data/com.termux ]; then
-    echo "Installing cargo..."
-    curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-    source ~/.local/share/cargo/env
-    echo "Done"
+  echo "Installing cargo..."
+  curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+  source ~/.local/share/cargo/env
+  ## TODO: del lines including '.cargo' in .profile.
+  echo "Done"
 fi
 
-### Dein -- vim
+#### TOOL
+### less -- pager
+if ! [ -d "$HOME/.cache/less" ]; then 
+  mkdir -p "$HOME/.cache/less"
+fi
+
+### Vim
+## Dein
 PLUGIN_DIR=$HOME/.cache//nvim/dein
 INSTALL_DIR="${PLUGIN_DIR}/repos/github.com/Shougo/dein.vim"
 

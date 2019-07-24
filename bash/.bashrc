@@ -2,6 +2,14 @@
 
 umask 022
 
+if [ -x $(which apt) ]; then
+  source ~/.config/bash/apt.sh
+fi
+
+if [ -x $(which pacman) ]; then
+  source ~/.config/bash/pacman.sh
+fi
+
 source ~/.config/bash/xdg.sh
 source ~/.config/bash/env.sh
 source ~/.config/bash/path.sh

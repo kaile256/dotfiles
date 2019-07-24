@@ -6,6 +6,7 @@ export EDITOR=nvim
 export VISUAL=nvim
 
 export TERM=xterm-256color
+export BROWSER=w3m
 
 ### PROMPT
 PS1='${debian_chroot:+($debian_chroot)}\h:\w\$ '

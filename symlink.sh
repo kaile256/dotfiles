@@ -38,6 +38,7 @@ config_list=(
   npm
   nvim
   tmux
+  w3m
   zsh
 )
 
@@ -68,6 +69,8 @@ echo "Done! Made a symbolic link for ctags!"
 ln -nsf ${XDG_CONFIG_HOME}/git/.tigrc
 ln -nsf ${XDG_CONFIG_HOME}/git/.gitconfig
 echo "Done! Made a symbolic link for git!"
+ln -nsf ${XDG_CONFIG_HOME}/w3m .w3m
+echo "Done! made a symlink of w3m-browser on ${HOME}"
 
 cd $CURRENT_DIR
 
