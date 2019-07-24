@@ -7,7 +7,7 @@ nnoremap Y y$
 
 """ Refresh
 "" Indent
-nnoremap <S-TAB> gg=G
+nnoremap <S-TAB> gg=G''
 " <c-l> is already used by window-leaping.
 nnoremap [g:refresh] :<c-u>noh<cr><c-l>
 nmap <silent> <space><space> [g:refresh]

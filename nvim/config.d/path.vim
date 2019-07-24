@@ -1,6 +1,8 @@
+"""" From: 'init.vim'
+
 """" XDG Base Repository
 "set undodir=$XDG_DATA_HOME/nvim/undo
-set directory="~/.local/share/nvim/swap"
+"set directory="~/.local/share/nvim/swap"
 "set backupdir=$XDG_DATA_HOME/nvim/backup
 "set viminfo='1000,n$XDG_DATA_HOME/vim/viminfo
 "set runtimepath=$XDG_CONFIG_HOME/vim,$VIMRUNTIME,$XDG_CONFIG_HOME/vim/after

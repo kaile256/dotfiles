@@ -41,18 +41,6 @@ repo = 'junegunn/fzf.vim'
 on_if = 'executable("fzf")'
 hook_post_source = 'runtime! fzf.vimrc'
 
-### Buffer
-[[plugins]]
-repo = 'Shougo/denite.nvim'
-on_if = 'has("python3")'
-hook_post_source = 'runtime! denite.vimrc'
-[[plugins]]
-repo = 'Shougo/neoyank.vim'
-on_map = 'Denite'
-[[plugins]]
-repo = 'ozelentok/denite-gtags'
-on_map = 'Denite'
-
 ### On Term Mode
 [[plugins]]
 repo = 'mhinz/neovim-remote'
@@ -83,6 +71,12 @@ hook_post_source = 'runtime! sonictemplate.vimrc'
 #repo = 'thinca/vim-template'
 #on_event = 'BufReadPre'
 #on_ft = 'bash'
+
+### Session
+[[plugins]]
+repo = 'tpope/vim-obsesson.vim'
+on_event = 'VimLeavePre'
+hook_post_source = 'runtime! obsesson.vimrc'
 
 #### Functional
 #[[plugins]]

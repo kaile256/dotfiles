@@ -22,7 +22,7 @@ if dein#load_state(s:dein_cache_dir)
   call dein#begin(s:dein_cache_dir)
 
   " list of plugins in toml, which dein manages.
-  let s:dein_toml_dir     = '~/.config/nvim/config.d/plugin.d/toml.d/'
+  let s:dein_toml_dir     = '~/.config/nvim//toml.d/'
 
   let s:dein_toml      = s:dein_toml_dir . 'Prime.toml'
   let s:appearance_toml= s:dein_toml_dir . 'appearance.toml'

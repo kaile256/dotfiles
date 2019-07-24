@@ -1,4 +1,4 @@
-"# Listed on 'lazy.toml'
+"""" From: 'tool.toml'
 
 "if !has('win64')
 "  command Defx :Defx -columns=git:markfilename:type
@@ -26,23 +26,13 @@ call defx#custom#column('mark', {
       \ 'selected_icon': '✓',
       \ })
 
-let g:defx_git#indicators = {
-      \ 'Modified'  : '+',
-      \ 'Staged'    : '●',
-      \ 'Untracked' : '?',
-      \ 'Renamed'   : '➜',
-      \ 'Unmerged'  : '═',
-      \ 'Deleted'   : 'x',
-      \ 'Unknown'   : '?'
-      \ }
-
 """" KEYMAP
 """ Open Preceding Tree
 " type '-' to parent dir
 " type 'v' to open like a filer
 " type 'b' to new tab
 "nnoremap <silent> <space>- :<c-u>Defx <c-r>=expand('s:parent_dir')<cr> <c-r>=expand('s:depth_1')<cr><cr>
-nnoremap <silent> <space>- :<c-u>Defx `expand('%:p:h')` -search=`expand('%:p')` -auto-recursive-level=1<cr>
+nnoremap <silent> <space>- :<c-u>Defx `expand('%:p:h')` -search=`expand('%:p')`<cr> 
 nnoremap <silent> <space>v :<c-u>Defx `expand('%:p:h')` -search=`expand('%:p')` -split=vertical -winwidth=35 -winheight=60 -direction=topleft <cr>
 nnoremap <silent> <space>t :<c-u>Defx `expand('%:p:h')` -search=`expand('%:p')` -split=tab<cr>
 
