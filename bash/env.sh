@@ -11,4 +11,6 @@ export TERM=xterm-256color
 PS1='${debian_chroot:+($debian_chroot)}\h:\w\$ '
 	
 ### FZF
-export FZF_DEFAULT_COMMAND='rg --files --hidden --follow --glob "!.git/*"'
+if [ -x "$(which rg)" ]; then
+  export FZF_DEFAULT_COMMAND='rg --files --hidden --follow --glob "!.git/*"'
+fi

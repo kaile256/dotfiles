@@ -22,6 +22,7 @@ fi
 if [ ! -d ~/.cargo/bin ] && [ ! -d /data/data/com.termux ]; then
     echo "Installing cargo..."
     curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+    source ~/.local/share/cargo/env
     echo "Done"
 fi
 
