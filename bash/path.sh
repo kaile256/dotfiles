@@ -12,6 +12,9 @@ export PATH="$HOME/.cargo/bin:$PATH"
 ## pyenv
 export PATH="$HOME/.pyenv/bin:$PATH"
 
+
 ### Nodejs
+## nodebrew
+export PATH="$HOME/.nodebrew/current/bin:$PATH"
 ## yarn
 #export PATH="$PATH:$HOME/`yarn global bin`"
