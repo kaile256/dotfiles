@@ -14,4 +14,4 @@ export PATH="$HOME/.pyenv/bin:$PATH"
 
 ### Nodejs
 ## yarn
-export PATH="$PATH:$HOME/`yarn global bin`"
+#export PATH="$PATH:$HOME/`yarn global bin`"

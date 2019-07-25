@@ -25,5 +25,3 @@ fi
 #mesg n || true
 
 bash
-
-export PATH="$HOME/.cargo/bin:$PATH"
