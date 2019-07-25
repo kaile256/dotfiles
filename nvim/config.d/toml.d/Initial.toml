@@ -53,7 +53,6 @@ hook_add = 'runtime! fugitive.vimrc'
 repo = 'Shougo/denite.nvim'
 if = 'has("python3")'
 hook_add = 'runtime! denite.vimrc'
-#hook_add = 'runtime! denite-extra.vimrc'
 
 ### Defx
 [[plugins]]

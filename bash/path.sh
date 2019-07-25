@@ -16,6 +16,7 @@ export PATH="$HOME/.pyenv/bin:$PATH"
 
 
 ### Nodejs
+export PATH="$HOME/.node_modules/bin:$PATH"
 ## nodebrew
 export PATH="$HOME/.nodebrew/current/bin:$PATH"
 ## yarn
