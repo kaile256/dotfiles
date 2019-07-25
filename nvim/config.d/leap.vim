@@ -39,6 +39,7 @@ nmap <silent> <c-k> [ToWinTop]
 " CAUTION: <c-m> is identical with <cr>; <a-m> CANNOT be defined, why?
 nmap <silent> <a-u> [ToWinMiddle]
 nmap <silent> <a-i> [ToWinMiddle]
+nmap <silent> M [ToWinMiddle]
 
 """ Go-To
 " switch mapping
