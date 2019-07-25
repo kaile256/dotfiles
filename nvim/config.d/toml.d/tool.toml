@@ -1,5 +1,9 @@
 #### From: dein.vim
 
+##### LSP
+#[[plugins]]
+#repo = 'autozimu/LanguageClient-neovim'
+
 ### Completion
 [[plugins]]
 repo = 'neoclide/coc.nvim'

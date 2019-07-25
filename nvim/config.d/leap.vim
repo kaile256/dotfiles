@@ -40,10 +40,6 @@ nmap <silent> <a-k> [ToWinTop]
 nmap <silent> <a-u> [ToWinMiddle]
 nmap <silent> <a-i> [ToWinMiddle]
 
-augroup TurnOff<c-m>
-  au! FileType qf nnoremap <buffer> <cr> <cr>
-augroup END
-
 """ Go-To
 " switch mapping
 noremap gf gF
@@ -94,10 +90,13 @@ cnoremap <a-k> <c-c>
 
 """ Tab Page
 " mnemonic: <s-,>/<s-.> are < & >.
-noremap <c-,> gT
-noremap <c-.> gt
+noremap <c-x><c-h> gT
+noremap <c-x><c-l> gt
+noremap <c-x>h gT
+noremap <c-x>l gt
 noremap <a-h> gT
 noremap <a-l> gt
+"" Give Tab
 noremap <c-w><c-t> <c-w>T
 
 """ Buffer
