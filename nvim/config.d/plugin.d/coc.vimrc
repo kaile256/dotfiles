@@ -1,4 +1,4 @@
-"""" From: 'lazy.toml'
+"""" From: 'tool.toml'
 """" Help: 'coc#'
 """" Source: 'neoclide/coc.nvim'
 

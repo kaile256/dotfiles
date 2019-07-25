@@ -1,4 +1,4 @@
-"""" From: 'tool.toml'
+"""" From: 'Initial.toml'
 
 "if !has('win64')
 "  command Defx :Defx -columns=git:markfilename:type
@@ -9,17 +9,6 @@
 "  au! VimEnter * Defx `expand('%:p:h')` -search=`expand('%:p')`
 "augroup END
 
-"" TODO: show sym-links.
-"""" CONFIG
-call defx#custom#column('filename', {
-      \ 'min_width': 40,
-      \ 'max_width': 40,
-      \ })
-
-call defx#custom#column('mark', {
-      \ 'readonly_icon': '✗',
-      \ 'selected_icon': '✓',
-      \ })
 
 """" KEYMAP
 """ Open Preceding Tree
@@ -33,7 +22,6 @@ nnoremap <silent> <space>t :<c-u>Defx `expand('%:p:h')` -search=`expand('%:p')` 
 
 augroup myDefx
   au!
-  au FileType defx nunmap m
   au FileType defx call s:defx_my_settings()
   au FileType defx call s:defx_my_shortcut()
 augroup END
