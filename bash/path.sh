@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-set -Ceu
+set -Cu
 
 #### From: .bashrc
 

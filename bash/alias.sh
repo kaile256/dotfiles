@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-set -Ceu
+set -Cu
 
 ## By bashrc
 ## CAUTION: Write, in xdg.sh, alias for XDG Base Repository specification.
