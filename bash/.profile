@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 # see /usr/share/doc/bash/examples/startup-files for examples.
 # the files are located in the bash-doc package.
 
@@ -14,14 +16,8 @@ fi
 #  . ~/.config/zsh/zshrc
 #fi
 
-# ~/.profile: executed by Bourne-compatible login shells.
-
-if [ "$BASH" ]; then
-  if [ -f ~/.config/bash/.bashrc ]; then
-    . ~/.config/bash/.bashrc
-  fi
+if [ -f ~/.config/bash/.bashrc ]; then
+  . ~/.config/bash/.bashrc
 fi
 
 #mesg n || true
-
-bash
