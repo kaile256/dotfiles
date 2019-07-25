@@ -2,6 +2,8 @@
 
 set -Ceu
 
+#### From: .bashrc
+
 export PATH="$HOME/.local/bin:$PATH"
 #### LANGUAGE 
 ### Rust

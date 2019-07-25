@@ -35,7 +35,7 @@ config_list=(
   ctags
   fish
   git
-  npm
+  lynx
   nvim
   tmux
   w3m

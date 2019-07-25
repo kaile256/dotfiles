@@ -15,3 +15,5 @@ PS1='${debian_chroot:+($debian_chroot)}\h:\w\$ '
 if [ -x "$(which rg)" ]; then
   export FZF_DEFAULT_COMMAND='rg --files --hidden --follow --glob "!.git/*"'
 fi
+### Lynx
+export LYNX_CFG='~/.config/lynx/lynx.cfg'
