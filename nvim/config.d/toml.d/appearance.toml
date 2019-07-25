@@ -1,13 +1,5 @@
 #### From: dein.vim
 
-### Color Themes
-[[plugins]]
-repo = 'tomasr/molokai'
-on_if = 'has("nvim")'
-hook_post_source = 'runtime! molokai.vimrc'
-#[[plugins]]
-#repo = 'altercation/vim-colors-solarized'
-
 #### Indent
 [[plugins]]
 # indent line should be visible

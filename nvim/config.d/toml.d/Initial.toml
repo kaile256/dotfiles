@@ -16,6 +16,14 @@ hook_done_update= '''
 #repo = 'Shougo/vimproc.vim'
 #build = 'make'
 
+### Color Themes
+[[plugins]]
+repo = 'tomasr/molokai'
+if = 'has("nvim")'
+hook_post_source = 'runtime! molokai.vimrc'
+#[[plugins]]
+#repo = 'altercation/vim-colors-solarized'
+
 ### Status Bar
 #[[plugins]]
 #repo = 'itchyny/lightline.vim' # config is written in 'plugin.vim'
