@@ -24,13 +24,13 @@ set -x RUSTUP_HOME "$XDG_DATA_HOME"/rustup
 set -x NPM_CONFIG_USERCONFIG $XDG_CONFIG_HOME/npm/npmrc
 set -x NVM_DIR "$XDG_DATA_HOME"/nvm
 ## X Server
-set -x RXVT_SOCKET "$XDG_RUNTIME_DIR"/urxvtd
-set -x XAUTHORITY "$XDG_RUNTIME_DIR"/Xauthority
+#set -x RXVT_SOCKET "$XDG_RUNTIME_DIR"/urxvtd
+#set -x XAUTHORITY "$XDG_RUNTIME_DIR"/Xauthority
 # xinit
 set -x XINITRC "$XDG_CONFIG_HOME"/X11/xinitrc
 set -x XSERVERRC "$XDG_CONFIG_HOME"/X11/xserverrc
 set -x SCREENRC "$XDG_CONFIG_HOME"/screen/screenrc
-set -x TMUX_TMPDIR "$XDG_RUNTIME_DIR"
+#set -x TMUX_TMPDIR "$XDG_RUNTIME_DIR"
 ## ncurses:TERMINFO, TERMINFO_DIRS
 set -x TERMINFO "$XDG_DATA_HOME"/terminfo
 set -x TERMINFO_DIRS "$XDG_DATA_HOME"/terminfo:/usr/share/terminfo

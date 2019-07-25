@@ -4,7 +4,7 @@ set -Ceu
 
 #### For: pacman
 
-if [ -x $(which pacman) ]; then
+if [ -e $(which pacman) ]; then
   #### LANGUAGE
   ### Python
   ## pip3

@@ -60,7 +60,7 @@ if ! [ -e "$INSTALL_DIR" ]; then
 fi
 
 ## yarn
-if [ -e $(which yarn) ]; then
+if [ ! -L $(which yarn) ]; then
   echo "Installing yarn..."
   curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
   echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
