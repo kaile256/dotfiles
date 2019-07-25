@@ -60,10 +60,13 @@ if ! [ -e "$INSTALL_DIR" ]; then
 fi
 
 ## yarn
-if [ -x $(which yarn) ]; then
+if [ -e $(which yarn) ]; then
+  echo "Installing yarn..."
   curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
   echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
+  echo "Update apt for yarn!"
   sudo apt update && sudo apt install yarn
+  echo "Done! Yarn is Ready!!"
   ## LSP
   yarn add bash-language-server
 fi

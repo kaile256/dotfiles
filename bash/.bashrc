@@ -2,22 +2,19 @@
 
 umask 022
 
-if [ -x $(which apt) ]; then
-  source ~/.config/bash/apt.sh
-fi
-
-if [ -x $(which pacman) ]; then
-  source ~/.config/bash/pacman.sh
-fi
-
 source ~/.config/bash/xdg.sh
 source ~/.config/bash/env.sh
 source ~/.config/bash/path.sh
 source ~/.config/bash/alias.sh
 source ~/.config/bash/prompt.sh
 
-#source ~/.config/bash/apt.sh
-#source ~/.config/bash/pacman.sh
+if [ -e $(which apt) ]; then
+  source ~/.config/bash/apt.sh
+fi
+
+if [ -e $(which pacman) ]; then
+  source ~/.config/bash/pacman.sh
+fi
 
 # ~/.bashrc: executed by bash(1) for non-login shells.
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
