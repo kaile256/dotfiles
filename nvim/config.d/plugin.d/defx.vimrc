@@ -11,11 +11,6 @@
 
 "" TODO: show sym-links.
 """" CONFIG
-" when buffer-name is '_', the options are used fpr all buffers.
-call defx#custom#option('_',{
- \ 'show_ignored_files': 0,
- \ })
-
 call defx#custom#column('filename', {
       \ 'min_width': 40,
       \ 'max_width': 40,

@@ -18,9 +18,10 @@ hook_done_update= '''
 
 ### Color Themes
 [[plugins]]
+# CAUTION: DON'T source on lazy.
 repo = 'tomasr/molokai'
 if = 'has("nvim")'
-hook_post_source = 'runtime! molokai.vimrc'
+hook_add = 'runtime! molokai.vimrc'
 #[[plugins]]
 #repo = 'altercation/vim-colors-solarized'
 
@@ -58,4 +59,4 @@ hook_add = 'runtime! denite.vimrc'
 [[plugins]]
 repo = 'Shougo/defx.nvim'
 if = 'has("python3")'
-hook_post_source = 'runtime! defx.vimrc'
+hook_add = 'runtime! defx.vimrc'
