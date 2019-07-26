@@ -18,7 +18,7 @@ let s:dein_itself= s:dein_cache_dir . '/repos/github.com/Shougo/dein.vim/'
 
 set rtp+=~/.cache/nvim/dein/repos/github.com/Shougo/dein.vim
 
-if ! exists('expand("s:dein_itself")')
+if ! exists(expand("s:dein_itself"))
   echo "                Install dein!"
 else
   if dein#load_state(s:dein_cache_dir)

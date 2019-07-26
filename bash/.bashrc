@@ -8,14 +8,6 @@ source ~/.config/bash/path.sh
 source ~/.config/bash/alias.sh
 source ~/.config/bash/prompt.sh
 
-if [ -e /usr/bin/apt ]; then
-  source ~/.config/bash/apt.sh
-fi
-
-if [ -e /usr/bin/pacman ]; then
-  source ~/.config/bash/pacman.sh
-fi
-
 # ~/.bashrc: executed by bash(1) for non-login shells.
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples

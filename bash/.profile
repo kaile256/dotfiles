@@ -21,3 +21,5 @@ if [ -f ~/.config/bash/.bashrc ]; then
 fi
 
 #mesg n || true
+
+export PATH="/home/kaile256/.local/share/cargo/bin:$PATH"
