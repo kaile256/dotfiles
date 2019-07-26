@@ -30,7 +30,6 @@ hook_post_source = 'runtime! ripgrep.vimrc'
 repo = 'jacquesbh/vim-showmarks'
 on_map = ['m','`',"'"]
 hook_post_source = 'runtime! showmarks.vimrc'
-
 [[plugins]]
 repo = 'machakann/vim-sandwich'
 on_event = 'BufRead'
