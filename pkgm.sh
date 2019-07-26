@@ -55,13 +55,23 @@ type ghq || {
 #}
 
 ## yarn
-#type yarn || {
+type yarn || {
+#type apt && {
 #  echo "Installing yarn..."
 #  curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
 #  echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
 #  echo "Update apt for yarn!"
 #  sudo apt update && sudo apt install yarn
 #  echo "Done! Yarn is Ready!!"
-#  ## LSP
-#  yarn add bash-language-server
 #}
+type pacman && {
+  echo "Installing yarn..."
+  sudo pacman -Sy yarn
+}
+
+# Neovim
+yarn global add neovim
+# LSP
+yarn global add bash-language-server
+}
+}
