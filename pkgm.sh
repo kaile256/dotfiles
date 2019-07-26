@@ -1,42 +1,42 @@
 #!/usr/bin/env bash
 
-set -Cu
-
 #### Ref.: curl.sh
 
-jnstaller=(
-apt install
-pacman -S
-)
-### Identify Suitable Installer
-for installer in "${Installer[@]}"; do
-  type ${installer} && INSTALLER=${installer}
-done
+set -Cu
 
-Language=(
-go
-nodejs
-python3
-ruby
-rust
-)
-
-Installed=(
-cargo
-gem
-pip3
-yarn
-)
-
-for language in "${Language[@]}"; do
-  echo "Installing ${language}..."
-  `sudo $INSTALLER $langage`
-done
-
-for installed in "${Installed[@]}"; do
-  echo "Installing ${installed}..."
-  `sudo $INSTALLER $installed`
-done
+#declare -A Installer
+#Installer[pacman]="pacman -S "
+#Installer[apt]="apt install "
+#
+#### Identify Suitable Installer
+#for installer in "${Installer[@]}"; do
+#  type ${installer} && export INSTALLER=${!installer[*]}
+#done
+#
+#Language=(
+#go
+#nodejs
+#python3
+#ruby
+#rust
+#)
+#
+#Installed=(
+#cargo
+#gem
+#pip3
+#yarn
+#)
+#
+#for language in "${Language[@]}"; do
+#  echo "Installing ${language}..."
+#  `sudo $INSTALLER $langage`
+#done
+#
+#for installed in "${Installed[@]}"; do
+#  echo "Installing ${installed}..."
+#  `sudo $INSTALLER $installed`
+#done
 
 #### LANGUAGE
 ### Python

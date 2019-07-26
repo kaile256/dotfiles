@@ -1,8 +1,7 @@
 #!/usr/bin/env bash
+#### From: .bashrc
 
 set -Cu
-
-#### From: .bashrc
 
 export PATH="$HOME/.local/bin:$PATH"
 #### LANGUAGE 
