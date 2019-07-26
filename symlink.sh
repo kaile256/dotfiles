@@ -38,6 +38,7 @@ config_list=(
   ctags
   fish
   git
+  i3-wm
   lynx
   nvim
   tmux
