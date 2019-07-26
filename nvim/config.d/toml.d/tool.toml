@@ -19,7 +19,7 @@ hook_done_update = '''
 #on_event = 'InsertEnter'
 #hook_post_source = 'runtime! YouCompleteMe.vimrc'
 
-### Sneppets
+### Snippets
 [[plugins]]
 repo = 'Shougo/neosnippet-snippets'
 on_event = 'InsertEnter'

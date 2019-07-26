@@ -12,6 +12,10 @@ depends = 'neosnippet-snippets'
 hook_add = 'runtime! neosnippet.vimrc'
 
 #### Language Support
+### 13-wm
+[[plugins]]
+repo = 'mboughaba/i3config.vim'
+on_ft = 'i3'
 ### LaTex
 [[plugins]]
 repo = 'lervag/vimtex'
