@@ -16,7 +16,7 @@ nnoremap <a-'> [`
 nnoremap <a-`> ]`
 nnoremap <silent> <space>m :<c-u>call <SID>AutoIncMarkLower()<cr>
 nnoremap <silent> <space>M :<c-u>call <SID>AutoIncMarkUpper()<cr>
-nnoremap <a-m> m
+"nnoremap <a-m> m
 
 """" DEFINITION
 if !exists('g:mark_inc_lower')
