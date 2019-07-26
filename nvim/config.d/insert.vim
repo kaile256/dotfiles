@@ -57,8 +57,11 @@ augroup END
 """" KEYMAP
 inoremap <a-space>w <esc>:w<cr>
 
-"" Undo Break
+""" Undo Break
+"" Put
+inoremap <a-p> <c-g>up
 inoremap <c-r> <c-g>u<c-r>
+"" Backspace
 inoremap <c-u> <c-g>u<c-u>
 inoremap <c-w> <c-g>u<c-w>
 
