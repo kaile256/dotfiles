@@ -60,6 +60,7 @@ inoremap <a-space>w <esc>:w<cr>
 "" Undo Break
 inoremap <c-r> <c-g>u<c-r>
 inoremap <c-u> <c-g>u<c-u>
+inoremap <c-w> <c-g>u<c-w>
 
 augroup UndoBreakOnFileType
   au!
