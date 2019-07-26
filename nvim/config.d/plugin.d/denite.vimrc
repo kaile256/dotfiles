@@ -4,34 +4,34 @@
 """" CONFIG
 
 """" KEYMAP
-nnoremap <silent> <space>d :<C-u>Denite grep<CR>
+nnoremap <silent> <a-d> :<C-u>Denite grep<CR>
 
 augroup Denite
   au!
   au FileType denite nnoremap <silent><buffer>
-        \ <c-/> :<C-u>Denite -buffer-name=search -auto-resizeline<cr>
+        \ <a-/> :<C-u>Denite -buffer-name=search -auto-resizeline<cr>
   au FileType denite nnoremap <silent><buffer>
-        \ <c-t> :<C-u>Denite filetype<CR>
+        \ <a-t> :<C-u>Denite filetype<CR>
   au FileType denite nnoremap <silent><buffer>
-        \ <c-p> :<C-u>Denite file_rec<CR>
+        \ <a-p> :<C-u>Denite file_rec<CR>
   au FileType denite nnoremap <silent><buffer>
-        \ <c-j> :<C-u>Denite line<CR>
+        \ <a-j> :<C-u>Denite line<CR>
   au FileType denite nnoremap <silent><buffer>
-        \ <c-]> :<C-u>DeniteCursorWord grep<CR>
+        \ <a-]> :<C-u>DeniteCursorWord grep<CR>
   au FileType denite nnoremap <silent><buffer>
-        \ <c-y> :<C-u>Denite neoyank<CR>
+        \ <a-y> :<C-u>Denite neoyank<CR>
   au FileType denite nnoremap <silent><buffer>
-        \ <c-r> :<C-u>Denite -resume<CR>
+        \ <a-r> :<C-u>Denite -resume<CR>
   au FileType denite nnoremap <silent><buffer>
-        \ <c-;> :<C-u>Denite -resume -immediately -select=+1<CR>
+        \ <a-;> :<C-u>Denite -resume -immediately -select=+1<CR>
   au FileType denite nnoremap <silent><buffer>
-        \ <c--> :<C-u>Denite -resume -immediately -select=-1<CR>
+        \ <a--> :<C-u>Denite -resume -immediately -select=-1<CR>
 augroup END
 
 " noremap <silent><buffer> <space>d
-"   \ <c-:<C-u>call denite#start([{'name': 'file_rec', 'args': ['~/dotfiles']}])<CR>
+"   \ <a-:<C-u>call denite#start([{'name': 'file_rec', 'args': ['~/dotfiles']}])<CR>
 " noremap <silent><buffer> <space>l
-"   \ <c-:<C-u>call denite#start([{'name': 'file_rec', 'args': [g;memolist_path]})<CR>
+"   \ <a-:<C-u>call denite#start([{'name': 'file_rec', 'args': [g;memolist_path]})<CR>
 "
 """ Ripgrep: replace default grep
 if executable('rg')
