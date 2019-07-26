@@ -30,23 +30,24 @@ xnoremap gj j
 xnoremap gk k
 
 """ Advanced jk/HML
-" <a-hjkl> get along with <s-web>,
+" <a-hjkl> get along with <s-wbe>,
 " though <c-hjkl> get along with <c-fbud>;
 "nnoremap <silent> <a-h> :<c-r>=(               virtcol('.')) /2<cr>h
 "nnoremap <silent> <a-l> :<c-r>=(virtcol('0') - virtcol('.')) /2<cr>l
-nmap <silent> <a-j> [ToWinBottom]
-nmap <silent> <a-k> [ToWinTop]
+map <silent> <a-j> [ToWinBottom]
+map <silent> <a-k> [ToWinTop]
 " CAUTION: <c-m> is identical with <cr>.
-nmap <silent> <a-m> [ToWinMiddle]
-nmap <silent> <a-u> [ToWinMiddle]
-nmap <silent> <a-i> [ToWinMiddle]
+map <silent> <a-m> [ToWinMiddle]
+map <silent> <a-u> [ToWinMiddle]
+map <silent> <a-i> [ToWinMiddle]
 
 """ Go-To
 " switch mapping
 noremap gf gF
 noremap gF gf
-noremap gd gD
-noremap gD gd
+"noremap gd gD
+"noremap gD gd
+
 ""” Research
 "" TODO: setlocal show result w/ no-file path but only file name.
 "" Grep to QuickFix  # no dirty-hist

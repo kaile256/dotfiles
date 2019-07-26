@@ -57,5 +57,14 @@ augroup END
 """" KEYMAP
 inoremap <a-space>w <esc>:w<cr>
 
-"" Undo
+"" Undo Break
 inoremap <c-r> <c-g>u<c-r>
+inoremap <c-u> <c-g>u<c-u>
+
+augroup UndoBreakOnFileType
+  au!
+  au FileType html,markdown inoremap <buffer> , ,<c-g>u
+  au FileType html,markdown inoremap <buffer> . .<c-g>u
+  au FileType html,markdown inoremap <buffer> ! !<c-g>u
+  au FileType html,markdown inoremap <buffer> ? ?<c-g>u
+augroup END
