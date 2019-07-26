@@ -1,7 +1,8 @@
 augroup NewFileType
   au!
-  au BufNewFile,BufRead *.vim! setfiletype vim
-  au BufNewFile,BufRead *.vimrc! setfiletype vim
+  au BufNewFile,BufRead *.vim! set filetype=vim
+  au BufNewFile,BufRead *.vimrc! set filetype=vim
 
-  au BufNewFile,BufRead ~/.config/i3-wm/i3-wm.conf set filetype=i3
+  """ i3
+  au BufNewFile,BufRead i3/** set filetype=i3
 augroup END
