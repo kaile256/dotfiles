@@ -1,10 +1,13 @@
 #! /usr/bin/env bash
 
 # C-option: do not overwrite on redirect; replace '>' with '>|' to surely overwite a file.
-# e-option: stop if error (non 0); add '&& true' to continue even when error.
 # u-option: stop if an undefined variable is set, or undefined var shall be regarded as null.
 #           (e.g., var=foo && rm -fr ~/"$bar" shall remove all of '~')
-set -Ceu
+# e-option: stop if error (non 0); add '&& true' to continue even when error; 
+
+#  CAUTION: DON'T set e-option on files sourced from .profile/.bashrc; an error prohibits boot-system.
+
+set -Cue
 
 CURRENT_DIR=$PWD
 XDG_CACHE_HOME="${HOME}/.cache"
@@ -64,13 +67,13 @@ ln -nsf ${XDG_CONFIG_HOME}/bash/.profile
 echo "Done! Placed .profile on ${HOME}"
 # Ctags
 ln -nsf ${XDG_CONFIG_HOME}/ctags/.ctags
-echo "Done! Made a symbolic link for ctags!"
+echo "Done! create a symlink for ctags on ${HOME}!"
 # Tig
 ln -nsf ${XDG_CONFIG_HOME}/git/.tigrc
 ln -nsf ${XDG_CONFIG_HOME}/git/.gitconfig
-echo "Done! Made a symbolic link for git!"
+echo "Done! create symlinks for git on ${HOME}!"
 ln -nsf ${XDG_CONFIG_HOME}/w3m .w3m
-echo "Done! made a symlink of w3m-browser on ${HOME}"
+echo "Done! create a symlink for w3m on ${HOME}"
 
 cd $CURRENT_DIR
 
@@ -83,40 +86,3 @@ SYMBOLIC LINKS ARE COMPLETED
 ================================================================================
 
 END
-#
-#### Dein
-#echo "Installing dein.vim..."
-#
-#PLUGIN_DIR=$HOME/.cache//nvim/dein
-#INSTALL_DIR="${PLUGIN_DIR}/repos/github.com/Shougo/dein.vim"
-#echo "Install to \"$INSTALL_DIR\"..."
-#if [ -e "$INSTALL_DIR" ]; then
-#  echo "\"$INSTALL_DIR\" already exists!"
-#fi
-#
-#echo ""
-#
-## check git command
-#type git || {
-#  echo 'Please install git or update your path to include the git executable!'
-#  exit 1
-#}
-#echo ""
-#
-## make plugin dir and fetch dein
-#if ! [ -e "$INSTALL_DIR" ]; then
-#  echo "Begin fetching dein..."
-#  mkdir -p "$PLUGIN_DIR"
-#  git clone https://github.com/Shougo/dein.vim "$INSTALL_DIR"
-#  echo "Done."
-#  echo ""
-#fi
-#
-#cat << EOD
-#===============================================================================
-#
-#NOW, DEIN IS READY!!!
-#
-#===============================================================================
-#
-#EOD
