@@ -14,6 +14,10 @@ export PATH="$HOME/.cargo/bin:$PATH"
 ## pyenv
 export PATH="$HOME/.pyenv/bin:$PATH"
 
+### Ruby
+## gem
+test ruby && eval ruby --version | grep 2.6. ||
+export PATH="$HOME/.gem/2.6.0"
 
 ### Nodejs
 export PATH="$HOME/.node_modules/bin:$PATH"

@@ -4,27 +4,73 @@ set -Cu
 
 #### Ref.: curl.sh
 
+jnstaller=(
+apt install
+pacman -S
+)
+### Identify Suitable Installer
+for installer in "${Installer[@]}"; do
+  type ${installer} && INSTALLER=${installer}
+done
+
+Language=(
+go
+nodejs
+python3
+ruby
+rust
+)
+
+Installed=(
+cargo
+gem
+pip3
+yarn
+)
+
+for language in "${Language[@]}"; do
+  echo "Installing ${language}..."
+  `sudo $INSTALLER $langage`
+done
+
+for installed in "${Installed[@]}"; do
+  echo "Installing ${installed}..."
+  `sudo $INSTALLER $installed`
+done
+
 #### LANGUAGE
 ### Python
 type python3 || {
+  echo "Installing python3..."
   type pacman && {
-  echo "Installing python3..."
-  sudo pacman -Sy python3
-}
-type apt && {
-  echo "Installing python3..."
-  sudo apt install python3
+    sudo pacman -S python3
+  } || {
+    type apt && {
+    sudo apt install python3
+  }
 }
 }
 ## pip
 type pip3 || {
+  echo "Installing pip3..."
   type pacman && {
-  echo "Installing pip3..."
-  sudo pacman -Sy pip3
+    sudo pacman -S pip3
+  } || {
+    type apt && {
+    sudo apt install pip3
+  }
 }
-type apt && {
-  echo "Installing pip3..."
-  sudo apt install pip3
+}
+
+### Ruby || {
+type ruby || {
+  echo "Installing ruby..."
+  type pacman && {
+    sudo pacman -S ruby
+  } || {
+    type apt && {
+    sudo apt install ruby
+  }
 }
 }
 
@@ -32,7 +78,7 @@ type apt && {
 type go || {
   type pacman && {
   echo "Installing go..."
-  sudo pacman -Sy go
+  sudo pacman -S go
 }
 type apt && {
   echo "Installing go..."
@@ -56,18 +102,18 @@ type ghq || {
 
 ## yarn
 type yarn || {
-#type apt && {
-#  echo "Installing yarn..."
-#  curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
-#  echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
-#  echo "Update apt for yarn!"
-#  sudo apt update && sudo apt install yarn
-#  echo "Done! Yarn is Ready!!"
-#}
-type pacman && {
-  echo "Installing yarn..."
-  sudo pacman -Sy yarn
-}
+  #type apt && {
+  #  echo "Installing yarn..."
+  #  curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
+  #  echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
+  #  echo "Update apt for yarn!"
+  #  sudo apt update && sudo apt install yarn
+  #  echo "Done! Yarn is Ready!!"
+  #}
+  type pacman && {
+    echo "Installing yarn..."
+      sudo pacman -S yarn
+    }
 
 # Neovim
 yarn global add neovim

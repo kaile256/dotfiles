@@ -1,4 +1,6 @@
 #### From: .profile
+#### Ref.: curl.sh
+#### Ref.: pkgm.sh
 
 umask 022
 
