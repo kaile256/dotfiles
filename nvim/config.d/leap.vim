@@ -103,8 +103,8 @@ noremap <c-w><c-t> <c-w>T
 
 """ Buffer
 " <c-[> to <esc>, <c-]> for tag-jump.
-noremap <silent> <c-n> :bnext<cr>
-noremap <silent> <c-p> :bprevious<cr>
+noremap <silent> <c-n> :next<cr>
+noremap <silent> <c-p> :previous<cr>
 noremap <silent> <c-}> :bfirst<cr>
 noremap <silent> <c-{> :blast<cr>
 noremap <c-6> <c-^>

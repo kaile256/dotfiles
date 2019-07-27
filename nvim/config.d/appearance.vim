@@ -1,5 +1,11 @@
 """" From: 'init.vim'
 
+"""" Read Only
+augroup AlertWhenReadOnly
+    au! BufReadPost,BufEnter *
+          \ if &readonly && &buftype !=# help | colorscheme morning | endif
+augroup END
+
 """ Column
 " show line number on left
 set number
@@ -7,18 +13,18 @@ set number
 set wrap
 set colorcolumn=81
 
-"""" Read Only
-augroup AlertWhenReadOnly
-  if &readonly && &buftype !=# qf
-    au BufReadPost,BufEnter,WinEnter * colorscheme morning
-  endif
+""" Line
+augroup CursorlineOnlyOnActiveWindow
+  au!
+  au VimEnter,BufWinEnter,WinEnter * setlocal cursorline
+  au WinLeave * setlocal nocursorline
 augroup END
 
-"augroup CursorlineOnlyOnActiveWindow
-"  au!
-"  au VimEnter,BufWinEnter,WinEnter * setlocal cursorline
-"  au WinLeave * setlocal nocursorline
-"augroup END
+""" Statusbar
+set title
+set ruler
+" 2: always show the current status.
+set laststatus=2
 
 """ Pair
 " show match parens.
@@ -42,9 +48,3 @@ set splitright
 "" Speed
 set matchtime=1  " 対応括弧を1秒間表示
 ""set ttyfast
-
-"" Statusbar
-set title
-set ruler
-" 2: always show the current status.
-set laststatus=2
