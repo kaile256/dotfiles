@@ -10,6 +10,13 @@ augroup AutoOffIME
   au CmdlineLeave * set imsearch=0
 augroup END
 
+""" Terminal
+if has('terminal')
+augroup ModifiableTermMode
+  au! TermOpen * setlocal modifiable
+augroup END
+endif
+
 """ MenuPopup
 "augroup KeepAltEscOnPMenu
 "  au! MenuPopup * 
@@ -59,7 +66,7 @@ inoremap <a-space>w <esc>:w<cr>
 
 """ Undo Break
 "" Put
-inoremap <a-p> <c-g>up
+inoremap <a-p> <c-g>u<esc>p
 inoremap <c-r> <c-g>u<c-r>
 "" Backspace
 inoremap <c-u> <c-g>u<c-u>

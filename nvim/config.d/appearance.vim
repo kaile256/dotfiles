@@ -6,12 +6,20 @@
 "          \ if &readonly && &buftype ==# '' | colorscheme morning | endif
 "augroup END
 
+""" Color
+set termguicolors
+
 """ Column
 " show line number on left
 set number
 " wrap long text.
 set wrap
 set colorcolumn=81
+if has('terminal')
+  augroup NoNumberOnTermMode
+    au! TermOpen * setlocal nonumber
+  augroup END
+endif
 
 """ Line
 augroup CursorlineOnlyOnActiveWindow

@@ -101,6 +101,35 @@ noremap <c-l> gt
 "" Give Tab
 noremap <c-w><c-t> <c-w>T
 
+""" Terminal
+if has('terminal')
+  """" KEYMAP
+  """ Normal Mode
+  "" Open Shortcut
+  nnoremap <silent> <a-t><a-e> :<c-u>        :te<cr>
+  nnoremap <silent> <a-t><a-s> :<c-u>sp<cr>  :te<cr>
+  nnoremap <silent> <a-t><a-v> :<c-u>vs<cr>  :te<cr>
+  nnoremap <silent> <a-t><a-b> :<c-u>tabe<cr>:te<cr>
+
+  """ Terminal Mode
+  " Use emacs-like keybind in terminal-job mode.
+  "" ESC
+  " esc in the same way as in the other mode.
+  tnoremap <c-[> <c-\><c-n>
+  tnoremap <esc> <c-\><c-n>
+
+  "" Alt as ESC as in Insert Mode
+  " esc & hjkl
+  tnoremap <a-h> <c-\><c-n>h
+  tnoremap <a-j> <c-\><c-n>j
+  tnoremap <a-k> <c-\><c-n>k
+  tnoremap <a-l> <c-\><c-n>l
+
+  " esc & backward
+  tnoremap <a-w> <c-\><c-n>w
+  tnoremap <a-b> <c-\><c-n>b
+endif
+
 """ Buffer
 " <c-[> to <esc>, <c-]> for tag-jump.
 noremap <silent> <c-n> :next<cr>
