@@ -1,10 +1,10 @@
 """" From: 'init.vim'
 
 """" CONFIG
-augroup KeepLastCursor
+augroup RememberLastCursor
   au!
-  au VimLeavePre * exe "normal mp"
-  au VimLeavePre * exe "normal mP"
+  au BufLeave * exe "normal mp"
+  au BufLeave * exe "normal mP"
 augroup END
 "augroup MarkOnBufLeave
 "  au! BufLeave * call <SID>AutoIncMarkUpper()
