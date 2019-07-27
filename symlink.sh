@@ -62,6 +62,7 @@ echo "Done! All the dotfiles are linked to ${XDG_CONFIG_HOME}"
 ## Create symbolic links at $HOME via $XDG_CONFIG_HOME.
 home_list=(
 bash/.profile
+bash/.bashrc
 ctags/.ctags
 git/.tigrc
 git/.gitconfig
