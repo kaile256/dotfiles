@@ -62,7 +62,7 @@ augroup ResizeIndent
 augroup END
 
 """ Regiser
-set clipboard+=unamedplus
+set clipboard+=unnamedplus
 
 """ Visual Mode
 " visualize even if there is no chars.
@@ -74,10 +74,12 @@ set noshowcmd
 set wildmenu
 set wildmode=list:longest
 "set history=10000
-if version >= 0.4.0
-  set wildoptions=pum
-  set pumblend=20
-endif
+
+""" Pop-Up Menu
+"is has('nvim') || 
+"  set wildoptions=pum
+"  set pumblend=20
+"endif
 
 """" KEYMAP
 inoremap <a-space>w <esc>:w<cr>
