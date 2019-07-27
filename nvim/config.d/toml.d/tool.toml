@@ -11,8 +11,8 @@ hook_post_source = 'runtime! coc.vimrc'
 on_event = 'VimEnter'
 hook_done_update = '''
   call coc#util#install()
-  CocInstall coc-json coc-tsserver coc-html coc-yaml coc-python 
-  CocInstall coc-git coc-yank coc-vimlsp coc-highlight
+  CocInstall coc-json coc-tsserver coc-html coc-yaml coc-python
+  CocInstall coc-git coc-yank coc-vimlsp coc-highlight coc-neosnippet
   '''
 #[[plugins]]
 #repo = 'ycm-core/YouCompleteMe'
@@ -46,7 +46,6 @@ on_map = 'QuickRun'
 hook_post_source = 'runtime! quickrun.vimrc'
 [[plugins]]
 repo = 'neomake/neomake'
-if = 'version >= 800'
 on_map = 'make'
 hook_post_source = 'runtime! neomake.vimrc'
 

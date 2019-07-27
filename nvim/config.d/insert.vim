@@ -17,14 +17,6 @@ if has('terminal')
   augroup END
 endif
 
-""" MenuPopup
-"augroup KeepAltEscOnPMenu
-"  au! MenuPopup * 
-"  if input() != ['<c-p>','<c-n>','<c-j>','<c-m>']
-"    exe "normal <esc>" 
-"  endif
-"augroup END
-"
 """ Tab-Char
 " insert spaces, instead of a tab-char.
 set expandtab
@@ -82,7 +74,14 @@ set wildmode=list:longest
 "endif
 
 """" KEYMAP
+""" MenuPopup
+"" Alt-ESC
 inoremap <a-space>w <esc>:w<cr>
+" win-leap map is only on Normal Mode; doesn't matter.
+"inoremap <a-h> pumvisible() ? <c-y><esc>h : <esc>h
+"inoremap <a-j> pumvisible() ? <c-y><esc>h : <esc>j
+"inoremap <a-k> pumvisible() ? <c-y><esc>h : <esc>k
+"inoremap <a-l> pumvisible() ? <c-y><esc>h : <esc>l
 
 """ Undo Break
 "" Put

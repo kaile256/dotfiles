@@ -37,9 +37,7 @@ xnoremap gk k
 map <silent> <c-j> [ToWinBottom]
 map <silent> <c-k> [ToWinTop]
 " CAUTION: <c-m> is identical with <cr>.
-map <silent> <a-m> [ToWinMiddle]
-map <silent> <c-u> [ToWinMiddle]
-map <silent> <c-i> [ToWinMiddle]
+map <silent> <c-,> [ToWinMiddle]
 
 """ Go-To
 " switch mapping
