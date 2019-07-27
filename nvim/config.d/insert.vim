@@ -12,9 +12,9 @@ augroup END
 
 """ Terminal
 if has('terminal')
-augroup ModifiableTermMode
-  au! TermOpen * setlocal modifiable
-augroup END
+  augroup ModifiableTermMode
+    au! TermOpen * setlocal modifiable
+  augroup END
 endif
 
 """ MenuPopup
@@ -61,6 +61,24 @@ augroup ResizeIndent
   au FileType Python     setlocal shiftwidth=2 tabstop=2 softtabstop=2
 augroup END
 
+""" Regiser
+set clipboard+=unamedplus
+
+""" Visual Mode
+" visualize even if there is no chars.
+set virtualedit=block
+
+""" Commandline Mode
+set noshowcmd
+" activate completion on command-line
+set wildmenu
+set wildmode=list:longest
+"set history=10000
+if version >= 0.4.0
+  set wildoptions=pum
+  set pumblend=20
+endif
+
 """" KEYMAP
 inoremap <a-space>w <esc>:w<cr>
 
@@ -79,3 +97,22 @@ augroup UndoBreakOnFileType
   au FileType html,markdown inoremap <buffer> ! !<c-g>u
   au FileType html,markdown inoremap <buffer> ? ?<c-g>u
 augroup END
+
+""" Register
+"" Yank
+nnoremap <space>y "+y
+xnoremap <space>y "+y
+
+"" Paste
+nnoremap <space>p "+p
+xnoremap <space>p "+p
+nnoremap <space>P "+P
+xnoremap <space>P "+P
+" CAUTION: not for xmap; that makes delay.
+nnoremap yp "0P
+nnoremap yP "0P
+
+"" Black-Hole
+nnoremap <space>x "_x
+nnoremap <space>d "_d
+nnoremap <space>c "_c

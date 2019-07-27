@@ -80,26 +80,26 @@ noremap <silent> <a-{> :$tag<cr>
 
 """ Pane
 " leap between panes
-noremap <a-h> <c-w>h
-noremap <a-j> <c-w>j
-noremap <a-k> <c-w>k
-noremap <a-l> <c-w>l
+nnoremap <a-h> <c-w>h
+nnoremap <a-j> <c-w>j
+nnoremap <a-k> <c-w>k
+nnoremap <a-l> <c-w>l
 
-noremap <a-b> <c-w>b
-noremap <a-t> <c-w>t
+nnoremap <a-b> <c-w>b
+nnoremap <a-t> <c-w>t
 " avoid stack on command-line
 cnoremap <a-k> <c-c>
 
 """ Tab Page
 " mnemonic: <s-,>/<s-.> are < & >.
-noremap <c-x><c-h> gT
-noremap <c-x><c-l> gt
-noremap <c-x>h gT
-noremap <c-x>l gt
-noremap <c-h> gT
-noremap <c-l> gt
+nnoremap <c-x><c-h> gT
+nnoremap <c-x><c-l> gt
+nnoremap <c-x>h gT
+nnoremap <c-x>l gt
+nnoremap <c-h> gT
+nnoremap <c-l> gt
 "" Give Tab
-noremap <c-w><c-t> <c-w>T
+nnoremap <c-w><c-t> <c-w>T
 
 """ Terminal
 if has('terminal')
@@ -132,8 +132,8 @@ endif
 
 """ Buffer
 " <c-[> to <esc>, <c-]> for tag-jump.
-noremap <silent> <c-n> :next<cr>
-noremap <silent> <c-p> :previous<cr>
+noremap <silent> <c-n> :bnext<cr>
+noremap <silent> <c-p> :bprevious<cr>
 noremap <silent> <c-}> :bfirst<cr>
 noremap <silent> <c-{> :blast<cr>
 noremap <c-6> <c-^>
