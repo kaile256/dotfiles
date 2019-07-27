@@ -1,10 +1,10 @@
 """" From: 'init.vim'
 
 """" Read Only
-augroup AlertWhenReadOnly
-    au! BufReadPost,BufEnter *
-          \ if &readonly && &buftype !=# help | colorscheme morning | endif
-augroup END
+"augroup AlertWhenReadOnly
+"    au! BufReadPost,BufEnter *
+"          \ if &readonly && &buftype ==# '' | colorscheme morning | endif
+"augroup END
 
 """ Column
 " show line number on left

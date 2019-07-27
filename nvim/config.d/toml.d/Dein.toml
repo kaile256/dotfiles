@@ -1,0 +1,12 @@
+#### From: dein.vim
+
+### Required
+[[plugins]]
+repo = 'Shougo/dein.vim'
+hook_add = '''
+  set rtp+=~/.config/nvim/config.d/plugin.d
+  '''
+hook_done_update= '''
+    au VimEnter :UpdateRemotePlugins<cr>
+  '''
+

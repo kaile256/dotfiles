@@ -7,7 +7,7 @@ hook_add = '''
   set rtp+=~/.config/nvim/config.d/plugin.d
   '''
 hook_done_update= '''
-    au VimEnter :UpdateRemotePlugins<cr>
+    au VimEnter * :UpdateRemotePlugins<cr>
   '''
 
 ### Async Processor
@@ -15,6 +15,11 @@ hook_done_update= '''
 ## run vim-plugins asynchronously, inc., quickrun.
 #repo = 'Shougo/vimproc.vim'
 #build = 'make'
+
+### UI
+[[plugins]]
+repo = 'wsdjeg/dein-ui.vim'
+hook_add = 'runtime! dein-ui.vim'
 
 ### Color Themes
 [[plugins]]
@@ -24,6 +29,8 @@ if = 'has("nvim")'
 hook_add = 'runtime! molokai.vimrc'
 #[[plugins]]
 #repo = 'altercation/vim-colors-solarized'
+#if = 'has("nvim")'
+#hook_add = 'runtime! solarized.vimrc'
 
 ### Status Bar
 #[[plugins]]
