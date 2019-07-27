@@ -52,15 +52,18 @@ type pip3 || {
 }
 }
 ## pyenv
-if ! [ -d ~/.pyenv/bin ]; then
+type pyen || {
+  type pacman && {
+  echo "Installing pyenv..." 
+  sudo pacman -S pyenv 
+} || {
   echo "Installing pyenv..."
-  type pacman && sudo pacman -S pyenv || {
-    curl https://pyenv.run | bash
-      eval "$(pyenv init -)"
-      eval "$(pyenv virtualenv-init -)"
-      echo "Done!"
-    }
-fi
+  curl https://pyenv.run | bash
+  eval "$(pyenv init -)"
+  eval "$(pyenv virtualenv-init -)"
+  echo "Done!"
+}
+}
 
 ### Ruby
 type ruby || {
