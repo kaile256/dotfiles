@@ -34,12 +34,12 @@ xnoremap gk k
 " though <c-hjkl> get along with <c-fbud>;
 "nnoremap <silent> <a-h> :<c-r>=(               virtcol('.')) /2<cr>h
 "nnoremap <silent> <a-l> :<c-r>=(virtcol('0') - virtcol('.')) /2<cr>l
-map <silent> <a-j> [ToWinBottom]
-map <silent> <a-k> [ToWinTop]
+map <silent> <c-j> [ToWinBottom]
+map <silent> <c-k> [ToWinTop]
 " CAUTION: <c-m> is identical with <cr>.
 map <silent> <a-m> [ToWinMiddle]
-map <silent> <a-u> [ToWinMiddle]
-map <silent> <a-i> [ToWinMiddle]
+map <silent> <c-u> [ToWinMiddle]
+map <silent> <c-i> [ToWinMiddle]
 
 """ Go-To
 " switch mapping
@@ -80,10 +80,10 @@ noremap <silent> <a-{> :$tag<cr>
 
 """ Pane
 " leap between panes
-noremap <c-h> <c-w>h
-noremap <c-j> <c-w>j
-noremap <c-k> <c-w>k
-noremap <c-l> <c-w>l
+noremap <a-h> <c-w>h
+noremap <a-j> <c-w>j
+noremap <a-k> <c-w>k
+noremap <a-l> <c-w>l
 
 noremap <a-b> <c-w>b
 noremap <a-t> <c-w>t
@@ -96,8 +96,8 @@ noremap <c-x><c-h> gT
 noremap <c-x><c-l> gt
 noremap <c-x>h gT
 noremap <c-x>l gt
-noremap <a-h> gT
-noremap <a-l> gt
+noremap <c-h> gT
+noremap <c-l> gt
 "" Give Tab
 noremap <c-w><c-t> <c-w>T
 

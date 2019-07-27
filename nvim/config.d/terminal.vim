@@ -27,10 +27,14 @@ if has('nvim') || ('terminal')
 
   "" Alt as ESC as in Insert Mode
   " esc & hjkl
-  tnoremap <a-h> <c-\><c-n>h
-  tnoremap <a-j> <c-\><c-n>j
-  tnoremap <a-k> <c-\><c-n>k
-  tnoremap <a-l> <c-\><c-n>l
+  "tnoremap <a-h> <c-\><c-n>h
+  "tnoremap <a-j> <c-\><c-n>j
+  "tnoremap <a-k> <c-\><c-n>k
+  "tnoremap <a-l> <c-\><c-n>l
+  tnoremap <a-h> <c-\><c-n><c-w>h
+  tnoremap <a-j> <c-\><c-n><c-w>j
+  tnoremap <a-k> <c-\><c-n><c-w>k
+  tnoremap <a-l> <c-\><c-n><c-w>l
 
   " esc & backward
   tnoremap <a-w> <c-\><c-n>w
