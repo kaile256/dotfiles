@@ -15,12 +15,12 @@ export PATH="$HOME/.pyenv/bin:$PATH"
 
 ### Ruby
 ## gem
-test ruby && eval ruby --version | grep 2.6. ||
-export PATH="$HOME/.gem/2.6.0"
+type ruby >> /dev/null && eval ruby --version | grep 2.6. >> /dev/null &&
+export PATH="$HOME/.gem/2.6.0:$PATH"
 
 ### Nodejs
 export PATH="$HOME/.node_modules/bin:$PATH"
 ## nodebrew
 export PATH="$HOME/.nodebrew/current/bin:$PATH"
 ## yarn
-#export PATH="$PATH:$HOME/`yarn global bin`"
+type yarn >> /dev/null && export PATH="$PATH:$HOME/`yarn global bin`"

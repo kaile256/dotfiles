@@ -84,7 +84,10 @@ export _Z_DATA="$XDG_DATA_HOME/z"
 #export VIMINIT=":source $XDG_CONFIG_HOME/vim/vimrc"
 ## tmux
 #export TMUX_TMPDIR="$XDG_RUNTIME_DIR"
-## less
+## lessp
+if ! [ -d "$HOME/.cache/less" ]; then 
+  mkdir -p "$HOME/.cache/less"
+fi
 export LESSKEY="$XDG_CONFIG_HOME/less/lesskey"
 ## MySQL
 export MYSQL_HISTFILE="$XDG_DATA_HOME/mysql_history"

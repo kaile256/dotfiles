@@ -22,28 +22,28 @@ fi
 if [ -d "${HOME}/dotfiles" ]; then
   DOTFILES="${HOME}/dotfiles"
 
-  elif [ -d "${HOME}/.cache/dotfiles" ]; then
-    DOTFILES="${HOME}/.cache/dotfiles"
+elif [ -d "${HOME}/.cache/dotfiles" ]; then
+  DOTFILES="${HOME}/.cache/dotfiles"
 
-  else
-    echo "Please clone dotfiles either at ${HOME} or ${XDG_CACHE_HOME}"
-    exit 1
+else
+  echo "Please clone dotfiles either at ${HOME} or ${XDG_CACHE_HOME}"
+  exit 1
 fi
 
 ## $XDG programs;
 echo 'making symbolic links...'
 
 config_list=(
-  bash
-  ctags
-  fish
-  git
-  i3-wm
-  lynx
-  nvim
-  tmux
-  w3m
-  zsh
+bash
+ctags
+fish
+git
+i3
+lynx
+nvim
+tmux
+w3m
+zsh
 )
 
 for config_dir in ${config_list[@]}; do
@@ -51,7 +51,7 @@ for config_dir in ${config_list[@]}; do
 
   cd ${XDG_CONFIG_HOME}
   ln -nsf ${DOTFILES}/${config_dir}
-  
+
   echo "Done! The config files of ${config_dir} are linked at ${XDG_CONFIG_HOME}"
 done
 
@@ -59,22 +59,33 @@ echo ""
 echo "Done! All the dotfiles are linked to ${XDG_CONFIG_HOME}"
 
 ### non-XDG programs;
-### activate them, making symbolic links at $HOME via $XDG_CONFIG_HOME.
-cd $HOME
+## Create symbolic links at $HOME via $XDG_CONFIG_HOME.
+home_list=(
+bash/.profile
+ctags/.ctags
+git/.tigrc
+git/.gitconfig
+w3m/.w3m
+)
 
-## Files
-# Bash
-ln -nsf ${XDG_CONFIG_HOME}/bash/.profile
-echo "Done! Placed .profile on ${HOME}"
-# Ctags
-ln -nsf ${XDG_CONFIG_HOME}/ctags/.ctags
-echo "Done! create a symlink for ctags on ${HOME}!"
-# Tig
-ln -nsf ${XDG_CONFIG_HOME}/git/.tigrc
-ln -nsf ${XDG_CONFIG_HOME}/git/.gitconfig
-echo "Done! create symlinks for git on ${HOME}!"
-ln -nsf ${XDG_CONFIG_HOME}/w3m .w3m
-echo "Done! create a symlink for w3m on ${HOME}"
+cd $HOME
+for home_link in ${home_list[@]}; do
+  ln -nsf ${XDG_CONFIG_HOME}/${home_list}
+  echo "Done! create a symlink for ${home_list} on ${HOME}!"
+done
+
+## Bash
+#ln -nsf ${XDG_CONFIG_HOME}/bash/.profile
+#echo "Done! Placed .profile on ${HOME}"
+## Ctags
+#ln -nsf ${XDG_CONFIG_HOME}/ctags/.ctags
+#echo "Done! create a symlink for ctags on ${HOME}!"
+## Tig
+#ln -nsf ${XDG_CONFIG_HOME}/git/.tigrc
+#ln -nsf ${XDG_CONFIG_HOME}/git/.gitconfig
+#echo "Done! create symlinks for git on ${HOME}!"
+#ln -nsf ${XDG_CONFIG_HOME}/w3m .w3m
+#echo "Done! create a symlink for w3m on ${HOME}"
 
 cd $CURRENT_DIR
 
@@ -82,7 +93,7 @@ cat << END
 
 ================================================================================
 
-SYMBOLIC LINKS ARE COMPLETED
+SYMBOLIC LINKS COMPLETED
 
 ================================================================================
 
