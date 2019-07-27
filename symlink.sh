@@ -70,8 +70,8 @@ w3m/.w3m
 
 cd $HOME
 for home_link in ${home_list[@]}; do
-  ln -nsf ${XDG_CONFIG_HOME}/${home_list}
-  echo "Done! create a symlink for ${home_list} on ${HOME}!"
+  ln -nsf ${XDG_CONFIG_HOME}/${home_link}
+  echo "Done! create a symlink for ${home_link} on ${HOME}!"
 done
 
 ## Bash
