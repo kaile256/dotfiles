@@ -95,5 +95,5 @@ hook_post_source = 'runtime! open-browser.vimrc'
 ### i3-wm
 [[plugins]]
 repo = 'termhn/i3-vim-nav'
-on_if = 'exists('/usr/local/bin/i3-vim-nav')
+on_if = 'exists("/usr/local/bin/i3-vim-nav")'
 hook_post_source = 'runtime! i3-vim-nav.vimrc'
