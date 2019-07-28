@@ -187,7 +187,7 @@ bar {
 ### xrandr
 exec --no-startup-id ~/.config/i3/monitor.sh
 ### Vim
-bindsym --release $mod+h exec --no-startup-id "i3-vim-nav h"
-bindsym --release $mod+j exec --no-startup-id "i3-vim-nav j"
-bindsym --release $mod+k exec --no-startup-id "i3-vim-nav k"
-bindsym --release $mod+l exec --no-startup-id "i3-vim-nav l"
+#bindsym --release $mod+h exec --no-startup-id "i3-vim-nav h"
+#bindsym --release $mod+j exec --no-startup-id "i3-vim-nav j"
+#bindsym --release $mod+k exec --no-startup-id "i3-vim-nav k"
+#bindsym --release $mod+l exec --no-startup-id "i3-vim-nav l"

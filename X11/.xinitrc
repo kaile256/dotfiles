@@ -2,8 +2,8 @@
 
 #### Original: /etc/X11/xinit/xinitrc
 
-userresources=~/.config/xserver/Xresources
-usermodmap=~/.cofig/xserver/Xmodmap
+userresources=~/.config/X11/Xresources
+usermodmap=~/.cofig/X11/Xmodmap
 #userresources=$HOME/.Xresources
 #usermodmap=$HOME/.Xmodmap
 sysresources=/etc/X11/xinit/.Xresources
