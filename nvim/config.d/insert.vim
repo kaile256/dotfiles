@@ -75,18 +75,65 @@ set pumheight=50
 "endif
 
 """" KEYMAP
+""" Visual Mode
+"" Sort; Initial to Reverse Sort
+xnoremap <c-s><c-a> :sort   <cr>
+xnoremap <c-s>a     :sort   <cr>
+xnoremap <c-s>A     :sort!  <cr>
+" Ignore Case
+xnoremap <c-s><c-i> :sort  i<cr>
+xnoremap <c-s>i     :sort  i<cr>
+xnoremap <c-s>I     :sort! I<cr>
+xnoremap <c-s><c-n> :sort  n<cr>
+xnoremap <c-s>n     :sort  n<cr>
+xnoremap <c-s>N     :sort! n<cr>
+" Float Number
+xnoremap <c-s><c-f> :sort  f<cr>
+xnoremap <c-s>f     :sort  f<cr>
+xnoremap <c-s>F     :sort! f<cr>
+xnoremap <c-s><c-x> :sort  x<cr>
+xnoremap <c-s>x     :sort  x<cr>
+xnoremap <c-s>X     :sort! x<cr>
+xnoremap <c-s><c-o> :sort  o<cr>
+xnoremap <c-s>o     :sort  o<cr>
+xnoremap <c-s>O     :sort! o<cr>
+
+""" Advanced <c-g>
+inoremap <c-g><c-h> <Left>
+inoremap <c-g>h     <Left>
+inoremap <c-g><c-l> <Right>
+inoremap <c-g>l     <Right>
+inoremap <c-g><c-b> <S-Left>
+inoremap <c-g>b     <S-Left>
+inoremap <c-g><c-w> <S-Right>
+inoremap <c-g>w     <S-Right>
+
 """ MenuPopup
-"" Alt-ESC
+"" Alt-ESC; or type <c-o> to insert-normal.
 inoremap <a-space>w <esc>:w<cr>
-" make sure <a-hjkl> work as <esc>hjkl.
+" make sure <a-hjkl> work as <esc>hjkl, e.g., while pop-up menu shows.
 inoremap <a-h> <esc>h
 inoremap <a-j> <esc>j
 inoremap <a-k> <esc>k
 inoremap <a-l> <esc>l
+" <a-web> as well
+inoremap <a-w> <esc>w
+inoremap <a-b> <esc>b
+inoremap <a-e> <esc>e
+" <a-ydcup> as well; to redo, type <c-o><c-r>.
+inoremap <a-y> <esc>y
+inoremap <a-x> <esc>x
+inoremap <a-d> <esc>d
+inoremap <a-c> <esc>c
+inoremap <a-u> <esc>u
+inoremap <a-p> <c-g>u<esc>p
+" <a-iao> as well; forget Initial O.
+inoremap <a-i> <esc>i
+inoremap <a-a> <esc>a
+inoremap <a-o> <esc>o
 
 """ Undo Break
 "" Put
-inoremap <a-p> <c-g>u<esc>p
 inoremap <c-r> <c-g>u<c-r>
 "" Backspace
 inoremap <c-u> <c-g>u<c-u>
