@@ -1,5 +1,6 @@
 """" From: extra.toml
-"""" For: defx.vimrc
+"""" With: defx.vimrc
+"""" Def: Shougo/defx.vim
 
 "" TODO: show sym-links.
 "" when buffer-name is '_', the options are used fpr all buffers.

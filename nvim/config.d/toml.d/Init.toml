@@ -56,15 +56,22 @@ repo = 'tpope/vim-fugitive'
 hook_add = 'runtime! fugitive.vimrc'
 
 ### Denite
-[[plugins]]
-## CAUTION: Colorscheme MUST be sourced after dein#end() on dein.vim.
-repo = 'Shougo/denite.nvim'
+## Ref: denite.vimrc
 ## Ref: extra.toml
+[[plugins]]
+## CAUTION: denite.vimrc MUST be sourced after dein#end() on dein.vim.
+repo = 'Shougo/denite.nvim'
 if = 'has("python3")'
 
 ### Defx
+## Ref: defx.vimrc
 [[plugins]]
-## CAUTION: Colorscheme MUST be sourced after dein#end() on dein.vim.
+repo = 'kristijanhusak/defx-git'
+if = 'has("python3")'
+[[plugins]]
+repo = 'kristijanhusak/defx-icons'
+if = 'has("python3")'
+[[plugins]]
+## CAUTION: defx.vimrc MUST be sourced after dein#end() on dein.vim.
 repo = 'Shougo/defx.nvim'
-## Ref: extra.toml
 if = 'has("python3")'

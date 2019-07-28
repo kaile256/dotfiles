@@ -1,11 +1,12 @@
 """" From: 'init.vim'
 
 """" CONFIG
-augroup RememberLastCursor
-  au!
-  au BufLeave * exe "normal mp"
-  au BufLeave * exe "normal mP"
-augroup END
+"augroup RememberLastCursor
+"  " cause ERROR on defx.
+"  au!
+"  au BufLeave * exe "normal mp"
+"  au BufLeave * exe "normal mP"
+"augroup END
 "augroup MarkOnBufLeave
 "  au! BufLeave * call <SID>AutoIncMarkUpper()
 "augroup END

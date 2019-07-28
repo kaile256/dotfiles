@@ -1,13 +1,13 @@
 #### From: dein.vim
 
-### Defx
-### Ref: Init.toml
-[[plugins]]
-repo = 'kristijanhusak/defx-git'
-on_if = 'has("python3")'
-[[plugins]]
-repo = 'kristijanhusak/defx-icons'
-on_if = 'has("python3")'
+#### Defx
+#### Ref: Init.toml
+#[[plugins]]
+#repo = 'kristijanhusak/defx-git'
+#on_if = 'has("python3")'
+#[[plugins]]
+#repo = 'kristijanhusak/defx-icons'
+#on_if = 'has("python3")'
 
 ### Denite
 ### Ref: Init.toml
