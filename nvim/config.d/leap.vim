@@ -38,6 +38,8 @@ map <silent> <c-j> [ToWinBottom]
 map <silent> <c-k> [ToWinTop]
 " CAUTION: <c-m> is identical with <cr>.
 map <silent> <c-,> [ToWinMiddle]
+map <silent> <c-.> [ToWinMiddle]
+map <silent> <s-m> [ToWinMiddle]
 
 """ Go-To
 " switch mapping
