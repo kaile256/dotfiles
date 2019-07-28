@@ -3,6 +3,8 @@
 
 config_version: 2
 settings:
+  auto_save.session:
+    global: false
   bindings.commands:
     global:
       normal:
@@ -60,6 +62,8 @@ settings:
     global: asdwerxcv
   session.default_name:
     global: lastSession.qt
+  session.lazy_restore:
+    global: true
   tabs.background:
     global: true
   tabs.new_position.unrelated:
