@@ -1,6 +1,7 @@
 augroup NewFileType
   au!
   au BufNewFile,BufRead *.vim! set filetype=vim
+  au BufNewFile,BufRead *.vimrc set filetype=vim
   au BufNewFile,BufRead *.vimrc! set filetype=vim
 
   """ i3

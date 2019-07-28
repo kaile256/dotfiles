@@ -23,6 +23,7 @@ repo = 'wsdjeg/dein-ui.vim'
 hook_add = 'runtime! dein-ui.vim'
 
 ### Color Themes
+## CAUTION: Colorscheme MUST be sourced on without lazy.
 ## CAUTION: Colorscheme MUST be sourced after dein#end() on dein.vim.
 [[plugins]]
 repo = 'tomasr/molokai'
@@ -54,12 +55,16 @@ hook_add = 'runtime! fzf.vimrc'
 repo = 'tpope/vim-fugitive'
 hook_add = 'runtime! fugitive.vimrc'
 
-### Deinte
+### Denite
 [[plugins]]
+## CAUTION: Colorscheme MUST be sourced after dein#end() on dein.vim.
 repo = 'Shougo/denite.nvim'
+## Ref: extra.toml
 if = 'has("python3")'
 
 ### Defx
 [[plugins]]
+## CAUTION: Colorscheme MUST be sourced after dein#end() on dein.vim.
 repo = 'Shougo/defx.nvim'
+## Ref: extra.toml
 if = 'has("python3")'

@@ -1,4 +1,5 @@
-"""" From: 'Initial.toml'
+"""" From: Init.toml
+"""" Ref: defx-extra.vimrc
 
 "if !has('win64')
 "  command Defx :Defx -columns=git:markfilename:type
@@ -27,7 +28,7 @@ augroup END
 
 """" shortcut
 function! s:defx_my_shortcut() abort
-  
+
   """ Paticular Dirs
   "" Optional
   nmap <buffer>         <space>e :<c-u>Defx 
@@ -88,7 +89,7 @@ function! s:defx_my_settings() abort
   nnoremap <silent><buffer><expr> <s-m>
         \ defx#do_action('drop')
 
- """ File-Management
+  """ File-Management
   " Clipboard
   " show the path under cursor on status-bar.
   nnoremap <buffer><expr> mc
@@ -121,10 +122,10 @@ function! s:defx_my_settings() abort
         \ defx#do_action('execute_system')
 
   """ Toggle
-  "" Ignored/Hidden File\
+  "" Ignored/Hidden File
   nnoremap <silent><buffer><expr> .
         \ defx#do_action('toggle_ignored_files')
-  
+
   "" Sort
   nnoremap <silent><buffer><expr> st
         \ defx#do_action('toggle_sort', 'time')

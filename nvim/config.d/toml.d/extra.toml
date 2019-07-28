@@ -1,15 +1,16 @@
 #### From: dein.vim
 
 ### Defx
+### Ref: Init.toml
 [[plugins]]
 repo = 'kristijanhusak/defx-git'
 on_if = 'has("python3")'
 [[plugins]]
 repo = 'kristijanhusak/defx-icons'
 on_if = 'has("python3")'
-hook_post_source = 'runtime! defx-extra.vimrc'
 
 ### Denite
+### Ref: Init.toml
 [[plugins]]
 repo = 'Shougo/neoyank.vim'
 on_if = 'has("python3")'
@@ -27,6 +28,7 @@ repo = 'Shougo/neomru.vim'
 on_if = 'has("python3")'
 
 ### COC
+### Ref: tool.toml
 [[plugins]]
 repo = 'neoclide/coc-denite'
 on_if = 'has("python3")'

@@ -71,6 +71,13 @@ repo = 'glidenote/memolist.vim'
 hook_post_source = 'runtime! memolist.vimrc'
 on_map = '<space>'
 
+### Browser
+[[plugins]]
+repo = 'tyru/open-browser.vim'
+if = 'executable("qutebrowser")'
+on_map = '<space>'
+hook_post_source = 'runtime! browser.vimrc'
+
 #### Functional
 #[[plugins]]
 ## Repeats even not-default editing by "."

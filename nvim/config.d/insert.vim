@@ -111,7 +111,6 @@ inoremap <a-o> <esc>o
 
 """ undo break
 inoremap <c-j> <c-g>u<c-j>
-inoremap <cr> <c-g>u<cr>
 "" put
 inoremap <c-r> <c-g>u<c-r>
 "" backspace

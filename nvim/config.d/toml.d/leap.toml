@@ -70,13 +70,6 @@ hook_post_source = 'runtime! tagbar.vim'
 #  '''
 #on_event = 'VimEnter'
 
-### Browser
-[[plugins]]
-repo = 'tyru/open-browser.vim'
-if = 'executable("qutebrowser")'
-on_map = '<space>'
-hook_post_source = 'runtime! open-browser.vimrc'
-
 #[[plugins]]
 #repo = 'tyru/qfpopup.vim'
 #[[plugins]]
