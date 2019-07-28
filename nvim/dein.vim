@@ -1,11 +1,10 @@
+"""" From: init.vim
 """" main plugin-manager is Shougo/dein.vim
 "" dein.vim manages dein.vim itself, too.
 
 if &compatible
   set nocompatible
 endif
-
-"" The Path, dein.vim is installed.
 
 " dein#load_state includes 'set filetype off';
 " so 'set filetype on' after load dein & plugins.
@@ -24,7 +23,7 @@ if dein#load_state(s:dein_cache_dir)
   " list of plugins in toml, which dein manages.
   let s:dein_toml_dir  = '~/.config/nvim/config.d/toml.d/'
 
-  let s:dein_toml      = s:dein_toml_dir . 'Initial.toml'
+  let s:dein_toml      = s:dein_toml_dir . 'Init.toml'
   let s:appearance_toml= s:dein_toml_dir . 'appearance.toml'
   let s:filetype_toml  = s:dein_toml_dir . 'filetype.toml'
   let s:tool_toml      = s:dein_toml_dir . 'tool.toml'
@@ -59,6 +58,13 @@ endif
 filetype plugin indent on
 syntax enable  " on は設定を無視して構文ハイライトする
 
+""" CAUTION: some plugins MUST be sourced after dein#end() on dein.vim.
+"" Ref: Init.toml
+runtime denite.vimrc
+runtime defx.vimrc
+runtime molokai.vimrc
+"runtime solarized.vimrc
+
 """" KEYMAP
 " install plugins
 noremap  <a-d><a-i> :<c-u>call dein#install()<cr>
@@ -71,5 +77,3 @@ noremap <a-d><a-u>  :<c-u>call dein#update()<cr>
 noremap <a-d>u      :<c-u>call dein#update()<cr>
 cnoremap <a-d><a-u> :<c-u>call dein#update()<cr>
 cnoremap <a-d>u     :<c-u>call dein#update()<cr>
-
-"endif
