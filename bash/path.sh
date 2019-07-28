@@ -9,7 +9,12 @@ export PATH="$HOME/.local/bin:$PATH"
 #### LANGUAGE 
 ### Rust
 ## Cargo
-export PATH="$HOME/.cargo/bin:$PATH"
+if [ -d ~/.cargo ]; then
+  export PATH="$HOME/.cargo/bin:$PATH"
+else
+  export PATH="$HOME/.local/share/cargo/env:$PATH"
+  export PATH="$HOME/.local/share/cargo/bin:$PATH"
+fi
 
 ### Python
 ## pyenv
@@ -30,4 +35,4 @@ export PATH="$HOME/.node_modules/bin:$PATH"
 ## nodebrew
 export PATH="$HOME/.nodebrew/current/bin:$PATH"
 ## yarn
-type yarn >> /dev/null && export PATH="$PATH:$HOME/`yarn global bin`"
+export PATH="$PATH:$HOME/.yarn/bin"
