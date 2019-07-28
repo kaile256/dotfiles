@@ -5,9 +5,110 @@
 
 set -Cu
 
-### Vim
+#### INSTALLER IDENTIFICATION
+Installer=(
+apt
+pacman
+)
+for i in ${Installer[@]}; do
+  type $i >> /dev/null 2>&1 && export INSTALLER="$i"
+  [[ $INSTALLER == $i ]] && echo "Installer is identified, $INSTALLER"
+done
+
+declare -A Install
+Install=(
+['pacman']='pacman -S'
+['apt']='apt install'
+)
+
+export install="${Install[$INSTALLER]}"
+echo "$INSTALLER will install package via $install"
+
+#### WANTED-PACKAGES INSTALLATION
+Package=(
+anyenv
+bash-completion
+cargo  # select rustup
+git
+go
+ghq-bin
+pyenv
+python-pipenv
+ruby
+yarn
+)
+
+for package in ${Package[@]}; do
+  type $package || {
+    echo "Installing $package..." && sudo $install $package || {
+
+    if $INSTALLER == 'apt';then
+      echo "Try to curl to install $package..."
+      if $package == 'pyenv'; then
+        curl https://pyenv.run | bash
+      fi
+      if $package == 'cargo'; then
+        curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+        source ~/.local/share/cargo/env
+      fi
+
+    elif $INSTALLER == 'pacman'; then
+      echo "Try to yay to install $package..." && yay -S $package
+    fi
+  }
+}
+done
+
+#        [[ $package == 'pyenv' ]] && {
+#        curl https://pyenv.run | bash
+#      }
+#  } || {
+#    [[ $package == 'cargo' ]] && {
+#    curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+#      source ~/.local/share/cargo/env
+#    }
+#}
+#elif [ $INSTALLER == 'pacman' ]; then
+#  echo "Try to yay to install $package..." && yay -S $package
+#fi
+#}
+
+### pyenv
+type pyenv || {
+  eval "$(pyenv init -)"
+  eval "$(pyenv virtualenv-init -)"
+  echo "Set up for pyenv!!"
+}
+
+### Yarn
+YarnPack=(
+bash-language-server  # LSP
+neovim
+)
+
+for y in ${yarnPack[@]}; do
+  yarn global add $y
+done
+
+### Go
+## pocke/get
+#type get go || {
+#  echo "Installing github.com/pocke/get..."
+#  go get github.com/pocke/get
+#}
+
+# ghq
+GitRepo=(
+Shougo/dein.vim
+)
+
+for g in ${gitRepo[@]}; do
+  # if you want to use pocke/get, replace ghq get w/ get ghq
+  ghq get  $g
+done
+
 ## Dein
-PLUGIN_DIR=$HOME/.cache/nvim/dein
+PLUGIN_DIR=$HOME/.cache/dein
 INSTALL_DIR="${PLUGIN_DIR}/repos/github.com/Shougo/dein.vim"
 
 if ! [ -e "$INSTALL_DIR" ]; then
@@ -24,119 +125,3 @@ if ! [ -e "$INSTALL_DIR" ]; then
   echo "Done. Dein is Ready!!"
   echo ""
 fi
-
-#### LANGUAGE
-### Python
-type python3 || {
-  type pacman && {
-  echo "Installing python3..."
-  sudo pacman -S python3
-} || {
-  type apt && {
-  echo "Installing python3..."
-  sudo apt install python3
-}
-}
-}
-
-## pip
-type pip3 || {
-  type pacman && {
-  echo "Installing pip3..."
-  sudo pacman -S pip3
-} || {
-  type apt && {
-  echo "Installing pip3..."
-  sudo apt install pip3
-}
-}
-}
-## pyenv
-type pyen || {
-  type pacman && {
-  echo "Installing pyenv..." 
-  sudo pacman -S pyenv 
-} || {
-  echo "Installing pyenv..."
-  curl https://pyenv.run | bash
-  eval "$(pyenv init -)"
-  eval "$(pyenv virtualenv-init -)"
-  echo "Done!"
-}
-}
-
-### Ruby
-type ruby || {
-  type pacman && {
-  echo "Installing ruby..."
-  sudo pacman -S ruby
-} || {
-  type apt && {
-  echo "Installing ruby..."
-  sudo apt install ruby
-}
-}
-}
-
-### Rust
-## Cargo
-#&& [ ! -d /data/data/com.termux  # ???
-type cargo || {
-  echo "Installing cargo..."
-  type pacman && sudo pacman -S cargo || {
-    curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-      source ~/.local/share/cargo/env
-      ## TODO: del lines including '.cargo' in .profile.
-      echo "Done"
-    }
-}
-
-### Go
-type go || {
-  type pacman && {
-  echo "Installing go..."
-  sudo pacman -S go
-} || {
-  type apt && {
-  echo "Installing go..."
-  sudo apt install go
-}
-}
-}
-
-## ghq
-type ghq || {
-  echo "Installing ghq..."
-  go get github.com/motemen/ghq
-}
-
-
-### Nodejs
-## npm
-#type npm || {
-#  echo "Installing npm..."
-#  sudo apt install npm
-#  ## LSP
-#  npm i -g bash-language-server
-#}
-
-## yarn
-type yarn || {
-  type pacman && {
-  echo "Installing yarn..."
-  sudo pacman -S yarn
-  #type apt && {
-  #  echo "Installing yarn..."
-  #  curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
-  #  echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
-  #  echo "Update apt for yarn!"
-  #  sudo apt update && sudo apt install yarn
-  #  echo "Done! Yarn is Ready!!"
-  #}
-}
-
-# Neovim
-yarn global add neovim
-# LSP
-yarn global add bash-language-server
-}

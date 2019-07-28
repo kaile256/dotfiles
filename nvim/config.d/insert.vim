@@ -54,7 +54,7 @@ augroup ResizeIndent
 augroup END
 
 """ Regiser
-set clipboard+=unnamedplus
+set clipboard+=unnamedplus,unnamed
 
 """ Visual Mode
 " visualize even if there is no chars.

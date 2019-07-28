@@ -1,8 +1,9 @@
 #!/usr/bin/env bash
 
-set -Cu
-
 #### From: .bashrc
+#### Before: path.sh
+
+set -Cu
 
 export EDITOR=vi
 export VISUAL=vi
@@ -32,5 +33,11 @@ type qutebrowser > /dev/null && export BROWSER=qutebrowser || {
 }
 
 #### LANGUAGE
+### Go
+export GOPATH="$HOME/go"
+## Ghq
+export GHQ_ROOT="$GOPATH/src"
+
 ### Nodejs
-export npm_config_prefix=~/.node_modules
+# TODO: ~/.local/share/yarn/global/node_modules?
+#export npm_config_prefix=~/.node_modules

@@ -1,12 +1,11 @@
 #### From: .profile
-#### Ref.: curl.sh
 #### Ref.: pkgm.sh
 
 umask 022
 
 source ~/.config/bash/xdg.sh
 source ~/.config/bash/env.sh
-#source ~/.config/bash/path.sh
+source ~/.config/bash/path.sh
 source ~/.config/bash/alias.sh
 source ~/.config/bash/prompt.sh
 

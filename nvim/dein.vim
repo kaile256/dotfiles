@@ -10,10 +10,10 @@ endif
 " dein#load_state includes 'set filetype off';
 " so 'set filetype on' after load dein & plugins.
 
-let s:dein_cache_dir = g:xdg_cache_home . '/nvim/dein'
+let s:dein_cache_dir = g:xdg_cache_home . '/dein'
 let s:dein_itself= s:dein_cache_dir . '/repos/github.com/Shougo/dein.vim/'
 
-set rtp+=~/.cache/nvim/dein/repos/github.com/Shougo/dein.vim
+set rtp+=~/.cache/dein/repos/github.com/Shougo/dein.vim
 
 "if ! isdirectory('expand(s:dein_itself)')
 "echo "                Install dein!"
