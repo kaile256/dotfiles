@@ -1,5 +1,6 @@
 """" From: Init.toml
-"""" Ref: defx-extra.vimrc
+"""" With: defx-extra.vimrc
+""""  Ref: denite.vimrc
 
 "if !has('win64')
 "  command Defx :Defx -columns=git:markfilename:type
@@ -137,6 +138,3 @@ function! s:defx_my_settings() abort
         \ defx#do_action('toggle_sort', 'filename')
 
 endfunction
-
-let s:parent_dir = '`expand("%:p:h")` -search=`expand("%:p")`'
-let s:depth_1 = '-auto-recursive-level=1'

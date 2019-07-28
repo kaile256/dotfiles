@@ -4,16 +4,16 @@
 """ ime
 " 0: ime will be off, when lmap is off.
 " lmap supports 3 modes: insert, commandline and lang-arg.
-augroup autooffime
+augroup AutoOffIME
   au!
-  au insertleave  * set iminsert=0
-  au cmdlineleave * set imsearch=0
+  au InsertLeave  * set iminsert=0
+  au CmdlineLeave * set imsearch=0
 augroup end
 
 """ terminal
 if has('terminal')
-  augroup modifiabletermmode
-    au! termopen * setlocal modifiable
+  augroup ModifiableTermMode
+    au! TermOpen * setlocal modifiable
   augroup end
 endif
 
@@ -25,10 +25,10 @@ set tabstop=2
 " number of spaces, inserted by tab-key, next to tab-chars.
 set softtabstop=2
 
-augroup replacetabwithspace
+augroup ReplaceTabWithSpace
   " :retab!; if replace spaces, too.
-  au! bufreadpost,bufenter *
-  if ! &readonly || &modifiable | retab | endif
+  au! BufReadPost,BufEnter *
+        \ if ! &readonly || &modifiable | retab | endif
 augroup end
 
 """ indent
@@ -48,9 +48,9 @@ set shiftround
 
 augroup resizeindent
   au!
-  au filetype javascript setlocal shiftwidth=4 tabstop=4 softtabstop=4
-  au filetype ruby       setlocal shiftwidth=2 tabstop=2 softtabstop=2
-  au filetype python     setlocal shiftwidth=2 tabstop=2 softtabstop=2
+  au FileType JavaScript setlocal shiftwidth=4 tabstop=4 softtabstop=4
+  au FileType Ruby       setlocal shiftwidth=2 tabstop=2 softtabstop=2
+  au FileType Python     setlocal shiftwidth=2 tabstop=2 softtabstop=2
 augroup end
 
 """ regiser
