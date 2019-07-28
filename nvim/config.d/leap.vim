@@ -34,12 +34,35 @@ xnoremap gk k
 " though <c-hjkl> get along with <c-fbud>;
 "nnoremap <silent> <a-h> :<c-r>=(               virtcol('.')) /2<cr>h
 "nnoremap <silent> <a-l> :<c-r>=(virtcol('0') - virtcol('.')) /2<cr>l
-map <silent> <c-j> [ToWinBottom]
-map <silent> <c-k> [ToWinTop]
-" CAUTION: <c-m> is identical with <cr>.
-map <silent> <c-,> [ToWinMiddle]
-map <silent> <c-.> [ToWinMiddle]
-map <silent> <s-m> [ToWinMiddle]
+map <silent> <a-j> [ToWinBottom]
+map <silent> <a-k> [ToWinTop]
+" CAUTION: <c-m> is identical with <cr>; <c-,>/<c-.> does't work.
+map <silent> <a-m> [ToWinMiddle]
+map <silent> <a-i> [ToWinMiddle]
+
+""" Pane
+" leap between panes
+nnoremap <c-h> <c-w>h
+nnoremap <c-j> <c-w>j
+nnoremap <c-k> <c-w>k
+nnoremap <c-l> <c-w>l
+
+nnoremap <a-b> <c-w>b
+nnoremap <a-t> <c-w>t
+" avoid stack on command-line
+cnoremap <a-k> <c-c>
+
+""" Tab Page
+" mnemonic: <s-,>/<s-.> are < & >.
+nnoremap <a-h> gT
+nnoremap <a-l> gt
+nnoremap <c-x><c-h> gT
+nnoremap <c-x><c-l> gt
+nnoremap <c-x>h gT
+nnoremap <c-x>l gt
+
+"" Give Tab
+nnoremap <c-w><c-t> <c-w>T
 
 """ Go-To
 " switch mapping
@@ -77,29 +100,6 @@ noremap <silent> <a-[> :pop<cr>
 noremap <silent> <a-}> :0tag<cr>
 " TODO: ???
 noremap <silent> <a-{> :$tag<cr>
-
-""" Pane
-" leap between panes
-nnoremap <a-h> <c-w>h
-nnoremap <a-j> <c-w>j
-nnoremap <a-k> <c-w>k
-nnoremap <a-l> <c-w>l
-
-nnoremap <a-b> <c-w>b
-nnoremap <a-t> <c-w>t
-" avoid stack on command-line
-cnoremap <a-k> <c-c>
-
-""" Tab Page
-" mnemonic: <s-,>/<s-.> are < & >.
-nnoremap <c-x><c-h> gT
-nnoremap <c-x><c-l> gt
-nnoremap <c-x>h gT
-nnoremap <c-x>l gt
-nnoremap <c-h> gT
-nnoremap <c-l> gt
-"" Give Tab
-nnoremap <c-w><c-t> <c-w>T
 
 """ Terminal
 if has('terminal')
