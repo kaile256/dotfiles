@@ -9,7 +9,6 @@
 "  au! VimEnter * Defx `expand('%:p:h')` -search=`expand('%:p')`
 "augroup END
 
-
 """" KEYMAP
 """ Open Preceding Tree
 " type '-' to parent dir

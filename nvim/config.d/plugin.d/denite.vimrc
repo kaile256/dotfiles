@@ -1,10 +1,16 @@
-"""" From: Initial.toml
+"""" From: Init.toml
 """" With: denite-extra.vimrc
 
 """" CONFIG
+""" Ripgrep: replace default grep
+if executable('rg')
+  call denite#custom#var('file_rec', 'command',
+        \ ['rg', '--files', '--glob', '!.git'])
+  call denite#custom#var('grep', 'command', ['rg'])
+endif
 
 """" KEYMAP
-nnoremap <silent> <a-d> :<C-u>Denite grep<CR>
+nnoremap <a-d> :<C-u>Denite grep<CR>
 
 augroup Denite
   au!
@@ -32,11 +38,3 @@ augroup END
 "   \ <a-:<C-u>call denite#start([{'name': 'file_rec', 'args': ['~/dotfiles']}])<CR>
 " noremap <silent><buffer> <space>l
 "   \ <a-:<C-u>call denite#start([{'name': 'file_rec', 'args': [g;memolist_path]})<CR>
-"
-""" Ripgrep: replace default grep
-if executable('rg')
-  call denite#custom#var('file_rec', 'command',
-        \ ['rg', '--files', '--glob', '!.git'])
-  call denite#custom#var('grep', 'command', ['rg'])
-endif
-

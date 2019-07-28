@@ -110,6 +110,8 @@ inoremap <a-a> <esc>a
 inoremap <a-o> <esc>o
 
 """ undo break
+inoremap <c-j> <c-g>u<c-j>
+inoremap <cr> <c-g>u<cr>
 "" put
 inoremap <c-r> <c-g>u<c-r>
 "" backspace
@@ -145,24 +147,24 @@ nnoremap <space>c "_c
 
 """ Visual Mode
 "" Sort; Initial to Reverse Sort
-xnoremap <c-s><c-a> :sort   <cr>
-xnoremap <c-s>a     :sort   <cr>
-xnoremap <c-s>A     :sort!  <cr>
+" CAUTION: <c-s> freezes screen on some Linux-Distros as default.
+xnoremap <a-s><c-a> :sort   <cr>
+xnoremap <a-s>a     :sort   <cr>
+xnoremap <a-s>A     :sort!  <cr>
 " Ignore Case
-xnoremap <c-s><c-i> :sort  i<cr>
-xnoremap <c-s>i     :sort  i<cr>
-xnoremap <c-s>I     :sort! I<cr>
-xnoremap <c-s><c-n> :sort  n<cr>
-xnoremap <c-s>n     :sort  n<cr>
-xnoremap <c-s>N     :sort! n<cr>
+xnoremap <a-s><c-i> :sort  i<cr>
+xnoremap <a-s>i     :sort  i<cr>
+xnoremap <a-s>I     :sort! I<cr>
+xnoremap <a-s><c-n> :sort  n<cr>
+xnoremap <a-s>n     :sort  n<cr>
+xnoremap <a-s>N     :sort! n<cr>
 " Float Number
-xnoremap <c-s><c-f> :sort  f<cr>
-xnoremap <c-s>f     :sort  f<cr>
-xnoremap <c-s>F     :sort! f<cr>
-xnoremap <c-s><c-x> :sort  x<cr>
-xnoremap <c-s>x     :sort  x<cr>
-xnoremap <c-s>X     :sort! x<cr>
-xnoremap <c-s><c-o> :sort  o<cr>
-xnoremap <c-s>o     :sort  o<cr>
-xnoremap <c-s>O     :sort! o<cr>
-
+xnoremap <a-s><c-f> :sort  f<cr>
+xnoremap <a-s>f     :sort  f<cr>
+xnoremap <a-s>F     :sort! f<cr>
+xnoremap <a-s><c-x> :sort  x<cr>
+xnoremap <a-s>x     :sort  x<cr>
+xnoremap <a-s>X     :sort! x<cr>
+xnoremap <a-s><c-o> :sort  o<cr>
+xnoremap <a-s>o     :sort  o<cr>
+xnoremap <a-s>O     :sort! o<cr>

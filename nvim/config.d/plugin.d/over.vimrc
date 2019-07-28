@@ -2,4 +2,4 @@
 
 "" Auto-Over
 " upon sourced, command OverCommandLine.
-OverCommandLine<cr>
+nnoremap OverCommandLine

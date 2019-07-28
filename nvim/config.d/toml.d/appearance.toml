@@ -1,4 +1,14 @@
 #### From: dein.vim
+#### Ref: Init.toml
+
+#### Color Themes
+### CAUTION: Colorscheme MUST be sourced after dein#end() on dein.vim.
+#[[plugins]]
+#repo = 'tomasr/molokai'
+#on_if = 'has("nvim")'
+##[[plugins]]
+##repo = 'altercation/vim-colors-solarized'
+##on_if = 'has("nvim")'
 
 #### Indent
 [[plugins]]

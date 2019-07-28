@@ -1,4 +1,5 @@
-"""" From: Initial.toml
+"""" From: appearance.vim
+""""  Ref: Initial.toml
 """"  Ref: molokai.vimrc
 
 set t_Co=256
@@ -6,7 +7,10 @@ set termguicolors
 
 "set bg=light
 let g:solarized_termcolors=256
-colo solarized
+colorscheme solarized
+"augroup MySolarized
+"  au VimEnter,BufReadPost * colorscheme solarized
+"augroup END
 
 " CAUTION: cursorline-highlight causes drawing corruption.
 set cursorline

@@ -1,5 +1,8 @@
 """" From: 'init.vim'
 
+"""" ColorScheme
+""" Ref: dein.vim
+
 """" Read Only
 "augroup AlertWhenReadOnly
 "    au! BufReadPost,BufEnter *

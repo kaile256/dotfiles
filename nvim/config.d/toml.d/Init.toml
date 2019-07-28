@@ -1,4 +1,5 @@
 #### From: dein.vim
+#### Ref: appearance.toml
 
 ### Required
 [[plugins]]
@@ -22,15 +23,13 @@ repo = 'wsdjeg/dein-ui.vim'
 hook_add = 'runtime! dein-ui.vim'
 
 ### Color Themes
+## CAUTION: Colorscheme MUST be sourced after dein#end() on dein.vim.
 [[plugins]]
-# CAUTION: DON'T source on lazy.
 repo = 'tomasr/molokai'
 if = 'has("nvim")'
-hook_add = 'runtime! molokai.vimrc'
 #[[plugins]]
 #repo = 'altercation/vim-colors-solarized'
 #if = 'has("nvim")'
-#hook_add = 'runtime! solarized.vimrc'
 
 ### Status Bar
 #[[plugins]]
@@ -59,10 +58,8 @@ hook_add = 'runtime! fugitive.vimrc'
 [[plugins]]
 repo = 'Shougo/denite.nvim'
 if = 'has("python3")'
-hook_add = 'runtime! denite.vimrc'
 
 ### Defx
 [[plugins]]
 repo = 'Shougo/defx.nvim'
 if = 'has("python3")'
-hook_add = 'runtime! defx.vimrc'
