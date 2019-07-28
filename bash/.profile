@@ -8,13 +8,9 @@
 # for ssh logins, install and configure the libpam-umask package.
 
 
-if [ -d /data/data/com.termux ] && [ -x ~/start*.sh ]; then
+if [ -d /data/data/com.termux ] && [ -x ~/skali.sh ]; then
   cd ~
   ./start-kali.sh
-fi
-
-if [ -f ~/.config/bash/.bashrc ]; then
-  . ~/.config/bash/.bashrc
 fi
 
 #mesg n || true
@@ -45,9 +41,9 @@ export PATH="$HOME/.node_modules/bin:$PATH"
 # nodebrew
 export PATH="$HOME/.nodebrew/current/bin:$PATH"
 # yarn
-export PATH="$PATH:$HOME/`yarn global bin`"
+export PATH="$PATH:$HOME/.yarn/global/bin"
 
 export PATH="/home/kaile256/.local/share/cargo/bin:$PATH"
 
 #### Xserver
-[[ -z $DISPLAY && $XDG_VTNR -eq 1 ]] && exec startx
+#[[ -z $DISPLAY && $XDG_VTNR -eq 1 ]] && exec startx
