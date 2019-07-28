@@ -68,6 +68,7 @@ set wildmode=list:longest
 "set history=10000
 
 """ Pop-Up Menu
+set pumheight=50
 "is has('nvim') || 
 "  set wildoptions=pum
 "  set pumblend=20
@@ -77,11 +78,11 @@ set wildmode=list:longest
 """ MenuPopup
 "" Alt-ESC
 inoremap <a-space>w <esc>:w<cr>
-" win-leap map is only on Normal Mode; doesn't matter.
-"inoremap <a-h> pumvisible() ? <c-y><esc>h : <esc>h
-"inoremap <a-j> pumvisible() ? <c-y><esc>h : <esc>j
-"inoremap <a-k> pumvisible() ? <c-y><esc>h : <esc>k
-"inoremap <a-l> pumvisible() ? <c-y><esc>h : <esc>l
+" make sure <a-hjkl> work as <esc>hjkl.
+inoremap <a-h> <esc>h
+inoremap <a-j> <esc>j
+inoremap <a-k> <esc>k
+inoremap <a-l> <esc>l
 
 """ Undo Break
 "" Put
