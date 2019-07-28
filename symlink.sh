@@ -41,6 +41,7 @@ git
 i3
 lynx
 nvim
+qutebrowser
 tmux
 w3m
 zsh
