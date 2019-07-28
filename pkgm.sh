@@ -133,6 +133,9 @@ if ! [ -e "$INSTALL_DIR" ]; then
 fi
 
 ### Rustup -- cargo
+## Init
+rustup install stable
+rustup default stable
 ## Rustup Completions
 mkdir -p ~/.local/share/bash-completion/rustup
 rustup completions bash > ~/.local/share/bash-completion/rustup
