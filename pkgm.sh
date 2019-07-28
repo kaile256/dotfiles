@@ -35,6 +35,7 @@ go
 ghq-bin
 pyenv
 python-pipenv
+ripgrep
 ruby
 yarn
 )
@@ -94,14 +95,22 @@ done
 #}
 
 # ghq
-GitRepo=(
+GitRepos=(
 Shougo/dein.vim
 )
 
-for g in ${gitRepo[@]}; do
+for g in ${gitRepos[@]}; do
   # if you want to use pocke/get, replace ghq get w/ get ghq
   ghq get  $g
 done
+
+GemRepos=(
+neovim
+)
+
+PipRepos=(
+pynvim
+)
 
 ### Neovim
 ## Dein
@@ -123,9 +132,9 @@ if ! [ -e "$INSTALL_DIR" ]; then
   echo ""
 fi
 
-### Neovim-Client
-Clients=(
-yarn global add
-gem install neovim
-pip3 install pyenv
-)
+### Rustup -- cargo
+## Rustup Completions
+mkdir -p ~/.local/share/bash-completion/rustup
+rustup completions bash > ~/.local/share/bash-completion/rustup
+mkdir -p ~/.config/fish/completions/rustup.fish
+rustup completions fish > ~/.config/fish/completions/rustup.fish
