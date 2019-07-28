@@ -1,3 +1,6 @@
+#### Ref: .profile
+#### Ref: .zshenv
+
 ## Never write "exec tmux" on script, or never access the WSL Distribution.
 source ~/.config/fish/myconf.d/*.fish
 source ~/.config/fish/myfuctions/*.fish

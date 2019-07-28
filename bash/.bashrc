@@ -1,13 +1,25 @@
 #### From: .profile
-#### Ref.: pkgm.sh
+#### Ref: pkgm.sh
+#### Ref: .zshenv
 
 umask 022
 
-source ~/.config/bash/xdg.sh
-source ~/.config/bash/env.sh
-source ~/.config/bash/path.sh
-source ~/.config/bash/alias.sh
-source ~/.config/bash/prompt.sh
+SourceFile=(
+# CAUTION: xdg.sh should be sourced BEFORE path.sh.
+xdg.sh
+env.sh
+path.sh
+alias.sh
+prompt.sh
+)
+for i in ${SourceFile[@]}; do
+  source ~/.config/bash/$i
+done
+#source ~/.config/bash/xdg.sh
+#source ~/.config/bash/env.sh
+#source ~/.config/bash/path.sh
+#source ~/.config/bash/alias.sh
+#source ~/.config/bash/prompt.sh
 
 # ~/.bashrc: executed by bash(1) for non-login shells.
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
@@ -60,15 +72,6 @@ fi
 #alias ll='ls -l'
 #alias la='ls -A'
 #alias l='ls -CF'
-
-# Alias definitions.
-# You may want to put all your additions into a separate file like
-# ~/.bash_aliases, instead of adding them here directly.
-# See /usr/share/doc/bash-doc/examples in the bash-doc package.
-
-if [ -f ~/.bash_aliases ]; then
-    . ~/.bash_aliases
-fi
 
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile

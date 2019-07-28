@@ -40,8 +40,8 @@ yarn
 )
 
 for package in ${Package[@]}; do
-  if `type apt && apt list $package | grep $package`; then
-  elif `type pacman && pacman -Q $package`; then
+  if type apt && apt list "$package" | grep $package; then
+  elif type pacman && pacman -Q "$package"; then
   else
     echo "Installing $package..." && sudo $install $package || {
 
@@ -76,13 +76,6 @@ done
 #fi
 #}
 
-### pyenv
-type pyenv || {
-  eval "$(pyenv init -)"
-  eval "$(pyenv virtualenv-init -)"
-  echo "Set up for pyenv!!"
-}
-
 ### Yarn
 YarnPack=(
 bash-language-server  # LSP
@@ -110,6 +103,7 @@ for g in ${gitRepo[@]}; do
   ghq get  $g
 done
 
+### Neovim
 ## Dein
 PLUGIN_DIR=$HOME/.cache/dein
 INSTALL_DIR="${PLUGIN_DIR}/repos/github.com/Shougo/dein.vim"
@@ -128,3 +122,10 @@ if ! [ -e "$INSTALL_DIR" ]; then
   echo "Done. Dein is Ready!!"
   echo ""
 fi
+
+### Neovim-Client
+Clients=(
+yarn global add
+gem install neovim
+pip3 install pyenv
+)

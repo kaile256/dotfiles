@@ -1,33 +1,18 @@
-## source shared config
-POSIX_SHARE=$HOME/.config/share/posix
-source ${POSIX_SHARE}/env.sh
-source ${POSIX_SHARE}/alias.sh
-
-## Write Path on zsh like $ZDOTDIR
-export ZDOTDIR="${XDG_CONFIG_HOME}/zsh"
-export DISPLAY=:0.0 # Local Host don't have to be specified.
-export BROWSER=/usr/bin/lynx
+#### From: .profile
+#### Ref: xdg.sh
+#### Ref: env.sh
+#### Ref: path.sh
+#### Ref: .zshrc
 
 ## XDG
 export HISTFILE="$XDG_DATA_HOME"/zsh/history
-
-## Zplugin Cache Files
-export COMPLETIONS_DIR=$XDG_CACH_HOME/zsh/zplugin # */zplugin/completions
-export PLUGINS_DIR=$XDG_CACH_HOME/zsh/zplugin # */zplugin/plugins
-export SNIPPETS_DIR=$XDG_CACH_HOME/zsh/zplugin # */zplugin/snippets
-export COMPDUMP_PATH=$XDG_CACH_HOME/zsh/zplugin # .zcompdump file and so on
-
-## Zplugin Main Files
 # where Zplugin-code resides, e.g., */.zplugin/bin
 export HOME_DIR=$XDG_DATA_HOME/zsh/zplugin
 # where Zplugin should create all working directories, e.g., */.zplugin
 export BIN_DIR=$XDG_DATA_HOME/zsh/zplugin
 
-# Pyenv
-export PYENV_ROOT=$HOME/devEnv/.pyenv
-export PATH=$PYENV_ROOT/bin:$PATH
-eval "$(pyenv init -)"
-
-#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="${HOME}/sdkman"
-[[ -s "${HOME}/sdkman/bin/sdkman-init.sh" ]] && source "${HOME}/sdkman/bin/sdkman-init.sh"
+## Plugins Cache Directory
+export COMPLETIONS_DIR=$XDG_CACH_HOME/zsh/completions # */zplugin/completions
+export PLUGINS_DIR=$XDG_CACH_HOME/zsh/plugins # */zplugin/plugins
+export SNIPPETS_DIR=$XDG_CACH_HOME/zsh/snippets # */zplugin/snippets
+export COMPDUMP_PATH=$XDG_CACH_HOME/zsh/zcompdump # .zcompdump file and so on

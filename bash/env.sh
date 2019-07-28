@@ -2,14 +2,17 @@
 
 #### From: .bashrc
 #### Before: path.sh
+#### Ref: .zshenv
+#### Ref: config.fish
 
 set -Cu
 
-export EDITOR=vi
-export VISUAL=vi
 type nvim > /dev/null && {
   export EDITOR=nvim
   export VISUAL=nvim
+} || {
+export EDITOR=vi
+export VISUAL=vi
 }
 
 export TERM=xterm-256color
