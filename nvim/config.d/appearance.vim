@@ -22,11 +22,8 @@ if has('terminal')
 endif
 
 """ Line
-augroup CursorlineOnlyOnActiveWindow
-  au!
-  au VimEnter,BufWinEnter,WinEnter * setlocal cursorline
-  au WinLeave * setlocal nocursorline
-augroup END
+"" Ref molokai.vimrc
+"" Ref solarized.vimrc
 
 """ Statusbar
 set title

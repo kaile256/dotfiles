@@ -4,11 +4,17 @@
 [[plugins]]
 # indent line should be visible
 repo = 'Yggdroot/indentLine'
-hook_post_source = 'runtime! indentline.vimrc'
 on_event = 'BufReadPre'
+hook_post_source = 'runtime! indentline.vimrc'
 
 #### Paren
 [[plugins]]
 repo = 'luochen1990/rainbow'
 on_event = 'BufReadPost'
-hook_post_source = 'runtime! rainboe.vimrc'
+hook_post_source = 'runtime! rainbow.vimrc'
+
+#### Substitution
+[[plugins]]
+repo = 'osyo-manga/vim-over'
+on_event = 'CmdlineEnter'
+hook_post_source = 'runtime! over.vimrc'
