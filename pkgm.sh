@@ -12,8 +12,9 @@ pacman
 )
 for i in ${Installer[@]}; do
   type $i >> /dev/null 2>&1 && export INSTALLER="$i"
-  [[ $INSTALLER == $i ]] && echo "Installer is identified, $INSTALLER"
 done
+
+[[ ! -z $INSTALLER ]] && echo "Installer is identified, $INSTALLER!"
 
 declare -A Install
 Install=(
@@ -22,7 +23,7 @@ Install=(
 )
 
 export install="${Install[$INSTALLER]}"
-echo "$INSTALLER will install package via $install"
+echo "$INSTALLER will install package via '$install'!!"
 
 #### WANTED-PACKAGES INSTALLATION
 Package=(
@@ -39,24 +40,26 @@ yarn
 )
 
 for package in ${Package[@]}; do
-  type $package || {
+  if `type apt && apt list $package | grep $package`; then
+  elif `type pacman && pacman -Q $package`; then
+  else
     echo "Installing $package..." && sudo $install $package || {
 
-    if $INSTALLER == 'apt';then
-      echo "Try to curl to install $package..."
-      if $package == 'pyenv'; then
-        curl https://pyenv.run | bash
-      fi
-      if $package == 'cargo'; then
-        curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-        source ~/.local/share/cargo/env
-      fi
+      if $INSTALLER == 'apt';then
+        echo "Try to curl to install $package..."
+        if $package == 'pyenv'; then
+          curl https://pyenv.run | bash
+        fi
+        if $package == 'cargo'; then
+          curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+          source ~/.local/share/cargo/env
+        fi
 
-    elif $INSTALLER == 'pacman'; then
-      echo "Try to yay to install $package..." && yay -S $package
-    fi
-  }
-}
+      elif $INSTALLER == 'pacman'; then
+        echo "Try to yay to install $package..." && yay -S $package
+      fi
+    }
+fi
 done
 
 #        [[ $package == 'pyenv' ]] && {
