@@ -38,11 +38,11 @@ settings:
   downloads.open_dispatcher:
     global: null
   fonts.completion.category:
-    global: bold 14pt dejavu sans mono
+    global: bold 14pt monospace
   fonts.completion.entry:
     global: 12pt dejavu sans mono
   fonts.debug_console:
-    global: 14pt dejavu sans mono
+    global: 13pt dejavu sans mono
   fonts.downloads:
     global: 13pt dejavu sans mono
   fonts.hints:
@@ -50,17 +50,21 @@ settings:
   fonts.keyhint:
     global: 14pt dejavu sans mono
   fonts.messages.error:
-    global: 14pt dejavu sans mono
+    global: 13pt dejavu sans mono
   fonts.messages.info:
-    global: 14pt DejaVu Sans Mono
+    global: 13pt dejavu sans mono
   fonts.messages.warning:
-    global: 14pt monospace
+    global: 13pt dejavu sans mono
+  fonts.monospace:
+    global: '"xos4 Terminus", Terminus, Monospace, "DejaVu Sans Mono", Monaco, "Bitstream
+      Vera Sans Mono", "Andale Mono", "Courier New", Courier, "Liberation Mono", monospace,
+      Fixed, Consolas, Terminal'
   fonts.prompts:
-    global: 12pt dejavu sans mono
+    global: 11pt dejavu sans mono
   fonts.statusbar:
-    global: 12pt DejaVu Sans Mono
+    global: 11pt dejavu sans mono
   fonts.tabs:
-    global: 12pt DejaVu Sans Mono
+    global: 12pt dejavu sans mono
   hints.chars:
     global: asdwerxcv
   session.default_name:
