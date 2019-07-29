@@ -8,13 +8,13 @@ augroup AutoOffIME
   au!
   au InsertLeave  * set iminsert=0
   au CmdlineLeave * set imsearch=0
-augroup end
+augroup END
 
 """ terminal
 if has('terminal')
   augroup ModifiableTermMode
     au! TermOpen * setlocal modifiable
-  augroup end
+  augroup END
 endif
 
 """ tab-char
@@ -27,9 +27,9 @@ set softtabstop=2
 
 augroup ReplaceTabWithSpace
   " :retab!; if replace spaces, too.
-  au! BufReadPost,BufEnter *
+  au! BufReadPost *
         \ if &modifiable | retab | endif
-augroup end
+augroup END
 
 """ indent
 " copy indent dependent on first char of current line.
@@ -77,14 +77,14 @@ set pumheight=50
 
 """" keymap
 """ advanced <c-g>
-inoremap <c-g><c-h> <left>
-inoremap <c-g>h     <left>
-inoremap <c-g><c-l> <right>
-inoremap <c-g>l     <right>
-inoremap <c-g><c-b> <s-left>
-inoremap <c-g>b     <s-left>
-inoremap <c-g><c-w> <s-right>
-inoremap <c-g>w     <s-right>
+inoremap <c-g><c-h> <Left>
+inoremap <c-g>h     <Left>
+inoremap <c-g><c-l> <Right>
+inoremap <c-g>l     <Right>
+inoremap <c-g><c-b> <S-Left>
+inoremap <c-g>b     <S-Left>
+inoremap <c-g><c-w> <S-Right>
+inoremap <c-g>w     <S-Right>
 
 """ menupopup
 "" alt-esc; or type <c-o> to insert-normal.
@@ -110,15 +110,17 @@ inoremap <a-i> <esc>i
 inoremap <a-a> <esc>a
 inoremap <a-o> <esc>o
 
-""" undo break
+""" Del
+inoremap <c-l> <Del>
+""" Undo Break
 inoremap <c-j> <c-g>u<c-j>
-"" put
+"" Put
 inoremap <c-r> <c-g>u<c-r>
-"" backspace
+"" Backspace
 inoremap <c-u> <c-g>u<c-u>
 inoremap <c-w> <c-g>u<c-w>
 
-augroup undobreakonfiletype
+augroup UndoBreakOnFileType
   au!
   au filetype html,markdown inoremap <buffer> , ,<c-g>u
   au filetype html,markdown inoremap <buffer> . .<c-g>u
@@ -126,21 +128,21 @@ augroup undobreakonfiletype
   au filetype html,markdown inoremap <buffer> ? ?<c-g>u
 augroup end
 
-""" register
-"" yank
+""" Register
+"" Yank
 nnoremap <space>y "+y
 xnoremap <space>y "+y
 
-"" paste
+"" Paste
 nnoremap <space>p "+p
 xnoremap <space>p "+p
 nnoremap <space>p "+p
 xnoremap <space>p "+p
-" caution: not for xmap, or that makes delay.
+" CAUTION: not for xmap, or that makes delay.
 nnoremap yp "0p
 nnoremap yp "0p
 
-"" black-hole
+"" Black-Hole
 nnoremap <space>x "_x
 nnoremap <space>d "_d
 nnoremap <space>c "_c
