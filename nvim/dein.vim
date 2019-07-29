@@ -61,7 +61,11 @@ syntax enable  " on は設定を無視して構文ハイライトする
 """ CAUTION: some plugins MUST be sourced after dein#end() on dein.vim.
 "" Ref: Init.toml
 runtime denite.vimrc
+runtime denite-extra.vimrc
+
 runtime defx.vimrc
+runtime defx-extra.vimrc
+
 runtime molokai.vimrc
 "runtime solarized.vimrc
 

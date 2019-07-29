@@ -54,7 +54,8 @@ augroup resizeindent
 augroup end
 
 """ regiser
-set clipboard+=unnamedplus,unnamed
+" Copy to clipboard without +/* indicated.
+"set clipboard+=unnamedplus,unnamed
 
 """ visual mode
 " visualize even if there is no chars.
