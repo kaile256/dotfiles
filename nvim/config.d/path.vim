@@ -1,11 +1,20 @@
 """" From: 'init.vim'
 
+"""" Backup
+" Write, on path,vim, the file directory paths.
+set nobackup
+set nowritebackup
+set noswapfile
+set noundofile
+"augroup PersistentUndo
+"  au! BufWritePre /tmp/* setlocal noundofile
+"augroup END
 """" XDG Base Repository
-"set undodir=$XDG_DATA_HOME/nvim/undo
-"set directory="~/.local/share/nvim/swap"
-"set backupdir=$XDG_DATA_HOME/nvim/backup
-"set viminfo='1000,n$XDG_DATA_HOME/vim/viminfo
-"set runtimepath=$XDG_CONFIG_HOME/vim,$VIMRUNTIME,$XDG_CONFIG_HOME/vim/after
+"set undodir=~/.local/share/nvim/undo
+"set directory="~/.local/share/nvim/swap
+"set backupdir=~/.local/share/nvim/backup
+"set viminfo='1000,n~/.local/share/nvim/info
+"set runtimepath=$XDG_CONFIG_HOME/vim,http://eleclog.quitsq.com/2014/10/arch-on-x220.html?m=1$VIMRUNTIME,$XDG_CONFIG_HOME/vim/after
 let g:netrw_home = "~/.local/share/nvim"
 
 """" PATH: for the cmd ':find'

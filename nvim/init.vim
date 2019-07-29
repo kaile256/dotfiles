@@ -10,8 +10,3 @@ runtime! config.d/vimap.d/*.vimap
 """ Buffer
 nnoremap <buffer> <F12> :mapclear <cr>
 
-""" Backup
-" Write, on path,vim, the file directory paths.
-set nobackup
-set nowritebackup
-set noswapfile

@@ -12,7 +12,7 @@ set -Cue
 CURRENT_DIR=$PWD
 XDG_CACHE_HOME="${HOME}/.cache"
 XDG_CONFIG_HOME="${HOME}/.config"
-POSIX_SHARE="${XDG_CONFIG_HOME}/share/posix"
+XDG_DATA_HOME="${HOME}/.local/share"
 
 if ! [ -d $XDG_CONFIG_HOME ]; then
   mkdir ${HOME}/.config
@@ -32,8 +32,13 @@ fi
 
 ## $XDG programs;
 echo 'making symbolic links...'
+VimData=(
+backup
+swap
+undo
+)
 
-config_list=(
+Configs=(
 X11
 bash
 ctags
@@ -48,13 +53,18 @@ w3m
 zsh
 )
 
-for config_dir in ${config_list[@]}; do
-  config_dest=${XDG_CONFIG_HOME}/${config_dir}
+for vim_data_dir in ${VimData[@]}; do
+  vim_data_dest=${XDG_DATA_HOME}/nvim
 
+  cd $vim_data_dest
+  ln -nsf ${DOTFILES}/${vim_data_dir}
+  echo "Done! The config files of ${vim_data_dir} are linked at ${vim_data_dest}!!"
+done
+
+for config_dir in ${Configs[@]}; do
   cd ${XDG_CONFIG_HOME}
   ln -nsf ${DOTFILES}/${config_dir}
-
-  echo "Done! The config files of ${config_dir} are linked at ${XDG_CONFIG_HOME}"
+  echo "Done! The config files of ${config_dir} are linked at ${XDG_CONFIG_HOME}!!"
 done
 
 echo ""
