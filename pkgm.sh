@@ -30,12 +30,15 @@ Package=(
 anyenv
 bash-completion
 cargo  # select rustup
+dmenu
 git
 go
 ghq-bin
+ttf-font-icons  # Mix Icon with Awesome & Ionicons without Confliction.
 pyenv
 python-pipenv
 ripgrep
+rxvt-unicode
 ruby
 yarn
 )

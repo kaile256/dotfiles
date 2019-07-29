@@ -1,0 +1,51 @@
+#!/bin/sh
+
+!!!! From: .xinitrc
+!!!!  Ref: Xmodmap
+!! Comments: leave ! on head of line to comment out.
+!!  Source: start with #include, like #include ".Xresources.d/xterm"
+
+!!!! XTERM
+!!! General
+XTerm*termName: xterm-256color
+Term*scrollBar: False
+XTerm*cursorBlink: True
+
+!! Fonts and Encoding
+XTerm*utf8: True
+XTerm*locale: True
+XTerm*utf8Title: True
+XTerm*faceName: xft:DejaVu Sans Mono
+XTerm*faceNameDoublesize: xft:IPAGothic
+XTerm*faceSize: 9
+XTerm*scaleHeight: 1.08
+
+!! Color Scheme : Tomorrow Night
+!! https://github.com/chriskempson/tomorrow-theme
+
+XTerm*background: #1D1F21
+XTerm*foreground: #C5C8C6
+! black
+XTerm*color0: #282A2E
+XTerm*color8: #373B41
+! red
+XTerm*color1: #A54242
+XTerm*color9: #CC6666
+! green
+XTerm*color2: #8C9440
+XTerm*color10: #B5BD68
+! yellow
+XTerm*color3: #DE935F
+XTerm*color11: #F0C674
+! blue
+XTerm*color4: #5F819D
+XTerm*color12: #81A2BE
+! magenta
+XTerm*color5: #85678F
+XTerm*color13: #B294BB
+! cyan
+XTerm*color6: #5E8D87
+XTerm*color14: #8ABEB7
+! white
+XTerm*color7: #707880
+XTerm*color15: #C5C8C6

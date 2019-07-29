@@ -17,6 +17,12 @@ export VISUAL=vi
 
 export TERM=xterm-256color
 
+#### FONTS
+export DefaultIMModule=fcitx
+export GTK_IM_MODULE=fcitx
+export QT_IM_MODULE=fcitx
+export XMODIFIERS=@im=fcitx
+
 #### TOOL
 ### FZF
 type rg > /dev/null && {

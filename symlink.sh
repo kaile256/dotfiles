@@ -34,6 +34,7 @@ fi
 echo 'making symbolic links...'
 
 config_list=(
+X11
 bash
 ctags
 fish

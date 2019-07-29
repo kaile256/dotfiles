@@ -1,9 +1,13 @@
 #!/bin/sh
 
 #### Original: /etc/X11/xinit/xinitrc
+#### .Xdefault is duprecated.
+#### TODO: .xprofile is for GDM/LightDM/SDDM.
+####  Ref: bash/env.sh
+####  Ref: i3/config
 
 userresources=~/.config/X11/Xresources
-usermodmap=~/.cofig/X11/Xmodmap
+usermodmap=$HOME/.cofig/X11/Xmodmap
 #userresources=$HOME/.Xresources
 #usermodmap=$HOME/.Xmodmap
 sysresources=/etc/X11/xinit/.Xresources
@@ -13,12 +17,6 @@ sysmodmap=/etc/X11/xinit/.Xmodmap
 
 if [ -f $sysresources ]; then
 
-
-
-
-
-
-
     xrdb -merge $sysresources
 
 fi
@@ -27,13 +25,7 @@ if [ -f $sysmodmap ]; then
     xmodmap $sysmodmap
 fi
 
-if [ -f "$userresources" ]; then
-
-
-
-
-
-
+if [ -f "$userresources" ]; then 
 
     xrdb -merge "$userresources"
 
@@ -57,3 +49,7 @@ xclock -geometry 50x50-1+1 &
 xterm -geometry 80x50+494+51 &
 xterm -geometry 80x20+494-0 &
 exec xterm -geometry 80x66+0+0 -name login
+xterm*faceSize: 23
+
+exec i3
+#exec i3 -V >> ~/.local/share/i3/i3log-$(date +'%F-%k-%M-%S') 2>^1
