@@ -27,8 +27,8 @@ URxvt.saveLines:            3000
 URxvt.fading:               40
 
 !! Font list and Spacing
-URxvt.font:                 xft:Dejavu Sans Mono-9,\
-                            xft:IPAGothic
+URxvt.font:                 xft:Dejavu Sans Mono-11,\
+                            xft:Nerd
 URxvt.letterSpace:          -1  ! prepare exagerated space esp. on Japanese Fonts.
 !URxvt.lineSpace:            2  ! expand space between command-lines.
 

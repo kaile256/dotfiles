@@ -31,7 +31,6 @@ anyenv
 bash-completion
 cargo  # select rustup
 dmenu
-it
 go
 ghq-bin
 ttf-font-icons  # Mix Icon with Awesome & Ionicons without Confliction.
@@ -42,11 +41,13 @@ rxvt-unicode
 ruby
 vmail
 yarn
+nerd-fonts-ricty
+tty-dejavu
 )
 
 for package in ${Package[@]}; do
-  if type apt && apt list "$package" | grep $package; then
-  elif type pacman && pacman -Q "$package"; then
+  if [ -z `type apt && apt list "$package" | grep $package` ]; then
+  elif [ -z `type pacman && pacman -Q "$package"` ]; then
   else
     echo "Installing $package..." && sudo $install $package || {
 
@@ -145,3 +146,9 @@ mkdir -p ~/.local/share/bash-completion/rustup
 rustup completions bash > ~/.local/share/bash-completion/rustup
 mkdir -p ~/.config/fish/completions/rustup.fish
 rustup completions fish > ~/.config/fish/completions/rustup.fish
+
+#### Fonts
+if [ -z `ls /usr/share/fonts/TTF/ | grep Ricty` ]; then
+  echo 'creating symlinks for Ricty Fonts to /etc/fonts/conf.d/'
+  sudo ln -s /usr/share/fonts/TTF/Ricty* /etc/fonts/conf.d/
+fi
