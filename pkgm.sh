@@ -31,7 +31,7 @@ anyenv
 bash-completion
 cargo  # select rustup
 dmenu
-git
+it
 go
 ghq-bin
 ttf-font-icons  # Mix Icon with Awesome & Ionicons without Confliction.
@@ -40,6 +40,7 @@ python-pipenv
 ripgrep
 rxvt-unicode
 ruby
+vmail
 yarn
 )
 
