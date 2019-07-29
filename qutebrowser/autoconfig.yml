@@ -38,7 +38,7 @@ settings:
   downloads.open_dispatcher:
     global: null
   fonts.completion.category:
-    global: bold 14pt monospace
+    global: bold 13pt monospace
   fonts.completion.entry:
     global: 12pt dejavu sans mono
   fonts.debug_console:

@@ -32,7 +32,7 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 # for window titles & the bar.
 # to use a different font in the bar, set it in {} block below.
 #font pango:monospace 8
-font pango:DejaVu Sans Mono 12
+font pango:DejaVu Sans Mono 11
 
 # Before i3 v4.8, we used to recommend this one as the default:
 # font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
@@ -123,8 +123,9 @@ set $ws9 "9"
 set $ws10 "10"
 
 ### Switch Workspace
-bindsym $mod+n workspace next
-bindsym $mod+p workspace prev
+# TODO: Duplicated
+#bindsym $mod+n workspace next
+#bindsym $mod+p workspace prev
 
 ## Select
 bindsym $mod+1 workspace $ws1
@@ -174,26 +175,26 @@ bindsym $mod+r mode "resize"
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
-#bar {
-#    output            LVDS1
-#    status_command    i3status
-#    position          top
-#    mode              hide
-#    workspace_buttons yes
-#    tray_output       none
-#
-#    font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
-#
-#    colors {
-#      background #000000
-#        statusline #ffffff
-#
-#        focused_workspace  #ffffff #285577
-#        active_workspace   #ffffff #333333
-#        inactive_workspace #888888 #222222
-#        urgent_workspace   #ffffff #900000
-#    }
-#}
+bar {
+    status_command    i3status
+    output            LVDS1
+    position          top
+    mode              hide
+    workspace_buttons yes
+    tray_output       none
+
+    font pango: DejaVu Sans Mono 9
+
+    colors {
+      background #000000
+        statusline #ffffff
+
+        focused_workspace  #ffffff #285577
+        active_workspace   #ffffff #333333
+        inactive_workspace #888888 #222222
+        urgent_workspace   #ffffff #900000
+    }
+}
 
 #### INTEGRATION
 ### xrandr

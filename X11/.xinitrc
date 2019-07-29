@@ -5,34 +5,34 @@
 #### TODO: .xprofile is for GDM/LightDM/SDDM.
 ####  Ref: bash/env.sh
 ####  Ref: i3/config
+####  Ref: X11/Xresources
+####  Ref: X11/Xmodmap
 
-userresources=~/.config/X11/Xresources
-usermodmap=$HOME/.cofig/X11/Xmodmap
-#userresources=$HOME/.Xresources
-#usermodmap=$HOME/.Xmodmap
-sysresources=/etc/X11/xinit/.Xresources
-sysmodmap=/etc/X11/xinit/.Xmodmap
+UserResources=$HOME/.config/X11/Xresources
+UserModmap=$HOME/.cofig/X11/Xmodmap
+SystemSources=/etc/X11/xinit/.Xresources
+SystemModmap=/etc/X11/xinit/.Xmodmap
 
 # merge in defaults and keymaps
 
-if [ -f $sysresources ]; then
+if [ -f $SystemSources ]; then
 
-    xrdb -merge $sysresources
-
-fi
-
-if [ -f $sysmodmap ]; then
-    xmodmap $sysmodmap
-fi
-
-if [ -f "$userresources" ]; then 
-
-    xrdb -merge "$userresources"
+    xrdb -merge $SystemSources
 
 fi
 
-if [ -f "$usermodmap" ]; then
-    xmodmap "$usermodmap"
+if [ -f $SystemModmap ]; then
+    xmodmap $SystemModmap
+fi
+
+if [ -f "$UserResources" ]; then 
+
+    xrdb -merge "$UserResources"
+
+fi
+
+if [ -f "$UserModmap" ]; then
+    xmodmap "$UserModmap"
 fi
 
 # start some nice programs
@@ -43,13 +43,3 @@ if [ -d /etc/X11/xinit/xinitrc.d ] ; then
  done
  unset f
 fi
-
-twm &
-xclock -geometry 50x50-1+1 &
-xterm -geometry 80x50+494+51 &
-xterm -geometry 80x20+494-0 &
-exec xterm -geometry 80x66+0+0 -name login
-xterm*faceSize: 23
-
-exec i3
-#exec i3 -V >> ~/.local/share/i3/i3log-$(date +'%F-%k-%M-%S') 2>^1
