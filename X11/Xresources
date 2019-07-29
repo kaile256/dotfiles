@@ -7,6 +7,7 @@
 !! ~/.Xresources
 
 !!!! urxvt (rxvt-unicode)
+URxvt.termName: rxvt-256color
 
 !!! Window-Size (default: 80x24)
 URxvt.geometry:             96x32

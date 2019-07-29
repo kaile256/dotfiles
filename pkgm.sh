@@ -38,6 +38,9 @@ pyenv
 python-pipenv
 ripgrep
 rxvt-unicode
+tlp   # Save Battery of PC
+bluez   # for Bluetooth
+bluez-utils
 ruby
 vmail
 yarn
@@ -59,6 +62,9 @@ for package in ${Package[@]}; do
         if $package == 'cargo'; then
           curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
           source ~/.local/share/cargo/env
+        fi
+        if $package == 'rxvt-unicode'; then
+          sudo apt install rxvt-unicode-256-color
         fi
 
       elif $INSTALLER == 'pacman'; then
@@ -152,3 +158,7 @@ if [ -z `ls /usr/share/fonts/TTF/ | grep Ricty` ]; then
   echo 'creating symlinks for Ricty Fonts to /etc/fonts/conf.d/'
   sudo ln -s /usr/share/fonts/TTF/Ricty* /etc/fonts/conf.d/
 fi
+
+#### Enable Utilities
+sudo systemctl enable tlp
+sudo systemctl enable bluetooth   # to activate command 'sudo systemctl start bluetooth'
