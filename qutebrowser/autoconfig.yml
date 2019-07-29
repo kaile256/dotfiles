@@ -22,6 +22,7 @@ settings:
         <Space>2: save
         <Space>q: tab-close
         <Space>w: save
+        <Space>z: close
         D: null
         H: null
         J: null
@@ -34,30 +35,32 @@ settings:
     global: true
   downloads.location.directory:
     global: ~/Downloads
+  downloads.open_dispatcher:
+    global: null
   fonts.completion.category:
-    global: bold 12pt monospace
+    global: bold 14pt dejavu sans mono
   fonts.completion.entry:
-    global: 12pt monospace
+    global: 12pt dejavu sans mono
   fonts.debug_console:
-    global: 12pt monospace
+    global: 14pt dejavu sans mono
   fonts.downloads:
-    global: 11pt monospace
+    global: 13pt dejavu sans mono
   fonts.hints:
-    global: bold 13pt monospace
+    global: bold 14pt dejavu sans mono
   fonts.keyhint:
-    global: 13pt monospace
+    global: 14pt dejavu sans mono
   fonts.messages.error:
-    global: 12pt monospace
+    global: 14pt dejavu sans mono
   fonts.messages.info:
-    global: 12pt monospace
+    global: 14pt DejaVu Sans Mono
   fonts.messages.warning:
-    global: 12pt monospace
+    global: 14pt monospace
   fonts.prompts:
-    global: 12pt sans-serif
+    global: 12pt dejavu sans mono
   fonts.statusbar:
-    global: 12pt monospace
+    global: 12pt DejaVu Sans Mono
   fonts.tabs:
-    global: 12pt monospace
+    global: 12pt DejaVu Sans Mono
   hints.chars:
     global: asdwerxcv
   session.default_name:
