@@ -28,10 +28,12 @@ settings:
         J: null
         K: null
         L: null
+        U: undo
         d: null
         gi: enter-mode insert
         i: hint inputs --first
         q: tab-close
+        u: null
   content.local_content_can_access_remote_urls:
     global: true
   downloads.location.directory:
