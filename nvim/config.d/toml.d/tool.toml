@@ -8,19 +8,19 @@ on_event = 'VimEnter'
 hook_done_update = '''
   call coc#util#install()
   CocInstall coc-json coc-tsserver coc-html coc-yaml coc-python
-  CocInstall coc-git coc-yank coc-vimlsp coc-highlight coc-neosnippet
+  CocInstall coc-vimlsp coc-git coc-yank coc-highlight coc-snippets
   '''
 
-### Snippets
-[[plugins]]
-repo = 'Shougo/neosnippet-snippets'
-on_event = 'InsertEnter'
-on_ft = 'snippets'
-[[plugins]]
-repo = 'Shougo/neosnippet.vim'
-hook_post_source = 'runtime! neosnippet.vimrc'
-on_event = 'InsertEnter'
-on_ft = 'snippets'
+#### Snippets
+#[[plugins]]
+#repo = 'Shougo/neosnippet-snippets'
+#on_event = 'InsertEnter'
+#on_ft = 'snippets'
+#[[plugins]]
+#repo = 'Shougo/neosnippet.vim'
+#hook_post_source = 'runtime! neosnippet.vimrc'
+#on_event = 'InsertEnter'
+#on_ft = 'snippets'
 
 ### Operator
 [[plugins]]
