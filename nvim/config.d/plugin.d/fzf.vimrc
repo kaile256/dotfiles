@@ -1,8 +1,9 @@
 """" From: Initial.toml
+""""  Ref: ripgrep.vimrc
 
 """" KEYBIND
 " :FZF! starts fzf on full-window.
-nnoremap <silent> <a-o> :FZF<cr>
+nnoremap <silent> <a-o> :<c-u>FZF<cr>
 
 """"" DEFINITION
 "function! s:build_quickfix_list(lines)
@@ -22,4 +23,6 @@ nnoremap <silent> <a-o> :FZF<cr>
 
 augroup FzfBuffer
   au! FileType fzf setlocal noshowmode
+  "" Quich Change
+  au! FileType fzf tnoremap <a-r> <c-\><c-n>:q<cr><c-l> :<c-u>Rg 
 augroup END
