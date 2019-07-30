@@ -1,9 +1,5 @@
 #### From: dein.vim
 
-##### LSP
-#[[plugins]]
-#repo = 'autozimu/LanguageClient-neovim'
-
 ### Completion
 [[plugins]]
 repo = 'neoclide/coc.nvim'
@@ -14,10 +10,6 @@ hook_done_update = '''
   CocInstall coc-json coc-tsserver coc-html coc-yaml coc-python
   CocInstall coc-git coc-yank coc-vimlsp coc-highlight coc-neosnippet
   '''
-#[[plugins]]
-#repo = 'ycm-core/YouCompleteMe'
-#on_event = 'InsertEnter'
-#hook_post_source = 'runtime! YouCompleteMe.vimrc'
 
 ### Snippets
 [[plugins]]
@@ -36,10 +28,10 @@ repo = 'junegunn/vim-easy-align'
 on_event = 'BufReadPost'
 hook_post_source = 'runtime easy-align.vimrc'
 
-### On Term Mode
+### Org Mode
 [[plugins]]
-repo = 'mhinz/neovim-remote'
-on_event = 'TermOpen'
+repo = 'jceb/vim-orgmode'
+on_event = 'VimEnter'
 
 ### Code Runner
 [[plugins]]
