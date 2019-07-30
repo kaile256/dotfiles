@@ -9,9 +9,9 @@ if has('nvim')
 endif
 
 """ Reload init.vim
-noremap <space>so  :<c-u>so $XDG_CONFIG_HOME/nvim/init.vim<CR>
-noremap <a-s><a-o> :<c-u>so $XDG_CONFIG_HOME/nvim/init.vim<CR>
-noremap <a-s>o     :<c-u>so $XDG_CONFIG_HOME/nvim/init.vim<CR>
+noremap <space>so  :<c-u>so %<CR>
+noremap <a-s><a-o> :<c-u>so %<CR>
+noremap <a-s>o     :<c-u>so %<CR>
 
 "augroup CheckStartTime
 "  au! VimEnter,InsertEnter,WinEnter * checktime
