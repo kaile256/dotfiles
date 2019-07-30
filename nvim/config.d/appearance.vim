@@ -1,4 +1,4 @@
-"""" From: 'init.vim'
+"""" From: nvim/init.vim
 
 """" ColorScheme
 """ Ref: dein.vim

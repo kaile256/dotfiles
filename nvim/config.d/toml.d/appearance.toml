@@ -1,9 +1,6 @@
 #### From: nvim/dein.vim
 #### Ref: Init.toml
 
-#### Color Themes
-### CAUTION: Colorscheme MUST be sourced on time.
-
 ### Indent
 [[plugins]]
 # indent line should be visible

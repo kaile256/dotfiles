@@ -22,11 +22,15 @@ build = 'make'
 repo = 'wsdjeg/dein-ui.vim'
 hook_add = 'runtime! dein-ui.vim'
 
-### Color Themes
+#### Color Themes
+### CAUTION: Colorscheme MUST be sourced on time.
 ## CAUTION: Colorscheme MUST be sourced on without lazy.
 ## CAUTION: Colorscheme MUST be sourced after dein#end() on dein.vim.
 [[plugins]]
 repo = 'tomasr/molokai'
+if = 'has("nvim")'
+[[plugins]]
+repo = 'sjl/badwolf'
 if = 'has("nvim")'
 #[[plugins]]
 #repo = 'altercation/vim-colors-solarized'

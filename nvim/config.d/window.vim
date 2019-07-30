@@ -20,6 +20,8 @@ nmap [g:complete_redraw] zR:cclose<cr>:lclose<cr>[g:redraw]
 nmap <silent> <space><space> [g:redraw]
 nmap <silent> <c-space><space> [g:complete_redraw]
 nmap <silent> <c-space><c-space> [g:complete_redraw]
+nmap <silent> <a-space><space> [g:complete_redraw]
+nmap <silent> <a-space><a-space> [g:complete_redraw]
 
 """ Write&Quit
 " w! write even read-only file.
