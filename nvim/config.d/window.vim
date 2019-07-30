@@ -8,15 +8,18 @@ nnoremap Y y$
 """ Refresh
 "" Indent
 nnoremap <S-TAB> gg=G''zz
+
+"" Redraw
+" CAUTION: <c-l> should be run at LAST so that no corruption.
 " <c-l> is already used by window-leaping.
-nnoremap [g:refresh] :<c-u>noh<cr><c-l>
+nnoremap [g:redraw] :<c-u>noh<cr><c-l>
 " zR: open all fold
-nmap [g:complete_refresh] [g:refresh]zR:cclose<cr>:lclose<cr>
+nmap [g:complete_redraw] zR:cclose<cr>:lclose<cr>[g:redraw]
 
 "" Ref: showmarks.vimrc
-nmap <silent> <space><space> [g:refresh]
-nmap <silent> <a-space><space> [g:complete_refresh]
-nmap <silent> <a-space><a-space> [g:complete_refresh]
+nmap <silent> <space><space> [g:redraw]
+nmap <silent> <c-space><space> [g:complete_redraw]
+nmap <silent> <c-space><c-space> [g:complete_redraw]
 
 """ Write&Quit
 " w! write even read-only file.
@@ -24,6 +27,11 @@ nnoremap          <space>w :<c-u>w<cr>
 nnoremap <silent> <space>q :<c-u>q<cr>
 nnoremap          <space>x :<c-u>w!<cr>
 nnoremap <silent> <space>z :<c-u>q!<cr>
+"" No Ambiguity
+nnoremap <silent> qq :<c-u>q<cr>
+nnoremap <silent> q1 :<c-u>q<cr>
+nnoremap <silent> qw :<c-u>w<cr>
+
 
 nnoremap <space>* :<c-u>qa<cr>
 nnoremap <space>! :w !sudo tee % > /dev/null<cr> <bar> edit!
