@@ -11,7 +11,7 @@ augroup AutoOffIME
 augroup END
 
 """ terminal
-if has('terminal')
+if has('nvim')
   augroup ModifiableTermMode
     au! TermOpen * setlocal modifiable
   augroup END
@@ -27,9 +27,8 @@ set softtabstop=2
 
 augroup ReplaceTabWithSpace
   " :retab!; if replace spaces, too.
-  au! BufReadPost *
-        \ if &modifiable | retab | endif
-augroup END
+  au! BufReadPost * if &modifiable | retab | endif
+augroup end
 
 """ indent
 " copy indent dependent on first char of current line.

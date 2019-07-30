@@ -23,19 +23,21 @@ if dein#load_state(s:dein_cache_dir)
   " list of plugins in toml, which dein manages.
   let s:dein_toml_dir  = '~/.config/nvim/config.d/toml.d/'
 
-  let s:dein_toml      = s:dein_toml_dir . 'Init.toml'
   let s:appearance_toml= s:dein_toml_dir . 'appearance.toml'
-  let s:filetype_toml  = s:dein_toml_dir . 'filetype.toml'
-  let s:tool_toml      = s:dein_toml_dir . 'tool.toml'
-  let s:leap_toml      = s:dein_toml_dir . 'leap.toml'
+  let s:dein_toml      = s:dein_toml_dir . 'Init.toml'
+  let s:external_toml  = s:dein_toml_dir . 'external.toml'
   let s:extra_toml     = s:dein_toml_dir . 'extra.toml'
+  let s:filetype_toml  = s:dein_toml_dir . 'filetype.toml'
+  let s:leap_toml      = s:dein_toml_dir . 'leap.toml'
+  let s:tool_toml      = s:dein_toml_dir . 'tool.toml'
 
   " cache the plugin repositorys, listed in toml.
   call dein#load_toml(s:dein_toml,       {'lazy': 0})
 
   "" Lazy Load
-  call dein#load_toml(s:appearance_toml, {'lazy': 1})
   call dein#load_toml(s:filetype_toml,   {'lazy': 1})
+  call dein#load_toml(s:appearance_toml, {'lazy': 1})
+  call dein#load_toml(s:external_toml,   {'lazy': 1})
   call dein#load_toml(s:tool_toml,       {'lazy': 1})
   call dein#load_toml(s:leap_toml,       {'lazy': 1})
   call dein#load_toml(s:extra_toml,      {'lazy': 1})
@@ -58,6 +60,7 @@ endif
 filetype plugin indent on
 syntax enable  " on は設定を無視して構文ハイライトする
 
+"""" SOURCE
 """ CAUTION: some plugins MUST be sourced after dein#end() on dein.vim.
 "" Ref: Init.toml
 runtime denite.vimrc
@@ -66,8 +69,13 @@ runtime denite-extra.vimrc
 runtime defx.vimrc
 runtime defx-extra.vimrc
 
-runtime molokai.vimrc
-"runtime solarized.vimrc
+""" Colorscheme
+if has('nvim')
+  runtime molokai.vimrc
+  "runtime solarized.vimrc
+endif
+
+runtime rainbow.vimrc
 
 """" KEYMAP
 " install plugins

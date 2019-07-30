@@ -1,5 +1,12 @@
 """" From: tool.toml
 
-" mnemonic: Go to Browser
-nnoremap <c-b> :<c-u><Plug>(openbrowser-smart-search)
-vnoremap <c-b> :<c-u><Plug>(openbrowser-smart-search)
+" smart-search detects if it is URI or not.
+""" Under Cursor
+nmap <a-b><a-b> :OpenBrowserSmartSeach -duckduckgo 
+
+""" GitHub
+nmap <a-b><a-h> :OpenBrowserSmartSeach -github 
+
+""" Wikipedia
+nmap <a-b><a-h> :OpenBrowserSmartSeach -wikipedia 
+

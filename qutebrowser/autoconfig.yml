@@ -10,6 +10,8 @@ settings:
       normal:
         '1': tab-close
         '2': save
+        <Alt+[>: tab-prev
+        <Alt+]>: tab-next
         <Alt+h>: tab-prev
         <Alt+l>: tab-next
         <Ctrl++>: zoom-in
@@ -18,6 +20,9 @@ settings:
         <Ctrl+h>: null
         <Ctrl+i>: forward
         <Ctrl+o>: back
+        <Ctrl+x>: null
+        <Ctrl+x><Ctrl+h>: tab-prev
+        <Ctrl+x><Ctrl+l>: tab-next
         <Space>1: tab-close
         <Space>2: save
         <Space>q: tab-close
@@ -28,10 +33,13 @@ settings:
         J: null
         K: null
         L: null
+        U: undo
         d: null
+        e: edit-url
         gi: enter-mode insert
         i: hint inputs --first
         q: tab-close
+        u: null
   content.local_content_can_access_remote_urls:
     global: true
   downloads.location.directory:
