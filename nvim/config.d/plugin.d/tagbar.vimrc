@@ -1,3 +1,4 @@
+"""" From: leap.toml
 """" CONFIG
 "" ['▶', '▼'] isis default marks.
 "let g:tagbar_iconchars = ['+', '-']
@@ -27,4 +28,4 @@ let g:tagbar_autoshowtag = 0
 
 """ KEYMAP
 " ';' is next to 'l'
-nnoremap <silent> <space>; :<c-u>TagbarToggle<CR>*
+nnoremap <silent> <a-;> :<c-u>TagbarToggle<CR>

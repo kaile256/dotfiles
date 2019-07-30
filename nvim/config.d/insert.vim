@@ -149,23 +149,23 @@ nnoremap <space>c "_c
 """ Visual Mode
 "" Sort; Initial to Reverse Sort
 " CAUTION: <c-s> freezes screen on some Linux-Distros as default.
-xnoremap <a-s><c-a> :sort   <cr>
+xnoremap <a-s><a-a> :sort   <cr>
 xnoremap <a-s>a     :sort   <cr>
 xnoremap <a-s>A     :sort!  <cr>
 " Ignore Case
-xnoremap <a-s><c-i> :sort  i<cr>
+xnoremap <a-s><a-i> :sort  i<cr>
 xnoremap <a-s>i     :sort  i<cr>
 xnoremap <a-s>I     :sort! I<cr>
-xnoremap <a-s><c-n> :sort  n<cr>
+xnoremap <a-s><a-n> :sort  n<cr>
 xnoremap <a-s>n     :sort  n<cr>
 xnoremap <a-s>N     :sort! n<cr>
 " Float Number
-xnoremap <a-s><c-f> :sort  f<cr>
+xnoremap <a-s><a-f> :sort  f<cr>
 xnoremap <a-s>f     :sort  f<cr>
 xnoremap <a-s>F     :sort! f<cr>
-xnoremap <a-s><c-x> :sort  x<cr>
+xnoremap <a-s><a-x> :sort  x<cr>
 xnoremap <a-s>x     :sort  x<cr>
 xnoremap <a-s>X     :sort! x<cr>
-xnoremap <a-s><c-o> :sort  o<cr>
+xnoremap <a-s><a-o> :sort  o<cr>
 xnoremap <a-s>o     :sort  o<cr>
 xnoremap <a-s>O     :sort! o<cr>

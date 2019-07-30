@@ -12,5 +12,5 @@
 nmap <a-r> :Rg 
 
 """ Quick Change
-nnoremap <a-o> :<c-u>cclose<bar>lclose<cr> :FZF<cr>
-cnoremap <a-o> <c-u>cclose<bar>lclose<cr> :FZF<cr>
+nnoremap <silent> <a-o> :<c-u>cclose<bar>lclose<bar>FZF<cr>
+cnoremap <silent> <a-o> <c-u>cclose<bar>lclose<bar>FZF<cr>
