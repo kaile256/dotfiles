@@ -50,8 +50,10 @@ tty-dejavu
 )
 
 for package in ${Package[@]}; do
-  if [ -z `type apt && apt list "$package" | grep $package` ]; then
-  elif [ -z `type pacman && pacman -Q "$package"` ]; then
+  if [ -z $INSTALLER == 'apt' && apt list "$package" | grep $package ]; then
+    echo "You have installed $package already!"
+  elif [ -z $INSTALLER == 'apt' && pacman -Q "$package" ]; then
+    echo "You have installed $package already!"
   else
     echo "Installing $package..." && sudo $install $package || {
 
