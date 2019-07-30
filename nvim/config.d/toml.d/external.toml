@@ -1,0 +1,33 @@
+#### From: dein.vimrc
+
+### Browser
+[[plugins]]
+repo = 'tyru/open-browser.vim'
+on_if = 'executable("qutebrowser")'
+hook_post_source = 'runtime! browser.vimrc'
+
+### Calendar
+[[plugins]]
+repo = 'itchyny/calendar.vim'
+on_event = 'VimEnter'
+hook_post_source = 'runtime calendar.vimrc'
+
+#### Trello
+[[plugins]]
+repo = 'malithsen/trello-vim'
+on_event = 'VimEnter'
+hook_post_source = 'runtime trello.vimrc'
+
+### i3-wm
+[[plugins]]
+repo = 'termhn/i3-vim-nav'
+on_if = 'exists("/usr/local/bin/termhn/i3-vim-nav")'
+hook_post_source = 'runtime i3-vim-nav.vimrc'
+
+## open DevDocs from vim
+## still need more settings
+#repo = 'rhysd/devdocs.vim'
+#on_map = '<Plug>'
+#hook_post_source = '''
+#  nnoremap K <Plug>(devdocs-under-cursor)
+#  '''

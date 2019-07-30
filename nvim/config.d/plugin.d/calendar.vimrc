@@ -14,10 +14,14 @@ augroup END
 """" DEFINITION
 function! s:calendar_map() abort
   """ Open Config (this file)
-  nnoremap <buffer><silent> <space>e :e ~/.config/nvim/config.d/plugin.d/calendar.vimrc<cr>
-  nnoremap <buffer><silent> <space>v :vs ~/.config/nvim/config.d/plugin.d/calendar.vimrc<cr>
-  nnoremap <buffer><silent> <space>s :sp ~/.config/nvim/config.d/plugin.d/calendar.vimrc<cr>
-  nnoremap <buffer><silent> <space>t :tabe ~/.config/nvim/config.d/plugin.d/calendar.vimrc<cr>
+  nnoremap <buffer><silent> <space>e
+        \ :e ~/.config/nvim/config.d/plugin.d/calendar.vimrc<cr>
+  nnoremap <buffer><silent> <space>v
+        \ :vs ~/.config/nvim/config.d/plugin.d/calendar.vimrc<cr>
+  nnoremap <buffer><silent> <space>s
+        \ :sp ~/.config/nvim/config.d/plugin.d/calendar.vimrc<cr>
+  nnoremap <buffer><silent> <space>t
+        \ :tabe ~/.config/nvim/config.d/plugin.d/calendar.vimrc<cr>
 
   """ Unmap for Other Mappings
   nunmap <buffer> <c-n>

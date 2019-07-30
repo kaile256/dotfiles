@@ -17,9 +17,13 @@
 " type 'v' to open like a filer
 " type 'b' to new tab
 "nnoremap <silent> <space>- :<c-u>Defx <c-r>=expand('s:parent_dir')<cr> <c-r>=expand('s:depth_1')<cr><cr>
-nnoremap <silent> <space>- :<c-u>Defx `expand('%:p:h')` -search=`expand('%:p')`<cr> 
-nnoremap <silent> <space>v :<c-u>Defx `expand('%:p:h')` -search=`expand('%:p')` -split=vertical -winwidth=35 -winheight=60 -direction=topleft <cr>
-nnoremap <silent> <space>t :<c-u>Defx `expand('%:p:h')` -search=`expand('%:p')` -split=tab<cr>
+nnoremap <silent> <space>-
+      \ :<c-u>Defx `expand('%:p:h')` -search=`expand('%:p')`<cr> 
+nnoremap <silent> <a-v>
+      \ :<c-u>Defx `expand('%:p:h')` -search=`expand('%:p')`
+      \ -split=vertical -winwidth=35 -winheight=60 -direction=topleft <cr>
+nnoremap <silent> <space>t
+      \ :<c-u>Defx `expand('%:p:h')` -search=`expand('%:p')` -split=tab<cr>
 
 augroup myDefx
   au!
@@ -32,14 +36,14 @@ function! s:defx_my_shortcut() abort
 
   """ Paticular Dirs
   "" Optional
-  nmap <buffer>         <space>e :<c-u>Defx 
+  nmap <buffer> <space>e :<c-u>Defx 
   "" Current File
   nmap <buffer><silent> g. :<c-u>Defx .<cr>
 
   "" Dotfiles
   nmap <buffer><silent> gd :<c-u>Defx ~/dotfiles<cr>
   "" Stand-by a CloudNote
-  nmap <buffer>         gn :<c-u>Defx ~/CloudNote/
+  nmap <buffer> gn :<c-u>Defx ~/CloudNote/
 
   "" VimConfig
   nmap <buffer><silent> gv :<c-u>Defx ~/dotfiles/nvim/<cr>

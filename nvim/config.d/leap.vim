@@ -14,7 +14,8 @@ set incsearch
 set hlsearch
 set nowrapscan
 " fold all lines unmatched on {pattern}.
-set foldenable
+" CAUTION: foldable is apt to collapse format.
+set nofoldenable
 
 """" KEYMAP
 """ hjkl

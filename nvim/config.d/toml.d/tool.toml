@@ -30,6 +30,12 @@ hook_post_source = 'runtime! neosnippet.vimrc'
 on_event = 'InsertEnter'
 on_ft = 'snippets'
 
+### Operator
+[[plugins]]
+repo = 'junegunn/vim-easy-align'
+on_event = 'BufReadPost'
+hook_post_source = 'runtime easy-align.vimrc'
+
 ### On Term Mode
 [[plugins]]
 repo = 'mhinz/neovim-remote'
@@ -70,19 +76,6 @@ hook_post_source = 'runtime! startify.vimrc'
 repo = 'glidenote/memolist.vim'
 hook_post_source = 'runtime! memolist.vimrc'
 on_map = '<space>'
-
-### Browser
-[[plugins]]
-repo = 'tyru/open-browser.vim'
-if = 'executable("qutebrowser")'
-on_map = '<space>'
-hook_post_source = 'runtime! browser.vimrc'
-
-### Calendar
-[[plugins]]
-repo = 'itchyny/calendar.vim'
-on_event = 'VimEnter'
-hook_post_source = 'runtime calendar.vimrc'
 
 #### Functional
 #[[plugins]]

@@ -27,8 +27,7 @@ set softtabstop=2
 
 augroup ReplaceTabWithSpace
   " :retab!; if replace spaces, too.
-  au! BufReadPost,BufEnter *
-        \ if &modifiable | retab | endif
+  au! BufReadPost * if &modifiable | retab | endif
 augroup end
 
 """ indent
