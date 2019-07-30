@@ -1,4 +1,4 @@
-"""" From: 'Prime.toml'
+"""" From: 'Init.toml'
 
 let g:lightline.colorscheme = 'badwolf'
 
@@ -26,7 +26,7 @@ function! LightlineReadonly()
 endfunction
 
 function! LightlineFilename()
-  return ( '' != LightlineReadonly() ? LightlineReadonly() . ' ' : '' ) .
+  return ( '' != LightlineReadonly() ? LightlineReadonly() . ' ' : '' )
 endfunction
 
 function! LightlineFugitive()

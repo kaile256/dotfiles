@@ -86,12 +86,3 @@ on_ft = 'toml'
 [[plugins]]
 repo = 'delphinus/vim-toml-dein' 
 on_ft = 'toml'
-
-## Unnecessary
-#[[plugins]]
-#repo = 'rhysd/accelerated-jk'
-#on_map = '<Plug>'
-#hook_add = '''
-#  nmap <silent>j <Plug>(accelerated_jk_gj)
-#  nmap <silent>k <Plug>(accelerated_jk_gk)
-#  '''
