@@ -14,6 +14,7 @@ hook_post_source = 'runtime! indentline.vimrc'
 ### Paren
 [[plugins]]
 repo = 'luochen1990/rainbow'
+## CAUTION: source rainbow.vimrc AFTER :colorscheme.
 on_event = 'BufReadPost'
 
 ### Resonance

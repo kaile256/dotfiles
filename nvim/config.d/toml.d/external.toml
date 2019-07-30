@@ -4,7 +4,7 @@
 [[plugins]]
 repo = 'tyru/open-browser.vim'
 on_if = 'executable("qutebrowser")'
-hook_post_source = 'runtime! browser.vimrc'
+hook_post_source = 'runtime! open-browser.vimrc'
 
 ### Calendar
 [[plugins]]
@@ -15,6 +15,7 @@ hook_post_source = 'runtime calendar.vimrc'
 #### Trello
 [[plugins]]
 repo = 'malithsen/trello-vim'
+if = 'exists("lib64/python3.7/site-packages/oauth2client")'
 on_event = 'VimEnter'
 hook_post_source = 'runtime trello.vimrc'
 

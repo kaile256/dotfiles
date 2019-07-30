@@ -1,5 +1,10 @@
 """" From: init.vim
 
+"""" DEFINITION
+noremap [ToWinTop]    :<c-u><c-r>= (line('w0') + line('.'))/2<cr><cr>
+noremap [ToWinBottom] :<c-u><c-r>= (line('w$') + line('.') + 1)/2<cr><cr>
+noremap [ToWinMiddle] :<c-u><c-r>= (line('w0') + line('w$') + 2*line('.'))/4<cr><cr>
+
 """" CONFIG
 " cursor position of column is kept on jump.
 set nostartofline
@@ -103,7 +108,7 @@ noremap <silent> <a-}> :0tag<cr>
 noremap <silent> <a-{> :$tag<cr>
 
 """ Terminal
-if has('terminal')
+if has('nvim')
   """" KEYMAP
   """ Normal Mode
   "" Open Shortcut
@@ -151,8 +156,3 @@ augroup QuickFixJump
   au FileType qf nnoremap <buffer> <a-}> :cfirst<cr>
   au FileType qf nnoremap <buffer> <a-{> :clast<cr>
 augroup END
-
-"""" DEFINITION
-noremap [ToWinTop]    :<c-u><c-r>= (line('w0') + line('.'))/2<cr><cr>
-noremap [ToWinBottom] :<c-u><c-r>= (line('w$') + line('.') + 1)/2<cr><cr>
-noremap [ToWinMiddle] :<c-u><c-r>= (line('w0') + line('w$') + 2*line('.'))/4<cr><cr>

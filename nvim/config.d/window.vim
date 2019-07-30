@@ -10,7 +10,13 @@ nnoremap Y y$
 nnoremap <S-TAB> gg=G''zz
 " <c-l> is already used by window-leaping.
 nnoremap [g:refresh] :<c-u>noh<cr><c-l>
+" zR: open all fold
+nmap [g:complete_refresh] [g:refresh]zR:cclose<cr>:lclose<cr>
+
+"" Ref: showmarks.vimrc
 nmap <silent> <space><space> [g:refresh]
+nmap <silent> <a-space><space> [g:complete_refresh]
+nmap <silent> <a-space><a-space> [g:complete_refresh]
 
 """ Write&Quit
 " w! write even read-only file.

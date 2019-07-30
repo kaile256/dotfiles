@@ -69,9 +69,9 @@ repo = 'glidenote/memolist.vim'
 hook_post_source = 'runtime! memolist.vimrc'
 on_map = '<space>'
 
-#### Functional
-#[[plugins]]
-## Repeats even not-default editing by "."
-## e.g., surround.vim
-#repo = 'tpope/vim-repeat'
-#on_event = 'BufRead'
+### Functional
+[[plugins]]
+# Repeats even not-default editing by "."
+# e.g., surround.vim
+repo = 'tpope/vim-repeat'
+on_event = 'BufRead'

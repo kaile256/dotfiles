@@ -11,11 +11,11 @@ hook_done_update= '''
     au VimEnter * :UpdateRemotePlugins<cr>
   '''
 
-### Async Processor
-#[[plugins]]
-## run vim-plugins asynchronously, inc., quickrun.
-#repo = 'Shougo/vimproc.vim'
-#build = 'make'
+## Async Processor
+[[plugins]]
+# run vim-plugins asynchronously, like openbrowser, quickrun.
+repo = 'Shougo/vimproc.vim'
+build = 'make'
 
 ### UI
 [[plugins]]
@@ -53,11 +53,11 @@ hook_add = 'runtime! fzf.vimrc'
 ### Git
 [[plugins]]
 repo = 'tpope/vim-fugitive'
-hook_add = 'runtime! fugitive.vimrc'
+hook_add = 'runtime fugitive.vimrc'
 
 ### Denite
-## Ref: denite.vimrc
 ## Ref: extra.toml
+## Ref: denite.vimrc
 [[plugins]]
 ## CAUTION: denite.vimrc MUST be sourced after dein#end() on dein.vim.
 repo = 'Shougo/denite.nvim'

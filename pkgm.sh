@@ -29,6 +29,7 @@ echo "$INSTALLER will install package via '$install'!!"
 Package=(
 anyenv
 bash-completion
+python-oauth2client
 cargo  # select rustup
 dmenu
 go
