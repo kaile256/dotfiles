@@ -1,7 +1,7 @@
 """" From: leap.toml
 """" Help: https://github.com/jremmen/vim-ripgrep
 
-let g:rg_window_location = topleft
+"let g:rg_window_location = topleft  " topleft is unsupported.
 " true: highlight matched-word.
 let g:rg_highlight = true
 " true: fitde project root from cwd.
