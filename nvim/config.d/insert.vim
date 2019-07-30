@@ -12,9 +12,9 @@ augroup END
 
 """ terminal
 if has('nvim')
-  augroup ModifiableTermMode
-    au! TermOpen * setlocal modifiable
-  augroup END
+  "augroup ModifiableTermMode
+  "  au! TermOpen * setlocal modifiable
+  "augroup END
 endif
 
 """ tab-char
@@ -25,10 +25,10 @@ set tabstop=2
 " number of spaces, inserted by tab-key, next to tab-chars.
 set softtabstop=2
 
-augroup ReplaceTabWithSpace
-  " :retab!; if replace spaces, too.
-  au! BufReadPost * if &modifiable | retab | endif
-augroup end
+"augroup ReplaceTabWithSpace
+"  " :retab!; if replace spaces, too.
+"  au! BufReadPost * if &modifiable | retab | endif
+"augroup end
 
 """ indent
 " copy indent dependent on first char of current line.

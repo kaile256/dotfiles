@@ -5,8 +5,10 @@
 
 """" Read Only
 "augroup AlertWhenReadOnly
-"    au! BufReadPost,BufEnter *
-"          \ if &readonly && &buftype ==# '' | colorscheme morning | endif
+"  au! BufReadPost,BufEnter *
+"  if &readonly && &buftype !=# 'help' && &buftype !=# directory
+"    colorscheme morning
+"  endif
 "augroup END
 
 """ Color
