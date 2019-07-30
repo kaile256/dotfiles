@@ -68,6 +68,7 @@ runtime defx-extra.vimrc
 
 runtime molokai.vimrc
 "runtime solarized.vimrc
+runtime rainbow.vimrc
 
 """" KEYMAP
 " install plugins

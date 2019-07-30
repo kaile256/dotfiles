@@ -141,8 +141,8 @@ noremap <c-6> <c-^>
 "" QuickFix
 noremap <silent> <space>co :copen<cr>
 noremap <silent> <space>cw :cwindow<cr>
-noremap <silent> <space>cc :cclose<cr>
-noremap <silent> <space>cc :cclose<cr>
+noremap <silent> <space>cc :cclose<cr>:lclose<cr>
+
 augroup QuickFixJump
   au!
   au FileType qf nnoremap <buffer> <a-]> :cprevious<cr>

@@ -78,6 +78,12 @@ if = 'executable("qutebrowser")'
 on_map = '<space>'
 hook_post_source = 'runtime! browser.vimrc'
 
+### Calendar
+[[plugins]]
+repo = 'itchyny/calendar.vim'
+on_event = 'VimEnter'
+hook_post_source = 'runtime calendar.vimrc'
+
 #### Functional
 #[[plugins]]
 ## Repeats even not-default editing by "."

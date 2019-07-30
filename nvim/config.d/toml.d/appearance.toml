@@ -1,23 +1,31 @@
-#### From: dein.vim
+#### From: nvim/dein.vim
 #### Ref: Init.toml
 
 #### Color Themes
 ### CAUTION: Colorscheme MUST be sourced on time.
 
-#### Indent
+### Indent
 [[plugins]]
 # indent line should be visible
 repo = 'Yggdroot/indentLine'
 on_event = 'BufReadPre'
 hook_post_source = 'runtime! indentline.vimrc'
 
-#### Paren
+### Paren
 [[plugins]]
 repo = 'luochen1990/rainbow'
 on_event = 'BufReadPost'
-hook_post_source = 'runtime! rainbow.vimrc'
 
-#### Substitution
+### Resonance
+[[plugins]]
+## Better %
+repo = 'andymass/vim-matchup'
+on_event = 'CursorMoved'
+[[plugins]]
+repo = 'itchyny/vim-cursorword'
+on_event = 'CursorMoved'
+
+### Substitution
 [[plugins]]
 repo = 'osyo-manga/vim-over'
 on_event = 'CmdlineEnter'

@@ -76,9 +76,7 @@ function! s:defx_my_settings() abort
   nnoremap <silent><buffer><expr> -
         \ defx#do_action('cd', ['..'])
   nnoremap <silent><buffer><expr> <CR>
-        \ defx#do_action('open')
-  nnoremap <silent><buffer><expr> m
-        \ defx#do_action('open')
+        \ defx#do_action('drop')
   nnoremap <silent><buffer><expr> v
         \ defx#do_action('open', 'vsplit')
   nnoremap <silent><buffer><expr> o
