@@ -1,4 +1,4 @@
-"""" From: Initial.toml
+"""" From: Init.toml
 """" HISTORY
 """ Status
 nnoremap <silent> <a-y>s     :<c-u>Gstatus<cr>

@@ -13,22 +13,21 @@ nnoremap <S-TAB> gg=G''zz
 " <c-l> is already used by window-leaping.
 nnoremap [g:redraw] :<c-u>noh<cr><c-l>
 " zR: open all fold
-nmap [g:complete_redraw] zR:cclose<cr>:lclose<cr>[g:redraw]
+nmap [g:complete_redraw] zR:cclose<bar>:lclose<bar>retab<cr>[g:redraw]
 
 "" Ref: showmarks.vimrc
 nmap <silent> <c-space> [g:redraw]
 nmap <silent> <a-space> [g:complete_redraw]
 
 """ Write&Quit
+"" Buffer
+nnoremap <silent> qq :<c-u>bdelete %<cr>
+nnoremap <silent> q1 :<c-u>bdelete %<cr>
 " w! write even read-only file.
 nnoremap          <space>w :<c-u>w<cr>
 nnoremap <silent> <space>q :<c-u>q<cr>
 nnoremap          <space>x :<c-u>w!<cr>
 nnoremap <silent> <space>z :<c-u>q!<cr>
-"" No Ambiguity
-nnoremap <silent> qq :<c-u>q<cr>
-nnoremap <silent> q1 :<c-u>q<cr>
-nnoremap <silent> qw :<c-u>w<cr>
 
 
 nnoremap <space>* :<c-u>qa<cr>

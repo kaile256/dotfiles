@@ -1,4 +1,4 @@
-#### From: dein.vim
+#### From: dein.vimrc
 
 ### Completion
 [[plugins]]
@@ -10,17 +10,6 @@ hook_done_update = '''
   CocInstall coc-json coc-tsserver coc-html coc-yaml coc-python
   CocInstall coc-vimlsp coc-git coc-yank coc-highlight coc-snippets
   '''
-
-#### Snippets
-#[[plugins]]
-#repo = 'Shougo/neosnippet-snippets'
-#on_event = 'InsertEnter'
-#on_ft = 'snippets'
-#[[plugins]]
-#repo = 'Shougo/neosnippet.vim'
-#hook_post_source = 'runtime! neosnippet.vimrc'
-#on_event = 'InsertEnter'
-#on_ft = 'snippets'
 
 ### Operator
 [[plugins]]
