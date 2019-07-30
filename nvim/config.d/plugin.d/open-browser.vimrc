@@ -16,10 +16,18 @@ let g:openbrowser_force_foreground_after_open = 1
 nmap gb <Plug>(openbrowser-smart-search)
 
 """ Prompt
-nmap <a-b><a-b> :OpenBrowserSmartSearch -duckduckgo 
+nmap <a-b> :OpenBrowserSmartSearch 
+cmap <a-b> :OpenBrowserSmartSearch 
 
-""" GitHub
-nmap <a-b><a-h> :OpenBrowserSmartSearch -github 
+""" Search Engine
+"" Duckduckgo
+cmap <a-d> -duckduckgo 
 
-""" Wikipedia
-nmap <a-b><a-p> :OpenBrowserSmartSearch -wikipedia 
+"" GitHub
+cmap <a-h> -github 
+
+"" Wikipedia
+cmap <a-p> -wikipedia 
+
+"" Weblio
+cmap <a-w> -weblio 

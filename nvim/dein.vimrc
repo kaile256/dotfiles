@@ -78,14 +78,11 @@ endif
 runtime rainbow.vimrc
 
 """" KEYMAP
+""" CAUTION: for the other plugins, DON'T define 'cmap' carelessly.
 " install plugins
 noremap  <a-d><a-i> :<c-u>call dein#install()<cr>
 noremap  <a-d>i     :<c-u>call dein#install()<cr>
-cnoremap <a-d><a-i> :<c-u>call dein#install()<cr>
-cnoremap <a-d>i     :<c-u>call dein#install()<cr>
 
 " update plugins
 noremap <a-d><a-u>  :<c-u>call dein#update()<cr>
 noremap <a-d>u      :<c-u>call dein#update()<cr>
-cnoremap <a-d><a-u> :<c-u>call dein#update()<cr>
-cnoremap <a-d>u     :<c-u>call dein#update()<cr>
