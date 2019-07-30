@@ -19,7 +19,11 @@ settings:
         <Ctrl+2>: save
         <Ctrl+h>: null
         <Ctrl+i>: forward
+        <Ctrl+n>: null
         <Ctrl+o>: back
+        <Ctrl+w>: null
+        <Ctrl+w><Ctrl+o>: window-only
+        <Ctrl+w><Ctrl+t>: tab-give
         <Ctrl+x>: null
         <Ctrl+x><Ctrl+h>: tab-prev
         <Ctrl+x><Ctrl+l>: tab-next
