@@ -43,6 +43,8 @@ settings:
         gi: enter-mode insert
         i: hint inputs --first
         q: tab-close
+        q1: tab-close
+        qq: tab-close
         u: null
   content.local_content_can_access_remote_urls:
     global: true
