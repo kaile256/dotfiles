@@ -46,7 +46,11 @@ on_event = 'BufRead'
 on_ft = 'markdown'
 
 ### Html
-### Tag
+## Emmet
+[[plugins]]
+repo = 'mattn/emmet-vim'
+on_ft = 'html'
+## Tag
 # auto-close tag
 [[plugins]]
 repo = 'alvan/vim-closetag'

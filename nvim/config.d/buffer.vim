@@ -22,7 +22,7 @@ augroup END
 augroup AdjustOnFileType
   au!
   au FileType fugitive setlocal buftype=quickfix
-  au WinLeave * if &filetype ==# 'help' | drop % | endif
+  au BufLeave * if &filetype ==# 'help' | drop % | endif
   " fzf works on terminal; CANNOT change buftype.
   au WinLeave * if &filetype ==# 'fzf' | quit | endif
 augroup END

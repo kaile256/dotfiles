@@ -19,9 +19,16 @@
 ** set ripgrep on Dgrep
 *** https://qiita.com/hrsh7th@github/items/e405b4f4228e10a43201
 
+* Emmet
+** TODO Write on toml
+
 * Buffer
 ** Keep even :qa.
+*** ShaDa?
 
 * Refresh
 ** TODO Mod <space>*2 not to freeze
 ** TODO Don't put zR, or freeze.
+
+* Colo
+** On Unmodifiable

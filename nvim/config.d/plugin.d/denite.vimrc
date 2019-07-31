@@ -5,8 +5,13 @@
 """" CONFIG
 """ Ripgrep: replace default grep
 if executable('rg')
-  call denite#custom#var('file_rec', 'command',
-        \ ['rg', '--files', '--glob', '!.git'])
+  call denite#custom#var('file_rec', 'command', [
+        \ 'rg',
+        \ '--files',
+        \ '--glob',
+        \ '!.git'
+        \ ])
+
   call denite#custom#var('grep', 'command', ['rg'])
 endif
 

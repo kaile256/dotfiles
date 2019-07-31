@@ -10,7 +10,6 @@ hook_done_update = '''
   CocInstall coc-json coc-tsserver coc-html coc-yaml coc-python
   CocInstall coc-vimlsp coc-git coc-yank coc-highlight coc-snippets
   '''
-
 ### Operator
 [[plugins]]
 repo = 'junegunn/vim-easy-align'
@@ -47,11 +46,11 @@ hook_post_source = 'runtime! sonictemplate.vimrc'
 repo = 'mhinz/vim-startify'
 hook_post_source = 'runtime! startify.vimrc'
 
-### Memo
-[[plugins]]
-repo = 'glidenote/memolist.vim'
-hook_post_source = 'runtime! memolist.vimrc'
-on_map = '<space>'
+#### Memo
+#[[plugins]]
+#repo = 'glidenote/memolist.vim'
+#hook_post_source = 'runtime! memolist.vimrc'
+#on_map = '<space>'
 
 ### Functional
 [[plugins]]
