@@ -53,7 +53,7 @@ hook_post_source = 'runtime! gen_tags.vimrc'
 [[plugins]]
 repo = 'majutsushi/tagbar'
 on_event = ['BufNew','BufReadPost']
-hook_post_source = 'runtime! tagbar.vim'
+hook_post_source = 'runtime tagbar.vimrc'
 #[[plugins]]
 #repo = 'szw/vim-tags'
 #on_event = 'VimEnter'

@@ -59,7 +59,6 @@ map <silent> <a-j> [ToWinBottom]
 map <silent> <a-k> [ToWinTop]
 " CAUTION: <c-m> is identical with <cr>; <c-,>/<c-.> does't work.
 map <silent> <a-m> [ToWinMiddle]
-map <silent> <a-i> [ToWinMiddle]
 
 """ Pane
 " leap between panes
