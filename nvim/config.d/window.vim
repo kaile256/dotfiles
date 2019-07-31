@@ -20,18 +20,17 @@ nmap <silent> <c-space> [g:redraw]
 nmap <silent> <a-space> [g:complete_redraw]
 
 """ Write&Quit
-"" Buffer
-nnoremap <silent> qq :<c-u>bdelete %<cr>
-nnoremap <silent> q1 :<c-u>bdelete %<cr>
 " w! write even read-only file.
 nnoremap          <space>w :<c-u>w<cr>
 nnoremap <silent> <space>q :<c-u>q<cr>
 nnoremap          <space>x :<c-u>w!<cr>
 nnoremap <silent> <space>z :<c-u>q!<cr>
-
-
+"" Special
 nnoremap <space>* :<c-u>qa<cr>
 nnoremap <space>! :w !sudo tee % > /dev/null<cr> <bar> edit!
+"" Buffer
+nnoremap <silent> qq :<c-u>bdelete %<cr>
+nnoremap <silent> q1 :<c-u>bdelete %<cr>
 
 "" Move Window
 nnoremap <c-w>h <c-w>H
