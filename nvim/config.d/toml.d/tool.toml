@@ -21,20 +21,21 @@ hook_post_source = 'runtime easy-align.vimrc'
 [[plugins]]
 repo = 'jceb/vim-orgmode'
 on_event = 'VimEnter'
+hook_post_source = 'runtime orgmode.vimrc'
 
 ### Code Runner
 [[plugins]]
 repo = 'skywind3000/asyncrun.vim'
 on_map = 'AsyncRun'
-hook_post_source = 'runtime! asyncrun.vimrc'
+hook_post_source = 'runtime asyncrun.vimrc'
 [[plugins]]
 repo = 'thinca/vim-quickrun'
 on_map = 'QuickRun'
-hook_post_source = 'runtime! quickrun.vimrc'
+hook_post_source = 'runtime quickrun.vimrc'
 [[plugins]]
 repo = 'neomake/neomake'
 on_map = 'make'
-hook_post_source = 'runtime! neomake.vimrc'
+hook_post_source = 'runtime neomake.vimrc'
 
 ### Template
 [[plugins]]

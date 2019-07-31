@@ -1,16 +1,16 @@
-#### From: dein.vim
+#### From: dein.vimrc
 
 ### Filer
 [[plugins]]
 repo = 'cocopon/vaffle.vim'
 on_if = '!has("python3")'
-hook_post_source = 'runtime! vaffle.vimrc'
+hook_post_source = 'runtime vaffle.vimrc'
 
 ### Jump
 [[plugins]]
 repo = 'jremmen/vim-ripgrep'
 on_if = 'executable("rg")'
-hook_post_source = 'runtime! ripgrep.vimrc'
+hook_post_source = 'runtime ripgrep.vimrc'
 #[[plugins]]
 #repo = 'justinmk/vim-sneak'
 #on_map = '<Plug>'
@@ -29,15 +29,15 @@ hook_post_source = 'runtime! ripgrep.vimrc'
 # Show marks
 repo = 'jacquesbh/vim-showmarks'
 on_map = ['m','`',"'"]
-hook_post_source = 'runtime! showmarks.vimrc'
+hook_post_source = 'runtime showmarks.vimrc'
 [[plugins]]
 repo = 'machakann/vim-sandwich'
 on_event = 'BufRead'
-hook_post_source = 'runtime! sandwich.vimrc'
+hook_post_source = 'runtime sandwich.vimrc'
 #[[plugins]]
 #repo = 'tpope/vim-surround'
 #on_event = 'BufRead'
-#hook_post_source = 'runtime! surround.vimrc'
+#hook_post_source = 'runtime surround.vimrc'
 
 #[[plugins]]
 ## auto close parens
