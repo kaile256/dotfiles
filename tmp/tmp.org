@@ -1,0 +1,14 @@
+* Plugins
+** TagBar
+** FZF
+*** setf quickfix
+** Fugitive
+*** setf quickfix
+** OrgMode
+*** set autosave
+** Netrw
+*** au to defx
+*** au to bdelete
+
+* Buffer
+** Keep even
