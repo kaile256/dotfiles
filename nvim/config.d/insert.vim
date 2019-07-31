@@ -1,7 +1,7 @@
 """" from: init.vim
 
-"""" config
-""" ime
+"""" CONFIG
+""" IME
 " 0: ime will be off, when lmap is off.
 " lmap supports 3 modes: insert, commandline and lang-arg.
 augroup AutoOffIME
@@ -10,14 +10,14 @@ augroup AutoOffIME
   au CmdlineLeave * set imsearch=0
 augroup END
 
-""" terminal
+""" Terminal
 if has('nvim')
   "augroup ModifiableTermMode
   "  au! TermOpen * setlocal modifiable
   "augroup END
 endif
 
-""" tab-char
+""" Tab-Char
 " insert spaces, instead of a tab-char.
 set expandtab
 " number of spaces, inserted by tab-key, that a tab-char counts for.
@@ -25,12 +25,15 @@ set tabstop=2
 " number of spaces, inserted by tab-key, next to tab-chars.
 set softtabstop=2
 
-"augroup ReplaceTabWithSpace
-"  " :retab!; if replace spaces, too.
-"  au! BufReadPost * if &modifiable | retab | endif
-"augroup end
+augroup ReplaceTabWithSpace
+  " :retab!; if replace spaces, too.
+  au! BufReadPost *
+  if &modifiable || &buftype !=# 'directory' || &buftype !=# 'help'
+    retab
+  endif
+augroup end
 
-""" indent
+""" Indent
 " copy indent dependent on first char of current line.
 set autoindent
 " copy indent dependent on last char of current line.
@@ -52,30 +55,30 @@ augroup resizeindent
   au FileType Python     setlocal shiftwidth=2 tabstop=2 softtabstop=2
 augroup end
 
-""" regiser
+""" Regiser
 " Copy to clipboard without +/* indicated.
 "set clipboard+=unnamedplus,unnamed
 
-""" visual mode
+""" Visual Mode
 " visualize even if there is no chars.
 set virtualedit=block
 
-""" commandline mode
+""" Commandline Mode
 set noshowcmd
 " activate completion on command-line
 set wildmenu
 set wildmode=list:longest
 "set history=10000
 
-""" pop-up menu
+""" Pop-Up Menu
 set pumheight=50
 "is has('nvim') || 
 "  set wildoptions=pum
 "  set pumblend=20
 "endif
 
-"""" keymap
-""" advanced <c-g>
+"""" Keymap
+""" Advanced <c-g>
 inoremap <c-g><c-h> <Left>
 inoremap <c-g>h     <Left>
 inoremap <c-g><c-l> <Right>
@@ -85,8 +88,8 @@ inoremap <c-g>b     <S-Left>
 inoremap <c-g><c-w> <S-Right>
 inoremap <c-g>w     <S-Right>
 
-""" menupopup
-"" alt-esc; or type <c-o> to insert-normal.
+""" Menu PopUp
+"" Alt-ESC; or type <c-o> to insert-normal.
 inoremap <a-space>w <esc>:w<cr>
 " make sure <a-hjkl> work as <esc>hjkl, e.g., while pop-up menu shows.
 inoremap <a-h> <esc>h
@@ -145,6 +148,7 @@ nnoremap yp "0p
 nnoremap <space>x "_x
 nnoremap <space>d "_d
 nnoremap <space>c "_c
+nnoremap <space>s "_s
 
 """ Visual Mode
 "" Sort; Initial to Reverse Sort

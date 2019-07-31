@@ -28,4 +28,4 @@ let g:tagbar_autoshowtag = 0
 
 """ KEYMAP
 " ';' is next to 'l'
-nnoremap <silent> <a-;> :<c-u>TagbarToggle<CR>
+nnoremap <silent> <a-u> :<c-u>TagbarToggle<CR>
