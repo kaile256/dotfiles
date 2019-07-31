@@ -2,8 +2,8 @@
 
 augroup OrgMode
   au!
-  au BufReadPost *.org s:org_general()
-  au BufReadPost *.org s:org_keymap()
+  au FileType org call s:org_general()
+  au FileType org call s:org_keymap()
 augroup END
 
 function! s:org_general()

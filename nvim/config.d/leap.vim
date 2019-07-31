@@ -22,12 +22,6 @@ set nowrapscan
 " CAUTION: foldable is apt to collapse format.
 set nofoldenable
 
-""" Buffer
-augroup HelpIntoBufferList
-  "au! BufReadPost help drop %
-  au! BufReadPost * if &buftype ==# 'help' | drop % | endif
-augroup END
-
 """" KEYMAP
 """ Working Directory
 nnoremap <a-w><a-w> :cd %:p:h<cr>

@@ -10,14 +10,14 @@ nnoremap <S-TAB> gg=G''zz
 
 "" Redraw
 " CAUTION: <c-l> should be run at LAST so that no corruption.
-" <c-l> is already used by window-leaping.
 nnoremap [g:redraw] :<c-u>noh<cr><c-l>
-" zR: open all fold
-nmap [g:complete_redraw] zR:cclose<bar>:lclose<bar>retab<cr>[g:redraw]
+" CAUTION: zR (open all fold) makes vim FREEZE.
+nmap [g:great_redraw] :cclose<bar>:lclose<bar>retab<cr>[g:redraw]
+nmap [g:plugins_redraw] [None]
 
 "" Ref: showmarks.vimrc
-nmap <silent> <c-space> [g:redraw]
-nmap <silent> <a-space> [g:complete_redraw]
+nmap <silent> <space><space>     [g:redraw]
+nmap <silent> <c-space><c-space> [g:great_redraw]
 
 """ Write&Quit
 " w! write even read-only file.

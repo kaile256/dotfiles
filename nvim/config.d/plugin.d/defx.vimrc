@@ -8,7 +8,7 @@
 "endif
 "
 "augroup DefxStartify
-"  au! VimEnter * Defx `expand('%:p:h')` -search=`expand('%:p')`
+"  au! FileType netrw Defx `expand('%:p:h')` -search=`expand('%:p')`
 "augroup END
 
 """" KEYMAP

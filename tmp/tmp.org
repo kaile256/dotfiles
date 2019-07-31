@@ -1,14 +1,27 @@
-* Plugins
-** TagBar
-** FZF
-*** setf quickfix
-** Fugitive
-*** setf quickfix
-** OrgMode
-*** set autosave
-** Netrw
-*** au to defx
-*** au to bdelete
+* TagBar
+** TODO setf as alternate buffer.
+
+* FZF
+** DONE setf quickfix
+
+* Fugitive
+** DONE setf quickfix
+
+* OrgMode
+** set autosave
+** Mapping
+
+* Netrw
+** au to defx
+** TODO au to bdelete
+
+* Denite
+** set ripgrep on Dgrep
+*** https://qiita.com/hrsh7th@github/items/e405b4f4228e10a43201
 
 * Buffer
-** Keep even
+** Keep even :qa.
+
+* Refresh
+** TODO Mod <space>*2 not to freeze
+** TODO Don't put zR, or freeze.
