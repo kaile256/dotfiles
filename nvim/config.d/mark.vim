@@ -1,4 +1,11 @@
 """" From: 'init.vim'
+""""  Ref: showmarks.vimrc
+
+"""" KEYMAP
+"" Marks
+nnoremap <silent> <space>m :<c-u>call <SID>AutoIncMarkUpper()<cr>
+nnoremap <silent> <space>M :<c-u>call <SID>AutoIncMarkLower()<cr>
+"nnoremap <a-m> m
 
 """" CONFIG
 "augroup RememberLastCursor
@@ -11,21 +18,13 @@
 "  au! BufLeave * call <SID>AutoIncMarkUpper()
 "augroup END
 
-"""" KEYMAP
-"" Marks
-nnoremap <a-'> [`
-nnoremap <a-`> ]`
-nnoremap <silent> <space>m :<c-u>call <SID>AutoIncMarkLower()<cr>
-nnoremap <silent> <space>M :<c-u>call <SID>AutoIncMarkUpper()<cr>
-"nnoremap <a-m> m
-
 """" DEFINITION
 if !exists('g:mark_inc_lower')
-  let g:mark_inc_lower = 'qweruiop'
+  let g:mark_inc_lower = 'abcdefghijklmnopqrstuvwxyz'
 endif
 
 if !exists('g:mark_inc_upper')
-  let g:mark_inc_upper = 'QWERUIOP'
+  let g:mark_inc_upper = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
 endif
 
 function! s:AutoIncMarkLower()

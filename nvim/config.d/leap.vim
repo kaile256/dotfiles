@@ -24,14 +24,14 @@ set nofoldenable
 
 """" KEYMAP
 """ Working Directory
-nnoremap <a-w><a-w> :cd %:p:h<cr>
-nnoremap <a-w>w     :cd %:p:h<cr>
-nnoremap <a-w><a-h> :cd ~<cr>
-nnoremap <a-w>h     :cd ~<cr>
-nnoremap <a-w><a-f> :cd ~/.config<cr>
-nnoremap <a-w>f     :cd ~/.config<cr>
-nnoremap <a-w><a-d> :cd ~/dotfiles<cr>
-nnoremap <a-w>d     :cd ~/dotfiles<cr>
+nnoremap <a-w><a-w> :cd %:p:h<cr>:echo 'Current directory is "' . getcwd() . '"'<cr>
+nnoremap <a-w>w     :cd %:p:h<cr>:echo 'Current directory is "' . getcwd() . '"'<cr>
+nnoremap <a-w><a-h> :cd ~<cr>:echo 'Current directory is "' . getcwd() . '"'<cr>
+nnoremap <a-w>h     :cd ~<cr>:echo 'Current directory is "' . getcwd() . '"'<cr>
+nnoremap <a-w><a-f> :cd ~/.config<cr>:echo 'Current directory is "' . getcwd() . '"'<cr>
+nnoremap <a-w>f     :cd ~/.config<cr>:echo 'Current directory is "' . getcwd() . '"'<cr>
+nnoremap <a-w><a-d> :cd ~/dotfiles<cr>:echo 'Current directory is "' . getcwd() . '"'<cr>
+nnoremap <a-w>d     :cd ~/dotfiles<cr>:echo 'Current directory is "' . getcwd() . '"'<cr>
 """ hjkl
 " move as it looks.
 nnoremap j gj

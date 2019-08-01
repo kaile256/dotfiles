@@ -1,4 +1,5 @@
 """" From: 'leap.toml'
+""""  Ref: mark.vim
 
 "" No Marks
 " default: for current buffer
@@ -7,8 +8,13 @@ nmap <silent> [g:redraw] :<c-u>NoShowMarks!<cr>[g:redraw]
 nmap <silent> [g:plugins_redraw] :<c-u>NoShowMarks!<cr>[g:plugins_redraw]
 
 "" Preview Marks
+nnoremap '<space> :<c-u>PreviewMarks<cr>
 nnoremap <space>' :<c-u>PreviewMarks<cr>
+
+nnoremap `<space> :<c-u>DoShowMarks!<cr>
 nnoremap <space>` :<c-u>DoShowMarks!<cr>
+
+nnoremap m<space> :ShowMarksOnce<cr>
 nnoremap m<space> :ShowMarksOnce<cr>
 
 "augroup ShowMarkAuto

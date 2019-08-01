@@ -6,29 +6,17 @@ repo = 'cocopon/vaffle.vim'
 on_if = '!has("python3")'
 hook_post_source = 'runtime vaffle.vimrc'
 
-### Jump
-[[plugins]]
-repo = 'jremmen/vim-ripgrep'
-on_if = 'executable("rg")'
-hook_post_source = 'runtime ripgrep.vimrc'
+#### Jump
 #[[plugins]]
-#repo = 'justinmk/vim-sneak'
-#on_map = '<Plug>'
-#depend = 'vim-repeat'
-#hook_post_source = 'runtime! sneak.vimrc'
-#[[plugins]]
-#repo = 'Lokaltog/vim-easymotion'
-#on_event = 'VimEnter'
-## move between Vim panes and Tmux splits seamlessly.
-#[[plugins]]
-#repo = 'christoomey/vim-tmux-navigator'
-#on_event = 'VimEnter'
+#repo = 'jremmen/vim-ripgrep'
+#on_if = 'executable("rg")'
+#hook_post_source = 'runtime ripgrep.vimrc'
 
 ### Marks
 [[plugins]]
 # Show marks
 repo = 'jacquesbh/vim-showmarks'
-on_map = ['m','`',"'"]
+on_map = ['m','`',"'",'\<space>']
 hook_post_source = 'runtime showmarks.vimrc'
 [[plugins]]
 repo = 'machakann/vim-sandwich'
@@ -39,12 +27,6 @@ hook_post_source = 'runtime sandwich.vimrc'
 #on_event = 'BufRead'
 #hook_post_source = 'runtime surround.vimrc'
 
-#[[plugins]]
-## auto close parens
-#repo = 'cohama/lexima.vim'
-#on_event = 'InsertEnter'
-#hook_post_source = 'runtime! lexima.vimrc'
-
 ### Tags
 [[plugins]]
 repo = 'jsfaint/gen_tags.vim'
@@ -54,25 +36,6 @@ hook_post_source = 'runtime! gen_tags.vimrc'
 repo = 'majutsushi/tagbar'
 on_event = ['BufNew','BufReadPost']
 hook_post_source = 'runtime tagbar.vimrc'
-#[[plugins]]
-#repo = 'szw/vim-tags'
-#on_event = 'VimEnter'
-#[[plugins]]
-#repo = 'ludovicchabant/vim-gutentags'
-#on_event = 'VimEnter'
-# No any .txt file
-#[[plugins]]
-## written by python
-## auto-delete entries that no longer exist.
-#repo = 'craigemery/vim-autotag'
-#hook_post_source = '''
-#  let g:autotagTagsFile='.tags'
-#  '''
-#on_event = 'VimEnter'
-
-#[[plugins]]
-#repo = 'tyru/qfpopup.vim'
-#[[plugins]]
-#repo = 'liuchengxu/vista.vim'
-#depends = ['coc.nvim']
-#on_event = 'InsertEnter'
+[[plugins]]
+repo = 'liuchengxu/vista.vim'
+on_event = ['BufNew','BufReadPost']
