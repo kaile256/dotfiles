@@ -12,7 +12,8 @@
     "<C-s>": "action:split",
     "<C-v>": "action:vsplit",
     "<CR>": "action:drop",
-    "<C-r><C-0>": "eval:@@"
+    "<C-r><C-y>": "eval:@@",
+    "<C-r>y": "eval:@@"
   },
   "list.normalMappings": {
     "d": "action:delete"
