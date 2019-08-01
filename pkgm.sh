@@ -29,25 +29,28 @@ echo "$INSTALLER will install package via '$install'!!"
 Package=(
 anyenv
 bash-completion
-python-oauth2client
-cargo  # select rustup
-dmenu
-hub  # an official wrapper of git
-go
-ghq-bin
-ttf-font-icons  # Mix Icon with Awesome & Ionicons without Confliction.
-pyenv
-python-pipenv
-ripgrep
-rxvt-unicode
-tlp   # Save Battery of PC
 bluez   # for Bluetooth
 bluez-utils
+cargo  # select rustup
+dmenu
+fzf
+ghq-bin
+global
+go
+hub  # an official wrapper of git
+nerd-fonts-ricty
+pyenv
+python-oauth2client
+python-pipenv
+ripgrep
 ruby
+rxvt-unicode
+tlp   # Save Battery of PC
+ttf-font-icons  # Mix Icon with Awesome & Ionicons without Confliction.
+tty-dejavu
 vmail
 yarn
-nerd-fonts-ricty
-tty-dejavu
+zsh
 )
 
 for package in ${Package[@]}; do
