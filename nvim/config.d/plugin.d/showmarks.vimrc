@@ -4,7 +4,7 @@
 " default: for current buffer
 "   add !:   for all buffers
 nmap <silent> [g:redraw] :<c-u>NoShowMarks!<cr>[g:redraw]
-nmap <silent> [g:great_redraw] :<c-u>NoShowMarks!<cr>[g:great_redraw]
+nmap <silent> [g:plugins_redraw] :<c-u>NoShowMarks!<cr>[g:plugins_redraw]
 
 "" Preview Marks
 nnoremap <space>' :<c-u>PreviewMarks<cr>
