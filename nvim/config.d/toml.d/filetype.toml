@@ -17,7 +17,7 @@ hook_add = 'runtime! neosnippet.vimrc'
 [[plugins]]
 repo = 'jceb/vim-orgmode'
 on_ft = 'org'
-hook_post_source = 'runtime orgmode.vimrc'
+hook_post_source = 'runtime org-mode.vimrc'
 
 ### 13-wm
 [[plugins]]
