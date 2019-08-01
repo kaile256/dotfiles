@@ -57,7 +57,7 @@ bindsym $mod+u exec xfce4-terminal
 # i3-dmenu-desktop encloses completions under desktop-file, like /usr/share/applications/.
 bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 #bindsym $mod+d exec dmenu_run
-bindsym $mod+b exec --no-startup-id qutebrowser
+bindsym $mod+b exec qutebrowser
 
 #### FOCUS
 ### Change Focus
