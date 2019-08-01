@@ -5,6 +5,8 @@
 ** i3wm
 ** Urxvt
 *** Setup Xsources
+** Emacs
+*** Install light emancs to use OrgMode.
 
 * VIM
 ** cd
@@ -21,6 +23,8 @@
 *** DONE Don't put zR, or freeze.
 ** Colo
 *** On Unmodifiable
+** Visual-Mode
+*** V-Line i as V-block I
 ** Keymap
 *** swap <a-space> to <c-**>.
 ** Rg

@@ -1,12 +1,6 @@
 """" From: nvim/init.vim
 
 """" KEYMAP
-""" Mnemonic: Show BufType/FileType
-nnoremap <a-s><a-b> :echo ' &filetype is "' . &filetype . '"; &buftype is "' . &buftype '"'<cr>
-nnoremap <a-s><a-f> :echo ' &filetype is "' . &filetype . '"; &buftype is "' . &buftype '"'<cr>
-"nnoremap <a-s><a-b> :echo " &filetype is '" . &filetype . "'; &buftype is '" . &buftype "'"<cr>
-"nnoremap <a-s><a-f> :echo " &filetype is '" . &filetype . "'; &buftype is '" . &buftype "'"<cr>
-
 augroup AppendFileType
   au!
   au BufNewFile,BufRead *.vim!   setlocal filetype=vim

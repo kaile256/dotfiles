@@ -43,11 +43,16 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 # font, it doesn't scale on retina/hidpi displays.
 
 ### Start-Up
-exec --no-startup-id nm-applet  # WiFi Network Manager
+# nm-applet: WiFi Network Manager
+exec --no-startup-id nm-applet
 exec --no-startup-id fcitx
-#exec --no-startup-id dunst  # Light Notification Daemon
-#exec --no-startup-id parcellite  # Clipboard Manager
-#exec --no-startup-id pvolumeicon  # Modify Sound Volume
+exec --no-startup-id xfce4-terminal
+# dunst: Light Notification Daemon
+#exec --no-startup-id dunst
+# parcellite: Clipboard Manager
+#exec --no-startup-id parcellite
+# pvolumeicon: Modify Sound Volume
+#exec --no-startup-id pvolumeicon
 
 ### Terminal
 bindsym $mod+Return exec i3-sensible-terminal
@@ -58,6 +63,7 @@ bindsym $mod+u exec xfce4-terminal
 bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 #bindsym $mod+d exec dmenu_run
 bindsym $mod+b exec qutebrowser
+bindsym $mod+e exec emacs
 
 #### FOCUS
 ### Change Focus
@@ -84,7 +90,8 @@ bindsym $mod+Shift+Right move right
 
 ### Other Layout
 bindsym $mod+f fullscreen toggle
-bindsym $mod+s layout stacking
+# stacking: like tabbed, but switch windows up & down.
+#bindsym $mod+s layout stacking
 bindsym $mod+t layout tabbed
 # move-window is sufficient.
 #bindsym $mod+e layout toggle split
@@ -169,10 +176,10 @@ mode "resize" {
 # back to normal: Enter or Escape or $mod+r
     bindsym Return mode "default"
     bindsym Escape mode "default"
-    bindsym $mod+r mode "default"
+    bindsym $mod+s mode "default"
 }
 
-bindsym $mod+r mode "resize"
+bindsym $mod+s mode "resize"
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)

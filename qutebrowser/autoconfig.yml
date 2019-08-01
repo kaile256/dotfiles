@@ -7,6 +7,11 @@ settings:
     global: true
   bindings.commands:
     global:
+      command:
+        <Ctrl+j>: completion-item-focus next
+        <Ctrl+k>: completion-item-focus prev
+        <Ctrl+n>: command-history-next
+        <Ctrl+p>: command-history-prev
       normal:
         '1': tab-close
         '2': save
@@ -21,6 +26,7 @@ settings:
         <Ctrl+i>: forward
         <Ctrl+n>: null
         <Ctrl+o>: back
+        <Ctrl+q>: tab-close
         <Ctrl+w>: null
         <Ctrl+w><Ctrl+o>: window-only
         <Ctrl+w><Ctrl+t>: tab-give

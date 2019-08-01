@@ -20,28 +20,28 @@ repo = 'neomake/neomake'
 on_map = 'make'
 hook_post_source = 'runtime neomake.vimrc'
 
-### Template
-[[plugins]]
-repo = 'mattn/sonictemplate-vim'
-on_event = 'BufRead'
-hook_post_source = 'runtime! sonictemplate.vimrc'
-
-### UI
-[[plugins]]
-repo = 'wsdjeg/dein-ui.vim'
-hook_add = 'runtime! dein-ui.vim'
-
-#### Start Page
-#[[plugins]]
-#repo = 'mhinz/vim-startify'
-#hook_post_source = 'runtime! startify.vimrc'
-
 ### Functional
 [[plugins]]
 # Repeats even not-default editing by "."
 # e.g., surround.vim
 repo = 'tpope/vim-repeat'
 on_event = 'BufRead'
+
+### Template
+[[plugins]]
+repo = 'mattn/sonictemplate-vim'
+on_event = 'BufRead'
+hook_post_source = 'runtime! sonictemplate.vimrc'
+
+#### UI
+#[[plugins]]
+#repo = 'wsdjeg/dein-ui.vim'
+#hook_add = 'runtime! dein-ui.vim'
+
+#### Start Page
+#[[plugins]]
+#repo = 'mhinz/vim-startify'
+#hook_post_source = 'runtime! startify.vimrc'
 
 ### Emacs-Like
 ### Narrow Region

@@ -28,6 +28,10 @@ nnoremap <a-w><a-w> :cd %:p:h<cr>:echo 'Current directory is "' . getcwd() . '"'
 nnoremap <a-w>w     :cd %:p:h<cr>:echo 'Current directory is "' . getcwd() . '"'<cr>
 nnoremap <a-w><a-h> :cd ~<cr>:echo 'Current directory is "' . getcwd() . '"'<cr>
 nnoremap <a-w>h     :cd ~<cr>:echo 'Current directory is "' . getcwd() . '"'<cr>
+nnoremap <a-w><a-c> :cd ~/.cache<cr>:echo 'Current directory is "' . getcwd() . '"'<cr>
+nnoremap <a-w>c     :cd ~/.cache<cr>:echo 'Current directory is "' . getcwd() . '"'<cr>
+nnoremap <a-w><a-g> :cd ~/.config<cr>:echo 'Current directory is "' . getcwd() . '"'<cr>
+nnoremap <a-w>g     :cd ~/.config<cr>:echo 'Current directory is "' . getcwd() . '"'<cr>
 nnoremap <a-w><a-f> :cd ~/.config<cr>:echo 'Current directory is "' . getcwd() . '"'<cr>
 nnoremap <a-w>f     :cd ~/.config<cr>:echo 'Current directory is "' . getcwd() . '"'<cr>
 nnoremap <a-w><a-d> :cd ~/dotfiles<cr>:echo 'Current directory is "' . getcwd() . '"'<cr>
@@ -134,14 +138,11 @@ if has('nvim')
 
   "" Alt as ESC as in Insert Mode
   " esc & hjkl
+  " <a-b> is useful on bash
   tnoremap <a-h> <c-\><c-n>h
   tnoremap <a-j> <c-\><c-n>j
   tnoremap <a-k> <c-\><c-n>k
   tnoremap <a-l> <c-\><c-n>l
-
-  " esc & backward
-  tnoremap <a-w> <c-\><c-n>w
-  tnoremap <a-b> <c-\><c-n>b
 endif
 
 """ Buffer
@@ -159,8 +160,10 @@ noremap <silent> <space>cc :cclose<cr>:lclose<cr>
 
 augroup QuickFixJump
   au!
-  au FileType qf nnoremap <buffer> <a-]> :cprevious<cr>
-  au FileType qf nnoremap <buffer> <a-[> :cnext<cr>
-  au FileType qf nnoremap <buffer> <a-}> :cfirst<cr>
-  au FileType qf nnoremap <buffer> <a-{> :clast<cr>
+  au WinEnter * if &buftype ==# 'quickfix' | call s:quickfix_keymap() | endif
 augroup END
+
+function! s:quickfix_keymap() abort
+  nnoremap <buffer> <a-]> :cprevious<cr>
+  nnoremap <buffer> <a-[> :cnext<cr>
+endfunction
