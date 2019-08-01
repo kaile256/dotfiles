@@ -1,4 +1,4 @@
-#### From: dein.vim
+#### From: dein.vimrc
 #### Ref: appearance.toml
 
 ### Required
@@ -16,11 +16,6 @@ hook_done_update= '''
 # run vim-plugins asynchronously, like openbrowser, quickrun.
 repo = 'Shougo/vimproc.vim'
 build = 'make'
-
-### UI
-[[plugins]]
-repo = 'wsdjeg/dein-ui.vim'
-hook_add = 'runtime! dein-ui.vim'
 
 ### Completion
 [[plugins]]
@@ -70,10 +65,10 @@ hook_add = 'runtime fugitive.vimrc'
 ### Denite
 ## Ref: extra.toml
 ## Ref: denite.vimrc
-[[plugins]]
-## CAUTION: denite.vimrc MUST be sourced after dein#end() on dein.vim.
-repo = 'Shougo/denite.nvim'
-if = 'has("python3")'
+#[[plugins]]
+### CAUTION: denite.vimrc MUST be sourced after dein#end() on dein.vim.
+#repo = 'Shougo/denite.nvim'
+#if = 'has("python3")'
 
 ### Defx
 ## Ref: defx.vimrc

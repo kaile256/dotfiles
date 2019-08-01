@@ -23,6 +23,8 @@
 *** gl for weblio
 *** DONE browser on duckduck
 ** coc.vimrc
+*** Prompt
+**** Not to move up&down window.
 *** Session
 **** Keep tab of orgs.
 *** buffer-list

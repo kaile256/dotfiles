@@ -1,4 +1,10 @@
 """" From: Init.toml
+
+"""" GENERAL
+augroup SpellCheckOnCommit
+  au! FileType gitcommit setlocal spell
+augroup END
+
 """" HISTORY
 """ Status
 nnoremap <silent> <a-y>s     :<c-u>Gstatus<cr>
@@ -16,8 +22,9 @@ nnoremap <silent> <a-y>m     :<c-u>Glog master..HEAD -- <bar> copen<cr>
 nnoremap <silent> <a-y><a-m> :<c-u>Glog master..HEAD -- <bar> copen<cr>
 
 """ Diff
-nnoremap <silent> <a-y>d     :<c-u>Gvdiffsplit<cr>
-nnoremap <silent> <a-y><a-d> :<c-u>Gvdiffsplit<cr>
+" !: On a Merge Conflict, do a 3-diff; otherwise the same as without bang.
+nnoremap <silent> <a-y>d     :<c-u>Gvdiffsplit!<cr>
+nnoremap <silent> <a-y><a-d> :<c-u>Gvdiffsplit!<cr>
 """ Blame
 nnoremap <silent> <a-y>b     :<c-u>Gblame<cr>
 nnoremap <silent> <a-y><a-b> :<c-u>Gblame<cr>

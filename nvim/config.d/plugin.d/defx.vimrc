@@ -22,11 +22,6 @@ nnoremap <silent> <a-v>
 nnoremap <silent> <a-t>
       \ :<c-u>Defx `expand('%:p:h')` -search=`expand('%:p')` -split=tab<cr>
 
-augroup DefxConfig
-  au!
-  au FileType defx call s:defx_keymap_destination()
-augroup END
-
 function! s:defx_keymap_explorer() abort
   """ Explore Tree
   nnoremap <silent><buffer><expr> ~
@@ -107,3 +102,10 @@ function! s:defx_keymap_explorer() abort
         \ defx#do_action('toggle_sort', 'filename')
 
 endfunction
+
+augroup DefxConfig
+  au!
+  au FileType defx call s:defx_keymap_destination()
+  au FileType defx call s:defx_keymap_explorer()
+augroup END
+

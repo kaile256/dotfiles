@@ -5,15 +5,14 @@
 "" No Marks
 " default: for current buffer
 "   add !:   for all buffers
-nmap <silent> [g:redraw] :<c-u>NoShowMarks!<cr>[g:redraw]
-nmap <silent> [g:plugins_redraw] :<c-u>NoShowMarks!<cr>[g:plugins_redraw]
+nmap <silent> <a-space><a-space> :<c-u>NoShowMarks!<cr>
 
 "" Preview Marks
-nnoremap '<space> :<c-u>PreviewMarks<cr>
-nnoremap <space>' :<c-u>PreviewMarks<cr>
+nnoremap <silent> '<space> :<c-u>DoShowMarks!<cr>
+nnoremap <silent> <space>' :<c-u>DoShowMarks!<cr>
 
-nnoremap `<space> :<c-u>DoShowMarks!<cr>
-nnoremap <space>` :<c-u>DoShowMarks!<cr>
+nnoremap <silent> `<space> :<c-u>PreviewMarks<cr> 
+nnoremap <silent> <space>` :<c-u>PreviewMarks<cr> 
 
 "augroup ShowMarkAuto
 "  au BufWinEnter * DoShowMarks<cr>
