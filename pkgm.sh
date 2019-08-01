@@ -32,6 +32,7 @@ bash-completion
 python-oauth2client
 cargo  # select rustup
 dmenu
+hub  # an official wrapper of git
 go
 ghq-bin
 ttf-font-icons  # Mix Icon with Awesome & Ionicons without Confliction.
@@ -50,9 +51,9 @@ tty-dejavu
 )
 
 for package in ${Package[@]}; do
-  if [ -z $INSTALLER == 'apt' && apt list "$package" | grep $package ]; then
+  if [ -z $INSTALLER == 'apt' ] && [ -z `apt list "$package" | grep $package` ]; then
     echo "You have installed $package already!"
-  elif [ -z $INSTALLER == 'apt' && pacman -Q "$package" ]; then
+  elif [ -z $INSTALLER == 'pacman' && `pacman -Q "$package"`]; then
     echo "You have installed $package already!"
   else
     echo "Installing $package..." && sudo $install $package || {

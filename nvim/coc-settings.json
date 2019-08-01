@@ -5,12 +5,25 @@
   "suggest.acceptSuggestionOnCommitCharacter": true,
   "suggest.noselect":true,
 
+  "list.insertMappings": {
+    "<C-n>": "normal:j",
+    "<C-p>": "normal:k",
+    "<C-t>": "action:tabe",
+    "<C-s>": "action:split",
+    "<C-v>": "action:vsplit",
+    "<CR>": "action:drop",
+    "<C-r><C-0>": "eval:@@",
+    "<C-r>0": "eval:@@"
+  },
+  "list.normalMappings": {
+    "d": "action:delete"
+  },
+
   "languageserver":{
     "bash": {
       "command": "bash-language-server",
       "args": ["start"],
       "filetypes": ["sh"],
-      "ignoreRootPaths": ["~"]
     },
     "rust": {
       "command": "ra_lsp_server",
