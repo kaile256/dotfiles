@@ -57,8 +57,7 @@ bindsym $mod+u exec xfce4-terminal
 # i3-dmenu-desktop encloses completions under desktop-file, like /usr/share/applications/.
 bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 #bindsym $mod+d exec dmenu_run
-bindsym $mod+b exec qutebrowser
-bindsym $mod+n exec nvim -c 'te'
+bindsym $mod+b exec --no-startup-id qutebrowser
 
 #### FOCUS
 ### Change Focus
@@ -178,7 +177,7 @@ bindsym $mod+r mode "resize"
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-    status_command    i3status
+  status_command    i3status
     output            LVDS1
     position          top
     mode              hide
@@ -201,6 +200,7 @@ bar {
 #### INTEGRATION
 ### xrandr
 #exec --no-startup-id ~/.config/i3/monitor.sh
+
 ### Vim
 #bindsym --release $mod+h exec --no-startup-id "i3-vim-nav h"
 #bindsym --release $mod+j exec --no-startup-id "i3-vim-nav j"

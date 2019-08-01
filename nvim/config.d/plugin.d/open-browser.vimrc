@@ -8,7 +8,10 @@ nmap g% CurrentFileOnBrowser
 " smart-search detects if it is URI or not.
 """ Under Cursor
 nmap gb <Plug>(openbrowser-smart-search)
-nmap gp :OpenBrowserSmartSearch -wikipedia <c-r>=expand('<cword>')
+vmap gb <Plug>(openbrowser-smart-search)
+"" TODO: work on other engines.
+"nmap gp :OpenBrowserSmartSearch -wikipedia <c-r>=expand('<cWORD>')<cr><cr>
+"vmap gp :OpenBrowserSmartSearch -wikipedia <c-r>=expand('<cWORD>')<cr><cr>
 
 """ Prompt
 nmap <a-b> :OpenBrowserSmartSearch 
@@ -33,7 +36,7 @@ cmap <a-w> -weblio
 let g:openbrowser_force_foreground_after_open = 1
 
 """ Search Engine
-let b:openbrowser_default_search = 'duckduckgo'
+let g:openbrowser_default_search = 'duckduckgo'
 
 let g:openbrowser_search_engines = {
       \ 'alc': 'http://eow.alc.co.jp/{query}/UTF-8/',

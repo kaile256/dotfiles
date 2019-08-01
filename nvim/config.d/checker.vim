@@ -9,8 +9,8 @@ if has('nvim')
 endif
 
 """ Reload init.vim
-nnoremap <a-s><a-o> :<c-u>so %<CR> <bar> echo ' Vim Sourced the Current File!'
-nnoremap <a-s>o     :<c-u>so %<CR> <bar> echo ' Vim Sourced the Current File!'
+nnoremap <a-s><a-o> :<c-u>so % <bar> echo ' Vim sourced "' . bufname('%') . '"'<CR>
+nnoremap <a-s>o     :<c-u>so % <bar> echo ' Vim sourced "' . bufname('%') . '"'<CR>
 
 "augroup CheckStartTime
 "  au! VimEnter,InsertEnter,WinEnter * checktime
