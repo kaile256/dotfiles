@@ -9,9 +9,8 @@ if has('nvim')
 endif
 
 """ Reload init.vim
-noremap <space>so  :<c-u>so %<CR>
-noremap <a-s><a-o> :<c-u>so %<CR>
-noremap <a-s>o     :<c-u>so %<CR>
+nnoremap <a-s><a-o> :<c-u>so %<CR> <bar> echo ' Vim Sourced the Current File!'
+nnoremap <a-s>o     :<c-u>so %<CR> <bar> echo ' Vim Sourced the Current File!'
 
 "augroup CheckStartTime
 "  au! VimEnter,InsertEnter,WinEnter * checktime
@@ -21,11 +20,6 @@ noremap <a-s>o     :<c-u>so %<CR>
 "augroup GrepOnQuickfix
 "  au! QuickFixCmdPost * :cwindow<cr>
 "augroup END
-
-""" Git
-augroup GitSpellCheck
-  au! FileType gitcommit setlocal spell
-augroup END
 
 """" QuickFix
 "augroup QuickFixModifiable

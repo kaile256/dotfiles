@@ -10,9 +10,9 @@ function! s:org_general()
   "" WARNING: Wildcard* makes it slow if you have a lot of org files.
   let g:org_agenda_files = ['~/org/*.org']
   "" Ref: <LocalLeader>d: prompt for fast access of a todo state
-  let g:org_todo_keywords = [['TODO(t)', '|', 'DONE(d)'],
-      \ ['REPORT(r)', 'BUG(b)', 'KNOWNCAUSE(k)', '|', 'FIXED(f)'],
-      \ ['CANCELED(c)']]
+  "let g:org_todo_keywords = [['TODO(t)', '|', 'DONE(d)'],
+  "    \ ['REPORT(r)', 'BUG(b)', 'KNOWNCAUSE(k)', '|', 'FIXED(f)'],
+  "    \ ['CANCELED(c)']]
 endfunction
 
 function! s:org_keymap()
@@ -27,7 +27,7 @@ function! s:org_keymap()
 
   """ ToDo
   " Prompt State
-  nmap <buffer> <a-i> <LocalLeader>d
+  "nmap <buffer> <a-i> <LocalLeader>d
   " Rotate State
   nmap <buffer> <a-i> <LocalLeader>ct
   

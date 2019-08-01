@@ -22,9 +22,17 @@ build = 'make'
 repo = 'wsdjeg/dein-ui.vim'
 hook_add = 'runtime! dein-ui.vim'
 
+### Completion
+[[plugins]]
+repo = 'neoclide/coc.nvim'
+hook_post_source = 'runtime coc.vimrc'
+hook_done_update = '''
+  call coc#util#install()
+  CocInstall coc-json coc-tsserver coc-html coc-yaml coc-python coc-vimlsp
+  CocInstall coc-lists coc-git coc-yank coc-highlight coc-snippets
+  '''
+
 #### Color Themes
-### CAUTION: Colorscheme MUST be sourced on time.
-## CAUTION: Colorscheme MUST be sourced on without lazy.
 ## CAUTION: Colorscheme MUST be sourced after dein#end() on dein.vim.
 [[plugins]]
 repo = 'tomasr/molokai'
@@ -32,9 +40,9 @@ if = 'has("nvim")'
 [[plugins]]
 repo = 'sjl/badwolf'
 if = 'has("nvim")'
-#[[plugins]]
-#repo = 'altercation/vim-colors-solarized'
-#if = 'has("nvim")'
+[[plugins]]
+repo = 'altercation/vim-colors-solarized'
+if = 'has("nvim")'
 
 ### Status Bar
 #[[plugins]]

@@ -1,4 +1,5 @@
-"""" From: 'leap.toml'
+"""" From: leap.toml
+""""  Ref: appearance.vim
 """"  Ref: mark.vim
 
 "" No Marks
@@ -13,9 +14,6 @@ nnoremap <space>' :<c-u>PreviewMarks<cr>
 
 nnoremap `<space> :<c-u>DoShowMarks!<cr>
 nnoremap <space>` :<c-u>DoShowMarks!<cr>
-
-nnoremap m<space> :ShowMarksOnce<cr>
-nnoremap m<space> :ShowMarksOnce<cr>
 
 "augroup ShowMarkAuto
 "  au BufWinEnter * DoShowMarks<cr>

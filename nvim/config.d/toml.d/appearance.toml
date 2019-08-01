@@ -6,7 +6,7 @@
 # indent line should be visible
 repo = 'Yggdroot/indentLine'
 on_event = 'BufReadPre'
-hook_post_source = 'runtime! indentline.vimrc'
+hook_post_source = 'runtime indentline.vimrc'
 
 ### Paren
 [[plugins]]
@@ -27,4 +27,4 @@ on_event = 'CursorMoved'
 [[plugins]]
 repo = 'osyo-manga/vim-over'
 on_event = 'CmdlineEnter'
-hook_post_source = 'runtime! over.vimrc'
+hook_post_source = 'runtime over.vimrc'

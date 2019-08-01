@@ -1,34 +1,69 @@
-* TagBar
-** TODO setf as alternate buffer.
+* VIM
+** cd
+*** && echo $PWD
+** Buffer
+*** BufType/FileType
+**** DONE &buftype/&filetype simultaneously
+**** TODO no extra space on echo &buftype.
+*** Keep Buffers
+**** TODO Keep buffers even :qa.
+**** TODO ShaDa?
+** Refresh
+*** DONE Mod <space>*2 not to freeze
+*** DONE Don't put zR, or freeze.
+** Colo
+*** On Unmodifiable
+** Rg
+*** Where is it Defined?
+**** coc.nvim has nothing to do with Rg.
 
-* FZF
-** DONE setf quickfix
+* INIT
+** open-browser.vimrc
+*** gp for wikipedia
+*** gl for weblio
+*** DONE browser on duckduck
+** coc.vimrc
+*** Session
+**** Keep tab of orgs.
+*** buffer-list
+*** git.Browser
+*** fzf/rg
+**** On <a-w> (cd), reset without <c-c>/<esc>.
+**** TODO set apart fzf & rg
+***** TODO fzf: JUST filenames
+***** TODO rg: WITHOUT filenames
+** fugitive.vimrc
+*** Diff
+**** TODO diff before/after staged
+**** DONE setf quickfix
+**** DONE map Git 3diff
+** org-mode.vimrc
+*** TODO Colo for OrgMode.
+*** DONE set autosave
+*** Mapping
+*** '>' as an operator-command.
 
-* Fugitive
-** DONE setf quickfix
+* INSTEAD
+** fzf.vimrc
+*** DONE au! to <a-w><a-w>: cd(vim)
+*** DONE setf quickfix
+*** TODO mv fzf.vimrc to no_more.d
+** TagBar
+*** TODO setf as alternate buffer.
+** Netrw
+*** au to defx
+*** TODO au to bdelete
+** Defx
+*** DONE set up for buf-explorer.
+*** TODO unmap <space>**
+*** TODO rm preview mode
 
-* OrgMode
-** set autosave
-** Mapping
-
-* Netrw
-** au to defx
-** TODO au to bdelete
-
-* Denite
-** set ripgrep on Dgrep
-*** https://qiita.com/hrsh7th@github/items/e405b4f4228e10a43201
-
-* Emmet
-** TODO Write on toml
-
-* Buffer
-** Keep even :qa.
-*** ShaDa?
-
-* Refresh
-** TODO Mod <space>*2 not to freeze
-** TODO Don't put zR, or freeze.
-
-* Colo
-** On Unmodifiable
+* NO MORE
+** DONE Denite; Use Coc
+*** set ripgrep on Dgrep
+**** https://qiita.com/hrsh7th@github/items/e405b4f4228e10a43201
+** DONE Emmet; Use OrgMode
+*** DONE Write on toml
+** DONE ripgrep.vimrc; Use coc.vimrc
+*** DONE au! to <a-w><a-w>: cd(vim)
+*** TODO mv ripgrep.vimrc to no_more.d

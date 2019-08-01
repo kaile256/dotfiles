@@ -14,9 +14,6 @@ let s:dein_itself= s:dein_cache_dir . '/repos/github.com/Shougo/dein.vim/'
 
 set rtp+=~/.cache/dein/repos/github.com/Shougo/dein.vim
 
-"if ! isdirectory('expand(s:dein_itself)')
-"echo "                Install dein!"
-"else
 if dein#load_state(s:dein_cache_dir)
   call dein#begin(s:dein_cache_dir)
 
@@ -31,10 +28,10 @@ if dein#load_state(s:dein_cache_dir)
   let s:leap_toml      = s:dein_toml_dir . 'leap.toml'
   let s:tool_toml      = s:dein_toml_dir . 'tool.toml'
 
-  " cache the plugin repositorys, listed in toml.
+  "" cache the plugin repositorys, listed in toml.
   call dein#load_toml(s:dein_toml,       {'lazy': 0})
 
-  "" Lazy Load
+  """ Lazy Load
   call dein#load_toml(s:filetype_toml,   {'lazy': 1})
   call dein#load_toml(s:appearance_toml, {'lazy': 1})
   call dein#load_toml(s:external_toml,   {'lazy': 1})

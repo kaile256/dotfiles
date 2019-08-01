@@ -12,8 +12,7 @@ nnoremap <S-TAB> gg=G''zz
 " CAUTION: <c-l> should be run at LAST so that no corruption.
 nnoremap [g:redraw] :<c-u>noh<cr><c-l>
 " CAUTION: zR (open all fold) makes vim FREEZE.
-nmap [g:great_redraw] :cclose<bar>:lclose<bar>retab<cr>[g:redraw]
-nmap [g:plugins_redraw] [None]
+nmap [g:great_redraw] :cclose<bar>:lclose<bar>retab<cr>
 
 "" Ref: showmarks.vimrc
 nmap <silent> <space><space>     [g:redraw]

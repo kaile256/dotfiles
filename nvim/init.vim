@@ -5,8 +5,6 @@ let g:xdg_data_home = empty($XDG_DATA_HOME) ? expand('~/.local/share') : $XDG_DA
 
 runtime! dein.vimrc
 runtime! config.d/*.vim
-runtime! config.d/vimap.d/*.vimap
 
 """ Buffer
 nnoremap <buffer> <F12> :mapclear <cr>
-

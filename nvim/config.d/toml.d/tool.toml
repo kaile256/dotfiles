@@ -1,15 +1,5 @@
 #### From: dein.vimrc
 
-### Completion
-[[plugins]]
-repo = 'neoclide/coc.nvim'
-hook_post_source = 'runtime! coc.vimrc'
-on_event = 'VimEnter'
-hook_done_update = '''
-  call coc#util#install()
-  CocInstall coc-json coc-tsserver coc-html coc-yaml coc-python coc-vimlsp
-  CocInstall coc-lists coc-git coc-yank coc-highlight coc-snippets
-  '''
 ### Operator
 [[plugins]]
 repo = 'junegunn/vim-easy-align'
@@ -35,22 +25,11 @@ hook_post_source = 'runtime neomake.vimrc'
 repo = 'mattn/sonictemplate-vim'
 on_event = 'BufRead'
 hook_post_source = 'runtime! sonictemplate.vimrc'
-#[[plugins]]
-## preset a template respectively.
-#repo = 'thinca/vim-template'
-#on_event = 'BufReadPre'
-#on_ft = 'bash'
 
 #### Start Page
 #[[plugins]]
 #repo = 'mhinz/vim-startify'
 #hook_post_source = 'runtime! startify.vimrc'
-
-#### Memo
-#[[plugins]]
-#repo = 'glidenote/memolist.vim'
-#hook_post_source = 'runtime! memolist.vimrc'
-#on_map = '<space>'
 
 ### Functional
 [[plugins]]
