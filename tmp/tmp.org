@@ -21,6 +21,8 @@
 *** DONE Don't put zR, or freeze.
 ** Colo
 *** On Unmodifiable
+** Keymap
+*** swap <a-space> to <c-**>.
 ** Rg
 *** Where is it Defined?
 **** coc.nvim has nothing to do with Rg.

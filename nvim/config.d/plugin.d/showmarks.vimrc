@@ -5,7 +5,7 @@
 "" No Marks
 " default: for current buffer
 "   add !:   for all buffers
-nmap <silent> <a-space><a-space> :<c-u>NoShowMarks!<cr>
+nmap <silent> <c-space><c-space> :<c-u>NoShowMarks!<cr>
 
 "" Preview Marks
 nnoremap <silent> '<space> :<c-u>DoShowMarks!<cr>
