@@ -64,7 +64,7 @@ nnoremap <c-l> <c-w>l
 nnoremap <a-b> <c-w>b
 nnoremap <a-t> <c-w>t
 " avoid stack on command-line
-cnoremap <a-k> <c-c>
+cnoremap <c-k> <ESC>
 
 """ Tab Page
 " mnemonic: <s-,>/<s-.> are < & >.

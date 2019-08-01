@@ -77,7 +77,16 @@ set pumheight=50
 "  set pumblend=20
 "endif
 
-"""" Keymap
+"""" KEYMAP
+""" Command-Line
+"" Emacs-like
+cnoremap <c-a> <home>
+cnoremap <a-f> <S-right>
+cnoremap <c-f> <right>
+cnoremap <c-b> <left>
+"" Cancel
+cnoremap <c-k> <esc>
+
 """ Advanced <c-g>
 inoremap <c-g><c-h> <Left>
 inoremap <c-g>h     <Left>
