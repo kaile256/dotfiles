@@ -1,16 +1,22 @@
 * Linux
 ** pkgm.sh
-*** Setup all
+*** TODO Add Nightly-Neovim
 *** set up makefile
 ** i3wm
 ** Urxvt
 *** Setup Xsources
+*** Install 256color
 ** Emacs
 *** Install light emancs to use OrgMode.
 
 * VIM
+** Nightly
+*** Install
+** Term-mode
+*** DONE Auto-insert
 ** cd
-*** && echo $PWD
+*** TODO && echo $PWD
+*** TODO not only <buffer>
 ** Buffer
 *** BufType/FileType
 **** DONE &buftype/&filetype simultaneously
@@ -28,8 +34,11 @@
 ** Keymap
 *** swap <a-space> to <c-**>.
 ** Rg
-*** Where is it Defined?
-**** coc.nvim has nothing to do with Rg.
+*** DONE Where is it Defined?
+*** DONE fzf.vim does!
+**** DONE coc.nvim has nothing to do with Rg.
+** leap.vim
+** DONE <c-hjkl> as <a-hjkl> for Term mode.
 
 * INIT
 ** open-browser.vimrc
@@ -54,17 +63,19 @@
 **** TODO diff before/after staged
 **** DONE setf quickfix
 **** DONE map Git 3diff
+** vista.vimrc
+*** :Vista finder set on top or on float.
 ** org-mode.vimrc
 *** TODO Colo for OrgMode.
 *** DONE set autosave
 *** Mapping
 *** '>' as an operator-command.
-
-* INSTEAD
 ** fzf.vimrc
 *** DONE au! to <a-w><a-w>: cd(vim)
 *** DONE setf quickfix
 *** TODO mv fzf.vimrc to no_more.d
+
+* INSTEAD
 ** TagBar
 *** TODO setf as alternate buffer.
 ** Netrw
@@ -83,4 +94,4 @@
 *** DONE Write on toml
 ** DONE ripgrep.vimrc; Use coc.vimrc
 *** DONE au! to <a-w><a-w>: cd(vim)
-*** TODO mv ripgrep.vimrc to no_more.d
+*** DONE mv ripgrep.vimrc to no_more.d

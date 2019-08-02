@@ -39,6 +39,7 @@ global
 go
 hub  # an official wrapper of git
 neovim-qt
+neovim-nightly
 nerd-fonts-ricty
 pyenv
 python-oauth2client
