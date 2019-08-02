@@ -27,6 +27,7 @@ settings:
         <Ctrl+n>: null
         <Ctrl+o>: back
         <Ctrl+q>: tab-close
+        <Ctrl+v>: null
         <Ctrl+w>: null
         <Ctrl+w><Ctrl+o>: window-only
         <Ctrl+w><Ctrl+t>: tab-give

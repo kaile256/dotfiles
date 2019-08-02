@@ -57,6 +57,7 @@ exec --no-startup-id xfce4-terminal
 ### Terminal
 bindsym $mod+Return exec i3-sensible-terminal
 bindsym $mod+u exec xfce4-terminal
+bindsym $mod+n exec --no-startup-id nvim-qt
 
 ### Menu
 # i3-dmenu-desktop encloses completions under desktop-file, like /usr/share/applications/.
