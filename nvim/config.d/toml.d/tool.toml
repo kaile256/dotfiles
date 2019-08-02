@@ -1,9 +1,15 @@
 #### From: dein.vimrc
 
 ### Snippets
+## Engine
 [[plugins]]
 repo = 'SirVer/ultisnips'
+on_event = ['InsertEnter','TermOpen']
 hook_post_source = 'runtime ultisnips.vimrc'
+## Contents
+[[plugins]]
+repo = 'honza/vim-snippets'
+on_event = ['InsertEnter', 'TermOpen']
 
 ### Tags
 [[plugins]]

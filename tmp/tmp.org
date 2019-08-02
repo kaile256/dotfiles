@@ -46,6 +46,8 @@
 *** gp for wikipedia
 *** gl for weblio
 *** TODO browser on duckduck
+** ulti-snippets.vimrc
+*** associate with coc.vimrc
 ** coc.vimrc
 *** DONE signcolumn doesn't work.
 **** dein's lazy=0 doesn't support hook_done_update; write hook_add.
