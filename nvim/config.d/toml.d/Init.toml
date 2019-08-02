@@ -27,6 +27,11 @@ hook_done_update = '''
   CocInstall coc-lists coc-git coc-yank coc-highlight coc-snippets
   '''
 
+### Start Page
+[[plugins]]
+repo = 'mhinz/vim-startify'
+hook_post_source = 'runtime startify.vimrc'
+
 #### Color Themes
 ## CAUTION: Colorscheme MUST be sourced after dein#end() on dein.vim.
 [[plugins]]
