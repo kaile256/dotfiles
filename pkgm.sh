@@ -38,8 +38,8 @@ ghq-bin
 global
 go
 hub  # an official wrapper of git
-neovim-qt
 neovim-nightly
+neovim-qt
 nerd-fonts-ricty
 pyenv
 python-oauth2client
@@ -47,6 +47,7 @@ python-pipenv
 ripgrep
 ruby
 rxvt-unicode
+the_silver_searcher
 tlp   # Save Battery of PC
 ttf-font-icons  # Mix Icon with Awesome & Ionicons without Confliction.
 tty-dejavu
