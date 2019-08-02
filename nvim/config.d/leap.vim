@@ -53,36 +53,37 @@ xnoremap gk k
 " though <c-hjkl> get along with <c-fbud>;
 "nnoremap <silent> <a-h> :<c-r>=(               virtcol('.')) /2<cr>h
 "nnoremap <silent> <a-l> :<c-r>=(virtcol('0') - virtcol('.')) /2<cr>l
-map <silent> <a-j> [ToWinBottom]
-map <silent> <a-k> [ToWinTop]
+map <silent> <c-j> [ToWinBottom]
+map <silent> <c-k> [ToWinTop]
 " CAUTION: <c-m> is identical with <cr>; <c-,>/<c-.> does't work.
-map <silent> <a-m> [ToWinMiddle]
+map <silent> K [ToWinMiddle]
 
 """ Pane
 " leap between panes
-nnoremap <c-h> <c-w>h
-nnoremap <c-j> <c-w>j
-nnoremap <c-k> <c-w>k
-nnoremap <c-l> <c-w>l
+nnoremap <a-h> <c-w>h
+nnoremap <a-j> <c-w>j
+nnoremap <a-k> <c-w>k
+nnoremap <a-l> <c-w>l
 
 nnoremap <a-b> <c-w>b
 nnoremap <a-t> <c-w>t
 " avoid stack on command-line
-cnoremap <c-k> <ESC>
+cnoremap <a-k> <ESC>
 
 """ Tab Page
 " mnemonic: <s-,>/<s-.> are < & >.
 nnoremap <a-h> gT
 nnoremap <a-l> gt
-nnoremap <c-x><c-h> gT
-nnoremap <c-x><c-l> gt
-nnoremap <c-x>h gT
-nnoremap <c-x>l gt
 
 "" Give Tab
 nnoremap <c-w><c-t> <c-w>T
 
 """ Go-To
+"" Help
+noremap <silent> gh :h <cWORD><cr>
+"" Man
+noremap <silent> gm :Man <cWORD><CR>
+"" File-Path
 " switch mapping
 noremap gf gF
 noremap gF gf
@@ -91,8 +92,8 @@ noremap gF gf
 
 ""” Research
 "" TODO: setlocal show result w/ no-file path but only file name.
-"" Grep to QuickFix  # no dirty-hist
-nnoremap <space>/ :silent vimgrep  % <bar> cw<Left><Left><Left><Left><Left><Left><Left>
+"" Grep to QuickFix  # no dirty-hist # Good enough with fzf.vim.
+"nnoremap <space>/ :silent vimgrep  % <bar> cw<Left><Left><Left><Left><Left><Left><Left>
 
 "" Dot-Repeat
 nnoremap <a-n> n.
@@ -139,10 +140,14 @@ if has('nvim')
   "" Alt as ESC as in Insert Mode
   " esc & hjkl
   " <a-b> is useful on bash
-  tnoremap <a-h> <c-\><c-n>h
-  tnoremap <a-j> <c-\><c-n>j
-  tnoremap <a-k> <c-\><c-n>k
-  tnoremap <a-l> <c-\><c-n>l
+  "tnoremap <a-h> <c-\><c-n>h
+  "tnoremap <a-j> <c-\><c-n>j
+  "tnoremap <a-k> <c-\><c-n>k
+  "tnoremap <a-l> <c-\><c-n>l
+  tnoremap <a-h> <c-\><c-n><c-w>h
+  tnoremap <a-j> <c-\><c-n><c-w>j
+  tnoremap <a-k> <c-\><c-n><c-w>k
+  tnoremap <a-l> <c-\><c-n><c-w>l
 endif
 
 """ Buffer
