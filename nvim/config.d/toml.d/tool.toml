@@ -1,10 +1,15 @@
 #### From: dein.vimrc
 
+### Snippets
+[[plugins]]
+repo = 'SirVer/ultisnips'
+hook_post_source = 'runtime ultisnips.vimrc'
+
 ### Tags
 [[plugins]]
 repo = 'jsfaint/gen_tags.vim'
 on_event = 'BufLeave'
-hook_post_source = 'runtime! gen_tags.vimrc'
+hook_post_source = 'runtime gen_tags.vimrc'
 #[[plugins]]
 #repo = 'majutsushi/tagbar'
 #on_event = ['BufNew','BufReadPost']
@@ -45,12 +50,12 @@ on_event = 'BufRead'
 [[plugins]]
 repo = 'mattn/sonictemplate-vim'
 on_event = 'BufRead'
-hook_post_source = 'runtime! sonictemplate.vimrc'
+hook_post_source = 'runtime sonictemplate.vimrc'
 
 #### UI
 #[[plugins]]
 #repo = 'wsdjeg/dein-ui.vim'
-#hook_add = 'runtime! dein-ui.vim'
+#hook_add = 'runtime dein-ui.vim'
 
 ### Emacs-Like
 ### Narrow Region

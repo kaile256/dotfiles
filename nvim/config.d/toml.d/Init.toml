@@ -20,7 +20,7 @@ build = 'make'
 ### Completion
 [[plugins]]
 repo = 'neoclide/coc.nvim'
-hook_post_source = 'runtime coc.vimrc'
+hook_add = 'runtime coc.vimrc'
 hook_done_update = '''
   call coc#util#install()
   CocInstall coc-json coc-tsserver coc-html coc-yaml coc-python coc-vimlsp
@@ -30,7 +30,7 @@ hook_done_update = '''
 ### Start Page
 [[plugins]]
 repo = 'mhinz/vim-startify'
-hook_post_source = 'runtime startify.vimrc'
+hook_add = 'runtime startify.vimrc'
 
 #### Color Themes
 ## CAUTION: Colorscheme MUST be sourced after dein#end() on dein.vim.
@@ -47,10 +47,10 @@ if = 'has("nvim")'
 ### Status Bar
 #[[plugins]]
 #repo = 'itchyny/lightline.vim' # config is written in 'plugin.vim'
-#hook_post_source = 'runtime! lightline.vimrc'
+#hook_add = 'runtime! lightline.vimrc'
 [[plugins]]
 repo = 'vim-airline/vim-airline'
-hook_post_source = 'runtime! airline.vimrc'
+hook_add = 'runtime airline.vimrc'
 [[plugins]]
 repo = 'vim-airline/vim-airline-themes'
 depends = 'vim-airline'
@@ -58,9 +58,10 @@ depends = 'vim-airline'
 ### FZF
 [[plugins]]
 repo = 'junegunn/fzf'
+hook_done_update = './install --all'
 [[plugins]]
 repo = 'junegunn/fzf.vim'
-hook_add = 'runtime! fzf.vimrc'
+hook_add = 'runtime fzf.vimrc'
 
 ### Git
 [[plugins]]

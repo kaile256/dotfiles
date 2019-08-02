@@ -12,6 +12,7 @@
 * VIM
 ** Nightly
 *** Install
+*** Check on Qt?
 ** Term-mode
 *** DONE Auto-insert
 ** cd
@@ -46,6 +47,8 @@
 *** gl for weblio
 *** TODO browser on duckduck
 ** coc.vimrc
+*** DONE signcolumn doesn't work.
+**** dein's lazy=0 doesn't support hook_done_update; write hook_add.
 *** Prompt
 **** Not to move up&down window.
 **** Floating Window is disturbing.
