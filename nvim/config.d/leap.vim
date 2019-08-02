@@ -72,17 +72,17 @@ cnoremap <a-k> <ESC>
 
 """ Tab Page
 " mnemonic: <s-,>/<s-.> are < & >.
-nnoremap <a-h> gT
-nnoremap <a-l> gt
+nnoremap <c-h> gT
+nnoremap <c-l> gt
 
 "" Give Tab
 nnoremap <c-w><c-t> <c-w>T
 
 """ Go-To
 "" Help
-noremap <silent> gh :h <cWORD><cr>
+noremap <silent> gh :h <c-r>=<cWORD><cr>
 "" Man
-noremap <silent> gm :Man <cWORD><CR>
+noremap <silent> gm :Man <c-r>=<cWORD><CR>
 "" File-Path
 " switch mapping
 noremap gf gF
@@ -122,6 +122,14 @@ noremap <silent> <a-{> :$tag<cr>
 
 """ Terminal
 if has('nvim')
+  """" GENERAL
+  augroup TermMode
+    au! TermOpen *
+    if &buftype ==# 'terminal' || &filetype !=# 'fzf'
+      exec 'normal i'
+    endif
+  augroup END
+
   """" KEYMAP
   """ Normal Mode
   "" Open Shortcut
