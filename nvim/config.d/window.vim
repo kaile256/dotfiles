@@ -16,7 +16,7 @@ nmap [g:great_redraw] :cclose<bar>:lclose<bar>retab<cr>
 
 "" Ref: showmarks.vimrc
 nmap <silent> <space><space>     [g:redraw]
-nmap <silent> <a-space><a-space> [g:great_redraw]
+nmap <silent> <c-space>space [g:great_redraw]
 
 """ Write&Quit
 " w! write even read-only file.
