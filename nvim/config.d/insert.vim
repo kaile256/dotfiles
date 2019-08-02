@@ -85,7 +85,7 @@ cnoremap <a-f> <S-right>
 cnoremap <c-f> <right>
 cnoremap <c-b> <left>
 "" Cancel
-cnoremap <c-k> <esc>
+cnoremap <a-k> <esc>
 
 """ Advanced <c-g>
 inoremap <c-g><c-h> <Left>
@@ -122,7 +122,7 @@ inoremap <a-a> <esc>a
 inoremap <a-o> <esc>o
 
 """ Del
-inoremap <c-l> <Del>
+inoremap <c-d> <Del>
 """ Undo Break
 inoremap <c-j> <c-g>u<c-j>
 "" Put
