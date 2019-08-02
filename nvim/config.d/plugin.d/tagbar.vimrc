@@ -1,4 +1,4 @@
-"""" From: leap.toml
+"""" From: tool.toml
 """" CONFIG
 "" ['▶', '▼'] isis default marks.
 "let g:tagbar_iconchars = ['+', '-']

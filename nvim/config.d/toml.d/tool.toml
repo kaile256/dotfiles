@@ -1,5 +1,19 @@
 #### From: dein.vimrc
 
+### Tags
+[[plugins]]
+repo = 'jsfaint/gen_tags.vim'
+on_event = 'BufLeave'
+hook_post_source = 'runtime! gen_tags.vimrc'
+#[[plugins]]
+#repo = 'majutsushi/tagbar'
+#on_event = ['BufNew','BufReadPost']
+#hook_post_source = 'runtime tagbar.vimrc'
+[[plugins]]
+repo = 'liuchengxu/vista.vim'
+on_event = ['BufNew','BufReadPost']
+hook_post_source = 'runtime vista.vimrc'
+
 ### Operator
 [[plugins]]
 repo = 'junegunn/vim-easy-align'
@@ -37,11 +51,6 @@ hook_post_source = 'runtime! sonictemplate.vimrc'
 #[[plugins]]
 #repo = 'wsdjeg/dein-ui.vim'
 #hook_add = 'runtime! dein-ui.vim'
-
-#### Start Page
-#[[plugins]]
-#repo = 'mhinz/vim-startify'
-#hook_post_source = 'runtime! startify.vimrc'
 
 ### Emacs-Like
 ### Narrow Region

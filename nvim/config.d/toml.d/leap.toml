@@ -26,16 +26,3 @@ hook_post_source = 'runtime sandwich.vimrc'
 #repo = 'tpope/vim-surround'
 #on_event = 'BufRead'
 #hook_post_source = 'runtime surround.vimrc'
-
-### Tags
-[[plugins]]
-repo = 'jsfaint/gen_tags.vim'
-on_event = 'BufLeave'
-hook_post_source = 'runtime! gen_tags.vimrc'
-[[plugins]]
-repo = 'majutsushi/tagbar'
-on_event = ['BufNew','BufReadPost']
-hook_post_source = 'runtime tagbar.vimrc'
-[[plugins]]
-repo = 'liuchengxu/vista.vim'
-on_event = ['BufNew','BufReadPost']
