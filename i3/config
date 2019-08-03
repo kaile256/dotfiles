@@ -46,7 +46,8 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 # nm-applet: WiFi Network Manager
 exec --no-startup-id nm-applet
 exec --no-startup-id fcitx
-exec --no-startup-id xfce4-terminal
+exec --no-startup-id nvim-qt
+exec --no-startup-id qutebrowser
 # dunst: Light Notification Daemon
 #exec --no-startup-id dunst
 # parcellite: Clipboard Manager
