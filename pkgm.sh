@@ -56,6 +56,9 @@ zsh
 
 Manjaro=(
 dmenu-manjaro
+i3pystatus
+python-i3-py
+i3-style
 bluez   # for Bluetooth
 bluez-utils
 )

@@ -4,7 +4,9 @@
 command! CurrentFileOnBrowser execute "OpenBrowser" "file:///" . expand('%:p:gs?\\?/?')
 
 """" KEYMAP
+"" NOTICE: do you use other editors?
 nmap g% :CurrentFileOnBrowser<cr>
+nmap gc :CurrentFileOnBrowser<cr>
 " smart-search detects if it is URI or not.
 """ Under Cursor
 nmap gb <Plug>(openbrowser-smart-search)
@@ -14,16 +16,17 @@ vmap gb <Plug>(openbrowser-smart-search)
 "vmap gp :OpenBrowserSmartSearch -wikipedia <c-r>=expand('<cWORD>')<cr><cr>
 
 """ Prompt
-"" Mnemonic: Web with Duckduckgo
-cmap <m-w>      :<c-u>OpenBrowserSmartSearch 
+"" Mnemonic: Web
+cmap <a-w><a-b> :<c-u>OpenBrowserSmartSearch 
+cmap <a-w>b     :<c-u>OpenBrowserSmartSearch 
 
 """ Search Engine
 "" Duckduckgo
-"cmap <m-d> -duckduckgo 
+"cmap <a-d> -duckduckgo 
 
 "" GitHub
-cmap <m-g> -github 
-cmap <m-y> -github 
+cmap <a-g> -github 
+cmap <a-y> -github 
 
 "" Wikipedia
 cmap <a-p> -wikipedia 

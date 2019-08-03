@@ -24,25 +24,25 @@ set nofoldenable
 
 """" KEYMAP
 """ Current Directory
-nnoremap <a-c><a-c> :cd %:p:h<cr>:echo '$CWD is "' . getcwd() . '"'<cr>
-nnoremap <a-c>c     :cd %:p:h<cr>:echo '$CWD is "' . getcwd() . '"'<cr>
+nnoremap <a-w><a-w> :cd %:p:h<cr>:echo '$CWD is "' . getcwd() . '"'<cr>
+nnoremap <a-w>c     :cd %:p:h<cr>:echo '$CWD is "' . getcwd() . '"'<cr>
 "" Root Directory
-nnoremap <a-c><a-r> :cd /<cr>:echo '$CWD is "' . getcwd() . '"'<cr>
-nnoremap <a-c>r     :cd /<cr>:echo '$CWD is "' . getcwd() . '"'<cr>
+nnoremap <a-w><a-r> :cd /<cr>:echo '$CWD is "' . getcwd() . '"'<cr>
+nnoremap <a-w>r     :cd /<cr>:echo '$CWD is "' . getcwd() . '"'<cr>
 "" $HOME
-nnoremap <a-c><a-h> :cd ~<cr>:echo '$CWD is "' . getcwd() . '"'<cr>
-nnoremap <a-c>h     :cd ~<cr>:echo '$CWD is "' . getcwd() . '"'<cr>
+nnoremap <a-w><a-h> :cd ~<cr>:echo '$CWD is "' . getcwd() . '"'<cr>
+nnoremap <a-w>h     :cd ~<cr>:echo '$CWD is "' . getcwd() . '"'<cr>
 "" XDG_CACHE_HOME
-nnoremap <a-c><a-a> :cd ~/.cache<cr>:echo '$CWD is "' . getcwd() . '"'<cr>
-nnoremap <a-c>a     :cd ~/.cache<cr>:echo '$CWD is "' . getcwd() . '"'<cr>
+nnoremap <a-w><a-a> :cd ~/.cache<cr>:echo '$CWD is "' . getcwd() . '"'<cr>
+nnoremap <a-w>a     :cd ~/.cache<cr>:echo '$CWD is "' . getcwd() . '"'<cr>
 "" XDG_CONFIG_HOME
-nnoremap <a-c><a-g> :cd ~/.config<cr>:echo '$CWD is "' . getcwd() . '"'<cr>
-nnoremap <a-c>g     :cd ~/.config<cr>:echo '$CWD is "' . getcwd() . '"'<cr>
-nnoremap <a-c><a-f> :cd ~/.config<cr>:echo '$CWD is "' . getcwd() . '"'<cr>
-nnoremap <a-c>f     :cd ~/.config<cr>:echo '$CWD is "' . getcwd() . '"'<cr>
+nnoremap <a-w><a-g> :cd ~/.config<cr>:echo '$CWD is "' . getcwd() . '"'<cr>
+nnoremap <a-w>g     :cd ~/.config<cr>:echo '$CWD is "' . getcwd() . '"'<cr>
+nnoremap <a-w><a-f> :cd ~/.config<cr>:echo '$CWD is "' . getcwd() . '"'<cr>
+nnoremap <a-w>f     :cd ~/.config<cr>:echo '$CWD is "' . getcwd() . '"'<cr>
 "" Dotfiles
-nnoremap <a-c><a-d> :cd ~/dotfiles<cr>:echo '$CWD is "' . getcwd() . '"'<cr>
-nnoremap <a-c>d     :cd ~/dotfiles<cr>:echo '$CWD is "' . getcwd() . '"'<cr>
+nnoremap <a-w><a-d> :cd ~/dotfiles<cr>:echo '$CWD is "' . getcwd() . '"'<cr>
+nnoremap <a-w>d     :cd ~/dotfiles<cr>:echo '$CWD is "' . getcwd() . '"'<cr>
 
 """ hjkl
 " move as it looks.
