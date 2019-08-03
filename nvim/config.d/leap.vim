@@ -54,11 +54,12 @@ xnoremap gk k
 " <a-hjkl> get along with <s-wbe>,
 " though <c-hjkl> get along with <c-fbud>;
 "nnoremap <silent> <a-h> :<c-r>=(               virtcol('.')) /2<cr>h
-"nnoremap <silent> <a-l> :<c-r>=(virtcol('0') - virtcol('.')) /2<cr>l
-map <silent> <c-j> [ToWinBottom]
-map <silent> <c-k> [ToWinTop]
+"nnoremap <silent> <a-l> :<c-r>=(virtcol('-1') - virtcol('.')) /2<cr>l
+map <silent> <c-h> [ToWinTop]
+map <silent> <c-l> [ToWinBottom]
 " CAUTION: <c-m> is identical with <cr>; <c-,>/<c-.> does't work.
-map <silent> K [ToWinMiddle]
+map <silent> <c-j> [ToWinMiddle]
+map <silent> <c-k> [ToWinMiddle]
 
 """ Pane
 " leap between panes
@@ -67,24 +68,28 @@ nnoremap <a-j> <c-w>j
 nnoremap <a-k> <c-w>k
 nnoremap <a-l> <c-w>l
 
-nnoremap <a-b> <c-w>b
-nnoremap <a-t> <c-w>t
+"nnoremap <a-b> <c-w>b
+"nnoremap <a-t> <c-w>t
 " avoid stack on command-line
 cnoremap <a-k> <ESC>
 
 """ Tab Page
-" mnemonic: <s-,>/<s-.> are < & >.
-nnoremap <c-h> gT
-nnoremap <c-l> gt
-
+"" Move between Tabs
+nnoremap <a-t><a-h> gT
+nnoremap <a-t>h     gT
+nnoremap <a-t><a-l> gt
+nnoremap <a-t>l     gt
+nnoremap <silent> <a-t><a-o> :tabonly<cr>
 "" Give Tab
-nnoremap <c-w><c-t> <c-w>T
+nnoremap <a-t><c-g> <c-w>T
 
 """ Go-To
 "" Help
-noremap <silent> gh :h <c-r>=<cWORD><cr>
+"noremap <silent> gh :h <c-r>=<cWORD><cr>
+
 "" Man
-noremap <silent> gm :Man <c-r>=<cWORD><CR>
+"noremap <silent> gm :Man <c-r>=<cWORD><CR>
+
 "" File-Path
 " switch mapping
 noremap gf gF
@@ -135,10 +140,14 @@ if has('nvim')
   """" KEYMAP
   """ Normal Mode
   "" Open Shortcut
-  nnoremap <silent> <a-t><a-e> :<c-u>        :te<cr>
-  nnoremap <silent> <a-t><a-s> :<c-u>sp<cr>  :te<cr>
-  nnoremap <silent> <a-t><a-v> :<c-u>vs<cr>  :te<cr>
-  nnoremap <silent> <a-t><a-b> :<c-u>tabe<cr>:te<cr>
+  nnoremap <silent> <a-t>e :<c-u>         :te<cr>
+  nnoremap <silent> <a-t>s :<c-u>sp  <bar>:te<cr>
+  nnoremap <silent> <a-t>v :<c-u>vs  <bar>:te<cr>
+  nnoremap <silent> <a-t>b :<c-u>tabe<bar>:te<cr>
+  nnoremap <silent> <a-t><a-e> :<c-u>         :te<cr>
+  nnoremap <silent> <a-t><a-s> :<c-u>sp  <bar>:te<cr>
+  nnoremap <silent> <a-t><a-v> :<c-u>vs  <bar>:te<cr>
+  nnoremap <silent> <a-t><a-b> :<c-u>tabe<bar>:te<cr>
 
   """ Terminal Mode
   " Use emacs-like keybind in terminal-job mode.
