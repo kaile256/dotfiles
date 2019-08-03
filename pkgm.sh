@@ -28,6 +28,7 @@ echo "$INSTALLER will install package via '$install'!!"
 #### WANTED-PACKAGES INSTALLATION
 Package=(
 anyenv
+arandr  # visual config for xrandr
 bash-completion
 cargo  # select rustup
 gendesk

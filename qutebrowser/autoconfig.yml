@@ -7,13 +7,16 @@ settings:
     global: true
   bindings.commands:
     global:
+      caret:
+        b: move-to-prev-word
+        w: move-to-next-word
       command:
         <Ctrl+j>: completion-item-focus next
         <Ctrl+k>: completion-item-focus prev
         <Ctrl+n>: command-history-next
         <Ctrl+p>: command-history-prev
       insert:
-        <Ctrl+m>: return
+        <Ctrl+m>: follow-selected
       normal:
         '1': tab-close
         '2': save
@@ -28,6 +31,7 @@ settings:
         <Ctrl+2>: save
         <Ctrl+h>: tab-prev
         <Ctrl+i>: forward
+        <Ctrl+j>: move-to-next-line
         <Ctrl+l>: tab-next
         <Ctrl+n>: null
         <Ctrl+o>: back

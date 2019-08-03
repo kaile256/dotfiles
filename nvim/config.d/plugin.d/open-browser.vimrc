@@ -17,6 +17,8 @@ vmap gb <Plug>(openbrowser-smart-search)
 
 """ Prompt
 "" Mnemonic: Web
+nmap <a-w><a-b> :<c-u>OpenBrowserSmartSearch 
+nmap <a-w>b     :<c-u>OpenBrowserSmartSearch 
 cmap <a-w><a-b> :<c-u>OpenBrowserSmartSearch 
 cmap <a-w>b     :<c-u>OpenBrowserSmartSearch 
 

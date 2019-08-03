@@ -6,7 +6,8 @@
 *** TODO set up makefile
 ** i3/config
 *** Status:
-**** Show Battery
+**** TODO Use python
+*** Show Battery
 *** TODO Start up with Neovim.
 ** Urxvt
 *** Setup Xsources
@@ -69,6 +70,9 @@
 **** Keep tab of orgs.
 *** buffer-list
 *** git.Browser
+*** _Extensions_
+**** TODO coc-pairs
+**** TODO coc-prettiers
 
 ** fugitive.vimrc
 *** Diff
