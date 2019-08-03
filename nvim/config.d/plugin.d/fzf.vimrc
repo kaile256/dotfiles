@@ -48,8 +48,8 @@ nnoremap <silent> <a-o>w     :<c-u>Windows<cr><a-o>
 "" Useless?
 nnoremap <silent> <a-o><a-m> :<c-u>Marks<cr><a-o>
 nnoremap <silent> <a-o>m     :<c-u>Marks<cr><a-o>
-nnoremap <silent> <a-o><a-l> :<c-u>Lines<cr><a-o>
-nnoremap <silent> <a-o>l     :<c-u>Lines<cr><a-o>
+nnoremap <silent> <a-o><a-l> :<c-u>BLines<cr><a-o>
+nnoremap <silent> <a-o>l     :<c-u>BLines<cr><a-o>
 
 "" Search
 nnoremap <silent> <a-o><a-/> :<c-u>History/<cr><a-o>
@@ -77,7 +77,7 @@ function! s:fzf_keymap()
   tnoremap <silent><buffer> <a-f> <c-l><c-\><c-n> :<c-u>History<cr>
   tnoremap <silent><buffer> <a-m> <c-l><c-\><c-n> :<c-u>Marks<cr>
   tnoremap <silent><buffer> <a-p> <c-l><c-\><c-n> :<c-u>Maps<cr>
-  tnoremap <silent><buffer> <a-q> <c-l><c-\><c-n> :q<cr>
+  tnoremap <silent><buffer> <a-q> <c-l><c-\><c-n> :quit<cr>
   tnoremap <silent><buffer> <a-r> <c-l><c-\><c-n> :<c-u>Rg
 endfunction
 

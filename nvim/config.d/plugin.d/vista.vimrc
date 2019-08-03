@@ -17,7 +17,9 @@ let g:vista_fzf_preview = ['right:50%']
 " :Vista is same as :Vista ctags.
 " !! is toggle vista-view.
 nnoremap <silent> <a-u> :<c-u>Vista!!<cr>
-nnoremap <silent> <a-f> :<c-u>Vista finder<cr>
+"" Ref: fzf.vimrc
+"" Mnemonic: Open Tags
+nnoremap <silent> <a-o><a-t> :<c-u>Vista finder<cr>
 
 function! VistaKeymap()
   nnoremap <silent><buffer> <c-;> :<c-u>Vista coc<cr>
