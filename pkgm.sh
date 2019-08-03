@@ -29,10 +29,8 @@ echo "$INSTALLER will install package via '$install'!!"
 Package=(
 anyenv
 bash-completion
-bluez   # for Bluetooth
-bluez-utils
 cargo  # select rustup
-dmenu
+gendesk
 fzf
 ghq-bin
 global
@@ -54,6 +52,16 @@ tty-dejavu
 vmail
 yarn
 zsh
+)
+
+Manjaro=(
+dmenu-manjaro
+bluez   # for Bluetooth
+bluez-utils
+)
+
+Depend=(
+dropbox-cli
 )
 
 for package in ${Package[@]}; do
