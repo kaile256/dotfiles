@@ -127,6 +127,7 @@ done
 GitRepos=(
 Shougo/dein.vim
 )
+git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
 
 for g in ${gitRepos[@]}; do
   # if you want to use pocke/get, replace ghq get w/ get ghq

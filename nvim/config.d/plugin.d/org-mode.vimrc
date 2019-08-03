@@ -1,4 +1,4 @@
-"""" From: tool.toml
+"""" From: filetype.toml
 
 augroup OrgMode
   au!
