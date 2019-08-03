@@ -57,8 +57,8 @@ nnoremap <silent> <a-o>/     :<c-u>History/<cr><a-o>
 nnoremap <silent> <a-o><a-;> :<c-u>History:<cr><a-o>
 nnoremap <silent> <a-o>;     :<c-u>History:<cr><a-o>
 """ Preview Only
-nnoremap <silent> <a-p><a-p> :<c-u>Maps<cr><a-o>
-nnoremap <silent> <a-p>p     :<c-u>Maps<cr><a-o>
+nnoremap <silent> <a-o><a-p> :<c-u>Maps<cr><a-o>
+nnoremap <silent> <a-o>p     :<c-u>Maps<cr><a-o>
 
 augroup FzfBuffer
   au! FileType fzf setlocal noshowmode
