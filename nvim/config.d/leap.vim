@@ -132,15 +132,14 @@ noremap <silent> <a-}> :0tag<cr>
 noremap <silent> <a-{> :$tag<cr>
 
 """ Terminal
-if has('nvim')
-  """" GENERAL
-  augroup TermMode
-    au! TermOpen *
-    if &buftype ==# 'terminal' || &filetype !=# 'fzf'
-      exec 'normal i'
-    endif
-  augroup END
+"""" GENERAL
+augroup TermMode
+  au!
+  au WinEnter *
+  if &buftype ==# 'terminal' | startinsert | endif
+augroup END
 
+if has('nvim')
   """" KEYMAP
   """ Normal Mode
   "" Open Shortcut
@@ -154,6 +153,8 @@ if has('nvim')
   nnoremap <silent> <a-t><a-b> :<c-u>tabe<bar>:te<cr>
 
   """ Terminal Mode
+  "" Put as in Insert Mode
+  tnoremap <expr> <C-R> '<C-\><C-N>"'.nr2char(getchar()).'pi'
   " Use emacs-like keybind in terminal-job mode.
   "" ESC
   " esc in the same way as in the other mode.
