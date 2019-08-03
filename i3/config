@@ -5,8 +5,6 @@
 # this file and re-run i3-config-wizard(1).
 #
 
-# i3 config file (v4)
-#
 #### Ref: https://i3wm.org/docs/userguide.html
 #### Ref: X11/.xinitrc
 #### NOTICE: Duplicated Keybind makes i3 error-notify.
@@ -22,19 +20,6 @@
 #font pango:monospace 8
 font pango:DejaVu Sans Mono 11
 
-#### ACTION
-### General
-## Win-Key
-set $mod Mod4
-## Kill Focused Window
-bindsym $mod+q kill
-# reload the configuration file
-bindsym $mod+Shift+c reload
-# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-bindsym $mod+Shift+r restart
-# exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
-
 # Before i3 v4.8, we used to recommend this one as the default:
 # font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
 # The font above is very space-efficient, that is, it looks good, sharp and
@@ -43,8 +28,7 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 # font, it doesn't scale on retina/hidpi displays.
 
 ### Start-Up
-exec layout tabbed
-exec i3status | i3-wsbar -c "dzen2 -x %x -dock"
+workspace_layout tabbed
 # nm-applet: WiFi Network Manager
 exec --no-startup-id nm-applet
 exec --no-startup-id fcitx
@@ -56,6 +40,19 @@ exec --no-startup-id qutebrowser
 #exec --no-startup-id parcellite
 # pvolumeicon: Modify Sound Volume
 #exec --no-startup-id pvolumeicon
+
+#### KEYBIND
+### General
+## Win-Key
+set $mod Mod4
+## Kill Focused Window
+bindsym $mod+q kill
+# reload the configuration file
+bindsym $mod+Shift+c reload
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $mod+Shift+r restart
+# exit i3 (logs you out of your X session)
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
 ### Terminal
 bindsym $mod+Return exec i3-sensible-terminal
@@ -188,7 +185,7 @@ bindsym $mod+s mode "resize"
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-  status_command    i3status
+  status_command    pyi3status
     output            LVDS1
     position          top
     mode              hide
