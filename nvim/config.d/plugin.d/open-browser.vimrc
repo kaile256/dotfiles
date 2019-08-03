@@ -15,7 +15,6 @@ vmap gb <Plug>(openbrowser-smart-search)
 
 """ Prompt
 "" Mnemonic: Web with Duckduckgo
-nmap <m-w><a-d> :<c-u>OpenBrowserSmartSearch 
 cmap <m-w>      :<c-u>OpenBrowserSmartSearch 
 
 """ Search Engine
