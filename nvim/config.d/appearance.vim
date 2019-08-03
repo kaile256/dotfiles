@@ -36,8 +36,13 @@ if has('terminal')
 endif
 
 """ Line
-"" Ref molokai.vimrc
-"" Ref solarized.vimrc
+" CAUTION: cursorline-highlight causes drawing corruption.
+augroup CursorLine
+  au! BufRead,WinEnter,InsertLeave * setlocal cursorline
+  au! WinLeave,InsertEnter * setlocal nocursorline
+augroup END
+" highlight only CursorLineNr
+"hi CursorLine NONE
 
 """ Statusbar
 set title
