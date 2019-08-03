@@ -125,12 +125,12 @@ inoremap <a-o> <esc>o
 "" NOTICE: <c-d> increases indent on Insert Mode.
 
 """ Undo Break
-inoremap <c-j> <c-g>u<c-j>
+inoremap <c-j> <c-g>u<c-j><c-g>u
 "" Put
 inoremap <c-r> <c-g>u<c-r>
 "" Backspace
-inoremap <c-u> <c-g>u<c-u>
-inoremap <c-w> <c-g>u<c-w>
+inoremap <c-u> <c-g>u<c-u><c-g>u
+inoremap <c-w> <c-g>u<c-w><c-g>u
 
 augroup UndoBreakOnFileType
   au!
@@ -144,25 +144,35 @@ augroup end
 "" Yank
 nnoremap <space>y "+y
 xnoremap <space>y "+y
+nnoremap <space>Y "+y$
+xnoremap <space>Y "+y$
 
 "" Paste
 nnoremap <space>p "+p
 xnoremap <space>p "+p
-nnoremap <space>p "+p
-xnoremap <space>p "+p
+nnoremap <space>P "+P
+xnoremap <space>P "+P
 " CAUTION: not for xmap, or that makes delay.
 nnoremap yp "0p
 nnoremap yp "0p
+nnoremap yP "0P
+nnoremap yP "0P
 
 "" Black-Hole
 nnoremap <space>x "_x
 nnoremap <space>d "_d
 nnoremap <space>c "_c
 nnoremap <space>s "_s
+nnoremap <space>X "_X
+nnoremap <space>D "_D
+nnoremap <space>C "_C
+nnoremap <space>S "_S
 
 """ Visual Mode
 "" Sort; Initial to Reverse Sort
 " CAUTION: <c-s> freezes screen on some Linux-Distros as default.
+"" Alphabetical
+xnoremap <a-s>      :sort   <cr>
 xnoremap <a-s><a-a> :sort   <cr>
 xnoremap <a-s>a     :sort   <cr>
 xnoremap <a-s>A     :sort!  <cr>
