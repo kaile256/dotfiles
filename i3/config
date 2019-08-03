@@ -43,6 +43,8 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 # font, it doesn't scale on retina/hidpi displays.
 
 ### Start-Up
+exec layout tabbed
+exec i3status | i3-wsbar -c "dzen2 -x %x -dock"
 # nm-applet: WiFi Network Manager
 exec --no-startup-id nm-applet
 exec --no-startup-id fcitx

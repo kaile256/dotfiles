@@ -7,9 +7,14 @@
 
 set -Cu
 
-type nvim > /dev/null && {
+type nvim-qt > /dev/null && {
+  export EDITOR=nvim-qt
+  export VISUAL=nvim-qt
+} || {
+  type nvim > /dev/null && {
   export EDITOR=nvim
   export VISUAL=nvim
+}
 } || {
   export EDITOR=vi
   export VISUAL=vi

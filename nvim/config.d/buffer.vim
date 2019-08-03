@@ -24,6 +24,7 @@ augroup AdjustOnFileType
   au BufLeave * if &filetype ==# 'help' | drop % | endif
 
   """" PLUGINS
+  au FileType vista setlocal nobuflisted
   """ Treat as QuickFix
   au FileType fugitive,defx,vista setlocal buftype=quickfix
 

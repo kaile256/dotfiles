@@ -40,52 +40,34 @@ function! s:GrepFromSelected(type)
   execute 'CocList grep '.word
 endfunction
 
-nnoremap <a-r> :Cg<cr>
-nnoremap <a-g> :Cg<cr>
 """ Grep Word Under Cursor
+"" Use fzf.vimrc
 "" By Motion
-vnoremap <space># :<C-u>call <SID>GrepFromSelected(visualmode())<CR>
-nnoremap <space>* :<C-u>set operatorfunc=<SID>GrepFromSelected<CR>g@
+"vnoremap <space># :<C-u>call <SID>GrepFromSelected(visualmode())<CR>
+"nnoremap <space>* :<C-u>set operatorfunc=<SID>GrepFromSelected<CR>g@
 "" In Current Buffer
-nnoremap <silent> <space>#  :exe 'CocList -I --normal --input='.expand('<cword>').' words'<CR>
+"nnoremap <silent> <space>#  :exe 'CocList -I --normal --input='.expand('<cword>').' words'<CR>
 " Keymapping for grep word under cursor with interactive mode
-nnoremap <silent> <Leader>cf :exe 'CocList -I --input='.expand('<cword>').' grep'<CR>
+"nnoremap <silent> <Leader>cf :exe 'CocList -I --input='.expand('<cword>').' grep'<CR>
 
 """" COC-LIST
 """ CAUTION: careful not to conflict :checkhealth
 "" show yank list
-" --no-sort: Disable sort by mru.
-nnoremap <silent> <a-c> :<c-u>CocList --normal --no-sort<cr>
-nnoremap <silent> <a-p> :<c-u>CocList --auto-preview --normal yank<cr>
-"" Show Buffer List
-nnoremap <silent> <a-c><a-b> :<c-u>CocList --ignore-case --auto-preview buffer<cr>
-nnoremap <silent> <a-c>b     :<c-u>CocList --ignore-case --auto-preview buffer<cr>
-
-"""" COC-SNIPPETS
-let g:coc_cnippet_next = '\<c-n>'
-let g:coc_cnippet_prev = '\<c-p>'
-
-""" Keymap
-"" Unmap
-nnoremap <buffer> <c-j>
-"" Newmap
-nnoremap <buffer> <c-n> <c-j>
-nnoremap <buffer> <c-p> <c-k>
 
 """" COMPLETION
+""" Snippets
 """ General
 "" Coc-Done
 " closes preview vindow when completion is done.
 au! CompleteDone * if pumvisible() == 0 | pclose | endif
 
-""" Definition
-"" use <tab> for trigger completion and navigate to the next complete item
+""" Keymap
+"" Definition
 function! s:make_sure_no_space() abort
   let col = col('.') - 1
   return !col || getline('.')[col - 1] =~ '\s'
 endfunction
 
-""" Keymap
 "" Confirm with <CR>; only <C-y> is by default.
 inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<CR>"
 "" Trigger Completion by <c-n>/<c-p>.

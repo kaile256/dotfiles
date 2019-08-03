@@ -8,16 +8,6 @@ nnoremap Y y$
 "" Indent
 nnoremap <S-TAB> gg=G''zz
 
-"" Redraw
-" CAUTION: <c-l> should be run at LAST so that no corruption.
-nnoremap [g:redraw] :<c-u>noh<cr><c-l>
-" CAUTION: zR (open all fold) makes vim FREEZE.
-nmap [g:great_redraw] :cclose<bar>:lclose<bar>retab<cr>
-
-"" Ref: showmarks.vimrc
-nmap <silent> <space><space>     [g:redraw]
-nmap <silent> <c-space>space [g:great_redraw]
-
 """ Write&Quit
 " w! write even read-only file.
 nnoremap          <space>w :<c-u>w<cr>

@@ -122,7 +122,8 @@ inoremap <a-a> <esc>a
 inoremap <a-o> <esc>o
 
 """ Del
-inoremap <c-d> <Del>
+"" NOTICE: <c-d> increases indent on Insert Mode.
+
 """ Undo Break
 inoremap <c-j> <c-g>u<c-j>
 "" Put

@@ -3,10 +3,19 @@
 """" ColorScheme
 """ Ref: dein.vim
 
+"" Redraw
+" CAUTION: <c-l> should be run at LAST so that no corruption.
+" CAUTION: zR (open all fold) makes vim FREEZE.
+"" Ref: showmarks.vimrc
+imap <silent> <c-l> <c-o> :<c-u> noh <bar> redraw <cr>
+nmap <silent> <space><space>     :<c-u>noh <bar> redraw <cr>
+nmap <silent> <c-space><c-space> :cclose <bar> retab <cr>
+nmap <silent> <c-space>space     :cclose <bar> retab <cr>
+
 """" Read Only
 augroup AlertWhenReadOnly
   au! BufReadPost,BufEnter *
-  if &readonly && &buftype !=# 'help' && &buftype !=# 'directory'
+  if &readonly && &filetype !=# 'help' && &buftype !=# 'directory'
     colorscheme morning
   endif
 augroup END

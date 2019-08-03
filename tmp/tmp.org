@@ -1,54 +1,65 @@
 * Linux
+** Dropbox
+*** associate with dropbox for private info.
 ** pkgm.sh
-*** TODO Add Nightly-Neovim
-*** set up makefile
-** i3wm
+*** DONE Add Nightly-Neovim
+*** TODO set up makefile
+** i3/config
+*** Status:
+**** Show Battery
+*** TODO Start up with Neovim.
 ** Urxvt
 *** Setup Xsources
 *** Install 256color
 ** Emacs
-*** Install light emancs to use OrgMode.
+*** DONE Install light emancs to use OrgMode.
 
 * VIM
+** restart.vim
+*** TODO Append dein_installer.
 ** Nightly
-*** Install
-*** Check on Qt?
+*** DONE Install
+*** DONE Check on Qt?
 ** Term-mode
 *** DONE Auto-insert
 ** cd
-*** TODO && echo $PWD
+*** DONE && echo $PWD
 *** TODO not only <buffer>
 ** Buffer
 *** BufType/FileType
 **** DONE &buftype/&filetype simultaneously
 **** TODO no extra space on echo &buftype.
+*** 
 *** Keep Buffers
 **** TODO Keep buffers even :qa.
 **** TODO ShaDa?
-** Refresh
-*** DONE Mod <space>*2 not to freeze
-*** DONE Don't put zR, or freeze.
-** Colo
-*** On Unmodifiable
-** Visual-Mode
-*** V-Line i as V-block I
+
 ** Keymap
-*** swap <a-space> to <c-**>.
-** Rg
-*** DONE Where is it Defined?
-*** DONE fzf.vim does!
-**** DONE coc.nvim has nothing to do with Rg.
+*** Refresh
+**** DONE <c-space>*2 to :redraw
+**** DONE Mod <space>*2 not to freeze
+**** DONE Don't put zR, or freeze.
+**** DONE swap <a-space> to <c-**>.
+*** Colo
+**** On Unmodifiable
+*** Visual-Mode
+**** TODO V-Line i as V-block I
+
 ** leap.vim
 ** DONE <c-hjkl> as <a-hjkl> for Term mode.
 
-* INIT
+* PLUGINS
 ** open-browser.vimrc
 *** gp for wikipedia
 *** gl for weblio
 *** TODO browser on duckduck
+
 ** ulti-snippets.vimrc
 *** associate with coc.vimrc
+
 ** coc.vimrc
+*** Completion:
+**** TODO use snippets on Insert-Mode
 *** DONE signcolumn doesn't work.
 **** dein's lazy=0 doesn't support hook_done_update; write hook_add.
 *** Prompt
@@ -58,31 +69,48 @@
 **** Keep tab of orgs.
 *** buffer-list
 *** git.Browser
-*** fzf/rg
-**** On <a-w> (cd), reset without <c-c>/<esc>.
-**** TODO set apart fzf & rg
-***** TODO fzf: JUST filenames
-***** TODO rg: WITHOUT filenames
+
 ** fugitive.vimrc
 *** Diff
 **** TODO diff before/after staged
 **** DONE setf quickfix
 **** DONE map Git 3diff
+
 ** vista.vimrc
-*** :Vista finder set on top or on float.
+*** TODO no buffer remains.
+*** TODO :Vista finder set on top or on float.
+
 ** org-mode.vimrc
 *** TODO Colo for OrgMode.
 *** DONE set autosave
-*** Mapping
+*** Beautify:
+**** TODO Read Help for agenda
+**** TODO Title for //, **, etc.
+*** Mapping:
 *** '>' as an operator-command.
-** fzf.vimrc
+
+** fzf.vimrc:
+*** Add --color:
+**** TODO on BLines
+**** TODO on FZF, itself
+*** TODO Hotkey on fzf-buffer/filetype.
+*** Rg:
+**** DONE Where is it Defined?
+**** DONE fzf.vim does!
+**** DONE coc.nvim has nothing to do with Rg.
 *** DONE au! to <a-w><a-w>: cd(vim)
 *** DONE setf quickfix
-*** TODO mv fzf.vimrc to no_more.d
+*** DONE mv fzf.vimrc to no_more.d
+*** DONE fzf/rg
+*** /Reset CWD/
+**** TODO On &filetype=fzf, <a-w> to :quit<a-w>
+**** DONE set apart fzf & rg
+***** DONE fzf: JUST filenames
+***** DONE rg: WITHOUT filenames
 
 * INSTEAD
-** TagBar
-*** TODO setf as alternate buffer.
+** tagbar.vimrc; use vista.vimrc
+*** DONE setf as alternate buffer.
 ** Netrw
 *** au to defx
 *** TODO au to bdelete
