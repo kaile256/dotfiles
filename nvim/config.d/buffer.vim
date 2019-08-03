@@ -17,15 +17,17 @@ augroup END
 
 augroup AdjustOnFileType
   au!
-  au FileType fugitive setlocal buftype=quickfix
+  """ Treat as QuickFix
+  au FileType help setlocal buftype=quickfix
+
+  """ Help in Buffer-list
   au BufLeave * if &filetype ==# 'help' | drop % | endif
-  " fzf works on terminal; CANNOT change buftype.
+
+  """" PLUGINS
+  """ Treat as QuickFix
+  au FileType fugitive,defx,vista setlocal buftype=quickfix
+
+  """ Quit immediately upon WinLeave
+  "" NOTICE: fzf works on terminal; CANNOT change buftype.
   au WinLeave * if &filetype ==# 'fzf' | quit | endif
 augroup END
-
-""" Buffer
-"augroup HelpIntoBufferList
-"  "au! BufReadPost help drop %
-"  au! BufReadPost * if &buftype ==# 'help' | drop % | endif
-"augroup END
-
