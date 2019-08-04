@@ -9,8 +9,8 @@
 "" Ref: showmarks.vimrc
 imap <silent> <c-l> <c-o> :<c-u> noh <bar> redraw <cr>
 nmap <silent> <space><space>     :<c-u>noh <bar> redraw <cr>
-nmap <silent> <c-space><c-space> :cclose <bar> retab <cr>
-nmap <silent> <c-space>space     :cclose <bar> retab <cr>
+nmap <silent> <c-space><c-space> :cclose <bar> lclose <bar> retab <cr>
+nmap <silent> <c-space>space     :cclose <bar> lclose <bar> retab <cr>
 
 """" Read Only
 augroup AlertWhenReadOnly
@@ -29,17 +29,12 @@ set number
 " wrap long text.
 set wrap
 set colorcolumn=81
-if has('terminal')
-  augroup NoNumberOnTermMode
-    au! TermOpen * setlocal nonumber
-  augroup END
-endif
 
 """ Line
 " CAUTION: cursorline-highlight causes drawing corruption.
 augroup CursorLine
-  au! BufRead,WinEnter,InsertLeave * setlocal cursorline
-  au! WinLeave,InsertEnter * setlocal nocursorline
+  au! BufRead,WinEnter,InsertLeave * silent setlocal cursorline
+  au! WinLeave,InsertEnter * silent setlocal nocursorline
 augroup END
 " highlight only CursorLineNr
 "hi CursorLine NONE
