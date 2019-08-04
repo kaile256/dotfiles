@@ -1,4 +1,5 @@
 """" From: init.vim
+"""" Note: leap.org
 
 """" CONFIG
 " cursor position of column is kept on jump.
@@ -132,12 +133,6 @@ noremap <silent> <a-{> :$tag<cr>
 
 """ Terminal
 """" GENERAL
-augroup TermModeAugroup
-  au!
-  au TermOpen * silent setlocal nonumber
-  au BufEnter * if &buftype ==# 'terminal' | startinsert | endif
-augroup END
-
 if has('nvim')
   """" KEYMAP
   """ Normal Mode
