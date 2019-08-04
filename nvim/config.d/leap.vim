@@ -1,10 +1,5 @@
 """" From: init.vim
 
-"""" DEFINITION
-noremap [ToWinTop]    :<c-u><c-r>= (line('w0') + line('.'))/2<cr><cr>
-noremap [ToWinBottom] :<c-u><c-r>= (line('w$') + line('.') + 1)/2<cr><cr>
-noremap [ToWinMiddle] :<c-u><c-r>= (line('w0') + line('w$') + 2*line('.'))/4<cr><cr>
-
 """" CONFIG
 " cursor position of column is kept on jump.
 set nostartofline
@@ -43,6 +38,9 @@ nnoremap <a-w>f     :cd ~/.config<cr>:echo '$CWD is "' . getcwd() . '"'<cr>
 "" Dotfiles
 nnoremap <a-w><a-d> :cd ~/dotfiles<cr>:echo '$CWD is "' . getcwd() . '"'<cr>
 nnoremap <a-w>d     :cd ~/dotfiles<cr>:echo '$CWD is "' . getcwd() . '"'<cr>
+"" Org-Mode
+nnoremap <a-w><a-o> :cd ~/org<cr>:echo '$CWD is "' . getcwd() . '"'<cr>
+nnoremap <a-w>o     :cd ~/org<cr>:echo '$CWD is "' . getcwd() . '"'<cr>
 
 """ hjkl
 " move as it looks.
@@ -57,15 +55,16 @@ xnoremap gj j
 xnoremap gk k
 
 """ Advanced jk/HML
-" <a-hjkl> get along with <s-wbe>,
-" though <c-hjkl> get along with <c-fbud>;
-"nnoremap <silent> <a-h> :<c-r>=(               virtcol('.')) /2<cr>h
-"nnoremap <silent> <a-l> :<c-r>=(virtcol('-1') - virtcol('.')) /2<cr>l
+"" Definition
+noremap [ToWinTop]    :<c-u><c-r>= (line('w0') + line('.'))/2<cr><cr>
+noremap [ToWinBottom] :<c-u><c-r>= (line('w$') + line('.') + 1)/2<cr><cr>
+noremap [ToWinMiddle] :<c-u><c-r>= (line('w0') + line('w$') + 2*line('.'))/4<cr><cr>
+" CAUTION: <c-m> is identical with <cr>; <c-,>/<c-.> does't work.
+" <c-hjkl> get along with <c-fbud>; <a-hjkl> get along with <s-wbe>.
 map <silent> <c-h> [ToWinTop]
 map <silent> <c-j> [ToWinMiddle]
 map <silent> <c-k> [ToWinMiddle]
 map <silent> <c-l> [ToWinBottom]
-" CAUTION: <c-m> is identical with <cr>; <c-,>/<c-.> does't work.
 
 """ Pane
 " leap between panes
@@ -133,11 +132,10 @@ noremap <silent> <a-{> :$tag<cr>
 
 """ Terminal
 """" GENERAL
-augroup TermMode
+augroup TermModeAugroup
   au!
-  au TermOpen * setlocal nonumber
-  au WinEnter *
-  if &buftype ==# 'terminal' | norm i | endif
+  au TermOpen * silent setlocal nonumber
+  au BufEnter * if &buftype ==# 'terminal' | startinsert | endif
 augroup END
 
 if has('nvim')
