@@ -62,10 +62,10 @@ xnoremap gk k
 "nnoremap <silent> <a-h> :<c-r>=(               virtcol('.')) /2<cr>h
 "nnoremap <silent> <a-l> :<c-r>=(virtcol('-1') - virtcol('.')) /2<cr>l
 map <silent> <c-h> [ToWinTop]
-map <silent> <c-l> [ToWinBottom]
-" CAUTION: <c-m> is identical with <cr>; <c-,>/<c-.> does't work.
 map <silent> <c-j> [ToWinMiddle]
 map <silent> <c-k> [ToWinMiddle]
+map <silent> <c-l> [ToWinBottom]
+" CAUTION: <c-m> is identical with <cr>; <c-,>/<c-.> does't work.
 
 """ Pane
 " leap between panes
