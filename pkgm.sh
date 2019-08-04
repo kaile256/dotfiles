@@ -31,8 +31,8 @@ anyenv
 arandr  # visual config for xrandr
 bash-completion
 cargo  # select rustup
-gendesk
 fzf
+gendesk
 ghq-bin
 global
 go
@@ -43,6 +43,7 @@ nerd-fonts-ricty
 pyenv
 python-oauth2client
 python-pipenv
+rclone  # sync lib for cloud-service like dropbox, Gdrive.
 ripgrep
 ruby
 rxvt-unicode
