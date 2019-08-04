@@ -146,11 +146,11 @@ if has('nvim')
   nnoremap <silent> <a-t>e :<c-u>         :te<cr>
   nnoremap <silent> <a-t>s :<c-u>sp  <bar>:te<cr>
   nnoremap <silent> <a-t>v :<c-u>vs  <bar>:te<cr>
-  nnoremap <silent> <a-t>b :<c-u>tabe<bar>:te<cr>
+  nnoremap <silent> <a-t>t :<c-u>tabe<bar>:te<cr>
   nnoremap <silent> <a-t><a-e> :<c-u>         :te<cr>
   nnoremap <silent> <a-t><a-s> :<c-u>sp  <bar>:te<cr>
   nnoremap <silent> <a-t><a-v> :<c-u>vs  <bar>:te<cr>
-  nnoremap <silent> <a-t><a-b> :<c-u>tabe<bar>:te<cr>
+  nnoremap <silent> <a-t><a-t> :<c-u>tabe<bar>:te<cr>
 
   """ Terminal Mode
   "" Put as in Insert Mode
