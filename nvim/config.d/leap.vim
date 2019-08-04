@@ -135,8 +135,9 @@ noremap <silent> <a-{> :$tag<cr>
 """" GENERAL
 augroup TermMode
   au!
+  au TermOpen * setlocal nonumber
   au WinEnter *
-  if &buftype ==# 'terminal' | startinsert | endif
+  if &buftype ==# 'terminal' | norm i | endif
 augroup END
 
 if has('nvim')
