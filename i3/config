@@ -94,7 +94,6 @@ bindsym $mod+f fullscreen toggle
 # stacking: like tabbed, but switch windows up & down.
 #bindsym $mod+s layout stacking
 bindsym $mod+t layout tabbed
-# move-window is sufficient.
 #bindsym $mod+e layout toggle split
 
 ## Floating Mode
