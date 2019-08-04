@@ -6,7 +6,13 @@ augroup AppendFileType
   au BufNewFile,BufRead *.vim!   setlocal filetype=vim
   au BufNewFile,BufRead *.vimrc  setlocal filetype=vim
   au BufNewFile,BufRead *.vimrc! setlocal filetype=vim
-  au BufNewFile,BufRead i3/*/config   setlocal filetype=i3
+  au BufNewFile,BufRead i3/*/config setlocal filetype=i3
+augroup END
+
+augroup OnTermMode
+  au!
+  au TermOpen * silent setlocal nonumber
+  au TermOpen,BufEnter * if &buftype ==# 'terminal' | startinsert | endif
 augroup END
 
 augroup NoBufListed
@@ -16,18 +22,17 @@ augroup NoBufListed
 augroup END
 
 augroup AdjustOnFileType
-  au!
   """ Treat as QuickFix
   au FileType help setlocal buftype=quickfix
   "" Cursor Locates on the Middle
   au FileType help norm zz
 
-  """ Help in Buffer-list
-  au BufLeave * if &filetype ==# 'help' | drop % | endif
-
   """" PLUGINS
   au FileType vista setlocal nobuflisted
   """ Treat as QuickFix
+  """ Help in Buffer-list
+  au BufLeave * if &filetype ==# 'help' | drop % | endif
+  au BufEnter * if expand('%') ==# 'netrw' | setlocal &buftype=quickfix | endif
   au FileType fugitive,defx,vista setlocal buftype=quickfix
 
   """ Quit immediately upon WinLeave
