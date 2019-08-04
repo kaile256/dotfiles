@@ -3,20 +3,23 @@
 
 config_version: 2
 settings:
-  auto_save.session:
-    global: true
   bindings.commands:
     global:
       caret:
+        W: move-to-next-char
         b: move-to-prev-word
         w: move-to-next-word
       command:
+        <Alt+k>: leave-mode
         <Ctrl+j>: completion-item-focus next
         <Ctrl+k>: completion-item-focus prev
         <Ctrl+n>: command-history-next
         <Ctrl+p>: command-history-prev
       insert:
+        <Ctrl+d>: rl-delete-char
+        <Ctrl+h>: rl-backward-delete-char
         <Ctrl+m>: follow-selected
+        <Ctrl+u>: rl-backward-kill-word
       normal:
         '1': tab-close
         '2': save
@@ -29,6 +32,7 @@ settings:
         <Ctrl++>: zoom-in
         <Ctrl+->: zoom-out
         <Ctrl+2>: save
+        <Ctrl+Space><Ctrl+Space>: reload
         <Ctrl+h>: tab-prev
         <Ctrl+i>: forward
         <Ctrl+j>: move-to-next-line
@@ -41,10 +45,9 @@ settings:
         <Ctrl+w><Ctrl+o>: window-only
         <Ctrl+w><Ctrl+t>: tab-give
         <Ctrl+x>: null
-        <Ctrl+x><Ctrl+h>: tab-prev
-        <Ctrl+x><Ctrl+l>: tab-next
         <Space>1: tab-close
         <Space>2: save
+        <Space><Space>: reload
         <Space>p: session-load LastSession.qt
         <Space>q: tab-close
         <Space>w: save
@@ -60,49 +63,3 @@ settings:
         gi: enter-mode insert
         i: hint inputs --first
         u: null
-  content.local_content_can_access_remote_urls:
-    global: true
-  content.notifications:
-    https://www.reddit.com: false
-  downloads.location.directory:
-    global: ~/Downloads
-  downloads.open_dispatcher:
-    global: null
-  fonts.completion.category:
-    global: bold 13pt monospace
-  fonts.completion.entry:
-    global: 12pt dejavu sans mono
-  fonts.debug_console:
-    global: 13pt dejavu sans mono
-  fonts.downloads:
-    global: 13pt dejavu sans mono
-  fonts.hints:
-    global: bold 14pt dejavu sans mono
-  fonts.keyhint:
-    global: 14pt dejavu sans mono
-  fonts.messages.error:
-    global: 13pt dejavu sans mono
-  fonts.messages.info:
-    global: 13pt dejavu sans mono
-  fonts.messages.warning:
-    global: 13pt dejavu sans mono
-  fonts.monospace:
-    global: '"xos4 Terminus", Terminus, Monospace, "DejaVu Sans Mono", Monaco, "Bitstream
-      Vera Sans Mono", "Andale Mono", "Courier New", Courier, "Liberation Mono", monospace,
-      Fixed, Consolas, Terminal'
-  fonts.prompts:
-    global: 11pt dejavu sans mono
-  fonts.statusbar:
-    global: 11pt dejavu sans mono
-  fonts.tabs:
-    global: 12pt dejavu sans mono
-  hints.chars:
-    global: asdwerxcv
-  session.default_name:
-    global: lastSession.qt
-  session.lazy_restore:
-    global: true
-  tabs.background:
-    global: true
-  tabs.new_position.unrelated:
-    global: last

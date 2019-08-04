@@ -78,6 +78,8 @@ bash/.bashrc
 ctags/.ctags
 git/.tigrc
 git/.gitconfig
+X11/.Xresources
+X11/.Xmodmap
 w3m/.w3m
 )
 

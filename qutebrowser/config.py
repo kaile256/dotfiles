@@ -9,7 +9,7 @@
 # Name of the session to save by default. If this is set to null, the
 # session which was last loaded is saved.
 # Type: SessionName
-c.session.default_name = 'lastSession.qt'
+c.session.default_name = 'LastSession.qt'
 
 # Load a restored tab as soon as it takes focus.
 # Type: Bool
@@ -125,60 +125,5 @@ c.fonts.statusbar = '11pt dejavu sans mono'
 # Type: QtFont
 c.fonts.tabs = '12pt dejavu sans mono'
 
-# Bindings for normal mode
-config.bind('1', 'tab-close')
-config.bind('2', 'save')
-config.bind('<Alt+[>', 'tab-prev')
-config.bind('<Alt+]>', 'tab-next')
-config.bind('<Alt+b>', 'tab-prev')
-config.bind('<Alt+f>', 'tab-next')
-config.bind('<Alt+h>', 'tab-prev')
-config.bind('<Alt+l>', 'tab-next')
-config.bind('<Ctrl++>', 'zoom-in')
-config.bind('<Ctrl+->', 'zoom-out')
-config.bind('<Ctrl+2>', 'save')
-config.bind('<Ctrl+h>', 'tab-prev')
-config.bind('<Ctrl+i>', 'forward')
-config.bind('<Ctrl+j>', 'move-to-next-line')
-config.bind('<Ctrl+l>', 'tab-next')
-config.bind('<Ctrl+n>', None)
-config.bind('<Ctrl+o>', 'back')
-config.bind('<Ctrl+q>', 'tab-close')
-config.bind('<Ctrl+v>', None)
-config.bind('<Ctrl+w>', None)
-config.bind('<Ctrl+w><Ctrl+o>', 'window-only')
-config.bind('<Ctrl+w><Ctrl+t>', 'tab-give')
-config.bind('<Ctrl+x>', None)
-config.bind('<Ctrl+x><Ctrl+h>', 'tab-prev')
-config.bind('<Ctrl+x><Ctrl+l>', 'tab-next')
-config.bind('<Space>1', 'tab-close')
-config.bind('<Space>2', 'save')
-config.bind('<Space>p', 'session-load LastSession.qt')
-config.bind('<Space>q', 'tab-close')
-config.bind('<Space>w', 'save')
-config.bind('<Space>z', 'session-save LastSession.qt')
-config.bind('D', None)
-config.bind('H', None)
-config.bind('J', None)
-config.bind('K', None)
-config.bind('L', None)
-config.bind('U', 'undo')
-config.bind('d', None)
-config.bind('e', 'edit-url')
-config.bind('gi', 'enter-mode insert')
-config.bind('i', 'hint inputs --first')
-config.bind('u', None)
-
-# Bindings for caret mode
-config.bind('b', 'move-to-prev-word', mode='caret')
-config.bind('w', 'move-to-next-word', mode='caret')
-
-# Bindings for command mode
-config.bind('<Ctrl+j>', 'completion-item-focus next', mode='command')
-config.bind('<Ctrl+k>', 'completion-item-focus prev', mode='command')
-config.bind('<Ctrl+n>', 'command-history-next', mode='command')
-config.bind('<Ctrl+p>', 'command-history-prev', mode='command')
-config.bind('<Alt+k>', 'leave-mode', mode='command')
-
-# Bindings for insert mode
-config.bind('<Ctrl+m>', 'follow-selected', mode='insert')
+# Load qutebrowser/autoconfig.yml
+config.load_autoconfig()
