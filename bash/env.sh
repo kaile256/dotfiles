@@ -1,9 +1,11 @@
 #!/usr/bin/env bash
 
-#### From: .bashrc
 #### Before: path.sh
-#### Ref: .zshenv
-#### Ref: config.fish
+#### From: .bashrc
+####  Ref: .zshenv
+####  Ref: config.fish
+####  Ref: .xprofile
+####  Ref: .xinitrc
 
 set -Cu
 
@@ -22,11 +24,10 @@ type nvim-qt > /dev/null && {
 
 export TERM=xterm-256color
 
-#### FONTS
-export DefaultIMModule=fcitx
+### Japanese IM
 export GTK_IM_MODULE=fcitx
-export QT_IM_MODULE=fcitx
 export XMODIFIERS=@im=fcitx
+export QT_IM_MODULE=fcitx
 
 #### TOOL
 ### FZF

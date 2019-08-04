@@ -1,6 +1,13 @@
-#!/bin/sh
+!!!! From: .xinitrc
+!!!!  Ref: Xresources
 
-#### From: .xinitrc
-####  Ref: Xresources
-
-
+!!!! Switch Caps_Lock & Control_L
+!remove Lock = Caps_Lock
+!remove Control = Control_L
+!
+!keysym Caps_Lock = Control_L
+!keysym Control_L = Caps_Lock
+!
+!add Lock = Caps_Lock
+!add Lock = Control_L
+!add Control = Control_L
