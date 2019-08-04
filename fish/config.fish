@@ -30,7 +30,7 @@ if not functions -q fisher
     fish -c fisher
 end
 
-if pwd | grep termux; and test -x ~/plinux.sh
+if pwd | grep termux; and test -x ~/pkali.sh
   cd
-  ./plinux.sh
+  ./pkali.sh
 end
