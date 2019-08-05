@@ -70,6 +70,7 @@
       "rootPatterns": ["build.sbt"],
       "filetypes": ["scala", "sbt"]
     }
-  }
+  },
+  "coc.preferences.extensionUpdateCheck": "never"
 }
 
