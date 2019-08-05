@@ -155,6 +155,12 @@ if has('nvim')
   tnoremap <c-[> <c-\><c-n>
   tnoremap <esc> <c-\><c-n>
 
+  " Jump Anyway by <c-i><c-o>
+  tmap <c-i> <c-\><c-n><c-i>
+  tmap <c-o> <c-\><c-n><c-o>
+  tmap <a-i> <c-\><c-n><a-i>
+  tmap <a-o> <c-\><c-n><a-o>
+
   "" Alt as ESC as in Insert Mode
   " esc & hjkl
   " <a-b> is useful on bash

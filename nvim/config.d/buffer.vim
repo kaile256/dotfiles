@@ -13,6 +13,7 @@ augroup OnTermMode
   au!
   au TermOpen * silent setlocal nonumber
   au TermOpen,BufEnter * if &buftype ==# 'terminal' | startinsert | endif
+"  au TermOpen,BufEnter * if &buftype ==# 'terminal' && &filetype !=# 'help' | setlocal nobuflisted | endif
 augroup END
 
 augroup AdjustOnFileType
@@ -24,9 +25,7 @@ augroup AdjustOnFileType
   au BufLeave * if &filetype ==# 'help' | drop % | endif
 
   """ Treat as QuickFix
-  au FileType help,netrw,gitcommit,fugitive,denite,defx,vista setlocal buftype=quickfix
-  " upon setting filetype=quickfix, vim demands write before quit.
-  au FileType vista setlocal nobuflisted
+  au FileType help,netrw,gitcommit,fugitive,denite,defx setlocal buftype=quickfix
 
   """ Quit immediately upon WinLeave
   "" NOTICE: fzf works on terminal; CANNOT change buftype.
