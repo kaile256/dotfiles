@@ -3,6 +3,12 @@
 """" ColorScheme
 """ Ref: dein.vim
 
+"""" transparency on FocusLost
+"augroup TransparencyOnFocusLost
+"  au!
+"  au FocusLost * set transparency=
+"augroup END
+
 "" Redraw
 " CAUTION: <c-l> should be run at LAST so that no corruption.
 " CAUTION: zR (open all fold) makes vim FREEZE.
