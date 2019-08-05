@@ -20,20 +20,22 @@ imap <c-f> <plug>(fzf-complete-path)
 " Too Slow to Acivate Ag
 "imap <c-g> <plug>(fzf-complete-file-ag)
 
-
-""" Open on a Pane
-nmap <a-x> <plug>(fzf-maps-n)
 " :FZF! starts fzf on full-window.
+""" cd; then fzf
+nnoremap <silent> <a-q><a-o> :<c-u>cd ~/org <bar> FZF<cr>
+nnoremap <silent> <a-q>o     :<c-u>cd ~/org <bar> FZF<cr>
+nnoremap <silent> <a-q><a-d> :<c-u>cd ~/dotfiles <bar> FZF<cr>
+nnoremap <silent> <a-q>d     :<c-u>cd ~/dotfiles <bar> FZF<cr>
 nnoremap <silent> <a-q>      :<c-u>FZF<cr>
 nnoremap <silent> <a-q><a-q> :<c-u>FZF<cr>
-nnoremap <silent> <a-q>o     :<c-u>FZF<cr>
 nnoremap <silent> <a-q><a-b> :<c-u>Buffers<cr>
 nnoremap <silent> <a-q>b     :<c-u>Buffers<cr>
 nnoremap <silent> <a-q><a-h> :<c-u>Helptags<cr>
 nnoremap <silent> <a-q>h     :<c-u>Helptags<cr>
 nnoremap <silent> <a-q><a-w> :<c-u>Windows<cr>
 nnoremap <silent> <a-q>w     :<c-u>Windows<cr>
-"" Useless?  nnoremap <silent> <a-q><a-m> :<c-u>Marks<cr>
+"" Marks: Useless?
+nnoremap <silent> <a-q><a-m> :<c-u>Marks<cr>
 nnoremap <silent> <a-q>m     :<c-u>Marks<cr>
 nnoremap <silent> <a-q><a-l> :<c-u>BLines<cr>
 nnoremap <silent> <a-q>l     :<c-u>BLines<cr>
@@ -50,10 +52,16 @@ nnoremap <silent> <a-q>p     :<c-u>Maps<cr>
 if executable('ag')
   nnoremap <silent> <a-q><a-a> :<c-u>Ag<cr>
   nnoremap <silent> <a-q>a     :<c-u>Ag<cr>
+else
+  nnoremap <silent> <a-q><a-a>   :<c-u>echo "You don't have executable silver searcher." 
+  nnoremap <silent> <a-q>a       :<c-u>echo "You don't have executable silver searcher." 
 endif
 if executable('rg')
   nnoremap <silent> <a-q><a-r> :<c-u>Rg<cr>
   nnoremap <silent> <a-q>r     :<c-u>Rg<cr>
+else
+  nnoremap <silent> <a-q><a-a>   :<c-u>echo "You don't have executable ripgrep." 
+  nnoremap <silent> <a-q>a       :<c-u>echo "You don't have executable ripgrep." 
 endif
 
 "augroup FzfBuffer

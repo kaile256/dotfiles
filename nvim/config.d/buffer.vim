@@ -16,6 +16,7 @@ augroup OnTermMode
 augroup END
 
 augroup AdjustOnFileType
+  au BufEnter * if &filetype !=# 'vim' | call s:ft_is_not_vim() | endif
   "" Cursor Locates on the Middle
   au FileType help norm zz
 
@@ -42,26 +43,31 @@ function! s:quickfix_keymap() abort
   nnoremap <buffer> <a-[> :colder<cr>
 endfunction
 
-"""" KEYMAP
-"augroup CheckStartTime
-"  au! VimEnter,InsertEnter,WinEnter * checktime
-"augroup END
+function! s:ft_is_not_vim() abort
+  nnoremap <buffer> <a-s><a-o> :echo '&filetype is not "vim"!'<cr>
+  nnoremap <buffer> <a-s>o     :echo '&filetype is not "vim"!'<cr>
+endfunction
 
-""" Reload init.vim
-nnoremap <a-s><a-o> :<c-u>so % <bar> echo ' Vim sourced "' . bufname('%') . '"'<CR>
-nnoremap <a-s>o     :<c-u>so % <bar> echo ' Vim sourced "' . bufname('%') . '"'<CR>
+  """" KEYMAP
+  "augroup CheckStartTime
+  "  au! VimEnter,InsertEnter,WinEnter * checktime
+  "augroup END
 
-""" Mnemonic: Show BufType/FileType
-nnoremap <a-s><a-b> :echo ' &filetype is "' . &filetype . '"; &buftype is "' . &buftype . '"'<cr>
-nnoremap <a-s><a-f> :echo ' &filetype is "' . &filetype . '"; &buftype is "' . &buftype . '"'<cr>
-"nnoremap <a-s><a-b> :echo " &filetype is '" . &filetype . "'; &buftype is '" . &buftype . "'"<cr>
-"nnoremap <a-s><a-f> :echo " &filetype is '" . &filetype . "'; &buftype is '" . &buftype . "'"<cr>
+  """ Reload init.vim
+  nnoremap <a-s><a-o> :<c-u>so % <bar> echo ' Vim sourced "' . bufname('%') . '"'<CR>
+  nnoremap <a-s>o     :<c-u>so % <bar> echo ' Vim sourced "' . bufname('%') . '"'<CR>
 
-""" Checkhealth
-if has('nvim')
-  nnoremap <silent> <a-c><a-h> :<c-u>checkhealth<cr>:setlocal buftype=quickfix<cr>
-  nnoremap <silent> <a-c>h     :<c-u>checkhealth<cr>:setlocal buftype=quickfix<cr>
-  cnoremap <silent> <a-c><a-h> :<c-u>checkhealth<cr>:setlocal buftype=quickfix<cr>
-  cnoremap <silent> <a-c>h     :<c-u>checkhealth<cr>:setlocal buftype=quickfix<cr>
-endif
+  """ Mnemonic: Show BufType/FileType
+  nnoremap <a-s><a-b> :echo ' &filetype is "' . &filetype . '"; &buftype is "' . &buftype . '"'<cr>
+  nnoremap <a-s><a-f> :echo ' &filetype is "' . &filetype . '"; &buftype is "' . &buftype . '"'<cr>
+  "nnoremap <a-s><a-b> :echo " &filetype is '" . &filetype . "'; &buftype is '" . &buftype . "'"<cr>
+  "nnoremap <a-s><a-f> :echo " &filetype is '" . &filetype . "'; &buftype is '" . &buftype . "'"<cr>
+
+  """ Checkhealth
+  if has('nvim')
+    nnoremap <silent> <a-c><a-h> :<c-u>checkhealth<cr>:setlocal buftype=quickfix<cr>
+    nnoremap <silent> <a-c>h     :<c-u>checkhealth<cr>:setlocal buftype=quickfix<cr>
+    cnoremap <silent> <a-c><a-h> :<c-u>checkhealth<cr>:setlocal buftype=quickfix<cr>
+    cnoremap <silent> <a-c>h     :<c-u>checkhealth<cr>:setlocal buftype=quickfix<cr>
+  endif
 
