@@ -28,12 +28,12 @@ augroup AdjustOnFileType
   au FileType help norm zz
 
   """" PLUGINS
-  au FileType vista setlocal nobuflisted
   """ Treat as QuickFix
   """ Help in Buffer-list
   au BufLeave * if &filetype ==# 'help' | drop % | endif
-  au BufEnter * if expand('%') ==# 'netrw' | setlocal &buftype=quickfix | endif
-  au FileType gitcommit,fugitive,defx,vista setlocal buftype=quickfix
+  au FileType netrw,gitcommit,fugitive,defx,vista setlocal buftype=quickfix
+  " upon setting filetype=quickfix, vim demands write before quit.
+  au FileType vista setlocal nobuflisted
 
   """ Quit immediately upon WinLeave
   "" NOTICE: fzf works on terminal; CANNOT change buftype.
