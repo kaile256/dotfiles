@@ -20,7 +20,7 @@ build = 'make'
 ### Completion
 [[plugins]]
 repo = 'neoclide/coc.nvim'
-#hook_add = 'call coc#util#install()'
+hook_add = 'silent call coc#util#install()'
 hook_add = 'runtime coc.vimrc'
 
 ### Start Page
@@ -32,6 +32,9 @@ hook_add = 'runtime startify.vimrc'
 ## CAUTION: Colorscheme MUST be sourced after dein#end() on dein.vim.
 [[plugins]]
 repo = 'tomasr/molokai'
+if = 'has("nvim")'
+[[plugins]]
+repo = 'morhetz/gruvbox'
 if = 'has("nvim")'
 [[plugins]]
 repo = 'sjl/badwolf'
