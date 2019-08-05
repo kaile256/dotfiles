@@ -70,6 +70,7 @@ runtime defx-extra.vimrc
 if has('nvim')
   runtime molokai.vimrc
   "runtime solarized.vimrc
+  runtime gruvbox.vimrc
 endif
 
 runtime rainbow.vimrc

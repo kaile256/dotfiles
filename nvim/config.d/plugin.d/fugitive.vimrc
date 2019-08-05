@@ -7,6 +7,8 @@ augroup END
 
 """" DEFINITION
 command! Greview :Git! diff --staged
+command! Greview :exec "Git difftool --tool=vimdiff --staged " . FugirivePath(@%, '')
+command! Greview :exec "Git difftool --tool=vimdiff --staged " . fugitive#buffer().path()
 
 """" HISTORY
 """ Status

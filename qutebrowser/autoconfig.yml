@@ -42,10 +42,12 @@ settings:
         <Ctrl+j>: move-to-next-line
         <Ctrl+n>: null
         <Ctrl+o>: back
+        <Ctrl+p>: null
         <Ctrl+q>: tab-close
         <Ctrl+v>: null
         <Ctrl+w>: null
         <Ctrl+w><Ctrl+o>: window-only
+        <Ctrl+w><Ctrl+p>: tab-pin
         <Ctrl+w><Ctrl+t>: tab-give
         <Ctrl+x>: null
         <Space>1: tab-close
