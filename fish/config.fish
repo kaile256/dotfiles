@@ -30,7 +30,8 @@ if not functions -q fisher
     fish -c fisher
 end
 
-if pwd | grep termux; and test -x ~/plinux.sh
-  cd
-  ./plinux.sh
-end
+# DOES'T work: no prompt, then <c-d> shows a prompt, but shows no user-input.
+#if pwd | grep termux; and test -x ~/pkali.sh
+#  cd
+#  ./pkali.sh
+#end
