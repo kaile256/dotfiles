@@ -141,17 +141,26 @@ augroup UndoBreakOnFileType
 augroup end
 
 """ Register
-"" Yank
+"" Clipboard
+" yank
 nnoremap <space>y "+y
 xnoremap <space>y "+y
 nnoremap <space>Y "+y$
 xnoremap <space>Y "+y$
-
-"" Paste
+" delete
+nnoremap <space>d "+d
+nnoremap <space>D "+D
+nnoremap <space>c "+c
+nnoremap <space>C "+C
+" paste
+inoremap <c-r><c-space> <c-r>+
+inoremap <c-r><space>   <c-r>+
 nnoremap <space>p "+p
 xnoremap <space>p "+p
 nnoremap <space>P "+P
 xnoremap <space>P "+P
+
+"" Yank Register
 " CAUTION: not for xmap, or that makes delay.
 nnoremap yp "0p
 nnoremap yp "0p
@@ -160,12 +169,8 @@ nnoremap yP "0P
 
 "" Black-Hole
 nnoremap <space>x "_x
-nnoremap <space>d "_d
-nnoremap <space>c "_c
 nnoremap <space>s "_s
 nnoremap <space>X "_X
-nnoremap <space>D "_D
-nnoremap <space>C "_C
 nnoremap <space>S "_S
 
 """ Visual Mode
