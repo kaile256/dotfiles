@@ -23,7 +23,7 @@ augroup AdjustOnFileType
   au BufLeave * if &filetype ==# 'help' | drop % | endif
 
   """ Treat as QuickFix
-  au FileType help,netrw,gitcommit,fugitive,defx,vista setlocal buftype=quickfix
+  au FileType help,netrw,gitcommit,fugitive,denite,defx,vista setlocal buftype=quickfix
   " upon setting filetype=quickfix, vim demands write before quit.
   au FileType vista setlocal nobuflisted
 

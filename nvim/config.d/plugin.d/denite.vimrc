@@ -1,3 +1,4 @@
+"""" Memo: denite.org
 """" From: Init.toml
 """" With: denite-extra.vimrc
 """"  Ref: defx.vimrc
@@ -15,8 +16,25 @@ if executable('rg')
   call denite#custom#var('grep', 'command', ['rg'])
 endif
 
+" denite/insert
+call denite#custom#map('insert', "<C-j>", '<denite:move_to_next_line>')
+call denite#custom#map('insert', "<C-k>", '<denite:move_to_previous_line>')
+
+" open
+call denite#custom#map('insert', "<C-t>", '<denite:do_action:tabopen>')
+call denite#custom#map('insert', "<C-v>", '<denite:do_action:vsplit>')
+call denite#custom#map('normal', "v", '<denite:do_action:vsplit>')
+
+" jj で denite/insert を抜けるようにする
+call denite#custom#map('insert', 'jj', '<denite:enter_mode:normal>')
+
 """" KEYMAP
-nnoremap <a-d> :<C-u>Denite grep<CR>
+""" Gtags
+nnoremap [denite-gtags]d :<C-u>DeniteCursorWord -buffer-name=gtags_def -mode=normal gtags_def<CR>
+nnoremap [denite-gtags]r :<C-u>DeniteCursorWord -buffer-name=gtags_ref -mode=normal gtags_ref<CR>
+nnoremap [denite-gtags]c :<C-u>DeniteCursorWord -buffer-name=gtags_context -mode=normal gtags_context<CR>
+
+nnoremap <a-d> :<C-u>Denite file_mru<CR>
 
 augroup Denite
   au! FileType denite call s:denite_keymaps()
@@ -29,7 +47,7 @@ function! s:denite_keymaps() abort
   nnoremap <silent><buffer>
         \ <a-t> :<C-u>Denite filetype<CR>
   nnoremap <silent><buffer>
-        \ <a-p> :<C-u>Denite file_rec<CR>
+        \ <a-p> :<C-u>Denite file_mru<CR>
   nnoremap <silent><buffer>
         \ <a-j> :<C-u>Denite line<CR>
   nnoremap <silent><buffer>
