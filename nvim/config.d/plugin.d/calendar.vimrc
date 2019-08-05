@@ -5,7 +5,8 @@ let g:calendar_google_calendar = 1
 let g:calendar_google_task = 1
 
 """" KEYMAP
-nnoremap <a-q> :Calendar<CR>
+""" Ref:fzf.vimrc
+nnoremap <a-q><a-k> :Calendar<CR>
 
 augroup Calendar
   au! FileType calendar call s:calendar_map()

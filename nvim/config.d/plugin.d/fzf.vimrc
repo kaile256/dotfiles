@@ -24,36 +24,36 @@ imap <c-f> <plug>(fzf-complete-path)
 """ Open on a Pane
 nmap <a-x> <plug>(fzf-maps-n)
 " :FZF! starts fzf on full-window.
-nnoremap <silent> <a-f>      :<c-u>FZF<cr>
-nnoremap <silent> <a-f><a-f> :<c-u>FZF<cr>
-nnoremap <silent> <a-f>o     :<c-u>FZF<cr>
-nnoremap <silent> <a-f><a-b> :<c-u>Buffers<cr>
-nnoremap <silent> <a-f>b     :<c-u>Buffers<cr>
-nnoremap <silent> <a-f><a-h> :<c-u>Helptags<cr>
-nnoremap <silent> <a-f>h     :<c-u>Helptags<cr>
-nnoremap <silent> <a-f><a-w> :<c-u>Windows<cr>
-nnoremap <silent> <a-f>w     :<c-u>Windows<cr>
-"" Useless?  nnoremap <silent> <a-f><a-m> :<c-u>Marks<cr>
-nnoremap <silent> <a-f>m     :<c-u>Marks<cr>
-nnoremap <silent> <a-f><a-l> :<c-u>BLines<cr>
-nnoremap <silent> <a-f>l     :<c-u>BLines<cr>
+nnoremap <silent> <a-q>      :<c-u>FZF<cr>
+nnoremap <silent> <a-q><a-q> :<c-u>FZF<cr>
+nnoremap <silent> <a-q>o     :<c-u>FZF<cr>
+nnoremap <silent> <a-q><a-b> :<c-u>Buffers<cr>
+nnoremap <silent> <a-q>b     :<c-u>Buffers<cr>
+nnoremap <silent> <a-q><a-h> :<c-u>Helptags<cr>
+nnoremap <silent> <a-q>h     :<c-u>Helptags<cr>
+nnoremap <silent> <a-q><a-w> :<c-u>Windows<cr>
+nnoremap <silent> <a-q>w     :<c-u>Windows<cr>
+"" Useless?  nnoremap <silent> <a-q><a-m> :<c-u>Marks<cr>
+nnoremap <silent> <a-q>m     :<c-u>Marks<cr>
+nnoremap <silent> <a-q><a-l> :<c-u>BLines<cr>
+nnoremap <silent> <a-q>l     :<c-u>BLines<cr>
 
 "" Search
-nnoremap <silent> <a-f><a-/> :<c-u>History/<cr>
-nnoremap <silent> <a-f>/     :<c-u>History/<cr>
-nnoremap <silent> <a-f><a-;> :<c-u>History:<cr>
-nnoremap <silent> <a-f>;     :<c-u>History:<cr>
+nnoremap <silent> <a-q><a-/> :<c-u>History/<cr>
+nnoremap <silent> <a-q>/     :<c-u>History/<cr>
+nnoremap <silent> <a-q><a-;> :<c-u>Commands<cr>
+nnoremap <silent> <a-q>;     :<c-u>Commands<cr>
 """ Preview Only
-nnoremap <silent> <a-f><a-p> :<c-u>Maps<cr>
-nnoremap <silent> <a-f>p     :<c-u>Maps<cr>
+nnoremap <silent> <a-q><a-p> :<c-u>Maps<cr>
+nnoremap <silent> <a-q>p     :<c-u>Maps<cr>
 
 if executable('ag')
-  nnoremap <silent> <a-f><a-a> :<c-u>Ag<cr>
-  nnoremap <silent> <a-f>a     :<c-u>Ag<cr>
+  nnoremap <silent> <a-q><a-a> :<c-u>Ag<cr>
+  nnoremap <silent> <a-q>a     :<c-u>Ag<cr>
 endif
 if executable('rg')
-  nnoremap <silent> <a-f><a-r> :<c-u>Rg<cr>
-  nnoremap <silent> <a-f>r     :<c-u>Rg<cr>
+  nnoremap <silent> <a-q><a-r> :<c-u>Rg<cr>
+  nnoremap <silent> <a-q>r     :<c-u>Rg<cr>
 endif
 
 "augroup FzfBuffer
@@ -70,7 +70,7 @@ endif
 "  tnoremap <silent><buffer> <a-h> <c-l><c-\><c-n> :<c-u>Helptags<cr>
 "  tnoremap <silent><buffer> <a-/> <c-l><c-\><c-n> :<c-u>History/<cr>
 "  tnoremap <silent><buffer> <a-;> <c-l><c-\><c-n> :<c-u>History:<cr>
-"  tnoremap <silent><buffer> <a-f> <c-l><c-\><c-n> :<c-u>History<cr>
+"  tnoremap <silent><buffer> <a-q> <c-l><c-\><c-n> :<c-u>History<cr>
 "  tnoremap <silent><buffer> <a-m> <c-l><c-\><c-n> :<c-u>Marks<cr>
 "  tnoremap <silent><buffer> <a-p> <c-l><c-\><c-n> :<c-u>Maps<cr>
 "  tnoremap <silent><buffer> <a-q> <c-l><c-\><c-n> :quit<cr>
