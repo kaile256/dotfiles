@@ -71,10 +71,10 @@ hook_add = 'runtime fugitive.vimrc'
 ### Denite
 ## Ref: extra.toml
 ## Ref: denite.vimrc
-#[[plugins]]
-### CAUTION: denite.vimrc MUST be sourced after dein#end() on dein.vim.
-#repo = 'Shougo/denite.nvim'
-#if = 'has("python3")'
+[[plugins]]
+## CAUTION: denite.vimrc MUST be sourced after dein#end() on dein.vim.
+repo = 'Shougo/denite.nvim'
+if = 'has("python3")'
 
 ### Defx
 ## Ref: defx.vimrc
