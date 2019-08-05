@@ -26,10 +26,10 @@ on_event = 'CursorMoved'
 hook_post_source = 'cursorword.vimrc'
 
 ### Substitution
-[[plugins]]
-repo = 'osyo-manga/vim-over'
-on_event = 'CmdlineEnter'
-hook_post_source = 'runtime over.vimrc'
+#[[plugins]]
+#repo = 'osyo-manga/vim-over'
+#on_event = 'CmdlineEnter'
+#hook_post_source = 'runtime over.vimrc'
 
 ### Colorscheme
 [[plugins]]

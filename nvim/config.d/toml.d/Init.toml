@@ -11,11 +11,11 @@ hook_done_update= '''
     au VimEnter * runtime restart.vim
   '''
 
-## Async Processor
+### Git
 [[plugins]]
-# run vim-plugins asynchronously, like openbrowser, quickrun.
-repo = 'Shougo/vimproc.vim'
-build = 'make'
+repo = 'tpope/vim-fugitive'
+type = 'git'
+hook_add = 'runtime fugitive.vimrc'
 
 ### Completion
 [[plugins]]
@@ -28,24 +28,6 @@ hook_add = 'runtime coc.vimrc'
 repo = 'mhinz/vim-startify'
 hook_add = 'runtime startify.vimrc'
 
-#### Color Themes
-## CAUTION: Colorscheme MUST be sourced after dein#end() on dein.vim.
-## Ref: appearance.toml
-[[plugins]]
-repo = 'tomasr/molokai'
-if = 'has("nvim")'
-
-### Status Bar
-#[[plugins]]
-#repo = 'itchyny/lightline.vim' # config is written in 'plugin.vim'
-#hook_add = 'runtime! lightline.vimrc'
-[[plugins]]
-repo = 'vim-airline/vim-airline'
-hook_add = 'runtime airline.vimrc'
-[[plugins]]
-repo = 'vim-airline/vim-airline-themes'
-depends = 'vim-airline'
-
 ### FZF
 [[plugins]]
 repo = 'junegunn/fzf'
@@ -53,11 +35,6 @@ hook_done_update = './install --all'
 [[plugins]]
 repo = 'junegunn/fzf.vim'
 hook_add = 'runtime fzf.vimrc'
-
-### Git
-[[plugins]]
-repo = 'tpope/vim-fugitive'
-hook_add = 'runtime fugitive.vimrc'
 
 ### Denite
 ## Ref: extra.toml
@@ -79,3 +56,21 @@ if = 'has("python3")'
 ## CAUTION: defx.vimrc MUST be sourced after dein#end() on dein.vim.
 repo = 'Shougo/defx.nvim'
 if = 'has("python3")'
+
+#### Color Themes
+## CAUTION: Colorscheme MUST be sourced after dein#end() on dein.vim.
+## Ref: appearance.toml
+[[plugins]]
+repo = 'tomasr/molokai'
+if = 'has("nvim")'
+
+### Status Bar
+#[[plugins]]
+#repo = 'itchyny/lightline.vim' # config is written in 'plugin.vim'
+#hook_add = 'runtime! lightline.vimrc'
+[[plugins]]
+repo = 'vim-airline/vim-airline'
+hook_add = 'runtime airline.vimrc'
+[[plugins]]
+repo = 'vim-airline/vim-airline-themes'
+depends = 'vim-airline'
