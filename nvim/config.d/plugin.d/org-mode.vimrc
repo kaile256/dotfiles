@@ -1,4 +1,5 @@
-"""" From: tool.toml
+"""" Memo: Org-mode.org
+"""" From: filetype.toml
 
 augroup OrgMode
   au!
