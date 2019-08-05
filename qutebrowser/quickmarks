@@ -1,7 +1,9 @@
-do https://github.com/kaile256/dotfiles
-gh https://github.com/search?utf8=%E2%9C%93&q=&type=
-imp https://github.com/Vigemus/impromptu.nvim
-wl https://ejje.weblio.jp/
-arh https://www.archlinux.jp/
-ar https://wiki.archlinux.jp/index.php/%E3%83%A1%E3%82%A4%E3%83%B3%E3%83%9A%E3%83%BC%E3%82%B8
-tr https://trello.com/b/vBovNqkx/vimmer
+kaile256/dotfiles https://github.com/kaile256/dotfiles
+github https://github.com/search?utf8=%E2%9C%93&q=&type=
+Vigemus/impromptu.nvim https://github.com/Vigemus/impromptu.nvim
+weblio https://ejje.weblio.jp/
+arch.jp:news https://www.archlinux.jp/
+arch.jp:home https://wiki.archlinux.jp/index.php/%E3%83%A1%E3%82%A4%E3%83%B3%E3%83%9A%E3%83%BC%E3%82%B8
+trello:vimmer https://trello.com/b/vBovNqkx/vimmer
+dropbox https://www.dropbox.com/home
+dropbox:org https://www.dropbox.com/home/org
