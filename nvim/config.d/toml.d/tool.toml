@@ -1,5 +1,11 @@
 #### From: dein.vimrc
 
+## Async Processor
+[[plugins]]
+# run vim-plugins asynchronously, like openbrowser, quickrun.
+repo = 'Shougo/vimproc.vim'
+build = 'make'
+
 ### Snippets
 ## Engine
 [[plugins]]
