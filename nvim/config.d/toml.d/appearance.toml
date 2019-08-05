@@ -19,12 +19,28 @@ on_event = 'BufReadPost'
 ## Better %
 repo = 'andymass/vim-matchup'
 on_event = 'CursorMoved'
+hook_post_source = 'matchup.vimrc'
 [[plugins]]
 repo = 'itchyny/vim-cursorword'
 on_event = 'CursorMoved'
+hook_post_source = 'cursorword.vimrc'
 
 ### Substitution
 [[plugins]]
 repo = 'osyo-manga/vim-over'
 on_event = 'CmdlineEnter'
 hook_post_source = 'runtime over.vimrc'
+
+### Colorscheme
+[[plugins]]
+repo = 'morhetz/gruvbox'
+on_if = 'has("nvim")'
+[[plugins]]
+repo = 'sjl/badwolf'
+on_if = 'has("nvim")'
+[[plugins]]
+repo = 'jacoborus/tender.vim'
+on_if = 'has("nvim")'
+[[plugins]]
+repo = 'altercation/vim-colors-solarized'
+on_if = 'has("nvim")'

@@ -30,20 +30,9 @@ hook_add = 'runtime startify.vimrc'
 
 #### Color Themes
 ## CAUTION: Colorscheme MUST be sourced after dein#end() on dein.vim.
+## Ref: appearance.toml
 [[plugins]]
 repo = 'tomasr/molokai'
-if = 'has("nvim")'
-[[plugins]]
-repo = 'morhetz/gruvbox'
-if = 'has("nvim")'
-[[plugins]]
-repo = 'sjl/badwolf'
-if = 'has("nvim")'
-[[plugins]]
-repo = 'jacoborus/tender.vim'
-if = 'has("nvim")'
-[[plugins]]
-repo = 'altercation/vim-colors-solarized'
 if = 'has("nvim")'
 
 ### Status Bar

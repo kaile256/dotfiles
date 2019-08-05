@@ -22,6 +22,7 @@ let g:netrw_home = "~/.local/share/nvim"
 "set path+=s:xdg_config_path
 set path+=../**
 set path+=~/.config/**
+set path+=~/org/**
 set path+=~/.cache/nvim/dein/repos/github.com/**
 set path+=~/.local/nvim/**
 
