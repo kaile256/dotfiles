@@ -81,8 +81,8 @@ cnoremap <a-k> <ESC>
 
 """ Tab Page
 "" Move between Tabs
-nnoremap <a-i> gT
-nnoremap <a-o> gt
+nnoremap <a-o> gT
+nnoremap <a-i> gt
 nnoremap <silent> <a-t><a-o> :tabonly<cr>
 "" Give Tab
 nnoremap <a-t><c-g> <c-w>T
