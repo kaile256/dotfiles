@@ -57,15 +57,15 @@ xnoremap gk k
 
 """ Advanced jk/HML
 "" Definition
-noremap [ToWinTop]    :<c-u><c-r>= (line('w0') + line('.'))/2<cr><cr>
-noremap [ToWinBottom] :<c-u><c-r>= (line('w$') + line('.') + 1)/2<cr><cr>
-noremap [ToWinMiddle] :<c-u><c-r>= (line('w0') + line('w$') + 2*line('.'))/4<cr><cr>
+noremap <Plug>(leap-in-win-higher)    :<c-u><c-r>= (line('w0') + line('.'))/2<cr><cr>
+noremap <Plug>(leap-in-win-middle) :<c-u><c-r>= (line('w0') + line('w$') + 2*line('.'))/4<cr><cr>
+noremap <Plug>(leap-in-win-lower) :<c-u><c-r>= (line('w$') + line('.') + 1)/2<cr><cr>
 " CAUTION: <c-m> is identical with <cr>; <c-,>/<c-.> does't work.
 " <c-hjkl> get along with <c-fbud>; <a-hjkl> get along with <s-wbe>.
-map <silent> <c-h> [ToWinTop]
-map <silent> <c-j> [ToWinMiddle]
-map <silent> <c-k> [ToWinMiddle]
-map <silent> <c-l> [ToWinBottom]
+map <silent> <c-h> <Plug>(leap-in-win-higher)
+map <silent> <c-j> <Plug>(leap-in-win-middle)
+map <silent> <c-k> <Plug>(leap-in-win-middle)
+map <silent> <c-l> <Plug>(leap-in-win-lower)
 
 """ Pane
 " leap between panes
@@ -81,8 +81,8 @@ cnoremap <a-k> <ESC>
 
 """ Tab Page
 "" Move between Tabs
-nnoremap <a-o> gT
-nnoremap <a-i> gt
+nnoremap <a-i> gT
+nnoremap <a-o> gt
 nnoremap <silent> <a-t><a-o> :tabonly<cr>
 "" Give Tab
 nnoremap <a-t><c-g> <c-w>T
