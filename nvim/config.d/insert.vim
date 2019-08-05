@@ -125,12 +125,12 @@ inoremap <a-o> <esc>o
 "" NOTICE: <c-d> increases indent on Insert Mode.
 
 """ Undo Break
-inoremap <c-j> <c-g>u<c-j><c-g>u
+inoremap <c-j> <c-g>u<c-j>
 "" Put
 inoremap <c-r> <c-g>u<c-r>
 "" Backspace
-inoremap <c-u> <c-g>u<c-u><c-g>u
-inoremap <c-w> <c-g>u<c-w><c-g>u
+inoremap <c-u> <c-g>u<c-u>
+inoremap <c-w> <c-g>u<c-w>
 
 augroup UndoBreakOnFileType
   au!
@@ -138,7 +138,7 @@ augroup UndoBreakOnFileType
   au filetype html,markdown inoremap <buffer> . .<c-g>u
   au filetype html,markdown inoremap <buffer> ! !<c-g>u
   au filetype html,markdown inoremap <buffer> ? ?<c-g>u
-augroup end
+augroup END
 
 """ Register
 "" Clipboard
@@ -153,13 +153,16 @@ nnoremap <space>D "+D
 nnoremap <space>c "+c
 nnoremap <space>C "+C
 " paste
-inoremap <c-r>'   <c-r>"
-inoremap <c-r><c-space> <c-r>+
-inoremap <c-r><space>   <c-r>+
 nnoremap <space>p "+p
 xnoremap <space>p "+p
 nnoremap <space>P "+P
 xnoremap <space>P "+P
+inoremap <c-r><c-space> <c-g>u<c-r>+
+inoremap <c-r><space>   <c-g>u<c-r>+
+
+"" Unnamed Register
+inoremap <c-r>'         <c-g>u<c-r>"
+inoremap <c-r><c-'>'    <c-g>u<c-r>"
 
 "" Yank Register
 " CAUTION: not for xmap, or that makes delay.
