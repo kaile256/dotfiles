@@ -23,6 +23,7 @@ type nvim-qt > /dev/null && {
 }
 
 export TERM=xterm-256color
+export COLORTERM=rxvt-256color
 
 ### Japanese IM
 export GTK_IM_MODULE=fcitx
