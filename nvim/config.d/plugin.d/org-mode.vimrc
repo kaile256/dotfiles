@@ -8,6 +8,8 @@ augroup OrgMode
 augroup END
 
 function! s:org_general()
+  setlocal textwidth=0
+
   "" WARNING: Wildcard* makes it slow if you have a lot of org files.
   let g:org_agenda_files = ['~/org/*.org']
   "" Ref: <LocalLeader>d: prompt for fast access of a todo state
