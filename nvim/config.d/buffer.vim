@@ -1,6 +1,6 @@
 """" From: nvim/init.vim
 
-"""" KEYMAP
+"""" GENERAL
 augroup AppendFileType
   au!
   au BufNewFile,BufRead *.vim!   setlocal filetype=vim
@@ -15,39 +15,53 @@ augroup OnTermMode
   au TermOpen,BufEnter * if &buftype ==# 'terminal' | startinsert | endif
 augroup END
 
-augroup NoBufListed
-"  au!
-  " Why: setlocal buflisted DOESN'T work.
-"  au WinLeave * if &filetype ==# 'netrw' | bd <c-r>=bufnr('%')
-augroup END
-
 augroup AdjustOnFileType
-  """ Treat as QuickFix
-  au FileType help setlocal buftype=quickfix
   "" Cursor Locates on the Middle
   au FileType help norm zz
 
-  """" PLUGINS
-  """ Treat as QuickFix
-  """ Help in Buffer-list
+  """ Append Help on Buffer-list
   au BufLeave * if &filetype ==# 'help' | drop % | endif
-  au FileType netrw,gitcommit,fugitive,defx,vista setlocal buftype=quickfix
+
+  """ Treat as QuickFix
+  au FileType help,netrw,gitcommit,fugitive,defx,vista setlocal buftype=quickfix
   " upon setting filetype=quickfix, vim demands write before quit.
   au FileType vista setlocal nobuflisted
 
   """ Quit immediately upon WinLeave
   "" NOTICE: fzf works on terminal; CANNOT change buftype.
   au WinLeave * if &filetype ==# 'fzf' | quit | endif
-augroup END
 
-augroup RemapJumpOnQuickFix
-  au!
   au FileType qt,fugitive call s:quickfix_keymap()
 augroup END
 
+"""" DEFINITION
 function! s:quickfix_keymap() abort
   nnoremap <buffer> <c-p> :cprevious<cr>
   nnoremap <buffer> <c-n> :cnext<cr>
   nnoremap <buffer> <a-]> :cnewer<cr>
   nnoremap <buffer> <a-[> :colder<cr>
 endfunction
+
+"""" KEYMAP
+"augroup CheckStartTime
+"  au! VimEnter,InsertEnter,WinEnter * checktime
+"augroup END
+
+""" Reload init.vim
+nnoremap <a-s><a-o> :<c-u>so % <bar> echo ' Vim sourced "' . bufname('%') . '"'<CR>
+nnoremap <a-s>o     :<c-u>so % <bar> echo ' Vim sourced "' . bufname('%') . '"'<CR>
+
+""" Mnemonic: Show BufType/FileType
+nnoremap <a-s><a-b> :echo ' &filetype is "' . &filetype . '"; &buftype is "' . &buftype . '"'<cr>
+nnoremap <a-s><a-f> :echo ' &filetype is "' . &filetype . '"; &buftype is "' . &buftype . '"'<cr>
+"nnoremap <a-s><a-b> :echo " &filetype is '" . &filetype . "'; &buftype is '" . &buftype . "'"<cr>
+"nnoremap <a-s><a-f> :echo " &filetype is '" . &filetype . "'; &buftype is '" . &buftype . "'"<cr>
+
+""" Checkhealth
+if has('nvim')
+  nnoremap <silent> <a-c><a-h> :<c-u>checkhealth<cr>:setlocal buftype=quickfix<cr>
+  nnoremap <silent> <a-c>h     :<c-u>checkhealth<cr>:setlocal buftype=quickfix<cr>
+  cnoremap <silent> <a-c><a-h> :<c-u>checkhealth<cr>:setlocal buftype=quickfix<cr>
+  cnoremap <silent> <a-c>h     :<c-u>checkhealth<cr>:setlocal buftype=quickfix<cr>
+endif
+
