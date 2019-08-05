@@ -16,6 +16,10 @@ settings:
         <Ctrl+n>: command-history-next
         <Ctrl+p>: command-history-prev
       insert:
+        <Alt+h>: leave-mode
+        <Alt+j>: leave-mode
+        <Alt+k>: leave-mode
+        <Alt+l>: leave-mode
         <Ctrl+d>: rl-delete-char
         <Ctrl+h>: rl-backward-delete-char
         <Ctrl+m>: follow-selected
@@ -27,12 +31,13 @@ settings:
         <Alt+]>: tab-next
         <Alt+b>: tab-prev
         <Alt+f>: tab-next
-        <Alt+i>: tab-prev
-        <Alt+o>: tab-next
+        <Alt+i>: tab-next
+        <Alt+o>: tab-prev
         <Ctrl++>: zoom-in
         <Ctrl+->: zoom-out
         <Ctrl+2>: save
         <Ctrl+Space><Ctrl+Space>: reload
+        <Ctrl+h>: null
         <Ctrl+i>: forward
         <Ctrl+j>: move-to-next-line
         <Ctrl+n>: null

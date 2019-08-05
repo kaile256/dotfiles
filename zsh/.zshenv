@@ -1,1 +1,0 @@
-zplugin/zshenv_zplugin
