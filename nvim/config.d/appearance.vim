@@ -9,8 +9,9 @@
 "" Ref: showmarks.vimrc
 imap <silent> <c-l> <c-o> :<c-u> noh <bar> redraw <cr>
 nmap <silent> <space><space>     :<c-u>noh <bar> redraw <cr>
-nmap <silent> <c-space><c-space> :cclose <bar> lclose <bar> retab <cr>
-nmap <silent> <c-space>space     :cclose <bar> lclose <bar> retab <cr>
+" <a-space> gets along with <a-hjkl>.
+nmap <silent> <a-space><a-space> :cclose <bar> lclose <bar> retab <cr>
+nmap <silent> <a-space>space     :cclose <bar> lclose <bar> retab <cr>
 
 """" Read Only
 augroup AlertWhenReadOnly
