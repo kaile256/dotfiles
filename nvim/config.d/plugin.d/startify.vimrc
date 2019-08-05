@@ -1,8 +1,6 @@
 """" Memo: startify.org
 """" From: 'Prime.toml'
 
-colo molokai
-
 let g:startify_lists = [
       \ { 'type': 'sessions',  'header': ['   Sessions']       },
       \ { 'type': 'files',     'header': ['   MRU']            },

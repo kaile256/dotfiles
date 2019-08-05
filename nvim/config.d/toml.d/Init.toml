@@ -8,7 +8,7 @@ hook_add = '''
   set rtp+=~/.config/nvim/config.d/plugin.d
   '''
 hook_done_update= '''
-    au VimEnter * :UpdateRemotePlugins<cr>
+    au VimEnter * runtime restart.vim
   '''
 
 ## Async Processor
@@ -20,12 +20,8 @@ build = 'make'
 ### Completion
 [[plugins]]
 repo = 'neoclide/coc.nvim'
+#hook_add = 'call coc#util#install()'
 hook_add = 'runtime coc.vimrc'
-hook_done_update = '''
-  call coc#util#install()
-  CocInstall coc-json coc-tsserver coc-html coc-yaml coc-python coc-vimlsp
-  CocInstall coc-lists coc-git coc-yank coc-highlight coc-snippets
-  '''
 
 ### Start Page
 [[plugins]]
@@ -39,6 +35,9 @@ repo = 'tomasr/molokai'
 if = 'has("nvim")'
 [[plugins]]
 repo = 'sjl/badwolf'
+if = 'has("nvim")'
+[[plugins]]
+repo = 'jacoborus/tender.vim'
 if = 'has("nvim")'
 [[plugins]]
 repo = 'altercation/vim-colors-solarized'

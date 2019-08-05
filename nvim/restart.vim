@@ -1,7 +1,39 @@
-"""" If Something Wrong, try to ':source %' by vim.
+"" If Something Wrong, try to ':source %' by vim.
 
+"""" Denite/Defx
 UpdateRemotePlugins
 
+"""" COC
 call coc#util#install()
-CocInstall coc-json coc-tsserver coc-html coc-yaml coc-python coc-vimlsp
-CocInstall coc-lists coc-git coc-yank coc-highlight coc-snippets
+CocInstall expand('s:coc_extentions')
+
+let s:coc_extentions = [
+      \ 'coc-angular',
+      \ 'coc-css',
+      \ 'coc-emoji',
+      \ 'coc-git',
+      \ 'coc-gocode',
+      \ 'coc-highlight',
+      \ 'coc-html',
+      \ 'coc-java',
+      \ 'coc-json',
+      \ 'coc-lbdbq',
+      \ 'coc-lists',
+      \ 'coc-neosnippet',
+      \ 'coc-omni',
+      \ 'coc-phpls',
+      \ 'coc-python',
+      \ 'coc-rl-lsp',
+      \ 'coc-rls',
+      \ 'coc-snippets',
+      \ 'coc-solargraph',
+      \ 'coc-syntax',
+      \ 'coc-tag',
+      \ 'coc-texlab',
+      \ 'coc-tsserver',
+      \ 'coc-ultisnips',
+      \ 'coc-vimlsp',
+      \ 'coc-word',
+      \ 'coc-yaml',
+      \ 'coc-yank'
+      \ ]
