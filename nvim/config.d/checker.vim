@@ -1,7 +1,6 @@
 """" KEYMAP
 """ Checkhealth
 if has('nvim')
-  nnoremap <silent> <space>ch  :<c-u>checkhealth<cr>
   nnoremap <silent> <a-c><a-h> :<c-u>checkhealth<cr>
   nnoremap <silent> <a-c>h     :<c-u>checkhealth<cr>
   cnoremap <silent> <a-c><a-h> :<c-u>checkhealth<cr>
