@@ -48,7 +48,8 @@ alias startx="startx $XDG_CONFIG_HOME/X11/xinitrc -- $XDG_CONFIG_HOME/X11/xserve
 export HISTFILE="$XDG_DATA_HOME/bash/history"
 export BASH_COMPLETION_USER_FILE="$XDG_CONFIG_HOME/bash-completion/bash_completion"
 ## zsh
-export ZDOTDIR="${XDG_CONFIG_HOME}/zsh/.zplugin"
+# .zplugin is on $ZDOTDIR; cannot export $ZDOTDIR on .zplugin
+export ZDOTDIR="${XDG_CONFIG_HOME}/zsh/"
 export HISTFILE="$XDG_DATA_HOME/zsh/history"
 
 

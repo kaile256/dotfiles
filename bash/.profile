@@ -10,11 +10,6 @@
 # for ssh logins, install and configure the libpam-umask package.
 
 
-if [ -d /data/data/com.termux ] && [ -x ~/skali.sh ]; then
-  cd ~
-  ./start-kali.sh
-fi
-
 #mesg n || true
 
 #### INIT
