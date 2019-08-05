@@ -39,3 +39,15 @@ augroup AdjustOnFileType
   "" NOTICE: fzf works on terminal; CANNOT change buftype.
   au WinLeave * if &filetype ==# 'fzf' | quit | endif
 augroup END
+
+augroup RemapJumpOnQuickFix
+  au!
+  au FileType qt,fugitive call s:quickfix_keymap()
+augroup END
+
+function! s:quickfix_keymap() abort
+  nnoremap <buffer> <c-p> :cprevious<cr>
+  nnoremap <buffer> <c-n> :cnext<cr>
+  nnoremap <buffer> <a-]> :cnewer<cr>
+  nnoremap <buffer> <a-[> :colder<cr>
+endfunction

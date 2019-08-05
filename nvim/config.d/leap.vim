@@ -81,8 +81,8 @@ cnoremap <a-k> <ESC>
 
 """ Tab Page
 "" Move between Tabs
-nnoremap <a-f> gT
-nnoremap <a-b> gt
+nnoremap <a-i> gT
+nnoremap <a-o> gt
 nnoremap <silent> <a-t><a-o> :tabonly<cr>
 "" Give Tab
 nnoremap <a-t><c-g> <c-w>T
@@ -158,14 +158,14 @@ if has('nvim')
   "" Alt as ESC as in Insert Mode
   " esc & hjkl
   " <a-b> is useful on bash
-  "tnoremap <a-h> <c-\><c-n>h
-  "tnoremap <a-j> <c-\><c-n>j
-  "tnoremap <a-k> <c-\><c-n>k
-  "tnoremap <a-l> <c-\><c-n>l
-  tnoremap <a-h> <c-\><c-n><c-w>h
-  tnoremap <a-j> <c-\><c-n><c-w>j
-  tnoremap <a-k> <c-\><c-n><c-w>k
-  tnoremap <a-l> <c-\><c-n><c-w>l
+  tnoremap <a-h> <c-\><c-n>h
+  tnoremap <a-j> <c-\><c-n>j
+  tnoremap <a-k> <c-\><c-n>k
+  tnoremap <a-l> <c-\><c-n>l
+  "tnoremap <a-h> <c-\><c-n><c-w>h
+  "tnoremap <a-j> <c-\><c-n><c-w>j
+  "tnoremap <a-k> <c-\><c-n><c-w>k
+  "tnoremap <a-l> <c-\><c-n><c-w>l
 endif
 
 """ Buffer
@@ -180,13 +180,3 @@ noremap <c-6> <c-^>
 noremap <silent> <space>co :copen<cr>
 noremap <silent> <space>cw :cwindow<cr>
 noremap <silent> <space>cc :cclose<cr>:lclose<cr>
-
-augroup QuickFixJump
-  au!
-  au WinEnter * if &buftype ==# 'quickfix' | call s:quickfix_keymap() | endif
-augroup END
-
-function! s:quickfix_keymap() abort
-  nnoremap <buffer> <a-]> :cprevious<cr>
-  nnoremap <buffer> <a-[> :cnext<cr>
-endfunction
