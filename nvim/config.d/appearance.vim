@@ -1,7 +1,7 @@
 """" From: nvim/init.vim
 
 """" ColorScheme
-""" Ref: dein.vim
+""" Ref: dein.vimrc
 
 """" transparency on FocusLost
 "augroup TransparencyOnFocusLost
