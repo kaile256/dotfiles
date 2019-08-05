@@ -5,18 +5,20 @@
 """" GENERAL
 " shorter for CursorHold & CursorHoldI
 set updatetime=300
-" shorter message
-" c-option: not give ins-c><a-ompletion-menu message.
-"set shortmess+=c
-
 " signcolumn is the line beside numbers.
 set signcolumn=yes
+" shorter message
+" c-option: not give |ins-completion-menu| messages.
+set shortmess+=c
 
 """" COC-LIST
 """ CAUTION: careful not to conflict :checkhealth
 "" show yank list
 
-"""" COMPLETION
+"""" COC-RENAME
+nmap <a-c><a-n> <Plug>(coc-rename)
+
+"""" COC-COMPLETION
 """ General
 "" Coc-Done
 " closes preview vindow when completion is done.
@@ -29,12 +31,12 @@ function! s:make_sure_no_space() abort
   return !col || getline('.')[col - 1] =~ '\s'
 endfunction
 
-""" Snippets
+""" Snippet :echo exists('##CompleteChanged') && exists('*nvim_open_win')s
 "" Snippets Edit
 nmap <silent> <a-s><a-p> :CocCommand snippets.editSnippets<cr>
 nmap <silent> <a-s>p     :CocCommand snippets.editSnippets<cr>
 
-""" Only Trigger Snippets; <tab> to General Completion
+"" Trigger Just Snippets; <tab> to General Completion
 "imap <C-s> <Plug>(coc-snippets-expand)
 "vmap <C-s> <Plug>(coc-snippets-select)
 imap <C-s> <Plug>(coc-snippets-expand-jump)
