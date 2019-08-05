@@ -33,7 +33,7 @@ augroup AdjustOnFileType
   """ Help in Buffer-list
   au BufLeave * if &filetype ==# 'help' | drop % | endif
   au BufEnter * if expand('%') ==# 'netrw' | setlocal &buftype=quickfix | endif
-  au FileType fugitive,defx,vista setlocal buftype=quickfix
+  au FileType gitcommit,fugitive,defx,vista setlocal buftype=quickfix
 
   """ Quit immediately upon WinLeave
   "" NOTICE: fzf works on terminal; CANNOT change buftype.
