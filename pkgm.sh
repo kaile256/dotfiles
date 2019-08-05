@@ -46,7 +46,7 @@ python-pipenv
 rclone  # sync lib for cloud-service like dropbox, Gdrive.
 ripgrep
 ruby
-rxvt-unicode
+rxvt-unicode  # Terminal Emulater
 the_silver_searcher
 tlp   # Save Battery of PC
 ttf-font-icons  # Mix Icon with Awesome & Ionicons without Confliction.
@@ -59,14 +59,13 @@ zsh
 Manjaro=(
 dmenu-manjaro
 i3pystatus
-python-i3-py
 i3-style
 bluez   # for Bluetooth
 bluez-utils
 )
 
 Depend=(
-dropbox-cli
+#dropbox-cli
 )
 
 for package in ${Package[@]}; do
@@ -132,6 +131,8 @@ done
 GitRepos=(
 Shougo/dein.vim
 )
+
+#git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
 
 for g in ${gitRepos[@]}; do
   # if you want to use pocke/get, replace ghq get w/ get ghq
