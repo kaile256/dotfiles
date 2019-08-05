@@ -153,6 +153,7 @@ nnoremap <space>D "+D
 nnoremap <space>c "+c
 nnoremap <space>C "+C
 " paste
+inoremap <c-r>'   <c-r>"
 inoremap <c-r><c-space> <c-r>+
 inoremap <c-r><space>   <c-r>+
 nnoremap <space>p "+p
