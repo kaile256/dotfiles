@@ -25,7 +25,7 @@ augroup AdjustOnFileType
   au BufLeave * if &filetype ==# 'help' | drop % | endif
 
   """ Treat as QuickFix
-  au FileType help,netrw,gitcommit,fugitive,denite,defx setlocal buftype=quickfix
+  au FileType help,netrw,git,gitcommit,fugitive,denite,defx setlocal buftype=quickfix
 
   """ Quit immediately upon WinLeave
   "" NOTICE: fzf works on terminal; CANNOT change buftype.
