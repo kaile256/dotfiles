@@ -9,7 +9,7 @@ augroup END
 
 function! s:org_general()
   "" Esp. for hyperlinks' appearance
-  setlocal textwidth=0 nowrap
+  setlocal textwidth=0 nowrap signcolumn=
 
   "" WARNING: Wildcard* makes it slow if you have a lot of org files.
   let g:org_agenda_files = ['~/org/*.org']
@@ -32,8 +32,8 @@ function! s:org_keymap()
 
   """ ToDo
   " Prompt State
-  nmap <buffer> <a-i> <LocalLeader>d
+  "nmap <buffer> <a-i> <LocalLeader>d
   " Rotate State
-  nmap <buffer> <a-i> <LocalLeader>ct
+  nmap <buffer> <a-m> <LocalLeader>ct
   
 endfunction
