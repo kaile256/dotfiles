@@ -49,7 +49,7 @@ export HISTFILE="$XDG_DATA_HOME/bash/history"
 export BASH_COMPLETION_USER_FILE="$XDG_CONFIG_HOME/bash-completion/bash_completion"
 ## zsh
 # .zplugin is on $ZDOTDIR; cannot export $ZDOTDIR on .zplugin
-export ZDOTDIR="${XDG_CONFIG_HOME}/zsh/"
+export ZDOTDIR="${XDG_CONFIG_HOME}/zsh"
 export HISTFILE="$XDG_DATA_HOME/zsh/history"
 
 

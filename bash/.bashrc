@@ -1,6 +1,6 @@
 #### From: .profile
 #### Ref: pkgm.sh
-#### Ref: .zshenv
+#### Ref: .zshrc
 
 umask 022
 

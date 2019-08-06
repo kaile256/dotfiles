@@ -1,14 +1,28 @@
-#### Ref: https://github.com/zdharma/zplugin#installation
 # no .zshenv; use only .profile.
+## Common Config
 
+#### Ref: https://github.com/zdharma/zplugin#installation
+## NOTICE: should be read at first.
 . "${ZDOTDIR}/.zplugin/bin/zplugin.zsh"
 autoload -Uz _zplugin
-
 type zplugin
 (( ${+_comps} )) && _comps[zplugin]=_zplugin
 
-## Common Config
-source ~/.config/bash/.bashrc
+SourceFile=(
+# CAUTION: xdg.sh should be sourced BEFORE path.sh.
+xdg.sh
+env.sh
+path.sh
+alias.sh
+)
+for i in ${SourceFile[@]}; do
+  source ~/.config/bash/$i
+done
+#source ~/.config/bash/xdg.sh
+#source ~/.config/bash/env.sh
+#source ~/.config/bash/path.sh
+#source ~/.config/bash/alias.sh
+#source ~/.config/bash/prompt.sh
 
 ## Prompt Theme
 # good on vim-term to two-row prompt to yank.
