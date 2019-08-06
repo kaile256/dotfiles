@@ -1,5 +1,8 @@
 "" If Something Wrong, try to ':source %' by vim.
 
+"" Dein
+
+
 """" Denite/Defx
 UpdateRemotePlugins
 

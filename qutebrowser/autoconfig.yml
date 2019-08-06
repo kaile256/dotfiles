@@ -32,7 +32,9 @@ settings:
         <Alt+b>: tab-prev
         <Alt+f>: tab-next
         <Alt+i>: tab-next
+        <Alt+n>: tab-next
         <Alt+o>: tab-prev
+        <Alt+p>: tab-prev
         <Ctrl++>: zoom-in
         <Ctrl+->: zoom-out
         <Ctrl+2>: save
@@ -56,7 +58,7 @@ settings:
         <Space>p: session-load LastSession.qt
         <Space>q: tab-close
         <Space>w: save
-        <Space>z: session-save LastSession.qt
+        <Space>z: close
         D: null
         H: null
         J: null
