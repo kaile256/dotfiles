@@ -14,8 +14,8 @@
 " CAUTION: zR (open all fold) makes vim FREEZE.
 "" Ref: showmarks.vimrc
 imap <silent> <c-l> <c-o> :<c-u> noh <bar> redraw <cr>
-nmap <silent> <a-space><space>   :<c-u>noh <bar> redraw <cr>
-nmap <silent> <a-space><a-space> :<c-u>noh <bar> redraw <cr>
+nmap <silent> <c-space><space>   :<c-u>noh <bar> redraw <cr>
+nmap <silent> <c-space><c-space> :<c-u>noh <bar> redraw <cr>
 " <a-space> gets along with <a-hjkl>.
 nmap <silent> <space><space>     :cclose <bar> lclose <cr> :retab <cr>
 
