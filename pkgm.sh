@@ -49,6 +49,7 @@ ruby
 rxvt-unicode  # Terminal Emulater
 the_silver_searcher
 tlp   # Save Battery of PC
+ttf-cica
 ttf-font-icons  # Mix Icon with Awesome & Ionicons without Confliction.
 tty-dejavu
 vmail
