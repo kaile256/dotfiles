@@ -13,6 +13,7 @@ augroup OnTermMode
   au!
   au TermOpen * silent setlocal nonumber
   au TermOpen,BufEnter * if &buftype ==# 'terminal' | startinsert | endif
+  au TermOpen,BufEnter * if &buftype ==# 'terminal' | setlocal nobuflisted | endif
 augroup END
 
 augroup AdjustOnFileType
