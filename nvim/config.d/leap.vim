@@ -1,5 +1,5 @@
+"""" Memo: leap.org
 """" From: init.vim
-"""" Note: leap.org
 
 """" CONFIG
 " cursor position of column is kept on jump.
@@ -39,6 +39,8 @@ nnoremap <a-w>f     :cd ~/.config<cr>:echo '$CWD is "' . getcwd() . '"'<cr>
 "" Dotfiles
 nnoremap <a-w><a-d> :cd ~/dotfiles<cr>:echo '$CWD is "' . getcwd() . '"'<cr>
 nnoremap <a-w>d     :cd ~/dotfiles<cr>:echo '$CWD is "' . getcwd() . '"'<cr>
+nnoremap <a-w><a-.> :cd ~/dotfiles<cr>:echo '$CWD is "' . getcwd() . '"'<cr>
+nnoremap <a-w>.     :cd ~/dotfiles<cr>:echo '$CWD is "' . getcwd() . '"'<cr>
 "" Org-Mode
 nnoremap <a-w><a-o> :cd ~/org<cr>:echo '$CWD is "' . getcwd() . '"'<cr>
 nnoremap <a-w>o     :cd ~/org<cr>:echo '$CWD is "' . getcwd() . '"'<cr>
@@ -81,8 +83,8 @@ cnoremap <a-k> <ESC>
 
 """ Tab Page
 "" Move between Tabs
-nnoremap <a-i> gT
-nnoremap <a-o> gt
+nnoremap <c-n> gT
+nnoremap <c-p> gt
 nnoremap <silent> <a-t><a-o> :tabonly<cr>
 "" Give Tab
 nnoremap <a-t><c-g> <c-w>T
@@ -107,7 +109,7 @@ noremap gF gf
 "nnoremap <space>/ :silent vimgrep  % <bar> cw<Left><Left><Left><Left><Left><Left><Left>
 
 "" Dot-Repeat
-nnoremap <a-n> n.
+"nnoremap <a-n> n.
 nnoremap <a-;> ;.
 " researched word will come up at middle of current window.
 noremap n   nzz
@@ -149,6 +151,11 @@ if has('nvim')
   """ Terminal Mode
   "" Put as in Insert Mode
   tnoremap <expr> <C-R> '<C-\><C-N>"'.nr2char(getchar()).'pi'
+  " clipboard register
+  tnoremap <expr> <C-R><c-space> '<C-\><C-N>"+pi'
+  tnoremap <expr> <C-R><space> '<C-\><C-N>"+pi'
+  "" yank register
+  tnoremap <expr> <C-R><c-0> '<C-\><C-N>"0pi'
   " Use emacs-like keybind in terminal-job mode.
   "" ESC
   " esc in the same way as in the other mode.
@@ -156,10 +163,12 @@ if has('nvim')
   tnoremap <esc> <c-\><c-n>
 
   " Jump Anyway by <c-i><c-o>
-  tmap <c-i> <c-\><c-n><c-i>
+  "tmap <c-i> <c-\><c-n><c-i>
   tmap <c-o> <c-\><c-n><c-o>
   tmap <a-i> <c-\><c-n><a-i>
   tmap <a-o> <c-\><c-n><a-o>
+  tmap <a-p> <c-\><c-n><a-p>
+  tmap <a-n> <c-\><c-n><a-n>
 
   "" Alt as ESC as in Insert Mode
   " esc & hjkl
@@ -176,10 +185,8 @@ endif
 
 """ Buffer
 " <c-[> to <esc>, <c-]> for tag-jump.
-noremap <silent> <c-n> :bnext<cr>
-noremap <silent> <c-p> :bprevious<cr>
-noremap <silent> <c-}> :bfirst<cr>
-noremap <silent> <c-{> :blast<cr>
+noremap <silent> <a-i> :bnext<cr>
+noremap <silent> <a-o> :bprevious<cr>
 noremap <c-6> <c-^>
 
 "" QuickFix

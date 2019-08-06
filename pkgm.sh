@@ -134,6 +134,9 @@ Shougo/dein.vim
 )
 
 #git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
+# doom-emacs: an emacsen for alt-vimmer.
+git clone https://github.com/hlissner/doom-emacs ~/.emacs.d
+~/.emacs.d/bin/doom quickstart
 
 for g in ${gitRepos[@]}; do
   # if you want to use pocke/get, replace ghq get w/ get ghq

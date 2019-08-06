@@ -26,6 +26,8 @@ nnoremap <silent> <a-q><a-o> :<c-u>cd ~/org <bar> FZF<cr>
 nnoremap <silent> <a-q>o     :<c-u>cd ~/org <bar> FZF<cr>
 nnoremap <silent> <a-q><a-d> :<c-u>cd ~/dotfiles <bar> FZF<cr>
 nnoremap <silent> <a-q>d     :<c-u>cd ~/dotfiles <bar> FZF<cr>
+nnoremap <silent> <a-q><a-.> :<c-u>cd ~/dotfiles <bar> FZF<cr>
+nnoremap <silent> <a-q>.     :<c-u>cd ~/dotfiles <bar> FZF<cr>
 nnoremap <silent> <a-q><a-w> :<c-u>cd %:p:h <bar> FZF<cr>
 nnoremap <silent> <a-q>w     :<c-u>cd %:p:h <bar> FZF<cr>
 nnoremap <silent> <a-q>      :<c-u>FZF<cr>
