@@ -119,9 +119,10 @@ inoremap <a-d> <esc>d
 inoremap <a-c> <esc>c
 inoremap <a-u> <esc>u
 inoremap <a-p> <c-g>u<esc>p
-" <a-iao> as well; forget initial o.
-inoremap <a-a> <Right>
-inoremap <a-i> <left>
+" <a-iao> as well
+" <a-ai> could be just <left>/<right>, but I prefer <esc> before.
+inoremap <a-a> <esc>la
+inoremap <a-i> <esc>i
 inoremap <a-o> <esc>o
 
 """ Del
