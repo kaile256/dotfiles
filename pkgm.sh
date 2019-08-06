@@ -138,10 +138,14 @@ Shougo/dein.vim
 git clone https://github.com/hlissner/doom-emacs ~/.emacs.d
 ~/.emacs.d/bin/doom quickstart
 
-for g in ${gitRepos[@]}; do
-  # if you want to use pocke/get, replace ghq get w/ get ghq
-  ghq get  $g
-done
+#(keyboard-translate ?\C-h ?\C-?)
+#(global-set-key (kbd "C-?") 'help-for-help)
+#
+#(create-fontset-from-ascii-font "Cica-14:weight=normal:slant=normal" nill "Cica-14")
+#for g in ${gitRepos[@]}; do
+#  # if you want to use pocke/get, replace ghq get w/ get ghq
+#  ghq get  $g
+#done
 
 GemRepos=(
 neovim
@@ -182,6 +186,10 @@ mkdir -p ~/.config/fish/completions/rustup.fish
 rustup completions fish > ~/.config/fish/completions/rustup.fish
 
 #### Fonts
+if [ -z `ls /usr/share/fonts/TTF/ | grep Cica` ]; then
+  echo 'creating symlinks for Cica Fonts to /etc/fonts/conf.d/'
+  sudo ln -s /usr/share/fonts/TTF/Cica* /etc/fonts/conf.d/
+fi
 if [ -z `ls /usr/share/fonts/TTF/ | grep Ricty` ]; then
   echo 'creating symlinks for Ricty Fonts to /etc/fonts/conf.d/'
   sudo ln -s /usr/share/fonts/TTF/Ricty* /etc/fonts/conf.d/
