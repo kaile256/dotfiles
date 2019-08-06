@@ -42,6 +42,7 @@ Configs=(
 X11
 bash
 ctags
+emacs
 fish
 git
 i3
@@ -73,13 +74,14 @@ echo "Done! All the dotfiles are linked to ${XDG_CONFIG_HOME}"
 ### non-XDG programs;
 ## Create symbolic links at $HOME via $XDG_CONFIG_HOME.
 home_list=(
-bash/.profile
-bash/.bashrc
-ctags/.ctags
-git/.tigrc
-git/.gitconfig
-X11/.Xresources
 X11/.Xmodmap
+X11/.Xresources
+bash/.bashrc
+bash/.profile
+ctags/.ctags
+emacs/.emacs.d
+git/.gitconfig
+git/.tigrc
 w3m/.w3m
 )
 
