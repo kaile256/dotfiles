@@ -17,15 +17,7 @@ imap <silent> <c-l> <c-o> :<c-u> noh <bar> redraw <cr>
 nmap <silent> <a-space><space>   :<c-u>noh <bar> redraw <cr>
 nmap <silent> <a-space><a-space> :<c-u>noh <bar> redraw <cr>
 " <a-space> gets along with <a-hjkl>.
-nmap <silent> <space><space>     :cclose <bar> lclose <bar> retab <cr>
-
-"""" Read Only
-augroup AlertWhenReadOnly
-  au! BufReadPost,BufEnter *
-  if &readonly && &filetype !=# 'help' && &buftype !=# 'directory'
-    colorscheme morning
-  endif
-augroup END
+nmap <silent> <space><space>     :cclose <bar> lclose <cr> :retab <cr>
 
 """ Color
 set termguicolors
