@@ -64,10 +64,10 @@ noremap <Plug>(leap-in-win-middle) :<c-u><c-r>= (line('w0') + line('w$') + 2*lin
 noremap <Plug>(leap-in-win-lower) :<c-u><c-r>= (line('w$') + line('.') + 1)/2<cr><cr>
 " CAUTION: <c-m> is identical with <cr>; <c-,>/<c-.> does't work.
 " <c-hjkl> get along with <c-fbud>; <a-hjkl> get along with <s-wbe>.
-map <silent> <c-h> <Plug>(leap-in-win-higher)
-map <silent> <c-j> <Plug>(leap-in-win-middle)
-map <silent> <c-k> <Plug>(leap-in-win-middle)
-map <silent> <c-l> <Plug>(leap-in-win-lower)
+map <silent> <c-h> <Plug>(leap-in-win-middle)
+map <silent> <c-j> <Plug>(leap-in-win-lower)
+map <silent> <c-k> <Plug>(leap-in-win-higher)
+map <silent> <c-l> <Plug>(leap-in-win-middle)
 
 """ Pane
 " leap between panes
