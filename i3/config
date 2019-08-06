@@ -43,6 +43,7 @@ exec --no-startup-id nvim-qt
 set $mod Mod4
 ## Kill Focused Window
 bindsym $mod+q kill
+bindsym $mod+Shift+q kill
 # reload the configuration file
 bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
