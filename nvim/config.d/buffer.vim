@@ -12,15 +12,15 @@ augroup END
 augroup OnTermMode
   au!
   au TermOpen * silent setlocal nonumber
-  au TermOpen,BufEnter * if &buftype ==# 'terminal' | startinsert | endif
   au TermOpen,BufEnter * if &buftype ==# 'terminal' | setlocal nobuflisted | endif
+  au TermOpen,BufEnter * if &buftype ==# 'terminal' | startinsert | endif
 augroup END
 
 """" Read Only
-"augroup AlertWhenReadOnly
-" Too many Exceptions!!
-"  au! BufRead,BufEnter * if &readonly && &filetype !=# 'help' && &filetype !=# 'netrw' && &buftype !=# 'directory' | colorscheme gruvbox | endif
-"augroup END
+augroup AlertWhenReadOnly
+ " CAUTION: Too many Exceptions!!
+  au! BufRead,BufEnter * if &readonly && &buftype ==# '' && &filetype !=# 'netrw' | colorscheme gruvbox | endif
+augroup END
 
 augroup AdjustOnFileType
   au BufEnter * if &filetype !=# 'vim' | call s:ft_is_not_vim() | endif
