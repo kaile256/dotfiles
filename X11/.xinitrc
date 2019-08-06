@@ -5,11 +5,11 @@
 #### TODO: .xprofile is for GDM/LightDM/SDDM.
 ####  Ref: bash/env.sh
 ####  Ref: i3/config
-####  Ref: X11/Xresources
-####  Ref: X11/Xmodmap
+####  Ref: X11/.Xresources
+####  Ref: X11/.Xmodmap
 
-UserResources=$HOME/.config/X11/Xresources
-UserModmap=$HOME/.cofig/X11/Xmodmap
+UserResources=$HOME/.config/X11/.Xresources
+UserModmap=$HOME/.config/X11/.Xmodmap
 SystemSources=/etc/X11/xinit/.Xresources
 SystemModmap=/etc/X11/xinit/.Xmodmap
 

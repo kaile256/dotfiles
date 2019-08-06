@@ -19,11 +19,11 @@ on_event = 'BufReadPost'
 ## Better %
 repo = 'andymass/vim-matchup'
 on_event = 'CursorMoved'
-hook_post_source = 'matchup.vimrc'
+hook_post_source = 'runtime matchup.vimrc'
 [[plugins]]
 repo = 'itchyny/vim-cursorword'
 on_event = 'CursorMoved'
-hook_post_source = 'cursorword.vimrc'
+hook_post_source = 'runtime cursorword.vimrc'
 
 ### Substitution
 #[[plugins]]

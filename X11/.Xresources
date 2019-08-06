@@ -1,7 +1,5 @@
-#!/bin/sh
-
 !!!! From: .xinitrc
-!!!!  Ref: Xmodmap
+!!!!  Ref: .Xmodmap
 !! Comments: leave ! on head of line to comment out.
 !!  Source: start with #include, like #include ".Xresources.d/xterm"
 !! ~/.Xresources
@@ -14,7 +12,8 @@ URxvt.geometry:             96x32
 
 !!! Scroll-Bar
 URxvt.scrollBar_right:      false
-URxvt.scrollBar_floating:   false  ! true: no-bg on scrollbar.
+! true: no background (= no floating) on scrollbar.
+URxvt.scrollBar_floating:   false
 URxvt.scrollstyle:          plain
 
 URxvt.cursorBlink:          true
@@ -28,8 +27,8 @@ URxvt.saveLines:            3000
 URxvt.fading:               40
 
 !! Font list and Spacing
-URxvt.font:                 xft:Dejavu Sans Mono-11,\
-                            xft:Nerd
+URxvt.font:                 xft:Cica:size=16:antialias=true
+!URxvt.font:                 xft:Dejavu Sans Mono-11,xft:Nerd
 URxvt.letterSpace:          -1  ! prepare exagerated space esp. on Japanese Fonts.
 !URxvt.lineSpace:            2  ! expand space between command-lines.
 
