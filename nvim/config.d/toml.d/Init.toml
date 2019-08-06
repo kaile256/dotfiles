@@ -20,13 +20,13 @@ hook_add = 'runtime fugitive.vimrc'
 ### Completion
 [[plugins]]
 repo = 'neoclide/coc.nvim'
-hook_add = 'silent call coc#util#install()'
+hook_add = 'call coc#util#install()'
 hook_add = 'runtime coc.vimrc'
 
 ### Start Page
-[[plugins]]
-repo = 'mhinz/vim-startify'
-hook_add = 'runtime startify.vimrc'
+#[[plugins]]
+#repo = 'mhinz/vim-startify'
+#hook_add = 'runtime startify.vimrc'
 
 ### FZF
 [[plugins]]
