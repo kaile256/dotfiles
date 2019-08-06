@@ -28,6 +28,11 @@ hook_add = 'runtime coc.vimrc'
 #repo = 'mhinz/vim-startify'
 #hook_add = 'runtime startify.vimrc'
 
+### Which Key
+[[plugins]]
+repo = 'liuchengxu/vim-which-key'
+hook_add = 'runtime which-key.vimrc'
+
 ### FZF
 [[plugins]]
 repo = 'junegunn/fzf'
