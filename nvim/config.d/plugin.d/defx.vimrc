@@ -19,8 +19,8 @@
 nnoremap <silent> <a-v>
       \ :<c-u>Defx `expand('%:p:h')` -search=`expand('%:p')`
       \ -split=vertical -winwidth=35 -winheight=60 -direction=topleft <cr>
-nnoremap <silent> <a-t>
-      \ :<c-u>Defx `expand('%:p:h')` -search=`expand('%:p')` -split=tab<cr>
+"nnoremap <silent> <a-t>
+"      \ :<c-u>Defx `expand('%:p:h')` -search=`expand('%:p')` -split=tab<cr>
 
 function! s:defx_keymap_explorer() abort
   """ Explore Tree
