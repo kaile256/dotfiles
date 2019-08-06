@@ -84,8 +84,11 @@ cnoremap <c-a> <home>
 cnoremap <a-f> <S-right>
 cnoremap <c-f> <right>
 cnoremap <c-b> <left>
+cnoremap <a-b> <S-left>
 "" Cancel
-cnoremap <a-k> <esc>
+cnoremap <a-k> <c-c>
+" <c-k> enter digraph
+cnoremap <c-k><a-k> <c-c>
 
 """ Advanced <c-g>
 inoremap <c-g><c-h> <Left>
@@ -97,7 +100,7 @@ inoremap <c-g>b     <S-Left>
 inoremap <c-g><c-w> <S-Right>
 inoremap <c-g>w     <S-Right>
 
-""" Menu PopUp
+""" Instant Escape
 "" Alt-ESC; or type <c-o> to insert-normal.
 inoremap <a-space>w <esc>:w<cr>
 " make sure <a-hjkl> work as <esc>hjkl, e.g., while pop-up menu shows.
@@ -117,8 +120,8 @@ inoremap <a-c> <esc>c
 inoremap <a-u> <esc>u
 inoremap <a-p> <c-g>u<esc>p
 " <a-iao> as well; forget initial o.
-inoremap <a-i> <esc>i
-inoremap <a-a> <esc>a
+inoremap <a-a> <Right>
+inoremap <a-i> <left>
 inoremap <a-o> <esc>o
 
 """ Del
