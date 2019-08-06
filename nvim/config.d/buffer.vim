@@ -16,6 +16,12 @@ augroup OnTermMode
   au TermOpen,BufEnter * if &buftype ==# 'terminal' | setlocal nobuflisted | endif
 augroup END
 
+"""" Read Only
+"augroup AlertWhenReadOnly
+" Too many Exceptions!!
+"  au! BufRead,BufEnter * if &readonly && &filetype !=# 'help' && &filetype !=# 'netrw' && &buftype !=# 'directory' | colorscheme gruvbox | endif
+"augroup END
+
 augroup AdjustOnFileType
   au BufEnter * if &filetype !=# 'vim' | call s:ft_is_not_vim() | endif
   "" Cursor Locates on the Middle
@@ -37,16 +43,6 @@ augroup AdjustOnFileType
 
   au FileType qt,fugitive call s:quickfix_keymap()
 augroup END
-
-let s:treat_as_quickfix = [
-      \ 'help',
-      \ 'netrw',
-      \ 'gitcommit',
-      \ 'git',
-      \ 'fugitive',
-      \ 'denite',
-      \ 'defx'
-      \ ]
 
 """" DEFINITION
 function! s:quickfix_keymap() abort

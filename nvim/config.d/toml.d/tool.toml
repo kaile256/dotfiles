@@ -1,5 +1,11 @@
 #### From: dein.vimrc
 
+### Completion
+[[plugins]]
+repo = 'neoclide/coc.nvim'
+on_event = 'BufRead'
+hook_add = 'runtime coc.vimrc'
+
 ## Async Processor
 [[plugins]]
 # run vim-plugins asynchronously, like openbrowser, quickrun.

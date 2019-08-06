@@ -66,6 +66,7 @@ runtime denite-extra.vimrc
 runtime defx.vimrc
 runtime defx-extra.vimrc
 
+
 """ Colorscheme
 if has('nvim')
   runtime molokai.vimrc
@@ -73,7 +74,7 @@ if has('nvim')
   runtime gruvbox.vimrc
 endif
 
-runtime rainbow.vimrc
+"runtime rainbow.vimrc
 
 """" KEYMAP
 """ CAUTION: for the other plugins, DON'T define 'cmap' carelessly.

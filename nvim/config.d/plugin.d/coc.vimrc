@@ -1,6 +1,10 @@
-"""" From: Init.toml
+"""" From: tool.toml
 """" Help: coc#
 """" Source: neoclide/coc.nvim
+
+"" Preintall javascript
+" TODO: Loading is too long.
+silent call coc#util#install()
 
 """" GENERAL
 " shorter for CursorHold & CursorHoldI
