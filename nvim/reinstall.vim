@@ -22,6 +22,7 @@ let s:coc_extentions = [
       \ 'coc-json',
       \ 'coc-lbdbq',
       \ 'coc-lists',
+      \ 'coc-lua',
       \ 'coc-neosnippet',
       \ 'coc-omni',
       \ 'coc-phpls',
