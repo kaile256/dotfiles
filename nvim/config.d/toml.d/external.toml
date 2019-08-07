@@ -12,8 +12,23 @@ repo = 'itchyny/calendar.vim'
 on_event = 'VimEnter'
 hook_post_source = 'runtime calendar.vimrc'
 
+### Tags
+[[plugins]]
+repo = 'jsfaint/gen_tags.vim'
+on_event = 'BufLeave'
+hook_post_source = 'runtime gen_tags.vimrc'
+#[[plugins]]
+#repo = 'majutsushi/tagbar'
+#on_event = ['BufNew','BufReadPost']
+#hook_post_source = 'runtime tagbar.vimrc'
+[[plugins]]
+repo = 'liuchengxu/vista.vim'
+on_event = ['BufNew','BufReadPost']
+hook_post_source = 'runtime vista.vimrc'
+
 #### i3-wm
 #[[plugins]]
 #repo = 'termhn/i3-vim-nav'
 #on_if = 'exists("/usr/local/bin/termhn/i3-vim-nav")'
 #hook_post_source = 'runtime i3-vim-nav.vimrc'
+

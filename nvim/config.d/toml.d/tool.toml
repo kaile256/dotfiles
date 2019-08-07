@@ -4,7 +4,8 @@
 [[plugins]]
 repo = 'neoclide/coc.nvim'
 on_event = 'BufRead'
-hook_add = 'runtime coc.vimrc'
+hook_post_source = 'runtime coc.vimrc'
+hook_post_source = 'call coc#util#install()'
 
 ## Async Processor
 [[plugins]]
@@ -22,20 +23,20 @@ hook_post_source = 'runtime ultisnips.vimrc'
 [[plugins]]
 repo = 'honza/vim-snippets'
 on_event = ['InsertEnter', 'TermOpen']
-
-### Tags
-[[plugins]]
-repo = 'jsfaint/gen_tags.vim'
-on_event = 'BufLeave'
-hook_post_source = 'runtime gen_tags.vimrc'
 #[[plugins]]
-#repo = 'majutsushi/tagbar'
-#on_event = ['BufNew','BufReadPost']
-#hook_post_source = 'runtime tagbar.vimrc'
+#repo = 'Shougo/neosnippet-snippets'
+#on_event = 'InsertEnter'
+#[[plugins]]
+#repo = 'Shougo/neosnippet.vim'
+#on_event = 'InsertEnter'
+#depends = 'neosnippet-snippets'
+#hook_add = 'runtime! neosnippet.vimrc'
+
+### Template
 [[plugins]]
-repo = 'liuchengxu/vista.vim'
-on_event = ['BufNew','BufReadPost']
-hook_post_source = 'runtime vista.vimrc'
+repo = 'mattn/sonictemplate-vim'
+on_event = 'BufRead'
+hook_post_source = 'runtime sonictemplate.vimrc'
 
 ### Operator
 [[plugins]]
@@ -64,21 +65,8 @@ hook_post_source = 'runtime neomake.vimrc'
 repo = 'tpope/vim-repeat'
 on_event = 'BufRead'
 
-### Template
-[[plugins]]
-repo = 'mattn/sonictemplate-vim'
-on_event = 'BufRead'
-hook_post_source = 'runtime sonictemplate.vimrc'
-
 #### UI
 #[[plugins]]
 #repo = 'wsdjeg/dein-ui.vim'
 #hook_add = 'runtime dein-ui.vim'
-
-### Emacs-Like
-### Narrow Region
-#[[plugins]]
-#repo = 'chrisbra/NrrwRgn'
-#on_event = 'VimEnter'
-#hook_post_source = 'runtime NrrwRgn.vimrc'
 

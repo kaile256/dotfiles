@@ -1,17 +1,5 @@
 #### From: dein.vimrc
 
-## Snippet
-[[plugins]]
-repo = 'Shougo/neosnippet-snippets'
-on_event = 'InsertEnter'
-on_ft = 'snippet'
-[[plugins]]
-repo = 'Shougo/neosnippet.vim'
-on_event = 'InsertEnter'
-on_ft = 'snippet'
-depends = 'neosnippet-snippets'
-hook_add = 'runtime! neosnippet.vimrc'
-
 #### Language Support
 ### Org Mode
 [[plugins]]
@@ -33,6 +21,11 @@ hook_post_source = 'runtime SyntaxRange.vimrc'
 repo = 'tpope/vim-speeddating'
 on_ft = 'org'
 hook_post_source = 'runtime speeddating.vimrc'
+## Narrow Region
+[[plugins]]
+repo = 'chrisbra/NrrwRgn'
+on_event = 'VimEnter'
+hook_post_source = 'runtime NrrwRgn.vimrc'
 
 ### 13-wm
 [[plugins]]
