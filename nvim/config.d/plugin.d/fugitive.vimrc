@@ -51,19 +51,19 @@ nnoremap          <a-y>"     :<c-u>Gw<cr>:Gcommit -m ""<Left>
 nnoremap <silent> <a-y>w     :<c-u>Gw<cr>:Gstatus<cr>
 nnoremap <silent> <a-y><a-w> :<c-u>Gw<cr>:Gstatus<cr>
 """ Pull
-nnoremap <silent> <a-p>l     :<c-u>Gpull<cr>
-nnoremap <silent> <a-p><a-l> :<c-u>Gpull<cr>
+nnoremap <silent> <a-y>l     :<c-u>Gpull<cr>
+nnoremap <silent> <a-y><a-l> :<c-u>Gpull<cr>
 """ Push
-nnoremap <silent> <a-p>s     :<c-u>Gpush<cr>
-nnoremap <silent> <a-p><a-s> :<c-u>Gpush<cr>
+nnoremap <silent> <a-y>h     :<c-u>Gpush<cr>
+nnoremap <silent> <a-y><a-h> :<c-u>Gpush<cr>
 
 """ Grep
 " -I: no binary files
 nnoremap <a-y>g     :<c-u>silent Ggrep  <bar> cw<Left><Left><Left><Left><Left>
 nnoremap <a-y><a-g> :<c-u>silent Ggrep  <bar> cw<Left><Left><Left><Left><Left>
 " show options
-nnoremap <a-y>h     :<c-u>Ggrep --help<cr>
-nnoremap <a-y><a-h> :<c-u>Ggrep --help<cr>
+nnoremap <a-y>p     :<c-u>Ggrep --help<cr>
+nnoremap <a-y><a-p> :<c-u>Ggrep --help<cr>
 
 """ Others
 nnoremap <a-y>o     :<c-u>Git checkout 
