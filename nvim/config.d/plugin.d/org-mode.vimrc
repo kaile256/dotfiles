@@ -24,6 +24,17 @@ function! s:org_keymap()
 
   "" NOTICE: On Insert Mode, type <c-o>/<a-space> for the same mapping; vi is too.
 
+  """ Export
+  " p: PDF; b: beamer PDF; h: HTML; l: LaTeX
+  nmap <buffer> <a-x><a-p> <localleader>ep
+  nmap <buffer> <a-x><a-b> <localleader>eb
+  nmap <buffer> <a-x><a-h> <localleader>eh
+  nmap <buffer> <a-x><a-l> <localleader>el
+  nmap <buffer> <a-x>p     <localleader>ep
+  nmap <buffer> <a-x>b     <localleader>eb
+  nmap <buffer> <a-x>h     <localleader>eh
+  nmap <buffer> <a-x>l     <localleader>el
+
   """ Agenda
   "" For Weekly ToDo List
   nmap <buffer> <a-a><a-w> <LocalLeader>caa
@@ -37,8 +48,12 @@ function! s:org_keymap()
 
   """ ToDo State
   "" Checkbox
+  " toggle
+  " Seams: NOT implemented yet
+  "nmap <buffer> <a-x><a-x> <localleader>cc
+  
   "" Prompt to Select State
-  " CAUTION: Seems NOT implemented yet
+  " Seams: NOT implemented yet
   "nmap <buffer> <a-space><a-space> <LocalLeader>d
   " Rotate State
   nmap <buffer> <a-space><a-space> <LocalLeader>ct<LocalLeader>c#
@@ -62,7 +77,7 @@ function! s:org_keymap()
   nmap <buffer> <a-m>c     <localleader>pa
 
   """ Heading/Subtree
-  " Mnemonic: Superior/Inferior
+  " Mnemonic: Over/Under
 
   "" Move
   nmap <buffer> [ [[
@@ -71,15 +86,15 @@ function! s:org_keymap()
   nmap <buffer> m] m]]
 
   "" Promote/Demote
-  nmap <buffer> >s >ah
+  nmap <buffer> >o >ah
   nmap <buffer> >i >ar
-  nmap <buffer> <s <ah
+  nmap <buffer> <o <ah
   nmap <buffer> <i <ar
 
   "" Register
-  nmap <buffer> ds dah
-  nmap <buffer> di dar
-  nmap <buffer> ys yah
-  nmap <buffer> yi yar
+  nmap <buffer> do dah
+  nmap <buffer> du dar
+  nmap <buffer> yo yah
+  nmap <buffer> yu yar
 
 endfunction
