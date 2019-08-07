@@ -4,7 +4,7 @@
 
 "" Preintall javascript
 " TODO: Loading is too long.
-silent call coc#util#install()
+"call coc#util#install()
 
 """" GENERAL
 " shorter for CursorHold & CursorHoldI

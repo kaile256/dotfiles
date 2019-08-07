@@ -31,7 +31,8 @@ augroup AdjustOnFileType
   au BufLeave * if &filetype ==# 'help' | drop % | endif
 
   """ Treat as QuickFix
-  au FileType netrw,gitcommit,fugitive,denite,defx setlocal buftype=quickfix
+  "" CAUTION: denite,vista demands to write before quitting.
+  au FileType netrw,gitcommit,fugitive,defx setlocal buftype=quickfix
   " Why? not work on 'au FileType'
   au BufRead * if &filetype ==# 'git' | setlocal buftype=quickfix | endif
   "au FileType expand('s:treat_as_quickfix')setlocal buftype=quickfix
