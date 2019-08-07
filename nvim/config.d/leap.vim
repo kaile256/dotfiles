@@ -140,14 +140,16 @@ if has('nvim')
   """" KEYMAP
   """ Normal Mode
   "" Open Shortcut
-  nnoremap <silent> <a-t><a-o> :<c-u>cd ~/org<cr>      :te<cr>
-  nnoremap <silent> <a-t><a-.> :<c-u>cd ~/dotfiles<cr> :te<cr>
-  nnoremap <silent> <a-t><a-d> :<c-u>cd ~/dotfiles<cr> :te<cr>
-  nnoremap <silent> <a-t><a-g> :<c-u>cd ~/.config<cr>  :te<cr>
-  nnoremap <silent> <a-t>o :<c-u>cd ~/org<cr>          :te<cr>
-  nnoremap <silent> <a-t>. :<c-u>cd ~/dotfiles<cr>     :te<cr>
-  nnoremap <silent> <a-t>d :<c-u>cd ~/dotfiles<cr>     :te<cr>
-  nnoremap <silent> <a-t>g :<c-u>cd ~/.config<cr>      :te<cr>
+  nnoremap <silent> <a-t><a-o> :<c-u>cd ~/org       <bar>:te<cr>
+  nnoremap <silent> <a-t><a-.> :<c-u>cd ~/dotfiles  <bar>:te<cr>
+  nnoremap <silent> <a-t><a-d> :<c-u>cd ~/dotfiles  <bar>:te<cr>
+  nnoremap <silent> <a-t><a-g> :<c-u>cd ~/.config   <bar>:te<cr>
+  nnoremap <silent> <a-t><a-w> :<c-u>cd %:p:h       <bar>:te<cr>
+  nnoremap <silent> <a-t>o :<c-u>cd ~/org      <bar>:te<cr>
+  nnoremap <silent> <a-t>. :<c-u>cd ~/dotfiles <bar>:te<cr>
+  nnoremap <silent> <a-t>d :<c-u>cd ~/dotfiles <bar>:te<cr>
+  nnoremap <silent> <a-t>g :<c-u>cd ~/.config  <bar>:te<cr>
+  nnoremap <silent> <a-t>w :<c-u>cd %:p:h      <bar>:te<cr>
 
   nnoremap <silent> <a-t>e :<c-u>         :te<cr>
   nnoremap <silent> <a-t>s :<c-u>sp  <bar>:te<cr>
