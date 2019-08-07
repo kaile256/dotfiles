@@ -106,11 +106,12 @@ noremap gF gf
 ""” Research
 "" TODO: setlocal show result w/ no-file path but only file name.
 "" Grep to QuickFix  # no dirty-hist # Good enough with fzf.vim.
-"nnoremap <space>/ :silent vimgrep  % <bar> cw<Left><Left><Left><Left><Left><Left><Left>
+"nnoremap <space>/ :silent vimgrep  % <bar> cw<Left,<Left,<Left,<Left><Left><Left><Left>
 
 "" Dot-Repeat
-"nnoremap <a-n> n.
-nnoremap <a-;> ;.
+nnoremap <a-n> .n
+nnoremap <a-;> .;
+nnoremap <a-,> .,
 " researched word will come up at middle of current window.
 noremap n   nzz
 noremap N   Nzz
