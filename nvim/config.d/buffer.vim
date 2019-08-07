@@ -31,7 +31,7 @@ augroup AdjustOnFileType
   au BufLeave * if &filetype ==# 'help' | drop % | endif
 
   """ Treat as QuickFix
-  au FileType help,netrw,gitcommit,fugitive,denite,defx setlocal buftype=quickfix
+  au FileType netrw,gitcommit,fugitive,denite,defx setlocal buftype=quickfix
   " Why? not work on 'au FileType'
   au BufRead * if &filetype ==# 'git' | setlocal buftype=quickfix | endif
   "au FileType expand('s:treat_as_quickfix')setlocal buftype=quickfix
