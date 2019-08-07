@@ -15,7 +15,7 @@
 # to use a different font in the bar, set it in {} block below.
 #font pango:monospace 8
 #font pango:DejaVu Sans Mono 11
-font pango:Cica 11
+font pango:Cica 12
 
 # Before i3 v4.8, we used to recommend this one as the default:
 # font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
@@ -56,6 +56,8 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 bindsym $mod+Return exec i3-sensible-terminal
 bindsym $mod+u exec xfce4-terminal
 bindsym $mod+v exec --no-startup-id nvim-qt
+bindsym $mod+Shift+x exec reboot
+bindsym $mod+Shift+z exec poweroff
 
 ### Menu
 # i3-dmenu-desktop encloses completions under desktop-file, like /usr/share/applications/.
@@ -89,9 +91,9 @@ bindsym $mod+Shift+Right move right
 
 ### Other Layout
 bindsym $mod+f fullscreen toggle
+bindsym $mod+t layout tabbed
 # stacking: like tabbed, but switch windows up & down.
 #bindsym $mod+s layout stacking
-bindsym $mod+t layout tabbed
 #bindsym $mod+e layout toggle split
 
 ## Floating Mode

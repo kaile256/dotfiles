@@ -18,6 +18,21 @@ hook_add = 'runtime! neosnippet.vimrc'
 repo = 'jceb/vim-orgmode'
 on_ft = 'org'
 hook_post_source = 'runtime org-mode.vimrc'
+[[plugins]]
+# For Hyperlink
+repo = 'vim-scripts/utl.vim'
+on_ft = 'org'
+hook_post_source = 'runtime utl.vimrc'
+[[plugins]]
+# Multiple-Language Syntax in one buffer.
+repo = 'inkarkat/vim-SyntaxRange'
+on_ft = 'org'
+hook_post_source = 'runtime SyntaxRange.vimrc'
+[[plugins]]
+# <c-a/x> for dateing.
+repo = 'tpope/vim-speeddating'
+on_ft = 'org'
+hook_post_source = 'runtime speeddating.vimrc'
 
 ### 13-wm
 [[plugins]]

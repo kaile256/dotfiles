@@ -32,8 +32,27 @@ function! s:org_keymap()
 
   """ ToDo
   " Prompt State
-  "nmap <buffer> <a-i> <LocalLeader>d
+  nmap <buffer> <a-m> <LocalLeader>d
   " Rotate State
-  nmap <buffer> <a-m> <LocalLeader>ct
-  
+  "nmap <buffer> <a-m> <LocalLeader>ct
+
+  """ Heading/Subtree
+  "" Move
+  nmap <buffer> [ [[
+  nmap <buffer> ] ]]
+  nmap <buffer> m[ m[[
+  nmap <buffer> m] m]]
+
+  "" Promote/Demote
+  nmap <buffer> >h >ah
+  nmap <buffer> >r >ar
+  nmap <buffer> <h <ah
+  nmap <buffer> <r <ar
+
+  "" Register
+  nmap <buffer> dh dah
+  nmap <buffer> dr dar
+  nmap <buffer> yh yah
+  nmap <buffer> yr yar
+
 endfunction
