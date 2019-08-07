@@ -61,8 +61,16 @@ else
   nnoremap <silent> <a-q>a       :<c-u>echo "You don't have executable silver searcher." 
 endif
 if executable('rg')
-  nnoremap <silent> <a-q><a-r> :<c-u>Rg<cr>
-  nnoremap <silent> <a-q>r     :<c-u>Rg<cr>
+  nnoremap <silent> <a-r><a-r> :<c-u>Rg<cr>
+  nnoremap <silent> <a-r>r     :<c-u>Rg<cr>
+  nnoremap <silent> <a-r><a-o> :<c-u>cd ~/org<cr>      :Rg<cr>
+  nnoremap <silent> <a-r>o     :<c-u>cd ~/org<cr>      :Rg<cr>
+  nnoremap <silent> <a-r><a-d> :<c-u>cd ~/dotfiles<cr> :Rg<cr>
+  nnoremap <silent> <a-r>d     :<c-u>cd ~/dotfiles<cr> :Rg<cr>
+  nnoremap <silent> <a-r><a-.> :<c-u>cd ~/dotfiles<cr> :Rg<cr>
+  nnoremap <silent> <a-r>.     :<c-u>cd ~/dotfiles<cr> :Rg<cr>
+  nnoremap <silent> <a-r><a-g> :<c-u>cd ~/.config<cr>  :Rg<cr>
+  nnoremap <silent> <a-r>g     :<c-u>cd ~/.config<cr>  :Rg<cr>
 else
   nnoremap <silent> <a-q><a-a>   :<c-u>echo "You don't have executable ripgrep." 
   nnoremap <silent> <a-q>a       :<c-u>echo "You don't have executable ripgrep." 
