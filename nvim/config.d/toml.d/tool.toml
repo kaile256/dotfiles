@@ -38,10 +38,15 @@ repo = 'mattn/sonictemplate-vim'
 on_event = 'BufRead'
 hook_post_source = 'runtime sonictemplate.vimrc'
 
+
 ### Operator
 [[plugins]]
+repo = 'AndrewRadev/splitjoin.vim'
+on_event = 'BufRead'
+hook_post_source = 'runtime splitjoin.vimrc'
+[[plugins]]
 repo = 'junegunn/vim-easy-align'
-on_event = 'BufReadPost'
+on_event = 'BufRead'
 hook_post_source = 'runtime easy-align.vimrc'
 
 ### Code Runner
