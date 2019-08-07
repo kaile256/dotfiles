@@ -40,6 +40,7 @@ undo
 
 Configs=(
 X11
+awesome
 bash
 ctags
 emacs
