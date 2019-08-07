@@ -32,9 +32,7 @@ settings:
         <Alt+b>: tab-prev
         <Alt+f>: tab-next
         <Alt+i>: tab-next
-        <Alt+n>: tab-next
         <Alt+o>: tab-prev
-        <Alt+p>: tab-prev
         <Ctrl++>: zoom-in
         <Ctrl+->: zoom-out
         <Ctrl+2>: save
@@ -42,15 +40,16 @@ settings:
         <Ctrl+h>: null
         <Ctrl+i>: forward
         <Ctrl+j>: move-to-next-line
-        <Ctrl+n>: null
+        <Ctrl+n>: tab-next
         <Ctrl+o>: back
-        <Ctrl+p>: null
+        <Ctrl+p>: tab-prev
         <Ctrl+q>: tab-close
         <Ctrl+v>: null
         <Ctrl+w>: null
         <Ctrl+w><Ctrl+o>: window-only
         <Ctrl+w><Ctrl+p>: tab-pin
         <Ctrl+w><Ctrl+t>: tab-give
+        <Ctrl+w>p: tab-pin
         <Ctrl+x>: null
         <Space>1: tab-close
         <Space>2: save

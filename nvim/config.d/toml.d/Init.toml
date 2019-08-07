@@ -5,7 +5,6 @@
 [[plugins]]
 repo = 'Shougo/dein.vim'
 hook_done_update= 'runtime reinstall.vim'
-hook_add = 'set rtp+=~/.config/nvim/config.d/plugin.d'
 
 ### Git
 [[plugins]]

@@ -37,6 +37,7 @@ ghq-bin
 global
 go
 hub  # an official wrapper of git
+luarocks
 neovim-nightly
 neovim-qt
 nerd-fonts-ricty
@@ -70,9 +71,9 @@ Depend=(
 )
 
 for package in ${Package[@]}; do
-  if [ -z $INSTALLER == 'apt' ] && [ -z `apt list "$package" | grep $package` ]; then
+  if [ -z $INSTALLER == 'apt' ] && [ -z apt list "$package" | grep $package ]; then
     echo "You have installed $package already!"
-  elif [ -z $INSTALLER == 'pacman' && `pacman -Q "$package"`]; then
+  elif [ -z $INSTALLER == 'pacman' && pacman -Q "$package"]; then
     echo "You have installed $package already!"
   else
     echo "Installing $package..." && sudo $install $package || {
@@ -175,6 +176,14 @@ if ! [ -e "$INSTALL_DIR" ]; then
   echo ""
 fi
 
+## LSP
+# Lua
+sudo luarocks install --server=http://luarocks.org/dev lua-lsp
+sudo luarocks install luacheck
+# Formatter for Lua 5.1
+#sudo luarocks install Formatter
+# Formatter for Lua 5.3
+sudo luarocks install lcf
 ### Rustup -- cargo
 ## Init
 rustup install stable
@@ -186,11 +195,11 @@ mkdir -p ~/.config/fish/completions/rustup.fish
 rustup completions fish > ~/.config/fish/completions/rustup.fish
 
 #### Fonts
-if [ -z `ls /usr/share/fonts/TTF/ | grep Cica` ]; then
+if [ -z ls /usr/share/fonts/TTF/ | grep Cica ]; then
   echo 'creating symlinks for Cica Fonts to /etc/fonts/conf.d/'
   sudo ln -s /usr/share/fonts/TTF/Cica* /etc/fonts/conf.d/
 fi
-if [ -z `ls /usr/share/fonts/TTF/ | grep Ricty` ]; then
+if [ -z ls /usr/share/fonts/TTF/ | grep Ricty ]; then
   echo 'creating symlinks for Ricty Fonts to /etc/fonts/conf.d/'
   sudo ln -s /usr/share/fonts/TTF/Ricty* /etc/fonts/conf.d/
 fi

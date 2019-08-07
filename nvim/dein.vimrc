@@ -13,6 +13,8 @@ let s:dein_cache_dir = g:xdg_cache_home . '/dein'
 let s:dein_itself= s:dein_cache_dir . '/repos/github.com/Shougo/dein.vim/'
 
 set rtp+=~/.cache/dein/repos/github.com/Shougo/dein.vim
+"" For plugins' configs
+set rtp+=~/.config/nvim/config.d/plugin.d
 
 if dein#load_state(s:dein_cache_dir)
   call dein#begin(s:dein_cache_dir)

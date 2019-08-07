@@ -4,8 +4,8 @@
 [[plugins]]
 repo = 'neoclide/coc.nvim'
 on_event = 'BufRead'
-hook_post_source = 'runtime coc.vimrc'
 hook_post_source = 'call coc#util#install()'
+hook_post_source = 'runtime coc.vimrc'
 
 ## Async Processor
 [[plugins]]
