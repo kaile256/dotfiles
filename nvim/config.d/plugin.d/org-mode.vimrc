@@ -12,7 +12,7 @@ function! s:org_general()
   setlocal textwidth=0 nowrap signcolumn=
 
   "" WARNING: Wildcard* makes it slow if you have a lot of org files.
-  let g:org_agenda_files = ['~/org/*.org']
+  let g:org_agenda_files = ['~/org/*.d/*.org']
   "" Ref: <LocalLeader>d: prompt for fast access of a todo state
   let g:org_todo_keywords = [['TODO(t)', '|', 'DONE(d)']]
   "let g:org_todo_keywords = [['TODO(t)', '|', 'DONE(d)'],
@@ -21,22 +21,49 @@ function! s:org_general()
 endfunction
 
 function! s:org_keymap()
-  let maplocalleader='\<space>'
+
+  "" NOTICE: On Insert Mode, type <c-o>/<a-space> for the same mapping; vi is too.
+
   """ Agenda
   "" For Weekly ToDo List
   nmap <buffer> <a-a><a-w> <LocalLeader>caa
+  nmap <buffer> <a-a><a-w> <LocalLeader>caA
   "" For All ToDo List
   nmap <buffer> <a-a><a-a> <LocalLeader>cat
-  "" Time Sorted
-  nmap <buffer> <a-a><a-t> <LocalLeader>caL
+  nmap <buffer> <a-a><a-t> <LocalLeader>caT
+  "" Sort by Time
+  " CAUTION: NOT implemented
+  "nmap <buffer> <a-a><a-t> <LocalLeader>caL
 
-  """ ToDo
-  " Prompt State
-  nmap <buffer> <a-m> <LocalLeader>d
+  """ ToDo State
+  "" Checkbox
+  "" Prompt to Select State
+  " CAUTION: Seems NOT implemented yet
+  "nmap <buffer> <a-space><a-space> <LocalLeader>d
   " Rotate State
-  "nmap <buffer> <a-m> <LocalLeader>ct
+  nmap <buffer> <a-space><a-space> <LocalLeader>ct<LocalLeader>c#
+
+  """ Org-Tags
+  "" Set Tags
+  "" Mnemonic: Mark on Tags
+  nmap <buffer> <a-m><a-t> <LocalLeader>st
+  nmap <buffer> <a-m>t     <LocalLeader>st
+  nmap <buffer> <a-m><a-g> <LocalLeader>st
+  nmap <buffer> <a-m>g     <LocalLeader>st
+
+  """ Org-Dating
+  "" Mnemonic: Mark on Date
+  "" CAUTION: Seems NOT implemented yet
+  nmap <buffer> <a-m><a-d> <localleader>sa
+  nmap <buffer> <a-m>d     <localleader>si
+
+  "" Mnemonic: Mark by Calender
+  nmap <buffer> <a-m><a-c> <localleader>pa
+  nmap <buffer> <a-m>c     <localleader>pa
 
   """ Heading/Subtree
+  " Mnemonic: Superior/Inferior
+
   "" Move
   nmap <buffer> [ [[
   nmap <buffer> ] ]]
@@ -44,15 +71,15 @@ function! s:org_keymap()
   nmap <buffer> m] m]]
 
   "" Promote/Demote
-  nmap <buffer> >h >ah
-  nmap <buffer> >r >ar
-  nmap <buffer> <h <ah
-  nmap <buffer> <r <ar
+  nmap <buffer> >s >ah
+  nmap <buffer> >i >ar
+  nmap <buffer> <s <ah
+  nmap <buffer> <i <ar
 
   "" Register
-  nmap <buffer> dh dah
-  nmap <buffer> dr dar
-  nmap <buffer> yh yah
-  nmap <buffer> yr yar
+  nmap <buffer> ds dah
+  nmap <buffer> di dar
+  nmap <buffer> ys yah
+  nmap <buffer> yi yar
 
 endfunction
