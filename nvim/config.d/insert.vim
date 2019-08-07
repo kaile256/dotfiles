@@ -25,14 +25,6 @@ set tabstop=2
 " number of spaces, inserted by tab-key, next to tab-chars.
 set softtabstop=2
 
-augroup ReplaceTabWithSpace
-  " :retab!; if replace spaces, too.
-  au! BufReadPost *
-  if &modifiable || &buftype !=# 'directory' || &buftype !=# 'help'
-    retab
-  endif
-augroup end
-
 """ Indent
 " copy indent dependent on first char of current line.
 set autoindent
@@ -90,6 +82,10 @@ cnoremap <a-k> <c-c>
 " <c-k> enter digraph
 cnoremap <c-k><a-k> <c-c>
 
+""" Advanced <c-o>
+" <c-o>u doesn't work by default
+inoremap <c-o>u     <esc>ui
+inoremap <c-o><c-r> <esc><c-r>i
 """ Advanced <c-g>
 inoremap <c-g><c-h> <Left>
 inoremap <c-g>h     <Left>
