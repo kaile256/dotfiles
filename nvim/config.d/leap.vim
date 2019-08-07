@@ -59,9 +59,9 @@ xnoremap gk k
 
 """ Advanced jk/HML
 "" Definition
-noremap <Plug>(leap-in-win-higher)    :<c-u><c-r>= (line('w0') + line('.'))/2<cr><cr>
+noremap <Plug>(leap-in-win-higher) :<c-u><c-r>= (line('w0') + line('.'))/2<cr><cr>
 noremap <Plug>(leap-in-win-middle) :<c-u><c-r>= (line('w0') + line('w$') + 2*line('.'))/4<cr><cr>
-noremap <Plug>(leap-in-win-lower) :<c-u><c-r>= (line('w$') + line('.') + 1)/2<cr><cr>
+noremap <Plug>(leap-in-win-lower)  :<c-u><c-r>= (line('w$') + line('.') + 1)/2<cr><cr>
 " CAUTION: <c-m> is identical with <cr>; <c-,>/<c-.> does't work.
 " <c-hjkl> get along with <c-fbud>; <a-hjkl> get along with <s-wbe>.
 map <silent> <c-h> <Plug>(leap-in-win-middle)
@@ -85,9 +85,9 @@ cnoremap <a-k> <ESC>
 "" Move between Tabs
 nnoremap <c-n> gT
 nnoremap <c-p> gt
-nnoremap <silent> <a-t><a-o> :tabonly<cr>
+"nnoremap <silent> <a-t><a-o> :tabonly<cr>
 "" Give Tab
-nnoremap <a-t><c-g> <c-w>T
+"nnoremap <a-t><c-g> <c-w>T
 
 """ Go-To
 "" Help
@@ -140,6 +140,15 @@ if has('nvim')
   """" KEYMAP
   """ Normal Mode
   "" Open Shortcut
+  nnoremap <silent> <a-t><a-o> :<c-u>cd ~/org<cr>      :te<cr>
+  nnoremap <silent> <a-t><a-.> :<c-u>cd ~/dotfiles<cr> :te<cr>
+  nnoremap <silent> <a-t><a-d> :<c-u>cd ~/dotfiles<cr> :te<cr>
+  nnoremap <silent> <a-t><a-g> :<c-u>cd ~/.config<cr>  :te<cr>
+  nnoremap <silent> <a-t>o :<c-u>cd ~/org<cr>          :te<cr>
+  nnoremap <silent> <a-t>. :<c-u>cd ~/dotfiles<cr>     :te<cr>
+  nnoremap <silent> <a-t>d :<c-u>cd ~/dotfiles<cr>     :te<cr>
+  nnoremap <silent> <a-t>g :<c-u>cd ~/.config<cr>      :te<cr>
+
   nnoremap <silent> <a-t>e :<c-u>         :te<cr>
   nnoremap <silent> <a-t>s :<c-u>sp  <bar>:te<cr>
   nnoremap <silent> <a-t>v :<c-u>vs  <bar>:te<cr>
@@ -148,20 +157,6 @@ if has('nvim')
   nnoremap <silent> <a-t><a-s> :<c-u>sp  <bar>:te<cr>
   nnoremap <silent> <a-t><a-v> :<c-u>vs  <bar>:te<cr>
   nnoremap <silent> <a-t><a-t> :<c-u>tabe<bar>:te<cr>
-
-  """ Terminal Mode
-  "" Put as in Insert Mode
-  tnoremap <expr> <C-R> '<C-\><C-N>"'.nr2char(getchar()).'pi'
-  " clipboard register
-  tnoremap <expr> <C-R><c-space> '<C-\><C-N>"+pi'
-  tnoremap <expr> <C-R><space> '<C-\><C-N>"+pi'
-  "" yank register
-  tnoremap <expr> <C-R><c-0> '<C-\><C-N>"0pi'
-  " Use emacs-like keybind in terminal-job mode.
-  "" ESC
-  " esc in the same way as in the other mode.
-  tnoremap <c-[> <c-\><c-n>
-  tnoremap <esc> <c-\><c-n>
 
   " Jump Anyway by <c-i><c-o>
   "tmap <c-i> <c-\><c-n><c-i>

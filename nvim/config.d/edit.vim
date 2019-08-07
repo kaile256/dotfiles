@@ -70,6 +70,20 @@ set pumheight=50
 "endif
 
 """" KEYMAP
+
+""" Write&Quit
+" w! write even read-only file.
+nnoremap          <space>w :<c-u>w<cr>
+nnoremap <silent> <space>q :<c-u>q<cr>
+nnoremap          <space>x :<c-u>w!<cr>
+nnoremap <silent> <space>z :<c-u>q!<cr>
+"" Special
+nnoremap <space>* :<c-u>qa<cr>
+nnoremap <space>! :w !sudo tee % > /dev/null<cr> <bar> edit!
+"" Buffer
+nnoremap <silent> qq :<c-u>bdelete %<cr>
+nnoremap <silent> q1 :<c-u>bdelete %<cr>
+
 """ Command-Line
 "" Emacs-like
 cnoremap <c-a> <home>
@@ -97,6 +111,7 @@ inoremap <c-g><c-w> <S-Right>
 inoremap <c-g>w     <S-Right>
 
 """ Instant Escape
+""" CAUTION: Never careless mapping on <i_a-hjkl>
 "" Alt-ESC; or type <c-o> to insert-normal.
 inoremap <a-space>w <esc>:w<cr>
 " make sure <a-hjkl> work as <esc>hjkl, e.g., while pop-up menu shows.
@@ -165,6 +180,8 @@ inoremap <c-r>'         <c-g>u<c-r>"
 inoremap <c-r><c-'>'    <c-g>u<c-r>"
 
 "" Yank Register
+" Kill Ambiguities
+nnoremap Y y$
 " CAUTION: not for xmap, or that makes delay.
 nnoremap yp "0p
 nnoremap yp "0p
@@ -202,3 +219,18 @@ xnoremap <a-s>X     :sort! x<cr>
 xnoremap <a-s><a-o> :sort  o<cr>
 xnoremap <a-s>o     :sort  o<cr>
 xnoremap <a-s>O     :sort! o<cr>
+
+""" Terminal Mode
+"" Put as in Insert Mode
+tnoremap <expr> <C-R> '<C-\><C-N>"'.nr2char(getchar()).'pi'
+" clipboard register
+tnoremap <expr> <C-R><c-space> '<C-\><C-N>"+pi'
+tnoremap <expr> <C-R><space>   '<C-\><C-N>"+pi'
+"" yank register
+tnoremap <expr> <C-R><c-0>     '<C-\><C-N>"0pi'
+" Use emacs-like keybind in terminal-job mode.
+"" ESC
+" esc in the same way as in the other mode.
+tnoremap <c-[> <c-\><c-n>
+tnoremap <esc> <c-\><c-n>
+

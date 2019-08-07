@@ -9,7 +9,9 @@
 "  au FocusLost * set transparency=
 "augroup END
 
-"" Redraw
+""" Redraw
+"" Indent
+nnoremap <S-TAB> gg=G''zz
 " CAUTION: <c-l> should be run at LAST so that no corruption.
 " CAUTION: zR (open all fold) makes vim FREEZE.
 "" Ref: showmarks.vimrc
@@ -19,6 +21,33 @@ nmap <silent> <c-space><c-space> :<c-u>noh <bar> redraw <cr>
 " <a-space> gets along with <a-hjkl>.
 nmap <silent> <space><space>     :cclose <bar> lclose <cr> :retab <cr>
 
+"" Move Window
+nnoremap <c-w>h <c-w>H
+nnoremap <c-w>j <c-w>J
+nnoremap <c-w>k <c-w>K
+nnoremap <c-w>l <c-w>L
+
+""" Resize
+nnoremap <A-left>  <c-w>>
+nnoremap <A-down>  <c-w>-
+nnoremap <A-up>    <c-w>+
+nnoremap <A-right> <c-w><
+nnoremap <C-left>  <c-w>>
+nnoremap <C-down>  <c-w>-
+nnoremap <C-up>    <c-w>+
+nnoremap <C-right> <c-w><
+" another-resize commands
+nnoremap <a->> <c-w>>
+nnoremap <a--> <c-w>-
+nnoremap <a-+> <c-w>+
+nnoremap <a-<> <c-w><
+" agressive resize
+nnoremap <c-w>m     <c-w>_
+nnoremap <c-w><c-m> <c-w>_<c-w>|
+" neutralize
+nnoremap <c-w>0 <c-w>=
+
+"""" GENERAL
 """ Color
 set termguicolors
 
@@ -64,5 +93,4 @@ set splitbelow
 set splitright
 
 "" Speed
-set matchtime=1  " 対応括弧を1秒間表示
-""set ttyfast
+set matchtime=1
