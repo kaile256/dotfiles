@@ -1,10 +1,3 @@
-"" defx.vim is faster than netrw
-augroup NetrwConfig
-  au!
-  au FileType netrw if executable('fzf') | runtime! fzf.vimrc | endif
-  au FileType netrw if executable('rg') | runtime! ripgrep.vimrc | endif
-augroup END
-
 """" VAR
 " where .netrwhist is located.
 let g:netrw_home = "$XDG_CACHE_HOME/nvim/netrw"
