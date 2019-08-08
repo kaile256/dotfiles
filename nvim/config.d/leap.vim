@@ -62,12 +62,13 @@ xnoremap gk k
 noremap <Plug>(leap-in-win-higher) :<c-u><c-r>= (line('w0') + line('.'))/2<cr><cr>
 noremap <Plug>(leap-in-win-middle) :<c-u><c-r>= (line('w0') + line('w$') + 2*line('.'))/4<cr><cr>
 noremap <Plug>(leap-in-win-lower)  :<c-u><c-r>= (line('w$') + line('.') + 1)/2<cr><cr>
+noremap <Plug>(shift-to-middle)    :<c-u>call cursor(line('.'),col('$')/2)<cr>
 " CAUTION: <c-m> is identical with <cr>; <c-,>/<c-.> does't work.
 " <c-hjkl> get along with <c-fbud>; <a-hjkl> get along with <s-wbe>.
 map <silent> <c-h> <Plug>(leap-in-win-middle)
 map <silent> <c-j> <Plug>(leap-in-win-lower)
 map <silent> <c-k> <Plug>(leap-in-win-higher)
-map <silent> <c-l> <Plug>(leap-in-win-middle)
+map <silent> <c-l> <Plug>(shift-to-middle)
 
 """ Pane
 " leap between panes
