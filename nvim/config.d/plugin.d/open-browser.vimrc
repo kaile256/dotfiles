@@ -1,7 +1,9 @@
 """" From: tool.toml
+"""" Help: openbrowser
 
 """" DEFINITION
-command! CurrentFileOnBrowser execute "OpenBrowser" "file:///" . expand('%:p:gs?\\?/?')
+"command! CurrentFileOnBrowser execute "OpenBrowser" "ftp:///" . expand('%:p:gs?\\?/?')
+command! CurrentFileOnBrowser :!qutebrowser %
 
 """" KEYMAP
 "" NOTICE: do you use other editors?
@@ -17,24 +19,24 @@ vmap gb <Plug>(openbrowser-smart-search)
 
 """ Prompt
 "" Mnemonic: Web
-nmap <a-w><a-b> :<c-u>OpenBrowserSmartSearch 
-nmap <a-w>b     :<c-u>OpenBrowserSmartSearch 
-cmap <a-w><a-b> :<c-u>OpenBrowserSmartSearch 
-cmap <a-w>b     :<c-u>OpenBrowserSmartSearch 
+nmap <a-w><a-b> :<c-u>OpenBrowserSmartSearch<space>
+nmap <a-w>b     :<c-u>OpenBrowserSmartSearch<space>
+cmap <a-w><a-b> :<c-u>OpenBrowserSmartSearch<space>
+cmap <a-w>b     :<c-u>OpenBrowserSmartSearch<space>
 
 """ Search Engine
 "" Duckduckgo
 "cmap <a-d> -duckduckgo 
 
 "" GitHub
-cmap <a-g> -github 
-cmap <a-y> -github 
+cmap <a-g> -github<space>
+cmap <a-y> -github<space>
 
 "" Wikipedia
-cmap <a-p> -wikipedia 
+cmap <a-p> -wikipedia<space>
 
 "" Weblio
-cmap <a-l> -weblio 
+cmap <a-l> -weblio<space>
 
 """" GENERAL
 " 0: go to the browser.

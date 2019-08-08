@@ -9,7 +9,7 @@ augroup END
 
 function! s:org_general()
   "" Esp. for hyperlinks' appearance
-  setlocal textwidth=0 nowrap signcolumn=
+  setlocal textwidth=0 nowrap
 
   "" WARNING: Wildcard* makes it slow if you have a lot of org files.
   let g:org_agenda_files = ['~/org/*.d/*.org']
@@ -30,10 +30,22 @@ function! s:org_keymap()
   nmap <buffer> <a-x><a-b> <localleader>eb
   nmap <buffer> <a-x><a-h> <localleader>eh
   nmap <buffer> <a-x><a-l> <localleader>el
+  nmap <buffer> <a-x><a-m> <localleader>em
   nmap <buffer> <a-x>p     <localleader>ep
   nmap <buffer> <a-x>b     <localleader>eb
   nmap <buffer> <a-x>h     <localleader>eh
   nmap <buffer> <a-x>l     <localleader>el
+  nmap <buffer> <a-x>m     <localleader>em
+  "nmap <buffer> <a-x><a-p> :OrgExportToPDF<CR>
+  "nmap <buffer> <a-x><a-b> :OrgExportToBeamerPDF<CR>
+  "nmap <buffer> <a-x><a-h> :OrgExportToHTML<CR>
+  "nmap <buffer> <a-x><a-l> :OrgExportToLaTeX<CR>
+  "nmap <buffer> <a-x><a-d> :OrgExportToMarkdown<CR>
+  "nmap <buffer> <a-x>p     :OrgExportToPDF<CR>
+  "nmap <buffer> <a-x>b     :OrgExportToBeamerPDF<CR>
+  "nmap <buffer> <a-x>h     :OrgExportToHTML<CR>
+  "nmap <buffer> <a-x>l     :OrgExportToLaTeX<CR>
+  "nmap <buffer> <a-x>d     :OrgExportToMarkdown<CR>
 
   """ Agenda
   "" For Weekly ToDo List
@@ -61,10 +73,14 @@ function! s:org_keymap()
   """ Org-Tags
   "" Set Tags
   "" Mnemonic: Mark on Tags
-  nmap <buffer> <a-m><a-t> <LocalLeader>st
-  nmap <buffer> <a-m>t     <LocalLeader>st
-  nmap <buffer> <a-m><a-g> <LocalLeader>st
-  nmap <buffer> <a-m>g     <LocalLeader>st
+  "nmap <buffer> <a-m><a-t> <LocalLeader>st
+  "nmap <buffer> <a-m>t     <LocalLeader>st
+  "nmap <buffer> <a-m><a-g> <LocalLeader>st
+  "nmap <buffer> <a-m>g     <LocalLeader>st
+  nmap <silent><buffer> <a-m><a-t> <Plug>OrgSetTags
+  nmap <silent><buffer> <a-m>t     <Plug>OrgSetTags
+  nmap <silent><buffer> <a-m><a-g> <Plug>OrgSetTags
+  nmap <silent><buffer> <a-m>g     <Plug>OrgSetTags
 
   """ Org-Dating
   "" Mnemonic: Mark on Date
