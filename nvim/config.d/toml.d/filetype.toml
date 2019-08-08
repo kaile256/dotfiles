@@ -1,6 +1,55 @@
 #### From: dein.vimrc
 
-#### Language Support
+### Python
+# supports pip-packages, independently installed in shell, to work on vim
+[[plugins]]
+repo = 'plytophogy/vim-virtualenv'
+on_ft = 'python3'
+### Lua
+[[plugins]]
+repo = 'drmingdrmer/vim-indent-lua'
+on_ft = 'lua'
+## Language Functional
+[[plugins]]
+repo = 'udalov/kotlin-vim'
+on_ft = 'kotlin'
+#[[plugins]]
+#repo = 'Alloyed/lua-lsp'
+#on_ft = 'lua'
+
+
+### 13-wm
+[[plugins]]
+repo = 'PotatoesMaster/i3-vim-syntax'
+on_ft = 'i3'
+
+## Language Console
+[[plugins]]
+repo = 'dag/vim-fish'
+on_ft = 'fish'
+[[plugins]]
+repo = 'ericpruitt/tmux.vim'
+on_ft = 'tmux'
+
+#### Language Expression
+### Json
+[[plugins]]
+repo = 'elzr/vim-json'
+on_ft = 'json'
+hook_add = '''
+  " show up auto-hidden '"'.
+  let g:vim_json_syntax_conceal = 0
+  '''
+
+### Toml
+[[plugins]]
+repo = 'cespare/vim-toml' 
+on_ft = 'toml'
+# syntax highlight for 'hook_add'
+[[plugins]]
+repo = 'delphinus/vim-toml-dein' 
+on_ft = 'toml'
+
 ### Org Mode
 [[plugins]]
 repo = 'jceb/vim-orgmode'
@@ -27,37 +76,11 @@ repo = 'chrisbra/NrrwRgn'
 on_event = 'VimEnter'
 hook_post_source = 'runtime NrrwRgn.vimrc'
 
-### 13-wm
-[[plugins]]
-repo = 'PotatoesMaster/i3-vim-syntax'
-on_ft = 'i3'
-### LaTex
-[[plugins]]
-repo = 'lervag/vimtex'
-on_ft = 'tex'
-hook_post_source = 'runtime! vimtex.vimrc'
-### Python
-# supports pip-packages, independently installed in shell, to work on vim
-[[plugins]]
-repo = 'plytophogy/vim-virtualenv'
-on_ft = 'python3'
-
-### Markdown
-[[plugins]]
-repo = 'dhruvasagar/vim-table-mode'
-hook_add = 'runtime! table-mode.vimrc'
-on_event = 'BufReadPre'
-on_ft = 'markdown'
-[[plugins]]
-repo = 'suan/vim-instant-markdown'
-on_event = 'BufRead'
-on_ft = 'markdown'
-
 ### Html
 ## Emmet
-[[plugins]]
-repo = 'mattn/emmet-vim'
-on_ft = 'html'
+#[[plugins]]
+#repo = 'mattn/emmet-vim'
+#on_ft = 'html'
 ## Tag
 # auto-close tag
 [[plugins]]
@@ -69,38 +92,22 @@ hook_add = '''
   let g:cloesetag_filenames = '*.html,*.vue'
   '''
 
-### Syntax
-## Language Console
-[[plugins]]
-repo = 'dag/vim-fish'
-on_ft = 'fish'
-[[plugins]]
-repo = 'ericpruitt/tmux.vim'
-on_ft = 'tmux'
-
-## Language Functional
-[[plugins]]
-repo = 'udalov/kotlin-vim'
-on_ft = 'kotlin'
-[[plugins]]
-repo = 'Alloyed/lua-lsp'
-on_ft = 'lua'
-
-## Language Expression
+### Markdown
 [[plugins]]
 repo = 'tpope/vim-markdown'
 on_ft = 'markdown'
 [[plugins]]
-repo = 'elzr/vim-json'
-on_ft = 'json'
-hook_add = '''
-  " show up auto-hidden '"'.
-  let g:vim_json_syntax_conceal = 0
-  '''
+repo = 'dhruvasagar/vim-table-mode'
+hook_add = 'runtime! table-mode.vimrc'
+on_event = 'BufReadPre'
+on_ft = 'markdown'
 [[plugins]]
-repo = 'cespare/vim-toml' 
-on_ft = 'toml'
-# syntax highlight for 'hook_add'
+repo = 'suan/vim-instant-markdown'
+on_event = 'BufRead'
+on_ft = 'markdown'
+
+### LaTex
 [[plugins]]
-repo = 'delphinus/vim-toml-dein' 
-on_ft = 'toml'
+repo = 'lervag/vimtex'
+on_ft = 'tex'
+hook_post_source = 'runtime! vimtex.vimrc'
