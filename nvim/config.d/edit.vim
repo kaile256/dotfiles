@@ -40,13 +40,6 @@ set smarttab
 " for '<' & '>' indent, insert spaces according to shiftwidth.
 set shiftround
 
-augroup resizeindent
-  au!
-  au FileType JavaScript setlocal shiftwidth=4 tabstop=4 softtabstop=4
-  au FileType Ruby       setlocal shiftwidth=2 tabstop=2 softtabstop=2
-  au FileType Python     setlocal shiftwidth=2 tabstop=2 softtabstop=2
-augroup end
-
 """ Regiser
 " Copy to clipboard without +/* indicated.
 "set clipboard+=unnamedplus,unnamed
