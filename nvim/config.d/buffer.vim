@@ -14,7 +14,7 @@ augroup END
 augroup OnTermMode
   au!
   au TermOpen *          silent setlocal nonumber
-  au TermOpen *          if &buftype ==# 'terminal' | setlocal bufhidden=wipe | endif
+  au TermOpen *          if &buftype ==# 'terminal' | setlocal nobuflisted bufhidden=wipe | endif
   au TermOpen,BufEnter * if &buftype ==# 'terminal' | startinsert | endif
 augroup END
 

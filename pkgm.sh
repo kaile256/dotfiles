@@ -52,6 +52,7 @@ the_silver_searcher
 tlp   # Save Battery of PC
 ttf-cica
 ttf-font-icons  # Mix Icon with Awesome & Ionicons without Confliction.
+ttf-myricam
 tty-dejavu
 vmail
 yarn
@@ -195,6 +196,10 @@ mkdir -p ~/.config/fish/completions/rustup.fish
 rustup completions fish > ~/.config/fish/completions/rustup.fish
 
 #### Fonts
+if [ -z ls /usr/share/fonts/TTF/ | grep Myrica ]; then
+  echo 'creating symlinks for Cica Fonts to /etc/fonts/conf.d/'
+  sudo ln -s /usr/share/fonts/MyricaM/MyricaM.TTC /etc/fonts/conf.d/
+fi
 if [ -z ls /usr/share/fonts/TTF/ | grep Cica ]; then
   echo 'creating symlinks for Cica Fonts to /etc/fonts/conf.d/'
   sudo ln -s /usr/share/fonts/TTF/Cica* /etc/fonts/conf.d/

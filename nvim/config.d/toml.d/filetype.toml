@@ -17,7 +17,6 @@ on_ft = 'kotlin'
 #repo = 'Alloyed/lua-lsp'
 #on_ft = 'lua'
 
-
 ### 13-wm
 [[plugins]]
 repo = 'PotatoesMaster/i3-vim-syntax'
@@ -49,36 +48,6 @@ on_ft = 'toml'
 [[plugins]]
 repo = 'delphinus/vim-toml-dein' 
 on_ft = 'toml'
-
-### Org Mode
-[[plugins]]
-repo = 'jceb/vim-orgmode'
-on_ft = 'org'
-hook_post_source = 'runtime org-mode.vimrc'
-[[plugins]]
-repo = 'dhruvasagar/vim-table-mode'
-hook_add = 'runtime! table-mode.vimrc'
-on_ft = 'org'
-[[plugins]]
-# For Hyperlink
-repo = 'vim-scripts/utl.vim'
-on_ft = 'org'
-hook_post_source = 'runtime utl.vimrc'
-[[plugins]]
-# Multiple-Language Syntax in one buffer.
-repo = 'inkarkat/vim-SyntaxRange'
-on_ft = 'org'
-hook_post_source = 'runtime SyntaxRange.vimrc'
-[[plugins]]
-# <c-a/x> for dateing.
-repo = 'tpope/vim-speeddating'
-on_ft = 'org'
-hook_post_source = 'runtime speeddating.vimrc'
-## Narrow Region
-[[plugins]]
-repo = 'chrisbra/NrrwRgn'
-on_event = 'VimEnter'
-hook_post_source = 'runtime NrrwRgn.vimrc'
 
 ### Html
 ## Emmet

@@ -26,9 +26,8 @@ repo = 'liuchengxu/vista.vim'
 on_event = ['BufNew','BufReadPost']
 hook_post_source = 'runtime vista.vimrc'
 
-#### i3-wm
+### i3-wm
 #[[plugins]]
 #repo = 'termhn/i3-vim-nav'
-#on_if = 'exists("/usr/local/bin/termhn/i3-vim-nav")'
+#on_if = 'isdirectory("~/go/src/github.com/termhn/i3-vim-nav")'
 #hook_post_source = 'runtime i3-vim-nav.vimrc'
-

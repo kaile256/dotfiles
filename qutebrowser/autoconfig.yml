@@ -39,7 +39,7 @@ settings:
         <Ctrl+Space><Ctrl+Space>: reload
         <Ctrl+h>: null
         <Ctrl+i>: forward
-        <Ctrl+j>: move-to-next-line
+        <Ctrl+j>: scroll-page 0 20
         <Ctrl+n>: tab-next
         <Ctrl+o>: back
         <Ctrl+p>: tab-prev

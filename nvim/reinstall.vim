@@ -6,7 +6,7 @@
 """" Denite/Defx
 UpdateRemotePlugins
 
-"""" COC
+
 call coc#util#install()
 "CocInstall expand('s:coc_extentions')
 "
