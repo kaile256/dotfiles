@@ -1,5 +1,7 @@
 """" From: nvim/init.vim
 
+"""" KEYMAP
+
 """" GENERAL
 augroup AppendFileType
   au!
@@ -11,8 +13,8 @@ augroup END
 
 augroup OnTermMode
   au!
-  au TermOpen * silent setlocal nonumber
-  au TermOpen,BufEnter * if &buftype ==# 'terminal' | setlocal nobuflisted | endif
+  au TermOpen *          silent setlocal nonumber
+  au TermOpen *          if &buftype ==# 'terminal' | setlocal bufhidden=wipe | endif
   au TermOpen,BufEnter * if &buftype ==# 'terminal' | startinsert | endif
 augroup END
 
@@ -33,6 +35,7 @@ augroup AdjustOnLanguage
 augroup END
 
 augroup AdjustOnPlugins
+  au FileType fugitive,netrw setlocal bufhidden=wipe
   au BufEnter * if &filetype !=# 'vim' | call s:ft_is_not_vim() | endif
   "" Cursor Locates on the Middle
   au FileType help norm zz
