@@ -1,7 +1,7 @@
 """" From: tool.toml
 
 """ Mnemonic: Split Join/Unjoin
-nmap <a-s><a-j> :SplitjoinJoin<cr>
-nmap <a-s><a-u> :SplitjoinSplit<cr>
-nmap <a-s>j :SplitjoinJoin<cr>
-nmap <a-s>u :SplitjoinSplit<cr>
+map <a-s><a-j> :SplitjoinJoin<cr>
+map <a-s><a-u> :SplitjoinSplit<cr>
+map <a-s>j     :SplitjoinJoin<cr>
+map <a-s>u     :SplitjoinSplit<cr>

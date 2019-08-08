@@ -22,7 +22,17 @@ augroup AlertWhenReadOnly
   au! BufRead,BufEnter * if &readonly && &buftype ==# '' && &filetype !=# 'netrw' | colorscheme gruvbox | endif
 augroup END
 
-augroup AdjustOnFileType
+augroup AdjustOnLanguage
+
+  au!
+  au FileType lua        setlocal tabstop=4
+  au FileType JavaScript setlocal tabstop=4 softtabstop=4 shiftwidth=4 
+  au FileType Ruby       setlocal tabstop=2 softtabstop=2 shiftwidth=2 
+  au FileType Python     setlocal tabstop=2 softtabstop=2 shiftwidth=2 
+
+augroup END
+
+augroup AdjustOnPlugins
   au BufEnter * if &filetype !=# 'vim' | call s:ft_is_not_vim() | endif
   "" Cursor Locates on the Middle
   au FileType help norm zz
@@ -75,9 +85,9 @@ nnoremap <a-s><a-f> :echo ' &filetype is "' . &filetype . '"; &buftype is "' . &
 
 """ Checkhealth
 if has('nvim')
-  nnoremap <silent> <a-c><a-h> :<c-u>checkhealth<cr>:setlocal buftype=quickfix<cr>
-  nnoremap <silent> <a-c>h     :<c-u>checkhealth<cr>:setlocal buftype=quickfix<cr>
-  cnoremap <silent> <a-c><a-h> :<c-u>checkhealth<cr>:setlocal buftype=quickfix<cr>
-  cnoremap <silent> <a-c>h     :<c-u>checkhealth<cr>:setlocal buftype=quickfix<cr>
+  nnoremap <silent> <a-c><a-h> :<c-u>checkhealth<cr> :setlocal buftype=quickfix<cr>
+  nnoremap <silent> <a-c>h     :<c-u>checkhealth<cr> :setlocal buftype=quickfix<cr>
+  cnoremap <silent> <a-c><a-h> :<c-u>checkhealth<cr> :setlocal buftype=quickfix<cr>
+  cnoremap <silent> <a-c>h     :<c-u>checkhealth<cr> :setlocal buftype=quickfix<cr>
 endif
 

@@ -56,6 +56,10 @@ repo = 'jceb/vim-orgmode'
 on_ft = 'org'
 hook_post_source = 'runtime org-mode.vimrc'
 [[plugins]]
+repo = 'dhruvasagar/vim-table-mode'
+hook_add = 'runtime! table-mode.vimrc'
+on_ft = 'org'
+[[plugins]]
 # For Hyperlink
 repo = 'vim-scripts/utl.vim'
 on_ft = 'org'
@@ -95,11 +99,6 @@ hook_add = '''
 ### Markdown
 [[plugins]]
 repo = 'tpope/vim-markdown'
-on_ft = 'markdown'
-[[plugins]]
-repo = 'dhruvasagar/vim-table-mode'
-hook_add = 'runtime! table-mode.vimrc'
-on_event = 'BufReadPre'
 on_ft = 'markdown'
 [[plugins]]
 repo = 'suan/vim-instant-markdown'
