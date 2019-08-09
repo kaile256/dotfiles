@@ -1,8 +1,11 @@
 """" From: tool.toml
-"""" Help: coc#
+"""" Help: coc-
 """" Source: neoclide/coc.nvim
 
 """" GENERAL
+let g:coc_user_config = '~/.config/nvim/config.d/plugin.d'
+call coc#util#get_config_home()
+
 " shorter for CursorHold & CursorHoldI
 set updatetime=300
 " signcolumn is the line beside numbers.
@@ -64,9 +67,6 @@ function! s:make_sure_no_space() abort
 endfunction
 
 """ Snippet :echo exists('##CompleteChanged') && exists('*nvim_open_win')s
-"" Snippets Edit
-nmap <silent> <a-s><a-p> :CocCommand snippets.editSnippets<cr>
-nmap <silent> <a-s>p     :CocCommand snippets.editSnippets<cr>
 
 "" Trigger Just Snippets; <tab> to General Completion
 "imap <C-s> <Plug>(coc-snippets-expand)

@@ -65,10 +65,20 @@ noremap <Plug>(leap-in-win-lower)  :<c-u><c-r>= (line('w$') + line('.') + 1)/2<c
 noremap <Plug>(shift-to-middle)    :<c-u>call cursor(line('.'),col('$')/2)<cr>
 " CAUTION: <c-m> is identical with <cr>; <c-,>/<c-.> does't work.
 " <c-hjkl> get along with <c-fbud>; <a-hjkl> get along with <s-wbe>.
-map <silent> <c-h> <Plug>(leap-in-win-middle)
-map <silent> <c-j> <Plug>(leap-in-win-lower)
-map <silent> <c-k> <Plug>(leap-in-win-higher)
-map <silent> <c-l> <Plug>(shift-to-middle)
+nmap <silent> <c-h> <Plug>(leap-in-win-middle)
+nmap <silent> <c-j> <Plug>(leap-in-win-lower)
+nmap <silent> <c-k> <Plug>(leap-in-win-higher)
+nmap <silent> <c-l> <Plug>(shift-to-middle)
+
+vmap <silent> <c-h> <Plug>(leap-in-win-middle)
+vmap <silent> <c-j> <Plug>(leap-in-win-lower)
+vmap <silent> <c-k> <Plug>(leap-in-win-higher)
+vmap <silent> <c-l> <Plug>(shift-to-middle)
+
+omap <silent> <c-h> <Plug>(leap-in-win-middle)
+omap <silent> <c-j> <Plug>(leap-in-win-lower)
+omap <silent> <c-k> <Plug>(leap-in-win-higher)
+omap <silent> <c-l> <Plug>(shift-to-middle)
 
 """ Pane
 " leap between panes
@@ -84,8 +94,10 @@ cnoremap <a-k> <ESC>
 
 """ Tab Page
 "" Move between Tabs
-nnoremap <c-n> gT
-nnoremap <c-p> gt
+nnoremap <a-]> gT
+nnoremap <a-[> gt
+tnoremap <a-]> <c-\><c-n>gT
+tnoremap <a-[> <c-\><c-n>gt
 "nnoremap <silent> <a-t><a-o> :tabonly<cr>
 "" Give Tab
 "nnoremap <a-t><c-g> <c-w>T
@@ -127,62 +139,56 @@ noremap g# g#zz
 "" Jump
 noremap <c-]> g<c-]>
 "" Newer Tag
-noremap <silent> <a-]> :tag<cr>
+noremap <silent> <c-n> :tag<cr>
 "" Older Tag
-noremap <silent> <a-[> :pop<cr>
-"" Last Tag
-noremap <silent> <a-}> :0tag<cr>
-" TODO: ???
-noremap <silent> <a-{> :$tag<cr>
+noremap <silent> <c-p> :pop<cr>
 
 """ Terminal
 """" GENERAL
-if has('nvim')
-  """" KEYMAP
-  """ Normal Mode
-  "" Open Shortcut
-  nnoremap <silent> <a-t><a-h> :<c-u>cd ~           <bar>:te<cr>
-  nnoremap <silent> <a-t><a-o> :<c-u>cd ~/org       <bar>:te<cr>
-  nnoremap <silent> <a-t><a-.> :<c-u>cd ~/dotfiles  <bar>:te<cr>
-  nnoremap <silent> <a-t><a-d> :<c-u>cd ~/dotfiles  <bar>:te<cr>
-  nnoremap <silent> <a-t><a-g> :<c-u>cd ~/.config   <bar>:te<cr>
-  nnoremap <silent> <a-t><a-w> :<c-u>cd %:p:h       <bar>:te<cr>
-  nnoremap <silent> <a-t>h :<c-u>cd ~          <bar>:te<cr>
-  nnoremap <silent> <a-t>o :<c-u>cd ~/org      <bar>:te<cr>
-  nnoremap <silent> <a-t>. :<c-u>cd ~/dotfiles <bar>:te<cr>
-  nnoremap <silent> <a-t>d :<c-u>cd ~/dotfiles <bar>:te<cr>
-  nnoremap <silent> <a-t>g :<c-u>cd ~/.config  <bar>:te<cr>
-  nnoremap <silent> <a-t>w :<c-u>cd %:p:h      <bar>:te<cr>
+"""" KEYMAP
+""" Normal Mode
+"" Open Shortcut
+nnoremap <silent> <a-t><a-h> :<c-u>cd ~           <bar>:te<cr>
+nnoremap <silent> <a-t><a-o> :<c-u>cd ~/org       <bar>:te<cr>
+nnoremap <silent> <a-t><a-.> :<c-u>cd ~/dotfiles  <bar>:te<cr>
+nnoremap <silent> <a-t><a-d> :<c-u>cd ~/dotfiles  <bar>:te<cr>
+nnoremap <silent> <a-t><a-g> :<c-u>cd ~/.config   <bar>:te<cr>
+nnoremap <silent> <a-t><a-w> :<c-u>cd %:p:h       <bar>:te<cr>
+nnoremap <silent> <a-t>h :<c-u>cd ~          <bar>:te<cr>
+nnoremap <silent> <a-t>o :<c-u>cd ~/org      <bar>:te<cr>
+nnoremap <silent> <a-t>. :<c-u>cd ~/dotfiles <bar>:te<cr>
+nnoremap <silent> <a-t>d :<c-u>cd ~/dotfiles <bar>:te<cr>
+nnoremap <silent> <a-t>g :<c-u>cd ~/.config  <bar>:te<cr>
+nnoremap <silent> <a-t>w :<c-u>cd %:p:h      <bar>:te<cr>
 
-  nnoremap <silent> <a-t>e :<c-u>         :te<cr>
-  nnoremap <silent> <a-t>s :<c-u>sp  <bar>:te<cr>
-  nnoremap <silent> <a-t>v :<c-u>vs  <bar>:te<cr>
-  nnoremap <silent> <a-t>t :<c-u>tabe<bar>:te<cr>
-  nnoremap <silent> <a-t><a-e> :<c-u>         :te<cr>
-  nnoremap <silent> <a-t><a-s> :<c-u>sp  <bar>:te<cr>
-  nnoremap <silent> <a-t><a-v> :<c-u>vs  <bar>:te<cr>
-  nnoremap <silent> <a-t><a-t> :<c-u>tabe<bar>:te<cr>
+nnoremap <silent> <a-t>e :<c-u>         :te<cr>
+nnoremap <silent> <a-t>s :<c-u>sp  <bar>:te<cr>
+nnoremap <silent> <a-t>v :<c-u>vs  <bar>:te<cr>
+nnoremap <silent> <a-t>t :<c-u>tabe<bar>:te<cr>
+nnoremap <silent> <a-t><a-e> :<c-u>         :te<cr>
+nnoremap <silent> <a-t><a-s> :<c-u>sp  <bar>:te<cr>
+nnoremap <silent> <a-t><a-v> :<c-u>vs  <bar>:te<cr>
+nnoremap <silent> <a-t><a-t> :<c-u>tabe<bar>:te<cr>
 
-  " Jump Anyway by <c-i><c-o>
-  "tmap <c-i> <c-\><c-n><c-i>
-  tmap <c-o> <c-\><c-n><c-o>
-  tmap <a-i> <c-\><c-n><a-i>
-  tmap <a-o> <c-\><c-n><a-o>
-  tmap <a-p> <c-\><c-n><a-p>
-  tmap <a-n> <c-\><c-n><a-n>
+" Jump Anyway by <c-i><c-o>
+"tmap <c-i> <c-\><c-n><c-i>
+tmap <c-o> <c-\><c-n><c-o>
+tmap <a-i> <c-\><c-n><a-i>
+tmap <a-o> <c-\><c-n><a-o>
+tmap <a-p> <c-\><c-n><a-p>
+tmap <a-n> <c-\><c-n><a-n>
 
-  "" Alt as ESC as in Insert Mode
-  " esc & hjkl
-  " <a-b> is useful on bash
-  tnoremap <a-h> <c-\><c-n>h
-  tnoremap <a-j> <c-\><c-n>j
-  tnoremap <a-k> <c-\><c-n>k
-  tnoremap <a-l> <c-\><c-n>l
-  "tnoremap <a-h> <c-\><c-n><c-w>h
-  "tnoremap <a-j> <c-\><c-n><c-w>j
-  "tnoremap <a-k> <c-\><c-n><c-w>k
-  "tnoremap <a-l> <c-\><c-n><c-w>l
-endif
+"" Alt as ESC as in Insert Mode
+" esc & hjkl
+" <a-b> is useful on bash
+tnoremap <a-h> <c-\><c-n>h
+tnoremap <a-j> <c-\><c-n>j
+tnoremap <a-k> <c-\><c-n>k
+tnoremap <a-l> <c-\><c-n>l
+"tnoremap <a-h> <c-\><c-n><c-w>h
+"tnoremap <a-j> <c-\><c-n><c-w>j
+"tnoremap <a-k> <c-\><c-n><c-w>k
+"tnoremap <a-l> <c-\><c-n><c-w>l
 
 """ Buffer
 " <c-[> to <esc>, <c-]> for tag-jump.

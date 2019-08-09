@@ -5,3 +5,6 @@ http://yiming.dev/blog/2018/01/22/compare-doom-emacs-spacemacs-vanilla-emacs/ Co
 https://www.cheatography.com/pweissbrod/cheat-sheets/vim-orgmode/ vim-orgmode Cheat Sheet by pweissbrod - Download free from Cheatography - Cheatography.com: Cheat Sheets For Every Occasion
 http://blog.taniho.net/2016/12/%E3%82%BF%E3%82%A4%E3%83%AB%E5%9E%8BWM%E3%81%A7%E5%BF%AB%E9%81%A9%E3%81%AA%E7%92%B0%E5%A2%83%E3%82%92%E6%A7%8B%E7%AF%89%E3%81%99%E3%82%8B/ タイル型WMで快適な環境を構築する | taniho's blog
 https://ayageman.blogspot.com/2017/02/t510-2.html T510での省メモリ化 (2)　I3 WM を試す
+https://github.com/hlissner/doom-emacs/issues/1651 [BUG] Failed to download ‘gnu’ archive. · Issue #1651 · hlissner/doom-emacs
+http://lioon.net/emacs-change-font-size-quickly Emacs：一発で文字サイズを変更する方法 | ライオーン
+http://www.matfournier.com/blog/doom-emacs---haskell---minimal-vim/ doom-emacs + haskell + minimal vim

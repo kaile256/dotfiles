@@ -33,7 +33,7 @@ hook_post_source = 'runtime cursorword.vimrc'
 
 ### Colorscheme
 [[plugins]]
-repo = 'morhetz/gruvbox'
+repo = 'tomasr/molokai'
 on_if = 'has("nvim")'
 [[plugins]]
 repo = 'sjl/badwolf'

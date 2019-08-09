@@ -129,6 +129,7 @@ let g:fzf_action = {
       \ 'ctrl-q': function('s:build_quickfix_list'),
       \ 'ctrl-c': function('s:build_quickfix_list'),
       \ 'ctrl-z': '',
+      \ 'ctrl-m': 'e',
       \ 'ctrl-b': 'tab split',
       \ 'ctrl-v': 'vsplit',
       \ 'ctrl-o': 'split',

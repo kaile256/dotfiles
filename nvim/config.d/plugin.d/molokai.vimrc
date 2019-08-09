@@ -9,7 +9,7 @@ set termguicolors
 let g:rehash256 = 1
 
 " make highlight clear on molokai.
-colorscheme molokai
+"colorscheme molokai
 "augroup MyMolokai
 "  au VimEnter,BufReadPost * colorscheme molokai
 "  au VimEnter,BufReadPost * hi Search               ctermbg=155

@@ -14,11 +14,11 @@ on_ft = 'org'
 repo = 'vim-scripts/utl.vim'
 on_ft = 'org'
 hook_post_source = 'runtime utl.vimrc'
-[[plugins]]
-# <c-a/x> for dateing.
-repo = 'tpope/vim-speeddating'
-on_ft = 'org'
-hook_post_source = 'runtime speeddating.vimrc'
+#[[plugins]]
+## <c-a/x> for dateing.
+#repo = 'tpope/vim-speeddating'
+#on_ft = 'org'
+#hook_post_source = 'runtime speeddating.vimrc'
 
 [[plugins]]
 # Multiple-Language Syntax in one buffer.
@@ -31,6 +31,12 @@ hook_post_source = 'runtime SyntaxRange.vimrc'
 repo = 'chrisbra/NrrwRgn'
 on_event = 'VimEnter'
 hook_post_source = 'runtime NrrwRgn.vimrc'
+
+### Matcher
+[[plugins]]
+repo = 'raghur/fruzzy'
+on_ft = 'denite'
+hook_post_source = 'runtime fruzzy.vimrc'
 
 ### Completion
 [[plugins]]

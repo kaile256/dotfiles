@@ -56,7 +56,7 @@ if = 'has("python3")'
 ## CAUTION: Colorscheme MUST be sourced after dein#end() on dein.vim.
 ## Ref: appearance.toml
 [[plugins]]
-repo = 'tomasr/molokai'
+repo = 'morhetz/gruvbox'
 if = 'has("nvim")'
 
 ### Status Bar
