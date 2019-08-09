@@ -14,7 +14,7 @@
 # for window titles & the bar.
 # to use a different font in the bar, set it in {} block below.
 #font pango:monospace 8
-font pango:MyricaM M 12, DejaVu Sans Mono 11
+font pango:MyricaM M 10, DejaVu Sans Mono 11
 
 # Before i3 v4.8, we used to recommend this one as the default:
 # font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
@@ -108,11 +108,13 @@ bindsym $Super+h focus left
 bindsym $Super+j focus down
 bindsym $Super+k focus up
 bindsym $Super+l focus right
+
 ## By Cursor Keys:
 bindsym $Super+Left focus left
 bindsym $Super+Down focus down
 bindsym $Super+Up focus up
 bindsym $Super+Right focus right
+
 ## Vim-Additional
 bindsym $AltS+h focus left
 bindsym $AltS+j focus down
