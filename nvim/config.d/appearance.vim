@@ -12,10 +12,11 @@
 """ Redraw
 "" Indent
 nnoremap <S-TAB> gg=G''zz
+
 " CAUTION: <c-l> should be run at LAST so that no corruption.
 " CAUTION: zR (open all fold) makes vim FREEZE.
 "" Ref: showmarks.vimrc
-imap <silent> <c-l> <c-o> :<c-u> noh <bar> redraw <cr>
+imap <silent> <c-l>         <esc>:<c-u>noh <bar> redraw <cr>i
 nmap <silent> <c-space><space>   :<c-u>noh <bar> redraw <cr>
 nmap <silent> <c-space><c-space> :<c-u>noh <bar> redraw <cr>
 " <a-space> gets along with <a-hjkl>.
