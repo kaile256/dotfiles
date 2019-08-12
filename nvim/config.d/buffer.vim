@@ -13,9 +13,12 @@ augroup END
 
 augroup OnTermMode
   au!
-  au TermOpen *          silent setlocal nonumber
-  au TermOpen *          if &buftype ==# 'terminal' | setlocal nobuflisted bufhidden=wipe | endif
-  au TermOpen,BufEnter * if &buftype ==# 'terminal' | startinsert | endif
+  au TermOpen *             setlocal nonumber
+  " When you ':q' to term-mode window.
+  au TermOpen,BufWinEnter * if &buftype ==# 'terminal' | setlocal nobuflisted bufhidden=wipe | endif
+  " When you 'nvr' from term-mode.
+  au BufWinEnter * if expand('#') =~# 'term://' | bwipeout! # | endif
+  au TermOpen,BufEnter *    if &buftype ==# 'terminal' | startinsert | endif
 augroup END
 
 """" Read Only
