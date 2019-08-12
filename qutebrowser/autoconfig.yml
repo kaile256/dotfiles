@@ -31,8 +31,11 @@ settings:
         <Alt+]>: tab-next
         <Alt+b>: tab-prev
         <Alt+f>: tab-next
+        <Alt+h>: tab-prev
         <Alt+i>: tab-next
+        <Alt+l>: tab-next
         <Alt+o>: tab-prev
+        <Alt+p>: tab-next
         <Ctrl++>: zoom-in
         <Ctrl+->: zoom-out
         <Ctrl+2>: save

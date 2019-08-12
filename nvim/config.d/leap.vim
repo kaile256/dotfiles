@@ -135,9 +135,9 @@ noremap g# g#zz
 
 """ Tag
 "" Show List
-" show list of tags only when there are more than two tags.
+" g<c-]>: show list of tags only when there are more than two tags.
 "" Jump
-noremap <c-]> g<c-]>
+noremap <c-]> g<c-]>zz
 "" Newer Tag
 noremap <silent> <c-n> :tag<cr>
 "" Older Tag
