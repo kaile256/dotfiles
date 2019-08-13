@@ -1,11 +1,12 @@
 !!!! From: .xinitrc
-!!!!  Ref: .Xmodmap
+!!!!  Ref: X11/.Xmodmap
+!!!!  Ref: bash/env.sh
 !! Comments: leave ! on head of line to comment out.
 !!  Source: start with #include, like #include ".Xresources.d/xterm"
 !! ~/.Xresources
 
 !!!! urxvt (rxvt-unicode)
-URxvt.termName: rxvt-256color
+URxvt.termName: rxvt-unicode
 
 !!! Window-Size (default: 80x24)
 URxvt.geometry:             96x32
@@ -20,15 +21,15 @@ URxvt.cursorBlink:          true
 URxvt.cursorUnderline:      true
 URxvt.pointerBlank:         true
 
-URxvt.visualBell:           true
+URxvt.visualBell:           false
 URxvt.saveLines:            3000
 
 !!! Fading except Current-Window (%)
 URxvt.fading:               40
 
 !! Font list and Spacing
-URxvt.font:                 xft:Cica:size=16:antialias=true
-!URxvt.font:                 xft:Dejavu Sans Mono-11,xft:Nerd
+!URxvt.font:                 xft:MyricaM M:size=14:antialias=true
+URxvt.font:                 xft:Dejavu Sans Mono:size=12:antialias=true,xft:MyricaM M:size=14:antialias=true
 URxvt.letterSpace:          -1  ! prepare exagerated space esp. on Japanese Fonts.
 !URxvt.lineSpace:            2  ! expand space between command-lines.
 
@@ -68,6 +69,35 @@ URxvt.scrollColor: [90]#504945
 !! CAUTION: spare extra extentions to save RAM.
 URxvt.perl-ext:
 URxvt.perl-ext-common:
+
+! special colors
+*.foreground:  #a39e9b
+*.background:  #2f1e2e
+*.cursorColor:  #a39e9b
+! black
+*.color0:      #2f1e2e
+*.color8:      #776e71
+! red
+*.color1:      #ef6155
+*.color9:      #ef6155
+! green
+*.color2:      #48b685
+*.color10:     #48b685
+! yellow
+*.color3:      #fec418
+*.color11:     #fec418
+! blue
+*.color4:      #06b6ef
+*.color12:     #06b6ef
+! magenta
+*.color5:      #815ba4
+*.color13:     #815ba4
+! cyan
+*.color6:      #5bc4bf
+*.color14:     #5bc4bf
+! white
+*.color7:      #a39e9b
+*.color15:     #e7e9db
 
 exec i3
 !exec i3 -V >> ~/.local/share/i3/i3log-$(date +'%F-%k-%M-%S') 2>^1

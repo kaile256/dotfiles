@@ -28,7 +28,7 @@ workspace_layout tabbed
 # nm-applet: WiFi Network Manager
 exec --no-startup-id nm-applet
 exec --no-startup-id fcitx
-exec --no-startup-id nvim-qt
+#exec --no-startup-id nvim-qt
 # dunst: Light Notification Daemon
 #exec --no-startup-id dunst
 # parcellite: Clipboard Manager
@@ -89,7 +89,8 @@ mode "mode_system" {
 }
 
 ### Terminal
-bindsym $Super+Return exec i3-sensible-terminal
+#bindsym $Super+Return exec i3-sensible-terminal
+bindsym $Super+Return exec urxvt
 bindsym $Super+u exec xfce4-terminal
 bindsym $Super+v exec --no-startup-id nvim-qt
 #bindsym $SuperS+x exec reboot

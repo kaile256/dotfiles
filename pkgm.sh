@@ -47,7 +47,7 @@ python-pipenv
 rclone  # sync lib for cloud-service like dropbox, Gdrive.
 ripgrep
 ruby
-rxvt-unicode  # Terminal Emulater
+rxvt-unicode-truecolor  # Terminal Emulater
 the_silver_searcher
 tlp   # Save Battery of PC
 ttf-cica
