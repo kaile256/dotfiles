@@ -4,10 +4,7 @@
 """" KEYMAP
 "" Marks
 nnoremap <silent> m<space> :<c-u>call <SID>AutoIncMarkUpper()<cr>
-nnoremap <silent> M<space> :<c-u>call <SID>AutoIncMarkLower()<cr>
 nnoremap <silent> <space>m :<c-u>call <SID>AutoIncMarkUpper()<cr>
-nnoremap <silent> <space>M :<c-u>call <SID>AutoIncMarkLower()<cr>
-"nnoremap <a-m> m
 
 """" CONFIG
 "augroup RememberLastCursor
