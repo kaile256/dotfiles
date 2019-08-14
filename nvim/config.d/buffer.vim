@@ -1,6 +1,5 @@
 """" From: nvim/init.vim
-
-"""" KEYMAP
+""""  Ref: orgmode.vimrc
 
 """" GENERAL
 augroup AppendFileType
@@ -13,18 +12,39 @@ augroup END
 
 augroup OnTermMode
   au!
-  au TermOpen *             setlocal nonumber
+  au VimEnter * if @% == '' && &filetype ==# '' && &buftype ==# '' | call termopen(&shell) | endif
+  au VimEnter,TermOpen * if &buftype ==# 'terminal' | setlocal nonumber signcolumn=no | endif
   " When you ':q' to term-mode window.
   au TermOpen,BufWinEnter * if &buftype ==# 'terminal' | setlocal nobuflisted bufhidden=wipe | endif
   " When you 'nvr' from term-mode.
-  au BufWinEnter * if expand('#') =~# 'term://' | bwipeout! # | endif
-  au TermOpen,BufEnter *    if &buftype ==# 'terminal' | startinsert | endif
+  au BufRead,BufNew * if @# =~# 'term://' | bwipeout! # | endif
+  au VimEnter,TermOpen,BufEnter *    if &buftype ==# 'terminal' | startinsert | endif
+augroup END
+
+augroup OnNetrw
+  au!
+  au BufWinLeave if &filetype ==# 'netrw' | setlocal bufhidden=wipe | endif
+  au FileType netrw setlocal bufhidden=wipe
+augroup END
+
+augroup OnHelp
+  au!
+  "" Cursor Locates on the Middle
+  "au BufWinEnter * if &filetype ==# 'help' | norm zz | endif
+  """ Append Help on Buffer-list
+  au BufLeave * if &filetype ==# 'help' | drop % | endif
+augroup END
+
+augroup OnToml
+  """ Auto Edit
+  "" Remove Unnecessary part of URL
+  au! BufWritePre *.toml %s/https:\/\/github.com\///g
 augroup END
 
 """" Read Only
 augroup AlertWhenReadOnly
  " CAUTION: Too many Exceptions!!
-  au! BufRead,BufEnter * if &readonly && &buftype ==# '' && &filetype !=# 'netrw' | colorscheme gruvbox | endif
+  au! BufRead,BufEnter * if &readonly && &buftype ==# '' && &filetype !=# 'netrw' | colorscheme molokai | endif
 augroup END
 
 augroup AdjustOnLanguage
@@ -38,17 +58,14 @@ augroup AdjustOnLanguage
 augroup END
 
 augroup AdjustOnPlugins
-  au FileType fugitive,netrw setlocal bufhidden=wipe
+  au!
+  """ Leave no buffer
+  au FileType fugitive setlocal bufhidden=wipe
   au BufEnter * if &filetype !=# 'vim' | call s:ft_is_not_vim() | endif
-  "" Cursor Locates on the Middle
-  au FileType help norm zz
-
-  """ Append Help on Buffer-list
-  au BufLeave * if &filetype ==# 'help' | drop % | endif
 
   """ Treat as QuickFix
   "" CAUTION: denite,vista demands to write before quitting.
-  au FileType netrw,gitcommit,fugitive,defx setlocal buftype=quickfix
+  au FileType gitcommit,fugitive,defx setlocal buftype=quickfix
   " Why? not work on 'au FileType'
   au BufRead * if &filetype ==# 'git' | setlocal buftype=quickfix | endif
   "au FileType expand('s:treat_as_quickfix')setlocal buftype=quickfix
