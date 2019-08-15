@@ -1,6 +1,12 @@
 """" From: nvim/init.vim
 """"  Ref: orgmode.vimrc
 
+command! Bw :bwipeout expand('term://*')
+tnoremap <silent> <a-q><a-o> <c-u>nvr ~/org/notes.org <cr>
+tnoremap <silent> <a-q>o     <c-u>nvr ~/org/notes.org <cr>
+nnoremap <silent> <a-q><a-o> :<c-u>e  ~/org/notes.org <cr>
+nnoremap <silent> <a-q>o     :<c-u>e  ~/org/notes.org <cr>
+
 """" GENERAL
 augroup AppendFileType
   au!
@@ -17,7 +23,7 @@ augroup OnTermMode
   " When you ':q' to term-mode window.
   au TermOpen,BufWinEnter * if &buftype ==# 'terminal' | setlocal nobuflisted bufhidden=wipe | endif
   " When you 'nvr' from term-mode.
-  au BufRead,BufNew * if @# =~# 'term://' | bwipeout! # | endif
+  "au BufRead,BufNew * if @# =~# 'term://' | bwipeout! # | endif
   au VimEnter,TermOpen,BufEnter *    if &buftype ==# 'terminal' | startinsert | endif
 augroup END
 
@@ -38,7 +44,7 @@ augroup END
 augroup OnToml
   """ Auto Edit
   "" Remove Unnecessary part of URL
-  au! BufWritePre *.toml %s/https:\/\/github.com\///g
+  au! BufWritePre *.toml if search('https:\/\/github.com\/', 'w', line('0')) | %s/https:\/\/github.com\///g | endif
 augroup END
 
 """" Read Only
@@ -51,9 +57,9 @@ augroup AdjustOnLanguage
 
   au!
   au FileType lua        setlocal tabstop=4
-  au FileType JavaScript setlocal tabstop=4 softtabstop=4 shiftwidth=4 
-  au FileType Ruby       setlocal tabstop=2 softtabstop=2 shiftwidth=2 
-  au FileType Python     setlocal tabstop=2 softtabstop=2 shiftwidth=2 
+  au FileType JavaScript setlocal tabstop=4 softtabstop=4 shiftwidth=4
+  au FileType Ruby       setlocal tabstop=2 softtabstop=2 shiftwidth=2
+  au FileType Python     setlocal tabstop=2 softtabstop=2 shiftwidth=2
 
 augroup END
 
