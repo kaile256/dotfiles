@@ -57,8 +57,8 @@ bindsym $SuperS+r restart
 
 #set $Locker i3lock -i ~/Pictures/Wallpaper/kishimen.png && sleep 1
 #set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (q) poweroff
-bindsym $Super+z  exec "i3-nagbar -t warning -m 'Do you really want to exit i3?' -b 'q:poweroff' 'systemctl poweroff' -b 'r:reboot' 'systemctl reboot' -b 'l:logout' 'i3-msg exit'", mode "mode_system"
-bindsym $SuperS+z exec "i3-nagbar -t warning -m 'Do you really want to exit i3?' -b 'q:poweroff' 'systemctl poweroff' -b 'r:reboot' 'systemctl reboot' -b 'l:logout' 'i3-msg exit'", mode "mode_system"
+bindsym $Super+x  exec "i3-nagbar -t warning -m 'Do you really want to exit i3?' -b 'q:poweroff' 'systemctl poweroff' -b 'r:reboot' 'systemctl reboot' -b 'l:logout' 'i3-msg exit'", mode "mode_system"
+bindsym $SuperS+x exec "i3-nagbar -t warning -m 'Do you really want to exit i3?' -b 'q:poweroff' 'systemctl poweroff' -b 'r:reboot' 'systemctl reboot' -b 'l:logout' 'i3-msg exit'", mode "mode_system"
 
 mode "mode_system" {
 
@@ -84,21 +84,20 @@ mode "mode_system" {
     bindsym $SuperS+q exec --no-startup-id systemctl poweroff, mode "default"
 
     bindsym Escape   mode "default"
-    bindsym $Super+z mode "default"
+    bindsym $Super+x mode "default"
     bindsym $Super+c mode "default"
 }
 
 ### Terminal
 #bindsym $Super+Return exec i3-sensible-terminal
-bindsym $Super+Return exec urxvt
-bindsym $Super+u exec xfce4-terminal
+bindsym $Super+u exec urxvt
+bindsym $Super+t exec xfce4-terminal
 bindsym $Super+v exec --no-startup-id nvim-qt
-#bindsym $SuperS+x exec reboot
-#bindsym $SuperS+z exec poweroff
 
 ### Menu
 # i3-dmenu-desktop encloses completions under desktop-file, like /usr/share/applications/.
-bindsym $Super+semicolon exec --no-startup-id i3-dmenu-desktop
+#bindsym $Super+semicolon exec --no-startup-id i3-dmenu-desktop
+bindsym $Super+space exec --no-startup-id i3-dmenu-desktop
 #bindsym $Super+d exec dmenu_run
 bindsym $Super+b exec qutebrowser
 bindsym $Super+e exec emacs
@@ -143,16 +142,16 @@ bindsym $SuperS+Right move right
 
 ### Other Layout
 bindsym $Super+f fullscreen toggle
-bindsym $Super+t layout tabbed
+#bindsym $Super+t layout tabbed
 # stacking: like tabbed, but switch windows up & down.
 #bindsym $Super+s layout stacking
 #bindsym $Super+e layout toggle split
 
 ## Floating Mode
 # toggle tiling / floating
-bindsym $SuperS+space floating toggle
+#bindsym $SuperS+space floating toggle
 # change focus between tiling / floating windows
-bindsym $Super+space focus mode_toggle
+#bindsym $Super+space focus mode_toggle
 
 # focus the parent container
 #bindsym $Super+a focus parent

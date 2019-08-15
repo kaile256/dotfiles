@@ -22,3 +22,4 @@ https://github.com/Shougo/deoppet.nvim Shougo/deoppet.nvim: The dark powered sni
 https://github.com/Shougo/shougo-s-github/tree/master/vim shougo-s-github/vim at master · Shougo/shougo-s-github
 https://arimasou16.com/blog/2018/05/06/00257/ 今更ながらfcitx-remoteとeskk.vimの使い方が分かる - 有馬総一郎のブログ
 https://qiita.com/fnobi/items/8906c8e7759751d32b6b terminalを棄ててEmacsと心中するための設定 - Qiita
+http://emacs.rubikitch.com/sane-term/ sane-term.el : 複数のM-x ansi-termを切替える
