@@ -10,7 +10,7 @@ endif
 " so 'set filetype on' after load dein & plugins.
 
 let s:dein_cache_dir = g:xdg_cache_home . '/dein'
-let s:dein_itself= s:dein_cache_dir . '/repos/github.com/Shougo/dein.vim/'
+let g:dein_itself = s:dein_cache_dir . '/repos/github.com/Shougo/dein.vim/'
 
 set rtp+=~/.cache/dein/repos/github.com/Shougo/dein.vim
 "" For plugins' configs

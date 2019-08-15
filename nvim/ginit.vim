@@ -1,7 +1,10 @@
+"""" Help: options
 
-GuiLinespace 0
-GuiTabline 0
-GuiPopupmenu 0
+if exists('g:GuiLoaded')
+  GuiLinespace 0
+  GuiTabline 0
+  GuiPopupmenu 0
+endif
 
-GuiFont SF Mono:h12
-"GuiFont Dejavu Sans Mono:h11
+set guifont=SF\ Mono:h12
+set guifontwide=SF\ Mono:h12
