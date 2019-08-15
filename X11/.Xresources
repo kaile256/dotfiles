@@ -31,7 +31,7 @@ URxvt.fading:               40
 !URxvt.font:                 xft:MyricaM M:size=14:antialias=true
 !URxvt.font:                 xft:Ricty Discord Nerd Font:size=14:antialias=true
 !URxvt.font:                 xft:Ricty Nerd Font:size=14:antialias=true
-URxvt.font:                 xft:SF Mono:size=12:antialias=true
+URxvt.font:                 xft:Dejavu Sans Mono:size=13:antialias=true,xft:SF Mono:size=12:antialias=true
 !URxvt.font:                 xft:Dejavu Sans Mono:size=12:antialias=true,xft:MyricaM M:size=14:antialias=true
 URxvt.letterSpace:          -1  ! prepare exagerated space esp. on Japanese Fonts.
 !URxvt.lineSpace:            2  ! expand space between command-lines.
@@ -59,6 +59,7 @@ URxvt.color15:     [90]#ebdbb2    /* bright white   */
 
 URxvt.foreground:  [90]#ebdbb2
 URxvt.background:  [90]#282828
+:
 
 !! Italic/Bold/UnderLine
 URxvt.colorIT:     [90]#8ec07c

@@ -16,3 +16,4 @@ colorscheme.vim http://colorswat.ch/vim/list?cat=all&o=star
 emacs config https://techblog.kayac.com/emacs.html
 scheme table palette https://www.color-hex.com/
 color scheme table https://icolorpalette.com/
+Shougo/dotfiles https://github.com/Shougo/shougo-s-github/tree/master/vim

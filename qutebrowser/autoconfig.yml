@@ -81,14 +81,20 @@ settings:
     - normal {line}G{column0}l
   fonts.downloads:
     global: 13pt dejavu sans mono, sf mono
+  fonts.hints:
+    global: bold 12pt dejavu sans mono
   fonts.keyhint:
-    global: 14pt dejavu sans monoomono, sf mono
+    global: 12pt dejavu sans monoomono, sf mono
   fonts.messages.error:
-    global: 13pt dejavu sans mono, sf mono
+    global: 12pt dejavu sans mono, sf mono
   fonts.messages.info:
-    global: 13pt dejavu sans mono
+    global: 12pt dejavu sans mono
   fonts.messages.warning:
-    global: 13pt dejavu sans mono
+    global: 12pt dejavu sans mono
+  fonts.prompts:
+    global: 12pt dejavu sans mono
+  fonts.statusbar:
+    global: 12pt dejavu sans mono
   fonts.web.family.cursive:
     global: dejavu sans mono, sf mono
   fonts.web.family.fantasy:

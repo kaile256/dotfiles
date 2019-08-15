@@ -24,7 +24,15 @@
 #
 # Online reference: https://github.com/SirVer/ultisnips/blob/master/doc/UltiSnips.txt
 
-snippet [[p "for dein.toml" A
+#snippet [[p "for dein.toml" A
+#[[plugins]]
+#repo = ''
+#endsnippet
+
+snippet [[p "for dein.toml"
 [[plugins]]
-repo = ''
+repo = '{1:repo_name}'
+{2:hook_add = '{3:plugin_name}.vimrc'}
+{4:on_event = '{5:VimEnter}}
+{6:hook_post_source = '{7:plugin_name}.vimrc'}
 endsnippet

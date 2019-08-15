@@ -1,7 +1,7 @@
 """" From: filetype.toml
 """"  Ref: coc.vimrc
 
-let g:UltiSnipsEditSplit = 'tabdo'
+let g:UltiSnipsEditSplit = 'normal'
 
 let g:UltiSnipsSnippetDirectories = ['~/.config/nvim/config.d/plugin.d/ultisnips']
 

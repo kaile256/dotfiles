@@ -5,6 +5,7 @@
   "suggest.acceptSuggestionOnCommitCharacter": true,
   "suggest.noselect":true,
   "suggest.floatEnable": false,
+  "codeLens.enable":true,
 
   "list.insertMappings": {
     "<C-n>": "normal:j",

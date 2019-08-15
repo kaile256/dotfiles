@@ -3,10 +3,14 @@
 
 augroup OrgMode
   au!
+  au FileType org setlocal noexpandtab
   au FileType org call s:org_general()
   au FileType org call s:org_keymap()
   "au FileType org setlocal highlight clear Folded
 augroup END
+
+" Emacs' export output is displayed
+let g:org_export_verbose=1
 
 function! s:get_back_last_pos()
   let a:last_line = getcurpos()
@@ -34,9 +38,16 @@ function! s:org_keymap()
 
   "" NOTICE: On Insert Mode, type <c-o>/<a-space> for the same mapping; vi is too.
 
-  """ Hotkey Original
+  """ Experimental
+  nnoremap <buffer> << mo0x`o
+  nnoremap <buffer> >> mo0i*<esc>`o
+  vnoremap <buffer> < <c-v>0o0xgv
+  vnoremap <buffer> > <c-v>0I*gv
 
+  """ Hotkey Original
   "" Done to bottom
+  nnoremap <buffer><silent> <a-m><a-w> :/Done!/,$w >> ~/org/done.org<cr>
+  nnoremap <buffer><silent> <a-m><a-q> :1;/Done!/g/DONE/m $<cr>
 
   nmap <buffer><silent> <a-m><a-a> <Plug>(done-to-bottom-ap)
   nmap <buffer><silent> <a-m><a-i> dip:$put "<cr>``
@@ -84,8 +95,8 @@ function! s:org_keymap()
   nmap <buffer> <a-a><a-w> <LocalLeader>caa
   nmap <buffer> <a-a><a-w> <LocalLeader>caA
   "" For All ToDo List
-  nmap <buffer> <a-a><a-a> <LocalLeader>cat
-  nmap <buffer> <a-a><a-t> <LocalLeader>caT
+  nmap <buffer> <a-a><a-a> :OrgBufferAgendaTodo<CR>
+  nmap <buffer> <a-a><a-t> :OrgAgendaTodo<CR>
   "" Sort by Time
   " CAUTION: NOT implemented
   "nmap <buffer> <a-a><a-t> <LocalLeader>caL
@@ -100,6 +111,7 @@ function! s:org_keymap()
   " Seams: NOT implemented yet
   "nmap <buffer> <a-space><a-space> <LocalLeader>d
   " Rotate State
+  imap <buffer> <a-space><a-space> <LocalLeader>ct<LocalLeader>c#
   nmap <buffer> <a-space><a-space> <LocalLeader>ct<LocalLeader>c#
 
   """ Org-Tags
@@ -123,7 +135,10 @@ function! s:org_keymap()
   "" Mnemonic: Mark by Calender
   nmap <buffer> <a-m><a-c> <localleader>pa
   nmap <buffer> <a-m>c     <localleader>pa
-
+  nmap <buffer> <a-m>x :OrgCheckBoxToggle<CR>
+  "
+  nmap <buffer> <a-m><a-c> :OrgDateInsertTimestampActiveWithCalendar<CR>
+  nmap <buffer> <a-m>c :OrgDateInsertTimestampActiveWithCalendar<CR>
   """ Heading/Subtree
   " Mnemonic: Over/Under
 

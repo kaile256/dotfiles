@@ -73,9 +73,7 @@ Depend=(
 )
 
 for package in ${Package[@]}; do
-  if [ -z $INSTALLER == 'apt' ] && [ -z apt list "$package" | grep $package ]; then
-    echo "You have installed $package already!"
-  elif [ -z $INSTALLER == 'pacman' && pacman -Q "$package"]; then
+  if [ -z "$INSTALLER" == 'apt' && apt list "$package" ||  "$INSTALLER" == 'pacman' && pacman -Q "$package" ]; then
     echo "You have installed $package already!"
   else
     echo "Installing $package..." && sudo $install $package || {
@@ -180,21 +178,33 @@ fi
 
 ## LSP
 # Lua
+echo "Installing Lua-LSP..."
 sudo luarocks install --server=http://luarocks.org/dev lua-lsp
+echo "Installing luacheck..."
 sudo luarocks install luacheck
 # Formatter for Lua 5.1
 #sudo luarocks install Formatter
 # Formatter for Lua 5.3
+echo "Installing Lua-Formatter..."
 sudo luarocks install lcf
 ### Rustup -- cargo
 ## Init
-rustup install stable
-rustup default stable
+
+if [ -e '~/.local/share/rustup/update-hashes/stable-*' ]; then
+  rustup install stable
+  rustup default stable
+fi
+
 ## Rustup Completions
-mkdir -p ~/.local/share/bash-completion/rustup
-rustup completions bash > ~/.local/share/bash-completion/rustup
-mkdir -p ~/.config/fish/completions/rustup.fish
-rustup completions fish > ~/.config/fish/completions/rustup.fish
+if [ -e '~/.local/share/bash-completion/rustup' ]; then
+  mkdir -p ~/.local/share/bash-completion/rustup
+  rustup completions bash > ~/.local/share/bash-completion/rustup
+fi
+
+if [ -e '~/.config/fish/completions/rustup.fish' ]; then
+  mkdir -p ~/.config/fish/completions/rustup.fish
+  rustup completions fish > ~/.config/fish/completions/rustup.fish
+fi
 
 #### Fonts
 if [ -z ls /usr/share/fonts/TTF/ | grep Myrica ]; then
@@ -211,5 +221,7 @@ if [ -z ls /usr/share/fonts/TTF/ | grep Ricty ]; then
 fi
 
 #### Enable Utilities
+echo "Activating tlp..."
 sudo systemctl enable tlp
+echo "Activating bluetooth..."
 sudo systemctl enable bluetooth   # to activate command 'sudo systemctl start bluetooth'
