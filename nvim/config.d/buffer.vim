@@ -19,9 +19,7 @@ augroup END
 augroup OnTermMode
   au!
   au VimEnter * if @% == '' && &filetype ==# '' && &buftype ==# '' | call termopen(&shell) | endif
-  au VimEnter,TermOpen * if &buftype ==# 'terminal' | setlocal nonumber signcolumn=no | endif
-  " When you ':q' to term-mode window.
-  au TermOpen,BufWinEnter * if &buftype ==# 'terminal' | setlocal nobuflisted bufhidden=wipe | endif
+  au VimEnter,TermOpen * if &buftype ==# 'terminal' | setlocal nonumber signcolumn=no modifiable nobuflisted bufhidden=wipe | endif
   " When you 'nvr' from term-mode.
   "au BufRead,BufNew * if @# =~# 'term://' | bwipeout! # | endif
   au VimEnter,TermOpen,BufEnter *    if &buftype ==# 'terminal' | startinsert | endif
