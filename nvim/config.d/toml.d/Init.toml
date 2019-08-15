@@ -61,6 +61,7 @@ if = 'has("nvim")'
 
 ### Status Bar
 #[[plugins]]
+## ERORR: g:lightline is undefined.
 #repo = 'itchyny/lightline.vim' # config is written in 'plugin.vim'
 #hook_add = 'runtime! lightline.vimrc'
 [[plugins]]

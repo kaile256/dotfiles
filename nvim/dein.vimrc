@@ -22,8 +22,8 @@ if dein#load_state(s:dein_cache_dir)
   " list of plugins in toml, which dein manages.
   let s:dein_toml_dir  = '~/.config/nvim/config.d/toml.d/'
 
-  let s:appearance_toml= s:dein_toml_dir . 'appearance.toml'
   let s:dein_toml      = s:dein_toml_dir . 'Init.toml'
+  let s:appearance_toml= s:dein_toml_dir . 'appearance.toml'
   let s:external_toml  = s:dein_toml_dir . 'external.toml'
   let s:extra_toml     = s:dein_toml_dir . 'extra.toml'
   let s:filetype_toml  = s:dein_toml_dir . 'filetype.toml'
@@ -71,9 +71,10 @@ runtime defx-extra.vimrc
 
 """ Colorscheme
 if has('nvim')
-  runtime molokai.vimrc
+  "runtime molokai.vimrc
   "runtime solarized.vimrc
   runtime gruvbox.vimrc
+
 endif
 
 "runtime rainbow.vimrc

@@ -44,3 +44,9 @@ on_if = 'has("nvim")'
 [[plugins]]
 repo = 'altercation/vim-colors-solarized'
 on_if = 'has("nvim")'
+[[plugins]]
+repo = 'fenetikm/falcon'
+on_if = 'has("nvim")'
+[[plugins]]
+repo = 'ayu-theme/ayu-vim'
+on_if = 'has("nvim")'

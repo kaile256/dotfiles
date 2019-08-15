@@ -13,5 +13,5 @@
 !add Control = Control_L
 
 !! Eisu_toggle by Caps_Lock; Caps_Lock by Shift-Caps_Lock
-keycode 66 = Eisu_toggle Caps_Lock
-clear Lock
+!keycode 66 = Eisu_toggle Caps_Lock
+!clear Lock

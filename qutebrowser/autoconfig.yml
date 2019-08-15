@@ -72,3 +72,34 @@ settings:
         gi: enter-mode insert
         i: hint inputs --first
         u: null
+  editor.command:
+    global:
+    - nvim-qt
+    - -f
+    - '{file}'
+    - -c
+    - normal {line}G{column0}l
+  fonts.downloads:
+    global: 13pt dejavu sans mono, sf mono
+  fonts.keyhint:
+    global: 14pt dejavu sans monoomono, sf mono
+  fonts.messages.error:
+    global: 13pt dejavu sans mono, sf mono
+  fonts.messages.info:
+    global: 13pt dejavu sans mono
+  fonts.messages.warning:
+    global: 13pt dejavu sans mono
+  fonts.web.family.cursive:
+    global: dejavu sans mono, sf mono
+  fonts.web.family.fantasy:
+    global: dejavu sans mono, sf mono
+  fonts.web.family.fixed:
+    global: dejavu sans mono, sf mono
+  fonts.web.family.sans_serif:
+    global: dejavu sans mono, sf mono
+  fonts.web.family.serif:
+    global: dejavu sans mono, sf mono
+  fonts.web.family.standard:
+    global: dejavu sans mono, sf mono
+  fonts.web.size.minimum:
+    global: 8

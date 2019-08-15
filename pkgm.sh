@@ -31,6 +31,7 @@ anyenv
 arandr  # visual config for xrandr
 bash-completion
 cargo  # select rustup
+otf-sfmono
 fzf
 gendesk
 ghq-bin

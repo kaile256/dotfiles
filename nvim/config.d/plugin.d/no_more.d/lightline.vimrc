@@ -1,12 +1,17 @@
+" ERORR: 'g:lightline' is undefined.
 """" From: 'Init.toml'
 
-let g:lightline.colorscheme = 'badwolf'
+let g:lightline.colorscheme = 'wombat'
 
+      "\ 'left': [ [ 'mode', 'paste' ], [ 'fugitive', 'filename' ] ]
 let g:lightline.active = {
-    \ 'left': [ [ 'mode', 'paste' ], [ 'fugitive', 'filename' ] ]
-    \ }
+      \ 'left': [ [ 'mode', 'paste' ],
+      \           [ 'cocstatus', 'readonly', 'filename', 'modified' ] ]
+      \ }
 
 let g:lightline.component_function = {
+      \ 'cocstatus':    'coc#status',
+      \
       \ 'modified':     'LightlineModified',
       \ 'readonly':     'LightlineReadonly',
       \ 'fugitive':     'LightlineFugitive',
@@ -18,11 +23,11 @@ let g:lightline.component_function = {
       \ }
 
 function! LightlineModified()
-  return &ft =~ 'help\|defx\|gundo' ? '' : &modified ? '+' : &modifiable ? '' : '-'
+  return &ft =~ 'help\|defx' ? '' : &modified ? '+' : &modifiable ? '' : '-'
 endfunction
 
 function! LightlineReadonly()
-  return &ft !~? 'help\|defx\|gundo' && &readonly ? 'x' : '-'
+  return &ft !~? 'help\|defx' && &readonly ? 'x' : '-'
 endfunction
 
 function! LightlineFilename()
@@ -30,7 +35,7 @@ function! LightlineFilename()
 endfunction
 
 function! LightlineFugitive()
-  if &ft =~ 'defx\|gundo' && exists('fugitive#head')
+  if &ft =~ 'defx' && exists('fugitive#head')
     return fugitive#head()
   else
     return ''
