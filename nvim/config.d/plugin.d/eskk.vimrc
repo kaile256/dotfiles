@@ -6,7 +6,8 @@ set imdisable
 let g:eskk#directory = '~/.config/nvim/config.d/data.d/eskk.d'
 
 """" KEYMAP
-cmap <silent> <c-b> <c-u><Plug>(eskk:enable)
+cmap <silent> <c-b> <c-u><Plug>(eskk:toggle)
 cmap <silent> <c-;> <c-u>call            eskk#update_dictionary()<cr>
-imap <c-b>    <Plug>(eskk:enable)
+imap <c-b>    <Plug>(eskk:toggle)
 imap <c-;>    <c-o><Plug>(eskk:save-dictionary)
+

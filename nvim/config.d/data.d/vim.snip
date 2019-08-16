@@ -1,0 +1,6 @@
+
+snippet augroup
+abbr au
+  augroup ${1:START}
+    au!
+    au ${2:FileType} ${3:*} ${4:if ${5:&filetype ==# '{6:help}'} ${4: | endif}
