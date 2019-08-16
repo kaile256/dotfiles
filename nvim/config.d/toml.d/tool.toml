@@ -4,14 +4,8 @@
 [[plugins]]
 # ERORR: Present Unnecessary Sign '>' on Kanji.
 repo = 'tyru/eskk.vim'
-on_event = ['InsertEnter', 'TermOpen', 'CmdlineEnter']
+on_event = ['InsertEnter', 'CmdlineEnter']
 hook_post_source = 'runtime eskk.vimrc'
-
-### Vim-Wiki
-[[plugins]]
-repo = 'vimwiki/vimwiki'
-on_event = 'VimEnter'
-hook_post_source = 'runtime vimwiki.vimrc'
 
 ### Org Mode
 [[plugins]]
