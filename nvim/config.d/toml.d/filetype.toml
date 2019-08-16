@@ -1,5 +1,11 @@
 #### From: dein.vimrc
 
+### SKK
+[[plugins]]
+## Syntax File for SKK.
+repo = 'tyru/skkdict.vim'
+on_ft = 'skk'
+
 ### Python
 # supports pip-packages, independently installed in shell, to work on vim
 [[plugins]]

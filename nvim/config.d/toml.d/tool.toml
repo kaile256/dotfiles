@@ -1,13 +1,14 @@
 #### From: dein.vimrc
 
-### SKK
+### IME
 [[plugins]]
 repo = 'tyru/eskk.vim'
 on_event = ['InsertEnter', 'TermOpen', 'CmdlineEnter']
 hook_post_source = 'runtime eskk.vimrc'
 [[plugins]]
-repo = 'tyru/skkdict.vim'
-on_ft = 'skk'
+repo = 'tpope/vim-capslock'
+on_event = ['InsertEnter', 'TermOpen', 'CmdlineEnter']
+hook_post_source = 'runtime capslock.vimrc'
 
 ### Org Mode
 [[plugins]]

@@ -64,7 +64,7 @@ augroup AdjustOnPlugins
 
   """ Treat as QuickFix
   "" CAUTION: denite,vista demands to write before quitting.
-  au FileType gitcommit,fugitive,defx setlocal buftype=quickfix
+  au FileType orgagenda,gitcommit,fugitive,defx setlocal buftype=quickfix
   " Why? not work on 'au FileType'
   au BufRead * if &filetype ==# 'git' | setlocal buftype=quickfix | endif
   "au FileType expand('s:treat_as_quickfix')setlocal buftype=quickfix
