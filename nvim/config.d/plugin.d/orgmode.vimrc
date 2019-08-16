@@ -45,17 +45,17 @@ function! s:org_keymap()
 
   """ Hotkey Original
   "" Done to bottom
-  nnoremap <buffer><silent> <a-m><a-w> :/Done!/,$w >> ~/org/done.org<cr>
-  nnoremap <buffer><silent> <a-m><a-q> :1;/Done!/g/DONE/m $<cr>
+  nnoremap <buffer><silent> <a-m><a-w> :/Done!/,$w >> ~/org/done.org<cr>`]
+  nnoremap <buffer><silent> <a-m><a-q> :1;/Done!/g/DONE/m $<cr>`]
 
   nmap <buffer><silent> <a-m><a-a> <Plug>(done-to-bottom-ap)
-  nmap <buffer><silent> <a-m><a-i> dip:$put "<cr>``
-  vmap <buffer><silent> <a-m><a-a> dap:$put "<cr>``
-  vmap <buffer><silent> <a-m><a-i> dip:$put "<cr>``
-  nmap <buffer><silent> <a-m>a dap:$put "<cr>``
-  nmap <buffer><silent> <a-m>i dip:$put "<cr>``
-  vmap <buffer><silent> <a-m>a dap:$put "<cr>``
-  vmap <buffer><silent> <a-m>i dip:$put "<cr>``
+  nmap <buffer><silent> <a-m><a-i> dip:$put "<cr>`]
+  vmap <buffer><silent> <a-m><a-a> dap:$put "<cr>`]
+  vmap <buffer><silent> <a-m><a-i> dip:$put "<cr>`]
+  nmap <buffer><silent> <a-m>a dap:$put "<cr>`]
+  nmap <buffer><silent> <a-m>i dip:$put "<cr>`]
+  vmap <buffer><silent> <a-m>a dap:$put "<cr>`]
+  vmap <buffer><silent> <a-m>i dip:$put "<cr>`]
 
   "nnoremap <buffer><silent> <a-m><a-a> dap:$put "<cr>``
   "nnoremap <buffer><silent> <a-m><a-i> dip:$put "<cr>``
@@ -134,29 +134,27 @@ function! s:org_keymap()
   "" Mnemonic: Mark by Calender
   nmap <buffer> <a-m><a-c> <localleader>pa
   nmap <buffer> <a-m>c     <localleader>pa
-  nmap <buffer> <a-m>x :OrgCheckBoxToggle<CR>
+  nmap <buffer> <a-m>x     :OrgCheckBoxToggle<CR>
   "
   nmap <buffer> <a-m><a-c> :OrgDateInsertTimestampActiveWithCalendar<CR>
-  nmap <buffer> <a-m>c :OrgDateInsertTimestampActiveWithCalendar<CR>
+  nmap <buffer> <a-m>c     :OrgDateInsertTimestampActiveWithCalendar<CR>
   """ Heading/Subtree
-  " Mnemonic: Over/Under
-
-  "" Move
-  nmap <buffer> [ [[
-  nmap <buffer> ] ]]
-  nmap <buffer> m[ m[[
-  nmap <buffer> m] m]]
-
-  "" Promote/Demote
-  nmap <buffer> >o >ah
-  nmap <buffer> >i >ar
-  nmap <buffer> <o <ah
-  nmap <buffer> <i <ar
+  " Mnemonic: zM only shows Heading;zR shows Subtree.
 
   "" Register
-  nmap <buffer> do dah
-  nmap <buffer> du dar
-  nmap <buffer> yo yah
-  nmap <buffer> yu yar
+  nmap <buffer> dm dah
+  nmap <buffer> dr dar
+  nmap <buffer> ym yah
+  nmap <buffer> yr yar
+
+  "" Promote/Demote
+  nmap <buffer> >m >ah
+  nmap <buffer> >r >ar
+  nmap <buffer> <m <ah
+  nmap <buffer> <r <ar
+
+  "" Move
+  nmap <buffer> m[ m[[
+  nmap <buffer> m] m]]
 
 endfunction
