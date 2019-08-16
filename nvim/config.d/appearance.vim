@@ -11,7 +11,7 @@
 
 """ Redraw
 "" Indent
-nnoremap <S-TAB> gg=G''
+nnoremap <S-TAB> gg=G''zz
 
 " CAUTION: <c-l> should be run at LAST so that no corruption.
 " CAUTION: zR (open all fold) makes vim FREEZE.
