@@ -8,3 +8,7 @@ endif
 
 set guifont=SF\ Mono:h12
 set guifontwide=SF\ Mono:h12
+
+""" Unnecessary?
+let $EDITOR='neovim-qt'
+let $VISUAL='neovim-qt'

@@ -69,4 +69,3 @@ repo = 'vim-airline/vim-airline'
 hook_add = 'runtime airline.vimrc'
 [[plugins]]
 repo = 'vim-airline/vim-airline-themes'
-depends = 'vim-airline'

@@ -1,10 +1,19 @@
 #### From: dein.vimrc
 
+### SKK
+[[plugins]]
+repo = 'tyru/eskk.vim'
+on_event = ['InsertEnter', 'TermOpen', 'CmdlineEnter']
+hook_post_source = 'runtime eskk.vimrc'
+[[plugins]]
+repo = 'tyru/skkdict.vim'
+on_ft = 'skk'
+
 ### Org Mode
 [[plugins]]
 repo = 'jceb/vim-orgmode'
 on_ft = 'org'
-hook_post_source = 'runtime org-mode.vimrc'
+hook_post_source = 'runtime orgmode.vimrc'
 [[plugins]]
 repo = 'dhruvasagar/vim-table-mode'
 hook_add = 'runtime! table-mode.vimrc'
@@ -53,29 +62,30 @@ build = 'make'
 
 ### Snippets
 ## Engine
+#[[plugins]]
+#repo = 'SirVer/ultisnips'
+#on_event = ['InsertEnter','TermOpen']
+#hook_post_source = 'runtime ultisnips.vimrc'
 [[plugins]]
-repo = 'SirVer/ultisnips'
-on_event = ['InsertEnter','TermOpen']
-hook_post_source = 'runtime ultisnips.vimrc'
-## Contents
+repo = 'Shougo/neosnippet.vim'
+on_event = ['InsertEnter', 'TermOpen','CmdlineEnter']
+hook_add = 'runtime! neosnippet.vimrc'
+### Contents
+[[plugins]]
+repo = 'Shougo/neosnippet-snippets'
+on_event = ['InsertEnter', 'TermOpen','CmdlineEnter']
 [[plugins]]
 repo = 'honza/vim-snippets'
 on_event = ['InsertEnter', 'TermOpen']
 #[[plugins]]
-#repo = 'Shougo/neosnippet-snippets'
-#on_event = 'InsertEnter'
-#[[plugins]]
-#repo = 'Shougo/neosnippet.vim'
-#on_event = 'InsertEnter'
-#depends = 'neosnippet-snippets'
-#hook_add = 'runtime! neosnippet.vimrc'
+#repo = 'garbas/vim-snipmate'
+#on_event = ['InsertEnter', 'TermOpen']
 
 ### Template
 [[plugins]]
 repo = 'mattn/sonictemplate-vim'
 on_event = 'BufRead'
 hook_post_source = 'runtime sonictemplate.vimrc'
-
 
 ### Operator
 [[plugins]]
