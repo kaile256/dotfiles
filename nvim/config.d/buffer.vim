@@ -1,8 +1,6 @@
 """" From: nvim/init.vim
 """"  Ref: orgmode.vimrc
 
-command! Bw :bwipeout expand('term://*')
-
 """" GENERAL
 augroup AppendFileType
   au!
@@ -102,8 +100,8 @@ nnoremap <a-s><a-o> :<c-u>so % <bar> echo ' Vim sourced "' . bufname('%') . '"'<
 nnoremap <a-s>o     :<c-u>so % <bar> echo ' Vim sourced "' . bufname('%') . '"'<CR>
 
 """ Mnemonic: Show BufType/FileType
-nnoremap <a-s><a-b> :echo  " &filetype='" . &filetype . "'; &buftype='" . &buftype . "'; " . "winnr('#') is " . winnr('#') . "; winnr('$') is " . winnr('$') . "." <cr>
-nnoremap <a-s><a-f> :echo  " &filetype='" . &filetype . "'; &buftype='" . &buftype . "'; " . "winnr('#') is " . winnr('#') . "; winnr('$') is " . winnr('$') . "." <cr>
+nnoremap <a-s><a-b> :echo  " &filetype='" . &filetype . "'; &buftype='" . &buftype . "'; " . "winnr('$') is " . winnr('$') . "; winnr('#') is " . winnr('#') . "." <cr>
+nnoremap <a-s><a-f> :echo  " &filetype='" . &filetype . "'; &buftype='" . &buftype . "'; " . "winnr('$') is " . winnr('$') . "; winnr('#') is " . winnr('#') . "." <cr>
 "nnoremap <a-s><a-b> :echo " &filetype is '" . &filetype . "'; &buftype is '" . &buftype . "'"<cr>
 "nnoremap <a-s><a-f> :echo " &filetype is '" . &filetype . "'; &buftype is '" . &buftype . "'"<cr>
 
