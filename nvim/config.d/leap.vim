@@ -192,8 +192,22 @@ nnoremap <silent> <c-q> :silent! $tag<cr>
 "noremap <silent> <c-p> :pop<cr>
 
 """ Terminal
-"" Normal Mode
-"" Open Shortcut
+"" ESC
+" esc n the same way as in the other mode.
+tnoremap <c-[> <c-\><c-n>
+tnoremap <esc> <c-\><c-n>
+
+"" Hotkey to open terminal
+nnoremap <silent> <a-t><a-e> :<c-u>     :te<cr>
+nnoremap <silent> <a-t><a-s> :<c-u>sp   <bar>:te<cr>
+nnoremap <silent> <a-t><a-v> :<c-u>vs   <bar>:te<cr>
+nnoremap <silent> <a-t><a-t> :<c-u>tabe <bar>:te<cr>
+nnoremap <silent> <a-t>e     :<c-u>     :te<cr>
+nnoremap <silent> <a-t>s     :<c-u>sp   <bar>:te<cr>
+nnoremap <silent> <a-t>v     :<c-u>vs   <bar>:te<cr>
+nnoremap <silent> <a-t>t     :<c-u>tabe <bar>:te<cr>
+
+" With cd
 nnoremap <silent> <a-t><a-h> :<c-u>cd ~          <bar>:te<cr>
 nnoremap <silent> <a-t><a-o> :<c-u>cd ~/org      <bar>:te<cr>
 nnoremap <silent> <a-t><a-.> :<c-u>cd ~/dotfiles <bar>:te<cr>
@@ -206,7 +220,7 @@ nnoremap <silent> <a-t>.     :<c-u>cd ~/dotfiles <bar>:te<cr>
 nnoremap <silent> <a-t>d     :<c-u>cd ~/dotfiles <bar>:te<cr>
 nnoremap <silent> <a-t>g     :<c-u>cd ~/.config  <bar>:te<cr>
 nnoremap <silent> <a-t>w     :<c-u>cd %:p:h      <bar>:te<cr>
-
+" on term-mode, too.
 tnoremap <silent> <a-t><a-o> cd ~/org      <cr>
 tnoremap <silent> <a-t><a-.> cd ~/dotfiles <cr>
 tnoremap <silent> <a-t><a-d> cd ~/dotfiles <cr>
@@ -215,15 +229,6 @@ tnoremap <silent> <a-t>o     cd ~/org      <cr>
 tnoremap <silent> <a-t>.     cd ~/dotfiles <cr>
 tnoremap <silent> <a-t>d     cd ~/dotfiles <cr>
 tnoremap <silent> <a-t>g     cd ~/.config  <cr>
-
-nnoremap <silent> <a-t>e     :<c-u>   :te<cr>
-nnoremap <silent> <a-t>s     :<c-u>sp <bar>:te<cr>
-nnoremap <silent> <a-t>v     :<c-u>vs <bar>:te<cr>
-nnoremap <silent> <a-t>t     :<c-u>tabe<bar>:te<cr>
-nnoremap <silent> <a-t><a-e> :<c-u>   :te<cr>
-nnoremap <silent> <a-t><a-s> :<c-u>sp <bar>:te<cr>
-nnoremap <silent> <a-t><a-v> :<c-u>vs <bar>:te<cr>
-nnoremap <silent> <a-t><a-t> :<c-u>tabe<bar>:te<cr>
 
 " Jump Anyway by <c-i><c-o>
 "tmap <c-i> <c-\><c-n><c-i>
@@ -249,7 +254,7 @@ tnoremap <a-l> <c-\><c-n>l
 " <c-[> to <esc>, <c-]> for tag-jump.
 noremap <silent> <a-i> :bnext<cr>
 noremap <silent> <a-o> :bprevious<cr>
-noremap <c-6> <c-^>
+noremap <c-6>    <c-^>
 
 "" QuickFix
 noremap <silent> <space>co :copen<cr>
