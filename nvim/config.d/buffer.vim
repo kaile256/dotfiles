@@ -15,10 +15,9 @@ augroup END
 augroup OnTermMode
   au!
   au VimEnter * if @% == '' && &filetype ==# '' && &buftype ==# '' | call termopen(&shell) | endif
-  au VimEnter,TermOpen * if &buftype ==# 'terminal' | setlocal nonumber signcolumn=no modifiable buflisted bufhidden=wipe | endif
+  au VimEnter,TermOpen * if &buftype ==# 'terminal' | setlocal nonumber signcolumn=no modifiable | endif
   " When you 'nvr' from term-mode.
-  au BufWinLeave * if &filetype ==# 'fzf' && @# =~# 'term:' | bwipeout! # | endif
-  au WinLeave,BufWinLeave * if winnr('$') ==# winnr('#') && @# =~# 'term:' | bwipeout! # | endif
+  au WinLeave,BufWinLeave * if winnr('$') ==# winnr('#') && &filetype !=# 'fzf' && @# =~# 'term:' | bwipeout! # | endif
   au VimEnter,TermOpen,BufEnter *    if &buftype ==# 'terminal' | startinsert | endif
 augroup END
 
@@ -103,8 +102,8 @@ nnoremap <a-s><a-o> :<c-u>so % <bar> echo ' Vim sourced "' . bufname('%') . '"'<
 nnoremap <a-s>o     :<c-u>so % <bar> echo ' Vim sourced "' . bufname('%') . '"'<CR>
 
 """ Mnemonic: Show BufType/FileType
-nnoremap <a-s><a-b> :echo ' &filetype is "' . &filetype . '"; &buftype is "' . &buftype . '"'<cr>
-nnoremap <a-s><a-f> :echo ' &filetype is "' . &filetype . '"; &buftype is "' . &buftype . '"'<cr>
+nnoremap <a-s><a-b> :echo  " &filetype='" . &filetype . "'; &buftype='" . &buftype . "'; " . "winnr('#') is " . winnr('#') . "; winnr('$') is " . winnr('$') . "." <cr>
+nnoremap <a-s><a-f> :echo  " &filetype='" . &filetype . "'; &buftype='" . &buftype . "'; " . "winnr('#') is " . winnr('#') . "; winnr('$') is " . winnr('$') . "." <cr>
 "nnoremap <a-s><a-b> :echo " &filetype is '" . &filetype . "'; &buftype is '" . &buftype . "'"<cr>
 "nnoremap <a-s><a-f> :echo " &filetype is '" . &filetype . "'; &buftype is '" . &buftype . "'"<cr>
 
