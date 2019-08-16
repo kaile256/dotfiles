@@ -171,7 +171,8 @@ augroup END
 """ Register
 "" Convenience
 nnoremap Y y$
-nnoremap yk yk
+nnoremap yk yk`]
+"" NOTICE: p on Visual is better without `].
 nnoremap p p']
 
 "" Term-mode
@@ -194,7 +195,7 @@ nnoremap <space>c "+c
 nnoremap <space>C "+C
 " paste
 nnoremap <space>p "+p']
-xnoremap <space>p "+p']
+xnoremap <space>p "+p
 nnoremap <space>P "+P
 xnoremap <space>P "+P
 inoremap <c-r><c-space> <c-g>u<c-r>+
@@ -203,10 +204,12 @@ inoremap <c-r><space>   <c-g>u<c-r>+
 "" Yank Register
 " paste
 " term-mode
-tnoremap <expr>     <C-R><c-0> '<C-\><C-N>"0pi'
+tnoremap <expr>  <C-R><c-0> '<C-\><C-N>"0pi'
 " CAUTION: not for xmap, or that makes delay.
-nnoremap yp         "0p
-nnoremap yP         "0P
+nnoremap yp      "0p`]
+nnoremap yP      "0P
+vnoremap <c-p>   "0p
+
 inoremap <c-r><c-0> <c-g>u<c-r>0
 inoremap <c-r><c-o> <c-g>u<c-r>0
 inoremap <c-r>o     <c-g>u<c-r>0
