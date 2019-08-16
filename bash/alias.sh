@@ -11,6 +11,6 @@ alias ll="ls --color=auto -l"
 alias  l="ls --color=auto -lA"
 
 ### Neovim
-alias nvr="nvr --nostart"
+alias nvr="nvr -s"
 ### w3m
 type w3m > /dev/null && alias w3m="w3m https://duckduckgo.com/?q="
