@@ -37,7 +37,7 @@ set smartindent
 set shiftwidth=2
 " for manual indent, insert spaces according to shiftwidth.
 set smarttab
-" for '<' & '>' indent, insert spaces according to shiftwidth.
+" for '</>' indent, insert spaces according to shiftwidth.
 set shiftround
 
 """ Regiser
@@ -63,7 +63,6 @@ set pumheight=50
 "endif
 
 """" KEYMAP
-
 """ Write&Quit
 " w! write even read-only file.
 nnoremap          <space>w :<c-u>w<cr>
@@ -84,8 +83,12 @@ cnoremap <a-f> <S-right>
 cnoremap <c-f> <right>
 cnoremap <c-b> <left>
 cnoremap <a-b> <S-left>
+cnoremap <c-d> <Del>
 "" Cancel
+cnoremap <a-h> <c-c><c-w>h
+cnoremap <a-j> <c-c><c-w>j
 cnoremap <a-k> <c-c>
+cnoremap <a-l> <c-c><c-w>l
 " <c-k> enter digraph
 cnoremap <c-k><a-k> <c-c>
 
@@ -116,6 +119,9 @@ inoremap <a-l> <esc>l
 inoremap <a-w> <esc>w
 inoremap <a-b> <esc>b
 inoremap <a-e> <esc>e
+inoremap <a-s-w> <esc>W
+inoremap <a-s-b> <esc>B
+inoremap <a-s-e> <esc>E
 " <a-ydcup> as well; to redo, type <c-o><c-r>.
 inoremap <a-y> <esc>y
 inoremap <a-x> <esc>x
@@ -123,11 +129,20 @@ inoremap <a-d> <esc>d
 inoremap <a-c> <esc>c
 inoremap <a-u> <esc>u
 inoremap <a-p> <c-g>u<esc>p
+inoremap <a-s-y> <esc>Y
+inoremap <a-s-x> <esc>X
+inoremap <a-s-d> <esc>D
+inoremap <a-s-c> <esc>C
+inoremap <a-s-u> <esc>U
+inoremap <a-s-p> <c-g>u<esc>P
 " <a-iao> as well
 " <a-ai> could be just <left>/<right>, but I prefer <esc> before.
 inoremap <a-a> <esc>la
 inoremap <a-i> <esc>i
 inoremap <a-o> <esc>o
+inoremap <a-s-o> <esc>O
+inoremap <a-s-i> <esc>I
+inoremap <a-s-a> <esc>A
 
 """ Del
 "" NOTICE: <c-d> increases indent on Insert Mode.
@@ -177,8 +192,6 @@ inoremap <c-r><c-'>'    <c-g>u<c-r>"
 nnoremap Y y$
 " CAUTION: not for xmap, or that makes delay.
 nnoremap yp "0p
-nnoremap yp "0p
-nnoremap yP "0P
 nnoremap yP "0P
 
 "" Black-Hole
@@ -226,4 +239,3 @@ tnoremap <expr> <C-R><c-0>     '<C-\><C-N>"0pi'
 " esc in the same way as in the other mode.
 tnoremap <c-[> <c-\><c-n>
 tnoremap <esc> <c-\><c-n>
-

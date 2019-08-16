@@ -2,10 +2,6 @@
 """"  Ref: orgmode.vimrc
 
 command! Bw :bwipeout expand('term://*')
-tnoremap <silent> <a-q><a-o> <c-u>nvr ~/org/notes.org <cr>
-tnoremap <silent> <a-q>o     <c-u>nvr ~/org/notes.org <cr>
-nnoremap <silent> <a-q><a-o> :<c-u>e  ~/org/notes.org <cr>
-nnoremap <silent> <a-q>o     :<c-u>e  ~/org/notes.org <cr>
 
 """" GENERAL
 augroup AppendFileType
@@ -19,9 +15,10 @@ augroup END
 augroup OnTermMode
   au!
   au VimEnter * if @% == '' && &filetype ==# '' && &buftype ==# '' | call termopen(&shell) | endif
-  au VimEnter,TermOpen * if &buftype ==# 'terminal' | setlocal nonumber signcolumn=no modifiable nobuflisted bufhidden=wipe | endif
+  au VimEnter,TermOpen * if &buftype ==# 'terminal' | setlocal nonumber signcolumn=no modifiable buflisted bufhidden=wipe | endif
   " When you 'nvr' from term-mode.
-  "au BufRead,BufNew * if @# =~# 'term://' | bwipeout! # | endif
+  au BufWinLeave * if &filetype ==# 'fzf' && @# =~# 'term:' | bwipeout! # | endif
+  au WinLeave,BufWinLeave * if winnr('$') ==# winnr('#') && @# =~# 'term:' | bwipeout! # | endif
   au VimEnter,TermOpen,BufEnter *    if &buftype ==# 'terminal' | startinsert | endif
 augroup END
 
@@ -54,6 +51,7 @@ augroup END
 augroup AdjustOnLanguage
 
   au!
+  au FileType org        setlocal tabstop=4 softtabstop=4 shiftwidth=4
   au FileType lua        setlocal tabstop=4
   au FileType JavaScript setlocal tabstop=4 softtabstop=4 shiftwidth=4
   au FileType Ruby       setlocal tabstop=2 softtabstop=2 shiftwidth=2

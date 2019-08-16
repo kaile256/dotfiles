@@ -3,7 +3,6 @@
 
 augroup OrgMode
   au!
-  au FileType org setlocal noexpandtab
   au FileType org call s:org_general()
   au FileType org call s:org_keymap()
   "au FileType org setlocal highlight clear Folded
@@ -39,10 +38,10 @@ function! s:org_keymap()
   "" NOTICE: On Insert Mode, type <c-o>/<a-space> for the same mapping; vi is too.
 
   """ Experimental
-  nnoremap <buffer> << mo0x`o
-  nnoremap <buffer> >> mo0i*<esc>`o
-  vnoremap <buffer> < <c-v>0o0xgv
-  vnoremap <buffer> > <c-v>0I*gv
+  "nnoremap <buffer> << mo0x`o
+  "nnoremap <buffer> >> mo0i*<esc>`o
+  "vnoremap <buffer> < <c-v>0o0x
+  "vnoremap <buffer> > <c-v>0I*
 
   """ Hotkey Original
   "" Done to bottom
