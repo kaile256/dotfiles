@@ -4,10 +4,15 @@
 """ IME
 " 0: ime will be off, when lmap is off.
 " lmap supports 3 modes: insert, commandline and lang-arg.
-augroup AutoOffIME
+set iminsert=0
+set imsearch=0
+set imcmdline
+
+augroup FcitxRemote
   au!
-  au InsertLeave  * set iminsert=0
-  au CmdlineLeave * set imsearch=0
+  au VimEnter    * call system('fcitx-remote -s ssk')
+  au InsertEnter * call system('fcitx-remote -o')
+  au InsertLeave * call system('fcitx-remote -c')
 augroup END
 
 """ Terminal
@@ -157,14 +162,26 @@ inoremap <c-w> <c-g>u<c-w>
 
 augroup UndoBreakOnFileType
   au!
-  au filetype html,markdown inoremap <buffer> , ,<c-g>u
-  au filetype html,markdown inoremap <buffer> . .<c-g>u
-  au filetype html,markdown inoremap <buffer> ! !<c-g>u
-  au filetype html,markdown inoremap <buffer> ? ?<c-g>u
+  au FileType html,markdown inoremap <buffer> , ,<c-g>u
+  au FileType html,markdown inoremap <buffer> . .<c-g>u
+  au FileType html,markdown inoremap <buffer> ! !<c-g>u
+  au FileType html,markdown inoremap <buffer> ? ?<c-g>u
 augroup END
 
 """ Register
-"" Clipboard
+"" Convenience
+nnoremap Y y$
+nnoremap yk yk
+nnoremap p p']
+
+"" Term-mode
+"" Put as in Insert Mode
+tnoremap <expr> <C-R> '<C-\><C-N>"'.nr2char(getchar()).'pi'
+
+"" Plus Register (or Clipboard)
+" term-mode
+tnoremap <expr> <C-R><c-space> '<C-\><C-N>"+pi'
+tnoremap <expr> <C-R><space>   '<C-\><C-N>"+pi'
 " yank
 nnoremap <space>y "+y
 xnoremap <space>y "+y
@@ -176,29 +193,44 @@ nnoremap <space>D "+D
 nnoremap <space>c "+c
 nnoremap <space>C "+C
 " paste
-nnoremap <space>p "+p
-xnoremap <space>p "+p
+nnoremap <space>p "+p']
+xnoremap <space>p "+p']
 nnoremap <space>P "+P
 xnoremap <space>P "+P
 inoremap <c-r><c-space> <c-g>u<c-r>+
 inoremap <c-r><space>   <c-g>u<c-r>+
 
-"" Unnamed Register
-inoremap <c-r>'         <c-g>u<c-r>"
-inoremap <c-r><c-'>'    <c-g>u<c-r>"
-
 "" Yank Register
-" Kill Ambiguities
-nnoremap Y y$
+" paste
+" term-mode
+tnoremap <expr>     <C-R><c-0> '<C-\><C-N>"0pi'
 " CAUTION: not for xmap, or that makes delay.
-nnoremap yp "0p
-nnoremap yP "0P
+nnoremap yp         "0p
+nnoremap yP         "0P
+inoremap <c-r><c-0> <c-g>u<c-r>0
+inoremap <c-r><c-o> <c-g>u<c-r>0
+inoremap <c-r>o     <c-g>u<c-r>0
 
-"" Black-Hole
-nnoremap <space>x "_x
-nnoremap <space>s "_s
-nnoremap <space>X "_X
-nnoremap <space>S "_S
+"" Unnamed Register
+" CAUTION: Just Type p to put from unnamed register.
+inoremap <c-r><c-p> <c-g>u<c-r>"
+inoremap <c-r>p     <c-g>u<c-r>"
+inoremap <c-r><c-'> <c-g>u<c-r>"
+inoremap <c-r>'     <c-g>u<c-r>"
+inoremap <c-r><c-\> <c-g>u<c-r>"
+inoremap <c-r>\     <c-g>u<c-r>"
+
+"" Command-Line Register
+inoremap <c-r><c-;> <c-g>u<c-r>:
+inoremap <c-r>;     <c-g>u<c-r>:
+
+"" Black-Hole Register
+nnoremap <space>x   "_x
+nnoremap <space>s   "_s
+nnoremap <space>X   "_X
+nnoremap <space>S   "_S
+nnoremap <S-space>X "_X
+nnoremap <S-space>S "_S
 
 """ Visual Mode
 "" Sort; Initial to Reverse Sort
@@ -225,17 +257,3 @@ xnoremap <a-s>X     :sort! x<cr>
 xnoremap <a-s><a-o> :sort  o<cr>
 xnoremap <a-s>o     :sort  o<cr>
 xnoremap <a-s>O     :sort! o<cr>
-
-""" Terminal Mode
-"" Put as in Insert Mode
-tnoremap <expr> <C-R> '<C-\><C-N>"'.nr2char(getchar()).'pi'
-" clipboard register
-tnoremap <expr> <C-R><c-space> '<C-\><C-N>"+pi'
-tnoremap <expr> <C-R><space>   '<C-\><C-N>"+pi'
-"" yank register
-tnoremap <expr> <C-R><c-0>     '<C-\><C-N>"0pi'
-" Use emacs-like keybind in terminal-job mode.
-"" ESC
-" esc in the same way as in the other mode.
-tnoremap <c-[> <c-\><c-n>
-tnoremap <esc> <c-\><c-n>
