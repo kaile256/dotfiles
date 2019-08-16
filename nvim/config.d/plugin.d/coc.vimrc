@@ -67,6 +67,7 @@ function! s:make_sure_no_space() abort
 endfunction
 
 """ Snippet :echo exists('##CompleteChanged') && exists('*nvim_open_win')s
+nmap <a-s><a-p> :CocCommand snippets.editSnippets<cr>
 
 "" Trigger Just Snippets; <tab> to General Completion
 "imap <C-s> <Plug>(coc-snippets-expand)
@@ -77,10 +78,10 @@ imap <C-s> <Plug>(coc-snippets-expand-jump)
 "inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<CR>"
 
 "" Reset Completion by <tab>
-inoremap <silent><expr> <tab>
-      \ pumvisible() ? coc#refresh() :
-      \ <SID>make_sure_no_space() ? "<tab>" :
-      \ "<tab>"
+"inoremap <silent><expr> <tab>
+"      \ pumvisible() ? "\<TAB>" :
+"      \ <SID>make_sure_no_space() ? "\<tab>" :
+"      \ "\<tab>"
 
 "" Trigger Completion by <c-n>/<c-p>.
 inoremap <silent><expr> <c-n>

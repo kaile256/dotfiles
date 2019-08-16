@@ -22,14 +22,25 @@ imap <c-f> <plug>(fzf-complete-path)
 
 " :FZF! starts fzf on full-window.
 """ cd; then fzf
-nnoremap <silent> <a-q><a-o> :<c-u>cd ~/org <bar> FZF<cr>
-nnoremap <silent> <a-q>o     :<c-u>cd ~/org <bar> FZF<cr>
-nnoremap <silent> <a-q><a-d> :<c-u>cd ~/dotfiles <bar> FZF<cr>
-nnoremap <silent> <a-q>d     :<c-u>cd ~/dotfiles <bar> FZF<cr>
-nnoremap <silent> <a-q><a-.> :<c-u>cd ~/dotfiles <bar> FZF<cr>
-nnoremap <silent> <a-q>.     :<c-u>cd ~/dotfiles <bar> FZF<cr>
-nnoremap <silent> <a-q><a-w> :<c-u>cd %:p:h <bar> FZF<cr>
-nnoremap <silent> <a-q>w     :<c-u>cd %:p:h <bar> FZF<cr>
+tnoremap <silent> <a-q><a-d> <c-u>cd  ~/dotfiles<cr>      <c-\><c-n>:FZF<cr>
+tnoremap <silent> <a-q><a-.> <c-u>cd  ~/dotfiles<cr>      <c-\><c-n>:FZF<cr>
+tnoremap <silent> <a-q>d     <c-u>cd  ~/dotfiles<cr>      <c-\><c-n>:FZF<cr>
+tnoremap <silent> <a-q>.     <c-u>cd  ~/dotfiles<cr>      <c-\><c-n>:FZF<cr>
+tnoremap <silent> <a-q>      <c-\><c-n>:FZF<cr>
+tnoremap <silent> <a-q><a-q> <c-\><c-n>:FZF<cr>
+tnoremap <silent> <a-q><a-b> <c-\><c-n>:Buffers<cr>
+tnoremap <silent> <a-q>b     <c-\><c-n>:Buffers<cr>
+tnoremap <silent> <a-q><a-h> <c-\><c-n>:Helptags<cr>
+tnoremap <silent> <a-q>h     <c-\><c-n>:Helptags<cr>
+tnoremap <silent> <a-q><a-w> <c-\><c-n>:Windows<cr>
+tnoremap <silent> <a-q>w     <c-\><c-n>:Windows<cr>
+
+nnoremap <silent> <a-q><a-d> :<c-u>cd ~/dotfiles      <bar> FZF<cr>
+nnoremap <silent> <a-q>d     :<c-u>cd ~/dotfiles      <bar> FZF<cr>
+nnoremap <silent> <a-q><a-.> :<c-u>cd ~/dotfiles      <bar> FZF<cr>
+nnoremap <silent> <a-q>.     :<c-u>cd ~/dotfiles      <bar> FZF<cr>
+nnoremap <silent> <a-q><a-w> :<c-u>cd %:p:h           <bar> FZF<cr>
+nnoremap <silent> <a-q>w     :<c-u>cd %:p:h           <bar> FZF<cr>
 nnoremap <silent> <a-q>      :<c-u>FZF<cr>
 nnoremap <silent> <a-q><a-q> :<c-u>FZF<cr>
 nnoremap <silent> <a-q><a-b> :<c-u>Buffers<cr>
@@ -54,26 +65,31 @@ nnoremap <silent> <a-q><a-p> :<c-u>Maps<cr>
 nnoremap <silent> <a-q>p     :<c-u>Maps<cr>
 
 if executable('ag')
+
   nnoremap <silent> <a-q><a-a> :<c-u>Ag<cr>
   nnoremap <silent> <a-q>a     :<c-u>Ag<cr>
 else
-  nnoremap <silent> <a-q><a-a>   :<c-u>echo "You don't have executable silver searcher." 
-  nnoremap <silent> <a-q>a       :<c-u>echo "You don't have executable silver searcher." 
+
+  nnoremap <silent> <a-q><a-a> :<c-u>echo "You don't have executable silver searcher."
+  nnoremap <silent> <a-q>a     :<c-u>echo "You don't have executable silver searcher."
 endif
+
 if executable('rg')
+
   nnoremap <silent> <a-r><a-r> :<c-u>Rg<cr>
   nnoremap <silent> <a-r>r     :<c-u>Rg<cr>
-  nnoremap <silent> <a-r><a-o> :<c-u>cd ~/org<cr>      :Rg<cr>
-  nnoremap <silent> <a-r>o     :<c-u>cd ~/org<cr>      :Rg<cr>
-  nnoremap <silent> <a-r><a-d> :<c-u>cd ~/dotfiles<cr> :Rg<cr>
-  nnoremap <silent> <a-r>d     :<c-u>cd ~/dotfiles<cr> :Rg<cr>
-  nnoremap <silent> <a-r><a-.> :<c-u>cd ~/dotfiles<cr> :Rg<cr>
-  nnoremap <silent> <a-r>.     :<c-u>cd ~/dotfiles<cr> :Rg<cr>
-  nnoremap <silent> <a-r><a-g> :<c-u>cd ~/.config<cr>  :Rg<cr>
-  nnoremap <silent> <a-r>g     :<c-u>cd ~/.config<cr>  :Rg<cr>
+  nnoremap <silent> <a-r><a-o> :<c-u>cd   ~/org<cr> :Rg<cr>
+  nnoremap <silent> <a-r>o     :<c-u>cd   ~/org<cr> :Rg<cr>
+  nnoremap <silent> <a-r><a-d> :<c-u>cd   ~/dotfiles<cr>      :Rg<cr>
+  nnoremap <silent> <a-r>d     :<c-u>cd   ~/dotfiles<cr>      :Rg<cr>
+  nnoremap <silent> <a-r><a-.> :<c-u>cd   ~/dotfiles<cr>      :Rg<cr>
+  nnoremap <silent> <a-r>.     :<c-u>cd   ~/dotfiles<cr>      :Rg<cr>
+  nnoremap <silent> <a-r><a-g> :<c-u>cd   ~/.config<cr>       :Rg<cr>
+  nnoremap <silent> <a-r>g     :<c-u>cd   ~/.config<cr>       :Rg<cr>
 else
-  nnoremap <silent> <a-q><a-a>   :<c-u>echo "You don't have executable ripgrep." 
-  nnoremap <silent> <a-q>a       :<c-u>echo "You don't have executable ripgrep." 
+
+  nnoremap <silent> <a-q><a-a> :<c-u>echo "You don't have executable ripgrep."
+  nnoremap <silent> <a-q>a     :<c-u>echo "You don't have executable ripgrep."
 endif
 
 "augroup FzfBuffer

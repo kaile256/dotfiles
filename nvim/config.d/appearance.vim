@@ -16,9 +16,9 @@ nnoremap <S-TAB> gg=G''
 " CAUTION: <c-l> should be run at LAST so that no corruption.
 " CAUTION: zR (open all fold) makes vim FREEZE.
 "" Ref: showmarks.vimrc
-imap <silent> <c-l>         <esc>:<c-u>noh <bar> redraw <cr>i
-nmap <silent> <c-space><space>   :<c-u>noh <bar> redraw <cr>
-nmap <silent> <c-space><c-space> :<c-u>noh <bar> redraw <cr>
+inoremap <silent> <c-l>         <c-o>:<c-u>noh <cr><c-o><c-l>
+nnoremap <silent> <c-space><space>   :<c-u>noh <cr><c-l>
+nnoremap <silent> <c-space><c-space> :<c-u>noh <cr><c-l>
 " <a-space> gets along with <a-hjkl>.
 nmap <silent> <space><space>     :cclose <bar> lclose <cr> :retab <cr>
 
@@ -55,9 +55,15 @@ set termguicolors
 """ Column
 " show line number on left
 set number
-" wrap long text.
-set wrap
 set colorcolumn=81
+
+"" Wrap
+" wrap long text: s for space
+set wrap whichwrap=s
+set breakindent
+set linebreak
+set showbreak=\\ 
+set breakat=\ \ ;:,.!?。
 
 """ Line
 " CAUTION: cursorline-highlight causes drawing corruption.

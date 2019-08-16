@@ -4,10 +4,10 @@
 """" GENERAL
 augroup AppendFileType
   au!
-  au BufNewFile,BufRead *.vim!   setlocal filetype=vim
-  au BufNewFile,BufRead *.vimrc  setlocal filetype=vim
-  au BufNewFile,BufRead *.vimrc! setlocal filetype=vim
-  au BufNewFile,BufRead i3/*/config setlocal filetype=i3
+  au BufNew,BufEnter *.vim!   setlocal filetype=vim
+  au BufNew,BufEnter *.vimrc  setlocal filetype=vim
+  au BufNew,BufEnter *.vimrc! setlocal filetype=vim
+  au BufNew,BufEnter i3/*/config setlocal filetype=i3
 augroup END
 
 augroup OnTermMode
@@ -89,11 +89,6 @@ function! s:ft_is_not_vim() abort
   nnoremap <buffer> <a-s><a-o> :echo '&filetype is not "vim"!'<cr>
   nnoremap <buffer> <a-s>o     :echo '&filetype is not "vim"!'<cr>
 endfunction
-
-"""" KEYMAP
-"augroup CheckStartTime
-"  au! VimEnter,InsertEnter,WinEnter * checktime
-"augroup END
 
 """ Reload init.vim
 nnoremap <silent> <a-s><a-o> :<c-u>so % <bar> echo ' Vim sourced "' . bufname('%') . '"'<CR>

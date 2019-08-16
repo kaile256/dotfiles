@@ -14,7 +14,8 @@
 # for window titles & the bar.
 # to use a different font in the bar, set it in {} block below.
 #font pango:MyricaM M 10, DejaVu Sans Mono 11
-font pango:SF Mono 11
+# Icons: from ttf-font-icons 
+font pango:Icons, github\-octicons, file\-icons, SF Mono 11 
 
 # Before i3 v4.8, we used to recommend this one as the default:
 # font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
@@ -57,8 +58,8 @@ bindsym $SuperS+r restart
 
 #set $Locker i3lock -i ~/Pictures/Wallpaper/kishimen.png && sleep 1
 #set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (q) poweroff
-bindsym $Super+x  exec "i3-nagbar -t warning -m 'Do you really want to exit i3?' -b 'q:poweroff' 'systemctl poweroff' -b 'r:reboot' 'systemctl reboot' -b 'l:logout' 'i3-msg exit'", mode "mode_system"
-bindsym $SuperS+x exec "i3-nagbar -t warning -m 'Do you really want to exit i3?' -b 'q:poweroff' 'systemctl poweroff' -b 'r:reboot' 'systemctl reboot' -b 'l:logout' 'i3-msg exit'", mode "mode_system"
+bindsym $Super+x  exec "i3-nagbar -t warning -f SF Mono 12 -m  'Do you really want to exit i3?' -b 'q:poweroff' 'systemctl poweroff' -b 'r:reboot' 'systemctl reboot' -b 'l:logout' 'i3-msg exit'", mode "mode_system"
+bindsym $SuperS+x exec "i3-nagbar -t warning -f SF Mono 12 -m  'Do you really want to exit i3?' -b 'q:poweroff' 'systemctl poweroff' -b 'r:reboot' 'systemctl reboot' -b 'l:logout' 'i3-msg exit'", mode "mode_system"
 
 mode "mode_system" {
 
@@ -116,16 +117,16 @@ bindsym $Super+Up focus up
 bindsym $Super+Right focus right
 
 ## Vim-Additional
-bindsym $AltS+h focus left
-bindsym $AltS+j focus down
-bindsym $AltS+k focus up
-bindsym $AltS+l focus right
+bindsym $AltC+h focus left
+bindsym $AltC+j focus down
+bindsym $AltC+k focus up
+bindsym $AltC+l focus right
 
 ### Move Focused Window
-bindsym $AltC+h move left
-bindsym $AltC+j move down
-bindsym $AltC+k move up
-bindsym $AltC+l move right
+bindsym $AltS+h move left
+bindsym $AltS+j move down
+bindsym $AltS+k move up
+bindsym $AltS+l move right
 
 bindsym $SuperS+h move left
 bindsym $SuperS+j move down
@@ -245,7 +246,7 @@ bar {
     workspace_buttons yes
     tray_output       none
 
-    font pango:SF Mono 12
+    font pango:Icons, SF Mono 12
 
     colors {
       background #000000

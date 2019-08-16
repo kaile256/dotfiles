@@ -9,6 +9,10 @@ hook_post_source = 'runtime eskk.vimrc'
 repo = 'tpope/vim-capslock'
 on_event = ['InsertEnter', 'TermOpen', 'CmdlineEnter']
 hook_post_source = 'runtime capslock.vimrc'
+[[plugins]]
+repo = 'mattn/vim-switch-esc-capslock'
+on_event = ['InsertEnter', 'TermOpen', 'CmdlineEnter']
+hook_post_source = 'runtime switch-esc-capslock'
 
 ### Org Mode
 [[plugins]]
