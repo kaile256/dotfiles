@@ -7,6 +7,12 @@ repo = 'tyru/eskk.vim'
 on_event = ['InsertEnter', 'CmdlineEnter']
 hook_post_source = 'runtime eskk.vimrc'
 
+### VimWiki
+[[plugins]]
+repo = 'vim-voom/VOoM'
+on_ft = ['vimwiki','org','markdown','tex','toml']
+hook_post_source = 'runtime voom.vimrc'
+
 ### Org Mode
 [[plugins]]
 repo = 'jceb/vim-orgmode'
