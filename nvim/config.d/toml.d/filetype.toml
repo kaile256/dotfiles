@@ -71,6 +71,10 @@ hook_add = '''
   let g:cloesetag_filenames = '*.html,*.vue'
   '''
 
+### Text
+[[plugins]]
+repo = 'freitass/todo.txt-vim'
+on_ft = 'text'
 ### Markdown
 [[plugins]]
 repo = 'tpope/vim-markdown'

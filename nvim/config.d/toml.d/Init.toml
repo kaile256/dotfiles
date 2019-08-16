@@ -12,6 +12,11 @@ repo = 'tpope/vim-fugitive'
 type = 'git'
 hook_add = 'runtime fugitive.vimrc'
 
+### Vimwiki
+[[plugins]]
+repo = 'vimwiki/vimwiki'
+hook_add = 'runtime vimwiki.vimrc'
+
 ### Start Page
 #[[plugins]]
 #repo = 'mhinz/vim-startify'

@@ -147,6 +147,7 @@ let g:fzf_action = {
       \ 'ctrl-z': '',
       \ 'ctrl-m': 'e',
       \ 'ctrl-b': 'tab split',
+      \ 'ctrl-t': 'tab split',
       \ 'ctrl-v': 'vsplit',
       \ 'ctrl-o': 'split',
       \ 'ctrl-s': 'split' }

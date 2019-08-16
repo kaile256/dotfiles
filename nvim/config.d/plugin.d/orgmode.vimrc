@@ -6,6 +6,7 @@ augroup OrgMode
   au FileType org call s:org_general()
   au FileType org call s:org_keymap()
   "au FileType org setlocal highlight clear Folded
+  au InsertLeave *.org norm zH
 augroup END
 
 " Emacs' export output is displayed

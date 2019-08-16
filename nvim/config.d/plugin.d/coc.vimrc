@@ -36,7 +36,6 @@ let g:coc_global_extensions = [
       \ 'coc-python',
       \ 'coc-rl-lsp',
       \ 'coc-rls',
-      \ 'coc-snippets',
       \ 'coc-solargraph',
       \ 'coc-syntax',
       \ 'coc-tag',
@@ -50,13 +49,14 @@ let g:coc_global_extensions = [
       \ ]
 
 """" COC-RENAME
+nmap <silent> <a-c><a-c> :CocList<cr>
 nmap <a-c><a-n> <Plug>(coc-rename)
 nmap <a-c><a-f> <Plug>(coc-float-jump)
 
 """" COC-COMPLETION
 """ General
 "" Coc-Done
-" closes preview vindow when completion is done.
+" closes mpreview vindow when completion is done.
 au! CompleteDone * if pumvisible() == 0 | pclose | endif
 
 """ Keymap

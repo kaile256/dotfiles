@@ -3,25 +3,31 @@
 
 """" GENERAL
 augroup AppendFileType
+
   au!
-  au BufNew,BufEnter *.vim!   setlocal filetype=vim
-  au BufNew,BufEnter *.vimrc  setlocal filetype=vim
-  au BufNew,BufEnter *.vimrc! setlocal filetype=vim
+  au BufNew,BufEnter *.vim!      setlocal filetype=vim
+  au BufNew,BufEnter *.vimrc     setlocal filetype=vim
+  au BufNew,BufEnter *.vimrc!    setlocal filetype=vim
   au BufNew,BufEnter i3/*/config setlocal filetype=i3
+  au BufNew,BufEnter *.txt       setlocal filetype=help
+  au BufNew,BufEnter *.org       setlocal filetype=org
+
 augroup END
 
 augroup OnTermMode
   au!
-  au VimEnter * if @% == '' && &filetype ==# '' && &buftype ==# '' | call termopen(&shell) | endif
+  if @% == '' && &filetype ==# '' && &buftype ==# ''
+    au VimEnter * call termopen(&shell)
+  endif
+  if winnr('$') ==# winnr('#') && &filetype !=# 'fzf' && @# =~# 'term:'
+    au WinLeave,BufWinLeave *  bwipeout! # 
+  endif
   au VimEnter,TermOpen * if &buftype ==# 'terminal' | setlocal nonumber signcolumn=no modifiable | endif
-  " When you 'nvr' from term-mode.
-  au WinLeave,BufWinLeave * if winnr('$') ==# winnr('#') && &filetype !=# 'fzf' && @# =~# 'term:' | bwipeout! # | endif
-  au VimEnter,TermOpen *    if &buftype ==# 'terminal' | startinsert | endif
+  au VimEnter,TermOpen * if &buftype ==# 'terminal' | startinsert | endif
 augroup END
 
 augroup OnNetrw
   au!
-  au BufWinLeave if &filetype ==# 'netrw' | setlocal bufhidden=wipe | endif
   au FileType netrw setlocal bufhidden=wipe
 augroup END
 
@@ -30,45 +36,45 @@ augroup OnHelp
   "" Cursor Locates on the Middle
   "au BufWinEnter * if &filetype ==# 'help' | norm zz | endif
   """ Append Help on Buffer-list
-  au BufLeave * if &filetype ==# 'help' | drop % | endif
+  
+    au BufLeave *  if &buftype ==# 'help' | set buflisted | endif
 augroup END
 
 augroup OnToml
   """ Auto Edit
   "" Remove Unnecessary part of URL
-  au! BufWritePre *.toml if search('https:\/\/github.com\/', 'w', line('0')) | %s/https:\/\/github.com\///g | endif
+  au!
+  au BufWritePre *   if &filetype ==# 'toml' && search('https:\/\/github.com\/', 'w', line('0')) | %s/https:\/\/github.com\///g | endif
 augroup END
 
 """" Read Only
 augroup AlertWhenReadOnly
- " CAUTION: Too many Exceptions!!
-  au! BufRead,BufEnter * if &readonly && &buftype ==# '' && &filetype !=# 'netrw' | colorscheme molokai | endif
+  " CAUTION: Too many Exceptions!!
+  if &readonly && &buftype ==# '' && &filetype !=# 'netrw'
+    au! BufRead,BufEnter *  colorscheme molokai
+  endif
 augroup END
 
 augroup AdjustOnLanguage
 
   au!
-  au FileType org        setlocal tabstop=4 softtabstop=4 shiftwidth=4
-  au FileType lua        setlocal tabstop=4
-  au FileType JavaScript setlocal tabstop=4 softtabstop=4 shiftwidth=4
-  au FileType Ruby       setlocal tabstop=2 softtabstop=2 shiftwidth=2
-  au FileType Python     setlocal tabstop=2 softtabstop=2 shiftwidth=2
+  au FileType org,JavaScript setlocal tabstop=4 softtabstop=4 shiftwidth=4
+  au FileType Ruby,Python    setlocal tabstop=2 softtabstop=2 shiftwidth=2
 
 augroup END
 
 augroup AdjustOnPlugins
   au!
+  au WinEnter * if &filetype !=# 'vim' | call s:ft_is_not_vim() | endif
+
   """ Leave no buffer
   au FileType fugitive setlocal bufhidden=wipe
-  au BufEnter * if &filetype !=# 'vim' | call s:ft_is_not_vim() | endif
 
   """ Treat as QuickFix
   "" CAUTION: denite,vista demands to write before quitting.
   au FileType orgagenda,gitcommit,fugitive,defx setlocal buftype=quickfix
   " Why? not work on 'au FileType'
   au BufRead * if &filetype ==# 'git' | setlocal buftype=quickfix | endif
-  "au FileType expand('s:treat_as_quickfix')setlocal buftype=quickfix
-  "au BufNew * if &filetype ==# expand('s:treat_as_quickfix') | setlocal buftype=quickfix | endif
 
   """ Quit immediately upon WinLeave
   "" NOTICE: fzf works on terminal; CANNOT change buftype.
