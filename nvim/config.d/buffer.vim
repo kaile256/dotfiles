@@ -18,7 +18,7 @@ augroup OnTermMode
   au VimEnter,TermOpen * if &buftype ==# 'terminal' | setlocal nonumber signcolumn=no modifiable | endif
   " When you 'nvr' from term-mode.
   au WinLeave,BufWinLeave * if winnr('$') ==# winnr('#') && &filetype !=# 'fzf' && @# =~# 'term:' | bwipeout! # | endif
-  au VimEnter,TermOpen,BufEnter *    if &buftype ==# 'terminal' | startinsert | endif
+  au VimEnter,TermOpen *    if &buftype ==# 'terminal' | startinsert | endif
 augroup END
 
 augroup OnNetrw
