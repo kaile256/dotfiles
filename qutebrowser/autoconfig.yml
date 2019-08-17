@@ -15,6 +15,8 @@ settings:
         <Ctrl+k>: completion-item-focus prev
         <Ctrl+n>: command-history-next
         <Ctrl+p>: command-history-prev
+        <Ctrl+r><Ctrl+Space>: rl-yank
+        <Ctrl+r><Space>: rl-yank
       insert:
         <Alt+h>: leave-mode
         <Alt+j>: leave-mode
@@ -66,11 +68,13 @@ settings:
         J: null
         K: null
         L: null
+        P: open -t {clipboard}
         U: undo
         d: null
         e: edit-url
         gi: enter-mode insert
         i: hint inputs --first
+        p: open {clipboard}
         u: null
   editor.command:
     global:
@@ -109,3 +113,5 @@ settings:
     global: dejavu sans mono, sf mono
   fonts.web.size.minimum:
     global: 8
+  scrolling.smooth:
+    global: false
