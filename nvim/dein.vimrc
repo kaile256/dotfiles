@@ -10,7 +10,9 @@ endif
 " so 'set filetype on' after load dein & plugins.
 
 let s:dein_cache_dir = g:xdg_cache_home . '/dein'
-let g:dein_itself = s:dein_cache_dir . '/repos/github.com/Shougo/dein.vim/'
+" Prepared For Reinstall
+let g:Shougo_cache_dir = s:dein_cache_dir . '/repos/github.com/Shougo/'
+let g:dein_itself = g:Shougo_cache_dir . 'dein.vim/'
 
 set rtp+=~/.cache/dein/repos/github.com/Shougo/dein.vim
 "" For plugins' configs
@@ -74,7 +76,6 @@ if has('nvim')
   "runtime molokai.vimrc
   "runtime solarized.vimrc
   runtime gruvbox.vimrc
-
 endif
 
 "runtime rainbow.vimrc

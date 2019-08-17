@@ -1,8 +1,49 @@
 """" From: tool.toml
+""""  Ref: vimwiki.vim
 
 """" GENERAL
-let g:vimwiki_list = [{'path': '~/vimwiki/', 'auto_tags': 1}]
-let g:vimwiki_list = [{'path': '~/vimwiki/', 'auto_diary_index': 1}]
+let g:vimwiki_list = [{},
+      \ wiki_index,
+      \ wiki_markdown,
+      \ wiki_org,
+      \ wiki_text
+      \ ]
+
+let wiki_index = {
+      \ 'path': '~/vimwiki/',
+      \ 'auto_tags': 1,
+      \ 'auto_diary_index': 1,
+      \ 'auto_toc': 1
+      \ }
+
+let wiki_index.nested_syntaxes = {
+      \ 'python': 'python',
+      \ 'c++': 'cpp',
+      \ 'org': 'org',
+      \ 'lisp': 'lisp',
+      \ 'i3': 'i3',
+      \ 'bash': 'bash',
+      \ 'zsh': 'zsh',
+      \ 'vim': 'vim'
+      \ }
+
+let wiki_markdown = [{
+      \ 'syntax': 'markdown',
+      \ 'path': '~/vimwiki/markdown/',
+      \ 'ext': '.md'
+      \ }]
+
+let wiki_org = [{
+      \ 'syntax': 'org',
+      \ 'path': '~/vimwiki/org/',
+      \ 'ext': '.org'
+      \ }]
+
+let wiki_text = [{
+      \ 'syntax': 'text',
+      \ 'path': '~/vimwiki/text/',
+      \ 'ext': '.txt'
+      \ }]
 
 """ Export from org
 nnoremap q: q:
@@ -29,14 +70,16 @@ nnoremap <silent> <a-e><a-n><a-b> :VimwikiTabMakeDiaryNote<cr>
 
 augroup VimWiki
   au!
+  au BufEnter *.wiki setlocal foldmethod=syntax
   au FileType vimwiki call s:vimwiki_general()
   au FileType vimwiki call s:vimwiki_keymap()
-  au BufWritePre *.wiki VimwikiTOC
+  "au BufWritePre *.wiki VimwikiTOC
 augroup END
 
 function! s:vimwiki_general()
   setlocal nowrap
-  au InsertLeave * if &filetype ==# 'vimwiki' | zH | endif
+  au!
+  au InsertLeave * if &filetype ==# 'vimwiki' | norm zH | endif
 endfunction
 function! s:vimwiki_keymap()
   """ Edit File Externally
@@ -47,10 +90,11 @@ function! s:vimwiki_keymap()
   nnoremap <buffer><silent> dP ddP
 
   """ Conversion
+  "" Mnemonic: Export to/from ~~
   nnoremap <buffer><silent> <a-x><a-h> :Vimwiki2HTMLBrowse <bar> echo 'Converting Current Buffer to HTML...'
   "" From Org
   " WARNING: experimental
-  nnoremap <silent> <a-x><a-w> :g/^*/norm Wgev0r= 0Why0A <c-r>0<cr> 
+  "nnoremap <silent> <a-x><a-w> :g/^*/norm Wgev0r= 0Why0A <c-r>0<cr> 
 
   """ Todo
   nnoremap <buffer><silent> <a-g><a-g> :VimwikiToggleListItem<cr>

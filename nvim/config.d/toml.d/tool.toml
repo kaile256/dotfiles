@@ -1,12 +1,17 @@
 #### From: dein.vimrc
 
 ### Imput Method
-[[plugins]]
-# ERORR: Present Unnecessary Sign '>' on Kanji.
-repo = 'tyru/eskk.vim'
-on_event = ['InsertEnter', 'CmdlineEnter']
-hook_post_source = 'runtime eskk.vimrc'
+#[[plugins]]
+## ERORR: Present Unnecessary Sign '>' on Kanji.
+#repo = 'tyru/eskk.vim'
+#on_event = ['InsertEnter', 'CmdlineEnter']
+#hook_post_source = 'runtime eskk.vimrc'
 
+### Vimwiki
+[[plugins]]
+repo = 'vimwiki/vimwiki'
+on_event = 'VimEnter'
+hook_post_source = 'runtime vimwiki.vimrc'
 ### VimWiki
 [[plugins]]
 repo = 'vim-voom/VOoM'
@@ -46,17 +51,10 @@ on_event = 'VimEnter'
 hook_post_source = 'runtime NrrwRgn.vimrc'
 
 ### Matcher
-[[plugins]]
-repo = 'raghur/fruzzy'
-on_ft = 'denite'
-hook_post_source = 'runtime fruzzy.vimrc'
-
-### Completion
-[[plugins]]
-repo = 'neoclide/coc.nvim'
-on_event = 'BufRead'
-hook_post_source = 'call coc#util#install()'
-hook_post_source = 'runtime coc.vimrc'
+#[[plugins]]
+#repo = 'raghur/fruzzy'
+#on_ft = 'denite'
+#hook_post_source = 'runtime fruzzy.vimrc'
 
 ## Async Processor
 [[plugins]]

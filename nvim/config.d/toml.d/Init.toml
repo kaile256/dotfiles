@@ -13,9 +13,9 @@ type = 'git'
 hook_add = 'runtime fugitive.vimrc'
 
 ### Vimwiki
-[[plugins]]
-repo = 'vimwiki/vimwiki'
-hook_add = 'runtime vimwiki.vimrc'
+#[[plugins]]
+#repo = 'vimwiki/vimwiki'
+#hook_add = 'runtime vimwiki.vimrc'
 
 ### Start Page
 #[[plugins]]
@@ -31,7 +31,6 @@ hook_add = 'runtime vimwiki.vimrc'
 ### FZF
 [[plugins]]
 repo = 'junegunn/fzf'
-hook_done_update = './install --all'
 [[plugins]]
 repo = 'junegunn/fzf.vim'
 hook_add = 'runtime fzf.vimrc'
@@ -43,6 +42,12 @@ hook_add = 'runtime fzf.vimrc'
 ## CAUTION: denite.vimrc MUST be sourced after dein#end() on dein.vim.
 repo = 'Shougo/denite.nvim'
 if = 'has("python3")'
+
+### Completion
+[[plugins]]
+repo = 'neoclide/coc.nvim'
+hook_add = 'call coc#util#install()'
+hook_add = 'runtime coc.vimrc'
 
 ### Defx
 ## Ref: defx.vimrc
