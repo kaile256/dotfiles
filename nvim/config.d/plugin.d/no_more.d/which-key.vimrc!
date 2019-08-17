@@ -1,5 +1,6 @@
 "" From: Init.toml
 "" Memo: which-key.org
+"" NOTE: Uselees for Combination, that is, <a-*>/<c-*>.
 
 set timeoutlen=100
 nnoremap <silent> <space> :WhichKey '<Space>'<CR>

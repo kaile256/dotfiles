@@ -23,7 +23,7 @@ hook_add = 'runtime fugitive.vimrc'
 #hook_add = 'runtime startify.vimrc'
 
 ### Which Key
-## Uselees for <a-*>/<c-*>.
+## NOTE: Uselees for Combination, that is, <a-*>/<c-*>.
 #[[plugins]]
 #repo = 'liuchengxu/vim-which-key'
 #hook_add = 'runtime which-key.vimrc'

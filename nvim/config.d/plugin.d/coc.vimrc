@@ -3,8 +3,6 @@
 """" Source: neoclide/coc.nvim
 
 """" GENERAL
-let g:coc_user_config = '~/.config/nvim/config.d/plugin.d'
-call coc#util#get_config_home()
 
 " shorter for CursorHold & CursorHoldI
 set updatetime=300
@@ -34,7 +32,6 @@ let g:coc_global_extensions = [
       \ 'coc-omni',
       \ 'coc-phpls',
       \ 'coc-python',
-      \ 'coc-rl-lsp',
       \ 'coc-rls',
       \ 'coc-solargraph',
       \ 'coc-syntax',

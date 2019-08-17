@@ -2,8 +2,11 @@
 """" main plugin-manager is Shougo/dein.vim
 "" dein.vim manages dein.vim itself, too.
 
-if &compatible
-  set nocompatible
+if !has('nvim')
+  "" Neovim is always nocompatible, removed from neovim alread.
+  if &compatible
+    set nocompatible
+  endif
 endif
 
 " dein#load_state includes 'set filetype off';
@@ -59,7 +62,8 @@ if dein#check_install()
 endif
 
 filetype plugin indent on
-syntax enable  " on は設定を無視して構文ハイライトする
+" on は設定を無視して構文ハイライトする
+syntax enable
 
 """" SOURCE
 """ CAUTION: some plugins MUST be sourced after dein#end() on dein.vim.
@@ -69,7 +73,6 @@ runtime denite-extra.vimrc
 
 runtime defx.vimrc
 runtime defx-extra.vimrc
-
 
 """ Colorscheme
 if has('nvim')

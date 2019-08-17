@@ -38,8 +38,14 @@ hook_post_source = 'runtime utl.vimrc'
 #on_ft = 'org'
 #hook_post_source = 'runtime speeddating.vimrc'
 
+### Twitter
 [[plugins]]
+repo = 'basyura/TweetVim'
+on_event = 'CmdlineEnter'
+hook_post_source = 'tweetvim.vimrc'
+
 # Multiple-Language Syntax in one buffer.
+[[plugins]]
 repo = 'inkarkat/vim-SyntaxRange'
 on_ft = ['snippets','org']
 hook_post_source = 'runtime SyntaxRange.vimrc'

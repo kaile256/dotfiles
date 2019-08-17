@@ -124,38 +124,42 @@ if executable('ag')
   tnoremap <silent> <a-r>      <c-u><c-\><c-n>:Ag<cr>
   tnoremap <silent> <a-r><a-c> <c-u><c-\><c-n>:Ag<cr>
   tnoremap <silent> <a-r>c     <c-u><c-\><c-n>:Ag<cr>
-  tnoremap <silent> <a-r><a-r> <c-u>cd /<cr>          <c-\><c-n>:Ag<cr>
-  tnoremap <silent> <a-r>r     <c-u>cd /<cr>          <c-\><c-n>:Ag<cr>
-  tnoremap <silent> <a-r><a-w> <c-u>cd %:p:h<cr>      <c-\><c-n>:Ag<cr>
-  tnoremap <silent> <a-r>w     <c-u>cd %:p:h<cr>      <c-\><c-n>:Ag<cr>
-  tnoremap <silent> <a-r><a-h> <c-u>cd ~<cr>          <c-\><c-n>:Ag<cr>
-  tnoremap <silent> <a-r>h     <c-u>cd ~<cr>          <c-\><c-n>:Ag<cr>
-  tnoremap <silent> <a-r><a-o> <c-u>cd ~/org<cr>      <c-\><c-n>:Ag<cr>
-  tnoremap <silent> <a-r>o     <c-u>cd ~/org<cr>      <c-\><c-n>:Ag<cr>
-  tnoremap <silent> <a-r><a-d> <c-u>cd ~/dotfiles<cr> <c-\><c-n>:Ag<cr>
-  tnoremap <silent> <a-r>d     <c-u>cd ~/dotfiles<cr> <c-\><c-n>:Ag<cr>
-  tnoremap <silent> <a-r><a-.> <c-u>cd ~/dotfiles<cr> <c-\><c-n>:Ag<cr>
-  tnoremap <silent> <a-r>.     <c-u>cd ~/dotfiles<cr> <c-\><c-n>:Ag<cr>
-  tnoremap <silent> <a-r><a-g> <c-u>cd ~/.config<cr>  <c-\><c-n>:Ag<cr>
-  tnoremap <silent> <a-r>g     <c-u>cd ~/.config<cr>  <c-\><c-n>:Ag<cr>
+  tnoremap <silent> <a-r><a-r> <c-u>cd /<cr>              <c-\><c-n>:Ag<cr>
+  tnoremap <silent> <a-r>r     <c-u>cd /<cr>              <c-\><c-n>:Ag<cr>
+  tnoremap <silent> <a-r><a-w> <c-u>cd %:p:h<cr>          <c-\><c-n>:Ag<cr>
+  tnoremap <silent> <a-r>w     <c-u>cd %:p:h<cr>          <c-\><c-n>:Ag<cr>
+  tnoremap <silent> <a-r><a-h> <c-u>cd ~<cr>              <c-\><c-n>:Ag<cr>
+  tnoremap <silent> <a-r>h     <c-u>cd ~<cr>              <c-\><c-n>:Ag<cr>
+  tnoremap <silent> <a-r><a-o> <c-u>cd ~/org<cr>          <c-\><c-n>:Ag<cr>
+  tnoremap <silent> <a-r>o     <c-u>cd ~/org<cr>          <c-\><c-n>:Ag<cr>
+  tnoremap <silent> <a-r><a-d> <c-u>cd ~/dotfiles<cr>     <c-\><c-n>:Ag<cr>
+  tnoremap <silent> <a-r>d     <c-u>cd ~/dotfiles<cr>     <c-\><c-n>:Ag<cr>
+  tnoremap <silent> <a-r><a-.> <c-u>cd ~/dotfiles<cr>     <c-\><c-n>:Ag<cr>
+  tnoremap <silent> <a-r>.     <c-u>cd ~/dotfiles<cr>     <c-\><c-n>:Ag<cr>
+  tnoremap <silent> <a-r><a-g> <c-u>cd ~/.config<cr>      <c-\><c-n>:Ag<cr>
+  tnoremap <silent> <a-r>g     <c-u>cd ~/.config<cr>      <c-\><c-n>:Ag<cr>
+  tnoremap <silent> <a-r><a-n> <c-u>cd ~/.config/nvim<cr> <c-\><c-n>:Ag<cr>
+  tnoremap <silent> <a-r>n     <c-u>cd ~/.config/nvim<cr> <c-\><c-n>:Ag<cr>
 
   nnoremap <silent> <a-r>      :<c-u>Ag<cr>
   nnoremap <silent> <a-r><a-c> :<c-u>Ag<cr>
   nnoremap <silent> <a-r>c     :<c-u>Ag<cr>
-  nnoremap <silent> <a-r><a-r> :<c-u>cd /<cr>          :Ag<cr>
-  nnoremap <silent> <a-r>r     :<c-u>cd /<cr>          :Ag<cr>
-  nnoremap <silent> <a-r><a-w> :<c-u>cd %:p:h<cr>      :Ag<cr>
-  nnoremap <silent> <a-r>w     :<c-u>cd %:p:h<cr>      :Ag<cr>
-  nnoremap <silent> <a-r><a-h> :<c-u>cd ~<cr>          :Ag<cr>
-  nnoremap <silent> <a-r>h     :<c-u>cd ~<cr>          :Ag<cr>
-  nnoremap <silent> <a-r><a-o> :<c-u>cd ~/org<cr>      :Ag<cr>
-  nnoremap <silent> <a-r>o     :<c-u>cd ~/org<cr>      :Ag<cr>
-  nnoremap <silent> <a-r><a-d> :<c-u>cd ~/dotfiles<cr> :Ag<cr>
-  nnoremap <silent> <a-r>d     :<c-u>cd ~/dotfiles<cr> :Ag<cr>
-  nnoremap <silent> <a-r><a-.> :<c-u>cd ~/dotfiles<cr> :Ag<cr>
-  nnoremap <silent> <a-r>.     :<c-u>cd ~/dotfiles<cr> :Ag<cr>
-  nnoremap <silent> <a-r><a-g> :<c-u>cd ~/.config<cr>  :Ag<cr>
-  nnoremap <silent> <a-r>g     :<c-u>cd ~/.config<cr>  :Ag<cr>
+  nnoremap <silent> <a-r><a-r> :<c-u>cd /<cr>              :Ag<cr>
+  nnoremap <silent> <a-r>r     :<c-u>cd /<cr>              :Ag<cr>
+  nnoremap <silent> <a-r><a-w> :<c-u>cd %:p:h<cr>          :Ag<cr>
+  nnoremap <silent> <a-r>w     :<c-u>cd %:p:h<cr>          :Ag<cr>
+  nnoremap <silent> <a-r><a-h> :<c-u>cd ~<cr>              :Ag<cr>
+  nnoremap <silent> <a-r>h     :<c-u>cd ~<cr>              :Ag<cr>
+  nnoremap <silent> <a-r><a-o> :<c-u>cd ~/org<cr>          :Ag<cr>
+  nnoremap <silent> <a-r>o     :<c-u>cd ~/org<cr>          :Ag<cr>
+  nnoremap <silent> <a-r><a-d> :<c-u>cd ~/dotfiles<cr>     :Ag<cr>
+  nnoremap <silent> <a-r>d     :<c-u>cd ~/dotfiles<cr>     :Ag<cr>
+  nnoremap <silent> <a-r><a-.> :<c-u>cd ~/dotfiles<cr>     :Ag<cr>
+  nnoremap <silent> <a-r>.     :<c-u>cd ~/dotfiles<cr>     :Ag<cr>
+  nnoremap <silent> <a-r><a-g> :<c-u>cd ~/.config<cr>      :Ag<cr>
+  nnoremap <silent> <a-r>g     :<c-u>cd ~/.config<cr>      :Ag<cr>
+  nnoremap <silent> <a-r><a-n> :<c-u>cd ~/.config/nvim<cr> :Ag<cr>
+  nnoremap <silent> <a-r>n     :<c-u>cd ~/.config/nvim<cr> :Ag<cr>
 
 endif
 
