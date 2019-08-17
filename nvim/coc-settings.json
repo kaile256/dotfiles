@@ -12,7 +12,7 @@
   "coc.preferences.extensionUpdateCheck": "weekly",
   "coc.preferences.jumpCommand": "drop",
 
-	"list.source.grep.defaultArgs": ["--regex"],
+  "list.source.grep.defaultArgs": ["--regex"],
   "list.autoResize": false,
   "list.insertMappings": {
 
@@ -105,5 +105,3 @@
     }
   }
 }
-
-
