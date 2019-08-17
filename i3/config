@@ -53,8 +53,7 @@ bindsym $SuperS+q kill
 # reload the configuration file
 bindsym $SuperS+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-bindsym $Super+r  restart
-bindsym $SuperS+r restart
+bindsym $Super+space  restart
 
 #set $Locker i3lock -i ~/Pictures/Wallpaper/kishimen.png && sleep 1
 #set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (q) poweroff
@@ -98,7 +97,7 @@ bindsym $Super+v exec --no-startup-id nvim-qt
 ### Menu
 # i3-dmenu-desktop encloses completions under desktop-file, like /usr/share/applications/.
 #bindsym $Super+semicolon exec --no-startup-id i3-dmenu-desktop
-bindsym $Super+space exec --no-startup-id i3-dmenu-desktop
+bindsym $Super+Return exec --no-startup-id i3-dmenu-desktop
 #bindsym $Super+d exec dmenu_run
 bindsym $Super+b exec qutebrowser
 bindsym $Super+e exec emacs
