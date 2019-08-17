@@ -14,41 +14,10 @@ augroup AppendFileType
 
 augroup END
 
-augroup OnTermMode
-  au!
-  if @% == '' && &filetype ==# '' && &buftype ==# ''
-    au VimEnter * call termopen(&shell)
-  endif
-  if winnr('$') ==# winnr('#') && &filetype !=# 'fzf' && @# =~# 'term:'
-    au WinLeave,BufWinLeave *  bwipeout! # 
-  endif
-  au VimEnter,TermOpen * if &buftype ==# 'terminal' | setlocal nonumber signcolumn=no modifiable | endif
-  au VimEnter,TermOpen * if &buftype ==# 'terminal' | startinsert | endif
-augroup END
+augroup AlertOnBuffer
+  """ Alert on Sourcing non-vim buffer.
+  au BufEnter * if &filetype !=# 'vim' | call s:ft_is_not_vim() | endif
 
-augroup OnNetrw
-  au!
-  au FileType netrw setlocal bufhidden=wipe
-augroup END
-
-augroup OnHelp
-  au!
-  "" Cursor Locates on the Middle
-  "au BufWinEnter * if &filetype ==# 'help' | norm zz | endif
-  """ Append Help on Buffer-list
-  
-    au BufLeave *  if &buftype ==# 'help' | set buflisted | endif
-augroup END
-
-augroup OnToml
-  """ Auto Edit
-  "" Remove Unnecessary part of URL
-  au!
-  au BufWritePre *   if &filetype ==# 'toml' && search('https:\/\/github.com\/', 'w', line('0')) | %s/https:\/\/github.com\///g | endif
-augroup END
-
-"""" Read Only
-augroup AlertWhenReadOnly
   " CAUTION: Too many Exceptions!!
   if &readonly && &buftype ==# '' && &filetype !=# 'netrw'
     au! BufRead,BufEnter *  colorscheme molokai
@@ -56,34 +25,72 @@ augroup AlertWhenReadOnly
 augroup END
 
 augroup AdjustOnLanguage
-
   au!
+
+  """ Tab's
   au FileType org,JavaScript setlocal tabstop=4 softtabstop=4 shiftwidth=4
   au FileType Ruby,Python    setlocal tabstop=2 softtabstop=2 shiftwidth=2
 
+  """ Fold Method
+  au BufEnter *.json         setlocal foldmethod=syntax foldlevel=0
+
 augroup END
 
-augroup AdjustOnPlugins
+augroup OnTermMode
   au!
-  au WinEnter * if &filetype !=# 'vim' | call s:ft_is_not_vim() | endif
+  if @% == '' && &filetype ==# '' && &buftype ==# ''
+    au VimEnter * call termopen(&shell)
+  endif
+  au Syntax * if @# =~# 'term:' && &filetype !=# 'fzf' | bwipeout! # | endif
+  au FileType netrw if @# =~# 'term:' | bwipeout! # | endif
+  au VimEnter,TermOpen * if &buftype ==# 'terminal' | setlocal nonumber signcolumn=no modifiable | endif
+  au VimEnter,TermOpen * if &buftype ==# 'terminal' | startinsert | endif
+augroup END
 
-  """ Leave no buffer
-  au FileType fugitive setlocal bufhidden=wipe
+augroup BufWipeExceptTerminal
+  au!
+
+  au BufHidden *
+        \ if &filetype ==# 'netrw'
+        \ || &filetype ==# 'vista'
+        \ |  bwipeout  %
+        \ |  endif
+
+  """ AutoCloseOnWinLeave
+  au WinLeave *
+        \ if &filetype ==# 'fzf'
+        \ || &filetype ==# 'coc'
+        \ |  close
+        \ |  endif
 
   """ Treat as QuickFix
   "" CAUTION: denite,vista demands to write before quitting.
-  au FileType orgagenda,gitcommit,fugitive,defx setlocal buftype=quickfix
+  au FileType orgagenda,gitcommit,defx setlocal buftype=quickfix
   " Why? not work on 'au FileType'
-  au BufRead * if &filetype ==# 'git' | setlocal buftype=quickfix | endif
-
-  """ Quit immediately upon WinLeave
-  "" NOTICE: fzf works on terminal; CANNOT change buftype.
-  au WinLeave * if &filetype ==# 'fzf' | quit | endif
+  au BufRead * if &filetype ==# 'fugitive' || &filetype ==# 'git' | setlocal buftype=quickfix | endif
 
   au FileType qt,fugitive call s:quickfix_keymap()
 augroup END
 
-"""" DEFINITION
+augroup UponSpecificFileType
+  au!
+  "" Cursor Locates on the Middle
+  "au BufWinEnter * if &filetype ==# 'help' | norm zz | endif
+
+  """ AppendOnBufList
+  "" Append Help on Buffer-list
+    au BufLeave *  if &buftype ==# 'help' | set buflisted | endif
+
+  """ Auto Edit
+  "" Remove Unnecessary part of URL
+  au BufWritePre *   if &filetype ==# 'toml' && search('https:\/\/github.com\/', 'w', line('0')) | %s/https:\/\/github.com\///g | endif
+
+  """ On Erorr, Re:Syntax
+  au Syntax * if &syntax ==# '' | syntax enable | endif
+augroup END
+
+"""" KEYMAP
+""" Definition
 function! s:quickfix_keymap() abort
   nnoremap <buffer> <c-p> :cprevious<cr>
   nnoremap <buffer> <c-n> :cnext<cr>
