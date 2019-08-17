@@ -3,6 +3,21 @@
 """" From: Initial.toml
 
 """" GENERAL
+""" Definition
+function! s:fzf_statusline()
+  " Override statusline as you like
+  highlight fzf1 ctermfg=161 ctermbg=251
+  highlight fzf2 ctermfg=23 ctermbg=251
+  highlight fzf3 ctermfg=237 ctermbg=251
+  setlocal statusline=%#fzf1#\ >\ %#fzf2#fz%#fzf3#f
+endfunction
+
+function! s:build_quickfix_list(lines)
+  call setqflist(map(copy(a:lines), '{ "filename": v:val }'))
+  copen
+  cc
+endfunction
+
 autocmd! User FzfStatusLine call <SID>fzf_statusline()
 
 " [Buffers] Jump to existing window if possible.
@@ -63,38 +78,37 @@ imap <c-f> <plug>(fzf-complete-path)
 
 " :FZF! starts fzf on full-window.
 """ cd; then fzf
-tnoremap <silent> <a-q><a-d> <c-u>cd  ~/dotfiles<cr>      <c-\><c-n>:FZF<cr>
-tnoremap <silent> <a-q><a-.> <c-u>cd  ~/dotfiles<cr>      <c-\><c-n>:FZF<cr>
-tnoremap <silent> <a-q>d     <c-u>cd  ~/dotfiles<cr>      <c-\><c-n>:FZF<cr>
-tnoremap <silent> <a-q>.     <c-u>cd  ~/dotfiles<cr>      <c-\><c-n>:FZF<cr>
+tnoremap <silent> <a-q><a-h> <c-u>cd ~<cr>          <c-\><c-n>:FZF<cr>
+tnoremap <silent> <a-q>h     <c-u>cd ~<cr>          <c-\><c-n>:FZF<cr>
+tnoremap <silent> <a-q><a-.> <c-u>cd ~/dotfiles<cr> <c-\><c-n>:FZF<cr>
+tnoremap <silent> <a-q>.     <c-u>cd ~/dotfiles<cr> <c-\><c-n>:FZF<cr>
 tnoremap <silent> <a-q>      <c-\><c-n>:FZF<cr>
 tnoremap <silent> <a-q><a-q> <c-\><c-n>:FZF<cr>
 tnoremap <silent> <a-q><a-b> <c-\><c-n>:Buffers<cr>
 tnoremap <silent> <a-q>b     <c-\><c-n>:Buffers<cr>
-tnoremap <silent> <a-q><a-h> <c-\><c-n>:Helptags<cr>
-tnoremap <silent> <a-q>h     <c-\><c-n>:Helptags<cr>
+tnoremap <silent> <a-q><a-l> <c-\><c-n>:Helptags<cr>
+tnoremap <silent> <a-q>l     <c-\><c-n>:Helptags<cr>
 tnoremap <silent> <a-q><a-w> <c-\><c-n>:Windows<cr>
 tnoremap <silent> <a-q>w     <c-\><c-n>:Windows<cr>
 
-nnoremap <silent> <a-q><a-d> :<c-u>cd ~/dotfiles      <bar> FZF<cr>
-nnoremap <silent> <a-q>d     :<c-u>cd ~/dotfiles      <bar> FZF<cr>
-nnoremap <silent> <a-q><a-.> :<c-u>cd ~/dotfiles      <bar> FZF<cr>
-nnoremap <silent> <a-q>.     :<c-u>cd ~/dotfiles      <bar> FZF<cr>
-nnoremap <silent> <a-q><a-w> :<c-u>cd %:p:h           <bar> FZF<cr>
-nnoremap <silent> <a-q>w     :<c-u>cd %:p:h           <bar> FZF<cr>
+nnoremap <silent> <a-q><a-h> :<c-u>cd ~          <bar> FZF<cr>
+nnoremap <silent> <a-q>h     :<c-u>cd ~          <bar> FZF<cr>
+nnoremap <silent> <a-q><a-.> :<c-u>cd ~/dotfiles <bar> FZF<cr>
+nnoremap <silent> <a-q>.     :<c-u>cd ~/dotfiles <bar> FZF<cr>
+nnoremap <silent> <a-q><a-w> :<c-u>cd %:p:h      <bar> FZF<cr>
+nnoremap <silent> <a-q>w     :<c-u>cd %:p:h      <bar> FZF<cr>
 nnoremap <silent> <a-q>      :<c-u>FZF<cr>
 nnoremap <silent> <a-q><a-q> :<c-u>FZF<cr>
 nnoremap <silent> <a-q><a-b> :<c-u>Buffers<cr>
 nnoremap <silent> <a-q>b     :<c-u>Buffers<cr>
-nnoremap <silent> <a-q><a-h> :<c-u>Helptags<cr>
-nnoremap <silent> <a-q>h     :<c-u>Helptags<cr>
-nnoremap <silent> <a-q><a-w> :<c-u>Windows<cr>
-nnoremap <silent> <a-q>w     :<c-u>Windows<cr>
+nnoremap <silent> <a-q><a-l> :<c-u>Helptags<cr>
+nnoremap <silent> <a-q>l     :<c-u>Helptags<cr>
 "" Marks: Useless?
 nnoremap <silent> <a-q><a-m> :<c-u>Marks<cr>
 nnoremap <silent> <a-q>m     :<c-u>Marks<cr>
-nnoremap <silent> <a-q><a-l> :<c-u>BLines<cr>
-nnoremap <silent> <a-q>l     :<c-u>BLines<cr>
+"" Mnemonic: Search in Current File
+nnoremap <silent> <a-q><a-f> :<c-u>BLines<cr>
+nnoremap <silent> <a-q>f     :<c-u>BLines<cr>
 
 "" Search
 nnoremap <silent> <a-q><a-/> :<c-u>History/<cr>
@@ -185,7 +199,8 @@ if executable('rg') && !executable('ag')
 
 else
 
-  nnoremap <silent> <a-r> :<c-u>echo "You don't have executable ripgrep."
+  nnoremap <silent> <a-r> :<c-u>echo "You don't have executable 'ripgrep' nor 'silver searcher.'"<cr>
+
 endif
 
 "augroup FzfBuffer
@@ -208,20 +223,3 @@ endif
 "  tnoremap <silent><buffer> <a-q> <c-l><c-\><c-n> :quit<cr>
 "  tnoremap <silent><buffer> <a-r> <c-l><c-\><c-n> :<c-u>Rg
 "endfunction
-
-
-"""" GENERAL
-""" Definition
-function! s:fzf_statusline()
-  " Override statusline as you like
-  highlight fzf1 ctermfg=161 ctermbg=251
-  highlight fzf2 ctermfg=23 ctermbg=251
-  highlight fzf3 ctermfg=237 ctermbg=251
-  setlocal statusline=%#fzf1#\ >\ %#fzf2#fz%#fzf3#f
-endfunction
-
-function! s:build_quickfix_list(lines)
-  call setqflist(map(copy(a:lines), '{ "filename": v:val }'))
-  copen
-  cc
-endfunction
