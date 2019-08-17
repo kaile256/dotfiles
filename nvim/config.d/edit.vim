@@ -152,13 +152,24 @@ inoremap <a-s-a> <esc>A
 """ Del
 "" NOTICE: <c-d> increases indent on Insert Mode.
 
-""" Undo Break
+""" Undo-Break
+"" New Line
 inoremap <c-j> <c-g>u<c-j>
-"" Put
-inoremap <c-r> <c-g>u<c-r>
+inoremap <c-m> <c-g>u<c-m>
 "" Backspace
 inoremap <c-u> <c-g>u<c-u>
 inoremap <c-w> <c-g>u<c-w>
+"" Put
+inoremap <c-r> <c-g>u<c-r>
+inoremap <c-x> <c-g>u<c-x>
+"" Insert Previously's
+inoremap <c-a> <c-g>u<c-a>
+inoremap <c-@> <c-g>u<c-@>
+"" Digraph
+inoremap <c-k> <c-g>u<c-k>
+"" Non-Digit
+inoremap <c-q> <c-g>u<c-q>
+inoremap <c-v> <c-g>u<c-v>
 
 augroup UndoBreakOnFileType
   au!

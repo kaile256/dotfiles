@@ -2,7 +2,48 @@
 """" Help: fzf-vim
 """" From: Initial.toml
 
+"""" GENERAL
+autocmd! User FzfStatusLine call <SID>fzf_statusline()
 
+" [Buffers] Jump to existing window if possible.
+let g:fzf_buffers_jump = 1
+" [[B]Commits] Customize the options used by 'git log':
+let g:fzf_commits_log_options = '--graph --color=always --format="%C(auto)%h%d %s %C(black)%C(bold)%cr"'
+let g:fzf_history_dir = '~/.local/share/fzf-history'
+"" down/up/left/right
+let g:fzf_layout = { 'down': '~20%' }
+
+let g:fzf_action = {
+      \ 'ctrl-q': function('s:build_quickfix_list'),
+      \ 'ctrl-c': function('s:build_quickfix_list'),
+      \ 'ctrl-z': '',
+      \ 'ctrl-m': 'e',
+      \ 'ctrl-b': 'tab split',
+      \ 'ctrl-t': 'tab split',
+      \ 'ctrl-v': 'vsplit',
+      \ 'ctrl-o': 'split',
+      \ 'ctrl-s': 'split' }
+
+"" Execute Selected Command
+let g:fzf_commands_expect = 'ctrl-r,ctrl-x'
+
+"" Customize fzf colors to match your color scheme
+let g:fzf_colors =
+      \ { 'fg':      ['fg', 'Normal'],
+      \   'bg':      ['bg', 'Normal'],
+      \   'hl':      ['fg', 'Comment'],
+      \   'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
+      \   'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
+      \   'hl+':     ['fg', 'Statement'],
+      \   'info':    ['fg', 'PreProc'],
+      \   'border':  ['fg', 'Ignore'],
+      \   'prompt':  ['fg', 'Conditional'],
+      \   'pointer': ['fg', 'Exception'],
+      \   'marker':  ['fg', 'Keyword'],
+      \   'spinner': ['fg', 'Label'],
+      \   'header':  ['fg', 'Comment'] }
+
+"""" COMMAND
 command! -bang -nargs=? -complete=dir BFiles
       \ call fzf#vim#files(<q-args>, fzf#vim#with_preview(), <bang>0)
 
@@ -67,6 +108,8 @@ nnoremap <silent> <a-q>p     :<c-u>Maps<cr>
 if executable('ag')
 
   tnoremap <silent> <a-r>      <c-u><c-\><c-n>:Ag<cr>
+  tnoremap <silent> <a-r><a-c> <c-u><c-\><c-n>:Ag<cr>
+  tnoremap <silent> <a-r>c     <c-u><c-\><c-n>:Ag<cr>
   tnoremap <silent> <a-r><a-r> <c-u>cd /<cr>          <c-\><c-n>:Ag<cr>
   tnoremap <silent> <a-r>r     <c-u>cd /<cr>          <c-\><c-n>:Ag<cr>
   tnoremap <silent> <a-r><a-w> <c-u>cd %:p:h<cr>      <c-\><c-n>:Ag<cr>
@@ -83,8 +126,10 @@ if executable('ag')
   tnoremap <silent> <a-r>g     <c-u>cd ~/.config<cr>  <c-\><c-n>:Ag<cr>
 
   nnoremap <silent> <a-r>      :<c-u>Ag<cr>
-  nnoremap <silent> <a-r><a-r> :<c-u>cd /<cr> :Ag<cr>
-  nnoremap <silent> <a-r>r     :<c-u>cd /<cr> :Ag<cr>
+  nnoremap <silent> <a-r><a-c> :<c-u>Ag<cr>
+  nnoremap <silent> <a-r>c     :<c-u>Ag<cr>
+  nnoremap <silent> <a-r><a-r> :<c-u>cd /<cr>          :Ag<cr>
+  nnoremap <silent> <a-r>r     :<c-u>cd /<cr>          :Ag<cr>
   nnoremap <silent> <a-r><a-w> :<c-u>cd %:p:h<cr>      :Ag<cr>
   nnoremap <silent> <a-r>w     :<c-u>cd %:p:h<cr>      :Ag<cr>
   nnoremap <silent> <a-r><a-h> :<c-u>cd ~<cr>          :Ag<cr>
@@ -103,6 +148,8 @@ endif
 if executable('rg') && !executable('ag')
 
   tnoremap <silent> <a-r>      <c-u><c-\><c-n>:Rg<cr>
+  tnoremap <silent> <a-r><a-c> <c-u><c-\><c-n>:Rg<cr>
+  tnoremap <silent> <a-r>c     <c-u><c-\><c-n>:Rg<cr>
   tnoremap <silent> <a-r><a-r> <c-u>cd /<cr>          <c-\><c-n>:Rg<cr>
   tnoremap <silent> <a-r>r     <c-u>cd /<cr>          <c-\><c-n>:Rg<cr>
   tnoremap <silent> <a-r><a-w> <c-u>cd %:p:h<cr>      <c-\><c-n>:Rg<cr>
@@ -119,6 +166,8 @@ if executable('rg') && !executable('ag')
   tnoremap <silent> <a-r>g     <c-u>cd ~/.config<cr>  <c-\><c-n>:Rg<cr>
 
   nnoremap <silent> <a-r>      :<c-u>:Rg<cr>
+  nnoremap <silent> <a-r><a-c> :<c-u>:Rg<cr>
+  nnoremap <silent> <a-r>c     :<c-u>:Rg<cr>
   nnoremap <silent> <a-r><a-r> :<c-u>cd /<cr>          :Rg<cr>
   nnoremap <silent> <a-r>r     :<c-u>cd /<cr>          :Rg<cr>
   nnoremap <silent> <a-r><a-w> :<c-u>cd %:p:h<cr>      :Rg<cr>
@@ -176,44 +225,3 @@ function! s:build_quickfix_list(lines)
   copen
   cc
 endfunction
-
-"""" GENERAL
-autocmd! User FzfStatusLine call <SID>fzf_statusline()
-
-" [Buffers] Jump to existing window if possible.
-let g:fzf_buffers_jump = 1
-" [[B]Commits] Customize the options used by 'git log':
-let g:fzf_commits_log_options = '--graph --color=always --format="%C(auto)%h%d %s %C(black)%C(bold)%cr"'
-let g:fzf_history_dir = '~/.local/share/fzf-history'
-"" down/up/left/right
-let g:fzf_layout = { 'down': '~20%' }
-
-let g:fzf_action = {
-      \ 'ctrl-q': function('s:build_quickfix_list'),
-      \ 'ctrl-c': function('s:build_quickfix_list'),
-      \ 'ctrl-z': '',
-      \ 'ctrl-m': 'e',
-      \ 'ctrl-b': 'tab split',
-      \ 'ctrl-t': 'tab split',
-      \ 'ctrl-v': 'vsplit',
-      \ 'ctrl-o': 'split',
-      \ 'ctrl-s': 'split' }
-
-"" Execute Selected Command
-let g:fzf_commands_expect = 'alt-enter,ctrl-x'
-
-"" Customize fzf colors to match your color scheme
-let g:fzf_colors =
-      \ { 'fg':      ['fg', 'Normal'],
-      \   'bg':      ['bg', 'Normal'],
-      \   'hl':      ['fg', 'Comment'],
-      \   'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
-      \   'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
-      \   'hl+':     ['fg', 'Statement'],
-      \   'info':    ['fg', 'PreProc'],
-      \   'border':  ['fg', 'Ignore'],
-      \   'prompt':  ['fg', 'Conditional'],
-      \   'pointer': ['fg', 'Exception'],
-      \   'marker':  ['fg', 'Keyword'],
-      \   'spinner': ['fg', 'Label'],
-      \   'header':  ['fg', 'Comment'] }
