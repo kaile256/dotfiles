@@ -19,6 +19,12 @@ set nowrapscan
 set nofoldenable
 
 """" KEYMAP
+""" Fuzzy Finders' Error
+tnoremap <silent><unique> <a-r> <c-\><c-n>:echo "You don't have executable 'ripgrep' nor 'silver searcher.'"
+tnoremap <silent><unique> <a-q> <c-\><c-n>:echo "You don't have any executable fuzzy finder.'"
+nnoremap <silent><unique> <a-r> :<c-u>echo "You don't have executable 'ripgrep' nor 'silver searcher.'"
+nnoremap <silent><unique> <a-q> :<c-u>echo "You don't have any executable fuzzy finder.'"
+
 """ Org
 nnoremap <silent> <a-q><a-o> :<c-u>e  ~/org/notes.org <cr>
 nnoremap <silent> <a-q>o     :<c-u>e  ~/org/notes.org <cr>
