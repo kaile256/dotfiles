@@ -33,20 +33,23 @@ hook_post_source = 'runtime cursorword.vimrc'
 
 ### Colorscheme
 [[plugins]]
-repo = 'tomasr/molokai'
-on_if = 'has("nvim")'
-[[plugins]]
-repo = 'sjl/badwolf'
-on_if = 'has("nvim")'
-[[plugins]]
-repo = 'jacoborus/tender.vim'
-on_if = 'has("nvim")'
-[[plugins]]
-repo = 'altercation/vim-colors-solarized'
-on_if = 'has("nvim")'
-[[plugins]]
-repo = 'fenetikm/falcon'
-on_if = 'has("nvim")'
-[[plugins]]
-repo = 'ayu-theme/ayu-vim'
-on_if = 'has("nvim")'
+repo = 'flazz/vim-colorschemes'
+on_event = 'CmdLineEnter'
+#[[plugins]]
+#repo = 'tomasr/molokai'
+#on_if = 'has("nvim")'
+#[[plugins]]
+#repo = 'sjl/badwolf'
+#on_if = 'has("nvim")'
+#[[plugins]]
+#repo = 'jacoborus/tender.vim'
+#on_if = 'has("nvim")'
+#[[plugins]]
+#repo = 'altercation/vim-colors-solarized'
+#on_if = 'has("nvim")'
+#[[plugins]]
+#repo = 'fenetikm/falcon'
+#on_if = 'has("nvim")'
+#[[plugins]]
+#repo = 'ayu-theme/ayu-vim'
+#on_if = 'has("nvim")'
