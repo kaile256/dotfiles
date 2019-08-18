@@ -8,18 +8,13 @@ set iminsert=0
 set imsearch=0
 set imcmdline
 
-augroup FcitxRemote
-  au!
-  au VimEnter    * call system('fcitx-remote -s ssk')
-  au InsertEnter * call system('fcitx-remote -o')
-  au InsertLeave * call system('fcitx-remote -c')
-augroup END
-
-""" Terminal
-if has('nvim')
-  "augroup ModifiableTermMode
-  "  au! TermOpen * setlocal modifiable
-  "augroup END
+if &imdisable == 0
+  augroup FcitxRemoteToggle "{{{
+    au!
+    au VimEnter    * call system('fcitx-remote -s ssk')
+    au InsertEnter * call system('fcitx-remote -o')
+    au InsertLeave * call system('fcitx-remote -c')
+  augroup END "}}}
 endif
 
 """ Tab-Char
@@ -62,13 +57,13 @@ set wildmode=list:longest
 
 """ Pop-Up Menu
 set pumheight=50
-"is has('nvim') || 
+"is has('nvim') ||
 "  set wildoptions=pum
 "  set pumblend=20
 "endif
 
 """" KEYMAP
-""" Write&Quit
+""" Write&Quit {{{
 " w! write even read-only file.
 nnoremap          <space>w :<c-u>w<cr>
 nnoremap <silent> <space>q :<c-u>q<cr>
@@ -80,6 +75,7 @@ nnoremap <space>! :w !sudo tee % > /dev/null<cr> <bar> edit!
 "" Buffer
 nnoremap <silent> qq :<c-u>bdelete %<cr>
 nnoremap <silent> q1 :<c-u>bdelete %<cr>
+"}}}
 
 """ Command-Line
 "" Emacs-like
@@ -211,19 +207,24 @@ nnoremap <space>P "+P
 xnoremap <space>P "+P
 inoremap <c-r><c-space> <c-g>u<c-r>+
 inoremap <c-r><space>   <c-g>u<c-r>+
+cnoremap <c-r><c-space> <c-r>+
+cnoremap <c-r><space>   <c-r>+
 
 "" Yank Register
-" paste
-" term-mode
-tnoremap <expr>  <C-R><c-0> '<C-\><C-N>"0pi'
-" CAUTION: not for xmap, or that makes delay.
-nnoremap yp      "0p`]
-nnoremap yP      "0P
-vnoremap <c-p>   "0p
-
+""" Yank Register; Paste
+tnoremap <c-r><c-0> <c-\><c-n>"0pi
+tnoremap <c-r><c-o> <c-\><c-n>"0pi
+tnoremap <c-r>o     <c-\><c-n>"0pi
+nnoremap <c-p>      "0p`]
+nnoremap <c-s-p>    "0P
+vnoremap <c-p>      "0p
+vnoremap <c-s-p>    "0P
 inoremap <c-r><c-0> <c-g>u<c-r>0
 inoremap <c-r><c-o> <c-g>u<c-r>0
 inoremap <c-r>o     <c-g>u<c-r>0
+cnoremap <c-r><c-0> <c-r>0
+cnoremap <c-r><c-o> <c-r>0
+cnoremap <c-r>o     <c-r>0
 
 "" Unnamed Register
 " CAUTION: Just Type p to put from unnamed register.
@@ -233,10 +234,18 @@ inoremap <c-r><c-'> <c-g>u<c-r>"
 inoremap <c-r>'     <c-g>u<c-r>"
 inoremap <c-r><c-\> <c-g>u<c-r>"
 inoremap <c-r>\     <c-g>u<c-r>"
+cnoremap <c-r><c-p> <c-r>"
+cnoremap <c-r>p     <c-r>"
+cnoremap <c-r><c-'> <c-r>"
+cnoremap <c-r>'     <c-r>"
+cnoremap <c-r><c-\> <c-r>"
+cnoremap <c-r>\     <c-r>"
 
 "" Command-Line Register
 inoremap <c-r><c-;> <c-g>u<c-r>:
 inoremap <c-r>;     <c-g>u<c-r>:
+cnoremap <c-r><c-;> <c-r>:
+cnoremap <c-r>;     <c-r>:
 
 "" Black-Hole Register
 nnoremap <space>x   "_x
