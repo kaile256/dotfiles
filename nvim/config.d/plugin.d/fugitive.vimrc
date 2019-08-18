@@ -6,66 +6,65 @@ augroup SpellCheckOnCommit
 augroup END
 
 """" DEFINITION
-command! Greview :Git! diff --staged
+command! GdiffWithUnstaged :Git! diff --staged
 
 """" HISTORY
 """ Status
-nnoremap <silent> <a-y>s     :<c-u>Gstatus<cr>
-nnoremap <silent> <a-y><a-s> :<c-u>Gstatus<cr>
+noremap <silent> <a-y>s     :<c-u>Gstatus<cr>
+noremap <silent> <a-y><a-s> :<c-u>Gstatus<cr>
 
 """ Log
 "# QuickFix -- Edit-History of current buffer.
-nnoremap <silent> <a-y>l     :<c-u>Glog <bar> copen<cr>
-nnoremap <silent> <a-y><a-l> :<c-u>Glog <bar> copen<cr>
+noremap <silent> <a-y>l     :<c-u>Glog <bar> copen<cr>
+noremap <silent> <a-y><a-l> :<c-u>Glog <bar> copen<cr>
 "# QuickFix -- Commit-Log of git-repository.
-nnoremap <silent> <a-y>c     :<c-u>Glog -- <bar> copen<cr>
-nnoremap <silent> <a-y><a-c> :<c-u>Glog -- <bar> copen<cr>
+noremap <silent> <a-y>c     :<c-u>Glog -- <bar> copen<cr>
+noremap <silent> <a-y><a-c> :<c-u>Glog -- <bar> copen<cr>
 "# QuickFix -- Commit-Log from master to current branch.
-nnoremap <silent> <a-y>m     :<c-u>Glog master..HEAD -- <bar> copen<cr>
-nnoremap <silent> <a-y><a-m> :<c-u>Glog master..HEAD -- <bar> copen<cr>
+noremap <silent> <a-y>m     :<c-u>Glog master..HEAD -- <bar> copen<cr>
+noremap <silent> <a-y><a-m> :<c-u>Glog master..HEAD -- <bar> copen<cr>
 
 """ Diff
 " !: On a Merge Conflict, do a 3-diff; otherwise the same as without bang.
-nnoremap <silent> <a-y>d     :<c-u>Gvdiffsplit!<cr>
-nnoremap <silent> <a-y><a-d> :<c-u>Gvdiffsplit!<cr>
-nnoremap <silent> <a-y><a-v> :<c-u>Greview<cr>
+noremap <silent> <a-y>d     :<c-u>Gvdiffsplit!<cr>
+noremap <silent> <a-y><a-d> :<c-u>Gvdiffsplit!<cr>
+noremap <silent> <a-y><a-u> :<c-u>GdiffWithUnstaged<cr>
 """ Blame
-nnoremap <silent> <a-y>b     :<c-u>Gblame<cr>
-nnoremap <silent> <a-y><a-b> :<c-u>Gblame<cr>
+noremap <silent> <a-y>b     :<c-u>Gblame<cr>
+noremap <silent> <a-y><a-b> :<c-u>Gblame<cr>
 
 """ Read  # open buffer of last commited version.
-nnoremap <silent> <a-y>r     :<c-u>Gread<cr>
-nnoremap <silent> <a-y><a-r> :<c-u>Gread<cr>
+noremap <silent> <a-y>r     :<c-u>Gread<cr>
+noremap <silent> <a-y><a-r> :<c-u>Gread<cr>
 """ Move  # rename current file and also the buffer.
-nnoremap <silent> <a-y>n     :<c-u>Gmove<cr>
-nnoremap <silent> <a-y><a-n> :<c-u>Gmove<cr>
+noremap <silent> <a-y>n     :<c-u>Gmove<cr>
+noremap <silent> <a-y><a-n> :<c-u>Gmove<cr>
 
 """ Add only
-nnoremap <silent> <a-y>a     :<c-u>Gw<cr>
-nnoremap <silent> <a-y><a-a> :<c-u>Gw<cr>
+noremap <silent> <a-y>a     :<c-u>Gw<cr>
+noremap <silent> <a-y><a-a> :<c-u>Gw<cr>
 """ Add && commit
-nnoremap          <a-y>'     :<c-u>Gw<cr>:Gcommit -m ''<Left>
-nnoremap          <a-y><a-'> :<c-u>Gw<cr>:Gcommit -m ''<Left>
-nnoremap          <a-y>"     :<c-u>Gw<cr>:Gcommit -m ""<Left>
+noremap          <a-y>'     :<c-u>Gw<cr>:Gcommit -m ''<Left>
+noremap          <a-y><a-'> :<c-u>Gw<cr>:Gcommit -m ''<Left>
+noremap          <a-y>"     :<c-u>Gw<cr>:Gcommit -m ""<Left>
 """ Add && status
-nnoremap <silent> <a-y>w     :<c-u>Gw<cr>:Gstatus<cr>
-nnoremap <silent> <a-y><a-w> :<c-u>Gw<cr>:Gstatus<cr>
+noremap <silent> <a-y>w     :<c-u>Gw<cr>:Gstatus<cr>
+noremap <silent> <a-y><a-w> :<c-u>Gw<cr>:Gstatus<cr>
 """ Pull
-nnoremap <silent> <a-y>l     :<c-u>Gpull<cr>
-nnoremap <silent> <a-y><a-l> :<c-u>Gpull<cr>
+noremap <silent> <a-y>l     :<c-u>Gpull<cr>
+noremap <silent> <a-y><a-l> :<c-u>Gpull<cr>
 """ Push
-nnoremap <silent> <a-y>h     :<c-u>Gpush<cr>
-nnoremap <silent> <a-y><a-h> :<c-u>Gpush<cr>
+noremap <silent> <a-y>h     :<c-u>Gpush<cr>
+noremap <silent> <a-y><a-h> :<c-u>Gpush<cr>
 
 """ Grep
 " -I: no binary files
-nnoremap <a-y>g     :<c-u>silent Ggrep  <bar> cw<Left><Left><Left><Left><Left>
-nnoremap <a-y><a-g> :<c-u>silent Ggrep  <bar> cw<Left><Left><Left><Left><Left>
+noremap <a-y>g     :<c-u>silent Ggrep  <bar> cw<Left><Left><Left><Left><Left>
+noremap <a-y><a-g> :<c-u>silent Ggrep  <bar> cw<Left><Left><Left><Left><Left>
 " show options
-nnoremap <a-y>p     :<c-u>Ggrep --help<cr>
-nnoremap <a-y><a-p> :<c-u>Ggrep --help<cr>
+noremap <a-y>p     :<c-u>Ggrep --help<cr>
+noremap <a-y><a-p> :<c-u>Ggrep --help<cr>
 
 """ Others
-nnoremap <a-y>o     :<c-u>Git checkout 
-nnoremap <a-y><a-o> :<c-u>Git checkout 
-
+noremap <a-y>o     :<c-u>Git checkout<space>
+noremap <a-y><a-o> :<c-u>Git checkout<space>
