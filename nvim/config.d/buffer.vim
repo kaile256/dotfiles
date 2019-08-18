@@ -26,6 +26,10 @@ function! s:quickfix_keymap() abort "{{{
   nnoremap <buffer> <a-]> :cnewer<cr>
   nnoremap <buffer> <a-[> :colder<cr>
 endfunction "}}}
+
+function! s:keymap_for_commandline()
+  nnoremap <buffer><nowait> <a-k> <c-c><c-c>
+endfunction
 "}}}
 
 " Buffer; Augroup {{{
@@ -135,6 +139,11 @@ augroup AutoFormat "{{{
   """ Re-Syntax on Error
   au FocusLost,ColorScheme * syntax enable
 augroup END "}}}
+
+augroup KeymapOnCondition "{{{
+  au!
+  au CmdwinEnter * call <SID>keymap_for_commandline()
+augroup END "}}}
 "}}}
 
 set showbreak=>\
@@ -142,6 +151,14 @@ set showbreak=>\
 set breakat+=
 " `breakindent` keeps visually indented according to the actual line.
 set breakindent
+
+if &modeline == 0
+  set modeline
+endif
+
+if &modelineexpr == 0
+  set modelineexpr
+endif
 
 " Buffer; Keymap {{{
 
