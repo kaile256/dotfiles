@@ -1,15 +1,17 @@
 #### From: dein.vimrc
 
 ### Browser
-[[plugins]]
+[[plugins]] #{{{
 repo = 'tyru/open-browser.vim'
-on_if = 'executable("qutebrowser")'
+on_if = ['executable("qutebrowser")','executable("w3m")']
 hook_post_source = 'runtime! open-browser.vimrc'
+#}}}
 
 ### Calendar
 [[plugins]]
 repo = 'itchyny/calendar.vim'
 on_event = 'VimEnter'
+on_cmd = '<a-q>'
 hook_post_source = 'runtime calendar.vimrc'
 
 ### Tags
@@ -23,7 +25,7 @@ hook_post_source = 'runtime gen_tags.vimrc'
 #hook_post_source = 'runtime tagbar.vimrc'
 [[plugins]]
 repo = 'liuchengxu/vista.vim'
-on_event = ['BufNew','BufReadPost']
+on_event = ['BufNew','BufRead']
 hook_post_source = 'runtime vista.vimrc'
 
 ### i3-wm
