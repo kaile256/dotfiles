@@ -1,18 +1,43 @@
 """" From: nvim/init.vim
 """"  Ref: orgmode.vimrc
 
-"""" GENERAL
-augroup AppendFileType
+" Buffer; Function! {{{
+function! s:auto_format_if_modifiable() "{{{
+  if &modifiable
+    if &readonly
+      setlocal linebreak
+    elseif &readonly != 0
+      setlocal nolinebreak
+      if &textwidth != 0
+        setlocal textwidth=0
+      endif
+    endif
+  endif
+endfunction "}}}
+
+function! s:alert_ft_is_not_vim() abort "{{{
+  nnoremap <buffer> <a-s><a-o> :echo '&filetype is not "vim"!'<cr>
+  nnoremap <buffer> <a-s>o     :echo '&filetype is not "vim"!'<cr>
+endfunction "}}}
+
+function! s:quickfix_keymap() abort "{{{
+  nnoremap <buffer> <c-p> :cprevious<cr>
+  nnoremap <buffer> <c-n> :cnext<cr>
+  nnoremap <buffer> <a-]> :cnewer<cr>
+  nnoremap <buffer> <a-[> :colder<cr>
+endfunction "}}}
+"}}}
+
+" Buffer; Augroup {{{
+augroup AppendFileType "{{{
 
   au!
-  au BufNew,BufEnter *.vim!      setlocal filetype=vim
-  au BufNew,BufEnter *.vimrc     setlocal filetype=vim
-  au BufNew,BufEnter *.vimrc!    setlocal filetype=vim
-  au BufNew,BufEnter i3/*/config setlocal filetype=i3
-  au BufNew,BufEnter *.txt       setlocal filetype=help
-  au BufNew,BufEnter *.org       setlocal filetype=org
+  au BufEnter *.vim!      setlocal filetype=vim
+  au BufEnter *.vimrc!    setlocal filetype=vim
+  au BufEnter i3/*/config setlocal filetype=i3
+  au BufEnter *.txt       setlocal syntax=help
 
-augroup END
+augroup END "}}}
 
 augroup AlertOnBuffer " {{{
   """ Alert on Sourcing non-vim buffer.
@@ -31,13 +56,19 @@ augroup AdjustOnLanguage " {{{
   "}}}
 
   "" AdjustOnLanguage; Fold Method "{{{
-  """ FoldMethod; set foldmethod\s/ge "{{{
-  au FileType json     setlocal foldmethod=syntax foldlevel=0
-  au FileType vim,toml setlocal foldmethod=marker foldlevel=0
+  """ FoldMethod; set foldmethod "{{{
+  au BufRead * if &filetype == 'json' | setlocal foldmethod=syntax foldlevel=0 | endif
+  au BufRead * if &filetype == 'vim'  | setlocal foldmethod=marker foldlevel=0 | endif
+  au BufRead * if &filetype == 'toml' | setlocal foldmethod=marker foldlevel=0 | endif
   "}}}
 
-  """ Fold Method; zf: default zf works wrong "{{{
-  au FileType vim vnoremap <silent> zf zf:'<,'>g/\w"["{{{","}}}"]/ norm na <cr> :'< retab <bar> :'> retab <cr>
+  """ Experimental: Fold Method; zf: default zf works wrong "{{{
+  au FileType vim vmap <buffer><silent> zf zf:'< s/\({{{\){{{/\1\r"{{{\$/e<cr>
+  au FileType vim vmap <buffer><silent> zf zf:'> s/\(}}}\)}}}/\1\r"}}}\$/e<cr>
+  au FileType vim vmap <buffer><silent> zf zf:'< s/\([\w\.\]]\)"{{{\$/\1\s"{{{/e<cr>
+  au FileType vim vmap <buffer><silent> zf zf:'> s/[\(\w\.\]}]\)"}}}\$/\1\r"}}}/e<cr>
+  au FileType vim vmap <buffer><silent> zf zf:'< retab <bar> :'> retab <cr>
+  au FileType toml vmap <buffer><silent> zf zf:'< s/\([\w'"\]\.]\)# {{{/\1 #{{{/ge <bar> :'>s/\([\w'"\]}\.]\)# }}}/\1\r#}}}/ge<cr> :'< retab <bar> :'> retab <cr>
   "}}}
   "}}}
 augroup END " }}}
@@ -86,7 +117,8 @@ augroup AutoFormat "{{{
 
   """ AutoFormat; Unusual Appending on BufList "{{{
   "" Append Help on Buffer-list
-  au BufLeave *  if &buftype ==# 'help' | set buflisted | endif
+  au BufLeave *  if &buftype ==# 'help' | setlocal buflisted | endif
+  au BufEnter *  if &buftype ==# 'help' | setlocal signcolumn= nonumber | endif
   "}}}
 
   """ AutoFormat; Delete "{{{
@@ -103,51 +135,34 @@ augroup AutoFormat "{{{
   """ Re-Syntax on Error
   au FocusLost,ColorScheme * syntax enable
 augroup END "}}}
+"}}}
 
 set showbreak=>\
-set breakat=\ \ ;:,.!?。
-function! s:auto_format_if_modifiable() "{{{
-  if &modifiable
-    if &readonly
-      setlocal linebreak
-    elseif &readonly != 0
-      setlocal nolinebreak
-      if &textwidth != 0
-        setlocal textwidth=0
-      endif
-    endif
-  endif
-endfunction "}}}
+" CAUTION: `breakat` ONLY works for ASCII characters.
+set breakat+=
+" `breakindent` keeps visually indented according to the actual line.
+set breakindent
 
-"""" KEYMAP
-""" Definition
-function! s:quickfix_keymap() abort "{{{
-  nnoremap <buffer> <c-p> :cprevious<cr>
-  nnoremap <buffer> <c-n> :cnext<cr>
-  nnoremap <buffer> <a-]> :cnewer<cr>
-  nnoremap <buffer> <a-[> :colder<cr>
-endfunction "}}}
+" Buffer; Keymap {{{
 
-function! s:alert_ft_is_not_vim() abort
-  nnoremap <buffer> <a-s><a-o> :echo '&filetype is not "vim"!'<cr>
-  nnoremap <buffer> <a-s>o     :echo '&filetype is not "vim"!'<cr>
-endfunction
-
-""" Reload init.vim
+""" Mnemonic: Source init.vim {{{
 nnoremap <silent> <a-s><a-o> :<c-u>so % <bar> echo ' Vim sourced "' . bufname('%') . '"'<CR>
-nnoremap <silent> <a-s>o     :<c-u>so % <bar> echo ' Vim sourced "' . bufname('%') . '"'<CR>
+nnoremap <silent> <a-s>o     :<c- Reloadu>so % <bar> echo ' Vim sourced "' . bufname('%') . '"'<CR>
+"}}}
 
-""" Mnemonic: Show BufType/FileType
-nnoremap <silent> <a-s><a-b> :echo  " &filetype='" . &filetype . "'; &buftype='" . &buftype . "'; " . "winnr('$') is " . winnr('$') . "; winnr('#') is " . winnr('#') . "." <cr>
-nnoremap <silent> <a-s><a-f> :echo  " &filetype='" . &filetype . "'; &buftype='" . &buftype . "'; " . "winnr('$') is " . winnr('$') . "; winnr('#') is " . winnr('#') . "." <cr>
+""" Mnemonic: Show Status of the buffer {{{
+nnoremap <silent> <a-s><a-s> :echo  " &filetype='" . &filetype . "'; &buftype='" . &buftype . "'; " . "winnr('$') is " . winnr('$') . "; winnr('#') is " . winnr('#') . "." <cr>
+nnoremap <silent> <a-s><a-s> :echo  " &filetype='" . &filetype . "'; &buftype='" . &buftype . "'; " . "winnr('$') is " . winnr('$') . "; winnr('#') is " . winnr('#') . "." <cr>
 "nnoremap <a-s><a-b> :echo " &filetype is '" . &filetype . "'; &buftype is '" . &buftype . "'"<cr>
 "nnoremap <a-s><a-f> :echo " &filetype is '" . &filetype . "'; &buftype is '" . &buftype . "'"<cr>
+"}}}
 
-""" Checkhealth
+""" Checkhealth {{{
 if has('nvim')
   nnoremap <silent> <a-c><a-h> :<c-u>checkhealth<cr> :setlocal buftype=quickfix<cr>
   nnoremap <silent> <a-c>h     :<c-u>checkhealth<cr> :setlocal buftype=quickfix<cr>
   cnoremap <silent> <a-c><a-h> :<c-u>checkhealth<cr> :setlocal buftype=quickfix<cr>
   cnoremap <silent> <a-c>h     :<c-u>checkhealth<cr> :setlocal buftype=quickfix<cr>
 endif
-
+"}}}
+"}}}
