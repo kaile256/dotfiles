@@ -47,7 +47,6 @@ let g:vimwiki_list = [
       \ ]
 
 """ Export from org
-nnoremap q: q:
 
 """" KEYMAP
 """ CAUTION: <Plug>:VimWiki~~ seems to work wrong.
@@ -65,44 +64,57 @@ nnoremap <silent> <a-w><a-u> :VimwikiUISelect<cr>
 
 nnoremap <silent> <a-e><a-i><a-e> :VimwikiDiaryIndex<cr>
 nnoremap <silent> <a-e><a-i><a-b> :tabnew <cr> :VimwikiDiaryIndex<cr>
-nnoremap <silent> <a-e><a-i><a-s> :sp   <cr> :VimwikiDiaryIndex<cr>
-nnoremap <silent> <a-e><a-i><a-v> :vs   <cr> :VimwikiDiaryIndex<cr>
+nnoremap <silent> <a-e><a-i><a-s> :sp     <cr> :VimwikiDiaryIndex<cr>
+nnoremap <silent> <a-e><a-i><a-v> :vs     <cr> :VimwikiDiaryIndex<cr>
 
 nnoremap <silent> <a-e><a-e> :VimwikiMakeDiaryNote<cr>
 nnoremap <silent> <a-e><a-b> :VimwikiTabMakeDiaryNote<cr>
 nnoremap <silent> <a-e><a-s> :sp <cr> :VimwikiMakeDiaryNote<cr>
 nnoremap <silent> <a-e><a-v> :vs <cr> :VimwikiMakeDiaryNote<cr>
+"}}}
 
-augroup VimWiki
+" VimWiki; Augroup {{{
+augroup MyVimWikiAugroup "{{{
+
   au!
-  au FileType vimwiki call s:vimwiki_general()
-  au FileType vimwiki call s:vimwiki_keymap()
-  au FileType vimwiki call s:vimwiki_dairy()
   "au BufWritePre *.wiki VimwikiTOC
-augroup END
+  au InsertLeave * if &filetype ==# 'vimwiki' | norm zH | endif
 
-function! s:vimwiki_dairy()
-  if @% =~# */vimwiki/diary/*
-  nnoremap <buffer> <a-o> :VimwikiDiaryNextDay
-  nnoremap <buffer> <a-i> :VimwikiDiaryPrevDay
+  "au BufHidden * if &filetype == 'vimwiki' | bwipeout! % | endif
+
+  au FileType vimwiki call <SID>vimwiki_general()
+  au FileType vimwiki call <SID>vimwiki_keymap()
+  au FileType vimwiki call <SID>vimwiki_diary()
+
+augroup END "}}}
+"}}}
+
+" VimWiki; Function! {{{
+function! s:my_vimwiki_diary() "{{{
+  " Experimental:
+  if @% =~# expand(*.'/vimwiki/diary/'.*)
+    nnoremap <buffer> <a-o> :VimwikiDiaryNextDay
+    nnoremap <buffer> <a-i> :VimwikiDiaryPrevDay
   endif
-endfunction
+endfunction "}}}
 
-function! s:vimwiki_general()
+function! s:vimwiki_general() "{{{
   setlocal foldmethod=syntax
   setlocal foldlevel=1
   setlocal nowrap
-  au!
-  au InsertLeave * if &filetype ==# 'vimwiki' | norm zH | endif
-  au BufHidden * if &filetype == 'vimwiki' | bwipeout! % | endif
-nnoremap q<space> q
-endfunction
+endfunction "}}}
 
-function! s:vimwiki_keymap()
+function! s:my_vimwiki_keymap() "{{{
+  "
   """ Experimental: Rename
   cnoreabbrev <buffer><silent><expr> w (getcmdtype() == ':' && getcmdline() =~ '^w$')? 'VimwikiRenameLink<cr>' : 'w'
 
   """ Prev/Next Day
+  "" Challenge: Migrate to s:vimwiki_diary()
+  nnoremap <buffer> <a-o> :VimwikiDiaryPrevDay
+  nnoremap <buffer> <a-i> :VimwikiDiaryNextDay
+
+  """
   nnoremap <buffer> <c-k> :VimwikiPrevLink
   nnoremap <buffer> <c-j> :VimwikiNextLink
 
@@ -138,4 +150,5 @@ function! s:vimwiki_keymap()
   """ Link Like Tags
   nnoremap <buffer><silent> <c-t>           :VimwikiGoBackLink<cr>
   nnoremap <buffer><silent> <c-t>           :VimwikiFollowLink<cr>
-endfunction
+endfunction "}}}
+"}}}
