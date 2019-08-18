@@ -119,52 +119,57 @@ nnoremap <silent> <a-q>;     :<c-u>Commands<cr>
 nnoremap <silent> <a-q><a-p> :<c-u>Maps<cr>
 nnoremap <silent> <a-q>p     :<c-u>Maps<cr>
 
-if executable('ag')
+if executable('ag') == 0
 
-  tnoremap <silent> <a-r>      <c-u><c-\><c-n>:Ag<cr>
-  tnoremap <silent> <a-r><a-c> <c-u><c-\><c-n>:Ag<cr>
-  tnoremap <silent> <a-r>c     <c-u><c-\><c-n>:Ag<cr>
-  tnoremap <silent> <a-r><a-r> <c-u>cd /<cr>              <c-\><c-n>:Ag<cr>
-  tnoremap <silent> <a-r>r     <c-u>cd /<cr>              <c-\><c-n>:Ag<cr>
-  tnoremap <silent> <a-r><a-w> <c-u>cd %:p:h<cr>          <c-\><c-n>:Ag<cr>
-  tnoremap <silent> <a-r>w     <c-u>cd %:p:h<cr>          <c-\><c-n>:Ag<cr>
-  tnoremap <silent> <a-r><a-h> <c-u>cd ~<cr>              <c-\><c-n>:Ag<cr>
-  tnoremap <silent> <a-r>h     <c-u>cd ~<cr>              <c-\><c-n>:Ag<cr>
-  tnoremap <silent> <a-r><a-o> <c-u>cd ~/org<cr>          <c-\><c-n>:Ag<cr>
-  tnoremap <silent> <a-r>o     <c-u>cd ~/org<cr>          <c-\><c-n>:Ag<cr>
-  tnoremap <silent> <a-r><a-d> <c-u>cd ~/dotfiles<cr>     <c-\><c-n>:Ag<cr>
-  tnoremap <silent> <a-r>d     <c-u>cd ~/dotfiles<cr>     <c-\><c-n>:Ag<cr>
-  tnoremap <silent> <a-r><a-.> <c-u>cd ~/dotfiles<cr>     <c-\><c-n>:Ag<cr>
-  tnoremap <silent> <a-r>.     <c-u>cd ~/dotfiles<cr>     <c-\><c-n>:Ag<cr>
-  tnoremap <silent> <a-r><a-g> <c-u>cd ~/.config<cr>      <c-\><c-n>:Ag<cr>
-  tnoremap <silent> <a-r>g     <c-u>cd ~/.config<cr>      <c-\><c-n>:Ag<cr>
-  tnoremap <silent> <a-r><a-n> <c-u>cd ~/.config/nvim<cr> <c-\><c-n>:Ag<cr>
-  tnoremap <silent> <a-r>n     <c-u>cd ~/.config/nvim<cr> <c-\><c-n>:Ag<cr>
+  nnoremap <silent><nowait> <a-a> :<c-u>echo "You don't have executable 'silver searcher'"<cr>
+else
+  tnoremap <silent> <a-a>      <c-u><c-\><c-n>:Ag<cr>
+  tnoremap <silent> <a-a><a-c> <c-u><c-\><c-n>:Ag<cr>
+  tnoremap <silent> <a-a>c     <c-u><c-\><c-n>:Ag<cr>
+  tnoremap <silent> <a-a><a-r> <c-u>cd /<cr>              <c-\><c-n>:Ag<cr>
+  tnoremap <silent> <a-a>r     <c-u>cd /<cr>              <c-\><c-n>:Ag<cr>
+  tnoremap <silent> <a-a><a-w> <c-u>cd %:p:h<cr>          <c-\><c-n>:Ag<cr>
+  tnoremap <silent> <a-a>w     <c-u>cd %:p:h<cr>          <c-\><c-n>:Ag<cr>
+  tnoremap <silent> <a-a><a-h> <c-u>cd ~<cr>              <c-\><c-n>:Ag<cr>
+  tnoremap <silent> <a-a>h     <c-u>cd ~<cr>              <c-\><c-n>:Ag<cr>
+  tnoremap <silent> <a-a><a-o> <c-u>cd ~/org<cr>          <c-\><c-n>:Ag<cr>
+  tnoremap <silent> <a-a>o     <c-u>cd ~/org<cr>          <c-\><c-n>:Ag<cr>
+  tnoremap <silent> <a-a><a-d> <c-u>cd ~/dotfiles<cr>     <c-\><c-n>:Ag<cr>
+  tnoremap <silent> <a-a>d     <c-u>cd ~/dotfiles<cr>     <c-\><c-n>:Ag<cr>
+  tnoremap <silent> <a-a><a-.> <c-u>cd ~/dotfiles<cr>     <c-\><c-n>:Ag<cr>
+  tnoremap <silent> <a-a>.     <c-u>cd ~/dotfiles<cr>     <c-\><c-n>:Ag<cr>
+  tnoremap <silent> <a-a><a-g> <c-u>cd ~/.config<cr>      <c-\><c-n>:Ag<cr>
+  tnoremap <silent> <a-a>g     <c-u>cd ~/.config<cr>      <c-\><c-n>:Ag<cr>
+  tnoremap <silent> <a-a><a-n> <c-u>cd ~/.config/nvim<cr> <c-\><c-n>:Ag<cr>
+  tnoremap <silent> <a-a>n     <c-u>cd ~/.config/nvim<cr> <c-\><c-n>:Ag<cr>
 
-  nnoremap <silent> <a-r>      :<c-u>Ag<cr>
-  nnoremap <silent> <a-r><a-c> :<c-u>Ag<cr>
-  nnoremap <silent> <a-r>c     :<c-u>Ag<cr>
-  nnoremap <silent> <a-r><a-r> :<c-u>cd /<cr>              :Ag<cr>
-  nnoremap <silent> <a-r>r     :<c-u>cd /<cr>              :Ag<cr>
-  nnoremap <silent> <a-r><a-w> :<c-u>cd %:p:h<cr>          :Ag<cr>
-  nnoremap <silent> <a-r>w     :<c-u>cd %:p:h<cr>          :Ag<cr>
-  nnoremap <silent> <a-r><a-h> :<c-u>cd ~<cr>              :Ag<cr>
-  nnoremap <silent> <a-r>h     :<c-u>cd ~<cr>              :Ag<cr>
-  nnoremap <silent> <a-r><a-o> :<c-u>cd ~/org<cr>          :Ag<cr>
-  nnoremap <silent> <a-r>o     :<c-u>cd ~/org<cr>          :Ag<cr>
-  nnoremap <silent> <a-r><a-d> :<c-u>cd ~/dotfiles<cr>     :Ag<cr>
-  nnoremap <silent> <a-r>d     :<c-u>cd ~/dotfiles<cr>     :Ag<cr>
-  nnoremap <silent> <a-r><a-.> :<c-u>cd ~/dotfiles<cr>     :Ag<cr>
-  nnoremap <silent> <a-r>.     :<c-u>cd ~/dotfiles<cr>     :Ag<cr>
-  nnoremap <silent> <a-r><a-g> :<c-u>cd ~/.config<cr>      :Ag<cr>
-  nnoremap <silent> <a-r>g     :<c-u>cd ~/.config<cr>      :Ag<cr>
-  nnoremap <silent> <a-r><a-n> :<c-u>cd ~/.config/nvim<cr> :Ag<cr>
-  nnoremap <silent> <a-r>n     :<c-u>cd ~/.config/nvim<cr> :Ag<cr>
+  nnoremap <silent> <a-a>      :<c-u>Ag<cr>
+  nnoremap <silent> <a-a><a-c> :<c-u>Ag<cr>
+  nnoremap <silent> <a-a>c     :<c-u>Ag<cr>
+  nnoremap <silent> <a-a><a-r> :<c-u>cd /<cr>              :Ag<cr>
+  nnoremap <silent> <a-a>r     :<c-u>cd /<cr>              :Ag<cr>
+  nnoremap <silent> <a-a><a-w> :<c-u>cd %:p:h<cr>          :Ag<cr>
+  nnoremap <silent> <a-a>w     :<c-u>cd %:p:h<cr>          :Ag<cr>
+  nnoremap <silent> <a-a><a-h> :<c-u>cd ~<cr>              :Ag<cr>
+  nnoremap <silent> <a-a>h     :<c-u>cd ~<cr>              :Ag<cr>
+  nnoremap <silent> <a-a><a-o> :<c-u>cd ~/org<cr>          :Ag<cr>
+  nnoremap <silent> <a-a>o     :<c-u>cd ~/org<cr>          :Ag<cr>
+  nnoremap <silent> <a-a><a-d> :<c-u>cd ~/dotfiles<cr>     :Ag<cr>
+  nnoremap <silent> <a-a>d     :<c-u>cd ~/dotfiles<cr>     :Ag<cr>
+  nnoremap <silent> <a-a><a-.> :<c-u>cd ~/dotfiles<cr>     :Ag<cr>
+  nnoremap <silent> <a-a>.     :<c-u>cd ~/dotfiles<cr>     :Ag<cr>
+  nnoremap <silent> <a-a><a-g> :<c-u>cd ~/.config<cr>      :Ag<cr>
+  nnoremap <silent> <a-a>g     :<c-u>cd ~/.config<cr>      :Ag<cr>
+  nnoremap <silent> <a-a><a-n> :<c-u>cd ~/.config/nvim<cr> :Ag<cr>
+  nnoremap <silent> <a-a>n     :<c-u>cd ~/.config/nvim<cr> :Ag<cr>
 
 endif
 
-if executable('rg') && !executable('ag')
+if executable('rg') == 0
 
+  nnoremap <silent><nowait> <a-r> :<c-u>echo "You don't have executable 'ripgrep'"<cr>
+
+else
   tnoremap <silent> <a-r>      <c-u><c-\><c-n>:Rg<cr>
   tnoremap <silent> <a-r><a-c> <c-u><c-\><c-n>:Rg<cr>
   tnoremap <silent> <a-r>c     <c-u><c-\><c-n>:Rg<cr>
@@ -201,29 +206,4 @@ if executable('rg') && !executable('ag')
   nnoremap <silent> <a-r><a-g> :<c-u>cd ~/.config<cr>  :Rg<cr>
   nnoremap <silent> <a-r>g     :<c-u>cd ~/.config<cr>  :Rg<cr>
 
-else
-
-  nnoremap <silent> <a-r> :<c-u>echo "You don't have executable 'ripgrep' nor 'silver searcher.'"<cr>
-
 endif
-
-"augroup FzfBuffer
-"  au! FileType fzf setlocal noshowmode
-"  "" Quich Change
-"  au! FileType fzf call s:fzf_keymap()
-"augroup END
-"
-"function! s:fzf_keymap()
-"  "" Quit
-"  " <a-k> is for pane-leap.
-"  tnoremap <silent><buffer> <a-b> <c-l><c-\><c-n> :<c-u>Buffers<cr>
-"  tnoremap <silent><buffer> <a-c> <c-l><c-\><c-n> :<c-u>Colors<cr>
-"  tnoremap <silent><buffer> <a-h> <c-l><c-\><c-n> :<c-u>Helptags<cr>
-"  tnoremap <silent><buffer> <a-/> <c-l><c-\><c-n> :<c-u>History/<cr>
-"  tnoremap <silent><buffer> <a-;> <c-l><c-\><c-n> :<c-u>History:<cr>
-"  tnoremap <silent><buffer> <a-q> <c-l><c-\><c-n> :<c-u>History<cr>
-"  tnoremap <silent><buffer> <a-m> <c-l><c-\><c-n> :<c-u>Marks<cr>
-"  tnoremap <silent><buffer> <a-p> <c-l><c-\><c-n> :<c-u>Maps<cr>
-"  tnoremap <silent><buffer> <a-q> <c-l><c-\><c-n> :quit<cr>
-"  tnoremap <silent><buffer> <a-r> <c-l><c-\><c-n> :<c-u>Rg
-"endfunction
