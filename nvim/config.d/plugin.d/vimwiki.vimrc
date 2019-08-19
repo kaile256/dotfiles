@@ -2,6 +2,7 @@
 """"  Ref: vimwiki/vimwiki
 
 " VimWiki; Let {{{
+"" Let; List {{{
 let s:wiki_index = {
       \ 'path': '~/mywiki/',
       \ 'auto_tags': 1,
@@ -33,6 +34,13 @@ let s:wiki_org = [{
       \ 'ext': '.org'
       \ }]
 
+let s:wiki_html = [{
+      \ 'syntax': 'html',
+      \ 'path': '~/vimwiki/html/',
+      \ 'path_html': '~/htmlwiki/',
+      \ 'ext': '.html'
+      \ }]
+
 let s:wiki_text = [{
       \ 'syntax': 'text',
       \ 'path': '~/vimwiki/text/',
@@ -44,9 +52,10 @@ let g:vimwiki_list = [
       \ s:wiki_index,
       \ s:wiki_markdown,
       \ s:wiki_org,
+      \ s:wiki_html,
       \ s:wiki_text
       \ ]
-
+"}}}
 "}}}
 
 " VimWiki; Function! {{{
@@ -60,8 +69,8 @@ endfunction "}}}
 
 function! s:my_vimwiki_setlocal() "{{{
   setlocal foldmethod=syntax
-  setlocal foldlevel=1
   setlocal nowrap
+  setlocal tabstop=4
 endfunction "}}}
 
 function! s:my_vimwiki_keymap() "{{{
@@ -69,20 +78,23 @@ function! s:my_vimwiki_keymap() "{{{
   """ Experimental: Rename
   cnoreabbrev <buffer><silent><expr> w (getcmdtype() == ':' && getcmdline() =~ '^w$')? 'VimwikiRenameLink<cr>' : 'w'
 
-  "" Keymap; Unique {{{
+  "" Keymap; Nowait {{{
+  inoremap <buffer><nowait> <c-t> <c-t>
+  inoremap <buffer><nowait> <c-d> <c-d>
   noremap <buffer><nowait> o o
   noremap <buffer><nowait> O O
+
   "}}}
 
   """ PN Diary
   "" Challenge: Migrate to s:my_vimwiki_diary()
-  nnoremap <buffer><expr> <a-o> ':VimwikiDiaryPrevDay<cr>'
-  nnoremap <buffer><expr> <a-i> ':VimwikiDiaryNextDay<cr>'
+  nnoremap <buffer><expr> <a-o> ':VimwikiMakeYesterdayDiaryNote<cr>'
+  nnoremap <buffer><expr> <a-i> ':VimwikiMakeTomorrowDiaryNote<cr>'
 
   """ PN Link
   " TODO: usual-<c-jk> on = Contents =
-  nnoremap <buffer><expr> <c-k> ':VimwikiPrevLink<cr>'
-  nnoremap <buffer><expr> <c-j> ':VimwikiNextLink<cr>'
+  "nnoremap <buffer><expr> <c-k> ':VimwikiPrevLink<cr>'
+  "nnoremap <buffer><expr> <c-j> ':VimwikiNextLink<cr>'
 
   """ Quick Edit
   nnoremap <buffer><silent> yp yyp
@@ -189,6 +201,7 @@ nnoremap <silent> <a-e><a-b> :VimwikiTabMakeDiaryNote<cr>
 nnoremap <silent> <a-e><a-s> :sp <cr> :VimwikiMakeDiaryNote<cr>
 nnoremap <silent> <a-e><a-v> :vs <cr> :VimwikiMakeDiaryNote<cr>
 "}}}
+"}}}
 
 " VimWiki; Augroup {{{
 
@@ -196,6 +209,8 @@ augroup MyVimWikiAugroup "{{{
 
   au!
   "au BufWritePre * if &filetype == 'vimwiki' | VimwikiTOC | endif
+  au BufWinEnter * if &filetype == 'vimwiki' | setlocal buftype=quickfix | endif
+
   au InsertLeave * if &filetype == 'vimwiki' | norm zH | endif
 
   au Syntax,BufEnter * if &filetype == 'vimwiki' | call <SID>my_vimwiki_setlocal() | endif
@@ -203,8 +218,10 @@ augroup MyVimWikiAugroup "{{{
   au Syntax,BufEnter * if &filetype == 'vimwiki' | call <SID>my_vimwiki_diary()    | endif
 
   " Open DiaryNote as Startpage
-  "au VimEnter * if @% == '' && &filetype ==# '' && &buftype ==# '' | VimwikiMakeDiaryNote | endif
-  au VimEnter * VimwikiMakeDiaryNote
+  if @% == '' && &filetype ==# '' && &buftype ==# ''
+    au VimEnter * VimwikiMakeDiaryNote
+  endif
+  "au VimEnter * VimwikiMakeDiaryNote
 
   " Open Terminal as Startpage
   "au VimEnter * if @% == '' && &filetype ==# '' && &buftype ==# '' | call termopen(&shell) | setlocal nonumber signcolumn=no modifiable | endif
