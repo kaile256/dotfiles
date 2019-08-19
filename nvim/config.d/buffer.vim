@@ -39,8 +39,8 @@ augroup ConfirmOnError "{{{
   "au Syntax,BufEnter * if &syntax == '' | syntax enable | endif
   """ Experimental: `:h confirm`
   "au Syntax,BufEnter * if &filetype == '' | confirm | endif
-"au Syntax,BufEnter * if &filetype == 'conf' | confirm | endif
-"au Syntax,BufEnter * if &filetype == '' | confirm | endif
+  "au Syntax,BufEnter * if &filetype == 'conf' | confirm | endif
+  "au Syntax,BufEnter * if &filetype == '' | confirm | endif
 augroup END "}}}
 
 augroup AppendFileType "{{{
@@ -71,10 +71,10 @@ augroup AdjustOnLanguage " {{{
 
   "" AdjustOnLanguage; Fold Method "{{{
   """ FoldMethod; set foldmethod "{{{
-  au BufNew,BufRead * if &filetype == 'snippets' | setlocal foldmethod=syntax foldlevel=0 | endif
-  au BufNew,BufRead * if &filetype == 'json' | setlocal foldmethod=syntax foldlevel=0 | endif
-  au BufNew,BufRead * if &filetype == 'vim'  | setlocal foldmethod=marker foldlevel=0 | endif
-  au BufNew,BufRead * if &filetype == 'toml' | setlocal foldmethod=marker foldlevel=0 | endif
+  au BufWinEnter * if &filetype == 'snippets' | setlocal foldmethod=syntax foldlevel=0 | endif
+  au BufWinEnter * if &filetype == 'json' | setlocal foldmethod=syntax foldlevel=0 | endif
+  au BufWinEnter * if &filetype == 'vim'  | setlocal foldmethod=marker foldlevel=0 | endif
+  au BufWinEnter * if &filetype == 'toml' | setlocal foldmethod=marker foldlevel=0 | endif
   "}}}
 
   """ Experimental: Fold Method; zf: default zf works wrong "{{{
@@ -133,25 +133,25 @@ augroup AutoFormat "{{{
   "" Cursor Locates on the Middle
   "au BufWinEnter * if &filetype ==# 'help' | norm zz | endif
 
-""" AutoFormat; Unusual Appending on BufList "{{{
-"" Append Help on Buffer-list
-au BufWinLeave *  if &buftype ==# 'help' | setlocal buflisted | endif
-au BufRead *  if &buftype ==# 'help' | setlocal signcolumn= nonumber | endif
-"}}}
+  """ AutoFormat; Unusual Appending on BufList "{{{
+  "" Append Help on Buffer-list
+  au BufWinLeave *  if &buftype ==# 'help' | setlocal buflisted | endif
+  au BufRead *  if &buftype ==# 'help' | setlocal signcolumn= nonumber | endif
+  "}}}
 
-""" AutoFormat; Delete "{{{
-"" Space Unnecessary
-au BufWritePre * silent keeppatterns %s/\s\+$//ge
-"" URL
-"" Remove Unnecessary part of URL
-au BufWritePre *.toml   silent keeppatterns %s/https:\/\/github.com\///ge
-au FileType toml nnoremap <buffer><silent> <s-tab> :keeppatterns %s/^\s\+//ge<cr>
-"}}}
+  """ AutoFormat; Delete "{{{
+  "" Space Unnecessary
+  au BufWritePre * silent keeppatterns %s/\s\+$//ge
+  "" URL
+  "" Remove Unnecessary part of URL
+  au BufWritePre *.toml   silent keeppatterns %s/https:\/\/github.com\///ge
+  au FileType toml nnoremap <buffer><silent> <s-tab> :keeppatterns %s/^\s\+//ge<cr>
+  "}}}
 
-"au BufRead * call <SID>auto_format_if_modifiable()
+  "au BufRead * call <SID>auto_format_if_modifiable()
 
-""" Re-Syntax on Error
-au FocusLost,ColorScheme * syntax enable
+  """ Re-Syntax on Error
+  au FocusLost,ColorScheme * if &syntax == '' | syntax enable | endif
 augroup END "}}}
 
 augroup KeymapOnCondition "{{{
