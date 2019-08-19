@@ -202,14 +202,10 @@ augroup MyVimWikiAugroup "{{{
   au Syntax,BufEnter * if &filetype == 'vimwiki' | call <SID>my_vimwiki_diary()    | endif
 
   " Open DiaryNote as Startpage
-  if @% == '' && &filetype ==# '' && &buftype ==# ''
-    au VimEnter * silent VimwikiMakeDiaryNote
-  endif
+  au VimEnter * if @% == '' && &filetype ==# '' && &buftype ==# '' | silent VimwikiMakeDiaryNote | endif
 
   " Open Terminal as Startpage
-  "if @% == '' && &filetype ==# '' && &buftype ==# ''
-  "  au VimEnter * silent call termopen(&shell) && setlocal nonumber signcolumn=no modifiable
-  "endif
+  au VimEnter * if @% == '' && &filetype ==# '' && &buftype ==# '' | silent call termopen(&shell) && setlocal nonumber signcolumn=no modifiable | endif
 
 augroup END "}}}
 "}}}
