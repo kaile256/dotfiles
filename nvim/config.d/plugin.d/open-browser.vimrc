@@ -1,14 +1,15 @@
 """" From: tool.toml
 """" Help: openbrowser
 
-"""" DEFINITION
+" OpenBrowser; Command! {{{
 "command! CurrentFileOnBrowser execute "OpenBrowser" "ftp:///" . expand('%:p:gs?\\?/?')
-command! CurrentFileOnBrowser :!qutebrowser %
+command! CurrentFileOnBrowser execute "OpenBrowser" . expand('%:p:gs?\\?/?')
+"}}}
 
 """" KEYMAP
 "" NOTICE: do you use other editors?
-nmap g% :CurrentFileOnBrowser<cr>
-nmap gc :CurrentFileOnBrowser<cr>
+nnoremap <silent> g% :<c-u>CurrentFileOnBrowser<cr>
+nnoremap <silent> gc :<c-u>CurrentFileOnBrowser<cr>
 " smart-search detects if it is URI or not.
 """ Under Cursor
 nmap gb <Plug>(openbrowser-smart-search)
@@ -19,26 +20,32 @@ vmap gb <Plug>(openbrowser-smart-search)
 
 """ Prompt
 "" Mnemonic: Web
-nmap <a-w><a-b> :<c-u>OpenBrowserSmartSearch<space>
-nmap <a-w>b     :<c-u>OpenBrowserSmartSearch<space>
-cmap <a-w><a-b> :<c-u>OpenBrowserSmartSearch<space>
-cmap <a-w>b     :<c-u>OpenBrowserSmartSearch<space>
+nnoremap <a-w><a-b> :<c-u>OpenBrowserSmartSearch<space>
+nnoremap <a-w>b     :<c-u>OpenBrowserSmartSearch<space>
+cnoremap <a-w><a-b> :<c-u>OpenBrowserSmartSearch<space>
+cnoremap <a-w>b     :<c-u>OpenBrowserSmartSearch<space>
 
-""" Search Engine
+" OpenBrower; Abbr {{{
+""" Abbr; Search Engine {{{
 "" Duckduckgo
-"cmap <a-d> -duckduckgo 
-
+cnoreabbrev <expr> dk (getcmdtype() == ':' && getcmdline() =~ '^OpenBrowserSmartSearch dk$')? '-duckduckgo' : 'dk'
+"" Google
+cnoreabbrev <expr> go (getcmdtype() == ':' && getcmdline() =~ '^OpenBrowserSmartSearch go$')? '-google' : 'go'
 "" GitHub
-cmap <a-g> -github<space>
-cmap <a-y> -github<space>
-
+cnoreabbrev <expr> gh (getcmdtype() == ':' && getcmdline() =~ '^OpenBrowserSmartSearch gh$')? '-github' : 'gh'
 "" Wikipedia
-cmap <a-p> -wikipedia<space>
-
+cnoreabbrev <expr> wk (getcmdtype() == ':' && getcmdline() =~ '^OpenBrowserSmartSearch wk$')? '-wikipedia' : 'wk'
 "" Weblio
-cmap <a-l> -weblio<space>
+cnoreabbrev <expr> wl (getcmdtype() == ':' && getcmdline() =~ '^OpenBrowserSmartSearch wl$')? '-weblio' : 'wl'
+"}}}
+"}}}
 
-"""" GENERAL
+" OpenBrowser; Let {{{
+let g:openbrowser_browser_commands = [
+      \ {"name": "qutebrowser", "args": ["{browser}", "{uri}"]},
+      \ {"name": "w3m",         "args": ["{browser}", "{uri}"]}
+      \ ]
+
 " 0: go to the browser.
 " 1: stay on vim.
 let g:openbrowser_force_foreground_after_open = 1
@@ -68,4 +75,4 @@ let g:openbrowser_search_engines = {
       \ 'wikipedia-ja': 'http://ja.wikipedia.org/wiki/{query}',
       \ 'yahoo': 'http://search.yahoo.com/search?p={query}',
       \ }
-
+"}}}
