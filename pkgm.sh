@@ -31,17 +31,18 @@ anyenv
 arandr  # visual config for xrandr
 bash-completion
 cargo  # select rustup
-otf-sfmono
 fzf
 gendesk
 ghq-bin
 global
 go
+googlecl  # google api for cli
 hub  # an official wrapper of git
 luarocks
 neovim-nightly
 neovim-qt
 nerd-fonts-ricty
+otf-sfmono  # Font; SF Mono
 pyenv
 python-oauth2client
 python-pipenv
