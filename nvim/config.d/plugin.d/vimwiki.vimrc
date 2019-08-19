@@ -2,14 +2,15 @@
 """"  Ref: vimwiki/vimwiki
 
 " VimWiki; Let {{{
-let wiki_index = {
+let s:wiki_index = {
       \ 'path': '~/mywiki/',
       \ 'auto_tags': 1,
       \ 'auto_diary_index': 1,
+      \ 'list_margin': 4,
       \ 'auto_toc': 1
       \ }
 
-let wiki_index.nested_syntaxes = {
+let s:wiki_index.nested_syntaxes = {
       \ 'python': 'python',
       \ 'c++': 'cpp',
       \ 'org': 'org',
@@ -20,19 +21,19 @@ let wiki_index.nested_syntaxes = {
       \ 'vim': 'vim'
       \ }
 
-let wiki_markdown = [{
+let s:wiki_markdown = [{
       \ 'syntax': 'markdown',
       \ 'path': '~/vimwiki/markdown/',
       \ 'ext': '.md'
       \ }]
 
-let wiki_org = [{
+let s:wiki_org = [{
       \ 'syntax': 'org',
       \ 'path': '~/vimwiki/org/',
       \ 'ext': '.org'
       \ }]
 
-let wiki_text = [{
+let s:wiki_text = [{
       \ 'syntax': 'text',
       \ 'path': '~/vimwiki/text/',
       \ 'ext': '.txt'
@@ -40,10 +41,10 @@ let wiki_text = [{
 
 let g:vimwiki_list = [
       \ {},
-      \ wiki_index,
-      \ wiki_markdown,
-      \ wiki_org,
-      \ wiki_text
+      \ s:wiki_index,
+      \ s:wiki_markdown,
+      \ s:wiki_org,
+      \ s:wiki_text
       \ ]
 
 "}}}
@@ -202,10 +203,11 @@ augroup MyVimWikiAugroup "{{{
   au Syntax,BufEnter * if &filetype == 'vimwiki' | call <SID>my_vimwiki_diary()    | endif
 
   " Open DiaryNote as Startpage
-  au VimEnter * if @% == '' && &filetype ==# '' && &buftype ==# '' | silent VimwikiMakeDiaryNote | endif
+  "au VimEnter * if @% == '' && &filetype ==# '' && &buftype ==# '' | VimwikiMakeDiaryNote | endif
+  au VimEnter * VimwikiMakeDiaryNote
 
   " Open Terminal as Startpage
-  au VimEnter * if @% == '' && &filetype ==# '' && &buftype ==# '' | silent call termopen(&shell) && setlocal nonumber signcolumn=no modifiable | endif
+  "au VimEnter * if @% == '' && &filetype ==# '' && &buftype ==# '' | call termopen(&shell) | setlocal nonumber signcolumn=no modifiable | endif
 
 augroup END "}}}
 "}}}
