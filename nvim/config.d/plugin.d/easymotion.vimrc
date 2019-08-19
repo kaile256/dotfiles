@@ -8,7 +8,7 @@ let g:EasyMotion_enter_jump_first = 1
 let g:EasyMotion_space_jump_first = 1
 
 let g:EasyMotion_use_upper = 1
-let g:EasyMotion_keys = 'JKSDWEXCUI'
+let g:EasyMotion_keys = 'OJKABCDEF'
 let g:EasyMotion_use_migemo = 1
 
 let g:EasyMotion_prompt = 'Request: {n} Chars >>> '
@@ -33,6 +33,11 @@ hi link EasyMotionIncSearch Search
 "" <Plug>(easymotion-s): the range is inside current screen
 "" <Plug>(easymotion-sl): the range is limited to current line
 
+noremap <silent> <c-j> 10j
+noremap <silent> <c-k> 10k
+noremap <c-h> gT
+noremap <c-l> gt
+
  map <nowait>     Q      <Plug>(easymotion-overwin-f2)
 imap <nowait> <a-Q> <esc><Plug>(easymotion-overwin-f2)
 
@@ -46,13 +51,8 @@ imap <a-F> <esc><Plug>(easymotion-F2)
 imap <a-t> <esc><Plug>(easymotion-t2)
 imap <a-T> <esc><Plug>(easymotion-T2)
 
-noremap <silent> <c-j> 10j
-noremap <silent> <c-k> 10k
-map <c-h> <Plug>(easymotion-prev)
-map <c-l> <Plug>(easymotion-next)
-
-map ; <Plug>(easymotion-prev)
-map , <Plug>(easymotion-next)
+map ; <Plug>(easymotion-next)
+map , <Plug>(easymotion-prev)
 
 """ Keymap; Escape for :norm "{{{
 noremap <space>f f
