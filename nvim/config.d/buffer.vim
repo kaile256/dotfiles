@@ -71,9 +71,10 @@ augroup AdjustOnLanguage " {{{
 
   "" AdjustOnLanguage; Fold Method "{{{
   """ FoldMethod; set foldmethod "{{{
-  au BufRead * if &filetype == 'json' | setlocal foldmethod=syntax foldlevel=0 | endif
-  au BufRead * if &filetype == 'vim'  | setlocal foldmethod=marker foldlevel=0 | endif
-  au BufRead * if &filetype == 'toml' | setlocal foldmethod=marker foldlevel=0 | endif
+  au BufNew,BufRead * if &filetype == 'snippets' | setlocal foldmethod=syntax foldlevel=0 | endif
+  au BufNew,BufRead * if &filetype == 'json' | setlocal foldmethod=syntax foldlevel=0 | endif
+  au BufNew,BufRead * if &filetype == 'vim'  | setlocal foldmethod=marker foldlevel=0 | endif
+  au BufNew,BufRead * if &filetype == 'toml' | setlocal foldmethod=marker foldlevel=0 | endif
   "}}}
 
   """ Experimental: Fold Method; zf: default zf works wrong "{{{
@@ -104,13 +105,13 @@ augroup END "}}}
 augroup BufWipeExceptTerminal "{{{
   au!
 
-  au BufHidden *
-        \ if &filetype ==# 'netrw'
-        \ || &filetype ==# 'vista'
-        \ |  bwipeout  %
-        \ |  endif
+  "au BufHidden *
+  "      \ if &filetype ==# 'netrw'
+  "      \ || &filetype ==# 'vista'
+  "      \ |  bwipeout  %
+  "      \ |  endif
 
-  """ AutoCloseOnWinLeave
+  " AutoCloseOnWinLeave
   au WinLeave *
         \ if &filetype ==# 'fzf'
         \ || &filetype ==# 'coc'
