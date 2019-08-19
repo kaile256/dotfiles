@@ -21,6 +21,13 @@ set rtp+=~/.cache/dein/repos/github.com/Shougo/dein.vim
 "" For plugins' configs
 set rtp+=~/.config/nvim/config.d/plugin.d
 
+if ! isdirectory(g:dein_itself)
+  "call termopen('mkdir -p' "= 'expand(g:Shougo_cache_dir)' p)
+  "call termopen('git clone https://github.com/Shougo/dein.vim' "= 'expand(g:dein_itself)' p)
+  exe "!mkdir -p" shellescape(expand(g:Shougo_cache_dir))
+  exe "!git clone https://github.com/Shougo/dein.vim" shellescape(expand(g:dein_itself)) | cw
+endif
+
 if dein#load_state(s:dein_cache_dir)
   call dein#begin(s:dein_cache_dir)
 
@@ -32,7 +39,6 @@ if dein#load_state(s:dein_cache_dir)
   let s:external_toml  = s:dein_toml_dir . 'external.toml'
   let s:extra_toml     = s:dein_toml_dir . 'extra.toml'
   let s:filetype_toml  = s:dein_toml_dir . 'filetype.toml'
-  let s:leap_toml      = s:dein_toml_dir . 'leap.toml'
   let s:tool_toml      = s:dein_toml_dir . 'tool.toml'
 
   "" cache the plugin repositorys, listed in toml.
@@ -43,7 +49,6 @@ if dein#load_state(s:dein_cache_dir)
   call dein#load_toml(s:appearance_toml, {'lazy': 1})
   call dein#load_toml(s:external_toml,   {'lazy': 1})
   call dein#load_toml(s:tool_toml,       {'lazy': 1})
-  call dein#load_toml(s:leap_toml,       {'lazy': 1})
   call dein#load_toml(s:extra_toml,      {'lazy': 1})
 
   " make compatible on vim
@@ -61,27 +66,20 @@ if dein#check_install()
   call dein#install()
 endif
 
-filetype plugin indent on
-" on は設定を無視して構文ハイライトする
-syntax enable
 
 """" SOURCE
 """ CAUTION: some plugins MUST be sourced after dein#end() on dein.vim.
 "" Ref: Init.toml
-runtime denite.vimrc
-runtime denite-extra.vimrc
-
-runtime defx.vimrc
-runtime defx-extra.vimrc
 
 """ Colorscheme
 if has('nvim')
-  "runtime molokai.vimrc
-  "runtime solarized.vimrc
   runtime gruvbox.vimrc
 endif
 
-"runtime rainbow.vimrc
+filetype plugin indent on
+"" Highlight as configs which is written on runtimepath
+"" \ so `syntax on/enable` should be written after all the plugins loaded.
+syntax enable
 
 """" KEYMAP
 """ CAUTION: for the other plugins, DON'T define 'cmap' carelessly.
