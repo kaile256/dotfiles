@@ -16,9 +16,10 @@ set hlsearch
 set nowrapscan
 " fold all lines unmatched on {pattern}.
 " CAUTION: foldable is apt to collapse format.
-set nofoldenable
+set foldenable
 
-"""" KEYMAP
+" KEYMAP
+
 """ Fuzzy Finders' Error {{{
 if !executable('ag') && !executable('rg')
 tnoremap <silent> <a-r> <c-\><c-n>:echo "You don't have executable 'ripgrep' nor 'silver searcher.'"<cr>
@@ -30,24 +31,29 @@ endif
 
 """ Org
 "" vsbe ~/org/notes.org {{{
-nnoremap <silent> <a-q><a-o> :<c-u>e  ~/org/notes.org <cr>
-nnoremap <silent> <a-q>o     :<c-u>e  ~/org/notes.org <cr>
-nnoremap <silent> <a-q><a-e> :<c-u>e  ~/org/notes.org <cr>
-nnoremap <silent> <a-q>e     :<c-u>e  ~/org/notes.org <cr>
-nnoremap <silent> <a-q><a-v> :<c-u>vs ~/org/notes.org <cr>
-nnoremap <silent> <a-q>v     :<c-u>vs ~/org/notes.org <cr>
-nnoremap <silent> <a-q><a-s> :<c-u>sp ~/org/notes.org <cr>
-nnoremap <silent> <a-q>s     :<c-u>sp ~/org/notes.org <cr>
-"" On Term-Mode
-tnoremap <silent> <a-q><a-o> <c-u>nvr ~/org/notes.org <cr>
-tnoremap <silent> <a-q>o     <c-u>nvr ~/org/notes.org <cr>
-tnoremap <silent> <a-q><a-e> <c-u>nvr ~/org/notes.org <cr>
-tnoremap <silent> <a-q>e     <c-u>nvr ~/org/notes.org <cr>
+"nnoremap <silent> <a-q><a-o> :<c-u>e  ~/org/notes.org <cr>
+"nnoremap <silent> <a-q>o     :<c-u>e  ~/org/notes.org <cr>
+""nnoremap <silent> <a-q><a-e> :<c-u>e  ~/org/notes.org <cr>
+""nnoremap <silent> <a-q>e     :<c-u>e  ~/org/notes.org <cr>
+""nnoremap <silent> <a-q><a-v> :<c-u>vs ~/org/notes.org <cr>
+""nnoremap <silent> <a-q>v     :<c-u>vs ~/org/notes.org <cr>
+""nnoremap <silent> <a-q><a-s> :<c-u>sp ~/org/notes.org <cr>
+""nnoremap <silent> <a-q>s     :<c-u>sp ~/org/notes.org <cr>
+"""" On Term-Mode
+"tnoremap <silent> <a-q><a-o> <c-u>nvr ~/org/notes.org <cr>
+"tnoremap <silent> <a-q>o     <c-u>nvr ~/org/notes.org <cr>
+""tnoremap <silent> <a-q><a-e> <c-u>nvr ~/org/notes.org <cr>
+""tnoremap <silent> <a-q>e     <c-u>nvr ~/org/notes.org <cr>
 "}}}
 
+""" NP Directory
+nnoremap <a-w><a-i> :cd -<cr>:echo '$CWD is "' . getcwd() . '"'<cr>
+nnoremap <a-w>i     :cd -<cr>:echo '$CWD is "' . getcwd() . '"'<cr>
+nnoremap <a-w><a-o> :cd ..<cr>:echo '$CWD is "' . getcwd() . '"'<cr>
+nnoremap <a-w>o     :cd ..<cr>:echo '$CWD is "' . getcwd() . '"'<cr>
 """ Current Directory
-nnoremap <a-w><a-w> :cd %:p:h<cr>:echo '$CWD is "' . getcwd() . '"'<cr>
-nnoremap <a-w>c     :cd %:p:h<cr>:echo '$CWD is "' . getcwd() . '"'<cr>
+nnoremap <a-w><a-.> :cd %:p:h<cr>:echo '$CWD is "' . getcwd() . '"'<cr>
+nnoremap <a-w>.     :cd %:p:h<cr>:echo '$CWD is "' . getcwd() . '"'<cr>
 "" Root Directory
 nnoremap <a-w><a-r> :cd /<cr>:echo '$CWD is "' . getcwd() . '"'<cr>
 nnoremap <a-w>r     :cd /<cr>:echo '$CWD is "' . getcwd() . '"'<cr>
@@ -58,18 +64,14 @@ nnoremap <a-w>h     :cd ~<cr>:echo '$CWD is "' . getcwd() . '"'<cr>
 nnoremap <a-w><a-a> :cd ~/.cache<cr>:echo '$CWD is "' . getcwd() . '"'<cr>
 nnoremap <a-w>a     :cd ~/.cache<cr>:echo '$CWD is "' . getcwd() . '"'<cr>
 "" XDG_CONFIG_HOME
-nnoremap <a-w><a-g> :cd ~/.config<cr>:echo '$CWD is "' . getcwd() . '"'<cr>
-nnoremap <a-w>g     :cd ~/.config<cr>:echo '$CWD is "' . getcwd() . '"'<cr>
-nnoremap <a-w><a-f> :cd ~/.config<cr>:echo '$CWD is "' . getcwd() . '"'<cr>
-nnoremap <a-w>f     :cd ~/.config<cr>:echo '$CWD is "' . getcwd() . '"'<cr>
+nnoremap <a-w><a-c> :cd ~/.config<cr>:echo '$CWD is "' . getcwd() . '"'<cr>
+nnoremap <a-w>c     :cd ~/.config<cr>:echo '$CWD is "' . getcwd() . '"'<cr>
 "" Dotfiles
 nnoremap <a-w><a-d> :cd ~/dotfiles<cr>:echo '$CWD is "' . getcwd() . '"'<cr>
 nnoremap <a-w>d     :cd ~/dotfiles<cr>:echo '$CWD is "' . getcwd() . '"'<cr>
-nnoremap <a-w><a-.> :cd ~/dotfiles<cr>:echo '$CWD is "' . getcwd() . '"'<cr>
-nnoremap <a-w>.     :cd ~/dotfiles<cr>:echo '$CWD is "' . getcwd() . '"'<cr>
 "" Org-Mode
-nnoremap <a-w><a-o> :cd ~/org<cr>:echo '$CWD is "' . getcwd() . '"'<cr>
-nnoremap <a-w>o     :cd ~/org<cr>:echo '$CWD is "' . getcwd() . '"'<cr>
+"nnoremap <a-w><a-o> :cd ~/org<cr>:echo '$CWD is "' . getcwd() . '"'<cr>
+"nnoremap <a-w>o     :cd ~/org<cr>:echo '$CWD is "' . getcwd() . '"'<cr>
 
 """ hjkl
 " move as it looks.
@@ -129,10 +131,10 @@ noremap <Plug>(shift-to-middle)    :<c-u>call cursor(line('.'),col('$')/2)<cr>
 "}}}
 
 """" Definition; For Visual-Mode {{{
-let s:v_leap_in_win_higher = cursor((line('w0') + line('.'))/2,                col('.'))
-let s:v_leap_in_win_middle = cursor((line('w0') + line('w$') + 2*line('.'))/4, col('.'))
-let s:v_leap_in_win_lower  = cursor((line('w$') + line('.') + 1)/2,            col('.'))
-let s:v_shift_to_middle    = cursor(line('.'),                                 col('$')/2)
+"let s:v_leap_in_win_higher = cursor((line('w0') + line('.'))/2,                col('.'))
+"let s:v_leap_in_win_middle = cursor((line('w0') + line('w$') + 2*line('.'))/4, col('.'))
+"let s:v_leap_in_win_lower  = cursor((line('w$') + line('.') + 1)/2,            col('.'))
+"let s:v_shift_to_middle    = cursor(line('.'),                                 col('$')/2)
 "}}}
 "}}}
 "}}}
@@ -141,24 +143,24 @@ let s:v_shift_to_middle    = cursor(line('.'),                                 c
 """" Keymap; Normal-Mode {{{
 " CAUTION: <c-m> is identical with <cr>; <c-,>/<c-.> does't work.
 " <c-hjkl> get along with <c-fbud>; <a-hjkl> get along with <s-wbe>.
-nmap <silent> <c-h> <Plug>(leap-in-win-middle)
-nmap <silent> <c-j> <Plug>(leap-in-win-lower)
-nmap <silent> <c-k> <Plug>(leap-in-win-higher)
-nmap <silent> <c-l> <Plug>(shift-to-middle)
+"nmap <silent> <c-h> <Plug>(leap-in-win-middle)
+"nmap <silent> <c-j> <Plug>(leap-in-win-lower)
+"nmap <silent> <c-k> <Plug>(leap-in-win-higher)
+"nmap <silent> <c-l> <Plug>(shift-to-middle)
 "}}}
 
 """" Experimental: Keymap; Visual-Mode {{{
-vmap <silent> <c-h> m`<Plug>(leap-in-win-middle)v``
-vmap <silent> <c-j> m`<Plug>(leap-in-win-lower)vo``o
-vmap <silent> <c-k> m`<Plug>(leap-in-win-higher)v``
-vmap <silent> <c-l> m`<Plug>(shift-to-middle)v``
+"vmap <silent> <c-h> m`<Plug>(leap-in-win-middle)v``
+"vmap <silent> <c-j> m`<Plug>(leap-in-win-lower)vo``o
+"vmap <silent> <c-k> m`<Plug>(leap-in-win-higher)v``
+"vmap <silent> <c-l> m`<Plug>(shift-to-middle)v``
 "}}}
 
 """" Keymap; Operator-Pending {{{
-omap <silent> <c-h> <Plug>(leap-in-win-middle)
-omap <silent> <c-j> <Plug>(leap-in-win-lower)
-omap <silent> <c-k> <Plug>(leap-in-win-higher)
-omap <silent> <c-l> <Plug>(shift-to-middle)
+"omap <silent> <c-h> <Plug>(leap-in-win-middle)
+"omap <silent> <c-j> <Plug>(leap-in-win-lower)
+"omap <silent> <c-k> <Plug>(leap-in-win-higher)
+"omap <silent> <c-l> <Plug>(shift-to-middle)
 "}}}
 "}}}
 "}}}
@@ -249,16 +251,14 @@ nnoremap <silent> <a-t>t     :<c-u>tabe <bar>:te<cr>
 " With cd
 nnoremap <silent> <a-t><a-h> :<c-u>cd ~          <bar>:te<cr>
 nnoremap <silent> <a-t><a-o> :<c-u>cd ~/org      <bar>:te<cr>
-nnoremap <silent> <a-t><a-.> :<c-u>cd ~/dotfiles <bar>:te<cr>
 nnoremap <silent> <a-t><a-d> :<c-u>cd ~/dotfiles <bar>:te<cr>
-nnoremap <silent> <a-t><a-g> :<c-u>cd ~/.config  <bar>:te<cr>
-nnoremap <silent> <a-t><a-w> :<c-u>cd %:p:h      <bar>:te<cr>
+nnoremap <silent> <a-t><a-c> :<c-u>cd ~/.config  <bar>:te<cr>
+nnoremap <silent> <a-t><a-.> :<c-u>cd %:p:h      <bar>:te<cr>
 nnoremap <silent> <a-t>h     :<c-u>cd ~          <bar>:te<cr>
 nnoremap <silent> <a-t>o     :<c-u>cd ~/org      <bar>:te<cr>
-nnoremap <silent> <a-t>.     :<c-u>cd ~/dotfiles <bar>:te<cr>
 nnoremap <silent> <a-t>d     :<c-u>cd ~/dotfiles <bar>:te<cr>
-nnoremap <silent> <a-t>g     :<c-u>cd ~/.config  <bar>:te<cr>
-nnoremap <silent> <a-t>w     :<c-u>cd %:p:h      <bar>:te<cr>
+nnoremap <silent> <a-t>c     :<c-u>cd ~/.config  <bar>:te<cr>
+nnoremap <silent> <a-t>.     :<c-u>cd %:p:h      <bar>:te<cr>
 " on term-mode, too.
 tnoremap <silent> <a-t><a-o> cd ~/org      <cr>
 tnoremap <silent> <a-t><a-.> cd ~/dotfiles <cr>
