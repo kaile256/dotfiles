@@ -197,9 +197,9 @@ augroup MyVimWikiAugroup "{{{
   "au BufWritePre * if &filetype == 'vimwiki' | VimwikiTOC | endif
   au InsertLeave * if &filetype == 'vimwiki' | norm zH | endif
 
-  au BufRead * if &filetype == 'vimwiki' | call <SID>my_vimwiki_setlocal() | endif
-  au BufRead * if &filetype == 'vimwiki' | call <SID>my_vimwiki_keymap()   | endif
-  au BufRead * if &filetype == 'vimwiki' | call <SID>my_vimwiki_diary()    | endif
+  au Syntax,BufEnter * if &filetype == 'vimwiki' | call <SID>my_vimwiki_setlocal() | endif
+  au Syntax,BufEnter * if &filetype == 'vimwiki' | call <SID>my_vimwiki_keymap()   | endif
+  au Syntax,BufEnter * if &filetype == 'vimwiki' | call <SID>my_vimwiki_diary()    | endif
 
   " Open DiaryNote as Startpage
   if @% == '' && &filetype ==# '' && &buftype ==# ''
@@ -207,9 +207,9 @@ augroup MyVimWikiAugroup "{{{
   endif
 
   " Open Terminal as Startpage
-  if @% == '' && &filetype ==# '' && &buftype ==# ''
-    au VimEnter * silent! call termopen(&shell)
-  endif
+  "if @% == '' && &filetype ==# '' && &buftype ==# ''
+  "  au VimEnter * silent call termopen(&shell) && setlocal nonumber signcolumn=no modifiable
+  "endif
 
 augroup END "}}}
 "}}}

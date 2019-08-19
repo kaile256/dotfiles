@@ -3,10 +3,10 @@
 
 " Buffer; Function! {{{
 function! s:auto_format_if_modifiable() "{{{
-  if &modifiable
-    if &readonly
+  if &modifiable == 1
+    if &readonly == 0
       setlocal linebreak
-    elseif &readonly != 0
+    else
       setlocal nolinebreak
       if &textwidth != 0
         setlocal textwidth=0
@@ -32,20 +32,30 @@ function! s:keymap_for_commandline()
 endfunction
 "}}}
 
-" Buffer; Augroup {{{
+"" Buffer; Augroup {{{
+augroup ConfirmOnError "{{{
+  au!
+  " CAUTION: &syntax is NOT boolean.
+  "au Syntax,BufEnter * if &syntax == '' | syntax enable | endif
+  """ Experimental: `:h confirm`
+  "au Syntax,BufEnter * if &filetype == '' | confirm | endif
+"au Syntax,BufEnter * if &filetype == 'conf' | confirm | endif
+"au Syntax,BufEnter * if &filetype == '' | confirm | endif
+augroup END "}}}
+
 augroup AppendFileType "{{{
 
   au!
-  au BufEnter *.vim!      setlocal filetype=vim
-  au BufEnter *.vimrc!    setlocal filetype=vim
-  au BufEnter i3/*/config setlocal filetype=i3
-  au BufEnter *.txt       setlocal syntax=help
+  au Syntax,BufEnter *.vim!      setlocal filetype=vim
+  au Syntax,BufEnter *.vimrc!    setlocal filetype=vim
+  au Syntax,BufEnter i3/*/config setlocal filetype=i3
+  au Syntax,BufEnter *.txt       setlocal syntax=help
 
 augroup END "}}}
 
 augroup AlertOnBuffer " {{{
   """ Alert on Sourcing non-vim buffer.
-  au BufEnter * if &filetype !=# 'vim' | call s:alert_ft_is_not_vim() | endif
+  au Syntax,BufEnter * if &filetype !=# 'vim' | call s:alert_ft_is_not_vim() | endif
 
   " CAUTION: Too many Exceptions!!
   au! FileChangedRO * colorscheme molokai
@@ -79,9 +89,12 @@ augroup END " }}}
 
 augroup OnTermMode "{{{
   au!
-  if @% == '' && &filetype ==# '' && &buftype ==# ''
-    au VimEnter * call termopen(&shell)
-  endif
+
+  " Open Terminal as Startpage
+  "if @% == '' && &filetype ==# '' && &buftype ==# ''
+  "  au VimEnter * call termopen(&shell)
+  "endif
+
   au Syntax * if @# =~# 'term:' && &filetype !=# 'fzf' | bwipeout! # | endif
   au FileType netrw if @# =~# 'term:' | bwipeout! # | endif
   au VimEnter,TermOpen * if &buftype ==# 'terminal' | setlocal nonumber signcolumn=no modifiable | endif
@@ -119,25 +132,25 @@ augroup AutoFormat "{{{
   "" Cursor Locates on the Middle
   "au BufWinEnter * if &filetype ==# 'help' | norm zz | endif
 
-  """ AutoFormat; Unusual Appending on BufList "{{{
-  "" Append Help on Buffer-list
-  au BufLeave *  if &buftype ==# 'help' | setlocal buflisted | endif
-  au BufEnter *  if &buftype ==# 'help' | setlocal signcolumn= nonumber | endif
-  "}}}
+""" AutoFormat; Unusual Appending on BufList "{{{
+"" Append Help on Buffer-list
+au BufWinLeave *  if &buftype ==# 'help' | setlocal buflisted | endif
+au BufRead *  if &buftype ==# 'help' | setlocal signcolumn= nonumber | endif
+"}}}
 
-  """ AutoFormat; Delete "{{{
-  "" Space Unnecessary
-  au BufWritePre * silent keeppatterns %s/\s\+$//ge
-  "" URL
-  "" Remove Unnecessary part of URL
-  au BufWritePre *.toml   silent keeppatterns %s/https:\/\/github.com\///ge
-  au FileType toml nnoremap <buffer><silent> <s-tab> :keeppatterns %s/^\s\+//ge<cr>
-  "}}}
+""" AutoFormat; Delete "{{{
+"" Space Unnecessary
+au BufWritePre * silent keeppatterns %s/\s\+$//ge
+"" URL
+"" Remove Unnecessary part of URL
+au BufWritePre *.toml   silent keeppatterns %s/https:\/\/github.com\///ge
+au FileType toml nnoremap <buffer><silent> <s-tab> :keeppatterns %s/^\s\+//ge<cr>
+"}}}
 
-  au BufRead * call s:auto_format_if_modifiable()
+"au BufRead * call <SID>auto_format_if_modifiable()
 
-  """ Re-Syntax on Error
-  au FocusLost,ColorScheme * syntax enable
+""" Re-Syntax on Error
+au FocusLost,ColorScheme * syntax enable
 augroup END "}}}
 
 augroup KeymapOnCondition "{{{
