@@ -4,10 +4,12 @@
 
 " FZF; Function! {{{
 function! s:fzf_statusline()
+
   " Override statusline as you like
   highlight fzf1 ctermfg=161 ctermbg=251
-  highlight fzf2 ctermfg=23 ctermbg=251
+  highlight fzf2 ctermfg=23  ctermbg=251
   highlight fzf3 ctermfg=237 ctermbg=251
+
   setlocal statusline=%#fzf1#\ >\ %#fzf2#fz%#fzf3#f
 endfunction
 
@@ -18,9 +20,9 @@ function! s:build_quickfix_list(lines)
 endfunction
 
 function! s:fzf_buffer_keymap() "{{{
-  noremap <buffer><silent> <a-a> <c-\><c-n>:<c-u>quit<cr><a-a>
-  noremap <buffer><silent> <a-r> <c-\><c-n>:<c-u>quit<cr><a-r>
-  noremap <buffer><silent> <a-q> <c-\><c-n>:<c-u>quit<cr><a-q>
+  tnoremap <buffer><silent> <a-a> <c-\><c-n>:<c-u>quit<cr><a-a>
+  tnoremap <buffer><silent> <a-r> <c-\><c-n>:<c-u>quit<cr><a-r>
+  tnoremap <buffer><silent> <a-q> <c-\><c-n>:<c-u>quit<cr><a-q>
 endfunction
 "}}}
 "}}}
@@ -110,20 +112,20 @@ else
 
   tnoremap <silent> <a-a><a-r> <c-u>cd /<cr>              <c-\><c-n>:<c-u> Ag<cr>
   tnoremap <silent> <a-a>r     <c-u>cd /<cr>              <c-\><c-n>:<c-u> Ag<cr>
-  tnoremap <silent> <a-a><a-w> <c-u>cd %:p:h<cr>          <c-\><c-n>:<c-u> Ag<cr>
-  tnoremap <silent> <a-a>w     <c-u>cd %:p:h<cr>          <c-\><c-n>:<c-u> Ag<cr>
+  tnoremap <silent> <a-a><a-.> <c-u>cd %:p:h<cr>          <c-\><c-n>:<c-u> Ag<cr>
+  tnoremap <silent> <a-a>.     <c-u>cd %:p:h<cr>          <c-\><c-n>:<c-u> Ag<cr>
   tnoremap <silent> <a-a><a-h> <c-u>cd ~<cr>              <c-\><c-n>:<c-u> Ag<cr>
   tnoremap <silent> <a-a>h     <c-u>cd ~<cr>              <c-\><c-n>:<c-u> Ag<cr>
   tnoremap <silent> <a-a><a-o> <c-u>cd ~/org<cr>          <c-\><c-n>:<c-u> Ag<cr>
   tnoremap <silent> <a-a>o     <c-u>cd ~/org<cr>          <c-\><c-n>:<c-u> Ag<cr>
   tnoremap <silent> <a-a><a-d> <c-u>cd ~/dotfiles<cr>     <c-\><c-n>:<c-u> Ag<cr>
   tnoremap <silent> <a-a>d     <c-u>cd ~/dotfiles<cr>     <c-\><c-n>:<c-u> Ag<cr>
-  tnoremap <silent> <a-a><a-.> <c-u>cd ~/dotfiles<cr>     <c-\><c-n>:<c-u> Ag<cr>
-  tnoremap <silent> <a-a>.     <c-u>cd ~/dotfiles<cr>     <c-\><c-n>:<c-u> Ag<cr>
+  tnoremap <silent> <a-a><a-c> <c-u>cd ~/.cache<cr>       <c-\><c-n>:<c-u> Ag<cr>
+  tnoremap <silent> <a-a>c     <c-u>cd ~/.cache<cr>       <c-\><c-n>:<c-u> Ag<cr>
   tnoremap <silent> <a-a><a-g> <c-u>cd ~/.config<cr>      <c-\><c-n>:<c-u> Ag<cr>
   tnoremap <silent> <a-a>g     <c-u>cd ~/.config<cr>      <c-\><c-n>:<c-u> Ag<cr>
-  tnoremap <silent> <a-a><a-n> <c-u>cd ~/.config/nvim<cr> <c-\><c-n>:<c-u> Ag<cr>
-  tnoremap <silent> <a-a>n     <c-u>cd ~/.config/nvim<cr> <c-\><c-n>:<c-u> Ag<cr>
+  tnoremap <silent> <a-a><a-v> <c-u>cd ~/.config/nvim<cr> <c-\><c-n>:<c-u> Ag<cr>
+  tnoremap <silent> <a-a>v     <c-u>cd ~/.config/nvim<cr> <c-\><c-n>:<c-u> Ag<cr>
 
   nnoremap <silent> <a-a><a-k> :<c-u>cd ~/vimwiki/diary<cr> :<c-u> Ag<cr>
   nnoremap <silent> <a-a>k     :<c-u>cd ~/vimwiki/diary<cr> :<c-u> Ag<cr>
@@ -134,83 +136,91 @@ else
 
   nnoremap <silent> <a-a><a-r> :<c-u>cd /<cr>              :<c-u> Ag<cr>
   nnoremap <silent> <a-a>r     :<c-u>cd /<cr>              :<c-u> Ag<cr>
-  nnoremap <silent> <a-a><a-w> :<c-u>cd %:p:h<cr>          :<c-u> Ag<cr>
-  nnoremap <silent> <a-a>w     :<c-u>cd %:p:h<cr>          :<c-u> Ag<cr>
+  nnoremap <silent> <a-a><a-.> :<c-u>cd %:p:h<cr>          :<c-u> Ag<cr>
+  nnoremap <silent> <a-a>.     :<c-u>cd %:p:h<cr>          :<c-u> Ag<cr>
   nnoremap <silent> <a-a><a-h> :<c-u>cd ~<cr>              :<c-u> Ag<cr>
   nnoremap <silent> <a-a>h     :<c-u>cd ~<cr>              :<c-u> Ag<cr>
   nnoremap <silent> <a-a><a-o> :<c-u>cd ~/org<cr>          :<c-u> Ag<cr>
   nnoremap <silent> <a-a>o     :<c-u>cd ~/org<cr>          :<c-u> Ag<cr>
   nnoremap <silent> <a-a><a-d> :<c-u>cd ~/dotfiles<cr>     :<c-u> Ag<cr>
   nnoremap <silent> <a-a>d     :<c-u>cd ~/dotfiles<cr>     :<c-u> Ag<cr>
-  nnoremap <silent> <a-a><a-.> :<c-u>cd ~/dotfiles<cr>     :<c-u> Ag<cr>
-  nnoremap <silent> <a-a>.     :<c-u>cd ~/dotfiles<cr>     :<c-u> Ag<cr>
+  nnoremap <silent> <a-a><a-c> :<c-u>cd ~/.cahce<cr>       :<c-u> Ag<cr>
+  nnoremap <silent> <a-a>c     :<c-u>cd ~/.cahce<cr>       :<c-u> Ag<cr>
   nnoremap <silent> <a-a><a-g> :<c-u>cd ~/.config<cr>      :<c-u> Ag<cr>
   nnoremap <silent> <a-a>g     :<c-u>cd ~/.config<cr>      :<c-u> Ag<cr>
-  nnoremap <silent> <a-a><a-n> :<c-u>cd ~/.config/nvim<cr> :<c-u> Ag<cr>
-  nnoremap <silent> <a-a>n     :<c-u>cd ~/.config/nvim<cr> :<c-u> Ag<cr>
+  nnoremap <silent> <a-a><a-v> :<c-u>cd ~/.config/nvim<cr> :<c-u> Ag<cr>
+  nnoremap <silent> <a-a>v     :<c-u>cd ~/.config/nvim<cr> :<c-u> Ag<cr>
 
 endif
 "}}}
 
-"" Keymap; Ripgrep {{{
+
+      \ "" Keymap; Ripgrep {{{
 if executable('rg') == 0
 
   nnoremap <silent><nowait> <a-r> :<c-u>echo "You don't have executable 'ripgrep'"<cr>
 
 else
-  tnoremap <silent> <a-r><a-k> <c-u>cd ~/vimwiki/diary <c-\><c-n>:<c-u> Rg<cr>
-  tnoremap <silent> <a-r>k     <c-u>cd ~/vimwiki/diary <c-\><c-n>:<c-u> Rg<cr>
-  tnoremap <silent> <a-r>      <c-u><c-\><c-n>:<c-u> Rg<cr>
   tnoremap <silent> <a-r><a-c> <c-u><c-\><c-n>:<c-u> Rg<cr>
   tnoremap <silent> <a-r>c     <c-u><c-\><c-n>:<c-u> Rg<cr>
-  tnoremap <silent> <a-r><a-r> <c-u>cd /<cr>          <c-\><c-n>:<c-u> Rg<cr>
-  tnoremap <silent> <a-r>r     <c-u>cd /<cr>          <c-\><c-n>:<c-u> Rg<cr>
-  tnoremap <silent> <a-r><a-w> <c-u>cd %:p:h<cr>      <c-\><c-n>:<c-u> Rg<cr>
-  tnoremap <silent> <a-r>w     <c-u>cd %:p:h<cr>      <c-\><c-n>:<c-u> Rg<cr>
-  tnoremap <silent> <a-r><a-h> <c-u>cd ~<cr>          <c-\><c-n>:<c-u> Rg<cr>
-  tnoremap <silent> <a-r>h     <c-u>cd ~<cr>          <c-\><c-n>:<c-u> Rg<cr>
-  tnoremap <silent> <a-r><a-o> <c-u>cd ~/org<cr>      <c-\><c-n>:<c-u> Rg<cr>
-  tnoremap <silent> <a-r>o     <c-u>cd ~/org<cr>      <c-\><c-n>:<c-u> Rg<cr>
-  tnoremap <silent> <a-r><a-d> <c-u>cd ~/dotfiles<cr> <c-\><c-n>:<c-u> Rg<cr>
-  tnoremap <silent> <a-r>d     <c-u>cd ~/dotfiles<cr> <c-\><c-n>:<c-u> Rg<cr>
-  tnoremap <silent> <a-r><a-.> <c-u>cd ~/dotfiles<cr> <c-\><c-n>:<c-u> Rg<cr>
-  tnoremap <silent> <a-r>.     <c-u>cd ~/dotfiles<cr> <c-\><c-n>:<c-u> Rg<cr>
-  tnoremap <silent> <a-r><a-g> <c-u>cd ~/.config<cr>  <c-\><c-n>:<c-u> Rg<cr>
-  tnoremap <silent> <a-r>g     <c-u>cd ~/.config<cr>  <c-\><c-n>:<c-u> Rg<cr>
+
+  tnoremap <silent> <a-r><a-k> <c-u>cd ~/vimwiki/diary    <c-\><c-n>:<c-u> Rg<cr>
+  tnoremap <silent> <a-r>k     <c-u>cd ~/vimwiki/diary    <c-\><c-n>:<c-u> Rg<cr>
+  tnoremap <silent> <a-r><a-r> <c-u>cd /<cr>              <c-\><c-n>:<c-u> Rg<cr>
+  tnoremap <silent> <a-r>r     <c-u>cd /<cr>              <c-\><c-n>:<c-u> Rg<cr>
+  tnoremap <silent> <a-r><a-w> <c-u>cd %:p:h<cr>          <c-\><c-n>:<c-u> Rg<cr>
+  tnoremap <silent> <a-r>w     <c-u>cd %:p:h<cr>          <c-\><c-n>:<c-u> Rg<cr>
+  tnoremap <silent> <a-r><a-h> <c-u>cd ~<cr>              <c-\><c-n>:<c-u> Rg<cr>
+  tnoremap <silent> <a-r>h     <c-u>cd ~<cr>              <c-\><c-n>:<c-u> Rg<cr>
+  tnoremap <silent> <a-r><a-o> <c-u>cd ~/org<cr>          <c-\><c-n>:<c-u> Rg<cr>
+  tnoremap <silent> <a-r>o     <c-u>cd ~/org<cr>          <c-\><c-n>:<c-u> Rg<cr>
+  tnoremap <silent> <a-r><a-d> <c-u>cd ~/dotfiles<cr>     <c-\><c-n>:<c-u> Rg<cr>
+  tnoremap <silent> <a-r>d     <c-u>cd ~/dotfiles<cr>     <c-\><c-n>:<c-u> Rg<cr>
+  tnoremap <silent> <a-r><a-c> <c-u>cd ~/.cache<cr>     <c-\><c-n>:<c-u> Rg<cr>
+  tnoremap <silent> <a-r>c     <c-u>cd ~/.cache<cr>     <c-\><c-n>:<c-u> Rg<cr>
+  tnoremap <silent> <a-r><a-g> <c-u>cd ~/.config<cr>      <c-\><c-n>:<c-u> Rg<cr>
+  tnoremap <silent> <a-r>g     <c-u>cd ~/.config<cr>      <c-\><c-n>:<c-u> Rg<cr>
+  tnoremap <silent> <a-r><a-v> <c-u>cd ~/.config/nvim<cr> <c-\><c-n>:<c-u> Rg<cr>
+  tnoremap <silent> <a-r>v     <c-u>cd ~/.config/nvim<cr> <c-\><c-n>:<c-u> Rg<cr>
+
+  nnoremap <silent> <a-r><a-c> :<c-u>:<c-u> Rg<cr>
+  nnoremap <silent> <a-r>c     :<c-u>:<c-u> Rg<cr>
 
   nnoremap <silent> <a-r><a-k> :<c-u>cd ~/vimwiki/diary<cr> :<c-u> Rg<cr>
   nnoremap <silent> <a-r>k     :<c-u>cd ~/vimwiki/diary<cr> :<c-u> Rg<cr>
-  nnoremap <silent> <a-r>      :<c-u>:<c-u> Rg<cr>
-  nnoremap <silent> <a-r><a-c> :<c-u>:<c-u> Rg<cr>
-  nnoremap <silent> <a-r>c     :<c-u>:<c-u> Rg<cr>
-  nnoremap <silent> <a-r><a-r> :<c-u>cd /<cr>           :<c-u> Rg<cr>
-  nnoremap <silent> <a-r>r     :<c-u>cd /<cr>           :<c-u> Rg<cr>
-  nnoremap <silent> <a-r><a-w> :<c-u>cd %:p:h<cr>       :<c-u> Rg<cr>
-  nnoremap <silent> <a-r>w     :<c-u>cd %:p:h<cr>       :<c-u> Rg<cr>
-  nnoremap <silent> <a-r><a-h> :<c-u>cd ~<cr>           :<c-u> Rg<cr>
-  nnoremap <silent> <a-r>h     :<c-u>cd ~<cr>           :<c-u> Rg<cr>
-  nnoremap <silent> <a-r><a-o> :<c-u>cd ~/org<cr>       :<c-u> Rg<cr>
-  nnoremap <silent> <a-r>o     :<c-u>cd ~/org<cr>       :<c-u> Rg<cr>
-  nnoremap <silent> <a-r><a-d> :<c-u>cd ~/dotfiles<cr>  :<c-u> Rg<cr>
-  nnoremap <silent> <a-r>d     :<c-u>cd ~/dotfiles<cr>  :<c-u> Rg<cr>
-  nnoremap <silent> <a-r><a-.> :<c-u>cd ~/dotfiles<cr>  :<c-u> Rg<cr>
-  nnoremap <silent> <a-r>.     :<c-u>cd ~/dotfiles<cr>  :<c-u> Rg<cr>
-  nnoremap <silent> <a-r><a-g> :<c-u>cd ~/.config<cr>   :<c-u> Rg<cr>
-  nnoremap <silent> <a-r>g     :<c-u>cd ~/.config<cr>   :<c-u> Rg<cr>
+  nnoremap <silent> <a-r><a-r> :<c-u>cd /<cr>               :<c-u> Rg<cr>
+  nnoremap <silent> <a-r>r     :<c-u>cd /<cr>               :<c-u> Rg<cr>
+  nnoremap <silent> <a-r><a-.> :<c-u>cd %:p:h<cr>           :<c-u> Rg<cr>
+  nnoremap <silent> <a-r>.     :<c-u>cd %:p:h<cr>           :<c-u> Rg<cr>
+  nnoremap <silent> <a-r><a-h> :<c-u>cd ~<cr>               :<c-u> Rg<cr>
+  nnoremap <silent> <a-r>h     :<c-u>cd ~<cr>               :<c-u> Rg<cr>
+  nnoremap <silent> <a-r><a-o> :<c-u>cd ~/org<cr>           :<c-u> Rg<cr>
+  nnoremap <silent> <a-r>o     :<c-u>cd ~/org<cr>           :<c-u> Rg<cr>
+  nnoremap <silent> <a-r><a-d> :<c-u>cd ~/dotfiles<cr>      :<c-u> Rg<cr>
+  nnoremap <silent> <a-r>d     :<c-u>cd ~/dotfiles<cr>      :<c-u> Rg<cr>
+  nnoremap <silent> <a-r><a-c> :<c-u>cd ~/.cache<cr>        :<c-u> Rg<cr>
+  nnoremap <silent> <a-r>c     :<c-u>cd ~/.cache<cr>        :<c-u> Rg<cr>
+  nnoremap <silent> <a-r><a-g> :<c-u>cd ~/.config<cr>       :<c-u> Rg<cr>
+  nnoremap <silent> <a-r>g     :<c-u>cd ~/.config<cr>       :<c-u> Rg<cr>
+  nnoremap <silent> <a-r><a-v> :<c-u>cd ~/.config/nvim<cr>  :<c-u> Rg<cr>
+  nnoremap <silent> <a-r>v     :<c-u>cd ~/.config/nvim<cr>  :<c-u> Rg<cr>
 endif
 "}}}
 
 "" Keymap; Various {{{
 " Mnemonic: File-path
 imap <c-f> <plug>(fzf-complete-path)
-" NOTE: Too Slow to Acivate Ag
+" NOTE: Too slow to when parmission denied.
+"imap <c-f> <plug>(fzf-complete-file)
 "imap <c-f> <plug>(fzf-complete-file-ag)
 " :FZF! starts fzf on full-window.
 
-tnoremap <silent> <a-q><a-h> <c-u>cd ~<cr>          <c-\><c-n>:<c-u> FZF<cr>
-tnoremap <silent> <a-q>h     <c-u>cd ~<cr>          <c-\><c-n>:<c-u> FZF<cr>
-tnoremap <silent> <a-q><a-.> <c-u>cd ~/dotfiles<cr> <c-\><c-n>:<c-u> FZF<cr>
-tnoremap <silent> <a-q>.     <c-u>cd ~/dotfiles<cr> <c-\><c-n>:<c-u> FZF<cr>
+tnoremap <silent> <a-q><a-h> <c-u>cd ~<cr>               <c-\><c-n>:<c-u> FZF<cr>
+tnoremap <silent> <a-q>h     <c-u>cd ~<cr>               <c-\><c-n>:<c-u> FZF<cr>
+tnoremap <silent> <a-q><a-d> <c-u>cd ~/dotfiles<cr>      <c-\><c-n>:<c-u> FZF<cr>
+tnoremap <silent> <a-q>d     <c-u>cd ~/dotfiles<cr>      <c-\><c-n>:<c-u> FZF<cr>
+tnoremap <silent> <a-q><a-v> <c-u>cd ~/dotfiles/nvim<cr> <c-\><c-n>:<c-u> FZF<cr>
+tnoremap <silent> <a-q>v     <c-u>cd ~/dotfiles/nvim<cr> <c-\><c-n>:<c-u> FZF<cr>
 
 tnoremap <silent> <a-q>q     <c-\><c-n>:<c-u> BLines<cr>
 tnoremap <silent> <a-q><a-q> <c-\><c-n>:<c-u> BLines<cr>
@@ -221,12 +231,14 @@ tnoremap <silent> <a-q>l     <c-\><c-n>:<c-u> Helptags<cr>
 tnoremap <silent> <a-q><a-w> <c-\><c-n>:<c-u> Windows<cr>
 tnoremap <silent> <a-q>w     <c-\><c-n>:<c-u> Windows<cr>
 
-nnoremap <silent> <a-q><a-h> :<c-u> cd ~          <bar> FZF<cr>
-nnoremap <silent> <a-q>h     :<c-u> cd ~          <bar> FZF<cr>
-nnoremap <silent> <a-q><a-.> :<c-u> cd ~/dotfiles <bar> FZF<cr>
-nnoremap <silent> <a-q>.     :<c-u> cd ~/dotfiles <bar> FZF<cr>
-nnoremap <silent> <a-q><a-w> :<c-u> cd %:p:h      <bar> FZF<cr>
-nnoremap <silent> <a-q>w     :<c-u> cd %:p:h      <bar> FZF<cr>
+nnoremap <silent> <a-q><a-h> :<c-u> cd ~               <bar> FZF<cr>
+nnoremap <silent> <a-q>h     :<c-u> cd ~               <bar> FZF<cr>
+nnoremap <silent> <a-q><a-d> :<c-u> cd ~/dotfiles      <bar> FZF<cr>
+nnoremap <silent> <a-q>d     :<c-u> cd ~/dotfiles      <bar> FZF<cr>
+nnoremap <silent> <a-q><a-v> :<c-u> cd ~/dotfiles/nvim <bar> FZF<cr>
+nnoremap <silent> <a-q>v     :<c-u> cd ~/dotfiles/nvim <bar> FZF<cr>
+nnoremap <silent> <a-q><a-.> :<c-u> cd %:p:h           <bar> FZF<cr>
+nnoremap <silent> <a-q>.     :<c-u> cd %:p:h           <bar> FZF<cr>
 nnoremap <silent> <a-q><a-b> :<c-u> Buffers<cr>
 nnoremap <silent> <a-q>b     :<c-u> Buffers<cr>
 nnoremap <silent> <a-q><a-l> :<c-u> Helptags<cr>
