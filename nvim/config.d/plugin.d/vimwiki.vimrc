@@ -96,12 +96,6 @@ function! s:my_vimwiki_keymap() "{{{
   "nnoremap <buffer><expr> <c-k> ':VimwikiPrevLink<cr>'
   "nnoremap <buffer><expr> <c-j> ':VimwikiNextLink<cr>'
 
-  """ Quick Edit
-  nnoremap <buffer><silent> yp yyp
-  nnoremap <buffer><silent> yP yyP
-  nnoremap <buffer><silent> dp ddp
-  nnoremap <buffer><silent> dP ddP
-
   """ Conversion
   "" Mnemonic: Export to/from ~~
   nnoremap <buffer><silent> <a-x><a-h> :Vimwiki2HTMLBrowse <bar> echo 'Converting Current Buffer to HTML...'
