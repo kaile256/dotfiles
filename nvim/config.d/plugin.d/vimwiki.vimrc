@@ -2,12 +2,24 @@
 """"  Ref: vimwiki/vimwiki
 
 " VimWiki; Let {{{
-"" Let; List {{{
+"" Let; List {{{0
+let g:vimwiki_list = [
+      \ {},
+      \ s:wiki_index,
+      \ s:wiki_markdown,
+      \ s:wiki_org,
+      \ s:wiki_html,
+      \ s:wiki_text
+      \ ]
+
+""" List; Script Variables {{{
 let s:wiki_index = {
       \ 'path': '~/mywiki/',
       \ 'auto_tags': 1,
       \ 'auto_diary_index': 1,
       \ 'list_margin': 4,
+      \ 'g:vimwiki_hl_headers': 1,
+      \ 'g:vimwiki_hl_cb_checked': 2,
       \ 'auto_toc': 1
       \ }
 
@@ -22,46 +34,37 @@ let s:wiki_index.nested_syntaxes = {
       \ 'vim': 'vim'
       \ }
 
-let s:wiki_markdown = [{
+let s:wiki_markdown = {
       \ 'syntax': 'markdown',
-      \ 'path': '~/vimwiki/markdown/',
+      \ 'path': '~/mywiki/markdown/',
       \ 'ext': '.md'
-      \ }]
+      \ }
 
-let s:wiki_org = [{
+let s:wiki_org = {
       \ 'syntax': 'org',
-      \ 'path': '~/vimwiki/org/',
+      \ 'path': '~/mywiki/org/',
       \ 'ext': '.org'
-      \ }]
+      \ }
 
-let s:wiki_html = [{
+let s:wiki_html = {
       \ 'syntax': 'html',
-      \ 'path': '~/vimwiki/html/',
+      \ 'path': '~/mywiki/html/',
       \ 'path_html': '~/htmlwiki/',
       \ 'ext': '.html'
-      \ }]
+      \ }
 
-let s:wiki_text = [{
+let s:wiki_text = {
       \ 'syntax': 'text',
-      \ 'path': '~/vimwiki/text/',
+      \ 'path': '~/mywiki/text/',
       \ 'ext': '.txt'
-      \ }]
-
-let g:vimwiki_list = [
-      \ {},
-      \ s:wiki_index,
-      \ s:wiki_markdown,
-      \ s:wiki_org,
-      \ s:wiki_html,
-      \ s:wiki_text
-      \ ]
+      \ }
 "}}}
 "}}}
 
 " VimWiki; Function! {{{
 function! s:my_vimwiki_diary() "{{{
   " Experimental:
-  "if @% =~# expand(*.'/vimwiki/diary/'.*)
+  "if @% =~# expand(*.'/mywiki/diary/'.*)
   "  nnoremap <buffer> <a-o> :VimwikiDiaryNextDay
   "  nnoremap <buffer> <a-i> :VimwikiDiaryPrevDay
   "endif
@@ -198,27 +201,31 @@ nnoremap <silent> <a-e><a-v> :vs <cr> :VimwikiMakeDiaryNote<cr>
 "}}}
 
 " VimWiki; Augroup {{{
-
-augroup MyVimWikiAugroup "{{{
+augroup MyVimWikiAugroup "{{{0
 
   au!
   "au BufWritePre * if &filetype == 'vimwiki' | VimwikiTOC | endif
-  au BufWinEnter * if &filetype == 'vimwiki' | setlocal buftype=quickfix | endif
+  "au BufWinEnter * if &filetype == 'vimwiki' | setlocal buftype=quickfix tabstop=4 softtabstop=4 shiftwidth=4 | endif
 
-  au InsertLeave * if &filetype == 'vimwiki' | norm zH | endif
+  "au InsertLeave * if &filetype == 'vimwiki' | norm zH | endif
 
-  au Syntax,BufEnter * if &filetype == 'vimwiki' | call <SID>my_vimwiki_setlocal() | endif
-  au Syntax,BufEnter * if &filetype == 'vimwiki' | call <SID>my_vimwiki_keymap()   | endif
-  au Syntax,BufEnter * if &filetype == 'vimwiki' | call <SID>my_vimwiki_diary()    | endif
+  "au Syntax,BufEnter * if &filetype == 'vimwiki' | call <SID>my_vimwiki_setlocal() | endif
+  "au Syntax,BufEnter * if &filetype == 'vimwiki' | call <SID>my_vimwiki_keymap()   | endif
+  "au Syntax,BufEnter * if &filetype == 'vimwiki' | call <SID>my_vimwiki_diary()    | endif
+  au FileType vimwiki if &filetype == 'vimwiki' | setlocal buftype=quickfix tabstop=4 softtabstop=4 shiftwidth=4 | endif
+
+  au FileType vimwiki if &filetype == 'vimwiki' | norm zH | endif
+
+  au FileType vimwiki if &filetype == 'vimwiki' | call <SID>my_vimwiki_setlocal() | endif
+  au FileType vimwiki if &filetype == 'vimwiki' | call <SID>my_vimwiki_keymap()   | endif
+  au FileType vimwiki if &filetype == 'vimwiki' | call <SID>my_vimwiki_diary()    | endif
 
   " Open DiaryNote as Startpage
   if @% == '' && &filetype ==# '' && &buftype ==# ''
     au VimEnter * VimwikiMakeDiaryNote
   endif
-  "au VimEnter * VimwikiMakeDiaryNote
 
   " Open Terminal as Startpage
   "au VimEnter * if @% == '' && &filetype ==# '' && &buftype ==# '' | call termopen(&shell) | setlocal nonumber signcolumn=no modifiable | endif
 
 augroup END "}}}
-"}}}

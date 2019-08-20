@@ -13,5 +13,27 @@
 !add Control = Control_L
 
 !! Eisu_toggle by Caps_Lock; Caps_Lock by Shift-Caps_Lock
-!keycode 66 = Eisu_toggle Caps_Lock
 !clear Lock
+keycode 66 = Eisu_toggle Caps_Lock
+
+! Physical Ctrl-key is keycode (number) 37 ; KEYSYMNAME (default Logical code role) is Ctrl_L
+! Physical Fn-key is keycode 151 ; default logical code role is XF86WakeUp
+!keysym Control_L = XF86WakeUp
+!remove Fn_Lock = XF86WakeUp
+! Change: Fn key to Ctrl func
+! Change: Fn key to Ctrl func; S-Fn key to Fn func
+keycode 151 = Control_L XF86WakeUp
+!add Control = Control_L
+!add XF86WakeUp = Control_L
+! Change: Ctrl key to Fn func
+!keycode 37 = XF86WakeUp
+
+!Exchange left Alt and left Win
+!remove mod1 = Alt_L
+!remove mod4 = Super_L
+!add mod1 = Super_L
+!add mod4 = Alt_L
+! Exchange tilde and lesser/greater
+!keycode  94 = grave asciitilde dead_grave dead_tilde grave asciitilde
+!keycode  49 = less greater less greater bar brokenbar bar brokenbar
+

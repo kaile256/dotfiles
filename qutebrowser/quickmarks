@@ -25,3 +25,5 @@ home https://www.archlinux.org/
 author ja http://haya14busa.com/mastering-vim-easymotion/
 :h dictionary list https://thinca.hatenablog.com/entry/20100201/1265009821
 wiki @eng https://wiki.archlinux.org/
+[[xmodmap]] which is MODIFIERNAME, KEYSYMNAME? https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/key/Key_Values
+vim: get hex color numbers! https://www.hexcolortool.com/#fab89e
