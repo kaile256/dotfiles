@@ -31,8 +31,14 @@ endfunction
 
 augroup FzfAugroup
   au!
-  au User FzfStatusLine call <SID>fzf_statusline()
-  au FileType fzf call <SID>fzf_buffer_keymap()
+
+  " CAUTION: WinLeave's current file is next file, i.e., fzf when opening fzf-buffer.
+  au WinLeave * if &filetype =~# 'fzf'   |  close     
+  au Syntax   * if @#        =~# 'term:' && &filetype !=# 'coc' && &filetype !=# 'fzf' | bwipeout! # 
+
+  au User     FzfStatusLine call <SID>fzf_statusline()
+  au FileType fzf           call <SID>fzf_buffer_keymap()
+
 augroup END
 " }}}
 
@@ -176,8 +182,8 @@ else
   tnoremap <silent> <a-r>o     <c-u>cd ~/org<cr>          <c-\><c-n>:<c-u> Rg<cr>
   tnoremap <silent> <a-r><a-d> <c-u>cd ~/dotfiles<cr>     <c-\><c-n>:<c-u> Rg<cr>
   tnoremap <silent> <a-r>d     <c-u>cd ~/dotfiles<cr>     <c-\><c-n>:<c-u> Rg<cr>
-  tnoremap <silent> <a-r><a-c> <c-u>cd ~/.cache<cr>     <c-\><c-n>:<c-u> Rg<cr>
-  tnoremap <silent> <a-r>c     <c-u>cd ~/.cache<cr>     <c-\><c-n>:<c-u> Rg<cr>
+  tnoremap <silent> <a-r><a-c> <c-u>cd ~/.cache<cr>       <c-\><c-n>:<c-u> Rg<cr>
+  tnoremap <silent> <a-r>c     <c-u>cd ~/.cache<cr>       <c-\><c-n>:<c-u> Rg<cr>
   tnoremap <silent> <a-r><a-g> <c-u>cd ~/.config<cr>      <c-\><c-n>:<c-u> Rg<cr>
   tnoremap <silent> <a-r>g     <c-u>cd ~/.config<cr>      <c-\><c-n>:<c-u> Rg<cr>
   tnoremap <silent> <a-r><a-v> <c-u>cd ~/.config/nvim<cr> <c-\><c-n>:<c-u> Rg<cr>
@@ -243,6 +249,9 @@ nnoremap <silent> <a-q><a-b> :<c-u> Buffers<cr>
 nnoremap <silent> <a-q>b     :<c-u> Buffers<cr>
 nnoremap <silent> <a-q><a-l> :<c-u> Helptags<cr>
 nnoremap <silent> <a-q>l     :<c-u> Helptags<cr>
+"" Mnemonic: 'Old' Buffer
+nnoremap <silent> <a-q><a-o> :<c-u> History<cr>
+nnoremap <silent> <a-q>o     :<c-u> History<cr>
 "" Marks: Useless?
 nnoremap <silent> <a-q><a-m> :<c-u> Marks<cr>
 nnoremap <silent> <a-q>m     :<c-u> Marks<cr>
