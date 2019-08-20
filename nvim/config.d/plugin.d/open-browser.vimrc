@@ -19,11 +19,12 @@ vmap gb <Plug>(openbrowser-smart-search)
 "vmap gp :OpenBrowserSmartSearch -wikipedia <c-r>=expand('<cWORD>')<cr><cr>
 
 """ Prompt
-"" Mnemonic: Web
-nnoremap <a-w><a-b> :<c-u>OpenBrowserSmartSearch<space>
-nnoremap <a-w>b     :<c-u>OpenBrowserSmartSearch<space>
-cnoremap <a-w><a-b> :<c-u>OpenBrowserSmartSearch<space>
-cnoremap <a-w>b     :<c-u>OpenBrowserSmartSearch<space>
+"" Mnemonic: Go to Browser
+"" CAUTION: c_^b is conflicted on Emacs-like keybind.
+nnoremap <a-g><a-b> :<c-u>OpenBrowserSmartSearch<space>
+nnoremap <a-g>b     :<c-u>OpenBrowserSmartSearch<space>
+cnoremap <a-g><a-b> :<c-u>OpenBrowserSmartSearch<space>
+cnoremap <a-g>b     :<c-u>OpenBrowserSmartSearch<space>
 
 " OpenBrower; Abbr {{{
 """ Abbr; Search Engine {{{
