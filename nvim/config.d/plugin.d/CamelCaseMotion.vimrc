@@ -23,12 +23,23 @@ xmap <silent> ie <Plug>CamelCaseMotion_ie
 "}}}
 "}}}
 
-" Keymap; Evacuation for default webge {{{
+"" Keymap; Evacuation {{{
+""" Evacuation; for default webge {{{
 " Mnemonic: 'Quicker' than those of CamelCaseMotion
 noremap qw w
 noremap qe e
 noremap qb b
 " Mnemonic: Quick Reverse
 noremap qr ge
+
+"" Keymap; Evacuation
+""" Evacuation; for default text-object {{{
+onoremap iqw iw
+onoremap iqb ib
+onoremap iqe iw
+xnoremap iqw iw
+xnoremap iqb ib
+xnoremap iqe iw
+"}}}
 "}}}
 "}}}
