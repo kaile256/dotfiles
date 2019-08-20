@@ -263,6 +263,13 @@ cnoremap <c-r>'     <c-r>"
 cnoremap <c-r><c-\> <c-r>"
 cnoremap <c-r>\     <c-r>"
 
+""" Unnamed; QuickEdit {{{
+nnoremap yp yyp
+nnoremap yP yyP
+nnoremap cp ddp
+nnoremap cP ddkP
+"}}}
+
 "" Command-Line Register
 inoremap <c-r><c-;> <c-g>u<c-r>:
 inoremap <c-r>;     <c-g>u<c-r>:
