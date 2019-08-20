@@ -8,15 +8,6 @@ set iminsert=0
 set imsearch=0
 set imcmdline
 
-if &imdisable == 0
-  augroup FcitxRemoteToggle "{{{
-    au!
-    au VimEnter    * call system('fcitx-remote -s ssk')
-    au InsertEnter * call system('fcitx-remote -o')
-    au InsertLeave * call system('fcitx-remote -c')
-  augroup END "}}}
-endif
-
 "" Set; Tab-Char {{{
 " insert spaces, instead of a tab-char.
 set expandtab
@@ -55,6 +46,7 @@ set noshowcmd
 set wildmenu
 set wildmode=list:longest
 "set history=10000
+set inccommand=nosplit
 
 """ Pop-Up Menu
 set pumheight=50
@@ -121,11 +113,12 @@ inoremap <c-g>w     <S-Right>
 "" Keymap; <Alt> as <ESC> {{{
 """ CAUTION: Never careless mapping on <i_a-hjkl>
 "" Alt-ESC; <a-'original'> {{{
-inoremap <a-space>w <esc>:w<cr>
+inoremap <a-space> <esc>:w<cr>
 "}}}
 
 "  make sure <a-hjkl> work as <esc>hjkl, e.g., while pop-up menu shows.
 """ Alt-ESC; <a-hjkl> {{{
+" CAUTION: Remember n_<a-hjkl> for Win-Leap
 inoremap <nowait> <a-h> <esc>h
 inoremap <nowait> <a-j> <esc>j
 inoremap <nowait> <a-k> <esc>k
@@ -133,28 +126,55 @@ inoremap <nowait> <a-l> <esc>l
 "}}}
 
 """ Alt-<ESC>; <a-web> {{{
-inoremap <nowait> <a-w>   <esc>w
-inoremap <nowait> <a-b>   <esc>b
-inoremap <nowait> <a-e>   <esc>e
-inoremap <nowait> <a-s-w> <esc>W
-inoremap <nowait> <a-s-b> <esc>B
-inoremap <nowait> <a-s-e> <esc>E
+inoremap <nowait> <a-w>          <esc>w
+inoremap <nowait> <a-b>          <esc>b
+inoremap <nowait> <a-e>          <esc>e
+inoremap <nowait> <a-s-w>        <esc>W
+inoremap <nowait> <a-s-b>        <esc>B
+inoremap <nowait> <a-s-e>        <esc>E
+inoremap <nowait> <a-w><a-w>     <esc>ww
+inoremap <nowait> <a-b><a-w>     <esc>bb
+inoremap <nowait> <a-w><a-e>     <esc>ee
+inoremap <nowait> <a-s-w><a-s-w> <esc>WW
+inoremap <nowait> <a-s-b><a-s-w> <esc>BB
+inoremap <nowait> <a-s-w><a-s-e> <esc>EE
 "}}}
 
 """ Alt-<ESC>; <a-ydcup> {{{
-inoremap <nowait> <a-y>   <esc>y
-inoremap <nowait> <a-x>   <esc>x
-inoremap <nowait> <a-d>   <esc>d
-inoremap <nowait> <a-c>   <esc>c
-inoremap <nowait> <a-u>   <esc>u
-inoremap <nowait> <a-c-r> <esc><c-r>
-inoremap <nowait> <a-p>   <c-g>u<esc>p
-inoremap <nowait> <a-s-y> <esc>Y
-inoremap <nowait> <a-s-x> <esc>X
-inoremap <nowait> <a-s-d> <esc>D
-inoremap <nowait> <a-s-c> <esc>C
-inoremap <nowait> <a-s-u> <esc>U
-inoremap <nowait> <a-s-p> <c-g>u<esc>P
+inoremap <nowait> <a-y>      <esc>y
+inoremap <nowait> <a-x>      <esc>x
+inoremap <nowait> <a-d>      <esc>d
+inoremap <nowait> <a-c>      <esc>c
+inoremap <nowait> <a-u>      <esc>u
+inoremap <nowait> <a-c-r>    <esc><c-r>
+inoremap <nowait> <a-p>      <c-g>u<esc>p
+inoremap <nowait> <a-s-y>    <esc>Y
+inoremap <nowait> <a-s-x>    <esc>X
+inoremap <nowait> <a-s-d>    <esc>D
+inoremap <nowait> <a-s-c>    <esc>C
+inoremap <nowait> <a-s-u>    <esc>U
+inoremap <nowait> <a-s-p>    <c-g>u<esc>P
+
+"""" A-ydcup; for another type {{{
+inoremap <nowait> <a-y><a-y> <esc>yy
+inoremap <nowait> <a-y><a-w> <esc>yy
+inoremap <nowait> <a-y><a-b> <esc>yy
+inoremap <nowait> <a-y><a-e> <esc>yy
+inoremap <nowait> <a-y><a-i> <esc>yi
+inoremap <nowait> <a-y><a-a> <esc>ya
+inoremap <nowait> <a-d><a-d> <esc>dd
+inoremap <nowait> <a-d><a-w> <esc>dd
+inoremap <nowait> <a-d><a-b> <esc>dd
+inoremap <nowait> <a-d><a-e> <esc>dd
+inoremap <nowait> <a-d><a-i> <esc>di
+inoremap <nowait> <a-d><a-a> <esc>da
+inoremap <nowait> <a-c><a-c> <esc>cc
+inoremap <nowait> <a-c><a-w> <esc>cc
+inoremap <nowait> <a-c><a-b> <esc>cc
+inoremap <nowait> <a-c><a-e> <esc>cc
+inoremap <nowait> <a-c><a-i> <esc>ci
+inoremap <nowait> <a-c><a-a> <esc>ca
+"}}}
 "}}}
 
 """ Alt-<ESC>; <a-iao> "{{{
@@ -199,11 +219,11 @@ augroup UndoBreakOnFileType
 augroup END
 
 "" Keymap; Register {{{
-"" Convenience
+""" Register; Yank {{{
 nnoremap Y y$
-nnoremap yk yk`]
+nnoremap yk ykj
 "" NOTICE: p on Visual is better without `].
-nnoremap p p']
+"nnoremap p p
 
 "" Term-mode
 "" Put as in Insert Mode
@@ -339,4 +359,15 @@ xnoremap <a-s>O     :sort! ou<cr>
 "xnoremap <a-s>O     :sort! o<cr>
 ""}}}
 "}}}
+"}}}
+
+" Edit; Augroup {{{
+augroup FcitxRemoteToggle "{{{
+  au!
+  if &imdisable == 0
+    au VimEnter    * call system('fcitx-remote -s ssk')
+    au InsertEnter * call system('fcitx-remote -o')
+    au InsertLeave * call system('fcitx-remote -c')
+  endif
+augroup END "}}}
 "}}}
