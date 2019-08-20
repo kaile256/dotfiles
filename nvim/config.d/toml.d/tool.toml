@@ -1,93 +1,224 @@
-#### From: dein.vimrc
+### From: dein.vimrc
 
-### Imput Method
+# Tool; Leap {{{
+## Leap; EasyMotion {{{
+[[plugins]]
+repo = 'easymotion/vim-easymotion' #{{{
+on_event = 'Syntax'
+hook_post_source = 'runtime easymotion.vimrc'
+#}}}
+[[plugins]]
+repo = 'haya14busa/vim-easyoperator-phrase'
+on_source = 'vim-easymotion'
+hook_post_source = 'runtime easyoperator.vimrc'
+[[plugins]]
+repo = 'haya14busa/incsearch.vim'
+on_event = 'Syntax'
+hook_post_source = 'runtime incsearch.vimrc'
+[[plugins]]
+repo = 'haya14busa/incsearch-fuzzy.vim'
+on_source = 'incsearch.vim'
+hook_post_source = 'runtime incsearch-fuzzy.vimrc'
+[[plugins]]
+repo = 'haya14busa/incsearch-easymotion.vim'
+on_source = ['incsearch.vim', 'vim-easymotion']
+hook_post_source = 'runtime incsearch-easymotion.vimrc'
+#}}}
 #[[plugins]]
+#repo = 'rhysd/clever-f.vim' #{{{
+#on_event = 'BufEnter'
+#hook_post_source = 'runtime clever-f.vimrc'
+#}}}
+
+#[[plugins]]
+#repo = 'justinmk/vim-sneak' #{{{
+#on_event = 'BufEnter'
+#hook_post_source = 'runtime sneak.vimrc'
+#}}}
+[[plugins]] #{{{
+repo = 'bkad/CamelCaseMotion'
+on_event = 'VimEnter'
+hook_post_source = 'runtime CamelCaseMotion.vimrc'
+#}}}
+#}}}
+
+# Tool; Filer {{{
+[[plugins]]
+repo = 'cocopon/vaffle.vim' #{{{
+on_if = '!has("python3")'
+hook_post_source = 'runtime vaffle.vimrc'
+#}}}
+## Defx #{{{
+[[plugins]]
+repo = 'Shougo/defx.nvim' #{{{
+## CAUTION: defx.vimrc MUST be sourced after dein#end() on dein.vim.
+if = 'has("python3")'
+hook_post_source = 'runtime defx.vimrc'
+#}}}
+#[[plugins]]
+#repo = 'kristijanhusak/defx-git' {{{
+## Ref: defx.vimrc
+#if = 'has("python3")'
+#}}}
+#[[plugins]]
+#repo = 'kristijanhusak/defx-icons' {{{
+#if = 'has("python3")'
+#}}}
+#}}}
+#}}}
+
+# Tool; Edit {{{
+[[plugins]]
+repo = 'machakann/vim-sandwich' #{{{
+on_event = 'BufRead'
+hook_post_source = 'runtime sandwich.vimrc'
+#}}}
+#[[plugins]]
+#repo = 'tpope/vim-surround'{{{
+#on_event = 'BufRead'
+#hook_post_source = 'runtime surround.vimrc'
+#}}}
+
+## Edit; Snippets #{{{
+
+### Snippets; Engine #{{{
+
+#[[plugins]]
+#repo = 'SirVer/ultisnips' #{{{
+#on_event = ['InsertEnter','TermOpen']
+#hook_post_source = 'runtime ultisnips.vimrc'
+#}}}
+[[plugins]]
+repo = 'Shougo/neosnippet.vim' #{{{
+on_event = ['InsertEnter', 'TermOpen','CmdlineEnter']
+hook_add = 'runtime! neosnippet.vimrc'
+#}}}
+#}}}
+
+### Snippets; Contents #{{{
+
+[[plugins]]
+repo = 'Shougo/neosnippet-snippets' #{{{
+on_event = ['InsertEnter', 'TermOpen','CmdlineEnter']
+#}}}
+[[plugins]]
+repo = 'honza/vim-snippets' #{{{
+on_event = ['InsertEnter', 'TermOpen']
+#}}}
+#[[plugins]]
+#repo = 'garbas/vim-snipmate' #{{{
+#on_event = ['InsertEnter', 'TermOpen']
+#}}}
+#}}}
+#}}}
+#}}}
+
+# Tool; Marks {{{
+[[plugins]]
+repo = 'mattesgroeger/vim-bookmarks' #{{{
+on_event = 'VimEnter'
+hook_post_source = 'runtime bookmarks.vimrc'
+#}}}
+#[[plugins]]
+#repo = 'jacquesbh/vim-showmarks'{{{
+#on_map = ['m','`',"'",'\<space>']
+#hook_post_source = 'runtime showmarks.vimrc'
+# }}}
+#}}}
+
+# Tool; Imput Method #{{{
+#[[plugins]]
+#repo = 'tyru/eskk.vim' #{{{
 ## ERORR: Present Unnecessary Sign '>' on Kanji.
-#repo = 'tyru/eskk.vim'
 #on_event = ['InsertEnter', 'CmdlineEnter']
 #hook_post_source = 'runtime eskk.vimrc'
+# }}}
+# }}}
 
-### Vimwiki
+# Tool; Note #{{{
+## Note; Vimwiki #{{{
 [[plugins]]
-repo = 'vimwiki/vimwiki'
+repo = 'vimwiki/vimwiki' #{{{
 on_event = 'VimEnter'
+rev = 'v2.4.1'
 hook_post_source = 'runtime vimwiki.vimrc'
-### VimWiki
+#}}}
+#}}}
+
+## Note; Outliner #{{{
 [[plugins]]
-repo = 'vim-voom/VOoM'
+repo = 'vim-voom/VOoM' #{{{
 on_ft = ['vimwiki','org','markdown','tex','toml']
 hook_post_source = 'runtime voom.vimrc'
+# }}}
+# }}}
 
-### Org Mode
+#### Table-Mode #{{{
 [[plugins]]
-repo = 'jceb/vim-orgmode'
-on_ft = 'org'
-hook_post_source = 'runtime orgmode.vimrc'
-[[plugins]]
-repo = 'dhruvasagar/vim-table-mode'
+repo = 'dhruvasagar/vim-table-mode' #{{{
 hook_add = 'runtime! table-mode.vimrc'
 on_ft = ['org', 'text']
+# }}}
+# }}}
+
+#### Org Mode
 [[plugins]]
-# For Hyperlink
+repo = 'jceb/vim-orgmode' #{{{
+on_ft = 'org'
+hook_post_source = 'runtime orgmode.vimrc'
+#}}}
+### Hyperlink
+[[plugins]]
 repo = 'vim-scripts/utl.vim'
 on_ft = 'org'
 hook_post_source = 'runtime utl.vimrc'
 #[[plugins]]
+#repo = 'tpope/vim-speeddating' {{{
 ## <c-a/x> for dateing.
-#repo = 'tpope/vim-speeddating'
 #on_ft = 'org'
 #hook_post_source = 'runtime speeddating.vimrc'
+#}}}
+#}}}
 
-### Twitter
+# Tool; Twitter {{{
 [[plugins]]
-repo = 'basyura/TweetVim'
+repo = 'basyura/TweetVim' #{{{
 on_event = 'CmdlineEnter'
-hook_post_source = 'tweetvim.vimrc'
-
-# Multiple-Language Syntax in one buffer.
+hook_post_source = 'runtime tweetvim.vimrc'
+#}}}
 [[plugins]]
-repo = 'inkarkat/vim-SyntaxRange'
+repo = 'basyura/twibill.vim' # {{{
+on_event = 'CmdlineEnter'
+hook_post_source = 'runtime twibill.vimrc'
+#}}}
+#}}}
+
+[[plugins]]
+repo = 'inkarkat/vim-SyntaxRange' #{{{
+# Multiple-Language Syntax in one buffer.
 on_ft = ['snippets','org']
 hook_post_source = 'runtime SyntaxRange.vimrc'
+#}}}
 
-## Narrow Region
 [[plugins]]
-repo = 'chrisbra/NrrwRgn'
+repo = 'chrisbra/NrrwRgn' #{{{
 on_event = 'VimEnter'
 hook_post_source = 'runtime NrrwRgn.vimrc'
+#}}}
 
 ### Matcher
 #[[plugins]]
-#repo = 'raghur/fruzzy'
+#repo = 'raghur/fruzzy' #{{{
 #on_ft = 'denite'
 #hook_post_source = 'runtime fruzzy.vimrc'
+#}}}
 
 ## Async Processor
 [[plugins]]
+repo = 'Shougo/vimproc.vim' #{{{
 # run vim-plugins asynchronously, like openbrowser, quickrun.
-repo = 'Shougo/vimproc.vim'
 build = 'make'
-
-### Snippets
-## Engine
-#[[plugins]]
-#repo = 'SirVer/ultisnips'
-#on_event = ['InsertEnter','TermOpen']
-#hook_post_source = 'runtime ultisnips.vimrc'
-[[plugins]]
-repo = 'Shougo/neosnippet.vim'
-on_event = ['InsertEnter', 'TermOpen','CmdlineEnter']
-hook_add = 'runtime! neosnippet.vimrc'
-### Contents
-[[plugins]]
-repo = 'Shougo/neosnippet-snippets'
-on_event = ['InsertEnter', 'TermOpen','CmdlineEnter']
-[[plugins]]
-repo = 'honza/vim-snippets'
-on_event = ['InsertEnter', 'TermOpen']
-#[[plugins]]
-#repo = 'garbas/vim-snipmate'
-#on_event = ['InsertEnter', 'TermOpen']
+#}}}
 
 ### Template
 [[plugins]]
@@ -126,10 +257,11 @@ hook_post_source = 'runtime neomake.vimrc'
 repo = 'tpope/vim-repeat'
 on_event = 'BufRead'
 
-#### UI
-#[[plugins]]
-#repo = 'wsdjeg/dein-ui.vim'
-#hook_add = 'runtime dein-ui.vim'
+### UI
+[[plugins]]
+repo = 'wsdjeg/dein-ui.vim' #{{{
+hook_add = 'runtime dein-ui.vimrc'
+#}}}
 
 ### Linux Command
 #[[plugins]]
