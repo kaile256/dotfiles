@@ -9,11 +9,19 @@ command! CurrentFileOnBrowser execute "OpenBrowser" . expand('%:p:gs?\\?/?')
 """" KEYMAP
 "" NOTICE: do you use other editors?
 nnoremap <silent> g% :<c-u>CurrentFileOnBrowser<cr>
+nnoremap <silent> g5 :<c-u>CurrentFileOnBrowser<cr>
 nnoremap <silent> gc :<c-u>CurrentFileOnBrowser<cr>
+
 " smart-search detects if it is URI or not.
 """ Under Cursor
 nmap gb <Plug>(openbrowser-smart-search)
 vmap gb <Plug>(openbrowser-smart-search)
+nmap gh :<c-u>OpenBrowserSmartSearch -github    <c-r><c-f> <cr>
+vmap gh :<c-u>OpenBrowserSmartSearch -github    <c-r><c-f> <cr>
+nmap gw :<c-u>OpenBrowserSmartSearch -wikipedia <c-r><c-f> <cr>
+vmap gw :<c-u>OpenBrowserSmartSearch -wikipedia <c-r><c-f> <cr>
+nmap gl :<c-u>OpenBrowserSmartSearch -weblio    <c-r><c-f> <cr>
+vmap gl :<c-u>OpenBrowserSmartSearch -weblio    <c-r><c-f> <cr>
 "" TODO: work on other engines.
 "nmap gp :OpenBrowserSmartSearch -wikipedia <c-r>=expand('<cWORD>')<cr><cr>
 "vmap gp :OpenBrowserSmartSearch -wikipedia <c-r>=expand('<cWORD>')<cr><cr>
@@ -27,18 +35,17 @@ cnoremap <a-g><a-b> :<c-u>OpenBrowserSmartSearch<space>
 cnoremap <a-g>b     :<c-u>OpenBrowserSmartSearch<space>
 
 " OpenBrower; Abbr {{{
-""" Abbr; Search Engine {{{
+""" Abbr; Search Engine {{{0
 "" Duckduckgo
 cnoreabbrev <expr> dk (getcmdtype() == ':' && getcmdline() =~ '^OpenBrowserSmartSearch dk$')? '-duckduckgo' : 'dk'
 "" Google
-cnoreabbrev <expr> go (getcmdtype() == ':' && getcmdline() =~ '^OpenBrowserSmartSearch go$')? '-google' : 'go'
+cnoreabbrev <expr> go (getcmdtype() == ':' && getcmdline() =~ '^OpenBrowserSmartSearch go$')? '-google'     : 'go'
 "" GitHub
-cnoreabbrev <expr> gh (getcmdtype() == ':' && getcmdline() =~ '^OpenBrowserSmartSearch gh$')? '-github' : 'gh'
+cnoreabbrev <expr> gh (getcmdtype() == ':' && getcmdline() =~ '^OpenBrowserSmartSearch gh$')? '-github'     : 'gh'
 "" Wikipedia
-cnoreabbrev <expr> wk (getcmdtype() == ':' && getcmdline() =~ '^OpenBrowserSmartSearch wk$')? '-wikipedia' : 'wk'
+cnoreabbrev <expr> wk (getcmdtype() == ':' && getcmdline() =~ '^OpenBrowserSmartSearch wk$')? '-wikipedia'  : 'wk'
 "" Weblio
-cnoreabbrev <expr> wl (getcmdtype() == ':' && getcmdline() =~ '^OpenBrowserSmartSearch wl$')? '-weblio' : 'wl'
-"}}}
+cnoreabbrev <expr> wl (getcmdtype() == ':' && getcmdline() =~ '^OpenBrowserSmartSearch wl$')? '-weblio'     : 'wl'
 "}}}
 
 " OpenBrowser; Let {{{
