@@ -3,7 +3,7 @@
 # C-option: do not overwrite on redirect; replace '>' with '>|' to surely overwite a file.
 # u-option: stop if an undefined variable is set, or undefined var shall be regarded as null.
 #           (e.g., var=foo && rm -fr ~/"$bar" shall remove all of '~')
-# e-option: stop if error (non 0); add '&& true' to continue even when error; 
+# e-option: stop if error (non 0); add '&& true' to continue even when error;
 
 #  CAUTION: DON'T set e-option on files sourced from .profile/.bashrc; an error prohibits boot-system.
 
@@ -33,9 +33,9 @@ fi
 ## $XDG programs;
 echo 'making symbolic links...'
 VimData=(
-backup
-swap
-undo
+#backup
+#swap
+#undo
 )
 
 Configs=(
@@ -59,7 +59,7 @@ for vim_data_dir in ${VimData[@]}; do
   vim_data_dest=${XDG_DATA_HOME}/nvim
 
   cd $vim_data_dest
-  ln -nsf ${DOTFILES}/${vim_data_dir}
+  ln -nsf ${DOTFILES}/date/nvim/${vim_data_dir}
   echo "Done! The config files of ${vim_data_dir} are linked at ${vim_data_dest}!!"
 done
 
