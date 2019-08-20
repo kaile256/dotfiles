@@ -1,16 +1,13 @@
-"""" From: nvim/init.vim
-""""  Ref: orgmode.vimrc
+" From: nvim/init.vim
 
 " Buffer; Function! {{{
 function! s:auto_format_if_modifiable() "{{{
-  if &modifiable == 1
-    if &readonly == 0
-      setlocal linebreak
-    else
-      setlocal nolinebreak
-      if &textwidth != 0
-        setlocal textwidth=0
-      endif
+  if &readonly == 0
+    setlocal linebreak
+  else
+    setlocal nolinebreak
+    if &textwidth != 0
+      setlocal textwidth=0
     endif
   endif
 endfunction "}}}
@@ -27,9 +24,16 @@ function! s:quickfix_keymap() abort "{{{
   nnoremap <buffer> <a-[> :colder<cr>
 endfunction "}}}
 
-function! s:keymap_for_commandline()
+"function! s:echo_file_info() abort "{{{
+"  let a:wanted_info = [&syntax, &filetype, &buftype, &winnr('$'), &winnr('#')]
+"  for i in a:wanted_info
+"    a:list_format = i
+"  echo " &filetype='" . &filetype . "'; &buftype='" . &buftype . "'; " . "winnr('$') is " . winnr('$') . "; winnr('#') is " . winnr('#') . "."
+"endfunction "}}}
+
+function! s:keymap_for_commandline() abort "{{{
   nnoremap <buffer><nowait> <a-k> <c-c><c-c>
-endfunction
+endfunction "}}}
 "}}}
 
 "" Buffer; Augroup {{{
@@ -96,8 +100,6 @@ augroup OnTermMode "{{{
   "  au VimEnter * call termopen(&shell)
   "endif
 
-  au Syntax * if @# =~# 'term:' && &filetype !=# 'fzf' | bwipeout! # | endif
-  au FileType netrw if @# =~# 'term:' | bwipeout! # | endif
   au VimEnter,TermOpen * if &buftype ==# 'terminal' | setlocal nonumber signcolumn=no modifiable | endif
   au VimEnter,TermOpen * if &buftype ==# 'terminal' | startinsert | endif
 augroup END "}}}
@@ -111,21 +113,8 @@ augroup BufWipeExceptTerminal "{{{
   "      \ |  bwipeout  %
   "      \ |  endif
 
-  " AutoCloseOnWinLeave
-  au WinLeave *
-        \ if &filetype ==# 'fzf'
-        \ || &filetype ==# 'coc'
-        \ |  close
-        \ |  endif
-
   """ Treat as QuickFix
-  "" CAUTION: denite,vista demands to write before quitting.
-  au FileType orgagenda,gitcommit setlocal buftype=quickfix
-  " Why? not work on 'au FileType'
-  au BufRead * if &filetype ==# 'fugitive' || &filetype ==# 'git' | setlocal buftype=quickfix | endif
-
-  au FileType fugitive setlocal nonumber
-  au FileType qt,fugitive call s:quickfix_keymap()
+  au FileType qt call s:quickfix_keymap()
 augroup END "}}}
 
 augroup AutoFormat "{{{
@@ -135,8 +124,12 @@ augroup AutoFormat "{{{
 
   """ AutoFormat; Unusual Appending on BufList "{{{
   "" Append Help on Buffer-list
-  au BufWinLeave *  if &buftype ==# 'help' | setlocal buflisted | endif
-  au BufRead *  if &buftype ==# 'help' | setlocal signcolumn= nonumber | endif
+  au BufWinLeave *  if &buftype ==# 'help' | setlocal buflisted nonumber signcolumn= | endif
+
+  """ AutoFormat; &filetype == 'qf' {{{
+  "" CAUTION: if you set them as &bt=quickfix, the settings affects those like &ft=vimwiki.
+  au FileType qf setlocal signcolumn=
+  "}}}
   "}}}
 
   """ AutoFormat; Delete "{{{
@@ -182,8 +175,8 @@ nnoremap <silent> <a-s>o     :<c- Reloadu>so % <bar> echo ' Vim sourced "' . buf
 "}}}
 
 """ Mnemonic: Show Status of the buffer {{{
-nnoremap <silent> <a-s><a-s> :echo  " &filetype='" . &filetype . "'; &buftype='" . &buftype . "'; " . "winnr('$') is " . winnr('$') . "; winnr('#') is " . winnr('#') . "." <cr>
-nnoremap <silent> <a-s><a-s> :echo  " &filetype='" . &filetype . "'; &buftype='" . &buftype . "'; " . "winnr('$') is " . winnr('$') . "; winnr('#') is " . winnr('#') . "." <cr>
+nnoremap <silent> <a-s><a-s> call <SID>echo_file_info()
+nnoremap <silent> <a-s><a-s> call <SID>echo_file_info()
 "nnoremap <a-s><a-b> :echo " &filetype is '" . &filetype . "'; &buftype is '" . &buftype . "'"<cr>
 "nnoremap <a-s><a-f> :echo " &filetype is '" . &filetype . "'; &buftype is '" . &buftype . "'"<cr>
 "}}}
