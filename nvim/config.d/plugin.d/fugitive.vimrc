@@ -70,13 +70,13 @@ noremap <a-y>o     :<c-u>Git checkout<space>
 noremap <a-y><a-o> :<c-u>Git checkout<space>
 
 " Fugitive; Augroup {{{
-augroup MyFugitiveAugroup "{{{
+augroup MyFugitiveAugroup "{{{0
   au!
   au FileType fugitive,git,gitcommit setlocal nonumber
   "" CAUTION: denite,vista demands to write before quitting.
   au FileType orgagenda,gitcommit setlocal buftype=quickfix
   " Why? not work on 'au FileType'
-  au BufWinEnter * if &filetype ==# 'fugitive' || &filetype ==# 'git' | setlocal buftype=quickfix | endif
+  au BufWinEnter * if &filetype ==# 'fugitive' || &filetype ==# 'git' | setlocal modifiable buftype=quickfix | endif
 
 augroup END
 "}}
