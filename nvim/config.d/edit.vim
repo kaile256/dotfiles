@@ -117,46 +117,58 @@ inoremap <c-g>w     <S-Right>
 "}}}
 "}}}
 
-""" Instant Escape
+"" Keymap; <Alt> as <ESC> {{{
 """ CAUTION: Never careless mapping on <i_a-hjkl>
-"" Alt-ESC; or type <c-o> to insert-normal.
+"" Alt-ESC; <a-'original'> {{{
 inoremap <a-space>w <esc>:w<cr>
-" make sure <a-hjkl> work as <esc>hjkl, e.g., while pop-up menu shows.
+"}}}
+
+"  make sure <a-hjkl> work as <esc>hjkl, e.g., while pop-up menu shows.
+""" Alt-ESC; <a-hjkl> {{{
 inoremap <nowait> <a-h> <esc>h
 inoremap <nowait> <a-j> <esc>j
 inoremap <nowait> <a-k> <esc>k
 inoremap <nowait> <a-l> <esc>l
-" <a-web> as well
-inoremap <nowait> <a-w> <esc>w
-inoremap <nowait> <a-b> <esc>b
-inoremap <nowait> <a-e> <esc>e
+"}}}
+
+""" Alt-<ESC>; <a-web> {{{
+inoremap <nowait> <a-w>   <esc>w
+inoremap <nowait> <a-b>   <esc>b
+inoremap <nowait> <a-e>   <esc>e
 inoremap <nowait> <a-s-w> <esc>W
 inoremap <nowait> <a-s-b> <esc>B
 inoremap <nowait> <a-s-e> <esc>E
-" <a-ydcup> as well; to redo, type <c-o><c-r>.
-inoremap <nowait> <a-y> <esc>y
-inoremap <nowait> <a-x> <esc>x
-inoremap <nowait> <a-d> <esc>d
-inoremap <nowait> <a-c> <esc>c
-inoremap <nowait> <a-u> <esc>u
-inoremap <nowait> <a-p> <c-g>u<esc>p
+"}}}
+
+""" Alt-<ESC>; <a-ydcup> {{{
+inoremap <nowait> <a-y>   <esc>y
+inoremap <nowait> <a-x>   <esc>x
+inoremap <nowait> <a-d>   <esc>d
+inoremap <nowait> <a-c>   <esc>c
+inoremap <nowait> <a-u>   <esc>u
+inoremap <nowait> <a-c-r> <esc><c-r>
+inoremap <nowait> <a-p>   <c-g>u<esc>p
 inoremap <nowait> <a-s-y> <esc>Y
 inoremap <nowait> <a-s-x> <esc>X
 inoremap <nowait> <a-s-d> <esc>D
 inoremap <nowait> <a-s-c> <esc>C
 inoremap <nowait> <a-s-u> <esc>U
 inoremap <nowait> <a-s-p> <c-g>u<esc>P
-" <a-iao> as well
+"}}}
+
+""" Alt-<ESC>; <a-iao> "{{{
 " <a-ai> could be just <left>/<right>, but I prefer <esc> before.
-inoremap <silent><nowait> <a-a> <esc>la
-inoremap <silent><nowait> <a-i> <esc>i
-inoremap <silent><nowait> <a-o> <esc>o
-inoremap <silent><nowait> <a-s-o> <esc>O
-inoremap <silent><nowait> <a-s-i> <esc>I
-inoremap <silent><nowait> <a-s-a> <esc>A
+inoremap <nowait> <a-a>   <esc>la
+inoremap <nowait> <a-i>   <esc>i
+inoremap <nowait> <a-o>   <esc>o
+inoremap <nowait> <a-s-o> <esc>O
+inoremap <nowait> <a-s-i> <esc>I
+inoremap <nowait> <a-s-a> <esc>A
+"}}}
+"}}}
 
 """ Del
-"" NOTICE: <c-d> increases indent on Insert Mode.
+"" CAUTION: <c-d> increases indent on Insert Mode.
 
 """ Undo-Break
 "" New Line
