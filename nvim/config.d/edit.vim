@@ -84,6 +84,16 @@ cnoremap <c-d> <Del>
 "}}}
 
 "" Cancel
+onoremap <a-h> <ESC>h
+onoremap <a-j> <ESC>j
+onoremap <a-k> <ESC>k
+onoremap <a-l> <ESC>l
+onoremap <a-w> <ESC>w
+onoremap <a-b> <ESC>b
+onoremap <a-e> <ESC>e
+onoremap <a-s-w> <ESC>W
+onoremap <a-s-b> <ESC>B
+onoremap <a-s-e> <ESC>E
 cnoremap <a-h> <c-c><c-w>h
 cnoremap <a-j> <c-c><c-w>j
 cnoremap <a-k> <c-c>
