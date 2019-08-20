@@ -12,15 +12,15 @@ repo = 'haya14busa/vim-easyoperator-phrase' #{{{
 on_event = 'Syntax'
 hook_post_source = 'runtime easyoperator.vimrc'
 #}}}
-[[plugins]]
-repo = 'haya14busa/incsearch.vim' #{{{
-on_event = 'Syntax'
-hook_post_source = 'runtime incsearch.vimrc'
+#[[plugins]]
+#repo = 'haya14busa/incsearch.vim' #{{{
+#on_event = 'Syntax'
+#hook_post_source = 'runtime incsearch.vimrc'
 #}}}
-[[plugins]]
-repo = 'haya14busa/incsearch-easymotion.vim' #{{{
-on_event = 'Syntax'
-hook_post_source = 'runtime incsearch-easymotion.vimrc'
+#[[plugins]]
+#repo = 'haya14busa/incsearch-easymotion.vim' #{{{
+#on_event = 'Syntax'
+#hook_post_source = 'runtime incsearch-easymotion.vimrc'
 #}}}
 #[[plugins]]
 #repo = 'haya14busa/incsearch-fuzzy.vim' #{{{
@@ -130,13 +130,13 @@ hook_post_source = 'runtime bookmarks.vimrc'
 # }}}
 # }}}
 
-# Tool; Note #{{{
+## Tool; Note #{{{
 ## Note; Vimwiki #{{{
-[[plugins]]
-repo = 'vimwiki/vimwiki' #{{{
-on_event = 'VimEnter'
-rev = 'v2.4.1'
-hook_post_source = 'runtime vimwiki.vimrc'
+#[[plugins]]
+#repo = 'vimwiki/vimwiki' #{{{
+## CAUTION: Should be `lazy loaded`, or fail to enter on VimEnter.
+#on_event = 'VimEnter'
+#hook_post_source = 'runtime vimwiki.vimrc'
 #}}}
 #}}}
 
