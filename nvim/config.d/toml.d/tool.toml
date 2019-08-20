@@ -8,37 +8,32 @@ on_event = 'Syntax'
 hook_post_source = 'runtime easymotion.vimrc'
 #}}}
 [[plugins]]
-repo = 'haya14busa/vim-easyoperator-phrase'
-on_source = 'vim-easymotion'
+repo = 'haya14busa/vim-easyoperator-phrase' #{{{
+on_event = 'Syntax'
 hook_post_source = 'runtime easyoperator.vimrc'
+#}}}
 [[plugins]]
-repo = 'haya14busa/incsearch.vim'
+repo = 'haya14busa/incsearch.vim' #{{{
 on_event = 'Syntax'
 hook_post_source = 'runtime incsearch.vimrc'
+#}}}
 [[plugins]]
-repo = 'haya14busa/incsearch-fuzzy.vim'
-on_source = 'incsearch.vim'
-hook_post_source = 'runtime incsearch-fuzzy.vimrc'
-[[plugins]]
-repo = 'haya14busa/incsearch-easymotion.vim'
-on_source = ['incsearch.vim', 'vim-easymotion']
+repo = 'haya14busa/incsearch-easymotion.vim' #{{{
+on_event = 'Syntax'
 hook_post_source = 'runtime incsearch-easymotion.vimrc'
 #}}}
 #[[plugins]]
-#repo = 'rhysd/clever-f.vim' #{{{
-#on_event = 'BufEnter'
-#hook_post_source = 'runtime clever-f.vimrc'
+#repo = 'haya14busa/incsearch-fuzzy.vim' #{{{
+#on_event = 'Syntax'
+#hook_post_source = 'runtime incsearch-fuzzy.vimrc'
+#}}}
 #}}}
 
-#[[plugins]]
-#repo = 'justinmk/vim-sneak' #{{{
-#on_event = 'BufEnter'
-#hook_post_source = 'runtime sneak.vimrc'
-#}}}
 [[plugins]] #{{{
-repo = 'bkad/CamelCaseMotion'
+repo = 'bkad/CamelCaseMotion' #{{{
 on_event = 'VimEnter'
 hook_post_source = 'runtime CamelCaseMotion.vimrc'
+#}}}
 #}}}
 #}}}
 
