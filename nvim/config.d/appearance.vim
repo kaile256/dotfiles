@@ -3,12 +3,6 @@
 """" ColorScheme
 """ Ref: dein.vimrc
 
-"""" transparency on FocusLost
-"augroup TransparencyOnFocusLost
-"  au!
-"  au FocusLost * set transparency=
-"augroup END
-
 """ Redraw
 "" Indent
 nnoremap <S-TAB> gg=G''zz
@@ -20,7 +14,7 @@ inoremap <silent> <c-l>         <c-o>:<c-u>noh <cr><c-o><c-l>
 nnoremap <silent> <c-space><space>   :<c-u>noh <cr><c-l>
 nnoremap <silent> <c-space><c-space> :<c-u>noh <cr><c-l>
 " <a-space> gets along with <a-hjkl>.
-nmap <silent> <space><space>     :cclose <bar> lclose <cr> :retab <cr>
+nmap <silent> <space><space>     :cclose <cr> :retab <cr>
 
 "" Move Window
 nnoremap <c-w>h <c-w>H
@@ -49,6 +43,20 @@ nnoremap <c-w><c-m> <c-w>_<c-w>|
 nnoremap <c-w>0 <c-w>=
 
 """" GENERAL
+" shorter for CursorHold & CursorHoldI
+set updatetime=300
+" signcolumn is the line beside numbers.
+set signcolumn=yes
+"" shortmess: Shorter Message
+" c-option: forbids to give |ins-completion-menu| messages.
+set shortmess+=c
+set pumheight=30
+
+""" Redraw "{{{
+" lazyredraw: forbids to redraw screen while executing macros.
+set lazyredraw
+"}}}
+
 """ Color
 set termguicolors
 
@@ -57,19 +65,19 @@ set termguicolors
 set number
 set colorcolumn=81
 
+""" Charactars
+set ambiwidth=double
 "" Wrap
 " wrap long text: s for space
 set wrap whichwrap=s
 set breakindent
-set linebreak
-set showbreak=\\ 
-set breakat=\ \ ;:,.!?。
 
 """ Line
 " CAUTION: cursorline-highlight causes drawing corruption.
-augroup CursorLine
-  au! BufRead,WinEnter,InsertLeave * silent setlocal cursorline
-  au! WinLeave,InsertEnter * silent setlocal nocursorline
+augroup AutoToggleCursorLine
+  au!
+  au BufRead,WinEnter,InsertLeave * silent setlocal cursorline
+  au WinLeave,InsertEnter * silent setlocal nocursorline
 augroup END
 " highlight only CursorLineNr
 "hi CursorLine NONE
@@ -89,6 +97,7 @@ set matchpairs+=<:>
 "" Invisible Charactars
 " show space and CR
 set list
+"" Quick Reference of 'listchar': which chars show instead.
 "" eol: <CR>
 "" extends: when window-width omits on right end.
 "" precedes: when window-width omits on left.
@@ -101,3 +110,17 @@ set splitright
 
 "" Speed
 set matchtime=1
+
+""" Fold
+"set foldmethod=syntax
+set foldlevel=1
+set foldnestmax=10
+"hi Folded gui=bold guifg=#fabd1f
+hi CursorIM guibg=#fabd1f
+
+"augroup AutoAjustFoldMethod "{{{
+"  au!
+"  au InsertEnter * if &l:foldmethod !=# 'manual' | setlocal foldmethod=manual | endif
+"  au InsertLeave * if &l:foldmethod ==# 'manual' | if &filetype = 'vim' || &filetype == 'toml' | setlocal foldmethod=marker | else setlocal foldmethod=syntax | endif
+"augroup END
+"}}}
