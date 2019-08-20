@@ -85,6 +85,8 @@ nnoremap gk k
 xnoremap gj j
 xnoremap gk k
 
+nnoremap <nowait> { k{j
+nnoremap <nowait> } j}k
 " Experimental: Advanced jk/HML {{{
 " CAUTION: Uncompatible with Folded Buffer so far.
 "" Duprecated: Fixed-Position Leap {{{
@@ -239,14 +241,16 @@ tnoremap <c-[> <c-\><c-n>
 tnoremap <esc> <c-\><c-n>
 
 "" Hotkey to open terminal
-nnoremap <silent> <a-t><a-e> :<c-u>     :te<cr>
-nnoremap <silent> <a-t><a-s> :<c-u>sp   <bar>:te<cr>
-nnoremap <silent> <a-t><a-v> :<c-u>vs   <bar>:te<cr>
-nnoremap <silent> <a-t><a-t> :<c-u>tabe <bar>:te<cr>
-nnoremap <silent> <a-t>e     :<c-u>     :te<cr>
-nnoremap <silent> <a-t>s     :<c-u>sp   <bar>:te<cr>
-nnoremap <silent> <a-t>v     :<c-u>vs   <bar>:te<cr>
-nnoremap <silent> <a-t>t     :<c-u>tabe <bar>:te<cr>
+nnoremap <silent> <a-t><a-.> :<c-u>cd   %:p:h<bar> :te<cr>
+nnoremap <silent> <a-t><a-e> :<c-u>     <space>    :te<cr>
+nnoremap <silent> <a-t><a-s> :<c-u>sp   <bar>      :te<cr>
+nnoremap <silent> <a-t><a-v> :<c-u>vs   <bar>      :te<cr>
+nnoremap <silent> <a-t><a-t> :<c-u>tabe <bar>      :te<cr>
+nnoremap <silent> <a-t>.     :<c-u>cd   %:p:h<bar> :te<cr>
+nnoremap <silent> <a-t>e     :<c-u>     <space>    :te<cr>
+nnoremap <silent> <a-t>s     :<c-u>sp   <bar>      :te<cr>
+nnoremap <silent> <a-t>v     :<c-u>vs   <bar>      :te<cr>
+nnoremap <silent> <a-t>t     :<c-u>tabe <bar>      :te<cr>
 
 " With cd
 nnoremap <silent> <a-t><a-h> :<c-u>cd ~          <bar>:te<cr>
@@ -259,15 +263,18 @@ nnoremap <silent> <a-t>o     :<c-u>cd ~/org      <bar>:te<cr>
 nnoremap <silent> <a-t>d     :<c-u>cd ~/dotfiles <bar>:te<cr>
 nnoremap <silent> <a-t>c     :<c-u>cd ~/.config  <bar>:te<cr>
 nnoremap <silent> <a-t>.     :<c-u>cd %:p:h      <bar>:te<cr>
-" on term-mode, too.
+
+tnoremap <silent> <a-t><a-r> cd /          <cr>
 tnoremap <silent> <a-t><a-o> cd ~/org      <cr>
-tnoremap <silent> <a-t><a-.> cd ~/dotfiles <cr>
 tnoremap <silent> <a-t><a-d> cd ~/dotfiles <cr>
-tnoremap <silent> <a-t><a-g> cd ~/.config  <cr>
+tnoremap <silent> <a-t><a-f> cd ~/.config  <cr>
+tnoremap <silent> <a-t><a-c> cd ~/.cache   <cr>
+tnoremap <silent> <a-t>r     cd /          <cr>
+tnoremap <silent> <a-t>h     cd ~/         <cr>
 tnoremap <silent> <a-t>o     cd ~/org      <cr>
-tnoremap <silent> <a-t>.     cd ~/dotfiles <cr>
 tnoremap <silent> <a-t>d     cd ~/dotfiles <cr>
-tnoremap <silent> <a-t>g     cd ~/.config  <cr>
+tnoremap <silent> <a-t>f     cd ~/.config  <cr>
+tnoremap <silent> <a-t>c     cd ~/.cache   <cr>
 
 " Jump Anyway by <c-i><c-o>
 "tmap <c-i> <c-\><c-n><c-i>
