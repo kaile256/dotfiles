@@ -65,9 +65,10 @@ set pumheight=50
 "}}}
 
 " Edit; Keymap {{{
-""" Write&Quit {{{
-" Escape for Macro
+"" Keymap; Write&Quit {{{
+""" Write&Quit; Evacuation for Macro {{{
 nnoremap q<space> q
+"}}}
 " w! write even read-only file.
 nnoremap          <space>w :<c-u>w<cr>
 nnoremap <silent> <space>q :<c-u>q<cr>
