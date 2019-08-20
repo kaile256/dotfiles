@@ -54,12 +54,14 @@ imap <a-T> <esc><Plug>(easymotion-T2)
 map ; <Plug>(easymotion-next)
 map , <Plug>(easymotion-prev)
 
-""" Keymap; Escape for :norm "{{{
-noremap <space>f f
-noremap <space>F F
-noremap <space>t t
-noremap <space>T T
-noremap <space>; ;
-noremap <space>, ,
+"" Keymap; Evacuation for default tf;, "{{{
+" Mnemonic: 'Quicker', or shorter typing than those of EasyMotion
+"           as EasyMotion expects another typing to select.
+noremap qt t
+noremap qT T
+noremap qf f
+noremap qF F
+noremap q; ;
+noremap q, ,
 "}}}
 "}}}
