@@ -3,27 +3,32 @@
 " EasyMotion; Let {{{
 " `g:EasyMotion_do_mapping` provides all the default keymaps.
 let g:EasyMotion_do_mapping = 0
-let g:EasyMotion_smartcase = 0
 let g:EasyMotion_enter_jump_first = 1
 let g:EasyMotion_space_jump_first = 1
 
+"" Let; Chars {{{
+let g:EasyMotion_smartcase = 0
 let g:EasyMotion_use_upper = 1
 let g:EasyMotion_keys = 'OJKABCDEF'
+" `g:EasyMotion_use_migemo` doesn't require |cmigemo|
+" because |Easymotion| already includes basic regex patterns.
 let g:EasyMotion_use_migemo = 1
+"}}}
 
+"" Let; CmdlineWin {{{
+let g:EasyMotion_add_search_history = 0
+let g:EasyMotion_verbose = 0
 let g:EasyMotion_prompt = 'Request: {n} Chars >>> '
-"let g:EasyMotion_startofline = 0
-"let g:EasyMotion_grouping = 1
+"}}}
 "}}}
 
 " EasyMotion; Highlight {{{
 hi link EasyMotionTarget ErrorMsg
-hi link EasyMotionShade Search
+hi link EasyMotionTarget2First ErrorMsg
+hi link EasyMotionTarget2Second ErrorMsg
+hi link EasyMotionShade Nontext
 
-hi link EasyMotionTarget2First MatchParen
-hi link EasyMotionTarget2Second MatchParen
-
-hi link EasyMotionMoveHL Search
+hi link EasyMotionMoveHL ErrorMsg
 hi link EasyMotionIncSearch Search
 "}}}
 
@@ -38,7 +43,7 @@ noremap <silent> <c-k> 10k
 noremap <c-h> gT
 noremap <c-l> gt
 
- map <nowait>     Q      <Plug>(easymotion-overwin-f2)
+map <nowait>     Q      <Plug>(easymotion-overwin-f2)
 imap <nowait> <a-Q> <esc><Plug>(easymotion-overwin-f2)
 
 map f <Plug>(easymotion-f2)
