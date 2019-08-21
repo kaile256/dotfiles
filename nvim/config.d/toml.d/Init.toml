@@ -1,5 +1,4 @@
 #### From: dein.vimrc
-#### Ref: appearance.toml
 
 ### Required
 [[plugins]]
@@ -12,62 +11,28 @@ repo = 'tpope/vim-fugitive'
 type = 'git'
 hook_add = 'runtime fugitive.vimrc'
 
-### Vimwiki
-#[[plugins]]
-#repo = 'vimwiki/vimwiki'
-#hook_add = 'runtime vimwiki.vimrc'
-
-### Start Page
-#[[plugins]]
-#repo = 'mhinz/vim-startify'
-#hook_add = 'runtime startify.vimrc'
-
-### Which Key
-## NOTE: Uselees for Combination, that is, <a-*>/<c-*>.
-#[[plugins]]
-#repo = 'liuchengxu/vim-which-key'
-#hook_add = 'runtime which-key.vimrc'
-
 ### FZF
 [[plugins]]
-repo = 'junegunn/fzf'
+repo = 'junegunn/fzf' #{{{
 [[plugins]]
 repo = 'junegunn/fzf.vim'
 hook_add = 'runtime fzf.vimrc'
-
-### Denite
-## Ref: extra.toml
-## Ref: denite.vimrc
-[[plugins]]
-## CAUTION: denite.vimrc MUST be sourced after dein#end() on dein.vim.
-repo = 'Shougo/denite.nvim'
-if = 'has("python3")'
+#}}}
 
 ### Completion
 [[plugins]]
-repo = 'neoclide/coc.nvim'
-hook_add = 'call coc#util#install()'
+repo = 'neoclide/coc.nvim' #{{{
+hook_add = 'silent call coc#util#install()'
 hook_add = 'runtime coc.vimrc'
-
-### Defx
-## Ref: defx.vimrc
-[[plugins]]
-repo = 'kristijanhusak/defx-git'
-if = 'has("python3")'
-[[plugins]]
-repo = 'kristijanhusak/defx-icons'
-if = 'has("python3")'
-[[plugins]]
-## CAUTION: defx.vimrc MUST be sourced after dein#end() on dein.vim.
-repo = 'Shougo/defx.nvim'
-if = 'has("python3")'
+#}}}
 
 #### Color Themes
 ## CAUTION: Colorscheme MUST be sourced after dein#end() on dein.vim.
 ## Ref: appearance.toml
 [[plugins]]
-repo = 'morhetz/gruvbox'
+repo = 'morhetz/gruvbox' #{{{
 if = 'has("nvim")'
+#}}}
 
 ### Status Bar
 #[[plugins]]
@@ -79,3 +44,11 @@ repo = 'vim-airline/vim-airline'
 hook_add = 'runtime airline.vimrc'
 [[plugins]]
 repo = 'vim-airline/vim-airline-themes'
+
+### Denite
+#[[plugins]]
+### CAUTION: denite.vimrc MUST be sourced after dein#end() on dein.vim.
+#repo = 'Shougo/denite.nvim' #{{{
+#if = 'has("python3")'
+#hook_add = 'runtime denite.vimrc'
+##}}}
