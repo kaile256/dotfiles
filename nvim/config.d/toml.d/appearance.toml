@@ -3,53 +3,42 @@
 
 ### Indent
 [[plugins]]
-# indent line should be visible
-repo = 'Yggdroot/indentLine'
+repo = 'Yggdroot/indentLine' "{{{
 on_event = 'BufReadPre'
-hook_post_source = 'runtime indentline.vimrc'
+hook_post_source = 'runtime indentLine.vimrc'
+"}}}
 
 #### Paren: Doesn't Work
 #[[plugins]]
-#repo = 'luochen1990/rainbow'
+#repo = 'luochen1990/rainbow' "{{{
 ### CAUTION: source rainbow.vimrc AFTER :colorscheme.
 #on_event = 'BufReadPre'
+"}}}
 
 ### Resonance
 [[plugins]]
 ## Better %
-repo = 'andymass/vim-matchup'
+repo = 'andymass/vim-matchup' "{{{
 on_event = 'CursorMoved'
 hook_post_source = 'runtime matchup.vimrc'
+"}}}
 [[plugins]]
-repo = 'itchyny/vim-cursorword'
+repo = 'itchyny/vim-cursorword' "{{{
 on_event = 'CursorMoved'
 hook_post_source = 'runtime cursorword.vimrc'
+"}}}
 
 ### Substitution
 #[[plugins]]
-#repo = 'osyo-manga/vim-over'
+#repo = 'osyo-manga/vim-over' "{{{
 #on_event = 'CmdlineEnter'
 #hook_post_source = 'runtime over.vimrc'
+"}}}
 
 ### Colorscheme
 [[plugins]]
-repo = 'flazz/vim-colorschemes'
+repo = 'flazz/vim-colorschemes' "{{{
 on_event = 'CmdLineEnter'
-#[[plugins]]
-#repo = 'tomasr/molokai'
-#on_if = 'has("nvim")'
-#[[plugins]]
-#repo = 'sjl/badwolf'
-#on_if = 'has("nvim")'
-#[[plugins]]
-#repo = 'jacoborus/tender.vim'
-#on_if = 'has("nvim")'
-#[[plugins]]
-#repo = 'altercation/vim-colors-solarized'
-#on_if = 'has("nvim")'
-#[[plugins]]
-#repo = 'fenetikm/falcon'
-#on_if = 'has("nvim")'
-#[[plugins]]
-#repo = 'ayu-theme/ayu-vim'
-#on_if = 'has("nvim")'
+#hook_post_source = 'set rtp+=~/.cache/dein/repos/github.com/flazz/vim-colorschemes/colors/*.vim'
+"}}}
+
