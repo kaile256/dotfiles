@@ -1,18 +1,33 @@
 """" From: tool.toml
 """" Help: openbrowser
 
+" OpenBrower; Abbr {{{
+""" Abbr; Search Engine {{{0
+"" Duckduckgo
+cnoreabbrev <expr> dk (getcmdtype() == ':' && getcmdline() =~ '^OpenBrowserSmartSearch dk$')? '-duckduckgo' : 'dk'
+"" Google
+cnoreabbrev <expr> go (getcmdtype() == ':' && getcmdline() =~ '^OpenBrowserSmartSearch go$')? '-google'     : 'go'
+"" GitHub
+cnoreabbrev <expr> gh (getcmdtype() == ':' && getcmdline() =~ '^OpenBrowserSmartSearch gh$')? '-github'     : 'gh'
+"" Wikipedia
+cnoreabbrev <expr> wk (getcmdtype() == ':' && getcmdline() =~ '^OpenBrowserSmartSearch wk$')? '-wikipedia'  : 'wk'
+"" Weblio
+cnoreabbrev <expr> wl (getcmdtype() == ':' && getcmdline() =~ '^OpenBrowserSmartSearch wl$')? '-weblio'     : 'wl'
+"}}}
+
 " OpenBrowser; Let {{{
-let g:openbrowser_force_foreground_after_open = 0
-
-""" Search Engine
-let g:openbrowser_default_search = 'duckduckgo'
-
 let g:openbrowser_browser_commands = [
       \ {"name": "qutebrowser", "args": ["{browser}", "{uri}"]},
       \ {"name": "w3m",         "args": ["{browser}", "{uri}"]}
       \ ]
 
-"" Let; List of Search Engines {{{
+" 0: go to the browser.
+" 1: stay on vim.
+let g:openbrowser_force_foreground_after_open = 1
+
+""" Search Engine
+let g:openbrowser_default_search = 'duckduckgo'
+
 let g:openbrowser_search_engines = {
       \ 'alc': 'http://eow.alc.co.jp/{query}/UTF-8/',
       \ 'archwiki@en': 'https://wiki.archlinux.org/index.php?search={query}',
@@ -40,61 +55,54 @@ let g:openbrowser_search_engines = {
       \ 'yahoo': 'http://search.yahoo.com/search?p={query}',
       \ }
 "}}}
-"}}}
 
-" OpenBrowser; Keymap {{{
-"" Keymap; Current File {{{
-""" Current File; Command! {{{
+" Keymap; Open Current File {{{
+"" Current File; Command!
 "command! CurrentFileOnBrowser exe "OpenBrowser" "ftp:///" . expand('%:p:gs?\\?/?')
 command! CurrentFileOnBrowser exe "OpenBrowser" . expand('%:p:gs?\\?/?')
-"}}}
 
-"" Current File; Get Current file "{{{
+"" Current File; Get Current file
 nnoremap <silent> g% :<c-u>CurrentFileOnBrowser<cr>
 nnoremap <silent> g5 :<c-u>CurrentFileOnBrowser<cr>
 nnoremap <silent> gc :<c-u>CurrentFileOnBrowser<cr>
 "}}}
 
-"" Keymap; Under Cursor {{{
-""" Cursor; 'Go to Browser' "{{{
+" Keymap; Open those Under Cursor "{{{
+""" Cursor; 'Go to Browser'
 " Notice: `smart-search` detects whether it is URI or not.
 nmap gb <Plug>(openbrowser-smart-search)
 vmap gb <Plug>(openbrowser-smart-search)
-"}}}
 
-""" Cursor; Wiki "{{{
-"""" Dictionary; wikiPedia "{{{
+"" Cursor; Wiki {{{
+""" Wiki; wikiPedia
 nmap gp :<c-u>OpenBrowserSmartSearch -wikipedia <c-r><c-w> <cr>
 vmap gp :<c-u>OpenBrowserSmartSearch -wikipedia <c-r><c-a> <cr>
-"}}}
 
-"""" Wiki; Archwiki {{{
-"""" Archwiki; @en
+""" Wiki; Archwiki @en
 nmap ga :<c-u>OpenBrowserSmartSearch -archwiki@en <c-r><c-w> <cr>
 vmap ga :<c-u>OpenBrowserSmartSearch -archwiki@en <c-r><c-a> <cr>
 
-"""" Archwiki; @ja
+""" Wiki; Archwiki @ja
 nmap gj :<c-u>OpenBrowserSmartSearch -archwiki@ja <c-r><c-w> <cr>
 vmap gj :<c-u>OpenBrowserSmartSearch -archwiki@ja <c-r><c-a> <cr>
 "}}}
 
-""" Cursor; GitHub "{{{
+"" Cursor; GitHub "{{{
 nmap gh :<c-u>OpenBrowserSmartSearch http://github.com/<c-r><c-w> <cr>
 vmap gh :<c-u>OpenBrowserSmartSearch http://github.com/<c-r><c-a> <cr>
 
-"""" Github; Github's Repository
+""" Github; Github's Repository
 nmap gr :<c-u>OpenBrowserSmartSearch http://github.com/<c-r><c-a> <cr>
 vmap gr :<c-u>OpenBrowserSmartSearch http://github.com/<c-r><c-a> <cr>
 "}}}
 
-""" Cursor; Dictionary "{{{
-"""" Dictionary; Go to the free dictionary
+"" Cursor; Dictionary "{{{
+""" Dictionary; Go to the free dictionary
 " Mnemonic: default `K`
 nmap gK :<c-u>OpenBrowserSmartSearch -dictionary@en <c-r><c-w> <cr>
 vmap gK :<c-u>OpenBrowserSmartSearch -dictionary@en <c-r><c-a> <cr>
-"}}}
 
-""" Dictionary; Get Words
+""" Dictionary; Get Words on thesaurus
 nmap gw :<c-u>OpenBrowserSmartSearch -thesaurus <c-r><c-w> <cr>
 vmap gw :<c-u>OpenBrowserSmartSearch -thesaurus <c-r><c-a> <cr>
 
@@ -113,47 +121,35 @@ cnoremap <a-g><a-b> :<c-u>OpenBrowserSmartSearch<space>
 cnoremap <a-g>b     :<c-u>OpenBrowserSmartSearch<space>
 "}}}
 
-" Commandline; Abbr {{{
-"" Abbr; Search Engine {{{0
-""" Engine; Duckduckgo {{{
+" Abbr; Search Engine {{{
+"" Engine; Duckduckgo
 cnoreabbrev <expr> dk (getcmdtype() == ':' && getcmdline() =~ '^OpenBrowserSmartSearch dk$')? '-duckduckgo' : 'dk'
-"}}}
 
-""" Engine; Google {{{
+"" Engine; Google
 cnoreabbrev <expr> go (getcmdtype() == ':' && getcmdline() =~ '^OpenBrowserSmartSearch go$')? '-google'     : 'go'
-"}}}
 
-""" Engine; GitHub {{{
+"" Engine; GitHub
 cnoreabbrev <expr> gh (getcmdtype() == ':' && getcmdline() =~ '^OpenBrowserSmartSearch gh$')? '-github'     : 'gh'
-"}}}
 
-""" Engine; Wiki {{{
-"""" Wiki; Archwiki {{{
+"" Engine; Wiki {{{
+""" Wiki; Archwiki
 cnoreabbrev <expr> ar (getcmdtype() == ':' && getcmdline() =~ '^OpenBrowserSmartSearch ar$')? '-archwiki@en'     : 'wr'
 cnoreabbrev <expr> aw (getcmdtype() == ':' && getcmdline() =~ '^OpenBrowserSmartSearch aw$')? '-archwiki@en'     : 'aw'
 cnoreabbrev <expr> aj (getcmdtype() == ':' && getcmdline() =~ '^OpenBrowserSmartSearch aj$')? '-archwiki@ja'     : 'aj'
-"}}}
 
-"""" Wiki; Wikipedia {{{
+""" Wiki; Wikipedia
 cnoreabbrev <expr> wk (getcmdtype() == ':' && getcmdline() =~ '^OpenBrowserSmartSearch wk$')? '-wikipedia'  : 'wk'
 "}}}
 
-""" Engine; Dictionary {{{
-"""" Dictionary; Weblio
+"" Engine; Dictionary {{{
+""" Dictionary; Weblio
 cnoreabbrev <expr> wl (getcmdtype() == ':' && getcmdline() =~ '^OpenBrowserSmartSearch wl$')? '-weblio'     : 'wl'
 
-"""" Dictionary; Thesaurus "{{{
+"""" Dictionary; Thesaurus
 cnoreabbrev <expr> gw (getcmdtype() == ':' && getcmdline() =~ '^OpenBrowserSmartSearch gw$')? '-thesaurus'     : 'gw'
 cnoreabbrev <expr> th (getcmdtype() == ':' && getcmdline() =~ '^OpenBrowserSmartSearch th$')? '-thesaurus'     : 'th'
-"}}}
 
-"""" Dictionary; DiCtionary "{{{
+"""" Dictionary; DiCtionary
 cnoreabbrev <expr> dc (getcmdtype() == ':' && getcmdline() =~ '^OpenBrowserSmartSearch dc$')? '-dictionary@en'     : 'dc'
-"}}}
-"}}}
-"}}}
-"}}}
-"}}}
-"}}}
 "}}}
 "}}}
