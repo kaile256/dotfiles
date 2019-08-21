@@ -12,6 +12,6 @@ let g:indentLine_faster = 1
 " IndentLine; Augroup {{{
 augroup MyIndentLineAugroup "{{{
   au!
-  au WinEnter * if &ft != 'help' | IndentLinesEnable
+  au WinEnter * if &ft != 'help' | IndentLinesEnable | endif
   au WinLeave * IndentLinesDisable
 augroup END "}}}

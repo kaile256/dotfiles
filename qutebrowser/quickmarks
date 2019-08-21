@@ -27,3 +27,13 @@ author ja http://haya14busa.com/mastering-vim-easymotion/
 wiki @eng https://wiki.archlinux.org/
 [[xmodmap]] which is MODIFIERNAME, KEYSYMNAME? https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/key/Key_Values
 vim: get hex color numbers! https://www.hexcolortool.com/#fab89e
+Convert mdwiki to html #vimwiki https://github.com/patrickdavey/vimwiki_markdown
+ThinkPad490s: status @Lenovo https://www.lenovo.com/jp/ja/static/catalog/nb-2019-t490s_cf_0611
+JEITA: @ja Association of Electronic & Infomation Technology https://www.jeita.or.jp/japanese/public_standard/
+ThinkPad: init config touchPad #Linux https://qiita.com/yoichiwo7/items/edda3afe7daf5d7d4a4d
+ThinkPad: Disable TouchPad Partially https://qiita.com/uchan_nos/items/ccc4ef7e319cb6200cc9
+no beep on linux: surpress pcspkr! https://qiita.com/vmmhypervisor/items/4bae747f7518e083570a
+neovim on USB! https://vim.blue/neovim-potable-on-usb-memory/
+How to Dual-Boot ArchLinux with Win10 https://blog.jo3qma.com/2018/08/arch_linux_t460s_dualboot/
+MS Office on vim! https://github.com/Konfekt/vim-office
+Overwrite Linux on MacOS; overwriting Grub on Default Bootloader, too. https://qiita.com/syui/items/b179499a0b571d4f3354

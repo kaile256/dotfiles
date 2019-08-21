@@ -19,9 +19,6 @@ on_ft = 'lua'
 [[plugins]]
 repo = 'udalov/kotlin-vim'
 on_ft = 'kotlin'
-#[[plugins]]
-#repo = 'Alloyed/lua-lsp'
-#on_ft = 'lua'
 
 ### 13-wm
 [[plugins]]
@@ -48,11 +45,11 @@ hook_add = '''
 
 ### Toml
 [[plugins]]
-repo = 'cespare/vim-toml' 
+repo = 'cespare/vim-toml'
 on_ft = 'toml'
 # syntax highlight for 'hook_add'
 [[plugins]]
-repo = 'delphinus/vim-toml-dein' 
+repo = 'delphinus/vim-toml-dein'
 on_ft = 'toml'
 
 ### Html
@@ -72,9 +69,10 @@ hook_add = '''
   '''
 
 ### Text
-[[plugins]]
-repo = 'freitass/todo.txt-vim'
-on_ft = 'text'
+#[[plugins]]
+#repo = 'freitass/todo.txt-vim'
+#on_ft = 'text'
+
 ### Markdown
 [[plugins]]
 repo = 'tpope/vim-markdown'
@@ -84,8 +82,14 @@ repo = 'suan/vim-instant-markdown'
 on_event = 'BufRead'
 on_ft = 'markdown'
 
-### LaTex
+# Office
 [[plugins]]
-repo = 'lervag/vimtex'
-on_ft = 'tex'
-hook_post_source = 'runtime! vimtex.vimrc'
+repo = 'Konfekt/vim-office'
+on_ft = ['pdf', 'doc', 'docx', 'xls', 'xlsx', 'ppt', 'pptx', 'odt', 'epub']
+hook_post_source = 'runtime office.vimrc'
+
+### LaTex
+#[[plugins]]
+#repo = 'lervag/vimtex'
+#on_ft = 'tex'
+#hook_post_source = 'runtime! vimtex.vimrc'

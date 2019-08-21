@@ -79,8 +79,8 @@ settings:
         u: null
   editor.command:
     global:
-    - nvim-qt
-    - -f
+    - nvr
+    - -p
     - '{file}'
     - -c
     - normal {line}G{column0}l

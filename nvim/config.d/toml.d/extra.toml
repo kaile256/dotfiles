@@ -11,26 +11,24 @@
 
 ### Denite
 ### Ref: Init.toml
-[[plugins]]
-repo = 'Shougo/neoyank.vim'
-on_if = 'has("python3")'
-[[plugins]]
-repo = 'ozelentok/denite-gtags'
-on_if = 'has("python3")'
-[[plugins]]
-repo = 'rafi/vim-denite-session'
-on_if = 'has("python3")'
-[[plugins]]
-repo = 'neoclide/denite-git'
-on_if = 'has("python3")'
-[[plugins]]
-repo = 'Shougo/neomru.vim'
-on_if = 'has("python3")'
+#[[plugins]]
+#repo = 'Shougo/neoyank.vim'
+#on_if = 'has("python3")'
+#[[plugins]]
+#repo = 'ozelentok/denite-gtags'
+#on_if = 'has("python3")'
+#[[plugins]]
+#repo = 'rafi/vim-denite-session'
+#on_if = 'has("python3")'
+#[[plugins]]
+#repo = 'neoclide/denite-git'
+#on_if = 'has("python3")'
+#[[plugins]]
+#repo = 'Shougo/neomru.vim'
+#on_if = 'has("python3")'
 
 ### COC
 ### Ref: tool.toml
-[[plugins]]
-repo = 'neoclide/coc-denite'
-on_if = 'has("python3")'
-
-
+#[[plugins]]
+#repo = 'neoclide/coc-denite'
+#on_if = 'has("python3")'

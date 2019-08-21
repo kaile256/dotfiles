@@ -1,9 +1,8 @@
-"""" From: tool.toml
-"""" Help: coc-
-"""" Source: neoclide/coc.nvim
+" From: tool.toml
+" Help: coc-
+" Source: neoclide/coc.nvim
 
-"""" GENERAL
-" In case of faileure to install json for coc.
+
 " TODO: Make it as Snippet
 cnoreabbrev  <expr> ci (getcmdtype() == ':' && getcmdline() =~ '^ci$')? 'call coc#util#install()' : 'ci'
 
@@ -38,8 +37,13 @@ let g:coc_global_extensions = [
       \ 'coc-yank'
       \ ]
 
+" Coc; Keymap "{{{
+"" Keymap; for the message:
+" "[coc.nvim] javascript file not found, please compile the code or use release branch."
+cnoremap <silent> <a-c><a-i> <c-u>call coc#util#install()
+
 """" COC-RENAME
-nmap <silent> <a-c><a-c> :CocList<cr>
+nnoremap <silent> <a-c><a-c> :CocList<cr>
 nmap <a-c><a-n> <Plug>(coc-rename)
 nmap <a-c><a-f> <Plug>(coc-float-jump)
 
@@ -125,6 +129,9 @@ inoremap <silent><expr> <c-p>
 " Coc; Augroup {{{
 augroup MyCocAugroup "{{{0
   au!
+
+  "In case of faileure to install json for coc.
+  au VimEnter * call coc#util#install
   "AutoCloseOnWinLeave
   au WinLeave * if &filetype ==# 'coc' | close | endif
 augroup END "}}}

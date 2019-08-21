@@ -8,10 +8,10 @@
 ####  Ref: X11/.Xresources
 ####  Ref: X11/.Xmodmap
 
-UserResources=$HOME/.config/X11/.Xresources
-UserModmap=$HOME/.config/X11/.Xmodmap
-SystemSources=/etc/X11/xinit/.Xresources
-SystemModmap=/etc/X11/xinit/.Xmodmap
+UserResources = $HOME/.config/X11/.Xresources
+UserModmap = $HOME/.config/X11/.Xmodmap
+SystemSources = /etc/X11/xinit/.Xresources
+SystemModmap = /etc/X11/xinit/.Xmodmap
 
 # merge in defaults and keymaps
 
@@ -25,7 +25,7 @@ if [ -f $SystemModmap ]; then
     xmodmap $SystemModmap
 fi
 
-if [ -f "$UserResources" ]; then 
+if [ -f "$UserResources" ]; then
 
     xrdb -merge "$UserResources"
 

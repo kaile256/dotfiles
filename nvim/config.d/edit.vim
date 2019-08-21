@@ -70,8 +70,8 @@ nnoremap <silent> <space>z :<c-u>q!<cr>
 nnoremap <space>* :<c-u>qa<cr>
 nnoremap <space>! :w !sudo tee % > /dev/null<cr> <bar> edit!
 "" Buffer
-nnoremap <silent> qq :<c-u>bdelete %<cr>
-nnoremap <silent> q1 :<c-u>bdelete %<cr>
+"nnoremap <silent> qq :<c-u>bdelete %<cr>
+"nnoremap <silent> q1 :<c-u>bdelete %<cr>
 "}}}
 
 "" Keymap; Emacs-like {{{
@@ -142,19 +142,13 @@ inoremap <nowait> <a-e>          <esc>e
 inoremap <nowait> <a-s-w>        <esc>W
 inoremap <nowait> <a-s-b>        <esc>B
 inoremap <nowait> <a-s-e>        <esc>E
-inoremap <nowait> <a-w><a-w>     <esc>ww
-inoremap <nowait> <a-b><a-w>     <esc>bb
-inoremap <nowait> <a-w><a-e>     <esc>ee
-inoremap <nowait> <a-s-w><a-s-w> <esc>WW
-inoremap <nowait> <a-s-b><a-s-w> <esc>BB
-inoremap <nowait> <a-s-w><a-s-e> <esc>EE
 "}}}
 
 """ Alt-<ESC>; <a-ydcup> {{{
-inoremap <nowait> <a-y>      <esc>y
-inoremap <nowait> <a-x>      <esc>x
-inoremap <nowait> <a-d>      <esc>d
-inoremap <nowait> <a-c>      <esc>c
+"inoremap <nowait> <a-y>      <esc>y
+"inoremap <nowait> <a-x>      <esc>x
+"inoremap <nowait> <a-d>      <esc>d
+"inoremap <nowait> <a-c>      <esc>c
 inoremap <nowait> <a-u>      <esc>u
 inoremap <nowait> <a-c-r>    <esc><c-r>
 inoremap <nowait> <a-p>      <c-g>u<esc>p
@@ -166,22 +160,25 @@ inoremap <nowait> <a-s-u>    <esc>U
 inoremap <nowait> <a-s-p>    <c-g>u<esc>P
 
 """" A-ydcup; for another type {{{
+""""" Another; y
 inoremap <nowait> <a-y><a-y> <esc>yy
 inoremap <nowait> <a-y><a-w> <esc>yy
 inoremap <nowait> <a-y><a-b> <esc>yy
 inoremap <nowait> <a-y><a-e> <esc>yy
 inoremap <nowait> <a-y><a-i> <esc>yi
 inoremap <nowait> <a-y><a-a> <esc>ya
+""""" Another; d
 inoremap <nowait> <a-d><a-d> <esc>dd
-inoremap <nowait> <a-d><a-w> <esc>dd
-inoremap <nowait> <a-d><a-b> <esc>dd
-inoremap <nowait> <a-d><a-e> <esc>dd
+inoremap <nowait> <a-d><a-w> <esc>dw
+inoremap <nowait> <a-d><a-b> <esc>db
+inoremap <nowait> <a-d><a-e> <esc>de
 inoremap <nowait> <a-d><a-i> <esc>di
 inoremap <nowait> <a-d><a-a> <esc>da
+""""" Another; c
 inoremap <nowait> <a-c><a-c> <esc>cc
-inoremap <nowait> <a-c><a-w> <esc>cc
-inoremap <nowait> <a-c><a-b> <esc>cc
-inoremap <nowait> <a-c><a-e> <esc>cc
+inoremap <nowait> <a-c><a-w> <esc>cw
+inoremap <nowait> <a-c><a-b> <esc>cb
+inoremap <nowait> <a-c><a-e> <esc>ce
 inoremap <nowait> <a-c><a-i> <esc>ci
 inoremap <nowait> <a-c><a-a> <esc>ca
 "}}}
@@ -243,20 +240,31 @@ tnoremap <expr> <C-R> '<C-\><C-N>"'.nr2char(getchar()).'pi'
 " term-mode
 tnoremap <expr> <C-R><c-space> '<C-\><C-N>"+pi'
 tnoremap <expr> <C-R><space>   '<C-\><C-N>"+pi'
-" yank
+"""" Plus; Yank {{{
+""""" Yank; Current File Path {{{0
+nnoremap yc :let @+ = expand('%:p:gs?\\?/?')<cr>
+"}}}
 nnoremap <space>y "+y
 xnoremap <space>y "+y
 nnoremap <space>Y "+y$
 xnoremap <space>Y "+y$
+"}}}
 " delete
 nnoremap <space>d "+d
 nnoremap <space>D "+D
 nnoremap <space>c "+c
 nnoremap <space>C "+C
 " paste
+
+function! s:no_auto_indent_append()
+  exe append!
+  <c-r>+ <esc>
+endfunction
+
 nnoremap <space>p "+p']
-xnoremap <space>p "+p
+"nnoremap <space>p <SID>no_auto_indent_append<CR>
 nnoremap <space>P "+P
+xnoremap <space>p "+p
 xnoremap <space>P "+P
 inoremap <c-r><c-space> <c-g>u<c-r>+
 inoremap <c-r><space>   <c-g>u<c-r>+
@@ -294,7 +302,7 @@ cnoremap <c-r>'     <c-r>"
 cnoremap <c-r><c-\> <c-r>"
 cnoremap <c-r>\     <c-r>"
 
-""" Unnamed; QuickEdit {{{
+""" Unnamed; Quick Edit {{{
 nnoremap yp yyp
 nnoremap yP yyP
 nnoremap cp ddp

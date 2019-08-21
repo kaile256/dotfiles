@@ -5,10 +5,7 @@ let g:vaffle_use_default_mappings = 0
 let g:vaffle_show_hidden_files = 1
 "}}}
 
-" Vaffle; Keymap {{{
-"nnoremap <silent>
-"}}}
-function! s:my_vaffle_keymap() abort
+function! s:my_vaffle_keymap() abort "{{{
 
   nmap <buffer> /        <Plug>(vaffle-open-root)
   nmap <buffer> K        <Plug>(vaffle-mkdir)
@@ -35,11 +32,12 @@ function! s:my_vaffle_keymap() abort
   nmap <buffer> % <Plug>(vaffle-new-file)
   nmap <buffer> x <Plug>(vaffle-fill-cmdline)
 
-endfunction
+endfunction "}}}
 
 " Vaffle; Augroup {{{
 augroup MyVaffleAugroup "{{{0
   au!
-  au FileType vaffle setlocal signcolumn=
+  "au BufWinEnter * if &ft == 'netrw' | Vaffle | endif
+  au FileType vaffle setlocal signcolumn= cursorline
   au FileType vaffle call <SID>my_vaffle_keymap()
 augroup END "}}}

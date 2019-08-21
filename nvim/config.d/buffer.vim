@@ -177,7 +177,7 @@ nnoremap <silent> <a-s>o     :<c- Reloadu>so % <bar> echo ' Vim sourced "' . buf
 
 "" Keymap; 'Show Status' of the buffer {{{
 function! s:echo_file_info() "{{{
-  echo " &filetype='" . &filetype . "'; &buftype='" . &buftype . "'; " . "winnr('$') is " . winnr('$') . "; winnr('#') is " . winnr('#') . "."
+  exe echo " &filetype='" . &filetype . "'; &buftype='" . &buftype . "'; " . "winnr('$') is " . winnr('$') . "; winnr('#') is " . winnr('#') . "."
 endfunction "}}}
 
 "nnoremap <a-s><a-s> call <SID>echo_file_info()

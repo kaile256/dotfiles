@@ -27,10 +27,12 @@ augroup FzfAugroup
   au!
 
   " CAUTION: WinLeave's current file is next file, i.e., fzf when opening fzf-buffer.
-  au WinLeave * if &filetype =~# 'fzf'   |  close
+  au WinLeave * if &filetype =~# 'fzf'   |  close | endif
+
   au Syntax   * if @#        =~# 'term:' && &filetype !=# 'coc' && &filetype !=# 'fzf' | bwipeout! #
 
   au User     FzfStatusLine call <SID>fzf_statusline()
+
   au FileType fzf           call <SID>fzf_buffer_keymap()
 
 augroup END
@@ -225,21 +227,13 @@ imap <c-f> <plug>(fzf-complete-path)
 "imap <c-f> <plug>(fzf-complete-file-ag)
 " :FZF! starts fzf on full-window.
 
+" Various; FZF with `cd` {{{
 tnoremap <silent> <a-q><a-h> <c-u>cd ~<cr>               <c-\><c-n>:<c-u> FZF<cr>
 tnoremap <silent> <a-q>h     <c-u>cd ~<cr>               <c-\><c-n>:<c-u> FZF<cr>
 tnoremap <silent> <a-q><a-d> <c-u>cd ~/dotfiles<cr>      <c-\><c-n>:<c-u> FZF<cr>
 tnoremap <silent> <a-q>d     <c-u>cd ~/dotfiles<cr>      <c-\><c-n>:<c-u> FZF<cr>
 tnoremap <silent> <a-q><a-v> <c-u>cd ~/dotfiles/nvim<cr> <c-\><c-n>:<c-u> FZF<cr>
 tnoremap <silent> <a-q>v     <c-u>cd ~/dotfiles/nvim<cr> <c-\><c-n>:<c-u> FZF<cr>
-
-tnoremap <silent> <a-q>q     <c-\><c-n>:<c-u> BLines<cr>
-tnoremap <silent> <a-q><a-q> <c-\><c-n>:<c-u> BLines<cr>
-tnoremap <silent> <a-q><a-b> <c-\><c-n>:<c-u> Buffers<cr>
-tnoremap <silent> <a-q>b     <c-\><c-n>:<c-u> Buffers<cr>
-tnoremap <silent> <a-q><a-l> <c-\><c-n>:<c-u> Helptags<cr>
-tnoremap <silent> <a-q>l     <c-\><c-n>:<c-u> Helptags<cr>
-tnoremap <silent> <a-q><a-w> <c-\><c-n>:<c-u> Windows<cr>
-tnoremap <silent> <a-q>w     <c-\><c-n>:<c-u> Windows<cr>
 
 nnoremap <silent> <a-q><a-h> :<c-u> cd ~               <bar> FZF<cr>
 nnoremap <silent> <a-q>h     :<c-u> cd ~               <bar> FZF<cr>
@@ -249,19 +243,34 @@ nnoremap <silent> <a-q><a-v> :<c-u> cd ~/dotfiles/nvim <bar> FZF<cr>
 nnoremap <silent> <a-q>v     :<c-u> cd ~/dotfiles/nvim <bar> FZF<cr>
 nnoremap <silent> <a-q><a-.> :<c-u> cd %:p:h           <bar> FZF<cr>
 nnoremap <silent> <a-q>.     :<c-u> cd %:p:h           <bar> FZF<cr>
+"}}}
+
+" Various; {{{
+tnoremap <silent> <a-q>g     <c-\><c-n>:<c-u> GFiles?<cr>
+tnoremap <silent> <a-q><a-g> <c-\><c-n>:<c-u> GFiles?<cr>
+tnoremap <silent> <a-q>q     <c-\><c-n>:<c-u> BLines<cr>
+tnoremap <silent> <a-q><a-q> <c-\><c-n>:<c-u> BLines<cr>
+tnoremap <silent> <a-q><a-b> <c-\><c-n>:<c-u> Buffers<cr>
+tnoremap <silent> <a-q>b     <c-\><c-n>:<c-u> Buffers<cr>
+tnoremap <silent> <a-q><a-l> <c-\><c-n>:<c-u> Helptags<cr>
+tnoremap <silent> <a-q>l     <c-\><c-n>:<c-u> Helptags<cr>
+tnoremap <silent> <a-q><a-w> <c-\><c-n>:<c-u> Windows<cr>
+tnoremap <silent> <a-q>w     <c-\><c-n>:<c-u> Windows<cr>
+"" Mnemonic: 'Old' Buffer
+tnoremap <silent> <a-q><a-o> <c-\><c-n>:<c-u> History<cr>
+tnoremap <silent> <a-q>o     <c-\><c-n>:<c-u> History<cr>
+
+" Search in Current File
+nnoremap <silent> <a-q><a-q> :<c-u> BLines<cr>
+nnoremap <silent> <a-q>q     :<c-u> BLines<cr>
+nnoremap <silent> <a-q><a-g> :<c-u> GFiles?<cr>
+nnoremap <silent> <a-q>g     :<c-u> GFiles?<cr>
 nnoremap <silent> <a-q><a-b> :<c-u> Buffers<cr>
 nnoremap <silent> <a-q>b     :<c-u> Buffers<cr>
 nnoremap <silent> <a-q><a-l> :<c-u> Helptags<cr>
 nnoremap <silent> <a-q>l     :<c-u> Helptags<cr>
-"" Mnemonic: 'Old' Buffer
 nnoremap <silent> <a-q><a-o> :<c-u> History<cr>
 nnoremap <silent> <a-q>o     :<c-u> History<cr>
-"" Marks: Useless?
-nnoremap <silent> <a-q><a-m> :<c-u> Marks<cr>
-nnoremap <silent> <a-q>m     :<c-u> Marks<cr>
-"" Mnemonic: Search in Current File
-nnoremap <silent> <a-q><a-q> :<c-u> BLines<cr>
-nnoremap <silent> <a-q>q     :<c-u> BLines<cr>
 
 "" Search
 nnoremap <silent> <a-q><a-/> :<c-u> History/<cr>

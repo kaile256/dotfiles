@@ -12,7 +12,9 @@ endif
 " dein#load_state includes 'set filetype off';
 " so 'set filetype on' after load dein & plugins.
 
-let s:dein_cache_dir = g:xdg_cache_home . '/dein'
+"let s:dein_cache_dir = g:xdg_cache_home . '/dein'
+let s:dein_cache_dir = g:xdg_data_home . '/dein'
+
 " Prepared For Reinstall
 let g:Shougo_cache_dir = s:dein_cache_dir . '/repos/github.com/Shougo/'
 let g:dein_itself = g:Shougo_cache_dir . 'dein.vim/'
@@ -84,9 +86,9 @@ syntax enable
 """" KEYMAP
 """ CAUTION: for the other plugins, DON'T define 'cmap' carelessly.
 " install plugins
-noremap  <a-d><a-i> :<c-u>call dein#install()<cr>
-noremap  <a-d>i     :<c-u>call dein#install()<cr>
+cnoremap <silent> <a-d><a-i> :<c-u>call dein#install()<cr>
+cnoremap <silent> <a-d>i     :<c-u>call dein#install()<cr>
 
 " update plugins
-noremap <a-d><a-u>  :<c-u>call dein#update()<cr>
-noremap <a-d>u      :<c-u>call dein#update()<cr>
+cnoremap <silent> <a-d><a-u>  :<c-u>call dein#update()<cr>
+cnoremap <silent> <a-d>u      :<c-u>call dein#update()<cr>

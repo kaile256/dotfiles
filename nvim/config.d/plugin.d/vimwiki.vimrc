@@ -212,16 +212,23 @@ nnoremap <silent> <a-e><a-v> :vs <cr> :VimwikiMakeDiaryNote<cr>
 augroup MyVimWikiAugroup "{{{0
   au!
 
-  au VimEnter * if @% == '' && &filetype ==# '' && &buftype ==# '' | VimwikiMakeDiaryNote
+  "au VimEnter * if @% == '' && &filetype ==# '' && &buftype ==# '' | VimwikiMakeDiaryNote | endif
 
-  au BufWritePre * if &filetype == 'vimwiki' | VimwikiTOC
-  au InsertLeave * if &wrap == 0 | norm zH
+  au BufWritePre * if &filetype == 'vimwiki' | VimwikiTOC | endif
+  au InsertLeave * if &wrap == 0 | norm zH | endif
 
   au FileType vimwiki  call <SID>my_vimwiki_setlocal()
   au FileType vimwiki  call <SID>my_vimwiki_keymap()
   au FileType vimwiki  call <SID>my_vimwiki_diary()
 
   " Open Terminal as Startpage
-  "au VimEnter * if @% == '' && &filetype ==# '' && &buftype ==# '' | call termopen(&shell) | setlocal nonumber signcolumn=no modifiable
+  function! s:vim_enter_with_terminal() "{{{
+    exe if @% == '' && &filetype ==# '' && &buftype ==# ''
+  call termopen(&shell)
+  setlocal nonumber signcolumn=no modifiable
+  endif
+  endfunction "}}}
+  "au VimEnter * call <SID>vim_enter_with_terminal()
+  au VimEnter * if @% == '' && &filetype ==# '' && &buftype ==# '' | call termopen(&shell) | setlocal nonumber signcolumn=no modifiable | endif
 
 augroup END "}}}

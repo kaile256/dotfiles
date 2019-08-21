@@ -70,10 +70,11 @@ set ambiwidth=double
 "" Wrap
 " wrap long text: s for space
 set wrap whichwrap=s
+
 augroup ConfirmSetWrap "{{{
   au!
-  au BufRead * if &diff | setlocal wrap
-set breakindent
+  au BufRead * if &diff | setlocal wrap | endif
+set breakindent "}}}
 
 """ Line
 " CAUTION: cursorline-highlight causes drawing corruption.
@@ -118,7 +119,6 @@ set matchtime=1
 "set foldmethod=syntax
 set foldlevel=1
 set foldnestmax=10
-"hi Folded gui=bold guifg=#fabd1f
 hi CursorIM guibg=#fabd1f
 
 "augroup AutoAjustFoldMethod "{{{

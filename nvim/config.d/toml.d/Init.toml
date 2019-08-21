@@ -19,13 +19,6 @@ repo = 'junegunn/fzf.vim'
 hook_add = 'runtime fzf.vimrc'
 #}}}
 
-### Completion
-[[plugins]]
-repo = 'neoclide/coc.nvim' #{{{
-hook_add = 'silent call coc#util#install()'
-hook_add = 'runtime coc.vimrc'
-#}}}
-
 #### Color Themes
 ## CAUTION: Colorscheme MUST be sourced after dein#end() on dein.vim.
 ## Ref: appearance.toml

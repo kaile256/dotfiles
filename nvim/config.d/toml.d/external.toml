@@ -3,7 +3,7 @@
 ### Browser
 [[plugins]] #{{{
 repo = 'tyru/open-browser.vim'
-on_if = ['executable("qutebrowser")','executable("w3m")']
+on_if = 'executable("qutebrowser")'
 hook_post_source = 'runtime! open-browser.vimrc'
 #}}}
 

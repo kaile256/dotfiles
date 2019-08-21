@@ -1,15 +1,13 @@
-"""" Memo: leap.org
 """" From: init.vim
 
-"""" CONFIG
+" Leap; Set {{{
 " cursor position of column is kept on jump.
 set nostartofline
 " jump ignoring unwritten buffers.
 set hidden
 
-""" Search
+" Set; Search {{{
 set noignorecase
-" sensitive to case only with upper case.
 "set smartcase
 set incsearch
 set hlsearch
@@ -17,11 +15,25 @@ set nowrapscan
 " fold all lines unmatched on {pattern}.
 " CAUTION: foldable is apt to collapse format.
 set foldenable
+"}}}
 
-" KEYMAP
+" Leap; Keymap {{{
 
-""" Fuzzy Finders' Error {{{
+"" Keymap; Prevention for Error {{{
+""" Prevention; Fuzzy Finders
+
+function! s:echo_no_fuzzy_grep() "{{{
+
+  exe echo "You don't have executable 'ripgrep' nor 'silver searcher.'"
+endfunction "}}}
+
+function! s:echo_no_fzf() "{{{
+
+  exe echo "You don't have executable 'fzf.'"
+endfunction "}}}
+
 if !executable('ag') && !executable('rg')
+
 tnoremap <silent> <a-r> <c-\><c-n>:echo "You don't have executable 'ripgrep' nor 'silver searcher.'"<cr>
 tnoremap <silent> <a-q> <c-\><c-n>:echo "You don't have any executable fuzzy finder.'"<cr>
 nnoremap <silent> <a-r> :<c-u>echo "You don't have executable 'ripgrep' nor 'silver searcher.'"<cr>
@@ -29,7 +41,7 @@ nnoremap <silent> <a-q> :<c-u>echo "You don't have any executable fuzzy finder.'
 endif
 "}}}
 
-""" Org
+" Prevention; Org
 "" vsbe ~/org/notes.org {{{
 "nnoremap <silent> <a-q><a-o> :<c-u>e  ~/org/notes.org <cr>
 "nnoremap <silent> <a-q>o     :<c-u>e  ~/org/notes.org <cr>
@@ -46,7 +58,11 @@ endif
 ""tnoremap <silent> <a-q>e     <c-u>nvr ~/org/notes.org <cr>
 "}}}
 
-""" NP Directory
+""" N/P Directory
+"""
+tnoremap <a-i> cd - > /dev/null <CR>
+tnoremap <a-o> cd .. <CR>
+
 nnoremap <a-w><a-i> :cd -<cr>:echo '$CWD is "' . getcwd() . '"'<cr>
 nnoremap <a-w>i     :cd -<cr>:echo '$CWD is "' . getcwd() . '"'<cr>
 nnoremap <a-w><a-o> :cd ..<cr>:echo '$CWD is "' . getcwd() . '"'<cr>
