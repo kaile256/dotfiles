@@ -45,7 +45,6 @@ nerd-fonts-ricty
 otf-sfmono  # Font; SF Mono
 pyenv
 python-oauth2client
-blacklist_pcspkr # Kill Notorious Beep Maker
 python-pipenv
 rclone  # sync lib for cloud-service like dropbox, Gdrive.
 ripgrep

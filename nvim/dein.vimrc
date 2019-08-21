@@ -12,9 +12,7 @@ endif
 " dein#load_state includes 'set filetype off';
 " so 'set filetype on' after load dein & plugins.
 
-"let s:dein_cache_dir = g:xdg_cache_home . '/dein'
-let s:dein_cache_dir = g:xdg_data_home . '/dein'
-
+let s:dein_cache_dir = g:xdg_cache_home . '/dein'
 " Prepared For Reinstall
 let g:Shougo_cache_dir = s:dein_cache_dir . '/repos/github.com/Shougo/'
 let g:dein_itself = g:Shougo_cache_dir . 'dein.vim/'
@@ -39,7 +37,6 @@ if dein#load_state(s:dein_cache_dir)
   let s:dein_toml      = s:dein_toml_dir . 'Init.toml'
   let s:appearance_toml= s:dein_toml_dir . 'appearance.toml'
   let s:external_toml  = s:dein_toml_dir . 'external.toml'
-  let s:extra_toml     = s:dein_toml_dir . 'extra.toml'
   let s:filetype_toml  = s:dein_toml_dir . 'filetype.toml'
   let s:tool_toml      = s:dein_toml_dir . 'tool.toml'
 
@@ -49,7 +46,6 @@ if dein#load_state(s:dein_cache_dir)
   """ Lazy Load
   call dein#load_toml(s:filetype_toml,   {'lazy': 1})
   call dein#load_toml(s:appearance_toml, {'lazy': 1})
-  call dein#load_toml(s:external_toml,   {'lazy': 1})
   call dein#load_toml(s:tool_toml,       {'lazy': 1})
   call dein#load_toml(s:extra_toml,      {'lazy': 1})
 
@@ -86,9 +82,9 @@ syntax enable
 """" KEYMAP
 """ CAUTION: for the other plugins, DON'T define 'cmap' carelessly.
 " install plugins
-cnoremap <silent> <a-d><a-i> :<c-u>call dein#install()<cr>
-cnoremap <silent> <a-d>i     :<c-u>call dein#install()<cr>
+noremap  <a-d><a-i> :<c-u>call dein#install()<cr>
+noremap  <a-d>i     :<c-u>call dein#install()<cr>
 
 " update plugins
-cnoremap <silent> <a-d><a-u>  :<c-u>call dein#update()<cr>
-cnoremap <silent> <a-d>u      :<c-u>call dein#update()<cr>
+noremap <a-d><a-u>  :<c-u>call dein#update()<cr>
+noremap <a-d>u      :<c-u>call dein#update()<cr>

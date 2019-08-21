@@ -7,13 +7,10 @@ call plug#begin('~/.local/share/nvim/plugged')
 " Make sure to surround 'single quotes'
 
 " On-demand loading
-Plug 'vimwiki/vimwiki'
+Plug 'vimwiki/vimwiki', { 'on': 'runtime vimwiki.vimrc'}
 
 " Plugin outside ~/.vim/plugged with post-update hook
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
-      \ | Plug 'https://github.com/junegunn/fzf.vim'
+      \ | Plug 'https://github.com/junegunn/fzf.vim', { 'runtime fzf.vimrc' }
 
 call plug#end()
-
-runtime vimwiki.vimrc
-runtime fzf.vimrc
