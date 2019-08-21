@@ -10,12 +10,12 @@
 set -Cu
 
 type vim > /dev/null && {
-  export editor=vim
-  export visual=vim
+  export EDITOR=vim
+  export VISUAL=vim
 } || {
 type nvr > /dev/null && {
-  export editor=nvr
-  export visual=nvr
+  export EDITOR=nvr
+  export VISUAL=nvr
 }
 } || {
 type nvim-qt > /dev/null && {
