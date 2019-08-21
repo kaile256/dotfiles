@@ -43,8 +43,8 @@ noremap <silent> <c-k> 10k
 noremap <c-h> gT
 noremap <c-l> gt
 
-map <nowait>     Q      <Plug>(easymotion-overwin-f2)
-imap <nowait> <a-Q> <esc><Plug>(easymotion-overwin-f2)
+map  <nowait> Q       <space> <Plug>(easymotion-overwin-f2)
+imap <nowait> <a-s-q> <esc>   <Plug>(easymotion-overwin-f2)
 
 map f <Plug>(easymotion-f2)
 map F <Plug>(easymotion-F2)

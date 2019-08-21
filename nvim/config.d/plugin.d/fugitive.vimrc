@@ -1,10 +1,5 @@
 """" From: Init.toml
 
-"""" GENERAL
-augroup SpellCheckOnCommit
-  au! FileType gitcommit setlocal spell
-augroup END
-
 """" DEFINITION
 command! GdiffWithUnstaged :Git! diff --staged
 
@@ -71,11 +66,14 @@ noremap <a-y><a-o> :<c-u>Git checkout<space>
 
 " Fugitive; Augroup {{{
 augroup MyFugitiveAugroup "{{{0
+
   au!
+  au FileType gitcommit              setlocal spell
   au FileType fugitive,git,gitcommit setlocal nonumber
   "" CAUTION: denite,vista demands to write before quitting.
-  au FileType orgagenda,gitcommit setlocal buftype=quickfix
+  au FileType orgagenda,gitcommit    setlocal buftype=quickfix
   " Why? not work on 'au FileType'
+
   au BufWinEnter * if &filetype ==# 'fugitive' || &filetype ==# 'git' | setlocal modifiable buftype=quickfix | endif
 
 augroup END

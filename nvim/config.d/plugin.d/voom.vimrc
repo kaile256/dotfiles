@@ -4,7 +4,7 @@ let g:voom_tree_placement = "right"
 let g:voom_python_versions = [3,2]
 
 
-augroup VoomOnFileType
+augroup VoomOnFileType "{{{
 
   au!
   au FileType voomtree setlocal nonumber signcolumn=
@@ -16,4 +16,9 @@ augroup VoomOnFileType
   au FileType tex      nnoremap <silent><buffer> <a-u> :VoomToggle latex<cr>
   au FileType python   nnoremap <silent><buffer> <a-u> :VoomToggle python<cr>
 
+augroup END "}}}
+
+augroup MyVoomAugroup "{{{
+
+  au!
 augroup END

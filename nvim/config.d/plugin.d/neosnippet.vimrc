@@ -1,11 +1,10 @@
+""" From: tool.toml
 "" neosnippet.vim
-let g:neosnippet#snippets_directory = '~/.config/nvim/config.d/data.d'
+let g:neosnippet#snippets_directory = '~/.config/nvim/config.d/data.d/neosnippet.d'
 let g:neosnippet#enable_snipmate_compatibility = 1
 
-xmap <C-s> <Plug>(neosnippet_expand_target)
-
-nnoremap <a-s>p     :NeoSnippetEdit <cr>
-nnoremap <a-s><a-p> :NeoSnippetEdit <cr>
+nnoremap <silent> <a-s>p     :NeoSnippetEdit <cr>
+nnoremap <silent> <a-s><a-p> :NeoSnippetEdit <cr>
 
 " Note: It must be "imap" and "smap".  It uses <Plug> mappings.
 "imap <expr><TAB>

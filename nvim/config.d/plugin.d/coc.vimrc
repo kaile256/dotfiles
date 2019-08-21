@@ -3,14 +3,9 @@
 """" Source: neoclide/coc.nvim
 
 """" GENERAL
-
-" shorter for CursorHold & CursorHoldI
-set updatetime=300
-" signcolumn is the line beside numbers.
-set signcolumn=yes
-" shorter message
-" c-option: not give |ins-completion-menu| messages.
-set shortmess+=c
+" In case of faileure to install json for coc.
+" TODO: Make it as Snippet
+cnoreabbrev  <expr> ci (getcmdtype() == ':' && getcmdline() =~ '^ci$')? 'call coc#util#install()' : 'ci'
 
 """" COC-LIST
 """ CAUTION: careful not to conflict :checkhealth
@@ -25,7 +20,6 @@ let g:coc_global_extensions = [
       \ 'coc-html',
       \ 'coc-java',
       \ 'coc-json',
-      \ 'coc-lbdbq',
       \ 'coc-lists',
       \ 'coc-lua',
       \ 'coc-neosnippet',
@@ -38,7 +32,6 @@ let g:coc_global_extensions = [
       \ 'coc-tag',
       \ 'coc-texlab',
       \ 'coc-tsserver',
-      \ 'coc-ultisnips',
       \ 'coc-vimlsp',
       \ 'coc-word',
       \ 'coc-yaml',
@@ -128,3 +121,10 @@ inoremap <silent><expr> <c-p>
 "nnoremap <silent> <space>#  :exe 'CocList -I --normal --input='.expand('<cword>').' words'<CR>
 " Keymapping for grep word under cursor with interactive mode
 "nnoremap <silent> <Leader>cf :exe 'CocList -I --input='.expand('<cword>').' grep'<CR>
+
+" Coc; Augroup {{{
+augroup MyCocAugroup "{{{0
+  au!
+  "AutoCloseOnWinLeave
+  au WinLeave * if &filetype ==# 'coc' | close | endif
+augroup END "}}}

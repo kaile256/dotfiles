@@ -89,7 +89,7 @@ function! s:my_vimwiki_keymap() "{{{
   """ Experimental: Rename
   cnoreabbrev <buffer><silent><expr> w (getcmdtype() == ':' && getcmdline() =~ '^w$')? 'VimwikiRenameLink<cr>' : 'w'
 
-  "" Keymap; Nowait {{{
+  "" Keymap; Nowait {{
   inoremap <buffer><nowait> <c-t> <c-t>
   inoremap <buffer><nowait> <c-d> <c-d>
   noremap <buffer><nowait> o o

@@ -13,12 +13,6 @@ function! s:fzf_statusline()
   setlocal statusline=%#fzf1#\ >\ %#fzf2#fz%#fzf3#f
 endfunction
 
-function! s:build_quickfix_list(lines)
-  call setqflist(map(copy(a:lines), '{ "filename": v:val }'))
-  copen
-  cc
-endfunction
-
 function! s:fzf_buffer_keymap() "{{{
   tnoremap <buffer><silent> <a-a> <c-\><c-n>:<c-u>quit<cr><a-a>
   tnoremap <buffer><silent> <a-r> <c-\><c-n>:<c-u>quit<cr><a-r>
@@ -33,8 +27,8 @@ augroup FzfAugroup
   au!
 
   " CAUTION: WinLeave's current file is next file, i.e., fzf when opening fzf-buffer.
-  au WinLeave * if &filetype =~# 'fzf'   |  close     
-  au Syntax   * if @#        =~# 'term:' && &filetype !=# 'coc' && &filetype !=# 'fzf' | bwipeout! # 
+  au WinLeave * if &filetype =~# 'fzf'   |  close
+  au Syntax   * if @#        =~# 'term:' && &filetype !=# 'coc' && &filetype !=# 'fzf' | bwipeout! #
 
   au User     FzfStatusLine call <SID>fzf_statusline()
   au FileType fzf           call <SID>fzf_buffer_keymap()
@@ -51,9 +45,19 @@ let g:fzf_history_dir = '~/.local/share/fzf-history'
 "" down/up/left/right
 let g:fzf_layout = { 'down': '~20%' }
 
+function! s:fzf_open_in_quickfix_list(lines) "{{{
+  call setqflist(map(copy(a:lines), '{ "filename": v:val }'))
+  copen
+  cc
+endfunction "}}}
+
+function! s:fzf_bufwipeout()
+  bwipeout!
+endfunction
+
 let g:fzf_action = {
-      \ 'ctrl-q': function('s:build_quickfix_list'),
-      \ 'ctrl-c': function('s:build_quickfix_list'),
+      \ 'ctrl-q': function('s:fzf_open_in_quickfix_list'),
+      \ 'ctrl-c': function('s:fzf_open_in_quickfix_list'),
       \ 'ctrl-z': '',
       \ 'ctrl-b': 'tab split',
       \ 'ctrl-t': 'tab split',
