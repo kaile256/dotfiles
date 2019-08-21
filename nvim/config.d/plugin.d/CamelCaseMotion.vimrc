@@ -1,8 +1,8 @@
 """ From: tool.toml
 
-" CamelCaseMotion; Keymap {{{
-" Keymap; Overwite Default Maps "{{{
-"" Overwite; webge "{{{
+" CamelCaseMotion; Keymap
+"" Keymap; Overwite Default Maps "{{{
+""" Overwite; webge
 map <silent> w <Plug>CamelCaseMotion_w
 map <silent> b <Plug>CamelCaseMotion_b
 map <silent> e <Plug>CamelCaseMotion_e
@@ -11,9 +11,8 @@ sunmap w
 sunmap b
 sunmap e
 sunmap ge
-"}}}
 
-" Overwite; Text Object {{{
+""" Overwite; Text Object
 omap <silent> iw <Plug>CamelCaseMotion_iw
 omap <silent> ib <Plug>CamelCaseMotion_ib
 omap <silent> ie <Plug>CamelCaseMotion_ie
@@ -21,25 +20,22 @@ xmap <silent> iw <Plug>CamelCaseMotion_iw
 xmap <silent> ib <Plug>CamelCaseMotion_ib
 xmap <silent> ie <Plug>CamelCaseMotion_ie
 "}}}
-"}}}
 
 "" Keymap; Evacuation {{{
-""" Evacuation; for default webge {{{
+""" Evacuation; for default webge
 " Mnemonic: 'Quicker' than those of CamelCaseMotion
 noremap qw w
 noremap qe e
 noremap qb b
-" Mnemonic: Quick Reverse
+" Mnemonic: Quick Reverse; also 'r' is the next to [q,e] on qwerty keyboard.
 noremap qr ge
 
 "" Keymap; Evacuation
-""" Evacuation; for default text-object {{{
+""" Evacuation; for default text-object
 onoremap iqw iw
 onoremap iqb ib
 onoremap iqe iw
 xnoremap iqw iw
 xnoremap iqb ib
 xnoremap iqe iw
-"}}}
-"}}}
 "}}}
