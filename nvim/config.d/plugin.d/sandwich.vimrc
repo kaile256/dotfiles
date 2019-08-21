@@ -1,36 +1,59 @@
 " From: tool.toml
 
-let g:sandwich_no_default_key_mappings = 1
+let g:sandwich_no_default_key_mappings = 0
 
 " Sandwich; Keymap {{{
 " Keymap; Evacuation for 's' {{{0
 "noremap S s
 
 " Keymap; Manual Select {{{
+"" Manual; Normal Mode
 " Mnemonic: 'Change' s for 'Sandwich'
-nmap S  <Plug>(operator-sandwich-add)
-nmap ds <Plug>(operator-sandwich-delete)
-nmap cs <Plug>(operator-sandwich-replace)
 
-"" Visual Mode
-xmap S  <Plug>(operator-sandwich-add)
-xmap ds <Plug>(operator-sandwich-delete)
-xmap cs <Plug>(operator-sandwich-replace)
+nmap S        <Plug>(operator-sandwich-add)
+nmap <space>s <Plug>(operator-sandwich-add)
+nmap <space>d <Plug>(operator-sandwich-delete)<Plug>(operator-sandwich-release-count)<Plug>(textobj-sandwich-query-a)
+nmap <space>c <Plug>(operator-sandwich-replace)<Plug>(operator-sandwich-release-count)<Plug>(textobj-sandwich-query-a)
+
+"" Manual; Visual Mode
+
+xmap S        <Plug>(operator-sandwich-add)
+xmap <space>s <Plug>(operator-sandwich-add)
+xmap <space>d <Plug>(operator-sandwich-delete)<Plug>(operator-sandwich-release-count)<Plug>(textobj-sandwich-query-a)
+xmap <space>c <Plug>(operator-sandwich-replace)<Plug>(operator-sandwich-release-count)<Plug>(textobj-sandwich-query-a)
+xmap d        <Plug>(operator-sandwich-delete)<Plug>(operator-sandwich-release-count)<Plug>(textobj-sandwich-query-a)
+xmap c        <Plug>(operator-sandwich-replace)<Plug>(operator-sandwich-release-count)<Plug>(textobj-sandwich-query-a)
 "}}}
 
-" Keymap; Auto Select {{{
-omap i[ <Plug>(textobj-sandwich-auto-i)
-xmap i[ <Plug>(textobj-sandwich-auto-i)
-omap i] <Plug>(textobj-sandwich-auto-i)
-xmap i] <Plug>(textobj-sandwich-auto-i)
-omap i' <Plug>(textobj-sandwich-auto-i)
-omap i' <Plug>(textobj-sandwich-auto-i)
-
-omap a[ <Plug>(textobj-sandwich-auto-a)
-xmap a[ <Plug>(textobj-sandwich-auto-a)
-omap a] <Plug>(textobj-sandwich-auto-a)
-xmap a] <Plug>(textobj-sandwich-auto-a)
-omap a' <Plug>(textobj-sandwich-auto-a)
-xmap a' <Plug>(textobj-sandwich-auto-a)
+" Keymap; Text Object {{{
+" Mnemonic; Midst
+"omap m <Plug>(textobj-sandwich-query-i)
+"xmap m <Plug>(textobj-sandwich-query-i)
+"omap m <plug>(textobj-sandwich-query-i)
+"xmap m <plug>(textobj-sandwich-query-i)
+"omap m <Plug>(textobj-sandwich-query-i)
+"omap m <Plug>(textobj-sandwich-query-i)
+"
+"omap M <Plug>(textobj-sandwich-query-a)
+"xmap M <Plug>(textobj-sandwich-query-a)
+"omap M <Plug>(textobj-sandwich-query-a)
+"xmap M <Plug>(textobj-sandwich-query-a)
+"omap M <Plug>(textobj-sandwich-query-a)
+"xmap M <Plug>(textobj-sandwich-query-a)
 "}}}
+
+" Keymap; In Case {{{
+onoremap i i
+xnoremap i i
+onoremap i i
+xnoremap i i
+onoremap i i
+onoremap i i
+
+onoremap a a
+xnoremap a a
+onoremap a a
+xnoremap a a
+onoremap a a
+xnoremap a a
 "}}}
