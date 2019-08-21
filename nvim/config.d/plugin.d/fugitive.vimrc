@@ -5,8 +5,8 @@ command! GdiffWithUnstaged :Git! diff --staged
 
 """" HISTORY
 """ Status
-noremap <silent> <a-y>s     :<c-u>Gstatus<cr>
-noremap <silent> <a-y><a-s> :<c-u>Gstatus<cr>
+noremap <silent> <a-y>s     :<c-u>vert belowr Gstatus<cr>
+noremap <silent> <a-y><a-s> :<c-u>vert belowr Gstatus<cr>
 
 """ Log
 "# QuickFix -- Edit-History of current buffer.
@@ -21,8 +21,8 @@ noremap <silent> <a-y><a-m> :<c-u>Glog master..HEAD -- <bar> copen<cr>
 
 """ Diff
 " !: On a Merge Conflict, do a 3-diff; otherwise the same as without bang.
-noremap <silent> <a-y>d     :<c-u>Gvdiffsplit!<cr>
-noremap <silent> <a-y><a-d> :<c-u>Gvdiffsplit!<cr>
+noremap <silent> <a-y>d     :<c-u>Gvdiffsplit!<cr>gg
+noremap <silent> <a-y><a-d> :<c-u>Gvdiffsplit!<cr>gg
 noremap <silent> <a-y><a-u> :<c-u>GdiffWithUnstaged<cr>
 """ Blame
 noremap <silent> <a-y>b     :<c-u>Gblame<cr>
@@ -43,8 +43,8 @@ noremap          <a-y>'     :<c-u>Gw<cr>:Gcommit -m ''<Left>
 noremap          <a-y><a-'> :<c-u>Gw<cr>:Gcommit -m ''<Left>
 noremap          <a-y>"     :<c-u>Gw<cr>:Gcommit -m ""<Left>
 """ Add && status
-noremap <silent> <a-y>w     :<c-u>Gw<cr>:Gstatus<cr>
-noremap <silent> <a-y><a-w> :<c-u>Gw<cr>:Gstatus<cr>
+noremap <silent> <a-y>w     :<c-u>Gw<cr>:vert belowr Gstatus<cr>
+noremap <silent> <a-y><a-w> :<c-u>Gw<cr>:vert belowr Gstatus<cr>
 """ Pull
 noremap <silent> <a-y>l     :<c-u>Gpull<cr>
 noremap <silent> <a-y><a-l> :<c-u>Gpull<cr>
@@ -74,7 +74,8 @@ augroup MyFugitiveAugroup "{{{0
   au FileType orgagenda,gitcommit    setlocal buftype=quickfix
   " Why? not work on 'au FileType'
 
-  au BufWinEnter * if &filetype ==# 'fugitive' || &filetype ==# 'git' | setlocal modifiable buftype=quickfix | endif
+  "au BufWinEnter * if &filetype ==# 'fugitive' || &filetype ==# 'git' | setlocal modifiable buftype=quickfix | endif
+  au WinLeave * if &filetype ==# 'fugitive' || &filetype ==# 'git' | close | endif
 
 augroup END
 "}}
