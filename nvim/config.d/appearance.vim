@@ -70,6 +70,9 @@ set ambiwidth=double
 "" Wrap
 " wrap long text: s for space
 set wrap whichwrap=s
+augroup ConfirmSetWrap "{{{
+  au!
+  au BufRead * if &diff | setlocal wrap
 set breakindent
 
 """ Line
