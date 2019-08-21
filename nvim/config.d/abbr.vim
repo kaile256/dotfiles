@@ -5,4 +5,11 @@ cnoreabbrev <expr> hv (getcmdtype() == ':' && getcmdline() =~ '^hv$')? 'vsplit +
 
 "noreabbrev <expr> : (getline('.') =~ '^\:$')? '<c-\><c-n>:' : ':'
 
+augroup TypoOnToml "{{{
+  au!
+
+  au FileType toml abbr "{{{ #{{{
+  au FileType toml abbr "}}} #}}}
+augroup END
+
 let $TERM = 'bash'
