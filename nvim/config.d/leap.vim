@@ -85,8 +85,9 @@ nnoremap gk k
 xnoremap gj j
 xnoremap gk k
 
-nnoremap <nowait> { k{j
-nnoremap <nowait> } j}k
+" CAUTION: has no reproductivity
+"nnoremap <nowait> { k{j
+"nnoremap <nowait> } j}k
 " Experimental: Advanced jk/HML {{{
 " CAUTION: Uncompatible with Folded Buffer so far.
 "" Duprecated: Fixed-Position Leap {{{
