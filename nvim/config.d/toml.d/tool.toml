@@ -1,5 +1,11 @@
 ### From: dein.vimrc
 
+[[plugins]]
+repo = 'neoclide/coc.nvim' #{{{
+on_event = 'VimEnter'
+hook_done_sourced = 'runtime coc.vimrc'
+#}}}
+
 # Tool; Leap {{{
 ## Leap; EasyMotion {{{
 [[plugins]]
@@ -40,15 +46,15 @@ hook_post_source = 'runtime CamelCaseMotion.vimrc'
 # Tool; Filer {{{
 [[plugins]]
 repo = 'cocopon/vaffle.vim' #{{{
-on_if = '!has("python3")'
+on_if = 'has("python3")'
 hook_post_source = 'runtime vaffle.vimrc'
 #}}}
 ## Defx #{{{
-[[plugins]]
-repo = 'Shougo/defx.nvim' #{{{
-## CAUTION: defx.vimrc MUST be sourced after dein#end() on dein.vim.
-if = 'has("python3")'
-hook_post_source = 'runtime defx.vimrc'
+#[[plugins]]
+#repo = 'Shougo/defx.nvim' #{{{
+### CAUTION: defx.vimrc MUST be sourced after dein#end() on dein.vim.
+#if = 'has("python3")'
+#hook_post_source = 'runtime defx.vimrc'
 #}}}
 #[[plugins]]
 #repo = 'kristijanhusak/defx-git' {{{
@@ -131,11 +137,12 @@ hook_post_source = 'runtime bookmarks.vimrc'
 # }}}
 
 ## Tool; Note #{{{
-## Note; Vimwiki #{{{
-#[[plugins]]
-#repo = 'vimwiki/vimwiki' #{{{
-## CAUTION: Should be `lazy loaded`, or fail to enter on VimEnter.
-#on_event = 'VimEnter'
+### Note; Vimwiki #{{{
+[[plugins]]
+repo = 'vimwiki/vimwiki' #{{{
+# CAUTION: Should be `lazy loaded`, or fail to enter on VimEnter.
+rev = 'dev'
+on_event = 'VimEnter'
 #hook_post_source = 'runtime vimwiki.vimrc'
 #}}}
 #}}}
@@ -232,18 +239,22 @@ on_event = 'BufRead'
 hook_post_source = 'runtime easy-align.vimrc'
 
 ### Code Runner
+#[[plugins]]
+#repo = 'skywind3000/asyncrun.vim' #{{{
+## Only supports external shell to qf.
+#on_map = 'AsyncRun'
+#hook_post_source = 'runtime asyncrun.vimrc'
+#}}}
 [[plugins]]
-repo = 'skywind3000/asyncrun.vim'
-on_map = 'AsyncRun'
-hook_post_source = 'runtime asyncrun.vimrc'
-[[plugins]]
-repo = 'thinca/vim-quickrun'
+repo = 'thinca/vim-quickrun' #{{{
 on_map = 'QuickRun'
 hook_post_source = 'runtime quickrun.vimrc'
+#}}}
 [[plugins]]
-repo = 'neomake/neomake'
+repo = 'neomake/neomake' #{{{
 on_map = 'make'
 hook_post_source = 'runtime neomake.vimrc'
+#}}}
 
 ### Functional
 [[plugins]]
@@ -255,20 +266,22 @@ on_event = 'BufRead'
 ### UI
 [[plugins]]
 repo = 'wsdjeg/dein-ui.vim' #{{{
+on_map = ['<a-d><a-u>', '<a-d>u']
 hook_add = 'runtime dein-ui.vimrc'
 #}}}
 
 ### Linux Command
 #[[plugins]]
+#repo = 'tpope/vim-eunuch' #{{{
 ## ERORR: Seems no utils provided by the plugin.
-#repo = 'tpope/vim-eunuch'
 #on_event = 'CmdlineEnter'
 #hook_post_source = 'runtime eunuch.vimrc'
+#}}}
 
 ### Input Method
 #[[plugins]]
 ## Doesn't Work
-#repo = 'tpope/vim-capslock'
+#repo = 'tpope/vim-capslock' #{{{
 #on_event = ['InsertEnter', 'TermOpen', 'CmdlineEnter']
 #hook_post_source = 'runtime capslock.vimrc'
 #[[plugins]]
@@ -276,3 +289,4 @@ hook_add = 'runtime dein-ui.vimrc'
 #repo = 'mattn/vim-switch-esc-capslock'
 #on_event = ['InsertEnter', 'TermOpen', 'CmdlineEnter']
 #hook_post_source = 'runtime switch-esc-capslock'
+##}}}
