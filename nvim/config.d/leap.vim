@@ -1,6 +1,5 @@
-"""" From: init.vim
+" From: init.vim
 
-" Leap; Set {{{
 " cursor position of column is kept on jump.
 set nostartofline
 " jump ignoring unwritten buffers.
@@ -9,18 +8,14 @@ set hidden
 " Set; Search {{{
 set noignorecase
 "set smartcase
-set incsearch
-set hlsearch
-set nowrapscan
+set incsearch hlsearch nowrapscan
 " fold all lines unmatched on {pattern}.
 " CAUTION: foldable is apt to collapse format.
 set foldenable
 "}}}
 
-" Leap; Keymap {{{
-
-"" Keymap; Prevention for Error {{{
-""" Prevention; Fuzzy Finders
+" Keymap; Prevention for Error {{{
+"" Prevention; Fuzzy Finders
 
 function! s:echo_no_fuzzy_grep() "{{{
 
@@ -41,7 +36,7 @@ nnoremap <silent> <a-q> :<c-u>echo "You don't have any executable fuzzy finder.'
 endif
 "}}}
 
-" Prevention; Org
+"" Get to Org
 "" vsbe ~/org/notes.org {{{
 "nnoremap <silent> <a-q><a-o> :<c-u>e  ~/org/notes.org <cr>
 "nnoremap <silent> <a-q>o     :<c-u>e  ~/org/notes.org <cr>
@@ -58,8 +53,7 @@ endif
 ""tnoremap <silent> <a-q>e     <c-u>nvr ~/org/notes.org <cr>
 "}}}
 
-""" N/P Directory
-"""
+" Keymap; N/P Directory {{{
 tnoremap <a-i> cd - > /dev/null <CR>
 tnoremap <a-o> cd .. <CR>
 
@@ -88,8 +82,9 @@ nnoremap <a-w>d     :cd ~/dotfiles<cr>:echo '$CWD is "' . getcwd() . '"'<cr>
 "" Org-Mode
 "nnoremap <a-w><a-o> :cd ~/org<cr>:echo '$CWD is "' . getcwd() . '"'<cr>
 "nnoremap <a-w>o     :cd ~/org<cr>:echo '$CWD is "' . getcwd() . '"'<cr>
+"}}}
 
-""" hjkl
+"" hjkl
 " move as it looks.
 nnoremap j gj
 nnoremap k gk
@@ -217,6 +212,7 @@ tnoremap <a-[> <c-\><c-n>gT
 " switch mapping
 noremap gf gF
 noremap gF gf
+" Note: gD to jump on *the first line* of the file that has the definition.
 "noremap gd gD
 "noremap gD gd
 
