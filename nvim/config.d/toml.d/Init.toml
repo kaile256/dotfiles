@@ -1,14 +1,15 @@
-#### From: dein.vimrc
+# From: dein.vimrc
 
-### Required
+# Required
 [[plugins]]
-repo = 'Shougo/dein.vim'
+repo = 'Shougo/dein.vim' #{{{
 hook_done_update= 'runtime reinstall.vim'
+#}}}
 
 [[plugins]]
-repo = 'tpope/vim-fugitive' #{{{
-type = 'git'
-hook_add = 'runtime fugitive.vimrc'
+repo = 'vimwiki/vimwiki' #{{{
+rev = 'v2.4.1'
+hook_add = 'runtime vimwiki.vimrc'
 #}}}
 
 [[plugins]]
@@ -19,28 +20,27 @@ hook_add = 'runtime fzf.vimrc'
 #}}}
 
 [[plugins]]
-repo = 'neoclide/coc.nvim' #{{{
-hook_add = 'silent call coc#util#install()'
-hook_add = 'runtime coc.vimrc'
+repo = 'tpope/vim-fugitive' #{{{
+type = 'git'
+hook_add = 'runtime fugitive.vimrc'
 #}}}
 
 [[plugins]]
 repo = 'morhetz/gruvbox' #{{{
 # CAUTION: Colorscheme MUST be sourced after dein#end() on dein.vim.
 if = 'has("nvim")'
+hook_add = 'runtime gruvbox.vimrc'
 #}}}
 
-### Status Bar #{{{
 [[plugins]]
 repo = 'vim-airline/vim-airline' #{{{
 hook_add = 'runtime airline.vimrc'
-#}}}
 [[plugins]]
-repo = 'vim-airline/vim-airline-themes' #{{{
+repo = 'vim-airline/vim-airline-themes'
 #}}}
+
 #[[plugins]]
 #repo = 'itchyny/lightline.vim' #{{{
 ## ERORR: g:lightline is undefined.
 #hook_add = 'runtime! lightline.vimrc'
 ##}}}
-#}}}
