@@ -27,3 +27,9 @@ author ja http://haya14busa.com/mastering-vim-easymotion/
 wiki @eng https://wiki.archlinux.org/
 [[xmodmap]] which is MODIFIERNAME, KEYSYMNAME? https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/key/Key_Values
 vim: get hex color numbers! https://www.hexcolortool.com/#fab89e
+amazon.co.jp: Shopping Cart https://www.amazon.co.jp/gp/cart/view.html?ref_=nav_cart
+deol.vim! dark powered shell! https://github.com/Shougo/deol.nvim
+i3wm: What is `exec --no-startup-id`? https://stackoverflow.com/questions/39913586/exec-no-startup-id-command-says-invalid-option
+fzf.vim: https://github.com/junegunn/fzf.vim
+dein.vim; colortheme on VimEnter must be nested! https://qiita.com/kawaz/items/ee725f6214f91337b42b
+Urxvt; on daemon! http://malkalech.com/urxvt_terminal_emulator

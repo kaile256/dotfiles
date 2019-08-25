@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
 
-#### Ref.: .bashrc
-#### Ref.: curl.sh
+# Ref.: .bashrc
+# Ref.: curl.sh
 
 set -Cu
 
-#### INSTALLER IDENTIFICATION
+# INSTALLER IDENTIFICATION
 Installer=(
 apt
 pacman
@@ -28,7 +28,8 @@ echo "$INSTALLER will install package via '$install'!!"
 #### WANTED-PACKAGES INSTALLATION
 Package=(
 anyenv
-arandr  # visual config for xrandr
+arandr  # Gui config for xrandr
+xf86-input-synaptics  # enable config for Touchpad
 bash-completion
 cargo  # select rustup
 fzf
@@ -41,6 +42,7 @@ hub  # an official wrapper of git
 luarocks
 neovim-nightly
 neovim-qt
+vimiv
 nerd-fonts-ricty
 otf-sfmono  # Font; SF Mono
 pyenv
@@ -157,8 +159,8 @@ PipRepos=(
 pynvim
 )
 
-### Neovim
-## Dein
+# Neovim
+# Dein
 PLUGIN_DIR=$HOME/.cache/dein
 INSTALL_DIR="${PLUGIN_DIR}/repos/github.com/Shougo/dein.vim"
 
@@ -177,7 +179,7 @@ if ! [ -e "$INSTALL_DIR" ]; then
   echo ""
 fi
 
-## LSP
+# LSP
 # Lua
 echo "Installing Lua-LSP..."
 sudo luarocks install --server=http://luarocks.org/dev lua-lsp
@@ -207,7 +209,7 @@ if [ -e '~/.config/fish/completions/rustup.fish' ]; then
   rustup completions fish > ~/.config/fish/completions/rustup.fish
 fi
 
-#### Fonts
+# Fonts
 if [ -z ls /usr/share/fonts/TTF/ | grep Myrica ]; then
   echo 'creating symlinks for Cica Fonts to /etc/fonts/conf.d/'
   sudo ln -s /usr/share/fonts/MyricaM/MyricaM.TTC /etc/fonts/conf.d/

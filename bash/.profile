@@ -19,8 +19,3 @@ eval "$(pyenv virtualenv-init -)"
 
 #### Xserver
 #[[ -z $DISPLAY && $XDG_VTNR -eq 1 ]] && exec startx
-
-# Bash; ModProbe {{{
-# Turn off Noisy Beep
-# WARNING: DOESN'T work
-#set bell-style none

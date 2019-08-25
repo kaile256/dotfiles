@@ -60,8 +60,9 @@ settings:
         <Space>1: tab-close
         <Space>2: save
         <Space><Space>: reload
-        <Space>p: session-load LastSession.qt
-        <Space>q: tab-close
+        <Space>P: open -t {clipboard}
+        <Space>p: open {clipboard}
+        <Space>q: save
         <Space>w: save
         <Space>z: close
         D: null
@@ -69,13 +70,15 @@ settings:
         J: null
         K: null
         L: null
-        P: open -t {clipboard}
+        P: open -t {primary}
         U: undo
         d: null
         e: edit-url
         gi: enter-mode insert
         i: hint inputs --first
-        p: open {clipboard}
+        p: open {primary}
+        q: null
+        qq: tab-close
         u: null
   editor.command:
     global:
