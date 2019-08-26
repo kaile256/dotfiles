@@ -38,17 +38,21 @@ noremap <silent> <a-y><a-n> :<c-u>Gmove<cr>
 """ Add only
 noremap <silent> <a-y>a     :<c-u>Gw<cr>
 noremap <silent> <a-y><a-a> :<c-u>Gw<cr>
+
 """ Add && commit
-noremap          <a-y>'     :<c-u>Gw<cr>:Gcommit -m ''<Left>
-noremap          <a-y><a-'> :<c-u>Gw<cr>:Gcommit -m ''<Left>
-noremap          <a-y>"     :<c-u>Gw<cr>:Gcommit -m ""<Left>
+noremap <a-y>'     :<c-u>Gw<cr>:Gcommit -m ''<Left>
+noremap <a-y><a-'> :<c-u>Gw<cr>:Gcommit -m ''<Left>
+noremap <a-y><a-"> :<c-u>Gw<cr>:Gcommit -m ""<Left>
+noremap <a-y>"     :<c-u>Gw<cr>:Gcommit -m ""<Left>
+
 """ Add && status
 noremap <silent> <a-y>w     :<c-u>Gw<cr>:vert bot Gstatus<cr>
 noremap <silent> <a-y><a-w> :<c-u>Gw<cr>:vert bot Gstatus<cr>
-""" Pull
+
+" Pull
 noremap <silent> <a-y>l     :<c-u>Gpull<cr>
 noremap <silent> <a-y><a-l> :<c-u>Gpull<cr>
-""" Push
+" Push
 noremap <silent> <a-y>h     :<c-u>Gpush<cr>
 noremap <silent> <a-y><a-h> :<c-u>Gpush<cr>
 
@@ -64,17 +68,15 @@ noremap <a-y><a-p> :<c-u>Ggrep --help<cr>
 noremap <a-y>o     :<c-u>Git checkout<space>
 noremap <a-y><a-o> :<c-u>Git checkout<space>
 
-" Fugitive; Augroup {{{
-augroup MyFugitiveAugroup "{{{0
+augroup OnFugitiveBuffer "{{{
 
   au!
-  au FileType gitcommit              setlocal spell
-  au FileType fugitive,git,gitcommit setlocal nonumber
+  au FileType gitcommit              setl spell
+  au FileType fugitive,git,gitcommit setl nonumber
   "" CAUTION: denite,vista demands to write before quitting.
-  au FileType orgagenda setlocal buftype=quickfix
+  au FileType fugitive,git,gitcommit,orgagenda setl bt=quickfix
   " Why? not work on 'au FileType'
 
-  au WinLeave * if &ft ==# 'fugitive' || 'git' || 'gitcommit' | close
+  "au WinLeave * if &ft ==# 'fugitive' || 'git' || 'gitcommit' | setl bt=quickfix
 
-augroup END
-"}}
+augroup END "}}
