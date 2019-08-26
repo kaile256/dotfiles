@@ -11,7 +11,7 @@ inoremap <silent> <c-l>         <c-o>:<c-u>noh <cr><c-o><c-l>
 nnoremap <silent> <c-space><space>   :<c-u>noh <cr><c-l>
 nnoremap <silent> <c-space><c-space> :<c-u>noh <cr><c-l>
 " <a-space> gets along with <a-hjkl>.
-nmap <silent> <space><space>     :cclose <cr> :retab <cr>
+nnoremap <silent> <space><space>     :cclose <cr>
 
 "" Move Window
 nnoremap <c-w>h <c-w>H
