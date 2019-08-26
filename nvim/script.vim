@@ -1,3 +1,56 @@
+" Path; Runtime Path {{{
+set rtp+=~/.config/nvim/rc/
+set rtp+=~/.config/nvim/data/
+set rtp+=~/.config/nvim/lazy/
+set rtp+=~/.config/nvim/toml/
+set rtp+=~/.config/nvim/keymap/
+"}}}
+" Path: for `:find` {{{
+set path+=../**
+set path+=~/.config/**
+set path+=~/.cache/dein/repos/github.com/**
+set path+=~/.local/nvim/**
+set path+=/etc/**
+
+set path-=~
+set path-=.git/**
+set path-=*yarn*/**
+set path-=*node*/**
+"}}}
+" Path; Provider {{{
+"let g:python3_host_prog = '/home/linuxbrew/.linuxbrew/bin/python3'
+"let g:python_host_prog = '/home/linuxbrew/.linuxbrew/bin/python'
+"let g:ruby_host_prog = '/home/linuxbrew/.linuxbrew/bin/ruby'
+
+if has('python3')
+  let g:python3_host_prog = '/usr/bin/python3'
+  "let g:python3_host_prog = system('(type pyenv &>/dev/null && echo -n "$(pyenv root)/versions/$(pyenv global | grep python3)/bin/python") || echo -n $(which python3)')
+endif
+
+if has('python2')
+let g:python_host_prog = system('(type pyenv &>/dev/null && echo -n "$(pyenv root)/versions/$(pyenv global | grep python2)/bin/python") || echo -n $(which python2)')
+endif
+
+let g:ruby_host_prog = '/usr/bin/ruby'
+"}}}
+" Path; Backup {{{
+" Write, on path,vim, the file directory paths.
+set nobackup
+set nowritebackup
+set noswapfile
+set noundofile
+"augroup PersistentUndo
+"  au! BufWritePre /tmp/* setlocal noundofile
+"augroup END
+" XDG Base Repository
+"set undodir=~/.local/share/nvim/undo
+"set directory="~/.local/share/nvim/swap
+"set backupdir=~/.local/share/nvim/backup
+"set viminfo='1000,n~/.local/share/nvim/info
+"set runtimepath=$XDG_CONFIG_HOME/vim,http://eleclog.quitsq.com/2014/10/arch-on-x220.html?m=1$VIMRUNTIME,$XDG_CONFIG_HOME/vim/after
+let g:netrw_home = "~/.local/share/nvim"
+"}}}
+
 " Appearance; IME {{{
 set ambiwidth=double
 " Tell if IME is on.
@@ -41,6 +94,7 @@ endif
 " lazyredraw: forbids to redraw screen while executing macros.
 set lazyredraw
 "}}}
+
 " Appearance; Cursor {{{
 " shorter for CursorHold & CursorHoldI
 set updatetime=300
@@ -71,14 +125,16 @@ set ruler
 " 2: always show the current status.
 set laststatus=2
 "}}}
+
 " Appearance; Pair {{{
 " show match parens.
 set showmatch
+set matchtime=1 " 10 times the number sec.
 " add '<' and '>' as a match pair
 set matchpairs+=<:>
 "}}}
 
-"" Invisible Charactars
+"" Edit; Invisible Charactars {{{
 " show space and CR
 set list
 "" Quick Reference of 'listchar': which chars show instead.
@@ -87,18 +143,16 @@ set list
 "" precedes: when window-width omits on left.
 "" nbsp: for space
 "set listchars=tab:»-,trail:-,eol:↲,extends:»,precedes:«,nbsp:%
+"}}}
 
 " Multiple Windows
 set splitbelow
 set splitright
 
-" Speed
-set matchtime=1
-
-" Fold
-"set foldmethod=syntax
+"" Edit; Fold {{{
 set foldlevel=1
 set foldnestmax=10
+"}}}
 
 "augroup AutoAjustFoldMethod "{{{
 "  au!
