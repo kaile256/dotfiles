@@ -74,7 +74,7 @@ augroup MyFugitiveAugroup "{{{0
   au FileType orgagenda setlocal buftype=quickfix
   " Why? not work on 'au FileType'
 
-  au WinLeave * if &ft ==# 'fugitive' || 'git' || 'gitcommit' | q
+  au WinLeave * if &ft ==# 'fugitive' || 'git' || 'gitcommit' | close
 
 augroup END
 "}}

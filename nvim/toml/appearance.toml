@@ -1,0 +1,51 @@
+# From: dein.vimrc
+# Ref: Init.toml
+
+## Indent
+#[[plugins]]
+#repo = 'Yggdroot/indentLine' #{{{
+#on_event = 'BufReadPre'
+#hook_post_source = 'runtime indentLine.vimrc'
+##}}}
+
+# Paren: Doesn't Work
+#[[plugins]]
+#repo = 'luochen1990/rainbow' #{{{
+### CAUTION: source rainbow.vimrc AFTER :colorscheme.
+#on_event = 'BufReadPre'
+#}}}
+
+# Resonance
+[[plugins]]
+# Better `%`
+repo = 'andymass/vim-matchup' #{{{
+on_event = 'CursorMoved'
+hook_post_source = 'runtime matchup.vimrc'
+#}}}
+[[plugins]]
+repo = 'itchyny/vim-cursorword' #{{{
+on_event = 'CursorMoved'
+hook_post_source = 'runtime cursorword.vimrc'
+#}}}
+
+### Substitution
+#[[plugins]]
+#repo = 'osyo-manga/vim-over' #{{{
+#on_event = 'CmdlineEnter'
+#hook_post_source = 'runtime over.vimrc'
+#}}}
+
+# Colorscheme
+#[[plugins]]
+#repo = 'morhetz/gruvbox' #{{{
+## CAUTION: Colorscheme MUST be sourced after dein#end() on dein.vim.
+#on_if = 'has("nvim")'
+#hook_post_source = 'runtime gruvbox.vimrc'
+##}}}
+
+[[plugins]]
+repo = 'flazz/vim-colorschemes' #{{{
+on_event = 'CmdlineEnter'
+#hook_post_source = 'set rtp+=~/.cache/dein/repos/github.com/flazz/vim-colorschemes/colors/*.vim'
+#}}}
+

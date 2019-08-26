@@ -19,6 +19,7 @@ URxvt.scrollstyle:          plain
 
 URxvt.cursorBlink:          true
 URxvt.cursorUnderline:      true
+! true: Hide the pointer on typing keyboard
 URxvt.pointerBlank:         true
 
 URxvt.visualBell:           false
