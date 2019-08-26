@@ -42,6 +42,7 @@ settings:
         <Ctrl+->: zoom-out
         <Ctrl+2>: save
         <Ctrl+Space><Ctrl+Space>: reload
+        <Ctrl+c>: download-cancel
         <Ctrl+h>: tab-prev
         <Ctrl+i>: forward
         <Ctrl+j>: scroll-page 0 20
@@ -72,6 +73,7 @@ settings:
         L: null
         P: open -t {primary}
         U: undo
+        a: enter-mode insert
         d: null
         e: edit-url
         gi: enter-mode insert

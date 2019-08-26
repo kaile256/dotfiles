@@ -3,32 +3,19 @@
 "  Def: Shougo/dein.vim
 " dein.vim manages dein.vim itself, too.
 
+
+" Abbr; Update Plugins
+cnoreabbrev <expr> du (getcmdtype() == ':' && getcmdline() =~ '^du$')? 'call dein#update()' : 'du'
+
 augroup DeinAutoRecache "{{{
   au!
 
-  au TextChanged toml.d/*.toml au BufWinLeave toml.d/*.toml call dein#recache_runtimepath()
-  "" Enable 'dein's auto-recache' only on once-written buffers. {{{
-  "au BufWinEnter *.toml,dein.vimrc let b:dein_is_written = 0
-
-  "function! s:dein_toggle_auto_recache() "{{{
-  "  if !exists(b:dein_is_written)
-  "    let b:dein_is_written = 1
-  "    let g:dein#auto_recache = 1
-  "  else
-  "    let b:dein_is_written = 0
-  "    let g:dein#auto_recache = 0
-  "  endif
-  "endfunction "}}}
-
-  "au BufWritePre *.toml,dein.vimrc au BufWinLeave *.toml,dein.vimrc call <SID>dein_toggle_auto_recache()
-  "}}}
+  au TextChanged dein.vimrc,nvim/toml/*.toml au BufWinLeave nvim/toml/*.toml call dein#recache_runtimepath()
 augroup END "}}}
 
 if !has('nvim')
-  "" Neovim is always nocompatible, removed from neovim alread.
-  if &compatible
-    set nocompatible
-  endif
+  " Neovim is always nocompatible.
+  if &compatible | set nocompatible | endif
 endif
 
 " dein#load_state includes `set filetype off`;
@@ -44,33 +31,33 @@ let g:dein#install_log_filename = s:dein_log_file
 "}}}
 " Where; Dein will install plugins {{{
 let s:dein_cache_dir = g:cache_home . '/dein'
-let g:Shougo_cache_dir = s:dein_cache_dir . '/repos/github.com/Shougo/'
-let g:dein_itself = g:Shougo_cache_dir . 'dein.vim/'
+let s:Shougo_cache_dir = s:dein_cache_dir . '/repos/github.com/Shougo/'
+let s:dein_itself = s:Shougo_cache_dir . 'dein.vim/'
 "}}}
 
 " list of plugins in toml, which dein manages.
-"let s:dein_toml_dir  = '~/.config/nvim/config.d/toml.d/'
 let s:dein_toml_dir  = '~/.config/nvim/toml/'
 
-set rtp+=~/.cache/dein/repos/github.com/Shougo/dein.vim
-"" For plugins' configs
-"set rtp+=~/.config/nvim/rc
+" Path; for :find
+let &path = &path . ',' . s:dein_cache_dir . '**'
+" Path; for :runtime
+let &rtp  = &rtp  . ',' . s:dein_itself
 
 " Auto Install if no dein.vim {{{
-if ! isdirectory(g:dein_itself)
-  "call termopen('mkdir -p' "= 'expand(g:Shougo_cache_dir)')
-  "call termopen('git clone https://github.com/Shougo/dein.vim' "= 'expand(g:dein_itself)')
-  exe "!mkdir -p" shellescape(expand(g:Shougo_cache_dir))
-  exe "!git clone https://github.com/Shougo/dein.vim" shellescape(expand(g:dein_itself))
+if ! isdirectory(s:dein_itself)
+  "call termopen('mkdir -p' "= 'expand(s:Shougo_cache_dir)')
+  "call termopen('git clone https://github.com/Shougo/dein.vim' "= 'expand(s:dein_itself)')
+  exe '!mkdir -p' shellescape(expand(s:Shougo_cache_dir))
+  exe '!git clone https://github.com/Shougo/dein.vim' shellescape(expand(s:dein_itself))
   if ! isdirectory('~/.tmp')
-    exe "!mkdir -p $HOME"
+    exe '!mkdir -p $HOME/.tmp'
   endif
-  e ~/.tmp/messages_=execute('localtime()')<cr>.vim
+  e ~/.tmp/messages.vim
   put =execute('messages')
 endif
 "}}}
 
-" Dein Where to Source {{{
+" Where; Dein Sources {{{
 if dein#load_state(s:dein_cache_dir)
   call dein#begin(s:dein_cache_dir)
 
@@ -100,27 +87,13 @@ if dein#load_state(s:dein_cache_dir)
 endif
 "}}}
 
-" Install the plugins, not yet installed, though listed in toml.
-
-if dein#check_install()
+if dein#check_install() "{{{
   call dein#install()
-  e ~/.tmp/messages=execute('localtime()').vim
+  e ~/.tmp/messages.vim
   put =execute('messages')
-endif
-
-" SOURCE
-" CAUTION: some plugins MUST be sourced after dein#end() on dein.vim.
+endif "}}}
 
 " Highlight as configs which is written on runtimepath
 "  so that `syntax on/enable` should be written after all the plugins loaded.
 filetype plugin indent on
 syntax enable
-
-" KEYMAP
-" CAUTION: for the other plugins, DON'T define 'cmap' carelessly.
-" install plugins
-noremap  <a-d><a-i> :<c-u>call dein#install()<cr>
-noremap  <a-d>i     :<c-u>call dein#install()<cr>
-
-" update plugins
-cnoreabbrev <expr> du (getcmdtype() == ':' && getcmdline() =~ '^du$')? 'call dein#update()' : 'du'
