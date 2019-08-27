@@ -59,21 +59,19 @@ bindsym $Super+Ctrl+m exec terminal -e 'alsamixer'
 #}}}
 #}}}
 
-# Keybind; Apps {{{
-# urxvtc; add `-k` to kill daemon, too.
-bindsym $Super+u exec urxvtc
-bindsym $Super+t exec $term
-bindsym $Super+v exec --no-startup-id $vim
-bindsym $Super+g exec --no-startup-id gonvim
-#bindsym $Super+semicolon exec --no-startup-id i3-dmenu-desktop
-bindsym $Super+Return exec --no-startup-id i3-dmenu-desktop
-bindsym $SuperS+Return exec --no-startup-id $menu
-#bindsym $Super+d exec dmenu_run
-bindsym $Super+b exec $browser
-bindsym $Super+f exec firefox
-bindsym $Super+e exec emacs
+# Keybind; Try {{{
+bindsym $Super+$Alt+h exec xdg-open /usr/share/doc/manjaro/i3_help_live.pdf
+#bindsym $Super+Shift+F3 exec gksu pcmanfm
+#bindsym $SuperS+i exec calamares_polkit
+#bindsym $Super+Ctrl+a exec terminal -e 'setup'
+#bindsym $mod+t exec --no-startup-id pkill compton
+#bindsym $mod+Ctrl+t exec --no-startup-id compton -b
 #}}}
-# Keybind; i3's {{{
+# Keybind; Notification {{{
+## dunst; a notification-daemon
+bindsym $Super+Shift+d --release exec "killall dunst; exec notify-send 'restart dunst'"
+#}}}
+# Keybind; i3's command {{{
 ## Kill Focused Window
 bindsym $Super+q  kill
 bindsym $SuperS+q kill
@@ -82,12 +80,40 @@ bindsym $SuperS+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $Super+space  restart
 #}}}
-# Keybind; Fn {{{
-## Fn; Backlight {{{
+# Keybind; Music Player {{{
+bindsym $SuperS+m exec terminal -e 'mocp'
+#}}}
+# Keybind; open File Manager {{{
+bindsym $Super+m exec pcmanfm
+bindsym $Super+r exec terminal -e 'ranger'
+#}}}
+# Keybind; open Menu {{{
+#bindsym $Super+semicolon exec --no-startup-id i3-dmenu-desktop
+bindsym $Super+Return exec --no-startup-id i3-dmenu-desktop
+bindsym $SuperS+Return exec terminal -e 'bmenu'
+#bindsym $SuperS+Return exec --no-startup-id $menu
+#bindsym $Super+d exec dmenu_run
+#}}}
+# Keybind; open Terminal {{{
+# urxvtc; add `-k` to kill daemon, too.
+bindsym $Super+u exec urxvtc
+bindsym $Super+t exec $term
+#}}}
+# Keybind; open Editor {{{
+bindsym $Super+v exec --no-startup-id $vim
+bindsym $Super+g exec --no-startup-id gonvim
+bindsym $Super+e exec emacs
+#}}}
+# Keybind; open Browser {{{
+bindsym $Super+b exec $browser
+bindsym $Super+f exec firefox
+bindsym $Super+p exec palemoon
+#}}}
+# Fn; Backlight {{{
 bindsym XF86MonBrightnessUp   exec xbacklight -inc 5
 bindsym XF86MonBrightnessDown exec xbacklight -dec 5
 #}}}
-## Fn; Audio Volume {{{
+# Fn; Audio Volume {{{
 # Depends: pulseaudio & pavucontrol
 # Recommend: pamixer (a frontend)
 # Recommend: pulseaudio-alsa (for flash)
@@ -97,31 +123,8 @@ bindsym XF86AudioMute        exec --no-startup-id pactl set-sink-mute 0 toggle
 #}}}
 # Fn; Screen Shot {{{
 # depend: imagemagick
-bindsym Print exec --no-startup-id import -window root ~/Pictures/screenshot
-#}}}
-#}}}
-# Keybind; Resize Window {{{
-# you can also use the mouse for that
-#mode "resize" {
-## These bindings trigger as soon as you enter the resize mode
-#  bindsym h resize shrink width 5 px or 5 ppt
-#    bindsym j resize grow height 5 px or 5 ppt
-#    bindsym k resize shrink height 5 px or 5 ppt
-#    bindsym l resize grow width 5 px or 5 ppt
-#
-## same bindings, but for the arrow keys
-#    bindsym Left resize shrink width 5 px or 5 ppt
-#    bindsym Down resize grow height 5 px or 5 ppt
-#    bindsym Up resize shrink height 5 px or 5 ppt
-#    bindsym Right resize grow width 5 px or 5 ppt
-#
-## back to normal: Enter or Escape or $Super+r
-#    bindsym Return mode "default"
-#    bindsym Escape mode "default"
-#    bindsym $Super+s mode "default"
-#}
-#
-#bindsym $SuperS+s mode "resize"
+#bindsym Print exec --no-startup-id import -window root ~/Pictures/screenshot
+bindsym Print exec --no-startup-id i3-scrot
 #}}}
 # Keybind; Focus Change {{{
 bindsym $Super+h focus left
@@ -154,6 +157,30 @@ bindsym $SuperS+Left move left
 bindsym $SuperS+Down move down
 bindsym $SuperS+Up move up
 bindsym $SuperS+Right move right
+#}}}
+
+# Mode; Resize Window {{{
+# you can also use the mouse for that
+#mode "resize" {
+## These bindings trigger as soon as you enter the resize mode
+#  bindsym h resize shrink width 5 px or 5 ppt
+#    bindsym j resize grow height 5 px or 5 ppt
+#    bindsym k resize shrink height 5 px or 5 ppt
+#    bindsym l resize grow width 5 px or 5 ppt
+#
+## same bindings, but for the arrow keys
+#    bindsym Left resize shrink width 5 px or 5 ppt
+#    bindsym Down resize grow height 5 px or 5 ppt
+#    bindsym Up resize shrink height 5 px or 5 ppt
+#    bindsym Right resize grow width 5 px or 5 ppt
+#
+## back to normal: Enter or Escape or $Super+r
+#    bindsym Return mode "default"
+#    bindsym Escape mode "default"
+#    bindsym $Super+s mode "default"
+#}
+#
+#bindsym $SuperS+s mode "resize"
 #}}}
 
 # Mode; System {{{
@@ -267,7 +294,7 @@ urgent_workspace   #ffffff #900000
 
 # Window; Layout {{{
 # Layout; Fullscreen
-bindsym $SuperS+f fullscreen toggle
+bindsym $SuperS+o fullscreen toggle
 #bindsym $Super+t layout tabbed
 # stacking: like tabbed, but switch windows up & down.
 #bindsym $Super+s layout stacking
@@ -278,7 +305,7 @@ bindsym $SuperS+f fullscreen toggle
 # Use Mouse+$Super to drag floating windows to their wanted position
 floating_modifier $Super
 # toggle tiling / floating
-#bindsym $SuperS+space floating toggle
+bindsym $SuperS+f floating toggle
 # change focus between tiling / floating windows
 #bindsym $Super+space focus mode_toggle
 ### Floating; Focus the parent container
