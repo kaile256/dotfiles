@@ -3,18 +3,44 @@
 # Ref: X11/.xinitrc
 # NOTICE: Duplicated Keybinds makes i3 a notify error.
 
+# Var; apps {{{
+set $term qterminal
+set $vim nvim-qt
+set $browser qutebrowser
+set $menu rofi
+#}}}
+# Var; Keyname {{{
+set $Super  Mod4
+set $SuperS Mod4+Shift
+
+set $Alt    Mod1
+set $AltC   Mod1+Control
+set $AltS   Mod1+Shift
+#}}}
+
+## Border Style {{{
+## <normal|1pixel|pixel xx|none|pixel>
+#default_border pixel 1
+#default_floating_border normal
+## Hide borders
+#hide_edge_borders none
+## Change Borders
+#bindsym $mod+u border none
+#bindsym $mod+y border pixel 1
+#bindsym $mod+n border normal
+##}}}
+
 # General; Wallpaper {{{
 ## TODO: i3-cheat sheet on desktop.
 #exec --no-startup-id "feh --bg-scale $HOME/.config/i3/~~.jpg"
 #}}}
-
 # General; Font {{{
 # Icons: from ttf-font-icons
 #font pango:MyricaM M 10, DejaVu Sans Mono 11
 font pango:Icons, github\-octicons, file\-icons, SF Mono 11
 #}}}
 
-# Start-Up {{{
+# Start Up {{{
 workspace_layout tabbed
 # nm-applet: WiFi Network Manager
 exec --no-startup-id nm-applet
@@ -28,30 +54,15 @@ exec --no-startup-id fcitx
 exec "urxvtd -o -f"
 #}}}
 
-# Var; apps {{{
-set $term qterminal
-set $vim nvim-qt
-set $browser qutebrowser
-set $menu bmenu_run
-#}}}
-# Var; Keyname {{{
-set $Super  Mod4
-set $SuperS Mod4+Shift
-
-set $Alt    Mod1
-set $AltC   Mod1+Control
-set $AltS   Mod1+Shift
-#}}}
-
 # Keybind; Apps {{{
 # urxvtc; add `-k` to kill daemon, too.
 bindsym $Super+u exec urxvtc
 bindsym $Super+t exec $term
 bindsym $Super+v exec --no-startup-id $vim
+bindsym $Super+g exec --no-startup-id gonvim
 #bindsym $Super+semicolon exec --no-startup-id i3-dmenu-desktop
 bindsym $Super+Return exec --no-startup-id i3-dmenu-desktop
 bindsym $SuperS+Return exec --no-startup-id $menu
-#bindsym $Super+Return exec --no-startup-id bemenu-run
 #bindsym $Super+d exec dmenu_run
 bindsym $Super+b exec $browser
 bindsym $Super+f exec firefox
@@ -84,7 +95,63 @@ bindsym XF86AudioMute        exec --no-startup-id pactl set-sink-mute 0 toggle
 bindsym Print exec --no-startup-id import -window root ~/Pictures/screenshot
 #}}}
 #}}}
-# Keybind; System {{{
+# Keybind; Resize Window {{{
+# you can also use the mouse for that
+#mode "resize" {
+## These bindings trigger as soon as you enter the resize mode
+#  bindsym h resize shrink width 5 px or 5 ppt
+#    bindsym j resize grow height 5 px or 5 ppt
+#    bindsym k resize shrink height 5 px or 5 ppt
+#    bindsym l resize grow width 5 px or 5 ppt
+#
+## same bindings, but for the arrow keys
+#    bindsym Left resize shrink width 5 px or 5 ppt
+#    bindsym Down resize grow height 5 px or 5 ppt
+#    bindsym Up resize shrink height 5 px or 5 ppt
+#    bindsym Right resize grow width 5 px or 5 ppt
+#
+## back to normal: Enter or Escape or $Super+r
+#    bindsym Return mode "default"
+#    bindsym Escape mode "default"
+#    bindsym $Super+s mode "default"
+#}
+#
+#bindsym $Super+s mode "resize"
+#}}}
+# Keybind; Focus Change {{{
+bindsym $Super+h focus left
+bindsym $Super+j focus down
+bindsym $Super+k focus up
+bindsym $Super+l focus right
+## Focus; by Cursor Keys
+bindsym $Super+Left focus left
+bindsym $Super+Down focus down
+bindsym $Super+Up focus up
+bindsym $Super+Right focus right
+## Focus; by Vim-Additional
+bindsym $AltC+h focus left
+bindsym $AltC+j focus down
+bindsym $AltC+k focus up
+bindsym $AltC+l focus right
+#}}}
+# Keybind; Move {{{
+bindsym $SuperS+h move left
+bindsym $SuperS+j move down
+bindsym $SuperS+k move up
+bindsym $SuperS+l move right
+## Move; by Vim-Additional
+bindsym $AltS+h move left
+bindsym $AltS+j move down
+bindsym $AltS+k move up
+bindsym $AltS+l move right
+# Move; by Cursor Keys
+bindsym $SuperS+Left move left
+bindsym $SuperS+Down move down
+bindsym $SuperS+Up move up
+bindsym $SuperS+Right move right
+#}}}
+
+# Mode; System {{{
 #set $Locker i3lock -i ~/Pictures/Wallpaper/kishimen.png && sleep 1
 #set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (q) poweroff
 bindsym $Super+x  exec "i3-nagbar -t warning -f SF Mono 12 -m  'Do you really want to exit i3?' -b 'q:poweroff' 'systemctl poweroff' -b 'r:reboot' 'systemctl reboot' -b 'l:logout' 'i3-msg exit'", mode "mode_system"
@@ -118,66 +185,7 @@ mode "mode_system" {
     bindsym $Super+c mode "default"
 }
 #}}}
-
-# Window; Focus {{{
-bindsym $Super+h focus left
-bindsym $Super+j focus down
-bindsym $Super+k focus up
-bindsym $Super+l focus right
-## Focus; by Cursor Keys
-bindsym $Super+Left focus left
-bindsym $Super+Down focus down
-bindsym $Super+Up focus up
-bindsym $Super+Right focus right
-## Focus; by Vim-Additional
-bindsym $AltC+h focus left
-bindsym $AltC+j focus down
-bindsym $AltC+k focus up
-bindsym $AltC+l focus right
-#}}}
-# Window; Move {{{
-bindsym $SuperS+h move left
-bindsym $SuperS+j move down
-bindsym $SuperS+k move up
-bindsym $SuperS+l move right
-## Move; by Vim-Additional
-bindsym $AltS+h move left
-bindsym $AltS+j move down
-bindsym $AltS+k move up
-bindsym $AltS+l move right
-# Move; by Cursor Keys
-bindsym $SuperS+Left move left
-bindsym $SuperS+Down move down
-bindsym $SuperS+Up move up
-bindsym $SuperS+Right move right
-#}}}
-# Window; Layout {{{
-# Layout; Mouse
-# Use Mouse+$Super to drag floating windows to their wanted position
-floating_modifier $Super
-# Layout; Fullscreen
-bindsym $SuperS+f fullscreen toggle
-#bindsym $Super+t layout tabbed
-# stacking: like tabbed, but switch windows up & down.
-#bindsym $Super+s layout stacking
-#bindsym $Super+e layout toggle split
-
-## Layout; Floating
-# toggle tiling / floating
-#bindsym $SuperS+space floating toggle
-# change focus between tiling / floating windows
-#bindsym $Super+space focus mode_toggle
-### Floating; Focus the parent container
-#bindsym $Super+a focus parent
-# focus the child container
-#bindsym $Super+u focus child
-## Layout; Split
-## In Horizontal Orientation
-#bindsym $Super+h split h
-## In Vertical Orientation
-#bindsym $Super+v split v
-#}}}
-# Window; Status Bar {{{
+# Block; Status Bar {{{
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
@@ -204,28 +212,32 @@ bar {
     }
 }
 #}}}
-## Window; Resize {{{
-# you can also use the mouse for that
-#mode "resize" {
-## These bindings trigger as soon as you enter the resize mode
-#  bindsym h resize shrink width 5 px or 5 ppt
-#    bindsym j resize grow height 5 px or 5 ppt
-#    bindsym k resize shrink height 5 px or 5 ppt
-#    bindsym l resize grow width 5 px or 5 ppt
-#
-## same bindings, but for the arrow keys
-#    bindsym Left resize shrink width 5 px or 5 ppt
-#    bindsym Down resize grow height 5 px or 5 ppt
-#    bindsym Up resize shrink height 5 px or 5 ppt
-#    bindsym Right resize grow width 5 px or 5 ppt
-#
-## back to normal: Enter or Escape or $Super+r
-#    bindsym Return mode "default"
-#    bindsym Escape mode "default"
-#    bindsym $Super+s mode "default"
-#}
-#
-#bindsym $Super+s mode "resize"
+
+# Window; Layout {{{
+# Layout; Fullscreen
+bindsym $SuperS+f fullscreen toggle
+#bindsym $Super+t layout tabbed
+# stacking: like tabbed, but switch windows up & down.
+#bindsym $Super+s layout stacking
+#bindsym $Super+e layout toggle split
+#}}}
+## Layout; Floating {{{
+### Floating; Mouse
+# Use Mouse+$Super to drag floating windows to their wanted position
+floating_modifier $Super
+# toggle tiling / floating
+#bindsym $SuperS+space floating toggle
+# change focus between tiling / floating windows
+#bindsym $Super+space focus mode_toggle
+### Floating; Focus the parent container
+#bindsym $Super+a focus parent
+# focus the child container
+#bindsym $Super+u focus child
+## Layout; Split
+## In Horizontal Orientation
+#bindsym $Super+h split h
+## In Vertical Orientation
+#bindsym $Super+v split v
 #}}}
 
 # Window; xrandr
