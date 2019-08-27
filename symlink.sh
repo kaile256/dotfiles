@@ -53,7 +53,10 @@ qutebrowser
 tmux
 w3m
 zsh
+moc
 )
+
+
 
 for vim_data_dir in ${VimData[@]}; do
   vim_data_dest=${XDG_DATA_HOME}/nvim
@@ -72,8 +75,8 @@ done
 echo ""
 echo "Done! All the dotfiles are linked to ${XDG_CONFIG_HOME}"
 
-### non-XDG programs;
-## Create symbolic links at $HOME via $XDG_CONFIG_HOME.
+# non-XDG based programs;
+# Create symbolic links at $HOME via $XDG_CONFIG_HOME.
 home_list=(
 X11/.Xmodmap
 X11/.Xresources
@@ -83,7 +86,8 @@ ctags/.ctags
 emacs/.emacs.d
 git/.gitconfig
 git/.tigrc
-w3m/.w3m
+nvim/.gonvim
+moc/.moc
 )
 
 cd $HOME
