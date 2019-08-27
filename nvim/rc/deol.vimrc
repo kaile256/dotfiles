@@ -10,16 +10,16 @@ cnoreabbr <expr> tev (getcmdtype() == ':' && getcmdline() =~ '^tev$')? 'vs <bar>
 " NOTICE: :tab/:vert/:bel, etc., fail to work. why?
 
 "" Open Deol; with Direction {{{
-noremap <silent><nowait> <a-t><a-.> :<c-u>    <bar> <bar> Deol<cr>
-noremap <silent><nowait> <a-t><a-e> :<c-u>    <bar> <bar> Deol<cr>
-noremap <silent><nowait> <a-t><a-s> :<c-u>sp  <bar> <bar> Deol<cr>
-noremap <silent><nowait> <a-t><a-v> :<c-u>vs  <bar> <bar> Deol<cr>
-noremap <silent><nowait> <a-t><a-b> :<c-u>tab sp    <bar> Deol<cr>
-noremap <silent><nowait> <a-t>.     :<c-u>    <bar> <bar> Deol<cr>
-noremap <silent><nowait> <a-t>e     :<c-u>    <bar> <bar> Deol<cr>
-noremap <silent><nowait> <a-t>s     :<c-u>sp  <bar> <bar> Deol<cr>
-noremap <silent><nowait> <a-t>v     :<c-u>vs  <bar> <bar> Deol<cr>
-noremap <silent><nowait> <a-t>b     :<c-u>tab sp    <bar> Deol<cr>
+noremap <silent><nowait> <a-t><a-.> :<c-u>    <space> <space>   Deol<cr>
+noremap <silent><nowait> <a-t><a-e> :<c-u>    <space> <space>   Deol<cr>
+noremap <silent><nowait> <a-t><a-s> :<c-u>sp  <space> <bar>   Deol<cr>
+noremap <silent><nowait> <a-t><a-v> :<c-u>vs  <space> <bar>   Deol<cr>
+noremap <silent><nowait> <a-t><a-b> :<c-u>tab sp      <bar>   Deol<cr>
+noremap <silent><nowait> <a-t>.     :<c-u>    <space> <space> Deol<cr>
+noremap <silent><nowait> <a-t>e     :<c-u>    <space> <space> Deol<cr>
+noremap <silent><nowait> <a-t>s     :<c-u>sp  <space> <bar>   Deol<cr>
+noremap <silent><nowait> <a-t>v     :<c-u>vs  <space> <bar>   Deol<cr>
+noremap <silent><nowait> <a-t>b     :<c-u>tab sp      <bar>   Deol<cr>
 "}}}
 
 "" Open Deol; With cd {{{
