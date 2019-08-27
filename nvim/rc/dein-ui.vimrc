@@ -1,4 +1,8 @@
-""" From: tool.toml
+" From: tool.toml
 
 cnoreabbrev <expr> du (getcmdtype() == ':' && getcmdline() =~ '^du$')? 'DeinUpdate' : 'du'
+augroup MyDeinUiAugroup
+  au!
+  au FileType SpaceVimPlugManager setl signcolumn=
+augroup END
 
