@@ -64,7 +64,7 @@ let g:fzf_colors =
       \ { 'fg':      ['fg', 'None'],
       \   'bg':      ['bg', 'None'],
       \   'hl':      ['fg', 'Comment'],
-      \   'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'None'],
+      \   'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
       \   'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
       \   'hl+':     ['fg', 'Statement'],
       \   'info':    ['fg', 'PreProc'],
