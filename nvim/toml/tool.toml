@@ -238,7 +238,7 @@ hook_post_source = 'runtime easy-align.vimrc'
 [[plugins]]
 repo = 'Shougo/deol.nvim' #{{{
 on_if = 'has("python3")'
-source_post_source = 'runtime deol.vimrc'
+hook_post_source = 'runtime deol.vimrc'
 #}}}
 ## Shell; Async Processor
 [[plugins]]
@@ -262,7 +262,6 @@ hook_post_source = 'runtime neomake.vimrc'
 ## run vim-plugins asynchronously, like openbrowser, quickrun.
 #build = 'make'
 #}}}
-
 
 # UI
 [[plugins]]
