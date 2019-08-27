@@ -8,8 +8,7 @@ cnoreabbrev <silent><expr> bh (getcmdtype() == ':' && getcmdline() =~ '^bh$')? '
 cnoreabbrev <silent><expr> hv (getcmdtype() == ':' && getcmdline() =~ '^hv$')? 'Helptags<cr>' : 'h'
 cnoreabbrev <silent><expr> vh (getcmdtype() == ':' && getcmdline() =~ '^vh$')? 'Helptags<cr>' : 'h'
 
-" FZF; Augroup {{{
-function! s:fzf_statusline() "{{{
+function! s:fzf_buffer_statusline() "{{{
 
   " Override statusline as you like
   highlight fzf1 ctermfg=161 ctermbg=251
@@ -19,27 +18,18 @@ function! s:fzf_statusline() "{{{
   setlocal statusline=%#fzf1#\ >\ %#fzf2#fz%#fzf3#f
 endfunction "}}}
 
-function! s:fzf_buffer_keymap() "{{{
-  tnoremap <buffer><silent> <a-a> <c-\><c-n>:<c-u>quit<cr><a-a>
-  tnoremap <buffer><silent> <a-r> <c-\><c-n>:<c-u>quit<cr><a-r>
-  tnoremap <buffer><silent> <a-q> <c-\><c-n>:<c-u>quit<cr><a-q>
-endfunction
-"}}}
-
-augroup MyFzfAugroup
+augroup CallMyFzfFunctions "{{{
   au!
 
   " CAUTION: WinLeave's current file is next file, i.e., fzf when opening fzf-buffer.
   au WinLeave * if &filetype =~# 'fzf' | hide
   "au Syntax   * if @#        =~# 'term:' && &filetype !=# 'coc' && &filetype !=# 'fzf' | bwipeout! #
 
-  au User     FzfStatusLine call <SID>fzf_statusline()
+  au User     FzfStatusLine call <SID>fzf_buffer_statusline()
   au FileType fzf           call <SID>fzf_buffer_keymap()
 
-augroup END
-" }}}
+augroup END "}}}
 
-" Let; {{{
 " [Buffers] Jump to existing window if possible.
 let g:fzf_buffers_jump = 1
 " [[B]Commits] Customize the options used by 'git log':
@@ -48,41 +38,33 @@ let g:fzf_history_dir = '~/.local/share/fzf-history'
 "" down/up/left/right
 let g:fzf_layout = { 'down': '~20%' }
 
-" Let; Keybind on FZF Buffer {{{
+function! s:fzf_buffer_keymap() "{{{
+  " Execute selected command
+  let g:fzf_commands_expect = 'ctrl-r,ctrl-x'
 
-"" Execute Selected Command
-let g:fzf_commands_expect = 'ctrl-r,ctrl-x'
-
-"" Function! for g:fzf_action "{{{
-function! s:fzf_open_in_quickfix_list(lines) "{{{
-  call setqflist(map(copy(a:lines), '{ "filename": v:val }'))
-  copen
-  cc
+  function! s:fzf_open_in_quickfix_list(lines) "{{{
+    call setqflist(map(copy(a:lines), '{ "filename": v:val }'))
+    copen
+    cc
+  endfunction "}}}
+  let g:fzf_action = {
+        \ 'ctrl-q': function('s:fzf_open_in_quickfix_list'),
+        \ 'ctrl-c': function('s:fzf_open_in_quickfix_list'),
+        \ 'ctrl-z': '',
+        \ 'ctrl-b': 'tab split',
+        \ 'ctrl-t': 'tab split',
+        \ 'ctrl-v': 'vsplit',
+        \ 'ctrl-o': 'split',
+        \ 'ctrl-d': 'split',
+        \ 'ctrl-s': 'split' }
 endfunction "}}}
 
-function! s:fzf_bwipeout_selected() "{{{
-  bwipeout!
-endfunction "}}}
-"}}}
-
-let g:fzf_action = {
-      \ 'ctrl-q': function('s:fzf_open_in_quickfix_list'),
-      \ 'ctrl-c': function('s:fzf_open_in_quickfix_list'),
-      \ 'ctrl-z': '',
-      \ 'ctrl-b': 'tab split',
-      \ 'ctrl-t': 'tab split',
-      \ 'ctrl-v': 'vsplit',
-      \ 'ctrl-o': 'split',
-      \ 'ctrl-d': 'split',
-      \ 'ctrl-s': 'split' }
-"}}}
-
-"" Customize fzf colors to match your color scheme
+" on FZF Buffer; Colors {{{
 let g:fzf_colors =
-      \ { 'fg':      ['fg', 'Normal'],
-      \   'bg':      ['bg', 'Normal'],
+      \ { 'fg':      ['fg', 'None'],
+      \   'bg':      ['bg', 'None'],
       \   'hl':      ['fg', 'Comment'],
-      \   'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
+      \   'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'None'],
       \   'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
       \   'hl+':     ['fg', 'Statement'],
       \   'info':    ['fg', 'PreProc'],
@@ -93,6 +75,13 @@ let g:fzf_colors =
       \   'spinner': ['fg', 'Label'],
       \   'header':  ['fg', 'Comment'] }
 "}}}
+
+" Mnemonic: File-path
+" NOTE: too slow if parmission denied.
+"imap <c-f> <plug>(fzf-complete-path)
+"imap <c-f> <plug>(fzf-complete-file)
+imap <c-f> <plug>(fzf-complete-file-ag)
+" :FZF! starts fzf on full-window.
 
 " Keymap; Command! Ag/Rg/FZF {{{
 command! -bang -nargs=* Ag
@@ -111,7 +100,6 @@ command! -bang -nargs=* Rg
 command! -bang -nargs=? -complete=dir BFiles
       \ call fzf#vim#files(<q-args>, fzf#vim#with_preview(), <bang>0)
 "}}}
-
 " Keymap; Ag {{{
 if executable('ag') == 0
 
@@ -178,9 +166,7 @@ else
 
 endif
 "}}}
-
-
-      \ "" Keymap; Ripgrep {{{
+" Keymap; Ripgrep {{{
 if executable('rg') == 0
 
   noremap <silent><nowait> <a-r> :<c-u>echo "You don't have executable 'ripgrep'"<cr>
@@ -239,15 +225,8 @@ else
   noremap <silent> <a-r>l     :<c-u>cd /usr/share/nvim/runtime/doc<cr>  :Rg<cr>
 endif
 "}}}
-
-" Mnemonic: File-path
-imap <c-f> <plug>(fzf-complete-path)
-" NOTE: Too slow to when parmission denied.
-"imap <c-f> <plug>(fzf-complete-file)
-"imap <c-f> <plug>(fzf-complete-file-ag)
-" :FZF! starts fzf on full-window.
-
-" Keymap; cd {{{
+" Keymap; FZF {{{0
+"" FZF; with cd {{{
 tnoremap <silent> <a-q><a-h> <c-u>cd ~<cr>               <c-\><c-n> :FZF<cr>
 tnoremap <silent> <a-q>h     <c-u>cd ~<cr>               <c-\><c-n> :FZF<cr>
 tnoremap <silent> <a-q><a-d> <c-u>cd ~/dotfiles<cr>      <c-\><c-n> :FZF<cr>
@@ -268,7 +247,7 @@ noremap <silent> <a-q>.     :<c-u> <space> <space> FZF<cr>
 noremap <silent> <a-q><a-w> :<c-u> cd %:p:h           <cr> :FZF<cr>
 noremap <silent> <a-q>w     :<c-u> cd %:p:h           <cr> :FZF<cr>
 "}}}
-
+"" FZF; Various {{{
 tnoremap <silent> <a-q><a-.> <c-\><c-n>: FZF<cr>
 tnoremap <silent> <a-q>.     <c-\><c-n>: FZF<cr>
 tnoremap <silent> <a-q><a-w> <c-\><c-n>: Windows<cr>
@@ -311,5 +290,4 @@ noremap <silent> <a-q><a-p> :<c-u> Maps<cr>
 noremap <silent> <a-q>p     :<c-u> Maps<cr>
 noremap <silent> <a-q><a-m> :<c-u> Maps<cr>
 noremap <silent> <a-q>m     :<c-u> Maps<cr>
-"}}}
 "}}}
