@@ -3,6 +3,17 @@
 # Ref: X11/.xinitrc
 # NOTICE: Duplicated Keybinds makes i3 a notify error.
 
+# Keybind; Try {{{
+#bindsym $Super+Shift+minus move scratchpad
+bindsym $Super+$Alt+h exec xdg-open /usr/share/doc/manjaro/i3_help_live.pdf
+
+#bindsym $Super+Shift+F3 exec gksu pcmanfm
+#bindsym $SuperS+i exec calamares_polkit
+#bindsym $Super+Ctrl+a exec terminal -e 'setup'
+#bindsym $mod+t exec --no-startup-id pkill compton
+#bindsym $mod+Ctrl+t exec --no-startup-id compton -b
+#bindsym $mod+Ctrl+x --release exec --no-startup-id xkill
+#}}}
 # Var; apps {{{
 set $term qterminal
 set $vim nvim-qt
@@ -40,7 +51,7 @@ set $AltS   Mod1+Shift
 font pango:Icons, github\-octicons, file\-icons, SF Mono 11
 #}}}
 
-# Start Up {{{
+# Auto Start {{{
 workspace_layout tabbed
 # nm-applet: WiFi Network Manager
 exec --no-startup-id nm-applet
@@ -49,8 +60,20 @@ exec --no-startup-id fcitx
 #exec --no-startup-id dunst
 # parcellite: Clipboard Manager
 #exec --no-startup-id parcellite
+#exec --no-startup-id clipit
 exec "urxvtd -o -f"
 exec --no-startup-id volumeicon
+exec --no-startup-id nitrogen --restore; sleep 1; compton -b
+exec --no-startup-id start_conky_live_maia
+# exec --no-startup-id blueman
+#exec --no-startup-id manjaro-hello
+exec --no-startup-id pamac-tray
+exec --no-startup-id desktop-items
+exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+# exec_always --no-startup-id sbxkb
+#exec --no-startup-id xfce4-power-manager
+exec_always --no-startup-id ff-theme-util
+#exec_always --no-startup-id setcursor
 # Modifier; Sound Volume {{{
 bindsym $Super+Ctrl+m exec terminal -e 'alsamixer'
 #exec --no-startup-id pulseaudio
@@ -58,15 +81,12 @@ bindsym $Super+Ctrl+m exec terminal -e 'alsamixer'
 #bindsym $mod+Ctrl+m exec pavucontrol
 #}}}
 #}}}
-
-# Keybind; Try {{{
-bindsym $Super+$Alt+h exec xdg-open /usr/share/doc/manjaro/i3_help_live.pdf
-#bindsym $Super+Shift+F3 exec gksu pcmanfm
-#bindsym $SuperS+i exec calamares_polkit
-#bindsym $Super+Ctrl+a exec terminal -e 'setup'
-#bindsym $mod+t exec --no-startup-id pkill compton
-#bindsym $mod+Ctrl+t exec --no-startup-id compton -b
+# Mouse #{{{
+# Use Mouse+$Super to drag floating windows to their wanted position
+floating_modifier $Super
+#focus_follows_mouse no
 #}}}
+
 # Keybind; Notification {{{
 ## dunst; a notification-daemon
 bindsym $Super+Shift+d --release exec "killall dunst; exec notify-send 'restart dunst'"
@@ -189,9 +209,8 @@ bindsym $SuperS+Right move right
 #bindsym $Super+x  exec "i3-nagbar -t warning -f SF Mono 12 -m  'Do you really want to exit i3?' -b 'q:poweroff' 'systemctl poweroff' -b 'r:reboot' 'systemctl reboot' -b 'l:logout' 'i3-msg exit'", mode "$system"
 #bindsym $SuperS+x exec "i3-nagbar -t warning -f SF Mono 12 -m  'Do you really want to exit i3?' -b 'q:poweroff' 'systemctl poweroff' -b 'r:reboot' 'systemctl reboot' -b 'l:logout' 'i3-msg exit'", mode "$system"
 ##}}}
-bindsym $Super+x  mode "$systemctl"
-bindsym $SuperS+x mode "$systemctl"
-set $systemctl (y)poweroff, (s)uspend, (r)reboot
+bindsym $Alt+Ctrl+x  mode "$systemctl"; exec notify-send 'systemctl'
+set $systemctl (u)Poweroff, (s)Suspend, (r)Reboot, (n)Exit
 #set $systemctl System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (q) poweroff
 
 mode "$systemctl" {
@@ -203,34 +222,25 @@ mode "$systemctl" {
 #bindsym r exec --no-startup-id systemctl reboot, mode "default"
 
 #bindsym l exec --no-startup-id i3-msg exit, mode "default"
-bindsym r exec --no-startup-id systemctl reboot, mode "default"
+bindsym r exec --no-startup-id systemctl reboot,  mode "default"
+bindsym s exec --no-startup-id systemctl sudpend, mode "default"
+
 bindsym p exec --no-startup-id systemctl poweroff, mode "default"
 bindsym q exec --no-startup-id systemctl poweroff, mode "default"
 bindsym y exec --no-startup-id systemctl poweroff, mode "default"
 bindsym u exec --no-startup-id systemctl poweroff, mode "default"
-bindsym s exec --no-startup-id systemctl sudpend, mode "default"
 
-bindsym $Super+l exec --no-startup-id i3-msg exit, mode "default"
-bindsym $Super+r exec --no-startup-id systemctl reboot, mode "default"
-bindsym $Super+p exec --no-startup-id systemctl poweroff, mode "default"
-bindsym $Super+q exec --no-startup-id systemctl poweroff, mode "default"
-
-bindsym $SuperS+l exec --no-startup-id i3-msg exit, mode "default"
-bindsym $SuperS+r exec --no-startup-id systemctl reboot, mode "default"
-bindsym $SuperS+p exec --no-startup-id systemctl poweroff, mode "default"
-bindsym $SuperS+q exec --no-startup-id systemctl poweroff, mode "default"
-
+bindsym n            mode "default"
 bindsym Escape       mode "default"
-bindsym $Super+x     mode "default"
-bindsym $Super+c     mode "default"
+bindsym $Alt+Ctrl+x  mode "default"
 bindsym Ctrl+c       mode "default"
 bindsym $Super+space mode "default"
 }
 #}}}
 
 # Mode; Backlight {{{
-bindsym $SuperS+b mode "$backlight"
-set $backlight Backlight Control: (h)Higher, (l)Lower
+bindsym $Alt+Ctrl+b mode "$backlight"
+set $backlight Backlight Control: (h)Higher, (l)Lower, (n)Exit
 
 mode "$backlight" {
 bindsym h exec "xbacklight -inc 5; notify-send 'brightness up'"
@@ -238,17 +248,17 @@ bindsym j exec "xbacklight -dec 5; notify-send 'brightness down'"
 bindsym k exec "xbacklight -inc 5; notify-send 'brightness up'"
 bindsym l exec "xbacklight -dec 5; notify-send 'brightness down'"
 
+bindsym n            mode "default"
 bindsym Escape       mode "default"
-bindsym $Super+b     mode "default"
-bindsym $SuperS+b    mode "default"
+bindsym $Alt+Ctrl+b     mode "default"
 bindsym Ctrl+c       mode "default"
 bindsym $Super+space mode "default"
 }
 #}}}
 
 # Mode; Sound {{{
-bindsym $SuperS+s mode "$sound"
-set $sound Sound Control: (h)Higher, (l)Lower, (m)Mute
+bindsym $Alt+Ctrl+s mode "$sound"
+set $sound Sound Control: (h)Higher, (l)Lower, (m)Mute, (n)Exit
 mode "$sound" {
 bindsym h exec --no-startup-id pactl set-sink-volume 0 +5%
 bindsym j exec --no-startup-id pactl set-sink-volume 0 -5%
@@ -256,9 +266,9 @@ bindsym k exec --no-startup-id pactl set-sink-volume 0 +5%
 bindsym l exec --no-startup-id pactl set-sink-volume 0 -5%
 bindsym m exec --no-startup-id pactl set-sink-mute   0 toggle
 
+bindsym n            mode "default"
 bindsym Escape       mode "default"
-bindsym $Super+s     mode "default"
-bindsym $SuperS+s    mode "default"
+bindsym $Alt+Ctrl+s  mode "default"
 bindsym Ctrl+c       mode "default"
 bindsym $Super+space mode "default"
 }
@@ -293,6 +303,8 @@ urgent_workspace   #ffffff #900000
 #}}}
 
 # Window; Layout {{{
+bindsym $SuperS+s split h;exec notify-send 'tile horizontally'
+bindsym $SuperS+v split v;exec notify-send 'tile vertically'
 # Layout; Fullscreen
 bindsym $SuperS+o fullscreen toggle
 #bindsym $Super+t layout tabbed
@@ -301,9 +313,6 @@ bindsym $SuperS+o fullscreen toggle
 #bindsym $Super+e layout toggle split
 #}}}
 ## Layout; Floating {{{
-### Floating; Mouse
-# Use Mouse+$Super to drag floating windows to their wanted position
-floating_modifier $Super
 # toggle tiling / floating
 bindsym $SuperS+f floating toggle
 # change focus between tiling / floating windows
@@ -319,36 +328,36 @@ bindsym $SuperS+f floating toggle
 #bindsym $Super+v split v
 #}}}
 
-# Specify Apps to Open in Floating {{{
-for_window [title="alsamixer"] floating enable border pixel 1
-for_window [class="calamares"] floating enable border normal
-for_window [class="Clipgrab"] floating enable
-for_window [title="File Transfer*"] floating enable
-for_window [class="Galculator"] floating enable border pixel 1
-for_window [class="GParted"] floating enable border normal
-for_window [title="i3_help"] floating enable sticky enable border normal
-for_window [class="Lightdm-settings"] floating enable
-for_window [class="Lxappearance"] floating enable border normal
-for_window [class="Manjaro-hello"] floating enable border normal
-for_window [class="Manjaro Settings Manager"] floating enable border normal
-for_window [title="MuseScore: Play Panel"] floating enable
-for_window [class="Nitrogen"] floating enable sticky enable border normal
-for_window [class="Oblogout"] fullscreen enable
-for_window [class="octopi"] floating enable
-for_window [title="About Pale Moon"] floating enable
-for_window [class="Pamac-manager"] floating enable
-for_window [class="Pamac-updater"] floating enable
-for_window [class="Pavucontrol"] floating enable
-for_window [class="Qtconfig-qt4"] floating enable border normal
-for_window [class="qt5ct"] floating enable sticky enable border normal
-for_window [title="sudo"] floating enable border normal
-for_window [class="Simple-scan"] floating enable border normal
-for_window [class="(?i)System-config-printer.py"] floating enable border normal
-for_window [class="Skype"] floating enable border normal
-for_window [class="Timeset-gui"] floating enable border normal
-for_window [class="(?i)virtualbox"] floating enable border normal
-for_window [class="Xfburn"] floating enable
-#}}}
+## Specify Apps to Open in Floating {{{
+#for_window [title="alsamixer"] floating enable border pixel 1
+#for_window [class="calamares"] floating enable border normal
+#for_window [class="Clipgrab"] floating enable
+#for_window [title="File Transfer*"] floating enable
+#for_window [class="Galculator"] floating enable border pixel 1
+#for_window [class="GParted"] floating enable border normal
+#for_window [title="i3_help"] floating enable sticky enable border normal
+#for_window [class="Lightdm-settings"] floating enable
+#for_window [class="Lxappearance"] floating enable border normal
+#for_window [class="Manjaro-hello"] floating enable border normal
+#for_window [class="Manjaro Settings Manager"] floating enable border normal
+#for_window [title="MuseScore: Play Panel"] floating enable
+#for_window [class="Nitrogen"] floating enable sticky enable border normal
+#for_window [class="Oblogout"] fullscreen enable
+#for_window [class="octopi"] floating enable
+#for_window [title="About Pale Moon"] floating enable
+#for_window [class="Pamac-manager"] floating enable
+#for_window [class="Pamac-updater"] floating enable
+#for_window [class="Pavucontrol"] floating enable
+#for_window [class="Qtconfig-qt4"] floating enable border normal
+#for_window [class="qt5ct"] floating enable sticky enable border normal
+#for_window [title="sudo"] floating enable border normal
+#for_window [class="Simple-scan"] floating enable border normal
+#for_window [class="(?i)System-config-printer.py"] floating enable border normal
+#for_window [class="Skype"] floating enable border normal
+#for_window [class="Timeset-gui"] floating enable border normal
+#for_window [class="(?i)virtualbox"] floating enable border normal
+#for_window [class="Xfburn"] floating enable
+##}}}
 
 # switch to workspace with urgent window automatically
 for_window [urgent=latest] focus
@@ -369,11 +378,9 @@ set $ws9 "9"
 set $ws10 "10"
 #}}}
 # Workspace; Switch {{{
-# TODO: Deprecated
-#bindsym $Super+n workspace next
-#bindsym $Super+p workspace prev
-#}}}
-# Workspace; Select {{{
+workspace_auto_back_and_forth yes
+#bindsym $mod+b workspace back_and_forth
+#bindsym $mod+Shift+b move container to workspace back_and_forth; workspace back_and_forth
 bindsym $Super+1 workspace $ws1
 bindsym $Super+2 workspace $ws2
 bindsym $Super+3 workspace $ws3
