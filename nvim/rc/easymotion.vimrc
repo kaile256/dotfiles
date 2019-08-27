@@ -50,29 +50,27 @@ hi link EasyMotionIncSearch Search
 "" <Plug>(easymotion-sl): the range is limited to current line
 "}}}
 
-" Keymap; hjkl {{{0
-noremap <silent> <c-j> 10j
-noremap <silent> <c-k> 10k
+" Keymap; hjkl {{{
+"noremap <silent> <c-j> 10j
+"noremap <silent> <c-k> 10k
 noremap <c-h> gT
 noremap <c-l> gt
 "}}}
 
-" Keymap; Over Windows {{{0
-" Mnemonic: Catch Unmoved
-map  <nowait> cu       <space> <Plug>(easymotion-overwin-f2)
-imap <nowait> <a-c><a-u> <esc>   <Plug>(easymotion-overwin-f2)
-imap <nowait> <a-c>u <esc>   <Plug>(easymotion-overwin-f2)
-"}}}
+" Keymap; Catch Over window
+map  <nowait> co         <Plug>(easymotion-overwin-f2)
+imap <nowait> <a-c><a-o> <esc><Plug>(easymotion-overwin-f2)
+imap <nowait> <a-c>o     <esc><Plug>(easymotion-overwin-f2)
 
+" Keymap; ft;,
 map f <Plug>(easymotion-f2)
 map F <Plug>(easymotion-F2)
 map t <Plug>(easymotion-t2)
 map T <Plug>(easymotion-T2)
-
-imap <a-f> <esc><Plug>(easymotion-f2)
-imap <a-F> <esc><Plug>(easymotion-F2)
-imap <a-t> <esc><Plug>(easymotion-t2)
-imap <a-T> <esc><Plug>(easymotion-T2)
+imap <a-f>   <esc><Plug>(easymotion-f2)
+imap <a-s-f> <esc><Plug>(easymotion-F2)
+imap <a-t>   <esc><Plug>(easymotion-t2)
+imap <a-s-t> <esc><Plug>(easymotion-T2)
 
 map ; <Plug>(easymotion-next)
 map , <Plug>(easymotion-prev)
@@ -88,5 +86,4 @@ noremap qf f
 noremap qF F
 noremap q; ;
 noremap q, ,
-"}}}
 "}}}
