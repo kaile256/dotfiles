@@ -13,10 +13,9 @@ augroup AppendFileType
 
 augroup END
 
-augroup AutoDeleteWhiteSpace "{{{
+augroup AutoDeleteWhiteSpace
   au!
 
-  "" Delete; WhiteSpace Unnecessary
-  au BufWritePre * silent keepjumps keeppatterns %s/\s\+$//ge
+  au BufWritePre * keeppatterns %s/\s\+$//ge
 
-augroup END "}}}
+augroup END
