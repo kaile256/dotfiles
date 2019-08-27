@@ -222,27 +222,27 @@ tnoremap <esc> <c-\><c-n>
 
 "" Hotkey to open terminal
 " NOTICE: :tab/:vert/:bel, etc., fail to work. why?
-noremap <silent> <a-t><a-.> :<c-u> <space> :te<cr>
-noremap <silent> <a-t><a-e> :<c-u>     <cr>    :te<cr>
-noremap <silent> <a-t><a-s> :<c-u>sp   <cr>      :te<cr>
-noremap <silent> <a-t><a-v> :<c-u>vs <cr>   :te<cr>
-noremap <silent> <a-t><a-b> :<c-u>tabe <cr>      :te<cr>
-noremap <silent> <a-t>e     :<c-u>     <cr>    :te<cr>
-noremap <silent> <a-t>s     :<c-u>sp   <cr>      :te<cr>
-noremap <silent> <a-t>v     :<c-u>vs   <cr>      :te<cr>
-noremap <silent> <a-t>b     :<c-u>tabe <cr> :te<cr>
+"noremap <silent> <a-t><a-.> :<c-u> <space> :te<cr>
+"noremap <silent> <a-t><a-e> :<c-u>     <cr>    :te<cr>
+"noremap <silent> <a-t><a-s> :<c-u>sp   <cr>      :te<cr>
+"noremap <silent> <a-t><a-v> :<c-u>vs <cr>   :te<cr>
+"noremap <silent> <a-t><a-b> :<c-u>tabe <cr>      :te<cr>
+"noremap <silent> <a-t>e     :<c-u>     <cr>    :te<cr>
+"noremap <silent> <a-t>s     :<c-u>sp   <cr>      :te<cr>
+"noremap <silent> <a-t>v     :<c-u>vs   <cr>      :te<cr>
+"noremap <silent> <a-t>b     :<c-u>tabe <cr> :te<cr>
 
 " With cd
-noremap <silent> <a-t><a-w> :<c-u>cd   %:p:h<bar> :te<cr>
-noremap <silent> <a-t>w     :<c-u>cd   %:p:h<bar> :te<cr>
-noremap <silent> <a-t><a-h> :<c-u>cd ~          <bar>:te<cr>
-noremap <silent> <a-t><a-o> :<c-u>cd ~/org      <bar>:te<cr>
-noremap <silent> <a-t><a-d> :<c-u>cd ~/dotfiles <bar>:te<cr>
-noremap <silent> <a-t><a-c> :<c-u>cd ~/.config  <bar>:te<cr>
-noremap <silent> <a-t>h     :<c-u>cd ~          <bar>:te<cr>
-noremap <silent> <a-t>o     :<c-u>cd ~/org      <bar>:te<cr>
-noremap <silent> <a-t>d     :<c-u>cd ~/dotfiles <bar>:te<cr>
-noremap <silent> <a-t>c     :<c-u>cd ~/.config  <bar>:te<cr>
+"noremap <silent> <a-t><a-w> :<c-u>cd   %:p:h<bar> :te<cr>
+"noremap <silent> <a-t>w     :<c-u>cd   %:p:h<bar> :te<cr>
+"noremap <silent> <a-t><a-h> :<c-u>cd ~          <bar>:te<cr>
+"noremap <silent> <a-t><a-o> :<c-u>cd ~/org      <bar>:te<cr>
+"noremap <silent> <a-t><a-d> :<c-u>cd ~/dotfiles <bar>:te<cr>
+"noremap <silent> <a-t><a-c> :<c-u>cd ~/.config  <bar>:te<cr>
+"noremap <silent> <a-t>h     :<c-u>cd ~          <bar>:te<cr>
+"noremap <silent> <a-t>o     :<c-u>cd ~/org      <bar>:te<cr>
+"noremap <silent> <a-t>d     :<c-u>cd ~/dotfiles <bar>:te<cr>
+"noremap <silent> <a-t>c     :<c-u>cd ~/.config  <bar>:te<cr>
 
 tnoremap <silent> <a-t><a-r> cd /          <cr>
 tnoremap <silent> <a-t><a-o> cd ~/org      <cr>
