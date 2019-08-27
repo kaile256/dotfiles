@@ -122,7 +122,10 @@ bindsym $Super+t exec $term
 # Keybind; open Editor {{{
 bindsym $Super+v exec --no-startup-id $vim
 bindsym $Super+g exec --no-startup-id gonvim
-bindsym $Super+e exec emacs
+bindsym $Super+n exec --no-startup-id nyaovim
+bindsym $Super+o exec --no-startup-id oni
+bindsym $Super+e exec --no-startup-id emacs
+
 #}}}
 # Keybind; open Browser {{{
 bindsym $Super+b exec $browser
