@@ -9,26 +9,17 @@
 
 set -Cu
 
-type nvr > /dev/null && {
-  export EDITOR=nvr
-  export VISUAL=nvr
+# nvr & nvim-qt does NOT work as sudoedit.
+type nvim > /dev/null && {
+  export EDITOR=nvim
+  export VISUAL=nvim
 } || {
-type nvim-qt > /dev/null && {
-  export EDITOR=nvim-qt
-  export VISUAL=nvim-qt
-}
-} || {
- type nvim > /dev/null && {
- export EDITOR=nvim
- export VISUAL=nvim
-}
-} || {
-type vim > /dev/null && {
+  type vim > /dev/null && {
   export EDITOR=vim
   export VISUAL=vim
 }
 } || {
-type vi > /dev/null && {
+  type vi > /dev/null && {
   export EDITOR=vi
   export VISUAL=vi
 }
