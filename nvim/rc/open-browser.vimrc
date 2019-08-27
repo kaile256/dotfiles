@@ -68,11 +68,16 @@ nnoremap <silent> g5 :<c-u>CurrentFileOnBrowser<cr>
 nnoremap <silent> gc :<c-u>CurrentFileOnBrowser<cr>
 "}}}
 
-" Keymap; Open those Under Cursor "{{{
-""" Cursor; 'Go to Browser'
+" Keymap; Open words/url under Cursor "{{{
+"" Cursor; 'Go to Browser'
 " Notice: `smart-search` detects whether it is URI or not.
 nmap gb <Plug>(openbrowser-smart-search)
 vmap gb <Plug>(openbrowser-smart-search)
+" Cursor; Go to Browser on URL
+nmap gB :<c-u>OpenBrowserSmartSearch <c-r><c-a> <cr>
+vmap gB :<c-u>OpenBrowserSmartSearch <c-r><c-a> <cr>
+nmap gu :<c-u>OpenBrowserSmartSearch <c-r><c-a> <cr>
+vmap gu :<c-u>OpenBrowserSmartSearch <c-r><c-a> <cr>
 
 "" Cursor; Wiki {{{
 """ Wiki; wikiPedia
@@ -110,6 +115,7 @@ vmap gw :<c-u>OpenBrowserSmartSearch -thesaurus <c-r><c-a> <cr>
 """" Dictionary; webLio
 nmap gL :<c-u>OpenBrowserSmartSearch -weblio    <c-r><c-w> <cr>
 vmap gL :<c-u>OpenBrowserSmartSearch -weblio    <c-r><c-a> <cr>
+"}}}
 "}}}
 
 " Keymap; Commandline {{{
