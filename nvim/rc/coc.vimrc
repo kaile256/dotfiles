@@ -23,7 +23,6 @@ let g:coc_global_extensions = [
       \ 'coc-json',
       \ 'coc-lists',
       \ 'coc-lua',
-      \ 'coc-neosnippet',
       \ 'coc-omni',
       \ 'coc-phpls',
       \ 'coc-python',
@@ -60,12 +59,12 @@ function! s:make_sure_no_space() abort
 endfunction
 
 """ Snippet :echo exists('##CompleteChanged') && exists('*nvim_open_win')s
-nmap <a-s><a-p> :CocCommand snippets.editSnippets<cr>
+"nmap <a-s><a-p> :CocCommand snippets.editSnippets<cr>
 
 "" Trigger Just Snippets; <tab> to General Completion
 "imap <C-s> <Plug>(coc-snippets-expand)
 "vmap <C-s> <Plug>(coc-snippets-select)
-imap <C-s> <Plug>(coc-snippets-expand-jump)
+"imap <C-s> <Plug>(coc-snippets-expand-jump)
 
 "" Confirm with <CR>; only <C-y> is by default.
 "inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<CR>"
