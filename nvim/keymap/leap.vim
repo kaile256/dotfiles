@@ -215,10 +215,6 @@ nnoremap <silent> <c-q> :silent! $tag<cr>
 "noremap <silent> <c-p> :pop<cr>
 
 """ Terminal
-"" ESC
-" esc n the same way as in the other mode.
-tnoremap <c-[> <c-\><c-n>
-tnoremap <esc> <c-\><c-n>
 
 "" Hotkey to open terminal
 " NOTICE: :tab/:vert/:bel, etc., fail to work. why?
@@ -265,17 +261,6 @@ tmap <a-p> <c-\><c-n><a-p>
 tmap <a-n> <c-\><c-n><a-n>
 
 "" Alt as ESC as in Insert Mode
-" esc & hjkl
-" <a-b> is useful on bash
-tnoremap <a-h> <c-\><c-n>h
-tnoremap <a-j> <c-\><c-n>j
-tnoremap <a-k> <c-\><c-n>k
-tnoremap <a-l> <c-\><c-n>l
-"tnoremap <a-h> <c-\><c-n><c-w>h
-"tnoremap <a-j> <c-\><c-n><c-w>j
-"tnoremap <a-k> <c-\><c-n><c-w>k
-"tnoremap <a-l> <c-\><c-n><c-w>l
-
 """ Buffer
 " <c-[> to <esc>, <c-]> for tag-jump.
 noremap <silent> <a-i> :bnext<cr>
