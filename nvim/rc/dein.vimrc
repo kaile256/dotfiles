@@ -9,9 +9,13 @@ cnoreabbrev <expr> du (getcmdtype() == ':' && getcmdline() =~ '^du$')? 'call dei
 
 augroup DeinAutoRecache "{{{
   au!
-
   au TextChanged dein.vimrc,nvim/toml/*.toml au BufWinLeave nvim/toml/*.toml call dein#recache_runtimepath()
 augroup END "}}}
+augroup DeinCallPostSource "{{{
+  au!
+	au VimEnter * call dein#call_hook('post_source')
+augroup END "}}}
+
 
 if !has('nvim')
   " Neovim is always nocompatible.
