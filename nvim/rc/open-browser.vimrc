@@ -1,21 +1,6 @@
 " From: tool.toml
 " Help: openbrowser
 
-" OpenBrower; Abbr {{{
-cnoreabbrev <expr> gb (getcmdtype() == ':' && getcmdline() =~ '^gb$')? 'OpenBrowserSmartSearch' : 'gb'
-""" Abbr; Search Engine {{{0
-"" Duckduckgo
-cnoreabbrev <expr> dk (getcmdtype() == ':' && getcmdline() =~ '^OpenBrowserSmartSearch dk$')? '-duckduckgo' : 'dk'
-"" Google
-cnoreabbrev <expr> go (getcmdtype() == ':' && getcmdline() =~ '^OpenBrowserSmartSearch go$')? '-google'     : 'go'
-"" GitHub
-cnoreabbrev <expr> gh (getcmdtype() == ':' && getcmdline() =~ '^OpenBrowserSmartSearch gh$')? '-github'     : 'gh'
-"" Wikipedia
-cnoreabbrev <expr> wk (getcmdtype() == ':' && getcmdline() =~ '^OpenBrowserSmartSearch wk$')? '-wikipedia'  : 'wk'
-"" Weblio
-cnoreabbrev <expr> wl (getcmdtype() == ':' && getcmdline() =~ '^OpenBrowserSmartSearch wl$')? '-weblio'     : 'wl'
-"}}}
-
 " OpenBrowser; Let {{{
 let g:openbrowser_browser_commands = [
       \ {"name": "qutebrowser", "args": ["{browser}", "{uri}"]},
@@ -65,7 +50,6 @@ command! CurrentFileOnBrowser exe "OpenBrowser" . expand('%:p:gs?\\?/?')
 "" Current File; Get Current file
 nnoremap <silent> g% :<c-u>CurrentFileOnBrowser<cr>
 nnoremap <silent> g5 :<c-u>CurrentFileOnBrowser<cr>
-nnoremap <silent> gc :<c-u>CurrentFileOnBrowser<cr>
 "}}}
 
 " Keymap; Open words/url under Cursor "{{{
@@ -73,11 +57,9 @@ nnoremap <silent> gc :<c-u>CurrentFileOnBrowser<cr>
 " Notice: `smart-search` detects whether it is URI or not.
 nmap gb <Plug>(openbrowser-smart-search)
 vmap gb <Plug>(openbrowser-smart-search)
-" Cursor; Go to Browser on URL
+" Cursor; Go to Browser on url
 nmap gB :<c-u>OpenBrowserSmartSearch <c-r><c-a> <cr>
 vmap gB :<c-u>OpenBrowserSmartSearch <c-r><c-a> <cr>
-nmap gu :<c-u>OpenBrowserSmartSearch <c-r><c-a> <cr>
-vmap gu :<c-u>OpenBrowserSmartSearch <c-r><c-a> <cr>
 
 "" Cursor; Wiki {{{
 """ Wiki; wikiPedia
@@ -94,8 +76,8 @@ vmap gj :<c-u>OpenBrowserSmartSearch -archwiki@ja <c-r><c-a> <cr>
 "}}}
 
 "" Cursor; GitHub "{{{
-nmap gh :<c-u>OpenBrowserSmartSearch http://github.com/<c-r><c-w> <cr>
-vmap gh :<c-u>OpenBrowserSmartSearch http://github.com/<c-r><c-a> <cr>
+nmap gh :<c-u>OpenBrowserSmartSearch -github <c-r><c-w> <cr>
+vmap gh :<c-u>OpenBrowserSmartSearch -github <c-r><c-a> <cr>
 
 """ Github; Github's Repository
 nmap gr :<c-u>OpenBrowserSmartSearch http://github.com/<c-r><c-a> <cr>
@@ -118,7 +100,6 @@ vmap gL :<c-u>OpenBrowserSmartSearch -weblio    <c-r><c-a> <cr>
 "}}}
 "}}}
 
-" Keymap; Commandline {{{
 "" Commandline; Prompt {{{
 " Mnemonic: Go to Browser
 " CAUTION: c_^b is conflicted on Emacs-like keybind.
@@ -129,34 +110,37 @@ cnoremap <a-g>b     :<c-u>OpenBrowserSmartSearch<space>
 "}}}
 
 " Abbr; Search Engine {{{
-"" Engine; Duckduckgo
-cnoreabbrev <expr> dk (getcmdtype() == ':' && getcmdline() =~ '^OpenBrowserSmartSearch dk$')? '-duckduckgo' : 'dk'
+cnoreabbr <expr> gb (getcmdtype() == ':' && getcmdline() =~ '^gb$')? 'OpenBrowserSmartSearch' : 'gb'
 
-"" Engine; Google
-cnoreabbrev <expr> go (getcmdtype() == ':' && getcmdline() =~ '^OpenBrowserSmartSearch go$')? '-google'     : 'go'
+cnoreabbr <expr> gh (getcmdtype() == ':' && getcmdline() =~ '^OpenBrowserSmartSearch gh$')? '-github'     : 'gh'
+cnoreabbr <expr> dk (getcmdtype() == ':' && getcmdline() =~ '^OpenBrowserSmartSearch dk$')? '-duckduckgo' : 'dk'
+cnoreabbr <expr> go (getcmdtype() == ':' && getcmdline() =~ '^OpenBrowserSmartSearch go$')? '-google'     : 'go'
 
-"" Engine; GitHub
-cnoreabbrev <expr> gh (getcmdtype() == ':' && getcmdline() =~ '^OpenBrowserSmartSearch gh$')? '-github'     : 'gh'
-
-"" Engine; Wiki {{{
+"" Engine; Wiki
 """ Wiki; Archwiki
-cnoreabbrev <expr> ar (getcmdtype() == ':' && getcmdline() =~ '^OpenBrowserSmartSearch ar$')? '-archwiki@en'     : 'wr'
-cnoreabbrev <expr> aw (getcmdtype() == ':' && getcmdline() =~ '^OpenBrowserSmartSearch aw$')? '-archwiki@en'     : 'aw'
-cnoreabbrev <expr> aj (getcmdtype() == ':' && getcmdline() =~ '^OpenBrowserSmartSearch aj$')? '-archwiki@ja'     : 'aj'
+cnoreabbr <expr> ar (getcmdtype() == ':' && getcmdline() =~ '^OpenBrowserSmartSearch ar$')? '-archwiki@en'     : 'wr'
+cnoreabbr <expr> aw (getcmdtype() == ':' && getcmdline() =~ '^OpenBrowserSmartSearch aw$')? '-archwiki@en'     : 'aw'
+cnoreabbr <expr> aj (getcmdtype() == ':' && getcmdline() =~ '^OpenBrowserSmartSearch aj$')? '-archwiki@ja'     : 'aj'
 
 """ Wiki; Wikipedia
-cnoreabbrev <expr> wk (getcmdtype() == ':' && getcmdline() =~ '^OpenBrowserSmartSearch wk$')? '-wikipedia'  : 'wk'
-"}}}
+cnoreabbr <expr> wk (getcmdtype() == ':' && getcmdline() =~ '^OpenBrowserSmartSearch wk$')? '-wikipedia'  : 'wk'
 
-"" Engine; Dictionary {{{
+"" Engine; Dictionary
 """ Dictionary; Weblio
-cnoreabbrev <expr> wl (getcmdtype() == ':' && getcmdline() =~ '^OpenBrowserSmartSearch wl$')? '-weblio'     : 'wl'
+cnoreabbr <expr> wl (getcmdtype() == ':' && getcmdline() =~ '^OpenBrowserSmartSearch wl$')? '-weblio'     : 'wl'
 
-"""" Dictionary; Thesaurus
-cnoreabbrev <expr> gw (getcmdtype() == ':' && getcmdline() =~ '^OpenBrowserSmartSearch gw$')? '-thesaurus'     : 'gw'
-cnoreabbrev <expr> th (getcmdtype() == ':' && getcmdline() =~ '^OpenBrowserSmartSearch th$')? '-thesaurus'     : 'th'
+""" Dictionary; Thesaurus
+cnoreabbr <expr> gw (getcmdtype() == ':' && getcmdline() =~ '^OpenBrowserSmartSearch gw$')? '-thesaurus'     : 'gw'
+cnoreabbr <expr> th (getcmdtype() == ':' && getcmdline() =~ '^OpenBrowserSmartSearch th$')? '-thesaurus'     : 'th'
 
-"""" Dictionary; DiCtionary
-cnoreabbrev <expr> dc (getcmdtype() == ':' && getcmdline() =~ '^OpenBrowserSmartSearch dc$')? '-dictionary@en'     : 'dc'
-"}}}
+""" Dictionary; DiCtionary
+cnoreabbr <expr> dc (getcmdtype() == ':' && getcmdline() =~ '^OpenBrowserSmartSearch dc$')? '-dictionary@en'     : 'dc'
+cnoreabbr <expr> K (getcmdtype() == ':' && getcmdline() =~ '^OpenBrowserSmartSearch K$')? '-dictionary@en'     : 'K'
+
+" Note: You can apply Only a pair of abbribiations for each set of characters respectively.
+"cnoreabbr <expr> gh (getcmdtype() == ':' && getcmdline() =~ '^gh$')? 'OpenBrowserSmartSearch  -github'     : 'gh'
+"cnoreabbr <expr> dk (getcmdtype() == ':' && getcmdline() =~ '^dk$')? 'OpenBrowserSmartSearch  -duckduckgo' : 'dk'
+"cnoreabbr <expr> wk (getcmdtype() == ':' && getcmdline() =~ '^wk$')? 'OpenBrowserSmartSearch  -wikipedia'  : 'wk'
+"cnoreabbr <expr> wl (getcmdtype() == ':' && getcmdline() =~ '^wl$')? 'OpenBrowserSmartSearch  -weblio'     : 'wl'
+"cnoreabbr <expr> go (getcmdtype() == ':' && getcmdline() =~ '^go$')? 'OpenBrowserSmartSearch -google'     : 'go'
 "}}}
