@@ -15,4 +15,7 @@ function! s:quickfix_keymap()
 
 endfunction
 
-call <SID>quickfix_keymap()
+augroup QuickfixKeymap
+  au!
+  au BufWinEnter * if &bt=quickfix | call <SID>quickfix_keymap()
+augroup END
