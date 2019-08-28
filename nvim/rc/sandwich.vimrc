@@ -1,6 +1,6 @@
 " From: tool.toml
 
-let g:sandwich_no_default_key_mappings = 0
+let g:sandwich_no_default_key_mappings = 1
 
 " Sandwich; Keymap {{{0
 " Keymap; Evacuation for 's' {{{0
@@ -21,8 +21,6 @@ xmap S        <Plug>(operator-sandwich-add)
 xmap <space>s <Plug>(operator-sandwich-add)
 xmap <space>d <Plug>(operator-sandwich-delete)<Plug>(operator-sandwich-release-count)<Plug>(textobj-sandwich-query-a)
 xmap <space>c <Plug>(operator-sandwich-replace)<Plug>(operator-sandwich-release-count)<Plug>(textobj-sandwich-query-a)
-xmap d        <Plug>(operator-sandwich-delete)<Plug>(operator-sandwich-release-count)<Plug>(textobj-sandwich-query-a)
-xmap c        <Plug>(operator-sandwich-replace)<Plug>(operator-sandwich-release-count)<Plug>(textobj-sandwich-query-a)
 "}}}
 
 " Keymap; Text Object {{{
