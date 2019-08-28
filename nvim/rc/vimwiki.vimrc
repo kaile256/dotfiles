@@ -5,7 +5,9 @@ set path+=~/vimwiki/**
 
 function! s:my_startpage(page) "{{{
   if @% == '' && &filetype ==# '' && &buftype ==# ''
-    if a:page == 'wiki'
+    if a:page == 'mdwiki'
+      e ~/vimwiki/mdwiki/index.md
+    elseif a:page == 'wiki'
       VimwikiIndex
     elseif a:page == 'diary'
       VimwikiMakeDiaryNote
@@ -52,7 +54,7 @@ let s:wiki_index.nested_syntaxes = {
 
 let s:wiki_markdown = {
       \ 'syntax': 'markdown',
-      \ 'index': 'mdwiki',
+      \ 'index': 'index',
       \ 'path': '~/vimwiki/mdwiki/',
       \ 'ext': '.md',
       \ 'auto_tags': 1,
@@ -80,15 +82,18 @@ cnoreabbr <expr> vi (getcmdtype() == ':' && getcmdline() =~ 'VimwikiGoto vi$')? 
 "}}}
 
 " Keymap; vsbe {{{
+command! VimwikiIndex    :e    ~/vimwiki/mdwiki/index.md
+command! VimwikiTabIndex :tabe ~/vimwiki/mdwiki/index.md
+
 "" vsbe; Index to open {{{
-nnoremap <silent> <a-w><a-e> :<c-u>   <space> :VimwikiIndex<cr>
-nnoremap <silent> <a-w><a-b> :<c-u>   <space> :VimwikiTabIndex<cr>
-nnoremap <silent> <a-w><a-s> :<c-u>sp <bar>   :VimwikiIndex<cr>
-nnoremap <silent> <a-w><a-v> :<c-u>vs <bar>   :VimwikiIndex<cr>
-nnoremap <silent> <a-w>e     :<c-u>   <space> :VimwikiIndex<cr>
-nnoremap <silent> <a-w>b     :<c-u>   <space> :VimwikiTabIndex<cr>
-nnoremap <silent> <a-w>s     :<c-u>sp <bar>   :VimwikiIndex<cr>
-nnoremap <silent> <a-w>v     :<c-u>vs <bar>   :VimwikiIndex<cr>
+nmap <silent> <a-w><a-e> :<c-u>   <space> :VimwikiIndex<cr>
+nmap <silent> <a-w><a-b> :<c-u>   <space> :VimwikiTabIndex<cr>
+nmap <silent> <a-w><a-s> :<c-u>sp <bar>   :VimwikiIndex<cr>
+nmap <silent> <a-w><a-v> :<c-u>vs <bar>   :VimwikiIndex<cr>
+nmap <silent> <a-w>e     :<c-u>   <space> :VimwikiIndex<cr>
+nmap <silent> <a-w>b     :<c-u>   <space> :VimwikiTabIndex<cr>
+nmap <silent> <a-w>s     :<c-u>sp <bar>   :VimwikiIndex<cr>
+nmap <silent> <a-w>v     :<c-u>vs <bar>   :VimwikiIndex<cr>
 "}}}
 
 "" vsbe; :VimwikiGoto under Cursor {{{
@@ -141,8 +146,8 @@ function! s:on_buf_vimwiki() "{{{
   " Setlocal; {{{
   "setl buftype=quickfix
   setl nowrap
-  setl foldmethod=syntax
-  setl tabstop=2 softtabstop=2 shiftwidth=2
+  setl fdm=syntax fdl=0
+  setl tabstop=4 softtabstop=4 shiftwidth=4
   "}}}
 
   " Bufmap; Nowait {{{
@@ -160,12 +165,14 @@ function! s:on_buf_vimwiki() "{{{
   "nnoremap <buffer><expr> <c-k> ':VimwikiPrevLink<cr>'
   "nnoremap <buffer><expr> <c-j> ':VimwikiNextLink<cr>'
 
-  """ Conversion
+  " Conversion
   "" Mnemonic: Export to/from ~~
-  nnoremap <buffer><silent> <a-x><a-h> :Vimwiki2HTMLBrowse <bar> echo 'Converting Current Buffer to HTML...'
+  nnoremap <buffer><silent> <a-x><a-h> :Vimwiki2HTMLBrowse <bar> echo 'Converting Current Buffer to HTML...'<cr>
   "" From Org
   " WARNING: experimental
   "nnoremap <silent> <a-x><a-w> :g/^*/norm Wgev0r= 0Why0A <c-r>0<cr>
+  "" .wiki to .markdown
+  nnoremap <buffer><silent> <a-x><a-m> :keeppatterns %s/=/#/g <bar> %s/ #\+$//g <bar> %s/{{{/```/g <bar> %s/}}}/```/g <cr>
 
   """ Todo
   nnoremap <buffer><silent> <a-g><a-g> :<c-u>VimwikiToggleListItem<cr>
@@ -176,16 +183,21 @@ function! s:on_buf_vimwiki() "{{{
   nnoremap <buffer><silent> <a-g><a-v> :<c-u>VimwikiTabnewLink<cr>
 
   """ Link Like Tags
-  nnoremap  <buffer><silent> <c-t> :<c-u>VimwikiGoBackLink<cr>
-  nnoremap  <buffer><silent> <c-t> :<c-u>VimwikiFollowLink<cr>
+  noremap  <buffer><silent> <c-t>      :<c-u>VimwikiGoBackLink<cr>
+  noremap  <buffer><silent> <c-t>      :<c-u>VimwikiGoBackLink<cr>
+  "nnoremap  <buffer><silent> <c-]> <Plug>VimwikiNormalizeLink:<c-u>VimwikiFollowLink<cr>
+  nnoremap <buffer><silent> <c-]>      :<c-u>VimwikiFollowLink<cr>
+  noremap  <buffer><silent> <c-w><c-]> :<c-u>VimwikiVSplitLink reuse<cr>
+  vnoremap <buffer><silent> <c-]>      <Plug>VimwikiNormalizeLinkVisual
+
 
   " Keymap; List {{{{
   noremap <buffer><silent> <a-space> :<c-u>VimwikiToggleListItem<CR>
 
-  nmap <silent><buffer> <a-+> <Plug>VimwikiIncrementListItem
-  vmap <silent><buffer> <a-+> <Plug>VimwikiIncrementListItem
-  nmap <silent><buffer> <a--> <Plug>VimwikiDecrementListItem
-  vmap <silent><buffer> <a--> <Plug>VimwikiDecrementListItem
+  nmap <silent><buffer> + <Plug>VimwikiIncrementListItem
+  vmap <silent><buffer> + <Plug>VimwikiIncrementListItem
+  nmap <silent><buffer> _ <Plug>VimwikiDecrementListItem
+  vmap <silent><buffer> _ <Plug>VimwikiDecrementListItem
   "}}}
   "}}}
 
@@ -209,17 +221,13 @@ function! s:on_buf_vimwiki() "{{{
   cnoreabbr <buffer><expr> wv (getcmdtype() == ':' && getcmdline() =~ '^wv$')? 'vs <bar> VimwikiGoto' : 'wv'
   "}}}
 
-  " Bufmap; Jump over Links
-  noremap <buffer><silent> <c-]>      :VimwikiFollowLink<cr>
-  noremap <buffer><silent> <c-w><c-]> :VimwikiVSplitLink reuse<cr>
-  noremap <buffer><silent> <c-t>      :VimwikiGoBackLink<cr>
 
 endfunction "}}}
 
 augroup CallMyVimwikiFunctions "{{{
   au!
 
-  au VimEnter * ++nested call <SID>my_startpage('wiki')
+  au VimEnter * ++nested call <SID>my_startpage('mdwiki')
 
   au FileType vimwiki call <SID>on_buf_vimwiki()
 
@@ -228,8 +236,10 @@ augroup END "}}}
 augroup AutoFormatVimwiki "{{{
 
   au!
+  au BufWinEnter */mdwiki/** setl ft=vimwiki
+
   au BufWritePre *       if &ft   == 'vimwiki' | VimwikiTOC
-  au BufWinLeave index.* if &ft   == 'vimwiki' | VimwikiGenerateLinks
+  au BufWritePre index.* if &ft   == 'vimwiki' | VimwikiGenerateLinks
   au InsertLeave *       if &wrap == 0         | norm zH
 
-augroup END "}}}
+augroup END         "}}}
