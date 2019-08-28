@@ -1,29 +1,30 @@
 " From: Init.toml
 
 " Command!;
-command! GdiffWithUnstaged :Git! diff --staged
+command! GvdiffWithUnstaged :vert bel Git! diff --staged
 
 " HISTORY
 " Status
 noremap <silent> <a-y>s     :<c-u>vert bot Gstatus<cr>
 noremap <silent> <a-y><a-s> :<c-u>vert bot Gstatus<cr>
 
-""" Log
+" Log
+" Without `b#` `:Glog` with `:copen` fills previous window.
 "# QuickFix -- Edit-History of current buffer.
-noremap <silent> <a-y>l     :<c-u>Glog <bar> copen<cr>
-noremap <silent> <a-y><a-l> :<c-u>Glog <bar> copen<cr>
+noremap <silent> <a-y>l     :<c-u>bel Glog <bar> b# <bar> copen<cr>
+noremap <silent> <a-y><a-l> :<c-u>bel Glog <bar> b# <bar> copen<cr>
 "# QuickFix -- Commit-Log of git-repository.
-noremap <silent> <a-y>c     :<c-u>Glog -- <bar> copen<cr>
-noremap <silent> <a-y><a-c> :<c-u>Glog -- <bar> copen<cr>
+noremap <silent> <a-y>c     :<c-u>bel Glog -- <bar> b# <bar> copen<cr>
+noremap <silent> <a-y><a-c> :<c-u>bel Glog -- <bar> b# <bar> copen<cr>
 "# QuickFix -- Commit-Log from master to current branch.
-noremap <silent> <a-y>m     :<c-u>Glog master..HEAD -- <bar> copen<cr>
-noremap <silent> <a-y><a-m> :<c-u>Glog master..HEAD -- <bar> copen<cr>
+noremap <silent> <a-y>m     :<c-u>bel Glog master..HEAD --<bar> b# <bar> copen<cr>
+noremap <silent> <a-y><a-m> :<c-u>bel Glog master..HEAD --<bar> b# <bar> copen<cr>
 
 """ Diff
 " !: On a Merge Conflict, do a 3-diff; otherwise the same as without bang.
 noremap <silent> <a-y>d     :<c-u>Gvdiffsplit!<cr>gg
 noremap <silent> <a-y><a-d> :<c-u>Gvdiffsplit!<cr>gg
-noremap <silent> <a-y><a-u> :<c-u>GdiffWithUnstaged<cr>
+noremap <silent> <a-y><a-u> :<c-u>GvdiffWithUnstaged<cr>
 """ Blame
 noremap <silent> <a-y>b     :<c-u>Gblame<cr>
 noremap <silent> <a-y><a-b> :<c-u>Gblame<cr>
@@ -80,7 +81,7 @@ augroup OnFugitiveBuffer
 
   au!
   au FileType gitcommit              setl spell
-  au FileType fugitive,git,gitcommit setl nonumber bt=quickfix
+  au FileType fugitive,git,gitcommit,fugitiveblame setl nonumber signcolumn= bt=quickfix
   au FileType gitcommit              call <SID>if_startinsert()
 
 augroup END
