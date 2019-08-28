@@ -1,4 +1,4 @@
-"""" From: Init.toml
+" From: Init.toml
 
 " Command!;
 command! GdiffWithUnstaged :Git! diff --staged
@@ -68,15 +68,19 @@ noremap <a-y><a-p> :<c-u>Ggrep --help<cr>
 noremap <a-y>o     :<c-u>Git checkout<space>
 noremap <a-y><a-o> :<c-u>Git checkout<space>
 
-augroup OnFugitiveBuffer "{{{
+function! s:if_startinsert()
+  if getline(1) == ''
+    if getline(2) == '# Please enter the commit message for your changes. Lines starting'
+      startinsert
+    endif
+  endif
+endfunction
+
+augroup OnFugitiveBuffer
 
   au!
   au FileType gitcommit              setl spell
-  au FileType fugitive,git,gitcommit setl nonumber
-  "" CAUTION: denite,vista demands to write before quitting.
-  au FileType fugitive,git,gitcommit,orgagenda setl bt=quickfix
-  " Why? not work on 'au FileType'
+  au FileType fugitive,git,gitcommit setl nonumber bt=quickfix
+  au FileType gitcommit              call <SID>if_startinsert()
 
-  "au WinLeave * if &ft ==# 'fugitive' || 'git' || 'gitcommit' | setl bt=quickfix
-
-augroup END "}}
+augroup END
