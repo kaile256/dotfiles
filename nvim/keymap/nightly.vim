@@ -1,1 +1,1 @@
-set pumblend=30
+set pumblend=1
