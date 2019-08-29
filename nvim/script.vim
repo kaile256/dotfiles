@@ -8,7 +8,6 @@ set rtp+=~/.config/nvim/keymap/
 " Path: for `:find` {{{
 set path+=../**
 set path+=~/.config/**
-set path+=~/.cache/dein/repos/github.com/**
 set path+=~/.local/nvim/**
 set path+=/etc/**
 
@@ -28,7 +27,7 @@ if has('python3')
 endif
 
 if has('python2')
-let g:python_host_prog = system('(type pyenv &>/dev/null && echo -n "$(pyenv root)/versions/$(pyenv global | grep python2)/bin/python") || echo -n $(which python2)')
+  let g:python_host_prog = system('(type pyenv &>/dev/null && echo -n "$(pyenv root)/versions/$(pyenv global | grep python2)/bin/python") || echo -n $(which python2)')
 endif
 
 let g:ruby_host_prog = '/usr/bin/ruby'
@@ -51,11 +50,6 @@ set noundofile
 let g:netrw_home = "~/.local/share/nvim"
 "}}}
 
-" Appearance; IME {{{
-set ambiwidth=double
-" Tell if IME is on.
-hi CursorIM guibg=#fabd1f
-"}}}
 " Appearance; Pmenu {{{
 " shortmess: Shorter Message
 " c-option: forbids to give |ins-completion-menu| messages.
@@ -102,12 +96,14 @@ set updatetime=300
 " Appearance; Line {{{
 set cursorline
 " CAUTION: cursorline-highlight causes drawing corruption.
-"augroup AutoToggleCursorLine "{{{
-"  au!
-"  " TODO: InsertLeave doesn't work!
-"  au BufEnter,InsertLeave  *  setl cursorline
-"  au BufLeave,CursorMovedI * if &cursorline == 1 | setl nocursorline
-"augroup END "}}}
+augroup AutoToggleCursorLine "{{{
+
+  au!
+  " TODO: on GUI, InsertLeave doesn't work!
+  au BufEnter,InsertLeave  * if &l:cursorline == 0 | setl cursorline
+  au BufLeave,TextChangedI * if &l:cursorline == 1 | setl nocursorline
+
+augroup END "}}}
 " to highlight only CursorLineNr
 "hi CursorLine NONE
 "}}}
@@ -134,7 +130,7 @@ set matchtime=1 " 10 times the number sec.
 set matchpairs+=<:>
 "}}}
 
-"" Edit; Invisible Charactars {{{
+" Edit; Invisible Charactars {{{
 " show space and CR
 set list
 "" Quick Reference of 'listchar': which chars show instead.
@@ -149,7 +145,7 @@ set list
 set splitbelow
 set splitright
 
-"" Edit; Fold {{{
+" Edit; Fold {{{
 set foldlevel=1
 set foldnestmax=10
 "}}}
@@ -157,7 +153,10 @@ set foldnestmax=10
 "augroup AutoAjustFoldMethod "{{{
 "  au!
 "  au InsertEnter * if &l:foldmethod !=# 'manual' | setlocal foldmethod=manual | endif
-"  au InsertLeave * if &l:foldmethod ==# 'manual' | if &filetype = 'vim' || &filetype == 'toml' | setlocal foldmethod=marker | else setlocal foldmethod=syntax | endif
+"  au InsertLeave * if &l:foldmethod ==# 'manual' | if &ft = 'vim' || 'toml' | setl fdm=marker | else setl fdm=syntax | endif
 "augroup END
 "}}}
-"}}}
+
+" CAUTION: :DiffOrig ruins diff syntax.
+"command! DiffOrig vert above new | setl bt=quickfix | r # | 0d_ | diffthis
+"      \ | wincmd p | diffthis
