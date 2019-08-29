@@ -69,7 +69,7 @@ noremap <a-y><a-p> :<c-u>Ggrep --help<cr>
 noremap <a-y>o     :<c-u>Git checkout<space>
 noremap <a-y><a-o> :<c-u>Git checkout<space>
 
-function! s:if_startinsert()
+function! s:commit_startinsert()
   if getline(1) == ''
     if getline(2) == '# Please enter the commit message for your changes. Lines starting'
       startinsert
@@ -77,11 +77,17 @@ function! s:if_startinsert()
   endif
 endfunction
 
+function! s:echo_fugitive_hotkeys()
+  echomsg 'czw: stash --include-index'
+endfunction
+
 augroup OnFugitiveBuffer
 
   au!
-  au FileType gitcommit              setl spell
   au FileType fugitive,git,gitcommit,fugitiveblame setl nonumber signcolumn= bt=quickfix
-  au FileType gitcommit              call <SID>if_startinsert()
+
+  au FileType gitcommit setl spell
+  au FileType gitcommit call <SID>commit_startinsert()
+  "au FileType fugitive  call <SID>echo_fugitive_hotkeys()
 
 augroup END
