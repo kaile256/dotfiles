@@ -105,7 +105,7 @@ bindsym $SuperS+m exec terminal -e 'mocp'
 #}}}
 # Keybind; open File Manager {{{
 bindsym $Super+m exec pcmanfm
-bindsym $Super+r exec terminal -e 'ranger'
+#bindsym $super+r exec terminal -e 'ranger'
 #}}}
 # Keybind; open Menu {{{
 #bindsym $Super+semicolon exec --no-startup-id i3-dmenu-desktop
@@ -122,6 +122,7 @@ bindsym $Super+t exec $term
 # Keybind; open Editor {{{
 bindsym $Super+v exec --no-startup-id $vim
 bindsym $Super+g exec --no-startup-id gonvim
+bindsym $Super+r exec --no-startup-id gnvim
 bindsym $Super+n exec --no-startup-id nyaovim
 bindsym $Super+o exec --no-startup-id oni
 bindsym $Super+e exec --no-startup-id emacs
