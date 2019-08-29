@@ -85,7 +85,7 @@ augroup OnFugitiveBuffer
 
   au!
   au FileType fugitive,git,gitcommit,fugitiveblame setl nonumber signcolumn= bt=quickfix
-
+  "au FileType fugitive wincmd p | wincmd p
   au FileType gitcommit setl spell
   au FileType gitcommit call <SID>commit_startinsert()
   "au FileType fugitive  call <SID>echo_fugitive_hotkeys()
