@@ -1,4 +1,4 @@
-"""" Help: options
+" Help: options
 
 if exists('g:GuiLoaded')
 
@@ -6,23 +6,15 @@ if exists('g:GuiLoaded')
   GuiTabline   0
   GuiPopupmenu 0
 
-  if GuiName() == 'nvim-qt'
-    let $EDITOR='nvr'
-    let $VISUAL='nvr'
-    augroup ToggleSudoEdit
-      au!
-
-      " Bug?: neovim automatically renames target-filename on `sudoedit`
-      au TermOpen  * let $VISUAL='vim'
-      au TermClose * let $VISUAL='vim'
-  endif
 endif
 
-set guifont=SF\ Mono:h12
-set guifontwide=SF\ Mono:h12
-
-"""" ENV
-
-if executable('qutebrowser')
-  let $BROWSER='qutebrowser'
-endif
+"if exists('gonvim_draw_tabline') "{{{
+"  let g:gonvim_draw_statusline = 0
+"  let g:gonvim_draw_tabline = 0
+"  let g:gonvim_draw_lint = 1
+"  let g:gonvim_draw_split = 1
+"
+""GuiFont SF Mono h12
+""GuiLinespace 2
+"
+"endif "}}}
