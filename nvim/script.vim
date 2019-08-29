@@ -1,3 +1,34 @@
+" Variable; Font {{{
+set guifont=SF\ Mono:h12
+set guifontset=SF\ Mono:h12
+set guifontwide=SF\ Mono:h12
+"}}}
+" Variable; Terminal {{{
+if executable('urxvt')
+  let $TERM='rxvt-unicode'
+else
+  let $TERM='xterm-256color'
+endif
+"}}}
+" Variable; Git {{{
+if has('nvim')
+  let $GIT_EDITOR = 'nvr -cc split --remote-wait'
+endif
+"}}}
+" Variable; Vim {{{
+if isdirectory('~/kaile256')
+  let $MYVIMRC = expand('<sfile>')
+  let $HOME = expand('<sfile>:h')
+endif
+let $EDITOR='nvr'
+let $VISUAL='nvr'
+"}}}
+
+" Variable; Path {{{
+let g:config_home = empty($XDG_CONFIG_HOME) ? expand('~/.config')      : $XDG_CONFIG_HOME
+let g:cache_home  = empty($XDG_CACHE_HOME)  ? expand('~/.cache')       : $XDG_CACHE_HOME
+let g:data_home   = empty($XDG_DATA_HOME)   ? expand('~/.local/share') : $XDG_DATA_HOME
+"}}}
 " Path; Runtime Path {{{
 set rtp+=~/.config/nvim/rc/
 set rtp+=~/.config/nvim/data/
@@ -148,13 +179,6 @@ set splitright
 " Edit; Fold {{{
 set foldlevel=1
 set foldnestmax=10
-"}}}
-
-"augroup AutoAjustFoldMethod "{{{
-"  au!
-"  au InsertEnter * if &l:foldmethod !=# 'manual' | setlocal foldmethod=manual | endif
-"  au InsertLeave * if &l:foldmethod ==# 'manual' | if &ft = 'vim' || 'toml' | setl fdm=marker | else setl fdm=syntax | endif
-"augroup END
 "}}}
 
 " CAUTION: :DiffOrig ruins diff syntax.
