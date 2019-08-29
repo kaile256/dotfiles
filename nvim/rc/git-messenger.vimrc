@@ -1,7 +1,11 @@
 " From: tool.vimrc
 " Repo: https://github.com/rhysd/git-messenger.vim
 
+" mili-second; for CursorHold
+
 let g:git_messenger_include_diff = 'current'
+let g:git_messenger_always_into_popup = v:false
+let g:git_messenger_no_default_mappings = v:true
 
 " Normal color in popup window
 hi link gitmessengerPopupNormal CursorLine
@@ -21,22 +25,11 @@ hi link gitmessengerHistory Title
 "let g:git_messenger_always_into_popup = v:true
 "let g:git_messenger_max_popup_height = 
 "let g:git_messenger_max_popup_width = 
-"
-function! s:gitmessenger_with_hunks()
-  if g:git_messenger_include_diff != 'current'
-    let g:git_messenger_include_diff = 'current'
-  endif
-  if g:git_messenger_always_into_popup != v:true
-    let g:git_messenger_always_into_popup = v:true
-  endif
-
-  GitMessenger
-endfunction
 
 noremap <silent> <a-s><a-g> :<c-u>call <SID>simple_gitmessenger()<cr>
-noremap <silent> <a-s><a-m> :<c-u>call <SID>gitmessenger_with_hunks()<cr>
+noremap <silent> <a-s><a-m> :<c-u>call <SID>simple_gitmessenger()<cr>
 noremap <silent> <a-s>g     :<c-u>call <SID>simple_gitmessenger()<cr>
-noremap <silent> <a-s>m     :<c-u>call <SID>gitmessenger_with_hunks()<cr>
+noremap <silent> <a-s>m     :<c-u>call <SID>simple_gitmessenger()<cr>
 
 function! s:keymap_on_gitmessenger_popup() abort
   " For example, set go back/forward history to <C-o>/<C-i>
@@ -54,24 +47,37 @@ function! s:keymap_on_gitmessenger_popup() abort
 endfunction
 
 function! s:simple_gitmessenger()
-  if &g:updatetime == 6000
-    set updatetime=6000
+  if !pumvisible()
+    if g:git_messenger_include_diff != 'none'
+      let g:git_messenger_include_diff = 'none'
+    endif
+    if g:git_messenger_always_into_popup != v:false
+      let g:git_messenger_always_into_popup = v:false
+    endif
+
+    "let s:blame = {}
+    "let b = deepcopy(s:blame)
+    "if b.git_root !=# ''
+    set updatetime=5000
+    GitMessenger
+    "endif
   endif
-  if g:git_messenger_include_diff != 'none'
-    let g:git_messenger_include_diff = 'none'
+endfunction
+
+function! s:gitmessenger_with_hunks()
+  if !pumvisible()
+    if g:git_messenger_include_diff != 'current'
+      let g:git_messenger_include_diff = 'current'
+    endif
+    if g:git_messenger_always_into_popup != v:true
+      let g:git_messenger_always_into_popup = v:true
+    endif
+    GitMessenger
   endif
-  if g:git_messenger_always_into_popup != v:false
-    let g:git_messenger_always_into_popup = v:false
-  endif
-  "let s:blame = {}
-  "let b = deepcopy(s:blame)
-  "if b.git_root !=# ''
-  GitMessenger
-  "endif
 endfunction
 
 augroup GitMessengerBuffer
   au!
   au FileType gitmessengerpopup call <SID>keymap_on_gitmessenger_popup()
-  au CursorHold * call <SID>simple_gitmessenger()
+  "au CursorHold * call <SID>simple_gitmessenger()
 augroup END
