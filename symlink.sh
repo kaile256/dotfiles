@@ -83,7 +83,7 @@ X11/.Xresources
 bash/.bashrc
 bash/.profile
 ctags/.ctags
-emacs/.emacs.d
+emacs/.doom.d
 git/.gitconfig
 git/.tigrc
 nvim/.gonvim
