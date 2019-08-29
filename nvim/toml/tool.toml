@@ -7,6 +7,31 @@ rev = 'release'
 on_event = 'VimEnter'
 hook_post_source = 'runtime coc.vimrc'
 #}}}
+[[plugins]]
+repo = 'Shougo/deoplete.nvim'
+on_if = 'has("python3")'
+on_event = ['InsertEnter']
+hook_post_source = 'runtime deoplete.vimrc'
+
+# Git;
+[[plugins]]
+repo = 'rhysd/git-messenger.vim'
+type = 'git'
+on_event = 'BufRead'
+hook_post_source = 'runtime git-messenger.vimrc'
+[[plugins]]
+repo = 'junegunn/gv.vim'
+type = 'git'
+on_ft = ['fugitive', 'gitcommit', 'git']
+#on_source = 'vim-fugitive'
+hook_post_source = 'runtime gv.vimrc'
+[[plugins]]
+repo = 'rhysd/committia.vim'
+type = 'git'
+on_ft = ['fugitive', 'gitcommit', 'git']
+#on_source = 'vim-fugitive'
+hook_post_source = 'runtime committia.vimrc'
+
 
 # Leap;
 [[plugins]]
@@ -40,31 +65,34 @@ hook_post_source = 'runtime easyoperator.vimrc'
 #}}}
 #}}}
 
-# Filer;
-[[plugins]]
-repo = 'cocopon/vaffle.vim' #{{{
-on_if = 'has("python3")'
-hook_post_source = 'runtime vaffle.vimrc'
-#}}}
-### Filer; Defx {{{
+# Filer
+#[[plugins]]
+#repo = 'cocopon/vaffle.vim' #{{{
+#on_if = 'has("python3")'
+#hook_post_source = 'runtime vaffle.vimrc'
+##}}}
 #[[plugins]]
 #repo = 'Shougo/defx.nvim' #{{{
 ### CAUTION: defx.vimrc MUST be sourced after dein#end() on dein.vim.
 #on_if = 'has("python3")'
 #hook_post_source = 'runtime defx.vimrc'
-#}}}
+#hook_done_update = 'UpdateRemotePlugins'
 #[[plugins]]
-#repo = 'kristijanhusak/defx-git' {{{
+#repo = 'kristijanhusak/defx-git' #{{{
 ## Ref: defx.vimrc
 #on_source = 'defx.nvim'
-#}}}
-#[[plugins]]
-#repo = 'kristijanhusak/defx-icons' {{{
-#on_source = 'defx.nvim'
-#}}}
 ##}}}
+#[[plugins]]
+#repo = 'kristijanhusak/defx-icons' #{{{
+#on_source = 'defx.nvim'
+##}}}
+##}}}
+#[[plugins]]
+#repo = 'justinmk/vim-dirvish'
+#on_event = 'BufAdd'
+#hook_post_source = 'runtime dirvish.vimrc'
 
-# Edit;
+# Edit; Operater
 [[plugins]]
 repo = 'machakann/vim-sandwich' #{{{
 on_event = 'BufRead'
@@ -80,17 +108,35 @@ repo = 'tpope/vim-repeat' #{{{
 on_event = ['TextChanged', 'TextChangedI']
 #}}}
 
-# Edit; Snippets #{{{
-## Snippets; Engine #{{{
+# Edit; Fold
 [[plugins]]
-repo = 'Shougo/neosnippet.vim' #{{{
-on_event = ['InsertEnter', 'TermOpen','CmdlineEnter']
-hook_add = 'runtime! neosnippet.vimrc'
+repo = 'LeafCage/foldCC' #{{{
+on_event = 'BufWinEnter'
+hook_post_source = 'runtime foldCC.vimrc'
 #}}}
+[[plugins]]
+repo = 'tmhedberg/SimpylFold' #{{{
+on_ft = 'python'
+hook_post_source = 'runtime SimpylFold.vimrc'
+#}}}
+
+# Edit; Diff
+[[plugins]]
+repo = 'AndrewRadev/linediff.vim'
+on_map = ['v', '<c-v>', 'V']
+hook_post_source = 'runtime linediff.vimrc'
+
+# Edit; Snippets
+## Snippets; Engine #{{{
 #[[plugins]]
-#repo = 'SirVer/ultisnips' #{{{
-#on_event = ['InsertEnter','TermOpen']
-#hook_post_source = 'runtime ultisnips.vimrc'
+#repo = 'Shougo/neosnippet.vim' #{{{
+#on_event = ['InsertEnter', 'TermOpen','CmdlineEnter']
+#hook_add = 'runtime! neosnippet.vimrc'
+##}}}
+[[plugins]]
+repo = 'SirVer/ultisnips' #{{{
+on_event = ['InsertEnter','TermOpen']
+hook_post_source = 'runtime ultisnips.vimrc'
 #}}}
 #}}}
 
@@ -108,7 +154,6 @@ on_event = ['InsertEnter', 'TermOpen']
 #on_event = ['InsertEnter', 'TermOpen']
 #}}}
 #}}}
-#}}}
 
 # Marks {{{
 [[plugins]]
@@ -124,12 +169,11 @@ hook_post_source = 'runtime bookmarks.vimrc'
 #}}}
 
 # Imput Method #{{{
-#[[plugins]]
-#repo = 'tyru/eskk.vim' #{{{
-## ERORR: Present Unnecessary Sign '>' on Kanji.
-#on_event = ['InsertEnter', 'CmdlineEnter']
-#hook_post_source = 'runtime eskk.vimrc'
-# }}}
+[[plugins]]
+repo = 'tyru/eskk.vim' #{{{
+on_event = ['InsertEnter', 'CmdlineEnter']
+hook_post_source = 'runtime eskk.vimrc'
+#}}}
 #[[plugins]]
 #repo = 'tpope/vim-capslock' #{{{
 ## Doesn't Work
@@ -236,8 +280,12 @@ hook_post_source = 'runtime easy-align.vimrc'
 
 # Shell; Deol
 [[plugins]]
+repo = 'kassio/neoterm'
+on_event = 'BufAdd'
+hook_post_source = 'runtime neoterm.vimrc'
+[[plugins]]
 repo = 'Shougo/deol.nvim' #{{{
-on_if = 'has("python3")'
+on_cmd = ['te','tb','ts','tv']
 hook_post_source = 'runtime deol.vimrc'
 #}}}
 ## Shell; Async Processor
@@ -263,18 +311,55 @@ hook_post_source = 'runtime neomake.vimrc'
 #build = 'make'
 #}}}
 
+# Browser
+[[plugins]]
+repo = 'tyru/open-browser.vim' #{{{
+on_if = 'executable("qutebrowser")'
+hook_post_source = 'runtime open-browser.vimrc'
+#}}}
+[[plugins]]
+repo = 'tyru/open-browser-github.vim' #{{{
+on_source = 'open-browser.vim'
+hook_post_source = 'runtime open-browser-github.vimrc'
+#}}}
+
+# Calendar
+[[plugins]]
+repo = 'itchyny/calendar.vim' #{{{
+on_event = 'VimEnter'
+on_cmd = '<a-q>'
+hook_post_source = 'runtime calendar.vimrc'
+#}}}
+
+### Tags
+[[plugins]]
+repo = 'jsfaint/gen_tags.vim' #{{{
+on_event = 'BufLeave'
+hook_post_source = 'runtime gen_tags.vimrc'
+#}}}
+#[[plugins]]
+#repo = 'majutsushi/tagbar' #{{{
+#on_event = ['BufNew','BufReadPost']
+#hook_post_source = 'runtime tagbar.vimrc'
+#}}}
+[[plugins]]
+repo = 'liuchengxu/vista.vim' #{{{
+on_event = ['BufNew','BufRead']
+hook_post_source = 'runtime vista.vimrc'
+#}}}
+
 # UI
 [[plugins]]
 repo = 'wsdjeg/dein-ui.vim' #{{{
 on_event = 'CmdlineEnter'
-hook_post_source = '''
-cnoreabbrev <expr> du (getcmdtype() == ':' && getcmdline() =~ '^du$')? 'DeinUpdate' : 'du'
-augroup MyDeinUiAugroup "{{{
-  au!
-  au FileType SpaceVimPlugManager setlocal signcolumn=
-augroup END
-'''
+hook_post_source = 'runtime dein-ui.vimrc'
 #}}}
+
+### i3-wm
+#[[plugins]]
+#repo = 'termhn/i3-vim-nav'
+#on_if = 'isdirectory("~/go/src/github.com/termhn/i3-vim-nav")'
+#hook_post_source = 'runtime i3-vim-nav.vimrc'
 
 # Denite {{{
 #[[plugins]]
@@ -297,8 +382,8 @@ augroup END
 #[[plugins]]
 #repo = 'Shougo/neomru.vim'
 #on_source = 'denite.nvim'
-[[plugins]]
-repo = 'neoclide/coc-denite' #{{{
+#[[plugins]]
+#repo = 'neoclide/coc-denite' #{{{
 ## for Denite source
 #on_source = 'denite.nvim'
 #}}}
