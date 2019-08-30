@@ -65,16 +65,16 @@ let g:ruby_host_prog = '/usr/bin/ruby'
 "}}}
 " Path; Backup {{{
 " Write, on path,vim, the file directory paths.
+set nobackup
+set nowritebackup
+set noswapfile
+set undofile
 "augroup PersistentUndo
 "  au! BufWritePre /tmp/* setlocal noundofile
 "augroup END
 " XDG Base Repository
-set undofile
 set undodir=~/.local/share/nvim/undo
-set noswapfile
 "set directory="~/.local/share/nvim/swap
-set nobackup
-set nowritebackup
 "set backupdir=~/.local/share/nvim/backup
 "set viminfo='1000,n~/.local/share/nvim/info
 "set runtimepath=$XDG_CONFIG_HOME/vim,http://eleclog.quitsq.com/2014/10/arch-on-x220.html?m=1$VIMRUNTIME,$XDG_CONFIG_HOME/vim/after
@@ -131,8 +131,8 @@ augroup AutoToggleCursorLine "{{{
 
   au!
   " TODO: on GUI, InsertLeave doesn't work!
-  au BufEnter,InsertLeave  * if &l:cursorline == 0 | setl cursorline
-  au BufLeave,TextChangedI * if &l:cursorline == 1 | setl nocursorline
+  au BufEnter,CursorHold   * if &l:cursorline == 0 | setl cursorline
+  au BufLeave,CursorMovedI * if &l:cursorline == 1 | setl nocursorline
 
 augroup END "}}}
 " to highlight only CursorLineNr
