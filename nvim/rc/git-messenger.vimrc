@@ -3,9 +3,9 @@
 
 " mili-second; for CursorHold
 
-let g:git_messenger_include_diff = 'current'
+"let g:git_messenger_include_diff = 'current'
 let g:git_messenger_always_into_popup = v:false
-let g:git_messenger_no_default_mappings = v:true
+"let g:git_messenger_no_default_mappings = v:true
 
 " Normal color in popup window
 hi link gitmessengerPopupNormal CursorLine
@@ -47,7 +47,6 @@ function! s:keymap_on_gitmessenger_popup() abort
 endfunction
 
 function! s:simple_gitmessenger()
-  if !pumvisible()
     if g:git_messenger_include_diff != 'none'
       let g:git_messenger_include_diff = 'none'
     endif
@@ -60,8 +59,6 @@ function! s:simple_gitmessenger()
     "if b.git_root !=# ''
     set updatetime=5000
     GitMessenger
-    "endif
-  endif
 endfunction
 
 function! s:gitmessenger_with_hunks()
