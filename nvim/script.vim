@@ -4,6 +4,10 @@ set guifontset=SF\ Mono:h12
 set guifontwide=SF\ Mono:h12
 "}}}
 " Variable; Terminal {{{
+"if executable('zsh')
+"" fail to work with installation of dein itself.
+"  set shell=/usr/bin/zsh
+"endif
 if executable('urxvt')
   let $TERM='rxvt-unicode'
 else
