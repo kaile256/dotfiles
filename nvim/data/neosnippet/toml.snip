@@ -1,0 +1,8 @@
+snippet vim
+alias vim
+options head
+[[plugins]]
+repo = '${1:user/plugin}'
+${2:on_event} = ${2['${3:BufRead}'${4:#:,'InsertEnter'}]}
+${5:hook_add = 'runtime ${6:plugin}.vimrc'}
+${7:hook_post_source = 'runtime ${8:plugin}.vimrc'}
