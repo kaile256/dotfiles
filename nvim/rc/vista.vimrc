@@ -16,20 +16,15 @@ let g:vista_fzf_preview = ['right:50%']
 
 " :Vista is same as :Vista ctags.
 " !! is toggle vista-view.
-nnoremap <silent> <a-u> :<c-u>Vista!!<cr>
+nnoremap <silent> <a-b> :<c-u>Vista!!<cr>
 "" Ref: fzf.vimrc
-"" Mnemonic: Open Tags
-nnoremap <silent> <a-o><a-t> :<c-u>Vista finder<cr>
-
-function! VistaKeymap()
-  nnoremap <silent><buffer> <c-;> :<c-u>Vista coc<cr>
-  nnoremap <silent><buffer> <a-s> :<c-u>Vista show<cr>
-endfunction
+"" Mnemonic: Quest for Tags
+nnoremap <silent> <a-q><a-t> :<c-u>Vista finder<cr>
 
 augroup VistaMarkdown
   au! BufEnter *
-  if &filetype ==# 'markdown'
+  if &ft ==# 'markdown'
     " toc is abbr. for Table Of Contents.
-    nnoremap <silent><buffer> <a-u> :<c-u>Vista toc<cr>
+    nnoremap <silent><buffer> <a-b> :<c-u>Vista toc<cr>
   endif
 augroup END
