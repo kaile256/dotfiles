@@ -88,6 +88,7 @@ git/.gitconfig
 git/.tigrc
 nvim/.gonvim
 moc/.moc
+zsh/.zshenv
 )
 
 cd $HOME
