@@ -1,22 +1,7 @@
 " From: tool.toml
-"  Ref: vimwiki/vimwiki
+" Repo: vimwiki/vimwiki
 
 set path+=~/vimwiki/**
-
-function! s:my_startpage(page) "{{{
-  if @% == '' && &filetype ==# '' && &buftype ==# ''
-    if a:page == 'mdwiki'
-      e ~/vimwiki/mdwiki/index.md
-    elseif a:page == 'wiki'
-      VimwikiIndex
-    elseif a:page == 'diary'
-      VimwikiMakeDiaryNote
-    elseif a:page == 'term'
-      call termopen(&shell)
-      setlocal nonumber signcolumn=no modifiable
-    endif
-  endif
-endfunction "}}}
 
 " Let; Highlight {{{
 let g:vimwiki_hl_headers    = 1
@@ -25,11 +10,6 @@ let g:vimwiki_hl_cb_checked = 2
 " double-wide characters (to align table cells properly).
 let g:vimwiki_CJK_length = 1
 "}}}
-" Def; List Symbol {{{
-"let g:vimwiki_listsyms = '✗○◐●✓'
-"let g:vimwiki_listsym_rejected = '✗'
-"}}}
-
 " Let; List of config {{{
 "" List; Script Variables {{{
 " CAUTION: Allowed values are ['default', 'markdown', 'media', 'mediawiki']
@@ -64,63 +44,30 @@ let s:wiki_markdown = {
       \ }
 
 "}}}
-
 let g:vimwiki_list = [
       \ {},
       \ s:wiki_index,
       \ s:wiki_markdown
       \ ]
 "}}}
-
-" Abbr; for destination {{{
-cnoreabbr <expr> x (getcmdtype() == ':' && getcmdline() =~ 'VimwikiGoto x$')? 'linux' : 'x'
-cnoreabbr <expr> li (getcmdtype() == ':' && getcmdline() =~ 'VimwikiGoto li$')? 'linux' : 'li'
-cnoreabbr <expr> vp (getcmdtype() == ':' && getcmdline() =~ 'VimwikiGoto vp$')? 'vplug' : 'vp'
-cnoreabbr <expr> pv (getcmdtype() == ':' && getcmdline() =~ 'VimwikiGoto pv$')? 'vplug' : 'pv'
-cnoreabbr <expr> v (getcmdtype() == ':' && getcmdline() =~ 'VimwikiGoto v$')? 'vim' : 'v'
-cnoreabbr <expr> vi (getcmdtype() == ':' && getcmdline() =~ 'VimwikiGoto vi$')? 'vim' : 'vi'
+" Let; List Symbol {{{
+"let g:vimwiki_listsyms = '✗○◐●✓'
+"let g:vimwiki_listsym_rejected = '✗'
 "}}}
 
-" Keymap; vsbe {{{
-command! VimwikiIndex    :e    ~/vimwiki/mdwiki/index.md
-command! VimwikiTabIndex :tabe ~/vimwiki/mdwiki/index.md
-
-"" vsbe; Index to open {{{
-nmap <silent> <a-w><a-e> :<c-u>   <space> :VimwikiIndex<cr>
-nmap <silent> <a-w><a-b> :<c-u>   <space> :VimwikiTabIndex<cr>
-nmap <silent> <a-w><a-s> :<c-u>sp <bar>   :VimwikiIndex<cr>
-nmap <silent> <a-w><a-v> :<c-u>vs <bar>   :VimwikiIndex<cr>
-nmap <silent> <a-w>e     :<c-u>   <space> :VimwikiIndex<cr>
-nmap <silent> <a-w>b     :<c-u>   <space> :VimwikiTabIndex<cr>
-nmap <silent> <a-w>s     :<c-u>sp <bar>   :VimwikiIndex<cr>
-nmap <silent> <a-w>v     :<c-u>vs <bar>   :VimwikiIndex<cr>
+" Hotkey; Index {{{
+command! MdwikiIndex    :e    ~/vimwiki/mdwiki/index.md
+nnoremap <silent> <a-w><a-e> :<c-u>MdwikiIndex <cr>
+nnoremap <silent> <a-w><a-b> :<c-u>tab sp <bar> MdwikiIndex <cr>
+nnoremap <silent> <a-w><a-v> :<c-u>vs <bar> MdwikiIndex <cr>
+nnoremap <silent> <a-w><a-s> :<c-u>sp <bar> MdwikiIndex <cr>
 "}}}
-
-"" vsbe; :VimwikiGoto under Cursor {{{
-"noremap <silent> <a-w><a-g>e     :<c-u>     <space> :VimwikiGoto <cr> <cWORD> <cr>
-"noremap <silent> <a-w><a-g>s     :<c-u>sp   <cr>    :VimwikiGoto <cr> <cWORD> <cr>
-"noremap <silent> <a-w><a-g>v     :<c-u>svs  <cr>    :VimwikiGoto <cr> <cWORD> <cr>
-"noremap <silent> <a-w><a-g>b     :<c-u>tabe <cr>    :VimwikiGoto <cr> <cWORD> <cr>
-"noremap <silent> <a-w>ge :<c-u>     <space> :VimwikiGoto<cr> <cWORD> <cr>
-"noremap <silent> <a-w>gs :<c-u>sp   <cr>    :VimwikiGoto<cr> <cWORD> <cr>
-"noremap <silent> <a-w>gv :<c-u>svs  <cr>    :VimwikiGoto<cr> <cWORD> <cr>
-"noremap <silent> <a-w>gb :<c-u>tabe <cr>    :VimwikiGoto<cr> <cWORD> <cr>
-""}}}
-
-"" vsbe; VimWiki-UI to Select
-nnoremap <silent> <a-w><a-u> :<c-u>VimwikiUISelect<cr>
-"}}}
-" Keymap; Diary {{{
-"" Diary; Index {{{
+" Hotkey; Diary {{{
 nnoremap <silent> <a-e><a-i><a-e> :<c-u>       <space> :VimwikiDiaryIndex<cr>
 nnoremap <silent> <a-e><a-i><a-b> :<c-u>tabnew <cr>    :VimwikiDiaryIndex<cr>
 nnoremap <silent> <a-e><a-i><a-s> :<c-u>sp     <cr>    :VimwikiDiaryIndex<cr>
 nnoremap <silent> <a-e><a-i><a-v> :<c-u>vs     <cr>    :VimwikiDiaryIndex<cr>
-"}}}
 
-"" Diary; Yesterday/Tomorrow
-nnoremap <buffer><expr> <a-o> ':VimwikiMakeYesterdayDiaryNote<cr>'
-nnoremap <buffer><expr> <a-i> ':VimwikiMakeTomorrowDiaryNote<cr>'
 "" Diary; Today {{{
 tnoremap <silent> <a-e>e     <c-\><c-n>:VimwikiMakeDiaryNote<cr>
 tnoremap <silent> <a-e>b     <c-\><c-n>:VimwikiTabMakeDiaryNote<cr>
@@ -141,15 +88,36 @@ nnoremap <silent> <a-e><a-s> :sp <cr> :VimwikiMakeDiaryNote<cr>
 nnoremap <silent> <a-e><a-v> :vs <cr> :VimwikiMakeDiaryNote<cr>
 "}}}
 "}}}
+" CmdAbbr; for destination {{{
+cnoreabbr <expr> x (getcmdtype() == ':' && getcmdline() =~ 'VimwikiGoto x$')? 'linux' : 'x'
+cnoreabbr <expr> li (getcmdtype() == ':' && getcmdline() =~ 'VimwikiGoto li$')? 'linux' : 'li'
+cnoreabbr <expr> vp (getcmdtype() == ':' && getcmdline() =~ 'VimwikiGoto vp$')? 'vplug' : 'vp'
+cnoreabbr <expr> pv (getcmdtype() == ':' && getcmdline() =~ 'VimwikiGoto pv$')? 'vplug' : 'pv'
+cnoreabbr <expr> v (getcmdtype() == ':' && getcmdline() =~ 'VimwikiGoto v$')? 'vim' : 'v'
+cnoreabbr <expr> vi (getcmdtype() == ':' && getcmdline() =~ 'VimwikiGoto vi$')? 'vim' : 'vi'
+"}}}
 
-function! s:on_buf_vimwiki() "{{{
+function! s:my_startpage(page) "{{{
+  if @% == '' && &ft ==# '' && &bt ==# '' && getline(1,'$') ==# ['']
+    if a:page == 'mdwiki'
+      e ~/vimwiki/mdwiki/index.md
+    elseif a:page == 'wiki'
+      VimwikiIndex
+    elseif a:page == 'diary'
+      VimwikiMakeDiaryNote
+    elseif a:page == 'term'
+      call termopen(&shell)
+      setlocal nonumber signcolumn=no modifiable
+    endif
+  endif
+endfunction "}}}
+function! s:on_buf_vimwiki()
   " Setlocal; {{{
   "setl buftype=quickfix
   setl nowrap
   setl fdm=syntax fdl=0
   setl tabstop=4 softtabstop=4 shiftwidth=4
   "}}}
-
   " Bufmap; Nowait {{{
   noremap <buffer><nowait> o o
   noremap <buffer><nowait> O O
@@ -160,7 +128,7 @@ function! s:on_buf_vimwiki() "{{{
   inoremap <buffer><nowait> <c-t> <c-t>
   inoremap <buffer><nowait> <c-d> <c-d>
   "}}}
-  " Buffer; PN Link {{{
+  " Bufmap; PN Link {{{
   " TODO: usual-<c-jk> on = Contents =
   "nnoremap <buffer><expr> <c-k> ':VimwikiPrevLink<cr>'
   "nnoremap <buffer><expr> <c-j> ':VimwikiNextLink<cr>'
@@ -201,13 +169,13 @@ function! s:on_buf_vimwiki() "{{{
   "}}}
   "}}}
 
-  " Abbr; for Error
+  " CmdAbbr; for Error {{{
   cnoreabbr <buffer><expr> fdm (getcmdtype() == ':' && getcmdline() =~ '^fdm$')? 'setl foldmethod=' : 'setl foldmethod=syntax'
-
-  " Abbr; VimwikiRenameLink
+  "}}}
+  " CmdAbbr; Rename Link {{{
   cnoreabbr <buffer><expr> re (getcmdtype() == ':' && getcmdline() =~ '^re$')? 'VimwikiRenameLink' : 're'
-
-  " Abbr; VimWikiGoto {{{
+  "}}}
+  " CmdAbbr; VimWikiGoto {{{
   cnoreabbr <buffer><expr> gw (getcmdtype() == ':' && getcmdline() =~ '^gw$')? 'VimwikiGoto' : 'gw'
   cnoreabbr <buffer><expr> wg (getcmdtype() == ':' && getcmdline() =~ '^wg$')? 'VimwikiGoto' : 'wg'
   cnoreabbr <buffer><expr> gwb (getcmdtype() == ':' && getcmdline() =~ '^gwb$')? 'tab VimwikiGoto' : 'gwb'
@@ -220,26 +188,31 @@ function! s:on_buf_vimwiki() "{{{
   cnoreabbr <buffer><expr> ws (getcmdtype() == ':' && getcmdline() =~ '^ws$')? 'sp <bar> VimwikiGoto' : 'ws'
   cnoreabbr <buffer><expr> wv (getcmdtype() == ':' && getcmdline() =~ '^wv$')? 'vs <bar> VimwikiGoto' : 'wv'
   "}}}
-
-
-endfunction "}}}
+endfunction
+function! s:on_buf_vimwiki_dairy()
+"" BufHot; Yesterday/Tomorrow {{{
+nnoremap <buffer><expr> <a-o> ':VimwikiMakeYesterdayDiaryNote<cr>'
+nnoremap <buffer><expr> <a-i> ':VimwikiMakeTomorrowDiaryNote<cr>'
+"}}}
+endfunction
 
 augroup CallMyVimwikiFunctions "{{{
   au!
 
+  "au BufWinEnter * ++nested ++once call <SID>my_startpage('mdwiki')
   au VimEnter * ++nested call <SID>my_startpage('mdwiki')
 
-  au FileType vimwiki call <SID>on_buf_vimwiki()
+  au FileType vimwiki            call <SID>on_buf_vimwiki()
+  au BufEnter vimwiki/*/diary/** call <SID>on_buf_vimwiki_dairy()
 
 augroup END "}}}
-
 augroup AutoFormatVimwiki "{{{
 
   au!
-  au BufWinEnter */mdwiki/** setl ft=vimwiki
+  au BufAdd */mdwiki/*/.md ++nested setl ft=markdown syn=vimwiki fdm=syntax
 
-  au BufWritePre *       if &ft   == 'vimwiki' | VimwikiTOC
-  au BufWritePre index.* if &ft   == 'vimwiki' | VimwikiGenerateLinks
+  au BufWritePre *       if &syn  == 'vimwiki' | VimwikiTOC
+  au BufWritePre index.* if &syn  == 'vimwiki' | VimwikiGenerateLinks
   au InsertLeave *       if &wrap == 0         | norm zH
 
-augroup END         "}}}
+augroup END "}}}
