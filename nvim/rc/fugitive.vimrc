@@ -42,12 +42,7 @@ noremap <silent> <a-y><a-s> :<c-u>vert bot 40 Gstatus<cr>
 noremap <silent> <a-y>a     :<c-u>Gw<cr>
 noremap <silent> <a-y><a-a> :<c-u>Gw<cr>
 "}}}
-" Add; && Commit {{{
-noremap <a-y>'     :<c-u>Gw<cr>:Gcommit -m ''<Left>
-noremap <a-y><a-'> :<c-u>Gw<cr>:Gcommit -m ''<Left>
-noremap <a-y><a-"> :<c-u>Gw<cr>:Gcommit -m ""<Left>
-noremap <a-y>"     :<c-u>Gw<cr>:Gcommit -m ""<Left>
-"}}}
+
 " Add; && Status {{{
 noremap <silent> <a-y>w     :<c-u>Gw<cr>:vert bot 40 Gstatus<cr>
 noremap <silent> <a-y><a-w> :<c-u>Gw<cr>:vert bot 40 Gstatus<cr>
@@ -85,6 +80,7 @@ function! s:on_gitcommit_startinsert() "{{{
 endfunction "}}}
 
 function! s:on_fugitive_keymap()
+  " TODO: open gitcommit bufwin thinner.
   nnoremap <buffer><silent> cc    :<C-U>bot 10 Gcommit<CR>
   nnoremap <buffer><silent> ca    :<C-U>bot 10 Gcommit --amend<CR>
 endfunction
