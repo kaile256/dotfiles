@@ -1,1 +1,2 @@
-set pumblend=1
+set pumblend=20
+set winblend=20
