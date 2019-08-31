@@ -4,13 +4,11 @@ set fileencodings=ucs-bom,utf-8,euc-jp,sjis,default,latin1
 set ambiwidth=double
 hi CursorIM guibg=#fabd1f
 " default: tcqj
-set formatoptions=tcqjmB1
-set comments+=:f:O
-
+set formatoptions=jmB1cql
 set mouse=a
 
 " WARNING: `!` is required to source all the same named files.
-runtime script.vim
+runtime general.vim
 runtime filetype.vim
 runtime window.vim
 runtime buffer.vim
@@ -37,5 +35,8 @@ augroup RuntimeSelection
   au BufRead * if &ft == 'python' | runtime lazy/python.vim | endif
 
   au BufEnter * if &bt == 'quickfix' | runtime lazy/quickfix.vim | endif
+
+  " Disturb Auto Comment Out on CR/NL.
+  au FileType * if &l:fo =~ 'ro' | set formatoptions-=ro
 
 augroup END
