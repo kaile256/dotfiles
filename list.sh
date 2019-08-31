@@ -24,6 +24,7 @@ rclone  # sync lib for cloud-service like dropbox, Gdrive.
 ripgrep
 ruby
 rxvt-unicode-truecolor  # Terminal Emulater
+#rxvt-unicode-fa-patched  # urxvt patched for icons.
 the_silver_searcher
 tlp   # Save Battery of PC
 ttf-cica
