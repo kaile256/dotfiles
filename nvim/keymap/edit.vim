@@ -1,4 +1,4 @@
-"""" from: init.vim
+" from: init.vim
 
 augroup FcitxRemoteToggle "{{{
   if &imdisable == 0
@@ -42,28 +42,6 @@ set smarttab
 set shiftround
 "}}}
 
-" Set; Regiser
-" Copy to clipboard without +/* indicated.
-"set clipboard+=unnamedplus,unnamed
-
-" Set; Visual Mode
-" visualize even if there is no chars.
-set virtualedit=block
-
-" Set; Commandline Mode
-set noshowcmd
-"set history=10000
-set inccommand=nosplit
-""" Cmdline; Completion
-set wildmenu wildmode=list:longest
-
-" Set; PMenu
-set pumheight=20
-"is has('nvim') ||
-"  set wildoptions=pum
-"  set pumblend=20
-"endif
-
 augroup MyVimDiffAugroup "{{{
   au!
 
@@ -85,9 +63,10 @@ nnoremap          <space>W :<c-u>w! <cr>
 nnoremap          <space>q :<c-u>w  <cr>
 nnoremap <silent> qq :<c-u>q  <cr>
 nnoremap <silent> <space>Q :<c-u>q! <cr>
+nnoremap <silent> <s-space>Q :<c-u>q! <cr>
 "" Write&Quit; Buffer
-nnoremap <silent> <space>z :<c-u>q!<cr>
 nnoremap <silent> <space>Z :<c-u>q!<cr>
+nnoremap <silent> <s-space>Z :<c-u>q!<cr>
 "" Write&Quit; Special
 nnoremap <space>* :<c-u>qa<cr>
 nnoremap <space>! :w !sudo tee % > /dev/null<cr> <bar> edit!
@@ -355,17 +334,7 @@ nnoremap <silent> cP ddkP
 "}}}
 "}}}
 
-" Keymap; Completion {{{
-""" Comment; For Touch Panel
-cnoremap <c-r>a     <c-r><c-a>
-cnoremap <c-r>f     <c-r><c-f>
-cnoremap <c-r>p     <c-r><c-p>
-cnoremap <c-r>l     <c-r><c-l>
-cnoremap <c-r>w     <c-r><c-w>
-"}}}
-
-" Keymap; Sort {{{
-"" Sort; Unique {{{
+" Sort; Unique {{{
 " Note: Initial Case to Reverse Sort
 " CAUTION: <c-s> freezes screen on some Linux-Distros as default.
 "" Alphabetical
@@ -391,8 +360,7 @@ xnoremap <a-s><a-o> :sort  ou<cr>
 xnoremap <a-s>o     :sort  ou<cr>
 xnoremap <a-s>O     :sort! ou<cr>
 "}}}
-
-"""" Sort; Ununique {{{
+" Sort; Ununique {{{
 """ Alphabetical
 "xnoremap <space><a-s>      :sort  <cr>
 "xnoremap <space><a-s><a-a> :sort  <cr>
@@ -416,4 +384,7 @@ xnoremap <a-s>O     :sort! ou<cr>
 "xnoremap <space><a-s>o     :sort  o<cr>
 "xnoremap <space><a-s>O     :sort! o<cr>
 ""}}}
-"}}}
+
+" Keymap; Fold
+" Uniquely Open Fold; close all the others
+noremap zu zMzv
