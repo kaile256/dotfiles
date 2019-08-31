@@ -3,12 +3,13 @@
 # Required
 [[plugins]]
 repo = 'Shougo/dein.vim' #{{{
-hook_done_update= 'runtime reinstall.vim'
+hook_done_update= 'UpdateRemotePlugins'
 #}}}
 
 [[plugins]]
 repo = 'vimwiki/vimwiki' #{{{
-rev = 'v2.4.1'
+rev = 'dev'
+#rev = 'v2.4.1'  # the repo is dirty to activate.
 hook_add = 'runtime vimwiki.vimrc'
 #}}}
 
@@ -25,11 +26,21 @@ type = 'git'
 hook_add = 'runtime fugitive.vimrc'
 #}}}
 
+#[[plugins]]
+#repo = 'morhetz/gruvbox' #{{{
+## CAUTION: Colorscheme MUST be sourced after dein#end() on dein.vim.
+#if = 'has("nvim")'
+#hook_add = 'runtime gruvbox.vimrc'
+##}}}
+#[[plugins]]
+#repo = 'joshdick/onedark.vim' #{{{
+#if = 'has("nvim")'
+#hook_add = 'runtime onedark.vimrc'
+##}}}
 [[plugins]]
-repo = 'morhetz/gruvbox' #{{{
-# CAUTION: Colorscheme MUST be sourced after dein#end() on dein.vim.
+repo = 'KeitaNakamura/neodark.vim' #{{{
 if = 'has("nvim")'
-hook_add = 'runtime gruvbox.vimrc'
+hook_add = 'runtime neodark.vimrc'
 #}}}
 
 [[plugins]]
