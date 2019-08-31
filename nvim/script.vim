@@ -4,10 +4,7 @@ set guifontset=SF\ Mono:h12
 set guifontwide=SF\ Mono:h12
 "}}}
 " Variable; Terminal {{{
-"if executable('zsh')
-"" fail to work with installation of dein itself.
-"  set shell=/usr/bin/zsh
-"endif
+set shell=sh
 if executable('urxvt')
   let $TERM='rxvt-unicode'
 else
@@ -32,6 +29,7 @@ let $VISUAL='nvr'
 let g:config_home = empty($XDG_CONFIG_HOME) ? expand('~/.config')      : $XDG_CONFIG_HOME
 let g:cache_home  = empty($XDG_CACHE_HOME)  ? expand('~/.cache')       : $XDG_CACHE_HOME
 let g:data_home   = empty($XDG_DATA_HOME)   ? expand('~/.local/share') : $XDG_DATA_HOME
+let g:my_data = g:config_home . '/nvim/data'
 "}}}
 " Path; Runtime Path {{{
 set rtp+=~/.config/nvim/rc/
@@ -89,7 +87,7 @@ let g:netrw_home = "~/.local/share/nvim"
 " shortmess: Shorter Message
 " c-option: forbids to give |ins-completion-menu| messages.
 set shortmess+=c
-set pumheight=30
+set pumheight=15
 "}}}
 " Appearance; Format {{{
 " wrap long text: s for space
@@ -175,6 +173,18 @@ set list
 "" nbsp: for space
 "set listchars=tab:»-,trail:-,eol:↲,extends:»,precedes:«,nbsp:%
 "}}}
+" Edit; Visual Mode {{{
+" visualize even if there is no chars.
+set virtualedit=block
+"}}}
+" Edit; Commandline Mode {{{
+set noshowcmd
+"set history=10000
+" Cmdline; Completion
+set wildmenu wildmode=list:longest
+" for `:substitute`
+set inccommand=nosplit
+"}}}
 
 " Multiple Windows
 set splitbelow
@@ -185,7 +195,7 @@ set foldlevel=1
 set foldnestmax=10
 augroup SetFdmDotfiles
   au!
-  au BufNewFile,BufRead dotfiles/** set fdm=marker
+  au BufNewFile,BufRead **/dotfiles/** set fdm=marker
 augroup END
 "}}}
 
