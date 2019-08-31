@@ -1,5 +1,10 @@
 snippet augroup
 abbr au
-  augroup ${1:START}
-    au!
-    au ${2:FileType} ${3:*} ${4:if ${5:&filetype ==# '{6:help}'} ${4: | endif}
+augroup ${1:MyAugroup} ${9:"\{\{\{}
+au!
+au ${2:Event} ${3:*} ${4:command}
+${5:au ${6:Event} ${7:*} ${8:command}}
+augroup END ${9:"\}\}\}}
+
+snippet ab "abbriviation for cmdline"
+${3:c}noreabbr <expr> ${1:key} (getcmdtype() == ':' && getcmdline() =~ '^$1$')? '${2:expand}' : '$1'

@@ -24,9 +24,14 @@
 #
 # Online reference: https://github.com/SirVer/ultisnips/blob/master/doc/UltiSnips.txt
 
-snippet aug "augroup AugroupName"
-augroup Name
+snippet au "augroup AugroupName"
+augroup ${1:MyAugroup} ${9:"\{\{\{}
 au!
-au 
-augroup END
+au ${2:Event} ${3:*} ${4:command}
+${5:au ${6:Event} ${7:*} ${8:command}}
+augroup END ${9:"\}\}\}}
+endsnippet
+
+snippet ab "abbriviation for cmdline"
+${3:c}noreabbr <expr> ${1:key} (getcmdtype() == ':' && getcmdline() =~ '^$1$')? '${2:expand}' : '$1'
 endsnippet
