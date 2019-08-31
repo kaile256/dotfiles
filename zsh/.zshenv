@@ -12,8 +12,8 @@
 #mesg n || true
 
 # INIT
-eval "$(anyenv init -)"
-eval "$(pyenv init -)"
+#eval "$(anyenv init -)"
+#eval "$(pyenv init -)"
 #eval "$(pyenv virtualenv-init -)"
 
 . ~/.config/zsh/.zshrc

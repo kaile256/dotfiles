@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
-#### From: .bashrc
-#### After: env.sh
+# From: .bashrc
+# After: env.sh
 
 set -Cu
 

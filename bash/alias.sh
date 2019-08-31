@@ -2,6 +2,7 @@
 
 # From: .bashrc
 # Note: Write those alias for XDG Base Repository specification in 'env.sh'
+
 set -Cu
 
 # Standard Command; ls {{{

@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
-#### To: .bashrc.
-#### Ref: pkgm.sh
-#### Ref: xserver/.xinitrc
+# To: .bashrc.
+# Ref: pkgm.sh
+# Ref: xserver/.xinitrc
 
 # see /usr/share/doc/bash/examples/startup-files for examples.
 
@@ -12,10 +12,10 @@
 
 #mesg n || true
 
-#### INIT
+# INIT
 eval "$(anyenv init -)"
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 
-#### Xserver
+# Xserver
 #[[ -z $DISPLAY && $XDG_VTNR -eq 1 ]] && exec startx
