@@ -1,79 +1,71 @@
-"""" From: Init.toml
-"""" With: defx-extra.vimrc
-""""  Ref: denite.vimrc
+" From: tool.toml
+" Repo: Shougo/defx.nvim 
 
-"if !has('win64')
-"  command Defx :Defx -columns=git:markfilename:type
-"  command Defx :Defx -columns=icons:indent:filename:type
-"endif
-"
-"augroup DefxStartify
-"  au! FileType netrw Defx `expand('%:p:h')` -search=`expand('%:p')`
-"augroup END
+"" Defx-Icons {{{
+" Note: defx-icons collapses i3 or qt.
+"let g:defx_icons_enable_syntax_highlight = 1
+"let g:defx_icons_column_length = 2
+"let g:defx_icons_directory_icon = ''
+"let g:defx_icons_directory_icon = ''
+"let g:defx_icons_mark_icon = '*'
+"let g:defx_icons_parent_icon = ''
+"let g:defx_icons_default_icon = ''
+"let g:defx_icons_directory_symlink_icon = ''
+" Options below are applicable only when using "tree" feature
+" let g:defx_icons_root_opened_tree_icon = ''
+" let g:defx_icons_nested_opened_tree_icon = ''
+" let g:defx_icons_nested_closed_tree_icon = ''
+""}}}
+" call defx#custom() {{{
+call defx#custom#column('mark', {
+      \ 'readonly_icon': '✗',
+      \ 'selected_icon': '✓',
+      \ })
+call defx#custom#option('_', {
+      \ 'columns': 'mark:indent:git:icons:filename:size:time',
+      \ 'show_ignored_files': 1,
+      \ })
+call defx#custom#column('filename', {
+      \ 'directory_icon': '',
+      \ 'opened_icon': '',
+      \ })
+"}}}
 
-"""" KEYMAP
-""" Open Preceding Tree
-" type '-' to parent dir
-" type 'v' to open like a filer
-"nnoremap <silent> <space>- :<c-u>Defx <c-r>=expand('s:parent_dir')<cr> <c-r>=expand('s:depth_1')<cr><cr>
+" Keymap; Open Preceding Tree
 nnoremap <silent> <a-v>
       \ :<c-u>Defx `expand('%:p:h')` -search=`expand('%:p')`
-      \ -split=vertical -winwidth=35 -winheight=60 -direction=topleft <cr>
-"nnoremap <silent> <a-t>
-"      \ :<c-u>Defx `expand('%:p:h')` -search=`expand('%:p')` -split=tab<cr>
+      \ -split=vertical -winwidth=30 -winheight=60 -direction=topleft
+      \ <cr>
+
+nnoremap <silent> <a-b>
+      \ :<c-u>Defx `expand('%:p:h')` -search=`expand('%:p')` -split=tab
+      \ <cr>
 
 function! s:defx_keymap_explorer() abort
-  """ Explore Tree
-  nnoremap <silent><buffer><expr> ~
-        \ defx#do_action('cd')
-  nnoremap <silent><buffer><expr> f
-        \ defx#do_action('search')
-  "" hjkl
-  " h:back on tree
+  " Explore; hjkl {{{
+  nnoremap <buffer> gg ggj
   nnoremap <silent><buffer><expr> h
         \ defx#do_action('cd', ['..'])
-  nnoremap <silent><buffer><expr> j
+  "nnoremap <silent><buffer><expr> j
         \ line('.') == line('$') ? 'gg' : 'j'
-  nnoremap <silent><buffer><expr> k
+  "nnoremap <silent><buffer><expr> k
         \ line('.') == 1 ? 'G' : 'k'
   nnoremap <silent><buffer><expr> l
         \ defx#do_action('drop')
-  "" netrw-like
+  "}}}
+  " Explore; CWD {{{
+  "" CWD; defx's
+  nnoremap <silent><buffer><expr> ~
+        \ defx#do_action('cd')
+  "" CWD; vim's
+  nnoremap <silent><buffer><expr> <a-w>.
+        \ defx#do_action('change_vim_cwd')
+  nnoremap <silent><buffer><expr> <a-w><a-.>
+        \ defx#do_action('change_vim_cwd')
+  "}}}
+  " Explore; netrw-like {{{
   nnoremap <silent><buffer><expr> -
         \ defx#do_action('cd', ['..'])
-  nnoremap <silent><buffer><expr> <CR>
-        \ defx#do_action('drop')
-  nnoremap <silent><buffer><expr> v
-        \ defx#do_action('open', 'vsplit')
-  nnoremap <silent><buffer><expr> o
-        \ defx#do_action('open', 'split')
-  nnoremap <silent><buffer><expr> u
-        \ defx#do_action('open_or_close_tree')
-
-  """ File-Management
-  " Clipboard
-  " show the path under cursor on status-bar.
-  nnoremap <buffer><expr> yw
-        \ defx#do_action('copy')
-  nnoremap <buffer><expr> ye
-        \ defx#do_action('copy')
-  nnoremap <buffer><expr> dw
-        \ defx#do_action('move')
-  nnoremap <buffer><expr> de
-        \ defx#do_action('move')
-  nnoremap <buffer><expr> p
-        \ defx#do_action('paste')
-  nnoremap <buffer><expr> yy
-        \ defx#do_action('yank_path')
-  "" Select
-  nnoremap <silent><buffer><expr> <Space>
-        \ defx#do_action('toggle_select') . 'j'
-  " reverse all select conditions.
-  nnoremap <silent><buffer><expr> *
-        \ defx#do_action('toggle_select_all')
-  " netrw-like
-  nnoremap <silent><buffer><expr> c
-        \ defx#do_action('change_vim_cwd')
   nnoremap <silent><buffer><expr> D
         \ defx#do_action('remove')
   nnoremap <silent><buffer><expr> R
@@ -82,30 +74,87 @@ function! s:defx_keymap_explorer() abort
         \ defx#do_action('new_directory')
   nnoremap <silent><buffer><expr> %
         \ defx#do_action('new_file')
-
+  "}}}
+  " Explore; Sort {{{
+  nnoremap <silent><buffer><expr> <a-s>t
+        \ defx#do_action('toggle_sort', 'time')
+  nnoremap <silent><buffer><expr> <a-s>z
+        \ defx#do_action('toggle_sort', 'size')
+  nnoremap <silent><buffer><expr> <a-s>x
+        \ defx#do_action('toggle_sort', 'extention')
+  nnoremap <silent><buffer><expr> <a-s><a-s>
+        \ defx#do_action('toggle_sort', 'filename')
+  "}}}
+  " Toggle; Mark {{{
+  nnoremap <silent><buffer><expr> mm
+        \ defx#do_action('toggle_select')
+  nnoremap <silent><buffer><expr> mj
+        \ defx#do_action('toggle_select') . 'j' .
+        \ defx#do_action('toggle_select') . 'k'
+  nnoremap <silent><buffer><expr> mk
+        \ defx#do_action('toggle_select') . 'k' .
+        \ defx#do_action('toggle_select') . 'j'
+  nnoremap <silent><buffer><expr> mc
+        \ defx#do_action('clear_select_all')
+  "" Select; All
+  nnoremap <silent><buffer><expr> ma
+        \ defx#do_action('multi', ['clear_select_all','toggle_select_all'])
+  nnoremap <silent><buffer><expr> *
+        \ defx#do_action('multi', ['clear_select_all','toggle_select_all'])
+  "" Select; Reverse selected conditions.
+  nnoremap <silent><buffer><expr> mr
+        \ defx#do_action('toggle_select_all')
+  "}}}
+  " Toggle; Hidden Files {{{
+  nnoremap <silent><buffer><expr> zh
+        \ defx#do_action('toggle_ignored_files')
+  "}}}
+  " Selected; Open {{{
+  nnoremap <silent><buffer><expr> <CR>
+        \ defx#do_action('drop')
+  nnoremap <silent><buffer><expr> <c-v>
+        \ defx#do_action('open', 'vsplit')
+  nnoremap <silent><buffer><expr> <c-s>
+        \ defx#do_action('open', 'split')
+  "}}}
+  "" Open; Tree {{{
+  nnoremap <silent><buffer><expr> u
+        \ defx#do_action('open_or_close_tree')
+  nnoremap <silent><buffer><expr> U
+        \ defx#do_action('open_or_close_tree')
+  nnoremap <silent><buffer><expr> za
+        \ defx#do_action('open_or_close_tree')
+  nnoremap <silent><buffer><expr> zo
+        \ defx#do_action('open_tree')
+  nnoremap <silent><buffer><expr> zO
+        \ defx#do_action('open_tree_recurive')
+  nnoremap <silent><buffer><expr> zc
+        \ defx#do_action('close_tree')
+  nnoremap <silent><buffer><expr> zu
+        \ defx#do_action('close_tree')
+  "}}}
+  " Selected; Clipboard {{{
+  " copy: yank in plus register 
+  nnoremap <buffer><expr> yy
+        \ defx#do_action('copy')
+  nnoremap <buffer><expr> cc
+        \ defx#do_action('move')
+  nnoremap <buffer><expr> p
+        \ defx#do_action('paste')
+  " yank_path: yank in unnamed register
+  "nnoremap <buffer><expr> yy
+  "      \ defx#do_action('yank_path')
+  "}}}
+  " Selected; Execute {{{
+  nnoremap <silent><buffer><expr> X
+        \ defx#do_action('execute_system')
   nnoremap <silent><buffer><expr> !
         \ defx#do_action('execute_system')
-
-  """ Toggle
-  "" Ignored/Hidden File
-  nnoremap <silent><buffer><expr> .
-        \ defx#do_action('toggle_ignored_files')
-
-  "" Sort
-  nnoremap <silent><buffer><expr> st
-        \ defx#do_action('toggle_sort', 'time')
-  nnoremap <silent><buffer><expr> sz
-        \ defx#do_action('toggle_sort', 'size')
-  nnoremap <silent><buffer><expr> sx
-        \ defx#do_action('toggle_sort', 'extention')
-  nnoremap <silent><buffer><expr> sn
-        \ defx#do_action('toggle_sort', 'filename')
-
+  "}}}
 endfunction
-
-augroup DefxConfig
+augroup DefxOnBuffer
   au!
-  au FileType defx call s:defx_keymap_destination()
-  au FileType defx call s:defx_keymap_explorer()
+  " TODO: highlight on top as there's filepath, or place those path on another place.
+  au FileType defx setl bt=quickfix signcolumn=
+  au FileType defx call <SID>defx_keymap_explorer()
 augroup END
-
