@@ -1,5 +1,5 @@
 " From: tool.toml
-" Repo: Shougo/defx.nvim 
+" Repo: Shougo/defx.nvim
 
 "" Defx-Icons {{{
 " Note: defx-icons collapses i3 or qt.
@@ -51,7 +51,7 @@ function! s:defx_keymap_explorer() abort
   "nnoremap <silent><buffer><expr> k
         \ line('.') == 1 ? 'G' : 'k'
   nnoremap <silent><buffer><expr> l
-        \ defx#do_action('drop')
+        \ defx#do_action('open_directory')
   "}}}
   " Explore; CWD {{{
   "" CWD; defx's
@@ -106,7 +106,7 @@ function! s:defx_keymap_explorer() abort
         \ defx#do_action('toggle_select_all')
   "}}}
   " Toggle; Hidden Files {{{
-  nnoremap <silent><buffer><expr> zh
+  nnoremap <silent><buffer><expr> z.
         \ defx#do_action('toggle_ignored_files')
   "}}}
   " Selected; Open {{{
@@ -114,8 +114,11 @@ function! s:defx_keymap_explorer() abort
         \ defx#do_action('drop')
   nnoremap <silent><buffer><expr> <c-v>
         \ defx#do_action('open', 'vsplit')
+  " TODO: `:wincmd p` will apply only when the defx buffer is narrow.
   nnoremap <silent><buffer><expr> <c-s>
-        \ defx#do_action('open', 'split')
+        \ defx#do_action('open', 'wincmd p <bar> split')
+  nnoremap <silent><buffer><expr> <c-b>
+        \ defx#do_action('open', 'tabe')
   "}}}
   "" Open; Tree {{{
   nnoremap <silent><buffer><expr> u
@@ -127,23 +130,27 @@ function! s:defx_keymap_explorer() abort
   nnoremap <silent><buffer><expr> zo
         \ defx#do_action('open_tree')
   nnoremap <silent><buffer><expr> zO
-        \ defx#do_action('open_tree_recurive')
+        \ defx#do_action('open_tree_recursive')
   nnoremap <silent><buffer><expr> zc
         \ defx#do_action('close_tree')
   nnoremap <silent><buffer><expr> zu
-        \ defx#do_action('close_tree')
+        \ defx#do_action('open_tree')
   "}}}
-  " Selected; Clipboard {{{
-  " copy: yank in plus register 
+  " Selected; Register {{{
+  " copy: yank in defx's register
   nnoremap <buffer><expr> yy
         \ defx#do_action('copy')
+  nnoremap <buffer><expr> Y
+        \ defx#do_action('copy')
   nnoremap <buffer><expr> cc
+        \ defx#do_action('move')
+  nnoremap <buffer><expr> C
         \ defx#do_action('move')
   nnoremap <buffer><expr> p
         \ defx#do_action('paste')
   " yank_path: yank in unnamed register
-  "nnoremap <buffer><expr> yy
-  "      \ defx#do_action('yank_path')
+  nnoremap <buffer><expr> <space>y
+        \ defx#do_action('yank_path')
   "}}}
   " Selected; Execute {{{
   nnoremap <silent><buffer><expr> X
