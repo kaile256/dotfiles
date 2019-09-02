@@ -41,6 +41,7 @@ VimData=(
 Configs=(
 X11
 awesome
+alacritty
 bash
 ctags
 emacs
@@ -49,6 +50,7 @@ git
 i3
 lynx
 nvim
+glrnvim.yml
 qutebrowser
 tmux
 w3m

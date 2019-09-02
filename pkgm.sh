@@ -145,11 +145,7 @@ git clone https://github.com/hlissner/doom-emacs ~/.emacs.d
 #(keyboard-translate ?\C-h ?\C-?)
 #(global-set-key (kbd "C-?") 'help-for-help)
 #
-#(create-fontset-from-ascii-font "Cica-14:weight=normal:slant=normal" nill "Cica-14")
-#for g in ${gitRepos[@]}; do
-#  # if you want to use pocke/get, replace ghq get w/ get ghq
-#  ghq get  $g
-#done
+#(create-fontset-from-ascii-font "SF Mono-12:weight=normal:slant=normal" nill "Cica-12")
 
 GemRepos=(
 neovim
