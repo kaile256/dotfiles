@@ -3,7 +3,7 @@
 " TODO: no-default sneak keymap
 " Make `sneak` unrepeatable, but just repeat as editted.
 
-let g:sneak#prompt  = 'Sneak: {2} Chars >>> '
+let g:sneak#prompt  = 'Sneak: 2 Chars >>> '
 " 0: Pressing f/t will NOT clear the last Sneak search.
 let g:sneak#s_next  = 0
 let g:sneak#f_reset = 1
