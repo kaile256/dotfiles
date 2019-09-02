@@ -1,0 +1,111 @@
+# From: dein.vimrc
+
+#[[plugins]]
+#repo = 'Shougo/context_filetype.vim' #{{{
+#on_ft = ['vimwiki','markdown','html','php','neosnippet','snippets']
+##}}}
+
+[[plugins]]
+repo = 'vim-syntastic/syntastic' #{{{
+on_ft = ['toml']
+hook_post_source = 'runtime syntastic.vimrc'
+#}}}
+
+[[plugins]]
+repo = 'chrisbra/vim-zsh' #{{{
+on_ft = 'zsh'
+#}}}
+
+# SKK
+[[plugins]]
+repo = 'tyru/skkdict.vim' #{{{
+# Syntax File for SKK.
+on_ft = 'skk'
+#}}}
+
+# 13-wm
+[[plugins]]
+repo = 'PotatoesMaster/i3-vim-syntax' #{{{
+on_ft = 'i3'
+#}}}
+
+[[plugins]]
+repo = 'plytophogy/vim-virtualenv' #{{{
+# supports pip-packages, independently installed in shell, to work on vim
+on_ft = 'python3'
+#}}}
+
+[[plugins]]
+repo = 'drmingdrmer/vim-indent-lua' #{{{
+on_ft = 'lua'
+#}}}
+
+[[plugins]]
+repo = 'udalov/kotlin-vim' #{{{
+on_ft = 'kotlin'
+#}}}
+
+#[[plugins]]
+#repo = 'Alloyed/lua-lsp' #{{{
+#on_ft = 'lua'
+#}}}
+
+[[plugins]]
+repo = 'dag/vim-fish' #{{{
+on_ft = 'fish'
+#}}}
+
+[[plugins]]
+repo = 'ericpruitt/tmux.vim' #{{{
+on_ft = 'tmux'
+#}}}
+
+[[plugins]]
+repo = 'vmchale/tomlcheck-vim' #{{{
+on_ft = 'toml'
+#}}}
+[[plugins]]
+repo = 'cespare/vim-toml' #{{{
+on_ft = 'toml'
+# syntax highlight for 'hook_add'
+[[plugins]]
+repo = 'delphinus/vim-toml-dein'
+on_ft = 'toml'
+#}}}
+
+[[plugins]]
+repo = 'othree/html5.vim' #{{{
+on_ft = 'html'
+#[[plugins]]
+#repo = 'mattn/emmet-vim'
+#on_ft = 'html'
+[[plugins]]
+# Html; Auto Close for html-tags
+repo = 'alvan/vim-closetag'
+on_event = 'BufRead'
+hook_add = 'runtime! closetag.vimrc'
+on_ft = ['html', 'javascript']
+hook_add = '''
+  let g:cloesetag_filenames = '*.html,*.vue'
+  '''
+#}}}
+
+#[[plugins]]
+#repo = 'freitass/todo.txt-vim' #{{{
+## Use `set syn=help` instead
+#on_ft = 'text'
+
+[[plugins]]
+repo = 'tpope/vim-markdown' #{{{
+on_ft = 'markdown'
+[[plugins]]
+repo = 'suan/vim-instant-markdown'
+on_event = 'BufRead'
+on_ft = 'markdown'
+#}}}
+
+#[[plugins]]
+#repo = 'lervag/vimtex' #{{{
+#on_ft = 'tex'
+#hook_post_source = 'runtime! vimtex.vimrc'
+#}}}
