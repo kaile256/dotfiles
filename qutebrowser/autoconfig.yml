@@ -6,8 +6,13 @@ settings:
   bindings.commands:
     global:
       caret:
+        <Ctrl+b>: scroll-page 0 -1
+        <Ctrl+d>: scroll-page 0 0.5
+        <Ctrl+f>: scroll-page 0 1
+        <Ctrl+u>: scroll-page 0 -0.5
         W: move-to-next-char
         b: move-to-prev-word
+        i: hint inputs --first
         w: move-to-next-word
       command:
         <Alt+k>: leave-mode
@@ -45,7 +50,6 @@ settings:
         <Ctrl+c>: download-cancel
         <Ctrl+h>: tab-prev
         <Ctrl+i>: forward
-        <Ctrl+j>: scroll-page 0 20
         <Ctrl+l>: tab-next
         <Ctrl+n>: tab-next
         <Ctrl+o>: back
@@ -56,68 +60,82 @@ settings:
         <Ctrl+w><Ctrl+o>: window-only
         <Ctrl+w><Ctrl+p>: tab-pin
         <Ctrl+w><Ctrl+t>: tab-give
+        <Ctrl+w>T: tab-give
         <Ctrl+w>p: tab-pin
         <Ctrl+x>: null
         <Space>1: tab-close
         <Space>2: save
         <Space><Space>: reload
-        <Space>P: open -t {clipboard}
-        <Space>p: open {clipboard}
+        <Space>P: open -t {primary}
+        <Space>Q: close
+        <Space>Z: close
+        <Space>p: open {primary}
         <Space>q: save
         <Space>w: save
-        <Space>z: close
         D: null
         H: null
         J: null
         K: null
         L: null
-        P: open -t {primary}
+        P: open -t {clipboard}
         U: undo
         a: enter-mode insert
-        d: null
+        d: scroll-page 0 +0.5
         e: edit-url
+        ghO: set-cmd-text :open -t https://github.com/search?q=
+        gho: set-cmd-text :open https://github.com/search?q=
         gi: enter-mode insert
         i: hint inputs --first
-        p: open {primary}
+        p: open {clipboard}
         q: null
         qq: tab-close
-        u: null
+        u: scroll-page 0 -0.5
+        yv: enter-mode caret
   editor.command:
     global:
     - nvim-qt
-    - -f
     - '{file}'
-    - -c
-    - normal {line}G{column0}l
+  fonts.completion.category:
+    global: bold 12pt sf mono, Icons
+  fonts.completion.entry:
+    global: 12pt sf mono
+  fonts.debug_console:
+    global: 12pt sf mono
   fonts.downloads:
-    global: 13pt dejavu sans mono, sf mono
+    global: 12pt sf mono
   fonts.hints:
-    global: bold 12pt dejavu sans mono
+    global: bold 12pt sf mono
   fonts.keyhint:
-    global: 12pt dejavu sans monoomono, sf mono
+    global: 12pt sf mono
   fonts.messages.error:
-    global: 12pt dejavu sans mono, sf mono
+    global: 12pt sf mono
   fonts.messages.info:
-    global: 12pt dejavu sans mono
+    global: 12pt sf mono
   fonts.messages.warning:
-    global: 12pt dejavu sans mono
+    global: 12pt sf mono
   fonts.prompts:
-    global: 12pt dejavu sans mono
+    global: 12pt sf mono, noto sans symbols
   fonts.statusbar:
-    global: 12pt dejavu sans mono
+    global: 12pt sf mono, noto sans symbols, dejavu sans mono
+  fonts.tabs:
+    global: 12pt sf mono, noto sans symbols, dejavu sans mono
   fonts.web.family.cursive:
-    global: dejavu sans mono, sf mono
+    global: sf mono, noto sans symbols, dejavu sans mono
   fonts.web.family.fantasy:
-    global: dejavu sans mono, sf mono
+    global: sf mono, noto sans symbols, dejav sans mono
   fonts.web.family.fixed:
-    global: dejavu sans mono, sf mono
+    global: sf mono, noto sans symbols, dejavu sans mono
   fonts.web.family.sans_serif:
-    global: dejavu sans mono, sf mono
+    global: sf mono, noto sans symbols, dejavu sans mono
   fonts.web.family.serif:
-    global: dejavu sans mono, sf mono
+    global: sf mono, noto sans symbols, dejavu sans mono
   fonts.web.family.standard:
-    global: dejavu sans mono, sf mono
+    global: sf mono, noto sans symbols, dejavu sans mono
+  fonts.web.size.default:
+    global: 15
+  fonts.web.size.default_fixed:
+    global: 12
   fonts.web.size.minimum:
-    global: 8
+    global: 9
   scrolling.smooth:
     global: false

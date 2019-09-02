@@ -33,3 +33,8 @@ i3wm: What is `exec --no-startup-id`? https://stackoverflow.com/questions/399135
 fzf.vim: https://github.com/junegunn/fzf.vim
 dein.vim; colortheme on VimEnter must be nested! https://qiita.com/kawaz/items/ee725f6214f91337b42b
 Urxvt; on daemon! http://malkalech.com/urxvt_terminal_emulator
+package/plugin manager https://github.com/vim-volt/volt
+tyru://vim/interesting-vim-script-functions http://tyru.hatenablog.com/entry/2018/02/09/235404
+tyru://why does we have <c-[> as <ESC> on terminal? http://tyru.hatenablog.com/entry/2018/10/04/151740
+neovim on GUI on GPU https://github.com/beeender/glrnvim
+neovim://related projects #list_of_GUI_fronts https://github.com/neovim/neovim/wiki/Related-projects#gui

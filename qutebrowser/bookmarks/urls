@@ -38,3 +38,36 @@ http://malkalech.com/xresources_magic X resources を設定することのメモ
 http://malkalech.com/urxvt_terminal_emulator urxvt こと rxvt-unicode を使うことのメモ | Jenemal Notes
 https://wiki.archlinux.jp/index.php/Synaptics_%E3%82%BF%E3%83%83%E3%83%81%E3%83%91%E3%83%83%E3%83%89 Synaptics タッチパッド - ArchWiki
 https://vim-jp.org/docs/chat.html vim-jp » vim-jpのチャットルームについて
+https://qiita.com/Qiita/items/c686397e4a0f4f11683d Markdown記法 チートシート - Qiita
+https://github.com/rhysd/git-messenger.vim/blob/72975c9be9267689cd408a5ea6a02200502217d0/autoload/gitmessenger/blame.vim git-messenger.vim/blame.vim at 72975c9be9267689cd408a5ea6a02200502217d0 · rhysd/git-messenger.vim · GitHub
+https://github.com/rhysd/committia.vim GitHub - rhysd/committia.vim: A Vim plugin for more pleasant editing on commit messages
+https://github.com/vintersnow/zsh_plugin_manager_speed GitHub - vintersnow/zsh_plugin_manager_speed: compare plugin manager speed
+https://github.com/zdharma/zplugin GitHub - zdharma/zplugin: Flexible Zsh plugin manager with clean fpath, reports, completion management, turbo mode, services
+https://github.com/KeitaNakamura/neodark.vim GitHub - KeitaNakamura/neodark.vim: A dark color scheme for vim
+https://qiita.com/delphinus/items/a202d0724a388f6cdbc3 【Neovim】半透明色のウィンドウが開けるようになりました - Qiita
+https://github.com/neoclide/coc-html GitHub - neoclide/coc-html: Html language server extension for coc.nvim.
+https://github.com/zdharma/zplugin#installation GitHub - zdharma/zplugin: Flexible Zsh plugin manager with clean fpath, reports, completion management, turbo mode, services
+https://github.com/vmchale/tomlcheck-vim GitHub - vmchale/tomlcheck-vim: Ein Plugin für tomlcheck
+https://github.com/delphinus delphinus (JINNOUCHI Yasushi) · GitHub
+https://qiita.com/shikato/items/2e8af1330e3ac8949279 ブラウザのVim体験向上施策について - Qiita
+https://github.com/delphinus/dotfiles/blob/master/.vim/rc/dein/default.toml dotfiles/default.toml at master · delphinus/dotfiles · GitHub
+https://github.com/neoclide/coc.nvim GitHub - neoclide/coc.nvim: Intellisense engine for vim8 & neovim, full language server protocol support as VSCode
+https://github.com/tyru/capture.vim GitHub - tyru/capture.vim: Show Ex command output in buffer
+https://github.com/haya14busa/vim-asterisk GitHub - haya14busa/vim-asterisk: *-Improved
+https://github.com/morhetz/gruvbox GitHub - morhetz/gruvbox: Retro groove color scheme for Vim
+https://muunyblue.github.io/c95d62c68196b2d0c1c1de8c7eeb6d50.html Neovimはじめました & 2016年vimrc大掃除
+https://github.com/kana/vim-textobj-user GitHub - kana/vim-textobj-user: Vim plugin: Create your own text objects
+https://github.com/wellle/targets.vim GitHub - wellle/targets.vim: Vim plugin that provides additional text objects
+https://github.com/Shougo/defx.nvim GitHub - Shougo/defx.nvim: The dark powered file explorer implementation
+https://github.com/prabirshrestha/vim-lsp GitHub - prabirshrestha/vim-lsp: async language server protocol plugin for vim and neovim
+https://github.com/vim-volt/volt GitHub - vim-volt/volt: A meta-level vim package manager
+http://tyru.hatenablog.com/entry/20111214/play_with_vim_regexp Vimのニッチな正規表現で遊ぼう - Humanity
+http://tyru.hatenablog.com/entry/2018/02/09/235404 最近の Vim で入った面白 Vim script 関数 - Humanity
+https://github.com/beeender/glrnvim GitHub - beeender/glrnvim: glrnvim wraps nvim with your favourite terminal into a standalone, non-fancy but daily-usable neovim GUI.
+https://github.com/neovim/neovim/wiki/Related-projects#gui Related projects · neovim/neovim Wiki · GitHub
+https://github.com/fszymanski/fzf-gitignore GitHub - fszymanski/fzf-gitignore: fzf interface for creating .gitignore files
+https://github.com/rhysd/NyaoVim GitHub - rhysd/NyaoVim: Web-enhanced Extensible Neovim Frontend
+https://github.com/tpope/vim-repeat GitHub - tpope/vim-repeat: repeat.vim: enable repeating supported plugin maps with "."
+https://github.com/kamykn/spelunker.vim GitHub - kamykn/spelunker.vim: Improved vim spelling plugin (with camel case support)!
+https://github.com/scrooloose/nerdcommenter GitHub - scrooloose/nerdcommenter: Vim plugin for intensely orgasmic commenting
+https://github.com/mbbill/undotree GitHub - mbbill/undotree: The undo history visualizer for VIM
