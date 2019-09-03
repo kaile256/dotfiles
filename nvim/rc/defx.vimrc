@@ -1,5 +1,12 @@
+scriptencoding utf-8
 " From: tool.toml
 " Repo: Shougo/defx.nvim
+
+" Prepare commands to chmod on defx.
+"command! Chmod_755 :call setfperm(<cfile>, 'rwxr-xr-x')
+"command! Chmod_666 :call setfperm(<cfile>, 'rw-rw-rw-')
+"command! Chmod_644 :call setfperm(<cfile>, 'rw-r--r--')
+"command! Chmod_444 :call setfperm(<cfile>, 'r--r--r--')
 
 "" Defx-Icons {{{
 " Note: defx-icons collapses i3 or qt.
@@ -32,6 +39,7 @@ call defx#custom#column('filename', {
 "}}}
 
 " Keymap; Open Preceding Tree
+" TODO: on Term-Mode, not to get errors; like get path with !pwd.
 nnoremap <silent> <a-v>
       \ :<c-u>Defx `expand('%:p:h')` -search=`expand('%:p')`
       \ -split=vertical -winwidth=30 -winheight=60 -direction=topleft
