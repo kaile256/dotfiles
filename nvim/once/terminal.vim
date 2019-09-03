@@ -1,7 +1,4 @@
-if exists('loaded_lazy_terminal')
-  finish
-endif
-let g:loaded_lazy_terminal = 1
+" From: init.vim
 
 " Keymap; ESC & Alt {{{
 " esc n the same way as in the other mode.
@@ -21,29 +18,30 @@ tnoremap <a-l> <c-\><c-n>l
 "tnoremap <a-l> <c-\><c-n><c-w>l
 "}}}
 
-augroup OnTerminalBuffer "{{{
+augroup OnTerminalBuffer
   au!
-
   " Open Terminal as Startpage
-  "if @% == '' && &filetype ==# '' && &buftype ==# ''
+  "if @% == '' && &ft ==# '' && &bt ==# ''
   "  au VimEnter * nested call termopen(&shell)
   "endif
-  au TermOpen * if &bt ==# 'terminal' | setl nonumber signcolumn=no modifiable
-  au TermOpen * if &bt ==# 'terminal' | norm zH | startinsert
-
-augroup END "}}}
+  if has('nvim')
+    au TermOpen * setl nonumber signcolumn=
+    au TermOpen * norm zH 
+    au TermOpen * startinsert
+  endif
+augroup END
 
 " Color; Set TUI Color {{{
-if $TERM =~ '^\(tmux\|iterm\|vte\|gnome\)\(-.*\)\?$'
+if $TERM =~# '^\(tmux\|iterm\|vte\|gnome\)\(-.*\)\?$'
   set termguicolors "Enables 24-bit RGB color in TUI.
-elseif $TERM =~ '^\(rxvt\|screen\|interix\|putty\)\(-.*\)\?$'
+elseif $TERM =~# '^\(rxvt\|screen\|interix\|putty\)\(-.*\)\?$'
   set notermguicolors
-elseif $TERM =~ '^\(xterm\)\(-.*\)\?$'
-  if $XTERM_VERSION != ''
+elseif $TERM =~# '^\(xterm\)\(-.*\)\?$'
+  if $XTERM_VERSION !=# ''
     set termguicolors
-  elseif $KONSOLE_PROFILE_NAME != ''
+  elseif $KONSOLE_PROFILE_NAME !=# ''
     set termguicolors
-  elseif $VTE_VERSION != ''
+  elseif $VTE_VERSION !=# ''
     set termguicolors
   else
     set notermguicolors

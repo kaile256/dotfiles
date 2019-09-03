@@ -11,10 +11,43 @@ cnoremap <c-r>l     <c-r><c-l>
 cnoremap <c-r>w     <c-r><c-w>
 "}}}
 
-" Abbr; Echo file Status {{{
-cnoreabbr <expr> es (getcmdtype() == ':' && getcmdline() =~ '^es$')? 'call <SID>echo_file_info()' : 'es'
+function! s:my_register_as_executed(cmd)
+  " Ref: sneak.vim
+  copen
+  setl modifiable
+  put =execute('a:cmd')
+endfunction
+command! PrintExecuted :<c-u>call <SID>my_print_on_qf()
+
+function! s:my_print_executed_on_qf(cmd)
+  " Ref: sneak.vim
+  copen
+  setl modifiable
+  put =execute('a:cmd')
+endfunction
+command! PrintExecuted :<c-u>call <SID>my_print_on_qf()
+
+"augroup AutoSuggestMkdir
+"  au!
+"  function! s:auto_suggest_mkdir(dir, force) "{{{
+"    if !isdirectory(a:dir) && (a:force ||
+"          \    input(printf('"%s" does not exist. Create? [y/N]', a:dir)) =~? '^y\%[es]$')
+"      call mkdir(iconv(a:dir, &encoding, &termencoding), 'p')
+"    endif
+"  endfunction "}}}
+"  au BufWritePre * call <SID>auto_suggest_mkdir(expand('<afile>:p:h'), v:cmdbang)
+"augroup END
+
+cnoreabbr <expr> px (getcmdtype() == ':' && getcmdline() =~ '^px$')? "put =execute('')<Left><Left>" : 'px'
+
+" Abbr; for vimdiff {{{
+cnoreabbr <expr> dth (getcmdtype() == ':' && getcmdline() =~ '^dth$')? 'diffthis' : 'dth'
+cnoreabbr <expr> dof (getcmdtype() == ':' && getcmdline() =~ '^dof$')? 'diffoff!' : 'dof'
 "}}}
-" Abbr; Typo {{{
+" Abbr; Echo file Status {{{
+"cnoreabbr <expr> es (getcmdtype() == ':' && getcmdline() =~ '^es$')? 'call <SID>echo_file_info()' : 'es'
+"}}}
+" Abbr; Before Typo {{{
 cnoreabbr <expr> man (getcmdtype() == ':' && getcmdline() =~ '^man$')? 'Man' : 'man'
 "}}}
 " Abbr; :tabe {{{
