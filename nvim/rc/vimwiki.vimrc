@@ -5,7 +5,6 @@ scriptencoding utf-8
 " Path: ftplugin/vimwiki.vim
 
 set path+=~/vimwiki/**
-
 " Let; Highlight {{{
 let g:vimwiki_hl_headers    = 1
 let g:vimwiki_hl_cb_checked = 2
@@ -100,111 +99,116 @@ cnoreabbr <expr> v (getcmdtype() == ':' && getcmdline() =~ 'VimwikiGoto v$')? 'v
 cnoreabbr <expr> vi (getcmdtype() == ':' && getcmdline() =~ 'VimwikiGoto vi$')? 'vim' : 'vi'
 "}}}
 
+function! s:my_startpage(page) "{{{
+  if @% ==# '' && &ft ==# '' && &bt ==# '' && getline(1,'$') ==# ['']
+    if a:page ==# 'mdwiki'
+      e ~/vimwiki/mdwiki/index.md
+    elseif a:page ==# 'wiki'
+      VimwikiIndex
+    elseif a:page ==# 'diary'
+      VimwikiMakeDiaryNote
+    elseif a:page ==# 'term'
+      call termopen(&shell)
+      setlocal nonumber signcolumn=no modifiable
+    endif
+  endif
+endfunction "}}}
+function! s:on_buf_vimwiki_dairy() "{{{
+  "" BufHot; Yesterday/Tomorrow {{{
+  nnoremap <buffer> <a-o> :VimwikiMakeYesterdayDiaryNote<cr>
+  nnoremap <buffer> <a-i> :VimwikiMakeTomorrowDiaryNote<cr>
+  "}}}
+endfunction "}}}
+function! s:on_buf_vimwiki() "{{{
+  " Bufmap; Undo Break {{{
+  inoremap <buffer> , ,<c-g>u
+  inoremap <buffer> . .<c-g>u
+  inoremap <buffer> ! !<c-g>u
+  inoremap <buffer> ? ?<c-g>u
+  "}}}
+  " Bufmap; Nowait {{{
+  noremap <buffer><nowait> o o
+  noremap <buffer><nowait> O O
+  noremap <buffer><nowait> <c-i> <c-i>
+  noremap <buffer><nowait> <c-o> <c-o>
+
+  " Nowait; Insert
+  inoremap <buffer><nowait> <c-t> <c-t>
+  inoremap <buffer><nowait> <c-d> <c-d>
+  "}}}
+  " Bufmap; PN Link {{{
+  " TODO: usual-<c-jk> on = Contents =
+  "nnoremap <buffer><expr> <c-k> ':VimwikiPrevLink<cr>'
+  "nnoremap <buffer><expr> <c-j> ':VimwikiNextLink<cr>'
+
+  " Conversion
+  "" Mnemonic: Export to/from ~~
+  nnoremap <buffer><silent> <a-x><a-h> :Vimwiki2HTMLBrowse <bar> echo 'Converting Current Buffer to HTML...'<cr>
+  "" From Org
+  " WARNING: experimental
+  "nnoremap <silent> <a-x><a-w> :g/^*/norm Wgev0r= 0Why0A <c-r>0<cr>
+  "" .wiki to .markdown
+  nnoremap <buffer><silent> <a-x><a-m> :keeppatterns %s/=/#/g <bar> %s/ #\+$//g <bar> %s/{{{/```/g <bar> %s/}}}/```/g <cr>
+
+  """ Todo
+  nnoremap <buffer><silent> <a-g><a-g> :<c-u>VimwikiToggleListItem<cr>
+  """ FollowLink
+  nnoremap <buffer><silent> <a-g><a-f> :<c-u>VimwikiFollowLink<cr>
+  nnoremap <buffer><silent> <a-g><a-s> :<c-u>VimwikiSplitLink<cr>
+  nnoremap <buffer><silent> <a-g><a-v> :<c-u>VimwikiVSplitLink<cr>
+  nnoremap <buffer><silent> <a-g><a-v> :<c-u>VimwikiTabnewLink<cr>
+
+  """ Link Like Tags
+  noremap  <buffer><silent> <c-t>      :<c-u>VimwikiGoBackLink<cr>
+  noremap  <buffer><silent> <c-t>      :<c-u>VimwikiGoBackLink<cr>
+  "nnoremap  <buffer><silent> <c-]> <Plug>VimwikiNormalizeLink:<c-u>VimwikiFollowLink<cr>
+  nnoremap <buffer><silent> <c-]>      :<c-u>VimwikiFollowLink<cr>
+  noremap  <buffer><silent> <c-w><c-]> :<c-u>VimwikiVSplitLink reuse<cr>
+  vnoremap <buffer><silent> <c-]>      <Plug>VimwikiNormalizeLinkVisual
+
+
+  " Keymap; List {{{{
+  noremap <buffer><silent> <a-space> :<c-u>VimwikiToggleListItem<CR>
+
+  nmap <silent><buffer> + <Plug>VimwikiIncrementListItem
+  vmap <silent><buffer> + <Plug>VimwikiIncrementListItem
+  nmap <silent><buffer> _ <Plug>VimwikiDecrementListItem
+  vmap <silent><buffer> _ <Plug>VimwikiDecrementListItem
+  "}}}
+  "}}}
+  " CmdAbbr; Rename Link {{{
+  cnoreabbr <buffer><expr> rn (getcmdtype() == ':' && getcmdline() =~ '^rn$')? 'VimwikiRenameLink' : 'rn'
+  "}}}
+  " CmdAbbr; VimWikiGoto {{{
+  cnoreabbr <buffer><expr> gw (getcmdtype() == ':' && getcmdline() =~ '^gw$')? 'VimwikiGoto' : 'gw'
+  cnoreabbr <buffer><expr> wg (getcmdtype() == ':' && getcmdline() =~ '^wg$')? 'VimwikiGoto' : 'wg'
+  cnoreabbr <buffer><expr> gwb (getcmdtype() == ':' && getcmdline() =~ '^gwb$')? 'tab sp <bar> VimwikiGoto' : 'gwb'
+  cnoreabbr <buffer><expr> gws (getcmdtype() == ':' && getcmdline() =~ '^gws$')? 'sp <bar> VimwikiGoto' : 'gws'
+  cnoreabbr <buffer><expr> gwv (getcmdtype() == ':' && getcmdline() =~ '^gwv$')? 'vs <bar> VimwikiGoto' : 'gwv'
+  cnoreabbr <buffer><expr> bgw (getcmdtype() == ':' && getcmdline() =~ '^bgw$')? 'tab sp <bar> VimwikiGoto' : 'bgw'
+  cnoreabbr <buffer><expr> sgw (getcmdtype() == ':' && getcmdline() =~ '^sgw$')? 'sp <bar> VimwikiGoto' : 'sgw'
+  cnoreabbr <buffer><expr> vgw (getcmdtype() == ':' && getcmdline() =~ '^vgw$')? 'vs <bar> VimwikiGoto' : 'vgw'
+
+  "" VimwikiGoto; with direction
+  cnoreabbr <buffer><expr> we (getcmdtype() == ':' && getcmdline() =~ '^we$')? 'VimwikiGoto' : 'we'
+  cnoreabbr <buffer><expr> wb (getcmdtype() == ':' && getcmdline() =~ '^wb$')? 'tab VimwikiGoto' : 'wb'
+  cnoreabbr <buffer><expr> ws (getcmdtype() == ':' && getcmdline() =~ '^ws$')? 'sp <bar> VimwikiGoto' : 'ws'
+  cnoreabbr <buffer><expr> wv (getcmdtype() == ':' && getcmdline() =~ '^wv$')? 'vs <bar> VimwikiGoto' : 'wv'
+  "}}}
+endfunction "}}}
 augroup CallMyVimwikiFunctions
   au!
-  function! s:my_startpage(page) "{{{
-    if @% ==# '' && &ft ==# '' && &bt ==# '' && getline(1,'$') ==# ['']
-      if a:page ==# 'mdwiki'
-        e ~/vimwiki/mdwiki/index.md
-      elseif a:page ==# 'wiki'
-        VimwikiIndex
-      elseif a:page ==# 'diary'
-        VimwikiMakeDiaryNote
-      elseif a:page ==# 'term'
-        call termopen(&shell)
-        setlocal nonumber signcolumn=no modifiable
-      endif
-    endif
-  endfunction "}}}
   au VimEnter * ++nested         call <SID>my_startpage('mdwiki')
-  function! s:on_buf_vimwiki() "{{{
-    " Bufmap; Nowait {{{
-    noremap <buffer><nowait> o o
-    noremap <buffer><nowait> O O
-    noremap <buffer><nowait> <c-i> <c-i>
-    noremap <buffer><nowait> <c-o> <c-o>
-
-    " Nowait; Insert
-    inoremap <buffer><nowait> <c-t> <c-t>
-    inoremap <buffer><nowait> <c-d> <c-d>
-    "}}}
-    " Bufmap; PN Link {{{
-    " TODO: usual-<c-jk> on = Contents =
-    "nnoremap <buffer><expr> <c-k> ':VimwikiPrevLink<cr>'
-    "nnoremap <buffer><expr> <c-j> ':VimwikiNextLink<cr>'
-
-    " Conversion
-    "" Mnemonic: Export to/from ~~
-    nnoremap <buffer><silent> <a-x><a-h> :Vimwiki2HTMLBrowse <bar> echo 'Converting Current Buffer to HTML...'<cr>
-    "" From Org
-    " WARNING: experimental
-    "nnoremap <silent> <a-x><a-w> :g/^*/norm Wgev0r= 0Why0A <c-r>0<cr>
-    "" .wiki to .markdown
-    nnoremap <buffer><silent> <a-x><a-m> :keeppatterns %s/=/#/g <bar> %s/ #\+$//g <bar> %s/{{{/```/g <bar> %s/}}}/```/g <cr>
-
-    """ Todo
-    nnoremap <buffer><silent> <a-g><a-g> :<c-u>VimwikiToggleListItem<cr>
-    """ FollowLink
-    nnoremap <buffer><silent> <a-g><a-f> :<c-u>VimwikiFollowLink<cr>
-    nnoremap <buffer><silent> <a-g><a-s> :<c-u>VimwikiSplitLink<cr>
-    nnoremap <buffer><silent> <a-g><a-v> :<c-u>VimwikiVSplitLink<cr>
-    nnoremap <buffer><silent> <a-g><a-v> :<c-u>VimwikiTabnewLink<cr>
-
-    """ Link Like Tags
-    noremap  <buffer><silent> <c-t>      :<c-u>VimwikiGoBackLink<cr>
-    noremap  <buffer><silent> <c-t>      :<c-u>VimwikiGoBackLink<cr>
-    "nnoremap  <buffer><silent> <c-]> <Plug>VimwikiNormalizeLink:<c-u>VimwikiFollowLink<cr>
-    nnoremap <buffer><silent> <c-]>      :<c-u>VimwikiFollowLink<cr>
-    noremap  <buffer><silent> <c-w><c-]> :<c-u>VimwikiVSplitLink reuse<cr>
-    vnoremap <buffer><silent> <c-]>      <Plug>VimwikiNormalizeLinkVisual
-
-
-    " Keymap; List {{{{
-    noremap <buffer><silent> <a-space> :<c-u>VimwikiToggleListItem<CR>
-
-    nmap <silent><buffer> + <Plug>VimwikiIncrementListItem
-    vmap <silent><buffer> + <Plug>VimwikiIncrementListItem
-    nmap <silent><buffer> _ <Plug>VimwikiDecrementListItem
-    vmap <silent><buffer> _ <Plug>VimwikiDecrementListItem
-    "}}}
-    "}}}
-    " CmdAbbr; Rename Link {{{
-    cnoreabbr <buffer><expr> rn (getcmdtype() == ':' && getcmdline() =~ '^rn$')? 'VimwikiRenameLink' : 'rn'
-    "}}}
-    " CmdAbbr; VimWikiGoto {{{
-    cnoreabbr <buffer><expr> gw (getcmdtype() == ':' && getcmdline() =~ '^gw$')? 'VimwikiGoto' : 'gw'
-    cnoreabbr <buffer><expr> wg (getcmdtype() == ':' && getcmdline() =~ '^wg$')? 'VimwikiGoto' : 'wg'
-    cnoreabbr <buffer><expr> gwb (getcmdtype() == ':' && getcmdline() =~ '^gwb$')? 'tab sp <bar> VimwikiGoto' : 'gwb'
-    cnoreabbr <buffer><expr> gws (getcmdtype() == ':' && getcmdline() =~ '^gws$')? 'sp <bar> VimwikiGoto' : 'gws'
-    cnoreabbr <buffer><expr> gwv (getcmdtype() == ':' && getcmdline() =~ '^gwv$')? 'vs <bar> VimwikiGoto' : 'gwv'
-    cnoreabbr <buffer><expr> bgw (getcmdtype() == ':' && getcmdline() =~ '^bgw$')? 'tab sp <bar> VimwikiGoto' : 'bgw'
-    cnoreabbr <buffer><expr> sgw (getcmdtype() == ':' && getcmdline() =~ '^sgw$')? 'sp <bar> VimwikiGoto' : 'sgw'
-    cnoreabbr <buffer><expr> vgw (getcmdtype() == ':' && getcmdline() =~ '^vgw$')? 'vs <bar> VimwikiGoto' : 'vgw'
-
-    "" VimwikiGoto; with direction
-    cnoreabbr <buffer><expr> we (getcmdtype() == ':' && getcmdline() =~ '^we$')? 'VimwikiGoto' : 'we'
-    cnoreabbr <buffer><expr> wb (getcmdtype() == ':' && getcmdline() =~ '^wb$')? 'tab VimwikiGoto' : 'wb'
-    cnoreabbr <buffer><expr> ws (getcmdtype() == ':' && getcmdline() =~ '^ws$')? 'sp <bar> VimwikiGoto' : 'ws'
-    cnoreabbr <buffer><expr> wv (getcmdtype() == ':' && getcmdline() =~ '^wv$')? 'vs <bar> VimwikiGoto' : 'wv'
-    "}}}
-  endfunction "}}}
   au FileType vimwiki            call <SID>on_buf_vimwiki()
-  function! s:on_buf_vimwiki_dairy() "{{{
-    "" BufHot; Yesterday/Tomorrow {{{
-    nnoremap <buffer> <a-o> :VimwikiMakeYesterdayDiaryNote<cr>
-    nnoremap <buffer> <a-i> :VimwikiMakeTomorrowDiaryNote<cr>
-    "}}}
-  endfunction "}}}
   au BufEnter vimwiki/*/diary/** call <SID>on_buf_vimwiki_dairy()
 augroup END
-augroup AutoFormatVimwiki "{{{
 
+augroup AutoFormatVimwiki
   au!
   au VimEnter *wiki/*/*.md setl syn=vimwiki
-  au FileType vimwiki setl nowrap fdm=syntax fdl=0
-  au FileType vimwiki setl tabstop=4 softtabstop=4 shiftwidth=4
+  au FileType vimwiki      setl nowrap    fdm=syntax    fdl=0
+  au FileType vimwiki      setl tabstop=4 softtabstop=4 shiftwidth=4
   au BufWritePre *       if &syn  ==# 'vimwiki' | VimwikiTOC
   au BufWritePre index.* if &syn  ==# 'vimwiki' | VimwikiGenerateLinks
-  au InsertLeave *       if &wrap == 0         | norm zH
-
-augroup END "}}}
+  au InsertLeave *       if &wrap ==  0         | norm zH
+augroup END
