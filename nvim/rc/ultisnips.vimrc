@@ -1,9 +1,12 @@
-"""" From: filetype.toml
-""""  Ref: coc.vimrc
+" From: insert.toml
 
-let g:UltiSnipsEditSplit = 'normal'
+let g:UltiSnipsEditSplit = 'tabdo'
 
-let g:UltiSnipsSnippetDirectories = ['~/.config/nvim/data/ultisnips.d']
+let g:UltiSnipsSnippetDirectories = ['~/.config/nvim/data/ultisnips']
 
-"""" KEYMAP
-nnoremap <silent> <a-s><a-p> :<c-u>UltiSnipsEdit<cr>
+let g:UltiSnipsExpandTrigger       = '<c-\>'
+let g:UltiSnipsListSnippets        = '<c-tab>'
+let g:UltiSnipsJumpForwardTrigger  = '<c-n>'
+let g:UltiSnipsJumpBackwardTrigger = '<c-p>'
+
+noremap <silent> <a-s><a-p> :<c-u>UltiSnipsEdit<cr>
