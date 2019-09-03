@@ -1,13 +1,14 @@
 " From: nvim/init.vim
 
 " Redraw; Indent
-nnoremap <S-TAB> gg=G''zz
+" :retab! Replace all whitespaces and tabs according to tabstop/expandtab.
+nnoremap <S-TAB>  gg=G''zz
 
 " Redraw; No Highlight
 inoremap <silent> <c-l>         <c-o>:<c-u>noh <cr><c-o><c-l>
 nnoremap <silent> <c-space><space>   :<c-u>noh <cr><c-l>
 nnoremap <silent> <c-space><c-space> :<c-u>noh <cr><c-l>
-nnoremap <silent> <space><space>     :cclose <cr>
+nnoremap <silent> <space><space>     :cclose <bar> lclose <cr>
 
 " Move Window
 nnoremap <c-w>h <c-w>H
