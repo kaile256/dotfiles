@@ -1,10 +1,13 @@
+scriptencoding utf-8
+" From init.vim
+
 " Variable; Font {{{
 set guifont=SF\ Mono:h12
 set guifontset=SF\ Mono:h12
 set guifontwide=SF\ Mono:h12
 "}}}
 " Variable; Terminal {{{
-set shell=sh
+"set shell=bash
 if executable('urxvt')
   let $TERM='rxvt-unicode'
 else
@@ -76,11 +79,11 @@ set undofile
 "augroup END
 " XDG Base Repository
 set undodir=~/.local/share/nvim/undo
-"set directory="~/.local/share/nvim/swap
+"set directory=~/.local/share/nvim/swap
 "set backupdir=~/.local/share/nvim/backup
 "set viminfo='1000,n~/.local/share/nvim/info
 "set runtimepath=$XDG_CONFIG_HOME/vim,http://eleclog.quitsq.com/2014/10/arch-on-x220.html?m=1$VIMRUNTIME,$XDG_CONFIG_HOME/vim/after
-let g:netrw_home = "~/.local/share/nvim"
+let g:netrw_home = '~/.local/share/nvim'
 "}}}
 
 " Appearance; Pmenu {{{
@@ -133,8 +136,8 @@ augroup AutoToggleCursorLine "{{{
 
   au!
   " TODO: on GUI, InsertLeave doesn't work!
-  au BufEnter,CursorHold   * if &l:cursorline == 0 | setl cursorline
-  au BufLeave,CursorMovedI * if &l:cursorline == 1 | setl nocursorline
+  au BufEnter,CursorHold   * if &l:cursorline == 0 | setl cursorline   | endif
+  au BufLeave,CursorMovedI * if &l:cursorline == 1 | setl nocursorline | endif
 
 augroup END "}}}
 " to highlight only CursorLineNr
@@ -166,13 +169,15 @@ set matchpairs+=<:>
 " Edit; Invisible Charactars {{{
 " show space and CR
 set list
-"" Quick Reference of 'listchar': which chars show instead.
-"" eol: <CR>
-"" extends: when window-width omits on right end.
-"" precedes: when window-width omits on left.
-"" nbsp: for space
+"set list listchars=nbsp:¦_
+"  augroup ListAutoToggle
+"  au!
+"  au BufLeave,CursorMovedI * if &l:list | setl nolist | endif
+"  au BufEnter,CursorHold * if &l:list == 0 | setl list | endif
+"augroup END
 "set listchars=tab:»-,trail:-,eol:↲,extends:»,precedes:«,nbsp:%
 "}}}
+
 " Edit; Visual Mode {{{
 " visualize even if there is no chars.
 set virtualedit=block
@@ -183,7 +188,9 @@ set noshowcmd
 " Cmdline; Completion
 set wildmenu wildmode=list:longest
 " for `:substitute`
+if has('nvim')
 set inccommand=nosplit
+endif
 "}}}
 
 " Multiple Windows
@@ -196,6 +203,10 @@ set foldnestmax=10
 augroup SetFdmDotfiles
   au!
   au BufNewFile,BufRead **/dotfiles/** set fdm=marker
+  " TODO: Understand :mkview
+  " mkview: save a file condition according to `:viewoptions`
+  "au BufWinLeave * mkview expand('%')
+  "au BufWinEnter * loadview expand('%')
 augroup END
 "}}}
 
