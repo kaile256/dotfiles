@@ -1,11 +1,11 @@
 # From: dein.vimrc
 # Ref: Init.toml
 
-## Indent
+# Indent
 [[plugins]]
 repo = 'Yggdroot/indentLine' #{{{
 on_event = 'BufRead'
-hook_post_source = 'runtime indentLine.vimrc'
+hook_add = 'runtime indentLine.vimrc'
 #}}}
 
 # Paren: Doesn't Work
