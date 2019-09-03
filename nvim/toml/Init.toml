@@ -40,14 +40,14 @@ repo = 'vim-airline/vim-airline-themes'
 #hook_add = 'runtime! lightline.vimrc'
 ##}}}
 
-#[[plugins]]
-#repo = 'KeitaNakamura/neodark.vim' #{{{
-#if = 'has("nvim")'
-#hook_add = 'runtime neodark.vimrc'
-##}}}
 [[plugins]]
-repo = 'morhetz/gruvbox' #{{{
-# CAUTION: Colorscheme MUST be sourced after dein#end() on dein.vim.
+repo = 'KeitaNakamura/neodark.vim' #{{{
 if = 'has("nvim")'
-hook_add = 'runtime gruvbox.vimrc'
+hook_add = 'runtime neodark.vimrc'
 #}}}
+#[[plugins]]
+#repo = 'morhetz/gruvbox' #{{{
+## CAUTION: Colorscheme MUST be sourced after dein#end() on dein.vim.
+#if = 'has("nvim")'
+#hook_add = 'runtime gruvbox.vimrc'
+##}}}
