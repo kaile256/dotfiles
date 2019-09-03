@@ -49,7 +49,7 @@
     "<C-s>": "action:split",
     "<C-v>": "action:vsplit",
     "<CR>":  "action:drop",
-    "<C-y>": "eval:@@",
+    "<C-r>": "eval:@@",
     "<c-c>": "do:cancel",
     "<a-h>": "do:cancel",
     "<a-j>": "do:cancel",
@@ -72,8 +72,10 @@
     "<c-v>": "action:vsplit",
     "<c-s>": "action:split"
   },
-  "vimlsp.debug": {
-    "type": "boolean",
+
+  "yank.enableCompletion": "false",
+
+  "vimlsp.debug": { "type": "boolean",
     "default": true,
     "description": "enable coc-vimlsp service debug"
   },
