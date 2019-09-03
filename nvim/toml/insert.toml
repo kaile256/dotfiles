@@ -3,6 +3,8 @@
 # Imput Method
 [[plugins]]
 repo = 'tyru/eskk.vim' #{{{
+# Don't source eskk on gnvim/nvim-qt.
+if = '!exists("g:gnvim") || !exists("g:GuiLoaded")'
 on_event = ['InsertEnter', 'CmdlineEnter']
 hook_post_source = 'runtime eskk.vimrc'
 #}}}
