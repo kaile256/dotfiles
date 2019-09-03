@@ -120,11 +120,6 @@ if &modelineexpr == 0
 endif
 "}}}
 "}}}
-" Appearance; Redraw "{{{
-" lazyredraw: forbids to redraw screen while executing macros.
-set lazyredraw
-"}}}
-
 " Appearance; Cursor {{{
 " shorter for CursorHold & CursorHoldI
 set updatetime=300
@@ -157,16 +152,7 @@ set ruler
 " 2: always show the current status.
 set laststatus=2
 "}}}
-
-" Appearance; Pair {{{
-" show match parens.
-set showmatch
-set matchtime=1 " 10 times the number sec.
-" add '<' and '>' as a match pair
-set matchpairs+=<:>
-"}}}
-
-" Edit; Invisible Charactars {{{
+" Appearance; Invisible Charactars {{{
 " show space and CR
 set list
 "set list listchars=nbsp:¦_
@@ -178,11 +164,57 @@ set list
 "set listchars=tab:»-,trail:-,eol:↲,extends:»,precedes:«,nbsp:%
 "}}}
 
-" Edit; Visual Mode {{{
+" Method; Imput Method {{{
+" 0: IM will be off, when lmap is off.
+" lmap supports 3 modes: insert, commandline and lang-arg.
+set iminsert=0
+set imsearch=0
+set imcmdline
+augroup FcitxRemoteToggle
+  if &imdisable == 0 " i.e., if IM is active on vim.
+    au!
+    au VimEnter    * nested call system('fcitx-remote -s ssk')
+    au InsertEnter * nested call system('fcitx-remote -o')
+    au InsertLeave * nested call system('fcitx-remote -c')
+  endif
+augroup END
+"}}}
+" Method; Tab&Indent {{{
+"" Tab-Char
+" insert spaces, instead of a tab-char.
+set expandtab
+" number of spaces, inserted by <TAB>, that a tab-char counts for.
+set tabstop=2
+" number of spaces, inserted by <TAB>, next to tab-chars.
+set softtabstop=2
+
+"" Tab&Indent; Indent
+" copy indent dependent on first char of current line.
+set autoindent
+" copy indent dependent on last char of current line.
+set smartindent
+" indent setting for c-lang.
+"set cindent
+
+" number of spaces inserted by autoindent.
+set shiftwidth=2
+" for manual indent, insert spaces according to shiftwidth.
+set smarttab
+" for '</>' indent, insert spaces according to shiftwidth.
+set shiftround
+"}}}
+" Method; Pair {{{
+" show match parens.
+set showmatch
+set matchtime=1 " 10 times the number sec.
+" add '<' and '>' as a match pair
+set matchpairs+=<:>
+"}}}
+" Method; Visual Mode {{{
 " visualize even if there is no chars.
 set virtualedit=block
 "}}}
-" Edit; Commandline Mode {{{
+" Method; Commandline Mode {{{
 set noshowcmd
 "set history=10000
 " Cmdline; Completion
@@ -192,17 +224,17 @@ if has('nvim')
 set inccommand=nosplit
 endif
 "}}}
-
-" Multiple Windows
-set splitbelow
-set splitright
-
-" Edit; Fold {{{
+" Method; Macros "{{{
+" lazyredraw: forbids to redraw screen while executing macros.
+set lazyredraw
+"}}}
+" Method; Fold {{{
+set foldenable
 set foldlevel=1
 set foldnestmax=10
 augroup SetFdmDotfiles
   au!
-  au BufNewFile,BufRead **/dotfiles/** set fdm=marker
+  au BufNewFile,BufRead dotfiles/** if &fdm ==# 'manual' | set fdm=marker
   " TODO: Understand :mkview
   " mkview: save a file condition according to `:viewoptions`
   "au BufWinLeave * mkview expand('%')
@@ -213,3 +245,20 @@ augroup END
 " CAUTION: :DiffOrig ruins diff syntax.
 "command! DiffOrig vert above new | setl bt=quickfix | r # | 0d_ | diffthis
 "      \ | wincmd p | diffthis
+
+" Leap; Multiple Windows
+set splitbelow
+set splitright
+
+" Leap; Jump
+" nostartofline: keep cursor column on jump, like `gg`, `M`.
+set nostartofline
+" hidden: ignore unwritten buffers to jump.
+set hidden
+
+" Leap; Search
+set noignorecase
+"set smartcase
+set incsearch hlsearch nowrapscan
+" fold all lines unmatched on {pattern}.
+" CAUTION: foldable is apt to collapse format.
