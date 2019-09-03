@@ -1,0 +1,73 @@
+# From: dein.toml
+
+# Find; Search
+[[plugins]]
+repo = 'haya14busa/vim-asterisk' #{{{
+on_map = '<Plug>(asterisk-'
+hook_add = 'runtime asterisk.vimrc'
+[[plugins]]
+repo = 'thinca/vim-visualstar'
+on_map = '<Plug>(visualstar-'
+hook_add = 'runtime visualstar.vimrc'
+#}}}
+
+# Filer
+[[plugins]]
+repo = 'Shougo/defx.nvim' #{{{
+on_if = 'has("python3")'
+hook_post_source = 'runtime defx.vimrc'
+[[plugins]]
+repo = 'kristijanhusak/defx-git' #{{{
+on_source = 'defx.nvim'
+#}}}
+#[[plugins]]
+#repo = 'kristijanhusak/defx-icons' #{{{
+#on_source = 'defx.nvim'
+##}}}
+#}}}
+#[[plugins]]
+#repo = 'cocopon/vaffle.vim' #{{{
+#on_if = 'has("python3")'
+#hook_post_source = 'runtime vaffle.vimrc'
+##}}}
+#[[plugins]]
+#repo = 'justinmk/vim-dirvish' #{{{
+#on_event = 'BufAdd'
+#hook_post_source = 'runtime dirvish.vimrc'
+#}}}
+
+# CTags/global
+[[plugins]]
+repo = 'jsfaint/gen_tags.vim' #{{{
+on_event = 'BufLeave'
+hook_post_source = 'runtime gen_tags.vimrc'
+#}}}
+#[[plugins]]
+#repo = 'majutsushi/tagbar' #{{{
+#on_event = ['BufNew','BufRead']
+#hook_post_source = 'runtime tagbar.vimrc'
+#}}}
+[[plugins]]
+repo = 'liuchengxu/vista.vim' #{{{
+on_map = 'Vista'
+hook_add = 'runtime vista.vimrc'
+#}}}
+
+# Column; Undo
+[[plugins]]
+repo = 'mbbill/undotree' #{{{
+on_map = 'Undotree'
+hook_add = 'runtime undotree.vimrc'
+#}}}
+## Enhance; Marks
+#[[plugins]]
+#repo = 'mattesgroeger/vim-bookmarks' #{{{
+#on_map = 'm'
+#hook_add = 'runtime bookmarks.vimrc'
+##}}}
+#[[plugins]]
+#repo = 'jacquesbh/vim-showmarks'{{{
+#on_map = ['m','`',"'",'<space>']
+#hook_add = 'runtime showmarks.vimrc'
+#}}}
+

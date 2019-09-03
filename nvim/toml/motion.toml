@@ -1,0 +1,65 @@
+# From: dein.vimrc
+
+[[plugins]]
+repo = 'bkad/CamelCaseMotion' #{{{
+on_event = 'VimEnter'
+hook_post_source = 'runtime CamelCaseMotion.vimrc'
+#}}}
+
+# Motion; Operater
+[[plugins]]
+repo = 'justinmk/vim-sneak' #{{{
+on_event = 'BufWinEnter'
+hook_add = 'runtime sneak.vimrc'
+hook_post_source = 'silent! unmap s'
+#}}}
+[[plugins]]
+repo = 'easymotion/vim-easymotion' #{{{
+on_event = 'BufWinEnter'
+hook_add = 'runtime easymotion.vimrc'
+[[plugins]]
+repo = 'haya14busa/vim-easyoperator-phrase' #{{{
+on_event = 'ColorScheme'
+hook_add = 'runtime easyoperator.vimrc'
+#}}}
+#[[plugins]]
+#repo = 'haya14busa/incsearch.vim' #{{{
+#on_event = 'ColorScheme'
+#hook_post_source = 'runtime incsearch.vimrc'
+#}}}
+#[[plugins]]
+#repo = 'haya14busa/incsearch-easymotion.vim' #{{{
+#on_event = 'ColorScheme'
+#hook_post_source = 'runtime incsearch-easymotion.vimrc'
+#}}}
+#[[plugins]]
+#repo = 'haya14busa/incsearch-fuzzy.vim' #{{{
+#on_event = 'ColorScheme'
+#hook_post_source = 'runtime incsearch-fuzzy.vimrc'
+#}}}
+#}}}
+[[plugins]]
+repo = 'machakann/vim-sandwich' #{{{
+on_map = '<Plug>(operator-sandwich-'
+hook_add = 'runtime sandwich.vimrc'
+#}}}
+#[[plugins]]
+#repo = 'tpope/vim-surround' #{{{
+#on_event = 'BufRead'
+#hook_post_source = 'runtime surround.vimrc'
+#}}}
+[[plugins]]
+repo = 'junegunn/vim-easy-align' #{{{
+on_map = ['<Plug>(EasyAlign)', '<Plug>(LiveEasyAlign)']
+hook_add = 'runtime easy-align.vimrc'
+#}}}
+#[[plugins]]
+#repo = 'AndrewRadev/splitjoin.vim' #{{{
+#on_event = 'BufRead'
+#hook_post_source = 'runtime splitjoin.vimrc'
+#}}}
+[[plugins]]
+repo = 'scrooloose/nerdcommenter' #{{{
+on_map = 'NERDCommenter'
+hook_add = 'runtime nerdcommenter.vimrc'
+#}}}

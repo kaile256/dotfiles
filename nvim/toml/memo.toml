@@ -1,0 +1,45 @@
+# From: dein.vimrc
+
+# Memo; Outliner
+#[[plugins]]
+#repo = 'vim-voom/VOoM' #{{{
+#on_ft = ['vimwiki','org','markdown','tex','toml']
+#hook_post_source = 'runtime voom.vimrc'
+## }}}
+# Memo; Table-Mode
+#[[plugins]]
+#repo = 'dhruvasagar/vim-table-mode' #{{{
+#hook_add = 'runtime table-mode.vimrc'
+#on_ft = ['org', 'text', 'vimwiki', 'md']
+# }}}
+# Memo; Org Mode
+#[[plugins]]
+#repo = 'jceb/vim-orgmode' #{{{
+#on_ft = 'org'
+#hook_post_source = 'runtime orgmode.vimrc'
+##}}}
+#[[plugins]]
+#repo = 'vim-scripts/utl.vim' #{{{
+## Org; Activate Hyperlink
+#on_ft = 'org'
+#hook_post_source = 'runtime utl.vimrc'
+##}}}
+#[[plugins]]
+#repo = 'tpope/vim-speeddating' #{{{
+## <c-a/x> for dateing.
+#on_ft = 'org'
+#hook_post_source = 'runtime speeddating.vimrc'
+##}}}
+
+#[[plugins]]
+#repo = 'inkarkat/vim-SyntaxRange' #{{{
+## Multiple-Language Syntax in one buffer.
+#on_ft = ['snippets','org']
+#hook_post_source = 'runtime SyntaxRange.vimrc'
+##}}}
+#[[plugins]]
+#repo = 'chrisbra/NrrwRgn' #{{{
+#on_event = 'VimEnter'
+#hook_post_source = 'runtime NrrwRgn.vimrc'
+##}}}
+

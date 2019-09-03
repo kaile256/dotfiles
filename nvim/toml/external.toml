@@ -1,35 +1,96 @@
-#### From: dein.vimrc
+# From: dein.vimrc
 
-### Browser
+# Git;
+[[plugins]]
+repo = 'rhysd/git-messenger.vim' #{{{
+type = 'git'
+on_cmd = 'GitMessenger'
+hook_add = 'runtime git-messenger.vimrc'
+#on_event = 'BufRead'
+#hook_post_source = 'runtime git-messenger.vimrc'
+#}}}
+#[[plugins]]
+#repo = 'junegunn/gv.vim' #{{{
+#type = 'git'
+#on_ft = ['fugitive', 'gitcommit', 'git']
+#hook_post_source = 'runtime gv.vimrc'
+##}}}
+#[[plugins]]
+#repo = 'rhysd/committia.vim' #{{{
+#type = 'git'
+#on_ft = ['fugitive', 'gitcommit', 'git']
+##on_source = 'vim-fugitive'
+#hook_post_source = 'runtime committia.vimrc'
+##}}}
+
+# Calendar;
+[[plugins]]
+repo = 'itchyny/calendar.vim' #{{{
+on_cmd = 'Cal'
+hook_post_source = 'runtime calendar.vimrc'
+#}}}
+
+# Browser;
 [[plugins]]
 repo = 'tyru/open-browser.vim' #{{{
 on_if = 'executable("qutebrowser")'
-hook_post_source = 'runtime! open-browser.vimrc'
+hook_post_source = 'runtime open-browser.vimrc'
+#}}}
+#[[plugins]]
+#repo = 'tyru/open-browser-github.vim' #{{{
+#on_source = 'open-browser.vim'
+#hook_post_source = 'runtime open-browser-github.vimrc'
 #}}}
 
-### Calendar
+# Twitter;
 [[plugins]]
-repo = 'itchyny/calendar.vim' #{{{
+repo = 'basyura/TweetVim' #{{{
+on_event = 'CmdlineEnter'
+hook_post_source = 'runtime tweetvim.vimrc'
+#}}}
+[[plugins]]
+repo = 'basyura/twibill.vim' # {{{
+on_event = 'CmdlineEnter'
+hook_post_source = 'runtime twibill.vimrc'
+#}}}
+
+# Shell; Wrapper
+#[[plugins]]
+#repo = 'kassio/neoterm' #{{{
+#on_event = 'BufAdd'
+#hook_post_source = 'runtime neoterm.vimrc'
+##}}}
+[[plugins]]
+repo = 'Shougo/deol.nvim' #{{{
 on_event = 'VimEnter'
-on_cmd = '<a-q>'
-hook_post_source = 'runtime calendar.vimrc'
-
-### Tags
+hook_post_source = 'runtime deol.vimrc'
+#}}}
+# Shell; Async Processor
 [[plugins]]
-repo = 'jsfaint/gen_tags.vim'
-on_event = 'BufLeave'
-hook_post_source = 'runtime gen_tags.vimrc'
+repo = 'thinca/vim-quickrun' #{{{
+on_map = 'QuickRun'
+hook_add = 'runtime quickrun.vimrc'
+#}}}
 #[[plugins]]
-#repo = 'majutsushi/tagbar'
-#on_event = ['BufNew','BufReadPost']
-#hook_post_source = 'runtime tagbar.vimrc'
-[[plugins]]
-repo = 'liuchengxu/vista.vim'
-on_event = ['BufNew','BufRead']
-hook_post_source = 'runtime vista.vimrc'
+#repo = 'neomake/neomake' #{{{
+#on_map = 'make'
+#hook_add = 'runtime neomake.vimrc'
+#}}}
+#[[plugins]]
+#repo = 'skywind3000/asyncrun.vim' #{{{
+## Only supports external shell to qf.
+#on_map = 'AsyncRun'
+#hook_add = 'runtime asyncrun.vimrc'
+#}}}
+#[[plugins]]
+#repo = 'Shougo/vimproc.vim' #{{{
+## run vim-plugins asynchronously, like openbrowser, quickrun.
+#build = 'make'
+#}}}
 
-### i3-wm
+# i3-wm
 #[[plugins]]
-#repo = 'termhn/i3-vim-nav'
+#repo = 'termhn/i3-vim-nav' #{{{
 #on_if = 'isdirectory("~/go/src/github.com/termhn/i3-vim-nav")'
 #hook_post_source = 'runtime i3-vim-nav.vimrc'
+##}}}

@@ -1,0 +1,70 @@
+# From: dein.vimrc
+
+# Imput Method
+[[plugins]]
+repo = 'tyru/eskk.vim' #{{{
+on_event = ['InsertEnter', 'CmdlineEnter']
+hook_post_source = 'runtime eskk.vimrc'
+#}}}
+#[[plugins]]
+#repo = 'tpope/vim-capslock' #{{{
+## Doesn't Work
+#on_event = ['InsertEnter', 'CmdlineEnter']
+#hook_post_source = 'runtime capslock.vimrc'
+##}}}
+#[[plugins]]
+#repo = 'mattn/vim-switch-esc-capslock' #{{{
+#### For Windows?
+#on_event = ['InsertEnter', 'CmdlineEnter']
+#hook_post_source = 'runtime switch-esc-capslock.vimrc'
+##}}}
+
+# Completion
+#[[plugins]]
+#repo = 'Shougo/deoplete.nvim' #{{{
+#on_if = 'has("python3")'
+#on_event = ['InsertEnter']
+#hook_post_source = 'runtime deoplete.vimrc'
+#[[plugins]]
+#repo = 'SevereOverfl0w/deoplete-github' #{{{
+#on_ft = ['gitcommit']
+##}}}
+#[[plugins]]
+#repo = 'wellle/tmux-complete.vim' #{{{
+#on_ft = 'tmux'
+##}}}
+#[[plugins]]
+#repo = 'deoplete-plugins/deoplete-zsh' #{{{
+#on_ft = 'zsh'
+##}}}
+#[[plugins]]
+#repo = 'ponko2/deoplete-fish' #{{{
+#on_ft = 'fish'
+##}}}
+##}}}
+
+# Snippets; Engine
+[[plugins]]
+repo = 'Shougo/neosnippet.vim' #{{{
+on_event = ['InsertEnter', 'TermOpen','CmdlineEnter']
+hook_add = 'runtime neosnippet.vimrc'
+#}}}
+#[[plugins]]
+#repo = 'SirVer/ultisnips' #{{{
+## Note: it override <TAB>
+#on_event = ['InsertEnter','TermOpen']
+#hook_post_source = 'runtime ultisnips.vimrc'
+##}}}
+# Snippets; Contents
+[[plugins]]
+repo = 'Shougo/neosnippet-snippets' #{{{
+on_event = ['InsertEnter', 'TermOpen','CmdlineEnter']
+#}}}
+[[plugins]]
+repo = 'honza/vim-snippets' #{{{
+on_event = ['InsertEnter', 'TermOpen']
+#}}}
+#[[plugins]]
+#repo = 'garbas/vim-snipmate' #{{{
+#on_event = ['InsertEnter', 'TermOpen']
+#}}}

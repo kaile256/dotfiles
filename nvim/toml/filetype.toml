@@ -1,82 +1,50 @@
-#### From: dein.vimrc
+[ftplugin]
+# Execute after ftplugin.
+vim = ''' "{{{
+set fdm=marker fdl=0
+"}}} '''
+qf = ''' "{{{
+set signcolumn=
+nnoremap <buffer> <c-o> :cprevious<cr>
+nnoremap <buffer> <c-i> :cnext<cr>
+nnoremap <buffer> <a-]> :cnewer<cr>
+nnoremap <buffer> <a-[> :colder<cr>
+" TODO: `setl signcolumn= nonumber` on Help TOC
+"}}} '''
+help = ''' "{{{
+setl buflisted nonumber signcolumn= nolist
+norm zz
+"}}} '''
+toml = ''' "{{{
+set fdm=marker fdl=0
 
-### SKK
-[[plugins]]
-## Syntax File for SKK.
-repo = 'tyru/skkdict.vim'
-on_ft = 'skk'
+augroup AutoFormatOnToml
+  au!
+  " Remove Unnecessary part of URL
+  au BufWritePre *.toml keeppatterns %s/https:\/\/github.com\///ge
+augroup END
 
-### Python
-# supports pip-packages, independently installed in shell, to work on vim
-[[plugins]]
-repo = 'plytophogy/vim-virtualenv'
-on_ft = 'python3'
-### Lua
-[[plugins]]
-repo = 'drmingdrmer/vim-indent-lua'
-on_ft = 'lua'
-## Language Functional
-[[plugins]]
-repo = 'udalov/kotlin-vim'
-on_ft = 'kotlin'
-#[[plugins]]
-#repo = 'Alloyed/lua-lsp'
-#on_ft = 'lua'
+"noremap <buffer><silent> <S-TAB> :keeppatterns %s/^\s\+//ge<cr>
+"}}} '''
 
-### 13-wm
-[[plugins]]
-repo = 'PotatoesMaster/i3-vim-syntax'
-on_ft = 'i3'
+i3 = ''' "{{{
+set fdm=marker fdl=0
 
-## Language Console
-[[plugins]]
-repo = 'dag/vim-fish'
-on_ft = 'fish'
-[[plugins]]
-repo = 'ericpruitt/tmux.vim'
-on_ft = 'tmux'
+noremap <buffer><silent> <S-TAB> :keepjumps keeppatterns %s/^\s\+//ge<cr> 
+"}}} '''
 
-## Toml
-[[plugins]]
-repo = 'cespare/vim-toml'
-on_ft = 'toml'
-# syntax highlight for 'hook_add'
-[[plugins]]
-repo = 'delphinus/vim-toml-dein'
-on_ft = 'toml'
+json = ''' "{{{
+setl fdm=syntax fdl=1
+"}}} '''
+ruby = ''' "{{{
+setl fdm=syntax fdl=1
+setl tabstop=2 softtabstop=2 shiftwidth=2
+"}}} '''
+python = ''' "{{{
+setl fdm=syntax fdl=1
+setl tabstop=2 softtabstop=2 shiftwidth=2
+"}}} '''
 
-## Html
-### Html; Emmet
-#[[plugins]]
-#repo = 'mattn/emmet-vim'
-#on_ft = 'html'
-## Html; Auto Close for html-tags #{{{
-[[plugins]]
-repo = 'alvan/vim-closetag'
-on_event = 'BufRead'
-hook_add = 'runtime! closetag.vimrc'
-on_ft = ['html', 'javascript']
-hook_add = '''
-  let g:cloesetag_filenames = '*.html,*.vue'
-  '''
-#}}}
-
-## Text
-#[[plugins]]
-#repo = 'freitass/todo.txt-vim'
-#on_ft = 'text'
-### Markdown
-[[plugins]]
-repo = 'tpope/vim-markdown'
-on_ft = 'markdown'
-[[plugins]]
-repo = 'suan/vim-instant-markdown'
-on_event = 'BufRead'
-on_ft = 'markdown'
-
-## LaTex
-#[[plugins]]
-#repo = 'lervag/vimtex' #{{{
-#on_ft = 'tex'
-#hook_post_source = 'runtime! vimtex.vimrc'
-#}}}
+_ = ''' "{{{
+au FileType * if &l:fo =~ 'ro' | set formatoptions-=ro | endif
+"}}} '''
