@@ -3,11 +3,17 @@
 # Imput Method
 [[plugins]]
 repo = 'tyru/eskk.vim' #{{{
-# Don't source eskk on gnvim/nvim-qt.
-if = '!exists("g:gnvim") || !exists("g:GuiLoaded")'
-on_event = ['InsertEnter', 'CmdlineEnter']
+# Note: dein doesn't source eskk.vim on non-lazy though sourcing vimrc.
+# TODO: Do NEVER source eskk on gnvim/nvim-qt.
+on_event = ['InsertCharPre', 'InsertEnter', 'CmdlineEnter']
 hook_post_source = 'runtime eskk.vimrc'
+[[plugins]]
+# Syntax Files for skkdict.
+repo = 'tyru/skkdict.vim' #{{{
+on_ft = 'skkdict'
 #}}}
+#}}}
+
 #[[plugins]]
 #repo = 'tpope/vim-capslock' #{{{
 ## Doesn't Work
@@ -22,11 +28,12 @@ hook_post_source = 'runtime eskk.vimrc'
 ##}}}
 
 # Completion
-#[[plugins]]
-#repo = 'Shougo/deoplete.nvim' #{{{
-#on_if = 'has("python3")'
-#on_event = ['InsertEnter']
-#hook_post_source = 'runtime deoplete.vimrc'
+[[plugins]]
+repo = 'Shougo/deoplete.nvim' #{{{
+# good with eskk.vim
+on_if = 'has("python3")'
+on_event = ['InsertCharPre', 'InsertEnter']
+hook_post_source = 'runtime deoplete.vimrc'
 #[[plugins]]
 #repo = 'SevereOverfl0w/deoplete-github' #{{{
 #on_ft = ['gitcommit']
@@ -35,15 +42,15 @@ hook_post_source = 'runtime eskk.vimrc'
 #repo = 'wellle/tmux-complete.vim' #{{{
 #on_ft = 'tmux'
 ##}}}
-#[[plugins]]
-#repo = 'deoplete-plugins/deoplete-zsh' #{{{
-#on_ft = 'zsh'
-##}}}
-#[[plugins]]
-#repo = 'ponko2/deoplete-fish' #{{{
-#on_ft = 'fish'
-##}}}
-##}}}
+[[plugins]]
+repo = 'deoplete-plugins/deoplete-zsh' #{{{
+on_ft = 'zsh'
+#}}}
+[[plugins]]
+repo = 'ponko2/deoplete-fish' #{{{
+on_ft = 'fish'
+#}}}
+#}}}
 
 # Snippets; Engine
 [[plugins]]
