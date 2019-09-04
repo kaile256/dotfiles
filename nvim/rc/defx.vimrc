@@ -50,6 +50,10 @@ nnoremap <silent> <a-b>
       \ <cr>
 
 function! s:defx_keymap_explorer() abort
+  " Unmap; not to open defx on defx {{{
+  nnoremap <buffer> <a-v> <a-v>
+  nnoremap <buffer> <a-b> <a-b>
+  "}}}
   " Explore; hjkl {{{
   nnoremap <buffer> gg ggj
   nnoremap <silent><buffer><expr> h
@@ -65,11 +69,15 @@ function! s:defx_keymap_explorer() abort
   "" CWD; defx's
   nnoremap <silent><buffer><expr> ~
         \ defx#do_action('cd')
+        \ . ':echo "cd" $HOME<CR>'
   "" CWD; vim's
+  " Note: @% will be 'foo/[defx]'
   nnoremap <silent><buffer><expr> <a-w>.
         \ defx#do_action('change_vim_cwd')
+        \ . ':echo "cd" expand("<cfile>:p:h")<CR>'
   nnoremap <silent><buffer><expr> <a-w><a-.>
         \ defx#do_action('change_vim_cwd')
+        \ . ':echo "cd" expand("<cfile>:p:h")<CR>'
   "}}}
   " Explore; netrw-like {{{
   nnoremap <silent><buffer><expr> -
@@ -98,18 +106,18 @@ function! s:defx_keymap_explorer() abort
         \ defx#do_action('toggle_select')
   nnoremap <silent><buffer><expr> mj
         \ defx#do_action('toggle_select') . 'j' .
-        \ defx#do_action('toggle_select') . 'k'
+        \ defx#do_action('toggle_select') . 'j'
   nnoremap <silent><buffer><expr> mk
         \ defx#do_action('toggle_select') . 'k' .
-        \ defx#do_action('toggle_select') . 'j'
+        \ defx#do_action('toggle_select') . 'k'
   nnoremap <silent><buffer><expr> mc
         \ defx#do_action('clear_select_all')
-  "" Select; All
+  "" Mark; All
   nnoremap <silent><buffer><expr> ma
-        \ defx#do_action('multi', ['clear_select_all','toggle_select_all'])
+        \ defx#async_action('multi', ['clear_select_all','toggle_select_all'])
   nnoremap <silent><buffer><expr> *
-        \ defx#do_action('multi', ['clear_select_all','toggle_select_all'])
-  "" Select; Reverse selected conditions.
+        \ defx#async_action('multi', ['clear_select_all','toggle_select_all'])
+  "" Mark; Reverse selected conditions.
   nnoremap <silent><buffer><expr> mr
         \ defx#do_action('toggle_select_all')
   "}}}
