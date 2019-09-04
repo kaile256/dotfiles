@@ -5,7 +5,7 @@ scriptencoding utf-8
 "let g:indentLine_char_list = ['|', '¦', '┆', '┊']
 let g:vim_json_syntax_conceal = 0
 
-let g:indentLine_fileTypeExclude = ['help', 'vimwiki']
+let g:indentLine_fileTypeExclude = ['help', 'vimwiki', 'defx']
 let g:indentLine_bufTypeExclude = ['quickfix', 'terminal']
 
 let g:indentLine_faster = 1
@@ -20,6 +20,6 @@ augroup MyIndentLineAugroup
       endif
     endif
   endfunction "}}}
-  au CursorMoved * if &l:cursorline == 0 | call <SID>indentline_exculsive_enable()
-  au BufEnter    * if &l:cursorline == 1 | call <SID>indentline_exculsive_enable()
+  au CursorMoved     * if &l:cursorline == 0 | call <SID>indentline_exculsive_enable()
+  au BufNew,BufEnter * if &l:cursorline == 1 | call <SID>indentline_exculsive_enable()
 augroup END
