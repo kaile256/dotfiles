@@ -1,8 +1,7 @@
-"""" From: leap.toml
-"""" With: denite.vimrc
+" From: leap.toml
+" With: denite.vimrc
 
-"""" session
-""" CONFIG
+" session
 let g:session_directory = '~/.local/share/nvim/session'
 
 augroup DeniteExtra
