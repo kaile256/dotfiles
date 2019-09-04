@@ -1,10 +1,25 @@
+delete augroup
 snippet augroup
 abbr au
-augroup ${1:MyAugroup} ${9:"\{\{\{}
-au!
-au ${2:Event} ${3:*} ${4:command}
-${5:au ${6:Event} ${7:*} ${8:command}}
-augroup END ${9:"\}\}\}}
+  augroup ${1:<cfile>Augroup} ${9:"\{\{\{}
+  au!
+  au ${2:BufNewFile,BufRead} ${3:*} ${4:command}
+  ${5:au ${6:Event} ${7:*} ${8:command}}
+  augroup END ${9:"\}\}\}}
 
-snippet ab "abbriviation for cmdline"
-${3:c}noreabbr <expr> ${1:key} (getcmdtype() == ':' && getcmdline() =~ '^$1$')? '${2:expand}' : '$1'
+snippet abbriviation for cmdline
+alias cno cna
+  cnoreabbr <expr> ${1:key} (getcmdtype() == ':' && getcmdline() =~ '^$1$')? '${2:expand}' : '$1'
+
+snippet abbriviation
+alias ab abr
+  ${3:c}noreabbr <expr> ${1:key} (getcmdtype() == ':' && getcmdline() =~ '^$1$')? '${2:expand}' : '$1'
+
+snippet noremap
+alias no
+  ${0:n}noremap ${1:<silent>} ${2:key} ${4::<c-u>}${3:mapping}${4:<cr>}
+
+snippet scriptencoding utf-8
+alias sc ut s u
+options head
+  scriptencoding utf-8
