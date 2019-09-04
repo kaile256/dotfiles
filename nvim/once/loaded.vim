@@ -36,7 +36,7 @@ function! s:my_netrw_config() "{{{
 endfunction "}}}
 augroup ReloadDefaultPlugins
   au!
-  au BufWinEnter * if &ft ==# 'netrw' | setl bt=quickfix
+  au BufNew * if &ft ==# 'netrw' | setl bt=quickfix
   au FileType netrw    ++once call <SID>my_netrw_config()
   au FileType tar      ++once call <SID>runtime_tarPlugin()
   au FileType zip,gzip ++once call <SID>runtime_zipPlugin()
