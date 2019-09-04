@@ -1,13 +1,22 @@
+# Sample: /home/kaile256/.cache/dein/repos/github.com/honza/vim-snippets/snippets/vim.snippets
+
 delete augroup
 snippet augroup
 abbr au
   augroup ${1:<cfile>Augroup} ${9:"\{\{\{}
   au!
+  au ${2:BufRead,BufNewFile} ${3:*.ext,*.ext3|<buffer[=N]>} ${0}
   au ${2:BufNewFile,BufRead} ${3:*} ${4:command}
   ${5:au ${6:Event} ${7:*} ${8:command}}
   augroup END ${9:"\}\}\}}
 
-snippet abbriviation for cmdline
+delete function
+snippet f function
+  function! ${1:`expand('%') =~ 'autoload' ? substitute(matchstr(expand('%:p'),'autoload/\zs.*\ze.vim'),'[/\\]','#','g').'#' : ''`}${2:function_name}(${3}) ${4:#:abort}
+    ${0}
+  endfunction
+
+snippet abbr for cmdline
 alias cno cna
   cnoreabbr <expr> ${1:key} (getcmdtype() == ':' && getcmdline() =~ '^$1$')? '${2:expand}' : '$1'
 
