@@ -8,9 +8,6 @@
 ## Type: Dict
 c.aliases = {'w': 'session-save', 'q': 'quit', 'wq': 'quit --save', 'so': 'config-source', 'mess': 'messages', 'alias': 'config-dict-add aliases'}
 
-# Load qutebrowser/autoconfig.yml
-config.load_autoconfig()
-
 # Name of the session to save by default. If this is set to null, the
 # session which was last loaded is saved.
 # Type: SessionName
@@ -324,3 +321,7 @@ c.bindings.commands['insert'] = {
 # Type: ShellCommand
 config.bind('<alt-e>', 'open-editor', mode='insert')
 c.editor.command = ['nvim-qt', '{file}']
+
+# Load qutebrowser/autoconfig.yml at last to get priority.
+config.load_autoconfig()
+
