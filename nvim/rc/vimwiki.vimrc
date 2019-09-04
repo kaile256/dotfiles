@@ -42,14 +42,28 @@ let s:wiki_markdown = {
       \ 'auto_tags': 1,
       \ 'auto_diary_index': 1,
       \ 'list_margin': 4,
-      \ 'auto_toc': 1
+      \ 'auto_toc': 1,
+      \ 'path_html': '~/vimwiki/htmlwiki/',
+      \ 'custom_wiki2html': 'vimwiki_markdown',
+      \ 'html_filename_parameterization': 1,
+      \ }
+
+let s:wiki_markdown.nested_syntaxes = {
+      \ 'python': 'python',
+      \ 'c++': 'cpp',
+      \ 'org': 'org',
+      \ 'lisp': 'lisp',
+      \ 'i3': 'i3',
+      \ 'bash': 'bash',
+      \ 'zsh': 'zsh',
+      \ 'vim': 'vim'
       \ }
 
 "}}}
 let g:vimwiki_list = [
       \ {},
-      \ s:wiki_index,
-      \ s:wiki_markdown
+      \ s:wiki_markdown,
+      \ s:wiki_index
       \ ]
 "}}}
 " Let; List Symbol {{{
@@ -211,6 +225,7 @@ augroup AutoFormatVimwiki
   au FileType vimwiki      setl nowrap    fdm=syntax    fdl=0
   au FileType vimwiki      setl tabstop=4 softtabstop=4 shiftwidth=4
   au BufWritePre *       if &syn  ==# 'vimwiki' | VimwikiTOC
+  "au BufWritePre *       if &syn  ==# 'vimwiki' | VimwikiListChangeLvl w w
   au BufWritePre index.* if &syn  ==# 'vimwiki' | VimwikiGenerateLinks
   au InsertLeave *       if &wrap ==  0         | norm zH
 augroup END
