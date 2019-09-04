@@ -8,11 +8,7 @@ set guifontwide=SF\ Mono:h12
 "}}}
 " Variable; Terminal {{{
 "set shell=bash
-if executable('urxvt')
-  let $TERM='rxvt-unicode'
-else
-  let $TERM='xterm-256color'
-endif
+let $TERM='xterm-256color'
 "}}}
 " Variable; Git {{{
 if has('nvim')
@@ -221,7 +217,7 @@ set noshowcmd
 set wildmenu wildmode=list:longest
 " for `:substitute`
 if has('nvim')
-set inccommand=nosplit
+  set inccommand=nosplit
 endif
 "}}}
 " Method; Macros "{{{
@@ -232,13 +228,33 @@ set lazyredraw
 set foldenable
 set foldlevel=1
 set foldnestmax=10
+augroup MyAutoView
+  function! s:is_view_available() abort " {{{
+    if !&buflisted || &bt !=# ''
+      return 0
+    elseif !filewritable(expand('%:p'))
+      return 0
+    endif
+    return 1
+  endfunction " }}}
+  function! s:mkview() abort " {{{
+    if s:is_view_available()
+      silent! mkview
+    endif
+  endfunction " }}}
+  function! s:loadview() abort " {{{
+    if s:is_view_available()
+      silent! loadview
+    endif
+  endfunction " }}}
+  au BufWinLeave ?* call s:mkview()
+  au BufReadPost ?* call s:loadview()
+augroup END
 augroup SetFdmDotfiles
   au!
   au BufNewFile,BufRead dotfiles/** if &fdm ==# 'manual' | set fdm=marker
   " TODO: Understand :mkview
   " mkview: save a file condition according to `:viewoptions`
-  "au BufWinLeave * mkview expand('%')
-  "au BufWinEnter * loadview expand('%')
 augroup END
 "}}}
 
