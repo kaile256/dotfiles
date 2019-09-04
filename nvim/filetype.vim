@@ -1,26 +1,27 @@
-function! s:ft_detection()
-  "if exists(b:did_load_filetypes)
-  "  finish
-  "endif
-
-  au BufWinEnter *.txt       ++once setl syn=help
-
-  au BufWinEnter *.vim!      ++once setl ft=vim
-  au BufWinEnter *.vimrc!    ++once setl ft=vim
-  au BufWinEnter i3/*/config ++once setl ft=i3
-  au BufWinEnter *.snip      ++once setl ft=neosnippet
-
-  au BufWinEnter *.jl        ++once setl ft=julia
-  au BufWinEnter *.idr       ++once setl ft=idris
-  au BufWinEnter *.lidr      ++once setl ft=lidris
-  au BufWinEnter *.lfe       ++once setl ft=lfe
-endfunction
+" From: init.vim
 
 augroup AppendFileType
   au!
-  au BufAdd * call <SID>ft_detection()
+  au BufWinEnter *.txt         setl syn=help
+  au BufWinEnter *.vim!        setl ft=vim
+  au BufWinEnter *.vimrc!      setl ft=vim
+  au BufWinEnter i3/*/config   setl ft=i3
+  au BufWinEnter filetype.toml setl ft=vim
+  au BufWinEnter *.snip        setl ft=neosnippet
+  au BufWinEnter *.html        setl ft=html
 augroup END
 
+augroup RuntimeUponFileType
+  au!
+  au FileType vim    runtime! vim.vim
+  au FileType toml   runtime! toml.vim
+  au FileType help   runtime! help.vim
+  au FileType i3     runtime! i3.vim
+  au FileType ruby   runtime! ruby.vim
+  au FileType python runtime! python.vim
+  au FileType qf     runtime! qf.vim
+  au FileType json   runtime! json.vim
+augroup end
 augroup AutoDeleteWhiteSpace
   au!
   au BufWritePre * keeppatterns %s/\s\+$//ge
