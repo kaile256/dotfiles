@@ -5,6 +5,7 @@ scriptencoding utf-8
 " Path: ftplugin/vimwiki.vim
 
 set path+=~/vimwiki/**
+let g:vimwiki_folding = 'expr'
 " Let; Highlight {{{
 let g:vimwiki_hl_headers    = 1
 let g:vimwiki_hl_cb_checked = 2
@@ -222,7 +223,7 @@ augroup AutoFormatVimwiki
   " need to `setf vimwiki` once, for VimwikiTOC.
   au VimEnter *wiki/*/*.md setl ft=vimwiki ft=markdown syn=vimwiki
   au CursorMoved *wiki/*/*.md if &syn !=# 'vimwiki' | setl syn=vimwiki
-  au FileType vimwiki      setl nowrap    fdm=syntax    fdl=0
+  au FileType vimwiki      setl nowrap fdl=0
   au FileType vimwiki      setl tabstop=4 softtabstop=4 shiftwidth=4
   au BufWritePre *       if &syn  ==# 'vimwiki' | VimwikiTOC
   "au BufWritePre *       if &syn  ==# 'vimwiki' | VimwikiListChangeLvl w w
