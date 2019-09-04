@@ -70,16 +70,6 @@ c.downloads.location.directory = '~/Downloads'
 # Type: String
 c.downloads.open_dispatcher = None
 
-# Editor (and arguments) to use for the `open-editor` command. The
-# following placeholders are defined: * `{file}`: Filename of the file
-# to be edited. * `{line}`: Line in which the caret is found in the
-# text. * `{column}`: Column in which the caret is found in the text. *
-# `{line0}`: Same as `{line}`, but starting from index 0. * `{column0}`:
-# Same as `{column}`, but starting from index 0.
-# Type: ShellCommand
-config.bind('<alt-e>', 'open-editor', mode='insert')
-c.editor.command = ['nvim-qt', '{file}']
-
 # Characters used for hint strings.
 # Type: UniqueCharString
 c.hints.chars = 'abcdefg'
@@ -209,10 +199,7 @@ c.bindings.commands['prompt'] = {
   '<Ctrl-n>': 'prompt-item-focus next',
 }
 
-# Bindings for normal mode
-config.bind('1', 'tab-close')
-config.bind('2', 'save')
-## Normal; with mod-keys
+# Normal; with mod-keys
 config.bind('<Alt+[>', 'tab-prev')
 config.bind('<Alt+]>', 'tab-next')
 config.bind('<Alt+b>', 'tab-prev')
@@ -242,8 +229,7 @@ config.bind('<Ctrl+w><Ctrl+t>', 'tab-give')
 config.bind('<Ctrl+w>T', 'tab-give')
 config.bind('<Ctrl+w>p', 'tab-pin')
 config.bind('<Ctrl+x>', None)
-## Normal; Simple
-config.bind('<Space>1', 'tab-close')
+# Normal; Simple
 config.bind('<Space>2', 'save')
 config.bind('<Space><Space>', 'reload')
 config.bind('<Space>P', 'open -t {primary}')
@@ -274,8 +260,7 @@ config.bind('u', 'scroll-page 0 -0.5')
 config.bind('yv', 'enter-mode caret')
 
 # Bindings for caret mode
-config.bind(':', 'set-cmd-text :', mode='caret')
-config.bind('<Alt+h>', 'edit-command', mode='caret')
+config.bind(':', ':set-cmd-text :', mode='caret')
 config.bind('<Ctrl+b>', 'scroll-page 0 -1', mode='caret')
 config.bind('<Ctrl+d>', 'scroll-page 0 0.5', mode='caret')
 config.bind('<Ctrl+f>', 'scroll-page 0 1', mode='caret')
@@ -286,9 +271,8 @@ config.bind('i', 'hint inputs --first', mode='caret')
 config.bind('w', 'move-to-next-word', mode='caret')
 
 # Bindings for command mode
-config.bind('<Alt+h>', 'edit-command', mode='command')
+config.bind('<Alt+e>', 'edit-command', mode='command')
 config.bind('<Alt+k>', 'leave-mode', mode='command')
-config.bind('<Alt+u>', 'rl-yank', mode='command')
 config.bind('<Ctrl+j>', 'completion-item-focus next', mode='command')
 config.bind('<Ctrl+k>', 'completion-item-focus prev', mode='command')
 config.bind('<Ctrl+n>', 'command-history-next', mode='command')
@@ -303,6 +287,9 @@ config.bind('<Alt+k>', 'leave-mode', mode='insert')
 config.bind('<Alt+l>', 'leave-mode', mode='insert')
 #config.bind('<Ctrl+m>', 'follow-selected', mode='insert')
 c.bindings.commands['insert'] = {
+  '<ctrl-i>': 'fake-key <TAB>',
+  '<alt-o>': 'fake-key <TAB>',
+  '<alt-O>': 'fake-key <Shift-TAB>',
   '<ctrl-j>': 'fake-key <Enter>',
   '<ctrl-m>': 'fake-key <Enter>',
   '<alt-i>': 'fake-key <Right>',
@@ -324,5 +311,16 @@ c.bindings.commands['insert'] = {
   '<ctrl-y>': 'insert-text {primary}',
   '<ctrl-r><ctrl-0>': 'insert-text {primary}',
   '<ctrl-r>0': 'insert-text {primary}',
+  '<ctrl-r><ctrl-space>': 'insert-text {clipboard}',
   '<ctrl-r><space>': 'insert-text {clipboard}',
 }
+
+# Editor (and arguments) to use for the `open-editor` command.
+# `{file}`: Filename of the file to be edited.
+# `{line}`: Line in which the caret is found in the text.
+# `{column}`: Column in which the caret is found in the text.
+# `{line0}`: Same as `{line}`, but starting from index 0.
+# `{column0}`: Same as `{column}`, but starting from index 0.
+# Type: ShellCommand
+config.bind('<alt-e>', 'open-editor', mode='insert')
+c.editor.command = ['nvim-qt', '{file}']
