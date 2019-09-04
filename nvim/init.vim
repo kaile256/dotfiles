@@ -8,35 +8,21 @@ set formatoptions=jmB1cql
 set mouse=a
 
 " WARNING: `!` is required to source all the same named files.
-runtime general.vim
+runtime options.vim
 runtime filetype.vim
 runtime window.vim
 runtime buffer.vim
 runtime! keymap/*.vim
 runtime rc/dein.vimrc
-"runtime plugged.vimrc
 
 augroup RuntimeSelection
   au!
-
-  au CmdLineEnter * ++once runtime lazy/cmdline.vim
-  au BufNew       * ++once runtime lazy/terminal.vim
-
-  au BufRead * if &diff | runtime lazy/diff.vim | endif
+  au VimEnter     * ++once runtime once/loaded.vim
+  au CmdLineEnter * ++once runtime once/cmdline.vim
+  au BufNew       * ++once runtime once/terminal.vim
+  au BufNew       * ++once runtime once/zenkaku.vim
   "au FilterReadPost * runtime lazy/diff.vim
-
-  au BufRead * if &ft == 'vim'  | runtime lazy/vim.vim  | endif
-  au BufRead * if &ft == 'toml' | runtime lazy/toml.vim | endif
-  au BufRead * if &ft == 'help' | runtime lazy/help.vim | endif
-  au BufRead * if &ft == 'json' | runtime lazy/json.vim | endif
-  au BufRead * if &ft == 'i3'   | runtime lazy/i3.vim   | endif
-  au BufRead * if &ft == 'ruby' | runtime lazy/ruby.vim | endif
-
-  au BufRead * if &ft == 'python' | runtime lazy/python.vim | endif
-
-  au BufEnter * if &bt == 'quickfix' | runtime lazy/quickfix.vim | endif
-
+  au BufRead * if &diff | runtime lazy/diff.vim | endif
   " Disturb Auto Comment Out on CR/NL.
-  au FileType * if &l:fo =~ 'ro' | set formatoptions-=ro
-
+  au CursorMovedI * if &l:fo =~# 'ro' | set formatoptions-=ro | endif
 augroup END
