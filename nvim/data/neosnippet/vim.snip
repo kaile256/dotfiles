@@ -1,6 +1,6 @@
 # Sample: /home/kaile256/.cache/dein/repos/github.com/honza/vim-snippets/snippets/vim.snippets
 
-delete augroup
+delete au augroup ... autocmd block
 snippet augroup
 abbr au
   augroup ${1:<cfile>Augroup} ${9:"\{\{\{}
@@ -29,6 +29,6 @@ alias no
   ${0:n}noremap ${1:<silent>} ${2:key} ${4::<c-u>}${3:mapping}${4:<cr>}
 
 snippet scriptencoding utf-8
-alias sc ut s u
+alias sc ut s u scr script
 options head
   scriptencoding utf-8
