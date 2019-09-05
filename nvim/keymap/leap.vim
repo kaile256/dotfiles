@@ -1,34 +1,11 @@
+scriptencoding utf-8
 " From: init.vim
 
-" cursor position of column is kept on jump.
-set nostartofline
-" jump ignoring unwritten buffers.
-set hidden
-
-" Set; Search {{{
-set noignorecase
-"set smartcase
-set incsearch hlsearch nowrapscan
-" fold all lines unmatched on {pattern}.
-" CAUTION: foldable is apt to collapse format.
-set foldenable
-"}}}
-
 " Keymap; Prevention for Error {{{
-"" Prevention; Fuzzy Finders
-
-function! s:echo_no_fuzzy_grep() "{{{
-
-  exe echo "You don't have executable 'ripgrep' nor 'silver searcher.'"
-endfunction "}}}
-
-function! s:echo_no_fzf() "{{{
-
-  exe echo "You don't have executable 'fzf.'"
-endfunction "}}}
+let s:phrase_no_rg_nor_ag =  "You don't have executable 'ripgrep' nor 'silver searcher.'"
+let s:phrase_no_fzf = "You don't have executable 'fzf.'"
 
 if !executable('ag') && !executable('rg')
-
 tnoremap <silent> <a-r> <c-\><c-n>:echo "You don't have executable 'ripgrep' nor 'silver searcher.'"<cr>
 tnoremap <silent> <a-q> <c-\><c-n>:echo "You don't have any executable fuzzy finder.'"<cr>
 nnoremap <silent> <a-r> :<c-u>echo "You don't have executable 'ripgrep' nor 'silver searcher.'"<cr>
@@ -56,49 +33,51 @@ endif
 " Keymap; N/P Directory {{{
 tnoremap <a-i> cd - > /dev/null <CR>
 tnoremap <a-o> cd .. <CR>
-nnoremap <a-w><a-i> :<c-u>cd -<cr>:echo '$CWD is "' . getcwd() . '"'<cr>
-nnoremap <a-w>i     :<c-u>cd -<cr>:echo '$CWD is "' . getcwd() . '"'<cr>
-nnoremap <a-w><a-o> :<c-u>cd ..<cr>:echo '$CWD is "' . getcwd() . '"'<cr>
-nnoremap <a-w>o     :<c-u>cd ..<cr>:echo '$CWD is "' . getcwd() . '"'<cr>
+nnoremap <a-w><a-i> :<c-u>cd -<cr>:echo 'cd "' . getcwd() . '"'<cr>
+nnoremap <a-w>i     :<c-u>cd -<cr>:echo 'cd "' . getcwd() . '"'<cr>
+nnoremap <a-w><a-o> :<c-u>cd ..<cr>:echo 'cd "' . getcwd() . '"'<cr>
+nnoremap <a-w>o     :<c-u>cd ..<cr>:echo 'cd "' . getcwd() . '"'<cr>
 
 "" Simply echo; Current Directory
-nnoremap <a-w><a-.> :<c-u> echo '$CWD is "' . getcwd() . '"'<cr>
-nnoremap <a-w>.     :<c-u> echo '$CWD is "' . getcwd() . '"'<cr>
+nnoremap <a-w><a-w> :<c-u> echo '$CWD is "' . getcwd() . '"'<cr>
+nnoremap <a-w>w     :<c-u> echo '$CWD is "' . getcwd() . '"'<cr>
+"" Temp Directory
+nnoremap <a-w><a-t> :<c-u>cd ~/.tmp<cr>:echo 'cd "' . getcwd() . '"'<cr>
+nnoremap <a-w>t     :<c-u>cd ~/.tmp<cr>:echo 'cd "' . getcwd() . '"'<cr>
 "" Working Directory
-nnoremap <a-w><a-w> :<c-u>cd %:p:h<cr>:echo '$CWD is "' . getcwd() . '"'<cr>
-nnoremap <a-w>w     :<c-u>cd %:p:h<cr>:echo '$CWD is "' . getcwd() . '"'<cr>
+nnoremap <a-w><a-.> :<c-u>cd %:p:h<cr>:echo 'cd "' . getcwd() . '"'<cr>
+nnoremap <a-w>.     :<c-u>cd %:p:h<cr>:echo 'cd "' . getcwd() . '"'<cr>
 "" Root Directory
-nnoremap <a-w><a-r> :<c-u>cd /<cr>:echo '$CWD is "' . getcwd() . '"'<cr>
-nnoremap <a-w>r     :<c-u>cd /<cr>:echo '$CWD is "' . getcwd() . '"'<cr>
+nnoremap <a-w><a-r> :<c-u>cd /<cr>:echo 'cd "' . getcwd() . '"'<cr>
+nnoremap <a-w>r     :<c-u>cd /<cr>:echo 'cd "' . getcwd() . '"'<cr>
 "" $HOME
-nnoremap <a-w><a-h> :<c-u>cd ~<cr>:echo '$CWD is "' . getcwd() . '"'<cr>
-nnoremap <a-w>h     :<c-u>cd ~<cr>:echo '$CWD is "' . getcwd() . '"'<cr>
+nnoremap <a-w><a-h> :<c-u>cd ~<cr>:echo 'cd "' . getcwd() . '"'<cr>
+nnoremap <a-w>h     :<c-u>cd ~<cr>:echo 'cd "' . getcwd() . '"'<cr>
 "" XDG_CACHE_HOME
-nnoremap <a-w><a-c> :<c-u>cd ~/.cache<cr>:echo '$CWD is "' . getcwd() . '"'<cr>
-nnoremap <a-w>c     :<c-u>cd ~/.cache<cr>:echo '$CWD is "' . getcwd() . '"'<cr>
+nnoremap <a-w><a-c> :<c-u>cd ~/.cache<cr>:echo 'cd "' . getcwd() . '"'<cr>
+nnoremap <a-w>c     :<c-u>cd ~/.cache<cr>:echo 'cd "' . getcwd() . '"'<cr>
 "" XDG_CONFIG_HOME
-nnoremap <a-w><a-f> :<c-u>cd ~/.config<cr>:echo '$CWD is "' . getcwd() . '"'<cr>
-nnoremap <a-w>f     :<c-u>cd ~/.config<cr>:echo '$CWD is "' . getcwd() . '"'<cr>
+nnoremap <a-w><a-f> :<c-u>cd ~/.config<cr>:echo 'cd "' . getcwd() . '"'<cr>
+nnoremap <a-w>f     :<c-u>cd ~/.config<cr>:echo 'cd "' . getcwd() . '"'<cr>
 "" Dotfiles
-nnoremap <a-w><a-d> :<c-u>cd ~/dotfiles<cr>:echo '$CWD is "' . getcwd() . '"'<cr>
-nnoremap <a-w>d     :<c-u>cd ~/dotfiles<cr>:echo '$CWD is "' . getcwd() . '"'<cr>
+nnoremap <a-w><a-d> :<c-u>cd ~/dotfiles<cr>:echo 'cd "' . getcwd() . '"'<cr>
+nnoremap <a-w>d     :<c-u>cd ~/dotfiles<cr>:echo 'cd "' . getcwd() . '"'<cr>
 "" Org-Mode
-"nnoremap <a-w><a-o> :<c-u>cd ~/org<cr>:echo '$CWD is "' . getcwd() . '"'<cr>
-"nnoremap <a-w>o     :<c-u>cd ~/org<cr>:echo '$CWD is "' . getcwd() . '"'<cr>
+"nnoremap <a-w><a-o> :<c-u>cd ~/org<cr>:echo 'cd "' . getcwd() . '"'<cr>
+"nnoremap <a-w>o     :<c-u>cd ~/org<cr>:echo 'cd "' . getcwd() . '"'<cr>
 "}}}
 
 "" hjkl
 " move as it looks.
 nnoremap j gj
 nnoremap k gk
-xnoremap j gj
-xnoremap k gk
+"xnoremap j gj
+"xnoremap k gk
 " switch mapping.
 nnoremap gj j
 nnoremap gk k
-xnoremap gj j
-xnoremap gk k
-
+"xnoremap gj j
+"xnoremap gk k
 "}}}
 "}}}
 
@@ -153,6 +132,10 @@ nnoremap <a-j> <c-w>j
 nnoremap <a-k> <c-w>k
 nnoremap <a-l> <c-w>l
 
+vnoremap <a-h> <esc><c-w>h
+vnoremap <a-j> <esc><c-w>j
+vnoremap <a-k> <esc><c-w>k
+vnoremap <a-l> <esc><c-w>l
 "nnoremap <a-b> <c-w>b
 "nnoremap <a-t> <c-w>t
 " avoid stack on command-line
@@ -183,22 +166,14 @@ noremap gF gf
 "noremap gd gD
 "noremap gD gd
 
-""” Research
-"" TODO: setlocal show result w/ no-file path but only file name.
-"" Grep to QuickFix  # no dirty-hist # Good enough with fzf.vim.
-"nnoremap <space>/ :silent vimgrep  % <bar> cw<Left,<Left,<Left,<Left><Left><Left><Left>
-
-"" Dot-Repeat
-nnoremap <a-n> .n
-nnoremap <a-;> .;
-nnoremap <a-,> .,
 " researched word will come up at middle of current window.
-noremap n   nzz
-noremap N   Nzz
-noremap *   *zz
-noremap #   #zz
-noremap g* g*zz
-noremap g# g#zz
+noremap <nowait> n   nzz
+noremap <nowait> N   Nzz
+" Ref: asterisk.vimrc
+"noremap *   *zz
+"noremap #   #zz
+"noremap g* g*zz
+"noremap g# g#zz
 
 """ Tag
 "" Show List
@@ -266,8 +241,3 @@ tmap <a-n> <c-\><c-n><a-n>
 "noremap <silent> <a-i> :bnext<cr>
 "noremap <silent> <a-o> :bprevious<cr>
 noremap <c-6>    <c-^>
-
-"" QuickFix
-noremap <silent> <space>co :copen<cr>
-noremap <silent> <space>cw :cwindow<cr>
-noremap <silent> <space>cc :cclose<cr>:lclose<cr>
