@@ -2,8 +2,9 @@
 " Help: coc-
 " Source: neoclide/coc.nvim
 
-" In case of faileure to install json for coc.
-cnoreabbrev <expr> ci (getcmdtype() == ':' && getcmdline() =~ '^ci$')? 'call coc#util#install()' : 'ci'
+" Clear All coc-extentions.
+cnoreabbr <expr> cun  (getcmdtype() == ':' && getcmdline() =~ '^cun$')?  'CocUninstall g:coc_global_extensions' : 'cun'
+cnoreabbr <expr> cclr (getcmdtype() == ':' && getcmdline() =~ '^cclr$')? 'CocUninstall g:coc_global_extensions' : 'cclr'
 
 " CAUTION: careful not to conflict :checkhealth
 let g:markdown_fenced_languages = [
@@ -14,6 +15,7 @@ let g:markdown_fenced_languages = [
 let g:coc_global_extensions = [
       \ 'coc-angular',
       \ 'coc-css',
+      \ 'coc-dictionary',
       \ 'coc-emoji',
       \ 'coc-git',
       \ 'coc-gocode',
@@ -34,22 +36,38 @@ let g:coc_global_extensions = [
       \ 'coc-tsserver',
       \ 'coc-vimlsp',
       \ 'coc-word',
-      \ 'coc-yaml',
-      \ 'coc-yank'
+      \ 'coc-yaml'
+      \ 'coc-yank',
       \ ]
 
-"""" COC-RENAME
+" navigate chunks of current buffer
+nmap [g <Plug>(coc-git-prevchunk)
+nmap ]g <Plug>(coc-git-nextchunk)
+" show chunk diff at current position
+nmap gs <Plug>(coc-git-chunkinfo)
+
+" Keymap; CocList
+" show commit contains current position
+nmap gc <Plug>(coc-git-commit)
+noremap <silent> qp :CocList yank<cr>
 noremap <silent> <a-c><a-c> :CocList<cr>
 noremap <silent> <a-c><a-f> :CocList files<cr>
-noremap <silent> <a-c><a-b> :CocList buffers<cr>
+noremap <silent> <a-c><a-b> :CocList buffers<cr><M-k>
+map <a-c><a-d> <Plug>(coc-diagnostic-info)
+
+" Keymap; Text-Object
+vmap if <Plug>(coc-funcobj-i)
+vmap if <Plug>(coc-funcobj-a)
+omap if <Plug>(coc-funcobj-i)
+omap if <Plug>(coc-funcobj-a)
+
 "nmap <a-c><a-n> <Plug>(coc-rename)
 "nmap <a-c><a-f> <Plug>(coc-float-jump)
 
 " COC-COMPLETION
 " General
-"" Coc-Done
-" closes mpreview vindow when completion is done.
-au! CompleteDone * if pumvisible() == 0 | pclose | endif
+" Necessary?: closes mpreview vindow when completion is done.
+"au! CompleteDone * if pumvisible() == 0 | pclose | endif
 
 """ Keymap
 "" Definition
@@ -85,9 +103,10 @@ inoremap <silent><expr> <c-p>
       \ <SID>make_sure_no_space() ? "\<c-p>" :
       \ coc#refresh()
 
-augroup MyCocAugroup "{{{
+augroup CocAutoToggle
   au!
-  "au CursorMoved * ++once silent call coc#util#install()
-  "AutoCloseOnWinLeave
-  au WinLeave * if &filetype ==# 'coc' || 'list' | hide | endif
-augroup END "}}}
+  au BufWinEnter coc-settings.json setl keywordprg=:help
+  au BufLeave * if &ft ==# 'coc' || 'list' | hide | endif
+  au FileType coc,list setl laststatus=0 noshowmode noruler
+        \ | au BufWinEnter,BufLeave * ++once set laststatus=2 showmode ruler
+augroup END
