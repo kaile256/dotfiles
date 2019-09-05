@@ -1,5 +1,5 @@
-""" From: tool.toml
-"""  Ref: easymotion.vimrc
+" From: tool.toml
+"  Ref: easymotion.vimrc
 
 " Let; do_mapping
 " 0: no-default
@@ -7,5 +7,6 @@
 let g:EasyOperator_phrase_do_mapping = 0
 
 " Keymap; 'Unmoved' Delete/Yank
-nmap <nowait> du <Plug>(easyoperator-phrase-delete)
-nmap <nowait> yu <Plug>(easyoperator-phrase-yank)
+nmap cu <plug>(easyoperator-phrase-select)
+nmap du <Plug>(easyoperator-phrase-delete)
+nmap yu <plug>(easyoperator-phrase-yank)
