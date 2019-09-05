@@ -35,8 +35,8 @@ hook_add = 'runtime airline.vimrc'
 repo = 'vim-airline/vim-airline-themes'
 #}}}
 
+# ERORR: g:lightline is undefined.
 #[[plugins]]
 #repo = 'itchyny/lightline.vim' #{{{
-# ERORR: g:lightline is undefined.
 #hook_add = 'runtime lightline.vimrc'
 ##}}}
