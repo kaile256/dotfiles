@@ -10,7 +10,7 @@ let g:neodark#use_custom_terminal_theme = 1 " default: 0
 
 augroup MyNeodark
   au!
-      au VimEnter * ++nested ++once colorscheme neodark
+  au VimEnter * ++nested ++once colorscheme neodark
 augroup END
 
 "function! s:ditect_if_qt()
