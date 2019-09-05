@@ -3,9 +3,44 @@
 
 config_version: 2
 settings:
+  aliases:
+    global:
+      O: open -t
+      abbr: config-dict-add aliases
+      alias: config-dict-add aliases
+      cabbr: config-dict-add aliases
+      cmap: bind -m command
+      cunabbr: config-dict-remove aliases
+      cunmap: unbind -m command
+      imap: bind -m insert
+      iunmap: bind -m insert
+      map: bind
+      mess: messages
+      mkurl: config-dict-add url.searchengines
+      nmap: bind
+      nunmap: unbind
+      nvim: spawn nvim-qt
+      o: open
+      pmap: bind -m prompt
+      punmap: unbind -m prompt
+      q: close
+      qa: quit
+      rmurl: config-dict-remove url.searchengines
+      sl: session-load
+      so: config-source
+      ss: session-save
+      unabbr: config-dict-remove aliases
+      unalias: config-dict-remove aliases
+      vmap: bind -m caret
+      vunmap: unbind -m caret
+      w: session-save
+      wq: quit --save
+      wqa: quit --save
   bindings.commands:
     global:
       caret:
+        ':': 'set-cmd-text :'
+        <Alt+h>: edit-command
         <Ctrl+b>: scroll-page 0 -1
         <Ctrl+d>: scroll-page 0 0.5
         <Ctrl+f>: scroll-page 0 1
@@ -15,22 +50,45 @@ settings:
         i: hint inputs --first
         w: move-to-next-word
       command:
+        <Alt+h>: edit-command
         <Alt+k>: leave-mode
+        <Alt+u>: rl-yank
+        <Ctrl+d>: null
         <Ctrl+j>: completion-item-focus next
         <Ctrl+k>: completion-item-focus prev
         <Ctrl+n>: command-history-next
         <Ctrl+p>: command-history-prev
-        <Ctrl+r><Ctrl+Space>: rl-yank
-        <Ctrl+r><Space>: rl-yank
+        <Ctrl+r><Ctrl+Space>: fake-key <Ctrl-V>
+        <Ctrl+r><Space>: set-cmd-text {clipboard}
       insert:
-        <Alt+h>: leave-mode
-        <Alt+j>: leave-mode
-        <Alt+k>: leave-mode
-        <Alt+l>: leave-mode
-        <Ctrl+d>: rl-delete-char
-        <Ctrl+h>: rl-backward-delete-char
-        <Ctrl+m>: follow-selected
-        <Ctrl+u>: rl-backward-kill-word
+        <Alt+Backspace>: fake-key <Ctrl-Backspace>
+        <Alt+Shift+o>: fake-key <shift-tab>
+        <Alt+[>: tab-prev
+        <Alt+]>: tab-next
+        <Alt+a>: fake-key <Left>
+        <Alt+b>: fake-key <Ctrl-Left>
+        <Alt+d>: fake-key <Ctrl-Delete>
+        <Alt+f>: fake-key <Ctrl-Right>
+        <Alt+i>: fake-key <Right>
+        <Alt+o>: fake-key <tab>
+        <Ctrl+a>: fake-key <Home>
+        <Ctrl+b>: fake-key <Left>
+        <Ctrl+d>: fake-key <Delete>
+        <Ctrl+e>: fake-key <End>
+        <Ctrl+f>: fake-key <Right>
+        <Ctrl+h>: fake-key <Backspace>
+        <Ctrl+i>: fake-key <tab>
+        <Ctrl+j>: fake-key <Enter>
+        <Ctrl+m>: fake-key <Enter>
+        <Ctrl+n>: fake-key <Down>
+        <Ctrl+p>: fake-key <Up>
+        <Ctrl+r>0: insert-text {primary}
+        <Ctrl+r><Ctrl+0>: insert-text {primary}
+        <Ctrl+r><Ctrl+Space>: insert-text {clipboard}
+        <Ctrl+r><Space>: insert-text {clipboard}
+        <Ctrl+u>: fake-key <tab><shift-tab><delete>
+        <Ctrl+w>: fake-key <Ctrl-backspace>
+        <Ctrl+y>: insert-text {primary}
       normal:
         '1': tab-close
         '2': save
@@ -43,18 +101,23 @@ settings:
         <Alt+l>: tab-next
         <Alt+o>: tab-prev
         <Alt+p>: tab-next
+        <Alt+q><Alt+b>: set-cmd-text -s :buffer
         <Ctrl++>: zoom-in
         <Ctrl+->: zoom-out
         <Ctrl+2>: save
         <Ctrl+Space><Ctrl+Space>: reload
         <Ctrl+c>: download-cancel
+        <Ctrl+e>: scroll-px 0 +50
         <Ctrl+h>: tab-prev
         <Ctrl+i>: forward
+        <Ctrl+j>: scroll-px 0 +60
+        <Ctrl+k>: scroll-px 0 -60
         <Ctrl+l>: tab-next
         <Ctrl+n>: tab-next
         <Ctrl+o>: back
         <Ctrl+p>: tab-prev
         <Ctrl+q>: tab-close
+        <Ctrl+t>: null
         <Ctrl+v>: null
         <Ctrl+w>: null
         <Ctrl+w><Ctrl+o>: window-only
@@ -63,6 +126,7 @@ settings:
         <Ctrl+w>T: tab-give
         <Ctrl+w>p: tab-pin
         <Ctrl+x>: null
+        <Ctrl+y>: scroll-px 0 -50
         <Space>1: tab-close
         <Space>2: save
         <Space><Space>: reload
@@ -72,6 +136,7 @@ settings:
         <Space>p: open {primary}
         <Space>q: save
         <Space>w: save
+        <Space>yy: yank
         D: null
         H: null
         J: null
@@ -79,18 +144,29 @@ settings:
         L: null
         P: open -t {clipboard}
         U: undo
+        V: enter-mode caret, drop-selection
+        ZZ: tab-close
         a: enter-mode insert
         d: scroll-page 0 +0.5
         e: edit-url
-        ghO: set-cmd-text :open -t https://github.com/search?q=
-        gho: set-cmd-text :open https://github.com/search?q=
+        gf: spawn nvim-qt {url}
         gi: enter-mode insert
         i: hint inputs --first
+        j: scroll down
+        mode: drop-selection
         p: open {clipboard}
         q: null
         qq: tab-close
         u: scroll-page 0 -0.5
-        yv: enter-mode caret
+        yv: enter-mode caret;; yank;; leave-mode
+        yy: enter-mode caret;; yank;; leave-mode
+        zh: scroll left
+        zl: scroll right
+      prompt:
+        <Ctrl+n>: prompt-item-focus next
+        <Ctrl+p>: prompt-item-focus prev
+  content.host_blocking.lists:
+    global: null
   editor.command:
     global:
     - nvim-qt
@@ -139,3 +215,13 @@ settings:
     global: 9
   scrolling.smooth:
     global: false
+  url.open_base_url:
+    global: true
+  url.searchengines:
+    global:
+      DEFAULT: https://duckduckgo.com/?q={}
+      ar: https://wiki.archlinux.org/?search={}
+      gh: http://github.com/search?q={}
+      th: https://www.freethesaurus.com/{}
+      tw: http://twitter.com/search/{}
+      wk: http://en.wikipedia.org/wiki/{}
