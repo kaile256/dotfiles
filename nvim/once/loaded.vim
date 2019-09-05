@@ -12,7 +12,6 @@ function! s:runtime_tarPlugin() "{{{
   let g:loaded_tarPlugin = 0
   let g:loaded_tar       = 0
   source! /usr/share/nvim/runtime/*/tar*.vim
-endif
 endfunction "}}}
 function! s:runtime_zipPlugin() "{{{
   let g:loaded_zipplugin = 0
@@ -36,7 +35,7 @@ function! s:my_netrw_config() "{{{
 endfunction "}}}
 augroup ReloadDefaultPlugins
   au!
-  au BufNew * if &ft ==# 'netrw' | setl bt=quickfix
+  au BufWinEnter * if &ft ==# 'netrw' | setl bt=quickfix | endif
   au FileType netrw    ++once call <SID>my_netrw_config()
   au FileType tar      ++once call <SID>runtime_tarPlugin()
   au FileType zip,gzip ++once call <SID>runtime_zipPlugin()
