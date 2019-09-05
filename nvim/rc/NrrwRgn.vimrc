@@ -1,4 +1,5 @@
-"""" From: tool.toml
+" From: tool.toml
 
-"""" KEYMAP
-vnoremap <a-g> :NR<cr>
+let g:nrrw_topbot_leftright = 'botright'
+
+noremap <a-g> :NarrowWindow!<cr>
