@@ -8,8 +8,15 @@ let g:neodark#solid_vertsplit = 1 " default: 0
 let g:neodark#terminal_transparent = 1 " default: 0
 let g:neodark#use_custom_terminal_theme = 1 " default: 0
 
-augroup MyColoAugroup
+augroup MyNeodark
   au!
-  au VimEnter * nested colorscheme neodark
+      au VimEnter * ++nested ++once colorscheme neodark
 augroup END
 
+"function! s:ditect_if_qt()
+"  if exists('g:GuiLoaded')
+"    if GuiName() ==# 'nvim-qt'
+"      colorscheme neodark
+"    endif
+"  endif
+"endfunction

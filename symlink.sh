@@ -43,11 +43,13 @@ X11
 awesome
 alacritty
 bash
+vim
 ctags
 emacs
 fish
 git
 i3
+nyaovim
 lynx
 nvim
 glrnvim.yml
@@ -80,6 +82,7 @@ echo "Done! All the dotfiles are linked to ${XDG_CONFIG_HOME}"
 # non-XDG based programs;
 # Create symbolic links at $HOME via $XDG_CONFIG_HOME.
 home_list=(
+vim/.vimrc
 X11/.Xmodmap
 X11/.Xresources
 bash/.bashrc
@@ -88,7 +91,7 @@ ctags/.ctags
 emacs/.doom.d
 git/.gitconfig
 git/.tigrc
-nvim/.gonvim
+nvim/gui/.gonvim
 moc/.moc
 zsh/.zshenv
 )
