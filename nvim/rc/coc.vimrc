@@ -48,7 +48,7 @@ nmap gs <Plug>(coc-git-chunkinfo)
 
 " Keymap; CocList
 " show commit contains current position
-nmap gc <Plug>(coc-git-commit)
+"nmap gc <Plug>(coc-git-commit)
 noremap <silent> qp :CocList yank<cr>
 noremap <silent> <a-c><a-c> :CocList<cr>
 noremap <silent> <a-c><a-f> :CocList files<cr>
@@ -73,7 +73,7 @@ omap if <Plug>(coc-funcobj-a)
 "" Definition
 function! s:make_sure_no_space() abort
   let col = col('.') - 1
-  return !col || getline('.')[col - 1] =~ '\s'
+  return !col || getline('.')[col - 1] =~# '\s'
 endfunction
 
 """ Snippet :echo exists('##CompleteChanged') && exists('*nvim_open_win')s
