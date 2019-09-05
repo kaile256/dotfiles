@@ -1,5 +1,5 @@
 scriptencoding utf-8
-" From: tool.toml
+" From: finder.toml
 " Repo: Shougo/defx.nvim
 
 " Prepare commands to chmod on defx.
@@ -29,14 +29,14 @@ call defx#custom#column('mark', {
       \ 'selected_icon': '✓',
       \ })
 call defx#custom#option('_', {
-      \ 'columns': 'mark:indent:git:icons:filename:size:time',
+      \ 'columns': 'indent:mark:git:icons:filename:size:time',
       \ 'show_ignored_files': 1,
       \ })
-call defx#custom#column('filename', {
-      \ 'directory_icon': '',
-      \ 'opened_icon': '',
-      \ })
-"}}}
+"call defx#custom#column('filename', {
+"      \ 'directory_icon': '',
+"      \ 'opened_icon': '',
+"      \ })
+""}}}
 
 " Keymap; Open Preceding Tree
 " TODO: on Term-Mode, not to get errors; like get path with !pwd.
