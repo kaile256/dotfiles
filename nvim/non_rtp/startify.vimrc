@@ -1,5 +1,4 @@
-"""" Memo: startify.org
-"""" From: 'Prime.toml'
+" From: Init.toml
 
 let g:startify_lists = [
       \ { 'type': 'sessions',  'header': ['   Sessions']       },
@@ -11,12 +10,11 @@ let g:startify_lists = [
 
 let g:startify_session_dir = '~/.local/share/nvim/session'
 
-""" Session
 augroup AutoSaveSession
   " !: overwrite existing session.
   au! VimLeavePre * SSave! 'LastSession.vim'
 augroup END
 
-"""" KEYMAP
+" Keymap
 nnoremap <space>ss :<c-u>SSave <c-i>
 nnoremap <space>sl :<c-u>SLoad <c-i>
