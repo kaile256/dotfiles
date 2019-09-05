@@ -1,0 +1,68 @@
+Please report this error to author.
+`:help eskk` to see author's e-mail address.
+
+Thu 05 Sep 2019 03:47:26 PM JST
+
+--- char ---
+char: ''(0)
+mode(): n
+--- char ---
+
+--- exception ---
+exception type: Vim internal error
+v:exception: Can't read '/home/kaile256/.skk-jisyo'!
+v:throwpoint: function <SNR>254_cmd_update_dictionary[3]..eskk#get_skk_dict[2]..eskk#dictionary#new[1]..<SNR>353_Dictionary_new[4]..<SNR>353_PhysicalDict_new[10]..<SNR>353_PhysicalDict_update_lines[7]..<SNR>353_PhysicalDict_update_lines_main, line 2
+
+   function <SNR>353_PhysicalDict_update_lines_main() abort dict
+1      unlockvar 1 self._content_lines
+2      let self._content_lines  = readfile(self.path)
+3      lockvar 1 self._content_lines
+4      call self.parse_lines()
+5   
+6      let self._ftime_at_set = getftime(self.path)
+   endfunction
+--- exception ---
+
+--- preedit ---
+(no preedit)
+--- preedit ---
+
+--- Vim's :version ---
+NVIM v0.4.0-1903-g9df3a676e
+Build type: RelWithDebInfo
+LuaJIT 2.0.5
+Compilation: /usr/bin/gcc-5 -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=1 -O2 -g -DMIN_LOG_LEVEL=3 -Og -g -Wall -Wextra -pedantic -Wno-unused-parameter -Wstrict-prototypes -std=gnu99 -Wshadow -Wconversion -Wmissing-prototypes -Wvla -fstack-protector-strong -fdiagnostics-color=auto -DINCLUDE_GENERATED_DECLARATIONS -D_GNU_SOURCE -DNVIM_MSGPACK_HAS_FLOAT32 -DNVIM_UNIBI_HAS_VAR_FROM -I/home/travis/build/neovim/bot-ci/build/neovim/build/config -I/home/travis/build/neovim/bot-ci/build/neovim/src -I/home/travis/build/neovim/bot-ci/build/neovim/.deps/usr/include -I/usr/include -I/home/travis/build/neovim/bot-ci/build/neovim/build/src/nvim/auto -I/home/travis/build/neovim/bot-ci/build/neovim/build/include
+Compiled by travis@travis-job-3110b58a-06f5-412e-93d3-69b351f29b17
+
+Features: +acl +iconv +tui
+See ":help feature-compile"
+
+   system vimrc file: "$VIM/sysinit.vim"
+  fall-back for $VIM: "/share/nvim"
+
+Run :checkhealth for more info
+--- Vim's :version ---
+
+
+--- Operating System ---
+"uname -a" = Linux kThinkPad 4.19.66-1-MANJARO #1 SMP PREEMPT Fri Aug 9 18:01:53 UTC 2019 x86_64 GNU/Linux
+--- Operating System ---
+
+--- feature-list ---
+gui_running = 0
+unix = 1
+mac = 0
+macunix = 0
+win16 = 0
+win32 = 0
+win64 = 0
+win32unix = 0
+win95 = 0
+amiga = 0
+beos = 0
+dos16 = 0
+dos32 = 0
+os2 = 0
+qnx = 0
+vms = 0
+--- feature-list ---
