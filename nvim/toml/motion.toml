@@ -40,12 +40,12 @@ hook_add = 'runtime easyoperator.vimrc'
 #}}}
 
 # Operater; Comment out
-[[plugins]]
-repo = 'tyru/caw.vim'
-# operater to comment out
-on_if = '&modifiable'
-on_event = ['BufWinEnter']
-hook_add = 'runtime caw.vimrc'
+#[[plugins]]
+#repo = 'tyru/caw.vim' #{{{
+## operater to comment out
+#on_event = ['BufWinEnter']
+#hook_add = 'runtime caw.vimrc'
+##}}}
 [[plugins]]
 repo = 'scrooloose/nerdcommenter' #{{{
 on_map = 'NERDCommenter'
