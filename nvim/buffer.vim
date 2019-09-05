@@ -7,7 +7,7 @@ augroup END
 
 " Keymap; 'SOurce' init.vim
 function! s:my_source_vimrc() abort "{{{
-  if &ft == 'vim'
+  if &ft ==# 'vim'
     so %
     echo ' Vim sourced "' . expand('%:t') . '"'
   else
