@@ -36,8 +36,8 @@ let g:coc_global_extensions = [
       \ 'coc-tsserver',
       \ 'coc-vimlsp',
       \ 'coc-word',
-      \ 'coc-yaml'
-      \ 'coc-yank',
+      \ 'coc-yaml',
+      \ 'coc-yank'
       \ ]
 
 " navigate chunks of current buffer
@@ -108,5 +108,5 @@ augroup CocAutoToggle
   au BufWinEnter coc-settings.json setl keywordprg=:help
   au BufLeave * if &ft ==# 'coc' || 'list' | hide | endif
   au FileType coc,list setl laststatus=0 noshowmode noruler
-        \ | au BufWinEnter,BufLeave * ++once set laststatus=2 showmode ruler
+        \ | au BufLeave * ++once set laststatus=2 showmode ruler
 augroup END
