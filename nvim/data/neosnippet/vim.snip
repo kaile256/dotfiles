@@ -10,10 +10,11 @@ abbr au
   ${5:au ${6:Event} ${7:*} ${8:command}}
   augroup END ${9:"\}\}\}}
 
-delete function
-snippet f function
-  function! ${1:`expand('%') =~ 'autoload' ? substitute(matchstr(expand('%:p'),'autoload/\zs.*\ze.vim'),'[/\\]','#','g').'#' : ''`}${2:function_name}(${3}) ${4:#:abort}
-    ${0}
+delete f function
+snippet function
+alias f fu fun func function
+  function! s:${1:function_name}(${2:#:arg}) ${3:abort}
+    ${0:#:}
   endfunction
 
 snippet abbr for cmdline
