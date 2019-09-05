@@ -93,22 +93,26 @@ on_event = 'CmdlineEnter'
 hook_post_source = 'runtime dein-command.vimrc'
 #}}}
 
+# Checker
+[[plugins]]
+repo = 'rhysd/vim-grammarous' #{{{
+# Grammer Check
+on_cmd = 'GrammarousCheck'
+hook_add = 'runtime grammarous.vimrc'
+#}}}
+[[plugins]]
+repo = 'rhysd/vim-themis'
+on_cmd = ['BufRead']
+hook_post_source = 'runtime themis.vimrc'
+
+#[[plugins]]
+#repo = 'chrisbra/NrrwRgn' #{{{
+#on_event = 'VimEnter'
+#hook_post_source = 'runtime NrrwRgn.vimrc'
+##}}}
 #[[plugins]]
 #repo = 'AndrewRadev/switch.vim' #{{{
 ## toggle as predefined, such as 'true' & 'false'.
 #on_if = '&modifiable'
 #hook_post_source = 'runtime switch.vimrc'
-#}}}
-
-# Grammar Check
-[[plugins]]
-repo = 'rhysd/vim-grammarous' #{{{
-on_cmd = 'GrammarousCheck'
-hook_add = 'runtime grammarous.vimrc'
-#}}}
-
-[[plugins]]
-repo = 'chrisbra/NrrwRgn' #{{{
-on_event = 'VimEnter'
-hook_post_source = 'runtime NrrwRgn.vimrc'
 #}}}
