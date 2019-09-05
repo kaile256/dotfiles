@@ -28,6 +28,7 @@ hook_add = 'runtime fugitive.vimrc'
 
 [[plugins]]
 repo = 'vim-airline/vim-airline' #{{{
+# Uncompatible with nyaovim?
 # Better to be sourced earlier than colorschemes
 hook_add = 'runtime airline.vimrc'
 [[plugins]]
@@ -36,18 +37,6 @@ repo = 'vim-airline/vim-airline-themes'
 
 #[[plugins]]
 #repo = 'itchyny/lightline.vim' #{{{
-## ERORR: g:lightline is undefined.
-#hook_add = 'runtime! lightline.vimrc'
-##}}}
-
-[[plugins]]
-repo = 'KeitaNakamura/neodark.vim' #{{{
-if = 'has("nvim")'
-hook_add = 'runtime neodark.vimrc'
-#}}}
-#[[plugins]]
-#repo = 'morhetz/gruvbox' #{{{
-## CAUTION: Colorscheme MUST be sourced after dein#end() on dein.vim.
-#if = 'has("nvim")'
-#hook_add = 'runtime gruvbox.vimrc'
+# ERORR: g:lightline is undefined.
+#hook_add = 'runtime lightline.vimrc'
 ##}}}
