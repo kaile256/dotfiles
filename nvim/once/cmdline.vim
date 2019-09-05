@@ -39,7 +39,13 @@ command! PrintExecuted :<c-u>call <SID>my_print_on_qf()
 "augroup END
 
 cnoreabbr <expr> px (getcmdtype() == ':' && getcmdline() =~ '^px$')? "put =execute('')<Left><Left>" : 'px'
-
+"cnoreabbr <expr> vin (getcmdtype() == ':' && getcmdline() =~ '^vin$')? "copen <bar> setl modifiable <bar> put =execute('!vint expand(`%:p`)')" : 'vin'
+function! s:call_vint() abort
+  if &ft ==# 'vim'
+    !vint %:p
+  endif
+endfunction
+cnoreabbr <expr> vin (getcmdtype() == ':' && getcmdline() =~ '^vin$')? "!vint %:p" : 'vin'
 " Abbr; for vimdiff {{{
 cnoreabbr <expr> dth (getcmdtype() == ':' && getcmdline() =~ '^dth$')? 'diffthis' : 'dth'
 cnoreabbr <expr> dof (getcmdtype() == ':' && getcmdline() =~ '^dof$')? 'diffoff!' : 'dof'
