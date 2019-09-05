@@ -1,0 +1,43 @@
+# From: dein.vimrc
+
+# Browser;
+[[plugins]]
+repo = 'tyru/open-browser.vim' #{{{
+on_if = 'executable("qutebrowser")'
+hook_post_source = 'runtime open-browser.vimrc'
+#}}}
+#[[plugins]]
+#repo = 'tyru/open-browser-github.vim' #{{{
+#on_source = 'open-browser.vim'
+#hook_post_source = 'runtime open-browser-github.vimrc'
+#}}}
+
+# Service; Calendar
+[[plugins]]
+repo = 'itchyny/calendar.vim' #{{{
+on_cmd = 'Cal'
+hook_post_source = 'runtime calendar.vimrc'
+#}}}
+
+# Service; Pocket
+[[plugins]]
+repo = 'mattn/webapi-vim'
+#on_map = ['Pocket']
+on_event = ['BufRead']
+hook_add = 'runtime webapi.vimrc'
+[[plugins]]
+repo = 'soramugi/pocket.vim'
+#on_map = 'Pocket'
+on_event = ['BufRead']
+hook_add = 'runtime pocket.vimrc'
+# Service; Twitter
+[[plugins]]
+repo = 'basyura/TweetVim' #{{{
+on_event = 'CmdlineEnter'
+hook_post_source = 'runtime tweetvim.vimrc'
+#}}}
+[[plugins]]
+repo = 'basyura/twibill.vim' # {{{
+on_event = 'CmdlineEnter'
+hook_post_source = 'runtime twibill.vimrc'
+#}}}

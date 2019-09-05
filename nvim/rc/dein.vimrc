@@ -79,7 +79,7 @@ if dein#load_state(s:dein_cache_dir)
     call dein#add('roxma/nvim-yarp')
     call dein#add('roxma/vim-hug-neovim-rpc')
   endif "}}}
-  let s:dein_toml_dir  = g:config_home . '/nvim/toml/'
+  let s:dein_toml_dir  = g:config_home . '/nvim/toml'
   let s:dein_toml_initial_list = [
         \ 'Init.toml'
         \ ]
@@ -87,14 +87,15 @@ if dein#load_state(s:dein_cache_dir)
     call dein#load_toml(s:dein_toml_dir . '/' . dir, {'lazy': 0})
   endfor
   let s:dein_toml_lazy_list = [
-        \ 'motion.toml',
         \ 'appearance.toml',
-        \ 'ftplugin.toml',
         \ 'external.toml',
-        \ 'tool.toml',
-        \ 'insert.toml',
         \ 'finder.toml',
-        \ 'memo.toml'
+        \ 'ftplugin.toml',
+        \ 'insert.toml',
+        \ 'memo.toml',
+        \ 'motion.toml',
+        \ 'tool.toml',
+        \ 'web.toml'
         \ ]
   for dir in s:dein_toml_lazy_list
     call dein#load_toml(s:dein_toml_dir . '/' . dir, {'lazy': 1})
@@ -110,6 +111,10 @@ augroup DeinCallPostSource "{{{
   au!
   au VimEnter * call dein#call_hook('post_source')
 augroup END "}}}
+augroup DeinTomlAutoConf
+  au BufRead nvim**.toml if &keywordprg !=# 'help' | setl keywordprg=:help
+  au BufWinEnter filetype.toml setl syn=vim
+augroup END
 
 filetype plugin indent on
 syntax enable

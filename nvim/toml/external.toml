@@ -9,6 +9,15 @@ hook_add = 'runtime git-messenger.vimrc'
 #on_event = 'BufRead'
 #hook_post_source = 'runtime git-messenger.vimrc'
 #}}}
+[[plugins]]
+repo = 'lambdalisue/gina.vim'
+on_event = ['BufWritePost']
+hook_post_source = 'runtime gina.vimrc'
+[[plugins]]
+repo = 'idanarye/vim-merginal'
+type = 'git'
+on_cmd = ['BufRead']
+hook_post_source = 'runtime merginal.vimrc'
 #[[plugins]]
 #repo = 'junegunn/gv.vim' #{{{
 #type = 'git'
@@ -23,54 +32,23 @@ hook_add = 'runtime git-messenger.vimrc'
 #hook_post_source = 'runtime committia.vimrc'
 ##}}}
 
-# Calendar;
-[[plugins]]
-repo = 'itchyny/calendar.vim' #{{{
-on_cmd = 'Cal'
-hook_post_source = 'runtime calendar.vimrc'
-#}}}
-
-# Browser;
-[[plugins]]
-repo = 'tyru/open-browser.vim' #{{{
-on_if = 'executable("qutebrowser")'
-hook_post_source = 'runtime open-browser.vimrc'
-#}}}
-#[[plugins]]
-#repo = 'tyru/open-browser-github.vim' #{{{
-#on_source = 'open-browser.vim'
-#hook_post_source = 'runtime open-browser-github.vimrc'
-#}}}
-
-# Twitter;
-[[plugins]]
-repo = 'basyura/TweetVim' #{{{
-on_event = 'CmdlineEnter'
-hook_post_source = 'runtime tweetvim.vimrc'
-#}}}
-[[plugins]]
-repo = 'basyura/twibill.vim' # {{{
-on_event = 'CmdlineEnter'
-hook_post_source = 'runtime twibill.vimrc'
-#}}}
-
 # Shell; Wrapper
-#[[plugins]]
-#repo = 'kassio/neoterm' #{{{
-#on_event = 'BufAdd'
-#hook_post_source = 'runtime neoterm.vimrc'
-##}}}
+[[plugins]]
+repo = 'kassio/neoterm' #{{{
+on_event = 'BufAdd'
+hook_post_source = 'runtime neoterm.vimrc'
+#}}}
 [[plugins]]
 repo = 'Shougo/deol.nvim' #{{{
 on_event = 'VimEnter'
 hook_post_source = 'runtime deol.vimrc'
 #}}}
 # Shell; Async Processor
-[[plugins]]
-repo = 'thinca/vim-quickrun' #{{{
-on_map = 'QuickRun'
-hook_add = 'runtime quickrun.vimrc'
-#}}}
+#[[plugins]]
+#repo = 'thinca/vim-quickrun' #{{{
+#on_map = 'QuickRun'
+#hook_add = 'runtime quickrun.vimrc'
+##}}}
 #[[plugins]]
 #repo = 'neomake/neomake' #{{{
 #on_map = 'make'
