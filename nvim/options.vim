@@ -29,6 +29,7 @@ endfunction "}}}
 if &modeline == 0
   set modeline
 endif
+
 if &modelineexpr == 0
   set modelineexpr
 endif
@@ -39,14 +40,13 @@ endif
 set updatetime=300
 "}}}
 " Appearance; Line {{{
-set cursorline
 " CAUTION: cursorline-highlight causes drawing corruption.
-augroup AutoToggleCursorLine "{{{
+augroup AutoToggleCursorLine
   au!
-  " TODO: on GUI, InsertLeave doesn't work!
-  au BufEnter,CursorHold   * if &l:cursorline == 0 | setl cursorline   | endif
-  au BufLeave,CursorMovedI * if &l:cursorline == 1 | setl nocursorline | endif
-augroup END "}}}
+  " Note: Previously, InsertLeave doesn't work on Gui; now work.
+  au BufRead,WinEnter,InsertLeave * if &l:cursorline == 0 | setl cursorline
+  au WinLeave,InsertEnter         * if &l:cursorline == 1 | setl nocursorline
+augroup END
 " to highlight only CursorLineNr
 "hi CursorLine NONE
 "}}}
@@ -56,6 +56,7 @@ set number
 set colorcolumn=81
 " signcolumn is the line beside numbers.
 set signcolumn=yes
+
 "}}}
 " Appearance; Statusbar {{{
 set title
@@ -98,6 +99,7 @@ set expandtab
 set tabstop=2
 " number of spaces, inserted by <TAB>, next to tab-chars.
 set softtabstop=2
+
 "" Tab&Indent; Indent
 " copy indent dependent on first char of current line.
 set autoindent
@@ -105,6 +107,7 @@ set autoindent
 set smartindent
 " indent setting for c-lang.
 "set cindent
+
 " number of spaces inserted by autoindent.
 set shiftwidth=2
 " for manual indent, insert spaces according to shiftwidth.
