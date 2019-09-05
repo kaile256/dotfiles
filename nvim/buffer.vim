@@ -1,15 +1,15 @@
 " From: nvim/init.vim
 
-augroup AlertOnBuffer " {{{
+augroup AlertOnBuffer
   " CAUTION: Too many Exceptions!!
   au! FileChangedRO * colorscheme molokai
-augroup END " }}}
+augroup END
 
 " Keymap; 'SOurce' init.vim
 function! s:my_source_vimrc() abort "{{{
   if &ft == 'vim'
-    so % 
-    echo ' Vim sourced "' . bufname('%') . '"'
+    so %
+    echo ' Vim sourced "' . expand('%:t') . '"'
   else
     echo ' &ft is not "vim"!'
   endif
