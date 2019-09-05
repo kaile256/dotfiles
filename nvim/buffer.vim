@@ -25,14 +25,16 @@ function! s:echo_wanted_info() abort
         \ &ft,
         \ &bt,
         \ &fdm,
+        \ &tw,
+        \ &fo
         \ ]
   for wanted in l:wanted_info_list
-    let l:wanted_info_dict = {wanted: 'wanted'}
+    let l:wanted_info_dict = {'execute(`"echo` wanted `"`)': "'". wanted ."'"}
   endfor
   
 endfunction
 "nnoremap <silent> <a-s><a-s> :<c-u>call <SID>echo_wanted_info()<cr>
 "nnoremap <silent> <a-s>s     :<c-u>call <SID>echo_wanted_info()<cr>
 
-nnoremap <silent> <a-s><a-s> :echo "&syn='" . &syn . "'; &ft='" . &ft . "'; &bt='" . &bt . "'; &fdm='" . &fdm . "'" <cr>
-nnoremap <silent> <a-s>s     :echo "&syn='" . &syn . "'; &ft='" . &ft . "'; &bt='" . &bt . "'; &fdm='" . &fdm . "'" <cr>
+nnoremap <silent> <a-s><a-s>     :echo "&syn='" . &syn . "'; &ft='" . &ft . "'; &bt='" . &bt . "'; &fdm='" . &fdm . "'; &tw='" .&tw. "'; &fo='" .&fo. "'" <cr>
+nnoremap <silent> <a-s>s     :echo "&syn='" . &syn . "'; &ft='" . &ft . "'; &bt='" . &bt . "'; &fdm='" . &fdm . "'; &tw='" .&tw. "'; &fo='" .&fo. "'" <cr>
