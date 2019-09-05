@@ -10,16 +10,16 @@ cnoremap <c-r>p     <c-r><c-p>
 cnoremap <c-r>l     <c-r><c-l>
 cnoremap <c-r>w     <c-r><c-w>
 "}}}
+" Keymap; Emacs-like {{{
+cnoremap <c-a> <home>
+cnoremap <a-f> <S-right>
+cnoremap <c-f> <right>
+cnoremap <c-b> <left>
+cnoremap <a-b> <S-left>
+cnoremap <c-d> <Del>
+"}}}
 
 function! s:my_register_as_executed(cmd)
-  " Ref: sneak.vim
-  copen
-  setl modifiable
-  put =execute('a:cmd')
-endfunction
-command! PrintExecuted :<c-u>call <SID>my_print_on_qf()
-
-function! s:my_print_executed_on_qf(cmd)
   " Ref: sneak.vim
   copen
   setl modifiable
@@ -69,8 +69,8 @@ cnoreabbr <expr> vh (getcmdtype() == ':' && getcmdline() =~ '^vh$')? 'vert bel h
 "}}}
 " Abbr; Open tmp.vim {{{
 cnoreabbr <expr> tmp (getcmdtype() == ':' && getcmdline() =~ '^tmp$')? 'e ~/.tmp/tmp.vim' : 'tmp'
-cnoreabbr <expr> htm (getcmdtype() == ':' && getcmdline() =~ '^htm$')? 'sp ~/.tmp/tmp.vim' : 'htm'
-cnoreabbr <expr> tmh (getcmdtype() == ':' && getcmdline() =~ '^tmh$')? 'sp ~/.tmp/tmp.vim' : 'tmh'
+cnoreabbr <expr> stm (getcmdtype() == ':' && getcmdline() =~ '^stm$')? 'sp ~/.tmp/tmp.vim' : 'stm'
+cnoreabbr <expr> tms (getcmdtype() == ':' && getcmdline() =~ '^tms$')? 'sp ~/.tmp/tmp.vim' : 'tms'
 cnoreabbr <expr> vtm (getcmdtype() == ':' && getcmdline() =~ '^vtm$')? 'vs ~/.tmp/tmp.vim' : 'vtm'
 cnoreabbr <expr> tmv (getcmdtype() == ':' && getcmdline() =~ '^tmv$')? 'vs ~/.tmp/tmp.vim' : 'tmv'
 cnoreabbr <expr> btm (getcmdtype() == ':' && getcmdline() =~ '^btm$')? 'tabe ~/.tmp/tmp.vim' : 'btm'

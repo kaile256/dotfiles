@@ -11,7 +11,7 @@ augroup AppendFileType
   au BufWinEnter *.html        setl ft=html
 augroup END
 
-augroup RuntimeUponFileType
+augroup MyRuntimesOnFileTypes
   au!
   au FileType vim    runtime! vim.vim
   au FileType toml   runtime! toml.vim
@@ -21,7 +21,11 @@ augroup RuntimeUponFileType
   au FileType python runtime! python.vim
   au FileType qf     runtime! qf.vim
   au FileType json   runtime! json.vim
+  " Others;
+  "au FilterReadPost * runtime lazy/diff.vim
+  au BufWinEnter * if &diff | runtime! diff.vim | endif
 augroup end
+
 augroup AutoDeleteWhiteSpace
   au!
   au BufWritePre * keeppatterns %s/\s\+$//ge
