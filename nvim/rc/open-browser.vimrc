@@ -3,8 +3,8 @@
 
 " OpenBrowser; Let {{{
 let g:openbrowser_browser_commands = [
-      \ {"name": "qutebrowser", "args": ["{browser}", "{uri}"]},
-      \ {"name": "w3m",         "args": ["{browser}", "{uri}"]}
+      \ {'name': 'qutebrowser', 'args': ['{browser}', '{uri}']},
+      \ {'name': 'w3m',         'args': ['{browser}', '{uri}']}
       \ ]
 
 " 0: go to the browser.
@@ -44,8 +44,8 @@ let g:openbrowser_search_engines = {
 
 " Keymap; Open Current File {{{
 "" Current File; Command!
-"command! CurrentFileOnBrowser exe "OpenBrowser" "ftp:///" . expand('%:p:gs?\\?/?')
-command! CurrentFileOnBrowser exe "OpenBrowser" . expand('%:p:gs?\\?/?')
+"command! CurrentFileOnBrowser exe 'OpenBrowser' 'ftp:///' . expand('%:p:gs?\\?/?')
+command! CurrentFileOnBrowser exe 'OpenBrowser' . expand('%:p:gs?\\?/?')
 
 "" Current File; Get Current file
 nnoremap <silent> g% :<c-u>CurrentFileOnBrowser<cr>
@@ -57,22 +57,22 @@ nnoremap <silent> g5 :<c-u>CurrentFileOnBrowser<cr>
 " Notice: `smart-search` detects whether it is URI or not.
 nmap gb <Plug>(openbrowser-smart-search)
 vmap gb <Plug>(openbrowser-smart-search)
-" Cursor; Go to Browser on url
+" Cursor; Go to Browser with <cWORD>
 nmap gB :<c-u>OpenBrowserSmartSearch <c-r><c-a> <cr>
 vmap gB :<c-u>OpenBrowserSmartSearch <c-r><c-a> <cr>
 
 "" Cursor; Wiki {{{
 """ Wiki; wikiPedia
-nmap gp :<c-u>OpenBrowserSmartSearch -wikipedia <c-r><c-w> <cr>
-vmap gp :<c-u>OpenBrowserSmartSearch -wikipedia <c-r><c-a> <cr>
+"nmap gp :<c-u>OpenBrowserSmartSearch -wikipedia <c-r><c-w> <cr>
+"vmap gp :<c-u>OpenBrowserSmartSearch -wikipedia <c-r><c-a> <cr>
 
 """ Wiki; Archwiki @en
-nmap ga :<c-u>OpenBrowserSmartSearch -archwiki@en <c-r><c-w> <cr>
-vmap ga :<c-u>OpenBrowserSmartSearch -archwiki@en <c-r><c-a> <cr>
+"nmap ga :<c-u>OpenBrowserSmartSearch -archwiki@en <c-r><c-w> <cr>
+"vmap ga :<c-u>OpenBrowserSmartSearch -archwiki@en <c-r><c-a> <cr>
 
 """ Wiki; Archwiki @ja
-nmap gj :<c-u>OpenBrowserSmartSearch -archwiki@ja <c-r><c-w> <cr>
-vmap gj :<c-u>OpenBrowserSmartSearch -archwiki@ja <c-r><c-a> <cr>
+"nmap gj :<c-u>OpenBrowserSmartSearch -archwiki@ja <c-r><c-w> <cr>
+"vmap gj :<c-u>OpenBrowserSmartSearch -archwiki@ja <c-r><c-a> <cr>
 "}}}
 
 "" Cursor; GitHub "{{{
@@ -80,8 +80,8 @@ nmap gh :<c-u>OpenBrowserSmartSearch -github <c-r><c-w> <cr>
 vmap gh :<c-u>OpenBrowserSmartSearch -github <c-r><c-a> <cr>
 
 """ Github; Github's Repository
-nmap gr :<c-u>OpenBrowserSmartSearch http://github.com/<c-r><c-a> <cr>
-vmap gr :<c-u>OpenBrowserSmartSearch http://github.com/<c-r><c-a> <cr>
+nmap gr :<c-u>OpenBrowserSmartSearch http://github.com/<c-r><c-f> <cr>
+vmap gr :<c-u>OpenBrowserSmartSearch http://github.com/<c-r><c-f> <cr>
 "}}}
 
 "" Cursor; Dictionary "{{{
