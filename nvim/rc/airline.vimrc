@@ -1,13 +1,15 @@
-"""" KEYMAP
+" From: Init.toml
 
-"""" CONFIG
-
-if !has('gui_running')
-  set t_Co=256
-endif
-
-"" Config airline.vim
 let g:airline_theme='term'
+
+augroup AirlineAutoToggle
+  au!
+  au FileType coc,fzf let w:airline_disabled = 1
+augroup END
+
+let g:airline_detect_iminsert=1
+
+" airline#extemsions
 let g:airline#extensions#nrrwrgn#enabled = 1
 let g:airline#extensions#coc#enabled = 1
 let airline#extensions#coc#stl_format_err = '%E{[%e(#%fe)]}'
@@ -58,4 +60,3 @@ let g:airline#extensions#tabline#left_alt_sep = '|'
 "  endif
 "  return ''
 "endfunction
-"

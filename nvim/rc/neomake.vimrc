@@ -6,4 +6,4 @@
 "     shift momentarily)
 " 3 - Debug information (all messages).
 let g:neomake_verbose = 0
-let g:neomake_logfile = '~/.tmp/neoterm.sh'
+let g:neomake_logfile = '~/.tmp/neomake_log.sh'

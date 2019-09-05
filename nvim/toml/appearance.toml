@@ -1,6 +1,35 @@
 # From: dein.vimrc
 # Ref: Init.toml
 
+# Colorscheme
+#[[plugins]]
+#repo = 'altercation/solarized' #{{{
+#on_if = 'has("nvim")'
+#hook_post_source = 'runtime solarized.vimrc'
+##}}}
+#[[plugins]]
+#repo = 'morhetz/gruvbox' #{{{
+## CAUTION: Colorscheme MUST be sourced after dein#end() on dein.vim.
+#on_event = 'BufRead'
+#if = 'has("nvim")'
+#hook_add = 'runtime gruvbox.vimrc'
+##}}}
+[[plugins]]
+repo = 'KeitaNakamura/neodark.vim' #{{{
+on_event = 'BufRead'
+if = 'has("nvim")'
+hook_add = 'runtime neodark.vimrc'
+##}}}
+#[[plugins]]
+#repo = 'crusoexia/vim-monokai' #{{{
+#if = 'has("nvim")'
+#hook_add = 'runtime monokai.vim'
+##}}}
+[[plugins]]
+repo = 'flazz/vim-colorschemes' #{{{
+on_event = 'CmdlineEnter'
+#}}}
+
 # Indent
 [[plugins]]
 repo = 'Yggdroot/indentLine' #{{{
@@ -8,14 +37,12 @@ on_event = 'BufRead'
 hook_add = 'runtime indentLine.vimrc'
 #}}}
 
-# Paren: Doesn't Work
+# Resonance
 #[[plugins]]
 #repo = 'luochen1990/rainbow' #{{{
 ## CAUTION: source rainbow.vimrc AFTER :colorscheme.
 #on_event = 'BufReadPre'
 ##}}}
-
-# Resonance
 [[plugins]]
 repo = 'andymass/vim-matchup' #{{{
 # Better `%`
@@ -27,10 +54,4 @@ repo = 'itchyny/vim-cursorword' #{{{
 # Underlines appear on every word under the cursor.
 on_event = 'CursorMoved'
 hook_post_source = 'runtime cursorword.vimrc'
-#}}}
-
-[[plugins]]
-repo = 'flazz/vim-colorschemes' #{{{
-on_event = 'CmdlineEnter'
-#hook_post_source = 'set rtp+=~/.cache/dein/repos/github.com/flazz/vim-colorschemes/colors/*.vim'
 #}}}

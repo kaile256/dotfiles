@@ -1,12 +1,13 @@
-"""" From: appearance.vim
-""""  Ref: appearance.toml
-""""  Ref: solarized.vimrc
+" From: Init.toml
+"  Ref: solarized.vimrc
 
 " the common settings
-set t_Co=256
-set termguicolors
-
 let g:rehash256 = 1
+
+augroup MyColoAugroup
+  au!
+  au VimEnter * nested colorscheme molokai
+augroup END
 
 " make highlight clear on molokai.
 "colorscheme molokai

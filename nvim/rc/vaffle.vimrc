@@ -2,7 +2,7 @@
 
 " Let; netrw {{{
 let g:loaded_netrw = 0
-let g:loaded_netrwPlugin = 1
+let g:loaded_netrwPlugin = 0
 "}}}
 " Let; vaffle {{{
 let g:vaffle_use_default_mappings = 0
@@ -10,8 +10,7 @@ let g:vaffle_show_hidden_files = 1
 "}}}
 
 " Vaffle; Keymap {{{
-"}}}
-function! s:my_vaffle_keymap() abort
+function! s:my_vaffle_keymap() abort "{{{
 
   nmap <buffer> /        <Plug>(vaffle-open-root)
   nmap <buffer> K        <Plug>(vaffle-mkdir)
@@ -38,10 +37,10 @@ function! s:my_vaffle_keymap() abort
   nmap <buffer> % <Plug>(vaffle-new-file)
   nmap <buffer> x <Plug>(vaffle-fill-cmdline)
 
-endfunction
+endfunction "}}}
 
-augroup MyVaffleAugroup "{{{
+augroup VaffleCallFucntion
   au!
-  au FileType vaffle setlocal signcolumn=
   au FileType vaffle call <SID>my_vaffle_keymap()
-augroup END "}}}
+  au FileType vaffle setlocal signcolumn=
+augroup END

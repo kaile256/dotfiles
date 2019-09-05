@@ -1,29 +1,18 @@
-"""" From: external.toml
-""""  Ref: defx.vimrc
+" From: external.toml
+"  Ref: defx.vimrc
 
 let g:calendar_google_calendar = 1
 let g:calendar_google_task = 1
 
-"""" KEYMAP
-""" Ref:fzf.vimrc
-nnoremap <silent> <a-q><a-c> :Calendar<CR>
+" Keymap
+" Ref:fzf.vimrc
+"nnoremap <silent> <a-c><a-l> :Calendar<CR>
 
 augroup Calendar
-  au! FileType calendar call s:calendar_map()
+  au! FileType calendar call s:calendar_keymap()
 augroup END
 
-"""" DEFINITION
-function! s:calendar_map() abort
-  """ Open Config (this file)
-  nnoremap <buffer><silent> <space>e
-        \ :e ~/.config/nvim/config.d/plugin.d/calendar.vimrc<cr>
-  nnoremap <buffer><silent> <space>v
-        \ :vs ~/.config/nvim/config.d/plugin.d/calendar.vimrc<cr>
-  nnoremap <buffer><silent> <space>s
-        \ :sp ~/.config/nvim/config.d/plugin.d/calendar.vimrc<cr>
-  nnoremap <buffer><silent> <space>t
-        \ :tabe ~/.config/nvim/config.d/plugin.d/calendar.vimrc<cr>
-
+function! s:calendar_keymap() abort
   """ Unmap for Other Mappings
   nunmap <buffer> <c-n>
   nunmap <buffer> <c-p>

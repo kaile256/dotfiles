@@ -1,8 +1,17 @@
-snippet vim
-alias vim
+snippet dein's toml format
+alias vi vim de dein [[
 options head
-[[plugins]]
-repo = '${1:user/plugin}'
-${2:on_event} = ${2['${3:BufRead}'${4:#:,'InsertEnter'}]}
-${5:hook_add = 'runtime ${6:plugin}.vimrc'}
-${7:hook_post_source = 'runtime ${8:plugin}.vimrc'}
+  [[plugins]]
+  repo = '${1:user/plugin}'
+  ${2:on_}${3:event} = ['${4:BufRead}'${5:#:,'InsertEnter'}]
+  hook_${7:post_source} = 'runtime ${8:plugin}.vimrc'
+
+snippet #{{{ begining of fold
+alias #{ {
+  #{{{
+snippet #}}} end of fold
+alias #} }
+  #}}}
+snippet ##}}} end of fold; ver. commented-out
+alias ##} ##
+  ##}}}

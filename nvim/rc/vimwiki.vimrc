@@ -121,7 +121,7 @@ function! s:my_startpage(page) "{{{
     elseif a:page ==# 'wiki'
       VimwikiIndex
     elseif a:page ==# 'diary'
-      ~/vimwiki/diary/index.wiki
+      e ~/vimwiki/diary/index.wiki
     elseif a:page ==# 'term'
       call termopen(&shell)
       setlocal nonumber signcolumn=no modifiable

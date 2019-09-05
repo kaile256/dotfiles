@@ -1,9 +1,12 @@
 " From: Init.toml
-" From: dein.vimrc
+" Repo: morhetz/gruvbox
 
-let g:gruvbox_contrast_dark = 'hard'
+"let g:gruvbox_contrast_dark = 'hard'
 
 augroup MyColoAugroup
   au!
-  au VimEnter * nested colorscheme gruvbox
+  if !exists('g:GuiLoaded')
+    au VimEnter * nested ++once colorscheme gruvbox
+  endif
+  "au Colorscheme * call <SID>my_gruvbox_highlight()
 augroup END

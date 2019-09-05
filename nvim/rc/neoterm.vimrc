@@ -1,3 +1,5 @@
+" From: tool.toml
+
 "cnoreabbr <expr> te (getcmdtype() == ':' && getcmdline() =~ '^te$')? 'Tnew' : 'te'
 "cnoreabbr <expr> teb (getcmdtype() == ':' && getcmdline() =~ '^teb$')? 'tab sp <bar> Tnew' : 'teb'
 "cnoreabbr <expr> tes (getcmdtype() == ':' && getcmdline() =~ '^tes$')? 'sp <bar> Tnew' : 'tes'

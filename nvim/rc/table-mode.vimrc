@@ -1,8 +1,8 @@
-"""" tool.toml
-"""" filetype.toml
+" tool.toml
+" filetype.toml
 
 function! s:arrange_table()
-  if &ft == 'org' || 'vimwiki'
+  if &ft ==# 'org' || 'vimwiki'
     silent TableModeRealign
   endif
 endfunction

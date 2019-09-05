@@ -1,10 +1,8 @@
-"""" Memo: denite.org
-"""" From: Init.toml
-""""  Ref: denite-extra.vimrc
-""""  Ref: defx.vimrc
-""""  Ref: fruzzy.vimrc
-
-"""" CONFIG
+" Memo: denite.org
+" From: Init.toml
+"  Ref: denite-extra.vimrc
+"  Ref: defx.vimrc
+"  Ref: fruzzy.vimrc
 
 """ Matcher
 "" Use fruzzy as denite-matcher
@@ -77,7 +75,7 @@ function! s:denite_keymaps() abort
         \ <a-i> :<c-u>DeniteNext<cr>
   command! DenitePrev :Denite -resume -cursor-pos=-1 -immediately
   command! DeniteNext :Denite -resume -cursor-pos=+1 -immediately
-  command! DeniteDo   :Denite -resume -do='normal! A;' 
+  command! DeniteDo   :Denite -resume -do='normal! A;'
 endfunction
 
 " noremap <silent><buffer> <space>d
