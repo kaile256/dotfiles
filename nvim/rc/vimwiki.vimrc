@@ -86,23 +86,23 @@ nnoremap <silent> <a-e><a-i><a-s> :<c-u>sp     <cr>    :VimwikiDiaryIndex<cr>
 nnoremap <silent> <a-e><a-i><a-v> :<c-u>vs     <cr>    :VimwikiDiaryIndex<cr>
 
 "" Diary; Today {{{
-tnoremap <silent> <a-e>e     <c-\><c-n>:VimwikiMakeDiaryNote<cr>
-tnoremap <silent> <a-e>b     <c-\><c-n>:VimwikiTabMakeDiaryNote<cr>
-tnoremap <silent> <a-e>s     <c-\><c-n>:sp <cr> :VimwikiMakeDiaryNote<cr>
-tnoremap <silent> <a-e>v     <c-\><c-n>:vs <cr> :VimwikiMakeDiaryNote<cr>
-tnoremap <silent> <a-e><a-e> <c-\><c-n>:VimwikiMakeDiaryNote<cr>
-tnoremap <silent> <a-e><a-b> <c-\><c-n>:VimwikiTabMakeDiaryNote<cr>
-tnoremap <silent> <a-e><a-s> <c-\><c-n>:sp <cr> :VimwikiMakeDiaryNote<cr>
-tnoremap <silent> <a-e><a-v> <c-\><c-n>:vs <cr> :VimwikiMakeDiaryNote<cr>
+tnoremap <silent> <a-e>e     <c-\><c-n>:e ~/vimwiki/diary/index.wiki<cr>
+tnoremap <silent> <a-e>b     <c-\><c-n>:tabe ~/vimwiki/diary/index.wiki<cr>
+tnoremap <silent> <a-e>s     <c-\><c-n>:sp ~/vimwiki/diary/index.wiki<cr>
+tnoremap <silent> <a-e>v     <c-\><c-n>:vs ~/vimwiki/diary/index.wiki<cr>
+tnoremap <silent> <a-e><a-e> <c-\><c-n>:e ~/vimwiki/diary/index.wiki<cr>
+tnoremap <silent> <a-e><a-b> <c-\><c-n>:tabe ~/vimwiki/diary/index.wiki<cr>
+tnoremap <silent> <a-e><a-s> <c-\><c-n>:sp ~/vimwiki/diary/index.wiki<cr>
+tnoremap <silent> <a-e><a-v> <c-\><c-n>:vs ~/vimwiki/diary/index.wiki<cr>
 
-nnoremap <silent> <a-e>e     :VimwikiMakeDiaryNote<cr>
-nnoremap <silent> <a-e>b     :VimwikiTabMakeDiaryNote<cr>
-nnoremap <silent> <a-e>s     :sp <cr> :VimwikiMakeDiaryNote<cr>
-nnoremap <silent> <a-e>v     :vs <cr> :VimwikiMakeDiaryNote<cr>
-nnoremap <silent> <a-e><a-e> :VimwikiMakeDiaryNote<cr>
-nnoremap <silent> <a-e><a-b> :VimwikiTabMakeDiaryNote<cr>
-nnoremap <silent> <a-e><a-s> :sp <cr> :VimwikiMakeDiaryNote<cr>
-nnoremap <silent> <a-e><a-v> :vs <cr> :VimwikiMakeDiaryNote<cr>
+nnoremap <silent> <a-e>e     :e ~/vimwiki/diary/index.wiki<cr>
+nnoremap <silent> <a-e>b     :tabe ~/vimwiki/diary/index.wiki<cr>
+nnoremap <silent> <a-e>s     :sp ~/vimwiki/diary/index.wiki<cr>
+nnoremap <silent> <a-e>v     :vs ~/vimwiki/diary/index.wiki<cr>
+nnoremap <silent> <a-e><a-e> :e ~/vimwiki/diary/index.wiki<cr>
+nnoremap <silent> <a-e><a-b> :tabe ~/vimwiki/diary/index.wiki<cr>
+nnoremap <silent> <a-e><a-s> :sp ~/vimwiki/diary/index.wiki<cr>
+nnoremap <silent> <a-e><a-v> :vs ~/vimwiki/diary/index.wiki<cr>
 "}}}
 "}}}
 " CmdAbbr; for destination {{{
@@ -121,7 +121,7 @@ function! s:my_startpage(page) "{{{
     elseif a:page ==# 'wiki'
       VimwikiIndex
     elseif a:page ==# 'diary'
-      VimwikiMakeDiaryNote
+      ~/vimwiki/diary/index.wiki
     elseif a:page ==# 'term'
       call termopen(&shell)
       setlocal nonumber signcolumn=no modifiable
@@ -221,9 +221,9 @@ augroup END
 augroup AutoFormatVimwiki
   au!
   " need to `setf vimwiki` once, for VimwikiTOC.
-  au VimEnter *wiki/*/*.md setl ft=vimwiki ft=markdown syn=vimwiki
-  au CursorMoved *wiki/*/*.md if &syn !=# 'vimwiki' | setl syn=vimwiki
-  au FileType vimwiki      setl nowrap fdl=0
+  au BufWritePre *wiki/*/*.md ++once if &ft ==# 'markdown' | setl ft=vimwiki ft=markdown syn=vimwiki
+  au CursorHold,CursorMoved *wiki/*/*.md if &syn !=# 'vimwiki' | setl syn=vimwiki
+  au FileType vimwiki      setl nowrap fdl=1
   au FileType vimwiki      setl tabstop=4 softtabstop=4 shiftwidth=4
   au BufWritePre *       if &syn  ==# 'vimwiki' | VimwikiTOC
   "au BufWritePre *       if &syn  ==# 'vimwiki' | VimwikiListChangeLvl w w
