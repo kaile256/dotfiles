@@ -28,7 +28,7 @@ let $VISUAL='nvr'
 let g:config_home = empty($XDG_CONFIG_HOME) ? expand('~/.config')      : $XDG_CONFIG_HOME
 let g:cache_home  = empty($XDG_CACHE_HOME)  ? expand('~/.cache')       : $XDG_CACHE_HOME
 let g:data_home   = empty($XDG_DATA_HOME)   ? expand('~/.local/share') : $XDG_DATA_HOME
-let g:my_data = g:config_home . '/nvim/data'
+let g:my_data     = $VIMCONFIG . '/data/'
 "}}}
 " Path; Runtime Path {{{
 set rtp+=~/.config/nvim/rc/
