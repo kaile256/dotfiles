@@ -29,7 +29,6 @@ endfunction "}}}
 if &modeline == 0
   set modeline
 endif
-
 if &modelineexpr == 0
   set modelineexpr
 endif
@@ -56,7 +55,6 @@ set number
 set colorcolumn=81
 " signcolumn is the line beside numbers.
 set signcolumn=yes
-
 "}}}
 " Appearance; Statusbar {{{
 set title
@@ -99,7 +97,6 @@ set expandtab
 set tabstop=2
 " number of spaces, inserted by <TAB>, next to tab-chars.
 set softtabstop=2
-
 "" Tab&Indent; Indent
 " copy indent dependent on first char of current line.
 set autoindent
@@ -107,7 +104,6 @@ set autoindent
 set smartindent
 " indent setting for c-lang.
 "set cindent
-
 " number of spaces inserted by autoindent.
 set shiftwidth=2
 " for manual indent, insert spaces according to shiftwidth.
