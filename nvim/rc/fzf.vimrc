@@ -111,10 +111,10 @@ else
 
   tnoremap <silent> <a-a><a-r> <c-u>cd /<cr>              <c-\><c-n>: Ag<cr>
   tnoremap <silent> <a-a>r     <c-u>cd /<cr>              <c-\><c-n>: Ag<cr>
-  tnoremap <silent> <a-a><a-w> <c-u>cd %:p:h<cr>          <c-\><c-n>: Ag<cr>
-  tnoremap <silent> <a-a>w     <c-u>cd %:p:h<cr>          <c-\><c-n>: Ag<cr>
-  tnoremap <silent> <a-a><a-.> <c-u>cd <space>          <c-\><c-n>: Ag<cr>
-  tnoremap <silent> <a-a>.     <c-u>cd <space>          <c-\><c-n>: Ag<cr>
+  tnoremap <silent> <a-a><a-.> <c-u>cd %:p:h<cr>          <c-\><c-n>: Ag<cr>
+  tnoremap <silent> <a-a>.     <c-u>cd %:p:h<cr>          <c-\><c-n>: Ag<cr>
+  tnoremap <silent> <a-a><a-w> <c-u>cd <space>          <c-\><c-n>: Ag<cr>
+  tnoremap <silent> <a-a>w     <c-u>cd <space>          <c-\><c-n>: Ag<cr>
   tnoremap <silent> <a-a><a-h> <c-u>cd ~<cr>              <c-\><c-n>: Ag<cr>
   tnoremap <silent> <a-a>h     <c-u>cd ~<cr>              <c-\><c-n>: Ag<cr>
   tnoremap <silent> <a-a><a-o> <c-u>cd ~/org<cr>          <c-\><c-n>: Ag<cr>
@@ -139,10 +139,10 @@ else
 
   noremap <silent> <a-a><a-r> :<c-u>cd /<cr>                           :Ag<cr>
   noremap <silent> <a-a>r     :<c-u>cd /<cr>                           :Ag<cr>
-  noremap <silent> <a-a><a-w> :<c-u>cd %:p:h<cr>                       :Ag<cr>
-  noremap <silent> <a-a>w     :<c-u>cd %:p:h<cr>                       :Ag<cr>
-  noremap <silent> <a-a><a-.> :<c-u>   <space>                         :Ag<cr>
-  noremap <silent> <a-a>.     :<c-u>   <space>                         :Ag<cr>
+  noremap <silent> <a-a><a-.> :<c-u>cd %:p:h<cr>                       :Ag<cr>
+  noremap <silent> <a-a>.     :<c-u>cd %:p:h<cr>                       :Ag<cr>
+  noremap <silent> <a-a><a-w> :<c-u>   <space>                         :Ag<cr>
+  noremap <silent> <a-a>w     :<c-u>   <space>                         :Ag<cr>
   noremap <silent> <a-a><a-h> :<c-u>cd ~<cr>                           :Ag<cr>
   noremap <silent> <a-a>h     :<c-u>cd ~<cr>                           :Ag<cr>
   noremap <silent> <a-a><a-o> :<c-u>cd ~/org<cr>                       :Ag<cr>
@@ -173,10 +173,10 @@ else
   tnoremap <silent> <a-r>k     <c-u>cd ~/vimwiki/diary    <c-\><c-n>: Rg<cr>
   tnoremap <silent> <a-r><a-r> <c-u>cd /<cr>              <c-\><c-n>: Rg<cr>
   tnoremap <silent> <a-r>r     <c-u>cd /<cr>              <c-\><c-n>: Rg<cr>
-  tnoremap <silent> <a-r><a-w> <c-u>cd %:p:h<cr>          <c-\><c-n>: Rg<cr>
-  tnoremap <silent> <a-r>w     <c-u>cd %:p:h<cr>          <c-\><c-n>: Rg<cr>
-  tnoremap <silent> <a-r><a-.> <c-u>cd <space>          <c-\><c-n>: Rg<cr>
-  tnoremap <silent> <a-r>.     <c-u>cd <space>          <c-\><c-n>: Rg<cr>
+  tnoremap <silent> <a-r><a-.> <c-u>cd %:p:h<cr>          <c-\><c-n>: Rg<cr>
+  tnoremap <silent> <a-r>.     <c-u>cd %:p:h<cr>          <c-\><c-n>: Rg<cr>
+  tnoremap <silent> <a-r><a-w> <c-u>cd <space>          <c-\><c-n>: Rg<cr>
+  tnoremap <silent> <a-r>w     <c-u>cd <space>          <c-\><c-n>: Rg<cr>
   tnoremap <silent> <a-r><a-h> <c-u>cd ~<cr>              <c-\><c-n>: Rg<cr>
   tnoremap <silent> <a-r>h     <c-u>cd ~<cr>              <c-\><c-n>: Rg<cr>
   tnoremap <silent> <a-r><a-o> <c-u>cd ~/org<cr>          <c-\><c-n>: Rg<cr>
@@ -244,10 +244,8 @@ noremap <silent> <a-q><a-.> :<c-u> cd %:p:h           <cr> :FZF<cr>
 noremap <silent> <a-q>.     :<c-u> cd %:p:h           <cr> :FZF<cr>
 "}}}
 "" FZF; Various {{{
-tnoremap <silent> <a-q><a-.> <c-\><c-n>: FZF<cr>
-tnoremap <silent> <a-q>.     <c-\><c-n>: FZF<cr>
-tnoremap <silent> <a-q><a-w> <c-\><c-n>: Windows<cr>
-tnoremap <silent> <a-q>w     <c-\><c-n>: Windows<cr>
+tnoremap <silent> <a-q><a-w> <c-\><c-n>: FZF<cr>
+tnoremap <silent> <a-q>w     <c-\><c-n>: FZF<cr>
 
 " BLines; instead of `/-search`
 tnoremap <silent> <a-q>q     <c-\><c-n>: BLines<cr>
