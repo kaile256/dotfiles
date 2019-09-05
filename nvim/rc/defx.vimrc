@@ -42,7 +42,7 @@ call defx#custom#column('filename', {
 " TODO: on Term-Mode, not to get errors; like get path with !pwd.
 nnoremap <silent> <a-v>
       \ :<c-u>Defx `expand('%:p:h')` -search=`expand('%:p')`
-      \ -split=vertical -winwidth=30 -winheight=60 -direction=topleft
+      \ -split=vertical -winwidth=32 -winheight=60 -direction=topleft
       \ <cr>
 
 nnoremap <silent> <a-b>
