@@ -1,8 +1,10 @@
-" Info: https://github.com/junegunn/fzf.vim
-" Help: fzf-vim
+scriptencoding utf-8
 " From: Initial.toml
+" Repo: junegunn/fzf.vim
+" Help: fzf || fzf-vim
 
 " CmdAbbr; :Helptags {{{
+cnoreabbr <silent><expr> C (getcmdtype() == ':' && getcmdline() =~ '^C$')? 'Colors' : 'C'
 cnoreabbr <silent><expr> H (getcmdtype() == ':' && getcmdline() =~ '^H$')? 'Helptags' : 'H'
 cnoreabbr <silent><expr> h  (getcmdtype() == ':' && getcmdline() =~ '^h$')?  'Helptags<cr>' : 'h'
 "}}}
@@ -20,7 +22,7 @@ endfunction "}}}
 augroup CallMyFzfFunctions "{{{
   au!
   " CAUTION: WinLeave's current file is next file, i.e., fzf when opening fzf-buffer.
-  au BufLeave * if &ft =~# 'fzf' | hide | endif
+  au BufLeave * if &ft =~# 'fzf' | hide | if &l:statusline == v:false | setl laststatus=2 showmode ruler| endif
   au User     FzfStatusLine call <SID>fzf_buffer_statusline()
   au FileType fzf           call <SID>fzf_buffer_keymap()
 augroup END "}}}
@@ -219,7 +221,6 @@ else
   noremap <silent> <a-r>l     :<c-u>cd /usr/share/nvim/runtime/doc<cr> :Rg<cr>
 endif
 "}}}
-" Keymap; FZF {{{0
 "" FZF; with cd {{{
 tnoremap  <silent> <a-q><a-h> <c-u>cd  ~<cr>                           <c-\><c-n> :FZF<cr>
 tnoremap  <silent> <a-q>h     <c-u>cd  ~<cr>                           <c-\><c-n> :FZF<cr>
@@ -291,5 +292,5 @@ noremap <silent> <a-q>i     :<c-u> Colors<cr>
 
 augroup FzfAutoToggle
   au!
-  au FileType fzf setl laststatus=0 noshowmode noruler
+  au FileType fzf setl laststatus=0 noshowmode noruler | au BufLeave * ++once setl laststatus=2 showmode ruler
 augroup END
