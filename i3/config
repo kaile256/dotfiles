@@ -1,12 +1,9 @@
-# Note: i3.org
-# Ref: https://i3wm.org/docs/userguide.html
+# Help: https://i3wm.org/docs/userguide.html
 # Ref: X11/.xinitrc
-# NOTICE: Duplicated Keybinds makes i3 a notify error.
 
 # Keybind; Try {{{
 #bindsym $Super+Shift+minus move scratchpad
 bindsym $Super+$Alt+h exec xdg-open /usr/share/doc/manjaro/i3_help_live.pdf
-
 #bindsym $Super+Shift+F3 exec gksu pcmanfm
 #bindsym $SuperS+i exec calamares_polkit
 #bindsym $Super+Ctrl+a exec terminal -e 'setup'
@@ -16,14 +13,12 @@ bindsym $Super+$Alt+h exec xdg-open /usr/share/doc/manjaro/i3_help_live.pdf
 #}}}
 # Var; apps {{{
 set $term qterminal
-set $vim nvim-qt
 set $browser qutebrowser
-set $menu rofi
+set $menu ulauncher
 #}}}
 # Var; Keyname {{{
 set $Super  Mod4
 set $SuperS Mod4+Shift
-
 set $Alt    Mod1
 set $AltC   Mod1+Control
 set $AltS   Mod1+Shift
@@ -51,7 +46,7 @@ set $AltS   Mod1+Shift
 font pango:Icons, github\-octicons, file\-icons, SF Mono 11
 #}}}
 
-# Auto Start {{{
+# List; Auto Start {{{
 workspace_layout tabbed
 # nm-applet: WiFi Network Manager
 exec --no-startup-id nm-applet
@@ -61,11 +56,12 @@ exec --no-startup-id fcitx
 # parcellite: Clipboard Manager
 #exec --no-startup-id parcellite
 #exec --no-startup-id clipit
-exec "urxvtd -o -f"
-exec --no-startup-id volumeicon
+# urxvt: Light Terminal
+#exec "urxvtd -o -f"
+#exec --no-startup-id volumeicon
 exec --no-startup-id nitrogen --restore; sleep 1; compton -b
 exec --no-startup-id start_conky_live_maia
-# exec --no-startup-id blueman
+#exec --no-startup-id blueman
 #exec --no-startup-id manjaro-hello
 exec --no-startup-id pamac-tray
 exec --no-startup-id desktop-items
@@ -80,11 +76,6 @@ bindsym $Super+Ctrl+m exec terminal -e 'alsamixer'
 #exec --no-startup-id pa-applet
 #bindsym $mod+Ctrl+m exec pavucontrol
 #}}}
-#}}}
-# Mouse #{{{
-# Use Mouse+$Super to drag floating windows to their wanted position
-floating_modifier $Super
-#focus_follows_mouse no
 #}}}
 
 # Keybind; Notification {{{
@@ -105,28 +96,30 @@ bindsym $SuperS+m exec terminal -e 'mocp'
 #}}}
 # Keybind; open File Manager {{{
 bindsym $Super+m exec pcmanfm
-#bindsym $super+r exec terminal -e 'ranger'
+bindsym $superS+r exec terminal -e 'ranger'
 #}}}
 # Keybind; open Menu {{{
 #bindsym $Super+semicolon exec --no-startup-id i3-dmenu-desktop
 bindsym $Super+Return exec --no-startup-id i3-dmenu-desktop
-bindsym $SuperS+Return exec terminal -e 'bmenu'
-#bindsym $SuperS+Return exec --no-startup-id $menu
+#bindsym $SuperS+Return exec terminal -e 'bmenu'
+bindsym $Super+Ctrl+Return exec --no-startup-id $menu
 #bindsym $Super+d exec dmenu_run
 #}}}
 # Keybind; open Terminal {{{
 # urxvtc; add `-k` to kill daemon, too.
-bindsym $Super+u exec urxvtc
+#bindsym $Super+u exec urxvtc
 bindsym $Super+t exec $term
+bindsym $Super+a exec alacritty
 #}}}
 # Keybind; open Editor {{{
-bindsym $Super+v exec --no-startup-id $vim
-bindsym $Super+g exec --no-startup-id gonvim
+bindsym $Super+v exec --no-startup-id alacritty -e 'nvim'
+bindsym $Super+n exec --no-startup-id nvim-qt
+bindsym $Super+g exec --no-startup-id glrnvim
+bindsym $SuperS+g exec --no-startup-id gonvim
 bindsym $Super+r exec --no-startup-id gnvim
-bindsym $Super+n exec --no-startup-id nyaovim
+bindsym $Super+y exec --no-startup-id nyaovim
 bindsym $Super+o exec --no-startup-id oni
 bindsym $Super+e exec --no-startup-id emacs
-
 #}}}
 # Keybind; open Browser {{{
 bindsym $Super+b exec $browser
@@ -206,7 +199,6 @@ bindsym $SuperS+Right move right
 #
 #bindsym $SuperS+s mode "resize"
 #}}}
-
 # Mode; System {{{
 #set $Locker i3lock -i ~/Pictures/Wallpaper/kishimen.png && sleep 1
 ## If use i3-nagbar {{{
@@ -214,26 +206,21 @@ bindsym $SuperS+Right move right
 #bindsym $SuperS+x exec "i3-nagbar -t warning -f SF Mono 12 -m  'Do you really want to exit i3?' -b 'q:poweroff' 'systemctl poweroff' -b 'r:reboot' 'systemctl reboot' -b 'l:logout' 'i3-msg exit'", mode "$system"
 ##}}}
 bindsym $Alt+Ctrl+x  mode "$systemctl"; exec notify-send 'systemctl'
-set $systemctl (u)Poweroff, (s)Suspend, (r)Reboot, (n)Exit
-#set $systemctl System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (q) poweroff
-
+bindsym $Alt+Ctrl+z  mode "$systemctl"; exec notify-send 'systemctl'
+set $systemctl Poweroff? (y)es, (n)o, (s)uspend or (r)eboot
 mode "$systemctl" {
-
 #bindsym l exec --no-startup-id $Locker, mode "default"
 #bindsym e exec --no-startup-id i3-msg exit, mode "default"
 #bindsym s exec --no-startup-id $Locker && systemctl suspend, mode "default"
 #bindsym h exec --no-startup-id $Locker && systemctl hibernate, mode "default"
 #bindsym r exec --no-startup-id systemctl reboot, mode "default"
-
 #bindsym l exec --no-startup-id i3-msg exit, mode "default"
 bindsym r exec --no-startup-id systemctl reboot,  mode "default"
 bindsym s exec --no-startup-id systemctl sudpend, mode "default"
-
 bindsym p exec --no-startup-id systemctl poweroff, mode "default"
 bindsym q exec --no-startup-id systemctl poweroff, mode "default"
 bindsym y exec --no-startup-id systemctl poweroff, mode "default"
 bindsym u exec --no-startup-id systemctl poweroff, mode "default"
-
 bindsym n            mode "default"
 bindsym Escape       mode "default"
 bindsym $Alt+Ctrl+x  mode "default"
@@ -241,17 +228,14 @@ bindsym Ctrl+c       mode "default"
 bindsym $Super+space mode "default"
 }
 #}}}
-
 # Mode; Backlight {{{
 bindsym $Alt+Ctrl+b mode "$backlight"
 set $backlight Backlight Control: (h)Higher, (l)Lower, (n)Exit
-
 mode "$backlight" {
 bindsym h exec "xbacklight -inc 5; notify-send 'brightness up'"
 bindsym j exec "xbacklight -dec 5; notify-send 'brightness down'"
 bindsym k exec "xbacklight -inc 5; notify-send 'brightness up'"
 bindsym l exec "xbacklight -dec 5; notify-send 'brightness down'"
-
 bindsym n            mode "default"
 bindsym Escape       mode "default"
 bindsym $Alt+Ctrl+b     mode "default"
@@ -259,17 +243,16 @@ bindsym Ctrl+c       mode "default"
 bindsym $Super+space mode "default"
 }
 #}}}
-
-# Mode; Sound {{{
+# Mode; Sound Volume {{{
 bindsym $Alt+Ctrl+s mode "$sound"
-set $sound Sound Control: (h)Higher, (l)Lower, (m)Mute, (n)Exit
+bindsym $Alt+Ctrl+v mode "$sound"
+set $sound Sound Volume: (H)igher, (L)ower, (M)ute or (N)o more.
 mode "$sound" {
 bindsym h exec --no-startup-id pactl set-sink-volume 0 +5%
 bindsym j exec --no-startup-id pactl set-sink-volume 0 -5%
 bindsym k exec --no-startup-id pactl set-sink-volume 0 +5%
 bindsym l exec --no-startup-id pactl set-sink-volume 0 -5%
 bindsym m exec --no-startup-id pactl set-sink-mute   0 toggle
-
 bindsym n            mode "default"
 bindsym Escape       mode "default"
 bindsym $Alt+Ctrl+s  mode "default"
@@ -291,13 +274,10 @@ position          bottom
 mode              dock
 workspace_buttons yes
 tray_output       none
-
 font pango:Icons, SF Mono 12
-
 colors {
 background #000000
 statusline #ffffff
-
 focused_workspace  #ffffff #285577
 active_workspace   #ffffff #333333
 inactive_workspace #888888 #222222
@@ -305,31 +285,25 @@ urgent_workspace   #ffffff #900000
 }
 }
 #}}}
-
-# Window; Layout {{{
-bindsym $SuperS+s split h;exec notify-send 'tile horizontally'
-bindsym $SuperS+v split v;exec notify-send 'tile vertically'
-# Layout; Fullscreen
-bindsym $SuperS+o fullscreen toggle
-#bindsym $Super+t layout tabbed
-# stacking: like tabbed, but switch windows up & down.
-#bindsym $Super+s layout stacking
-#bindsym $Super+e layout toggle split
+# Mouse #{{{
+# Use Mouse+$Super to drag floating windows to their wanted position
+floating_modifier $Super
+#focus_follows_mouse no
 #}}}
-## Layout; Floating {{{
-# toggle tiling / floating
-bindsym $SuperS+f floating toggle
+# Window; Layout {{{
+bindsym F11 fullscreen toggle
+#bindsym $SuperS+s split h;exec notify-send 'tile horizontally'
+#bindsym $SuperS+v split v;exec notify-send 'tile vertically'
+#bindsym $SuperS+t layout tabbed; exec notify-send 'tile tabbed'
+# stacking: like tabbed, but switch windows up & down.
+#bindsym $SuperS+s layout stacking
+#bindsym $SuperS+e layout toggle split
+#bindsym $SuperS+f floating toggle
+## on Floating; Change Focus
 # change focus between tiling / floating windows
-#bindsym $Super+space focus mode_toggle
-### Floating; Focus the parent container
+#bindsym $SuperS+o focus mode_toggle
 #bindsym $Super+a focus parent
-# focus the child container
 #bindsym $Super+u focus child
-## Layout; Split
-## In Horizontal Orientation
-#bindsym $Super+h split h
-## In Vertical Orientation
-#bindsym $Super+v split v
 #}}}
 
 ## Specify Apps to Open in Floating {{{
@@ -362,12 +336,8 @@ bindsym $SuperS+f floating toggle
 #for_window [class="(?i)virtualbox"] floating enable border normal
 #for_window [class="Xfburn"] floating enable
 ##}}}
-
-# switch to workspace with urgent window automatically
+# If Urgent, switch to the workspace immediately.
 for_window [urgent=latest] focus
-
-# External; xrandr
-exec --no-startup-id ~/.config/i3/monitor.sh
 
 # Workspace; Name {{{
 set $ws1 "main"
@@ -381,7 +351,7 @@ set $ws8 "8"
 set $ws9 "9"
 set $ws10 "10"
 #}}}
-# Workspace; Switch {{{
+# Workspace; Focus Switch {{{
 workspace_auto_back_and_forth yes
 #bindsym $mod+b workspace back_and_forth
 #bindsym $mod+Shift+b move container to workspace back_and_forth; workspace back_and_forth
@@ -464,3 +434,5 @@ bindsym $SuperS+0 move container to workspace $ws10
 #        bindsym Escape mode "default"
 #}
 ##}}}
+# External; xrandr
+exec --no-startup-id ~/.config/i3/monitor.sh
