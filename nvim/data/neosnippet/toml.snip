@@ -3,7 +3,7 @@ alias vi vim de dein [[
 options head
   [[plugins]]
   repo = '${1:user/plugin}'
-  ${2:on_}${3:event} = ['${4:BufRead}'${5:#:,'InsertEnter'}]
+  ${2:on_}${3:event} = ${5:#:[}'${4:BufRead}'${5:#:,'InsertEnter'}${5:#:]}
   hook_${7:post_source} = 'runtime ${8:plugin}.vimrc'
 
 snippet #{{{ begining of fold
