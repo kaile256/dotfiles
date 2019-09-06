@@ -134,7 +134,8 @@ endif
 "}}}
 " Method; Macros "{{{
 " lazyredraw: forbids to redraw screen while executing macros.
-set lazyredraw
+" CAUTION: cause problem with fugitive at least; too much expands fugitive buffer.
+"set lazyredraw
 "}}}
 " Method; Fold {{{
 set foldenable
@@ -169,6 +170,9 @@ augroup SetFdmDotfiles
   " TODO: Understand :mkview
   " mkview: save a file condition according to `:viewoptions`
 augroup END
+"}}}
+" Method; Inc/Decrement {{{
+"set nrformats+=octal
 "}}}
 
 " CAUTION: :DiffOrig ruins diff syntax.
