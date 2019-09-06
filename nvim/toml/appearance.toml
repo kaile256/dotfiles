@@ -1,33 +1,59 @@
 # From: dein.vimrc
 # Ref: Init.toml
 
-# Colorscheme
-#[[plugins]]
-#repo = 'altercation/solarized' #{{{
-#on_if = 'has("nvim")'
-#hook_post_source = 'runtime solarized.vimrc'
-##}}}
-#[[plugins]]
-#repo = 'morhetz/gruvbox' #{{{
-## CAUTION: Colorscheme MUST be sourced after dein#end() on dein.vim.
-#on_event = 'BufRead'
-#if = 'has("nvim")'
-#hook_add = 'runtime gruvbox.vimrc'
-##}}}
-[[plugins]]
-repo = 'KeitaNakamura/neodark.vim' #{{{
-on_event = 'BufRead'
-if = 'has("nvim")'
-hook_add = 'runtime neodark.vimrc'
-##}}}
-#[[plugins]]
-#repo = 'crusoexia/vim-monokai' #{{{
-#if = 'has("nvim")'
-#hook_add = 'runtime monokai.vim'
-##}}}
+# Colorscheme; Collection
 [[plugins]]
 repo = 'flazz/vim-colorschemes' #{{{
 on_event = 'CmdlineEnter'
+#}}}
+
+# Colorscheme; Icons
+[[plugins]]
+repo = 'ryanoasis/vim-devicons'
+on_event = 'BufRead'
+hook_post_source = 'runtime devicons.vimrc'
+# Colorscheme; Statusline
+[[plugins]]
+repo = 'vim-airline/vim-airline' #{{{
+on_event = 'BufRead'
+# Uncompatible with nyaovim?
+# Better to be sourced earlier than colorschemes
+hook_add = 'runtime airline.vimrc'
+[[plugins]]
+repo = 'vim-airline/vim-airline-themes'
+on_event = 'VimEnter'
+#}}}
+#[[plugins]]
+#repo = 'itchyny/lightline.vim' #{{{
+#on_event = 'BufAdd'
+#hook_post_source = 'runtime lightline.vimrc'
+#[[plugins]]
+#repo = 'taohexxx/lightline-buffer'
+#on_source = 'lightline.vim'
+#hook_post_source = 'runtime lightline-buffer.vimrc'
+##}}} End of Lightline
+
+# Colorscheme; Detection
+[[plugins]]
+repo = 'cocopon/inspecthi.vim' #{{{
+# Generates a beautiful color swatch from the current buffer
+on_cmd = 'Inspecthi'
+hook_add = 'runtime inspecthi.vimrc'
+#}}}
+[[plugins]]
+repo = 'cocopon/colorswatch.vim' #{{{
+# Inspects a link structure of highlighting groups
+on_cmd = 'ColorSwatchGenerate'
+hook_add = 'runtime colorswatch.vimrc'
+#}}}
+
+# Colorscheme; Modifier
+[[plugins]]
+repo = 'cocopon/pgmnt.vim' #{{{
+# Template engine for colorschemes, in pure Vim script
+# e.g., if g:colors_name ==# 'iceberg' | call pgmnt#foo#bar('foobar', 'foofoo') ...
+on_event = 'Colorscheme'
+hook_post_source = 'runtime pgmnt.vimrc'
 #}}}
 
 # Indent
