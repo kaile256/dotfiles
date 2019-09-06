@@ -46,11 +46,11 @@ function! s:fzf_buffer_keymap() "{{{
   endfunction "}}}
   " <alt-k> for cancel.
   let g:fzf_action = {
+        \ 'ctrl-z': '',
         \ 'alt-k': 'silent! echo',
         \ 'alt-j': 'silent! echo',
         \ 'ctrl-q': function('s:fzf_open_in_quickfix_list'),
         \ 'ctrl-c': function('s:fzf_open_in_quickfix_list'),
-        \ 'ctrl-z': '',
         \ 'ctrl-b': 'tab split',
         \ 'ctrl-t': 'tab split',
         \ 'ctrl-v': 'vsplit',
