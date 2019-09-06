@@ -38,6 +38,7 @@ command! PrintExecuted :<c-u>call <SID>my_print_on_qf()
 "  au BufWritePre * call <SID>auto_suggest_mkdir(expand('<afile>:p:h'), v:cmdbang)
 "augroup END
 
+cnoreabbr <expr> ex (getcmdtype() == '=' && getcmdline() =~ '^ex$')? "execute('')<Left><Left>" : 'ex'
 cnoreabbr <expr> px (getcmdtype() == ':' && getcmdline() =~ '^px$')? "put =execute('')<Left><Left>" : 'px'
 "cnoreabbr <expr> vin (getcmdtype() == ':' && getcmdline() =~ '^vin$')? "copen <bar> setl modifiable <bar> put =execute('!vint expand(`%:p`)')" : 'vin'
 function! s:call_vint() abort
