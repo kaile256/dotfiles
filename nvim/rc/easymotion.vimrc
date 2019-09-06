@@ -47,6 +47,7 @@ hi link EasyMotionIncSearch Search
 " <Plug>(easymotion-s): the range is inside current screen.
 " <Plug>(easymotion-sl): the range is limited to current line.
 
+nunmap <Plug>(easymotion-repeat)
 
 " Keymap; Catch Over window
 nmap <nowait> co         <Plug>(easymotion-overwin-f2)
@@ -82,7 +83,7 @@ noremap <c-l> gt
 map <nowait> <c-j> <Plug>(easymotion-next)
 map <nowait> <c-k> <Plug>(easymotion-prev)
 
-" Keymap; Evacuation for default tf;, "{{{
+" Keymap; Evacuat for default tf;, "{{{
 " Mnemonic: 'Quicker', or shorter typing than those of EasyMotion
 "           as EasyMotion expects another typing to select.
 noremap qt t
