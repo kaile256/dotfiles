@@ -1,2 +1,6 @@
-  balias nv 'nvim'
-  balias tmux 'tmux -2'
+  alias tmux 'tmux -2'
+  alias l 'ls -la'
+  alias la 'ls -A'
+  alias ll 'ls -l'
+  alias ec 'echo'
+  alias ech 'echo'

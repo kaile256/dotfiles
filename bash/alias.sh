@@ -11,6 +11,9 @@ alias ls="ls --color=auto"
 alias la="ls --color=auto -A"
 alias ll="ls --color=auto -l"
 alias  l="ls --color=auto -lA"
+# Command; echo
+alias ec='echo'
+alias ech='echo'
 
 # App; Shell
 alias f=fish
