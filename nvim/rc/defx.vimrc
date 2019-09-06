@@ -55,7 +55,7 @@ function! s:defx_keymap_explorer() abort
   nnoremap <buffer> <a-b> <a-b>
   "}}}
   " Explore; hjkl {{{
-  nnoremap <buffer> gg ggj
+  nnoremap <buffer><silent> gg :2<cr>
   nnoremap <silent><buffer><expr> h
         \ defx#do_action('cd', ['..'])
   "nnoremap <silent><buffer><expr> j
