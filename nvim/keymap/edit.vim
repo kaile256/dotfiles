@@ -61,7 +61,7 @@ inoremap <a-space> <esc>:w<cr>
 " CAUTION: Remember n_<a-hjkl> for Win-Leap
 inoremap <nowait> <a-h> <esc>h
 inoremap <nowait> <a-j> <esc>j
-inoremap <nowait> <a-k> <esc>
+inoremap <nowait> <a-k> <esc>k
 inoremap <nowait> <a-l> <esc>l
 "}}}
 " Alt-ESC; <a-web> {{{
