@@ -6,6 +6,17 @@
 ##}}}
 
 [[plugins]]
+repo = 'Konfekt/vim-office' #{{{
+# no need any config.
+on_ft = ['pdf', 'doc', 'docx', 'els', 'xlsx', 'ppt', 'pptx', 'odt', 'epub']
+#}}}
+
+[[plugins]]
+repo = 'itchyny/vim-pdf' #{{{
+on_ft = ['pdf']
+#}}}
+
+[[plugins]]
 repo = 'vim-syntastic/syntastic' #{{{
 on_ft = ['toml']
 hook_post_source = 'runtime syntastic.vimrc'
@@ -14,13 +25,6 @@ hook_post_source = 'runtime syntastic.vimrc'
 [[plugins]]
 repo = 'chrisbra/vim-zsh' #{{{
 on_ft = 'zsh'
-#}}}
-
-# SKK
-[[plugins]]
-repo = 'tyru/skkdict.vim' #{{{
-# Syntax File for SKK.
-on_ft = 'skk'
 #}}}
 
 # 13-wm
@@ -94,15 +98,16 @@ hook_add = '''
 #repo = 'freitass/todo.txt-vim' #{{{
 ## Use `set syn=help` instead
 #on_ft = 'text'
+##}}}
 
 [[plugins]]
 repo = 'tpope/vim-markdown' #{{{
 on_ft = 'markdown'
-[[plugins]]
-repo = 'suan/vim-instant-markdown'
-on_event = 'BufRead'
-on_ft = 'markdown'
-#}}}
+#[[plugins]]
+#repo = 'suan/vim-instant-markdown'
+#on_event = 'BufRead'
+#on_ft = 'markdown'
+##}}}
 
 #[[plugins]]
 #repo = 'lervag/vimtex' #{{{
