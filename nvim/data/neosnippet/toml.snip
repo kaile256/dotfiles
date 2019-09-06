@@ -3,15 +3,15 @@ alias vi vim de dein [[
 options head
   [[plugins]]
   repo = '${1:user/plugin}'
-  ${2:on_}${3:event} = ${5:#:[}'${4:BufRead}'${5:#:,'InsertEnter'}${5:#:]}
+  ${2:on_}${3:event} = '${4:BufRead}'
   hook_${7:post_source} = 'runtime ${8:plugin}.vimrc'
 
 snippet #{{{ begining of fold
-alias #{ {
+alias { #{ #{{ #{{{
   #{{{
 snippet #}}} end of fold
-alias #} }
+alias # } #} #}} #}}}
   #}}}
 snippet ##}}} end of fold; ver. commented-out
-alias ##} ##
+alias ##
   ##}}}
