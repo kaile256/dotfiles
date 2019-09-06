@@ -2,6 +2,8 @@
 
 let g:sandwich_no_default_key_mappings = 1
 let g:textobj_sandwich_no_default_key_mappings = 1
+" the provided var is incomplete.
+unmap sa
 
 " Keymap; Fetch back forgotten buns on Insert Mode
 imap <a-s>' <c-o><Plug>(operator-sandwich-add)iw'
