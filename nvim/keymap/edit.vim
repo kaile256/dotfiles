@@ -63,6 +63,10 @@ inoremap <nowait> <a-h> <esc>h
 inoremap <nowait> <a-j> <esc>j
 inoremap <nowait> <a-k> <esc>k
 inoremap <nowait> <a-l> <esc>l
+snoremap <a-h> <esc>h
+snoremap <a-j> <esc>j
+snoremap <a-k> <esc>k
+snoremap <a-l> <esc>l
 "}}}
 " Alt-ESC; <a-web> {{{
 inoremap <nowait> <a-w>   <esc>w
