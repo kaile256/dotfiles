@@ -221,7 +221,7 @@ augroup END
 augroup AutoFormatVimwiki
   au!
   " need to `setf vimwiki` once, for VimwikiTOC.
-  au BufWritePre *wiki/*/*.md ++once if &ft ==# 'markdown' | setl ft=vimwiki ft=markdown syn=vimwiki
+  au BufWinEnter *wiki/*/*.md ++once if &ft ==# 'markdown' | setl ft=vimwiki ft=markdown syn=vimwiki
   au CursorHold,CursorMoved *wiki/*/*.md if &syn !=# 'vimwiki' | setl syn=vimwiki
   au FileType vimwiki      setl nowrap fdl=1
   au FileType vimwiki      setl tabstop=4 softtabstop=4 shiftwidth=4
