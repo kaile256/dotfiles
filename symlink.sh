@@ -40,24 +40,25 @@ VimData=(
 
 Configs=(
 X11
-awesome
 alacritty
+awesome
 bash
-vim
 ctags
 emacs
+fcitx
 fish
 git
-i3
-nyaovim
-lynx
-nvim
 glrnvim.yml
+i3
+lynx
+moc
+nvim
+nyaovim
 qutebrowser
 tmux
+vim
 w3m
 zsh
-moc
 )
 
 
