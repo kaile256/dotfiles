@@ -34,8 +34,8 @@ noremap <silent> <a-y>b     :<c-u>Gblame<cr>
 noremap <silent> <a-y><a-b> :<c-u>Gblame<cr>
 "}}}
 " Info; Status {{{
-noremap <silent> <a-y>s     :<c-u>vert bel 40 Gstatus<cr>
-noremap <silent> <a-y><a-s> :<c-u>vert bel 40 Gstatus<cr>
+noremap <silent> <a-y>s     :<c-u>vert bot 40 Gstatus<cr>
+noremap <silent> <a-y><a-s> :<c-u>vert bot 40 Gstatus<cr>
 "}}}
 
 " Add; Only {{{
@@ -44,8 +44,8 @@ noremap <silent> <a-y><a-a> :<c-u>Gw<cr>
 "}}}
 
 " Add; && Status {{{
-noremap <silent> <a-y>w     :<c-u>Gw<cr>:vert bel 40 Gstatus<cr>
-noremap <silent> <a-y><a-w> :<c-u>Gw<cr>:vert bel 40 Gstatus<cr>
+noremap <silent> <a-y>w     :<c-u>Gw<cr>:vert bot 40 Gstatus<cr>
+noremap <silent> <a-y><a-w> :<c-u>Gw<cr>:vert bot 40 Gstatus<cr>
 "}}}
 
 " Remote; Pull {{{
