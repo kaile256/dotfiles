@@ -46,11 +46,12 @@ hook_add = 'runtime easyoperator.vimrc'
 #on_event = ['BufWinEnter']
 #hook_add = 'runtime caw.vimrc'
 ##}}}
-[[plugins]]
-repo = 'scrooloose/nerdcommenter' #{{{
-on_map = 'NERDCommenter'
-hook_add = 'runtime nerdcommenter.vimrc'
-#}}}
+#[[plugins]]
+#repo = 'scrooloose/nerdcommenter' #{{{
+## Irritating: disturbs `norm N`
+#on_map = 'NERDCommenter'
+#hook_add = 'runtime nerdcommenter.vimrc'
+##}}}
 
 # Operater; Arrangement
 [[plugins]]
