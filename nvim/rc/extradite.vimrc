@@ -1,12 +1,18 @@
 " From: external.toml
 
-" Show local commit logs on Tree view.
-command! GTree :top 8 sp <bar> Extradite
-command! Gtree :top 8 sp <bar> Extradite
+"let g:extradite_width = ''
+"let g:extradite_resize = 0
+let g:extradite_showhash = 1
+let g:extradite_diff_split = 'belowright vertical split'
 
-nnoremap <silent> <a-y><a-t> :<c-u>GTree<cr>
-nnoremap <silent> <a-y>t     :<c-u>GTree<cr>
+" Show Local commit logs.
+command! GLocal :bot 8 sp <bar> Extradite
+command! Glocal :bot 8 sp <bar> Extradite
 
+nnoremap <silent> <a-y><a-t> :<c-u>GLocal<cr>
+nnoremap <silent> <a-y>t     :<c-u>Glocal<cr>
+
+" TODO: on Gitcommit with no diff on &diff buffers, show previous log.
 function! s:my_extradite_buf_map() abort
   nnoremap <buffer> <c-s> oh
   nnoremap <buffer> <c-v> ov
@@ -17,4 +23,3 @@ augroup MyExtraditeConf
   au FileType extradite setl bt=quickfix
 augroup END
 
-" TODO: on Gitcommit with no diff on &diff buffers, show previous log.
