@@ -9,7 +9,7 @@ set formatoptions=jmB1cql
 set mouse=a
 
 " WARNING: `!` is required to source all the same named files.
-runtime variables.vim
+runtime variables.vim  " be careful to comment out; many files depends on it.
 runtime options.vim
 runtime filetype.vim
 runtime window.vim
@@ -22,8 +22,7 @@ augroup RuntimesSelection
   au VimEnter     * ++once runtime once/loaded.vim
   au CmdLineEnter * ++once runtime once/cmdline.vim
   au BufNew       * ++once runtime once/terminal.vim
-  au BufNew       * ++once runtime once/zenkaku.vim
-  " &fo-=ro: disturb auto comment out on CR/NL.
+  "au BufNew       * ++once runtime once/zenkaku.vim
 augroup END
 
 function! s:ready_for_new_buffer() "{{{
@@ -35,6 +34,7 @@ function! s:ready_for_new_buffer() "{{{
 endfunction "}}}
 augroup ForceConf
   au!
+  " &fo-=ro: disturb auto comment out on CR/NL.
   au CursorMovedI * if &l:fo =~# 'ro' | set formatoptions-=ro | endif
   au CursorMovedI * if &l:tw =~# ''   | set textwidth=0       | endif
   "au FileType   * call <SID>ready_for_new_buffer()
