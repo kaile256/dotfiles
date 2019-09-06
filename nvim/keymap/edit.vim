@@ -89,10 +89,24 @@ inoremap <nowait> <a-s-y> <esc>y$
 inoremap <nowait> <a-s-x> <esc>X
 inoremap <nowait> <a-s-d> <esc>D
 inoremap <nowait> <a-s-c> <esc>C
+snoremap <nowait> <a-y>   <esc>y
+snoremap <nowait> <a-x>   <esc>x
+snoremap <nowait> <a-d>   <esc>d
+snoremap <nowait> <a-c>   <esc>c
+snoremap <nowait> <a-u>   <esc>u
+snoremap <nowait> <a-c-r> <esc><c-r>
+snoremap <nowait> <a-p>   <c-g>u<esc>p
+snoremap <nowait> <a-s-p> <c-g>u<esc>P
+snoremap <nowait> <a-s-y> <esc>y$
+snoremap <nowait> <a-s-x> <esc>X
+snoremap <nowait> <a-s-d> <esc>D
+snoremap <nowait> <a-s-c> <esc>C
 
 " Note: 'U' respects vi-compatible way of `uu`.
 inoremap <nowait> <a-s-u> <esc>U
 inoremap <nowait> <a-s-p> <c-g>u<esc>P
+snoremap <nowait> <a-s-u> <esc>U
+snoremap <nowait> <a-s-p> <c-g>u<esc>P
 
 """ A-ydcup; for another type {{{
 inoremap <nowait> <a-y><a-y> <esc>yy
