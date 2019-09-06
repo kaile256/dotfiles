@@ -18,7 +18,7 @@ alias f fu fun func function
   endfunction
 
 snippet abbr for cmdline
-alias cno cna
+alias cno cna cnore cnoreab cnoreabbr
   cnoreabbr <expr> ${1:key} (getcmdtype() == ':' && getcmdline() =~ '^$1$')? '${2:expand}' : '$1'
 
 snippet abbriviation
@@ -34,9 +34,9 @@ alias sc ut s u scr script
 options head
   scriptencoding utf-8
 
-snippet "{{{ beginning of fold
-alias "{ {
-  "{{{
+snippet {{{ beginning of fold
+alias "{ { pp "pp
+  {{{
 
 snippet "}}} end of fold
 alias "} }
