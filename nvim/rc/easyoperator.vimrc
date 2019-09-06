@@ -7,6 +7,10 @@
 let g:EasyOperator_phrase_do_mapping = 0
 
 " Keymap; 'Unmoved' Delete/Yank
+" TODO: work w/ clipboard
+"nmap <space>cu         "+<plug>(easyoperator-phrase-select)
+"nmap <space>du         "+<Plug>(easyoperator-phrase-delete)
+"nmap <space>yu         "+<plug>(easyoperator-phrase-yank)
 nmap cu         <plug>(easyoperator-phrase-select)
 nmap du         <Plug>(easyoperator-phrase-delete)
 nmap yu         <plug>(easyoperator-phrase-yank)
