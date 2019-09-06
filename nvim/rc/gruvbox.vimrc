@@ -1,7 +1,11 @@
 " From: Init.toml
 " Repo: morhetz/gruvbox
 
-"let g:gruvbox_contrast_dark = 'hard'
+let g:gruvbox_contrast_dark = 'hard'
+
+if $TERM =~# 'rxvt\|gnome'
+  let g:gruvbox_italic = 1
+endif
 
 augroup MyColoAugroup
   au!
