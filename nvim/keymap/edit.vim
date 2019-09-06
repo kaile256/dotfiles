@@ -145,7 +145,8 @@ inoremap <nowait> <a-s-a> <esc>A
 "}}}
 
 " CAUTION: <c-d> increases indent on Insert Mode.
-"" Undo Brea; New Line
+" Undo Break; {{{
+"" Undo Break; New Line
 "inoremap <c-j> <c-g>u<c-j>
 "inoremap <c-m> <c-g>u<c-m>
 " Undo Break; Backspace
@@ -162,12 +163,7 @@ inoremap <c-k> <c-g>u<c-k>
 " Undo Break; Non-Digit
 inoremap <c-q> <c-g>u<c-q>
 inoremap <c-v> <c-g>u<c-v>
-
-" Undo Keep; Inc/Decrement
-" Too slow.
-"nnoremap <c-x> <c-g>U<c-x>
-"nnoremap <c-a> <c-g>U<c-a>
-
+"}}}
 augroup AdditionalUndoBreakOnFileType "{{{
   au!
   au FileType html,markdown inoremap <buffer> , ,<c-g>u
@@ -175,14 +171,20 @@ augroup AdditionalUndoBreakOnFileType "{{{
   au FileType html,markdown inoremap <buffer> ! !<c-g>u
   au FileType html,markdown inoremap <buffer> ? ?<c-g>u
 augroup END "}}}
+" Undo Keep; Inc/Decrement {{{
+" Too slow.
+"nnoremap <c-x> <c-g>U<c-x>
+"nnoremap <c-a> <c-g>U<c-a>
+"}}}
 
 " Fold; Uniquely Open Fold {{{
 " i.e., close all the others
-noremap zu zMzv
+noremap zU zMzv
 "}}}
 
-vnoremap <c-x> <c-x>gv
-vnoremap <c-a> <c-x>gv
+" TODO: inc/dec for hex color on guifg/bg
+xnoremap <c-x> <c-x>gv
+xnoremap <c-a> <c-x>gv
 xnoremap = =gv
 xnoremap < <gv
 xnoremap > >gv
