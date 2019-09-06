@@ -47,7 +47,11 @@ hi link EasyMotionIncSearch Search
 " <Plug>(easymotion-s): the range is inside current screen.
 " <Plug>(easymotion-sl): the range is limited to current line.
 
-nunmap <Plug>(easymotion-repeat)
+if execute('map <Plug>(easymotion-repeat)') != ''
+  silent! nunmap <Plug>(easymotion-repeat)
+  silent! ounmap <Plug>(easymotion-repeat)
+  silent! sunmap <Plug>(easymotion-repeat)
+endif
 
 " Keymap; Catch Over window
 nmap <nowait> co         <Plug>(easymotion-overwin-f2)
