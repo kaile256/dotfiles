@@ -130,7 +130,7 @@ cnoreabbr <expr> wk (getcmdtype() == ':' && getcmdline() =~ '^OpenBrowserSmartSe
 cnoreabbr <expr> wl (getcmdtype() == ':' && getcmdline() =~ '^OpenBrowserSmartSearch wl$')? '-weblio'     : 'wl'
 
 """ Dictionary; Thesaurus
-cnoreabbr <expr> gw (getcmdtype() == ':' && getcmdline() =~ '^OpenBrowserSmartSearch gw$')? '-thesaurus'     : 'gw'
+cnoreabbr <expr> gW (getcmdtype() == ':' && getcmdline() =~ '^OpenBrowserSmartSearch gW$')? '-thesaurus'     : 'gW'
 cnoreabbr <expr> th (getcmdtype() == ':' && getcmdline() =~ '^OpenBrowserSmartSearch th$')? '-thesaurus'     : 'th'
 
 """ Dictionary; DiCtionary
