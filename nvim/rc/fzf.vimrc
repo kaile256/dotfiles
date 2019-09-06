@@ -82,6 +82,12 @@ let g:fzf_colors =
 imap <c-f> <plug>(fzf-complete-file-ag)
 " :FZF! starts fzf on full-window.
 
+" CmdAbbr; {{{
+cnoreabbr <silent><expr> fz (getcmdtype() == ':' && getcmdline() =~ '^fz$')? 'FZF' : 'fz'
+cnoreabbr <silent><expr> zf (getcmdtype() == ':' && getcmdline() =~ '^zf$')? 'FZF' : 'zf'
+cnoreabbr <silent><expr> rg (getcmdtype() == ':' && getcmdline() =~ '^rg$')? 'Rg' : 'rg'
+cnoreabbr <silent><expr> ag (getcmdtype() == ':' && getcmdline() =~ '^ag$')? 'Ag' : 'ag'
+"}}}
 " Keymap; Command! Ag/Rg/FZF {{{
 command! -bang -nargs=* Ag
       \ call fzf#vim#ag(<q-args>,
@@ -295,5 +301,5 @@ noremap <silent> <a-q>i     :<c-u> Colors<cr>
 
 augroup FzfAutoToggle
   au!
-  au FileType fzf setl laststatus=0 noshowmode noruler | au BufLeave * ++once setl laststatus=2 showmode ruler
+  au FileType fzf setl laststatus=0 noruler | au BufLeave * ++once setl laststatus=2 ruler
 augroup END
