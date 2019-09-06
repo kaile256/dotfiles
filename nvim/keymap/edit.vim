@@ -164,8 +164,28 @@ xnoremap = =gv
 xnoremap < <gv
 xnoremap > >gv
 
-" Text Object
+" Adjustment; Text Object {{{
 onoremap ia a
 onoremap ai i
 xnoremap ia a
 xnoremap ai i
+"}}}
+" Adjustment; Insert {{{
+nnoremap dI I
+nnoremap cI I
+nnoremap yI I
+nnoremap dA A
+nnoremap cA A
+nnoremap yA A
+"}}}
+" Adjustment; Operator {{{
+nnoremap dY y$
+nnoremap cY y$
+nnoremap yY y$
+nnoremap dD D
+nnoremap cD D
+nnoremap yD D
+nnoremap cC C
+nnoremap dC C
+nnoremap yC C
+"}}}
