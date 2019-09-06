@@ -10,8 +10,8 @@ noremap <silent> <a-y><a-n> :<c-u>Gmove<cr>
 
 " Diff {{{
 " !: On a Merge Conflict, do a 3-diff; otherwise the same as without bang.
-noremap <silent> <a-y>d     :<c-u>Gvdiffsplit!<cr>gg
-noremap <silent> <a-y><a-d> :<c-u>Gvdiffsplit!<cr>gg
+noremap <silent> <a-y>d     :<c-u>Gvdiffsplit!<cr>
+noremap <silent> <a-y><a-d> :<c-u>Gvdiffsplit!<cr>
 " TODO: if no diff with the last git buffer, show diff with the 2nd last git buffer.
 command! GvdiffWithUnstaged :vert bel Git! diff --staged
 noremap <silent> <a-y><a-u> :<c-u>GvdiffWithUnstaged<cr>
@@ -34,8 +34,8 @@ noremap <silent> <a-y>b     :<c-u>Gblame<cr>
 noremap <silent> <a-y><a-b> :<c-u>Gblame<cr>
 "}}}
 " Info; Status {{{
-noremap <silent> <a-y>s     :<c-u>vert bot 40 Gstatus<cr>
-noremap <silent> <a-y><a-s> :<c-u>vert bot 40 Gstatus<cr>
+noremap <silent> <a-y>s     :<c-u>vert bel 40 Gstatus<cr>
+noremap <silent> <a-y><a-s> :<c-u>vert bel 40 Gstatus<cr>
 "}}}
 
 " Add; Only {{{
@@ -44,8 +44,8 @@ noremap <silent> <a-y><a-a> :<c-u>Gw<cr>
 "}}}
 
 " Add; && Status {{{
-noremap <silent> <a-y>w     :<c-u>Gw<cr>:vert bot 40 Gstatus<cr>
-noremap <silent> <a-y><a-w> :<c-u>Gw<cr>:vert bot 40 Gstatus<cr>
+noremap <silent> <a-y>w     :<c-u>Gw<cr>:vert bel 40 Gstatus<cr>
+noremap <silent> <a-y><a-w> :<c-u>Gw<cr>:vert bel 40 Gstatus<cr>
 "}}}
 
 " Remote; Pull {{{
@@ -72,25 +72,25 @@ noremap <a-y><a-o> :<c-u>Git checkout<space>
 "}}}
 
 function! s:on_gitcommit_startinsert() "{{{
-  if getline(1) == ''
-    if getline(2) == '# Please enter the commit message for your changes. Lines starting'
+  if getline(1) ==# ''
+    if getline(2) ==# '# Please enter the commit message for your changes. Lines starting'
       startinsert
     endif
   endif
 endfunction "}}}
-
 function! s:on_fugitive_keymap()
   " TODO: open gitcommit bufwin thinner.
-  nnoremap <buffer><silent> cc    :<C-U>bot 10 Gcommit<CR>
-  nnoremap <buffer><silent> ca    :<C-U>bot 10 Gcommit --amend<CR>
+  nnoremap <buffer><silent> cc    :<C-U>bot 20 Gcommit<CR>
+  nnoremap <buffer><silent> ca    :<C-U>bot 20 Gcommit --amend<CR>
 endfunction
 
 augroup OnFugitiveBuffer
-
   au!
   au FileType fugitive,gitcommit,fugitiveblame setl nonumber signcolumn= bt=quickfix
   au FileType fugitive call <SID>on_fugitive_keymap()
   au FileType gitcommit setl spell
   au FileType gitcommit call <SID>on_gitcommit_startinsert()
-
+  " TODO: Remember cursor position on closed as qf buffer.
+  "au BufWinEnter fugitive mG
+  "au BufWinLeave gitcommit norm `G
 augroup END
