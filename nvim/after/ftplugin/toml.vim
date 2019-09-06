@@ -8,4 +8,5 @@ augroup AutoFormatOnToml
   au BufWritePre *.toml keeppatterns %s/https:\/\/github.com\///ge
 augroup END
 
-"noremap <buffer><silent> <S-TAB> :keeppatterns %s/^\s\+//ge<cr>
+" Note: simple =-operator devasticates indent if fold by '{{{'.
+noremap <buffer><silent> <S-TAB> :keeppatterns %s/^\s\+//ge<cr>
