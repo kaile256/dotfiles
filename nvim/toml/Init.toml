@@ -20,23 +20,39 @@ repo = 'junegunn/fzf.vim'
 hook_add = 'runtime fzf.vimrc'
 #}}}
 
-[[plugins]]
-repo = 'tpope/vim-fugitive' #{{{
-type = 'git'
-hook_add = 'runtime fugitive.vimrc'
-#}}}
-
-[[plugins]]
-repo = 'vim-airline/vim-airline' #{{{
-# Uncompatible with nyaovim?
-# Better to be sourced earlier than colorschemes
-hook_add = 'runtime airline.vimrc'
-[[plugins]]
-repo = 'vim-airline/vim-airline-themes'
-#}}}
-
-# ERORR: g:lightline is undefined.
 #[[plugins]]
-#repo = 'itchyny/lightline.vim' #{{{
-#hook_add = 'runtime lightline.vimrc'
+#repo = 'vim-airline/vim-airline' #{{{
+## Uncompatible with nyaovim?
+## Better to be sourced earlier than colorschemes
+#hook_add = 'runtime airline.vimrc'
+#[[plugins]]
+#repo = 'vim-airline/vim-airline-themes'
+##}}}
+
+# Colorscheme
+[[plugins]]
+repo = 'cocopon/iceberg.vim' #{{{
+if = 'exists("g:nyaovim_version")'
+hook_add = 'runtime iceberg.vimrc'
+#}}}
+#[[plugins]]
+#repo = 'altercation/solarized' #{{{
+#on_if = 'has("nvim")'
+#hook_post_source = 'runtime solarized.vimrc'
+##}}}
+[[plugins]]
+repo = 'morhetz/gruvbox' #{{{
+# CAUTION: Colorscheme MUST be sourced after dein#end() on dein.vim.
+#if = 'exists("g:GuiLoaded") && GuiName() ==# "nvim-qt"' # doesn't work.
+if = '!exists("g:nyaovim_version")'
+hook_add = 'runtime gruvbox.vimrc'
+#}}}
+#[[plugins]]
+#repo = 'KeitaNakamura/neodark.vim' #{{{
+#if = 'has("nvim")'
+#hook_add = 'runtime neodark.vimrc'
+###}}}
+#[[plugins]]
+#repo = 'crusoexia/vim-monokai' #{{{
+#hook_add = 'runtime monokai.vim'
 ##}}}
