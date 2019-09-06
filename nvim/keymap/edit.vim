@@ -145,6 +145,11 @@ inoremap <c-k> <c-g>u<c-k>
 inoremap <c-q> <c-g>u<c-q>
 inoremap <c-v> <c-g>u<c-v>
 
+" Undo Keep; Inc/Decrement
+" Too slow.
+"nnoremap <c-x> <c-g>U<c-x>
+"nnoremap <c-a> <c-g>U<c-a>
+
 augroup AdditionalUndoBreakOnFileType "{{{
   au!
   au FileType html,markdown inoremap <buffer> , ,<c-g>u
