@@ -132,10 +132,10 @@ nnoremap <a-j> <c-w>j
 nnoremap <a-k> <c-w>k
 nnoremap <a-l> <c-w>l
 
-vnoremap <a-h> <esc><c-w>h
-vnoremap <a-j> <esc><c-w>j
-vnoremap <a-k> <esc><c-w>k
-vnoremap <a-l> <esc><c-w>l
+xnoremap <a-h> <esc><c-w>h
+xnoremap <a-j> <esc><c-w>j
+xnoremap <a-k> <esc><c-w>k
+xnoremap <a-l> <esc><c-w>l
 "nnoremap <a-b> <c-w>b
 "nnoremap <a-t> <c-w>t
 " avoid stack on command-line
