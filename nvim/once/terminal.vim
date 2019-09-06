@@ -17,6 +17,17 @@ tnoremap <a-l> <c-\><c-n>l
 "tnoremap <a-k> <c-\><c-n><c-w>k
 "tnoremap <a-l> <c-\><c-n><c-w>l
 "}}}
+" Keymap; Jump Anyway by <c-i><c-o> {{{
+"tmap <c-i> <c-\><c-n><c-i>
+tmap <c-o> <c-\><c-n><c-o>
+tmap <a-i> <c-\><c-n><a-i>
+tmap <a-o> <c-\><c-n><a-o>
+tmap <a-p> <c-\><c-n><a-p>
+tmap <a-n> <c-\><c-n><a-n>
+"}}}
+
+" CmdAbbr; bdelete term://
+"cnoreabbr <expr> bdt (getcmdtype() == ':' && getcmdline() =~ '^bdt$')? 'bwipeout! expand(bufname("term://"))' : 'bdt'
 
 augroup OnTerminalBuffer
   au!
