@@ -21,7 +21,7 @@ augroup RuntimesSelection
   au!
   au VimEnter     * ++once runtime once/loaded.vim
   au CmdLineEnter * ++once runtime once/cmdline.vim
-  au BufNew       * ++once runtime once/terminal.vim
+  au BufAdd       * ++once runtime once/terminal.vim
   "au BufNew       * ++once runtime once/zenkaku.vim
 augroup END
 
