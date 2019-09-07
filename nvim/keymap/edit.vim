@@ -8,8 +8,9 @@ nnoremap          <space>w :<c-u>w  <cr>
 nnoremap          <space>W :<c-u>w! <cr>
 " Note: <space>q is sometimes mistyped, intending <space>w.
 nnoremap          <space>q :<c-u>w  <cr>
-nnoremap <silent> qq :<c-u>q  <cr>
-nnoremap <silent> <space>Q :<c-u>q! <cr>
+"nnoremap <silent> qq :<c-u>q  <cr>
+nmap <silent> Q <Nope>
+nnoremap <silent> QQ :<c-u>q! <cr>
 nnoremap <silent> <s-space>Q :<c-u>q! <cr>
 "" Write&Quit; Buffer
 nnoremap <silent> <space>Z :<c-u>q!<cr>
