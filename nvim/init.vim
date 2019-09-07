@@ -10,12 +10,12 @@ set mouse=a
 
 " WARNING: `!` is required to source all the same named files.
 runtime variables.vim  " be careful to comment out; many files depends on it.
+runtime dein.vimrc  " this file contains `filetype plugin indent on`
 runtime options.vim
 runtime filetype.vim
 runtime window.vim
 runtime buffer.vim
 runtime! keymap/*.vim
-runtime rc/dein.vimrc
 
 augroup RuntimesSelection
   au!
