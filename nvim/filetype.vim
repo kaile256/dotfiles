@@ -33,9 +33,11 @@ augroup END
 
 " K Action up to FileType
 function! s:my_vim_help_map() abort
-  " TODO: if more than two buffers on the tab, move to the buffer and then, :vert help.
-  nnoremap <silent><buffer> K <c-w>T:vert help <cword> <cr>
-  xnoremap <silent><buffer> K <c-w>T:vert help <cword> <cr>
+  " Note: Those tabs filled with help would fill up tab-line; you can also arrange via winnr() or else.
+  "nnoremap <silent><buffer> K <c-u><c-w>T:vert help <c-r><c-w> <cr>
+  "xnoremap <silent><buffer> K <c-u><c-w>T:vert help <c-r><c-w> <cr>
+  nnoremap <silent><buffer> K :<c-u>vert help <c-r><c-w> <cr>
+  xnoremap <silent><buffer> K :<c-u>vert help <c-r><c-w> <cr>
 endfunction
 augroup HelpOnVertical
   au!
