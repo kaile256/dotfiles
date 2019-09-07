@@ -30,3 +30,15 @@ augroup AutoDeleteWhiteSpace
   au!
   au BufWritePre * keeppatterns %s/\s\+$//ge
 augroup END
+
+" K Action up to FileType
+function! s:my_vim_help_map() abort
+  " TODO: if more than two buffers on the tab, move to the buffer and then, :vert help.
+  nnoremap <silent><buffer> K <c-w>T:vert help <cword> <cr>
+  xnoremap <silent><buffer> K <c-w>T:vert help <cword> <cr>
+endfunction
+augroup HelpOnVertical
+  au!
+  au FileType vim call s:my_vim_help_map()
+  au TabNew,BufWinEnter nvim/*/*.toml call s:my_vim_help_map()
+augroup END
