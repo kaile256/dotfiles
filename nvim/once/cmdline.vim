@@ -3,7 +3,7 @@
 " Keymap; Leap {{{
 cnoremap <nowait> <a-k> <c-c>
 "}}}
-" Keymap; Completion {{{
+" Keymap; Expand {{{
 cnoremap <c-r>a     <c-r><c-a>
 cnoremap <c-r>f     <c-r><c-f>
 cnoremap <c-r>p     <c-r><c-p>
@@ -19,15 +19,7 @@ cnoremap <a-b> <S-left>
 cnoremap <c-d> <Del>
 "}}}
 
-function! s:my_register_as_executed(cmd)
-  " Ref: sneak.vim
-  copen
-  setl modifiable
-  put =execute('a:cmd')
-endfunction
-command! PrintExecuted :<c-u>call <SID>my_print_on_qf()
-
-"augroup AutoSuggestMkdir
+"augroup AutoMkdirSuggestionOnSave "{{{
 "  au!
 "  function! s:auto_suggest_mkdir(dir, force) "{{{
 "    if !isdirectory(a:dir) && (a:force ||
@@ -36,17 +28,31 @@ command! PrintExecuted :<c-u>call <SID>my_print_on_qf()
 "    endif
 "  endfunction "}}}
 "  au BufWritePre * call <SID>auto_suggest_mkdir(expand('<afile>:p:h'), v:cmdbang)
-"augroup END
+"augroup END "}}}
 
+" Abbr; =execute() {{{
+function! s:my_register_as_executed(cmd)
+  " Ref: sneak.vim
+  copen
+  setl modifiable
+  put =execute('a:cmd')
+endfunction
+command! PrintExecuted :<c-u>call <SID>my_print_on_qf()
+" TODO: ExAbbr
+"command! -nargs=* ExAbbr call <SID>abbr_wrapper(':', alias, command)
+"function! s:abbr_wrapper(['type', 'alias', 'command']) abort
+"  cnoreabbr <expr> a:alias (getcmdtype() == 'a:type' && getcmdline() =~ '^a:alias$')? `a:command` : 'a:alias'
+"endfunction
 cnoreabbr <expr> ex (getcmdtype() == '=' && getcmdline() =~ '^ex$')? "execute('')<Left><Left>" : 'ex'
 cnoreabbr <expr> px (getcmdtype() == ':' && getcmdline() =~ '^px$')? "put =execute('')<Left><Left>" : 'px'
-"cnoreabbr <expr> vin (getcmdtype() == ':' && getcmdline() =~ '^vin$')? "copen <bar> setl modifiable <bar> put =execute('!vint expand(`%:p`)')" : 'vin'
 function! s:call_vint() abort
   if &ft ==# 'vim'
     !vint %:p
   endif
-endfunction
+endfunction "}}}
+" Abbr; for :!vint {{{
 cnoreabbr <expr> vin (getcmdtype() == ':' && getcmdline() =~ '^vin$')? "!vint %:p" : 'vin'
+"}}}
 " Abbr; for vimdiff {{{
 cnoreabbr <expr> dth (getcmdtype() == ':' && getcmdline() =~ '^dth$')? 'diffthis' : 'dth'
 cnoreabbr <expr> dof (getcmdtype() == ':' && getcmdline() =~ '^dof$')? 'diffoff!' : 'dof'
