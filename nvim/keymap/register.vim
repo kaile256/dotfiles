@@ -77,8 +77,10 @@ cnoremap <c-r>\     <c-r>"
 " TODO: use repeat.vim, i.e., dotrepeat.
 nnoremap yP yyP
 nnoremap yp yyp
-nnoremap <silent><expr> 'cp' (@1 ==# @2)? '"_ddp' : 'ddp'
-nnoremap <silent><expr> 'cP' (@1 ==# @2)? '"_ddkp' : 'ddkP'
+nnoremap cp ddp
+nnoremap cP ddkP
+"nnoremap <silent><expr> 'cp' (@1 ==# @2)? '"_ddp' : 'ddp'
+"nnoremap <silent><expr> 'cP' (@1 ==# @2)? '"_ddkp' : 'ddkP'
 " TODO: paste after :append or pastetoggle
 "nnoremap <expr> <space>p :append '<c-r>+<cr>'
 " TODO: keymap via forloop
