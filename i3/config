@@ -48,6 +48,8 @@ font pango:Icons, github\-octicons, file\-icons, SF Mono 11
 
 # List; Auto Start {{{
 workspace_layout tabbed
+# xrandr;
+exec --no-startup-id ~/.config/i3/monitor.sh
 # nm-applet: WiFi Network Manager
 exec --no-startup-id nm-applet
 exec --no-startup-id fcitx
@@ -59,11 +61,11 @@ exec --no-startup-id fcitx
 # urxvt: Light Terminal
 #exec "urxvtd -o -f"
 #exec --no-startup-id volumeicon
-exec --no-startup-id nitrogen --restore; sleep 1; compton -b
-exec --no-startup-id start_conky_live_maia
+#exec --no-startup-id nitrogen --restore; sleep 1; compton -b
+#exec --no-startup-id start_conky_live_maia
 #exec --no-startup-id blueman
 #exec --no-startup-id manjaro-hello
-exec --no-startup-id pamac-tray
+#exec --no-startup-id pamac-tray
 exec --no-startup-id desktop-items
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 # exec_always --no-startup-id sbxkb
@@ -205,8 +207,8 @@ bindsym $SuperS+Right move right
 #bindsym $Super+x  exec "i3-nagbar -t warning -f SF Mono 12 -m  'Do you really want to exit i3?' -b 'q:poweroff' 'systemctl poweroff' -b 'r:reboot' 'systemctl reboot' -b 'l:logout' 'i3-msg exit'", mode "$system"
 #bindsym $SuperS+x exec "i3-nagbar -t warning -f SF Mono 12 -m  'Do you really want to exit i3?' -b 'q:poweroff' 'systemctl poweroff' -b 'r:reboot' 'systemctl reboot' -b 'l:logout' 'i3-msg exit'", mode "$system"
 ##}}}
-bindsym $Alt+Ctrl+x  mode "$systemctl"; exec notify-send 'systemctl'
-bindsym $Alt+Ctrl+z  mode "$systemctl"; exec notify-send 'systemctl'
+bindsym $Super+Ctrl+x  mode "$systemctl"; exec notify-send 'systemctl'
+bindsym $Super+Ctrl+z  mode "$systemctl"; exec notify-send 'systemctl'
 set $systemctl Poweroff? (y)es, (n)o, (s)uspend or (r)eboot
 mode "$systemctl" {
 #bindsym l exec --no-startup-id $Locker, mode "default"
@@ -223,39 +225,43 @@ bindsym y exec --no-startup-id systemctl poweroff, mode "default"
 bindsym u exec --no-startup-id systemctl poweroff, mode "default"
 bindsym n            mode "default"
 bindsym Escape       mode "default"
-bindsym $Alt+Ctrl+x  mode "default"
+bindsym $Super+Ctrl+x  mode "default"
 bindsym Ctrl+c       mode "default"
 bindsym $Super+space mode "default"
 }
 #}}}
 # Mode; Backlight {{{
-bindsym $Alt+Ctrl+b mode "$backlight"
+bindsym $Super+Ctrl+b mode "$backlight"
 set $backlight Backlight Control: (h)Higher, (l)Lower, (n)Exit
 mode "$backlight" {
-bindsym h exec "xbacklight -inc 5; notify-send 'brightness up'"
-bindsym j exec "xbacklight -dec 5; notify-send 'brightness down'"
 bindsym k exec "xbacklight -inc 5; notify-send 'brightness up'"
-bindsym l exec "xbacklight -dec 5; notify-send 'brightness down'"
+bindsym j exec "xbacklight -dec 5; notify-send 'brightness down'"
+bindsym u exec "xbacklight -inc 5; notify-send 'brightness up'"
+bindsym d exec "xbacklight -dec 5; notify-send 'brightness down'"
 bindsym n            mode "default"
 bindsym Escape       mode "default"
-bindsym $Alt+Ctrl+b     mode "default"
+bindsym Return       mode "default"
+bindsym Space        mode "default"
+bindsym $Super+Ctrl+b  mode "default"
 bindsym Ctrl+c       mode "default"
 bindsym $Super+space mode "default"
 }
 #}}}
 # Mode; Sound Volume {{{
-bindsym $Alt+Ctrl+s mode "$sound"
-bindsym $Alt+Ctrl+v mode "$sound"
+bindsym $Super+Ctrl+s mode "$sound"
+bindsym $Super+Ctrl+v mode "$sound"
 set $sound Sound Volume: (H)igher, (L)ower, (M)ute or (N)o more.
 mode "$sound" {
-bindsym h exec --no-startup-id pactl set-sink-volume 0 +5%
 bindsym j exec --no-startup-id pactl set-sink-volume 0 -5%
 bindsym k exec --no-startup-id pactl set-sink-volume 0 +5%
-bindsym l exec --no-startup-id pactl set-sink-volume 0 -5%
+bindsym u exec --no-startup-id pactl set-sink-volume 0 +5%
+bindsym d exec --no-startup-id pactl set-sink-volume 0 -5%
 bindsym m exec --no-startup-id pactl set-sink-mute   0 toggle
 bindsym n            mode "default"
 bindsym Escape       mode "default"
-bindsym $Alt+Ctrl+s  mode "default"
+bindsym Return       mode "default"
+bindsym Space        mode "default"
+bindsym $Super+Ctrl+s  mode "default"
 bindsym Ctrl+c       mode "default"
 bindsym $Super+space mode "default"
 }
@@ -434,5 +440,3 @@ bindsym $SuperS+0 move container to workspace $ws10
 #        bindsym Escape mode "default"
 #}
 ##}}}
-# External; xrandr
-exec --no-startup-id ~/.config/i3/monitor.sh
