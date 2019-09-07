@@ -2,8 +2,6 @@
 
 let g:sandwich_no_default_key_mappings = 1
 let g:textobj_sandwich_no_default_key_mappings = 1
-" the provided var is incomplete.
-unmap sa
 
 " Keymap; Fetch back forgotten buns on Insert Mode
 imap <a-s>' <c-o><Plug>(operator-sandwich-add)iw'
@@ -27,15 +25,15 @@ imap <a-s>~ <c-o><Plug>(operator-sandwich-add)iw~
 
 " Keymap; Manual Select
 "" Manual; Normal Mode
-nmap <space>s <Plug>(operator-sandwich-add)
-nmap <space>d <Plug>(operator-sandwich-delete)<Plug>(operator-sandwich-release-count)<Plug>(textobj-sandwich-query-a)
+nmap \s <Plug>(operator-sandwich-add)
+nmap \d <Plug>(operator-sandwich-delete)<Plug>(operator-sandwich-release-count)<Plug>(textobj-sandwich-query-a)
 " Mnemonic: Change
-nmap <space>c <Plug>(operator-sandwich-replace)<Plug>(operator-sandwich-release-count)<Plug>(textobj-sandwich-query-a)
+nmap \c <Plug>(operator-sandwich-replace)<Plug>(operator-sandwich-release-count)<Plug>(textobj-sandwich-query-a)
 
 "" Manual; Visual Mode
-xmap <space>s <Plug>(operator-sandwich-add)
-xmap <space>d <Plug>(operator-sandwich-delete)
-xmap <space>c <Plug>(operator-sandwich-replace)
+xmap \s <Plug>(operator-sandwich-add)
+xmap \d <Plug>(operator-sandwich-delete)
+xmap \c <Plug>(operator-sandwich-replace)
 
 "" Keymap; Text Object {{{
 " default follows 'timeoutlen' (=1000ms).
@@ -55,8 +53,7 @@ xmap <space>c <Plug>(operator-sandwich-replace)
 "onoremap <silent><expr> as textobj#sandwich#query('o', 'a')
 "xnoremap <silent><expr> as textobj#sandwich#query('x', 'a')
 "}}}
-
-"" Remap; In Case {{{
+"" Remap; Just In Case {{{
 "onoremap i i
 "xnoremap i i
 "onoremap i i
