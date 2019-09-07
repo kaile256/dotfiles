@@ -25,6 +25,7 @@ function! s:echo_wanted_info() abort
         \ &ft,
         \ &bt,
         \ &fdm,
+        \ &fdl,
         \ &tw,
         \ &fo,
         \ &cole
@@ -36,5 +37,5 @@ endfunction
 "nnoremap <silent> <a-s><a-s> :<c-u>call <SID>echo_wanted_info()<cr>
 "nnoremap <silent> <a-s>s     :<c-u>call <SID>echo_wanted_info()<cr>
 
-nnoremap <silent> <a-s><a-s>     :echo "&syn='" . &syn . "'; &ft='" . &ft . "'; &bt='" . &bt . "'; &fdm='" . &fdm . "'; &tw='" .&tw. "'; &fo='" .&fo. "'; &cole='" . &cole . "'" <cr>
-nnoremap <silent> <a-s>s     :echo "&syn='" . &syn . "'; &ft='" . &ft . "'; &bt='" . &bt . "'; &fdm='" . &fdm . "'; &tw='" .&tw. "'; &fo='" .&fo. "'; &cole='" . &cole . "'" <cr>
+nnoremap <silent> <a-s><a-s> :echo "&syn='" . &syn . "'; &ft='" . &ft . "'; &bt='" . &bt . "'; &fdm='" . &fdm . "'; &fdl=" . &fdl . "; &tw='" .&tw. "'; &fo='" .&fo. "'; &cole='" . &cole . "'" <cr>
+nnoremap <silent> <a-s>s     :echo "&syn='" . &syn . "'; &ft='" . &ft . "'; &bt='" . &bt . "'; &fdm='" . &fdm . "'; &fdl=" . &fdl . "; &tw='" .&tw. "'; &fo='" .&fo. "'; &cole='" . &cole . "'" <cr>
