@@ -48,18 +48,18 @@ nnoremap <a-w>d     :<c-u>cd ~/dotfiles<cr>:echo 'cd "' . getcwd() . '"'<cr>
 "nnoremap <a-w><a-o> :<c-u>cd ~/org<cr>:echo 'cd "' . getcwd() . '"'<cr>
 "nnoremap <a-w>o     :<c-u>cd ~/org<cr>:echo 'cd "' . getcwd() . '"'<cr>
 "}}}
-"" Modify; hjkl {{{
-"" move as it looks.
-"nnoremap j gj
-"nnoremap k gk
-""xnoremap j gj
-""xnoremap k gk
-"" switch mapping.
-"nnoremap gj j
-"nnoremap gk k
-""xnoremap gj j
-""xnoremap gk k
-""}}}
+" Modify; hjkl {{{
+" move as it looks.
+nnoremap j gj
+nnoremap k gk
+"xnoremap j gj
+"xnoremap k gk
+" switch mapping.
+nnoremap gj j
+nnoremap gk k
+"xnoremap gj j
+"xnoremap gk k
+"}}}
 
 " Switch; Pane {{{
 " leap between panes
