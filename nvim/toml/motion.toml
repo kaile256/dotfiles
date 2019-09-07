@@ -65,7 +65,7 @@ hook_add = 'runtime easy-align.vimrc'
 #hook_post_source = 'runtime splitjoin.vimrc'
 #}}}
 
-# Operater; Simultaneously
+# Operater; Simultaneous
 [[plugins]]
 repo = 'machakann/vim-sandwich' #{{{
 on_map = '<Plug>(operator-sandwich-'
