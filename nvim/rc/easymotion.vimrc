@@ -1,7 +1,8 @@
 " From: motion.toml
+" Repo: easymotion/easymotion
 
 " Let; mapping {{{
-" `g:EasyMotion_do_mapping` provides all the default keymaps.
+" `g:EasyMotion_do_mapping = 1` provides all the default keymaps.
 let g:EasyMotion_do_mapping = 0
 let g:EasyMotion_enter_jump_first = 1
 let g:EasyMotion_space_jump_first = 1
@@ -47,16 +48,29 @@ hi link EasyMotionIncSearch Search
 " <Plug>(easymotion-s): the range is inside current screen.
 " <Plug>(easymotion-sl): the range is limited to current line.
 
-if execute('map <Plug>(easymotion-repeat)') != ''
-  silent! nunmap <Plug>(easymotion-repeat)
-  silent! ounmap <Plug>(easymotion-repeat)
-  silent! sunmap <Plug>(easymotion-repeat)
-endif
+augroup CallMyEasymotionFunc
+  au!
+  au BufRead * call s:easymotion_auto_unmap()
+augroup END
+function! s:easymotion_auto_unmap() abort
+  if execute('map <Plug>(easymotion-repeat)') != ''
+    silent! nunmap <Plug>(easymotion-repeat)
+    silent! ounmap <Plug>(easymotion-repeat)
+    silent! vunmap <Plug>(easymotion-repeat)
+  endif
+  if execute('map <Plug>(easymotion-dotrepeat)') != ''
+    silent! nunmap <Plug>(easymotion-dotrepeat)
+    silent! ounmap <Plug>(easymotion-dotrepeat)
+    silent! vunmap <Plug>(easymotion-dotrepeat)
+  endif
+endfunction
 
 " Keymap; Catch Over window
 nmap <nowait> co         <Plug>(easymotion-overwin-f2)
 imap <nowait> <a-c><a-o> <esc><Plug>(easymotion-overwin-f2)
 imap <nowait> <a-c>o     <esc><Plug>(easymotion-overwin-f2)
+" TODO: yank over window.
+"nmap <nowait> yo <Plug>(easymotion-overwin-f2)
 
 " Keymap; ft;,
 function! s:adjust_maps_easymotion() abort "{{{
