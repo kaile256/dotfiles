@@ -1,22 +1,23 @@
 " From: init.vim
 " Repo: Shougo/dein.vim
 
-" Git; shallow depth
+" Let; Make git clone shallow {{{
 let g:dein#types#git#clone_depth = 1
-" Path; log {{{
+"}}}
+" Let; Path to the directory of dein's log {{{
 let s:dein_data_dir = g:data_home . '/dein'
 let s:dein_log_file = s:dein_data_dir . '/dein_log.vim'
 let g:dein#install_log_filename = s:dein_log_file
 "}}}
-" Path; cache {{{
-let s:dein_cache_dir = g:cache_home . '/dein'
-let s:Shougo_cache_dir = s:dein_cache_dir . '/repos/github.com/Shougo/'
+" Let; Path to the directory of dein's cache {{{
+let g:dein_cache_dir = g:cache_home . '/dein'
+let s:Shougo_cache_dir = g:dein_cache_dir . '/repos/github.com/Shougo/'
 let s:dein_itself = s:Shougo_cache_dir . 'dein.vim/'
 "}}}
-" Path; for :find {{{
+" Let; Path for :find {{{
 let &path = &path . ',' . s:dein_cache_dir . '**'
 "}}}
-" rtp; for :runtime {{{
+" Let; Path for :runtime {{{
 let &rtp  = &rtp  . ',' . s:dein_itself
 "}}}
 
@@ -26,7 +27,7 @@ if ! isdirectory(s:dein_itself)
   exe '!git clone https://github.com/Shougo/dein.vim' shellescape(expand(s:dein_itself))
 endif
 "}}}
-" CmdAbbr; {{{
+" CmdAbbr; Call Dein's Function {{{
 cnoreabbr <expr> du (getcmdtype() == ':' && getcmdline() =~ '^du$')? 'call dein#update()' : 'du'
 " direct-install      [dein#direct_install] install a plugin directly
 cnoreabbr <expr> din (getcmdtype() == ':' && getcmdline() =~ '^di$')? 'Dein direct-install' : 'din'
@@ -37,7 +38,7 @@ cnoreabbr <expr> dlz (getcmdtype() == ':' && getcmdline() =~ '^dlz$')? 'call dei
 
 cnoreabbr <expr> dlg (getcmdtype() == ':' && getcmdline() =~ '^dlog$')? 'call dein#get_log' : 'dlg'
 " TODO: make `:drm` work w/ s:var.
-"cnoreabbr <expr> drm (getcmdtype() == ':' && getcmdline() =~ '^drm$')? 'exe "!rm -rf" shellescape(expand(s:dein_cache_dir))' : 'drm'
+"cnoreabbr <expr> drm (getcmdtype() == ':' && getcmdline() =~ '^drm$')? 'exe "!rm -rf" shellescape(expand(g:dein_cache_dir))' : 'drm'
 cnoreabbr <expr> drm (getcmdtype() == ':' && getcmdline() =~ '^drm$')? '!rm -rf ~/.cache/dein' : 'drm'
 "}}}
 " set nocompatible for dein {{{
@@ -45,9 +46,9 @@ if !has('nvim')
   " Neovim is always nocompatible.
   if &compatible | set nocompatible | endif
 endif "}}}
-if dein#load_state(s:dein_cache_dir)
-  call dein#begin(s:dein_cache_dir)
-  "" Duplicated {{{
+if dein#load_state(g:dein_cache_dir)
+  call dein#begin(g:dein_cache_dir)
+  "" Duplicated and Deprecated {{{
   "" Path; toml {{{
   "let s:Init_toml      = s:dein_toml_dir . 'Init.toml'
   "let s:appearance_toml= s:dein_toml_dir . 'appearance.toml'
