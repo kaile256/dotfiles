@@ -6,7 +6,7 @@ set ambiwidth=double
 hi CursorIM guibg=#fabd1f
 " default: tcqj
 set formatoptions=jmB1cql
-set mouse=a
+"set mouse=a
 
 " WARNING: `!` is required to source all the same named files.
 runtime variables.vim  " be careful to comment out; many files depends on it.
