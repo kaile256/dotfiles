@@ -2,6 +2,12 @@ scriptencoding utf-8
 " From init.vim
 
 "set keywordprg='vert help'
+" Appearance; Blend {{{
+if exists('&pumblend')
+  set pumblend=30
+  set winblend=30
+endif
+"}}}
 " Appearance; Pmenu {{{
 " shortmess: Shorter Message
 " c-option: forbids to give |ins-completion-menu| messages.
