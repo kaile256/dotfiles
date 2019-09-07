@@ -1,5 +1,4 @@
 # From: dein.vimrc
-# Ref: Init.toml
 
 # Colorscheme; Collection
 [[plugins]]
@@ -52,7 +51,7 @@ hook_add = 'runtime colorswatch.vimrc'
 repo = 'cocopon/pgmnt.vim' #{{{
 # Template engine for colorschemes, in pure Vim script
 # e.g., if g:colors_name ==# 'iceberg' | call pgmnt#foo#bar('foobar', 'foofoo') ...
-on_event = 'Colorscheme'
+on_event = 'VimEnter'
 hook_post_source = 'runtime pgmnt.vimrc'
 #}}}
 
@@ -72,7 +71,7 @@ hook_add = 'runtime indentLine.vimrc'
 [[plugins]]
 repo = 'andymass/vim-matchup' #{{{
 # Better `%`
-on_event = 'CursorMoved'
+on_event = ['BufNewFile','BufRead']
 hook_post_source = 'runtime matchup.vimrc'
 #}}}
 [[plugins]]
