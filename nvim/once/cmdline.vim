@@ -30,29 +30,14 @@ cnoremap <c-d> <Del>
 "  au BufWritePre * call <SID>auto_suggest_mkdir(expand('<afile>:p:h'), v:cmdbang)
 "augroup END "}}}
 
-" Abbr; =execute() {{{
-function! s:my_register_as_executed(cmd)
-  " Ref: sneak.vim
-  copen
-  setl modifiable
-  put =execute('a:cmd')
-endfunction
-command! PrintExecuted :<c-u>call <SID>my_print_on_qf()
 " TODO: ExAbbr
 "command! -nargs=* ExAbbr call <SID>abbr_wrapper(':', alias, command)
-"function! s:abbr_wrapper(['type', 'alias', 'command']) abort
+"function! s:abbr_wrapper(['type', 'alias', 'command']) abort "{{{
 "  cnoreabbr <expr> a:alias (getcmdtype() == 'a:type' && getcmdline() =~ '^a:alias$')? `a:command` : 'a:alias'
-"endfunction
+"endfunction "}}}
 cnoreabbr <expr> ex (getcmdtype() == '=' && getcmdline() =~ '^ex$')? "execute('')<Left><Left>" : 'ex'
 cnoreabbr <expr> px (getcmdtype() == ':' && getcmdline() =~ '^px$')? "put =execute('')<Left><Left>" : 'px'
-function! s:call_vint() abort
-  if &ft ==# 'vim'
-    !vint %:p
-  endif
-endfunction "}}}
-" Abbr; for :!vint {{{
-cnoreabbr <expr> vin (getcmdtype() == ':' && getcmdline() =~ '^vin$')? "!vint %:p" : 'vin'
-"}}}
+""}}}
 " Abbr; for vimdiff {{{
 cnoreabbr <expr> dth (getcmdtype() == ':' && getcmdline() =~ '^dth$')? 'diffthis' : 'dth'
 cnoreabbr <expr> dof (getcmdtype() == ':' && getcmdline() =~ '^dof$')? 'diffoff!' : 'dof'
@@ -62,6 +47,14 @@ cnoreabbr <expr> dof (getcmdtype() == ':' && getcmdline() =~ '^dof$')? 'diffoff!
 "}}}
 " Abbr; Before Typo {{{
 cnoreabbr <expr> man (getcmdtype() == ':' && getcmdline() =~ '^man$')? 'Man' : 'man'
+"}}}
+" Abbr; for :!vint {{{
+"function! s:call_vint() abort "{{{
+"  if &ft ==# 'vim'
+"    !vint %:p
+"  endif
+"endfunction "}}}
+cnoreabbr <expr> vin (getcmdtype() == ':' && getcmdline() =~ '^vin$')? "!vint %:p" : 'vin'
 "}}}
 " Abbr; :tabe {{{
 cnoreabbr <expr> b (getcmdtype() == ':' && getcmdline() =~ '^b$')? 'tabe' : 'b'
