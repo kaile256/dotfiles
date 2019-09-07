@@ -39,7 +39,7 @@ cnoremap <c-k><a-k> <c-c>
 "}}}
 " Improve; <C-O> {{{
 " <c-o>u doesn't work by default
-inoremap <c-o>u     <esc>ui
+inoremap <c-o>u     <esc>ua
 inoremap <c-o><c-r> <esc><c-r>i
 "}}}
 " Improve; <C-G> {{{
