@@ -1,19 +1,11 @@
 " From: tool.toml
 
-cnoreabbr <expr> dein (getcmdtype() == ':' && getcmdline() =~ '^dein$')? 'Dein' : 'dein'
-" search              [original] seach vim plugins from GitHub
-cnoreabbr <expr> ds (getcmdtype() == ':' && getcmdline() =~ '^ds$')? 'Dein search' : 'ds'
-
 " direct-install      [dein#direct_install] install a plugin directly
-cnoreabbr <expr> di (getcmdtype() == ':' && getcmdline() =~ '^di$')? 'Dein direct-install' : 'di'
-" reinstall           [dein#reinstall] reinstall a plugin
-cnoreabbr <expr> dri (getcmdtype() == ':' && getcmdline() =~ '^dri$')? 'Dein reinstall' : 'dri'
+cnoreabbr <expr> din (getcmdtype() == ':' && getcmdline() =~ '^din$')? 'Dein dinrect-install' : 'din'
 
 " rollback            [dein#rollback] rollback plugins
 cnoreabbr <expr> drb (getcmdtype() == ':' && getcmdline() =~ '^drb$')? 'Dein rollback' : 'drb'
 
-" recache-runtimepath [dein#recache_runtimepath] re-make runtimepath cache and execute :helptags
-cnoreabbr <expr> drc (getcmdtype() == ':' && getcmdline() =~ '^drc$')? 'Dein recache-runtimepath' : 'drc'
 
 " check-lazy-plugins  [dein#check_lazy_plugins] check nonsense lazy plugins
 cnoreabbr <expr> dlz (getcmdtype() == ':' && getcmdline() =~ '^dlz$')? 'Dein check-lazy-plugins' : 'dlz'
