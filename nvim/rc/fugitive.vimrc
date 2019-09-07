@@ -10,25 +10,25 @@ noremap <silent> <a-y><a-n> :<c-u>Gmove<cr>
 
 " Diff {{{
 " !: On a Merge Conflict, do a 3-diff; otherwise the same as without bang.
-noremap <silent> <a-y>d     :<c-u>Gvdiffsplit!<cr>
-noremap <silent> <a-y><a-d> :<c-u>Gvdiffsplit!<cr>
+noremap <silent> <a-y>d     <c-u><c-w>T:<c-u>Gvdiffsplit!<cr>
+noremap <silent> <a-y><a-d> <c-u><c-w>T:<c-u>Gvdiffsplit!<cr>
 " TODO: if no diff with the last git buffer, show diff with the 2nd last git buffer.
 command! GvdiffWithUnstaged :vert bel Git! diff --staged
-noremap <silent> <a-y><a-u> :<c-u>GvdiffWithUnstaged<cr>
+noremap <silent> <a-y><a-u> <c-u><c-w>T:<c-u>GvdiffWithUnstaged<cr>
 "}}}
 
-" Info; Log {{{
-" Without `b#` `:Glog` with `:copen` fills previous window.
-"# QuickFix -- Edit-History of current buffer.
-noremap <silent> <a-y>l     :<c-u>tab sp <bar> Glog <bar> copen<cr>
-noremap <silent> <a-y><a-l> :<c-u>tab sp <bar> Glog <bar> copen<cr>
-"# QuickFix -- Commit-Log of git-repository.
-noremap <silent> <a-y>c     :<c-u>tab sp <bar> Glog -- <cr>
-noremap <silent> <a-y><a-c> :<c-u>tab sp <bar> Glog -- <cr>
-"# QuickFix -- Commit-Log from master to current branch.
-noremap <silent> <a-y>m     :<c-u>tab sp <bar> Glog master..HEAD --<cr>
-noremap <silent> <a-y><a-m> :<c-u>tab sp <bar> Glog master..HEAD --<cr>
-"}}}
+"" Info; Log {{{
+"" Without `b#` `:Glog` with `:copen` fills previous window.
+""# QuickFix -- Edit-History of current buffer.
+"noremap <silent> <a-y>l     :<c-u>tab sp <bar> Glog <bar> copen<cr>
+"noremap <silent> <a-y><a-l> :<c-u>tab sp <bar> Glog <bar> copen<cr>
+""# QuickFix -- Commit-Log of git-repository.
+"noremap <silent> <a-y>c     :<c-u>tab sp <bar> Glog -- <cr>
+"noremap <silent> <a-y><a-c> :<c-u>tab sp <bar> Glog -- <cr>
+""# QuickFix -- Commit-Log from master to current branch.
+"noremap <silent> <a-y>m     :<c-u>tab sp <bar> Glog master..HEAD --<cr>
+"noremap <silent> <a-y><a-m> :<c-u>tab sp <bar> Glog master..HEAD --<cr>
+""}}}
 " Info; Blame {{{
 noremap <silent> <a-y>b     :<c-u>Gblame<cr>
 noremap <silent> <a-y><a-b> :<c-u>Gblame<cr>
