@@ -1,5 +1,11 @@
 # Sample: /home/kaile256/.cache/dein/repos/github.com/honza/vim-snippets/snippets/vim.snippets
 
+snippet scriptencoding utf-8
+alias sc ut s u scr script
+options head
+  scriptencoding utf-8
+
+# Declare {{{
 delete au augroup ... autocmd block
 snippet augroup
 abbr au
@@ -9,38 +15,43 @@ abbr au
   au ${2:BufNewFile,BufRead} ${3:*} ${4:command}
   ${5:au ${6:Event} ${7:*} ${8:command}}
   augroup END ${9:"\}\}\}}
-
 delete f function
 snippet function
 alias f fu fun func function
   function! s:${1:function_name}(${2:#:{{name\}[, {arglist\}] [, {dict\}]}) ${3:abort}
     ${0:#:Ex-commands}
   endfunction
+#}}}
 
-snippet abbr for cmdline
-alias cno cna cnore cnoreab cnoreabbr
-  cnoreabbr <expr> ${1:key} (getcmdtype() == ':' && getcmdline() =~ '^$1$')? '${2:expand}' : '$1'
-
+# Abbr {{{
 snippet abbriviation
-alias ab abr
+alias ab abb abr abbr
   ${3:c}noreabbr <expr> ${1:key} (getcmdtype() == ':' && getcmdline() =~ '^$1$')? '${2:expand}' : '$1'
+snippet abbr for cmdline
+alias cn cno cna cnore cnoreab cnoreabbr
+  cnoreabbr <expr> ${1:key} (getcmdtype() == ':' && getcmdline() =~ '^$1$')? '${2:expand}' : '$1'
+#}}}
 
 snippet noremap
 alias no
   ${0:n}noremap ${1:<silent>} ${2:key} ${4::<c-u>}${3:mapping}${4:<cr>}
 
-snippet scriptencoding utf-8
-alias sc ut s u scr script
-options head
-  scriptencoding utf-8
-
+# Fold {{{
 snippet {{{ beginning of fold
-alias "{ { pp "pp
+alias  { pp {{ {{
   {{{
-
 snippet "}}} end of fold
-alias "} }
+alias " "}} "} } }}
   "}}}
+#}}}
+
+snippet <c-\><c-n> into Normal Mode
+alias < <c <c- <c-\ <c-\>
+  <c-\><c-n>
+snippet tnoremap prewritten '<c-\><c-n>'
+alias tn tno tnor tnore tnorem tnorema tnoremap
+  tnoremap ${1:<silent>} ${2:#:key} <c-\><c-n>:${0:#:command} <cr>
+
 
 #snippet if
 #alias i
