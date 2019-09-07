@@ -14,6 +14,7 @@ bindsym $Super+$Alt+h exec xdg-open /usr/share/doc/manjaro/i3_help_live.pdf
 # Var; apps {{{
 set $term qterminal
 set $browser qutebrowser
+set $chrome google-chrome-stable
 set $menu ulauncher
 #}}}
 # Var; Keyname {{{
@@ -86,8 +87,7 @@ bindsym $Super+Shift+d --release exec "killall dunst; exec notify-send 'restart 
 #}}}
 # Keybind; i3's command {{{
 ## Kill Focused Window
-bindsym $Super+q  kill
-bindsym $SuperS+q kill
+bindsym $Super+z  kill
 # reload the configuration file
 bindsym $SuperS+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
@@ -126,7 +126,8 @@ bindsym $Super+e exec --no-startup-id emacs
 # Keybind; open Browser {{{
 bindsym $Super+b exec $browser
 bindsym $Super+f exec firefox
-bindsym $Super+p exec palemoon
+bindsym $Super+c exec $chrome
+#bindsym $Super+p exec palemoon
 #}}}
 # Fn; Backlight {{{
 bindsym XF86MonBrightnessUp   exec xbacklight -inc 5
