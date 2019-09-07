@@ -53,12 +53,6 @@ on_map = 'Vista'
 hook_add = 'runtime vista.vimrc'
 #}}}
 
-# Column; Undo
-[[plugins]]
-repo = 'mbbill/undotree' #{{{
-on_map = 'Undotree'
-hook_add = 'runtime undotree.vimrc'
-#}}}
 ## Enhance; Marks
 #[[plugins]]
 #repo = 'mattesgroeger/vim-bookmarks' #{{{
