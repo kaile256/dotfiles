@@ -1,6 +1,7 @@
 scriptencoding utf-8
 " From init.vim
 
+"set keywordprg='vert help'
 " Appearance; Pmenu {{{
 " shortmess: Shorter Message
 " c-option: forbids to give |ins-completion-menu| messages.
@@ -25,18 +26,19 @@ function! s:auto_format_if_modifiable() "{{{
     endif
   endif
 endfunction "}}}
-" modeline# accepts text format written on bottom of file {{{
-if &modeline == 0
-  set modeline
+" modeline; force format as written at top/bottom of file
+if &modeline == v:true
+  set nomodeline
 endif
-if &modelineexpr == 0
-  set modelineexpr
+if &modelineexpr == v:true
+  set nomodelineexpr
 endif
 "}}}
-"}}}
-" Appearance; Cursor {{{
+" Cursor {{{
 " shorter for CursorHold & CursorHoldI
 set updatetime=300
+"" Cursor; Disable ?fail
+set guicursor=
 "}}}
 " Appearance; Line {{{
 " CAUTION: cursorline-highlight causes drawing corruption.
@@ -166,7 +168,7 @@ set foldnestmax=10
 "augroup END
 augroup SetFdmDotfiles
   au!
-  au BufNewFile,BufRead dotfiles/** if &fdm ==# 'manual' | set fdm=marker
+  au BufNewFile,BufRead,BufWinEnter dotfiles/** if &fdm !=# 'marker' | set fdm=marker
   " TODO: Understand :mkview
   " mkview: save a file condition according to `:viewoptions`
 augroup END
