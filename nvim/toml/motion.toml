@@ -2,8 +2,8 @@
 
 [[plugins]]
 repo = 'bkad/CamelCaseMotion' #{{{
-on_event = 'VimEnter'
-hook_post_source = 'runtime CamelCaseMotion.vimrc'
+on_map = '<Plug>CamelCaseMotion_'
+hook_add = 'runtime CamelCaseMotion.vimrc'
 #}}}
 
 # Leap to Target
@@ -13,13 +13,13 @@ hook_post_source = 'runtime CamelCaseMotion.vimrc'
 #hook_add = 'runtime sneak.vimrc'
 #hook_post_source = 'silent! unmap s'
 ##}}}
-[[plugins]] # Keep below of the other extended f&t plugins.
+[[plugins]] # has extentions
 repo = 'easymotion/vim-easymotion' #{{{
-on_event = 'BufWinEnter'
+on_map = '<Plug>(easymotion-'
 hook_add = 'runtime easymotion.vimrc'
 [[plugins]]
 repo = 'haya14busa/vim-easyoperator-phrase' #{{{
-on_event = 'ColorScheme'
+on_map = '<plug>(easyoperator-'
 hook_add = 'runtime easyoperator.vimrc'
 #}}}
 #[[plugins]]
@@ -68,7 +68,8 @@ hook_add = 'runtime easy-align.vimrc'
 # Operater; Simultaneous
 [[plugins]]
 repo = 'machakann/vim-sandwich' #{{{
-on_map = '<Plug>(operator-sandwich-'
+on_event = 'InsertEnter'
+on_map = '<Plug>(operator-sandwich-' # too late via <c-o>
 hook_add = 'runtime sandwich.vimrc'
 #}}}
 #[[plugins]]
