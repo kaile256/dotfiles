@@ -48,12 +48,11 @@ nmap gs <Plug>(coc-git-chunkinfo)
 
 " Keymap; CocList
 " show commit contains current position
-"nmap gc <Plug>(coc-git-commit)
 noremap <silent> qp :CocList yank<cr>
 noremap <silent> <a-c><a-c> :CocList<cr>
 noremap <silent> <a-c><a-f> :CocList files<cr>
 noremap <silent> <a-c><a-b> :CocList buffers<cr><M-k>
-map <a-c><a-d> <Plug>(coc-diagnostic-info)
+map gC <Plug>(coc-diagnostic-info)
 
 " Keymap; Text-Object
 vmap if <Plug>(coc-funcobj-i)
@@ -78,21 +77,19 @@ endfunction
 
 """ Snippet :echo exists('##CompleteChanged') && exists('*nvim_open_win')s
 "nmap <a-s><a-p> :CocCommand snippets.editSnippets<cr>
-
 "" Trigger Just Snippets; <tab> to General Completion
 "imap <C-s> <Plug>(coc-snippets-expand)
 "vmap <C-s> <Plug>(coc-snippets-select)
 "imap <C-s> <Plug>(coc-snippets-expand-jump)
-
 "" Confirm with <CR>; only <C-y> is by default.
-"inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<CR>"
 
+" Keymap; Completion {{{
+"inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<CR>"
 "" Reset Completion by <tab>
 "inoremap <silent><expr> <tab>
 "      \ pumvisible() ? "\<TAB>" :
 "      \ <SID>make_sure_no_space() ? "\<tab>" :
 "      \ "\<tab>"
-
 "" Trigger Completion by <c-n>/<c-p>.
 inoremap <silent><expr> <c-n>
       \ pumvisible() ? "\<C-n>" :
@@ -102,11 +99,12 @@ inoremap <silent><expr> <c-p>
       \ pumvisible() ? "\<C-p>" :
       \ <SID>make_sure_no_space() ? "\<c-p>" :
       \ coc#refresh()
+"}}}
 
 augroup CocAutoToggle
   au!
   au BufWinEnter coc-settings.json setl keywordprg=:help
   au BufLeave * if &ft ==# 'coc' || 'list' | hide | endif
   au FileType coc,list setl laststatus=0 noshowmode noruler
-        \ | au BufLeave * ++once set laststatus=2 showmode ruler
+        \ | au BufWinLeave,BufLeave * ++once set laststatus=2 showmode ruler
 augroup END

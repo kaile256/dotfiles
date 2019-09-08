@@ -316,5 +316,5 @@ noremap <silent> <a-q>i     :<c-u> Colors<cr>
 
 augroup FzfAutoToggle
   au!
-  au FileType fzf setl laststatus=0 noruler | au BufWinLeave * ++once setl laststatus=2 ruler
+  au FileType fzf setl laststatus=0 noruler | au BufWinLeave,BufLeave * ++once setl laststatus=2 ruler
 augroup END
