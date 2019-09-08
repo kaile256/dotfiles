@@ -1,7 +1,7 @@
 scriptencoding utf-8
 " From: init.vim
 
-" Prevention before errors {{{
+" Prevention; before fzf.vim {{{
 let s:phrase_neither_rg_nor_ag = "You don't have executable 'ripgrep' nor 'silver searcher.'"
 let s:phrase_neither_fzf = "You don't have executable 'fzf.'"
 
@@ -12,6 +12,7 @@ nnoremap <silent> <a-r> :<c-u>echo "You don't have executable 'ripgrep' nor 'sil
 nnoremap <silent> <a-q> :<c-u>echo "You don't have any executable fuzzy finder.'"<cr>
 endif
 "}}}
+
 " cd; N/P Directory {{{
 tnoremap <a-i> cd - > /dev/null <CR>
 tnoremap <a-o> cd .. <CR>
@@ -47,7 +48,7 @@ nnoremap <silent> <a-w>d     :<c-u>cd ~/dotfiles<cr>:echo 'cd "' . getcwd() . '"
 "nnoremap <silent> <a-w><a-o> :<c-u>cd ~/org<cr>:echo 'cd "' . getcwd() . '"'<cr>
 "nnoremap <silent> <a-w>o     :<c-u>cd ~/org<cr>:echo 'cd "' . getcwd() . '"'<cr>
 "}}}
-" Modify; hjkl {{{
+" Adjusted; hjkl {{{
 " move as it looks.
 nnoremap j gj
 nnoremap k gk
@@ -59,30 +60,6 @@ nnoremap gk k
 "xnoremap gj j
 "xnoremap gk k
 "}}}
-
-" Switch; Pane {{{
-" leap between panes
-nnoremap <a-h> <c-w>h
-nnoremap <a-j> <c-w>j
-nnoremap <a-k> <c-w>k
-nnoremap <a-l> <c-w>l
-xnoremap <a-h> <esc><c-w>h
-xnoremap <a-j> <esc><c-w>j
-xnoremap <a-k> <esc><c-w>k
-xnoremap <a-l> <esc><c-w>l
-"nnoremap <a-b> <c-w>b
-"nnoremap <a-t> <c-w>t
-" avoid stack on command-line
-cnoremap <a-k> <c-c>
-"}}}
-" Switch; Tab Page {{{
-"" Move between Tabs
-nnoremap <a-]> gt
-nnoremap <a-[> gT
-tnoremap <a-]> <c-\><c-n>gt
-tnoremap <a-[> <c-\><c-n>gT
-"}}}
-
 " Improved; Jump {{{
 "" Buffer; to the Last
 noremap <c-6> <c-^>
@@ -108,7 +85,6 @@ noremap <nowait> N   Nzz
 "noremap g* g*zz
 "noremap g# g#zz
 "}}}
-
 " Hotkey; Open Terminal {{{
 noremap <silent> <a-t><a-.> :<c-u>     <space> <space> :te<cr>
 noremap <silent> <a-t><a-e> :<c-u>     <space> <space> :te<cr>
@@ -133,7 +109,7 @@ noremap <silent> <a-t>o     :<c-u>cd ~/org      <bar>:te<cr>
 noremap <silent> <a-t>d     :<c-u>cd ~/dotfiles <bar>:te<cr>
 noremap <silent> <a-t>c     :<c-u>cd ~/.config  <bar>:te<cr>
 "}}}
-" Hotkey; cd on Terminal {{{
+" Hotkey; cd in Terminal {{{
 tnoremap <silent> <a-t><a-r> cd /          <cr>
 tnoremap <silent> <a-t><a-o> cd ~/org      <cr>
 tnoremap <silent> <a-t><a-d> cd ~/dotfiles <cr>
@@ -146,3 +122,27 @@ tnoremap <silent> <a-t>d     cd ~/dotfiles <cr>
 tnoremap <silent> <a-t>f     cd ~/.config  <cr>
 tnoremap <silent> <a-t>c     cd ~/.cache   <cr>
 "}}}
+
+" Switch; Pane
+" leap between panes
+nnoremap <a-h> <c-w>h
+nnoremap <a-j> <c-w>j
+nnoremap <a-k> <c-w>k
+nnoremap <a-l> <c-w>l
+xnoremap <a-h> <esc><c-w>h
+xnoremap <a-j> <esc><c-w>j
+xnoremap <a-k> <esc><c-w>k
+xnoremap <a-l> <esc><c-w>l
+"nnoremap <a-b> <c-w>b
+"nnoremap <a-t> <c-w>t
+" avoid stack on command-line
+cnoremap <a-k> <c-c>
+
+" Switch; Tab Page
+"" Move between Tabs
+nnoremap <a-]> gt
+nnoremap <a-[> gT
+inoremap <a-[> <esc>gT
+inoremap <a-]> <esc>gt
+tnoremap <a-]> <c-\><c-n>gt
+tnoremap <a-[> <c-\><c-n>gT
