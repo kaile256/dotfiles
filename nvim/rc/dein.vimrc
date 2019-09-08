@@ -90,6 +90,7 @@ if dein#load_state(g:dein_cache_dir)
   endfor
   let s:dein_toml_lazy_list = [
         \ 'appearance.toml',
+        \ 'denite.toml',
         \ 'external.toml',
         \ 'finder.toml',
         \ 'ftplugin.toml',
