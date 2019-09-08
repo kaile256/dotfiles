@@ -1,27 +1,24 @@
 " Memo: denite.org
 " From: Init.toml
 "  Ref: denite-extra.vimrc
-"  Ref: defx.vimrc
-"  Ref: fruzzy.vimrc
 
-""" Matcher
-"" Use fruzzy as denite-matcher
+" Matcher
 call denite#custom#source('_', 'matchers', ['matcher/fruzzy'])
+call denite#custom#source('file/rec',
+      \ 'matchers', ['converter/tail_path', 'matcher/fuzzy'])
 
-""" Grep
+" Grep
 "" Use Interactive Mode
 call denite#custom#source('grep', 'args', ['', '', '!'])
 
-"" Ripgrep: replace default grep
+" Grep; replaced w/ ripgrep
 if executable('rg')
-
   call denite#custom#var('file_rec', 'command', [
         \ 'rg',
         \ '--files',
         \ '--glob',
         \ '!.git'
         \ ])
-
   call denite#custom#var('grep', 'command', ['rg'])
   call denite#custom#var('grep', 'default_opts',
         \ ['-i', '--vimgrep', '--no-heading'])
@@ -29,27 +26,20 @@ if executable('rg')
   call denite#custom#var('grep', 'pattern_opt', ['--regexp'])
   call denite#custom#var('grep', 'separator', ['--'])
   call denite#custom#var('grep', 'final_opts', [])
-
 endif
 
-call denite#custom#source('file/rec',
-      \ 'matchers', ['converter/tail_path', 'matcher/fuzzy'])
+" Keymap;
+nnoremap <silent> <prefix:denite> <a-d>
 
-"""" KEYMAP
-""" Gtags
-nnoremap [denite-gtags]d :<C-u>DeniteCursorWord -buffer-name=gtags_def -mode=normal gtags_def<CR>
-nnoremap [denite-gtags]r :<C-u>DeniteCursorWord -buffer-name=gtags_ref -mode=normal gtags_ref<CR>
-nnoremap [denite-gtags]c :<C-u>DeniteCursorWord -buffer-name=gtags_context -mode=normal gtags_context<CR>
+" Keymap; Gtags
+nnoremap <silent> [denite-gtags]d :<C-u>DeniteCursorWord -buffer-name=gtags_def -mode=normal gtags_def<CR>
+nnoremap <silent> [denite-gtags]r :<C-u>DeniteCursorWord -buffer-name=gtags_ref -mode=normal gtags_ref<CR>
+nnoremap <silent> [denite-gtags]c :<C-u>DeniteCursorWord -buffer-name=gtags_context -mode=normal gtags_context<CR>
 
-nnoremap <a-d> :<C-u>Denite buffer file_mru<CR>
-nnoremap <a-d><a-v> :<C-u>DeniteBufferDir file<CR>
+nnoremap <silent> <a-d> :<C-u>Denite buffer file_mru<CR>
+nnoremap <silent> <a-d><a-v> :<C-u>DeniteBufferDir file<CR>
 
-augroup Denite
-  au! FileType denite call s:denite_keymaps()
-augroup END
-
-"""" DEFINITION
-function! s:denite_keymaps() abort
+function! s:denite_keymaps() abort "{{{
   nnoremap <silent><buffer>
         \ <a-/> :<C-u>Denite -buffer-name=search -auto-resizeline<cr>
   nnoremap <silent><buffer>
@@ -76,7 +66,7 @@ function! s:denite_keymaps() abort
   command! DenitePrev :Denite -resume -cursor-pos=-1 -immediately
   command! DeniteNext :Denite -resume -cursor-pos=+1 -immediately
   command! DeniteDo   :Denite -resume -do='normal! A;'
-endfunction
+endfunction "}}}
 
 " noremap <silent><buffer> <space>d
 "   \ <a-:<C-u>call denite#start([{'name': 'file_rec', 'args': ['~/dotfiles']}])<CR>
@@ -84,8 +74,10 @@ endfunction
 "   \ <a-:<C-u>call denite#start([{'name': 'file_rec', 'args': [g;memolist_path]})<CR>
 
 augroup DeniteConfig
-  autocmd FileType denite call s:denite_operation()
-  autocmd FileType denite-filter call s:denite_filter_operation()
+  au!
+  au FileType denite call s:denite_keymaps()
+  au FileType denite call s:denite_operation()
+  au FileType denite-filter call s:denite_filter_operation()
 augroup END
 
 function! s:denite_operation() abort
