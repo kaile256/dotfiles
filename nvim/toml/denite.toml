@@ -1,0 +1,75 @@
+# From: dein.toml
+
+# Denite itself;
+[[plugins]]
+repo = 'Shougo/denite.nvim' #{{{
+if = 'has("python3")'
+on_event = 'VimEnter'
+hook_post_source = 'runtime denite.vimrc'
+#}}}
+
+[[plugins]]
+repo = 'dunstontc/projectile.nvim'
+on_source = 'denite.nvim'
+hook_post_source = 'runtime projectile.vimrc'
+[[plugins]]
+repo = 'lighttiger2505/denite-vim-lsp'
+on_source = 'denite.nvim'
+hook_post_source = 'runtime denite-lsp.vimrc'
+
+[[plugins]]
+repo = 'deresmos/denite-gitdiff'
+on_source = 'denite.nvim'
+hook_post_source = 'runtime denite-gitdiff.vimrc'
+
+[[plugins]]
+repo = 'delphinus/vim-denite-scriptnames'
+on_source = 'denite.nvim'
+hook_post_source = 'runtime denite-scriptnames.vimrc'
+#[[plugins]]
+#repo = 'Shougo/neoyank.vim' #{{{
+#on_source = 'denite.nvim'
+##}}}
+[[plugins]]
+repo = 'ozelentok/denite-gtags' #{{{
+on_source = 'denite.nvim'
+#}}}
+[[plugins]]
+repo = 'rafi/vim-denite-session' #{{{
+on_source = 'denite.nvim'
+#}}}
+[[plugins]]
+repo = 'neoclide/denite-git' #{{{
+on_source = 'denite.nvim'
+#}}}
+[[plugins]]
+repo = 'Shougo/neomru.vim' #{{{
+on_source = 'denite.nvim'
+#}}}
+[[plugins]]
+repo = 'neoclide/coc-denite' #{{{
+# for Denite source
+on_source = 'denite.nvim'
+#}}}
+
+# Redis; Remote Dictionary Server
+[[plugins]]
+repo = 'neoclide/redismru.vim'
+if = 'executable("redis")'
+on_source = 'denite.nvim'
+hook_post_source = 'runtime redismru.vimrc'
+[[plugins]]
+repo = 'zacharied/denite-nerdfont'
+on_source = 'denite.nvim'
+hook_post_source = 'runtime denite-nerdfont.vimrc'
+## Denite; Matcher
+[[plugins]]
+repo = 'nekowasabi/denite-migemo'
+on_source = 'denite.nvim'
+hook_post_source = 'runtime denite-migemo.vimrc'
+[[plugins]]
+repo = 'raghur/fruzzy' #{{{
+on_source = 'denite.nvim'
+hook_done_update = 'call fruzzy#install()'
+hook_post_source = 'runtime fruzzy.vimrc'
+#}}}
