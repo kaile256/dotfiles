@@ -11,7 +11,7 @@ c.aliases = {'w': 'session-save', 'q': 'quit', 'wq': 'quit --save', 'so': 'confi
 # Name of the session to save by default. If this is set to null, the
 # session which was last loaded is saved.
 # Type: SessionName
-c.session.default_name = 'LastSession.qt'
+c.session.default_name = 'last'
 
 # Load a restored tab as soon as it takes focus.
 # Type: Bool

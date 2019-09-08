@@ -12,6 +12,10 @@ settings:
       cmap: bind -m command
       cunabbr: config-dict-remove aliases
       cunmap: unbind -m command
+      e: session-load
+      h: help
+      hmap: bind -m hint
+      hunmap: unbind -m hint
       imap: bind -m insert
       iunmap: bind -m insert
       map: bind
@@ -23,24 +27,32 @@ settings:
       o: open
       pmap: bind -m prompt
       punmap: unbind -m prompt
-      q: close
+      q: tab-close
       qa: quit
+      r: session-load
       rmurl: config-dict-remove url.searchengines
+      session-load: session-load
       sl: session-load
       so: config-source
       ss: session-save
       unabbr: config-dict-remove aliases
       unalias: config-dict-remove aliases
+      unmap: unbind
       vmap: bind -m caret
       vunmap: unbind -m caret
       w: session-save
       wq: quit --save
       wqa: quit --save
+  auto_save.session:
+    global: false
+  backend:
+    global: webengine
   bindings.commands:
     global:
       caret:
         ':': 'set-cmd-text :'
         <Alt+h>: edit-command
+        <Alt+v>: enter-mode insert
         <Ctrl+b>: scroll-page 0 -1
         <Ctrl+d>: scroll-page 0 0.5
         <Ctrl+f>: scroll-page 0 1
@@ -48,9 +60,12 @@ settings:
         W: move-to-next-char
         b: move-to-prev-word
         i: hint inputs --first
+        s: fake-key <delete>
         w: move-to-next-word
       command:
+        <Alt+a>: fake-key <right>
         <Alt+h>: edit-command
+        <Alt+i>: fake-key <left>
         <Alt+k>: leave-mode
         <Alt+u>: rl-yank
         <Ctrl+d>: null
@@ -60,23 +75,37 @@ settings:
         <Ctrl+p>: command-history-prev
         <Ctrl+r><Ctrl+Space>: fake-key <Ctrl-V>
         <Ctrl+r><Space>: set-cmd-text {clipboard}
+      hint:
+        <Alt+h>: leave-mode
+        <Alt+j>: leave-mode
+        <Alt+k>: leave-mode
+        <Alt+l>: leave-mode
       insert:
         <Alt+Backspace>: fake-key <Ctrl-Backspace>
+        <Alt+Shift+a>: fake-key <end>
+        <Alt+Shift+i>: fake-key <home>
         <Alt+Shift+o>: fake-key <shift-tab>
+        <Alt+Shift+v>: fake-key <home><shift-end>
         <Alt+[>: tab-prev
         <Alt+]>: tab-next
-        <Alt+a>: fake-key <Left>
-        <Alt+b>: fake-key <Ctrl-Left>
+        <Alt+a>: fake-key <right>
+        <Alt+b>: fake-key <ctrl-left>
         <Alt+d>: fake-key <Ctrl-Delete>
         <Alt+f>: fake-key <Ctrl-Right>
-        <Alt+i>: fake-key <Right>
+        <Alt+g><Alt+g>: leave-mode;; scroll-to-perc 0
+        <Alt+h>: fake-key <Shift-Left>
+        <Alt+i>: fake-key <left>
+        <Alt+l>: fake-key <shift-Right>
         <Alt+o>: fake-key <tab>
+        <Alt+v>: enter-mode caret
+        <Alt+y>: yank selection
+        <Ctrl+Alt+v>: fake-key <shift-ctrl-left>
         <Ctrl+a>: fake-key <Home>
         <Ctrl+b>: fake-key <Left>
         <Ctrl+d>: fake-key <Delete>
         <Ctrl+e>: fake-key <End>
         <Ctrl+f>: fake-key <Right>
-        <Ctrl+h>: fake-key <Backspace>
+        <Ctrl+h>: fake-key <backspace>
         <Ctrl+i>: fake-key <tab>
         <Ctrl+j>: fake-key <Enter>
         <Ctrl+m>: fake-key <Enter>
@@ -86,8 +115,8 @@ settings:
         <Ctrl+r><Ctrl+0>: insert-text {primary}
         <Ctrl+r><Ctrl+Space>: insert-text {clipboard}
         <Ctrl+r><Space>: insert-text {clipboard}
-        <Ctrl+u>: fake-key <tab><shift-tab><delete>
-        <Ctrl+w>: fake-key <Ctrl-backspace>
+        <Ctrl+u>: fake-key <shift-home><Delete>
+        <Ctrl+w>: fake-key <ctrl-backspace>
         <Ctrl+y>: insert-text {primary}
       normal:
         '1': tab-close
@@ -95,6 +124,7 @@ settings:
         <Alt+[>: tab-prev
         <Alt+]>: tab-next
         <Alt+b>: tab-prev
+        <Alt+e>: edit-url
         <Alt+f>: tab-next
         <Alt+h>: tab-prev
         <Alt+i>: tab-next
@@ -106,7 +136,7 @@ settings:
         <Ctrl+->: zoom-out
         <Ctrl+2>: save
         <Ctrl+Space><Ctrl+Space>: reload
-        <Ctrl+c>: download-cancel
+        <Ctrl+c>: stop;; download-cancel
         <Ctrl+e>: scroll-px 0 +50
         <Ctrl+h>: tab-prev
         <Ctrl+i>: forward
@@ -136,30 +166,42 @@ settings:
         <Space>p: open {primary}
         <Space>q: save
         <Space>w: save
-        <Space>yy: yank
+        <Space>y: yank selection
+        <Space>yy: enter-mode caret;; yank;; leave-mode
         D: null
+        E: edit-url
         H: null
         J: null
         K: null
         L: null
         P: open -t {clipboard}
+        QQ: tab-close
         U: undo
         V: enter-mode caret, drop-selection
-        ZZ: tab-close
+        ZQ: tab-close
+        ZZ: bookmark-del;; bookmark-add;; tab-close
         a: enter-mode insert
+        b: fake-key <ctrl-left>
         d: scroll-page 0 +0.5
         e: edit-url
         gf: spawn nvim-qt {url}
         gi: enter-mode insert
-        i: hint inputs --first
-        j: scroll down
+        h: fake-key <left>
+        i: enter-mode insert
+        j: fake-key <down>
+        k: fake-key <up>
+        l: fake-key <right>
         mode: drop-selection
         p: open {clipboard}
-        q: null
+        q: tab-close
+        qa: quit
         qq: tab-close
         u: scroll-page 0 -0.5
+        w: <ctrl-right><ctrl-right><left><left>
+        wq: bookmark-del;; bookmark-add;; tab-close
+        wqa: bookmark-del;; bookmark-add;; quit
         yv: enter-mode caret;; yank;; leave-mode
-        yy: enter-mode caret;; yank;; leave-mode
+        yy: yank
         zh: scroll left
         zl: scroll right
       prompt:
@@ -167,46 +209,50 @@ settings:
         <Ctrl+p>: prompt-item-focus prev
   content.host_blocking.lists:
     global: null
+  content.private_browsing:
+    global: true
   editor.command:
     global:
     - nvim-qt
     - '{file}'
+  editor.encoding:
+    global: utf-8
   fonts.completion.category:
-    global: bold 12pt sf mono, Icons
+    global: bold 12pt sf mono, hack nerd font
   fonts.completion.entry:
-    global: 12pt sf mono
+    global: 12pt sf mono, hack nerd font
   fonts.debug_console:
-    global: 12pt sf mono
+    global: 12pt sf mono, hack nerd font
   fonts.downloads:
-    global: 12pt sf mono
+    global: 12pt sf mono, hack nerd font
   fonts.hints:
-    global: bold 12pt sf mono
+    global: bold 12pt sf mono, hack nerd font
   fonts.keyhint:
-    global: 12pt sf mono
+    global: 12pt sf mono, hack nerd font
   fonts.messages.error:
-    global: 12pt sf mono
+    global: 12pt sf mono, hack nerd font
   fonts.messages.info:
-    global: 12pt sf mono
+    global: 12pt sf mono, hack nerd font
   fonts.messages.warning:
-    global: 12pt sf mono
+    global: 12pt sf mono, hack nerd font
   fonts.prompts:
-    global: 12pt sf mono, noto sans symbols
+    global: 12pt sf mono, hack nerd font
   fonts.statusbar:
-    global: 12pt sf mono, noto sans symbols, dejavu sans mono
+    global: 12pt sf mono, hack nerd font
   fonts.tabs:
-    global: 12pt sf mono, noto sans symbols, dejavu sans mono
+    global: 12pt sf mono, hack nerd font
   fonts.web.family.cursive:
-    global: sf mono, noto sans symbols, dejavu sans mono
+    global: 'sf mono,: hack nerd font'
   fonts.web.family.fantasy:
-    global: sf mono, noto sans symbols, dejav sans mono
+    global: sf mono, hack nerd font
   fonts.web.family.fixed:
-    global: sf mono, noto sans symbols, dejavu sans mono
+    global: sf mono, hack nerd font
   fonts.web.family.sans_serif:
-    global: sf mono, noto sans symbols, dejavu sans mono
+    global: sf mono, hack nerd font
   fonts.web.family.serif:
-    global: sf mono, noto sans symbols, dejavu sans mono
+    global: sf mono, hack nerd font
   fonts.web.family.standard:
-    global: sf mono, noto sans symbols, dejavu sans mono
+    global: sf mono, hack nerd font
   fonts.web.size.default:
     global: 15
   fonts.web.size.default_fixed:
@@ -215,11 +261,16 @@ settings:
     global: 9
   scrolling.smooth:
     global: false
+  session.lazy_restore:
+    global: false
+  tabs.background:
+    global: true
   url.open_base_url:
     global: true
   url.searchengines:
     global:
       DEFAULT: https://duckduckgo.com/?q={}
+      K: https://www.thefreedictionary.com/{}
       ar: https://wiki.archlinux.org/?search={}
       gh: http://github.com/search?q={}
       th: https://www.freethesaurus.com/{}
