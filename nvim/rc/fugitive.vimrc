@@ -86,7 +86,8 @@ endfunction
 
 augroup OnFugitiveBuffer
   au!
-  au FileType fugitive,gitcommit,fugitiveblame setl nonumber signcolumn= bt=quickfix
+  " gitcommit should be writeable not setting bt=qf.
+  au FileType fugitive,fugitiveblame setl nonumber signcolumn= bt=quickfix
   au FileType fugitive call <SID>on_fugitive_keymap()
   au FileType gitcommit setl spell
   au FileType gitcommit call <SID>on_gitcommit_startinsert()
