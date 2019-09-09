@@ -23,7 +23,8 @@ augroup MyRuntimesOnFileTypes
   au FileType json     runtime! json.vim
   " Others;
   "au FilterReadPost * runtime lazy/diff.vim
-  au BufNew * if &diff | runtime! diff.vim | endif
+  "au BufNew * if &diff | runtime! diff.vim | endif
+  au WinEnter,BufEnter * if &bt ==# 'quickfix' && &write | runtime quickfix.vim
 augroup end
 
 augroup AutoDeleteWhiteSpace
@@ -32,15 +33,24 @@ augroup AutoDeleteWhiteSpace
 augroup END
 
 " K Action up to FileType
-function! s:my_vim_help_map() abort
+function! s:K_modified()
+  if winwidth('.') > 150
+    if &ft ==# 'vim'
+      vert help <c-r><c-w>
+    endif
+  else
+    norm K
+  endif
+endfunction
+function! s:my_on_help_keymaps() abort
   " Note: Those tabs filled with help would fill up tab-line; you can also arrange via winnr() or else.
   "nnoremap <silent><buffer> K <c-u><c-w>T:vert help <c-r><c-w> <cr>
   "xnoremap <silent><buffer> K <c-u><c-w>T:vert help <c-r><c-w> <cr>
-  nnoremap <silent><buffer> K :<c-u>vert help <c-r><c-w> <cr>
-  xnoremap <silent><buffer> K :<c-u>vert help <c-r><c-w> <cr>
+  "nnoremap <silent><buffer> K :call s:K_modified() <cr>
+  "xnoremap <silent><buffer> K :call s:K_modified() <cr>
 endfunction
 augroup HelpOnVertical
   au!
-  au FileType vim call s:my_vim_help_map()
-  au TabNew,BufWinEnter nvim/*/*.toml call s:my_vim_help_map()
+  au FileType vim call s:my_on_help_keymaps()
+  au TabNew,BufWinEnter nvim/*/*.toml call s:my_on_help_keymaps()
 augroup END
