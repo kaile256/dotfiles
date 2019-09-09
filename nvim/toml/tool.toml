@@ -1,6 +1,11 @@
 # From: dein.vimrc
 
 # Interface
+[[plugins]]
+repo = 'tpope/vim-repeat' #{{{
+# No Help
+on_event = ['TextChanged', 'TextChangedI']
+#}}}
 #[[plugins]]
 #repo = 'fszymanski/fzf-gitignore' #{{{
 #type = 'git'
@@ -13,48 +18,39 @@ rev = 'release'
 on_event = 'VimEnter'
 hook_post_source = 'runtime coc.vimrc'
 #}}}
-#[[plugins]]
-#repo = 'Shougo/denite.nvim' #{{{
-#if = 'has("python3")'
-#hook_add = 'runtime denite.vimrc'
-#[[plugins]]
-#repo = 'Shougo/neoyank.vim' #{{{
-#on_source = 'denite.nvim'
-##}}}
-#[[plugins]]
-#repo = 'ozelentok/denite-gtags' #{{{
-#on_source = 'denite.nvim'
-##}}}
-#[[plugins]]
-#repo = 'rafi/vim-denite-session' #{{{
-#on_source = 'denite.nvim'
-##}}}
-#[[plugins]]
-#repo = 'neoclide/denite-git' #{{{
-#on_source = 'denite.nvim'
-##}}}
-#[[plugins]]
-#repo = 'Shougo/neomru.vim' #{{{
-#on_source = 'denite.nvim'
-##}}}
-#[[plugins]]
-#repo = 'neoclide/coc-denite' #{{{
-## for Denite source
-#on_source = 'denite.nvim'
-#}}}
-#[[plugins]]
-#repo = 'raghur/fruzzy' #{{{
-#on_source = 'denite.nvim'
-#hook_post_source = 'runtime fruzzy.vimrc'
-#}}}
-##}}}
+
+# Edit; Undo
 [[plugins]]
-repo = 'tpope/vim-repeat' #{{{
-# No Help
-on_event = ['TextChanged', 'TextChangedI']
+repo = 'simnalamburt/vim-mundo'
+on_event = 'BufRead'
+hook_post_source = 'runtime mundo.vimrc'
+[[plugins]]
+repo = 'jaxbot/selective-undo.vim'
+on_event = 'BufRead'
+hook_post_source = 'runtime selective-undo.vimrc'
+[[plugins]]
+repo = 'machakann/vim-highlightedundo'
+if = 'executable("diff")'
+on_event = 'BufRead'
+hook_post_source = 'runtime highlightedundo.vimrc'
+[[plugins]]
+repo = 'mbbill/undotree' #{{{
+on_map = 'Undotree'
+hook_add = 'runtime undotree.vimrc'
+#}}}
+# Edit; Inc/Decrement
+[[plugins]]
+repo = 'qwertologe/nextval.vim'
+on_map = '<Plug>nextval'
+hook_add = 'runtime nextval.vimrc'
+# Edit; Diff
+[[plugins]]
+repo = 'AndrewRadev/linediff.vim' #{{{
+on_map = 'Linediff'
+hook_add = 'runtime linediff.vimrc'
 #}}}
 
-# Edit; Fold
+# Fold
 [[plugins]]
 repo = 'LeafCage/foldCC' #{{{
 on_event = 'BufWinEnter'
@@ -65,13 +61,6 @@ hook_post_source = 'runtime foldCC.vimrc'
 #on_ft = 'python'
 #hook_post_source = 'runtime SimpylFold.vimrc'
 ##}}}
-
-# Edit; Diff
-[[plugins]]
-repo = 'AndrewRadev/linediff.vim' #{{{
-on_map = 'Linediff'
-hook_add = 'runtime linediff.vimrc'
-#}}}
 
 # Template
 #[[plugins]]
