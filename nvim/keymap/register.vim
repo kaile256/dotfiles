@@ -79,8 +79,9 @@ nnoremap yP yyP
 nnoremap yp yyp
 nnoremap cp ddp
 nnoremap cP ddkP
-"nnoremap <silent><expr> 'cp' (@1 ==# @2)? '"_ddp' : 'ddp'
-"nnoremap <silent><expr> 'cP' (@1 ==# @2)? '"_ddkp' : 'ddkP'
+" `cp`; no work at the if-expr.
+nnoremap <silent><expr> 'cp' (@" ==# getline('.'))? '"_ddp' : 'ddp'
+nnoremap <silent><expr> 'cP' (@" ==# getline('.'))? '"_ddkp' : 'ddkP'
 " TODO: paste after :append or pastetoggle
 "nnoremap <expr> <space>p :append '<c-r>+<cr>'
 " TODO: keymap via forloop
