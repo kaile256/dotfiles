@@ -1,7 +1,9 @@
 scriptencoding utf-8
 " From init.vim
 
-"set keywordprg='vert help'
+cabbr help vert help
+" TODO: open help on vertical
+"set keywordprg=nvim\ -c\ 'vs\ help'
 " Appearance; Blend {{{
 if exists('&pumblend')
   set pumblend=30
@@ -178,6 +180,10 @@ augroup SetFdmDotfiles
   " TODO: Understand :mkview
   " mkview: save a file condition according to `:viewoptions`
 augroup END
+"}}}
+" Method; Session {{{
+set sessionoptions+=localoptions
+set sessionoptions-=blank
 "}}}
 " Method; Inc/Decrement {{{
 "set nrformats+=octal
