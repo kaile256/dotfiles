@@ -24,6 +24,5 @@ smap <expr> <c-\>
 " Put Register on Snippet Expanding
 snoremap <c-r><c-space> <space><c-h><c-r>+
 snoremap <c-r><space>   <space><c-h><c-r>+
-snoremap <c-r> <space><c-h><s-r>
-snoremap <c-r> <space><c-h><s-r>
+snoremap <c-r> <space><c-h><c-r>
 snoremap <c-h> <space><c-h>
