@@ -13,7 +13,6 @@ bindsym $Super+$Alt+h exec xdg-open /usr/share/doc/manjaro/i3_help_live.pdf
 #}}}
 # Var; apps {{{
 set $term qterminal
-set $browser qutebrowser
 set $chrome google-chrome-stable
 set $menu ulauncher
 #}}}
@@ -124,7 +123,7 @@ bindsym $Super+o exec --no-startup-id oni
 bindsym $Super+e exec --no-startup-id emacs
 #}}}
 # Keybind; open Browser {{{
-bindsym $Super+b exec $browser
+bindsym $Super+b exec qutebrowser
 bindsym $Super+f exec firefox
 bindsym $Super+c exec $chrome
 #bindsym $Super+p exec palemoon
