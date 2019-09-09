@@ -15,6 +15,9 @@ nnoremap <silent> <c-space><space>   :<c-u>noh <cr><c-l>
 nnoremap <silent> <c-space><c-space> :<c-u>noh <cr><c-l>
 nnoremap <silent> <space><space>     :cclose <bar> lclose <cr>
 
+" Close; Tab-page
+noremap <silent> <c-w>C :<c-u>tabclose<cr>
+
 " Move Window
 nnoremap <c-w>h <c-w>H
 nnoremap <c-w>j <c-w>J
