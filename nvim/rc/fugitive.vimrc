@@ -89,7 +89,7 @@ augroup OnFugitiveBuffer
   " gitcommit should be writeable not setting bt=qf.
   au FileType fugitive,fugitiveblame setl nonumber signcolumn= bt=quickfix
   au FileType fugitive call <SID>on_fugitive_keymap()
-  au FileType gitcommit setl spell
+  au FileType gitcommit setl spell nonumber signcolumn=
   au FileType gitcommit call <SID>on_gitcommit_startinsert()
   " TODO: Remember cursor position on closed as qf buffer.
   "au BufWinEnter fugitive mG
