@@ -63,9 +63,10 @@ nnoremap gk k
 " Improved; Jump {{{
 "" Buffer; to the Last
 noremap <c-6> <c-^>
-"" Jump; to Tags
+"" Jump; via Tags
 " g<c-]>: show a list of tags only if <cword> has more than two tags.
 noremap <c-]> g<c-]>zz
+noremap <silent> g<c-]> :<c-u>vert stjump <c-r><c-w><CR>zz
 """ Tags; to Newest
 " :silent! to supress 'E556: at top of tag stack'
 nnoremap <silent> <c-q> :silent! $tag<cr>
