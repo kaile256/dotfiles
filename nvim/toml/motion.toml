@@ -15,7 +15,8 @@ hook_add = 'runtime CamelCaseMotion.vimrc'
 ##}}}
 [[plugins]] # has extentions
 repo = 'easymotion/vim-easymotion' #{{{
-on_map = '<Plug>(easymotion-'
+#on_map = '<Plug>(easymotion-' # on operater, doesn't sourced.
+on_event = 'BufWinEnter'
 hook_add = 'runtime easymotion.vimrc'
 [[plugins]]
 repo = 'haya14busa/vim-easyoperator-phrase' #{{{
