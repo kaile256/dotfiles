@@ -1,5 +1,6 @@
 " From: motion.toml
 " Repo: easymotion/vim-easymotion
+" Repo: unrtp/easymotion.vimrc
 
 " Let; mapping {{{
 " `g:EasyMotion_do_mapping = 1` provides all the default keymaps.
@@ -47,9 +48,6 @@ hi link EasyMotionIncSearch Search
 " <Plug>(easymotion-web/WEB): replace word/WORD with Keys.
 " <Plug>(easymotion-s): the range is inside current screen.
 " <Plug>(easymotion-sl): the range is limited to current line.
-
-" Enable `<` on easymotion
-EMCommandLineNoreMap <S-lt> <
 
 omap . <Plug>(easymotion-repeat)
 "nmap . <Plug>(easymotion-dotrepeat)
