@@ -1,9 +1,24 @@
 " From: init.vim
 
+" Path; Suffix
+"set suffixesadd=.vim
+
 " Set; Font {{{
-set guifont=SF\ Mono:h12
-set guifontset=SF\ Mono:h12
-set guifontwide=SF\ Mono:h12
+if has('unix')
+  set guifont=Dejavu\ Sans\ Mono:h12
+  "set guifontwide=Ricty\ Nerd\ Font:h12
+  set printfont=Ricty\ Nerd\ Font:h12
+  "set guifontset=Ricty\ Discard\ Nerd\ Font:h12
+  "set linespace=0
+elseif has('win32\|win64')    " *nix OS
+  try
+    set guifont=Ricty_Nerd_Font:h12
+    set printfont=Ricty_Nerd_Font:h12
+  catch
+    set guifont=Monospace\ 12
+    set printfont=Monospace\ 12
+  endtry 
+endif
 "}}}
 " Set; Path for Backup {{{
 " Write, on path,vim, the file directory paths.
@@ -22,7 +37,8 @@ set undodir=~/.local/share/nvim/undo
 "set runtimepath=$XDG_CONFIG_HOME/vim,http://eleclog.quitsq.com/2014/10/arch-on-x220.html?m=1$VIMRUNTIME,$XDG_CONFIG_HOME/vim/after
 let g:netrw_home = '~/.local/share/nvim'
 "}}}
-" Let; Path on g:var {{{
+
+" g:var; for Path {{{
 let g:config_home  = empty($XDG_CONFIG_HOME) ? expand('~/.config/')      :         $XDG_CONFIG_HOME
 let g:cache_home   = empty($XDG_CACHE_HOME)  ? expand('~/.cache/')       :         $XDG_CACHE_HOME
 let g:data_home    = empty($XDG_DATA_HOME)   ? expand('~/.local/share/') :         $XDG_DATA_HOME
@@ -30,7 +46,7 @@ let g:my_dotfiles  = '~/dotfiles/'
 let g:my_nvim_home = empty($VIMCONFIG)       ? expand(g:my_dotfiles      .'nvim/') : $VIMCONFIG
 let g:my_data      = g:my_nvim_home           . 'data/'
 "}}}
-" Variable; Terminal {{{
+" $var; for Terminal {{{
 "set shell=fish
 if executable('urxvt')
   let $TERM='rxvt-unicode'
@@ -38,12 +54,12 @@ else
   let $TERM='xterm-256color'
 endif
 "}}}
-" Variable; Git {{{
+" $var; for Git {{{
 if has('nvim')
   let $GIT_EDITOR = 'nvr -cc split --remote-wait'
 endif
 "}}}
-" Variable; Vim {{{
+" $var; for Vim {{{
 if isdirectory('~/kaile256')
   let $MYVIMRC = expand('<sfile>')
   let $HOME = expand('<sfile>:h')
