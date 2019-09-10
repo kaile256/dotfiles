@@ -5,6 +5,7 @@ scriptencoding utf-8
 " Ref: /usr/share/nvim/runtime/plugin/netrwPlugin.vim
 
 " Prepare commands to chmod on defx.
+" TODO: make it a carrent path.
 "command! Chmod_755 :call setfperm(<cfile>, 'rwxr-xr-x')
 "command! Chmod_666 :call setfperm(<cfile>, 'rw-rw-rw-')
 "command! Chmod_644 :call setfperm(<cfile>, 'rw-r--r--')
@@ -24,7 +25,7 @@ scriptencoding utf-8
 " let g:defx_icons_root_opened_tree_icon = ''
 " let g:defx_icons_nested_opened_tree_icon = ''
 " let g:defx_icons_nested_closed_tree_icon = ''
-" call defx#custom() {{{1
+" call defx#custom#foo() {{{1
 call defx#custom#column('mark', {
       \ 'readonly_icon': '✗',
       \ 'selected_icon': '✓',
@@ -37,64 +38,62 @@ call defx#custom#option('_', {
 "      \ 'directory_icon': '',
 "      \ 'opened_icon': '',
 "      \ })
+"}}}
 
 " Keymap; call Defx
-"" Call; Open Preceding Tree {{{
+"" Call; Open Preceding Tree {{{1
 " TODO: on Term-Mode, not to get errors; like get path with !pwd.
 nnoremap <silent> <a-v>
       \ :<c-u>Defx `expand('%:p:h')` -search=`expand('%:p')`
       \ -split=vertical -winwidth=32 -winheight=60 -direction=topleft
       \ <cr>
-
 nnoremap <silent> <a-b>
       \ :<c-u>Defx `expand('%:p:h')` -search=`expand('%:p')` -split=tab
       \ <cr>
 "}}}
 
 "" Call; Goto file/directory
-"" Overwrap :netrw {{{
+"" Overwrap :netrw {{{1
 "let g:loaded_netrwPlugin = 1
 "let g:loaded_netrw = 1
-""}}}
 "" TODO: Overwrap netrw; Get knowledge to get full path from `set path` as `gf`.
 "" Note: -search must be applied full path.
 "" Sample: /usr/share/nvim/runtime/ftplugin/ruby.vim #223
-augroup FileExplorer
-  au!
-  au BufLeave *  if &ft != "netrw"|let w:netrw_prvfile= expand("%:p")|endif
-  au BufEnter *  sil call s:LocalBrowse(expand("<amatch>"))
-  au VimEnter * sil call s:VimEnter(expand("<amatch>"))
-  if has("win32") || has("win95") || has("win64") || has("win16")
-    au BufEnter .* sil call s:LocalBrowse(expand("<amatch>"))
-  endif
-augroup END
-" s:VimEnter: after all vim startup stuff is done, this function is called. {{{
+"augroup FileExplorer
+"  au!
+"  au BufLeave *  if &ft != "netrw"|let w:netrw_prvfile= expand("%:p")|endif
+"  au BufEnter *  sil call s:LocalBrowse(expand("<amatch>"))
+"  au VimEnter * sil call s:VimEnter(expand("<amatch>"))
+"  if has("win32") || has("win95") || has("win64") || has("win16")
+"    au BufEnter .* sil call s:LocalBrowse(expand("<amatch>"))
+"  endif
+"augroup END
+" s:VimEnter: after all vim startup stuff is done, this function is called. {{{2
 "             Its purpose: to look over all windows and run s:LocalBrowse() on
 "             them, which checks if they're directories and will create a directory
 "             listing when appropriate.
 "             It also sets s:vimentered, letting s:LocalBrowse() know that s:VimEnter()
 "             has already been called.
-fun! s:VimEnter(dirname)
-  "  call Dfunc("s:VimEnter(dirname<".a:dirname.">) expand(%)<".expand("%").">")
-  let curwin       = winnr()
-  let s:vimentered = 1
-  windo call s:LocalBrowse(expand("%:p"))
-  exe curwin."wincmd w"
-  "  call Dret("s:VimEnter")
-endfun
-"}}}
+"fun! s:VimEnter(dirname)
+"  "  call Dfunc("s:VimEnter(dirname<".a:dirname.">) expand(%)<".expand("%").">")
+"  let curwin       = winnr()
+"  let s:vimentered = 1
+"  windo call s:LocalBrowse(expand("%:p"))
+"  exe curwin."wincmd w"
+"  "  call Dret("s:VimEnter")
+"endfun
 
 "nnoremap <silent> gf      <SID>c:find <Plug><cfile><cr>
 "nnoremap <silent> <c-w>gf gf :<c-u>Defx -direction=belowright -split=horizontal <cr>
 "nnoremap <silent> <c-w>f  gf :<c-u>Defx -direction=belowright -split=vertical<cr>
 "nnoremap <silent> <c-w>F  gf :<c-u>Defx -split=tab<cr>
+"}}}1
 
 function! s:defx_keymap_explorer() abort
-  " Unmap; not to open defx on defx {{{
+  " Unmap; not to open defx on defx {{{1
   nnoremap <buffer> <a-v> <a-v>
   nnoremap <buffer> <a-b> <a-b>
-  "}}}
-  " Explore; hjkl {{{
+  " Explore; hjkl {{{1
   nnoremap <buffer><silent> gg :2<cr>
   nnoremap <silent><buffer><expr> h
         \ defx#do_action('cd', ['..'])
@@ -104,8 +103,7 @@ function! s:defx_keymap_explorer() abort
         \ line('.') == 1 ? 'G' : 'k'
   nnoremap <silent><buffer><expr> l
         \ defx#do_action('open_directory')
-  "}}}
-  " Explore; CWD {{{
+  " Explore; CWD {{{1
   "" CWD; defx's
   nnoremap <silent><buffer><expr> ~
         \ defx#do_action('cd')
@@ -118,8 +116,7 @@ function! s:defx_keymap_explorer() abort
   nnoremap <silent><buffer><expr> <a-w><a-.>
         \ defx#do_action('change_vim_cwd')
         \ . ':echo "cd" expand("<cfile>:p:h")<CR>'
-  "}}}
-  " Explore; netrw-like {{{
+  " Explore; netrw-like {{{1
   nnoremap <silent><buffer><expr> -
         \ defx#do_action('cd', ['..'])
   nnoremap <silent><buffer><expr> D
@@ -131,8 +128,7 @@ function! s:defx_keymap_explorer() abort
         \ defx#do_action('new_directory')
   nnoremap <silent><buffer><expr> %
         \ defx#do_action('new_file')
-  "}}}
-  " Explore; Sort {{{
+  " Explore; Sort {{{1
   nnoremap <silent><buffer><expr> <a-s>t
         \ defx#do_action('toggle_sort', 'time')
   nnoremap <silent><buffer><expr> <a-s>z
@@ -141,8 +137,7 @@ function! s:defx_keymap_explorer() abort
         \ defx#do_action('toggle_sort', 'extention')
   nnoremap <silent><buffer><expr> <a-s><a-s>
         \ defx#do_action('toggle_sort', 'filename')
-  "}}}
-  " Toggle; Mark {{{
+  " Toggle; Mark {{{1
   nnoremap <silent><buffer><expr> mm
         \ defx#do_action('toggle_select')
   nnoremap <silent><buffer><expr> mj
@@ -161,12 +156,10 @@ function! s:defx_keymap_explorer() abort
   "" Mark; Reverse selected conditions.
   nnoremap <silent><buffer><expr> mr
         \ defx#do_action('toggle_select_all')
-  "}}}
-  " Toggle; Hidden Files {{{
+  " Toggle; Hidden Files {{{1
   nnoremap <silent><buffer><expr> z.
         \ defx#do_action('toggle_ignored_files')
-  "}}}
-  " Selected; Open {{{
+  " Selected; Open {{{1
   nnoremap <silent><buffer><expr> <CR>
         \ defx#do_action('drop')
   nnoremap <silent><buffer><expr> <c-v>
@@ -176,8 +169,7 @@ function! s:defx_keymap_explorer() abort
         \ defx#do_action('open', 'wincmd p <bar> split')
   nnoremap <silent><buffer><expr> <c-b>
         \ defx#do_action('open', 'tabe')
-  "}}}
-  "" Open; Tree {{{
+  "" Open; Tree {{{1
   nnoremap <silent><buffer><expr> u
         \ defx#do_action('open_or_close_tree')
   nnoremap <silent><buffer><expr> U
@@ -192,8 +184,7 @@ function! s:defx_keymap_explorer() abort
         \ defx#do_action('close_tree')
   nnoremap <silent><buffer><expr> zu
         \ defx#do_action('open_tree')
-  "}}}
-  " Selected; Register {{{
+  " Selected; Register {{{1
   " copy: yank in defx's register
   nnoremap <buffer><expr> yy
         \ defx#do_action('copy')
@@ -208,13 +199,12 @@ function! s:defx_keymap_explorer() abort
   " yank_path: yank in unnamed register
   nnoremap <buffer><expr> <space>y
         \ defx#do_action('yank_path')
-  "}}}
-  " Selected; Execute {{{
+  " Selected; Execute {{{1
   nnoremap <silent><buffer><expr> X
         \ defx#do_action('execute_system')
   nnoremap <silent><buffer><expr> !
         \ defx#do_action('execute_system')
-  "}}}
+"}}}
 endfunction
 augroup DefxOnBuffer
   au!
