@@ -39,7 +39,7 @@ call defx#custom#option('_', {
 ""}}}
 
 " Keymap; call Defx
-"" Call; Open Preceding Tree
+"" Call; Open Preceding Tree {{{
 " TODO: on Term-Mode, not to get errors; like get path with !pwd.
 nnoremap <silent> <a-v>
       \ :<c-u>Defx `expand('%:p:h')` -search=`expand('%:p')`
@@ -49,15 +49,20 @@ nnoremap <silent> <a-v>
 nnoremap <silent> <a-b>
       \ :<c-u>Defx `expand('%:p:h')` -search=`expand('%:p')` -split=tab
       \ <cr>
+"}}}
 
 "" Call; Goto file/directory
-" overwrap :netrw
-let g:loaded_netrwPlugin = 1
-let g:loaded_netrw = 1
-noremap <silent> gf      :<c-u>Defx -search=`expand('<cword>')` <cr>
-noremap <silent> <c-w>gf :<c-u>Defx -search=`expand('<cword>')` -direction=belowright -split=horizontal <cr>
-noremap <silent> <c-w>f  :<c-u>Defx -search=`expand('<cword>')` -direction=belowright -split=vertical<cr>
-noremap <silent> <c-w>F  :<c-u>Defx -search=`expand('<cword>')` -split=tab<cr>
+"" Overwrap :netrw {{{
+"let g:loaded_netrwPlugin = 1
+"let g:loaded_netrw = 1
+""}}}
+"" TODO: Overwrap netrw; Get knowledge to get full path from `set path` as `gf`.
+"" Note: -search must be applied full path.
+"" Sample: /usr/share/nvim/runtime/ftplugin/ruby.vim #223
+"nnoremap <silent> gf      <SID>c:find <Plug><cfile><cr>
+"nnoremap <silent> <c-w>gf gf :<c-u>Defx -direction=belowright -split=horizontal <cr>
+"nnoremap <silent> <c-w>f  gf :<c-u>Defx -direction=belowright -split=vertical<cr>
+"nnoremap <silent> <c-w>F  gf :<c-u>Defx -split=tab<cr>
 
 function! s:defx_keymap_explorer() abort
   " Unmap; not to open defx on defx {{{
