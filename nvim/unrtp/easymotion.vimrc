@@ -3,4 +3,4 @@
 " Otro: rc/easymotion.vimrc
 
 " Enable '<' for easymotion
-EMCommandLineNoreMap <S-lt> <'
+EMCommandLineNoreMap <S-lt> <
