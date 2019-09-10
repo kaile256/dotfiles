@@ -1,6 +1,10 @@
 " From: init.vim
 " Repo: Shougo/dein.vim
 
+" Path; for :find
+" TODO: Set it via g:dein_cache_dir.
+set path+=~/.cache/dein/repos/github.com/**
+
 " Let; Make git clone shallow {{{
 let g:dein#types#git#clone_depth = 1
 "}}}
@@ -110,12 +114,14 @@ endif
 if dein#check_install() "{{{
   call dein#install()
 endif "}}}
-augroup DeinCallPostSource "{{{
+augroup DeinCallFunctions "{{{
   au!
+  " Note: have to call it to source 'hook_post_source'.
   au VimEnter * call dein#call_hook('post_source')
 augroup END "}}}
 augroup DeinTomlAutoConf
-  au BufRead nvim**.toml if &keywordprg !=# 'help' | setl keywordprg=:help
+  " TODO: call s:sensible_K('vim')
+  au BufWinEnter nvim/**.toml if &keywordprg !=# 'help' | setl keywordprg=:help
   au BufWinEnter filetype.toml setl syn=vim
 augroup END
 
