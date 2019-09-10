@@ -29,7 +29,7 @@ call defx#custom#column('mark', {
       \ 'selected_icon': '✓',
       \ })
 call defx#custom#option('_', {
-      \ 'columns': 'indent:mark:git:icons:filename:size:time',
+      \ 'columns': 'mark:git:indent:icons:filename:size:time',
       \ 'show_ignored_files': 1,
       \ })
 "call defx#custom#column('filename', {
@@ -38,7 +38,8 @@ call defx#custom#option('_', {
 "      \ })
 ""}}}
 
-" Keymap; Open Preceding Tree
+" Keymap; call Defx
+"" Call; Open Preceding Tree
 " TODO: on Term-Mode, not to get errors; like get path with !pwd.
 nnoremap <silent> <a-v>
       \ :<c-u>Defx `expand('%:p:h')` -search=`expand('%:p')`
@@ -48,6 +49,13 @@ nnoremap <silent> <a-v>
 nnoremap <silent> <a-b>
       \ :<c-u>Defx `expand('%:p:h')` -search=`expand('%:p')` -split=tab
       \ <cr>
+
+"" Call; Goto file/directory
+" overwrap :netrw
+noremap <silent> gf      :<c-u>Defx -search=`expand('<cword>')` <cr>
+noremap <silent> <c-w>gf :<c-u>Defx -search=`expand('<cword>')` -direction=belowright -split=horizontal <cr>
+noremap <silent> <c-w>f  :<c-u>Defx -search=`expand('<cword>')` -direction=belowright -split=vertical<cr>
+noremap <silent> <c-w>F  :<c-u>Defx -search=`expand('<cword>')` -split=tab<cr>
 
 function! s:defx_keymap_explorer() abort
   " Unmap; not to open defx on defx {{{
