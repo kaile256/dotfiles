@@ -4,9 +4,9 @@ scriptencoding utf-8
 " Help: fzf || fzf-vim
 
 " CmdAbbr; :Helptags {{{
-cnoreabbr <silent><expr> C (getcmdtype() == ':' && getcmdline() =~ '^C$')? 'Colors<cr>'   : 'C'
-cnoreabbr <silent><expr> H (getcmdtype() == ':' && getcmdline() =~ '^H$')? 'Helptags<cr>' : 'H'
-cnoreabbr <silent><expr> h (getcmdtype() == ':' && getcmdline() =~ '^h$')? 'Helptags<cr>' : 'h'
+cnoreabbr <silent><expr> C (getcmdtype() == ':' && getcmdline() =~ '^C$')? 'Colors'   : 'C'
+cnoreabbr <silent><expr> H (getcmdtype() == ':' && getcmdline() =~ '^H$')? 'Helptags' : 'H'
+cnoreabbr <silent><expr> h (getcmdtype() == ':' && getcmdline() =~ '^h$')? 'Helptags' : 'h'
 "}}}
 
 function! s:fzf_buffer_statusline() "{{{
@@ -28,7 +28,7 @@ augroup FzfMyAutoConf
   au WinLeave,BufLeave * if &ft ==# 'fzf' | hide
   au WinLeave,BufLeave * if &ft ==# 'fzf' && &l:statusline == 0 | setl laststatus=2 showmode ruler
   " Note: Makes no sense but auto-set nonumber on tab-open.
-  au FileType fzf setl laststatus=0 noruler | au BufWinEnter * ++once setl laststatus=2 ruler number
+  au FileType fzf setl laststatus=0 noruler | au BufWinEnter * ++once setl laststatus=2 ruler | if &ft !=# 'help' | setl number
 augroup END
 
 " [Buffers] Rather Jump to window if existed.
