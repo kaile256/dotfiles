@@ -4,9 +4,9 @@ scriptencoding utf-8
 " Help: fzf || fzf-vim
 
 " CmdAbbr; :Helptags {{{
-cnoreabbr <silent><expr> C (getcmdtype() == ':' && getcmdline() =~ '^C$')? 'Colors' : 'C'
-cnoreabbr <silent><expr> H (getcmdtype() == ':' && getcmdline() =~ '^H$')? 'Helptags' : 'H'
-cnoreabbr <silent><expr> h  (getcmdtype() == ':' && getcmdline() =~ '^h$')?  'Helptags<cr>' : 'h'
+cnoreabbr <silent><expr> C (getcmdtype() == ':' && getcmdline() =~ '^C$')? 'Colors<cr>'   : 'C'
+cnoreabbr <silent><expr> H (getcmdtype() == ':' && getcmdline() =~ '^H$')? 'Helptags<cr>' : 'H'
+cnoreabbr <silent><expr> h (getcmdtype() == ':' && getcmdline() =~ '^h$')? 'Helptags<cr>' : 'h'
 "}}}
 
 function! s:fzf_buffer_statusline() "{{{
@@ -17,13 +17,17 @@ function! s:fzf_buffer_statusline() "{{{
   setl statusline=%#fzf1#\ >\ %#fzf2#fz%#fzf3#f
 endfunction "}}}
 
-augroup CallMyFzfFunctions "{{{
+augroup FzfCallMyFunctions "{{{
   au!
-  " CAUTION: WinLeave's current file is next file, i.e., fzf when opening fzf-buffer.
-  au BufLeave * if &ft =~# 'fzf' | hide | if &l:statusline == v:false | setl laststatus=2 showmode ruler| endif
   au User     FzfStatusLine call <SID>fzf_buffer_statusline()
   au FileType fzf           call <SID>fzf_buffer_keymap()
 augroup END "}}}
+augroup FzfMyAutoConf
+  au!
+  " CAUTION: WinLeave's current file is next file, i.e., fzf when opening fzf-buffer.
+  au WinLeave,BufLeave * if &ft =~# 'fzf' | hide | if &l:statusline == v:false | setl laststatus=2 showmode ruler| endif
+  au FileType fzf setl laststatus=0 noruler | au BufWinLeave,BufLeave * ++once setl laststatus=2 ruler
+augroup END
 
 " [Buffers] Rather Jump to window if existed.
 let g:fzf_buffers_jump = 1
@@ -118,8 +122,8 @@ else
   tnoremap <silent> <a-a><a-c> <c-u><c-\><c-n>: Ag<cr>
   tnoremap <silent> <a-a>c     <c-u><c-\><c-n>: Ag<cr>
 
-  tnoremap <silent> <a-a><a-r> <c-u>cd /<cr>                           <c-\><c-n>: Ag<cr>
-  tnoremap <silent> <a-a>r     <c-u>cd /<cr>                           <c-\><c-n>: Ag<cr>
+  tnoremap <silent> <a-a><a-r> <c-u>cd /usr/share/<cr>                 <c-\><c-n>: Ag<cr>
+  tnoremap <silent> <a-a>r     <c-u>cd /usr/share/<cr>                 <c-\><c-n>: Ag<cr>
   tnoremap <silent> <a-a><a-.> <c-u>cd %:p:h<cr>                       <c-\><c-n>: Ag<cr>
   tnoremap <silent> <a-a>.     <c-u>cd %:p:h<cr>                       <c-\><c-n>: Ag<cr>
   tnoremap <silent> <a-a><a-w> <c-u>cd <space>                         <c-\><c-n>: Ag<cr>
@@ -146,8 +150,8 @@ else
   noremap <silent> <a-a><a-c> :<c-u> Ag<cr>
   noremap <silent> <a-a>c     :<c-u> Ag<cr>
 
-  noremap <silent> <a-a><a-r> :<c-u>cd /<cr>                           :Ag<cr>
-  noremap <silent> <a-a>r     :<c-u>cd /<cr>                           :Ag<cr>
+  noremap <silent> <a-a><a-r> :<c-u>cd /usr/share/<cr>                           :Ag<cr>
+  noremap <silent> <a-a>r     :<c-u>cd /usr/share/<cr>                           :Ag<cr>
   noremap <silent> <a-a><a-.> :<c-u>cd %:p:h<cr>                       :Ag<cr>
   noremap <silent> <a-a>.     :<c-u>cd %:p:h<cr>                       :Ag<cr>
   noremap <silent> <a-a><a-w> :<c-u>   <space>                         :Ag<cr>
@@ -180,8 +184,8 @@ else "}}}
   "" Rg; on terminal w/ `cd` {{{
   tnoremap <silent> <a-r><a-k> <c-u>cd ~/vimwiki/diary    <c-\><c-n>: Rg<cr>
   tnoremap <silent> <a-r>k     <c-u>cd ~/vimwiki/diary    <c-\><c-n>: Rg<cr>
-  tnoremap <silent> <a-r><a-r> <c-u>cd /<cr>              <c-\><c-n>: Rg<cr>
-  tnoremap <silent> <a-r>r     <c-u>cd /<cr>              <c-\><c-n>: Rg<cr>
+  tnoremap <silent> <a-r><a-r> <c-u>cd /usr/share/<cr>              <c-\><c-n>: Rg<cr>
+  tnoremap <silent> <a-r>r     <c-u>cd /usr/share/<cr>              <c-\><c-n>: Rg<cr>
   tnoremap <silent> <a-r><a-.> <c-u>cd %:p:h<cr>          <c-\><c-n>: Rg<cr>
   tnoremap <silent> <a-r>.     <c-u>cd %:p:h<cr>          <c-\><c-n>: Rg<cr>
   tnoremap <silent> <a-r><a-w> <c-u>cd <space>            <c-\><c-n>: Rg<cr>
@@ -209,8 +213,8 @@ else "}}}
   "" Rg; w/ `:cd` {{{
   noremap <silent> <a-r><a-k> :<c-u>cd ~/vimwiki/diary<cr>             :Rg<cr>
   noremap <silent> <a-r>k     :<c-u>cd ~/vimwiki/diary<cr>             :Rg<cr>
-  noremap <silent> <a-r><a-r> :<c-u>cd /<cr>                           :Rg<cr>
-  noremap <silent> <a-r>r     :<c-u>cd /<cr>                           :Rg<cr>
+  noremap <silent> <a-r><a-r> :<c-u>cd /usr/share/<cr>                           :Rg<cr>
+  noremap <silent> <a-r>r     :<c-u>cd /usr/share/<cr>                           :Rg<cr>
   noremap <silent> <a-r><a-.> :<c-u>cd %:p:h<cr>                       :Rg<cr>
   noremap <silent> <a-r>.     :<c-u>cd %:p:h<cr>                       :Rg<cr>
   noremap <silent> <a-r><a-w> :<c-u>   <space>                         :Rg<cr>
@@ -313,8 +317,3 @@ noremap <silent> <a-q>m     :<c-u> Maps<cr>
 noremap <silent> <a-q><a-i> :<c-u> Colors<cr>
 noremap <silent> <a-q>i     :<c-u> Colors<cr>
 "}}}
-
-augroup FzfAutoToggle
-  au!
-  au FileType fzf setl laststatus=0 noruler | au BufWinLeave,BufLeave * ++once setl laststatus=2 ruler
-augroup END
