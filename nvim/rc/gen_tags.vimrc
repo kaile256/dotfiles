@@ -5,8 +5,8 @@
 "" Let; Auto-Generate Tags
 let g:gen_tags#ctags_auto_gen = 1
 let g:gen_tags#gtags_auto_gen = 1
-let g:gen_tags#ctags_auto_update = 0 " update on every BufWrite
-let g:gen_tags#gtags_auto_update = 0 " update on every BufWrite
+"let g:gen_tags#ctags_auto_update = 0 " update on every BufWrite
+"let g:gen_tags#gtags_auto_update = 0 " update on every BufWrite
 
 let g:gen_tags#statusline = 1
 "let g:gen_tags#verbose = 0
