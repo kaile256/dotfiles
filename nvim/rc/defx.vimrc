@@ -11,6 +11,11 @@ scriptencoding utf-8
 "command! Chmod_644 :call setfperm(<cfile>, 'rw-r--r--')
 "command! Chmod_444 :call setfperm(<cfile>, 'r--r--r--')
 
+" Use Defx instead of Netrw {{{1
+let g:loaded_netrwPlugin = 1
+let g:loaded_netrw = 1
+"}}}
+
 "" Defx-Icons {{{1
 " Note: defx-icons collapses i3 or qt.
 "let g:defx_icons_enable_syntax_highlight = 1
@@ -42,6 +47,7 @@ call defx#custom#option('_', {
 
 " Keymap; call Defx
 "" Call; Open Preceding Tree {{{1
+" Note: -search must be applied full path.
 " TODO: on Term-Mode, not to get errors; like get path with !pwd.
 nnoremap <silent> <a-v>
       \ :<c-u>Defx `expand('%:p:h')` -search=`expand('%:p')`
@@ -52,12 +58,7 @@ nnoremap <silent> <a-b>
       \ <cr>
 "}}}
 
-"" Call; Goto file/directory
-"" Overwrap :netrw {{{1
-"let g:loaded_netrwPlugin = 1
-"let g:loaded_netrw = 1
 "" TODO: Overwrap netrw; Get knowledge to get full path from `set path` as `gf`.
-"" Note: -search must be applied full path.
 "" Sample: /usr/share/nvim/runtime/ftplugin/ruby.vim #223
 "augroup FileExplorer
 "  au!
@@ -83,6 +84,11 @@ nnoremap <silent> <a-b>
 "  "  call Dret("s:VimEnter")
 "endfun
 
+" Overwrap; gf on directory, :netrw, too {{{1
+" TODO: get full-path via &path
+"command! -nargs=* -range -bar -complete=dir
+"      \ Defx
+"      \ call defx#util#call_defx('Defx', <q-args>)
 "nnoremap <silent> gf      <SID>c:find <Plug><cfile><cr>
 "nnoremap <silent> <c-w>gf gf :<c-u>Defx -direction=belowright -split=horizontal <cr>
 "nnoremap <silent> <c-w>f  gf :<c-u>Defx -direction=belowright -split=vertical<cr>
@@ -204,11 +210,24 @@ function! s:defx_keymap_explorer() abort
         \ defx#do_action('execute_system')
   nnoremap <silent><buffer><expr> !
         \ defx#do_action('execute_system')
-"}}}
+  "}}}
 endfunction
 augroup DefxOnBuffer
   au!
   " TODO: highlight on top as there's filepath, or place those path on another place.
   au FileType defx setl bt=quickfix signcolumn=
   au FileType defx call <SID>defx_keymap_explorer()
+  "au BufNew * if @% !=# 'defx' | au! BufEnter * ++once call <SID>open_on_defx()
+  au BufNew * call <SID>open_on_defx()
+  "au BufEnter * if isdirectory(expand('%:p')) | Defx -search=expand('<amatch>')
 augroup END
+function! s:open_on_defx() abort "{{{1
+  if @% !=# 'defx'
+    function! s:open_in_defx()
+      if isdirectory(expand('<amatch>'))
+        Defx -search=expand('<amatch>')
+      endif
+    endfunction
+    au! BufEnter * ++once call <SID>open_in_defx()
+  endif
+endfunction
