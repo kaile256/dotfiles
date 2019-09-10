@@ -27,11 +27,14 @@ echo "$INSTALLER will install package via '$install'!!"
 
 #### WANTED-PACKAGES INSTALLATION
 Package=(
+#rxvt-unicode-256xresources # Terminal Emulater according to gruvbox.vim
 anyenv
 arandr  # Gui config for xrandr
-xf86-input-synaptics  # enable config for Touchpad
 bash-completion
 cargo  # select rustup
+fcitx-qimpanel  # Frontend
+fcitx-qt5
+fcitx5-qt5-git  # Libraries for fcitx-qt5
 fzf
 gendesk
 ghq-bin
@@ -42,24 +45,27 @@ hub  # an official wrapper of git
 luarocks
 neovim-nightly
 neovim-qt
-vimiv
 nerd-fonts-ricty
-otf-sfmono  # Font; SF Mono
+pdfjs  # PDF viewer in browser
 pyenv
+python-falcon  # Solve fcitx problem on qute?
 python-oauth2client
 python-pipenv
+qt5-webkit  # Alternative backend for qute.
 rclone  # sync lib for cloud-service like dropbox, Gdrive.
 ripgrep
 ruby
 rxvt-unicode-truecolor
-#rxvt-unicode-256xresources # Terminal Emulater according to gruvbox.vim
+shellcheck  # a linter for shell
 the_silver_searcher
 tlp   # Save Battery of PC
 ttf-cica
 ttf-font-icons  # Mix Icon with Awesome & Ionicons without Confliction.
 ttf-myricam
 tty-dejavu
+vimiv
 vmail
+xf86-input-synaptics  # enable config for Touchpad
 yarn
 zsh
 )
