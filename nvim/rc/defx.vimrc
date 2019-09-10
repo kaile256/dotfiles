@@ -1,6 +1,8 @@
 scriptencoding utf-8
 " From: finder.toml
 " Repo: Shougo/defx.nvim
+" Ref: /usr/share/nvim/runtime/autoload/netrw.vim
+" Ref: /usr/share/nvim/runtime/plugin/netrwPlugin.vim
 
 " Prepare commands to chmod on defx.
 "command! Chmod_755 :call setfperm(<cfile>, 'rwxr-xr-x')
@@ -8,7 +10,7 @@ scriptencoding utf-8
 "command! Chmod_644 :call setfperm(<cfile>, 'rw-r--r--')
 "command! Chmod_444 :call setfperm(<cfile>, 'r--r--r--')
 
-"" Defx-Icons {{{
+"" Defx-Icons {{{1
 " Note: defx-icons collapses i3 or qt.
 "let g:defx_icons_enable_syntax_highlight = 1
 "let g:defx_icons_column_length = 2
@@ -22,8 +24,7 @@ scriptencoding utf-8
 " let g:defx_icons_root_opened_tree_icon = ''
 " let g:defx_icons_nested_opened_tree_icon = ''
 " let g:defx_icons_nested_closed_tree_icon = ''
-""}}}
-" call defx#custom() {{{
+" call defx#custom() {{{1
 call defx#custom#column('mark', {
       \ 'readonly_icon': '✗',
       \ 'selected_icon': '✓',
@@ -36,7 +37,6 @@ call defx#custom#option('_', {
 "      \ 'directory_icon': '',
 "      \ 'opened_icon': '',
 "      \ })
-""}}}
 
 " Keymap; call Defx
 "" Call; Open Preceding Tree {{{
@@ -59,6 +59,31 @@ nnoremap <silent> <a-b>
 "" TODO: Overwrap netrw; Get knowledge to get full path from `set path` as `gf`.
 "" Note: -search must be applied full path.
 "" Sample: /usr/share/nvim/runtime/ftplugin/ruby.vim #223
+augroup FileExplorer
+  au!
+  au BufLeave *  if &ft != "netrw"|let w:netrw_prvfile= expand("%:p")|endif
+  au BufEnter *  sil call s:LocalBrowse(expand("<amatch>"))
+  au VimEnter * sil call s:VimEnter(expand("<amatch>"))
+  if has("win32") || has("win95") || has("win64") || has("win16")
+    au BufEnter .* sil call s:LocalBrowse(expand("<amatch>"))
+  endif
+augroup END
+" s:VimEnter: after all vim startup stuff is done, this function is called. {{{
+"             Its purpose: to look over all windows and run s:LocalBrowse() on
+"             them, which checks if they're directories and will create a directory
+"             listing when appropriate.
+"             It also sets s:vimentered, letting s:LocalBrowse() know that s:VimEnter()
+"             has already been called.
+fun! s:VimEnter(dirname)
+  "  call Dfunc("s:VimEnter(dirname<".a:dirname.">) expand(%)<".expand("%").">")
+  let curwin       = winnr()
+  let s:vimentered = 1
+  windo call s:LocalBrowse(expand("%:p"))
+  exe curwin."wincmd w"
+  "  call Dret("s:VimEnter")
+endfun
+"}}}
+
 "nnoremap <silent> gf      <SID>c:find <Plug><cfile><cr>
 "nnoremap <silent> <c-w>gf gf :<c-u>Defx -direction=belowright -split=horizontal <cr>
 "nnoremap <silent> <c-w>f  gf :<c-u>Defx -direction=belowright -split=vertical<cr>
@@ -98,7 +123,8 @@ function! s:defx_keymap_explorer() abort
   nnoremap <silent><buffer><expr> -
         \ defx#do_action('cd', ['..'])
   nnoremap <silent><buffer><expr> D
-        \ defx#do_action('remove')
+        \ defx#do_action('remove_trash')
+        "\ defx#do_action('remove')
   nnoremap <silent><buffer><expr> R
         \ defx#do_action('rename')
   nnoremap <silent><buffer><expr> d
