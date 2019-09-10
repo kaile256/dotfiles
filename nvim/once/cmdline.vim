@@ -30,66 +30,75 @@ cnoremap <c-d> <Del>
 "  au BufWritePre * call <SID>auto_suggest_mkdir(expand('<afile>:p:h'), v:cmdbang)
 "augroup END "}}}
 
+" Abbr; 
+" Abbr; rm https://foo/bar {{{1
+cnoreabbr <expr> rmgh (getcmdtype() == ':' && getcmdline() =~ '^rmgh$')? '%s/https:\/\/github.com\///ge' : 'rmgh'
+cnoreabbr <expr> rmgl (getcmdtype() == ':' && getcmdline() =~ '^rmgl$')? '%s/https:\/\/gitlab.com\///ge' : 'rmgl'
+" Abbr; for vimdiff {{{1
+cnoreabbr <expr> mks (getcmdtype() == ':' && getcmdline() =~ '^mks$')? 'mks '. g:data_home . 'nvim/session/' : 'mks'
+" Abbr; =execute() {{{1
+function! s:my_register_as_executed(cmd) "{{{
+  " Ref: sneak.vim
+  copen
+  setl modifiable
+  put =execute('a:cmd')
+endfunction "}}}
+command! PrintExecuted :<c-u>call <SID>my_print_on_qf()
 " TODO: ExAbbr
 "command! -nargs=* ExAbbr call <SID>abbr_wrapper(':', alias, command)
-"function! s:abbr_wrapper(['type', 'alias', 'command']) abort "{{{
-"  cnoreabbr <silent><expr> a:alias (getcmdtype() == 'a:type' && getcmdline() =~ '^a:alias$')? `a:command` : 'a:alias'
-"endfunction "}}}
-cnoreabbr <silent><expr> ex (getcmdtype() == '=' && getcmdline() =~ '^ex$')? "execute('')<Left><Left>" : 'ex'
-cnoreabbr <silent><expr> px (getcmdtype() == ':' && getcmdline() =~ '^px$')? "put =execute('')<Left><Left>" : 'px'
-""}}}
-" Abbr; rm https://foo/bar/ {{{
-cnoreabbr <silent><expr> rmgh (getcmdtype() == ':' && getcmdline() =~ '^rmgh$')? '%s/https:\/\/github.com\///ge' : 'rmgh'
-cnoreabbr <silent><expr> rmgl (getcmdtype() == ':' && getcmdline() =~ '^rmgl$')? '%s/https:\/\/gitlab.com\///ge' : 'rmgl'
-"}}}
+"function! s:abbr_wrapper(['type', 'alias', 'command']) abort
+"  cnoreabbr <expr> a:alias (getcmdtype() == 'a:type' && getcmdline() =~ '^a:alias$')? `a:command` : 'a:alias'
+"endfunction
+cnoreabbr <expr> ex (getcmdtype() == '=' && getcmdline() =~ '^ex$')? "execute('')<Left><Left>" : 'ex'
+cnoreabbr <expr> px (getcmdtype() == ':' && getcmdline() =~ '^px$')? "put =execute('')<Left><Left>" : 'px'
+function! s:call_vint() abort
+  if &ft ==# 'vim'
+    !vint %:p
+  endif
+endfunction "}}}
 " Abbr; for vimdiff {{{
-cnoreabbr <silent><expr> dth (getcmdtype() == ':' && getcmdline() =~ '^dth$')? 'diffthis' : 'dth'
-cnoreabbr <silent><expr> dof (getcmdtype() == ':' && getcmdline() =~ '^dof$')? 'diffoff!' : 'dof'
+cnoreabbr <expr> dth (getcmdtype() == ':' && getcmdline() =~ '^dth$')? 'diffthis' : 'dth'
+cnoreabbr <expr> dof (getcmdtype() == ':' && getcmdline() =~ '^dof$')? 'diffoff!' : 'dof'
 "}}}
 " Abbr; Echo file Status {{{
-"cnoreabbr <silent><expr> es (getcmdtype() == ':' && getcmdline() =~ '^es$')? 'call <SID>echo_file_info()' : 'es'
+"cnoreabbr <expr> es (getcmdtype() == ':' && getcmdline() =~ '^es$')? 'call <SID>echo_file_info()' : 'es'
 "}}}
 " Abbr; Before Typo {{{
-cnoreabbr <silent><expr> man (getcmdtype() == ':' && getcmdline() =~ '^man$')? 'Man' : 'man'
+cnoreabbr <expr> man (getcmdtype() == ':' && getcmdline() =~ '^man$')? 'Man' : 'man'
 "}}}
 " Abbr; for :!vint {{{
-"function! s:call_vint() abort "{{{
-"  if &ft ==# 'vim'
-"    !vint %:p
-"  endif
-"endfunction "}}}
-cnoreabbr <silent><expr> vin (getcmdtype() == ':' && getcmdline() =~ '^vin$')? "!vint %:p" : 'vin'
+cnoreabbr <expr> vin (getcmdtype() == ':' && getcmdline() =~ '^vin$')? "!vint %:p" : 'vin'
 "}}}
 " Abbr; :tabe {{{
-cnoreabbr <silent><expr> b (getcmdtype() == ':' && getcmdline() =~ '^b$')? 'tabe' : 'b'
+cnoreabbr <expr> b (getcmdtype() == ':' && getcmdline() =~ '^b$')? 'tabe' : 'b'
 "}}}
 " Abbr; :checkhealth {{{
-cnoreabbr <silent><expr> ch (getcmdtype() == ':' && getcmdline() =~ '^ch$')? 'checkhealth <bar> setl bt=quickfix' : 'ch'
+cnoreabbr <expr> ch (getcmdtype() == ':' && getcmdline() =~ '^ch$')? 'checkhealth <bar> setl bt=quickfix' : 'ch'
 "}}}
 " Abbr; :source {{{
-cnoreabbr <silent><expr> sj (getcmdtype() == ':' && getcmdline() =~ '^sj$')? 'so % <bar> echo " Sourced! \--" @%' : 'sj'
-cnoreabbr <silent><expr> ss (getcmdtype() == ':' && getcmdline() =~ '^ss$')? 'so % <bar> echo " Sourced! \--" @%' : 'ss'
-cnoreabbr <silent><expr> sss (getcmdtype() == ':' && getcmdline() =~ '^sss$')? 'so % <bar> echo " Sourced! \--" @%' : 'sss'
+cnoreabbr <expr> sj (getcmdtype() == ':' && getcmdline() =~ '^sj$')? 'so % <bar> echo " Sourced! \--" @%' : 'sj'
+cnoreabbr <expr> ss (getcmdtype() == ':' && getcmdline() =~ '^ss$')? 'so % <bar> echo " Sourced! \--" @%' : 'ss'
+cnoreabbr <expr> sss (getcmdtype() == ':' && getcmdline() =~ '^sss$')? 'so % <bar> echo " Sourced! \--" @%' : 'sss'
 "}}}
 " Abbr; :help {{{
-cnoreabbr <silent><expr> hb (getcmdtype() == ':' && getcmdline() =~ '^hb$')? 'tab help' : 'h'
-cnoreabbr <silent><expr> bh (getcmdtype() == ':' && getcmdline() =~ '^bh$')? 'tab help' : 'h'
-cnoreabbr <silent><expr> hv (getcmdtype() == ':' && getcmdline() =~ '^hv$')? 'vert bel help' : 'h'
-cnoreabbr <silent><expr> vh (getcmdtype() == ':' && getcmdline() =~ '^vh$')? 'vert bel help' : 'h'
+cnoreabbr <expr> hb (getcmdtype() == ':' && getcmdline() =~ '^hb$')? 'tab help' : 'h'
+cnoreabbr <expr> bh (getcmdtype() == ':' && getcmdline() =~ '^bh$')? 'tab help' : 'h'
+cnoreabbr <expr> hv (getcmdtype() == ':' && getcmdline() =~ '^hv$')? 'vert bel help' : 'h'
+cnoreabbr <expr> vh (getcmdtype() == ':' && getcmdline() =~ '^vh$')? 'vert bel help' : 'h'
 "}}}
 " Abbr; Open tmp.vim {{{
-cnoreabbr <silent><expr> tmp (getcmdtype() == ':' && getcmdline() =~ '^tmp$')? 'e ~/.tmp/tmp.vim' : 'tmp'
-cnoreabbr <silent><expr> stm (getcmdtype() == ':' && getcmdline() =~ '^stm$')? 'sp ~/.tmp/tmp.vim' : 'stm'
-cnoreabbr <silent><expr> tms (getcmdtype() == ':' && getcmdline() =~ '^tms$')? 'sp ~/.tmp/tmp.vim' : 'tms'
-cnoreabbr <silent><expr> vtm (getcmdtype() == ':' && getcmdline() =~ '^vtm$')? 'vs ~/.tmp/tmp.vim' : 'vtm'
-cnoreabbr <silent><expr> tmv (getcmdtype() == ':' && getcmdline() =~ '^tmv$')? 'vs ~/.tmp/tmp.vim' : 'tmv'
-cnoreabbr <silent><expr> btm (getcmdtype() == ':' && getcmdline() =~ '^btm$')? 'tabe ~/.tmp/tmp.vim' : 'btm'
-cnoreabbr <silent><expr> tmb (getcmdtype() == ':' && getcmdline() =~ '^tmb$')? 'tabe ~/.tmp/tmp.vim' : 'tmb'
+cnoreabbr <expr> tmp (getcmdtype() == ':' && getcmdline() =~ '^tmp$')? 'e ~/.tmp/tmp.vim' : 'tmp'
+cnoreabbr <expr> stm (getcmdtype() == ':' && getcmdline() =~ '^stm$')? 'sp ~/.tmp/tmp.vim' : 'stm'
+cnoreabbr <expr> tms (getcmdtype() == ':' && getcmdline() =~ '^tms$')? 'sp ~/.tmp/tmp.vim' : 'tms'
+cnoreabbr <expr> vtm (getcmdtype() == ':' && getcmdline() =~ '^vtm$')? 'vs ~/.tmp/tmp.vim' : 'vtm'
+cnoreabbr <expr> tmv (getcmdtype() == ':' && getcmdline() =~ '^tmv$')? 'vs ~/.tmp/tmp.vim' : 'tmv'
+cnoreabbr <expr> btm (getcmdtype() == ':' && getcmdline() =~ '^btm$')? 'tabe ~/.tmp/tmp.vim' : 'btm'
+cnoreabbr <expr> tmb (getcmdtype() == ':' && getcmdline() =~ '^tmb$')? 'tabe ~/.tmp/tmp.vim' : 'tmb'
 "}}}
 " Abbr; FoldMethod {{{
-cnoreabbr <silent><expr> fsy (getcmdtype() == ':' && getcmdline() =~ '^fsy$')? 'setlocal foldmethod=syntax' : 'fsy'
-cnoreabbr <silent><expr> fma (getcmdtype() == ':' && getcmdline() =~ '^fma$')? 'setlocal foldmethod=marker' : 'fma'
-cnoreabbr <silent><expr> fdm (getcmdtype() == ':' && getcmdline() =~ '^fdm$')? 'setlocal foldmethod=' : 'fdm'
-cnoreabbr <silent><expr> ma (getcmdtype() == ':' && getcmdline() =~ '^setlocal foldmethod= ma$')? 'marker' : '<BS>ma'
-cnoreabbr <silent><expr> sy (getcmdtype() == ':' && getcmdline() =~ '^setlocal foldmethod= sy$')? '<BS>syntax' : 'sy'
+cnoreabbr <expr> fsy (getcmdtype() == ':' && getcmdline() =~ '^fsy$')? 'setlocal foldmethod=syntax' : 'fsy'
+cnoreabbr <expr> fma (getcmdtype() == ':' && getcmdline() =~ '^fma$')? 'setlocal foldmethod=marker' : 'fma'
+cnoreabbr <expr> fdm (getcmdtype() == ':' && getcmdline() =~ '^fdm$')? 'setlocal foldmethod=' : 'fdm'
+cnoreabbr <expr> ma (getcmdtype() == ':' && getcmdline() =~ '^setlocal foldmethod= ma$')? 'marker' : '<BS>ma'
+cnoreabbr <expr> sy (getcmdtype() == ':' && getcmdline() =~ '^setlocal foldmethod= sy$')? '<BS>syntax' : 'sy'
 "}}}
