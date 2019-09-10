@@ -12,7 +12,7 @@ let g:indentLine_faster = 1
 
 augroup MyIndentLineAugroup
   au!
-  au WinLeave,BufLeave,CursorMovedI * if &l:cursorline == 0 && &bt ==# 'quickfix' | IndentLinesDisable
+  au WinLeave,CursorMovedI * if &l:cursorline == 0 && &bt ==# 'quickfix' | IndentLinesDisable
   function! s:indentline_exculsive_enable() "{{{
     if &modifiable
       if &ft !~# join(g:indentLine_fileTypeExclude) || join(g:indentLine_bufTypeExclude)
@@ -21,5 +21,5 @@ augroup MyIndentLineAugroup
     endif
   endfunction "}}}
   au CursorMoved     * if &l:cursorline == 0 && &bt !=# 'quickfix' | call <SID>indentline_exculsive_enable()
-  au WinEnter,BufNew,BufEnter * if &l:cursorline == 1 && &bt !=# 'quickfix' | call <SID>indentline_exculsive_enable()
+  au WinEnter,BufWinEnter * if &l:cursorline == 1 && &bt !=# 'quickfix' | call <SID>indentline_exculsive_enable()
 augroup END
