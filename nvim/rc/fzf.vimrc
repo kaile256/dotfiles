@@ -27,7 +27,8 @@ augroup FzfMyAutoConf
   " CAUTION: WinLeave's current file is next file, i.e., fzf when opening fzf-buffer.
   au WinLeave,BufLeave * if &ft ==# 'fzf' | hide
   au WinLeave,BufLeave * if &ft ==# 'fzf' && &l:statusline == 0 | setl laststatus=2 showmode ruler
-  au FileType fzf setl laststatus=0 noruler | au BufWinLeave,BufLeave * ++once setl laststatus=2 ruler
+  " Note: Makes no sense but auto-set nonumber on tab-open.
+  au FileType fzf setl laststatus=0 noruler | au BufWinEnter * ++once setl laststatus=2 ruler number
 augroup END
 
 " [Buffers] Rather Jump to window if existed.
@@ -48,6 +49,7 @@ function! s:fzf_buffer_keymap() "{{{
     cc
   endfunction "}}}
   " <alt-k> for cancel.
+  " Note: seems not work with <alt->
   let g:fzf_action = {
         \ 'ctrl-z': '',
         \ 'alt-k': 'silent! echo',
