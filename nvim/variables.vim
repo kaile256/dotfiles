@@ -69,18 +69,17 @@ let $VISUAL='nvr'
 "}}}
 
 " Path; Runtime Path
-set rtp+=~/.config/nvim/rc/
-set rtp+=~/.config/nvim/data/
-set rtp+=~/.config/nvim/lazy/
-set rtp+=~/.config/nvim/toml/
-set rtp+=~/.config/nvim/keymap/
+set rtp+=~/.config/nvim/rc
+set rtp+=~/.config/nvim/data
+set rtp+=~/.config/nvim/lazy
+set rtp+=~/.config/nvim/toml
+set rtp+=~/.config/nvim/keymap
 " Path; for `:find`
 " ';' for upward search.
 " e.g., /usr/share/nvim;/usr will search in /usr, /usr/share, /usr/share/nvim.
 "set path+=;/
 set path+=../**
 set path+=~/.config/**
-set path+=~/.cache/**
 set path+=~/.local/nvim/**
 set path+=/etc/**
 " Path; negative
