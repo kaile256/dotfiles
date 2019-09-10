@@ -1,5 +1,5 @@
 " From: motion.toml
-" Repo: easymotion/easymotion
+" Repo: easymotion/vim-easymotion
 
 " Let; mapping {{{
 " `g:EasyMotion_do_mapping = 1` provides all the default keymaps.
@@ -25,11 +25,11 @@ let g:EasyMotion_prompt = 'EasyMotion: {n} Chars >>> '
 " because Easymotion includes basic regex patterns.
 let g:EasyMotion_use_migemo = 0 "{{{
 function! s:ezmotion_migemo_toggle()
-  if exists('g:EasyMotion_use_migemo')
-    let g:EasyMotion_use_migemo = 0
-  else
-    let g:EasyMotion_use_migemo = 1
-  endif
+if exists('g:EasyMotion_use_migemo')
+  let g:EasyMotion_use_migemo = 0
+else
+  let g:EasyMotion_use_migemo = 1
+endif
 endfunction "}}}
 command! MigemoToggle :call <SID>ezmotion_migemo_toggle()
 "}}}
@@ -48,7 +48,9 @@ hi link EasyMotionIncSearch Search
 " <Plug>(easymotion-s): the range is inside current screen.
 " <Plug>(easymotion-sl): the range is limited to current line.
 
-"EMCommandLineNoreMap <CR> <CR><CR>
+" Enable `<` on easymotion
+EMCommandLineNoreMap <S-lt> <
+
 omap . <Plug>(easymotion-repeat)
 "nmap . <Plug>(easymotion-dotrepeat)
 
