@@ -18,6 +18,12 @@ rev = 'release'
 on_event = 'VimEnter'
 hook_post_source = 'runtime coc.vimrc'
 #}}}
+#[[plugins]]
+#repo = 'autozimu/LanguageClient-neovim'
+#rev = 'next'
+#build = 'bash install.sh'
+#on_event = 'BufRead'
+#hook_add = 'runtime LanguageClient.vimrc'
 
 # Edit; Undo
 [[plugins]]
@@ -39,10 +45,10 @@ on_map = 'Undotree'
 hook_add = 'runtime undotree.vimrc'
 #}}}
 # Edit; Inc/Decrement
-[[plugins]]
-repo = 'qwertologe/nextval.vim'
-on_map = '<Plug>nextval'
-hook_add = 'runtime nextval.vimrc'
+#[[plugins]]
+#repo = 'qwertologe/nextval.vim'
+#on_map = '<Plug>nextval'
+#hook_add = 'runtime nextval.vimrc'
 # Edit; Diff
 [[plugins]]
 repo = 'AndrewRadev/linediff.vim' #{{{
@@ -55,6 +61,16 @@ hook_add = 'runtime linediff.vimrc'
 repo = 'LeafCage/foldCC' #{{{
 on_event = 'BufWinEnter'
 hook_post_source = 'runtime foldCC.vimrc'
+#}}}
+#[[plugins]]
+#repo = 'SwintonStreet/HighlightFoldLevelVimScript' #{{{
+# Seems not to work. May not get along with foldCC.
+#hook_add = 'runtime HighlightFoldLevel.vimrc'
+##}}}
+#[[plugins]]
+#repo = 'anschnapp/move-less' #{{{
+#on_event = 'BufRead'
+#hook_add = 'runtime move-less.vimrc'
 #}}}
 #[[plugins]]
 #repo = 'tmhedberg/SimpylFold' #{{{
@@ -105,3 +121,10 @@ hook_post_source = 'runtime themis.vimrc'
 #on_if = '&modifiable'
 #hook_post_source = 'runtime switch.vimrc'
 #}}}
+
+# Image Viewer
+#[[plugins]]
+#repo = 'Cj-bc/drcs.vim'
+#rev = 'develop'
+#on_event = ['jpeg', 'gif', 'png', 'drcs']
+#hook_post_source = 'runtime drcs.vimrc'
