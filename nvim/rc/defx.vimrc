@@ -52,6 +52,8 @@ nnoremap <silent> <a-b>
 
 "" Call; Goto file/directory
 " overwrap :netrw
+let g:loaded_netrwPlugin = 1
+let g:loaded_netrw = 1
 noremap <silent> gf      :<c-u>Defx -search=`expand('<cword>')` <cr>
 noremap <silent> <c-w>gf :<c-u>Defx -search=`expand('<cword>')` -direction=belowright -split=horizontal <cr>
 noremap <silent> <c-w>f  :<c-u>Defx -search=`expand('<cword>')` -direction=belowright -split=vertical<cr>

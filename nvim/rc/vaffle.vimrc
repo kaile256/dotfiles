@@ -1,8 +1,8 @@
 " From: tool.toml
 
-" Let; netrw {{{
-let g:loaded_netrw = 0
-let g:loaded_netrwPlugin = 0
+" Let; Disable Netrw {{{
+let g:loaded_netrw = 1
+let g:loaded_netrwPlugin = 1
 "}}}
 " Let; vaffle {{{
 let g:vaffle_use_default_mappings = 0
