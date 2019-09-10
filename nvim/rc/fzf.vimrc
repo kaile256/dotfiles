@@ -25,7 +25,8 @@ augroup END "}}}
 augroup FzfMyAutoConf
   au!
   " CAUTION: WinLeave's current file is next file, i.e., fzf when opening fzf-buffer.
-  au WinLeave,BufLeave * if &ft =~# 'fzf' | hide | if &l:statusline == v:false | setl laststatus=2 showmode ruler| endif
+  au WinLeave,BufLeave * if &ft ==# 'fzf' | hide
+  au WinLeave,BufLeave * if &ft ==# 'fzf' && &l:statusline == 0 | setl laststatus=2 showmode ruler
   au FileType fzf setl laststatus=0 noruler | au BufWinLeave,BufLeave * ++once setl laststatus=2 ruler
 augroup END
 
