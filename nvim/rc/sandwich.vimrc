@@ -4,6 +4,13 @@ let g:sandwich_no_default_key_mappings = 1
 let g:textobj_sandwich_no_default_key_mappings = 1
 
 " Keymap; Fetch back forgotten buns on Insert Mode
+imap <a-c>'` <c-o><Plug>(operator-sandwich-replace)iW'`
+imap <a-c>'" <c-o><Plug>(operator-sandwich-replace)iW''
+imap <a-c>"' <c-o><Plug>(operator-sandwich-replace)iW"'
+imap <a-c>"` <c-o><Plug>(operator-sandwich-replace)iW"`
+imap <a-c>`' <c-o><Plug>(operator-sandwich-replace)iW`'
+imap <a-c>`" <c-o><Plug>(operator-sandwich-replace)iW`"
+
 imap <a-s>' <c-o><Plug>(operator-sandwich-add)iW'
 imap <a-s>" <c-o><Plug>(operator-sandwich-add)iW"
 imap <a-s>` <c-o><Plug>(operator-sandwich-add)iW`
