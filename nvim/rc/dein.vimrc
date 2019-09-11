@@ -3,7 +3,7 @@
 
 " Path; for :find
 " TODO: Set it via g:dein_cache_dir.
-set path^=~/.cache/dein/repos/github.com/**
+"set path^=~/.cache/dein/repos/github.com/**
 
 " Let; Make git clone shallow {{{
 let g:dein#types#git#clone_depth = 1
