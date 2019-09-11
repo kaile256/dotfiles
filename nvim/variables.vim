@@ -78,13 +78,15 @@ set rtp+=~/.config/nvim/keymap
 " ';' for upward search.
 " e.g., /usr/share/nvim;/usr will search in /usr, /usr/share, /usr/share/nvim.
 "set path+=;/
-set path+=../**
-set path+=~/.config/**
+" Dein's cache
+set path^=~/.cache/dein/repos/github.com/**
+set path^=~/.config/**
+set path^=../**
 set path+=~/.local/nvim/**
 set path+=/etc/**
 " Path; negative
 set path-=~
-set path-=.git/**
+set path-=.git*/**
 set path-=*yarn*/**
 set path-=*node*/**
 " Path; Provider
