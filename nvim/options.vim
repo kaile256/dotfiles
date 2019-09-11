@@ -1,9 +1,6 @@
 scriptencoding utf-8
 " From init.vim
 
-cabbr help vert help
-" TODO: open help on vertical
-"set keywordprg=nvim\ -c\ 'vs\ help'
 " Appearance; Blend {{{
 if exists('&pumblend')
   set pumblend=30
@@ -183,7 +180,7 @@ augroup END
 "}}}
 " Method; Session {{{
 set sessionoptions+=localoptions
-set sessionoptions-=blank
+set sessionoptions-=blank,buffers
 "}}}
 " Method; Inc/Decrement {{{
 "set nrformats+=octal
