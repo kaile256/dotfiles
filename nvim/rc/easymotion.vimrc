@@ -1,6 +1,6 @@
 " From: motion.toml
 " Repo: easymotion/vim-easymotion
-" Repo: unrtp/easymotion.vimrc
+" Otro: unrtp/easymotion.vimrc
 
 " Let; mapping {{{
 " `g:EasyMotion_do_mapping = 1` provides all the default keymaps.
