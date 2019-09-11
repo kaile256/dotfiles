@@ -9,6 +9,9 @@ alias ls="ls --color=auto"
 alias la="ls --color=auto -A"
 alias ll="ls --color=auto -l"
 alias  l="ls --color=auto -lA"
+alias ec='echo'
+alias ech='echo'
+alias f='fish'
 #}}}
 
 # Neovim
