@@ -21,5 +21,5 @@ augroup MyIndentLineAugroup
     endif
   endfunction "}}}
   au CursorMoved     * if &l:cursorline == 0 && &bt !=# 'quickfix' | call <SID>indentline_exculsive_enable()
-  au WinEnter,BufWinEnter * if &l:cursorline == 1 && &bt !=# 'quickfix' | call <SID>indentline_exculsive_enable()
+  au WinEnter,BufWinEnter,BufWinLeave * if &l:cursorline == 1 && &bt !=# 'quickfix' | call <SID>indentline_exculsive_enable()
 augroup END
