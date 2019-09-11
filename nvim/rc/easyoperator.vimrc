@@ -1,5 +1,6 @@
 " From: tool.toml
-"  Ref: easymotion.vimrc
+" Repo: haya14busa/vim-easyoperator-phrase
+" Otro: easymotion.vimrc
 
 " Let; do_mapping
 " 0: no-default
