@@ -26,9 +26,6 @@ tmap <a-p> <c-\><c-n><a-p>
 tmap <a-n> <c-\><c-n><a-n>
 "}}}
 
-" CmdAbbr; bdelete term://
-"cnoreabbr <expr> bdt (getcmdtype() == ':' && getcmdline() =~ '^bdt$')? 'bwipeout! expand(bufname("term://"))' : 'bdt'
-
 augroup OnTerminalBuffer
   au!
   " Open Terminal as Startpage
@@ -59,3 +56,13 @@ elseif $TERM =~# '^\(xterm\)\(-.*\)\?$'
   endif
 endif
 "}}}
+
+" Function; ls-grep
+" TODO: get bufnr('term://') in hidden-buffers to bufdelete them.
+function! s:grep_heavy_bufnr()
+  redir => l:hidden_buffers
+  silent ls!
+  redir END
+  bdelete g/term:\/\//
+endfunction
+"cnoreabbr <expr> bdt (getcmdtype() == ':' && getcmdline() =~ '^bdt$')? 'LsGrep term:// <bar> bwipeout! ' : 'bdt'
