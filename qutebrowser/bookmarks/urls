@@ -108,3 +108,28 @@ https://github.com/rhysd/NyaoVim/blob/99db8fa62125106d7182d7c8e09aca5b04f7f76e/d
 https://github.com/rhysd/dogfiles GitHub - rhysd/dogfiles: dog + dotfiles = dogfiles
 https://www.archlinux.org/ Arch Linux
 https://wiki.manjaro.org/index.php?title=Pacman-mirrors%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E3%81%AB%E3%82%88%E3%82%8B%E3%83%9F%E3%83%A9%E3%83%BC%E3%82%B5%E3%83%BC%E3%83%90%E3%83%BC%E3%83%AA%E3%82%B9%E3%83%88%E3%81%AE%E6%9B%B4%E6%96%B0 Pacman-mirrorsコマンドによるミラーサーバーリストの更新 - Manjaro Linux
+https://github.com/tyru/homevim GitHub - tyru/homevim: My ~/.vim/* files
+https://github.com/arkwright/vim-manhunt GitHub - arkwright/vim-manhunt: Enhance vim-fugitive with easy diff browsing.
+https://github.com/idanarye/vim-merginal GitHub - idanarye/vim-merginal: Fugitive extension to manage and merge Git branches
+qute://help/settings.html#bindings.default Setting reference
+https://github.com/ryanoasis/vim-devicons GitHub - ryanoasis/vim-devicons: Adds file type icons to Vim plugins such as: NERDTree, vim-airline, CtrlP, unite, Denite, lightline, vim-startify and many more
+https://github.com/ryanoasis/nerd-fonts#font-installation GitHub - ryanoasis/nerd-fonts: Iconic font aggregator, collection, & patcher. 3,600+ icons, 40+ patched fonts: Hack, Source Code Pro, more. Glyph collections: Font Awesome, Material Design Icons, Octicons, & more
+https://github.com/taohexxx/navim GitHub - taohexxx/navim: A full-blown IDE based on Neovim (or Vim) with better navigation.
+https://github.com/albertomontesg/lightline-asyncrun GitHub - albertomontesg/lightline-asyncrun: Async jobs indicator for the lightline vim plugin
+https://github.com/vim-airline/vim-airline GitHub - vim-airline/vim-airline: lean & mean status/tabline for vim that's light as air
+https://github.com/edkolev/promptline.vim GitHub - edkolev/promptline.vim: Generate a fast shell prompt with powerline symbols and airline colors
+https://itchyny.hatenablog.com/entry/20130828/1377653592 作者が教える！ lightline.vimの導入・設定方法！ 〜 初級編 - インストールしよう - プログラムモグモグ
+https://github.com/qwertologe/nextval.vim GitHub - qwertologe/nextval.vim: Plugin for vim: Inc-/decrement the current value (bool, int, numeric, hex) with one keystroke
+https://qiita.com/rbtnn/items/deb569ebc94d5172a5e5 vital.vimをどんどん使っていこう。 - Qiita
+https://github.com/tpope/vim-abolish GitHub - tpope/vim-abolish: abolish.vim: easily search for, substitute, and abbreviate multiple variants of a word
+https://github.com/machakann/vim-highlightedundo GitHub - machakann/vim-highlightedundo: Make the undo region apparent!
+https://github.com/thinca/vim-ft-help_fold GitHub - thinca/vim-ft-help_fold: Folding setting for help.
+https://github.com/simnalamburt/vim-mundo GitHub - simnalamburt/vim-mundo: Vim undo tree visualizer
+https://github.com/jaxbot/selective-undo.vim GitHub - jaxbot/selective-undo.vim: Selective undo for Vim
+https://github.com/davidinspace/qutebrowser_dark_solarized GitHub - davidinspace/qutebrowser_dark_solarized: Dark solarized css stylesheet for qutebrowser. Make the web like your terminal ! :)
+https://github.com/alcah/qute-capture GitHub - alcah/qute-capture: Use org-mode with Qutebrowser
+qute://help/settings.html Setting reference
+https://github.com/neoclide/denite-extra GitHub - neoclide/denite-extra: extra useful sources for denite.nvim
+https://github.com/raghur/fruzzy GitHub - raghur/fruzzy: Freaky fast fuzzy finder for (denite.nvim/CtrlP matcher) for vim/neovim
+https://github.com/autozimu/LanguageClient-neovim GitHub - autozimu/LanguageClient-neovim: Language Server Protocol (LSP) support for vim and neovim.
+https://github.com/iamcco/vim-language-server GitHub - iamcco/vim-language-server: vim language server, lsp for viml

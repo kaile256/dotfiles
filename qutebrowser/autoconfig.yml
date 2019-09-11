@@ -5,6 +5,7 @@ config_version: 2
 settings:
   aliases:
     global:
+      H: help -t
       O: open -t
       abbr: config-dict-add aliases
       alias: config-dict-add aliases
@@ -13,6 +14,9 @@ settings:
       cunabbr: config-dict-remove aliases
       cunmap: unbind -m command
       e: session-load
+      emacs: enter-mode passthrough
+      emap: bind -m passthrough
+      emode: enter-mode passthrough
       h: help
       hmap: bind -m hint
       hunmap: unbind -m hint
@@ -20,6 +24,7 @@ settings:
       iunmap: bind -m insert
       map: bind
       mess: messages
+      mks: session-save
       mkurl: config-dict-add url.searchengines
       nmap: bind
       nunmap: unbind
@@ -74,7 +79,8 @@ settings:
         <Ctrl+n>: command-history-next
         <Ctrl+p>: command-history-prev
         <Ctrl+r><Ctrl+Space>: fake-key <Ctrl-V>
-        <Ctrl+r><Space>: set-cmd-text {clipboard}
+        <Ctrl+r><Space>: insert-text {clipboard}
+        <Ctrl+x>: completion-item-del
       hint:
         <Alt+h>: leave-mode
         <Alt+j>: leave-mode
@@ -93,9 +99,11 @@ settings:
         <Alt+d>: fake-key <Ctrl-Delete>
         <Alt+f>: fake-key <Ctrl-Right>
         <Alt+g><Alt+g>: leave-mode;; scroll-to-perc 0
-        <Alt+h>: fake-key <Shift-Left>
-        <Alt+i>: fake-key <left>
-        <Alt+l>: fake-key <shift-Right>
+        <Alt+h>: enter-mode caret ;; fake-key <left>
+        <Alt+i>: <left>
+        <Alt+j>: enter-mode caret ;; fake-key <down>
+        <Alt+k>: enter-mode caret ;; fake-key <up>
+        <Alt+l>: enter-mode caret ;; fake-key <right>
         <Alt+o>: fake-key <tab>
         <Alt+v>: enter-mode caret
         <Alt+y>: yank selection
@@ -111,10 +119,10 @@ settings:
         <Ctrl+m>: fake-key <Enter>
         <Ctrl+n>: fake-key <Down>
         <Ctrl+p>: fake-key <Up>
-        <Ctrl+r>0: insert-text {primary}
-        <Ctrl+r><Ctrl+0>: insert-text {primary}
-        <Ctrl+r><Ctrl+Space>: insert-text {clipboard}
-        <Ctrl+r><Space>: insert-text {clipboard}
+        <Ctrl+r>0: insert {primary}
+        <Ctrl+r><Ctrl+0>: insert {primary}
+        <Ctrl+r><Ctrl+Space>: insert {clipboard}
+        <Ctrl+r><Space>: insert {clipboard}
         <Ctrl+u>: fake-key <shift-home><Delete>
         <Ctrl+w>: fake-key <ctrl-backspace>
         <Ctrl+y>: insert-text {primary}
@@ -150,10 +158,12 @@ settings:
         <Ctrl+t>: null
         <Ctrl+v>: null
         <Ctrl+w>: null
+        <Ctrl+w><Ctrl+c>: tab-close
         <Ctrl+w><Ctrl+o>: window-only
         <Ctrl+w><Ctrl+p>: tab-pin
         <Ctrl+w><Ctrl+t>: tab-give
         <Ctrl+w>T: tab-give
+        <Ctrl+w>c: tab-close
         <Ctrl+w>p: tab-pin
         <Ctrl+x>: null
         <Ctrl+y>: scroll-px 0 -50
@@ -177,17 +187,15 @@ settings:
         P: open -t {clipboard}
         QQ: tab-close
         U: undo
-        V: enter-mode caret, drop-selection
+        V: enter-mode caret;; toggle-selection
         ZQ: tab-close
-        ZZ: bookmark-del;; bookmark-add;; tab-close
-        a: enter-mode insert
-        b: fake-key <ctrl-left>
+        ZZ: tab-close
+        a: fake-key <right> ;; enter-mode insert
         d: scroll-page 0 +0.5
-        e: edit-url
         gf: spawn nvim-qt {url}
-        gi: enter-mode insert
+        gi: hint inputs --first
         h: fake-key <left>
-        i: enter-mode insert
+        i: hint inputs --first
         j: fake-key <down>
         k: fake-key <up>
         l: fake-key <right>
@@ -197,20 +205,45 @@ settings:
         qa: quit
         qq: tab-close
         u: scroll-page 0 -0.5
-        w: <ctrl-right><ctrl-right><left><left>
         wq: bookmark-del;; bookmark-add;; tab-close
         wqa: bookmark-del;; bookmark-add;; quit
         yv: enter-mode caret;; yank;; leave-mode
         yy: yank
+        zH: scroll-to-perc -x 0
+        zL: scroll-to-perc -x
         zh: scroll left
         zl: scroll right
+      passthrough:
+        <Alt+x>: 'set-cmd-text :'
+        <Ctrl+b>: <left>
+        <Ctrl+f>: <right>
+        <Ctrl+n>: <down>
+        <Ctrl+p>: <up>
       prompt:
+        <Ctrl+c>: leave-mode
         <Ctrl+n>: prompt-item-focus next
         <Ctrl+p>: prompt-item-focus prev
+  completion.height:
+    global: 30%
+  completion.open_categories:
+    global:
+    - quickmarks
+    - bookmarks
+    - history
+  completion.scrollbar.width:
+    global: 2
+  completion.use_best_match:
+    global: true
   content.host_blocking.lists:
     global: null
-  content.private_browsing:
+  content.plugins:
     global: true
+  content.private_browsing:
+    global: false
+  downloads.location.directory:
+    global: ~/Downloads
+  downloads.location.remember:
+    global: false
   editor.command:
     global:
     - nvim-qt
@@ -259,12 +292,40 @@ settings:
     global: 12
   fonts.web.size.minimum:
     global: 9
+  input.insert_mode.auto_load:
+    global: false
+  input.insert_mode.plugins:
+    global: true
+  new_instance_open_target:
+    global: tab
+  qt.process_model:
+    global: process-per-site-instance
+  scrolling.bar:
+    global: always
   scrolling.smooth:
     global: false
+  session.default_name:
+    global: last
   session.lazy_restore:
     global: false
+  spellcheck.languages:
+    global: null
   tabs.background:
     global: true
+  tabs.new_position.unrelated:
+    global: next
+  tabs.select_on_remove:
+    global: next
+  tabs.title.format_pinned:
+    global: '{index}'
+  tabs.undo_stack_size:
+    global: 100
+  tabs.wrap:
+    global: true
+  url.incdec_segments:
+    global:
+    - path
+    - query
   url.open_base_url:
     global: true
   url.searchengines:
