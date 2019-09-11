@@ -1,54 +1,84 @@
 # From: dein.vimrc
 
-# Interface
+# Repeat
 [[plugins]]
 repo = 'tpope/vim-repeat' #{{{
 # No Help
 on_event = ['TextChanged', 'TextChangedI']
 #}}}
+
 #[[plugins]]
 #repo = 'fszymanski/fzf-gitignore' #{{{
 #type = 'git'
 ##on_if = '@% =~# ".gitignore"'
 #hook_post_source = 'runtime fzf-gitignore.vimrc'
 ##}}}
+
+# LSP
 [[plugins]]
 repo = 'neoclide/coc.nvim' #{{{
+# Note: Written in TypeScript.
 rev = 'release'
 on_event = 'VimEnter'
 hook_post_source = 'runtime coc.vimrc'
 #}}}
 #[[plugins]]
-#repo = 'autozimu/LanguageClient-neovim'
+#repo = 'prabirshrestha/vim-lsp' #{{{
+## Written in Pure viml
+#hook_post_source = 'runtime lsp.vimrc'
+#[[plugins]]
+#repo = 'prabirshrestha/async.vim'
+#on_event = 'BufRead'
+#hook_post_source = 'runtime async.vimrc'
+#[[plugins]]
+#repo = 'prabirshrestha/asyncomplete.vim'
+#on_event = 'BufRead'
+#hook_post_source = 'runtime asyncomplete.vimrc'
+#[[plugins]]
+#repo = 'prabirshrestha/asyncomplete-lsp.vim'
+#on_event = 'BufRead'
+#hook_post_source = 'runtime asyncomplete-lsp.vimrc'
+##}}}
+#[[plugins]]
+#repo = 'autozimu/LanguageClient-neovim' #{{{
+## Note: Written in Rust.
 #rev = 'next'
 #build = 'bash install.sh'
 #on_event = 'BufRead'
 #hook_add = 'runtime LanguageClient.vimrc'
+##}}}
 
 # Edit; Undo
 [[plugins]]
-repo = 'simnalamburt/vim-mundo'
-on_event = 'BufRead'
-hook_post_source = 'runtime mundo.vimrc'
-[[plugins]]
-repo = 'jaxbot/selective-undo.vim'
-on_event = 'BufRead'
-hook_post_source = 'runtime selective-undo.vimrc'
-[[plugins]]
-repo = 'machakann/vim-highlightedundo'
-if = 'executable("diff")'
-on_event = 'BufRead'
-hook_post_source = 'runtime highlightedundo.vimrc'
-[[plugins]]
-repo = 'mbbill/undotree' #{{{
-on_map = 'Undotree'
-hook_add = 'runtime undotree.vimrc'
+repo = 'simnalamburt/vim-mundo' #{{{
+on_map = ':Mundo'
+hook_add = 'runtime mundo.vimrc'
 #}}}
+#[[plugins]]
+#repo = 'jaxbot/selective-undo.vim' #{{{
+## End of Dev?
+#on_event = 'BufRead'
+#hook_post_source = 'runtime selective-undo.vimrc'
+##}}}
+#[[plugins]]
+#repo = 'machakann/vim-highlightedundo' #{{{
+#if = 'executable("diff")'
+#on_event = 'BufRead'
+#hook_post_source = 'runtime highlightedundo.vimrc'
+#}}}
+#[[plugins]]
+#repo = 'mbbill/undotree' #{{{
+#on_map = 'Undotree'
+#hook_add = 'runtime undotree.vimrc'
+##}}}
+
 # Edit; Inc/Decrement
 #[[plugins]]
-#repo = 'qwertologe/nextval.vim'
+#repo = 'qwertologe/nextval.vim' #{{{
 #on_map = '<Plug>nextval'
 #hook_add = 'runtime nextval.vimrc'
+##}}}
+
 # Edit; Diff
 [[plugins]]
 repo = 'AndrewRadev/linediff.vim' #{{{
@@ -77,13 +107,6 @@ hook_post_source = 'runtime foldCC.vimrc'
 #on_ft = 'python'
 #hook_post_source = 'runtime SimpylFold.vimrc'
 ##}}}
-
-# Template
-#[[plugins]]
-#repo = 'mattn/sonictemplate-vim' #{{{
-#on_event = 'BufNew'
-#hook_post_source = 'runtime sonictemplate.vimrc'
-#}}}
 
 # Dein Extention
 [[plugins]]
@@ -122,9 +145,22 @@ hook_post_source = 'runtime themis.vimrc'
 #hook_post_source = 'runtime switch.vimrc'
 #}}}
 
-# Image Viewer
+## Image Viewer
 #[[plugins]]
 #repo = 'Cj-bc/drcs.vim'
 #rev = 'develop'
 #on_event = ['jpeg', 'gif', 'png', 'drcs']
 #hook_post_source = 'runtime drcs.vimrc'
+
+# Template
+#[[plugins]]
+#repo = 'mattn/sonictemplate-vim' #{{{
+#on_event = 'BufNew'
+#hook_post_source = 'runtime sonictemplate.vimrc'
+#}}}
+
+# Developper Tool
+[[plugins]]
+repo = 'tweekmonster/helpful.vim'
+on_cmd = 'HelpfulVersion'
+hook_add = 'runtime helpful.vimrc'
