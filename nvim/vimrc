@@ -1,3 +1,0 @@
-"" This file is only for vim original; not for neovim
-runtime! init.vim
-colo murphy
