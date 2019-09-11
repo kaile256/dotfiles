@@ -1,5 +1,5 @@
-" From: tool.vimrc
-" Repo: https://github.com/rhysd/git-messenger.vim
+" From: tool.toml
+" Repo: rhysd/git-messenger.vim
 
 " mili-second; for CursorHold
 
@@ -47,9 +47,9 @@ function! s:keymap_on_gitmessenger_popup() abort
 endfunction
 
 function! s:simple_gitmessenger()
-    if g:git_messenger_include_diff != 'none'
-      let g:git_messenger_include_diff = 'none'
-    endif
+    "if g:git_messenger_include_diff !=# ''
+    "  let g:git_messenger_include_diff = 'none'
+    "endif
     if g:git_messenger_always_into_popup != v:false
       let g:git_messenger_always_into_popup = v:false
     endif
@@ -63,10 +63,10 @@ endfunction
 
 function! s:gitmessenger_with_hunks()
   if !pumvisible()
-    if g:git_messenger_include_diff != 'current'
+    if g:git_messenger_include_diff !=# 'current'
       let g:git_messenger_include_diff = 'current'
     endif
-    if g:git_messenger_always_into_popup != v:true
+    if g:git_messenger_always_into_popup !=# v:true
       let g:git_messenger_always_into_popup = v:true
     endif
     GitMessenger
