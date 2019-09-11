@@ -95,28 +95,6 @@
 		"eelixir": "mix_format"
 	},
 	"languageserver":{
-		"vimls": {
-			"module": "/home/kaile256/.yarn/bin/vim-language-server",
-			"args": ["--node-ipc"],
-			"initializationOptions": {
-				"iskeyword": "vim iskeyword option",
-				"vimruntime": "$VIMRUNTIME",
-				"runtimepath": "vim/runtime/path",
-				"diagnostic": {
-					"enable": true
-				},
-				"indexes": {
-					"runtimepath": true,  
-					"gap": 100,            
-					"count": 3              
-				},
-				"suggest": {
-					"fromVimruntime": true,   
-					"fromRuntimepath": false 
-				}
-			},
-			"filetypes": [ "vim" ],
-		},
 		"bash": {
 			"command": "bash-language-server",
 			"args": ["start"],
