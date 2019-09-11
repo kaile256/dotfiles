@@ -107,8 +107,13 @@ command! -bang -nargs=* Rg
       \           : fzf#vim#with_preview('right:50%'),
       \   <bang>0)
 
-command! -bang -nargs=? -complete=dir BFiles
-      \ call fzf#vim#files(<q-args>, fzf#vim#with_preview(), <bang>0)
+" There's no use trying to wrap 'GFiles?' independently
+" because '?' is regarded as an arg for 'GFiles'.
+command! -bang -nargs=? -complete=dir GFiles
+      \ call fzf#vim#gitfiles(<q-args>, fzf#vim#with_preview('right:50%'), <bang>0)
+" TODO: preview around the selected lines.
+"command! -bang -nargs=? -complete=dir BLines
+"      \ call fzf#vim#buffer_lines(<q-args>, fzf#vim#with_preview('right:50%'), <bang>0)
 "}}}
 " Keymap; Ag {{{
 if executable('ag') == 0
