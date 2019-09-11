@@ -166,8 +166,10 @@ function! s:defx_keymap_explorer() abort
   nnoremap <silent><buffer><expr> z.
         \ defx#do_action('toggle_ignored_files')
   " Selected; Open {{{1
-  nnoremap <silent><buffer><expr> <CR>
+  nnoremap <silent><buffer><expr> <c-j>
         \ defx#do_action('drop')
+  nnoremap <silent><buffer><expr> <CR>
+        \ defx#do_action('open')
   nnoremap <silent><buffer><expr> <c-v>
         \ defx#do_action('open', 'vsplit')
   " TODO: `:wincmd p` will apply only when the defx buffer is narrow.
@@ -212,22 +214,16 @@ function! s:defx_keymap_explorer() abort
         \ defx#do_action('execute_system')
   "}}}
 endfunction
+function! s:isdir(dir) abort
+  return !empty(a:dir) && (isdirectory(a:dir) ||
+        \ (!empty($SYSTEMDRIVE) && isdirectory('/'.tolower($SYSTEMDRIVE[0]).a:dir)))
+endfunction
 augroup DefxOnBuffer
   au!
   " TODO: highlight on top as there's filepath, or place those path on another place.
   au FileType defx setl bt=quickfix signcolumn=
   au FileType defx call <SID>defx_keymap_explorer()
-  "au BufNew * if @% !=# 'defx' | au! BufEnter * ++once call <SID>open_on_defx()
-  au BufNew * call <SID>open_on_defx()
-  "au BufEnter * if isdirectory(expand('%:p')) | Defx -search=expand('<amatch>')
+  " Override Netrw
+  au VimEnter * sil! au! FileExplorer *
+  au BufEnter * if s:isdir(expand('%')) | bd | exe 'Defx' | endif
 augroup END
-function! s:open_on_defx() abort "{{{1
-  if @% !=# 'defx'
-    function! s:open_in_defx()
-      if isdirectory(expand('<amatch>'))
-        Defx -search=expand('<amatch>')
-      endif
-    endfunction
-    au! BufEnter * ++once call <SID>open_in_defx()
-  endif
-endfunction
