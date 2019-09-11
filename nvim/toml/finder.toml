@@ -12,7 +12,7 @@ hook_add = 'runtime visualstar.vimrc'
 #}}}
 
 # Filer
-[[plugins]]
+[[plugins]] # has extentions
 repo = 'Shougo/defx.nvim' #{{{
 on_if = 'has("python3")'
 hook_post_source = 'runtime defx.vimrc'
