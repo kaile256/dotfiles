@@ -1,13 +1,12 @@
 " From Init.toml
 
-let g:neodark#use_256color = 1 " default: 0
-
+let g:neodark#use_256color    = 1 " default: 0
+let g:neodark#italic          = 1 " default: 0
+let g:neodark#background      = '#1F2F38'
 " If you want solid vertical split matching the statusline:
 let g:neodark#solid_vertsplit = 1 " default: 0
-let g:neodark#italic = 1 " default: 0
-let g:neodark#background = '#1F2F38'
-
-let g:neodark#terminal_transparent = 1 " default: 0
+" Let; Terminal
+let g:neodark#terminal_transparent      = 1 " default: 0
 let g:neodark#use_custom_terminal_theme = 1 " default: 0
 
 function! s:my_neodark_highlight() abort
