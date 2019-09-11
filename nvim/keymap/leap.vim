@@ -71,8 +71,15 @@ noremap <silent> g<c-]> :<c-u>vert stjump <c-r><c-w><CR>zz
 " :silent! to supress 'E556: at top of tag stack'
 nnoremap <silent> <c-q> :silent! $tag<cr>
 "" Jump; to Definition
-noremap gf gF
-noremap gF gf
+nnoremap gf gF
+nnoremap <silent> <c-w>f  :<c-u>vert  sfind   <c-r><c-f> <cr>
+nnoremap <silent> <c-w>gf :<c-u>sfind <space> <c-r><c-f> <cr>
+nnoremap <silent> gF      :<c-u>tab   sfind   <c-r><c-f> <cr>
+vnoremap gf gF
+vnoremap <silent> <c-w>f  :<c-u>vert  sfind   <c-r><c-f> <cr>
+vnoremap <silent> <c-w>gf :<c-u>sfind <space> <c-r><c-f> <cr>
+vnoremap <silent> gF      :<c-u>tab   sfind   <c-r><c-f> <cr>
+
 " Note: gD to jump on *the first line* of the file that has the definition.
 "noremap gd gD
 "noremap gD gd
