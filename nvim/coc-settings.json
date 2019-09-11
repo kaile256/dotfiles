@@ -71,53 +71,52 @@
 		"<c-s>": "action:split"
 	},
 
-	"yank.enableCompletion": "false",
-
-	"vimlsp.debug": { "type": "boolean",
-		"default": true,
-		"description": "enable coc-vimlsp service debug"
+	"yank.enableCompletion": false,
+	"vimlsp.debug": true,
+	"vimlsp.diagnostic.enable": true,
+	"vimlsp.indexes.runtimepath": true,
+	"vimlsp.indexes.count": 3,
+	"vimlsp.indexes.gap": 100,
+	"vimlsp.suggest.fromVimruntime": true,
+	"vimlsp.suggest.fromRuntimepath": false,
+	"vimlsp.trace.server": "verbose",
+	"diagnostic-languageserver.filetypes": {
+		"vim": "vint",
+		"email": "languagetool",
+		"markdown": [ "write-good", "markdownlint" ],
+		"sh": "shellcheck",
+		"elixir": ["mix_credo", "mix_credo_compile"],
+		"eelixir": ["mix_credo", "mix_credo_compile"],
+		"php": "phpcs"
 	},
-	"vimlsp.diagnostic.enable": {
-		"type": "boolean",
-		"default": true,
-		"description": "enable diagnostic"
-	},
-	"vimlsp.indexes.runtimepath": {
-		"type": "boolean",
-		"default": true,
-		"description": "if index vim's runtimepath files, this will effect the suggest"
-	},
-	"vimlsp.indexes.count": {
-		"type": "number",
-		"default": 3,
-		"description": "count of files index at the same time, change to greater will speed up index but will cause high CPU usage for some time"
-	},
-	"vimlsp.indexes.gap": {
-		"type": "number",
-		"default": 100,
-		"description": "time gap between parse file, change to smaller will speed up index but will cause high CPU usage for some time"
-	},
-	"vimlsp.suggest.fromVimruntime": {
-		"type": "boolean",
-		"default": true,
-		"description": "completeitems from vimruntime's vim files"
-	},
-	"vimlsp.suggest.fromRuntimepath": {
-		"type": "boolean",
-		"default": false,
-		"description": "completeitems from runtimepath's vim files, if this is true that fromVimruntime is true"
-	},
-	"vimlsp.trace.server": {
-		"type": "string",
-		"default": "verbose",
-		"enum": [
-			"off",
-			"messages",
-			"verbose"
-		],
-		"description": "Trace level of vim language server"
+	"diagnostic-languageserver.formatFiletypes": {
+		"dart": "dartfmt",
+		"elixir": "mix_format",
+		"eelixir": "mix_format"
 	},
 	"languageserver":{
+		"vimls": {
+			"module": "/home/kaile256/.yarn/bin/vim-language-server",
+			"args": ["--node-ipc"],
+			"initializationOptions": {
+				"iskeyword": "vim iskeyword option",
+				"vimruntime": "$VIMRUNTIME",
+				"runtimepath": "vim/runtime/path",
+				"diagnostic": {
+					"enable": true
+				},
+				"indexes": {
+					"runtimepath": true,  
+					"gap": 100,            
+					"count": 3              
+				},
+				"suggest": {
+					"fromVimruntime": true,   
+					"fromRuntimepath": false 
+				}
+			},
+			"filetypes": [ "vim" ],
+		},
 		"bash": {
 			"command": "bash-language-server",
 			"args": ["start"],
