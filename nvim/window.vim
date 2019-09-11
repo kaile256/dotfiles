@@ -4,6 +4,8 @@ if execute('map <c-w>q') != '' || execute('map <c-w><c-q>') != ''
   noremap <c-w>q <Nop>
   noremap <c-w><c-q> <Nop>
 endif
+nnoremap <c-w>Q :<c-u>qa! <cr>
+nnoremap <c-w>Z :<c-u>qa  <cr>
 
 " Redraw; Indent
 " :retab! Replace all whitespaces and tabs according to tabstop/expandtab.
