@@ -83,7 +83,8 @@ let g:fzf_colors =
 " NOTE: too slow if parmission denied.
 "imap <c-f> <plug>(fzf-complete-path)
 "imap <c-f> <plug>(fzf-complete-file)
-imap <c-f> <plug>(fzf-complete-file-ag)
+imap <c-x><c-a> <plug>(fzf-complete-file-ag)
+imap <c-x>a     <plug>(fzf-complete-file-ag)
 " :FZF! starts fzf on full-window.
 
 " CmdAbbr; {{{
