@@ -49,12 +49,25 @@ call defx#custom#option('_', {
 "" Call; Open Preceding Tree {{{1
 " Note: -search must be applied full path.
 " TODO: on Term-Mode, not to get errors; like get path with !pwd.
-nnoremap <silent> <a-v>
+nnoremap <silent> <a-x>v
       \ :<c-u>Defx `expand('%:p:h')` -search=`expand('%:p')`
       \ -split=vertical -winwidth=32 -winheight=60 -direction=topleft
       \ <cr>
-nnoremap <silent> <a-b>
+nnoremap <silent> <a-x>b
       \ :<c-u>Defx `expand('%:p:h')` -search=`expand('%:p')` -split=tab
+      \ <cr>
+nnoremap <silent> <a-x>e
+      \ :<c-u>Defx `expand('%:p:h')` -search=`expand('%:p')` 
+      \ <cr>
+nnoremap <silent> <a-x><a-v>
+      \ :<c-u>Defx `expand('%:p:h')` -search=`expand('%:p')`
+      \ -split=vertical -winwidth=32 -winheight=60 -direction=topleft
+      \ <cr>
+nnoremap <silent> <a-x><a-b>
+      \ :<c-u>Defx `expand('%:p:h')` -search=`expand('%:p')` -split=tab
+      \ <cr>
+nnoremap <silent> <a-x><a-e>
+      \ :<c-u>Defx `expand('%:p:h')` -search=`expand('%:p')` 
       \ <cr>
 "}}}
 
