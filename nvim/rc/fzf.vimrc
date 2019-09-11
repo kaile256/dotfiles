@@ -55,7 +55,6 @@ function! s:fzf_buffer_keymap() "{{{
         \ 'alt-k': 'silent! echo',
         \ 'alt-j': 'silent! echo',
         \ 'ctrl-q': function('s:fzf_open_in_quickfix_list'),
-        \ 'ctrl-c': function('s:fzf_open_in_quickfix_list'),
         \ 'ctrl-b': 'tab split',
         \ 'ctrl-t': 'tab split',
         \ 'ctrl-v': 'vsplit',
