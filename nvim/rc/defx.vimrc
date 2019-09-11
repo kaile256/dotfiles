@@ -58,43 +58,6 @@ nnoremap <silent> <a-b>
       \ <cr>
 "}}}
 
-"" TODO: Overwrap netrw; Get knowledge to get full path from `set path` as `gf`.
-"" Sample: /usr/share/nvim/runtime/ftplugin/ruby.vim #223
-"augroup FileExplorer
-"  au!
-"  au BufLeave *  if &ft != "netrw"|let w:netrw_prvfile= expand("%:p")|endif
-"  au BufEnter *  sil call s:LocalBrowse(expand("<amatch>"))
-"  au VimEnter * sil call s:VimEnter(expand("<amatch>"))
-"  if has("win32") || has("win95") || has("win64") || has("win16")
-"    au BufEnter .* sil call s:LocalBrowse(expand("<amatch>"))
-"  endif
-"augroup END
-" s:VimEnter: after all vim startup stuff is done, this function is called. {{{2
-"             Its purpose: to look over all windows and run s:LocalBrowse() on
-"             them, which checks if they're directories and will create a directory
-"             listing when appropriate.
-"             It also sets s:vimentered, letting s:LocalBrowse() know that s:VimEnter()
-"             has already been called.
-"fun! s:VimEnter(dirname)
-"  "  call Dfunc("s:VimEnter(dirname<".a:dirname.">) expand(%)<".expand("%").">")
-"  let curwin       = winnr()
-"  let s:vimentered = 1
-"  windo call s:LocalBrowse(expand("%:p"))
-"  exe curwin."wincmd w"
-"  "  call Dret("s:VimEnter")
-"endfun
-
-" Overwrap; gf on directory, :netrw, too {{{1
-" TODO: get full-path via &path
-"command! -nargs=* -range -bar -complete=dir
-"      \ Defx
-"      \ call defx#util#call_defx('Defx', <q-args>)
-"nnoremap <silent> gf      <SID>c:find <Plug><cfile><cr>
-"nnoremap <silent> <c-w>gf gf :<c-u>Defx -direction=belowright -split=horizontal <cr>
-"nnoremap <silent> <c-w>f  gf :<c-u>Defx -direction=belowright -split=vertical<cr>
-"nnoremap <silent> <c-w>F  gf :<c-u>Defx -split=tab<cr>
-"}}}1
-
 function! s:defx_keymap_explorer() abort
   " Unmap; not to open defx on defx {{{1
   nnoremap <buffer> <a-v> <a-v>
@@ -166,6 +129,8 @@ function! s:defx_keymap_explorer() abort
   nnoremap <silent><buffer><expr> z.
         \ defx#do_action('toggle_ignored_files')
   " Selected; Open {{{1
+  nnoremap <silent><buffer><expr> <c-l>
+        \ defx#do_action('drop')
   nnoremap <silent><buffer><expr> <c-j>
         \ defx#do_action('drop')
   nnoremap <silent><buffer><expr> <CR>
@@ -227,3 +192,25 @@ augroup DefxOnBuffer
   au VimEnter * sil! au! FileExplorer *
   au BufEnter * if s:isdir(expand('%')) | bd | exe 'Defx' | endif
 augroup END
+" Ref: /usr/share/nvim/runtime/autoload/netrw.vim @
+"augroup FileExplorer
+"  au!
+"  au BufLeave *  if &ft != "netrw"|let w:netrw_prvfile= expand("%:p")|endif
+"  au BufEnter *  sil call s:LocalBrowse(expand("<amatch>"))
+"  au VimEnter * sil call s:VimEnter(expand("<amatch>"))
+"  if has("win32") || has("win95") || has("win64") || has("win16")
+"    au BufEnter .* sil call s:LocalBrowse(expand("<amatch>"))
+"  endif
+" s:VimEnter: Its purpose: to look over all windows and run s:LocalBrowse() on
+"             them, which checks if they're directories and will create a directory
+"             listing when appropriate.
+"             It also sets s:vimentered, letting s:LocalBrowse() know that s:VimEnter()
+"             has already been called.
+"fun! s:VimEnter(dirname)
+"  "  call Dfunc("s:VimEnter(dirname<".a:dirname.">) expand(%)<".expand("%").">")
+"  let curwin       = winnr()
+"  let s:vimentered = 1
+"  windo call s:LocalBrowse(expand("%:p"))
+"  exe curwin."wincmd w"
+"  "  call Dret("s:VimEnter")
+"endfun
