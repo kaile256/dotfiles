@@ -1,3 +1,6 @@
+" From: filetype.vim
+
 setl signcolumn=
-nnoremap <buffer> d <c-d>
-nnoremap <buffer> u <c-u>
+setl nomodifiable
+nnoremap <buffer><nowait> d <c-d>
+nnoremap <buffer><nowait> u <c-u>
