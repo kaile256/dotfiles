@@ -46,8 +46,7 @@ call defx#custom#option('_', {
 "      \ })
 "}}}
 
-" Keymap; call Defx
-"" Call; Open Preceding Tree {{{1
+" Keymap; Call Defx {{{1
 " Note: -search must be applied full path.
 " TODO: on Term-Mode, not to get errors; like get path with !pwd.
 nnoremap <a-x> <Nop>
@@ -190,16 +189,18 @@ function! s:defx_keymap_explorer() abort
         \ defx#do_action('execute_system')
   "}}}
 endfunction
-function! s:isdir(dir) abort
-  return !empty(a:dir) && (isdirectory(a:dir) ||
-        \ (!empty($SYSTEMDRIVE) && isdirectory('/'.tolower($SYSTEMDRIVE[0]).a:dir)))
-endfunction
 augroup DefxOnBuffer
   au!
   " TODO: highlight on top as there's filepath, or place those path on another place.
   au FileType defx setl bt=quickfix signcolumn=
   au FileType defx call <SID>defx_keymap_explorer()
-  " Override Netrw;
+augroup END
+function! s:isdir(dir) abort
+  return !empty(a:dir) && (isdirectory(a:dir) ||
+        \ (!empty($SYSTEMDRIVE) && isdirectory('/'.tolower($SYSTEMDRIVE[0]).a:dir)))
+endfunction
+augroup DefxOverrideNetrw "{{{
+  au!
   au VimEnter * sil! au! FileExplorer *
   " TODO: Keep window even after bd.
   "au BufEnter * if s:isdir(expand('%')) | bd | Defx
@@ -207,7 +208,7 @@ augroup DefxOnBuffer
   au BufWinEnter * if bufname('#') =~# '[defx]' && winwidth('#') < 50 | b# | endif
   " Open on defx when vim's arg is dir.
   au StdinReadPre * au VimEnter * if argc() == 1 && isdirectory(argv(0)) | Defx --search=argv(0) | endif
-augroup END
+augroup END "}}}
 
 " Ref: /usr/share/nvim/runtime/autoload/netrw.vim @
 "augroup FileExplorer
