@@ -37,9 +37,3 @@
 #on_ft = ['snippets','org']
 #hook_post_source = 'runtime SyntaxRange.vimrc'
 ##}}}
-#[[plugins]]
-#repo = 'chrisbra/NrrwRgn' #{{{
-#on_event = 'VimEnter'
-#hook_post_source = 'runtime NrrwRgn.vimrc'
-##}}}
-

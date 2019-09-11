@@ -13,14 +13,17 @@ hook_add = 'runtime CamelCaseMotion.vimrc'
 #hook_add = 'runtime sneak.vimrc'
 #hook_post_source = 'silent! unmap s'
 ##}}}
+# Leap; Easy Motion
 [[plugins]] # has extentions
 repo = 'easymotion/vim-easymotion' #{{{
 #on_map = '<Plug>(easymotion-' # on operater, doesn't sourced.
 on_event = 'BufWinEnter'
 hook_add = 'runtime easymotion.vimrc'
+hook_post_source = 'runtime unrtp/easymotion.vimrc'
 [[plugins]]
 repo = 'haya14busa/vim-easyoperator-phrase' #{{{
-on_map = '<plug>(easyoperator-'
+#on_map = '<plug>(easyoperator-'
+on_event = 'BufWinEnter'
 hook_add = 'runtime easyoperator.vimrc'
 #}}}
 #[[plugins]]
@@ -41,6 +44,11 @@ hook_add = 'runtime easyoperator.vimrc'
 #}}}
 
 # Operater; Comment out
+[[plugins]]
+repo = 'tomtom/tcomment_vim'
+on_map = 'BufRead'
+#on_map = ':TComment'
+hook_add = 'runtime tcomment.vimrc'
 #[[plugins]]
 #repo = 'tyru/caw.vim' #{{{
 ## operater to comment out
@@ -82,4 +90,21 @@ hook_add = 'runtime sandwich.vimrc'
 #repo = 'terryma/vim-multiple-cursors' #{{{
 #on_event = ['BufRead']
 #hook_add = 'runtime multiple-cursors.vimrc'
+##}}}
+
+#[[plugins]]
+#repo = 'tommcdo/vim-express'
+#on_event = 'VimEnter'
+#hook_post_source = 'runtime express.vimrc'
+
+#[[plugins]]
+#repo = 'kana/vim-textobj-user' #{{{
+## Note: enough with 'vim-matchup'
+#on_event = 'BufRead'
+#hook_post_source = 'runtime textobj-user.vimrc'
+#[[plugins]]
+#repo = 'kana/vim-textobj-fold'
+##on_map = '<Plug>(textobj-fold-'  # Note: `on_map` makes no sense with text-obj.
+#on_event = 'BufRead'
+#hook_add = 'runtime textobject-fold.vimrc'
 ##}}}
