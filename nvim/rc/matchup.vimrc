@@ -2,7 +2,7 @@
 
 "let g:loaded_matchparen = 1
 
-hi MatchParen ctermbg=6 guifg=white guibg=#d5231f
+hi MatchParen ctermbg=6 guifg=white guibg=#d2450d
 "hi link MatchParen String
 
 "let g:matchup_surround_enabled = 1 " 1: provides maps ds% and cs%
