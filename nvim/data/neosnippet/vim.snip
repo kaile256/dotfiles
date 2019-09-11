@@ -9,12 +9,10 @@ options head
 delete au augroup ... autocmd block
 snippet augroup
 abbr au
-  augroup ${1:<cfile>Augroup} ${9:"\{\{\{}
+  augroup ${1:Augroup} ${2:"\{\{\{}
   au!
-  au ${2:BufRead,BufNewFile} ${3:*.ext,*.ext3|<buffer[=N]>} ${0}
-  au ${2:BufNewFile,BufRead} ${3:*} ${4:command}
-  ${5:au ${6:Event} ${7:*} ${8:command}}
-  augroup END ${9:"\}\}\}}
+  au ${3:BufNewFile,BufRead} ${4:*} ${5:command}
+  augroup END ${2:"\}\}\}}
 delete f function
 snippet function
 alias f fu fun func function
@@ -45,10 +43,10 @@ alias no
 # Fold {{{
 snippet {{{ beginning of fold
 alias  { pp {{ {{{
-  {{{
+  {{{${1:1}
 snippet "{{{ beginning of fold
 alias  "{ "pp "{{ "{{{
-  "{{{
+  "{{{${1:1}
 snippet "}}} end of fold
 alias " "}} "} } }}
   "}}}
@@ -60,7 +58,6 @@ alias < <c <c- <c-\ <c-\>
 snippet tnoremap prewritten '<c-\><c-n>'
 alias tn tno tnor tnore tnorem tnorema tnoremap
   tnoremap ${1:<silent>} ${2:#:key} <c-\><c-n>:${0:#:command} <cr>
-
 
 #snippet if
 #alias i
