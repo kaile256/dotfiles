@@ -9,10 +9,10 @@ options head
 delete au augroup ... autocmd block
 snippet augroup
 abbr au
-  augroup ${1:Augroup} ${2:"\{\{\{}
+  augroup ${1:Augroup} ${0:"\{\{\{1}
   au!
   au ${3:BufNewFile,BufRead} ${4:*} ${5:command}
-  augroup END ${2:"\}\}\}}
+  augroup END ${0:"\}\}\}}
 delete f function
 snippet function
 alias f fu fun func function
