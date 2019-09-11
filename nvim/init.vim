@@ -9,6 +9,7 @@ set formatoptions=jmB1cql
 "set mouse=a
 
 " WARNING: `!` is required to source all the same named files.
+runtime os.vim
 runtime variables.vim  " be careful to comment out; many files depends on it.
 runtime dein.vimrc  " this file contains `filetype plugin indent on`
 runtime options.vim
