@@ -12,8 +12,9 @@ scriptencoding utf-8
 "command! Chmod_444 :call setfperm(<cfile>, 'r--r--r--')
 
 " Use Defx instead of Netrw {{{1
+" Only exists not to be loaded.
+"let g:loaded_netrw = 0  " CAUTION: has :Nread-like features; keep comment-out
 let g:loaded_netrwPlugin = 1
-let g:loaded_netrw = 1
 "}}}
 
 "" Defx-Icons {{{1
@@ -51,7 +52,7 @@ call defx#custom#option('_', {
 " TODO: on Term-Mode, not to get errors; like get path with !pwd.
 nnoremap <a-x> <Nop>
 nnoremap <silent> <a-x>v
-      \ :<c-u>vert bot 32 sp <bar> Defx `expand('%:p:h')` -search=`expand('%:p')`
+      \ :<c-u>vert top 30 sp <bar> Defx `expand('%:p:h')` -search=`expand('%:p')`
       \ <cr>
 nnoremap <silent> <a-x>b
       \ :<c-u>Defx `expand('%:p:h')` -search=`expand('%:p')` -split=tab
@@ -60,9 +61,8 @@ nnoremap <silent> <a-x>e
       \ :<c-u>Defx `expand('%:p:h')` -search=`expand('%:p')` 
       \ <cr>
 nnoremap <silent> <a-x><a-v>
-      \ :<c-u>vert bot 32 sp <bar> Defx `expand('%:p:h')` -search=`expand('%:p')`
+      \ :<c-u>vert top 30 sp <bar> Defx `expand('%:p:h')` -search=`expand('%:p')`
       \ <cr>
-
 nnoremap <silent> <a-x><a-b>
       \ :<c-u>Defx `expand('%:p:h')` -search=`expand('%:p')` -split=tab
       \ <cr>
@@ -142,8 +142,6 @@ function! s:defx_keymap_explorer() abort
   nnoremap <silent><buffer><expr> z.
         \ defx#do_action('toggle_ignored_files')
   " Selected; Open {{{1
-  nnoremap <silent><buffer><expr> <c-l>
-        \ defx#do_action('drop')
   nnoremap <silent><buffer><expr> <c-j>
         \ defx#do_action('drop')
   nnoremap <silent><buffer><expr> <CR>
@@ -201,14 +199,20 @@ augroup DefxOnBuffer
   " TODO: highlight on top as there's filepath, or place those path on another place.
   au FileType defx setl bt=quickfix signcolumn=
   au FileType defx call <SID>defx_keymap_explorer()
-  " Override Netrw
+  " Override Netrw;
   au VimEnter * sil! au! FileExplorer *
-  au BufEnter * if s:isdir(expand('%')) | bd | exe 'Defx' | endif
+  " TODO: Keep window even after bd.
+  "au BufEnter * if s:isdir(expand('%')) | bd | Defx
+  " Keep tree-view if winwidth is narrow.
+  au BufWinEnter * if bufname('#') =~# '[defx]' && winwidth('#') < 50 | b# | endif
+  " Open on defx when vim's arg is dir.
+  au StdinReadPre * au VimEnter * if argc() == 1 && isdirectory(argv(0)) | Defx --search=argv(0) | endif
 augroup END
+
 " Ref: /usr/share/nvim/runtime/autoload/netrw.vim @
 "augroup FileExplorer
 "  au!
-"  au BufLeave *  if &ft != "netrw"|let w:netrw_prvfile= expand("%:p")|endif
+"  au BufLeave *  if &ft != "netrw"|let w:netrw_profile= expand("%:p")|endif
 "  au BufEnter *  sil call s:LocalBrowse(expand("<amatch>"))
 "  au VimEnter * sil call s:VimEnter(expand("<amatch>"))
 "  if has("win32") || has("win95") || has("win64") || has("win16")
