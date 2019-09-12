@@ -8,15 +8,6 @@ noremap <silent> <a-y><a-r> :<c-u>Gread<cr>
 noremap <silent> <a-y>n     :<c-u>Gmove<cr>
 noremap <silent> <a-y><a-n> :<c-u>Gmove<cr>
 
-" Diff {{{
-" !: On a Merge Conflict, do a 3-diff; otherwise the same as without bang.
-noremap <silent> <a-y>d     <c-u><c-w>T:<c-u>Gvdiffsplit!<cr>
-noremap <silent> <a-y><a-d> <c-u><c-w>T:<c-u>Gvdiffsplit!<cr>
-" TODO: if no diff with the last git buffer, show diff with the 2nd last git buffer.
-command! GvdiffWithUnstaged :vert bel Git! diff --staged
-noremap <silent> <a-y><a-u> <c-u><c-w>T:<c-u>GvdiffWithUnstaged<cr>
-"}}}
-
 "" Info; Log {{{
 "" Without `b#` `:Glog` with `:copen` fills previous window.
 ""# QuickFix -- Edit-History of current buffer.
@@ -38,14 +29,28 @@ noremap <silent> <a-y>s     :<c-u>vert bot 40 Gstatus<cr>
 noremap <silent> <a-y><a-s> :<c-u>vert bot 40 Gstatus<cr>
 "}}}
 
+" Diff; {{{
+" !: On a Merge Conflict, do a 3-diff; otherwise the same as without bang.
+noremap <silent> <a-y>d     <c-u><c-w>T:<c-u>Gvdiffsplit!<cr>
+noremap <silent> <a-y><a-d> <c-u><c-w>T:<c-u>Gvdiffsplit!<cr>
+"}}}
+
 " Add; Only {{{
 noremap <silent> <a-y>a     :<c-u>Gw<cr>
 noremap <silent> <a-y><a-a> :<c-u>Gw<cr>
 "}}}
-
-" Add; && Status {{{
-noremap <silent> <a-y>w     :<c-u>Gw<cr>:vert bot 40 Gstatus<cr>
-noremap <silent> <a-y><a-w> :<c-u>Gw<cr>:vert bot 40 Gstatus<cr>
+" Add; && Commit w/ diff {{{
+function! s:fugitive_commit_with_diff() abort
+  norm T
+  Gvdiffsplit ^HEAD
+  vert bot Gstatus
+  norm =
+  vert resize 50
+endfunction
+"noremap <silent> <a-y>w     :<c-u>cclose <bar> Gw <cr> <c-w>T :Gvdiffsplit ^HEAD <bar> vert bot Gstatus<cr> <c-w>= :vert resize 50<cr>
+"noremap <silent> <a-y><a-w> :<c-u>cclose <bar> Gw <cr> <c-w>T :Gvdiffsplit ^HEAD <bar> vert bot Gstatus<cr> <c-w>= :vert resize 50<cr>
+noremap <silent> <a-y>w     :<c-u>cclose <bar> Gw <cr> :call <SID>fugitive_commit_with_diff()<cr>
+noremap <silent> <a-y><a-w> :<c-u>cclose <bar> Gw <cr> :call <SID>fugitive_commit_with_diff()<cr>
 "}}}
 
 " Remote; Pull {{{
@@ -57,21 +62,12 @@ noremap <silent> <a-y>h     :<c-u>Gpush<cr>
 noremap <silent> <a-y><a-h> :<c-u>Gpush<cr>
 "}}}
 
-"" Grep {{{
-"" -I: no binary files
-"noremap <a-y>g     :<c-u>silent Ggrep  <bar> cw<Left><Left><Left><Left><Left>
-"noremap <a-y><a-g> :<c-u>silent Ggrep  <bar> cw<Left><Left><Left><Left><Left>
-"" show options
-"noremap <a-y>p     :<c-u>Ggrep --help<cr>
-"noremap <a-y><a-p> :<c-u>Ggrep --help<cr>
-"}}}
-
 " Branch; Checkout {{{
 noremap <a-y>o     :<c-u>Git checkout<space>
 noremap <a-y><a-o> :<c-u>Git checkout<space>
 "}}}
 
-function! s:on_gitcommit_startinsert() "{{{
+function! s:on_gitcommit_startinsert() "{{{1
   if getline(1) ==# ''
     if getline(2) ==# '# Please enter the commit message for your changes. Lines starting'
       startinsert
@@ -79,7 +75,8 @@ function! s:on_gitcommit_startinsert() "{{{
   endif
 endfunction "}}}
 function! s:on_fugitive_keymap()
-  " TODO: open gitcommit bufwin thinner.
+  " TODO: Specify the window of the latest commit buffer on `dq`.
+  nnoremap <buffer><silent> dq    <c-w>h<c-w>o:diffoff!<cr>
   nnoremap <buffer><silent> cc    :<C-U>bot 20 Gcommit<CR>
   nnoremap <buffer><silent> ca    :<C-U>bot 20 Gcommit --amend<CR>
 endfunction
