@@ -1,3 +1,8 @@
 " From: insert.toml
+" Repo: chrisbra/unicode.vim
 
-cnoreabbr <expr> uni (getcmdtype() == ':' && getcmdline() =~ '^uni$')? 'UnicodeSearch" : 'uni'
+" Mnemonic: Mark
+imap <c-x>m     <Plug>(UnicodeComplete)
+imap <c-x><c-m> <Plug>(UnicodeComplete)
+" Override: default digraph insertion.
+imap <c-k> <Plug>(DigraphComplete)
