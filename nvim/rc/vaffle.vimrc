@@ -1,8 +1,9 @@
-" From: tool.toml
+" From: finder.toml
 
 " Let; Disable Netrw {{{
-let g:loaded_netrw = 1
-let g:loaded_netrwPlugin = 1
+" Note: even 0 exists('foo') = v:true.
+"let g:loaded_netrw = 0
+let g:loaded_netrwPlugin = 0
 "}}}
 " Let; vaffle {{{
 let g:vaffle_use_default_mappings = 0
