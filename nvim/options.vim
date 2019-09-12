@@ -1,5 +1,5 @@
 scriptencoding utf-8
-" From init.vim
+" From: init.vim
 
 " Appearance; Blend {{{
 if exists('&pumblend')
@@ -61,7 +61,7 @@ augroup END
 set number
 set colorcolumn=81
 " signcolumn is the line beside numbers.
-set signcolumn=yes
+set signcolumn=auto
 "}}}
 " Appearance; Statusbar {{{
 set title
