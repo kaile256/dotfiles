@@ -144,7 +144,7 @@ function! s:defx_keymap_explorer() abort
   nnoremap <silent><buffer><expr> <c-j>
         \ defx#do_action('drop')
   nnoremap <silent><buffer><expr> <CR>
-        \ defx#do_action('open')
+        \ defx#do_action('drop')
   nnoremap <silent><buffer><expr> <c-v>
         \ defx#do_action('open', 'vsplit')
   " TODO: `:wincmd p` will apply only when the defx buffer is narrow.

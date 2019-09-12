@@ -42,7 +42,8 @@ noremap <silent> <a-y><a-a> :<c-u>Gw<cr>
 " Add; && Commit w/ diff {{{
 function! s:fugitive_commit_with_diff() abort
   norm T
-  Gvdiffsplit ^HEAD
+  " Keep to show diff w/ HEAD^ while editting commit-message.
+  Gvdiffsplit HEAD
   vert bot Gstatus
   norm =
   vert resize 50
@@ -81,14 +82,16 @@ function! s:on_fugitive_keymap()
   nnoremap <buffer><silent> ca    :<C-U>bot 20 Gcommit --amend<CR>
 endfunction
 
+augroup FugitiveCallMyFunc "{{{1
+  au!
+  au FileType fugitive call <SID>on_fugitive_keymap()
+  au FileType gitcommit call <SID>on_gitcommit_startinsert()
+augroup END "}}}
 augroup OnFugitiveBuffer
   au!
   " gitcommit should be writeable not setting bt=qf.
   au FileType fugitive,fugitiveblame setl nonumber signcolumn= bt=quickfix
-  au FileType fugitive call <SID>on_fugitive_keymap()
-  au FileType gitcommit setl spell nonumber signcolumn=
-  au FileType gitcommit call <SID>on_gitcommit_startinsert()
-  " TODO: Remember cursor position on closed as qf buffer.
-  "au BufWinEnter fugitive mG
-  "au BufWinLeave gitcommit norm `G
+  au FileType gitcommit              setl spell    nonumber    signcolumn=
+  " TODO: Go back to Gstatus' buffer when `:quit` on gitcommit's buffer
+  "au BufLeave .git/COMMIT_EDITMSG exe setpos(., bufnr('.git/index'), 1, 1, 1)
 augroup END
