@@ -160,10 +160,10 @@ else
 
   noremap <silent> <a-a><a-r> :<c-u>cd /usr/share/nvim/runtime<cr>                           :Ag<cr>
   noremap <silent> <a-a>r     :<c-u>cd /usr/share/nvim/runtime<cr>                           :Ag<cr>
-  noremap <silent> <a-a><a-.> :<c-u>cd %:p:h<cr>                       :Ag<cr>
-  noremap <silent> <a-a>.     :<c-u>cd %:p:h<cr>                       :Ag<cr>
-  noremap <silent> <a-a><a-w> :<c-u>   <space>                         :Ag<cr>
-  noremap <silent> <a-a>w     :<c-u>   <space>                         :Ag<cr>
+  noremap <silent> <a-a><a-w> :<c-u>cd %:p:h<cr>                       :Ag<cr>
+  noremap <silent> <a-a>w     :<c-u>cd %:p:h<cr>                       :Ag<cr>
+  noremap <silent> <a-a><a-.> :<c-u>   <space>                         :Ag<cr>
+  noremap <silent> <a-a>.     :<c-u>   <space>                         :Ag<cr>
   noremap <silent> <a-a><a-h> :<c-u>cd ~<cr>                           :Ag<cr>
   noremap <silent> <a-a>h     :<c-u>cd ~<cr>                           :Ag<cr>
   noremap <silent> <a-a><a-o> :<c-u>cd ~/org<cr>                       :Ag<cr>
@@ -223,10 +223,10 @@ else "}}}
   noremap <silent> <a-r>k     :<c-u>cd ~/vimwiki/diary<cr>             :Rg<cr>
   noremap <silent> <a-r><a-r> :<c-u>cd /usr/share/nvim/runtime<cr>                           :Rg<cr>
   noremap <silent> <a-r>r     :<c-u>cd /usr/share/nvim/runtime<cr>                           :Rg<cr>
-  noremap <silent> <a-r><a-.> :<c-u>cd %:p:h<cr>                       :Rg<cr>
-  noremap <silent> <a-r>.     :<c-u>cd %:p:h<cr>                       :Rg<cr>
-  noremap <silent> <a-r><a-w> :<c-u>   <space>                         :Rg<cr>
-  noremap <silent> <a-r>w     :<c-u>   <space>                         :Rg<cr>
+  noremap <silent> <a-r><a-w> :<c-u>cd %:p:h<cr>                       :Rg<cr>
+  noremap <silent> <a-r>w     :<c-u>cd %:p:h<cr>                       :Rg<cr>
+  noremap <silent> <a-r><a-.> :<c-u>   <space>                         :Rg<cr>
+  noremap <silent> <a-r>.     :<c-u>   <space>                         :Rg<cr>
   noremap <silent> <a-r><a-h> :<c-u>cd ~<cr>                           :Rg<cr>
   noremap <silent> <a-r>h     :<c-u>cd ~<cr>                           :Rg<cr>
   noremap <silent> <a-r><a-o> :<c-u>cd ~/org<cr>                       :Rg<cr>
@@ -274,11 +274,11 @@ noremap <silent> <a-q>c     :<c-u> cd ~/.cache      <cr> :FZF<cr>
 noremap <silent> <a-q><a-f> :<c-u> cd ~/.config      <cr> :FZF<cr>
 noremap <silent> <a-q>f     :<c-u> cd ~/.config      <cr> :FZF<cr>
 " Mnemonic: Current Directory
-noremap <silent> <a-q><a-w> :<c-u> <space> <space> FZF<cr>
-noremap <silent> <a-q>w     :<c-u> <space> <space> FZF<cr>
+noremap <silent> <a-q><a-.> :<c-u> <space> <space> FZF<cr>
+noremap <silent> <a-q>.     :<c-u> <space> <space> FZF<cr>
 " Mnemonic: Working Directory
-noremap <silent> <a-q><a-.> :<c-u> cd %:p:h           <cr> :FZF<cr>
-noremap <silent> <a-q>.     :<c-u> cd %:p:h           <cr> :FZF<cr>
+noremap <silent> <a-q><a-w> :<c-u> cd %:p:h           <cr> :FZF<cr>
+noremap <silent> <a-q>w     :<c-u> cd %:p:h           <cr> :FZF<cr>
 "}}}
 "" FZF; Various {{{
 tnoremap <silent> <a-q><a-w> <c-\><c-n>: FZF<cr>
