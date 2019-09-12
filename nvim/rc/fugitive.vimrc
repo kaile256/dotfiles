@@ -31,8 +31,8 @@ noremap <silent> <a-y><a-s> :<c-u>vert bot 40 Gstatus<cr>
 
 " Diff; {{{
 " !: On a Merge Conflict, do a 3-diff; otherwise the same as without bang.
-noremap <silent> <a-y>d     <c-u><c-w>T:<c-u>Gvdiffsplit!<cr>
-noremap <silent> <a-y><a-d> <c-u><c-w>T:<c-u>Gvdiffsplit!<cr>
+noremap <silent> <a-y>d     :<c-u>cclose<cr><c-w>T:<c-u>Gvdiffsplit!<cr>
+noremap <silent> <a-y><a-d> :<c-u>cclose<cr><c-w>T:<c-u>Gvdiffsplit!<cr>
 "}}}
 
 " Add; Only {{{
