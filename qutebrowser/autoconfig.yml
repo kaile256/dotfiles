@@ -24,7 +24,7 @@ settings:
       iunmap: bind -m insert
       map: bind
       mess: messages
-      mks: session-save
+      mks: session-save -o
       mkurl: config-dict-add url.searchengines
       nmap: bind
       nunmap: unbind
@@ -36,7 +36,6 @@ settings:
       qa: quit
       r: session-load
       rmurl: config-dict-remove url.searchengines
-      session-load: session-load
       sl: session-load
       so: config-source
       ss: session-save
@@ -45,7 +44,6 @@ settings:
       unmap: unbind
       vmap: bind -m caret
       vunmap: unbind -m caret
-      w: session-save
       wq: quit --save
       wqa: quit --save
   auto_save.session:
@@ -205,6 +203,7 @@ settings:
         qa: quit
         qq: tab-close
         u: scroll-page 0 -0.5
+        wc: tab-close
         wq: bookmark-del;; bookmark-add;; tab-close
         wqa: bookmark-del;; bookmark-add;; quit
         yv: enter-mode caret;; yank;; leave-mode
@@ -223,6 +222,16 @@ settings:
         <Ctrl+c>: leave-mode
         <Ctrl+n>: prompt-item-focus next
         <Ctrl+p>: prompt-item-focus prev
+  colors.statusbar.command.bg:
+    global: black
+  colors.statusbar.command.private.bg:
+    global: purple
+  colors.statusbar.command.private.fg:
+    global: white
+  colors.statusbar.insert.bg:
+    global: darkgreen
+  colors.statusbar.private.bg:
+    global: purple
   completion.height:
     global: 30%
   completion.open_categories:
@@ -240,6 +249,8 @@ settings:
     global: true
   content.private_browsing:
     global: false
+  content.user_stylesheets:
+    global: null
   downloads.location.directory:
     global: ~/Downloads
   downloads.location.remember:
