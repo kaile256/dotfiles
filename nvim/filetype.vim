@@ -26,10 +26,8 @@ augroup end
 augroup MyLazyRuntimes
   au!
   au WinEnter * if &ro | runtime! readonly.vim
-  "au FilterReadPost * runtime lazy/diff.vim
-  "au BufNew * if &diff | runtime! diff.vim | endif
-  " TODO: Hope to set nowrite only on &bt=quickfix.
-  "au WinEnter,BufEnter * if &bt ==# 'quickfix' && &write | runtime quickfix.vim
+  au BufNew * if &diff | runtime! diff.vim | endif
+  "au WinEnter,BufEnter * if &bt ==# 'quickfix' | runtime quickfix.vim
 augroup END
 
 augroup AutoDeleteWhiteSpace
