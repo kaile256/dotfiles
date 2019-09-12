@@ -43,7 +43,7 @@ noremap <silent> <a-y><a-a> :<c-u>Gw<cr>
 function! s:fugitive_commit_with_diff() abort
   norm T
   " Keep to show diff w/ HEAD^ while editting commit-message.
-  Gvdiffsplit HEAD
+  Gvdiffsplit HEAD^
   vert bot Gstatus
   norm =
   vert resize 50
