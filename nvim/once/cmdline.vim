@@ -93,9 +93,8 @@ cnoreabbr <expr> btm (getcmdtype() == ':' && getcmdline() =~ '^btm$')? 'tabe ~/.
 cnoreabbr <expr> tmb (getcmdtype() == ':' && getcmdline() =~ '^tmb$')? 'tabe ~/.tmp/tmp.vim' : 'tmb'
 "}}}
 " Abbr; FoldMethod {{{
-cnoreabbr <expr> fsy (getcmdtype() == ':' && getcmdline() =~ '^fsy$')? 'setlocal foldmethod=syntax' : 'fsy'
-cnoreabbr <expr> fma (getcmdtype() == ':' && getcmdline() =~ '^fma$')? 'setlocal foldmethod=marker' : 'fma'
-cnoreabbr <expr> fdm (getcmdtype() == ':' && getcmdline() =~ '^fdm$')? 'setlocal foldmethod=' : 'fdm'
-cnoreabbr <expr> ma (getcmdtype() == ':' && getcmdline() =~ '^setlocal foldmethod= ma$')? 'marker' : '<BS>ma'
-cnoreabbr <expr> sy (getcmdtype() == ':' && getcmdline() =~ '^setlocal foldmethod= sy$')? '<BS>syntax' : 'sy'
+cnoreabbr <expr> ma  (getcmdtype() == ':' && getcmdline() =~ '^se fdm=ma$')?  'marker' : 'ma'
+cnoreabbr <expr> mar (getcmdtype() == ':' && getcmdline() =~ '^se fdm=mar$')? 'marker' : 'mar'
+cnoreabbr <expr> sy  (getcmdtype() == ':' && getcmdline() =~ '^se fdm=sy$')?  'syntax' : 'sy'
+cnoreabbr <expr> syn (getcmdtype() == ':' && getcmdline() =~ '^se fdm=syn$')? 'syntax' : 'syn'
 "}}}
