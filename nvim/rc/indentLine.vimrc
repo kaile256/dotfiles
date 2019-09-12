@@ -3,7 +3,8 @@ scriptencoding utf-8
 
 "let g:indentline_color_term = 239
 "let g:indentLine_char_list = ['|', '¦', '┆', '┊']
-let g:vim_json_syntax_conceal = 0
+set concealcursor=
+let g:vim_json_syntax_conceal = 0 " useless if concealcursor is set.
 
 let g:indentLine_fileTypeExclude = ['help', 'vimwiki', 'defx']
 let g:indentLine_bufTypeExclude = ['quickfix', 'terminal']
