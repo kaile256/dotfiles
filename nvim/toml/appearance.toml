@@ -6,11 +6,6 @@ repo = 'flazz/vim-colorschemes' #{{{
 on_event = 'CmdlineEnter'
 #}}}
 
-# Colorscheme; Icons
-[[plugins]]
-repo = 'ryanoasis/vim-devicons'
-on_event = 'BufRead'
-hook_post_source = 'runtime devicons.vimrc'
 # Colorscheme; Statusline
 [[plugins]]
 repo = 'vim-airline/vim-airline' #{{{
@@ -55,6 +50,13 @@ on_event = 'VimEnter'
 hook_post_source = 'runtime pgmnt.vimrc'
 #}}}
 
+# Icons
+[[plugins]]
+repo = 'ryanoasis/vim-devicons' #{{{
+on_event = 'BufRead'
+hook_post_source = 'runtime devicons.vimrc'
+#}}}
+
 # Indent
 [[plugins]]
 repo = 'Yggdroot/indentLine' #{{{
@@ -71,7 +73,7 @@ hook_add = 'runtime indentLine.vimrc'
 [[plugins]]
 repo = 'andymass/vim-matchup' #{{{
 # Better `%`
-on_event = ['BufNewFile','BufRead']
+on_event = 'BufWinEnter'
 hook_post_source = 'runtime matchup.vimrc'
 #}}}
 [[plugins]]
