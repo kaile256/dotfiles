@@ -51,29 +51,51 @@ call defx#custom#option('_', {
 " TODO: on Term-Mode, not to get errors; like get path with !pwd.
 nnoremap <a-x> <Nop>
 nnoremap <silent> <a-x>v
-      \ :<c-u>vert top 30 sp <bar> Defx `expand('%:p:h')` -search=`expand('%:p')`
+      \ :<c-u>Defx `expand('%:p:h')` -search=`expand('%:p')`
+      \ -split=vertical -direction=topleft
+      \ -winwidth=30
       \ <cr>
 nnoremap <silent> <a-x>b
-      \ :<c-u>Defx `expand('%:p:h')` -search=`expand('%:p')` -split=tab
+      \ :<c-u>Defx `expand('%:p:h')` -search=`expand('%:p')`
+      \ -split=tab
       \ <cr>
 nnoremap <silent> <a-x>e
       \ :<c-u>Defx `expand('%:p:h')` -search=`expand('%:p')` 
+      \ -split=no
       \ <cr>
 nnoremap <silent> <a-x><a-v>
-      \ :<c-u>vert top 30 sp <bar> Defx `expand('%:p:h')` -search=`expand('%:p')`
+      \ :<c-u>Defx `expand('%:p:h')` -search=`expand('%:p')`
+      \ -split=vertical -direction=topleft
+      \ -winwidth=30
       \ <cr>
 nnoremap <silent> <a-x><a-b>
-      \ :<c-u>Defx `expand('%:p:h')` -search=`expand('%:p')` -split=tab
+      \ :<c-u>Defx `expand('%:p:h')` -search=`expand('%:p')`
+      \ -split=tab
       \ <cr>
 nnoremap <silent> <a-x><a-e>
       \ :<c-u>Defx `expand('%:p:h')` -search=`expand('%:p')` 
+      \ -split=no
+      \ <cr>
+" TODO: Open on higher position.
+nnoremap <silent> <a-x><a-f>
+      \ :<c-u>Defx `expand('%:p:h')` -search=`expand('%:p')`
+      \ -split=floating
+      \ -winrelative=editor
       \ <cr>
 "}}}
 
 function! s:defx_keymap_explorer() abort
-  " Unmap; not to open defx on defx {{{1
-  nnoremap <buffer> <a-v> <a-v>
-  nnoremap <buffer> <a-b> <a-b>
+  " TODO: Duplicate defx buffer.
+  "nnoremap <silent><buffer> <c-w><c-v>
+  "      \ exe defx#do_action('add_session', expand(g:data_home). '/nvim/defx')
+  "      \ <bar>"
+  "      \ :<c-u>Defx `expand('%:p:h')` -search=`expand('%:p')`
+  "      \ -split=vertical
+  "      \ -direction=belowright
+  "      \ -winwidth=30
+  "      \ -new
+  "      \ -session-file={path}
+  "      \ <cr>"
   " Explore; hjkl {{{1
   nnoremap <buffer><silent> gg :2<cr>
   nnoremap <silent><buffer><expr> h
@@ -118,6 +140,9 @@ function! s:defx_keymap_explorer() abort
         \ defx#do_action('toggle_sort', 'extention')
   nnoremap <silent><buffer><expr> <a-s><a-s>
         \ defx#do_action('toggle_sort', 'filename')
+  "nnoremap <silent><buffer><expr> C
+  "      \ defx#do_action('toggle_columns',
+  "      \                'mark:indent:icon:filename:type:size:time')
   " Toggle; Mark {{{1
   nnoremap <silent><buffer><expr> mm
         \ defx#do_action('toggle_select')
@@ -137,6 +162,8 @@ function! s:defx_keymap_explorer() abort
   "" Mark; Reverse selected conditions.
   nnoremap <silent><buffer><expr> mr
         \ defx#do_action('toggle_select_all')
+  xnoremap <silent><buffer><expr> m
+        \ defx#do_action('toggle_select_visual')
   " Toggle; Hidden Files {{{1
   nnoremap <silent><buffer><expr> z.
         \ defx#do_action('toggle_ignored_files')
@@ -186,7 +213,7 @@ function! s:defx_keymap_explorer() abort
   nnoremap <silent><buffer><expr> X
         \ defx#do_action('execute_system')
   nnoremap <silent><buffer><expr> !
-        \ defx#do_action('execute_system')
+        \ defx#do_action('execute_command')
   "}}}
 endfunction
 augroup DefxOnBuffer
