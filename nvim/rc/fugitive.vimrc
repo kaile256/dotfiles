@@ -1,4 +1,4 @@
-" From: Init.toml
+" From: external.toml
 " Repo: fugitive.vim
 
 " Read  # overwrite buffer with the last commited version.
