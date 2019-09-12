@@ -1,7 +1,5 @@
 scriptencoding utf-8
-" From: tool.toml
-"  Ref: coc.vimrc
-"  Ref: fzf.vimrc
+" From: finder.toml
 
 let g:vista_icon_indent = ['╰▸ ', '├▸ ']
 "let g:vista_default_executive = 'ctags'
@@ -23,6 +21,14 @@ nnoremap <silent> <a-i> :<c-u>Vista!!<cr>
 "" Mnemonic: Quest for Tags
 nnoremap <silent> <a-q><a-t> :<c-u>Vista finder<cr>
 
+function! s:vista_if_lsp() abort
+  if &ft ==# 'vim'
+    Vista!!
+  elseif exists('g:did_coc_loaded')
+    Vista coc
+  "elseif exists('loaded_')
+  endif
+endfunction
 augroup VistaMarkdown
   au! BufEnter *
   if @% =~# '.md'
