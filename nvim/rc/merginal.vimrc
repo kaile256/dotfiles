@@ -6,6 +6,7 @@
 "let g:merginal_logCommitCount =
 
 nnoremap <silent> <a-y><a-y> :MerginalToggle<cr>
+command! Gbranch :Merginal
 
 " TODO: make the buffer bt=qf.
 function! s:merginal_toggle_as_qf() abort
