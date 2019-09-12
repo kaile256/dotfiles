@@ -39,7 +39,8 @@ let g:mundo_mappings = {
           \ 'd': 'diff_current_buffer',
           \ '?': 'toggle_help',
           \ 'q': 'quit',
-          \ '<2-LeftMouse>': 'mouse_click' }
+          \ '<2-LeftMouse>': 'mouse_click'
+          \ }
 
 augroup MyMundoConf
   au!
