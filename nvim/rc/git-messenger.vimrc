@@ -26,9 +26,9 @@ hi link gitmessengerHistory Title
 "let g:git_messenger_max_popup_height = 
 "let g:git_messenger_max_popup_width = 
 
-noremap <silent> <a-s><a-g> :<c-u>call <SID>simple_gitmessenger()<cr>
+noremap <silent> <a-y><a-m> :<c-u>call <SID>simple_gitmessenger()<cr>
+noremap <silent> <a-y>m     :<c-u>call <SID>simple_gitmessenger()<cr>
 noremap <silent> <a-s><a-m> :<c-u>call <SID>simple_gitmessenger()<cr>
-noremap <silent> <a-s>g     :<c-u>call <SID>simple_gitmessenger()<cr>
 noremap <silent> <a-s>m     :<c-u>call <SID>simple_gitmessenger()<cr>
 
 function! s:keymap_on_gitmessenger_popup() abort
