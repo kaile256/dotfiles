@@ -25,7 +25,8 @@ let g:vista_fzf_preview = ['right:50%']
 "}}}
 
 " :Vista is same as `:Vista ctags`.
-" !! is toggle vista-view.
+" '!' to close vista-buffer
+" '!!' to toggle vista-buffer.
 " Mnemonic: Index
 nnoremap <silent> <a-i> :<c-u>call <SID>vista_if_lsp()<cr>
 "" Ref: fzf.vimrc
@@ -33,24 +34,24 @@ nnoremap <silent> <a-i> :<c-u>call <SID>vista_if_lsp()<cr>
 nnoremap <silent> <a-q><a-t> :<c-u>Vista finder<cr>
 
 function! s:vista_if_lsp() abort
-  if &ft ==# 'vim'
+  if &ft =~# 'vista'
+    Vista!
+  elseif &ft ==# 'vim'
     Vista!!
+  elseif &ft ==# 'markdown'
+    Vista toc
+  elseif &ft ==# 'vimwiki'
+    setl ft=markdown syn=vimwiki
+    Vista toc
   elseif exists('g:did_coc_loaded')
     " Note: A bit lazy to call coc.
-    echo ' Calling COC...'
+    echo ' Be Patient; Calling COC...'
     Vista coc
     "elseif exists('loaded_')
   endif
 endfunction
-augroup VistaMarkdown
-  au! BufEnter *
-  if @% =~# '.md'
-    " toc is abbr. for Table Of Contents.
-    nnoremap <silent><buffer> <a-i> :<c-u>Vista toc<cr>
-  endif
-  "au WinEnter * if &ft == 'vista' | setl bt=quickfix
-  " vista as quickfix tells 'E37: No write ~~'
-  "au FileType vista,vista_kind setl bt=quickfix
-augroup END
-
-nnoremap <nowait> V V
+"augroup VistaMyAutoConf
+"  au BufEnter * if &ft =~# 'vista' | setl bt=quickfix
+"  " vista as quickfix tells 'E37: No write ~~'
+"  "au FileType vista,vista_kind setl bt=quickfix
+"augroup END
