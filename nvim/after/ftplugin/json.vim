@@ -1,4 +1,4 @@
-" From: init.vim
+" From: filetype.vim
 
 " `conceallevel` is local to window
 setl conceallevel=0
