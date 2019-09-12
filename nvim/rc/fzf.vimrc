@@ -130,8 +130,8 @@ else
   tnoremap <silent> <a-a><a-c> <c-u><c-\><c-n>: Ag<cr>
   tnoremap <silent> <a-a>c     <c-u><c-\><c-n>: Ag<cr>
 
-  tnoremap <silent> <a-a><a-r> <c-u>cd /usr/share/<cr>                 <c-\><c-n>: Ag<cr>
-  tnoremap <silent> <a-a>r     <c-u>cd /usr/share/<cr>                 <c-\><c-n>: Ag<cr>
+  tnoremap <silent> <a-a><a-r> <c-u>cd /usr/share/nvim/runtime<cr>                 <c-\><c-n>: Ag<cr>
+  tnoremap <silent> <a-a>r     <c-u>cd /usr/share/nvim/runtime<cr>                 <c-\><c-n>: Ag<cr>
   tnoremap <silent> <a-a><a-.> <c-u>cd %:p:h<cr>                       <c-\><c-n>: Ag<cr>
   tnoremap <silent> <a-a>.     <c-u>cd %:p:h<cr>                       <c-\><c-n>: Ag<cr>
   tnoremap <silent> <a-a><a-w> <c-u>cd <space>                         <c-\><c-n>: Ag<cr>
@@ -158,8 +158,8 @@ else
   noremap <silent> <a-a><a-c> :<c-u> Ag<cr>
   noremap <silent> <a-a>c     :<c-u> Ag<cr>
 
-  noremap <silent> <a-a><a-r> :<c-u>cd /usr/share/<cr>                           :Ag<cr>
-  noremap <silent> <a-a>r     :<c-u>cd /usr/share/<cr>                           :Ag<cr>
+  noremap <silent> <a-a><a-r> :<c-u>cd /usr/share/nvim/runtime<cr>                           :Ag<cr>
+  noremap <silent> <a-a>r     :<c-u>cd /usr/share/nvim/runtime<cr>                           :Ag<cr>
   noremap <silent> <a-a><a-.> :<c-u>cd %:p:h<cr>                       :Ag<cr>
   noremap <silent> <a-a>.     :<c-u>cd %:p:h<cr>                       :Ag<cr>
   noremap <silent> <a-a><a-w> :<c-u>   <space>                         :Ag<cr>
@@ -192,8 +192,8 @@ else "}}}
   "" Rg; on terminal w/ `cd` {{{
   tnoremap <silent> <a-r><a-k> <c-u>cd ~/vimwiki/diary    <c-\><c-n>: Rg<cr>
   tnoremap <silent> <a-r>k     <c-u>cd ~/vimwiki/diary    <c-\><c-n>: Rg<cr>
-  tnoremap <silent> <a-r><a-r> <c-u>cd /usr/share/<cr>              <c-\><c-n>: Rg<cr>
-  tnoremap <silent> <a-r>r     <c-u>cd /usr/share/<cr>              <c-\><c-n>: Rg<cr>
+  tnoremap <silent> <a-r><a-r> <c-u>cd /usr/share/nvim/runtime<cr>              <c-\><c-n>: Rg<cr>
+  tnoremap <silent> <a-r>r     <c-u>cd /usr/share/nvim/runtime<cr>              <c-\><c-n>: Rg<cr>
   tnoremap <silent> <a-r><a-.> <c-u>cd %:p:h<cr>          <c-\><c-n>: Rg<cr>
   tnoremap <silent> <a-r>.     <c-u>cd %:p:h<cr>          <c-\><c-n>: Rg<cr>
   tnoremap <silent> <a-r><a-w> <c-u>cd <space>            <c-\><c-n>: Rg<cr>
@@ -221,8 +221,8 @@ else "}}}
   "" Rg; w/ `:cd` {{{
   noremap <silent> <a-r><a-k> :<c-u>cd ~/vimwiki/diary<cr>             :Rg<cr>
   noremap <silent> <a-r>k     :<c-u>cd ~/vimwiki/diary<cr>             :Rg<cr>
-  noremap <silent> <a-r><a-r> :<c-u>cd /usr/share/<cr>                           :Rg<cr>
-  noremap <silent> <a-r>r     :<c-u>cd /usr/share/<cr>                           :Rg<cr>
+  noremap <silent> <a-r><a-r> :<c-u>cd /usr/share/nvim/runtime<cr>                           :Rg<cr>
+  noremap <silent> <a-r>r     :<c-u>cd /usr/share/nvim/runtime<cr>                           :Rg<cr>
   noremap <silent> <a-r><a-.> :<c-u>cd %:p:h<cr>                       :Rg<cr>
   noremap <silent> <a-r>.     :<c-u>cd %:p:h<cr>                       :Rg<cr>
   noremap <silent> <a-r><a-w> :<c-u>   <space>                         :Rg<cr>
@@ -261,8 +261,8 @@ tnoremap <silent> <a-q>c     :<c-u> cd ~/.cache<cr> <c-\><c-n> :FZF<cr>
 tnoremap <silent> <a-q><a-f> :<c-u> cd ~/.config<cr> <c-\><c-n> :FZF<cr>
 tnoremap <silent> <a-q>f     :<c-u> cd ~/.config<cr> <c-\><c-n> :FZF<cr>
 
-noremap <silent> <a-q><a-r> :<c-u> cd /               <cr> :FZF<cr>
-noremap <silent> <a-q>r     :<c-u> cd /               <cr> :FZF<cr>
+noremap <silent> <a-q><a-r> :<c-u> cd /usr/share/nvim/runtime               <cr> :FZF<cr>
+noremap <silent> <a-q>r     :<c-u> cd /usr/share/nvim/runtime               <cr> :FZF<cr>
 noremap <silent> <a-q><a-h> :<c-u> cd ~               <cr> :FZF<cr>
 noremap <silent> <a-q>h     :<c-u> cd ~               <cr> :FZF<cr>
 noremap <silent> <a-q><a-d> :<c-u> cd ~/dotfiles      <cr> :FZF<cr>
