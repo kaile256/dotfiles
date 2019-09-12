@@ -66,6 +66,11 @@ hook_add = 'runtime indentLine.vimrc'
 
 # Resonance
 #[[plugins]]
+#repo = 'junegunn/rainbow_parentheses.vim' #{{{
+#on_event = 'BufWinEnter'
+#hook_post_source = 'runtime rainbow_parentheses.vimrc'
+##}}}
+#[[plugins]]
 #repo = 'luochen1990/rainbow' #{{{
 ## CAUTION: source rainbow.vimrc AFTER :colorscheme.
 #on_event = 'BufReadPre'
