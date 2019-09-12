@@ -4,9 +4,9 @@ scriptencoding utf-8
 " Help: fzf || fzf-vim
 
 " CmdAbbr; :Helptags {{{
-cnoreabbr <silent><expr> C (getcmdtype() == ':' && getcmdline() =~ '^C$')? 'Colors'   : 'C'
-cnoreabbr <silent><expr> H (getcmdtype() == ':' && getcmdline() =~ '^H$')? 'Helptags' : 'H'
-cnoreabbr <silent><expr> h (getcmdtype() == ':' && getcmdline() =~ '^h$')? 'Helptags' : 'h'
+cnoreabbr <expr> C (getcmdtype() == ':' && getcmdline() =~ '^C$')? 'Colors'   : 'C'
+cnoreabbr <expr> H (getcmdtype() == ':' && getcmdline() =~ '^H$')? 'Helptags' : 'H'
+cnoreabbr <expr> h (getcmdtype() == ':' && getcmdline() =~ '^h$')? 'Helptags' : 'h'
 "}}}
 
 function! s:fzf_buffer_statusline() "{{{
