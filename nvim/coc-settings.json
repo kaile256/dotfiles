@@ -1,11 +1,12 @@
 {
+	"signature.triggerSignatureWait": 300,
+	"suggest.autoTrigger": "always",
 	"suggest.acceptSuggestionOnCommitCharacter": true,
 	"suggest.floatEnable": true,
 	"suggest.noselect": true,
 	"suggest.timeout": 500,
-	"suggest.triggerAfterInsertEnter": true,
-	"signature.triggerSignatureWait": 100,
-
+	"suggest.triggerAfterInsertEnter": false,
+	"suggest.triggerCompletionWait": 200,
 	"suggest.completionItemKindLabels": {
 		"keyword": "\uf1de",
 		"variable": "\ue79b",
@@ -72,16 +73,16 @@
 	},
 
 	"yank.enableCompletion": false,
-	"vimlsp.debug": true,
+	"json.format.enable": false,
+	"vimlsp.debug": false,
 	"vimlsp.diagnostic.enable": true,
-	"vimlsp.indexes.runtimepath": true,
+	"vimlsp.indexes.runtimepath": false,
 	"vimlsp.indexes.count": 3,
 	"vimlsp.indexes.gap": 100,
 	"vimlsp.suggest.fromVimruntime": true,
 	"vimlsp.suggest.fromRuntimepath": false,
 	"vimlsp.trace.server": "verbose",
 	"diagnostic-languageserver.filetypes": {
-		"vim": "vint",
 		"email": "languagetool",
 		"markdown": [ "write-good", "markdownlint" ],
 		"sh": "shellcheck",
