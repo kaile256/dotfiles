@@ -14,8 +14,10 @@ hook_add = 'runtime visualstar.vimrc'
 # Filer
 [[plugins]] # has extentions
 repo = 'Shougo/defx.nvim' #{{{
-on_if = 'has("python3")'
-hook_post_source = 'runtime defx.vimrc'
+if = 'has("python3")'
+on_map = 'Defx'
+hook_add = 'runtime defx.vimrc'
+hook_post_source = 'runtime unrtp/defx.vimrc'
 [[plugins]]
 repo = 'kristijanhusak/defx-git' #{{{
 on_source = 'defx.nvim'
@@ -24,7 +26,7 @@ on_source = 'defx.nvim'
 #repo = 'kristijanhusak/defx-icons' #{{{
 #on_source = 'defx.nvim'
 ##}}}
-#}}}
+#}}} End of Defx
 #[[plugins]]
 #repo = 'cocopon/vaffle.vim' #{{{
 #on_if = 'has("python3")'
@@ -77,11 +79,13 @@ hook_add = 'runtime vista.vimrc'
 #}}}
 
 # Matcher
-[[plugins]]
-repo = 'nixprime/cpsm'
-# A matcher developped for 'CtrlP'
-on_event = 'BufRead'
-hook_post_source = 'runtime cspm.vimrc'
+#[[plugins]]
+#repo = 'nixprime/cpsm' #{{{
+## A matcher developped for 'CtrlP'
+#on_source = 'deoplete.nvim'
+#on_event = 'BufRead'
+#hook_post_source = 'runtime cspm.vimrc'
+##}}}
 #[[plugins]]
 #repo = 'raghur/fruzzy' #{{{
 #on_source = 'denite.nvim'

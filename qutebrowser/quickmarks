@@ -62,3 +62,4 @@ vim: Extend `gf`! https://thinca.hatenablog.com/entry/20140324/1395590910
 vim: ftplugin/ruby.vim maps gf <SNR>121_gf(~~)<CR> http://alpaca.tc/blog/vim/jump-to-gem-path.html
 sandwich.vim: authors desctiption https://machakann.hatenablog.com/entry/2016/05/19/184504
 vim-language-server for viml https://github.com/iamcco/vim-language-server
+coc sample config https://qiita.com/joeeee44/items/d431ff5ab9fe7a424b13
