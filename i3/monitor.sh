@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-#### From: i3/config
+# From: i3/config
 st_prev="disconnected"
 
 while :
