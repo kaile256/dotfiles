@@ -1,10 +1,16 @@
 " From: tool.toml
 " Help: coc-
-" Source: neoclide/coc.nvim
+" Repo: neoclide/coc.nvim
+" Branch: neoclide/coc.nvim_release
 
-" Clear All coc-extentions.
-cnoreabbr <expr> cun  (getcmdtype() == ':' && getcmdline() =~ '^cun$')?  'CocUninstall g:coc_global_extensions' : 'cun'
-cnoreabbr <expr> cclr (getcmdtype() == ':' && getcmdline() =~ '^cclr$')? 'CocUninstall g:coc_global_extensions' : 'cclr'
+augroup CocAutoToggle
+  au!
+  au BufWinEnter coc-settings.json setl keywordprg=:help
+  au BufWinEnter coc-settings.json setl keywordprg=:SensibleK\ vim
+  au BufLeave * if &ft ==# 'coc' || 'list' | hide | endif
+  au FileType coc,list setl laststatus=0 noshowmode noruler
+        \ | au BufWinLeave,BufLeave * ++once set laststatus=2 showmode ruler
+augroup END
 
 " CAUTION: careful not to conflict :checkhealth
 let g:markdown_fenced_languages = [
@@ -12,13 +18,17 @@ let g:markdown_fenced_languages = [
       \ 'help'
       \]
 
+" List; Coc-Extentions "{{{1
+" Note: Have to install LSPs independently.
 let g:coc_global_extensions = [
       \ 'coc-angular',
       \ 'coc-css',
+      \ 'coc-diagnostic',
       \ 'coc-dictionary',
       \ 'coc-emoji',
       \ 'coc-git',
       \ 'coc-gocode',
+      \ 'coc-tabnine',
       \ 'coc-highlight',
       \ 'coc-html',
       \ 'coc-java',
@@ -28,7 +38,7 @@ let g:coc_global_extensions = [
       \ 'coc-omni',
       \ 'coc-phpls',
       \ 'coc-python',
-      \ 'coc-rls',
+      \ 'coc-rust-analyzer',
       \ 'coc-solargraph',
       \ 'coc-syntax',
       \ 'coc-tag',
@@ -39,8 +49,48 @@ let g:coc_global_extensions = [
       \ 'coc-yaml',
       \ 'coc-yank'
       \ ]
+"}}}
 
-" navigate chunks of current buffer
+" Command! p:if has('coc_providers') {{{
+command! CocIfHasProvider :call <SID>coc_if_has_provider()<cr>
+function! s:coc_if_has_provider()
+  let s:coc_provider_list = [
+        \ 'rename',
+        \ 'onTypeEdit',
+        \ 'documentLink',
+        \ 'documentColor',
+        \ 'foldingRange',
+        \ 'format',
+        \ 'codeAction',
+        \ 'workspaceSymbols',
+        \ 'formatRange',
+        \ 'hover',
+        \ 'signature',
+        \ 'documentSymbol',
+        \ 'documentHighlight',
+        \ 'definition',
+        \ 'declaration',
+        \ 'typeDefinition',
+        \ 'reference',
+        \ 'implementation',
+        \ 'codeLens',
+        \ 'selectionRange'
+        \ ]
+  for provider in s:coc_provider_list
+    if CocHasProvider(provider) == v:true
+      let l:judge = 'true'
+    else
+      let l:judge = 'X'
+    endif
+    echo '  +' . provider . '		=>' l:judge
+  endfor
+endfunction
+"}}}
+" CmdAbbr; Clear All coc-extentions to reset extentions.
+cnoreabbr <expr> cun  (getcmdtype() == ':' && getcmdline() =~ '^cun$')?  'CocUninstall g:coc_global_extensions' : 'cun'
+cnoreabbr <expr> cclr (getcmdtype() == ':' && getcmdline() =~ '^cclr$')? 'CocUninstall g:coc_global_extensions' : 'cclr'
+
+" Keymap; Navigate Chunks
 nmap [g <Plug>(coc-git-prevchunk)
 nmap ]g <Plug>(coc-git-nextchunk)
 " show chunk diff at current position
@@ -52,7 +102,81 @@ noremap <silent> qp :CocList yank<cr>
 noremap <silent> <a-c><a-c> :CocList<cr>
 noremap <silent> <a-c><a-f> :CocList files<cr>
 noremap <silent> <a-c><a-b> :CocList buffers<cr><M-k>
-map gC <Plug>(coc-diagnostic-info)
+
+"nnoremap <silent> <a-i> :<c-u>botleft vert sp \| CocList outline<cr>
+
+"map gC <Plug>(coc-diagnostic-info)
+"<Plug>(coc-diagnostic-next) 
+"<Plug>(coc-diagnostic-prev) 
+"<Plug>(coc-diagnostic-next-error) 
+"<Plug>(coc-diagnostic-prev-error) 
+
+"" Jump; {{{1
+nmap <silent> gd <Plug>(coc-definition)
+xmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gD <Plug>(coc-declaration) 
+xmap <silent> gD <Plug>(coc-declaration) 
+nmap <silent> gG <Plug>(coc-implementation) 
+xmap <silent> gG <Plug>(coc-implementation) 
+nmap <silent> gy <Plug>(coc-type-definition) 
+xmap <silent> gy <Plug>(coc-type-definition) 
+nmap <silent> gR <Plug>(coc-references) 
+xmap <silent> gR <Plug>(coc-references) 
+"" Jump; vertical {{{1
+nmap <silent> <c-w>d <c-w>v<Plug>(coc-definition)
+xmap <silent> <c-w>d <c-w>v<Plug>(coc-definition)
+nmap <silent> <c-w>D <c-w>v<Plug>(coc-declaration) 
+xmap <silent> <c-w>D <c-w>v<Plug>(coc-declaration) 
+nmap <silent> <c-w>G <c-w>v<Plug>(coc-implementation) 
+xmap <silent> <c-w>G <c-w>v<Plug>(coc-implementation) 
+nmap <silent> <c-w>y <c-w>v<Plug>(coc-type-definition) 
+xmap <silent> <c-w>y <c-w>v<Plug>(coc-type-definition) 
+nmap <silent> <c-w>R <c-w>v<Plug>(coc-references) 
+xmap <silent> <c-w>R <c-w>v<Plug>(coc-references) 
+"" Jump; on horizontal {{{1
+nmap <silent> <c-w>gd <c-w>s<Plug>(coc-definition)
+xmap <silent> <c-w>gd <c-w>s<Plug>(coc-definition)
+nmap <silent> <c-w>gD <c-w>s<Plug>(coc-declaration) 
+xmap <silent> <c-w>gD <c-w>s<Plug>(coc-declaration) 
+nmap <silent> <c-w>gG <c-w>s<Plug>(coc-implementation) 
+xmap <silent> <c-w>gG <c-w>s<Plug>(coc-implementation) 
+nmap <silent> <c-w>gy <c-w>s<Plug>(coc-type-definition) 
+xmap <silent> <c-w>gy <c-w>s<Plug>(coc-type-definition) 
+nmap <silent> <c-w>gR <c-w>s<Plug>(coc-references) 
+xmap <silent> <c-w>gR <c-w>s<Plug>(coc-references) 
+"" Jump; on new tab {{{1
+nmap <silent> <c-w><space>d <c-w>v<c-w>T<Plug>(coc-definition)
+xmap <silent> <c-w><space>d <c-w>v<c-w>T<Plug>(coc-definition)
+nmap <silent> <c-w><space>D <c-w>v<c-w>T<Plug>(coc-declaration) 
+xmap <silent> <c-w><space>D <c-w>v<c-w>T<Plug>(coc-declaration) 
+nmap <silent> <c-w><space>G <c-w>v<c-w>T<Plug>(coc-implementation) 
+xmap <silent> <c-w><space>G <c-w>v<c-w>T<Plug>(coc-implementation) 
+nmap <silent> <c-w><space>y <c-w>v<c-w>T<Plug>(coc-type-definition) 
+xmap <silent> <c-w><space>y <c-w>v<c-w>T<Plug>(coc-type-definition) 
+nmap <silent> <c-w><space>R <c-w>v<c-w>T<Plug>(coc-references) 
+xmap <silent> <c-w><space>R <c-w>v<c-w>T<Plug>(coc-references) 
+"}}}
+
+"<Plug>(coc-format-selected) 
+"<Plug>(coc-format) 
+"
+" Change Name
+nmap cn <Plug>(coc-rename)
+xmap cn <Plug>(coc-rename)
+"<Plug>(coc-codeaction) 
+"<Plug>(coc-codeaction-selected) 
+"
+"<Plug>(coc-openlink) 
+"<Plug>(coc-codelens-action) 
+"
+"<Plug>(coc-fix-current) 
+"<Plug>(coc-float-hide) 
+"<Plug>(coc-float-jump) 
+"
+"<Plug>(coc-refactor) 
+"<Plug>(coc-range-select) 
+"<Plug>(coc-range-select) 
+"<Plug>(coc-range-select-backward) 
 
 " Keymap; Text-Object
 vmap if <Plug>(coc-funcobj-i)
@@ -100,11 +224,3 @@ inoremap <silent><expr> <c-p>
       \ <SID>make_sure_no_space() ? "\<c-p>" :
       \ coc#refresh()
 "}}}
-
-augroup CocAutoToggle
-  au!
-  au BufWinEnter coc-settings.json setl keywordprg=:help
-  au BufLeave * if &ft ==# 'coc' || 'list' | hide | endif
-  au FileType coc,list setl laststatus=0 noshowmode noruler
-        \ | au BufWinLeave,BufLeave * ++once set laststatus=2 showmode ruler
-augroup END
