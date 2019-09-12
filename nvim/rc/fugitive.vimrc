@@ -43,7 +43,7 @@ noremap <silent> <a-y><a-a> :<c-u>Gw<cr>
 function! s:fugitive_commit_with_diff() abort
   norm T
   " Keep to show diff w/ HEAD^ while editting commit-message.
-  Gvdiffsplit HEAD^
+  Gvdiffsplit! HEAD^
   vert bot Gstatus
   norm =
   vert resize 50
@@ -52,20 +52,6 @@ endfunction
 "noremap <silent> <a-y><a-w> :<c-u>cclose <bar> Gw <cr> <c-w>T :Gvdiffsplit ^HEAD <bar> vert bot Gstatus<cr> <c-w>= :vert resize 50<cr>
 noremap <silent> <a-y>w     :<c-u>cclose <bar> Gw <cr> :call <SID>fugitive_commit_with_diff()<cr>
 noremap <silent> <a-y><a-w> :<c-u>cclose <bar> Gw <cr> :call <SID>fugitive_commit_with_diff()<cr>
-"}}}
-
-" Remote; Pull {{{
-noremap <silent> <a-y>l     :<c-u>Gpull<cr>
-noremap <silent> <a-y><a-l> :<c-u>Gpull<cr>
-"}}}
-" Remote; Push {{{
-noremap <silent> <a-y>h     :<c-u>Gpush<cr>
-noremap <silent> <a-y><a-h> :<c-u>Gpush<cr>
-"}}}
-
-" Branch; Checkout {{{
-noremap <a-y>o     :<c-u>Git checkout<space>
-noremap <a-y><a-o> :<c-u>Git checkout<space>
 "}}}
 
 function! s:on_gitcommit_startinsert() "{{{1
