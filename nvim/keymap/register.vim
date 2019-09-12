@@ -4,6 +4,12 @@
 "" Term; Put as in Insert Mode
 tnoremap <expr> <C-R> '<C-\><C-N>"'.nr2char(getchar()).'pi'
 
+augroup MyPasteToggle "{{{1
+  au!
+  au InsertEnter * silent! setl paste
+  au BufWinEnter,WinEnter,InsertLeave * silent! setl nopaste
+augroup END "}}}
+
 " Sequential
 "nnoremap p gp
 "nnoremap gp p
