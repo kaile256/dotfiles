@@ -30,19 +30,20 @@ noremap <silent> <a-y><a-d> :<c-u>cclose<cr><c-w>T:<c-u>Gvdiffsplit!<cr>
 noremap <silent> <a-y>a     :<c-u>Gw<cr>
 noremap <silent> <a-y><a-a> :<c-u>Gw<cr>
 "}}}
-" Add; && Commit w/ diff {{{
-function! s:fugitive_commit_with_diff() abort
+" Add; && Commit w/ diff {{{1
+function! s:fugitive_commit_with_diff() abort "{{2
   norm T
   " Keep to show diff w/ HEAD^ while editting commit-message.
-  Gvdiffsplit! HEAD^
+  Gvdiffsplit! HEAD
   vert bot Gstatus
   norm =
   vert resize 50
-endfunction
-"noremap <silent> <a-y>w     :<c-u>cclose <bar> Gw <cr> <c-w>T :Gvdiffsplit ^HEAD <bar> vert bot Gstatus<cr> <c-w>= :vert resize 50<cr>
-"noremap <silent> <a-y><a-w> :<c-u>cclose <bar> Gw <cr> <c-w>T :Gvdiffsplit ^HEAD <bar> vert bot Gstatus<cr> <c-w>= :vert resize 50<cr>
-noremap <silent> <a-y>w     :<c-u>cclose <bar> Gw <cr> :call <SID>fugitive_commit_with_diff()<cr>
-noremap <silent> <a-y><a-w> :<c-u>cclose <bar> Gw <cr> :call <SID>fugitive_commit_with_diff()<cr>
+endfunction "}}}2
+command! Gstage :Gw <bar> call s:fugitive_commit_with_diff()
+"noremap <silent> <a-y>w     :<c-u>cclose <bar> Gw <cr> :call <SID>fugitive_commit_with_diff()<cr>
+"noremap <silent> <a-y><a-w> :<c-u>cclose <bar> Gw <cr> :call <SID>fugitive_commit_with_diff()<cr>
+noremap <silent> <a-y>w     :<c-u>cclose <bar> :Gstage<cr>
+noremap <silent> <a-y><a-w> :<c-u>cclose <bar> :Gstage<cr>
 "}}}
 
 function! s:on_gitcommit_startinsert() "{{{1
