@@ -1,22 +1,13 @@
 " From: external.toml
 " Repo: fugitive.vim
 
-" Read  # overwrite buffer with the last commited version.
-noremap <silent> <a-y>r     :<c-u>Gread<cr>
-noremap <silent> <a-y><a-r> :<c-u>Gread<cr>
-" Move  # rename current file and the buffer.
-noremap <silent> <a-y>n     :<c-u>Gmove<cr>
-noremap <silent> <a-y><a-n> :<c-u>Gmove<cr>
-
 "" Info; Log {{{
-"" Without `b#` `:Glog` with `:copen` fills previous window.
-""# QuickFix -- Edit-History of current buffer.
 "noremap <silent> <a-y>l     :<c-u>tab sp <bar> Glog <bar> copen<cr>
 "noremap <silent> <a-y><a-l> :<c-u>tab sp <bar> Glog <bar> copen<cr>
-""# QuickFix -- Commit-Log of git-repository.
+"
 "noremap <silent> <a-y>c     :<c-u>tab sp <bar> Glog -- <cr>
 "noremap <silent> <a-y><a-c> :<c-u>tab sp <bar> Glog -- <cr>
-""# QuickFix -- Commit-Log from master to current branch.
+"
 "noremap <silent> <a-y>m     :<c-u>tab sp <bar> Glog master..HEAD --<cr>
 "noremap <silent> <a-y><a-m> :<c-u>tab sp <bar> Glog master..HEAD --<cr>
 ""}}}
