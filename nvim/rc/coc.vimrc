@@ -39,7 +39,6 @@ let g:coc_global_extensions = [
       \ 'coc-emoji',
       \ 'coc-git',
       \ 'coc-gocode',
-      \ 'coc-tabnine',
       \ 'coc-highlight',
       \ 'coc-html',
       \ 'coc-java',
