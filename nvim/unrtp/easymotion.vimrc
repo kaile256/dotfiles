@@ -6,7 +6,7 @@
 EMCommandLineNoreMap <S-lt> <
 
 " TODO: work the hotkeys to change the direction.
-"EMCommandLineNoreMap <a-j> <esc>f
-"EMCommandLineNoreMap <a-k> <esc>F
-"EMCommandLineNoreMap <a-h> <esc>T
-"EMCommandLineNoreMap <a-l> <esc>t
+"EMCommandLineNoreMap <a-h> <esc><Plug>(easymotion-T2)
+"EMCommandLineNoreMap <a-j> <esc><Plug>(easymotion-f2)
+"EMCommandLineNoreMap <a-k> <esc><Plug>(easymotion-F2)
+"EMCommandLineNoreMap <a-l> <esc><Plug>(easymotion-t2)
