@@ -4,11 +4,12 @@
 "" Term; Put as in Insert Mode
 tnoremap <expr> <C-R> '<C-\><C-N>"'.nr2char(getchar()).'pi'
 
-augroup MyPasteToggle
-  au!
-  au InsertEnter * silent! setl nopaste
-  au BufWinEnter,WinEnter,InsertLeave * silent! setl paste
-augroup END
+"augroup MyPasteToggle
+"  " CAUTION: when set paste, @+ is ignored.
+"  au!
+"  au InsertEnter,CmdLineEnter * silent! setl nopaste
+"  au BufWinEnter,WinEnter,InsertLeave * silent! setl paste
+"augroup END
 
 " Sequential
 "nnoremap p gp
