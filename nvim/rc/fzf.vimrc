@@ -31,12 +31,12 @@ augroup FzfMyAutoConf
   au FileType fzf setl laststatus=0 noruler | au BufWinEnter * ++once setl laststatus=2 ruler | if &ft !=# 'help' | setl number
 augroup END
 
-" [Buffers] Rather Jump to window if existed.
+" [Buffers] Rather Jump to window than just to open.
 let g:fzf_buffers_jump = 1
 " [[B]Commits] Customize the options used by 'git log':
 let g:fzf_commits_log_options = '--graph --color=always --format="%C(auto)%h%d %s %C(black)%C(bold)%cr"'
 let g:fzf_history_dir = '~/.local/share/fzf-history'
-"" down/up/left/right
+"" args: down/up/left/right
 let g:fzf_layout = { 'down': '~20%' }
 
 function! s:fzf_buffer_keymap() "{{{
@@ -61,7 +61,6 @@ function! s:fzf_buffer_keymap() "{{{
         \ 'ctrl-o': 'split',
         \ 'ctrl-s': 'split' }
 endfunction "}}}
-
 " on FZF Buffer; Color Config {{{
 let g:fzf_colors =
       \ { 'fg':      ['fg', 'None'],
@@ -294,8 +293,8 @@ tnoremap <silent> <a-q>k     <c-\><c-n>: Helptags<cr>
 tnoremap <silent> <a-q><a-g> <c-\><c-n>: GFiles?<cr>
 tnoremap <silent> <a-q>g     <c-\><c-n>: GFiles?<cr>
 
-noremap <silent> <a-q><a-b> :<c-u> Buffers<cr>
-noremap <silent> <a-q>b     :<c-u> Buffers<cr>
+"noremap <silent> <a-q><a-b> :<c-u> Buffers<cr>
+"noremap <silent> <a-q>b     :<c-u> Buffers<cr>
 noremap <silent> <a-q><a-k> :<c-u> Helptags<cr>
 noremap <silent> <a-q>k     :<c-u> Helptags<cr>
 noremap <silent> <a-q><a-g> :<c-u> GFiles?<cr>
@@ -315,7 +314,7 @@ noremap <silent> <a-q><a-;> :<c-u> Commands<cr>
 noremap <silent> <a-q>;     :<c-u> Commands<cr>
 
 "" Search; Override
-noremap <silent> q/         :<c-u> History/<cr>
+"noremap <silent> q/         :<c-u> History/<cr>
 """ Preview Only
 noremap <silent> <a-q><a-p> :<c-u> Maps<cr>
 noremap <silent> <a-q>p     :<c-u> Maps<cr>
