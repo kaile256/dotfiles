@@ -49,6 +49,7 @@ hi link EasyMotionIncSearch Search
 " <Plug>(easymotion-s): the range is inside current screen.
 " <Plug>(easymotion-sl): the range is limited to current line.
 
+" Keymap; Repeat
 omap . <Plug>(easymotion-repeat)
 "nmap . <Plug>(easymotion-dotrepeat)
 
