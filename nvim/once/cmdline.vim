@@ -1,15 +1,5 @@
 " From: init.vim
 
-" Keymap; Leap {{{
-cnoremap <nowait> <a-k> <c-c>
-"}}}
-" Keymap; Expand {{{
-cnoremap <c-r>a     <c-r><c-a>
-cnoremap <c-r>f     <c-r><c-f>
-cnoremap <c-r>p     <c-r><c-p>
-cnoremap <c-r>l     <c-r><c-l>
-cnoremap <c-r>w     <c-r><c-w>
-"}}}
 " Keymap; Emacs-like {{{
 cnoremap <c-a> <home>
 cnoremap <a-f> <S-right>
