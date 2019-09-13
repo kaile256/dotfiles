@@ -63,3 +63,4 @@ vim: ftplugin/ruby.vim maps gf <SNR>121_gf(~~)<CR> http://alpaca.tc/blog/vim/jum
 sandwich.vim: authors desctiption https://machakann.hatenablog.com/entry/2016/05/19/184504
 vim-language-server for viml https://github.com/iamcco/vim-language-server
 coc sample config https://qiita.com/joeeee44/items/d431ff5ab9fe7a424b13
+save battery of thinkpad https://www.xmisao.com/2014/01/21/thinkpad-battery-setting-by-tlp-on-linux.html
