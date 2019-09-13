@@ -1,16 +1,6 @@
 " From: external.toml
 " Repo: fugitive.vim
 
-"" Info; Log {{{
-"noremap <silent> <a-y>l     :<c-u>tab sp <bar> Glog <bar> copen<cr>
-"noremap <silent> <a-y><a-l> :<c-u>tab sp <bar> Glog <bar> copen<cr>
-"
-"noremap <silent> <a-y>c     :<c-u>tab sp <bar> Glog -- <cr>
-"noremap <silent> <a-y><a-c> :<c-u>tab sp <bar> Glog -- <cr>
-"
-"noremap <silent> <a-y>m     :<c-u>tab sp <bar> Glog master..HEAD --<cr>
-"noremap <silent> <a-y><a-m> :<c-u>tab sp <bar> Glog master..HEAD --<cr>
-""}}}
 " Info; Blame {{{
 noremap <silent> <a-y>b     :<c-u>Gblame<cr>
 noremap <silent> <a-y><a-b> :<c-u>Gblame<cr>
@@ -64,7 +54,7 @@ endfunction
 
 augroup FugitiveCallMyFunc "{{{1
   au!
-  au FileType fugitive call <SID>on_fugitive_keymap()
+  au FileType fugitive  call <SID>on_fugitive_keymap()
   au FileType gitcommit call <SID>on_gitcommit_startinsert()
 augroup END "}}}
 augroup OnFugitiveBuffer
