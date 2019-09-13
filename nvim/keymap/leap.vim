@@ -156,3 +156,6 @@ inoremap <a-[> <esc>gT
 inoremap <a-]> <esc>gt
 tnoremap <a-]> <c-\><c-n>gt
 tnoremap <a-[> <c-\><c-n>gT
+" Hotkey; for :tabedit
+" Note: <c-w>b/<c-b> is for to bottom.
+nnoremap <c-w>B <c-w><c-v><c-w>T
