@@ -1,7 +1,15 @@
 scriptencoding utf-8
 " From: finder.toml
+" TODO: Change by width
+"function! s:vista_adjust_echo_style()
+"if winwidth('#') > 100
+"  let g:vista_echo_cursor_strategy = 'floating_win'
+"else
+"  let g:vista_echo_cursor_strategy = 'echo'
+"endif
+"endfunction
+"au VimResized,BufEnter * call s:vista_adjust_echo_style()
 
-let g:vista_echo_cursor_strategy = 'scroll'
 "let g:vista_default_executive = 'ctags'
 "let g:vista_fzf_preview = ['right:50%']
 "let g:vista#renderer#enable_icon = 1
@@ -28,12 +36,16 @@ let g:vista_fzf_preview = ['right:50%']
 " '!' to close vista-buffer
 " '!!' to toggle vista-buffer.
 " Mnemonic: Index
-nnoremap <silent> <a-i> :<c-u>call <SID>vista_if_lsp()<cr>
-"" Ref: fzf.vimrc
-"" Mnemonic: Quest for Tags
-nnoremap <silent> <a-q><a-t> :<c-u>Vista finder<cr>
+nnoremap <silent> <a-i> :<c-u>call <SID>vista_auto_adjust()<cr>
 
-function! s:vista_if_lsp() abort
+function! s:vista_auto_adjust() abort
+  if winwidth('#') > 100
+    let g:vista_echo_cursor_strategy = 'floating_win'
+  else
+    let g:vista_echo_cursor_strategy = 'echo'
+  endif
+  " Adjust, up to '&l:ft', which tool Vista should use:
+  " ctags, coc (or other lsp clients) or TableOfContents Mode.
   if &ft =~# 'vista'
     Vista!
   elseif &ft ==# 'vim'
