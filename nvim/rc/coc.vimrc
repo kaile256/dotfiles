@@ -55,14 +55,17 @@ let g:coc_global_extensions = [
 cnoreabbr <expr> cun  (getcmdtype() == ':' && getcmdline() =~ '^cun$')?  'CocUninstall g:coc_global_extensions' : 'cun'
 cnoreabbr <expr> cclr (getcmdtype() == ':' && getcmdline() =~ '^cclr$')? 'CocUninstall g:coc_global_extensions' : 'cclr'
 cnoreabbr <expr> coc (getcmdtype() == ':' && getcmdline() =~ '^coc$')? 'CocList' : 'coc'
-" Command!; {{{1
+" Command!; C-series {{{1
 command! Ccmd :CocCommand
+command! Coc :CocList
 command! Clist :CocList
 command! CList :CocList
 command! Cmru :CocList mru
 command! CMru :CocList mru
 command! ClocalLog :CocList bcommits
 command! CLocalLog :CocList bcommits
+command! Cbuffers :CocList buffers
+command! CBuffers :CocList buffers
 " Command; Original
 command! CocIfHasProvider :call <SID>coc_if_has_provider()
 command! CIfHasProvider :CocIfHasProvider
@@ -102,6 +105,8 @@ endfunction
 "}}}
 "}}}
 " Keymaps;
+nnoremap q: :CocList cmdhistory<cr>
+nnoremap q/ :CocList searchhistory<cr>
 " CocGit; {{{1
 " Similar to the navigation on &diff
 nmap [c <Plug>(coc-git-prevchunk)
@@ -120,6 +125,9 @@ command! SaveSessionCoc :CocCommand session.save
 command! LoadSessionCoc :CocCommand session.load
 cnoreabbr <expr> mks (getcmdtype() == ':' && getcmdline() =~ '^mks$')? 'MksessionCoc' : 'mks'
 cnoreabbr <expr> lds (getcmdtype() == ':' && getcmdline() =~ '^lds$')? 'LoadSessionCoc' : 'lds'
+" CocList; Fuzzy-Buffers {{{1
+noremap <silent> <a-q><a-b> :<c-u>CocList buffers<cr>
+noremap <silent> <a-q>b     :<c-u>CocList buffers<cr>
 " CocList; Diagnostic {{{1
 " Note: Unnecessary? pop up auto.
 "map gC <Plug>(coc-diagnostic-info)
@@ -182,15 +190,15 @@ xmap <silent><expr> <c-w><space>R (CocAction('jumpImplementation'))? '<c-w>v<c-w
 " CocList; Format {{{1
 "<Plug>(coc-format-selected)
 "<Plug>(coc-format)
-" CocList; Rename {{{1
-" Change Name
-nmap cn <Plug>(coc-rename)
-xmap cn <Plug>(coc-rename)
 " CocList; Text-Object {{{1
 vmap if <Plug>(coc-funcobj-i)
 vmap if <Plug>(coc-funcobj-a)
 omap if <Plug>(coc-funcobj-i)
 omap if <Plug>(coc-funcobj-a)
+" CocList; Rename {{{1
+" Change Name
+nmap cn <Plug>(coc-rename)
+xmap cn <Plug>(coc-rename)
 " CocList; Not Yet Mapped {{{1
 "<Plug>(coc-codeaction)
 "<Plug>(coc-codeaction-selected)
