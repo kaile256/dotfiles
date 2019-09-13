@@ -4,11 +4,11 @@
 "" Term; Put as in Insert Mode
 tnoremap <expr> <C-R> '<C-\><C-N>"'.nr2char(getchar()).'pi'
 
-augroup MyPasteToggle "{{{1
+augroup MyPasteToggle
   au!
-  au InsertEnter * silent! setl paste
-  au BufWinEnter,WinEnter,InsertLeave * silent! setl nopaste
-augroup END "}}}
+  au InsertEnter * silent! setl nopaste
+  au BufWinEnter,WinEnter,InsertLeave * silent! setl paste
+augroup END
 
 " Sequential
 "nnoremap p gp
@@ -85,10 +85,9 @@ nnoremap yP yyP
 nnoremap yp yyp
 nnoremap cp ddp
 nnoremap cP ddkP
-" `cp`; no work at the if-expr.
-nnoremap <silent><expr> 'cp' (@" ==# getline('.'))? '"_ddp' : 'ddp'
-nnoremap <silent><expr> 'cP' (@" ==# getline('.'))? '"_ddkp' : 'ddkP'
 " TODO: paste after :append or pastetoggle
+"nnoremap <silent><expr> 'cP' (getline('.') ==# @1)? '"_ddkp' : 'ddkP'
+"nnoremap <silent><expr> 'cp' (getline('.') ==# @1)? '"_ddp' : 'ddp'
 "nnoremap <expr> <space>p :append '<c-r>+<cr>'
 " TODO: keymap via forloop
 "let s:paste_r_listlist = [
