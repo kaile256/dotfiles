@@ -6,15 +6,14 @@ scriptencoding utf-8
 
 set path+=~/vimwiki/**
 let g:vimwiki_folding = 'expr'
-" Let; Highlight {{{
+" Let; Highlight {{{1
 let g:vimwiki_hl_headers    = 1
 let g:vimwiki_hl_cb_checked = 2
 " CJK: Calculate the correct length of the strings with
 " double-wide characters (to align table cells properly).
 let g:vimwiki_CJK_length = 1
-"}}}
-" Let; List of config {{{
-"" List; Script Variables {{{
+" Let; List of config on each wiki root {{{1
+"" List; Script Variables {{{2
 " CAUTION: Allowed values are ['default', 'markdown', 'media', 'mediawiki']
 let s:wiki_index = {
       \ 'path': '~/vimwiki/',
@@ -23,7 +22,6 @@ let s:wiki_index = {
       \ 'list_margin': 4,
       \ 'auto_toc': 1
       \ }
-
 let s:wiki_index.nested_syntaxes = {
       \ 'python': 'python',
       \ 'c++': 'cpp',
@@ -34,7 +32,6 @@ let s:wiki_index.nested_syntaxes = {
       \ 'zsh': 'zsh',
       \ 'vim': 'vim'
       \ }
-
 let s:wiki_markdown = {
       \ 'syntax': 'markdown',
       \ 'index': 'index',
@@ -48,7 +45,6 @@ let s:wiki_markdown = {
       \ 'custom_wiki2html': 'vimwiki_markdown',
       \ 'html_filename_parameterization': 1,
       \ }
-
 let s:wiki_markdown.nested_syntaxes = {
       \ 'python': 'python',
       \ 'c++': 'cpp',
@@ -59,59 +55,45 @@ let s:wiki_markdown.nested_syntaxes = {
       \ 'zsh': 'zsh',
       \ 'vim': 'vim'
       \ }
-
 "}}}
 let g:vimwiki_list = [
       \ {},
       \ s:wiki_markdown,
       \ s:wiki_index
       \ ]
-"}}}
-" Let; List Symbol {{{
+" Let; List Symbol {{{1
 "let g:vimwiki_listsyms = '✗○◐●✓'
 "let g:vimwiki_listsym_rejected = '✗'
 "}}}
 
-" Hotkey; Index {{{
+" Hotkey; Index {{{1
 command! MdwikiIndex    :e    ~/vimwiki/mdwiki/index.md
 nnoremap <silent> <a-w><a-e> :<c-u>MdwikiIndex <cr>
 nnoremap <silent> <a-w><a-b> :<c-u>tab sp <bar> MdwikiIndex <cr>
 nnoremap <silent> <a-w><a-v> :<c-u>vs <bar> MdwikiIndex <cr>
 nnoremap <silent> <a-w><a-s> :<c-u>sp <bar> MdwikiIndex <cr>
-"}}}
-" Hotkey; Diary {{{
+" Hotkey; Diary Index {{{1
 nnoremap <silent> <a-e><a-i><a-e> :<c-u>       <space> :VimwikiDiaryIndex<cr>
 nnoremap <silent> <a-e><a-i><a-b> :<c-u>tabnew <cr>    :VimwikiDiaryIndex<cr>
 nnoremap <silent> <a-e><a-i><a-s> :<c-u>sp     <cr>    :VimwikiDiaryIndex<cr>
 nnoremap <silent> <a-e><a-i><a-v> :<c-u>vs     <cr>    :VimwikiDiaryIndex<cr>
-
-"" Diary; Today {{{
-tnoremap <silent> <a-e>e     <c-\><c-n>:e ~/vimwiki/diary/index.wiki<cr>
-tnoremap <silent> <a-e>b     <c-\><c-n>:tabe ~/vimwiki/diary/index.wiki<cr>
-tnoremap <silent> <a-e>s     <c-\><c-n>:sp ~/vimwiki/diary/index.wiki<cr>
-tnoremap <silent> <a-e>v     <c-\><c-n>:vs ~/vimwiki/diary/index.wiki<cr>
-tnoremap <silent> <a-e><a-e> <c-\><c-n>:e ~/vimwiki/diary/index.wiki<cr>
-tnoremap <silent> <a-e><a-b> <c-\><c-n>:tabe ~/vimwiki/diary/index.wiki<cr>
-tnoremap <silent> <a-e><a-s> <c-\><c-n>:sp ~/vimwiki/diary/index.wiki<cr>
-tnoremap <silent> <a-e><a-v> <c-\><c-n>:vs ~/vimwiki/diary/index.wiki<cr>
-
-nnoremap <silent> <a-e>e     :e ~/vimwiki/diary/index.wiki<cr>
-nnoremap <silent> <a-e>b     :tabe ~/vimwiki/diary/index.wiki<cr>
-nnoremap <silent> <a-e>s     :sp ~/vimwiki/diary/index.wiki<cr>
-nnoremap <silent> <a-e>v     :vs ~/vimwiki/diary/index.wiki<cr>
-nnoremap <silent> <a-e><a-e> :e ~/vimwiki/diary/index.wiki<cr>
-nnoremap <silent> <a-e><a-b> :tabe ~/vimwiki/diary/index.wiki<cr>
-nnoremap <silent> <a-e><a-s> :sp ~/vimwiki/diary/index.wiki<cr>
-nnoremap <silent> <a-e><a-v> :vs ~/vimwiki/diary/index.wiki<cr>
-"}}}
-"}}}
-" CmdAbbr; for destination {{{
-cnoreabbr <expr> x (getcmdtype() == ':' && getcmdline() =~ 'VimwikiGoto x$')? 'linux' : 'x'
-cnoreabbr <expr> li (getcmdtype() == ':' && getcmdline() =~ 'VimwikiGoto li$')? 'linux' : 'li'
-cnoreabbr <expr> vp (getcmdtype() == ':' && getcmdline() =~ 'VimwikiGoto vp$')? 'vplug' : 'vp'
-cnoreabbr <expr> pv (getcmdtype() == ':' && getcmdline() =~ 'VimwikiGoto pv$')? 'vplug' : 'pv'
-cnoreabbr <expr> v (getcmdtype() == ':' && getcmdline() =~ 'VimwikiGoto v$')? 'vim' : 'v'
-cnoreabbr <expr> vi (getcmdtype() == ':' && getcmdline() =~ 'VimwikiGoto vi$')? 'vim' : 'vi'
+" Hotkey; Diary Today {{{1
+nnoremap <silent> <a-e>e     :e <bar> VimwikiMakeDiaryNote<cr>
+nnoremap <silent> <a-e>b     :tabe <bar> VimwikiMakeDiaryNote<cr>
+nnoremap <silent> <a-e>s     :sp <bar> VimwikiMakeDiaryNote<cr>
+nnoremap <silent> <a-e>v     :vs <bar> VimwikiMakeDiaryNote<cr>
+nnoremap <silent> <a-e><a-e> :e <bar> VimwikiMakeDiaryNote<cr>
+nnoremap <silent> <a-e><a-b> :tabe <bar> VimwikiMakeDiaryNote<cr>
+nnoremap <silent> <a-e><a-s> :sp <bar> VimwikiMakeDiaryNote<cr>
+nnoremap <silent> <a-e><a-v> :vs <bar> VimwikiMakeDiaryNote<cr>
+tnoremap <silent> <a-e>e     <c-\><c-n>:e <bar> VimwikiMakeDiaryNote<cr>
+tnoremap <silent> <a-e>b     <c-\><c-n>:tabe <bar> VimwikiMakeDiaryNote<cr>
+tnoremap <silent> <a-e>s     <c-\><c-n>:sp <bar> VimwikiMakeDiaryNote<cr>
+tnoremap <silent> <a-e>v     <c-\><c-n>:vs <bar> VimwikiMakeDiaryNote<cr>
+tnoremap <silent> <a-e><a-e> <c-\><c-n>:e <bar> VimwikiMakeDiaryNote<cr>
+tnoremap <silent> <a-e><a-b> <c-\><c-n>:tabe <bar> VimwikiMakeDiaryNote<cr>
+tnoremap <silent> <a-e><a-s> <c-\><c-n>:sp <bar> VimwikiMakeDiaryNote<cr>
+tnoremap <silent> <a-e><a-v> <c-\><c-n>:vs <bar> VimwikiMakeDiaryNote<cr>
 "}}}
 
 function! s:my_startpage(page) "{{{
@@ -146,7 +128,6 @@ function! s:on_buf_vimwiki() "{{{
   noremap <buffer><nowait> O O
   noremap <buffer><nowait> <c-i> <c-i>
   noremap <buffer><nowait> <c-o> <c-o>
-
   " Nowait; Insert
   inoremap <buffer><nowait> <c-t> <c-t>
   inoremap <buffer><nowait> <c-d> <c-d>
