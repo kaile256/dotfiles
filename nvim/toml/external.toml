@@ -3,8 +3,11 @@
 # LSP
 [[plugins]]
 repo = 'neoclide/coc.nvim' #{{{
+# Branch: neoclide/coc.nvim_release
 # Note: Written in TypeScript.
 rev = 'release'
+#build = 'call coc#util#install()'
+#hook_done_update = 'yarn install --frozen-lockfile'
 on_event = 'VimEnter'
 hook_post_source = 'runtime coc.vimrc'
 #}}}
@@ -32,74 +35,6 @@ hook_post_source = 'runtime coc.vimrc'
 #build = 'bash install.sh'
 #on_event = 'BufRead'
 #hook_add = 'runtime LanguageClient.vimrc'
-##}}}
-
-# Git;
-[[plugins]]
-repo = 'tpope/vim-fugitive' #{{{
-type = 'git'
-on_event = 'BufRead'
-hook_post_source = 'runtime fugitive.vimrc'
-# Fugitive; Branch Vier
-[[plugins]]
-repo = 'idanarye/vim-merginal' #{{{
-# to view branches and to merge from vim!
-type = 'git'
-on_event = 'BufRead'
-hook_add = 'runtime merginal.vimrc'
-#}}}
-# Fugitive; Local Log Viewer
-[[plugins]]
-repo = 'int3/vim-extradite' #{{{
-# Also provides diff viewer.
-on_event = ['BufRead']
-hook_post_source = 'runtime extradite.vimrc'
-#}}}
-## Fugitive; Log Wrapper
-#[[plugins]]
-#repo = 'rbong/vim-flog' #{{{
-#on_event = ['BufRead']
-#hook_post_source = 'runtime flog.vimrc'
-#}}}
-## Fugitive; Diff Wrapper
-#[[plugins]]
-#repo = 'arkwright/vim-manhunt' #{{{
-#on_event = 'BufRead'
-#hook_post_source = 'runtime manhunt.vimrc'
-##}}}
-#[[plugins]]
-#repo = 'junegunn/gv.vim' #{{{
-#type = 'git'
-#on_ft = ['fugitive', 'gitcommit', 'git']
-#hook_post_source = 'runtime gv.vimrc'
-##}}}
-#[[plugins]]
-#repo = 'rhysd/committia.vim' #{{{{{{
-#type = 'git'
-#on_ft = ['fugitive', 'gitcommit', 'git']
-##on_source = 'vim-fugitive'
-#hook_post_source = 'runtime committia.vimrc'
-##}}}}}}
-#}}} End of Fugitive
-[[plugins]]
-repo = 'rhysd/git-messenger.vim' #{{{
-type = 'git'
-on_cmd = 'GitMessenger'
-hook_add = 'runtime git-messenger.vimrc'
-#on_event = 'BufRead'
-#hook_post_source = 'runtime git-messenger.vimrc'
-#}}}
-#[[plugins]]
-#repo = 'airblade/vim-gitgutter' #{{{
-## enough only with coc.nvim & fugitive.vim?
-#type = 'git'
-#on_event = 'BufRead'
-#hook_post_source = 'runtime gitgutter.vimrc'
-##}}}
-#[[plugins]]
-#repo = 'lambdalisue/gina.vim' #{{{
-#on_event = ['BufWritePost']
-#hook_post_source = 'runtime gina.vimrc'
 ##}}}
 
 # Enable Collaborative Editing

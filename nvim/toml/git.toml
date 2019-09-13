@@ -1,0 +1,83 @@
+# From: dein.vimrc
+
+# Fugitive;
+[[plugins]] # has extentions
+repo = 'tpope/vim-fugitive' #{{{
+type = 'git'
+on_event = 'BufRead'
+hook_post_source = 'runtime fugitive.vimrc'
+#}}}
+[[plugins]]
+repo = 'rhysd/git-messenger.vim' #{{{
+type = 'git'
+on_cmd = 'GitMessenger'
+hook_add = 'runtime git-messenger.vimrc'
+#}}}
+# Fugitive; for Gbrowse
+[[plugins]]
+repo = 'tpope/vim-rhubarb' #{{{
+on_cmd = 'Gbrowse'
+hook_post_source = 'runtime rhubarb.vimrc'
+#}}}
+[[plugins]]
+repo = 'shumphrey/fugitive-gitlab.vim' #{{{
+on_cmd = 'Gbrowse'
+hook_post_source = 'runtime fugitive-gitlab.vimrc'
+#}}}
+# Fugitive; Branch Viewr
+[[plugins]]
+repo = 'idanarye/vim-merginal' #{{{
+# to view branches and to merge from vim!
+type = 'git'
+on_event = 'CmdLineEnter'
+on_map = ':Merginal'
+## Doesn't work well.
+#on_cmd = 'Merginal'
+hook_add = 'runtime merginal.vimrc'
+#}}}
+## Fugitive; Local Log Viewer
+#[[plugins]]
+#repo = 'int3/vim-extradite' #{{{
+## Note: Enough w/ coc.nvim
+## Also provides diff viewer.
+#on_event = ['BufRead']
+#hook_post_source = 'runtime extradite.vimrc'
+##}}}
+## Fugitive; Log Wrapper
+#[[plugins]]
+#repo = 'rbong/vim-flog' #{{{
+#on_event = ['BufRead']
+#hook_post_source = 'runtime flog.vimrc'
+#}}}
+## Fugitive; Diff Wrapper
+#[[plugins]]
+#repo = 'arkwright/vim-manhunt' #{{{
+#on_event = 'BufRead'
+#hook_post_source = 'runtime manhunt.vimrc'
+##}}}
+#[[plugins]]
+#repo = 'junegunn/gv.vim' #{{{
+#type = 'git'
+#on_ft = ['fugitive', 'gitcommit', 'git']
+#hook_post_source = 'runtime gv.vimrc'
+##}}}
+#[[plugins]]
+#repo = 'rhysd/committia.vim' #{{{
+#type = 'git'
+#on_ft = ['fugitive', 'gitcommit', 'git']
+##on_source = 'vim-fugitive'
+#hook_post_source = 'runtime committia.vimrc'
+##}}}
+
+#[[plugins]]
+#repo = 'airblade/vim-gitgutter' #{{{
+## enough only with coc.nvim & fugitive.vim?
+#type = 'git'
+#on_event = 'BufRead'
+#hook_post_source = 'runtime gitgutter.vimrc'
+##}}}
+#[[plugins]]
+#repo = 'lambdalisue/gina.vim' #{{{
+#on_event = ['BufWritePost']
+#hook_post_source = 'runtime gina.vimrc'
+##}}}
