@@ -103,21 +103,22 @@ endfunction
 nmap [c <Plug>(coc-git-prevchunk)
 nmap ]c <Plug>(coc-git-nextchunk)
 " show chunk diff at current position
-nmap gs <Plug>(coc-git-chunkinfo)
+nmap gC <Plug>(coc-git-chunkinfo)
 " CocList; {{{1
-command! MksessionCoc   :CocCommand session.save
-command! SaveSessionCoc :CocCommand session.save
-command! LoadSessionCoc :CocCommand session.load
-cnoreabbr <expr> mks (getcmdtype() == ':' && getcmdline() =~ '^mks$')? 'MksessionCoc' : 'mks'
-cnoreabbr <expr> lds (getcmdtype() == ':' && getcmdline() =~ '^lds$')? 'LoadSessionCoc' : 'lds'
-
+cnoreabbr <expr> coc (getcmdtype() == ':' && getcmdline() =~ '^coc$')? 'CocList' : 'coc'
 " show commit contains current position
 noremap <silent> qp         :CocList yank<cr>
 noremap <silent> <a-c><a-c> :CocList<cr>
 noremap <silent> <a-c><a-f> :CocList files<cr>
 noremap <silent> <a-c><a-b> :CocList buffers<cr><M-k>
-
-"nnoremap <silent> <a-i> :<c-u>botleft vert sp \| CocList outline<cr>
+" CocList; Session {{{1
+command! MksessionCoc   :CocCommand session.save
+command! SaveSessionCoc :CocCommand session.save
+command! LoadSessionCoc :CocCommand session.load
+cnoreabbr <expr> mks (getcmdtype() == ':' && getcmdline() =~ '^mks$')? 'MksessionCoc' : 'mks'
+cnoreabbr <expr> lds (getcmdtype() == ':' && getcmdline() =~ '^lds$')? 'LoadSessionCoc' : 'lds'
+" CocList; Diagnostic {{{1
+" Note: Unnecessary? pop up auto.
 "map gC <Plug>(coc-diagnostic-info)
 "<Plug>(coc-diagnostic-next) 
 "<Plug>(coc-diagnostic-prev) 
@@ -175,12 +176,19 @@ xmap <silent><expr> <c-w><space>r (CocAction('jumpReferences'))? '<c-w>v<c-w>T<P
 nmap <silent><expr> <c-w><space>R (CocAction('jumpImplementation'))? '<c-w>v<c-w>T<Plug>(coc-implementation)' : '<c-w><space>R'
 xmap <silent><expr> <c-w><space>R (CocAction('jumpImplementation'))? '<c-w>v<c-w>T<Plug>(coc-implementation)' : '<c-w><space>R'
 "}}}
-
+" CocList; Format {{{1
 "<Plug>(coc-format-selected) 
 "<Plug>(coc-format) 
+" CocList; Rename {{{1
 " Change Name
 nmap cn <Plug>(coc-rename)
 xmap cn <Plug>(coc-rename)
+" CocList; Text-Object {{{1
+vmap if <Plug>(coc-funcobj-i)
+vmap if <Plug>(coc-funcobj-a)
+omap if <Plug>(coc-funcobj-i)
+omap if <Plug>(coc-funcobj-a)
+" CocList; Not Yet Mapped {{{1
 "<Plug>(coc-codeaction) 
 "<Plug>(coc-codeaction-selected) 
 "
@@ -194,25 +202,11 @@ xmap cn <Plug>(coc-rename)
 "
 "<Plug>(coc-refactor) 
 "<Plug>(coc-range-select) 
-"<Plug>(coc-range-select) 
 "<Plug>(coc-range-select-backward) 
 
-" Keymap; Text-Object
-vmap if <Plug>(coc-funcobj-i)
-vmap if <Plug>(coc-funcobj-a)
-omap if <Plug>(coc-funcobj-i)
-omap if <Plug>(coc-funcobj-a)
-
-" CocSnippet; {{{1
-"nmap <a-s><a-p> :CocCommand snippets.editSnippets<cr>
-"" Trigger Just Snippets; <tab> to General Completion
-"imap <C-s> <Plug>(coc-snippets-expand)
-"vmap <C-s> <Plug>(coc-snippets-select)
-"imap <C-s> <Plug>(coc-snippets-expand-jump)
 " CocCompletion; {{{1
 " Necessary?: closes mpreview vindow when completion is done.
 "au! CompleteDone * if pumvisible() == 0 | pclose | endif
-
 "inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<CR>"
 "" Completion; Trigger {{{2
 inoremap <silent><expr> <c-n>
@@ -227,3 +221,10 @@ function! s:make_sure_no_space() abort "{{{3
   let col = col('.') - 1
   return !col || getline('.')[col - 1] =~# '\s'
 endfunction
+" CocSnippet; Do NOT use it {{{1
+" TODO: Assign the dir where snippets will be saved.
+"nmap <a-s><a-p> :CocCommand snippets.editSnippets<cr>
+"" Trigger Just Snippets; <tab> to General Completion
+"imap <C-s> <Plug>(coc-snippets-expand)
+"vmap <C-s> <Plug>(coc-snippets-select)
+"imap <C-s> <Plug>(coc-snippets-expand-jump)
