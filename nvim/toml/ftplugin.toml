@@ -46,8 +46,8 @@ on_event = 'BufRead'
 hook_add = 'runtime! closetag.vimrc'
 on_ft = ['html', 'javascript']
 hook_add = '''
-  let g:cloesetag_filenames = '*.html,*.vue'
-  '''
+let g:cloesetag_filenames = '*.html,*.vue'
+'''
 #}}}
 #[[plugins]]
 #repo = 'freitass/todo.txt-vim' #{{{
@@ -80,8 +80,14 @@ on_ft = 'tmux'
 
 # for External;
 # 13-wm
+#[[plugins]]
+#repo = 'mboughaba/i3config.vim' #{{{
+## Note: No enough Syntax Configured yet
+#on_ft = 'i3'
+##}}}
 [[plugins]]
 repo = 'PotatoesMaster/i3-vim-syntax' #{{{
+# CAUTION: Not Maintained Anymore
 on_ft = 'i3'
 #}}}
 
