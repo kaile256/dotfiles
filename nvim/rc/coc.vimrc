@@ -1,7 +1,6 @@
 " From: tool.toml
-" Help: coc-
-" Repo: neoclide/coc.nvim
 " Branch: neoclide/coc.nvim_release
+" Repo: neoclide/coc.nvim
 
 augroup CocMyAutoConf
   au!
@@ -105,20 +104,24 @@ nmap ]c <Plug>(coc-git-nextchunk)
 " show chunk diff at current position
 nmap gs <Plug>(coc-git-chunkinfo)
 " CocList; {{{1
+command! MksessionCoc   :CocCommand session.save
+command! SaveSessionCoc :CocCommand session.save
+command! LoadSessionCoc :CocCommand session.load
+cnoreabbr <expr> mks (getcmdtype() == ':' && getcmdline() =~ '^mks$')? 'MksessionCoc' : 'mks'
+cnoreabbr <expr> lds (getcmdtype() == ':' && getcmdline() =~ '^lds$')? 'LoadSessionCoc' : 'lds'
+
 " show commit contains current position
-noremap <silent> qp :CocList yank<cr>
+noremap <silent> qp         :CocList yank<cr>
 noremap <silent> <a-c><a-c> :CocList<cr>
 noremap <silent> <a-c><a-f> :CocList files<cr>
 noremap <silent> <a-c><a-b> :CocList buffers<cr><M-k>
 
 "nnoremap <silent> <a-i> :<c-u>botleft vert sp \| CocList outline<cr>
-
 "map gC <Plug>(coc-diagnostic-info)
 "<Plug>(coc-diagnostic-next) 
 "<Plug>(coc-diagnostic-prev) 
 "<Plug>(coc-diagnostic-next-error) 
 "<Plug>(coc-diagnostic-prev-error) 
-
 "" Jump; as :edit {{{2
 nmap <silent> gd <Plug>(coc-definition)
 xmap <silent> gd <Plug>(coc-definition)
@@ -128,8 +131,8 @@ nmap <silent> gG <Plug>(coc-implementation)
 xmap <silent> gG <Plug>(coc-implementation) 
 nmap <silent> gy <Plug>(coc-type-definition) 
 xmap <silent> gy <Plug>(coc-type-definition) 
-nmap <silent> gR <Plug>(coc-references) 
-xmap <silent> gR <Plug>(coc-references) 
+nmap <silent> gr <Plug>(coc-references) 
+xmap <silent> gr <Plug>(coc-references) 
 "" Jump; as :vsplit {{{2
 nmap <silent> <c-w>d <c-w>v<Plug>(coc-definition)
 xmap <silent> <c-w>d <c-w>v<Plug>(coc-definition)
@@ -139,8 +142,8 @@ nmap <silent> <c-w>G <c-w>v<Plug>(coc-implementation)
 xmap <silent> <c-w>G <c-w>v<Plug>(coc-implementation) 
 nmap <silent> <c-w>y <c-w>v<Plug>(coc-type-definition) 
 xmap <silent> <c-w>y <c-w>v<Plug>(coc-type-definition) 
-nmap <silent> <c-w>R <c-w>v<Plug>(coc-references) 
-xmap <silent> <c-w>R <c-w>v<Plug>(coc-references) 
+nmap <silent> <c-w>r <c-w>v<Plug>(coc-references) 
+xmap <silent> <c-w>r <c-w>v<Plug>(coc-references) 
 "" Jump; as :split {{{2
 nmap <silent> <c-w>gd <c-w>s<Plug>(coc-definition)
 xmap <silent> <c-w>gd <c-w>s<Plug>(coc-definition)
@@ -150,8 +153,8 @@ nmap <silent> <c-w>gG <c-w>s<Plug>(coc-implementation)
 xmap <silent> <c-w>gG <c-w>s<Plug>(coc-implementation) 
 nmap <silent> <c-w>gy <c-w>s<Plug>(coc-type-definition) 
 xmap <silent> <c-w>gy <c-w>s<Plug>(coc-type-definition) 
-nmap <silent> <c-w>gR <c-w>s<Plug>(coc-references) 
-xmap <silent> <c-w>gR <c-w>s<Plug>(coc-references) 
+nmap <silent> <c-w>gr <c-w>s<Plug>(coc-references) 
+xmap <silent> <c-w>gr <c-w>s<Plug>(coc-references) 
 "" Jump; as :tabe {{{2
 nmap <silent> <c-w><space>d <c-w>v<c-w>T<Plug>(coc-definition)
 xmap <silent> <c-w><space>d <c-w>v<c-w>T<Plug>(coc-definition)
@@ -161,8 +164,8 @@ nmap <silent> <c-w><space>G <c-w>v<c-w>T<Plug>(coc-implementation)
 xmap <silent> <c-w><space>G <c-w>v<c-w>T<Plug>(coc-implementation) 
 nmap <silent> <c-w><space>y <c-w>v<c-w>T<Plug>(coc-type-definition) 
 xmap <silent> <c-w><space>y <c-w>v<c-w>T<Plug>(coc-type-definition) 
-nmap <silent> <c-w><space>R <c-w>v<c-w>T<Plug>(coc-references) 
-xmap <silent> <c-w><space>R <c-w>v<c-w>T<Plug>(coc-references) 
+nmap <silent> <c-w><space>r <c-w>v<c-w>T<Plug>(coc-references) 
+xmap <silent> <c-w><space>r <c-w>v<c-w>T<Plug>(coc-references) 
 "}}}
 
 "<Plug>(coc-format-selected) 
