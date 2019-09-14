@@ -19,18 +19,19 @@ on_cmd = 'Calendar'
 hook_post_source = 'runtime calendar.vimrc'
 #}}}
 
-# Service; Pocket
+# API;
 [[plugins]]
 repo = 'mattn/webapi-vim'
 #on_map = ['Pocket']
 on_event = ['BufRead']
 hook_add = 'runtime webapi.vimrc'
+# API; Pocket
 [[plugins]]
 repo = 'soramugi/pocket.vim'
 #on_map = 'Pocket'
 on_event = ['BufRead']
 hook_add = 'runtime pocket.vimrc'
-# Service; Twitter
+# API; Twitter
 [[plugins]]
 repo = 'basyura/TweetVim' #{{{
 on_event = 'CmdlineEnter'
@@ -40,4 +41,12 @@ hook_post_source = 'runtime tweetvim.vimrc'
 repo = 'basyura/twibill.vim' # {{{
 on_event = 'CmdlineEnter'
 hook_post_source = 'runtime twibill.vimrc'
+#}}}
+
+[[plugins]]
+repo = 'wakatime/vim-wakatime' #{{{
+# tracking service for coding activity.
+on_cmd = 'WakaTime'
+on_cmd = 'OpenBrowser'
+hook_add = 'runtime wakatime.vimrc'
 #}}}
