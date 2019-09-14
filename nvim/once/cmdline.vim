@@ -1,15 +1,13 @@
 " From: init.vim
 
-" Keymap; Emacs-like {{{
+" Keymap; Emacs-like {{{1
 cnoremap <c-a> <home>
 cnoremap <a-f> <S-right>
 cnoremap <c-f> <right>
 cnoremap <c-b> <left>
 cnoremap <a-b> <S-left>
 cnoremap <c-d> <Del>
-"}}}
-
-"augroup AutoMkdirSuggestionOnSave "{{{
+"augroup AutoMkdirSuggestionOnSave "{{{1
 "  au!
 "  function! s:auto_suggest_mkdir(dir, force) "{{{
 "    if !isdirectory(a:dir) && (a:force ||
@@ -18,7 +16,8 @@ cnoremap <c-d> <Del>
 "    endif
 "  endfunction "}}}
 "  au BufWritePre * call <SID>auto_suggest_mkdir(expand('<afile>:p:h'), v:cmdbang)
-"augroup END "}}}
+"augroup END
+"}}}
 
 " Abbr; 
 " Abbr; rm https://foo/bar {{{1
@@ -45,35 +44,27 @@ function! s:call_vint() abort
   if &ft ==# 'vim'
     !vint %:p
   endif
-endfunction "}}}
-" Abbr; for vimdiff {{{
+endfunction
+" Abbr; for vimdiff {{{1
 cnoreabbr <expr> dth (getcmdtype() == ':' && getcmdline() =~ '^dth$')? 'diffthis' : 'dth'
 cnoreabbr <expr> dof (getcmdtype() == ':' && getcmdline() =~ '^dof$')? 'diffoff!' : 'dof'
-"}}}
-" Abbr; Echo file Status {{{
-"cnoreabbr <expr> es (getcmdtype() == ':' && getcmdline() =~ '^es$')? 'call <SID>echo_file_info()' : 'es'
-"}}}
-" Abbr; Before Typo {{{
+" Abbr; Before Typo {{{1
 cnoreabbr <expr> man (getcmdtype() == ':' && getcmdline() =~ '^man$')? 'Man' : 'man'
 "}}}
-" Abbr; for :!vint {{{
+" Abbr; for :!vint {{{1
 cnoreabbr <expr> vin (getcmdtype() == ':' && getcmdline() =~ '^vin$')? "!vint %:p" : 'vin'
-"}}}
-" Abbr; :checkhealth {{{
+" Abbr; :checkhealth {{{1
 cnoreabbr <expr> ch (getcmdtype() == ':' && getcmdline() =~ '^ch$')? 'checkhealth <bar> setl bt=quickfix' : 'ch'
-"}}}
-" Abbr; :source {{{
+" Abbr; :source {{{1
 cnoreabbr <expr> sj (getcmdtype() == ':' && getcmdline() =~ '^sj$')? 'so % <bar> echo " Sourced! \--" @%' : 'sj'
 cnoreabbr <expr> ss (getcmdtype() == ':' && getcmdline() =~ '^ss$')? 'so % <bar> echo " Sourced! \--" @%' : 'ss'
 cnoreabbr <expr> sss (getcmdtype() == ':' && getcmdline() =~ '^sss$')? 'so % <bar> echo " Sourced! \--" @%' : 'sss'
-"}}}
-" Abbr; :help {{{
+" Abbr; :help {{{1
 cnoreabbr <expr> hb (getcmdtype() == ':' && getcmdline() =~ '^hb$')? 'tab help' : 'h'
 cnoreabbr <expr> bh (getcmdtype() == ':' && getcmdline() =~ '^bh$')? 'tab help' : 'h'
 cnoreabbr <expr> hv (getcmdtype() == ':' && getcmdline() =~ '^hv$')? 'vert bel help' : 'h'
 cnoreabbr <expr> vh (getcmdtype() == ':' && getcmdline() =~ '^vh$')? 'vert bel help' : 'h'
-"}}}
-" Abbr; Open tmp.vim {{{
+" Abbr; Open tmp.vim {{{1
 " TODO: add the time on tmpfile name via `:exe`.
 cnoreabbr <expr> tmp (getcmdtype() == ':' && getcmdline() =~ '^tmp$')? 'e ~/.tmp/tmp.vim' : 'tmp'
 cnoreabbr <expr> stm (getcmdtype() == ':' && getcmdline() =~ '^stm$')? 'sp ~/.tmp/tmp.vim' : 'stm'
@@ -82,10 +73,8 @@ cnoreabbr <expr> vtm (getcmdtype() == ':' && getcmdline() =~ '^vtm$')? 'vs ~/.tm
 cnoreabbr <expr> tmv (getcmdtype() == ':' && getcmdline() =~ '^tmv$')? 'vs ~/.tmp/tmp.vim' : 'tmv'
 cnoreabbr <expr> btm (getcmdtype() == ':' && getcmdline() =~ '^btm$')? 'tabe ~/.tmp/tmp.vim' : 'btm'
 cnoreabbr <expr> tmb (getcmdtype() == ':' && getcmdline() =~ '^tmb$')? 'tabe ~/.tmp/tmp.vim' : 'tmb'
-"}}}
-" Abbr; FoldMethod {{{
+" Abbr; FoldMethod {{{1
 cnoreabbr <expr> ma  (getcmdtype() == ':' && getcmdline() =~ '^se fdm=ma$')?  'marker' : 'ma'
 cnoreabbr <expr> mar (getcmdtype() == ':' && getcmdline() =~ '^se fdm=mar$')? 'marker' : 'mar'
 cnoreabbr <expr> sy  (getcmdtype() == ':' && getcmdline() =~ '^se fdm=sy$')?  'syntax' : 'sy'
 cnoreabbr <expr> syn (getcmdtype() == ':' && getcmdline() =~ '^se fdm=syn$')? 'syntax' : 'syn'
-"}}}
