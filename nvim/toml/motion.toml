@@ -44,11 +44,13 @@ hook_add = 'runtime easyoperator.vimrc'
 #}}}
 
 # Operater; Comment out
-[[plugins]]
-repo = 'tomtom/tcomment_vim'
-on_map = 'BufRead'
-#on_map = ':TComment'
-hook_add = 'runtime tcomment.vimrc'
+#[[plugins]]
+#repo = 'tomtom/tcomment_vim' #{{{
+## Error: dein map `BufRead` on tcomment.
+#on_map = 'BufRead'
+##on_map = ':TComment'
+#hook_add = 'runtime tcomment.vimrc'
+##}}}
 #[[plugins]]
 #repo = 'tyru/caw.vim' #{{{
 ## operater to comment out
@@ -63,6 +65,10 @@ hook_add = 'runtime tcomment.vimrc'
 ##}}}
 
 # Operater; Arrangement
+[[plugins]]
+repo = 'machakann/vim-swap'
+on_map = '<Plug>(swap-'
+hook_add = 'runtime swap.vimrc'
 [[plugins]]
 repo = 'junegunn/vim-easy-align' #{{{
 on_map = ['<Plug>(EasyAlign)', '<Plug>(LiveEasyAlign)']
@@ -93,9 +99,10 @@ hook_add = 'runtime sandwich.vimrc'
 ##}}}
 
 #[[plugins]]
-#repo = 'tommcdo/vim-express'
+#repo = 'tommcdo/vim-express' #{{{
 #on_event = 'VimEnter'
 #hook_post_source = 'runtime express.vimrc'
+##}}}
 
 #[[plugins]]
 #repo = 'kana/vim-textobj-user' #{{{
