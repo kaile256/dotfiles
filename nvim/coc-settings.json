@@ -3,6 +3,7 @@
 	"signature.triggerSignatureWait": 300,
 	"suggest.autoTrigger": "always",
 	"suggest.acceptSuggestionOnCommitCharacter": true,
+	"suggest.enablePreview":true,
 	"suggest.floatEnable": true,
 	"suggest.noselect": true,
 	"suggest.timeout": 500,
@@ -75,7 +76,12 @@
 		"<c-v>": "action:vsplit",
 		"<c-s>": "action:split"
 	},
+
+	"yank.highlight.enable": true,
 	"yank.enableCompletion": false,
+	"yank.list.maxsize": 150,
+	"yank.limit": 200,
+
 	"json.format.enable": false,
 	"vimlsp.debug": false,
 	"vimlsp.diagnostic.enable": true,
