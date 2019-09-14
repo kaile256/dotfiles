@@ -130,3 +130,7 @@ hook_post_source = 'runtime themis.vimrc'
 repo = 'tweekmonster/helpful.vim'
 on_cmd = 'HelpfulVersion'
 hook_add = 'runtime helpful.vimrc'
+
+[[plugins]]
+repo = 'thinca/vim-scouter'
+on_cmd = 'Scouter'
