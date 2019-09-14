@@ -1,4 +1,8 @@
-" From: tool.toml
+" From: insert.toml
+
+" 'cpsm' also sorts the candidates using cpsm.
+call deoplete#custom#source('_', 'matchers', ['matcher_cpsm'])
+call deoplete#custom#source('_', 'sorters', [])
 
 " Pass a dictionary to set multiple options
 call deoplete#custom#option({
