@@ -1,8 +1,8 @@
 scriptencoding utf-8
-" ERORR: 'g:lightline' is undefined.
-" From: Init.toml
-
-let g:lightline.colorscheme = 'wombat'
+" From: appearance.toml
+" FAQ: 'g:lightline' is undefined; Define on top itself as a dict.
+let g:lightline = {}
+let g:lightline.colorscheme = ''
 
       "\ 'left': [ [ 'mode', 'paste' ], [ 'fugitive', 'filename' ] ]
 let g:lightline.active = {
@@ -13,29 +13,16 @@ let g:lightline.active = {
 let g:lightline.component_function = {
       \ 'cocstatus':    'coc#status',
       \
-      \ 'modified':     'LightlineModified',
-      \ 'readonly':     'LightlineReadonly',
-      \ 'fugitive':     'LightlineFugitive',
-      \ 'filename':     'LightlineFFilename',
-      \ 'fileformat':   'LightlineFileformat',
-      \ 'filetype':     'LightlineFiletype',
-      \ 'fileencofing': 'LightlineFileencoding',
-      \ 'mode':         'LightlineMode'
+      \ 'modified':     "&ft ==# 'help'||'defx' ? '' : &modified ? '+' : &modifiable ? '' : '-'",
+      \ 'readonly':     "&ft !=# 'help'||'defx' && &readonly ? 'x' : '-'",
+      \ 'filename':     "( '' !=# readonly() ? readonly() . ' ' : '' )",
+      \ 'fileformat':   "s:lightline_fileformat",
+      \ 'filetype':     "s:lightline_filetype",
+      \ 'fileencofing': "s:lightline_fileencoding",
+      \ 'mode':         "s:lightline_mode"
       \ }
 
-function! LightlineModified()
-  return &ft ==# 'help\|defx' ? '' : &modified ? '+' : &modifiable ? '' : '-'
-endfunction
-
-function! LightlineReadonly()
-  return &ft !=# 'help\|defx' && &readonly ? 'x' : '-'
-endfunction
-
-function! LightlineFilename()
-  return ( '' !=# LightlineReadonly() ? LightlineReadonly() . ' ' : '' )
-endfunction
-
-function! LightlineFugitive()
+function! s:lightline_fugitive()
   if &ft ==# 'defx' && exists('fugitive#head')
     return fugitive#head()
   else
