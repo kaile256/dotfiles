@@ -208,25 +208,23 @@ set incsearch hlsearch nowrapscan
 " fold all lines unmatched on {pattern}.
 " CAUTION: foldable is apt to collapse format.
 
-function! s:tellme_register_name()
+function! s:tellme_register_name() "{{{1
+  let l:contents = string(v:event.regcontents)
   if v:event.regtype ==# 'v'
-    echomsg ' The operator was character-wise.'
+    echomsg ' Selected in Characterwise: ' . l:contents
   elseif v:event.regtype ==# 'V'
-    echomsg ' The operator was line-wise.'
+    echomsg ' Selected in Line: ' . l:contents
   elseif v:event.regtype =~# ''
-    echomsg ' The operator was block-wise.'
+    echomsg ' Selected in Block: ' . l:contents
   else
-    echomsg ' The operator was tried in an unknown way.'
+    echomsg ' Selected in an Unknown way: ' . l:contents
   endif
-endfunction
+endfunction "}}}
 augroup TellerOperatorInfo
   au!
-  " tells the operator's initial
-  "au TextYankPost * echomsg v:event.operator
-  " show a line of the contents that the register has.
-  "au TextYankPost * echomsg string(v:event.regcontents)
-  " tells which register is just used if it's NOT the 'unnamed' register.
   au TextYankPost * call <SID>tellme_register_name()
-  "" which register is now specified (:help getregtype())
-  "au TextYankPost * echomsg v:event.regtype
+  " v:event.operator: the operator's name in initial
+  " string(v:event.regcontents): the lines of the contents that the register got in list.
+  " v:event.regname: the register just used if it's NOT the 'unnamed' register.
+  " v:event.regtype: register is now specified (:help getregtype())
 augroup END
