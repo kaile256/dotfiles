@@ -145,8 +145,8 @@ nmap <silent> gd <Plug>(coc-definition)zz
 xmap <silent> gd <Plug>(coc-definition)zz
 nmap <silent> gD <Plug>(coc-declaration)zz
 xmap <silent> gD <Plug>(coc-declaration)zz
-nmap <silent> gG <Plug>(coc-implementation)
-xmap <silent> gG <Plug>(coc-implementation)
+nmap <silent> gI <Plug>(coc-implementation)
+xmap <silent> gI <Plug>(coc-implementation)
 nmap <silent> gy <Plug>(coc-type-definition)
 xmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gr <Plug>(coc-references)
@@ -156,8 +156,8 @@ nmap <silent><expr> <c-w>d (CocAction('jumpDefinition'))? '<c-w>v<Plug>(coc-defi
 xmap <silent><expr> <c-w>d (CocAction('jumpDefinition'))? '<c-w>v<Plug>(coc-definition)zz' : '<c-w>d'
 nmap <silent><expr> <c-w>D (CocAction('jumpDeclaration'))? '<c-w>v<Plug>(coc-declaration)zz' : '<c-w>D'
 xmap <silent><expr> <c-w>D (CocAction('jumpDeclaration'))? '<c-w>v<Plug>(coc-declaration)zz' : '<c-w>D'
-nmap <silent><expr> <c-w>G (CocAction('jumpImplementation'))? '<c-w>v<Plug>(coc-implementation)' : '<c-w>G'
-xmap <silent><expr> <c-w>G (CocAction('jumpImplementation'))? '<c-w>v<Plug>(coc-implementation)' : '<c-w>G'
+nmap <silent><expr> <c-w>I (CocAction('jumpImplementation'))? '<c-w>v<Plug>(coc-implementation)' : '<c-w>I'
+xmap <silent><expr> <c-w>I (CocAction('jumpImplementation'))? '<c-w>v<Plug>(coc-implementation)' : '<c-w>I'
 nmap <silent><expr> <c-w>y (CocAction('jumpTypeDefinition'))? '<c-w>v<Plug>(coc-type-definition)' : '<c-w>y'
 xmap <silent><expr> <c-w>y (CocAction('jumpTypeDefinition'))? '<c-w>v<Plug>(coc-type-definition)' : '<c-w>y'
 nmap <silent><expr> <c-w>r (CocAction('jumpReferences'))? '<c-w>v<Plug>(coc-references)' : '<c-w>r'
@@ -169,8 +169,8 @@ nmap <silent><expr> <c-w>gd (CocAction('jumpDefinition'))? '<c-w>s<Plug>(coc-def
 xmap <silent><expr> <c-w>gd (CocAction('jumpDefinition'))? '<c-w>s<Plug>(coc-definition)zz' : '<c-w>gd'
 nmap <silent><expr> <c-w>gD (CocAction('jumpDeclaration'))? '<c-w>s<Plug>(coc-declaration)zz' : '<c-w>gD'
 xmap <silent><expr> <c-w>gD (CocAction('jumpDeclaration'))? '<c-w>s<Plug>(coc-declaration)zz' : '<c-w>gD'
-nmap <silent><expr> <c-w>gG (CocAction('jumpImplementation'))? '<c-w>s<Plug>(coc-implementation)' : '<c-w>gG'
-xmap <silent><expr> <c-w>gG (CocAction('jumpImplementation'))? '<c-w>s<Plug>(coc-implementation)' : '<c-w>gG'
+nmap <silent><expr> <c-w>gI (CocAction('jumpImplementation'))? '<c-w>s<Plug>(coc-implementation)' : '<c-w>gI'
+xmap <silent><expr> <c-w>gI (CocAction('jumpImplementation'))? '<c-w>s<Plug>(coc-implementation)' : '<c-w>gI'
 nmap <silent><expr> <c-w>gy (CocAction('jumpTypeDefinition'))? '<c-w>s<Plug>(coc-type-definition)' : '<c-w>gy'
 xmap <silent><expr> <c-w>gy (CocAction('jumpTypeDefinition'))? '<c-w>s<Plug>(coc-type-definition)' : '<c-w>gy'
 nmap <silent><expr> <c-w>gr (CocAction('jumpReferences'))? '<c-w>s<Plug>(coc-references)' : '<c-w>gr'
@@ -182,8 +182,8 @@ nmap <silent><expr> <c-w><space>d (CocAction('jumpDefinition'))? '<c-w>v<c-w>T<P
 xmap <silent><expr> <c-w><space>d (CocAction('jumpDefinition'))? '<c-w>v<c-w>T<Plug>(coc-definition)zz' : '<c-w><space>d'
 nmap <silent><expr> <c-w><space>D (CocAction('jumpDeclaration'))? '<c-w>v<c-w>T<Plug>(coc-declaration)zz' : '<c-w><space>D'
 xmap <silent><expr> <c-w><space>D (CocAction('jumpDeclaration'))? '<c-w>v<c-w>T<Plug>(coc-declaration)zz' : '<c-w><space>D'
-nmap <silent><expr> <c-w><space>G (CocAction('jumpImplementation'))? '<c-w>v<c-w>T<Plug>(coc-implementation)' : '<c-w><space>G'
-xmap <silent><expr> <c-w><space>G (CocAction('jumpImplementation'))? '<c-w>v<c-w>T<Plug>(coc-implementation)' : '<c-w><space>G'
+nmap <silent><expr> <c-w><space>I (CocAction('jumpImplementation'))? '<c-w>v<c-w>T<Plug>(coc-implementation)' : '<c-w><space>I'
+xmap <silent><expr> <c-w><space>I (CocAction('jumpImplementation'))? '<c-w>v<c-w>T<Plug>(coc-implementation)' : '<c-w><space>I'
 nmap <silent><expr> <c-w><space>y (CocAction('jumpTypeDefinition'))? '<c-w>v<c-w>T<Plug>(coc-type-definition)' : '<c-w><space>y'
 xmap <silent><expr> <c-w><space>y (CocAction('jumpTypeDefinition'))? '<c-w>v<c-w>T<Plug>(coc-type-definition)' : '<c-w><space>y'
 nmap <silent><expr> <c-w><space>r (CocAction('jumpReferences'))? '<c-w>v<c-w>T<Plug>(coc-references)' : '<c-w><space>r'
