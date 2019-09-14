@@ -118,10 +118,10 @@ settings:
         <Ctrl+m>: fake-key <Enter>
         <Ctrl+n>: fake-key <Down>
         <Ctrl+p>: fake-key <Up>
-        <Ctrl+r>0: insert {primary}
-        <Ctrl+r><Ctrl+0>: insert {primary}
-        <Ctrl+r><Ctrl+Space>: insert {clipboard}
-        <Ctrl+r><Space>: insert {clipboard}
+        <Ctrl+r>0: insert-text {primary}
+        <Ctrl+r><Ctrl+0>: insert-text {primary}
+        <Ctrl+r><Ctrl+Space>: insert-text {clipboard}
+        <Ctrl+r><Space>: insert-text {clipboard}
         <Ctrl+u>: fake-key <shift-home><Delete>
         <Ctrl+w>: fake-key <ctrl-backspace>
         <Ctrl+y>: insert-text {primary}
@@ -352,3 +352,5 @@ settings:
       th: https://www.freethesaurus.com/{}
       tw: http://twitter.com/search/{}
       wk: http://en.wikipedia.org/wiki/{}
+  url.start_pages:
+    global: qute://history/
