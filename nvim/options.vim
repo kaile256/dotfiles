@@ -1,6 +1,7 @@
 scriptencoding utf-8
 " From: init.vim
 
+set synmaxcol=320
 " Appearance; Blend {{{
 if exists('&pumblend')
   set pumblend=30
@@ -206,3 +207,26 @@ set noignorecase
 set incsearch hlsearch nowrapscan
 " fold all lines unmatched on {pattern}.
 " CAUTION: foldable is apt to collapse format.
+
+function! s:tellme_register_name()
+  if v:event.regtype ==# 'v'
+    echomsg ' The operator was character-wise.'
+  elseif v:event.regtype ==# 'V'
+    echomsg ' The operator was line-wise.'
+  elseif v:event.regtype =~# ''
+    echomsg ' The operator was block-wise.'
+  else
+    echomsg ' The operator was tried in an unknown way.'
+  endif
+endfunction
+augroup TellerOperatorInfo
+  au!
+  " tells the operator's initial
+  "au TextYankPost * echomsg v:event.operator
+  " show a line of the contents that the register has.
+  "au TextYankPost * echomsg string(v:event.regcontents)
+  " tells which register is just used if it's NOT the 'unnamed' register.
+  au TextYankPost * call <SID>tellme_register_name()
+  "" which register is now specified (:help getregtype())
+  "au TextYankPost * echomsg v:event.regtype
+augroup END
