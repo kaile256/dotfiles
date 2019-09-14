@@ -208,21 +208,35 @@ set incsearch hlsearch nowrapscan
 " fold all lines unmatched on {pattern}.
 " CAUTION: foldable is apt to collapse format.
 
-function! s:tellme_register_name() "{{{1
+function! s:tellme_operator_info() "{{{1
+  " Assign to the values {{{2
   let l:contents = string(v:event.regcontents)
-  if v:event.regtype ==# 'v'
-    echomsg ' Selected in Characterwise: ' . l:contents
-  elseif v:event.regtype ==# 'V'
-    echomsg ' Selected in Line: ' . l:contents
-  elseif v:event.regtype =~# ''
-    echomsg ' Selected in Block: ' . l:contents
+  if v:event.operator ==# 'y'
+    let l:operator = 'Yanked'
+  elseif v:event.operator ==# 'd'
+    let l:operator = 'Deleted'
+  elseif v:event.operator ==# 'c'
+    let l:operator = 'Changed'
+  elseif v:event.operator ==# ''
+    let l:operator = 'Done'
   else
-    echomsg ' Selected in an Unknown way: ' . l:contents
+    let l:operator = v:event.operator
+  endif
+  "}}}2
+  " Echo info
+  if v:event.regtype ==# 'v'
+    echomsg ' '. l:operator .' in Characterwise: ' . l:contents
+  elseif v:event.regtype ==# 'V'
+    echomsg ' '. l:operator .' in Line: ' . l:contents
+  elseif v:event.regtype =~# ''
+    echomsg ' '. l:operator .' in Block: ' . l:contents
+  else
+    echomsg ' '. l:operator .' in an Unknown way: ' . l:contents
   endif
 endfunction "}}}
 augroup TellerOperatorInfo
   au!
-  au TextYankPost * call <SID>tellme_register_name()
+  au TextYankPost * call <SID>tellme_operator_info()
   " v:event.operator: the operator's name in initial
   " string(v:event.regcontents): the lines of the contents that the register got in list.
   " v:event.regname: the register just used if it's NOT the 'unnamed' register.
