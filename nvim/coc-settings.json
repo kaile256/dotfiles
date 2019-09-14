@@ -87,7 +87,11 @@
 	"yank.list.maxsize": 150,
 	"yank.limit": 200,
 
+	// Update only on save.
+	"git.realtimeGutters": false,
+
 	"json.format.enable": false,
+
 	"vimlsp.debug": false,
 	"vimlsp.diagnostic.enable": true,
 	"vimlsp.indexes.runtimepath": false,
