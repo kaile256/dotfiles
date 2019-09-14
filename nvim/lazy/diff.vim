@@ -3,6 +3,13 @@
 set diffopt=iwhite,vertical
 setl wrap
 
+" Note: some syntax have no reproducibility.
+"let s:colorscheme = g:colors_name
+"colorscheme gruvbox
+"augroup DiffMyAutoConf
+"au! BufWinLeave,BufLeave * exe 'colorscheme ' . s:colorscheme
+"augroup END
+
 nnoremap <buffer><silent> dq :diffoff!<cr>
 " Put/Get only selected lines.
 xnoremap <buffer><silent> dp :diffput<cr>
