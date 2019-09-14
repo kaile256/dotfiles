@@ -1,4 +1,5 @@
-" From Init.toml
+" From: Init.toml
+" Repo: KeitaNakamura/neodark.vim
 
 let g:neodark#use_256color    = 1 " default: 0
 let g:neodark#italic          = 1 " default: 0
