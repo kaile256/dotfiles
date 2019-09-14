@@ -4,9 +4,10 @@
 [[plugins]]
 repo = 'tyru/eskk.vim' #{{{
 # Note: dein doesn't source eskk.vim on non-lazy though sourcing vimrc.
+# Note: on_map = '<Plug>' neither fails to work.
 # TODO: Do NEVER source eskk on gnvim/nvim-qt.
-on_event = ['InsertCharPre', 'InsertEnter', 'CmdlineEnter']
-hook_post_source = 'runtime eskk.vimrc'
+on_event = ['InsertEnter', 'CmdlineEnter']
+hook_add = 'runtime eskk.vimrc'
 [[plugins]]
 # Syntax Files for skkdict.
 repo = 'tyru/skkdict.vim' #{{{
@@ -14,6 +15,14 @@ on_ft = 'skkdict'
 #}}}
 #}}}
 
+# Unicode
+[[plugins]]
+repo = 'chrisbra/unicode.vim'
+on_event = 'InsertEnter'
+#on_map = ['<Plug>(UnicodeComplete)', '<Plug>(DigraphComplete)']
+hook_add = 'runtime unicode.vimrc'
+
+# CapsLock
 #[[plugins]]
 #repo = 'tpope/vim-capslock' #{{{
 ## Doesn't Work
@@ -34,6 +43,10 @@ repo = 'Shougo/deoplete.nvim' #{{{
 on_if = 'has("python3")'
 on_event = ['InsertCharPre', 'InsertEnter']
 hook_post_source = 'runtime deoplete.vimrc'
+[[plugins]]
+repo = 'ncm2/float-preview.nvim'
+on_source = ['delplete.nvim', 'coc.nvim']
+hook_post_source = 'runtime float-preview.vimrc'
 #[[plugins]]
 #repo = 'SevereOverfl0w/deoplete-github' #{{{
 #on_ft = ['gitcommit']
@@ -51,11 +64,18 @@ repo = 'ponko2/deoplete-fish' #{{{
 on_ft = 'fish'
 #}}}
 #}}}
+#[[plugins]]
+#repo = 'tenfyzhong/CompleteParameter.vim' #{{{
+## Enough w/ lsp and snippets?
+#on_map = '<Plug>(complete_parameter#'
+#hook_add = 'runtime CompleteParameter.vimrc'
+##}}}
 
 # Snippets; Engine
 [[plugins]]
 repo = 'Shougo/neosnippet.vim' #{{{
 on_event = ['InsertEnter', 'TermOpen','CmdlineEnter']
+on_map = 'NeoSnippet'
 hook_add = 'runtime neosnippet.vimrc'
 #}}}
 #[[plugins]]
@@ -66,13 +86,15 @@ hook_add = 'runtime neosnippet.vimrc'
 ##}}}
 # Snippets; Contents
 [[plugins]]
-repo = 'Shougo/neosnippet-snippets' #{{{
-on_event = ['InsertEnter', 'TermOpen','CmdlineEnter']
-#}}}
-[[plugins]]
 repo = 'honza/vim-snippets' #{{{
 on_event = ['InsertEnter', 'TermOpen']
+on_source = 'neosnippet.vim'
 #}}}
+#[[plugins]]
+#repo = 'Shougo/neosnippet-snippets' #{{{
+## minimal
+#on_event = ['InsertEnter', 'TermOpen','CmdlineEnter']
+##}}}
 #[[plugins]]
 #repo = 'garbas/vim-snipmate' #{{{
 #on_event = ['InsertEnter', 'TermOpen']
