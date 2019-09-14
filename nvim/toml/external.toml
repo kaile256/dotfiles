@@ -74,6 +74,12 @@ hook_post_source = 'runtime deol.vimrc'
 #hook_add = 'runtime asyncrun.vimrc'
 #}}}
 
+# Shell; Info
+[[plugins]]
+repo = 'HiPhish/info.vim'
+on_cmd = 'Info'
+hook_post_source = 'runtime info.vimrc'
+
 # i3-wm
 #[[plugins]]
 #repo = 'termhn/i3-vim-nav' #{{{
