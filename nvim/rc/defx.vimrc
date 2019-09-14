@@ -5,7 +5,7 @@ scriptencoding utf-8
 " Ref: /usr/share/nvim/runtime/autoload/netrw.vim
 " Ref: /usr/share/nvim/runtime/plugin/netrwPlugin.vim
 
-" Call Defx; File Tree Style
+" Call Defx; on Sidebar
 nnoremap <silent> <a-x>v
       \ :<c-u>Defx `expand('%:p:h')` -search=`expand('%:p')`
       \ -split=vertical -direction=topleft
