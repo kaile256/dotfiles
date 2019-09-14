@@ -1,11 +1,12 @@
-" Ref: parry.vim/clever_split.vim
-" Ref: parry.vim/autoload/clever_split.vim
+" Ref: clever_split.vim
+" Ref: autoload/clever_split.vim
 
 " Save 'cpoptions' {{{
 let s:save_cpo = &cpo
 set cpo&vim
 "}}}
 
+" TODO: can adjust via `let` {{{1
 let g:sensible_K#tab_if_less_than = {
       \ 'width': '40',
       \ 'height': '',
@@ -17,8 +18,12 @@ let g:sensible_K#vertical_if_less_than = {
       \ 'height': '',
       \ 'conj': 'no'
       \ }
-
 let g:sensible_K#horizontal_location = 'bot'
+"}}}
+let sensible_K#help_engine = {
+      \ 'coc-setting.json': 'help',
+      \ 'toml/*.toml': 'help'
+      \ }
 
 function! s:sensible_K(ft) abort
   " Remove before flight
@@ -40,7 +45,10 @@ function! s:sensible_K(ft) abort
   endif
   "let b:loaded_sensible_K = 1
 endfunction
-
+function sensible_K#which_command()
+endfunction
+function! sensible_K#which_direction() abort
+endfunction
 augroup AdjustKeywordprgDirection
   au!
   " Quite Slow
@@ -48,7 +56,7 @@ augroup AdjustKeywordprgDirection
   "au BufWinEnter * call <SID>adjust_keywordprg()
 augroup END
 
-command! -nargs=1 SensibleK :call <SID>sensible_K('q-args')<cr>
+command! -nargs=+ -complete=help SensibleK :call <SID>sensible_K(<q-args>)<cr>
 
 " Restore 'cpoptions' {{{
 let &cpo = s:save_cpo
