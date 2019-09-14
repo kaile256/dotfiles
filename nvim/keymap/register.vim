@@ -120,28 +120,32 @@ function! s:tellme_operator_info() "{{{1
   " v:event.regtype: register is now specified (:help getregtype())
   "}}}
   " Assign to the values {{{2
-  let l:contents = string(v:event.regcontents)
+  "" Assign which is operated "{{{3
   if v:event.operator ==# 'y'
-    let l:operator = 'Yanked'
+    let l:operated = 'Yanked'
   elseif v:event.operator ==# 'd'
-    let l:operator = 'Deleted'
+    let l:operated = 'Deleted'
   elseif v:event.operator ==# 'c'
-    let l:operator = 'Changed'
+    let l:operated = 'Changed'
   elseif v:event.operator ==# ''
-    let l:operator = 'Done'
+    let l:operated = 'Done'
   else
-    let l:operator = v:event.operator
+    let l:operated = v:event.operator
   endif
-  "}}}2
+  "}}}
+  let l:contents = string(v:event.regcontents)
+  let l:regname = (v:event.regname ==# '')? '"' : v:event.regname
+  let l:at_which = " @". l:regname
+  "}}}
   " Echo info
   if v:event.regtype ==# 'v'
-    echomsg ' '. l:operator .' in Characterwise: ' . l:contents
+    echomsg ' '. l:operated . l:at_which .' in Characterwise: ' . l:contents
   elseif v:event.regtype ==# 'V'
-    echomsg ' '. l:operator .' in Line: ' . l:contents
+    echomsg ' '. l:operated . l:at_which .' in Line: ' . l:contents
   elseif v:event.regtype =~# ''
-    echomsg ' '. l:operator .' in Block: ' . l:contents
+    echomsg ' '. l:operated . l:at_which .' in Block: ' . l:contents
   else
-    echomsg ' '. l:operator .' in an Unknown way: ' . l:contents
+    echomsg ' '. l:operated . l:at_which .' in an Unknown way: ' . l:contents
   endif
 endfunction "}}}
 augroup TellerOperatorInfo
