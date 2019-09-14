@@ -27,6 +27,7 @@ hook_add = 'runtime fzf.vimrc'
 #}}}
 
 # Colorscheme
+# CAUTION: `:colorscheme foo` AFTER `:call dein#end()` for syntax complication.
 [[plugins]]
 repo = 'cocopon/iceberg.vim' #{{{
 if = 'exists("g:nyaovim_version")'
@@ -39,7 +40,6 @@ hook_add = 'runtime iceberg.vimrc'
 ##}}}
 #[[plugins]]
 #repo = 'morhetz/gruvbox' #{{{
-## CAUTION: Colorscheme MUST be sourced after dein#end() on dein.vim.
 ##if = 'exists("g:GuiLoaded") && GuiName() ==# "nvim-qt"' # doesn't work.
 #if = '!exists("g:nyaovim_version")'
 #hook_add = 'runtime gruvbox.vimrc'
