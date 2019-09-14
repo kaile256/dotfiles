@@ -1,9 +1,14 @@
 {
+	"coc.preferences.formatOnType": true,
+	"coc.preferences.snippets.enable": false,
+	"coc.preferences.rootPatterns":[".vim",".git",".hg",".projections.json","nvim"],
+
 	"signature.preferShownAbove": false,
 	"signature.triggerSignatureWait": 300,
+
 	"suggest.autoTrigger": "always",
 	"suggest.acceptSuggestionOnCommitCharacter": true,
-	"suggest.enablePreview":true,
+	"suggest.enablePreview": false,
 	"suggest.floatEnable": true,
 	"suggest.noselect": true,
 	"suggest.timeout": 500,
