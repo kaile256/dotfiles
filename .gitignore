@@ -5,3 +5,5 @@ GRTAGS
 GTAGS
 *hist*
 tags
+*.log
+.zplugin/
