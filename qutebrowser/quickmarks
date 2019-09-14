@@ -64,3 +64,5 @@ sandwich.vim: authors desctiption https://machakann.hatenablog.com/entry/2016/05
 vim-language-server for viml https://github.com/iamcco/vim-language-server
 coc sample config https://qiita.com/joeeee44/items/d431ff5ab9fe7a424b13
 save battery of thinkpad https://www.xmisao.com/2014/01/21/thinkpad-battery-setting-by-tlp-on-linux.html
+Tracking your programming activity https://github.com/wakatime/vim-wakatime
+WakaTime: track your Activity on vim! https://wakatime.com/dashboard
