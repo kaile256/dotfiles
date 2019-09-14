@@ -191,6 +191,7 @@ augroup DefxOverrideNetrw "{{{1
   au VimEnter * sil! au! FileExplorer *
   " TODO: Keep window even after bd.
   "au BufEnter * if s:isdir(expand('%')) | bd | Defx
+  "au BufNew,BufEnter * if isdirectory(expand('<amatch>')) | Defx
   " Keep tree-view if winwidth is narrow.
   au BufWinEnter * if bufname('#') =~# '[defx]' && winwidth('#') < 50 | b# | endif
   " Open on defx when vim's arg is dir.
