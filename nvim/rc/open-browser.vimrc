@@ -84,6 +84,8 @@ vmap gh :<c-u>OpenBrowserSmartSearch -github <c-r><c-a> <cr>
 """ Github; Github's Repository
 nmap gR :<c-u>OpenBrowserSmartSearch http://github.com/<c-r><c-f> <cr>
 vmap gR :<c-u>OpenBrowserSmartSearch http://github.com/<c-r><c-f> <cr>
+nnoremap <space>r gr
+nnoremap <space>R gR
 "" Cursor; Dictionary "{{{2
 """ Dictionary; Go to the free dictionary
 " Mnemonic: default `K`
