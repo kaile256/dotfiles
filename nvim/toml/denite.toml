@@ -1,4 +1,4 @@
-# From: dein.toml
+# From: dein.vimrc
 
 # Denite itself;
 [[plugins]]
@@ -67,9 +67,3 @@ hook_post_source = 'runtime denite-nerdfont.vimrc'
 repo = 'nekowasabi/denite-migemo'
 on_source = 'denite.nvim'
 hook_post_source = 'runtime denite-migemo.vimrc'
-[[plugins]]
-repo = 'raghur/fruzzy' #{{{
-on_source = 'denite.nvim'
-hook_done_update = 'call fruzzy#install()'
-hook_post_source = 'runtime fruzzy.vimrc'
-#}}}
