@@ -117,6 +117,10 @@ nmap [c <Plug>(coc-git-prevchunk)
 nmap ]c <Plug>(coc-git-nextchunk)
 " show chunk diff at current position
 nmap gC <Plug>(coc-git-chunkinfo)
+omap ic <Plug>(coc-text-object-inner)
+xmap ic <Plug>(coc-text-object-inner)
+omap ac <Plug>(coc-text-object-outer)
+xmap ac <Plug>(coc-text-object-outer)
 " CocList; {{{1
 " show commit contains current position
 noremap <silent> qp         :CocList yank<cr>
