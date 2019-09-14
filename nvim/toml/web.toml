@@ -15,7 +15,7 @@ hook_post_source = 'runtime open-browser.vimrc'
 # Service; Calendar
 [[plugins]]
 repo = 'itchyny/calendar.vim' #{{{
-on_cmd = 'Cal'
+on_cmd = 'Calendar'
 hook_post_source = 'runtime calendar.vimrc'
 #}}}
 
