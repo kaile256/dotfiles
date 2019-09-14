@@ -2,7 +2,6 @@
 # based on oh-my-fish/theme-gnuykeaj
 # erased color setting to use default fish_config_theme, lava.
 #
-# 1 line minimal, beautiful version of clearance.
 # Display the following bits on the left:
 # - Virtualenv name (if applicable, see https://github.com/adambrenecki/virtualfish)
 # - Current directory name
