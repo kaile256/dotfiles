@@ -28,6 +28,7 @@ echo "$INSTALLER will install package via '$install'!!"
 #### WANTED-PACKAGES INSTALLATION
 Package=(
 #rxvt-unicode-256xresources # Terminal Emulater according to gruvbox.vim
+autorlogin-git  # sixel viewer for vim?
 anyenv
 arandr  # Gui config for xrandr
 bash-completion
@@ -44,6 +45,7 @@ googlecl  # google api for cli
 hub  # an official wrapper of git
 luarocks
 neovim-nightly
+linux-rt-manjaro-acpi_call  # for battery saving
 neovim-qt
 nerd-fonts-ricty
 pdfjs  # PDF viewer in browser
