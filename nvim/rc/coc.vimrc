@@ -135,10 +135,10 @@ noremap <silent> <a-q>b     :<c-u>CocList buffers<cr>
 " CocList; Diagnostic {{{1
 " Note: Unnecessary? pop up auto.
 "map gC <Plug>(coc-diagnostic-info)
-"<Plug>(coc-diagnostic-next)
-"<Plug>(coc-diagnostic-prev)
-"<Plug>(coc-diagnostic-next-error)
-"<Plug>(coc-diagnostic-prev-error)
+nmap [q <Plug>(coc-diagnostic-prev)
+nmap ]q <Plug>(coc-diagnostic-next)
+nmap [e <Plug>(coc-diagnostic-prev-error)
+nmap ]e <Plug>(coc-diagnostic-next-error)
 " CocList; Jump {{{1
 "" Jump; as :edit {{{2
 nmap <silent> gd <Plug>(coc-definition)zz
