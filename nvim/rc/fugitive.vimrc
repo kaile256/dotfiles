@@ -62,6 +62,7 @@ augroup OnFugitiveBuffer
   " gitcommit should be writeable not setting bt=qf.
   au FileType fugitive,fugitiveblame setl nonumber signcolumn= bt=quickfix
   au FileType gitcommit              setl spell    nonumber    signcolumn=
+  "au BufWinLeave gitcommit Gcommit | norm <c-w>h:diffoff!<cr>
   " TODO: Go back to Gstatus' buffer when `:quit` on gitcommit's buffer
   "au BufLeave .git/COMMIT_EDITMSG exe setpos(., bufnr('.git/index'), 1, 1, 1)
 augroup END
