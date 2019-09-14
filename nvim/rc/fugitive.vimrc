@@ -19,6 +19,7 @@ function! s:fugitive_commit_with_diff() abort "{{2
   norm T
   " Keep to show diff w/ HEAD^ while editting commit-message.
   Gvdiffsplit! HEAD
+  norm gg
   vert bot Gstatus
   norm =
   vert resize 50
@@ -42,6 +43,7 @@ function! s:on_gitcommit_startinsert() "{{{1
     endif
   endif
 endfunction "}}}
+
 function! s:on_fugitive_keymap()
   " TODO: Specify the window of the latest commit buffer on `dq`.
   nnoremap <buffer><silent> dq    <c-w>h<c-w>o:diffoff!<cr>
