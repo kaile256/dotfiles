@@ -128,6 +128,7 @@ settings:
       normal:
         '1': tab-close
         '2': save
+        <Alt+Space>: emacs
         <Alt+[>: tab-prev
         <Alt+]>: tab-next
         <Alt+b>: tab-prev
@@ -220,6 +221,7 @@ settings:
         <Alt+x>: 'set-cmd-text :'
         <Ctrl+b>: <left>
         <Ctrl+f>: <right>
+        <Ctrl+g>: leave-mode
         <Ctrl+n>: <down>
         <Ctrl+p>: <up>
       prompt:
