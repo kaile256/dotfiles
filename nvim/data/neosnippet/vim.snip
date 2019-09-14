@@ -8,7 +8,7 @@ options head
 # Declare {{{
 delete au augroup ... autocmd block
 snippet augroup
-abbr au
+abbr au aug augr
   augroup ${1:#:Augroup}
   au!
   au ${3:BufNewFile,BufRead} ${4:*} ${5:#:command}
@@ -16,7 +16,7 @@ abbr au
 delete f function
 snippet function
 alias f fu fun func function
-  function! s:${1:#:function_name}(${2:#:{{name\}[, {arglist\}] [, {dict\}]}) ${3:abort}
+  function! ${1:`expand('%') =~ 'autoload' ? substitute(matchstr(expand('%:p'),'autoload/\zs.*\ze.vim'),'[/\\]','#','g').'#' : ''`}(${2:#:{{name\}[, {arglist\}] [, {dict\}]}) ${3:abort}
     ${0:#:Ex-commands}
   endfunction
 snippet redir
