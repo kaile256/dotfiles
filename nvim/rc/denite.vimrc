@@ -1,15 +1,71 @@
-" Memo: denite.org
-" From: Init.toml
-"  Ref: denite-extra.vimrc
+" From: denite.toml
 
-" Matcher
+" Exceptions; File_REC {{{
+call denite#custom#var('file_rec', 'command',
+      \ ['fd', '.', '-HI', '--type', 'f',
+      \ '-E', '.git',
+      \ '-E', 'vendor',
+      \ '-E', 'node_modules',
+      \ '-E', 'target',
+      \
+      \ '-E', '*.bak',
+      \ '-E', '*.o',
+      \ '-E', '*.obj',
+      \ '-E', '*.pdb',
+      \ '-E', '*.exe',
+      \ '-E', '*.bin',
+      \ '-E', '*.dll',
+      \ '-E', '*.a',
+      \ '-E', '*.lib',
+      \ '-E', '.gitignore',
+      \ '-E', '.*.*',
+      \ ])
+"}}}
+" Exceptions; Grep {{{
+" NOTE: pt covers both utf8 and sjis though I use rg.
+call denite#custom#var('grep', 'command',
+      \ ['rg', '--nogroup', '--nocolor', '--smart-case', '--hidden',
+      \ '--ignore', '.git',
+      \ '--ignore', 'vendor',
+      \ '--ignore', 'node_modules',
+      \ '--ignore', 'target',
+      \
+      \ '--ignore', '*.bak',
+      \ '--ignore', '*.o',
+      \ '--ignore', '*.obj',
+      \ '--ignore', '*.pdb',
+      \ '--ignore', '*.exe',
+      \ '--ignore', '*.bin',
+      \ '--ignore', '*.dll',
+      \ '--ignore', '*.a',
+      \ '--ignore', '*.lib',
+      \ '--ignore', '.gitignore',
+      \ '--ignore', '.*.*',
+      \ ])
+"}}}
+
+" Custom;
+" Matcher; Migemo or Fruzzy? {{{
+"call denite#custom#source('line', 'matchers', ['matcher/migemo'])
 call denite#custom#source('_', 'matchers', ['matcher/fruzzy'])
+"call denite#custom#source('file_rec', 'matchers', ['matcher_fuzzy'])
 call denite#custom#source('file/rec',
       \ 'matchers', ['converter/tail_path', 'matcher/fuzzy'])
-
-" Grep
+"}}}
+" Grep {{{
+call denite#custom#var('grep', 'default_opts', [])
+call denite#custom#var('grep', 'recursive_opts', [])
+call denite#custom#source('grep', 'matchers', ['matcher_fuzzy'])
 "" Use Interactive Mode
 call denite#custom#source('grep', 'args', ['', '', '!'])
+"}}}
+
+" TODO: Automate if floating or not.
+"for [key, action] in s:denite_mapping
+"  if has('&floating')
+"    nnoremap <silent> <space>fr :<C-u>Denite file_mru -split="floating"<CR>
+"  endif
+"endfor
 
 " Grep; replaced w/ ripgrep
 if executable('rg')
@@ -75,12 +131,17 @@ endfunction "}}}
 
 augroup DeniteConfig
   au!
-  au FileType denite call s:denite_keymaps()
-  au FileType denite call s:denite_operation()
-  au FileType denite-filter call s:denite_filter_operation()
+  au FileType denite call s:on_denite_keymaps()
+  au FileType denite-filter call s:on_denite_filter_keymaps()
 augroup END
 
-function! s:denite_operation() abort
+function! s:on_denite_filter_keymaps() abort "{{{
+  inoremap <silent><buffer><expr> <C-c>
+        \ denite#do_map('quit')
+  nnoremap <silent><buffer><expr> <C-c>
+        \ denite#do_map('quit')
+endfunction "}}}
+function! s:on_denite_keymaps() abort "{{{
   nnoremap <silent><buffer><expr> <CR>
         \ denite#do_map('do_action')
   nnoremap <silent><buffer><expr> d
@@ -93,11 +154,4 @@ function! s:denite_operation() abort
         \ denite#do_map('open_filter_buffer')
   nnoremap <silent><buffer><expr> <Space>
         \ denite#do_map('toggle_select').'j'
-endfunction
-
-function! s:denite_filter_my_settings() abort
-  inoremap <silent><buffer><expr> <C-c>
-        \ denite#do_map('quit')
-  nnoremap <silent><buffer><expr> <C-c>
-        \ denite#do_map('quit')
-endfunction
+endfunction "}}}
