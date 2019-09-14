@@ -3,36 +3,36 @@
 let g:sandwich_no_default_key_mappings = 1
 let g:textobj_sandwich_no_default_key_mappings = 1
 
-" Let; Recipes of sandwich {{{1
-let g:sandwich#recipes += [
-      \   {'buns': ['{ ', ' }'], 'nesting': 1, 'match_syntax': 1,
-      \    'kind': ['add', 'replace'], 'action': ['add'], 'input': ['{']},
-      \
-      \   {'buns': ['{ ', ' }'], 'nesting': 1, 'match_syntax': 1,
-      \    'kind': ['add', 'replace'], 'action': ['add'], 'input': ['{']},
-      \
-      \   {'buns': ['{ ', ' }'], 'nesting': 1, 'match_syntax': 1,
-      \    'kind': ['add', 'replace'], 'action': ['add'], 'input': ['{']},
-      \
-      \   {'buns': ['[ ', ' ]'], 'nesting': 1, 'match_syntax': 1,
-      \    'kind': ['add', 'replace'], 'action': ['add'], 'input': ['[']},
-      \
-      \   {'buns': ['( ', ' )'], 'nesting': 1, 'match_syntax': 1,
-      \    'kind': ['add', 'replace'], 'action': ['add'], 'input': ['(']},
-      \
-      \   {'buns': ['{\s*', '\s*}'],   'nesting': 1, 'regex': 1,
-      \    'match_syntax': 1, 'kind': ['delete', 'replace', 'textobj'],
-      \    'action': ['delete'], 'input': ['{']},
-      \
-      \   {'buns': ['\[\s*', '\s*\]'], 'nesting': 1, 'regex': 1,
-      \    'match_syntax': 1, 'kind': ['delete', 'replace', 'textobj'],
-      \    'action': ['delete'], 'input': ['[']},
-      \
-      \   {'buns': ['(\s*', '\s*)'],   'nesting': 1, 'regex': 1,
-      \    'match_syntax': 1, 'kind': ['delete', 'replace', 'textobj'],
-      \    'action': ['delete'], 'input': ['(']},
-      \ ]
-"}}}
+"" Let; Recipes of sandwich {{{1
+"let g:sandwich#recipes = [
+"      \   {'buns': ['<', '>'], 'nesting': 1, 'match_syntax': 1,
+"      \    'kind': ['add', 'replace'], 'action': ['add'], 'input': ['<t_>']},
+"      \
+"      \   {'buns': ['< ', ' >'], 'nesting': 1, 'match_syntax': 1,
+"      \    'kind': ['add', 'replace'], 'action': ['add'], 'input': ['>']},
+"      \
+"      \   {'buns': ['{ ', ' }'], 'nesting': 1, 'match_syntax': 1,
+"      \    'kind': ['add', 'replace'], 'action': ['add'], 'input': ['{']},
+"      \
+"      \   {'buns': ['[ ', ' ]'], 'nesting': 1, 'match_syntax': 1,
+"      \    'kind': ['add', 'replace'], 'action': ['add'], 'input': ['[']},
+"      \
+"      \   {'buns': ['( ', ' )'], 'nesting': 1, 'match_syntax': 1,
+"      \    'kind': ['add', 'replace'], 'action': ['add'], 'input': ['(']},
+"      \
+"      \   {'buns': ['{\s*', '\s*}'],   'nesting': 1, 'regex': 1,
+"      \    'match_syntax': 1, 'kind': ['delete', 'replace', 'textobj'],
+"      \    'action': ['delete'], 'input': ['{']},
+"      \
+"      \   {'buns': ['\[\s*', '\s*\]'], 'nesting': 1, 'regex': 1,
+"      \    'match_syntax': 1, 'kind': ['delete', 'replace', 'textobj'],
+"      \    'action': ['delete'], 'input': ['[']},
+"      \
+"      \   {'buns': ['(\s*', '\s*)'],   'nesting': 1, 'regex': 1,
+"      \    'match_syntax': 1, 'kind': ['delete', 'replace', 'textobj'],
+"      \    'action': ['delete'], 'input': ['(']},
+"      \ ]
+""}}}
 " iKeymap;
 imap <a-\><a-s> <esc><Plug>(operator-sandwich-add)
 imap <a-\><a-d> <esc><Plug>(operator-sandwich-delete)<Plug>(operator-sandwich-release-count)<Plug>(textobj-sandwich-query-a)
