@@ -14,8 +14,8 @@ XDG_CACHE_HOME="${HOME}/.cache"
 XDG_CONFIG_HOME="${HOME}/.config"
 XDG_DATA_HOME="${HOME}/.local/share"
 
-if ! [ -d $XDG_CONFIG_HOME ]; then
-  mkdir ${HOME}/.config
+if ! [ -d "$XDG_CONFIG_HOME" ]; then
+  mkdir "${HOME}/.config"
 fi
 
 ## Make sure 'dotfiles' are located at supported directory.
@@ -63,17 +63,17 @@ zsh
 
 
 
-for vim_data_dir in ${VimData[@]}; do
+for vim_data_dir in "${VimData[@]}"; do
   vim_data_dest=${XDG_DATA_HOME}/nvim
 
-  cd $vim_data_dest
-  ln -nsf ${DOTFILES}/date/nvim/${vim_data_dir}
+  cd "$vim_data_dest"
+  ln -nsf "${DOTFILES}/date/nvim/${vim_data_dir}" .
   echo "Done! The config files of ${vim_data_dir} are linked at ${vim_data_dest}!!"
 done
 
-for config_dir in ${Configs[@]}; do
-  cd ${XDG_CONFIG_HOME}
-  ln -nsf ${DOTFILES}/${config_dir}
+for config_dir in "${Configs[@]}"; do
+  cd "${XDG_CONFIG_HOME}"
+  ln -nsf "${DOTFILES}/${config_dir}" .
   echo "Done! The config files of ${config_dir} are linked at ${XDG_CONFIG_HOME}!!"
 done
 
@@ -97,9 +97,9 @@ moc/.moc
 zsh/.zshenv
 )
 
-cd $HOME
-for home_link in ${home_list[@]}; do
-  ln -nsf ${XDG_CONFIG_HOME}/${home_link}
+cd "$HOME"
+for home_link in "${home_list[@]}"; do
+  ln -nsf "${XDG_CONFIG_HOME}/${home_link}" .
   echo "Done! create a symlink for ${home_link} on ${HOME}!"
 done
 
@@ -116,7 +116,7 @@ done
 #ln -nsf ${XDG_CONFIG_HOME}/w3m .w3m
 #echo "Done! create a symlink for w3m on ${HOME}"
 
-cd $CURRENT_DIR
+cd "$CURRENT_DIR"
 
 cat << END
 
