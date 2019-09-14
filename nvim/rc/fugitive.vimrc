@@ -1,6 +1,7 @@
 " From: external.toml
 " Repo: fugitive.vim
 
+command! Gclone :Git clone  %:p:h<c-left><left>
 " Info; Blame {{{
 noremap <silent> <a-y>b     :<c-u>Gblame<cr>
 noremap <silent> <a-y><a-b> :<c-u>Gblame<cr>
@@ -9,13 +10,6 @@ noremap <silent> <a-y><a-b> :<c-u>Gblame<cr>
 noremap <silent> <a-y>s     :<c-u>vert bot 40 Gstatus<cr>
 noremap <silent> <a-y><a-s> :<c-u>vert bot 40 Gstatus<cr>
 "}}}
-
-" Diff; {{{
-" !: On a Merge Conflict, do a 3-diff; otherwise the same as without bang.
-noremap <silent> <a-y>d     :<c-u>cclose<cr><c-w>T:<c-u>Gvdiffsplit!<cr>
-noremap <silent> <a-y><a-d> :<c-u>cclose<cr><c-w>T:<c-u>Gvdiffsplit!<cr>
-"}}}
-
 " Add; Only {{{
 noremap <silent> <a-y>a     :<c-u>Gw<cr>
 noremap <silent> <a-y><a-a> :<c-u>Gw<cr>
@@ -34,6 +28,11 @@ command! Gstage :Gw <bar> call s:fugitive_commit_with_diff()
 "noremap <silent> <a-y><a-w> :<c-u>cclose <bar> Gw <cr> :call <SID>fugitive_commit_with_diff()<cr>
 noremap <silent> <a-y>w     :<c-u>cclose <bar> :Gstage<cr>
 noremap <silent> <a-y><a-w> :<c-u>cclose <bar> :Gstage<cr>
+"}}}
+" Diff; {{{
+" !: On a Merge Conflict, do a 3-diff; otherwise the same as without bang.
+noremap <silent> <a-y>d     :<c-u>cclose<cr><c-w>T:<c-u>Gvdiffsplit!<cr>
+noremap <silent> <a-y><a-d> :<c-u>cclose<cr><c-w>T:<c-u>Gvdiffsplit!<cr>
 "}}}
 
 function! s:on_gitcommit_startinsert() "{{{1
