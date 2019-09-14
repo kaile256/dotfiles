@@ -4,10 +4,10 @@
 "" Write&Quit; Evacuation for Macro
 nnoremap q<space> q
 "" Write&Quit; wq
-nnoremap          <space>w :<c-u>w  <cr>
-nnoremap          <space>W :<c-u>w! <cr>
+nnoremap <silent> <space>w :<c-u>w  <cr>
+nnoremap <silent> <space>W :<c-u>w! <cr>
 " Note: <space>q is sometimes mistyped, intending <space>w.
-nnoremap          <space>q :<c-u>w  <cr>
+nnoremap <silent> <space>q :<c-u>w  <cr>
 "nnoremap <silent> qq :<c-u>q  <cr>
 nmap <silent> Q <Nop>
 nnoremap <silent> QQ :<c-u>q! <cr>
