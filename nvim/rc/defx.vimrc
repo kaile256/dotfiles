@@ -17,7 +17,7 @@ nnoremap <silent> <a-x>e
       \ :<c-u>Defx `expand('%:p:h')` -search=`expand('%:p')`
       \ -split=no
       \ <cr>
-"" Call; on Vertical {{{2
+" Call; on Vertical {{{1
 nnoremap <silent> <a-x>v
       \ :<c-u>Defx `expand('%:p:h')` -search=`expand('%:p')`
       \ -split=vertical -direction=topleft
@@ -28,7 +28,7 @@ nnoremap <silent> <a-x><a-v>
       \ -split=vertical -direction=topleft
       \ -winwidth=30
       \ <cr>
-"" Call; on Tab {{{2
+" Call; on Tab {{{1
 nnoremap <silent> <a-x>b
       \ :<c-u>Defx `expand('%:p:h')` -search=`expand('%:p')`
       \ -split=tab
@@ -37,7 +37,7 @@ nnoremap <silent> <a-x><a-b>
       \ :<c-u>Defx `expand('%:p:h')` -search=`expand('%:p')`
       \ -split=tab
       \ <cr>
-"" Call; on Floating {{{2
+" Call; on Floating {{{1
 " TODO: Open higher position.
 nnoremap <silent> <a-x><a-f>
       \ :<c-u>Defx `expand('%:p:h')` -search=`expand('%:p')`
