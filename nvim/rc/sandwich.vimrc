@@ -3,41 +3,48 @@
 let g:sandwich_no_default_key_mappings = 1
 let g:textobj_sandwich_no_default_key_mappings = 1
 
-" Keymap; Fetch back forgotten buns on Insert Mode
-imap <a-c>'` <c-o><Plug>(operator-sandwich-replace)iW'`
-imap <a-c>'" <c-o><Plug>(operator-sandwich-replace)iW''
-imap <a-c>"' <c-o><Plug>(operator-sandwich-replace)iW"'
-imap <a-c>"` <c-o><Plug>(operator-sandwich-replace)iW"`
-imap <a-c>`' <c-o><Plug>(operator-sandwich-replace)iW`'
-imap <a-c>`" <c-o><Plug>(operator-sandwich-replace)iW`"
+" Let; Recipes of sandwich {{{1
+let g:sandwich#recipes += [
+      \   {'buns': ['{ ', ' }'], 'nesting': 1, 'match_syntax': 1,
+      \    'kind': ['add', 'replace'], 'action': ['add'], 'input': ['{']},
+      \
+      \   {'buns': ['{ ', ' }'], 'nesting': 1, 'match_syntax': 1,
+      \    'kind': ['add', 'replace'], 'action': ['add'], 'input': ['{']},
+      \
+      \   {'buns': ['{ ', ' }'], 'nesting': 1, 'match_syntax': 1,
+      \    'kind': ['add', 'replace'], 'action': ['add'], 'input': ['{']},
+      \
+      \   {'buns': ['[ ', ' ]'], 'nesting': 1, 'match_syntax': 1,
+      \    'kind': ['add', 'replace'], 'action': ['add'], 'input': ['[']},
+      \
+      \   {'buns': ['( ', ' )'], 'nesting': 1, 'match_syntax': 1,
+      \    'kind': ['add', 'replace'], 'action': ['add'], 'input': ['(']},
+      \
+      \   {'buns': ['{\s*', '\s*}'],   'nesting': 1, 'regex': 1,
+      \    'match_syntax': 1, 'kind': ['delete', 'replace', 'textobj'],
+      \    'action': ['delete'], 'input': ['{']},
+      \
+      \   {'buns': ['\[\s*', '\s*\]'], 'nesting': 1, 'regex': 1,
+      \    'match_syntax': 1, 'kind': ['delete', 'replace', 'textobj'],
+      \    'action': ['delete'], 'input': ['[']},
+      \
+      \   {'buns': ['(\s*', '\s*)'],   'nesting': 1, 'regex': 1,
+      \    'match_syntax': 1, 'kind': ['delete', 'replace', 'textobj'],
+      \    'action': ['delete'], 'input': ['(']},
+      \ ]
+"}}}
+" iKeymap;
+imap <a-\><a-s> <esc><Plug>(operator-sandwich-add)
+imap <a-\><a-d> <esc><Plug>(operator-sandwich-delete)<Plug>(operator-sandwich-release-count)<Plug>(textobj-sandwich-query-a)
+imap <a-\><a-c> <esc><Plug>(operator-sandwich-replace)<Plug>(operator-sandwich-release-count)<Plug>(textobj-sandwich-query-a)
 
-imap <a-s>' <c-o><Plug>(operator-sandwich-add)iW'
-imap <a-s>" <c-o><Plug>(operator-sandwich-add)iW"
-imap <a-s>` <c-o><Plug>(operator-sandwich-add)iW`
-imap <a-s>: <c-o><Plug>(operator-sandwich-add)iW:
-imap <a-s>( <c-o><Plug>(operator-sandwich-add)iW(
-imap <a-s>) <c-o><Plug>(operator-sandwich-add)iW)
-imap <a-s>{ <c-o><Plug>(operator-sandwich-add)iW{
-imap <a-s>} <c-o><Plug>(operator-sandwich-add)iW}
-imap <a-s>[ <c-o><Plug>(operator-sandwich-add)iW[
-imap <a-s>] <c-o><Plug>(operator-sandwich-add)iW]
-imap <a-s>< <c-o><Plug>(operator-sandwich-add)iW<
-imap <a-s>> <c-o><Plug>(operator-sandwich-add)iW>
-imap <a-s>~ <c-o><Plug>(operator-sandwich-add)iW~
-" TODO: use for-loop
-"let s:my_buns_list = ['"`:(){}<>\~\\]
-"for buns in s:my_buns_list
-"  imap <a-s>bun <c-o><Plug>(operator-sandwich-add)iwbun
-"endfor
-
-" Keymap; Manual Select
-"" Manual; Normal Mode
+" nKeymap; Manual Select
 nmap \s <Plug>(operator-sandwich-add)
 nmap \d <Plug>(operator-sandwich-delete)<Plug>(operator-sandwich-release-count)<Plug>(textobj-sandwich-query-a)
 " Mnemonic: Change
 nmap \c <Plug>(operator-sandwich-replace)<Plug>(operator-sandwich-release-count)<Plug>(textobj-sandwich-query-a)
 
-"" Manual; Visual Mode
+" nKeymap; Visual Mode
 xmap \s <Plug>(operator-sandwich-add)
 xmap \d <Plug>(operator-sandwich-delete)
 xmap \c <Plug>(operator-sandwich-replace)
