@@ -31,7 +31,8 @@ function! s:echo_wanted_info() abort
         \ &cole
         \ ]
   for wanted in l:wanted_info_list
-    let l:wanted_info_dict = {'execute(`"echo` wanted `"`)': "'". wanted ."'"}
+    let l:str = "'". wanted ."'"
+    echo l:str . " = " . wanted
   endfor
 endfunction
 "nnoremap <silent> <a-s><a-s> :<c-u>call <SID>echo_wanted_info()<cr>
