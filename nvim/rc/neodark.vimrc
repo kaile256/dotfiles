@@ -14,6 +14,7 @@ function! s:my_neodark_highlight() abort
   "hi Visual  ctermfg=15 ctermbg=13 guifg=#AABBC4 guibg=#475C69
   hi Cursorline guifg=#AABBC4
   hi Normal ctermfg=250 ctermbg=236 guifg=#AABBC4 guibg=#1F2F38
+  " guibg=#13354A
 endfunction
 
 augroup MyNeodarkConf
