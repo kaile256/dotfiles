@@ -33,6 +33,7 @@ let g:coc_global_extensions = [
       \ 'coc-dictionary',
       \ 'coc-emoji',
       \ 'coc-git',
+      \ 'coc-gitignore',
       \ 'coc-gocode',
       \ 'coc-highlight',
       \ 'coc-html',
@@ -52,7 +53,7 @@ let g:coc_global_extensions = [
       \ 'coc-vimlsp',
       \ 'coc-word',
       \ 'coc-yaml',
-      \ 'coc-yank'
+      \ 'coc-yank',
       \ ]
 "}}}
 " CmdAbbr; Clear All coc-extentions to reset extentions.
