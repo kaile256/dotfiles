@@ -5,8 +5,8 @@
 
 " Set; Font {{{
 if has('unix')
-  set guifont=Dejavu\ Sans\ Mono:h12
-  set guifontwide=Ricty\ Nerd\ Font:h12
+  set guifont=DejaVu\ Sans\ Mono:h12
+  set guifontwide=Ricty\ Discard\ Nerd\ Font:h12
   set printfont=Ricty\ Nerd\ Font:h12
   "set guifontset=Ricty\ Discard\ Nerd\ Font:h12
   "set linespace=0
