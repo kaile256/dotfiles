@@ -13,8 +13,8 @@ path.sh
 alias.sh
 prompt.sh
 )
-for i in ${SourceFile[@]}; do
-  source ~/.config/bash/$i
+for i in "${SourceFile[@]}"; do
+  source "$HOME/.config/bash/$i"
 done
 #source ~/.config/bash/xdg.sh
 #source ~/.config/bash/env.sh
@@ -36,7 +36,7 @@ esac
 # See bash(1) for more options
 HISTCONTROL=ignoreboth
 
-if [  $BASH = "bash" ];then
+if [  "$BASH" = "bash" ];then
   # append to the history file, don't overwrite it
   shopt -s histappend
   # check the window size after each command and, if necessary,
@@ -57,7 +57,7 @@ HISTFILESIZE=2000
 
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
-  test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+  test -r "$HOME/.dircolors" && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
   alias ls='ls --color=auto'
   #alias dir='dir --color=auto'
   #alias vdir='vdir --color=auto'
@@ -69,11 +69,6 @@ if [ -x /usr/bin/dircolors ]; then
 
 # colored GCC warnings and errors
 #export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
-
-# some more ls aliases
-#alias ll='ls -l'
-#alias la='ls -A'
-#alias l='ls -CF'
 
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
