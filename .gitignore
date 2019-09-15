@@ -7,3 +7,5 @@ GTAGS
 tags
 *.log
 .zplugin/
+log/
+dbus/
