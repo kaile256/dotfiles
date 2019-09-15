@@ -111,7 +111,7 @@ endfunction
 " Keymaps;
 nnoremap q: :CocList cmdhistory<cr>
 nnoremap q/ :CocList searchhistory<cr>
-" CocGit; {{{1
+" CocCommand; Git {{{1
 " Similar to the navigation on &diff
 nmap [c <Plug>(coc-git-prevchunk)
 nmap ]c <Plug>(coc-git-nextchunk)
@@ -121,6 +121,13 @@ omap ic <Plug>(coc-text-object-inner)
 xmap ic <Plug>(coc-text-object-inner)
 omap ac <Plug>(coc-text-object-outer)
 xmap ac <Plug>(coc-text-object-outer)
+"" CocCommand; Explorer {{{1
+"command! Cexplorer :CocCommand explorer
+"      \ --toggle
+"      \ --width=35
+"      \ --sources=buffer+,file+
+"      \ --file-columns=icon,git,selection,clip,indent,filename,size
+""}}}
 " CocList; {{{1
 " show commit contains current position
 noremap <silent> qp         :CocList yank<cr>
@@ -215,13 +222,13 @@ xmap cn <Plug>(coc-rename)
 "<Plug>(coc-codelens-action)
 "
 "<Plug>(coc-fix-current)
-
 "<Plug>(coc-float-hide)
 "<Plug>(coc-float-jump)
 "
 "<Plug>(coc-refactor)
 "<Plug>(coc-range-select)
 "<Plug>(coc-range-select-backward)
+""}}}
 
 " CocCompletion; {{{1
 " Necessary?: closes mpreview vindow when completion is done.
