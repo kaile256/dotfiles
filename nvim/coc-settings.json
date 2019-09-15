@@ -87,8 +87,8 @@
 	"yank.list.maxsize": 150,
 	"yank.limit": 200,
 
-	// Update only on save.
-	"git.realtimeGutters": false,
+	// false: Update only on save.
+	"git.realtimeGutters": true,
 
 	"json.format.enable": false,
 
