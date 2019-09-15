@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# From: .profile
+# From: bash/.profile
 # Ref: .zshrc
 
 umask 022
