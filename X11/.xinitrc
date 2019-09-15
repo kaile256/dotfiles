@@ -1,12 +1,10 @@
 #!/bin/sh
 
-#### Original: /etc/X11/xinit/xinitrc
-#### .Xdefault is duprecated.
-#### TODO: .xprofile is for GDM/LightDM/SDDM.
-####  Ref: bash/env.sh
-####  Ref: i3/config
-####  Ref: X11/.Xresources
-####  Ref: X11/.Xmodmap
+# Orig: /etc/X11/xinit/xinitrc
+# .Xdefault is deprecated.
+# Note: .xprofile is for GDM/LightDM/SDDM.
+#  Ref: X11/.Xresources
+#  Ref: X11/.Xmodmap
 
 UserResources=$HOME/.config/X11/.Xresources
 UserModmap=$HOME/.config/X11/.Xmodmap
