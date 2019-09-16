@@ -4,7 +4,7 @@ scriptencoding utf-8
 "let g:indentline_color_term = 239
 "let g:indentLine_char_list = ['|', '¦', '┆', '┊']
 "set concealcursor= " re-set concealcursor=inc, auto
-"let g:vim_json_syntax_conceal = 0 " useless if concealcursor is set.
+let g:vim_json_syntax_conceal = 0 " useless if concealcursor is set.
 
 let g:indentLine_fileTypeExclude = ['help', 'vimwiki', 'defx']
 let g:indentLine_bufTypeExclude = ['quickfix', 'terminal']
@@ -23,6 +23,7 @@ augroup MyIndentLineAugroup
   endfunction "}}}
   au CursorMoved     * if &l:cursorline == 0 && &bt !=# 'quickfix' | call <SID>indentline_exculsive_enable()
   au WinEnter,BufWinEnter,BufWinLeave * if &l:cursorline == 1 && &bt !=# 'quickfix' | call <SID>indentline_exculsive_enable()
-  au InsertEnter *.json if &cole != 0 || &cocu !=# 'n' | setl conceallevel=0 concealcursor=n
-  "au InsertLeave *.json if &cole != 1 | setl conceallevel=1
+  " TODO: always setl conceallevel=0 on json.
+  au InsertEnter *.json if &cole != 0 || &cocu !=# '' | setl conceallevel=0 concealcursor=n
+  "au FileType json if &cole != 0 || &cocu !=# '' | setl conceallevel=0 concealcursor=n
 augroup END

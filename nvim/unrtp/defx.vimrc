@@ -137,9 +137,13 @@ function! s:defx_keymap_explorer() abort
         \ defx#do_action('toggle_ignored_files')
   " Selected; Open {{{1
   nnoremap <silent><buffer><expr> <c-j>
-        \ defx#do_action('drop')
+        \ (winwidth('.') < 50)?
+        \ defx#do_action('open', 'wincmd p <bar> edit'):
+        \ defx#do_action('open')
   nnoremap <silent><buffer><expr> <CR>
-        \ defx#do_action('drop')
+        \ (winwidth('.') < 50)?
+        \ defx#do_action('open', 'wincmd p <bar> edit'):
+        \ defx#do_action('open')
   nnoremap <silent><buffer><expr> <c-v>
         \ defx#do_action('open', 'vsplit')
   " TODO: `:wincmd p` will apply only when the defx buffer is narrow.
