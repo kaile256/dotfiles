@@ -63,7 +63,6 @@ let g:coc_global_extensions = [
       \ 'coc-word',
       \ 'coc-yaml',
       \ 'coc-yank',
-      \ 'coc-zsh',
       \ ]
 "}}}
 " CmdAbbr; Clear All coc-extentions to reset extentions.
@@ -120,8 +119,8 @@ endfunction
 "}}}
 "}}}
 " Keymaps;
-nnoremap q: :CocList cmdhistory<cr>
-nnoremap q/ :CocList searchhistory<cr>
+"nnoremap q: :CocList cmdhistory<cr>
+"nnoremap q/ :CocList searchhistory<cr>
 " CocCommand; Git {{{1
 " Similar to the navigation on &diff
 nmap [c <Plug>(coc-git-prevchunk)
@@ -173,7 +172,8 @@ nmap <silent> gy <Plug>(coc-type-definition)
 xmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gr <Plug>(coc-references)
 xmap <silent> gr <Plug>(coc-references)
-"" Jump; as :vsplit {{{2'
+"" Jump; as :vsplit {{{2
+" Note: Suppress new window if no definition is found and so on.
 nmap <silent><expr> <c-w>d (CocAction('jumpDefinition'))? '<c-w>v<Plug>(coc-definition)zz' : '<c-w>d'
 xmap <silent><expr> <c-w>d (CocAction('jumpDefinition'))? '<c-w>v<Plug>(coc-definition)zz' : '<c-w>d'
 nmap <silent><expr> <c-w>D (CocAction('jumpDeclaration'))? '<c-w>v<Plug>(coc-declaration)zz' : '<c-w>D'
@@ -186,7 +186,7 @@ nmap <silent><expr> <c-w>r (CocAction('jumpReferences'))? '<c-w>v<Plug>(coc-refe
 xmap <silent><expr> <c-w>r (CocAction('jumpReferences'))? '<c-w>v<Plug>(coc-references)' : '<c-w>r'
 nmap <silent><expr> <c-w>R (CocAction('jumpImplementation'))? '<c-w>v<Plug>(coc-implementation)' : '<c-w>R'
 xmap <silent><expr> <c-w>R (CocAction('jumpImplementation'))? '<c-w>v<Plug>(coc-implementation)' : '<c-w>R'
-"" Jump; as :split {{{2'
+"" Jump; as :split {{{2
 nmap <silent><expr> <c-w>gd (CocAction('jumpDefinition'))? '<c-w>s<Plug>(coc-definition)zz' : '<c-w>gd'
 xmap <silent><expr> <c-w>gd (CocAction('jumpDefinition'))? '<c-w>s<Plug>(coc-definition)zz' : '<c-w>gd'
 nmap <silent><expr> <c-w>gD (CocAction('jumpDeclaration'))? '<c-w>s<Plug>(coc-declaration)zz' : '<c-w>gD'
@@ -199,7 +199,7 @@ nmap <silent><expr> <c-w>gr (CocAction('jumpReferences'))? '<c-w>s<Plug>(coc-ref
 xmap <silent><expr> <c-w>gr (CocAction('jumpReferences'))? '<c-w>s<Plug>(coc-references)' : '<c-w>gr'
 nmap <silent><expr> <c-w>gR (CocAction('jumpImplementation'))? '<c-w>s<Plug>(coc-implementation)' : '<c-w>gR'
 xmap <silent><expr> <c-w>gR (CocAction('jumpImplementation'))? '<c-w>s<Plug>(coc-implementation)' : '<c-w>gR'
-"" Jump; as :tabe {{{2'
+"" Jump; as :tabe {{{2
 nmap <silent><expr> <c-w><space>d (CocAction('jumpDefinition'))? '<c-w>v<c-w>T<Plug>(coc-definition)zz' : '<c-w><space>d'
 xmap <silent><expr> <c-w><space>d (CocAction('jumpDefinition'))? '<c-w>v<c-w>T<Plug>(coc-definition)zz' : '<c-w><space>d'
 nmap <silent><expr> <c-w><space>D (CocAction('jumpDeclaration'))? '<c-w>v<c-w>T<Plug>(coc-declaration)zz' : '<c-w><space>D'
@@ -214,21 +214,26 @@ nmap <silent><expr> <c-w><space>R (CocAction('jumpImplementation'))? '<c-w>v<c-w
 xmap <silent><expr> <c-w><space>R (CocAction('jumpImplementation'))? '<c-w>v<c-w>T<Plug>(coc-implementation)' : '<c-w><space>R'
 "}}}
 " CocList; Format {{{1
-"<Plug>(coc-format-selected)
-"<Plug>(coc-format)
+xmap <expr> =  (CocHasProvider('format') == v:true)? '<Plug>(coc-format-selected)' : '='
+nmap <expr> =  (CocHasProvider('format') == v:true)? '<Plug>(coc-format-selected)' : '='
+nmap <expr> == (CocHasProvider('format') == v:true)? '<Plug>(coc-format)'          : '=='
 " CocList; Text-Object {{{1
+" Note: mapped already as default?
 vmap if <Plug>(coc-funcobj-i)
-vmap if <Plug>(coc-funcobj-a)
 omap if <Plug>(coc-funcobj-i)
-omap if <Plug>(coc-funcobj-a)
+vmap af <Plug>(coc-funcobj-a)
+omap af <Plug>(coc-funcobj-a)
 " CocList; Rename {{{1
-" Change Name
+" Mnemonic: Change Name
 nmap cn <Plug>(coc-rename)
 xmap cn <Plug>(coc-rename)
+" CocList; Quick Run {{{1
+nmap qR   <Plug>(coc-codeaction)
+nmap qrr  <Plug>(coc-codeaction)
+nmap qrqr <Plug>(coc-codeaction)
+nmap qr   <Plug>(coc-codeaction-selected)
+xmap qr   <Plug>(coc-codeaction-selected)
 " CocList; Not Yet Mapped {{{1
-"<Plug>(coc-codeaction)
-"<Plug>(coc-codeaction-selected)
-"
 "<Plug>(coc-openlink)
 "<Plug>(coc-codelens-action)
 "
