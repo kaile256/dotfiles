@@ -50,9 +50,9 @@ set guicursor=
 " CAUTION: cursorline-highlight causes drawing corruption.
 augroup AutoToggleCursorLine
   au!
-  " Note: Previously, InsertLeave doesn't work on Gui; now work.
-  au BufRead,WinEnter,InsertLeave * if &l:cursorline == 0 | setl cursorline
-  au WinLeave,InsertEnter         * if &l:cursorline == 1 | setl nocursorline
+  " Note: WinEnter/Leave doesn't work.
+  au BufRead,WinEnter,InsertLeave * if &l:cursorline == 0 | setl cursorline | endif
+  au WinLeave,InsertEnter         * if &l:cursorline == 1 | setl nocursorline | endif
 augroup END
 " to highlight only CursorLineNr
 "hi CursorLine NONE
