@@ -1,5 +1,7 @@
-" From: tool.toml
+" From: motion.toml
 
 " Mnemonic: Queue Up!
-nmap q <Plug>(EasyAlign)
-vmap q <Plug>(EasyAlign)
+nmap qu <Plug>(EasyAlign)
+vmap qu <Plug>(EasyAlign)
+" Line-wise
+nmap qU <Plug>(EasyAlign)$
