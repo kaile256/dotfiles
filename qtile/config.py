@@ -35,34 +35,70 @@ from typing import List  # noqa: F401
 mod = "mod4"
 
 keys = [
-    # Switch between windows in current stack pane
-    Key([mod], "k", lazy.layout.down()),
-    Key([mod], "j", lazy.layout.up()),
+        # Switch between windows in current stack pane
+        Key([mod], "k", lazy.layout.down()),
+        Key([mod], "j", lazy.layout.up()),
 
-    # Move windows up or down in current stack
-    Key([mod, "control"], "k", lazy.layout.shuffle_down()),
-    Key([mod, "control"], "j", lazy.layout.shuffle_up()),
+        # Move windows up or down in current stack
+        Key([mod, "control"], "k", lazy.layout.shuffle_down()),
+        Key([mod, "control"], "j", lazy.layout.shuffle_up()),
 
-    # Switch window focus to other pane(s) of stack
-    Key([mod], "space", lazy.layout.next()),
+        # Switch window focus to other pane(s) of stack
+        Key([mod], "space", lazy.layout.next()),
 
-    # Swap panes of split stack
-    Key([mod, "shift"], "space", lazy.layout.rotate()),
+        # Swap panes of split stack
+        Key([mod, "shift"], "space", lazy.layout.rotate()),
 
-    # Toggle between split and unsplit sides of stack.
-    # Split = all windows displayed
-    # Unsplit = 1 window displayed, like Max layout, but still with
-    # multiple stack panes
-    Key([mod, "shift"], "Return", lazy.layout.toggle_split()),
-    Key([mod], "Return", lazy.spawn("xterm")),
+        # Toggle between split and unsplit sides of stack.
+        # Split = all windows displayed
+        # Unsplit = 1 window displayed, like Max layout, but still with
+        # multiple stack panes
+        Key([mod, "shift"], "Return", lazy.layout.toggle_split()),
+        Key([mod], "Return", lazy.spawn("xterm")),
 
-    # Toggle between different layouts as defined below
-    Key([mod], "Tab", lazy.next_layout()),
-    Key([mod], "w", lazy.window.kill()),
+        # Toggle between different layouts as defined below
+        Key([mod], "Tab", lazy.next_layout()),
+        Key([mod], "w", lazy.window.kill()),
 
-    Key([mod, "control"], "r", lazy.restart()),
-    Key([mod, "control"], "q", lazy.shutdown()),
-    Key([mod], "r", lazy.spawncmd()),
+        Key([mod, "control"], "r", lazy.restart()),
+        Key([mod, "control"], "q", lazy.shutdown()),
+        # Layout hotkeys
+        Key([mod], "h", lazy.layout.shrink_main()),
+        Key([mod], "l", lazy.layout.grow_main()),
+        Key([mod], "j", lazy.layout.down()),
+        Key([mod], "k", lazy.layout.up()),
+        Key([mod, "shift"], "j", lazy.layout.shuffle_down()),
+        Key([mod, "shift"], "k", lazy.layout.shuffle_up()),
+        Key([mod], "n", lazy.layout.normalize()),
+        Key([mod], "o", lazy.layout.maximize()),
+
+        # Window hotkeys
+        Key([mod], "space", lazy.window.toggle_fullscreen()),
+        Key([mod], "c", lazy.window.kill()),
+
+        # Spec hotkeys
+        Key([mod], "Return", lazy.spawncmd()),
+        Key([mod, "control"], "r", lazy.restart()),
+        Key([mod, "control"], "q", lazy.shutdown()),
+
+        # Apps hotkeys
+        Key([mod], "v", lazy.spawn("urxvt")),
+        Key([mod], "g", lazy.spawn("emacs")),
+        Key([mod], "z", lazy.spawn("pcmanfm")),
+Key([mod], "x", lazy.spawn("deadbeef")),
+    Key([mod], "Insert", lazy.spawn("firefox")),
+    Key([mod], "Home", lazy.spawn("firefox -P music")),
+    Key([mod], "Prior", lazy.spawn("firefox --private-window")),
+
+    # System hotkeys
+    Key([mod, "shift", "control"], "F11", lazy.spawn("sudo hibernate-reboot")),
+    Key([mod, "shift", "control"], "F12", lazy.spawn("systemctl hibernate")),
+    Key([], "Print", lazy.spawn("scrot -e 'mv $f /home/user/screenshots/'")),
+
+    # Media hotkeys
+    Key([], 'XF86AudioRaiseVolume', lazy.spawn('pulseaudio-ctl up 5')),
+    Key([], 'XF86AudioLowerVolume', lazy.spawn('pulseaudio-ctl down 5')),
+    Key([], 'XF86AudioMute', lazy.spawn('pulseaudio-ctl set 1')),  Key([mod], "r", lazy.spawncmd()),
 ]
 
 groups = [Group(i) for i in "asdfuiop"]
@@ -74,44 +110,44 @@ for i in groups:
 
         # mod1 + shift + letter of group = switch to & move focused window to group
         Key([mod, "shift"], i.name, lazy.window.togroup(i.name)),
-    ])
+        ])
 
-layouts = [
-    layout.Max(),
-    layout.Stack(num_stacks=2)
-]
+    layouts = [
+            layout.Max(),
+            layout.Stack(num_stacks=2)
+            ]
 
-widget_defaults = dict(
-    font='sans',
-    fontsize=12,
-    padding=3,
-)
-extension_defaults = widget_defaults.copy()
+    widget_defaults = dict(
+            font='sans',
+            fontsize=12,
+            padding=3,
+            )
+    extension_defaults = widget_defaults.copy()
 
 screens = [
-    Screen(
-        bottom=bar.Bar(
-            [
-                widget.GroupBox(),
-                widget.Prompt(),
-                widget.WindowName(),
-                widget.TextBox("default config", name="default"),
-                widget.Systray(),
-                widget.Clock(format='%Y-%m-%d %a %I:%M %p'),
-            ],
-            24,
-        ),
-    ),
-]
+        Screen(
+            bottom=bar.Bar(
+                [
+                    widget.GroupBox(),
+                    widget.Prompt(),
+                    widget.WindowName(),
+                    widget.TextBox("default config", name="default"),
+                    widget.Systray(),
+                    widget.Clock(format='%Y-%m-%d %a %I:%M %p'),
+                    ],
+                24,
+                ),
+            ),
+        ]
 
 # Drag floating layouts.
 mouse = [
-    Drag([mod], "Button1", lazy.window.set_position_floating(),
-         start=lazy.window.get_position()),
-    Drag([mod], "Button3", lazy.window.set_size_floating(),
-         start=lazy.window.get_size()),
-    Click([mod], "Button2", lazy.window.bring_to_front())
-]
+        Drag([mod], "Button1", lazy.window.set_position_floating(),
+            start=lazy.window.get_position()),
+        Drag([mod], "Button3", lazy.window.set_size_floating(),
+            start=lazy.window.get_size()),
+        Click([mod], "Button2", lazy.window.bring_to_front())
+        ]
 
 dgroups_key_binder = None
 dgroups_app_rules = []  # type: List
@@ -134,7 +170,7 @@ floating_layout = layout.Floating(float_rules=[
     {'wname': 'branchdialog'},  # gitk
     {'wname': 'pinentry'},  # GPG key password entry
     {'wmclass': 'ssh-askpass'},  # ssh-askpass
-])
+    ])
 auto_fullscreen = True
 focus_on_window_activation = "smart"
 
