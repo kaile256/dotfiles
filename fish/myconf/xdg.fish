@@ -37,5 +37,5 @@ set -x TERMINFO_DIRS "$XDG_DATA_HOME"/terminfo:/usr/share/terminfo
 ## Wine: helps MS-win apps on Linux
 if ! [ -d "$XDG_DATA_HOME"/wineprefixes ]; then
   mkdir -p "$XDG_DATA_HOME"/wineprefixes
-fi
+end
 set -x WINEPREFIX "$XDG_DATA_HOME"/wineprefixes/default
