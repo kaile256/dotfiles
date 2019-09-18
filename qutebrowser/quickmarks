@@ -66,3 +66,7 @@ coc sample config https://qiita.com/joeeee44/items/d431ff5ab9fe7a424b13
 save battery of thinkpad https://www.xmisao.com/2014/01/21/thinkpad-battery-setting-by-tlp-on-linux.html
 Tracking your programming activity https://github.com/wakatime/vim-wakatime
 WakaTime: track your Activity on vim! https://wakatime.com/dashboard
+another source of coc, which is not from lsp. https://github.com/neoclide/coc-sources
+coc's sources: dict., tah https://github.com/neoclide/coc-sources
+Doc: go https://golang.org/doc/
+Doc: fish file:///usr/share/doc/fish/index.html
