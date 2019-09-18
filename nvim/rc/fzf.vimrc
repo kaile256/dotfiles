@@ -93,6 +93,17 @@ cnoreabbr <silent><expr> rg (getcmdtype() == ':' && getcmdline() =~ '^rg$')? 'Rg
 cnoreabbr <silent><expr> ag (getcmdtype() == ':' && getcmdline() =~ '^ag$')? 'Ag' : 'ag'
 "}}}
 " Keymap; Command! Ag/Rg/FZF {{{
+command! -bar -bang Nmaps call fzf#vim#maps("n", <bang>0)
+command! -bar -bang Imaps call fzf#vim#maps("i", <bang>0)
+command! -bar -bang Xmaps call fzf#vim#maps("x", <bang>0)
+command! -bar -bang Smaps call fzf#vim#maps("s", <bang>0)
+command! -bar -bang Vmaps call fzf#vim#maps("v", <bang>0)
+command! -bar -bang Cmaps call fzf#vim#maps("c", <bang>0)
+"command! -bang -nargs=* FZF
+"      \ call fzf#vim#files(<q-args>,
+"      \                 <bang>0 ? fzf#vim#with_preview('up:60%')
+"      \                         : fzf#vim#with_preview('right:50%'),
+"      \                 <bang>0)
 command! -bang -nargs=* Ag
       \ call fzf#vim#ag(<q-args>,
       \                 <bang>0 ? fzf#vim#with_preview('up:60%')
