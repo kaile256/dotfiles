@@ -70,3 +70,4 @@ another source of coc, which is not from lsp. https://github.com/neoclide/coc-so
 coc's sources: dict., tah https://github.com/neoclide/coc-sources
 Doc: go https://golang.org/doc/
 Doc: fish file:///usr/share/doc/fish/index.html
+Doc: vim https://github.com/mhinz/vim-galore
