@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 source list.sh
 
 # Identify installer {{{
