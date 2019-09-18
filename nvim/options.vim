@@ -51,8 +51,8 @@ set guicursor=
 augroup AutoToggleCursorLine
   au!
   " Note: WinEnter/Leave doesn't work.
-  au BufRead,WinEnter,InsertLeave * if &l:cursorline == 0 | setl cursorline | endif
-  au WinLeave,InsertEnter         * if &l:cursorline == 1 | setl nocursorline | endif
+  au WinEnter,InsertLeave * setl cursorline
+  au WinLeave,InsertEnter * setl nocursorline
 augroup END
 " to highlight only CursorLineNr
 "hi CursorLine NONE
@@ -186,6 +186,8 @@ set sessionoptions-=blank,buffers
 " Method; Inc/Decrement {{{
 "set nrformats+=octal
 "}}}
+" Method; Completion
+set complete-=i " i: included files
 
 " CAUTION: :DiffOrig ruins diff syntax.
 "command! DiffOrig vert above new | setl bt=quickfix | r # | 0d_ | diffthis
