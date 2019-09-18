@@ -13,7 +13,7 @@ set -Cu
 type nvr > /dev/null && {
   export EDITOR=nvr
   export VISUAL=nvr
-  export SUDO_EDITOR=nvim-qt
+  export SUDO_EDITOR=nvr
 } || {
 type nvim > /dev/null && {
   export EDITOR=nvim
