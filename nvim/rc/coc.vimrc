@@ -1,4 +1,4 @@
-" From: tool.toml
+" From: external.toml
 " Branch: neoclide/coc.nvim_release
 " Func: neoclide/coc.nvim_release/plugin/coc.vim
 " Repo: neoclide/coc.nvim
@@ -51,10 +51,8 @@ let g:coc_global_extensions = [
       \ 'coc-project',
       \ 'coc-python',
       \ 'coc-rust-analyzer',
-      \ 'coc-sh',
       \ 'coc-solargraph',
       \ 'coc-sql',
-      \ 'coc-syntax',
       \ 'coc-tag',
       \ 'coc-template',
       \ 'coc-texlab',
@@ -76,6 +74,7 @@ command! Clist :CocList
 command! CList :CocList
 command! Cmru :CocList mru
 command! CMru :CocList mru
+command! Cextensions :CocList extensions
 command! ClocalLog :CocList bcommits
 command! CLocalLog :CocList bcommits
 command! Cbuffers :CocList buffers
