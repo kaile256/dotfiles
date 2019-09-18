@@ -13,3 +13,4 @@ eval "$(pyenv virtualenv-init -)"
 
 # Xserver
 #[[ -z $DISPLAY && $XDG_VTNR -eq 1 ]] && exec startx
+#exec qtile
