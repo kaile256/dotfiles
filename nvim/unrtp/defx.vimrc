@@ -33,7 +33,7 @@ call defx#custom#column('mark', {
       \ 'selected_icon': '✓',
       \ })
 call defx#custom#option('_', {
-      \ 'columns': 'mark:git:indent:icons:filename:size:time',
+      \ 'columns': 'mark:indent:git:icons:filename',
       \ 'show_ignored_files': 1,
       \ })
 "call defx#custom#column('icon', {
@@ -51,6 +51,7 @@ call defx#custom#option('_', {
 "        \ })
 "}}}
 
+let g:defx_narrow_width = 50
 function! s:defx_keymap_explorer() abort
   " TODO: Duplicate defx buffer. {{{1
   "nnoremap <silent><buffer> <c-w><c-v>
@@ -68,11 +69,13 @@ function! s:defx_keymap_explorer() abort
   nnoremap <silent><buffer><expr> h
         \ defx#do_action('cd', ['..'])
   "nnoremap <silent><buffer><expr> j
-        \ line('.') == line('$') ? 'gg' : 'j'
+  "      \ line('.') == line('$') ? 'gg' : 'j'
   "nnoremap <silent><buffer><expr> k
-        \ line('.') == 1 ? 'G' : 'k'
+  "     \ line('.') == 1 ? 'G' : 'k'
   nnoremap <silent><buffer><expr> l
-        \ defx#do_action('open_directory')
+        \ (winwidth('.') < g:defx_narrow_width)?
+        \ defx#do_action('open_directory'):
+        \ defx#do_action('open_tree')
   " Explore; CWD {{{1
   "" CWD; defx's
   nnoremap <silent><buffer><expr> ~
@@ -111,6 +114,62 @@ function! s:defx_keymap_explorer() abort
   "nnoremap <silent><buffer><expr> C
   "      \ defx#do_action('toggle_columns',
   "      \                'mark:indent:icon:filename:type:size:time')
+  " Selected; Open {{{1
+  nnoremap <silent><buffer><expr> <c-j>
+        \ (winwidth('.') < g:defx_narrow_width)?
+        \ defx#do_action('open', 'wincmd p <bar> edit'):
+        \ defx#do_action('open')
+  nnoremap <silent><buffer><expr> <CR>
+        \ (winwidth('.') < g:defx_narrow_width)?
+        \ defx#do_action('open', 'wincmd p <bar> edit'):
+        \ defx#do_action('open')
+  nnoremap <silent><buffer><expr> <c-v>
+        \ defx#do_action('open', 'vsplit')
+  " TODO: `:wincmd p` will apply only when the defx buffer is narrow.
+  nnoremap <silent><buffer><expr> <c-s>
+        \ defx#do_action('open', 'wincmd p <bar> split')
+  nnoremap <silent><buffer><expr> <c-b>
+        \ defx#do_action('open', 'tabe')
+  "" Open; Tree {{{1
+  nnoremap <silent><buffer><expr> u
+        \ defx#do_action('open_or_close_tree')
+  nnoremap <silent><buffer><expr> U
+        \ defx#do_action('open_or_close_tree')
+  nnoremap <silent><buffer><expr> za
+        \ defx#do_action('open_or_close_tree')
+  nnoremap <silent><buffer><expr> zo
+        \ defx#do_action('open_tree')
+  nnoremap <silent><buffer><expr> zO
+        \ defx#do_action('open_tree_recursive')
+  nnoremap <silent><buffer><expr> zu
+        \ defx#do_action('open_tree')
+  "" Close; Tree {{{1
+  nnoremap <silent><buffer><expr> zc
+        \ defx#do_action('close_tree')
+  "nnoremap <silent><buffer><expr> zm
+  "      \ defx#do_action('multi',
+  "      \ ['cd', ['..'], 'open_directory'])
+  " Selected; Register {{{1
+  " copy: yank in defx's register
+  nnoremap <buffer><expr> yy
+        \ defx#do_action('copy')
+  nnoremap <buffer><expr> Y
+        \ defx#do_action('copy')
+  nnoremap <buffer><expr> cc
+        \ defx#do_action('move')
+  nnoremap <buffer><expr> C
+        \ defx#do_action('move')
+  nnoremap <buffer><expr> p
+        \ defx#do_action('paste')
+  " yank_path: yank in unnamed register
+  nnoremap <buffer><expr> <space>y
+        \ defx#do_action('yank_path')
+  " Selected; Execute {{{1
+  nnoremap <silent><buffer><expr> X
+        \ defx#do_action('execute_system')
+  nnoremap <silent><buffer><expr> !
+        \ defx#do_action('execute_command')
+  "}}}
   " Toggle; Mark {{{1
   nnoremap <silent><buffer><expr> mm
         \ defx#do_action('toggle_select')
@@ -135,57 +194,6 @@ function! s:defx_keymap_explorer() abort
   " Toggle; Hidden Files {{{1
   nnoremap <silent><buffer><expr> z.
         \ defx#do_action('toggle_ignored_files')
-  " Selected; Open {{{1
-  nnoremap <silent><buffer><expr> <c-j>
-        \ (winwidth('.') < 50)?
-        \ defx#do_action('open', 'wincmd p <bar> edit'):
-        \ defx#do_action('open')
-  nnoremap <silent><buffer><expr> <CR>
-        \ (winwidth('.') < 50)?
-        \ defx#do_action('open', 'wincmd p <bar> edit'):
-        \ defx#do_action('open')
-  nnoremap <silent><buffer><expr> <c-v>
-        \ defx#do_action('open', 'vsplit')
-  " TODO: `:wincmd p` will apply only when the defx buffer is narrow.
-  nnoremap <silent><buffer><expr> <c-s>
-        \ defx#do_action('open', 'wincmd p <bar> split')
-  nnoremap <silent><buffer><expr> <c-b>
-        \ defx#do_action('open', 'tabe')
-  "" Open; Tree {{{1
-  nnoremap <silent><buffer><expr> u
-        \ defx#do_action('open_or_close_tree')
-  nnoremap <silent><buffer><expr> U
-        \ defx#do_action('open_or_close_tree')
-  nnoremap <silent><buffer><expr> za
-        \ defx#do_action('open_or_close_tree')
-  nnoremap <silent><buffer><expr> zo
-        \ defx#do_action('open_tree')
-  nnoremap <silent><buffer><expr> zO
-        \ defx#do_action('open_tree_recursive')
-  nnoremap <silent><buffer><expr> zc
-        \ defx#do_action('close_tree')
-  nnoremap <silent><buffer><expr> zu
-        \ defx#do_action('open_tree')
-  " Selected; Register {{{1
-  " copy: yank in defx's register
-  nnoremap <buffer><expr> yy
-        \ defx#do_action('copy')
-  nnoremap <buffer><expr> Y
-        \ defx#do_action('copy')
-  nnoremap <buffer><expr> cc
-        \ defx#do_action('move')
-  nnoremap <buffer><expr> C
-        \ defx#do_action('move')
-  nnoremap <buffer><expr> p
-        \ defx#do_action('paste')
-  " yank_path: yank in unnamed register
-  nnoremap <buffer><expr> <space>y
-        \ defx#do_action('yank_path')
-  " Selected; Execute {{{1
-  nnoremap <silent><buffer><expr> X
-        \ defx#do_action('execute_system')
-  nnoremap <silent><buffer><expr> !
-        \ defx#do_action('execute_command')
   "}}}
 endfunction
 augroup DefxOverrideNetrw "{{{1
