@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # Before: path.sh
-# From: .bashrc
+# From: bash/.bashrc
 #  Ref: .zshenv
 #  Ref: config.fish
 #  Ref: .xprofile
