@@ -54,9 +54,6 @@ inoremap <c-g>w     <S-Right>
 "}}}
 
 " CAUTION: Never careless mapping on <i_a-hjkl>
-" Alt-ESC; <a-'original'> {{{
-inoremap <a-space> <esc>:w<cr>
-"}}}
 " Alt-ESC; <a-hjkl> {{{
 "  make sure <a-hjkl> work as <esc>hjkl, e.g., while pop-up menu shows.
 " CAUTION: Remember n_<a-hjkl> for Win-Leap
