@@ -1,4 +1,4 @@
-#! /usr/bin/env bash
+#!/usr/bin/env bash
 
 # C-option: do not overwrite on redirect; replace '>' with '>|' to surely overwite a file.
 # u-option: stop if an undefined variable is set, or undefined var shall be regarded as null.
@@ -32,46 +32,57 @@ fi
 
 ## $XDG programs;
 echo 'making symbolic links...'
-VimData=(
-#backup
-#swap
-#undo
+#vimData=(
+#  #backup
+#  #swap
+#  #undo
+#)
+
+configs=(
+  X11
+  alacritty
+  awesome
+  bash
+  ctags
+  emacs
+  fcitx
+  fish
+  git
+  glrnvim.yml
+  i3
+  lynx
+  moc
+  nvim
+  nyaovim
+  qutebrowser
+  tmux
+  vim
+  w3m
+  zsh
 )
 
-Configs=(
-X11
-alacritty
-awesome
-bash
-ctags
-emacs
-fcitx
-fish
-git
-glrnvim.yml
-i3
-lynx
-moc
-nvim
-nyaovim
-qutebrowser
-tmux
-vim
-w3m
-zsh
+#configFiles=(
+#  qtile/config.py
+#)
+
+# non-XDG based programs;
+# Create symbolic links at $HOME via $XDG_CONFIG_HOME.
+home_list=(
+  vim/.vimrc
+  X11/.Xmodmap
+  X11/.Xresources
+  bash/.bashrc
+  bash/.profile
+  ctags/.ctags
+  emacs/.doom.d
+  git/.gitconfig
+  git/.tigrc
+  nvim/gui/.gonvim
+  moc/.moc
+  zsh/.zshenv
 )
 
-
-
-for vim_data_dir in "${VimData[@]}"; do
-  vim_data_dest=${XDG_DATA_HOME}/nvim
-
-  cd "$vim_data_dest"
-  ln -nsf "${DOTFILES}/date/nvim/${vim_data_dir}" .
-  echo "Done! The config files of ${vim_data_dir} are linked at ${vim_data_dest}!!"
-done
-
-for config_dir in "${Configs[@]}"; do
+for config_dir in "${configs[@]}"; do
   cd "${XDG_CONFIG_HOME}"
   ln -nsf "${DOTFILES}/${config_dir}" .
   echo "Done! The config files of ${config_dir} are linked at ${XDG_CONFIG_HOME}!!"
@@ -80,22 +91,13 @@ done
 echo ""
 echo "Done! All the dotfiles are linked to ${XDG_CONFIG_HOME}"
 
-# non-XDG based programs;
-# Create symbolic links at $HOME via $XDG_CONFIG_HOME.
-home_list=(
-vim/.vimrc
-X11/.Xmodmap
-X11/.Xresources
-bash/.bashrc
-bash/.profile
-ctags/.ctags
-emacs/.doom.d
-git/.gitconfig
-git/.tigrc
-nvim/gui/.gonvim
-moc/.moc
-zsh/.zshenv
-)
+#for config_dest in "${configFiles[@]}"; do
+#  cd config_dest
+#  for config_files in "${configFiles[@]}"; do
+#    ln -nsf "${DOTFILES}/config_files" .
+#    echo "Done! create a symlink for ${config_files} on ${config_dest}!"
+#  done
+#done
 
 cd "$HOME"
 for home_link in "${home_list[@]}"; do
