@@ -1,9 +1,21 @@
-# Ref: .profile
-# Ref: .zshenv
+#!/usr/bin/env fish
 
 # Never write "exec tmux" on script, or never access the WSL Distribution.
-#source ~/.config/fish/myconf.d/*.fish
-source ~/.config/fish/myfuctions/*.fish
+
+# Note: CANNOT use * for sourcing.
+#source fish/myconf.d/*.fish
+#source fish/myfuctions/*.fish
+
+# Note: too slow to use for-loop.
+#for myconf_file in $HOME/.config/fish/myconf/*.fish
+#    source $myconf_file
+#end
+
+#source $HOME/.config/fish/myconf/xdg.fish
+#source $HOME/.config/fish/myconf/env.fish
+source $HOME/.config/fish/myconf/alias.fish
+source $HOME/.config/fish/myconf/prompt.fish
+source $HOME/.config/fish/myconf/fzf.fish
 
 umask 022
 
