@@ -175,7 +175,7 @@ endfunction
 
 augroup AutoFormatVimwiki
   au!
-  au VimEnter,BufWinEnter *wiki/*/*.md if &ft ==# 'markdown' | setl ft=vimwiki syn=vimwiki
+  au VimEnter,BufRead,BufNewFile *wiki/*/*.md if &ft ==# 'markdown' | setl ft=vimwiki syn=vimwiki
   au FileType vimwiki setl tabstop=4 softtabstop=4 shiftwidth=4
   au FileType vimwiki setl nowrap fdl=1
   au BufWritePre index.* if &syn  ==# 'vimwiki' | VimwikiGenerateLinks
