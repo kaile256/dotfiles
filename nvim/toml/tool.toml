@@ -8,6 +8,22 @@ on_event = ['TextChanged', 'TextChangedI']
 #hook_post_source = 'runtime repeat.vimrc'
 #}}}
 
+# Sudo
+[[plugins]]
+repo = 'lambdalisue/suda.vim' #{{{
+if = 'executable("sudo")'
+on_event = 'CmdlineEnter'
+#on_cmd = ['e suda', 'r suda', 'w suda']
+hook_add = 'runtime suda.vimrc'
+#}}}
+#[[plugins]]
+#repo = 'chrisbra/SudoEdit.vim' #{{{
+## Useless w/ neovim
+#on_cmd = 'Sudo'
+#hook_post_source = 'runtime SudoEdit.vimrc'
+##}}}
+
+# Floating Window
 [[plugins]]
 repo = 'ncm2/float-preview.nvim'
 on_source = ['delplete.nvim', 'coc.nvim']
