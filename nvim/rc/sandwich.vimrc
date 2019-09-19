@@ -1,6 +1,15 @@
 " From: motion.toml
 
 let g:sandwich_no_default_key_mappings = 1 " Useless
+if execute('nmap sr')
+  nunmap sr
+endif
+if execute('nmap sd')
+  nunmap sd
+endif
+if execute('nmap sa')
+  nunmap sa
+endif
 if execute('xmap sr')
   xunmap sr
 endif
