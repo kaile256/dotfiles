@@ -1,5 +1,5 @@
 " From: external.toml
-" Repo: fugitive.vim
+" Repo: tpope/vim-fugitive
 
 command! -nargs=1 Gclone :Git clone <args> %:p:h
 function! s:fugitive_commit_with_diff() abort "{{2
