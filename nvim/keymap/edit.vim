@@ -182,6 +182,14 @@ noremap zU zMzv
 
 " TODO: inc/dec for hex color on guifg/bg
 onoremap <silent> gv :<c-u>norm! gv<cr>
+xnoremap zo zogv
+xnoremap zO zOgv
+xnoremap zc zcgv
+xnoremap zC zCgv
+xnoremap zr zrgv
+xnoremap zR zRgv
+xnoremap zm zmgv
+xnoremap zM zMgv
 xnoremap <c-x> <c-x>gv
 xnoremap <c-a> <c-x>gv
 xnoremap <silent> = =:norm! gv<cr>
