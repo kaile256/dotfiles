@@ -11,5 +11,3 @@ let g:linediff_second_buffer_command = 'vertical aboveleft new'
 augroup LinediffKeymap
   au User LinediffBufferReady nnoremap <buffer> q :LinediffReset<cr>
 augroup END
-
-nnoremap <nowait> L L
