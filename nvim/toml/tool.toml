@@ -5,6 +5,7 @@
 repo = 'tpope/vim-repeat' #{{{
 # No Help
 on_event = ['TextChanged', 'TextChangedI']
+#hook_post_source = 'runtime repeat.vimrc'
 #}}}
 
 [[plugins]]
