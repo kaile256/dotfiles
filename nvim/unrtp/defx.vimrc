@@ -205,7 +205,7 @@ augroup DefxOverrideNetrw "{{{1
   "au BufEnter * if s:isdir(expand('%')) | bd | Defx
   "au BufNew,BufEnter * if isdirectory(expand('<amatch>')) | Defx
   " Keep tree-view if winwidth is narrow.
-  au BufWinEnter * if bufname('#') =~# '[defx]' && winwidth('#') < 50 | b# | endif
+  "au BufWinEnter * if bufname('#') =~# '[defx]' && winwidth('#') < 50 | b# | endif
   " Open on defx when vim's arg is dir.
   au StdinReadPre * au VimEnter * if argc() == 1 && isdirectory(argv(0)) | Defx --search=argv(0) | endif
 augroup END
