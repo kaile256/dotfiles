@@ -29,10 +29,11 @@ URxvt.saveLines:            3000
 URxvt.fading:               40
 
 ! Font list and Spacing
+URxvt.allow_bold: true
+URxvt.kanji_encoding: UTF-8
 !URxvt.font:                 xft:MyricaM M:size=14:antialias=true
 !URxvt.font:                 xft:Ricty Discord Nerd Font:size=14:antialias=true
 URxvt.font:                 xft:Ricty Nerd Font:size=14:antialias=true
-!URxvt.font:                 xft:Dejavu Sans Mono:size=13:antialias=true,xft:SF Mono:size=12:antialias=true
 !URxvt.font:                 xft:Dejavu Sans Mono:size=12:antialias=true,xft:MyricaM M:size=14:antialias=true
 URxvt.letterSpace:          -1  ! prepare exagerated space esp. on Japanese Fonts.
 !URxvt.lineSpace:            2  ! expand space between command-lines.
@@ -41,33 +42,51 @@ URxvt.letterSpace:          -1  ! prepare exagerated space esp. on Japanese Font
 ! Define opacity in []; [100] is no-opacity, [0] is completely invisible.
 URxvt.depth:       32
 
-URxvt.color0:      [90]#282828    /* black          */
-URxvt.color1:      [90]#cc241d    /* red            */
-URxvt.color2:      [90]#859900    /* green          */
-URxvt.color3:      [90]#d79921    /* yellow         */
-URxvt.color4:      [90]#268bd2    /* blue           */
-URxvt.color5:      [90]#b16286    /* magenta        */
-URxvt.color6:      [90]#689d6a    /* cyan           */
-URxvt.color7:      [90]#a89984    /* white          */
-URxvt.color8:      [90]#073642    /* bright black   */
-URxvt.color9:      [90]#fb4934    /* bright red     */
-URxvt.color10:     [90]#b8bb26    /* bright green   */
-URxvt.color11:     [90]#fabd2f    /* bright yellow  */
-URxvt.color12:     [90]#0087ff    /* bright blue    */
-URxvt.color13:     [90]#d3869b    /* bright magenta */
-URxvt.color14:     [90]#2aa198    /* bright cyan    */
-URxvt.color15:     [90]#ebdbb2    /* bright white   */
+!URxvt.color0:      [90]#282828    /* black          */
+!URxvt.color1:      [90]#cc241d    /* red            */
+!URxvt.color2:      [90]#859900    /* green          */
+!URxvt.color3:      [90]#d79921    /* yellow         */
+!URxvt.color4:      [90]blue    /* blue           */
+!URxvt.color5:      [90]#b16286    /* magenta        */
+!URxvt.color6:      [90]#689d6a    /* cyan           */
+!URxvt.color7:      [90]#a89984    /* white          */
+!URxvt.color8:      [90]#073642    /* bright black   */
+!URxvt.color9:      [90]#fb4934    /* bright red     */
+!URxvt.color10:     [90]#A6E22E    /* bright green   */
+!URxvt.color11:     [90]#fabd2f    /* bright yellow  */
+!URxvt.color12:     [90]#0087ff    /* bright blue    */
+!URxvt.color13:     [90]#d3869b    /* bright magenta */
+!URxvt.color14:     [90]#2aa198    /* bright cyan    */
+!URxvt.color15:     [90]#ebdbb2    /* bright white   */
 
-URxvt.foreground:  [90]#ebdbb2
-URxvt.background:  [90]#282828
-:
+! Colorscheme: Solarized (or flattened)
+URxvt.color0:      [90]#073642    /* black          */
+URxvt.color1:      [90]#dc322f    /* red            */
+URxvt.color2:      [90]#859900    /* green          */
+URxvt.color3:      [90]#b58900    /* yellow         */
+URxvt.color4:      [90]#268bd2    /* blue           */
+URxvt.color5:      [90]#d33682    /* magenta        */
+URxvt.color6:      [90]#2aa198    /* cyan           */
+URxvt.color7:      [90]#eee8d5    /* white          */
+URxvt.color8:      [90]#002b36    /* bright black   */
+URxvt.color9:      [90]#cb4b16    /* bright red     */
+URxvt.color10:     [90]#586e75    /* bright green   */
+URxvt.color11:     [90]#657b83    /* bright yellow  */
+URxvt.color12:     [90]#839496    /* bright blue    */
+URxvt.color13:     [90]#6c71c4    /* bright magenta */
+URxvt.color14:     [90]#93a1a1    /* bright cyan    */
+URxvt.color15:     [90]#fdf6e3    /* bright white   */
+!URxvt.foreground:  [90]#ebdbb2
+!URxvt.background:  [90]#282828
+URxvt.foreground:  [90]white
+URxvt.background:  [90]black
 
 !! Italic/Bold/UnderLine
-URxvt.colorIT:     [90]#8ec07c
-URxvt.colorBD:     [90]#fe8019
-URxvt.colorUL:     [90]#83a598
+!URxvt.colorIT:     [90]#8ec07c
+!URxvt.colorBD:     [90]#fe8019
+!URxvt.colorUL:     [90]#83a598
 
-URxvt.scrollColor: [90]#504945
+!URxvt.scrollColor: [90]#504945
 !URxvt.troughColor: [90]#3C3836  ! bg-color of scrollbar.
 
 ! EXTENTION
@@ -79,53 +98,52 @@ URxvt.scrollColor: [90]#504945
 !exec qtile
 !exec i3 -V >> ~/.local/share/i3/i3log-$(date +'%F-%k-%M-%S') 2>^1
 
-!! XTERM
-!XTerm*termName: xterm-256color
-!Term*scrollBar: False
-!XTerm*cursorBlink: True
-!
-!! Fonts and Encoding
-!XTerm*utf8: True
-!XTerm*locale: True
-!XTerm*utf8Title: True
-!XTerm*faceName: xft:DejaVu Sans Mono
-!XTerm*faceNameDoublesize: xft:IPAGothic
-!XTerm*faceSize: 9
-!XTerm*scaleHeight: 1.08
-!
-!!! Color Scheme : Tomorrow Night
-!!! https://github.com/chriskempson/tomorrow-theme
-!
-!XTerm*background: #1D1F21
-!XTerm*foreground: #C5C8C6
-!! black
-!XTerm*color0: #282A2E
-!XTerm*color8: #373B41
-!! red
-!XTerm*color1: #A54242
-!XTerm*color9: #CC6666
-!! green
-!XTerm*color2: #8C9440
-!XTerm*color10: #B5BD68
-!! yellow
-!XTerm*color3: #DE935F
-!XTerm*color11: #F0C674
-!! blue
-!XTerm*color4: #5F819D
-!XTerm*color12: #81A2BE
-!! magenta
-!XTerm*color5: #85678F
-!XTerm*color13: #B294BB
-!! cyan
-!XTerm*color6: #5E8D87
-!XTerm*color14: #8ABEB7
-!! white
-!XTerm*color7: #707880
-!XTerm*color15: #C5C8C6
+! XTERM
+XTerm*termName: xterm-256color
+Term*scrollBar: False
+XTerm*cursorBlink: True
+
+! Fonts and Encoding
+XTerm*utf8: True
+XTerm*locale: True
+XTerm*utf8Title: True
+XTerm*faceName: xft:DejaVu Sans Mono
+XTerm*faceNameDoublesize: xft:Ricty Nerd Font
+XTerm*faceSize: 9
+XTerm*scaleHeight: 1.08
+
+!! Color Scheme : Tomorrow Night
+!! https://github.com/chriskempson/tomorrow-theme
+
+XTerm*background: #1D1F21
+XTerm*foreground: #C5C8C6
+! black
+XTerm*color0: #282A2E
+XTerm*color8: #373B41
+! red
+XTerm*color1: #A54242
+XTerm*color9: #CC6666
+! green
+XTerm*color2: #8C9440
+XTerm*color10: #B5BD68
+! yellow
+XTerm*color3: #DE935F
+XTerm*color11: #F0C674
+! blue
+XTerm*color4: #5F819D
+XTerm*color12: #81A2BE
+! magenta
+XTerm*color5: #85678F
+XTerm*color13: #B294BB
+! cyan
+XTerm*color6: #5E8D87
+XTerm*color14: #8ABEB7
+! white
+XTerm*color7: #707880
+XTerm*color15: #C5C8C6
 
 !twm &
 !xclock -geometry 50x50-1+1 &
 !xterm -geometry 80x50+494+51 &
 !xterm -geometry 80x20+494-0 &
 !exec xterm -geometry 80x66+0+0 -name login
-!xterm*faceSize: 23
