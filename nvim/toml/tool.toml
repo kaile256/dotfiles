@@ -1,12 +1,11 @@
 # From: dein.vimrc
 
 # Repeat
-#[[plugins]]
-#repo = 'tpope/vim-repeat' #{{{
-## Note: <Plug>(coc-command-repeat) covers even easy-motion's such as `df<P`
-## No Help
-#on_event = ['TextChanged', 'TextChangedI']
-##}}}
+[[plugins]]
+repo = 'tpope/vim-repeat' #{{{
+# No Help
+on_event = ['TextChanged', 'TextChangedI']
+#}}}
 
 #[[plugins]]
 #repo = 'fszymanski/fzf-gitignore' #{{{
