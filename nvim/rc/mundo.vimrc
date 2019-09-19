@@ -45,5 +45,5 @@ let g:mundo_mappings = {
 
 augroup MyMundoConf
   au!
-  au FileType Mundo,MundoDiff setl bt=quickfix signcolumn=
+  au FileType Mundo,MundoDiff setl signcolumn=
 augroup END
