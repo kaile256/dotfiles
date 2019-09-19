@@ -8,6 +8,11 @@ on_event = 'BufRead'
 hook_post_source = 'runtime fugitive.vimrc'
 #}}}
 [[plugins]]
+repo = 'sodapopcan/vim-twiggy'
+on_map = ':Twiggy'
+on_cmd = ':Twiggy'
+hook_add = 'runtime twiggy.vimrc'
+[[plugins]]
 repo = 'rhysd/git-messenger.vim' #{{{
 type = 'git'
 on_cmd = 'GitMessenger'
@@ -68,6 +73,7 @@ hook_add = 'runtime merginal.vimrc'
 ##on_source = 'vim-fugitive'
 #hook_post_source = 'runtime committia.vimrc'
 ##}}}
+# End of Fugitive
 
 #[[plugins]]
 #repo = 'airblade/vim-gitgutter' #{{{
