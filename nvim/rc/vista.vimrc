@@ -39,9 +39,9 @@ let g:vista_fzf_preview = ['right:50%']
 " '!' to close vista-buffer
 " '!!' to toggle vista-buffer.
 " Mnemonic: Index
-nnoremap <silent> <a-i> :<c-u>call <SID>vista_auto_adjust()<cr>
+nnoremap <silent> <a-i> :<c-u>call <SID>vista_sensible()<cr>
 
-function! s:vista_auto_adjust() abort
+function! s:vista_sensible() abort
   if winwidth('#') > 100
     let g:vista_echo_cursor_strategy = 'floating_win'
   else
