@@ -2,7 +2,7 @@ scriptencoding utf-8
 " From: insert.toml
 
 set imdisable
-let g:eskk#directory = g:my_data . '/eskk'
+let g:eskk#directory = g:data_home . '/eskk'
 let g:eskk#backup_dictionary = g:data_home . '/eskk/backup'
 if !isdirectory(g:eskk#backup_dictionary)
   exe '!mkdir -p' shellescape(expand(g:eskk#backup_dictionary))
