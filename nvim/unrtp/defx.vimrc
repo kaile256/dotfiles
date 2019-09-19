@@ -151,6 +151,7 @@ function! s:defx_keymap_explorer() abort
   "      \ ['cd', ['..'], 'open_directory'])
   " Selected; Register {{{1
   " copy: yank in defx's register
+  " Note: CANNOT register multiple files into defx-register.
   nnoremap <buffer><expr> yy
         \ defx#do_action('copy')
   nnoremap <buffer><expr> Y
