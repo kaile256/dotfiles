@@ -1,40 +1,40 @@
 " From: external.toml
 " Repo: fugitive.vim
 
-command! Gclone :Git clone  %:p:h<c-left><left>
-
-" Info; Blame {{{
-noremap <silent> <a-g>b     :<c-u>Gblame<cr>
-noremap <silent> <a-g><a-b> :<c-u>Gblame<cr>
-"}}}
-" Info; Status {{{
-noremap <silent> <a-g>s     :<c-u>vert bot 40 Gstatus<cr>
-noremap <silent> <a-g><a-s> :<c-u>vert bot 40 Gstatus<cr>
-"}}}
-" Add; Only {{{
-noremap <silent> <a-g>a     :<c-u>Gw<cr>
-noremap <silent> <a-g><a-a> :<c-u>Gw<cr>
-"}}}
-" Add; && Commit w/ diff {{{1
+command! -nargs=1 Gclone :Git clone <args> %:p:h
 function! s:fugitive_commit_with_diff() abort "{{2
   norm T
   " Keep to show diff w/ HEAD^ while editting commit-message.
-  Gvdiffsplit! HEAD
+  Gvdiffsplit! HEAD^
   norm gg
   vert bot Gstatus
   norm =
   vert resize 50
 endfunction "}}}2
 command! Gstage :Gw <bar> call s:fugitive_commit_with_diff()
-"noremap <silent> <a-g>w     :<c-u>cclose <bar> Gw <cr> :call <SID>fugitive_commit_with_diff()<cr>
-"noremap <silent> <a-g><a-w> :<c-u>cclose <bar> Gw <cr> :call <SID>fugitive_commit_with_diff()<cr>
-noremap <silent> <a-g>w     :<c-u>cclose <bar> :Gstage<cr>
-noremap <silent> <a-g><a-w> :<c-u>cclose <bar> :Gstage<cr>
+
+" Info; Blame {{{
+noremap <silent> <a-y>b     :<c-u>Gblame<cr>
+noremap <silent> <a-y><a-b> :<c-u>Gblame<cr>
+"}}}
+" Info; Status {{{
+noremap <silent> <a-y>s     :<c-u>vert bot 40 Gstatus<cr>
+noremap <silent> <a-y><a-s> :<c-u>vert bot 40 Gstatus<cr>
+"}}}
+" Add; Only {{{
+noremap <silent> <a-y>a     :<c-u>Gw<cr>
+noremap <silent> <a-y><a-a> :<c-u>Gw<cr>
+"}}}
+" Add; && Commit w/ diff {{{1
+"noremap <silent> <a-y>w     :<c-u>cclose <bar> Gw <cr> :call <SID>fugitive_commit_with_diff()<cr>
+"noremap <silent> <a-y><a-w> :<c-u>cclose <bar> Gw <cr> :call <SID>fugitive_commit_with_diff()<cr>
+noremap <silent> <a-y>w     :<c-u>cclose <bar> :Gstage<cr>
+noremap <silent> <a-y><a-w> :<c-u>cclose <bar> :Gstage<cr>
 "}}}
 " Diff; {{{
 " !: On a Merge Conflict, do a 3-diff; otherwise the same as without bang.
-noremap <silent> <a-g>d     :<c-u>cclose<cr><c-w>T:<c-u>Gvdiffsplit!<cr>
-noremap <silent> <a-g><a-d> :<c-u>cclose<cr><c-w>T:<c-u>Gvdiffsplit!<cr>
+noremap <silent> <a-y>d     :<c-u>cclose<cr><c-w>T:<c-u>Gvdiffsplit!<cr>
+noremap <silent> <a-y><a-d> :<c-u>cclose<cr><c-w>T:<c-u>Gvdiffsplit!<cr>
 "}}}
 
 function! s:on_gitcommit_startinsert() "{{{1
