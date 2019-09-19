@@ -7,6 +7,11 @@ repo = 'tpope/vim-repeat' #{{{
 on_event = ['TextChanged', 'TextChangedI']
 #}}}
 
+[[plugins]]
+repo = 'ncm2/float-preview.nvim'
+on_source = ['delplete.nvim', 'coc.nvim']
+hook_post_source = 'runtime float-preview.vimrc'
+
 #[[plugins]]
 #repo = 'fszymanski/fzf-gitignore' #{{{
 #type = 'git'
