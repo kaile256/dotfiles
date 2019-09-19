@@ -58,11 +58,12 @@ hook_post_source = 'runtime devicons.vimrc'
 #}}}
 
 # Indent
-[[plugins]]
-repo = 'Yggdroot/indentLine' #{{{
-on_event = 'BufRead'
-hook_add = 'runtime indentLine.vimrc'
-#}}}
+#[[plugins]]
+#repo = 'Yggdroot/indentLine' #{{{
+## Note: Causes a bulk of problems
+#on_event = 'BufRead'
+#hook_add = 'runtime indentLine.vimrc'
+##}}}
 
 # Resonance
 #[[plugins]]

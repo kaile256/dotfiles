@@ -71,3 +71,4 @@ coc's sources: dict., tah https://github.com/neoclide/coc-sources
 Doc: go https://golang.org/doc/
 Doc: fish file:///usr/share/doc/fish/index.html
 Doc: vim https://github.com/mhinz/vim-galore
+vim: colorscheme/flattened: Solarized without the bullshit https://github.com/romainl/flattened
