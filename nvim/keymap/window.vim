@@ -1,15 +1,15 @@
 " From: nvim/init.vim
 
-if execute('map <c-w>q') != '' || execute('map <c-w><c-q>') != ''
-  noremap <c-w>q <Nop>
-  noremap <c-w><c-q> <Nop>
-endif
+"if execute('map <c-w>q') != '' || execute('map <c-w><c-q>') != ''
+"  noremap <c-w>q <Nop>
+"  noremap <c-w><c-q> <Nop>
+"endif
 nnoremap <c-w>Q :<c-u>qa! <cr>
 nnoremap <c-w>Z :<c-u>qa  <cr>
 
 " Redraw; Indent
 " :retab! Replace all whitespaces and tabs according to tabstop/expandtab.
-nnoremap <S-TAB>  gg=G''zz
+"nnoremap <S-TAB>  gg=G''zz
 
 " Redraw; No Highlight
 inoremap <silent> <c-l>         <c-o>:<c-u>noh <cr><c-o><c-l>
