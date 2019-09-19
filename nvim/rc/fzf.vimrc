@@ -97,6 +97,7 @@ command! -bar -bang Xmaps call fzf#vim#maps("x", <bang>0)
 command! -bar -bang Smaps call fzf#vim#maps("s", <bang>0)
 command! -bar -bang Vmaps call fzf#vim#maps("v", <bang>0)
 command! -bar -bang Cmaps call fzf#vim#maps("c", <bang>0)
+command! -bar -bang Omaps call fzf#vim#maps("o", <bang>0)
 "command! -bang -nargs=* FZF
 "      \ call fzf#vim#files(<q-args>,
 "      \                 <bang>0 ? fzf#vim#with_preview('up:60%')
