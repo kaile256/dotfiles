@@ -142,8 +142,9 @@ endif
 "}}}
 " Method; Macros "{{{
 " lazyredraw: forbids to redraw screen while executing macros.
-" CAUTION: cause problem with fugitive at least; too much expands fugitive buffer.
-"set lazyredraw
+" Note: has caused a problem w/ fugitive;
+"       had expanded too wide a fugitive buffer's window.
+set lazyredraw
 "}}}
 " Method; Fold {{{
 set foldenable
