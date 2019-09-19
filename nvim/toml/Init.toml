@@ -28,11 +28,18 @@ hook_add = 'runtime fzf.vimrc'
 
 # Colorscheme
 # CAUTION: `:colorscheme foo` AFTER `:call dein#end()` for syntax complication.
-[[plugins]]
-repo = 'cocopon/iceberg.vim' #{{{
-if = 'exists("g:nyaovim_version")'
-hook_add = 'runtime iceberg.vimrc'
-#}}}
+#[[plugins]]
+#repo = 'romainl/flattened' #{{{
+## Need modified conditions.
+#if = 'exists("g:nyaovim_version")'
+#if = 'has("python3")'
+#hook_post_source = 'runtime flattened.vimrc'
+##}}}
+#[[plugins]]
+#repo = 'cocopon/iceberg.vim' #{{{
+#if = 'exists("g:nyaovim_version")'
+#hook_add = 'runtime iceberg.vimrc'
+##}}}
 #[[plugins]]
 #repo = 'altercation/solarized' #{{{
 #on_if = 'has("nvim")'
