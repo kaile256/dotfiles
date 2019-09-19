@@ -1,6 +1,15 @@
 " From: motion.toml
 
-let g:sandwich_no_default_key_mappings = 1
+let g:sandwich_no_default_key_mappings = 1 " Useless
+if execute('xmap sr')
+  xunmap sr
+endif
+if execute('xmap sd')
+  xunmap sd
+endif
+if execute('xmap sa')
+  xunmap sa
+endif
 let g:textobj_sandwich_no_default_key_mappings = 1
 
 "" Let; Recipes of sandwich {{{1
