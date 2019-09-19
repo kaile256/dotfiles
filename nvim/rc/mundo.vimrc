@@ -1,7 +1,8 @@
 " From: tool.toml
 
 " Keymap; Hotkey
-nnoremap <silent> <a-u> :<c-u>MundoToggle<cr>
+nnoremap <silent> <Plug>(mundo-toggle) :<c-u>MundoToggle<cr>
+nmap <silent> <a-u> <Plug>(mundo-toggle)
 
 let g:mundo_right = 1
 let g:mundo_width = 80
