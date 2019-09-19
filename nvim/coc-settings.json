@@ -47,7 +47,6 @@
 	"diagnostic.checkCurrentLine": true,
 
 	"coc.preferences.extensionUpdateCheck": "weekly",
-	"coc.preferences.jumpCommand": "drop",
 
 	"session.directory": "~/.local/share/nvim/session/",
 
