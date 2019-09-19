@@ -23,7 +23,7 @@
 repo = 'mhinz/vim-lookup' #{{{
 # Enable to jump to definition as &runtimepath.
 #on_ft = 'vim'
-on_map = 'lookup#'
+on_map = '<Plug>(lookup'
 hook_add = 'runtime lookup.vimrc'
 #}}}
 

@@ -1,14 +1,11 @@
 " From: ftplugin.toml
 
+nnoremap <Plug>(lookup-jump-to-definition) :<c-u>call lookup#lookup()<cr>
+xnoremap <Plug>(lookup-jump-back)          :<c-u>call lookup#lookup()<cr>
 augroup LookupMyConf
   au!
-  "au FileType vim nnoremap <silent><buffer> gd :<c-u>call lookup#lookup()<cr>
-  "au FileType vim xnoremap <silent><buffer> gd :call lookup#lookup()<cr>
-  au FileType vim nnoremap <silent><buffer> <c-]> :<c-u>call lookup#lookup()<cr>
-  au FileType vim xnoremap <silent><buffer> <c-]> :call lookup#lookup()<cr>
-  au FileType vim nnoremap <silent><buffer> <c-t> :<c-u>call lookup#pop()<cr>
-  au FileType vim xnoremap <silent><buffer> <c-t> :call lookup#pop()<cr>
-  "au FileType vim nnoremap <silent><buffer> gr :<c-u>call lookup#pop()<cr>
-  "au FileType vim xnoremap <silent><buffer> gr :call lookup#pop()<cr>
+  au FileType vim nmap <buffer> <c-]> <Plug>(lookup-jump-to-definition)
+  au FileType vim xmap <buffer> <c-]> <Plug>(lookup-jump-to-definition)
+  au FileType vim nmap <buffer> <c-t> <Plug>(lookup-jump-back)
+  au FileType vim xmap <buffer> <c-t> <Plug>(lookup-jump-back)
 augroup END
-"nnoremap l l
