@@ -72,15 +72,17 @@ noremap <silent> g<c-]> :<c-u>vert stjump <c-r><c-w><CR>zz
 nnoremap <silent> <c-q> :silent! $tag<cr>
 "" Jump; to Definition
 nnoremap <silent> gf gF
-nnoremap <silent> <c-w>f  :<c-u>vert    sfind <c-r><c-f> <cr>
-nnoremap <silent> <c-w>gf :<c-u><space> sfind <c-r><c-f> <cr>
-nnoremap <silent> <c-w>F  :<c-u>tab     sfind <c-r><c-f> <cr>
-nnoremap <silent> gF      :<c-u>tab     sfind <c-r><c-f> <cr>
 vnoremap <silent> gf gF
+nnoremap <silent> <c-w>f  :<c-u>vert    sfind <c-r><c-f> <cr>
 vnoremap <silent> <c-w>f  :<c-u>vert    sfind <c-r><c-f> <cr>
+nnoremap <silent> <c-w>gf :<c-u><space> sfind <c-r><c-f> <cr>
 vnoremap <silent> <c-w>gf :<c-u><space> sfind <c-r><c-f> <cr>
-vnoremap <silent> <c-w>F  :<c-u>tab     sfind <c-r><c-f> <cr>
-vnoremap <silent> gF      :<c-u>tab     sfind <c-r><c-f> <cr>
+nnoremap <silent> <c-w>F  :<c-u><space> sfind <c-r><c-f> <cr>
+vnoremap <silent> <c-w>F  :<c-u><space> sfind <c-r><c-f> <cr>
+nnoremap <silent> <c-w><space>f :<c-u>tab sfind <c-r><c-f> <cr>
+vnoremap <silent> <c-w><space>f :<c-u>tab sfind <c-r><c-f> <cr>
+nnoremap <silent> gF            :<c-u>tab sfind <c-r><c-f> <cr>
+vnoremap <silent> gF            :<c-u>tab sfind <c-r><c-f> <cr>
 
 " Note: gD to jump on *the first line* of the file that has the definition.
 "noremap gd gD
