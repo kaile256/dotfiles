@@ -49,11 +49,9 @@ function! s:fzf_buffer_keymap() "{{{
     cc
   endfunction "}}}
   " <alt-k> for cancel.
-  " Note: seems not work with <alt->
+  " Note: seems not work with <alt> like <alt-k>.
   let g:fzf_action = {
         \ 'ctrl-z': '',
-        \ 'alt-k': 'silent! echo',
-        \ 'alt-j': 'silent! echo',
         \ 'ctrl-q': function('s:fzf_open_in_quickfix_list'),
         \ 'ctrl-b': 'tab split',
         \ 'ctrl-t': 'tab split',
