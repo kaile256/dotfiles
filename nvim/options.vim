@@ -48,14 +48,17 @@ set guicursor=
 "}}}
 " Appearance; Line {{{
 " CAUTION: cursorline-highlight causes drawing corruption.
-augroup AutoToggleCursorLine
-  au!
-  " Note: WinEnter/Leave doesn't work.
-  au WinEnter,InsertLeave * setl cursorline
-  au WinLeave,InsertEnter * setl nocursorline
-augroup END
-" to highlight only CursorLineNr
-"hi CursorLine NONE
+"augroup AutoToggleCursorLine
+"  au!
+"  " Note: InsertEnter & WinLeave doesn't work.
+"  au WinEnter,InsertLeave * setl cursorline
+"  au WinLeave,InsertEnter * setl nocursorline
+"augroup END
+" to highlight only CursorLineNr if not linked.
+hi CursorLine NONE
+" in diff mode, move cursorline in the other window
+" as the corresponding line of the current window.
+set cursorbind
 "}}}
 " Appearance; Column {{{
 " show line number on left
