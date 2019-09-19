@@ -46,7 +46,7 @@ hook_post_source = 'runtime fugitive.vimrc'
 # Fugitive; Branch Viewr
 [[plugins]]
 repo = 'sodapopcan/vim-twiggy' #{{{
-on_map = ':Twiggy'
+on_map = '<Plug>(twiggy'
 on_cmd = ':Twiggy'
 hook_add = 'runtime twiggy.vimrc'
 #}}}
