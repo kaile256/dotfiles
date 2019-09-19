@@ -72,3 +72,4 @@ Doc: go https://golang.org/doc/
 Doc: fish file:///usr/share/doc/fish/index.html
 Doc: vim https://github.com/mhinz/vim-galore
 vim: colorscheme/flattened: Solarized without the bullshit https://github.com/romainl/flattened
+Doc: i3wm https://i3wm.org/docs/userguide.html
