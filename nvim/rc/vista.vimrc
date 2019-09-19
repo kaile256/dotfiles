@@ -1,6 +1,9 @@
 scriptencoding utf-8
 " From: finder.toml
 " TODO: Change by width
+
+nnoremap <Plug>(vista-standard) :Vista<cr>
+
 "function! s:vista_adjust_echo_style()
 "if winwidth('#') > 100
 "  let g:vista_echo_cursor_strategy = 'floating_win'

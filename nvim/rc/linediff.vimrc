@@ -1,7 +1,8 @@
 " From: tool.toml
 
 " Keymap; Get Compared
-vnoremap <silent> gc :Linediff<cr>
+vnoremap <silent> <Plug>(linediff-standard) :Linediff<cr>
+vmap gc <Plug>(linediff-standard)
 
 " default: tabnew
 let g:linediff_first_buffer_command = 'new'
