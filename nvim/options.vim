@@ -88,18 +88,18 @@ set list
 set iminsert=0
 set imsearch=0
 set imcmdline
-augroup FcitxRemoteToggle
-  if &imdisable == 0 " i.e., if IM is active on vim.
-    au!
-    au VimEnter    * nested call system('fcitx-remote -s ssk')
-    au InsertEnter * nested call system('fcitx-remote -o')
-    au InsertLeave * nested call system('fcitx-remote -c')
-  endif
-augroup END
+"augroup FcitxRemoteToggle
+"  if &imdisable == 0 " i.e., if IM is active on vim.
+"    au!
+"    au VimEnter    * nested call system('fcitx-remote -s ssk')
+"    au InsertEnter * nested call system('fcitx-remote -o')
+"    au InsertLeave * nested call system('fcitx-remote -c')
+"  endif
+"augroup END
 "}}}
 " Method; Tab&Indent {{{
 "" Tab-Char
-" insert spaces, instead of a tab-char.
+" Insert spaces, instead of a tab-char.
 set expandtab
 " number of spaces, inserted by <TAB>, that a tab-char counts for.
 set tabstop=2
@@ -114,9 +114,9 @@ set smartindent
 "set cindent
 " number of spaces inserted by autoindent.
 set shiftwidth=2
-" for manual indent, insert spaces according to shiftwidth.
+" for manual indent, insert spaces according to &l:shiftwidth.
 set smarttab
-" for '</>' indent, insert spaces according to shiftwidth.
+" for '</>' indent, insert spaces according to &l:shiftwidth.
 set shiftround
 "}}}
 " Method; Pair {{{
@@ -124,10 +124,9 @@ set shiftround
 set showmatch
 set matchtime=1 " 10 times the number sec.
 " add '<' and '>' as a match pair
-set matchpairs+=<:>
+set matchpairs+=<:>,「:」,『:』
 "}}}
 " Method; Visual Mode {{{
-" visualize even if there is no chars.
 set virtualedit=block
 "}}}
 " Method; Commandline Mode {{{
@@ -136,7 +135,7 @@ set noshowcmd
 " Cmdline; Completion
 set wildmenu wildmode=list:longest
 " for `:substitute`
-if has('nvim')
+if exists('+inccommand')
   set inccommand=nosplit
 endif
 "}}}
