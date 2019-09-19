@@ -250,6 +250,10 @@ xmap qr   <Plug>(coc-codeaction-selected)
 "au! CompleteDone * if pumvisible() == 0 | pclose | endif
 "inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<CR>"
 "" Completion; Trigger {{{2
+function! s:make_sure_no_space() abort "{{{3
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1] =~# '\s'
+endfunction
 inoremap <silent><expr> <c-n>
       \ pumvisible() ? "\<C-n>" :
       \ <SID>make_sure_no_space() ? "\<c-n>" :
@@ -258,10 +262,6 @@ inoremap <silent><expr> <c-p>
       \ pumvisible() ? "\<C-p>" :
       \ <SID>make_sure_no_space() ? "\<c-p>" :
       \ coc#refresh()
-function! s:make_sure_no_space() abort "{{{3
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1] =~# '\s'
-endfunction
 " CocSnippet; Do NOT use it {{{1
 " TODO: Assign the dir where snippets will be saved.
 "nmap <a-s><a-p> :CocCommand snippets.editSnippets<cr>
