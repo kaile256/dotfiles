@@ -25,7 +25,7 @@ augroup end
 
 augroup MyLazyRuntimes
   au!
-  au WinEnter * if &ro | runtime! readonly.vim
+  "au BufWinEnter * if &ro | runtime! readonly.vim
   au BufEnter * if &diff | runtime! diff.vim | endif
   "au WinEnter,BufEnter * if &bt ==# 'quickfix' | runtime quickfix.vim
 augroup END
