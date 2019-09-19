@@ -43,10 +43,6 @@ repo = 'Shougo/deoplete.nvim' #{{{
 on_if = 'has("python3")'
 on_event = ['InsertCharPre', 'InsertEnter']
 hook_post_source = 'runtime deoplete.vimrc'
-[[plugins]]
-repo = 'ncm2/float-preview.nvim'
-on_source = ['delplete.nvim', 'coc.nvim']
-hook_post_source = 'runtime float-preview.vimrc'
 #[[plugins]]
 #repo = 'SevereOverfl0w/deoplete-github' #{{{
 #on_ft = ['gitcommit']
