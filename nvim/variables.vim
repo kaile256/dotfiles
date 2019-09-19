@@ -39,6 +39,9 @@ let g:netrw_home = '~/.local/share/nvim'
 "}}}
 
 " g:var; for Path {{{
+"let g:config_home = stdpath('config')
+"let g:cache_home  = stdpath('cache')
+"let g:data_home   = stdpath('data')
 let g:config_home  = empty($XDG_CONFIG_HOME) ? expand('~/.config/')      :         $XDG_CONFIG_HOME
 let g:cache_home   = empty($XDG_CACHE_HOME)  ? expand('~/.cache/')       :         $XDG_CACHE_HOME
 let g:data_home    = empty($XDG_DATA_HOME)   ? expand('~/.local/share/') :         $XDG_DATA_HOME
