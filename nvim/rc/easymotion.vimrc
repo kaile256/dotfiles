@@ -92,10 +92,10 @@ map <nowait> <c-k> <Plug>(easymotion-prev)
 " Keymap; Evacuat for default tf;, "{{{
 " Mnemonic: 'Quicker', or shorter typing than those of EasyMotion
 "           as EasyMotion expects another typing to select.
-noremap qt t
-noremap qT T
-noremap qf f
-noremap qF F
+"noremap qt t
+"noremap qT T
+"noremap qf f
+"noremap qF F
 "noremap q; ;
 "noremap q, ,
 "}}}
