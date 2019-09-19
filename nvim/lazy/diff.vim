@@ -11,7 +11,7 @@ setl wrap
 "augroup END
 
 nnoremap <buffer><silent> dq :diffoff!<cr>
-" Put/Get only selected lines.
+" Put/Get only SELECTED lines.
 xnoremap <buffer><silent> dp :diffput<cr>
 xnoremap <buffer><silent> do :diffget<cr>
 
