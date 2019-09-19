@@ -97,7 +97,6 @@ if dein#load_state(g:dein_cache_dir)
         \ 'external.toml',
         \ 'finder.toml',
         \ 'ftplugin.toml',
-        \ 'git.toml',
         \ 'insert.toml',
         \ 'memo.toml',
         \ 'motion.toml',
