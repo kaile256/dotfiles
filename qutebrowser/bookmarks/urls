@@ -151,3 +151,5 @@ https://golang.org/ref/spec The Go Programming Language Specification - The Go P
 https://golang.org/doc/ Documentation - The Go Programming Language
 https://devdocs.io/ DevDocs API Documentation
 https://github.com/romainl/flattened romainl/flattened: Solarized, without the bullshit.
+https://github.com/lambdalisue/suda.vim lambdalisue/suda.vim: An alternative sudo.vim for Vim and Neovim, limited support sudo in Windows
+https://github.com/chrisbra/SudoEdit.vim chrisbra/SudoEdit.vim: Edit Files using sudo or su or any other tool
