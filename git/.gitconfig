@@ -1,13 +1,16 @@
 [user]
-	email = kaile256acc@gmail.com
-	name = kaile256
+  email = kaile256acc@gmail.com
+  name = kaile256
 [core]
-	editor = nvr --remote-wait-silent
+  editor = nvr --remote-wait-silent
 [diff]
-      tool = nvr
+  tool = nvr
 [difftool "nvr"]
-      cmd = nvr -s -d $LOCAL $REMOTE
+  cmd = nvr -s -d $LOCAL $REMOTE
 [merge]
-      tool = nvr
+  tool = nvr
 [mergetool "nvr"]
-      cmd = nvr -s -d $LOCAL $BASE $REMOTE $MERGED -c 'wincmd J | wincmd ='
+  cmd = nvr -s -d $LOCAL $BASE $REMOTE $MERGED -c 'wincmd J | wincmd ='
+[url "github:"]
+  InsteadOf = https://github.com/
+  InsteadOf = git@github.com:
