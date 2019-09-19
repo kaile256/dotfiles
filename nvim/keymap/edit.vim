@@ -181,12 +181,13 @@ noremap zU zMzv
 "}}}
 
 " TODO: inc/dec for hex color on guifg/bg
-onoremap gv :<c-u>norm! gv<cr>
+onoremap <silent> gv :<c-u>norm! gv<cr>
 xnoremap <c-x> <c-x>gv
 xnoremap <c-a> <c-x>gv
-xnoremap = =gv
-xnoremap < <gv
+xnoremap <silent> = =:norm! gv<cr>
 xnoremap > >gv
+" Fail to work
+xnoremap < <:norm! gv<cr>
 
 " Adjustment; Text Object {{{
 onoremap ia a
