@@ -50,7 +50,7 @@ hi link EasyMotionIncSearch Search
 " <Plug>(easymotion-sl): the range is limited to current line.
 
 " Keymap; Repeat
-omap . <Plug>(easymotion-repeat)
+"omap . <Plug>(easymotion-repeat)
 "nmap . <Plug>(easymotion-dotrepeat)
 
 " Keymap; Catch Over window
