@@ -11,6 +11,15 @@ if execute('xmap sa')
   xunmap sa
 endif
 let g:textobj_sandwich_no_default_key_mappings = 1
+if execute('omap sr')
+  ounmap sr
+endif
+if execute('omap sd')
+  ounmap sd
+endif
+if execute('omap sa')
+  ounmap sa
+endif
 
 "" Let; Recipes of sandwich {{{1
 "let g:sandwich#recipes = [
