@@ -1,5 +1,6 @@
 scriptencoding utf-8
 " From: appearance.toml
+" Repo: Yggdroot/indentLine
 
 "let g:indentline_color_term = 239
 "let g:indentLine_char_list = ['|', '¦', '┆', '┊']
@@ -13,17 +14,24 @@ let g:indentLine_faster = 1
 
 augroup MyIndentLineAugroup
   au!
-  au WinLeave,CursorMovedI * if &l:cursorline == 0 && &bt ==# 'quickfix' | IndentLinesDisable
-  function! s:indentline_exculsive_enable() "{{{
-    if &modifiable
-      if &ft !~# join(g:indentLine_fileTypeExclude) || join(g:indentLine_bufTypeExclude)
+  function! s:indentline_disable() "{{{
+    if &l:modifiable
+      if join(g:indentLine_fileTypeExclude) !~# &ft || join(g:indentLine_bufTypeExclude) !~# &bt
+        IndentLinesDisable
+      endif
+    endif
+  endfunction "}}}
+  au WinLeave,BufWinLeave,InsertEnter * call <SID>indentline_disable()
+  "au BufLeave,WinLeave,BufWinLeave,InsertEnter * IndentLinesDisable
+  function! s:indentline_enable() "{{{
+    if &l:modifiable
+      if join(g:indentLine_fileTypeExclude) !~# &ft || join(g:indentLine_bufTypeExclude) !~# &bt
         IndentLinesEnable
       endif
     endif
   endfunction "}}}
-  au CursorMoved     * if &l:cursorline == 0 && &bt !=# 'quickfix' | call <SID>indentline_exculsive_enable()
-  au WinEnter,BufWinEnter,BufWinLeave * if &l:cursorline == 1 && &bt !=# 'quickfix' | call <SID>indentline_exculsive_enable()
+  au WinEnter,BufWinEnter,InsertLeave * call <SID>indentline_enable()
+  "au BufEnter,WinEnter,BufWinEnter,InsertLeave * IndentLinesEnable
   " TODO: always setl conceallevel=0 on json.
-  au InsertEnter *.json if &cole != 0 || &cocu !=# '' | setl conceallevel=0 concealcursor=n
-  "au FileType json if &cole != 0 || &cocu !=# '' | setl conceallevel=0 concealcursor=n
+  au InsertEnter *.json if &cole != 0 || &cocu !=# '' | setl conceallevel=0 concealcursor=
 augroup END
