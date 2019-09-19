@@ -109,6 +109,7 @@ bindsym $Super+Ctrl+Return exec --no-startup-id $menu
 # Keybind; open Terminal {{{
 # urxvtc; add `-k` to kill daemon, too.
 #bindsym $Super+u exec urxvtc
+bindsym $Super+u exec urxvt
 bindsym $Super+t exec $term
 bindsym $Super+a exec alacritty
 #}}}
