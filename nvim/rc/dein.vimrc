@@ -1,4 +1,4 @@
-" From: init.vim
+" From: nvim/init.vim
 " Repo: Shougo/dein.vim
 
 " Path; for :find
