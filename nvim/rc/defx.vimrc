@@ -5,6 +5,8 @@ scriptencoding utf-8
 " Ref: /usr/share/nvim/runtime/autoload/netrw.vim
 " Ref: /usr/share/nvim/runtime/plugin/netrwPlugin.vim
 
+nnoremap <a-x> <Nop>
+
 " Call Defx; on Sidebar
 nnoremap <silent> <a-x>v
       \ :<c-u>Defx `expand('%:p:h')` -search=`expand('%:p')`
@@ -19,7 +21,19 @@ nnoremap <silent> <a-x><a-v>
 " Call Defx; on the window {{{1
 " Note: -search must be applied full path.
 " TODO: on Term-Mode, not to get errors; like get path with !pwd.
-nnoremap <a-x> <Nop>
+nnoremap <silent> <a-x><a-s>
+      \ :<c-u>Defx `expand('%:p:h')` -search=`expand('%:p')`
+      \ -split=horizontal
+      \ -new
+      \ <cr>
+nnoremap <silent> <a-x>s
+      \ :<c-u>Defx `expand('%:p:h')` -search=`expand('%:p')`
+      \ -split=horizontal
+      \ -new
+      \ <cr>
+" Call Defx; on the window {{{1
+" Note: -search must be applied full path.
+" TODO: on Term-Mode, not to get errors; like get path with !pwd.
 nnoremap <silent> <a-x><a-e>
       \ :<c-u>Defx `expand('%:p:h')` -search=`expand('%:p')`
       \ -split=no
