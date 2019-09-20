@@ -1,8 +1,9 @@
 " From: external.toml
 " Repo: tpope/vim-fugitive
 
-command! -nargs=1 Gclone :Git clone <args> %:p:h
-function! s:fugitive_commit_with_diff() abort "{{2
+command! -nargs=+ Gclone :Git clone <q-args>
+
+function! s:fugitive_commit_with_diff() abort "{{1
   norm T
   " Keep to show diff w/ HEAD^ while editting commit-message.
   Gvdiffsplit! HEAD^
@@ -10,7 +11,7 @@ function! s:fugitive_commit_with_diff() abort "{{2
   vert bot Gstatus
   norm =
   vert resize 50
-endfunction "}}}2
+endfunction "}}}
 command! Gstage :Gw <bar> call s:fugitive_commit_with_diff()
 
 " Info; Blame {{{
