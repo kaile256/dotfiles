@@ -238,6 +238,25 @@ colors:
     #  cyan:    '0x497e7a'
     #  white:   '0x9a9a9a'
 
+    ## Molokai Theme
+    #normal:
+    #  black:   '0x272822'
+    #  red:     '0xFD971F'
+    #  green:   '0x85BB1A'
+    #  yellow:  '0xA5A290'
+    #  blue:    '0xF8F8F0'
+    #  magenta: '0xAE81FF'
+    #  cyan:    '0xE6DB74'
+    #  white:   '0xF8F8F2'
+    #bright:
+    #  black:   '0xA5A290'
+    #  red:     '0xCB064D'
+    #  green:   '0xA6E22E'
+    #  yellow:  '0xFD971F'
+    #  blue:    '0x66D9EF'
+    #  magenta: '0xF92672'
+    #  cyan:    '0x66D9EF'
+    #  white:   '0xF8F8F0'
 
   # Solarized Theme
   normal:
