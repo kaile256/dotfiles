@@ -3,13 +3,15 @@
 # Find; Search
 [[plugins]]
 repo = 'haya14busa/vim-asterisk' #{{{
+# Keep the cursor on `*` or `#`, even on visual mode.
 on_map = '<Plug>(asterisk-'
 hook_add = 'runtime asterisk.vimrc'
-[[plugins]]
-repo = 'thinca/vim-visualstar'
-on_map = '<Plug>(visualstar-'
-hook_add = 'runtime visualstar.vimrc'
 #}}}
+#[[plugins]]
+#repo = 'thinca/vim-visualstar' #{{{
+#on_map = '<Plug>(visualstar-'
+#hook_add = 'runtime visualstar.vimrc'
+##}}}
 
 # Filer
 [[plugins]] # has extentions
