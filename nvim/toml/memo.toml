@@ -7,6 +7,23 @@ rev = 'dev'
 on_event = 'VimEnter'
 hook_source = 'runtime vimwiki.vimrc'
 #}}}
+[[plugins]]
+repo = 'tbabej/taskwiki'
+if = 'executable("task")'
+on_cmd = ['Task', 'TW']
+hook_post_source = 'runtime taskwiki.vimrc'
+[[plugins]]
+repo = 'powerman/vim-plugin-AnsiEsc'
+# Provides Color support on chart
+if = 'executable("task")'
+on_source = 'taskwiki'
+hook_post_source = 'runtime AnsiEsc.vimrc'
+[[plugins]]
+repo = 'blindFS/vim-taskwarrior'
+# enables grid-view on taskwiki, too.
+if = 'executable("task")'
+on_cmd = ['Task', 'TW']
+hook_post_source = 'runtime taskwarrior.vimrc'
 
 # Memo; Outliner
 #[[plugins]]
