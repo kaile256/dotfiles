@@ -7,56 +7,7 @@ hook_done_update= 'UpdateRemotePlugins'
 #}}}
 
 [[plugins]]
-repo = 'vimwiki/vimwiki' #{{{
-rev = 'dev'
-#rev = 'v2.4.1'  # the repo is dirty to activate.
-hook_add = 'runtime vimwiki.vimrc'
-#}}}
-
-[[plugins]]
 repo = 'Shougo/vimproc.vim' #{{{
 # run vim-plugins asynchronously, like openbrowser, quickrun.
 build = 'make'
 #}}}
-
-[[plugins]]
-repo = 'junegunn/fzf' #{{{
-[[plugins]]
-repo = 'junegunn/fzf.vim'
-hook_add = 'runtime fzf.vimrc'
-#}}}
-
-# Colorscheme
-# CAUTION: `:colorscheme foo` AFTER `:call dein#end()` for syntax complication.
-#[[plugins]]
-#repo = 'romainl/flattened' #{{{
-## Need modified conditions.
-#if = 'exists("g:nyaovim_version")'
-#if = 'has("python3")'
-#hook_post_source = 'runtime flattened.vimrc'
-##}}}
-#[[plugins]]
-#repo = 'cocopon/iceberg.vim' #{{{
-#if = 'exists("g:nyaovim_version")'
-#hook_add = 'runtime iceberg.vimrc'
-##}}}
-#[[plugins]]
-#repo = 'altercation/solarized' #{{{
-#on_if = 'has("nvim")'
-#hook_post_source = 'runtime solarized.vimrc'
-##}}}
-#[[plugins]]
-#repo = 'morhetz/gruvbox' #{{{
-##if = 'exists("g:GuiLoaded") && GuiName() ==# "nvim-qt"' # doesn't work.
-#if = '!exists("g:nyaovim_version")'
-#hook_add = 'runtime gruvbox.vimrc'
-##}}}
-[[plugins]]
-repo = 'KeitaNakamura/neodark.vim' #{{{
-if = '!exists("g:nyaovim_version")'
-hook_add = 'runtime neodark.vimrc'
-#}}}
-#[[plugins]]
-#repo = 'crusoexia/vim-monokai' #{{{
-#hook_add = 'runtime monokai.vim'
-##}}}
