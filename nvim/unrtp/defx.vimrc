@@ -114,23 +114,23 @@ function! s:defx_keymap_explorer() abort
   "nnoremap <silent><buffer><expr> C
   "      \ defx#do_action('toggle_columns',
   "      \                'mark:indent:icon:filename:type:size:time')
-  " Selected; Open {{{1
+  " Selected; Open File {{{1
   nnoremap <silent><buffer><expr> <c-j>
         \ (winwidth('.') < g:defx_narrow_width)?
-        \ defx#do_action('open', 'wincmd p <bar> edit'):
-        \ defx#do_action('open')
+        \ defx#do_action('multi', [['open', 'wincmd p <bar> edit'], 'quit']):
+        \ defx#do_action('multi', ['open', 'quit'])
   nnoremap <silent><buffer><expr> <CR>
         \ (winwidth('.') < g:defx_narrow_width)?
-        \ defx#do_action('open', 'wincmd p <bar> edit'):
-        \ defx#do_action('open')
+        \ defx#do_action('multi', [['open', 'wincmd p <bar> edit'], 'quit']):
+        \ defx#do_action('multi', ['open', 'quit'])
   nnoremap <silent><buffer><expr> <c-v>
-        \ defx#do_action('open', 'vsplit')
+        \ defx#do_action('multi', [['open', 'vsplit'], 'quit'])
   " TODO: `:wincmd p` will apply only when the defx buffer is narrow.
   nnoremap <silent><buffer><expr> <c-s>
-        \ defx#do_action('open', 'wincmd p <bar> split')
+        \ defx#do_action('multi', [['open', 'wincmd p <bar> split'], 'quit'])
   nnoremap <silent><buffer><expr> <c-b>
-        \ defx#do_action('open', 'tabe')
-  "" Open; Tree {{{1
+        \ defx#do_action('multi', ['open', 'tabe'], 'quit'])
+  " Selected; Open Tree {{{1
   nnoremap <silent><buffer><expr> u
         \ defx#do_action('open_or_close_tree')
   nnoremap <silent><buffer><expr> U
@@ -143,7 +143,7 @@ function! s:defx_keymap_explorer() abort
         \ defx#do_action('open_tree_recursive')
   nnoremap <silent><buffer><expr> zu
         \ defx#do_action('open_tree')
-  "" Close; Tree {{{1
+  " Selected; Close Tree {{{1
   nnoremap <silent><buffer><expr> zc
         \ defx#do_action('close_tree')
   "nnoremap <silent><buffer><expr> zm
@@ -197,49 +197,9 @@ function! s:defx_keymap_explorer() abort
         \ defx#do_action('toggle_ignored_files')
   "}}}
 endfunction
-augroup DefxOverrideNetrw "{{{1
-  "let g:loaded_netrw = 0  " CAUTION: has :Nread-like features; keep commented-out.
-  let g:loaded_netrwPlugin = 1
-  au!
-  au VimEnter * sil! au! FileExplorer *
-  " TODO: Keep window even after bd.
-  "au BufEnter * if s:isdir(expand('%')) | bd | Defx
-  "au BufNew,BufEnter * if isdirectory(expand('<amatch>')) | Defx
-  " Keep tree-view if winwidth is narrow.
-  "au BufWinEnter * if bufname('#') =~# '[defx]' && winwidth('#') < 50 | b# | endif
-  " Open on defx when vim's arg is dir.
-  au StdinReadPre * au VimEnter * if argc() == 1 && isdirectory(argv(0)) | Defx --search=argv(0) | endif
-augroup END
-function! s:isdir(dir) abort
-  return !empty(a:dir) && (isdirectory(a:dir) ||
-        \ (!empty($SYSTEMDRIVE) && isdirectory('/'.tolower($SYSTEMDRIVE[0]).a:dir)))
-endfunction "}}}
 augroup OnDefxBuffer
   au!
   " TODO: highlight on top as there's filepath, or place those path on another place.
   au FileType defx setl bt=quickfix signcolumn=
   au FileType defx call s:defx_keymap_explorer()
 augroup END
-
-" Ref: /usr/share/nvim/runtime/autoload/netrw.vim @
-"augroup FileExplorer
-"  au!
-"  au BufLeave *  if &ft != "netrw"|let w:netrw_profile= expand("%:p")|endif
-"  au BufEnter *  sil call s:LocalBrowse(expand("<amatch>"))
-"  au VimEnter * sil call s:VimEnter(expand("<amatch>"))
-"  if has("win32") || has("win95") || has("win64") || has("win16")
-"    au BufEnter .* sil call s:LocalBrowse(expand("<amatch>"))
-"  endif
-" s:VimEnter: Its purpose: to look over all windows and run s:LocalBrowse() on
-"             them, which checks if they're directories and will create a directory
-"             listing when appropriate.
-"             It also sets s:vimentered, letting s:LocalBrowse() know that s:VimEnter()
-"             has already been called.
-"fun! s:VimEnter(dirname)
-"  "  call Dfunc("s:VimEnter(dirname<".a:dirname.">) expand(%)<".expand("%").">")
-"  let curwin       = winnr()
-"  let s:vimentered = 1
-"  windo call s:LocalBrowse(expand("%:p"))
-"  exe curwin."wincmd w"
-"  "  call Dret("s:VimEnter")
-"endfun
