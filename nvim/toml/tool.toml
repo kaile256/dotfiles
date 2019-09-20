@@ -28,6 +28,19 @@ hook_add = 'runtime suda.vimrc'
 repo = 'ncm2/float-preview.nvim'
 on_source = ['delplete.nvim', 'coc.nvim']
 hook_post_source = 'runtime float-preview.vimrc'
+[[plugins]]
+repo = 'voldikss/vim-floaterm'
+on_cmd = 'FloatermToggle'
+on_map = '<Plug>(floaterm-'
+hook_add = 'runtime floaterm.vimrc'
+
+# Interactive
+[[plugins]]
+repo = 'metakirby5/codi.vim' #{{{
+# An interactive scratchpad for hackers.
+on_ft = ['python', 'javascript', 'coffeescript', 'haskell', 'ruby', 'OCaml', 'R', 'clojure', 'php', 'lua', 'cpp', 'julia', 'elm', 'elixir', 'typescript', 'mathjs']
+hook_post_source = 'runtime codi.vimrc'
+#}}}
 
 #[[plugins]]
 #repo = 'fszymanski/fzf-gitignore' #{{{
