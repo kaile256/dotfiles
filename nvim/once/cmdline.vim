@@ -19,7 +19,12 @@ cnoremap <c-d> <Del>
 "augroup END
 "}}}
 
-" Abbr; 
+" Command; Open parent directory
+command! E :e %:p:h
+command! V :vs %:p:h
+command! S :sp %:p:h
+command! B :tabe %:p:h
+
 " Abbr; rm https://foo/bar {{{1
 cnoreabbr <expr> rmgh (getcmdtype() == ':' && getcmdline() =~ '^rmgh$')? '%s/https:\/\/github.com\///ge' : 'rmgh'
 cnoreabbr <expr> rmgl (getcmdtype() == ':' && getcmdline() =~ '^rmgl$')? '%s/https:\/\/gitlab.com\///ge' : 'rmgl'
