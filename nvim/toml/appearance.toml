@@ -3,7 +3,8 @@
 # Colorscheme; Collection
 [[plugins]]
 repo = 'flazz/vim-colorschemes' #{{{
-on_event = 'CmdlineEnter'
+on_event = 'VimEnter'
+hook_post_source = 'runtime colorschemes.vimrc'
 #}}}
 
 # Colorscheme; Statusline
