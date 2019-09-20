@@ -37,6 +37,16 @@ hook_post_source = 'runtime coc.vimrc'
 #hook_add = 'runtime LanguageClient.vimrc'
 ##}}}
 
+# FZF
+[[plugins]]
+repo = 'junegunn/fzf' #{{{
+on_event = 'VimEnter'
+[[plugins]]
+repo = 'junegunn/fzf.vim'
+on_event = 'VimEnter'
+hook_add = 'runtime fzf.vimrc'
+#}}}
+
 # Git;
 [[plugins]] # has extentions
 repo = 'tpope/vim-fugitive' #{{{
