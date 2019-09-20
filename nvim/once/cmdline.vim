@@ -24,6 +24,7 @@ command! E :e %:p:h
 command! V :vs %:p:h
 command! S :sp %:p:h
 command! B :tabe %:p:h
+command! Cd :!cd %:p:h
 
 " Abbr; rm https://foo/bar {{{1
 cnoreabbr <expr> rmgh (getcmdtype() == ':' && getcmdline() =~ '^rmgh$')? '%s/https:\/\/github.com\///ge' : 'rmgh'
