@@ -43,6 +43,8 @@ let g:coc_global_extensions = [
       \ 'coc-homeassistant',
       \ 'coc-html',
       \ 'coc-java',
+      \ 'coc-todolist',
+      \ 'coc-translator',
       \ 'coc-json',
       \ 'coc-lists',
       \ 'coc-lua',
@@ -68,49 +70,44 @@ cnoreabbr <expr> cun  (getcmdtype() == ':' && getcmdline() =~ '^cun$')?  'CocUni
 cnoreabbr <expr> cclr (getcmdtype() == ':' && getcmdline() =~ '^cclr$')? 'CocUninstall g:coc_global_extensions' : 'cclr'
 cnoreabbr <expr> coc (getcmdtype() == ':' && getcmdline() =~ '^coc$')? 'CocList' : 'coc'
 " Command!; C-series {{{1
-command! Ccmd :CocCommand
+command! CConfig :CocConfig
+command! CCmd :CocCommand
 command! Coc :CocList
-command! Clist :CocList
 command! CList :CocList
-command! Cmru :CocList mru
 command! CMru :CocList mru
 command! Cextensions :CocList extensions
-command! ClocalLog :CocList bcommits
 command! CLocalLog :CocList bcommits
-command! Cbuffers :CocList buffers
 command! CBuffers :CocList buffers
 " Command; Original
 command! CocIfHasProvider :call <SID>coc_if_has_provider()
-command! CIfHasProvider :CocIfHasProvider
-command! CifHasProvider :CocIfHasProvider
+command! CIfHasProvider   :call <SID>coc_if_has_provider()
+let s:coc_provider_list = [
+      \ 'rename',
+      \ 'format',
+      \ 'hover',
+      \ 'codeAction',
+      \ 'onTypeEdit',
+      \ 'definition',
+      \ 'declaration',
+      \ 'typeDefinition',
+      \ 'reference',
+      \ 'implementation',
+      \ 'codeLens',
+      \ 'documentColor',
+      \ 'documentHighlight',
+      \ 'documentLink',
+      \ 'documentSymbol',
+      \ 'workspaceSymbols',
+      \ 'formatRange',
+      \ 'foldingRange',
+      \ 'selectionRange',
+      \ ]
 function! s:coc_if_has_provider() "{{{2
-  let s:coc_provider_list = [
-        \ 'rename',
-        \ 'onTypeEdit',
-        \ 'documentLink',
-        \ 'documentColor',
-        \ 'foldingRange',
-        \ 'format',
-        \ 'codeAction',
-        \ 'workspaceSymbols',
-        \ 'formatRange',
-        \ 'hover',
-        \ 'signature',
-        \ 'documentSymbol',
-        \ 'documentHighlight',
-        \ 'definition',
-        \ 'declaration',
-        \ 'typeDefinition',
-        \ 'reference',
-        \ 'implementation',
-        \ 'codeLens',
-        \ 'selectionRange'
-        \ ]
   for provider in s:coc_provider_list
     if CocHasProvider(provider) == v:true
       let l:judge = 'true'
-    else
-      let l:judge = 'x'
+    elseif CocHasProvider(provider) == v:false
+      let l:judge = 'χ'
     endif
     echo '  +' . provider . '		== ' l:judge
   endfor
@@ -131,12 +128,21 @@ xmap ic <Plug>(coc-text-object-inner)
 omap ac <Plug>(coc-text-object-outer)
 xmap ac <Plug>(coc-text-object-outer)
 "" CocCommand; Explorer {{{1
-"command! Cexplorer :CocCommand explorer
+"command! CExplorer :CocCommand explorer
 "      \ --toggle
 "      \ --width=35
 "      \ --sources=buffer+,file+
 "      \ --file-columns=icon,git,selection,clip,indent,filename,size
 ""}}}
+" CocCommand; Translator
+" Not work well yet on Japanese
+"command! -nargs=+ CEchoOnJapanese :call coc#config("translator", {"toLang": "ja"}) <bar> CocCommand translator.echo <q-args>
+"command! -nargs=+ CReplaceOnJapanese :call coc#config("translator", {"toLang": "ja"}) <bar> :CocCommand translator.echo <q-args>
+"command! -nargs=+ CPumOnJapanese :call coc#config("translator", {"toLang": "ja"}) <bar> CocCommand translator.echo <q-args>
+" CocCommand; Template
+augroup CocMyAutoConf
+  au! BufNewFile * CocCommand template.templateHere
+augroup END
 " CocList; {{{1
 " show commit contains current position
 noremap <silent> qp         :CocList yank<cr>
@@ -207,6 +213,8 @@ nmap <silent> <c-w><space>r :call coc#config("coc.preferences", {"jumpCommand": 
 xmap <silent> <c-w><space>r :call coc#config("coc.preferences", {"jumpCommand": "tabe"})<cr><Plug>(coc-references)
 "}}}
 " CocList; Format {{{1
+" Mnemonic: Change the Structure.
+nmap cs <Plug>(coc-refactor)
 xmap <expr> =  (CocHasProvider('format') == v:true)? '<Plug>(coc-format-selected)' : '='
 nmap <expr> =  (CocHasProvider('format') == v:true)? '<Plug>(coc-format-selected)' : '='
 nmap <expr> == (CocHasProvider('format') == v:true)? '<Plug>(coc-format)'          : '=='
@@ -235,7 +243,6 @@ xmap qr   <Plug>(coc-codeaction-selected)
 "<Plug>(coc-float-hide)
 "<Plug>(coc-float-jump)
 "
-"<Plug>(coc-refactor)
 " CocList; if selectionRange == v:true {{{2
 "nmap <silent> n <Plug>(coc-range-select)
 "nmap <silent> N <Plug>(coc-range-select-backward)
