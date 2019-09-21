@@ -68,10 +68,10 @@ let g:vimwiki_list = [
 
 " Hotkey; Index {{{1
 command! MdwikiIndex    :e    ~/vimwiki/mdwiki/index.md
-nnoremap <silent> <a-w><a-e> :<c-u>MdwikiIndex <cr>
-nnoremap <silent> <a-w><a-b> :<c-u>tab sp <bar> MdwikiIndex <cr>
-nnoremap <silent> <a-w><a-v> :<c-u>vs <bar> MdwikiIndex <cr>
-nnoremap <silent> <a-w><a-s> :<c-u>sp <bar> MdwikiIndex <cr>
+nnoremap <silent> <a-w><a-e> :<c-u>VimwikiIndex <cr>
+nnoremap <silent> <a-w><a-b> :<c-u>tab sp <bar> VimwikiIndex <cr>
+nnoremap <silent> <a-w><a-v> :<c-u>vs <bar> VimwikiIndex <cr>
+nnoremap <silent> <a-w><a-s> :<c-u>sp <bar> VimwikiIndex <cr>
 " Hotkey; Diary Index {{{1
 nnoremap <silent> <a-e><a-i><a-e> :<c-u>       <space> :VimwikiDiaryIndex<cr>
 nnoremap <silent> <a-e><a-i><a-b> :<c-u>tabnew <cr>    :VimwikiDiaryIndex<cr>
@@ -96,26 +96,6 @@ tnoremap <silent> <a-e><a-s> <c-\><c-n>:sp <bar> VimwikiMakeDiaryNote<cr>
 tnoremap <silent> <a-e><a-v> <c-\><c-n>:vs <bar> VimwikiMakeDiaryNote<cr>
 "}}}
 
-augroup CallMyVimwikiFunctions "{{{1
-  au!
-  au VimEnter * ++nested call <SID>my_startpage('mdwiki')
-  au BufEnter vimwiki/*/diary/** call <SID>on_buf_vimwiki_dairy()
-  au FileType vimwiki,markdown if &syn ==# 'vimwiki' | call <SID>on_buf_vimwiki()
-augroup END
-function! s:my_startpage(page) "{{{1
-  if @% ==# '' && &ft ==# '' && &bt ==# '' && getline(1,'$') ==# ['']
-    if a:page ==# 'mdwiki'
-      e ~/vimwiki/mdwiki/index.md
-    elseif a:page ==# 'wiki'
-      VimwikiIndex
-    elseif a:page ==# 'diary'
-      e ~/vimwiki/diary/index.wiki
-    elseif a:page ==# 'term'
-      call termopen(&shell)
-      setlocal nonumber signcolumn=no modifiable
-    endif
-  endif
-endfunction "}}}
 function! s:on_buf_vimwiki_dairy()
   " Hotket; Open diary of Yesterday/Tomorrow {{{1
   nnoremap <buffer> <a-o> :VimwikiMakeYesterdayDiaryNote<cr>
@@ -173,9 +153,29 @@ function! s:on_buf_vimwiki()
   "}}}
 endfunction
 
+augroup CallMyVimwikiFunc "{{{1
+  au!
+  au VimEnter * ++nested call <SID>my_startpage('vimwiki')
+  au BufEnter vimwiki/*/diary/** call <SID>on_buf_vimwiki_dairy()
+  au FileType vimwiki,markdown if &syn ==# 'vimwiki' | call <SID>on_buf_vimwiki()
+augroup END
+function! s:my_startpage(page) "{{{1
+  if @% ==# '' && &ft ==# '' && &bt ==# '' && getline(1,'$') ==# ['']
+    if a:page ==# 'mdwiki'
+      e ~/vimwiki/mdwiki/index.md
+    elseif a:page ==# 'wiki' || a:page ==# 'vimwiki'
+      VimwikiIndex
+    elseif a:page ==# 'diary'
+      e ~/vimwiki/diary/index.wiki
+    elseif a:page ==# 'term'
+      call termopen(&shell)
+      setlocal nonumber signcolumn=no modifiable
+    endif
+  endif
+endfunction "}}}
 augroup AutoFormatVimwiki
   au!
-  au BufNewFile,BufEnter *wiki/*/*.md setl ft=vimwiki syn=vimwiki
+  au BufNewFile,BufEnter *wiki/**.md setl ft=vimwiki syn=vimwiki
   au FileType vimwiki setl tabstop=4 softtabstop=4 shiftwidth=4
   au FileType vimwiki setl nowrap fdl=1
   au BufWritePre index.* if &syn  ==# 'vimwiki' | VimwikiGenerateLinks
