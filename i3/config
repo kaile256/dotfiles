@@ -143,7 +143,7 @@ bindsym XF86AudioMute        exec --no-startup-id pactl set-sink-mute 0 toggle
 # Fn; Screen Shot {{{
 # depend: imagemagick
 #bindsym Print exec --no-startup-id import -window root ~/Pictures/screenshot
-bindsym Print exec --no-startup-id i3-scrot
+bindsym $Super+Print exec --no-startup-id i3-scrot
 #}}}
 # Keybind; Focus Change {{{
 bindsym $Super+h focus left
