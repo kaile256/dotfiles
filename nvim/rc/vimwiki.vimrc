@@ -68,10 +68,10 @@ let g:vimwiki_list = [
 
 " Hotkey; Index {{{1
 command! MdwikiIndex    :e    ~/vimwiki/mdwiki/index.md
-nnoremap <silent> <a-w><a-e> :<c-u>VimwikiIndex <cr>
-nnoremap <silent> <a-w><a-b> :<c-u>tab sp <bar> VimwikiIndex <cr>
-nnoremap <silent> <a-w><a-v> :<c-u>vs <bar> VimwikiIndex <cr>
-nnoremap <silent> <a-w><a-s> :<c-u>sp <bar> VimwikiIndex <cr>
+nnoremap <silent> <a-w><a-e> :<c-u>MdwikiIndex <cr>
+nnoremap <silent> <a-w><a-b> :<c-u>tab sp <bar> MdwikiIndex <cr>
+nnoremap <silent> <a-w><a-v> :<c-u>vs <bar> MdwikiIndex <cr>
+nnoremap <silent> <a-w><a-s> :<c-u>sp <bar> MdwikiIndex <cr>
 " Hotkey; Diary Index {{{1
 nnoremap <silent> <a-e><a-i><a-e> :<c-u>       <space> :VimwikiDiaryIndex<cr>
 nnoremap <silent> <a-e><a-i><a-b> :<c-u>tabnew <cr>    :VimwikiDiaryIndex<cr>
@@ -155,7 +155,8 @@ endfunction
 
 augroup CallMyVimwikiFunc "{{{1
   au!
-  au VimEnter * ++nested call <SID>my_startpage('vimwiki')
+  " To use outliner of markdown's instead, keep to use mdwiki.
+  au VimEnter * ++nested call <SID>my_startpage('mdwiki')
   au BufEnter vimwiki/*/diary/** call <SID>on_buf_vimwiki_dairy()
   au FileType vimwiki,markdown if &syn ==# 'vimwiki' | call <SID>on_buf_vimwiki()
 augroup END
