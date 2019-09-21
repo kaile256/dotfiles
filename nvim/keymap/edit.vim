@@ -1,5 +1,15 @@
 " From: init.vim
 
+" Format;
+function! s:format_over_buffer()
+  let l:view = winsaveview()
+  " `=` goes as mapped such as coc.nvim.
+  norm gg=G
+  silent call winrestview(l:view)
+endfunction
+command! FormatOverBuffer :call <SID>format_over_buffer()
+nnoremap <c-=> :FormatOverBuffer<CR>
+
 " Keymap; Write&Quit {{{
 "" Write&Quit; Evacuation for Macro
 nnoremap q<space> q
@@ -197,21 +207,22 @@ xnoremap > >gv
 " Fail to work
 xnoremap < <:norm! gv<cr>
 
-" Adjustment; Text Object {{{
+" Sloth; insert
+vnoremap aa <esc>a
+vnoremap ii <esc>i
+" Sloth; Text Object {{{1
 onoremap ia a
 onoremap ai i
 xnoremap ia a
 xnoremap ai i
-"}}}
-" Adjustment; Insert {{{
+" Sloth; Insert {{{1
 nnoremap dI I
 nnoremap cI I
 nnoremap yI I
 nnoremap dA A
 nnoremap cA A
 nnoremap yA A
-"}}}
-" Adjustment; Operator {{{
+" Sloth; Operator {{{1
 nnoremap dY y$
 nnoremap cY y$
 nnoremap yY y$
@@ -221,4 +232,3 @@ nnoremap yD D
 nnoremap cC C
 nnoremap dC C
 nnoremap yC C
-"}}}
