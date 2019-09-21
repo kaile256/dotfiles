@@ -73,7 +73,7 @@ function! s:defx_keymap_explorer() abort
   "nnoremap <silent><buffer><expr> k
   "     \ line('.') == 1 ? 'G' : 'k'
   nnoremap <silent><buffer><expr> l
-        \ (winwidth('.') < g:defx_narrow_width)?
+        \ (winwidth('.') < g:defx_as_wide)?
         \ defx#do_action('open_directory'):
         \ defx#do_action('open_tree')
   " Explore; CWD {{{1
