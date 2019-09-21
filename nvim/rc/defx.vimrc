@@ -8,28 +8,15 @@ scriptencoding utf-8
 nnoremap <a-x> <Nop>
 
 " Call Defx; on Sidebar
-nnoremap <silent> <a-x>v
+nnoremap <silent> <a-x>x
       \ :<c-u>Defx `expand('%:p:h')` -search=`expand('%:p')`
       \ -split=vertical -direction=topleft
       \ -winwidth=30
       \ <cr>
-nnoremap <silent> <a-x><a-v>
+nnoremap <silent> <a-x><a-x>
       \ :<c-u>Defx `expand('%:p:h')` -search=`expand('%:p')`
       \ -split=vertical -direction=topleft
       \ -winwidth=30
-      \ <cr>
-" Call Defx; on the window {{{1
-" Note: -search must be applied full path.
-" TODO: on Term-Mode, not to get errors; like get path with !pwd.
-nnoremap <silent> <a-x><a-s>
-      \ :<c-u>Defx `expand('%:p:h')` -search=`expand('%:p')`
-      \ -split=horizontal
-      \ -new
-      \ <cr>
-nnoremap <silent> <a-x>s
-      \ :<c-u>Defx `expand('%:p:h')` -search=`expand('%:p')`
-      \ -split=horizontal
-      \ -new
       \ <cr>
 " Call Defx; on the window {{{1
 " Note: -search must be applied full path.
@@ -42,6 +29,34 @@ nnoremap <silent> <a-x><a-e>
 nnoremap <silent> <a-x>e
       \ :<c-u>Defx `expand('%:p:h')` -search=`expand('%:p')`
       \ -split=no
+      \ -new
+      \ <cr>
+" Call Defx; in vertical {{{1
+" TODO: open defx-buffer winwidth relative to winwidth('.')
+nnoremap <silent> <a-x>v
+      \ :<c-u>Defx `expand('%:p:h')` -search=`expand('%:p')`
+      \ -split=vertical -direction=aboveleft
+      \ -winwidth=30
+      \ -new
+      \ <cr>
+nnoremap <silent> <a-x><a-v>
+      \ :<c-u>Defx `expand('%:p:h')` -search=`expand('%:p')`
+      \ -split=vertical -direction=aboveleft
+      \ -winwidth=30
+      \ -new
+      \ <cr>
+"}}}
+" Call Defx; in horizontal {{{1
+" Note: -search must be applied full path.
+" TODO: on Term-Mode, not to get errors; like get path with !pwd.
+nnoremap <silent> <a-x><a-s>
+      \ :<c-u>Defx `expand('%:p:h')` -search=`expand('%:p')`
+      \ -split=horizontal
+      \ -new
+      \ <cr>
+nnoremap <silent> <a-x>s
+      \ :<c-u>Defx `expand('%:p:h')` -search=`expand('%:p')`
+      \ -split=horizontal
       \ -new
       \ <cr>
 " Call Defx; on Tab {{{1
