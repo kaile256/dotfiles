@@ -1,3 +1,4 @@
 " From: tool.toml
+" Repo: tweekmonster/helpful.vim
 
-command! Version :HelpfulVersion
+command! -nargs=+ -complete=help Version call helpful#lookup('<args>')
