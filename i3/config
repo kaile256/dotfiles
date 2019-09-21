@@ -41,9 +41,7 @@ set $AltS   Mod1+Shift
 #exec --no-startup-id "feh --bg-scale $HOME/.config/i3/~~.jpg"
 #}}}
 # General; Font {{{
-# Icons: from ttf-font-icons
-#font pango:MyricaM M 10, DejaVu Sans Mono 11
-font pango:Icons, github\-octicons, file\-icons, SF Mono 11
+font pango:SF Mono 11
 #}}}
 
 # List; Auto Start {{{
@@ -58,11 +56,12 @@ exec --no-startup-id fcitx
 # parcellite: Clipboard Manager
 #exec --no-startup-id parcellite
 #exec --no-startup-id clipit
-# urxvt: Light Terminal
+# urxvtd: Daemon of rxvt-unicode. Use urxvtc as a client.
 #exec "urxvtd -o -f"
 #exec --no-startup-id volumeicon
 #exec --no-startup-id nitrogen --restore; sleep 1; compton -b
-#exec --no-startup-id start_conky_live_maia
+# Show the CP's status on the wallpaper.
+exec --no-startup-id start_conky_live_maia
 #exec --no-startup-id blueman
 #exec --no-startup-id manjaro-hello
 #exec --no-startup-id pamac-tray
@@ -116,7 +115,7 @@ bindsym $Super+a exec alacritty
 # Keybind; open Editor {{{
 bindsym $Super+v exec --no-startup-id alacritty -e 'nvim'
 bindsym $Super+n exec --no-startup-id nvim-qt
-bindsym $Super+g exec --no-startup-id glrnvim
+#bindsym $Super+g exec --no-startup-id glrnvim
 bindsym $SuperS+g exec --no-startup-id gonvim
 bindsym $Super+r exec --no-startup-id gnvim
 bindsym $Super+y exec --no-startup-id nyaovim
@@ -181,26 +180,29 @@ bindsym $SuperS+Right move right
 
 # Mode; Resize Window {{{
 # you can also use the mouse for that
-#mode "resize" {
-## These bindings trigger as soon as you enter the resize mode
-#  bindsym h resize shrink width 5 px or 5 ppt
-#    bindsym j resize grow height 5 px or 5 ppt
-#    bindsym k resize shrink height 5 px or 5 ppt
-#    bindsym l resize grow width 5 px or 5 ppt
-#
-## same bindings, but for the arrow keys
-#    bindsym Left resize shrink width 5 px or 5 ppt
-#    bindsym Down resize grow height 5 px or 5 ppt
-#    bindsym Up resize shrink height 5 px or 5 ppt
-#    bindsym Right resize grow width 5 px or 5 ppt
-#
-## back to normal: Enter or Escape or $Super+r
-#    bindsym Return mode "default"
-#    bindsym Escape mode "default"
-#    bindsym $Super+s mode "default"
-#}
-#
-#bindsym $SuperS+s mode "resize"
+mode "$resize" {
+# These bindings trigger as soon as you enter the resize mode
+bindsym j resize shrink width 5 px or 5 ppt
+bindsym k resize grow width 5 px or 5 ppt
+bindsym n resize shrink width 5 px or 5 ppt
+bindsym w resize grow width 5 px or 5 ppt
+bindsym h resize grow height 5 px or 5 ppt
+bindsym l resize shrink height 5 px or 5 ppt
+
+# same bindings, but for the arrow keys
+bindsym Left resize shrink width 5 px or 5 ppt
+bindsym Down resize grow height 5 px or 5 ppt
+bindsym Up resize shrink height 5 px or 5 ppt
+bindsym Right resize grow width 5 px or 5 ppt
+
+# back to normal: Enter or Escape or $Super+r
+bindsym Return mode "default"
+bindsym Escape mode "default"
+bindsym Ctrl+c mode "default"
+}
+
+set $resize Resize as you want: (H)igher/(L)ower | (N)arrower/(W)ider
+bindsym $Super+Ctrl+r mode "$resize"
 #}}}
 # Mode; System {{{
 #set $Locker i3lock -i ~/Pictures/Wallpaper/kishimen.png && sleep 1
@@ -347,7 +349,7 @@ bindsym F11 fullscreen toggle
 #for_window [class="Xfburn"] floating enable
 ##}}}
 # If Urgent, switch to the workspace immediately.
-for_window [urgent=latest] focus
+#for_window [urgent=latest] focus
 
 # Workspace; Name {{{
 set $ws1 "main"
