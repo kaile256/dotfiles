@@ -51,7 +51,7 @@ call defx#custom#option('_', {
 "        \ })
 "}}}
 
-let g:defx_narrow_width = 50
+let g:defx_as_wide = 50
 function! s:defx_keymap_explorer() abort
   " TODO: Duplicate defx buffer. {{{1
   "nnoremap <silent><buffer> <c-w><c-v>
@@ -86,7 +86,7 @@ function! s:defx_keymap_explorer() abort
   nnoremap <silent><buffer><expr> <a-w>w
         \ defx#do_action('change_vim_cwd')
         \ . ':echo "cd" expand("<cfile>:p:h")<CR>'
-        "\ . `:echo 'cd' ` . getcwd() 
+        "\ . `:echo 'cd' ` . getcwd()
   nnoremap <silent><buffer><expr> <a-w><a-w>
         \ defx#do_action('change_vim_cwd')
         \ . ':echo "cd" expand("<cfile>:p:h")<CR>'
@@ -116,20 +116,28 @@ function! s:defx_keymap_explorer() abort
   "      \                'mark:indent:icon:filename:type:size:time')
   " Selected; Open File {{{1
   nnoremap <silent><buffer><expr> <c-j>
-        \ (winwidth('.') < g:defx_narrow_width)?
-        \ defx#do_action('multi', [['open', 'wincmd p <bar> edit'], 'quit']):
-        \ defx#do_action('multi', ['open', 'quit'])
+        \ (winwidth('.') > g:defx_as_wide)?
+        \ defx#is_directory()?
+        \ defx#do_action('open_tree'):
+        \ defx#do_action('multi', ['open', 'quit']):
+        \ defx#is_directory()?
+        \ defx#do_action('open'):
+        \ defx#do_action('multi', [['open', 'wincmd p <bar> edit'], 'quit'])
   nnoremap <silent><buffer><expr> <CR>
-        \ (winwidth('.') < g:defx_narrow_width)?
-        \ defx#do_action('multi', [['open', 'wincmd p <bar> edit'], 'quit']):
-        \ defx#do_action('multi', ['open', 'quit'])
+        \ (winwidth('.') > g:defx_as_wide)?
+        \ defx#is_directory()?
+        \ defx#do_action('open_tree'):
+        \ defx#do_action('multi', ['open', 'quit']):
+        \ defx#is_directory()?
+        \ defx#do_action('open'):
+        \ defx#do_action('multi', [['open', 'wincmd p <bar> edit'], 'quit'])
   nnoremap <silent><buffer><expr> <c-v>
         \ defx#do_action('multi', [['open', 'vsplit'], 'quit'])
   " TODO: `:wincmd p` will apply only when the defx buffer is narrow.
   nnoremap <silent><buffer><expr> <c-s>
         \ defx#do_action('multi', [['open', 'wincmd p <bar> split'], 'quit'])
   nnoremap <silent><buffer><expr> <c-b>
-        \ defx#do_action('multi', ['open', 'tabe'], 'quit'])
+        \ defx#do_action('multi', [['open', 'tabe'], 'quit'])
   " Selected; Open Tree {{{1
   nnoremap <silent><buffer><expr> u
         \ defx#do_action('open_or_close_tree')
