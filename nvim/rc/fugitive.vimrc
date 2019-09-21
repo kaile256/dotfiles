@@ -6,7 +6,8 @@ command! -nargs=+ Gclone :Git clone <q-args>
 function! s:fugitive_commit_with_diff() abort "{{1
   norm T
   " Keep to show diff w/ HEAD^ while editting commit-message.
-  Gvdiffsplit! HEAD^
+  " TO diff w/ HEAD^ ignores the last commited change to diff.
+  Gvdiffsplit! HEAD
   norm gg
   vert bot Gstatus
   norm =
