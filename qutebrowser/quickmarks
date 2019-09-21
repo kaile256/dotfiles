@@ -1,6 +1,5 @@
 kaile256/dotfiles https://github.com/kaile256/dotfiles
 Vigemus/impromptu.nvim https://github.com/Vigemus/impromptu.nvim
-wl https://ejje.weblio.jp/
 arch.jp:news https://www.archlinux.jp/
 arch.jp:home https://wiki.archlinux.jp/index.php/%E3%83%A1%E3%82%A4%E3%83%B3%E3%83%9A%E3%83%BC%E3%82%B8
 trello:vimmer https://trello.com/b/vBovNqkx/vimmer
@@ -74,3 +73,5 @@ Doc: vim https://github.com/mhinz/vim-galore
 vim: colorscheme/flattened: Solarized without the bullshit https://github.com/romainl/flattened
 Doc: i3wm https://i3wm.org/docs/userguide.html
 Elementary: Haskell http://learnyouahaskell.com/chapters
+vim: sample templates for coc-template https://github.com/voldikss/dotfiles/tree/master/vim/templates
+dotfiles: voldikss, who is one of the contributer of coc.nvim https://github.com/voldikss/dotfiles

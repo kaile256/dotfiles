@@ -359,5 +359,6 @@ settings:
       th: https://www.freethesaurus.com/{}
       tw: http://twitter.com/search/{}
       wk: http://en.wikipedia.org/wiki/{}
+      wl: https://ejje.weblio.jp/content/{}?erl=true
   url.start_pages:
     global: qute://history/

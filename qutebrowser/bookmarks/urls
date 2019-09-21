@@ -153,3 +153,9 @@ https://devdocs.io/ DevDocs API Documentation
 https://github.com/romainl/flattened romainl/flattened: Solarized, without the bullshit.
 https://github.com/lambdalisue/suda.vim lambdalisue/suda.vim: An alternative sudo.vim for Vim and Neovim, limited support sudo in Windows
 https://github.com/chrisbra/SudoEdit.vim chrisbra/SudoEdit.vim: Edit Files using sudo or su or any other tool
+https://github.com/brndnmtthws/conky brndnmtthws/conky: Light-weight system monitor for X.
+https://github.com/tbabej/taskwiki tbabej/taskwiki: Proper project management with Taskwarrior in vim.
+https://github.com/blindFS/vim-taskwarrior blindFS/vim-taskwarrior: vim interface for taskwarrior
+https://github.com/voldikss/coc-todolist voldikss/coc-todolist: 🕐 Todolist/task manager extension for (Neo)Vim
+https://www.reddit.com/r/neovim/ vim out of the box — http://neovim.org/
+https://github.com/voldikss/vim-floaterm voldikss/vim-floaterm: Open the terminal in the floating window and toggle it quickly
