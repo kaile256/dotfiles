@@ -132,7 +132,7 @@ function! s:defx_keymap_explorer() abort
         \ defx#do_action('open'):
         \ defx#do_action('multi', [['open', 'wincmd p <bar> edit'], 'quit'])
   nnoremap <silent><buffer><expr> <c-v>
-        \ defx#do_action('multi', [['open', 'vsplit'], 'quit'])
+        \ defx#do_action('multi', [['open', 'wincmd p <bar> vsplit'], 'quit'])
   " TODO: `:wincmd p` will apply only when the defx buffer is narrow.
   nnoremap <silent><buffer><expr> <c-s>
         \ defx#do_action('multi', [['open', 'wincmd p <bar> split'], 'quit'])
