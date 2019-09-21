@@ -215,9 +215,9 @@ xmap <silent> <c-w><space>r :call coc#config("coc.preferences", {"jumpCommand": 
 " CocList; Format {{{1
 " Mnemonic: Change the Structure.
 nmap cs <Plug>(coc-refactor)
-xmap <expr> =  (CocHasProvider('format') == v:true)? '<Plug>(coc-format-selected)' : '='
-nmap <expr> =  (CocHasProvider('format') == v:true)? '<Plug>(coc-format-selected)' : '='
-nmap <expr> == (CocHasProvider('format') == v:true)? '<Plug>(coc-format)'          : '=='
+xmap <expr> =  (CocHasProvider('format') == v:true)? '<Plug>(coc-format-selected)' : '='  
+nmap <expr> =  (CocHasProvider('format') == v:true)? '<Plug>(coc-format-selected)' : '='  
+nmap <expr> == (CocHasProvider('format') == v:true)? '<Plug>(coc-format)'          : '==' 
 " CocList; Text-Object {{{1
 " Note: mapped already as default?
 vmap if <Plug>(coc-funcobj-i)
