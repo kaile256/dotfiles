@@ -8,9 +8,9 @@ set foldtext=FoldCCtext()
 let g:foldCCtext_maxchars=50
 "let g:foldCCtext_enable_autofdc_adjuster = 1 " Auto set foldcolumn=2
 
-function! s:mod_foldCC_length()
-endfunction
-augroup CallFoldCCFunction
-augroup END
+"function! s:mod_foldCC_length()
+"endfunction
+"augroup CallFoldCCFunction
+"augroup END
 
 nnoremap <silent> z<c-g> :echo FoldCCnavi()<cr>
