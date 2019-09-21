@@ -21,10 +21,8 @@ nnoremap <silent> <space>q :<c-u>w  <cr>
 "nnoremap <silent> qq :<c-u>q  <cr>
 nmap <silent> Q <Nop>
 nnoremap <silent> QQ :<c-u>q! <cr>
-nnoremap <silent> <s-space>Q :<c-u>q! <cr>
 "" Write&Quit; Buffer
 nnoremap <silent> <space>Z :<c-u>q!<cr>
-nnoremap <silent> <s-space>Z :<c-u>q!<cr>
 "" Write&Quit; Special
 nnoremap <space>* :<c-u>qa<cr>
 nnoremap <space>! :w !sudo tee % > /dev/null<cr> <bar> edit!
