@@ -273,41 +273,45 @@ settings:
   editor.encoding:
     global: utf-8
   fonts.completion.category:
-    global: bold 12pt sf mono, hack nerd font
+    global: bold 12pt sf mono
   fonts.completion.entry:
-    global: 12pt sf mono, hack nerd font
+    global: 12pt sf mono
   fonts.debug_console:
-    global: 12pt sf mono, hack nerd font
+    global: 12pt sf mono
   fonts.downloads:
-    global: 12pt sf mono, hack nerd font
+    global: 12pt sf mono
   fonts.hints:
-    global: bold 12pt sf mono, hack nerd font
+    global: bold 12pt sf mono
   fonts.keyhint:
-    global: 12pt sf mono, hack nerd font
+    global: 12pt sf mono
   fonts.messages.error:
-    global: 12pt sf mono, hack nerd font
+    global: 12pt sf mono
   fonts.messages.info:
-    global: 12pt sf mono, hack nerd font
+    global: 12pt sf mono
   fonts.messages.warning:
-    global: 12pt sf mono, hack nerd font
+    global: 12pt sf mono
+  fonts.monospace:
+    global: '"xos4 Terminus", Terminus, Monospace, "DejaVu Sans Mono", Monaco, "Bitstream
+      Vera Sans Mono", "Andale Mono", "Courier New", Courier, "Liberation Mono", monospace,
+      Fixed, Consolas, Terminal'
   fonts.prompts:
-    global: 12pt sf mono, hack nerd font
+    global: 12pt sf mono
   fonts.statusbar:
-    global: 12pt sf mono, hack nerd font
+    global: 12pt sf mono
   fonts.tabs:
-    global: 12pt sf mono, hack nerd font
+    global: 12pt sf mono
   fonts.web.family.cursive:
-    global: 'sf mono,: hack nerd font'
+    global: sf mono
   fonts.web.family.fantasy:
-    global: sf mono, hack nerd font
+    global: sf mono
   fonts.web.family.fixed:
-    global: sf mono, hack nerd font
+    global: sf mono
   fonts.web.family.sans_serif:
-    global: sf mono, hack nerd font
+    global: sf mono
   fonts.web.family.serif:
-    global: sf mono, hack nerd font
+    global: SF Mono
   fonts.web.family.standard:
-    global: sf mono, hack nerd font
+    global: Hack Nerd Font
   fonts.web.size.default:
     global: 15
   fonts.web.size.default_fixed:
