@@ -3,8 +3,9 @@
 # Browser;
 [[plugins]]
 repo = 'tyru/open-browser.vim' #{{{
-on_if = 'executable("qutebrowser")'
-hook_post_source = 'runtime open-browser.vimrc'
+on_cmd = 'OpenBrowser'
+on_map = ['<Cmd>OpenBrowser', '<Plug>(openbrowser']
+hook_add = 'runtime open-browser.vimrc'
 #}}}
 #[[plugins]]
 #repo = 'tyru/open-browser-github.vim' #{{{
