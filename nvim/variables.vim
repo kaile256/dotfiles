@@ -5,15 +5,20 @@
 
 " Set; Font {{{
 if has('unix')
-  set guifont=DejaVu\ Sans\ Mono:h12
-  set guifontwide=Ricty\ Discard\ Nerd\ Font:h12
-  set printfont=Ricty\ Nerd\ Font:h12
-  "set guifontset=Ricty\ Discard\ Nerd\ Font:h12
-  "set linespace=0
-elseif has('win32\|win64')    " *nix OS
   try
-    set guifont=Ricty_Nerd_Font:h12
-    set printfont=Ricty_Nerd_Font:h12
+    set guifont=SF\ Mono:h12
+    set guifontwide=SF\ Mono:h12
+    set guifontset=SF\ Mono:h12
+    set printfont=SF\ Mono:h12
+    "set linespace=0
+  catch
+    set guifont=Monospace:h12
+    set printfont=Monospace:h12
+  endtry
+elseif has('win32\|win64')
+  try
+    set guifont=SF_Mono:h12
+    set printfont=SF_Mono:h12
   catch
     set guifont=Monospace\ 12
     set printfont=Monospace\ 12
