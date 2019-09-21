@@ -6,6 +6,12 @@ repo = 'flazz/vim-colorschemes' #{{{
 on_event = 'VimEnter'
 hook_post_source = 'runtime colorschemes.vimrc'
 #}}}
+#[[plugins]]
+#repo = 'flrnprz/candid.vim' #{{{
+## Looks like dracula scheme.
+#on_event = 'VimEnter'
+#hook_post_source = 'runtime candid.vimrc'
+##}}}
 
 # Colorscheme; Statusline
 [[plugins]]
