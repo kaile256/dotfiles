@@ -6,6 +6,7 @@ scriptencoding utf-8
 
 set path+=~/vimwiki/**
 let g:vimwiki_folding = 'expr'
+let g:vimwiki_markdown_link_ext = 1
 " Let; Highlight {{{1
 let g:vimwiki_hl_headers    = 1
 let g:vimwiki_hl_cb_checked = 2
@@ -36,7 +37,7 @@ let s:wiki_markdown = {
       \ 'syntax': 'markdown',
       \ 'index': 'index',
       \ 'path': '~/vimwiki/mdwiki/',
-      \ 'ext': '.md',
+      \ 'ext': '.markdown',
       \ 'auto_tags': 1,
       \ 'auto_diary_index': 1,
       \ 'list_margin': 4,
@@ -163,7 +164,7 @@ augroup END
 function! s:my_startpage(page) "{{{1
   if @% ==# '' && &ft ==# '' && &bt ==# '' && getline(1,'$') ==# ['']
     if a:page ==# 'mdwiki'
-      e ~/vimwiki/mdwiki/index.md
+      e ~/vimwiki/mdwiki/index.markdown
     elseif a:page ==# 'wiki' || a:page ==# 'vimwiki'
       VimwikiIndex
     elseif a:page ==# 'diary'
@@ -176,7 +177,7 @@ function! s:my_startpage(page) "{{{1
 endfunction "}}}
 augroup AutoFormatVimwiki
   au!
-  au BufNewFile,BufEnter *wiki/**.md setl ft=vimwiki syn=vimwiki
+  au BufNewFile,BufEnter *wiki/**.markdown setl ft=vimwiki syn=vimwiki
   au FileType vimwiki setl tabstop=4 softtabstop=4 shiftwidth=4
   au FileType vimwiki setl nowrap fdl=1
   au BufWritePre index.* if &syn  ==# 'vimwiki' | VimwikiGenerateLinks
