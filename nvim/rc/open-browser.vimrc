@@ -61,32 +61,36 @@ cnoreabbr <expr> th (getcmdtype() == ':' && getcmdline() =~ '^OpenBrowserSmartSe
 """ Dictionary; DiCtionary
 cnoreabbr <expr> K  (getcmdtype() == ':' && getcmdline() =~ '^OpenBrowserSmartSearch K$')?  '-dictionary@en' : 'K'
 cnoreabbr <expr> dc (getcmdtype() == ':' && getcmdline() =~ '^OpenBrowserSmartSearch dc$')? '-dictionary@en' : 'dc'
-" Keymap; Open Current File {{{1
-"" Current File; Command!
+" Keymap; Open Current File
+"" Current File; Command! {{{1
 "command! CurrentFileOnBrowser exe 'OpenBrowser' 'ftp:///' . expand('%:p:gs?\\?/?')
 command! CurrentFileOnBrowser exe 'OpenBrowser' . expand('%:p:gs?\\?/?')
-
-"" Current File; Get Current file
+"" Current File; Get Current file {{{1
 nnoremap <silent> g% :<c-u>CurrentFileOnBrowser<cr>
 nnoremap <silent> g5 :<c-u>CurrentFileOnBrowser<cr>
-"}}}
-" Keymap; Open Words/URL under Cursor "{{{
-"" Cursor; 'Go to Browser' {{{2
+
+" Keymap; Open Words/URL under Cursor
+"" Cursor; 'Go to Browser' {{{1
 " Notice: `smart-search` detects whether it is URI or not.
 nmap gb <Plug>(openbrowser-smart-search)
 vmap gb <Plug>(openbrowser-smart-search)
 " Cursor; Go to Browser with <cWORD>
 nmap gB :<c-u>OpenBrowserSmartSearch <c-r><c-a> <cr>
 vmap gB :<c-u>OpenBrowserSmartSearch <c-r><c-a> <cr>
-"" Cursor; GitHub "{{{2
+"" Cursor; GitHub "{{{1
 nmap gh :<c-u>OpenBrowserSmartSearch -github <c-r><c-w> <cr>
-vmap gh :<c-u>OpenBrowserSmartSearch -github <c-r><c-a> <cr>
-""" Github; Github's Repository
-nmap gR :<c-u>OpenBrowserSmartSearch http://github.com/<c-r><c-f> <cr>
-vmap gR :<c-u>OpenBrowserSmartSearch http://github.com/<c-r><c-f> <cr>
-nnoremap <space>r gr
-nnoremap <space>R gR
-"" Cursor; Dictionary "{{{2
+vmap gh :<c-u>OpenBrowserSmartSearch -github <c-r><c-w> <cr>
+"" Cursor; Github's repository "{{{1
+nmap gH :<c-u>OpenBrowserSmartSearch http://github.com/<c-r><c-f> <cr>
+vmap gH :<c-u>OpenBrowserSmartSearch http://github.com/<c-r><c-f> <cr>
+"}}}
+"" Cursor; Gitlab
+nmap gl :<c-u>OpenBrowserSmartSearch -gitlab    <c-r><c-w> <cr>
+vmap gl :<c-u>OpenBrowserSmartSearch -gitlab    <c-r><c-w> <cr>
+" Cursor; Gitlab's repository
+nmap gL :<c-u>OpenBrowserSmartSearch -gitlab    <c-r><c-f> <cr>
+vmap gL :<c-u>OpenBrowserSmartSearch -gitlab    <c-r><c-f> <cr>
+"" Cursor; Dictionary "{{{1
 """ Dictionary; Go to the free dictionary
 " Mnemonic: default `K`
 nmap gK :<c-u>OpenBrowserSmartSearch -dictionary@en <c-r><c-w> <cr>
@@ -95,5 +99,3 @@ vmap gK :<c-u>OpenBrowserSmartSearch -dictionary@en <c-r><c-a> <cr>
 nmap gW :<c-u>OpenBrowserSmartSearch -thesaurus <c-r><c-w> <cr>
 vmap gW :<c-u>OpenBrowserSmartSearch -thesaurus <c-r><c-a> <cr>
 """" Dictionary; webLio
-nmap gL :<c-u>OpenBrowserSmartSearch -weblio    <c-r><c-w> <cr>
-vmap gL :<c-u>OpenBrowserSmartSearch -weblio    <c-r><c-a> <cr>
