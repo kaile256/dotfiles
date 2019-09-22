@@ -4,13 +4,13 @@
 repo = 'deton/jasegment.vim'
 # remaps `W`,`E`, and so on.
 on_ft = 'markdown'
-hook_post_source = 'runtime jasegment.vimrc'
+#hook_post_source = 'runtime jasegment.vimrc'
 
 [[plugins]]
 repo = 'deton/jasentence.vim'
 # remaps `)(` for '、' and '。'
 on_ft = 'markdown'
-hook_post_source = 'runtime jasentence.vimrc'
+#hook_post_source = 'runtime jasentence.vimrc'
 
 [[plugins]]
 repo = 'fuenor/JpFormat.vim'
