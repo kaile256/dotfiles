@@ -7,8 +7,10 @@
 let g:EasyMotion_do_mapping = 0
 let g:EasyMotion_enter_jump_first = 1
 let g:EasyMotion_space_jump_first = 1
-" linefeed (newline): original as I want.
+" linefeed (newline) feature is original config,
+" which is written directory on the repository.
 let g:EasyMotion_linefeed_jump_first = 1
+let g:EasyMotion_expandable_linefeed_jump_first = 1
 " Set apart vim's default n-key history.
 let g:EasyMotion_add_search_history = 0
 "}}}
@@ -27,14 +29,6 @@ let g:EasyMotion_prompt = 'EasyMotion: {n} Chars >>> '
 " `g:EasyMotion_use_migemo` is independentt to 'cmigemo'.
 " because Easymotion includes basic regex patterns.
 let g:EasyMotion_use_migemo = 0
-function! s:ezmotion_migemo_toggle() "{{{2
-if exists('g:EasyMotion_use_migemo')
-  let g:EasyMotion_use_migemo = 0
-else
-  let g:EasyMotion_use_migemo = 1
-endif
-endfunction "}}}2
-command! MigemoToggle :call <SID>ezmotion_migemo_toggle()
 " Highlight {{{1
 hi link EasyMotionTarget ErrorMsg
 hi link EasyMotionTarget2First ErrorMsg
