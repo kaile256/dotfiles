@@ -134,6 +134,15 @@ xmap ac <Plug>(coc-text-object-outer)
 "      \ --sources=buffer+,file+
 "      \ --file-columns=icon,git,selection,clip,indent,filename,size
 ""}}}
+" CocCommand; Todo, or Task
+command! CocTask :CocCommand todolist.create
+command! CTask :CocCommand todolist.create
+command! CocShowTaskList :CocList todolist
+command! CShowTaskList :CocList todolist
+nnoremap <silent> <a-c>t     :CocTask<cr>
+nnoremap <silent> <a-c><a-t> :CocTask<cr>
+nnoremap <silent> <a-c>s     :CocShowTaskList<cr>
+nnoremap <silent> <a-c><a-s> :CocShowTaskList<cr>
 " CocCommand; Translator
 " Not work well yet on Japanese
 "command! -nargs=+ CEchoOnJapanese :call coc#config("translator", {"toLang": "ja"}) <bar> CocCommand translator.echo <q-args>
