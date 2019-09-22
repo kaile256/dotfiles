@@ -35,3 +35,7 @@ nnoremap <A-right> <c-w><
 
 " Resize; Neutralize
 nnoremap <c-w>0 <c-w>=
+
+augroup OnEditNewNoFixedWindow
+  au! BufWinLeave * if &l:winfixwidth || &l:winfixheight | setl nowinfixwidth nowinfixheight
+augroup END
