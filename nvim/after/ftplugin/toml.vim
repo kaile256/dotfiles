@@ -9,4 +9,4 @@ augroup AutoFormatOnToml
 augroup END
 
 " Note: simple =-operator devasticates indent if fold by '{{{'.
-noremap <buffer><silent> <S-TAB> :keeppatterns %s/^\s\+//ge<cr>
+noremap <buffer><silent> <c-=> :keeppatterns %s/^\s\+//ge<cr>
