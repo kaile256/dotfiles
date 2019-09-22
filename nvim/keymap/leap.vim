@@ -21,14 +21,14 @@ nnoremap <silent> <a-w>i     :<c-u>cd -<cr>:echo 'cd "' . getcwd() . '"'<cr>
 nnoremap <silent> <a-w><a-o> :<c-u>cd ..<cr>:echo 'cd "' . getcwd() . '"'<cr>
 nnoremap <silent> <a-w>o     :<c-u>cd ..<cr>:echo 'cd "' . getcwd() . '"'<cr>
 "" Simply echo; Current Directory
-nnoremap <silent> <a-w><a-w> :<c-u> echo '$CWD is "' . getcwd() . '"'<cr>
-nnoremap <silent> <a-w>w     :<c-u> echo '$CWD is "' . getcwd() . '"'<cr>
+nnoremap <silent> <a-w><a-.> :<c-u> echo '$CWD is "' . getcwd() . '"'<cr>
+nnoremap <silent> <a-w>.     :<c-u> echo '$CWD is "' . getcwd() . '"'<cr>
 "" Temp Directory
 nnoremap <silent> <a-w><a-t> :<c-u>cd ~/.tmp<cr>:echo 'cd "' . getcwd() . '"'<cr>
 nnoremap <silent> <a-w>t     :<c-u>cd ~/.tmp<cr>:echo 'cd "' . getcwd() . '"'<cr>
 "" Working Directory
-nnoremap <silent> <a-w><a-.> :<c-u>cd %:p:h<cr>:echo 'cd "' . getcwd() . '"'<cr>
-nnoremap <silent> <a-w>.     :<c-u>cd %:p:h<cr>:echo 'cd "' . getcwd() . '"'<cr>
+nnoremap <silent> <a-w><a-w> :<c-u>cd %:p:h<cr>:echo 'cd "' . getcwd() . '"'<cr>
+nnoremap <silent> <a-w>w     :<c-u>cd %:p:h<cr>:echo 'cd "' . getcwd() . '"'<cr>
 "" Root Directory
 nnoremap <silent> <a-w><a-r> :<c-u>cd /<cr>:echo 'cd "' . getcwd() . '"'<cr>
 nnoremap <silent> <a-w>r     :<c-u>cd /<cr>:echo 'cd "' . getcwd() . '"'<cr>
@@ -161,3 +161,15 @@ tnoremap <a-[> <c-\><c-n>gT
 " Hotkey; for :tabedit
 " Note: <c-w>b/<c-b> is for to bottom.
 nnoremap <c-w>B <c-w><c-v><c-w>T
+
+" Jump to next/prev space
+" TODO: Ignore difference of line's height.
+nnoremap g<space> f<space>
+nnoremap <s-space> F<space>
+nnoremap d<space>   m`f<space>"_x``
+nnoremap d<s-space> m`F<space>"_x``
+nnoremap c<space>   f<space>"_s
+nnoremap c<s-space> F<space>"_s
+
+nnoremap <c-p> <Cmd>bprev<cr>
+nnoremap <c-n> <Cmd>bnext<cr>
