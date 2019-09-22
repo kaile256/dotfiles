@@ -52,12 +52,11 @@ hook_post_source = 'runtime codi.vimrc'
 # Edit; Undo
 [[plugins]]
 repo = 'simnalamburt/vim-mundo' #{{{
-on_map = '<Plug>(mundo'
+on_map = '<Cmd>Mundo'
 hook_add = 'runtime mundo.vimrc'
 #}}}
 #[[plugins]]
 #repo = 'jaxbot/selective-undo.vim' #{{{
-## End of Dev?
 #on_event = 'BufRead'
 #hook_post_source = 'runtime selective-undo.vimrc'
 ##}}}
@@ -83,7 +82,7 @@ hook_add = 'runtime mundo.vimrc'
 # Edit; Diff
 [[plugins]]
 repo = 'AndrewRadev/linediff.vim' #{{{
-on_map = '<Plug>(linediff'
+on_map = '<Cmd>Linediff'
 hook_add = 'runtime linediff.vimrc'
 #}}}
 
@@ -129,11 +128,6 @@ repo = 'rhysd/vim-grammarous' #{{{
 on_cmd = 'GrammarousCheck'
 hook_add = 'runtime grammarous.vimrc'
 #}}}
-[[plugins]]
-repo = 'rhysd/vim-themis'
-on_cmd = ['BufRead']
-hook_post_source = 'runtime themis.vimrc'
-
 #[[plugins]]
 #repo = 'chrisbra/NrrwRgn' #{{{
 #on_event = 'VimEnter'
@@ -160,12 +154,16 @@ hook_post_source = 'runtime themis.vimrc'
 #hook_post_source = 'runtime sonictemplate.vimrc'
 #}}}
 
+[[plugins]]
+repo = 'thinca/vim-scouter'
+on_cmd = 'Scouter'
+
 # Developper Tool
 [[plugins]]
 repo = 'tweekmonster/helpful.vim'
 on_cmd = 'HelpfulVersion'
 hook_add = 'runtime helpful.vimrc'
-
-[[plugins]]
-repo = 'thinca/vim-scouter'
-on_cmd = 'Scouter'
+#[[plugins]]
+#repo = 'rhysd/vim-themis'
+#on_cmd = ['BufRead']
+#hook_post_source = 'runtime themis.vimrc'
