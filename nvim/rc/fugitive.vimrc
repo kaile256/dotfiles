@@ -9,9 +9,9 @@ function! s:fugitive_commit_with_diff() abort "{{1
   " TO diff w/ HEAD^ ignores the last commited change to diff.
   Gvdiffsplit! HEAD
   norm gg
-  vert bot Gstatus
-  norm =
-  vert resize 50
+  vert bot 35 Gstatus
+  setl winfixwidth
+  wincmd =
 endfunction "}}}
 command! Gstage :Gw <bar> call s:fugitive_commit_with_diff()
 
