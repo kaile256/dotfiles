@@ -1,0 +1,30 @@
+# From: dein.vimrc
+
+[[plugins]]
+repo = 'deton/jasegment.vim'
+# remaps `W`,`E`, and so on.
+on_ft = 'markdown'
+hook_post_source = 'runtime jasegment.vimrc'
+
+[[plugins]]
+repo = 'deton/jasentence.vim'
+# remaps `)(` for '、' and '。'
+on_ft = 'markdown'
+hook_post_source = 'runtime jasentence.vimrc'
+
+[[plugins]]
+repo = 'fuenor/JpFormat.vim'
+if = 'exists("JpFormatCursorMovedI") && (JpFormatCursorMovedI == 1)'
+if = 'exists("JpFormatGqMode") && (JpFormatGqMode == 1)'
+on_ft = ['markdown']
+on_cmd = 'Jp'
+on_map = '<Cmd>Jp'
+hook_add = 'runtime JqFormat.vimrc'
+
+#[[plugins]]
+#repo = 'kana/vim-textobj-jabraces'
+## provides textobj of japanese braces.
+## e.g., for 『』as `ajk`
+##       to <Plug>(textobj-jabraces-double-kakko-a)
+#on_ft = 'markdown'
+#hook_add = 'runtime textobj-jabraces.vimrc'
