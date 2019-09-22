@@ -6,7 +6,6 @@ repo = 'neoclide/coc.nvim' #{{{
 # Branch: neoclide/coc.nvim_release
 # Note: Written in TypeScript.
 rev = 'release'
-#build = 'call coc#util#install()'
 #hook_done_update = 'yarn install --frozen-lockfile'
 on_event = 'VimEnter'
 hook_post_source = 'runtime coc.vimrc'
@@ -36,6 +35,12 @@ hook_post_source = 'runtime coc.vimrc'
 #on_event = 'BufRead'
 #hook_add = 'runtime LanguageClient.vimrc'
 ##}}}
+
+[[plugins]]
+repo = 'voldikss/actionmenu.nvim'
+# Provides coc.nvim actionmenu features for such as 'codeAction'.
+on_source = 'coc.nvim'
+hook_post_source = 'runtime actionmenu.vimrc'
 
 # FZF
 [[plugins]]
