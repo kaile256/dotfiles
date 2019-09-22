@@ -1,12 +1,14 @@
 " From: motion.toml
 " Repo: easymotion/vim-easymotion
-" Otro: unrtp/easymotion.vimrc
+" Alter: unrtp/easymotion.vimrc
 
 " Let; mapping {{{
 " `g:EasyMotion_do_mapping = 1` provides all the default keymaps.
 let g:EasyMotion_do_mapping = 0
 let g:EasyMotion_enter_jump_first = 1
 let g:EasyMotion_space_jump_first = 1
+" linefeed (newline): original as I want.
+let g:EasyMotion_linefeed_jump_first = 1
 " Set apart vim's default n-key history.
 let g:EasyMotion_add_search_history = 0
 "}}}
@@ -20,21 +22,20 @@ let g:EasyMotion_keys = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
 let g:EasyMotion_verbose = 0
 let g:EasyMotion_prompt = 'EasyMotion: {n} Chars >>> '
 "}}}
-" Let; Migemo {{{
+" Let; Migemo {{{1
 " TODO: Associate with eskk.vim?
 " `g:EasyMotion_use_migemo` is independentt to 'cmigemo'.
 " because Easymotion includes basic regex patterns.
-let g:EasyMotion_use_migemo = 0 "{{{
-function! s:ezmotion_migemo_toggle()
+let g:EasyMotion_use_migemo = 0
+function! s:ezmotion_migemo_toggle() "{{{2
 if exists('g:EasyMotion_use_migemo')
   let g:EasyMotion_use_migemo = 0
 else
   let g:EasyMotion_use_migemo = 1
 endif
-endfunction "}}}
+endfunction "}}}2
 command! MigemoToggle :call <SID>ezmotion_migemo_toggle()
-"}}}
-" Highlight {{{
+" Highlight {{{1
 hi link EasyMotionTarget ErrorMsg
 hi link EasyMotionTarget2First ErrorMsg
 hi link EasyMotionTarget2Second ErrorMsg
@@ -86,8 +87,10 @@ augroup END
 "noremap <silent> <c-k> 10k
 noremap <c-h> gT
 noremap <c-l> gt
-map <nowait> <c-j> <Plug>(easymotion-next)
-map <nowait> <c-k> <Plug>(easymotion-prev)
+map <c-j> <Plug>(easymotion-next)
+map <c-k> <Plug>(easymotion-prev)
+map ; <Plug>(easymotion-next)
+map , <Plug>(easymotion-prev)
 
 " Keymap; Evacuat for default tf;, "{{{
 " Mnemonic: 'Quicker', or shorter typing than those of EasyMotion
