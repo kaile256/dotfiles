@@ -1,5 +1,6 @@
 scriptencoding utf-8
 " From: insert.toml
+" Repo: tyru/eskk.vim
 
 " TODO: Tell current mode of skk on airline/lightline
 
@@ -20,8 +21,9 @@ endif
 let g:eskk#no_default_mappings = 1
 "let g:eskk#mapped_keys = "\<c-space>"  " no use
 " Remind: <a-space> for <esc>l.
-imap <c-space> <Plug>(eskk:enable)
-cmap <c-space> <Plug>(eskk:enable)
+" lmap for Insert, Command-line, Lang-Arg
+inoremap <expr> <c-space> eskk#enable()
+cnoremap <expr> <c-space> eskk#enable()
 " Henkan; Completion {{{1
 let g:eskk#keep_state = 1
 let g:eskk#show_annotation = 1
