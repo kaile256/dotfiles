@@ -12,13 +12,35 @@ nnoremap <silent> <a-x>x
       \ :<c-u>Defx `expand('%:p:h')` -search=`expand('%:p')`
       \ -split=vertical -direction=topleft
       \ -winwidth=30
+      \ -toggle
       \ <cr>
 nnoremap <silent> <a-x><a-x>
       \ :<c-u>Defx `expand('%:p:h')` -search=`expand('%:p')`
       \ -split=vertical -direction=topleft
       \ -winwidth=30
+      \ -toggle
       \ <cr>
-" Call Defx; on the window {{{1
+" Call Defx; in vertical "{{{1
+nnoremap <silent> <a-x>v
+      \ :<c-u>above 30 vs <bar> Defx `expand('%:p:h')` -search=`expand('%:p')`
+      \ -new
+      \ <cr>
+nnoremap <silent> <a-x><a-v>
+      \ :<c-u>above 30 vs <bar> Defx `expand('%:p:h')` -search=`expand('%:p')`
+      \ -new
+      \ <cr>
+" Call Defx; in horizontal {{{1
+" Note: -search must be applied full path.
+" TODO: on Term-Mode, not to get errors; like get path with !pwd.
+nnoremap <silent> <a-x><a-s>
+      \ :<c-u>below sp <bar> Defx `expand('%:p:h')` -search=`expand('%:p')`
+      \ -new
+      \ <cr>
+nnoremap <silent> <a-x>s
+      \ :<c-u>below sp <bar> Defx `expand('%:p:h')` -search=`expand('%:p')`
+      \ -new
+      \ <cr>
+" Call Defx; in the window {{{1
 " Note: -search must be applied full path.
 " TODO: on Term-Mode, not to get errors; like get path with !pwd.
 nnoremap <silent> <a-x><a-e>
@@ -31,35 +53,7 @@ nnoremap <silent> <a-x>e
       \ -split=no
       \ -new
       \ <cr>
-" Call Defx; in vertical {{{1
-" TODO: open defx-buffer winwidth relative to winwidth('.')
-nnoremap <silent> <a-x>v
-      \ :<c-u>Defx `expand('%:p:h')` -search=`expand('%:p')`
-      \ -split=vertical -direction=aboveleft
-      \ -winwidth=30
-      \ -new
-      \ <cr>
-nnoremap <silent> <a-x><a-v>
-      \ :<c-u>Defx `expand('%:p:h')` -search=`expand('%:p')`
-      \ -split=vertical -direction=aboveleft
-      \ -winwidth=30
-      \ -new
-      \ <cr>
-"}}}
-" Call Defx; in horizontal {{{1
-" Note: -search must be applied full path.
-" TODO: on Term-Mode, not to get errors; like get path with !pwd.
-nnoremap <silent> <a-x><a-s>
-      \ :<c-u>Defx `expand('%:p:h')` -search=`expand('%:p')`
-      \ -split=horizontal
-      \ -new
-      \ <cr>
-nnoremap <silent> <a-x>s
-      \ :<c-u>Defx `expand('%:p:h')` -search=`expand('%:p')`
-      \ -split=horizontal
-      \ -new
-      \ <cr>
-" Call Defx; on Tab {{{1
+" Call Defx; in tab page {{{1
 nnoremap <silent> <a-x>b
       \ :<c-u>Defx `expand('%:p:h')` -search=`expand('%:p')`
       \ -split=tab
@@ -70,7 +64,7 @@ nnoremap <silent> <a-x><a-b>
       \ -split=tab
       \ -new
       \ <cr>
-" Call Defx; on Floating {{{1
+" Call Defx; on floating window {{{1
 " TODO: Open higher position.
 nnoremap <silent> <a-x>f
       \ :<c-u>Defx `expand('%:p:h')` -search=`expand('%:p')`
