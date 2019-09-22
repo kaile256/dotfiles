@@ -5,6 +5,7 @@
 " Enable '<' in easymotion
 EMCommandLineNoreMap <S-lt> <
 EMCommandLineNoreMap <NL> <CR>
+EMCommandLineNoreMap <c-k> <CR>
 
 EMCommandLineNoreMap <c-p> <Over>(buffer-complete)
 EMCommandLineNoreMap <Tab> <Over>(buffer-complete)
