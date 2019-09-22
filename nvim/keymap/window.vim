@@ -8,10 +8,11 @@ nnoremap <c-w>Q :<c-u>qa! <cr>
 nnoremap <c-w>Z :<c-u>qa  <cr>
 
 " Redraw; No Highlight
-inoremap <silent> <c-l>         <c-o>:<c-u>noh <cr><c-o><c-l>
-nnoremap <silent> <c-space><space>   :<c-u>noh <cr><c-l>
-nnoremap <silent> <c-space><c-space> :<c-u>noh <cr><c-l>
-nnoremap <silent> <space><space>     :cclose <bar> lclose <cr>
+inoremap <silent> <c-l>              <Cmd><c-u>noh <cr><c-o><c-l>
+nnoremap <silent> <c-space><space>   :<c-u>noh      <cr><c-l>
+nnoremap <silent> <c-space><c-space> :<c-u>noh      <cr><c-l>
+nnoremap <silent> <a-space><space>   :<c-u>cclose   <bar> lclose<cr>
+nnoremap <silent> <a-space><a-space> :<c-u>cclose   <bar> lclose<cr>
 
 " Close; Tab-page
 noremap <silent> <c-w>C :<c-u>tabclose<cr>
