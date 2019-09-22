@@ -21,4 +21,5 @@ augroup END
 function! s:keymaps_on_netrw() abort
   nmap <buffer><silent><nowait> h <Plug>NetrwBrowseUpDir
   nmap <buffer><silent><nowait> l <Plug>NetrwLocalBrowseCheck
+  " TODO: yank path of the file under cursor.
 endfunction
