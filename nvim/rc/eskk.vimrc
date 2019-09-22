@@ -20,7 +20,7 @@ endif
 let g:eskk#no_default_mappings = 1
 "let g:eskk#mapped_keys = "\<c-space>"  " no use
 " Remind: <a-space> for <esc>l.
-imap <c-space> <Plug>(eskk:enable]
+imap <c-space> <Plug>(eskk:enable)
 cmap <c-space> <Plug>(eskk:enable)
 " Henkan; Completion {{{1
 let g:eskk#keep_state = 1
