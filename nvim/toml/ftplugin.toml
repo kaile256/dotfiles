@@ -64,14 +64,14 @@ let g:cloesetag_filenames = '*.html,*.vue'
 #on_ft = 'text'
 ##}}}
 [[plugins]]
-repo = 'tpope/vim-markdown' #{{{
+repo = 'plasticboy/vim-markdown'
 on_ft = 'markdown'
-hook_add = 'runtime markdown.vim'
-#[[plugins]]
-#repo = 'suan/vim-instant-markdown'
-#on_event = 'BufRead'
-#on_ft = 'markdown'
-##}}}
+hook_add = 'runtime markdown.vimrc'
+[[plugins]]
+repo = 'suan/vim-instant-markdown'
+on_ft = 'markdown'
+hook_add = 'runtime instant-markdown.vimrc'
+#}}}
 
 # for Shell or Term-Emulater;
 [[plugins]]
@@ -109,7 +109,12 @@ hook_post_source = 'haskell.vimrc'
 [[plugins]]
 repo = 'plytophogy/vim-virtualenv' #{{{
 # supports pip-packages, independently installed in shell, to work on vim
-on_ft = 'python3'
+on_ft = 'python'
+[[plugins]]
+repo = 'python-mode/python-mode' #{{{
+on_ft = 'python'
+hook_post_update = 'git submodule update --init --recursive'
+hook_post_source = 'runtime python-mode.vimrc'
 #}}}
 [[plugins]]
 repo = 'drmingdrmer/vim-indent-lua' #{{{

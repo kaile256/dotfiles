@@ -1,17 +1,6 @@
 scriptencoding utf-8
 " From: finder.toml
-" TODO: Change by width
-
-nnoremap <Plug>(vista-standard) :Vista<cr>
-
-"function! s:vista_adjust_echo_style()
-"if winwidth('#') > 100
-"  let g:vista_echo_cursor_strategy = 'floating_win'
-"else
-"  let g:vista_echo_cursor_strategy = 'echo'
-"endif
-"endfunction
-"au VimResized,BufEnter * call s:vista_adjust_echo_style()
+" Repo: liuchengxu/vista.vim
 
 "let g:vista_default_executive = 'ctags'
 "let g:vista_fzf_preview = ['right:50%']
@@ -22,18 +11,7 @@ nnoremap <Plug>(vista-standard) :Vista<cr>
 "      \  }
 let g:vista_sidebar_position = 'vertical botright'
 
-let g:vista_fzf_preview = ['right:50%']
-
-" default :Vista
-"if exists('did_coc_loaded')
-"  let g:vista_default_executive = 'coc'
-"endif
-"
-"let g:vista_executive_for = {
-"      \ 'markdown': 'toc',
-"      \ 'vim'     : 'ctags'
-"      \ }
-"}}}
+"let g:vista_fzf_preview = ['right:50%']
 
 " :Vista is same as `:Vista ctags`.
 " '!' to close vista-buffer
@@ -51,8 +29,6 @@ function! s:vista_sensible() abort
   " ctags, coc (or other lsp clients) or TableOfContents Mode.
   if &ft =~# 'vista'
     Vista!
-  elseif &ft ==# 'vim'
-    Vista!!
   elseif &ft ==# 'markdown'
     Vista toc
   elseif &ft ==# 'vimwiki'
@@ -60,8 +36,14 @@ function! s:vista_sensible() abort
     Vista toc
   elseif exists('g:did_coc_loaded')
     " Note: A bit lazy to call coc.
-    echo ' Be Patient; Calling COC...'
-    Vista coc
+    if CocHasProvider('documentSymbol')
+      Vista coc
+      echo ' Be Patient; Calling COC...'
+      " TODO: Announce if Nothing found.
+    else
+      Vista!!
+      echo ' documentSymbol is unavailable on this filetype; reading ctags...'
+    endif
     "elseif exists('loaded_')
   endif
 endfunction
