@@ -28,7 +28,7 @@ augroup FzfMyAutoConf
   au WinLeave,BufLeave * if &ft ==# 'fzf' | hide
   au WinLeave,BufLeave * if &ft ==# 'fzf' && &l:statusline == 0 | setl laststatus=2 showmode ruler
   " Note: Makes no sense but auto-set nonumber on tab-open.
-  au FileType fzf setl laststatus=0 noruler | au BufWinEnter * ++once setl laststatus=2 ruler | if &ft !=# 'help' | setl number
+  au FileType fzf setl laststatus=0 noruler | au BufEnter * ++once setl laststatus=2 ruler | if &ft !=# 'help' | setl number
 augroup END
 
 " [Buffers] Rather Jump to window than just to open.
