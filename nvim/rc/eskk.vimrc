@@ -19,8 +19,9 @@ endif
 " Henkan; Activate {{{1
 let g:eskk#no_default_mappings = 1
 "let g:eskk#mapped_keys = "\<c-space>"  " no use
-imap <c-space> <Plug>(eskk:toggle)
-cmap <silent> <c-space> <Plug>(eskk:toggle)
+" Remind: <a-space> for <esc>l.
+imap <c-space> <Plug>(eskk:enable]
+cmap <c-space> <Plug>(eskk:enable)
 " Henkan; Completion {{{1
 let g:eskk#keep_state = 1
 let g:eskk#show_annotation = 1
