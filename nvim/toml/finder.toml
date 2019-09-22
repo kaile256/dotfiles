@@ -17,7 +17,7 @@ hook_add = 'runtime asterisk.vimrc'
 [[plugins]] # has extentions
 repo = 'Shougo/defx.nvim' #{{{
 if = 'has("python3")'
-on_map = 'Defx'
+on_map = '<Cmd>Defx'
 hook_add = 'runtime defx.vimrc'
 hook_post_source = 'runtime unrtp/defx.vimrc'
 [[plugins]]
