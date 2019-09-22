@@ -86,8 +86,15 @@
 	"yank.list.maxsize": 150,
 	"yank.limit": 200,
 
+	"translator.engines": ["google"],
+	"translator.toLang": "ja",
+	"translator.maxsize": 200,
+
 	// false: Update only on saving the buffer.
 	"git.realtimeGutters": true,
+
+	"template.username": "kaile256",
+	"template.templatesDirectory": "~/.config/nvim/data/coc/template",
 
 	"json.format.enable": false,
 
@@ -112,6 +119,7 @@
 		"elixir": "mix_format",
 		"eelixir": "mix_format"
 	},
+	"lua.commandPath": "/usr/bin/lua-lsp",
 	"languageserver":{
 		"bash": {
 			"command": "bash-language-server",
@@ -157,7 +165,7 @@
 		},
 		"lua": {
 			"command": "lua-lsp",
-			"filetypes": ["lua"]
+			"filetypes": ["lua"],
 		},
 		"metals": {
 			"command": "metals-vim",
