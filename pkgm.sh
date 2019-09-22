@@ -32,6 +32,8 @@ autorlogin-git  # sixel viewer for vim?
 anyenv
 arandr  # Gui config for xrandr
 bash-completion
+task # taskwarrior
+python-tasklib # py-lib for taskwarrior
 cargo  # select rustup
 fcitx-qimpanel  # Frontend
 fcitx-qt5
