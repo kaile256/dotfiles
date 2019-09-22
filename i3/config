@@ -139,6 +139,7 @@ bindsym XF86MonBrightnessDown exec xbacklight -dec 5
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5%
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5%
 bindsym XF86AudioMute        exec --no-startup-id pactl set-sink-mute 0 toggle
+
 #}}}
 # Fn; Screen Shot {{{
 # depend: imagemagick
@@ -178,6 +179,34 @@ bindsym $SuperS+Up move up
 bindsym $SuperS+Right move right
 #}}}
 
+# Mode; System {{{
+#set $Locker i3lock -i ~/Pictures/Wallpaper/kishimen.png && sleep 1
+## If use i3-nagbar {{{
+#bindsym $Super+x  exec "i3-nagbar -t warning -f SF Mono 12 -m  'Do you really want to exit i3?' -b 'q:poweroff' 'systemctl poweroff' -b 'r:reboot' 'systemctl reboot' -b 'l:logout' 'i3-msg exit'", mode "$system"
+#bindsym $SuperS+x exec "i3-nagbar -t warning -f SF Mono 12 -m  'Do you really want to exit i3?' -b 'q:poweroff' 'systemctl poweroff' -b 'r:reboot' 'systemctl reboot' -b 'l:logout' 'i3-msg exit'", mode "$system"
+##}}}
+bindsym $Super+Ctrl+x  mode "$systemctl"; exec notify-send 'systemctl'
+bindsym $Super+Ctrl+z  mode "$systemctl"; exec notify-send 'systemctl'
+set $systemctl Poweroff? (y)es, (n)o, (s)uspend, (r)eboot or (l)ock?
+mode "$systemctl" {
+#bindsym l exec --no-startup-id $Locker, mode "default"
+#bindsym s exec --no-startup-id $Locker && systemctl suspend, mode "default"
+#bindsym h exec --no-startup-id $Locker && systemctl hibernate, mode "default"
+bindsym l exec --no-startup-id i3-msg exit, mode "default"
+bindsym r exec --no-startup-id systemctl reboot,  mode "default"
+bindsym s exec --no-startup-id systemctl sudpend, mode "default"
+bindsym p exec --no-startup-id systemctl poweroff, mode "default"
+bindsym q exec --no-startup-id systemctl poweroff, mode "default"
+bindsym y exec --no-startup-id systemctl poweroff, mode "default"
+bindsym u exec --no-startup-id systemctl poweroff, mode "default"
+bindsym n            mode "default"
+bindsym Escape       mode "default"
+bindsym Ctrl+[       mode "default"
+bindsym $Super+Ctrl+x  mode "default"
+bindsym Ctrl+c       mode "default"
+bindsym $Super+space mode "default"
+}
+#}}}
 # Mode; Resize Window {{{
 # you can also use the mouse for that
 mode "$resize" {
@@ -203,36 +232,6 @@ bindsym Ctrl+c mode "default"
 
 set $resize Resize as you want: (H)igher/(L)ower | (N)arrower/(W)ider
 bindsym $Super+Ctrl+r mode "$resize"
-#}}}
-# Mode; System {{{
-#set $Locker i3lock -i ~/Pictures/Wallpaper/kishimen.png && sleep 1
-## If use i3-nagbar {{{
-#bindsym $Super+x  exec "i3-nagbar -t warning -f SF Mono 12 -m  'Do you really want to exit i3?' -b 'q:poweroff' 'systemctl poweroff' -b 'r:reboot' 'systemctl reboot' -b 'l:logout' 'i3-msg exit'", mode "$system"
-#bindsym $SuperS+x exec "i3-nagbar -t warning -f SF Mono 12 -m  'Do you really want to exit i3?' -b 'q:poweroff' 'systemctl poweroff' -b 'r:reboot' 'systemctl reboot' -b 'l:logout' 'i3-msg exit'", mode "$system"
-##}}}
-bindsym $Super+Ctrl+x  mode "$systemctl"; exec notify-send 'systemctl'
-bindsym $Super+Ctrl+z  mode "$systemctl"; exec notify-send 'systemctl'
-set $systemctl Poweroff? (y)es, (n)o, (s)uspend or (r)eboot
-mode "$systemctl" {
-#bindsym l exec --no-startup-id $Locker, mode "default"
-#bindsym e exec --no-startup-id i3-msg exit, mode "default"
-#bindsym s exec --no-startup-id $Locker && systemctl suspend, mode "default"
-#bindsym h exec --no-startup-id $Locker && systemctl hibernate, mode "default"
-#bindsym r exec --no-startup-id systemctl reboot, mode "default"
-#bindsym l exec --no-startup-id i3-msg exit, mode "default"
-bindsym r exec --no-startup-id systemctl reboot,  mode "default"
-bindsym s exec --no-startup-id systemctl sudpend, mode "default"
-bindsym p exec --no-startup-id systemctl poweroff, mode "default"
-bindsym q exec --no-startup-id systemctl poweroff, mode "default"
-bindsym y exec --no-startup-id systemctl poweroff, mode "default"
-bindsym u exec --no-startup-id systemctl poweroff, mode "default"
-bindsym n            mode "default"
-bindsym Escape       mode "default"
-bindsym Ctrl+[       mode "default"
-bindsym $Super+Ctrl+x  mode "default"
-bindsym Ctrl+c       mode "default"
-bindsym $Super+space mode "default"
-}
 #}}}
 # Mode; Backlight {{{
 bindsym $Super+Ctrl+b mode "$backlight"
@@ -264,7 +263,7 @@ bindsym d exec --no-startup-id pactl set-sink-volume 0 -5%
 bindsym m exec --no-startup-id pactl set-sink-mute   0 toggle
 bindsym n            mode "default"
 bindsym Escape       mode "default"
-bindsym Ctrl+[       mode "default"
+bindsym Ctrl+squarebrace       mode "default"
 bindsym Return       mode "default"
 bindsym Space        mode "default"
 bindsym $Super+Ctrl+s  mode "default"
