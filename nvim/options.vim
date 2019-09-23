@@ -1,6 +1,22 @@
 scriptencoding utf-8
 " From: init.vim
 
+"set shada=!,'100,<50,s10,h,
+augroup AutoWriteShada
+  " Topic: When shada file is updated?
+  " Shada only saves the data on VimLeave so that
+  " nothing won't be saved, when you start another process of neovim,
+  " i.e., no data won't share with the running neovim process then.
+  au! InsertLeave * wshada
+augroup END
+"function! s:save_jumplists() abort
+" TODO: should share jumplist on multiple neovim processes.
+"  let l:shada_conf = execute('set shada')
+"  set shada='100
+"  wshada
+"  set shada=expand(l:shada_conf)
+"endfunction
+
 set synmaxcol=320
 " Appearance; Blend {{{
 if exists('&pumblend')
@@ -83,6 +99,7 @@ set list
 "  au BufEnter,CursorHold * if &l:list == 0 | setl list | endif
 "augroup END
 "set listchars=tab:»-,trail:-,eol:↲,extends:»,precedes:«,nbsp:%
+"set listchars=tab:\|\ ,trail:~
 "}}}
 
 " Method; Imput Method {{{
@@ -212,3 +229,8 @@ set noignorecase
 set incsearch hlsearch nowrapscan
 " fold all lines unmatched on {pattern}.
 " CAUTION: foldable is apt to collapse format.
+
+augroup FoldMyConfigsAtMarker
+  au!
+  au BufWinEnter dotfiles/**,.config/** setl fdm=marker
+augroup END
