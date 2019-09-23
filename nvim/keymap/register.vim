@@ -75,14 +75,3 @@ cnoremap <c-r><c-'> <c-r>"
 cnoremap <c-r>'     <c-r>"
 cnoremap <c-r><c-\> <c-r>"
 cnoremap <c-r>\     <c-r>"
-" Unnamed Register; QuickEdit {{{1
-" TODO: Do NOT mess up registers.
-" TODO: use repeat.vim, i.e., dotrepeat.
-nnoremap yP yyP
-nnoremap yp yyp
-nnoremap cp ddp
-nnoremap cP ddkP
-" TODO: paste after :append or pastetoggle
-"nnoremap <silent><expr> 'cP' (getline('.') ==# @1)? '"_ddkp' : 'ddkP'
-"nnoremap <silent><expr> 'cp' (getline('.') ==# @1)? '"_ddp' : 'ddp'
-"nnoremap <expr> <space>p :append '<c-r>+<cr>'
