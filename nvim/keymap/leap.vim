@@ -162,14 +162,5 @@ tnoremap <a-[> <c-\><c-n>gT
 " Note: <c-w>b/<c-b> is for to bottom.
 nnoremap <c-w>B <c-w><c-v><c-w>T
 
-" Jump to next/prev space
-" TODO: Ignore difference of line's height.
-nnoremap g<space> f<space>
-nnoremap <s-space> F<space>
-nnoremap d<space>   m`f<space>"_x``
-nnoremap d<s-space> m`F<space>"_x``
-nnoremap c<space>   f<space>"_s
-nnoremap c<s-space> F<space>"_s
-
 nnoremap <c-p> <Cmd>bprev<cr>
 nnoremap <c-n> <Cmd>bnext<cr>
