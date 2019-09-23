@@ -53,7 +53,6 @@ function! s:fzf_buffer_keymap() "{{{
   let g:fzf_action = {
         \ 'ctrl-z': '',
         \ 'ctrl-q': function('s:fzf_open_in_quickfix_list'),
-        \ 'ctrl-b': 'tab split',
         \ 'ctrl-t': 'tab split',
         \ 'ctrl-v': 'vsplit',
         \ 'ctrl-o': 'split',
