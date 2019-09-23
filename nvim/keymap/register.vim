@@ -90,22 +90,3 @@ nnoremap cP ddkP
 "nnoremap <silent><expr> 'cP' (getline('.') ==# @1)? '"_ddkp' : 'ddkP'
 "nnoremap <silent><expr> 'cp' (getline('.') ==# @1)? '"_ddp' : 'ddp'
 "nnoremap <expr> <space>p :append '<c-r>+<cr>'
-" TODO: keymap via forloop
-"let s:paste_r_listlist = [
-"      \ ['<space>', '+'],
-"      \ ['<c-0>', '0']
-"      \ ]
-"
-"for [key, out] in s:paste_r_listlist
-"  exe 'nnoremap <c-r><c-' . key . '> <c-g>u<c-r>' . out
-"  exe 'nnoremap <c-r>'    . key . '> <c-g>u<c-r>' . out
-"  exe 'cnoremap <c-r><c-' . key . '> <c-r>'       . out
-"  exe 'cnoremap <c-r>'    . key . '> <c-r>'       . out
-"endfor
-" Non-Register; but Expand {{{1
-"" Expand; the Name of Current Buffer w/o extention
-cnoremap <c-r><c-b> <c-r>=expand('%:t:r')<cr>
-cnoremap <c-r>b     <c-r>=expand('%:t:r')<cr>
-""" Current Buffer; for such plugins as FZF, Denite, COC.
-tnoremap <c-r><c-b> <c-\><c-n>"=expand('#:t:r')<cr>pi
-tnoremap <c-r>b     <c-\><c-n>"=expand('#:t:r')<cr>pi
