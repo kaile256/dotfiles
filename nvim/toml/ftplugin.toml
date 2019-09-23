@@ -23,7 +23,7 @@
 repo = 'mhinz/vim-lookup' #{{{
 # Enable to jump to definition as &runtimepath.
 #on_ft = 'vim'
-on_map = '<Plug>(lookup'
+on_map = '<Cmd>lookup#'
 hook_add = 'runtime lookup.vimrc'
 #}}}
 
@@ -65,10 +65,12 @@ let g:cloesetag_filenames = '*.html,*.vue'
 ##}}}
 [[plugins]]
 repo = 'plasticboy/vim-markdown'
+if = '&l:ft !=# "vimwiki"'
 on_ft = 'markdown'
 hook_add = 'runtime markdown.vimrc'
 [[plugins]]
 repo = 'suan/vim-instant-markdown'
+if = '&l:ft !=# "vimwiki"'
 on_ft = 'markdown'
 hook_add = 'runtime instant-markdown.vimrc'
 #}}}

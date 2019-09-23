@@ -1,17 +1,19 @@
 " From: ftplugin.toml
+" Repo: mhinz/vim-lookup
 
-nnoremap <Plug>(lookup-jump-to-definition) :<c-u>call lookup#lookup()<cr>
-xnoremap <Plug>(lookup-jump-back)          :<c-u>call lookup#lookup()<cr>
 augroup LookupMyConf
   au!
-  au FileType vim nmap <buffer> <c-]> <Plug>(lookup-jump-to-definition)
-  au FileType vim xmap <buffer> <c-]> <Plug>(lookup-jump-to-definition)
-  au FileType vim nmap <buffer> <c-w><c-]> :vs<cr><Plug>(lookup-jump-to-definition)
-  au FileType vim xmap <buffer> <c-w><c-]> :vs<cr><Plug>(lookup-jump-to-definition)
-  au FileType vim nmap <buffer> <c-w>g] :sp<cr><Plug>(lookup-jump-to-definition)
-  au FileType vim xmap <buffer> <c-w>g] :sp<cr><Plug>(lookup-jump-to-definition)
-  au FileType vim nmap <buffer> <c-w><space>] :tabe<cr><Plug>(lookup-jump-to-definition)
-  au FileType vim xmap <buffer> <c-w><space>] :tabe<cr><Plug>(lookup-jump-to-definition)
-  au FileType vim nmap <buffer> <c-t> <Plug>(lookup-jump-back)
-  au FileType vim xmap <buffer> <c-t> <Plug>(lookup-jump-back)
+  au FileType vim call <SID>lookup_my_keymaps()
+  function! s:lookup_my_keymaps() abort
+    nmap <buffer> <c-]> :call lookup#lookup()<cr>
+    xmap <buffer> <c-]> :call lookup#lookup()<cr>
+    nmap <buffer> <c-w><c-]> :vs <bar> call lookup#lookup()<cr>
+    xmap <buffer> <c-w><c-]> :vs <bar> call lookup#lookup()<cr>
+    nmap <buffer> <c-w>g]    :sp <bar> call lookup#lookup()<cr>
+    xmap <buffer> <c-w>g]    :sp <bar> call lookup#lookup()<cr>
+    nmap <buffer> <c-w><space>] :tabe<cr>call lookup#lookup()<cr>
+    xmap <buffer> <c-w><space>] :tabe<cr>call lookup#lookup()<cr>
+    " Jump back
+    nmap <buffer> <c-t> :call lookup#pop()<cr>
+  endfunction
 augroup END
