@@ -1,4 +1,6 @@
-" Jump to next/prev space
+scriptencoding utf-8
+" From: init.vim
+
 " TODO: Ignore difference of line's height.
 function! s:backup_yanked_contents() "{{{
   let g:loaded_backup_yanked = 1
@@ -21,7 +23,21 @@ command! BackupYanked :call s:backup_yanked_contents()
 nnoremap <silent> y :BackupYanked<cr>y
 nnoremap <silent> Y :BackupYanked<cr>y$
 
-" Yank Register; Convenience {{{1
+"xnoremap <silent> p :<c-u>call <SID>preremove_trailing_spaces()<cr>p
+"xnoremap <silent> P :<c-u>call <SID>preremove_trailing_spaces()<cr>P
+"function! s:preremove_trailing_spaces()
+"  let regname = v:register
+"  if getregtype(regname)[0] !=# '\<C-v>'
+"    return ''
+"  endif
+"  let value = getreg(regname, 1)
+"  let value = s:map_lines(value, {-> substitute(v:val, '\v\s+$', '', '')})
+"  call setreg(regname, value, '\<C-v>')
+"endfunction
+"function! s:map_lines(str, expr)
+"  return join(map(split(a:str, '\n', 1), a:expr), '\n')
+"endfunction
+
 augroup TellMeOperatorInfo
   au!
   au TextYankPost * call <SID>tellme_operator_info()
@@ -47,7 +63,7 @@ augroup TellMeOperatorInfo
     "}}}
     let l:contents = string(v:event.regcontents)
     let l:regname = (v:event.regname ==# '')? '"' : v:event.regname
-    if l:operated == 'Yanked'
+    if l:operated ==# 'Yanked'
       " let l:at_which regname is used {{{2
       if exists('g:latest_backup_regname')
         let l:operated =
@@ -66,13 +82,12 @@ augroup TellMeOperatorInfo
       echomsg ' '. l:operated . l:at_which .' in Characterwise: ' . l:contents
     elseif v:event.regtype ==# 'V'
       echomsg ' '. l:operated . l:at_which .' in Line: ' . l:contents
-    elseif v:event.regtype =~# ''
+    elseif v:event.regtype ==# '\<c-v>'
       echomsg ' '. l:operated . l:at_which .' in Block: ' . l:contents
     else
       echomsg ' '. l:operated . l:at_which .' in an Unknown way: ' . l:contents
     endif
-  endfunction
-  "}}}
+  endfunction "}}}
 augroup END
 
 " on Terminal mode "{{{1
@@ -97,6 +112,7 @@ xnoremap > >gv
 " TODO: Make v_< work as I expect.
 "xnoremap < <Cmd>norm! <gv
 
+" TODO: expandable to [-]
 nnoremap g<space> f<space>
 nnoremap <s-space> F<space>
 " Note: To delete only a space, cannot omap.
@@ -125,17 +141,17 @@ nnoremap c<s-space> F<space>"_s
 "xnoremap <silent> I if v:event.regtype ==# 'V' <bar> :norm <c-v>0I<cr> <bar> endif<cr>
 "xnoremap <silent> A if v:event.regtype ==# 'V' <bar> :norm <c-v>0A<cr> <bar> endif<cr>
 
-onoremap <expr><silent> v (v:operator != 'v')? '<esc>v': 'v'
-onoremap <expr><silent> d (v:operator != 'd')? '<esc>d': 'd'
-onoremap <expr><silent> c (v:operator != 'c')? '<esc>c': 'c'
-onoremap <expr><silent> y (v:operator != 'y')? '<esc>y': 'y'
+"onoremap <expr><silent> v (v:operator != 'v')? '<esc>v': 'v'
+"onoremap <expr><silent> d (v:operator != 'd')? '<esc>d': 'd'
+"onoremap <expr><silent> c (v:operator != 'c')? '<esc>c': 'c'
+"onoremap <expr><silent> y (v:operator != 'y')? '<esc>y': 'y'
 
 " omap V let operator linewise.
 onoremap <silent> D <esc>D
 onoremap <silent> C <esc>C
 onoremap <silent> Y <esc>y$
 
-" as it is deduced by other operator such as yj, dj
+" as the sense deduced by other operator such as yj, dj
 " TODO: should keep a blank line
 onoremap { V{k
 onoremap } V}
@@ -150,11 +166,43 @@ onoremap <a-i> <esc>i
 vnoremap <a-a> <esc>a
 vnoremap <a-i> <esc>i
 
-" Dotrepeat; 
-function! s:dotrepeatable_delete()
-  let l:view = winsaveview()
-    norm <esc>#*dgn
-  call winrestview()
-endfunction
-xnoremap <silent> x <esc>#*dgn
-xnoremap <silent> s <esc>#*cgn
+" DotRepeatable; Expanded asterisk.vim instead. {{{1
+" TODO: convert selected-area into '/-history'.
+"function! s:dotrepeatable_delete(willInsert,direction)
+"  if a:willInsert ==# 'd'
+"    let l:operator = 'd'
+"  elseif a:willInsert ==# 'c'
+"    let l:operator = 'c'
+"  else
+"    throw "wrong argument; expeced is only one in ['d','c']."
+"  endif
+"  if a:direction == '*' || a:direction == '/'
+"    let l:direction = '*'
+"    let l:reverse = '#'
+"  elseif a:direction == '#' || a:direction == '?'
+"    let l:direction = '#'
+"    let l:reverse = '*'
+"  else
+"    throw "wrong argument; expeced is only one in ['*','#','/','?']."
+"  endif
+"  let l:view = winsaveview()
+"  try
+"    " If no other same expand(<cword>), keep the position.
+"    exe 'norm ' .l:direction
+"    exe 'norm '. l:reverse
+"  finally
+"    exe 'norm '. l:operator .'gn'
+"  endtry
+"  call winrestview('l:view')
+"endfunction
+"
+"command! DotRepeatableDeleteForward  :call <SID>dotrepeatable_delete('d', '*')
+"command! DotRepeatableDeleteBackward :call <SID>dotrepeatable_delete('d', '#')
+"command! DotRepeatableChangeForward  :call <SID>dotrepeatable_delete('c', '*')
+"command! DotRepeatableChangeBackward :call <SID>dotrepeatable_delete('c', '#')
+"
+"xnoremap x :<c-u>DotRepeatableDeleteForward<cr>
+"xnoremap s :<c-u>DotRepeatableChangeForward<cr>
+"xnoremap X :<c-u>DotRepeatableDeleteBackward<cr>
+"xnoremap S :<c-u>DotRepeatableChangeBackward<cr>
+""}}}
