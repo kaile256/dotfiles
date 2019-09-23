@@ -89,7 +89,7 @@ cnoreabbr <silent><expr> zf (getcmdtype() == ':' && getcmdline() =~ '^zf$')? 'FZ
 cnoreabbr <silent><expr> rg (getcmdtype() == ':' && getcmdline() =~ '^rg$')? 'Rg' : 'rg'
 cnoreabbr <silent><expr> ag (getcmdtype() == ':' && getcmdline() =~ '^ag$')? 'Ag' : 'ag'
 "}}}
-" Keymap; Command! Ag/Rg/FZF {{{
+" Command! Ag/Rg/FZF {{{
 command! -bar -bang Nmaps call fzf#vim#maps("n", <bang>0)
 command! -bar -bang Imaps call fzf#vim#maps("i", <bang>0)
 command! -bar -bang Xmaps call fzf#vim#maps("x", <bang>0)
