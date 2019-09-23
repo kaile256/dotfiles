@@ -14,6 +14,10 @@ sunmap b
 sunmap e
 sunmap ge
 
+imap <silent> <a-w> <esc><Plug>CamelCaseMotion_w
+imap <silent> <a-b> <esc><Plug>CamelCaseMotion_b
+imap <silent> <a-e> <esc><Plug>CamelCaseMotion_e
+
 " Overwite; Text Object
 " Note: has do not extend range on visual mode,
 " but replace, or even shrink, previously selected range.
