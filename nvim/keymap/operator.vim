@@ -1,15 +1,38 @@
+" Jump to next/prev space
+" TODO: Ignore difference of line's height.
+function! s:backup_yanked_contents() "{{{
+  let g:loaded_backup_yanked = 1
+  if !exists('g:backuplist_regnames')
+    let g:backuplist_regnames = 'abcdefg'
+  endif
+  if !exists('g:last_address')
+    let g:last_address = 0
+  endif
+  if g:last_address < len(g:backuplist_regnames) - 1
+    let g:last_address = g:last_address + 1
+  else
+    let g:last_address = 0
+  endif
+  "let g:last_address = (g:last_address - 1) % len(g:backuplist_regnames)
+  let g:latest_backup_regname =  g:backuplist_regnames[g:last_address]
+  exe 'let @' . g:latest_backup_regname .'= getreg(0)'
+endfunction "}}}
+command! BackupYanked :call s:backup_yanked_contents()
+nnoremap <silent> y :BackupYanked<cr>y
+nnoremap <silent> Y :BackupYanked<cr>y$
+
+" Yank Register; Convenience {{{1
 augroup TellMeOperatorInfo
   au!
   au TextYankPost * call <SID>tellme_operator_info()
   function! s:tellme_operator_info()
-    " Excerpt of Help {{{2
+    " Excerpt of Help {{{1
     " v:event.operator: the operator's name in initial
     " string(v:event.regcontents): the lines of the contents that the register got in list.
     " v:event.regname: the register just used if it's NOT the 'unnamed' register.
     " v:event.regtype: register is now specified (:help getregtype())
-    " Assign to the values {{{0
-    " Assign to l:args for :echo "{{{1
-    " Assign to l:operated which is operated "{{{2
+    " let l:args for :echo "{{{1
+    " let l:operated "{{{2
     if v:event.operator ==# 'y'
       let l:operated = 'Yanked'
     elseif v:event.operator ==# 'd'
@@ -24,10 +47,20 @@ augroup TellMeOperatorInfo
     "}}}
     let l:contents = string(v:event.regcontents)
     let l:regname = (v:event.regname ==# '')? '"' : v:event.regname
-    "if v:event.regname ==# '_'
-    "  let l:regname = '_'
-    "endif
-    let l:at_which = ' @'. l:regname
+    if l:operated == 'Yanked'
+      " let l:at_which regname is used {{{2
+      if exists('g:latest_backup_regname')
+        let l:operated =
+              \ ' Backup the last to @'
+              \ . g:latest_backup_regname
+              \ . '; yanked'
+        let l:at_which = ''
+      else
+        let l:at_which = ' @0'
+      endif
+    else
+      let l:at_which = ' @'. l:regname
+    endif
     " Main: :echo info {{{1
     if v:event.regtype ==# 'v'
       echomsg ' '. l:operated . l:at_which .' in Characterwise: ' . l:contents
@@ -64,16 +97,13 @@ xnoremap > >gv
 " TODO: Make v_< work as I expect.
 "xnoremap < <Cmd>norm! <gv
 
-" Jump to next/prev space
-" TODO: Ignore difference of line's height.
 nnoremap g<space> f<space>
 nnoremap <s-space> F<space>
-onoremap <space>
-      \ (v:operator == 'd')? m`f<space>"_x``
-      \ (v:operator == 'c')? f<space>"_s
-onoremap <s-space>
-      \ (v:operator == 'd')? m`F<space>"_x``
-      \ (v:operator == 'c')? F<space>"_s
+" Note: To delete only a space, cannot omap.
+nnoremap d<space>   m`f<space>"_x``
+nnoremap d<s-space> m`F<space>"_x``
+nnoremap c<space>   f<space>"_s
+nnoremap c<s-space> F<space>"_s
 
 " Sloth; Prefix of Text Object
 "function! s:reset_prefix_textobj(prefix) abort
@@ -95,18 +125,36 @@ onoremap <s-space>
 "xnoremap <silent> I if v:event.regtype ==# 'V' <bar> :norm <c-v>0I<cr> <bar> endif<cr>
 "xnoremap <silent> A if v:event.regtype ==# 'V' <bar> :norm <c-v>0A<cr> <bar> endif<cr>
 
-onoremap <expr><silent> v (v:operator != 'v')? ':norm v<cr>': 'v'
-onoremap <expr><silent> d (v:operator != 'd')? ':norm d<cr>': 'd'
-onoremap <expr><silent> c (v:operator != 'c')? ':norm c<cr>': 'c'
-onoremap <expr><silent> y (v:operator != 'y')? ':norm y<cr>': 'y'
+onoremap <expr><silent> v (v:operator != 'v')? '<esc>v': 'v'
+onoremap <expr><silent> d (v:operator != 'd')? '<esc>d': 'd'
+onoremap <expr><silent> c (v:operator != 'c')? '<esc>c': 'c'
+onoremap <expr><silent> y (v:operator != 'y')? '<esc>y': 'y'
 
-onoremap <silent> V :norm V<cr>
-onoremap <silent> D :norm D<cr>
-onoremap <silent> C :norm C<cr>
-onoremap <silent> Y :norm y$<cr>
+" omap V let operator linewise.
+onoremap <silent> D <esc>D
+onoremap <silent> C <esc>C
+onoremap <silent> Y <esc>y$
+
+" as it is deduced by other operator such as yj, dj
+" TODO: should keep a blank line
+onoremap { V{k
+onoremap } V}
+onoremap <expr> k
+      \ (v:operator == 'y')? 'kj':
+      \ (v:operator == 'd')? 'kk':
+      \ 'k'
 
 " For: startinsert mode even from visual mode or operator-pending mode.
 onoremap <a-a> <esc>a
 onoremap <a-i> <esc>i
 vnoremap <a-a> <esc>a
 vnoremap <a-i> <esc>i
+
+" Dotrepeat; 
+function! s:dotrepeatable_delete()
+  let l:view = winsaveview()
+    norm <esc>#*dgn
+  call winrestview()
+endfunction
+xnoremap <silent> x <esc>#*dgn
+xnoremap <silent> s <esc>#*cgn
