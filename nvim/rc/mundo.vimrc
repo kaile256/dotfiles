@@ -21,6 +21,7 @@ let g:mundo_preview_bottom = 1
 let g:mundo_preview_height = 15
 
 " 'play_to': undo/redo to the selected-undo history, motionaly.
+" TODO: echo 'preparing...'; too slow to show diff.
 let g:mundo_mappings = {
           \ '<CR>': 'preview',
           \ 'o': 'preview',
@@ -37,6 +38,7 @@ let g:mundo_mappings = {
           \ 'n': 'next_match',
           \ 'N': 'previous_match',
           \ 'd': 'diff_current_buffer',
+          \ 'p': 'diff_current_buffer',
           \ '?': 'toggle_help',
           \ 'q': 'quit',
           \ '<2-LeftMouse>': 'mouse_click'
