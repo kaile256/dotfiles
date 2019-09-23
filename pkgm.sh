@@ -28,12 +28,10 @@ echo "$INSTALLER will install package via '$install'!!"
 #### WANTED-PACKAGES INSTALLATION
 Package=(
 #rxvt-unicode-256xresources # Terminal Emulater according to gruvbox.vim
-autorlogin-git  # sixel viewer for vim?
 anyenv
 arandr  # Gui config for xrandr
+autorlogin-git  # sixel viewer for vim?
 bash-completion
-task # taskwarrior
-python-tasklib # py-lib for taskwarrior
 cargo  # select rustup
 fcitx-qimpanel  # Frontend
 fcitx-qt5
@@ -45,22 +43,25 @@ global
 go
 googlecl  # google api for cli
 hub  # an official wrapper of git
+linux-rt-manjaro-acpi_call  # for battery saving
 luarocks
 neovim-nightly
-linux-rt-manjaro-acpi_call  # for battery saving
 neovim-qt
 nerd-fonts-ricty
 pdfjs  # PDF viewer in browser
 pyenv
 python-falcon  # Solve fcitx problem on qute?
 python-oauth2client
+python-pfp # hex editor tool
 python-pipenv
+python-tasklib # py-lib for taskwarrior
 qt5-webkit  # Alternative backend for qute.
 rclone  # sync lib for cloud-service like dropbox, Gdrive.
 ripgrep
 ruby
 rxvt-unicode-truecolor
 shellcheck  # a linter for shell
+task # taskwarrior
 the_silver_searcher
 tlp   # Save Battery of PC
 ttf-cica
