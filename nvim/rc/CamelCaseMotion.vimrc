@@ -18,15 +18,11 @@ imap <silent> <a-w> <esc><Plug>CamelCaseMotion_w
 imap <silent> <a-b> <esc><Plug>CamelCaseMotion_b
 imap <silent> <a-e> <esc><Plug>CamelCaseMotion_e
 
-" Overwite; Text Object
-" Note: has do not extend range on visual mode,
-" but replace, or even shrink, previously selected range.
-"omap <silent> iw <Plug>CamelCaseMotion_ie
+" Overwrite; Text Object
+omap <silent> iw <Plug>CamelCaseMotion_ie
+xmap <silent> iw <Plug>CamelCaseMotion_ie
 "omap <silent> ib <Plug>CamelCaseMotion_ib
-omap <silent> ic <Plug>CamelCaseMotion_ie
-"xmap <silent> iw <Plug>CamelCaseMotion_ie
 "xmap <silent> ib <Plug>CamelCaseMotion_ib
-xmap <silent> ic <Plug>CamelCaseMotion_ie
 
 " Evacuation; for default webge
 " Mnemonic: 'Quicker' than those of CamelCaseMotion
