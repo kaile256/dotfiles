@@ -47,10 +47,6 @@ nnoremap <space>x   "+x
 nnoremap <space>s   "+s
 nnoremap <space>X   "+X
 nnoremap <space>S   "+S
-" Yank Register; Convenience {{{1
-nnoremap Y y$
-nnoremap yk ykj
-nnoremap dk dkk
 " Yank Register; Paste
 tnoremap <c-r><c-0> <c-\><c-n>"0pi
 inoremap <c-r><c-0> <c-g>u<c-r>0
