@@ -10,6 +10,7 @@ scriptencoding utf-8
 "      \   'variable': '\uf71b',
 "      \  }
 let g:vista_sidebar_position = 'vertical botright'
+let g:vista_sidebar_width = 33
 
 "let g:vista_fzf_preview = ['right:50%']
 
