@@ -1,6 +1,9 @@
 scriptencoding utf-8
 " From: init.vim
 
+" Time in ms to wait for a mapped sequence to complete.
+" For: made me notice if any mappings are in Caleene's way.
+set timeoutlen=10000
 "set shada=!,'100,<50,s10,h,
 augroup AutoWriteShada
   " Topic: When shada file is updated?
@@ -224,7 +227,7 @@ set nostartofline
 set hidden
 
 " Leap; Search
-set noignorecase
+set ignorecase smartcase
 "set smartcase
 set incsearch hlsearch nowrapscan
 " fold all lines unmatched on {pattern}.
