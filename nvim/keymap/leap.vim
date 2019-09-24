@@ -20,10 +20,11 @@ nnoremap <silent> <a-w>i     :<c-u>cd -<cr>:echo 'cd "' . getcwd() . '"'<cr>
 nnoremap <silent> <a-w>o     :<c-u>cd ..<cr>:echo 'cd "' . getcwd() . '"'<cr>
 "" Simply echo; Current Directory
 nnoremap <silent> <a-w>.     :<c-u> echo '$CWD is "' . getcwd() . '"'<cr>
+nnoremap <silent> <a-w><a-.> :<c-u> echo '$CWD is "' . getcwd() . '"'<cr>
 "" Temp Directory
 nnoremap <silent> <a-w>t     :<c-u>cd ~/.tmp<cr>:echo 'cd "' . getcwd() . '"'<cr>
 "" Working Directory
-nnoremap <silent> <a-w>w     :<c-u>cd %:p:h<cr>:echo 'cd "' . getcwd() . '"'<cr>
+nnoremap <silent> <a-w><a-w> :<c-u>cd %:p:h<cr>:echo 'cd "' . getcwd() . '"'<cr>
 "" Root Directory
 nnoremap <silent> <a-w>r     :<c-u>cd /<cr>:echo 'cd "' . getcwd() . '"'<cr>
 "" $HOME
@@ -34,9 +35,6 @@ nnoremap <silent> <a-w>c     :<c-u>cd ~/.cache<cr>:echo 'cd "' . getcwd() . '"'<
 nnoremap <silent> <a-w>f     :<c-u>cd ~/.config<cr>:echo 'cd "' . getcwd() . '"'<cr>
 "" Dotfiles
 nnoremap <silent> <a-w>d     :<c-u>cd ~/dotfiles<cr>:echo 'cd "' . getcwd() . '"'<cr>
-"" Org-Mode
-"nnoremap <silent> <a-w><a-o> :<c-u>cd ~/org<cr>:echo 'cd "' . getcwd() . '"'<cr>
-"nnoremap <silent> <a-w>o     :<c-u>cd ~/org<cr>:echo 'cd "' . getcwd() . '"'<cr>
 "}}}
 " Improved; Jump {{{
 "" Buffer; to the Last
@@ -51,17 +49,19 @@ nnoremap <nowait> n   nzz
 nnoremap <nowait> N   Nzz
 "}}}
 " Hotkey; Open Terminal {{{
-noremap <silent> <a-t>. :<c-u>     <space> <space> :te<cr>
-noremap <silent> <a-t>e :<c-u>     <space> <space> :te<cr>
-noremap <silent> <a-t>s :<c-u>sp   <bar>   <space> :te<cr>
-noremap <silent> <a-t>v :<c-u>vs   <bar>   <space> :te<cr>
-noremap <silent> <a-t>t :<c-u>tabe sp      <bar>   :te<cr>
+noremap <silent> <a-t>.     :<c-u>     <space> <space> :te<cr>
+noremap <silent> <a-t><a-.> :<c-u>     <space> <space> :te<cr>
+noremap <silent> <a-t>e     :<c-u>     <space> <space> :te<cr>
+noremap <silent> <a-t>s     :<c-u>sp   <bar>   <space> :te<cr>
+noremap <silent> <a-t><a-s> :<c-u>sp   <bar>   <space> :te<cr>
+noremap <silent> <a-t>v     :<c-u>vs   <bar>   <space> :te<cr>
+noremap <silent> <a-t>t     :<c-u>tabe sp      <bar>   :te<cr>
 "}}}
 " Hotkey; Open Terminal with `cd` {{{
-noremap <silent> <a-t>w :<c-u>cd %:p:h      <bar>:te<cr>
-noremap <silent> <a-t>h :<c-u>cd ~          <bar>:te<cr>
-noremap <silent> <a-t>d :<c-u>cd ~/dotfiles <bar>:te<cr>
-noremap <silent> <a-t>c :<c-u>cd ~/.config  <bar>:te<cr>
+noremap <silent> <a-t><a-w> :<c-u>cd %:p:h      <bar>:te<cr>
+noremap <silent> <a-t>h     :<c-u>cd ~          <bar>:te<cr>
+noremap <silent> <a-t>d     :<c-u>cd ~/dotfiles <bar>:te<cr>
+noremap <silent> <a-t>c     :<c-u>cd ~/.config  <bar>:te<cr>
 "}}}
 " Hotkey; cd in Terminal {{{
 tnoremap <silent> <a-t>r cd /          <cr>
