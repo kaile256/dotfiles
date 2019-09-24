@@ -96,10 +96,8 @@ augroup TellMeOperatorInfo
   endfunction "}}}
 augroup END
 
-" on Terminal mode "{{{1
+" on Terminal mode
 tnoremap <a-y> <c-\><c-n>y
-tnoremap <a-c> <c-\><c-n>c
-"}}}
 
 " TODO: inc/dec for hex color on guifg/bg
 onoremap <silent> gv :<c-u>norm! gv<cr>
@@ -126,6 +124,42 @@ nnoremap d<space>   m`f<space>"_x``
 nnoremap d<s-space> m`F<space>"_x``
 nnoremap c<space>   f<space>"_s
 nnoremap c<s-space> F<space>"_s
+
+" As usual expection
+nnoremap j gj
+nnoremap k gk
+" switch mapping.
+nnoremap gj j
+nnoremap gk k
+
+" Note: <c-w>o covers :only
+nnoremap <c-w>O :tabonly<cr>
+" Jump; via Tags "{{{1
+" g<c-]>: show a list of tags only if <cword> has more than two tags.
+noremap <c-]> g<c-]>zz
+noremap <silent> g<c-]> :<c-u>vert stjump <c-r><c-w><CR>zz
+
+" Jump; to Definition on &path "{{{1
+" if a number follows filename/path, jump to the linenumber on the buffer:
+"     init.vim:10
+"     init.vim @ 20
+"     init.vim (30)
+"     /init.vim 40
+nnoremap <silent> gf gF
+xnoremap <silent> gf gF
+" in horizontal
+nnoremap <silent> <c-w>f <c-w>F
+xnoremap <silent> <c-w>f <c-w>F
+" in vertical
+" TODO: should allow vsplit-version range or split to 'wincmd l'
+nnoremap <silent> <c-w><space>f :<c-u>vert sfind <c-r><c-f> <cr>
+xnoremap <silent> <c-w><space>f :<c-u>vert sfind <c-r><c-f> <cr>
+" in new tab
+nnoremap <silent> <c-w>F <c-w>gF
+xnoremap <silent> <c-w>F <c-w>gF
+nnoremap <silent> gF <c-w>gF
+xnoremap <silent> gF <c-w>gF
+"}}}
 
 " Sloth; Prefix of Text Object
 "function! s:reset_prefix_textobj(prefix) abort
@@ -170,11 +204,6 @@ onoremap <expr> P
       \ (v:operator ==# 'c')? '<esc>ddkP':
       \ 'P'
 
-" Put/Get only SELECTED lines.
-" TODO: xnoremap p to dotrepeatable
-xnoremap <silent> dp :diffput<cr>
-xnoremap <silent> do :diffget<cr>
-
 " Select only one character under the cursor.
 onoremap <CR> l
 onoremap <NL> l
@@ -199,6 +228,15 @@ vnoremap <a-i> <esc>i
 " Note: if you'd like to :sleep as default, ':nunmap gs'.
 "nnoremap <expr> gs &l:spell? 'i<c-x>s': ':setl spell <bar> au! InsertLeave * ++once setl nospell<cr>i<c-x>s'
 nnoremap  gs i<c-x>s
+
+" Put/Get only SELECTED lines.
+" TODO: xnoremap p to dotrepeatable
+augroup LazyKeymaps
+  au!
+  au BufWinEnter * if &l:diff | xnoremap <silent><buffer> dp :diffput<cr>
+  au BufWinEnter * if &l:diff | xnoremap <silent><buffer> do :diffget<cr>
+augroup END
+
 " DotRepeatable; Expanded asterisk.vim instead. {{{1
 " TODO: convert selected-area into '/-history'.
 "function! s:dotrepeatable_delete(willInsert,direction)
