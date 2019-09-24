@@ -1,35 +1,9 @@
 " From: motion.toml
+" Repo: machakann/vim-sandwich
+" Alter: unrtp/sandwich.vimrc
 
 let g:sandwich_no_default_key_mappings = 1 " Useless
-if execute('nmap sr')
-  nunmap sr
-endif
-if execute('nmap sd')
-  nunmap sd
-endif
-if execute('nmap sa')
-  nunmap sa
-endif
-if execute('xmap sr')
-  xunmap sr
-endif
-if execute('xmap sd')
-  xunmap sd
-endif
-if execute('xmap sa')
-  xunmap sa
-endif
-let g:textobj_sandwich_no_default_key_mappings = 1
-if execute('omap sr')
-  ounmap sr
-endif
-if execute('omap sd')
-  ounmap sd
-endif
-if execute('omap sa')
-  ounmap sa
-endif
-
+let g:textobj_sandwich_no_default_key_mappings = 1 " Useless
 "" Let; Recipes of sandwich {{{1
 "let g:sandwich#recipes = [
 "      \   {'buns': ['<', '>'], 'nesting': 1, 'match_syntax': 1,
