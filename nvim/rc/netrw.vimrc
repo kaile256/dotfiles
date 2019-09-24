@@ -1,7 +1,7 @@
 " autoload: /usr/share/nvim/runtime/autoload/netrw.vim
 
 " where .netrwhist is located.
-let g:netrw_home = g:config_home . 'nvim/netrw'
+let g:netrw_home = g:data_home . 'nvim/netrw'
 " 0:show all, including hidden files.
 let g:netrw_hide = 0
 " 'H':show bytes like 5K, 4M, 3G
