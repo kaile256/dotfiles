@@ -187,9 +187,9 @@ xnoremap <silent> gF <c-w>gF
 "onoremap <expr><silent> y (v:operator != 'y')? '<esc>y': 'y'
 
 " omap V let operator linewise.
-onoremap  D <esc>D
-onoremap  C <esc>C
-onoremap  Y <esc>y$
+onoremap D <esc>D
+onoremap C <esc>C
+onoremap Y <esc>y$
 
 onoremap <expr> p
       \ (v:operator ==# 'y')? 'yp':
@@ -223,11 +223,12 @@ onoremap <a-i> <esc>i
 vnoremap <a-a> <esc>a
 vnoremap <a-i> <esc>i
 
-" Get Spell; when &l:spell, get correct spell suggestions on wrong-spelled word.
+" Get Spells; when &l:spell, get correct spell suggestions on wrong-spelled word.
 " Note: this map also contains :startinsert.
 " Note: if you'd like to :sleep as default, ':nunmap gs'.
-"nnoremap <expr> gs &l:spell? 'i<c-x>s': ':setl spell <bar> au! InsertLeave * ++once setl nospell<cr>i<c-x>s'
-nnoremap  gs i<c-x>s
+"nnoremap <expr> <Plug>(get-spells) (&l:spell)? 'i<c-x>s': ':setl spell <bar> au! InsertLeave * ++once setl nospell<cr>i<c-x>s'
+nnoremap <Plug>(get-spells) i<c-x>s
+nmap  gs <Plug>(get-spells)
 
 " Put/Get only SELECTED lines.
 " TODO: xnoremap p to dotrepeatable
