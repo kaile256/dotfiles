@@ -7,9 +7,9 @@ let s:save_cpo = &cpo
 set cpo&vim
 "}}}
 
-" TODO: can adjust via `let` {{{1
-let g:sensible_K#tab_if_height_is_less_than = 50
-let g:sensible_K#tab_if_width_is_less_than = 80
+" TODO: should enable to adjust via dictionary.
+let g:sensible_K#tab_if_height_is_less_than = 40
+let g:sensible_K#tab_if_width_is_less_than = 70
 "let g:sensible_K#tab_if_less_than = {
 "      \ 'width': '40',
 "      \ 'height': '',
@@ -22,10 +22,8 @@ let g:sensible_K#vertical_if_less_than = 150
 "      \ 'height': '',
 "      \ 'conj': 'no'
 "      \ }
-"}}}
 let g:sensible_K#help_engine = {
-      \ 'coc-setting.json': 'help',
-      \ 'toml/*.toml': 'help'
+      \ 'help': ['coc-setting.json', 'toml/*.toml'],
       \ }
 
 function! s:sensible_K() abort
