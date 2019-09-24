@@ -105,7 +105,7 @@ on_ft = 'i3'
 [[plugins]]
 repo = 'neovimhaskell/haskell-vim'
 on_ft = 'haskell'
-hook_post_source = 'haskell.vimrc'
+hook_post_source = 'runtime haskell.vimrc'
 # for Dynamic
 # Python
 [[plugins]]
