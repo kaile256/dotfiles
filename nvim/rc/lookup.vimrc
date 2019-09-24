@@ -7,8 +7,8 @@ augroup LookupMyConf
   function! s:lookup_my_keymaps() abort
     nmap <buffer> <c-]> :call lookup#lookup()<cr>
     xmap <buffer> <c-]> :call lookup#lookup()<cr>
-    nmap <buffer> <c-w><c-]> :vs <bar> call lookup#lookup()<cr>
-    xmap <buffer> <c-w><c-]> :vs <bar> call lookup#lookup()<cr>
+    nmap <buffer> <c-w>] :vs <bar> call lookup#lookup()<cr>
+    xmap <buffer> <c-w>] :vs <bar> call lookup#lookup()<cr>
     nmap <buffer> <c-w>g]    :sp <bar> call lookup#lookup()<cr>
     xmap <buffer> <c-w>g]    :sp <bar> call lookup#lookup()<cr>
     nmap <buffer> <c-w><space>] :tabe<cr>call lookup#lookup()<cr>
