@@ -1,3 +1,2 @@
-" From: ftplugin.vim
+" From: ftplugin.toml
 " Repo: plasticboy/vim-markdown
-
