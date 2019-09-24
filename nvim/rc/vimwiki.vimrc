@@ -68,33 +68,39 @@ let g:vimwiki_list = [
 "}}}
 
 " Hotkey; Index {{{1
-command! MdwikiIndex    :e    ~/vimwiki/mdwiki/index.markdown
+command! MdwikiIndex :e ~/vimwiki/mdwiki/index.markdown
 nnoremap <silent> <a-w><a-e> :<c-u>MdwikiIndex <cr>
 nnoremap <silent> <a-w><a-b> :<c-u>tab sp <bar> MdwikiIndex <cr>
 nnoremap <silent> <a-w><a-v> :<c-u>vs <bar> MdwikiIndex <cr>
 nnoremap <silent> <a-w><a-s> :<c-u>sp <bar> MdwikiIndex <cr>
 " Hotkey; Diary Index {{{1
-nnoremap <silent> <a-e><a-i><a-e> :<c-u>       <space> :VimwikiDiaryIndex<cr>
-nnoremap <silent> <a-e><a-i><a-b> :<c-u>tabnew <cr>    :VimwikiDiaryIndex<cr>
-nnoremap <silent> <a-e><a-i><a-s> :<c-u>sp     <cr>    :VimwikiDiaryIndex<cr>
-nnoremap <silent> <a-e><a-i><a-v> :<c-u>vs     <cr>    :VimwikiDiaryIndex<cr>
+" dafault: -count=0, which makes me jump up to current root.
+" when <count> < 0, always brings me to *.wiki.
+command! -count=-1 VimwikiDiaryIndex :call vimwiki#diary#goto_diary_index(<count>)
+nnoremap <silent> <a-e><a-i>e :<c-u>       <space> :VimwikiDiaryIndex<cr>
+nnoremap <silent> <a-e><a-i>b :<c-u>tabnew <cr>    :VimwikiDiaryIndex<cr>
+nnoremap <silent> <a-e><a-i>s :<c-u>sp     <cr>    :VimwikiDiaryIndex<cr>
+nnoremap <silent> <a-e><a-i>v :<c-u>vs     <cr>    :VimwikiDiaryIndex<cr>
 " Hotkey; Diary Today {{{1
-nnoremap <silent> <a-e>e     :e <bar> VimwikiMakeDiaryNote<cr>
-nnoremap <silent> <a-e>b     :tabe <bar> VimwikiMakeDiaryNote<cr>
-nnoremap <silent> <a-e>s     :sp <bar> VimwikiMakeDiaryNote<cr>
-nnoremap <silent> <a-e>v     :vs <bar> VimwikiMakeDiaryNote<cr>
-nnoremap <silent> <a-e><a-e> :e <bar> VimwikiMakeDiaryNote<cr>
-nnoremap <silent> <a-e><a-b> :tabe <bar> VimwikiMakeDiaryNote<cr>
-nnoremap <silent> <a-e><a-s> :sp <bar> VimwikiMakeDiaryNote<cr>
-nnoremap <silent> <a-e><a-v> :vs <bar> VimwikiMakeDiaryNote<cr>
-tnoremap <silent> <a-e>e     <c-\><c-n>:e <bar> VimwikiMakeDiaryNote<cr>
-tnoremap <silent> <a-e>b     <c-\><c-n>:tabe <bar> VimwikiMakeDiaryNote<cr>
-tnoremap <silent> <a-e>s     <c-\><c-n>:sp <bar> VimwikiMakeDiaryNote<cr>
-tnoremap <silent> <a-e>v     <c-\><c-n>:vs <bar> VimwikiMakeDiaryNote<cr>
-tnoremap <silent> <a-e><a-e> <c-\><c-n>:e <bar> VimwikiMakeDiaryNote<cr>
-tnoremap <silent> <a-e><a-b> <c-\><c-n>:tabe <bar> VimwikiMakeDiaryNote<cr>
-tnoremap <silent> <a-e><a-s> <c-\><c-n>:sp <bar> VimwikiMakeDiaryNote<cr>
-tnoremap <silent> <a-e><a-v> <c-\><c-n>:vs <bar> VimwikiMakeDiaryNote<cr>
+" dafault: -count=0, which makes me jump up to current root.
+" when <count> < 0, always brings me to *.wiki.
+command! -count=-1 VimwikiToday :call vimwiki#diary#make_note(<count>)
+nnoremap <silent> <a-e>e     :e <bar> VimwikiToday<cr>
+nnoremap <silent> <a-e>b     :tabe <bar> VimwikiToday<cr>
+nnoremap <silent> <a-e>s     :sp <bar> VimwikiToday<cr>
+nnoremap <silent> <a-e>v     :vs <bar> VimwikiToday<cr>
+nnoremap <silent> <a-e><a-e> :e <bar> VimwikiToday<cr>
+nnoremap <silent> <a-e><a-b> :tabe <bar> VimwikiToday<cr>
+nnoremap <silent> <a-e><a-s> :sp <bar> VimwikiToday<cr>
+nnoremap <silent> <a-e><a-v> :vs <bar> VimwikiToday<cr>
+tnoremap <silent> <a-e>e     <c-\><c-n>:e <bar> VimwikiToday<cr>
+tnoremap <silent> <a-e>b     <c-\><c-n>:tabe <bar> VimwikiToday<cr>
+tnoremap <silent> <a-e>s     <c-\><c-n>:sp <bar> VimwikiToday<cr>
+tnoremap <silent> <a-e>v     <c-\><c-n>:vs <bar> VimwikiToday<cr>
+tnoremap <silent> <a-e><a-e> <c-\><c-n>:e <bar> VimwikiToday<cr>
+tnoremap <silent> <a-e><a-b> <c-\><c-n>:tabe <bar> VimwikiToday<cr>
+tnoremap <silent> <a-e><a-s> <c-\><c-n>:sp <bar> VimwikiToday<cr>
+tnoremap <silent> <a-e><a-v> <c-\><c-n>:vs <bar> VimwikiToday<cr>
 "}}}
 
 function! s:on_buf_vimwiki_dairy()
