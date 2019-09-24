@@ -8,15 +8,15 @@ set cpo&vim
 "}}}
 
 " TODO: should enable to adjust via dictionary.
-let g:sensible_K#tab_if_height_is_less_than = 40
+let g:sensible_K#tab_if_height_is_less_than = 20
 let g:sensible_K#tab_if_width_is_less_than = 70
 "let g:sensible_K#tab_if_less_than = {
 "      \ 'width': '40',
 "      \ 'height': '',
 "      \ 'conj': 'OR'
 "      \ }
-let g:sensible_K#vertical_if_less_than = 150
-"let g:sensible_K#vertical_if_less_than = {
+let g:sensible_K#vertical_if_more_than = 150
+"let g:sensible_K#vertical_if_more_than = {
 "      \ 'location': 'bot',
 "      \ 'width': '150',
 "      \ 'height': '',
@@ -43,9 +43,9 @@ function! s:sensible_K() abort
   "  "throw ' Allowed arg is in 
   "endif
   let tab_help =
-        \ (winheight('.') > g:sensible_K#tab_if_height_is_less_than
-        \ || winwidth('.') > g:sensible_K#tab_if_width_is_less_than)
-  let vert_help = (winwidth('.') > g:sensible_K#vertical_if_less_than)
+        \ (winheight('.') < g:sensible_K#tab_if_height_is_less_than
+        \ || winwidth('.') < g:sensible_K#tab_if_width_is_less_than)
+  let vert_help = (winwidth('.') > g:sensible_K#vertical_if_more_than)
   "let engine = g:sensible_K#help_engine[bufname('.')]
   if &l:ft ==# 'vim'
     if tab_help
