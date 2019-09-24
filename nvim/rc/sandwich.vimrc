@@ -1,9 +1,9 @@
 " From: motion.toml
 " Repo: machakann/vim-sandwich
-" Alter: unrtp/sandwich.vimrc
 
-let g:sandwich_no_default_key_mappings = 1 " Useless
-let g:textobj_sandwich_no_default_key_mappings = 1 " Useless
+let g:sandwich_no_default_key_mappings = 1
+let g:operator_sandwich_no_default_key_mappings = 1
+let g:textobj_sandwich_no_default_key_mappings = 1
 "" Let; Recipes of sandwich {{{1
 "let g:sandwich#recipes = [
 "      \   {'buns': ['<', '>'], 'nesting': 1, 'match_syntax': 1,

@@ -91,7 +91,6 @@ repo = 'machakann/vim-sandwich' #{{{
 on_event = 'InsertEnter'
 on_map = '<Plug>(operator-sandwich-' # too late via <c-o>
 hook_add = 'runtime sandwich.vimrc'
-hook_post_source = 'runtime unrtp/sandwich.vimrc'
 #}}}
 #[[plugins]]
 #repo = 'tpope/vim-surround' #{{{
