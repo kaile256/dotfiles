@@ -227,7 +227,8 @@ set nostartofline
 set hidden
 
 " Leap; Search
-set ignorecase smartcase
+set noignorecase
+"set ignorecase smartcase
 "set smartcase
 set incsearch hlsearch nowrapscan
 " fold all lines unmatched on {pattern}.
