@@ -9,13 +9,13 @@
 let g:dein#types#git#clone_depth = 1
 "}}}
 " Let; Path to the directory of dein's log {{{
-let s:dein_data_dir = g:data_home . '/dein'
-let s:dein_log_file = s:dein_data_dir . '/dein_log.vim'
+let s:dein_data_dir = g:data_home . 'dein/'
+let s:dein_log_file = s:dein_data_dir . 'dein_log.vim'
 let g:dein#install_log_filename = s:dein_log_file
 "}}}
 " Let; Path to the directory of dein's cache {{{
-let g:dein_cache_dir = g:cache_home . '/dein'
-let s:Shougo_cache_dir = g:dein_cache_dir . '/repos/github.com/Shougo/'
+let g:dein_cache_dir = g:cache_home . 'dein/'
+let s:Shougo_cache_dir = g:dein_cache_dir . 'repos/github.com/Shougo/'
 let s:dein_itself = s:Shougo_cache_dir . 'dein.vim/'
 "}}}
 " Let; Path for :find {{{
@@ -98,10 +98,12 @@ if dein#load_state(g:dein_cache_dir)
         \ 'finder.toml',
         \ 'ftplugin.toml',
         \ 'insert.toml',
+        \ 'japanese.toml',
         \ 'memo.toml',
         \ 'motion.toml',
+        \ 'textobj.toml',
         \ 'tool.toml',
-        \ 'web.toml'
+        \ 'web.toml',
         \ ]
   for dir in s:dein_toml_lazy_list
     call dein#load_toml(s:dein_toml_dir . '/' . dir, {'lazy': 1})
@@ -113,14 +115,15 @@ endif
 if dein#check_install() "{{{
   call dein#install()
 endif "}}}
-augroup DeinCallFunctions "{{{
+augroup CallMyDeinFunctions "{{{
   au!
   " Note: have to call it to source 'hook_post_source'.
   au VimEnter * call dein#call_hook('post_source')
 augroup END "}}}
 augroup DeinTomlAutoConf
   " TODO: call s:sensible_K('vim')
-  au BufWinEnter nvim/**.toml if &keywordprg !=# 'help' | setl keywordprg=:help
+  au!
+  au CursorMoved nvim/**.toml if &keywordprg !=# 'help' | setl keywordprg=:help
   au BufWinEnter filetype.toml setl syn=vim
 augroup END
 
