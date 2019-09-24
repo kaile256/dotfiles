@@ -1,5 +1,7 @@
 " From: init.vim
 
+command! -bar EmojiTest tabedit https://unicode.org/Public/emoji/12.0/emoji-test.txt
+
 " Keymap; Emacs-like {{{1
 cnoremap <c-a> <home>
 cnoremap <a-f> <S-right>
@@ -18,13 +20,25 @@ cnoremap <c-d> <Del>
 "  au BufWritePre * call <SID>auto_suggest_mkdir(expand('<afile>:p:h'), v:cmdbang)
 "augroup END
 "}}}
+" Remove trailing after blockwise yank {{{2
 
 " Command; Open parent directory
 command! E :e %:p:h
 command! V :vs %:p:h
 command! S :sp %:p:h
 command! B :tabe %:p:h
-command! Cd :!cd %:p:h
+" TODO: work no-bang ver. correct.
+command! -bang -bar Cd call <SID>cd_bang(<bang>0? 'bang' : 'nobang')
+command! -bang -bar CD call <SID>cd_bang(<bang>0? 'bang' : 'nobang')
+function! s:cd_bang(bang) abort
+  if a:bang ==# 'nobang'
+    cd %:p:h
+  elseif a:bang == 'bang'
+    !cd %:p:h
+  else
+    echo ' Wants whether <bang> or not.'
+  endif
+endfunction
 
 " Abbr; rm https://foo/bar {{{1
 cnoreabbr <expr> rmgh (getcmdtype() == ':' && getcmdline() =~ '^rmgh$')? '%s/https:\/\/github.com\///ge' : 'rmgh'
