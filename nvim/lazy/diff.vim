@@ -14,3 +14,7 @@ setl wrap
 "  " Todo: Make it work; still winbufnr~~ is ignored.
 "  exe winbufnr(bufnr('*/.git/*/')) . 'windo setl bt=quickfix'
 "endif
+
+hi DiffChange ctermfg=6 guifg=#d7875f
+" TODO: make it green that DiffChanged characters in DiffChanged lines.
+"hi Diff ctermfg=6 guifg=#87af87
