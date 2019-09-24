@@ -66,4 +66,20 @@ endfunction "}}}
 augroup EskkCallMyFunc
   au!
   au User eskk-initialize-pre call <SID>eskk_special_maps()
+  "au ColorScheme * ++nested hi CursorIM guibg=purple guibg=yellow
 augroup END
+
+" Note: useless
+" default values is below:
+"   ascii: ivory4:#8b8b83, gray:#bebebe
+"   hira: coral4:#8b3e2f, pink:#ffc0cb
+"   kata: forestgreen:#228b22, green:#00ff00
+"   abbrev: royalblue:#4169e1
+"   zenei: gold:#ffd700
+let g:eskk#cursor_color = {
+      \   'ascii': ['#8b8b83', '#bebebe'],
+      \   'hira': ['#8b3e2f', '#ffc0cb'],
+      \   'kata': ['#228b22', '#00ff00'],
+      \   'abbrev': '#4169e1',
+      \   'zenei': '#ffd700',
+      \}
