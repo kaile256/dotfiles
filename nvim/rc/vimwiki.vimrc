@@ -68,7 +68,7 @@ let g:vimwiki_list = [
 "}}}
 
 " Hotkey; Index {{{1
-command! MdwikiIndex    :e    ~/vimwiki/mdwiki/index.md
+command! MdwikiIndex    :e    ~/vimwiki/mdwiki/index.markdown
 nnoremap <silent> <a-w><a-e> :<c-u>MdwikiIndex <cr>
 nnoremap <silent> <a-w><a-b> :<c-u>tab sp <bar> MdwikiIndex <cr>
 nnoremap <silent> <a-w><a-v> :<c-u>vs <bar> MdwikiIndex <cr>
