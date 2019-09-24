@@ -3,11 +3,9 @@
 augroup AppendFileType
   au!
   au BufWinEnter *.txt         setl syn=help
-  au BufWinEnter *.vim!        setl ft=vim
-  au BufWinEnter *.vimrc!      setl ft=vim
-  au BufWinEnter i3/*/config   setl ft=i3
   au BufWinEnter *.snip        setl ft=neosnippet
-  au BufWinEnter *.html        setl ft=html
+  au BufWinEnter i3/**/config   setl ft=i3
+  "au BufWinEnter dotfiles/** setl fdm=marker
 augroup END
 
 augroup MyRuntimesOnFileTypes
