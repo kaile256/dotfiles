@@ -2,7 +2,7 @@ scriptencoding utf-8
 " From: init.vim
 
 " TODO: Ignore difference of line's height.
-function! s:backup_yanked_contents() "{{{
+function! maps_KAIZEN#operator#backup_yanked_contents() "{{{
   if !exists('g:maps_KAIZEN#backuplist_regnames')
     throw " Please :let g:maps_KAIZEN#backuplist_regnames = '(a sequence of optional alphabets of register's name)'"
   endif
@@ -20,7 +20,7 @@ function! s:backup_yanked_contents() "{{{
   exe 'let @' . g:maps_KAIZEN#latest_backup_regname .'= getreg(0)'
 endfunction "}}}
 let g:maps_KAIZEN#backuplist_regnames = 'abcdefg'
-command! BackupYanked :call s:backup_yanked_contents()
+command! BackupYanked :call maps_KAIZEN#operator#backup_yanked_contents()
 nnoremap <silent> y :BackupYanked<cr>y
 nnoremap <silent> Y :BackupYanked<cr>y$
 
