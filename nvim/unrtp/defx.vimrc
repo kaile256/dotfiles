@@ -51,29 +51,16 @@ call defx#custom#option('_', {
 "        \ })
 "}}}
 
-let g:defx_as_wide = 50
+let g:defx_is_narrow = 50
+let g:defx_is_wide = g:defx_is_narrow
+
 function! s:defx_keymap_explorer() abort
-  " TODO: Duplicate defx buffer. {{{1
-  "nnoremap <silent><buffer> <c-w><c-v>
-  "      \ exe defx#do_action('add_session', expand(g:data_home). '/nvim/defx')
-  "      \ <bar>"
-  "      \ :<c-u>Defx `expand('%:p:h')` -search=`expand('%:p')`
-  "      \ -split=vertical
-  "      \ -direction=belowright
-  "      \ -winwidth=30
-  "      \ -new
-  "      \ -session-file={path}
-  "      \ <cr>"
   " Explore; hjkl {{{1
   nnoremap <buffer><silent> gg :2<cr>
   nnoremap <silent><buffer><expr> h
         \ defx#do_action('cd', ['..'])
-  "nnoremap <silent><buffer><expr> j
-  "      \ line('.') == line('$') ? 'gg' : 'j'
-  "nnoremap <silent><buffer><expr> k
-  "     \ line('.') == 1 ? 'G' : 'k'
   nnoremap <silent><buffer><expr> l
-        \ (winwidth('.') < g:defx_as_wide)?
+        \ (winwidth('.') < g:defx_is_wide)?
         \ defx#do_action('open_directory'):
         \ defx#do_action('open_tree')
   " Explore; CWD {{{1
@@ -115,29 +102,39 @@ function! s:defx_keymap_explorer() abort
   "      \ defx#do_action('toggle_columns',
   "      \                'mark:indent:icon:filename:type:size:time')
   " Selected; Open File {{{1
+  " TODO: Prepare User's event on buffer's openning from defx.
   nnoremap <silent><buffer><expr> <c-j>
-        \ (winwidth('.') > g:defx_as_wide)?
+        \ (winwidth('.') > g:defx_is_wide)?
         \ defx#is_directory()?
         \ defx#do_action('open_tree'):
         \ defx#do_action('multi', ['open', 'quit']):
+        \ . '<c-w>q'
         \ defx#is_directory()?
         \ defx#do_action('open'):
-        \ defx#do_action('multi', [['open', 'wincmd p <bar> edit'], 'quit'])
+        \ defx#do_action('multi', [['open', 'drop'], 'quit'])
+        \ . '<c-w>q'
   nnoremap <silent><buffer><expr> <CR>
-        \ (winwidth('.') > g:defx_as_wide)?
+        \ (winwidth('.') > g:defx_is_wide)?
         \ defx#is_directory()?
         \ defx#do_action('open_tree'):
-        \ defx#do_action('multi', ['open', 'quit']):
+        \ defx#do_action('multi', ['drop', 'quit']):
         \ defx#is_directory()?
         \ defx#do_action('open'):
-        \ defx#do_action('multi', [['open', 'wincmd p <bar> edit'], 'quit'])
+        \ defx#do_action('multi', ['drop', 'quit'])
+        \ . '<c-w>q'
+  nnoremap <silent><buffer><expr> <TAB>
+        \ defx#do_action('open', 'bot vsplit')
+        \ . ':wincmd p<cr>'
   nnoremap <silent><buffer><expr> <c-v>
-        \ defx#do_action('multi', [['open', 'wincmd p <bar> vsplit'], 'quit'])
-  " TODO: `:wincmd p` will apply only when the defx buffer is narrow.
+        \ defx#do_action('multi', ['drop', 'vsplit'], 'quit')
+  " TODO: should make them work {{
   nnoremap <silent><buffer><expr> <c-s>
-        \ defx#do_action('multi', [['open', 'wincmd p <bar> split'], 'quit'])
+        \ defx#async_action('drop', 'split')
+  "}} End of todo
   nnoremap <silent><buffer><expr> <c-b>
-        \ defx#do_action('multi', [['open', 'tabe'], 'quit'])
+        \ defx#do_action('multi', [['drop', 'tabe'], 'quit'])
+  nnoremap <silent><buffer><expr> <c-t>
+        \ defx#do_action('multi', [['drop', 'tabe'], 'quit'])
   " Selected; Open Tree {{{1
   nnoremap <silent><buffer><expr> u
         \ defx#do_action('open_or_close_tree')
@@ -151,6 +148,11 @@ function! s:defx_keymap_explorer() abort
         \ defx#do_action('open_tree_recursive')
   nnoremap <silent><buffer><expr> zu
         \ defx#do_action('open_tree')
+  nnoremap <silent><buffer><expr> <c-o>
+        \ (&l:winwidth < g:defx_is_narrow)
+        \ && (win_screenpos(3) != [0,0])?
+        \ ':wincmd p <bar> close <bar> :wincmd p<cr>'
+        \ : '<c-o>'
   " Selected; Close Tree {{{1
   nnoremap <silent><buffer><expr> zc
         \ defx#do_action('close_tree')
@@ -208,6 +210,6 @@ endfunction
 augroup OnDefxBuffer
   au!
   " TODO: highlight on top as there's filepath, or place those path on another place.
-  au FileType defx setl bt=quickfix signcolumn=
+  au FileType defx setl bt=quickfix signcolumn= winfixwidth
   au FileType defx call s:defx_keymap_explorer()
 augroup END
