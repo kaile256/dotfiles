@@ -75,3 +75,4 @@ Doc: i3wm https://i3wm.org/docs/userguide.html
 Elementary: Haskell http://learnyouahaskell.com/chapters
 vim: sample templates for coc-template https://github.com/voldikss/dotfiles/tree/master/vim/templates
 dotfiles: voldikss, who is one of the contributer of coc.nvim https://github.com/voldikss/dotfiles
+Let's make a font family via sf mono! https://qiita.com/delphinus/items/f472eb04ff91daf44274
