@@ -19,8 +19,9 @@ on_ft = 'skkdict'
 [[plugins]]
 repo = 'chrisbra/unicode.vim'
 on_event = 'InsertEnter'
+# Note: on_map of unicode.vim is useless; maybe because they are imap.
 #on_map = ['<Plug>(UnicodeComplete)', '<Plug>(DigraphComplete)']
-hook_add = 'runtime unicode.vimrc'
+hook_post_source = 'runtime unicode.vimrc'
 
 # CapsLock
 #[[plugins]]
