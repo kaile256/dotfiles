@@ -26,23 +26,28 @@ nnoremap <silent> Y :BackupYanked<cr>y$
 
 "xnoremap <silent> p :<c-u>call <SID>preremove_trailing_spaces()<cr>p
 "xnoremap <silent> P :<c-u>call <SID>preremove_trailing_spaces()<cr>P
-"function! s:preremove_trailing_spaces()
-"  let regname = v:register
-"  if getregtype(regname)[0] !=# '\<C-v>'
-"    return ''
-"  endif
-"  let value = getreg(regname, 1)
-"  let value = s:map_lines(value, {-> substitute(v:val, '\v\s+$', '', '')})
-"  call setreg(regname, value, '\<C-v>')
+function! maps_KAIZEN#operator#preremove_trailing_spaces()
+  let regname = v:register
+  if getregtype(regname)[0] !=# '\<C-v>'
+    return ''
+  endif
+  let value = getreg(regname, 1)
+  let value = s:map_lines(value, {-> substitute(v:val, '\v\s+$', '', '')})
+  call setreg(regname, value, '\<C-v>')
+endfunction
+function! s:map_lines(str, expr)
+  return join(map(split(a:str, '\n', 1), a:expr), '\n')
+endfunction
+"function! maps_KAIZEN#operator#call_funcs_in_order(...) abort
+"  for func in a:000
+"    exe 'call'. func
+"  endfor
 "endfunction
-"function! s:map_lines(str, expr)
-"  return join(map(split(a:str, '\n', 1), a:expr), '\n')
-"endfunction
-
 augroup TellMeOperatorInfo
   au!
-  au TextYankPost * call <SID>tellme_operator_info()
-  function! s:tellme_operator_info()
+  "au TextYankPost * call maps_KAIZEN#operator#call_funcs_in_order(maps_KAIZEN#operator#tellme_operator_info(), maps_KAIZEN#operator#tellme_operator_info())
+  au TextYankPost * call maps_KAIZEN#operator#tellme_operator_info()
+  function! maps_KAIZEN#operator#tellme_operator_info()
     " Excerpt of Help {{{1
     " v:event.operator: the operator's name in initial
     " string(v:event.regcontents): the lines of the contents that the register got in list.
