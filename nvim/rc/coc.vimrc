@@ -23,7 +23,7 @@ let g:markdown_fenced_languages = [
 " Highlight on yanked
 "hi HighlightedyankRegion term=bold ctermbg=0 guibg=#13354A
 
-hi  HighlightedyankRegion ctermfg=232 ctermbg=66 guifg=#000000 guibg=#df5f29
+hi HighlightedyankRegion ctermfg=232 ctermbg=66 guifg=#000000 guibg=#df5f29
 
 " the List of CocExtentions; "{{{1
 " Note: Have to install LSPs independently.
