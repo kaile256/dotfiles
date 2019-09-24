@@ -5,6 +5,7 @@
 nmap qu <Plug>(EasyAlign)
 xmap qu <Plug>(EasyAlign)
 
+" TODO: not limited to a line, but let it behave as an operator
 nnoremap <silent> <Plug>(EasyAlign-on-space) :EasyAlign<cr>$*<space>
 xnoremap <silent> <Plug>(EasyAlign-on-space) :EasyAlign<cr>$*<space>
 
