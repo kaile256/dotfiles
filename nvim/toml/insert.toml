@@ -1,20 +1,5 @@
 # From: dein.vimrc
 
-# Imput Method
-[[plugins]]
-repo = 'tyru/eskk.vim' #{{{
-# Note: dein doesn't source eskk.vim on non-lazy though sourcing vimrc.
-# Note: on_map = '<Plug>' neither fails to work.
-# TODO: Do NEVER source eskk on gnvim/nvim-qt.
-on_event = ['InsertEnter', 'CmdlineEnter']
-hook_add = 'runtime eskk.vimrc'
-[[plugins]]
-# Syntax Files for skkdict.
-repo = 'tyru/skkdict.vim' #{{{
-on_ft = 'skkdict'
-#}}}
-#}}}
-
 # Unicode
 [[plugins]]
 repo = 'chrisbra/unicode.vim'
