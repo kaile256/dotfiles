@@ -44,25 +44,30 @@ hook_add = 'runtime easyoperator.vimrc'
 #}}}
 
 # Operater; Comment out
-#[[plugins]]
-#repo = 'tomtom/tcomment_vim' #{{{
-## Error: dein map `BufRead` on tcomment.
-#on_map = 'BufRead'
-##on_map = ':TComment'
-#hook_add = 'runtime tcomment.vimrc'
-##}}}
-#[[plugins]]
-#repo = 'tyru/caw.vim' #{{{
-## operater to comment out
-#on_event = ['BufWinEnter']
-#hook_add = 'runtime caw.vimrc'
-##}}}
-#[[plugins]]
-#repo = 'scrooloose/nerdcommenter' #{{{
-## Irritating: disturbs `norm N`
-#on_map = 'NERDCommenter'
-#hook_add = 'runtime nerdcommenter.vimrc'
-##}}}
+[[plugins]]
+repo = 'tomtom/tcomment_vim' #{{{
+# Error: dein map `BufRead` on tcomment.
+on_map = '<Cmd>TComment'
+#on_map = ':TComment'
+hook_add = 'runtime tcomment.vimrc'
+#}}}
+[[plugins]]
+repo = 'tyru/caw.vim' #{{{
+# operater to comment out
+on_map = '<Plug>(caw:'
+hook_add = 'runtime caw.vimrc'
+#}}}
+[[plugins]]
+repo = 'scrooloose/nerdcommenter' #{{{
+# Irritating: disturbs `norm N`
+on_map = '<Cmd>NERDCommenter'
+hook_add = 'runtime nerdcommenter.vimrc'
+#}}}
+[[plugins]]
+repo = 'tpope/vim-commentary'
+# Simplest
+on_map = '<Cmd>Commentary'
+hook_add = 'runtime plugin.vimrc'
 
 # Operater; Arrangement
 [[plugins]]
@@ -86,6 +91,7 @@ repo = 'machakann/vim-sandwich' #{{{
 on_event = 'InsertEnter'
 on_map = '<Plug>(operator-sandwich-' # too late via <c-o>
 hook_add = 'runtime sandwich.vimrc'
+hook_post_source = 'runtime unrtp/sandwich.vimrc'
 #}}}
 #[[plugins]]
 #repo = 'tpope/vim-surround' #{{{
@@ -102,16 +108,4 @@ hook_add = 'runtime sandwich.vimrc'
 #repo = 'tommcdo/vim-express' #{{{
 #on_event = 'VimEnter'
 #hook_post_source = 'runtime express.vimrc'
-##}}}
-
-#[[plugins]]
-#repo = 'kana/vim-textobj-user' #{{{
-## Note: enough with 'vim-matchup'
-#on_event = 'BufRead'
-#hook_post_source = 'runtime textobj-user.vimrc'
-#[[plugins]]
-#repo = 'kana/vim-textobj-fold'
-##on_map = '<Plug>(textobj-fold-'  # Note: `on_map` makes no sense with text-obj.
-#on_event = 'BufRead'
-#hook_add = 'runtime textobject-fold.vimrc'
 ##}}}
