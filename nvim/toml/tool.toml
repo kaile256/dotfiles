@@ -1,5 +1,11 @@
 # From: dein.vimrc
 
+# Hex Editor
+[[plugins]]
+repo = 'd0c-s4vage/pfp-vim'
+if = 'executable("pfp")'
+on_cmd = '<Cmd>Pfp'
+hook_add = 'runtime pfp.vimrc'
 # Repeat
 [[plugins]]
 repo = 'tpope/vim-repeat' #{{{

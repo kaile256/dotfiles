@@ -9,3 +9,5 @@ tags
 .zplugin/
 log/
 dbus/
+quickmarks
+spell/**
