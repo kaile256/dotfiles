@@ -197,7 +197,8 @@ vnoremap <a-i> <esc>i
 " Get Spell; when &l:spell, get correct spell suggestions on wrong-spelled word.
 " Note: this map also contains :startinsert.
 " Note: if you'd like to :sleep as default, ':nunmap gs'.
-nnoremap gs i<c-x>s
+"nnoremap <expr> gs &l:spell? 'i<c-x>s': ':setl spell <bar> au! InsertLeave * ++once setl nospell<cr>i<c-x>s'
+nnoremap  gs i<c-x>s
 " DotRepeatable; Expanded asterisk.vim instead. {{{1
 " TODO: convert selected-area into '/-history'.
 "function! s:dotrepeatable_delete(willInsert,direction)
