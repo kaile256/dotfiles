@@ -4,5 +4,8 @@
 nmap qu <Plug>(EasyAlign)
 vmap qu <Plug>(EasyAlign)
 
-" Line-wise; limited only to space adjustment. Do you expect any of the others?
+" Space Adjustment; limited only to space adjustment.
+" On Selected Area;
+vmap qU <Plug>(EasyAlign)$*<space>
+" Line-wise;
 nmap qU <Plug>(EasyAlign)$*<space>

@@ -5,8 +5,8 @@
 
 augroup CocMyAutoConf
   au!
+  au! WinEnter plugin/** if line('$') == 1 && getline('.') == '' | CocCommand template.templateTop
   au BufWinEnter coc-settings.json setl keywordprg=:help
-  "au BufWinEnter coc-settings.json setl keywordprg=:SensibleSplit\ vim
   "au BufLeave * if &ft ==# 'coc' || 'list' | hide | endif
   au FileType coc,list setl laststatus=0 noshowmode noruler
         \ | au BufWinLeave,BufLeave * ++once set laststatus=2 showmode ruler
@@ -122,7 +122,7 @@ endfunction
 nmap [c <Plug>(coc-git-prevchunk)
 nmap ]c <Plug>(coc-git-nextchunk)
 " show chunk diff at current position
-nmap gC <Plug>(coc-git-chunkinfo)
+nmap <a-y>c     <Plug>(coc-git-chunkinfo)
 omap ic <Plug>(coc-text-object-inner)
 xmap ic <Plug>(coc-text-object-inner)
 omap ac <Plug>(coc-text-object-outer)
@@ -134,11 +134,15 @@ xmap ac <Plug>(coc-text-object-outer)
 "      \ --sources=buffer+,file+
 "      \ --file-columns=icon,git,selection,clip,indent,filename,size
 ""}}}
+" CocCommand; extensions
+command! CocExtentions   :CocList    extensions
+command! CExtentions     :CocList    extensions
+nnoremap <a-c>e          :CocExtentions<cr>
 " CocCommand; Todo, or Task
-command! CocTask :CocCommand todolist.create
-command! CTask :CocCommand todolist.create
-command! CocShowTaskList :CocList todolist
-command! CShowTaskList :CocList todolist
+command! CocTask         :CocCommand todolist.create
+command! CTask           :CocCommand todolist.create
+command! CocShowTaskList :CocList    todolist
+command! CShowTaskList   :CocList    todolist
 nnoremap <silent> <a-c>t     :CocTask<cr>
 nnoremap <silent> <a-c><a-t> :CocTask<cr>
 nnoremap <silent> <a-c>s     :CocShowTaskList<cr>
@@ -148,10 +152,6 @@ nnoremap <silent> <a-c><a-s> :CocShowTaskList<cr>
 "command! -nargs=+ CEchoOnJapanese :call coc#config("translator", {"toLang": "ja"}) <bar> CocCommand translator.echo <q-args>
 "command! -nargs=+ CReplaceOnJapanese :call coc#config("translator", {"toLang": "ja"}) <bar> :CocCommand translator.echo <q-args>
 "command! -nargs=+ CPumOnJapanese :call coc#config("translator", {"toLang": "ja"}) <bar> CocCommand translator.echo <q-args>
-" CocCommand; Template
-augroup CocMyAutoConf
-  au! BufNewFile * CocCommand template.templateHere
-augroup END
 " CocList; {{{1
 " show commit contains current position
 noremap <silent> qp         :CocList yank<cr>
@@ -235,8 +235,7 @@ vmap af <Plug>(coc-funcobj-a)
 omap af <Plug>(coc-funcobj-a)
 " CocList; Rename {{{1
 " Mnemonic: Change Name
-nmap cn <Plug>(coc-rename)
-xmap cn <Plug>(coc-rename)
+omap <expr> n (v:operator ==# 'c')? '<esc><Plug>(coc-rename)': 'n'
 " CocList; Quick Run {{{1
 nmap qR   <Plug>(coc-codeaction)
 nmap qrr  <Plug>(coc-codeaction)
