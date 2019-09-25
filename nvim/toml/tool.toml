@@ -10,7 +10,8 @@ hook_add = 'runtime rc/pfp.vim'
 repo = 'tpope/vim-repeat' #{{{
 # No Help
 on_event = ['TextChanged', 'TextChangedI']
-#hook_post_source = 'runtime rc/repeat.vim'
+# for imaps
+hook_post_source = 'runtime rc/repeat.vim'
 #}}}
 
 # File Rename

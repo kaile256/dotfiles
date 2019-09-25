@@ -30,7 +30,10 @@ function! s:fugitive_commit_with_diff() abort "{{1
 endfunction "}}}
 command! Gstage :Gw <bar> call <SID>fugitive_commit_with_diff()
 " in new tab, if any unnecessary windows are there.
-command! GdiffMode :cclose <bar> silent wincmd T <bar> Gvdiffsplit!
+command! GdiffMode
+      \ :cclose
+      \ <bar>if &diff <bar>wincmd o <bar>diffoff! <bar>endif
+      \ <bar>silent wincmd T <bar>Gvdiffsplit!
 
 " Info; Blame {{{
 nnoremap <silent> <a-y>b     :<c-u>Gblame<cr>
