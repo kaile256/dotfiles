@@ -3,7 +3,7 @@
 
 command! -nargs=+ Gclone :Git clone <q-args>
 function! s:fugitive_commit_with_diff() abort "{{1
-  wincmd T
+  silent wincmd T
   " Keep to show diff w/ HEAD^ while editting commit-message.
   " TO diff w/ HEAD^ ignores the last commited change to diff.
   Gvdiffsplit! HEAD
@@ -14,7 +14,7 @@ function! s:fugitive_commit_with_diff() abort "{{1
 endfunction "}}}
 command! Gstage :Gw <bar> call <SID>fugitive_commit_with_diff()
 " in new tab, if any unnecessary windows are there.
-command! GdiffMode :cclose <bar> wincmd T <bar> Gvdiffsplit!
+command! GdiffMode :cclose <bar> silent wincmd T <bar> Gvdiffsplit!
 
 " Info; Blame {{{
 nnoremap <silent> <a-y>b     :<c-u>Gblame<cr>
