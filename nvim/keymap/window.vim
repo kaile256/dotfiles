@@ -1,11 +1,11 @@
 " From: nvim/init.vim
 
-"if execute('map <c-w>q') != '' || execute('map <c-w><c-q>') != ''
-"  noremap <c-w>q <Nop>
-"  noremap <c-w><c-q> <Nop>
-"endif
+if execute('map <c-w>q') != '' || execute('map <c-w><c-q>') != ''
+  noremap <c-w>q <Nop>
+  noremap <c-w><c-q> <Nop>
+endif
 
-nnoremap <c-w>Q :<c-u>qa! <cr>
+nnoremap <c-w>Q :<c-u>q! <cr>
 nnoremap <c-w>Z :<c-u>qa  <cr>
 
 " Redraw; No Highlight
