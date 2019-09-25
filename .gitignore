@@ -11,3 +11,4 @@ log/
 dbus/
 quickmarks
 spell/**
+plugin/
