@@ -1,6 +1,14 @@
 " From: external.toml
 " Repo: tpope/vim-fugitive
 
+command! -nargs=+ Gremote :Git remote <q-args>
+" TODO: the substitute() here leaves only /kaile256/foo, i.e., get repo's root.
+command! __GcreateRepoOnGitHub
+      \ :cd %:p:h
+      \ let b:repo_name = substitute(expand('%:p:h:h'), '\v.+kaile256\/(.+)\/.+\/.+', '\1', '')
+      \ /home/kaile256/dotfiles/nvim/rc
+      \ <bar> Git remote add origin
+      \ 'https://github.com/kaile256/'. s:repo_name .'.git'
 command! -nargs=+ Gclone :Git clone <q-args>
 function! s:fugitive_commit_with_diff() abort "{{1
   silent wincmd T

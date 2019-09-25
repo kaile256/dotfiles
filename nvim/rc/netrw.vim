@@ -1,3 +1,4 @@
+" From: once/loaded.vim
 " autoload: /usr/share/nvim/runtime/autoload/netrw.vim
 
 " where .netrwhist is located.
