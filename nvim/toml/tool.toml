@@ -3,7 +3,7 @@
 # Hex Editor
 [[plugins]]
 repo = 'd0c-s4vage/pfp-vim'
-on_cmd = '<Cmd>Pfp'
+on_cmd = 'Pfp'
 hook_add = 'runtime rc/pfp.vim'
 # Repeat
 [[plugins]]
@@ -12,6 +12,13 @@ repo = 'tpope/vim-repeat' #{{{
 on_event = ['TextChanged', 'TextChangedI']
 #hook_post_source = 'runtime rc/repeat.vim'
 #}}}
+
+# File Rename
+[[plugins]]
+repo = 'qpkorr/vim-renamer'
+# Note: it could override ':w'.
+on_cmd = 'Ren'
+hook_add = 'runtime renamer.vimrc'
 
 # Sudo
 [[plugins]]
