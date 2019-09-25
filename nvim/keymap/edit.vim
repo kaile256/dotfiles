@@ -1,5 +1,11 @@
 " From: init.vim
 
+" instead
+inoremap <c-x>h     ~
+inoremap <c-x><c-h> ~
+cnoremap <c-x>h     ~
+cnoremap <c-x><c-h> ~
+
 " Keymap; Write&Quit {{{
 "" Write&Quit; Evacuation for Macro
 nnoremap q<space> q
