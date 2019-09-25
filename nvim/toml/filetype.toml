@@ -1,14 +1,20 @@
 [ftplugin]
 # Execute after ftplugin.
 vim = ''' "{{{
-set fdm=marker fdl=0
+setl fdm=marker fdl=0
 "}}} '''
 qf = ''' "{{{
-set signcolumn=
-nnoremap <buffer> <c-o> :cprevious<cr>
-nnoremap <buffer> <c-i> :cnext<cr>
-nnoremap <buffer> <a-]> :cnewer<cr>
-nnoremap <buffer> <a-[> :colder<cr>
+setl signcolumn=
+augroup MyQfBuffer
+  au!
+  function! s:quickfix_keymap() "{{{
+    nnoremap <buffer> <c-o> :cprevious<cr>
+    nnoremap <buffer> <c-i> :cnext<cr>
+    nnoremap <buffer> <a-]> :cnewer<cr>
+    nnoremap <buffer> <a-[> :colder<cr>
+  endfunction "}}}
+  wu BufWinEnter * if &ft == 'qf' | call <SID>quickfix_keymap() | endif
+augroup END
 " TODO: `setl signcolumn= nonumber` on Help TOC
 "}}} '''
 help = ''' "{{{
@@ -16,7 +22,7 @@ setl buflisted nonumber signcolumn= nolist
 norm zz
 "}}} '''
 toml = ''' "{{{
-set fdm=marker fdl=0
+setl fdm=marker fdl=0
 
 augroup AutoFormatOnToml
   au!
@@ -28,7 +34,7 @@ augroup END
 "}}} '''
 
 i3 = ''' "{{{
-set fdm=marker fdl=0
+setl fdm=marker fdl=0
 
 noremap <buffer><silent> <S-TAB> :keepjumps keeppatterns %s/^\s\+//ge<cr> 
 "}}} '''

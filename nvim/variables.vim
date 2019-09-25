@@ -77,7 +77,6 @@ let $VISUAL='nvr'
 "}}}
 
 " Path; Runtime Path
-set rtp+=~/.config/nvim/rc
 set rtp+=~/.config/nvim/data
 set rtp+=~/.config/nvim/lazy
 set rtp+=~/.config/nvim/toml

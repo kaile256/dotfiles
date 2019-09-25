@@ -3,7 +3,7 @@
 " Repo: haya14busa/vim-asterisk
 
 function! asterisk#substitute(operator, direction)
-
+" TODO: Not yet work
   if v:operator ==# 'd' || a:operator ==# 'd'
     let l:operator = 'd'
   elseif v:operator ==# 'c' || a:operator ==# 'c'
@@ -56,9 +56,9 @@ xnoremap <expr><silent> <Plug>(asterisk-dot-substitute-paste-downward)
       \ .'pgN': 'P'
 
 onoremap <silent> <Plug>(asterisk-dot-substitute-operator-upward)
-      \ :<c-u>set operatorfunc=asterisk#substitute('auto', 'upward')<cr>g@
+      \ :<c-u>set operatorfunc=asterisk#substitute('auto','upward')<cr>g@
 onoremap <silent> <Plug>(asterisk-dot-substitute-operator-downward)
-      \ :<c-u>set operatorfunc=asterisk#substitute('auto', 'upward')<cr>g@
+      \ :<c-u>set operatorfunc=asterisk#substitute('auto','upward')<cr>g@
 
 if exists('g:asterisk#no_default_mappings_all') | finish | endif
 
@@ -71,8 +71,6 @@ xmap s <Plug>(asterisk-dot-substitute-change-downward)
 xmap X <Plug>(asterisk-dot-substitute-delete-upward)
 xmap S <Plug>(asterisk-dot-substitute-change-upward)
 
-omap j     <Plug>(asterisk-dot-substitute-operator-downward)
-omap k     <Plug>(asterisk-dot-substitute-operator-upward)
 omap *     <Plug>(asterisk-dot-substitute-operator-downward)
 omap #     <Plug>(asterisk-dot-substitute-operator-upward)
 omap <c-d> <Plug>(asterisk-dot-substitute-operator-downward)

@@ -1,13 +1,13 @@
-# From: dein.vimrc
+# From: rc/dein.vir
 
 # Imput Method
 [[plugins]]
 repo = 'tyru/eskk.vim' #{{{
-# Note: dein doesn't source eskk.vim on non-lazy though sourcing vimrc.
+# Note: dein doesn't source eskk.vim on non-lazy though sourcing rc/vim.
 # Note: on_map = '<Plug>' neither fails to work.
 # TODO: Do NEVER source eskk on gnvim/nvim-qt.
 on_event = ['InsertEnter', 'CmdlineEnter']
-hook_add = 'runtime eskk.vimrc'
+hook_add = 'runtime rc/eskk.vim'
 [[plugins]]
 # Syntax Files for skkdict.
 repo = 'tyru/skkdict.vim' #{{{
@@ -19,13 +19,13 @@ on_ft = 'skkdict'
 repo = 'deton/jasegment.vim'
 # remaps `W`,`E`, and so on.
 on_ft = 'markdown'
-#hook_post_source = 'runtime jasegment.vimrc'
+#hook_post_source = 'runtime rc/jasegment.vim'
 
 [[plugins]]
 repo = 'deton/jasentence.vim'
 # remaps `)(` for '、' and '。'
 on_ft = 'markdown'
-#hook_post_source = 'runtime jasentence.vimrc'
+#hook_post_source = 'runtime rc/jasentence.vim'
 
 [[plugins]]
 repo = 'fuenor/JpFormat.vim'
@@ -34,7 +34,7 @@ if = 'exists("JpFormatGqMode") && (JpFormatGqMode == 1)'
 on_ft = ['markdown']
 on_cmd = 'Jp'
 on_map = '<Cmd>Jp'
-hook_add = 'runtime JqFormat.vimrc'
+hook_add = 'runtime rc/JqFormat.vim'
 
 #[[plugins]]
 #repo = 'kana/vim-textobj-jabraces'
@@ -42,4 +42,4 @@ hook_add = 'runtime JqFormat.vimrc'
 ## e.g., for 『』as `ajk`
 ##       to <Plug>(textobj-jabraces-double-kakko-a)
 #on_ft = 'markdown'
-#hook_add = 'runtime textobj-jabraces.vimrc'
+#hook_add = 'runtime rc/textobj-jabraces.vim'

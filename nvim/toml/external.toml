@@ -1,4 +1,4 @@
-# From: dein.vimrc
+# From: rc/dein.vir
 
 # LSP
 [[plugins]]
@@ -8,24 +8,24 @@ repo = 'neoclide/coc.nvim' #{{{
 rev = 'release'
 #hook_done_update = 'yarn install --frozen-lockfile'
 on_event = 'VimEnter'
-hook_post_source = 'runtime coc.vimrc'
+hook_post_source = 'runtime rc/coc.vim'
 #}}}
 #[[plugins]]
 #repo = 'prabirshrestha/vim-lsp' #{{{
 ## Written in Pure viml
-#hook_post_source = 'runtime lsp.vimrc'
+#hook_post_source = 'runtime rc/lsp.vim'
 #[[plugins]]
 #repo = 'prabirshrestha/async.vim'
 #on_event = 'BufRead'
-#hook_post_source = 'runtime async.vimrc'
+#hook_post_source = 'runtime rc/async.vim'
 #[[plugins]]
 #repo = 'prabirshrestha/asyncomplete.vim'
 #on_event = 'BufRead'
-#hook_post_source = 'runtime asyncomplete.vimrc'
+#hook_post_source = 'runtime rc/asyncomplete.vim'
 #[[plugins]]
 #repo = 'prabirshrestha/asyncomplete-lsp.vim'
 #on_event = 'BufRead'
-#hook_post_source = 'runtime asyncomplete-lsp.vimrc'
+#hook_post_source = 'runtime rc/asyncomplete-lsp.vim'
 ##}}}
 #[[plugins]]
 #repo = 'autozimu/LanguageClient-neovim' #{{{
@@ -33,14 +33,14 @@ hook_post_source = 'runtime coc.vimrc'
 #rev = 'next'
 #build = 'bash install.sh'
 #on_event = 'BufRead'
-#hook_add = 'runtime LanguageClient.vimrc'
+#hook_add = 'runtime rc/LanguageClient.vim'
 ##}}}
 
 [[plugins]]
 repo = 'voldikss/actionmenu.nvim'
 # Provides coc.nvim actionmenu features for such as 'codeAction'.
 on_source = 'coc.nvim'
-hook_post_source = 'runtime actionmenu.vimrc'
+hook_post_source = 'runtime rc/actionmenu.vim'
 
 # FZF
 [[plugins]]
@@ -49,7 +49,7 @@ on_event = 'VimEnter'
 [[plugins]]
 repo = 'junegunn/fzf.vim'
 on_event = 'VimEnter'
-hook_add = 'runtime fzf.vimrc'
+hook_add = 'runtime rc/fzf.vim'
 #}}}
 
 # Git;
@@ -57,13 +57,13 @@ hook_add = 'runtime fzf.vimrc'
 repo = 'tpope/vim-fugitive' #{{{
 type = 'git'
 on_event = 'BufRead'
-hook_post_source = 'runtime fugitive.vimrc'
+hook_post_source = 'runtime rc/fugitive.vim'
 # Fugitive; Branch Viewr
 [[plugins]]
 repo = 'sodapopcan/vim-twiggy' #{{{
 on_map = '<Plug>(twiggy'
 on_cmd = ':Twiggy'
-hook_add = 'runtime twiggy.vimrc'
+hook_add = 'runtime rc/twiggy.vim'
 #}}}
 #[[plugins]]
 #repo = 'idanarye/vim-merginal' #{{{
@@ -73,25 +73,25 @@ hook_add = 'runtime twiggy.vimrc'
 #on_map = ':Merginal'
 ### Doesn't work well.
 ##on_cmd = 'Merginal'
-#hook_add = 'runtime merginal.vimrc'
+#hook_add = 'runtime rc/merginal.vim'
 ##}}}
 # Fugitive; Commit's Message viewer
 [[plugins]]
 repo = 'rhysd/git-messenger.vim' #{{{
 type = 'git'
 on_cmd = 'GitMessenger'
-hook_add = 'runtime git-messenger.vimrc'
+hook_add = 'runtime rc/git-messenger.vim'
 #}}}
 # Fugitive; for Gbrowse
 [[plugins]]
 repo = 'tpope/vim-rhubarb' #{{{
 on_cmd = 'Gbrowse'
-hook_post_source = 'runtime rhubarb.vimrc'
+hook_post_source = 'runtime rc/rhubarb.vim'
 #}}}
 [[plugins]]
 repo = 'shumphrey/fugitive-gitlab.vim' #{{{
 on_cmd = 'Gbrowse'
-hook_post_source = 'runtime fugitive-gitlab.vimrc'
+hook_post_source = 'runtime rc/fugitive-gitlab.vim'
 #}}}
 ## Fugitive; Local Log Viewer
 #[[plugins]]
@@ -99,32 +99,32 @@ hook_post_source = 'runtime fugitive-gitlab.vimrc'
 ## Note: Enough w/ coc.nvim
 ## Also provides diff viewer.
 #on_event = ['BufRead']
-#hook_post_source = 'runtime extradite.vimrc'
+#hook_post_source = 'runtime rc/extradite.vim'
 ##}}}
 ## Fugitive; Log Wrapper
 #[[plugins]]
 #repo = 'rbong/vim-flog' #{{{
 #on_event = ['BufRead']
-#hook_post_source = 'runtime flog.vimrc'
+#hook_post_source = 'runtime rc/flog.vim'
 #}}}
 ## Fugitive; Diff Wrapper
 #[[plugins]]
 #repo = 'arkwright/vim-manhunt' #{{{
 #on_event = 'BufRead'
-#hook_post_source = 'runtime manhunt.vimrc'
+#hook_post_source = 'runtime rc/manhunt.vim'
 ##}}}
 #[[plugins]]
 #repo = 'junegunn/gv.vim' #{{{
 #type = 'git'
 #on_ft = ['fugitive', 'gitcommit', 'git']
-#hook_post_source = 'runtime gv.vimrc'
+#hook_post_source = 'runtime rc/gv.vim'
 ##}}}
 #[[plugins]]
 #repo = 'rhysd/committia.vim' #{{{
 #type = 'git'
 #on_ft = ['fugitive', 'gitcommit', 'git']
 ##on_source = 'vim-fugitive'
-#hook_post_source = 'runtime committia.vimrc'
+#hook_post_source = 'runtime rc/committia.vim'
 ##}}}
 #}}} End of Fugitive
 #[[plugins]]
@@ -132,12 +132,12 @@ hook_post_source = 'runtime fugitive-gitlab.vimrc'
 ## enough only with coc.nvim & fugitive.vim?
 #type = 'git'
 #on_event = 'BufRead'
-#hook_post_source = 'runtime gitgutter.vimrc'
+#hook_post_source = 'runtime rc/gitgutter.vim'
 ##}}}
 #[[plugins]]
 #repo = 'lambdalisue/gina.vim' #{{{
 #on_event = ['BufWritePost']
-#hook_post_source = 'runtime gina.vimrc'
+#hook_post_source = 'runtime rc/gina.vim'
 ##}}}
 
 # Enable Collaborative Editing
@@ -145,47 +145,47 @@ hook_post_source = 'runtime fugitive-gitlab.vimrc'
 repo = 'Floobits/floobits-neovim'
 # Need to create an account of floobits.
 on_cmd = 'Floo'
-hook_add = 'runtime floobits.vimrc'
+hook_add = 'runtime rc/floobits.vim'
 
 # Shell; Wrapper
 [[plugins]]
 repo = 'kassio/neoterm' #{{{
 on_event = 'BufAdd'
-hook_post_source = 'runtime neoterm.vimrc'
+hook_post_source = 'runtime rc/neoterm.vim'
 #}}}
 [[plugins]]
 repo = 'Shougo/deol.nvim' #{{{
 on_event = 'VimEnter'
-hook_post_source = 'runtime deol.vimrc'
+hook_post_source = 'runtime rc/deol.vim'
 #}}}
 
 # Shell; Async Processor
 #[[plugins]]
 #repo = 'thinca/vim-quickrun' #{{{
 #on_map = 'QuickRun'
-#hook_add = 'runtime quickrun.vimrc'
+#hook_add = 'runtime rc/quickrun.vim'
 ##}}}
 #[[plugins]]
 #repo = 'neomake/neomake' #{{{
 #on_map = 'make'
-#hook_add = 'runtime neomake.vimrc'
+#hook_add = 'runtime rc/neomake.vim'
 #}}}
 #[[plugins]]
 #repo = 'skywind3000/asyncrun.vim' #{{{
 ## Only supports external shell to qf.
 #on_map = 'AsyncRun'
-#hook_add = 'runtime asyncrun.vimrc'
+#hook_add = 'runtime rc/asyncrun.vim'
 #}}}
 
 # Shell; Info
 [[plugins]]
 repo = 'HiPhish/info.vim'
 on_cmd = 'Info'
-hook_post_source = 'runtime info.vimrc'
+hook_post_source = 'runtime rc/info.vim'
 
 # i3-wm
 #[[plugins]]
 #repo = 'termhn/i3-vim-nav' #{{{
 #on_if = 'isdirectory("~/go/src/github.com/termhn/i3-vim-nav")'
-#hook_post_source = 'runtime i3-vim-nav.vimrc'
+#hook_post_source = 'runtime rc/i3-vim-nav.vim'
 ##}}}

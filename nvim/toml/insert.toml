@@ -1,4 +1,4 @@
-# From: dein.vimrc
+# From: rc/dein.vir
 
 # Unicode
 [[plugins]]
@@ -6,20 +6,20 @@ repo = 'chrisbra/unicode.vim'
 on_event = 'InsertEnter'
 # Note: on_map of unicode.vim is useless; maybe because they are imap.
 #on_map = ['<Plug>(UnicodeComplete)', '<Plug>(DigraphComplete)']
-hook_post_source = 'runtime unicode.vimrc'
+hook_post_source = 'runtime rc/unicode.vim'
 
 # CapsLock
 #[[plugins]]
 #repo = 'tpope/vim-capslock' #{{{
 ## Doesn't Work
 #on_event = ['InsertEnter', 'CmdlineEnter']
-#hook_post_source = 'runtime capslock.vimrc'
+#hook_post_source = 'runtime rc/capslock.vim'
 ##}}}
 #[[plugins]]
 #repo = 'mattn/vim-switch-esc-capslock' #{{{
 #### For Windows?
 #on_event = ['InsertEnter', 'CmdlineEnter']
-#hook_post_source = 'runtime switch-esc-capslock.vimrc'
+#hook_post_source = 'runtime rc/switch-esc-capslock.vim'
 ##}}}
 
 # Completion
@@ -28,7 +28,7 @@ repo = 'Shougo/deoplete.nvim' #{{{
 # good with eskk.vim
 on_if = 'has("python3")'
 on_event = ['InsertCharPre', 'InsertEnter']
-hook_post_source = 'runtime deoplete.vimrc'
+hook_post_source = 'runtime rc/deoplete.vim'
 #[[plugins]]
 #repo = 'SevereOverfl0w/deoplete-github' #{{{
 #on_ft = ['gitcommit']
@@ -50,7 +50,7 @@ on_ft = 'fish'
 #repo = 'tenfyzhong/CompleteParameter.vim' #{{{
 ## Enough w/ lsp and snippets?
 #on_map = '<Plug>(complete_parameter#'
-#hook_add = 'runtime CompleteParameter.vimrc'
+#hook_add = 'runtime rc/CompleteParameter.vim'
 ##}}}
 
 # Snippets; Engine
@@ -58,13 +58,13 @@ on_ft = 'fish'
 repo = 'Shougo/neosnippet.vim' #{{{
 on_event = ['InsertEnter', 'TermOpen','CmdlineEnter']
 on_map = 'NeoSnippet'
-hook_add = 'runtime neosnippet.vimrc'
+hook_add = 'runtime rc/neosnippet.vim'
 #}}}
 #[[plugins]]
 #repo = 'SirVer/ultisnips' #{{{
 ## Note: it override <TAB>
 #on_event = ['InsertEnter','TermOpen']
-#hook_post_source = 'runtime ultisnips.vimrc'
+#hook_post_source = 'runtime rc/ultisnips.vim'
 ##}}}
 # Snippets; Contents
 [[plugins]]

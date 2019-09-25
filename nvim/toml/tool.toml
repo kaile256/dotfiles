@@ -1,16 +1,16 @@
-# From: dein.vimrc
+# From: rc/dein.vir
 
 # Hex Editor
 [[plugins]]
 repo = 'd0c-s4vage/pfp-vim'
 on_cmd = '<Cmd>Pfp'
-hook_add = 'runtime pfp.vimrc'
+hook_add = 'runtime rc/pfp.vim'
 # Repeat
 [[plugins]]
 repo = 'tpope/vim-repeat' #{{{
 # No Help
 on_event = ['TextChanged', 'TextChangedI']
-#hook_post_source = 'runtime repeat.vimrc'
+#hook_post_source = 'runtime rc/repeat.vim'
 #}}}
 
 # Sudo
@@ -19,111 +19,111 @@ repo = 'lambdalisue/suda.vim' #{{{
 if = 'executable("sudo")'
 on_event = 'CmdlineEnter'
 #on_cmd = ['e suda', 'r suda', 'w suda']
-hook_add = 'runtime suda.vimrc'
+hook_add = 'runtime rc/suda.vim'
 #}}}
 #[[plugins]]
 #repo = 'chrisbra/SudoEdit.vim' #{{{
 ## Useless w/ neovim
 #on_cmd = 'Sudo'
-#hook_post_source = 'runtime SudoEdit.vimrc'
+#hook_post_source = 'runtime rc/SudoEdit.vim'
 ##}}}
 
 # Floating Window
 [[plugins]]
 repo = 'ncm2/float-preview.nvim'
 on_source = ['delplete.nvim', 'coc.nvim']
-hook_post_source = 'runtime float-preview.vimrc'
+hook_post_source = 'runtime rc/float-preview.vim'
 [[plugins]]
 repo = 'voldikss/vim-floaterm'
 on_cmd = 'FloatermToggle'
 on_map = '<Plug>(floaterm-'
-hook_add = 'runtime floaterm.vimrc'
+hook_add = 'runtime rc/floaterm.vim'
 
 # Interactive
 [[plugins]]
 repo = 'metakirby5/codi.vim' #{{{
 # An interactive scratchpad for hackers.
 on_ft = ['python', 'javascript', 'coffeescript', 'haskell', 'ruby', 'OCaml', 'R', 'clojure', 'php', 'lua', 'cpp', 'julia', 'elm', 'elixir', 'typescript', 'mathjs']
-hook_post_source = 'runtime codi.vimrc'
+hook_post_source = 'runtime rc/codi.vim'
 #}}}
 
 #[[plugins]]
 #repo = 'fszymanski/fzf-gitignore' #{{{
 #type = 'git'
 ##on_if = '@% =~# ".gitignore"'
-#hook_post_source = 'runtime fzf-gitignore.vimrc'
+#hook_post_source = 'runtime rc/fzf-gitignore.vim'
 ##}}}
 
 # Edit; Undo
 [[plugins]]
 repo = 'simnalamburt/vim-mundo' #{{{
 on_map = '<Cmd>Mundo'
-hook_add = 'runtime mundo.vimrc'
+hook_add = 'runtime rc/mundo.vim'
 #}}}
 #[[plugins]]
 #repo = 'jaxbot/selective-undo.vim' #{{{
 #on_event = 'BufRead'
-#hook_post_source = 'runtime selective-undo.vimrc'
+#hook_post_source = 'runtime rc/selective-undo.vim'
 ##}}}
 #[[plugins]]
 #repo = 'machakann/vim-highlightedundo' #{{{
 #if = 'executable("diff")'
 #on_event = 'BufRead'
-#hook_post_source = 'runtime highlightedundo.vimrc'
+#hook_post_source = 'runtime rc/highlightedundo.vim'
 #}}}
 #[[plugins]]
 #repo = 'mbbill/undotree' #{{{
 #on_map = 'Undotree'
-#hook_add = 'runtime undotree.vimrc'
+#hook_add = 'runtime rc/undotree.vim'
 ##}}}
 
 # Edit; Inc/Decrement
 #[[plugins]]
 #repo = 'qwertologe/nextval.vim' #{{{
 #on_map = '<Plug>nextval'
-#hook_add = 'runtime nextval.vimrc'
+#hook_add = 'runtime rc/nextval.vim'
 ##}}}
 
 # Edit; Diff
 [[plugins]]
 repo = 'AndrewRadev/linediff.vim' #{{{
 on_map = '<Cmd>Linediff'
-hook_add = 'runtime linediff.vimrc'
+hook_add = 'runtime rc/linediff.vim'
 #}}}
 
 # Fold
 [[plugins]]
 repo = 'LeafCage/foldCC' #{{{
 on_event = 'BufWinEnter'
-hook_post_source = 'runtime foldCC.vimrc'
+hook_post_source = 'runtime rc/foldCC.vim'
 #}}}
 #[[plugins]]
 #repo = 'SwintonStreet/HighlightFoldLevelVimScript' #{{{
 # Seems not to work. May not get along with foldCC.
-#hook_add = 'runtime HighlightFoldLevel.vimrc'
+#hook_add = 'runtime rc/HighlightFoldLevel.vim'
 ##}}}
 #[[plugins]]
 #repo = 'anschnapp/move-less' #{{{
 #on_event = 'BufRead'
-#hook_add = 'runtime move-less.vimrc'
+#hook_add = 'runtime rc/move-less.vim'
 #}}}
 #[[plugins]]
 #repo = 'tmhedberg/SimpylFold' #{{{
 #on_ft = 'python'
-#hook_post_source = 'runtime SimpylFold.vimrc'
+#hook_post_source = 'runtime rc/SimpylFold.vim'
 ##}}}
 
 # Dein Extention
 [[plugins]]
 repo = 'wsdjeg/dein-ui.vim' #{{{
 on_event = 'CmdlineEnter'
-hook_post_source = 'runtime dein-ui.vimrc'
+hook_post_source = 'runtime rc/dein-ui.vim'
 #}}}
 [[plugins]]
 repo = 'haya14busa/dein-command.vim' #{{{
 # For `Dein list`
 on_event = 'CmdlineEnter'
-hook_post_source = 'runtime dein-command.vimrc'
+hook_post_source = 'runtime rc/dein-command.vim'
 #}}}
 
 # Checker
@@ -131,18 +131,18 @@ hook_post_source = 'runtime dein-command.vimrc'
 repo = 'rhysd/vim-grammarous' #{{{
 # Grammer Check
 on_cmd = 'GrammarousCheck'
-hook_add = 'runtime grammarous.vimrc'
+hook_add = 'runtime rc/grammarous.vim'
 #}}}
 #[[plugins]]
 #repo = 'chrisbra/NrrwRgn' #{{{
 #on_event = 'VimEnter'
-#hook_post_source = 'runtime NrrwRgn.vimrc'
+#hook_post_source = 'runtime rc/NrrwRgn.vim'
 ##}}}
 #[[plugins]]
 #repo = 'AndrewRadev/switch.vim' #{{{
 ## toggle as predefined, such as 'true' & 'false'.
 #on_if = '&modifiable'
-#hook_post_source = 'runtime switch.vimrc'
+#hook_post_source = 'runtime rc/switch.vim'
 #}}}
 
 ## Image Viewer
@@ -150,13 +150,13 @@ hook_add = 'runtime grammarous.vimrc'
 #repo = 'Cj-bc/drcs.vim'
 #rev = 'develop'
 #on_event = ['jpeg', 'gif', 'png', 'drcs']
-#hook_post_source = 'runtime drcs.vimrc'
+#hook_post_source = 'runtime rc/drcs.vim'
 
 # Template
 #[[plugins]]
 #repo = 'mattn/sonictemplate-vim' #{{{
 #on_event = 'BufNew'
-#hook_post_source = 'runtime sonictemplate.vimrc'
+#hook_post_source = 'runtime rc/sonictemplate.vim'
 #}}}
 
 [[plugins]]
@@ -167,8 +167,8 @@ on_cmd = 'Scouter'
 [[plugins]]
 repo = 'tweekmonster/helpful.vim'
 on_cmd = 'HelpfulVersion'
-hook_add = 'runtime helpful.vimrc'
+hook_add = 'runtime rc/helpful.vim'
 #[[plugins]]
 #repo = 'rhysd/vim-themis'
 #on_cmd = ['BufRead']
-#hook_post_source = 'runtime themis.vimrc'
+#hook_post_source = 'runtime rc/themis.vim'

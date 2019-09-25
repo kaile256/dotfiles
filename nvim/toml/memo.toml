@@ -1,64 +1,64 @@
-# From: dein.vimrc
+# From: rc/dein.vir
 
 [[plugins]]
 repo = 'vimwiki/vimwiki' #{{{
 rev = 'dev'
 #rev = 'v2.4.1'  # the repo is dirty to activate.
 on_event = 'VimEnter'
-hook_source = 'runtime vimwiki.vimrc'
+hook_source = 'runtime rc/vimwiki.vim'
 #}}}
 [[plugins]]
 repo = 'tbabej/taskwiki'
 if = 'executable("task")'
 on_cmd = ['Task', 'TW']
-hook_post_source = 'runtime taskwiki.vimrc'
+hook_post_source = 'runtime rc/taskwiki.vim'
 [[plugins]]
 repo = 'powerman/vim-plugin-AnsiEsc'
 # Provides Color support on chart
 if = 'executable("task")'
 on_source = 'taskwiki'
-hook_post_source = 'runtime AnsiEsc.vimrc'
+hook_post_source = 'runtime rc/AnsiEsc.vim'
 [[plugins]]
 repo = 'blindFS/vim-taskwarrior'
 # enables grid-view on taskwiki, too.
 if = 'executable("task")'
 on_cmd = ['Task', 'TW']
-hook_post_source = 'runtime taskwarrior.vimrc'
+hook_post_source = 'runtime rc/taskwarrior.vim'
 
 # Memo; Outliner
 #[[plugins]]
 #repo = 'vim-voom/VOoM' #{{{
 #on_ft = ['vimwiki','org','markdown','tex','toml']
-#hook_post_source = 'runtime voom.vimrc'
+#hook_post_source = 'runtime rc/voom.vim'
 ## }}}
 # Memo; Table-Mode
 #[[plugins]]
 #repo = 'dhruvasagar/vim-table-mode' #{{{
-#hook_add = 'runtime table-mode.vimrc'
+#hook_add = 'runtime rc/table-mode.vim'
 #on_ft = ['org', 'text', 'vimwiki', 'md']
 # }}}
 # Memo; Org Mode
 #[[plugins]]
 #repo = 'jceb/vim-orgmode' #{{{
 #on_ft = 'org'
-#hook_post_source = 'runtime orgmode.vimrc'
+#hook_post_source = 'runtime rc/orgmode.vim'
 ##}}}
 #[[plugins]]
 #repo = 'vim-scripts/utl.vim' #{{{
 ## Org; Activate Hyperlink
 #on_ft = 'org'
-#hook_post_source = 'runtime utl.vimrc'
+#hook_post_source = 'runtime rc/utl.vim'
 ##}}}
 #[[plugins]]
 #repo = 'tpope/vim-speeddating' #{{{
 ## <c-a/x> for dateing.
 #on_ft = 'org'
-#hook_post_source = 'runtime speeddating.vimrc'
+#hook_post_source = 'runtime rc/speeddating.vim'
 ##}}}
 
 #[[plugins]]
 #repo = 'inkarkat/vim-SyntaxRange' #{{{
 ## Multiple-Language Syntax in one buffer.
 #on_ft = ['snippets','org']
-#hook_post_source = 'runtime SyntaxRange.vimrc'
+#hook_post_source = 'runtime rc/SyntaxRange.vim'
 ##}}}
