@@ -14,6 +14,10 @@ command! -complete=dir NNNGcreateRepoOnGitHub
       \ 'https://github.com/kaile256/'. s:repo_name .'.git'
 command! -nargs=+ Gclone :Git clone <q-args>
 function! s:fugitive_commit_with_diff() abort "{{1
+  if &diff
+    wincmd o
+    diffoff!
+  endif
   silent wincmd T
   " Keep to show diff w/ HEAD^ while editting commit-message.
   " TO diff w/ HEAD^ ignores the last commited change to diff.
