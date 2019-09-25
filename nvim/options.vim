@@ -1,9 +1,16 @@
 scriptencoding utf-8
 " From: init.vim
 
+if executable("rg")
+  " Ref: https://ktrysmt.github.io/blog/finish-work-early-with-cli-made-by-rust/
+  set grepprg=rg\ --vimgrep\ --no-heading
+  set grepformat=%f:%l:%c:%m,%f:%l:%m
+endif
+command! -nargs=+ -complete=file Grep :tabnew | :silent grep --sort-files <args>
+
 " Time in ms to wait for a mapped sequence to complete.
 " For: made me notice if any mappings are in Caleene's way.
-set timeoutlen=10000
+set timeoutlen=3000
 "set shada=!,'100,<50,s10,h,
 augroup AutoWriteShada
   " Topic: When shada file is updated?
