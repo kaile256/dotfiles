@@ -35,11 +35,10 @@ nnoremap <silent> <a-y><a-b> :<c-u>Gblame<cr>
 " Info; Status {{{
 nnoremap <silent> <a-y>s     :<c-u>vert bot 40 Gstatus<cr>
 nnoremap <silent> <a-y><a-s> :<c-u>vert bot 40 Gstatus<cr>
-nnoremap <silent> S :<c-u>wincmd p <bar> Gadd <bar> wincmd p<cr>
 "}}}
 " Add; Only {{{
-nnoremap <silent> <a-y>a     :<c-u>Gw<cr>
-nnoremap <silent> <a-y><a-a> :<c-u>Gw<cr>
+nnoremap <silent> <a-y>a     :Gw <bar> Gstatus<cr>
+nnoremap <silent> <a-y><a-a> :Gw <bar> Gstatus<cr>
 "}}}
 " Add; && Commit w/ diff {{{1
 "noremap <silent> <a-y>w     :<c-u>cclose <bar> Gw <cr> :call <SID>fugitive_commit_with_diff()<cr>
@@ -80,6 +79,9 @@ augroup OnFugitiveBuffer
   " gitcommit should be writeable not setting bt=qf.
   au FileType fugitive,fugitiveblame setl nonumber signcolumn= bt=quickfix
   au FileType gitcommit              setl spell    nonumber    signcolumn=
+  " For: the case ':norm U' to unstage all, especially.
+  nnoremap <silent> <Plug>(fugitive-gstage-last-window) :<c-u>wincmd p <cr> :Gw <bar> wincmd p<cr>
+  au FileType fugitive nmap <silent><buffer> S <Plug>(fugitive-gstage-last-window)
   "au BufWinLeave gitcommit Gcommit | norm <c-w>h:diffoff!<cr>
   " TODO: Go back to Gstatus' buffer when `:quit` on gitcommit's buffer
   "au BufLeave .git/COMMIT_EDITMSG exe setpos(., bufnr('.git/index'), 1, 1, 1)
