@@ -1,7 +1,7 @@
 scriptencoding utf-8
 " From: finder.toml
 " Repo: Shougo/defx.nvim
-" Alter: defx.vimrc
+" Alter: defx.vim
 " Ref: /usr/share/nvim/runtime/autoload/netrw.vim
 " Ref: /usr/share/nvim/runtime/plugin/netrwPlugin.vim
 
@@ -28,13 +28,13 @@ scriptencoding utf-8
 "let g:defx_icons_nested_opened_tree_icon = ''
 "let g:defx_icons_nested_closed_tree_icon = ''
 " call defx#custom#foo() {{{1
-call defx#custom#column('mark', {
-      \ 'readonly_icon': '✗',
-      \ 'selected_icon': '✓',
-      \ })
 call defx#custom#option('_', {
       \ 'columns': 'mark:indent:git:icons:filename',
       \ 'show_ignored_files': 1,
+      \ })
+call defx#custom#column('mark', {
+      \ 'readonly_icon': '✗',
+      \ 'selected_icon': '✓',
       \ })
 "call defx#custom#column('icon', {
 "      \ 'directory_icon': '',
