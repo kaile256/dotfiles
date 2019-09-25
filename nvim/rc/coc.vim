@@ -224,6 +224,9 @@ xmap <silent> <c-w><space>r :call coc#config("coc.preferences", {"jumpCommand": 
 " Mnemonic: Change the Structure.
 nmap cs <Plug>(coc-refactor)
 " Note: `==` is for `[count]==`. <Plug>(coc-format), too.
+"set equalprg=CocActionAsync('format')
+"set equalprg=CocActionAsync('codeLensAction')
+
 xmap <expr> =  (CocHasProvider('format') == v:true)? '<Plug>(coc-format-selected)' : '='
 nmap <expr> =  (CocHasProvider('format') == v:true)? '<Plug>(coc-format-selected)' : '='
 " CocList; Text-Object {{{1
