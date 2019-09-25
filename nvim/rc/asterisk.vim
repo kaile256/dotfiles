@@ -1,12 +1,14 @@
 " From: finder.toml
-" Alter: rc/autoload/asterisk.vim
 " Repo: haya14busa/vim-asterisk
+" Alter: rc/autoload/asterisk.vim
 
 " TODO: Make the function work
-function! asterisk#substitute(operator, direction) abort "{{{1
+function! asterisk#substitute(operator, ...) abort "{{{1
+  let l:direction = a:1
+  echo l:direction
   " Specify operator wanted {{{2
   " Note: a:operator acceptable is ['d', 'c', 'p', 'auto'].
-  if v:operator !='v' && a:operator ==# 'auto'
+  if v:operator !=# 'v' && a:operator ==# 'auto'
     let l:operator = v:operator
   elseif v:operator ==# 'd' || a:operator ==# 'd'
     let l:operator = 'd'
@@ -22,10 +24,10 @@ function! asterisk#substitute(operator, direction) abort "{{{1
   endif
 
   " Specify operating direction {{{2
-  if a:direction ==# 'up' || a:direction ==# 'upward'
-    let l:direction = 'gN'
-  elseif a:direction ==# 'down' || a:direction ==# 'downward'
-    let l:direction = 'gn'
+  if l:direction ==# 'up' || l:direction ==# 'upward'
+    let l:jumpway = 'gN'
+  elseif l:direction ==# 'down' || l:direction ==# 'downward'
+    let l:jumpway = 'gn'
   else
     throw "Please set a:direction, whether 'up' or 'down' in asterisk#substitute(operator, 'here!')"
   endif
@@ -47,11 +49,11 @@ function! asterisk#substitute(operator, direction) abort "{{{1
         let l:regname =  v:event.regname
       endif
       " like 'norm cgn<c-r>0<esc>'
-      exe 'norm c'. l:direction .'<c-r>'. l:regname .'<esc>'
+      exe 'norm c'. l:jumpway .'<c-r>'. l:regname .'<esc>'
       return
     endif
     " like 'norm dgn'
-    exe 'norm '. l:operator .''. l:direction
+    exe 'norm '. l:operator .''. l:jumpway
   endif
 endfunction "}}}1
 
@@ -82,10 +84,16 @@ xnoremap <expr><silent> <Plug>(asterisk-dot-substitute-paste-downward)
       \ asterisk#do(mode(1), {'direction' : 1, 'do_jump' : 0, 'is_whole' : 0})
       \ .'cgN<c-r>1<esc>': 'p'
 
+" Experimental:
+"xnoremap <expr><silent> <Plug>(asterisk-dot-substitute-delete-downward)
+"      \ asterisk#substitute('d', 'downward')
+"xnoremap <expr><silent> <Plug>(asterisk-dot-substitute-paste-downward)
+"      \ asterisk#substitute('p', 'downward')
+
 onoremap <silent> <Plug>(asterisk-dot-substitute-operator-upward)
       \ :<c-u>set operatorfunc=asterisk#substitute('auto','upward')<cr>g@
 onoremap <silent> <Plug>(asterisk-dot-substitute-operator-downward)
-      \ :<c-u>set operatorfunc=asterisk#substitute('auto','upward')<cr>g@
+      \ :<c-u>set operatorfunc=asterisk#substitute('auto','downward')<cr>g@
 "}}}1
 
 if exists('g:asterisk#no_default_mappings_all') | finish | endif
@@ -117,11 +125,10 @@ xmap s <Plug>(asterisk-dot-substitute-change-downward)
 xmap X <Plug>(asterisk-dot-substitute-delete-upward)
 xmap S <Plug>(asterisk-dot-substitute-change-upward)
 
-" under
-omap u     <Plug>(asterisk-dot-substitute-operator-downward)
-" over
-omap o     <Plug>(asterisk-dot-substitute-operator-upward)
 omap *     <Plug>(asterisk-dot-substitute-operator-downward)
 omap #     <Plug>(asterisk-dot-substitute-operator-upward)
 omap <c-d> <Plug>(asterisk-dot-substitute-operator-downward)
 omap <c-u> <Plug>(asterisk-dot-substitute-operator-upward)
+" Mnemonic: dot-Repeatable
+omap r     <Plug>(asterisk-dot-substitute-operator-downward)
+omap R     <Plug>(asterisk-dot-substitute-operator-upward)
