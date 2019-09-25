@@ -2,7 +2,7 @@
 " Alter: rc/autoload/asterisk.vim
 " Repo: haya14busa/vim-asterisk
 
-function! asterisk#substitute(operator, direction)
+function! asterisk#substitute(operator, direction) abort
 " TODO: Not yet work
   if v:operator ==# 'd' || a:operator ==# 'd'
     let l:operator = 'd'
@@ -49,11 +49,11 @@ command! -nargs=+ PasteDotSubstituteUpward
 xnoremap <expr><silent> <Plug>(asterisk-dot-substitute-paste-upward)
       \ (line("'<") == line("'>"))?
       \ asterisk#do(mode(1), {'direction' : 1, 'do_jump' : 0, 'is_whole' : 0})
-      \ .'cgn<c-r>"': 'p'
+      \ .'cgn<c-r>"<esc>': 'p'
 xnoremap <expr><silent> <Plug>(asterisk-dot-substitute-paste-downward)
       \ (line("'<") == line("'>"))?
       \ asterisk#do(mode(1), {'direction' : 1, 'do_jump' : 0, 'is_whole' : 0})
-      \ .'pgN': 'P'
+      \ .'cgN<c-r>'. v:register.contents .'<esc>': 'P'
 
 onoremap <silent> <Plug>(asterisk-dot-substitute-operator-upward)
       \ :<c-u>set operatorfunc=asterisk#substitute('auto','upward')<cr>g@
@@ -61,20 +61,6 @@ onoremap <silent> <Plug>(asterisk-dot-substitute-operator-downward)
       \ :<c-u>set operatorfunc=asterisk#substitute('auto','upward')<cr>g@
 
 if exists('g:asterisk#no_default_mappings_all') | finish | endif
-
-if exists('g:asterisk#no_default_mappings_substitute') | finish | endif
-
-" Note: x/s work duplicated with d/c respectively.
-xmap x <Plug>(asterisk-dot-substitute-delete-downward)
-xmap s <Plug>(asterisk-dot-substitute-change-downward)
-" Note: when over lines, keep blockwise even on X/S, unrepeatable.
-xmap X <Plug>(asterisk-dot-substitute-delete-upward)
-xmap S <Plug>(asterisk-dot-substitute-change-upward)
-
-omap *     <Plug>(asterisk-dot-substitute-operator-downward)
-omap #     <Plug>(asterisk-dot-substitute-operator-upward)
-omap <c-d> <Plug>(asterisk-dot-substitute-operator-downward)
-omap <c-u> <Plug>(asterisk-dot-substitute-operator-upward)
 
 if exists('g:asterisk#no_default_mappings_standard') | finish | endif
 
@@ -88,3 +74,23 @@ xmap *  <Plug>(asterisk-gz*)
 xmap g* <Plug>(asterisk-g*)
 xmap #  <Plug>(asterisk-gz#)
 xmap g# <Plug>(asterisk-g#)
+
+if exists('g:asterisk#no_default_mappings_substitute') | finish | endif
+xmap p <Plug>(asterisk-dot-substitute-paste-downward)
+xmap P <Plug>(asterisk-dot-substitute-paste-upward)
+
+" Note: x/s work duplicated with d/c respectively.
+xmap x <Plug>(asterisk-dot-substitute-delete-downward)
+xmap s <Plug>(asterisk-dot-substitute-change-downward)
+" Note: when over lines, keep blockwise even on X/S, unrepeatable.
+xmap X <Plug>(asterisk-dot-substitute-delete-upward)
+xmap S <Plug>(asterisk-dot-substitute-change-upward)
+
+" under
+omap u     <Plug>(asterisk-dot-substitute-operator-downward)
+" over
+omap o     <Plug>(asterisk-dot-substitute-operator-upward)
+omap *     <Plug>(asterisk-dot-substitute-operator-downward)
+omap #     <Plug>(asterisk-dot-substitute-operator-upward)
+omap <c-d> <Plug>(asterisk-dot-substitute-operator-downward)
+omap <c-u> <Plug>(asterisk-dot-substitute-operator-upward)
