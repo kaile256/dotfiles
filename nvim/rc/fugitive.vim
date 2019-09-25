@@ -1,12 +1,15 @@
 " From: external.toml
 " Repo: tpope/vim-fugitive
 
-command! -nargs=+ Gremote :Git remote <q-args>
+command! -nargs=+ -complete=file Gremote :Git remote <q-args>
 " TODO: the substitute() here leaves only /kaile256/foo, i.e., get repo's root.
-command! __GcreateRepoOnGitHub
+command! -complete=dir GcreateRepoOnGitHub
+      \ :cd %:p:h
+      \ <bar> Git remote add origin
+      \ 'https://github.com/kaile256/'. s:repo_name .'.git'
+command! -complete=dir NNNGcreateRepoOnGitHub
       \ :cd %:p:h
       \ let b:repo_name = substitute(expand('%:p:h:h'), '\v.+kaile256\/(.+)\/.+\/.+', '\1', '')
-      \ /home/kaile256/dotfiles/nvim/rc
       \ <bar> Git remote add origin
       \ 'https://github.com/kaile256/'. s:repo_name .'.git'
 command! -nargs=+ Gclone :Git clone <q-args>
@@ -15,7 +18,8 @@ function! s:fugitive_commit_with_diff() abort "{{1
   " Keep to show diff w/ HEAD^ while editting commit-message.
   " TO diff w/ HEAD^ ignores the last commited change to diff.
   Gvdiffsplit! HEAD
-  norm <c-o>
+  " For: makes user notice if any other changes in the buffer.
+  norm gg
   vert bot 35 Gstatus
   setl winfixwidth
   wincmd =
