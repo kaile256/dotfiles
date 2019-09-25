@@ -1,5 +1,6 @@
 " From: Init.toml
 " Repo: morhetz/gruvbox
+" Repo: flazz/vim-colorschemes
 
 "let g:gruvbox_contrast_dark = 'hard'
 

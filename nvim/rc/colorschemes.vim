@@ -1,4 +1,5 @@
 " From: appearance.toml
+" Repo: flazz/vim-colorschemes
 
 function! s:colorschemes_neodark() abort "{{{1
   let g:neodark#use_256color    = 1 " default: 0
