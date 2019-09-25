@@ -18,6 +18,8 @@ let g:netrw_fastbrowse = 2
 augroup NetrwCallMyFunc
   au!
   au FileType netrw call <SID>keymaps_on_netrw()
+  " Note: nonumber looks strange, though almost no use in netrw.
+  "au FileType netrw setl nonumber
 augroup END
 function! s:keymaps_on_netrw() abort
   nmap <buffer><silent><nowait> h <Plug>NetrwBrowseUpDir
