@@ -1,6 +1,28 @@
 scriptencoding utf-8
 " From: init.vim
 
+
+function! maps_KAIZEN#operator#last_searched(direction) abort
+  let l:last_searched_global = @/
+  try
+    if a:direction ==# 'downward'
+      exe 'norm / '. b:maps_KAIZEN_last_searched
+      b:maps_KAIZEN_last_searched
+    elseif a:direction ==# 'upward'
+      exe 'norm ? '. b:maps_KAIZEN_last_searched
+    endif
+  catch "You hadn't searched this buffer yet."
+  endtry
+endfunction
+augroup maps_KAIZEN_last_searched
+  au! BufWinLeave,WinLeave * let b:maps_KAIZEN_last_searched = @/
+augroup END
+
+nnoremap <silent> <Plug>(maps_KAIZEN_last_searched_upward) :call maps_KAIZEN#operator#last_searched('upward')<cr>
+nnoremap <silent> <Plug>(maps_KAIZEN_last_searched_downward) :call maps_KAIZEN#operator#last_searched('downward')<cr>
+nmap g/ <Plug>(maps_KAIZEN#last_searched)
+nmap g? <Plug>(maps_KAIZEN#last_searched)
+
 " TODO: Ignore difference of line's height.
 function! maps_KAIZEN#operator#backup_yanked_contents() "{{{
   if !exists('g:maps_KAIZEN#backuplist_regnames')
