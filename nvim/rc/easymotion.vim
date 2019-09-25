@@ -17,7 +17,7 @@ let g:EasyMotion_add_search_history = 0
 " Let; Chars "{{{
 let g:EasyMotion_smartcase = 0
 let g:EasyMotion_use_upper = 1
-let g:EasyMotion_keys = 'JMABCDEFGHIKLNOPQRSTUVWXYZ'
+let g:EasyMotion_keys = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
 "}}}
 " Let; Prompt "{{{
 " verbose: such as "EasyMotion: Jumping to [l,c]" and "EasyMotion: Cancelled".
