@@ -153,7 +153,6 @@ nnoremap <silent> <a-c>s     :CocShowTaskList<cr>
 "command! -nargs=+ CPumOnJapanese :call coc#config("translator", {"toLang": "ja"}) <bar> CocCommand translator.echo <q-args>
 " CocList; {{{1
 " show commit contains current position
-noremap <silent> qp         :CocList yank<cr>
 noremap <silent> <a-c><a-c> :CocList<cr>
 noremap <silent> <a-c><a-f> :CocList files<cr>
 noremap <silent> <a-c><a-b> :CocList buffers<cr><M-k>
