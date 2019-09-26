@@ -1,6 +1,8 @@
 " From: appearance.toml
 " Repo: flazz/vim-colorschemes
 
+" TODO: find colorscheme for floating window's cool, transpaent color.
+
 function! s:colorschemes_neodark() abort "{{{1
   let g:neodark#use_256color    = 1 " default: 0
   let g:neodark#italic          = 1 " default: 0
