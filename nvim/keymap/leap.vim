@@ -50,18 +50,25 @@ nnoremap <nowait> N   Nzz
 "}}}
 " Hotkey; Open Terminal {{{
 noremap <silent> <a-t>.     :<c-u>     <space> <space> :te<cr>
-noremap <silent> <a-t><a-.> :<c-u>     <space> <space> :te<cr>
 noremap <silent> <a-t>e     :<c-u>     <space> <space> :te<cr>
 noremap <silent> <a-t>s     :<c-u>sp   <bar>   <space> :te<cr>
-noremap <silent> <a-t><a-s> :<c-u>sp   <bar>   <space> :te<cr>
 noremap <silent> <a-t>v     :<c-u>vs   <bar>   <space> :te<cr>
 noremap <silent> <a-t>t     :<c-u>tabe sp      <bar>   :te<cr>
+noremap <silent> <a-t><a-.> :<c-u>     <space> <space> :te<cr>
+noremap <silent> <a-t><a-e> :<c-u>     <space> <space> :te<cr>
+noremap <silent> <a-t><a-s> :<c-u>sp   <bar>   <space> :te<cr>
+noremap <silent> <a-t><a-v> :<c-u>vs   <bar>   <space> :te<cr>
+noremap <silent> <a-t><a-t> :<c-u>tabe sp      <bar>   :te<cr>
 "}}}
 " Hotkey; Open Terminal with `cd` {{{
-noremap <silent> <a-t><a-w> :<c-u>cd %:p:h      <bar>:te<cr>
+noremap <silent> <a-t>w     :<c-u>cd %:p:h      <bar>:te<cr>
 noremap <silent> <a-t>h     :<c-u>cd ~          <bar>:te<cr>
 noremap <silent> <a-t>d     :<c-u>cd ~/dotfiles <bar>:te<cr>
 noremap <silent> <a-t>c     :<c-u>cd ~/.config  <bar>:te<cr>
+noremap <silent> <a-t><a-w> :<c-u>cd %:p:h      <bar>:te<cr>
+noremap <silent> <a-t><a-h> :<c-u>cd ~          <bar>:te<cr>
+noremap <silent> <a-t><a-d> :<c-u>cd ~/dotfiles <bar>:te<cr>
+noremap <silent> <a-t><a-c> :<c-u>cd ~/.config  <bar>:te<cr>
 "}}}
 " Hotkey; cd in Terminal {{{
 tnoremap <silent> <a-t>r cd /          <cr>
