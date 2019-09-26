@@ -2,6 +2,7 @@
 " Branch: neoclide/coc.nvim_release
 " Func: neoclide/coc.nvim_release/plugin/coc.vim
 " Repo: neoclide/coc.nvim
+" Coc: .config/coc/extensions
 
 augroup CocMyAutoConf
   au!
@@ -120,8 +121,8 @@ endfunction
 "nnoremap q/ :CocList searchhistory<cr>
 " CocCommand; Git {{{1
 " Similar to the navigation on &diff
-nmap [c <Plug>(coc-git-prevchunk)
-nmap ]c <Plug>(coc-git-nextchunk)
+nmap <expr> [c (&diff)? '[c': '<Plug>(coc-git-prevchunk)'
+nmap <expr> ]c (&diff)? ']c': '<Plug>(coc-git-nextchunk)'
 " show chunk diff at current position
 nmap <a-y>c     <Plug>(coc-git-chunkinfo)
 omap ic <Plug>(coc-text-object-inner)
