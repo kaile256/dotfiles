@@ -93,8 +93,8 @@ vmap gL :<c-u>OpenBrowserSmartSearch -gitlab    <c-r><c-f> <cr>
 "" Cursor; Dictionary "{{{1
 """ Dictionary; Go to the free dictionary
 " Mnemonic: default `K`
-nmap gK :<c-u>OpenBrowserSmartSearch -dictionary@en <c-r><c-w> <cr>
-vmap gK :<c-u>OpenBrowserSmartSearch -dictionary@en <c-r><c-a> <cr>
+"nmap gK :<c-u>OpenBrowserSmartSearch -dictionary@en <c-r><c-w> <cr>
+"vmap gK :<c-u>OpenBrowserSmartSearch -dictionary@en <c-r><c-a> <cr>
 """ Dictionary; Get Words on thesaurus
 nmap gW :<c-u>OpenBrowserSmartSearch -thesaurus <c-r><c-w> <cr>
 vmap gW :<c-u>OpenBrowserSmartSearch -thesaurus <c-r><c-a> <cr>
