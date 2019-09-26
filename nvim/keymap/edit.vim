@@ -41,11 +41,6 @@ cnoremap <a-l> <c-c><c-w>l
 " <c-k> enter digraph
 cnoremap <c-k><a-k> <c-c>
 "}}}
-" Improve; i_<c-o> {{{
-" <c-o>u doesn't work by default
-inoremap <c-o>u     <esc>ua
-inoremap <c-o><c-r> <esc><c-r>i
-"}}}
 " Improve; i_<c-g> {{{
 inoremap <c-g><c-h> <Left>
 inoremap <c-g>h     <Left>
