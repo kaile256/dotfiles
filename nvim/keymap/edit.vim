@@ -1,6 +1,8 @@
 " From: init.vim
 
 " instead
+tnoremap <c-x>h     ~
+tnoremap <c-x><c-h> ~
 inoremap <c-x>h     ~
 inoremap <c-x><c-h> ~
 cnoremap <c-x>h     ~
