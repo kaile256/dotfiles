@@ -40,7 +40,6 @@ let g:coc_global_extensions = [
       \ 'coc-emoji',
       \ 'coc-git',
       \ 'coc-gitignore',
-      \ 'coc-gocode',
       \ 'coc-highlight',
       \ 'coc-homeassistant',
       \ 'coc-html',
