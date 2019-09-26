@@ -68,11 +68,11 @@ repo = 'plasticboy/vim-markdown'
 if = '&l:ft !=# "vimwiki"'
 on_ft = 'markdown'
 hook_add = 'runtime rc/markdown.vim'
-[[plugins]]
-repo = 'suan/vim-instant-markdown'
-if = '&l:ft !=# "vimwiki"'
-on_ft = 'markdown'
-hook_add = 'runtime rc/instant-markdown.vim'
+#[[plugins]]
+#repo = 'suan/vim-instant-markdown'
+#if = '&l:ft !=# "vimwiki"'
+#on_ft = 'markdown'
+#hook_add = 'runtime rc/instant-markdown.vim'
 #}}}
 
 # for Shell or Term-Emulater;
