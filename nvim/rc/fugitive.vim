@@ -30,6 +30,11 @@ function! s:fugitive_commit_with_diff() abort "{{1
 endfunction "}}}
 command! Gstage :Gw <bar> call <SID>fugitive_commit_with_diff()
 " in new tab, if any unnecessary windows are there.
+" TODO: set unstage
+" &@:<C-U>execute <SNR>277_Do('Unstage',0)<CR> 
+" &@:exe <SNR>277_EchoExec('reset', '-q')<CR>  
+"command! Gunstage :G
+"noremap <silent> <a-y><a-u> :Gunstage<cr>
 command! GdiffMode
       \ :cclose
       \ <bar>if &diff <bar>wincmd o <bar>diffoff! <bar>endif
