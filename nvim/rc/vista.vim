@@ -42,7 +42,8 @@ function! s:vista_sensible() abort
       echo ' Be Patient; Calling COC...'
       " TODO: Announce if Nothing found.
     else
-      Vista!!
+      " Note: if you want to close, be in vista's window.
+      Vista
       echo ' documentSymbol is unavailable on this filetype; reading ctags...'
     endif
     "elseif exists('loaded_')
