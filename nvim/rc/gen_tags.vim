@@ -1,4 +1,4 @@
-" From: leap.toml
+" From: finder.toml
 " Check: /usr/share/vim/vimfiles/plugin/gtags.vim
 " Check: /usr/share/gtags/FAQ
 
