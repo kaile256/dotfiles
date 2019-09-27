@@ -6,13 +6,13 @@
 let g:haskell_indent_disable = 1
 let g:haskell_indent_if = 3
 let g:haskell_indent_case = 2
-let haskell-vim-indent-let = 4
-let haskell-vim-indent-where = 6
-let haskell-vim-indent-before-where = 2
-let haskell-vim-indent-after-bare-where = 2
-let haskell-vim-indent-do = 3
-let haskell-vim-indent-in = 1
-let haskell-vim-indent-guard = 2
+let g:haskell_vim_indent_let = 4
+let g:haskell_vim_indent_where = 6
+let g:haskell_vim_indent_before_where = 2
+let g:haskell_vim_indent_after_bare_where = 2
+let g:haskell_vim_indent_do = 3
+let g:haskell_vim_indent_in = 1
+let g:haskell_vim_indent_guard = 2
 let g:cabal_indent_section = 2
 
 let g:haskell_enable_quantification = 1   " enable highlighting of `forall`
