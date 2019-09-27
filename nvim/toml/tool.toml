@@ -1,25 +1,27 @@
-# From: rc/dein.vir
+# From: rc/dein.vim
 
 # Hex Editor
 [[plugins]]
 repo = 'd0c-s4vage/pfp-vim'
 on_cmd = 'Pfp'
 hook_add = 'runtime rc/pfp.vim'
+
 # Repeat
 [[plugins]]
 repo = 'tpope/vim-repeat' #{{{
+on_map = '<Plug>(Repeat'
+# have to load before maps_KAIZEN:
+# e.g., cp/dp with dotrepeat.
 # No Help
-on_event = ['TextChanged', 'TextChangedI']
-# for imaps
-hook_post_source = 'runtime rc/repeat.vim'
+hook_add = 'runtime rc/repeat.vim'
 #}}}
 
-# File Rename
-[[plugins]]
-repo = 'qpkorr/vim-renamer'
-# Note: it could override ':w'.
-on_cmd = 'Ren'
-hook_add = 'runtime renamer.vimrc'
+## File Rename
+#[[plugins]]
+#repo = 'qpkorr/vim-renamer'
+## Note: behaves different than what I expects.
+#on_cmd = 'Renamer'
+#hook_add = 'runtime renamer.vimrc'
 
 # Sudo
 [[plugins]]
