@@ -1,4 +1,4 @@
-# From: rc/dein.vir
+# From: rc/dein.vim
 
 # Multiple FileType;
 #[[plugins]]
@@ -19,6 +19,7 @@
 #hook_post_source = 'runtime rc/syntastic.vim'
 ##}}}
 
+# Vim
 [[plugins]]
 repo = 'mhinz/vim-lookup' #{{{
 # Enable to jump to definition as &runtimepath.
@@ -112,10 +113,11 @@ hook_post_source = 'runtime rc/haskell.vim'
 repo = 'plytophogy/vim-virtualenv' #{{{
 # supports pip-packages, independently installed in shell, to work on vim
 on_ft = 'python'
+#}}}
 [[plugins]]
 repo = 'python-mode/python-mode' #{{{
 on_ft = 'python'
-hook_post_update = 'git submodule update --init --recursive'
+hook_post_update = '!git submodule update --init --recursive'
 hook_post_source = 'runtime rc/python-mode.vim'
 #}}}
 [[plugins]]
