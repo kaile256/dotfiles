@@ -9,6 +9,9 @@ hook_add = 'runtime rc/pfp.vim'
 # Repeat
 [[plugins]]
 repo = 'tpope/vim-repeat' #{{{
+# Note: dein doesn't load this plugin,
+#       so I made a symlink to the directory at plugin/.
+#       Therefore, the lazy loading doesn't work either.
 on_map = '<Plug>(Repeat'
 # have to load before maps_KAIZEN:
 # e.g., cp/dp with dotrepeat.
@@ -50,12 +53,12 @@ on_map = '<Plug>(floaterm-'
 hook_add = 'runtime rc/floaterm.vim'
 
 # Interactive
-[[plugins]]
-repo = 'metakirby5/codi.vim' #{{{
-# An interactive scratchpad for hackers.
-on_ft = ['python', 'javascript', 'coffeescript', 'haskell', 'ruby', 'OCaml', 'R', 'clojure', 'php', 'lua', 'cpp', 'julia', 'elm', 'elixir', 'typescript', 'mathjs']
-hook_post_source = 'runtime rc/codi.vim'
-#}}}
+#[[plugins]]
+#repo = 'metakirby5/codi.vim' #{{{
+## An interactive scratchpad for hackers.
+#on_ft = ['python', 'javascript', 'coffeescript', 'haskell', 'ruby', 'OCaml', 'R', 'clojure', 'php', 'lua', 'cpp', 'julia', 'elm', 'elixir', 'typescript', 'mathjs']
+#hook_post_source = 'runtime rc/codi.vim'
+##}}}
 
 #[[plugins]]
 #repo = 'fszymanski/fzf-gitignore' #{{{
