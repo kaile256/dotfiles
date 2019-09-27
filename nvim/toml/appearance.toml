@@ -1,4 +1,4 @@
-# From: rc/dein.vir
+# From: rc/dein.vim
 
 # Colorscheme; Collection
 [[plugins]]
@@ -93,5 +93,7 @@ hook_post_source = 'runtime rc/matchup.vim'
 repo = 'itchyny/vim-cursorword' #{{{
 # Underlines appear on every word under the cursor.
 on_event = 'CursorMoved'
+# Error: no such Event CursorWord0
+#hook_add = 'let g:cursorword_highlight = 0'
 hook_post_source = 'runtime rc/cursorword.vim'
 #}}}
