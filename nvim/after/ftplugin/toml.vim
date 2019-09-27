@@ -8,5 +8,6 @@ augroup AutoFormatOnToml
   au BufWritePre *.toml keeppatterns %s/https:\/\/github.com\///ge
 augroup END
 
-" Note: simple =-operator devasticates indent if fold by '{{{'.
+" Note: simple =-operator devasticates indent if &fdm=marker in many filetypes but vim.
 noremap <buffer><silent> <c-=> :keeppatterns %s/^\s\+//ge<cr>
+noremap <buffer><silent> g= :keeppatterns %s/^\s\+//ge<cr>
