@@ -22,10 +22,6 @@ let g:eskk#no_default_mappings = 1
 "let g:eskk#mapped_keys = "\<c-space>"  " no use
 " Remind: <a-space> for <esc>l.
 " lmap for Insert, Command-line, Lang-Arg
-if execute('imap <c-j>')
-  " default: <c-j> to eskk#enable()
-  unmap <c-j>
-endif
 inoremap <expr> <c-space> eskk#enable()
 cnoremap <expr> <c-space> eskk#enable()
 " Henkan; Completion {{{1
@@ -45,6 +41,7 @@ let g:eskk#marker_henkan = '@'
 let g:eskk#marker_henkan_select = '>>'
 let g:eskk#marker_okuri = '*'
 let g:eskk#marker_jisyo_touroku = '?'
+
 function! s:eskk_special_maps() "{{{1
   " A user can do something heavy process here.
   let t = eskk#table#new('rom_to_hira*', 'rom_to_hira')
