@@ -22,6 +22,10 @@ let g:eskk#no_default_mappings = 1
 "let g:eskk#mapped_keys = "\<c-space>"  " no use
 " Remind: <a-space> for <esc>l.
 " lmap for Insert, Command-line, Lang-Arg
+if execute('imap <c-j>')
+  " default: <c-j> to eskk#enable()
+  unmap <c-j>
+endif
 inoremap <expr> <c-space> eskk#enable()
 cnoremap <expr> <c-space> eskk#enable()
 " Henkan; Completion {{{1
