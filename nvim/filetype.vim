@@ -2,9 +2,9 @@
 
 augroup AppendFileType
   au!
-  au BufWinEnter *.txt         setl syn=help
-  au BufWinEnter *.snip        setl ft=neosnippet
-  au BufWinEnter i3/**/config   setl ft=i3
+  au BufWinEnter *.txt        setl syn=help
+  au BufWinEnter *.snip       setl ft=neosnippet
+  au BufWinEnter i3/**/config setl ft=i3
   "au BufWinEnter dotfiles/** setl fdm=marker
 augroup END
 
