@@ -102,7 +102,7 @@ function! s:defx_keymap_explorer() abort
   "      \ defx#do_action('toggle_columns',
   "      \                'mark:indent:icon:filename:type:size:time')
   " Selected; Open File {{{1
-  " TODO: Prepare User's event on buffer's openning from defx.
+  " TODO: Make User's event on buffer's openning from defx.
   nnoremap <silent><buffer><expr> <c-j>
         \ (winwidth('.') > g:defx_is_wide)?
         \ defx#is_directory()?
@@ -123,18 +123,17 @@ function! s:defx_keymap_explorer() abort
         \ defx#do_action('multi', ['drop', 'quit'])
         \ . '<c-w>q'
   nnoremap <silent><buffer><expr> <TAB>
-        \ defx#do_action('open', 'bot vsplit')
+        \ defx#do_action('open', 'bel vsplit')
         \ . ':wincmd p<cr>'
+  " Note: defx's quit with split doesn't work well.
   nnoremap <silent><buffer><expr> <c-v>
-        \ defx#do_action('multi', ['drop', 'vsplit'], 'quit')
-  " TODO: should make them work {{
+        \ defx#do_action('open', 'vsplit')
+        \ .':'. bufwinnr(bufname("\[defx\]")) .'close<cr>'
   nnoremap <silent><buffer><expr> <c-s>
-        \ defx#async_action('drop', 'split')
-  "}} End of todo
-  nnoremap <silent><buffer><expr> <c-b>
-        \ defx#do_action('multi', [['drop', 'tabe'], 'quit'])
+        \ defx#do_action('open', 'bot split')
+        \ .':'. bufwinnr(bufname("\[defx\]")) .'close<cr>'
   nnoremap <silent><buffer><expr> <c-t>
-        \ defx#do_action('multi', [['drop', 'tabe'], 'quit'])
+        \ defx#do_action('drop', 'tabe')
   " Selected; Open Tree {{{1
   nnoremap <silent><buffer><expr> u
         \ defx#do_action('open_or_close_tree')
