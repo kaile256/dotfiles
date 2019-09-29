@@ -4,9 +4,10 @@
 " Repo: neoclide/coc.nvim
 " Coc: .config/coc/extensions
 
+
 augroup CocMyAutoConf
   au!
-  au! WinEnter plugin/** if line('$') == 1 && getline('.') == '' | CocCommand template.templateTop
+  "au! WinEnter plugin/** if line('$') == 1 && getline('.') == '' | CocCommand template.templateTop
   au BufWinEnter coc-settings.json setl keywordprg=:help
   "au BufLeave * if &ft ==# 'coc' || 'list' | hide | endif
   au FileType coc,list setl laststatus=0 noshowmode noruler
@@ -26,6 +27,26 @@ let g:markdown_fenced_languages = [
 
 hi HighlightedyankRegion ctermfg=232 ctermbg=66 guifg=#000000 guibg=#df5f29
 
+" Note: <c-o> in coc's cmdline to normal mode of coc.nvim
+
+" Command!; C-series {{{1
+command! CocIfHasProvider :call <SID>coc_if_has_provider()
+command! CIfHasProvider   :call <SID>coc_if_has_provider()
+command! CUninstall :CocUninstall g:coc_global_extensions
+command! CConfig     :CocConfig
+command! CCmd        :CocCommand
+command! CList       :CocList
+command! Coc         :CocList
+command! CExtensions :CocList extensions
+command! CTemplate :CocCommand template.templateTop
+command! CInit     :CocCommand template.templateTop
+command! Init      :CocCommand template.templateTop
+" Note: fzf.vim is better,
+"       which has regex-like specification method on fuzzy-matcher.
+command! CFiles    :CocList files
+command! CMru      :CocList mru
+command! CBuffers  :CocList buffers
+command! CLocalLog :CocList bcommits
 " the List of CocExtentions; "{{{1
 " Note: Have to install LSPs independently.
 let g:coc_global_extensions = [
@@ -66,22 +87,6 @@ let g:coc_global_extensions = [
       \ 'coc-yank',
       \ ]
 "}}}
-" CmdAbbr; Clear All coc-extentions to reset extentions.
-cnoreabbr <expr> cun  (getcmdtype() == ':' && getcmdline() =~ '^cun$')?  'CocUninstall g:coc_global_extensions' : 'cun'
-cnoreabbr <expr> cclr (getcmdtype() == ':' && getcmdline() =~ '^cclr$')? 'CocUninstall g:coc_global_extensions' : 'cclr'
-cnoreabbr <expr> coc (getcmdtype() == ':' && getcmdline() =~ '^coc$')? 'CocList' : 'coc'
-" Command!; C-series {{{1
-command! CConfig :CocConfig
-command! CCmd :CocCommand
-command! Coc :CocList
-command! CList :CocList
-command! CMru :CocList mru
-command! Cextensions :CocList extensions
-command! CLocalLog :CocList bcommits
-command! CBuffers :CocList buffers
-" Command; Original
-command! CocIfHasProvider :call <SID>coc_if_has_provider()
-command! CIfHasProvider   :call <SID>coc_if_has_provider()
 let s:coc_provider_list = [
       \ 'rename',
       \ 'format',
