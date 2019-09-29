@@ -109,7 +109,6 @@ set list
 "  au BufEnter,CursorHold * if &l:list == 0 | setl list | endif
 "augroup END
 "set listchars=tab:»-,trail:-,eol:↲,extends:»,precedes:«,nbsp:%
-"set listchars=tab:\|\ ,trail:~
 "}}}
 
 " Method; Imput Method {{{
