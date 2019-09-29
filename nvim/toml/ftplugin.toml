@@ -1,6 +1,10 @@
 # From: rc/dein.vim
 
 # Multiple FileType;
+[[plugins]]
+repo = 'editorconfig/editorconfig-vim'
+on_event = 'BufRead'
+hook_add = 'runtime editorconfig.vimrc'
 #[[plugins]]
 #repo = 'tpope/vim-sleuth' #{{{
 ## Note: Sleuth means a detective.
