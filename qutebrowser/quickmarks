@@ -77,3 +77,4 @@ vim: sample templates for coc-template https://github.com/voldikss/dotfiles/tree
 dotfiles: voldikss, who is one of the contributer of coc.nvim https://github.com/voldikss/dotfiles
 Let's make a font family via sf mono! https://qiita.com/delphinus/items/f472eb04ff91daf44274
 tpope/dotfiles https://github.com/tpope/tpope
+Doc: EditorConfig https://editorconfig.org/
