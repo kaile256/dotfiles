@@ -1,8 +1,8 @@
 " From: external.toml
+" Repo: neoclide/coc.nvim
 " Branch: neoclide/coc.nvim_release
 " Func: neoclide/coc.nvim_release/plugin/coc.vim
-" Repo: neoclide/coc.nvim
-" Coc: .config/coc/extensions
+" XDG: .config/coc/extensions
 
 
 augroup CocMyAutoConf
