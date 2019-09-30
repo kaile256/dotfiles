@@ -37,7 +37,7 @@ let s:wiki_markdown = {
       \ 'syntax': 'markdown',
       \ 'index': 'index',
       \ 'path': '~/vimwiki/mdwiki/',
-      \ 'ext': '.markdown',
+      \ 'ext': '.md',
       \ 'auto_tags': 1,
       \ 'auto_diary_index': 1,
       \ 'list_margin': 4,
@@ -68,7 +68,7 @@ let g:vimwiki_list = [
 "}}}
 
 " Hotkey; Index {{{1
-command! MdwikiIndex :e ~/vimwiki/mdwiki/index.markdown
+command! MdwikiIndex :e ~/vimwiki/mdwiki/index.md
 nnoremap <silent> <a-w><a-e> :<c-u>MdwikiIndex <cr>
 nnoremap <silent> <a-w><a-b> :<c-u>tab sp <bar> MdwikiIndex <cr>
 nnoremap <silent> <a-w><a-v> :<c-u>vs <bar> MdwikiIndex <cr>
@@ -170,7 +170,7 @@ augroup END
 function! s:my_startpage(page) "{{{1
   if @% ==# '' && &ft ==# '' && &bt ==# '' && getline(1,'$') ==# ['']
     if a:page ==# 'mdwiki'
-      e ~/vimwiki/mdwiki/index.markdown
+      e ~/vimwiki/mdwiki/index.md
     elseif a:page ==# 'wiki' || a:page ==# 'vimwiki'
       VimwikiIndex
     elseif a:page ==# 'diary'
@@ -183,11 +183,11 @@ function! s:my_startpage(page) "{{{1
 endfunction "}}}
 augroup AutoFormatVimwiki
   au!
-  au BufNewFile,BufEnter *wiki/**.markdown setl ft=vimwiki syn=vimwiki
+  au BufNewFile,BufEnter *wiki/**.md setl ft=vimwiki syn=vimwiki
   au FileType vimwiki setl tabstop=4 softtabstop=4 shiftwidth=4
   au FileType vimwiki setl nowrap fdl=1
   au BufWritePre index.* if &syn  ==# 'vimwiki' | VimwikiGenerateLinks
-  au BufWritePre * if &syn  ==# 'vimwiki' | VimwikiTOC
+  au BufWritePre vimwiki/** if &syn  ==# 'vimwiki' | VimwikiTOC
   au InsertLeave * if &wrap == 0 | norm zH
   "au BufWritePre * if &syn  ==# 'vimwiki' | VimwikiListChangeLvl w w
 augroup END
