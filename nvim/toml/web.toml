@@ -1,4 +1,4 @@
-# From: rc/dein.vir
+# From: rc/dein.vim
 
 # Browser;
 [[plugins]]
@@ -22,30 +22,6 @@ on_cmd = 'Calendar'
 hook_post_source = 'runtime rc/calendar.vim'
 #}}}
 
-# API;
-[[plugins]]
-repo = 'mattn/webapi-vim'
-#on_map = ['Pocket']
-on_event = ['BufRead']
-hook_add = 'runtime rc/webapi.vim'
-# API; Pocket
-[[plugins]]
-repo = 'soramugi/pocket.vim'
-#on_map = 'Pocket'
-on_event = ['BufRead']
-hook_add = 'runtime rc/pocket.vim'
-# API; Twitter
-[[plugins]]
-repo = 'basyura/TweetVim' #{{{
-on_event = 'CmdlineEnter'
-hook_post_source = 'runtime rc/tweetvim.vim'
-#}}}
-[[plugins]]
-repo = 'basyura/twibill.vim' # {{{
-on_event = 'CmdlineEnter'
-hook_post_source = 'runtime rc/twibill.vim'
-#}}}
-
 [[plugins]]
 repo = 'wakatime/vim-wakatime' #{{{
 # tracking service for coding activity.
@@ -53,3 +29,27 @@ on_cmd = 'WakaTime'
 on_cmd = 'OpenBrowser'
 hook_add = 'runtime rc/wakatime.vim'
 #}}}
+
+# API;
+#[[plugins]]
+#repo = 'mattn/webapi-vim'
+##on_map = ['Pocket']
+#on_event = ['BufRead']
+#hook_add = 'runtime rc/webapi.vim'
+### API; Pocket
+##[[plugins]]
+##repo = 'soramugi/pocket.vim'
+###on_map = 'Pocket'
+##on_event = ['BufRead']
+##hook_add = 'runtime rc/pocket.vim'
+## API; Twitter
+#[[plugins]]
+#repo = 'basyura/TweetVim' #{{{
+#on_event = 'CmdlineEnter'
+#hook_post_source = 'runtime rc/tweetvim.vim'
+##}}}
+#[[plugins]]
+#repo = 'basyura/twibill.vim' # {{{
+#on_event = 'CmdlineEnter'
+#hook_post_source = 'runtime rc/twibill.vim'
+##}}}

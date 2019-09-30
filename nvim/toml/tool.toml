@@ -9,7 +9,7 @@ hook_add = 'runtime rc/pfp.vim'
 # Repeat
 [[plugins]]
 repo = 'tpope/vim-repeat' #{{{
-# Note: dein doesn't load this plugin,
+# Note: dein doesn't load this plugin, on unknown reason,
 #       so I made a symlink to the directory at plugin/.
 #       Therefore, the lazy loading doesn't work either.
 on_map = '<Plug>(Repeat'
@@ -46,11 +46,11 @@ hook_add = 'runtime rc/suda.vim'
 repo = 'ncm2/float-preview.nvim'
 on_source = ['delplete.nvim', 'coc.nvim']
 hook_post_source = 'runtime rc/float-preview.vim'
-[[plugins]]
-repo = 'voldikss/vim-floaterm'
-on_cmd = 'FloatermToggle'
-on_map = '<Plug>(floaterm-'
-hook_add = 'runtime rc/floaterm.vim'
+#[[plugins]]
+#repo = 'voldikss/vim-floaterm'
+#on_cmd = 'FloatermToggle'
+#on_map = '<Plug>(floaterm-'
+#hook_add = 'runtime rc/floaterm.vim'
 
 # Interactive
 #[[plugins]]
@@ -181,7 +181,6 @@ on_cmd = 'Scouter'
 repo = 'tweekmonster/helpful.vim'
 on_cmd = 'HelpfulVersion'
 hook_add = 'runtime rc/helpful.vim'
-#[[plugins]]
-#repo = 'rhysd/vim-themis'
-#on_cmd = ['BufRead']
-#hook_post_source = 'runtime rc/themis.vim'
+[[plugins]]
+repo = 'rhysd/vim-themis'
+hook_post_source = 'runtime rc/themis.vim'
