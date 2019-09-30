@@ -14,13 +14,13 @@ on_cmd = ['Task', 'TW']
 hook_post_source = 'runtime rc/taskwiki.vim'
 [[plugins]]
 repo = 'powerman/vim-plugin-AnsiEsc'
-# Provides Color support on chart
+# Provides Color support on chart of taskwiki.
 if = 'executable("task")'
 on_source = 'taskwiki'
 hook_post_source = 'runtime rc/AnsiEsc.vim'
 [[plugins]]
 repo = 'blindFS/vim-taskwarrior'
-# enables grid-view on taskwiki, too.
+# enables grid-view on taskwiki.
 if = 'executable("task")'
 on_cmd = ['Task', 'TW']
 hook_post_source = 'runtime rc/taskwarrior.vim'
