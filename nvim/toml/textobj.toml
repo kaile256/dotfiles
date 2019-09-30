@@ -7,24 +7,11 @@ on_event = 'BufRead'
 hook_post_source = 'runtime rc/textobj-user.vim'
 #}}}
 [[plugins]]
-repo = 'kana/vim-textobj-fold'
-#on_map = '<Plug>(textobj-fold-'  # Note: `on_map` makes no sense with text-obj.
-on_event = 'BufRead'
-[[plugins]]
-repo = 'kana/vim-textobj-entire'
-# For: entire lines of current buffer.
-on_event = 'BufRead'
-#[[plugins]]
-#repo = 'eikendev/vim-textobj-names'
-## For: names separated by delimiters like -, _, /, @ or #.
-#on_event = 'BufRead'
-#hook_add = 'runtime rc/textobj-names.vim'
-[[plugins]]
-repo = 'kana/vim-textobj-function'
+repo = 'kana/vim-textobj-function' #{{{
+# should activates on lsp doesn't provide the textobjects.
 on_ft = 'vim'
 hook_add = '''
 let g:textobj_function_no_default_key_mappings = 1
-
 augroup LetTextobjFuncOnlyWhenRequired
 au!
 au FileType vim omap <buffer> af  <Plug>(textobj-function-a)
@@ -33,35 +20,64 @@ au FileType vim omap <buffer> aF  <Plug>(textobj-function-A)
 au FileType vim omap <buffer> iF  <Plug>(textobj-function-I)
 augroup END
 '''
-[[plugins]]
-repo = 'coderifous/textobj-word-column.vim' #{{{
-# Note: Use it with blockwise-visual mode.
-on_event = 'BufRead'
-hook_add = '''
-let g:skip_default_textobj_word_column_mappings = 1
-" Mnemonic: Queue
-xnoremap <silent> aq :<C-u>call TextObjWordBasedColumn("aw")<cr>
-xnoremap <silent> iq :<C-u>call TextObjWordBasedColumn("iw")<cr>
-onoremap <silent> aq :call TextObjWordBasedColumn("aw")<cr>
-onoremap <silent> iq :call TextObjWordBasedColumn("iw")<cr>
-xnoremap <silent> aQ :<C-u>call TextObjWordBasedColumn("aW")<cr>
-xnoremap <silent> iQ :<C-u>call TextObjWordBasedColumn("iW")<cr>
-onoremap <silent> aQ :call TextObjWordBasedColumn("aW")<cr>
-onoremap <silent> iQ :call TextObjWordBasedColumn("iW")<cr>
-'''
 #}}}
 [[plugins]]
-repo = 'sgur/vim-textobj-parameter'
+repo = 'kana/vim-textobj-fold' #{{{
+# Note: `on_map` makes no sense in omap.
 on_source = 'vim-textobj-user'
-hook_add = 'runtime rc/textobj-parameter.vim'
+#}}}
 [[plugins]]
-repo = 'kana/vim-textobj-indent'
-on_map = '<Plug>(textobj-indent-'
-[[plugins]]
-repo = 'saaguero/vim-textobj-pastedtext'
-on_map = '<Plug>(textobj-pastedtext'
-hook_add = 'runtime rc/textobj-pastedtext.vim'
+repo = 'kana/vim-textobj-entire' #{{{
+# For: entire lines of current buffer.
+# Note: `on_map` makes no sense in omap.
+on_source = 'vim-textobj-user'
+#}}}
 #[[plugins]]
-#repo = 'bps/vim-textobj-python'
+#repo = 'eikendev/vim-textobj-names' #{{{
+## For: names separated by delimiters like -, _, /, @ or #.
+#on_event = 'BufRead'
+#hook_add = 'runtime rc/textobj-names.vim'
+##}}}
+#[[plugins]]
+#repo = 'coderifous/textobj-word-column.vim' #{{{
+## Note: Use it with blockwise-visual mode.
+#on_event = 'BufRead'
+#hook_add = '''
+#let g:skip_default_textobj_word_column_mappings = 1
+#" Mnemonic: Queue
+#xnoremap <silent> aq :<C-u>call TextObjWordBasedColumn("aw")<cr>
+#xnoremap <silent> iq :<C-u>call TextObjWordBasedColumn("iw")<cr>
+#onoremap <silent> aq :call TextObjWordBasedColumn("aw")<cr>
+#onoremap <silent> iq :call TextObjWordBasedColumn("iw")<cr>
+#xnoremap <silent> aQ :<C-u>call TextObjWordBasedColumn("aW")<cr>
+#xnoremap <silent> iQ :<C-u>call TextObjWordBasedColumn("iW")<cr>
+#onoremap <silent> aQ :call TextObjWordBasedColumn("aW")<cr>
+#onoremap <silent> iQ :call TextObjWordBasedColumn("iW")<cr>
+#'''
+##}}}
+#[[plugins]]
+#repo = 'sgur/vim-textobj-parameter' #{{{
+#on_source = 'vim-textobj-user'
+#hook_add = 'runtime rc/textobj-parameter.vim'
+##}}}
+#[[plugins]]
+#repo = 'kana/vim-textobj-indent' #{{{
+#on_map = '<Plug>(textobj-indent-'
+#hook_add = '''
+#let g:textobj_indent_no_default_key_mappings = 1
+#ai  <Plug>(textobj-indent-a)
+#ii  <Plug>(textobj-indent-i)
+#aI  <Plug>(textobj-indent-same-a)
+#iI  <Plug>(textobj-indent-same-i)
+#'''
+##}}}
+#[[plugins]]
+#repo = 'saaguero/vim-textobj-pastedtext' #{{{
+#on_map = '<Plug>(textobj-pastedtext'
+#hook_add = 'runtime rc/textobj-pastedtext.vim'
+##}}}
+#[[plugins]]
+#repo = 'bps/vim-textobj-python' #{{{
 #on_ft = 'python'
 #hook_post_source = ':TextobjPythonDefaultKeyMappings!'
+##}}}
