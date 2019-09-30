@@ -14,11 +14,7 @@ command! -complete=dir NNNGcreateRepoOnGitHub
       \ 'https://github.com/kaile256/'. s:repo_name .'.git'
 command! -nargs=+ Gclone :Git clone <q-args>
 function! s:fugitive_commit_with_diff() abort "{{1
-  if &diff
-    wincmd o
-    diffoff!
-  endif
-  silent wincmd T
+  call <SID>_prepare_fugitive_diff()
   " Keep to show diff w/ HEAD^ while editting commit-message.
   " TO diff w/ HEAD^ ignores the last commited change to diff.
   Gvdiffsplit! HEAD
@@ -28,17 +24,30 @@ function! s:fugitive_commit_with_diff() abort "{{1
   setl winfixwidth
   wincmd =
 endfunction "}}}
-command! Gstage :Gw <bar> call <SID>fugitive_commit_with_diff()
+command! Gstage
+      \ :Gw | call <SID>fugitive_commit_with_diff()
 " in new tab, if any unnecessary windows are there.
 " TODO: set unstage
-" &@:<C-U>execute <SNR>277_Do('Unstage',0)<CR> 
-" &@:exe <SNR>277_EchoExec('reset', '-q')<CR>  
+" &@:<C-U>execute <SNR>277_Do('Unstage',0)<CR>
+" &@:exe <SNR>277_EchoExec('reset', '-q')<CR>
 "command! Gunstage :G
 "noremap <silent> <a-y><a-u> :Gunstage<cr>
 command! GdiffMode
-      \ :cclose
-      \ <bar>if &diff <bar>wincmd o <bar>diffoff! <bar>endif
-      \ <bar>silent wincmd T <bar>Gvdiffsplit!
+      \ call <SID>_prepare_fugitive_diff()
+      \ | Gvdiffsplit!
+function! s:_prepare_fugitive_diff() abort
+  windo
+        \ if &bt ==# 'nofile'
+        \ || &bt ==# 'nowrite'
+        \ || &bt ==# 'quickfix'
+        \ || bufname('%') =~# 'fugitive:\/\/'
+        \ | quit
+        \ | endif
+  windo
+        \ if !&l:diff
+        \ | silent wincmd T
+        \ | endif
+endfunction
 
 " Info; Blame {{{
 nnoremap <silent> <a-y>b     :<c-u>Gblame<cr>
@@ -53,8 +62,6 @@ nnoremap <silent> <a-y>a     :Gw <bar> Gstatus<cr>
 nnoremap <silent> <a-y><a-a> :Gw <bar> Gstatus<cr>
 "}}}
 " Add; && Commit w/ diff {{{1
-"noremap <silent> <a-y>w     :<c-u>cclose <bar> Gw <cr> :call <SID>fugitive_commit_with_diff()<cr>
-"noremap <silent> <a-y><a-w> :<c-u>cclose <bar> Gw <cr> :call <SID>fugitive_commit_with_diff()<cr>
 nnoremap <silent> <a-y>w     :<c-u>cclose <bar> :Gstage<cr>
 nnoremap <silent> <a-y><a-w> :<c-u>cclose <bar> :Gstage<cr>
 "}}}
@@ -74,7 +81,6 @@ endfunction "}}}
 
 function! s:on_fugitive_keymap()
   " TODO: Specify the window of the latest commit buffer on `dq`.
-  nnoremap <buffer><silent> dq    <c-w>h<c-w>o:diffoff!<cr>
   nnoremap <buffer><silent> cc    :<C-U>bot 20 Gcommit<CR>
   nnoremap <buffer><silent> ca    :<C-U>bot 20 Gcommit --amend<CR>
   " Continue to cc/ce/ca.
@@ -89,7 +95,7 @@ augroup END "}}}
 augroup OnFugitiveBuffer
   au!
   " gitcommit should be writeable not setting bt=qf.
-  au FileType fugitive,fugitiveblame setl nonumber signcolumn= bt=quickfix
+  au FileType fugitive,fugitiveblame setl nonumber signcolumn=
   au FileType gitcommit              setl spell    nonumber    signcolumn=
   " For: the case ':norm U' to unstage all, especially.
   nnoremap <silent> <Plug>(fugitive-gstage-last-window) :<c-u>wincmd p <cr> :Gw <bar> wincmd p<cr>
