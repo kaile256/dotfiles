@@ -98,8 +98,8 @@ augroup OnFugitiveBuffer
   au FileType fugitive,fugitiveblame,gitcommit setl nonumber signcolumn=
   au FileType gitcommit setl spell
   au FileType fugitive nunmap <buffer> dq
-  au FileType fugitive nmap <buffer> dq :call <SID>fugitive__thin_out()<cr>
-  " For: the case ':norm U' to unstage all, especially.
+  au FileType fugitive nnoremap <silent><buffer> dq :call <SID>fugitive__thin_out()<cr>``
+  " For: especially in the case, ':norm U' to unstage all.
   nnoremap <silent> <Plug>(fugitive-gstage-last-window) :<c-u>wincmd p <cr> :Gw <bar> wincmd p<cr>
   au FileType fugitive nmap <silent><buffer> S <Plug>(fugitive-gstage-last-window)
   "au BufWinLeave gitcommit Gcommit | norm <c-w>h:diffoff!<cr>
