@@ -14,7 +14,7 @@ command! -complete=dir NNNGcreateRepoOnGitHub
       \ 'https://github.com/kaile256/'. s:repo_name .'.git'
 command! -nargs=+ Gclone :Git clone <q-args>
 function! s:fugitive_commit_with_diff() abort "{{1
-  call <SID>_prepare_fugitive_diff()
+  call <SID>fugitive__thin_out()
   " Keep to show diff w/ HEAD^ while editting commit-message.
   " TO diff w/ HEAD^ ignores the last commited change to diff.
   Gvdiffsplit! HEAD
@@ -33,9 +33,9 @@ command! Gstage
 "command! Gunstage :G
 "noremap <silent> <a-y><a-u> :Gunstage<cr>
 command! GdiffMode
-      \ call <SID>_prepare_fugitive_diff()
+      \ call <SID>fugitive__thin_out()
       \ | Gvdiffsplit!
-function! s:_prepare_fugitive_diff() abort
+function! s:fugitive__thin_out() abort
   windo
         \ if &bt ==# 'nofile'
         \ || &bt ==# 'nowrite'
@@ -95,8 +95,9 @@ augroup END "}}}
 augroup OnFugitiveBuffer
   au!
   " gitcommit should be writeable not setting bt=qf.
-  au FileType fugitive,fugitiveblame setl nonumber signcolumn=
-  au FileType gitcommit              setl spell    nonumber    signcolumn=
+  au FileType fugitive,fugitiveblame,gitcommit setl nonumber signcolumn=
+  au FileType gitcommit setl spell
+  au FileType fugitive nunmap <buffer> dq
   " For: the case ':norm U' to unstage all, especially.
   nnoremap <silent> <Plug>(fugitive-gstage-last-window) :<c-u>wincmd p <cr> :Gw <bar> wincmd p<cr>
   au FileType fugitive nmap <silent><buffer> S <Plug>(fugitive-gstage-last-window)
