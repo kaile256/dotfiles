@@ -10,19 +10,19 @@ hook_source = 'runtime rc/vimwiki.vim'
 [[plugins]]
 repo = 'tbabej/taskwiki'
 if = 'executable("task")'
-on_cmd = ['Task', 'TW']
-hook_post_source = 'runtime rc/taskwiki.vim'
+on_cmd = 'TaskWiki'
+hook_add = 'runtime rc/taskwiki.vim'
 [[plugins]]
 repo = 'powerman/vim-plugin-AnsiEsc'
 # Provides Color support on chart of taskwiki.
 if = 'executable("task")'
-on_source = 'taskwiki'
+on_cmd = ['TaskWiki']
 hook_post_source = 'runtime rc/AnsiEsc.vim'
 [[plugins]]
 repo = 'blindFS/vim-taskwarrior'
 # enables grid-view on taskwiki.
 if = 'executable("task")'
-on_cmd = ['Task', 'TW']
+on_cmd = ['TaskWikiGrid', 'TW']
 hook_post_source = 'runtime rc/taskwarrior.vim'
 
 # Memo; Outliner
