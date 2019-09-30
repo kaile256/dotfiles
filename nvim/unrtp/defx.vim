@@ -205,6 +205,8 @@ function! s:defx_keymap_explorer() abort
   nnoremap <silent><buffer><expr> z.
         \ defx#do_action('toggle_ignored_files')
   "}}}
+  nnoremap <silent><buffer><expr> .
+        \ defx#do_action('repeat')
 endfunction
 augroup OnDefxBuffer
   au!
