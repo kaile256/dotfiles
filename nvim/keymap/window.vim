@@ -12,24 +12,15 @@ nnoremap <c-w>Z :<c-u>qa  <cr>
 inoremap <silent> <c-l>              <Cmd>noh<cr><c-o><c-l>
 nnoremap <silent> <c-space><space>   :<c-u>noh      <cr><c-l>
 nnoremap <silent> <c-space><c-space> :<c-u>noh      <cr><c-l>
-nnoremap <silent> <a-space><space>   :<c-u>cclose   <bar> lclose<cr>
-nnoremap <silent> <a-space><a-space> :<c-u>cclose   <bar> lclose<cr>
-function! s:quickclose_all() abort
-  let l:quickclose_list = [
-        \ '[defx]',
-        \ '__Mundo_',
-        \ '__vista__',
-        \ '.git/index',
-        \ '.git/COMMIT_EDITMSG',
-        \ ]
-  for buf in l:quickclose_list
-    if bufnr(buf)
-      exe bufnr(buf) .'bwipeout'
-    else
-      return
-    endif
-  endfor
-endfunction
+nnoremap <silent> <a-space><space>   :QuickClose<cr>
+nnoremap <silent> <a-space><a-space> :QuickClose<cr>
+command! QuickClose
+      \ :windo
+      \ if &bt ==# 'nofile'
+      \ || &bt ==# 'nowrite'
+      \ || &bt ==# 'quickfix'
+      \ | quit
+      \ | endif
 " Close; Tab-page
 noremap <silent> <c-w>C :<c-u>tabclose<cr>
 
