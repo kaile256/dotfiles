@@ -260,9 +260,9 @@ xmap qr   <Plug>(coc-codeaction-selected)
 " CocList; if selectionRange == v:true {{{2
 "nmap <silent> n <Plug>(coc-range-select)
 "nmap <silent> N <Plug>(coc-range-select-backward)
-"vmap <silent> <Plug>(coc-cursors-range)   
+"vmap <silent> <Plug>(coc-cursors-range)
 "nmap <silent> n <Plug>(coc-cursors-operator)
-"nmap <silent> * <Plug>(coc-cursors-word)    
+"nmap <silent> * <Plug>(coc-cursors-word)
 "nmap <silent> n <Plug>(coc-cursors-position)
 ""}}}
 
