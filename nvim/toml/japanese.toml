@@ -1,11 +1,9 @@
-# From: rc/dein.vir
+# From: rc/dein.vim
 
 # Imput Method
 [[plugins]]
 repo = 'tyru/eskk.vim' #{{{
-# Note: dein doesn't source eskk.vim on non-lazy though sourcing rc/vim.
-# Note: on_map = '<Plug>' neither fails to work.
-# TODO: Do NEVER source eskk on gnvim/nvim-qt.
+# Note: on_map fails to work in insert mode.
 on_event = ['InsertEnter', 'CmdlineEnter']
 hook_add = 'runtime rc/eskk.vim'
 [[plugins]]
