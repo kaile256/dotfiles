@@ -66,7 +66,7 @@ if &modelineexpr == v:true
   set nomodelineexpr
 endif
 "}}}
-" Cursor {{{
+" Appearance; Cursor {{{
 " shorter for CursorHold & CursorHoldI
 set updatetime=300
 "" Cursor; Disable ?fail
@@ -111,6 +111,10 @@ set list
 "set listchars=tab:»-,trail:-,eol:↲,extends:»,precedes:«,nbsp:%
 "}}}
 
+" Method; Shell {{{1
+if executable('fish')
+  set shell=fish
+endif
 " Method; Imput Method {{{
 " 0: IM will be off, when lmap is off.
 " lmap supports 3 modes: insert, commandline and lang-arg.
@@ -180,6 +184,10 @@ set foldlevel=1
 set foldnestmax=10
 "augroup MyAutoView
 "" Note: may cause trouble with shada in such caches as jumplist.
+augroup FoldMyConfigsAtMarker
+  au!
+  au BufWinEnter dotfiles/**,.config/** setl fdm=marker
+augroup END
 "  function! s:is_view_available() abort " {{{
 "    if !&buflisted || &bt !=# ''
 "      return 0
@@ -222,17 +230,17 @@ set complete-=i " i: included files
 "command! DiffOrig vert above new | setl bt=quickfix | r # | 0d_ | diffthis
 "      \ | wincmd p | diffthis
 
-" Leap; Multiple Windows
+" Leap; Multiple Windows {{{1
 set splitbelow
 set splitright
 
-" Leap; Jump
+" Leap; Jump {{{1
 " nostartofline: keep cursor column on jump, like `gg`, `M`.
 set nostartofline
 " hidden: ignore unwritten buffers to jump.
 set hidden
 
-" Leap; Search
+" Leap; Search {{{1
 set noignorecase
 "set ignorecase smartcase
 "set smartcase
@@ -240,7 +248,3 @@ set incsearch hlsearch nowrapscan
 " fold all lines unmatched on {pattern}.
 " CAUTION: foldable is apt to collapse format.
 
-augroup FoldMyConfigsAtMarker
-  au!
-  au BufWinEnter dotfiles/**,.config/** setl fdm=marker
-augroup END
