@@ -2,9 +2,10 @@
 
 # Hex Editor
 [[plugins]]
-repo = 'd0c-s4vage/pfp-vim'
+repo = 'd0c-s4vage/pfp-vim' #{{{
 on_cmd = 'Pfp'
 hook_add = 'runtime rc/pfp.vim'
+#}}}
 
 # Repeat
 [[plugins]]
@@ -21,10 +22,11 @@ hook_add = 'runtime rc/repeat.vim'
 
 ## File Rename
 #[[plugins]]
-#repo = 'qpkorr/vim-renamer'
+#repo = 'qpkorr/vim-renamer' #{{{
 ## Note: behaves different than what I expects.
 #on_cmd = 'Renamer'
 #hook_add = 'runtime renamer.vimrc'
+##}}}
 
 # Sudo
 [[plugins]]
@@ -43,14 +45,16 @@ hook_add = 'runtime rc/suda.vim'
 
 # Floating Window
 [[plugins]]
-repo = 'ncm2/float-preview.nvim'
+repo = 'ncm2/float-preview.nvim' #{{{
 on_source = ['delplete.nvim', 'coc.nvim']
 hook_post_source = 'runtime rc/float-preview.vim'
+#}}}
 #[[plugins]]
-#repo = 'voldikss/vim-floaterm'
+#repo = 'voldikss/vim-floaterm' #{{{
 #on_cmd = 'FloatermToggle'
 #on_map = '<Plug>(floaterm-'
 #hook_add = 'runtime rc/floaterm.vim'
+##}}}
 
 # Interactive
 #[[plugins]]
@@ -104,9 +108,10 @@ on_map = '<Cmd>Linediff'
 hook_add = 'runtime rc/linediff.vim'
 #}}}
 [[plugins]]
-repo = 'chrisbra/vim-diff-enhanced'
+repo = 'chrisbra/vim-diff-enhanced' #{{{
 on_cmd = ['EnhancedDiff', 'PatienceDiff']
 hook_add = 'runtime diff-enhanced.vimrc'
+#}}}
 
 # Fold
 [[plugins]]
@@ -164,10 +169,11 @@ hook_add = 'runtime rc/grammarous.vim'
 
 ## Image Viewer
 #[[plugins]]
-#repo = 'Cj-bc/drcs.vim'
+#repo = 'Cj-bc/drcs.vim' #{{{
 #rev = 'develop'
 #on_event = ['jpeg', 'gif', 'png', 'drcs']
 #hook_post_source = 'runtime rc/drcs.vim'
+##}}}
 
 # Template
 #[[plugins]]
@@ -176,15 +182,25 @@ hook_add = 'runtime rc/grammarous.vim'
 #hook_post_source = 'runtime rc/sonictemplate.vim'
 #}}}
 
-[[plugins]]
-repo = 'thinca/vim-scouter'
-on_cmd = 'Scouter'
 
 # Developper Tool
 [[plugins]]
-repo = 'tweekmonster/helpful.vim'
+repo = 'thinca/vim-scouter' #{{{
+on_cmd = 'Scouter'
+#}}}
+#[[plugins]]
+#repo = 'tweekmonster/dyslexic.vim' #{{{
+## Spell checker according to <cword>.
+#on_cmd = 'Dyslexic'
+#hook_add = 'runtime dyslexic.vimrc'
+##}}}
+[[plugins]]
+repo = 'tweekmonster/helpful.vim' #{{{
 on_cmd = 'HelpfulVersion'
 hook_add = 'runtime rc/helpful.vim'
+#}}}
 [[plugins]]
-repo = 'rhysd/vim-themis'
+repo = 'rhysd/vim-themis' #{{{
+# A library of vim-script for test-making.
 hook_post_source = 'runtime rc/themis.vim'
+#}}}
