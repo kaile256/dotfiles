@@ -4,10 +4,8 @@
 " Func: neoclide/coc.nvim_release/plugin/coc.vim
 " XDG: .config/coc/extensions
 
-
 augroup CocMyAutoConf
   au!
-  "au! WinEnter plugin/** if line('$') == 1 && getline('.') == '' | CocCommand template.templateTop
   au BufWinEnter coc-settings.json setl keywordprg=:help
   "au BufLeave * if &ft ==# 'coc' || 'list' | hide | endif
   au FileType coc,list setl laststatus=0 noshowmode noruler
@@ -17,18 +15,10 @@ augroup CocMyAutoConf
   "au User     CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
 augroup END
 
-let g:markdown_fenced_languages = [
-      \ 'vim',
-      \ 'help'
-      \]
-
 " Highlight on yanked
-"hi HighlightedyankRegion term=bold ctermbg=0 guibg=#13354A
-
 hi HighlightedyankRegion ctermfg=232 ctermbg=66 guifg=#000000 guibg=#df5f29
 
-" Note: <c-o> in coc's cmdline to normal mode of coc.nvim
-
+" Note: <c-o> in coc's cmdline get to normal mode of coc.nvim
 " Command!; C-series {{{1
 command! CocIfHasProvider :call <SID>coc_if_has_provider()
 command! CIfHasProvider   :call <SID>coc_if_has_provider()
@@ -87,29 +77,29 @@ let g:coc_global_extensions = [
       \ 'coc-yank',
       \ ]
 "}}}
-let s:coc_provider_list = [
-      \ 'rename',
-      \ 'format',
-      \ 'hover',
-      \ 'codeAction',
-      \ 'onTypeEdit',
-      \ 'definition',
-      \ 'declaration',
-      \ 'typeDefinition',
-      \ 'reference',
-      \ 'implementation',
-      \ 'codeLens',
-      \ 'documentColor',
-      \ 'documentHighlight',
-      \ 'documentLink',
-      \ 'documentSymbol',
-      \ 'workspaceSymbols',
-      \ 'formatRange',
-      \ 'foldingRange',
-      \ 'selectionRange',
-      \ ]
-function! s:coc_if_has_provider() "{{{2
-  for provider in s:coc_provider_list
+function! s:coc_if_has_provider() "{{{1
+  let l:coc_provider_list = [
+        \ 'hover',
+        \ 'rename',
+        \ 'format',
+        \ 'codeAction',
+        \ 'onTypeEdit',
+        \ 'definition',
+        \ 'declaration',
+        \ 'typeDefinition',
+        \ 'reference',
+        \ 'implementation',
+        \ 'codeLens',
+        \ 'documentColor',
+        \ 'documentHighlight',
+        \ 'documentLink',
+        \ 'documentSymbol',
+        \ 'workspaceSymbols',
+        \ 'formatRange',
+        \ 'foldingRange',
+        \ 'selectionRange',
+        \ ]
+  for provider in l:coc_provider_list
     if CocHasProvider(provider) == v:true
       let l:judge = 'true'
     elseif CocHasProvider(provider) == v:false
@@ -119,16 +109,12 @@ function! s:coc_if_has_provider() "{{{2
   endfor
 endfunction
 "}}}
-"}}}
-" Keymaps;
-"nnoremap q: :CocList cmdhistory<cr>
-"nnoremap q/ :CocList searchhistory<cr>
 " CocCommand; Git {{{1
 " Similar to the navigation on &diff
 nmap <expr> [c (&diff)? '[c': '<Plug>(coc-git-prevchunk)'
 nmap <expr> ]c (&diff)? ']c': '<Plug>(coc-git-nextchunk)'
 " show chunk diff at current position
-nmap <a-y>c     <Plug>(coc-git-chunkinfo)
+nmap <a-y>c <Plug>(coc-git-chunkinfo)
 omap ic <Plug>(coc-text-object-inner)
 xmap ic <Plug>(coc-text-object-inner)
 omap ac <Plug>(coc-text-object-outer)
@@ -140,18 +126,21 @@ xmap ac <Plug>(coc-text-object-outer)
 "      \ --sources=buffer+,file+
 "      \ --file-columns=icon,git,selection,clip,indent,filename,size
 ""}}}
-" CocCommand; extensions
-command! CocExtentions   :CocList    extensions
-command! CExtentions     :CocList    extensions
-nnoremap <a-c>e          :CocExtentions<cr>
-" CocCommand; Todo, or Task
+" CocCommand; extensions {{{1
+command! CocExtentions :CocList extensions
+command! CExtentions   :CocList extensions
+nnoremap <a-c>e        :CocExtentions<cr>
+nnoremap <a-c><a-e>    :CocExtentions<cr>
+" CocCommand; Todo, or Task {{{1
 command! CocTask         :CocCommand todolist.create
 command! CTask           :CocCommand todolist.create
 command! CocShowTaskList :CocList    todolist
 command! CShowTaskList   :CocList    todolist
 nnoremap <silent> <a-c>t     :CocTask<cr>
 nnoremap <silent> <a-c>s     :CocShowTaskList<cr>
-" CocCommand; Translator
+nnoremap <silent> <a-c><a-t>     :CocTask<cr>
+nnoremap <silent> <a-c><a-s>     :CocShowTaskList<cr>
+" CocCommand; Translator {{{1
 " Not work well yet on Japanese
 "command! -nargs=+ CEchoOnJapanese :call coc#config("translator", {"toLang": "ja"}) <bar> CocCommand translator.echo <q-args>
 "command! -nargs=+ CReplaceOnJapanese :call coc#config("translator", {"toLang": "ja"}) <bar> :CocCommand translator.echo <q-args>
@@ -161,6 +150,9 @@ nnoremap <silent> <a-c>s     :CocShowTaskList<cr>
 noremap <silent> <a-c><a-c> :CocList<cr>
 noremap <silent> <a-c><a-f> :CocList files<cr>
 noremap <silent> <a-c><a-b> :CocList buffers<cr><M-k>
+noremap <silent> <a-c>c :CocList<cr>
+noremap <silent> <a-c>f :CocList files<cr>
+noremap <silent> <a-c>b :CocList buffers<cr><M-k>
 " CocList; Session {{{1
 command! MksessionCoc   :CocCommand session.save
 command! SaveSessionCoc :CocCommand session.save
@@ -270,6 +262,8 @@ xmap qr   <Plug>(coc-codeaction-selected)
 " Necessary?: closes mpreview vindow when completion is done.
 "au! CompleteDone * if pumvisible() == 0 | pclose | endif
 "inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<CR>"
+inoremap <c-x><c-y> <Cmd>CocList yank<cr>
+inoremap <c-x>y     <Cmd>CocList yank<cr>
 "" Completion; Trigger {{{2
 function! s:make_sure_no_space() abort "{{{3
   let col = col('.') - 1
