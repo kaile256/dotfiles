@@ -1,4 +1,4 @@
-kaile256/dotfiles https://github.com/kaile256/dotfiles
+post_sourcekaile256/dotfiles https://github.com/kaile256/dotfiles
 Vigemus/impromptu.nvim https://github.com/Vigemus/impromptu.nvim
 arch.jp:news https://www.archlinux.jp/
 arch.jp:home https://wiki.archlinux.jp/index.php/%E3%83%A1%E3%82%A4%E3%83%B3%E3%83%9A%E3%83%BC%E3%82%B8
@@ -78,3 +78,5 @@ dotfiles: voldikss, who is one of the contributer of coc.nvim https://github.com
 Let's make a font family via sf mono! https://qiita.com/delphinus/items/f472eb04ff91daf44274
 tpope/dotfiles https://github.com/tpope/tpope
 Doc: EditorConfig https://editorconfig.org/
+Doc: xmona https://xmonad.org/documentation.html
+Doc: xmonad https://xmonad.org/documentation.html

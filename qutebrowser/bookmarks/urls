@@ -166,3 +166,5 @@ https://github.com/qpkorr/vim-renamer qpkorr/vim-renamer: Git repo for http://ww
 https://github.com/neovim/neovim neovim/neovim: Vim-fork focused on extensibility and usability
 https://github.com/editorconfig/editorconfig-vim editorconfig/editorconfig-vim: EditorConfig plugin for Vim
 https://editorconfig.org/ EditorConfig
+https://xmonad.org/documentation.html xmonad : documentation | the tiling window manager that rocks
+https://github.com/chrisbra/vim-diff-enhanced chrisbra/vim-diff-enhanced: Better Diff options for Vim
