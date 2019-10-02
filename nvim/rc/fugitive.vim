@@ -36,6 +36,9 @@ command! GdiffMode
       \ call <SID>fugitive__thin_out()
       \ | Gvdiffsplit!
 function! s:fugitive__thin_out() abort
+  let l:current = bufnr('%')
+  let l:fdm = &fdm
+  " Note: it's almost the same as smart_diffoff()
   windo
         \ if &bt ==# 'nofile'
         \ || &bt ==# 'nowrite'
@@ -47,6 +50,9 @@ function! s:fugitive__thin_out() abort
         \ if !&l:diff
         \ | silent wincmd T
         \ | endif
+  " TODO: bring me back to the buffer, where this function was called.
+  "exe l:current .'tabnext'
+  exe 'setl foldmethod='. l:fdm
 endfunction
 
 " Info; Blame {{{
