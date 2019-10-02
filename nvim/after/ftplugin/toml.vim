@@ -1,6 +1,7 @@
 " From: init.vim
 
 setl fdm=marker fdl=0
+"setl indentkeys=o,O
 
 augroup AutoFormatOnToml
   au!
@@ -9,5 +10,4 @@ augroup AutoFormatOnToml
 augroup END
 
 " Note: simple =-operator devasticates indent if &fdm=marker in many filetypes but vim.
-noremap <buffer><silent> <c-=> :keeppatterns %s/^\s\+//ge<cr>
 noremap <buffer><silent> g= :keeppatterns %s/^\s\+//ge<cr>
