@@ -168,3 +168,6 @@ https://github.com/editorconfig/editorconfig-vim editorconfig/editorconfig-vim: 
 https://editorconfig.org/ EditorConfig
 https://xmonad.org/documentation.html xmonad : documentation | the tiling window manager that rocks
 https://github.com/chrisbra/vim-diff-enhanced chrisbra/vim-diff-enhanced: Better Diff options for Vim
+https://github.com/neovim/neovim/wiki/Following-HEAD Following HEAD · neovim/neovim Wiki
+https://github.com/neovim/neovim/wiki/FAQ FAQ · neovim/neovim Wiki
+https://github.com/Shougo/echodoc.vim Shougo/echodoc.vim: Print documents in echo area.
