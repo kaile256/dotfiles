@@ -14,21 +14,24 @@ nnoremap <silent> <c-space><space>   :<c-u>noh      <cr><c-l>
 nnoremap <silent> <c-space><c-space> :<c-u>noh      <cr><c-l>
 nnoremap <silent> <a-space><space>   :QuickClose<cr>
 nnoremap <silent> <a-space><a-space> :QuickClose<cr>
-command! QuickClose
-      \ :windo
-      \ if &bt ==# 'nofile'
-      \ || &bt ==# 'nowrite'
-      \ || &bt ==# 'quickfix'
-      \ | quit
-      \ | endif
+command! QuickClose :call <SID>quick_close()
+function! s:quick_close() abort "{{{1
+  " Note: it's almost the same as smart_diffoff()
+  let l:current = bufwinnr('%')
+  windo
+        \ if &bt ==# 'nofile'
+        \ || &bt ==# 'nowrite'
+        \ || &bt ==# 'quickfix'
+        \ || bufname('%') =~# 'fugitive:\/\/'
+        \ |  quit
+        \ | endif
+  " Note: why, no range allowed on :wincmd in spite of :help.
+  "exe l:current .'wincmd w'
+  exe 'norm! '. l:current .'w'
+endfunction "}}}1
+
 " Close; Tab-page
 noremap <silent> <c-w>C :<c-u>tabclose<cr>
-
-" Move Window
-nnoremap <c-w>h <c-w>H
-nnoremap <c-w>j <c-w>J
-nnoremap <c-w>k <c-w>K
-nnoremap <c-w>l <c-w>L
 
 " Resize
 nnoremap <C-left>  <c-w>>
