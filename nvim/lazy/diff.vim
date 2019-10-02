@@ -3,18 +3,12 @@
 set diffopt=iwhite,vertical
 setl wrap
 
-" Note: some syntax have no reproducibility.
-"let s:colorscheme = g:colors_name
-"colorscheme gruvbox
-"augroup DiffMyAutoConf
-"au! BufWinLeave,BufLeave * exe 'colorscheme ' . s:colorscheme
-"augroup END
-
-"if bufexists(bufname('*/.git/*'))
-"  " Todo: Make it work; still winbufnr~~ is ignored.
-"  exe winbufnr(bufnr('*/.git/*/')) . 'windo setl bt=quickfix'
-"endif
-
-"hi DiffChange ctermfg=6 guifg=#d7875f
-" TODO: make it green that DiffChanged characters in DiffChanged lines.
-"hi Diff ctermfg=6 guifg=#87af87
+augroup TurnOffDiffMode
+  au!
+  " Turn off diff mode, without any other windows.
+  au WinEnter *
+        \ if (winnr('$') == 1)
+        \ && (getbufvar(winbufnr('.'), '&diff')) == 1 |
+        \     diffoff! |
+        \ endif
+augroup END
