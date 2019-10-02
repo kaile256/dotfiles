@@ -73,18 +73,10 @@ nnoremap <silent> <a-w><a-e> :<c-u>MdwikiIndex <cr>
 nnoremap <silent> <a-w><a-b> :<c-u>tab sp <bar> MdwikiIndex <cr>
 nnoremap <silent> <a-w><a-v> :<c-u>vs <bar> MdwikiIndex <cr>
 nnoremap <silent> <a-w><a-s> :<c-u>sp <bar> MdwikiIndex <cr>
-" Hotkey; Diary Index {{{1
-" dafault: -count=0, which makes me jump up to current root.
-" when <count> < 0, always brings me to *.wiki.
-command! -count=-1 VimwikiDiaryIndex :call vimwiki#diary#goto_diary_index(<count>)
-nnoremap <silent> <a-e><a-i>e :<c-u>       <space> :VimwikiDiaryIndex<cr>
-nnoremap <silent> <a-e><a-i>b :<c-u>tabnew <cr>    :VimwikiDiaryIndex<cr>
-nnoremap <silent> <a-e><a-i>s :<c-u>sp     <cr>    :VimwikiDiaryIndex<cr>
-nnoremap <silent> <a-e><a-i>v :<c-u>vs     <cr>    :VimwikiDiaryIndex<cr>
 " Hotkey; Diary Today {{{1
 " dafault: -count=0, which makes me jump up to current root.
 " when <count> < 0, always brings me to *.wiki.
-command! -count=-1 VimwikiToday :call vimwiki#diary#make_note(<count>)
+command! VimwikiToday :call vimwiki#diary#make_note(-1)
 nnoremap <silent> <a-e>e     :e <bar> VimwikiToday<cr>
 nnoremap <silent> <a-e>b     :tabe <bar> VimwikiToday<cr>
 nnoremap <silent> <a-e>s     :sp <bar> VimwikiToday<cr>
