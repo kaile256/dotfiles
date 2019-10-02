@@ -35,8 +35,8 @@ command! GdiffMode
       \ call <SID>fugitive__thin_out()
       \ | Gvdiffsplit!
 function! s:fugitive__thin_out() abort
-  let l:fdm = &fdm
   " Note: it's almost the same as smart_diffoff()
+  let l:current = bufwinnr('%')
   windo
         \ if &bt ==# 'nofile'
         \ || &bt ==# 'nowrite'
@@ -44,6 +44,9 @@ function! s:fugitive__thin_out() abort
         \ || bufname('%') =~# 'fugitive:\/\/'
         \ |  quit
         \ | endif
+  " Note: why, no range allowed on :wincmd in spite of :help.
+  "exe l:current .'wincmd w'
+  exe 'norm! '. l:current .'w'
   silent wincmd T
 endfunction
 
