@@ -15,8 +15,7 @@ command! -complete=dir NNNGcreateRepoOnGitHub
 command! -nargs=+ Gclone :Git clone <q-args>
 function! s:fugitive_commit_with_diff() abort "{{1
   call <SID>fugitive__thin_out()
-  " Keep to show diff w/ HEAD^ while editting commit-message.
-  " TO diff w/ HEAD^ ignores the last commited change to diff.
+  " Keep to show diff w/ HEAD while editting commit-message.
   Gvdiffsplit! HEAD
   " For: makes user notice if any other changes in the buffer.
   norm gg
@@ -36,7 +35,6 @@ command! GdiffMode
       \ call <SID>fugitive__thin_out()
       \ | Gvdiffsplit!
 function! s:fugitive__thin_out() abort
-  let l:current = bufnr('%')
   let l:fdm = &fdm
   " Note: it's almost the same as smart_diffoff()
   windo
@@ -44,15 +42,9 @@ function! s:fugitive__thin_out() abort
         \ || &bt ==# 'nowrite'
         \ || &bt ==# 'quickfix'
         \ || bufname('%') =~# 'fugitive:\/\/'
-        \ | quit
+        \ |  quit
         \ | endif
-  windo
-        \ if !&l:diff
-        \ | silent wincmd T
-        \ | endif
-  " TODO: bring me back to the buffer, where this function was called.
-  "exe l:current .'tabnext'
-  exe 'setl foldmethod='. l:fdm
+  silent wincmd T
 endfunction
 
 " Info; Blame {{{
