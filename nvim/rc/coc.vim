@@ -17,9 +17,6 @@ augroup CocMyAutoConf
   "au CursorHold * silent call CocActionAsync('highlight')
 augroup END
 
-" Highlight on yanked
-hi HighlightedyankRegion ctermfg=232 ctermbg=66 guifg=#000000 guibg=#df5f29
-
 " Note: <c-o> in coc's cmdline get to normal mode of coc.nvim
 " the List of CocExtentions; "{{{1
 " Note: Have to install LSPs independently.
@@ -111,86 +108,20 @@ function! s:coc_if_has_provider() "{{{1
   endfor
 endfunction
 "}}}
-" CocCommand; Git {{{1
-nnoremap U  :CocCommand git.chunkUndo<cr>
-" Similar to the navigation on &diff
-nmap <expr> [c (&diff)? '[c': '<Plug>(coc-git-prevchunk)'
-nmap <expr> ]c (&diff)? ']c': '<Plug>(coc-git-nextchunk)'
-" show chunk diff at current position
-nmap <a-y>c <Plug>(coc-git-chunkinfo)
-omap ic <Plug>(coc-text-object-inner)
-xmap ic <Plug>(coc-text-object-inner)
-omap ac <Plug>(coc-text-object-outer)
-xmap ac <Plug>(coc-text-object-outer)
-"" CocCommand; Explorer {{{1
-"command! CExplorer :CocCommand explorer
-"      \ --toggle
-"      \ --width=35
-"      \ --sources=buffer+,file+
-"      \ --file-columns=icon,git,selection,clip,indent,filename,size
-""}}}
-" CocCommand; extensions {{{1
-command! CocExtensions :CocList extensions
-command! CExtensions   :CocList extensions
-nnoremap <a-c>e        :CocExtensions<cr>
-nnoremap <a-c><a-e>    :CocExtensions<cr>
-" CocCommand; Todo, or Task {{{1
-command! CocTask         :CocCommand todolist.create
-command! CTask           :CocCommand todolist.create
-command! CocShowTaskList :CocList    todolist
-command! CShowTaskList   :CocList    todolist
-nnoremap <silent> <a-c>t     :CocTask<cr>
-nnoremap <silent> <a-c>s     :CocShowTaskList<cr>
-nnoremap <silent> <a-c><a-t>     :CocTask<cr>
-nnoremap <silent> <a-c><a-s>     :CocShowTaskList<cr>
-" CocCommand; Translator {{{1
-" Note: CANNOT replace 'toLang' before translator yet.
-"command! CJapaneseEcho    :call coc#config("translator", {"toLang": "ja"}) <bar> CocCommand  translator.echo
-"command! CJapaneseReplace :call coc#config("translator", {"toLang": "ja"}) <bar> :CocCommand translator.replace
-"command! CJapanesePum     :call coc#config("translator", {"toLang": "ja"}) <bar> CocCommand  translator.popup
-command! CEnglishEcho    :call coc#config("translator", {"toLang": "en"}) <bar> CocCommand  translator.echo
-command! CEnglishReplace :call coc#config("translator", {"toLang": "en"}) <bar> :CocCommand translator.replace
-command! CEnglishPum     :call coc#config("translator", {"toLang": "en"}) <bar> CocCommand  translator.popup
-
-" CocCommand; Workspace {{{1
-noremap! <c-x><c-;> <esc>q:
-noremap! <c-x><c-/> <esc>q/
-command! Rename :CocCommand workspace.renameCurrentFile
-command! R      :CocCommand workspace.renameCurrentFile
-
-" CocCommand; Range, or Multiple Cursor {{{1
-hi CocCursorRange guibg=#b16286 guifg=#ebdbb2
-"" Mnemonic: Mark
-"xmap <silent> m <Plug>(coc-cursors-range)
-"nmap <silent> m <Plug>(coc-cursors-operator)
-" Mnemonic: Macro of Cursor
-nmap <silent> qc <Plug>(coc-cursors-operator)
-xmap <silent> qc <Plug>(coc-cursors-range)
-"nmap <silent> <c-j> <Plug>(coc-range-select)
-"nmap <silent> <c-k> <Plug>(coc-range-select-backward)
-"nmap <silent> * <Plug>(coc-cursors-word)
-"nmap <silent> n <Plug>(coc-cursors-position)
-
-" CocList; {{{1
-" show commit contains current position
-noremap <silent> <a-c><a-c> :CocList<cr>
-noremap <silent> <a-c><a-f> :CocList files<cr>
-noremap <silent> <a-c><a-b> :CocList buffers<cr><M-k>
-noremap <silent> <a-c>c :CocList<cr>
-noremap <silent> <a-c>f :CocList files<cr>
-noremap <silent> <a-c>b :CocList buffers<cr><M-k>
-" CocList; Session {{{1
-command! MksessionCoc   :CocCommand session.save
-command! SaveSessionCoc :CocCommand session.save
-command! LoadSessionCoc :CocCommand session.load
-cnoreabbr <expr> mks (getcmdtype() == ':' && getcmdline() =~ '^mks$')?
-      \ 'MksessionCoc' : 'mks'
-cnoreabbr <expr> lds (getcmdtype() == ':' && getcmdline() =~ '^lds$')?
-      \ 'LoadSessionCoc' : 'lds'
-" CocList; Fuzzy-Buffers {{{1
-noremap <silent> <a-q><a-b> :<c-u>CocList buffers<cr>
-noremap <silent> <a-q>b     :<c-u>CocList buffers<cr>
-" CocList; Diagnostic {{{1
+" CocCompletion; {{{1
+inoremap <silent><expr> <c-n>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>make_sure_no_space() ? "\<c-n>" :
+      \ coc#refresh()
+inoremap <silent><expr> <c-p>
+      \ pumvisible() ? "\<C-p>" :
+      \ <SID>make_sure_no_space() ? "\<c-p>" :
+      \ coc#refresh()
+function! s:make_sure_no_space() abort "{{{2
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1] =~# '\s'
+endfunction
+" CocDiagnostic {{{1
 " Note: Unnecessary? pop up auto.
 nmap qi <Plug>(coc-diagnostic-info)
 nmap <silent> qf <Plug>(coc-fix-current)
@@ -200,7 +131,7 @@ nmap <silent> [q <Plug>(coc-diagnostic-prev)
 nmap <silent> ]q <Plug>(coc-diagnostic-next)
 "nmap [e <Plug>(coc-diagnostic-prev-error)
 "nmap ]e <Plug>(coc-diagnostic-next-error)
-" CocList; Jump {{{1
+" CocJump {{{1
 "" Jump; as :edit {{{2
 nnoremap <silent> gd :call CocActionAsync('jumpDefinition',     'edit')<cr>
 xnoremap <silent> gd :call CocActionAsync('jumpDefinition',     'edit')<cr>
@@ -247,7 +178,7 @@ xnoremap <silent> <c-w><space>y :call CocActionAsync('jumpTypeDefinition', 'vspl
 nnoremap <silent> <c-w><space>r :call CocActionAsync('jumpReferences',     'vsplit')<cr>
 xnoremap <silent> <c-w><space>r :call CocActionAsync('jumpReferences',     'vsplit')<cr>
 
-" CocList; Format {{{1
+" CocFormat {{{1
 command! -nargs=0 FormatOnCoc :call CocAction('format')
 command! -nargs=? FoldOnCoc   :call CocAction('fold',       <f-args>)
 command! -nargs=0 OR          :call CocAction('runCommand', 'editor.action.organizeImport')
@@ -261,7 +192,7 @@ xnoremap <expr> = (CocHasProvider('format'))?
 nnoremap <expr> = (CocHasProvider('format'))?
       \ ':call CocActionAsync("formatSelected")<cr>': '='
 
-" CocList; Rename {{{1
+" CocRename {{{1
 " Mnemonic: Change the lhs of Equal Sign
 function! s:quick_format() abort
   let l:view = winsaveview()
@@ -278,18 +209,118 @@ omap <expr> =
       \ :(v:operator ==# '=')
       \ ?'<esc>:QuickFormat<cr>'
       \ :'='
-" CocList; Text-Object {{{1
+" CocText-Object {{{1
 " Note: mapped already as default?
 vmap if <Plug>(coc-funcobj-i)
 omap if <Plug>(coc-funcobj-i)
 vmap af <Plug>(coc-funcobj-a)
 omap af <Plug>(coc-funcobj-a)
-" CocList; CodeAction {{{1
+" CocCodeAction {{{1
 nmap qA   <Plug>(coc-codeaction)
 nmap qaa  <Plug>(coc-codeaction)
 nmap qa   <Plug>(coc-codeaction-selected)
 xmap qa   <Plug>(coc-codeaction-selected)
-" CocList; Not Yet Mapped {{{1
+" CocWorkspace {{{1
+noremap! <c-x><c-;> <esc>q:
+noremap! <c-x><c-/> <esc>q/
+command! Rename :CocCommand workspace.renameCurrentFile
+command! R      :CocCommand workspace.renameCurrentFile
+
+" CocRange, or Multiple Cursor {{{1
+hi CocCursorRange guibg=#b16286 guifg=#ebdbb2
+"" Mnemonic: Mark
+"xmap <silent> m <Plug>(coc-cursors-range)
+"nmap <silent> m <Plug>(coc-cursors-operator)
+" Mnemonic: Macro of Cursor
+nmap <silent> qc <Plug>(coc-cursors-operator)
+xmap <silent> qc <Plug>(coc-cursors-range)
+"nmap <silent> <c-j> <Plug>(coc-range-select)
+"nmap <silent> <c-k> <Plug>(coc-range-select-backward)
+"nmap <silent> * <Plug>(coc-cursors-word)
+"nmap <silent> n <Plug>(coc-cursors-position)
+
+" CocColor; {{{1
+command! ColorFormat  :call CocAction('colorPresentation')
+command! ColorPalette :call CocAction('pickColor')
+" CocExtensions {{{1
+command! CocExtensions :CocList extensions
+command! CExtensions   :CocList extensions
+nnoremap <a-c>e        :CocExtensions<cr>
+nnoremap <a-c><a-e>    :CocExtensions<cr>
+" CocList; {{{1
+" show commit contains current position
+noremap <silent> <a-c><a-c> :CocList<cr>
+noremap <silent> <a-c><a-f> :CocList files<cr>
+noremap <silent> <a-c><a-b> :CocList buffers<cr>
+noremap <silent> <a-c>c :CocList<cr>
+noremap <silent> <a-c>f :CocList files<cr>
+noremap <silent> <a-c>b :CocList buffers<cr>
+" CocSession {{{1
+command! MksessionCoc   :CocCommand session.save
+command! SaveSessionCoc :CocCommand session.save
+command! LoadSessionCoc :CocCommand session.load
+cnoreabbr <expr> mks (getcmdtype() == ':' && getcmdline() =~ '^mks$')?
+      \ 'MksessionCoc' : 'mks'
+cnoreabbr <expr> lds (getcmdtype() == ':' && getcmdline() =~ '^lds$')?
+      \ 'LoadSessionCoc' : 'lds'
+"" CocExplorer {{{1
+"command! CExplorer :CocCommand explorer
+"      \ --toggle
+"      \ --width=35
+"      \ --sources=buffer+,file+
+"      \ --file-columns=icon,git,selection,clip,indent,filename,size
+""}}}
+" CocGit {{{1
+nnoremap U  :CocCommand git.chunkUndo<cr>
+" Similar to the navigation on &diff
+nmap <expr> [c (&diff)? '[c': '<Plug>(coc-git-prevchunk)'
+nmap <expr> ]c (&diff)? ']c': '<Plug>(coc-git-nextchunk)'
+" show chunk diff at current position
+nmap <a-y>c <Plug>(coc-git-chunkinfo)
+omap ic <Plug>(coc-text-object-inner)
+xmap ic <Plug>(coc-text-object-inner)
+omap ac <Plug>(coc-text-object-outer)
+xmap ac <Plug>(coc-text-object-outer)
+" CocPairs {{{1
+augroup CocPairsDisable
+  au!
+  au FileType vim let b:coc_pairs_disabled = ['"']
+augroup END
+" CocTranslator {{{1
+" Note: CANNOT replace 'toLang' before translator yet.
+"command! CJapaneseEcho    :call coc#config("translator", {"toLang": "ja"}) <bar> CocCommand  translator.echo
+"command! CJapaneseReplace :call coc#config("translator", {"toLang": "ja"}) <bar> :CocCommand translator.replace
+"command! CJapanesePum     :call coc#config("translator", {"toLang": "ja"}) <bar> CocCommand  translator.popup
+command! CEnglishEcho    :call coc#config("translator", {"toLang": "en"}) <bar> CocCommand  translator.echo
+command! CEnglishReplace :call coc#config("translator", {"toLang": "en"}) <bar> :CocCommand translator.replace
+command! CEnglishPum     :call coc#config("translator", {"toLang": "en"}) <bar> CocCommand  translator.popup
+
+" CocTodo, or Task {{{1
+command! CocTask         :CocCommand todolist.create
+command! CTask           :CocCommand todolist.create
+command! CocShowTaskList :CocList    todolist
+command! CShowTaskList   :CocList    todolist
+nnoremap <silent> <a-c>t     :CocTask<cr>
+nnoremap <silent> <a-c>s     :CocShowTaskList<cr>
+nnoremap <silent> <a-c><a-t>     :CocTask<cr>
+nnoremap <silent> <a-c><a-s>     :CocShowTaskList<cr>
+" CocYank; {{{1
+" Highlight on yanked
+hi HighlightedyankRegion ctermfg=232 ctermbg=66 guifg=#000000 guibg=#df5f29
+
+" Required?: closes mpreview vindow when completion is done.
+"au! CompleteDone * if pumvisible() == 0 | pclose | endif
+"inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<CR>"
+inoremap <c-x><c-y> <Cmd>CocList yank<cr>
+inoremap <c-x>y     <Cmd>CocList yank<cr>
+" CocSnippet; {{{1
+" TODO: See doc to Assign the dir where snippets will be saved.
+"nmap <a-s><a-p> :CocCommand snippets.editSnippets<cr>
+"" Trigger Just Snippets; <tab> to General Completion
+"imap <C-s> <Plug>(coc-snippets-expand)
+"vmap <C-s> <Plug>(coc-snippets-select)
+"imap <C-s> <Plug>(coc-snippets-expand-jump)
+" CocNot Yet Mapped {{{1
 " repeat only coc's util.
 "nmap <silent> . <Plug>(coc-command-repeat)
 "<Plug>(coc-openlink)
@@ -298,32 +329,3 @@ xmap qa   <Plug>(coc-codeaction-selected)
 "<Plug>(coc-float-hide)
 "<Plug>(coc-float-jump)
 "
-" CocCompletion; {{{1
-" Necessary?: closes mpreview vindow when completion is done.
-"au! CompleteDone * if pumvisible() == 0 | pclose | endif
-"inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<CR>"
-inoremap <c-x><c-y> <Cmd>CocList yank<cr>
-inoremap <c-x>y     <Cmd>CocList yank<cr>
-"" Completion; Trigger {{{2
-function! s:make_sure_no_space() abort "{{{3
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1] =~# '\s'
-endfunction
-inoremap <silent><expr> <c-n>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>make_sure_no_space() ? "\<c-n>" :
-      \ coc#refresh()
-inoremap <silent><expr> <c-p>
-      \ pumvisible() ? "\<C-p>" :
-      \ <SID>make_sure_no_space() ? "\<c-p>" :
-      \ coc#refresh()
-" CocSnippet; Do NOT use it {{{1
-" TODO: Assign the dir where snippets will be saved.
-"nmap <a-s><a-p> :CocCommand snippets.editSnippets<cr>
-"" Trigger Just Snippets; <tab> to General Completion
-"imap <C-s> <Plug>(coc-snippets-expand)
-"vmap <C-s> <Plug>(coc-snippets-select)
-"imap <C-s> <Plug>(coc-snippets-expand-jump)
-" CocColor; {{{1
-command! ColorFormat  :call CocAction('colorPresentation')
-command! ColorPalette :call CocAction('pickColor')
