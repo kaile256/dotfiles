@@ -16,14 +16,7 @@ nnoremap <silent> <space>w :<c-u>w  <cr>
 nnoremap <silent> <space>W :<c-u>w! <cr>
 " Note: <space>q is sometimes mistyped, intending <space>w.
 nnoremap <silent> <space>q :<c-u>w  <cr>
-"nnoremap <silent> qq :<c-u>q  <cr>
-nmap <silent> Q <Nop>
-nnoremap <silent> QQ :<c-u>q! <cr>
-"" Write&Quit; Buffer
-nnoremap <silent> <space>Z :<c-u>q!<cr>
-"" Write&Quit; Special
-nnoremap <space>* :<c-u>qa<cr>
-nnoremap <space>! :w !sudo tee % > /dev/null<cr> <bar> edit!
+nnoremap <silent> Q <Nop>
 "}}}
 " Keymap; Cancel {{{
 onoremap <a-h> <ESC>h

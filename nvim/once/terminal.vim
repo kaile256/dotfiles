@@ -1,9 +1,9 @@
 " From: init.vim
 
 " Keymap; ESC & Alt {{{
-" esc n the same way as in the other mode.
-tnoremap <c-[> <c-\><c-n>
-tnoremap <esc> <c-\><c-n>
+"" esc in the same way as in the other mode.
+"tnoremap <c-[> <c-\><c-n>
+"tnoremap <esc> <c-\><c-n>
 tnoremap <a-;> <c-\><c-n>:
 tnoremap <a-:> <c-\><c-n>:
 " esc & hjkl
