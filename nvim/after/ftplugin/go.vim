@@ -1,3 +1,3 @@
 " From: filetype.vim
 
-nnoremap <buffer> g= :!goimports -w %<cr>
+onoremap <buffer><expr> = (v:operator ==# '=')? ':!goimports -w expand('%:p')<cr>': '='
