@@ -362,6 +362,7 @@ settings:
       K: https://www.thefreedictionary.com/{}
       ar: https://wiki.archlinux.org/?search={}
       gh: http://github.com/search?q={}
+      go: https://golang.org/search?q={}
       th: https://www.freethesaurus.com/{}
       tw: http://twitter.com/search/{}
       wk: http://en.wikipedia.org/wiki/{}
