@@ -6,7 +6,7 @@
 set -Cu
 
 export PATH="$HOME/.local/bin:$PATH"
-#### LANGUAGE 
+#### LANGUAGE
 ### Rust
 ## Cargo
 if [ -d ~/.cargo ]; then
