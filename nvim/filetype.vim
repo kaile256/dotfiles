@@ -15,11 +15,8 @@ augroup MyRuntimesOnFileTypes
   au FileType markdown runtime! markdown.vim
   au FileType help     runtime! help.vim
   au FileType i3       runtime! i3.vim
-  au FileType ruby     runtime! ruby.vim
-  au FileType python   runtime! python.vim
   au FileType qf       runtime! qf.vim
-  au FileType json     runtime! json.vim
-augroup end
+augroup END
 
 augroup MyLazyRuntimes
   au!
@@ -28,7 +25,8 @@ augroup MyLazyRuntimes
   "au WinEnter,BufEnter * if &bt ==# 'quickfix' | runtime quickfix.vim
 augroup END
 
-augroup AutoDeleteWhiteSpace
-  au!
-  au BufWritePre * keeppatterns %s/\s\+$//ge
-augroup END
+"augroup AutoDeleteWhiteSpace
+" Use editorconfig.vim
+"  au!
+"  au BufWritePre * keeppatterns %s/\s\+$//ge
+"augroup END
