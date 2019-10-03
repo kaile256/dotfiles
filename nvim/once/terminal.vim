@@ -34,7 +34,7 @@ augroup OnTerminalBuffer
   "endif
   if has('nvim')
     au TermOpen * setl nonumber signcolumn=
-    au TermOpen * norm zH 
+    au TermOpen * norm zH
     au TermOpen * startinsert
   endif
 augroup END
@@ -58,11 +58,11 @@ endif
 "}}}
 
 " Function; ls-grep
-" TODO: get bufnr('term://') in hidden-buffers to bufdelete them.
 function! s:grep_heavy_bufnr()
-  redir => l:hidden_buffers
-  silent ls!
-  redir END
-  bdelete g/term:\/\//
+" TODO: get bufnr('term://') in hidden-buffers to bufdelete them.
+  let l:hidden_buffers = execute('ls!')
+  " e.g., term://foo
+  let l:only_term = substitute(l:hidden_buffers, '[^:\/\/]', '', e)
+  let l:only_term_bufnr = substitute(l:)
+  bwipeout g/term:\/\//
 endfunction
-"cnoreabbr <expr> bdt (getcmdtype() == ':' && getcmdline() =~ '^bdt$')? 'LsGrep term:// <bar> bwipeout! ' : 'bdt'
