@@ -90,6 +90,7 @@ cnoreabbr <silent><expr> rg (getcmdtype() == ':' && getcmdline() =~ '^rg$')? 'Rg
 cnoreabbr <silent><expr> ag (getcmdtype() == ':' && getcmdline() =~ '^ag$')? 'Ag' : 'ag'
 "}}}
 " Command! Ag/Rg/FZF {{{
+command! -bang Maps  call fzf#vim#maps("",  <bang>0)
 command! -bang Nmaps call fzf#vim#maps("n", <bang>0)
 command! -bang Imaps call fzf#vim#maps("i", <bang>0)
 command! -bang Xmaps call fzf#vim#maps("x", <bang>0)
