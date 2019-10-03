@@ -160,16 +160,16 @@ hook_post_source = 'runtime rc/deol.vim'
 #}}}
 
 # Shell; Async Processor
-#[[plugins]]
-#repo = 'thinca/vim-quickrun' #{{{
-#on_map = 'QuickRun'
-#hook_add = 'runtime rc/quickrun.vim'
-##}}}
+[[plugins]]
+repo = 'thinca/vim-quickrun' #{{{
+on_map = '<Cmd>QuickRun'
+hook_add = 'runtime rc/quickrun.vim'
+#}}}
 #[[plugins]]
 #repo = 'neomake/neomake' #{{{
 #on_map = 'make'
 #hook_add = 'runtime rc/neomake.vim'
-#}}}
+##}}}
 #[[plugins]]
 #repo = 'skywind3000/asyncrun.vim' #{{{
 ## Only supports external shell to qf.
