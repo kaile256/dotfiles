@@ -25,6 +25,7 @@ augroup END
 repo = 'kana/vim-textobj-fold' #{{{
 # Note: `on_map` makes no sense in omap.
 on_source = 'vim-textobj-user'
+#hook_post_source = 'runtime rc/textobj-fold.vim'
 #}}}
 [[plugins]]
 repo = 'kana/vim-textobj-entire' #{{{
