@@ -139,7 +139,8 @@
         "gocodeCompletionEnabled": true,
         "diagnositicsEnabled": true,
         "lintTool": "golint",
-        "formatTool": "goimports"
+        "formatTool": "goimports",
+        "formatFlags": ["-w"]
       }
     },
     "ccls": {
