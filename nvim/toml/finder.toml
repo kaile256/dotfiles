@@ -4,6 +4,7 @@
 [[plugins]]
 repo = 'haya14busa/vim-asterisk' #{{{
 # Keep the cursor on `*` or `#`, even on visual mode.
+# TODO: activate on_map of 'x'
 on_map = '<Plug>(asterisk-'
 hook_add = 'runtime rc/asterisk.vim'
 #}}}
