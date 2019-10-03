@@ -33,6 +33,12 @@ endfunction "}}}1
 " Close; Tab-page
 noremap <silent> <c-w>C :<c-u>tabclose<cr>
 
+" Move Window
+nnoremap <c-w>h <c-w>H
+nnoremap <c-w>j <c-w>J
+nnoremap <c-w>k <c-w>K
+nnoremap <c-w>l <c-w>L
+
 " Resize
 nnoremap <C-left>  <c-w>>
 nnoremap <C-down>  <c-w>-
