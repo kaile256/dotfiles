@@ -148,16 +148,16 @@ on_cmd = 'Floo'
 hook_add = 'runtime rc/floobits.vim'
 
 # Shell; Wrapper
-[[plugins]]
-repo = 'kassio/neoterm' #{{{
-on_event = 'BufAdd'
-hook_post_source = 'runtime rc/neoterm.vim'
-#}}}
-[[plugins]]
-repo = 'Shougo/deol.nvim' #{{{
-on_event = 'VimEnter'
-hook_post_source = 'runtime rc/deol.vim'
-#}}}
+#[[plugins]]
+#repo = 'kassio/neoterm' #{{{
+#on_event = 'BufAdd'
+#hook_post_source = 'runtime rc/neoterm.vim'
+##}}}
+#[[plugins]]
+#repo = 'Shougo/deol.nvim' #{{{
+#on_event = 'VimEnter'
+#hook_post_source = 'runtime rc/deol.vim'
+##}}}
 
 # Shell; Async Processor
 [[plugins]]
