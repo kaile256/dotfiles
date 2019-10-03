@@ -127,10 +127,10 @@ xmap ac <Plug>(coc-text-object-outer)
 "      \ --file-columns=icon,git,selection,clip,indent,filename,size
 ""}}}
 " CocCommand; extensions {{{1
-command! CocExtentions :CocList extensions
-command! CExtentions   :CocList extensions
-nnoremap <a-c>e        :CocExtentions<cr>
-nnoremap <a-c><a-e>    :CocExtentions<cr>
+command! CocExtensions :CocList extensions
+command! CExtensions   :CocList extensions
+nnoremap <a-c>e        :CocExtensions<cr>
+nnoremap <a-c><a-e>    :CocExtensions<cr>
 " CocCommand; Todo, or Task {{{1
 command! CocTask         :CocCommand todolist.create
 command! CTask           :CocCommand todolist.create
