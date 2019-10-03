@@ -13,6 +13,8 @@ augroup CocMyAutoConf
   au FileType typescript,json    setl formatexpr=CocAction('formatSelected')
   "" Only for snippet's feature?
   "au User     CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
+  " Highlight symbol under cursor on CursorHold
+  "au CursorHold * silent call CocActionAsync('highlight')
 augroup END
 
 " Highlight on yanked
@@ -110,6 +112,7 @@ function! s:coc_if_has_provider() "{{{1
 endfunction
 "}}}
 " CocCommand; Git {{{1
+nnoremap U  :CocCommand git.chunkUndo<cr>
 " Similar to the navigation on &diff
 nmap <expr> [c (&diff)? '[c': '<Plug>(coc-git-prevchunk)'
 nmap <expr> ]c (&diff)? ']c': '<Plug>(coc-git-nextchunk)'
@@ -172,51 +175,55 @@ nmap <silent> ]q <Plug>(coc-diagnostic-next)
 "nmap ]e <Plug>(coc-diagnostic-next-error)
 " CocList; Jump {{{1
 "" Jump; as :edit {{{2
-nmap <silent> gd      :call coc#config("coc.preferences", {"jumpCommand": "drop"})<cr><Plug>(coc-definition)
-xmap <silent> gd      :call coc#config("coc.preferences", {"jumpCommand": "drop"})<cr><Plug>(coc-definition)
-nmap <silent> gD      :call coc#config("coc.preferences", {"jumpCommand": "drop"})<cr><Plug>(coc-declaration)
-xmap <silent> gD      :call coc#config("coc.preferences", {"jumpCommand": "drop"})<cr><Plug>(coc-declaration)
-nmap <silent> gI      :call coc#config("coc.preferences", {"jumpCommand": "drop"})<cr><Plug>(coc-implementation)
-xmap <silent> gI      :call coc#config("coc.preferences", {"jumpCommand": "drop"})<cr><Plug>(coc-implementation)
-nmap <silent> gy      :call coc#config("coc.preferences", {"jumpCommand": "drop"})<cr><Plug>(coc-type-definition)
-xmap <silent> gy      :call coc#config("coc.preferences", {"jumpCommand": "drop"})<cr><Plug>(coc-type-definition)
-nmap <silent> gr      :call coc#config("coc.preferences", {"jumpCommand": "drop"})<cr><Plug>(coc-references)
-xmap <silent> gr      :call coc#config("coc.preferences", {"jumpCommand": "drop"})<cr><Plug>(coc-references)
+nnoremap <silent> gd :call CocActionAsync('jumpDefinition',     'edit')<cr>
+xnoremap <silent> gd :call CocActionAsync('jumpDefinition',     'edit')<cr>
+nnoremap <silent> gD :call CocActionAsync('jumpDeclaration',    'edit')<cr>
+xnoremap <silent> gD :call CocActionAsync('jumpDeclaration',    'edit')<cr>
+nnoremap <silent> gI :call CocActionAsync('jumpImplementation', 'edit')<cr>
+xnoremap <silent> gI :call CocActionAsync('jumpImplementation', 'edit')<cr>
+nnoremap <silent> gy :call CocActionAsync('jumpTypeDefinition', 'edit')<cr>
+xnoremap <silent> gy :call CocActionAsync('jumpTypeDefinition', 'edit')<cr>
+nnoremap <silent> gr :call CocActionAsync('jumpReferences',     'edit')<cr>
+xnoremap <silent> gr :call CocActionAsync('jumpReferences',     'edit')<cr>
 "" Jump; as :vsplit {{{2
-nmap <silent> <c-w>d  :call coc#config("coc.preferences", {"jumpCommand": "vsplit"})<cr><Plug>(coc-definition)
-xmap <silent> <c-w>d  :call coc#config("coc.preferences", {"jumpCommand": "vsplit"})<cr><Plug>(coc-definition)
-nmap <silent> <c-w>D  :call coc#config("coc.preferences", {"jumpCommand": "vsplit"})<cr><Plug>(coc-declaration)
-xmap <silent> <c-w>D  :call coc#config("coc.preferences", {"jumpCommand": "vsplit"})<cr><Plug>(coc-declaration)
-nmap <silent> <c-w>I  :call coc#config("coc.preferences", {"jumpCommand": "vsplit"})<cr><Plug>(coc-implementation)
-xmap <silent> <c-w>I  :call coc#config("coc.preferences", {"jumpCommand": "vsplit"})<cr><Plug>(coc-implementation)
-nmap <silent> <c-w>y  :call coc#config("coc.preferences", {"jumpCommand": "vsplit"})<cr><Plug>(coc-type-definition)
-xmap <silent> <c-w>y  :call coc#config("coc.preferences", {"jumpCommand": "vsplit"})<cr><Plug>(coc-type-definition)
-nmap <silent> <c-w>r  :call coc#config("coc.preferences", {"jumpCommand": "vsplit"})<cr><Plug>(coc-references)
-xmap <silent> <c-w>r  :call coc#config("coc.preferences", {"jumpCommand": "vsplit"})<cr><Plug>(coc-references)
+nnoremap <silent> <c-w>d :call CocActionAsync('jumpDefinition',     'vsplit')<cr>
+xnoremap <silent> <c-w>d :call CocActionAsync('jumpDefinition',     'vsplit')<cr>
+nnoremap <silent> <c-w>D :call CocActionAsync('jumpDeclaration',    'vsplit')<cr>
+xnoremap <silent> <c-w>D :call CocActionAsync('jumpDeclaration',    'vsplit')<cr>
+nnoremap <silent> <c-w>I :call CocActionAsync('jumpImplementation', 'vsplit')<cr>
+xnoremap <silent> <c-w>I :call CocActionAsync('jumpImplementation', 'vsplit')<cr>
+nnoremap <silent> <c-w>y :call CocActionAsync('jumpTypeDefinition', 'vsplit')<cr>
+xnoremap <silent> <c-w>y :call CocActionAsync('jumpTypeDefinition', 'vsplit')<cr>
+nnoremap <silent> <c-w>r :call CocActionAsync('jumpReferences',     'vsplit')<cr>
+xnoremap <silent> <c-w>r :call CocActionAsync('jumpReferences',     'vsplit')<cr>
+
 "" Jump; as :split {{{2
-nmap <silent> <c-w>gd :call coc#config("coc.preferences", {"jumpCommand": "split"})<cr><Plug>(coc-definition)
-xmap <silent> <c-w>gd :call coc#config("coc.preferences", {"jumpCommand": "split"})<cr><Plug>(coc-definition)
-nmap <silent> <c-w>gD :call coc#config("coc.preferences", {"jumpCommand": "split"})<cr><Plug>(coc-declaration)
-xmap <silent> <c-w>gD :call coc#config("coc.preferences", {"jumpCommand": "split"})<cr><Plug>(coc-declaration)
-nmap <silent> <c-w>gI :call coc#config("coc.preferences", {"jumpCommand": "split"})<cr><Plug>(coc-implementation)
-xmap <silent> <c-w>gI :call coc#config("coc.preferences", {"jumpCommand": "split"})<cr><Plug>(coc-implementation)
-nmap <silent> <c-w>gy :call coc#config("coc.preferences", {"jumpCommand": "split"})<cr><Plug>(coc-type-definition)
-xmap <silent> <c-w>gy :call coc#config("coc.preferences", {"jumpCommand": "split"})<cr><Plug>(coc-type-definition)
-nmap <silent> <c-w>gr :call coc#config("coc.preferences", {"jumpCommand": "split"})<cr><Plug>(coc-references)
-xmap <silent> <c-w>gr :call coc#config("coc.preferences", {"jumpCommand": "split"})<cr><Plug>(coc-references)
+nnoremap <silent> gd :call CocActionAsync('jumpDefinition',     'split')<cr>
+xnoremap <silent> gd :call CocActionAsync('jumpDefinition',     'split')<cr>
+nnoremap <silent> gD :call CocActionAsync('jumpDeclaration',    'split')<cr>
+xnoremap <silent> gD :call CocActionAsync('jumpDeclaration',    'split')<cr>
+nnoremap <silent> gI :call CocActionAsync('jumpImplementation', 'split')<cr>
+xnoremap <silent> gI :call CocActionAsync('jumpImplementation', 'split')<cr>
+nnoremap <silent> gy :call CocActionAsync('jumpTypeDefinition', 'split')<cr>
+xnoremap <silent> gy :call CocActionAsync('jumpTypeDefinition', 'split')<cr>
+nnoremap <silent> gr :call CocActionAsync('jumpReferences',     'split')<cr>
+xnoremap <silent> gr :call CocActionAsync('jumpReferences',     'split')<cr>
+
 "" Jump; as :tabe {{{2
-nmap <silent> <c-w><space>d :call coc#config("coc.preferences", {"jumpCommand": "tabe"})<cr><Plug>(coc-definition)
-xmap <silent> <c-w><space>d :call coc#config("coc.preferences", {"jumpCommand": "tabe"})<cr><Plug>(coc-definition)
-nmap <silent> <c-w><space>D :call coc#config("coc.preferences", {"jumpCommand": "tabe"})<cr><Plug>(coc-declaration)
-xmap <silent> <c-w><space>D :call coc#config("coc.preferences", {"jumpCommand": "tabe"})<cr><Plug>(coc-declaration)
-nmap <silent> <c-w><space>I :call coc#config("coc.preferences", {"jumpCommand": "tabe"})<cr><Plug>(coc-implementation)
-xmap <silent> <c-w><space>I :call coc#config("coc.preferences", {"jumpCommand": "tabe"})<cr><Plug>(coc-implementation)
-nmap <silent> <c-w><space>y :call coc#config("coc.preferences", {"jumpCommand": "tabe"})<cr><Plug>(coc-type-definition)
-xmap <silent> <c-w><space>y :call coc#config("coc.preferences", {"jumpCommand": "tabe"})<cr><Plug>(coc-type-definition)
-nmap <silent> <c-w><space>r :call coc#config("coc.preferences", {"jumpCommand": "tabe"})<cr><Plug>(coc-references)
-xmap <silent> <c-w><space>r :call coc#config("coc.preferences", {"jumpCommand": "tabe"})<cr><Plug>(coc-references)
-"}}}
+nnoremap <silent> gd :call CocActionAsync('jumpDefinition',     'tabe')<cr>
+xnoremap <silent> gd :call CocActionAsync('jumpDefinition',     'tabe')<cr>
+nnoremap <silent> gD :call CocActionAsync('jumpDeclaration',    'tabe')<cr>
+xnoremap <silent> gD :call CocActionAsync('jumpDeclaration',    'tabe')<cr>
+nnoremap <silent> gI :call CocActionAsync('jumpImplementation', 'tabe')<cr>
+xnoremap <silent> gI :call CocActionAsync('jumpImplementation', 'tabe')<cr>
+nnoremap <silent> gy :call CocActionAsync('jumpTypeDefinition', 'tabe')<cr>
+xnoremap <silent> gy :call CocActionAsync('jumpTypeDefinition', 'tabe')<cr>
+nnoremap <silent> gr :call CocActionAsync('jumpReferences',     'tabe')<cr>
+xnoremap <silent> gr :call CocActionAsync('jumpReferences',     'tabe')<cr>
 " CocList; Format {{{1
+command! -nargs=0 FormatOnCoc :call CocAction('format')
+command! -nargs=? FoldOnCoc   :call CocAction('fold',       <f-args>)
+command! -nargs=0 OR          :call CocAction('runCommand', 'editor.action.organizeImport')
 " Mnemonic: Change the Structure.
 nmap cs <Plug>(coc-refactor)
 " Note: `==` is for `[count]==`. <Plug>(coc-format), too.
@@ -234,12 +241,11 @@ omap af <Plug>(coc-funcobj-a)
 " CocList; Rename {{{1
 " Mnemonic: Change Name
 omap <expr> n (v:operator ==# 'c')? '<esc><Plug>(coc-rename)': 'n'
-" CocList; Quick Run {{{1
-nmap qR   <Plug>(coc-codeaction)
-nmap qrr  <Plug>(coc-codeaction)
-nmap qrqr <Plug>(coc-codeaction)
-nmap qr   <Plug>(coc-codeaction-selected)
-xmap qr   <Plug>(coc-codeaction-selected)
+" CocList; CodeAction {{{1
+nmap qA   <Plug>(coc-codeaction)
+nmap qaa  <Plug>(coc-codeaction)
+nmap qa   <Plug>(coc-codeaction-selected)
+xmap qa   <Plug>(coc-codeaction-selected)
 " CocList; Not Yet Mapped {{{1
 " repeat only coc's util.
 "nmap <silent> . <Plug>(coc-command-repeat)
@@ -284,3 +290,6 @@ inoremap <silent><expr> <c-p>
 "imap <C-s> <Plug>(coc-snippets-expand)
 "vmap <C-s> <Plug>(coc-snippets-select)
 "imap <C-s> <Plug>(coc-snippets-expand-jump)
+" CocColor; {{{1
+command! ColorFormat  :call CocAction('colorPresentation')
+command! ColorPalette :call CocAction('pickColor')
