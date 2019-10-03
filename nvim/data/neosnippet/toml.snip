@@ -4,7 +4,7 @@ options head
   [[plugins]]
   repo = '${1:user/plugin}'
   ${2:on_}${3:event} = '${4:BufRead}'
-  hook_${7:post_source} = 'runtime ${8:plugin}.vimrc'
+  hook_${7:post_source} = 'runtime rc/${8:plugin}.vim'
 
 snippet #{{{ begining of fold
 alias { #{ #{{ #{{{
