@@ -69,12 +69,13 @@ let g:cloesetag_filenames = '*.html,*.vue'
 #on_ft = 'text'
 ##}}}
 [[plugins]]
-repo = 'plasticboy/vim-markdown'
+repo = 'plasticboy/vim-markdown' #{{{
 if = '&l:ft !=# "vimwiki"'
 on_ft = 'markdown'
 hook_add = 'runtime rc/markdown.vim'
+#}}}
 #[[plugins]]
-#repo = 'suan/vim-instant-markdown'
+#repo = 'suan/vim-instant-markdown' #{{{
 #if = '&l:ft !=# "vimwiki"'
 #on_ft = 'markdown'
 #hook_add = 'runtime rc/instant-markdown.vim'
@@ -107,11 +108,21 @@ repo = 'PotatoesMaster/i3-vim-syntax' #{{{
 on_ft = 'i3'
 #}}}
 
-[[plugins]]
-repo = 'neovimhaskell/haskell-vim'
-on_ft = 'haskell'
-hook_post_source = 'runtime rc/haskell.vim'
+#[[plugins]]
+#repo = 'neovimhaskell/haskell-vim' #{{{
+## enough w/ coc.nvim
+#on_ft = 'haskell'
+#hook_post_source = 'runtime rc/haskell.vim'
+#}}}
+
 # for Dynamic
+# Golang
+#[[plugins]]
+#repo = 'fatih/vim-go' #{{{
+## CAUTION: override ':norm K'.
+#on_ft = 'go'
+#hook_post_source = 'runtime go.vimrc'
+##}}}
 # Python
 [[plugins]]
 repo = 'plytophogy/vim-virtualenv' #{{{
