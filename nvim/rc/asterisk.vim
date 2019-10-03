@@ -4,57 +4,51 @@
 
 " TODO: Make the function work
 function! asterisk#substitute(operator, ...) abort "{{{1
-  let l:direction = a:1
-  echo l:direction
   " Specify operator wanted {{{2
   " Note: a:operator acceptable is ['d', 'c', 'p', 'auto'].
-  if v:operator !=# 'v' && a:operator ==# 'auto'
+  if a:operator ==# 'auto'
     let l:operator = v:operator
-  elseif v:operator ==# 'd' || a:operator ==# 'd'
+    " Note: conditions below are for in visual mode.
+    " TODO: specify 'v'; v:operator do never become 'v'.
+  elseif a:operator ==# 'd'
     let l:operator = 'd'
-  elseif v:operator ==# 'c' || a:operator ==# 'c'
+  elseif a:operator ==# 'c'
     let l:operator = 'c'
-    if v:operator ==# 'v' && a:operator !=# 'p'
-      " Note: 'p' is unnecessary to specify l:operator in this function at least.
-      "       because 'p' use different syntax than 'd' and 'c'.
-      throw "Please set a:operator, whether 'd', 'c' or 'p', in asterisk#substitute('here!', direction) on vmap"
-    else
-      throw "Please set a:operator, whether 'd', 'c' or 'auto', in asterisk#substitute('here!', direction) on omap"
-    endif
+  elseif a:operator !=# 'p'
+    " Note: 'p' is unnecessary to specify l:operator in this function at least.
+    "       because 'p' use different syntax than 'd' and 'c'.
+    throw "Please set a:operator, whether 'd', 'c' or 'p', in asterisk#substitute('here!', direction) on vmap"
+  else
+    throw "Please set a:operator, whether 'd', 'c' or 'auto', in asterisk#substitute('here!', direction) on omap or nmap"
   endif
 
   " Specify operating direction {{{2
-  if l:direction ==# 'up' || l:direction ==# 'upward'
-    let l:jumpway = 'gN'
-  elseif l:direction ==# 'down' || l:direction ==# 'downward'
-    let l:jumpway = 'gn'
+  if a:1 ==# 'up' || a:1 ==# 'upward'
+    let l:direction = 'gN'
+  elseif a:1 ==# 'down' || a:1 ==# 'downward'
+    let l:direction = 'gn'
   else
-    throw "Please set a:direction, whether 'up' or 'down' in asterisk#substitute(operator, 'here!')"
+    throw "Please set a direction, whether 'up' or 'down' in asterisk#substitute(operator, 'here!')"
   endif
 
-  " Return: start a dot-jumpable substitution below {{{2
-  call asterisk#do(mode(1), {'direction' : 1, 'do_jump' : 0, 'is_whole' : 0})
-  " Note: a:operator acceptable is ['d', 'c', 'p', 'auto'].
-  if v:operator ==# 'v'
-    if a:operator ==# 'p'
-      if v:event.regname ==# '"'
-        " Note: before pasting, this function registers to unnamed because of 'c'
-        if v:event.regname ==# @0
-          let l:regname = 0
-        else
-          let l:regname = 1
-        endif
-      elseif v:event.regname ==# [1-9]
-        let l:regname = v:event.regname + 1
-        let l:regname =  v:event.regname
-      endif
-      " like 'norm cgn<c-r>0<esc>'
-      exe 'norm c'. l:jumpway .'<c-r>'. l:regname .'<esc>'
-      return
-    endif
-    " like 'norm dgn'
-    exe 'norm '. l:operator .''. l:jumpway
+  " Return: dot-jumpable substitution {{{2
+  if line("'<") != line("'>")
+    exe 'norm!'. l:operator
+    return
   endif
+
+  call asterisk#do(mode(1), {'direction' : 1, 'do_jump' : 0, 'is_whole' : 0})
+
+  " TODO: specify 'v'; v:operator do never become 'v'.
+  " Note: a:operator acceptable is ['d', 'c', 'p', 'auto'].
+  if a:operator ==# 'p'
+    " e.g., 'norm! cgn<c-r>0<esc>'
+    exe 'norm! c'. l:direction .''. l:regname .''
+    return
+  endif
+
+  " e.g., 'norm! dgn'
+  exe 'norm! '. l:operator . l:direction
 endfunction "}}}1
 
 " Keymaps; <Plug>-zation {{{1
@@ -84,9 +78,11 @@ xnoremap <expr><silent> <Plug>(asterisk-dot-substitute-paste-downward)
       \ asterisk#do(mode(1), {'direction' : 1, 'do_jump' : 0, 'is_whole' : 0})
       \ .'cgN<c-r>1<esc>': 'p'
 
-" Experimental:
+" Experimental: for test
 "xnoremap <expr><silent> <Plug>(asterisk-dot-substitute-delete-downward)
 "      \ asterisk#substitute('d', 'downward')
+"xnoremap <silent> <Plug>(asterisk-dot-substitute-delete-downward)
+"      \ <Cmd>call asterisk#substitute('d', 'downward')<cr>
 "xnoremap <expr><silent> <Plug>(asterisk-dot-substitute-paste-downward)
 "      \ asterisk#substitute('p', 'downward')
 
@@ -125,10 +121,8 @@ xmap s <Plug>(asterisk-dot-substitute-change-downward)
 xmap X <Plug>(asterisk-dot-substitute-delete-upward)
 xmap S <Plug>(asterisk-dot-substitute-change-upward)
 
-omap *     <Plug>(asterisk-dot-substitute-operator-downward)
-omap #     <Plug>(asterisk-dot-substitute-operator-upward)
-omap <c-d> <Plug>(asterisk-dot-substitute-operator-downward)
-omap <c-u> <Plug>(asterisk-dot-substitute-operator-upward)
+omap * <Plug>(asterisk-dot-substitute-operator-downward)
+omap # <Plug>(asterisk-dot-substitute-operator-upward)
 " Mnemonic: dot-Repeatable
-omap r     <Plug>(asterisk-dot-substitute-operator-downward)
-omap R     <Plug>(asterisk-dot-substitute-operator-upward)
+omap r <Plug>(asterisk-dot-substitute-operator-downward)
+omap R <Plug>(asterisk-dot-substitute-operator-upward)
