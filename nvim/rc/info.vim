@@ -1,6 +1,7 @@
 " From: external.toml
+" Repo: HiPhish/info.vim
 
 augroup InfoMyAutoConf
-  " this one is which you're most likely to use?
-  au FileType * if &bt ==# 'terminal' && &ft ==# '' | nmap <buffer> K <Plug>(InfoFollow)
+  au!
+  au TermOpen * setl keywordprg=:Info
 augroup END
