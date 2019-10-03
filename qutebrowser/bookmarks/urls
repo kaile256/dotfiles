@@ -178,3 +178,5 @@ https://floobits.com/kaile256 Floobits: kaile256
 https://golang.org/doc/code.html How to Write Go Code - The Go Programming Language
 https://github.com/fatih/vim-go fatih/vim-go: Go development plugin for Vim
 https://github.com/haskell/haskell-ide-engine haskell/haskell-ide-engine: The engine for haskell ide-integration. Not an IDE
+https://github.com/neoclide/coc.nvim/wiki/Multiple-cursors-support Multiple cursors support · neoclide/coc.nvim Wiki
+https://github.com/neoclide/coc.nvim/wiki/Using-coc-extensions Using coc extensions · neoclide/coc.nvim Wiki
