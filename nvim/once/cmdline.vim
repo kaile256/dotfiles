@@ -9,6 +9,16 @@ cnoremap <c-f> <right>
 cnoremap <c-b> <left>
 cnoremap <a-b> <S-left>
 cnoremap <c-d> <Del>
+" Keymap; completion {{{1
+" Mnemonic: Buffer's name
+cnoremap <c-x><c-b> <c-r>=expand('%:t')<cr>
+cnoremap <c-x><c-x> <c-r>=expand('%:t')<cr>
+" Mnemonic: Absolute path
+cnoremap <c-x><c-a> <c-r>=expand('%:p')<cr>
+" Mnemonic: Directory
+cnoremap <c-x><c-d> <c-r>=expand('%:p:h')<cr>
+cnoremap <c-x><c-c> ~/.cache/
+cnoremap <c-x><c-f> ~/.config/
 "augroup AutoMkdirSuggestionOnSave "{{{1
 "  au!
 "  function! s:auto_suggest_mkdir(dir, force) "{{{
