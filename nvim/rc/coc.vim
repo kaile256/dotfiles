@@ -9,8 +9,7 @@ augroup CocMyAutoConf
   au BufWinEnter coc-settings.json setl keywordprg=:help
   "au BufLeave * if &ft ==# 'coc' || 'list' | hide | endif
   au FileType coc,list setl laststatus=0 noshowmode noruler
-        \ | au BufWinLeave,BufLeave * ++once set laststatus=2 showmode ruler
-  au FileType typescript,json    setl formatexpr=CocAction('formatSelected')
+        \ | au BufWinEnter,WinLeave,BufLeave * ++once set laststatus=2 showmode ruler
   "" Only for snippet's feature?
   "au User     CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
   " Highlight symbol under cursor on CursorHold
@@ -148,6 +147,12 @@ nnoremap <silent> <a-c><a-s>     :CocShowTaskList<cr>
 "command! -nargs=+ CEchoOnJapanese :call coc#config("translator", {"toLang": "ja"}) <bar> CocCommand translator.echo <q-args>
 "command! -nargs=+ CReplaceOnJapanese :call coc#config("translator", {"toLang": "ja"}) <bar> :CocCommand translator.echo <q-args>
 "command! -nargs=+ CPumOnJapanese :call coc#config("translator", {"toLang": "ja"}) <bar> CocCommand translator.echo <q-args>
+" CocCommand; Workspace {{{1
+noremap! <c-x><c-;> <esc>q:
+noremap! <c-x><c-/> <esc>q/
+command! Rename :CocCommand workspace.renameCurrentFile
+command! R      :CocCommand workspace.renameCurrentFile
+
 " CocList; {{{1
 " show commit contains current position
 noremap <silent> <a-c><a-c> :CocList<cr>
@@ -185,41 +190,41 @@ nnoremap <silent> gy :call CocActionAsync('jumpTypeDefinition', 'edit')<cr>
 xnoremap <silent> gy :call CocActionAsync('jumpTypeDefinition', 'edit')<cr>
 nnoremap <silent> gr :call CocActionAsync('jumpReferences',     'edit')<cr>
 xnoremap <silent> gr :call CocActionAsync('jumpReferences',     'edit')<cr>
-"" Jump; as :vsplit {{{2
-nnoremap <silent> <c-w>d :call CocActionAsync('jumpDefinition',     'vsplit')<cr>
-xnoremap <silent> <c-w>d :call CocActionAsync('jumpDefinition',     'vsplit')<cr>
-nnoremap <silent> <c-w>D :call CocActionAsync('jumpDeclaration',    'vsplit')<cr>
-xnoremap <silent> <c-w>D :call CocActionAsync('jumpDeclaration',    'vsplit')<cr>
-nnoremap <silent> <c-w>I :call CocActionAsync('jumpImplementation', 'vsplit')<cr>
-xnoremap <silent> <c-w>I :call CocActionAsync('jumpImplementation', 'vsplit')<cr>
-nnoremap <silent> <c-w>y :call CocActionAsync('jumpTypeDefinition', 'vsplit')<cr>
-xnoremap <silent> <c-w>y :call CocActionAsync('jumpTypeDefinition', 'vsplit')<cr>
-nnoremap <silent> <c-w>r :call CocActionAsync('jumpReferences',     'vsplit')<cr>
-xnoremap <silent> <c-w>r :call CocActionAsync('jumpReferences',     'vsplit')<cr>
-
 "" Jump; as :split {{{2
-nnoremap <silent> gd :call CocActionAsync('jumpDefinition',     'split')<cr>
-xnoremap <silent> gd :call CocActionAsync('jumpDefinition',     'split')<cr>
-nnoremap <silent> gD :call CocActionAsync('jumpDeclaration',    'split')<cr>
-xnoremap <silent> gD :call CocActionAsync('jumpDeclaration',    'split')<cr>
-nnoremap <silent> gI :call CocActionAsync('jumpImplementation', 'split')<cr>
-xnoremap <silent> gI :call CocActionAsync('jumpImplementation', 'split')<cr>
-nnoremap <silent> gy :call CocActionAsync('jumpTypeDefinition', 'split')<cr>
-xnoremap <silent> gy :call CocActionAsync('jumpTypeDefinition', 'split')<cr>
-nnoremap <silent> gr :call CocActionAsync('jumpReferences',     'split')<cr>
-xnoremap <silent> gr :call CocActionAsync('jumpReferences',     'split')<cr>
+nnoremap <silent> <c-w>d :call CocActionAsync('jumpDefinition',     'split')<cr>
+xnoremap <silent> <c-w>d :call CocActionAsync('jumpDefinition',     'split')<cr>
+nnoremap <silent> <c-w>D :call CocActionAsync('jumpDeclaration',    'split')<cr>
+xnoremap <silent> <c-w>D :call CocActionAsync('jumpDeclaration',    'split')<cr>
+nnoremap <silent> <c-w>I :call CocActionAsync('jumpImplementation', 'split')<cr>
+xnoremap <silent> <c-w>I :call CocActionAsync('jumpImplementation', 'split')<cr>
+nnoremap <silent> <c-w>y :call CocActionAsync('jumpTypeDefinition', 'split')<cr>
+xnoremap <silent> <c-w>y :call CocActionAsync('jumpTypeDefinition', 'split')<cr>
+nnoremap <silent> <c-w>r :call CocActionAsync('jumpReferences',     'split')<cr>
+xnoremap <silent> <c-w>r :call CocActionAsync('jumpReferences',     'split')<cr>
 
 "" Jump; as :tabe {{{2
-nnoremap <silent> gd :call CocActionAsync('jumpDefinition',     'tabe')<cr>
-xnoremap <silent> gd :call CocActionAsync('jumpDefinition',     'tabe')<cr>
-nnoremap <silent> gD :call CocActionAsync('jumpDeclaration',    'tabe')<cr>
-xnoremap <silent> gD :call CocActionAsync('jumpDeclaration',    'tabe')<cr>
-nnoremap <silent> gI :call CocActionAsync('jumpImplementation', 'tabe')<cr>
-xnoremap <silent> gI :call CocActionAsync('jumpImplementation', 'tabe')<cr>
-nnoremap <silent> gy :call CocActionAsync('jumpTypeDefinition', 'tabe')<cr>
-xnoremap <silent> gy :call CocActionAsync('jumpTypeDefinition', 'tabe')<cr>
-nnoremap <silent> gr :call CocActionAsync('jumpReferences',     'tabe')<cr>
-xnoremap <silent> gr :call CocActionAsync('jumpReferences',     'tabe')<cr>
+nnoremap <silent> <c-w>gd :call CocActionAsync('jumpDefinition',     'tabe')<cr>
+xnoremap <silent> <c-w>gd :call CocActionAsync('jumpDefinition',     'tabe')<cr>
+nnoremap <silent> <c-w>gD :call CocActionAsync('jumpDeclaration',    'tabe')<cr>
+xnoremap <silent> <c-w>gD :call CocActionAsync('jumpDeclaration',    'tabe')<cr>
+nnoremap <silent> <c-w>gI :call CocActionAsync('jumpImplementation', 'tabe')<cr>
+xnoremap <silent> <c-w>gI :call CocActionAsync('jumpImplementation', 'tabe')<cr>
+nnoremap <silent> <c-w>gy :call CocActionAsync('jumpTypeDefinition', 'tabe')<cr>
+xnoremap <silent> <c-w>gy :call CocActionAsync('jumpTypeDefinition', 'tabe')<cr>
+nnoremap <silent> <c-w>gr :call CocActionAsync('jumpReferences',     'tabe')<cr>
+xnoremap <silent> <c-w>gr :call CocActionAsync('jumpReferences',     'tabe')<cr>
+"" Jump; as :vsplit {{{2
+nnoremap <silent> <c-w><space>d :call CocActionAsync('jumpDefinition',     'vsplit')<cr>
+xnoremap <silent> <c-w><space>d :call CocActionAsync('jumpDefinition',     'vsplit')<cr>
+nnoremap <silent> <c-w><space>D :call CocActionAsync('jumpDeclaration',    'vsplit')<cr>
+xnoremap <silent> <c-w><space>D :call CocActionAsync('jumpDeclaration',    'vsplit')<cr>
+nnoremap <silent> <c-w><space>I :call CocActionAsync('jumpImplementation', 'vsplit')<cr>
+xnoremap <silent> <c-w><space>I :call CocActionAsync('jumpImplementation', 'vsplit')<cr>
+nnoremap <silent> <c-w><space>y :call CocActionAsync('jumpTypeDefinition', 'vsplit')<cr>
+xnoremap <silent> <c-w><space>y :call CocActionAsync('jumpTypeDefinition', 'vsplit')<cr>
+nnoremap <silent> <c-w><space>r :call CocActionAsync('jumpReferences',     'vsplit')<cr>
+xnoremap <silent> <c-w><space>r :call CocActionAsync('jumpReferences',     'vsplit')<cr>
+
 " CocList; Format {{{1
 command! -nargs=0 FormatOnCoc :call CocAction('format')
 command! -nargs=? FoldOnCoc   :call CocAction('fold',       <f-args>)
