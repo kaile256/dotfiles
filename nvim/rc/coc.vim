@@ -245,8 +245,21 @@ nnoremap <expr> = (CocHasProvider('format'))?
 
 " CocList; Rename {{{1
 " Mnemonic: Change the lhs of Equal Sign
-omap <expr> = (v:operator ==# 'c')?
-      \ '<esc><Plug>(coc-rename)': '='
+function! s:quick_format() abort
+  let l:view = winsaveview()
+  " Note: should keep ':norm' without 'bang';
+  "       `=` may be mapped by such as coc.nvim.
+  keepjump norm gg=G
+  call winrestview(l:view)
+endfunction
+command! -bar QuickFormat :call <SID>quick_format()
+
+omap <expr> =
+      \ (v:operator ==# 'c')
+      \ ?'<esc><Plug>(coc-rename)'
+      \ :(v:operator ==# '=')
+      \ ?'<esc>:QuickFormat<cr>'
+      \ :'='
 " CocList; Text-Object {{{1
 " Note: mapped already as default?
 vmap if <Plug>(coc-funcobj-i)
