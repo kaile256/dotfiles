@@ -1,7 +1,7 @@
 scriptencoding utf-8
 " From: finder.toml
 " Repo: Shougo/defx.nvim
-" Alter: unrtp/defx.vim
+" Alter: post/defx.vim
 " Ref: /usr/share/nvim/runtime/autoload/netrw.vim
 " Ref: /usr/share/nvim/runtime/plugin/netrwPlugin.vim
 

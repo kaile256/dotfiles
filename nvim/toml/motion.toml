@@ -19,7 +19,7 @@ repo = 'easymotion/vim-easymotion' #{{{
 #on_map = '<Plug>(easymotion-' # on operater, doesn't sourced.
 on_event = 'BufWinEnter'
 hook_add = 'runtime rc/easymotion.vim'
-hook_post_source = 'runtime unrtp/easymotion.vim'
+hook_post_source = 'runtime post/easymotion.vim'
 [[plugins]]
 repo = 'haya14busa/vim-easyoperator-phrase' #{{{
 #on_map = '<plug>(easyoperator-'
