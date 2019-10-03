@@ -167,7 +167,7 @@
     },
     "lua": {
       "command": "lua-lsp",
-      "filetypes": ["lua"],
+      "filetypes": ["lua"]
     },
     "metals": {
       "command": "metals-vim",
