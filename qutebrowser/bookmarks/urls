@@ -171,3 +171,4 @@ https://github.com/chrisbra/vim-diff-enhanced chrisbra/vim-diff-enhanced: Better
 https://github.com/neovim/neovim/wiki/Following-HEAD Following HEAD · neovim/neovim Wiki
 https://github.com/neovim/neovim/wiki/FAQ FAQ · neovim/neovim Wiki
 https://github.com/Shougo/echodoc.vim Shougo/echodoc.vim: Print documents in echo area.
+https://github.com/neoclide/coc.nvim/ neoclide/coc.nvim: Intellisense engine for vim8 & neovim, full language server protocol support as VSCode
