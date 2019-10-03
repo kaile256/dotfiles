@@ -165,15 +165,19 @@ noremap <silent> <a-c>b :CocList buffers<cr><M-k>
 command! MksessionCoc   :CocCommand session.save
 command! SaveSessionCoc :CocCommand session.save
 command! LoadSessionCoc :CocCommand session.load
-cnoreabbr <expr> mks (getcmdtype() == ':' && getcmdline() =~ '^mks$')? 'MksessionCoc' : 'mks'
-cnoreabbr <expr> lds (getcmdtype() == ':' && getcmdline() =~ '^lds$')? 'LoadSessionCoc' : 'lds'
+cnoreabbr <expr> mks (getcmdtype() == ':' && getcmdline() =~ '^mks$')?
+      \ 'MksessionCoc' : 'mks'
+cnoreabbr <expr> lds (getcmdtype() == ':' && getcmdline() =~ '^lds$')?
+      \ 'LoadSessionCoc' : 'lds'
 " CocList; Fuzzy-Buffers {{{1
 noremap <silent> <a-q><a-b> :<c-u>CocList buffers<cr>
 noremap <silent> <a-q>b     :<c-u>CocList buffers<cr>
 " CocList; Diagnostic {{{1
 " Note: Unnecessary? pop up auto.
-"map gC <Plug>(coc-diagnostic-info)
+nmap qi <Plug>(coc-diagnostic-info)
 nmap <silent> qf <Plug>(coc-fix-current)
+nmap <silent> qk <Plug>(coc-diagnostic-prev)
+nmap <silent> qj <Plug>(coc-diagnostic-next)
 nmap <silent> [q <Plug>(coc-diagnostic-prev)
 nmap <silent> ]q <Plug>(coc-diagnostic-next)
 "nmap [e <Plug>(coc-diagnostic-prev-error)
@@ -235,8 +239,11 @@ nmap cs <Plug>(coc-refactor)
 "set equalprg=CocActionAsync('format')
 "set equalprg=CocActionAsync('codeLensAction')
 
-xmap <expr> =  (CocHasProvider('format') == v:true)? '<Plug>(coc-format-selected)' : '='
-nmap <expr> =  (CocHasProvider('format') == v:true)? '<Plug>(coc-format-selected)' : '='
+xnoremap <expr> = (CocHasProvider('format'))?
+      \ ':call CocActionAsync("formatSelected")<cr>': '='
+nnoremap <expr> = (CocHasProvider('format'))?
+      \ ':call CocActionAsync("formatSelected")<cr>': '='
+
 " CocList; Text-Object {{{1
 " Note: mapped already as default?
 vmap if <Plug>(coc-funcobj-i)
@@ -244,8 +251,9 @@ omap if <Plug>(coc-funcobj-i)
 vmap af <Plug>(coc-funcobj-a)
 omap af <Plug>(coc-funcobj-a)
 " CocList; Rename {{{1
-" Mnemonic: Change Name
-omap <expr> n (v:operator ==# 'c')? '<esc><Plug>(coc-rename)': 'n'
+" Mnemonic: Change it to the name
+omap <expr> = (v:operator ==# 'c')?
+      \ '<esc><Plug>(coc-rename)': '='
 " CocList; CodeAction {{{1
 nmap qA   <Plug>(coc-codeaction)
 nmap qaa  <Plug>(coc-codeaction)
