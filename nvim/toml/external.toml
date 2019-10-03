@@ -1,4 +1,4 @@
-# From: rc/dein.vir
+# From: rc/dein.vim
 
 # LSP
 [[plugins]]
@@ -140,24 +140,19 @@ hook_post_source = 'runtime rc/fugitive-gitlab.vim'
 #hook_post_source = 'runtime rc/gina.vim'
 ##}}}
 
-# Enable Collaborative Editing
+# Doc; Info
 [[plugins]]
-repo = 'Floobits/floobits-neovim'
-# Need to create an account of floobits.
-on_cmd = 'Floo'
-hook_add = 'runtime rc/floobits.vim'
+repo = 'HiPhish/info.vim' #{{{
+on_cmd = 'Info'
+hook_add = 'runtime rc/info.vim'
+#}}}
 
-# Shell; Wrapper
-#[[plugins]]
-#repo = 'kassio/neoterm' #{{{
-#on_event = 'BufAdd'
-#hook_post_source = 'runtime rc/neoterm.vim'
-##}}}
-#[[plugins]]
-#repo = 'Shougo/deol.nvim' #{{{
-#on_event = 'VimEnter'
-#hook_post_source = 'runtime rc/deol.vim'
-##}}}
+# Collaborative Editing
+[[plugins]]
+repo = 'Floobits/floobits-neovim' #{{{
+on_cmd = ['Floo', 'FlooShareDirPublic', 'FlooShareDirPrivate', 'FlooJoinWorkspace']
+hook_add = 'runtime rc/floobits.vim'
+#}}}
 
 # Shell; Async Processor
 [[plugins]]
@@ -177,11 +172,17 @@ hook_add = 'runtime rc/quickrun.vim'
 #hook_add = 'runtime rc/asyncrun.vim'
 #}}}
 
-# Shell; Info
-[[plugins]]
-repo = 'HiPhish/info.vim'
-on_cmd = 'Info'
-hook_post_source = 'runtime rc/info.vim'
+# Shell; Wrapper
+#[[plugins]]
+#repo = 'kassio/neoterm' #{{{
+#on_event = 'BufAdd'
+#hook_post_source = 'runtime rc/neoterm.vim'
+##}}}
+#[[plugins]]
+#repo = 'Shougo/deol.nvim' #{{{
+#on_event = 'VimEnter'
+#hook_post_source = 'runtime rc/deol.vim'
+##}}}
 
 # i3-wm
 #[[plugins]]
