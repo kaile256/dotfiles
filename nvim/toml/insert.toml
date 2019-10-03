@@ -1,13 +1,5 @@
 # From: rc/dein.vim
 
-# Unicode
-[[plugins]]
-repo = 'chrisbra/unicode.vim'
-on_event = 'InsertEnter'
-# Note: on_map of unicode.vim is useless; maybe because they are imap.
-#on_map = ['<Plug>(UnicodeComplete)', '<Plug>(DigraphComplete)']
-hook_post_source = 'runtime rc/unicode.vim'
-
 # CapsLock
 #[[plugins]]
 #repo = 'tpope/vim-capslock' #{{{
@@ -23,35 +15,44 @@ hook_post_source = 'runtime rc/unicode.vim'
 ##}}}
 
 # Completion
-[[plugins]]
-repo = 'Shougo/deoplete.nvim' #{{{
-# good with eskk.vim
-on_if = 'has("python3")'
-on_event = ['InsertCharPre', 'InsertEnter']
-hook_post_source = 'runtime rc/deoplete.vim'
 #[[plugins]]
-#repo = 'SevereOverfl0w/deoplete-github' #{{{
-#on_ft = ['gitcommit']
+#repo = 'Shougo/deoplete.nvim' #{{{
+## good with eskk.vim
+#on_if = 'has("python3")'
+#on_event = ['InsertCharPre', 'InsertEnter']
+#hook_post_source = 'runtime rc/deoplete.vim'
+##[[plugins]]
+##repo = 'SevereOverfl0w/deoplete-github' #{{{
+##on_ft = ['gitcommit']
+###}}}
+##[[plugins]]
+##repo = 'wellle/tmux-complete.vim' #{{{
+##on_ft = 'tmux'
+###}}}
+#[[plugins]]
+#repo = 'deoplete-plugins/deoplete-zsh' #{{{
+#on_ft = 'zsh'
 ##}}}
 #[[plugins]]
-#repo = 'wellle/tmux-complete.vim' #{{{
-#on_ft = 'tmux'
+#repo = 'ponko2/deoplete-fish' #{{{
+#on_ft = 'fish'
 ##}}}
-[[plugins]]
-repo = 'deoplete-plugins/deoplete-zsh' #{{{
-on_ft = 'zsh'
-#}}}
-[[plugins]]
-repo = 'ponko2/deoplete-fish' #{{{
-on_ft = 'fish'
-#}}}
-#}}}
+##}}}
 #[[plugins]]
 #repo = 'tenfyzhong/CompleteParameter.vim' #{{{
 ## Enough w/ lsp and snippets?
 #on_map = '<Plug>(complete_parameter#'
 #hook_add = 'runtime rc/CompleteParameter.vim'
 ##}}}
+
+# Unicode
+[[plugins]]
+repo = 'chrisbra/unicode.vim' #{{{
+on_event = 'InsertEnter'
+# Note: on_map of unicode.vim is useless; maybe because they are imap.
+#on_map = ['<Plug>(UnicodeComplete)', '<Plug>(DigraphComplete)']
+hook_post_source = 'runtime rc/unicode.vim'
+#}}}
 
 # Snippets; Engine
 [[plugins]]
