@@ -73,6 +73,7 @@ set updatetime=300
 set guicursor=
 "}}}
 " Appearance; Line {{{
+set cursorline
 " CAUTION: cursorline-highlight causes drawing corruption.
 "augroup AutoToggleCursorLine
 "  au!
@@ -81,7 +82,7 @@ set guicursor=
 "  au WinLeave,InsertEnter * setl nocursorline
 "augroup END
 " to highlight only CursorLineNr if not linked.
-hi CursorLine NONE
+"hi CursorLine NONE
 " in diff mode, move cursorline in the other window as the corresponding line of the current window.
 " Error?: it would work, even not in diff mode, but just there're two or more windows in a screen.
 "set nocursorbind
