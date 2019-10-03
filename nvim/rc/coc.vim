@@ -235,8 +235,7 @@ command! -nargs=? FoldOnCoc   :call CocAction('fold',       <f-args>)
 command! -nargs=0 OR          :call CocAction('runCommand', 'editor.action.organizeImport')
 " Mnemonic: Change the Structure.
 nmap cs <Plug>(coc-refactor)
-" Note: `==` is for `[count]==`. <Plug>(coc-format), too.
-"set equalprg=CocActionAsync('format')
+"set equalprg=CocActionAsync('formatSelected')
 "set equalprg=CocActionAsync('codeLensAction')
 
 xnoremap <expr> = (CocHasProvider('format'))?
@@ -244,16 +243,16 @@ xnoremap <expr> = (CocHasProvider('format'))?
 nnoremap <expr> = (CocHasProvider('format'))?
       \ ':call CocActionAsync("formatSelected")<cr>': '='
 
+" CocList; Rename {{{1
+" Mnemonic: Change the lhs of Equal Sign
+omap <expr> = (v:operator ==# 'c')?
+      \ '<esc><Plug>(coc-rename)': '='
 " CocList; Text-Object {{{1
 " Note: mapped already as default?
 vmap if <Plug>(coc-funcobj-i)
 omap if <Plug>(coc-funcobj-i)
 vmap af <Plug>(coc-funcobj-a)
 omap af <Plug>(coc-funcobj-a)
-" CocList; Rename {{{1
-" Mnemonic: Change it to the name
-omap <expr> = (v:operator ==# 'c')?
-      \ '<esc><Plug>(coc-rename)': '='
 " CocList; CodeAction {{{1
 nmap qA   <Plug>(coc-codeaction)
 nmap qaa  <Plug>(coc-codeaction)
