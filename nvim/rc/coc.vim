@@ -3,6 +3,7 @@
 " Branch: neoclide/coc.nvim_release
 " Func: neoclide/coc.nvim_release/plugin/coc.vim
 " XDG: .config/coc/extensions
+" Json: coc-settings.json
 
 augroup CocMyAutoConf
   au!
@@ -20,24 +21,6 @@ augroup END
 hi HighlightedyankRegion ctermfg=232 ctermbg=66 guifg=#000000 guibg=#df5f29
 
 " Note: <c-o> in coc's cmdline get to normal mode of coc.nvim
-" Command!; C-series {{{1
-command! CocIfHasProvider :call <SID>coc_if_has_provider()
-command! CIfHasProvider   :call <SID>coc_if_has_provider()
-command! CUninstall :CocUninstall g:coc_global_extensions
-command! CConfig     :CocConfig
-command! CCmd        :CocCommand
-command! CList       :CocList
-command! Coc         :CocList
-command! CExtensions :CocList extensions
-command! CTemplate :CocCommand template.templateTop
-command! CInit     :CocCommand template.templateTop
-command! Init      :CocCommand template.templateTop
-" Note: fzf.vim is better,
-"       which has regex-like specification method on fuzzy-matcher.
-command! CFiles    :CocList files
-command! CMru      :CocList mru
-command! CBuffers  :CocList buffers
-command! CLocalLog :CocList bcommits
 " the List of CocExtentions; "{{{1
 " Note: Have to install LSPs independently.
 let g:coc_global_extensions = [
@@ -78,6 +61,24 @@ let g:coc_global_extensions = [
       \ 'coc-yank',
       \ ]
 "}}}
+" Command!; C-series {{{1
+command! CocIfHasProvider :call <SID>coc_if_has_provider()
+command! CIfHasProvider   :call <SID>coc_if_has_provider()
+command! CUninstall :CocUninstall g:coc_global_extensions
+command! CConfig     :CocConfig
+command! CCmd        :CocCommand
+command! CList       :CocList
+command! Coc         :CocList
+command! CExtensions :CocList extensions
+command! CTemplate :CocCommand template.templateTop
+command! CInit     :CocCommand template.templateTop
+command! Init      :CocCommand template.templateTop
+" Note: fzf.vim is better,
+"       which has regex-like specification method on fuzzy-matcher.
+command! CFiles    :CocList files
+command! CMru      :CocList mru
+command! CBuffers  :CocList buffers
+command! CLocalLog :CocList bcommits
 function! s:coc_if_has_provider() "{{{1
   let l:coc_provider_list = [
         \ 'hover',
@@ -143,15 +144,32 @@ nnoremap <silent> <a-c>s     :CocShowTaskList<cr>
 nnoremap <silent> <a-c><a-t>     :CocTask<cr>
 nnoremap <silent> <a-c><a-s>     :CocShowTaskList<cr>
 " CocCommand; Translator {{{1
-" Not work well yet on Japanese
-"command! -nargs=+ CEchoOnJapanese :call coc#config("translator", {"toLang": "ja"}) <bar> CocCommand translator.echo <q-args>
-"command! -nargs=+ CReplaceOnJapanese :call coc#config("translator", {"toLang": "ja"}) <bar> :CocCommand translator.echo <q-args>
-"command! -nargs=+ CPumOnJapanese :call coc#config("translator", {"toLang": "ja"}) <bar> CocCommand translator.echo <q-args>
+" Note: CANNOT replace 'toLang' before translator yet.
+"command! CJapaneseEcho    :call coc#config("translator", {"toLang": "ja"}) <bar> CocCommand  translator.echo
+"command! CJapaneseReplace :call coc#config("translator", {"toLang": "ja"}) <bar> :CocCommand translator.replace
+"command! CJapanesePum     :call coc#config("translator", {"toLang": "ja"}) <bar> CocCommand  translator.popup
+command! CEnglishEcho    :call coc#config("translator", {"toLang": "en"}) <bar> CocCommand  translator.echo
+command! CEnglishReplace :call coc#config("translator", {"toLang": "en"}) <bar> :CocCommand translator.replace
+command! CEnglishPum     :call coc#config("translator", {"toLang": "en"}) <bar> CocCommand  translator.popup
+
 " CocCommand; Workspace {{{1
 noremap! <c-x><c-;> <esc>q:
 noremap! <c-x><c-/> <esc>q/
 command! Rename :CocCommand workspace.renameCurrentFile
 command! R      :CocCommand workspace.renameCurrentFile
+
+" CocCommand; Range, or Multiple Cursor {{{1
+hi CocCursorRange guibg=#b16286 guifg=#ebdbb2
+"" Mnemonic: Mark
+"xmap <silent> m <Plug>(coc-cursors-range)
+"nmap <silent> m <Plug>(coc-cursors-operator)
+" Mnemonic: Macro of Cursor
+nmap <silent> qc <Plug>(coc-cursors-operator)
+xmap <silent> qc <Plug>(coc-cursors-range)
+"nmap <silent> <c-j> <Plug>(coc-range-select)
+"nmap <silent> <c-k> <Plug>(coc-range-select-backward)
+"nmap <silent> * <Plug>(coc-cursors-word)
+"nmap <silent> n <Plug>(coc-cursors-position)
 
 " CocList; {{{1
 " show commit contains current position
@@ -280,15 +298,6 @@ xmap qa   <Plug>(coc-codeaction-selected)
 "<Plug>(coc-float-hide)
 "<Plug>(coc-float-jump)
 "
-" CocList; if selectionRange == v:true {{{2
-"nmap <silent> n <Plug>(coc-range-select)
-"nmap <silent> N <Plug>(coc-range-select-backward)
-"vmap <silent> <Plug>(coc-cursors-range)
-"nmap <silent> n <Plug>(coc-cursors-operator)
-"nmap <silent> * <Plug>(coc-cursors-word)
-"nmap <silent> n <Plug>(coc-cursors-position)
-""}}}
-
 " CocCompletion; {{{1
 " Necessary?: closes mpreview vindow when completion is done.
 "au! CompleteDone * if pumvisible() == 0 | pclose | endif
