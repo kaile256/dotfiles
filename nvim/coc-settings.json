@@ -88,7 +88,7 @@
   "yank.limit": 200,
 
   "translator.engines": ["google"],
-  "translator.toLang": "ja",
+  "translator.toLang": "en",
   "translator.maxsize": 200,
 
   // false: Update only on saving the buffer.
