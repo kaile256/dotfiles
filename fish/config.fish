@@ -16,6 +16,7 @@
 source $HOME/.config/fish/myconf/alias.fish
 source $HOME/.config/fish/myconf/prompt.fish
 source $HOME/.config/fish/myconf/fzf.fish
+source $HOME/.config/fish/myconf/env.fish
 
 umask 022
 
