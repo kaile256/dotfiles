@@ -22,7 +22,7 @@ elseif has('win32\|win64')
   catch
     set guifont=Monospace\ 12
     set printfont=Monospace\ 12
-  endtry 
+  endtry
 endif
 "}}}
 " Set; Path for Backup {{{
@@ -67,13 +67,18 @@ if has('nvim')
   let $GIT_EDITOR = 'nvr -cc split --remote-wait'
 endif
 "}}}
-" $var; for Vim {{{
+" $var; for Vim {{{1
 if isdirectory('~/kaile256')
   let $MYVIMRC = expand('<sfile>')
   let $HOME = expand('<sfile>:h')
 endif
 let $EDITOR='nvr'
 let $VISUAL='nvr'
+
+" $var: for Dev {{{1
+let $DEVROOT=expand($HOME) .'/dev'
+let $GOPATH=expand($DEVROOT) .'/go'
+let $PATH=expand($GOPATH) .'/bin:'. expand($PATH)
 "}}}
 
 " Path; Runtime Path
