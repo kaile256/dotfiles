@@ -24,6 +24,7 @@ let g:openbrowser_search_engines = {
       \ 'duckduckgo': 'http://duckduckgo.com/?q={query}',
       \ 'github': 'http://github.com/search?q={query}',
       \ 'google': 'http://google.com/search?q={query}',
+      \ 'go': 'https://golang.org/search?q={query}',
       \ 'google-code': 'http://code.google.com/intl/en/query/#q={query}',
       \ 'php': 'http://php.net/{query}',
       \ 'python': 'http://docs.python.org/dev/search.html?q={query}&check_keywords=yes&area=default',
@@ -40,62 +41,68 @@ let g:openbrowser_search_engines = {
       \ }
 " Abbr; Search Engine {{{1
 cnoreabbr <expr> gb (getcmdtype() == ':' && getcmdline() =~ '^gb$')? 'OpenBrowserSmartSearch' : 'gb'
-"" Engine; Rendering
+" Engine; Rendering
 cnoreabbr <expr> dk (getcmdtype() == ':' && getcmdline() =~ '^OpenBrowserSmartSearch dk$')? '-duckduckgo' : 'dk'
 cnoreabbr <expr> go (getcmdtype() == ':' && getcmdline() =~ '^OpenBrowserSmartSearch go$')? '-google'     : 'go'
-"" Engine; git
+" Engine; git
 cnoreabbr <expr> gh (getcmdtype() == ':' && getcmdline() =~ '^OpenBrowserSmartSearch gh$')? '-github'     : 'gh'
-"" Engine; Wiki {{{2
-""" Wiki; Archwiki
+" Engine; Wiki {{{2
+" Wiki; Archwiki
 cnoreabbr <expr> ar (getcmdtype() == ':' && getcmdline() =~ '^OpenBrowserSmartSearch ar$')? '-archwiki@en'     : 'wr'
 cnoreabbr <expr> aw (getcmdtype() == ':' && getcmdline() =~ '^OpenBrowserSmartSearch aw$')? '-archwiki@en'     : 'aw'
 cnoreabbr <expr> aj (getcmdtype() == ':' && getcmdline() =~ '^OpenBrowserSmartSearch aj$')? '-archwiki@ja'     : 'aj'
-""" Wiki; Wikipedia
+" Wiki; Wikipedia
 cnoreabbr <expr> wk (getcmdtype() == ':' && getcmdline() =~ '^OpenBrowserSmartSearch wk$')? '-wikipedia'  : 'wk'
-"" Engine; Dictionary {{{2
-""" Dictionary; Weblio
+" Engine; Dictionary {{{2
+" Dictionary; Weblio
 cnoreabbr <expr> wl (getcmdtype() == ':' && getcmdline() =~ '^OpenBrowserSmartSearch wl$')? '-weblio'        : 'wl'
-""" Dictionary; Thesaurus
+" Dictionary; Thesaurus
 cnoreabbr <expr> W  (getcmdtype() == ':' && getcmdline() =~ '^OpenBrowserSmartSearch W$')?  '-thesaurus'     : 'W'
 cnoreabbr <expr> th (getcmdtype() == ':' && getcmdline() =~ '^OpenBrowserSmartSearch th$')? '-thesaurus'     : 'th'
-""" Dictionary; DiCtionary
+" Dictionary; DiCtionary
 cnoreabbr <expr> K  (getcmdtype() == ':' && getcmdline() =~ '^OpenBrowserSmartSearch K$')?  '-dictionary@en' : 'K'
 cnoreabbr <expr> dc (getcmdtype() == ':' && getcmdline() =~ '^OpenBrowserSmartSearch dc$')? '-dictionary@en' : 'dc'
 " Keymap; Open Current File
-"" Current File; Command! {{{1
+" Current File; Command! {{{1
 "command! CurrentFileOnBrowser exe 'OpenBrowser' 'ftp:///' . expand('%:p:gs?\\?/?')
 command! CurrentFileOnBrowser exe 'OpenBrowser' . expand('%:p:gs?\\?/?')
-"" Current File; Get Current file {{{1
+" Current File; Get Current file {{{1
 nnoremap <silent> g% :<c-u>CurrentFileOnBrowser<cr>
 nnoremap <silent> g5 :<c-u>CurrentFileOnBrowser<cr>
 
 " Keymap; Open Words/URL under Cursor
-"" Cursor; 'Go to Browser' {{{1
+" Cursor; 'Go to Browser' {{{1
 " Notice: `smart-search` detects whether it is URI or not.
 nmap gb <Plug>(openbrowser-smart-search)
 vmap gb <Plug>(openbrowser-smart-search)
 " Cursor; Go to Browser with <cWORD>
 nmap gB :<c-u>OpenBrowserSmartSearch <c-r><c-a> <cr>
 vmap gB :<c-u>OpenBrowserSmartSearch <c-r><c-a> <cr>
-"" Cursor; GitHub "{{{1
+" Cursor; GitHub "{{{1
 nmap gh :<c-u>OpenBrowserSmartSearch -github <c-r><c-w> <cr>
 vmap gh :<c-u>OpenBrowserSmartSearch -github <c-r><c-w> <cr>
-"" Cursor; Github's repository "{{{1
+" Cursor; Github's repository "{{{1
 nmap gH :<c-u>OpenBrowserSmartSearch http://github.com/<c-r><c-f> <cr>
 vmap gH :<c-u>OpenBrowserSmartSearch http://github.com/<c-r><c-f> <cr>
 "}}}
-"" Cursor; Gitlab
+" Cursor; Gitlab
 nmap gl :<c-u>OpenBrowserSmartSearch -gitlab    <c-r><c-w> <cr>
 vmap gl :<c-u>OpenBrowserSmartSearch -gitlab    <c-r><c-w> <cr>
 " Cursor; Gitlab's repository
 nmap gL :<c-u>OpenBrowserSmartSearch -gitlab    <c-r><c-f> <cr>
 vmap gL :<c-u>OpenBrowserSmartSearch -gitlab    <c-r><c-f> <cr>
-"" Cursor; Dictionary "{{{1
-""" Dictionary; Go to the free dictionary
+" Cursor; Dictionary "{{{1
+" Dictionary; Go to the free dictionary
 " Mnemonic: default `K`
 "nmap gK :<c-u>OpenBrowserSmartSearch -dictionary@en <c-r><c-w> <cr>
 "vmap gK :<c-u>OpenBrowserSmartSearch -dictionary@en <c-r><c-a> <cr>
-""" Dictionary; Get Words on thesaurus
+" Dictionary; Get Words on thesaurus
 nmap gW :<c-u>OpenBrowserSmartSearch -thesaurus <c-r><c-w> <cr>
 vmap gW :<c-u>OpenBrowserSmartSearch -thesaurus <c-r><c-a> <cr>
-"""" Dictionary; webLio
+
+augroup OpenBrowserWrapKeywordPrg
+  au!
+  au FileType go     setl keywordprg=:OpenBrowserSmartSearch\ -go
+  au FileType python setl keywordprg=:OpenBrowserSmartSearch\ -python
+augroup END
+
