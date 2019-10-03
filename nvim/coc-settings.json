@@ -1,177 +1,178 @@
 {
-	"coc.preferences.formatOnType": true,
-	"coc.preferences.snippets.enable": false,
-	"coc.preferences.rootPatterns":[".vim",".git",".hg",".projections.json","nvim"],
+  "coc.preferences.formatOnType": true,
+  "coc.preferences.snippets.enable": false,
+  "coc.preferences.rootPatterns":[".vim",".git",".hg",".projections.json","nvim"],
 
-	"signature.preferShownAbove": false,
-	"signature.triggerSignatureWait": 300,
+  "signature.preferShownAbove": false,
+  "signature.triggerSignatureWait": 300,
 
   "suggest.minTriggerInputLength": 2,
-	"suggest.autoTrigger": "always",
-	"suggest.acceptSuggestionOnCommitCharacter": true,
-	"suggest.enablePreview": false,
-	"suggest.floatEnable": true,
-	"suggest.noselect": true,
-	"suggest.timeout": 500,
-	"suggest.triggerAfterInsertEnter": false,
-	"suggest.triggerCompletionWait": 200,
-	"suggest.completionItemKindLabels": {
-		"keyword": "\uf1de",
-		"variable": "\ue79b",
-		"value": "\uf89f",
-		"operator": "\u03a8",
-		"function": "\u0192",
-		"reference": "\ufa46",
-		"constant": "\uf8fe",
-		"method": "\uf09a",
-		"struct": "\ufb44",
-		"class": "\uf0e8",
-		"interface": "\uf417",
-		"text": "\ue612",
-		"enum": "\uf435",
-		"enumMember": "\uf02b",
-		"module": "\uf40d",
-		"color": "\ue22b",
-		"property": "\ue624",
-		"field": "\uf9be",
-		"unit": "\uf475",
-		"event": "\ufacd",
-		"file": "\uf723",
-		"folder": "\uf114",
-		"snippet": "\ue60b",
-		"typeParameter": "\uf728",
-		"default": "\uf29c"
-	},
+  "suggest.autoTrigger": "always",
+  "suggest.acceptSuggestionOnCommitCharacter": true,
+  "suggest.enablePreview": false,
+  "suggest.floatEnable": true,
+  "suggest.noselect": true,
+  "suggest.timeout": 500,
+  "suggest.triggerAfterInsertEnter": false,
+  "suggest.triggerCompletionWait": 200,
+  "suggest.completionItemKindLabels": {
+    "keyword": "\uf1de",
+    "variable": "\ue79b",
+    "value": "\uf89f",
+    "operator": "\u03a8",
+    "function": "\u0192",
+    "reference": "\ufa46",
+    "constant": "\uf8fe",
+    "method": "\uf09a",
+    "struct": "\ufb44",
+    "class": "\uf0e8",
+    "interface": "\uf417",
+    "text": "\ue612",
+    "enum": "\uf435",
+    "enumMember": "\uf02b",
+    "module": "\uf40d",
+    "color": "\ue22b",
+    "property": "\ue624",
+    "field": "\uf9be",
+    "unit": "\uf475",
+    "event": "\ufacd",
+    "file": "\uf723",
+    "folder": "\uf114",
+    "snippet": "\ue60b",
+    "typeParameter": "\uf728",
+    "default": "\uf29c"
+  },
 
-	"codeLens.enable": true,
+  "codeLens.enable": true,
 
-	"diagnostic.checkCurrentLine": true,
+  "diagnostic.checkCurrentLine": true,
 
-	"coc.preferences.extensionUpdateCheck": "weekly",
+  "coc.preferences.extensionUpdateCheck": "weekly",
 
-	"session.directory": "~/.local/share/nvim/session/",
+  "session.directory": "~/.local/share/nvim/session/",
 
-	"list.autoResize": false,
-	"list.source.mru.maxLength": 50,
-	"list.source.mru.ignoreGitIgnore": false,
-	"list.source.grep.defaultArgs": ["--regex"],
-	"list.insertMappings": {
-		"<C-t>": "action:tabe",
-		"<C-s>": "action:split",
-		"<C-v>": "action:vsplit",
-		"<CR>":  "action:drop",
-		"<C-r>": "eval:@@",
-		"<c-c>": "do:cancel",
-		"<a-h>": "do:cancel",
-		"<a-j>": "do:cancel",
-		"<a-k>": "do:cancel",
-		"<a-l>": "do:cancel",
-		"<c-r>": "prompt.paste",
-		"<c-a>": "prompt.start",
-		"<c-e>": "prompt.end",
-		"<c-f>": "prompt.right",
-		"<c-b>": "prompt.left",
-		"<c-d>": "prompt.deletebackward"
-	},
-	"list.normalMappings": {
-		"m":     "do.toggle",
-		"d":     "action:delete",
-		"e":     "action:drop",
-		"<c-t>": "action:tab",
-		"<c-v>": "action:vsplit",
-		"<c-s>": "action:split"
-	},
+  "list.autoResize": false,
+  "list.source.mru.maxLength": 50,
+  "list.source.mru.ignoreGitIgnore": false,
+  "list.source.grep.defaultArgs": ["--regex"],
+  "list.insertMappings": {
+    "<C-t>": "action:tabe",
+    "<C-s>": "action:split",
+    "<C-v>": "action:vsplit",
+    "<CR>":  "action:drop",
+    "<C-r>": "eval:@@",
+    "<c-c>": "do:cancel",
+    "<a-h>": "do:cancel",
+    "<a-j>": "do:cancel",
+    "<a-k>": "do:cancel",
+    "<a-l>": "do:cancel",
+    "<c-r>": "prompt.paste",
+    "<c-a>": "prompt.start",
+    "<c-e>": "prompt.end",
+    "<c-f>": "prompt.right",
+    "<c-b>": "prompt.left",
+    "<c-d>": "prompt.deletebackward"
+  },
+  "list.normalMappings": {
+    "m":     "do.toggle",
+    "d":     "action:delete",
+    "e":     "action:drop",
+    "<c-t>": "action:tab",
+    "<c-v>": "action:vsplit",
+    "<c-s>": "action:split"
+  },
 
-	"yank.highlight.enable": true,
-	"yank.enableCompletion": false,
-	"yank.list.maxsize": 150,
-	"yank.limit": 200,
+  "yank.highlight.enable": true,
+  "yank.enableCompletion": false,
+  "yank.list.maxsize": 150,
+  "yank.limit": 200,
 
-	"translator.engines": ["google"],
-	"translator.toLang": "ja",
-	"translator.maxsize": 200,
+  "translator.engines": ["google"],
+  "translator.toLang": "ja",
+  "translator.maxsize": 200,
 
-	// false: Update only on saving the buffer.
-	"git.realtimeGutters": true,
+  // false: Update only on saving the buffer.
+  "git.realtimeGutters": true,
 
-	"template.username": "kaile256",
-	"template.templatesDirectory": "~/.config/nvim/data/coc/template",
+  "template.username": "kaile256",
+  "template.templatesDirectory": "~/.config/nvim/data/coc/template",
 
-	"json.format.enable": false,
+  "json.format.enable": false,
 
-	"vimlsp.debug": false,
-	"vimlsp.diagnostic.enable": true,
-	"vimlsp.indexes.runtimepath": false,
-	"vimlsp.indexes.count": 3,
-	"vimlsp.indexes.gap": 100,
-	"vimlsp.suggest.fromVimruntime": true,
-	"vimlsp.suggest.fromRuntimepath": false,
-	"vimlsp.trace.server": "verbose",
-	"diagnostic-languageserver.filetypes": {
-		"email": "languagetool",
-		"markdown": [ "write-good", "markdownlint" ],
-		"sh": "shellcheck",
-		"elixir": ["mix_credo", "mix_credo_compile"],
-		"eelixir": ["mix_credo", "mix_credo_compile"],
-		"php": "phpcs"
-	},
-	"diagnostic-languageserver.formatFiletypes": {
-		"dart": "dartfmt",
-		"elixir": "mix_format",
-		"eelixir": "mix_format"
-	},
-	"lua.commandPath": "/usr/bin/lua-lsp",
-	"languageserver":{
-		"bash": {
-			"command": "bash-language-server",
-			"args": ["start"],
-			"filetypes": ["sh"]
-		},
-		"rust": {
-			"command": "ra_lsp_server",
-			"filetypes": ["rust"],
-			"rootPatterns": ["Cargo.toml"]
-		},
-		"golang":{
-			"command": "go-langserver",
-			"filetypes": ["go"],
-			"initializationOptions": {
-				"gocodeCompletionEnabled": true,
-				"diagnositicsEnabled": true,
-				"lintTool": "golint"
-			}
-		},
-		"ccls": {
-			"command": "ccls",
-			"filetypes": ["c", "cpp", "objc", "objcpp"],
-			"rootPatterns": [".ccls", "compile_commands.json", ".vim/", ".git/", ".hg/"],
-			"initializationOptions": {
-				"cache": {
-					"directory": "/tmp/ccls"
-				}
-			}
-		},
-		"intelphense": {
-			"command": "intelphense",
-			"args": ["--stdio"],
-			"filetypes": ["php"],
-			"initializationOptions": {
-				"storagePath": "/tmp/intelphense"
-			}
-		},
-		"dockerfile": {
-			"command": "docker-langserver",
-			"filetypes": ["dockerfile"],
-			"args": ["--stdio"]
-		},
-		"lua": {
-			"command": "lua-lsp",
-			"filetypes": ["lua"],
-		},
-		"metals": {
-			"command": "metals-vim",
-			"rootPatterns": ["build.sbt"],
-			"filetypes": ["scala", "sbt"]
-		}
-	}
+  "vimlsp.debug": false,
+  "vimlsp.diagnostic.enable": true,
+  "vimlsp.indexes.runtimepath": false,
+  "vimlsp.indexes.count": 3,
+  "vimlsp.indexes.gap": 100,
+  "vimlsp.suggest.fromVimruntime": true,
+  "vimlsp.suggest.fromRuntimepath": false,
+  "vimlsp.trace.server": "verbose",
+  "diagnostic-languageserver.filetypes": {
+    "email": "languagetool",
+    "markdown": [ "write-good", "markdownlint" ],
+    "sh": "shellcheck",
+    "elixir": ["mix_credo", "mix_credo_compile"],
+    "eelixir": ["mix_credo", "mix_credo_compile"],
+    "php": "phpcs"
+  },
+  "diagnostic-languageserver.formatFiletypes": {
+    "dart": "dartfmt",
+    "elixir": "mix_format",
+    "eelixir": "mix_format"
+  },
+  "lua.commandPath": "/usr/bin/lua-lsp",
+  "languageserver":{
+    "bash": {
+      "command": "bash-language-server",
+      "args": ["start"],
+      "filetypes": ["sh"]
+    },
+    "rust": {
+      "command": "ra_lsp_server",
+      "filetypes": ["rust"],
+      "rootPatterns": ["Cargo.toml"]
+    },
+    "golang":{
+      "command": "go-langserver",
+      "filetypes": ["go"],
+      "initializationOptions": {
+        "gocodeCompletionEnabled": true,
+        "diagnositicsEnabled": true,
+        "lintTool": "golint",
+        "formatTool": "goimports"
+      }
+    },
+    "ccls": {
+      "command": "ccls",
+      "filetypes": ["c", "cpp", "objc", "objcpp"],
+      "rootPatterns": [".ccls", "compile_commands.json", ".vim/", ".git/", ".hg/"],
+      "initializationOptions": {
+        "cache": {
+          "directory": "/tmp/ccls"
+        }
+      }
+    },
+    "intelphense": {
+      "command": "intelphense",
+      "args": ["--stdio"],
+      "filetypes": ["php"],
+      "initializationOptions": {
+        "storagePath": "/tmp/intelphense"
+      }
+    },
+    "dockerfile": {
+      "command": "docker-langserver",
+      "filetypes": ["dockerfile"],
+      "args": ["--stdio"]
+    },
+    "lua": {
+      "command": "lua-lsp",
+      "filetypes": ["lua"],
+    },
+    "metals": {
+      "command": "metals-vim",
+      "rootPatterns": ["build.sbt"],
+      "filetypes": ["scala", "sbt"]
+    }
+  }
 }
