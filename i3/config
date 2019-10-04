@@ -65,11 +65,11 @@ exec --no-startup-id start_conky_live_maia
 #exec --no-startup-id blueman
 #exec --no-startup-id manjaro-hello
 #exec --no-startup-id pamac-tray
-exec --no-startup-id desktop-items
-exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+#exec --no-startup-id desktop-items
+#exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 # exec_always --no-startup-id sbxkb
 #exec --no-startup-id xfce4-power-manager
-exec_always --no-startup-id ff-theme-util
+#exec_always --no-startup-id ff-theme-util
 #exec_always --no-startup-id setcursor
 # Modifier; Sound Volume {{{
 bindsym $Super+Ctrl+m exec terminal -e 'alsamixer'
@@ -352,7 +352,7 @@ bindsym F11 fullscreen toggle
 #for_window [urgent=latest] focus
 
 # Workspace; Name {{{
-set $ws1 "main"
+set $ws1 "vim"
 set $ws2 "2"
 set $ws3 "3"
 set $ws4 "4"
