@@ -2,8 +2,8 @@
 
 [[plugins]]
 repo = 'bkad/CamelCaseMotion' #{{{
-#on_map = ['<Plug>CamelCaseMotion_', {'o': '<Plug>CamelCaseMotion_'}]
-on_event = 'BufRead'
+on_map = {no = '<Plug>CamelCaseMotion_'}
+#on_event = 'BufRead'
 hook_add = 'runtime rc/CamelCaseMotion.vim'
 #}}}
 
@@ -17,14 +17,12 @@ hook_add = 'runtime rc/CamelCaseMotion.vim'
 # Leap; Easy Motion
 [[plugins]] # has extentions
 repo = 'easymotion/vim-easymotion' #{{{
-#on_map = '<Plug>(easymotion-' # on operater, doesn't sourced.
-on_event = 'BufWinEnter'
+on_map = {no = '<Plug>(easymotion-'}
 hook_add = 'runtime rc/easymotion.vim'
 hook_post_source = 'runtime post/easymotion.vim'
 [[plugins]]
 repo = 'haya14busa/vim-easyoperator-phrase' #{{{
-#on_map = '<plug>(easyoperator-'
-on_event = 'BufWinEnter'
+on_map = '<plug>(easyoperator-'
 hook_add = 'runtime rc/easyoperator.vim'
 #}}}
 #[[plugins]]
@@ -95,8 +93,7 @@ hook_post_source = 'runtime post/matchup.vim'
 #}}}
 [[plugins]]
 repo = 'machakann/vim-sandwich' #{{{
-on_event = 'InsertEnter'
-on_map = '<Plug>(operator-sandwich-' # too late via <c-o>
+on_map = {ni = '<Plug>(operator-sandwich-'} # too late via <c-o>
 hook_add = 'runtime rc/sandwich.vim'
 #}}}
 #[[plugins]]

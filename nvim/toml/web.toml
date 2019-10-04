@@ -6,7 +6,7 @@ repo = 'tyru/open-browser.vim' #{{{
 #on_event = 'BufRead'
 # No use below
 on_cmd = 'OpenBrowser'
-on_map = ['<Cmd>OpenBrowser', '<Plug>(openbrowser']
+on_map = {nx = '<Plug>(openbrowser'}
 hook_add = 'runtime rc/open-browser.vim'
 #}}}
 #[[plugins]]
@@ -26,8 +26,14 @@ hook_post_source = 'runtime rc/calendar.vim'
 repo = 'wakatime/vim-wakatime' #{{{
 # tracking service for coding activity.
 on_cmd = 'WakaTime'
-on_cmd = 'OpenBrowser'
 hook_add = 'runtime rc/wakatime.vim'
+#}}}
+
+# API; Collaborative Editing
+[[plugins]]
+repo = 'Floobits/floobits-neovim' #{{{
+on_cmd = ['Floo', 'FlooShareDirPublic', 'FlooShareDirPrivate', 'FlooJoinWorkspace']
+#hook_add = 'runtime rc/floobits.vim'
 #}}}
 
 # API;
