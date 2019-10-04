@@ -1,3 +1,5 @@
+#!/usr/bin/env fish
+
 ## XDG Directory Specification
 set -x XDG_CONFIG_HOME $HOME/.config
 set -x XDG_CACHE_HOME $HOME/.cache
@@ -13,6 +15,9 @@ set -x WGETRC "$XDG_CONFIG_HOME/wgetrc"
 # Cargo
 set -x CARGO_HOME "$XDG_DATA_HOME"/cargo
 
+# lynx, the browser
+set -x LYNX_CFG ~/.config/lynx/lynx.cfg
+# SQL
 set -x MYSQL_HISTFILE "$XDG_DATA_HOME"/mysql_history
 ## Vim
 set -x NODE_REPL_HISTORY "$XDG_DATA_HOME"/node_repl_history
