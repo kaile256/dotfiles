@@ -86,7 +86,7 @@ export _Z_DATA="$XDG_DATA_HOME/z"
 ## tmux
 #export TMUX_TMPDIR="$XDG_RUNTIME_DIR"
 ## lessp
-if ! [ -d "$HOME/.cache/less" ]; then 
+if ! [ -d "$HOME/.cache/less" ]; then
   mkdir -p "$HOME/.cache/less"
 fi
 export LESSKEY="$XDG_CONFIG_HOME/less/lesskey"
@@ -109,6 +109,8 @@ export WEECHAT_HOME="$XDG_CONFIG_HOME/weechat"
 export WINEPREFIX="$XDG_DATA_HOME/wineprefixes/default"
 ## Android
 export ANDROID_SDK_HOME="$XDG_CONFIG_HOME/android"
+# lynx, the browser
+export LYNX_CFG=~/.config/lynx/lynx.cfg
 
 ## ncurses
 export TERMINFO="$XDG_DATA_HOME/terminfo"
@@ -127,4 +129,3 @@ export LESSHISTFILE="$XDG_CACHE_HOME/less/history"
 export NUGET_PACKAGES="$XDG_CACHE_HOME/NuGetPackages"
 ## readline
 export INPUTRC="$XDG_CONFIG_HOME/readline/inputrc"
-
