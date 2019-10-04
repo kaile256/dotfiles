@@ -22,6 +22,8 @@ on_cmd = 'FZF'
 repo = 'junegunn/fzf.vim'
 on_cmd = ['Ag', 'Rg', 'Fzf']
 hook_add = 'runtime rc/fzf.vim'
+# Note: fzf.vim redefines commands after loaded.
+hook_post_source = 'runtime rc/fzf.vim'
 #}}}
 
 # Filer
