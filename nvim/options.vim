@@ -113,9 +113,10 @@ set list
 "}}}
 
 " Method; Shell {{{1
-if executable('fish')
-  set shell=fish
-endif
+" CAUTION: some plugins depends on bash, such as twiggy.vim.
+"if executable('fish')
+"   set shell=fish
+"endif
 " Method; Imput Method {{{
 " 0: IM will be off, when lmap is off.
 " lmap supports 3 modes: insert, commandline and lang-arg.
