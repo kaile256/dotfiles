@@ -15,6 +15,7 @@ on_ft = 'skkdict'
 
 [[plugins]]
 repo = 'deton/jasegment.vim'
+# no mappings for 'w', 'e', and so on.
 # remaps `W`,`E`, and so on.
 on_ft = 'markdown'
 #hook_post_source = 'runtime rc/jasegment.vim'
