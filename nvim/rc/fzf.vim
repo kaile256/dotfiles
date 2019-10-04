@@ -111,7 +111,7 @@ command! -bang -nargs=* Rg
 
 " Note: There's no use trying to wrap 'GFiles?' independently
 "       because '?' is regarded as an arg for 'GFiles'.
-command! -bang -nargs=? -complete=dir GFiles
+command! -bang -nargs=? -complete=dir FzfGFiles
       \ call fzf#vim#gitfiles(<q-args>, fzf#vim#with_preview('right:50%'), <bang>0)
 " TODO: preview around the selected lines.
 "command! -bang -nargs=? -complete=dir BLines
