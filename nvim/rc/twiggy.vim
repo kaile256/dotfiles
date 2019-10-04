@@ -1,4 +1,7 @@
 " From: external.toml
+" Repo: sodapopcan/vim-twiggy
+
+" CAUTION: useless if &shell=fish
 
 let g:twiggy_split_method = 'botright' " useless
 
@@ -9,6 +12,9 @@ let g:twiggy_local_branch_sort = 'mru'
 " Values can be either 'alpha'or 'date'.
 let g:twiggy_remote_branch_sort = 'date'
 
-nnoremap <Plug>(twiggy-standard) :Twiggy<cr>
 command! Gbranch :Twiggy
-nmap <silent> <a-y><a-y> <Plug>(twiggy-standard)
+
+nnoremap <silent> <a-y><a-i> :Twiggy<cr>
+nnoremap <silent> <a-y>i     :Twiggy<cr>
+nnoremap <silent> <a-y><a-y> :Twiggy<cr>
+nnoremap <silent> <a-y>y     :Twiggy<cr>
