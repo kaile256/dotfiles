@@ -5,6 +5,17 @@ alias sc ut s u scr script
 options head
   scriptencoding utf-8
 
+snippet cpoptions
+alias cpo
+options head
+  " save cpoptions {{{1
+  let s:save_cpo = &cpo
+  set cpo&vim
+  "}}}1
+  ${0:#:plugin's contents}
+  " restore cpoptions
+  let &cpo = s:save_cpo
+
 # Declare {{{
 delete au augroup ... autocmd block
 snippet augroup
