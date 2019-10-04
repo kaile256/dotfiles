@@ -16,6 +16,11 @@ hook_add = 'runtime rc/asterisk.vim'
 
 # FZF
 [[plugins]]
+repo = 'junegunn/fzf' #{{{
+# Note: Necessary for :FZF
+on_map = '<Cmd>FZF'
+on_cmd = 'FZF'
+[[plugins]]
 repo = 'junegunn/fzf.vim'
 on_map = ['<Cmd>FZF', '<Cmd>Ag', '<Cmd>Rg']
 on_cmd = ['FZF', 'Ag', 'Rg']
