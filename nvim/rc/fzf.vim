@@ -82,19 +82,20 @@ command! -bang Cmaps call fzf#vim#maps('c', <bang>0)
 command! -bang Omaps call fzf#vim#maps('o', <bang>0)
 command! -bang Tmaps call fzf#vim#maps('t', <bang>0)
 
+command! -bang -nargs=* FZF
+      \ call fzf#vim#files(<q-args>,
+      \                 <bang>0 ? fzf#vim#with_preview('up:60%')
+      \                         : fzf#vim#with_preview('right:50%'),
+      \                 <bang>0)
+
+command! -bang -nargs=* Fzf :FZF
+
 " Note: not actually in ghq
 command! -bang -nargs=* Ghq :cd $GOPATH <bar> FZF
 " Mnemonic: Quest for Project
 nnoremap <a-q><a-p> :Ghq<cr>
 nnoremap <a-q>p     :Ghq<cr>
 
-"command! -bang -nargs=* FZF
-"      \ call fzf#vim#files(<q-args>,
-"      \                 <bang>0 ? fzf#vim#with_preview('up:60%')
-"      \                         : fzf#vim#with_preview('right:50%'),
-"      \                 <bang>0)
-
-command! -bang -nargs=* Fzf :FZF
 command! -bang -nargs=* Ag
       \ call fzf#vim#ag(<q-args>,
       \                 <bang>0 ? fzf#vim#with_preview('up:60%')
