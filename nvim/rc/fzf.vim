@@ -79,6 +79,7 @@ command! -bang Smaps call fzf#vim#maps('s', <bang>0)
 command! -bang Vmaps call fzf#vim#maps('v', <bang>0)
 command! -bang Cmaps call fzf#vim#maps('c', <bang>0)
 command! -bang Omaps call fzf#vim#maps('o', <bang>0)
+command! -bang Tmaps call fzf#vim#maps('t', <bang>0)
 
 " Note: not actually in ghq
 command! -bang -nargs=* Ghq :cd $GOPATH <bar> FZF
