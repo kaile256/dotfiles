@@ -1,6 +1,6 @@
 # From: rc/dein.vim
 
-# Find; Search
+# Search
 [[plugins]]
 repo = 'haya14busa/vim-asterisk' #{{{
 # Keep the cursor on `*` or `#`, even on visual mode.
@@ -13,6 +13,14 @@ hook_add = 'runtime rc/asterisk.vim'
 #on_map = '<Plug>(visualstar-'
 #hook_add = 'runtime rc/visualstar.vim'
 ##}}}
+
+# FZF
+[[plugins]]
+repo = 'junegunn/fzf.vim'
+on_map = ['<Cmd>FZF', '<Cmd>Ag', '<Cmd>Rg']
+on_cmd = ['FZF', 'Ag', 'Rg']
+hook_add = 'runtime rc/fzf.vim'
+#}}}
 
 # Filer
 [[plugins]] # has extentions

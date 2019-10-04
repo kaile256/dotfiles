@@ -37,19 +37,10 @@ hook_post_source = 'runtime rc/coc.vim'
 ##}}}
 
 [[plugins]]
-repo = 'voldikss/actionmenu.nvim'
+repo = 'voldikss/actionmenu.nvim' #{{{
 # Provides coc.nvim actionmenu features for such as 'codeAction'.
 on_source = 'coc.nvim'
 hook_post_source = 'runtime rc/actionmenu.vim'
-
-# FZF
-[[plugins]]
-repo = 'junegunn/fzf' #{{{
-on_event = 'VimEnter'
-[[plugins]]
-repo = 'junegunn/fzf.vim'
-on_event = 'VimEnter'
-hook_add = 'runtime rc/fzf.vim'
 #}}}
 
 # Git;
@@ -139,6 +130,19 @@ hook_post_source = 'runtime rc/fugitive-gitlab.vim'
 #on_event = ['BufWritePost']
 #hook_post_source = 'runtime rc/gina.vim'
 ##}}}
+
+# Docker
+[[plugins]]
+repo = 'skanehira/docker.vim'
+# to manage docker's images/containers
+# Note: unavailable on neovim
+if = '!has("nvim")'
+on_cmd = 'Docker'
+hook_add = 'runtime rc/docker.vim'
+[[plugins]]
+repo = 'skanehira/docker-compose.vim'
+on_cmd = 'DockerCompose'
+hook_add = 'runtime rc/docker-compose.vim'
 
 # Doc; Info
 [[plugins]]
