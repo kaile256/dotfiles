@@ -11,12 +11,14 @@
 #    source $myconf_file
 #end
 
-#source $HOME/.config/fish/myconf/xdg.fish
-#source $HOME/.config/fish/myconf/env.fish
 source $HOME/.config/fish/myconf/alias.fish
 source $HOME/.config/fish/myconf/prompt.fish
-source $HOME/.config/fish/myconf/fzf.fish
+
+source $HOME/.config/fish/myconf/xdg.fish
 source $HOME/.config/fish/myconf/env.fish
+source $HOME/.config/fish/myconf/path.fish
+
+source $HOME/.config/fish/myconf/fzf.fish
 
 umask 022
 
@@ -38,7 +40,7 @@ umask 022
 
 # Install fisher, the plugin manager
 if not functions -q fisher
-    set -q XDG_CONFIG_HOME; or set XDG_CONFIG_HOME ~/.config
-    curl https://git.io/fisher --create-dirs -sLo $XDG_CONFIG_HOME/fish/functions/fisher.fish
-    fish -c fisher
+  set -q XDG_CONFIG_HOME; or set XDG_CONFIG_HOME ~/.config
+  curl https://git.io/fisher --create-dirs -sLo $XDG_CONFIG_HOME/fish/functions/fisher.fish
+  fish -c fisher
 end
