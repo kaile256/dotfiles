@@ -53,6 +53,7 @@ let g:data_home    = empty($XDG_DATA_HOME)   ? expand('~/.local/share/') :      
 let g:my_dotfiles  = '~/dotfiles/'
 let g:my_nvim_home = empty($VIMCONFIG)       ? expand(g:my_dotfiles      .'nvim/') : $VIMCONFIG
 let g:my_data      = g:my_nvim_home           . 'data/'
+let g:dev_root = '~/dev/'
 "}}}
 " $var; for Terminal {{{
 "set shell=fish
