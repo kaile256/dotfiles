@@ -22,6 +22,7 @@ augroup FzfMyAutoConf "{{{1
         \ | au BufEnter * ++once setl laststatus=2 ruler | if &ft !=# 'help' | setl number | endif
 augroup END "}}}1
 
+let g:fzf_command_prefix = 'Fzf'
 let g:fzf_layout = { 'down': '~20%' }
 " Execute selected command
 let g:fzf_commands_expect = 'ctrl-x'
@@ -116,9 +117,9 @@ command! -bang -nargs=? -complete=dir GFiles
 "      \ call fzf#vim#buffer_lines(<q-args>, fzf#vim#with_preview('right:50%'), <bang>0)
 "}}}
 " CmdAbbr; :Helptags {{{1
-cnoreabbr <expr> C (getcmdtype() == ':' && getcmdline() =~ '^C$')? 'Colors'   : 'C'
-cnoreabbr <expr> H (getcmdtype() == ':' && getcmdline() =~ '^H$')? 'Helptags' : 'H'
-cnoreabbr <expr> h (getcmdtype() == ':' && getcmdline() =~ '^h$')? 'Helptags' : 'h'
+cnoreabbr <expr> C (getcmdtype() == ':' && getcmdline() =~ '^C$')? 'FzfColors'   : 'C'
+cnoreabbr <expr> H (getcmdtype() == ':' && getcmdline() =~ '^H$')? 'FzfHelptags' : 'H'
+cnoreabbr <expr> h (getcmdtype() == ':' && getcmdline() =~ '^h$')? 'FzfHelptags' : 'h'
 
 " Keymap; Ag {{{1
 if executable('ag') == 0
@@ -288,31 +289,31 @@ tnoremap <silent> <a-q><a-w> <c-\><c-n>: FZF<cr>
 tnoremap <silent> <a-q>w     <c-\><c-n>: FZF<cr>
 
 " BLines; instead of `/-search`
-tnoremap <silent> <a-q>q     <c-\><c-n>: BLines<cr>
-tnoremap <silent> <a-q><a-q> <c-\><c-n>: BLines<cr>
-tnoremap <silent> <a-q><a-b> <c-\><c-n>: Buffers<cr>
-tnoremap <silent> <a-q>b     <c-\><c-n>: Buffers<cr>
-tnoremap <silent> <a-q><a-k> <c-\><c-n>: Helptags<cr>
-tnoremap <silent> <a-q>k     <c-\><c-n>: Helptags<cr>
-tnoremap <silent> <a-q><a-g> <c-\><c-n>: GFiles?<cr>
-tnoremap <silent> <a-q>g     <c-\><c-n>: GFiles?<cr>
+tnoremap <silent> <a-q>q     <c-\><c-n>: FzfBLines<cr>
+tnoremap <silent> <a-q><a-q> <c-\><c-n>: FzfBLines<cr>
+tnoremap <silent> <a-q><a-b> <c-\><c-n>: FzfBuffers<cr>
+tnoremap <silent> <a-q>b     <c-\><c-n>: FzfBuffers<cr>
+tnoremap <silent> <a-q><a-k> <c-\><c-n>: FzfHelptags<cr>
+tnoremap <silent> <a-q>k     <c-\><c-n>: FzfHelptags<cr>
+tnoremap <silent> <a-q><a-g> <c-\><c-n>: FzfGFiles?<cr>
+tnoremap <silent> <a-q>g     <c-\><c-n>: FzfGFiles?<cr>
 
-"noremap <silent> <a-q><a-b> :<c-u> Buffers<cr>
-"noremap <silent> <a-q>b     :<c-u> Buffers<cr>
-nnoremap <silent> <a-q><a-k> :<c-u> Helptags<cr>
-nnoremap <silent> <a-q>k     :<c-u> Helptags<cr>
-nnoremap <silent> <a-q><a-g> :<c-u> GFiles?<cr>
-nnoremap <silent> <a-q>g     :<c-u> GFiles?<cr>
+"noremap <silent> <a-q><a-b> :<c-u> FzfBuffers<cr>
+"noremap <silent> <a-q>b     :<c-u> FzfBuffers<cr>
+nnoremap <silent> <a-q><a-k> :<c-u> FzfHelptags<cr>
+nnoremap <silent> <a-q>k     :<c-u> FzfHelptags<cr>
+nnoremap <silent> <a-q><a-g> :<c-u> FzfGFiles?<cr>
+nnoremap <silent> <a-q>g     :<c-u> FzfGFiles?<cr>
 "" Mnemonic: 'Old' Buffer
-nnoremap <silent> <a-q><a-o> :<c-u> History<cr>
-nnoremap <silent> <a-q>o     :<c-u> History<cr>
+nnoremap <silent> <a-q><a-o> :<c-u> FzfHistory<cr>
+nnoremap <silent> <a-q>o     :<c-u> FzfHistory<cr>
 "" Marks: Useless?
-"noremap <silent> <a-q><a-m> :<c-u> Marks<cr>
-"noremap <silent> <a-q>m     :<c-u> Marks<cr>
+"noremap <silent> <a-q><a-m> :<c-u> FzfMarks<cr>
+"noremap <silent> <a-q>m     :<c-u> FzfMarks<cr>
 "" Mnemonic: Search in Current File
-nnoremap <silent> <a-q><a-q> :<c-u> BLines<cr>
-nnoremap <silent> <a-q>q     :<c-u> BLines<cr>
-nnoremap <silent> <a-q><a-/> :<c-u> BLines<cr>
-nnoremap <silent> <a-q>/     :<c-u> BLines<cr>
-nnoremap <silent> <a-q><a-;> :<c-u> Commands<cr>
-nnoremap <silent> <a-q>;     :<c-u> Commands<cr>
+nnoremap <silent> <a-q><a-q> :<c-u> FzfBLines<cr>
+nnoremap <silent> <a-q>q     :<c-u> FzfBLines<cr>
+nnoremap <silent> <a-q><a-/> :<c-u> FzfBLines<cr>
+nnoremap <silent> <a-q>/     :<c-u> FzfBLines<cr>
+nnoremap <silent> <a-q><a-;> :<c-u> FzfCommands<cr>
+nnoremap <silent> <a-q>;     :<c-u> FzfCommands<cr>
