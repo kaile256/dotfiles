@@ -30,13 +30,11 @@ cnoremap <c-x><c-f> ~/.config/
 "  au BufWritePre * call <SID>auto_suggest_mkdir(expand('<afile>:p:h'), v:cmdbang)
 "augroup END
 "}}}
-" Remove trailing after blockwise yank {{{2
-
-" Command; Open parent directory
-command! E :e %:p:h
-command! V :vs %:p:h
-command! S :sp %:p:h
-command! B :tabe %:p:h
+" Command; Open parent directory {{{1
+command! E :e    %:p:h
+command! V :vs   %:p:h
+command! S :sp   %:p:h
+command! T :tabe %:p:h
 " TODO: work no-bang ver. correct.
 command! -bang -bar Cd call <SID>cd_bang(<bang>0? 'bang' : 'nobang')
 command! -bang -bar CD call <SID>cd_bang(<bang>0? 'bang' : 'nobang')
@@ -49,7 +47,12 @@ function! s:cd_bang(bang) abort
     echo ' Wants whether <bang> or not.'
   endif
 endfunction
-
+" Abbr; :! {{{1
+cnoreabbr <expr> !
+      \ (getcmdtype() == ':' && getcmdline() =~ '^!$')?
+      \ (&l:ft ==# 'vim')? 'so <c-r>=expand("%:p")<cr>':
+      \ '! %:p' :
+       \ '!'
 " Abbr; rm https://foo/bar {{{1
 cnoreabbr <expr> rmgh (getcmdtype() == ':' && getcmdline() =~ '^rmgh$')? '%s/https:\/\/github.com\///ge' : 'rmgh'
 cnoreabbr <expr> rmgl (getcmdtype() == ':' && getcmdline() =~ '^rmgl$')? '%s/https:\/\/gitlab.com\///ge' : 'rmgl'
