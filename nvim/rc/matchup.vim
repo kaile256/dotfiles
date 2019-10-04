@@ -1,11 +1,9 @@
 " From: appearance.toml
+" Alter: post/matchup.vim
 
-"let g:loaded_matchparen = 1
+let g:loaded_matchparen = 1
 
-hi MatchParen ctermbg=6 guifg=white guibg=#d2450d
-"hi link MatchParen String
-
-"let g:matchup_surround_enabled = 1 " 1: provides maps ds% and cs%
+let g:matchup_surround_enabled = 1 " 1: provides maps ds% and cs%
 "let g:matchup_text_obj_linewise_operators = ['d', 'y', ]
 
 nnoremap <silent> z<c-f> :MatchupWhereAmI??<cr>
