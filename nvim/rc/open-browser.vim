@@ -99,10 +99,3 @@ vmap gL :<c-u>OpenBrowserSmartSearch -gitlab    <c-r><c-f> <cr>
 " Dictionary; Get Words on thesaurus
 nmap gW :<c-u>OpenBrowserSmartSearch -thesaurus <c-r><c-w> <cr>
 vmap gW :<c-u>OpenBrowserSmartSearch -thesaurus <c-r><c-a> <cr>
-
-augroup OpenBrowserWrapKeywordPrg
-  au!
-  au FileType go     setl keywordprg=:OpenBrowserSmartSearch\ -go
-  au FileType python setl keywordprg=:OpenBrowserSmartSearch\ -python
-augroup END
-
