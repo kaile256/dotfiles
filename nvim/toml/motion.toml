@@ -1,8 +1,9 @@
-# From: rc/dein.vir
+# From: rc/dein.vim
 
 [[plugins]]
 repo = 'bkad/CamelCaseMotion' #{{{
-on_map = '<Plug>CamelCaseMotion_'
+#on_map = ['<Plug>CamelCaseMotion_', {'o': '<Plug>CamelCaseMotion_'}]
+on_event = 'BufRead'
 hook_add = 'runtime rc/CamelCaseMotion.vim'
 #}}}
 
@@ -46,7 +47,6 @@ hook_add = 'runtime rc/easyoperator.vim'
 # Operater; Comment out
 [[plugins]]
 repo = 'tomtom/tcomment_vim' #{{{
-# Error: dein map `BufRead` on tcomment.
 on_map = '<Cmd>TComment'
 #on_map = ':TComment'
 hook_add = 'runtime rc/tcomment.vim'
@@ -59,15 +59,15 @@ hook_add = 'runtime rc/caw.vim'
 #}}}
 [[plugins]]
 repo = 'scrooloose/nerdcommenter' #{{{
-# Irritating: disturbs `norm N`
 on_map = '<Cmd>NERDCommenter'
 hook_add = 'runtime rc/nerdcommenter.vim'
 #}}}
-[[plugins]]
-repo = 'tpope/vim-commentary'
-# Simplest
-on_map = '<Cmd>Commentary'
-hook_add = 'runtime rc/plugin.vim'
+#[[plugins]]
+#repo = 'tpope/vim-commentary' #{{{
+## Simplest
+#on_map = '<Cmd>Commentary'
+#hook_add = 'runtime rc/plugin.vim'
+##}}}
 
 # Operater; Arrangement
 [[plugins]]
@@ -86,6 +86,13 @@ hook_add = 'runtime rc/easy-align.vim'
 #}}}
 
 # Operater; Simultaneous
+[[plugins]]
+repo = 'andymass/vim-matchup' #{{{
+# Better `%`
+on_event = 'VimEnter'
+hook_add = 'runtime rc/matchup.vim'
+hook_post_source = 'runtime post/matchup.vim'
+#}}}
 [[plugins]]
 repo = 'machakann/vim-sandwich' #{{{
 on_event = 'InsertEnter'

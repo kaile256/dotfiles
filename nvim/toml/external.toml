@@ -52,7 +52,6 @@ hook_post_source = 'runtime rc/fugitive.vim'
 # Fugitive; Branch Viewr
 [[plugins]]
 repo = 'sodapopcan/vim-twiggy' #{{{
-on_map = '<Plug>(twiggy'
 on_cmd = ':Twiggy'
 hook_add = 'runtime rc/twiggy.vim'
 #}}}
@@ -132,13 +131,14 @@ hook_post_source = 'runtime rc/fugitive-gitlab.vim'
 ##}}}
 
 # Docker
-[[plugins]]
-repo = 'skanehira/docker.vim'
-# to manage docker's images/containers
-# Note: unavailable on neovim
-if = '!has("nvim")'
-on_cmd = 'Docker'
-hook_add = 'runtime rc/docker.vim'
+#[[plugins]]
+#repo = 'skanehira/docker.vim' #{{{
+## to manage docker's images/containers
+## Note: unavailable on neovim
+#if = '!has("nvim")'
+#on_cmd = 'Docker'
+#hook_add = 'runtime rc/docker.vim'
+##}}}
 [[plugins]]
 repo = 'skanehira/docker-compose.vim'
 on_cmd = 'DockerCompose'
@@ -151,28 +151,21 @@ on_cmd = 'Info'
 hook_add = 'runtime rc/info.vim'
 #}}}
 
-# Collaborative Editing
-[[plugins]]
-repo = 'Floobits/floobits-neovim' #{{{
-on_cmd = ['Floo', 'FlooShareDirPublic', 'FlooShareDirPrivate', 'FlooJoinWorkspace']
-hook_add = 'runtime rc/floobits.vim'
-#}}}
-
 # Shell; Async Processor
 [[plugins]]
 repo = 'thinca/vim-quickrun' #{{{
-on_map = '<Cmd>QuickRun'
+on_cmd = 'QuickRun'
 hook_add = 'runtime rc/quickrun.vim'
 #}}}
 #[[plugins]]
 #repo = 'neomake/neomake' #{{{
-#on_map = 'make'
+#on_cmd = 'make'
 #hook_add = 'runtime rc/neomake.vim'
 ##}}}
 #[[plugins]]
 #repo = 'skywind3000/asyncrun.vim' #{{{
 ## Only supports external shell to qf.
-#on_map = 'AsyncRun'
+#on_cmd = 'AsyncRun'
 #hook_add = 'runtime rc/asyncrun.vim'
 #}}}
 
