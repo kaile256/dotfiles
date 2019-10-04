@@ -73,6 +73,14 @@ hook_post_source = 'runtime rc/devicons.vim'
 ##}}}
 
 # Resonance
+[[plugins]]
+repo = 'itchyny/vim-cursorword' #{{{
+# Underlines appear on every word under the cursor.
+on_event = 'CursorMoved'
+# Error: no such Event CursorWord0
+#hook_add = 'let g:cursorword_highlight = 0'
+hook_post_source = 'runtime rc/cursorword.vim'
+#}}}
 #[[plugins]]
 #repo = 'junegunn/rainbow_parentheses.vim' #{{{
 #on_event = 'BufWinEnter'
@@ -83,17 +91,3 @@ hook_post_source = 'runtime rc/devicons.vim'
 ## CAUTION: source rc/rainbow.vim AFTER :colorscheme.
 #on_event = 'BufReadPre'
 ##}}}
-[[plugins]]
-repo = 'andymass/vim-matchup' #{{{
-# Better `%`
-on_event = 'BufWinEnter'
-hook_post_source = 'runtime rc/matchup.vim'
-#}}}
-[[plugins]]
-repo = 'itchyny/vim-cursorword' #{{{
-# Underlines appear on every word under the cursor.
-on_event = 'CursorMoved'
-# Error: no such Event CursorWord0
-#hook_add = 'let g:cursorword_highlight = 0'
-hook_post_source = 'runtime rc/cursorword.vim'
-#}}}
