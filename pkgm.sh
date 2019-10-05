@@ -89,7 +89,7 @@ Depend=(
 )
 
 for package in ${Package[@]}; do
-  if [ (}-z "$INSTALLER" == 'apt' && apt list "$package" ||  "$INSTALLER" == 'pacman' && pacman -Q "$package" ]; then
+  if [ -z "$INSTALLER" == 'apt' && apt list "$package" ||  "$INSTALLER" == 'pacman' && pacman -Q "$package" ]; then
     echo "You have installed $package already!"
   else
     echo "Installing $package..." && sudo $install $package || {
