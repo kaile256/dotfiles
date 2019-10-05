@@ -34,6 +34,7 @@ autorlogin-git  # sixel viewer for vim?
 bash-completion
 cargo  # select rustup
 fcitx-qimpanel  # Frontend
+clamav  # anti-virus for unix
 fcitx-qt5
 fcitx5-qt5-git  # Libraries for fcitx-qt5
 fzf
@@ -88,7 +89,7 @@ Depend=(
 )
 
 for package in ${Package[@]}; do
-  if [ -z "$INSTALLER" == 'apt' && apt list "$package" ||  "$INSTALLER" == 'pacman' && pacman -Q "$package" ]; then
+  if [ (}-z "$INSTALLER" == 'apt' && apt list "$package" ||  "$INSTALLER" == 'pacman' && pacman -Q "$package" ]; then
     echo "You have installed $package already!"
   else
     echo "Installing $package..." && sudo $install $package || {
@@ -198,15 +199,14 @@ sudo luarocks install luacheck
 # Formatter for Lua 5.3
 echo "Installing Lua-Formatter..."
 sudo luarocks install lcf
-### Rustup -- cargo
-## Init
 
+# Rustup -- cargo
 if [ -e '~/.local/share/rustup/update-hashes/stable-*' ]; then
   rustup install stable
   rustup default stable
 fi
 
-## Rustup Completions
+# Rustup Completions
 if [ -e '~/.local/share/bash-completion/rustup' ]; then
   mkdir -p ~/.local/share/bash-completion/rustup
   rustup completions bash > ~/.local/share/bash-completion/rustup
@@ -216,23 +216,3 @@ if [ -e '~/.config/fish/completions/rustup.fish' ]; then
   mkdir -p ~/.config/fish/completions/rustup.fish
   rustup completions fish > ~/.config/fish/completions/rustup.fish
 fi
-
-# Fonts
-if [ -z ls /usr/share/fonts/TTF/ | grep Myrica ]; then
-  echo 'creating symlinks for Cica Fonts to /etc/fonts/conf.d/'
-  sudo ln -s /usr/share/fonts/MyricaM/MyricaM.TTC /etc/fonts/conf.d/
-fi
-if [ -z ls /usr/share/fonts/TTF/ | grep Cica ]; then
-  echo 'creating symlinks for Cica Fonts to /etc/fonts/conf.d/'
-  sudo ln -s /usr/share/fonts/TTF/Cica* /etc/fonts/conf.d/
-fi
-if [ -z ls /usr/share/fonts/TTF/ | grep Ricty ]; then
-  echo 'creating symlinks for Ricty Fonts to /etc/fonts/conf.d/'
-  sudo ln -s /usr/share/fonts/TTF/Ricty* /etc/fonts/conf.d/
-fi
-
-#### Enable Utilities
-echo "Activating tlp..."
-sudo systemctl enable tlp
-echo "Activating bluetooth..."
-sudo systemctl enable bluetooth   # to activate command 'sudo systemctl start bluetooth'
