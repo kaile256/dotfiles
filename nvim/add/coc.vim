@@ -60,22 +60,24 @@ let g:coc_global_extensions = [
 "}}}
 " Command!; C-series {{{1
 command! CocIfHasProvider :call <SID>coc_if_has_provider()
-command! CIfHasProvider   :call <SID>coc_if_has_provider()
-command! CUninstall :CocUninstall g:coc_global_extensions
-command! CConfig     :CocConfig
-command! CCmd        :CocCommand
-command! CList       :CocList
+command! CifHasProvider   :call <SID>coc_if_has_provider()
+command! Cuninstall :CocUninstall g:coc_global_extensions
+command! CocRemove :CocUninstall
+command! Cremove :CocUninstall
+command! Cconfig     :CocConfig
+command! Ccmd        :CocCommand
+command! Clist       :CocList
 command! Coc         :CocList
-command! CExtensions :CocList extensions
-command! CTemplate :CocCommand template.templateTop
-command! CInit     :CocCommand template.templateTop
+command! Cextensions :CocList extensions
+command! Ctemplate :CocCommand template.templateTop
+command! Cinit     :CocCommand template.templateTop
 command! Init      :CocCommand template.templateTop
 " Note: fzf.vim is better,
 "       which has regex-like specification method on fuzzy-matcher.
-command! CFiles    :CocList files
-command! CMru      :CocList mru
-command! CBuffers  :CocList buffers
-command! CLocalLog :CocList bcommits
+command! Cfiles    :CocList files
+command! Cmru      :CocList mru
+command! Cbuffers  :CocList buffers
+command! ClocalLog :CocList bcommits
 function! s:coc_if_has_provider() "{{{1
   let l:coc_provider_list = [
         \ 'hover',
