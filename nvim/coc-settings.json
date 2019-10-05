@@ -107,30 +107,69 @@
   "vimlsp.suggest.fromVimruntime": true,
   "vimlsp.suggest.fromRuntimepath": false,
   "vimlsp.trace.server": "verbose",
-  "diagnostic-languageserver.filetypes": {
-    "email": "languagetool",
-    "markdown": [ "write-good", "markdownlint" ],
-    "sh": "shellcheck",
-    "elixir": ["mix_credo", "mix_credo_compile"],
-    "eelixir": ["mix_credo", "mix_credo_compile"],
-    "php": "phpcs"
-  },
-  "diagnostic-languageserver.formatFiletypes": {
-    "dart": "dartfmt",
-    "elixir": "mix_format",
-    "eelixir": "mix_format"
-  },
   "lua.commandPath": "/usr/bin/lua-lsp",
   "languageserver":{
-    "dart": {
-      "command": "dart_language_server", // in windows is dart_language_server.bat
-      "args": [],
-      "filetypes": ["dart"],
-      "initializationOptions": {},
-      "settings": {
-        "dart": {
-          "validation": {},
-          "completion": {}
+    "dls": {
+      "command": "diagnostic-languageserver",
+      "args": ["--stdio"],
+      "filetypes": [ "sh", "email", "dart" ],
+      "initializationOptions": {
+        "linters": {
+          "shellcheck": {  // linter name, for example: vint
+            "command": "shellcheck", // linter command
+            "sourceName": "shellcheck",
+            "debounce": 100,   // debounce time
+            "args": [ "--format=gcc", "-"], // args
+            "offsetLine": 0,
+            "offsetColumn": 0,
+            "formatLines": 1, // how much lines for formatPattern[0] to match
+            "formatPattern": [
+              "^[^:]+:(\\d+):(\\d+):\\s+([^:]+):\\s+(.*)$",  // line match pattern (javascript regex)
+              {
+                "line": 1,   // diagnostic line use match group 1
+                "column": 2, // diagnostic column use match group 2
+                "message": [4], // message to display use match group 4
+                "security": 3   // security to use match group 3, ignore if linter do not support security
+              }
+            ],
+            "securities": { // security keys, ignore if linter do not support security
+              "error": "error",  // [key: string]?: "error" | "warning" | "info" | "hint"
+              "warning": "warning",
+              "note": "info"
+            }
+          },
+          "languagetool": {
+            "command": "languagetool",
+            "sourceName": "languagetool",
+            "debounce": 200,
+            "args": ["-"],
+            "offsetLine": 0,
+            "offsetColumn": 0,
+            "formatLines": 2,
+            "formatPattern": [
+              "^\\d+?\\.\\)\\s+Line\\s+(\\d+),\\s+column\\s+(\\d+),\\s+([^\\n]+)\nMessage:\\s+(.*)$",
+              {
+                "line": 1,
+                "column": 2,
+                "message": [4, 3]
+              }
+            ]
+          }
+        },
+        "filetypes": {
+          "email": "languagetool",
+          "markdown": [ "write-good", "markdownlint" ],
+          "sh": "shellcheck",
+          "elixir": ["mix_credo", "mix_credo_compile"],
+          "eelixir": ["mix_credo", "mix_credo_compile"],
+          "php": "phpcs"
+        },
+        "formatters": {
+          "commad": "dartfmt",
+          "args": [ "--fix" ]
+        },
+        "formatFiletypes": {
+          "dart": "dartfmt"
         }
       }
     },
