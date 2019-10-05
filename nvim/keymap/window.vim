@@ -14,23 +14,43 @@ nnoremap <silent> <c-space><space>   :<c-u>noh      <cr><c-l>
 nnoremap <silent> <c-space><c-space> :<c-u>noh      <cr><c-l>
 nnoremap <silent> <a-space><space>   :QuickClose<cr>
 nnoremap <silent> <a-space><a-space> :QuickClose<cr>
-command! QuickClose :call <SID>quick_close()
-function! s:quick_close() abort "{{{1
+command! QuickClose :call window#weed_out()
+let g:weed_windows = [
+      \ 'fugitive:\/\/',
+      \ 'twiggy:\/\/',
+      \ ]
+function! window#weed_out() abort "{{{1
   " Note: it's almost the same as smart_diffoff()
   let l:id = win_getid()
+
   windo
         \ if &bt ==# 'nofile'
         \ || &bt ==# 'nowrite'
         \ || &bt ==# 'quickfix'
-        \ || bufname('%') =~# 'fugitive:\/\/'
-        \ || bufname('%') =~# 'twiggy:\/\/'
         \ |  quit
         \ | endif
+
+  for i in g:weed_windows
+    windo
+          \ if bufname('%') =~# i
+          \ |  quit
+          \ | endif
+  endfor
+
   diffoff!
-  " Note: why, no range allowed on :wincmd in spite of :help.
+  if exists('b:fdm_before_diff')
+    exe 'setl foldmethod='. b:fdm_before_diff
+  endif
+
   call win_gotoid(l:id)
-  exe 'setl foldmethod='. b:fdm_before_diff
+
 endfunction "}}}1
+
+function! window#extract() abort "{{{2
+  call window#weed_out()
+  silent wincmd T
+endfunction "}}}2
+command! WinExtract :call window#extract()
 
 " Close; Tab-page
 noremap <silent> <c-w>C :<c-u>tabclose<cr>
