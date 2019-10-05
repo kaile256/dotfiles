@@ -43,8 +43,9 @@ function! s:fugitive__thin_out() abort
         \ || bufname('%') =~# 'fugitive:\/\/'
         \ |  quit
         \ | endif
-  silent wincmd T
   diffoff!
+  wincmd p
+  silent wincmd T
   exe 'setl foldmethod='. b:fdm_before_diff
 endfunction
 
