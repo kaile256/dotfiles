@@ -226,26 +226,26 @@ else "}}}
   tnoremap <silent> <a-r>p     <c-u>cd expand(g:dein_cache_dir)<cr>    <c-\><c-n>:<c-u> Rg<cr>
 
   "" Rg; w/ `:cd` {{{2
-  nnoremap <silent> <a-r><a-k> :<c-u>cd ~/vimwiki/diary<cr>             :Rg<cr>
-  nnoremap <silent> <a-r>k     :<c-u>cd ~/vimwiki/diary<cr>             :Rg<cr>
-  nnoremap <silent> <a-r><a-r> :<c-u>cd /usr/share/nvim/runtime<cr>                           :Rg<cr>
-  nnoremap <silent> <a-r>r     :<c-u>cd /usr/share/nvim/runtime<cr>                           :Rg<cr>
-  nnoremap <silent> <a-r><a-w> :<c-u>cd %:p:h<cr>                       :Rg<cr>
-  nnoremap <silent> <a-r>w     :<c-u>cd %:p:h<cr>                       :Rg<cr>
-  nnoremap <silent> <a-r><a-.> :<c-u>   <space>                         :Rg<cr>
-  nnoremap <silent> <a-r>.     :<c-u>   <space>                         :Rg<cr>
-  nnoremap <silent> <a-r><a-h> :<c-u>cd ~<cr>                           :Rg<cr>
-  nnoremap <silent> <a-r>h     :<c-u>cd ~<cr>                           :Rg<cr>
-  nnoremap <silent> <a-r><a-o> :<c-u>cd ~/org<cr>                       :Rg<cr>
-  nnoremap <silent> <a-r>o     :<c-u>cd ~/org<cr>                       :Rg<cr>
-  nnoremap <silent> <a-r><a-d> :<c-u>cd ~/dotfiles<cr>                  :Rg<cr>
-  nnoremap <silent> <a-r>d     :<c-u>cd ~/dotfiles<cr>                  :Rg<cr>
+  nnoremap <silent> <a-r><a-k> :<c-u>cd ~/vimwiki/diary<cr>                    :Rg<cr>
+  nnoremap <silent> <a-r>k     :<c-u>cd ~/vimwiki/diary<cr>                    :Rg<cr>
+  nnoremap <silent> <a-r><a-r> :<c-u>cd /usr/share/nvim/runtime<cr>            :Rg<cr>
+  nnoremap <silent> <a-r>r     :<c-u>cd /usr/share/nvim/runtime<cr>            :Rg<cr>
+  nnoremap <silent> <a-r><a-w> :<c-u>cd %:p:h<cr>                              :Rg<cr>
+  nnoremap <silent> <a-r>w     :<c-u>cd %:p:h<cr>                              :Rg<cr>
+  nnoremap <silent> <a-r><a-.> :<c-u>   <space>                                :Rg<cr>
+  nnoremap <silent> <a-r>.     :<c-u>   <space>                                :Rg<cr>
+  nnoremap <silent> <a-r><a-h> :<c-u>cd ~<cr>                                  :Rg<cr>
+  nnoremap <silent> <a-r>h     :<c-u>cd ~<cr>                                  :Rg<cr>
+  nnoremap <silent> <a-r><a-o> :<c-u>cd ~/org<cr>                              :Rg<cr>
+  nnoremap <silent> <a-r>o     :<c-u>cd ~/org<cr>                              :Rg<cr>
+  nnoremap <silent> <a-r><a-d> :<c-u>cd ~/dotfiles<cr>                         :Rg<cr>
+  nnoremap <silent> <a-r>d     :<c-u>cd ~/dotfiles<cr>                         :Rg<cr>
   nnoremap <silent> <a-r><a-c> :<c-u>cd <c-r>=expand(g:dein_cache_dir)<cr><cr> :Rg<cr>
   nnoremap <silent> <a-r>c     :<c-u>cd <c-r>=expand(g:dein_cache_dir)<cr><cr> :Rg<cr>
-  nnoremap <silent> <a-r><a-g> :<c-u>cd ~/.config<cr>                   :Rg<cr>
-  nnoremap <silent> <a-r>g     :<c-u>cd ~/.config<cr>                   :Rg<cr>
-  nnoremap <silent> <a-r><a-v> :<c-u>cd ~/.config/nvim<cr>              :Rg<cr>
-  nnoremap <silent> <a-r>v     :<c-u>cd ~/.config/nvim<cr>              :Rg<cr>
+  nnoremap <silent> <a-r><a-g> :<c-u>cd ~/.config<cr>                          :Rg<cr>
+  nnoremap <silent> <a-r>g     :<c-u>cd ~/.config<cr>                          :Rg<cr>
+  nnoremap <silent> <a-r><a-v> :<c-u>cd ~/.config/nvim<cr>                     :Rg<cr>
+  nnoremap <silent> <a-r>v     :<c-u>cd ~/.config/nvim<cr>                     :Rg<cr>
   """ w/ `:cd` on Help {{{2
   nnoremap <silent> <a-r><a-l> :<c-u>cd /usr/share/nvim/runtime/doc<cr> :Rg<cr>
   nnoremap <silent> <a-r>l     :<c-u>cd /usr/share/nvim/runtime/doc<cr> :Rg<cr>
