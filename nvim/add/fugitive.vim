@@ -71,6 +71,9 @@ function! s:on_fugitive_keymap()
   nnoremap <buffer><silent> ca    :<C-U>bot 20 Gcommit --amend<CR>
   " Continue to cc/ce/ca.
   xmap <buffer> c sc
+  nunmap <buffer> J
+  nunmap <buffer> K
+  nunmap <buffer> dq
 endfunction
 
 augroup FugitiveCallMyFunc "{{{1
