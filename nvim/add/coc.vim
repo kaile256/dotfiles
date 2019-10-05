@@ -240,8 +240,10 @@ xmap <silent> qc <Plug>(coc-cursors-range)
 "nmap <silent> n <Plug>(coc-cursors-position)
 
 " CocColor; {{{1
-command! ColorFormat  :call CocAction('colorPresentation')
-command! ColorPalette :call CocAction('pickColor')
+command! ColoFormat  :call CocAction('colorPresentation')
+command! ColoPalette :call CocAction('pickColor')
+onoremap <expr><silent> p
+      \ (v:operator ==# 'c')? ':ColoPalette<cr>': 'p'
 " CocExtensions {{{1
 command! CocExtensions :CocList extensions
 command! CExtensions   :CocList extensions
