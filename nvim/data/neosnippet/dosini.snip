@@ -1,9 +1,17 @@
 # This snippets is for editorconfig.
 
 snippet init
-alias ini [
+alias ini
+  ${1:#:root = true}
+  [${2:*}]
+  charset = utf-8
+  indent_style = ${3:space}
+  indent_size = ${4:2}
+  trim_trailing_whitespace = true
+
+snippet add
+alias ad [
   [${1:*}]
   charset = utf-8
   indent_style = ${2:space}
   indent_size = ${3:2}
-  trim_trailing_whitespace = true

@@ -1,5 +1,5 @@
 scriptencoding utf-8
-" From: Init.toml
+" From: memo.toml
 " Repo: vimwiki/vimwiki
 " Path: autoload/vimwiki
 " Path: ftplugin/vimwiki.vim

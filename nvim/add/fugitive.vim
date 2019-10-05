@@ -13,8 +13,8 @@ command! -complete=dir NNNGcreateRepoOnGitHub
       \ <bar> Git remote add origin
       \ 'https://github.com/kaile256/'. s:repo_name .'.git'
 command! -nargs=+ Gclone :Git clone <q-args>
-function! s:fugitive_commit_with_diff() abort "{{1
-  call <SID>fugitive__thin_out()
+function! fugitive#commit_with_diff() abort "{{1
+  call window#extract()
   " Keep to show diff w/ HEAD while editting commit-message.
   Gvdiffsplit! HEAD
   " For: makes user notice if any other changes in the buffer.
@@ -24,7 +24,7 @@ function! s:fugitive_commit_with_diff() abort "{{1
   wincmd =
 endfunction "}}}
 command! Gstage
-      \ :Gw | call <SID>fugitive_commit_with_diff()
+      \ :Gw | call fugitive#commit_with_diff()
 " in new tab, if any unnecessary windows are there.
 " TODO: set unstage
 " &@:<C-U>execute <SNR>277_Do('Unstage',0)<CR>
@@ -32,26 +32,8 @@ command! Gstage
 "command! Gunstage :G
 "noremap <silent> <a-y><a-u> :Gunstage<cr>
 command! GdiffMode
-      \ call <SID>fugitive__thin_out()
+      \ call window#extract()
       \ | Gvdiffsplit!
-function! s:fugitive__thin_out() abort
-  let l:id = win_getid()
-  " TODO: keep in the window when ':wincmd T'
-  " Ref: keymap/window.vim
-  " Ref: lazy/diff.vim
-  " Note: it's almost the same as smart_diffoff()
-  windo
-        \ if &bt ==# 'nofile'
-        \ || &bt ==# 'nowrite'
-        \ || &bt ==# 'quickfix'
-        \ || bufname('%') =~# 'fugitive:\/\/'
-        \ |  quit
-        \ | endif
-  diffoff!
-  call win_gotoid(l:id)
-  silent wincmd T
-  exe 'setl foldmethod='. b:fdm_before_diff
-endfunction
 
 " Info; Blame {{{
 nnoremap <silent> <a-y>b     :<c-u>Gblame<cr>

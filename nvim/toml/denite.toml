@@ -1,31 +1,31 @@
-# From: rc/dein.vir
+# From: add/dein.vir
 
 # Denite itself;
 [[plugins]]
 repo = 'Shougo/denite.nvim' #{{{
 if = 'has("python3")'
 on_event = 'VimEnter'
-hook_post_source = 'runtime rc/denite.vim'
+hook_post_source = 'runtime add/denite.vim'
 #}}}
 
 [[plugins]]
 repo = 'dunstontc/projectile.nvim'
 on_source = 'denite.nvim'
-hook_post_source = 'runtime rc/projectile.vim'
+hook_post_source = 'runtime add/projectile.vim'
 [[plugins]]
 repo = 'lighttiger2505/denite-vim-lsp'
 on_source = 'denite.nvim'
-hook_post_source = 'runtime rc/denite-lsp.vim'
+hook_post_source = 'runtime add/denite-lsp.vim'
 
 [[plugins]]
 repo = 'deresmos/denite-gitdiff'
 on_source = 'denite.nvim'
-hook_post_source = 'runtime rc/denite-gitdiff.vim'
+hook_post_source = 'runtime add/denite-gitdiff.vim'
 
 [[plugins]]
 repo = 'delphinus/vim-denite-scriptnames'
 on_source = 'denite.nvim'
-hook_post_source = 'runtime rc/denite-scriptnames.vim'
+hook_post_source = 'runtime add/denite-scriptnames.vim'
 #[[plugins]]
 #repo = 'Shougo/neoyank.vim' #{{{
 #on_source = 'denite.nvim'
@@ -57,13 +57,13 @@ on_source = 'denite.nvim'
 repo = 'neoclide/redismru.vim'
 if = 'executable("redis")'
 on_source = 'denite.nvim'
-hook_post_source = 'runtime rc/redismru.vim'
+hook_post_source = 'runtime add/redismru.vim'
 [[plugins]]
 repo = 'zacharied/denite-nerdfont'
 on_source = 'denite.nvim'
-hook_post_source = 'runtime rc/denite-nerdfont.vim'
+hook_post_source = 'runtime add/denite-nerdfont.vim'
 ## Denite; Matcher
 [[plugins]]
 repo = 'nekowasabi/denite-migemo'
 on_source = 'denite.nvim'
-hook_post_source = 'runtime rc/denite-migemo.vim'
+hook_post_source = 'runtime add/denite-migemo.vim'

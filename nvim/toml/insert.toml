@@ -1,17 +1,17 @@
-# From: rc/dein.vim
+# From: add/dein.vim
 
 # CapsLock
 #[[plugins]]
 #repo = 'tpope/vim-capslock' #{{{
 ## Doesn't Work
 #on_event = ['InsertEnter', 'CmdlineEnter']
-#hook_post_source = 'runtime rc/capslock.vim'
+#hook_post_source = 'runtime add/capslock.vim'
 ##}}}
 #[[plugins]]
 #repo = 'mattn/vim-switch-esc-capslock' #{{{
 #### For Windows?
 #on_event = ['InsertEnter', 'CmdlineEnter']
-#hook_post_source = 'runtime rc/switch-esc-capslock.vim'
+#hook_post_source = 'runtime add/switch-esc-capslock.vim'
 ##}}}
 
 # Completion
@@ -20,7 +20,7 @@
 ## good with eskk.vim
 #on_if = 'has("python3")'
 #on_event = ['InsertCharPre', 'InsertEnter']
-#hook_post_source = 'runtime rc/deoplete.vim'
+#hook_post_source = 'runtime add/deoplete.vim'
 ##[[plugins]]
 ##repo = 'SevereOverfl0w/deoplete-github' #{{{
 ##on_ft = ['gitcommit']
@@ -42,7 +42,7 @@
 #repo = 'tenfyzhong/CompleteParameter.vim' #{{{
 ## Enough w/ lsp and snippets?
 #on_map = '<Plug>(complete_parameter#'
-#hook_add = 'runtime rc/CompleteParameter.vim'
+#hook_add = 'runtime add/CompleteParameter.vim'
 ##}}}
 
 # Unicode
@@ -51,7 +51,7 @@ repo = 'chrisbra/unicode.vim' #{{{
 on_event = 'InsertEnter'
 # Note: on_map of unicode.vim is useless; maybe because they are imap.
 #on_map = ['<Plug>(UnicodeComplete)', '<Plug>(DigraphComplete)']
-hook_post_source = 'runtime rc/unicode.vim'
+hook_post_source = 'runtime add/unicode.vim'
 #}}}
 
 # Snippets; Engine
@@ -59,13 +59,13 @@ hook_post_source = 'runtime rc/unicode.vim'
 repo = 'Shougo/neosnippet.vim' #{{{
 on_event = ['InsertEnter', 'TermOpen','CmdlineEnter']
 on_map = 'NeoSnippet'
-hook_add = 'runtime rc/neosnippet.vim'
+hook_add = 'runtime add/neosnippet.vim'
 #}}}
 #[[plugins]]
 #repo = 'SirVer/ultisnips' #{{{
 ## Note: it override <TAB>
 #on_event = ['InsertEnter','TermOpen']
-#hook_post_source = 'runtime rc/ultisnips.vim'
+#hook_post_source = 'runtime add/ultisnips.vim'
 ##}}}
 # Snippets; Contents
 [[plugins]]

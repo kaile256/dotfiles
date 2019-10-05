@@ -22,7 +22,7 @@ endfunction "}}}
 augroup ReloadDefaultPlugins
   au!
   au BufWinEnter * if &ft ==# 'netrw' | setl bufhidden=wipe | endif
-  au FileType netrw    ++once runtime rc/netrw.vim
+  au FileType netrw    ++once runtime source/netrw.vim
   au FileType tar      ++once call <SID>runtime_tarPlugin()
   au FileType zip,gzip ++once call <SID>runtime_zipPlugin()
 augroup END

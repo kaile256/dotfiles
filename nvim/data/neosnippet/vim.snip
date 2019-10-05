@@ -5,6 +5,19 @@ alias sc ut s u scr script
 options head
   scriptencoding utf-8
 
+snippet init
+alias ini
+options head
+  " save cpoptions {{{1
+  let s:save_cpo = &cpo
+  set cpo&vim
+  "}}}1
+
+  ${0:#:plugin's contents}
+
+  " restore cpoptions {{{1
+  let &cpo = s:save_cpo
+
 snippet cpoptions
 alias cpo
 options head
@@ -12,7 +25,9 @@ options head
   let s:save_cpo = &cpo
   set cpo&vim
   "}}}1
+
   ${0:#:plugin's contents}
+
   " restore cpoptions
   let &cpo = s:save_cpo
 
@@ -27,7 +42,7 @@ abbr au aug augr
 delete f function
 snippet function
 alias f fu fun func function
-  function! ${1:`expand('%') =~ 'autoload' ? substitute(matchstr(expand('%:p'),'autoload/\zs.*\ze.vim'),'[/\\]','#','g').'#' : ''`}(${2:#:{{name\}[, {arglist\}] [, {dict\}]}) ${3:abort}
+  function! ${1:`expand('%') =~ 'autoload' ? substitute(matchstr(expand('%:p'),'autoload/\zs.*\ze.vim'),'[/\\]','#','g').'#' : ''`}${2:do}(${3:#:{{name\}[, {arglist\}] [, {dict\}]}) abort ${4:#:range}
     ${0:#:Ex-commands}
   endfunction
 snippet redir

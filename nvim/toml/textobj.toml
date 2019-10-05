@@ -1,10 +1,10 @@
-# From: rc/dein.vir
+# From: add/dein.vir
 
 [[plugins]]
 repo = 'kana/vim-textobj-user' #{{{
 # Note: enough with 'vim-matchup'
 on_event = 'BufRead'
-hook_post_source = 'runtime rc/textobj-user.vim'
+hook_post_source = 'runtime add/textobj-user.vim'
 #}}}
 [[plugins]]
 repo = 'kana/vim-textobj-function' #{{{
@@ -25,7 +25,7 @@ augroup END
 repo = 'kana/vim-textobj-fold' #{{{
 # Note: `on_map` makes no sense in omap.
 on_source = 'vim-textobj-user'
-#hook_post_source = 'runtime rc/textobj-fold.vim'
+#hook_post_source = 'runtime add/textobj-fold.vim'
 #}}}
 [[plugins]]
 repo = 'kana/vim-textobj-entire' #{{{
@@ -37,7 +37,7 @@ on_source = 'vim-textobj-user'
 #repo = 'eikendev/vim-textobj-names' #{{{
 ## For: names separated by delimiters like -, _, /, @ or #.
 #on_event = 'BufRead'
-#hook_add = 'runtime rc/textobj-names.vim'
+#hook_add = 'runtime add/textobj-names.vim'
 ##}}}
 #[[plugins]]
 #repo = 'coderifous/textobj-word-column.vim' #{{{
@@ -59,7 +59,7 @@ on_source = 'vim-textobj-user'
 #[[plugins]]
 #repo = 'sgur/vim-textobj-parameter' #{{{
 #on_source = 'vim-textobj-user'
-#hook_add = 'runtime rc/textobj-parameter.vim'
+#hook_add = 'runtime add/textobj-parameter.vim'
 ##}}}
 #[[plugins]]
 #repo = 'kana/vim-textobj-indent' #{{{
@@ -75,7 +75,7 @@ on_source = 'vim-textobj-user'
 #[[plugins]]
 #repo = 'saaguero/vim-textobj-pastedtext' #{{{
 #on_map = '<Plug>(textobj-pastedtext'
-#hook_add = 'runtime rc/textobj-pastedtext.vim'
+#hook_add = 'runtime add/textobj-pastedtext.vim'
 ##}}}
 #[[plugins]]
 #repo = 'bps/vim-textobj-python' #{{{

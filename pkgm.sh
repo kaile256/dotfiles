@@ -28,12 +28,12 @@ echo "$INSTALLER will install package via '$install'!!"
 #### WANTED-PACKAGES INSTALLATION
 Package=(
 #rxvt-unicode-256xresources # Terminal Emulater according to gruvbox.vim
+python-msgpack # for neovim-qt
+jinja2 # for neovim-qt
 anyenv
 arandr  # Gui config for xrandr
-autorlogin-git  # sixel viewer for vim?
 bash-completion
 cargo  # select rustup
-fcitx-qimpanel  # Frontend
 clamav  # anti-virus for unix
 fcitx-qt5
 fcitx5-qt5-git  # Libraries for fcitx-qt5
@@ -44,7 +44,6 @@ global
 go
 googlecl  # google api for cli
 hub  # an official wrapper of git
-linux-rt-manjaro-acpi_call  # for battery saving
 luarocks
 neovim-nightly
 neovim-qt
@@ -63,15 +62,15 @@ ruby
 rxvt-unicode-truecolor
 shellcheck  # a linter for shell
 task # taskwarrior
-the_silver_searcher
+the_silver_searcher # ag
 tlp   # Save Battery of PC
-ttf-cica
 ttf-font-icons  # Mix Icon with Awesome & Ionicons without Confliction.
-ttf-myricam
 tty-dejavu
 vimiv
 vmail
 xf86-input-synaptics  # enable config for Touchpad
+xbrightness # backlight
+xorg-xbacklight  # backlight
 yarn
 zsh
 )

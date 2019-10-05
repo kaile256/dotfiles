@@ -1,11 +1,11 @@
-# From: rc/dein.vim
+# From: add/dein.vim
 
 # Imput Method
 [[plugins]]
 repo = 'tyru/eskk.vim' #{{{
 # Note: on_map fails to work in insert mode.
 on_event = ['InsertEnter', 'CmdlineEnter']
-hook_add = 'runtime rc/eskk.vim'
+hook_add = 'runtime add/eskk.vim'
 [[plugins]]
 # Syntax Files for skkdict.
 repo = 'tyru/skkdict.vim' #{{{
@@ -18,13 +18,13 @@ repo = 'deton/jasegment.vim'
 # no mappings for 'w', 'e', and so on.
 # remaps `W`,`E`, and so on.
 on_ft = 'markdown'
-#hook_post_source = 'runtime rc/jasegment.vim'
+#hook_post_source = 'runtime add/jasegment.vim'
 
 [[plugins]]
 repo = 'deton/jasentence.vim'
 # remaps `)(` for '、' and '。'
 on_ft = 'markdown'
-#hook_post_source = 'runtime rc/jasentence.vim'
+#hook_post_source = 'runtime add/jasentence.vim'
 
 [[plugins]]
 repo = 'fuenor/JpFormat.vim'
@@ -33,7 +33,7 @@ if = 'exists("JpFormatGqMode") && (JpFormatGqMode == 1)'
 on_ft = ['markdown']
 on_cmd = 'Jp'
 on_map = '<Cmd>Jp'
-hook_add = 'runtime rc/JqFormat.vim'
+hook_add = 'runtime add/JqFormat.vim'
 
 #[[plugins]]
 #repo = 'kana/vim-textobj-jabraces'
@@ -41,4 +41,4 @@ hook_add = 'runtime rc/JqFormat.vim'
 ## e.g., for 『』as `ajk`
 ##       to <Plug>(textobj-jabraces-double-kakko-a)
 #on_ft = 'markdown'
-#hook_add = 'runtime rc/textobj-jabraces.vim'
+#hook_add = 'runtime add/textobj-jabraces.vim'

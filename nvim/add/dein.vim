@@ -28,7 +28,7 @@ let &rtp  = &rtp  . ',' . s:dein_itself
 " call p:auto_install() if !has('dein.vim') {{{
 if ! isdirectory(s:dein_itself)
   exe '!mkdir -p' shellescape(expand(s:Shougo_cache_dir))
-  exe '!git clone https://github.com/Shougo/dein.vim' shellescape(expand(s:dein_itself))
+  exe '!git clone https://github.com/Shougo/dein.vim '. shellescape(expand(s:dein_itself))
 endif
 "}}}
 " CmdAbbr; Call Dein's Function {{{

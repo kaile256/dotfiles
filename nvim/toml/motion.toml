@@ -1,44 +1,44 @@
-# From: rc/dein.vim
+# From: add/dein.vim
 
 [[plugins]]
 repo = 'bkad/CamelCaseMotion' #{{{
 on_map = {no = '<Plug>CamelCaseMotion_'}
 #on_event = 'BufRead'
-hook_add = 'runtime rc/CamelCaseMotion.vim'
+hook_add = 'runtime add/CamelCaseMotion.vim'
 #}}}
 
 # Leap to Target
 #[[plugins]]
 #repo = 'justinmk/vim-sneak' #{{{
 #on_event = 'BufWinEnter'
-#hook_add = 'runtime rc/sneak.vim'
+#hook_add = 'runtime add/sneak.vim'
 #hook_post_source = 'silent! unmap s'
 ##}}}
 # Leap; Easy Motion
 [[plugins]] # has extentions
 repo = 'easymotion/vim-easymotion' #{{{
 on_map = {no = '<Plug>(easymotion-'}
-hook_add = 'runtime rc/easymotion.vim'
+hook_add = 'runtime add/easymotion.vim'
 hook_post_source = 'runtime post/easymotion.vim'
 [[plugins]]
 repo = 'haya14busa/vim-easyoperator-phrase' #{{{
 on_map = '<plug>(easyoperator-'
-hook_add = 'runtime rc/easyoperator.vim'
+hook_add = 'runtime add/easyoperator.vim'
 #}}}
 #[[plugins]]
 #repo = 'haya14busa/incsearch.vim' #{{{
 #on_event = 'ColorScheme'
-#hook_post_source = 'runtime rc/incsearch.vim'
+#hook_post_source = 'runtime add/incsearch.vim'
 #}}}
 #[[plugins]]
 #repo = 'haya14busa/incsearch-easymotion.vim' #{{{
 #on_event = 'ColorScheme'
-#hook_post_source = 'runtime rc/incsearch-easymotion.vim'
+#hook_post_source = 'runtime add/incsearch-easymotion.vim'
 #}}}
 #[[plugins]]
 #repo = 'haya14busa/incsearch-fuzzy.vim' #{{{
 #on_event = 'ColorScheme'
-#hook_post_source = 'runtime rc/incsearch-fuzzy.vim'
+#hook_post_source = 'runtime add/incsearch-fuzzy.vim'
 #}}}
 #}}}
 
@@ -47,40 +47,40 @@ hook_add = 'runtime rc/easyoperator.vim'
 repo = 'tomtom/tcomment_vim' #{{{
 on_map = '<Cmd>TComment'
 #on_map = ':TComment'
-hook_add = 'runtime rc/tcomment.vim'
+hook_add = 'runtime add/tcomment.vim'
 #}}}
 [[plugins]]
 repo = 'tyru/caw.vim' #{{{
 # operater to comment out
 on_map = '<Plug>(caw:'
-hook_add = 'runtime rc/caw.vim'
+hook_add = 'runtime add/caw.vim'
 #}}}
 [[plugins]]
 repo = 'scrooloose/nerdcommenter' #{{{
 on_map = '<Cmd>NERDCommenter'
-hook_add = 'runtime rc/nerdcommenter.vim'
+hook_add = 'runtime add/nerdcommenter.vim'
 #}}}
 #[[plugins]]
 #repo = 'tpope/vim-commentary' #{{{
 ## Simplest
 #on_map = '<Cmd>Commentary'
-#hook_add = 'runtime rc/plugin.vim'
+#hook_add = 'runtime add/plugin.vim'
 ##}}}
 
 # Operater; Arrangement
 [[plugins]]
 repo = 'machakann/vim-swap'
 on_map = '<Plug>(swap-'
-hook_add = 'runtime rc/swap.vim'
+hook_add = 'runtime add/swap.vim'
 [[plugins]]
 repo = 'junegunn/vim-easy-align' #{{{
 on_map = ['<Plug>(EasyAlign)', '<Plug>(LiveEasyAlign)']
-hook_add = 'runtime rc/easy-align.vim'
+hook_add = 'runtime add/easy-align.vim'
 #}}}
 #[[plugins]]
 #repo = 'AndrewRadev/splitjoin.vim' #{{{
 #on_event = 'BufRead'
-#hook_post_source = 'runtime rc/splitjoin.vim'
+#hook_post_source = 'runtime add/splitjoin.vim'
 #}}}
 
 # Operater; Simultaneous
@@ -88,27 +88,27 @@ hook_add = 'runtime rc/easy-align.vim'
 repo = 'andymass/vim-matchup' #{{{
 # Better `%`
 on_event = 'VimEnter'
-hook_add = 'runtime rc/matchup.vim'
+hook_add = 'runtime add/matchup.vim'
 hook_post_source = 'runtime post/matchup.vim'
 #}}}
 [[plugins]]
 repo = 'machakann/vim-sandwich' #{{{
 on_map = {ni = '<Plug>(operator-sandwich-'} # too late via <c-o>
-hook_add = 'runtime rc/sandwich.vim'
+hook_add = 'runtime add/sandwich.vim'
 #}}}
 #[[plugins]]
 #repo = 'tpope/vim-surround' #{{{
 #on_event = 'BufRead'
-#hook_post_source = 'runtime rc/surround.vim'
+#hook_post_source = 'runtime add/surround.vim'
 #}}}
 #[[plugins]]
 #repo = 'terryma/vim-multiple-cursors' #{{{
 #on_event = ['BufRead']
-#hook_add = 'runtime rc/multiple-cursors.vim'
+#hook_add = 'runtime add/multiple-cursors.vim'
 ##}}}
 
 #[[plugins]]
 #repo = 'tommcdo/vim-express' #{{{
 #on_event = 'VimEnter'
-#hook_post_source = 'runtime rc/express.vim'
+#hook_post_source = 'runtime add/express.vim'
 ##}}}

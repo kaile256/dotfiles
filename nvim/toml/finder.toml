@@ -1,16 +1,16 @@
-# From: rc/dein.vim
+# From: add/dein.vim
 
 # Search
 [[plugins]]
 repo = 'haya14busa/vim-asterisk' #{{{
 # Keep the cursor on `*` or `#`, even on visual mode.
 on_map = {nx = '<Plug>(asterisk-'}
-hook_add = 'runtime rc/asterisk.vim'
+hook_add = 'runtime add/asterisk.vim'
 #}}}
 #[[plugins]]
 #repo = 'thinca/vim-visualstar' #{{{
 #on_map = '<Plug>(visualstar-'
-#hook_add = 'runtime rc/visualstar.vim'
+#hook_add = 'runtime add/visualstar.vim'
 ##}}}
 
 # FZF
@@ -21,9 +21,9 @@ on_cmd = 'FZF'
 [[plugins]]
 repo = 'junegunn/fzf.vim'
 on_cmd = ['Ag', 'Rg', 'Fzf']
-hook_add = 'runtime rc/fzf.vim'
+hook_add = 'runtime add/fzf.vim'
 # Note: fzf.vim redefines commands after loaded.
-hook_post_source = 'runtime rc/fzf.vim'
+hook_post_source = 'runtime add/fzf.vim'
 #}}}
 
 # Filer
@@ -31,7 +31,7 @@ hook_post_source = 'runtime rc/fzf.vim'
 repo = 'Shougo/defx.nvim' #{{{
 if = 'has("python3")'
 on_cmd = 'Defx'
-hook_add = 'runtime rc/defx.vim'
+hook_add = 'runtime add/defx.vim'
 hook_post_source = 'runtime post/defx.vim'
 [[plugins]]
 repo = 'kristijanhusak/defx-git' #{{{
@@ -45,19 +45,19 @@ on_source = 'defx.nvim'
 #[[plugins]]
 #repo = 'cocopon/vaffle.vim' #{{{
 #on_if = 'has("python3")'
-#hook_post_source = 'runtime rc/vaffle.vim'
+#hook_post_source = 'runtime add/vaffle.vim'
 ##}}}
 #[[plugins]]
 #repo = 'justinmk/vim-dirvish' #{{{
 #on_event = 'BufAdd'
-#hook_post_source = 'runtime rc/dirvish.vim'
+#hook_post_source = 'runtime add/dirvish.vim'
 #}}}
 
 # CTags/global
 [[plugins]]
 repo = 'jsfaint/gen_tags.vim' #{{{
 on_event = 'BufLeave'
-hook_post_source = 'runtime rc/gen_tags.vim'
+hook_post_source = 'runtime add/gen_tags.vim'
 #}}}
 #[[plugins]]
 #repo = 'SpaceVim/gtags.vim' #{{{
@@ -67,30 +67,30 @@ hook_post_source = 'runtime rc/gen_tags.vim'
 ## 3. A fuzzy finder souces for some plugins:
 ##          denite, unite, fzf, leader-f, fzy
 #on_event = 'BufRead'
-#hook_post_source = 'runtime rc/gtags.vim'
+#hook_post_source = 'runtime add/gtags.vim'
 ##}}}
 #[[plugins]]
 #repo = 'majutsushi/tagbar' #{{{
 #on_event = ['BufNew','BufRead']
-#hook_post_source = 'runtime rc/tagbar.vim'
+#hook_post_source = 'runtime add/tagbar.vim'
 #}}}
 [[plugins]]
 repo = 'liuchengxu/vista.vim' #{{{
 # Also supports lsp via such plugins as coc, vim-lsp.
 on_cmd = 'Vista'
-hook_add = 'runtime rc/vista.vim'
+hook_add = 'runtime add/vista.vim'
 #}}}
 
 ## Enhance; Marks
 #[[plugins]]
 #repo = 'mattesgroeger/vim-bookmarks' #{{{
 #on_map = 'm'
-#hook_add = 'runtime rc/bookmarks.vim'
+#hook_add = 'runtime add/bookmarks.vim'
 ##}}}
 #[[plugins]]
 #repo = 'jacquesbh/vim-showmarks'{{{
 #on_map = ['m','`',"'",'<space>']
-#hook_add = 'runtime rc/showmarks.vim'
+#hook_add = 'runtime add/showmarks.vim'
 #}}}
 
 # Matcher
@@ -99,11 +99,11 @@ hook_add = 'runtime rc/vista.vim'
 ## A matcher developped for 'CtrlP'
 #on_source = 'deoplete.nvim'
 #on_event = 'BufRead'
-#hook_post_source = 'runtime rc/cspm.vim'
+#hook_post_source = 'runtime add/cspm.vim'
 ##}}}
 #[[plugins]]
 #repo = 'raghur/fruzzy' #{{{
 #on_source = 'denite.nvim'
 #hook_done_update = 'call fruzzy#install()'
-#hook_post_source = 'runtime rc/fruzzy.vim'
+#hook_post_source = 'runtime add/fruzzy.vim'
 ##}}}

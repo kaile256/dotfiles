@@ -1,16 +1,16 @@
-# From: rc/dein.vim
+# From: add/dein.vim
 
 # Colorscheme; Collection
 [[plugins]]
 repo = 'flazz/vim-colorschemes' #{{{
 on_event = 'VimEnter'
-hook_post_source = 'runtime rc/colorschemes.vim'
+hook_post_source = 'runtime add/colorschemes.vim'
 #}}}
 #[[plugins]]
 #repo = 'flrnprz/candid.vim' #{{{
 ## Looks like dracula scheme.
 #on_event = 'VimEnter'
-#hook_post_source = 'runtime rc/candid.vim'
+#hook_post_source = 'runtime add/candid.vim'
 ##}}}
 
 # Colorscheme; Statusline
@@ -19,7 +19,7 @@ repo = 'vim-airline/vim-airline' #{{{
 on_event = 'BufRead'
 # Uncompatible with nyaovim?
 # Better to be sourced earlier than colorschemes
-hook_add = 'runtime rc/airline.vim'
+hook_add = 'runtime add/airline.vim'
 [[plugins]]
 repo = 'vim-airline/vim-airline-themes'
 on_event = 'VimEnter'
@@ -27,11 +27,11 @@ on_event = 'VimEnter'
 #[[plugins]]
 #repo = 'itchyny/lightline.vim' #{{{
 #on_event = 'BufAdd'
-#hook_post_source = 'runtime rc/lightline.vim'
+#hook_post_source = 'runtime add/lightline.vim'
 #[[plugins]]
 #repo = 'taohexxx/lightline-buffer'
 #on_source = 'lightline.vim'
-#hook_post_source = 'runtime rc/lightline-buffer.vim'
+#hook_post_source = 'runtime add/lightline-buffer.vim'
 ##}}} End of Lightline
 
 # Colorscheme; Detection
@@ -39,13 +39,13 @@ on_event = 'VimEnter'
 repo = 'cocopon/inspecthi.vim' #{{{
 # Generates a beautiful color swatch from the current buffer
 on_cmd = 'Inspecthi'
-hook_add = 'runtime rc/inspecthi.vim'
+hook_add = 'runtime add/inspecthi.vim'
 #}}}
 [[plugins]]
 repo = 'cocopon/colorswatch.vim' #{{{
 # Inspects a link structure of highlighting groups
 on_cmd = 'ColorSwatchGenerate'
-hook_add = 'runtime rc/colorswatch.vim'
+hook_add = 'runtime add/colorswatch.vim'
 #}}}
 
 # Colorscheme; Modifier
@@ -54,14 +54,14 @@ repo = 'cocopon/pgmnt.vim' #{{{
 # Template engine for colorschemes, in pure Vim script
 # e.g., if g:colors_name ==# 'iceberg' | call pgmnt#foo#bar('foobar', 'foofoo') ...
 on_event = 'VimEnter'
-hook_post_source = 'runtime rc/pgmnt.vim'
+hook_post_source = 'runtime add/pgmnt.vim'
 #}}}
 
 # Icons
 [[plugins]]
 repo = 'ryanoasis/vim-devicons' #{{{
 on_event = 'BufRead'
-hook_post_source = 'runtime rc/devicons.vim'
+hook_post_source = 'runtime add/devicons.vim'
 #}}}
 
 # Indent
@@ -69,7 +69,7 @@ hook_post_source = 'runtime rc/devicons.vim'
 #repo = 'Yggdroot/indentLine' #{{{
 ## Note: Causes a bulk of problems
 #on_event = 'BufRead'
-#hook_add = 'runtime rc/indentLine.vim'
+#hook_add = 'runtime add/indentLine.vim'
 ##}}}
 
 # Resonance
@@ -79,15 +79,15 @@ repo = 'itchyny/vim-cursorword' #{{{
 on_event = 'CursorMoved'
 # Error: no such Event CursorWord0
 #hook_add = 'let g:cursorword_highlight = 0'
-hook_post_source = 'runtime rc/cursorword.vim'
+hook_post_source = 'runtime add/cursorword.vim'
 #}}}
 #[[plugins]]
 #repo = 'junegunn/rainbow_parentheses.vim' #{{{
 #on_event = 'BufWinEnter'
-#hook_post_source = 'runtime rc/rainbow_parentheses.vim'
+#hook_post_source = 'runtime add/rainbow_parentheses.vim'
 ##}}}
 #[[plugins]]
 #repo = 'luochen1990/rainbow' #{{{
-## CAUTION: source rc/rainbow.vim AFTER :colorscheme.
+## CAUTION: source add/rainbow.vim AFTER :colorscheme.
 #on_event = 'BufReadPre'
 ##}}}
