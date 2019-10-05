@@ -35,6 +35,10 @@ command! GdiffMode
       \ call <SID>fugitive__thin_out()
       \ | Gvdiffsplit!
 function! s:fugitive__thin_out() abort
+  let l:id = win_getid()
+  " TODO: keep in the window when ':wincmd T'
+  " Ref: keymap/window.vim
+  " Ref: lazy/diff.vim
   " Note: it's almost the same as smart_diffoff()
   windo
         \ if &bt ==# 'nofile'
@@ -44,7 +48,7 @@ function! s:fugitive__thin_out() abort
         \ |  quit
         \ | endif
   diffoff!
-  wincmd p
+  call win_gotoid(l:id)
   silent wincmd T
   exe 'setl foldmethod='. b:fdm_before_diff
 endfunction

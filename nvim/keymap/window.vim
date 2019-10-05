@@ -17,17 +17,19 @@ nnoremap <silent> <a-space><a-space> :QuickClose<cr>
 command! QuickClose :call <SID>quick_close()
 function! s:quick_close() abort "{{{1
   " Note: it's almost the same as smart_diffoff()
-  let l:current = bufwinnr('%')
+  let l:id = win_getid()
   windo
         \ if &bt ==# 'nofile'
         \ || &bt ==# 'nowrite'
         \ || &bt ==# 'quickfix'
         \ || bufname('%') =~# 'fugitive:\/\/'
+        \ || bufname('%') =~# 'twiggy:\/\/'
         \ |  quit
         \ | endif
+  diffoff!
   " Note: why, no range allowed on :wincmd in spite of :help.
-  "exe l:current .'wincmd w'
-  exe 'norm! '. l:current .'w'
+  call win_gotoid(l:id)
+  exe 'setl foldmethod='. b:fdm_before_diff
 endfunction "}}}1
 
 " Close; Tab-page

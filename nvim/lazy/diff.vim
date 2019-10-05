@@ -11,15 +11,19 @@ augroup EnterDiffMode "{{{1
 
   "au WinEnter * if &l:diff | windo setl wrap | endif
   function! s:smart_diffoff() abort "{{{2
+    " Ref: rc/fugitive.vim
+    " Ref: keymap/window.vim
+    let l:id = win_getid()
     windo
           \ if &bt ==# 'nofile'
           \ || &bt ==# 'nowrite'
           \ || &bt ==# 'quickfix'
           \ || bufname('%') =~# 'fugitive:\/\/'
+          \ || bufname('%') =~# 'twiggy:\/\/'
           \ |  quit
           \ | endif
     diffoff!
-    wincmd p
+    call win_gotoid(l:id)
     silent wincmd T
     exe 'setl foldmethod='. b:fdm_before_diff
   endfunction "}}}2
