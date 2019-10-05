@@ -31,7 +31,7 @@ set synmaxcol=320
 " Appearance; Blend {{{
 if exists('&pumblend')
   set pumblend=30
-  set winblend=30
+  set winblend=20
 endif
 "}}}
 " Appearance; Pmenu {{{
