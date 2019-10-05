@@ -15,7 +15,7 @@ set -x PATH "$HOME/.local/share/cargo/bin:$PATH"
 
 # Ruby
 # gem
-set -x PATH "$HOME/.gem/2.6.0:$PATH"
+set -x PATH "$HOME/.gem/2.6.0/bin:$PATH"
 
 # Nodejs
 set -x PATH "$HOME/.node_modules/bin:$PATH"
