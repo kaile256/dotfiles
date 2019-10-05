@@ -29,6 +29,7 @@ function! s:colorschemes_neodark() abort "{{{1
   hi diffNewFile cterm=reverse gui=reverse ctermfg=214 guifg=#fabd2f
   hi diffLine    cterm=reverse gui=reverse ctermfg=109 guifg=#83a598
 
+  hi NormalFloat guibg=#0a0707 guifg=#957474
 endfunction "}}}1
 
 if exists("g:nyaovim_version")
