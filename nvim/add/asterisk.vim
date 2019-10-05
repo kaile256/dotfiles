@@ -1,9 +1,11 @@
 " From: finder.toml
 " Repo: haya14busa/vim-asterisk
-" Alter: rc/autoload/asterisk.vim
+" Ref: machakann/vim-sandwich
 
 " TODO: Make the function work
 function! asterisk#substitute(operator, ...) abort "{{{1
+  " Note: because this func has autoload func., cannot be autoload func. itself.
+
   " Specify operator wanted {{{2
   " Note: a:operator acceptable is ['d', 'c', 'p', 'auto'].
   if a:operator ==# 'auto'
@@ -33,7 +35,7 @@ function! asterisk#substitute(operator, ...) abort "{{{1
 
   " Return: dot-jumpable substitution {{{2
   if line("'<") != line("'>")
-    exe 'norm!'. l:operator
+    exe '`<,`>norm!'. l:operator
     return
   endif
 
@@ -86,10 +88,10 @@ xnoremap <expr><silent> <Plug>(asterisk-dot-substitute-paste-downward)
 "xnoremap <expr><silent> <Plug>(asterisk-dot-substitute-paste-downward)
 "      \ asterisk#substitute('p', 'downward')
 
-onoremap <silent> <Plug>(asterisk-dot-substitute-operator-upward)
-      \ :<c-u>set operatorfunc=asterisk#substitute('auto','upward')<cr>g@
-onoremap <silent> <Plug>(asterisk-dot-substitute-operator-downward)
-      \ :<c-u>set operatorfunc=asterisk#substitute('auto','downward')<cr>g@
+"onoremap <silent> <Plug>(asterisk-dot-substitute-operator-upward)
+"      \ :<c-u>set operatorfunc=asterisk#substitute('auto','upward')<cr>g@
+"onoremap <silent> <Plug>(asterisk-dot-substitute-operator-downward)
+"      \ :<c-u>set operatorfunc=asterisk#substitute('auto','downward')<cr>g@
 "}}}1
 
 if exists('g:asterisk#no_default_mappings_all') | finish | endif
