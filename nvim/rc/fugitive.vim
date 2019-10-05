@@ -36,7 +36,6 @@ command! GdiffMode
       \ | Gvdiffsplit!
 function! s:fugitive__thin_out() abort
   " Note: it's almost the same as smart_diffoff()
-  let l:current = bufwinnr('%')
   windo
         \ if &bt ==# 'nofile'
         \ || &bt ==# 'nowrite'
@@ -44,10 +43,9 @@ function! s:fugitive__thin_out() abort
         \ || bufname('%') =~# 'fugitive:\/\/'
         \ |  quit
         \ | endif
-  " Note: why, no range allowed on :wincmd in spite of :help.
-  "exe l:current .'wincmd w'
-  exe 'norm! '. l:current .'w'
   silent wincmd T
+  diffoff!
+  exe 'setl foldmethod='. b:fdm_before_diff
 endfunction
 
 " Info; Blame {{{
@@ -98,8 +96,8 @@ augroup OnFugitiveBuffer
   " gitcommit should be writeable not setting bt=qf.
   au FileType fugitive,fugitiveblame,gitcommit setl nonumber signcolumn=
   au FileType gitcommit setl spell
-  au FileType fugitive nunmap <buffer> dq
-  au FileType fugitive nnoremap <silent><buffer> dq :call <SID>fugitive__thin_out()<cr>``
+  "au FileType fugitive nunmap <buffer> dq
+  "au FileType fugitive nnoremap <silent><buffer> dq :call <SID>fugitive__thin_out()<cr>``
   " For: especially in the case, ':norm U' to unstage all.
   nnoremap <silent> <Plug>(fugitive-gstage-last-window) :<c-u>wincmd p <cr> :Gw <bar> wincmd p<cr>
   au FileType fugitive nmap <silent><buffer> S <Plug>(fugitive-gstage-last-window)
