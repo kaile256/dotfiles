@@ -1,6 +1,6 @@
 " From: nvim/init.vim
 
-if execute('map <c-w>q') != '' || execute('map <c-w><c-q>') != ''
+if execute('map <c-w>q') !=# '' || execute('map <c-w><c-q>') !=# ''
   noremap <c-w>q <Nop>
   noremap <c-w><c-q> <Nop>
 endif
@@ -46,11 +46,34 @@ function! window#weed_out() abort "{{{1
 
 endfunction "}}}1
 
-function! window#extract() abort "{{{2
+function! window#extract() abort "{{{1
   call window#weed_out()
   silent wincmd T
-endfunction "}}}2
+endfunction "}}}1
+
 command! WinExtract :call window#extract()
+
+function! window#floating() "{{{1
+  " Ref: https://github.com/junegunn/fzf.vim/issues/664
+  " TODO: relative to the winwidth of editor, not current window.
+  let buf = nvim_create_buf(v:false, v:true)
+  call setbufvar(buf, '&signcolumn', 'no')
+
+  let winheight = winheight(0)
+  let winwidth = winwidth(0)
+
+  let width = float2nr(winwidth-(winwidth*1/10))
+
+  let opts = {
+        \ 'relative': 'editor',
+        \ 'row': &lines - 3,
+        \ 'col': float2nr((winwidth-width)/2),
+        \ 'width': width,
+        \ 'height': &lines - 3
+        \ }
+
+  call nvim_open_win(buf, v:true, opts)
+endfunction "}}}1
 
 " Close; Tab-page
 noremap <silent> <c-w>C :<c-u>tabclose<cr>

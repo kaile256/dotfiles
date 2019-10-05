@@ -22,8 +22,11 @@ augroup FzfMyAutoConf "{{{1
         \ | au BufEnter * ++once setl laststatus=2 ruler | if &ft !=# 'help' | setl number | endif
 augroup END "}}}1
 
+"let g:fzf_layout = { 'down': '~25%' }
+
+let g:fzf_layout = { 'window': 'call window#floating()' }
+
 let g:fzf_command_prefix = 'Fzf'
-let g:fzf_layout = { 'down': '~20%' }
 " Execute selected command
 let g:fzf_commands_expect = 'ctrl-x'
 
