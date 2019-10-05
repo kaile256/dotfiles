@@ -75,15 +75,18 @@ imap <c-x><c-f> <plug>(fzf-complete-file-ag)
 imap <c-x>f     <plug>(fzf-complete-file-ag)
 
 " Command! Ag/Rg/FZF {{{1
-command! -bang Amaps call fzf#vim#maps('',  <bang>0)
-command! -bang Nmaps call fzf#vim#maps('n', <bang>0)
-command! -bang Imaps call fzf#vim#maps('i', <bang>0)
-command! -bang Xmaps call fzf#vim#maps('x', <bang>0)
-command! -bang Smaps call fzf#vim#maps('s', <bang>0)
-command! -bang Vmaps call fzf#vim#maps('v', <bang>0)
-command! -bang Cmaps call fzf#vim#maps('c', <bang>0)
-command! -bang Omaps call fzf#vim#maps('o', <bang>0)
-command! -bang Tmaps call fzf#vim#maps('t', <bang>0)
+command! -bang -nargs=* FzfHelptags call fzf#vim#helptags({'options': '--reverse'}, <bang>0)
+
+" TODO: set op-nargs=* tions reverse
+command! -bang -nargs=* Amaps call fzf#vim#maps('',  <bang>0)
+command! -bang -nargs=* Nmaps call fzf#vim#maps('n', <bang>0)
+command! -bang -nargs=* Imaps call fzf#vim#maps('i', <bang>0)
+command! -bang -nargs=* Xmaps call fzf#vim#maps('x', <bang>0)
+command! -bang -nargs=* Smaps call fzf#vim#maps('s', <bang>0)
+command! -bang -nargs=* Vmaps call fzf#vim#maps('v', <bang>0)
+command! -bang -nargs=* Cmaps call fzf#vim#maps('c', <bang>0)
+command! -bang -nargs=* Omaps call fzf#vim#maps('o', <bang>0)
+command! -bang -nargs=* Tmaps call fzf#vim#maps('t', <bang>0)
 
 command! -bang -nargs=* FZF
       \ call fzf#vim#files(<q-args>,
