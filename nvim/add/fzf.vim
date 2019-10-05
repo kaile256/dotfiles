@@ -87,8 +87,8 @@ command! -bang Tmaps call fzf#vim#maps('t', <bang>0)
 
 command! -bang -nargs=* FZF
       \ call fzf#vim#files(<q-args>,
-      \                 <bang>0 ? fzf#vim#with_preview('up:60%')
-      \                         : fzf#vim#with_preview('right:50%'),
+      \                 <bang>0 ? fzf#vim#with_preview({'options': '--reverse'}, 'right:65%')
+      \                         : fzf#vim#with_preview({'options': '--reverse'}, 'right:65%'),
       \                 <bang>0)
 
 command! -bang -nargs=* Fzf :FZF
@@ -101,24 +101,24 @@ nnoremap <a-q>p     :Ghq<cr>
 
 command! -bang -nargs=* Ag
       \ call fzf#vim#ag(<q-args>,
-      \                 <bang>0 ? fzf#vim#with_preview('up:60%')
-      \                         : fzf#vim#with_preview('right:50%'),
+      \                 <bang>0 ? fzf#vim#with_preview({'options': '--reverse'}, 'right:65%')
+      \                         : fzf#vim#with_preview({'options': '--reverse'}, 'right:65%'),
       \                 <bang>0)
 
 command! -bang -nargs=* Rg
       \ call fzf#vim#grep(
       \   'rg --hidden --column --line-number --no-heading --color=always --smart-case '.shellescape(<q-args>), 1,
-      \   <bang>0 ? fzf#vim#with_preview('down:60%')
-      \           : fzf#vim#with_preview('right:50%'),
+      \   <bang>0 ? fzf#vim#with_preview({'options': '--reverse'}, 'right:65%')
+      \           : fzf#vim#with_preview({'options': '--reverse'}, 'right:65%'),
       \   <bang>0)
 
 " Note: There's no use trying to wrap 'GFiles?' independently
 "       because '?' is regarded as an arg for 'GFiles'.
 command! -bang -nargs=? -complete=dir FzfGFiles
-      \ call fzf#vim#gitfiles(<q-args>, fzf#vim#with_preview('right:50%'), <bang>0)
+      \ call fzf#vim#gitfiles(<q-args>, fzf#vim#with_preview({'options': '--reverse'}, 'right:65%'), <bang>0)
 " TODO: preview around the selected lines.
 "command! -bang -nargs=? -complete=dir BLines
-"      \ call fzf#vim#buffer_lines(<q-args>, fzf#vim#with_preview('right:50%'), <bang>0)
+"      \ call fzf#vim#buffer_lines(<q-args>, fzf#vim#with_preview({'options': '--reverse'}, 'right:50%'), <bang>0)
 "}}}
 " CmdAbbr; :Helptags {{{1
 cnoreabbr <expr> C (getcmdtype() == ':' && getcmdline() =~ '^C$')? 'FzfColors'   : 'C'
