@@ -53,17 +53,18 @@ function! window#weed_out() abort "{{{1
   call win_gotoid(l:id)
 
 endfunction "}}}1
+onoremap <expr> q (v:operator ==# 'd')? ':<c-u>call window#weed_out()<cr>': 'q'
+nnoremap <c-w><c-o> :<c-u>call window#weed_out()<cr><c-w>o
+nnoremap <c-w>o     :<c-u>call window#weed_out()<cr><c-w>o
 
 function! window#extract() abort "{{{1
   call window#weed_out()
   silent wincmd T
 endfunction "}}}1
-
 command! WinExtract :call window#extract()
 
-function! window#floating() "{{{1
+function! window#floating() abort "{{{1
   " Ref: https://github.com/junegunn/fzf.vim/issues/664
-  " TODO: relative to the winwidth of editor, not current window.
   let buf = nvim_create_buf(v:false, v:true)
   call setbufvar(buf, '&signcolumn', 'no')
 
