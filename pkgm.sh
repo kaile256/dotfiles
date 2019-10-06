@@ -46,13 +46,14 @@ googlecl  # google api for cli
 hub  # an official wrapper of git
 luarocks
 neovim-nightly
-neovim-qt
+neovim-qt-git # has bug? in non-git ver.
 nerd-fonts-ricty
 pdfjs  # PDF viewer in browser
 pyenv
 python-falcon  # Solve fcitx problem on qute?
 python-oauth2client
 python-pfp # hex editor tool
+blacklist_pcspkr
 python-pipenv
 python-tasklib # py-lib for taskwarrior
 qt5-webkit  # Alternative backend for qute.
@@ -65,11 +66,9 @@ task # taskwarrior
 the_silver_searcher # ag
 tlp   # Save Battery of PC
 ttf-font-icons  # Mix Icon with Awesome & Ionicons without Confliction.
-tty-dejavu
 vimiv
 vmail
 xf86-input-synaptics  # enable config for Touchpad
-xbrightness # backlight
 xorg-xbacklight  # backlight
 yarn
 zsh
@@ -127,9 +126,12 @@ done
 #fi
 #}
 
-### Yarn
+# Yarn
 YarnPack=(
-bash-language-server  # LSP
+bash-language-server
+yaml-language-server
+vim-language-server
+tslib
 neovim
 )
 
@@ -215,3 +217,6 @@ if [ -e '~/.config/fish/completions/rustup.fish' ]; then
   mkdir -p ~/.config/fish/completions/rustup.fish
   rustup completions fish > ~/.config/fish/completions/rustup.fish
 fi
+
+# for go-lsp, gopls
+GO111MODULE=on go get golang.org/x/tools/gopls@latest
