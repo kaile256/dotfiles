@@ -27,24 +27,30 @@ nnoremap <expr><silent> <space>wd <SID>cd_to_echo('~/dotfiles')
 nnoremap <expr><silent> <space>wp <SID>cd_and_echo(expand(g:dev_root))
 
 function! s:cd_and_terminal(path, split) abort
-  " TODO: make it work
-  exe 'cd '. a:path
-  exe a:split .'| terminal'
+  try
+    " TODO: make it work
+    exe 'cd '. a:path
+    exe a:split
+    terminal
+  catch
+    exe a:split
+    terminal
+  endtry
 endfunction
 
 " Open Terminal {{{
-noremap <silent> <space>t. :<c-u>te<cr>
-noremap <silent> <space>te :<c-u>cd %:p:h <space>    <bar>te<cr>
-noremap <silent> <space>to :<c-u>cd %:p:h <bar>:sp   <bar>te<cr>
-noremap <silent> <space>tv :<c-u>cd %:p:h <bar>:vs   <bar>te<cr>
-noremap <silent> <space>tt :<c-u>cd %:p:h <bar>:tabe <bar>te<cr>
+noremap <silent> <space>t. :<c-u>te fish<cr>
+noremap <silent> <space>te :<c-u>cd %:p:h <space>    <bar>te fish<cr>
+noremap <silent> <space>to :<c-u>cd %:p:h <bar>:sp   <bar>te fish<cr>
+noremap <silent> <space>tv :<c-u>cd %:p:h <bar>:vs   <bar>te fish<cr>
+noremap <silent> <space>tt :<c-u>cd %:p:h <bar>:tabe <bar>te fish<cr>
 "}}}
 
 " Open Terminal with `cd` {{{
-noremap <silent> <space>tw :<c-u>cd %:p:h      <bar>:te<cr>
-noremap <silent> <space>th :<c-u>cd ~          <bar>:te<cr>
-noremap <silent> <space>td :<c-u>cd ~/dotfiles <bar>:te<cr>
-noremap <silent> <space>tc :<c-u>cd ~/.config  <bar>:te<cr>
+noremap <silent> <space>tw :<c-u>cd %:p:h      <bar>:te fish<cr>
+noremap <silent> <space>th :<c-u>cd ~          <bar>:te fish<cr>
+noremap <silent> <space>td :<c-u>cd ~/dotfiles <bar>:te fish<cr>
+noremap <silent> <space>tc :<c-u>cd ~/.config  <bar>:te fish<cr>
 "}}}
 
 " cd in Terminal {{{
