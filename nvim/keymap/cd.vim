@@ -42,16 +42,17 @@ nnoremap <silent> <a-w><a-p> :<c-u>cd <c-r>=expand(g:dev_root)<cr> <bar>EchoCwd<
 
 "}}}
 " Open Terminal {{{
-noremap <silent> <a-t>.     :<c-u>     <space> <space> :te<cr>
-noremap <silent> <a-t>e     :<c-u>     <space> <space> :te<cr>
-noremap <silent> <a-t>s     :<c-u>sp   <bar>   <space> :te<cr>
-noremap <silent> <a-t>v     :<c-u>vs   <bar>   <space> :te<cr>
-noremap <silent> <a-t>t     :<c-u>tabe sp      <bar>   :te<cr>
-noremap <silent> <a-t><a-.> :<c-u>     <space> <space> :te<cr>
-noremap <silent> <a-t><a-e> :<c-u>     <space> <space> :te<cr>
-noremap <silent> <a-t><a-s> :<c-u>sp   <bar>   <space> :te<cr>
-noremap <silent> <a-t><a-v> :<c-u>vs   <bar>   <space> :te<cr>
-noremap <silent> <a-t><a-t> :<c-u>tabe sp      <bar>   :te<cr>
+noremap <silent> <a-t>.     :<c-u>te<cr>
+noremap <silent> <a-t><a-.> :<c-u>te<cr>
+
+noremap <silent> <a-t>e     :<c-u>cd %:p:h <space>    <bar>te<cr>
+noremap <silent> <a-t>o     :<c-u>cd %:p:h <bar>:sp   <bar>te<cr>
+noremap <silent> <a-t>v     :<c-u>cd %:p:h <bar>:vs   <bar>te<cr>
+noremap <silent> <a-t>t     :<c-u>cd %:p:h <bar>:tabe <bar>te<cr>
+noremap <silent> <a-t><a-e> :<c-u>cd %:p:h <space>    <bar>te<cr>
+noremap <silent> <a-t><a-o> :<c-u>cd %:p:h <bar>:sp   <bar>te<cr>
+noremap <silent> <a-t><a-v> :<c-u>cd %:p:h <bar>:vs   <bar>te<cr>
+noremap <silent> <a-t><a-t> :<c-u>cd %:p:h <bar>:tabe <bar>te<cr>
 "}}}
 " Open Terminal with `cd` {{{
 noremap <silent> <a-t>w     :<c-u>cd %:p:h      <bar>:te<cr>
