@@ -141,10 +141,10 @@ set tabstop=2
 " number of spaces, inserted by <TAB>, next to tab-chars.
 set softtabstop=2
 "" Tab&Indent; Indent
-" copy indent dependent on first char of current line.
+" indent depends on the first char of the prev line.
 set autoindent
-" copy indent dependent on last char of current line.
-set smartindent
+" indent depends on the last char of the prev line.
+"set smartindent
 " indent setting for c-lang.
 "set cindent
 " number of spaces inserted by autoindent.
