@@ -11,20 +11,23 @@ hook_add = 'runtime add/open-browser.vim'
 #}}}
 #[[plugins]]
 #repo = 'tyru/open-browser-github.vim' #{{{
-#on_source = 'open-browser.vim'
+#depends = 'open-browser.vim'
+#on_cmd = 'OpenGithub'
 #hook_post_source = 'runtime add/open-browser-github.vim'
-#}}}
+##}}}
 
-# Service; Calendar
+# API; Calendar
 [[plugins]]
 repo = 'itchyny/calendar.vim' #{{{
 on_cmd = 'Calendar'
 hook_post_source = 'runtime add/calendar.vim'
 #}}}
 
+# API; WakaTime
 [[plugins]]
 repo = 'wakatime/vim-wakatime' #{{{
 # tracking service for coding activity.
+# Note: visit https://wakatime.com/settings/api-key before using this plugin.
 on_cmd = 'WakaTime'
 hook_add = 'runtime add/wakatime.vim'
 #}}}
