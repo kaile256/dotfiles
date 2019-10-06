@@ -158,8 +158,8 @@ else
   tnoremap <silent> <a-a>g     <c-u>cd ~/.config<cr>               <c-\><c-n>: Ag<cr>
   tnoremap <silent> <a-a><a-v> <c-u>cd ~/.config/nvim<cr>          <c-\><c-n>: Ag<cr>
   tnoremap <silent> <a-a>v     <c-u>cd ~/.config/nvim<cr>          <c-\><c-n>: Ag<cr>
-  tnoremap <silent> <a-a><a-r> <c-u>cd /usr/share/nvim/runtime<cr> <c-\><c-n>: Ag<cr>
-  tnoremap <silent> <a-a>r     <c-u>cd /usr/share/nvim/runtime<cr> <c-\><c-n>: Ag<cr>
+  tnoremap <silent> <a-a><a-s> <c-u>cd /usr/share/nvim/runtime<cr> <c-\><c-n>: Ag<cr>
+  tnoremap <silent> <a-a>s     <c-u>cd /usr/share/nvim/runtime<cr> <c-\><c-n>: Ag<cr>
   tnoremap <silent> <a-a><a-c> <c-u>cd <c-r>=expand(g:dein_cache_dir)<cr><cr> <c-\><c-n>: Ag<cr>
   tnoremap <silent> <a-a>c     <c-u>cd <c-r>=expand(g:dein_cache_dir)<cr><cr> <c-\><c-n>: Ag<cr>
 
@@ -177,8 +177,8 @@ else
   nnoremap <silent> <a-a>v     :<c-u>cd ~/.config/nvim<cr>          :Ag<cr>
   nnoremap <silent> <a-a><a-r> :<c-u>cd /usr/share/nvim/runtime<cr> :Ag<cr>
   nnoremap <silent> <a-a>r     :<c-u>cd /usr/share/nvim/runtime<cr> :Ag<cr>
-  nnoremap <silent> <a-a><a-c> :<c-u>cd <c-r>=expand(g:dein_cache_dir)<cr> :Ag<cr>
-  nnoremap <silent> <a-a>c     :<c-u>cd <c-r>=expand(g:dein_cache_dir)<cr> :Ag<cr>
+  nnoremap <silent> <a-a><a-c> :<c-u>cd <c-r>=expand(g:dein_cache_dir)<cr><cr> :Ag<cr>
+  nnoremap <silent> <a-a>c     :<c-u>cd <c-r>=expand(g:dein_cache_dir)<cr><cr> :Ag<cr>
 
 endif
 "}}}
@@ -203,8 +203,8 @@ else "}}}
   tnoremap <silent> <a-r>g     <c-u>cd ~/.config<cr>                          <c-\><c-n>: Rg<cr>
   tnoremap <silent> <a-r><a-v> <c-u>cd ~/.config/nvim<cr>                     <c-\><c-n>: Rg<cr>
   tnoremap <silent> <a-r>v     <c-u>cd ~/.config/nvim<cr>                     <c-\><c-n>: Rg<cr>
-  tnoremap <silent> <a-r><a-r> <c-u>cd /usr/share/nvim/runtime<cr>            <c-\><c-n>: Rg<cr>
-  tnoremap <silent> <a-r>r     <c-u>cd /usr/share/nvim/runtime<cr>            <c-\><c-n>: Rg<cr>
+  tnoremap <silent> <a-r><a-s> <c-u>cd /usr/share/nvim/runtime<cr>            <c-\><c-n>: Rg<cr>
+  tnoremap <silent> <a-r>s     <c-u>cd /usr/share/nvim/runtime<cr>            <c-\><c-n>: Rg<cr>
   tnoremap <silent> <a-r><a-c> <c-u>cd <c-r>=expand(g:dein_cache_dir)<cr><cr> <c-\><c-n>: Rg<cr>
   tnoremap <silent> <a-r>c     <c-u>cd <c-r>=expand(g:dein_cache_dir)<cr><cr> <c-\><c-n>: Rg<cr>
 
