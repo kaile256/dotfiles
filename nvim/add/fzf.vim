@@ -69,10 +69,8 @@ let g:fzf_colors =
       \   'header':  ['fg', 'Comment'] }
 "}}}
 
-"imap <c-f> <plug>(fzf-complete-path)
-"imap <c-f> <plug>(fzf-complete-file)
-imap <c-x><c-f> <plug>(fzf-complete-file-ag)
-imap <c-x>f     <plug>(fzf-complete-file-ag)
+imap <c-x><c-f> <c-o>:cd ~<cr><plug>(fzf-complete-file-ag)
+imap <c-x>f     <c-o>:cd ~<cr><plug>(fzf-complete-file-ag)
 
 " Command! Ag/Rg/FZF {{{1
 command! -bang -nargs=* FzfHelptags call fzf#vim#helptags({'options': '--reverse'}, <bang>0)
@@ -124,9 +122,12 @@ command! -bang -nargs=* Rg
       \           : fzf#vim#with_preview({'options': '--reverse'}, 'right:65%'),
       \   <bang>0)
 
-command! AgHelp   :Ag /usr/share/nvim/runtime/doc
+command! AgHelp  :Ag /usr/share/nvim/runtime/doc
 command! AgWiki  :Ag ~/vimwiki
 command! AgDiary :Ag ~/vimwiki/diary
+command! RgHelp  :Rg /usr/share/nvim/runtime/doc
+command! RgWiki  :Rg ~/vimwiki
+command! RgDiary :Rg ~/vimwiki/diary
 "}}}
 
 " CmdAbbr; :Helptags {{{1
