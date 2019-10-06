@@ -94,10 +94,10 @@ xnoremap <expr><silent> <Plug>(asterisk-dot-substitute-paste-downward)
 "      \ :<c-u>set operatorfunc=asterisk#substitute('auto','downward')<cr>g@
 "}}}1
 
-if exists('g:asterisk#no_default_mappings_all') | finish | endif
+if exists('g:asterisk_no_default_mappings_all') | finish | endif
 
 " Keymaps; standard {{{1
-if exists('g:asterisk#no_default_mappings_standard') | finish | endif
+if exists('g:asterisk_no_default_mappings_standard') | finish | endif
 
 " Note: Few case to expect exclusive search
 nmap *  <Plug>(asterisk-gz*)
@@ -111,7 +111,7 @@ xmap #  <Plug>(asterisk-gz#)
 xmap g# <Plug>(asterisk-g#)
 
 " Keymaps; substitute {{{1
-if exists('g:asterisk#no_default_mappings_substitute') | finish | endif
+if exists('g:asterisk_no_default_mappings_substitute') | finish | endif
 " when paste on selected area, we don't use initial P.
 xmap gp <Plug>(asterisk-dot-substitute-paste-downward)
 xmap P <Plug>(asterisk-dot-substitute-paste-upward)
