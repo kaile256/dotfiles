@@ -49,7 +49,17 @@ hook_post_source = 'runtime add/actionmenu.vim'
 repo = 'tpope/vim-fugitive' #{{{
 type = 'git'
 on_event = 'BufRead'
-hook_post_source = 'runtime add/fugitive.vim'
+hook_add = 'runtime add/fugitive.vim'
+# Fugitive; Local Log Viewer
+[[plugins]]
+repo = 'int3/vim-extradite' #{{{
+type = 'git'
+# Also provides diff viewer.
+# Momo: on_cmd doesn't work.
+#on_cmd = ':Extradite'
+on_event = 'BufRead'
+hook_add = 'runtime add/extradite.vim'
+#}}}
 # Fugitive; Branch Viewr
 [[plugins]]
 repo = 'sodapopcan/vim-twiggy' #{{{
@@ -81,14 +91,6 @@ repo = 'shumphrey/fugitive-gitlab.vim' #{{{
 on_cmd = 'Gbrowse'
 hook_post_source = 'runtime add/fugitive-gitlab.vim'
 #}}}
-## Fugitive; Local Log Viewer
-#[[plugins]]
-#repo = 'int3/vim-extradite' #{{{
-## Note: Enough w/ coc.nvim
-## Also provides diff viewer.
-#on_event = ['BufRead']
-#hook_post_source = 'runtime add/extradite.vim'
-##}}}
 ## Fugitive; Log Wrapper
 #[[plugins]]
 #repo = 'rbong/vim-flog' #{{{
