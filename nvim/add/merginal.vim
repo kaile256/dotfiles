@@ -1,5 +1,5 @@
 " From: external.toml
-" Repo: merginal.vim
+" Repo: idanarye/vim-merginal
 
 "let g:merginal_windowWidth =
 "let g:merginal_windowSize =
