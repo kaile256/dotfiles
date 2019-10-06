@@ -27,31 +27,26 @@ command! Gstage
 " &@:<C-U>execute <SNR>277_Do('Unstage',0)<CR>
 " &@:exe <SNR>277_EchoExec('reset', '-q')<CR>
 "command! Gunstage :G
-"noremap <silent> <a-y><a-u> :Gunstage<cr>
+"noremap <silent> <space>g<a-u> :Gunstage<cr>
 command! GdiffMode
       \ call window#extract()
       \ | Gvdiffsplit!
 
 " Info; Blame {{{
-nnoremap <silent> <a-y>b     :<c-u>Gblame<cr>
-nnoremap <silent> <a-y><a-b> :<c-u>Gblame<cr>
+nnoremap <silent> <space>gb     :<c-u>Gblame<cr>
 "}}}
 " Info; Status {{{
-nnoremap <silent> <a-y>s     :<c-u>vert bot 40 Gstatus<cr>
-nnoremap <silent> <a-y><a-s> :<c-u>vert bot 40 Gstatus<cr>
+nnoremap <silent> <space>gs     :<c-u>vert bot 40 Gstatus<cr>
 "}}}
 " Add; Only {{{
-nnoremap <silent> <a-y>a     :Gw <bar> Gstatus<cr>
-nnoremap <silent> <a-y><a-a> :Gw <bar> Gstatus<cr>
+nnoremap <silent> <space>ga     :Gw <bar> Gstatus<cr>
 "}}}
 " Add; && Commit w/ diff {{{1
-nnoremap <silent> <a-y>w     :<c-u>cclose <bar> :Gstage<cr>
-nnoremap <silent> <a-y><a-w> :<c-u>cclose <bar> :Gstage<cr>
+nnoremap <silent> <space>gw     :<c-u>cclose <bar> :Gstage<cr>
 "}}}
 " Diff; {{{
 " !: On a Merge Conflict, do a 3-diff; otherwise the same as without bang.
-nnoremap <silent> <a-y>d     :<c-u>GdiffMode<cr>
-nnoremap <silent> <a-y><a-d> :<c-u>GdiffMode<cr>
+nnoremap <silent> <space>gd     :<c-u>GdiffMode<cr>
 "}}}
 
 function! s:on_gitcommit_startinsert() "{{{1

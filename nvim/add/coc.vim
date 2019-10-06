@@ -61,23 +61,23 @@ let g:coc_global_extensions = [
 " Command!; C-series {{{1
 command! CocIfHasProvider :call <SID>coc_if_has_provider()
 command! CifHasProvider   :call <SID>coc_if_has_provider()
-command! Cuninstall :CocUninstall g:coc_global_extensions
-command! CocRemove :CocUninstall
-command! Cremove :CocUninstall
-command! Cconfig     :CocConfig
-command! Ccmd        :CocCommand
-command! Clist       :CocList
-command! Coc         :CocList
-command! Cextensions :CocList extensions
-command! Ctemplate :CocCommand template.templateTop
-command! Cinit     :CocCommand template.templateTop
-command! Init      :CocCommand template.templateTop
+command! Cuninstall :CocUninstall
+command! CocRemove  :CocUninstall
+command! Cremove    :CocUninstall
+command! Cconfig    :CocConfig
+command! Ccmd       :CocCommand
+command! Clist      :CocList
+command! Coc        :CocList
+command! Cextensions :CocList    extensions
+command! Ctemplate   :CocCommand template.templateTop
+command! Cinit       :CocCommand template.templateTop
+command! Init        :CocCommand template.templateTop
 " Note: fzf.vim is better,
 "       which has regex-like specification method on fuzzy-matcher.
-command! Cfiles    :CocList files
-command! Cmru      :CocList mru
-command! Cbuffers  :CocList buffers
-command! ClocalLog :CocList bcommits
+"command! Cfiles    :CocList files
+"command! Cmru      :CocList mru
+"command! Cbuffers  :CocList buffers
+
 function! s:coc_if_has_provider() "{{{1
   let l:coc_provider_list = [
         \ 'hover',
@@ -181,9 +181,9 @@ nnoremap <silent> <c-w><space>r :call CocActionAsync('jumpReferences',     'vspl
 xnoremap <silent> <c-w><space>r :call CocActionAsync('jumpReferences',     'vsplit')<cr>
 
 " CocFormat {{{1
-command! -nargs=0 FormatOnCoc :call CocAction('format')
-command! -nargs=? FoldOnCoc   :call CocAction('fold',       <f-args>)
-command! -nargs=0 OR          :call CocAction('runCommand', 'editor.action.organizeImport')
+command! FormatOnCoc :call CocAction('format')
+command! -nargs=? FoldOnCoc :call CocAction('fold', <f-args>)
+command! OR          :call CocAction('runCommand', 'editor.action.organizeImport')
 " Mnemonic: Change the Structure.
 nmap cs <Plug>(coc-refactor)
 "set equalprg=CocActionAsync('formatSelected')
@@ -192,7 +192,7 @@ nmap cs <Plug>(coc-refactor)
 xnoremap <expr> = (CocHasProvider('format'))?
       \ ':call CocActionAsync("formatSelected")<cr>': '='
 nnoremap <expr> = (CocHasProvider('format'))?
-      \ ':call CocActionAsync("formatSelected")<cr>': '='
+      \ ':<C-u>set operatorfunc=<SID>FormatFromSelected<CR>g@': '='
 
 " CocRename {{{1
 " Mnemonic: Change the lhs of Equal Sign
@@ -218,15 +218,14 @@ omap if <Plug>(coc-funcobj-i)
 vmap af <Plug>(coc-funcobj-a)
 omap af <Plug>(coc-funcobj-a)
 " CocCodeAction {{{1
-nmap qA   <Plug>(coc-codeaction)
-nmap qaa  <Plug>(coc-codeaction)
-nmap qa   <Plug>(coc-codeaction-selected)
-xmap qa   <Plug>(coc-codeaction-selected)
+nmap qA  <Plug>(coc-codeaction)
+nmap qaa <Plug>(coc-codeaction)
+nmap qa  <Plug>(coc-codeaction-selected)
+xmap qa  <Plug>(coc-codeaction-selected)
 " CocWorkspace {{{1
 noremap! <c-x><c-;> <esc>q:
 noremap! <c-x><c-/> <esc>q/
 command! Rename :CocCommand workspace.renameCurrentFile
-command! R      :CocCommand workspace.renameCurrentFile
 
 " CocRange, or Multiple Cursor {{{1
 hi CocCursorRange guibg=#b16286 guifg=#ebdbb2
@@ -244,21 +243,20 @@ xmap <silent> qc <Plug>(coc-cursors-range)
 " CocColor; {{{1
 command! ColoFormat  :call CocAction('colorPresentation')
 command! ColoPalette :call CocAction('pickColor')
-onoremap <expr><silent> p
-      \ (v:operator ==# 'c')? ':ColoPalette<cr>': 'p'
+nnoremap cp :ColoPalette<cr>
 " CocExtensions {{{1
 command! CocExtensions :CocList extensions
 command! CExtensions   :CocList extensions
-nnoremap <a-c>e        :CocExtensions<cr>
-nnoremap <a-c><a-e>    :CocExtensions<cr>
+nnoremap <space>ce        :CocExtensions<cr>
+nnoremap <space>c<a-e>    :CocExtensions<cr>
 " CocList; {{{1
 " show commit contains current position
-noremap <silent> <a-c><a-c> :CocList<cr>
-noremap <silent> <a-c><a-f> :CocList files<cr>
-noremap <silent> <a-c><a-b> :CocList buffers<cr>
-noremap <silent> <a-c>c :CocList<cr>
-noremap <silent> <a-c>f :CocList files<cr>
-noremap <silent> <a-c>b :CocList buffers<cr>
+noremap <silent> <space>c<a-c> :CocList<cr>
+noremap <silent> <space>c<a-f> :CocList files<cr>
+noremap <silent> <space>c<a-b> :CocList buffers<cr>
+noremap <silent> <space>cc :CocList<cr>
+noremap <silent> <space>cf :CocList files<cr>
+noremap <silent> <space>cb :CocList buffers<cr>
 " CocSession {{{1
 command! MksessionCoc   :CocCommand session.save
 command! SaveSessionCoc :CocCommand session.save
@@ -275,10 +273,9 @@ cnoreabbr <expr> lds (getcmdtype() == ':' && getcmdline() =~ '^lds$')?
 "      \ --file-columns=icon,git,selection,clip,indent,filename,size
 ""}}}
 " CocGit {{{1
-command! GaddChunk   :CocCommand git.chunkStage
+command! GaddChunk :CocCommand git.chunkStage
 " Mnemonic: Git Put (similar to dp as diffput)
-nnoremap <a-y><a-p> :GaddChunk<cr>
-nnoremap <a-y>p     :GaddChunk<cr>
+nnoremap <space>gp :GaddChunk<cr>
 
 " TODO: make :GstageChunk work: chunkStage to show the list of local logs.
 command! GstageChunk
@@ -291,7 +288,7 @@ nnoremap U  :CocCommand git.chunkUndo<cr>
 nmap <expr> [c (&diff)? '[c': '<Plug>(coc-git-prevchunk)'
 nmap <expr> ]c (&diff)? ']c': '<Plug>(coc-git-nextchunk)'
 " show chunk diff at current position
-nmap <a-y>c <Plug>(coc-git-chunkinfo)
+nmap <space>gc <Plug>(coc-git-chunkinfo)
 omap ic <Plug>(coc-text-object-inner)
 xmap ic <Plug>(coc-text-object-inner)
 omap ac <Plug>(coc-text-object-outer)
@@ -315,10 +312,10 @@ command! CocTask         :CocCommand todolist.create
 command! CTask           :CocCommand todolist.create
 command! CocShowTaskList :CocList    todolist
 command! CShowTaskList   :CocList    todolist
-nnoremap <silent> <a-c>t     :CocTask<cr>
-nnoremap <silent> <a-c>s     :CocShowTaskList<cr>
-nnoremap <silent> <a-c><a-t>     :CocTask<cr>
-nnoremap <silent> <a-c><a-s>     :CocShowTaskList<cr>
+nnoremap <silent> <space>ct     :CocTask<cr>
+nnoremap <silent> <space>cs     :CocShowTaskList<cr>
+nnoremap <silent> <space>c<a-t>     :CocTask<cr>
+nnoremap <silent> <space>c<a-s>     :CocShowTaskList<cr>
 " CocYank; {{{1
 " Highlight on yanked
 hi HighlightedyankRegion ctermfg=232 ctermbg=66 guifg=#000000 guibg=#df5f29
