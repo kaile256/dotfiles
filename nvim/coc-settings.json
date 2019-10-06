@@ -184,7 +184,8 @@
       "rootPatterns": ["Cargo.toml"]
     },
     "golang":{
-      "command": "go-langserver",
+      "command": "gopls",
+      "rootPatterns": ["go.mod"],
       "filetypes": ["go"],
       "initializationOptions": {
         "gocodeCompletionEnabled": true,
@@ -219,7 +220,10 @@
     },
     "lua": {
       "command": "lua-lsp",
-      "filetypes": ["lua"]
+      "filetypes": ["lua"],
+      "initializationOptions": {
+        "formatTool": "lcf"
+      }
     },
     "metals": {
       "command": "metals-vim",
