@@ -28,22 +28,21 @@ echo "$INSTALLER will install package via '$install'!!"
 #### WANTED-PACKAGES INSTALLATION
 Package=(
 #rxvt-unicode-256xresources # Terminal Emulater according to gruvbox.vim
-python-msgpack # for neovim-qt
-jinja2 # for neovim-qt
 anyenv
 arandr  # Gui config for xrandr
 bash-completion
+blacklist_pcspkr  # disable beep
 cargo  # select rustup
 clamav  # anti-virus for unix
 fcitx-qt5
-fcitx5-qt5-git  # Libraries for fcitx-qt5
+fcitx5-qt5-git  # Libraries for fcitx-qt5, too long to install
 fzf
 gendesk
-ghq-bin
 global
 go
 googlecl  # google api for cli
 hub  # an official wrapper of git
+jinja2 # for neovim-qt
 luarocks
 neovim-nightly
 neovim-qt-git # has bug? in non-git ver.
@@ -51,12 +50,11 @@ nerd-fonts-ricty
 pdfjs  # PDF viewer in browser
 pyenv
 python-falcon  # Solve fcitx problem on qute?
+python-msgpack # for neovim-qt
 python-oauth2client
 python-pfp # hex editor tool
-blacklist_pcspkr
 python-pipenv
 python-tasklib # py-lib for taskwarrior
-qt5-webkit  # Alternative backend for qute.
 rclone  # sync lib for cloud-service like dropbox, Gdrive.
 ripgrep
 ruby
@@ -112,20 +110,6 @@ for package in ${Package[@]}; do
 fi
 done
 
-#        [[ $package == 'pyenv' ]] && {
-#        curl https://pyenv.run | bash
-#      }
-#  } || {
-#    [[ $package == 'cargo' ]] && {
-#    curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-#      source ~/.local/share/cargo/env
-#    }
-#}
-#elif [ $INSTALLER == 'pacman' ]; then
-#  echo "Try to yay to install $package..." && yay -S $package
-#fi
-#}
-
 # Yarn
 YarnPack=(
 bash-language-server
@@ -146,11 +130,6 @@ done
 #  go get github.com/pocke/get
 #}
 
-# ghq
-GitRepos=(
-Shougo/dein.vim
-)
-
 #git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
 # doom-emacs: an emacsen for alt-vimmer.
 git clone https://github.com/hlissner/doom-emacs ~/.emacs.d
@@ -168,26 +147,6 @@ neovim
 PipRepos=(
 pynvim
 )
-
-# Neovim
-# Dein
-PLUGIN_DIR=$HOME/.cache/dein
-INSTALL_DIR="${PLUGIN_DIR}/repos/github.com/Shougo/dein.vim"
-
-if ! [ -e "$INSTALL_DIR" ]; then
-  # check git command
-  type git > /dev/null || {
-    echo ""
-      echo 'Please install git or update your path to include the git executable!'
-      exit 1
-    }
-  echo ""
-  echo "Begin fetching dein..."
-  mkdir -p "$PLUGIN_DIR"
-  git clone https://github.com/Shougo/dein.vim "$INSTALL_DIR"
-  echo "Done. Dein is Ready!!"
-  echo ""
-fi
 
 # LSP
 # Lua
