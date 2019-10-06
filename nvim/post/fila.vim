@@ -3,17 +3,6 @@
 " Another: post/fila.vim
 
 function! fila#keymaps() abort "{{{1
-  nmap <buffer><expr> <Plug>(fila-custom-smart-enter)
-        \ fila#viewer#drawer#is_drawer(win_getid())
-        \ ? "\<Plug>(fila-action-enter-or-edit)\<Plug>(fila-action-tcd)"
-        \ : "\<Plug>(fila-action-enter-or-edit)"
-  nmap <buffer><expr> <Plug>(fila-custom-smart-leave)
-        \ fila#viewer#drawer#is_drawer(win_getid())
-        \ ? "\<Plug>(fila-action-leave)\<Plug>(fila-action-tcd)"
-        \ : "\<Plug>(fila-action-leave)"
-
-  nmap <buffer><nowait> <C-m> <Plug>(fila-custom-smart-enter)
-  nmap <buffer><nowait> <C-h> <Plug>(fila-custom-smart-leave)
 
   nmap <buffer><nowait> h     <Plug>(fila-action-collapse)
   nmap <buffer><nowait> l     <Plug>(fila-action-expand)
