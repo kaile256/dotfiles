@@ -39,7 +39,7 @@ echo 'making symbolic links...'
 #)
 
 configs=(
-  X11
+  x11
   alacritty
   awesome
   bash
@@ -69,8 +69,8 @@ configs=(
 # Create symbolic links at $HOME via $XDG_CONFIG_HOME.
 home_list=(
   vim/.vimrc
-  X11/.Xmodmap
-  X11/.Xresources
+  x11/.Xmodmap
+  x11/.Xresources
   bash/.bashrc
   bash/.profile
   ctags/.ctags
