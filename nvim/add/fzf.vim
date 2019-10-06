@@ -240,22 +240,15 @@ tnoremap <silent> <a-q>f     <c-u>cd ~/.config<cr> <c-\><c-n> :FZF<cr>
 tnoremap <silent> <a-q><a-c> <c-u>cd <c-r>=expand(g:dein_cache_dir)<cr><cr> <c-\><c-n> :FZF<cr>
 tnoremap <silent> <a-q>c     <c-u>cd <c-r>=expand(g:dein_cache_dir)<cr><cr> <c-\><c-n> :FZF<cr>
 
-nnoremap <silent> <a-q><a-.> :<c-u> FZF<cr>
-nnoremap <silent> <a-q>.     :<c-u> FZF<cr>
-nnoremap <silent> <a-q><a-w> :<c-u> cd %:p:h           <cr> :FZF<cr>
-nnoremap <silent> <a-q>w     :<c-u> cd %:p:h           <cr> :FZF<cr>
-nnoremap <silent> <a-q><a-h> :<c-u> cd ~               <cr> :FZF<cr>
-nnoremap <silent> <a-q>h     :<c-u> cd ~               <cr> :FZF<cr>
-nnoremap <silent> <a-q><a-d> :<c-u> cd ~/dotfiles      <cr> :FZF<cr>
-nnoremap <silent> <a-q>d     :<c-u> cd ~/dotfiles      <cr> :FZF<cr>
-nnoremap <silent> <a-q><a-v> :<c-u> cd ~/dotfiles/nvim <cr> :FZF<cr>
-nnoremap <silent> <a-q>v     :<c-u> cd ~/dotfiles/nvim <cr> :FZF<cr>
-nnoremap <silent> <a-q><a-f> :<c-u> cd ~/.config       <cr> :FZF<cr>
-nnoremap <silent> <a-q>f     :<c-u> cd ~/.config       <cr> :FZF<cr>
-nnoremap <silent> <a-q><a-r> :<c-u> cd /usr/share/nvim/runtime <cr> :FZF<cr>
-nnoremap <silent> <a-q>r     :<c-u> cd /usr/share/nvim/runtime <cr> :FZF<cr>
-nnoremap <silent> <a-q><a-c> :<c-u> cd <c-r>=expand(g:dein_cache_dir)<cr><cr> :FZF<cr>
-nnoremap <silent> <a-q>c     :<c-u> cd <c-r>=expand(g:dein_cache_dir)<cr><cr> :FZF<cr>
+nnoremap <silent> q.     :<c-u> FZF<cr>
+nnoremap <silent> qw     :<c-u> cd %:p:h           <cr> :FZF<cr>
+nnoremap <silent> qh     :<c-u> cd ~               <cr> :FZF<cr>
+nnoremap <silent> qd     :<c-u> cd ~/dotfiles      <cr> :FZF<cr>
+nnoremap <silent> qv     :<c-u> cd ~/dotfiles/nvim <cr> :FZF<cr>
+nnoremap <silent> qf     :<c-u> cd ~/.config       <cr> :FZF<cr>
+" Mnemonic: under Share
+nnoremap <silent> qs     :<c-u> cd /usr/share/nvim/runtime <cr> :FZF<cr>
+nnoremap <silent> qc     :<c-u> cd <c-r>=expand(g:dein_cache_dir)<cr><cr> :FZF<cr>
 
 "" FZF; Various {{{2
 tnoremap <silent> <a-q><a-w> <c-\><c-n>: FZF<cr>
