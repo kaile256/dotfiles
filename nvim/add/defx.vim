@@ -7,19 +7,6 @@ scriptencoding utf-8
 
 nnoremap <a-x> <Nop>
 
-" Call Defx; on Sidebar
-nnoremap <silent> <a-x>x
-      \ :<c-u>Defx `expand('%:p:h')` -search=`expand('%:p')`
-      \ -split=vertical -direction=topleft
-      \ -winwidth=30
-      \ -toggle
-      \ <cr>
-nnoremap <silent> <a-x><a-x>
-      \ :<c-u>Defx `expand('%:p:h')` -search=`expand('%:p')`
-      \ -split=vertical -direction=topleft
-      \ -winwidth=30
-      \ -toggle
-      \ <cr>
 " Call Defx; in vertical "{{{1
 nnoremap <silent> <a-x>v
       \ :<c-u>above 30 vs <bar> Defx `expand('%:p:h')` -search=`expand('%:p')`
