@@ -14,12 +14,18 @@ hook_post_source = 'runtime add/colorschemes.vim'
 ##}}}
 
 # Colorscheme; Statusline
+#[[plugins]]
+#repo = 'hardcoreplayers/spaceline.vim' #{{{
+## Not good w/ neovim-qt
+#on_event = 'BufRead'
+#hook_source = 'runtime rc/spaceline.vim'
+##}}}
 [[plugins]]
 repo = 'vim-airline/vim-airline' #{{{
 on_event = 'BufRead'
 # Uncompatible with nyaovim?
 # Better to be sourced earlier than colorschemes
-hook_add = 'runtime add/airline.vim'
+hook_source = 'runtime add/airline.vim'
 [[plugins]]
 repo = 'vim-airline/vim-airline-themes'
 on_event = 'VimEnter'
