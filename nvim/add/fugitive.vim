@@ -3,16 +3,13 @@
 
 command! -nargs=+ -complete=file Gremote :Git remote <q-args>
 " TODO: the substitute() here leaves only /kaile256/foo, i.e., get repo's root.
-command! -complete=dir GcreateRepoOnGitHub
-      \ :cd %:p:h
-      \ <bar> Git remote add origin
-      \ 'https://github.com/kaile256/'. s:repo_name .'.git'
-command! -complete=dir NNNGcreateRepoOnGitHub
-      \ :cd %:p:h
-      \ let b:repo_name = substitute(expand('%:p:h:h'), '\v.+kaile256\/(.+)\/.+\/.+', '\1', '')
-      \ <bar> Git remote add origin
-      \ 'https://github.com/kaile256/'. s:repo_name .'.git'
+
+" Note: no use yet.
+command! -nargs=+ -complete=dir HubCreate
+      \ !hub create <args>
+
 command! -nargs=+ Gclone :Git clone <q-args>
+
 function! fugitive#commit_with_diff() abort "{{1
   call window#extract()
   " Keep to show diff w/ HEAD while editting commit-message.
