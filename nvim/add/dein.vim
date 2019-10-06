@@ -9,14 +9,14 @@
 let g:dein#types#git#clone_depth = 1
 "}}}
 " Let; Path to the directory of dein's log {{{
-let s:dein_data_dir = g:data_home . 'dein/'
-let s:dein_log_file = s:dein_data_dir . 'dein_log.vim'
+let s:dein_data_dir = g:data_home . '/dein/'
+let s:dein_log_file = s:dein_data_dir . '/dein_log.vim'
 let g:dein#install_log_filename = s:dein_log_file
 "}}}
 " Let; Path to the directory of dein's cache {{{
-let g:dein_cache_dir = g:cache_home . 'dein/'
-let s:Shougo_cache_dir = g:dein_cache_dir . 'repos/github.com/Shougo/'
-let s:dein_itself = s:Shougo_cache_dir . 'dein.vim/'
+let g:dein_cache_dir = g:cache_home . '/dein/'
+let s:Shougo_cache_dir = g:dein_cache_dir . '/repos/github.com/Shougo/'
+let s:dein_itself = s:Shougo_cache_dir . '/dein.vim/'
 "}}}
 " Let; Path for :find {{{
 let &path = &path . ',' . g:dein_cache_dir . '**'
@@ -27,7 +27,7 @@ let &rtp  = &rtp  . ',' . s:dein_itself
 
 " call p:auto_install() if !has('dein.vim') {{{
 if ! isdirectory(s:dein_itself)
-  exe '!mkdir -p' shellescape(expand(s:Shougo_cache_dir))
+  exe '!mkdir -p ' shellescape(expand(s:Shougo_cache_dir))
   exe '!git clone https://github.com/Shougo/dein.vim '. shellescape(expand(s:dein_itself))
 endif
 "}}}
