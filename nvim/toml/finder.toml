@@ -4,7 +4,7 @@
 [[plugins]]
 repo = 'haya14busa/vim-asterisk' #{{{
 # Keep the cursor on `*` or `#`, even on visual mode.
-on_map = {nx = '<Plug>(asterisk-'}
+on_event = 'BufWinEnter'
 hook_add = 'runtime add/asterisk.vim'
 #}}}
 #[[plugins]]
@@ -45,6 +45,12 @@ on_source = 'defx.nvim'
 #on_source = 'defx.nvim'
 ##}}}
 #}}} End of Defx
+#[[plugins]]
+#repo = 'lambdalisue/fila.vim' #{{{
+## Note: currently has no docment.
+#on_cmd = 'Fila'
+#hook_add = 'runtime add/fila.vim'
+##}}}
 #[[plugins]]
 #repo = 'cocopon/vaffle.vim' #{{{
 #on_if = 'has("python3")'
