@@ -1,7 +1,7 @@
 scriptencoding utf-8
 " From: memo.toml
 " Repo: vimwiki/vimwiki
-" Path: autoload/vimwiki
+" Path: vimwiki/vimwiki_dev
 " Path: ftplugin/vimwiki.vim
 
 set path+=~/vimwiki/**
@@ -175,11 +175,11 @@ function! s:my_startpage(page) "{{{1
 endfunction "}}}
 augroup AutoFormatVimwiki
   au!
-  au BufNewFile,BufEnter *wiki/**.md setl ft=vimwiki syn=vimwiki
+  au BufNewFile,BufRead *.md setl ft=vimwiki syn=vimwiki
   au FileType vimwiki setl tabstop=4 softtabstop=4 shiftwidth=4
   au FileType vimwiki setl nowrap fdl=1
-  au BufWritePre index.* if &syn  ==# 'vimwiki' | VimwikiGenerateLinks
-  au BufWritePre vimwiki/** if &syn  ==# 'vimwiki' | VimwikiTOC
+  au BufWritePre index.* if &ft  ==# 'vimwiki' | VimwikiGenerateLinks
+  au BufWritePre vimwiki/** if &ft  ==# 'vimwiki' | VimwikiTOC
   au InsertLeave * if &wrap == 0 | norm zH
   "au BufWritePre * if &syn  ==# 'vimwiki' | VimwikiListChangeLvl w w
 augroup END
