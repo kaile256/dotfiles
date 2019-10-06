@@ -41,7 +41,7 @@ set $AltS   Mod1+Shift
 #exec --no-startup-id "feh --bg-scale $HOME/.config/i3/~~.jpg"
 #}}}
 # General; Font {{{
-font pango:SF Mono 11
+font pango:Nerd Font Ricty, SF Mono 11
 #}}}
 
 # List; Auto Start {{{
