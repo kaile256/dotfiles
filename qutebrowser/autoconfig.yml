@@ -7,6 +7,7 @@ settings:
     global:
       H: help -t
       O: open -t
+      W: session-save
       abbr: config-dict-add aliases
       alias: config-dict-add aliases
       cabbr: config-dict-add aliases
@@ -192,7 +193,6 @@ settings:
         K: null
         L: null
         P: open -t {clipboard}
-        QQ: tab-close
         U: undo
         V: enter-mode caret;; toggle-selection
         ZQ: tab-close
@@ -211,9 +211,9 @@ settings:
         l: fake-key <right>
         mode: drop-selection
         p: open {clipboard}
-        q: tab-close
         qa: quit
         qq: tab-close
+        qv: set-cmd-text -s :open
         t: hint
         u: scroll-page 0 -0.5
         wc: tab-close

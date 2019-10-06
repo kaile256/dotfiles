@@ -197,3 +197,6 @@ https://wiki.archlinux.jp/index.php/Libinput libinput - ArchWiki
 https://github.com/ripxorip/aerojump.nvim ripxorip/aerojump.nvim: Aerojump is a fuzzy-match searcher/jumper for Neovim with the goal of quick keyboard navigation
 https://github.com/glacambre/firenvim glacambre/firenvim: Embed Neovim in your browser.
 https://github.com/gatsbyjs/gatsby gatsbyjs/gatsby: Build blazing fast, modern apps and websites with React
+https://qiita.com/t9md/items/0bc7eaff726d099943eb#occurrence-modifier-preset-occurrence-persistence-selection vim-mode-plus for Atom editor vimconf-2016 - Qiita
+http://haya14busa.com/vim-mnemonic/ Vim Mnemonic | Vim のコマンドの覚え方大全 - haya14busa
+https://qiita.com/richmikan@github/items/b6fb641e5b2b9af3522e どのUNIXコマンドでも使える正規表現 - Qiita
