@@ -40,10 +40,10 @@ endfunction "}}}
 " Note: seems not work with <alt> like <alt-k>.
 let g:fzf_action = {
       \ 'ctrl-z': '',
-      \ 'ctrl-q': function('s:fzf_open_in_quickfix_list'),
-      \ 'ctrl-t': 'tab split',
-      \ 'ctrl-v': 'vsplit',
-      \ 'ctrl-o': 'split',
+      \ 'alt-q': function('s:fzf_open_in_quickfix_list'),
+      \ 'alt-t': 'tab split',
+      \ 'alt-v': 'vsplit',
+      \ 'alt-s': 'split',
       \ }
 " [Buffers] Rather Jump to window than just to open.
 let g:fzf_buffers_jump = 1
@@ -165,20 +165,20 @@ else "}}}
 endif
 " Keymap; FZF {{{1
 "" FZF; w/ cd {{{2
-nnoremap <silent> <space>q.     :<c-u> FZF<cr>
-nnoremap <silent> <space>qw     :<c-u> cd %:p:h           <cr> :FZF<cr>
-nnoremap <silent> <space>qh     :<c-u> cd ~               <cr> :FZF<cr>
-nnoremap <silent> <space>qd     :<c-u> cd ~/dotfiles      <cr> :FZF<cr>
-nnoremap <silent> <space>qv     :<c-u> cd ~/dotfiles/nvim <cr> :FZF<cr>
-nnoremap <silent> <space>qf     :<c-u> cd ~/.config       <cr> :FZF<cr>
-nnoremap <silent> <space>qr     :<c-u> cd /usr/share/nvim/runtime <cr> :FZF<cr>
-nnoremap <silent> <space>qc     :<c-u> cd <c-r>=expand(g:dein_cache_dir)<cr><cr> :FZF<cr>
+nnoremap <silent> <space>z.     :<c-u> FZF<cr>
+nnoremap <silent> <space>zw     :<c-u> cd %:p:h           <cr> :FZF<cr>
+nnoremap <silent> <space>zh     :<c-u> cd ~               <cr> :FZF<cr>
+nnoremap <silent> <space>zd     :<c-u> cd ~/dotfiles      <cr> :FZF<cr>
+nnoremap <silent> <space>zv     :<c-u> cd ~/dotfiles/nvim <cr> :FZF<cr>
+nnoremap <silent> <space>zf     :<c-u> cd ~/.config       <cr> :FZF<cr>
+nnoremap <silent> <space>zr     :<c-u> cd /usr/share/nvim/runtime <cr> :FZF<cr>
+nnoremap <silent> <space>zc     :<c-u> cd <c-r>=expand(g:dein_cache_dir)<cr><cr> :FZF<cr>
 "" FZF; Various {{{2
-nnoremap <silent> <space>qb     :<c-u> FzfBuffers<cr>
-nnoremap <silent> <space>qk     :<c-u> FzfHelptags<cr>
-nnoremap <silent> <space>qg     :<c-u> FzfGFiles?<cr>
+nnoremap <silent> <space>zb     :<c-u> FzfBuffers<cr>
+nnoremap <silent> <space>zk     :<c-u> FzfHelptags<cr>
+nnoremap <silent> <space>zg     :<c-u> FzfGFiles?<cr>
 "" Mnemonic: 'Old' Buffer
-nnoremap <silent> <space>qo     :<c-u> FzfHistory<cr>
+nnoremap <silent> <space>zo     :<c-u> FzfHistory<cr>
 "" Mnemonic: Search in Current File
-nnoremap <silent> <space>q/     :<c-u> FzfBLines<cr>
-nnoremap <silent> <space>q;     :<c-u> FzfCommands<cr>
+nnoremap <silent> <space>z/     :<c-u> FzfBLines<cr>
+nnoremap <silent> <space>z;     :<c-u> FzfCommands<cr>
