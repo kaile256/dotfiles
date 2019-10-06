@@ -144,6 +144,7 @@ settings:
         <Alt+o>: tab-prev
         <Alt+p>: tab-next
         <Alt+q><Alt+b>: set-cmd-text -s :buffer
+        <Alt+q><Alt+v>: set-cmd-text -s :open
         <Ctrl++>: zoom-in
         <Ctrl+->: zoom-out
         <Ctrl+2>: save
