@@ -14,7 +14,6 @@ let g:twiggy_remote_branch_sort = 'date'
 
 command! Gbranch :Twiggy
 
-nnoremap <silent> <a-y><a-i> :Twiggy<cr>
-nnoremap <silent> <a-y>i     :Twiggy<cr>
-nnoremap <silent> <a-y><a-y> :Twiggy<cr>
-nnoremap <silent> <a-y>y     :Twiggy<cr>
+" Mnemonic: Git Index (i.e., branches and tags)
+"           similar to my :Vista's keymaps.
+nnoremap <silent> <space>gi :Twiggy<cr>
