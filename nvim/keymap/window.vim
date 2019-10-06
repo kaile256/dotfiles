@@ -54,8 +54,8 @@ function! window#weed_out() abort "{{{1
 
 endfunction "}}}1
 onoremap <expr> q (v:operator ==# 'd')? ':<c-u>call window#weed_out()<cr>': 'q'
-nnoremap <c-w><c-o> :<c-u>call window#weed_out()<cr><c-w>o
-nnoremap <c-w>o     :<c-u>call window#weed_out()<cr><c-w>o
+nnoremap <expr> <c-w><c-o> (&diff)? ':<c-u>call window#weed_out()<cr><c-w>o': '<c-w>o'
+nnoremap <expr> <c-w>o     (&diff)? ':<c-u>call window#weed_out()<cr><c-w>o': '<c-w>o'
 
 function! window#extract() abort "{{{1
   call window#weed_out()
