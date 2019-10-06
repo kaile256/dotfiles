@@ -1,5 +1,10 @@
 # From: add/dein.vim
 
+[[plugins]]
+repo = 'thinca/vim-ref'
+on_event = 'BufRead'
+hook_add = 'runtime rc/ref.vim'
+
 # Hex Editor
 [[plugins]]
 repo = 'd0c-s4vage/pfp-vim' #{{{
