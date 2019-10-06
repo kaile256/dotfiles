@@ -2,7 +2,7 @@
 
 augroup AlertOnBuffer
   " CAUTION: Too many Exceptions!!
-  au! FileChangedRO * colorscheme molokai
+  au! FileChangedRO * colorscheme solarized8_dark_flat
 augroup END
 
 " Keymap; 'SOurce' init.vim
