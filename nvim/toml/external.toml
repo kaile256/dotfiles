@@ -60,10 +60,7 @@ hook_add = 'runtime add/twiggy.vim'
 #repo = 'idanarye/vim-merginal' #{{{
 ## Note: twiggy is better.
 #type = 'git'
-#on_event = 'CmdLineEnter'
-#on_map = ':Merginal'
-### Doesn't work well.
-##on_cmd = 'Merginal'
+#on_cmd = ':Merginal'
 #hook_add = 'runtime add/merginal.vim'
 ##}}}
 # Fugitive; Commit's Message viewer
