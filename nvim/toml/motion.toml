@@ -42,6 +42,12 @@ hook_add = 'runtime add/easyoperator.vim'
 #}}}
 #}}}
 
+#[[plugins]]
+#repo = 'ripxorip/aerojump.nvim'
+## seems buggy.
+#on_map = {nox = '<Plug>(Aerojump'}
+#hook_add = 'runtime add/aerojump.vim'
+
 # Operater; Comment out
 [[plugins]]
 repo = 'tomtom/tcomment_vim' #{{{
