@@ -1,4 +1,5 @@
-" From: tool.toml
+" From: motion.toml
+" Repo: bkad/CamelCaseMotion
 
 "" Convenience
 "onoremap ie iw
