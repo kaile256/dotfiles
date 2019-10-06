@@ -275,6 +275,17 @@ cnoreabbr <expr> lds (getcmdtype() == ':' && getcmdline() =~ '^lds$')?
 "      \ --file-columns=icon,git,selection,clip,indent,filename,size
 ""}}}
 " CocGit {{{1
+command! GaddChunk   :CocCommand git.chunkStage
+" Mnemonic: Git Put (similar to dp as diffput)
+nnoremap <a-y><a-p> :GaddChunk<cr>
+nnoremap <a-y>p     :GaddChunk<cr>
+
+" TODO: make :GstageChunk work: chunkStage to show the list of local logs.
+command! GstageChunk
+      \ :call window#extract()
+      \ | CocCommand git.chunkStage
+      \ | CocList bcommits
+
 nnoremap U  :CocCommand git.chunkUndo<cr>
 " Similar to the navigation on &diff
 nmap <expr> [c (&diff)? '[c': '<Plug>(coc-git-prevchunk)'
