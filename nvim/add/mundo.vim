@@ -4,7 +4,7 @@
 nnoremap <silent> <a-u> <Cmd>MundoToggle<cr>
 
 let g:mundo_right = 1
-let g:mundo_width = 80
+let g:mundo_width = &columns /2  " relative to editor's width
 "let g:mundo_disable = 1
 "let g:mundo_close_on_revert = 1  " auto close on leaving mundo-windows
 "let g:mundo_return_on_revert = 0  " keep focus even after a revert; default: 1
@@ -18,7 +18,7 @@ let g:mundo_auto_preview = 0
 "let g:mundo_preview_statusline = 1
 "let g:mundo_tree_statusline = 1
 let g:mundo_preview_bottom = 1
-let g:mundo_preview_height = 15
+let g:mundo_preview_height = &lines " relative to editor's height
 
 " 'play_to': undo/redo to the selected-undo history, motionaly.
 " TODO: echo 'preparing...'; too slow to show diff.
