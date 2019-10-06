@@ -52,34 +52,6 @@ if !has('nvim')
 endif "}}}
 if dein#load_state(g:dein_cache_dir)
   call dein#begin(g:dein_cache_dir)
-  "" Duplicated and Deprecated {{{
-  "" Path; toml {{{
-  "let s:Init_toml      = s:dein_toml_dir . 'Init.toml'
-  "let s:appearance_toml= s:dein_toml_dir . 'appearance.toml'
-  "let s:filetype_toml  = s:dein_toml_dir . 'filetype.toml'
-  "let s:external_toml  = s:dein_toml_dir . 'external.toml'
-  "let s:tool_toml  = s:dein_toml_dir . 'tool.toml'
-  "let s:insert_toml  = s:dein_toml_dir . 'insert.toml'
-  "let s:finder_toml  = s:dein_toml_dir . 'finder.toml'
-  "let s:motion_toml  = s:dein_toml_dir . 'motion.toml'
-  "let s:memo_toml  = s:dein_toml_dir . 'memo.toml'
-  "let s:ftplugin_toml  = s:dein_toml_dir . 'ftplugin.toml'
-  "let s:tool_toml      = s:dein_toml_dir . 'tool.toml'
-  ""}}}
-  "" Call; lazy or not {{{
-  "call dein#load_toml(s:Init_toml,       {'lazy': 0})
-  "call dein#load_toml(s:filetype_toml,   {'lazy': 0})
-  "call dein#load_toml(s:appearance_toml, {'lazy': 1})
-  "call dein#load_toml(s:ftplugin_toml,   {'lazy': 1})
-  "call dein#load_toml(s:tool_toml,       {'lazy': 1})
-  "call dein#load_toml(s:external_toml, {'lazy': 1})
-  "call dein#load_toml(s:tool_toml, {'lazy': 1})
-  "call dein#load_toml(s:insert_toml, {'lazy': 1})
-  "call dein#load_toml(s:finder_toml, {'lazy': 1})
-  "call dein#load_toml(s:motion_toml, {'lazy': 1})
-  "call dein#load_toml(s:memo_toml, {'lazy': 1})
-  ""}}}
-  ""}}}
   if !has('nvim') "{{{
     " make compatible on vim
     call dein#add('roxma/nvim-yarp')
