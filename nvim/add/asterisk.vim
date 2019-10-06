@@ -17,11 +17,13 @@ function! asterisk#substitute(operator, ...) abort "{{{1
   elseif a:operator ==# 'c'
     let l:operator = 'c'
   elseif a:operator !=# 'p'
+    " Thrown messages {{{3
     " Note: 'p' is unnecessary to specify l:operator in this function at least.
     "       because 'p' use different syntax than 'd' and 'c'.
     throw "Please set a:operator, whether 'd', 'c' or 'p', in asterisk#substitute('here!', direction) on vmap"
   else
     throw "Please set a:operator, whether 'd', 'c' or 'auto', in asterisk#substitute('here!', direction) on omap or nmap"
+    "}}}3
   endif
 
   " Specify operating direction {{{2
@@ -35,7 +37,7 @@ function! asterisk#substitute(operator, ...) abort "{{{1
 
   " Return: dot-jumpable substitution {{{2
   if line("'<") != line("'>")
-    exe '`<,`>norm!'. l:operator
+    exe 'norm!'. l:operator
     return
   endif
 
@@ -49,7 +51,7 @@ function! asterisk#substitute(operator, ...) abort "{{{1
     return
   endif
 
-  " e.g., 'norm! dgn'
+  " e.g., 'norm! dgn', 'cgn'
   exe 'norm! '. l:operator . l:direction
 endfunction "}}}1
 
@@ -70,7 +72,8 @@ xnoremap <expr><silent> <Plug>(asterisk-dot-substitute-change-downward)
       \ (line("'<") == line("'>"))?
       \ asterisk#do(mode(1), {'direction' : 1, 'do_jump' : 0, 'is_whole' : 0})
       \ .'cgn': 'c'
-" TODO: DotSubstitute by Paste
+
+" TODO: DotSubstitute by Paste {{{2
 xnoremap <expr><silent> <Plug>(asterisk-dot-substitute-paste-upward)
       \ (line("'<") == line("'>"))?
       \ asterisk#do(mode(1), {'direction' : 1, 'do_jump' : 0, 'is_whole' : 0})
@@ -79,6 +82,7 @@ xnoremap <expr><silent> <Plug>(asterisk-dot-substitute-paste-downward)
       \ (line("'<") == line("'>"))?
       \ asterisk#do(mode(1), {'direction' : 1, 'do_jump' : 0, 'is_whole' : 0})
       \ .'cgN<c-r>1<esc>': 'p'
+"}}}2
 
 " Experimental: for test
 "xnoremap <expr><silent> <Plug>(asterisk-dot-substitute-delete-downward)
