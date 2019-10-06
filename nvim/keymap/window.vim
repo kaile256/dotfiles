@@ -61,7 +61,7 @@ function! window#extract() abort "{{{1
   call window#weed_out()
   silent wincmd T
 endfunction "}}}1
-command! WinExtract :call window#extract()
+command! WinExtract :<c-u>call window#extract()
 
 function! window#floating() abort "{{{1
   " Ref: https://github.com/junegunn/fzf.vim/issues/664
