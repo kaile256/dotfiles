@@ -8,6 +8,9 @@ inoremap <c-x><c-h> ~
 cnoremap <c-x>h     ~
 cnoremap <c-x><c-h> ~
 
+"imap <a-space> <esc><space>
+tmap <a-space> <c-\><c-n><space>
+
 " Keymap; Write&Quit {{{
 "" Write&Quit; Evacuation for Macro
 nnoremap q<space> q

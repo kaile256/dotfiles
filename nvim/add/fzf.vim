@@ -134,9 +134,6 @@ command! RgDiary :Rg ~/vimwiki/diary
 command! C :FzfColors
 command! H :FzfHelptags
 
-"imap <a-space> <esc><space>
-tmap <a-space> <c-\><c-n><space>
-
 " Keymap; Ag {{{1
 if !executable('ag')
   nnoremap <silent><nowait> <a-a> :<c-u>echo "You don't have executable 'silver searcher'"<cr>
