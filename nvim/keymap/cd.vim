@@ -1,73 +1,56 @@
 " From: init.vim
 
-" N/P Directory {{{
-tnoremap <a-i> cd - <CR>
-tnoremap <a-o> cd .. <CR>
+function! s:cd_and_echo(path) abort
+  exe 'cd '. a:path
+  echo 'cd '. getcwd()
+endfunction
 
-command! EchoCwd :echo 'cd '. getcwd()
+" N/P Directory
+nnoremap <expr><silent> <space>wi <SID>cd_to_echo('-')
+nnoremap <expr><silent> <space>wo <SID>cd_to_echo('..')
 
-nnoremap <silent> <a-w>i     :<c-u>cd - <bar>EchoCwd<cr>
-nnoremap <silent> <a-w>o     :<c-u>cd .. <bar>EchoCwd<cr>
+" Root Directory
+nnoremap <expr><silent> <space>wr <SID>cd_to_echo('/')
+" $HOME
+nnoremap <expr><silent> <space>wh <SID>cd_to_echo('~')
 
-"" Simply echo; Current Directory
-nnoremap <silent> <a-w>.     :<c-u>echo 'cwd is '. getcwd()<cr>
-nnoremap <silent> <a-w><a-.> :<c-u>echo 'cwd is '. getcwd()<cr>
+" Simply echo; Current Directory
+nnoremap <expr><silent> <space>w. <SID>cd_to_echo('.')
 
-"" Working Directory
-nnoremap <silent> <a-w><a-w> :<c-u>cd %:p:h      <bar>EchoCwd<cr>
-nnoremap <silent> <a-w>w     :<c-u>cd %:p:h      <bar>EchoCwd<cr>
-"" Temp Directory
-nnoremap <silent> <a-w>t     :<c-u>cd ~/.tmp     <bar>EchoCwd<cr>
-nnoremap <silent> <a-w><a-t> :<c-u>cd ~/.tmp     <bar>EchoCwd<cr>
-"" Root Directory
-nnoremap <silent> <a-w>r     :<c-u>cd /          <bar>EchoCwd<cr>
-nnoremap <silent> <a-w><a-r> :<c-u>cd /          <bar>EchoCwd<cr>
-"" $HOME
-nnoremap <silent> <a-w>h     :<c-u>cd ~          <bar>EchoCwd<cr>
-nnoremap <silent> <a-w><a-h> :<c-u>cd ~          <bar>EchoCwd<cr>
-"" XDG_CACHE_HOME
-nnoremap <silent> <a-w>c     :<c-u>cd ~/.cache   <bar>EchoCwd<cr>
+" Working Directory
+nnoremap <expr><silent> <space>ww <SID>cd_and_echo('%:p:h')
+nnoremap <expr><silent> <space>wc <SID>cd_to_echo('~/.cache')
+nnoremap <expr><silent> <space>wf <SID>cd_to_echo('~/.config')
+nnoremap <expr><silent> <space>wd <SID>cd_to_echo('~/dotfiles')
 
-nnoremap <silent> <a-w><a-c> :<c-u>cd ~/.cache   <bar>EchoCwd<cr>
-"" XDG_CONFIG_HOME
-nnoremap <silent> <a-w>f     :<c-u>cd ~/.config  <bar>EchoCwd<cr>
-nnoremap <silent> <a-w><a-f> :<c-u>cd ~/.config  <bar>EchoCwd<cr>
-"" Dotfiles
-nnoremap <silent> <a-w>d     :<c-u>cd ~/dotfiles <bar>EchoCwd<cr>
-nnoremap <silent> <a-w><a-d> :<c-u>cd ~/dotfiles <bar>EchoCwd<cr>
+" Dev Root
+nnoremap <expr><silent> <space>wp <SID>cd_and_echo(expand(g:dev_root))
 
-"" Dev Root
-nnoremap <silent> <a-w>p     :<c-u>cd <c-r>=expand(g:dev_root)<cr> <bar>EchoCwd<cr>
-nnoremap <silent> <a-w><a-p> :<c-u>cd <c-r>=expand(g:dev_root)<cr> <bar>EchoCwd<cr>
+function! s:cd_and_terminal(path, split) abort
+  " TODO: make it work
+  exe 'cd '. a:path
+  exe a:split .'| terminal'
+endfunction
 
-"}}}
 " Open Terminal {{{
-noremap <silent> <a-t>.     :<c-u>te<cr>
-noremap <silent> <a-t><a-.> :<c-u>te<cr>
+noremap <silent> <space>t. :<c-u>te<cr>
+noremap <silent> <space>te :<c-u>cd %:p:h <space>    <bar>te<cr>
+noremap <silent> <space>to :<c-u>cd %:p:h <bar>:sp   <bar>te<cr>
+noremap <silent> <space>tv :<c-u>cd %:p:h <bar>:vs   <bar>te<cr>
+noremap <silent> <space>tt :<c-u>cd %:p:h <bar>:tabe <bar>te<cr>
+"}}}
 
-noremap <silent> <a-t>e     :<c-u>cd %:p:h <space>    <bar>te<cr>
-noremap <silent> <a-t>o     :<c-u>cd %:p:h <bar>:sp   <bar>te<cr>
-noremap <silent> <a-t>v     :<c-u>cd %:p:h <bar>:vs   <bar>te<cr>
-noremap <silent> <a-t>t     :<c-u>cd %:p:h <bar>:tabe <bar>te<cr>
-noremap <silent> <a-t><a-e> :<c-u>cd %:p:h <space>    <bar>te<cr>
-noremap <silent> <a-t><a-o> :<c-u>cd %:p:h <bar>:sp   <bar>te<cr>
-noremap <silent> <a-t><a-v> :<c-u>cd %:p:h <bar>:vs   <bar>te<cr>
-noremap <silent> <a-t><a-t> :<c-u>cd %:p:h <bar>:tabe <bar>te<cr>
-"}}}
 " Open Terminal with `cd` {{{
-noremap <silent> <a-t>w     :<c-u>cd %:p:h      <bar>:te<cr>
-noremap <silent> <a-t>h     :<c-u>cd ~          <bar>:te<cr>
-noremap <silent> <a-t>d     :<c-u>cd ~/dotfiles <bar>:te<cr>
-noremap <silent> <a-t>c     :<c-u>cd ~/.config  <bar>:te<cr>
-noremap <silent> <a-t><a-w> :<c-u>cd %:p:h      <bar>:te<cr>
-noremap <silent> <a-t><a-h> :<c-u>cd ~          <bar>:te<cr>
-noremap <silent> <a-t><a-d> :<c-u>cd ~/dotfiles <bar>:te<cr>
-noremap <silent> <a-t><a-c> :<c-u>cd ~/.config  <bar>:te<cr>
+noremap <silent> <space>tw :<c-u>cd %:p:h      <bar>:te<cr>
+noremap <silent> <space>th :<c-u>cd ~          <bar>:te<cr>
+noremap <silent> <space>td :<c-u>cd ~/dotfiles <bar>:te<cr>
+noremap <silent> <space>tc :<c-u>cd ~/.config  <bar>:te<cr>
 "}}}
+
 " cd in Terminal {{{
-tnoremap <silent> <a-t>r cd /          <cr>
-tnoremap <silent> <a-t>h cd ~/         <cr>
-tnoremap <silent> <a-t>d cd ~/dotfiles <cr>
-tnoremap <silent> <a-t>f cd ~/.config  <cr>
-tnoremap <silent> <a-t>c cd ~/.cache   <cr>
+tnoremap <silent> <space>tr cd /          <cr>
+tnoremap <silent> <space>th cd ~/         <cr>
+tnoremap <silent> <space>td cd ~/dotfiles <cr>
+tnoremap <silent> <space>tf cd ~/.config  <cr>
+tnoremap <silent> <space>tc cd ~/.cache   <cr>
 "}}}
