@@ -32,11 +32,11 @@ nnoremap <silent> <a-x><a-v>
 " Call Defx; in horizontal {{{1
 " Note: -search must be applied full path.
 " TODO: on Term-Mode, not to get errors; like get path with !pwd.
-nnoremap <silent> <a-x><a-s>
+nnoremap <silent> <a-x><a-o>
       \ :<c-u>below sp <bar> Defx `expand('%:p:h')` -search=`expand('%:p')`
       \ -new
       \ <cr>
-nnoremap <silent> <a-x>s
+nnoremap <silent> <a-x>o
       \ :<c-u>below sp <bar> Defx `expand('%:p:h')` -search=`expand('%:p')`
       \ -new
       \ <cr>

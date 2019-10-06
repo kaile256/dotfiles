@@ -44,7 +44,7 @@ let g:fzf_action = {
       \ 'ctrl-t': 'tab split',
       \ 'ctrl-v': 'vsplit',
       \ 'ctrl-o': 'split',
-      \ 'ctrl-s': 'split' }
+      \ }
 " [Buffers] Rather Jump to window than just to open.
 let g:fzf_buffers_jump = 1
 " [[B]Commits] Customize the options used by 'git log':

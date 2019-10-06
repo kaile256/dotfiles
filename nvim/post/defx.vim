@@ -1,7 +1,7 @@
 scriptencoding utf-8
 " From: finder.toml
 " Repo: Shougo/defx.nvim
-" Alter: defx.vim
+" Another: add/defx.vim
 " Ref: /usr/share/nvim/runtime/autoload/netrw.vim
 " Ref: /usr/share/nvim/runtime/plugin/netrwPlugin.vim
 
@@ -129,7 +129,8 @@ function! s:defx_keymap_explorer() abort
   nnoremap <silent><buffer><expr> <c-v>
         \ defx#do_action('open', 'vsplit')
         \ .':'. bufwinnr(bufname("\[defx\]")) .'close<cr>'
-  nnoremap <silent><buffer><expr> <c-s>
+  " Note: <c-s> freezes screen on some unix.
+  nnoremap <silent><buffer><expr> <c-o>
         \ defx#do_action('open', 'bot split')
         \ .':'. bufwinnr(bufname("\[defx\]")) .'close<cr>'
   nnoremap <silent><buffer><expr> <c-t>
@@ -155,9 +156,6 @@ function! s:defx_keymap_explorer() abort
   " Selected; Close Tree {{{1
   nnoremap <silent><buffer><expr> zc
         \ defx#do_action('close_tree')
-  "nnoremap <silent><buffer><expr> zm
-  "      \ defx#do_action('multi',
-  "      \ ['cd', ['..'], 'open_directory'])
   " Selected; Register {{{1
   " copy: yank in defx's register
   " Note: CANNOT register multiple files into defx-register.
@@ -213,4 +211,14 @@ augroup OnDefxBuffer
   " TODO: highlight on top as there's filepath, or place those path on another place.
   au FileType defx setl nonumber signcolumn= winfixwidth
   au FileType defx call s:defx_keymap_explorer()
+  function! defx#execute(...) abort
+    " TODO: quit defx after action.
+    let l:id = win_getid()
+    call defx#do_action(a:000)
+    windo
+          \ if bufname('%') =~# '\[defx\]'
+          \ |   quit
+          \ | endif
+    call win_gotoid(l:id)
+  endfunction
 augroup END
