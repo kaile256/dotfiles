@@ -15,7 +15,8 @@
 #[[ -z $DISPLAY && $XDG_VTNR -eq 1 ]] && exec startx
 #exec qtile
 
-if [ $( uname -r | grep MANJARO ) ]; then
+if [ $( xinput | grep Touchpad ) ]; then
   # Disable Elan Touchpad
-  xinput disable 11
+  # TODO: grep the number of touchpad automatically to set.
+  xinput disable 12
 fi
