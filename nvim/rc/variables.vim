@@ -55,54 +55,38 @@ let g:my_nvim_home = empty($VIMCONFIG)       ? expand(g:my_dotfiles      .'nvim/
 let g:my_data      = g:my_nvim_home           . 'data/'
 let g:dev_root = '~/dev/'
 "}}}
-" $var; for Terminal {{{
-"set shell=fish
-if executable('urxvt')
-  let $TERM='rxvt-unicode'
-else
-  let $TERM='xterm-256color'
-endif
-"}}}
-" $var; for Git {{{
-if has('nvim')
-  let $GIT_EDITOR = 'nvr -cc split --remote-wait'
-endif
-"}}}
 " $var; for Vim {{{1
 if isdirectory('~/kaile256')
   let $MYVIMRC = expand('<sfile>')
   let $HOME = expand('<sfile>:h')
 endif
-let $EDITOR='nvr'
-let $VISUAL='nvr'
+"}}}1
 
-" $var: for Dev {{{1
-let $DEVROOT=expand($HOME) .'/dev'
-let $GOPATH=expand($DEVROOT) .'/go'
-let $PATH=expand($GOPATH) .'/bin:'. expand($PATH)
-"}}}
-
-" Path; Runtime Path
+" &rtp; "{{{1
 set rtp+=~/.config/nvim/data
 set rtp+=~/.config/nvim/lazy
 set rtp+=~/.config/nvim/toml
 set rtp+=~/.config/nvim/keymap
-" Path; for `:find`
+
+" &path; for `:find` {{{1
 " ';' for upward search.
 " e.g., /usr/share/nvim;/usr will search in /usr, /usr/share, /usr/share/nvim.
 "set path+=;/
-" Dein's cache
+
+" &path; Dein's cache
 set path^=~/.cache/dein/repos/github.com/**
 set path^=~/.config/**
 set path^=../**
 set path+=~/.local/nvim/**
 set path+=/etc/**
-" Path; negative
+
+" &path; negative
 set path-=~
 set path-=.git*/**
 set path-=*yarn*/**
 set path-=*node*/**
-" Path; Provider
+
+" Path; Provider {{{1
 if has('python3')
   let g:python3_host_prog = '/usr/bin/python3'
   "let g:python3_host_prog = system('(type pyenv &>/dev/null && echo -n "$(pyenv root)/versions/$(pyenv global | grep python3)/bin/python") || echo -n $(which python3)')
