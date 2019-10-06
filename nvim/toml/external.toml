@@ -8,7 +8,8 @@ repo = 'neoclide/coc.nvim' #{{{
 rev = 'release'
 #hook_done_update = 'yarn install --frozen-lockfile'
 on_event = 'VimEnter'
-hook_post_source = 'runtime add/coc.vim'
+if = 'executable("yarn")'
+hook_add = 'runtime add/coc.vim'
 #}}}
 #[[plugins]]
 #repo = 'prabirshrestha/vim-lsp' #{{{
