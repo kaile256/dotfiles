@@ -2,8 +2,9 @@
 
 snippet init
 alias ini
-  ${1:#:root = true}
-  [${2:*}]
+  ${1:root = true}
+
+  [*]
   charset = utf-8
   indent_style = ${3:space}
   indent_size = ${4:2}
@@ -11,7 +12,6 @@ alias ini
 
 snippet add
 alias ad [
-  [${1:*}]
-  charset = utf-8
+  [$*.{1:vim}]
   indent_style = ${2:space}
   indent_size = ${3:2}
