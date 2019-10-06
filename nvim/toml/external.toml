@@ -140,10 +140,14 @@ hook_post_source = 'runtime add/fugitive-gitlab.vim'
 #on_cmd = 'Docker'
 #hook_add = 'runtime add/docker.vim'
 ##}}}
-[[plugins]]
-repo = 'skanehira/docker-compose.vim'
-on_cmd = 'DockerCompose'
-hook_add = 'runtime add/docker-compose.vim'
+#[[plugins]]
+#repo = 'skanehira/docker-compose.vim'
+## Error:
+## [dein] Error generating helptags:
+## [dein] Vim(helptags):E154: Duplicate tag "docker-compose" in file /home/kaile256/.cache/dein/.cache/init.vim/.dein/doc/docker-compose.txt
+## [dein] function <SNR>346_on_pull_exit[45]..<SNR>346_recache_rtp[19]..dein#recache_runtimepath[1]..dein#install#_recache_runtimepath[19]..<SNR>362_helptags, line 12
+#on_cmd = 'DockerCompose'
+#hook_add = 'runtime add/docker-compose.vim'
 
 # Doc; Info
 [[plugins]]
