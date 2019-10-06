@@ -57,13 +57,17 @@ let g:coc_global_extensions = [
       \ 'coc-yaml',
       \ 'coc-yank',
       \ ]
+" TODO: convert the list into string.
+"let g:coc_extensions_all = substitute(g:coc_global_extensions, )
 "}}}
 " Command!; C-series {{{1
+
 command! CocIfHasProvider :call <SID>coc_if_has_provider()
 command! CifHasProvider   :call <SID>coc_if_has_provider()
-command! Cuninstall :CocUninstall
-command! CocRemove  :CocUninstall
-command! Cremove    :CocUninstall
+command! -nargs=+ Cinstall :CocInstall <q-args>
+command! -nargs=+ Cuninstall :CocUninstall <q-args>
+command! -nargs=+ CocRemove  :CocUninstall <q-args>
+command! -nargs=+ Cremove    :CocUninstall <q-args>
 command! Cconfig    :CocConfig
 command! Ccmd       :CocCommand
 command! Clist      :CocList
