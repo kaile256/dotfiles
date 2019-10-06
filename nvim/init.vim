@@ -8,12 +8,13 @@ hi CursorIM guibg=#fabd1f
 set formatoptions=jmB1cql
 "set mouse=a
 
-" WARNING: `!` is required to source all the same named files.
 runtime rc/os.vim
-runtime rc/variables.vim  " be careful to comment out; many files depends on it.
-runtime add/dein.vim  " this file contains `filetype plugin indent on`
+runtime rc/variables.vim  " don't comment out; many files depends on it.
+runtime add/dein.vim  " contains `filetype plugin indent on`
 runtime rc/options.vim
 runtime rc/filetype.vim
+runtime rc/plugin.vim  " write config of my dev plugins.
+" Note: `!` is required to source all the same named files.
 runtime! keymap/*.vim
 
 augroup RuntimesSelection
