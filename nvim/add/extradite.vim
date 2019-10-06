@@ -1,4 +1,5 @@
 " From: external.toml
+" Repo: int3/vim-extradite
 
 "let g:extradite_width = ''
 "let g:extradite_resize = 0
@@ -10,7 +11,7 @@ command! GlocalLog
       \ :call window#extract()
       \ | exe 'bot '. &lines /2 .'sp <bar> Extradite'
 
-nnoremap <space>gu :<c-u>Glocallog<cr>
+nnoremap <space>gu :<c-u>GlocalLog<cr>
 
 " TODO: on Gitcommit with no diff on &diff buffers, show previous log.
 function! s:my_extradite_maps() abort
