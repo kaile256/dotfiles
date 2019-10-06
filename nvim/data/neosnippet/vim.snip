@@ -42,7 +42,7 @@ abbr au aug augr
 delete f function
 snippet function
 alias f fu fun func function
-  function! ${1:`expand('%') =~ 'autoload' ? substitute(matchstr(expand('%:p'),'autoload/\zs.*\ze.vim'),'[/\\]','#','g').'#' : ''`}${2:do}(${3:#:{{name\}[, {arglist\}] [, {dict\}]}) abort ${4:#:range}
+  function! ${1:`expand('%') =~ 'autoload' ? substitute(matchstr(expand('%:p'),'autoload/\zs.*\ze.vim'),'[/\\]','#','g').'#' : ''`}${2:#:do}(${3:#:{{name\}[, {arglist\}] [, {dict\}]}) abort ${4:#:range}
     ${0:#:Ex-commands}
   endfunction
 snippet redir
