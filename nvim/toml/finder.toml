@@ -4,9 +4,14 @@
 [[plugins]]
 repo = 'haya14busa/vim-asterisk' #{{{
 # Keep the cursor on `*` or `#`, even on visual mode.
-on_event = 'BufWinEnter'
+on_map = {xn = '<Plug>(asterisk-'}
 hook_add = 'runtime add/asterisk.vim'
 #}}}
+#[[plugins]]
+#repo = 'haya14busa/vim-metarepeat' #{{{
+#on_map = {nx = '<Plug>(metarepeat'}
+#hook_add = 'runtime add/metarepeat.vim'
+##}}}
 #[[plugins]]
 #repo = 'thinca/vim-visualstar' #{{{
 #on_map = '<Plug>(visualstar-'
