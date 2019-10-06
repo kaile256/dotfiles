@@ -7,10 +7,15 @@
 #mesg n || true
 
 # INIT
-eval "$(anyenv init -)"
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
+#eval "$(anyenv init -)"
+#eval "$(pyenv init -)"
+#eval "$(pyenv virtualenv-init -)"
 
 # Xserver
 #[[ -z $DISPLAY && $XDG_VTNR -eq 1 ]] && exec startx
 #exec qtile
+
+if [ $( uname -r | grep MANJARO ) ]; then
+  # Disable Elan Touchpad
+  xinput disable 11
+fi
