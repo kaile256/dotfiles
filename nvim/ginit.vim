@@ -1,5 +1,28 @@
 " Help: options
 
+" $VAR: for Dev {{{1
+let $DEVROOT=expand($HOME) .'/dev'
+let $GOPATH=expand($DEVROOT) .'/go'
+
+" $VAR: for PATH {{{1
+let $PATH=expand($GOPATH) .'/bin:'. expand($PATH)
+let $PATH=expand($HOME) .'.yarn/bin:'. expand($PATH)
+
+" $VAR; for shell {{{1
+let $EDITOR='nvr'
+let $VISUAL='nvr'
+let $GIT_EDITOR = 'nvr -cc split --remote-wait'
+let $BROWSER = 'qutebrowser'
+
+"set shell=fish
+if executable('urxvt')
+  let $TERM='rxvt-unicode'
+else
+  let $TERM='xterm-256color'
+endif
+
+
+" if nvim-qt {{{1
 if exists('g:GuiLoaded')
 
   GuiTabline   0
@@ -19,7 +42,7 @@ if exists('g:GuiLoaded')
   endif
 endif
 
-if exists('gonvim_running')
+if exists('gonvim_running') "{{{1
   let g:gonvim_draw_statusline = 0
   let g:gonvim_draw_tabline = 0
   let g:gonvim_draw_lint = 1
