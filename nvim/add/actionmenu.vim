@@ -16,6 +16,6 @@ function! ActionMenuCodeActionsCallback(index, item) abort
   endif
 endfunction
 
-command! CocActionMenuCodeAction <Cmd>call <SID>coc_actionmenu_codeaction()
+command! CocActionMenuCodeAction :call <SID>coc_actionmenu_codeaction()
 
-nnoremap <expr><silent> cm (CocHasProvider('codeAction') == v:true)? '<Cmd>CocActionMenuCodeAction<cr>' : '<Cmd>echo " codeAction is unavailable on this filetype."<cr>'
+nnoremap <expr><silent> cm (CocHasProvider('codeAction') == v:true)? ':CocActionMenuCodeAction<cr>' : ':echo " codeAction is unavailable on this filetype."<cr>'
