@@ -12,11 +12,11 @@ let g:sneak#s_next  = 0
 let g:sneak#f_reset = 1
 let g:sneak#t_reset = 1
 
-nmap f <Plug>Sneak_f
-nmap F <Plug>Sneak_F
+map f <Plug>Sneak_f
+map F <Plug>Sneak_F
 
-nmap t <Plug>Sneak_t
-nmap T <Plug>Sneak_T
+map t <Plug>Sneak_t
+map T <Plug>Sneak_T
 
 finish
 
