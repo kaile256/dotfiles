@@ -52,9 +52,9 @@ tnoremap <c-r><c-0> <c-\><c-n>"0pi
 inoremap <c-r><c-0> <c-g>u<c-r>0
 cnoremap <c-r><c-0> <c-r>0
 nnoremap <space><space>p "0p
-vnoremap <space><space>p "0p
+xnoremap <space><space>p "0p
 nnoremap <space><space>P "0P
-vnoremap <space><space>P "0P
+xnoremap <space><space>P "0P
 "command! -nargs=1 PasteWithoutPasteToggle :call append(line('.'), '' . <args>)
 " Black-Hole Register {{{1
 nnoremap <space><space>d "_d

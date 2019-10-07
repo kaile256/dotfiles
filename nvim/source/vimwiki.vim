@@ -122,7 +122,7 @@ function! s:on_buf_vimwiki()
   nnoremap <buffer><silent> <c-w><c-]>  :<c-u>VimwikiVSplitLink reuse<cr>
   nnoremap <buffer><silent> <c-w>g<c-]> :<c-u>VimwikiSplitLink  reuse<cr>
   nnoremap <buffer><silent> <c-w>}      :<c-u>VimwikiTabnewLink<cr>
-  vnoremap <buffer><silent> <c-]>       <Plug>VimwikiNormalizeLinkVisual
+  xnoremap <buffer><silent> <c-]>       <Plug>VimwikiNormalizeLinkVisual
   "}}}
 endfunction
 

@@ -194,9 +194,9 @@ nmap cs <Plug>(coc-refactor)
 "set equalprg=CocActionAsync('codeLensAction')
 
 xnoremap <expr> = (CocHasProvider('format'))?
-      \ ':call CocActionAsync("formatSelected")<cr>': '='
+      \ '\<Plug>(coc-format-selected)': '='
 nnoremap <expr> = (CocHasProvider('format'))?
-      \ ':<C-u>set operatorfunc=<SID>FormatFromSelected<CR>g@': '='
+      \ '\<Plug>(coc-format-selected)': '='
 
 " CocRename {{{1
 " Mnemonic: Change the lhs of Equal Sign
@@ -255,12 +255,12 @@ nnoremap <space>ce        :CocExtensions<cr>
 nnoremap <space>c<a-e>    :CocExtensions<cr>
 " CocList; {{{1
 " show commit contains current position
-noremap <silent> <space>c<a-c> :CocList<cr>
-noremap <silent> <space>c<a-f> :CocList files<cr>
-noremap <silent> <space>c<a-b> :CocList buffers<cr>
-noremap <silent> <space>cc :CocList<cr>
-noremap <silent> <space>cf :CocList files<cr>
-noremap <silent> <space>cb :CocList buffers<cr>
+nnoremap <silent> <space>c<a-c> :CocList<cr>
+nnoremap <silent> <space>c<a-f> :CocList files<cr>
+nnoremap <silent> <space>c<a-b> :CocList buffers<cr>
+nnoremap <silent> <space>cc :CocList<cr>
+nnoremap <silent> <space>cf :CocList files<cr>
+nnoremap <silent> <space>cb :CocList buffers<cr>
 " CocSession {{{1
 command! MksessionCoc   :CocCommand session.save
 command! SaveSessionCoc :CocCommand session.save
