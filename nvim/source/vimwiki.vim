@@ -3,6 +3,7 @@ scriptencoding utf-8
 " Repo: vimwiki/vimwiki
 " Path: vimwiki/vimwiki_dev
 " Path: ftplugin/vimwiki.vim
+" Another: add/vimwiki.vim
 
 set path+=~/vimwiki/**
 let g:vimwiki_folding = 'expr'
@@ -67,40 +68,13 @@ let g:vimwiki_list = [
 "let g:vimwiki_listsym_rejected = '✗'
 "}}}
 
-" Hotkey; Index {{{1
-command! MdwikiIndex :e ~/vimwiki/mdwiki/index.md
-nnoremap <silent> <a-w><a-e> :<c-u>MdwikiIndex <cr>
-nnoremap <silent> <a-w><a-b> :<c-u>tab sp <bar> MdwikiIndex <cr>
-nnoremap <silent> <a-w><a-v> :<c-u>vs <bar> MdwikiIndex <cr>
-nnoremap <silent> <a-w><a-s> :<c-u>sp <bar> MdwikiIndex <cr>
-" Hotkey; Diary Today {{{1
-" dafault: -count=0, which makes me jump up to current root.
-" when <count> < 0, always brings me to *.wiki.
-command! VimwikiToday :call vimwiki#diary#make_note(-1)
-nnoremap <silent> <a-e>e     :e <bar> VimwikiToday<cr>
-nnoremap <silent> <a-e>b     :tabe <bar> VimwikiToday<cr>
-nnoremap <silent> <a-e>s     :sp <bar> VimwikiToday<cr>
-nnoremap <silent> <a-e>v     :vs <bar> VimwikiToday<cr>
-nnoremap <silent> <a-e><a-e> :e <bar> VimwikiToday<cr>
-nnoremap <silent> <a-e><a-b> :tabe <bar> VimwikiToday<cr>
-nnoremap <silent> <a-e><a-s> :sp <bar> VimwikiToday<cr>
-nnoremap <silent> <a-e><a-v> :vs <bar> VimwikiToday<cr>
-tnoremap <silent> <a-e>e     <c-\><c-n>:e <bar> VimwikiToday<cr>
-tnoremap <silent> <a-e>b     <c-\><c-n>:tabe <bar> VimwikiToday<cr>
-tnoremap <silent> <a-e>s     <c-\><c-n>:sp <bar> VimwikiToday<cr>
-tnoremap <silent> <a-e>v     <c-\><c-n>:vs <bar> VimwikiToday<cr>
-tnoremap <silent> <a-e><a-e> <c-\><c-n>:e <bar> VimwikiToday<cr>
-tnoremap <silent> <a-e><a-b> <c-\><c-n>:tabe <bar> VimwikiToday<cr>
-tnoremap <silent> <a-e><a-s> <c-\><c-n>:sp <bar> VimwikiToday<cr>
-tnoremap <silent> <a-e><a-v> <c-\><c-n>:vs <bar> VimwikiToday<cr>
-"}}}
-
 function! s:on_buf_vimwiki_dairy()
   " Hotket; Open diary of Yesterday/Tomorrow {{{1
   nnoremap <buffer> <a-o> :VimwikiMakeYesterdayDiaryNote<cr>
   nnoremap <buffer> <a-i> :VimwikiMakeTomorrowDiaryNote<cr>
   "}}}
 endfunction
+
 function! s:on_buf_vimwiki()
   " CmdAbbr; Conversion {{{1
   "" Mnemonic: Export to/from ~~
@@ -152,34 +126,14 @@ function! s:on_buf_vimwiki()
   "}}}
 endfunction
 
-augroup CallMyVimwikiFunc "{{{1
-  au!
-  " To use outliner of markdown's instead, keep to use mdwiki.
-  au VimEnter * ++nested call <SID>my_startpage('mdwiki')
-  au BufEnter vimwiki/*/diary/** call <SID>on_buf_vimwiki_dairy()
-  au FileType vimwiki,markdown if &syn ==# 'vimwiki' | call <SID>on_buf_vimwiki()
-augroup END
-function! s:my_startpage(page) "{{{1
-  if @% ==# '' && &ft ==# '' && &bt ==# '' && getline(1,'$') ==# ['']
-    if a:page ==# 'mdwiki'
-      e ~/vimwiki/mdwiki/index.md
-    elseif a:page ==# 'wiki' || a:page ==# 'vimwiki'
-      VimwikiIndex
-    elseif a:page ==# 'diary'
-      e ~/vimwiki/diary/index.wiki
-    elseif a:page ==# 'term'
-      call termopen(&shell)
-      setlocal nonumber signcolumn=no modifiable
-    endif
-  endif
-endfunction "}}}
-augroup AutoFormatVimwiki
+augroup AutoFormatVimwiki "{{{
   au!
   au BufNewFile,BufRead *.md setl ft=vimwiki syn=vimwiki
   au FileType vimwiki setl tabstop=4 softtabstop=4 shiftwidth=4
   au FileType vimwiki setl nowrap fdl=1
   au BufWritePre index.* if &ft  ==# 'vimwiki' | VimwikiGenerateLinks
   au BufWritePre vimwiki/** if &ft  ==# 'vimwiki' | VimwikiTOC
-  au InsertLeave * if &wrap == 0 | norm zH
-  "au BufWritePre * if &syn  ==# 'vimwiki' | VimwikiListChangeLvl w w
-augroup END
+  au InsertLeave * if &wrap == 0 | norm 0
+  au BufEnter vimwiki/*/diary/** call <SID>on_buf_vimwiki_dairy()
+  au FileType vimwiki,markdown if &syn ==# 'vimwiki' | call <SID>on_buf_vimwiki()
+augroup END "}}}
