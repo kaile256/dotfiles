@@ -34,9 +34,13 @@ augroup OnTerminalBuffer
   "endif
   if has('nvim')
     au TermOpen * setl nonumber signcolumn=
-    au TermOpen * norm zH
+    au TermOpen * norm! 0
     au TermOpen * startinsert
   endif
+  au TermOpen * nnoremap <buffer> <a-h> <c-w>h
+  au TermOpen * nnoremap <buffer> <a-j> <c-w>j
+  au TermOpen * nnoremap <buffer> <a-k> <c-w>k
+  au TermOpen * nnoremap <buffer> <a-l> <c-w>l
 augroup END
 
 " Color; Set TUI Color {{{
@@ -59,10 +63,10 @@ endif
 
 " Function; ls-grep
 function! s:grep_heavy_bufnr()
-" TODO: get bufnr('term://') in hidden-buffers to bufdelete them.
+  " TODO: get bufnr('term://') in hidden-buffers to bufdelete them.
   let l:hidden_buffers = execute('ls!')
   " e.g., term://foo
-  let l:only_term = substitute(l:hidden_buffers, '[^:\/\/]', '', e)
+  let l:only_term = substitute(l:hidden_buffers, '[^:\/\/]', '', 'e')
   let l:only_term_bufnr = substitute(l:)
   bwipeout g/term:\/\//
 endfunction
