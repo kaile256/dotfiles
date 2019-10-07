@@ -28,18 +28,18 @@ nnoremap <nowait> N   Nzz
 
 " Switch; Pane
 " leap between panes
-nnoremap <c-h> <c-w>h
-nnoremap <c-j> <c-w>j
-nnoremap <c-k> <c-w>k
-nnoremap <c-l> <c-w>l
+nnoremap <a-h> <c-w>h
+nnoremap <a-j> <c-w>j
+nnoremap <a-k> <c-w>k
+nnoremap <a-l> <c-w>l
 
 " avoid a stack on command-line
 cnoremap <a-k> <c-c>
 
 " Switch; Tab Page
 "" Move between Tabs
-nnoremap <a-h> gT
-nnoremap <a-l> gt
+nnoremap <c-h> gT
+nnoremap <c-l> gt
 nnoremap <a-]> gt
 nnoremap <a-[> gT
 inoremap <a-[> <esc>gT

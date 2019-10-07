@@ -24,6 +24,11 @@ tmap <a-i> <c-\><c-n><a-i>
 tmap <a-o> <c-\><c-n><a-o>
 tmap <a-p> <c-\><c-n><a-p>
 tmap <a-n> <c-\><c-n><a-n>
+
+tnoremap <a-h> <c-\><c-n>h
+tnoremap <a-j> <c-\><c-n>j
+tnoremap <a-k> <c-\><c-n>k
+tnoremap <a-l> <c-\><c-n>l
 "}}}
 
 augroup OnTerminalBuffer
@@ -37,10 +42,10 @@ augroup OnTerminalBuffer
     au TermOpen * norm! 0
     au TermOpen * startinsert
   endif
-  au TermOpen * nnoremap <buffer> <a-h> <c-w>h
-  au TermOpen * nnoremap <buffer> <a-j> <c-w>j
-  au TermOpen * nnoremap <buffer> <a-k> <c-w>k
-  au TermOpen * nnoremap <buffer> <a-l> <c-w>l
+  "au TermOpen * nnoremap <buffer> <a-h> <c-w>h
+  "au TermOpen * nnoremap <buffer> <a-j> <c-w>j
+  "au TermOpen * nnoremap <buffer> <a-k> <c-w>k
+  "au TermOpen * nnoremap <buffer> <a-l> <c-w>l
 augroup END
 
 " Color; Set TUI Color {{{
