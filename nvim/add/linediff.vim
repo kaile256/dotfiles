@@ -2,7 +2,7 @@
 
 " Keymap; Get Compared
 nnoremap gC :Linediff<cr>
-vnoremap gC :Linediff<cr>
+xnoremap gC :Linediff<cr>
 
 " default: tabnew
 let g:linediff_first_buffer_command = 'new'
