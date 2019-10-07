@@ -112,7 +112,6 @@ done
 
 # Yarn
 YarnPack=(
-bash-language-server
 yaml-language-server
 vim-language-server
 tslib
@@ -177,5 +176,7 @@ if [ -e '~/.config/fish/completions/rustup.fish' ]; then
   rustup completions fish > ~/.config/fish/completions/rustup.fish
 fi
 
+# for executable lsp
+sudo npm i -g bash-language-server
 # for go-lsp, gopls
 GO111MODULE=on go get golang.org/x/tools/gopls@latest
