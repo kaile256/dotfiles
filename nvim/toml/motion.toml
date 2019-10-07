@@ -114,10 +114,8 @@ hook_add = 'runtime add/multiple-cursors.vim'
 #}}}
 [[plugins]]
 repo = 'matze/vim-move'
-on_event = 'BufRead'
-hook_post_source = 'runtime add/move.vim'
-
-
+on_map = {nx = '<Plug>Move'}
+hook_add = 'runtime add/move.vim'
 
 #[[plugins]]
 #repo = 'tommcdo/vim-express' #{{{
