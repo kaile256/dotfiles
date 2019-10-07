@@ -1,26 +1,27 @@
 " From: init.vim
 
-function! s:cd_and_echo(path) abort
-  exe 'cd '. a:path
-  echo 'cd '. getcwd()
-endfunction
-
-" N/P Directory
-nnoremap <expr><silent> <space>wi <SID>cd_and_echo('-')
-nnoremap <expr><silent> <space>wo <SID>cd_and_echo('..')
-
-nnoremap <expr><silent> <space>w. <SID>cd_and_echo('.')
-nnoremap <expr><silent> <space>wr <SID>cd_and_echo('/')
-nnoremap <expr><silent> <space>wh <SID>cd_and_echo('~')
-
-" Working Directory
-nnoremap <expr><silent> <space>ww <SID>cd_and_echo('%:p:h')
-nnoremap <expr><silent> <space>wc <SID>cd_and_echo('~/.cache')
-nnoremap <expr><silent> <space>wf <SID>cd_and_echo('~/.config')
-nnoremap <expr><silent> <space>wd <SID>cd_and_echo('~/dotfiles')
+"function! s:cd_and_echo(path) abort "{{{
+"  exe 'cd '. a:path
+"  echo 'cd '. getcwd()
+"endfunction
+"
+"" N/P Directory
+"nnoremap <expr><silent> <space>wi <SID>cd_and_echo('-')
+"nnoremap <expr><silent> <space>wo <SID>cd_and_echo('..')
+"
+"nnoremap <expr><silent> <space>w. <SID>cd_and_echo('.')
+"nnoremap <expr><silent> <space>wr <SID>cd_and_echo('/')
+"nnoremap <expr><silent> <space>wh <SID>cd_and_echo('~')
+"
+"" Working Directory
+"nnoremap <expr><silent> <space>ww <SID>cd_and_echo('%:p:h')
+"nnoremap <expr><silent> <space>wc <SID>cd_and_echo('~/.cache')
+"nnoremap <expr><silent> <space>wf <SID>cd_and_echo('~/.config')
+"nnoremap <expr><silent> <space>wd <SID>cd_and_echo('~/dotfiles')
 
 " Dev Root
-nnoremap <expr><silent> <space>wp <SID>cd_and_echo(expand(g:dev_root))
+"nnoremap <expr><silent> <space>wp <SID>cd_and_echo(expand(g:dev_root))
+""}}}
 
 function! s:cd_and_terminal(path, split) abort
   try
