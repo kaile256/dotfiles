@@ -4,6 +4,7 @@
 command! -bar -nargs=* -complete=file W :exe 'w' <SID>sudo_check_arg(<q-args>)
 command! -bar -nargs=* -complete=file R :exe 'r' <SID>sudo_check_arg(<q-args>)
 
+" Fixme: no response on :Yay, just prompted the password.
 "command! -bar -nargs=+ -complete=file Yay :call suda#system('yay', <q-args>)
 command! -bar -nargs=+ -complete=file Sudo :call suda#system('sudo', <q-args>)
 
