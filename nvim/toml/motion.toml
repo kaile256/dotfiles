@@ -7,40 +7,63 @@ on_map = {no = '<Plug>CamelCaseMotion_'}
 hook_add = 'runtime add/CamelCaseMotion.vim'
 #}}}
 
-# Leap to Target
-#[[plugins]]
-#repo = 'justinmk/vim-sneak' #{{{
-#on_event = 'BufWinEnter'
-#hook_add = 'runtime add/sneak.vim'
-#hook_post_source = 'silent! unmap s'
-##}}}
-# Leap; Easy Motion
-[[plugins]] # has extentions
-repo = 'easymotion/vim-easymotion' #{{{
-on_map = {no = '<Plug>(easymotion-'}
-hook_add = 'runtime add/easymotion.vim'
-hook_post_source = 'runtime post/easymotion.vim'
+# Search
 [[plugins]]
-repo = 'haya14busa/vim-easyoperator-phrase' #{{{
-on_map = '<plug>(easyoperator-'
-hook_add = 'runtime add/easyoperator.vim'
+repo = 'haya14busa/vim-asterisk' #{{{
+# Keep the cursor on `*` or `#`, even on visual mode.
+on_event = 'BufRead'
+# Note: on_map is too late on visual mode.
+#on_map = {xn = '<Plug>(asterisk-'}
+hook_add = 'runtime add/asterisk.vim'
 #}}}
 #[[plugins]]
-#repo = 'haya14busa/incsearch.vim' #{{{
-#on_event = 'ColorScheme'
-#hook_post_source = 'runtime add/incsearch.vim'
-#}}}
+#repo = 'haya14busa/vim-metarepeat' #{{{
+#on_map = {nx = '<Plug>(metarepeat'}
+#hook_add = 'runtime add/metarepeat.vim'
+##}}}
 #[[plugins]]
-#repo = 'haya14busa/incsearch-easymotion.vim' #{{{
-#on_event = 'ColorScheme'
-#hook_post_source = 'runtime add/incsearch-easymotion.vim'
+#repo = 'thinca/vim-visualstar' #{{{
+#on_map = '<Plug>(visualstar-'
+#hook_add = 'runtime add/visualstar.vim'
+##}}}
+
+# Leap to Target
+[[plugins]]
+repo = 'justinmk/vim-sneak' #{{{
+on_map = {nox = '<Plug>Sneak_'}
+hook_add = 'runtime add/sneak.vim'
+hook_post_source = '''
+silent! unmap s
+silent! unmap S
+'''
 #}}}
+# Leap; Easy Motion
+#[[plugins]] # has extentions
+#repo = 'easymotion/vim-easymotion' #{{{
+#on_map = {no = '<Plug>(easymotion-'}
+#hook_add = 'runtime add/easymotion.vim'
+#hook_post_source = 'runtime post/easymotion.vim'
 #[[plugins]]
-#repo = 'haya14busa/incsearch-fuzzy.vim' #{{{
-#on_event = 'ColorScheme'
-#hook_post_source = 'runtime add/incsearch-fuzzy.vim'
-#}}}
-#}}}
+#repo = 'haya14busa/vim-easyoperator-phrase' #{{{
+#on_map = '<plug>(easyoperator-'
+#hook_add = 'runtime add/easyoperator.vim'
+##}}}
+##[[plugins]]
+##repo = 'haya14busa/incsearch.vim' #{{{
+##on_event = 'ColorScheme'
+##hook_post_source = 'runtime add/incsearch.vim'
+##}}}
+##[[plugins]]
+##repo = 'haya14busa/incsearch-easymotion.vim' #{{{
+##on_event = 'ColorScheme'
+##hook_post_source = 'runtime add/incsearch-easymotion.vim'
+##}}}
+##[[plugins]]
+##repo = 'haya14busa/incsearch-fuzzy.vim' #{{{
+##on_event = 'ColorScheme'
+##hook_post_source = 'runtime add/incsearch-fuzzy.vim'
+##}}}
+##}}}
 
 #[[plugins]]
 #repo = 'ripxorip/aerojump.nvim'
