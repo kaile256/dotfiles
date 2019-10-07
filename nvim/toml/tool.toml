@@ -110,11 +110,11 @@ repo = 'AndrewRadev/linediff.vim' #{{{
 on_map = '<Cmd>Linediff'
 hook_add = 'runtime add/linediff.vim'
 #}}}
-[[plugins]]
-repo = 'chrisbra/vim-diff-enhanced' #{{{
-on_cmd = ['EnhancedDiff', 'PatienceDiff']
-hook_add = 'runtime diff-enhanced.vimrc'
-#}}}
+#[[plugins]]
+#repo = 'chrisbra/vim-diff-enhanced' #{{{
+#on_cmd = ['EnhancedDiff', 'PatienceDiff']
+#hook_add = 'runtime diff-enhanced.vimrc'
+##}}}
 
 # Fold
 [[plugins]]
