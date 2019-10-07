@@ -41,7 +41,7 @@ command! -bang -bar CD call <SID>cd_bang(<bang>0? 'bang' : 'nobang')
 function! s:cd_bang(bang) abort
   if a:bang ==# 'nobang'
     cd %:p:h
-  elseif a:bang == 'bang'
+  elseif a:bang ==# 'bang'
     !cd %:p:h
   else
     echo ' Wants whether <bang> or not.'
