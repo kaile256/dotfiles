@@ -1,4 +1,4 @@
-" From: finder.toml
+" From: motion.toml
 " Repo: haya14busa/vim-asterisk
 " Ref: machakann/vim-sandwich
 
