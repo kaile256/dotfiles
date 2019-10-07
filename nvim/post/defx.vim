@@ -55,6 +55,8 @@ let g:defx_is_narrow = 50
 let g:defx_is_wide = g:defx_is_narrow
 
 function! s:defx_keymap_explorer() abort
+  nnoremap <buffer><silent> <c-w>=
+        \ :setl nowinfixwidth<cr><c-w>=
   " Explore; hjkl {{{1
   nnoremap <buffer><silent> gg :2<cr>
   nnoremap <silent><buffer><expr> h
@@ -70,13 +72,10 @@ function! s:defx_keymap_explorer() abort
         \ . ':echo "cd" $HOME<CR>'
   "" CWD; vim's
   " Note: @% will be 'foo/[defx]'
-  nnoremap <silent><buffer><expr> <a-w>w
+  nnoremap <silent><buffer><expr> <space>ww
         \ defx#do_action('change_vim_cwd')
         \ . ':echo "cd" expand("<cfile>:p:h")<CR>'
         "\ . `:echo 'cd' ` . getcwd()
-  nnoremap <silent><buffer><expr> <a-w><a-w>
-        \ defx#do_action('change_vim_cwd')
-        \ . ':echo "cd" expand("<cfile>:p:h")<CR>'
   " Explore; netrw-like {{{1
   nnoremap <silent><buffer><expr> -
         \ defx#do_action('cd', ['..'])
@@ -107,11 +106,10 @@ function! s:defx_keymap_explorer() abort
         \ (winwidth('.') > g:defx_is_wide)?
         \ defx#is_directory()?
         \ defx#do_action('open_tree'):
-        \ defx#do_action('multi', ['open', 'quit']):
-        \ . '<c-w>q'
+        \ defx#do_action('multi', ['drop', 'quit']):
         \ defx#is_directory()?
         \ defx#do_action('open'):
-        \ defx#do_action('multi', [['open', 'drop'], 'quit'])
+        \ defx#do_action('multi', ['drop', 'quit'])
         \ . '<c-w>q'
   nnoremap <silent><buffer><expr> <CR>
         \ (winwidth('.') > g:defx_is_wide)?
@@ -209,9 +207,9 @@ endfunction
 augroup OnDefxBuffer
   au!
   " TODO: highlight on top as there's filepath, or place those path on another place.
-  au FileType defx setl nonumber signcolumn=
+  au FileType defx setl nonumber signcolumn= winfixwidth
   au FileType defx call s:defx_keymap_explorer()
-  function! defx#execute(...) abort
+  function! defx#execute(...) abort "{{{
     " TODO: quit defx after action.
     let l:id = win_getid()
     call defx#do_action(a:000)
@@ -220,5 +218,5 @@ augroup OnDefxBuffer
           \ |   quit
           \ | endif
     call win_gotoid(l:id)
-  endfunction
+  endfunction "}}}
 augroup END
