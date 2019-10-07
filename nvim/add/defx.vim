@@ -5,61 +5,35 @@ scriptencoding utf-8
 " Ref: /usr/share/nvim/runtime/autoload/netrw.vim
 " Ref: /usr/share/nvim/runtime/plugin/netrwPlugin.vim
 
-nnoremap <a-x> <Nop>
-
 " Call Defx; in vertical "{{{1
-nnoremap <silent> <a-x>v
-      \ :<c-u>above 30 vs <bar> Defx `expand('%:p:h')` -search=`expand('%:p')`
-      \ -new
-      \ <cr>
-nnoremap <silent> <a-x><a-v>
+nnoremap <silent> <space>xv
       \ :<c-u>above 30 vs <bar> Defx `expand('%:p:h')` -search=`expand('%:p')`
       \ -new
       \ <cr>
 " Call Defx; in horizontal {{{1
 " Note: -search must be applied full path.
 " TODO: on Term-Mode, not to get errors; like get path with !pwd.
-nnoremap <silent> <a-x><a-o>
-      \ :<c-u>below sp <bar> Defx `expand('%:p:h')` -search=`expand('%:p')`
-      \ -new
-      \ <cr>
-nnoremap <silent> <a-x>o
+nnoremap <silent> <space>xs
       \ :<c-u>below sp <bar> Defx `expand('%:p:h')` -search=`expand('%:p')`
       \ -new
       \ <cr>
 " Call Defx; in the window {{{1
 " Note: -search must be applied full path.
 " TODO: on Term-Mode, not to get errors; like get path with !pwd.
-nnoremap <silent> <a-x><a-e>
-      \ :<c-u>Defx `expand('%:p:h')` -search=`expand('%:p')`
-      \ -split=no
-      \ -new
-      \ <cr>
-nnoremap <silent> <a-x>e
+nnoremap <silent> <space>xe
       \ :<c-u>Defx `expand('%:p:h')` -search=`expand('%:p')`
       \ -split=no
       \ -new
       \ <cr>
 " Call Defx; in tab page {{{1
-nnoremap <silent> <a-x>b
-      \ :<c-u>Defx `expand('%:p:h')` -search=`expand('%:p')`
-      \ -split=tab
-      \ -new
-      \ <cr>
-nnoremap <silent> <a-x><a-b>
+nnoremap <silent> <space>xt
       \ :<c-u>Defx `expand('%:p:h')` -search=`expand('%:p')`
       \ -split=tab
       \ -new
       \ <cr>
 " Call Defx; on floating window {{{1
 " TODO: Open higher position.
-nnoremap <silent> <a-x>f
-      \ :<c-u>Defx `expand('%:p:h')` -search=`expand('%:p')`
-      \ -split=floating
-      \ -winrelative=editor
-      \ -new
-      \ <cr>
-nnoremap <silent> <a-x><a-f>
+nnoremap <silent> <space>xf
       \ :<c-u>Defx `expand('%:p:h')` -search=`expand('%:p')`
       \ -split=floating
       \ -winrelative=editor
