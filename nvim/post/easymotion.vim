@@ -1,6 +1,6 @@
 " From: motion.toml
 " Repo: easymotion/vim-easymotion
-" Alter: rc/easymotion.vimrc
+" Another: add/easymotion.vim
 
 " Enable '<' in easymotion
 EMCommandLineNoreMap <S-lt> <
@@ -19,7 +19,9 @@ EMCommandLineNoreMap <c-u> <Over>(em-scroll-b)
 
 EMCommandLineNoreMap <a-k> <esc>
 EMCommandLineNoreMap <a-j> <esc>
+EMCommandLineNoreMap <c-k> <esc>
+EMCommandLineNoreMap <c-j> <esc>
 
 " TODO: work the hotkeys to change the direction.
-"EMCommandLineNoreMap <a-h> <esc><Plug>(easymotion-T2)
-"EMCommandLineNoreMap <a-l> <esc><Plug>(easymotion-t2)
+"EMCommandLineNoreMap <c-h> <esc><Plug>(easymotion-T2)
+"EMCommandLineNoreMap <c-l> <esc><Plug>(easymotion-t2)
