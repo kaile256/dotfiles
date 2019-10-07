@@ -1,5 +1,5 @@
 " From: tool.toml
-" Repo: honza/vim-snippets/snippets
+" Repo: Shougo/neosnippet.vim
 
 let g:neosnippet#snippets_directory = g:my_data . '/neosnippet'
 let g:neosnippet#enable_snipmate_compatibility = 1
@@ -8,6 +8,18 @@ nnoremap <silent> <space>pe :<c-u>NeoSnippetEdit<cr>
 nnoremap <silent> <space>ps :<c-u>sp  <bar>NeoSnippetEdit<cr>
 nnoremap <silent> <space>pv :<c-u>vs  <bar>NeoSnippetEdit<cr>
 nnoremap <silent> <space>pt :<c-u>tab sp <bar>NeoSnippetEdit<cr>
+
+" Note: is_after_space() often conflicts w/ snippet_jump() feature. {{{
+"inoremap <silent><expr> <TAB>
+"      \ pumvisible() ? "\<C-n>" :
+"      \ <SID>is_after_space() ? "\<TAB>" :
+"      \ neosnippet#mappings#expand_or_jump_impl()
+"
+"function! s:is_after_space() abort
+"  let col = col('.') - 1
+"  return !col || getline('.')[col - 1]  =~# '\s'
+"endfunction
+"}}}
 
 " Note: neosnippet activate only on insert mode or select mode.
 nmap <expr> <c-\>
