@@ -34,29 +34,30 @@ options head
 " ============================================================================
 " File: {1:`expand('%') =~ 'plugin' ? substitute(matchstr(expand('%:p'),'plugin/\zs.*\ze.vim'),'[/\\]','#','g').'#' : ''`}
 " Author: kaile256
+" License: MIT license
 " ============================================================================
-  " save cpoptions {{{
+  " save 'cpoptions' {{{
   let s:save_cpo = &cpo
   set cpo&vim
   "}}}
 
   ${0:#:plugin's contents}
 
-  " restore cpoptions {{{
+  " restore 'cpoptions' {{{
   let &cpo = s:save_cpo
   "}}}
 
 snippet cpoptions
 alias cpo
 options head
-  " save cpoptions {{{
+  " save 'cpoptions' {{{
   let s:save_cpo = &cpo
   set cpo&vim
   "}}}
 
   ${0:#:plugin's contents}
 
-  " restore cpoptions {{{
+  " restore 'cpoptions' {{{
   let &cpo = s:save_cpo
   "}}}
 
@@ -100,7 +101,7 @@ snippet {{{ beginning of fold
 alias  { pp {{ {{{ {} {{}} {{{}}}
   {{{
 snippet "{{{ beginning of fold
-alias  "{ "pp "{{ "{{{ "{}" "{{}}" "{{{}}}"
+alias  "{ "pp "{{ "{{{ "{}" "{{}}" "{{{}}}" "|
   "{{{
 snippet "}}} end of fold
 alias " "}} "} } }} "}" "}}" "}}}"
