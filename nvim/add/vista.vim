@@ -18,7 +18,7 @@ let g:vista_sidebar_width = 33
 " '!' to close vista-buffer
 " '!!' to toggle vista-buffer.
 " Mnemonic: Index
-nnoremap <silent> <a-i> :<c-u>call <SID>vista_sensible()<cr>
+nnoremap <silent> <space>i :<c-u>call <SID>vista_sensible()<cr>
 
 function! s:vista_sensible() abort
   if winwidth('#') > 100

@@ -1,7 +1,7 @@
 " From: tool.toml
 
 " Keymap; Hotkey
-nnoremap <silent> <a-u> <Cmd>MundoToggle<cr>
+nnoremap <silent> <space>u <Cmd>MundoToggle<cr>
 
 let g:mundo_right = 1
 let g:mundo_width = &columns /2  " relative to editor's width
