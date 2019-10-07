@@ -5,8 +5,8 @@ repo = 'vimwiki/vimwiki' #{{{
 rev = 'dev'
 #rev = 'v2.4.1'  # the repo is dirty to activate.
 on_event = 'VimEnter'
-hook_source = 'runtime source/vimwiki.vim'
 hook_add = 'runtime add/vimwiki.vim'
+hook_source = 'runtime source/vimwiki.vim'
 #}}}
 [[plugins]]
 repo = 'tbabej/taskwiki'
