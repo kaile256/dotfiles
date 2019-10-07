@@ -2,9 +2,10 @@
 
 # Multiple FileType;
 [[plugins]]
-repo = 'editorconfig/editorconfig-vim'
+repo = 'editorconfig/editorconfig-vim' #{{{
 on_event = 'BufRead'
 hook_source = 'runtime source/editorconfig.vim'
+#}}}
 #[[plugins]]
 #repo = 'tpope/vim-sleuth' #{{{
 ## Note: Sleuth means a detective.
@@ -37,6 +38,7 @@ hook_add = 'runtime add/lookup.vim'
 repo = 'thinca/vim-ft-help_fold' #{{{
 # Note: conflicted with `set modeline`
 on_ft = 'help'
+hook_source = 'runtime source/ft-help_fold.vim'
 #}}}
 [[plugins]]
 repo = 'Konfekt/vim-office' #{{{
