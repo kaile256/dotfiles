@@ -140,6 +140,7 @@ settings:
         <Alt+b>: tab-prev
         <Alt+e>: edit-url
         <Alt+f>: tab-next
+        <Alt+h>: tab-prev
         <Alt+i>: tab-next
         <Alt+l>: tab-next
         <Alt+o>: tab-prev
