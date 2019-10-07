@@ -137,7 +137,6 @@ settings:
         <Alt+Space>: emacs
         <Alt+[>: tab-prev
         <Alt+]>: tab-next
-        <Alt+b>: tab-prev
         <Alt+e>: edit-url
         <Alt+f>: tab-next
         <Alt+h>: tab-prev
