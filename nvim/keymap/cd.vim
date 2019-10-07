@@ -37,7 +37,7 @@ endfunction
 " Open Terminal {{{1
 noremap <silent> <space>t. :<c-u>te fish<cr>
 noremap <silent> <space>te :<c-u>cd %:p:h <space>    <bar>te fish<cr>
-noremap <silent> <space>to :<c-u>cd %:p:h <bar>:sp   <bar>te fish<cr>
+noremap <silent> <space>ts :<c-u>cd %:p:h <bar>:sp   <bar>te fish<cr>
 noremap <silent> <space>tv :<c-u>cd %:p:h <bar>:vs   <bar>te fish<cr>
 noremap <silent> <space>tt :<c-u>cd %:p:h <bar>:tabe <bar>te fish<cr>
 
