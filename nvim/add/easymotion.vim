@@ -56,11 +56,19 @@ hi link EasyMotionIncSearch Search
 " <Plug>(easymotion-sl): the range is limited to current line.
 
 " Keymap; ft;,
-map f <Plug>(easymotion-f)
-map t <Plug>(easymotion-t)
-map F <Plug>(easymotion-F)
-map T <Plug>(easymotion-T)
+omap f <Plug>(easymotion-f)
+omap t <Plug>(easymotion-t)
+omap F <Plug>(easymotion-F)
+omap T <Plug>(easymotion-T)
+xmap f <Plug>(easymotion-f)
+xmap t <Plug>(easymotion-t)
+xmap F <Plug>(easymotion-F)
+xmap T <Plug>(easymotion-T)
 
+nmap f <Plug>(easymotion-f2)
+nmap t <Plug>(easymotion-t2)
+nmap F <Plug>(easymotion-F2)
+nmap T <Plug>(easymotion-T2)
 map <space>f <Plug>(easymotion-f2)
 map <space>t <Plug>(easymotion-t2)
 map <space>F <Plug>(easymotion-F2)
