@@ -25,6 +25,8 @@ let g:EasyMotion_keys = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
 " verbose: such as "EasyMotion: Jumping to [l,c]" and "EasyMotion: Cancelled".
 let g:EasyMotion_verbose = 0
 let g:EasyMotion_prompt = 'EasyMotion: {n} Chars >>> '
+"let g:EasyMotion_show_prompt = 0
+"let g:EasyMotion_use_regexp = 1
 "}}}
 
 " Let; Migemo {{{1
@@ -35,6 +37,10 @@ let g:EasyMotion_use_migemo = 0
 "}}}
 
 " Highlight {{{1
+"let g:EasyMotion_inc_highlight
+"let g:EasyMotion_move_highlight
+"let g:EasyMotion_landing_highlight
+"let g:EasyMotion_cursor_highlight
 hi link EasyMotionTarget ErrorMsg
 hi link EasyMotionTarget2First ErrorMsg
 hi link EasyMotionTarget2Second ErrorMsg
