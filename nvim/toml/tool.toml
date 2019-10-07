@@ -15,13 +15,11 @@ hook_add = 'runtime add/pfp.vim'
 # Repeat
 [[plugins]]
 repo = 'tpope/vim-repeat' #{{{
+# Note: has no help
 # Note: dein doesn't load this plugin, on unknown reason,
 #       so I made a symlink to the directory at plugin/.
 #       Therefore, the lazy loading doesn't work either.
 on_map = '<Plug>(Repeat'
-# have to load before maps_KAIZEN:
-# e.g., cp/dp with dotrepeat.
-# No Help
 hook_add = 'runtime add/repeat.vim'
 #}}}
 
