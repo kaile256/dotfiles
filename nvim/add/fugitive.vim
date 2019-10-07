@@ -36,13 +36,13 @@ command! GdiffMode
 nnoremap <silent> <space>gb     :<c-u>Gblame<cr>
 "}}}
 " Info; Status {{{
-nnoremap <silent> <space>gs     :<c-u>vert bot 40 Gstatus<cr>
+nnoremap <silent> <space>gs     :<c-u>vert bot 35 Gstatus<cr>
 "}}}
 " Add; Only {{{
-nnoremap <silent> <space>ga     :Gw <bar> Gstatus<cr>
+nnoremap <silent> <space>ga     :<c-u>Gw <bar> bot 35 Gstatus<cr>
 "}}}
 " Add; && Commit w/ diff {{{1
-nnoremap <silent> <space>gw     :<c-u>cclose <bar> :Gstage<cr>
+nnoremap <silent> <space>gw     :<c-u>Gstage<cr>
 "}}}
 " Diff; {{{
 " !: On a Merge Conflict, do a 3-diff; otherwise the same as without bang.
