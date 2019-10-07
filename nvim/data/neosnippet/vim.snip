@@ -49,15 +49,16 @@ options head
 snippet cpoptions
 alias cpo
 options head
-  " save cpoptions {{{1
+  " save cpoptions {{{
   let s:save_cpo = &cpo
   set cpo&vim
-  "}}}1
+  "}}}
 
   ${0:#:plugin's contents}
 
-  " restore cpoptions {{{1
+  " restore cpoptions {{{
   let &cpo = s:save_cpo
+  "}}}
 
 # Declare {{{
 delete au augroup ... autocmd block
@@ -97,16 +98,16 @@ alias no
 # Fold {{{
 snippet {{{ beginning of fold
 alias  { pp {{ {{{ {} {{}} {{{}}}
-  {{{${1:1}
+  {{{
 snippet "{{{ beginning of fold
 alias  "{ "pp "{{ "{{{ "{}" "{{}}" "{{{}}}"
-  "{{{${1:1}
+  "{{{
 snippet "}}} end of fold
 alias " "}} "} } }} "}" "}}" "}}}"
-  "}}}${1:1}
+  "}}}
 snippet ""}}} end of fold
 alias "" ""}} ""
-  ""}}}${1:1}
+  ""}}}
 #}}}
 
 snippet <c-\><c-n> into Normal Mode
