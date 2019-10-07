@@ -1,41 +1,39 @@
-function! operator#operate_line(direction) abort "{{{1
-  if v:count
-    let l:count = v:count
-  else
-    let l:count = 0
-  endif
-  if a:direction ==# 'downward' "{{{2
-    if v:operator ==# 'y'
-      copy l:count +1
-    elseif v:operator ==# 'd' && &diff
+function! s:operate_line(direction) abort "{{{1
+  let l:operator = v:operator
+
+  "if execute('omap p') =~# 'operator#operate_line'
+  if execute('omap p') =~# '<Plug>(move-line-' "{{{2
+    if l:operator ==# 'd' && &diff
       diffput
-    elseif v:operator ==# 'c' && v:operator ==# 'd'
-      move l:count +1
-    endif "}}}2
+    endif
+  endif "}}}2
+
+  if a:direction ==# 'downward' "{{{2
+    if l:operator ==# 'y'
+      copy .
+    elseif l:operator ==# 'c' || l:operator ==# 'd'
+      move +1
+    endif
+    "}}}2
+
   elseif a:direction ==# 'upward' "{{{2
-    if v:operator ==# 'y'
-      copy l:count -2
-    elseif v:operator ==# 'c' && v:operator ==# 'd'
-      move l:count -2
+    if l:operator ==# 'y'
+      copy -1
+    elseif l:operator ==# 'c' || l:operator ==# 'd'
+      move -2
     endif
   endif "}}}2
 endfunction "}}}1
 
-onoremap <Plug>(copy-line-downward) <esc>:call operator#operate_line('downward')<cr>
-onoremap <Plug>(move-line-downward) <esc>:call operator#operate_line('downward')<cr>
-onoremap <Plug>(copy-line-upward)   <esc>:call operator#operate_line('upward')<cr>
-onoremap <Plug>(move-line-upward)   <esc>:call operator#operate_line('upward')<cr>
+onoremap <silent> <Plug>(move-line-downward) <esc>:call <SID>operate_line('downward')<cr>
+onoremap <silent> <Plug>(move-line-upward)   <esc>:call <SID>operate_line('upward')<cr>
+omap p <Plug>(move-line-downward)
+omap P <Plug>(move-line-upward)
 
-omap <expr> p
-      \ (v:operator ==# 'y')? '<Plug>(copy-line-downward)':
-      \ (v:operator ==# 'd')?
-      \    (&diff)? ':diffput<cr>':
-      \  '<Plug>(move-line-downward)':
-      \ (v:operator ==# 'c')? '<Plug>(move-line-downward)':
-      \ 'p'
+"onoremap <expr>p operator#operate_line('downward')
+"onoremap <expr>p operator#operate_line('upward')
 
-omap <expr> P
-      \ (v:operator ==# 'y')? '<Plug>(copy-line-upward)':
-      \ (v:operator ==# 'd')? '<Plug>(move-line-upward)':
-      \ (v:operator ==# 'c')? '<Plug>(move-line-upward)':
-      \ 'P'
+"nnoremap <silent> yp :copy .<cr>
+"nnoremap <silent> yP :copy -1<cr>
+"nnoremap <silent> cp :move +1<cr>
+"nnoremap <silent> cP :move -2<cr>
