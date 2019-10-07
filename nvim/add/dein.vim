@@ -93,9 +93,8 @@ augroup CallMyDeinFunctions "{{{
   au VimEnter * call dein#call_hook('post_source')
 augroup END "}}}
 augroup DeinTomlAutoConf
-  " TODO: call s:sensible_K('vim')
   au!
-  au CursorMoved nvim/**.toml if &keywordprg !=# 'help' | setl keywordprg=:help
+  au CursorMoved nvim/**.toml setl keywordprg=:help
   au BufWinEnter filetype.toml setl syn=vim
 augroup END
 
