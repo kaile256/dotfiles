@@ -72,23 +72,25 @@ hook_post_source = 'runtime post/easymotion.vim'
 #hook_add = 'runtime add/aerojump.vim'
 
 # Operater; Comment out
-[[plugins]]
-repo = 'tomtom/tcomment_vim' #{{{
-on_map = '<Cmd>TComment'
-#on_map = ':TComment'
-hook_add = 'runtime add/tcomment.vim'
-#}}}
+#[[plugins]]
+#repo = 'tomtom/tcomment_vim' #{{{
+## Memo: complex named <Plug>-mappings
+#on_map = '<Plug>TComment'
+#on_cmd = ':TComment'
+#hook_add = 'runtime add/tcomment.vim'
+##}}}
 [[plugins]]
 repo = 'tyru/caw.vim' #{{{
 # operater to comment out
 on_map = '<Plug>(caw:'
 hook_add = 'runtime add/caw.vim'
 #}}}
-[[plugins]]
-repo = 'scrooloose/nerdcommenter' #{{{
-on_map = '<Cmd>NERDCommenter'
-hook_add = 'runtime add/nerdcommenter.vim'
-#}}}
+#[[plugins]]
+#repo = 'scrooloose/nerdcommenter' #{{{
+## Reason: has no operater
+#on_map = '<Plug>NERDCommenter'
+#hook_add = 'runtime add/nerdcommenter.vim'
+##}}}
 #[[plugins]]
 #repo = 'tpope/vim-commentary' #{{{
 ## Simplest
@@ -139,6 +141,12 @@ hook_add = 'runtime add/multiple-cursors.vim'
 repo = 'matze/vim-move' #{{{
 on_map = {nx = '<Plug>Move'}
 hook_add = 'runtime add/move.vim'
+#}}}
+#[[plugins]]
+#repo = 't9md/vim-textmanip' #{{{
+## Note: has copy feature
+#on_event = 'BufRead'
+#hook_add = 'runtime add/textmanip.vim'
 #}}}
 
 #[[plugins]]
