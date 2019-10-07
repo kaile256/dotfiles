@@ -89,10 +89,10 @@ function! s:coc_if_has_provider() "{{{1
         \ 'format',
         \ 'codeAction',
         \ 'onTypeEdit',
+        \ 'reference',
         \ 'definition',
         \ 'declaration',
         \ 'typeDefinition',
-        \ 'reference',
         \ 'implementation',
         \ 'codeLens',
         \ 'documentColor',
@@ -237,17 +237,17 @@ hi CocCursorRange guibg=#b16286 guifg=#ebdbb2
 "xmap <silent> m <Plug>(coc-cursors-range)
 "nmap <silent> m <Plug>(coc-cursors-operator)
 " Mnemonic: Macro of Cursor
-nmap <silent> qc <Plug>(coc-cursors-operator)
-xmap <silent> qc <Plug>(coc-cursors-range)
-"nmap <silent> <c-j> <Plug>(coc-range-select)
-"nmap <silent> <c-k> <Plug>(coc-range-select-backward)
-"nmap <silent> * <Plug>(coc-cursors-word)
-"nmap <silent> n <Plug>(coc-cursors-position)
-
+"nmap <silent> qc <Plug>(coc-cursors-operator)
+"xmap <silent> qc <Plug>(coc-cursors-range)
+"nnoremap <silent> cq :CocCommand document.renameCurrentWord<cr>
+""nmap <silent> <c-j> <Plug>(coc-range-select)
+""nmap <silent> <c-k> <Plug>(coc-range-select-backward)
+""nmap <silent> * <Plug>(coc-cursors-word)
+""nmap <silent> n <Plug>(coc-cursors-position)
 " CocColor; {{{1
 command! ColoFormat  :call CocAction('colorPresentation')
 command! ColoPalette :call CocAction('pickColor')
-nnoremap cp :ColoPalette<cr>
+nnoremap <space>cp :ColoPalette<cr>
 " CocExtensions {{{1
 command! CocExtensions :CocList extensions
 command! CExtensions   :CocList extensions

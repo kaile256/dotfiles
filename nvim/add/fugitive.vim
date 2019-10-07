@@ -63,9 +63,10 @@ function! s:on_fugitive_keymap()
   nnoremap <buffer><silent> ca    :<C-U>bot 20 Gcommit --amend<CR>
   " Continue to cc/ce/ca.
   xmap <buffer> c sc
-  nunmap <buffer> J
-  nunmap <buffer> K
   nunmap <buffer> dq
+  " For: especially in the case, ':norm U' to unstage all.
+  nnoremap <silent> <Plug>(fugitive:gstage-prev-window) :<c-u>wincmd p <cr> :Gw <bar> wincmd p<cr>
+  nmap <buffer> S <Plug>(fugitive:gstage-prev-window)
 endfunction
 
 augroup FugitiveCallMyFunc "{{{1
@@ -75,15 +76,9 @@ augroup FugitiveCallMyFunc "{{{1
 augroup END "}}}
 augroup OnFugitiveBuffer
   au!
-  " gitcommit should be writeable not setting bt=qf.
+  " TODO: Go back to Gstatus' buffer when `:quit` on gitcommit's buffer
   au FileType fugitive,fugitiveblame,gitcommit setl nonumber signcolumn=
   au FileType gitcommit setl spell
-  "au FileType fugitive nunmap <buffer> dq
-  "au FileType fugitive nnoremap <silent><buffer> dq :call <SID>fugitive__thin_out()<cr>``
-  " For: especially in the case, ':norm U' to unstage all.
-  nnoremap <silent> <Plug>(fugitive-gstage-last-window) :<c-u>wincmd p <cr> :Gw <bar> wincmd p<cr>
-  au FileType fugitive nmap <silent><buffer> S <Plug>(fugitive-gstage-last-window)
-  "au BufWinLeave gitcommit Gcommit | norm <c-w>h:diffoff!<cr>
-  " TODO: Go back to Gstatus' buffer when `:quit` on gitcommit's buffer
-  "au BufLeave .git/COMMIT_EDITMSG exe setpos(., bufnr('.git/index'), 1, 1, 1)
+  " Dispose commit-message.
+  au FileType gitcommit nnoremap <buffer> dq ggdGZZ:call window#weed_out()<cr>
 augroup END
