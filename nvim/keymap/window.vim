@@ -90,3 +90,10 @@ nnoremap <c-w>0 <c-w>=
 augroup OnEditNewNoFixedWindow
   au! BufWinLeave * if &l:winfixwidth || &l:winfixheight | setl nowinfixwidth nowinfixheight
 augroup END
+
+" Resize {{{
+nnoremap <c-left> <c-w><
+nnoremap <c-right> <c-w>>
+nnoremap <c-down> <c-w>-
+nnoremap <c-up> <c-w>+
+"}}}
