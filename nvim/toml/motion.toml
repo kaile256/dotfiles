@@ -11,9 +11,8 @@ hook_add = 'runtime add/CamelCaseMotion.vim'
 [[plugins]]
 repo = 'haya14busa/vim-asterisk' #{{{
 # Keep the cursor on `*` or `#`, even on visual mode.
-on_event = 'BufRead'
-# Note: on_map is too late on visual mode.
-#on_map = {xn = '<Plug>(asterisk-'}
+# Note: autload-function always fails on vertical x/s.
+on_map = {xn = '<Plug>(asterisk-'}
 hook_add = 'runtime add/asterisk.vim'
 #}}}
 #[[plugins]]
