@@ -59,12 +59,8 @@ function! s:auto_format_if_modifiable() "{{{
   endif
 endfunction "}}}
 " modeline; force format as written at top/bottom of file
-if &modeline == v:true
-  set nomodeline
-endif
-if &modelineexpr == v:true
-  set nomodelineexpr
-endif
+set modeline
+set modelineexpr
 "}}}
 " Appearance; Cursor {{{
 " shorter for CursorHold & CursorHoldI
