@@ -85,7 +85,9 @@ cnoreabbr <expr> dof (getcmdtype() == ':' && getcmdline() =~ '^dof$')? 'diffoff!
 cnoreabbr <expr> man (getcmdtype() == ':' && getcmdline() =~ '^man$')? 'Man' : 'man'
 "}}}
 " Abbr; for :!vint {{{1
-cnoreabbr <expr> vin (getcmdtype() == ':' && getcmdline() =~ '^vin$')? "!vint %:p" : 'vin'
+command! Vint :!vint %:p
+cnoreabbr <expr> vin  (getcmdtype() == ':' && getcmdline() =~ '^vin$')? "!vint %:p" : 'vin'
+cnoreabbr <expr> vint (getcmdtype() == ':' && getcmdline() =~ '^vin$')? "!vint %:p" : 'vint'
 " Abbr; :checkhealth {{{1
 cnoreabbr <expr> ch (getcmdtype() == ':' && getcmdline() =~ '^ch$')? 'checkhealth <bar> setl bt=quickfix' : 'ch'
 " Abbr; :source {{{1
