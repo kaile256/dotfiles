@@ -65,6 +65,10 @@ map <space>f <Plug>(easymotion-f2)
 map <space>t <Plug>(easymotion-t2)
 map <space>F <Plug>(easymotion-F2)
 map <space>T <Plug>(easymotion-T2)
+sunmap <space>f
+sunmap <space>t
+sunmap <space>F
+sunmap <space>T
 
 " Keymap; hjkl
 map ; <Plug>(easymotion-next)
