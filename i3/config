@@ -11,11 +11,6 @@ bindsym $Super+$Alt+h exec xdg-open /usr/share/doc/manjaro/i3_help_live.pdf
 #bindsym $mod+Ctrl+t exec --no-startup-id compton -b
 #bindsym $mod+Ctrl+x --release exec --no-startup-id xkill
 #}}}
-# Var; apps {{{
-set $term qterminal
-set $chrome google-chrome-stable
-set $menu ulauncher
-#}}}
 # Var; Keyname {{{
 set $Super  Mod4
 set $SuperS Mod4+Shift
@@ -109,11 +104,11 @@ bindsym $Super+Ctrl+Return exec --no-startup-id $menu
 # urxvtc; add `-k` to kill daemon, too.
 #bindsym $Super+u exec urxvtc
 bindsym $Super+u exec urxvt
-bindsym $Super+t exec $term
-bindsym $Super+a exec alacritty
+bindsym $Super+t exec alacritty
 #}}}
 # Keybind; open Editor {{{
-bindsym $Super+v exec --no-startup-id alacritty -e 'nvim'
+bindsym $Super+v exec --no-startup-id alacritty -e 'vim'
+bindsym $Super+a exec --no-startup-id alacritty -e 'nvim'
 bindsym $Super+n exec --no-startup-id nvim-qt
 #bindsym $Super+g exec --no-startup-id glrnvim
 bindsym $SuperS+g exec --no-startup-id gonvim
@@ -125,6 +120,7 @@ bindsym $Super+e exec --no-startup-id emacs
 # Keybind; open Browser {{{
 bindsym $Super+b exec qutebrowser
 bindsym $Super+f exec firefox
+set $chrome google-chrome-stable
 bindsym $Super+c exec $chrome
 #bindsym $Super+p exec palemoon
 #}}}
