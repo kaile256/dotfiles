@@ -78,6 +78,11 @@ i3pystatus
 i3-style
 bluez   # for Bluetooth
 bluez-utils
+skk-jisyo
+libskk
+fcitx-skk
+skk-emoji-jisyo
+skktools
 )
 
 Depend=(
