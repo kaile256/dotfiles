@@ -57,21 +57,21 @@ endfunction "}}}1
 
 " Keymaps; <Plug>-zation {{{1
 xnoremap <expr><silent> <Plug>(asterisk-dot-substitute-delete-upward)
-      \ (line("'<") == line("'>"))?
+      \ (line("'<") != line("'>"))? 'd':
       \ asterisk#do(mode(1), {'direction' : 1, 'do_jump' : 0, 'is_whole' : 0})
-      \ .'dgN': 'd'
+      \ .'dgN'
 xnoremap <expr><silent> <Plug>(asterisk-dot-substitute-delete-downward)
-      \ (line("'<") == line("'>"))?
+      \ (line("'<") != line("'>"))? 'd':
       \ asterisk#do(mode(1), {'direction' : 1, 'do_jump' : 0, 'is_whole' : 0})
-      \ .'dgn': 'd'
+      \ .'dgn'
 xnoremap <expr><silent> <Plug>(asterisk-dot-substitute-change-upward)
-      \ (line("'<") == line("'>"))?
+      \ (line("'<") != line("'>"))? 'c':
       \ asterisk#do(mode(1), {'direction' : 1, 'do_jump' : 0, 'is_whole' : 0})
-      \ .'cgN': 'c'
+      \ .'cgN'
 xnoremap <expr><silent> <Plug>(asterisk-dot-substitute-change-downward)
-      \ (line("'<") == line("'>"))?
+      \ (line("'<") != line("'>"))? 'c':
       \ asterisk#do(mode(1), {'direction' : 1, 'do_jump' : 0, 'is_whole' : 0})
-      \ .'cgn': 'c'
+      \ .'cgn'
 
 " TODO: DotSubstitute by Paste {{{2
 xnoremap <expr><silent> <Plug>(asterisk-dot-substitute-paste-upward)
