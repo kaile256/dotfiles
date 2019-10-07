@@ -15,9 +15,10 @@ vmap <c-j> <Plug>MoveBlockDown
 vmap <c-k> <Plug>MoveBlockUp
 vmap <c-l> <Plug>MoveBlockRight
 
+" Note: use :copy/:move at all.
 "nmap <a-h> <Plug>MoveCharLeft
-nmap <c-j> <Plug>MoveLineDown
-nmap <c-k> <Plug>MoveLineUp
+"nmap <c-j> <Plug>MoveLineDown
+"nmap <c-k> <Plug>MoveLineUp
 "nmap <a-l> <Plug>MoveCharRight
 
 "xmap <a-d> <Plug>MoveBlockHalfPageDown
