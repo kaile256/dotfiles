@@ -6,9 +6,8 @@
 umask 022
 
 SourceFile=(
-# CAUTION: xdg.sh should be sourced BEFORE path.sh.
+env.sh # includes initial XDG_BASEs.
 xdg.sh
-env.sh
 path.sh
 alias.sh
 prompt.sh
@@ -81,3 +80,5 @@ if [ -x /usr/bin/dircolors ]; then
 #    . /etc/bash_completion
 #  fi
 #fi
+
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"

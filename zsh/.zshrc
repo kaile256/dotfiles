@@ -3,8 +3,8 @@
 SourceFile=(
   # CAUTION: xdg.sh should be sourced BEFORE path.sh.
   #zplugin.zsh
-  xdg.zsh
-  env.zsh
+  env.zsh # includes init XDGs
+  #xdg.zsh
   path.zsh
   alias.zsh
 )

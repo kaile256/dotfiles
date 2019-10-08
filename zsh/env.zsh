@@ -1,11 +1,9 @@
 #!/usr/bin/env zsh
 
-# Before: path.sh
-# From: .bashrc
-#  Ref: .zshenv
-#  Ref: config.fish
-#  Ref: .xprofile
-#  Ref: .xinitrc
+# XDG Base Directory
+export XDG_CONFIG_HOME="${HOME}/.config"
+export XDG_CACHE_HOME="${HOME}/.cache"
+export XDG_DATA_HOME="${HOME}/.local/share"
 
 # nvr & nvim-qt does NOT work as sudoedit.
 type nvr > /dev/null && {
@@ -62,12 +60,8 @@ type rg > /dev/null && {
   #export FZF_DEFAULT_OPTS="--height $FZF_TMUX_HEIGHT"
 }
 
-# Language; Go
 export DEVROOT="$HOME/dev"
-export GOPATH="$DEVROOT/go"
+# Language; Go
+export GOPATH="$XDG_DATA_HOME/go"
 ## Ghq
 export GHQ_ROOT="$GOPATH/src"
-
-# Language; Nodejs
-# TODO: ~/.local/share/yarn/global/node_modules?
-#export npm_config_prefix=~/.node_modules
