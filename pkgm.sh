@@ -165,21 +165,9 @@ echo "Installing Lua-Formatter..."
 sudo luarocks install lcf
 
 # Rustup -- cargo
-if [ -e '~/.local/share/rustup/update-hashes/stable-*' ]; then
-  rustup install stable
-  rustup default stable
-fi
-
-# Rustup Completions
-if [ -e '~/.local/share/bash-completion/rustup' ]; then
-  mkdir -p ~/.local/share/bash-completion/rustup
-  rustup completions bash > ~/.local/share/bash-completion/rustup
-fi
-
-if [ -e '~/.config/fish/completions/rustup.fish' ]; then
-  mkdir -p ~/.config/fish/completions/rustup.fish
-  rustup completions fish > ~/.config/fish/completions/rustup.fish
-fi
+# Ref: https://www.rust-lang.org/tools/install
+curl https://sh.rustup.rs -sSf | sh
+source /home/kaile256/.local/share/cargo/env
 
 # for executable lsp
 sudo npm i -g bash-language-server
