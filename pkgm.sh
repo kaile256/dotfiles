@@ -123,6 +123,8 @@ tslib
 neovim
 )
 
+cd ~
+curl --compressed -o- -L https://yarnpkg.com/install.sh | bash
 for y in ${yarnPack[@]}; do
   yarn global add $y
 done
