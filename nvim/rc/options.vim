@@ -172,8 +172,8 @@ endif
 "}}}
 " Method; Macros "{{{
 " lazyredraw: forbids to redraw screen while executing macros.
-" Note: has caused a problem w/ fugitive;
-"       had expanded too wide a fugitive buffer's window.
+" Note: had caused a problem w/ fugitive;
+"       expanded too wide a fugitive buffer's window.
 set lazyredraw
 "}}}
 " Method; Fold {{{
