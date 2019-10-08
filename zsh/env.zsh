@@ -61,7 +61,6 @@ type rg > /dev/null && {
 }
 
 export DEVROOT="$HOME/dev"
-# Language; Go
-export GOPATH="$XDG_DATA_HOME/go"
+export GOPATH="$DEVROOT/go"
 ## Ghq
 export GHQ_ROOT="$GOPATH/src"
