@@ -51,20 +51,20 @@ nnoremap <space>S   "+S
 tnoremap <c-r><c-0> <c-\><c-n>"0pi
 inoremap <c-r><c-0> <c-g>u<c-r>0
 cnoremap <c-r><c-0> <c-r>0
-nnoremap <space><space>p "0p
-xnoremap <space><space>p "0p
-nnoremap <space><space>P "0P
-xnoremap <space><space>P "0P
+nnoremap <s-space>p "0p
+xnoremap <s-space>p "0p
+nnoremap <s-space>P "0P
+xnoremap <s-space>P "0P
 "command! -nargs=1 PasteWithoutPasteToggle :call append(line('.'), '' . <args>)
 " Black-Hole Register {{{1
-nnoremap <space><space>d "_d
-nnoremap <space><space>c "_c
-nnoremap <space><space>x "_x
-nnoremap <space><space>s "_s
-nnoremap <space><space>D "_D
-nnoremap <space><space>C "_C
-nnoremap <space><space>X "_X
-nnoremap <space><space>S "_S
+nnoremap <s-space>d "_d
+nnoremap <s-space>c "_c
+nnoremap <s-space>x "_x
+nnoremap <s-space>s "_s
+nnoremap <s-space>D "_D
+nnoremap <s-space>C "_C
+nnoremap <s-space>X "_X
+nnoremap <s-space>S "_S
 " Unnamed Register; Convenience "{{{1
 " CAUTION: Just Type p to put from unnamed register.
 inoremap <c-r><c-'> <c-g>u<c-r>"
