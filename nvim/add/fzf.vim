@@ -19,7 +19,8 @@ augroup FzfMyAutoConf "{{{1
   au WinLeave,BufLeave * if &ft ==# 'fzf' && &l:statusline == 0 | setl laststatus=2 showmode ruler
   " Note: Makes no sense but auto-set nonumber on tab-open.
   au FileType fzf setl laststatus=0 noruler
-        \ | au BufEnter * ++once setl laststatus=2 ruler | if &ft !=# 'help' | setl number | endif
+        \ | au BufEnter * ++once setl laststatus=2 ruler
+        \ | if &l:number | setl number | endif
 augroup END "}}}1
 
 "let g:fzf_layout = { 'down': '~25%' }
@@ -144,6 +145,7 @@ else
   nnoremap <silent> <space>ad     :<c-u>cd ~/dotfiles<cr>              :Ag<cr>
   nnoremap <silent> <space>ag     :<c-u>cd ~/.config<cr>               :Ag<cr>
   nnoremap <silent> <space>av     :<c-u>cd ~/.config/nvim<cr>          :Ag<cr>
+  nnoremap <silent> <space>al     :<c-u>cd ~/.local/share<cr>          :Ag<cr>
   nnoremap <silent> <space>ar     :<c-u>cd /usr/share/nvim/runtime<cr> :Ag<cr>
   nnoremap <silent> <space>ac     :<c-u>cd <c-r>=expand(g:dein_cache_dir)<cr><cr> :Ag<cr>
 endif
@@ -159,20 +161,22 @@ else "}}}
   nnoremap <silent> <space>rd     :<c-u>cd ~/dotfiles<cr>                         :Rg<cr>
   nnoremap <silent> <space>rg     :<c-u>cd ~/.config<cr>                          :Rg<cr>
   nnoremap <silent> <space>rv     :<c-u>cd ~/.config/nvim<cr>                     :Rg<cr>
-  nnoremap <silent> <space>r<a-r> :<c-u>cd /usr/share/nvim/runtime<cr>            :Rg<cr>
+  nnoremap <silent> <space>rl     :<c-u>cd ~/.local/share<cr>                     :Rg<cr>
   nnoremap <silent> <space>rr     :<c-u>cd /usr/share/nvim/runtime<cr>            :Rg<cr>
   nnoremap <silent> <space>rc     :<c-u>cd <c-r>=expand(g:dein_cache_dir)<cr><cr> :Rg<cr>
 endif
+
 " Keymap; FZF {{{1
 "" FZF; w/ cd {{{2
-nnoremap <silent> <space>z.     :<c-u> FZF<cr>
-nnoremap <silent> <space>zw     :<c-u> cd %:p:h           <cr> :FZF<cr>
-nnoremap <silent> <space>zh     :<c-u> cd ~               <cr> :FZF<cr>
-nnoremap <silent> <space>zd     :<c-u> cd ~/dotfiles      <cr> :FZF<cr>
-nnoremap <silent> <space>zv     :<c-u> cd ~/dotfiles/nvim <cr> :FZF<cr>
-nnoremap <silent> <space>zf     :<c-u> cd ~/.config       <cr> :FZF<cr>
-nnoremap <silent> <space>zr     :<c-u> cd /usr/share/nvim/runtime <cr> :FZF<cr>
-nnoremap <silent> <space>zc     :<c-u> cd <c-r>=expand(g:dein_cache_dir)<cr><cr> :FZF<cr>
+nnoremap <silent> <space>z. :<c-u> FZF<cr>
+nnoremap <silent> <space>zw :<c-u> cd %:p:h<cr>                              :FZF<cr>
+nnoremap <silent> <space>zh :<c-u> cd ~<cr>                                  :FZF<cr>
+nnoremap <silent> <space>zd :<c-u> cd ~/dotfiles<cr>                         :FZF<cr>
+nnoremap <silent> <space>zf :<c-u> cd ~/.config<cr>                          :FZF<cr>
+nnoremap <silent> <space>zv :<c-u> cd ~/dotfiles/nvim<cr>                    :FZF<cr>
+nnoremap <silent> <space>zl :<c-u> cd ~/.local/share<cr>                     :FZF<cr>
+nnoremap <silent> <space>zr :<c-u> cd /usr/share/nvim/runtime<cr>            :FZF<cr>
+nnoremap <silent> <space>zc :<c-u> cd <c-r>=expand(g:dein_cache_dir)<cr><cr> :FZF<cr>
 "" FZF; Various {{{2
 nnoremap <silent> <space>zb     :<c-u> FzfBuffers<cr>
 nnoremap <silent> <space>zk     :<c-u> FzfHelptags<cr>
