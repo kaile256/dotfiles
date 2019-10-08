@@ -103,6 +103,7 @@ settings:
         <Alt+f>: fake-key <Ctrl-Right>
         <Alt+g><Alt+g>: leave-mode;; scroll-to-perc 0
         <Alt+g><Alt+o>: leave-mode;; hint inputs --first
+        <Alt+g>o: hint inputs --first
         <Alt+h>: enter-mode caret ;; fake-key <left>
         <Alt+i>: <left>
         <Alt+j>: enter-mode caret ;; fake-key <down>

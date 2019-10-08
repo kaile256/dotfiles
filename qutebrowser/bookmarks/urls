@@ -219,3 +219,12 @@ https://vimhelp.org/ Vim: help.txt
 https://qiita.com/algas/items/fde155abbc9d8ae3f8c9 Haskell on Docker で Portable CLI を作ろう - Qiita
 https://github.com/killercup/cargo-edit killercup/cargo-edit: A utility for managing cargo dependencies from the command line.
 https://www.rust-lang.org/tools/install Install Rust - Rust Programming Language
+https://doc.rust-lang.org/book/foreword.html Foreword - The Rust Programming Language
+https://github.com/vim-jp/vimdoc-ja-working vim-jp/vimdoc-ja-working: vimdoc-ja working repository
+https://github.com/vim-jp/lang-ja vim-jp/lang-ja: Manage Japanese language files which distributed with vim.
+https://github.com/mswift42/themecreator mswift42/themecreator: http://mswift42.github.io/themecreator/ create themes for intellij, textmate, atom, emacs, vim and gnome terminal.
+https://github.com/mcchrish/nnn.vim mcchrish/nnn.vim: Fast and featureful file manager in vim/neovim powered by nnn
+https://mswift42.github.io/themecreator/ ThemeCreator
+https://github.com/kassio/neoterm kassio/neoterm: Wrapper of some vim/neovim's :terminal functions.
+https://github.com/lambdalisue/dotfiles/blob/master/nvim/rc.d/quickrun.vim dotfiles/quickrun.vim at master · lambdalisue/dotfiles
+https://github.com/thinca/vim-quickrun thinca/vim-quickrun: Run commands quickly.
