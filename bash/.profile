@@ -16,3 +16,5 @@
 #exec qtile
 
 xinput disable Elan\ Touchpad
+
+export PATH="/home/kaile256/.local/share/cargo/bin:$PATH"

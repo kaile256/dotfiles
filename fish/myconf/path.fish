@@ -9,9 +9,7 @@ set -x PATH "$HOME/.local/bin:$PATH"
 
 # Rust
 ## Cargo
-set -x PATH "$HOME/.cargo/bin:$PATH"
-set -x PATH "$HOME/.local/share/cargo/env:$PATH"
-set -x PATH "$HOME/.local/share/cargo/bin:$PATH"
+set -x PATH "$CARGO_HOME/bin:$PATH"
 
 # Ruby
 # gem

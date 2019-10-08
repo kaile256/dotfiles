@@ -12,8 +12,6 @@ set -x LESSHISTFILE "$XDG_CACHE_HOME"/less/history
 set -x LESSKEY "$XDG_CONFIG_HOME"/less/lesskey
 # Wget
 set -x WGETRC "$XDG_CONFIG_HOME/wgetrc"
-# Cargo
-set -x CARGO_HOME "$XDG_DATA_HOME"/cargo
 
 # lynx, the browser
 set -x LYNX_CFG ~/.config/lynx/lynx.cfg
