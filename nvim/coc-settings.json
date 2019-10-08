@@ -107,10 +107,9 @@
   "vimlsp.suggest.fromVimruntime": true,
   "vimlsp.suggest.fromRuntimepath": false,
   "vimlsp.trace.server": "verbose",
-  "lua.commandPath": "/usr/bin/lua-lsp",
   "languageserver":{
     "dls": {
-      "command": "diagnostic-languageserver",
+      "command": "diagnostic-langserver",
       "args": ["--stdio"],
       "filetypes": [ "sh", "email", "dart" ],
       "initializationOptions": {
@@ -138,6 +137,12 @@
               "note": "info"
             }
           },
+          "vint": {
+            "command": "vint",
+            "sourceName": "vint",
+            "debounce": 200,
+            "args": ["--neovim-enable", "-"]
+          },
           "languagetool": {
             "command": "languagetool",
             "sourceName": "languagetool",
@@ -162,7 +167,8 @@
           "sh": "shellcheck",
           "elixir": ["mix_credo", "mix_credo_compile"],
           "eelixir": ["mix_credo", "mix_credo_compile"],
-          "php": "phpcs"
+          "php": "phpcs",
+          "vim": "vint"
         },
         "formatters": {
           "commad": "dartfmt",
