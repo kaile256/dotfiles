@@ -60,7 +60,6 @@ let s:wiki_markdown.nested_syntaxes = {
 "}}}
 let g:vimwiki_list = [
       \ {},
-      \ s:wiki_markdown,
       \ s:wiki_index
       \ ]
 " Let; List Symbol {{{1
@@ -128,7 +127,7 @@ endfunction
 
 augroup AutoFormatVimwiki "{{{
   au!
-  au BufNewFile,BufRead *.md setl ft=vimwiki syn=vimwiki
+  "au VimEnter,BufNewFile,BufRead *.md setl ft=vimwiki syn=vimwiki
   au FileType vimwiki setl tabstop=4 softtabstop=4 shiftwidth=4
   au FileType vimwiki setl nowrap fdl=1
   au BufWritePre index.* if &ft  ==# 'vimwiki' | VimwikiGenerateLinks
