@@ -12,10 +12,6 @@ tnoremap <a-h> <c-\><c-n>h
 tnoremap <a-j> <c-\><c-n>j
 tnoremap <a-k> <c-\><c-n>k
 tnoremap <a-l> <c-\><c-n>l
-"tnoremap <a-h> <c-\><c-n><c-w>h
-"tnoremap <a-j> <c-\><c-n><c-w>j
-"tnoremap <a-k> <c-\><c-n><c-w>k
-"tnoremap <a-l> <c-\><c-n><c-w>l
 "}}}
 " Keymap; Jump Anyway by <c-i><c-o> {{{
 "tmap <c-i> <c-\><c-n><c-i>
@@ -29,6 +25,8 @@ tnoremap <a-h> <c-\><c-n>h
 tnoremap <a-j> <c-\><c-n>j
 tnoremap <a-k> <c-\><c-n>k
 tnoremap <a-l> <c-\><c-n>l
+" TODO: keep <space> as a prefix
+tnoremap <a-space> <c-c><c-\><c-n><space>
 "}}}
 
 augroup OnTerminalBuffer
@@ -42,10 +40,6 @@ augroup OnTerminalBuffer
     au TermOpen * norm! 0
     au TermOpen * startinsert
   endif
-  "au TermOpen * nnoremap <buffer> <a-h> <c-w>h
-  "au TermOpen * nnoremap <buffer> <a-j> <c-w>j
-  "au TermOpen * nnoremap <buffer> <a-k> <c-w>k
-  "au TermOpen * nnoremap <buffer> <a-l> <c-w>l
 augroup END
 
 " Color; Set TUI Color {{{
