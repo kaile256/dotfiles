@@ -34,6 +34,7 @@ let g:coc_global_extensions = [
       \ 'coc-gitignore',
       \ 'coc-highlight',
       \ 'coc-homeassistant',
+      \ 'coc-rls',
       \ 'coc-html',
       \ 'coc-java',
       \ 'coc-todolist',
@@ -251,14 +252,10 @@ nnoremap <space>cp :ColoPalette<cr>
 " CocExtensions {{{1
 command! CocExtensions :CocList extensions
 command! CExtensions   :CocList extensions
-nnoremap <space>ce        :CocExtensions<cr>
-nnoremap <space>c<a-e>    :CocExtensions<cr>
+nnoremap <silent> <space>cx :CocExtensions<cr>
 " CocList; {{{1
 " show commit contains current position
-nnoremap <silent> <space>c<a-c> :CocList<cr>
-nnoremap <silent> <space>c<a-f> :CocList files<cr>
-nnoremap <silent> <space>c<a-b> :CocList buffers<cr>
-nnoremap <silent> <space>cc :CocList<cr>
+nnoremap <silent> <space>cl :CocList<cr>
 nnoremap <silent> <space>cf :CocList files<cr>
 nnoremap <silent> <space>cb :CocList buffers<cr>
 " CocSession {{{1
@@ -316,10 +313,8 @@ command! CocTask         :CocCommand todolist.create
 command! CTask           :CocCommand todolist.create
 command! CocShowTaskList :CocList    todolist
 command! CShowTaskList   :CocList    todolist
-nnoremap <silent> <space>ct     :CocTask<cr>
-nnoremap <silent> <space>cs     :CocShowTaskList<cr>
-nnoremap <silent> <space>c<a-t>     :CocTask<cr>
-nnoremap <silent> <space>c<a-s>     :CocShowTaskList<cr>
+nnoremap <silent> <space>ct :CocTask<cr>
+nnoremap <silent> <space>cs :CocShowTaskList<cr>
 " CocYank; {{{1
 " Highlight on yanked
 hi HighlightedyankRegion ctermfg=232 ctermbg=66 guifg=#000000 guibg=#df5f29
