@@ -217,3 +217,5 @@ https://vim-jp.org/vimdoc-ja/ help - Vim日本語ドキュメント
 https://qiita.com/delphinus/items/f472eb04ff91daf44274#2-cli-%E7%92%B0%E5%A2%83%E3%81%82%E3%82%8B%E3%81%84%E3%81%AF-ide-%E3%81%A7%E3%81%AE%E4%BD%9C%E6%A5%AD%E3%81%AB%E9%81%A9%E3%81%97%E3%81%9F%E3%83%95%E3%82%A9%E3%83%B3%E3%83%88%E3%81%A7%E3%81%82%E3%82%8B%E3%81%93%E3%81%A8 SF Mono を使って最高のプログラミング用フォントを作った話 - Qiita
 https://vimhelp.org/ Vim: help.txt
 https://qiita.com/algas/items/fde155abbc9d8ae3f8c9 Haskell on Docker で Portable CLI を作ろう - Qiita
+https://github.com/killercup/cargo-edit killercup/cargo-edit: A utility for managing cargo dependencies from the command line.
+https://www.rust-lang.org/tools/install Install Rust - Rust Programming Language
