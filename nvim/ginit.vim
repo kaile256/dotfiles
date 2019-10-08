@@ -4,8 +4,8 @@
 let $DEVROOT=expand($HOME) .'/dev'
 let $GOPATH=expand($DEVROOT) .'/go'
 
-" $VAR: for PATH {{{1
-let $PATH=expand($GOPATH) .'/bin:'. expand($PATH)
+" $VAR: for $PATH {{{1
+"let $PATH=expand($GOPATH) .'/bin:'. expand($PATH)
 "let $PATH=expand($PATH). ':'. expand($HOME) .'.yarn/bin:'
 
 " $VAR; for shell {{{1
