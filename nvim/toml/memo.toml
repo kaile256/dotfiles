@@ -11,8 +11,8 @@ hook_source = 'runtime source/vimwiki.vim'
 [[plugins]]
 repo = 'tbabej/taskwiki'
 if = 'executable("task")'
-on_cmd = 'TaskWiki'
-hook_add = 'runtime add/taskwiki.vim'
+on_source = 'vimwiki'
+hook_source = 'runtime add/taskwiki.vim'
 [[plugins]]
 repo = 'powerman/vim-plugin-AnsiEsc'
 # Provides Color support on chart of taskwiki.
