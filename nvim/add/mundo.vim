@@ -1,4 +1,5 @@
 " From: tool.toml
+" Repo: simnalamburt/vim-mundo
 
 " Keymap; Hotkey
 nnoremap <silent> <space>u <Cmd>MundoToggle<cr>
@@ -24,24 +25,20 @@ let g:mundo_preview_height = &lines " relative to editor's height
 " TODO: echo 'preparing...'; too slow to show diff.
 let g:mundo_mappings = {
           \ '<CR>': 'preview',
-          \ 'o': 'preview',
           \ 'j': 'move_older',
           \ 'k': 'move_newer',
-          \ 'J': 'move_older_write',
-          \ 'K': 'move_newer_write',
+          \ 'zj': 'move_older_write',
+          \ 'zk': 'move_newer_write',
           \ 'gg': 'move_top',
           \ 'G': 'move_bottom',
           \ 'P': 'play_to',
           \ 'D': 'diff',
-          \ 'i': 'toggle_inline',
           \ '/': 'search',
           \ 'n': 'next_match',
           \ 'N': 'previous_match',
           \ 'd': 'diff_current_buffer',
           \ 'p': 'diff_current_buffer',
           \ '?': 'toggle_help',
-          \ 'q': 'quit',
-          \ '<2-LeftMouse>': 'mouse_click'
           \ }
 
 augroup MyMundoConf
