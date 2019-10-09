@@ -74,6 +74,7 @@ if dein#load_state(g:dein_cache_dir)
         \ 'memo.toml',
         \ 'motion.toml',
         \ 'textobj.toml',
+        \ 'myplug.toml',
         \ 'tool.toml',
         \ 'web.toml',
         \ ]
