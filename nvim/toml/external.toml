@@ -148,6 +148,13 @@ hook_post_source = 'runtime add/fugitive-gitlab.vim'
 #on_cmd = 'DockerCompose'
 #hook_add = 'runtime add/docker-compose.vim'
 
+# Pair Programming
+#[[plugins]]
+#repo = 'derteta/vimpair'
+## Error: buggy on init
+#on_cmd = 'VimpairServerStart "127.0.0.1"'
+#hook_add = 'runtime add/vimpair.vim'
+
 # Doc; Info
 [[plugins]]
 repo = 'HiPhish/info.vim' #{{{
@@ -156,11 +163,11 @@ hook_add = 'runtime add/info.vim'
 #}}}
 
 # Shell; Async Processor
-[[plugins]]
-repo = 'thinca/vim-quickrun' #{{{
-on_cmd = 'QuickRun'
-hook_add = 'runtime add/quickrun.vim'
-#}}}
+#[[plugins]]
+#repo = 'thinca/vim-quickrun' #{{{
+#on_cmd = 'QuickRun'
+#hook_add = 'runtime add/quickrun.vim'
+##}}}
 #[[plugins]]
 #repo = 'neomake/neomake' #{{{
 #on_cmd = 'make'
@@ -174,11 +181,12 @@ hook_add = 'runtime add/quickrun.vim'
 #}}}
 
 # Shell; Wrapper
-#[[plugins]]
-#repo = 'kassio/neoterm' #{{{
-#on_event = 'BufAdd'
-#hook_post_source = 'runtime add/neoterm.vim'
-##}}}
+[[plugins]]
+repo = 'kassio/neoterm' #{{{
+# also has async-run feature.
+on_cmd = ['T']
+hook_add = 'runtime add/neoterm.vim'
+#}}}
 #[[plugins]]
 #repo = 'Shougo/deol.nvim' #{{{
 #on_event = 'VimEnter'
