@@ -230,3 +230,10 @@ https://github.com/lambdalisue/dotfiles/blob/master/nvim/rc.d/quickrun.vim dotfi
 https://github.com/thinca/vim-quickrun thinca/vim-quickrun: Run commands quickly.
 https://github.com/voldikss/coc-bookmark voldikss/coc-bookmark: Bookmark extension for coc.nvim
 https://github.com/tbabej/tasklib/tree/develop tbabej/tasklib at develop
+https://github.com/iamcco?tab=repositories iamcco (年糕小豆汤) / Repositories
+https://github.com/iamcco/markdown-preview.nvim iamcco/markdown-preview.nvim: markdown preview plugin for (neo)vim
+https://github.com/sindresorhus/github-markdown-css sindresorhus/github-markdown-css: The minimal amount of CSS to replicate the GitHub Markdown style
+https://github.com/iamcco/git-p.nvim iamcco/git-p.nvim: Git plus for (neo)vim
+https://github.com/iamcco/coc-project iamcco/coc-project: project extension for coc.nvim
+https://github.com/iamcco/coc-gitignore iamcco/coc-gitignore: gitignore extension for coc.nvim
+https://github.com/iamcco/coc-tailwindcss iamcco/coc-tailwindcss: tailwindcss class name completion for (neo)vim
