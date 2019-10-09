@@ -77,7 +77,7 @@ hook_post_source = 'runtime add/float-preview.vim'
 # Edit; Undo
 [[plugins]]
 repo = 'simnalamburt/vim-mundo' #{{{
-on_map = '<Cmd>Mundo'
+on_cmd = 'Mundo'
 hook_add = 'runtime add/mundo.vim'
 #}}}
 #[[plugins]]
@@ -107,7 +107,7 @@ hook_add = 'runtime add/mundo.vim'
 # Edit; Diff
 [[plugins]]
 repo = 'AndrewRadev/linediff.vim' #{{{
-on_map = '<Cmd>Linediff'
+on_cmd = 'Linediff'
 hook_add = 'runtime add/linediff.vim'
 #}}}
 #[[plugins]]
