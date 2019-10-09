@@ -1,8 +1,5 @@
 #!/usr/bin/env bash
 
-# Ref.: .bashrc
-# Ref.: curl.sh
-
 set -Cu
 
 # INSTALLER IDENTIFICATION
@@ -34,6 +31,7 @@ bash-completion
 blacklist_pcspkr  # disable beep
 cargo  # select rustup
 clamav  # anti-virus for unix
+qt5-base-git  # a cross-platform app & UI framework for neovim-qt
 fcitx-qt5
 fcitx5-qt5-git  # Libraries for fcitx-qt5, too long to install
 fzf
@@ -90,9 +88,9 @@ Depend=(
 )
 
 for package in ${Package[@]}; do
-  if [ -z "$INSTALLER" == 'apt' && apt list "$package" ||  "$INSTALLER" == 'pacman' && pacman -Q "$package" ]; then
+  if [ -z "$INSTALLER" == 'apt' && `apt list "$package"` ]; then
     echo "You have installed $package already!"
-  else
+  elif [ -z "$INSTALLER" == 'pacman' && pacman -Q "$package" ]; then
     echo "Installing $package..." && sudo $install $package || {
 
       if $INSTALLER == 'apt';then
@@ -129,15 +127,7 @@ for y in ${yarnPack[@]}; do
   yarn global add $y
 done
 
-### Go
-## pocke/get
-#type get go || {
-#  echo "Installing github.com/pocke/get..."
-#  go get github.com/pocke/get
-#}
-
-#git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
-# doom-emacs: an emacsen for alt-vimmer.
+# doom-emacs: one of emacsen's config files for vimmer.
 git clone https://github.com/hlissner/doom-emacs ~/.emacs.d
 ~/.emacs.d/bin/doom quickstart
 
