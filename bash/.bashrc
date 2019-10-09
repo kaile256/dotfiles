@@ -6,10 +6,10 @@
 umask 022
 
 SourceFile=(
-env.sh # includes initial XDG_BASEs.
-xdg.sh
-path.sh
-alias.sh
+#env.sh # includes initial XDG_BASEs.
+#xdg.sh
+#path.sh
+#alias.sh
 prompt.sh
 )
 for i in "${SourceFile[@]}"; do

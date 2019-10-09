@@ -6,15 +6,18 @@
 
 #mesg n || true
 
-# INIT
-#eval "$(anyenv init -)"
-#eval "$(pyenv init -)"
-#eval "$(pyenv virtualenv-init -)"
-
 # Xserver
 #[[ -z $DISPLAY && $XDG_VTNR -eq 1 ]] && exec startx
 #exec qtile
 
 xinput disable Elan\ Touchpad
 
-export PATH="/home/kaile256/.local/share/cargo/bin:$PATH"
+source ~/.config/bash/env.sh # includes initial XDG_BASEs.
+source ~/.config/bash/path.sh
+source ~/.config/bash/alias.sh
+
+# INIT
+#eval "$(anyenv init -)"
+#eval "$(pyenv init -)"
+#eval "$(pyenv virtualenv-init -)"
+
