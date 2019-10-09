@@ -10,7 +10,7 @@ command! -nargs=+ -complete=file Grep :tabnew | :silent grep --sort-files <args>
 
 " Time in ms to wait for a mapped sequence to complete.
 " For: made me notice if any mappings are in Caleene's way.
-set timeoutlen=3000
+set timeoutlen=10000
 "set shada=!,'100,<50,s10,h,
 augroup AutoWriteShada
   " Topic: When shada file is updated?
