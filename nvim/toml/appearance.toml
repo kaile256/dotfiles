@@ -30,10 +30,20 @@ hook_source = 'runtime add/airline.vim'
 repo = 'vim-airline/vim-airline-themes'
 on_event = 'VimEnter'
 #}}}
-#[[plugins]]
+#[[plugins]] # has extentions
 #repo = 'itchyny/lightline.vim' #{{{
 #on_event = 'BufAdd'
 #hook_post_source = 'runtime add/lightline.vim'
+#[[plugins]]
+#repo = 'albertomontesg/lightline-asyncrun'
+# provides an indicator to tell async jobs running in background.
+#on_source = 'vim-airline'
+#depends = 'asyncrun.vim'
+#hook_post_source = 'runtime add/lightline-asyncrun.vim'
+#[[plugins]]
+#repo = 'skywind3000/asyncrun.vim'
+#on_event = 'BufRead'
+#hook_post_source = 'runtime add/asyncrun.vim'
 #[[plugins]]
 #repo = 'taohexxx/lightline-buffer'
 #on_source = 'lightline.vim'
