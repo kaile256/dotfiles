@@ -1,24 +1,44 @@
 " Help: options
 
-" $VAR: for Dev {{{1
-let $DEVROOT=expand($HOME) .'/dev'
-let $GOPATH=expand($DEVROOT) .'/go'
+" $VAR: DEVROOTs and $PATH {{{1
+let $DEVROOT = $HOME .'/dev'
 
-" $VAR: for $PATH {{{1
-"let $PATH=expand($GOPATH) .'/bin:'. expand($PATH)
-"let $PATH=expand($PATH). ':'. expand($HOME) .'.yarn/bin:'
+let s:path = {
+      \ '$GOPATH'      : '/go',
+      \ '$CARGO_HOME'  : '/cargo',
+      \ '$RUSTUP_HOME' : '/rustup',
+      \ '$PYENV_ROOT'  : '/env/pyenv',
+      \ }
+
+for i in keys(s:path)
+  let i = $DEVROOT . s:path[i]
+  let $PATH = i .'/bin:'. $PATH
+endfor
+unlet s:path
+
+let $GHQ_ROOT = $GOPATH .'/src'
+let $PATH = $PYENV_ROOT .'/shims:'. $PATH " instead of '$source (pyenv init - | psub)'
+
+let s:path = [
+      \ '/.yarn/bin',
+      \ '/.node_modules',
+      \ ]
+for i in s:path
+  let $PATH = $HOME . i .'/bin:'. $PATH
+endfor
+unlet s:path
 
 " $VAR; for shell {{{1
-let $EDITOR='nvr'
-let $VISUAL='nvr'
+let $EDITOR     = 'nvr'
+let $VISUAL     = 'nvr'
 let $GIT_EDITOR = 'nvr -cc split --remote-wait'
-let $BROWSER = 'qutebrowser'
+let $BROWSER    = 'qutebrowser'
 
 "set shell=fish
 if executable('urxvt')
-  let $TERM='rxvt-unicode'
+  let $TERM = 'rxvt-unicode'
 else
-  let $TERM='xterm-256color'
+  let $TERM = 'xterm-256color'
 endif
 
 
