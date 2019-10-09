@@ -1,14 +1,18 @@
 # From: add/dein.vim
 
-# Imput Method
 [[plugins]]
+repo = 'vim-jp/vimdoc-ja-working'
+on_cmd = ['FzfHelptags', 'Helptags', 'help']
+#hook_add = 'runtime add/vimdoc-ja-working.vim'
+# Imput Method
+[[plugins]] # has extensions
 repo = 'tyru/eskk.vim' #{{{
 # Note: on_map fails to work in insert mode.
 on_event = ['InsertEnter', 'CmdlineEnter']
 hook_add = 'runtime add/eskk.vim'
 [[plugins]]
-# Syntax Files for skkdict.
 repo = 'tyru/skkdict.vim' #{{{
+# Syntax Files for skkdict.
 on_ft = 'skkdict'
 #}}}
 #}}}
@@ -28,11 +32,8 @@ on_ft = 'markdown'
 
 [[plugins]]
 repo = 'fuenor/JpFormat.vim'
-if = 'exists("JpFormatCursorMovedI") && (JpFormatCursorMovedI == 1)'
-if = 'exists("JpFormatGqMode") && (JpFormatGqMode == 1)'
 on_ft = ['markdown']
 on_cmd = 'Jp'
-on_map = '<Cmd>Jp'
 hook_add = 'runtime add/JqFormat.vim'
 
 #[[plugins]]
