@@ -30,11 +30,12 @@ repo = 'deton/jasentence.vim'
 on_ft = 'markdown'
 #hook_post_source = 'runtime add/jasentence.vim'
 
-[[plugins]]
-repo = 'fuenor/JpFormat.vim'
-on_ft = ['markdown']
-on_cmd = 'Jp'
-hook_add = 'runtime add/JqFormat.vim'
+#[[plugins]]
+#repo = 'fuenor/JpFormat.vim' #{{{
+#on_ft = ['markdown']
+#on_cmd = 'Jp'
+#hook_add = 'runtime add/JqFormat.vim'
+##}}}
 
 #[[plugins]]
 #repo = 'kana/vim-textobj-jabraces'
