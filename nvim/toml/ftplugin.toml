@@ -79,7 +79,7 @@ hook_add = 'runtime add/markdown.vim'
 repo = 'iamcco/markdown-preview.nvim'
 on_ft = 'markdown'
 build = 'cd app & yarn install'
-hook_source = 'runtime add/markdown-preview.vim'
+hook_add = 'runtime add/markdown-preview.vim'
 #[[plugins]]
 #repo = 'suan/vim-instant-markdown' #{{{
 #on_ft = 'markdown'
