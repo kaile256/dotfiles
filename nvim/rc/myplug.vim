@@ -1,12 +1,12 @@
 " From: init.vim
 
-let g:among_HML_keep_maps_normal = 1
-let g:among_HML_keep_maps_visual = 1
-
-nnoremap <silent> K :<c-u>call among_HML#do(25)<cr>
-nnoremap <silent> J :<c-u>call among_HML#do(75)<cr>
-xnoremap <silent> K <Cmd>call among_HML#do(25)<cr>
-xnoremap <silent> J <Cmd>call among_HML#do(75)<cr>
+nnoremap <silent> K :<c-u>call among_HML#percent(25)<cr>
+nnoremap <silent> J :<c-u>call among_HML#percent(75)<cr>
+" TODO: default should operate linewise.
+onoremap <silent> K :call among_HML#percent(25)<cr>
+onoremap <silent> J :call among_HML#percent(75)<cr>
+xnoremap <silent> K <Cmd>call among_HML#percent(25)<cr>
+xnoremap <silent> J <Cmd>call among_HML#percent(75)<cr>
 
 nnoremap gK K
 nnoremap <space>J J
