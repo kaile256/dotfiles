@@ -13,10 +13,11 @@ nnoremap <silent> <space>ks :<c-u>sp <bar> VimwikiIndex <cr>
 " dafault: -count=0, which makes me jump up to current root.
 " when <count> < 0, always brings me to *.wiki.
 command! VimwikiToday :call vimwiki#diary#make_note(-1)
-nnoremap <silent> <space>ye     :e <bar> VimwikiToday<cr>
-nnoremap <silent> <space>yb     :tabe <bar> VimwikiToday<cr>
-nnoremap <silent> <space>ys     :sp <bar> VimwikiToday<cr>
-nnoremap <silent> <space>yv     :vs <bar> VimwikiToday<cr>
+command! Diary :call vimwiki#diary#make_note(-1)
+"nnoremap <silent> <space>ye     :e <bar> VimwikiToday<cr>
+"nnoremap <silent> <space>yb     :tabe <bar> VimwikiToday<cr>
+"nnoremap <silent> <space>ys     :sp <bar> VimwikiToday<cr>
+"nnoremap <silent> <space>yv     :vs <bar> VimwikiToday<cr>
 
 function! s:my_startpage(page) "{{{1
   if @% ==# '' && &ft ==# '' && &bt ==# '' && getline(1,'$') ==# ['']
@@ -24,6 +25,8 @@ function! s:my_startpage(page) "{{{1
       e ~/vimwiki/mdwiki/index.md
     elseif a:page ==# 'wiki' || a:page ==# 'vimwiki'
       VimwikiIndex
+    elseif a:page ==# 'task'
+      e ~/vimwiki/task.wiki
     elseif a:page ==# 'diary'
       e ~/vimwiki/diary/index.wiki
     elseif a:page ==# 'term'
@@ -36,5 +39,5 @@ endfunction "}}}
 augroup CallMyVimwikiFunc "{{{1
   au!
   " To use outliner of markdown's instead, keep to use mdwiki.
-  au VimEnter * ++nested call <SID>my_startpage('vimwiki')
+  au VimEnter * ++nested call <SID>my_startpage('task')
 augroup END
