@@ -228,3 +228,5 @@ https://mswift42.github.io/themecreator/ ThemeCreator
 https://github.com/kassio/neoterm kassio/neoterm: Wrapper of some vim/neovim's :terminal functions.
 https://github.com/lambdalisue/dotfiles/blob/master/nvim/rc.d/quickrun.vim dotfiles/quickrun.vim at master · lambdalisue/dotfiles
 https://github.com/thinca/vim-quickrun thinca/vim-quickrun: Run commands quickly.
+https://github.com/voldikss/coc-bookmark voldikss/coc-bookmark: Bookmark extension for coc.nvim
+https://github.com/tbabej/tasklib/tree/develop tbabej/tasklib at develop
