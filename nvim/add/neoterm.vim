@@ -1,4 +1,13 @@
 " From: external.toml
+" Repo: kassio/neoterm
+
+"let g:neoterm_shell = 'sh'
+let g:neoterm_autoscroll = 1
+
+"let g:neoterm_automap_keys = 'qr'
+"let g:neoterm_default_mod
+"let g:neoterm_command_prefix = 'Neoterm' " useless
+let g:neoterm_term_per_tab = 1
 
 "cnoreabbr <expr> te (getcmdtype() == ':' && getcmdline() =~ '^te$')? 'Tnew' : 'te'
 "cnoreabbr <expr> teb (getcmdtype() == ':' && getcmdline() =~ '^teb$')? 'tab sp <bar> Tnew' : 'teb'
