@@ -1,16 +1,22 @@
-" From: tool.toml
+" From: external.toml
 
 "cnoreabbr <expr> te (getcmdtype() == ':' && getcmdline() =~ '^te$')? 'Tnew' : 'te'
 "cnoreabbr <expr> teb (getcmdtype() == ':' && getcmdline() =~ '^teb$')? 'tab sp <bar> Tnew' : 'teb'
 "cnoreabbr <expr> tes (getcmdtype() == ':' && getcmdline() =~ '^tes$')? 'sp <bar> Tnew' : 'tes'
 "cnoreabbr <expr> tev (getcmdtype() == ':' && getcmdline() =~ '^tev$')? 'vs <bar> Tnew' : 'tev'
 
-"nnoremap <silent> rc :TREPLSendFile<cr>
-"nnoremap <silent> rl :TREPLSendLine<cr>
-"vnoremap <silent> rl :TREPLSendSelection<cr>
-"nnoremap <silent> vu :Ttoggle<cr>
+nmap qr <Plug>(neoterm-repl-send)
+" TODO: open on sensitive split.
+nnoremap <silent> qrr :vs <bar> TREPLSendFile<cr>
+nnoremap <silent> qR :vs <bar> TREPLSendLine<cr>
+xnoremap <silent> qr :vs <bar> TREPLSendSelection<cr>
+"nnoremap <silent>  :Ttoggle<cr>
 
 " Hotkey; Open neoterm
+"augroup NeotermCalls
+" au! VimEnter * call keymap#generater('<space>t', ':T', 'fish')
+"augroup END
+
 """ Open Tnew; with Direction {{{
 "noremap <silent><nowait> <a-t><a-.> :<c-u>    <space> <space>   Tnew<cr>
 "noremap <silent><nowait> <a-t><a-e> :<c-u>    <space> <space>   Tnew<cr>
