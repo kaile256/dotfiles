@@ -1,21 +1,14 @@
 #!/usr/bin/env bash
 
-set -Cu
-
 export PATH="$HOME/.local/bin:$PATH"
 
 # Rust
 ## Cargo
-if [ -d ~/.cargo ]; then
-  export PATH="$HOME/.cargo/bin:$PATH"
-else
-  export PATH="$HOME/.local/share/cargo/env:$PATH"
-  export PATH="$HOME/.local/share/cargo/bin:$PATH"
-fi
+export PATH="$CARGO_HOME/bin:$PATH"
 
 # Python
 ## pyenv
-export PATH="$HOME/.pyenv/bin:$PATH"
+export PATH="$PYENV_ROOT/bin:$PATH"
 
 # Ruby
 ## gem
