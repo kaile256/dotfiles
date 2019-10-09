@@ -4,10 +4,10 @@
 let g:neosnippet#snippets_directory = g:my_data . '/neosnippet'
 let g:neosnippet#enable_snipmate_compatibility = 1
 
-nnoremap <silent> <space>pe :<c-u>NeoSnippetEdit<cr>
-nnoremap <silent> <space>ps :<c-u>sp  <bar>NeoSnippetEdit<cr>
-nnoremap <silent> <space>pv :<c-u>vs  <bar>NeoSnippetEdit<cr>
-nnoremap <silent> <space>pt :<c-u>tab sp <bar>NeoSnippetEdit<cr>
+nnoremap <silent> <a-s><a-p>e :<c-u>NeoSnippetEdit<cr>
+nnoremap <silent> <a-s><a-p>s :<c-u>sp  <bar>NeoSnippetEdit<cr>
+nnoremap <silent> <a-s><a-p>v :<c-u>vs  <bar>NeoSnippetEdit<cr>
+nnoremap <silent> <a-s><a-p>t :<c-u>tab sp <bar>NeoSnippetEdit<cr>
 
 " Note: is_after_space() often conflicts w/ snippet_jump() feature. {{{
 "inoremap <silent><expr> <TAB>
