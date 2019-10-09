@@ -109,7 +109,7 @@
   "vimlsp.trace.server": "verbose",
   "languageserver":{
     "dls": {
-      "command": "diagnostic-langserver",
+      "command": "diagnostic-languageserver",
       "args": ["--stdio"],
       "filetypes": [ "sh", "email", "dart" ],
       "initializationOptions": {
