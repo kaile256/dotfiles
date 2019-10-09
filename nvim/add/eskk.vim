@@ -10,7 +10,7 @@ set imdisable
 " TODO: auto-start on i3.
 let g:eskk#server = {'host': 'localhost', 'port': 1178}
 let g:eskk#directory = g:data_home . '/eskk'
-if filereadable(expand('/usr/share/skk/SKK-JISYO.L'))
+if filereadable('/usr/share/skk/SKK-JISYO.L')
   let g:eskk#large_dictionary = '/usr/share/skk/SKK-JISYO.L'
 endif
 let g:eskk#backup_dictionary = g:data_home . '/eskk/backup'
