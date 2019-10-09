@@ -72,16 +72,19 @@ let g:cloesetag_filenames = '*.html,*.vue'
 ##}}}
 [[plugins]]
 repo = 'plasticboy/vim-markdown' #{{{
-if = '&l:ft !=# "vimwiki"'
 on_ft = 'markdown'
 hook_add = 'runtime add/markdown.vim'
 #}}}
+[[plugins]]
+repo = 'iamcco/markdown-preview.nvim'
+on_ft = 'markdown'
+build = 'cd app & yarn install'
+hook_source = 'runtime add/markdown-preview.vim'
 #[[plugins]]
 #repo = 'suan/vim-instant-markdown' #{{{
-#if = '&l:ft !=# "vimwiki"'
 #on_ft = 'markdown'
-#hook_add = 'runtime add/instant-markdown.vim'
-#}}}
+#hook_source = 'runtime add/instant-markdown.vim'
+##}}}
 
 # for Shell or Term-Emulater;
 [[plugins]]

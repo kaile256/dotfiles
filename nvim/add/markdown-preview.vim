@@ -1,6 +1,12 @@
 " From: ftplugin.toml
 " Repo: iamcco/markdown-preview.nvim
 
+augroup myMdPreview
+  au!
+  au FileType markdown command! -buffer MdPreview     :MarkdownPreview
+  au FileType markdown command! -buffer MdPreviewStop :MarkdownPreviewStop
+augroup END
+
 " 1: open preview on entering markdown buffer
 "let g:mkdp_auto_start = 0 " default: 0
 
@@ -37,6 +43,20 @@ let g:mkdp_echo_preview_url = 1
 " default: ''
 let g:mkdp_browserfunc = ''
 
+" absolute path to custom markdown style
+let g:mkdp_markdown_css = g:my_dotfiles .'/css/github-markdown.css'
+
+" absolute path to custom highlight style
+let g:mkdp_highlight_css = ''
+
+" custom port to start server
+" default: '', which start on random port
+let g:mkdp_port = ''
+
+" preview page title
+" ${name} will be replace with the file name
+let g:mkdp_page_title = 'preview://${name}'
+
 " options for markdown render
 " mkit: markdown-it options for render
 " katex: katex options for math
@@ -49,28 +69,14 @@ let g:mkdp_browserfunc = ''
 "   relative: mean the cursor position alway show at the relative positon of the preview page
 " hide_yaml_meta: if hide yaml metadata, default is 1
 " sequence_diagrams: js-sequence-diagrams options
-let g:mkdp_preview_options = {
-    \ 'mkit': {},
-    \ 'katex': {},
-    \ 'uml': {},
-    \ 'maid': {},
-    \ 'disable_sync_scroll': 0,
-    \ 'sync_scroll_type': 'middle',
-    \ 'hide_yaml_meta': 1,
-    \ 'sequence_diagrams': {}
-    \ }
-
-" absolute path to custom markdown style
-let g:mkdp_markdown_css = ''
-
-" absolute path to custom highlight style
-let g:mkdp_highlight_css = ''
-
-" custom port to start server
-" default: '', which start on random port
-let g:mkdp_port = ''
-
-" preview page title
-" ${name} will be replace with the file name
-let g:mkdp_page_title = 'preview = ${name}'
+"let g:mkdp_preview_options = {
+"      \ 'mkit': {},
+"      \ 'katex': {},
+"      \ 'uml': {},
+"      \ 'maid': {},
+"      \ 'disable_sync_scroll': 0,
+"      \ 'sync_scroll_type': 'middle',
+"      \ 'hide_yaml_meta': 1,
+"      \ 'sequence_diagrams': {}
+"      \ }
 
