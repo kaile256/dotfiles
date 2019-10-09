@@ -1,47 +1,47 @@
 " Help: options
 
-" $VAR: DEVROOTs and $PATH {{{1
-let $DEVROOT = $HOME .'/dev'
-
-let s:path = {
-      \ '$GOPATH'      : '/go',
-      \ '$CARGO_HOME'  : '/cargo',
-      \ '$RUSTUP_HOME' : '/rustup',
-      \ '$PYENV_ROOT'  : '/env/pyenv',
-      \ }
-
-for i in keys(s:path)
-  let i = $DEVROOT . s:path[i]
-  let $PATH = i .'/bin:'. $PATH
-endfor
-unlet s:path
-
-let $GHQ_ROOT = $GOPATH .'/src'
-let $PATH = $PYENV_ROOT .'/shims:'. $PATH " instead of '$source (pyenv init - | psub)'
-
-let s:path = [
-      \ '/.yarn/bin',
-      \ '/.node_modules',
-      \ ]
-for i in s:path
-  let $PATH = $HOME . i .'/bin:'. $PATH
-endfor
-unlet s:path
-
-" $VAR; for shell {{{1
-let $EDITOR     = 'nvr'
-let $VISUAL     = 'nvr'
-let $GIT_EDITOR = 'nvr -cc split --remote-wait'
-let $BROWSER    = 'qutebrowser'
-
-"set shell=fish
-if executable('urxvt')
-  let $TERM = 'rxvt-unicode'
-else
-  let $TERM = 'xterm-256color'
-endif
-
-
+"" $VAR: DEVROOTs and $PATH {{{1
+"let $DEVROOT = $HOME .'/dev'
+"
+"let s:path = {
+"      \ '$GOPATH'      : '/go',
+"      \ '$CARGO_HOME'  : '/cargo',
+"      \ '$RUSTUP_HOME' : '/rustup',
+"      \ '$PYENV_ROOT'  : '/env/pyenv',
+"      \ }
+"
+"for i in keys(s:path)
+"  let i = $DEVROOT . s:path[i]
+"  let $PATH = i .'/bin:'. $PATH
+"endfor
+"unlet s:path
+"
+"let $GHQ_ROOT = $GOPATH .'/src'
+"let $PATH = $PYENV_ROOT .'/shims:'. $PATH " instead of '$source (pyenv init - | psub)'
+"
+"let s:path = [
+"      \ '/.yarn/bin',
+"      \ '/.node_modules',
+"      \ ]
+"for i in s:path
+"  let $PATH = $HOME . i .'/bin:'. $PATH
+"endfor
+"unlet s:path
+"
+"" $VAR; for shell {{{1
+"let $EDITOR     = 'nvr'
+"let $VISUAL     = 'nvr'
+"let $GIT_EDITOR = 'nvr -cc split --remote-wait'
+"let $BROWSER    = 'qutebrowser'
+"
+""set shell=fish
+"if executable('urxvt')
+"  let $TERM = 'rxvt-unicode'
+"else
+"  let $TERM = 'xterm-256color'
+"endif
+"
+"
 " if nvim-qt {{{1
 if exists('g:GuiLoaded')
 
