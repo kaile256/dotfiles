@@ -19,7 +19,6 @@ function! keymap#generater(prefix, cmd, opt) abort
   endif
 
   " TODO: associate floating window
-  " TODO: simplify w/o list, but only dict.
   let l:split_dict['float'] = l:split_dict['float']
   let l:split_list = ['edit', 'split', 'vsplit', 'tabe']
   let l:path_dict = {
@@ -27,14 +26,14 @@ function! keymap#generater(prefix, cmd, opt) abort
         \ g:nvim_home   : 'v',
         \ g:cache_home  : 'c',
         \ g:config_home : 'f',
+        \ g:my_dotfiles : 'd',
         \ '/'           : 'r',
         \ ''            : '.',
         \ '%:p:h'       : 'w',
         \ }
 
- let l:path_list = ['', '~', '/', g:cache_home, g:config_home, g:nvim_home, '%:p:h']
   for l:key in l:split_list
-    for l:path in l:path_list
+    for l:path in keys(l:path_list)
       exe 'nnoremap <silent> '.
             \ a:prefix . l:path_dict[l:path] . l:split_dict[l:key]
             \ .' :<c-u>cd '. l:path .'<bar>'. l:key .'<bar>' a:cmd .' '. a:opt .'<cr>'
