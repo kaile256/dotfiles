@@ -32,7 +32,7 @@ function! window#extract() abort "{{{1
   " TODO:
   let t:window_extracted_window = win_getid()
 endfunction "}}}1
-command! QuickClose :<c-u>call window#weed_out()
+command! QuickClose :call window#weed_out()
 
 function! window#floating() abort "{{{1
   " Ref: https://github.com/junegunn/fzf.vim/issues/664
@@ -54,4 +54,4 @@ function! window#floating() abort "{{{1
 
   call nvim_open_win(buf, v:true, opts)
 endfunction "}}}1
-command! WinExtract :<c-u>call window#extract()
+command! WinExtract :call window#extract()
