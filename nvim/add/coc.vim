@@ -49,7 +49,6 @@ let g:coc_global_extensions = [
       \ 'coc-solargraph',
       \ 'coc-sql',
       \ 'coc-tag',
-      \ 'coc-template',
       \ 'coc-texlab',
       \ 'coc-todolist',
       \ 'coc-translator',
@@ -75,9 +74,9 @@ command! Ccmd       :CocCommand
 command! Clist      :CocList
 command! Coc        :CocList
 command! Cextensions :CocList    extensions
-command! Ctemplate   :CocCommand template.templateTop
-command! Cinit       :CocCommand template.templateTop
-command! Init        :CocCommand template.templateTop
+"command! Ctemplate   :CocCommand template.templateTop
+"command! Cinit       :CocCommand template.templateTop
+"command! Init        :CocCommand template.templateTop
 " Note: fzf.vim is better,
 "       which has regex-like specification method on fuzzy-matcher.
 "command! Cfiles    :CocList files
