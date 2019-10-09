@@ -34,7 +34,7 @@ cnoremap <c-x><c-f> ~/.config/
 command! E :e    %:p:h
 command! V :vs   %:p:h
 command! S :sp   %:p:h
-command! T :tabe %:p:h
+"command! T :tabe %:p:h
 " TODO: work no-bang ver. correct.
 command! -bang -bar Cd call <SID>cd_bang(<bang>0? 'bang' : 'nobang')
 command! -bang -bar CD call <SID>cd_bang(<bang>0? 'bang' : 'nobang')
@@ -73,11 +73,6 @@ command! PrintExecuted :<c-u>call <SID>my_print_on_qf()
 "endfunction
 cnoreabbr <expr> ex (getcmdtype() == '=' && getcmdline() =~ '^ex$')? "execute('')<Left><Left>" : 'ex'
 cnoreabbr <expr> px (getcmdtype() == ':' && getcmdline() =~ '^px$')? "put =execute('')<Left><Left>" : 'px'
-function! s:call_vint() abort
-  if &ft ==# 'vim'
-    !vint %:p
-  endif
-endfunction
 " Abbr; for vimdiff {{{1
 cnoreabbr <expr> dth (getcmdtype() == ':' && getcmdline() =~ '^dth$')? 'diffthis' : 'dth'
 cnoreabbr <expr> dof (getcmdtype() == ':' && getcmdline() =~ '^dof$')? 'diffoff!' : 'dof'
@@ -85,9 +80,9 @@ cnoreabbr <expr> dof (getcmdtype() == ':' && getcmdline() =~ '^dof$')? 'diffoff!
 cnoreabbr <expr> man (getcmdtype() == ':' && getcmdline() =~ '^man$')? 'Man' : 'man'
 "}}}
 " Abbr; for :!vint {{{1
-command! Vint :!vint %:p
-cnoreabbr <expr> vin  (getcmdtype() == ':' && getcmdline() =~ '^vin$')? "!vint %:p" : 'vin'
-cnoreabbr <expr> vint (getcmdtype() == ':' && getcmdline() =~ '^vin$')? "!vint %:p" : 'vint'
+command! Vint :w <bar> !vint %:p
+cnoreabbr <expr> vin  (getcmdtype() == ':' && getcmdline() =~ '^vin$')? "w <bar> !vint %:p" : 'vin'
+cnoreabbr <expr> vint (getcmdtype() == ':' && getcmdline() =~ '^vin$')? "w <bar> !vint %:p" : 'vint'
 " Abbr; :checkhealth {{{1
 cnoreabbr <expr> ch (getcmdtype() == ':' && getcmdline() =~ '^ch$')? 'checkhealth <bar> setl bt=quickfix' : 'ch'
 " Abbr; :source {{{1
