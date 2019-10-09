@@ -22,7 +22,7 @@ augroup END
 " Note: Have to install LSPs independently.
 let g:coc_global_extensions = [
       \ 'coc-angular',
-      \ 'coc-flow',
+      \ 'coc-bookmark',
       \ 'coc-conjure',
       \ 'coc-css',
       \ 'coc-diagnostic',
@@ -30,15 +30,13 @@ let g:coc_global_extensions = [
       \ 'coc-docker',
       \ 'coc-elixir',
       \ 'coc-emoji',
+      \ 'coc-flow',
       \ 'coc-git',
       \ 'coc-gitignore',
       \ 'coc-highlight',
       \ 'coc-homeassistant',
-      \ 'coc-rls',
       \ 'coc-html',
       \ 'coc-java',
-      \ 'coc-todolist',
-      \ 'coc-translator',
       \ 'coc-json',
       \ 'coc-lists',
       \ 'coc-lua',
@@ -46,12 +44,15 @@ let g:coc_global_extensions = [
       \ 'coc-phpls',
       \ 'coc-project',
       \ 'coc-python',
+      \ 'coc-rls',
       \ 'coc-rust-analyzer',
       \ 'coc-solargraph',
       \ 'coc-sql',
       \ 'coc-tag',
       \ 'coc-template',
       \ 'coc-texlab',
+      \ 'coc-todolist',
+      \ 'coc-translator',
       \ 'coc-tsserver',
       \ 'coc-vimlsp',
       \ 'coc-word',
@@ -132,8 +133,8 @@ endfunction
 " Note: Unnecessary? pop up auto.
 nmap qi <Plug>(coc-diagnostic-info)
 nmap <silent> qf <Plug>(coc-fix-current)
-nmap <silent> qk <Plug>(coc-diagnostic-prev)
-nmap <silent> qj <Plug>(coc-diagnostic-next)
+nmap <silent> qp <Plug>(coc-diagnostic-prev)
+nmap <silent> qn <Plug>(coc-diagnostic-next)
 nmap <silent> [q <Plug>(coc-diagnostic-prev)
 nmap <silent> ]q <Plug>(coc-diagnostic-next)
 "nmap [e <Plug>(coc-diagnostic-prev-error)
@@ -258,6 +259,9 @@ nnoremap <silent> <space>cx :CocExtensions<cr>
 nnoremap <silent> <space>cl :CocList<cr>
 nnoremap <silent> <space>cf :CocList files<cr>
 nnoremap <silent> <space>cb :CocList buffers<cr>
+" CocBookmark; {{{1
+nmap <space>cm <Plug>(coc-bookmark-annotate)
+nmap <silent> <space>cb :CocList bookmark<cr>
 " CocSession {{{1
 command! MksessionCoc   :CocCommand session.save
 command! SaveSessionCoc :CocCommand session.save
