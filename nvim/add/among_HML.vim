@@ -13,9 +13,3 @@ nnoremap gK K
 nnoremap <space>J J
 xnoremap gK K
 xnoremap <space>J J
-
-augroup AmongHML
-  au!
-  au BufWinEnter * if execute('nmap <buffer> J') | nunmap <buffer> J | endif
-  au BufWinEnter * if execute('nmap <buffer> K') | nunmap <buffer> K | endif
-augroup END
