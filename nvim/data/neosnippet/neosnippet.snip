@@ -25,3 +25,10 @@ alias # #}} #} #}}}
 snippet "}}} end of fold
 alias " "}} "} "}}}
   "}}}
+
+snippet filename
+alias file
+  ${1:Copy directly: `expand('%') =~ 'plugin' ? substitute(matchstr(expand('%:p'),'plugin/\zs.*\ze.vim'),'[/\\]','#','g').'#' : ''`}
+snippet rootname
+alias root
+  ${1:Copy directly: `matchstr(expand('%:p'), 'github.com/.*/\zs.*\ze/.*/') =~ 'plugin' ? substitute(matchstr(expand('%:p'),'github.com/\zs.*\ze'),'[/\\]','#','g').'#' : ''`}
