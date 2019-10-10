@@ -1,9 +1,10 @@
 # From: add/dein.vim
 
-[[plugins]]
-repo = 'vim-jp/vimdoc-ja-working'
-on_cmd = ['FzfHelptags', 'Helptags', 'help']
-#hook_add = 'runtime add/vimdoc-ja-working.vim'
+# Document
+#[[plugins]]
+#repo = 'vim-jp/vimdoc-ja-working'
+#on_cmd = ['FzfHelptags', 'Helptags', 'help']
+
 # Imput Method
 [[plugins]] # has extensions
 repo = 'tyru/eskk.vim' #{{{
