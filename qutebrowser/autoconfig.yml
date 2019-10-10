@@ -186,6 +186,9 @@ settings:
         <Space>w: save
         <Space>y: yank selection
         <Space>yy: enter-mode caret;; yank;; leave-mode
+        <Space>ze: set-cmd-text -s :open
+        <Space>zt: set-cmd-text -s :open -t
+        <Space>zv: set-cmd-text -s :open
         D: null
         E: edit-url
         H: null
