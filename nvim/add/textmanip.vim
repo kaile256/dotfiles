@@ -11,8 +11,6 @@ let g:textmanip_hooks = {
 
 nmap yp <Plug>(textmanip-duplicate-down)
 nmap yP <Plug>(textmanip-duplicate-up)
-nmap <silent> cp :move +1<cr>
-nmap <silent> cP :move -2<cr>
 
 "xmap <a-k> <Plug>(textmanip-duplicate-up)
 "xmap <a-j> <Plug>(textmanip-duplicate-down)
