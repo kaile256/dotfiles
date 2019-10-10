@@ -65,6 +65,8 @@ function! s:keymap_fugitive()
   " Continue to cc/ce/ca.
   xmap <buffer> c sc
   nunmap <buffer> dq
+  nunmap <buffer> J
+  nunmap <buffer> K
   " For: especially in the case, ':norm U' to unstage all.
   nnoremap <silent> <Plug>(fugitive:gstage-prev-window) :<c-u>wincmd p <cr> :Gw <bar> wincmd p<cr>
   nmap <buffer> S <Plug>(fugitive:gstage-prev-window)
@@ -78,7 +80,7 @@ augroup FugitiveCallMyFunc "{{{1
   au!
   au FileType fugitive  call <SID>keymap_fugitive()
   au FileType gitcommit call <SID>on_gitcommit_startinsert()
-  au FIleType git call <SID>keymap_gitlog()
+  au FIleType git       call <SID>keymap_gitlog()
 augroup END "}}}
 augroup OnFugitiveBuffer
   au!
