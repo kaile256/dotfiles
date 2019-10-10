@@ -26,6 +26,7 @@ echo "$INSTALLER will install package via '$install'!!"
 Package=(
 #rxvt-unicode-256xresources # Terminal Emulater according to gruvbox.vim
 anyenv
+screenkey # display typed-key; useful w/ peek
 arandr  # Gui config for xrandr
 bash-completion
 blacklist_pcspkr  # disable beep
@@ -34,6 +35,7 @@ clamav  # anti-virus for unix
 qt5-base-git  # a cross-platform app & UI framework for neovim-qt
 fcitx-qt5
 fcitx5-qt5-git  # Libraries for fcitx-qt5, too long to install
+peek # a screen recorder
 fzf
 gendesk
 global
@@ -46,6 +48,7 @@ neovim-nightly
 neovim-qt-git # has bug? in non-git ver.
 nerd-fonts-ricty
 pdfjs  # PDF viewer in browser
+ninja # a build system for clang
 pyenv
 python-falcon  # Solve fcitx problem on qute?
 python-msgpack # for neovim-qt
