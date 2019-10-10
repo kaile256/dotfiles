@@ -283,7 +283,7 @@ nnoremap <space>gp :GaddChunk<cr>
 
 " TODO: make :GstageChunk work: chunkStage to show the list of local logs.
 command! GstageChunk
-      \ :call window#extract()
+      \ :call window#harvest()
       \ | CocCommand git.chunkStage
       \ | CocList bcommits
 

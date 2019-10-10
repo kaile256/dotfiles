@@ -12,7 +12,7 @@ command! -nargs=+ Gclone :Git clone <q-args>
 "command! Glogmode :tabe | Glog
 
 function! fugitive#commit_with_diff() abort "{{1
-  call window#extract()
+  call window#harvest()
   " Keep to show diff w/ HEAD while editting commit-message.
   Gvdiffsplit! HEAD
   " For: makes user notice if any other changes in the buffer.
@@ -30,7 +30,7 @@ command! Gstage
 "command! Gunstage :G
 "noremap <silent> <space>g<a-u> :Gunstage<cr>
 command! GdiffMode
-      \ call window#extract()
+      \ call window#harvest()
       \ | Gvdiffsplit!
 
 " Info; Blame {{{

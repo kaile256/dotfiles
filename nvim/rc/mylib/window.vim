@@ -26,12 +26,13 @@ function! window#weed_out() abort "{{{1
 
 endfunction "}}}1
 
-function! window#extract() abort "{{{1
+function! window#harvest() abort "{{{1
   call window#weed_out()
   silent wincmd T
   " TODO:
   let t:window_extracted_window = win_getid()
 endfunction "}}}1
+
 command! QuickClose :call window#weed_out()
 
 function! window#floating() abort "{{{1
@@ -54,4 +55,4 @@ function! window#floating() abort "{{{1
 
   call nvim_open_win(buf, v:true, opts)
 endfunction "}}}1
-command! WinExtract :call window#extract()
+command! WinExtract :call window#harvest()

@@ -8,7 +8,7 @@ let g:extradite_diff_split = 'bot vs'
 
 " Show Local commit logs.
 command! GlocalLog
-      \ :call window#extract()
+      \ :call window#harvest()
       \ | exe 'bot '. &lines /2 .'sp <bar> Extradite'
 
 nnoremap <space>gu :<c-u>GlocalLog<cr>
