@@ -2,7 +2,7 @@
 
 [[plugins]]
 repo = 'kaile256/vim-among_HML'
-on_cmd = 'call among_HML#'
+on_cmd = 'among_HML#'
 hook_add = 'runtime add/among_HML.vim'
 
 [[plugins]]
