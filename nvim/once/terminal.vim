@@ -25,6 +25,9 @@ tnoremap <a-h> <c-\><c-n>h
 tnoremap <a-j> <c-\><c-n>j
 tnoremap <a-k> <c-\><c-n>k
 tnoremap <a-l> <c-\><c-n>l
+
+tnoremap <a-y> <c-\><c-n>y
+tnoremap <a-c> <c-\><c-n>c
 " TODO: keep <space> as a prefix
 tnoremap <a-space> <c-c><c-\><c-n><space>
 "}}}
