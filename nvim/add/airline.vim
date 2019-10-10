@@ -1,5 +1,8 @@
 " From: Init.toml
 
+set noshowmode
+set noruler
+
 let g:airline_theme='term'
 
 augroup AirlineAutoToggle
