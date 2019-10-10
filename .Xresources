@@ -75,8 +75,8 @@ URxvt.fading:               40
 ! Font list and Spacing
 URxvt.allow_bold: true
 URxvt.kanji_encoding: UTF-8
-!URxvt.font:                 xft:SF Mono:size=13:antialias=true
-URxvt.font:                 xft:Hack Nerd Font:size=13:antialias=true
+! rxvt cannot read nerd characters.
+URxvt.font:                 xft:SF Mono:size=13:antialias=true
 !URxvt.font:                 xft:Dejavu Sans Mono:size=12:antialias=true,xft:MyricaM M:size=14:antialias=true
 URxvt.letterSpace:          -1  ! prepare exagerated space esp. on Japanese Fonts.
 !URxvt.lineSpace:            2  ! expand space between command-lines.
