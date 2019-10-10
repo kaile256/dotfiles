@@ -68,18 +68,18 @@ configs=(
 # non-XDG based programs;
 # Create symbolic links at $HOME via $XDG_CONFIG_HOME.
 home_list=(
-  vim/.vimrc
-  x11/.Xmodmap
-  x11/.Xresources
-  bash/.bashrc
-  bash/.profile
-  ctags/.ctags
-  emacs/.doom.d
-  git/.gitconfig
-  git/.tigrc
-  nvim/gui/.gonvim
-  moc/.moc
-  zsh/.zshenv
+  .vimrc
+  .Xmodmap
+  .Xresources
+  .bashrc
+  .profile
+  .ctags
+  .doom.d
+  .gitconfig
+  .tigrc
+  .gonvim
+  .moc
+  .zshenv
 )
 
 for config_dir in "${configs[@]}"; do
@@ -101,7 +101,7 @@ echo "Done! All the dotfiles are linked to ${XDG_CONFIG_HOME}"
 
 cd "$HOME"
 for home_link in "${home_list[@]}"; do
-  ln -nsf "${XDG_CONFIG_HOME}/${home_link}" .
+  ln -nsf "${DOTFILES}/${home_link}" .
   echo "Done! create a symlink for ${home_link} on ${HOME}!"
 done
 

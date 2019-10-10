@@ -1,9 +1,4 @@
-! From: .xinitrc
-!  Ref: X11/.Xmodmap
-!  Ref: bash/env.sh
-! Comments: leave ! on head of line to comment out.
-!  Source: start with #include, like #include ".Xresources.d/xterm"
-! ~/.Xresources
+! xrdb reads this file
 
 ! XTERM
 XTerm*termName: xterm-256color
@@ -16,7 +11,7 @@ XTerm*locale: True
 XTerm*utf8Title: True
 XTerm*faceName: xft:DejaVu Sans Mono
 XTerm*faceNameDoublesize: xft:Ricty Nerd Font
-XTerm*faceSize: 9
+XTerm*faceSize: 6
 XTerm*scaleHeight: 1.08
 
 !! Color Scheme : Tomorrow Night
@@ -80,9 +75,7 @@ URxvt.fading:               40
 ! Font list and Spacing
 URxvt.allow_bold: true
 URxvt.kanji_encoding: UTF-8
-!URxvt.font:                 xft:MyricaM M:size=14:antialias=true
-!URxvt.font:                 xft:Ricty Discord Nerd Font:size=14:antialias=true
-URxvt.font:                 xft:Ricty Nerd Font:size=15:antialias=true
+URxvt.font:                 xft:SF Mono :size=13:antialias=true
 !URxvt.font:                 xft:Dejavu Sans Mono:size=12:antialias=true,xft:MyricaM M:size=14:antialias=true
 URxvt.letterSpace:          -1  ! prepare exagerated space esp. on Japanese Fonts.
 !URxvt.lineSpace:            2  ! expand space between command-lines.
