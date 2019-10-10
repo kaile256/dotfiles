@@ -25,6 +25,7 @@ function! window#weed_out() abort "{{{1
   call win_gotoid(l:id)
 
 endfunction "}}}1
+command! QuickClose :call window#weed_out()
 
 function! window#harvest() abort "{{{1
   call window#weed_out()
@@ -32,8 +33,7 @@ function! window#harvest() abort "{{{1
   " TODO:
   let t:window_extracted_window = win_getid()
 endfunction "}}}1
-
-command! QuickClose :call window#weed_out()
+command! WinExtract :call window#harvest()
 
 function! window#floating() abort "{{{1
   " Ref: https://github.com/junegunn/fzf.vim/issues/664
@@ -55,4 +55,3 @@ function! window#floating() abort "{{{1
 
   call nvim_open_win(buf, v:true, opts)
 endfunction "}}}1
-command! WinExtract :call window#harvest()
