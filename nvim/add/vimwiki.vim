@@ -5,10 +5,11 @@
 
 " Hotkey; Index {{{1
 command! MdwikiIndex :e ~/vimwiki/mdwiki/index.md
-nnoremap <silent> <space>ke :<c-u>VimwikiIndex <cr>
-nnoremap <silent> <space>kb :<c-u>tab sp <bar> VimwikiIndex <cr>
-nnoremap <silent> <space>kv :<c-u>vs <bar> VimwikiIndex <cr>
-nnoremap <silent> <space>ks :<c-u>sp <bar> VimwikiIndex <cr>
+command! TaskwikiIndex :e ~/vimwiki/task.wiki
+nnoremap <silent> <space>k<a-e> :<c-u>TaskwikiIndex <cr>
+nnoremap <silent> <space>k<a-b> :<c-u>tab sp <bar> TaskwikiIndex <cr>
+nnoremap <silent> <space>k<a-v> :<c-u>vs <bar> TaskwikiIndex <cr>
+nnoremap <silent> <space>k<a-s> :<c-u>sp <bar> TaskwikiIndex <cr>
 " Hotkey; Diary Today {{{1
 " dafault: -count=0, which makes me jump up to current root.
 " when <count> < 0, always brings me to *.wiki.
