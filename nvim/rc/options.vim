@@ -43,6 +43,9 @@ set pumheight=15
 " Appearance; Format {{{
 " wrap long text: s for space
 set wrap whichwrap=s
+augroup NoWrapWithinAWord
+  au! FileType * if !&modifiable | setl linebreak showbreak= | endif
+augroup END
 " `breakindent` keeps visually indented according to the actual line.
 set breakindent
 set showbreak=>\
@@ -209,7 +212,7 @@ augroup END
 "augroup END
 augroup SetFdmDotfiles
   au!
-  au BufNewFile,BufRead,BufWinEnter dotfiles/** if &fdm !=# 'marker' | set fdm=marker
+  au BufWinEnter .config/**,dotfiles/** if &fdm !=# 'marker' | set fdm=marker
   " TODO: Understand :mkview
   " mkview: save a file condition according to `:viewoptions`
 augroup END
