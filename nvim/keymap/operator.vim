@@ -1,39 +1,104 @@
-function! s:operate_line(direction) abort "{{{1
-  let l:operator = v:operator
-
-  "if execute('omap p') =~# 'operator#operate_line'
-  if execute('omap p') =~# '<Plug>(move-line-' "{{{2
-    if l:operator ==# 'd' && &diff
-      diffput
+function! s:line_operation(operation, direction) abort "{{{1
+  if a:operation ==# 'copy' "{{{2
+    " Note: :move/:copy doesn't work well if folded.
+    if a:direction ==# 'downward'
+      norm! yyp
+    elseif a:direction ==# 'upward'
+      norm! yyP
     endif
-  endif "}}}2
 
-  if a:direction ==# 'downward' "{{{2
-    if l:operator ==# 'y'
-      copy .
-    elseif l:operator ==# 'c' || l:operator ==# 'd'
-      move +1
+  elseif a:operation ==# 'move' "{{{2
+    if v:event.regname ==# '' && getline('.') ==# @"
+      let l:regname = '"_'
+      if a:direction ==# 'downward'
+        exe 'norm!' l:regname .'ddp'
+      elseif a:direction ==# 'upward'
+        exe 'norm!' l:regname .'ddkP'
+      endif
     endif
-    "}}}2
-
-  elseif a:direction ==# 'upward' "{{{2
-    if l:operator ==# 'y'
-      copy -1
-    elseif l:operator ==# 'c' || l:operator ==# 'd'
-      move -2
-    endif
-  endif "}}}2
+  endif
 endfunction "}}}1
 
-onoremap <silent> <Plug>(move-line-downward) <esc>:call <SID>operate_line('downward')<cr>
-onoremap <silent> <Plug>(move-line-upward)   <esc>:call <SID>operate_line('upward')<cr>
-omap p <Plug>(move-line-downward)
-omap P <Plug>(move-line-upward)
+"nnoremap <silent> <Plug>(move-line-downward) :call <SID>line_operation('move', downward')<cr>
+"nnoremap <silent> <Plug>(move-line-upward)   :call <SID>line_operation('move', 'upward')<cr>
+"nnoremap <silent> <Plug>(copy-line-downward) :call <SID>line_operation('copy', downward')<cr>
+"nnoremap <silent> <Plug>(copy-line-upward)   :call <SID>line_operation('copy', 'upward')<cr>
+"nnoremap <silent> <Plug>(copy-line-upward)   :call <SID>line_operation('copy', 'upward')<cr>
 
-"onoremap <expr>p operator#operate_line('downward')
-"onoremap <expr>p operator#operate_line('upward')
+" TODO: make '"_' pattern work
+nnoremap <expr> <Plug>(move-line-downward) (getline('.') ==# @")? '"_ddp': 'ddp'
+nnoremap <expr> <Plug>(move-line-upward)   (getline('.') ==# @")? '"_ddkP': 'ddkP'
+nnoremap <expr> <Plug>(copy-line-downward) (getline('.') ==# @")? '"_yyP': 'yyp'
+nnoremap <expr> <Plug>(copy-line-upward)   (getline('.') ==# @")? '"_yyP': 'yyP'
 
-"nnoremap <silent> yp :copy .<cr>
-"nnoremap <silent> yP :copy -1<cr>
-"nnoremap <silent> cp :move +1<cr>
-"nnoremap <silent> cP :move -2<cr>
+nmap cp <Plug>(move-line-downward)
+nmap cP <Plug>(move-line-upward)
+nmap yp <Plug>(copy-line-downward)
+nmap yP <Plug>(copy-line-upward)
+
+"nmap cp :silent! call repeat#set('\<Plug>(move-line-downward')<cr>
+"nmap cP :silent! call repeat#set('\<Plug>(move-line-upward')<cr>
+"nmap yp :silent! call repeat#set('\<Plug>(copy-line-downward')<cr>
+"nmap yP :silent! call repeat#set('\<Plug>(copy-line-upward')<cr>
+
+augroup EchoOperated
+  au! TextYankPost * call <SID>echo_operated()
+  function! s:echo_operated() abort "{{{1
+    if v:event.operator ==# 'y'
+      let l:operated = 'Yanked'
+    elseif v:event.operator ==# 'd'
+      let l:operated = 'Deleted'
+    elseif v:event.operator ==# 'c'
+      let l:operated = 'Cut'
+    elseif v:event.operator ==# ''
+      let l:operated = 'Done'
+    else
+      let l:operated = v:event.operator
+    endif
+
+    if v:event.regname ==# ''
+      let l:regname = '"'
+    elseif !empty(v:event.regname)
+      let l:regname = v:event.regname
+    else
+      let l:regname = 'unknown'
+    endif
+
+    if v:event.regtype ==# 'v'
+      let l:regtype = 'in Charater'
+    elseif v:event.regtype ==# 'V'
+      let l:regtype = 'in Line'
+    elseif v:event.regtype ==# '\<c-v>'
+      let l:regtype = 'in Block'
+    else
+      let l:regtype = 'in an unknown way'
+    endif
+
+    let l:contents = string(v:event.regcontents)
+    echomsg ' '. l:operated .' @'. l:regname l:regtype .': '. l:contents
+  endfunction "}}}1
+augroup END
+
+" TODO: Ignore difference of line's height.
+function! s:backup_yanked_contents() "{{{
+  if !exists('g:maps_KAIZEN#backuplist_regnames')
+    throw " Please :let g:maps_KAIZEN#backuplist_regnames = '(a sequence of optional alphabets of register's name)'"
+  endif
+  if !exists('g:maps_KAIZEN#last_address')
+    let g:maps_KAIZEN#last_address = 0
+  endif
+  if g:maps_KAIZEN#last_address < len(g:maps_KAIZEN#backuplist_regnames) - 1
+    let g:maps_KAIZEN#last_address = g:maps_KAIZEN#last_address + 1
+  else
+    " Resets the counter of address here.
+    let g:maps_KAIZEN#last_address = 0
+  endif
+  "let g:last_address = (g:last_address - 1) % len(g:backuplist_regnames)
+  let g:maps_KAIZEN#latest_backup_regname =  g:maps_KAIZEN#backuplist_regnames[g:maps_KAIZEN#last_address]
+  exe 'let @' . g:maps_KAIZEN#latest_backup_regname .'= getreg(0)'
+endfunction "}}}
+let g:maps_KAIZEN#backuplist_regnames = 'abcdefg'
+command! BackupYanked :call s:backup_yanked_contents()
+nnoremap <silent> y :BackupYanked<cr>y
+nnoremap <silent> Y :BackupYanked<cr>y$
+
