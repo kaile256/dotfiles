@@ -206,7 +206,6 @@ https://github.com/winneon/gsu winneon/gsu: A general screenshot and upload util
 https://github.com/iamcco/diagnostic-languageserver iamcco/diagnostic-languageserver: diagnostic language server integrate with linters
 https://github.com/matze/vim-move matze/vim-move: Plugin to move lines and selections up and down
 https://qiita.com/shibukk/items/67ad0a5eda5a94e5c032 githubでライセンスを設定する - Qiita
-https://github.com/kaile256/vim-among_HML kaile256/vim-among_HML: Have you ever wanted to jump in a quarter of window?
 https://github.com/settings/profile Your Profile
 https://coliss.com/articles/build-websites/operation/work/choose-a-license-by-github.html たくさんあるオープンソースライセンスのそれぞれの特徴のまとめ | コリス
 https://help.github.com/en/articles/adding-a-license-to-a-repository Adding a license to a repository - GitHub Help
@@ -238,3 +237,10 @@ https://eigobu.jp/magazine/should 【完全版】「should」の2つの意味と
 https://github.com/kaile256/vim-sensible_K kaile256/vim-sensible_K
 https://qiita.com/kaneshin/items/0d19fc1cd86f931dc855 Gitリポジトリをメンテナンスして軽量化する - Qiita
 https://japan.blogs.atlassian.com/2014/05/handle-big-repositories-git/ 巨大なリポジトリ を Git で上手く扱う方法 | Atlassian Blogs
+https://github.com/iamcco/sran.nvim iamcco/sran.nvim: simple request and notification call for (neo)vim
+https://github.com/kaile256/vimwiki kaile256/vimwiki
+https://github.com/kaile256/vimwiki/tree/master/cpp-intro vimwiki/cpp-intro at master · kaile256/vimwiki
+https://github.com/junegunn/vim-plug junegunn/vim-plug: Minimalist Vim Plugin Manager
+https://github.com/kaile256/vim-among_HML kaile256/vim-among_HML: Extend H/M/L motion!
+https://github.com/Microsoft/tslib microsoft/tslib: Runtime library for TypeScript helpers.
+https://compressor.io/ Compressor.io - optimize and compress JPEG photos and PNG images

@@ -50,12 +50,13 @@ settings:
       unmap: unbind
       vmap: bind -m caret
       vunmap: unbind -m caret
+      w: save
       wq: quit --save
       wqa: quit --save
   auto_save.session:
     global: false
   backend:
-    global: webengine
+    global: webkit
   bindings.commands:
     global:
       caret:
@@ -333,6 +334,8 @@ settings:
     global: true
   new_instance_open_target:
     global: tab
+  qt.highdpi:
+    global: false
   qt.process_model:
     global: process-per-site-instance
   scrolling.bar:
