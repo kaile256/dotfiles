@@ -9,6 +9,7 @@ command! -nargs=+ -complete=dir HubCreate
       \ !hub create <args>
 
 command! -nargs=+ Gclone :Git clone <q-args>
+"command! Glogmode :tabe | Glog
 
 function! fugitive#commit_with_diff() abort "{{1
   call window#extract()
@@ -57,7 +58,7 @@ function! s:on_gitcommit_startinsert() "{{{1
   endif
 endfunction "}}}
 
-function! s:on_fugitive_keymap()
+function! s:keymap_fugitive()
   " TODO: Specify the window of the latest commit buffer on `dq`.
   nnoremap <buffer><silent> cc    :<C-U>bot 20 Gcommit<CR>
   nnoremap <buffer><silent> ca    :<C-U>bot 20 Gcommit --amend<CR>
@@ -69,10 +70,15 @@ function! s:on_fugitive_keymap()
   nmap <buffer> S <Plug>(fugitive:gstage-prev-window)
 endfunction
 
+function! s:keymap_gitlog() abort
+  nnoremap <buffer><silent> <c-o> :cnext<cr>
+  nnoremap <buffer><silent> <c-i> :cprev<cr>
+endfunction
 augroup FugitiveCallMyFunc "{{{1
   au!
-  au FileType fugitive  call <SID>on_fugitive_keymap()
+  au FileType fugitive  call <SID>keymap_fugitive()
   au FileType gitcommit call <SID>on_gitcommit_startinsert()
+  au FIleType git call <SID>keymap_gitlog()
 augroup END "}}}
 augroup OnFugitiveBuffer
   au!
