@@ -3,7 +3,7 @@
 
 " CAUTION: useless if &shell=fish
 
-let g:twiggy_split_method = 'botright' "
+let g:twiggy_split_method = 'botright'
 
 " Values can be 'aplha', 'mru', 'date' or 'track'
 let g:twiggy_close_on_fugitive_command = 1
