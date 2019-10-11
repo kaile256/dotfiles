@@ -244,3 +244,4 @@ https://github.com/junegunn/vim-plug junegunn/vim-plug: Minimalist Vim Plugin Ma
 https://github.com/kaile256/vim-among_HML kaile256/vim-among_HML: Extend H/M/L motion!
 https://github.com/Microsoft/tslib microsoft/tslib: Runtime library for TypeScript helpers.
 https://compressor.io/ Compressor.io - optimize and compress JPEG photos and PNG images
+qute://warning/webkit QtWebKit backend warning

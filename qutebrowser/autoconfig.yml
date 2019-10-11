@@ -56,7 +56,7 @@ settings:
   auto_save.session:
     global: false
   backend:
-    global: webkit
+    global: webengine
   bindings.commands:
     global:
       caret:
