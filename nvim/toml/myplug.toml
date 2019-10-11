@@ -7,6 +7,13 @@ hook_add = 'runtime add/among_HML.vim'
 
 [[plugins]]
 repo = 'kaile256/vim-sensible_K'
-# Note: defines no map/cmd, only using augroup.
+# Note: the plugin defines no map/cmd, only using augroup.
 on_event = 'VimEnter'
 hook_add = 'runtime add/sensible_K.vim'
+
+[[plugins]]
+repo = 'kaile256/vim-window-picker'
+depends = ['fzf.vim', 'vim-fugitive', 'coc.nvim']
+#on_cmd = 'winpick#'
+on_event = 'VimEnter'
+hook_add = 'runtime add/winpick.vim'
