@@ -1,5 +1,5 @@
 scriptencoding utf-8
-" From: insert.toml
+" From: japanese.toml
 " Repo: tyru/eskk.vim
 
 " TODO: Tell current mode of skk on airline/lightline
