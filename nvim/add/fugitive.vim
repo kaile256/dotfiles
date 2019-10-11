@@ -11,6 +11,27 @@ command! -nargs=+ -complete=dir HubCreate
 command! -nargs=+ Gclone :Git clone <q-args>
 "command! Glogmode :tabe | Glog
 
+function! fugitive#commit_with_diff() abort "{{1
+  call winpick#harvest()
+  " Keep to show diff w/ HEAD while editting commit-message.
+  Gvdiffsplit! HEAD
+  " For: makes user notice if any other changes in the buffer.
+  norm gg
+  vert bot 35 Gstatus
+  setl winfixwidth
+  wincmd =
+endfunction "}}}
+command! Gstage
+      \ :Gw | call fugitive#commit_with_diff()
+" in new tab, if any unnecessary windows are there.
+" TODO: set unstage
+" &@:<C-U>execute <SNR>277_Do('Unstage',0)<CR>
+" &@:exe <SNR>277_EchoExec('reset', '-q')<CR>
+"command! Gunstage :G
+"noremap <silent> <space>g<a-u> :Gunstage<cr>
+command! GdiffMode
+      \ call winpick#harvest()
+      \ | Gvdiffsplit!
 
 " Info; Blame {{{
 nnoremap <silent> <space>gb     :<c-u>Gblame<cr>
@@ -29,7 +50,7 @@ nnoremap <silent> <space>gw     :<c-u>Gstage<cr>
 nnoremap <silent> <space>gd     :<c-u>GdiffMode<cr>
 "}}}
 
-function! s:on_gitcommit_startinsert() "{{{1
+function! s:gitcommit_startinsert() "{{{1
   if getline(1) ==# ''
     if getline(2) ==# '# Please enter the commit message for your changes. Lines starting'
       startinsert
@@ -58,7 +79,7 @@ endfunction
 augroup FugitiveCallMyFunc "{{{1
   au!
   au FileType fugitive  call <SID>keymap_fugitive()
-  au FileType gitcommit call <SID>on_gitcommit_startinsert()
+  au FileType gitcommit call <SID>gitcommit_startinsert()
   au FIleType git       call <SID>keymap_gitlog()
 augroup END "}}}
 augroup OnFugitiveBuffer
