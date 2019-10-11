@@ -1,7 +1,7 @@
 " From: myplug.toml
 " Repo: kaile256/vim-window-picker
 
-let g:window_weed_list = [
+let g:winpick_weed_list = [
       \ 'fugitive:\/\/',
       \ 'twiggy:\/\/',
       \ ]
@@ -25,40 +25,16 @@ nnoremap <expr> <c-w><c-o> (&diff)? ':<c-u>WinpickWeedout<cr><c-w>o': '<c-w>o'
 nnoremap <expr> <c-w>o     (&diff)? ':<c-u>WinpickWeedout<cr><c-w>o': '<c-w>o'
 
 " Depends on other plugins;;;
-
-" Ref: add/fugitive.vim {{{1
-function! fugitive#commit_with_diff() abort "{{2
-  call winpick#harvest()
-  " Keep to show diff w/ HEAD while editting commit-message.
-  Gvdiffsplit! HEAD
-  " For: makes user notice if any other changes in the buffer.
-  norm gg
-  vert bot 35 Gstatus
-  setl winfixwidth
-  wincmd =
-endfunction "}}}2
-
-command! Gstage
-      \ :Gw
-      \ | call fugitive#commit_with_diff()
-
-" in new tab, if any unnecessary windows are there.
-" TODO: set unstage
-" &@:<C-U>execute <SNR>277_Do('Unstage',0)<CR>
-" &@:exe <SNR>277_EchoExec('reset', '-q')<CR>
-"command! Gunstage :G
-"noremap <silent> <space>g<a-u> :Gunstage<cr>
-command! GdiffMode
-      \ call winpick#harvest()
-      \ | Gvdiffsplit!
-
-"}}}1
+" fugitive#foo() must match the filename.
 
 " add/coc.vim
 " TODO: make :GstageChunk work: chunkStage to show the list of local logs.
-command! GstageChunk
+command! GaddChunk
       \ :call winpick#harvest()
       \ | CocCommand git.chunkStage
+nnoremap <silent> gc :GaddChunk<cr>
+command! GstageChunk
+      \ :GaddChunk
       \ | CocList bcommits
 
 let g:fzf_layout = { 'window': 'call winpick#floating()' }
