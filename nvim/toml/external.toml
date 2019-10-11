@@ -44,26 +44,27 @@ on_source = 'coc.nvim'
 hook_post_source = 'runtime add/actionmenu.vim'
 #}}}
 
-# Git;
+# Git
+#[[plugins]]
+#repo = 'iamcco/sran.nvim'
+#if = 'has("nvim") || version >= 801'
+#hook_post_update = 'call sran#util#install()'
+#type = 'git'
+#on_event = 'BufRead'
+#hook_add = 'runtime add/sran.vim'
+#[[plugins]]
+#repo = 'iamcco/git-p.nvim'
+#type = 'git'
+#on_event = 'BufWinEnter'
+#hook_add = 'runtime add/git-p.vim'
 [[plugins]] # has extentions
 repo = 'tpope/vim-fugitive' #{{{
 type = 'git'
 on_event = 'BufRead'
 hook_add = 'runtime add/fugitive.vim'
-# Fugitive; Local Log Viewer
-[[plugins]]
-repo = 'int3/vim-extradite' #{{{
-type = 'git'
-# Also provides diff viewer.
-# Momo: on_cmd doesn't work.
-#on_cmd = ':Extradite'
-on_event = 'BufRead'
-hook_add = 'runtime add/extradite.vim'
-#}}}
 # Fugitive; Branch Viewr
 #[[plugins]]
 #repo = 'sodapopcan/vim-twiggy' #{{{
-#type = 'git'
 #on_cmd = ':Twiggy'
 #hook_add = 'runtime add/twiggy.vim'
 ##}}}
@@ -92,12 +93,23 @@ repo = 'shumphrey/fugitive-gitlab.vim' #{{{
 on_cmd = 'Gbrowse'
 hook_post_source = 'runtime add/fugitive-gitlab.vim'
 #}}}
-## Fugitive; Log Wrapper
+# Fugitive; Log Wrapper
 #[[plugins]]
 #repo = 'rbong/vim-flog' #{{{
-#on_event = ['BufRead']
+#type = 'git'
+#on_cmd = 'Flog'
 #hook_post_source = 'runtime add/flog.vim'
-#}}}
+##}}}
+# Fugitive; Local Log Viewer
+#[[plugins]]
+#repo = 'int3/vim-extradite' #{{{
+#type = 'git'
+## Also provides diff viewer.
+## Momo: on_cmd doesn't work.
+##on_cmd = 'Extradite'
+#on_event = 'BufRead'
+#hook_add = 'runtime add/extradite.vim'
+##}}}
 ## Fugitive; Diff Wrapper
 #[[plugins]]
 #repo = 'arkwright/vim-manhunt' #{{{
@@ -118,6 +130,12 @@ hook_post_source = 'runtime add/fugitive-gitlab.vim'
 #hook_post_source = 'runtime add/committia.vim'
 ##}}}
 #}}} End of Fugitive
+[[plugins]]
+repo = 'cohama/agit.vim' #{{{
+# Log viewer
+on_cmd = 'Agit'
+hook_post_source = 'runtime add/agit.vim'
+#}}}
 #[[plugins]]
 #repo = 'airblade/vim-gitgutter' #{{{
 ## enough only with coc.nvim & fugitive.vim?
