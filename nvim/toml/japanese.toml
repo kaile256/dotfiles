@@ -8,8 +8,7 @@
 # Imput Method
 [[plugins]] # has extensions
 repo = 'tyru/eskk.vim' #{{{
-# Note: on_map fails to work in insert mode.
-on_event = ['InsertEnter', 'CmdlineEnter']
+on_cmd = 'eskk#enable()'
 hook_add = 'runtime add/eskk.vim'
 [[plugins]]
 repo = 'tyru/skkdict.vim' #{{{
