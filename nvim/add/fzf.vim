@@ -24,8 +24,6 @@ augroup END "}}}1
 
 "let g:fzf_layout = { 'down': '~25%' }
 
-let g:fzf_layout = { 'window': 'call window#floating()' }
-
 let g:fzf_command_prefix = 'Fzf'
 " Execute selected command
 let g:fzf_commands_expect = 'ctrl-x'

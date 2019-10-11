@@ -281,13 +281,9 @@ command! GaddChunk :CocCommand git.chunkStage
 " Mnemonic: Git Put (similar to dp as diffput)
 nnoremap <space>gp :GaddChunk<cr>
 
-" TODO: make :GstageChunk work: chunkStage to show the list of local logs.
-command! GstageChunk
-      \ :call window#harvest()
-      \ | CocCommand git.chunkStage
-      \ | CocList bcommits
-
 nnoremap U  :CocCommand git.chunkUndo<cr>
+" Ref: add/winpick.vim
+
 " Similar to the navigation on &diff
 nmap <expr> [c (&diff)? '[c': '<Plug>(coc-git-prevchunk)'
 nmap <expr> ]c (&diff)? ']c': '<Plug>(coc-git-nextchunk)'
