@@ -22,11 +22,6 @@ nnoremap <c-w><a-t> <c-w>v<c-w>T
 inoremap <silent> <c-l>              <Cmd>noh<cr><c-o><c-l>
 nnoremap <silent> <c-space><space>   :<c-u>noh      <cr><c-l>
 nnoremap <silent> <c-space><c-space> :<c-u>noh      <cr><c-l>
-nnoremap <silent> <a-space><space>   :QuickClose<cr>
-nnoremap <silent> <a-space><a-space> :QuickClose<cr>
-onoremap <expr> q (v:operator ==# 'd')? ':<c-u>call window#weed_out()<cr>': 'q'
-nnoremap <expr> <c-w><c-o> (&diff)? ':<c-u>call window#weed_out()<cr><c-w>o': '<c-w>o'
-nnoremap <expr> <c-w>o     (&diff)? ':<c-u>call window#weed_out()<cr><c-w>o': '<c-w>o'
 
 " Resize; Neutralize
 nnoremap <c-w>0 <c-w>=
