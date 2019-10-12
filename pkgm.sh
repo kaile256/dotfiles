@@ -27,7 +27,7 @@ Package=(
   #rxvt-unicode-256xresources # Terminal Emulater according to gruvbox.vim
   alacritty
   anyenv
-  screenkey # display typed-key; useful w/ peek
+  screenkey-git # display typed-key; useful w/ peek
   cmake
   clang
   arandr  # Gui config for xrandr
@@ -39,7 +39,7 @@ Package=(
   npm # necessary for coc's command at all even w/ yarn
   fcitx-qt5
   #fcitx5-qt5-git  # Libraries for fcitx-qt5, too long to install
-  #peek # a screen recorder
+ #peek # a screen recorder
   fzf
   #gendesk # what?
   global
@@ -169,6 +169,13 @@ sudo luarocks install lcf
 # Rustup -- cargo
 # Ref: https://www.rust-lang.org/tools/install
 curl https://sh.rustup.rs -sSf | sh
+rustup install stable
+rustup default stable
+# rust-analyzer -- LSP
+git clone --depth=1 https://github.com/rust-analyzer/rust-analyzer && cd rust-analyzer
+rustup component add rust-src
+cargo install-ra --server
+
 #source /home/kaile256/.local/share/cargo/env
 
 # for executable lsp
