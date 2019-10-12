@@ -1,4 +1,4 @@
-" From: external.toml
+" From: git.toml
 " Repo: int3/vim-extradite
 
 "let g:extradite_width = ''
