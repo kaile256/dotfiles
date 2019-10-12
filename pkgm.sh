@@ -4,8 +4,8 @@ set -Cu
 
 # INSTALLER IDENTIFICATION
 Installer=(
-apt
-pacman
+  apt
+  pacman
 )
 for i in ${Installer[@]}; do
   type $i >> /dev/null 2>&1 && export INSTALLER="$i"
@@ -15,8 +15,8 @@ done
 
 declare -A Install
 Install=(
-['pacman']='pacman -S'
-['apt']='apt install'
+  ['pacman']='pacman -S'
+  ['apt']='apt install'
 )
 
 export install="${Install[$INSTALLER]}"
@@ -24,70 +24,66 @@ echo "$INSTALLER will install package via '$install'!!"
 
 #### WANTED-PACKAGES INSTALLATION
 Package=(
-#rxvt-unicode-256xresources # Terminal Emulater according to gruvbox.vim
-anyenv
-screenkey # display typed-key; useful w/ peek
-arandr  # Gui config for xrandr
-bash-completion
-blacklist_pcspkr  # disable beep
-cargo  # select rustup
-clamav  # anti-virus for unix
-qt5-base-git  # a cross-platform app & UI framework for neovim-qt
-fcitx-qt5
-fcitx5-qt5-git  # Libraries for fcitx-qt5, too long to install
-peek # a screen recorder
-fzf
-gendesk
-global
-go
-googlecl  # google api for cli
-hub  # an official wrapper of git
-jinja2 # for neovim-qt
-luarocks
-neovim-nightly
-neovim-qt-git # has bug? in non-git ver.
-nerd-fonts-ricty
-pdfjs  # PDF viewer in browser
-ninja # a build system for clang
-pyenv
-python-falcon  # Solve fcitx problem on qute?
-python-msgpack # for neovim-qt
-python-oauth2client
-python-pfp # hex editor tool
-python-pipenv
-python-tasklib # py-lib for taskwarrior
-rclone  # sync lib for cloud-service like dropbox, Gdrive.
-ripgrep
-ruby
-rxvt-unicode-truecolor
-shellcheck  # a linter for shell
-task # taskwarrior
-the_silver_searcher # ag
-tlp   # Save Battery of PC
-ttf-font-icons  # Mix Icon with Awesome & Ionicons without Confliction.
-vimiv
-vmail
-xf86-input-synaptics  # enable config for Touchpad
-xorg-xbacklight  # backlight
-yarn
-zsh
+  #rxvt-unicode-256xresources # Terminal Emulater according to gruvbox.vim
+  alacritty
+  anyenv
+  screenkey # display typed-key; useful w/ peek
+  arandr  # Gui config for xrandr
+  bash-completion
+  blacklist_pcspkr  # disable beep
+  cargo  # select rustup
+  clamav  # anti-virus for unix
+  #qt5-base-git  # a cross-platform app & UI framework for neovim-qt
+  npm # necessary for coc's command at all even w/ yarn
+  fcitx-qt5
+  #fcitx5-qt5-git  # Libraries for fcitx-qt5, too long to install
+  #peek # a screen recorder
+  fzf
+  gendesk # what?
+  global
+  go
+  googlecl  # google api for cli
+  hub  # an official wrapper of git
+  #jinja2 # for neovim-qt
+  luarocks
+  neovim-nightly
+  neovim-qt-git # non-git ver. has a bug, missing its depending lib.
+  nerd-fonts-ricty
+  pdfjs  # PDF viewer in browser
+  ninja # a build system for clang
+  pyenv
+  rclone  # sync lib for cloud-service like dropbox, Gdrive.
+  ripgrep
+  ruby
+  #rxvt-unicode-truecolor
+  shellcheck  # a linter for shell
+  task # taskwarrior
+  the_silver_searcher # ag
+  tlp   # Save Battery of PC
+  ttf-font-icons  # Mix Icon with Awesome & Ionicons without Confliction.
+  vimiv
+  vmail
+  #xf86-input-synaptics  # use xinput to enable config for Touchpad
+  xorg-xbacklight  # backlight
+  yarn
+  zsh
 )
 
 Manjaro=(
-dmenu-manjaro
-i3pystatus
-i3-style
-bluez   # for Bluetooth
-bluez-utils
-skk-jisyo
-libskk
-fcitx-skk
-skk-emoji-jisyo
-skktools
+  dmenu-manjaro
+  i3pystatus
+  i3-style
+  bluez   # for Bluetooth
+  bluez-utils
+  skk-jisyo
+  libskk
+  fcitx-skk
+  skk-emoji-jisyo
+  skktools
 )
 
 Depend=(
-#dropbox-cli
+  #dropbox-cli
 )
 
 for package in ${Package[@]}; do
@@ -113,15 +109,17 @@ for package in ${Package[@]}; do
         echo "Try to yay to install $package..." && yay -S $package
       fi
     }
-fi
+  fi
 done
 
 # Yarn
 YarnPack=(
-yaml-language-server
-vim-language-server
-tslib
-neovim
+  yaml-language-server
+  diagnostic-languageserver
+  vim-language-server
+  go-language-server
+  #tslib
+  neovim
 )
 
 cd ~
@@ -139,12 +137,16 @@ git clone https://github.com/hlissner/doom-emacs ~/.emacs.d
 #
 #(create-fontset-from-ascii-font "SF Mono-12:weight=normal:slant=normal" nill "Cica-12")
 
-GemRepos=(
-neovim
-)
-
 PipRepos=(
-pynvim
+  falcon  # Solve fcitx problem on qute?
+  #msgpack # for neovim-qt
+  #oauth2client
+  pfp # hex editor tool
+  pipenv
+  tasklib # py-lib for taskwarrior
+)
+GemRepos=(
+  neovim
 )
 
 # LSP
@@ -162,9 +164,9 @@ sudo luarocks install lcf
 # Rustup -- cargo
 # Ref: https://www.rust-lang.org/tools/install
 curl https://sh.rustup.rs -sSf | sh
-source /home/kaile256/.local/share/cargo/env
+#source /home/kaile256/.local/share/cargo/env
 
 # for executable lsp
-sudo npm i -g bash-language-server
+#sudo npm i -g bash-language-server
 # for go-lsp, gopls
 GO111MODULE=on go get golang.org/x/tools/gopls@latest
