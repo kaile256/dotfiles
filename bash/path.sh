@@ -12,16 +12,13 @@ export PATH="$PYENV_ROOT/bin:$PATH"
 
 # Ruby
 ## gem
-type ruby >> /dev/null && eval ruby --version | grep 2.6. >> /dev/null &&
-  export PATH="$HOME/.gem/2.6.0:$PATH"
+export PATH="$HOME/.gem/2.6.0:$PATH"
 
 # Go
-if [ ! -z $GOPATH ]; then
-  export PATH="$GOPATH/bin:$PATH"
-fi
+export PATH="$GOPATH/bin:$PATH"
 
 ## Nodejs
 export PATH="$HOME/.node_modules/bin:$PATH"
+
 ## yarn
 export PATH="$HOME/.yarn/bin:$PATH"
-export PATH="$HOME/.config/yarn/global/node_modules/.bin:$PATH"

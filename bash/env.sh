@@ -32,20 +32,19 @@ export FZF_PREVIEW_DIR_CMD="ls"
 #export FZF_DEFAULT_OPTS="--height $FZF_TMUX_HEIGHT"
 
 # Go
-export DEVROOT="$HOME/dev"
-export GOPATH="$DEVROOT/go"
+export GOPATH="$HOME/.go"
 ## Ghq
 export GHQ_ROOT="$GOPATH/src"
 
 # Rust
-export CARGO_HOME="$DEVROOT/cargo"
-export RUSTUP_HOME="$DEVROOT/rustup"
+export CARGO_HOME="$HOME/.cargo"
+export RUSTUP_HOME="$HOME/.rustup"
 
 # Python
-export PYENV_ROOT="$DEVROOT/env/pyenv"
+export PYENV_ROOT="$HOME/.pyenv"
 
 # Ruby
-export GEM_HOME="$DEVROOT/gem"
+export GEM_HOME="$HOME/.gem"
 
 # Haskell
-export STACK_ROOT="$DEVROOT/haskell/stack"
+export STACK_ROOT="$HOME/.haskell/stack"
