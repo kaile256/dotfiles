@@ -72,7 +72,7 @@ home_list=(
   .Xmodmap
   .Xresources
   .bashrc
-  .profile
+  .bash_profile
   .ctags
   .doom.d
   .gitconfig
