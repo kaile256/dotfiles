@@ -246,3 +246,5 @@ https://github.com/Microsoft/tslib microsoft/tslib: Runtime library for TypeScri
 https://compressor.io/ Compressor.io - optimize and compress JPEG photos and PNG images
 qute://warning/webkit QtWebKit backend warning
 https://github.com/iamcco/coc-diagnostic iamcco/coc-diagnostic: diagnostic-languageserver extension for coc.nvim
+https://github.com/iamcco/coc-vimlsp iamcco/coc-vimlsp: vim language server
+https://github.com/MaskRay/ccls MaskRay/ccls: C/C++/ObjC language server supporting cross references, hierarchies, completion and semantic highlighting
