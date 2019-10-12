@@ -12,6 +12,7 @@ hook_source = 'runtime source/vimwiki.vim'
 repo = 'tbabej/taskwiki'
 if = 'executable("task")'
 on_source = 'vimwiki'
+hook_post_update = '!pip install --user --upgrade -r requirements.txt'
 hook_source = 'runtime add/taskwiki.vim'
 [[plugins]]
 repo = 'powerman/vim-plugin-AnsiEsc'
