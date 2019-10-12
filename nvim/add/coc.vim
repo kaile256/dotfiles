@@ -17,6 +17,12 @@ augroup CocMyAutoConf
   "au CursorHold * silent call CocActionAsync('highlight')
 augroup END
 
+" Ref: coc/extensions/node_modules/coc-vimlsp/README.md
+let g:markdown_fenced_languages = [
+      \ 'vim',
+      \ 'help'
+      \]
+
 " Note: <c-o> in coc's cmdline get to normal mode of coc.nvim
 " the List of CocExtentions; "{{{1
 " Note: Have to install LSPs independently.
