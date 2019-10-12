@@ -51,7 +51,6 @@ let g:coc_global_extensions = [
       \ 'coc-project',
       \ 'coc-python',
       \ 'coc-rls',
-      \ 'coc-rust-analyzer',
       \ 'coc-solargraph',
       \ 'coc-sql',
       \ 'coc-tag',
@@ -80,6 +79,8 @@ command! Ccmd       :CocCommand
 command! Clist      :CocList
 command! Coc        :CocList
 command! Cextensions :CocList    extensions
+"command! -nargs=+ Csearch        :CocSearch <q-args>
+"command! -nargs=+ Cgrep        :CocList grep -regex <q-args>
 "command! Ctemplate   :CocCommand template.templateTop
 "command! Cinit       :CocCommand template.templateTop
 "command! Init        :CocCommand template.templateTop
