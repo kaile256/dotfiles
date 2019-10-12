@@ -60,9 +60,9 @@ if exists('g:GuiLoaded')
   " <bang> for Japanese.
   "GuiFont! SF Mono:h12
   "GuiFont! Myrica M:h15
-  if GuiName() ==# 'nvim-qt'
-    " TODO: I'd like to use Japanese on Qt.
-  endif
+  "if GuiName() ==# 'nvim-qt'
+  "  " TODO: I'd like to use Japanese on Qt.
+  "endif
 endif
 
 if exists('gonvim_running') "{{{1
