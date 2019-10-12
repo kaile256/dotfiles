@@ -26,7 +26,7 @@ function! keymap#generater(prefix, cmd, opt) abort
         \ g:nvim_home   : 'v',
         \ g:cache_home  : 'c',
         \ g:config_home : 'f',
-        \ g:my_dotfiles : 'd',
+        \ g:dotfiles_home : 'd',
         \ '/'           : 'r',
         \ ''            : '.',
         \ '%:p:h'       : 'w',
