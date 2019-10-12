@@ -132,51 +132,50 @@ command! RgDiary :Rg ~/vimwiki/diary
 command! C :FzfColors
 command! H :FzfHelptags
 
-" Keymap; Ag {{{1
-if !executable('ag')
-  nnoremap <silent><nowait> <a-a> :<c-u>echo "You don't have executable 'silver searcher'"<cr>
-else
-  nnoremap <silent> <space>a.     :<c-u>Ag<cr>
-  nnoremap <silent> <space>aw     :<c-u>cd %:p:h<cr>                   :Ag<cr>
-  nnoremap <silent> <space>ah     :<c-u>cd ~<cr>                       :Ag<cr>
-  nnoremap <silent> <space>ad     :<c-u>cd ~/dotfiles<cr>              :Ag<cr>
-  nnoremap <silent> <space>ag     :<c-u>cd ~/.config<cr>               :Ag<cr>
-  nnoremap <silent> <space>av     :<c-u>cd ~/.config/nvim<cr>          :Ag<cr>
-  nnoremap <silent> <space>al     :<c-u>cd ~/.local/share<cr>          :Ag<cr>
-  nnoremap <silent> <space>ar     :<c-u>cd /usr/share/nvim/runtime<cr> :Ag<cr>
-  nnoremap <silent> <space>ac     :<c-u>cd <c-r>=expand(g:dein_cache_dir)<cr><cr> :Ag<cr>
-endif
-"}}}
-" Keymap; Rg {{{1
-if !executable('rg') "{{{2
-  nnoremap <silent><nowait> <space>r :<c-u>echo "You don't have executable 'ripgrep'"<cr>
-else "}}}
-  "" Rg; w/ `:cd` {{{2
-  nnoremap <silent> <space>r.     :<c-u>Rg<cr>
-  nnoremap <silent> <space>rw     :<c-u>cd %:p:h<cr>                              :Rg<cr>
-  nnoremap <silent> <space>rh     :<c-u>cd ~<cr>                                  :Rg<cr>
-  nnoremap <silent> <space>rd     :<c-u>cd ~/dotfiles<cr>                         :Rg<cr>
-  nnoremap <silent> <space>rg     :<c-u>cd ~/.config<cr>                          :Rg<cr>
-  nnoremap <silent> <space>rv     :<c-u>cd ~/.config/nvim<cr>                     :Rg<cr>
-  nnoremap <silent> <space>rl     :<c-u>cd ~/.local/share<cr>                     :Rg<cr>
-  nnoremap <silent> <space>rr     :<c-u>cd /usr/share/nvim/runtime<cr>            :Rg<cr>
-  nnoremap <silent> <space>rc     :<c-u>cd <c-r>=expand(g:dein_cache_dir)<cr><cr> :Rg<cr>
-endif
-
-" Keymap; FZF {{{1
-"" FZF; w/ cd {{{2
-nnoremap <silent> <space>z. :<c-u> FZF<cr>
-nnoremap <silent> <space>zw :<c-u> cd %:p:h<cr>                              :FZF<cr>
-nnoremap <silent> <space>zh :<c-u> cd ~<cr>                                  :FZF<cr>
-nnoremap <silent> <space>zd :<c-u> cd ~/dotfiles<cr>                         :FZF<cr>
-nnoremap <silent> <space>zf :<c-u> cd ~/.config<cr>                          :FZF<cr>
-nnoremap <silent> <space>zv :<c-u> cd ~/dotfiles/nvim<cr>                    :FZF<cr>
-nnoremap <silent> <space>zl :<c-u> cd ~/.local/share<cr>                     :FZF<cr>
-nnoremap <silent> <space>zr :<c-u> cd /usr/share/nvim/runtime<cr>            :FZF<cr>
-nnoremap <silent> <space>zc :<c-u> cd <c-r>=expand(g:dein_cache_dir)<cr><cr> :FZF<cr>
+"" Keymap; Ag {{{1
+"if !executable('ag')
+"  nnoremap <silent><nowait> <a-a> :<c-u>echo "You don't have executable 'silver searcher'"<cr>
+"else
+"  nnoremap <silent> <space>a.     :<c-u>Ag<cr>
+"  nnoremap <silent> <space>aw     :<c-u>cd %:p:h<cr>                   :Ag<cr>
+"  nnoremap <silent> <space>ah     :<c-u>cd ~<cr>                       :Ag<cr>
+"  nnoremap <silent> <space>ad     :<c-u>cd ~/dotfiles<cr>              :Ag<cr>
+"  nnoremap <silent> <space>ag     :<c-u>cd ~/.config<cr>               :Ag<cr>
+"  nnoremap <silent> <space>av     :<c-u>cd ~/.config/nvim<cr>          :Ag<cr>
+"  nnoremap <silent> <space>al     :<c-u>cd ~/.local/share<cr>          :Ag<cr>
+"  nnoremap <silent> <space>ar     :<c-u>cd /usr/share/nvim/runtime<cr> :Ag<cr>
+"  nnoremap <silent> <space>ac     :<c-u>cd <c-r>=expand(g:dein_cache_dir)<cr><cr> :Ag<cr>
+"endif
+""}}}
+"" Keymap; Rg {{{1
+"if !executable('rg') "{{{2
+"  nnoremap <silent><nowait> <space>r :<c-u>echo "You don't have executable 'ripgrep'"<cr>
+"else "}}}
+"  "" Rg; w/ `:cd` {{{2
+"  nnoremap <silent> <space>r.     :<c-u>Rg<cr>
+"  nnoremap <silent> <space>rw     :<c-u>cd %:p:h<cr>                              :Rg<cr>
+"  nnoremap <silent> <space>rh     :<c-u>cd ~<cr>                                  :Rg<cr>
+"  nnoremap <silent> <space>rd     :<c-u>cd ~/dotfiles<cr>                         :Rg<cr>
+"  nnoremap <silent> <space>rg     :<c-u>cd ~/.config<cr>                          :Rg<cr>
+"  nnoremap <silent> <space>rv     :<c-u>cd ~/.config/nvim<cr>                     :Rg<cr>
+"  nnoremap <silent> <space>rl     :<c-u>cd ~/.local/share<cr>                     :Rg<cr>
+"  nnoremap <silent> <space>rr     :<c-u>cd /usr/share/nvim/runtime<cr>            :Rg<cr>
+"  nnoremap <silent> <space>rc     :<c-u>cd <c-r>=expand(g:dein_cache_dir)<cr><cr> :Rg<cr>
+"endif
+"
+"" Keymap; FZF {{{1
+""" FZF; w/ cd {{{2
+"nnoremap <silent> <space>z. :<c-u> FZF<cr>
+"nnoremap <silent> <space>zw :<c-u> cd %:p:h<cr>                              :FZF<cr>
+"nnoremap <silent> <space>zh :<c-u> cd ~<cr>                                  :FZF<cr>
+"nnoremap <silent> <space>zd :<c-u> cd ~/dotfiles<cr>                         :FZF<cr>
+"nnoremap <silent> <space>zf :<c-u> cd ~/.config<cr>                          :FZF<cr>
+"nnoremap <silent> <space>zv :<c-u> cd ~/dotfiles/nvim<cr>                    :FZF<cr>
+"nnoremap <silent> <space>zl :<c-u> cd ~/.local/share<cr>                     :FZF<cr>
+"nnoremap <silent> <space>zr :<c-u> cd /usr/share/nvim/runtime<cr>            :FZF<cr>
+"nnoremap <silent> <space>zc :<c-u> cd <c-r>=expand(g:dein_cache_dir)<cr><cr> :FZF<cr>
 "" FZF; Various {{{2
 nnoremap <silent> <space>zb     :<c-u> FzfBuffers<cr>
-nnoremap <silent> <space>zk     :<c-u> FzfHelptags<cr>
 nnoremap <silent> <space>zg     :<c-u> FzfGFiles?<cr>
 "" Mnemonic: 'Old' Buffer
 nnoremap <silent> <space>zo     :<c-u> FzfHistory<cr>
