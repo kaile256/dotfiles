@@ -28,6 +28,8 @@ Package=(
   alacritty
   anyenv
   screenkey # display typed-key; useful w/ peek
+  cmake
+  clang
   arandr  # Gui config for xrandr
   bash-completion
   blacklist_pcspkr  # disable beep
@@ -39,19 +41,22 @@ Package=(
   #fcitx5-qt5-git  # Libraries for fcitx-qt5, too long to install
   #peek # a screen recorder
   fzf
-  gendesk # what?
+  #gendesk # what?
   global
   go
   googlecl  # google api for cli
   hub  # an official wrapper of git
   #jinja2 # for neovim-qt
   luarocks
+  #nerd-fonts-inconsolata-go
+  #ttf-migu
   neovim-nightly
   neovim-qt-git # non-git ver. has a bug, missing its depending lib.
   nerd-fonts-ricty
   pdfjs  # PDF viewer in browser
   ninja # a build system for clang
   pyenv
+  ccls
   rclone  # sync lib for cloud-service like dropbox, Gdrive.
   ripgrep
   ruby
