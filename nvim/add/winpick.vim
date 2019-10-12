@@ -58,3 +58,5 @@ augroup WinpickOnFiletype
   au FileType extradite nnoremap <buffer> <space>gu :<c-u>call winpick#weed_out()<cr>
 
 augroup END
+
+call winpick#split('saet', 'te fish')
