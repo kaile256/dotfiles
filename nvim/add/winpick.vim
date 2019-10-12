@@ -1,5 +1,6 @@
 " From: myplug.toml
 " Repo: kaile256/vim-window-picker
+" Another: post/winpick.vim
 
 let g:winpick_weed_list = [
       \ 'fugitive:\/\/',
@@ -58,5 +59,3 @@ augroup WinpickOnFiletype
   au FileType extradite nnoremap <buffer> <space>gu :<c-u>call winpick#weed_out()<cr>
 
 augroup END
-
-call winpick#split('saet', 'te fish')

@@ -17,3 +17,4 @@ depends = ['fzf.vim', 'vim-fugitive', 'coc.nvim']
 #on_cmd = 'winpick#'
 on_event = 'VimEnter'
 hook_add = 'runtime add/winpick.vim'
+hook_post_source = 'runtime post/winpick.vim'
