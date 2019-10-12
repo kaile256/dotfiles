@@ -3,6 +3,7 @@
 " Path: vimwiki/vimwiki_dev
 " Another: source/vimwiki.vim
 
+let g:vimwiki_home = '~/vimwiki'
 " Hotkey; Index {{{1
 command! MdwikiIndex :e ~/vimwiki/mdwiki/index.md
 command! TaskwikiIndex :e ~/vimwiki/task.wiki
