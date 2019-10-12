@@ -248,3 +248,4 @@ qute://warning/webkit QtWebKit backend warning
 https://github.com/iamcco/coc-diagnostic iamcco/coc-diagnostic: diagnostic-languageserver extension for coc.nvim
 https://github.com/iamcco/coc-vimlsp iamcco/coc-vimlsp: vim language server
 https://github.com/MaskRay/ccls MaskRay/ccls: C/C++/ObjC language server supporting cross references, hierarchies, completion and semantic highlighting
+https://github.com/fannheyward/coc-rust-analyzer fannheyward/coc-rust-analyzer: rust-analyzer extension for coc.nvim
