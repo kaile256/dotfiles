@@ -249,3 +249,6 @@ https://github.com/iamcco/coc-diagnostic iamcco/coc-diagnostic: diagnostic-langu
 https://github.com/iamcco/coc-vimlsp iamcco/coc-vimlsp: vim language server
 https://github.com/MaskRay/ccls MaskRay/ccls: C/C++/ObjC language server supporting cross references, hierarchies, completion and semantic highlighting
 https://github.com/fannheyward/coc-rust-analyzer fannheyward/coc-rust-analyzer: rust-analyzer extension for coc.nvim
+https://github.com/rust-lang/rustlings rust-lang/rustlings: Small exercises to get you used to reading and writing Rust code!
+https://github.com/daa84/neovim-gtk daa84/neovim-gtk: gtk ui for neovim
+https://github.com/Homebrew/brew/issues/1414 Could not resolve host: github.com, but I can access it without problem · Issue #1414 · Homebrew/brew
