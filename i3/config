@@ -54,7 +54,8 @@ exec --no-startup-id fcitx
 # urxvtd: Daemon of rxvt-unicode. Use urxvtc as a client.
 #exec "urxvtd -o -f"
 #exec --no-startup-id volumeicon
-#exec --no-startup-id nitrogen --restore; sleep 1; compton -b
+exec --no-startup-id xautolock -time 15 -locker blurlock
+exec --no-startup-id nitrogen --restore; sleep 1; compton -b
 # Show the CP's status on the wallpaper.
 exec --no-startup-id start_conky_live_maia
 #exec --no-startup-id blueman
