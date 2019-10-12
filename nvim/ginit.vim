@@ -54,10 +54,11 @@ if exists('g:GuiLoaded')
 
   GuiLinespace 0
   " SF Mono; San Francisco Mono
+  " Note: can set on &guifont
   "GuiFont! Ricty Nerd Font:h17
   "GuiFont! Migu 1M:h15
   " <bang> for Japanese.
-  GuiFont! SF Mono:h12
+  "GuiFont! SF Mono:h12
   "GuiFont! Myrica M:h15
   if GuiName() ==# 'nvim-qt'
     " TODO: I'd like to use Japanese on Qt.
