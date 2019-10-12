@@ -7,8 +7,8 @@
 if has('unix')
   try
     set guifont=SF\ Mono:h12
-    set guifontwide=SF\ Mono:h12
-    set guifontset=SF\ Mono:h12
+    set guifontwide=SF\ Mono:h15
+    set guifontset=SF\ Mono:h15
     set printfont=SF\ Mono:h12
     "set linespace=0
   catch
@@ -52,7 +52,7 @@ let g:cache_home = empty($XDG_CACHE_HOME) ? expand('~/.cache/') : $XDG_CACHE_HOM
 let g:data_home = empty($XDG_DATA_HOME) ? expand('~/.local/share/') : $XDG_DATA_HOME
 let g:dotfiles_home  = '~/dotfiles/'
 let g:nvim_home = empty($VIMCONFIG) ? expand(g:dotfiles_home .'nvim/') : $VIMCONFIG
-let g:my_data = g:nvim_home . 'data/'
+let g:nvim_data_home = g:nvim_home . 'data/'
 let g:dev_root = '~/dev/'
 "}}}
 " $var; for Vim {{{1

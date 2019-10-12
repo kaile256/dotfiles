@@ -1,7 +1,7 @@
 " From: tool.toml
 " Repo: Shougo/neosnippet.vim
 
-let g:neosnippet#snippets_directory = g:my_data . '/neosnippet'
+let g:neosnippet#snippets_directory = g:nvim_data_home . '/neosnippet'
 let g:neosnippet#enable_snipmate_compatibility = 1
 
 nnoremap <silent> <a-s><a-p>e :<c-u>NeoSnippetEdit<cr>
