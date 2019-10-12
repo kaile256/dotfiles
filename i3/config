@@ -68,7 +68,7 @@ exec --no-startup-id start_conky_live_maia
 #exec_always --no-startup-id ff-theme-util
 #exec_always --no-startup-id setcursor
 # Modifier; Sound Volume {{{
-bindsym $Super+Ctrl+m exec terminal -e 'alsamixer'
+#bindsym $Super+Ctrl+m exec terminal -e 'alsamixer'
 #exec --no-startup-id pulseaudio
 #exec --no-startup-id pa-applet
 #bindsym $mod+Ctrl+m exec pavucontrol
@@ -111,6 +111,7 @@ bindsym $Super+t exec alacritty
 bindsym $Super+v exec --no-startup-id alacritty -e 'vim'
 bindsym $Super+a exec --no-startup-id alacritty -e 'nvim'
 bindsym $Super+n exec --no-startup-id nvim-qt
+#bindsym $Super+r exec --no-startup-id nvim-gtk
 #bindsym $Super+g exec --no-startup-id glrnvim
 bindsym $SuperS+g exec --no-startup-id gonvim
 bindsym $Super+r exec --no-startup-id gnvim
