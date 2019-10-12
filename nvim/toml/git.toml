@@ -90,7 +90,7 @@ hook_post_source = 'runtime add/fugitive-gitlab.vim'
 repo = 'cohama/agit.vim' #{{{
 # Log viewer
 on_cmd = 'Agit'
-hook_post_source = 'runtime add/agit.vim'
+hook_add = 'runtime add/agit.vim'
 #}}}
 #[[plugins]]
 #repo = 'airblade/vim-gitgutter' #{{{
