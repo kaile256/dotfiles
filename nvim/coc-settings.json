@@ -94,9 +94,6 @@
   // false: Update only on saving the buffer.
   "git.realtimeGutters": true,
 
-  "template.username": "kaile256",
-  "template.templatesDirectory": "~/.config/nvim/data/coc/template",
-
   "json.format.enable": false,
 
   "vimlsp.debug": false,
