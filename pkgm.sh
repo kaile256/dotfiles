@@ -123,6 +123,7 @@ YarnPack=(
   diagnostic-languageserver
   vim-language-server
   go-language-server
+  bash-language-server
   #tslib
   neovim
 )
@@ -172,9 +173,9 @@ curl https://sh.rustup.rs -sSf | sh
 rustup install stable
 rustup default stable
 # rust-analyzer -- LSP
-git clone --depth=1 https://github.com/rust-analyzer/rust-analyzer && cd rust-analyzer
+#git clone --depth=1 https://github.com/rust-analyzer/rust-analyzer && cd rust-analyzer
 rustup component add rust-src
-cargo install-ra --server
+#cargo install-ra --server # fail; open any *.rs to make coc install it instead.
 
 #source /home/kaile256/.local/share/cargo/env
 
