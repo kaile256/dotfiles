@@ -72,13 +72,12 @@ home_list=(
   .Xmodmap
   .Xresources
   .bashrc
-  .bash_profile
+  .profile
   .ctags
   .doom.d
   .gitconfig
   .tigrc
   .gonvim
-  .moc
   .zshenv
 )
 
