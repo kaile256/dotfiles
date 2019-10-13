@@ -42,6 +42,7 @@ let g:fzf_action = {
       \ 'alt-t': 'tab split',
       \ 'alt-v': 'vsplit',
       \ 'alt-s': 'split',
+      \ 'alt-a': 'argadd',
       \ }
 " [Buffers] Rather Jump to window than just to open.
 let g:fzf_buffers_jump = 1
