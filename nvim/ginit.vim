@@ -35,13 +35,11 @@
 "let $BROWSER    = 'qutebrowser'
 "
 ""set shell=fish
-"if executable('urxvt')
-"  let $TERM = 'rxvt-unicode'
-"else
-"  let $TERM = 'xterm-256color'
-"endif
-"
-"
+if executable('urxvt')
+  let $TERM = 'rxvt-unicode'
+else
+  let $TERM = 'xterm-256color'
+endif
 " if nvim-qt {{{1
 if exists('g:GuiLoaded')
 
