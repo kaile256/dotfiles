@@ -68,8 +68,8 @@ let g:coc_global_extensions = [
 "}}}
 " Command!; C-series {{{1
 
-command! CocIfHasProvider :call <SID>coc_if_has_provider()
-command! CifHasProvider   :call <SID>coc_if_has_provider()
+command! CocCheckHasProvider :call <SID>has_provider()
+command! CcheckHasProvider   :call <SID>has_provider()
 command! -nargs=+ Cinstall :CocInstall <q-args>
 command! -nargs=+ Cuninstall :CocUninstall <q-args>
 command! -nargs=+ CocRemove  :CocUninstall <q-args>
@@ -90,7 +90,7 @@ command! Cextensions :CocList    extensions
 "command! Cmru      :CocList mru
 "command! Cbuffers  :CocList buffers
 
-function! s:coc_if_has_provider() "{{{1
+function! s:has_provider() "{{{1
   let l:coc_provider_list = [
         \ 'hover',
         \ 'rename',
