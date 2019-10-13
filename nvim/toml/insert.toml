@@ -45,14 +45,14 @@
 #hook_add = 'runtime add/CompleteParameter.vim'
 ##}}}
 
-# Unicode
-[[plugins]]
-repo = 'chrisbra/unicode.vim' #{{{
-on_event = 'InsertEnter'
-# Note: on_map of unicode.vim is useless; maybe because they are imap.
-#on_map = ['<Plug>(UnicodeComplete)', '<Plug>(DigraphComplete)']
-hook_post_source = 'runtime add/unicode.vim'
-#}}}
+## Unicode
+#[[plugins]]
+#repo = 'chrisbra/unicode.vim' #{{{
+#on_event = 'InsertEnter'
+## Note: on_map of unicode.vim is useless; maybe because they are imap.
+##on_map = ['<Plug>(UnicodeComplete)', '<Plug>(DigraphComplete)']
+#hook_post_source = 'runtime add/unicode.vim'
+##}}}
 
 # Snippets; Engine
 [[plugins]]
@@ -82,3 +82,9 @@ on_source = 'neosnippet.vim'
 #repo = 'garbas/vim-snipmate' #{{{
 #on_event = ['InsertEnter', 'TermOpen']
 #}}}
+
+# Thesaurus;
+[[plugins]]
+repo = 'Ron89/thesaurus_query.vim'
+on_cmd = 'Thesaurus'
+hook_add = 'runtime add/thesaurus_query.vim'
