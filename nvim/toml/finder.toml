@@ -89,17 +89,3 @@ hook_add = 'runtime add/bookmarks.vim'
 #hook_add = 'runtime add/showmarks.vim'
 #}}}
 
-# Matcher
-#[[plugins]]
-#repo = 'nixprime/cpsm' #{{{
-## A matcher developped for 'CtrlP'
-#on_source = 'deoplete.nvim'
-#on_event = 'BufRead'
-#hook_post_source = 'runtime add/cspm.vim'
-##}}}
-#[[plugins]]
-#repo = 'raghur/fruzzy' #{{{
-#on_source = 'denite.nvim'
-#hook_done_update = 'call fruzzy#install()'
-#hook_post_source = 'runtime add/fruzzy.vim'
-##}}}
