@@ -42,7 +42,7 @@ set pumheight=15
 "}}}
 " Appearance; Format {{{
 " wrap long text: s for space
-set wrap whichwrap=s
+set wrap whichwrap=h,l
 augroup NoWrapWithinAWord
   au! FileType * if !&modifiable | setl linebreak showbreak= | endif
 augroup END
