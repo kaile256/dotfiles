@@ -117,7 +117,9 @@ hook_add = 'runtime add/easy-align.vim'
 [[plugins]]
 repo = 'andymass/vim-matchup' #{{{
 # Better `%`
-on_event = 'VimEnter'
+# Note: should be source post/ after :colo from other plugin,
+# which :colo after event-ColorScheme.
+on_event = 'CursorHold'
 hook_add = 'runtime add/matchup.vim'
 hook_post_source = 'runtime post/matchup.vim'
 #}}}
