@@ -107,3 +107,8 @@ hook_post_source = 'runtime add/cursorword.vim'
 ## CAUTION: source add/rainbow.vim AFTER :colorscheme.
 #on_event = 'BufReadPre'
 ##}}}
+
+#[[plugins]]
+#repo = 'junegunn/limelight.vim'
+#on_cmd = 'Limelight'
+#hook_add = 'runtime add/limelight.vim'

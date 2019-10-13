@@ -76,6 +76,11 @@ on_cmd = 'Info'
 hook_add = 'runtime add/info.vim'
 #}}}
 
+## REPL;
+#[[plugins]]
+#repo = 'sillybun/vim-repl'
+#on_cmd = 'REPL'
+#hook_add = 'runtime add/repl.vim'
 # Shell; Async Processor
 [[plugins]]
 repo = 'thinca/vim-quickrun' #{{{
