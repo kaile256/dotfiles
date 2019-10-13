@@ -13,6 +13,7 @@ imap <a-U>   <esc><Plug>(RepeatUndoLine)
 imap <a-C-R> <esc><Plug>(RepeatRedo)
 
 " For: keeps me in insert mode.
-" Note: <c-o><Plug>(RepeatUndo/Redo) works wrong.
+" Note: <c-o><Plug>(RepeatUndo/Redo) works wrong
+" Note: using 'gi' on '<c-o>u' makes complication.
 inoremap <c-o>u     <esc>ua
 inoremap <c-o><c-r> <esc><c-r>i
