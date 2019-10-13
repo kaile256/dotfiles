@@ -74,3 +74,27 @@ map T <Plug>(easymotion-T2)
 map ; <Plug>(easymotion-next)
 map , <Plug>(easymotion-prev)
 
+" TODO: make below work.
+"nnoremap g<space>   :call <SID>find_skip_char('forward')<cr>
+"nnoremap g<s-space> :call <SID>find_skip_char('backward')<cr>
+"function s:find_skip_char(direction)
+"  let l:ww = &l:whichwrap
+"  setl whichwrap=h,l
+"
+"  while line('$')
+"    if a:direction ==? 'backward'
+"      let l:direction = 'h'
+"    else
+"      let l:direction = 'l'
+"    endif
+"    exe 'norm!' l:direction
+"
+"    let l:chars = [' ', '#', '_', '-']
+"    for l:c in l:chars
+"      if getline('.')[col('.') - 1] ==# l:c | break | endif
+"    endfor
+"  endwhile
+"
+"  exe 'setl whichwrap='. l:ww
+"endfunction
+
