@@ -74,7 +74,6 @@ if dein#load_state(g:dein_cache_dir)
         \ 'japanese.toml',
         \ 'memo.toml',
         \ 'motion.toml',
-        \ 'denite.toml',
         \ 'myplug.toml',
         \ 'textobj.toml',
         \ 'tool.toml',
