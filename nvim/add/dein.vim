@@ -57,12 +57,12 @@ if dein#load_state(g:dein_cache_dir)
     call dein#add('roxma/nvim-yarp')
     call dein#add('roxma/vim-hug-neovim-rpc')
   endif "}}}
-  let s:dein_toml_dir  = g:config_home . '/nvim/toml'
+  let s:dein_toml_dir  = g:config_home .'/nvim/toml'
   let s:dein_toml_initial_list = [
         \ 'Init.toml'
         \ ]
   for dir in s:dein_toml_initial_list
-    call dein#load_toml(s:dein_toml_dir . '/' . dir, {'lazy': 0})
+    call dein#load_toml(s:dein_toml_dir .'/'. dir, {'lazy': 0})
   endfor
   let s:dein_toml_lazy_list = [
         \ 'appearance.toml',
@@ -74,13 +74,14 @@ if dein#load_state(g:dein_cache_dir)
         \ 'japanese.toml',
         \ 'memo.toml',
         \ 'motion.toml',
+        \ 'denite.toml',
         \ 'myplug.toml',
         \ 'textobj.toml',
         \ 'tool.toml',
         \ 'web.toml',
         \ ]
   for dir in s:dein_toml_lazy_list
-    call dein#load_toml(s:dein_toml_dir . '/' . dir, {'lazy': 1})
+    call dein#load_toml(s:dein_toml_dir .'/'. dir, {'lazy': 1})
   endfor
   call dein#end()
   call dein#save_state()
