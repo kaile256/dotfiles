@@ -56,19 +56,19 @@ hi link EasyMotionIncSearch Search
 " <Plug>(easymotion-sl): the range is limited to current line.
 
 " Keymap; ft;,
-map f <Plug>(easymotion-f)
-map t <Plug>(easymotion-t)
-map F <Plug>(easymotion-F)
-map T <Plug>(easymotion-T)
+"map f <Plug>(easymotion-f)
+"map t <Plug>(easymotion-t)
+"map F <Plug>(easymotion-F)
+"map T <Plug>(easymotion-T)
 
-map <space>f <Plug>(easymotion-f2)
-map <space>t <Plug>(easymotion-t2)
-map <space>F <Plug>(easymotion-F2)
-map <space>T <Plug>(easymotion-T2)
-sunmap <space>f
-sunmap <space>t
-sunmap <space>F
-sunmap <space>T
+map f <Plug>(easymotion-f2)
+map t <Plug>(easymotion-t2)
+map F <Plug>(easymotion-F2)
+map T <Plug>(easymotion-T2)
+"sunmap <space>f
+"sunmap <space>t
+"sunmap <space>F
+"sunmap <space>T
 
 " Keymap; hjkl
 map ; <Plug>(easymotion-next)
