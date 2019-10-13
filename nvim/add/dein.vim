@@ -19,7 +19,7 @@ let s:Shougo_cache_dir = g:dein_cache_dir . '/repos/github.com/Shougo/'
 let s:dein_itself = s:Shougo_cache_dir . '/dein.vim/'
 "}}}
 " Let; Path for :find {{{
-let &path = &path . ',' . g:dein_cache_dir . '**'
+"let &path = &path . ',' . g:dein_cache_dir . '**'
 "}}}
 " Let; Path for :runtime {{{
 let &rtp  = &rtp  . ',' . s:dein_itself
