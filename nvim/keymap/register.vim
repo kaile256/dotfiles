@@ -1,8 +1,13 @@
 " From: init.vim
 
-" on Term-mode
-"" Term; Put as in Insert Mode
+" Note: Put as in Insert Mode
 tnoremap <expr> <C-R> '<C-\><C-N>"'.nr2char(getchar()).'pi'
+" Note: default <c-o>yy only inserts yy w/o yank.
+inoremap <expr> <c-o>y '<esc>y'. nr2char(getchar()) .'gi'
+inoremap <expr> <c-o><space>y '<esc>"+y'. nr2char(getchar()) .'gi'
+" TODO: use register via <c-o>
+"inoremap <expr> <c-o>" '<esc>"'. nr2char(getchar()) . nr2char(getchar()) .'gi'
+
 
 "augroup MyPasteToggle
 "  " CAUTION: when set paste, @+ is ignored.
