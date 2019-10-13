@@ -1,9 +1,10 @@
 # From: add/dein.vim
 
-[[plugins]]
-repo = 'thinca/vim-ref'
-on_event = 'BufRead'
-hook_add = 'runtime rc/ref.vim'
+#[[plugins]]
+#repo = 'thinca/vim-ref' #{{{
+#on_event = 'BufRead'
+#hook_add = 'runtime rc/ref.vim'
+##}}}
 
 # Hex Editor
 [[plugins]]
@@ -151,6 +152,21 @@ on_event = 'CmdlineEnter'
 hook_post_source = 'runtime add/dein-command.vim'
 #}}}
 
+## Image Viewer
+#[[plugins]]
+#repo = 'Cj-bc/drcs.vim' #{{{
+#rev = 'develop'
+#on_event = ['jpeg', 'gif', 'png', 'drcs']
+#hook_post_source = 'runtime add/drcs.vim'
+##}}}
+
+# Template
+#[[plugins]]
+#repo = 'mattn/sonictemplate-vim' #{{{
+#on_event = 'BufNew'
+#hook_post_source = 'runtime add/sonictemplate.vim'
+#}}}
+
 # Checker
 [[plugins]]
 repo = 'rhysd/vim-grammarous' #{{{
@@ -169,22 +185,6 @@ hook_add = 'runtime add/grammarous.vim'
 #on_if = '&modifiable'
 #hook_post_source = 'runtime add/switch.vim'
 #}}}
-
-## Image Viewer
-#[[plugins]]
-#repo = 'Cj-bc/drcs.vim' #{{{
-#rev = 'develop'
-#on_event = ['jpeg', 'gif', 'png', 'drcs']
-#hook_post_source = 'runtime add/drcs.vim'
-##}}}
-
-# Template
-#[[plugins]]
-#repo = 'mattn/sonictemplate-vim' #{{{
-#on_event = 'BufNew'
-#hook_post_source = 'runtime add/sonictemplate.vim'
-#}}}
-
 
 # Developper Tool
 [[plugins]]
@@ -206,4 +206,10 @@ hook_add = 'runtime add/helpful.vim'
 repo = 'rhysd/vim-themis' #{{{
 # A library of vim-script for test-making.
 hook_post_source = 'runtime add/themis.vim'
+#}}}
+[[plugins]]
+repo = 'junegunn/vader.vim' #{{{
+# a test-framework for vimscript.
+on_cmd = 'Vader'
+hook_add = 'runtime add/vader.vim'
 #}}}
