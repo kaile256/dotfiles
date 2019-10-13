@@ -2,7 +2,14 @@
 " Repo: Shougo/denite.nvim
 " Another: add/denite.vim
 
-call denite#custom#var('_', '-vertical-preview', [])
+call denite#custom#option('default', {
+      \ 'split': 'floating',
+      \ 'winrow': float2nr(&lines /10),
+      \ 'wincol': float2nr(&columns /10),
+      \ 'winheight': float2nr(&lines *9/10),
+      \ 'winwidth': float2nr(&columns *9/10),
+      \ 'vertical-preview': 'true',
+      \ })
 
 call denite#custom#var('file_rec', 'command', [
       \ 'rg',
@@ -13,6 +20,7 @@ call denite#custom#var('file_rec', 'command', [
 " Grep;
 " Use Interactive Mode
 call denite#custom#source('grep', 'args', ['', '', '!'])
+
 call denite#custom#var('grep', 'command', ['rg'])
 call denite#custom#var('grep', 'default_opts',
       \ ['-i', '--vimgrep', '--no-heading'])
@@ -73,24 +81,38 @@ call denite#custom#source('file/rec',
       \ 'matchers', ['converter/tail_path', 'matcher/cpsm'])
 "}}}
 
+augroup DeniteMyAutoConf "{{{1
+  au!
+  au WinLeave,BufLeave * if &ft ==# 'denite'|| &ft ==# 'denite-fileter' | hide
+augroup END
 augroup DeniteCallMyFunctions "{{{1
   au!
   au FileType denite call <SID>denite_keymaps()
   function! s:denite_keymaps() abort "{{{2
+    " quit {{{2
+    nnoremap <silent><buffer><expr> <a-h>
+          \ denite#do_map('quit')
+    nnoremap <silent><buffer><expr> <a-j>
+          \ denite#do_map('quit')
+    nnoremap <silent><buffer><expr> <a-k>
+          \ denite#do_map('quit')
+    nnoremap <silent><buffer><expr> <a-l>
+          \ denite#do_map('quit')
+
     nnoremap <silent><buffer><expr> <CR>
           \ denite#do_map('do_action')
     nnoremap <silent><buffer><expr> <C-j>
           \ denite#do_map('do_action')
+
     nnoremap <silent><buffer><expr> D
           \ denite#do_map('do_action', 'delete')
     nnoremap <silent><buffer><expr> <c-x>
           \ denite#do_map('do_action', 'delete')
     nnoremap <silent><buffer><expr> p
           \ denite#do_map('do_action', 'preview')
-    nnoremap <silent><buffer><expr> q
-          \ denite#do_map('quit')
     nnoremap <silent><buffer><expr> i
           \ denite#do_map('open_filter_buffer')
+
     nnoremap <silent><buffer><expr> <TAB>
           \ denite#do_map('toggle_select').'j'
     nnoremap <silent><buffer><expr> <a-i>
@@ -100,7 +122,15 @@ augroup DeniteCallMyFunctions "{{{1
   function! s:denite_filter_keymaps() abort "{{{2
     inoremap <silent><buffer><expr> <C-c>
           \ denite#do_map('quit')
-    nnoremap <silent><buffer><expr> <C-c>
+    inoremap <silent><buffer><expr> <C-c>
           \ denite#do_map('quit')
+
+    inoremap <silent><buffer><expr> <cr>
+          \ denite#do_map('do_action')
+    inoremap <silent><buffer><expr> <c-j>
+          \ denite#do_map('do_action')
+
+    inoremap <silent><buffer><expr> <TAB>
+          \ denite#do_map('toggle_select')
   endfunction "}}}
 augroup END
