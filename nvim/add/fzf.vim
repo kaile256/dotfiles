@@ -28,7 +28,7 @@ let g:fzf_command_prefix = 'Fzf'
 " Execute selected command
 let g:fzf_commands_expect = 'ctrl-x'
 
-" on Fzf Buffer; Command {{{1
+" on Fzf Buffer; Action-Command {{{1
 function! s:fzf_open_in_quickfix_list(lines) "{{{2
   call setqflist(map(copy(a:lines), '{ "filename": v:val }'))
   copen
@@ -104,6 +104,11 @@ command! -bang -nargs=? -complete=dir FzfGFiles
 
 " Note: not actually in ghq
 command! -bang -nargs=* Ghq :cd $GOPATH <bar> FZF
+"command! -bang -nargs=* Ghq
+"      \ call fzf#vim#files(<q-args>,
+"      \                    <bang>0 ? fzf#vim#with_preview({'source': 'ghq list --full-path',
+"      \                                                    'sink': 'cd'}
+"      \ ))
 " Mnemonic: Quest for Project
 nnoremap <a-q><a-p> :Ghq<cr>
 nnoremap <a-q>p     :Ghq<cr>
@@ -121,12 +126,12 @@ command! -bang -nargs=* Rg
       \           : fzf#vim#with_preview({'options': '--reverse'}, 'right:65%'),
       \   <bang>0)
 
-command! AgHelp  :Ag /usr/share/nvim/runtime/doc
-command! AgWiki  :Ag ~/vimwiki
-command! AgDiary :Ag ~/vimwiki/diary
-command! RgHelp  :Rg /usr/share/nvim/runtime/doc
-command! RgWiki  :Rg ~/vimwiki
-command! RgDiary :Rg ~/vimwiki/diary
+command! AgHelp  :cd  /usr/share/nvim/runtime/doc <bar> Ag
+command! AgWiki  :cd  ~/vimwiki <bar> Ag
+command! AgDiary :cd  ~/vimwiki/diary <bar> Ag
+command! RgHelp  :cd  /usr/share/nvim/runtime/doc <bar> Rg
+command! RgWiki  :cd  ~/vimwiki <bar> Rg
+command! RgDiary :cd  ~/vimwiki/diary <bar> Rg
 "}}}
 
 " CmdAbbr; :Helptags {{{1
