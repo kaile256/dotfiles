@@ -3,7 +3,7 @@
 
 let g:caw_operator_keymappings = 1 " depends on kana/vim-operator-user
 
-nmap <space>n <Plug>(caw:prefix)
+"nmap <space>n <Plug>(caw:prefix)
 
 "nmap <space>nm <Plug>(caw:tildepos:toggle)
 "nmap <space>nm <Plug>(caw:tildepos:comment)
