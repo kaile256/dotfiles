@@ -28,10 +28,10 @@ endfunction "}}}2
 command! Gstage
       \ :Gw | call fugitive#commit_with_diff()
 " in new tab, if any unnecessary windows are there.
-" TODO: set unstage
+" TODO: set unstage; should trace <SNR> via :scriptnames.
 " &@:<C-U>execute <SNR>277_Do('Unstage',0)<CR>
 " &@:exe <SNR>277_EchoExec('reset', '-q')<CR>
-command! Gunstage :execute <SNR>277_Do('Unstage',0)
+"command! Gunstage :execute <SNR>219_Do('Unstage',0)
 "noremap <silent> <space>g<a-u> :Gunstage<cr>
 command! GdiffMode
       \ call winpick#harvest()
