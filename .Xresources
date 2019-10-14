@@ -85,23 +85,45 @@ URxvt.letterSpace:          -1  ! prepare exagerated space esp. on Japanese Font
 ! Define opacity in []; [100] is no-opacity, [0] is completely invisible.
 URxvt.depth:       32
 
-! Colorscheme: Solarized (or flattened)
-URxvt.color0:      [90]#073642    /* black          */
-URxvt.color1:      [90]#dc322f    /* red            */
-URxvt.color2:      [90]#859900    /* green          */
-URxvt.color3:      [90]#b58900    /* yellow         */
-URxvt.color4:      [90]#268bd2    /* blue           */
-URxvt.color5:      [90]#d33682    /* magenta        */
-URxvt.color6:      [90]#2aa198    /* cyan           */
-URxvt.color7:      [90]#eee8d5    /* white          */
-URxvt.color8:      [90]#002b36    /* bright black   */
-URxvt.color9:      [90]#cb4b16    /* bright red     */
-URxvt.color10:     [90]#586e75    /* bright green   */
-URxvt.color11:     [90]#657b83    /* bright yellow  */
-URxvt.color12:     [90]#839496    /* bright blue    */
-URxvt.color13:     [90]#6c71c4    /* bright magenta */
-URxvt.color14:     [90]#93a1a1    /* bright cyan    */
-URxvt.color15:     [90]#fdf6e3    /* bright white   */
+!! Colorscheme: Solarized (or flattened)
+!URxvt.color0:      [90]#073642    /* black          */
+!URxvt.color1:      [90]#dc322f    /* red            */
+!URxvt.color2:      [90]#859900    /* green          */
+!URxvt.color3:      [90]#b58900    /* yellow         */
+!URxvt.color4:      [90]#268bd2    /* blue           */
+!URxvt.color5:      [90]#d33682    /* magenta        */
+!URxvt.color6:      [90]#2aa198    /* cyan           */
+!URxvt.color7:      [90]#eee8d5    /* white          */
+!URxvt.color8:      [90]#002b36    /* bright black   */
+!URxvt.color9:      [90]#cb4b16    /* bright red     */
+!URxvt.color10:     [90]#586e75    /* bright green   */
+!URxvt.color11:     [90]#657b83    /* bright yellow  */
+!URxvt.color12:     [90]#839496    /* bright blue    */
+!URxvt.color13:     [90]#6c71c4    /* bright magenta */
+!URxvt.color14:     [90]#93a1a1    /* bright cyan    */
+!URxvt.color15:     [90]#fdf6e3    /* bright white   */
+!!URxvt.foreground:  [90]#ebdbb2
+!!URxvt.background:  [90]#282828
+!URxvt.foreground:  [90]white
+!URxvt.background:  [90]black
+
+! Colorscheme: Neodark
+URxvt.color0:      [90]#AE8785    /* black          */
+URxvt.color1:      [90]#DC657D    /* red            */
+URxvt.color2:      [90]#84B97C    /* green          */
+URxvt.color3:      [90]#D4B261    /* yellow         */
+URxvt.color4:      [90]#639EE4    /* blue           */
+URxvt.color5:      [90]#B888E2    /* magenta        */
+URxvt.color6:      [90]#72C7D1    /* cyan           */
+URxvt.color7:      [90]#C7C18B    /* white          */
+URxvt.color8:      [90]#af8787    /* bright black   */
+URxvt.color9:      [90]#d75f87    /* bright red     */
+URxvt.color10:     [90]#87af87    /* bright green   */
+URxvt.color11:     [90]#d7af5f    /* bright yellow  */
+URxvt.color12:     [90]#5fafd7    /* bright blue    */
+URxvt.color13:     [90]#af87d7    /* bright magenta */
+URxvt.color14:     [90]#5fd7d7    /* bright cyan    */
+URxvt.color15:     [90]#d7af87    /* bright white   */
 !URxvt.foreground:  [90]#ebdbb2
 !URxvt.background:  [90]#282828
 URxvt.foreground:  [90]white
