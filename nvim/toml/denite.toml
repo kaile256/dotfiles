@@ -5,7 +5,7 @@
 repo = 'Shougo/denite.nvim' #{{{
 hook_done_update = 'UpdateRemotePlugins'
 if = 'has("python3")'
-on_event = 'VimEnter'
+on_cmd = 'Denite'
 hook_add = 'runtime add/denite.vim'
 #hook_source = 'runtime source/denite.vim'
 hook_post_source = 'runtime post/denite.vim'
@@ -51,14 +51,10 @@ hook_post_source = 'runtime add/cspm.vim'
 repo = 'Shougo/neomru.vim' #{{{
 on_source = 'denite.nvim'
 #}}}
-# for Denite source
-on_source = 'denite.nvim'
-#}}}
 
 [[plugins]]
 repo = 'delphinus/vim-denite-scriptnames'
 on_source = 'denite.nvim'
-hook_post_source = 'runtime add/denite-scriptnames.vim'
 [[plugins]]
 repo = 'ozelentok/denite-gtags' #{{{
 on_source = 'denite.nvim'
@@ -74,7 +70,6 @@ on_source = 'denite.nvim'
 [[plugins]]
 repo = 'deresmos/denite-gitdiff'
 on_source = 'denite.nvim'
-hook_post_source = 'runtime add/denite-gitdiff.vim'
 #[[plugins]]
 #repo = 'Shougo/neoyank.vim' #{{{
 #on_source = 'denite.nvim'

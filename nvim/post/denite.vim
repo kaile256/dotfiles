@@ -4,10 +4,10 @@
 
 call denite#custom#option('default', {
       \ 'split': 'floating',
-      \ 'winrow': float2nr(&lines /10),
+      \ 'winrow': float2nr(&lines /7),
       \ 'wincol': float2nr(&columns /10),
-      \ 'winheight': float2nr(&lines *9/10),
-      \ 'winwidth': float2nr(&columns *9/10),
+      \ 'winheight': float2nr(&lines *95/100),
+      \ 'winwidth': float2nr(&columns *95/100),
       \ 'vertical-preview': 'true',
       \ })
 
@@ -73,7 +73,7 @@ call denite#custom#var('grep', 'command',
 "}}}
 
 " Custom;
-" Matcher; Migemo or Fruzzy? {{{
+" Matcher; {{{
 "call denite#custom#source('line', 'matchers', ['matcher/migemo'])
 call denite#custom#source('_', 'matchers', ['matcher/cpsm'])
 "call denite#custom#source('file_rec', 'matchers', ['matcher_fuzzy'])
