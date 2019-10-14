@@ -2,12 +2,29 @@
 " Repo: flazz/vim-colorschemes
 
 " TODO: find colorscheme for floating window's cool, transpaent color.
-
+let g:terminal_color_0  = '#2e3436'
+let g:terminal_color_1  = '#cc0000'
+let g:terminal_color_2  = '#4e9a06'
+let g:terminal_color_3  = '#c4a000'
+let g:terminal_color_4  = '#3465a4'
+let g:terminal_color_5  = '#75507b'
+let g:terminal_color_6  = '#0b939b'
+let g:terminal_color_7  = '#d3d7cf'
+let g:terminal_color_8  = '#555753'
+let g:terminal_color_9  = '#ef2929'
+let g:terminal_color_10 = '#8ae234'
+let g:terminal_color_11 = '#fce94f'
+let g:terminal_color_12 = '#729fcf'
+let g:terminal_color_13 = '#ad7fa8'
+let g:terminal_color_14 = '#00f5e9'
+let g:terminal_color_15 = '#eeeeec'
 function! s:colorschemes_neodark() abort "{{{1
   let g:neodark#use_256color    = 1 " default: 0
   let g:neodark#italic          = 1 " default: 0
-  let g:neodark#terminal_transparent      = 1 " default: 0
-  let g:neodark#use_custom_terminal_theme = 1 " default: 0
+  "if has('mac')
+  "  "let g:neodark#terminal_transparent      = 0 " default: 0
+  "  "let g:neodark#use_custom_terminal_theme = 0 " default: 0
+  "endif
   colorscheme neodark
 
   " Note: reverse keeps text color;
@@ -34,18 +51,17 @@ endfunction "}}}1
 
 if exists("g:nyaovim_version")
   colorscheme solarized8_light_flat
-"elseif !exists("g:GuiLoaded")
-"  " on CUI
-"  let g:solarized_termcolors=256
-"  colorscheme solarized8_light_flat
-"  "colorscheme solarized8_dark_flat
+  "elseif !exists("g:GuiLoaded")
+  "  " on CUI
+  "  let g:solarized_termcolors=256
+  "  colorscheme solarized8_light_flat
+  "  "colorscheme solarized8_dark_flat
 else
   call <SID>colorschemes_neodark()
 endif
 
-" Sample: Gruvbox's
-" Where: colors/gruvbox.vim @651
 finish
+
 let histring = [ 'hi', a:group,
       \ 'guifg=' . fg[0], 'ctermfg=' . fg[1],
       \ 'guibg=' . bg[0], 'ctermbg=' . bg[1],
