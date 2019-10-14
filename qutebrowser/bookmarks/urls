@@ -258,3 +258,5 @@ https://github.com/bkad/CamelCaseMotion bkad/CamelCaseMotion: A vim script to pr
 https://kokeshing.com/unable-to-update-registry-error-cargo/ Unable to update registry `https://github.com/rust-lang/crates.io-index` | LOST IN BLUE
 https://github.com/rust-lang/cargo/issues/2605 Can not update registry · Issue #2605 · rust-lang/cargo
 https://qiita.com/succi0303/items/c2c3676f24e48161e6ff 個人設定込みNeovimのDokcerイメージを作成した - Qiita
+https://github.com/rust-lang/rustlings/tree/1.4.1 rust-lang/rustlings at 1.4.1
+https://github.com/sillybun/vim-repl sillybun/vim-repl: Best REPL environment for Vim
