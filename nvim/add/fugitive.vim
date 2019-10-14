@@ -64,7 +64,9 @@ function! s:keymap_fugitive()
   nnoremap <buffer><silent> ca    :<C-U>bot 20 Gcommit --amend<CR>
   " Continue to cc/ce/ca.
   xmap <buffer> c sc
-  windo silent! nunmap <buffer> dq
+  " TODO: silent! on unmap <buffer> from the source of vim-fugitives.
+  "windo silent! nunmap <buffer> dq
+  nunmap <buffer> dq
   nunmap <buffer> J
   nunmap <buffer> K
   " For: especially in the case, ':norm U' to unstage all.
