@@ -5,6 +5,7 @@
 let g:winpick_weed_list = [
       \ 'fugitive:\/\/',
       \ 'twiggy:\/\/',
+      \ 'COMMIT_EDITMSG',
       \ ]
 
 let s:list = {
