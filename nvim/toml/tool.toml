@@ -123,6 +123,10 @@ repo = 'LeafCage/foldCC' #{{{
 on_event = 'BufWinEnter'
 hook_post_source = 'runtime add/foldCC.vim'
 #}}}
+[[plugins]]
+repo = 'Konfekt/FastFold'
+on_event = 'BufRead'
+hook_source = 'runtime add/FastFold.vim'
 #[[plugins]]
 #repo = 'SwintonStreet/HighlightFoldLevelVimScript' #{{{
 # Seems not to work. May not get along with foldCC.
