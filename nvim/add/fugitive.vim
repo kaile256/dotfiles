@@ -11,7 +11,11 @@ command! -nargs=+ -complete=dir HubCreate
 command! -nargs=+ Gclone :Git clone <q-args>
 "command! Glogmode :tabe | Glog
 
-function! fugitive#commit_with_diff() abort "{{1
+" Dependent commands {{{1
+" Ref: skywind3000/asyncrun.vim
+command! Gpush :AsyncRun Gpush
+
+function! fugitive#commit_with_diff() abort "{{2
   call winpick#harvest()
   " Keep to show diff w/ HEAD while editting commit-message.
   Gvdiffsplit! HEAD
@@ -20,18 +24,19 @@ function! fugitive#commit_with_diff() abort "{{1
   vert bot 35 Gstatus
   setl winfixwidth
   wincmd =
-endfunction "}}}
+endfunction "}}}2
 command! Gstage
       \ :Gw | call fugitive#commit_with_diff()
 " in new tab, if any unnecessary windows are there.
 " TODO: set unstage
 " &@:<C-U>execute <SNR>277_Do('Unstage',0)<CR>
 " &@:exe <SNR>277_EchoExec('reset', '-q')<CR>
-"command! Gunstage :G
+command! Gunstage :execute <SNR>277_Do('Unstage',0)
 "noremap <silent> <space>g<a-u> :Gunstage<cr>
 command! GdiffMode
       \ call winpick#harvest()
       \ | Gvdiffsplit!
+"}}}1
 
 " Info; Blame {{{
 nnoremap <silent> <space>gb     :<c-u>Gblame<cr>
