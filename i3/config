@@ -112,7 +112,7 @@ bindsym $Super+v exec --no-startup-id alacritty -e 'vim'
 bindsym $Super+a exec --no-startup-id alacritty -e 'nvim'
 bindsym $Super+n exec --no-startup-id nvim-qt
 bindsym $Super+q exec --no-startup-id nvim-qt
-bindsym $Super+r exec --no-startup-id nvim-gtk
+#bindsym $Super+r exec --no-startup-id nvim-gtk # font decayed
 #bindsym $Super+g exec --no-startup-id glrnvim
 #bindsym $SuperS+g exec --no-startup-id gonvim
 bindsym $Super+g exec --no-startup-id gnvim
