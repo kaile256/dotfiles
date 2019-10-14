@@ -69,3 +69,7 @@ if exists('gonvim_running') "{{{1
   let g:gonvim_draw_lint = 1
   let g:gonvim_draw_split = 1
 endif
+
+if exists('g:GtkGuiLoaded') "{{{1
+  call rpcnotify(1, 'Gui', 'Font', 'SF Mono 12')
+endif
