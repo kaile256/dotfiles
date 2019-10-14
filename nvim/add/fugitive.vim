@@ -14,6 +14,7 @@ command! -nargs=+ Gclone :Git clone <q-args>
 " Dependent commands {{{1
 " Ref: skywind3000/asyncrun.vim
 command! Gpush :AsyncRun Gpush
+command! Gush  :AsyncRun Gpush
 
 function! fugitive#commit_with_diff() abort "{{2
   call winpick#harvest()
@@ -76,7 +77,7 @@ function! s:keymap_fugitive()
   nunmap <buffer> K
   " For: especially in the case, ':norm U' to unstage all.
   nnoremap <silent> <Plug>(fugitive:gstage-prev-window) :<c-u>wincmd p <cr> :Gw <bar> wincmd p<cr>
-  nmap <buffer> S <Plug>(fugitive:gstage-prev-window)
+  nmap     <buffer> S <Plug>(fugitive:gstage-prev-window)
 endfunction
 
 function! s:keymap_gitlog() abort
