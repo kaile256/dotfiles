@@ -87,6 +87,7 @@ hook_add = 'runtime add/info.vim'
 [[plugins]]
 repo = 'thinca/vim-quickrun' #{{{
 on_cmd = 'QuickRun'
+on_map = '<Plug>(quickrun'
 hook_add = 'runtime add/quickrun.vim'
 #}}}
 #[[plugins]]
