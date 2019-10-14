@@ -32,6 +32,9 @@ tnoremap <a-c> <c-\><c-n>c
 tnoremap <a-space> <c-c><c-\><c-n><space>
 "}}}
 
+" before typo
+tnoremap <C-CR> <cr>
+
 augroup OnTerminalBuffer
   au!
   " Open Terminal as Startpage
