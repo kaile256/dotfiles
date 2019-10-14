@@ -1,4 +1,5 @@
-" From: Init.toml
+" From: appearance.toml
+" Repo: flazz/vim-colorschemes
 " Repo: KeitaNakamura/neodark.vim
 
 let g:neodark#use_256color    = 1 " default: 0
