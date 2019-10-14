@@ -11,7 +11,8 @@
   tool = nvr
 [mergetool "nvr"]
   cmd = nvr -s -d $LOCAL $BASE $REMOTE $MERGED -c 'wincmd J | wincmd ='
-#[url "github:"]
-# conflicts with cargo
-#  InsteadOf = https://github.com/
-#  InsteadOf = git@github.com:
+[url "github:"]
+  # limited to push; conflicted with cargo
+  # need to :Gpush of vim-fugitive at least.
+  pushInsteadOf = https://github.com/
+  #  InsteadOf = git@github.com:
