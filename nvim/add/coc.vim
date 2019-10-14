@@ -200,6 +200,7 @@ command! OR          :call CocAction('runCommand', 'editor.action.organizeImport
 nmap cs <Plug>(coc-refactor)
 "set equalprg=CocActionAsync('formatSelected')
 "set equalprg=CocActionAsync('codeLensAction')
+nnoremap ql :call CocActionAsync('codeLensAction')<cr>
 
 xnoremap <expr> = (CocHasProvider('format'))?
       \ '\<Plug>(coc-format-selected)': '='
