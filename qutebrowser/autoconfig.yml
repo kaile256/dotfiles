@@ -148,7 +148,6 @@ settings:
         <Alt+i>: tab-next
         <Alt+l>: tab-next
         <Alt+o>: tab-prev
-        <Alt+p>: tab-next
         <Alt+q><Alt+b>: set-cmd-text -s :buffer
         <Alt+q><Alt+v>: set-cmd-text -s :open
         <Ctrl++>: zoom-in
@@ -161,9 +160,7 @@ settings:
         <Ctrl+j>: scroll-px 0 +60
         <Ctrl+k>: scroll-px 0 -60
         <Ctrl+l>: tab-next
-        <Ctrl+n>: tab-next
         <Ctrl+o>: back
-        <Ctrl+p>: tab-prev
         <Ctrl+t>: null
         <Ctrl+v>: null
         <Ctrl+w>: null
@@ -373,6 +370,7 @@ settings:
     global:
       DEFAULT: https://duckduckgo.com/?q={}
       K: https://www.thefreedictionary.com/{}
+      am: https://www.amazon.co.jp/s?k={}
       ar: https://wiki.archlinux.org/?search={}
       gh: http://github.com/search?q={}
       go: https://golang.org/search?q={}
