@@ -24,4 +24,4 @@ alias kvi="nvim -u $HOME/kaile256/dotfiles/nvim/init.vim"
 type w3m > /dev/null && alias w3m="w3m https://duckduckgo.com/?q="
 # App; Linux on Android
 alias pk='./start-kali.sh'
-
+#alias rustlings='cd ~/rustlings && rustlings'
