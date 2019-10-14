@@ -13,8 +13,8 @@ command! -nargs=+ Gclone :Git clone <q-args>
 
 " Dependent commands {{{1
 " Ref: skywind3000/asyncrun.vim
-command! Gpush :AsyncRun Gpush
 command! Gush  :AsyncRun Gpush
+command! Gpush :AsyncRun Gpush
 
 function! fugitive#commit_with_diff() abort "{{2
   call winpick#harvest()
