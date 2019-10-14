@@ -34,11 +34,11 @@ endfunction "}}}1
 
 if exists("g:nyaovim_version")
   colorscheme solarized8_light_flat
-elseif !exists("g:GuiLoaded")
-  " on CUI
-  let g:solarized_termcolors=256
-  colorscheme solarized8_light_flat
-  "colorscheme solarized8_dark_flat
+"elseif !exists("g:GuiLoaded")
+"  " on CUI
+"  let g:solarized_termcolors=256
+"  colorscheme solarized8_light_flat
+"  "colorscheme solarized8_dark_flat
 else
   call <SID>colorschemes_neodark()
 endif
