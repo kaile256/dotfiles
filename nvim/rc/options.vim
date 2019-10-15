@@ -174,9 +174,15 @@ endif
 set lazyredraw
 "}}}
 " Method; Fold {{{
-set foldenable
+"set foldenable " default: on
+set foldmethod=syntax
 set foldlevel=1
+set foldlevelstart=1
 set foldnestmax=10
+" reduce block (e.g., [[,{)
+set foldopen=hor,mark,percent,quickfix,search,tag,undo
+"set foldclose " when cursor is out of fold, close automatically.
+
 "augroup MyAutoView
 "" Note: may cause trouble with shada in such caches as jumplist.
 augroup FoldMyConfigsAtMarker
