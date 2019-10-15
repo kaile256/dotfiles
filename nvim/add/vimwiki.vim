@@ -21,27 +21,3 @@ command! Diary :call vimwiki#diary#make_note(-1)
 "nnoremap <silent> <space>ys     :sp <bar> VimwikiToday<cr>
 "nnoremap <silent> <space>yv     :vs <bar> VimwikiToday<cr>
 
-function! s:my_startpage(page) "{{{1
-  if @% ==# '' && &ft ==# '' && &bt ==# '' && getline(1,'$') ==# ['']
-    if a:page ==# 'mdwiki'
-      e ~/vimwiki/mdwiki/index.md
-    elseif a:page ==# 'wiki' || a:page ==# 'vimwiki'
-      VimwikiIndex
-    elseif a:page ==# 'task'
-      e ~/vimwiki/task.wiki
-    elseif a:page ==# 'diary'
-      e ~/vimwiki/diary/index.wiki
-    elseif a:page ==# 'term'
-      call termopen(&shell)
-      setlocal nonumber signcolumn=no modifiable
-    else
-      exe 'e' a:page
-    endif
-  endif
-endfunction "}}}
-
-augroup SetMyStartpage "{{{1
-  au!
-  " To use outliner of markdown's instead, keep to use mdwiki.
-  au VimEnter * ++nested call <SID>my_startpage('~/rustlings/exercises')
-augroup END
