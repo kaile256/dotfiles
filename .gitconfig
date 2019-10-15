@@ -15,4 +15,7 @@
   # limited to push; conflicted with cargo
   # need to :Gpush of vim-fugitive at least.
   pushInsteadOf = https://github.com/
-  #  InsteadOf = git@github.com:
+  # TODO: need config for ghq get foo/bar inspite of cargo install foobar.
+  #InsteadOf = git@github.com:
+[ghq]
+  root = /home/kaile256/.go/src
