@@ -34,12 +34,14 @@ function! s:my_startpage(page) "{{{1
     elseif a:page ==# 'term'
       call termopen(&shell)
       setlocal nonumber signcolumn=no modifiable
+    else
+      exe 'e' a:page
     endif
   endif
 endfunction "}}}
 
-augroup CallMyVimwikiFunc "{{{1
+augroup SetMyStartpage "{{{1
   au!
   " To use outliner of markdown's instead, keep to use mdwiki.
-  au VimEnter * ++nested call <SID>my_startpage('task')
+  au VimEnter * ++nested call <SID>my_startpage('~/rustlings/exercises')
 augroup END
