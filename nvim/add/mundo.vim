@@ -2,7 +2,7 @@
 " Repo: simnalamburt/vim-mundo
 
 " Keymap; Hotkey
-nnoremap <silent> <space>u <Cmd>MundoToggle<cr>
+nnoremap <silent> <a-u> <Cmd>MundoToggle<cr>
 
 let g:mundo_right = 1
 let g:mundo_width = &columns /2  " relative to editor's width
