@@ -111,7 +111,7 @@ function! s:defx_keymap_explorer() abort
         \ defx#is_directory()?
         \ defx#do_action('open'):
         \ defx#do_action('multi', ['drop', 'quit'])
-        \ . '<c-w>q'
+        "\ . '<c-w>q'
   nnoremap <silent><buffer><expr> <CR>
         \ (winwidth('.') > g:defx_is_wide)?
         \ defx#is_directory()?
@@ -120,25 +120,23 @@ function! s:defx_keymap_explorer() abort
         \ defx#is_directory()?
         \ defx#do_action('open'):
         \ defx#do_action('multi', ['drop', 'quit'])
-        \ . '<c-w>q'
+        "\ . '<c-w>q'
   nnoremap <silent><buffer><expr> <TAB>
         \ defx#do_action('open', 'bel vsplit')
         \ . ':wincmd p<cr>'
   " Note: defx's quit with split doesn't work well.
   nnoremap <silent><buffer><expr> <a-v>
-        \ defx#do_action('open', 'vsplit')
-        \ .':'. bufwinnr(bufname("\[defx\]")) .'close<cr>'
+        \ defx#do_action('multi', [['open', 'vsplit'], 'quit'])
+        "\ defx#do_action('open', 'vsplit')
+        "\ .':'. bufwinnr(bufname("\[defx\]")) .'close<cr>'
   " Note: <c-s> freezes screen on some unix.
   nnoremap <silent><buffer><expr> <a-s>
-        \ defx#do_action('open', 'bot split')
-        \ .':'. bufwinnr(bufname("\[defx\]")) .'close<cr>'
+        \ defx#do_action('multi', [['open', 'split'], 'quit'])
+        "\ defx#do_action('open', 'bot split')
+        "\ .':'. bufwinnr(bufname("\[defx\]")) .'close<cr>'
   nnoremap <silent><buffer><expr> <a-t>
         \ defx#do_action('drop', 'tabe')
   " Selected; Open Tree {{{1
-  nnoremap <silent><buffer><expr> u
-        \ defx#do_action('open_or_close_tree')
-  nnoremap <silent><buffer><expr> U
-        \ defx#do_action('open_or_close_tree')
   nnoremap <silent><buffer><expr> za
         \ defx#do_action('open_or_close_tree')
   nnoremap <silent><buffer><expr> zo
