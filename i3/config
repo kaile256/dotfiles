@@ -36,7 +36,7 @@ set $AltS   Mod1+Shift
 #exec --no-startup-id "feh --bg-scale $HOME/.config/i3/~~.jpg"
 #}}}
 # General; Font {{{
-font pango:Nerd Font Ricty, SF Mono 11
+font pango:SF Mono 11
 #}}}
 
 # List; Auto Start {{{
@@ -57,7 +57,8 @@ exec --no-startup-id fcitx
 exec --no-startup-id xautolock -time 15 -locker blurlock
 exec --no-startup-id nitrogen --restore; sleep 1; compton -b
 # Show the CP's status on the wallpaper.
-exec --no-startup-id start_conky_live_maia
+#exec --no-startup-id start_conky_live_maia
+exec --no-startup-id ~/black_perl_conky/startup.sh
 #exec --no-startup-id blueman
 #exec --no-startup-id manjaro-hello
 #exec --no-startup-id pamac-tray
@@ -211,18 +212,18 @@ bindsym $Super+space mode "default"
 # you can also use the mouse for that
 mode "$resize" {
 # These bindings trigger as soon as you enter the resize mode
-bindsym j resize shrink width 5 px or 5 ppt
-bindsym k resize grow width 5 px or 5 ppt
-bindsym n resize shrink width 5 px or 5 ppt
-bindsym w resize grow width 5 px or 5 ppt
-bindsym h resize grow height 5 px or 5 ppt
-bindsym l resize shrink height 5 px or 5 ppt
+#bindsym j resize shrink width 25 px or 25 ppt
+#bindsym k resize grow width 25 px or 25 ppt
+#bindsym n resize shrink width 25 px or 25 ppt
+#bindsym w resize grow width 25 px or 25 ppt
+#bindsym h resize grow height 25 px or 25 ppt
+#bindsym l resize shrink height 25 px or 25 ppt
 
 # same bindings, but for the arrow keys
-bindsym Left resize shrink width 5 px or 5 ppt
-bindsym Down resize grow height 5 px or 5 ppt
-bindsym Up resize shrink height 5 px or 5 ppt
-bindsym Right resize grow width 5 px or 5 ppt
+bindsym h resize shrink width 25 px or 25 ppt
+bindsym j resize grow height 25 px or 25 ppt
+bindsym k resize shrink height 25 px or 25 ppt
+bindsym l resize grow width 25 px or 25 ppt
 
 # back to normal: Enter or Escape or $Super+r
 bindsym Return mode "default"
@@ -230,7 +231,8 @@ bindsym Escape mode "default"
 bindsym Ctrl+c mode "default"
 }
 
-set $resize Resize as you want: (H)igher/(L)ower | (N)arrower/(W)ider
+#set $resize Resize as you want: (H)igher/(L)ower | (N)arrower/(W)ider
+set $resize Resize as you want: (H)shrink(left) (N)grow(down) (K)shrink(up) (L)grow(right) | <Ctrl-C>: Cancel
 bindsym $Super+Ctrl+r mode "$resize"
 #}}}
 # Mode; Backlight {{{
