@@ -9,22 +9,32 @@ nnoremap <a-x> <Nop>
 
 " Call Defx; in vertical "{{{1
 nnoremap <silent> <a-x>v
-      \ :<c-u>above 30 vs <bar> Defx `expand('%:p:h')` -search=`expand('%:p')`
+      \ :<c-u>Defx `expand('%:p:h')` -search=`expand('%:p')`
+      \ -direction=topleft
+      \ -winwidth=30
+      \ -split=vertical
       \ -new
       \ <cr>
 nnoremap <silent> <a-x><a-v>
-      \ :<c-u>above 30 vs <bar> Defx `expand('%:p:h')` -search=`expand('%:p')`
+      \ :<c-u>Defx `expand('%:p:h')` -search=`expand('%:p')`
+      \ -direction=topleft
+      \ -winwidth=30
+      \ -split=vertical
       \ -new
       \ <cr>
 " Call Defx; in horizontal {{{1
 " Note: -search must be applied full path.
 " TODO: on Term-Mode, not to get errors; like get path with !pwd.
 nnoremap <silent> <a-x><a-s>
-      \ :<c-u>below sp <bar> Defx `expand('%:p:h')` -search=`expand('%:p')`
+      \ :<c-u>Defx `expand('%:p:h')` -search=`expand('%:p')`
+      \ -direction=belowright
+      \ -split=horizontal
       \ -new
       \ <cr>
 nnoremap <silent> <a-x>s
-      \ :<c-u>below sp <bar> Defx `expand('%:p:h')` -search=`expand('%:p')`
+      \ :<c-u>Defx `expand('%:p:h')` -search=`expand('%:p')`
+      \ -direction=belowright
+      \ -split=horizontal
       \ -new
       \ <cr>
 " Call Defx; in the window {{{1
