@@ -24,29 +24,6 @@ on_map = '<Plug>(Repeat'
 hook_add = 'runtime add/repeat.vim'
 #}}}
 
-## File Rename
-#[[plugins]]
-#repo = 'qpkorr/vim-renamer' #{{{
-## Note: behaves different than what I expects.
-#on_cmd = 'Renamer'
-#hook_add = 'runtime renamer.vimrc'
-##}}}
-
-# Sudo
-[[plugins]]
-repo = 'lambdalisue/suda.vim' #{{{
-if = 'executable("sudo")'
-on_event = 'CmdlineEnter'
-#on_cmd = ['e suda', 'r suda', 'w suda']
-hook_add = 'runtime add/suda.vim'
-#}}}
-#[[plugins]]
-#repo = 'chrisbra/SudoEdit.vim' #{{{
-## Useless w/ neovim
-#on_cmd = 'Sudo'
-#hook_post_source = 'runtime add/SudoEdit.vim'
-##}}}
-
 # Floating Window
 [[plugins]]
 repo = 'ncm2/float-preview.nvim' #{{{
