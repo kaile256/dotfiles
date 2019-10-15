@@ -21,8 +21,6 @@ alias cz='cd $(ghq list | fzf)'
 # `-s`: outputs no error even if no nvim server running.
 alias nvr="nvr -s"
 alias kvi="nvim -u $HOME/kaile256/dotfiles/nvim/init.vim"
-# App; w3m
-type w3m > /dev/null && alias w3m="w3m https://duckduckgo.com/?q="
 # App; Linux on Android
 alias pk='./start-kali.sh'
 #alias rustlings='cd ~/rustlings && rustlings'
