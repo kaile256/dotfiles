@@ -1,5 +1,11 @@
 " Help: options
 
+" Appearance; Blend {{{
+if exists('&pumblend')
+  set pumblend=30
+  set winblend=20
+endif
+"}}}
 "" $VAR: DEVROOTs and $PATH {{{1
 "let $DEVROOT = $HOME .'/dev'
 "

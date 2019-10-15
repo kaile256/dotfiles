@@ -28,12 +28,6 @@ augroup END
 "endfunction
 
 set synmaxcol=320
-" Appearance; Blend {{{
-if exists('&pumblend')
-  set pumblend=30
-  set winblend=20
-endif
-"}}}
 " Appearance; Pmenu {{{
 " shortmess: Shorter Message
 " c-option: forbids to give |ins-completion-menu| messages.
