@@ -3,11 +3,11 @@
 
 " TODO: find colorscheme for floating window's cool, transpaent color.
 let g:terminal_color_0  = '#2e3436'
-let g:terminal_color_1  = '#ef1919'
+let g:terminal_color_1  = '#e73131'
 let g:terminal_color_2  = '#67c60c'
-let g:terminal_color_3  = '#c4a000'
+let g:terminal_color_3  = '#ddb812'
 let g:terminal_color_4  = '#4383d5'
-let g:terminal_color_5  = '#75507b'
+let g:terminal_color_5  = '#b859c8'
 let g:terminal_color_6  = '#43c4cc'
 let g:terminal_color_7  = '#d3d7cf'
 let g:terminal_color_8  = '#555753'
