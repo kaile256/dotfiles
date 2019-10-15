@@ -55,13 +55,14 @@ hook_post_source = 'runtime add/actionmenu.vim'
 #hook_add = 'runtime add/docker.vim'
 ##}}}
 #[[plugins]]
-#repo = 'skanehira/docker-compose.vim'
+#repo = 'skanehira/docker-compose.vim' #{{{
 ## Error:
 ## [dein] Error generating helptags:
 ## [dein] Vim(helptags):E154: Duplicate tag "docker-compose" in file /home/kaile256/.cache/dein/.cache/init.vim/.dein/doc/docker-compose.txt
 ## [dein] function <SNR>346_on_pull_exit[45]..<SNR>346_recache_rtp[19]..dein#recache_runtimepath[1]..dein#install#_recache_runtimepath[19]..<SNR>362_helptags, line 12
 #on_cmd = 'DockerCompose'
 #hook_add = 'runtime add/docker-compose.vim'
+##}}}
 
 # Pair Programming
 #[[plugins]]
@@ -76,6 +77,29 @@ repo = 'HiPhish/info.vim' #{{{
 on_cmd = 'Info'
 hook_add = 'runtime add/info.vim'
 #}}}
+
+# Sudo
+[[plugins]]
+repo = 'lambdalisue/suda.vim' #{{{
+if = 'executable("sudo")'
+on_event = 'CmdlineEnter'
+#on_cmd = ['e suda', 'r suda', 'w suda']
+hook_add = 'runtime add/suda.vim'
+#}}}
+#[[plugins]]
+#repo = 'chrisbra/SudoEdit.vim' #{{{
+## Useless w/ neovim
+#on_cmd = 'Sudo'
+#hook_post_source = 'runtime add/SudoEdit.vim'
+##}}}
+
+## File Rename
+#[[plugins]]
+#repo = 'qpkorr/vim-renamer' #{{{
+## Note: behaves different than what I expects.
+#on_cmd = 'Renamer'
+#hook_add = 'runtime renamer.vimrc'
+##}}}
 
 # REPL;
 #[[plugins]]
