@@ -39,19 +39,13 @@ echo 'making symbolic links...'
 #)
 
 configs=(
-  x11
   alacritty
   awesome
   bash
-  ctags
-  emacs
-  fcitx
   fish
-  git
   glrnvim.yml
   i3
   lynx
-  moc
   nvim
   nyaovim
   qutebrowser
