@@ -58,6 +58,7 @@ Package=(
   pyenv
   ccls
   rclone  # sync lib for cloud-service like dropbox, Gdrive.
+  conky-lua
   ripgrep
   ruby
   #rxvt-unicode-truecolor
