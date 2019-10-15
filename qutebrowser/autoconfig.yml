@@ -266,6 +266,8 @@ settings:
     global: null
   content.mute:
     global: false
+  content.notifications:
+    https://www.reddit.com: false
   content.plugins:
     global: true
   content.private_browsing:
