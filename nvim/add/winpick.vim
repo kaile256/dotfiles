@@ -47,13 +47,6 @@ command! Gbranch :call winpick#weed_out() | Twiggy
 "           similar to my :Vista's keymaps.
 nnoremap <silent> <space>gi :Gbranch<cr>
 
-"" Show Local commit logs.
-"command! GlocalLog
-"      \ :call winpick#harvest()
-"      \ | exe 'bot '. &lines /2 .'sp <bar> Extradite'
-
-nnoremap <space>gu :<c-u>GlocalLog<cr>
-
 augroup WinpickOnFiletype
   au!
   au FileType gitcommit nnoremap <buffer> dq ggdGZZ:call winpick#weed_out()<cr>
