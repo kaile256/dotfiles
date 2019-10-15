@@ -258,25 +258,45 @@ colors:
     #  cyan:    '0x66D9EF'
     #  white:   '0xF8F8F0'
 
-  # Solarized Theme
+    ## Solarized Theme
+    #normal:
+    #  black:   '0x073642'
+    #  red:     '0xdc322f'
+    #  green:   '0x859900'
+    #  yellow:  '0xb58900'
+    #  blue:    '0x268bd2'
+    #  magenta: '0xd33682'
+    #  cyan:    '0x2aa198'
+    #  white:   '0xeee8d5'
+    #bright:
+    #  black:   '0x002b36'
+    #  red:     '0xcb4b16'
+    #  green:   '0x586e75'
+    #  yellow:  '0x657b83'
+    #  blue:    '0x839496'
+    #  magenta: '0x6c71c4'
+    #  cyan:    '0x93a1a1'
+    #  white:   '0xfdf6e3'
+
+  # Neodark-like Theme
   normal:
-    black:   '0x073642'
-    red:     '0xdc322f'
-    green:   '0x859900'
-    yellow:  '0xb58900'
-    blue:    '0x268bd2'
-    magenta: '0xd33682'
-    cyan:    '0x2aa198'
-    white:   '0xeee8d5'
+    black:   '0x2e3436'
+    red:     '0xef1919'
+    green:   '0x67c60c'
+    yellow:  '0xc4a000'
+    blue:    '0x4383d5'
+    magenta: '0x75507b'
+    cyan:    '0x43c4cc'
+    white:   '0xd3d7cf'
   bright:
-    black:   '0x002b36'
-    red:     '0xcb4b16'
-    green:   '0x586e75'
-    yellow:  '0x657b83'
-    blue:    '0x839496'
-    magenta: '0x6c71c4'
-    cyan:    '0x93a1a1'
-    white:   '0xfdf6e3'
+    black:   '0x555753'
+    red:     '0xfc6868'
+    green:   '0x8ae234'
+    yellow:  '0xfce94f'
+    blue:    '0x729fcf'
+    magenta: '0xad7fa8'
+    cyan:    '0x00f5e9'
+    white:   '0xeeeeec'
 
   # Indexed Colors
   #
