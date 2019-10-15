@@ -30,6 +30,7 @@ scriptencoding utf-8
 " call defx#custom#foo() {{{1
 call defx#custom#option('_', {
       \ 'columns': 'mark:indent:git:icons:filename',
+      \ 'winheight': winheight('.'),
       \ 'show_ignored_files': 1,
       \ })
 call defx#custom#column('mark', {
@@ -198,6 +199,12 @@ function! s:defx_keymap_explorer() abort
   " Toggle; Hidden Files {{{1
   nnoremap <silent><buffer><expr> z.
         \ defx#do_action('toggle_ignored_files')
+  "}}}
+  " Resize; {{{1
+  nnoremap <silent><buffer><expr> > defx#do_action('resize',
+        \ defx#get_context().winwidth + 10)
+  nnoremap <silent><buffer><expr> < defx#do_action('resize',
+        \ defx#get_context().winwidth - 10)
   "}}}
   nnoremap <silent><buffer><expr> .
         \ defx#do_action('repeat')
