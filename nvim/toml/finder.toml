@@ -8,9 +8,7 @@ on_cmd = 'FZF'
 hook_source = 'runtime add/fzf.vim'
 [[plugins]]
 repo = 'junegunn/fzf.vim'
-# TODO: why show no preview when on_cmd, even on :FZF.
-#on_cmd = ['Ag', 'Rg', 'Fzf']
-on_event = 'VimEnter'
+on_cmd = 'fzf#vim#'
 hook_add = 'runtime add/fzf.vim'
 # Note: fzf.vim redefines commands after loaded.
 hook_post_source = 'runtime add/fzf.vim'

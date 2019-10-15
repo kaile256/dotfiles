@@ -24,7 +24,7 @@ augroup END "}}}1
 
 "let g:fzf_layout = { 'down': '~25%' }
 
-let g:fzf_command_prefix = 'Fzf'
+"let g:fzf_command_prefix = 'Fzf' " makes complex hook on dein.
 " Execute selected command
 let g:fzf_commands_expect = ['ctrl-x', 'alt-x']
 
@@ -75,9 +75,42 @@ imap <c-x><c-f> <c-o>:cd ~<cr><plug>(fzf-complete-file-ag)
 imap <c-x>f     <c-o>:cd ~<cr><plug>(fzf-complete-file-ag)
 
 " Command! Ag/Rg/FZF {{{1
-command! -bang -nargs=* FzfHelptags call fzf#vim#helptags({'options': '--reverse'}, <bang>0)
+command! -bang -nargs=* Helptags call fzf#vim#helptags({'options': '--multi --reverse'}, <bang>0)
 
-" TODO: set op-nargs=* tions reverse
+" TODO: make :Function work.
+command! -bang Function :call fzf#functions(<bang>0)
+function! fzf#functions(...)
+  let s:map_gv  = a:mode == 'x' ? 'gv' : ''
+  let s:map_cnt = v:count == 0 ? '' : v:count
+  let s:map_reg = empty(v:register) ? '' : ('"'.v:register)
+  let s:map_op  = a:mode == 'o' ? v:operator : ''
+
+  let cout = execute('silent verbose function')
+  let list = []
+  let curr = ''
+  for line in split(cout, "\n")
+    if line =~ "^\t"
+      let src = '  '.join(reverse(reverse(split(split(line)[-1], '/'))[0:2]), '/')
+      call add(list, printf('%s %s', curr, s:green(src, 'Comment')))
+      let curr = ''
+    else
+      let curr = line[3:]
+    endif
+  endfor
+  if !empty(curr)
+    call add(list, curr)
+  endif
+  let aligned = s:align_pairs(list)
+  let sorted  = sort(aligned)
+  let colored = map(sorted, 's:highlight_keys(v:val)')
+  let pcolor  = a:mode == 'x' ? 9 : a:mode == 'o' ? 10 : 12
+  return s:fzf('maps', {
+  \ 'source':  colored,
+  \ 'sink':    s:function('s:key_sink'),
+  \ 'options': '--prompt "Function > " --ansi --no-hscroll --nth 1,.. --color prompt:'.pcolor}, a:000)
+endfunction
+
+" TODO: set options reverse
 command! -bang -nargs=* Amaps call fzf#vim#maps('',  <bang>0)
 command! -bang -nargs=* Nmaps call fzf#vim#maps('n', <bang>0)
 command! -bang -nargs=* Imaps call fzf#vim#maps('i', <bang>0)
@@ -90,33 +123,60 @@ command! -bang -nargs=* Tmaps call fzf#vim#maps('t', <bang>0)
 
 command! -bang -nargs=* FZF
       \ call fzf#vim#files(<q-args>,
-      \                 <bang>0 ? fzf#vim#with_preview({'options': '--reverse'}, 'right:65%')
-      \                         : fzf#vim#with_preview({'options': '--reverse'}, 'right:65%'),
+      \                 <bang>0 ? fzf#vim#with_preview({'options': '--multi --reverse'}, 'right:65%')
+      \                         : fzf#vim#with_preview({'options': '--multi --reverse'}, 'right:65%'),
       \                 <bang>0)
 
 command! -bang -nargs=* Fzf :FZF
 
+" difficult, preview feature
+command! -bang -nargs=* -complete=buffer Buffers
+      \ call fzf#vim#buffers(<q-args>, {'options': '--multi --reverse'})
+"command! -bang -nargs=* -complete=buffer Buffers
+"      \ call fzf#vim#buffers(<q-args>,
+"      \                 <bang>0 ? fzf#vim#with_preview({'options': '--multi --reverse'}, 'right:65%')
+"      \                         : fzf#vim#with_preview({'options': '--multi --reverse'}, 'right:65%'),
+"      \                 <bang>0)
+
+" TODO: make :History --reverse --multi. {{{1
+"command! -bang -nargs=* History
+"      \ call s:history(<q-args>, <bang>0)
+"      \                 <bang>0 ? fzf#vim#with_preview({'options': '--multi --reverse'}, 'right:65%')
+"      \                         : fzf#vim#with_preview({'options': '--multi --reverse'}, 'right:65%'),
+"      \                 <bang>0)
+"function! s:history(arg, bang)
+"  let bang = a:bang || a:arg[len(a:arg) -1] == '!'
+"  if a:arg[0] == ':'
+"    call fzf#vim#command_history(bang)
+"  elseif a:arg[0] == '/'
+"    call fzf#vim#search_history(bang)
+"  else
+"    call fzf#vim#history(bang)
+"  endif
+"endfunction
+""}}}2
+
 " TODO: selector of terminal-buffer.
-command! -bang -nargs=* -complete=buffer FzfTerminal
+command! -bang -nargs=* -complete=buffer Terminal
       \ call fzf#vim#buffers(<q-args>,
-      \                 <bang>0 ? fzf#vim#with_preview({'options': '--reverse'}, 'right:65%')
-      \                         : fzf#vim#with_preview({'options': '--reverse'}, 'right:65%'),
+      \                 <bang>0 ? fzf#vim#with_preview({'options': '--multi --reverse'}, 'right:65%')
+      \                         : fzf#vim#with_preview({'options': '--multi --reverse'}, 'right:65%'),
       \                 <bang>0)
 
 " Note: There's no use to wrap 'GFiles?' independently;
 "       because '?' is regarded as an arg for 'GFiles'.
-command! -bang -nargs=? -complete=dir FzfGFiles
-      \ call fzf#vim#gitfiles(<q-args>, fzf#vim#with_preview({'options': '--reverse'}, 'right:65%'), <bang>0)
+command! -bang -nargs=? -complete=dir GFiles
+      \ call fzf#vim#gitfiles(<q-args>, fzf#vim#with_preview({'options': '--multi --reverse'}, 'right:65%'), <bang>0)
 
 " TODO: preview around the selected lines.
 "command! -bang -nargs=? -complete=dir BLines
-"      \ call fzf#vim#buffer_lines(<q-args>, fzf#vim#with_preview({'options': '--reverse'}, 'right:50%'), <bang>0)
+"      \ call fzf#vim#buffer_lines(<q-args>, fzf#vim#with_preview({'options': '--multi --reverse'}, 'right:50%'), <bang>0)
 
 " Note: not actually in ghq
 command! -bang -nargs=* Ghq :cd $GOPATH <bar> FZF
 "command! -bang -nargs=* Ghq
 "      \ call fzf#vim#files(<q-args>,
-"      \                    <bang>0 ? fzf#vim#with_preview({'source': 'ghq list --full-path',
+"      \                    <bang>0 ? fzf#vim#with_preview({'source': 'ghq list --multi --full-path',
 "      \                                                    'sink': 'cd'}
 "      \ ))
 " Mnemonic: Quest for Project
@@ -125,8 +185,8 @@ nnoremap <a-q>p     :Ghq<cr>
 
 command! -bang -nargs=* Ag
       \ call fzf#vim#ag(<q-args>,
-      \                 <bang>0 ? fzf#vim#with_preview({'options': '--reverse'}, 'right:65%')
-      \                         : fzf#vim#with_preview({'options': '--reverse'}, 'right:65%'),
+      \                 <bang>0 ? fzf#vim#with_preview({'options': '--multi --reverse'}, 'right:65%')
+      \                         : fzf#vim#with_preview({'options': '--multi --reverse'}, 'right:65%'),
       \                 <bang>0)
 
 command! -bang -nargs=* Rg
@@ -145,8 +205,10 @@ command! RgDiary :cd  ~/vimwiki/diary <bar> Rg
 "}}}
 
 " CmdAbbr; :Helptags {{{1
-command! C :FzfColors
-command! H :FzfHelptags
+command! Co :Colors
+command! C :Colors
+command! H :Helptags
+command! He :Helptags
 
 "" Keymap; Ag {{{1
 "if !executable('ag')
@@ -191,10 +253,10 @@ command! H :FzfHelptags
 "nnoremap <silent> <space>zr :<c-u> cd /usr/share/nvim/runtime<cr>            :FZF<cr>
 "nnoremap <silent> <space>zc :<c-u> cd <c-r>=expand(g:dein_cache_dir)<cr><cr> :FZF<cr>
 "" FZF; Various {{{2
-nnoremap <silent> <space>zb     :<c-u> FzfBuffers<cr>
-nnoremap <silent> <space>zg     :<c-u> FzfGFiles?<cr>
+nnoremap <silent> <space>zb     :<c-u> Buffers<cr>
+nnoremap <silent> <space>zg     :<c-u> GFiles?<cr>
 "" Mnemonic: 'Old' Buffer
-nnoremap <silent> <space>zo     :<c-u> FzfHistory<cr>
+nnoremap <silent> <space>zo     :<c-u> History<cr>
 "" Mnemonic: Search in Current File
-nnoremap <silent> <space>z/     :<c-u> FzfBLines<cr>
-nnoremap <silent> <space>z;     :<c-u> FzfCommands<cr>
+nnoremap <silent> <space>z/     :<c-u> BLines<cr>
+nnoremap <silent> <space>z;     :<c-u> Commands<cr>
