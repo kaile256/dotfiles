@@ -3,7 +3,7 @@
 let g:quickrun_config = {
       \ 'runner': 'vimproc',
       \ 'runner/vimproc/updatetime': 100,
-      \ 'outputter': 'quickfix',
+      \ 'outputter': 'loclist',
       \ 'outputter/buffer/append': 1,
       \ 'outputter/buffer/filetype': '&ft',
       \ 'outputter/buffer/into': 1,
