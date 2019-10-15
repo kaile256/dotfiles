@@ -12,16 +12,23 @@ call denite#custom#option('default', {
       \ })
 
 call denite#custom#var('file_rec', 'command', [
-      \ 'rg',
-      \ '--files',
-      \ '--glob',
+      \ 'fzf',
+      \ '--preview-window=right:70%',
       \ '!.git'
       \ ])
+
 " Grep;
 " Use Interactive Mode
 call denite#custom#source('grep', 'args', ['', '', '!'])
 
-call denite#custom#var('grep', 'command', ['rg'])
+call denite#custom#var('grep', 'command', [
+      \ 'rg',
+      \ '--files',
+      \ '--glob',
+      \ '--preview-window=right:70%',
+      \ '!.git'
+      \ ])
+
 call denite#custom#var('grep', 'default_opts',
       \ ['-i', '--vimgrep', '--no-heading'])
 call denite#custom#var('grep', 'recursive_opts', [])
