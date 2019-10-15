@@ -12,7 +12,7 @@ export PATH="$PYENV_ROOT/bin:$PATH"
 
 # Ruby
 ## gem
-export PATH="$HOME/.gem/2.6.0:$PATH"
+export PATH="$HOME/.gem/ruby/2.6.0/bin:$PATH"
 
 # Go
 export PATH="$GOPATH/bin:$PATH"
@@ -22,3 +22,6 @@ export PATH="$HOME/.node_modules/bin:$PATH"
 
 ## yarn
 export PATH="$HOME/.yarn/bin:$PATH"
+
+# Homebrew
+export PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"
