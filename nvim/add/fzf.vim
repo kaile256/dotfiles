@@ -26,7 +26,7 @@ augroup END "}}}1
 
 let g:fzf_command_prefix = 'Fzf'
 " Execute selected command
-let g:fzf_commands_expect = 'ctrl-x'
+let g:fzf_commands_expect = ['ctrl-x', 'alt-x']
 
 " on Fzf Buffer; Action-Command {{{1
 function! s:fzf_open_in_quickfix_list(lines) "{{{2
@@ -40,6 +40,8 @@ let g:fzf_action = {
       \ 'ctrl-z': '',
       \ 'alt-q': function('s:fzf_open_in_quickfix_list'),
       \ 'alt-t': 'tab split',
+      \ 'alt-w': 'bwipeout',
+      \ 'alt-d': 'bdelete',
       \ 'alt-v': 'vsplit',
       \ 'alt-s': 'split',
       \ 'alt-a': 'argadd',
@@ -92,6 +94,13 @@ command! -bang -nargs=* FZF
       \                 <bang>0)
 
 command! -bang -nargs=* Fzf :FZF
+
+" TODO: selector of terminal-buffer.
+command! -bang -nargs=* -complete=buffer FzfTerminal
+      \ call fzf#vim#buffers(<q-args>,
+      \                 <bang>0 ? fzf#vim#with_preview({'options': '--reverse'}, 'right:65%')
+      \                         : fzf#vim#with_preview({'options': '--reverse'}, 'right:65%'),
+      \                 <bang>0)
 
 " Note: There's no use to wrap 'GFiles?' independently;
 "       because '?' is regarded as an arg for 'GFiles'.
