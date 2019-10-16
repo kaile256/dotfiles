@@ -49,7 +49,8 @@ nnoremap <silent> <space>gi :Gbranch<cr>
 
 augroup WinpickOnFiletype
   au!
-  au FileType gitcommit nnoremap <buffer> dq ggdGZZ:call winpick#weed_out()<cr>
+  nnoremap  <Plug>(dismiss-gitcommit) ggdGZZ:call winpick#weed_out()<cr>
+  au FileType gitcommit nmap <buffer> dq <Plug>(dismiss-gitcommit)
   au FileType extradite nnoremap <buffer> <space>gu :<c-u>call winpick#weed_out()<cr>
 
 augroup END
