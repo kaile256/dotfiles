@@ -12,6 +12,12 @@ alias ini
 
 snippet add append
 alias ad [ ap
-  [$*.{1:vim}]
+  [*${1:.vim}]
   indent_style = ${2:space}
   indent_size = ${3:2}
+
+snippet multi
+alias mu m mul
+  [${1:*.vim, *.go, *.rs}]
+  indent_style = ${2:space}
+  indent_size = ${3:4}
