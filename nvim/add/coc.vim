@@ -205,10 +205,10 @@ nmap cs <Plug>(coc-refactor)
 "set equalprg=CocActionAsync('codeLensAction')
 nnoremap ql :call CocActionAsync('codeLensAction')<cr>
 
-xnoremap <expr> = (CocHasProvider('format'))?
-      \ '\<Plug>(coc-format-selected)': '='
-nnoremap <expr> = (CocHasProvider('format'))?
-      \ '\<Plug>(coc-format-selected)': '='
+"xnoremap <expr> = (CocHasProvider('format'))?
+"      \ '\<Plug>(coc-format-selected)': '='
+"nnoremap <expr> = (CocHasProvider('format'))?
+"      \ '\<Plug>(coc-format-selected)': '='
 
 " CocRename {{{1
 " Mnemonic: Change the lhs of Equal Sign
