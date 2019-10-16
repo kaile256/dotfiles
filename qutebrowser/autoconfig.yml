@@ -287,35 +287,35 @@ settings:
   fonts.completion.category:
     global: bold 12pt sf mono, Migu 1M
   fonts.completion.entry:
-    global: 12pt sf mono
+    global: 12pt sf mono, Migu 1M
   fonts.debug_console:
-    global: 12pt sf mono
+    global: 12pt sf mono, migu 1m
   fonts.downloads:
-    global: 12pt sf mono
+    global: 12pt sf mono, migu 1m
   fonts.hints:
-    global: bold 12pt sf mono
+    global: bold 12pt sf mono, migu 1m
   fonts.keyhint:
-    global: 12pt sf mono
+    global: 12pt sf mono, migu 1m
   fonts.messages.error:
-    global: 12pt sf mono
+    global: 12pt sf mono, migu 1m
   fonts.messages.info:
-    global: 12pt sf mono
+    global: 12pt sf mono, migu 1m
   fonts.messages.warning:
-    global: 12pt sf mono
+    global: 12pt sf mono, migu 1m
   fonts.monospace:
     global: '"xos4 Terminus", Terminus, Monospace, "DejaVu Sans Mono", Monaco, "Bitstream
       Vera Sans Mono", "Andale Mono", "Courier New", Courier, "Liberation Mono", monospace,
       Fixed, Consolas, Terminal'
   fonts.prompts:
-    global: 12pt sf mono
+    global: 12pt sf mono, migu 1m
   fonts.statusbar:
-    global: 12pt sf mono
+    global: 12pt sf mono, migu 1m
   fonts.tabs:
-    global: 12pt sf mono
+    global: 12pt sf mono, migu 1m
   fonts.web.family.cursive:
-    global: sf mono
+    global: sf mono, migu 1m
   fonts.web.family.fantasy:
-    global: sf mono
+    global: sf mono, migu 1m
   fonts.web.family.fixed:
     global: sf mono, migu 1m
   fonts.web.family.sans_serif:
