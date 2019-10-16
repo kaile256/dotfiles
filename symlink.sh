@@ -43,6 +43,7 @@ configs=(
   awesome
   bash
   fish
+  fcitx
   glrnvim.yml
   i3
   lynx
