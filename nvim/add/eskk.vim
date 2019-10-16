@@ -3,8 +3,7 @@ scriptencoding utf-8
 " Repo: tyru/eskk.vim
 
 " TODO: Tell current mode of skk on airline/lightline
-
-set imdisable
+set imdisable " no use on neovim or nvim-qt.
 " Path of Dictionaries {{{1
 " if Server is yaskkserv,
 " TODO: auto-start on i3.
