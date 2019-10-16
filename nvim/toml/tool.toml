@@ -25,11 +25,11 @@ hook_add = 'runtime add/repeat.vim'
 #}}}
 
 # Floating Window
-[[plugins]]
-repo = 'ncm2/float-preview.nvim' #{{{
-on_source = ['delplete.nvim', 'coc.nvim']
-hook_post_source = 'runtime add/float-preview.vim'
-#}}}
+#[[plugins]]
+#repo = 'ncm2/float-preview.nvim' #{{{
+#on_source = ['delplete.nvim', 'coc.nvim']
+#hook_post_source = 'runtime add/float-preview.vim'
+##}}}
 #[[plugins]]
 #repo = 'voldikss/vim-floaterm' #{{{
 #on_cmd = 'FloatermToggle'
