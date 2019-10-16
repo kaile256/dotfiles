@@ -37,12 +37,12 @@ Package=(
   clamav  # anti-virus for unix
   #qt5-base-git  # a cross-platform app & UI framework for neovim-qt
   npm # necessary for coc's command at all even w/ yarn
-  fcitx-qt5
+  #fcitx-qt5
   #fcitx5-qt5-git  # Libraries for fcitx-qt5, too long to install
- #peek # a screen recorder
+  #peek # a screen recorder
   fzf
   #gendesk # what?
-  global
+  global # GTAGS
   go
   googlecl  # google api for cli
   hub  # an official wrapper of git
@@ -56,9 +56,9 @@ Package=(
   pdfjs  # PDF viewer in browser
   ninja # a build system for clang
   pyenv
-  ccls
+  ccls # Language-Server for C, C++, Object-C
   rclone  # sync lib for cloud-service like dropbox, Gdrive.
-  conky-lua
+  #conky-lua-archers
   ripgrep
   ruby
   #rxvt-unicode-truecolor
@@ -171,11 +171,12 @@ sudo luarocks install lcf
 # Rustup -- cargo
 # Ref: https://www.rust-lang.org/tools/install
 curl https://sh.rustup.rs -sSf | sh
-rustup install stable
-rustup default stable
+rustup install nightly
+rustup default nightly
 # rust-analyzer -- LSP
 #git clone --depth=1 https://github.com/rust-analyzer/rust-analyzer && cd rust-analyzer
 rustup component add rust-src
+rustup component add rustfmt
 #cargo install-ra --server # fail; open any *.rs to make coc install it instead.
 
 #source /home/kaile256/.local/share/cargo/env
