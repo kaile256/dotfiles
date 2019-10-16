@@ -65,6 +65,10 @@ map f <Plug>(easymotion-f2)
 map t <Plug>(easymotion-t2)
 map F <Plug>(easymotion-F2)
 map T <Plug>(easymotion-T2)
+imap <a-f> <esc><Plug>(easymotion-f2)
+imap <a-t> <esc><Plug>(easymotion-t2)
+imap <a-F> <esc><Plug>(easymotion-F2)
+imap <a-T> <esc><Plug>(easymotion-T2)
 "sunmap <space>f
 "sunmap <space>t
 "sunmap <space>F
@@ -73,6 +77,8 @@ map T <Plug>(easymotion-T2)
 " Keymap; hjkl
 map ; <Plug>(easymotion-next)
 map , <Plug>(easymotion-prev)
+imap <a-;> <Plug>(easymotion-next)
+imap <a-,> <Plug>(easymotion-prev)
 
 " TODO: make below work.
 "nnoremap g<space>   :call <SID>find_skip_char('forward')<cr>
