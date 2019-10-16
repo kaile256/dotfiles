@@ -2,9 +2,9 @@ snippet dein's toml format
 alias vi vim de dein [[ pp [[]]
 options head
   [[plugins]]
-  repo = '${1:user/plugin}'
+  repo = '${1:#:user/plugin}'
   ${2:on_}${3:event} = '${4:BufRead}'
-  hook_${7:post_source} = 'runtime add/${8:plugin}.vim'
+  hook_${7:post_source} = 'runtime add/${8:#:plugin}.vim'
 
 snippet #{{{ begining of fold
 alias { #{ #{{ #{{{ {} #{} #{{}} #{{{}}}
