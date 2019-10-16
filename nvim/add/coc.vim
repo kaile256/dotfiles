@@ -66,6 +66,9 @@ let g:coc_global_extensions = [
 " TODO: convert the list into string.
 "let g:coc_extensions_all = substitute(g:coc_global_extensions, )
 "}}}
+nnoremap <expr> <C-f> coc#util#has_float() ? coc#util#float_scroll(1) : "\<C-f>"
+nnoremap <expr> <C-b> coc#util#has_float() ? coc#util#float_scroll(0) : "\<C-b>"
+
 " Command!; C-series {{{1
 
 command! CocCheckHasProvider :call <SID>has_provider()
