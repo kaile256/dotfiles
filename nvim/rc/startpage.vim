@@ -15,7 +15,7 @@ augroup SetMyStartpage
         call termopen(&shell)
         setlocal nonumber signcolumn=no modifiable
       else
-        exe 'e' a:page
+        exe 'Defx' a:page
       endif
     endif
   endfunction "}}}1
