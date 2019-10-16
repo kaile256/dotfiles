@@ -304,6 +304,9 @@ floating_modifier $Super
 #}}}
 # Window; Layout {{{
 bindsym F11 fullscreen toggle
+bindsym $SuperS+f fullscreen toggle
+# in case, cannot move window into tabbed position.
+bindsym $SuperS+t layout tabbed
 #bindsym $SuperS+s split h;exec notify-send 'tile horizontally'
 #bindsym $SuperS+v split v;exec notify-send 'tile vertically'
 #bindsym $SuperS+t layout tabbed; exec notify-send 'tile tabbed'
@@ -353,7 +356,7 @@ bindsym F11 fullscreen toggle
 
 # Workspace; Name {{{
 set $ws1 "vim"
-set $ws2 "2"
+set $ws2 "browser"
 set $ws3 "3"
 set $ws4 "4"
 set $ws5 "5"
