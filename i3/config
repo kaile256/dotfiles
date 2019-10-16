@@ -124,8 +124,7 @@ bindsym $Super+e exec --no-startup-id emacs
 # Keybind; open Browser {{{
 bindsym $Super+b exec qutebrowser
 bindsym $Super+f exec firefox
-set $chrome google-chrome-stable
-bindsym $Super+c exec $chrome
+bindsym $Super+c exec google-chrome-beta
 #bindsym $Super+p exec palemoon
 #}}}
 # Fn; Backlight {{{
