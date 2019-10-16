@@ -214,8 +214,6 @@ https://qiita.com/delphinus/items/f472eb04ff91daf44274#2-cli-%E7%92%B0%E5%A2%83%
 https://vimhelp.org/ Vim: help.txt
 https://qiita.com/algas/items/fde155abbc9d8ae3f8c9 Haskell on Docker で Portable CLI を作ろう - Qiita
 https://github.com/killercup/cargo-edit killercup/cargo-edit: A utility for managing cargo dependencies from the command line.
-https://www.rust-lang.org/tools/install Install Rust - Rust Programming Language
-https://doc.rust-lang.org/book/foreword.html Foreword - The Rust Programming Language
 https://github.com/vim-jp/vimdoc-ja-working vim-jp/vimdoc-ja-working: vimdoc-ja working repository
 https://github.com/vim-jp/lang-ja vim-jp/lang-ja: Manage Japanese language files which distributed with vim.
 https://github.com/mswift42/themecreator mswift42/themecreator: http://mswift42.github.io/themecreator/ create themes for intellij, textmate, atom, emacs, vim and gnome terminal.
@@ -270,4 +268,7 @@ https://www.smbc-card.com/memx/web_meisai/top/index.html#info2 三井住友VISA�
 https://mail.google.com/mail/u/1/#inbox 受信トレイ - tkmr5433@gmail.com - Gmail
 https://jp.mg5.mail.yahoo.co.jp/neo/launch?.rand=6at3dd1qmmt32#tb=niihmh87 未読293件 - Yahoo!メール
 https://mypage.coopkyosai.coop/contact お問い合わせ｜共済マイページ
-https://doc.rust-lang.org/nightly/std/index.html std - Rust
+https://doc.rust-jp.rs/rust-by-example-ja/ Doc: Rust by Example @ja
+https://doc.rust-lang.org/book/first-edition/ Doc: Rust Textbook
+https://golang.org/ The Go Programming Language
+https://github.com/rssys/code-browser rssys/code-browser: Fast interactive code navigation

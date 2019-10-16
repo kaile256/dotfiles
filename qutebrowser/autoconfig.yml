@@ -139,6 +139,7 @@ settings:
       normal:
         '1': tab-close
         '2': save
+        <: tab-move -
         <Alt+Space>: emacs
         <Alt+[>: tab-prev
         <Alt+]>: tab-next
@@ -172,6 +173,8 @@ settings:
         <Ctrl+w>T: tab-give
         <Ctrl+w>Z: close
         <Ctrl+w>c: tab-close
+        <Ctrl+w>h: tab-move -
+        <Ctrl+w>l: tab-move +
         <Ctrl+w>o: tab-only
         <Ctrl+w>p: tab-pin
         <Ctrl+x>: null
@@ -190,6 +193,7 @@ settings:
         <Space>ze: set-cmd-text -s :open
         <Space>zt: set-cmd-text -s :open -t
         <Space>zv: set-cmd-text -s :open
+        '>': tab-move +
         D: null
         E: edit-url
         H: null
