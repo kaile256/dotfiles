@@ -15,7 +15,6 @@ alias ech='echo'
 
 # App; Shell
 alias f=fish
-alias cz='cd $(ghq list | fzf)'
 
 # App; Neovim
 # `-s`: outputs no error even if no nvim server running.
