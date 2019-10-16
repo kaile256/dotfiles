@@ -22,10 +22,11 @@ hook_post_source = 'runtime add/colorschemes.vim'
 ##}}}
 [[plugins]]
 repo = 'vim-airline/vim-airline' #{{{
-on_event = 'BufRead'
+on_event = 'VimEnter'
 # Uncompatible with nyaovim?
 # Better to be sourced earlier than colorschemes
 hook_source = 'runtime add/airline.vim'
+hook_post_source = 'set noshowmode noruler'
 [[plugins]]
 repo = 'vim-airline/vim-airline-themes'
 on_event = 'VimEnter'
