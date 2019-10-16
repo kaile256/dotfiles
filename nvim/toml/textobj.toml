@@ -4,22 +4,13 @@
 repo = 'kana/vim-textobj-user' #{{{
 # Note: enough with 'vim-matchup'
 on_event = 'BufRead'
-hook_post_source = 'runtime add/textobj-user.vim'
+#hook_add = 'runtime add/textobj-user.vim'
 #}}}
 [[plugins]]
 repo = 'kana/vim-textobj-function' #{{{
 # should activates on lsp doesn't provide the textobjects.
-on_ft = 'vim'
-hook_add = '''
-let g:textobj_function_no_default_key_mappings = 1
-augroup LetTextobjFuncOnlyWhenRequired
-au!
-au FileType vim omap <buffer> af  <Plug>(textobj-function-a)
-au FileType vim omap <buffer> if  <Plug>(textobj-function-i)
-au FileType vim omap <buffer> aF  <Plug>(textobj-function-A)
-au FileType vim omap <buffer> iF  <Plug>(textobj-function-I)
-augroup END
-'''
+on_map = {xo = '<Plug>(textobj-function-'}
+hook_add = 'runtime add/textobj-function.vim'
 #}}}
 [[plugins]]
 repo = 'kana/vim-textobj-fold' #{{{
@@ -33,6 +24,10 @@ repo = 'kana/vim-textobj-entire' #{{{
 # Note: `on_map` makes no sense in omap.
 on_source = 'vim-textobj-user'
 #}}}
+[[plugins]]
+repo = 'glts/vim-textobj-comment'
+on_source = 'vim-textobj-user'
+#hook_add = 'runtime add/textobj-comment.vim'
 #[[plugins]]
 #repo = 'eikendev/vim-textobj-names' #{{{
 ## For: names separated by delimiters like -, _, /, @ or #.
