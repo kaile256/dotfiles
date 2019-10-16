@@ -273,30 +273,6 @@ bindsym $Super+space mode "default"
 }
 #}}}
 
-# Block; Status Bar {{{
-# Start i3bar to display a workspace bar (plus the system information i3status
-# finds out, if available)
-bar {
-# Use pyi3status instead (status_command python ~/.config/i3/i3status/config.py)
-status_command i3status --config ~/.config/i3/i3status/config
-output            eDP1
-output            HDMI
-output            LVDS1
-position          bottom
-mode              dock
-workspace_buttons yes
-tray_output       none
-font pango:Icons, SF Mono 12
-colors {
-background #000000
-statusline #ffffff
-focused_workspace  #ffffff #285577
-active_workspace   #ffffff #333333
-inactive_workspace #888888 #222222
-urgent_workspace   #ffffff #900000
-}
-}
-#}}}
 # Mouse #{{{
 # Use Mouse+$Super to drag floating windows to their wanted position
 floating_modifier $Super
@@ -355,8 +331,8 @@ bindsym $SuperS+t layout tabbed
 #for_window [urgent=latest] focus
 
 # Workspace; Name {{{
-set $ws1 "vim"
-set $ws2 "browser"
+set $ws1 "1:vim"
+set $ws2 "2:browser"
 set $ws3 "3"
 set $ws4 "4"
 set $ws5 "5"
@@ -370,6 +346,10 @@ set $ws10 "10"
 workspace_auto_back_and_forth yes
 #bindsym $mod+b workspace back_and_forth
 #bindsym $mod+Shift+b move container to workspace back_and_forth; workspace back_and_forth
+bindsym $Super+minus workspace prev
+bindsym $Super+equal workspace next
+bindsym $SuperS+p workspace prev
+bindsym $SuperS+n workspace next
 bindsym $Super+1 workspace $ws1
 bindsym $Super+2 workspace $ws2
 bindsym $Super+3 workspace $ws3
@@ -392,6 +372,35 @@ bindsym $SuperS+7 move container to workspace $ws7
 bindsym $SuperS+8 move container to workspace $ws8
 bindsym $SuperS+9 move container to workspace $ws9
 bindsym $SuperS+0 move container to workspace $ws10
+#}}}
+
+# Block; Status Bar {{{
+# Start i3bar to display a workspace bar (plus the system information i3status
+# finds out, if available)
+workspace "1:vim" output            eDP1
+workspace "1:browser" output            HDMI
+#workspace "1:vim" output            LVDS1
+bar {
+# Use pyi3status instead (status_command python ~/.config/i3/i3status/config.py)
+status_command i3status --config ~/.config/i3/i3status/config
+output            eDP1
+output            HDMI1
+output            HDMI2
+output            LVDS1
+position          bottom
+mode              dock
+workspace_buttons yes
+tray_output       both
+font pango:Icons, SF Mono 12
+colors {
+background #000000
+statusline #ffffff
+focused_workspace  #ffffff #285577
+active_workspace   #ffffff #333333
+inactive_workspace #888888 #222222
+urgent_workspace   #ffffff #900000
+}
+}
 #}}}
 
 ## for i3-gaps: {{{
