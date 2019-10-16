@@ -16,6 +16,13 @@ hook_add = 'runtime add/open-browser.vim'
 #hook_post_source = 'runtime add/open-browser-github.vim'
 ##}}}
 
+#[[plugins]]
+#repo = 'raghur/vim-ghost'
+## depends on chrome's extention or firefox's addon.
+#hook_done_update = 'GhostInstall'
+#on_cmd = 'Ghost'
+#hook_add = 'runtime add/ghost.vim'
+
 # API; Calendar
 [[plugins]]
 repo = 'itchyny/calendar.vim' #{{{
