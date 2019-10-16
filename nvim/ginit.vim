@@ -35,9 +35,9 @@ endif
 "unlet s:path
 "
 "" $VAR; for shell {{{1
-"let $EDITOR     = 'nvr'
-"let $VISUAL     = 'nvr'
-"let $GIT_EDITOR = 'nvr -cc split --remote-wait'
+let $EDITOR     = 'nvr'
+let $VISUAL     = 'nvr'
+let $GIT_EDITOR = 'nvr -cc split --remote-wait'
 "let $BROWSER    = 'qutebrowser'
 "
 ""set shell=fish
