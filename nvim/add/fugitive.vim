@@ -46,7 +46,7 @@ nnoremap <silent> <space>gb     :<c-u>Gblame<cr>
 nnoremap <silent> <space>gs     :<c-u>vert bot 35 Gstatus<cr>
 "}}}
 " Add; Only {{{
-nnoremap <silent> <space>ga     :<c-u>Gw <bar> bot 35 Gstatus<cr>
+nnoremap <silent> <space>ga     :<c-u>Gw <bar> vert bot 35 Gstatus<cr>
 "}}}
 " Add; && Commit w/ diff {{{1
 nnoremap <silent> <space>gw     :<c-u>Gstage<cr>
