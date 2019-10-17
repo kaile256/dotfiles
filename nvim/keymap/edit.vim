@@ -49,6 +49,12 @@ inoremap <c-g>b     <S-Left>
 inoremap <c-g><c-w> <S-Right>
 inoremap <c-g>w     <S-Right>
 "}}}
+" Improve; i_<c-o> {{{
+" TODO: make <c-o>yi work, as <c-o>di, <c-o>ci.
+"inoremap <c-o>y <esc>
+"      \ :au TextYankPost * ++once norm! gi<cr>
+"      \ y
+"}}}
 
 " CAUTION: Never careless mapping on <i_a-hjkl>
 " Alt-ESC; <a-hjkl> {{{
