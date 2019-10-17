@@ -16,7 +16,8 @@ nnoremap <silent> <space>zm :<c-u>BookmarkShowAll<cr> :BLines<cr> <c-\><c-n>:ccl
 
 " Keymap; Annotation
 " Mnemonic: Mark with Note
-noremap <silent> <space>m :<c-u>BookmarkAnnotate<cr>
+nnoremap <silent> <space>m :<c-u>BookmarkAnnotate<cr>
+nnoremap <silent> ma :<c-u>BookmarkAnnotate<cr>
 
 " Keymap; Jump
 nnoremap <silent> mj :<c-u>BookmarkNext<CR>
