@@ -62,8 +62,8 @@ set modelineexpr
 " Appearance; Cursor {{{
 " shorter for CursorHold & CursorHoldI
 set updatetime=300
-"" Cursor; Disable ?fail
-set guicursor=
+"" Cursor; Disable
+"set guicursor
 "}}}
 " Appearance; Line {{{
 set cursorline
