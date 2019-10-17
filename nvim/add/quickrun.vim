@@ -1,11 +1,13 @@
 " From: external.toml
+" Repo: thinca/vim-quickrun
+
+let g:quickrun_no_default_key_mappings = 1
 
 let g:quickrun_config = {
       \ 'runner': 'vimproc',
       \ 'runner/vimproc/updatetime': 100,
       \ 'outputter': 'loclist',
       \ 'outputter/buffer/append': 1,
-      \ 'outputter/buffer/filetype': '&ft',
       \ 'outputter/buffer/into': 1,
       \ 'outputter/buffer/close_on_empty': 1,
       \ 'hook/time/enable': 1,
@@ -23,18 +25,13 @@ nnoremap <silent> qR  :<c-u>QuickRun<cr>
 nnoremap <silent> qrr :<c-u>QuickRun<cr>
 nmap qr <Plug>(quickrun-op)
 
-
-augroup QuickRunAutoConf
-  au!
-  " TODO: keep ft on quickrun-buffer.
-  "au FileType quickrun call quickrun#keep_ft()
-  "au BufWinEnter [quickrun\ output] call quickrun#keep_ft()
-  "au BufWinEnter *output] call quickrun#keep_ft()
-  au BufWinEnter *output] call quickrun#keep_ft()
-  function! quickrun#keep_ft() abort
-    wincmd p
-    let l:ft = &ft
-    exe 'set ft='. l:ft
-    wincmd p
-  endfunction
-augroup END
+nnoremap <silent> qR  :<c-u>call <SID>quickrun_holding_ft()<cr>
+nnoremap <silent> qrr :<c-u>call <SID>quickrun_holding_ft()<cr>
+function! s:quickrun_holding_ft() abort
+  let l:quickrun_ft = &ft
+  QuickRun
+  let l:buffer = bufwinid('\[quickrun output\]')
+  call win_gotoid(l:buffer)
+  exe 'setl ft='. l:quickrun_ft
+  wincmd p
+endfunction
