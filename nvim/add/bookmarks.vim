@@ -1,15 +1,19 @@
-" From: tool.toml
+" From: finder.toml
 " Repo: MattesGroeger/vim-bookmarks
 
 " Let
 let g:bookmark_no_default_key_mappings = 1
 
+"let g:bookmark_sign = '>>'
+"let g:bookmark_annotation_sign = '##'
+
 let g:bookmark_highlight_lines = 1
 let g:bookmark_show_toggle_warning = 1
 let g:bookmark_location_list = 1
 let g:bookmark_disable_ctrlp = 1
-" fail to work;
-"let g:bookmark_auto_save_file = '~/.config/nvim/config.d/data.d/mattes.bookmarks'
+
+let g:bookmark_auto_save = 1
+let g:bookmark_auto_save_file = '~/vimwiki/vim-bookmarks'
 
 " Keymap; with FZF
 nnoremap <silent> <space>zm :<c-u>BookmarkShowAll<cr> :BLines<cr> <c-\><c-n>:cclose<cr>i
