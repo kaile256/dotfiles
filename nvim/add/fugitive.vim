@@ -72,9 +72,9 @@ function! s:keymap_fugitive()
   xmap <buffer> c sc
   " TODO: silent! on unmap <buffer> from the source of vim-fugitives.
   "windo silent! nunmap <buffer> dq
-  nunmap <buffer> dq
-  nunmap <buffer> J
-  nunmap <buffer> K
+  silent! nunmap <buffer> dq
+  silent! nunmap <buffer> J
+  silent! nunmap <buffer> K
   " For: especially in the case, ':norm U' to unstage all.
   nnoremap <silent> <Plug>(fugitive:gstage-prev-window) :<c-u>wincmd p <cr> :Gw <bar> wincmd p<cr>
   nmap     <buffer> S <Plug>(fugitive:gstage-prev-window)
