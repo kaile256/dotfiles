@@ -112,6 +112,9 @@ done
 #ln -nsf ${XDG_CONFIG_HOME}/w3m .w3m
 #echo "Done! create a symlink for w3m on ${HOME}"
 
+cd "${XDG_DATA_HOME}/qutebrowser"
+ln -nsf "${DOTFILES}/qutebrowser/userscripts" .
+
 cd "$CURRENT_DIR"
 
 cat << END
