@@ -145,38 +145,6 @@ bindsym XF86AudioMute        exec --no-startup-id pactl set-sink-mute 0 toggle
 #bindsym $Super+Print exec --no-startup-id import -window root ~/Pictures/screenshot
 bindsym $Super+Print exec --no-startup-id i3-scrot
 #}}}
-# Keybind; Focus Change {{{
-bindsym $Super+h focus left
-bindsym $Super+j focus down
-bindsym $Super+k focus up
-bindsym $Super+l focus right
-## Focus; by Cursor Keys
-bindsym $Super+Left focus left
-bindsym $Super+Down focus down
-bindsym $Super+Up focus up
-bindsym $Super+Right focus right
-## Focus; by Vim-Additional
-bindsym $AltC+h focus left
-bindsym $AltC+j focus down
-bindsym $AltC+k focus up
-bindsym $AltC+l focus right
-#}}}
-# Keybind; Move {{{
-bindsym $SuperS+h move left
-bindsym $SuperS+j move down
-bindsym $SuperS+k move up
-bindsym $SuperS+l move right
-## Move; by Vim-Additional
-bindsym $AltS+h move left
-bindsym $AltS+j move down
-bindsym $AltS+k move up
-bindsym $AltS+l move right
-# Move; by Cursor Keys
-bindsym $SuperS+Left move left
-bindsym $SuperS+Down move down
-bindsym $SuperS+Up move up
-bindsym $SuperS+Right move right
-#}}}
 
 # Mode; System {{{
 #set $Locker i3lock -i ~/Pictures/Wallpaper/kishimen.png && sleep 1
@@ -271,6 +239,39 @@ bindsym $Super+Ctrl+s  mode "default"
 bindsym Ctrl+c       mode "default"
 bindsym $Super+space mode "default"
 }
+#}}}
+
+# Keybind; Focus Window {{{
+bindsym $Super+h focus left
+bindsym $Super+j focus down
+bindsym $Super+k focus up
+bindsym $Super+l focus right
+### Focus; by Cursor Keys
+#bindsym $Super+Left focus left
+#bindsym $Super+Down focus down
+#bindsym $Super+Up focus up
+#bindsym $Super+Right focus right
+### Focus; by Vim-Additional
+#bindsym $AltC+h focus left
+#bindsym $AltC+j focus down
+#bindsym $AltC+k focus up
+#bindsym $AltC+l focus right
+#}}}
+# Keybind; Move Window {{{
+bindsym $SuperS+h move left
+bindsym $SuperS+j move down
+bindsym $SuperS+k move up
+bindsym $SuperS+l move right
+### Move; by Vim-Additional
+#bindsym $AltS+h move left
+#bindsym $AltS+j move down
+#bindsym $AltS+k move up
+#bindsym $AltS+l move right
+## Move; by Cursor Keys
+#bindsym $SuperS+Left move left
+#bindsym $SuperS+Down move down
+#bindsym $SuperS+Up move up
+#bindsym $SuperS+Right move right
 #}}}
 
 # Mouse #{{{
