@@ -28,10 +28,10 @@ nmap qr <Plug>(quickrun-op)
 nnoremap <silent> qR  :<c-u>call <SID>quickrun_holding_ft()<cr>
 nnoremap <silent> qrr :<c-u>call <SID>quickrun_holding_ft()<cr>
 function! s:quickrun_holding_ft() abort
-  let l:quickrun_ft = &ft
+  let l:ft = &ft
   QuickRun
-  let l:buffer = bufwinid('\[quickrun output\]')
-  call win_gotoid(l:buffer)
-  exe 'setl ft='. l:quickrun_ft
+  let l:id = bufwinid('\[quickrun output\]')
+  call win_gotoid(l:id)
+  exe 'setl ft='. l:ft
   wincmd p
 endfunction
