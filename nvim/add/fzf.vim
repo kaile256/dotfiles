@@ -13,7 +13,7 @@ augroup FzfMyAutoConf "{{{1
     hi fzf3 ctermfg=237 ctermbg=251
     setl statusline=%#fzf1#\ >\ %#fzf2#fz%#fzf3#f
   endfunction "}}}2
-  au User     FzfStatusLine call <SID>fzf_buffer_statusline()
+  au User FzfStatusLine call <SID>fzf_buffer_statusline()
   " CAUTION: WinLeave's current file is next file, i.e., fzf when opening fzf-buffer.
   au WinLeave,BufLeave * if &ft ==# 'fzf' | hide
   " Note: Makes no sense but auto-set nonumber on tab-open.
