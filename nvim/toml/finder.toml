@@ -79,6 +79,7 @@ hook_add = 'runtime add/vista.vim'
 [[plugins]]
 repo = 'MattesGroeger/vim-bookmarks' #{{{
 on_cmd = 'Bookmark'
+on_map = '<c-u>Bookmark'
 hook_add = 'runtime add/bookmarks.vim'
 #}}}
 #[[plugins]]
