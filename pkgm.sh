@@ -73,6 +73,7 @@ Package=(
   xorg-xbacklight  # backlight
   yarn
   zsh
+  zotero # organize research sources, essays.
 )
 
 Manjaro=(
@@ -185,3 +186,6 @@ rustup component add rustfmt
 #sudo npm i -g bash-language-server
 # for go-lsp, gopls
 GO111MODULE=on go get golang.org/x/tools/gopls@latest
+
+# Qutebrowser
+pip3 install pocket-api --user
