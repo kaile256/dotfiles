@@ -180,3 +180,21 @@ augroup END "}}}
 " i.e., close all the others
 noremap zU zMzv
 "}}}
+
+function! s:spell_chack() abort
+  " FIXME:
+  if &spell == 1
+    startinsert!
+    norm! <c-x><c-s>
+  else
+    setl spell
+    au! InsertLeave,CompleteDone * ++once setl nospell
+    startinsert!
+    norm! <c-x><c-s>
+  endif
+endfunction
+
+inoremap <silent> <c-x>s     <Cmd>call <SID>spell_chack()<cr>
+inoremap <silent> <c-x><c-s> <Cmd>call <SID>spell_chack()<cr>
+nnoremap <silent> gs         <Cmd>call <SID>spell_chack()<cr>
+
