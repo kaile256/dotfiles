@@ -72,6 +72,7 @@ nnoremap <expr> <C-b> coc#util#has_float() ? coc#util#float_scroll(0) : "\<C-b>"
 " Command!; C-series {{{1
 
 command! S :CocCommand session.save
+command! Sessions :CocList sessions
 command! CocCheckHasProvider :call <SID>has_provider()
 command! CcheckHasProvider   :call <SID>has_provider()
 command! -nargs=+ Cinstall :CocInstall <q-args>
