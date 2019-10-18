@@ -9,8 +9,8 @@ let g:textmanip_hooks = {
       \ 'finish': ''
       \ } " Experimental: key should be 'finish' at present.
 
-nmap yp <Plug>(textmanip-duplicate-down)
-nmap yP <Plug>(textmanip-duplicate-up)
+"nmap yp <Plug>(textmanip-duplicate-down)
+"nmap yP <Plug>(textmanip-duplicate-up)
 
 "xmap <a-k> <Plug>(textmanip-duplicate-up)
 "xmap <a-j> <Plug>(textmanip-duplicate-down)
