@@ -220,9 +220,10 @@ augroup END
 "endfunction
 
 " Method; Session {{{1
+" terminal is regarded as an invalid argument
 set sessionoptions=buffers,folds,globals
 set sessionoptions+=help,localoptions,options
-set sessionoptions+=slash,tabpages,terminal,winsize
+set sessionoptions+=slash,tabpages,winsize
 " Method; Inc/Decrement {{{1
 "set nrformats+=octal
 " Method; Completion {{{1
