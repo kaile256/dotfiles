@@ -1,4 +1,4 @@
-" From: external.toml
+" From: git.toml
 " Repo: idanarye/vim-merginal
 
 "let g:merginal_windowWidth =
