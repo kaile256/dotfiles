@@ -11,6 +11,7 @@ settings:
       H: help -t
       O: open -t
       R: session-load
+      S: session-save
       W: session-save
       abbr: config-dict-add aliases
       alias: config-dict-add aliases
