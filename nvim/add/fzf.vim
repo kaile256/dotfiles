@@ -3,7 +3,8 @@ scriptencoding utf-8
 " Repo: junegunn/fzf.vim
 
 " Note: :FZF! starts fzf on full-window.
-
+" TODO: replace all reverse
+" TODO:
 augroup FzfMyAutoConf "{{{1
   au!
   function! s:fzf_buffer_statusline() "{{{2
@@ -27,6 +28,11 @@ augroup END "}}}1
 "let g:fzf_command_prefix = 'Fzf' " makes complex hook on dein.
 " Note: write in a string w/ no spaces, not in a list.
 let g:fzf_commands_expect = 'ctrl-x,alt-x'
+
+" TODO: implement g:vars below:
+let g:fzf_preview_excluded = ['commands', 'history']
+let g:fzf_preview_size = '60%'
+let g:fzf_default_options = '--multi --reverse'
 
 " on Fzf Buffer; Action-Command {{{1
 function! s:fzf_open_in_quickfix_list(lines) "{{{2
@@ -102,34 +108,30 @@ command! -bang -nargs=* Rg
 command! -bang -nargs=? -complete=dir Gfiles
       \ call fzf#vim#gitfiles(<q-args>, fzf#vim#with_preview({'options': '--multi --reverse'}, 'right:65%'), <bang>0)
 "}}}1
-" Command: expand default want preview {{{
-" difficult, preview feature
+" Command: expand default reverse, want preview {{{
+command! -bang -nargs=* Commands
+      \ :call fzf#vim#commands({'options': '--reverse'}, <bang>0)
+command! -bang -nargs=* Cmds :Commands
+" TODO: show all the previews:
+"   1. detect how does the fzf.vim get the preview.
+command! -bang -nargs=* History
+      \ :call fzf#vim#history(
+      \                 <bang>0 ? fzf#vim#with_preview({'options': '--multi --reverse'}, 'right:60%')
+      \                         : fzf#vim#with_preview({'options': '--multi --reverse'}, 'right:60%'),
+      \                 <bang>0)
+" TODO: make :History --reverse --multi. {{{1
 command! -bang -nargs=* -complete=buffer Buffers
-      \ call fzf#vim#buffers(<q-args>, {'options': '--multi --reverse'})
+      \ :call fzf#vim#buffers(
+      \                 <bang>0 ? fzf#vim#with_preview({'options': '--multi --reverse'}, 'right:60%')
+      \                         : fzf#vim#with_preview({'options': '--multi --reverse'}, 'right:60%'),
+      \                 <bang>0)
 "command! -bang -nargs=* -complete=buffer Buffers
 "      \ call fzf#vim#buffers(<q-args>,
-"      \                 <bang>0 ? fzf#vim#with_preview({'options': '--multi --reverse'}, 'right:65%')
-"      \                         : fzf#vim#with_preview({'options': '--multi --reverse'}, 'right:65%'),
+"      \                 <bang>0 ? fzf#vim#with_preview({'options': '--multi --reverse'}, 'right:60%')
+"      \                         : fzf#vim#with_preview({'options': '--multi --reverse'}, 'right:60%'),
 "      \                 <bang>0)
 command! -bang -nargs=* Helptags call fzf#vim#helptags({'options': '--multi --reverse'}, <bang>0)
 "}}}
-" TODO: make :History --reverse --multi. {{{1
-"command! -bang -nargs=* History
-"      \ call s:history(<q-args>, <bang>0)
-"      \                 <bang>0 ? fzf#vim#with_preview({'options': '--multi --reverse'}, 'right:65%')
-"      \                         : fzf#vim#with_preview({'options': '--multi --reverse'}, 'right:65%'),
-"      \                 <bang>0)
-"function! s:history(arg, bang)
-"  let bang = a:bang || a:arg[len(a:arg) -1] == '!'
-"  if a:arg[0] == ':'
-"    call fzf#vim#command_history(bang)
-"  elseif a:arg[0] == '/'
-"    call fzf#vim#search_history(bang)
-"  else
-"    call fzf#vim#history(bang)
-"  endif
-"endfunction
-""}}}1
 " Command: Maps {{{1
 " TODO: set options reverse
 command! -bang -nargs=* Amaps call fzf#vim#maps('',  <bang>0)
