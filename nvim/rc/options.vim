@@ -11,21 +11,6 @@ command! -nargs=+ -complete=file Grep :tabnew | :silent grep --sort-files <args>
 " Time in ms to wait for a mapped sequence to complete.
 " For: made me notice if any mappings are in Caleene's way.
 set timeoutlen=10000
-"set shada=!,'100,<50,s10,h,
-augroup AutoWriteShada
-  " Topic: When shada file is updated?
-  " Shada only saves the data on VimLeave so that
-  " nothing won't be saved, when you start another process of neovim,
-  " i.e., no data won't share with the running neovim process then.
-  au! InsertLeave * wshada
-augroup END
-"function! s:save_jumplists() abort
-" TODO: should share jumplist on multiple neovim processes.
-"  let l:shada_conf = execute('set shada')
-"  set shada='100
-"  wshada
-"  set shada=expand(l:shada_conf)
-"endfunction
 
 set synmaxcol=320
 " Appearance; Pmenu {{{
@@ -217,14 +202,30 @@ augroup SetFdmDotfiles
   " mkview: save a file condition according to `:viewoptions`
 augroup END
 "}}}
-" Method; Session {{{
-set sessionoptions+=localoptions
-set sessionoptions-=blank,buffers
-"}}}
-" Method; Inc/Decrement {{{
+" Method; Shada {{{1
+set shada='1000,<50,h,s10,
+augroup AutoWriteShada
+  " Note: shada only saves the data on VimLeave so that
+  "       nothing won't be saved, when you start another process of neovim,
+  "       i.e., no data won't share with the running neovim process then.
+  au! InsertLeave * wshada
+  "au! FocusGained * rshada!
+augroup END
+"function! s:save_jumplists() abort
+" TODO: should share jumplist on multiple neovim processes.
+"  let l:shada_conf = execute('set shada')
+"  set shada='100
+"  wshada
+"  set shada=expand(l:shada_conf)
+"endfunction
+
+" Method; Session {{{1
+set sessionoptions=buffers,folds,globals
+set sessionoptions+=help,localoptions,options
+set sessionoptions+=slash,tabpages,terminal,winsize
+" Method; Inc/Decrement {{{1
 "set nrformats+=octal
-"}}}
-" Method; Completion
+" Method; Completion {{{1
 set complete-=i " i: included files
 
 " CAUTION: :DiffOrig ruins diff syntax.
