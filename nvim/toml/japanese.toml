@@ -11,11 +11,10 @@ repo = 'tyru/eskk.vim' #{{{
 on_cmd = 'eskk#enable()'
 hook_add = 'runtime add/eskk.vim'
 # TODO: Do them below, on background.
-hook_post_update= '''
-silent exe 'argadd'. g:dein_cache_dir .'/repos/github.com/tyru/eskk.vim/autoload/eskk.vim'
-silent argdo g/to-hira/s/-j/-space
-silent write
-silent %argdel
+hook_done_update= '''
+exe 'e' g:dein_cache_dir .'/repos/github.com/tyru/eskk.vim/autoload/eskk.vim'
+g/to-hira/s/-j/-space/e
+write
 '''
 [[plugins]]
 repo = 'tyru/skkdict.vim' #{{{
