@@ -57,10 +57,10 @@ repo = 'severin-lemaignan/vim-minimap'
 on_cmd = 'Minimap'
 hook_add = 'runtime add/minimap.vim'
 # the name, vim-minimap, causes error when jump to this repository.
-hook_post_update = '''
-argadd ~/.cache/dein/repos/github.com/severin-lemaignan/vim-minimap/autoload/minimap.py
-argdo g/MINIMAP/g/vim-minimap/s/vim-minimap/[minimap]/e
-%argdel
+hook_done_update = '''
+exe 'e' g:dein_cache_dir .'/repos/github.com/severin-lemaignan/vim-minimap/autoload/minimap.py'
+g/MINIMAP/s/vim-minimap/[minimap]/e
+write
 '''
 
 # Edit; Undo
