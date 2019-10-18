@@ -13,10 +13,11 @@
   cmd = nvr -s -d $LOCAL $BASE $REMOTE $MERGED -c 'wincmd J | wincmd ='
 [url "github:"]
   # limited to push; conflicted with cargo
+  # Note: repo individually.
+  # TODO: need config for ghq get foo/bar inspite of cargo install foobar.
   # 'pushInsteadOf = https://github.com/' to :Gpush of vim-fugitive at least.
   # 'InsteadOf = https://github.com/' to install private plugins by dein.vim.
   InsteadOf = https://github.com/
-  # TODO: need config for ghq get foo/bar inspite of cargo install foobar.
   #InsteadOf = git@github.com:
 [ghq]
   root = /home/kaile256/.go/src
