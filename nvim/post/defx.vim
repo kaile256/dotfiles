@@ -187,8 +187,6 @@ function! s:defx_keymap_explorer() abort
   "" Mark; All
   nnoremap <silent><buffer><expr> ma
         \ defx#async_action('multi', ['clear_select_all','toggle_select_all'])
-  nnoremap <silent><buffer><expr> *
-        \ defx#async_action('multi', ['clear_select_all','toggle_select_all'])
   "" Mark; Reverse selected conditions.
   nnoremap <silent><buffer><expr> mr
         \ defx#do_action('toggle_select_all')
