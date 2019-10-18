@@ -1,14 +1,15 @@
 " From: finder.toml
 " Repo: junegunn/fzf.vim
 " Fork: kaile256/fzf.vim
+" Rev: kaile256/fzf.vim_command_functions
+
+command! -bang Functions :call fzf#vim#functions(
+      \                 <bang>0 ? fzf#vim#with_preview({'options': '--multi --reverse'}, 'right:60%:wrap')
+      \                         : fzf#vim#with_preview({'options': '--multi --reverse'}, 'right:60%'),
+      \                 <bang>0)
 
 " Note: not actually in ghq
 command! -bang -nargs=* Ghq :cd $GOPATH <bar> FZF
-"command! -bang -nargs=* Ghq
-"      \ call fzf#vim#files(<q-args>,
-"      \                    <bang>0 ? fzf#vim#with_preview({'source': 'ghq list --multi --full-path',
-"      \                                                    'sink': 'cd'}
-"      \ ))
 " Mnemonic: Quest for Project
 nnoremap <a-q><a-p> :Ghq<cr>
 nnoremap <a-q>p     :Ghq<cr>
