@@ -10,10 +10,10 @@ let g:move_map_keys = 0
 let g:move_auto_indent = 0
 "let g:move_past_end_of_line = 0 " 1: enable to move beyond the limit of the line.
 
-vmap <c-h> <Plug>MoveBlockLeft
-vmap <c-j> <Plug>MoveBlockDown
-vmap <c-k> <Plug>MoveBlockUp
-vmap <c-l> <Plug>MoveBlockRight
+xmap <c-h> <Plug>MoveBlockLeft
+xmap <c-j> <Plug>MoveBlockDown
+xmap <c-k> <Plug>MoveBlockUp
+xmap <c-l> <Plug>MoveBlockRight
 
 " Note: use :copy/:move at all.
 "nmap <a-h> <Plug>MoveCharLeft
