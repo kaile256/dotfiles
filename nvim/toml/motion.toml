@@ -27,21 +27,21 @@ hook_add = 'runtime add/asterisk.vim'
 ##}}}
 
 # Leap to Target
-#[[plugins]]
-#repo = 'justinmk/vim-sneak' #{{{
-#on_map = {nox = '<Plug>Sneak_'}
-#hook_add = 'runtime add/sneak.vim'
-#hook_post_source = '''
-#silent! unmap s
-#silent! unmap S
-#'''
-##}}}
+[[plugins]]
+repo = 'justinmk/vim-sneak' #{{{
+on_map = {nox = '<Plug>Sneak_'}
+hook_add = 'runtime add/sneak.vim'
+hook_post_source = '''
+silent! unmap s
+silent! unmap S
+'''
+#}}}
 # Leap; Easy Motion
-[[plugins]] # has extentions
-repo = 'easymotion/vim-easymotion' #{{{
-on_map = {nox = '<Plug>(easymotion-'}
-hook_add = 'runtime add/easymotion.vim'
-hook_post_source = 'runtime post/easymotion.vim'
+#[[plugins]] # has extentions
+#repo = 'easymotion/vim-easymotion' #{{{
+#on_map = {nox = '<Plug>(easymotion-'}
+#hook_add = 'runtime add/easymotion.vim'
+#hook_post_source = 'runtime post/easymotion.vim'
 #[[plugins]]
 #repo = 'haya14busa/vim-easyoperator-phrase' #{{{
 #on_map = '<plug>(easyoperator-'

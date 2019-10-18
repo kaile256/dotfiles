@@ -1,12 +1,10 @@
 " From: init.vim
 
 " instead
-tnoremap <c-x>h     ~
-tnoremap <c-x><c-h> ~
-inoremap <c-x>h     ~
-inoremap <c-x><c-h> ~
-cnoremap <c-x>h     ~
-cnoremap <c-x><c-h> ~
+tnoremap <c-x>h     ~/
+tnoremap <c-x><c-h> ~/
+noremap! <c-x>h     ~/
+noremap! <c-x><c-h> ~/
 
 "imap <a-space> <esc><space>
 tmap <a-space> <c-\><c-n><space>
