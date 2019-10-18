@@ -194,7 +194,7 @@ function! s:spell_chack() abort
   endif
 endfunction
 
-inoremap <silent> <c-x>s     <Cmd>call <SID>spell_chack()<cr>
-inoremap <silent> <c-x><c-s> <Cmd>call <SID>spell_chack()<cr>
-nnoremap <silent> gs         <Cmd>call <SID>spell_chack()<cr>
+"inoremap <silent> <c-x>s     <Cmd>call <SID>spell_chack()<cr>
+"inoremap <silent> <c-x><c-s> <Cmd>call <SID>spell_chack()<cr>
+"nnoremap <silent> gs         <Cmd>call <SID>spell_chack()<cr>
 
