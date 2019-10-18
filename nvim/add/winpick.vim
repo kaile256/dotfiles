@@ -41,8 +41,6 @@ command! GstageChunk
 
 let g:fzf_layout = { 'window': 'call winpick#floating()' }
 
-command! Gbranch :call winpick#weed_out() | Twiggy
-
 " Mnemonic: Git Index (i.e., branches and tags)
 "           similar to my :Vista's keymaps.
 nnoremap <silent> <space>gi :Gbranch<cr>
