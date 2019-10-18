@@ -33,7 +33,8 @@ cnoremap <c-x><c-f> ~/.config/
 " Command; Open parent directory {{{1
 command! E :e    %:p:h
 command! V :vs   %:p:h
-command! S :sp   %:p:h
+" Mnemonic: Horizontal (h muet)
+command! O :sp   %:p:h
 "command! T :tabe %:p:h
 " TODO: work no-bang ver. correct.
 command! -bang -bar Cd call <SID>cd_bang(<bang>0? 'bang' : 'nobang')
