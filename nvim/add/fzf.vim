@@ -98,7 +98,8 @@ command! -bang -nargs=* Rg
 
 " Note: There's no use to wrap 'GFiles?' independently;
 "       because '?' is regarded as an arg for 'GFiles'.
-command! -bang -nargs=? -complete=dir GFiles
+" TODO: even on '?'-version, show preview.
+command! -bang -nargs=? -complete=dir Gfiles
       \ call fzf#vim#gitfiles(<q-args>, fzf#vim#with_preview({'options': '--multi --reverse'}, 'right:65%'), <bang>0)
 "}}}1
 " Command: expand default want preview {{{
@@ -182,10 +183,11 @@ command! He :Helptags
 
 "" FZF; Various {{{1
 nnoremap <silent> <space>zb     :<c-u> Buffers<cr>
-nnoremap <silent> <space>zg     :<c-u> GFiles?<cr>
+nnoremap <silent> <space>zG     :<c-u> Gfiles<cr>
+nnoremap <silent> <space>zg     :<c-u> Gfiles?<cr>
 "" Mnemonic: 'Old' Buffer
 nnoremap <silent> <space>zo     :<c-u> History<cr>
 "" Mnemonic: Search in Current File
 nnoremap <silent> <space>z/     :<c-u> BLines<cr>
-nnoremap <silent> <space>z;     :<c-u> Commands<cr>
+nnoremap <silent> <space>z;     :<c-u> History:<cr>
 
