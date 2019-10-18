@@ -43,7 +43,6 @@ hook_add = 'runtime add/wakatime.vim'
 [[plugins]]
 repo = 'Floobits/floobits-neovim' #{{{
 on_cmd = ['Floo', 'FlooShareDirPublic', 'FlooShareDirPrivate', 'FlooJoinWorkspace']
-hook_done_update = 'UpdateRemotePlugins'
 #hook_add = 'runtime add/floobits.vim'
 #}}}
 
