@@ -19,17 +19,18 @@ type = 'git'
 on_event = 'BufRead'
 hook_add = 'runtime add/fugitive.vim'
 # Fugitive; Branch Viewr
-#[[plugins]]
-#repo = 'sodapopcan/vim-twiggy' #{{{
-#on_cmd = ':Twiggy'
-#hook_add = 'runtime add/twiggy.vim'
-##}}}
 [[plugins]]
-repo = 'idanarye/vim-merginal' #{{{
-# Note: twiggy is better.
+repo = 'sodapopcan/vim-twiggy' #{{{
 type = 'git'
-on_cmd = 'Merginal'
-hook_add = 'runtime add/merginal.vim'
+on_cmd = 'Twiggy'
+hook_add = 'runtime add/twiggy.vim'
+##}}}
+#[[plugins]]
+#repo = 'idanarye/vim-merginal' #{{{
+## Note: twiggy is better.
+##type = 'git'
+#on_cmd = 'Merginal'
+#hook_add = 'runtime add/merginal.vim'
 #}}}
 # Fugitive; Commit's Message viewer
 [[plugins]]
