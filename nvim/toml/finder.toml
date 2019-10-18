@@ -10,6 +10,7 @@ hook_source = 'runtime add/fzf.vim'
 #repo = 'junegunn/fzf.vim'
 repo = 'kaile256/fzf.vim'
 on_cmd = 'fzf#vim#'
+rev = 'command_functions'
 hook_add = 'runtime add/fzf.vim'
 hook_source = 'runtime source/fzf.vim'
 hook_post_source = 'runtime post/fzf.vim'
@@ -80,7 +81,7 @@ hook_add = 'runtime add/vista.vim'
 [[plugins]]
 repo = 'MattesGroeger/vim-bookmarks' #{{{
 on_cmd = 'Bookmark'
-on_map = '<Cmd>Bookmark'
+on_map = '<C-u>Bookmark'
 hook_add = 'runtime add/bookmarks.vim'
 #}}}
 #[[plugins]]
