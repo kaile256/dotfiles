@@ -7,11 +7,12 @@ repo = 'junegunn/fzf' #{{{
 on_cmd = 'FZF'
 hook_source = 'runtime add/fzf.vim'
 [[plugins]]
-repo = 'junegunn/fzf.vim'
+#repo = 'junegunn/fzf.vim'
+repo = 'kaile256/fzf.vim'
 on_cmd = 'fzf#vim#'
 hook_add = 'runtime add/fzf.vim'
-# Note: fzf.vim redefines commands after loaded.
-hook_post_source = 'runtime add/fzf.vim'
+hook_source = 'runtime source/fzf.vim'
+hook_post_source = 'runtime post/fzf.vim'
 #}}}
 
 # Filer
