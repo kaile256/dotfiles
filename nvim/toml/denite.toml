@@ -3,7 +3,6 @@
 # Denite itself;
 [[plugins]]
 repo = 'Shougo/denite.nvim' #{{{
-hook_done_update = 'UpdateRemotePlugins'
 if = 'has("python3")'
 on_cmd = 'Denite'
 hook_add = 'runtime add/denite.vim'
