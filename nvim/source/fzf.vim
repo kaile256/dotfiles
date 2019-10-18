@@ -45,10 +45,10 @@ endfunction "}}}
 " <alt-k> for cancel.
 " Note: seems not work with <alt> like <alt-k>.
 " bdelete/bwipeout work incorrect, lured to current buffer.
-" badd: Get it in list of buffers.
+" badd: append the files to buflist in Background.
 let g:fzf_action = {
       \ 'alt-a': 'argadd',
-      \ 'alt-g': 'badd',
+      \ 'alt-b': 'badd',
       \ 'alt-q': function('s:fzf_open_in_quickfix_list'),
       \ 'alt-s': 'split',
       \ 'alt-t': 'tab split',
