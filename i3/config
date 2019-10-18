@@ -70,7 +70,9 @@ exec --no-startup-id ~/black_perl_conky/startup.sh
 #exec_always --no-startup-id setcursor
 # Modifier; Sound Volume {{{
 #bindsym $Super+Ctrl+m exec terminal -e 'alsamixer'
-#exec --no-startup-id pulseaudio
+# pulseaudio: deamon to control via keyboard.
+exec --no-startup-id pulseaudio --start
+# pulseaudio-applet: install yourself
 #exec --no-startup-id pa-applet
 #bindsym $mod+Ctrl+m exec pavucontrol
 #}}}
@@ -206,6 +208,7 @@ bindsym $Super+Ctrl+r mode "$resize"
 bindsym $Super+Ctrl+b mode "$backlight"
 set $backlight Backlight Control: (h)Higher, (l)Lower, (n)Exit
 mode "$backlight" {
+# TODO: call current brightness.
 bindsym k exec "xbacklight -inc 5; notify-send 'brightness up'"
 bindsym j exec "xbacklight -dec 5; notify-send 'brightness down'"
 bindsym u exec "xbacklight -inc 5; notify-send 'brightness up'"
@@ -221,15 +224,24 @@ bindsym $Super+space mode "default"
 }
 #}}}
 # Mode; Sound Volume {{{
+## Depends: pulseaudio & pavucontrol
+# Depends: pulseaudio-ctl
+# Recommend: pamixer (a frontend)
+# Recommend: pulseaudio-alsa (for flash)
 bindsym $Super+Ctrl+s mode "$sound"
 bindsym $Super+Ctrl+v mode "$sound"
 set $sound Sound Volume: (H)igher, (L)ower, (M)ute or (N)o more.
 mode "$sound" {
-bindsym j exec --no-startup-id pactl set-sink-volume 0 -5%
-bindsym k exec --no-startup-id pactl set-sink-volume 0 +5%
+bindsym h exec --no-startup-id pactl set-sink-volume 0 +5%
+bindsym l exec --no-startup-id pactl set-sink-volume 0 -5%
 bindsym u exec --no-startup-id pactl set-sink-volume 0 +5%
 bindsym d exec --no-startup-id pactl set-sink-volume 0 -5%
 bindsym m exec --no-startup-id pactl set-sink-mute   0 toggle
+bindsym k exec --no-startup-id pactl set-sink-volume 0 +5%
+bindsym j exec --no-startup-id pactl set-sink-volume 0 -5%
+#bindsym k exec --no-startup-id pulseaudio-ctl up
+#bindsym j exec --no-startup-id pulseaudio-ctl down
+#bindsym m exec --no-startup-id pulseaudio-ctl mute
 bindsym n            mode "default"
 bindsym Escape       mode "default"
 bindsym Ctrl+squarebrace       mode "default"
@@ -341,7 +353,9 @@ set $ws6 "6"
 set $ws7 "7"
 set $ws8 "8"
 set $ws9 "9"
-set $ws10 "10"
+set $ws10 "0:monitor"
+workspace "1:vim"     output eDP1
+workspace "0:monitor" output HDMI2
 #}}}
 # Workspace; Focus Switch {{{
 workspace_auto_back_and_forth yes
@@ -378,9 +392,6 @@ bindsym $SuperS+0 move container to workspace $ws10
 # Block; Status Bar {{{
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
-workspace "1:vim" output            eDP1
-workspace "1:browser" output            HDMI
-#workspace "1:vim" output            LVDS1
 bar {
 # Use pyi3status instead (status_command python ~/.config/i3/i3status/config.py)
 status_command i3status --config ~/.config/i3/i3status/config
