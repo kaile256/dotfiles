@@ -51,6 +51,7 @@ endfunction
 cnoreabbr <expr> !
       \ (getcmdtype() == ':' && getcmdline() =~ '^!$')?
       \ (&l:ft ==# 'vim')? 'w<cr> :so <c-r>=expand("%:p")<cr>':
+      \ (&l:ft =~# 'html')? ':OpenBrowser <c-r>=expand("%:p")<cr>':
       \ '! %:p' :
        \ '!'
 " Abbr; rm https://foo/bar {{{1
