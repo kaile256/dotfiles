@@ -296,6 +296,7 @@ bindsym F11 fullscreen toggle
 bindsym $SuperS+f fullscreen toggle
 # in case, cannot move window into tabbed position.
 bindsym $SuperS+t layout tabbed
+bindsym $Super+$Alt+t layout tabbed
 #bindsym $SuperS+s split h;exec notify-send 'tile horizontally'
 #bindsym $SuperS+v split v;exec notify-send 'tile vertically'
 #bindsym $SuperS+t layout tabbed; exec notify-send 'tile tabbed'
@@ -395,6 +396,7 @@ bindsym $SuperS+0 move container to workspace $ws10
 bar {
 # Use pyi3status instead (status_command python ~/.config/i3/i3status/config.py)
 status_command i3status --config ~/.config/i3/i3status/config
+#status_command i3blocks -c ~/.config/i3/i3bar/i3blocks/config
 output            eDP1
 output            HDMI1
 output            HDMI2
