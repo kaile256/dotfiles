@@ -40,6 +40,7 @@ settings:
       nvim: spawn nvim-qt
       o: open
       pmap: bind -m prompt
+      pocket-open: open https://app.getpocket.com/
       pocket-save: spawn --userscript qutepocket
       punmap: unbind -m prompt
       q: tab-close
