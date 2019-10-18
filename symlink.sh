@@ -67,6 +67,7 @@ home_list=(
   .Xmodmap
   .Xresources
   .bashrc
+  .taskrc
   .profile
   .ctags
   .doom.d
