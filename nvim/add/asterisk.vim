@@ -108,11 +108,19 @@ nmap *  <Plug>(asterisk-gz*)
 nmap g* <Plug>(asterisk-g*)
 nmap #  <Plug>(asterisk-gz#)
 nmap g# <Plug>(asterisk-g#)
+nmap z*  <Plug>(asterisk-z*)
+nmap gz* <Plug>(asterisk-*)
+nmap z#  <Plug>(asterisk-z#)
+nmap gz# <Plug>(asterisk-#)
 
 xmap *  <Plug>(asterisk-gz*)
 xmap g* <Plug>(asterisk-g*)
 xmap #  <Plug>(asterisk-gz#)
 xmap g# <Plug>(asterisk-g#)
+xmap z*  <Plug>(asterisk-z*)
+xmap gz* <Plug>(asterisk-*)
+xmap z#  <Plug>(asterisk-z#)
+xmap gz# <Plug>(asterisk-#)
 
 " Keymaps; substitute {{{1
 if exists('g:asterisk_no_default_mappings_substitute') | finish | endif
