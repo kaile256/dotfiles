@@ -53,13 +53,13 @@ set updatetime=300
 " Appearance; Line {{{
 set cursorline
 " CAUTION: cursorline-highlight causes drawing corruption.
-"augroup AutoToggleCursorLine
-"  au!
-"  " Note: InsertEnter & WinLeave doesn't work.
-"  au WinEnter,InsertLeave * setl cursorline
-"  au WinLeave,InsertEnter * setl nocursorline
-"augroup END
-" to highlight only CursorLineNr if not linked.
+augroup AutoToggleCursorLine
+  au!
+  " Note: InsertEnter & WinLeave used to be useless.
+  au FocusGained,WinEnter,InsertLeave * setl cursorline
+  au FocusLost,WinLeave,InsertEnter * setl nocursorline
+augroup END
+"" to highlight only CursorLineNr if not linked.
 "hi CursorLine NONE
 " in diff mode, move cursorline in the other window as the corresponding line of the current window.
 " Error?: it would work, even not in diff mode, but just there're two or more windows in a screen.
