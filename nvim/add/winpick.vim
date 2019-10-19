@@ -8,6 +8,11 @@ let g:winpick_weed_list = [
       \ 'COMMIT_EDITMSG',
       \ ]
 
+"let g:winpick_path_dict =
+"      \ extend(g:winpick_path_dict,
+"      \        {'p': '<c-w>FindRoot'},
+"      \        )
+
 let s:list = {
       \ 'fugitive': {},
       \ }
