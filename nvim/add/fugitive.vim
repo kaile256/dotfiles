@@ -1,4 +1,4 @@
-" From: external.toml
+" From: git.toml
 " Repo: tpope/vim-fugitive
 
 command! -nargs=+ -complete=file Gremote :Git remote <q-args>
@@ -11,7 +11,7 @@ command! -nargs=+ -complete=dir HubCreate
 command! -nargs=+ Gclone :Git clone <q-args>
 "command! Glogmode :tabe | Glog
 
-command! -nargs=* Gush :Gpush <q-args>
+"command! -bang -nargs=? -range=-1 -addr=tabs -complete=customlist,fugitive#PushComplete Gush :exe fugitive#Command(<line1>, <count>, +"<range>", <bang>0, "<mods>", "push " . <q-args>)'
 " Dependent commands {{{1
 " Ref: skywind3000/asyncrun.vim
 "command! Gush :AsyncRun git push %:p
