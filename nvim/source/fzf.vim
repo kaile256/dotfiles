@@ -4,9 +4,7 @@
 " Another: add/fzf.vim
 " Another: post/fzf.vim
 
-
 " Note: :FZF! starts fzf on full-window.
-
 augroup FzfMyAutoConf "{{{1
   au!
   function! s:fzf_buffer_statusline() "{{{2
@@ -20,9 +18,9 @@ augroup FzfMyAutoConf "{{{1
   " CAUTION: WinLeave's current file is next file, i.e., fzf when opening fzf-buffer.
   au WinLeave,BufLeave * if &ft ==# 'fzf' | hide
   " Note: Makes no sense but auto-set nonumber on tab-open.
-  au FileType fzf setl laststatus=0
-        \ | au BufEnter * ++once setl laststatus=2
-        \ | if &l:number | setl number | endif
+  "au FileType fzf setl laststatus=0
+  "      \ | au BufEnter * ++once setl laststatus=2
+  "      \ | if &l:number | setl number | endif
 augroup END "}}}1
 
 "let g:fzf_layout = { 'down': '~25%' }
@@ -31,10 +29,12 @@ augroup END "}}}1
 " Note: write in a string w/ no spaces, not in a list.
 let g:fzf_commands_expect = 'ctrl-x,alt-x'
 
+" Original
 " TODO: implement g:vars below:
 "let g:fzf_preview_excluded = ['history']
-let g:fzf_preview_options = 'right:60%:wrap'
 let g:fzf_default_options = '--multi --reverse'
+let g:fzf_extract_pattern = '^.git$'
+let g:fzf_preview_style = 'right:60%:wrap'
 
 " on Fzf Buffer; Action-Command {{{1
 function! s:fzf_open_in_quickfix_list(lines) "{{{2
