@@ -1,5 +1,6 @@
 " From: motion.toml
 " Repo: easymotion/vim-easymotion
+" Fork: kaile256/vim-easymotion
 " Alter: post/easymotion.vim
 
 " Let; mapping {{{
@@ -13,8 +14,11 @@ let g:EasyMotion_linefeed_jump_first = 1
 let g:EasyMotion_expandable_linefeed_jump_first = 1
 " Set apart vim's default n-key history.
 let g:EasyMotion_add_search_history = 0
-"}}}
 
+" Original
+let g:EasyMotion_always_jump_first = 1
+
+"}}}
 " Let; Chars "{{{
 let g:EasyMotion_smartcase = 0
 let g:EasyMotion_use_upper = 1
@@ -29,7 +33,7 @@ let g:EasyMotion_prompt = 'EasyMotion: {n} Chars >>> '
 "let g:EasyMotion_use_regexp = 1
 "}}}
 
-" Let; Migemo {{{1
+" Let; Migemo {{{
 " TODO: Associate with eskk.vim?
 " `g:EasyMotion_use_migemo` is independentt to 'cmigemo'.
 " because Easymotion includes basic regex patterns.
