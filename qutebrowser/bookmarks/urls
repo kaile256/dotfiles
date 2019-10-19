@@ -291,3 +291,4 @@ https://github.com/kaile256/fzf.vim kaile256/fzf.vim: fzf vim
 https://github.com/geohot/qira geohot/qira: QEMU Interactive Runtime Analyser
 http://qira.me/ qira
 https://qiita.com/k_tada/items/4b7ae126e6c5df2cb33c Git nowではじめるCommit駆動開発 - Qiita
+https://github.com/josa42/coc-go josa42/coc-go: Go language server extension using gopls for coc.nvim.
