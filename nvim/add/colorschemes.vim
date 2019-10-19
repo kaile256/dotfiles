@@ -49,6 +49,11 @@ function! s:colorschemes_neodark() abort "{{{1
   hi NormalFloat guibg=#1a0210 guifg=#957474
 endfunction "}}}1
 
+"augroup AlertOnBuffer
+"  " CAUTION: Too many Exceptions!!
+"  au! FileChangedRO * colorscheme Monokai
+"augroup END
+
 if exists("g:nyaovim_version")
   colorscheme solarized8_light_flat
   "elseif !exists("g:GuiLoaded")
