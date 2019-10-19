@@ -46,6 +46,7 @@ Package=(
   go
   googlecl  # google api for cli
   hub  # an official wrapper of git
+  i3-volume
   #jinja2 # for neovim-qt
   luarocks
   #nerd-fonts-inconsolata-go
