@@ -78,12 +78,12 @@ hook_add = 'runtime add/vista.vim'
 #}}}
 
 # Enhance; Marks
-[[plugins]]
-repo = 'MattesGroeger/vim-bookmarks' #{{{
-on_cmd = 'Bookmark'
-on_map = '<C-u>Bookmark'
-hook_add = 'runtime add/bookmarks.vim'
-#}}}
+#[[plugins]]
+#repo = 'MattesGroeger/vim-bookmarks' #{{{
+## ???
+#on_cmd = ['BookmarkAnnotate', 'BookmarkShowAll', 'BookmarkNext', 'BookmarkPrev']
+#hook_add = 'runtime add/bookmarks.vim'
+##}}}
 #[[plugins]]
 #repo = 'jacquesbh/vim-showmarks'{{{
 #on_map = ['m','`',"'",'<space>']
