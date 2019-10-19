@@ -18,6 +18,7 @@ set cpo&vim
 function! halfline#jk(jk) abort range
   " TODO: make l:before immutable; deepcopy() is no nse for str.
   let l:before = winline()
+  lockvar l:before
 
   if a:jk ==# 'j'
     norm! L
