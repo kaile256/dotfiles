@@ -147,6 +147,9 @@ set noshowcmd
 "set history=10000
 " Cmdline; Completion
 set wildmenu wildmode=list:longest
+" 'wildcharm' works exactly like 'wildchar', which is <TAB> in vim as default,
+" but it keeps to work in cnoremap.
+set wildcharm=<c-y>
 " for `:substitute`
 if exists('+inccommand')
   set inccommand=nosplit
