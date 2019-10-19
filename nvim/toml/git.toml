@@ -18,6 +18,11 @@ repo = 'tpope/vim-fugitive' #{{{
 type = 'git'
 on_event = 'BufRead'
 hook_add = 'runtime add/fugitive.vim'
+hook_done_update = '''
+exe 'e' g:dein_cache_dir .'/repos/github.com/tpope/vim-fugitive/plugin/fugitive.vim'
+g/Gpush/norm! yyps/Gpush/Gush/e
+write
+'''
 # Fugitive; Branch Viewr
 [[plugins]]
 repo = 'sodapopcan/vim-twiggy' #{{{
