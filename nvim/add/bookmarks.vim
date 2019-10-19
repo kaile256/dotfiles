@@ -13,14 +13,15 @@ let g:bookmark_location_list = 1
 let g:bookmark_disable_ctrlp = 1
 
 let g:bookmark_auto_save = 1
-let g:bookmark_auto_save_file = '~/vimwiki/vim-bookmarks'
+" complicated to work correct.
+"let g:bookmark_auto_save_file = '~/vimwiki/vim-bookmarks'
 
 " Keymap; with FZF
+" TODO: show in a floating window.
 nnoremap <silent> <space>zm :<c-u>BookmarkShowAll<cr> :BLines<cr> <c-\><c-n>:cclose<cr>i
 
 " Keymap; Annotation
 " Mnemonic: Mark with Note
-nnoremap <silent> <space>m :<c-u>BookmarkAnnotate<cr>
 nnoremap <silent> ma :<c-u>BookmarkAnnotate<cr>
 
 " Keymap; Jump
@@ -32,6 +33,6 @@ noremap <silent> ms :<c-u>BookmarkShowAll<cr> :setlocal modifiable<CR>
 
 "augroup MyBookmarksAugroup
 "  au!
-"  au VimEnter * nested BookmarkLoad ~/.config/nvim/config.d/data.d/mattes.bookmarks
-"  au VimLeave * nested BookmarkSave ~/.config/nvim/config.d/data.d/mattes.bookmarks
+"  au VimLeave,BufWinLeave,WinLeave * BookmarkSave <c-r>=expand(g:bookmark_auto_save_file)
+"  au VimEnter,BufWinEnter,WinEnter * BookmarkLoad <c-r>=expand(g:bookmark_auto_save_file)
 "augroup END
