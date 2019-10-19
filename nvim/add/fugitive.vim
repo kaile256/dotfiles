@@ -11,7 +11,7 @@ command! -nargs=+ -complete=dir HubCreate
 command! -nargs=+ Gclone :Git clone <q-args>
 "command! Glogmode :tabe | Glog
 
-command! Gush :Gpush
+command! -nargs=* Gush :Gpush <q-args>
 " Dependent commands {{{1
 " Ref: skywind3000/asyncrun.vim
 "command! Gush :AsyncRun git push %:p
