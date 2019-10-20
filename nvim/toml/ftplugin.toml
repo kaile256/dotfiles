@@ -4,9 +4,15 @@
 [[plugins]]
 repo = 'editorconfig/editorconfig-vim' #{{{
 # Note: coc-prettier doesn't use editorconfig if prettier is either unavailable.
+# Note: vim-prettier is unnecessary, though it also covers editorconfig.
 on_event = 'BufWinEnter'
 hook_source = 'runtime source/editorconfig.vim'
 #}}}
+#[[plugins]]
+#repo = 'prettier/vim-prettier'
+## Note: also read .editorconfig
+#on_event = 'BufWinEnter'
+#hook_add = 'runtime add/prettier.vim'
 #[[plugins]]
 #repo = 'tpope/vim-sleuth' #{{{
 ## Note: Sleuth means a detective.
