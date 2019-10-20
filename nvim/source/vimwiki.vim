@@ -6,6 +6,8 @@ scriptencoding utf-8
 " Another: add/vimwiki.vim
 
 "set path+=~/vimwiki/**
+let g:vimwiki_table_auto_fmt = 0
+"let g:vimwiki_table_reduce_last_col = 0
 let g:vimwiki_folding = 'expr'
 let g:vimwiki_markdown_link_ext = 1
 " Let; Highlight {{{1
