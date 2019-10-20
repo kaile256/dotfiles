@@ -2,9 +2,10 @@
 
 augroup AppendFileType
   au!
-  au BufWinEnter *.txt        setl syn=help
-  au BufWinEnter *.snip       setl ft=neosnippet
-  au BufWinEnter i3/**/config setl ft=i3
+  au BufNewFile,BufRead *.txt    setl syn=help
+  au BufNewFile,BufRead *.snip   setl ft=neosnippet
+  au BufNewFile,BufRead .vmailrc setl ft=yaml
+  au BufNewFile,BufRead i3/**/config,i3/**.conf setl ft=i3
   "au BufWinEnter dotfiles/** setl fdm=marker
 augroup END
 

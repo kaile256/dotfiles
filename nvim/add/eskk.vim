@@ -31,9 +31,9 @@ let g:eskk#select_cand_keys = 'abcdefgijklmnopqrstuvwxyz'
 let g:eskk#kakutei_when_unique_candidate = 1
 "let g:eskk#initial_mode = 'ascii'
 let g:eskk#start_completion_length = 2
-"" Completion; <TAB> to next selection
+" <TAB> to next selection
 let g:eskk#tab_select_completion = 1
-let g:eskk#egg_like_newline = 1
+let g:eskk#egg_like_newline = 1 " ignore <CR> on 'kakutei'
 let g:eskk#egg_like_newline_completion = 1
 " Henkan; Marker {{{1
 let g:eskk#marker_henkan = '@'
