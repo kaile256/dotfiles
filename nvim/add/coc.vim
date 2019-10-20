@@ -34,6 +34,7 @@ let g:coc_global_extensions = [
       \ 'coc-diagnostic',
       \ 'coc-dictionary',
       \ 'coc-docker',
+      \ 'coc-prettier',
       \ 'coc-elixir',
       \ 'coc-emoji',
       \ 'coc-flow',
@@ -71,10 +72,13 @@ nnoremap <expr> <C-b> coc#util#has_float() ? coc#util#float_scroll(0) : "\<C-b>"
 
 " Command!; C-series {{{1
 
-command! S :CocCommand session.save
+command! S          :CocCommand session.save
+command! SessioSave :CocCommand session.save
+command! L        :CocList sessions
 command! Sessions :CocList sessions
-command! CocCheckHasProvider :call <SID>has_provider()
-command! CcheckHasProvider   :call <SID>has_provider()
+"command! SessionLoadCoc :CocCommand session.load
+command! CocHasProvider :call <SID>has_provider()
+command! ChasProvider   :call <SID>has_provider()
 command! -nargs=+ Cinstall :CocInstall <q-args>
 command! -nargs=+ Cuninstall :CocUninstall <q-args>
 command! -nargs=+ CocRemove  :CocUninstall <q-args>
@@ -218,37 +222,56 @@ nnoremap <silent> <c-w><space>r :call CocActionAsync('jumpReferences',     'vspl
 xnoremap <silent> <c-w><space>r :call CocActionAsync('jumpReferences',     'vsplit')<cr>
 
 " CocFormat {{{1
-command! FormatOnCoc :call CocAction('format')
-command! -nargs=? FoldOnCoc :call CocAction('fold', <f-args>)
+" Note: use coc-prettier
+"command! FormatOnCoc :call CocAction('format')
+"command! -nargs=? FoldOnCoc :call CocAction('fold', <f-args>)
 command! OR          :call CocAction('runCommand', 'editor.action.organizeImport')
+command! Format :CocCommand prettier.formatFile
 " Mnemonic: Change the Structure.
 nmap cs <Plug>(coc-refactor)
 "set equalprg=CocActionAsync('formatSelected')
 "set equalprg=CocActionAsync('codeLensAction')
 nnoremap ql :call CocActionAsync('codeLensAction')<cr>
 
+" Note: coc-prettier has lower priority; when the document has other
+" format provider, prettier would not work.
+" Prettier's range format only support languageId including: {{{2
+" `javascript`, `javascriptreact`,
+" `typescript`, `typescriptreact`,
+" `json` and `graphql`.
 "xnoremap <expr> = (CocHasProvider('format'))?
-"      \ '\<Plug>(coc-format-selected)': '='
+"      \ '<Plug>(coc-format-selected)': '='
 "nnoremap <expr> = (CocHasProvider('format'))?
-"      \ '\<Plug>(coc-format-selected)': '='
+"      \ '<Plug>(coc-format-selected)': '='
 
-" CocRename {{{1
 " Mnemonic: Change the lhs of Equal Sign
 function! s:quick_format() abort
-  let l:view = winsaveview()
-  " Note: should keep ':norm' without 'bang';
-  "       `=` may be mapped by such as coc.nvim.
-  keepjump norm gg=G
-  call winrestview(l:view)
+  let save_view = winsaveview()
+
+  if CocHasProvider('format')
+    " keep ':norm' from <bang> to use <Plug>-map.
+    norm gg<Plug>(coc-format-selected)G
+    "elseif CocHasProvider('prettier')
+    " TODO: detect if coc-prettier is provided.
+    "  CocCommand prettier.formatFile
+  else
+    norm! gg=G
+  endif
+
+  call winrestview(save_view)
 endfunction
 command! -bar QuickFormat :call <SID>quick_format()
 
-omap <expr> =
-      \ (v:operator ==# 'c')
-      \ ?'<esc><Plug>(coc-rename)'
-      \ :(v:operator ==# '=')
-      \ ?'<esc>:QuickFormat<cr>'
-      \ :'='
+omap <expr> s (v:operator ==# '=')? ':echo "@"<cr>': ':echo "nothing"<cr>'
+
+" TODO: make a fork if prettier is available.
+omap <expr><silent> =
+      \ (v:operator ==# 'c')?
+      \   '<esc><Plug>(coc-rename)':
+      \ (v:operator ==# '=')?
+      \   '<esc>:QuickFormat<cr>':
+      \   '='
+
 " CocText-Object {{{1
 " Note: mapped already as default?
 vmap if <Plug>(coc-funcobj-i)
@@ -294,14 +317,6 @@ nnoremap <silent> <space>cb :CocList buffers<cr>
 " CocBookmark; {{{1
 nmap <space>cm <Plug>(coc-bookmark-annotate)
 nmap <silent> <space>cb :CocList bookmark<cr>
-" CocSession {{{1
-command! MksessionCoc   :CocCommand session.save
-command! SaveSessionCoc :CocCommand session.save
-command! LoadSessionCoc :CocCommand session.load
-cnoreabbr <expr> mks (getcmdtype() == ':' && getcmdline() =~ '^mks$')?
-      \ 'MksessionCoc' : 'mks'
-cnoreabbr <expr> lds (getcmdtype() == ':' && getcmdline() =~ '^lds$')?
-      \ 'LoadSessionCoc' : 'lds'
 "" CocExplorer {{{1
 "command! CExplorer :CocCommand explorer
 "      \ --toggle
@@ -312,7 +327,21 @@ cnoreabbr <expr> lds (getcmdtype() == ':' && getcmdline() =~ '^lds$')?
 " CocGit {{{1
 command! GaddChunk :CocCommand git.chunkStage
 " Mnemonic: Git Put (similar to dp as diffput)
-nnoremap <space>gp :GaddChunk<cr>
+nnoremap <space>gp :<c-u>GaddChunk<cr>
+" TODO: for-loop in range because no range available yet.
+xmap <space>gp <Plug>(coc-git-add-chunk)
+
+function coc#git_add_chunk() abort range
+  let save_view = winsaveview()
+  exe line("'<")
+  " TODO: be available in normal mode
+  while line('.') <= line("'>")
+    CocCommand git.chunkStage
+    norm! gj
+  endwhile
+  call winrestview(save_view)
+endfunction
+xnoremap <silent> <Plug>(coc-git-add-chunk) :call coc#git_add_chunk()<cr>
 
 nnoremap U  :CocCommand git.chunkUndo<cr>
 " Ref: add/winpick.vim
