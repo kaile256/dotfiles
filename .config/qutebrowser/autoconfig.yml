@@ -9,14 +9,17 @@ settings:
   aliases:
     global:
       H: help -t
+      L: session-load
       O: open -t
+      Pocket: open -t https://app.getpocket.com/
       R: session-load
-      S: session-save
-      W: session-save
+      S: session-save -o
+      W: session-save -o
       abbr: config-dict-add aliases
       alias: config-dict-add aliases
       cabbr: config-dict-add aliases
       cmap: bind -m command
+      cmd: config-dict-add aliases
       command: config-dict-add aliases
       cunabbr: config-dict-remove aliases
       cunmap: unbind -m command
@@ -54,6 +57,7 @@ settings:
       ss: session-save
       unabbr: config-dict-remove aliases
       unalias: config-dict-remove aliases
+      uncmd: config-dict-remove aliases
       unmap: unbind
       vmap: bind -m caret
       vunmap: unbind -m caret
@@ -62,7 +66,7 @@ settings:
       wqa: quit --save
       zotero-save: spawn --userscript qute-zotero
   auto_save.session:
-    global: false
+    global: true
   backend:
     global: webengine
   bindings.commands:

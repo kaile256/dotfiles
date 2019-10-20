@@ -79,10 +79,10 @@ command! Sessions :CocList sessions
 "command! SessionLoadCoc :CocCommand session.load
 command! CocHasProvider :call <SID>has_provider()
 command! ChasProvider   :call <SID>has_provider()
-command! -nargs=+ Cinstall :CocInstall <q-args>
+command! -nargs=* -bar Cinstall :CocInstall <f-args>
 command! -nargs=+ Cuninstall :CocUninstall <q-args>
-command! -nargs=+ CocRemove  :CocUninstall <q-args>
-command! -nargs=+ Cremove    :CocUninstall <q-args>
+command! -nargs=* CocRemove  :CocUninstall <q-args>
+command! -nargs=+ -complete=custom,coc#list#options Cremove :CocUninstall <q-args>
 command! Cconfig    :CocConfig
 command! Ccmd       :CocCommand
 command! Clist      :CocList
@@ -328,6 +328,7 @@ nnoremap <silent> <space>cb :CocList bookmark<cr>
 ""}}}
 " CocGit {{{1
 command! GaddChunk :CocCommand git.chunkStage
+command! GchunkAdd :CocCommand git.chunkStage
 " Mnemonic: Git Put (similar to dp as diffput)
 nnoremap <space>gp :<c-u>GaddChunk<cr>
 " TODO: for-loop in range because no range available yet.
@@ -341,9 +342,13 @@ function coc#git_add_chunk() abort range
     CocCommand git.chunkStage
     norm! gj
   endwhile
+  " Note: only to scroll down a fugitive-buffer.
+  "Gstatus
   call winrestview(save_view)
 endfunction
-xnoremap <silent> <Plug>(coc-git-add-chunk) :call coc#git_add_chunk()<cr>
+" Note: :Gstatus within one command/keymap doesn't work.
+xnoremap <silent> <Plug>(coc-git-add-chunk)
+      \ :<c-u>call coc#git_add_chunk()<cr>
 
 nnoremap U :CocCommand git.chunkUndo<cr>
 command! -nargs=? Gfold :CocCommand git.foldUnchanged

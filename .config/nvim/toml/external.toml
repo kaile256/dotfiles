@@ -93,6 +93,16 @@ hook_add = 'runtime add/suda.vim'
 #hook_post_source = 'runtime add/SudoEdit.vim'
 ##}}}
 
+[[plugins]]
+repo = 'xavierchow/vim-sequence-diagram'
+on_map = '<Plug>GenerateDiagram'
+on_cmd = '<Plug>GenerateDiagram'
+hook_add = 'runtime add/sequence-diagram.vim'
+
+[[plugins]]
+repo = 'sunaku/vim-dasht'
+on_cmd = 'Dasht'
+hook_source = 'runtime add/dasht.vim'
 ## File Rename
 #[[plugins]]
 #repo = 'qpkorr/vim-renamer' #{{{

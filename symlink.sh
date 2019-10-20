@@ -51,7 +51,6 @@ configs=(
   nyaovim
   qutebrowser
   tmux
-  vim
   w3m
   zsh
 )
@@ -79,7 +78,7 @@ home_list=(
 
 for config_dir in "${configs[@]}"; do
   cd "${XDG_CONFIG_HOME}"
-  ln -nsf "${DOTFILES}/${config_dir}" .
+  ln -nsf "${DOTFILES}/.config/${config_dir}" .
   echo "Done! The config files of ${config_dir} are linked at ${XDG_CONFIG_HOME}!!"
 done
 

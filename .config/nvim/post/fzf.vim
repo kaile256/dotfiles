@@ -22,13 +22,12 @@
 "
 
 " Command! expand default w/ preview {{{1
-command! -bang -nargs=* FZF
+command! -bang -nargs=* Files
       \ call fzf#vim#files(<q-args>,
       \                 <bang>0 ? fzf#vim#with_preview({'prefix': "'.git/", 'options': '--multi --reverse'}, 'right:60%:wrap')
       \                         : fzf#vim#with_preview({'prefix': "'.git/", 'options': '--multi --reverse'}, 'right:60%'),
       \                 <bang>0)
 
-command! -bang -nargs=* Fzf :FZF
 
 command! -bang -nargs=* Ag
       \ call fzf#vim#ag(<q-args>,

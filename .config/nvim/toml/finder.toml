@@ -91,4 +91,3 @@ hook_add = 'runtime add/vista.vim'
 #on_map = ['m','`',"'",'<space>']
 #hook_add = 'runtime add/showmarks.vim'
 #}}}
-
