@@ -34,11 +34,12 @@ hook_post_source = 'runtime add/taskwarrior.vim'
 #hook_post_source = 'runtime add/voom.vim'
 ## }}}
 # Memo; Table-Mode
-#[[plugins]]
-#repo = 'dhruvasagar/vim-table-mode' #{{{
-#hook_add = 'runtime add/table-mode.vim'
-#on_ft = ['org', 'text', 'vimwiki', 'md']
-# }}}
+[[plugins]]
+repo = 'dhruvasagar/vim-table-mode' #{{{
+# enable to calculate on a table.
+hook_add = 'runtime add/table-mode.vim'
+on_ft = ['org', 'text', 'vimwiki', 'md']
+#}}}
 # Memo; Org Mode
 #[[plugins]]
 #repo = 'jceb/vim-orgmode' #{{{
