@@ -86,7 +86,7 @@ command! Vint :w <bar> !vint %:p
 cnoreabbr <expr> vin  (getcmdtype() == ':' && getcmdline() =~ '^vin$')? "w <bar> !vint %:p" : 'vin'
 cnoreabbr <expr> vint (getcmdtype() == ':' && getcmdline() =~ '^vin$')? "w <bar> !vint %:p" : 'vint'
 " Abbr; :checkhealth {{{1
-cnoreabbr <expr> ch (getcmdtype() == ':' && getcmdline() =~ '^ch$')? 'checkhealth <bar> setl bt=quickfix' : 'ch'
+cnoreabbr <silent><expr> ch (getcmdtype() == ':' && getcmdline() =~ '^ch$')? 'checkhealth <bar> setl bt=nofile' : 'ch'
 " Abbr; :source {{{1
 cnoreabbr <expr> sj (getcmdtype() == ':' && getcmdline() =~ '^sj$')? 'so % <bar> echo " Sourced! \--" @%' : 'sj'
 cnoreabbr <expr> ss (getcmdtype() == ':' && getcmdline() =~ '^ss$')? 'so % <bar> echo " Sourced! \--" @%' : 'ss'
