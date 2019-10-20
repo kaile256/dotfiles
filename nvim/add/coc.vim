@@ -222,7 +222,8 @@ nnoremap <silent> <c-w><space>r :call CocActionAsync('jumpReferences',     'vspl
 xnoremap <silent> <c-w><space>r :call CocActionAsync('jumpReferences',     'vsplit')<cr>
 
 " CocFormat {{{1
-" Note: use coc-prettier
+" Note: coc-prettier's editorconfig ability seems useless
+"       when prettier is unavailable on the filetype.
 "command! FormatOnCoc :call CocAction('format')
 "command! -nargs=? FoldOnCoc :call CocAction('fold', <f-args>)
 command! OR          :call CocAction('runCommand', 'editor.action.organizeImport')
