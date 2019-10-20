@@ -3,14 +3,16 @@
 # FZF
 [[plugins]]
 repo = 'junegunn/fzf' #{{{
-# Note: Necessary only for :FZF
+# Note: :Files in fzf.vim is the same as :FZF.
+# Note: Necessary only for :FZF.
+if = '!executable("fzf")'
 on_cmd = 'FZF'
-hook_source = 'runtime add/fzf.vim'
+#hook_source = 'runtime add/fzf.vim'
 [[plugins]]
 #repo = 'junegunn/fzf.vim'
 repo = 'kaile256/fzf.vim'
 on_cmd = 'fzf#vim#'
-rev = 'command_functions'
+rev = 'verbose_commands'
 hook_add = 'runtime add/fzf.vim'
 hook_source = 'runtime source/fzf.vim'
 hook_post_source = 'runtime post/fzf.vim'
