@@ -1,10 +1,13 @@
 " From: finder.toml
 " Repo: junegunn/fzf.vim
 " Fork: kaile256/fzf.vim
-" Rev: kaile256/fzf.vim_command_functions
+" Rev: kaile256/fzf.vim_verbose_commands
 " Another: source/fzf.vim
+" Another: post/fzf.vim
 
 " Note: not actually in ghq
+command! -bang -nargs=* Fzf :Files
+
 command! -bang -nargs=* Ghq :cd $GOPATH <bar> FZF
 " Mnemonic: Quest for Project
 nnoremap <a-q><a-p> :Ghq<cr>
@@ -43,7 +46,8 @@ command! -bang -nargs=* Cmds :Commands
 command! -bang -nargs=* Cm :Commands
 
 command! C :Colors
-command! Co :Colors
+" Note: disturbs CocFoobar
+"command! Co :Colors
 command! Col :Colors
 command! Colo :Colors
 
