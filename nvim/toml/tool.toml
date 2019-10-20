@@ -1,5 +1,10 @@
 # From: add/dein.vim
 
+[[plugins]]
+repo = 'mattn/vim-findroot'
+on_cmd = 'FindRoot'
+hook_add = 'runtime add/findroot.vim'
+
 #[[plugins]]
 #repo = 'thinca/vim-ref' #{{{
 #on_event = 'BufRead'
@@ -106,11 +111,11 @@ hook_add = 'runtime add/linediff.vim'
 ##}}}
 
 # Fold
-[[plugins]]
-repo = 'LeafCage/foldCC' #{{{
-on_event = 'BufWinEnter'
-hook_post_source = 'runtime add/foldCC.vim'
-#}}}
+#[[plugins]]
+#repo = 'LeafCage/foldCC' #{{{
+#on_event = 'BufWinEnter'
+#hook_post_source = 'runtime add/foldCC.vim'
+##}}}
 [[plugins]]
 repo = 'Konfekt/FastFold'
 on_event = 'BufRead'
@@ -179,6 +184,10 @@ hook_add = 'runtime add/grammarous.vim'
 #}}}
 
 # Developper Tool
+[[plugins]]
+repo = 'tpope/vim-scriptease'
+on_cmd = 'scriptease#'
+hook_add = 'runtime add/scriptease.vim'
 [[plugins]]
 repo = 'thinca/vim-scouter' #{{{
 on_cmd = 'Scouter'
