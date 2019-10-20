@@ -46,9 +46,11 @@ endfunction "}}}
 " Note: seems not work with <alt> like <alt-k>.
 " bdelete/bwipeout work incorrect, lured to current buffer.
 " badd: append the files to buflist in Background.
+" verbose: Who defined it?
 let g:fzf_action = {
       \ 'alt-a': 'argadd',
       \ 'alt-b': 'badd',
+      \ 'alt-w': 'verbose',
       \ 'alt-q': function('s:fzf_open_in_quickfix_list'),
       \ 'alt-s': 'split',
       \ 'alt-t': 'tab split',
