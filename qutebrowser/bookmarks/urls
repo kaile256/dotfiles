@@ -293,3 +293,4 @@ http://qira.me/ qira: the homepage of QEMU Interactive Runtime Analyser
 https://qiita.com/k_tada/items/4b7ae126e6c5df2cb33c Git nowではじめるCommit駆動開発 - Qiita
 https://github.com/josa42/coc-go josa42/coc-go: Go language server extension using gopls for coc.nvim.
 https://wiki.archlinux.org/index.php/I3 i3 - ArchWiki
+https://github.com/prettier/vim-prettier prettier/vim-prettier: A Vim plugin for Prettier
