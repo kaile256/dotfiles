@@ -117,15 +117,35 @@ function! s:has_provider() "{{{1
         \ 'foldingRange',
         \ 'selectionRange',
         \ ]
+  let available   = []
+  let cntT = 1
+  let unavailable = []
+  let cntF = 1
   for provider in l:coc_provider_list
     if CocHasProvider(provider) == v:true
-      let l:judge = 'true'
+      call add(available, cntT .". ". provider)
+      let cntT = cntT +1
     elseif CocHasProvider(provider) == v:false
-      let l:judge = 'χ'
+      call add(unavailable, cntF .". ". provider)
+      let cntF = cntF +1
     endif
-    echo '  +' . provider . '		== ' l:judge
   endfor
+
+  echohl Normal
+  echon " The providers below are available on this buffer: \n\n"
+  echohl Type
+  echon " ======== True ==================================\n\t  "
+  echohl Identifier
+  echon join(available, "\n\t  ")
+  echohl Normal
+  echohl Type
+  echon "\n\n"
+  echon " ======== False =================================\n\t  "
+  echohl WarningMsg
+  echon join(unavailable, "\n\t  ")
+  echon "\n"
 endfunction
+
 "}}}
 " CocCompletion; {{{1
 inoremap <silent><expr> <c-n>
