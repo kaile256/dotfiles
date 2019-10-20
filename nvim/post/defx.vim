@@ -208,7 +208,7 @@ endfunction
 augroup OnDefxBuffer
   au!
   " TODO: highlight on top as there's filepath, or place those path on another place.
-  au FileType defx setl nonumber signcolumn= winfixwidth
+  au FileType defx setl nonumber signcolumn= winfixwidth bufhidden=wipe
   au FileType defx call s:defx_keymap_explorer()
   function! defx#execute(...) abort "{{{
     " TODO: quit defx after action.
