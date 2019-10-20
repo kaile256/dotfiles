@@ -31,29 +31,3 @@ onoremap <expr> q (v:operator ==# 'd')? ':<c-u>WinpickWeedout<cr>': 'q'
 nnoremap <expr> <c-w><c-o> (&diff)? ':<c-u>WinpickWeedout<cr><c-w>o': '<c-w>o'
 nnoremap <expr> <c-w>o     (&diff)? ':<c-u>WinpickWeedout<cr><c-w>o': '<c-w>o'
 
-" Depends on other plugins;;;
-" fugitive#foo() must match the filename.
-
-" add/coc.vim
-" TODO: make :GstageChunk work: chunkStage to show the list of local logs.
-command! GaddChunk
-      \ :call winpick#harvest()
-      \ | CocCommand git.chunkStage
-nnoremap <silent> gc :GaddChunk<cr>
-command! GstageChunk
-      \ :GaddChunk
-      \ | CocList bcommits
-
-let g:fzf_layout = { 'window': 'call winpick#floating()' }
-
-" Mnemonic: Git Index (i.e., branches and tags)
-"           similar to my :Vista's keymaps.
-nnoremap <silent> <space>gi :Gbranch<cr>
-
-augroup WinpickOnFiletype
-  au!
-  nnoremap  <Plug>(dismiss-gitcommit) ggdGZZ:call winpick#weed_out()<cr>
-  au FileType gitcommit nmap <buffer> dq <Plug>(dismiss-gitcommit)
-  au FileType extradite nnoremap <buffer> <space>gu :<c-u>call winpick#weed_out()<cr>
-
-augroup END
