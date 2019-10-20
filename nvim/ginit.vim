@@ -1,6 +1,7 @@
 " Help: options
 
 " Appearance; Blend {{{
+" Note: it works dum CUI.
 if exists('&pumblend')
   set pumblend=30
   set winblend=20
@@ -34,18 +35,6 @@ endif
 "endfor
 "unlet s:path
 "
-"" $VAR; for shell {{{1
-let $EDITOR     = 'nvr'
-let $VISUAL     = 'nvr'
-let $GIT_EDITOR = 'nvr -cc split --remote-wait'
-"let $BROWSER    = 'qutebrowser'
-"
-""set shell=fish
-if executable('urxvt')
-  let $TERM = 'rxvt-unicode'
-else
-  let $TERM = 'xterm-256color'
-endif
 " if nvim-qt {{{1
 if exists('g:GuiLoaded')
 

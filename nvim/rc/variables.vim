@@ -43,6 +43,20 @@ set undodir=~/.local/share/nvim/undo
 let g:netrw_home = '~/.local/share/nvim'
 "}}}
 
+" $VAR; for shell {{{
+let $EDITOR     = 'nvr'
+let $VISUAL     = 'nvr'
+let $GIT_EDITOR = 'nvr -O --remote-wait'
+let $VMAIL_VIM  = 'nvr'
+"let $BROWSER    = 'qutebrowser'
+
+"set shell=fish " keep shell=bash, most plugin-makers expects it.
+if executable('urxvt')
+  let $TERM = 'rxvt-unicode'
+else
+  let $TERM = 'xterm-256color'
+endif
+"}}}
 " g:var; for Path {{{
 "let g:config_home = stdpath('config')
 "let g:cache_home  = stdpath('cache')
