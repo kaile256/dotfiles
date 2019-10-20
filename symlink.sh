@@ -43,6 +43,7 @@ configs=(
   awesome
   bash
   fish
+  mimeapps.list # for qutebrowser should be the default browser
   fcitx
   glrnvim.yml
   i3
