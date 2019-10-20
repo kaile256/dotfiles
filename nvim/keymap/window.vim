@@ -15,8 +15,8 @@ nnoremap <c-w>l <c-w>L
 
 nnoremap <silent> <c-w>C :<c-u>tabclose<cr>
 nnoremap <silent> <c-w>O :<c-u>tabonly<cr>
-nnoremap <c-w><c-t> <c-w>v<c-w>T
-nnoremap <c-w><a-t> <c-w>v<c-w>T
+nnoremap <c-w>gt <c-w>v<c-w>T
+nnoremap <c-w>gT <c-w>v<c-w>T
 
 " Redraw; No Highlight
 inoremap <silent> <c-l>              <Cmd>noh<cr><c-o><c-l>
