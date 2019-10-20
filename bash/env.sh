@@ -20,6 +20,10 @@ export GTK_IM_MODULE=fcitx
 export QT_IM_MODULE=fcitx
 export XMODIFIERS=@im=fcitx
 
+# App
+# Note: vim will override $VMAIL_VIM=nvr.
+export VMAIL_VIM=nvim-qt
+
 # Browser
 export BROWSER=qutebrowser
 # FZF
