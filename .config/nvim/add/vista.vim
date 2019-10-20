@@ -11,6 +11,11 @@ scriptencoding utf-8
 "      \  }
 let g:vista_sidebar_position = 'vertical botright'
 let g:vista_sidebar_width = 33
+let g:vista_cursor_delay = 1000
+let g:vista_floating_delay = 1000
+
+"let g:vista_executive_for = {
+"      \ }
 
 "let g:vista_fzf_preview = ['right:50%']
 
