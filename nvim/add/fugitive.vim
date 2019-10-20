@@ -93,7 +93,9 @@ augroup END "}}}
 augroup OnFugitiveBuffer
   au!
   " TODO: Go back to Gstatus' buffer when `:quit` on gitcommit's buffer
-  au FileType fugitive,fugitiveblame,gitcommit setl nonumber signcolumn=
+  au FileType fugitive,fugitiveblame,gitcommit setl nonumber signcolumn= bufhidden=wipe
   au FileType gitcommit setl spell
   " Dispose commit-message.
+  nnoremap <Plug>(dismiss-gitcommit) ggdGZZ:call winpick#weed_out()<cr>
+  au FileType gitcommit nmap <buffer> dq <Plug>(dismiss-gitcommit)
 augroup END
