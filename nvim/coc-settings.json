@@ -1,7 +1,14 @@
 {
   "coc.preferences.formatOnType": true,
+  "coc.preferences.formatOnSaveFiletypes": ["css", "Markdown"],
   "coc.preferences.snippets.enable": false,
-  "coc.preferences.rootPatterns":[".vim",".git",".hg",".projections.json","nvim"],
+  "coc.preferences.rootPatterns": [
+    ".vim",
+    ".git",
+    ".hg",
+    ".projections.json",
+    "dotfiles"
+  ],
 
   "signature.preferShownAbove": false,
   "signature.triggerSignatureWait": 300,
@@ -59,7 +66,7 @@
     "<C-t>": "action:tabe",
     "<C-s>": "action:split",
     "<C-v>": "action:vsplit",
-    "<CR>":  "action:drop",
+    "<CR>": "action:drop",
     "<C-r>": "eval:@@",
     "<c-c>": "do:cancel",
     "<a-h>": "do:cancel",
@@ -74,15 +81,17 @@
     "<c-d>": "prompt.deletebackward"
   },
   "list.normalMappings": {
-    "m":     "do.toggle",
-    "d":     "action:delete",
-    "e":     "action:drop",
+    "m": "do.toggle",
+    "d": "action:delete",
+    "e": "action:drop",
     "<c-t>": "action:tab",
     "<c-v>": "action:vsplit",
     "<c-s>": "action:split"
   },
 
   "project.dbpath": "~/.coc-project",
+
+  "prettier.trailingComma": "es5",
 
   "yank.highlight.enable": true,
   "yank.enableCompletion": false,
@@ -111,32 +120,34 @@
   "rust-analyzer.trace.cargo-watch": "verbose",
   "rust-analyzer.trace.server": "verbose",
 
-  "languageserver":{
+  "languageserver": {
     "dls": {
       "command": "diagnostic-languageserver",
       "args": ["--stdio"],
-      "filetypes": [ "sh", "email", "dart" ],
+      "filetypes": ["sh", "email", "dart"],
       "initializationOptions": {
         "linters": {
-          "shellcheck": {  // linter name, for example: vint
+          "shellcheck": {
+            // linter name, for example: vint
             "command": "shellcheck", // linter command
             "sourceName": "shellcheck",
-            "debounce": 100,   // debounce time
-            "args": [ "--format=gcc", "-"], // args
+            "debounce": 100, // debounce time
+            "args": ["--format=gcc", "-"], // args
             "offsetLine": 0,
             "offsetColumn": 0,
             "formatLines": 1, // how much lines for formatPattern[0] to match
             "formatPattern": [
-              "^[^:]+:(\\d+):(\\d+):\\s+([^:]+):\\s+(.*)$",  // line match pattern (javascript regex)
+              "^[^:]+:(\\d+):(\\d+):\\s+([^:]+):\\s+(.*)$", // line match pattern (javascript regex)
               {
-                "line": 1,   // diagnostic line use match group 1
+                "line": 1, // diagnostic line use match group 1
                 "column": 2, // diagnostic column use match group 2
                 "message": [4], // message to display use match group 4
-                "security": 3   // security to use match group 3, ignore if linter do not support security
+                "security": 3 // security to use match group 3, ignore if linter do not support security
               }
             ],
-            "securities": { // security keys, ignore if linter do not support security
-              "error": "error",  // [key: string]?: "error" | "warning" | "info" | "hint"
+            "securities": {
+              // security keys, ignore if linter do not support security
+              "error": "error", // [key: string]?: "error" | "warning" | "info" | "hint"
               "warning": "warning",
               "note": "info"
             }
@@ -167,7 +178,7 @@
         },
         "filetypes": {
           "email": "languagetool",
-          "markdown": [ "write-good", "markdownlint" ],
+          "markdown": ["write-good", "markdownlint"],
           "sh": "shellcheck",
           "elixir": ["mix_credo", "mix_credo_compile"],
           "eelixir": ["mix_credo", "mix_credo_compile"],
@@ -176,7 +187,7 @@
         },
         "formatters": {
           "commad": "dartfmt",
-          "args": [ "--fix" ]
+          "args": ["--fix"]
         },
         "formatFiletypes": {
           "dart": "dartfmt"
@@ -189,7 +200,7 @@
       "filetypes": ["sh"],
       "ignoredRootPaths": ["~"]
     },
-    "golang":{
+    "golang": {
       "command": "gopls",
       "rootPatterns": ["go.mod"],
       "filetypes": ["go"],
@@ -204,7 +215,13 @@
     "ccls": {
       "command": "ccls",
       "filetypes": ["c", "cpp", "objc", "objcpp"],
-      "rootPatterns": [".ccls", "compile_commands.json", ".vim/", ".git/", ".hg/"],
+      "rootPatterns": [
+        ".ccls",
+        "compile_commands.json",
+        ".vim/",
+        ".git/",
+        ".hg/"
+      ],
       "initializationOptions": {
         "cache": {
           "directory": "/tmp/ccls"
@@ -238,16 +255,8 @@
     },
     "haskell": {
       "command": "hie-wrapper",
-      "rootPatterns": [
-        ".stack.yaml",
-        "cabal.config",
-        "package.yaml"
-      ],
-      "filetypes": [
-        "hs",
-        "lhs",
-        "haskell"
-      ],
+      "rootPatterns": [".stack.yaml", "cabal.config", "package.yaml"],
+      "filetypes": ["hs", "lhs", "haskell"],
       "initializationOptions": {
         "languageServerHaskell": {
           "hlintOn": true
