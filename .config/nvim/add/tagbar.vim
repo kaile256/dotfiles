@@ -1,7 +1,7 @@
-scriptencoding utf-8
-" From: tool.toml
+" From: finder.toml
+" Repo: majutsushi/tagbar
 
-"let g:tagbar_iconchars = ['+', '-']
+let g:tagbar_iconchars = ['*', '#']
 
 let g:tagbar_autofocus = 1
 "let g:tagbar_autoshowtag = 1
@@ -21,13 +21,7 @@ let g:tagbar_width = 30
 " 0: open folds only when the current tag is inside a closed fold. (default)
 " 1: open folds as much as needed for the tag to be visible.
 " 2: never open folds automatically.
-let g:tagbar_autoshowtag = 0
-
-"augroup myTag
-"  au!
-"  " automatically open TagBar
-"  au FileType vim nested :call tagbar#autoopen(1)
-"augroup END
+let g:tagbar_autoshowtag = 1
 
 " KEYMAP
 " ';' is next to 'l'
