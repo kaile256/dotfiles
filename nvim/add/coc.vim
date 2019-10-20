@@ -344,8 +344,18 @@ function coc#git_add_chunk() abort range
 endfunction
 xnoremap <silent> <Plug>(coc-git-add-chunk) :call coc#git_add_chunk()<cr>
 
-nnoremap U  :CocCommand git.chunkUndo<cr>
-" Ref: add/winpick.vim
+nnoremap U :CocCommand git.chunkUndo<cr>
+command! -nargs=? Gfold :CocCommand git.foldUnchanged
+function! coc#git_fold_toggle() abort
+  if &l:fdm !=# 'manual'
+    let b:fdm = &l:fdm
+    CocCommand git.foldUnchanged
+  elseif exists('b:fdm')
+    exe 'set fdm='. b:fdm
+  else
+    set fdm=syntax
+  endif
+endfunction
 
 " Similar to the navigation on &diff
 nmap <expr> [c (&diff)? '[c': '<Plug>(coc-git-prevchunk)'
