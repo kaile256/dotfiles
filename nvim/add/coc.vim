@@ -8,8 +8,8 @@ augroup CocMyAutoConf
   au!
   au BufWinEnter coc-settings.json setl keywordprg=:help
   "au BufLeave * if &ft ==# 'coc' || 'list' | hide | endif
-  au FileType coc,list setl laststatus=0 noshowmode noruler
-        \ | au BufWinEnter,WinLeave,BufLeave * ++once set laststatus=2 showmode ruler
+  au FileType coc,list setl laststatus=0
+        \ | au BufWinEnter,WinLeave,BufLeave * ++once set laststatus=2
   "" Only for snippet's feature?
   "au User     CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
   " Highlight symbol under cursor on CursorHold
