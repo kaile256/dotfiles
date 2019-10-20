@@ -315,8 +315,9 @@ nnoremap <silent> <space>cl :CocList<cr>
 nnoremap <silent> <space>cf :CocList files<cr>
 nnoremap <silent> <space>cb :CocList buffers<cr>
 " CocBookmark; {{{1
-nmap <space>cm <Plug>(coc-bookmark-annotate)
-nmap <silent> <space>cb :CocList bookmark<cr>
+nmap ma <Plug>(coc-bookmark-annotate)
+command! Bookmarks :CocList bookmark
+nnoremap <silent> <space>cb :CocList bookmark<cr>
 "" CocExplorer {{{1
 "command! CExplorer :CocCommand explorer
 "      \ --toggle
