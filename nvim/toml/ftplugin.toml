@@ -3,7 +3,8 @@
 # Multiple FileType;
 [[plugins]]
 repo = 'editorconfig/editorconfig-vim' #{{{
-on_event = 'BufRead'
+# Note: coc-prettier doesn't use editorconfig if prettier is either unavailable.
+on_event = 'BufWinEnter'
 hook_source = 'runtime source/editorconfig.vim'
 #}}}
 #[[plugins]]
