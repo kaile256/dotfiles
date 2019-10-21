@@ -56,8 +56,8 @@ set cursorline
 augroup AutoToggleCursorLine
   au!
   " Note: InsertEnter & WinLeave used to be useless.
-  au FocusGained,WinEnter,InsertLeave * setl cursorline
-  au FocusLost,WinLeave,InsertEnter * setl nocursorline
+  au WinEnter,InsertLeave * setl cursorline
+  au WinLeave,InsertEnter * setl nocursorline
 augroup END
 "" to highlight only CursorLineNr if not linked.
 "hi CursorLine NONE
