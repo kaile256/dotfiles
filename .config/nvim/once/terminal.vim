@@ -40,7 +40,7 @@ augroup OnTerminalBuffer
   "  au VimEnter * nested call termopen(&shell)
   "endif
   if has('nvim')
-    au TermOpen * setl nonumber signcolumn=
+    au TermOpen * setl nonumber signcolumn= bufhidden=wipe
     au TermOpen * norm! 0
     au TermOpen * startinsert
   endif
