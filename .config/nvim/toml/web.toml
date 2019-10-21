@@ -1,4 +1,4 @@
-# From: add/dein.vim
+# From: rc/dein.vim
 
 # Browser;
 [[plugins]]
@@ -47,20 +47,20 @@ on_cmd = ['Floo', 'FlooShareDirPublic', 'FlooShareDirPrivate', 'FlooJoinWorkspac
 #}}}
 
 # API;
-#[[plugins]]
-#repo = 'mattn/webapi-vim' #{{{
-##on_map = ['Pocket']
-#on_event = ['BufRead']
-#hook_add = 'runtime add/webapi.vim'
-##}}}
+[[plugins]]
+repo = 'mattn/webapi-vim' #{{{
+#on_map = ['Pocket']
+on_event = ['BufRead']
+hook_add = 'runtime add/webapi.vim'
+#}}}
 
 ## API; Pocket
-#[[plugins]]
-#repo = 'soramugi/pocket.vim' #{{{
-##on_map = 'Pocket'
-#on_event = ['BufRead']
-#hook_add = 'runtime add/pocket.vim'
-##}}}
+[[plugins]]
+repo = 'soramugi/pocket.vim' #{{{
+#on_map = 'Pocket'
+on_event = ['BufRead']
+hook_add = 'runtime add/pocket.vim'
+#}}}
 
 # API; Twitter
 #[[plugins]]
