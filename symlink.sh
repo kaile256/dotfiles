@@ -114,7 +114,7 @@ done
 #echo "Done! create a symlink for w3m on ${HOME}"
 
 cd "${XDG_DATA_HOME}/qutebrowser"
-ln -nsf "${DOTFILES}/qutebrowser/userscripts" .
+ln -nsf "${DOTFILES}/.config/qutebrowser/userscripts" .
 
 cd "$CURRENT_DIR"
 
