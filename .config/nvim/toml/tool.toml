@@ -1,4 +1,4 @@
-# From: add/dein.vim
+# From: rc/dein.vim
 
 [[plugins]]
 repo = 'mattn/vim-findroot'
@@ -181,36 +181,4 @@ hook_add = 'runtime add/grammarous.vim'
 ## toggle as predefined, such as 'true' & 'false'.
 #on_if = '&modifiable'
 #hook_post_source = 'runtime add/switch.vim'
-#}}}
-
-# Developper Tool
-[[plugins]]
-repo = 'tpope/vim-scriptease'
-on_cmd = 'scriptease#'
-hook_add = 'runtime add/scriptease.vim'
-[[plugins]]
-repo = 'thinca/vim-scouter' #{{{
-on_cmd = 'Scouter'
-#}}}
-#[[plugins]]
-#repo = 'tweekmonster/dyslexic.vim' #{{{
-## Spell checker according to <cword>.
-#on_cmd = 'Dyslexic'
-#hook_add = 'runtime dyslexic.vimrc'
-##}}}
-[[plugins]]
-repo = 'tweekmonster/helpful.vim' #{{{
-on_cmd = 'HelpfulVersion'
-hook_add = 'runtime add/helpful.vim'
-#}}}
-[[plugins]]
-repo = 'rhysd/vim-themis' #{{{
-# A library of vim-script for test-making.
-hook_post_source = 'runtime add/themis.vim'
-#}}}
-[[plugins]]
-repo = 'junegunn/vader.vim' #{{{
-# a test-framework for vimscript.
-on_cmd = 'Vader'
-hook_add = 'runtime add/vader.vim'
 #}}}
