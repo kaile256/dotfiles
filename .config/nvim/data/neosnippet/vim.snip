@@ -57,7 +57,7 @@ options head
   " }}}
   " ============================================================================
 
-  if exists('g:loaded_${1:`substitute(matchstr(expand('%:p'), 'github.com/.*/\zs.*\ze/.*/'), 'vim-', '', '')`}  | finish | endif
+  if exists('g:loaded_${1:`substitute(matchstr(expand('%:p'), 'github.com/.*/\zs.*\ze/.*/'), 'vim-', '', '')`}')  | finish | endif
   let g:loaded_$1 = 1
 
   " save 'cpoptions' {{{
