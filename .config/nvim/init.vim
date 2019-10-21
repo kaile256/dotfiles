@@ -10,7 +10,7 @@ set formatoptions=jmB1cql
 
 runtime rc/os.vim
 runtime rc/variables.vim  " don't comment out; many files depends on it.
-runtime add/dein.vim  " contains `filetype plugin indent on`
+runtime rc/dein.vim  " contains `filetype plugin indent on`
 runtime rc/startpage.vim
 runtime rc/options.vim
 runtime rc/filetype.vim

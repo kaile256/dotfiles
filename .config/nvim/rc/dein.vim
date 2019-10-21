@@ -77,6 +77,7 @@ if dein#load_state(g:dein_cache_dir)
         \ 'myplug.toml',
         \ 'textobj.toml',
         \ 'tool.toml',
+        \ 'vimscript.toml',
         \ 'web.toml',
         \ ]
   for dir in s:dein_toml_lazy_list
