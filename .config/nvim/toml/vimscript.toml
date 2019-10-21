@@ -1,0 +1,37 @@
+# From: rc/dein.vim
+
+[[plugins]]
+repo = 'vim-jp/vital.vim'
+# a lib/ for vimscript
+on_cmd = 'Vitalize'
+hook_source = 'runtime add/vital.vim'
+[[plugins]]
+repo = 'tpope/vim-scriptease'
+on_cmd = 'scriptease#'
+hook_add = 'runtime add/scriptease.vim'
+[[plugins]]
+repo = 'thinca/vim-scouter' #{{{
+on_cmd = 'Scouter'
+#}}}
+[[plugins]]
+repo = 'tweekmonster/helpful.vim' #{{{
+on_cmd = 'HelpfulVersion'
+hook_add = 'runtime add/helpful.vim'
+#}}}
+[[plugins]]
+repo = 'rhysd/vim-themis' #{{{
+# A library of vim-script for test-making.
+hook_post_source = 'runtime add/themis.vim'
+#}}}
+#[[plugins]]
+#repo = 'junegunn/vader.vim' #{{{
+## a test-framework for vimscript.
+#on_cmd = 'Vader'
+#hook_add = 'runtime add/vader.vim'
+##}}}
+#[[plugins]]
+#repo = 'tweekmonster/dyslexic.vim' #{{{
+## Spell checker according to <cword>.
+#on_cmd = 'Dyslexic'
+#hook_add = 'runtime dyslexic.vimrc'
+##}}}
