@@ -1,4 +1,4 @@
-# From: add/dein.vim
+# From: rc/dein.vim
 
 # LSP
 [[plugins]]
@@ -37,6 +37,10 @@ hook_add = 'runtime add/coc.vim'
 #on_event = 'BufRead'
 #hook_add = 'runtime add/LanguageClient.vim'
 ##}}}
+#[[plugins]]
+#repo = 'OmniSharp/omnisharp-vim'
+#on_event = 'BufRead'
+#hook_add = 'runtime add/omnisharp.vim'
 
 [[plugins]]
 repo = 'voldikss/actionmenu.nvim' #{{{
