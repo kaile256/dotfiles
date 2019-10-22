@@ -184,14 +184,16 @@ noremap zU zMzv
 function! s:spell_suggestion() abort
   if &spell != 1
     setl spell
-    au! InsertLeave,CompleteDone * ++once setl nospell
+    au! CompleteDone * ++once setl nospell
   endif
 
   " TODO: always start suggestion at the end of <cword>;
   "       sometimes shifted to the left by one char.
-  call feedkeys("wge", 'n') " move cursor on the end of <cword>
+  if mode() !=# 'i'
+    call feedkeys("wgei", 'n') " move cursor on the end of <cword> and startinsert.
+  endif
   " Note: <c-x>s takes cursor back to the last non-comment text.
-  call feedkeys("i\<c-x>s", 'n') " start insert-mode and spell-completion
+  call feedkeys("\<c-x>s", 'n') " start spell-completion
   call feedkeys("\<c-p>", 'n') " keep the word from being replaced at first
 endfunction
 
