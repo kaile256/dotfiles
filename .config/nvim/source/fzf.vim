@@ -16,7 +16,9 @@ augroup FzfMyAutoConf "{{{1
   endfunction "}}}2
   au User FzfStatusLine call <SID>fzf_buffer_statusline()
   " CAUTION: WinLeave's current file is next file, i.e., fzf when opening fzf-buffer.
-  au FileType fzf setl bufhidden=wipe
+  " Note: 'bufhidden' is useless for fzf.
+  "au FileType fzf setl bufhidden=wipe
+  " Note: both :quit and :close causes errors instead.
   au WinLeave,BufLeave * if &ft ==# 'fzf' | hide
   " Note: Makes no sense but auto-set nonumber on tab-open.
   "au FileType fzf setl laststatus=0
