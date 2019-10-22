@@ -181,20 +181,18 @@ augroup END "}}}
 noremap zU zMzv
 "}}}
 
-function! s:spell_chack() abort
-  " FIXME:
-  if &spell == 1
-    startinsert!
-    norm! <c-x><c-s>
-  else
+function! s:spell_suggestion() abort
+  if &spell != 1
     setl spell
     au! InsertLeave,CompleteDone * ++once setl nospell
-    startinsert!
-    norm! <c-x><c-s>
   endif
+
+  " TODO: always start suggestion at the end of <cword>;
+  "       sometimes shifted to the left by one char.
+  call feedkeys("wge", 'n') " move cursor on the end of <cword>
+  " Note: <c-x>s takes cursor back to the last non-comment text.
+  call feedkeys("i\<c-x>s", 'n') " start insert-mode and spell-completion
+  call feedkeys("\<c-p>", 'n') " keep the word from being replaced at first
 endfunction
 
-"inoremap <silent> <c-x>s     <Cmd>call <SID>spell_chack()<cr>
-"inoremap <silent> <c-x><c-s> <Cmd>call <SID>spell_chack()<cr>
-"nnoremap <silent> gs         <Cmd>call <SID>spell_chack()<cr>
-
+nnoremap <silent> gs :<c-u>call <SID>spell_suggestion()<cr>
