@@ -13,3 +13,7 @@ nnoremap gK K
 nnoremap <space>J J
 xnoremap gK K
 xnoremap <space>J J
+
+" TODO: make them behave <c-f>-like.
+noremap <silent> <c-k> :keepjump norm Kzz<cr>
+noremap <silent> <c-j> :keepjump norm Jzz<cr>
