@@ -14,37 +14,22 @@ let g:kmDealer_win_weed_list = [
       \ 'COMMIT_EDITMSG',
       \ ]
 
-"let g:kmDealer_win_path_dict =
-"      \ extend(g:kmDealer_win_path_dict,
-"      \        {'p': '<c-w>FindRoot'},
-"      \        )
-
-if !exists('g:kmDealer_win_cd_path_dict')
-  let g:kmDealer_win_cd_path_dict = {}
+if !exists('g:kmDealer_cd_path_dict')
+  let g:kmDealer_cd_path_dict = {}
 endif
 
-call extend(g:kmDealer_win_cd_path_dict, {
+call extend(g:kmDealer_cd_path_dict, {
       \ 'h': '~',
       \ 'w': '%:p:h',
       \ '.': '.',
       \ }
       \ )
 
-let g:kmDealer_win_split_dict = {
+let g:kmDealer_split_dict = {
       \ '<a-v>': 'vsplit',
       \ '<a-s>': 'split',
       \ '<a-t>': 'tabe',
       \ '<a-e>': 'edit',
-      \ }
-
-let s:list = {
-      \ 'fugitive': {},
-      \ }
-
-let s:list.git = {
-      \ 'bt': ['nofile', 'nowrite', 'quickfix'],
-      \ 'ft': [],
-      \ 'filename': ['fugitive:\/\/', 'twiggy:\/\/'],
       \ }
 
 nnoremap <silent> <a-space><space>   :<c-u>KmDealerWinWeedout<cr>
