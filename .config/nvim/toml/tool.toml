@@ -4,6 +4,12 @@
 repo = 'mattn/vim-findroot'
 on_cmd = 'FindRoot'
 hook_add = 'runtime add/findroot.vim'
+hook_done_update = '''
+exe 'e' g:dein_cache_dir .'/repos/github.com/mattn/vim-findroot/plugin/findroot.vim'
+g/command!/norm! Ea -bar /e
+g/s:findroot(/s/1/0
+write
+'''
 
 #[[plugins]]
 #repo = 'thinca/vim-ref' #{{{
@@ -165,6 +171,17 @@ hook_post_source = 'runtime add/dein-command.vim'
 #}}}
 
 # Checker
+#[[plugins]]
+#repo = 'haya14busa/vim-stacktrace'
+## Error: a lot of unknown_functions
+#build = 'make'
+#on_event = 'BufRead'
+#hook_add = 'runtime add/stacktrace.vim'
+#[[plugins]]
+#repo = 'lacygoill/vim-stacktrace'
+## Note: useless for dein's error, either not in detail
+#on_event = 'BufRead'
+#hook_post_source = 'runtime add/stacktrace.vim'
 [[plugins]]
 repo = 'rhysd/vim-grammarous' #{{{
 # Grammer Check
