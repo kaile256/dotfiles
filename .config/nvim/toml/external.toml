@@ -11,6 +11,12 @@ on_cmd = 'Coc'
 on_event = 'BufRead'
 if = 'executable("yarn")'
 hook_add = 'runtime add/coc.vim'
+# For: rename :CocFoo to :Cfoo in the local-repo.
+hook_done_update = '''
+exe 'e'. g:dein_cache_dir .'/repos/github.com/neoclide/coc.nvim_release/plugin/coc.vim'
+g/command!\|:Coc/g/\vCoc/norm! dgnguliC
+write
+'''
 #}}}
 #[[plugins]]
 #repo = 'prabirshrestha/vim-lsp' #{{{
