@@ -1,19 +1,20 @@
 " From: external.toml
 " Repo: cohama/agit.vim
 
-"let g:agit_no_default_mappings = 1
+let g:agit_no_default_mappings = 0
 
 command! Glogmode  :Agit
 command! GlocalLog :AgitFile
 
 nnoremap <silent> g<a-u> :<c-u>GlocalLog<cr>
 
-augroup AgitMyWrapCommands
-  au!
-  au FileType agit      call <SID>agit_commands() | <SID>agit_keymaps()
-  au FileType agit_diff call <SID>diff_commands() | <SID>agit_keymaps()
-  au FileType agit_stat call <SID>stat_commands() | <SID>agit_keymaps()
-augroup END
+" TODO: find the reason for E:modifiable-is-off.
+"augroup AgitMyWrapCommands
+"  au!
+"  au FileType agit      call <SID>agit_commands() | <SID>agit_keymaps()
+"  au FileType agit_diff call <SID>diff_commands() | <SID>agit_keymaps()
+"  au FileType agit_stat call <SID>stat_commands() | <SID>agit_keymaps()
+"augroup END
 
 function! s:agit_commands() abort
   command! -buffer GbisectStart :AgitGit bisect start HEAD <hash> \%#
