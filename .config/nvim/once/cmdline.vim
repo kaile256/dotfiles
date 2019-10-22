@@ -30,6 +30,23 @@ cnoremap <c-x><c-f> ~/.config/
 "  au BufWritePre * call <SID>auto_suggest_mkdir(expand('<afile>:p:h'), v:cmdbang)
 "augroup END
 "}}}
+" command; :source {{{1
+command! So :call <SID>source_buffer()
+function! s:source_buffer() abort
+  if &ft ==# 'vim'
+    silent write
+    so %:p
+    echomsg v:statusmsg '& sourced.'
+  elseif &ft =~# 'html'
+    silent write
+    silent OpenBrowser %:p
+    echomsg v:statusmsg
+  else
+    write
+    !
+  endif
+endfunction
+
 " Command; Open parent directory {{{1
 command! E :e    %:p:h
 command! V :vs   %:p:h
@@ -48,13 +65,6 @@ function! s:cd_bang(bang) abort
     echo ' Wants whether <bang> or not.'
   endif
 endfunction
-" Abbr; :! {{{1
-cnoreabbr <expr> !
-      \ (getcmdtype() == ':' && getcmdline() =~ '^!$')?
-      \ (&l:ft ==# 'vim')? 'w<cr> :so <c-r>=expand("%:p")<cr>':
-      \ (&l:ft =~# 'html')? ':OpenBrowser <c-r>=expand("%:p")<cr>':
-      \ '! %:p' :
-       \ '!'
 " Abbr; rm https://foo/bar {{{1
 cnoreabbr <expr> rmgh (getcmdtype() == ':' && getcmdline() =~ '^rmgh$')? '%s/https:\/\/github.com\///ge' : 'rmgh'
 cnoreabbr <expr> rmgl (getcmdtype() == ':' && getcmdline() =~ '^rmgl$')? '%s/https:\/\/gitlab.com\///ge' : 'rmgl'
@@ -85,10 +95,6 @@ cnoreabbr <expr> man (getcmdtype() == ':' && getcmdline() =~ '^man$')? 'Man' : '
 command! Vint :w <bar> !vint %:p
 " Abbr; :checkhealth {{{1
 cnoreabbr <silent><expr> ch (getcmdtype() == ':' && getcmdline() =~ '^ch$')? 'checkhealth <bar> setl bt=nofile' : 'ch'
-" Abbr; :source {{{1
-cnoreabbr <expr> sj (getcmdtype() == ':' && getcmdline() =~ '^sj$')? 'so % <bar> echo " Sourced! \--" @%' : 'sj'
-cnoreabbr <expr> ss (getcmdtype() == ':' && getcmdline() =~ '^ss$')? 'so % <bar> echo " Sourced! \--" @%' : 'ss'
-cnoreabbr <expr> sss (getcmdtype() == ':' && getcmdline() =~ '^sss$')? 'so % <bar> echo " Sourced! \--" @%' : 'sss'
 " Abbr; :help {{{1
 cnoreabbr <expr> hb (getcmdtype() == ':' && getcmdline() =~ '^hb$')? 'tab help' : 'h'
 cnoreabbr <expr> bh (getcmdtype() == ':' && getcmdline() =~ '^bh$')? 'tab help' : 'h'
