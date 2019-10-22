@@ -12,6 +12,7 @@ let g:openbrowser_browser_commands = [
 let g:openbrowser_force_foreground_after_open = 0
 " Let; Search Engine
 let g:openbrowser_default_search = 'duckduckgo'
+" List: Registered Search Engines {{{
 let g:openbrowser_search_engines = {
       \ 'alc': 'http://eow.alc.co.jp/{query}/UTF-8/',
       \ 'archwiki@en': 'https://wiki.archlinux.org/index.php?search={query}',
@@ -38,7 +39,8 @@ let g:openbrowser_search_engines = {
       \ 'wikipedia': 'http://en.wikipedia.org/wiki/{query}',
       \ 'wikipedia-ja': 'http://ja.wikipedia.org/wiki/{query}',
       \ 'yahoo': 'http://search.yahoo.com/search?p={query}',
-      \ }
+      \ } "}}}
+command! -nargs=* -bar Browser :OpenBrowserSmartSearch <args>
 " Abbr; Search Engine {{{1
 cnoreabbr <expr> gb (getcmdtype() == ':' && getcmdline() =~ '^gb$')? 'OpenBrowserSmartSearch' : 'gb'
 " Engine; Rendering
