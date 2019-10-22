@@ -34,10 +34,10 @@ let g:coc_global_extensions = [
       \ 'coc-diagnostic',
       \ 'coc-dictionary',
       \ 'coc-docker',
-      \ 'coc-prettier',
       \ 'coc-elixir',
       \ 'coc-emoji',
       \ 'coc-flow',
+      \ 'coc-flutter',
       \ 'coc-git',
       \ 'coc-gitignore',
       \ 'coc-highlight',
@@ -49,9 +49,11 @@ let g:coc_global_extensions = [
       \ 'coc-lua',
       \ 'coc-omni',
       \ 'coc-phpls',
+      \ 'coc-post',
+      \ 'coc-prettier',
       \ 'coc-project',
-      \ 'coc-rust-analyzer',
       \ 'coc-python',
+      \ 'coc-rust-analyzer',
       \ 'coc-solargraph',
       \ 'coc-sql',
       \ 'coc-tag',
@@ -72,32 +74,28 @@ nnoremap <expr> <C-b> coc#util#has_float() ? coc#util#float_scroll(0) : "\<C-b>"
 
 " Command!; C-series {{{1
 
-command! S          :CocCommand session.save
-command! SessioSave :CocCommand session.save
-command! L        :CocList sessions
-command! Sessions :CocList sessions
-"command! SessionLoadCoc :CocCommand session.load
-command! CocHasProvider :call <SID>has_provider()
-command! ChasProvider   :call <SID>has_provider()
-command! -nargs=* -bar Cinstall :CocInstall <f-args>
-command! -nargs=+ Cuninstall :CocUninstall <q-args>
-command! -nargs=* CocRemove  :CocUninstall <q-args>
-command! -nargs=+ -complete=custom,coc#list#options Cremove :CocUninstall <q-args>
-command! Cconfig    :CocConfig
-command! Ccmd       :CocCommand
-command! Clist      :CocList
-command! Coc        :CocList
-command! Cextensions :CocList    extensions
-"command! -nargs=+ Csearch        :CocSearch <q-args>
-"command! -nargs=+ Cgrep        :CocList grep -regex <q-args>
-"command! Ctemplate   :CocCommand template.templateTop
-"command! Cinit       :CocCommand template.templateTop
-"command! Init        :CocCommand template.templateTop
+command! -nargs=* -complete=custom,coc#list#options Cl    :call coc#rpc#notify('openList', [<f-args>])
+command! -nargs=* -complete=custom,coc#list#options Cli    :call coc#rpc#notify('openList', [<f-args>])
+command! S          :Ccommand session.save
+" Mnemonic: Load sessions
+command! L        :Clist sessions
+command! Sessions :Clist sessions
+"command! SessionLoadC :CocCommand session.load
+command! ChasProvider :call <SID>has_provider()
+command! -nargs=* Cremove  :CocUninstall <f-args>
+command! -nargs=+ -complete=custom,coc#list#options Cremove :Cuninstall <f-args>
+command! Ccmd       :Ccommand
+command! Cextensions :Clist    extensions
+"command! -nargs=+ Csearch        :Csearch <f-args>
+"command! -nargs=+ Cgrep        :Clist grep -regex <f-args>
+"command! Ctemplate   :Ccommand template.templateTop
+"command! Cinit       :Ccommand template.templateTop
+"command! Init        :Ccommand template.templateTop
 " Note: fzf.vim is better,
 "       which has regex-like specification method on fuzzy-matcher.
-"command! Cfiles    :CocList files
-"command! Cmru      :CocList mru
-"command! Cbuffers  :CocList buffers
+"command! Cfiles    :Clist files
+"command! Cmru      :Clist mru
+"command! Cbuffers  :Clist buffers
 
 function! s:has_provider() "{{{1
   let l:coc_provider_list = [
@@ -224,10 +222,10 @@ xnoremap <silent> <c-w><space>r :call CocActionAsync('jumpReferences',     'vspl
 " CocFormat {{{1
 " Note: coc-prettier's editorconfig ability seems useless
 "       when prettier is unavailable on the filetype.
-"command! FormatOnCoc :call CocAction('format')
-"command! -nargs=? FoldOnCoc :call CocAction('fold', <f-args>)
-command! OR          :call CocAction('runCommand', 'editor.action.organizeImport')
-command! Format :CocCommand prettier.formatFile
+"command! FormatOnC :call CocAction('format')
+"command! -nargs=? FoldOnC :call CocAction('fold', <f-args>)
+command! OR          :call Caction('runCommand', 'editor.action.organizeImport')
+command! Format :Ccommand prettier.formatFile
 " Mnemonic: Change the Structure.
 nmap cs <Plug>(coc-refactor)
 "set equalprg=CocActionAsync('formatSelected')
@@ -287,7 +285,7 @@ xmap qa  <Plug>(coc-codeaction-selected)
 " CocWorkspace {{{1
 noremap! <c-x><c-;> <esc>q:
 noremap! <c-x><c-/> <esc>q/
-command! Rename :CocCommand workspace.renameCurrentFile
+command! Rename :Ccommand workspace.renameCurrentFile
 
 " CocRange, or Multiple Cursor {{{1
 hi CocCursorRange guibg=#b16286 guifg=#ebdbb2
@@ -297,38 +295,38 @@ hi CocCursorRange guibg=#b16286 guifg=#ebdbb2
 " Mnemonic: Macro of Cursor
 "nmap <silent> qc <Plug>(coc-cursors-operator)
 "xmap <silent> qc <Plug>(coc-cursors-range)
-"nnoremap <silent> cq :CocCommand document.renameCurrentWord<cr>
+"nnoremap <silent> cq :Ccommand document.renameCurrentWord<cr>
 ""nmap <silent> <c-j> <Plug>(coc-range-select)
 ""nmap <silent> <c-k> <Plug>(coc-range-select-backward)
 ""nmap <silent> * <Plug>(coc-cursors-word)
 ""nmap <silent> n <Plug>(coc-cursors-position)
 " CocColor; {{{1
-command! ColoFormat  :call CocAction('colorPresentation')
-command! ColoPalette :call CocAction('pickColor')
+command! ColoFormat  :call Caction('colorPresentation')
+command! ColoPalette :call Caction('pickColor')
 nnoremap <space>cp :ColoPalette<cr>
 " CocExtensions {{{1
-command! CocExtensions :CocList extensions
-command! CExtensions   :CocList extensions
-nnoremap <silent> <space>cx :CocExtensions<cr>
+command! Cextensions :CocList extensions
+command! CExtensions   :Clist extensions
+nnoremap <silent> <space>cx :Cextensions<cr>
 " CocList; {{{1
 " show commit contains current position
-nnoremap <silent> <space>cl :CocList<cr>
-nnoremap <silent> <space>cf :CocList files<cr>
-nnoremap <silent> <space>cb :CocList buffers<cr>
+nnoremap <silent> <space>cl :Clist<cr>
+nnoremap <silent> <space>cf :Clist files<cr>
+nnoremap <silent> <space>cb :Clist buffers<cr>
 " CocBookmark; {{{1
 nmap ma <Plug>(coc-bookmark-annotate)
-command! Bookmarks :CocList bookmark
-nnoremap <silent> <space>cb :CocList bookmark<cr>
+command! Bookmarks :Clist bookmark
+nnoremap <silent> <space>cb :Clist bookmark<cr>
 "" CocExplorer {{{1
-"command! CExplorer :CocCommand explorer
+"command! CExplorer :Ccommand explorer
 "      \ --toggle
 "      \ --width=35
 "      \ --sources=buffer+,file+
 "      \ --file-columns=icon,git,selection,clip,indent,filename,size
 ""}}}
 " CocGit {{{1
-command! GaddChunk :CocCommand git.chunkStage
-command! GchunkAdd :CocCommand git.chunkStage
+command! GaddChunk :Ccommand git.chunkStage
+command! GchunkAdd :Ccommand git.chunkStage
 " Mnemonic: Git Put (similar to dp as diffput)
 nnoremap <space>gp :<c-u>GaddChunk<cr>
 " TODO: for-loop in range because no range available yet.
@@ -350,8 +348,8 @@ endfunction
 xnoremap <silent> <Plug>(coc-git-add-chunk)
       \ :<c-u>call coc#git_add_chunk()<cr>
 
-nnoremap U :CocCommand git.chunkUndo<cr>
-command! -nargs=? Gfold :CocCommand git.foldUnchanged
+nnoremap U :Ccommand git.chunkUndo<cr>
+command! -nargs=? Gfold :Ccommand git.foldUnchanged
 function! coc#git_fold_toggle() abort
   if &l:fdm !=# 'manual'
     let b:fdm = &l:fdm
@@ -379,20 +377,18 @@ augroup CocPairsDisable
 augroup END
 " CocTranslator {{{1
 " Note: CANNOT replace 'toLang' before translator yet.
-"command! CJapaneseEcho    :call coc#config("translator", {"toLang": "ja"}) <bar> CocCommand  translator.echo
-"command! CJapaneseReplace :call coc#config("translator", {"toLang": "ja"}) <bar> :CocCommand translator.replace
-"command! CJapanesePum     :call coc#config("translator", {"toLang": "ja"}) <bar> CocCommand  translator.popup
-command! CEnglishEcho    :call coc#config("translator", {"toLang": "en"}) <bar> CocCommand  translator.echo
-command! CEnglishReplace :call coc#config("translator", {"toLang": "en"}) <bar> :CocCommand translator.replace
-command! CEnglishPum     :call coc#config("translator", {"toLang": "en"}) <bar> CocCommand  translator.popup
+"command! CJapaneseEcho    :call coc#config("translator", {"toLang": "ja"}) <bar> Ccommand  translator.echo
+"command! CJapaneseReplace :call coc#config("translator", {"toLang": "ja"}) <bar> :Ccommand translator.replace
+"command! CJapanesePum     :call coc#config("translator", {"toLang": "ja"}) <bar> Ccommand  translator.popup
+command! CEnglishEcho    :call coc#config("translator", {"toLang": "en"}) <bar> Ccommand  translator.echo
+command! CEnglishReplace :call coc#config("translator", {"toLang": "en"}) <bar> :Ccommand translator.replace
+command! CEnglishPum     :call coc#config("translator", {"toLang": "en"}) <bar> Ccommand  translator.popup
 
 " CocTodo, or Task {{{1
-command! CocTask         :CocCommand todolist.create
-command! CTask           :CocCommand todolist.create
-command! CocShowTaskList :CocList    todolist
-command! CShowTaskList   :CocList    todolist
-nnoremap <silent> <space>ct :CocTask<cr>
-nnoremap <silent> <space>cs :CocShowTaskList<cr>
+command! Ctask         :CocCommand todolist.create
+command! CshowTaskList   :Clist    todolist
+nnoremap <silent> <space>ct :Ctask<cr>
+nnoremap <silent> <space>cs :CshowTaskList<cr>
 " CocYank; {{{1
 " Highlight on yanked
 hi HighlightedyankRegion ctermfg=232 ctermbg=66 guifg=#000000 guibg=#df5f29
@@ -404,7 +400,7 @@ inoremap <c-x><c-y> <Cmd>CocList yank<cr>
 inoremap <c-x>y     <Cmd>CocList yank<cr>
 " CocSnippet; {{{1
 " TODO: See doc to Assign the dir where snippets will be saved.
-"nmap <a-s><a-p> :CocCommand snippets.editSnippets<cr>
+"nmap <a-s><a-p> :Ccommand snippets.editSnippets<cr>
 "" Trigger Just Snippets; <tab> to General Completion
 "imap <C-s> <Plug>(coc-snippets-expand)
 "vmap <C-s> <Plug>(coc-snippets-select)
