@@ -5,9 +5,9 @@
 " Another: source/fzf.vim
 " Another: post/fzf.vim
 
-" Note: not actually in ghq
 command! -bang -nargs=* Fzf :Files
 
+" Note: not actually in ghq
 command! -bang -nargs=* Ghq :cd $GOPATH <bar> FZF
 " Mnemonic: Quest for Project
 nnoremap <a-q><a-p> :Ghq<cr>
@@ -27,29 +27,24 @@ command! -bang -nargs=* Tmaps call fzf#vim#maps('t', <bang>0)
 "}}}
 
 command! -bang Functions :call fzf#vim#functions(
-      \                 <bang>0 ? fzf#vim#with_preview({'options': '--multi --reverse'}, 'right:60%:wrap')
-      \                         : fzf#vim#with_preview({'options': '--multi --reverse'}, 'right:60%'),
-      \                 <bang>0)
+      \ fzf#vim#with_preview({'options': '--multi --reverse'}, 'right:60%:wrap'),
+      \ <bang>0)
 
 
 " Note: the commands below are all wrapper,
 "       so that they must be loaded on hook_add.
-command! AgHelp  :cd  /usr/share/nvim/runtime/doc <bar> Ag
-command! AgWiki  :cd  ~/vimwiki <bar> Ag
-command! AgDiary :cd  ~/vimwiki/diary <bar> Ag
-command! RgHelp  :cd  /usr/share/nvim/runtime/doc <bar> Rg
-command! RgWiki  :cd  ~/vimwiki <bar> Rg
-command! RgDiary :cd  ~/vimwiki/diary <bar> Rg
+command! AgWiki  :cd ~/vimwiki                   <bar> Ag
+command! RgWiki  :cd ~/vimwiki                   <bar> Rg
+command! AgDiary :cd ~/vimwiki/diary             <bar> Ag
+command! RgDiary :cd ~/vimwiki/diary             <bar> Rg
+command! AgHelp  :cd /usr/share/nvim/runtime/doc <bar> Ag
+command! RgHelp  :cd /usr/share/nvim/runtime/doc <bar> Rg
 
 command! -bang -nargs=* Cmds :Commands
 " Note: :Cmaps isn't so often needed.
-command! -bang -nargs=* Cm :Commands
+command! -bang -nargs=* Cm   :Commands
 
-command! C :Colors
-" Note: disturbs CocFoobar
-"command! Co :Colors
-command! Col :Colors
-command! Colo :Colors
+command! Co :Colors
 
 command! H :Helptags
 command! He :Helptags
@@ -60,12 +55,12 @@ command! Help :Helptags
 imap <c-x><c-f> <c-o>:cd ~<cr><plug>(fzf-complete-file-ag)
 imap <c-x>f     <c-o>:cd ~<cr><plug>(fzf-complete-file-ag)
 
-nnoremap <silent> <space>zb     :<c-u> Buffers<cr>
-nnoremap <silent> <space>zG     :<c-u> Gfiles<cr>
-nnoremap <silent> <space>zg     :<c-u> Gfiles?<cr>
+nnoremap <silent> <space>zb :<c-u> Buffers<cr>
+nnoremap <silent> <space>zG :<c-u> Gfiles<cr>
+nnoremap <silent> <space>zg :<c-u> Gfiles?<cr>
 "" Mnemonic: 'Old' Buffer
-nnoremap <silent> <space>zo     :<c-u> History<cr>
+nnoremap <silent> <space>zo :<c-u> History<cr>
 "" Mnemonic: Search in Current File
-nnoremap <silent> <space>z/     :<c-u> BLines<cr>
-nnoremap <silent> <space>z;     :<c-u> History:<cr>
+nnoremap <silent> <space>z/ :<c-u> BLines<cr>
+nnoremap <silent> <space>z; :<c-u> History:<cr>
 
