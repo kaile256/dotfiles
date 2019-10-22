@@ -25,7 +25,6 @@ let g:markdown_fenced_languages = [
 " Note: <c-o> in coc's cmdline get to normal mode of coc.nvim
 " the List of CocExtentions; "{{{1
 " Note: Have to install LSPs independently.
-" Spare: coc-go; maintained?
 let g:coc_global_extensions = [
       \ 'coc-angular',
       \ 'coc-bookmark',
@@ -40,6 +39,7 @@ let g:coc_global_extensions = [
       \ 'coc-flutter',
       \ 'coc-git',
       \ 'coc-gitignore',
+      \ 'coc-go',
       \ 'coc-highlight',
       \ 'coc-homeassistant',
       \ 'coc-html',
