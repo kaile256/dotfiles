@@ -63,9 +63,9 @@ function! s:defx_keymap_explorer() abort
   nnoremap <silent><buffer><expr> h
         \ defx#do_action('cd', ['..'])
   nnoremap <silent><buffer><expr> l
-        \ (winwidth('.') < g:defx_is_wide)?
-        \ defx#do_action('open_directory'):
-        \ defx#do_action('open_tree')
+        \ defx#do_action('open_directory')
+        "\ (winwidth('.') < g:defx_is_wide)?
+        "\ defx#do_action('open_tree')
   " Explore; CWD {{{1
   "" CWD; defx's
   nnoremap <silent><buffer><expr> ~
@@ -103,24 +103,30 @@ function! s:defx_keymap_explorer() abort
   "      \                'mark:indent:icon:filename:type:size:time')
   " Selected; Open File {{{1
   " TODO: Make User's event on buffer's openning from defx.
+  "nnoremap <silent><buffer><expr> <c-j>
+  "      \ (winwidth('.') > g:defx_is_wide)?
+  "      \ defx#is_directory()?
+  "      \ defx#do_action('open_tree'):
+  "      \ defx#do_action('multi', ['drop', 'quit']):
+  "      \ defx#is_directory()?
+  "      \ defx#do_action('open'):
+  "      \ defx#do_action('multi', ['drop', 'quit'])
+  "nnoremap <silent><buffer><expr> <CR>
+  "      \ (winwidth('.') > g:defx_is_wide)?
+  "      \ defx#is_directory()?
+  "      \ defx#do_action('open_tree'):
+  "      \ defx#do_action('multi', ['drop', 'quit']):
+  "      \ defx#is_directory()?
+  "      \ defx#do_action('open'):
+  "      \ defx#do_action('multi', ['drop', 'quit'])
   nnoremap <silent><buffer><expr> <c-j>
-        \ (winwidth('.') > g:defx_is_wide)?
-        \ defx#is_directory()?
-        \ defx#do_action('open_tree'):
-        \ defx#do_action('multi', ['drop', 'quit']):
         \ defx#is_directory()?
         \ defx#do_action('open'):
         \ defx#do_action('multi', ['drop', 'quit'])
-        "\ . '<c-w>q'
   nnoremap <silent><buffer><expr> <CR>
-        \ (winwidth('.') > g:defx_is_wide)?
-        \ defx#is_directory()?
-        \ defx#do_action('open_tree'):
-        \ defx#do_action('multi', ['drop', 'quit']):
         \ defx#is_directory()?
         \ defx#do_action('open'):
         \ defx#do_action('multi', ['drop', 'quit'])
-        "\ . '<c-w>q'
   nnoremap <silent><buffer><expr> <TAB>
         \ defx#do_action('open', 'bel vsplit')
         \ . ':wincmd p<cr>'
@@ -167,7 +173,7 @@ function! s:defx_keymap_explorer() abort
   nnoremap <buffer><expr> p
         \ defx#do_action('paste')
   " yank_path: yank in unnamed register
-  nnoremap <buffer><expr> <space>y
+  nnoremap <buffer><expr> <space>yp
         \ defx#do_action('yank_path')
   " Selected; Execute {{{1
   nnoremap <silent><buffer><expr> <a-x>
