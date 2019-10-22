@@ -18,10 +18,11 @@ xnoremap <silent> gf gF
 " in horizontal
 nnoremap <silent> <c-w>f <c-w>F
 xnoremap <silent> <c-w>f <c-w>F
-" in vertical
-" TODO: should jump to the linenumber.
-nnoremap <silent> <c-w><space>f :<c-u>vert sfind <c-r><c-f> <cr>
-xnoremap <silent> <c-w><space>f :vert sfind <c-r><c-f> <cr>
+
+" Note: sfind denys range and to follow number.
+nnoremap <silent> <c-w><space>f :<c-u>vert wincmd F<cr>
+xnoremap <silent> <c-w><space>f :vert      wincmd F<cr>
+
 " in new tab
 nnoremap <silent> <c-w>F <c-w>gF
 xnoremap <silent> <c-w>F <c-w>gF
