@@ -195,4 +195,24 @@ function! s:spell_suggestion() abort
   call feedkeys("\<c-p>", 'n') " keep the word from being replaced at first
 endfunction
 
-nnoremap <silent> gs :<c-u>call <SID>spell_suggestion()<cr>
+nnoremap <silent> gs     :<c-u>call <SID>spell_suggestion()<cr>
+" Note: <c-s> freezes screen in some unix-like OS.
+inoremap <silent> <c-x>s <Cmd>call  <SID>spell_suggestion()<cr>
+
+function! s:send_to_cmdline(delete) abort range "{{{
+  if visualmode()
+    let l:start = column("'<")
+    let l:end   = column("'>")
+    " TODO: restrict only in visualized area.
+    exe getline("'<", "'>")
+    if a:delete ==# 'delete' | *delete _ | endif
+    return
+  endif
+
+  exe getline('.')
+  if a:delete ==# 'delete' | delete _ | endif
+endfunction "}}}
+
+" TODO: I prefer to use <c-o> in insert-mode.
+noremap <silent> g: :call <SID>send_to_cmdline('delete')<cr>
+noremap <silent> z: :call <SID>send_to_cmdline('keep')<cr>
