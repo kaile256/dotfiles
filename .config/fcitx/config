@@ -1,7 +1,7 @@
 # CAUTION: must not leave comment on trail.
 [Hotkey]
 # Trigger Input Method
-TriggerKey=CTRL_ENTER
+TriggerKey=ALT_ENTER
 # Use extra trigger key only after using it to inactivate
 # Available Value:
 # True False
