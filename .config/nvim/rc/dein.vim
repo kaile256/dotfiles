@@ -18,10 +18,10 @@ let g:dein_cache_dir = g:cache_home . '/dein/'
 let s:Shougo_cache_dir = g:dein_cache_dir . '/repos/github.com/Shougo/'
 let s:dein_itself = s:Shougo_cache_dir . '/dein.vim/'
 
-if !exists('g:kmDealer_win_cd_path_dict')
-  let g:kmDealer_win_cd_path_dict = {}
+if !exists('g:kmDealer_cd_path_dict')
+  let g:kmDealer_cd_path_dict = {}
 endif
-call extend(g:kmDealer_win_cd_path_dict, {
+call extend(g:kmDealer_cd_path_dict, {
       \ 'c': g:dein_cache_dir,
       \ }
       \ )
