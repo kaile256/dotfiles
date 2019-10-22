@@ -68,6 +68,18 @@ let g:dotfiles_home  = '~/dotfiles/'
 let g:nvim_home = empty($VIMCONFIG) ? expand(g:dotfiles_home .'/.config/nvim/') : $VIMCONFIG
 let g:nvim_data_home = g:nvim_home . 'data/'
 let g:dev_root = '~/dev/'
+
+if !exists('g:winpick_cd_path_dict')
+  let g:winpick_cd_path_dict = {}
+endif
+call extend(g:winpick_cd_path_dict, {
+      \ 'v': g:nvim_home,
+      \ 'l': g:data_home,
+      \ 'f': g:config_home,
+      \ 'd': g:dotfiles_home,
+      \ }
+      \ )
+
 "}}}
 " $var; for Vim {{{1
 if isdirectory('~/kaile256')

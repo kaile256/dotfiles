@@ -17,6 +17,14 @@ let g:dein#install_log_filename = s:dein_log_file
 let g:dein_cache_dir = g:cache_home . '/dein/'
 let s:Shougo_cache_dir = g:dein_cache_dir . '/repos/github.com/Shougo/'
 let s:dein_itself = s:Shougo_cache_dir . '/dein.vim/'
+
+if !exists('g:winpick_cd_path_dict')
+  let g:winpick_cd_path_dict = {}
+endif
+call extend(g:winpick_cd_path_dict, {
+      \ 'c': g:dein_cache_dir,
+      \ }
+      \ )
 "}}}
 " Let; Path for :find {{{
 "let &path = &path . ',' . g:dein_cache_dir . '**'
@@ -90,6 +98,7 @@ endif
 if dein#check_install() "{{{
   call dein#install()
 endif "}}}
+
 augroup CallMyDeinFunctions "{{{
   au!
   " Note: have to call it to source 'hook_post_source'.

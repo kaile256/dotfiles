@@ -13,6 +13,23 @@ let g:winpick_weed_list = [
 "      \        {'p': '<c-w>FindRoot'},
 "      \        )
 
+if !exists('g:winpick_cd_path_dict')
+  let g:winpick_cd_path_dict = {}
+endif
+
+call extend(g:winpick_cd_path_dict, {
+      \ 'h': '~',
+      \ 'w': '%:p:h',
+      \ }
+      \ )
+
+let g:winpick_split_dict = {
+      \ '<a-v>': 'vsplit',
+      \ '<a-s>': 'split',
+      \ '<a-t>': 'tabe',
+      \ '<a-e>': 'edit',
+      \ }
+
 let s:list = {
       \ 'fugitive': {},
       \ }
