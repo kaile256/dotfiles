@@ -202,6 +202,8 @@ nnoremap <silent> gs     :<c-u>call <SID>spell_suggestion()<cr>
 inoremap <silent> <c-x>s <Cmd>call  <SID>spell_suggestion()<cr>
 
 function! s:send_to_cmdline(delete) abort range "{{{
+  " TODO: start reverse highlight the cmd-edit mode at the first-line,
+  "       which had better be removed when VimLeave.
   if visualmode()
     let l:start = column("'<")
     let l:end   = column("'>")
