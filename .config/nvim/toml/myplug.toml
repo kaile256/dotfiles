@@ -14,12 +14,13 @@ on_event = 'VimEnter'
 hook_add = 'runtime add/sensible_K.vim'
 
 [[plugins]]
-repo = 'kaile256/vim-window-picker'
-depends = ['fzf.vim', 'vim-fugitive', 'coc.nvim']
-#on_cmd = 'winpick#'
+repo = 'kaile256/vim-keymaps-dealer'
+depends = ['fzf.vim', 'fugitive', 'twiggy', 'coc.nvim']
 on_event = 'VimEnter'
-hook_add = 'runtime add/winpick.vim'
-hook_post_source = 'runtime post/winpick.vim'
+# Note: must load the plugin before mapped, cannot delayed.
+#on_cmd = ['kmDealer#', 'KmDealer']
+hook_add = 'runtime add/keymaps-dealer.vim'
+hook_post_source = 'runtime post/keymaps-dealer.vim'
 
 [[plugins]]
 repo = 'kaile256/vim-foldcolors'

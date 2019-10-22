@@ -69,10 +69,10 @@ let g:nvim_home = empty($VIMCONFIG) ? expand(g:dotfiles_home .'/.config/nvim/') 
 let g:nvim_data_home = g:nvim_home . 'data/'
 let g:dev_root = '~/dev/'
 
-if !exists('g:winpick_cd_path_dict')
-  let g:winpick_cd_path_dict = {}
+if !exists('g:kmDealer_win_cd_path_dict')
+  let g:kmDealer_win_cd_path_dict = {}
 endif
-call extend(g:winpick_cd_path_dict, {
+call extend(g:kmDealer_win_cd_path_dict, {
       \ 'v': g:nvim_home,
       \ 'l': g:data_home,
       \ 'f': g:config_home,

@@ -6,10 +6,10 @@
 let g:vimwiki_home = '~/vimwiki'
 " Note: task.wiki is not a directory, but a file; cannot :cd.
 
-if !exists('g:winpick_cd_path_dict')
-  let g:winpick_cd_path_dict = {}
+if !exists('g:kmDealer_win_cd_path_dict')
+  let g:kmDealer_win_cd_path_dict = {}
 endif
-call extend(g:winpick_cd_path_dict, {
+call extend(g:kmDealer_win_cd_path_dict, {
       \ 'k': g:vimwiki_home,
       \ }
       \ )
