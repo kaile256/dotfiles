@@ -26,8 +26,8 @@ augroup FzfMyAutoConf "{{{1
   "      \ | if &l:number | setl number | endif
 augroup END "}}}1
 
-"let g:fzf_layout = { 'down': '~25%' }
-let g:fzf_layout = { 'window': 'call winpick#floating()' }
+"let g:fzf_layout = {'down': '~25%'}
+let g:fzf_layout = {'window': 'call kmDealer#window#floating()'}
 
 "let g:fzf_command_prefix = 'Fzf' " makes complex hook on dein.
 " Note: write in a string w/ no spaces, not in a list.

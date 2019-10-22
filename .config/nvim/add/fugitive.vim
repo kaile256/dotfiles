@@ -17,7 +17,7 @@ command! -nargs=+ Gclone :Git clone <q-args>
 "command! Gush :AsyncRun git push %:p
 
 function! fugitive#commit_with_diff() abort "{{2
-  call winpick#harvest()
+  call kmDealer#window#harvest()
   " Keep to show diff w/ HEAD while editting commit-message.
   Gvdiffsplit! HEAD
   " For: makes user notice if any other changes in the buffer.
@@ -35,7 +35,7 @@ command! Gstage
 "command! Gunstage :execute <SNR>219_Do('Unstage',0)
 "noremap <silent> <space>g<a-u> :Gunstage<cr>
 command! GdiffMode
-      \ call winpick#harvest()
+      \ call kmDealer#window#harvest()
       \ | Gvdiffsplit!
 "}}}1
 
@@ -96,6 +96,6 @@ augroup OnFugitiveBuffer
   au FileType fugitive,fugitiveblame,gitcommit setl nonumber signcolumn= bufhidden=wipe
   au FileType gitcommit setl spell
   " Dispose commit-message.
-  nnoremap <Plug>(dismiss-gitcommit) ggdGZZ:call winpick#weed_out()<cr>
+  nnoremap <Plug>(dismiss-gitcommit) ggdGZZ:call kmDealer#window#weed_out()<cr>
   au FileType gitcommit nmap <buffer> dq <Plug>(dismiss-gitcommit)
 augroup END
