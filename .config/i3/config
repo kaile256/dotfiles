@@ -114,6 +114,8 @@ bindsym $Super+t exec alacritty
 bindsym $Super+v exec --no-startup-id alacritty -e 'vim'
 bindsym $Super+a exec --no-startup-id alacritty -e 'nvim'
 bindsym $Super+n exec --no-startup-id nvim-qt
+# TODO: start nvim-qt sharing the buffer-list w/ another nvim-qt which is already started.
+bindsym $SuperS+n exec --no-startup-id i3-sensible-terminal -e "nvim-qt --server $NVIM_LISTEN_ADDRESS"
 bindsym $Super+q exec --no-startup-id nvim-qt
 #bindsym $Super+r exec --no-startup-id nvim-gtk # font decayed
 #bindsym $Super+g exec --no-startup-id glrnvim
@@ -365,8 +367,8 @@ workspace_auto_back_and_forth yes
 #bindsym $mod+Shift+b move container to workspace back_and_forth; workspace back_and_forth
 bindsym $Super+minus workspace prev
 bindsym $Super+equal workspace next
-bindsym $SuperS+p workspace prev
-bindsym $SuperS+n workspace next
+bindsym $Super+Ctrl+p workspace prev
+bindsym $Super+Ctrl+n workspace next
 bindsym $Super+1 workspace $ws1
 bindsym $Super+2 workspace $ws2
 bindsym $Super+3 workspace $ws3
