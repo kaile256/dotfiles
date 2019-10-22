@@ -150,6 +150,7 @@ endfunction
 
 "}}}
 " CocCompletion; {{{1
+" TODO: add fugitive#EditComplete to coc#refresh's list.
 inoremap <silent><expr> <c-n>
       \ pumvisible() ? "\<C-n>" :
       \ <SID>make_sure_no_space() ? "\<c-n>" :
