@@ -54,11 +54,12 @@ inoremap <c-g>w     <S-Right>
 "      \ y
 "}}}
 
-" CAUTION: Never careless mapping on <i_a-hjkl>
 " Alt-ESC; <a-hjkl> {{{
-"  make sure <a-hjkl> work as <esc>hjkl, e.g., while pop-up menu shows.
+" CAUTION: Never careless mapping on <i_a-hjkl>
 " CAUTION: Remember n_<a-hjkl> for Win-Leap
-inoremap <nowait> <a-h> <esc>h
+" For: make sure <a-hjkl> work as <esc>hjkl, e.g., while pop-up menu shows.
+" Note: <a-h> behaves as <esc> is more instinctive than <esc>h.
+inoremap <nowait> <a-h> <esc>
 inoremap <nowait> <a-j> <esc>j
 inoremap <nowait> <a-k> <esc>k
 inoremap <nowait> <a-l> <esc>l
