@@ -333,12 +333,13 @@ nnoremap <space>gp :<c-u>GaddChunk<cr>
 xmap <space>gp <Plug>(coc-git-add-chunk)
 
 function coc#git_add_chunk() abort range
+  " TODO: find out what's wrong.
   let save_view = winsaveview()
   exe line("'<")
   " TODO: be available in normal mode
   while line('.') <= line("'>")
-    CocCommand git.chunkStage
-    norm! gj
+    " TODO: try feedkeys()
+    call feedkeys('Ccommand git.chunkStage', 'norm! gj')
   endwhile
   " Note: only to scroll down a fugitive-buffer.
   "Gstatus
@@ -353,7 +354,7 @@ command! -nargs=? Gfold :Ccommand git.foldUnchanged
 function! coc#git_fold_toggle() abort
   if &l:fdm !=# 'manual'
     let b:fdm = &l:fdm
-    CocCommand git.foldUnchanged
+    Ccommand git.foldUnchanged
   elseif exists('b:fdm')
     exe 'set fdm='. b:fdm
   else
@@ -377,16 +378,16 @@ augroup CocPairsDisable
 augroup END
 " CocTranslator {{{1
 " Note: CANNOT replace 'toLang' before translator yet.
-"command! CJapaneseEcho    :call coc#config("translator", {"toLang": "ja"}) <bar> Ccommand  translator.echo
+"command! CJapaneseEcho    :call coc#config("translator", {"toLang": "ja"}) <bar> :Ccommand  translator.echo
 "command! CJapaneseReplace :call coc#config("translator", {"toLang": "ja"}) <bar> :Ccommand translator.replace
-"command! CJapanesePum     :call coc#config("translator", {"toLang": "ja"}) <bar> Ccommand  translator.popup
-command! CEnglishEcho    :call coc#config("translator", {"toLang": "en"}) <bar> Ccommand  translator.echo
+"command! CJapanesePum     :call coc#config("translator", {"toLang": "ja"}) <bar> :Ccommand  translator.popup
+command! CEnglishEcho    :call coc#config("translator", {"toLang": "en"}) <bar> :Ccommand  translator.echo
 command! CEnglishReplace :call coc#config("translator", {"toLang": "en"}) <bar> :Ccommand translator.replace
-command! CEnglishPum     :call coc#config("translator", {"toLang": "en"}) <bar> Ccommand  translator.popup
+command! CEnglishPum     :call coc#config("translator", {"toLang": "en"}) <bar> :Ccommand  translator.popup
 
 " CocTodo, or Task {{{1
-command! Ctask         :CocCommand todolist.create
-command! CshowTaskList   :Clist    todolist
+command! Ctask         :Ccommand todolist.create
+command! CshowTaskList :Clist    todolist
 nnoremap <silent> <space>ct :Ctask<cr>
 nnoremap <silent> <space>cs :CshowTaskList<cr>
 " CocYank; {{{1
@@ -396,8 +397,8 @@ hi HighlightedyankRegion ctermfg=232 ctermbg=66 guifg=#000000 guibg=#df5f29
 " Required?: closes mpreview vindow when completion is done.
 "au! CompleteDone * if pumvisible() == 0 | pclose | endif
 "inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<CR>"
-inoremap <c-x><c-y> <Cmd>CocList yank<cr>
-inoremap <c-x>y     <Cmd>CocList yank<cr>
+inoremap <c-x><c-y> <Cmd>CList yank<cr>
+inoremap <c-x>y     <Cmd>Clist yank<cr>
 " CocSnippet; {{{1
 " TODO: See doc to Assign the dir where snippets will be saved.
 "nmap <a-s><a-p> :Ccommand snippets.editSnippets<cr>
