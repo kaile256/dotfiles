@@ -74,15 +74,14 @@ nnoremap <expr> <C-b> coc#util#has_float() ? coc#util#float_scroll(0) : "\<C-b>"
 
 " Command!; C-series {{{1
 
-command! -nargs=* -complete=custom,coc#list#options Cl    :call coc#rpc#notify('openList', [<f-args>])
-command! -nargs=* -complete=custom,coc#list#options Cli    :call coc#rpc#notify('openList', [<f-args>])
-command! S          :Ccommand session.save
+command! -nargs=* -complete=custom,coc#list#options Cl  :Clist <f-args>
+command! -nargs=* -complete=custom,coc#list#options Cli :Clist <f-args>
+command! S :Ccommand session.save
 " Mnemonic: Load sessions
 command! L        :Clist sessions
 command! Sessions :Clist sessions
 "command! SessionLoadC :CocCommand session.load
-command! ChasProvider :call <SID>has_provider()
-command! -nargs=* Cremove  :CocUninstall <f-args>
+command! -nargs=* Cremove  :Cuninstall <f-args>
 command! -nargs=+ -complete=custom,coc#list#options Cremove :Cuninstall <f-args>
 command! Ccmd       :Ccommand
 command! Cextensions :Clist    extensions
@@ -97,7 +96,8 @@ command! Cextensions :Clist    extensions
 "command! Cmru      :Clist mru
 "command! Cbuffers  :Clist buffers
 
-function! s:has_provider() "{{{1
+command! ChasProvider :call <SID>has_provider()
+function! s:has_provider() "{{{2
   let l:coc_provider_list = [
         \ 'hover',
         \ 'rename',
@@ -338,12 +338,13 @@ function coc#git_add_chunk() abort range
   exe line("'<")
   " TODO: be available in normal mode
   while line('.') <= line("'>")
-    " TODO: try feedkeys()
-    call feedkeys('Ccommand git.chunkStage', 'norm! gj')
+    " FIXME: still useless, even freezes vim.
+    call feedkeys(":Ccommand git.chunkStage<cr>", 'n')
+    call feedkeys('gj', 'n')
   endwhile
   " Note: only to scroll down a fugitive-buffer.
   "Gstatus
-  call winrestview(save_view)
+  "call feedkeys(":call winrestview(save_view)<cr>", 'n')
 endfunction
 " Note: :Gstatus within one command/keymap doesn't work.
 xnoremap <silent> <Plug>(coc-git-add-chunk)
