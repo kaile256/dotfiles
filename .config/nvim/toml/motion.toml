@@ -27,14 +27,16 @@ hook_add = 'runtime add/asterisk.vim'
 ##}}}
 
 # Jump to Target
-#[[plugins]]
-#repo = 'justinmk/vim-sneak' #{{{
-#on_map = {nox = '<Plug>Sneak_'}
-#hook_add = 'runtime add/sneak.vim'
-#hook_post_source = '''
-#silent! unmap s
-#silent! unmap S
-#'''
+[[plugins]]
+repo = 'justinmk/vim-sneak' #{{{
+on_map = {nox = '<Plug>Sneak_'}
+hook_add = 'runtime add/sneak.vim'
+hook_done_update = '''
+exe 'e'. g:dein_cache_dir .'/repos/github.com/justinmk/vim-sneak/plugin/sneak.vim'
+g/<Plug>Sneak_s/d
+g/<Plug>Sneak_S/d
+write
+'''
 #}}}
 # Jump; Easy Motion
 [[plugins]] # has extentions
