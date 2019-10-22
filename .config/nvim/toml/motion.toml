@@ -1,4 +1,4 @@
-# From: add/dein.vim
+# From: rc/dein.vim
 
 [[plugins]]
 repo = 'bkad/CamelCaseMotion' #{{{
@@ -26,7 +26,7 @@ hook_add = 'runtime add/asterisk.vim'
 #hook_add = 'runtime add/visualstar.vim'
 ##}}}
 
-# Leap to Target
+# Jump to Target
 #[[plugins]]
 #repo = 'justinmk/vim-sneak' #{{{
 #on_map = {nox = '<Plug>Sneak_'}
@@ -36,7 +36,7 @@ hook_add = 'runtime add/asterisk.vim'
 #silent! unmap S
 #'''
 #}}}
-# Leap; Easy Motion
+# Jump; Easy Motion
 [[plugins]] # has extentions
 repo = 'kaile256/vim-easymotion' #{{{
 # TODO: get the target w/o keys.
@@ -70,12 +70,19 @@ hook_post_source = 'runtime post/easymotion.vim'
 #hook_post_source = 'runtime add/incsearch-fuzzy.vim'
 #}}}
 #}}}
-
 #[[plugins]]
-#repo = 'ripxorip/aerojump.nvim'
+#repo = 'tbo/notion' #{{{
+## Note: written in typescript & javascript
+## no highlight, so confising.
+#on_cmd = 'NotionJump'
+#hook_add = 'runtime add/notion.vim'
+##}}}
+#[[plugins]]
+#repo = 'ripxorip/aerojump.nvim' #{{{
 ## seems buggy.
 #on_map = {nox = '<Plug>(Aerojump'}
 #hook_add = 'runtime add/aerojump.vim'
+##}}}
 
 # Operater; Comment out
 #[[plugins]]
