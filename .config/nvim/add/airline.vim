@@ -5,10 +5,7 @@ set noruler
 
 let g:airline_theme = 'term'
 
-"augroup AirlineAutoToggle
-"  au!
-"  au FileType coc,fzf let w:airline_disabled = 1
-"augroup END
+"let g:airline_powerline_fonts = 1
 
 let g:airline_detect_iminsert = 1
 
