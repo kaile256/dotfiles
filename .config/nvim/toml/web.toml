@@ -1,4 +1,4 @@
-# From: rc/dein.vim
+From: rc/dein.vim
 
 # Browser;
 [[plugins]]
@@ -16,6 +16,7 @@ hook_add = 'runtime add/open-browser.vim'
 #hook_post_source = 'runtime add/open-browser-github.vim'
 ##}}}
 
+# Vim on Browser
 #[[plugins]]
 #repo = 'raghur/vim-ghost'
 ## depends on chrome's extention or firefox's addon.
@@ -23,14 +24,12 @@ hook_add = 'runtime add/open-browser.vim'
 #on_cmd = 'Ghost'
 #hook_add = 'runtime add/ghost.vim'
 
-# API; Calendar
+# API
 [[plugins]]
 repo = 'itchyny/calendar.vim' #{{{
 on_cmd = 'Calendar'
 hook_post_source = 'runtime add/calendar.vim'
 #}}}
-
-# API; WakaTime
 [[plugins]]
 repo = 'wakatime/vim-wakatime' #{{{
 # tracking service for coding activity.
@@ -38,30 +37,23 @@ repo = 'wakatime/vim-wakatime' #{{{
 on_cmd = 'WakaTime'
 hook_add = 'runtime add/wakatime.vim'
 #}}}
-
 # API; Collaborative Editing
 [[plugins]]
 repo = 'Floobits/floobits-neovim' #{{{
 on_cmd = ['Floo', 'FlooShareDirPublic', 'FlooShareDirPrivate', 'FlooJoinWorkspace']
 #hook_add = 'runtime add/floobits.vim'
 #}}}
-
-# API;
-[[plugins]]
+# API; WebAPI
+[[plugins]] # has extentions
 repo = 'mattn/webapi-vim' #{{{
 #on_map = ['Pocket']
 on_event = ['BufRead']
 hook_add = 'runtime add/webapi.vim'
-#}}}
-
-## API; Pocket
 [[plugins]]
 repo = 'soramugi/pocket.vim' #{{{
-#on_map = 'Pocket'
-on_event = ['BufRead']
+on_cmd = ['PocketList', 'PocketArchive', 'PocketFavorite']
 hook_add = 'runtime add/pocket.vim'
 #}}}
-
 # API; Twitter
 #[[plugins]]
 #repo = 'basyura/TweetVim' #{{{
