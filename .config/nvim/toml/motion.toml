@@ -27,17 +27,17 @@ hook_add = 'runtime add/asterisk.vim'
 ##}}}
 
 # Jump to Target
-[[plugins]]
-repo = 'justinmk/vim-sneak' #{{{
-on_map = {nox = '<Plug>Sneak_'}
-hook_add = 'runtime add/sneak.vim'
-hook_done_update = '''
-exe 'e'. g:dein_cache_dir .'/repos/github.com/justinmk/vim-sneak/plugin/sneak.vim'
-g/<Plug>Sneak_s/d
-g/<Plug>Sneak_S/d
-write
-'''
-#}}}
+#[[plugins]]
+#repo = 'justinmk/vim-sneak' #{{{
+#on_map = {nox = '<Plug>Sneak_'}
+#hook_add = 'runtime add/sneak.vim'
+#hook_done_update = '''
+#exe 'e'. g:dein_cache_dir .'/repos/github.com/justinmk/vim-sneak/plugin/sneak.vim'
+#g/<Plug>Sneak_s/d
+#g/<Plug>Sneak_S/d
+#write
+#'''
+##}}}
 # Jump; Easy Motion
 [[plugins]] # has extentions
 repo = 'kaile256/vim-easymotion' #{{{
@@ -135,7 +135,7 @@ repo = 'andymass/vim-matchup' #{{{
 # Better `%`
 # Note: should be source post/ after :colo from other plugin,
 # which :colo after event-ColorScheme.
-on_event = 'CursorHold'
+on_event = ['BufNewFile', 'BufRead']
 hook_add = 'runtime add/matchup.vim'
 hook_post_source = 'runtime post/matchup.vim'
 #}}}
@@ -150,14 +150,18 @@ hook_add = 'runtime add/sandwich.vim'
 #hook_post_source = 'runtime add/surround.vim'
 #}}}
 [[plugins]]
-repo = 'terryma/vim-multiple-cursors' #{{{
-# if no mappings on add/, should use on_event.
-on_event = 'BufWinEnter'
-#on_cmd = 'MultipleCursors'
-#on_cmd = 'multiple_cursors#'
-#on_map = {nx = '<Plug>(multiple-cursors'}
-hook_add = 'runtime add/multiple-cursors.vim'
-#}}}
+repo = 'mg979/vim-visual-multi'
+on_map = {x = '<Plug>(VM-Find-'}
+hook_add = 'runtime add/visual-multi.vim'
+#[[plugins]]
+#repo = 'terryma/vim-multiple-cursors' #{{{
+## if no mappings on add/, should use on_event.
+#on_event = 'BufWinEnter'
+##on_cmd = 'MultipleCursors'
+##on_cmd = 'multiple_cursors#'
+##on_map = {nx = '<Plug>(multiple-cursors'}
+#hook_add = 'runtime add/multiple-cursors.vim'
+##}}}
 #[[plugins]]
 #repo = 'matze/vim-move' #{{{
 ## xmap's block-wise isn't work well.
