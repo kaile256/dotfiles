@@ -83,8 +83,6 @@ cnoreabbr <expr> man (getcmdtype() == ':' && getcmdline() =~ '^man$')? 'Man' : '
 "}}}
 " Abbr; for :!vint {{{1
 command! Vint :w <bar> !vint %:p
-cnoreabbr <expr> vin  (getcmdtype() == ':' && getcmdline() =~ '^vin$')? "w <bar> !vint %:p" : 'vin'
-cnoreabbr <expr> vint (getcmdtype() == ':' && getcmdline() =~ '^vin$')? "w <bar> !vint %:p" : 'vint'
 " Abbr; :checkhealth {{{1
 cnoreabbr <silent><expr> ch (getcmdtype() == ':' && getcmdline() =~ '^ch$')? 'checkhealth <bar> setl bt=nofile' : 'ch'
 " Abbr; :source {{{1
