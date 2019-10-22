@@ -50,6 +50,31 @@ on_source = 'defx.nvim'
 #on_event = 'BufAdd'
 #hook_post_source = 'runtime add/dirvish.vim'
 #}}}
+## Ranger
+#[[plugins]]
+#repo = 'Lokaltog/neoranger' #{{{
+## Note: only one pane is in use; can't call it a ranger.
+#on_event = 'BufRead'
+#hook_add = 'runtime add/neoranger.vim'
+##}}}
+#[[plugins]]
+#repo = 'ipod825/vim-netranger' #{{{
+## Browser for system/cloud storage
+#on_event = 'BufRead'
+#hook_post_source = 'runtime add/netranger.vim'
+##}}}
+#[[plugins]]
+#repo = 'rafaqz/ranger.vim' #{{{
+### semms only call the external ranger.
+#on_event = 'BufRead'
+#hook_post_source = 'runtime add/ranger.vim'
+##}}}
+#[[plugins]]
+#repo = 'francoiscabrol/ranger.vim' #{{{
+## semms only call the external ranger.
+#on_event = 'BufRead'
+#hook_post_source = 'runtime add/ranger.vim'
+##}}}
 
 # CTags/global
 [[plugins]]
