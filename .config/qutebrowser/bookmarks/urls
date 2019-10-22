@@ -313,3 +313,24 @@ http://altrepo.eu/git/purple-line git / purple-line | GitLab
 https://trello.com/b/5G9c1rkb/qtwebengine QtWebEngine | Trello
 http://mattn.kaoriya.net/software/vim/20110728094347.htm Big Sky :: 他人が作ったVimScriptを一切触らず拡張する
 https://github.com/kizza/actionmenu.nvim kizza/actionmenu.nvim: A nice context menu for vim
+https://gist.github.com/haya14busa/cb78147229dfde98a5e6 2015-02-15-160542.vim
+https://github.com/fcsonline/tmux-thumbs fcsonline/tmux-thumbs: A lightning fast version of tmux-fingers written in Rust, copy/pasting tmux like vimium/vimperator
+https://github.com/matthewsot/docs-vim matthewsot/docs-vim: Use Google Docs like vim. Sorta.
+https://github.com/fvictorio/vim-yank-queue fvictorio/vim-yank-queue: Paste things in the same order in which you copied them
+https://viral-community.com/security/curl-8263/ curlコマンドの使い方　～GET、POST、REST（json）の確認と、windowsでの利用手順
+https://github.com/powerline/fonts powerline/fonts: Patched fonts for Powerline users.
+https://github.com/iamcco/coc-flutter iamcco/coc-flutter: flutter support for (Neo)vim
+https://github.com/Rigellute/rigel Rigellute/rigel: 🌌 Colorscheme for vim, terminal and slack - based on the star Rigel ✨.
+http://www.koikikukan.com/archives/2014/04/01-015555.php PocketでOAuth2認証を行う方法: 小粋空間
+https://qiita.com/mattn/items/748c5fd42832e197eb7b Vim で引き籠る - Qiita
+https://github.com/iamcco/coc-post iamcco/coc-post: post extension for coc.nvim
+https://github.com/kana/vim-metarw kana/vim-metarw: Vim plugin: A framework to read/write fake:path
+https://github.com/mattn/vim-metarw-webdav mattn/vim-metarw-webdav
+https://qiita.com/b4b4r07/items/09815eda8ef72e0b472e さいつよのターミナル環境を構築しよう - Qiita
+http://openlab.ring.gr.jp/skk/wiki/wiki.cgi?page=SKK%BC%AD%BD%F1 SKK辞書 - SKK辞書Wiki
+https://photos.google.com/albums アルバム - Google フォト
+https://github.com/francoiscabrol/ranger.vim francoiscabrol/ranger.vim: Ranger integration in vim and neovim
+https://qiita.com/mattn/items/b7889e3c036b408ae8bd 本物の golang を... 本物の Gopher を、お見せしますよ。 - Qiita
+https://github.com/ipod825/vim-netranger ipod825/vim-netranger: A ranger-like system/cloud storage explorer for Vim, bringing together the best of Vim, ranger, and rclone.
+https://wiki.archlinux.jp/index.php/CUPS CUPS - ArchWiki
+https://qiita.com/machakann/items/32eb42a42fb65f753f86 Vim 組み込み関数の feedkeys() と &#39;x&#39; フラグ - Qiita
