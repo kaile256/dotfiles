@@ -2,6 +2,12 @@
 " Repo: kaile256/vim-keymaps-dealer
 " Another: post/keymaps-dealer.vim
 
+" TODO: pass through the undefined-error while on among_HML#percent() works?
+"nnoremap <silent> <space>t :<c-u>call kmDealer#window#path('<space>t', 'te fish', 1)<cr><space>t
+"nnoremap <silent> <space>z :<c-u>call kmDealer#window#path('<space>z', 'Fzf', 0)<cr><space>z
+"nnoremap <silent> <space>r :<c-u>call kmDealer#window#path('<space>r', 'Rg',  0)<cr><space>r
+"nnoremap <silent> <space>a :<c-u>call kmDealer#window#path('<space>a', 'Ag',  0)<cr><space>a
+
 let g:kmDealer_win_weed_list = [
       \ 'fugitive:\/\/',
       \ 'twiggy:\/\/',
