@@ -22,6 +22,9 @@ hook_done_update = '''
 exe 'e' g:dein_cache_dir .'/repos/github.com/tpope/vim-fugitive/plugin/fugitive.vim'
 %s/Gpush/Gush/e
 write
+exe 'e' g:dein_cache_dir .'/repos/github.com/tpope/vim-fugitive/autoload/fugitive.vim'
+g/'dq'/d
+write
 '''
 # Fugitive; Branch Viewr
 [[plugins]]
