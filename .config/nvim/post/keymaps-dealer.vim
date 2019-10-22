@@ -2,9 +2,9 @@
 " Repo: kaile256/vim-keymaps-dealer
 " Another: add/keymaps-dealer.vim
 
-call kmDealer#window#path('<space>t', 'te fish', 1)
+call kmDealer#cmd_after#cd_split('<space>t', 'te fish', '')
 
 " add/fzf.vim
-call kmDealer#window#path('<space>z', 'Fzf', '')
-call kmDealer#window#path('<space>r', 'Rg',  '')
-call kmDealer#window#path('<space>a', 'Ag',  '')
+call kmDealer#cmd_after#cd('<space>z', 'Fzf', '')
+call kmDealer#cmd_after#cd('<space>r', 'Rg',  '')
+call kmDealer#cmd_after#cd('<space>a', 'Ag',  '')
