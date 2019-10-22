@@ -5,6 +5,6 @@
 call kmDealer#window#path('<space>t', 'te fish', 1)
 
 " add/fzf.vim
-call kmDealer#window#path('<space>z', 'Fzf', 0)
-call kmDealer#window#path('<space>r', 'Rg',  0)
-call kmDealer#window#path('<space>a', 'Ag',  0)
+call kmDealer#window#path('<space>z', 'Fzf', '')
+call kmDealer#window#path('<space>r', 'Rg',  '')
+call kmDealer#window#path('<space>a', 'Ag',  '')
