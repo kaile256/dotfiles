@@ -31,7 +31,7 @@ let s:save_cpo = &cpo
 set cpo&vim
 "}}}
 
-function fontResize#initialize() abort
+function fontResize#initialize() abort "{{{
   redir => s:fontname_and_size
   if exists('g:GuiFont')
     " e.g., SF Mono:h12
@@ -52,20 +52,21 @@ function fontResize#initialize() abort
   else
     let s:font_set_cmd = 'set guifont='
   endif
-endfunction
+endfunction "}}}
 
-function! fontResize#number(num) abort
+function! fontResize#number(num) abort "{{{
   if exists('*fontResize#initialize')
     call fontResize#initialize()
     call feedkeys('delfunction! fontResize#initialize', 'n')
   endif
 
-  " TODO: set font size as specified, w/o '+'.
+  " TODO: set font size exactly as a:num, w/o '+'.
   exe 'let s:new_font_size = s:prev_font_size +'. a:num
   let s:resized_font = s:font_name . s:new_font_size
   " Note: in the case using 'set guifont=', forbid any white space here.
+  " FIXME: E:unknown-font_SF_Mono
   exe s:font_set_cmd . s:resized_font
-endfunction
+endfunction "}}}
 
 " restore 'cpoptions' {{{
 let &cpo = s:save_cpo
