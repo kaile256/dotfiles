@@ -46,7 +46,7 @@ let g:netrw_home = '~/.local/share/nvim'
 " $VAR; for shell {{{
 let $EDITOR     = 'nvr'
 let $VISUAL     = 'nvr'
-let $GIT_EDITOR = 'nvr -O --remote-wait'
+let $GIT_EDITOR = 'nvr --remote-wait'
 let $VMAIL_VIM  = 'nvr'
 "let $BROWSER    = 'qutebrowser'
 
