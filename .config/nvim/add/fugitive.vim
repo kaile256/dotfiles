@@ -2,19 +2,22 @@
 " Repo: tpope/vim-fugitive
 
 command! -nargs=+ -complete=file Gremote :Git remote <q-args>
-" TODO: the substitute() here leaves only /kaile256/foo, i.e., get repo's root.
-
-" Note: no use yet.
-command! -nargs=+ -complete=dir HubCreate
-      \ !hub create <args>
 
 command! -nargs=+ Gclone :Git clone <q-args>
-"command! Glogmode :tabe | Glog
 
-"command! -bang -nargs=? -range=-1 -addr=tabs -complete=customlist,fugitive#PushComplete Gush :exe fugitive#Command(<line1>, <count>, +"<range>", <bang>0, "<mods>", "push " . <q-args>)'
 " Dependent commands {{{1
-" Ref: skywind3000/asyncrun.vim
-"command! Gush :AsyncRun git push %:p
+" Note: no use yet.
+"command! -nargs=* -complete=dir HubCreate call <SID>hub_create(<f-args>)
+function! s:hub_create(path, ...) abort
+  " TODO: distinguish flag and path
+  if a:path ==# '.'
+    FindRoot
+    let l:dir_path = execute('pwd')
+  elseif system('-f a:path:p')
+    let l:dir_path = a:path:p:h
+  endif
+  !hub create a:000 l:dir_path
+endfunction
 
 function! fugitive#commit_with_diff() abort "{{2
   call kmDealer#window#harvest()
