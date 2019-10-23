@@ -399,8 +399,16 @@ hi HighlightedyankRegion ctermfg=232 ctermbg=66 guifg=#000000 guibg=#df5f29
 " Required?: closes mpreview vindow when completion is done.
 "au! CompleteDone * if pumvisible() == 0 | pclose | endif
 "inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<CR>"
-inoremap <c-x><c-y> <Cmd>CList yank<cr>
-inoremap <c-x>y     <Cmd>Clist yank<cr>
+
+function s:register_hist() abort
+  " Note: <c-o> is necessary to make (a)ppend work in Clist yank.
+  norm! <c-o>
+  " TODO: select (a)ppend w/o actionmenu
+  Clist yank
+endfunction
+inoremap <c-x><c-y> <c-o>:call <SID>register_hist()<cr>
+inoremap <c-x>y     <c-o>:call <SID>register_hist()<cr>
+
 " CocSnippet; {{{1
 " TODO: See doc to Assign the dir where snippets will be saved.
 "nmap <a-s><a-p> :Ccommand snippets.editSnippets<cr>

@@ -191,16 +191,22 @@ function! s:spell_suggestion() abort
   " TODO: always start suggestion at the end of <cword>;
   "       sometimes shifted to the left by one char.
   if mode() !=# 'i'
+    let i_mode = 1
     call feedkeys("wgei", 'n') " move cursor on the end of <cword> and startinsert.
   endif
+
   " Note: <c-x>s takes cursor back to the last non-comment text.
   call feedkeys("\<c-x>s", 'n') " start spell-completion
-  call feedkeys("\<c-p>", 'n') " keep the word from being replaced at first
+
+  if exists('i_mode')
+    call feedkeys("\<c-p>", 'n') " keep the word from being replaced at first
+  endif
 endfunction
 
 nnoremap <silent> gs     :<c-u>call <SID>spell_suggestion()<cr>
 " Note: <c-s> freezes screen in some unix-like OS.
-inoremap <silent> <c-x>s <Cmd>call  <SID>spell_suggestion()<cr>
+inoremap <silent> <c-x>s     <Cmd>call <SID>spell_suggestion()<cr>
+inoremap <silent> <c-x><c-s> <Cmd>call <SID>spell_suggestion()<cr>
 
 function! s:send_to_cmdline(delete) abort range "{{{
   " TODO: start reverse highlight the cmd-edit mode at the first-line,
