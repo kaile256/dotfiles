@@ -22,6 +22,7 @@ call extend(g:kmDealer_cd_path_dict, {
       \ 'h': '~',
       \ 'w': '%:p:h',
       \ '.': '.',
+      \ '': '~',
       \ }
       \ )
 
