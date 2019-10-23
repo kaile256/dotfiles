@@ -23,6 +23,6 @@
 " }}}
 " ============================================================================
 
-command! -count FontSizeIncrease :<c-u>call fontResize#number(+ v:count1)
-command! -count FontSizeDecrease :<c-u>call fontResize#number(- v:count1)
+command! -count FontSizeIncrease :call fontResize#number(+ <count>)
+command! -count FontSizeDecrease :call fontResize#number(- <count>)
 
