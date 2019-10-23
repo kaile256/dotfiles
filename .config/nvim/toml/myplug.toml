@@ -1,6 +1,6 @@
-# From: dein.toml
+# From: rc/dein.toml
 
-# Note: You'd better not place the plugins under $MYVIMRC to use dein's hook
+# Note: Don't locate the plugins under $MYVIMRC for dein's hook.
 
 [[plugins]]
 repo = 'kaile256/vim-among_HML'
@@ -23,5 +23,5 @@ hook_post_source = 'runtime post/keymaps-dealer.vim'
 
 [[plugins]]
 repo = 'kaile256/vim-foldcolors'
-on_event = 'BufWinEnter'
+on_event = ['BufNewFile', 'BufRead']
 hook_source = 'runtime source/foldcolors.vim'
