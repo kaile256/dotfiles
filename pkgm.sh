@@ -46,6 +46,7 @@ Package=(
   go
   googlecl  # google api for cli
   hub  # an official wrapper of git
+  #cadaver  # WebDAV client, of which netrw makes use.
   #purple-line-git # WARNINIG: Line corp. bans people who uses 3rd party clients
   i3-volume
   #jinja2 # for neovim-qt
