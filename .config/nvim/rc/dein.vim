@@ -10,9 +10,10 @@ let s:dein_log_file = s:dein_data_dir . '/dein_log.vim'
 let g:dein#install_log_filename = s:dein_log_file
 "}}}
 " Let; Path to the directory of dein's cache {{{
-let g:dein_cache_dir = g:cache_home . '/dein/'
-let s:Shougo_cache_dir = g:dein_cache_dir . '/repos/github.com/Shougo/'
-let s:dein_itself = s:Shougo_cache_dir . '/dein.vim/'
+let g:dein_cache_dir   = g:cache_home       . '/dein/'
+let g:dein_github_dir  = g:dein_cache_dir   . '/repos/github.com/'
+let s:Shougo_cache_dir = g:dein_cache_dir   . '/repos/github.com/Shougo/'
+let s:dein_itself      = s:Shougo_cache_dir . '/dein.vim/'
 
 if !exists('g:kmDealer_cd_path_dict')
   let g:kmDealer_cd_path_dict = {}
