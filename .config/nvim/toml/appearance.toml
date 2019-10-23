@@ -3,9 +3,16 @@
 # Colorscheme; Collection
 [[plugins]]
 repo = 'flazz/vim-colorschemes' #{{{
+# Note: not include airline/lightline's
 on_event = 'VimEnter'
 hook_post_source = 'runtime add/colorschemes.vim'
 #}}}
+#[[plugins]]
+#repo = 'KeitaNakamura/neodark.vim' #{{{
+#depend = ['lightline.vim', 'airline.vim']
+#on_event = 'VimEnter'
+#hook_source = 'runtime add/neodark.vim'
+##}}}
 #[[plugins]]
 #repo = 'flrnprz/candid.vim' #{{{
 ## Looks like dracula scheme.
@@ -15,12 +22,11 @@ hook_post_source = 'runtime add/colorschemes.vim'
 
 # Colorscheme; Statusline
 #[[plugins]]
-#repo = 'hardcoreplayers/spaceline.vim' #{{{
-## Not good w/ neovim-qt
-#on_event = 'BufRead'
-#hook_source = 'runtime rc/spaceline.vim'
+#repo = 'liuchengxu/eleline.vim' #{{{
+#on_event = 'VimEnter'
+#hook_source = 'runtime source/eleline.vim'
 ##}}}
-[[plugins]]
+[[plugins]] # has extentions
 repo = 'vim-airline/vim-airline' #{{{
 on_event = 'VimEnter'
 # Uncompatible with nyaovim?
@@ -29,6 +35,8 @@ hook_source = 'runtime add/airline.vim'
 hook_post_source = 'set noshowmode noruler'
 [[plugins]]
 repo = 'vim-airline/vim-airline-themes'
+# Note: original only has 'dark'
+depends = 'vim-airline'
 on_event = 'VimEnter'
 #}}}
 #[[plugins]] # has extentions
@@ -37,42 +45,61 @@ on_event = 'VimEnter'
 #hook_post_source = 'runtime add/lightline.vim'
 #[[plugins]]
 #repo = 'albertomontesg/lightline-asyncrun'
-# provides an indicator to tell async jobs running in background.
+## provides an indicator to tell async jobs running in background.
 #on_source = 'vim-airline'
 #depends = 'asyncrun.vim'
 #hook_post_source = 'runtime add/lightline-asyncrun.vim'
+##[[plugins]]
+##repo = 'taohexxx/lightline-buffer'
+##on_source = 'lightline.vim'
+##hook_post_source = 'runtime add/lightline-buffer.vim'
+###}}} End of Lightline
 #[[plugins]]
-#repo = 'skywind3000/asyncrun.vim'
+#repo = 'hardcoreplayers/spaceline.vim' #{{{
+## Not good w/ neovim-qt
 #on_event = 'BufRead'
-#hook_post_source = 'runtime add/asyncrun.vim'
-#[[plugins]]
-#repo = 'taohexxx/lightline-buffer'
-#on_source = 'lightline.vim'
-#hook_post_source = 'runtime add/lightline-buffer.vim'
-##}}} End of Lightline
+#hook_source = 'runtime rc/spaceline.vim'
+##}}}
 
 # Colorscheme; Detection
 [[plugins]]
 repo = 'cocopon/inspecthi.vim' #{{{
 # Generates a beautiful color swatch from the current buffer
-on_cmd = 'Inspecthi'
-hook_add = 'runtime add/inspecthi.vim'
+on_cmd = ['Inspecthi', 'ColoLinks']
+#hook_add = 'runtime add/inspecthi.vim'
+hook_done_update = '''
+exe 'e' g:dein_github_dir .'/plugin/inspecthi.vim'
+%s/\<Inspecthi\>/ColoLinks
+write
+'''
 #}}}
-[[plugins]]
-repo = 'cocopon/colorswatch.vim' #{{{
-# Inspects a link structure of highlighting groups
-on_cmd = 'ColorSwatchGenerate'
-hook_add = 'runtime add/colorswatch.vim'
+#[[plugins]]
+#repo = 'cocopon/colorswatch.vim' #{{{
+## Inspects a link structure of highlighting groups
+#on_cmd = 'ColorSwatchGenerate'
+#hook_add = 'runtime add/colorswatch.vim'
 #}}}
 
 # Colorscheme; Modifier
-[[plugins]]
-repo = 'cocopon/pgmnt.vim' #{{{
-# Template engine for colorschemes, in pure Vim script
-# e.g., if g:colors_name ==# 'iceberg' | call pgmnt#foo#bar('foobar', 'foofoo') ...
-on_event = 'VimEnter'
-hook_post_source = 'runtime add/pgmnt.vim'
+#[[plugins]]
+#repo = 'cocopon/pgmnt.vim' #{{{
+## Template engine for colorschemes, in pure Vim script
+## e.g., if g:colors_name ==# 'iceberg' | call pgmnt#foo#bar('foobar', 'foofoo') ...
+#on_event = 'VimEnter'
+#hook_post_source = 'runtime add/pgmnt.vim'
 #}}}
+
+#[[plugins]]
+#repo = 'norcalli/nvim-terminal.lua' #{{{
+#on_cmd = "lua require 'terminal'.setup"
+#hook_add = 'runtime add/terminal.lua.vim'
+##}}}
+#[[plugins]]
+#repo = 'norcalli/nvim-colorizer.lua' #{{{
+##on_cmd = 'ColorizerAttachToBuffer'
+#on_cmd = "lua require'colorizer'.setup()"
+#hook_add = 'runtime add/colorizer.lua.vim'
+##}}}
 
 # Icons
 [[plugins]]
@@ -110,6 +137,7 @@ hook_post_source = 'runtime add/cursorword.vim'
 ##}}}
 
 #[[plugins]]
-#repo = 'junegunn/limelight.vim'
+#repo = 'junegunn/limelight.vim' #{{{
 #on_cmd = 'Limelight'
 #hook_add = 'runtime add/limelight.vim'
+##}}}
