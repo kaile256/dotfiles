@@ -1,7 +1,5 @@
 " From: appearance.toml
-
-set noshowmode
-set noruler
+" Repo: vim-airline/vim-airline
 
 let g:airline_theme = 'term'
 
