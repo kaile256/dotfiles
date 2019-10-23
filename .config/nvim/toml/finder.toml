@@ -18,6 +18,13 @@ hook_source = 'runtime source/fzf.vim'
 hook_post_source = 'runtime post/fzf.vim'
 #}}}
 
+#[[plugins]]
+#repo = 'liuchengxu/vim-clap' #{{{
+## Note: a fuzzy finder written in 99.7% vimscript.
+#on_cmd = 'Clap'
+#hook_add = 'runtime add/clap.vim'
+##}}}
+
 # Filer
 [[plugins]] # has extentions
 repo = 'Shougo/defx.nvim' #{{{
