@@ -31,39 +31,41 @@ let s:save_cpo = &cpo
 set cpo&vim
 "}}}
 
-redir => s:fontname_and_size
-if exists('g:GuiFont')
-  " e.g., SF Mono:h12
-  silent! GuiFont
-else
-  silent! echo &guifont
-endif
-redir END
-
-let s:pattern        = '\v(.+:h)(\d+)'
-let s:font_name      = substitute(s:fontname_and_size, s:pattern, '\1', '')
-let s:prev_font_size = substitute(s:fontname_and_size, s:pattern, '\2', '')
-
-if exists('g:GuiFont')
-  " e.g., SF Mono:h12
-  let s:font_set_cmd = 'GuiFont '
-else
-  let s:font_set_cmd = 'set guifont='
-endif
-
-function! fontResize#number(num) abort
-  " TODO: set font size as specified, w/o '+'.
-  if a:num =~ '+'
+function fontResize#initialize() abort
+  redir => s:fontname_and_size
+  if exists('g:GuiFont')
+    " e.g., SF Mono:h12
+    silent! GuiFont
+  else
+    silent! echo &guifont
   endif
-  exe 'let s:new_font_size = s:prev_font_size +'. a:num
-  let s:resized_font = s:font_name . s:new_font_size
-  exe s:font_set_cmd . s:resized_font
+  redir END
+
+  " TODO: case to use 'guifont', and also in Windows.
+  let s:pattern        = '\v(.+:h)(\d+)'
+  let s:font_name      = substitute(s:fontname_and_size, s:pattern, '\1', '')
+  let s:prev_font_size = substitute(s:fontname_and_size, s:pattern, '\2', '')
+
+  if exists('g:GuiFont')
+    " e.g., SF Mono:h12
+    let s:font_set_cmd = 'GuiFont! '
+  else
+    let s:font_set_cmd = 'set guifont='
+  endif
 endfunction
 
-if exists('g:GuiFont')
-  command! FontSizeIncrease :call fontResize#number(+1)
-  command! FontSizeDecrease :call fontResize#number(-1)
-endif
+function! fontResize#number(num) abort
+  if exists('*fontResize#initialize')
+    call fontResize#initialize()
+    call feedkeys('delfunction! fontResize#initialize', 'n')
+  endif
+
+  " TODO: set font size as specified, w/o '+'.
+  exe 'let s:new_font_size = s:prev_font_size +'. a:num
+  let s:resized_font = s:font_name . s:new_font_size
+  " Note: in the case using 'set guifont=', forbid any white space here.
+  exe s:font_set_cmd . s:resized_font
+endfunction
 
 " restore 'cpoptions' {{{
 let &cpo = s:save_cpo
