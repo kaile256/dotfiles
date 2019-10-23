@@ -67,6 +67,7 @@ endif "}}}
         \ 'memo.toml',
         \ 'motion.toml',
         \ 'myplug.toml',
+        \ 'syntax.toml',
         \ 'textobj.toml',
         \ 'tool.toml',
         \ 'vimscript.toml',
