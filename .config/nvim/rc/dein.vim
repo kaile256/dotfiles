@@ -1,10 +1,6 @@
 " From: nvim/init.vim
 " Repo: Shougo/dein.vim
 
-" Path; for :find
-" TODO: Set it via g:dein_cache_dir.
-"set path^=~/.cache/dein/repos/github.com/**
-
 " Let; Make git clone shallow {{{
 let g:dein#types#git#clone_depth = 1
 "}}}
@@ -58,20 +54,7 @@ if !has('nvim')
   " Neovim is always nocompatible.
   if &compatible | set nocompatible | endif
 endif "}}}
-if dein#load_state(g:dein_cache_dir)
-  call dein#begin(g:dein_cache_dir)
-  if !has('nvim') "{{{
-    " make compatible on vim
-    call dein#add('roxma/nvim-yarp')
-    call dein#add('roxma/vim-hug-neovim-rpc')
-  endif "}}}
-  let g:dein_toml_dir  = g:config_home .'/nvim/toml'
-  let s:dein_toml_initial_list = [
-        \ 'Init.toml'
-        \ ]
-  for dir in s:dein_toml_initial_list
-    call dein#load_toml(g:dein_toml_dir .'/'. dir, {'lazy': 0})
-  endfor
+
   let s:dein_toml_lazy_list = [
         \ 'appearance.toml',
         \ 'external.toml',
@@ -88,28 +71,43 @@ if dein#load_state(g:dein_cache_dir)
         \ 'vimscript.toml',
         \ 'web.toml',
         \ ]
+
+if dein#load_state(g:dein_cache_dir) "{{{
+  call dein#begin(g:dein_cache_dir)
+  if !has('nvim') "{{{
+    " make compatible on vim
+    call dein#add('roxma/nvim-yarp')
+    call dein#add('roxma/vim-hug-neovim-rpc')
+  endif "}}}
+  let g:dein_toml_dir  = g:config_home .'/nvim/toml'
+  let s:dein_toml_initial_list = [
+        \ 'Init.toml'
+        \ ]
+  for dir in s:dein_toml_initial_list
+    call dein#load_toml(g:dein_toml_dir .'/'. dir, {'lazy': 0})
+  endfor
   for dir in s:dein_toml_lazy_list
     call dein#load_toml(g:dein_toml_dir .'/'. dir, {'lazy': 1})
   endfor
   call dein#end()
   call dein#save_state()
-endif
+endif "}}}
 
 if dein#check_install() "{{{
   call dein#install()
 endif "}}}
 
-augroup CallMyDeinFunctions "{{{
+augroup DeinCallMyFunctions "{{{
   au!
   " Note: have to call it to source 'hook_post_source'.
+  " Help: dein-options-hook_post_source
   au VimEnter * call dein#call_hook('post_source')
 augroup END "}}}
-augroup DeinTomlAutoConf
+augroup DeinTomlAutoConf "{{{
   au!
-  au CursorMoved nvim/**.toml setl keywordprg=:help
+  au CursorMoved nvim/**.toml  setl keywordprg=:vert\ help
   au BufWinEnter filetype.toml setl syn=vim
-  "au FileType toml if expand('%:p') =~# '/nvim/toml' | command! -buffer Drm :!rm -rf shellescape(expand(g:dein_cache_dir)) /repos/github.com/<c-r><c-a><cr>
-augroup END
+augroup END "}}}
 
 filetype plugin indent on
 syntax enable
