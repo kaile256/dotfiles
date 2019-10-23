@@ -47,6 +47,7 @@ function! s:colorschemes_neodark() abort "{{{1
   hi diffLine    cterm=reverse gui=reverse ctermfg=109 guifg=#83a598
 
   hi NormalFloat guibg=#1a0210 guifg=#957474
+  hi Search ctermfg=236 ctermbg=180 guifg=#3e120a guibg=#ebb556
 endfunction "}}}1
 
 "augroup AlertOnBuffer
