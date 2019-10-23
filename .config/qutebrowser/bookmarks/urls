@@ -335,3 +335,9 @@ https://github.com/ipod825/vim-netranger ipod825/vim-netranger: A ranger-like sy
 https://wiki.archlinux.jp/index.php/CUPS CUPS - ArchWiki
 https://qiita.com/machakann/items/32eb42a42fb65f753f86 Vim 組み込み関数の feedkeys() と &#39;x&#39; フラグ - Qiita
 http://secret-garden.hatenablog.com/entry/2016/09/21/234427 Vim 8.0 で追加された Vim script の機能 Lambda - Secret Garden(Instrumental)
+https://www.reddit.com/r/neovim/comments/dgbetn/neovimnvimqt_still_not_production_ready_for/ Neovim/nvim-qt still not production ready for Windows? : neovim
+https://github.com/norcalli/nvim-terminal.lua norcalli/nvim-terminal.lua: A high performance filetype mode for Neovim which leverages conceal and highlights your buffer with the correct color codes.
+https://github.com/norcalli/nvim-colorizer.lua norcalli/nvim-colorizer.lua: THE FASTEST NEOVIM COLORIZER
+https://github.com/tbastos/vim-lua tbastos/vim-lua: Improved Lua 5.3 syntax and indentation support for Vim
+https://github.com/mg979/vim-visual-multi/wiki/Quick-start Quick start · mg979/vim-visual-multi Wiki
+https://qiita.com/kackytw/items/256df46d86cfc97b5fa8 あなたのメモリはどこから来てる？malloc入門 - Qiita
