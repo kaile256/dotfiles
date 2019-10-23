@@ -32,14 +32,15 @@ set showbreak=>\
 set breakat+=
 function! s:auto_format_if_modifiable() "{{{
   if &readonly == 0
-    setlocal linebreak
+    setl linebreak
   else
-    setlocal nolinebreak
+    setl nolinebreak
     if &textwidth != 0
-      setlocal textwidth=0
+      setl textwidth=0
     endif
   endif
 endfunction "}}}
+"set indentkeys+=
 " modeline; force format as written at top/bottom of file
 set modeline
 set modelineexpr
