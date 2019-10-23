@@ -4,9 +4,9 @@
 [[plugins]]
 repo = 'Shougo/dein.vim' #{{{
 hook_done_update = 'UpdateRemotePlugins'
-# CAUTION: too heavy to argadd all under the dein's cache.
+# CAUTION: thousands of files, too heavy to argadd all under the dein's cache.
 #hook_done_update = '''
-#exe 'argadd' g:dein_cache_dir .'/**'
+#exe 'argadd' g:dein_cache_dir .'/**/*.vim'
 #argdo g/function!/v/"{{{/norm! A "{{{
 #argdo g/endfunction/v/"}}}/norm! A "}}}
 #argdo write
