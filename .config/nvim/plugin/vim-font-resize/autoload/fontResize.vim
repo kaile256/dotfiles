@@ -57,7 +57,7 @@ endfunction "}}}
 function! fontResize#number(num) abort "{{{
   if exists('*fontResize#initialize')
     call fontResize#initialize()
-    call feedkeys(":delfunction! fontResize#initialize\<cr>", 'n')
+    call feedkeys(":silent delfunction! fontResize#initialize\<cr>", 'n')
   endif
 
   " TODO: set font size exactly as a:num, w/o '+'.
@@ -65,7 +65,7 @@ function! fontResize#number(num) abort "{{{
   let s:resized_font = s:font_name . s:new_font_size
   " Note: in the case using 'set guifont=', forbid any white space here.
   " FIXME: E:unknown-font_SF_Mono
-  call feedkeys(":exe s:font_set_cmd . s:resized_font\<cr>", 'n')
+  exe s:font_set_cmd . s:resized_font
 endfunction "}}}
 
 " restore 'cpoptions' {{{
