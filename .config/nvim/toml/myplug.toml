@@ -15,10 +15,9 @@ hook_add = 'runtime add/sensible_K.vim'
 
 [[plugins]]
 repo = 'kaile256/vim-keymaps-dealer'
-depends = ['fzf.vim', 'fugitive', 'twiggy', 'coc.nvim']
+depends = ['fzf.vim', 'vim-fugitive', 'vim-twiggy', 'coc.nvim']
 on_event = 'VimEnter'
-# Note: must load the plugin before mapped, cannot delayed.
-#on_cmd = ['kmDealer#', 'KmDealer']
+# Note: must load the plugin before mapped, cannot lazy-load.
 hook_add = 'runtime add/keymaps-dealer.vim'
 hook_post_source = 'runtime post/keymaps-dealer.vim'
 
