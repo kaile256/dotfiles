@@ -30,7 +30,7 @@ call extend(g:kmDealer_cd_path_dict, {
 "let &path = &path . ',' . g:dein_cache_dir . '**'
 "}}}
 " Let; Path for :runtime {{{
-let &rtp  = &rtp  . ',' . s:dein_itself
+let &rtp = &rtp .','. s:dein_itself
 "}}}
 
 " call p:auto_install() if !has('dein.vim') {{{
