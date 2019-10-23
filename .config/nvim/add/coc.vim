@@ -225,7 +225,7 @@ xnoremap <silent> <c-w><space>r :call CocActionAsync('jumpReferences',     'vspl
 "       when prettier is unavailable on the filetype.
 "command! FormatOnC :call CocAction('format')
 "command! -nargs=? FoldOnC :call CocAction('fold', <f-args>)
-command! OR          :call Caction('runCommand', 'editor.action.organizeImport')
+command! OR          :call CocAction('runCommand', 'editor.action.organizeImport')
 command! Format :Ccommand prettier.formatFile
 " Mnemonic: Change the Structure.
 nmap cs <Plug>(coc-refactor)
@@ -302,8 +302,8 @@ hi CocCursorRange guibg=#b16286 guifg=#ebdbb2
 ""nmap <silent> * <Plug>(coc-cursors-word)
 ""nmap <silent> n <Plug>(coc-cursors-position)
 " CocColor; {{{1
-command! ColoFormat  :call Caction('colorPresentation')
-command! ColoPalette :call Caction('pickColor')
+command! ColoFormat  :call CocAction('colorPresentation')
+command! ColoPalette :call CocAction('pickColor')
 nnoremap <space>cp :ColoPalette<cr>
 " CocExtensions {{{1
 command! Cextensions :CocList extensions
