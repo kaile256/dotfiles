@@ -56,54 +56,54 @@ let g:defx_is_narrow = 50
 let g:defx_is_wide = g:defx_is_narrow
 
 function! s:defx_keymap_explorer() abort
-  nnoremap <buffer><silent> <c-w>=
+  nnoremap <nowait><buffer> <c-w>=
         \ :setl nowinfixwidth<cr><c-w>=
   " Explore; hjkl {{{1
-  nnoremap <buffer><silent> gg :2<cr>
-  nnoremap <silent><buffer><expr> h
+  nnoremap <nowait><buffer> gg :2<cr>
+  nnoremap <nowait><buffer><expr> h
         \ defx#do_action('cd', ['..'])
-  nnoremap <silent><buffer><expr> l
+  nnoremap <nowait><buffer><expr> l
         \ defx#do_action('open_directory')
         "\ (winwidth('.') < g:defx_is_wide)?
         "\ defx#do_action('open_tree')
   " Explore; CWD {{{1
   "" CWD; defx's
-  nnoremap <silent><buffer><expr> ~
+  nnoremap <nowait><buffer><expr> ~
         \ defx#do_action('cd')
         \ . ':echo "cd" $HOME<CR>'
   "" CWD; vim's
   " Note: @% will be 'foo/[defx]'
-  nnoremap <silent><buffer><expr> <space>ww
+  nnoremap <nowait><buffer><expr> <space>ww
         \ defx#do_action('change_vim_cwd')
         \ . ':echo "cd" expand("<cfile>:p:h")<CR>'
         "\ . `:echo 'cd' ` . getcwd()
   " Explore; netrw-like {{{1
-  nnoremap <silent><buffer><expr> -
+  nnoremap <nowait><buffer><expr> -
         \ defx#do_action('cd', ['..'])
-  nnoremap <silent><buffer><expr> D
+  nnoremap <nowait><buffer><expr> D
         \ defx#do_action('remove_trash')
         "\ defx#do_action('remove')
-  nnoremap <silent><buffer><expr> R
+  nnoremap <nowait><buffer><expr> R
         \ defx#do_action('rename')
-  nnoremap <silent><buffer><expr> d
+  nnoremap <nowait><buffer><expr> d
         \ defx#do_action('new_directory')
-  nnoremap <silent><buffer><expr> %
+  nnoremap <nowait><buffer><expr> %
         \ defx#do_action('new_file')
   " Explore; Sort {{{1
-  nnoremap <silent><buffer><expr> <a-s>t
+  nnoremap <nowait><buffer><expr> <a-s>t
         \ defx#do_action('toggle_sort', 'time')
-  nnoremap <silent><buffer><expr> <a-s>z
+  nnoremap <nowait><buffer><expr> <a-s>z
         \ defx#do_action('toggle_sort', 'size')
-  nnoremap <silent><buffer><expr> <a-s>x
+  nnoremap <nowait><buffer><expr> <a-s>x
         \ defx#do_action('toggle_sort', 'extention')
-  nnoremap <silent><buffer><expr> <a-s><a-s>
+  nnoremap <nowait><buffer><expr> <a-s><a-s>
         \ defx#do_action('toggle_sort', 'filename')
-  "nnoremap <silent><buffer><expr> C
+  "nnoremap <nowait><buffer><expr> C
   "      \ defx#do_action('toggle_columns',
   "      \                'mark:indent:icon:filename:type:size:time')
   " Selected; Open File {{{1
   " TODO: Make User's event on buffer's openning from defx.
-  "nnoremap <silent><buffer><expr> <c-j>
+  "nnoremap <nowait><buffer><expr> <c-j>
   "      \ (winwidth('.') > g:defx_is_wide)?
   "      \ defx#is_directory()?
   "      \ defx#do_action('open_tree'):
@@ -111,7 +111,7 @@ function! s:defx_keymap_explorer() abort
   "      \ defx#is_directory()?
   "      \ defx#do_action('open'):
   "      \ defx#do_action('multi', ['drop', 'quit'])
-  "nnoremap <silent><buffer><expr> <CR>
+  "nnoremap <nowait><buffer><expr> <CR>
   "      \ (winwidth('.') > g:defx_is_wide)?
   "      \ defx#is_directory()?
   "      \ defx#do_action('open_tree'):
@@ -119,96 +119,98 @@ function! s:defx_keymap_explorer() abort
   "      \ defx#is_directory()?
   "      \ defx#do_action('open'):
   "      \ defx#do_action('multi', ['drop', 'quit'])
-  nnoremap <silent><buffer><expr> <c-j>
+  nnoremap <nowait><buffer><expr> <c-j>
         \ defx#is_directory()?
         \ defx#do_action('open'):
         \ defx#do_action('multi', ['drop', 'quit'])
-  nnoremap <silent><buffer><expr> <CR>
+  nnoremap <nowait><buffer><expr> <CR>
         \ defx#is_directory()?
         \ defx#do_action('open'):
         \ defx#do_action('multi', ['drop', 'quit'])
-  nnoremap <silent><buffer><expr> <TAB>
+  nnoremap <nowait><buffer><expr> <TAB>
         \ defx#do_action('open', 'bel vsplit')
         \ . ':wincmd p<cr>'
   " Note: defx's quit with split doesn't work well.
-  nnoremap <silent><buffer><expr> <a-v>
+  nnoremap <nowait><buffer><expr> <a-v>
         \ defx#do_action('multi', [['open', 'vsplit'], 'quit'])
         "\ defx#do_action('open', 'vsplit')
         "\ .':'. bufwinnr(bufname("\[defx\]")) .'close<cr>'
   " Note: <c-s> freezes screen on some unix.
-  nnoremap <silent><buffer><expr> <a-s>
+  nnoremap <nowait><buffer><expr> <a-s>
         \ defx#do_action('multi', [['open', 'split'], 'quit'])
         "\ defx#do_action('open', 'bot split')
         "\ .':'. bufwinnr(bufname("\[defx\]")) .'close<cr>'
-  nnoremap <silent><buffer><expr> <a-t>
+  nnoremap <nowait><buffer><expr> <a-t>
         \ defx#do_action('drop', 'tabe')
   " Selected; Open Tree {{{1
-  nnoremap <silent><buffer><expr> za
+  nnoremap <nowait><buffer><expr> za
         \ defx#do_action('open_or_close_tree')
-  nnoremap <silent><buffer><expr> zo
+  nnoremap <nowait><buffer><expr> zo
         \ defx#do_action('open_tree')
-  nnoremap <silent><buffer><expr> zO
+  nnoremap <nowait><buffer><expr> zO
         \ defx#do_action('open_tree_recursive')
-  nnoremap <silent><buffer><expr> zu
+  nnoremap <nowait><buffer><expr> zu
         \ defx#do_action('open_tree')
-  nnoremap <silent><buffer><expr> <c-o>
+  nnoremap <nowait><buffer><expr> <c-o>
         \ (&l:winwidth < g:defx_is_narrow)
         \ && (win_screenpos(3) != [0,0])?
         \ ':wincmd p <bar> close <bar> :wincmd p<cr>'
         \ : '<c-o>'
   " Selected; Close Tree {{{1
-  nnoremap <silent><buffer><expr> zc
+  nnoremap <nowait><buffer><expr> zc
         \ defx#do_action('close_tree')
   " Selected; Register {{{1
   " copy: yank in defx's register
   " Note: CANNOT register multiple files into defx-register.
-  nnoremap <buffer><expr> yy
+  nnoremap <nowait><buffer><expr> yy
         \ defx#do_action('copy')
-  nnoremap <buffer><expr> Y
+  nnoremap <nowait><buffer><expr> Y
         \ defx#do_action('copy')
-  nnoremap <buffer><expr> cc
+  nnoremap <nowait><buffer><expr> cc
         \ defx#do_action('move')
-  nnoremap <buffer><expr> C
+  nnoremap <nowait><buffer><expr> C
         \ defx#do_action('move')
-  nnoremap <buffer><expr> p
+  nnoremap <nowait><buffer><expr> p
         \ defx#do_action('paste')
   " yank_path: yank in unnamed register
-  nnoremap <buffer><expr> <space>yp
+  nnoremap <nowait><buffer><expr> <space>yp
         \ defx#do_action('yank_path')
   " Selected; Execute {{{1
-  nnoremap <silent><buffer><expr> <a-x>
+  nnoremap <nowait><buffer><expr> <a-x>
         \ defx#do_action('execute_system')
   "}}}
   " Toggle; Mark {{{1
-  nnoremap <silent><buffer><expr> mm
+  nnoremap <nowait><buffer><expr> mm
         \ defx#do_action('toggle_select')
-  nnoremap <silent><buffer><expr> mj
+  nnoremap <nowait><buffer><expr> mj
         \ defx#do_action('toggle_select') . 'j' .
         \ defx#do_action('toggle_select') . 'j'
-  nnoremap <silent><buffer><expr> mk
+  nnoremap <nowait><buffer><expr> mk
         \ defx#do_action('toggle_select') . 'k' .
         \ defx#do_action('toggle_select') . 'k'
-  nnoremap <silent><buffer><expr> mc
+  nnoremap <nowait><buffer><expr> mc
         \ defx#do_action('clear_select_all')
   "" Mark; All
-  nnoremap <silent><buffer><expr> ma
+  nnoremap <nowait><buffer><expr> ma
         \ defx#async_action('multi', ['clear_select_all','toggle_select_all'])
   "" Mark; Reverse selected conditions.
-  nnoremap <silent><buffer><expr> mr
+  nnoremap <nowait><buffer><expr> mr
         \ defx#do_action('toggle_select_all')
-  xnoremap <silent><buffer><expr> m
+  xnoremap <nowait><buffer><expr> m
         \ defx#do_action('toggle_select_visual')
   " Toggle; Hidden Files {{{1
-  nnoremap <silent><buffer><expr> z.
+  nnoremap <nowait><buffer><expr> z.
         \ defx#do_action('toggle_ignored_files')
   "}}}
   " Resize; {{{1
-  nnoremap <silent><buffer><expr> > defx#do_action('resize',
+  nnoremap <nowait><buffer><expr> >
+        \ defx#do_action('resize',
         \ defx#get_context().winwidth + 10)
-  nnoremap <silent><buffer><expr> < defx#do_action('resize',
+  nnoremap <nowait><buffer><expr> <
+        \ defx#do_action('resize',
         \ defx#get_context().winwidth - 10)
   "}}}
-  nnoremap <silent><buffer><expr> .
+  nnoremap <nowait><buffer><expr> .
         \ defx#do_action('repeat')
 endfunction
 augroup OnDefxBuffer
