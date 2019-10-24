@@ -7,11 +7,8 @@ let g:airline_theme = 'term'
 
 let g:airline_detect_iminsert = 1
 
-" airline#extemsions
-let g:airline#extensions#nrrwrgn#enabled = 1
-let g:airline#extensions#coc#enabled = 1
-let airline#extensions#coc#stl_format_err = '%E{[%e(#%fe)]}'
-let airline#extensions#coc#stl_format_warn = '%W{[%w(#%fw)]}'
+"let airline#extensions#coc#stl_format_err = '%E{[%e(#%fe)]}'
+"let airline#extensions#coc#stl_format_warn = '%W{[%w(#%fw)]}'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#formatter = 'unique_tail'
 let g:airline#extensions#tabline#left_sep = ' '
