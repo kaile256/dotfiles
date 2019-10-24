@@ -214,8 +214,10 @@ mode "$backlight" {
 # TODO: call current brightness.
 bindsym k exec "xbacklight -inc 5; notify-send 'brightness up'"
 bindsym j exec "xbacklight -dec 5; notify-send 'brightness down'"
-bindsym u exec "xbacklight -inc 5; notify-send 'brightness up'"
-bindsym d exec "xbacklight -dec 5; notify-send 'brightness down'"
+bindsym u exec "xbacklight -inc 10; notify-send 'brightness up'"
+bindsym d exec "xbacklight -dec 10; notify-send 'brightness down'"
+bindsym f exec "xbacklight -inc 20; notify-send 'brightness up'"
+bindsym b exec "xbacklight -dec 20; notify-send 'brightness down'"
 bindsym n            mode "default"
 bindsym Escape       mode "default"
 bindsym Ctrl+[       mode "default"
