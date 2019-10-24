@@ -182,7 +182,7 @@ augroup END "}}}
 noremap zU zMzv
 "}}}
 
-function! s:spell_suggestion() abort
+function! s:spell_suggestion() abort "{{{
   if &spell != 1
     setl spell
     au! CompleteDone * ++once setl nospell
@@ -201,12 +201,12 @@ function! s:spell_suggestion() abort
   if exists('i_mode')
     call feedkeys("\<c-p>", 'n') " keep the word from being replaced at first
   endif
-endfunction
+endfunction "}}}
 
-nnoremap <silent> gs     :<c-u>call <SID>spell_suggestion()<cr>
+nnoremap <silent> gs         :<c-u>call <SID>spell_suggestion()<cr>
 " Note: <c-s> freezes screen in some unix-like OS.
-inoremap <silent> <c-x>s     <Cmd>call <SID>spell_suggestion()<cr>
-inoremap <silent> <c-x><c-s> <Cmd>call <SID>spell_suggestion()<cr>
+inoremap <silent> <c-x>s     <Cmd>call  <SID>spell_suggestion()<cr>
+inoremap <silent> <c-x><c-s> <Cmd>call  <SID>spell_suggestion()<cr>
 
 function! s:send_to_cmdline(delete) abort range "{{{
   " TODO: start reverse highlight the cmd-edit mode at the first-line,
@@ -227,3 +227,18 @@ endfunction "}}}
 " TODO: I prefer to use <c-o> in insert-mode.
 noremap <silent> g: :call <SID>send_to_cmdline('delete')<cr>
 noremap <silent> z: :call <SID>send_to_cmdline('keep')<cr>
+
+augroup FoldUpVimscript
+  au!
+  function! s:fold_up_vimscript() abort "{{{
+    g/function!/v/"{{{/norm! A "{{{
+    g/endfunction/v/"}}}/norm! A "}}}
+    g/augroup/v/END/v/"{{{/norm! A "{{{
+    g/augroup/g/END/v/"}}}/norm! A "}}}
+    write
+  endfunction "}}}
+  au FileType vim
+        \   if expand('%:p') =~# 'plugin/\|autoload/'
+        \ |   call <SID>fold_up_vimscript()
+        \ | endif
+augroup END
