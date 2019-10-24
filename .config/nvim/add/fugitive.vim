@@ -20,7 +20,7 @@ function! s:hub_create(path, ...) abort
 endfunction
 
 function! fugitive#commit_with_diff() abort "{{2
-  call kmDealer#window#harvest()
+  call panesFM#harvest()
   " Keep to show diff w/ HEAD while editting commit-message.
   Gvdiffsplit! HEAD
   " For: makes user notice if any other changes in the buffer.
@@ -99,6 +99,10 @@ augroup OnFugitiveBuffer
   au FileType fugitive,fugitiveblame,gitcommit setl nonumber signcolumn= bufhidden=wipe
   au FileType gitcommit setl spell
   " Dispose commit-message.
-  nnoremap <Plug>(dismiss-gitcommit) ggdGZZ:call kmDealer#window#weed_out()<cr>
-  au FileType gitcommit nmap <buffer> dq <Plug>(dismiss-gitcommit)
+  function! s:discard_gitcommit() abort
+    v/^#/norm! d _
+    WinWeedout
+  endfunction
+  nnoremap <Plug>(discard-gitcommit) call <SID>discard_gitcommit()
+  au FileType gitcommit nmap <buffer> dq <Plug>(discard-gitcommit)
 augroup END
