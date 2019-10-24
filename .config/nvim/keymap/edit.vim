@@ -231,11 +231,12 @@ noremap <silent> z: :call <SID>send_to_cmdline('keep')<cr>
 augroup FoldUpVimscript
   au!
   function! s:fold_up_vimscript() abort "{{{
+    if &modifiable || &readonly | return | endif
+
     g/function!/v/"{{{/norm! A "{{{
     g/endfunction/v/"}}}/norm! A "}}}
     g/augroup/v/END/v/"{{{/norm! A "{{{
     g/augroup/g/END/v/"}}}/norm! A "}}}
-    write
   endfunction "}}}
   au FileType vim
         \   if expand('%:p') =~# 'plugin/\|autoload/'
