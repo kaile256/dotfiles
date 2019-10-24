@@ -12,6 +12,6 @@ let g:twiggy_local_branch_sort = 'mru'
 " Values can be either 'alpha'or 'date'.
 let g:twiggy_remote_branch_sort = 'date'
 
-command! Gbranch :call kmDealer#window#weed_out() | Twiggy
+command! Gbranch :call panesFM#weed_out() | Twiggy
 
 noremap <silent> g<a-i> :Gbranch<cr>
