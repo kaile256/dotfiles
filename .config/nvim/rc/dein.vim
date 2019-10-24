@@ -101,8 +101,7 @@ endif "}}}
 
 augroup DeinCallMyFunctions "{{{
   au!
-  " Note: have to call it to source 'hook_post_source'.
-  " Help: dein-options-hook_post_source
+  " To: inititialize to source 'hook_post_source'.
   au VimEnter * call dein#call_hook('post_source')
 augroup END "}}}
 augroup DeinTomlAutoConf "{{{
@@ -112,4 +111,4 @@ augroup DeinTomlAutoConf "{{{
 augroup END "}}}
 
 filetype plugin indent on
-syntax enable
+syntax enable " do after vimwiki append syntax
