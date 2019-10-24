@@ -33,6 +33,11 @@ on_event = 'VimEnter'
 # Better to be sourced earlier than colorschemes
 hook_source = 'runtime add/airline.vim'
 hook_post_source = 'set noshowmode noruler'
+hook_done_update = '''
+exe 'e' g:dein_github_dir .'/autoload/airline/extentions.vim'
+%s/CocC/Cc
+write
+'''
 [[plugins]]
 repo = 'vim-airline/vim-airline-themes'
 # Note: original only has 'dark'
