@@ -4,6 +4,7 @@
 let g:sandwich_no_default_key_mappings = 1
 let g:operator_sandwich_no_default_key_mappings = 1
 let g:textobj_sandwich_no_default_key_mappings = 1
+
 "" Let; Recipes of sandwich {{{1
 "let g:sandwich#recipes = [
 "      \   {'buns': ['<', '>'], 'nesting': 1, 'match_syntax': 1,
@@ -34,25 +35,26 @@ let g:textobj_sandwich_no_default_key_mappings = 1
 "      \    'action': ['delete'], 'input': ['(']},
 "      \ ]
 ""}}}
-" iKeymap;
-imap <a-\><a-s> <esc><Plug>(operator-sandwich-add)
-imap <a-\><a-d> <esc><Plug>(operator-sandwich-delete)<Plug>(operator-sandwich-release-count)<Plug>(textobj-sandwich-query-a)
-imap <a-\><a-c> <esc><Plug>(operator-sandwich-replace)<Plug>(operator-sandwich-release-count)<Plug>(textobj-sandwich-query-a)
 
-" nKeymap; Manual Select
-nmap \s <Plug>(operator-sandwich-add)
+" Keymap; Manual Select
+" Mnemonic: Yield a pair of bans
+nmap \y <Plug>(operator-sandwich-add)
+" Mnemonic: Dispose the bans
 nmap \d <Plug>(operator-sandwich-delete)<Plug>(operator-sandwich-release-count)<Plug>(textobj-sandwich-query-a)
-" Mnemonic: Change
+" Mnemonic: Change the bans
 nmap \c <Plug>(operator-sandwich-replace)<Plug>(operator-sandwich-release-count)<Plug>(textobj-sandwich-query-a)
 
-" nKeymap; Visual Mode
-xmap \s <Plug>(operator-sandwich-add)
+xmap \y <Plug>(operator-sandwich-add)
 xmap \d <Plug>(operator-sandwich-delete)
 xmap \c <Plug>(operator-sandwich-replace)
 
+imap <a-\><a-y> <esc><Plug>(operator-sandwich-add)
+imap <a-\><a-d> <esc><Plug>(operator-sandwich-delete)<Plug>(operator-sandwich-release-count)<Plug>(textobj-sandwich-query-a)
+imap <a-\><a-c> <esc><Plug>(operator-sandwich-replace)<Plug>(operator-sandwich-release-count)<Plug>(textobj-sandwich-query-a)
+
 "" Keymap; Text Object {{{
 " default follows 'timeoutlen' (=1000ms).
-"let g:operator#sandwich#timeoutlen = 
+"let g:operator#sandwich#timeoutlen =
 "let g:sandwich#recipes = [
 "      \   {'buns': ['(', ')']}
 "      \   {'buns': ['((', '))']}
