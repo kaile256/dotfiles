@@ -70,18 +70,3 @@ imap <a-\><a-c> <esc><Plug>(operator-sandwich-replace)<Plug>(operator-sandwich-r
 "onoremap <silent><expr> as textobj#sandwich#query('o', 'a')
 "xnoremap <silent><expr> as textobj#sandwich#query('x', 'a')
 "}}}
-"" Remap; Just In Case {{{
-"onoremap i i
-"xnoremap i i
-"onoremap i i
-"xnoremap i i
-"onoremap i i
-"onoremap i i
-"
-"onoremap a a
-"xnoremap a a
-"onoremap a a
-"xnoremap a a
-"onoremap a a
-"xnoremap a a
-""}}}
