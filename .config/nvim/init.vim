@@ -21,9 +21,11 @@ runtime! keymap/*.vim
 augroup RuntimesSelection
   au!
   au VimEnter     * ++once runtime once/loaded.vim
-  au CmdLineEnter * ++once runtime once/cmdline.vim
   au BufAdd       * ++once runtime once/terminal.vim
-  "au BufNew       * ++once runtime once/zenkaku.vim
+  au CmdLineEnter * ++once runtime once/cmdline.vim
+
+  au WinNew       * ++once runtime lazy/zenkaku.vim
+  au CmdwinEnter * runtime lazy/cmdwin.vim
 augroup END
 
 function! s:ready_for_new_buffer() "{{{
