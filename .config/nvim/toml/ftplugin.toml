@@ -54,12 +54,17 @@ repo = 'plytophogy/vim-virtualenv' #{{{
 # supports pip-packages, independently installed in shell, to work on vim
 on_ft = 'python'
 #}}}
+#[[plugins]]
+#repo = 'python-mode/python-mode' #{{{
+#on_ft = 'python'
+#hook_post_update = '!git submodule update --init --recursive'
+#hook_source = 'runtime source/python-mode.vim'
+##}}}
 [[plugins]]
-repo = 'python-mode/python-mode' #{{{
+repo = 'tweekmonster/braceless.vim'
+# fold up to syntax of python.
 on_ft = 'python'
-hook_post_update = '!git submodule update --init --recursive'
-hook_source = 'runtime add/python-mode.vim'
-#}}}
+hook_source = 'runtime add/braceless.vim'
 
 # Markdown
 [[plugins]]
