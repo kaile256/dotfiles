@@ -16,7 +16,7 @@ hook_add = 'runtime add/coc.vim'
 hook_done_update = '''
 exe 'e'. g:dein_cache_dir .'/repos/github.com/neoclide/coc.nvim_release/plugin/coc.vim'
 g/command!\|:Coc/g/\vCoc/norm! dgnguliC
-g/BufEnter/g/call/norm! nwaif expand('%:p') !~# '.git/' |
+g/BufEnter/g/call/norm! niif expand('%:p') !~# '.git/' |
 g/BufEnter/norm! A | endif
 write
 '''
@@ -47,9 +47,10 @@ write
 #hook_add = 'runtime add/LanguageClient.vim'
 ##}}}
 #[[plugins]]
-#repo = 'OmniSharp/omnisharp-vim'
+#repo = 'OmniSharp/omnisharp-vim' #{{{
 #on_event = 'BufRead'
 #hook_add = 'runtime add/omnisharp.vim'
+##}}}
 
 [[plugins]]
 repo = 'voldikss/actionmenu.nvim' #{{{
@@ -79,31 +80,10 @@ hook_post_source = 'runtime add/actionmenu.vim'
 
 # Pair Programming
 #[[plugins]]
-#repo = 'derteta/vimpair'
+#repo = 'derteta/vimpair' #{{{
 ## Error: buggy on init
 #on_cmd = 'VimpairServerStart "127.0.0.1"'
 #hook_add = 'runtime add/vimpair.vim'
-
-# Doc; Info
-[[plugins]]
-repo = 'HiPhish/info.vim' #{{{
-on_cmd = 'Info'
-hook_add = 'runtime add/info.vim'
-#}}}
-
-# Sudo
-[[plugins]]
-repo = 'lambdalisue/suda.vim' #{{{
-if = 'executable("sudo")'
-on_event = 'CmdlineEnter'
-#on_cmd = ['e suda', 'r suda', 'w suda']
-hook_add = 'runtime add/suda.vim'
-#}}}
-#[[plugins]]
-#repo = 'chrisbra/SudoEdit.vim' #{{{
-## Useless w/ neovim
-#on_cmd = 'Sudo'
-#hook_post_source = 'runtime add/SudoEdit.vim'
 ##}}}
 
 [[plugins]]
@@ -112,6 +92,12 @@ on_map = '<Plug>GenerateDiagram'
 on_cmd = '<Plug>GenerateDiagram'
 hook_add = 'runtime add/sequence-diagram.vim'
 
+# Doc
+[[plugins]]
+repo = 'HiPhish/info.vim' #{{{
+on_cmd = 'Info'
+hook_add = 'runtime add/info.vim'
+#}}}
 [[plugins]]
 repo = 'sunaku/vim-dasht'
 on_cmd = 'Dasht'
@@ -124,55 +110,10 @@ hook_source = 'runtime add/dasht.vim'
 #hook_add = 'runtime renamer.vimrc'
 ##}}}
 
-# REPL;
-#[[plugins]]
-#repo = 'metakirby5/codi.vim' #{{{
-## REPL while coding one char by one, in the same buffer.
-#on_ft = ['python', 'javascript', 'coffeescript', 'haskell', 'ruby', 'OCaml', 'R', 'clojure', 'php', 'lua', 'cpp', 'julia', 'elm', 'elixir', 'typescript', 'mathjs']
-#hook_post_source = 'runtime add/codi.vim'
-##}}}
-#[[plugins]]
-#repo = 'sillybun/vim-repl' #{{{
-## Only for python?
-#on_cmd = 'REPL'
-#hook_add = 'runtime add/repl.vim'
-##}}}
-
-# Shell; Async Processor
-[[plugins]]
-repo = 'thinca/vim-quickrun' #{{{
-on_cmd = 'QuickRun'
-on_map = '<Plug>(quickrun'
-hook_add = 'runtime add/quickrun.vim'
-#}}}
-#[[plugins]]
-#repo = 'neomake/neomake' #{{{
-#on_cmd = 'make'
-#hook_add = 'runtime add/neomake.vim'
-##}}}
-[[plugins]]
-repo = 'skywind3000/asyncrun.vim' #{{{
-# Only supports external shell to qf.
-on_cmd = 'AsyncRun'
-hook_add = 'runtime add/asyncrun.vim'
-#}}}
-
-# Shell; Wrapper
-#[[plugins]]
-#repo = 'kassio/neoterm' #{{{
-## also has async-run feature.
-#on_cmd = ['T']
-#hook_add = 'runtime add/neoterm.vim'
-##}}}
-#[[plugins]]
-#repo = 'Shougo/deol.nvim' #{{{
-#on_event = 'VimEnter'
-#hook_post_source = 'runtime add/deol.vim'
-##}}}
-
 # i3-wm
 #[[plugins]]
 #repo = 'termhn/i3-vim-nav' #{{{
 #on_if = 'isdirectory("~/go/sadd/github.com/termhn/i3-vim-nav")'
 #hook_post_source = 'runtime add/i3-vim-nav.vim'
 ##}}}
+
