@@ -31,6 +31,12 @@ let &rtp = &rtp .','. s:dein_itself
 "}}}
 let g:dein#types#git#default_protocol = 'ssh'
 "let g:dein#types#git#pull_command = 'pull --ff --ff-only'
+" Note: if bugs after installation, like no command ':Ag' or ':Gush' on
+"       vim-fugitive, doubt if you really quitted vim by vim itself, i.e., had
+"       not quitted by i3wm.
+let s:dein_toml_initial_list = [
+      \ 'Init.toml'
+      \ ]
 let s:dein_toml_lazy_list = [
       \ 'appearance.toml',
       \ 'extension.toml',
@@ -88,9 +94,6 @@ if !exists('g:did_dein_install_plugin') "{{{
       call dein#add('roxma/vim-hug-neovim-rpc')
     endif "}}}
     let g:dein_toml_dir  = g:config_home .'/nvim/toml'
-    let s:dein_toml_initial_list = [
-          \ 'Init.toml'
-          \ ]
     for dir in s:dein_toml_initial_list
       call dein#load_toml(g:dein_toml_dir .'/'. dir, {'lazy': 0})
     endfor
@@ -116,7 +119,7 @@ augroup DeinCallMyFunctions "{{{
 augroup END "}}}
 augroup DeinTomlAutoConf "{{{
   au!
-  au OptionSet nvim/**.toml  setl keywordprg=:help
+  au OptionSet nvim/**.toml setl keywordprg=:help
   au BufWinEnter filetype.toml setl syn=vim
 augroup END "}}}
 
