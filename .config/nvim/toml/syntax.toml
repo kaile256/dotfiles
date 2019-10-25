@@ -18,7 +18,7 @@ on_ft = 'kotlin'
 [[plugins]]
 repo = 'tbastos/vim-lua' #{{{
 on_ft = 'lua'
-hook_source = 'lua.vim'
+hook_source = 'runtime lua.vim'
 #}}}
 #[[plugins]]
 #repo = 'drmingdrmer/vim-indent-lua' #{{{
