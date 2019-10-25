@@ -50,17 +50,16 @@ endfunction "}}}
 " <alt-k> for cancel.
 " Note: seems not work with <alt> like <alt-k>.
 " bdelete/bwipeout work incorrect, lured to current buffer.
-" badd: append the files to buflist in Background.
+" badd: append the files in Old buffers.
 " verbose: Who defined it?
 let g:fzf_action = {
       \ 'alt-a': 'argadd',
-      \ 'alt-b': 'badd',
+      \ 'alt-o': 'badd',
       \ 'alt-w': 'verbose',
-      \ 'alt-q': function('s:fzf_open_in_quickfix_list'),
       \ 'alt-s': 'split',
       \ 'alt-t': 'tab split',
       \ 'alt-v': 'vsplit',
-      \ 'ctrl-z': '',
+      \ 'ctrl-z': "\<Nop>",
       \ }
 " [Buffers] Rather Jump to window than just to open.
 let g:fzf_buffers_jump = 1
