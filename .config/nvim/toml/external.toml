@@ -126,10 +126,18 @@ hook_source = 'runtime add/dasht.vim'
 
 # REPL;
 #[[plugins]]
-#repo = 'sillybun/vim-repl'
+#repo = 'metakirby5/codi.vim' #{{{
+## REPL while coding one char by one, in the same buffer.
+#on_ft = ['python', 'javascript', 'coffeescript', 'haskell', 'ruby', 'OCaml', 'R', 'clojure', 'php', 'lua', 'cpp', 'julia', 'elm', 'elixir', 'typescript', 'mathjs']
+#hook_post_source = 'runtime add/codi.vim'
+##}}}
+#[[plugins]]
+#repo = 'sillybun/vim-repl' #{{{
 ## Only for python?
 #on_cmd = 'REPL'
 #hook_add = 'runtime add/repl.vim'
+##}}}
+
 # Shell; Async Processor
 [[plugins]]
 repo = 'thinca/vim-quickrun' #{{{
