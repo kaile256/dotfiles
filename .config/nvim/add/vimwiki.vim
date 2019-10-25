@@ -16,7 +16,7 @@ call extend(g:kmDealer_cd_path_dict, {
 
 " Index
 command! MdwikiIndex :e ~/vimwiki/mdwiki/index.md
-command! TaskWikiIndex :e ~/vimwiki/task.wiki
+command! TaskWikiIndex :e ~/vimwiki/tasks.wiki
 nnoremap <silent> <space>k<a-e> :<c-u>TaskWikiIndex <cr>
 nnoremap <silent> <space>k<a-t> :<c-u>tab sp <bar> TaskWikiIndex <cr>
 nnoremap <silent> <space>k<a-v> :<c-u>vs <bar> TaskWikiIndex <cr>
