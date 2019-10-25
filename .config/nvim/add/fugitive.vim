@@ -37,9 +37,9 @@ command! Gstage
 " &@:exe <SNR>277_EchoExec('reset', '-q')<CR>
 "command! Gunstage :execute <SNR>219_Do('Unstage',0)
 "noremap <silent> <space>g<a-u> :Gunstage<cr>
-command! GdiffMode
-      \ call kmDealer#window#harvest()
-      \ | Gvdiffsplit!
+command! -bar -bang -nargs=* -complete=customlist,fugitive#EditComplete GvdiffMode
+      \ call panesFM#harvest()
+      \ | Gvdiffsplit! <args>
 "}}}1
 
 " Info; Blame {{{
@@ -56,7 +56,7 @@ nnoremap <silent> <space>gw     :<c-u>Gstage<cr>
 "}}}
 " Diff; {{{
 " !: On a Merge Conflict, do a 3-diff; otherwise the same as without bang.
-nnoremap <silent> <space>gd     :<c-u>GdiffMode<cr>
+nnoremap <silent> <space>gd     :<c-u>GvdiffMode<cr>
 "}}}
 
 function! s:gitcommit_startinsert() "{{{1
