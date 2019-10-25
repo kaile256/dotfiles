@@ -5,10 +5,10 @@ augroup SetMyStartpage
     if @% ==# '' && &ft ==# '' && &bt ==# '' && getline(1,'$') ==# ['']
       if a:page ==# 'mdwiki'
         e ~/vimwiki/mdwiki/index.md
-      elseif a:page ==# 'wiki' || a:page ==# 'vimwiki'
+      elseif a:page ==# ('task' || 'taskwiki')
+        e ~/vimwiki/tasks.wiki
+      elseif a:page ==# ('wiki' || 'vimwiki')
         VimwikiIndex
-      elseif a:page ==# 'task' || a:page ==# 'taskwiki'
-        e ~/vimwiki/task.wiki
       elseif a:page ==# 'diary'
         e ~/vimwiki/diary/index.wiki
       elseif a:page ==# 'term'
