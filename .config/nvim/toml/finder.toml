@@ -1,13 +1,11 @@
-# From: add/dein.vim
+# From: rc/dein.vim
 
 # FZF
 [[plugins]]
 repo = 'junegunn/fzf' #{{{
 # Note: :Files in fzf.vim is the same as :FZF.
-# Note: Necessary only for :FZF.
-if = '!executable("fzf")'
-on_cmd = 'FZF'
-#hook_source = 'runtime add/fzf.vim'
+# Note: Necessary for fzf.vim
+#on_source = 'fzf.vim'
 [[plugins]]
 #repo = 'junegunn/fzf.vim'
 repo = 'kaile256/fzf.vim'
