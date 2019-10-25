@@ -4,12 +4,13 @@
 [[plugins]]
 repo = 'junegunn/fzf' #{{{
 # Note: :Files in fzf.vim is the same as :FZF.
-# Note: Necessary for fzf.vim
-#on_source = 'fzf.vim'
+on_if = '!executable("fzf")'
 [[plugins]]
 #repo = 'junegunn/fzf.vim'
 repo = 'kaile256/fzf.vim'
-on_cmd = 'fzf#vim#'
+# Branch: kaile256/fzf.vim_verbose_commands
+#on_cmd = 'fzf#vim#'
+on_event = 'VimEnter'
 rev = 'verbose_commands'
 hook_add = 'runtime add/fzf.vim'
 hook_source = 'runtime source/fzf.vim'
