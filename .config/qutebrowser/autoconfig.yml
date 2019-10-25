@@ -185,7 +185,6 @@ settings:
         <Ctrl+w>h: tab-move -
         <Ctrl+w>l: tab-move +
         <Ctrl+w>o: tab-only
-        <Ctrl+w>p: tab-pin
         <Ctrl+x>: null
         <Ctrl+y>: scroll-px 0 -50
         <Space>1: tab-close
