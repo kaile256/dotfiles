@@ -33,6 +33,7 @@ let g:dein#types#git#default_protocol = 'ssh'
 "let g:dein#types#git#pull_command = 'pull --ff --ff-only'
 let s:dein_toml_lazy_list = [
       \ 'appearance.toml',
+      \ 'extension.toml',
       \ 'external.toml',
       \ 'finder.toml',
       \ 'ftplugin.toml',
