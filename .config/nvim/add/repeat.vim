@@ -1,4 +1,4 @@
-" From: tool.toml
+" From: extension.toml
 " Repo: tpope/vim-repeat
 
 " Note: make lazy load for this plugin.
@@ -9,8 +9,8 @@
 
 imap <a-.>   <esc><Plug>(RepeatDot)
 imap <a-u>   <esc><Plug>(RepeatUndo)
-imap <a-U>   <esc><Plug>(RepeatUndoLine)
 imap <a-C-R> <esc><Plug>(RepeatRedo)
+"imap <a-s-U>   <esc><Plug>(RepeatUndoLine)
 
 " For: keeps me in insert mode.
 " Note: <c-o><Plug>(RepeatUndo/Redo) works wrong
