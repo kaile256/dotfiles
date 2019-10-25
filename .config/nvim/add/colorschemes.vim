@@ -18,7 +18,8 @@ let g:terminal_color_12 = '#729fcf'
 let g:terminal_color_13 = '#ad7fa8'
 let g:terminal_color_14 = '#00f5e9'
 let g:terminal_color_15 = '#eeeeec'
-function! s:colorschemes_neodark() abort "{{{1
+
+function! s:colorschemes_neodark() abort "{{{
   let g:neodark#use_256color    = 1 " default: 0
   let g:neodark#italic          = 1 " default: 0
   "if has('mac')
@@ -27,9 +28,12 @@ function! s:colorschemes_neodark() abort "{{{1
   "endif
   colorscheme neodark
 
+  " Note: should be done after :coloscheme.
+  syntax enable
+
   " Note: reverse keeps text color;
   "       ':hi **bg=foo' will white out text's characters.
-  " Excerpt of Gruvbox's
+  " Note: :hi should be done after :syntax.
   " line-wise
   hi DiffAdd     cterm=reverse gui=reverse ctermfg=142 guifg=#b8bb26
   hi DiffRemove  cterm=reverse gui=reverse ctermfg=167 guifg=#fb4934
@@ -46,9 +50,10 @@ function! s:colorschemes_neodark() abort "{{{1
   hi diffNewFile cterm=reverse gui=reverse ctermfg=214 guifg=#fabd2f
   hi diffLine    cterm=reverse gui=reverse ctermfg=109 guifg=#83a598
 
-  hi NormalFloat guibg=#1a0210 guifg=#957474
   hi Search ctermfg=236 ctermbg=180 guifg=#3e120a guibg=#ebb556
-endfunction "}}}1
+
+  hi NormalFloat guibg=#1a0210 guifg=#957474
+endfunction "}}}
 
 "augroup AlertOnBuffer
 "  " CAUTION: Too many Exceptions!!
