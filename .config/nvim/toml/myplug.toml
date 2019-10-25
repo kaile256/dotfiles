@@ -15,19 +15,18 @@ hook_add = 'runtime add/sensible_K.vim'
 
 [[plugins]]
 repo = 'kaile256/vim-panes-farmer'
-depends = ['fzf.vim', 'vim-fugitive', 'vim-twiggy', 'coc.nvim']
+#depends = ['fzf.vim', 'vim-fugitive', 'vim-twiggy', 'coc.nvim']
 on_event = 'VimEnter'
-# Note: must load the plugin before mapped, cannot lazy-load.
 hook_add = 'runtime add/panes-farmer.vim'
-hook_post_source = 'runtime post/panes-farmer.vim'
+#hook_post_source = 'runtime post/panes-farmer.vim'
 
 [[plugins]]
 repo = 'kaile256/vim-keymaps-dealer'
-depends = ['fzf.vim']
+#depends = ['fzf.vim']
 # Note: must load the plugin before mapped, cannot lazy-load.
 on_event = 'VimEnter'
 hook_add = 'runtime add/keymaps-dealer.vim'
-# Note: functions in vimrc must be called after loading the plugin.
+# Note: autoload-functions in vimrc must be called after loading the autoload/.
 hook_post_source = 'runtime post/keymaps-dealer.vim'
 
 [[plugins]]
