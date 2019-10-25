@@ -1,4 +1,4 @@
-# From: add/dein.vim
+# From: rc/dein.vim
 
 # Git
 #[[plugins]]
@@ -19,10 +19,10 @@ type = 'git'
 on_event = 'BufRead'
 hook_add = 'runtime add/fugitive.vim'
 hook_done_update = '''
-exe 'e' g:dein_cache_dir .'/repos/github.com/tpope/vim-fugitive/plugin/fugitive.vim'
+exe 'e' g:dein_github_dir .'/tpope/vim-fugitive/plugin/fugitive.vim'
 %s/Gpush/Gush/e
 write
-exe 'e' g:dein_cache_dir .'/repos/github.com/tpope/vim-fugitive/autoload/fugitive.vim'
+exe 'e' g:dein_github_dir .'/tpope/vim-fugitive/autoload/fugitive.vim'
 g/'dq'/d
 write
 '''
