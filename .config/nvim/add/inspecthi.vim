@@ -1,4 +1,5 @@
 " From: appearance.toml
+" Repo: cocopon/inspecthi.vim
 
 command! ColoLinks :Inspecthi
 
