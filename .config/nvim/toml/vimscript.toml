@@ -29,9 +29,3 @@ hook_post_source = 'runtime add/themis.vim'
 #on_cmd = 'Vader'
 #hook_add = 'runtime add/vader.vim'
 ##}}}
-#[[plugins]]
-#repo = 'tweekmonster/dyslexic.vim' #{{{
-## Spell checker according to <cword>.
-#on_cmd = 'Dyslexic'
-#hook_add = 'runtime dyslexic.vimrc'
-##}}}
