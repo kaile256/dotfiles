@@ -15,10 +15,10 @@ let g:dein_github_dir  = g:dein_cache_dir   . '/repos/github.com/'
 let s:Shougo_cache_dir = g:dein_cache_dir   . '/repos/github.com/Shougo/'
 let s:dein_itself      = s:Shougo_cache_dir . '/dein.vim/'
 
-if !exists('g:kmDealer_cd_path_dict')
-  let g:kmDealer_cd_path_dict = {}
+if !exists('g:keymapsDL_cd_path_dict')
+  let g:keymapsDL_cd_path_dict = {}
 endif
-call extend(g:kmDealer_cd_path_dict, {
+call extend(g:keymapsDL_cd_path_dict, {
       \ 'c': g:dein_cache_dir,
       \ }
       \ )
@@ -43,6 +43,7 @@ let s:dein_toml_lazy_list = [
       \ 'memo.toml',
       \ 'motion.toml',
       \ 'myplug.toml',
+      \ 'shell.toml',
       \ 'syntax.toml',
       \ 'textobj.toml',
       \ 'tool.toml',
