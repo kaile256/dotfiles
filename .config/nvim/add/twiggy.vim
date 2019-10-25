@@ -4,6 +4,7 @@
 " CAUTION: useless if &shell=fish
 
 let g:twiggy_split_method = 'botright'
+"let g:twiggy_group_locals_by_slash = 0
 
 " Values can be 'aplha', 'mru', 'date' or 'track'
 let g:twiggy_close_on_fugitive_command = 1
@@ -14,4 +15,5 @@ let g:twiggy_remote_branch_sort = 'date'
 
 command! Gbranch :call panesFM#weed_out() | Twiggy
 
-noremap <silent> g<a-i> :Gbranch<cr>
+" Mnemonic: the char 'y' looks like branch.
+noremap <silent> <a-y> :Gbranch<cr>
