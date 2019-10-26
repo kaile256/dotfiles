@@ -1,3 +1,24 @@
 snippet *[ "task init"
 alias * *[
   * [ ] :${1:tag}: ${2:task}
+
+snippet vplug
+alias vp vpl
+  `substitute(expand('%:p:h'), '.*\/', '', '')`
+  `substitute(expand('%:p:h'), '\v.*\/(.+)', '\1'. execute('norm! Vr='), 'g')`
+
+  `substitute(expand('%:p:h'), '.*\/', '', '')``"\<space>"`
+
+  Installation
+  ------------
+
+  Install the plugin using your favorite package manager
+
+  #### For dein.vim
+  \`\`\`vim
+  call dein#add('`substitute(expand('%:p:h'), '\v.*\/(.*\/)', '\1', '')`')
+  \`\`\`
+
+  Usage
+  -----
+  #### Examples
