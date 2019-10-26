@@ -83,15 +83,15 @@ function! s:keymap_fugitive()
   nmap     <buffer> S <Plug>(fugitive:gstage-prev-window)
 endfunction
 
-function! s:keymap_gitlog() abort
-  nnoremap <buffer><silent> <c-o> :cnext<cr>
-  nnoremap <buffer><silent> <c-i> :cprev<cr>
-endfunction
 augroup FugitiveCallMyFunc "{{{1
   au!
   au FileType fugitive  call <SID>keymap_fugitive()
   au FileType gitcommit call <SID>gitcommit_startinsert()
-  au FIleType git       call <SID>keymap_gitlog()
+  function! s:keymap_gitlog() abort "{{{
+    nnoremap <buffer><silent> <c-o> :cnext<cr>
+    nnoremap <buffer><silent> <c-i> :cprev<cr>
+  endfunction "}}}
+  "au FIleType git       call <SID>keymap_gitlog()
 augroup END "}}}
 augroup OnFugitiveBuffer
   au!
