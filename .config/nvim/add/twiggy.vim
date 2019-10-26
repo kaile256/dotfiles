@@ -13,7 +13,7 @@ let g:twiggy_local_branch_sort = 'mru'
 " Values can be either 'alpha'or 'date'.
 let g:twiggy_remote_branch_sort = 'date'
 
-command! -range -addr=lines -nargs=* -complete=custom,TwiggyCompleteBranches Gbranch :call panesPB#rivise() | Twiggy
+command! -range -addr=lines -nargs=* -complete=custom,TwiggyCompleteBranches Gbranch WinRevise | Twiggy
 
 " Mnemonic: the char 'y' looks like branch.
 noremap <silent> <a-y> :vert 30 Gbranch<cr>
