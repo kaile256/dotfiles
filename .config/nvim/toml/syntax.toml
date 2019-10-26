@@ -1,25 +1,30 @@
 # From: rc/dein.vim
 
 [[plugins]]
-repo = 'fatih/vim-go' #{{{
-# CAUTION: override ':norm K'.
-on_ft = 'go'
-hook_source = 'runtime source/go.vim'
-#}}}
-[[plugins]]
-repo = 'rust-lang/rust.vim' #{{{
-on_ft = 'rust'
-hook_source = 'runtime source/rust.vim'
-#}}}
-[[plugins]]
-repo = 'udalov/kotlin-vim' #{{{
-on_ft = 'kotlin'
-#}}}
-[[plugins]]
-repo = 'tbastos/vim-lua' #{{{
-on_ft = 'lua'
-hook_source = 'runtime lua.vim'
-#}}}
+repo = 'sheerun/vim-polyglot'
+on_event = ['BufNewFile', 'BufRead']
+hook_source = 'runtime source/polyglot.vim'
+
+#[[plugins]]
+#repo = 'fatih/vim-go' #{{{
+## CAUTION: override ':norm K'.
+#on_ft = 'go'
+#hook_source = 'runtime source/go.vim'
+##}}}
+#[[plugins]]
+#repo = 'rust-lang/rust.vim' #{{{
+#on_ft = 'rust'
+#hook_source = 'runtime source/rust.vim'
+##}}}
+#[[plugins]]
+#repo = 'udalov/kotlin-vim' #{{{
+#on_ft = 'kotlin'
+##}}}
+#[[plugins]]
+#repo = 'tbastos/vim-lua' #{{{
+#on_ft = 'lua'
+#hook_source = 'runtime lua.vim'
+##}}}
 #[[plugins]]
 #repo = 'drmingdrmer/vim-indent-lua' #{{{
 #on_ft = 'lua'
@@ -30,18 +35,18 @@ hook_source = 'runtime lua.vim'
 #}}}
 
 # for Shell or Term-Emulater;
-[[plugins]]
-repo = 'dag/vim-fish' #{{{
-on_ft = 'fish'
-#}}}
+#[[plugins]]
+#repo = 'dag/vim-fish' #{{{
+#on_ft = 'fish'
+##}}}
 [[plugins]]
 repo = 'chrisbra/vim-zsh' #{{{
 on_ft = 'zsh'
 #}}}
-[[plugins]]
-repo = 'ericpruitt/tmux.vim' #{{{
-on_ft = 'tmux'
-#}}}
+#[[plugins]]
+#repo = 'ericpruitt/tmux.vim' #{{{
+#on_ft = 'tmux'
+##}}}
 
 #[[plugins]]
 #repo = 'neovimhaskell/haskell-vim' #{{{
@@ -55,22 +60,22 @@ repo = 'plasticboy/vim-markdown' #{{{
 on_ft = 'markdown'
 hook_source = 'runtime add/markdown.vim'
 #}}}
-[[plugins]]
-repo = 'othree/html5.vim' #{{{
-on_ft = 'html'
 #[[plugins]]
-#repo = 'mattn/emmet-vim'
+#repo = 'othree/html5.vim' #{{{
 #on_ft = 'html'
-[[plugins]]
-# Html; Auto Close for html-tags
-repo = 'alvan/vim-closetag'
-on_event = 'BufRead'
-hook_add = 'runtime! add/closetag.vim'
-on_ft = ['html', 'javascript']
-hook_add = '''
-let g:cloesetag_filenames = '*.html,*.vue'
-'''
-#}}}
+##[[plugins]]
+##repo = 'mattn/emmet-vim'
+##on_ft = 'html'
+#[[plugins]]
+## Html; Auto Close for html-tags
+#repo = 'alvan/vim-closetag'
+#on_event = 'BufRead'
+#hook_add = 'runtime! add/closetag.vim'
+#on_ft = ['html', 'javascript']
+#hook_add = '''
+#let g:cloesetag_filenames = '*.html,*.vue'
+#'''
+##}}}
 #[[plugins]]
 #repo = 'lervag/vimtex' #{{{
 #on_ft = 'tex'
@@ -82,27 +87,29 @@ let g:cloesetag_filenames = '*.html,*.vue'
 #on_ft = 'text'
 ##}}}
 
+#[[plugins]]
 [[plugins]]
-repo = 'vmchale/tomlcheck-vim' #{{{
-on_ft = 'toml'
-#}}}
-[[plugins]]
-repo = 'cespare/vim-toml' #{{{
-on_ft = 'toml'
+repo = 'delphinus/vim-toml-dein' #{{{
 # syntax highlight for 'hook_add'
-[[plugins]]
-repo = 'delphinus/vim-toml-dein'
 on_ft = 'toml'
 #}}}
+#repo = 'vmchale/tomlcheck-vim' #{{{
+#on_ft = 'toml'
+##}}}
+#[[plugins]]
+#repo = 'cespare/vim-toml' #{{{
+#on_ft = 'toml'
+##}}}
 
+[[plugins]]
+repo = 'PotatoesMaster/i3-vim-syntax' #{{{
+# Note: vim-polyglot doesn't have enough syntax for i3.
+# CAUTION: Not Maintained Anymore
+on_ft = 'i3'
+#}}}
 #[[plugins]]
 #repo = 'mboughaba/i3config.vim' #{{{
 ## Note: No enough Syntax Configured yet
 #on_ft = 'i3'
 ##}}}
-[[plugins]]
-repo = 'PotatoesMaster/i3-vim-syntax' #{{{
-# CAUTION: Not Maintained Anymore
-on_ft = 'i3'
-#}}}
 
