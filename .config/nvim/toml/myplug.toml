@@ -14,9 +14,10 @@ on_event = 'VimEnter'
 hook_add = 'runtime add/sensible_K.vim'
 
 [[plugins]]
-repo = 'kaile256/vim-panes-farmer'
+repo = 'kaile256/vim-panes-publisher'
 on_event = 'VimEnter'
-hook_add = 'runtime add/panes-farmer.vim'
+on_cmd = 'WinRevise'
+hook_add = 'runtime add/panes-publisher.vim'
 
 [[plugins]]
 repo = 'kaile256/vim-keymaps-dealer'
