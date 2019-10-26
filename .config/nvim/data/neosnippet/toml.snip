@@ -4,7 +4,6 @@ options head
   [[plugins]]
   repo = '${1:#:user/plugin}'
   ${2:on_}${3:event} = '${4:BufRead}'
-  hook_${7:post_source} = 'runtime add/${8:#:plugin}.vim'
 
 snippet #{{{ begining of fold
 alias { #{ #{{ #{{{ {} #{} #{{}} #{{{}}}
@@ -15,3 +14,30 @@ alias # } #} #}} #}}} #| #||
 snippet ##}}} end of fold; ver. commented-out
 alias ## ##| ##||
   ##}}}
+
+snippet hook_add
+alias ad add
+  hook_add = '${1:runtime} add/${2:#:}.vim'
+
+snippet hook_source
+alias so sou sour
+  hook_source = '${1:runtime} source/${2:#:}.vim'
+
+snippet hook_post_source
+alias po pos post
+  hook_post_source = '${1:runtime} post/${2:#:}.vim'
+
+snippet on_event
+alias ev eve even
+  on_event = ['${1:BufRead}']
+
+snippet on_ft
+alias ft
+  on_ft = ['${1:vim}']
+
+snippet hook_done_update
+alias du
+  hook_done_update = '''
+  ${1:exe 'e' g:dein_github_dir .'/`substitute(getline(search('repo =', 'bnW')), "repo = '\(.*\)'", '\1', '')`}/' ${4:autoload/} ${5:#:}
+  '''
+
