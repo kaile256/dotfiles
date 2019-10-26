@@ -96,6 +96,11 @@ Depend=(
   #dropbox-cli
 )
 
+
+ToRemove=(
+manjaro-hello
+)
+
 for package in ${Package[@]}; do
   if [ -z "$INSTALLER" == 'apt' && `apt list "$package"` ]; then
     echo "You have installed $package already!"
