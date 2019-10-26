@@ -126,7 +126,7 @@ augroup AutoFormatVimwiki "{{{
   au!
   "au VimEnter,BufNewFile,BufRead *.md setl ft=vimwiki syn=vimwiki
   au FileType vimwiki setl tabstop=4 softtabstop=4 shiftwidth=4
-  au FileType vimwiki setl nowrap fdl=1
+  au FileType vimwiki setl nowrap fdl=1 syn=vimwiki
   au BufWritePre vimwiki/** if &ft  ==# 'vimwiki' | VimwikiTOC
   au BufWritePre index.* if &ft  ==# 'vimwiki' | VimwikiGenerateLinks
   au FileType vimwiki,markdown if &syn ==# 'vimwiki' | call <SID>vimwiki_keymaps()
