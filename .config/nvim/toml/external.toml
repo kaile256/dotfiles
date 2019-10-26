@@ -14,8 +14,9 @@ hook_add = 'runtime add/coc.vim'
 # For: rename :CocFoo to :Cfoo in the local-repo.
 # For: vim-fugitive creates invalid id buffer.
 hook_done_update = '''
-exe 'e'. g:dein_cache_dir .'/repos/github.com/neoclide/coc.nvim_release/plugin/coc.vim'
-g/command!\|:Coc/g/\vCoc/norm! dgnguliC
+exe 'e'. g:dein_github_dir .'/neoclide/coc.nvim_release/plugin/coc.vim'
+" CocFoo is used by the other coc-extentions; should not be replaced.
+"g/command!\|:Coc/g/\vCoc/norm! dgnguliC
 g/BufEnter/g/call/norm! niif expand('%:p') !~# '.git/' |
 g/BufEnter/norm! A | endif
 write

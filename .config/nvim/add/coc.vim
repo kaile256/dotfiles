@@ -74,22 +74,25 @@ nnoremap <expr> <C-b> coc#util#has_float() ? coc#util#float_scroll(0) : "\<C-b>"
 
 " Command!; C-series {{{1
 
+command! -nargs=* -complete=custom,coc#list#options Clist  :CocList <f-args>
 command! -nargs=* -complete=custom,coc#list#options Cl  :Clist <f-args>
 command! -nargs=* -complete=custom,coc#list#options Cli :Clist <f-args>
-command! S :Ccommand session.save
+command! S CocCommand session.save
 " Mnemonic: Load sessions
 command! L        :Clist sessions
 command! Sessions :Clist sessions
 "command! SessionLoadC :CocCommand session.load
 command! -nargs=* Cremove  :Cuninstall <f-args>
 command! -nargs=+ -complete=custom,coc#list#options Cremove :Cuninstall <f-args>
-command! Ccmd       :Ccommand
-command! Cextensions :Clist    extensions
+command! Ccmd     :CocCommand
+command! Ccommand :CocCommand
+command! Cextensions :CocList extensions
+nnoremap <silent> <space>cx :Cextensions<cr>
 "command! -nargs=+ Csearch        :Csearch <f-args>
 "command! -nargs=+ Cgrep        :Clist grep -regex <f-args>
-"command! Ctemplate   :Ccommand template.templateTop
-"command! Cinit       :Ccommand template.templateTop
-"command! Init        :Ccommand template.templateTop
+"command! Ctemplate   CocCommand template.templateTop
+"command! Cinit       CocCommand template.templateTop
+"command! Init        CocCommand template.templateTop
 " Note: fzf.vim is better,
 "       which has regex-like specification method on fuzzy-matcher.
 "command! Cfiles    :Clist files
@@ -125,10 +128,10 @@ function! s:has_provider() "{{{2
   let cntF = 1
   for provider in l:coc_provider_list
     if CocHasProvider(provider) == v:true
-      call add(available, cntT .". ". provider)
+      call add(available, cntT .'. '. provider)
       let cntT = cntT +1
     elseif CocHasProvider(provider) == v:false
-      call add(unavailable, cntF .". ". provider)
+      call add(unavailable, cntF .'. '. provider)
       let cntF = cntF +1
     endif
   endfor
@@ -226,7 +229,7 @@ xnoremap <silent> <c-w><space>r :call CocActionAsync('jumpReferences',     'vspl
 "command! FormatOnC :call CocAction('format')
 "command! -nargs=? FoldOnC :call CocAction('fold', <f-args>)
 command! OR          :call CocAction('runCommand', 'editor.action.organizeImport')
-command! Format :Ccommand prettier.formatFile
+command! Format CocCommand prettier.formatFile
 " Mnemonic: Change the Structure.
 nmap cs <Plug>(coc-refactor)
 "set equalprg=CocActionAsync('formatSelected')
@@ -286,7 +289,7 @@ xmap qa  <Plug>(coc-codeaction-selected)
 " CocWorkspace {{{1
 noremap! <c-x><c-;> <esc>q:
 noremap! <c-x><c-/> <esc>q/
-command! Rename :Ccommand workspace.renameCurrentFile
+command! Rename CocCommand workspace.renameCurrentFile
 
 " CocRange, or Multiple Cursor {{{1
 hi CocCursorRange guibg=#b16286 guifg=#ebdbb2
@@ -296,7 +299,7 @@ hi CocCursorRange guibg=#b16286 guifg=#ebdbb2
 " Mnemonic: Macro of Cursor
 "nmap <silent> qc <Plug>(coc-cursors-operator)
 "xmap <silent> qc <Plug>(coc-cursors-range)
-"nnoremap <silent> cq :Ccommand document.renameCurrentWord<cr>
+"nnoremap <silent> cq CocCommand document.renameCurrentWord<cr>
 ""nmap <silent> <c-j> <Plug>(coc-range-select)
 ""nmap <silent> <c-k> <Plug>(coc-range-select-backward)
 ""nmap <silent> * <Plug>(coc-cursors-word)
@@ -305,10 +308,6 @@ hi CocCursorRange guibg=#b16286 guifg=#ebdbb2
 command! ColoFormat  :call CocAction('colorPresentation')
 command! ColoPalette :call CocAction('pickColor')
 nnoremap <space>cp :ColoPalette<cr>
-" CocExtensions {{{1
-command! Cextensions :CocList extensions
-command! CExtensions   :Clist extensions
-nnoremap <silent> <space>cx :Cextensions<cr>
 " CocList; {{{1
 " show commit contains current position
 nnoremap <silent> <space>cl :Clist<cr>
@@ -319,28 +318,27 @@ nmap ma <Plug>(coc-bookmark-annotate)
 command! Bookmarks :Clist bookmark
 nnoremap <silent> <space>cb :Clist bookmark<cr>
 "" CocExplorer {{{1
-"command! CExplorer :Ccommand explorer
+"command! CExplorer CocCommand explorer
 "      \ --toggle
 "      \ --width=35
 "      \ --sources=buffer+,file+
 "      \ --file-columns=icon,git,selection,clip,indent,filename,size
 ""}}}
 " CocGit {{{1
-command! GaddChunk :Ccommand git.chunkStage
-command! GchunkAdd :Ccommand git.chunkStage
+command! GaddChunk :CocCommand git.chunkStage
+command! GchunkAdd :CocCommand git.chunkStage
 " Mnemonic: Git Put (similar to dp as diffput)
 nnoremap <space>gp :<c-u>GaddChunk<cr>
 " TODO: for-loop in range because no range available yet.
 xmap <space>gp <Plug>(coc-git-add-chunk)
 
 function coc#git_add_chunk() abort range
-  " TODO: find out what's wrong.
   let save_view = winsaveview()
   exe line("'<")
   " TODO: be available in normal mode
   while line('.') <= line("'>")
     " FIXME: still useless, even freezes vim.
-    call feedkeys(":Ccommand git.chunkStage<cr>", 'n')
+    call feedkeys(":CocCommand git.chunkStage\<cr>", 'n')
     call feedkeys('gj', 'n')
   endwhile
   " Note: only to scroll down a fugitive-buffer.
@@ -351,14 +349,14 @@ endfunction
 xnoremap <silent> <Plug>(coc-git-add-chunk)
       \ :<c-u>call coc#git_add_chunk()<cr>
 
-nnoremap U :Ccommand git.chunkUndo<cr>
-command! -nargs=? Gfold :Ccommand git.foldUnchanged
+nnoremap U :CocCommand git.chunkUndo<cr>
+command! -nargs=? Gfold :CocCommand git.foldUnchanged
 function! coc#git_fold_toggle() abort
   if &l:fdm !=# 'manual'
-    let b:fdm = &l:fdm
+    let b:coc#_save_fdm = &l:fdm
     Ccommand git.foldUnchanged
   elseif exists('b:fdm')
-    exe 'set fdm='. b:fdm
+    exe 'set fdm='. b:coc#_save_fdm
   else
     set fdm=syntax
   endif
@@ -374,21 +372,21 @@ xmap ic <Plug>(coc-text-object-inner)
 omap ac <Plug>(coc-text-object-outer)
 xmap ac <Plug>(coc-text-object-outer)
 " CocPairs {{{1
-augroup CocPairsDisable
-  au!
-  au FileType vim let b:coc_pairs_disabled = ['"']
-augroup END
+"augroup CocPairsDisable
+"  au!
+"  au FileType vim let b:coc_pairs_disabled = ['"']
+"augroup END
 " CocTranslator {{{1
 " Note: CANNOT replace 'toLang' before translator yet.
-"command! CJapaneseEcho    :call coc#config("translator", {"toLang": "ja"}) <bar> :Ccommand  translator.echo
-"command! CJapaneseReplace :call coc#config("translator", {"toLang": "ja"}) <bar> :Ccommand translator.replace
-"command! CJapanesePum     :call coc#config("translator", {"toLang": "ja"}) <bar> :Ccommand  translator.popup
-command! CEnglishEcho    :call coc#config("translator", {"toLang": "en"}) <bar> :Ccommand  translator.echo
-command! CEnglishReplace :call coc#config("translator", {"toLang": "en"}) <bar> :Ccommand translator.replace
-command! CEnglishPum     :call coc#config("translator", {"toLang": "en"}) <bar> :Ccommand  translator.popup
+"command! CJapaneseEcho    :call coc#config("translator", {"toLang": "ja"}) <bar> CocCommand  translator.echo
+"command! CJapaneseReplace :call coc#config("translator", {"toLang": "ja"}) <bar> CocCommand translator.replace
+"command! CJapanesePum     :call coc#config("translator", {"toLang": "ja"}) <bar> CocCommand  translator.popup
+command! CEnglishEcho    :call coc#config("translator", {"toLang": "en"}) <bar> CocCommand translator.echo
+command! CEnglishReplace :call coc#config("translator", {"toLang": "en"}) <bar> CocCommand translator.replace
+command! CEnglishPum     :call coc#config("translator", {"toLang": "en"}) <bar> CocCommand translator.popup
 
 " CocTodo, or Task {{{1
-command! Ctask         :Ccommand todolist.create
+command! Ctask         CocCommand todolist.create
 command! CshowTaskList :Clist    todolist
 nnoremap <silent> <space>ct :Ctask<cr>
 nnoremap <silent> <space>cs :CshowTaskList<cr>
@@ -411,7 +409,7 @@ inoremap <c-x>y     <c-o>:call <SID>register_hist()<cr>
 
 " CocSnippet; {{{1
 " TODO: See doc to Assign the dir where snippets will be saved.
-"nmap <a-s><a-p> :Ccommand snippets.editSnippets<cr>
+"nmap <a-s><a-p> CocCommand snippets.editSnippets<cr>
 "" Trigger Just Snippets; <tab> to General Completion
 "imap <C-s> <Plug>(coc-snippets-expand)
 "vmap <C-s> <Plug>(coc-snippets-select)
