@@ -21,7 +21,8 @@ xnoremap <silent> <c-w>f <c-w>F
 
 " Note: sfind denys range and to follow number.
 nnoremap <silent> <c-w><space>f :<c-u>vert wincmd F<cr>
-xnoremap <silent> <c-w><space>f :vert      wincmd F<cr>
+" Note: :vert forbids any range, keep using <Cmd>.
+xnoremap <silent> <c-w><space>f <Cmd>vert wincmd F<cr>
 
 " in new tab
 nnoremap <silent> <c-w>F <c-w>gF
