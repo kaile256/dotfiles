@@ -1,4 +1,4 @@
-" Treat default plugins as loaded
+" Treat default plugins as already loaded to prohibit load it.
 
 let g:loaded_vimball       = 1
 let g:loaded_vimballPlugin = 1
