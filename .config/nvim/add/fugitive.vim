@@ -109,7 +109,7 @@ augroup FugitiveCallMyFunc
     nmap <buffer> <c-w>c     <Plug>(gitcommit-discard)
     nmap <buffer> <c-w><c-c> <Plug>(gitcommit-discard)
     nmap <buffer> dq <Plug>(gitcommit-dismiss)
-    " TODO: in case <c-w>o
+    " TODO: in case <c-w>o out of the buffer
   endfunction "}}}
   "function! s:keymap_gitlog() abort "{{{
   "  nnoremap <buffer><silent> <c-o> :cnext<cr>
