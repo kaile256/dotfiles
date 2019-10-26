@@ -14,10 +14,11 @@ on_event = 'VimEnter'
 hook_add = 'runtime add/sensible_K.vim'
 
 [[plugins]]
-repo = 'kaile256/vim-panes-publisher'
+repo = 'kaile256/vim-window-picker'
 on_event = 'VimEnter'
-on_cmd = 'WinRevise'
-hook_add = 'runtime add/panes-publisher.vim'
+on_cmd = ['WindowReduce', 'WindowPickOne']
+on_cmd = 'windowPK#'
+hook_add = 'runtime add/window-picker.vim'
 
 [[plugins]]
 repo = 'kaile256/vim-keymaps-dealer'

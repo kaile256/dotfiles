@@ -1,10 +1,10 @@
 " From: myplug.toml
-" Repo: kaile256/vim-panes-publisher
+" Repo: kaile256/vim-window-picker
 
-noremap <silent> <a-space><space>   :<c-u>WinRevise<cr>
-noremap <silent> <a-space><a-space> :<c-u>WinRevise<cr>
+noremap <silent> <a-space><space>   :<c-u>WindowReduce<cr>
+noremap <silent> <a-space><a-space> :<c-u>WindowReduce<cr>
 
-let g:panesPB_weed_list = {
+let g:windowPK_kill_list = {
       \ 'buftype': [
       \   'nofile',
       \   'nowrite',
