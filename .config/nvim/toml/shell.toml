@@ -35,6 +35,10 @@ repo = 'thinca/vim-quickrun' #{{{
 on_cmd = 'QuickRun'
 on_map = '<Plug>(quickrun'
 hook_add = 'runtime add/quickrun.vim'
+[[plugins]]
+repo = 'heavenshell/vim-quickrun-hook-unittest'
+on_cmd = 'QuickRun'
+on_map = '<Plug>(quickrun'
 #}}}
 #[[plugins]]
 #repo = 'neomake/neomake' #{{{
