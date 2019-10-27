@@ -390,8 +390,11 @@ settings:
       K: https://www.thefreedictionary.com/{}
       am: https://www.amazon.co.jp/s?k={}
       ar: https://wiki.archlinux.org/?search={}
-      gh: https://github.com/search?o=desc&q={}&s=forks&type=Repositories
+      gh: https://github.com/search?o=desc&q={}&s=updated&type=Repositories
       go: https://golang.org/search?q={}
+      mf: https://github.com/search?o=desc&q={}&s=forks&type=Repositories
+      ms: https://github.com/search?o=desc&q={}&s=stars&type=Repositories
+      ru: https://github.com/search?o=desc&q={}&s=updated&type=Repositories
       th: https://www.freethesaurus.com/{}
       tw: http://twitter.com/search/{}
       wk: http://en.wikipedia.org/wiki/{}
