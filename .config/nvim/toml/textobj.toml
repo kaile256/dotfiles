@@ -8,7 +8,8 @@ on_event = 'BufRead'
 #}}}
 [[plugins]]
 repo = 'kana/vim-textobj-function' #{{{
-# should activates on lsp doesn't provide the textobjects.
+# Note: should activates where lsp doesn't provide the kind of textobjects.
+# Note: only available on vim/java/c
 on_map = {xo = '<Plug>(textobj-function-'}
 hook_add = 'runtime add/textobj-function.vim'
 #}}}

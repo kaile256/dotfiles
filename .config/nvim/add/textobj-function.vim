@@ -1,4 +1,5 @@
-" From: motion.toml
+" From: textobj.toml
+" Repo: kana/vim-textobj-function
 
 let g:textobj_function_no_default_key_mappings = 1
 
