@@ -20,7 +20,7 @@ function! s:hub_create(path, ...) abort
 endfunction
 
 function! fugitive#commit_with_diff() abort "{{2
-  call windowPK#pick_one()
+  WindowPickOne
   " Keep to show diff w/ HEAD while editting commit-message.
   Gvdiffsplit! HEAD
   " For: makes user notice if any other changes in the buffer.
@@ -38,9 +38,9 @@ command! Gstage
 "command! Gunstage :execute <SNR>219_Do('Unstage',0)
 "noremap <silent> <space>g<a-u> :Gunstage<cr>
 command! -bar -bang -nargs=* -complete=customlist,fugitive#EditComplete GvdiffMode
-      \ call windowPK#pick_one()
+      \ WindowPickOne
       \ | Gvdiffsplit! <args>
-"}}}1
+"}}}
 
 " Info; Blame {{{
 nnoremap <silent> <space>gb     :<c-u>Gblame<cr>
