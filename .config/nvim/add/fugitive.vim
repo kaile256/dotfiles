@@ -92,23 +92,26 @@ augroup FugitiveCallMyFunc
   endfunction "}}}
   function! fugitive#gitcommit_dismiss() abort "{{{
     v/^#/norm! d _
-    WindowReduce
     call fugitive#_restore_view()
+    WindowReduce
   endfunction "}}}
   function! fugitive#_restore_view() abort "{{{
-    call windowPK#_restore_view()
+    call windowPK#restore_view()
+
     if bufwinid('.git/index')
       call win_gotoid(bufwinid('.git/index'))
     endif
   endfunction "}}}
   nnoremap <silent> <Plug>(gitcommit-discard) :<c-u>call fugitive#gitcommit_discard()<cr>
   nmap     <silent> <Plug>(gitcommit-dismiss) :<c-u>call fugitive#gitcommit_dismiss()<cr>
+  omap     <silent> <Plug>(gitcommit-dismiss) <esc>:<c-u>call fugitive#gitcommit_dismiss()<cr>
   au FileType gitcommit call <SID>keymap_gitcommit()
   function! s:keymap_gitcommit() abort "{{{
     nmap <buffer> ZQ         <Plug>(gitcommit-discard)
     nmap <buffer> <c-w>c     <Plug>(gitcommit-discard)
     nmap <buffer> <c-w><c-c> <Plug>(gitcommit-discard)
-    nmap <buffer> dq <Plug>(gitcommit-dismiss)
+    nmap <buffer><nowait> dq <Plug>(gitcommit-dismiss)
+    omap <expr><buffer><nowait> q (v:operator ==# 'd')? '<Plug>(gitcommit-dismiss)': 'q'
     " TODO: in case <c-w>o out of the buffer
   endfunction "}}}
   "function! s:keymap_gitlog() abort "{{{
