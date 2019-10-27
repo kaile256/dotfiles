@@ -2,7 +2,7 @@
 
 [[plugins]]
 repo = 'bkad/CamelCaseMotion' #{{{
-on_map = {no = '<Plug>CamelCaseMotion_'}
+on_map = {nox = '<Plug>CamelCaseMotion_'}
 #on_event = 'BufRead'
 hook_add = 'runtime add/CamelCaseMotion.vim'
 #}}}
