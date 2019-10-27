@@ -182,6 +182,26 @@ augroup END "}}}
 noremap zU zMzv
 "}}}
 
+function! s:get_end_of_word() abort "{{{
+  let col = col('.') -1
+  let signs = [' ', '#', '_', '.', '-', '=', '/', '[', ']', '(', ')'] " signs which can be between chars
+  let count = 0
+
+  while getline('.')[col] !=# signs[count]
+    let count += 1
+
+    if col('.') == col('$') -1 | break | endif
+
+    if count == len(signs)
+      let count = 0
+      norm! l
+      break
+    endif
+  endwhile
+
+  startinsert
+endfunction "}}}
+
 function! s:spell_suggestion() abort "{{{
   if &spell != 1
     setl spell
@@ -192,7 +212,9 @@ function! s:spell_suggestion() abort "{{{
   "       sometimes shifted to the left by one char.
   if mode() !=# 'i'
     let i_mode = 1
-    call feedkeys("wgei", 'n') " move cursor on the end of <cword> and startinsert.
+    " Note: fails to work; cursor jumps not the end of word.
+    "call feedkeys("wgei", 'n') " move cursor on the end of <cword> and startinsert.
+    call <SID>get_end_of_word()
   endif
 
   " Note: <c-x>s takes cursor back to the last non-comment text.
@@ -239,7 +261,7 @@ augroup FoldUpVimscript
     g/augroup/g/END/v/"}}}/norm! A "}}}
   endfunction "}}}
   au FileType vim
-        \   if expand('%:p') =~# 'plugin/\|autoload/'
+        \   if expand('%:p') =~# 'plugin\/\|autoload\/'
         \ |   call <SID>fold_up_vimscript()
         \ | endif
 augroup END
