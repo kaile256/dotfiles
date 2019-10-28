@@ -171,6 +171,7 @@ settings:
         <Ctrl+k>: scroll-px 0 -60
         <Ctrl+l>: tab-next
         <Ctrl+o>: back
+        <Ctrl+p>: null
         <Ctrl+t>: null
         <Ctrl+v>: null
         <Ctrl+w>: null
