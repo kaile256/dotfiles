@@ -6,7 +6,7 @@
 let g:taskwiki_maplocalleader = '<space>m'
 
 "let g:taskwiki_taskrc_location = '~/.taskrc'
-let g:taskwiki_data_location = '~/vimwiki/taskwarrior'
+let g:taskwiki_data_location = '~/vimwiki/.taskwarrior'
 
 " Mnemonic: to Do
 "nnoremap <silent> <space>da :TaskWikiAnnotate<cr>
