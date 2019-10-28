@@ -351,3 +351,4 @@ https://github.com/sheerun/vim-polyglot sheerun/vim-polyglot: A solid language p
 http://bleis-tift.hatenablog.com/entry/20100922/1285140344#_commitname Git と GitHub を体験しながら身につける勉強会行ってきた - ぐるぐる～
 https://github.com/heavenshell/vim-quickrun-hook-unittest heavenshell/vim-quickrun-hook-unittest: Quickrun hook for enable to unittest by selecting method.
 https://app.akaunting.com/ Dashboard - home
+https://github.com/mgedmin/source-locator.vim mgedmin/source-locator.vim: Vim plugin to find the source line from filename + line number
