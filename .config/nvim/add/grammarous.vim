@@ -1,5 +1,5 @@
-" From: tool.toml
-" Help: https://github.com/rhysd/vim-grammarous
+" From: insert.toml
+" Repo: rhysd/vim-grammarous
 
 " <Plug>(grammarous-move-to-info-window)
 " <Plug>(grammarous-open-info-window) Open the info window for the error under the cursor

@@ -84,12 +84,13 @@ on_source = 'neosnippet.vim'
 #}}}
 
 # Spell
-[[plugins]]
-repo = 'rhysd/vim-grammarous' #{{{
-# Grammer Check
-on_cmd = 'GrammarousCheck'
-hook_add = 'runtime add/grammarous.vim'
-#}}}
+#[[plugins]]
+#repo = 'rhysd/vim-grammarous' #{{{
+## Grammer Check
+## Note: Too heavy to download pre-requested files
+#on_cmd = 'GrammarousCheck'
+#hook_add = 'runtime add/grammarous.vim'
+##}}}
 #[[plugins]]
 #repo = 'shinglyu/vim-codespell' #{{{
 ## only supports python?
