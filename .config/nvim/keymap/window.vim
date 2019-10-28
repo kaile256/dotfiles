@@ -5,6 +5,8 @@ if execute('map <c-w>q') !=# '' || execute('map <c-w><c-q>') !=# ''
   noremap <c-w><c-q> <Nop>
 endif
 
+nnoremap Zz ZZ
+nnoremap Zq ZQ
 nnoremap <c-w>Q :<c-u>q! <cr>
 nnoremap <c-w>Z :<c-u>qa  <cr>
 
