@@ -35,22 +35,22 @@ let g:quickrun_config['javascript.jest']  = { 'command': 'jest'  }
 
 augroup QuickRunUnitTest
   au!
-  au BufWinEnter,BufNewFile *test.php setlocal filetype=php.unit
+  au BufWinEnter,BufNewFile *test.php setl filetype=php.unit
   " Note: Choose UnitTest, py.test or Django.
-  au BufWinEnter,BufNewFile test_*.py setlocal filetype=python.unit
-  "au BufWinEnter,BufNewFile test_*.py setlocal filetype=python.pytest
-  "au BufWinEnter,BufNewFile test_*.py setlocal filetype=python.django
-  au BufWinEnter,BufNewFile *.t       setlocal filetype=perl.unit
-  au BufWinEnter,BufNewFile *_spec.rb setlocal filetype=ruby.rspec
-  au BufWinEnter,BufNewFile *_test.rb setlocal filetype=ruby.minitest
-  au BufWinEnter,BufNewFile *_test.go setlocal filetype=go.test
+  au BufWinEnter,BufNewFile test_*.py setl filetype=python.unit
+  "au BufWinEnter,BufNewFile test_*.py setl filetype=python.pytest
+  "au BufWinEnter,BufNewFile test_*.py setl filetype=python.django
+  au BufWinEnter,BufNewFile *.t       setl filetype=perl.unit
+  au BufWinEnter,BufNewFile *_spec.rb setl filetype=ruby.rspec
+  au BufWinEnter,BufNewFile *_test.rb setl filetype=ruby.minitest
+  au BufWinEnter,BufNewFile *_test.go setl filetype=go.test
   " Note: TypeScript support only Jest
-  au BufWinEnter,BufNewFile *.spec.ts setlocal filetype=typescript.jest
+  au BufWinEnter,BufNewFile *.spec.ts setl filetype=typescript.jest
   " Note: Choose Mocha or Jest
-  "au BufWinEnter,BufNewFile *.test.js setlocal filetype=javascript.mocha
-  "au BufWinEnter,BufNewFile *.test.js setlocal filetype=javascript.jest
+  "au BufWinEnter,BufNewFile *.test.js setl filetype=javascript.mocha
+  "au BufWinEnter,BufNewFile *.test.js setl filetype=javascript.jest
   " TODO: make it sure to work
-  au BufWinEnter,BufNewFile *.test.rs setlocal filetype=rust.cargo.test
+  au BufWinEnter,BufNewFile *.test.rs setl filetype=rust.cargo.test
 augroup END
 
 xnoremap <silent> qr :QuickRun<cr>
@@ -61,13 +61,12 @@ nnoremap <silent> qrr :<c-u>QuickRun<cr>
 nmap qr <Plug>(quickrun-op)
 
 function! s:quickrun_holding_ft() abort "{{{
-  let ft_prev = &ft
-  let id_prev = bufwinid('.')
+  let bufnr = bufnr('%')
+  let ft = getbufvar(bufnr, '&filetype')
   QuickRun
-  let id_qr = bufwinid('\[quickrun output\]')
-  call win_gotoid(id_qr)
-  exe 'setl ft='. ft_prev
-  call win_gotoid(id_prev)
+  let bufnr_qr = bufnr('\[quickrun output\]')
+  call setbufvar(bufnr_qr, '&filetype', ft)
 endfunction "}}}
+
 nnoremap <silent> qR  :<c-u>call <SID>quickrun_holding_ft()<cr>
 nnoremap <silent> qrr :<c-u>call <SID>quickrun_holding_ft()<cr>
