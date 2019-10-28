@@ -173,7 +173,7 @@ function! s:defx_keymap_explorer() abort
   nnoremap <nowait><buffer><expr> p
         \ defx#do_action('paste')
   " yank_path: yank in unnamed register
-  nnoremap <nowait><buffer><expr> <space>yp
+  nnoremap <nowait><buffer><expr> yp
         \ defx#do_action('yank_path')
   " Selected; Execute {{{1
   nnoremap <silent><nowait><buffer><expr> <a-x>
