@@ -49,6 +49,7 @@ Package=(
   #cadaver  # WebDAV client, of which netrw makes use.
   #purple-line-git # WARNINIG: Line corp. bans people who uses 3rd party clients
   i3-volume
+  #jre # Java Runtime Environment, required by vim-gramarous; choose default.
   #jinja2 # for neovim-qt
   luarocks
   #nerd-fonts-inconsolata-go
