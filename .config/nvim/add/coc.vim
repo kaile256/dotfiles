@@ -74,9 +74,9 @@ nnoremap <expr> <C-b> coc#util#has_float() ? coc#util#float_scroll(0) : "\<C-b>"
 
 " Command!; C-series {{{1
 
-command! -nargs=* -complete=custom,coc#list#options Clist  :CocList <f-args>
-command! -nargs=* -complete=custom,coc#list#options Cl  :Clist <f-args>
-command! -nargs=* -complete=custom,coc#list#options Cli :Clist <f-args>
+command! -nargs=* -complete=custom,coc#list#options Clist  :CocList <args>
+command! -nargs=* -complete=custom,coc#list#options Cl  :Clist <args>
+command! -nargs=* -complete=custom,coc#list#options Cli :Clist <args>
 command! S CocCommand session.save
 " Mnemonic: Load sessions
 command! L        :Clist sessions
@@ -315,6 +315,11 @@ nnoremap <silent> <space>cf :Clist files<cr>
 nnoremap <silent> <space>cb :Clist buffers<cr>
 " CocBookmark; {{{1
 nmap ma <Plug>(coc-bookmark-annotate)
+nmap mj <Plug>(coc-bookmark-next)
+nmap mk <Plug>(coc-bookmark-prev)
+nmap md <Plug>(coc-bookmark-toggle)
+nmap mt <Plug>(coc-bookmark-toggle)
+
 command! Bookmarks :Clist bookmark
 nnoremap <silent> <space>cb :Clist bookmark<cr>
 "" CocExplorer {{{1
