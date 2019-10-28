@@ -77,7 +77,7 @@ nnoremap <expr> <C-b> coc#util#has_float() ? coc#util#float_scroll(0) : "\<C-b>"
 command! -nargs=* -complete=custom,coc#list#options Clist  :CocList <args>
 command! -nargs=* -complete=custom,coc#list#options Cl  :Clist <args>
 command! -nargs=* -complete=custom,coc#list#options Cli :Clist <args>
-command! S CocCommand session.save
+command! -nargs=? S :CocCommand session.save <args>
 " Mnemonic: Load sessions
 command! L        :Clist sessions
 command! Sessions :Clist sessions
@@ -396,8 +396,6 @@ command! CshowTaskList :Clist    todolist
 nnoremap <silent> <space>ct :Ctask<cr>
 nnoremap <silent> <space>cs :CshowTaskList<cr>
 " CocYank; {{{1
-" Highlight on yanked
-hi HighlightedyankRegion ctermfg=232 ctermbg=66 guifg=#000000 guibg=#df5f29
 
 " Required?: closes mpreview vindow when completion is done.
 "au! CompleteDone * if pumvisible() == 0 | pclose | endif
