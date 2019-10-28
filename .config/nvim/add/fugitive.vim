@@ -70,7 +70,7 @@ augroup FugitiveCallMyFunc
     xmap <buffer> c sc
     " TODO: silent! on unmap <buffer> from the source of vim-fugitives.
     "windo silent! nunmap <buffer> dq
-    silent! nunmap <buffer> dq
+    "silent! nunmap <buffer> dq
     silent! nunmap <buffer> J
     silent! nunmap <buffer> K
     " For: especially in the case, ':norm U' to unstage all.
@@ -86,14 +86,14 @@ augroup FugitiveCallMyFunc
     endif
   endfunction "}}}
   function! fugitive#gitcommit_discard() abort "{{{
-    v/^#/norm! d _
+    silent %delete _
     quit
     call fugitive#_restore_view()
   endfunction "}}}
   function! fugitive#gitcommit_dismiss() abort "{{{
-    v/^#/norm! d _
-    call fugitive#_restore_view()
+    silent %delete _
     WindowReduce
+    call fugitive#_restore_view()
   endfunction "}}}
   function! fugitive#_restore_view() abort "{{{
     call windowPK#restore_view()
@@ -104,16 +104,16 @@ augroup FugitiveCallMyFunc
   endfunction "}}}
   nnoremap <silent> <Plug>(gitcommit-discard) :<c-u>call fugitive#gitcommit_discard()<cr>
   nmap     <silent> <Plug>(gitcommit-dismiss) :<c-u>call fugitive#gitcommit_dismiss()<cr>
-  omap     <silent> <Plug>(gitcommit-dismiss) <esc>:<c-u>call fugitive#gitcommit_dismiss()<cr>
-  au FileType gitcommit call <SID>keymap_gitcommit()
   function! s:keymap_gitcommit() abort "{{{
     nmap <buffer> ZQ         <Plug>(gitcommit-discard)
+    nmap <buffer> Zq         <Plug>(gitcommit-discard)
     nmap <buffer> <c-w>c     <Plug>(gitcommit-discard)
     nmap <buffer> <c-w><c-c> <Plug>(gitcommit-discard)
     nmap <buffer><nowait> dq <Plug>(gitcommit-dismiss)
-    omap <expr><buffer><nowait> q (v:operator ==# 'd')? '<Plug>(gitcommit-dismiss)': 'q'
+    "omap <expr><buffer><nowait> q (v:operator ==# 'd')? '<Plug>(gitcommit-dismiss)': 'q'
     " TODO: in case <c-w>o out of the buffer
   endfunction "}}}
+  au FileType gitcommit call <SID>keymap_gitcommit()
   "function! s:keymap_gitlog() abort "{{{
   "  nnoremap <buffer><silent> <c-o> :cnext<cr>
   "  nnoremap <buffer><silent> <c-i> :cprev<cr>
