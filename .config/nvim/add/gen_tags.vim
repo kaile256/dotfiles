@@ -11,13 +11,14 @@ let g:gen_tags#gtags_auto_gen = 0
 let g:gen_tags#statusline = 1
 "let g:gen_tags#verbose = 0
 
-"let g:gen_tags#ctags_prune = 0  " 0: Recommended
+"let g:gen_tags#ctags_prune = 1  " 0: Recommended
 "let g:gen_tags#blacklist = []
 
 " Location of Tags-Cache
 " 0: caches tags on SCM-Repo, i.e., on [.git,.hg,.svn]/tags_dir.
 " 1: caches tags on expand(g:gen_tags#cache_dir) ($HOME/.cache/gen_tags as default)
-"let g:gen_tags#use_cache_dir = 0
+let g:gen_tags#use_cache_dir = 0
+"let g:gen_tags#cache_dir = ''
 
 " No Default Map
 let g:gen_tags#gtags_default_map = 0
