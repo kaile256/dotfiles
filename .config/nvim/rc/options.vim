@@ -226,9 +226,10 @@ augroup END
 
 " Method; Session {{{1
 " terminal is regarded as an invalid argument
-set sessionoptions=buffers,folds,globals
+" buffers,tabpages
+set sessionoptions=folds,globals
 set sessionoptions+=help,localoptions,options
-set sessionoptions+=slash,tabpages,winsize
+set sessionoptions+=slash,winsize
 " Method; Inc/Decrement {{{1
 "set nrformats+=octal
 " Method; Completion {{{1
