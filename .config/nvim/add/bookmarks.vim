@@ -14,7 +14,7 @@ let g:bookmark_disable_ctrlp = 1
 
 let g:bookmark_auto_save = 1
 " complicated to work correct.
-"let g:bookmark_auto_save_file = '~/vimwiki/vim-bookmarks'
+let g:bookmark_auto_save_file = '~/vimwiki/.vim-bookmarks'
 
 " Keymap; with FZF
 " TODO: show in a floating window.
