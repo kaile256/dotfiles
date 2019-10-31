@@ -8,7 +8,7 @@ command! -nargs=+ Gclone :Git clone <q-args>
 " Dependent commands {{{1
 " Note: no use yet.
 "command! -nargs=* -complete=dir HubCreate call <SID>hub_create(<f-args>)
-function! s:hub_create(path, ...) abort
+function! s:hub_create(path, ...) abort "{{{
   " TODO: distinguish flag and path
   if a:path ==# '.'
     FindRoot
@@ -17,9 +17,9 @@ function! s:hub_create(path, ...) abort
     "  let l:dir_path = a:path:p:h
   endif
   !hub create a:000 l:dir_path
-endfunction
+endfunction "}}}
 
-function! fugitive#commit_with_diff() abort "{{2
+function! fugitive#commit_with_diff() abort "{{2 "{{{
   WindowPickOne
   " Keep to show diff w/ HEAD while editting commit-message.
   Gvdiffsplit! HEAD
@@ -59,30 +59,47 @@ nnoremap <silent> <space>gw     :<c-u>Gstage<cr>
 nnoremap <silent> <space>gd     :<c-u>GvdiffMode<cr>
 "}}}
 
-augroup FugitiveCallMyFunc
+augroup FugitiveCallMyFunc "{{{
   au!
-  au FileType fugitive  call <SID>keymap_fugitive()
-  function! s:keymap_fugitive() "{{{
+  function! fugitive#winonly() abort
+    if bufname('gitcommit')
+    endif
+  endfunction
+  function! s:keymap_diff() abort "{{{
+    " Note: on update's hook, have deleted the line of dq.
+    noremap <buffer><nowait> dq         :<c-u>WindowReduce<cr>
+    noremap <buffer><nowait> <c-w>o     :<c-u>WindowOnly<cr>
+    noremap <buffer><nowait> <c-w><c-o> :<c-u>WindowOnly<cr>
+  endfunction "}}}
+  au OptionSet * if &diff | call <SID>keymap_diff() | endif
+
+  function! s:fugitive_keymap() "{{{
     " TODO: Specify the window of the latest commit buffer on `dq`.
     nnoremap <buffer><silent> cc    :<C-U>bot 20 Gcommit<CR>
     nnoremap <buffer><silent> ca    :<C-U>bot 20 Gcommit --amend<CR>
-    " Continue to cc/ce/ca.
+    " To: continue to cc/ce/ca.
     xmap <buffer> c sc
-    " TODO: silent! on unmap <buffer> from the source of vim-fugitives.
-    "windo silent! nunmap <buffer> dq
-    "silent! nunmap <buffer> dq
     silent! nunmap <buffer> J
     silent! nunmap <buffer> K
     " For: especially in the case, ':norm U' to unstage all.
     nnoremap <silent> <Plug>(fugitive:gstage-prev-window) :<c-u>wincmd p <cr> :Gw <bar> wincmd p<cr>
     nmap     <buffer> S <Plug>(fugitive:gstage-prev-window)
   endfunction "}}}
-  au FileType gitcommit call <SID>gitcommit_startinsert()
+  au FileType fugitive  call <SID>fugitive_keymap()
+
   function! s:gitcommit_startinsert() "{{{
     if getline(1) ==# ''
       if getline(2) ==# '# Please enter the commit message for your changes. Lines starting'
         startinsert
       endif
+    endif
+  endfunction "}}}
+  au FileType gitcommit call <SID>gitcommit_startinsert()
+  function! fugitive#_restore_view() abort "{{{
+    call windowPK#view#restore()
+
+    if bufwinid('.git/index')
+      call win_gotoid(bufwinid('.git/index'))
     endif
   endfunction "}}}
   function! fugitive#gitcommit_discard() abort "{{{
@@ -97,16 +114,10 @@ augroup FugitiveCallMyFunc
     WindowReduce
     call fugitive#_restore_view()
   endfunction "}}}
-  function! fugitive#_restore_view() abort "{{{
-    call windowPK#view#restore()
-
-    if bufwinid('.git/index')
-      call win_gotoid(bufwinid('.git/index'))
-    endif
-  endfunction "}}}
   nnoremap <silent> <Plug>(gitcommit-discard) :<c-u>call fugitive#gitcommit_discard()<cr>
   nmap     <silent> <Plug>(gitcommit-dismiss) :<c-u>call fugitive#gitcommit_dismiss()<cr>
-  function! s:keymap_gitcommit() abort "{{{
+
+  function! s:gitcommit_keymap() abort "{{{
     nmap <buffer> ZQ         <Plug>(gitcommit-discard)
     nmap <buffer> Zq         <Plug>(gitcommit-discard)
     nmap <buffer> <c-w>c     <Plug>(gitcommit-discard)
@@ -115,16 +126,16 @@ augroup FugitiveCallMyFunc
     "omap <expr><buffer><nowait> q (v:operator ==# 'd')? '<Plug>(gitcommit-dismiss)': 'q'
     " TODO: in case <c-w>o out of the buffer
   endfunction "}}}
-  au FileType gitcommit call <SID>keymap_gitcommit()
+  au FileType gitcommit call <SID>gitcommit_keymap()
   "function! s:keymap_gitlog() abort "{{{
   "  nnoremap <buffer><silent> <c-o> :cnext<cr>
   "  nnoremap <buffer><silent> <c-i> :cprev<cr>
   "endfunction "}}}
   "au FIleType git       call <SID>keymap_gitlog()
-augroup END
-augroup OnFugitiveBuffer
+augroup END "}}}
+augroup OnFugitiveBuffer "{{{
   au!
   " TODO: Go back to Gstatus' buffer when `:quit` on gitcommit's buffer
   au FileType fugitive,fugitiveblame,gitcommit setl nonumber signcolumn= bufhidden=wipe
   au FileType gitcommit setl spell
-augroup END
+augroup END "}}}
