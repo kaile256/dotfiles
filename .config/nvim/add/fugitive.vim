@@ -87,16 +87,18 @@ augroup FugitiveCallMyFunc
   endfunction "}}}
   function! fugitive#gitcommit_discard() abort "{{{
     silent %delete _
+    write
     quit
     call fugitive#_restore_view()
   endfunction "}}}
   function! fugitive#gitcommit_dismiss() abort "{{{
     silent %delete _
+    write
     WindowReduce
     call fugitive#_restore_view()
   endfunction "}}}
   function! fugitive#_restore_view() abort "{{{
-    call windowPK#restore_view()
+    call windowPK#view#restore()
 
     if bufwinid('.git/index')
       call win_gotoid(bufwinid('.git/index'))
