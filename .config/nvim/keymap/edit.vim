@@ -6,7 +6,7 @@ tnoremap <c-x><c-h> ~/
 noremap! <c-x>h     ~/
 noremap! <c-x><c-h> ~/
 
-"imap <a-space> <esc><space>
+"inoremap <expr><silent> <a-space> feedkeys("\<esc>\<space>", 'n')
 tmap <a-space> <c-\><c-n><space>
 
 " Keymap; Write&Quit {{{
@@ -250,18 +250,13 @@ endfunction "}}}
 noremap <silent> g: :call <SID>send_to_cmdline('delete')<cr>
 noremap <silent> z: :call <SID>send_to_cmdline('keep')<cr>
 
-augroup FoldUpVimscript
-  au!
-  function! s:fold_up_vimscript() abort "{{{
-    if &modifiable || &readonly | return | endif
+function! s:fold_up_vimscript() abort "{{{
+  if &readonly && !&modifiable | return | endif
 
-    g/function!/v/"{{{/norm! A "{{{
-    g/endfunction/v/"}}}/norm! A "}}}
-    g/augroup/v/END/v/"{{{/norm! A "{{{
-    g/augroup/g/END/v/"}}}/norm! A "}}}
-  endfunction "}}}
-  au FileType vim
-        \   if expand('%:p') =~# 'plugin\/\|autoload\/'
-        \ |   call <SID>fold_up_vimscript()
-        \ | endif
-augroup END
+  silent g/function!/v/"{{{/norm! A "{{{
+  silent g/endfunction/v/"}}}/norm! A "}}}
+  silent g/augroup/v/END/v/"{{{/norm! A "{{{
+  silent g/augroup/g/END/v/"}}}/norm! A "}}}
+endfunction "}}}
+
+command! -bar FoldUpVimscript call <SID>fold_up_vimscript()
