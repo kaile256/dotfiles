@@ -155,10 +155,13 @@ git clone https://github.com/hlissner/doom-emacs ~/.emacs.d
 #(create-fontset-from-ascii-font "SF Mono-12:weight=normal:slant=normal" nill "Cica-12")
 
 PipRepos=(
-  falcon  # Solve fcitx problem on qute?
+  #falcon  # Solve fcitx problem on qute?
+  jupyter # for neural network especially for python
+  jupytext # for goerz/jupytext.vim #jupyter
+  #notedown # for szymonmaszke/vimpyter #jupyter
   #msgpack # for neovim-qt
   #oauth2client
-  pfp # hex editor tool
+  pfp # hex editor tool, which is used by vim-pfp
   pipenv
   tasklib # py-lib for taskwarrior
 )
