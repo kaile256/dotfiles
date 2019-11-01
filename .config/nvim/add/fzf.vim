@@ -26,10 +26,9 @@ command! -bang -nargs=* Omaps call fzf#vim#maps('o', <bang>0)
 command! -bang -nargs=* Tmaps call fzf#vim#maps('t', <bang>0)
 "}}}
 
-command! -bang Functions :call fzf#vim#functions(
-      \ fzf#vim#with_preview({'options': '--multi --reverse'}, 'right:60%:wrap'),
-      \ <bang>0)
-
+command! -bang Functions :call fzf#vim#functions({'options': '--multi --reverse'})
+      "\ fzf#vim#with_preview({'options': '--multi --reverse'}, 'right:60%:wrap'),
+      "\ <bang>0)
 
 " Note: the commands below are all wrapper,
 "       so that they must be loaded on hook_add.
