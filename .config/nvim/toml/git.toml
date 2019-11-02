@@ -28,26 +28,35 @@ g/'dq'/d
 write
 '''
 # Fugitive; Branch Viewr
+#[[plugins]]
+#repo = 'sodapopcan/vim-twiggy' #{{{
+## Note: improperly save buffers.
+#type = 'git'
+#on_cmd = 'Twiggy'
+#hook_add = 'runtime add/twiggy.vim'
+#hook_done_update = '''
+#exe 'e' g:dein_github_dir .'/sodapopcan/vim-twiggy/plugin/twiggy.vim'
+#g/command/norm! e -range -addr=lines
+#write
+#exe 'e' g:dein_github_dir .'/sodapopcan/vim-twiggy/autoload/twiggy.vim'
+#g/'dd/copy. | s/dd/D
+#write
+#'''
+###}}}
 [[plugins]]
-repo = 'sodapopcan/vim-twiggy' #{{{
+repo = 'idanarye/vim-merginal' #{{{
+# Note: twiggy is better.
 type = 'git'
-on_cmd = 'Twiggy'
-hook_add = 'runtime add/twiggy.vim'
+on_cmd = 'Merginal'
+hook_add = 'runtime add/merginal.vim'
 hook_done_update = '''
-exe 'e' g:dein_github_dir .'/sodapopcan/vim-twiggy/plugin/twiggy.vim'
-g/command/norm! e -range -addr=lines
+exe 'e' g:dein_github_dir .'/idanarye/vim-merginal/plugin/merginal.vim'
+%s/-nargs=0/-bar/e
 write
-exe 'e' g:dein_github_dir .'/sodapopcan/vim-twiggy/autoload/twiggy.vim'
-g/'dd/copy. | s/dd/D
+exe 'e' g:dein_github_dir .'/idanarye/vim-merginal/autoload/merginal/buffers/branchList.vim'
+v/'<cr>',/g/'cc',/norm! nEa '<cr>',
 write
 '''
-##}}}
-#[[plugins]]
-#repo = 'idanarye/vim-merginal' #{{{
-## Note: twiggy is better.
-##type = 'git'
-#on_cmd = 'Merginal'
-#hook_add = 'runtime add/merginal.vim'
 #}}}
 # Fugitive; Commit's Message viewer
 [[plugins]]
