@@ -176,7 +176,7 @@ function! s:defx_keymap_explorer() abort
   nnoremap <nowait><buffer><expr> yp
         \ defx#do_action('yank_path')
   " Selected; Execute {{{1
-  nnoremap <silent><nowait><buffer><expr> <a-x>
+  nnoremap <silent><nowait><buffer><expr> X
         \ defx#do_action('execute_system')
   "}}}
   " Toggle; Mark {{{1
