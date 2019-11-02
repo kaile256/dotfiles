@@ -25,5 +25,5 @@ let g:tagbar_foldlevel = 2
 "let g:tagbar_vertical = 0
 let g:tagbar_width = 30
 
-" Mnemonic: Outline
-nnoremap <silent> <a-o> :<c-u>TagbarToggle<CR>
+" Mnemonic: show Indexes
+nnoremap <silent> <a-i> :<c-u>TagbarToggle<CR>
