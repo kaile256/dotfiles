@@ -32,3 +32,16 @@ hook_post_source = 'runtime post/keymaps-dealer.vim'
 repo = 'kaile256/vim-foldcolors'
 on_event = ['BufNewFile', 'BufRead']
 hook_source = 'runtime source/foldcolors.vim'
+
+[[plugins]]
+repo = 'kaile256/vim-lines-in-functions'
+on_cmd = ['LinesFunctions']
+
+#[[plugins]]
+#repo = 'kaile256/vim-fvf'
+#on_event = 'VimEnter'
+#rev = 'refactoring'
+##rev = 'verbose_commands'
+#hook_add = 'runtime add/fzf.vim'
+#hook_source = 'runtime source/fzf.vim'
+#hook_post_source = 'runtime post/fzf.vim'
