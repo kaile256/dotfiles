@@ -1,6 +1,7 @@
-# From: add/dein.vim
+# From: rc/dein.vim
 
-# Denite itself;
+# Note: too complicated to configure all the extensions
+
 [[plugins]]
 repo = 'Shougo/denite.nvim' #{{{
 if = 'has("python3")'
