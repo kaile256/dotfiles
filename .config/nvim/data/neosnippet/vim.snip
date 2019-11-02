@@ -80,6 +80,10 @@ snippet mode
 alias mod
   " vim: ts=2 sts=2 sw=2 et fdm=marker
 
+snippet autoload
+alias al
+  `substitute(substitute(expand('%:p'), '.*/autoload/\(.*\).vim', '\1', ''), '/', '#', 'g') .'#'`
+
 # End of Plugin's
 
 # Declare {{{
