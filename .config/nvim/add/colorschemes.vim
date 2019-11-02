@@ -71,6 +71,9 @@ else
   call <SID>colorschemes_neodark()
 endif
 
+" coc.nvim supports
+hi HighlightedyankRegion ctermfg=232 ctermbg=66 guifg=#000000 guibg=#df5f29
+
 finish
 
 let histring = [ 'hi', a:group,
