@@ -352,3 +352,9 @@ http://bleis-tift.hatenablog.com/entry/20100922/1285140344#_commitname Git と G
 https://github.com/heavenshell/vim-quickrun-hook-unittest heavenshell/vim-quickrun-hook-unittest: Quickrun hook for enable to unittest by selecting method.
 https://app.akaunting.com/ Dashboard - home
 https://github.com/mgedmin/source-locator.vim mgedmin/source-locator.vim: Vim plugin to find the source line from filename + line number
+https://github.com/tweekmonster/spellrotate.vim tweekmonster/spellrotate.vim: Cycles spelling suggestions under the cursor
+https://travis-ci.org/getting_started Travis CI - Test and Deploy Your Code with Confidence
+https://github.com/mattn/vim_kernel mattn/vim_kernel: A Jupyter kernel for Vim script
+https://github.com/goml/gobrain goml/gobrain: Neural Networks written in go
+https://github.com/szymonmaszke/vimpyter szymonmaszke/vimpyter: Edit your Jupyter notebooks in Vim/Neovim
+https://qiita.com/cfiken/items/8455383f32ee19dfbba3 Jupyter notebook を管理しやすくする Jupytext を使ってみた - Qiita
