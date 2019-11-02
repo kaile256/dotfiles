@@ -5,6 +5,7 @@
 [[plugins]]
 repo = 'kaile256/vim-among_HML'
 on_cmd = 'among_HML#'
+rev = 'develop'
 hook_add = 'runtime add/among_HML.vim'
 
 [[plugins]]
@@ -15,8 +16,8 @@ hook_add = 'runtime add/sensible_K.vim'
 
 [[plugins]]
 repo = 'kaile256/vim-window-picker'
-on_event = 'VimEnter'
-on_cmd = ['WindowReduce', 'WindowPickOne']
+on_cmd = ['WindowPKreduce', 'WindowPKpick', 'WindowPKoly']
+on_cmd = ['WindowPKfloating', 'WindowPKcopy', 'WindowPKtabGive']
 on_cmd = 'windowPK#'
 hook_add = 'runtime add/window-picker.vim'
 
