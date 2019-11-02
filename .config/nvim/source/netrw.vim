@@ -15,15 +15,40 @@ let g:netrw_alto = 1
 "let g:netrw_liststyle = 2
 let g:netrw_fastbrowse = 2
 
-augroup NetrwCallMyFunc
+function! s:netrw_browse_up() abort "{{{
+  exe "norm \<Plug>NetrwBrowseUpDir"
+  call s:netrw_avoid_period()
+endfunction "}}}
+
+function! s:netrw_browse_check() abort "{{{
+  exe "norm \<Plug>NetrwLocalBrowseCheck"
+  call s:netrw_avoid_period()
+endfunction "}}}
+
+function! s:netrw_avoid_period() abort "{{{
+  if getline('.') ==# '../'
+    norm! gj
+  endif
+  if getline('.') ==# './'
+    norm! gj
+  endif
+endfunction "}}}
+
+augroup NetrwCallMyFunc "{{{
   au!
   au FileType netrw setl bt=nofile
   au FileType netrw call <SID>keymaps_on_netrw()
+  au FileType netrw call <SID>netrw_avoid_period()
   " Note: nonumber looks strange, though almost no use in netrw.
   "au FileType netrw setl nonumber
-augroup END
-function! s:keymaps_on_netrw() abort
+augroup END "}}}
+
+function! s:keymaps_on_netrw() abort "{{{
   nmap <buffer><silent><nowait> h <Plug>NetrwBrowseUpDir
   nmap <buffer><silent><nowait> l <Plug>NetrwLocalBrowseCheck
+  nmap <Plug>(netrw-browse-up-dir) :<c-u>call <SID>netrw_browse_up()<cr>
+  nmap <Plug>(netrw-browse-check)  :<c-u>call <SID>netrw_browse_check()<cr>
+  nmap <buffer><silent><nowait> h <Plug>(netrw-browse-up-dir)
+  nmap <buffer><silent><nowait> l <Plug>(netrw-browse-check)
   " TODO: yank path of the file under cursor.
-endfunction
+endfunction "}}}
