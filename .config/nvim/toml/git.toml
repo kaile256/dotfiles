@@ -18,6 +18,7 @@ repo = 'tpope/vim-fugitive' #{{{
 type = 'git'
 on_event = 'BufRead'
 hook_add = 'runtime add/fugitive.vim'
+hook_source = 'runtime source/fugitive.vim'
 hook_done_update = '''
 exe 'e' g:dein_github_dir .'/tpope/vim-fugitive/plugin/fugitive.vim'
 %s/Gpush/Gush/e
