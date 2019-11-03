@@ -4,7 +4,7 @@
 noremap <silent> <a-space><space>   :<c-u>WindowPKreduce<cr>
 noremap <silent> <a-space><a-space> :<c-u>WindowPKreduce<cr>
 
-let g:windowPK_kill_list = {
+let g:windowPK_kill_patterns = {
       \ '&buftype': [
       \   'nofile',
       \   'nowrite',
