@@ -16,7 +16,9 @@ hook_add = 'runtime add/coc.vim'
 hook_done_update = '''
 exe 'e'. g:dein_github_dir .'/neoclide/coc.nvim_release/plugin/coc.vim'
 " CocFoo is used by the other coc-extentions; should not be replaced.
-"g/command!\|:Coc/g/\vCoc/norm! dgnguliC
+let s:CocUpper2Clower = 'dgnguliC'
+g/command!/g/Coc/copy. | exe 'norm!' s:CocUpper2Clower
+unlet s:CocUpper2Clower
 g/BufEnter/g/call/norm! niif expand('%:p') !~# '.git/' |
 g/BufEnter/norm! A | endif
 write
