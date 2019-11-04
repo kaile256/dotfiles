@@ -21,15 +21,13 @@ hi link gitmessengerHistory Title
 "hi gitmessengerHash term=None guifg=#f0eaaa ctermfg=229
 "hi gitmessengerHistory term=None guifg=#fd8489 ctermfg=210
 
-"let g:git_messenger_no_default_mappings = v:true 
+"let g:git_messenger_no_default_mappings = v:true
 "let g:git_messenger_always_into_popup = v:true
-"let g:git_messenger_max_popup_height = 
-"let g:git_messenger_max_popup_width = 
+"let g:git_messenger_max_popup_height =
+"let g:git_messenger_max_popup_width =
 
-noremap <silent> <a-y><a-m> :<c-u>call <SID>simple_gitmessenger()<cr>
-noremap <silent> <a-y>m     :<c-u>call <SID>simple_gitmessenger()<cr>
-noremap <silent> <a-s><a-m> :<c-u>call <SID>simple_gitmessenger()<cr>
-noremap <silent> <a-s>m     :<c-u>call <SID>simple_gitmessenger()<cr>
+nnoremap <silent> <space>gm :<c-u>call <SID>simple_gitmessenger()<cr>
+xnoremap <silent> <space>gm :<c-u>call <SID>simple_gitmessenger()<cr>
 
 function! s:keymap_on_gitmessenger_popup() abort
   " For example, set go back/forward history to <C-o>/<C-i>
