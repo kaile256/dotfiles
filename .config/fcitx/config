@@ -34,7 +34,7 @@ TriggerKey=ALT_ENTER
 # Activate input method
 #ActivateKey=CTRL_M
 # Inactivate Input Method
-InactivateKey=l
+InactivateKey=L
 # Enable Hotkey to scroll Between Input Method
 # Available Value:
 # True False
