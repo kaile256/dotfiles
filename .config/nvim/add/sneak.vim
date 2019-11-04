@@ -1,5 +1,6 @@
 " From: motion.toml
 " Repo: justinmk/vim-sneak
+" Ref: add/easymotion.vim
 
 hi! link Sneak      ErrorMsg
 hi! link SneakScope ErrorMsg

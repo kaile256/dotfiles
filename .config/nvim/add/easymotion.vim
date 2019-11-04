@@ -2,16 +2,13 @@
 " Repo: easymotion/vim-easymotion
 " Fork: kaile256/vim-easymotion
 " Alter: post/easymotion.vim
+" Ref: add/sneak.vim
 
 " Let; mapping {{{
 " `g:EasyMotion_do_mapping = 1` provides all the default keymaps.
 let g:EasyMotion_do_mapping = 0
 let g:EasyMotion_enter_jump_first = 1
 let g:EasyMotion_space_jump_first = 1
-" linefeed (newline) feature is original config,
-" which is written directory on the repository.
-let g:EasyMotion_linefeed_jump_first = 1
-let g:EasyMotion_expandable_linefeed_jump_first = 1
 " Set apart vim's default n-key history.
 let g:EasyMotion_add_search_history = 0
 
