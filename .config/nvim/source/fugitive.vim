@@ -34,9 +34,9 @@ augroup FugitiveCallMyFunc
     silent! nunmap <buffer> J
     silent! nunmap <buffer> K
     " For: especially in the case, ':norm U' to unstage all.
-    nnoremap <silent> <Plug>(fugitive:gstage-prev-window) :<c-u>wincmd p <cr> :Gw <bar> wincmd p<cr>
     nmap     <buffer> S <Plug>(fugitive:gstage-prev-window)
   endfunction "}}}
+  nnoremap <silent> <Plug>(fugitive:gstage-prev-window) :<c-u>wincmd p <cr> :Gw <bar> wincmd p<cr>
   au FileType fugitive  call <SID>fugitive_keymap()
 
   function! s:gitcommit_startinsert() "{{{
