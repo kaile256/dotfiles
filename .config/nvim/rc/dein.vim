@@ -43,6 +43,7 @@ let s:dein_toml_lazy_list = [
       \ 'external.toml',
       \ 'finder.toml',
       \ 'ftplugin.toml',
+      \ 'fugitive.toml',
       \ 'git.toml',
       \ 'insert.toml',
       \ 'japanese.toml',
