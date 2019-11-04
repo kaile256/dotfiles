@@ -82,7 +82,7 @@ cnoreabbr <expr> dof (getcmdtype() == ':' && getcmdline() =~ '^dof$')? 'diffoff!
 cnoreabbr <expr> man (getcmdtype() == ':' && getcmdline() =~ '^man$')? 'Man' : 'man'
 "}}}
 " Abbr; for :!vint {{{1
-command! Vint :w <bar> !vint %:p
+command! -nargs=* Vint :w <bar> !vint --enable-neovim <args> %:p
 " Abbr; :checkhealth {{{1
 cnoreabbr <silent><expr> ch (getcmdtype() == ':' && getcmdline() =~ '^ch$')? 'checkhealth <bar> setl bt=nofile' : 'ch'
 " Abbr; :help {{{1
