@@ -14,9 +14,12 @@ augroup FugitiveCallMyFunc
   endfunction "}}}
   function! s:keymap_diff() abort "{{{
     " Note: on update's hook, have deleted the line of dq.
-    noremap <buffer><nowait> dq         :<c-u>WindowPKreduce<cr>
-    noremap <buffer><nowait> <c-w>o     :<c-u>WindowPKonly<cr>
-    noremap <buffer><nowait> <c-w><c-o> :<c-u>WindowPKonly<cr>
+    nnoremap <buffer><nowait> dq         :<c-u>WindowPKreduce<cr>
+    nnoremap <buffer><nowait> <c-w>o     :<c-u>WindowPKonly<cr>
+    nnoremap <buffer><nowait> <c-w><c-o> :<c-u>WindowPKonly<cr>
+    xnoremap <buffer><nowait> dq         :<c-u>WindowPKreduce<cr>
+    xnoremap <buffer><nowait> <c-w>o     :<c-u>WindowPKonly<cr>
+    xnoremap <buffer><nowait> <c-w><c-o> :<c-u>WindowPKonly<cr>
   endfunction "}}}
   au OptionSet * if &diff | call <SID>keymap_diff() | endif
 
@@ -26,7 +29,8 @@ augroup FugitiveCallMyFunc
     nnoremap <buffer><silent> ca    :<C-U>bot 20 Gcommit --amend<CR>
     " To: continue to cc/ce/ca.
     xmap <buffer> c sc
-    noremap <buffer><nowait> dq :<c-u>WindowPKreduce<cr>
+    nnoremap <buffer><nowait> dq :<c-u>WindowPKreduce<cr>
+    xnoremap <buffer><nowait> dq :<c-u>WindowPKreduce<cr>
     silent! nunmap <buffer> J
     silent! nunmap <buffer> K
     " For: especially in the case, ':norm U' to unstage all.
