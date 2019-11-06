@@ -358,3 +358,8 @@ https://github.com/mattn/vim_kernel mattn/vim_kernel: A Jupyter kernel for Vim s
 https://github.com/goml/gobrain goml/gobrain: Neural Networks written in go
 https://github.com/szymonmaszke/vimpyter szymonmaszke/vimpyter: Edit your Jupyter notebooks in Vim/Neovim
 https://qiita.com/cfiken/items/8455383f32ee19dfbba3 Jupyter notebook を管理しやすくする Jupytext を使ってみた - Qiita
+https://github.com/skanehira/docui skanehira/docui: TUI Client for Docker
+https://github.com/TomasTomecek/sen TomasTomecek/sen: Terminal User Interface for docker engine
+https://github.com/glacambre/firenvim/blob/master/README.md firenvim/README.md at master · glacambre/firenvim
+https://github.com/jesseduffield/lazydocker jesseduffield/lazydocker: The lazier way to manage everything docker
+https://github.com/skanehira/docker.vim skanehira/docker.vim: Manage docker in Vim
