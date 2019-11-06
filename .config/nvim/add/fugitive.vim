@@ -1,9 +1,10 @@
 " From: git.toml
 " Repo: tpope/vim-fugitive
+" Another: source/fugitive.vim
 
-command! -nargs=+ -complete=file Gremote :Git remote <q-args>
+command! -nargs=+ -complete=file Gremote :Git remote <args>
 
-command! -nargs=+ Gclone :Git clone <q-args>
+command! -nargs=+ Gclone :Git clone <args>
 
 " Dependent commands {{{
 " Note: no use yet.
@@ -19,8 +20,7 @@ function! s:hub_create(path, ...) abort "{{{
   !hub create a:000 l:dir_path
 endfunction "}}}
 
-function! fugitive#commit_with_diff() abort "{{2 "{{{
-  WindowPickOne
+function! s:diff_mode() abort "{{2 "{{{
   " Keep to show diff w/ HEAD while editting commit-message.
   Gvdiffsplit! HEAD
   " For: makes user notice if any other changes in the buffer.
@@ -30,7 +30,9 @@ function! fugitive#commit_with_diff() abort "{{2 "{{{
   wincmd =
 endfunction "}}}2
 command! Gstage
-      \ :Gw | call fugitive#commit_with_diff()
+      \ :Gw | WindowPKpick | call <SID>diff_mode()
+command! Gsolo
+      \ :Gw | WindowPKonly | call <SID>diff_mode()
 " in new tab, if any unnecessary windows are there.
 " TODO: set unstage; should trace <SNR> via :scriptnames.
 " &@:<C-U>execute <SNR>277_Do('Unstage',0)<CR>
@@ -38,7 +40,7 @@ command! Gstage
 "command! Gunstage :execute <SNR>219_Do('Unstage',0)
 "noremap <silent> <space>g<a-u> :Gunstage<cr>
 command! -bar -bang -nargs=* -complete=customlist,fugitive#EditComplete GvdiffMode
-      \ WindowPickOne
+      \ WindowPKpick
       \ | Gvdiffsplit! <args>
 "}}}
 
@@ -53,6 +55,7 @@ nnoremap <silent> <space>ga     :<c-u>Gw <bar> vert bot 35 Gstatus<cr>
 "}}}
 " Add; && Commit w/ diff {{{1
 nnoremap <silent> <space>gw     :<c-u>Gstage<cr>
+nnoremap <silent> <space>go     :<c-u>Gsolo<cr>
 "}}}
 " Diff; {{{
 " !: On a Merge Conflict, do a 3-diff; otherwise the same as without bang.
