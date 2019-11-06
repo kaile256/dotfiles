@@ -82,7 +82,6 @@ command! -nargs=? S :CocCommand session.save <args>
 command! L        :Clist sessions
 command! Sessions :Clist sessions
 "command! SessionLoadC :CocCommand session.load
-command! -nargs=* -complete=custom,coc#list#options Cuninstall :CocUninstall <args>
 command! -nargs=* -complete=custom,coc#list#options Cremove    :CocUninstall <args>
 command! Ccmd     :CocCommand
 command! Ccommand :CocCommand
