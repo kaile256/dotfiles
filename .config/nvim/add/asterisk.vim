@@ -102,7 +102,7 @@ xnoremap <expr><silent> <Plug>(asterisk-dot-substitute-paste-downward)
 
 if exists('g:asterisk_no_default_mappings_all') | finish | endif
 
-" Keymaps; standard {{{1
+" Keymaps; standard {{{
 if exists('g:asterisk_no_default_mappings_standard') | finish | endif
 
 " Note: Few case to expect exclusive search
@@ -123,8 +123,9 @@ xmap z*  <Plug>(asterisk-z*)
 xmap gz* <Plug>(asterisk-*)
 xmap z#  <Plug>(asterisk-z#)
 xmap gz# <Plug>(asterisk-#)
+"}}}
 
-" Keymaps; substitute {{{1
+" Keymaps; substitute {{{
 if exists('g:asterisk_no_default_mappings_substitute') | finish | endif
 " when paste on selected area, we don't use initial P.
 xmap gp <Plug>(asterisk-dot-substitute-paste-downward)
@@ -142,3 +143,10 @@ omap # <Plug>(asterisk-dot-substitute-operator-upward)
 " Mnemonic: dot-Repeatable
 omap r <Plug>(asterisk-dot-substitute-operator-downward)
 omap R <Plug>(asterisk-dot-substitute-operator-upward)
+"}}}
+
+noremap! <c-r>/  <c-r>= substitute(@/, '\\V', '', 'e')<cr>
+noremap! <c-r> <c-r>= substitute(@/, '\\V', '', 'e')<cr>
+
+tnoremap <silent> <c-r>/  <c-\><c-n>"= substitute(@/, '\\V', '', 'e')<cr>pi
+tnoremap <silent> <c-r> <c-\><c-n>"= substitute(@/, '\\V', '', 'e')<cr>pi
