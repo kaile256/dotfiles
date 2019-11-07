@@ -363,3 +363,8 @@ https://github.com/TomasTomecek/sen TomasTomecek/sen: Terminal User Interface fo
 https://github.com/glacambre/firenvim/blob/master/README.md firenvim/README.md at master · glacambre/firenvim
 https://github.com/jesseduffield/lazydocker jesseduffield/lazydocker: The lazier way to manage everything docker
 https://github.com/skanehira/docker.vim skanehira/docker.vim: Manage docker in Vim
+https://github.com/zgpio/tree.nvim zgpio/tree.nvim: Neovim file-explorer powered by C++
+https://github.com/mhinz/vim-tree mhinz/vim-tree: 🌲 Use tree(1) for quick navigation.
+http://koturn.hatenablog.com/entry/2015/11/26/000000 Vimからfzfを利用する - koturnの日記
+https://github.com/yuki-ycino/fzf-preview.vim yuki-ycino/fzf-preview.vim: fzf-preview-mode is a Vim plugin to provide some fzf sources to with large preview.
+http://koturn.hatenablog.com/entry/2015/11/19/200000 ctrlp.vimのエクステンションの作り方 - koturnの日記

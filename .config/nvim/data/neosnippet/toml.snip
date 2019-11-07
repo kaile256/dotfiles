@@ -1,9 +1,7 @@
-snippet dein's toml format
-alias vi vim de dein [[ pp [[]]
+snippet dein's toml format alias vi vim de dein [[ pp [[]]
 options head
   [[plugins]]
   repo = '${1:#:user/plugin}'
-  ${2:on_}${3:event} = '${4:BufRead}'
 
 snippet #{{{ begining of fold
 alias { #{ #{{ #{{{ {} #{} #{{}} #{{{}}}
@@ -15,17 +13,18 @@ snippet ##}}} end of fold; ver. commented-out
 alias ## ##| ##||
   ##}}}
 
+# for dein's hook {{{
 snippet hook_add
 alias ad add
-  hook_add = '${1:runtime} add/${2:#:}.vim'
+  hook_add = '${1:runtime} add/${2:}.vim'
 
 snippet hook_source
 alias so sou sour
-  hook_source = '${1:runtime} source/${2:#:}.vim'
+  hook_source = '${1:runtime} source/${2:}.vim'
 
 snippet hook_post_source
 alias po pos post
-  hook_post_source = '${1:runtime} post/${2:#:}.vim'
+  hook_post_source = '${1:runtime} post/${2:}.vim'
 
 snippet on_event
 alias ev eve even
@@ -37,11 +36,15 @@ alias ft
 
 snippet on_cmd
 alias cm cmd com
-  on_cmd = ['${1:}']
+  on_cmd = ['${1:`substitute(matchstr(getline(search('repo =', 'bnW')), "/\zs.*'"), "'", '', 'g')`}']
 
 snippet hook_done_update
 alias du
   hook_done_update = '''
-  ${1:exe 'e' g:dein_github_dir .'/`substitute(getline(search('repo =', 'bnW')), "repo = '\(.*\)'", '\1', '')`}/' ${4:autoload/} ${5:#:}
+  ${1:exe 'e' g:dein_github_dir .'/`substitute(matchstr(getline(search('repo =', 'bnW')), "'.*'"), "'", '', 'g')`}/${6:plugin/}${4:}'
   '''
+snippet exe
+alias e
+  ${1:exe 'e' g:dein_github_dir .'/`substitute(matchstr(getline(search('repo =', 'bnW')), "'.*'"), "'", '', 'g')`}/${6:plugin/}${4:}'
 
+#}}}
