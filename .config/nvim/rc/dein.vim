@@ -15,10 +15,10 @@ let g:dein_github_dir  = g:dein_cache_dir   . '/repos/github.com/'
 let s:Shougo_cache_dir = g:dein_cache_dir   . '/repos/github.com/Shougo/'
 let s:dein_itself      = s:Shougo_cache_dir . '/dein.vim/'
 
-if !exists('g:keymapsDL_cd_path_dict')
-  let g:keymapsDL_cd_path_dict = {}
+if !exists('g:keymapsDL#cmd_after#cd_path_dict')
+  let g:keymapsDL#cmd_after#cd_path_dict = {}
 endif
-call extend(g:keymapsDL_cd_path_dict, {
+call extend(g:keymapsDL#cmd_after#cd_path_dict, {
       \ 'c': g:dein_cache_dir,
       \ }
       \ )
