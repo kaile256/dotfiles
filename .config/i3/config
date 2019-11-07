@@ -118,7 +118,7 @@ bindsym $Super+n exec --no-startup-id nvim-qt
 bindsym $SuperS+n exec --no-startup-id i3-sensible-terminal -e "nvim-qt --server $NVIM_LISTEN_ADDRESS"
 bindsym $Super+q exec --no-startup-id nvim-qt
 #bindsym $Super+r exec --no-startup-id nvim-gtk # font decayed
-#bindsym $Super+g exec --no-startup-id glrnvim
+bindsym $SuperS+g exec --no-startup-id glrnvim
 #bindsym $SuperS+g exec --no-startup-id gonvim
 bindsym $Super+g exec --no-startup-id gnvim
 bindsym $Super+y exec --no-startup-id nyaovim

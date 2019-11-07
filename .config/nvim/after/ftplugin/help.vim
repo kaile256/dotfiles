@@ -81,7 +81,7 @@ function! s:toc_vertical() abort "{{{
             \ })
 
       if strlen(index) > toc_width
-        let toc_width = strlen(index)
+        let toc_width = strlen(index) + 2
       endif
     endif
 
