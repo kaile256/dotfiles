@@ -1,6 +1,6 @@
 # From: rc/dein.vim
 
-# FZF
+# Fuzzy Finder
 [[plugins]]
 repo = 'junegunn/fzf' #{{{
 # Note: :Files in fzf.vim is the same as :FZF.
@@ -11,12 +11,17 @@ repo = 'kaile256/fzf.vim'
 # Branch: kaile256/fzf.vim_verbose_commands
 #on_cmd = 'fzf#vim#'
 on_event = 'VimEnter'
-rev = 'verbose_commands'
 hook_add = 'runtime add/fzf.vim'
 hook_source = 'runtime source/fzf.vim'
 hook_post_source = 'runtime post/fzf.vim'
 #}}}
-
+#[[plugins]]
+#repo = 'yuki-ycino/fzf-preview.vim'
+#[[plugins]]
+#repo = 'srstevenson/vim-picker' #{{{
+# fzy's wrapper for vim
+#on_event = ['BufRead']
+##}}}
 #[[plugins]]
 #repo = 'liuchengxu/vim-clap' #{{{
 ## Note: a fuzzy finder written in 99.7% vimscript.
@@ -25,6 +30,12 @@ hook_post_source = 'runtime post/fzf.vim'
 ##}}}
 
 # Filer
+[[plugins]]
+repo = 'zgpio/tree.nvim'
+# Note: written in cpp!
+# not yet available via package-manager
+build = 'make'
+on_cmd = ['Tree']
 [[plugins]] # has extentions
 repo = 'Shougo/defx.nvim' #{{{
 if = 'has("python3")'
