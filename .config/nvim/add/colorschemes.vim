@@ -39,10 +39,13 @@ function! s:colorschemes_neodark() abort "{{{
   "       ':hi **bg=foo' will white out text's characters.
   " Note: :hi should be done after :syntax.
   " line-wise
+  " the line of which only the one has.
   hi DiffAdd     cterm=reverse gui=reverse ctermfg=142 guifg=#b8bb26
+  " the line of which only the other has.
   hi DiffRemove  cterm=reverse gui=reverse ctermfg=167 guifg=#fb4934
+  " the line which has difference between the one and the other.
   hi DiffChange  cterm=reverse gui=reverse ctermfg=108 guifg=#8ec07c
-  " character-wise: text, within a changed line
+  " the differed characters within DiffChange
   hi DiffText    cterm=reverse gui=reverse ctermfg=208 guifg=#fe8019
 
   " for fugitive
