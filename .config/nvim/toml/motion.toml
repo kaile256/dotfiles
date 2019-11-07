@@ -29,15 +29,16 @@ hook_add = 'runtime add/asterisk.vim'
 # Jump to Target
 #[[plugins]]
 #repo = 'justinmk/vim-sneak' #{{{
-#on_map = {nox = '<Plug>Sneak_'}
-#hook_add = 'runtime add/sneak.vim'
-#hook_done_update = '''
-#exe 'e'. g:dein_cache_dir .'/repos/github.com/justinmk/vim-sneak/plugin/sneak.vim'
-#g/<Plug>Sneak_s/d
-#g/<Plug>Sneak_S/d
-#write
-#'''
-##}}}
+## Note: just for comparison to easymotion
+##on_map = {nox = '<Plug>Sneak_'}
+##hook_add = 'runtime add/sneak.vim'
+##hook_done_update = '''
+##exe 'e'. g:dein_cache_dir .'/repos/github.com/justinmk/vim-sneak/plugin/sneak.vim'
+##g/<Plug>Sneak_s/d
+##g/<Plug>Sneak_S/d
+##write
+##'''
+###}}}
 # Jump; Easy Motion
 [[plugins]] # has extentions
 repo = 'kaile256/vim-easymotion' #{{{
@@ -46,11 +47,11 @@ repo = 'kaile256/vim-easymotion' #{{{
 on_map = {nox = '<Plug>(easymotion-'}
 hook_add = 'runtime add/easymotion.vim'
 hook_post_source = 'runtime post/easymotion.vim'
-#hook_done_update = '''
-#exe 'e' g:dein_cache_dir .'/repos/github.com/easymotion/vim-easymotion/autoload/EasyMotion.vim
-#g/EasyMotion_space_jump_first/norm! o\ || (g:EasyMotion_always_jump_first == 1)
-#write
-#'''
+hook_done_update = '''
+exe 'e' g:dein_cache_dir .'/repos/github.com/easymotion/vim-easymotion/autoload/EasyMotion.vim
+g/\Vlen(group_values) == 1/norm! A || (g:EasyMotion_always_jump_first == 1)
+write
+'''
 #[[plugins]]
 #repo = 'haya14busa/vim-easyoperator-phrase' #{{{
 #on_map = '<plug>(easyoperator-'
@@ -124,10 +125,10 @@ on_map = ['<Plug>(EasyAlign)', '<Plug>(LiveEasyAlign)']
 #on_cmd = 'EasyAlign'
 hook_add = 'runtime add/easy-align.vim'
 #}}}
-#[[plugins]]
-#repo = 'AndrewRadev/splitjoin.vim' #{{{
-#on_event = 'BufRead'
-#hook_post_source = 'runtime add/splitjoin.vim'
+[[plugins]]
+repo = 'AndrewRadev/splitjoin.vim' #{{{
+on_cmd = 'BufRead'
+hook_add = 'runtime add/splitjoin.vim'
 #}}}
 
 # Operater; Simultaneous
