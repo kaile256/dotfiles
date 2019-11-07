@@ -67,7 +67,7 @@ hook_source = 'runtime add/FastFold.vim'
 [[plugins]]
 repo = 'rickhowe/diffchar.vim' #{{{
 #on_cmd = ['DiffCharShow', 'DiffCharToggle']
-#on_if = '&diff'
+on_if = '&diff'
 hook_done_update = '''
 exe 'e' g:dein_github_dir .'/rickhowe/diffchar.vim/plugin/diffchar.vim'
 %s/SDChar/DiffCharShow/e

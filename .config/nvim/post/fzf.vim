@@ -24,15 +24,15 @@
 " Command! expand default w/ preview {{{1
 command! -bang -nargs=* Files
       \ call fzf#vim#files(<q-args>,
-      \                 <bang>0 ? fzf#vim#with_preview({'prefix': "'.git/", 'options': '--multi --reverse'}, 'right:60%:wrap')
-      \                         : fzf#vim#with_preview({'prefix': "'.git/", 'options': '--multi --reverse'}, 'right:60%'),
+      \                 <bang>0 ? fzf#vim#with_preview({'prefix': "'.git/", 'options': '--multi --reverse'}, 'right:50%:wrap')
+      \                         : fzf#vim#with_preview({'prefix': "'.git/", 'options': '--multi --reverse'}, 'right:50%'),
       \                 <bang>0)
 
 
 command! -bang -nargs=* Ag
       \ call fzf#vim#ag(<q-args>,
-      \                 <bang>0 ? fzf#vim#with_preview({'prefix': "'.git/", 'options': '--multi --reverse'}, 'right:60%')
-      \                         : fzf#vim#with_preview({'prefix': "'.git/", 'options': '--multi --reverse'}, 'right:60%'),
+      \                 <bang>0 ? fzf#vim#with_preview({'prefix': "'.git/", 'options': '--multi --reverse'}, 'right:50%')
+      \                         : fzf#vim#with_preview({'prefix': "'.git/", 'options': '--multi --reverse'}, 'right:50%'),
       \                 <bang>0)
 
 command! -bang -nargs=* Rg
@@ -55,19 +55,19 @@ command! -bang -nargs=* Commands
 "   1. detect how does the fzf.vim get the preview.
 command! -bang -nargs=* History
       \ :call fzf#vim#history(
-      \                 <bang>0 ? fzf#vim#with_preview({'prefix': "'.git/", 'options': '--multi --reverse'}, 'right:60%')
-      \                         : fzf#vim#with_preview({'prefix': "'.git/", 'options': '--multi --reverse'}, 'right:60%'),
+      \                 <bang>0 ? fzf#vim#with_preview({'prefix': "'.git/", 'options': '--multi --reverse'}, 'right:50%')
+      \                         : fzf#vim#with_preview({'prefix': "'.git/", 'options': '--multi --reverse'}, 'right:50%'),
       \                 <bang>0)
 " TODO: make :History --reverse --multi. {{{1
 command! -bang -nargs=* -complete=buffer Buffers
       \ :call fzf#vim#buffers(
-      \                 <bang>0 ? fzf#vim#with_preview({'prefix': "'.git/", 'options': '--multi --reverse'}, 'right:60%')
-      \                         : fzf#vim#with_preview({'prefix': "'.git/", 'options': '--multi --reverse'}, 'right:60%'),
+      \                 <bang>0 ? fzf#vim#with_preview({'prefix': "'.git/", 'options': '--multi --reverse'}, 'right:50%')
+      \                         : fzf#vim#with_preview({'prefix': "'.git/", 'options': '--multi --reverse'}, 'right:50%'),
       \                 <bang>0)
 "command! -bang -nargs=* -complete=buffer Buffers
 "      \ call fzf#vim#buffers(<q-args>,
-"      \                 <bang>0 ? fzf#vim#with_preview({'prefix': "'.git/", 'options': '--multi --reverse'}, 'right:60%')
-"      \                         : fzf#vim#with_preview({'prefix': "'.git/", 'options': '--multi --reverse'}, 'right:60%'),
+"      \                 <bang>0 ? fzf#vim#with_preview({'prefix': "'.git/", 'options': '--multi --reverse'}, 'right:50%')
+"      \                         : fzf#vim#with_preview({'prefix': "'.git/", 'options': '--multi --reverse'}, 'right:50%'),
 "      \                 <bang>0)
 command! -bang -nargs=* Helptags call fzf#vim#helptags({'options': '--multi --reverse'}, <bang>0)
 "}}}
