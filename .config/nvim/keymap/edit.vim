@@ -210,17 +210,16 @@ function! s:spell_suggestion() abort "{{{
 
   " TODO: always start suggestion at the end of <cword>;
   "       sometimes shifted to the left by one char.
-  if mode() !=# 'i'
+  if mode() =~# 'i'
     let i_mode = 1
-    " Note: fails to work; cursor jumps not the end of word.
-    "call feedkeys("wgei", 'n') " move cursor on the end of <cword> and startinsert.
-    call <SID>get_end_of_word()
+  else
+    call s:get_end_of_word()
   endif
 
-  " Note: <c-x>s takes cursor back to the last non-comment text.
+  " Note: '<c-x>s' forces to take cursor back to the last misspelled word.
   call feedkeys("\<c-x>s", 'n') " start spell-completion
 
-  if exists('i_mode')
+  if !exists('i_mode')
     call feedkeys("\<c-p>", 'n') " keep the word from being replaced at first
   endif
 endfunction "}}}
@@ -233,9 +232,7 @@ inoremap <silent> <c-x><c-s> <Cmd>call  <SID>spell_suggestion()<cr>
 function! s:send_to_cmdline(delete) abort range "{{{
   " TODO: start reverse highlight the cmd-edit mode at the first-line,
   "       which had better be removed when VimLeave.
-  if visualmode()
-    let l:start = column("'<")
-    let l:end   = column("'>")
+  if mode() =~? 'v'
     " TODO: restrict only in visualized area.
     exe getline("'<", "'>")
     if a:delete ==# 'delete' | *delete _ | endif
@@ -253,10 +250,17 @@ noremap <silent> z: :call <SID>send_to_cmdline('keep')<cr>
 function! s:fold_up_vimscript() abort "{{{
   if &readonly && !&modifiable | return | endif
 
-  silent g/function!/v/"{{{/norm! A "{{{
-  silent g/endfunction/v/"}}}/norm! A "}}}
-  silent g/augroup/v/END/v/"{{{/norm! A "{{{
-  silent g/augroup/g/END/v/"}}}/norm! A "}}}
+  if mode() =~? 'v'
+    silent *g/function!/v/"{{{/norm! A "{{{
+    silent *g/endfunction/v/"}}}/norm! A "}}}
+    silent *g/augroup/v/END/v/"{{{/norm! A "{{{
+    silent *g/augroup/g/END/v/"}}}/norm! A "}}}
+  else
+    silent g/function!/v/"{{{/norm! A "{{{
+    silent g/endfunction/v/"}}}/norm! A "}}}
+    silent g/augroup/v/END/v/"{{{/norm! A "{{{
+    silent g/augroup/g/END/v/"}}}/norm! A "}}}
+  endif
 endfunction "}}}
 
-command! -bar FoldUpVimscript call <SID>fold_up_vimscript()
+command! -range -bar FoldUpVimscript call s:fold_up_vimscript()
