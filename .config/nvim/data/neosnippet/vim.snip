@@ -59,8 +59,8 @@ options head
 
 snippet loaded
 alias load loa
-    if exists('g:loaded_${1:`substitute(matchstr(expand('%:p'), 'github.com/.*/\zs.*\ze/.*/'), 'vim-', '', '')`}') | finish | endif
-      let g:loaded_$1 = 1
+  if exists('g:loaded_${1:`substitute(substitute(expand('%:p'), '.*/autoload/\|plugin\/\(*\)\.vim', '\1', ''), '/', '_', 'g')`}') | finish | endif
+  let g:loaded_$1 = 1
 
 snippet cpoptions
 alias cpo
@@ -70,7 +70,7 @@ options head
   set cpo&vim
   "}}}
 
-  ${0:#:plugin's contents}
+  ${0:#:}
 
   " restore 'cpoptions' {{{
   let &cpo = s:save_cpo
@@ -79,6 +79,49 @@ options head
 snippet mode
 alias mod
   " vim: ts=2 sts=2 sw=2 et fdm=marker
+
+snippet init
+alias ini
+  " ============================================================================
+  " File: `substitute(expand('%:p:.'), '.*\(autoload\/\|plugin\/\)', '\1', '')`
+  " Author: kaile256
+  " License: MIT license {{{
+  "     Permission is hereby granted, free of charge, to any person obtaining
+  "     a copy of this software and associated documentation files (the
+  "     "Software"), to deal in the Software without restriction, including
+  "     without limitation the rights to use, copy, modify, merge, publish,
+  "     distribute, sublicense, and/or sell copies of the Software, and to
+  "     permit persons to whom the Software is furnished to do so, subject to
+  "     the following conditions:
+  "
+  "     The above copyright notice and this permission notice shall be included
+  "     in all copies or substantial portions of the Software.
+  "
+  "     THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+  "     OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+  "     MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+  "     IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
+  "     CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+  "     TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+  "     SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+  " }}}
+  " ============================================================================
+
+  if exists('g:loaded_${1:`substitute(substitute(expand('%:p'), '.*/autoload/\|plugin\/\(*\)\.vim', '\1', ''), '/', '_', 'g')`}') | finish | endif
+  let g:loaded_$1 = 1
+
+  " save 'cpoptions' {{{
+  let s:save_cpo = &cpo
+  set cpo&vim
+  "}}}
+
+  ${0:#:}
+
+  " restore 'cpoptions' {{{
+  let &cpo = s:save_cpo
+  "}}}
+  " vim: ts=2 sts=2 sw=2 et fdm=marker
+
 
 snippet autoload
 alias al
@@ -100,6 +143,7 @@ alias f fu fun func function
   function! ${1:`expand('%') =~ 'autoload' ? substitute(matchstr(expand('%:p'),'autoload/\zs.*\ze.vim'),'[/\\]','#','g').'#' : ''`}${2:#:do}(${3:#:{{name\}[, {arglist\}] [, {dict\}]}) ${4:#:range }abort
     ${0:#:}
   endfunction
+
 snippet redir
 alias r re red
 options head
@@ -136,7 +180,7 @@ alias "" ""}} ""
   ""}}}
 #}}}
 
-snippet <c-\><c-n> into Normal Mode
+snippet <c-\><c-n> from Terminal-Job mode
 alias < <c <c- <c-\ <c-\>
   <c-\><c-n>
 snippet tnoremap prewritten '<c-\><c-n>'

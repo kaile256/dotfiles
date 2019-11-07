@@ -22,13 +22,14 @@ let g:windowPK_label2patterns.default = {
       \ }
 
 "let g:windowPK_label2excmd = {}
+
 augroup WindowPKonDiff
   function! s:diff_keymaps() abort "{{{
-    if !exists('g:_diff_started_bufnrs')
+    if !exists('s:_diff_bufnrs')
       " TODO: get all the diff bufnrs
-      let g:_diff_started_bufnrs = []
+      let s:_diff_bufnrs = []
     endif
-    call add(g:_diff_started_bufnrs, bufnr('%'))
+    if index(s:_diff_bufnrs, bufnr('%')) | return | endif
 
     " Note: on dein's hook on update, have deleted the line of dq from plugin/
     nnoremap <buffer><nowait> dq         :<c-u>WindowPKreduce<cr>
@@ -38,26 +39,25 @@ augroup WindowPKonDiff
     nnoremap <buffer><nowait> <c-w><c-o> :<c-u>WindowPKonly<cr>
     xnoremap <buffer><nowait> <c-w><c-o> :<c-u>WindowPKonly<cr>
 
-    augroup WindowPKunmapDiff "{{{
-      if !exists('*s:diff_unmap')
-        function! s:diff_unmap(bufnrs) abort
-          for bufnr in a:bufnrs
-            if getbufvar(bufnr, '&diff') | return | endif
-
-            silent! exe bufnr 'bufdo nunmap <buffer> dq'
-            silent! exe bufnr 'bufdo xunmap <buffer> dq'
-            silent! exe bufnr 'bufdo nunmap <buffer> <c-w>o'
-            silent! exe bufnr 'bufdo xunmap <buffer> <c-w>o'
-            silent! exe bufnr 'bufdo nunmap <buffer> <c-w><c-o>'
-            silent! exe bufnr 'bufdo xunmap <buffer> <c-w><c-o>'
-
-            silent! call remove(a:bufnrs, bufnr)
-            if empty(a:bufnrs) | return | endif
-          endfor
-        endfunction
-      endif
-      au OptionSet,BufLeave * call s:diff_unmap(g:_diff_started_bufnrs)
-    augroup END "}}}
+    call add(s:_diff_bufnrs, bufnr('%'))
   endfunction "}}}
-  au OptionSet * if &diff | call s:diff_keymaps() | endif
+  au OptionSet,WinEnter * if &diff | call s:diff_keymaps() | endif
+  function! s:diff_unmap() abort "{{{
+    if !exists('s:_diff_bufnrs') | return | endif
+    let bufnrs = get(s:, '_diff_bufnrs', [])
+    for bufnr in bufnrs
+      if getbufvar(bufnr, '&diff') | return | endif
+
+      silent! exe bufnr 'bufdo nunmap <buffer> dq'
+      silent! exe bufnr 'bufdo xunmap <buffer> dq'
+      silent! exe bufnr 'bufdo nunmap <buffer> <c-w>o'
+      silent! exe bufnr 'bufdo xunmap <buffer> <c-w>o'
+      silent! exe bufnr 'bufdo nunmap <buffer> <c-w><c-o>'
+      silent! exe bufnr 'bufdo xunmap <buffer> <c-w><c-o>'
+
+      silent! call remove(bufnrs, bufnr)
+      if empty(bufnrs) | return | endif
+    endfor
+  endfunction "}}}
+  au OptionSet,BufLeave * call s:diff_unmap()
 augroup END

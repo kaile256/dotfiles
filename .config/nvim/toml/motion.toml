@@ -127,7 +127,7 @@ hook_add = 'runtime add/easy-align.vim'
 #}}}
 [[plugins]]
 repo = 'AndrewRadev/splitjoin.vim' #{{{
-on_cmd = 'BufRead'
+on_cmd = '<Plug>SplitjoinJoin'
 hook_add = 'runtime add/splitjoin.vim'
 #}}}
 

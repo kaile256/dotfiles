@@ -19,20 +19,24 @@ function! s:hub_create(path, ...) abort "{{{
   endif
   !hub create a:000 l:dir_path
 endfunction "}}}
+let s:gvstatus = {-> execute('vert bot 35 Gstatus')}
+command! -bang -bar -range=-1 -addr=tabs Gvstatus :call s:gvstatus()
 
-function! s:diff_mode() abort "{{2 "{{{
+function! s:diff_mode() abort "{{
   " Keep to show diff w/ HEAD while editting commit-message.
   Gvdiffsplit! HEAD
   " For: makes user notice if any other changes in the buffer.
   norm gg
-  vert bot 35 Gstatus
+  Gvstatus
   setl winfixwidth
   wincmd =
-endfunction "}}}2
+endfunction "}}}
 command! Gstage
       \ :Gw | WindowPKpick | call <SID>diff_mode()
 command! Gsolo
       \ :Gw | WindowPKonly | call <SID>diff_mode()
+command! -bar -bang -nargs=* -complete=customlist,fugitive#EditComplete Glive
+      \ :Gw | WindowPKpick | Gvdiffsplit! HEAD
 " in new tab, if any unnecessary windows are there.
 " TODO: set unstage; should trace <SNR> via :scriptnames.
 " &@:<C-U>execute <SNR>277_Do('Unstage',0)<CR>
@@ -44,20 +48,16 @@ command! -bar -bang -nargs=* -complete=customlist,fugitive#EditComplete GvdiffMo
       \ | Gvdiffsplit! <args>
 "}}}
 
-" Info; Blame {{{
+" Info; Blame {{{1
 nnoremap <silent> <space>gb     :<c-u>Gblame<cr>
-"}}}
-" Info; Status {{{
+" Info; Status {{{1
 nnoremap <silent> <space>gs     :<c-u>vert bot 35 Gstatus<cr>
-"}}}
-" Add; Only {{{
-nnoremap <silent> <space>ga     :<c-u>Gw <bar> vert bot 35 Gstatus<cr>
-"}}}
-" Add; && Commit w/ diff {{{1
+" Add; Only {{{1
+nnoremap <silent> <space>ga     :<c-u>Gw<cr>
+" Add; w/ diff && status {{{1
 nnoremap <silent> <space>gw     :<c-u>Gstage<cr>
 nnoremap <silent> <space>go     :<c-u>Gsolo<cr>
-"}}}
-" Diff; {{{
+nnoremap <silent> <space>gW     :<c-u>Gw <bar> GvdiffMode HEAD<cr>
+" Diff; {{{1
 " !: On a Merge Conflict, do a 3-diff; otherwise the same as without bang.
 nnoremap <silent> <space>gd     :<c-u>GvdiffMode<cr>
-"}}}
