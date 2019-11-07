@@ -1,7 +1,6 @@
 " From: finder.toml
 " Repo: junegunn/fzf.vim
 " Fork: kaile256/fzf.vim
-" Rev: kaile256/fzf.vim_verbose_commands
 " Another: source/fzf.vim
 " Another: post/fzf.vim
 
