@@ -29,8 +29,8 @@ hook_add = 'runtime add/pfp.vim'
 # Floating Window
 #[[plugins]]
 #repo = 'ncm2/float-preview.nvim' #{{{
-#on_source = ['delplete.nvim', 'coc.nvim']
-#hook_post_source = 'runtime add/float-preview.vim'
+#on_source = ['denite.nvim', 'delplete.nvim', 'coc.nvim']
+#hook_source = 'runtime source/float-preview.vim'
 ##}}}
 #[[plugins]]
 #repo = 'voldikss/vim-floaterm' #{{{
@@ -61,15 +61,15 @@ write
 # Checker
 #[[plugins]]
 #repo = 'haya14busa/vim-stacktrace' #{{{
-## Error: a lot of unknown_functions
+## Note: a lot of unknown_functions
 #build = 'make'
-#on_event = 'BufRead'
+#on_cmd = ['CStacktraceFromhist', 'LStacktraceFromhist']
 #hook_add = 'runtime add/stacktrace.vim'
 ##}}}
 #[[plugins]]
 #repo = 'lacygoill/vim-stacktrace' #{{{
-## Note: useless for dein's error, either not in detail
-#on_event = 'BufRead'
+## WIP: no use because of the lack of autoload-functions except main()
+#on_cmd = 'WTF'
 #hook_post_source = 'runtime add/stacktrace.vim'
 ##}}}
 
