@@ -91,6 +91,8 @@ set list
 "set listchars=tab:»-,trail:-,eol:↲,extends:»,precedes:«,nbsp:%
 "}}}
 
+" Method; diff {{{1
+set diffopt=filler,internal,vertical,algorithm:histogram,indent-heuristic
 " Method; Shell {{{1
 " CAUTION: some plugins depends on bash, such as twiggy.vim.
 "if executable('fish')

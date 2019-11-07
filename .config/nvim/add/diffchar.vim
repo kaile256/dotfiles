@@ -9,3 +9,5 @@ augroup DiffChar
   au DiffUpdated if exists(':DiffCharReset') | DiffCharReset | endif
   au DiffUpdated if exists(':RDChar')        | RDChar        | endif
 augroup END
+
+let g:DiffColors = 100  " all available colors in dynamic random order
