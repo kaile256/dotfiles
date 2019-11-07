@@ -31,6 +31,10 @@ function! s:colorschemes_neodark() abort "{{{
   " Note: should be done after :coloscheme.
   syntax enable
 
+  hi Search ctermfg=236 ctermbg=180 guifg=#3e120a guibg=#ebb556
+  hi NormalFloat guibg=#1a0210 guifg=#957474
+
+  " for &diff {{{
   " Note: reverse keeps text color;
   "       ':hi **bg=foo' will white out text's characters.
   " Note: :hi should be done after :syntax.
@@ -48,11 +52,9 @@ function! s:colorschemes_neodark() abort "{{{
 
   hi diffFile    cterm=reverse gui=reverse ctermfg=208 guifg=#fe8019
   hi diffNewFile cterm=reverse gui=reverse ctermfg=214 guifg=#fabd2f
-  hi diffLine    cterm=reverse gui=reverse ctermfg=109 guifg=#83a598
-
-  hi Search ctermfg=236 ctermbg=180 guifg=#3e120a guibg=#ebb556
-
-  hi NormalFloat guibg=#1a0210 guifg=#957474
+  "hi diffLine    cterm=reverse gui=reverse ctermfg=109 guifg=#83a598
+  hi diffLine    cterm=reverse gui=reverse ctermfg=109 guifg=#36b383
+  "}}}
 endfunction "}}}
 
 "augroup AlertOnBuffer
