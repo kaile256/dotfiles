@@ -6,14 +6,17 @@ export XDG_CACHE_HOME="${HOME}/.cache"
 export XDG_DATA_HOME="${HOME}/.local/share"
 #}}}
 
+# for docui, which is the client for docker on TUI
+export LC_CTYPE=en_US.UTF-8
+
 # nvr & nvim-qt does NOT work as sudoedit.
 export EDITOR=nvim
 export VISUAL=nvim
 export SUDO_EDITOR=nvim
 
 # Terminal
-export TERM=rxvt-unicode
-export COLORTERM=rxvt-unicode
+export TERM=xterm-256color
+export COLORTERM=xterm-256color
 
 # Japanese IM
 export GTK_IM_MODULE=fcitx
