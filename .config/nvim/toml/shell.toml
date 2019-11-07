@@ -30,7 +30,7 @@ hook_add = 'runtime add/suda.vim'
 ##}}}
 
 # Shell; Async Processor
-[[plugins]]
+[[plugins]] # has extensions
 repo = 'thinca/vim-quickrun' #{{{
 on_cmd = 'QuickRun'
 on_map = '<Plug>(quickrun'
