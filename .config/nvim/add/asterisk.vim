@@ -66,14 +66,14 @@ xnoremap <expr><silent> <Plug>(asterisk-dot-substitute-delete-downward)
       \ .'dgn'
 " Note: troublesome in the case append in front of the selected word.
 "       e.g., risk -> asterisk in forward.
-"xnoremap <expr><silent> <Plug>(asterisk-dot-substitute-change-upward)
-"      \ (line("'<") != line("'>"))? 'c':
-"      \ asterisk#do(mode(1), {'direction' : 1, 'do_jump' : 0, 'is_whole' : 0})
-"      \ .'cgN'
-"xnoremap <expr><silent> <Plug>(asterisk-dot-substitute-change-downward)
-"      \ (line("'<") != line("'>"))? 'c':
-"      \ asterisk#do(mode(1), {'direction' : 1, 'do_jump' : 0, 'is_whole' : 0})
-"      \ .'cgn'
+xnoremap <expr><silent> <Plug>(asterisk-dot-substitute-change-upward)
+      \ (line("'<") != line("'>"))? 'c':
+      \ asterisk#do(mode(1), {'direction' : 1, 'do_jump' : 0, 'is_whole' : 0})
+      \ .'cgN'
+xnoremap <expr><silent> <Plug>(asterisk-dot-substitute-change-downward)
+      \ (line("'<") != line("'>"))? 'c':
+      \ asterisk#do(mode(1), {'direction' : 1, 'do_jump' : 0, 'is_whole' : 0})
+      \ .'cgn'
 
 " TODO: DotSubstitute by Paste {{{2
 xnoremap <expr><silent> <Plug>(asterisk-dot-substitute-paste-upward)
@@ -133,10 +133,10 @@ xmap P <Plug>(asterisk-dot-substitute-paste-upward)
 
 " Note: x/s work duplicated with d/c respectively.
 xmap x <Plug>(asterisk-dot-substitute-delete-downward)
-"xmap s <Plug>(asterisk-dot-substitute-change-downward)
+xmap s <Plug>(asterisk-dot-substitute-change-downward)
 " Note: when over lines, keep blockwise even on X/S, unrepeatable.
 xmap X <Plug>(asterisk-dot-substitute-delete-upward)
-"xmap S <Plug>(asterisk-dot-substitute-change-upward)
+xmap S <Plug>(asterisk-dot-substitute-change-upward)
 
 omap * <Plug>(asterisk-dot-substitute-operator-downward)
 omap # <Plug>(asterisk-dot-substitute-operator-upward)
