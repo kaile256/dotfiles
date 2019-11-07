@@ -1,7 +1,7 @@
 scriptencoding utf-8
 " From: init.vim
 
-if executable("rg")
+if executable('rg')
   " Ref: https://ktrysmt.github.io/blog/finish-work-early-with-cli-made-by-rust/
   set grepprg=rg\ --vimgrep\ --no-heading
   set grepformat=%f:%l:%c:%m,%f:%l:%m
@@ -235,9 +235,10 @@ set sessionoptions+=slash,winsize
 " Method; Completion {{{1
 set complete-=i " i: included files
 
-" CAUTION: :DiffOrig ruins diff syntax.
-"command! DiffOrig vert above new | setl bt=quickfix | r # | 0d_ | diffthis
-"      \ | wincmd p | diffthis
+command! DiffOrig
+      \ :vert above new | setl bt=nofile
+      \ | r # | 0d_
+      \ | diffthis | wincmd p | diffthis
 
 " Leap; Multiple Windows {{{1
 set splitbelow
