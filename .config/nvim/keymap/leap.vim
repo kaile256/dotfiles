@@ -22,8 +22,8 @@ nnoremap <silent> <c-q> :silent! $tag<cr>
 
 "" Jump; Search
 " researched word will come up at middle of current window.
-nnoremap <nowait> n   nzz
-nnoremap <nowait> N   Nzz
+"nnoremap n nzz
+"nnoremap N Nzz
 "}}}
 
 " Switch; Pane
