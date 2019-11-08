@@ -28,6 +28,14 @@ command! -bang -nargs=* Tmaps call fzf#vim#maps('t', <bang>0)
 command! -bang Functions :call fzf#vim#functions({'options': '--multi --reverse'})
       "\ fzf#vim#with_preview({'options': '--multi --reverse'}, 'right:60%:wrap'),
       "\ <bang>0)
+" TODO: selector of terminal-buffer.
+command! -bang -nargs=* -complete=buffer Terminal
+      \ call fzf#vim#buffers(<q-args>,
+      \                 <bang>0 ? fzf#vim#with_preview({'prefix': "'.git/", 'options': '--multi --reverse'}, 'right:65%')
+      \                         : fzf#vim#with_preview({'prefix': "'.git/", 'options': '--multi --reverse'}, 'right:65%'),
+      \                 <bang>0)
+
+"}}}
 
 " Note: the commands below are all wrapper,
 "       so that they must be loaded on hook_add.
