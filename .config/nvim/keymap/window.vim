@@ -10,6 +10,8 @@ nnoremap Zq ZQ
 nnoremap <c-w>Q :<c-u>q! <cr>
 nnoremap <c-w>Z :<c-u>qa  <cr>
 
+nnoremap <silent> <c-w><space>n :<c-u>vnew<cr>
+
 nnoremap <c-w>h <c-w>H
 nnoremap <c-w>j <c-w>J
 nnoremap <c-w>k <c-w>K
@@ -31,13 +33,12 @@ nnoremap <c-w>0 <c-w>=
 noremap <silent> <c-w>o     <c-w>o:diffoff!<cr>
 noremap <silent> <c-w><c-o> <c-w>o:diffoff!<cr>
 
-augroup OnEditNewNoFixedWindow
+augroup FixedWindowOnlyUponBuffer
   au! BufWinLeave * if &l:winfixwidth || &l:winfixheight | setl nowinfixwidth nowinfixheight
 augroup END
 
-" Resize {{{
+" Resize {{{1
 nnoremap <c-left> <c-w><
 nnoremap <c-right> <c-w>>
 nnoremap <c-down> <c-w>-
 nnoremap <c-up> <c-w>+
-"}}}
