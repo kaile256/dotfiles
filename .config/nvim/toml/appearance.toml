@@ -7,6 +7,16 @@ repo = 'flazz/vim-colorschemes' #{{{
 on_event = 'VimEnter'
 hook_post_source = 'runtime add/colorschemes.vim'
 #}}}
+[[plugins]]
+repo = 'rhysd/try-colorscheme.vim' #{{{
+# try colorscheme via URL/Repo
+hook_add = 'runtime add/try-colorscheme.vim'
+hook_done_update = '''
+exe 'e' g:dein_github_dir .'/rhysd/try-colorscheme.vim/plugin/try_colorscheme.vim'
+%s/TryColorscheme/ColoTry/e
+write
+'''
+#}}}
 #[[plugins]]
 #repo = 'KeitaNakamura/neodark.vim' #{{{
 #depend = ['lightline.vim', 'airline.vim']
