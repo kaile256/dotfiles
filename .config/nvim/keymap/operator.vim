@@ -42,26 +42,27 @@ nmap yP <Plug>(copy-line-upward)
 "nmap yP :silent! call repeat#set('\<Plug>(copy-line-upward')<cr>
 
 augroup EchoOperated
-  au! TextYankPost * call <SID>echo_operated()
-  function! s:echo_operated() abort "{{{1
-    if v:event.operator ==# 'y'
-      let l:operated = 'Yanked'
-    elseif v:event.operator ==# 'd'
-      let l:operated = 'Deleted'
-    elseif v:event.operator ==# 'c'
-      let l:operated = 'Cut'
-    elseif v:event.operator ==# ''
-      let l:operated = 'Done'
-    else
-      let l:operated = v:event.operator
-    endif
-
+  au! TextYankPost * call s:echo_operated()
+  function! s:echo_operated() abort "{{{
     if v:event.regname ==# ''
       let l:regname = '"'
     elseif !empty(v:event.regname)
       let l:regname = v:event.regname
     else
       let l:regname = 'unknown'
+    endif
+
+    if v:event.operator ==# 'y'
+      let operated = 'Yanked'
+      let l:regname = '0'
+    elseif v:event.operator ==# 'd'
+      let operated = 'Deleted'
+    elseif v:event.operator ==# 'c'
+      let operated = 'Cut'
+    elseif v:event.operator ==# ''
+      let operated = 'Done'
+    else
+      let operated = v:event.operator
     endif
 
     if v:event.regtype ==# 'v'
@@ -75,8 +76,8 @@ augroup EchoOperated
     endif
 
     let l:contents = string(v:event.regcontents)
-    echomsg ' '. l:operated .' @'. l:regname l:regtype .': '. l:contents
-  endfunction "}}}1
+    echomsg ' '. operated .' @'. l:regname l:regtype .': '. l:contents
+  endfunction "}}}
 augroup END
 
 " TODO: Ignore difference of line's height.
