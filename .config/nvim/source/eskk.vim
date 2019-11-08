@@ -60,7 +60,7 @@ function! s:eskk_special_maps() "{{{1
 endfunction "}}}
 augroup EskkCallMyFunc
   au!
-  au User eskk-initialize-pre call <SID>eskk_special_maps()
+  au User eskk-initialize-pre call s:eskk_special_maps()
   "au ColorScheme * ++nested hi CursorIM guibg=purple guibg=yellow
 augroup END
 
