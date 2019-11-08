@@ -5,7 +5,7 @@ alias sc ut s u scr script
 options head
   scriptencoding utf-8
 
-# Begining of Plugin
+# for Plugin {{{
 snippet mit
 options head
   " License: MIT license {{{
@@ -59,7 +59,7 @@ options head
 
 snippet loaded
 alias load loa
-  if exists('g:loaded_${1:`substitute(substitute(expand('%:p'), '.*/autoload/\|plugin\/\(*\)\.vim', '\1', ''), '/', '_', 'g')`}') | finish | endif
+  if exists('g:loaded_${1:`substitute(substitute(matchstr(expand('%:p'), 'autoload/\|plugin\/*\.vim'), 'autoload\|plugin/\(.*\).vim', '\1', ''), '/', '_', 'g')`}') | finish | endif
   let g:loaded_$1 = 1
 
 snippet cpoptions
@@ -70,15 +70,15 @@ options head
   set cpo&vim
   "}}}
 
-  ${0:#:}
+  ${0}
 
   " restore 'cpoptions' {{{
   let &cpo = s:save_cpo
   "}}}
 
 snippet mode
-alias mod
-  " vim: ts=2 sts=2 sw=2 et fdm=marker
+alias mod vim
+  " vim: et ts=2 sts=2 sw=2 fdm=marker
 
 snippet init
 alias ini
@@ -115,57 +115,57 @@ alias ini
   set cpo&vim
   "}}}
 
-  ${0:#:}
+  ${0}
 
-  " restore 'cpoptions' {{{
+  " restore 'cpoptions' {{{1
   let &cpo = s:save_cpo
-  "}}}
+  unlet s:save_cpo
+
+  " modeline {{{1
   " vim: ts=2 sts=2 sw=2 et fdm=marker
 
 
 snippet autoload
-alias al
+alias aut auto al aul aulo
   `substitute(substitute(expand('%:p'), '.*/autoload/\(.*\).vim', '\1', ''), '/', '#', 'g') .'#'`
 
-# End of Plugin's
+#}}}
 
-# Declare {{{
+# Excmds {{{1
 delete au augroup ... autocmd block
 snippet augroup
 abbr au aug augr
-  augroup ${1:#:Augroup}
+  augroup ${1}
   au!
-  au ${3:BufNewFile,BufRead} ${4:*} ${5:#:}
+  au ${3:BufNewFile,BufRead} ${4:*} ${5}
   augroup END
 delete f function
 snippet function
 alias f fu fun func function
   function! ${1:`expand('%') =~ 'autoload' ? substitute(matchstr(expand('%:p'),'autoload/\zs.*\ze.vim'),'[/\\]','#','g').'#' : ''`}${2:#:do}(${3:#:{{name\}[, {arglist\}] [, {dict\}]}) ${4:#:range }abort
-    ${0:#:}
+    ${0}
   endfunction
 
 snippet redir
 alias r re red
 options head
   redir ${1:=>} ${2:#: =>: var | >: file | @a: register a}
-  ${4:#:}
+  ${4}
   redir END
-#}}}
-
-# Abbr {{{
-snippet abbriviation
-alias ab abb abr abbr
-  ${3:c}noreabbr <expr> '${1:#:}' (getcmdtype() == ':' && getcmdline() =~ '^$1$')? '${2:#:}' : '$1'
-snippet abbr for cmdline
-alias cn cno cna cnore cnoreab cnoreabbr
-  cnoreabbr <expr> ${1:#:} (getcmdtype() == ':' && getcmdline() =~ '^$1$')? '${2:#:}' : '$1'
-#}}}
 
 snippet noremap
 alias no
-  ${0:n}noremap ${1:<silent>} ${2:#:} ${4::<c-u>}${3:#:}${4:<cr>}
+  ${0:n}noremap ${1:<silent>} ${2} ${4::<c-u>}${3}${4:<cr>}
 
-# Fold {{{
+# Abbr {{{2
+snippet abbriviation
+alias ab abb abr abbr
+  ${3:c}noreabbr <expr> '${1}' (getcmdtype() == ':' && getcmdline() =~ '^$1$')? '${2}' : '$1'
+snippet abbr for cmdline
+alias cn cno cna cnore cnoreab cnoreabbr
+  cnoreabbr <expr> ${1} (getcmdtype() == ':' && getcmdline() =~ '^$1$')? '${2}' : '$1'
+
+# Fold {{{2
 snippet {{{ beginning of fold
 alias  { pp {{ {{{ {} {{}} {{{}}}
   {{{
@@ -178,11 +178,13 @@ alias " "}} "} } }} "}" "}}" "}}}"
 snippet ""}}} end of fold
 alias "" ""}} ""
   ""}}}
-#}}}
 
+# Terminal {{{2
 snippet <c-\><c-n> from Terminal-Job mode
 alias < <c <c- <c-\ <c-\>
   <c-\><c-n>
 snippet tnoremap prewritten '<c-\><c-n>'
 alias tn tno tnor tnore tnorem tnorema tnoremap
-  tnoremap ${1:<silent>} ${2:#:} <c-\><c-n>:${0:#:} <cr>
+  tnoremap ${1:<silent>} ${2} <c-\><c-n>:${0} <cr>
+
+# vim: fdm=marker
