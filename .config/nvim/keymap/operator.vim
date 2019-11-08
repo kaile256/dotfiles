@@ -25,11 +25,25 @@ endfunction "}}}1
 "nnoremap <silent> <Plug>(copy-line-upward)   :call <SID>line_operation('copy', 'upward')<cr>
 "nnoremap <silent> <Plug>(copy-line-upward)   :call <SID>line_operation('copy', 'upward')<cr>
 
-" TODO: make '"_' pattern work
-nnoremap <expr> <Plug>(move-line-downward) (getline('.') ==# @")? '"_ddp': 'ddp'
-nnoremap <expr> <Plug>(move-line-upward)   (getline('.') ==# @")? '"_ddkP': 'ddkP'
-nnoremap <expr> <Plug>(copy-line-downward) (getline('.') ==# @")? '"_yyP': 'yyp'
-nnoremap <expr> <Plug>(copy-line-upward)   (getline('.') ==# @")? '"_yyP': 'yyP'
+"" keep register clean
+"function! s:the_line_is_identical_to_regcontents() abort
+"  if !has_key(v:event, 'regname')
+"    " TODO: have to check character-wise
+"    return (@" ==# substitute(getline('v'), '$', '\n', 'g'))
+"  endif
+"endfunction
+"nnoremap <expr> <Plug>(clean-register-delete)
+"      \ <SID>the_line_is_identical_to_regcontents()? '"_d': 'd'
+"nnoremap <expr> <Plug>(clean-register-change)
+"      \ <SID>the_line_is_identical_to_regcontents()? '"_c': 'c'
+"nmap d <Plug>(clean-register-delete)
+"nmap c <Plug>(clean-register-change)
+
+" TODO: enable to dot-repoeat
+nnoremap <expr> <Plug>(move-line-downward) (@" ==# substitute(getline('.'), '$', '\n', 'g'))? '"_ddp':  'ddp'
+nnoremap <expr> <Plug>(move-line-upward)   (@" ==# substitute(getline('.'), '$', '\n', 'g'))? '"_ddkP': 'ddkP'
+nnoremap <expr> <Plug>(copy-line-downward) (@0 ==# substitute(getline('.'), '$', '\n', 'g'))? 'p': 'yyp'
+nnoremap <expr> <Plug>(copy-line-upward)   (@0 ==# substitute(getline('.'), '$', '\n', 'g'))? 'P': 'yyP'
 
 nmap cp <Plug>(move-line-downward)
 nmap cP <Plug>(move-line-upward)
@@ -75,30 +89,31 @@ augroup EchoOperated
       let l:regtype = 'in an unknown way'
     endif
 
-    let l:contents = string(v:event.regcontents)
+    let l:contents = join(v:event.regcontents, "\n")
+    "let l:contents = string(v:event.regcontents)
     echomsg ' '. operated .' @'. l:regname l:regtype .': '. l:contents
   endfunction "}}}
 augroup END
 
 " TODO: Ignore difference of line's height.
 function! s:backup_yanked_contents() "{{{
-  if !exists('g:maps_KAIZEN#backuplist_regnames')
-    throw " Please :let g:maps_KAIZEN#backuplist_regnames = '(a sequence of optional alphabets of register's name)'"
+  if !exists('g:backupYanked#backuplist_regnames')
+    throw " Please :let g:backupYanked#backuplist_regnames = '(a sequence of optional alphabets of register's name)'"
   endif
-  if !exists('g:maps_KAIZEN#last_address')
-    let g:maps_KAIZEN#last_address = 0
+  if !exists('s:last_address')
+    let s:last_address = 0
   endif
-  if g:maps_KAIZEN#last_address < len(g:maps_KAIZEN#backuplist_regnames) - 1
-    let g:maps_KAIZEN#last_address = g:maps_KAIZEN#last_address + 1
+  if s:last_address < len(g:backupYanked#backuplist_regnames) - 1
+    let s:last_address = s:last_address + 1
   else
     " Resets the counter of address here.
-    let g:maps_KAIZEN#last_address = 0
+    let s:last_address = 0
   endif
   "let g:last_address = (g:last_address - 1) % len(g:backuplist_regnames)
-  let g:maps_KAIZEN#latest_backup_regname =  g:maps_KAIZEN#backuplist_regnames[g:maps_KAIZEN#last_address]
-  exe 'let @' . g:maps_KAIZEN#latest_backup_regname .'= getreg(0)'
+  let s:latest_backup_regname =  g:backupYanked#backuplist_regnames[s:last_address]
+  exe 'let @' . s:latest_backup_regname .'= getreg(0)'
 endfunction "}}}
-let g:maps_KAIZEN#backuplist_regnames = 'abcdefg'
+let g:backupYanked#backuplist_regnames = 'abcdefg'
 command! BackupYanked :call s:backup_yanked_contents()
 nnoremap <silent> y :BackupYanked<cr>y
 nnoremap <silent> Y :BackupYanked<cr>y$
