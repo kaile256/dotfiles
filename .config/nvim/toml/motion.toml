@@ -2,17 +2,18 @@
 
 [[plugins]]
 repo = 'bkad/CamelCaseMotion' #{{{
-on_map = {nox = '<Plug>CamelCaseMotion_'}
+on_map = {nxo = '<Plug>CamelCaseMotion_'}
 #on_event = 'BufRead'
 hook_add = 'runtime add/CamelCaseMotion.vim'
 #}}}
 
 # Search
 [[plugins]]
-repo = 'haya14busa/vim-asterisk' #{{{
+repo = 'kaile256/vim-asterisk' #{{{
+#repo = 'haya14busa/vim-asterisk'
 # Keep the cursor on `*` or `#`, even on visual mode.
 # Note: autload-function always fails on vertical x/s.
-on_map = {xn = '<Plug>(asterisk-'}
+on_map = {nx = '<Plug>(asterisk-'}
 hook_add = 'runtime add/asterisk.vim'
 #}}}
 #[[plugins]]

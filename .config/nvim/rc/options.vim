@@ -6,20 +6,19 @@ if executable('rg')
   set grepprg=rg\ --vimgrep\ --no-heading
   set grepformat=%f:%l:%c:%m,%f:%l:%m
 endif
-command! -nargs=+ -complete=file Grep :tabnew | :silent grep --sort-files <args>
+command! -nargs=+ -complete=file Grep :tabnew | silent grep --sort-files <args>
 
 " Time in ms to wait for a mapped sequence to complete.
 " For: made me notice if any mappings are in Caleene's way.
 set timeoutlen=10000
 
 set synmaxcol=320
-" Appearance; Pmenu {{{
+" Appearance; Pmenu {{{1
 " shortmess: Shorter Message
 " c-option: forbids to give |ins-completion-menu| messages.
 set shortmess+=c
 set pumheight=15
-"}}}
-" Appearance; Format {{{
+" Appearance; Format {{{1
 "set noemoji
 " wrap long text: s for space
 set wrap whichwrap=h,l
@@ -45,14 +44,12 @@ endfunction "}}}
 " modeline; force format as written at top/bottom of file
 set modeline
 set modelineexpr
-"}}}
-" Appearance; Cursor {{{
+" Appearance; Cursor {{{1
 " shorter for CursorHold & CursorHoldI
 set updatetime=300
 "" Cursor; Disable
 "set guicursor
-"}}}
-" Appearance; Line {{{
+" Appearance; Line {{{1
 set cursorline
 " CAUTION: cursorline-highlight causes drawing corruption.
 augroup AutoToggleCursorLine
@@ -66,21 +63,18 @@ augroup END
 " in diff mode, move cursorline in the other window as the corresponding line of the current window.
 " Error?: it would work, even not in diff mode, but just there're two or more windows in a screen.
 "set nocursorbind
-"}}}
-" Appearance; Column {{{
+" Appearance; Column {{{1
 " show line number on left
 set number
 set colorcolumn=81
 " signcolumn is the line beside numbers.
 set signcolumn=auto
-"}}}
-" Appearance; Statusbar {{{
+" Appearance; Statusbar {{{1
 set title
 set ruler
 " 2: always show the current status.
 set laststatus=2
-"}}}
-" Appearance; Invisible Charactars {{{
+" Appearance; Invisible Charactars {{{1
 " show space and CR
 set list
 "set list listchars=nbsp:¦_
@@ -90,7 +84,6 @@ set list
 "  au BufEnter,CursorHold * if &l:list == 0 | setl list | endif
 "augroup END
 "set listchars=tab:»-,trail:-,eol:↲,extends:»,precedes:«,nbsp:%
-"}}}
 
 " Method; diff {{{1
 set diffopt=filler,internal,vertical,algorithm:histogram,indent-heuristic
@@ -99,7 +92,7 @@ set diffopt=filler,internal,vertical,algorithm:histogram,indent-heuristic
 "if executable('fish')
 "   set shell=fish
 "endif
-" Method; Imput Method {{{
+" Method; Imput Method {{{1
 " 0: IM will be off, when lmap is off.
 " lmap supports 3 modes: insert, commandline and lang-arg.
 set iminsert=0
@@ -113,8 +106,7 @@ set imcmdline
 "    au InsertLeave * nested call system('fcitx-remote -c')
 "  endif
 "augroup END
-"}}}
-" Method; Tab&Indent {{{
+" Method; Tab&Indent {{{1
 "" Tab-Char
 " Insert spaces, instead of a tab-char.
 set expandtab
@@ -135,18 +127,15 @@ set shiftwidth=2
 set smarttab
 " for '</>' indent, insert spaces according to &l:shiftwidth.
 set shiftround
-"}}}
-" Method; Pair {{{
+" Method; Pair {{{1
 " show match parens.
 set showmatch
 set matchtime=1 " 10 times the number sec.
 " add '<' and '>' as a match pair
 set matchpairs+=<:>,「:」,『:』
-"}}}
-" Method; Visual Mode {{{
+" Method; Visual Mode {{{1
 set virtualedit=block
-"}}}
-" Method; Commandline Mode {{{
+" Method; Commandline Mode {{{1
 set noshowcmd
 "set history=10000
 " Cmdline; Completion
@@ -159,14 +148,12 @@ set wildcharm=<c-y>
 if exists('+inccommand')
   set inccommand=nosplit
 endif
-"}}}
-" Method; Macros "{{{
+" Method; Macros "{{{1
 " lazyredraw: forbids to redraw screen while executing macros.
 " Note: had caused a problem w/ fugitive;
 "       expanded too wide a fugitive buffer's window.
 set lazyredraw
-"}}}
-" Method; Fold {{{
+" Method; Fold {{{1
 "set foldenable " default: on
 set foldmethod=syntax
 set foldlevel=1
@@ -182,24 +169,24 @@ augroup FoldMyConfigsAtMarker
   au!
   au BufWinEnter dotfiles/**,.config/** setl fdm=marker
 augroup END
-"  function! s:is_view_available() abort " {{{
+"  function! s:is_view_available() abort "{{{
 "    if !&buflisted || &bt !=# ''
 "      return 0
 "    elseif !filewritable(expand('%:p'))
 "      return 0
 "    endif
 "    return 1
-"  endfunction " }}}
-"  function! s:mkview() abort " {{{
+"  endfunction "}}}
+"  function! s:mkview() abort "{{{
 "    if s:is_view_available()
 "      silent! mkview
 "    endif
-"  endfunction " }}}
-"  function! s:loadview() abort " {{{
+"  endfunction "}}}
+"  function! s:loadview() abort "{{{
 "    if s:is_view_available()
 "      silent! loadview
 "    endif
-"  endfunction " }}}
+"  endfunction "}}}
 "  au BufWinLeave ?* call s:mkview()
 "  au BufReadPost ?* call s:loadview()
 "augroup END
@@ -209,7 +196,6 @@ augroup SetFdmDotfiles
   " TODO: Understand :mkview
   " mkview: save a file condition according to `:viewoptions`
 augroup END
-"}}}
 " Method; Shada {{{1
 set shada='1000,<50,h,s10,
 augroup AutoWriteShada
@@ -237,11 +223,6 @@ set sessionoptions+=slash,winsize
 "set nrformats+=octal
 " Method; Completion {{{1
 set complete-=i " i: included files
-
-command! DiffOrig
-      \ :vert above new | setl bt=nofile
-      \ | r # | 0d_
-      \ | diffthis | wincmd p | diffthis
 
 " Leap; Multiple Windows {{{1
 set splitbelow
