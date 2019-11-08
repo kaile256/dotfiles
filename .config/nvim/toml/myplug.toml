@@ -43,3 +43,8 @@ on_cmd = ['LinesFunctions']
 #hook_add = 'runtime add/fzf.vim'
 #hook_source = 'runtime source/fzf.vim'
 #hook_post_source = 'runtime post/fzf.vim'
+
+[[plugins]]
+repo = 'kaile256/vim-spell-suggestion'
+on_map = {ni = '<Plug>(spellSG-suggestion'}
+hook_add = 'runtime add/spellSG.vim'
