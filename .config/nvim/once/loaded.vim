@@ -22,6 +22,6 @@ endfunction "}}}
 augroup ReloadDefaultPlugins
   au!
   au FileType netrw    ++once runtime source/netrw.vim
-  au FileType tar      ++once call <SID>runtime_tarPlugin()
-  au FileType zip,gzip ++once call <SID>runtime_zipPlugin()
+  au FileType tar      ++once call s:runtime_tarPlugin()
+  au FileType zip,gzip ++once call s:runtime_zipPlugin()
 augroup END
