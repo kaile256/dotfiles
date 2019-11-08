@@ -103,30 +103,18 @@ function! s:defx_keymap_explorer() abort
   "      \                'mark:indent:icon:filename:type:size:time')
   " Selected; Open File {{{1
   " TODO: Make User's event on buffer's openning from defx.
-  "nnoremap <silent><nowait><buffer><expr> <c-j>
-  "      \ (winwidth('.') > g:defx_is_wide)?
-  "      \ defx#is_directory()?
-  "      \ defx#do_action('open_tree'):
-  "      \ defx#do_action('multi', ['drop', 'quit']):
-  "      \ defx#is_directory()?
-  "      \ defx#do_action('open'):
-  "      \ defx#do_action('multi', ['drop', 'quit'])
-  "nnoremap <silent><nowait><buffer><expr> <CR>
-  "      \ (winwidth('.') > g:defx_is_wide)?
-  "      \ defx#is_directory()?
-  "      \ defx#do_action('open_tree'):
-  "      \ defx#do_action('multi', ['drop', 'quit']):
-  "      \ defx#is_directory()?
-  "      \ defx#do_action('open'):
-  "      \ defx#do_action('multi', ['drop', 'quit'])
+  function! s:defx_open_or_drop() abort "{{{
+    if winwidth('.') > g:defx_is_wide
+      return defx#do_action('open')
+    elseif defx#is_directory()
+      return defx#do_action('open')
+    endif
+    return defx#do_action('multi', ['drop', 'quit'])
+  endfunction "}}}
   nnoremap <silent><nowait><buffer><expr> <c-j>
-        \ defx#is_directory()?
-        \ defx#do_action('open'):
-        \ defx#do_action('multi', ['drop', 'quit'])
+        \ <SID>defx_open_or_drop()
   nnoremap <silent><nowait><buffer><expr> <CR>
-        \ defx#is_directory()?
-        \ defx#do_action('open'):
-        \ defx#do_action('multi', ['drop', 'quit'])
+        \ <SID>defx_open_or_drop()
   nnoremap <silent><nowait><buffer><expr> <TAB>
         \ defx#do_action('open', 'bel vsplit')
         \ . ':wincmd p<cr>'
