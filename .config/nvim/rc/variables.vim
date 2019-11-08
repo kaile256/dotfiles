@@ -25,23 +25,6 @@ elseif has('win32\|win64')
   endtry
 endif
 "}}}
-" Set; Path for Backup {{{
-" Write, on path,vim, the file directory paths.
-set nobackup
-set nowritebackup
-set noswapfile
-set undofile
-"augroup PersistentUndo
-"  au! BufWritePre /tmp/* setlocal noundofile
-"augroup END
-" XDG Base Repository
-set undodir=~/.local/share/nvim/undo
-"set directory=~/.local/share/nvim/swap
-"set backupdir=~/.local/share/nvim/backup
-"set viminfo='1000,n~/.local/share/nvim/info
-"set runtimepath=$XDG_CONFIG_HOME/vim,http://eleclog.quitsq.com/2014/10/arch-on-x220.html?m=1$VIMRUNTIME,$XDG_CONFIG_HOME/vim/after
-let g:netrw_home = '~/.local/share/nvim'
-"}}}
 
 " $VAR; for shell {{{
 let $EDITOR     = 'nvr'
@@ -69,10 +52,10 @@ let g:nvim_home = empty($VIMCONFIG) ? expand(g:dotfiles_home .'/.config/nvim/') 
 let g:nvim_data_home = g:nvim_home . 'data/'
 let g:dev_root = '~/dev/'
 
-if !exists('g:keymapsDL_cd_path_dict')
-  let g:keymapsDL_cd_path_dict = {}
+if !exists('g:keymapsDL#cmd_after#cd_path_dict')
+  let g:keymapsDL#cmd_after#cd_path_dict = {}
 endif
-call extend(g:keymapsDL_cd_path_dict, {
+call extend(g:keymapsDL#cmd_after#cd_path_dict, {
       \ 'v': g:nvim_home,
       \ 'l': g:data_home,
       \ 'f': g:config_home,
@@ -81,12 +64,12 @@ call extend(g:keymapsDL_cd_path_dict, {
       \ )
 
 "}}}
-" $var; for Vim {{{1
+" $var; for Vim {{{
 if isdirectory('~/kaile256')
   let $MYVIMRC = expand('<sfile>')
   let $HOME = expand('<sfile>:h')
 endif
-"}}}1
+"}}}
 
 " &rtp; "{{{1
 set rtp+=~/.config/nvim/data
