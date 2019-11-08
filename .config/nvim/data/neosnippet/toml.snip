@@ -1,4 +1,5 @@
-snippet dein's toml format alias vi vim de dein [[ pp [[]]
+snippet dein's toml format
+alias vi vim de dein [[ pp [[]]
 options head
   [[plugins]]
   repo = '${1:#:user/plugin}'
@@ -33,6 +34,10 @@ alias ev eve even
 snippet on_ft
 alias ft
   on_ft = ['${1:vim}']
+
+snippet on_map
+alias ma map
+  on_map = [{${1:nxo = }['${1:`substitute(matchstr(getline(search('repo =', 'bnW')), "/\zs.*'"), "'", '', 'g')`}']}]
 
 snippet on_cmd
 alias cm cmd com
