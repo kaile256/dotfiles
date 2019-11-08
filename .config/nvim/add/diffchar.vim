@@ -1,6 +1,8 @@
 " From: extension.toml
 " Repo: rickhowe/diffchar.vim
 
+" TODO: keep both DiffChange & DiffText from sometimes being overrided
+"       autoload/diffchar.vim @1607 as ':verbose highlight DiffChange'
 augroup DiffChar
   au!
   au OptionSet if &diff && exists(':DiffCharShow') | DiffCharShow | endif
