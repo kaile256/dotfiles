@@ -1,0 +1,9 @@
+" From: myplug.toml
+" Repo: kaile256/vim-spell-temporary
+
+let g:spellTMP#only_suggestion_at_first_in_normal = 1
+
+imap <c-x>s     <Plug>(spellTMP-suggestion)
+imap <c-x><c-s> <Plug>(spellTMP-suggestion)
+nmap gs         <Plug>(spellTMP-suggestion)
+xmap gs         <Plug>(spellTMP-suggestion)
