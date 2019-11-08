@@ -20,6 +20,7 @@ set shortmess+=c
 set pumheight=15
 "}}}
 " Appearance; Format {{{
+"set noemoji
 " wrap long text: s for space
 set wrap whichwrap=h,l
 augroup NoWrapWithinAWord
