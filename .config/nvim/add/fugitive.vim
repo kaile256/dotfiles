@@ -19,8 +19,7 @@ function! s:hub_create(path, ...) abort "{{{
   endif
   !hub create a:000 l:dir_path
 endfunction "}}}
-let s:gvstatus = {-> execute('vert bot 35 Gstatus')}
-command! -bang -bar -range=-1 -addr=tabs Gvstatus :call s:gvstatus()
+command! -bang -bar -range=-1 -addr=tabs Gvstatus :vert bot 35 Gstatus
 
 function! s:diff_mode() abort "{{
   " Keep to show diff w/ HEAD while editting commit-message.
@@ -32,9 +31,9 @@ function! s:diff_mode() abort "{{
   wincmd =
 endfunction "}}}
 command! Gstage
-      \ :Gw | WindowPKpick | call <SID>diff_mode()
+      \ :Gw | WindowPKpick | call s:diff_mode()
 command! Gsolo
-      \ :Gw | WindowPKonly | call <SID>diff_mode()
+      \ :Gw | WindowPKonly | call s:diff_mode()
 command! -bar -bang -nargs=* -complete=customlist,fugitive#EditComplete Glive
       \ :Gw | WindowPKpick | Gvdiffsplit! HEAD
 " in new tab, if any unnecessary windows are there.
