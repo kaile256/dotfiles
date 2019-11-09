@@ -120,12 +120,12 @@ function! s:defx_keymap_explorer() abort
         \ . ':wincmd p<cr>'
   " Note: defx's quit with split doesn't work well.
   nnoremap <silent><nowait><buffer><expr> O
-        \ defx#do_action('multi', [['open', 'vsplit'], 'quit'])
+        \ defx#do_action('multi', [['drop', 'bot vsplit'], 'quit'])
         "\ defx#do_action('open', 'vsplit')
         "\ .':'. bufwinnr(bufname("\[defx\]")) .'close<cr>'
   " Note: <c-s> freezes screen on some unix.
   nnoremap <silent><nowait><buffer><expr> o
-        \ defx#do_action('multi', [['open', 'split'], 'quit'])
+        \ defx#do_action('multi', [['drop', 'bel split'], 'quit'])
         "\ defx#do_action('open', 'bot split')
         "\ .':'. bufwinnr(bufname("\[defx\]")) .'close<cr>'
   nnoremap <silent><nowait><buffer><expr> gO
