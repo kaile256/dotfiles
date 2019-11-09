@@ -15,6 +15,11 @@ hook_add = 'runtime add/fzf.vim'
 hook_source = 'runtime source/fzf.vim'
 hook_post_source = 'runtime post/fzf.vim'
 #}}}
+[[plugins]]
+repo = 'fszymanski/fzf-quickfix' #{{{
+depend = 'fzf.vim'
+on_cmd = ['Quickfix']
+#}}}
 #[[plugins]]
 #repo = 'yuki-ycino/fzf-preview.vim'
 #[[plugins]]
