@@ -10,13 +10,13 @@ set formatoptions=jmB1cql
 
 runtime rc/os.vim
 runtime rc/variables.vim  " don't comment out; many files depends on it.
+runtime rc/backupfiles.vim
 runtime rc/dein.vim  " contains `filetype plugin indent on`
-runtime rc/startpage.vim
 runtime rc/options.vim
 runtime rc/filetype.vim
-runtime rc/plugin.vim  " write config of my dev plugins.
 " Note: `!` is required to source all the same named files.
 runtime! keymap/*.vim
+runtime rc/startpage.vim
 
 augroup RuntimesSelection
   au!
@@ -25,7 +25,11 @@ augroup RuntimesSelection
   au CmdLineEnter * ++once runtime once/cmdline.vim
 
   au WinNew       * ++once runtime lazy/zenkaku.vim
-  au CmdwinEnter * runtime lazy/cmdwin.vim
+  au CmdwinEnter  * runtime lazy/cmdwin.vim
+augroup END
+
+augroup DelAugLaterLazyDiff
+  au OptionSet * if &diff | runtime lazy/diff.vim | endif
 augroup END
 
 function! s:ready_for_new_buffer() "{{{
