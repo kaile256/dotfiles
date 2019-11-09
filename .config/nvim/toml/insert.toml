@@ -85,6 +85,11 @@ on_source = 'neosnippet.vim'
 
 # Spell
 #[[plugins]]
+#repo = 'kamykn/spelunker.vim' #{{{
+#on_map = {ni = '<Plug>(spelunker-'}
+#hook_source = 'runtime source/spelunker.vim'
+##}}}
+#[[plugins]]
 #repo = 'rhysd/vim-grammarous' #{{{
 ## Grammer Check
 ## Note: Too heavy to download pre-requested files
