@@ -1,6 +1,9 @@
 " From: init.vim
 
-command! -bar EmojiTest tabedit https://unicode.org/Public/emoji/12.0/emoji-test.txt
+command! DiffOrig
+      \ :vert above new | setl bt=nofile
+      \ | r # | 0d_
+      \ | diffthis | wincmd p | diffthis
 
 " Keymap; Emacs-like {{{1
 cnoremap <c-a> <home>
