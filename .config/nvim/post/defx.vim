@@ -116,21 +116,30 @@ function! s:defx_keymap_explorer() abort
   nnoremap <silent><nowait><buffer><expr> <CR>
         \ <SID>defx_open_or_drop()
   nnoremap <silent><nowait><buffer><expr> <TAB>
-        \ defx#do_action('open', 'bel vsplit')
+        \ defx#do_action('open', 'bot vsplit')
+        \ . ':wincmd p<cr>'
+  xnoremap <silent><nowait><buffer><expr> <TAB>
+        \ defx#async_action('multi',
+        \ ['toggle_select_visual', ['open', 'bot vsplit']])
         \ . ':wincmd p<cr>'
   " Note: defx's quit with split doesn't work well.
   nnoremap <silent><nowait><buffer><expr> O
-        \ defx#do_action('multi', [['drop', 'bot vsplit'], 'quit'])
-        "\ defx#do_action('open', 'vsplit')
-        "\ .':'. bufwinnr(bufname("\[defx\]")) .'close<cr>'
+        \ defx#do_action('multi', [['open', 'bot vsplit'], 'quit'])
+  xnoremap <silent><nowait><buffer><expr> O
+        \ defx#async_action('multi',
+        \ ['toggle_select_visual', ['open', 'bot vsplit'], 'quit'])
   " Note: <c-s> freezes screen on some unix.
   nnoremap <silent><nowait><buffer><expr> o
         \ defx#do_action('multi', [['drop', 'bel split'], 'quit'])
-        "\ defx#do_action('open', 'bot split')
-        "\ .':'. bufwinnr(bufname("\[defx\]")) .'close<cr>'
+  xnoremap <silent><nowait><buffer><expr> o
+        \ defx#async_action('multi',
+        \ ['toggle_select_visual', ['drop', 'bel split'], 'quit'])
   nnoremap <silent><nowait><buffer><expr> gO
-        \ defx#do_action('drop', 'tabe')
-  " Selected; Open Tree {{{1
+        \ defx#do_action('open', 'tabe')
+  xnoremap <silent><nowait><buffer><expr> gO
+        \ defx#async_action('multi',
+        \ ['toggle_select_visual', ['open', 'tabe']])
+  " Selected; Tree {{{1
   nnoremap <silent><nowait><buffer><expr> za
         \ defx#do_action('open_or_close_tree')
   nnoremap <silent><nowait><buffer><expr> zo
@@ -139,12 +148,6 @@ function! s:defx_keymap_explorer() abort
         \ defx#do_action('open_tree_recursive')
   nnoremap <silent><nowait><buffer><expr> zu
         \ defx#do_action('open_tree')
-  nnoremap <silent><nowait><buffer><expr> <c-o>
-        \ (&l:winwidth < g:defx_is_narrow)
-        \ && (win_screenpos(3) != [0,0])?
-        \ ':wincmd p <bar> close <bar> :wincmd p<cr>'
-        \ : '<c-o>'
-  " Selected; Close Tree {{{1
   nnoremap <silent><nowait><buffer><expr> zc
         \ defx#do_action('close_tree')
   " Selected; Register {{{1
