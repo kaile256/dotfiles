@@ -5,23 +5,12 @@
 augroup FugitiveCallMyFunc
   au!
   function! s:winonly() abort "{{{
-    if bufnr('COMMIT_EDITMSG') > 0
-      exe bufnr('COMMIT_EDITMSG') .'windo call <SID>gitcommit_discard()'
+    if index(tabpagebuflist(), bufnr('COMMIT_EDITMSG')) != -1
+      exe bufnr('COMMIT_EDITMSG') .'windo call s:gitcommit_discard()'
     endif
-
     only
-    call <SID>restore_view()
+    call s:restore_view()
   endfunction "}}}
-  function! s:keymap_diff() abort "{{{
-    " Note: on update's hook, have deleted the line of dq.
-    nnoremap <buffer><nowait> dq         :<c-u>WindowPKreduce<cr>
-    nnoremap <buffer><nowait> <c-w>o     :<c-u>WindowPKonly<cr>
-    nnoremap <buffer><nowait> <c-w><c-o> :<c-u>WindowPKonly<cr>
-    xnoremap <buffer><nowait> dq         :<c-u>WindowPKreduce<cr>
-    xnoremap <buffer><nowait> <c-w>o     :<c-u>WindowPKonly<cr>
-    xnoremap <buffer><nowait> <c-w><c-o> :<c-u>WindowPKonly<cr>
-  endfunction "}}}
-  au OptionSet * if &diff | call <SID>keymap_diff() | endif
 
   function! s:fugitive_keymap() "{{{
     " TODO: Specify the window of the latest commit buffer on `dq`.
@@ -29,15 +18,16 @@ augroup FugitiveCallMyFunc
     nnoremap <buffer><silent> ca    :<C-U>bot 20 Gcommit --amend<CR>
     " To: continue to cc/ce/ca.
     xmap <buffer> c sc
-    nnoremap <buffer><nowait> dq :<c-u>WindowPKreduce<cr>
-    xnoremap <buffer><nowait> dq :<c-u>WindowPKreduce<cr>
+    " Note: for fugitive-buffer, not for &diff
+    "nnoremap <silent><buffer><nowait> dq :<c-u>WindowPKreduce<cr>
+    "xnoremap <silent><buffer><nowait> dq :<c-u>WindowPKreduce<cr>
     silent! nunmap <buffer> J
     silent! nunmap <buffer> K
     " For: especially in the case, ':norm U' to unstage all.
     nmap     <buffer> S <Plug>(fugitive:gstage-prev-window)
   endfunction "}}}
-  nnoremap <silent> <Plug>(fugitive:gstage-prev-window) :<c-u>wincmd p <cr> :Gw <bar> wincmd p<cr>
-  au FileType fugitive  call <SID>fugitive_keymap()
+  nnoremap <silent> <Plug>(fugitive:gstage-prev-window) :<c-u>wincmd p <bar> :Gw <bar> wincmd p<cr>
+  au FileType fugitive  call s:fugitive_keymap()
 
   function! s:gitcommit_startinsert() "{{{
     if getline(1) ==# ''
@@ -46,7 +36,7 @@ augroup FugitiveCallMyFunc
       endif
     endif
   endfunction "}}}
-  au FileType gitcommit call <SID>gitcommit_startinsert()
+  au FileType gitcommit call s:gitcommit_startinsert()
 
   function! s:gitcommit_shred() abort "{{{
     silent %delete _
@@ -59,15 +49,15 @@ augroup FugitiveCallMyFunc
   endfunction "}}}
 
   function! s:gitcommit_discard() abort "{{{
-    call <SID>gitcommit_shred()
+    call s:gitcommit_shred()
     quit
-    call <SID>restore_view()
+    call s:restore_view()
   endfunction "}}}
 
   function! s:gitcommit_dismiss() abort "{{{
-    call <SID>gitcommit_shred()
+    call s:gitcommit_shred()
     WindowPKreduce
-    call <SID>restore_view()
+    call s:restore_view()
   endfunction "}}}
 
   nnoremap <silent> <Plug>(gitcommit-discard) :<c-u>call <SID>gitcommit_discard()<cr>
@@ -82,12 +72,12 @@ augroup FugitiveCallMyFunc
     "omap <expr><buffer><nowait> q (v:operator ==# 'd')? '<Plug>(gitcommit-dismiss)': 'q'
     " TODO: in case <c-w>o out of the buffer
   endfunction "}}}
-  au FileType gitcommit call <SID>gitcommit_keymap()
+  au FileType gitcommit call s:gitcommit_keymap()
   "function! s:keymap_gitlog() abort "{{{
   "  nnoremap <buffer><silent> <c-o> :cnext<cr>
   "  nnoremap <buffer><silent> <c-i> :cprev<cr>
   "endfunction "}}}
-  "au FIleType git       call <SID>keymap_gitlog()
+  "au FIleType git       call s:keymap_gitlog()
 augroup END
 
 augroup OnFugitiveBuffer
