@@ -58,7 +58,8 @@ let g:defx_is_wide = g:defx_is_narrow
 function! s:defx_keymap_explorer() abort
   nnoremap <silent><nowait><buffer> <c-w>=
         \ :setl nowinfixwidth<cr><c-w>=
-  " Explore; hjkl {{{1
+  " Explore {{{1
+  " Explore; hjkl {{{2
   nnoremap <silent><nowait><buffer> gg :2<cr>
   nnoremap <silent><nowait><buffer><expr> h
         \ defx#do_action('cd', ['..'])
@@ -66,7 +67,7 @@ function! s:defx_keymap_explorer() abort
         \ defx#do_action('open_directory')
         "\ (winwidth('.') < g:defx_is_wide)?
         "\ defx#do_action('open_tree')
-  " Explore; CWD {{{1
+  " Explore; CWD {{{2
   "" CWD; defx's
   nnoremap <silent><nowait><buffer><expr> ~
         \ defx#do_action('cd')
@@ -77,7 +78,7 @@ function! s:defx_keymap_explorer() abort
         \ defx#do_action('change_vim_cwd')
         \ . ':echo "cd" expand("<cfile>:p:h")<CR>'
         "\ . `:echo 'cd' ` . getcwd()
-  " Explore; netrw-like {{{1
+  " Explore; netrw-like {{{2
   nnoremap <silent><nowait><buffer><expr> -
         \ defx#do_action('cd', ['..'])
   nnoremap <silent><nowait><buffer><expr> D
@@ -89,19 +90,26 @@ function! s:defx_keymap_explorer() abort
         \ defx#do_action('new_directory')
   nnoremap <silent><nowait><buffer><expr> %
         \ defx#do_action('new_file')
-  " Explore; Sort {{{1
-  nnoremap <silent><nowait><buffer><expr> <a-s>t
+  " Explore; Sort {{{2
+  nnoremap <silent><nowait><buffer><expr> st
         \ defx#do_action('toggle_sort', 'time')
-  nnoremap <silent><nowait><buffer><expr> <a-s>z
+  nnoremap <silent><nowait><buffer><expr> ss
         \ defx#do_action('toggle_sort', 'size')
-  nnoremap <silent><nowait><buffer><expr> <a-s>x
+  nnoremap <silent><nowait><buffer><expr> sz
+        \ defx#do_action('toggle_sort', 'size')
+  nnoremap <silent><nowait><buffer><expr> se
         \ defx#do_action('toggle_sort', 'extention')
-  nnoremap <silent><nowait><buffer><expr> <a-s><a-s>
+  nnoremap <silent><nowait><buffer><expr> sx
+        \ defx#do_action('toggle_sort', 'extention')
+  nnoremap <silent><nowait><buffer><expr> sf
+        \ defx#do_action('toggle_sort', 'filename')
+  nnoremap <silent><nowait><buffer><expr> sn
         \ defx#do_action('toggle_sort', 'filename')
   "nnoremap <silent><nowait><buffer><expr> C
   "      \ defx#do_action('toggle_columns',
   "      \                'mark:indent:icon:filename:type:size:time')
-  " Selected; Open File {{{1
+  " Selected {{{1
+  " Selected; Open File {{{2
   " TODO: Make User's event on buffer's openning from defx.
   function! s:defx_open_or_drop() abort "{{{
     if winwidth('.') > g:defx_is_wide
@@ -139,7 +147,7 @@ function! s:defx_keymap_explorer() abort
   xnoremap <silent><nowait><buffer><expr> gO
         \ defx#async_action('multi',
         \ ['toggle_select_visual', ['open', 'tabe']])
-  " Selected; Tree {{{1
+  " Selected; Tree {{{2
   nnoremap <silent><nowait><buffer><expr> za
         \ defx#do_action('open_or_close_tree')
   nnoremap <silent><nowait><buffer><expr> zo
@@ -150,7 +158,7 @@ function! s:defx_keymap_explorer() abort
         \ defx#do_action('open_tree')
   nnoremap <silent><nowait><buffer><expr> zc
         \ defx#do_action('close_tree')
-  " Selected; Register {{{1
+  " Selected; Register {{{2
   " copy: yank in defx's register
   " Note: CANNOT register multiple files into defx-register.
   nnoremap <nowait><buffer><expr> yy
@@ -166,11 +174,11 @@ function! s:defx_keymap_explorer() abort
   " yank_path: yank in unnamed register
   nnoremap <nowait><buffer><expr> yp
         \ defx#do_action('yank_path')
-  " Selected; Execute {{{1
+  " Selected; Execute {{{2
   nnoremap <silent><nowait><buffer><expr> X
         \ defx#do_action('execute_system')
-  "}}}
-  " Toggle; Mark {{{1
+  " Toggle {{{1
+  " Toggle; Mark {{{2
   nnoremap <silent><nowait><buffer><expr> mm
         \ defx#do_action('toggle_select')
   nnoremap <silent><nowait><buffer><expr> mj
@@ -189,20 +197,19 @@ function! s:defx_keymap_explorer() abort
         \ defx#do_action('toggle_select_all')
   xnoremap <silent><nowait><buffer><expr> m
         \ defx#do_action('toggle_select_visual')
-  " Toggle; Hidden Files {{{1
+  " Toggle; Hidden Files {{{2
   nnoremap <silent><nowait><buffer><expr> z.
         \ defx#do_action('toggle_ignored_files')
-  "}}}
-  " Resize; {{{1
+  " Resize; {{{2
   nnoremap <silent><nowait><buffer><expr> >
         \ defx#do_action('resize',
         \ defx#get_context().winwidth + 10)
   nnoremap <silent><nowait><buffer><expr> <
         \ defx#do_action('resize',
         \ defx#get_context().winwidth - 10)
-  "}}}
   nnoremap <silent><nowait><buffer><expr> .
         \ defx#do_action('repeat')
+  "}}}1
 endfunction
 augroup OnDefxBuffer
   au!
