@@ -68,6 +68,8 @@ function! s:defx_keymap_explorer() abort
         "\ (winwidth('.') < g:defx_is_wide)?
         "\ defx#do_action('open_tree')
   " Explore; CWD {{{2
+  nnoremap <silent><nowait><buffer><expr> <c-g>
+        \ defx#do_action('print')
   "" CWD; defx's
   nnoremap <silent><nowait><buffer><expr> ~
         \ defx#do_action('cd')
@@ -123,13 +125,33 @@ function! s:defx_keymap_explorer() abort
         \ <SID>defx_open_or_drop()
   nnoremap <silent><nowait><buffer><expr> <CR>
         \ <SID>defx_open_or_drop()
-  nnoremap <silent><nowait><buffer><expr> <TAB>
+  " Append window
+  nnoremap <silent><nowait><buffer><expr> A
         \ defx#do_action('open', 'bot vsplit')
-        \ . ':wincmd p<cr>'
-  xnoremap <silent><nowait><buffer><expr> <TAB>
+        \ .':wincmd p<cr>'
+  xnoremap <silent><nowait><buffer><expr> A
         \ defx#async_action('multi',
         \ ['toggle_select_visual', ['open', 'bot vsplit']])
-        \ . ':wincmd p<cr>'
+        \ .':wincmd p<cr>'
+  " TODO: always keep cursor on defx after drop to :split
+  nnoremap <silent><nowait><buffer><expr> a
+        \ defx#do_action('drop', 'bel split')
+        \ .':wincmd h<cr>'
+  xnoremap <silent><nowait><buffer><expr> a
+        \ defx#async_action('multi',
+        \ ['toggle_select_visual', ['drop', 'bel split']])
+        \ .':wincmd h<cr>'
+  " TODO: what is the 'search'?
+  nnoremap <silent><nowait><buffer><expr> S
+        \ defx#do_action('search')
+  " Insert a preview window in actual windows
+  nnoremap <silent><nowait><buffer><expr> I
+        \ defx#do_action('open', 'vert bot pedit')
+        \ .':wincmd =<cr>'
+  " TODO: keep cursor on defx after :pedit
+  nnoremap <silent><nowait><buffer><expr> i
+        \ defx#do_action('drop', 'pedit')
+        \ .':wincmd h<cr>'
   " Note: defx's quit with split doesn't work well.
   nnoremap <silent><nowait><buffer><expr> O
         \ defx#do_action('multi', [['open', 'bot vsplit'], 'quit'])
@@ -200,6 +222,14 @@ function! s:defx_keymap_explorer() abort
   " Toggle; Hidden Files {{{2
   nnoremap <silent><nowait><buffer><expr> z.
         \ defx#do_action('toggle_ignored_files')
+  " fold Normal - all you need
+  nnoremap <silent><buffer><expr> zN
+        \ defx#do_action('toggle_columns',
+        \                'mark:indent:git:icons:filename:type:size:time')
+  " fold None of unnecessary
+  nnoremap <silent><buffer><expr> zn
+        \ defx#do_action('toggle_columns',
+        \                'mark:indent:git:icons:filename')
   " Resize; {{{2
   nnoremap <silent><nowait><buffer><expr> >
         \ defx#do_action('resize',
@@ -214,16 +244,7 @@ endfunction
 augroup OnDefxBuffer
   au!
   " TODO: highlight on top as there's filepath, or place those path on another place.
-  au FileType defx setl nonumber signcolumn= winfixwidth bufhidden=wipe
+  au FileType defx setl nonumber signcolumn= winfixwidth bufhidden=wipe previewheight=25
   au FileType defx call s:defx_keymap_explorer()
-  function! defx#execute(...) abort "{{{
-    " TODO: quit defx after action.
-    let l:id = win_getid()
-    call defx#do_action(a:000)
-    windo
-          \ if bufname('%') =~# '\[defx\]'
-          \ |   quit
-          \ | endif
-    call win_gotoid(l:id)
-  endfunction "}}}
+  "au BufWritePost * call defx#redraw() " of course, includes a check for defx-channel
 augroup END
