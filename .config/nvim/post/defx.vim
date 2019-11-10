@@ -133,7 +133,7 @@ function! s:defx_keymap_explorer() abort
         \ defx#async_action('multi',
         \ ['toggle_select_visual', ['open', 'bot vsplit']])
         \ .':wincmd p<cr>'
-  " TODO: always keep cursor on defx after drop to :split
+  " FIXME: always keep cursor on defx after drop to :split ANYWHERE
   nnoremap <silent><nowait><buffer><expr> a
         \ defx#do_action('drop', 'bel split')
         \ .':wincmd h<cr>'
@@ -141,16 +141,18 @@ function! s:defx_keymap_explorer() abort
         \ defx#async_action('multi',
         \ ['toggle_select_visual', ['drop', 'bel split']])
         \ .':wincmd h<cr>'
+  " Mnemonic: Zip Preview
+  nnoremap <silent><nowait><buffer> zp <c-w>z
   " TODO: what is the 'search'?
   nnoremap <silent><nowait><buffer><expr> S
         \ defx#do_action('search')
   " Insert a preview window in actual windows
   nnoremap <silent><nowait><buffer><expr> I
-        \ defx#do_action('open', 'vert bot pedit')
+        \ defx#do_action('open', 'pclose <bar> vert bot pedit')
         \ .':wincmd =<cr>'
-  " TODO: keep cursor on defx after :pedit
+  " FIXME: keep cursor on defx after :pedit ANYWHERE
   nnoremap <silent><nowait><buffer><expr> i
-        \ defx#do_action('drop', 'pedit')
+        \ defx#do_action('drop', 'pclose <bar> pedit')
         \ .':wincmd h<cr>'
   " Note: defx's quit with split doesn't work well.
   nnoremap <silent><nowait><buffer><expr> O
@@ -245,6 +247,8 @@ augroup OnDefxBuffer
   au!
   " TODO: highlight on top as there's filepath, or place those path on another place.
   au FileType defx setl nonumber signcolumn= winfixwidth bufhidden=wipe previewheight=25
+  au WinEnter    * if &ft ==# 'defx' | call setbufvar(bufnr('#'), '&winfixwidth', 1) | endif
+  au BufWinLeave * if &ft ==# 'defx' | call setbufvar(bufnr('#'), '&winfixwidth', 0) | endif
   au FileType defx call s:defx_keymap_explorer()
   "au BufWritePost * call defx#redraw() " of course, includes a check for defx-channel
 augroup END
