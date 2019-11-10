@@ -7,8 +7,12 @@ endif
 
 nnoremap Zz ZZ
 nnoremap Zq ZQ
-nnoremap <c-w>Q :<c-u>q! <cr>
-nnoremap <c-w>Z :<c-u>qa  <cr>
+" Mnemonic: Universal quit
+nnoremap <silent> ZU :<c-u>qa <cr>
+nnoremap <silent> Zu :<c-u>qa <cr>
+" Mnemonic: $ yes
+nnoremap <silent> ZY :<c-u>qa! <cr>
+nnoremap <silent> Zy :<c-u>qa! <cr>
 
 nnoremap <silent> <c-w><space>n :<c-u>vnew<cr>
 
