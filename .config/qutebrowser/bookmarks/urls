@@ -369,3 +369,4 @@ http://koturn.hatenablog.com/entry/2015/11/26/000000 Vimからfzfを利用する
 https://github.com/yuki-ycino/fzf-preview.vim yuki-ycino/fzf-preview.vim: fzf-preview-mode is a Vim plugin to provide some fzf sources to with large preview.
 http://koturn.hatenablog.com/entry/2015/11/19/200000 ctrlp.vimのエクステンションの作り方 - koturnの日記
 https://github.com/kaile256/vim-spell-temporary kaile256/vim-spell-temporary
+https://qiita.com/tmsanrinsha/items/0787352360997c387e84 Vim scriptのエラーメッセージをパースしてquickfixに表示する - Qiita
