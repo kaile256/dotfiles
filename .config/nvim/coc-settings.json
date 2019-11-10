@@ -59,6 +59,7 @@
   "session.directory": "~/.local/share/nvim/session/",
 
   "list.autoResize": false,
+  "list.maxPreviewHeight": 25,
   "list.source.mru.maxLength": 50,
   "list.source.mru.ignoreGitIgnore": false,
   "list.source.grep.defaultArgs": ["--regex"],
