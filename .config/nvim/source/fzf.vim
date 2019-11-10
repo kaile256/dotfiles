@@ -5,28 +5,6 @@
 " Another: post/fzf.vim
 
 " Note: :FZF! starts fzf on full-window.
-augroup FzfMyAutoConf "{{{1
-  au!
-  function! s:fzf_buffer_statusline() "{{{2
-    " Override statusline as you like
-    hi fzf1 ctermfg=161 ctermbg=251
-    hi fzf2 ctermfg=23  ctermbg=251
-    hi fzf3 ctermfg=237 ctermbg=251
-    setl statusline=%#fzf1#\ >\ %#fzf2#fz%#fzf3#f
-  endfunction "}}}2
-  au User FzfStatusLine call <SID>fzf_buffer_statusline()
-  " CAUTION: WinLeave's current file is next file, i.e., fzf when opening fzf-buffer.
-  " Note: 'bufhidden' is useless for fzf.
-  "au FileType fzf setl bufhidden=wipe
-  " Note: both :quit and :close causes errors instead.
-  au WinLeave,BufLeave * if &ft ==# 'fzf' | hide | silent! !killall fzf
-  " Note: Makes no sense but auto-set nonumber on tab-open.
-  "au FileType fzf setl laststatus=0
-  "      \ | au BufEnter * ++once setl laststatus=2
-  "      \ | if &l:number | setl number | endif
-augroup END "}}}1
-
-"let g:fzf_layout = {'down': '~25%'}
 function! fzf#floating_window() abort "{{{
   " Ref: https://github.com/junegunn/fzf.vim/issues/664
   let buf = nvim_create_buf(v:false, v:true)
@@ -48,6 +26,7 @@ function! fzf#floating_window() abort "{{{
   call nvim_open_win(buf, v:true, opts)
 endfunction "}}}
 let g:fzf_layout = {'window': 'call fzf#floating_window()'}
+"let g:fzf_layout = {'down': '~25%'}
 
 "let g:fzf_command_prefix = 'Fzf' " makes complex hook on dein.
 " Note: write in a string w/ no spaces, not in a list.
@@ -61,7 +40,7 @@ let g:fzf_extract_pattern = '^.git$'
 let g:fzf_preview_style = 'right:60%:wrap'
 
 " on Fzf Buffer; Action-Command {{{1
-function! s:fzf_open_in_quickfix_list(lines) "{{{2
+function! s:list_in_quickfix(lines) "{{{2
   call setqflist(map(copy(a:lines), '{ "filename": v:val }'))
   copen
   cc
@@ -69,15 +48,16 @@ endfunction "}}}
 " <alt-k> for cancel.
 " Note: seems not work with <alt> like <alt-k>.
 " bdelete/bwipeout work incorrect, lured to current buffer.
-" badd: append the files in Old buffers.
 " verbose: Who defined it?
+" badd: append the files in Old buffers.
 let g:fzf_action = {
       \ 'alt-a': 'argadd',
       \ 'alt-o': 'badd',
-      \ 'alt-w': 'verbose',
+      \ 'alt-q': function('s:list_in_quickfix'),
       \ 'alt-s': 'split',
       \ 'alt-t': 'tab split',
       \ 'alt-v': 'vsplit',
+      \ 'alt-w': 'verbose',
       \ 'ctrl-z': "\<Nop>",
       \ }
 " [Buffers] Rather Jump to window than just to open.
@@ -104,3 +84,23 @@ let g:fzf_colors =
       \   'header':  ['fg', 'Comment'] }
 "}}}
 
+augroup FzfMyAutoConf "{{{
+  au!
+  function! s:fzf_buffer_statusline() "{{{
+    " Override statusline as you like
+    hi fzf1 ctermfg=161 ctermbg=251
+    hi fzf2 ctermfg=23  ctermbg=251
+    hi fzf3 ctermfg=237 ctermbg=251
+    setl statusline=%#fzf1#\ >\ %#fzf2#fz%#fzf3#f
+  endfunction "}}}
+  au User FzfStatusLine call s:fzf_buffer_statusline()
+  " CAUTION: WinLeave's current file is next file, i.e., fzf when opening fzf-buffer.
+  " Note: 'bufhidden' is useless for fzf.
+  "au FileType fzf setl bufhidden=wipe
+  " Note: both :quit and :close causes errors instead.
+  au WinLeave,BufLeave * if &ft ==# 'fzf' | hide | silent! !killall fzf
+  " Note: Makes no sense but auto-set nonumber on tab-open.
+  "au FileType fzf setl laststatus=0
+  "      \ | au BufEnter * ++once setl laststatus=2
+  "      \ | if &l:number | setl number | endif
+augroup END "}}}
