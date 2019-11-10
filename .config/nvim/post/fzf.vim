@@ -53,6 +53,11 @@ command! -bang -nargs=* Commands
       \ :call fzf#vim#commands({'options': '--reverse'}, <bang>0)
 " TODO: show all the previews:
 "   1. detect how does the fzf.vim get the preview.
+command! -bang -nargs=* Marks
+      \ :call fzf#vim#marks(
+      \                 <bang>0 ? fzf#vim#with_preview({'prefix': "'.git/", 'options': '--multi --reverse'}, 'right:50%')
+      \                         : fzf#vim#with_preview({'prefix': "'.git/", 'options': '--multi --reverse'}, 'right:50%'),
+      \                 <bang>0)
 command! -bang -nargs=* History
       \ :call fzf#vim#history(
       \                 <bang>0 ? fzf#vim#with_preview({'prefix': "'.git/", 'options': '--multi --reverse'}, 'right:50%')
@@ -71,14 +76,6 @@ command! -bang -nargs=* -complete=buffer Buffers
 "      \                 <bang>0)
 command! -bang -nargs=* Helptags call fzf#vim#helptags({'options': '--multi --reverse'}, <bang>0)
 "}}}
-" TODO: selector of terminal-buffer.
-command! -bang -nargs=* -complete=buffer Terminal
-      \ call fzf#vim#buffers(<q-args>,
-      \                 <bang>0 ? fzf#vim#with_preview({'prefix': "'.git/", 'options': '--multi --reverse'}, 'right:65%')
-      \                         : fzf#vim#with_preview({'prefix': "'.git/", 'options': '--multi --reverse'}, 'right:65%'),
-      \                 <bang>0)
-
-"}}}1
 
 " TODO: preview around the selected lines.
 "command! -bang -nargs=? -complete=dir BLines
