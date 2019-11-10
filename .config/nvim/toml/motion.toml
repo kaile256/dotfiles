@@ -28,52 +28,52 @@ hook_add = 'runtime add/asterisk.vim'
 ##}}}
 
 # Jump to Target
-#[[plugins]]
-#repo = 'justinmk/vim-sneak' #{{{
-## Note: just for comparison to easymotion
-##on_map = {nox = '<Plug>Sneak_'}
-##hook_add = 'runtime add/sneak.vim'
-##hook_done_update = '''
-##exe 'e'. g:dein_cache_dir .'/repos/github.com/justinmk/vim-sneak/plugin/sneak.vim'
-##g/<Plug>Sneak_s/d
-##g/<Plug>Sneak_S/d
-##write
-##'''
-###}}}
-# Jump; Easy Motion
-[[plugins]] # has extentions
-repo = 'kaile256/vim-easymotion' #{{{
-# TODO: get the target w/o keys.
-#repo = 'easymotion/vim-easymotion' #{{{0
-on_map = {nox = '<Plug>(easymotion-'}
-hook_add = 'runtime add/easymotion.vim'
-hook_post_source = 'runtime post/easymotion.vim'
+[[plugins]]
+repo = 'justinmk/vim-sneak' #{{{
+# Note: just for comparison to easymotion
+on_map = {nox = '<Plug>Sneak_'}
+hook_add = 'runtime add/sneak.vim'
 hook_done_update = '''
-exe 'e' g:dein_cache_dir .'/repos/github.com/easymotion/vim-easymotion/autoload/EasyMotion.vim
-g/\Vlen(group_values) == 1/norm! A || (g:EasyMotion_always_jump_first == 1)
+exe 'e'. g:dein_github_dir .'/justinmk/vim-sneak/plugin/sneak.vim'
+g/<Plug>Sneak_s/norm! "_dap
+g/<Plug>Sneak_S/norm! "_dap
 write
 '''
-#[[plugins]]
-#repo = 'haya14busa/vim-easyoperator-phrase' #{{{
-#on_map = '<plug>(easyoperator-'
-#hook_add = 'runtime add/easyoperator.vim'
+#}}}
+# Jump; Easy Motion
+#[[plugins]] # has extentions
+#repo = 'kaile256/vim-easymotion' #{{{
+## TODO: get the target w/o keys.
+##repo = 'easymotion/vim-easymotion' #{{{0
+#on_map = {nox = '<Plug>(easymotion-'}
+#hook_add = 'runtime add/easymotion.vim'
+#hook_post_source = 'runtime post/easymotion.vim'
+#hook_done_update = '''
+#exe 'e' g:dein_cache_dir .'/repos/github.com/easymotion/vim-easymotion/autoload/EasyMotion.vim
+#g/\Vlen(group_values) == 1/norm! A || (g:EasyMotion_always_jump_first == 1)
+#write
+#'''
+##[[plugins]]
+##repo = 'haya14busa/vim-easyoperator-phrase' #{{{
+##on_map = '<plug>(easyoperator-'
+##hook_add = 'runtime add/easyoperator.vim'
+###}}}
+##[[plugins]]
+##repo = 'haya14busa/incsearch.vim' #{{{
+##on_event = 'ColorScheme'
+##hook_post_source = 'runtime add/incsearch.vim'
 ##}}}
-#[[plugins]]
-#repo = 'haya14busa/incsearch.vim' #{{{
-#on_event = 'ColorScheme'
-#hook_post_source = 'runtime add/incsearch.vim'
-#}}}
-#[[plugins]]
-#repo = 'haya14busa/incsearch-easymotion.vim' #{{{
-#on_event = 'ColorScheme'
-#hook_post_source = 'runtime add/incsearch-easymotion.vim'
-#}}}
-#[[plugins]]
-#repo = 'haya14busa/incsearch-fuzzy.vim' #{{{
-#on_event = 'ColorScheme'
-#hook_post_source = 'runtime add/incsearch-fuzzy.vim'
-#}}}
-#}}}
+##[[plugins]]
+##repo = 'haya14busa/incsearch-easymotion.vim' #{{{
+##on_event = 'ColorScheme'
+##hook_post_source = 'runtime add/incsearch-easymotion.vim'
+##}}}
+##[[plugins]]
+##repo = 'haya14busa/incsearch-fuzzy.vim' #{{{
+##on_event = 'ColorScheme'
+##hook_post_source = 'runtime add/incsearch-fuzzy.vim'
+##}}}
+##}}}
 #[[plugins]]
 #repo = 'tbo/notion' #{{{
 ## Note: written in typescript & javascript
