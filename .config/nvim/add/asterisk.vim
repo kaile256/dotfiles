@@ -105,10 +105,7 @@ xnoremap <expr><silent> <Plug>(asterisk-dot-substitute-paste-downward)
 "onoremap <silent> <Plug>(asterisk-dot-substitute-operator-downward)
 "      \ :<c-u>set operatorfunc=asterisk#substitute('auto','downward')<cr>g@
 
-if exists('g:asterisk_no_default_mappings_all') | finish | endif "{{{1
-
-if exists('g:asterisk_no_default_mappings_standard') | finish | endif "{{{2
-
+" keymaps; standard {{{1
 " Note: Few case to expect exclusive search
 nmap *   <Plug>(asterisk-gz*)
 nmap g*  <Plug>(asterisk-g*)
@@ -128,16 +125,17 @@ xmap gz* <Plug>(asterisk-*)
 xmap z#  <Plug>(asterisk-z#)
 xmap gz# <Plug>(asterisk-#)
 
-if exists('g:asterisk_no_default_mappings_substitute') | finish | endif "{{{2
-
+" keymaps; substitute "{{{1
 " Note: x/s work duplicated with d/c respectively.
 xmap x <Plug>(asterisk-dot-substitute-delete-downward)
+" TODO: using `], smoother dot-repeat!
 xmap s <Plug>(asterisk-dot-substitute-change-downward)
 " Note: when over lines, keep blockwise even on X/S, unrepeatable.
 xmap X <Plug>(asterisk-dot-substitute-delete-upward)
+" TODO: using `[, smoother dot-repeat!
 xmap S <Plug>(asterisk-dot-substitute-change-upward)
 
-" WIP: paste/operator "{{{2
+" WIP: paste/operator "{{{1
 " when paste on selected area, we don't use initial P.
 xmap gp <Plug>(asterisk-dot-substitute-paste-downward)
 xmap P  <Plug>(asterisk-dot-substitute-paste-upward)
