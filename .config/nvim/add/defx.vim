@@ -5,20 +5,22 @@ scriptencoding utf-8
 " Ref: /usr/share/nvim/runtime/autoload/netrw.vim
 " Ref: /usr/share/nvim/runtime/plugin/netrwPlugin.vim
 
+let g:defx_standard_width = 30
+
 nnoremap <a-x> <Nop>
 
 " Call Defx; in vertical "{{{1
 nnoremap <silent> <a-x>v
       \ :<c-u>Defx `expand('%:p:h')` -search=`expand('%:p')`
       \ -direction=topleft
-      \ -winwidth=30
+      \ -winwidth=`expand(g:defx_standard_width)`
       \ -split=vertical
       \ -new
       \ <cr>
 nnoremap <silent> <a-x><a-v>
       \ :<c-u>Defx `expand('%:p:h')` -search=`expand('%:p')`
       \ -direction=topleft
-      \ -winwidth=30
+      \ -winwidth=`expand(g:defx_standard_width)`
       \ -split=vertical
       \ -new
       \ <cr>

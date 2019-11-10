@@ -52,8 +52,14 @@ call defx#custom#column('mark', {
 "        \ })
 "}}}
 
-let g:defx_is_narrow = 50
-let g:defx_is_wide = g:defx_is_narrow
+"let s:defx_is_wide   = {-> winwidth('.') > g:defx_standard_width}
+"let s:defx_is_narrow = {-> winwidth('.') <= g:defx_standard_width}
+function! s:defx_is_wide() abort
+  return winwidth('%') > g:defx_standard_width
+endfunction
+function! s:defx_is_narrow() abort
+  return winwidth('%') <= g:defx_standard_width
+endfunction
 
 function! s:defx_keymap_explorer() abort
   nnoremap <silent><nowait><buffer> <c-w>=
@@ -65,7 +71,7 @@ function! s:defx_keymap_explorer() abort
         \ defx#do_action('cd', ['..'])
   nnoremap <silent><nowait><buffer><expr> l
         \ defx#do_action('open_directory')
-        "\ (winwidth('.') < g:defx_is_wide)?
+        "\ <SID>defx_is_wide()?
         "\ defx#do_action('open_tree')
   " Explore; CWD {{{2
   nnoremap <silent><nowait><buffer><expr> <c-g>
@@ -113,34 +119,33 @@ function! s:defx_keymap_explorer() abort
   " Selected {{{1
   " Selected; Open File {{{2
   " TODO: Make User's event on buffer's openning from defx.
-  function! s:defx_open_or_drop() abort "{{{
-    if winwidth('.') > g:defx_is_wide
-      return defx#do_action('open')
-    elseif defx#is_directory()
-      return defx#do_action('open')
-    endif
-    return defx#do_action('multi', ['drop', 'quit'])
-  endfunction "}}}
   nnoremap <silent><nowait><buffer><expr> <c-j>
-        \ <SID>defx_open_or_drop()
+        \ <SID>defx_is_wide()?
+        \ defx#do_action('open'):
+        \ defx#do_action('multi', ['drop', 'quit'])
   nnoremap <silent><nowait><buffer><expr> <CR>
-        \ <SID>defx_open_or_drop()
+        \ <SID>defx_is_wide()?
+        \ defx#do_action('open'):
+        \ defx#do_action('multi', ['drop', 'quit'])
   " Append window
   nnoremap <silent><nowait><buffer><expr> A
         \ defx#do_action('open', 'bot vsplit')
-        \ .':wincmd p<cr>'
+        \ .'<c-w>p'
   xnoremap <silent><nowait><buffer><expr> A
         \ defx#async_action('multi',
         \ ['toggle_select_visual', ['open', 'bot vsplit']])
-        \ .':wincmd p<cr>'
+        \ .'<c-w>p'
   " FIXME: always keep cursor on defx after drop to :split ANYWHERE
   nnoremap <silent><nowait><buffer><expr> a
+        \ <SID>defx_is_wide()?
+        \ defx#do_action('open', 'bel split')
+        \ .'<c-w>k':
         \ defx#do_action('drop', 'bel split')
-        \ .':wincmd h<cr>'
+        \ .'<c-w>h'
   xnoremap <silent><nowait><buffer><expr> a
         \ defx#async_action('multi',
         \ ['toggle_select_visual', ['drop', 'bel split']])
-        \ .':wincmd h<cr>'
+        \ .'<c-w>h'
   " Mnemonic: Zip Preview
   nnoremap <silent><nowait><buffer> zp <c-w>z
   " TODO: what is the 'search'?
@@ -149,11 +154,13 @@ function! s:defx_keymap_explorer() abort
   " Insert a preview window in actual windows
   nnoremap <silent><nowait><buffer><expr> I
         \ defx#do_action('open', 'pclose <bar> vert bot pedit')
-        \ .':wincmd =<cr>'
+        \ .'<c-w>='
   " FIXME: keep cursor on defx after :pedit ANYWHERE
   nnoremap <silent><nowait><buffer><expr> i
+        \ <SID>defx_is_wide()?
+        \ defx#do_action('open', 'pclose <bar> pedit'):
         \ defx#do_action('drop', 'pclose <bar> pedit')
-        \ .':wincmd h<cr>'
+        \ .'<c-w>h'
   " Note: defx's quit with split doesn't work well.
   nnoremap <silent><nowait><buffer><expr> O
         \ defx#do_action('multi', [['open', 'bot vsplit'], 'quit'])
@@ -247,8 +254,8 @@ augroup OnDefxBuffer
   au!
   " TODO: highlight on top as there's filepath, or place those path on another place.
   au FileType defx setl nonumber signcolumn= winfixwidth bufhidden=wipe previewheight=25
-  au WinEnter    * if &ft ==# 'defx' | call setbufvar(bufnr('#'), '&winfixwidth', 1) | endif
-  au BufWinLeave * if &ft ==# 'defx' | call setbufvar(bufnr('#'), '&winfixwidth', 0) | endif
+  "au WinEnter \[defx\]* call setbufvar(bufnr('\[defx\]'), '&winfixwidth', 1)
+  "au BufLeave \[defx\]* call setbufvar(bufnr('\[defx\]'), '&winfixwidth', 0)
   au FileType defx call s:defx_keymap_explorer()
   "au BufWritePost * call defx#redraw() " of course, includes a check for defx-channel
 augroup END
