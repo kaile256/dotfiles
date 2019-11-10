@@ -59,89 +59,89 @@ inoremap <c-g>w     <S-Right>
 " CAUTION: Remember n_<a-hjkl> for Win-Leap
 " For: make sure <a-hjkl> work as <esc>hjkl, e.g., while pop-up menu shows.
 " Note: <a-h> behaves as <esc> is more instinctive than <esc>h.
-inoremap <nowait> <a-h> <esc>
-inoremap <nowait> <a-j> <esc>j
-inoremap <nowait> <a-k> <esc>k
-inoremap <nowait> <a-l> <esc>l
+inoremap <a-h> <esc>
+inoremap <a-j> <esc>j
+inoremap <a-k> <esc>k
+inoremap <a-l> <esc>l
 snoremap <a-h> <esc>h
 snoremap <a-j> <esc>j
 snoremap <a-k> <esc>k
 snoremap <a-l> <esc>l
 "}}}
 " Alt-ESC; <a-web> {{{
-inoremap <nowait> <a-w>   <esc>w
-inoremap <nowait> <a-b>   <esc>b
-inoremap <nowait> <a-e>   <esc>e
-inoremap <nowait> <a-s-w> <esc>W
-inoremap <nowait> <a-s-b> <esc>B
-inoremap <nowait> <a-s-e> <esc>E
+inoremap <a-w>   <esc>w
+inoremap <a-b>   <esc>b
+inoremap <a-e>   <esc>e
+inoremap <a-s-w> <esc>W
+inoremap <a-s-b> <esc>B
+inoremap <a-s-e> <esc>E
 "}}}
 " Alt-ESC; <a-ydcup> {{{
-inoremap <nowait> <a-y>   <esc>y
-inoremap <nowait> <a-x>   <esc>x
-inoremap <nowait> <a-d>   <esc>d
-inoremap <nowait> <a-c>   <esc>c
-inoremap <nowait> <a-u>   <esc>u
-inoremap <nowait> <a-c-r> <esc><c-r>
-inoremap <nowait> <a-p>   <c-g>u<esc>p
-inoremap <nowait> <a-s-p> <c-g>u<esc>P
-inoremap <nowait> <a-s-y> <esc>y$
-inoremap <nowait> <a-s-x> <esc>X
-inoremap <nowait> <a-s-d> <esc>D
-inoremap <nowait> <a-s-c> <esc>C
-snoremap <nowait> <a-y>   <esc>y
-snoremap <nowait> <a-x>   <esc>x
-snoremap <nowait> <a-d>   <esc>d
-snoremap <nowait> <a-c>   <esc>c
-snoremap <nowait> <a-u>   <esc>u
-snoremap <nowait> <a-c-r> <esc><c-r>
-snoremap <nowait> <a-p>   <c-g>u<esc>p
-snoremap <nowait> <a-s-p> <c-g>u<esc>P
-snoremap <nowait> <a-s-y> <esc>y$
-snoremap <nowait> <a-s-x> <esc>X
-snoremap <nowait> <a-s-d> <esc>D
-snoremap <nowait> <a-s-c> <esc>C
+inoremap <a-y>   <esc>y
+inoremap <a-x>   <esc>x
+inoremap <a-d>   <esc>d
+inoremap <a-c>   <esc>c
+inoremap <a-u>   <esc>u
+inoremap <a-c-r> <esc><c-r>
+inoremap <a-p>   <c-g>u<esc>p
+inoremap <a-s-p> <c-g>u<esc>P
+inoremap <a-s-y> <esc>y$
+inoremap <a-s-x> <esc>X
+inoremap <a-s-d> <esc>D
+inoremap <a-s-c> <esc>C
+snoremap <a-y>   <esc>y
+snoremap <a-x>   <esc>x
+snoremap <a-d>   <esc>d
+snoremap <a-c>   <esc>c
+snoremap <a-u>   <esc>u
+snoremap <a-c-r> <esc><c-r>
+snoremap <a-p>   <c-g>u<esc>p
+snoremap <a-s-p> <c-g>u<esc>P
+snoremap <a-s-y> <esc>y$
+snoremap <a-s-x> <esc>X
+snoremap <a-s-d> <esc>D
+snoremap <a-s-c> <esc>C
 
 " Note: 'U' respects vi-compatible way of `uu`.
-inoremap <nowait> <a-s-u> <esc>U
-inoremap <nowait> <a-s-p> <c-g>u<esc>P
-snoremap <nowait> <a-s-u> <esc>U
-snoremap <nowait> <a-s-p> <c-g>u<esc>P
+inoremap <a-s-u> <esc>U
+inoremap <a-s-p> <c-g>u<esc>P
+snoremap <a-s-u> <esc>U
+snoremap <a-s-p> <c-g>u<esc>P
 
 """ A-ydcup; for another type {{{
-inoremap <nowait> <a-y><a-y> <esc>yy
-inoremap <nowait> <a-y><a-i> <esc>yi
-inoremap <nowait> <a-y><a-a> <esc>ya
+inoremap <a-y><a-y> <esc>yy
+inoremap <a-y><a-i> <esc>yi
+inoremap <a-y><a-a> <esc>ya
 
-inoremap <nowait> <a-y><a-w> <esc>yw
-inoremap <nowait> <a-y><a-b> <esc>yb
-inoremap <nowait> <a-y><a-e> <esc>ye
+inoremap <a-y><a-w> <esc>yw
+inoremap <a-y><a-b> <esc>yb
+inoremap <a-y><a-e> <esc>ye
 
-inoremap <nowait> <a-d><a-d> <esc>dd
-inoremap <nowait> <a-d><a-i> <esc>di
-inoremap <nowait> <a-d><a-a> <esc>da
+inoremap <a-d><a-d> <esc>dd
+inoremap <a-d><a-i> <esc>di
+inoremap <a-d><a-a> <esc>da
 
-inoremap <nowait> <a-d><a-w> <esc>dw
-inoremap <nowait> <a-d><a-b> <esc>db
-inoremap <nowait> <a-d><a-e> <esc>de
+inoremap <a-d><a-w> <esc>dw
+inoremap <a-d><a-b> <esc>db
+inoremap <a-d><a-e> <esc>de
 
-inoremap <nowait> <a-c><a-c> <esc>cc
-inoremap <nowait> <a-c><a-i> <esc>ci
-inoremap <nowait> <a-c><a-a> <esc>ca
+inoremap <a-c><a-c> <esc>cc
+inoremap <a-c><a-i> <esc>ci
+inoremap <a-c><a-a> <esc>ca
 
-inoremap <nowait> <a-c><a-w> <esc>cw
-inoremap <nowait> <a-c><a-b> <esc>cb
-inoremap <nowait> <a-c><a-e> <esc>ce
+inoremap <a-c><a-w> <esc>cw
+inoremap <a-c><a-b> <esc>cb
+inoremap <a-c><a-e> <esc>ce
 "}}}
 "}}}
 " Alt-ESC; <a-iao> "{{{
 " <a-ai> could be just <left>/<right>, but I prefer <esc> before.
-inoremap <nowait> <a-a>   <esc>la
-inoremap <nowait> <a-i>   <esc>i
-inoremap <nowait> <a-o>   <esc>o
-inoremap <nowait> <a-s-o> <esc>O
-inoremap <nowait> <a-s-i> <esc>I
-inoremap <nowait> <a-s-a> <esc>A
+inoremap <a-a>   <esc>la
+inoremap <a-i>   <esc>i
+inoremap <a-o>   <esc>o
+inoremap <a-s-o> <esc>O
+inoremap <a-s-i> <esc>I
+inoremap <a-s-a> <esc>A
 "}}}
 
 " CAUTION: <c-d> increases indent on Insert Mode.
@@ -181,53 +181,6 @@ augroup END "}}}
 " i.e., close all the others
 noremap zU zMzv
 "}}}
-
-function! s:get_end_of_word() abort "{{{
-  let col = col('.') -1
-  let signs = [' ', '#', '_', '.', '-', '=', '/', '[', ']', '(', ')'] " signs which can be between chars
-  let count = 0
-
-  while getline('.')[col] !=# signs[count]
-    let count += 1
-
-    if col('.') == col('$') -1 | break | endif
-
-    if count == len(signs)
-      let count = 0
-      norm! l
-      break
-    endif
-  endwhile
-
-  startinsert
-endfunction "}}}
-
-function! s:spell_suggestion() abort "{{{
-  if &spell != 1
-    setl spell
-    au! CompleteDone * ++once setl nospell
-  endif
-
-  " TODO: always start suggestion at the end of <cword>;
-  "       sometimes shifted to the left by one char.
-  if mode() =~# 'i'
-    let i_mode = 1
-  else
-    call s:get_end_of_word()
-  endif
-
-  " Note: '<c-x>s' forces to take cursor back to the last misspelled word.
-  call feedkeys("\<c-x>s", 'n') " start spell-completion
-
-  if !exists('i_mode')
-    call feedkeys("\<c-p>", 'n') " keep the word from being replaced at first
-  endif
-endfunction "}}}
-
-nnoremap <silent> gs         :<c-u>call <SID>spell_suggestion()<cr>
-" Note: <c-s> freezes screen in some unix-like OS.
-inoremap <silent> <c-x>s     <Cmd>call  <SID>spell_suggestion()<cr>
-inoremap <silent> <c-x><c-s> <Cmd>call  <SID>spell_suggestion()<cr>
 
 function! s:send_to_cmdline(delete) abort range "{{{
   " TODO: start reverse highlight the cmd-edit mode at the first-line,
