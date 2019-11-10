@@ -62,14 +62,14 @@ hi link EasyMotionIncSearch Search
 "map F <Plug>(easymotion-F)
 "map T <Plug>(easymotion-T)
 
-map f <Plug>(easymotion-f2)
-map t <Plug>(easymotion-t2)
-map F <Plug>(easymotion-F2)
-map T <Plug>(easymotion-T2)
-imap <a-f> <esc><Plug>(easymotion-f2)
-imap <a-t> <esc><Plug>(easymotion-t2)
-imap <a-F> <esc><Plug>(easymotion-F2)
-imap <a-T> <esc><Plug>(easymotion-T2)
+map f <Plug>(easymotion-f)
+map t <Plug>(easymotion-t)
+map F <Plug>(easymotion-F)
+map T <Plug>(easymotion-T)
+imap <a-f> <esc><Plug>(easymotion-f)
+imap <a-t> <esc><Plug>(easymotion-t)
+imap <a-F> <esc><Plug>(easymotion-F)
+imap <a-T> <esc><Plug>(easymotion-T)
 "sunmap <space>f
 "sunmap <space>t
 "sunmap <space>F
