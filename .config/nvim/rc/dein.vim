@@ -39,6 +39,7 @@ let s:dein_toml_initial_list = [
       \ ]
 let s:dein_toml_lazy_list = [
       \ 'appearance.toml',
+      \ 'denite.toml',
       \ 'extension.toml',
       \ 'external.toml',
       \ 'finder.toml',
