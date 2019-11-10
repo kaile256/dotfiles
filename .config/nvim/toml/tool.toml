@@ -6,12 +6,19 @@ on_cmd = 'FindRoot'
 hook_add = 'runtime add/findroot.vim'
 # To: enable to :FindRoot w/ other commands through <bar>.
 hook_done_update = '''
-exe 'e' g:dein_cache_dir .'/repos/github.com/mattn/vim-findroot/plugin/findroot.vim'
+exe 'e' g:dein_github_dir .'/mattn/vim-findroot/plugin/findroot.vim'
 g/command!/norm! Ea -bar
 g/s:findroot(/s/1/0
 write
 '''
 #}}}
+
+#[[plugins]]
+#repo = 'kana/vim-submode' #{{{
+# make another mode!
+#on_cmd = 'submode#'
+#hook_add = 'runtime add/submode.vim'
+##}}}
 
 #[[plugins]]
 #repo = 'thinca/vim-ref' #{{{
@@ -29,8 +36,14 @@ hook_add = 'runtime add/pfp.vim'
 # Floating Window
 #[[plugins]]
 #repo = 'ncm2/float-preview.nvim' #{{{
-#on_source = ['denite.nvim', 'delplete.nvim', 'coc.nvim']
+#on_source = ['denite.nvim', 'deolplete.nvim', 'coc.nvim']
 #hook_source = 'runtime source/float-preview.vim'
+#hook_done_update = '''
+#exe 'e' g:dein_github_dir .'/ncm2/float-preview.nvim/plugin/float_preview.vim'
+#g/au/Complete/norm! i"
+#g/au/InsertLeave/norm! i"
+#write
+#'''
 ##}}}
 #[[plugins]]
 #repo = 'voldikss/vim-floaterm' #{{{
@@ -58,6 +71,12 @@ write
 #hook_post_source = 'runtime add/sonictemplate.vim'
 #}}}
 
+[[plugins]]
+repo = 'infokiller/vim-errorlist' #{{{
+on_cmd = ['errorlist#Navigate']
+on_event = ['BufRead']
+hook_source = 'runtime source/errorlist.vim'
+#}}}
 # Checker
 #[[plugins]]
 #repo = 'haya14busa/vim-stacktrace' #{{{
