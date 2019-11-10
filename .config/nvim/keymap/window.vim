@@ -37,10 +37,6 @@ nnoremap <c-w>0 <c-w>=
 noremap <silent> <c-w>o     <c-w>o:diffoff!<cr>
 noremap <silent> <c-w><c-o> <c-w>o:diffoff!<cr>
 
-augroup FixedWindowOnlyUponBuffer
-  au! BufWinLeave * if &l:winfixwidth || &l:winfixheight | setl nowinfixwidth nowinfixheight
-augroup END
-
 " Resize {{{1
 nnoremap <c-left> <c-w><
 nnoremap <c-right> <c-w>>
