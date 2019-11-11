@@ -5,7 +5,7 @@ scriptencoding utf-8
 " Ref: /usr/share/nvim/runtime/autoload/netrw.vim
 " Ref: /usr/share/nvim/runtime/plugin/netrwPlugin.vim
 
-let g:defx_standard_width = 30
+let g:defx_sidebar_width = 30
 
 nnoremap <a-x> <Nop>
 

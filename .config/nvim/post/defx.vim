@@ -55,10 +55,10 @@ call defx#custom#column('mark', {
 "let s:defx_is_wide   = {-> winwidth('.') > g:defx_standard_width}
 "let s:defx_is_narrow = {-> winwidth('.') <= g:defx_standard_width}
 function! s:defx_is_wide() abort
-  return winwidth('%') > g:defx_standard_width
+  return winwidth('%') > g:defx_sidebar_width
 endfunction
 function! s:defx_is_narrow() abort
-  return winwidth('%') <= g:defx_standard_width
+  return winwidth('%') <= g:defx_sidebar_width
 endfunction
 
 function! s:defx_keymap_explorer() abort
@@ -71,6 +71,7 @@ function! s:defx_keymap_explorer() abort
         \ defx#do_action('cd', ['..'])
   nnoremap <silent><nowait><buffer><expr> l
         \ defx#do_action('open_directory')
+        \ .'zb'
         "\ <SID>defx_is_wide()?
         "\ defx#do_action('open_tree')
   " Explore; CWD {{{2
@@ -168,6 +169,8 @@ function! s:defx_keymap_explorer() abort
         \ defx#async_action('multi',
         \ ['toggle_select_visual', ['open', 'bot vsplit'], 'quit'])
   " Note: <c-s> freezes screen on some unix.
+  "nnoremap <silent><nowait><buffer> <c-w>v
+  "      \ :`expand('g:defx_standard_width')` wincmd v setl winfixwidth'<cr>
   nnoremap <silent><nowait><buffer><expr> o
         \ defx#do_action('multi', [['drop', 'bel split'], 'quit'])
   xnoremap <silent><nowait><buffer><expr> o
