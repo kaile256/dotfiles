@@ -13,14 +13,14 @@ nnoremap <a-x> <Nop>
 nnoremap <silent> <a-x>v
       \ :<c-u>Defx `expand('%:p:h')` -search=`expand('%:p')`
       \ -direction=topleft
-      \ -winwidth=`expand(g:defx_standard_width)`
+      \ -winwidth=`expand(g:defx_sidebar_width)`
       \ -split=vertical
       \ -new
       \ <cr>
 nnoremap <silent> <a-x><a-v>
       \ :<c-u>Defx `expand('%:p:h')` -search=`expand('%:p')`
       \ -direction=topleft
-      \ -winwidth=`expand(g:defx_standard_width)`
+      \ -winwidth=`expand(g:defx_sidebar_width)`
       \ -split=vertical
       \ -new
       \ <cr>
@@ -88,11 +88,11 @@ augroup DefxInsteadOfNetrw "{{{1
   let g:loaded_netrwFileHandlers = 1
   " TODO: inherit jumplist after gf
   au VimEnter * silent! au! FileExplorer *
-  au BufEnter * if s:isdir(expand('<amatch>')) && expand('<amatch>') !=# 'defx'
-        \ | Defx `expand('<amatch>')` -search=`expand('<amatch>')`
+  au BufEnter * if s:isdir(expand('<amatch>'))
+        \ | Defx `expand('<amatch>')` -search=`expand('<amatch>')` -new
         \ | endif
   let s:isdir = {dir ->
-        \ !empty(dir)
-        \ && (isdirectory(dir)
+        \ !empty(dir) && (isdirectory(dir) ||
+        \ (!empty($SYSTEMDRIVE) && isdirectory('/'.tolower($SYSTEMDRIVE[0]).a:dir))
         \ )}
 augroup END
