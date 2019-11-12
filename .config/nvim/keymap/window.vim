@@ -1,10 +1,13 @@
 " From: nvim/init.vim
 
-if execute('map <c-w>q') !=# '' || execute('map <c-w><c-q>') !=# ''
+if execute('nmap <c-w>q') !=# ''
+      \ || execute('nmap <c-w><c-q>') !=# ''
   noremap <c-w>q <Nop>
   noremap <c-w><c-q> <Nop>
 endif
 
+nnoremap <c-w>Z ZZ
+nnoremap <c-w>Q ZQ
 nnoremap Zz ZZ
 nnoremap Zq ZQ
 " Mnemonic: $ yes
