@@ -7,13 +7,9 @@ let g:vimwiki_table_auto_fmt = 0
 let g:vimwiki_home = '~/vimwiki'
 " Note: task.wiki is not a directory, but a file; cannot :cd.
 
-if !exists('g:kmDealer#cmd_after#cd_path_dict')
-  let g:kmDealer#cmd_after#cd_path_dict = {}
-endif
-call extend(g:kmDealer#cmd_after#cd_path_dict, {
+call extend(g:keymapsDL#cmd_after#cd_path_dict, {
       \ 'k': g:vimwiki_home,
-      \ }
-      \ )
+      \ })
 
 " Index
 command! MdwikiIndex :e ~/vimwiki/mdwiki/index.md
