@@ -1,32 +1,50 @@
 scriptencoding utf-8
 " From: init.vim
 
-" Prevention; before fzf.vim {{{
-let s:phrase_neither_rg_nor_ag = "You don't have executable 'ripgrep' nor 'silver searcher.'"
-let s:phrase_neither_fzf = "You don't have executable 'fzf.'"
+"" Buffers; {{{1
+"nnoremap <c-p> <Cmd>bprev<cr>
+"nnoremap <c-n> <Cmd>bnext<cr>
 
-if !executable('ag') && !executable('rg')
-  tnoremap <silent> <a-r> <c-\><c-n>:echo "You don't have executable 'ripgrep' nor 'silver searcher.'"<cr>
-  tnoremap <silent> <a-q> <c-\><c-n>:echo "You don't have any executable fuzzy finder.'"<cr>
-  nnoremap <silent> <a-r> :<c-u>echo "You don't have executable 'ripgrep' nor 'silver searcher.'"<cr>
-  nnoremap <silent> <a-q> :<c-u>echo "You don't have any executable fuzzy finder.'"<cr>
-endif
-"}}}
-
-" Improved; Jump {{{
-"" Buffer; to the Last
-noremap <c-6> <c-^>
-""" Tags; to Newest
-" :silent! to supress 'E556: at top of tag stack'
-nnoremap <silent> <c-q> :silent! $tag<cr>
-
-"" Jump; Search
+"" n/N for Search {{{1
 " researched word will come up at middle of current window.
 "nnoremap n nzz
 "nnoremap N Nzz
-"}}}
 
-" Switch; Pane
+" Jump; via Tags {{{1
+" Note: g<c-]> jumps via ctags,
+"       or if <cword> links more than two tags, shows a list of tags.
+noremap <c-]> g<c-]>zz
+" Note: stjump means split-tag-jump.
+noremap <silent> g<c-]> :<c-u>vert stjump <c-r><c-w><CR>zz
+
+" Tags; to Newest
+" :silent! to supress 'E556: at top of tag stack'
+nnoremap <silent> <c-q> :silent! $tag<cr>
+
+" to Definition on &path {{{1
+" if a number follows filename/path, jump to the linenumber on the buffer:
+"     init.vim:10
+"     init.vim @ 20
+"     init.vim (30)
+"     /init.vim 40
+"nnoremap <silent> gf gF
+"xnoremap <silent> gf gF
+"" in horizontal
+"nnoremap <silent> <c-w>f <c-w>F
+"xnoremap <silent> <c-w>f <c-w>F
+"
+"" Note: sfind denys range and to follow number.
+"nnoremap <silent> <c-w><space>f :<c-u>vert wincmd F<cr>
+"" Note: :vert forbids any range, keep using <Cmd>.
+"xnoremap <silent> <c-w><space>f <Cmd>vert wincmd F<cr>
+"
+"" in new tab
+"nnoremap <silent> <c-w>F <c-w>gF
+"xnoremap <silent> <c-w>F <c-w>gF
+"nnoremap <silent> gF <c-w>gF
+"xnoremap <silent> gF <c-w>gF
+
+" Switch; Pane {{{1
 " leap between panes
 nnoremap <a-h> <c-w>h
 nnoremap <a-j> <c-w>j
@@ -36,7 +54,7 @@ nnoremap <a-l> <c-w>l
 " avoid a stack on command-line
 cnoremap <a-k> <c-c>
 
-" Switch; Tab Page
+" Switch; Tab Page {{{1
 "" Move between Tabs
 nnoremap <c-h> gT
 nnoremap <c-l> gt
@@ -47,5 +65,3 @@ inoremap <a-]> <esc>gt
 tnoremap <a-]> <c-\><c-n>gt
 tnoremap <a-[> <c-\><c-n>gT
 
-"nnoremap <c-p> <Cmd>bprev<cr>
-"nnoremap <c-n> <Cmd>bnext<cr>
