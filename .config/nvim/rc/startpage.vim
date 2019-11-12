@@ -10,15 +10,19 @@ augroup SetMyStartpage
       return
     endif
 
+    let s:match = {list -> index(list, a:page) >= 0}
+    "function! s:match(list) closure abort
+    "  return index(a:list, a:page) >= 0
+    "endfunction
     if a:page ==# 'mdwiki'
       e ~/vimwiki/mdwiki/index.md
-    elseif a:page ==# ('task' || 'taskwiki')
+    elseif s:match(['task', 'taskwiki'])
       e ~/vimwiki/tasks.wiki
-    elseif a:page ==# ('wiki' || 'vimwiki')
+    elseif s:match(['wiki', 'vimwiki'])
       VimwikiIndex
     elseif a:page ==# 'diary'
       e ~/vimwiki/diary/index.wiki
-    elseif a:page ==# ('term' || 'terminal' || 'fish')
+    elseif s:match(['term', 'terminal', 'fish'])
       call termopen('fish')
       setl nonumber signcolumn=no
     elseif isdirectory(a:page) || filereadable(a:page)
@@ -27,5 +31,7 @@ augroup SetMyStartpage
       Defx `expand('<amatch>')` -`expand('<amatch>')`
     endif
   endfunction
-  au! VimEnter * ++nested call s:startpage('terminal')
+  " FIXME: the arg is 'term' causes an echoerr:
+  "        'Can only call this function in an unmodified buffer'
+  au! VimEnter * ++nested silent! call s:startpage('terminal')
 augroup END
