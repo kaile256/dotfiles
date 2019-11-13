@@ -1,13 +1,12 @@
 " From: init.vim
 
-augroup EnterDiffMode "{{{
+augroup EnterDiffMode
   au!
-  au OptionSet * if &diff | setl wrap | endif
+  "au OptionSet * if &diff | setl wrap | endif " diffchar could cause error
   "au WinEnter,OptionSet *
   "      \ if &l:fdm !=# 'diff'
   "      \ |  let b:_fdm_before_diff = &l:fdm
   "      \ | endif
-
   function! s:diff_keymaps() abort "{{{
     " Put/Get only SELECTED lines.
     " Note: both do & dp on visual-mode makes
