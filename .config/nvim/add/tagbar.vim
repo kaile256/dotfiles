@@ -2,8 +2,8 @@
 " Repo: majutsushi/tagbar
 
 let g:tagbar_iconchars = ['*', '#']
-
 let g:tagbar_silent = 1
+let g:tagbar_previewwin_pos = 'bot'
 
 " 0: open folds only when the current tag is inside a closed fold. (default)
 " 1: open folds as much as needed for the tag to be visible.
