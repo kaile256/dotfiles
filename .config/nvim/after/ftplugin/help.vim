@@ -8,7 +8,8 @@ if expand('%:p') =~# '/home/' && expand('%:p') !~# 'help.vim'
 endif
 
 " Ref: /usr/share/nvim/runtime/ftplugin/help.vim @25
-function! s:toc_vertical() abort "{{{
+function! s:help_toc(mods) abort "{{{
+  " TODO: toggle! see :TagbarToggle
   let bufname = bufname('%')
   let info = getloclist(0, {'winid': 1})
 
@@ -92,10 +93,12 @@ function! s:toc_vertical() abort "{{{
   call setloclist(0, toc, ' ', 'text')
   call setloclist(0, [], 'a', {'title': 'Help TOC'})
 
-  exe 'vert' toc_width 'lopen'
+  exe a:mods toc_width 'lopen'
   setl winfixwidth nonumber nowrap
   let w:qf_toc = bufname
 endfunction "}}}
 
-nnoremap <silent><buffer> gO    :call <SID>toc_vertical()<cr>
-nnoremap <silent><buffer> <a-i> :call <SID>toc_vertical()<cr>
+command! -bar HelpTOC :call s:help_toc(<q-mods>)
+
+nnoremap <silent><buffer> gO    :<c-u>vert bot HelpTOC<cr>
+nnoremap <silent><buffer> <a-i> :<c-u>vert bot HelpTOC<cr>
