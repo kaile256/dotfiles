@@ -1,12 +1,16 @@
 " From: motion.toml
 " Repo: justinmk/vim-sneak
+" Fork: kaile256/vim-sneak
 " Ref: add/easymotion.vim
 
-hi! link Sneak      ErrorMsg
-hi! link SneakScope ErrorMsg
-hi! link SneakLabel ErrorMsg
+hi! link Sneak      WarningMsg
+hi! link SneakScope WarningMsg
+hi! link SneakLabel WarningMsg
 
-let g:sneak#prompt  = 'Sneak: 2 Chars >> '
+let g:sneak#no_default_mapping = 1
+let g:sneak#prompt = v:false
+" use 'ignorecase' & 'smartcase'
+"let g:sneak#use_ic_scs = 1
 
 let g:sneak#s_next  = 0
 " 0: Pressing f/t will repeat last motion as ;/,.
@@ -15,6 +19,8 @@ let g:sneak#t_reset = 1
 
 map g<space>   <Plug>Sneak_f<space>
 map g<s-space> <Plug>Sneak_F<space>
+map ; <Plug>Sneak_;
+map , <Plug>Sneak_,
 
 " sneak#wrap('{operatorName}', {inputLength}, {reverse?}, {t/f}, {label})
 " mode: operatorName; '{'':n,v:operator,visualmode()}
@@ -23,22 +29,25 @@ map g<s-space> <Plug>Sneak_F<space>
 " f: t/f; {0:t,1:f,2:/}
 " l: label; {0:never show sneak-label, 1:show labels for >=2 matches, 2:always}
 
-" Table;              mode,         i, r, f, l
-nnoremap <silent> f :<c-u>call sneak#wrap('',           2, 0, 1, 1)<cr>
-xnoremap <silent> f :<c-u>call sneak#wrap(visualmode(), 2, 0, 1, 1)<cr>
-onoremap <silent> f :<c-u>call sneak#wrap(v:operator,   2, 0, 1, 1)<cr>
+" TODO: compact expression like below
+"nnoremap <expr> f sneak#wrap('f2', 'label')
 
-nnoremap <silent> t :<c-u>call sneak#wrap('',           2, 0, 0, 1)<cr>
-xnoremap <silent> t :<c-u>call sneak#wrap(visualmode(), 2, 0, 0, 1)<cr>
-onoremap <silent> t :<c-u>call sneak#wrap(v:operator,   2, 0, 0, 1)<cr>
+" Table;                                  mode,         i, r, f, l
+nnoremap <silent> f :<c-u>call sneak#wrap('',           1, 0, 1, 1)<cr>
+xnoremap <silent> f :<c-u>call sneak#wrap(visualmode(), 1, 0, 1, 1)<cr>
+onoremap <silent> f :<c-u>call sneak#wrap(v:operator,   1, 0, 1, 1)<cr>
 
-nnoremap <silent> F :<c-u>call sneak#wrap('',           2, 1, 1, 1)<cr>
-xnoremap <silent> F :<c-u>call sneak#wrap(visualmode(), 2, 1, 1, 1)<cr>
-onoremap <silent> F :<c-u>call sneak#wrap(v:operator,   2, 1, 1, 1)<cr>
+nnoremap <silent> t :<c-u>call sneak#wrap('',           1, 0, 0, 1)<cr>
+xnoremap <silent> t :<c-u>call sneak#wrap(visualmode(), 1, 0, 0, 1)<cr>
+onoremap <silent> t :<c-u>call sneak#wrap(v:operator,   1, 0, 0, 1)<cr>
 
-nnoremap <silent> T :<c-u>call sneak#wrap('',           2, 1, 0, 1)<cr>
-xnoremap <silent> T :<c-u>call sneak#wrap(visualmode(), 2, 1, 0, 1)<cr>
-onoremap <silent> T :<c-u>call sneak#wrap(v:operator,   2, 1, 0, 1)<cr>
+nnoremap <silent> F :<c-u>call sneak#wrap('',           1, 1, 1, 1)<cr>
+xnoremap <silent> F :<c-u>call sneak#wrap(visualmode(), 1, 1, 1, 1)<cr>
+onoremap <silent> F :<c-u>call sneak#wrap(v:operator,   1, 1, 1, 1)<cr>
+
+nnoremap <silent> T :<c-u>call sneak#wrap('',           1, 1, 0, 1)<cr>
+xnoremap <silent> T :<c-u>call sneak#wrap(visualmode(), 1, 1, 0, 1)<cr>
+onoremap <silent> T :<c-u>call sneak#wrap(v:operator,   1, 1, 0, 1)<cr>
 finish
 
 " Table;                    operator,     i, r, f, l
