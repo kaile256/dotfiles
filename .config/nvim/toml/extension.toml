@@ -8,7 +8,7 @@ repo = 'tpope/vim-repeat' #{{{
 #       so I made a symlink to the directory at plugin/.
 #       Therefore, the lazy loading doesn't work either.
 #on_map = '<Plug>(Repeat'
-on_event = 'BufRead'
+#on_event = ['BufRead']
 hook_add = 'runtime add/repeat.vim'
 #}}}
 
@@ -66,8 +66,9 @@ hook_source = 'runtime add/FastFold.vim'
 # Diff
 [[plugins]]
 repo = 'rickhowe/diffchar.vim' #{{{
-#on_cmd = ['DiffCharShow', 'DiffCharToggle']
+on_cmd = ['DiffCharShow', 'DiffCharToggle']
 on_if = '&diff'
+hook_source = 'runtime add/diffchar.vim'
 hook_done_update = '''
 exe 'e' g:dein_github_dir .'/rickhowe/diffchar.vim/plugin/diffchar.vim'
 %s/SDChar/DiffCharShow/e
