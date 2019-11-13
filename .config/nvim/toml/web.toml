@@ -27,6 +27,7 @@ hook_post_update = 'function("firenvim#install")'
 #hook_done_update = 'GhostInstall'
 #on_cmd = 'Ghost'
 #hook_add = 'runtime add/ghost.vim'
+#hook_add = 'runtime post/ghost.vim'
 
 # API
 [[plugins]]
