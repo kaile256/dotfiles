@@ -13,5 +13,13 @@
 "  au DiffUpdated if exists(':RDChar')        | RDChar        | endif
 "augroup END
 
+"augroup DiffCharResetFoldMethod
+"  au! OptionSet diff
+"        \ if &fdm == 'expr'
+"        \  | setl fdm=syntax
+"        \  | au OptionSet diff ++once setl fdm=expr
+"        \ | endif
+"augroup END
+
 let g:DiffColors = 100  " all available colors in dynamic random order
 let g:DiffExpr = 0
