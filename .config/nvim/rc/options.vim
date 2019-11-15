@@ -11,6 +11,7 @@ command! -nargs=+ -complete=file Grep :tabnew | silent grep --sort-files <args>
 " Time in ms to wait for a mapped sequence to complete.
 " For: made me notice if any mappings are in Caleene's way.
 set timeoutlen=10000
+set previewheight=28
 
 set synmaxcol=320
 " Appearance; Pmenu {{{1
@@ -85,8 +86,6 @@ set list
 "augroup END
 "set listchars=tab:»-,trail:-,eol:↲,extends:»,precedes:«,nbsp:%
 
-" Method; diff {{{1
-set diffopt=filler,internal,vertical,algorithm:histogram,indent-heuristic
 " Method; Shell {{{1
 " CAUTION: some plugins depends on bash, such as twiggy.vim.
 "if executable('fish')
