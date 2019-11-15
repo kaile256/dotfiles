@@ -76,7 +76,8 @@ function! s:help_toc(mods) abort "{{{
       " Note: [bufnr, lnum] is necessary to jump when <CR>
       " TODO: hide [bufnr, lnum] when toc appears.
       call add(toc, {
-            \ 'text': repeat('  ', level) . index,
+            \ 'text': repeat('  ', level) .
+            \   toupper(matchstr(index, '\a')) . tolower(index[matchpos(index, '\a'):]),
             \ 'bufnr': bufnr('%'),
             \ 'lnum': lnum,
             \ })
