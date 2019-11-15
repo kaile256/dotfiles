@@ -1,15 +1,17 @@
 " From: init.vim
 
-" instead
-tnoremap <c-x>h     ~/
-tnoremap <c-x><c-h> ~/
 noremap! <c-x>h     ~/
 noremap! <c-x><c-h> ~/
+tnoremap <c-x>h     ~/
+tnoremap <c-x><c-h> ~/
 
-"inoremap <expr><silent> <a-space> feedkeys("\<esc>\<space>", 'n')
-tmap <a-space> <c-\><c-n><space>
+" keep <space> as a prefix {{{1
+inoremap <silent> <a-space> <esc>:call feedkeys("\<space>")<cr>
+tnoremap <silent> <a-space> <c-c><c-\><c-n>:call feedkeys("\<space>")<cr>
 
-" Keymap; Write&Quit {{{
+" Keymap; Write&Quit {{{1
+nnoremap q <Nop>
+nnoremap Q <Nop>
 "" Write&Quit; Evacuation for Macro
 nnoremap q<space> q
 "" Write&Quit; wq
@@ -17,9 +19,8 @@ nnoremap <silent> <space>w :<c-u>w  <cr>
 nnoremap <silent> <space>W :<c-u>w! <cr>
 " Note: <space>q is sometimes mistyped, intending <space>w.
 nnoremap <silent> <space>q :<c-u>w  <cr>
-nnoremap <silent> Q <Nop>
-"}}}
-" Keymap; Cancel {{{
+
+" Keymap; Cancel {{{1
 onoremap <a-h> <ESC>h
 onoremap <a-j> <ESC>j
 onoremap <a-k> <ESC>k
@@ -36,8 +37,8 @@ cnoremap <a-k> <c-c>
 cnoremap <a-l> <c-c><c-w>l
 " <c-k> enter digraph
 cnoremap <c-k><a-k> <c-c>
-"}}}
-" Improve; i_<c-g> {{{
+"
+" Improve; i_<c-g> {{{1
 inoremap <c-g><c-h> <Left>
 inoremap <c-g>h     <Left>
 inoremap <c-g><c-l> <Right>
@@ -46,15 +47,14 @@ inoremap <c-g><c-b> <S-Left>
 inoremap <c-g>b     <S-Left>
 inoremap <c-g><c-w> <S-Right>
 inoremap <c-g>w     <S-Right>
-"}}}
-" Improve; i_<c-o> {{{
+"
+" Improve; i_<c-o> {{{1
 " TODO: make <c-o>yi work, as <c-o>di, <c-o>ci.
 "inoremap <c-o>y <esc>
 "      \ :au TextYankPost * ++once norm! gi<cr>
 "      \ y
-"}}}
 
-" Alt-ESC; <a-hjkl> {{{
+" Alt-ESC; <a-hjkl> {{{1
 " CAUTION: Never careless mapping on <i_a-hjkl>
 " CAUTION: Remember n_<a-hjkl> for Win-Leap
 " For: make sure <a-hjkl> work as <esc>hjkl, e.g., while pop-up menu shows.
@@ -67,16 +67,16 @@ snoremap <a-h> <esc>h
 snoremap <a-j> <esc>j
 snoremap <a-k> <esc>k
 snoremap <a-l> <esc>l
-"}}}
-" Alt-ESC; <a-web> {{{
+
+" Alt-ESC; <a-web> {{{1
 inoremap <a-w>   <esc>w
 inoremap <a-b>   <esc>b
 inoremap <a-e>   <esc>e
 inoremap <a-s-w> <esc>W
 inoremap <a-s-b> <esc>B
 inoremap <a-s-e> <esc>E
-"}}}
-" Alt-ESC; <a-ydcup> {{{
+
+" Alt-ESC; <a-ydcup> {{{1
 inoremap <a-y>   <esc>y
 inoremap <a-x>   <esc>x
 inoremap <a-d>   <esc>d
@@ -108,7 +108,7 @@ inoremap <a-s-p> <c-g>u<esc>P
 snoremap <a-s-u> <esc>U
 snoremap <a-s-p> <c-g>u<esc>P
 
-""" A-ydcup; for another type {{{
+""" A-ydcup; for another type {{{1
 inoremap <a-y><a-y> <esc>yy
 inoremap <a-y><a-i> <esc>yi
 inoremap <a-y><a-a> <esc>ya
@@ -132,9 +132,9 @@ inoremap <a-c><a-a> <esc>ca
 inoremap <a-c><a-w> <esc>cw
 inoremap <a-c><a-b> <esc>cb
 inoremap <a-c><a-e> <esc>ce
-"}}}
-"}}}
-" Alt-ESC; <a-iao> "{{{
+
+
+" Alt-ESC; <a-iao> "{{{1
 " <a-ai> could be just <left>/<right>, but I prefer <esc> before.
 inoremap <a-a>   <esc>la
 inoremap <a-i>   <esc>i
@@ -142,10 +142,10 @@ inoremap <a-o>   <esc>o
 inoremap <a-s-o> <esc>O
 inoremap <a-s-i> <esc>I
 inoremap <a-s-a> <esc>A
-"}}}
+
 
 " CAUTION: <c-d> increases indent on Insert Mode.
-" Undo Break; {{{
+" Undo Break; {{{1
 "" Undo Break; New Line
 "inoremap <c-j> <c-g>u<c-j>
 "inoremap <c-m> <c-g>u<c-m>
@@ -163,7 +163,7 @@ inoremap <c-k> <c-g>u<c-k>
 " Undo Break; Non-Digit
 inoremap <c-q> <c-g>u<c-q>
 inoremap <c-v> <c-g>u<c-v>
-"}}}
+
 augroup AdditionalUndoBreakOnFileType "{{{
   au!
   au FileType html,markdown inoremap <buffer> , ,<c-g>u
@@ -171,23 +171,23 @@ augroup AdditionalUndoBreakOnFileType "{{{
   au FileType html,markdown inoremap <buffer> ! !<c-g>u
   au FileType html,markdown inoremap <buffer> ? ?<c-g>u
 augroup END "}}}
-" Undo Keep; Inc/Decrement {{{
+" Undo Keep; Inc/Decrement {{{1
 " Too slow.
 "nnoremap <c-x> <c-g>U<c-x>
 "nnoremap <c-a> <c-g>U<c-a>
-"}}}
 
-" Fold; Uniquely Open Fold {{{
+
+" Fold; Uniquely Open Fold {{{1
 " i.e., close all the others
 noremap zU zMzv
-"}}}
+
 
 function! s:send_to_cmdline(delete) abort range "{{{
   " TODO: start reverse highlight the cmd-edit mode at the first-line,
   "       which had better be removed when VimLeave.
   if mode() =~? 'v'
     " TODO: restrict only in visualized area.
-    exe getline("'<", "'>")
+    exe join(getline("'<", "'>"), "\<c-j>")
     if a:delete ==# 'delete' | *delete _ | endif
     return
   endif
