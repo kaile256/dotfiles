@@ -16,7 +16,8 @@ let g:sneak#no_prompt = 1
 "let g:sneak#t_reset = 0
 
 let g:sneak#label = 1
-"let g:sneak#label_esc = '.' " default "\<space>"
+" default for g:sneak#label_esc is "\<space>"
+"let g:sneak#label_esc = '.'
 let g:sneak#target_labels = "abcedfghijklmnopqrstuvwxyz"
 
 map g<space>   <Plug>Sneak_f<space>
@@ -56,8 +57,24 @@ onoremap <expr><silent> F (v:operator ==# 'd')?
 onoremap <expr><silent> T (v:operator ==# 'd')?
       \ ":call sneak#users('T', v:operator, 'never')<cr>":
       \ ":call sneak#users('f', v:operator)<cr>"
-finish
 
+augroup SneakBuffers "{{{1
+  au! FileType * if &ro | call s:sneak_readonly_keymaps() | endif "{{{2
+  function! s:sneak_readonly_keymaps() abort
+    nnoremap <buffer><silent> f :call sneak#users('f2')<cr>
+    nnoremap <buffer><silent> t :call sneak#users('t2')<cr>
+    nnoremap <buffer><silent> F :call sneak#users('F2')<cr>
+    nnoremap <buffer><silent> T :call sneak#users('T2')<cr>
+
+    xnoremap <buffer><silent> f :call sneak#users('f2', visualmode())<cr>
+    xnoremap <buffer><silent> t :call sneak#users('t2', visualmode())<cr>
+    xnoremap <buffer><silent> F :call sneak#users('F2', visualmode())<cr>
+    xnoremap <buffer><silent> T :call sneak#users('T2', visualmode())<cr>
+  endfunction
+  "}}}2
+augroup END
+"}}}1
+finish "{{{1
 
 " Table;                                  mode,         i, r, f, l
 nnoremap <silent> f :<c-u>call sneak#wrap('',           1, 0, 1, 1)<cr>
