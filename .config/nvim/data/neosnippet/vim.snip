@@ -1,5 +1,12 @@
 # Sample: /home/kaile256/.cache/dein/repos/github.com/honza/vim-snippets/snippets/vim.snippets
 
+snippet guifg
+alias fg gui
+  guifg=#000000
+snippet guibg
+alias bg
+  guibg=#000000
+
 snippet scriptencoding utf-8
 alias sc ut s u scr script
 options head
@@ -63,21 +70,26 @@ alias load loa
   let g:loaded_$1 = 1
 
 snippet cpoptions
-alias cpo
+alias cpo pop
 options head
   " save 'cpoptions' {{{
   let s:save_cpo = &cpo
   set cpo&vim
   "}}}
-
   ${0}
 
-  " restore 'cpoptions' {{{
+snippet end of plugin
+alias restore res end
+  ${0}
+  " restore 'cpoptions' {{{1
   let &cpo = s:save_cpo
-  "}}}
+
+  " modeline {{{1
+  " vim: et ts=2 sts=2 sw=2 fdm=marker
 
 snippet mode
 alias mod vim
+  " modeline {{{1
   " vim: et ts=2 sts=2 sw=2 fdm=marker
 
 snippet init
@@ -142,8 +154,7 @@ abbr au aug augr
 delete f function
 snippet function
 alias f fu fun func function
-  function! ${1:`expand('%') =~ 'autoload' ? substitute(matchstr(expand('%:p'),'autoload/\zs.*\ze.vim'),'[/\\]','#','g').'#' : ''`}${2:#:do}(${3:#:{{name\}[, {arglist\}] [, {dict\}]}) ${4:#:range }abort
-    ${0}
+  function! ${1:`expand('%') =~ 'autoload' ? substitute(matchstr(expand('%:p'),'autoload/\zs.*\ze.vim'),'[/\\]','#','g').'#' : ''`}${2:#:do}(${3:#:{{name\}[, {arglist\}] [, {dict\}]}) ${4:#:range }abort "{{{${0}
   endfunction
 
 snippet redir
