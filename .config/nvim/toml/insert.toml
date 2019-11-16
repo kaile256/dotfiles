@@ -60,12 +60,14 @@ repo = 'Shougo/neosnippet.vim' #{{{
 on_event = ['InsertEnter', 'TermOpen','CmdlineEnter']
 on_map = 'NeoSnippet'
 hook_add = 'runtime add/neosnippet.vim'
+hook_source = 'runtime once/smaps.vim'
 #}}}
 #[[plugins]]
 #repo = 'SirVer/ultisnips' #{{{
 ## Note: it override <TAB>
 #on_event = ['InsertEnter','TermOpen']
 #hook_post_source = 'runtime add/ultisnips.vim'
+#hook_source = 'runtime once/smaps.vim'
 ##}}}
 # Snippets; Contents
 [[plugins]]
