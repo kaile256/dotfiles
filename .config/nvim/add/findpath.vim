@@ -2,6 +2,7 @@
 " Repo: kaile256/vim-findpath
 
 let g:findpath#no_default_keymaps = 1
+let g:findpath#parent_dir_trial_level = 1
 
 nnoremap <silent> gf :FindPath<cr>zz
 xnoremap <silent> gf :FindPath<cr>zz
