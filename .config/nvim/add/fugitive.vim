@@ -19,7 +19,7 @@ function! s:hub_create(path, ...) abort "{{{
   endif
   !hub create a:000 l:dir_path
 endfunction "}}}
-command! -bang -bar -range=-1 -addr=tabs Gvstatus :vert bot 35 Gstatus <args>
+command! -bang -bar -range=-1 -addr=tabs Gvstatus :vert bot 35 Gstatus <args> | setl winfixwidth
 
 function! s:diff_mode() abort "{{
   " Keep to show diff w/ HEAD while editting commit-message.
