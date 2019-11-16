@@ -34,14 +34,3 @@ imap <expr> <c-\>
 smap <expr> <c-\>
       \ neosnippet#expandable_or_jumpable() ?
       \ "\<Plug>(neosnippet_expand_or_jump)" : "\<c-\>"
-
-" Put Register on Snippet Expanding
-snoremap <c-r><c-space> <space><BS><c-r>+
-snoremap <c-r><space>   <space><BS><c-r>+
-snoremap <c-r> <space><BS><c-r>
-snoremap <c-h> <space><BS>
-
-snoremap <a-h> <space><BS><esc>h
-snoremap <a-j> <space><BS><esc>j
-snoremap <a-k> <space><BS><esc>k
-snoremap <a-l> <space><BS><esc>l
