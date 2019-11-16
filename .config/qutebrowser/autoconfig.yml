@@ -215,13 +215,19 @@ settings:
         V: enter-mode caret;; toggle-selection
         ZQ: tab-close
         ZZ: tab-close
+        Zq: tab-close
+        Zz: tab-close
         a: fake-key <right> ;; enter-mode insert
         cd: null
         co: null
         d: scroll-page 0 +0.5
+        gC: open -t https://calendar.google.com/calendar/r/month?pli=1
+        gM: open -t https://www.google.co.jp/maps/@34.8244519,135.4776576,15z
         gP: open -t https://app.getpocket.com/
+        gc: open https://calendar.google.com/calendar/r/month?pli=1
         gf: spawn nvim-qt {url}
         gi: hint inputs --first
+        gm: open https://www.google.co.jp/maps/@34.8244519,135.4776576,15z
         go: scroll-to-perc 0;; hint inputs --first
         gp: open https://app.getpocket.com/
         gs: view-source
