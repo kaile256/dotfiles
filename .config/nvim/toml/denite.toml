@@ -24,9 +24,10 @@ on_source = 'denite.nvim'
 
 # Matcher
 #[[plugins]]
-#repo = 'nekowasabi/denite-migemo'
+#repo = 'nekowasabi/denite-migemo' #{{{
 #on_source = 'denite.nvim'
 #hook_post_source = 'runtime add/denite-migemo.vim'
+##}}}
 [[plugins]]
 repo = 'nixprime/cpsm' #{{{
 # A matcher developped for 'CtrlP'
@@ -53,8 +54,9 @@ on_source = 'denite.nvim'
 #}}}
 
 [[plugins]]
-repo = 'delphinus/vim-denite-scriptnames'
+repo = 'delphinus/vim-denite-scriptnames' #{{{
 on_source = 'denite.nvim'
+#}}}
 [[plugins]]
 repo = 'ozelentok/denite-gtags' #{{{
 on_source = 'denite.nvim'
@@ -68,8 +70,9 @@ repo = 'neoclide/denite-git' #{{{
 on_source = 'denite.nvim'
 #}}}
 [[plugins]]
-repo = 'deresmos/denite-gitdiff'
+repo = 'deresmos/denite-gitdiff' #{{{
 on_source = 'denite.nvim'
+##}}}
 #[[plugins]]
 #repo = 'Shougo/neoyank.vim' #{{{
 #on_source = 'denite.nvim'
