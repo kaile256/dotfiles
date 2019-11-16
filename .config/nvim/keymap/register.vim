@@ -17,7 +17,7 @@ inoremap <expr> <c-o><space>y '<esc>"+y'. nr2char(getchar()) .'gi'
 "augroup END
 
 " Sequential
-"nnoremap p gp
+nnoremap p p`]
 "nnoremap gp p
 
 " Command-Line Register {{{1
