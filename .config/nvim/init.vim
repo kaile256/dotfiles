@@ -21,9 +21,12 @@ runtime rc/startpage.vim
 augroup RuntimesSelection
   au!
   au VimEnter     * ++once runtime once/loaded.vim
-  au CmdLineEnter * ++once runtime once/cmdline.vim
+  au VimEnter     * ++once runtime once/omaps.vim
+  au InsertEnter  * ++once runtime once/imaps.vim
+  au CmdLineEnter * ++once runtime once/cmaps.vim
+  au CmdLineEnter * ++once runtime once/cabbrs.vim
+  au CmdLineEnter * ++once runtime once/commands.vim
   au WinNew       * ++once runtime once/zenkaku.vim
-
   au CmdwinEnter  * runtime lazy/cmdwin.vim
   au VimEnter,BufNew * if &bt ==# 'terminal' | runtime lazy/terminal.vim
 augroup END
