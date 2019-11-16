@@ -9,16 +9,16 @@ let g:tagbar_previewwin_pos = 'bot'
 " 1: open folds as much as needed for the tag to be visible.
 " 2: never open folds automatically.
 let g:tagbar_autoshowtag = 1
-let g:tagbar_autofocus = 1
-
+let g:tagbar_autofocus   = 1
+let g:tagbar_autoclose   = 1
 
 " 0: sort in order of source file
 " 1: sort by name (default)
-let g:tagbar_sort = 0
+"let g:tagbar_sort = 0
 
-let g:tagbar_compact = 0 " show help introduction
+"let g:tagbar_compact = 1 " 0: show help introduction
 
-let g:tagbar_indent = 1
+let g:tagbar_indent    = 1
 let g:tagbar_foldlevel = 2
 
 "let g:tagbar_show_linenumbers = 0
@@ -27,3 +27,9 @@ let g:tagbar_width = 30
 
 " Mnemonic: show Indexes
 nnoremap <silent> <a-i> :<c-u>TagbarToggle<CR>
+augroup TagbarInNofiles
+  au! FileType *
+        \ if index(['nofile', 'nowrite', 'quickfix', 'help'], &bt) >= 0
+        \   | nnoremap <silent><buffer> <a-i> :<c-u>close<cr>
+        \ | endif
+augroup END
