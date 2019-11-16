@@ -19,47 +19,6 @@ let g:terminal_color_13 = '#ad7fa8'
 let g:terminal_color_14 = '#00f5e9'
 let g:terminal_color_15 = '#eeeeec'
 
-function! s:colorschemes_neodark() abort "{{{
-  let g:neodark#use_256color    = 1 " default: 0
-  let g:neodark#italic          = 1 " default: 0
-  "if has('mac')
-  "  "let g:neodark#terminal_transparent      = 0 " default: 0
-  "  "let g:neodark#use_custom_terminal_theme = 0 " default: 0
-  "endif
-  colorscheme neodark
-
-  " Note: should be done after :coloscheme.
-  syntax enable
-
-  hi Search ctermfg=236 ctermbg=180 guifg=#3e120a guibg=#ebb556
-  hi NormalFloat guibg=#1a0210 guifg=#957474
-
-  " for &diff {{{
-  " Note: reverse keeps text color;
-  "       ':hi **bg=foo' will white out text's characters.
-  " Note: :hi should be done after :syntax.
-  " line-wise
-  " the line of which only the one has.
-  hi DiffAdd     cterm=reverse gui=reverse ctermfg=142 guifg=#b8bb26
-  " the line of which only the other has.
-  hi DiffRemove  cterm=reverse gui=reverse ctermfg=167 guifg=#fb4934
-  " the line which has difference between the one and the other.
-  hi DiffChange  cterm=reverse gui=reverse ctermfg=108 guifg=#8ec07c
-  " the differed characters within DiffChange
-  hi DiffText    cterm=reverse gui=reverse ctermfg=208 guifg=#fe8019
-
-  " for fugitive
-  hi diffAdded   cterm=reverse gui=reverse ctermfg=142 guifg=#b8bb26
-  hi diffRemoved cterm=reverse gui=reverse ctermfg=167 guifg=#fb4934
-  hi diffChanged cterm=reverse gui=reverse ctermfg=108 guifg=#8ec07c
-
-  hi diffFile    cterm=reverse gui=reverse ctermfg=208 guifg=#fe8019
-  hi diffNewFile cterm=reverse gui=reverse ctermfg=214 guifg=#fabd2f
-  "hi diffLine    cterm=reverse gui=reverse ctermfg=109 guifg=#83a598
-  hi diffLine    cterm=reverse gui=reverse ctermfg=109 guifg=#36b383
-  "}}}
-endfunction "}}}
-
 "augroup AlertOnBuffer
 "  " CAUTION: Too many Exceptions!!
 "  au! FileChangedRO * colorscheme Monokai
@@ -73,13 +32,53 @@ if exists("g:nyaovim_version")
   "  colorscheme solarized8_light_flat
   "  "colorscheme solarized8_dark_flat
 else
-  call <SID>colorschemes_neodark()
+  function! s:colorschemes_neodark() abort "{{{2
+    let g:neodark#use_256color    = 1 " default: 0
+    let g:neodark#italic          = 1 " default: 0
+    "if has('mac')
+    "  "let g:neodark#terminal_transparent      = 0 " default: 0
+    "  "let g:neodark#use_custom_terminal_theme = 0 " default: 0
+    "endif
+    colorscheme neodark
+
+    " Note: should be done after :coloscheme.
+    " 'syntax on' overrides syntax; 'enable' keeps already-defined syntax
+    syntax on
+
+    hi Search ctermfg=236 ctermbg=180 guifg=#3e120a guibg=#ebb556
+    hi NormalFloat guibg=#1a0210 guifg=#957474
+
+    " for &diff {{{3
+    " Note: reverse keeps text color;
+    "       ':hi **bg=foo' will white out text's characters.
+    " Note: :hi should be done after :syntax.
+    " line-wise
+    " the line of which only the one has.
+    hi DiffAdd     cterm=reverse gui=reverse ctermfg=142 guifg=#b8bb26
+    " the line of which only the other has.
+    hi DiffRemove  cterm=reverse gui=reverse ctermfg=167 guifg=#fb4934
+    " the line which has difference between the one and the other.
+    hi DiffChange  cterm=reverse gui=reverse ctermfg=108 guifg=#8ec07c
+    " the differed characters within DiffChange
+    hi DiffText    cterm=reverse gui=reverse ctermfg=208 guifg=#fe8019
+
+    " for fugitive
+    hi diffAdded   cterm=reverse gui=reverse ctermfg=142 guifg=#b8bb26
+    hi diffRemoved cterm=reverse gui=reverse ctermfg=167 guifg=#fb4934
+    hi diffChanged cterm=reverse gui=reverse ctermfg=108 guifg=#8ec07c
+
+    hi diffFile    cterm=reverse gui=reverse ctermfg=208 guifg=#fe8019
+    hi diffNewFile cterm=reverse gui=reverse ctermfg=214 guifg=#fabd2f
+    "hi diffLine    cterm=reverse gui=reverse ctermfg=109 guifg=#83a598
+    hi diffLine    cterm=reverse gui=reverse ctermfg=109 guifg=#36b383
+  endfunction "}}}2
+  call s:colorschemes_neodark()
 endif
 
 " coc.nvim supports
 hi HighlightedyankRegion ctermfg=232 ctermbg=66 guifg=#000000 guibg=#df5f29
 
-finish
+finish "{{{1
 
 let histring = [ 'hi', a:group,
       \ 'guifg=' . fg[0], 'ctermfg=' . fg[1],
