@@ -49,7 +49,7 @@ if exists('g:GuiLoaded')
   " SF Mono; San Francisco Mono
   " Note: can set on &guifont
   "GuiFont! Ricty Nerd Font:h17
-  "GuiFont! Migu 1M:h15
+  GuiFont! Migu 1M:h14
   " <bang> for Japanese.
   "GuiFont! SF Mono:h12
   "GuiFont! Myrica M:h15
