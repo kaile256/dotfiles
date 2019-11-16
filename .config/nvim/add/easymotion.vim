@@ -26,7 +26,7 @@ let g:EasyMotion_keys = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
 " verbose: such as "EasyMotion: Jumping to [l,c]" and "EasyMotion: Cancelled".
 let g:EasyMotion_verbose = 0
 let g:EasyMotion_prompt = 'EasyMotion: {n} Chars >>> '
-"let g:EasyMotion_show_prompt = 0
+let g:EasyMotion_show_prompt = 0
 "let g:EasyMotion_use_regexp = 1
 "}}}
 
@@ -66,10 +66,6 @@ map f <Plug>(easymotion-f)
 map t <Plug>(easymotion-t)
 map F <Plug>(easymotion-F)
 map T <Plug>(easymotion-T)
-imap <a-f> <esc><Plug>(easymotion-f)
-imap <a-t> <esc><Plug>(easymotion-t)
-imap <a-F> <esc><Plug>(easymotion-F)
-imap <a-T> <esc><Plug>(easymotion-T)
 "sunmap <space>f
 "sunmap <space>t
 "sunmap <space>F
@@ -78,8 +74,6 @@ imap <a-T> <esc><Plug>(easymotion-T)
 " Keymap; hjkl
 map ; <Plug>(easymotion-next)
 map , <Plug>(easymotion-prev)
-imap <a-;> <Plug>(easymotion-next)
-imap <a-,> <Plug>(easymotion-prev)
 
 " TODO: make below work.
 "nnoremap g<space>   :call <SID>find_skip_char('forward')<cr>
