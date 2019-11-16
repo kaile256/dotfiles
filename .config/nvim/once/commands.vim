@@ -7,11 +7,16 @@ command! -bar DiffOrig
       \ | r # | 0d_
       \ | diffthis | wincmd p | diffthis
 
-command! -bar XinputTouchpadEnable  xinput Enable  Elan\ Touchpad
-command! -bar XinputTouchpadDisable xinput disable Elan\ Touchpad
-command! -bar TouchpadEnable  xinput Enable  Elan\ Touchpad
-command! -bar TouchpadDisable xinput disable Elan\ Touchpad
+command! -bar XinputTouchpadEnable  :!xinput Enable  Elan\ Touchpad
+command! -bar XinputTouchpadDisable :!xinput disable Elan\ Touchpad
+command! -bar TouchpadEnable  :!xinput Enable  Elan\ Touchpad
+command! -bar TouchpadDisable :!xinput disable Elan\ Touchpad
+command! -bar MonitorToggle :!xrandr |
+      \ grep "HDMI2 connected"
+      \ && xrandr --output eDP1 --auto
+      \ --output "HDMI2" --auto --above eDP1
 
+command! -bar CursorChar :echo "getline('.')[col('.') - 1] is '". getline('.')[col('.') - 1] ."'"
 "augroup ToggleLineNr
 "  au!
 "  au CmdwinEnter,CmdlineEnter * setl number
