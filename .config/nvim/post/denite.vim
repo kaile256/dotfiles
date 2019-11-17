@@ -5,7 +5,7 @@
 " Options: Shougo/denite.nvim/autoload/denite/init.vim @90 {{{1
 call denite#custom#option('default', {
       \ 'immediately-1': v:true,
-      \ 'split': 'bot',
+      \ 'split': 'tab',
       \ 'matchers': 'matcher/cpsm',
       \ 'sorters': 'sorter/sublime',
       \ 'winrow': (&lines /7),
