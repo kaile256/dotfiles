@@ -4,7 +4,7 @@
 repo = 'mattn/vim-findroot' #{{{
 on_cmd = 'FindRoot'
 hook_add = 'runtime add/findroot.vim'
-# To: enable to :FindRoot w/ other commands through <bar>.
+# To enable to :FindRoot w/ other commands through <bar>.
 hook_done_update = '''
 exe 'e' g:dein_github_dir .'/mattn/vim-findroot/plugin/findroot.vim'
 g/command!/norm! Ea -bar
