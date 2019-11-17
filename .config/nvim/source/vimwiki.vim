@@ -67,7 +67,6 @@ let g:vimwiki_list = [
 " Let; List Symbols {{{1
 "let g:vimwiki_listsyms = '✗○◐●✓'
 "let g:vimwiki_listsym_rejected = '✗'
-"}}}
 
 function! s:vimwiki_abbrs() abort "{{{1
   " CmdAbbr; Conversion {{{2
@@ -90,7 +89,8 @@ function! s:vimwiki_abbrs() abort "{{{1
   cnoreabbr <buffer><expr> ws (getcmdtype() == ':' && getcmdline() =~ '^ws$')? 'sp <bar> VimwikiGoto' : 'ws'
   cnoreabbr <buffer><expr> wv (getcmdtype() == ':' && getcmdline() =~ '^wv$')? 'vs <bar> VimwikiGoto' : 'wv'
   "}}}
-endfunction "}}}
+endfunction
+
 function! s:vimwiki_keymaps() abort "{{{1
   " Undo Break {{{2
   inoremap <buffer> , ,<c-g>u
@@ -120,15 +120,16 @@ function! s:vimwiki_keymaps() abort "{{{1
   nnoremap <buffer><silent> <c-w>}      :<c-u>VimwikiTabnewLink<cr>
   xnoremap <buffer><silent> <c-]>       <Plug>VimwikiNormalizeLinkVisual
   "}}}
-endfunction "}}}1
+endfunction
+"}}}1
 
-augroup AutoFormatVimwiki "{{{
+augroup AutoFormatVimwiki
   au!
   "au VimEnter,BufNewFile,BufRead *.md setl ft=vimwiki syn=vimwiki
   au FileType vimwiki setl tabstop=4 softtabstop=4 shiftwidth=4
-  au FileType vimwiki setl nowrap fdl=1 syn=vimwiki
+  au FileType vimwiki setl nowrap fdl=2 syn=vimwiki
   au BufWritePre vimwiki/** if &ft  ==# 'vimwiki' | VimwikiTOC
   au BufWritePre index.* if &ft  ==# 'vimwiki' | VimwikiGenerateLinks
-  au FileType vimwiki,markdown if &syn ==# 'vimwiki' | call <SID>vimwiki_keymaps()
-  au FileType vimwiki,markdown if &syn ==# 'vimwiki' | call <SID>vimwiki_abbrs()
-augroup END "}}}
+  au FileType vimwiki,markdown if &syn ==# 'vimwiki' | call s:vimwiki_keymaps()
+  au FileType vimwiki,markdown if &syn ==# 'vimwiki' | call s:vimwiki_abbrs()
+augroup END
