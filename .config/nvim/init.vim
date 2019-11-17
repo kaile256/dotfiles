@@ -28,7 +28,7 @@ augroup RuntimesSelection
   au CmdLineEnter * ++once runtime once/commands.vim
   au WinNew       * ++once runtime once/zenkaku.vim
   au CmdwinEnter  * runtime lazy/cmdwin.vim
-  au VimEnter,BufNew * if &bt ==# 'terminal' | runtime lazy/terminal.vim
+  au VimEnter,BufNew * if &bt ==# 'terminal' | runtime lazy/terminal.vim | endif
 augroup END
 
 augroup DelAugLaterLazyDiff
