@@ -56,6 +56,7 @@ let g:fzf_action = {
       \ 'alt-q': function('s:list_in_quickfix'),
       \ 'alt-s': 'split',
       \ 'alt-t': 'tab split',
+      \ 'alt-p': 'vert bot pedit',
       \ 'alt-v': 'vsplit',
       \ 'alt-w': 'verbose',
       \ 'ctrl-z': "\<Nop>",
@@ -94,6 +95,7 @@ augroup FzfMyAutoConf "{{{
     setl statusline=%#fzf1#\ >\ %#fzf2#fz%#fzf3#f
   endfunction "}}}
   au User FzfStatusLine call s:fzf_buffer_statusline()
+  "au BufWinEnter * if &ft ==# 'fzf' | runtime once/terminal
   " CAUTION: WinLeave's current file is next file, i.e., fzf when opening fzf-buffer.
   " Note: 'bufhidden' is useless for fzf.
   "au FileType fzf setl bufhidden=wipe
