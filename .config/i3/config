@@ -142,7 +142,6 @@ bindsym XF86MonBrightnessDown exec xbacklight -dec 5
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5%
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5%
 bindsym XF86AudioMute        exec --no-startup-id pactl set-sink-mute 0 toggle
-
 #}}}
 # Fn; Screen Shot {{{
 # depend: imagemagick
@@ -209,11 +208,11 @@ bindsym $Super+Ctrl+r mode "$resize"
 #}}}
 # Mode; Backlight {{{
 bindsym $Super+Ctrl+b mode "$backlight"
-set $backlight Backlight Control: (h)Higher, (l)Lower, (n)Exit
+set $backlight Backlight Control: K+5/U+10/F+20;J-5/D-10/B-20
 mode "$backlight" {
 # TODO: call current brightness.
-bindsym k exec "xbacklight -inc 5; notify-send 'brightness up'"
-bindsym j exec "xbacklight -dec 5; notify-send 'brightness down'"
+bindsym k exec "xbacklight -inc 5;  notify-send 'brightness up'"
+bindsym j exec "xbacklight -dec 5;  notify-send 'brightness down'"
 bindsym u exec "xbacklight -inc 10; notify-send 'brightness up'"
 bindsym d exec "xbacklight -dec 10; notify-send 'brightness down'"
 bindsym f exec "xbacklight -inc 20; notify-send 'brightness up'"
@@ -225,6 +224,8 @@ bindsym Return       mode "default"
 bindsym Space        mode "default"
 bindsym $Super+Ctrl+b  mode "default"
 bindsym Ctrl+c       mode "default"
+bindsym Ctrl+m       mode "default"
+bindsym Ctrl+j       mode "default"
 bindsym $Super+space mode "default"
 }
 #}}}
