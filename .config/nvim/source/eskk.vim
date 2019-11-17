@@ -19,20 +19,20 @@ endif
 " Henkan; Activate {{{1
 let g:eskk#no_default_mappings = 1
 " Henkan; Completion {{{1
-let g:eskk#keep_state = 1
+let g:eskk#keep_state = 1 "  0: eskk is off when insert again
 let g:eskk#show_annotation = 1
 let g:eskk#select_cand_keys = 'abcdefgijklmnopqrstuvwxyz'
 " if unique, confirm the candidate auto.
 let g:eskk#kakutei_when_unique_candidate = 1
 "let g:eskk#initial_mode = 'ascii'
-let g:eskk#start_completion_length = 2
+let g:eskk#start_completion_length = 1
 " <TAB> to next selection
-let g:eskk#tab_select_completion = 1
+let g:eskk#tab_select_completion = 0
 let g:eskk#egg_like_newline = 1 " ignore <CR> on 'kakutei'
 let g:eskk#egg_like_newline_completion = 1
 " Henkan; Marker {{{1
 let g:eskk#marker_henkan = '@'
-let g:eskk#marker_henkan_select = '>>'
+let g:eskk#marker_henkan_select = '#'
 let g:eskk#marker_okuri = '*'
 let g:eskk#marker_jisyo_touroku = '?'
 
