@@ -50,13 +50,13 @@ onoremap <expr><silent> f (v:operator ==# 'd')?
       \ ":call sneak#users('f', v:operator)<cr>"
 onoremap <expr><silent> t (v:operator ==# 'd')?
       \ ":call sneak#users('t', v:operator, 'never')<cr>":
-      \ ":call sneak#users('f', v:operator)<cr>"
+      \ ":call sneak#users('t', v:operator)<cr>"
 onoremap <expr><silent> F (v:operator ==# 'd')?
       \ ":call sneak#users('F', v:operator, 'never')<cr>":
-      \ ":call sneak#users('f', v:operator)<cr>"
+      \ ":call sneak#users('F', v:operator)<cr>"
 onoremap <expr><silent> T (v:operator ==# 'd')?
       \ ":call sneak#users('T', v:operator, 'never')<cr>":
-      \ ":call sneak#users('f', v:operator)<cr>"
+      \ ":call sneak#users('T', v:operator)<cr>"
 
 augroup SneakBuffers "{{{1
   au! FileType * if &ro | call s:sneak_readonly_keymaps() | endif "{{{2
