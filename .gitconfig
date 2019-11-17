@@ -2,13 +2,13 @@
   email = kaile256acc@gmail.com
   name = kaile256
 [core]
-  editor = nvr --remote-wait-silent
+  editor = nvr -s --remote-wait-silent
 [diff]
-  tool = nvr
+  tool = nvr -s
 [difftool "nvr"]
   cmd = nvr -s -d $LOCAL $REMOTE
 [merge]
-  tool = nvr
+  tool = nvr -s
 [mergetool "nvr"]
   cmd = nvr -s -d $LOCAL $BASE $REMOTE $MERGED -c 'wincmd J | wincmd ='
 [url "github:"]
@@ -17,7 +17,9 @@
   # TODO: need config for ghq get foo/bar inspite of cargo install foobar.
   # 'pushInsteadOf = https://github.com/' to :Gpush of vim-fugitive at least.
   # 'InsteadOf = https://github.com/' to install private plugins by dein.vim.
-  InsteadOf = https://github.com/
+  #InsteadOf = https://github.com/
   #InsteadOf = git@github.com:
 [ghq]
   root = /home/kaile256/.go/src
+[filter "*"]
+	smudge = "sed -e '/kaile256;/d'"
