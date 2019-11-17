@@ -1,5 +1,10 @@
 " From: init.vim
 
+set diffopt=iwhite,iwhiteeol,iblank
+set diffopt+=filler,internal
+set diffopt+=vertical,indent-heuristic
+set diffopt+=algorithm:histogram
+
 augroup EnterDiffMode
   au!
   "au OptionSet * if &diff | setl wrap | endif " diffchar could cause error
