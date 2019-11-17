@@ -32,6 +32,8 @@ call defx#custom#option('_', {
       \ 'columns': 'mark:indent:git:icons:filename',
       \ 'winheight': winheight('.'),
       \ 'show_ignored_files': 1,
+      \ 'buffer_name': expand('<amatch>'),
+      \ 'auto_cd': 1,
       \ })
 call defx#custom#column('mark', {
       \ 'readonly_icon': '✗',
@@ -55,13 +57,19 @@ call defx#custom#column('mark', {
 "let s:defx_is_wide   = {-> winwidth('.') > g:defx_standard_width}
 "let s:defx_is_narrow = {-> winwidth('.') <= g:defx_standard_width}
 function! s:defx_is_wide() abort
-  return winwidth('%') > g:defx_sidebar_width
+  return winwidth(bufwinnr('\[defx\]')) > g:defx_sidebar_width
 endfunction
 function! s:defx_is_narrow() abort
-  return winwidth('%') <= g:defx_sidebar_width
+  return winwidth(bufwinnr('\[defx\]')) <= g:defx_sidebar_width
+endfunction
+function! s:single_window() abort
+  return len(tabpagebuflist()) <= 2
 endfunction
 
 function! s:defx_keymap_explorer() abort
+  " TODO: what is the 'search' for?
+  nnoremap <silent><nowait><buffer><expr> S
+        \ defx#do_action('search')
   nnoremap <silent><nowait><buffer> <c-w>=
         \ :setl nowinfixwidth<cr><c-w>=
   " Explore {{{1
@@ -80,12 +88,12 @@ function! s:defx_keymap_explorer() abort
   "" CWD; defx's
   nnoremap <silent><nowait><buffer><expr> ~
         \ defx#do_action('cd')
-        \ . ':echo "cd" $HOME<CR>'
+        \ .':echo "cd" $HOME<CR>'
   "" CWD; vim's
   " Note: @% will be 'foo/[defx]'
   nnoremap <silent><nowait><buffer><expr> <space>ww
         \ defx#do_action('change_vim_cwd')
-        \ . ':echo "cd" expand("<cfile>:p:h")<CR>'
+        \ .':echo "cd" expand("<cfile>:p:h")<CR>'
         "\ . `:echo 'cd' ` . getcwd()
   " Explore; netrw-like {{{2
   nnoremap <silent><nowait><buffer><expr> -
@@ -117,18 +125,53 @@ function! s:defx_keymap_explorer() abort
   "nnoremap <silent><nowait><buffer><expr> C
   "      \ defx#do_action('toggle_columns',
   "      \                'mark:indent:icon:filename:type:size:time')
-  " Selected {{{1
-  " Selected; Open File {{{2
-  " TODO: Make User's event on buffer's openning from defx.
+  " Select {{{1
+  " Open File {{{2
+  " Edit {{{3
   nnoremap <silent><nowait><buffer><expr> <c-j>
         \ <SID>defx_is_wide()?
-        \ defx#do_action('open'):
+        \ defx#do_action('open', 'edit'):
+        \ <SID>single_window()?
+        \ defx#do_action('drop'):
         \ defx#do_action('multi', ['drop', 'quit'])
   nnoremap <silent><nowait><buffer><expr> <CR>
         \ <SID>defx_is_wide()?
-        \ defx#do_action('open'):
+        \ defx#do_action('open', 'edit'):
+        \ <SID>single_window()?
+        \ defx#do_action('drop'):
         \ defx#do_action('multi', ['drop', 'quit'])
-  " Append window
+  " Split {{{3
+  nnoremap <silent><nowait><buffer><expr> o
+        \ defx#is_directory()?
+        \ '<c-w>s':
+        \ defx#do_action('multi', [['drop', 'bel split'], 'quit'])
+        "\ defx#do_action('drop', 'bel split')
+  xnoremap <silent><nowait><buffer><expr> o
+        \ defx#is_directory()?
+        \ '<c-w>s':
+        \ defx#async_action('multi',
+        \ ['toggle_select_visual', ['drop', 'bel split'], 'quit'])
+        "\ ['toggle_select_visual', ['drop', 'bel split']])
+  nnoremap <silent><nowait><buffer><expr> O
+        \ defx#is_directory()?
+        \ '28<c-w>v':
+        \ defx#do_action('multi', [['open', 'bot vsplit'], 'quit'])
+        "\ defx#do_action('open', 'bot vsplit')
+  xnoremap <silent><nowait><buffer><expr> O
+        \ defx#is_directory()?
+        \ '28<c-w>v':
+        \ defx#async_action('multi',
+        \ ['toggle_select_visual', ['open', 'bot vsplit'], 'quit'])
+        "\ ['toggle_select_visual', ['open', 'bot vsplit']])
+  nnoremap <silent><nowait><buffer><expr> gO
+        \ defx#do_action('open', 'tabe')
+  xnoremap <silent><nowait><buffer><expr> gO
+        \ defx#async_action('multi',
+        \ ['toggle_select_visual', ['open', 'tabe']])
+  " Note: <c-s> freezes screen on some unix.
+  "nnoremap <silent><nowait><buffer> <c-w>v
+  "      \ :`expand('g:defx_sidebar_width')` wincmd v setl winfixwidth'<cr>
+  " Append window {{{3
   nnoremap <silent><nowait><buffer><expr> A
         \ defx#do_action('open', 'bot vsplit')
         \ .'<c-w>p'
@@ -147,12 +190,9 @@ function! s:defx_keymap_explorer() abort
         \ defx#async_action('multi',
         \ ['toggle_select_visual', ['drop', 'bel split']])
         \ .'<c-w>h'
-  " Mnemonic: Zip Preview
-  nnoremap <silent><nowait><buffer> zp <c-w>z
-  " TODO: what is the 'search'?
-  nnoremap <silent><nowait><buffer><expr> S
-        \ defx#do_action('search')
-  " Insert a preview window in actual windows
+  " Preview {{{3
+  " Mnemonic: Insert a preview in actual windows
+  " Note: :pclose to change location between vertical/horizontal
   nnoremap <silent><nowait><buffer><expr> I
         \ defx#do_action('open', 'pclose <bar> vert bot pedit')
         \ .'<c-w>='
@@ -162,26 +202,9 @@ function! s:defx_keymap_explorer() abort
         \ defx#do_action('open', 'pclose <bar> pedit'):
         \ defx#do_action('drop', 'pclose <bar> pedit')
         \ .'<c-w>h'
-  " Note: defx's quit with split doesn't work well.
-  nnoremap <silent><nowait><buffer><expr> O
-        \ defx#do_action('multi', [['open', 'bot vsplit'], 'quit'])
-  xnoremap <silent><nowait><buffer><expr> O
-        \ defx#async_action('multi',
-        \ ['toggle_select_visual', ['open', 'bot vsplit'], 'quit'])
-  " Note: <c-s> freezes screen on some unix.
-  "nnoremap <silent><nowait><buffer> <c-w>v
-  "      \ :`expand('g:defx_standard_width')` wincmd v setl winfixwidth'<cr>
-  nnoremap <silent><nowait><buffer><expr> o
-        \ defx#do_action('multi', [['drop', 'bel split'], 'quit'])
-  xnoremap <silent><nowait><buffer><expr> o
-        \ defx#async_action('multi',
-        \ ['toggle_select_visual', ['drop', 'bel split'], 'quit'])
-  nnoremap <silent><nowait><buffer><expr> gO
-        \ defx#do_action('open', 'tabe')
-  xnoremap <silent><nowait><buffer><expr> gO
-        \ defx#async_action('multi',
-        \ ['toggle_select_visual', ['open', 'tabe']])
-  " Selected; Tree {{{2
+  " Mnemonic: Zip Preview
+  nnoremap <silent><nowait><buffer> zp <c-w>z
+  " Tree {{{2
   nnoremap <silent><nowait><buffer><expr> za
         \ defx#do_action('open_or_close_tree')
   nnoremap <silent><nowait><buffer><expr> zo
@@ -192,7 +215,7 @@ function! s:defx_keymap_explorer() abort
         \ defx#do_action('open_tree')
   nnoremap <silent><nowait><buffer><expr> zc
         \ defx#do_action('close_tree')
-  " Selected; Register {{{2
+  " Register {{{2
   " copy: yank in defx's register
   " Note: CANNOT register multiple files into defx-register.
   nnoremap <nowait><buffer><expr> yy
@@ -208,7 +231,7 @@ function! s:defx_keymap_explorer() abort
   " yank_path: yank in unnamed register
   nnoremap <nowait><buffer><expr> yp
         \ defx#do_action('yank_path')
-  " Selected; Execute {{{2
+  " Execute {{{2
   nnoremap <silent><nowait><buffer><expr> X
         \ defx#do_action('execute_system')
   " Toggle {{{1
@@ -254,11 +277,17 @@ function! s:defx_keymap_explorer() abort
   "}}}1
 endfunction
 augroup OnDefxBuffer
+  " TODO: fix coc#_complete() for 'E121: Undefined variale: b:defx'
   au!
   " TODO: highlight on top as there's filepath, or place those path on another place.
-  au FileType defx setl nonumber signcolumn= winfixwidth bufhidden=wipe previewheight=25
-  "au WinEnter \[defx\]* call setbufvar(bufnr('\[defx\]'), '&winfixwidth', 1)
-  "au BufLeave \[defx\]* call setbufvar(bufnr('\[defx\]'), '&winfixwidth', 0)
+  au FileType defx setl nonumber signcolumn= bufhidden=wipe previewheight=25
+  "au WinEnter \[defx\]*
+  "      \ if @# =~# '\[defx\]'
+  "      \ && len(tabpagebuflist()) > 1
+  "      \  | wincmd p | wincmd p
+  "      \ | endif
+  "au WinEnter * if s:defx_is_narrow() | call setbufvar(bufnr('\[defx\]'), '&winfixwidth', 1)
+  "au WinNew   * if s:defx_is_narrow() | call setbufvar(bufnr('\[defx\]'), '&winfixwidth', 0)
   au FileType defx call s:defx_keymap_explorer()
   "au BufWritePost * call defx#redraw() " of course, includes a check for defx-channel
 augroup END
