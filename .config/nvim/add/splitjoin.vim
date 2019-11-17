@@ -1,7 +1,6 @@
-"""" From: tool.toml
+" From: motion.toml
+" Repo: AndrewRadev/splitjoin.vim
 
-""" Mnemonic: Split Join/Unjoin
-map <a-s><a-j> :SplitjoinJoin<cr>
-map <a-s><a-u> :SplitjoinSplit<cr>
-map <a-s>j     :SplitjoinJoin<cr>
-map <a-s>u     :SplitjoinSplit<cr>
+" Mnemonic: Split Join/Unjoin
+nmap <space>J <Plug>SplitjoinJoin
+nmap gS       <Plug>SplitjoinSplit
