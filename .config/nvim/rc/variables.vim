@@ -71,6 +71,9 @@ if isdirectory('~/kaile256')
 endif
 "}}}
 
+" default: &pp=~/.config/nvim,/etc/xdg/nvim,~/.local/share/nvim/site,/usr/local/share/nvim/site,/usr/share/nvim/site,/usr/share/nvim/runtime,/usr/share/nvim/site/after,/usr/local/share/nvim/site/after,~/.local/share/nvim/site/after,/etc/xdg/nvim/after,~/.config/nvim/after
+" only I use in manjaro: /usr/share/nvim/runtime,~/.config/nvim/after
+set packpath=
 " &rtp; "{{{1
 set rtp+=~/.config/nvim/data
 set rtp+=~/.config/nvim/lazy
