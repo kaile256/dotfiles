@@ -77,7 +77,7 @@ function! s:help_toc(mods) abort "{{{
       " TODO: hide [bufnr, lnum] when toc appears.
       call add(toc, {
             \ 'text': repeat('  ', level) .
-            \   toupper(matchstr(index, '\a')) . tolower(index[matchstrpos(index, '\a')[1]:]),
+            \   toupper(matchstr(index, '\a')) . tolower(index[matchstrpos(index, '\a')[1] + 1:]),
             \ 'bufnr': bufnr('%'),
             \ 'lnum': lnum,
             \ })
