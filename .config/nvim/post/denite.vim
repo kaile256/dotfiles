@@ -2,6 +2,9 @@
 " Repo: Shougo/denite.nvim
 " Another: add/denite.vim
 
+nnoremap <silent> <a-p> :<c-u>keepj DenitePrev<cr>
+nnoremap <silent> <a-n> :<c-u>keepj DeniteNext<cr>
+
 " Options: Shougo/denite.nvim/autoload/denite/init.vim @90 {{{1
 call denite#custom#option('default', {
       \ 'immediately-1': v:true,

@@ -43,11 +43,6 @@ nnoremap <silent> <space>ny
 nnoremap <silent> <space>nv
       \ :<C-u>Denite scriptnames<cr>
 
-nnoremap <silent> <space>no :<C-u>Denite scriptnames<CR>
-
-nnoremap <silent> <a-o> :<c-u>keepj DenitePrev<cr>
-nnoremap <silent> <a-i> :<c-u>keepj DeniteNext<cr>
-
 command! DenitePrev :Denite -resume -cursor-pos=-1 -immediately
 command! DeniteNext :Denite -resume -cursor-pos=+1 -immediately
 command! DeniteDo   :Denite -resume -do='normal! A;'
