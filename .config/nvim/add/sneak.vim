@@ -5,7 +5,7 @@
 " Another: post/sneak.vim
 
 let g:sneak#no_default_mapping = 1
-"let g:sneak#prompt =
+let g:sneak#prompt = 'Sneak: 4 chars >>> '
 let g:sneak#no_prompt = 1
 " use 'ignorecase' & 'smartcase'
 "let g:sneak#use_ic_scs = 1
@@ -39,37 +39,39 @@ nnoremap <silent> f :call sneak#users('f', 'never')<cr>
 nnoremap <silent> t :call sneak#users('t', 'never')<cr>
 nnoremap <silent> F :call sneak#users('F', 'never')<cr>
 nnoremap <silent> T :call sneak#users('T', 'never')<cr>
+"nnoremap <silent> s :call sneak#users('/2')<cr>
+"nnoremap <silent> S :call sneak#users('?2')<cr>
 
-xnoremap <silent> f :call sneak#users('f', visualmode(), 'never')<cr>
-xnoremap <silent> t :call sneak#users('t', visualmode(), 'never')<cr>
-xnoremap <silent> F :call sneak#users('F', visualmode(), 'never')<cr>
-xnoremap <silent> T :call sneak#users('T', visualmode(), 'never')<cr>
+xnoremap <silent> f :call sneak#users('fv', 'never')<cr>
+xnoremap <silent> t :call sneak#users('tv', 'never')<cr>
+xnoremap <silent> F :call sneak#users('Fv', 'never')<cr>
+xnoremap <silent> T :call sneak#users('Tv', 'never')<cr>
 
 onoremap <expr><silent> f (v:operator ==# 'd')?
-      \ ":call sneak#users('f', v:operator, 'never')<cr>":
-      \ ":call sneak#users('f', v:operator)<cr>"
+      \ ":call sneak#users('f', 'never')<cr>":
+      \ ":call sneak#users('f')<cr>"
 onoremap <expr><silent> t (v:operator ==# 'd')?
-      \ ":call sneak#users('t', v:operator, 'never')<cr>":
-      \ ":call sneak#users('t', v:operator)<cr>"
+      \ ":call sneak#users('t', 'never')<cr>":
+      \ ":call sneak#users('t')<cr>"
 onoremap <expr><silent> F (v:operator ==# 'd')?
-      \ ":call sneak#users('F', v:operator, 'never')<cr>":
-      \ ":call sneak#users('F', v:operator)<cr>"
+      \ ":call sneak#users('F', 'never')<cr>":
+      \ ":call sneak#users('F')<cr>"
 onoremap <expr><silent> T (v:operator ==# 'd')?
-      \ ":call sneak#users('T', v:operator, 'never')<cr>":
-      \ ":call sneak#users('T', v:operator)<cr>"
+      \ ":call sneak#users('T', 'never')<cr>":
+      \ ":call sneak#users('T')<cr>"
 
 augroup SneakBuffers "{{{1
   au! FileType * if &ro | call s:sneak_readonly_keymaps() | endif "{{{2
   function! s:sneak_readonly_keymaps() abort
-    nnoremap <buffer><silent> f :call sneak#users('f2')<cr>
-    nnoremap <buffer><silent> t :call sneak#users('t2')<cr>
-    nnoremap <buffer><silent> F :call sneak#users('F2')<cr>
-    nnoremap <buffer><silent> T :call sneak#users('T2')<cr>
+    nnoremap <buffer><silent> f :call sneak#users('f2p')<cr>
+    nnoremap <buffer><silent> t :call sneak#users('t2p')<cr>
+    nnoremap <buffer><silent> F :call sneak#users('F2p')<cr>
+    nnoremap <buffer><silent> T :call sneak#users('T2p')<cr>
 
-    xnoremap <buffer><silent> f :call sneak#users('f2', visualmode())<cr>
-    xnoremap <buffer><silent> t :call sneak#users('t2', visualmode())<cr>
-    xnoremap <buffer><silent> F :call sneak#users('F2', visualmode())<cr>
-    xnoremap <buffer><silent> T :call sneak#users('T2', visualmode())<cr>
+    xnoremap <buffer><silent> f :call sneak#users('f2pv')<cr>
+    xnoremap <buffer><silent> t :call sneak#users('t2pv')<cr>
+    xnoremap <buffer><silent> F :call sneak#users('F2pv')<cr>
+    xnoremap <buffer><silent> T :call sneak#users('T2pv')<cr>
   endfunction
   "}}}2
 augroup END

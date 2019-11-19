@@ -45,7 +45,7 @@ function! s:staging_HEAD_diff() abort "{{{1
   wincmd =
 endfunction
 
-" command! Gw- {{{1
+" command! Gw~~ {{{1
 command! GwStage
       \ :Gw | call s:winpick() | call s:staging_HEAD_diff()
 command! GwOnlyDiffStage
