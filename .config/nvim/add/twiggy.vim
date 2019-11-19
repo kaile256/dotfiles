@@ -1,5 +1,6 @@
 " From: git.toml
 " Repo: sodapopcan/vim-twiggy
+" Ref: add/merginal.vim
 
 " CAUTION: useless if &shell=fish
 
@@ -14,7 +15,7 @@ let g:twiggy_local_branch_sort = 'mru'
 let g:twiggy_remote_branch_sort = 'date'
 
 command! -complete=custom,TwiggyCompleteBranches -range -addr=lines -nargs=* Gbranch
-      \ :WindowPKreduce | Twiggy
+      \ :Twiggy
 
 " Mnemonic: the char 'y' looks like branch.
 noremap <silent> <a-y> :vert 30 Gbranch<cr>
