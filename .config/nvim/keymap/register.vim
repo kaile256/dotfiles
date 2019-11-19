@@ -39,7 +39,7 @@ nnoremap <space>D "+D
 nnoremap <space>c "+c
 nnoremap <space>C "+C
 " Plus Register; Put {{{1
-nnoremap <space>p "+p']
+nnoremap <space>p "+p`]
 xnoremap <space>p "+p
 nnoremap <space>P "+P
 xnoremap <space>P "+P
@@ -48,10 +48,10 @@ inoremap <c-r><space>   <c-g>u<c-r>+
 cnoremap <c-r><c-space> <c-r>+
 cnoremap <c-r><space>   <c-r>+
 " Plug Register; One Char {{{1
-nnoremap <space>x   "+x
-nnoremap <space>s   "+s
-nnoremap <space>X   "+X
-nnoremap <space>S   "+S
+" Use vim-sumode
+"nnoremap <space>x   "+x
+"nnoremap <space>s   "+s
+"nnoremap <space>X   "+X
 " Yank Register; Paste
 tnoremap <c-r><c-0> <c-\><c-n>"0pi
 inoremap <c-r><c-0> <c-g>u<c-r>0
@@ -62,13 +62,13 @@ nnoremap <s-space>P "0P
 xnoremap <s-space>P "0P
 "command! -nargs=1 PasteWithoutPasteToggle :call append(line('.'), '' . <args>)
 " Black-Hole Register {{{1
-nnoremap <s-space>d "_d
+"nnoremap <s-space>d "_d
+"nnoremap <s-space>D "_D
 nnoremap <s-space>c "_c
-nnoremap <s-space>x "_x
-nnoremap <s-space>s "_s
-nnoremap <s-space>D "_D
 nnoremap <s-space>C "_C
+nnoremap <s-space>x "_x
 nnoremap <s-space>X "_X
+nnoremap <s-space>s "_s
 nnoremap <s-space>S "_S
 " Unnamed Register; Convenience "{{{1
 " CAUTION: Just Type p to put from unnamed register.
