@@ -1,8 +1,8 @@
 " From: init.vim
 
-if get(g:, 'loaded_myconf_terminal', 0) | finish | endif
+if get(g:, 'loaded_lazy_terminal', 0) | finish | endif
 " Note: cannot use ++once to detect &bt in if-sentence
-let g:loaded_myconf_terminal = 1
+let g:loaded_lazy_terminal = 1
 
 " TODO: more accurate pattern to ':' in ternminal
 tnoremap <expr> : (getline('.')[col('.') - 2] ==# ' ')? '<c-\><c-n>:' : ':'

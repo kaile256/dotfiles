@@ -1,5 +1,8 @@
 " From: init.vim
 
+if get(g:, 'loaded_lazy_diff', 0) | finish | endif
+let g:loaded_lazy_diff = 1
+
 set diffopt=iwhite,iwhiteeol,iblank
 set diffopt+=filler,internal
 set diffopt+=vertical,indent-heuristic
@@ -34,7 +37,3 @@ augroup LeaveDiffMode
         \ |  diffoff!
         \ | endif
 augroup END
-
-if exists('#DelAugLaterLazyDiff')
-  augroup! DelAugLaterLazyDiff
-endif
