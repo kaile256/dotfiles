@@ -38,19 +38,15 @@ let g:textobj_sandwich_no_default_key_mappings = 1
 
 " Keymap; Manual Select
 " Mnemonic: Yield a pair of bans
-nmap \y <Plug>(operator-sandwich-add)
+nmap \y zv<Plug>(operator-sandwich-add)
 " Mnemonic: Dispose the bans
-nmap \d <Plug>(operator-sandwich-delete)<Plug>(operator-sandwich-release-count)<Plug>(textobj-sandwich-query-a)
+nmap \d zv<Plug>(operator-sandwich-delete)<Plug>(operator-sandwich-release-count)<Plug>(textobj-sandwich-query-a)
 " Mnemonic: Change the bans
-nmap \c <Plug>(operator-sandwich-replace)<Plug>(operator-sandwich-release-count)<Plug>(textobj-sandwich-query-a)
+nmap \c zv<Plug>(operator-sandwich-replace)<Plug>(operator-sandwich-release-count)<Plug>(textobj-sandwich-query-a)
 
 xmap \y <Plug>(operator-sandwich-add)
 xmap \d <Plug>(operator-sandwich-delete)
 xmap \c <Plug>(operator-sandwich-replace)
-
-imap <a-\><a-y> <esc><Plug>(operator-sandwich-add)
-imap <a-\><a-d> <esc><Plug>(operator-sandwich-delete)<Plug>(operator-sandwich-release-count)<Plug>(textobj-sandwich-query-a)
-imap <a-\><a-c> <esc><Plug>(operator-sandwich-replace)<Plug>(operator-sandwich-release-count)<Plug>(textobj-sandwich-query-a)
 
 "" Keymap; Text Object {{{
 " default follows 'timeoutlen' (=1000ms).
