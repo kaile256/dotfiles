@@ -1,30 +1,39 @@
 " From: tool.toml
 " Repo: kana/vim-submode
+" Fork: kaile256/vim-submode
 " Another: post/submode.vim
 
 let g:submode_keep_leaving_key = 1
 
-function! s:seq_blackhole(key) abort
-  " Note: submode#enter_with() overrides the map that call this function
-  call submode#enter_with('seq_blackhole_'. a:key , 'n', '', '<space>'. a:key , '"_'. a:key )
-  " Note: :undojoin seems faster than <c-g>U
-  call submode#map('seq_blackhole_'. a:key , 'n', 's', a:key , ':undojoin <bar> norm! "_'. a:key .'<cr>')
-  " Note: necessary to :undojoin by '.'
-  call submode#map('seq_blackhole_'. a:key , 'n', 's', ".", ':undojoin <bar> norm! "_'. a:key .'<cr>')
-  exe 'norm "_'. a:key
+function! s:undojoiner(char, ...) abort
+  let rhs = a:0 > 0 ? a:1 : a:char
+  "call submode#enter_with('undojoiner_'. a:char, 'n', 's', a:char, rhs)
+  "call submode#map('undojoiner_'. a:char, 'n', 's', a:char, ':undojoin <bar> norm! '. rhs .'<cr>')
+
+  call submode#wrapper('undojoiner_'. a:char, 'n', 's', a:char,
+        \ rhs, {
+        \ a:char : ':undojoin <bar> norm! '. rhs .'<cr>',
+        \ '.'    : ':undojoin <bar> norm! '. rhs .'<cr>',
+        \ })
 endfunction
 
-nnoremap <silent> <space>x :<c-u>call <SID>seq_blackhole('x')<cr>
-nnoremap <silent> <space>X :<c-u>call <SID>seq_blackhole('X')<cr>
+nnoremap <silent> <c-x>
+      \ :call <SID>undojoiner('<c-x>')
+      \ <bar> call feedkeys("\<c-x>")<cr>
+nnoremap <silent> <c-a>
+      \ :call <SID>undojoiner('<c-a>')
+      \ <bar> call feedkeys("\<c-a>")<cr>
+nnoremap <silent> x
+      \ :call <SID>undojoiner('x')
+      \ <bar> call feedkeys('x')<cr>
+nnoremap <silent> X
+     \ :call <SID>undojoiner('X')
+      \ <bar> call feedkeys('X')<cr>
 
-function! s:undojoiner(key) abort
-  let char = a:key " left this line in case to need rewrite
-  " TODO: keep count by following maps
-  call submode#enter_with('undojoiner_'. char , 'n', '', char , char)
-  call submode#map('undojoiner_'. char , 'n', 's', char , ':undojoin <bar> norm! '. char .'<cr>')
-  call submode#map('undojoiner_'. char , 'n', 's', "." , ':undojoin <bar> norm! '. char .'<cr>')
-  exe 'norm' char
-endfunction
+nnoremap <silent> <space>x
+      \ :call <SID>undojoiner('x', '"_x')
+      \ <bar> call feedkeys('x')<cr>
 
-nnoremap <silent> <c-x> :<c-u>call <SID>undojoiner("<lt>c-x>")<cr>
-nnoremap <silent> <c-a> :<c-u>call <SID>undojoiner("<lt>c-a>")<cr>
+nnoremap <silent> <space>X
+      \ :call <SID>undojoiner('X', '"_X')
+      \ <bar> call feedkeys('X')<cr>
