@@ -13,11 +13,16 @@ write
 '''
 #}}}
 
-#[[plugins]]
-#repo = 'kana/vim-submode' #{{{
+[[plugins]]
+repo = 'kaile256/vim-submode' #{{{
+#repo = 'kana/vim-submode'
 # make another mode!
-#on_cmd = 'submode#'
-#hook_add = 'runtime add/submode.vim'
+on_func = 'submode#'
+hook_add = 'runtime add/submode.vim'
+#hook_done_update = '''
+#exe 'e' g:dein_github_dir .'/kana/vim-submode/autoload/submode.vim'
+#%s/submode-/sbm-/g
+#write
 ##}}}
 
 #[[plugins]]
@@ -58,7 +63,7 @@ on_cmd = 'Minimap'
 hook_add = 'runtime add/minimap.vim'
 # the name, vim-minimap, causes error when jump to this repository.
 hook_done_update = '''
-exe 'e' g:dein_cache_dir .'/repos/github.com/severin-lemaignan/vim-minimap/autoload/minimap.py'
+exe 'e' g:dein_github_dir .'/severin-lemaignan/vim-minimap/autoload/minimap.py'
 g/MINIMAP/s/vim-minimap/[minimap]/e
 write
 '''
