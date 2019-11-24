@@ -1,6 +1,6 @@
 " From: filetype.vim
 
-if expand('%:p') =~# '/home/' && expand('%:p') !~# 'help.vim'
+if &readonly
   norm! zz
   setl nonumber signcolumn= nolist fdl=0
   nnoremap <buffer> d <c-d>
