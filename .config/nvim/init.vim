@@ -1,7 +1,7 @@
 set encoding=utf-8
 scriptencoding utf-8
 set termencoding=utf-8
-set fileencodings=utf-8,ucs-bom,euc-jp,sjis,default,latin1
+set fileencodings=ucs-bom,utf-8,euc-jp,sjis,default,latin1
 set ambiwidth=double
 hi CursorIM guibg=#fabd1f
 " default: tcqj
