@@ -57,8 +57,6 @@ augroup AdditionalUndoBreakOnFileType "{{{
   au FileType html,markdown inoremap <buffer> ! !<c-g>u
   au FileType html,markdown inoremap <buffer> ? ?<c-g>u
 augroup END "}}}
-" Undo Join; Inc/Decrement {{{1
-" Too slow.
 
 " Fold; Uniquely Open Fold {{{1
 " i.e., close all the others
