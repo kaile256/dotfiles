@@ -29,6 +29,11 @@ hook_post_update = 'function("firenvim#install")'
 #hook_add = 'runtime add/ghost.vim'
 #hook_add = 'runtime post/ghost.vim'
 
+[[plugins]]
+repo = 'mattn/qiita-vim' #{{{
+on_cmd = ['Qiita']
+#}}}
+
 # API
 [[plugins]]
 repo = 'itchyny/calendar.vim' #{{{
