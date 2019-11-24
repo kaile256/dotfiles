@@ -5,8 +5,8 @@
 augroup FugitiveCallMyFunc
   au!
   function! s:winonly() abort "{{{
-    if index(tabpagebuflist(), bufnr('COMMIT_EDITMSG')) != -1
-      exe bufnr('COMMIT_EDITMSG') .'windo call s:gitcommit_discard()'
+    if index(tabpagebuflist(), bufnr('COMMIT_EDITMSG')) >= 0
+      exe bufwinnr('COMMIT_EDITMSG') .'windo call s:gitcommit_discard()'
     endif
     only
     call s:restore_view()
@@ -56,7 +56,7 @@ augroup FugitiveCallMyFunc
 
   function! s:gitcommit_dismiss() abort "{{{
     call s:gitcommit_shred()
-    WindowPKreduce
+    call s:winreduce()
     call s:restore_view()
   endfunction "}}}
 

@@ -3,7 +3,7 @@
 # Note: Don't locate the plugins under $MYVIMRC for dein's hook.
 [[plugins]]
 repo = 'kaile256/vim-among_HML' #{{{
-on_cmd = 'among_HML#'
+on_func = 'among_HML#'
 hook_add = 'runtime add/among_HML.vim'
 #}}}
 
@@ -14,11 +14,11 @@ on_event = 'VimEnter'
 hook_add = 'runtime add/sensible_K.vim'
 #}}}
 
-[[plugins]]
-repo = 'kaile256/vim-window-picker' #{{{
-on_cmd = ['WindowPKreduce', 'WindowPKpick', 'WindowPKoly', 'WindowPKfloating', 'WindowPKcopy', 'WindowPKtabGive']
-hook_add = 'runtime add/window-picker.vim'
-#}}}
+#[[plugins]]
+#repo = 'kaile256/vim-window-picker' #{{{
+#on_cmd = ['WindowPKreduce', 'WindowPKpick', 'WindowPKoly', 'WindowPKfloating', 'WindowPKcopy', 'WindowPKtabGive']
+#hook_add = 'runtime add/window-picker.vim'
+##}}}
 
 [[plugins]]
 repo = 'kaile256/vim-keymaps-dealer' #{{{
