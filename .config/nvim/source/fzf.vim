@@ -105,5 +105,4 @@ augroup FzfMyAutoConf "{{{
   "au FileType fzf setl laststatus=0
   "      \ | au BufEnter * ++once setl laststatus=2
   "      \ | if &l:number | setl number | endif
-  au FileType * norm! zv
 augroup END "}}}
