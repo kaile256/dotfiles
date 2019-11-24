@@ -62,12 +62,12 @@ nnoremap <s-space>P "0P
 xnoremap <s-space>P "0P
 "command! -nargs=1 PasteWithoutPasteToggle :call append(line('.'), '' . <args>)
 " Black-Hole Register {{{1
-"nnoremap <s-space>d "_d
-"nnoremap <s-space>D "_D
+nnoremap <s-space>d "_d
+nnoremap <s-space>D "_D
 nnoremap <s-space>c "_c
 nnoremap <s-space>C "_C
-nnoremap <s-space>x "_x
-nnoremap <s-space>X "_X
+"nnoremap <s-space>x "_x
+"nnoremap <s-space>X "_X
 nnoremap <s-space>s "_s
 nnoremap <s-space>S "_S
 " Unnamed Register; Convenience "{{{1
