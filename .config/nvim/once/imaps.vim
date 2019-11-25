@@ -7,11 +7,15 @@ inoremap <silent> <a-space> <esc>:call feedkeys("\<space>")<cr>
 " i/a/o "{{{2
 " <a-ai> could be just <left>/<right>, but I prefer <esc> before.
 inoremap <a-O> <esc>O
-inoremap <a-I> <esc>I
-inoremap <a-A> <esc>A
-inoremap <a-a> <esc>la
-inoremap <a-i> <esc>i
 inoremap <a-o> <esc>o
+inoremap <a-I> <c-g>U<Home>
+inoremap <a-A> <c-g>U<End>
+inoremap <a-a> <c-g>U<Right>
+inoremap <a-i> <c-g>U<Left>
+"inoremap <a-I> <c-g>U<esc>I
+"inoremap <a-A> <c-g>U<esc>A
+"inoremap <a-a> <c-g>U<esc>la
+"inoremap <a-i> <c-g>U<esc>i
 
 " h/j/k/l {{{2
 " CAUTION: Never careless mapping on <i_a-hjkl>
