@@ -1,8 +1,7 @@
 " From: memo.toml
 " Repo: dhruvasagar/vim-table-mode
 
-" Ref: default of g:var; dhruvasagar/vim-table-mode/plugin/table-mode.vim @17
-
+" Ref: see default values for g:var in dhruvasagar/vim-table-mode/plugin/table-mode.vim @17
 augroup TableModeCallMyFunc
   au!
   function! s:arrange_table() abort "{{{
