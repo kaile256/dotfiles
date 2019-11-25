@@ -11,7 +11,7 @@ command! -bar XinputTouchpadEnable  :!xinput Enable  Elan\ Touchpad
 command! -bar XinputTouchpadDisable :!xinput disable Elan\ Touchpad
 command! -bar TouchpadEnable  :!xinput Enable  Elan\ Touchpad
 command! -bar TouchpadDisable :!xinput disable Elan\ Touchpad
-command! -bar MonitorToggle :!xrandr |
+command! -bar MonitorTry :!xrandr |
       \ grep "HDMI2 connected"
       \ && xrandr --output eDP1 --auto
       \ --output "HDMI2" --auto --above eDP1
@@ -34,7 +34,8 @@ command! -bar CursorChar :echo "getline('.')[col('.') - 1] is '". getline('.')[c
 "augroup END
 "}}}
 " command; :source {{{1
-command! So :call s:source_buffer()
+command! -bar So :call s:source_buffer()
+command! -bar SO :call s:source_buffer()
 function! s:source_buffer() abort "{{{2
   if &ft ==# 'vim'
     silent write
