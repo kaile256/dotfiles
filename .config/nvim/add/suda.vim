@@ -1,8 +1,9 @@
-" From: tool.toml
+" From: shell.toml
+" Repo: lambdalisue/suda.vim
 
-"command! -bar -nargs=* -complete=file E :exe 'e' <SID>sudo_check_arg(<q-args>)
-command! -bar -nargs=* -complete=file W :exe 'w' <SID>sudo_check_arg(<q-args>)
-command! -bar -nargs=* -complete=file R :exe 'r' <SID>sudo_check_arg(<q-args>)
+"command! -bar -nargs=* -complete=file E :exe 'e' s:sudo_check_arg(<q-args>)
+command! -bar -nargs=* -complete=file W :exe 'w' s:sudo_check_arg(<q-args>)
+command! -bar -nargs=* -complete=file R :exe 'r' s:sudo_check_arg(<q-args>)
 
 " Fixme: no response on :Yay, just prompted the password.
 "command! -bar -nargs=+ -complete=file Yay :call suda#system('yay', <q-args>)
