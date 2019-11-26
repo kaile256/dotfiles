@@ -218,19 +218,15 @@ function! s:defx_keymap_explorer() abort
   " Register {{{2
   " copy: yank in defx's register
   " Note: CANNOT register multiple files into defx-register.
-  nnoremap <nowait><buffer><expr> yy
-        \ defx#do_action('copy')
-  nnoremap <nowait><buffer><expr> Y
+  nnoremap <nowait><buffer><expr> yp
         \ defx#do_action('copy')
   nnoremap <nowait><buffer><expr> cc
         \ defx#do_action('move')
-  nnoremap <nowait><buffer><expr> C
-        \ defx#do_action('move')
   nnoremap <nowait><buffer><expr> p
         \ defx#do_action('paste')
-  " yank_path: yank in unnamed register
-  nnoremap <nowait><buffer><expr> yp
-        \ defx#do_action('yank_path')
+  " yank_path: yank in plus register
+  nnoremap <nowait><buffer><expr> <space>yp
+        \ defx#async_action('yank_path')
   " Execute {{{2
   nnoremap <silent><nowait><buffer><expr> X
         \ defx#do_action('execute_system')
