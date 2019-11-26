@@ -146,6 +146,15 @@ augroup DeniteCallMyFunctions "{{{1
     nnoremap <silent><buffer><expr> P
           \ denite#do_map('do_action', 'preview')
 
+    "nnoremap <silent><buffer> k
+    "      \ k:call
+    "      \ denite#do_map('do_action', 'preview')
+    "      \ <cr>
+    "nnoremap <silent><buffer> j
+    "      \ j:call
+    "      \ denite#do_map('do_action', 'preview')
+    "      \ <cr>
+
     " Select {{{3
     nnoremap <silent><buffer><expr> mm
           \ denite#do_map('toggle_select')
