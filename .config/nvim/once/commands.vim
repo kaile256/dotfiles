@@ -37,16 +37,18 @@ command! -bar CursorChar :echo "getline('.')[col('.') - 1] is '". getline('.')[c
 command! -bar So :call s:source_buffer()
 command! -bar SO :call s:source_buffer()
 function! s:source_buffer() abort "{{{2
+  " Note: :undojoin causes an error right after :undo.
+  silent! undojoin
+  silent write
   if &ft ==# 'vim'
-    silent write
     so %:p
     echomsg v:statusmsg '& sourced.'
   elseif &ft =~# 'html'
-    silent write
     silent OpenBrowser %:p
     echomsg v:statusmsg
+  elseif &ft ==# 'xdefault'
+    !xrdb %:p
   else
-    write
     !
   endif
 endfunction
