@@ -5,7 +5,7 @@
 repo = 'lambdalisue/suda.vim' #{{{
 if = 'executable("sudo")'
 on_event = 'CmdlineEnter'
-#on_cmd = ['e suda', 'r suda', 'w suda']
+on_func = 'suda#'
 hook_add = 'runtime add/suda.vim'
 #}}}
 #[[plugins]]
