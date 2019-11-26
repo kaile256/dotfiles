@@ -24,7 +24,7 @@ let g:terminal_color_15 = '#eeeeec'
 "  au! FileChangedRO * colorscheme Monokai
 "augroup END
 
-if exists("g:nyaovim_version")
+if exists('g:nyaovim_version')
   colorscheme solarized8_light_flat
   "elseif !exists("g:GuiLoaded")
   "  " on CUI
@@ -77,6 +77,7 @@ endif
 
 " coc.nvim supports
 hi HighlightedyankRegion ctermfg=232 ctermbg=66 guifg=#000000 guibg=#df5f29
+hi CocErrorHighlight ctermfg=Red  guifg=#ff0000
 
 finish "{{{1
 
