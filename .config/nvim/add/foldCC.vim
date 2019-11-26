@@ -1,4 +1,4 @@
-" From: tool.toml
+" From: default.toml
 " Help: https://github.com/LeafCage/foldCC.vim/blob/master/doc/foldCC.jax
 " Repo: LeafCage/foldCC
 
