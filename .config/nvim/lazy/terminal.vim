@@ -50,24 +50,6 @@ augroup OnTerminalBuffer
   endif
 augroup END
 
-" Color; Set TUI Color {{{
-if $TERM =~# '^\(tmux\|iterm\|vte\|gnome\)\(-.*\)\?$'
-  set termguicolors "Enables 24-bit RGB color in TUI.
-elseif $TERM =~# '^\(rxvt\|screen\|interix\|putty\)\(-.*\)\?$'
-  set notermguicolors
-elseif $TERM =~# '^\(xterm\)\(-.*\)\?$'
-  if $XTERM_VERSION !=# ''
-    set termguicolors
-  elseif $KONSOLE_PROFILE_NAME !=# ''
-    set termguicolors
-  elseif $VTE_VERSION !=# ''
-    set termguicolors
-  else
-    set notermguicolors
-  endif
-endif
-"}}}
-
 " Function; ls-grep
 function! s:grep_heavy_bufnr()
   " TODO: get bufnr('term://') in hidden-buffers to bufdelete them.
