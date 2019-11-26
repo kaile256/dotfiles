@@ -2,7 +2,11 @@
 " Repo: AndrewRadev/splitjoin.vim
 
 " Note: works only in expected situations
-nnoremap <silent> J :call <SID>try_splitjoin()<cr>
+if mapcheck('J')
+  nnoremap <silent> <space>J :call <SID>try_splitjoin()<cr>
+else
+  nnoremap <silent> J :call <SID>try_splitjoin()<cr>
+endif
 
 function! s:try_splitjoin() abort
   let prev_line = getline('.')
