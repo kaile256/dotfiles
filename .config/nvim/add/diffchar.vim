@@ -21,5 +21,5 @@
 "        \ | endif
 "augroup END
 
-let g:DiffColors = 100  " all available colors in dynamic random order
+let g:DiffColors = 1  " all available colors in dynamic random order
 let g:DiffExpr = 0
