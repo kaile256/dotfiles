@@ -69,11 +69,11 @@ noremap <silent> L <Cmd>call among_HML#fork#init('L', '100', {
 "nnoremap <silent> <c-k> :<c-u>call among_HML#scroll#percent(25, 'up')<cr>
 
 " Evacuations for default {{{1
-if mapcheck('K')
+if mapcheck('K') !=# ''
   nnoremap gK K
   xnoremap gK K
 endif
-if mapcheck('J')
+if mapcheck('J') !=# ''
   nnoremap <space>J J
   xnoremap <space>J J
 endif

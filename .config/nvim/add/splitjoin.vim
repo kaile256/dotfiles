@@ -2,7 +2,7 @@
 " Repo: AndrewRadev/splitjoin.vim
 
 " Note: works only in expected situations
-if mapcheck('J')
+if mapcheck('J') !=# ''
   nnoremap <silent> <space>J :call <SID>try_splitjoin()<cr>
 else
   nnoremap <silent> J :call <SID>try_splitjoin()<cr>
