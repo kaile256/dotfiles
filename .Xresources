@@ -69,16 +69,17 @@ URxvt.pointerBlank:         true
 URxvt.visualBell:           false
 URxvt.saveLines:            3000
 
-!!! Fading except Current-Window (%)
-URxvt.fading:               40
+!!! Fading if not focused (%)
+URxvt.fading:               100
 
 ! Font list and Spacing
 URxvt.allow_bold: true
 URxvt.kanji_encoding: UTF-8
-! rxvt cannot read nerd characters.
+
 URxvt.font:                 xft:SF Mono:size=13:antialias=true
 !URxvt.font:                 xft:Dejavu Sans Mono:size=12:antialias=true,xft:MyricaM M:size=14:antialias=true
-URxvt.letterSpace:          -1  ! prepare exagerated space esp. on Japanese Fonts.
+! Note: letterSpace in negative nr. removes exagerated spaces; esp. for Japanese Fonts.
+URxvt.letterSpace:          -1
 !URxvt.lineSpace:            2  ! expand space between command-lines.
 
 !!! Color Scheme and Opacity - gruvbox-dark https://github.com/morhetz/gruvbox
