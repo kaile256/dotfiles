@@ -169,6 +169,7 @@ settings:
         <Ctrl+j>: scroll-px 0 +60
         <Ctrl+k>: scroll-px 0 -60
         <Ctrl+l>: tab-next
+        <Ctrl+n>: null
         <Ctrl+o>: back
         <Ctrl+p>: null
         <Ctrl+t>: null
@@ -207,8 +208,8 @@ settings:
         E: edit-url
         H: null
         I: hint inputs --first
-        J: null
-        K: null
+        J: fake-key <alt-down>
+        K: fake-key <alt-up>
         L: null
         P: open -t {clipboard}
         U: undo
