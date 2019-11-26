@@ -7,6 +7,7 @@
 " Note: :FZF! starts fzf on full-window.
 function! fzf#floating_window() abort "{{{
   " Ref: https://github.com/junegunn/fzf.vim/issues/664
+
   let buf = nvim_create_buf(v:false, v:true)
   call setbufvar(buf, '&signcolumn', 'no')
 

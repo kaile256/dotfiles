@@ -1,6 +1,6 @@
 " From: filetype.vim
 
-if &readonly
+if &readonly && !&modifiable
   norm! zz
   setl nonumber signcolumn= nolist fdl=0
   nnoremap <buffer> d <c-d>
@@ -96,6 +96,7 @@ function! s:help_toc(mods) abort "{{{
 
   exe a:mods toc_width 'lopen'
   setl winfixwidth nonumber nowrap
+  setl foldmethod=indent fdl=0
   let w:qf_toc = bufname
 endfunction "}}}
 
