@@ -15,6 +15,8 @@ call extend(g:keymapsDL#cmd_after#cd_path_dict, {
 let g:keymapsDL#cmd_after#split_dict = {
       \ '<a-v>': 'vsplit',
       \ '<a-s>': 'split',
+      \ '<a-j>': 'bot sp',
+      \ '<a-l>': 'bot vs',
       \ '<a-t>': 'tabe',
       \ '<a-e>': 'edit',
       \ }
