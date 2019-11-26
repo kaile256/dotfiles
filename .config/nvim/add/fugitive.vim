@@ -16,19 +16,27 @@ function! s:nobuffers(bufnr) abort "{{{1
 endfunction
 
 function! s:winreduce() abort "{{{1
+  let winID = bufwinid('%')
   for bufnr in tabpagebuflist()
     if s:nobuffers(bufnr)
       let winnr = bufwinnr(bufnr)
       exe winnr 'windo quit'
     endif
   endfor
+  call win_gotoid(winID)
 endfunction
-nnoremap <silent> <a-space><a-space> :<c-u>call <SID>winreduce()<cr>
-nnoremap <silent> <a-space><space>   :<c-u>call <SID>winreduce()<cr>
+command! WinReduce   :call s:winreduce()
+nnoremap <silent> <a-space><a-space> :<c-u>WinReduce<cr>
+nnoremap <silent> <a-space><space>   :<c-u>WinReduce<cr>
 
 function! s:winpick() abort "{{{1
   call s:winreduce()
   silent! wincmd T
+  call s:winsave()
+endfunction
+
+function! s:winsave() abort "{{{1
+  let t:my_fugitive_save_winid = bufwinid('%')
 endfunction
 
 command! -bang -bar -range=-1 -addr=tabs Gvstatus

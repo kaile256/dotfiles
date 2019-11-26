@@ -8,6 +8,7 @@
 call extend(g:keymapsDL#cmd_after#cd_path_dict, {
       \ 'h': '~',
       \ 'w': '%:p:h',
+      \ 'z': $GHQ_ROOT,
       \ '.': '.',
       \ '': '~',
       \ })
