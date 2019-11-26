@@ -7,18 +7,21 @@
 let g:sneak#no_default_mapping = 1
 let g:sneak#prompt = 'Sneak: 4 chars >>> '
 let g:sneak#no_prompt = 1
+
 " use 'ignorecase' & 'smartcase'
 "let g:sneak#use_ic_scs = 1
 
 "let g:sneak#s_next  = 1
 " 0: Pressing f/t will repeat last motion as ;/,.
-"let g:sneak#f_reset = 0
-"let g:sneak#t_reset = 0
+"let g:sneak#f_reset = 1
+"let g:sneak#t_reset = 1
 
 let g:sneak#label = 1
 " default for g:sneak#label_esc is "\<space>"
 "let g:sneak#label_esc = '.'
-let g:sneak#target_labels = "abcedfghijklmnopqrstuvwxyz"
+let g:sneak#target_labels = 'abcedfghijklmnopqrstuvwxyz'
+
+let g:sneak#trailing_another = 'e''"'
 
 map g<space>   <Plug>Sneak_f<space>
 map g<s-space> <Plug>Sneak_F<space>
@@ -39,6 +42,12 @@ nnoremap <silent> f :call sneak#users('f', 'never')<cr>
 nnoremap <silent> t :call sneak#users('t', 'never')<cr>
 nnoremap <silent> F :call sneak#users('F', 'never')<cr>
 nnoremap <silent> T :call sneak#users('T', 'never')<cr>
+" Note: another word following f/t provides no prompt
+"nnoremap <silent> fe :call sneak#users('f2p', 'never')<cr>e
+"nnoremap <silent> te :call sneak#users('t2p', 'never')<cr>e
+"nnoremap <silent> Fe :call sneak#users('F2p', 'never')<cr>e
+"nnoremap <silent> Te :call sneak#users('T2p', 'never')<cr>e
+
 "nnoremap <silent> s :call sneak#users('/2')<cr>
 "nnoremap <silent> S :call sneak#users('?2')<cr>
 
@@ -75,7 +84,7 @@ augroup SneakBuffers "{{{1
   endfunction
   "}}}2
 augroup END
-"}}}1
+
 finish "{{{1
 
 " Table;                                  mode,         i, r, f, l
