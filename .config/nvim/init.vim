@@ -3,7 +3,6 @@ scriptencoding utf-8
 set termencoding=utf-8
 set fileencodings=ucs-bom,utf-8,euc-jp,sjis,default,latin1
 set ambiwidth=double
-hi CursorIM guibg=#fabd1f
 " default: tcqj
 set formatoptions=jmB1cql
 "set mouse=a
@@ -14,13 +13,13 @@ runtime rc/backupfiles.vim
 runtime rc/dein.vim  " contains `filetype plugin indent on`
 runtime rc/options.vim
 runtime rc/filetype.vim
+runtime rc/loaded.vim " disturbs to :source vimscripts under $VIMRUNTIME
 " Note: `!` is required to source all the same named files.
 runtime! keymap/*.vim
 runtime rc/startpage.vim
 
 augroup RuntimesSelection
   au!
-  au VimEnter     * ++once runtime once/loaded.vim
   au VimEnter     * ++once runtime once/omaps.vim
   au InsertEnter  * ++once runtime once/imaps.vim
   au CmdLineEnter * ++once runtime once/cmaps.vim
