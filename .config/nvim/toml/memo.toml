@@ -1,39 +1,6 @@
-# From: add/dein.vim
+# From: rc/dein.vim
 
-[[plugins]]
-repo = 'vimwiki/vimwiki' #{{{
-rev = 'dev'
-#rev = 'v2.4.1'  # the repo is dirty to activate.
-on_event = 'VimEnter'
-hook_add = 'runtime add/vimwiki.vim'
-hook_source = 'runtime source/vimwiki.vim'
-#}}}
-[[plugins]]
-repo = 'tbabej/taskwiki'
-if = 'executable("task")'
-on_source = 'vimwiki'
-hook_post_update = '!pip install --user --upgrade -r requirements.txt'
-hook_source = 'runtime add/taskwiki.vim'
-[[plugins]]
-repo = 'powerman/vim-plugin-AnsiEsc'
-# Provides Color support on chart of taskwiki.
-if = 'executable("task")'
-on_cmd = ['TaskWiki']
-hook_post_source = 'runtime add/AnsiEsc.vim'
-[[plugins]]
-repo = 'blindFS/vim-taskwarrior'
-# enables grid-view on taskwiki.
-if = 'executable("task")'
-on_cmd = ['TaskWikiGrid', 'TW']
-hook_post_source = 'runtime add/taskwarrior.vim'
-
-# Memo; Outliner
-#[[plugins]]
-#repo = 'vim-voom/VOoM' #{{{
-#on_ft = ['vimwiki','org','markdown','tex','toml']
-#hook_post_source = 'runtime add/voom.vim'
-## }}}
-# Memo; Table-Mode
+# Table-Mode
 [[plugins]]
 repo = 'dhruvasagar/vim-table-mode' #{{{
 # enable to calculate on a table.
@@ -45,7 +12,46 @@ g/command!/norm! nEa -bar
 write
 '''
 #}}}
-# Memo; Org Mode
+
+# Outliner
+#[[plugins]]
+#repo = 'vim-voom/VOoM' #{{{
+#on_ft = ['vimwiki','org','markdown','tex','toml']
+#hook_post_source = 'runtime add/voom.vim'
+## }}}
+
+# Vimwiki
+[[plugins]]
+repo = 'vimwiki/vimwiki' #{{{
+rev = 'dev'
+#rev = 'v2.4.1'  # the repo is dirty to activate.
+on_event = 'VimEnter'
+hook_add = 'runtime add/vimwiki.vim'
+hook_source = 'runtime source/vimwiki.vim'
+#}}}
+#[[plugins]]
+#repo = 'tbabej/taskwiki' #{{{
+#if = 'executable("task")'
+#on_source = 'vimwiki'
+#hook_post_update = '!pip install --user --upgrade -r requirements.txt'
+#hook_source = 'runtime add/taskwiki.vim'
+##}}}
+#[[plugins]]
+#repo = 'powerman/vim-plugin-AnsiEsc' #{{{
+## Provides Color support on chart of taskwiki.
+#if = 'executable("task")'
+#on_cmd = ['TaskWiki']
+#hook_post_source = 'runtime add/AnsiEsc.vim'
+##}}}
+#[[plugins]]
+#repo = 'blindFS/vim-taskwarrior' #{{{
+## enables grid-view on taskwiki.
+#if = 'executable("task")'
+#on_cmd = ['TaskWikiGrid', 'TW']
+#hook_post_source = 'runtime add/taskwarrior.vim'
+##}}}
+
+# Org Mode
 #[[plugins]]
 #repo = 'jceb/vim-orgmode' #{{{
 #on_ft = 'org'
