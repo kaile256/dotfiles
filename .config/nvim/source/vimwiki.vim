@@ -5,6 +5,14 @@ scriptencoding utf-8
 " Path: ftplugin/vimwiki.vim
 " Another: add/vimwiki.vim
 
+let g:vimwiki_key_mappings = {
+      \ 'all_maps': 1,
+      \ 'global': 0,
+      \ 'lists':  0,
+      \ 'html':   0,
+      \ 'mouse':  0,
+      \ }
+
 "set path+=~/vimwiki/**
 let g:vimwiki_table_auto_fmt = 0
 "let g:vimwiki_table_reduce_last_col = 0
