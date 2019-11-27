@@ -14,6 +14,25 @@ set timeoutlen=10000
 set previewheight=28
 
 set synmaxcol=320
+set autochdir
+" Color; Set TUI Color {{{1
+" Ref: *term-dependent-settings* or /usr/share/nvim/runtime/doc/term.txt
+if $TERM =~# '^\(tmux\|iterm\|vte\|gnome\)\(-.*\)\?$'
+  set termguicolors "Enables 24-bit RGB color in TUI.
+elseif $TERM =~# '^\(rxvt\|screen\|interix\|putty\)\(-.*\)\?$'
+  set notermguicolors
+elseif $TERM =~# '^\(xterm\)\(-.*\)\?$'
+  if $XTERM_VERSION !=# ''
+    set termguicolors
+  elseif $KONSOLE_PROFILE_NAME !=# ''
+    set termguicolors
+  elseif $VTE_VERSION !=# ''
+    set termguicolors
+  else
+    set notermguicolors
+  endif
+endif
+
 " Appearance; Pmenu {{{1
 " shortmess: Shorter Message
 " c-option: forbids to give |ins-completion-menu| messages.
