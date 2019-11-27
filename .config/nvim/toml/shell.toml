@@ -37,8 +37,11 @@ on_map = '<Plug>(quickrun'
 hook_add = 'runtime add/quickrun.vim'
 [[plugins]]
 repo = 'heavenshell/vim-quickrun-hook-unittest'
+# Note: g:quickrun_config is loaded on each :QuickRun
+if = "index(['php', 'python', 'ruby', 'go', 'javascript'], &ft) >= 0"
 on_cmd = 'QuickRun'
 on_map = '<Plug>(quickrun'
+hook_source = 'runtime source/quickrun-unittest.vim'
 #}}}
 #[[plugins]]
 #repo = 'neomake/neomake' #{{{
