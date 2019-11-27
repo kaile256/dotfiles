@@ -8,7 +8,7 @@
 " among_HML#fork {{{1
 noremap <silent> H <Cmd>call among_HML#fork#init('H', '0', {
       \ 'K': '12.5',
-      \ 'M': '50',
+      \ 'M': '25',
       \ 'J': '37.5',
       \ })<bar>
       \ call feedkeys('H')<cr>
@@ -29,10 +29,8 @@ noremap <silent> K <Cmd>call among_HML#fork#init('K', 25, {
       \ call feedkeys('K')<cr>
 
 noremap <silent> M <Cmd>call among_HML#fork#init('M', 50, {
-      \ 'H': '0',
       \ 'K': '25',
       \ 'J': '75',
-      \ 'L': '100',
       \ })
       \ <bar>
       \ call feedkeys('M')<cr>
@@ -55,7 +53,7 @@ noremap <silent> J <Cmd>call among_HML#fork#init('J', 75, {
 noremap <silent> L <Cmd>call among_HML#fork#init('L', '100', {
       \ 'K': '62.5',
       \ 'J': '87.5',
-      \ 'M': '50',
+      \ 'M': '75',
       \ })<bar>
       \ call feedkeys('L')<cr>
 
