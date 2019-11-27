@@ -1,10 +1,18 @@
 " From: ftplugin.toml
 " Repo: iamcco/markdown-preview.nvim
 
-augroup myMdPreview
+augroup myMarkdowndPreview
   au!
-  au FileType markdown command! -buffer MdPreview     :MarkdownPreview
-  au FileType markdown command! -buffer MdPreviewStop :MarkdownPreviewStop
+  " Note: why? ':au FileType markdown' is no use
+  au BufEnter *.{md,mkd,markdown,mdown,mkdn,mdwn} command! -buffer MdPreview     :MarkdownPreview
+  au BufEnter *.{md,mkd,markdown,mdown,mkdn,mdwn} command! -buffer MdPreviewStop :MarkdownPreviewStop
+  au BufEnter *.{md,mkd,markdown,mdown,mkdn,mdwn} call s:md_keymaps() "{{{1
+  function! s:md_keymaps() abort
+    nmap <buffer><silent> qR  <Plug>MarkdownPreview
+    nmap <buffer><silent> qrr <Plug>MarkdownPreview
+  endfunction
+
+  "}}}1
 augroup END
 
 " 1: open preview on entering markdown buffer
