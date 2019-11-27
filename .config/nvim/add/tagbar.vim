@@ -42,6 +42,9 @@ nnoremap <silent> <a-o> :<c-u>TagbarToggle<cr>
 "  endif
 "endfunction
 
+"" let g:tagbar_map_ {{{1
+"let g:tagbar_map_previewwin =
+
 augroup TagbarInNofiles "{{{1
   au! OptionSet * call s:keymaps_if_no_tags()
 augroup END
