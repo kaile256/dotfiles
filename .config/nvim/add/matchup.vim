@@ -2,10 +2,11 @@
 " Repo: andymass/vim-matchup
 " Another: post/matchup.vim
 
-" enable ':nmap %'.
-let g:loaded_matchit = 1
-let g:loaded_matchparen = 1
-nmap % <plug>(matchup-%)
+"let g:loaded_matchit    = 1
+"let g:loaded_matchparen = 1
+
+let g:matchup_mouse_enabled = 0
+let g:matchup_delim_stopline = 500
 
 "let g:matchup_surround_enabled = 1 " 1: provides maps ds% and cs%
 "let g:matchup_text_obj_linewise_operators = ['d', 'y', ]
