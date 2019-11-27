@@ -95,6 +95,12 @@ function! s:help_toc(mods) abort "{{{
   call setloclist(0, [], 'a', {'title': 'Help TOC'})
 
   exe a:mods toc_width 'lopen'
+  " Note: sometimes fails to open correctly,
+  "       i.e., open TOC with unnecessary path and numbers,
+  "       but when ':lopen' twice, works correct
+  wincmd p
+  exe a:mods toc_width 'lopen'
+
   setl winfixwidth nonumber nowrap
   setl foldmethod=indent fdl=0
   let w:qf_toc = bufname
