@@ -3,21 +3,22 @@
 " Fork: kaile256/CamelCaseMotion
 
 " Convenience
-"onoremap ie iw
-"xnoremap ie iw
+"noremap ie iw
 
 " Overwite; webge
-nmap <silent> w  <Plug>CamelCaseMotion_w
-nmap <silent> b  <Plug>CamelCaseMotion_b
-nmap <silent> e  <Plug>CamelCaseMotion_e
-nmap <silent> ge <Plug>CamelCaseMotion_ge
-omap <silent> w  <Plug>CamelCaseMotion_w
-omap <silent> b  <Plug>CamelCaseMotion_b
-omap <silent> e  <Plug>CamelCaseMotion_e
-omap <silent> ge <Plug>CamelCaseMotion_ge
+map w  <Plug>CamelCaseMotion_w
+map b  <Plug>CamelCaseMotion_b
+map e  <Plug>CamelCaseMotion_e
+map ge <Plug>CamelCaseMotion_ge
+" TODO: no delay on 'e' in operator
+"omap <expr> <Plug>CamelCaseMotion_e_modified (getline('.')[col('.')] ==# ' ') ? 'l' : '<Plug>CamelCaseMotion_e'
+"omap e <Plug>CamelCaseMotion_e_modified
+
+map q <Plug>CamelCaseMotion_ge
+noremap Q gE
 
 " Overwrite; Text Object
-xmap <silent> iw <Plug>CamelCaseMotion_ie
-omap <silent> iw <Plug>CamelCaseMotion_ie
-"omap <silent> ib <Plug>CamelCaseMotion_ib
-"xmap <silent> ib <Plug>CamelCaseMotion_ib
+omap iw <Plug>CamelCaseMotion_ie
+xmap iw <Plug>CamelCaseMotion_ie
+"omap ib <Plug>CamelCaseMotion_ib
+"xmap ib <Plug>CamelCaseMotion_ib
