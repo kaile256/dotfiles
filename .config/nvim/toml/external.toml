@@ -90,10 +90,11 @@ hook_post_source = 'runtime add/actionmenu.vim'
 ##}}}
 
 [[plugins]]
-repo = 'xavierchow/vim-sequence-diagram'
+repo = 'xavierchow/vim-sequence-diagram' #{{{
 on_map = '<Plug>GenerateDiagram'
 on_cmd = '<Plug>GenerateDiagram'
 hook_add = 'runtime add/sequence-diagram.vim'
+#}}}
 
 # Doc
 [[plugins]]
@@ -102,9 +103,10 @@ on_cmd = 'Info'
 hook_add = 'runtime add/info.vim'
 #}}}
 [[plugins]]
-repo = 'sunaku/vim-dasht'
+repo = 'sunaku/vim-dasht' #{{{
 on_cmd = 'Dasht'
 hook_source = 'runtime add/dasht.vim'
+#}}}
 ## File Rename
 #[[plugins]]
 #repo = 'qpkorr/vim-renamer' #{{{
