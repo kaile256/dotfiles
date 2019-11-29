@@ -23,15 +23,17 @@ let g:quickrun_config['vim'] = {
       \ 'command': 'w | !vint --enable-neovim',
       \ }
 
-xnoremap <silent> qr :QuickRun<cr>
-xnoremap <silent> qR :QuickRun<cr>
+" Mnemonic: pseudo Source
+nmap \s <Plug>(quickrun-op)
+"nnoremap <silent> \ss :<c-u>QuickRun<cr>
+"nnoremap <silent> \S  :<c-u>QuickRun<cr>
+"xnoremap <silent> \s :QuickRun<cr>
+"xnoremap <silent> \S :QuickRun<cr>
 
-nnoremap <silent> qR  :<c-u>QuickRun<cr>
-nnoremap <silent> qrr :<c-u>QuickRun<cr>
-nmap qr <Plug>(quickrun-op)
-
-nnoremap <silent> qR  :<c-u>call <SID>quickrun_holding_ft()<cr>
-nnoremap <silent> qrr :<c-u>call <SID>quickrun_holding_ft()<cr>
+nnoremap <silent> \ss :<c-u>call <SID>quickrun_holding_ft()<cr>
+nnoremap <silent> \S  :<c-u>call <SID>quickrun_holding_ft()<cr>
+xnoremap <silent> \s  :<c-u>call <SID>quickrun_holding_ft()<cr>
+xnoremap <silent> \S  :<c-u>call <SID>quickrun_holding_ft()<cr>
 function! s:quickrun_holding_ft() abort "{{{1
   let bufnr = bufnr('%')
   let ft = getbufvar(bufnr, '&filetype')
