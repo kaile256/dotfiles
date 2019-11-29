@@ -4,23 +4,49 @@
 " Another: source/fzf.vim
 " Another: post/fzf.vim
 
+" TODO: override on-going fzf-buffer
+"nnoremap <silent> <space>z :call system('killall fzf') <bar> call feedkeys("\<space>z", 'x')<cr>
+
 command! -bang -nargs=* Fzf :Files
 
-" Note: not actually in ghq
-command! -bang -nargs=* Ghq :cd $GOPATH <bar> FZF
-" Mnemonic: Quest for Project
-nnoremap <a-q><a-p> :Ghq<cr>
-nnoremap <a-q>p     :Ghq<cr>
+command! -bang -nargs=* Downloads
+      \ :call fzf#vim#files(<q-args>, {
+      \ 'source': 'find ~/Downloads',
+      \ 'options': '--multi --reverse'
+      \ })
 
-command! -bang Functions :call fzf#vim#functions({'options': '--multi --reverse'})
+" Note: not actually in ghq
+command! -bang -nargs=* Ghqs
+      \ :silent cd $GOPATH
+      \ | Fzf
+
+command! -bang Functions
+      \ :call fzf#vim#functions({'options': '--multi --reverse'})
+" TODO: show preview as :function shows
       "\ fzf#vim#with_preview({'options': '--multi --reverse'}, 'right:60%:wrap'),
       "\ <bang>0)
+
 " TODO: selector of terminal-buffer.
 command! -bang -nargs=* -complete=buffer Terminal
       \ call fzf#vim#buffers(<q-args>,
       \                 <bang>0 ? fzf#vim#with_preview({'prefix': "'.git/", 'options': '--multi --reverse'}, 'right:65%')
       \                         : fzf#vim#with_preview({'prefix': "'.git/", 'options': '--multi --reverse'}, 'right:65%'),
       \                 <bang>0)
+
+command! Neighbours call s:fzf_neighbours() "{{{1
+function! s:fzf_neighbours()
+  let current_file = expand("%")
+  let cwd = fnamemodify(current_file, ':p:h')
+  let command = 'ag -g "" -f ' . cwd . ' --depth 0'
+
+  call fzf#vim#files('', fzf#vim#with_preview({
+        \ 'source': command,
+        \ 'sink':   'e',
+        \ 'options': '--multi --extended --no-sort',
+        \ })
+        \ )
+endfunction
+nnoremap <silent> <space>zn :<c-u>Neighbours<cr>
 
 " Command: Maps {{{1
 " TODO: set options reverse
@@ -57,8 +83,8 @@ command! AgHelp  :cd /usr/share/nvim/runtime/doc <bar> Ag
 command! RgHelp  :cd /usr/share/nvim/runtime/doc <bar> Rg
 
 " Keymaps {{{1
-imap <c-x><c-f> <c-o>:cd ~<cr><plug>(fzf-complete-file-ag)
-imap <c-x>f     <c-o>:cd ~<cr><plug>(fzf-complete-file-ag)
+"imap <c-x><c-f> <c-o>:cd ~<cr><plug>(fzf-complete-file-ag)
+"imap <c-x>f     <c-o>:cd ~<cr><plug>(fzf-complete-file-ag)
 
 nnoremap <silent> <space>zb :<c-u> Buffers<cr>
 nnoremap <silent> <space>zG :<c-u> Gfiles<cr>
