@@ -179,6 +179,7 @@ settings:
         <Ctrl+w><Ctrl+o>: window-only
         <Ctrl+w><Ctrl+p>: tab-pin
         <Ctrl+w><Ctrl+t>: tab-give
+        <Ctrl+w><Ctrl+v>: tab-clone
         <Ctrl+w>Q: close
         <Ctrl+w>T: tab-give
         <Ctrl+w>Z: close
@@ -186,6 +187,8 @@ settings:
         <Ctrl+w>h: tab-move -
         <Ctrl+w>l: tab-move +
         <Ctrl+w>o: tab-only
+        <Ctrl+w>s: tab-clone
+        <Ctrl+w>v: tab-clone
         <Ctrl+x>: null
         <Ctrl+y>: scroll-px 0 -50
         <Space>1: tab-close
