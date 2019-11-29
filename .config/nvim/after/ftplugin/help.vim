@@ -7,6 +7,8 @@ if &readonly && !&modifiable
   nnoremap <buffer> u <c-u>
 endif
 
+finish
+
 " Ref: /usr/share/nvim/runtime/ftplugin/help.vim @25
 function! s:help_toc(mods) abort "{{{
   " TODO: toggle! see :TagbarToggle
@@ -104,9 +106,17 @@ function! s:help_toc(mods) abort "{{{
   setl winfixwidth nonumber nowrap
   setl foldmethod=indent fdl=0
   let w:qf_toc = bufname
+
 endfunction "}}}
+
+function! s:help_toc_mappings() abort "{{{1
+  nnoremap <silent><buffer> p     <cr><c-w>p
+  nnoremap <silent><buffer> <cr>  <cr>:lclose<cr>
+  nnoremap <silent><buffer> gO    :<c-u>vert bot HelpTOC<cr>
+  nnoremap <silent><buffer> <a-i> :<c-u>vert bot HelpTOC<cr>
+endfunction
+
+call s:help_toc_mappings()
 
 command! -bar HelpTOC :call s:help_toc(<q-mods>)
 
-nnoremap <silent><buffer> gO    :<c-u>vert bot HelpTOC<cr>
-nnoremap <silent><buffer> <a-i> :<c-u>vert bot HelpTOC<cr>
