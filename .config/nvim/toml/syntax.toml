@@ -33,6 +33,15 @@ hook_source = 'runtime source/polyglot.vim'
 #repo = 'Alloyed/lua-lsp' #{{{
 #on_ft = 'lua'
 #}}}
+[[plugins]]
+repo = 'billyvg/tigris.nvim' #{{{
+build = './install.sh'
+#depend = 'node-host'
+# Note: node-host, previously depended on, has been merged into neovim!
+#       Ref: neovim/neovim/pull/7458
+on_ft = ['javascript', 'javascript.jsx']
+hook_source = 'runtime source/tigris.vim'
+#}}}
 
 # for Shell or Term-Emulater;
 #[[plugins]]
