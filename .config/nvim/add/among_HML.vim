@@ -7,11 +7,39 @@
 
 " among_HML#fork {{{1
 noremap <silent> H <Cmd>call among_HML#fork#init('H', '0', {
-      \ 'K': '12.5',
-      \ 'M': '25',
-      \ 'J': '37.5',
+      \ 'J': '12.5',
       \ })<bar>
       \ call feedkeys('H')<cr>
+
+noremap <silent> K <Cmd>call among_HML#fork#init('K', 25, {
+      \ 'K': '12.5',
+      \ 'J': '37.5',
+      \ })<bar>
+      \ call feedkeys('K')<cr>
+
+noremap <silent> M <Cmd>call among_HML#fork#init('M', 50, {
+      \ 'K': '37.5',
+      \ 'J': '62.5',
+      \ })<bar>
+      \ call feedkeys('M')<cr>
+
+noremap <silent> J <Cmd>call among_HML#fork#init('J', 75, {
+      \ 'K': '62.5',
+      \ 'J': '87.5',
+      \ })<bar>
+      \ call feedkeys('J')<cr>
+
+noremap <silent> L <Cmd>call among_HML#fork#init('L', '100', {
+      \ 'K': '87.5',
+      \ })<bar>
+      \ call feedkeys('L')<cr>
+
+"noremap <silent> H <Cmd>call among_HML#fork#init('H', '0', {
+"      \ 'K': '12.5',
+"      \ 'M': '25',
+"      \ 'J': '37.5',
+"      \ })<bar>
+"      \ call feedkeys('H')<cr>
 
 "noremap <silent> H <Cmd>call among_HML#fork#init('H', '25', {
 "      \ 'H': '0',
@@ -21,27 +49,6 @@ noremap <silent> H <Cmd>call among_HML#fork#init('H', '0', {
 "      \ })<bar>
 "      \ call feedkeys('H')<cr>
 
-noremap <silent> K <Cmd>call among_HML#fork#init('K', 25, {
-      \ 'K': '12.5',
-      \ 'J': '37.5',
-      \ })
-      \ <bar>
-      \ call feedkeys('K')<cr>
-
-noremap <silent> M <Cmd>call among_HML#fork#init('M', 50, {
-      \ 'K': '25',
-      \ 'J': '75',
-      \ })
-      \ <bar>
-      \ call feedkeys('M')<cr>
-
-noremap <silent> J <Cmd>call among_HML#fork#init('J', 75, {
-      \ 'K': '62.5',
-      \ 'J': '87.5',
-      \ })
-      \ <bar>
-      \ call feedkeys('J')<cr>
-
 "noremap <silent> L <Cmd>call among_HML#fork#init('L', '75', {
 "      \ 'K': '62.5',
 "      \ 'J': '87.5',
@@ -50,12 +57,12 @@ noremap <silent> J <Cmd>call among_HML#fork#init('J', 75, {
 "      \ })<bar>
 "      \ call feedkeys('L')<cr>
 
-noremap <silent> L <Cmd>call among_HML#fork#init('L', '100', {
-      \ 'K': '62.5',
-      \ 'J': '87.5',
-      \ 'M': '75',
-      \ })<bar>
-      \ call feedkeys('L')<cr>
+"noremap <silent> L <Cmd>call among_HML#fork#init('L', '100', {
+"      \ 'K': '62.5',
+"      \ 'J': '87.5',
+"      \ 'M': '75',
+"      \ })<bar>
+"      \ call feedkeys('L')<cr>
 
 "" among_HML#get_half {{{1
 "nnoremap <silent> H  :<c-u>call among_HML#get_half#to(0)<cr>
