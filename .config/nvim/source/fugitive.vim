@@ -6,6 +6,7 @@ augroup FugitiveCallMyFunc
   au!
   function! s:restore_view() abort "{{{1
     call win_gotoid(t:my_fugitive_save_winid)
+    " back to a buffer of status if there
     call win_gotoid(bufwinid('.git/index'))
   endfunction
 
@@ -32,34 +33,63 @@ augroup FugitiveCallMyFunc
   au FileType gitcommit call s:gitcommit_startinsert() "{{{1
   function! s:gitcommit_startinsert()
     if getline(1, search('# Please enter the commit message') - 1) ==# []
-        startinsert
+      startinsert
     endif
   endfunction
   au FileType gitcommit call s:gitcommit_keymap() "{{{1
-  nnoremap <silent> <Plug>(gitcommit-discard) :<c-u>call <SID>gitcommit_discard()<cr>
-  nnoremap <silent> <Plug>(gitcommit-dismiss) :<c-u>call <SID>gitcommit_dismiss()<cr>
   function! s:gitcommit_keymap() abort
     nmap <buffer> ZQ         <Plug>(gitcommit-discard)
     nmap <buffer> Zq         <Plug>(gitcommit-discard)
     nmap <buffer> <c-w>c     <Plug>(gitcommit-discard)
     nmap <buffer> <c-w><c-c> <Plug>(gitcommit-discard)
     nmap <buffer><nowait> dq <Plug>(gitcommit-dismiss)
-    "omap <expr><buffer><nowait> q (v:operator ==# 'd')? '<Plug>(gitcommit-dismiss)': 'q'
-    " TODO: in case <c-w>o out of the buffer
+
+    nmap <c-w>o     <Plug>(winonly-careful)
+    nmap <c-w><c-o> <Plug>(winonly-careful)
+
+    " TODO: make <SID>sendkey() work!
+    " CAUTION: <c-u> is very useful
+    "inoremap <buffer><nowait> <c-f> <esc>:call <SID>sendkey("\<c-f>")<cr>a
+    "inoremap <buffer><nowait> <c-b> <esc>:call <SID>sendkey("\<c-b>")<cr>a
+    "inoremap <buffer><nowait> <c-q> <esc>:call <SID>sendkey(getchar())<cr>a
   endfunction
 
-  function! s:gitcommit_shred() abort "{{{2
-    silent %delete _
-    write
+  nnoremap <silent> <Plug>(winonly-careful) :<c-u>call <SID>winonly_careful()<cr>
+  function! s:winonly_careful() abort
+    call s:gitcommit_shred()
+    only
+    diffoff!
   endfunction
 
-  function! s:gitcommit_discard() abort "{{{2
+  function! s:sendkey(key) abort "{{{2
+    call win_gotoid(t:my_fugitive_save_winid)
+    exe 'norm!' a:key
+    wincmd p
+  endfunction
+
+  " gitcommit mappings & functions {{{2
+  function! s:gitcommit_shred() abort
+    let winID      = bufwinid('%')
+    let commit_win = bufwinid('COMMIT_EDITMSG')
+    if commit_win > 0
+      call win_gotoid(commit_win)
+      silent %delete _
+      write
+    endif
+    call win_gotoid(winID)
+  endfunction
+
+  " nmap discard {{{3
+  nnoremap <silent> <Plug>(gitcommit-discard) :<c-u>call <SID>gitcommit_discard()<cr>
+  function! s:gitcommit_discard() abort
     call s:gitcommit_shred()
     quit
     call s:restore_view()
   endfunction
 
-  function! s:gitcommit_dismiss() abort "{{{2
+  " nmap dismiss {{{3
+  nnoremap <silent> <Plug>(gitcommit-dismiss) :<c-u>call <SID>gitcommit_dismiss()<cr>
+  function! s:gitcommit_dismiss() abort
     call s:gitcommit_shred()
     WinReduce
     call s:restore_view()
