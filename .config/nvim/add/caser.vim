@@ -4,33 +4,34 @@
 "let g:caser_prefix = 'qc'
 let g:caser_no_mappings = 1
 
-nmap qcm <Plug>CaserMixedCase
-xmap qcm <Plug>CaserVMixedCase
+" Mnemonic: Replace the object
+nmap \rm <Plug>CaserMixedCase
+xmap \rm <Plug>CaserVMixedCase
 
-nmap qcc <Plug>CaserCamelCase
-xmap qcc <Plug>CaserVCamelCase
+nmap \rc <Plug>CaserCamelCase
+xmap \rc <Plug>CaserVCamelCase
 
-nmap qct <Plug>CaserTitleCase
-xmap qct <Plug>CaserVTitleCase
+nmap \rt <Plug>CaserTitleCase
+xmap \rt <Plug>CaserVTitleCase
 
-nmap qcu <Plug>CaserUpperCase
-xmap qcu <Plug>CaserVUpperCase
-nmap qcU <Plug>CaserUpperCase
-xmap qcU <Plug>CaserVUpperCase
+nmap \ru <Plug>CaserUpperCase
+xmap \ru <Plug>CaserVUpperCase
+nmap \rU <Plug>CaserUpperCase
+xmap \rU <Plug>CaserVUpperCase
 
-nmap qc_ <Plug>CaserSnakeCase
-xmap qc_ <Plug>CaserVSnakeCase
+nmap \r_ <Plug>CaserSnakeCase
+xmap \r_ <Plug>CaserVSnakeCase
 
-nmap qc( <Plug>CaserSentenceCase
-nmap qc) <Plug>CaserSentenceCase
-xmap qc( <Plug>CaserVSentenceCase
-xmap qc) <Plug>CaserVSentenceCase
+nmap \r( <Plug>CaserSentenceCase
+nmap \r) <Plug>CaserSentenceCase
+xmap \r( <Plug>CaserVSentenceCase
+xmap \r) <Plug>CaserVSentenceCase
 
-nmap qc<space> <Plug>CaserSpaceCase
-xmap qc<space> <Plug>CaserVSpaceCase
+nmap \r<space> <Plug>CaserSpaceCase
+xmap \r<space> <Plug>CaserVSpaceCase
 
-nmap qc- <Plug>CaserKebabCase
-xmap qc- <Plug>CaserVKebabCase
+nmap \r- <Plug>CaserKebabCase
+xmap \r- <Plug>CaserVKebabCase
 
-nmap qc. <Plug>CaserDotCase
-xmap qc. <Plug>CaserVDotCase
+nmap \r. <Plug>CaserDotCase
+xmap \r. <Plug>CaserVDotCase
