@@ -66,31 +66,38 @@ options head
 
 snippet loaded
 alias load loa
-  if exists('g:loaded_${1:`substitute(substitute(matchstr(expand('%:p'), 'autoload/\|plugin\/*\.vim'), 'autoload\|plugin/\(.*\).vim', '\1', ''), '/', '_', 'g')`}') | finish | endif
+  if exists('g:loaded_${1:`substitute(substitute(matchstr(expand('%:p'), 'autoload/\|plugin\/*\.vim'), 'autoload\|plugin/\(.*\).vim', '\1', ''), '/', '_', 'g')`}') | finish | endif "{{{1
   let g:loaded_$1 = 1
 
+  " save 'cpoptions'
+  let s:save_cpo = &cpo
+  set cpo&vim
+  "}}}1
+
 snippet cpoptions
-alias cpo pop
+alias cpo pop save
 options head
   " save 'cpoptions' {{{
   let s:save_cpo = &cpo
   set cpo&vim
-  "}}}
+  "}}}1
   ${0}
 
 snippet end of plugin
-alias restore res end
+alias restore res end tail
   ${0}
   " restore 'cpoptions' {{{1
   let &cpo = s:save_cpo
 
   " modeline {{{1
-  " vim: et ts=2 sts=2 sw=2 fdm=marker
+  " vim: expandtab tabstop=2 softtabstop=2 shiftwidth=2
+  " vim: foldmethod=marker
 
 snippet mode
 alias mod vim
   " modeline {{{1
-  " vim: et ts=2 sts=2 sw=2 fdm=marker
+  " vim: expandtab tabstop=2 softtabstop=2 shiftwidth=2
+  " vim: foldmethod=marker
 
 snippet init
 alias ini
