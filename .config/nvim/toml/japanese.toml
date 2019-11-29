@@ -1,9 +1,10 @@
-# From: add/dein.vim
+# From: rc/dein.vim
 
 # Document
 [[plugins]]
-repo = 'vim-jp/vimdoc-ja-working'
+repo = 'vim-jp/vimdoc-ja-working' #{{{
 on_cmd = ['Helptags', 'help', 'helpgrep']
+#}}}
 
 # Imput Method
 [[plugins]]
@@ -22,14 +23,13 @@ repo = 'tyru/skkdict.vim' #{{{
 # Syntax Files for skkdict.
 on_ft = 'skkdict'
 #}}}
-#}}}
 
 [[plugins]]
 repo = 'deton/jasegment.vim'
 # no mappings for 'w', 'e', and so on.
 # remaps `W`,`E`, and so on.
 on_ft = 'markdown'
-#hook_post_source = 'runtime add/jasegment.vim'
+hook_source = 'runtime source/jasegment.vim'
 
 [[plugins]]
 repo = 'deton/jasentence.vim'
