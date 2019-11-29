@@ -104,8 +104,8 @@ function! s:additional() abort "{{{2
     unlet s:scrollable
     norm! ]c
   else
-    " back to a buffer of status
-    Gstatus
+    " back to a buffer of status if there
+    call win_gotoid(bufwinid('.git/index'))
   endif
 endfunction
 
