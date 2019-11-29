@@ -52,17 +52,6 @@ let g:nvim_home = empty($VIMCONFIG) ? expand(g:dotfiles_home .'/.config/nvim/') 
 let g:nvim_data_home = g:nvim_home . 'data/'
 let g:dev_root = '~/dev/'
 
-if !exists('g:keymapsDL#cmd_after#cd_path_dict')
-  let g:keymapsDL#cmd_after#cd_path_dict = {}
-endif
-call extend(g:keymapsDL#cmd_after#cd_path_dict, {
-      \ 'v': g:nvim_home,
-      \ 'l': g:data_home,
-      \ 'f': g:config_home,
-      \ 'd': g:dotfiles_home,
-      \ }
-      \ )
-
 "}}}
 " $var; for Vim {{{
 if isdirectory('~/kaile256')
