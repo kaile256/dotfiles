@@ -24,7 +24,7 @@ hook_add = 'runtime add/sensible_K.vim'
 repo = 'kaile256/vim-keymaps-dealer' #{{{
 # Note: must load the plugin before mapped, cannot lazy-load.
 on_event = 'VimEnter'
-hook_add = 'runtime add/keymaps-dealer.vim'
+hook_source = 'runtime source/keymaps-dealer.vim'
 # Note: autoload-functions in vimrc must be called after loading the autoload/.
 hook_post_source = 'runtime post/keymaps-dealer.vim'
 #}}}
@@ -60,4 +60,10 @@ hook_add = 'runtime add/spell-temporary.vim'
 repo = 'kaile256/vim-findpath' #{{{
 on_cmd = 'FindPath'
 hook_add = 'runtime add/findpath.vim'
+#}}}
+
+[[plugins]]
+repo = 'kaile256/vim-help-toc' #{{{
+on_ft = ['help', 'man']
+hook_source = 'runtime source/help-toc.vim'
 #}}}
