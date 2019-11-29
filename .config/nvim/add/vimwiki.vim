@@ -3,7 +3,6 @@
 " Path: vimwiki/vimwiki_dev
 " Another: source/vimwiki.vim
 
-let g:vimwiki_table_auto_fmt = 0
 let g:vimwiki_home = '~/vimwiki'
 " Note: task.wiki is not a directory, but a file; cannot :cd.
 
