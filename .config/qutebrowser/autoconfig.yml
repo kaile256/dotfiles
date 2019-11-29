@@ -411,4 +411,4 @@ settings:
       wl: https://ejje.weblio.jp/content/{}?erl=true
       yu: https://www.youtube.com/watch?v={}
   url.start_pages:
-    global: qute://history/
+    global: https://ja.wikipedia.org/wiki/
