@@ -43,7 +43,7 @@ exe 'e' g:dein_github_dir .'/sodapopcan/vim-twiggy/plugin/twiggy.vim'
 g/command/norm! e -range -addr=lines
 write
 exe 'e' g:dein_github_dir .'/sodapopcan/vim-twiggy/autoload/twiggy.vim'
-g/'dd/copy. | s/dd/D
+g/'dd/copy. | s/'dd/'D
 write
 '''
 ###}}}
