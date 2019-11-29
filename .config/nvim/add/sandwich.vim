@@ -34,9 +34,8 @@ let g:textobj_sandwich_no_default_key_mappings = 1
 "      \    'match_syntax': 1, 'kind': ['delete', 'replace', 'textobj'],
 "      \    'action': ['delete'], 'input': ['(']},
 "      \ ]
-""}}}
 
-" Keymap; Manual Select
+" Keymap; into Operators "{{{1
 " Mnemonic: Yield a pair of bans
 nmap \y zv<Plug>(operator-sandwich-add)
 " Mnemonic: Dispose the bans
@@ -48,7 +47,8 @@ xmap \y <Plug>(operator-sandwich-add)
 xmap \d <Plug>(operator-sandwich-delete)
 xmap \c <Plug>(operator-sandwich-replace)
 
-"" Keymap; Text Object {{{
+" Keymap; Text-Objects {{{1
+
 " default follows 'timeoutlen' (=1000ms).
 "let g:operator#sandwich#timeoutlen =
 "let g:sandwich#recipes = [
@@ -61,8 +61,17 @@ xmap \c <Plug>(operator-sandwich-replace)
 " accords to 'g:sandwich#recipes' and 'g:textobj#sandwich#recipes'.
 "   if g:textobj#sandwich#recipes is set, g:textobj#sandwich#default_recipes
 " will be ignored.
-"onoremap <silent><expr> is textobj#sandwich#query('o', 'i')
-"xnoremap <silent><expr> is textobj#sandwich#query('x', 'i')
-"onoremap <silent><expr> as textobj#sandwich#query('o', 'a')
-"xnoremap <silent><expr> as textobj#sandwich#query('x', 'a')
-"}}}
+
+" a text surrounded by a pair of braket or of the same characters as user input
+" i.e., the text-obj followed by '(' is regarded to be surrounded by '(' and ')'
+omap <space>i <Plug>(textobj-sandwich-query-i)
+xmap <space>i <Plug>(textobj-sandwich-query-i)
+omap <space>a <Plug>(textobj-sandwich-query-a)
+xmap <space>a <Plug>(textobj-sandwich-query-a)
+
+"" a text surrounded by a pair of literally the same characters as user input
+"" i.e., the text-obj followed by '(' is regarded to be surrounded by '(' and '('
+"omap <space>i <Plug>(textobj-sandwich-literal-query-i)
+"xmap <space>i <Plug>(textobj-sandwich-literal-query-i)
+"omap <space>a <Plug>(textobj-sandwich-literal-query-a)
+"xmap <space>a <Plug>(textobj-sandwich-literal-query-a)
