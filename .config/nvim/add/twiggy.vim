@@ -1,10 +1,14 @@
-" From: git.toml
+" From: fugitive.toml
 " Repo: sodapopcan/vim-twiggy
 " Ref: add/merginal.vim
 
 " CAUTION: useless if &shell=fish
 
-let g:twiggy_split_method = 'botright'
+"let g:twiggy_enable_remote_delete = 1
+"let g:twiggy_git_log_command = ''
+
+let g:twiggy_split_method = 'vert bot'
+let g:twiggy_num_columns = 35
 "let g:twiggy_group_locals_by_slash = 0
 
 " Values can be 'aplha', 'mru', 'date' or 'track'
@@ -13,7 +17,6 @@ let g:twiggy_local_branch_sort = 'mru'
 "let g:twiggy_local_branch_sorts = ['mru', 'date']
 " Values can be either 'alpha'or 'date'.
 let g:twiggy_remote_branch_sort = 'date'
-
 command! -complete=custom,TwiggyCompleteBranches -range -addr=lines -nargs=* Gbranch
       \ :Twiggy
 
