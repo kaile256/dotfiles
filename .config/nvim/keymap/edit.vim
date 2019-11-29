@@ -5,11 +5,12 @@ noremap! <c-x><c-h> ~/
 tnoremap <c-x>h     ~/
 tnoremap <c-x><c-h> ~/
 
-" Keymap; Write&Quit {{{1
+" Macro "{{{1
+nnoremap \<space> q
+nnoremap <space>\ q
+" Write&Quit {{{1
 nnoremap q <Nop>
 nnoremap Q <Nop>
-" Write&Quit; Evacuation for Macro
-nnoremap q<space> q
 " Write&Quit; wq
 "nnoremap <silent> <space>w :<c-u>w  <cr>
 "nnoremap <silent> <space>W :<c-u>w! <cr>
