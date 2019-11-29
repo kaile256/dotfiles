@@ -49,16 +49,17 @@ function! s:winsave() abort "{{{2
 endfunction
 
 command! -bang -bar -range=-1 -addr=tabs Gvstatus
-      \ :call s:gvstatus(<q-args>)
+      \ :call s:Gvstatus(<q-args>)
 
 " Functions: Fugitive {{{1
-function! s:vdiffw(...) abort "{{{2
+function! s:Gvdiffw(...) abort "{{{2
   " Keep to show diff w/ HEAD while editting commit-message.
   let obj = a:0 > 0 ? a:1 : ''
 
   exe 'Gvdiffsplit!' obj
   let s:with_diff     = 1
   let s:single_staged = 1
+  call s:Gdiff_keymaps()
 
   "" Note: 'wrap' causes gaps when text lengths are different each other
   "setl wrap
@@ -74,10 +75,15 @@ function! s:vdiffw(...) abort "{{{2
   norm! gg
 
   let s:gstatus_flag = 1
-  call s:gvstatus()
+  call s:Gvstatus()
 endfunction
 
-function! s:gvstatus(...) abort "{{{2
+function! s:Gdiff_keymaps() abort "{{{2
+  " as U is for coc-gitchunk-undo
+  nnoremap U do
+endfunction
+
+function! s:Gvstatus(...) abort "{{{2
   let args = a:0 > 0 ? join(a:000) : ''
   exe 'vert bot 35 Gstatus' args
   setl winfixwidth
@@ -127,7 +133,7 @@ command! -bar -nargs=?
       \ GwWinpickVDiffStaging
       \ :Gw
       \ | call s:winpick()
-      \ | call s:vdiffw(<q-args>)
+      \ | call s:Gvdiffw(<q-args>)
 "}}}
 nnoremap <silent> <space>go :<c-u>Gw <bar> only<cr>
 nnoremap <silent> <space>gO :<c-u>GwOnlyVDiffStaging HEAD<cr>
@@ -141,7 +147,7 @@ command! -bar -nargs=?
       \ GwOnlyVDiffStaging
       \ :Gw
       \ | only
-      \ | call s:vdiffw (<q-args>)
+      \ | call s:Gvdiffw (<q-args>)
 "}}}
 " in new tab, if any unnecessary windows are there.
 " TODO: set unstage; should trace <SNR> via :scriptnames.
