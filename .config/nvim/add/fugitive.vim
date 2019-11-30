@@ -42,6 +42,9 @@ function! s:Gvstatus(...) abort "{{{1
   exe 'vert bot 35 Gstatus' args
   setl winfixwidth
   wincmd =
+  " go to Staged section
+  norm gs
+  norm! zz
 endfunction
 
 " Functions: Pretreatment for Windows in Tab {{{1
