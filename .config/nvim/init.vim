@@ -20,29 +20,13 @@ runtime rc/startpage.vim
 
 augroup RuntimesSelection
   au!
+  au WinNew       * ++once runtime once/zenkaku.vim
   au VimEnter     * ++once runtime once/omaps.vim
   au InsertEnter  * ++once runtime once/imaps.vim
-  au CmdLineEnter * ++once runtime once/cmaps.vim
-  au CmdLineEnter * ++once runtime once/cabbrs.vim
-  au CmdLineEnter * ++once runtime once/commands.vim
-  au WinNew       * ++once runtime once/zenkaku.vim
+  au CmdLineEnter,CmdWinEnter * ++once runtime once/cmaps.vim
+  au CmdLineEnter,CmdWinEnter * ++once runtime once/cabbrs.vim
+  au CmdLineEnter,CmdWinEnter * ++once runtime once/commands.vim
   au CmdwinEnter  * runtime lazy/cmdwin.vim
   au VimEnter,BufNew * if &bt ==# 'terminal' | runtime lazy/terminal.vim | endif
   au OptionSet * if &diff | runtime lazy/diff.vim | endif
-augroup END
-
-function! s:ready_for_new_buffer() "{{{
-  if getline(1) ==# ''
-    if line('$') ==# 1
-      startinsert
-    endif
-  endif
-endfunction "}}}
-augroup ForceConf
-  au!
-  " &fo-=ro: disturb auto comment out on CR/NL.
-  au CursorMovedI * if &l:fo =~# 'ro' | set formatoptions-=ro | endif
-  au CursorMovedI * if &l:tw =~# ''   | set textwidth=0       | endif
-  "au FileType   * call <SID>ready_for_new_buffer()
-  "au FileType   * if line('$') ==# 1 || getline(1) ==# '' | startinsert | endif
 augroup END
