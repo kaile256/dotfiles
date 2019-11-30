@@ -1,10 +1,11 @@
 " From: init.vim
 
 " Alt-ESC {{{1
-inoremap <silent> <a-\>     <esc>:call feedkeys('\')<cr>
 inoremap <silent> <a-space> <esc>:call feedkeys("\<space>")<cr>
+inoremap <silent> <a-\> <esc>:call feedkeys('\')<cr>
 inoremap <silent> <a-q> <esc>:call feedkeys('q')<cr>
-inoremap <a-U> <esc>:call feedkeys('U')<cr>
+inoremap <silent> <a-U> <esc>:call feedkeys('U')<cr>
+inoremap <silent> <a-.> <esc>:call feedkeys('.')<cr>
 
 " i/a/o "{{{2
 " <a-ai> could be just <left>/<right>, but I prefer <esc> before.
