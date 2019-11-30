@@ -1,8 +1,8 @@
 " From: appearance.toml
 
 " let g:colorswatch_exclusion_pattern = 'LightLine.\+'
-command! ColoGui     :ColorSwatchGenerate all   css <bar> setl signcolumn= bt=quickfix
-command! ColoCterm   :ColorSwatchGenerate all   csv <bar> setl signcolumn= bt=quickfix
+command! ColoGui   :ColorSwatchGenerate all css <bar> setl signcolumn= bt=quickfix
+command! ColoCterm :ColorSwatchGenerate all csv <bar> setl signcolumn= bt=quickfix
 "command! ColoPalette :ColorSwatchGenerate cterm csv <bar> setl ft=qf       bt=quickfix
 
 cnoreabbr <silent><expr> cologui (getcmdtype() == ':' && getcmdline() =~ '^cologui$')? 'ColorSwatchGenerate all css <bar> setl signcolumn= bt=quickfix <cr>' : 'cologui'
