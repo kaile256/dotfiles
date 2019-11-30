@@ -49,26 +49,44 @@ endfunction
 
 " Functions: Pretreatment for Windows in Tab {{{1
 let s:std = {}
-let s:std.buftypes = ['terminal', '']
+let s:std.buftypes = ['terminal', '', 'help']
 let s:weed = {}
 let s:weed.bufnames = ['.git\/']
 
-function! s:is_nobuffers(bufnr) abort "{{{2
+function! s:is_nobuffers(bufnr, ...) abort "{{{2
   let buftype = getbufvar(a:bufnr, '&buftype')
   let bufname = bufname(a:bufnr)
   return index(s:std.buftypes, buftype) < 0
         \ || bufname =~# join(s:weed.bufnames, '\|')
 endfunction
 
+"function! s:is_nobuffers(bufnr, ...) abort "{{{2
+"  let buftype = getbufvar(a:bufnr, '&buftype')
+"  let bufname = bufname(a:bufnr)
+"
+"  for kind in ['std', 'weed']
+"    for l:key in keys(s:std)
+"      exe 'let' kind[l:key] '=' a:0 '>' 0 '?' a:1 ':' s:[kind][l:key]
+"    endfor
+"  endfor
+"
+"  let is_weed =
+"        \ index(weed.buftypes, buftype) < 0
+"        \ && index(std.buftypes, buftype) > 0
+"        \ && bufname =~# join(weed.bufnames, '\|')
+"        \ && bufname !~# join(std.bufnames, '\|')
+"  return is_weed
+"endfunction
+
 function! s:winreduce(...) abort "{{{2
   let winID = bufwinid('%')
 
-  if a:0 > 0
-    let bufdict = [s:std, s:weed]
+  if exists('a:1')
+    let bufdict = a:1
   endif
 
   for bufnr in tabpagebuflist()
-    if s:is_nobuffers(bufnr)
+    if s:is_nobuffers(bufnr, a:0 > 0 ? a:1 : [])
       let winnr = bufwinnr(bufnr)
       exe winnr 'windo quit'
     endif
@@ -140,13 +158,16 @@ nnoremap <silent> <space>gw :<c-u>GwWinpickVDiffStaging HEAD<cr>
 command! -bar -bang -nargs=* -complete=customlist,fugitive#EditComplete
       \ GwWinpickVDiff
       \ :Gw
+      \ | HelpCloseAll
       \ | call s:winpick()
       \ | Gvdiffsplit! <args>
 command! -bar -nargs=?
       \ GwWinpickVDiffStaging
       \ :Gw
+      \ | HelpCloseAll
       \ | call s:winpick()
       \ | call s:Gvdiffw(<q-args>)
+
 "}}}
 nnoremap <silent> <space>go :<c-u>Gw <bar> only<cr>
 nnoremap <silent> <space>gO :<c-u>GwOnlyVDiffStaging HEAD<cr>

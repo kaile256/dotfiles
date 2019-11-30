@@ -398,3 +398,5 @@ https://github.com/junegunn/fzf junegunn/fzf: A command-line fuzzy finder
 https://greasyfork.org/en/scripts/735-anti-adblock-killer-reek Anti-Adblock Killer | Reek
 https://github.com/billyvg/tigris.nvim billyvg/tigris.nvim: A semantic javascript syntax highlighter (uses babylon) for Neovim
 https://ja.wikipedia.org/wiki/%E3%83%A1%E3%82%A4%E3%83%B3%E3%83%9A%E3%83%BC%E3%82%B8 Wikipedia
+https://github.com/DanielFGray/fzf-scripts DanielFGray/fzf-scripts: a collection of scripts that rely on https://github.com/junegunn/fzf
+https://github.com/svermeulen/vim-easyclip svermeulen/vim-easyclip: Simplified clipboard functionality for Vim
