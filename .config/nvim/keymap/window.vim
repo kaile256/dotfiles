@@ -6,6 +6,27 @@
 "  au! CmdlineLeave * if exists('g:cmd_last_cursor') | call matchdelete(g:cmd_last_cursor) | endif
 "augroup END
 
+" open CmdWin
+noremap <space>: q:
+
+" No Highlight "{{{1
+" Ref: compare :redraw with <c-l> or :mode
+inoremap <silent> <c-l>              <Cmd>noh  <bar> redraw!<cr>
+nnoremap <silent> <c-space><space>   :<c-u>noh <bar> redraw!<cr>
+nnoremap <silent> <c-space><c-space> :<c-u>noh <bar> redraw!<cr>
+
+" New window "{{{1
+nnoremap <silent> <c-w><space>n :<c-u>vnew<cr>
+
+nnoremap <Plug>(wincopy-in-tab) <c-w>v<c-w>T
+nmap <c-w>gt <Plug>(wincopy-in-tab)
+nmap <c-w>gT <Plug>(wincopy-in-tab)
+
+" Close window {{{1
+nnoremap <silent> <c-w><c-o> <c-w>o:diffoff!<cr>
+nnoremap <silent> <c-w>o     <c-w>o:diffoff!<cr>
+nnoremap <silent> <c-w>O     :<c-u>tabonly<cr>
+
 if mapcheck('<c-w>q', 'n') ==# ''
       \ || mapcheck('<c-w><c-q>', 'n') ==# ''
   nnoremap <c-w>q <Nop>
@@ -16,12 +37,50 @@ nnoremap <c-w>Z ZZ
 nnoremap <c-w>Q ZQ
 nnoremap Zz ZZ
 nnoremap Zq ZQ
+" Note: look after that ZQ, as :q!, locates higher than ZZ, as :wq
+" Mnemonic: Close all
+nnoremap <silent> ZC     :w <bar> windo q!<cr>
+nnoremap <silent> Zc     :w <bar> windo q!<cr>
+nnoremap <silent> <c-w>C :w <bar> windo q!<cr>
+function! s:writeable() abort "{{{2
+  if &modifiable && !&ro
+    write
+  endif
+endfunction
+"}}}
+
+" Mnemonic: Eliminate current tabpage
+nnoremap <silent> ZE :windo q!<cr>
+nnoremap <silent> Ze :windo q!<cr>
+
+" Mnemonic: <c-w>c is for :close as default
+nnoremap <silent> <c-w>e :<c-u>windo q!<cr>
+nnoremap <silent> <c-w>E :<c-u>windo q!<cr>
+
 " Mnemonic: $ yes
 nnoremap <silent> Zy :<c-u>qa  <cr>
 nnoremap <silent> ZY :<c-u>qa! <cr>
 
-nnoremap <silent> <c-w><space>n :<c-u>vnew<cr>
+" Swap window {{{1
+nnoremap <c-w>h <c-w>H
+nnoremap <c-w>j <c-w>J
+nnoremap <c-w>k <c-w>K
+nnoremap <c-w>l <c-w>L
 
+" Resize window {{{1
+nnoremap <c-left> <c-w><
+nnoremap <c-right> <c-w>>
+nnoremap <c-down> <c-w>-
+nnoremap <c-up> <c-w>+
+" Resize; Neutralize
+nnoremap <c-w>0 <c-w>=
+
+function! s:wincmd_resize(wcmd) abort
+  exe 'wincmd' wcmd
+  if wcmd =~# 'v'
+    vertical resize v:
+  endif
+endfunction
 "command! -range -bar WincmdS
 "      \ :<range> sp
 "      \ | let s:fixed = &winfixheight | setl winfixheight
@@ -37,30 +96,3 @@ nnoremap <silent> <c-w><space>n :<c-u>vnew<cr>
 "nnoremap <silent> <c-w>s :WincmdS<cr>
 "nnoremap <silent> <c-w>v :WincmdV<cr>
 
-nnoremap <c-w>h <c-w>H
-nnoremap <c-w>j <c-w>J
-nnoremap <c-w>k <c-w>K
-nnoremap <c-w>l <c-w>L
-
-nnoremap <silent> <c-w>C :<c-u>tabclose<cr>
-nnoremap <silent> <c-w>O :<c-u>tabonly<cr>
-nnoremap <c-w>gt <c-w>v<c-w>T
-nnoremap <c-w>gT <c-w>v<c-w>T
-
-" Redraw; No Highlight
-" Ref: see <c-l> or :mode
-inoremap <silent> <c-l>              <Cmd>noh  <bar> redraw!<cr>
-nnoremap <silent> <c-space><space>   :<c-u>noh <bar> redraw!<cr>
-nnoremap <silent> <c-space><c-space> :<c-u>noh <bar> redraw!<cr>
-
-" Resize; Neutralize
-nnoremap <c-w>0 <c-w>=
-
-noremap <silent> <c-w>o     <c-w>o:diffoff!<cr>
-noremap <silent> <c-w><c-o> <c-w>o:diffoff!<cr>
-
-" Resize {{{1
-nnoremap <c-left> <c-w><
-nnoremap <c-right> <c-w>>
-nnoremap <c-down> <c-w>-
-nnoremap <c-up> <c-w>+
