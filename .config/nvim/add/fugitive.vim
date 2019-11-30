@@ -2,16 +2,54 @@
 " Repo: tpope/vim-fugitive
 " Another: source/fugitive.vim
 
-command! -nargs=+ -complete=file Gremote :Git remote <args>
+command! -nargs=+ -bar -complete=file Gremote :Git remote <args>
 
-command! -nargs=+ Gclone :Git clone <args>
+command! -nargs=+ -bar Gclone :Git clone <args>
 
+" unstage all the other not to commit one unitentionally
+" Note: practically, no such command as git-unstage
+command! -nargs=? -bar -complete=customlist,fugitive#CommitComplete
+      \ Gunstage
+      \ :silent exe <args>0
+      \ ? 'Git reset' <args>
+      \ : 'Git reset HEAD'
+
+command! -nargs=? -bar -complete=customlist,fugitive#EditComplete
+      \ GaddSingle
+      \ :Gunstage
+      \ | Gw
+
+command! -bar -bang -nargs=* -complete=customlist,fugitive#EditComplete
+      \ Gvdiffsplit
+      \ :exe fugitive#Diffsplit(0, <bang>0, "vert <mods>", <q-args>, [<f-args>])
+      \ :call s:Gdiff_keymaps()
+
+" Note: -range=-1 is correct; either no -complete
+" Ref: tpope/vim-fugitive/plugin/fugitive.vim @368
+command! -bang -bar -range=-1 -addr=tabs
+      \ Gvstatus
+      \ :call s:Gvstatus(<q-args>)
+
+function! s:Gdiff_keymaps() abort "{{{1
+  if !&diff | return | endif
+  " U works like coc-gitchunk-undo, by :diffget
+  nnoremap U do
+endfunction
+
+function! s:Gvstatus(...) abort "{{{1
+  let args = a:0 > 0 ? join(a:000) : ''
+  " Note: cannot use :Gvstatus itself, of course
+  exe 'vert bot 35 Gstatus' args
+  setl winfixwidth
+  wincmd =
+endfunction
+
+" Functions: Pretreatment for Windows in Tab {{{1
 let s:std = {}
 let s:std.buftypes = ['terminal', '']
 let s:weed = {}
 let s:weed.bufnames = ['.git\/']
 
-" Functions: Pretreatment for Windows in Tab {{{1
 function! s:is_nobuffers(bufnr) abort "{{{2
   let buftype = getbufvar(a:bufnr, '&buftype')
   let bufname = bufname(a:bufnr)
@@ -48,18 +86,13 @@ function! s:winsave() abort "{{{2
   let t:my_fugitive_save_winid = bufwinid('%')
 endfunction
 
-command! -bang -bar -range=-1 -addr=tabs Gvstatus
-      \ :call s:Gvstatus(<q-args>)
-
 " Functions: Fugitive {{{1
 function! s:Gvdiffw(...) abort "{{{2
   " Keep to show diff w/ HEAD while editting commit-message.
   let obj = a:0 > 0 ? a:1 : ''
 
   exe 'Gvdiffsplit!' obj
-  let s:with_diff     = 1
-  let s:single_staged = 1
-  call s:Gdiff_keymaps()
+  GaddSingle
 
   "" Note: 'wrap' causes gaps when text lengths are different each other
   "setl wrap
@@ -67,52 +100,29 @@ function! s:Gvdiffw(...) abort "{{{2
   "setl wrap
   "wincmd p
 
-  norm! L
-  if winline() >= winheight('.')
-    let s:scrollable = 1
-  endif
-  " Note: 'gg' makes user notice if any other changes in the buffer.
-  norm! gg
-
-  let s:gstatus_flag = 1
+  call s:check_scrollable()
   call s:Gvstatus()
-endfunction
-
-function! s:Gdiff_keymaps() abort "{{{2
-  " as U is for coc-gitchunk-undo
-  nnoremap U do
-endfunction
-
-function! s:Gvstatus(...) abort "{{{2
-  let args = a:0 > 0 ? join(a:000) : ''
-  exe 'vert bot 35 Gstatus' args
-  setl winfixwidth
-  wincmd =
-
-  if !exists('s:gstatus_flag') | return | endif
-  unlet s:gstatus_flag
   call s:additional()
 endfunction
 
+function! s:check_scrollable() abort "{{{2
+  norm! G
+  if line('w0') != 1
+    let b:is_scrollable = 1
+  endif
+  " Note: 'gg' makes user notice if any other changes in the buffer.
+  norm! gg
+endfunction
+
 function! s:additional() abort "{{{2
-  if exists('s:single_staged')
-    unlet s:single_staged
-    " unstage all the other not to commit unitentional diff
-    norm U
-    wincmd p
-    :Gw
-  endif
-
-  if !exists('s:with_diff') | return | endif
-  unlet s:with_diff
-
-  if exists('s:scrollable')
-    unlet s:scrollable
+  if !&diff | return | endif
+  if exists('b:is_scrollable')
+    unlet b:is_scrollable
     norm! ]c
-  else
-    " back to a buffer of status if there
-    call win_gotoid(bufwinid('.git/index'))
+    return
   endif
+  " back to a buffer of status if there
+  call win_gotoid(bufwinid('.git/index'))
 endfunction
 
 " Info; Blame {{{1
@@ -157,6 +167,6 @@ command! -bar -nargs=?
 "noremap <silent> <space>g<a-u> :Gunstage<cr>
 " Diff; {{{1
 " !: On a Merge Conflict, do a 3-diff; otherwise the same as without bang.
-nnoremap <silent> <space>gd :<c-u>GwinpickVDiff<cr>
+nnoremap <silent> <space>gd :<c-u>GwWinpickVDiff<cr>
 " Note: should be compared in current buffer
 nnoremap <silent> <space>gD :<c-u>GwWinpickVDiff HEAD<cr>
