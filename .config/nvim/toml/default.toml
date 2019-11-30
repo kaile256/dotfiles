@@ -12,6 +12,14 @@ repo = 'tpope/vim-repeat' #{{{
 hook_add = 'runtime add/repeat.vim'
 #}}}
 
+## Register
+#[[plugins]]
+#repo = 'svermeulen/vim-easyclip' #{{{
+#on_event = 'BufWinEnter'
+#hook_add = 'runtime add/easyclip.vim'
+#hook_source = 'runtime source/easyclip.vim'
+##}}}
+
 # Undo
 [[plugins]]
 repo = 'simnalamburt/vim-mundo' #{{{
