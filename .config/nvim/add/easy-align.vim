@@ -11,6 +11,8 @@ xnoremap <silent> <Plug>(EasyAlign-on-space) :EasyAlign<cr>$*<space>
 
 " Space Adjustment; limited only to space adjustment.
 " On Selected Area;
-xmap \Q <Plug>(EasyAlign-on-space)
+xmap \Q        <Plug>(EasyAlign-on-space)
+xmap \q<space> <Plug>(EasyAlign-on-space)
 " Line-wise;
-nmap \Q <Plug>(EasyAlign-on-space)
+nmap \Q        <Plug>(EasyAlign-on-space)
+nmap \q<space> <Plug>(EasyAlign-on-space)
