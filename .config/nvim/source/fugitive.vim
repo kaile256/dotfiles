@@ -13,8 +13,8 @@ augroup FugitiveCallMyFunc
   au FileType fugitive  call s:fugitive_keymap() "{{{1
   function! s:fugitive_keymap() abort "{{{0
     " TODO: Specify the window of the latest commit buffer on `dq`.
-    nnoremap <buffer><silent> cc    :<C-U>bot 20 Gcommit<CR>
-    nnoremap <buffer><silent> ca    :<C-U>bot 20 Gcommit --amend<CR>
+    nnoremap <buffer><silent> cc :<C-U>bot 20 Gcommit<CR>
+    nnoremap <buffer><silent> ca :<C-U>bot 20 Gcommit --amend<CR>
     " To: continue to cc/ce/ca.
     xmap <buffer> c sc
     " Note: for fugitive-buffer, not for &diff
@@ -29,10 +29,9 @@ augroup FugitiveCallMyFunc
   nnoremap <silent> <Plug>(fugitive:gstage-prev-window) :<c-u>wincmd p <bar> :Gw <bar> wincmd p<cr>
   nnoremap <silent> <Plug>(fugitive:diff-to-HEAD) :<c-u>wincmd p <bar> :Gw <bar> :GwinpickVDiff HEAD <bar> Gvstatus<cr>
 
-
   au FileType gitcommit call s:gitcommit_startinsert() "{{{1
   function! s:gitcommit_startinsert()
-    if getline(1, search('# Please enter the commit message') - 1) ==# []
+    if getline(1, search('# Please enter the commit message', 'n') - 1) ==# ['']
       startinsert
     endif
   endfunction
@@ -95,7 +94,7 @@ augroup FugitiveCallMyFunc
     call s:restore_view()
   endfunction
 
-  "au FIleType git       call s:gitlog_keymaps() "{{{1
+  "au FIleType git call s:gitlog_keymaps() "{{{1
   "function! s:gitlog_keymaps() abort
   "  nnoremap <buffer><silent> <c-o> :cnext<cr>
   "  nnoremap <buffer><silent> <c-i> :cprev<cr>
