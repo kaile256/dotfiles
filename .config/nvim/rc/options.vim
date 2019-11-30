@@ -14,7 +14,7 @@ set timeoutlen=10000
 set previewheight=28
 
 set synmaxcol=320
-set autochdir
+"set autochdir
 " Color; Set TUI Color {{{1
 " Ref: *term-dependent-settings* or /usr/share/nvim/runtime/doc/term.txt
 if $TERM =~# '^\(tmux\|iterm\|vte\|gnome\)\(-.*\)\?$'
@@ -179,6 +179,12 @@ set foldlevelstart=1
 set foldnestmax=10
 " reduce block (e.g., [[,{)
 set foldopen=hor,mark,percent,quickfix,search,tag,undo
+augroup myForceFormatOptions
+  au!
+  au InsertEnter * if &fo =~# 'r\|o' | set formatoptions-=ro | endif
+  au InsertEnter * if &tw =~# ''     | set textwidth=0       | endif
+  "au FileType * if getline(1, '$') ==# [] | startinsert | endif
+augroup END
 "set foldclose " when cursor is out of fold, close automatically.
 
 "augroup MyAutoView
