@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 
 # vim
 #if ! [ -d "XDG_DATA_HOME/vim/{undo,swap,backup}" ]; then
