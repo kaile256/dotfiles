@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-export PATH="$XDG_CONFIG_HOME/bash/functions"
+export PATH="$XDG_CONFIG_HOME/bash/functions:$PATH"
 
 export PATH="$HOME/.local/bin:$PATH"
 
