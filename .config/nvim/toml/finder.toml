@@ -4,12 +4,13 @@
 [[plugins]]
 repo = 'junegunn/fzf' #{{{
 # Note: :Files in fzf.vim is the same as :FZF.
-on_if = '!executable("fzf")'
+if = '!executable("fzf")'
+on_cmd = 'FZF'
 [[plugins]]
 #repo = 'junegunn/fzf.vim'
 repo = 'kaile256/fzf.vim'
 # Branch: kaile256/fzf.vim_verbose_commands
-#on_cmd = 'fzf#vim#'
+#on_func = 'fzf#vim#'
 on_event = 'VimEnter'
 hook_add = 'runtime add/fzf.vim'
 hook_source = 'runtime source/fzf.vim'
@@ -35,12 +36,13 @@ on_cmd = ['Quickfix']
 ##}}}
 
 # Filer
-[[plugins]]
-repo = 'zgpio/tree.nvim'
-# Note: written in cpp!
-# not yet available via package-manager
-build = 'make'
-on_cmd = ['Tree']
+#[[plugins]]
+#repo = 'zgpio/tree.nvim' #{{{
+## Note: written in cpp!
+## not yet available via package-manager
+#build = 'make'
+#on_cmd = ['Tree']
+##}}}
 [[plugins]] # has extentions
 repo = 'Shougo/defx.nvim' #{{{
 if = 'has("python3")'
