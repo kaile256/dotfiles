@@ -2,15 +2,16 @@
 " Repo: tpope/vim-repeat
 
 " Note: make lazy load for this plugin.
-"nmap . <Plug>(RepeatDot)
-"nmap u <Plug>(RepeatUndo)
-"nmap U <Plug>(RepeatUndoLine)
-"nmap <C-R> <Plug>(RepeatRedo)
+nmap .     <Plug>(RepeatDot)
 
-imap <a-.>   <esc><Plug>(RepeatDot)
-imap <a-u>   <esc><Plug>(RepeatUndo)
-imap <a-C-R> <esc><Plug>(RepeatRedo)
-"imap <a-s-U>   <esc><Plug>(RepeatUndoLine)
+nmap u     <Plug>(RepeatUndo)zv
+nmap <c-r> <Plug>(RepeatRedo)zv
+"nmap U <Plug>(RepeatUndoLine)zv
+
+"imap <a-.>   <esc><Plug>(RepeatDot)zv
+"imap <a-u>   <esc><Plug>(RepeatUndo)zv
+"imap <a-c-r> <esc><Plug>(RepeatRedo)zv
+"imap <a-U>   <esc><Plug>(RepeatUndoLine)zv
 
 " For: keeps me in insert mode.
 " Note: <c-o><Plug>(RepeatUndo/Redo) works wrong
