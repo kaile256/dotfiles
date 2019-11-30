@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+export PATH="$XDG_CONFIG_HOME/bash/functions"
+
 export PATH="$HOME/.local/bin:$PATH"
 
 # Rust
