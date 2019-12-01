@@ -1,5 +1,13 @@
 " From: init.vim
 
+" <c-o>
+" Tips: <c-\><c-o> keeps cursor position
+" TODO: keep the cursor after <c-o>, especially <c-o>yiw
+" Note: default <c-o>yy only inserts yy w/o yank.
+inoremap <c-o>y        <c-\><c-o>:call feedkeys("\<c-\>\<c-o>y", 'n')<cr>
+inoremap <c-o><space>y <c-\><c-o>:call feedkeys("\<c-\>\<c-o>".'"+y', 'n')<cr>
+"inoremap <c-o>p <c-\><c-o>:call feedkeys("\<esc>]p`]a")<cr>
+
 " Alt-ESC {{{1
 inoremap <silent> <a-space> <esc>:call feedkeys("\<space>")<cr>
 inoremap <silent> <a-\> <esc>:call feedkeys('\')<cr>
@@ -67,6 +75,36 @@ inoremap <silent> <a-x> <esc>:call feedkeys('x')<cr>
 inoremap <silent> <a-d> <esc>:call feedkeys('d')<cr>
 inoremap <silent> <a-c> <esc>:call feedkeys('c')<cr>
 inoremap <silent> <a-u> <esc>:call feedkeys('u')<cr>
+
+" Register "{{{1
+inoremap <expr> <c-r> '<esc>"'.nr2char(getchar()).']p`]a'
+inoremap <c-r><c-0> <c-g>u<c-r>0
+inoremap <c-r><c-space> <c-g>u<c-r>+
+inoremap <c-r><space>   <c-g>u<c-r>+
+inoremap <c-r><c-;> <c-g>u<c-r>:
+inoremap <c-r>;     <c-g>u<c-r>:
+inoremap <c-r><c-'> <c-g>u<c-r>"
+inoremap <c-r>'     <c-g>u<c-r>"
+inoremap <c-r><c-\> <c-g>u<c-r>"
+inoremap <c-r>\     <c-g>u<c-r>"
+
+" CAUTION: '=' register crashes when any char follows it in keymaps
+"inoremap <c-r>= <c-o>:call <SID>paste_toggle()<cr><c-r>=
+inoremap <c-r>= <c-r>=
+"function! s:paste_toggle() abort "{{{2
+"  " Ref: kaile256/vim-spell-temporary/autoload/spellTMP.vim @55
+"  let b:paste = &paste
+"  setl paste
+"  augroup myPasteToggle
+"    au! TextChangedI,TextChanged,InsertLeave * ++once if exists('b:paste') | let &paste = b:paste | endif
+"  augroup END
+"  try
+"    call feedkeys("\<c-r>", 'nt')
+"  catch /^Vim:Interrupt$/
+"    let &paste = b:paste
+"    silent! augroup! myPasteToggle
+"  endtry
+"endfunction
 
 " Undo Break; {{{1
 inoremap <a-P> <c-g>u<esc>:call feedkeys('P')<cr>
