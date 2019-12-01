@@ -1,15 +1,7 @@
 #!/usr/bin/env fish
 
-# Never write "exec tmux" on script, or never access the WSL Distribution.
-
-# Note: CANNOT use * for sourcing.
-#source fish/myconf.d/*.fish
-#source fish/myfuctions/*.fish
-
-# Note: too slow to use for-loop.
-#for myconf_file in $HOME/.config/fish/myconf/*.fish
-#    source $myconf_file
-#end
+# Note: config on browser will be written in "~/.config/fish/fishd.<hostname>"
+# CAUTION: do never write "exec tmux" in script
 
 source $HOME/.config/fish/myconf/prompt.fish
 
@@ -18,6 +10,12 @@ source $HOME/.config/fish/myconf/alias.fish
 #source $HOME/.config/fish/myconf/path.fish
 
 source $HOME/.config/fish/myconf/fzf.fish
+
+# Note: too slow to use for-loop.
+# Note: use autoload-function locating under fish/functions/
+#for functions in $HOME/.config/fish/myfunctions/*.fish
+#    source $functions
+#end
 
 umask 022
 
