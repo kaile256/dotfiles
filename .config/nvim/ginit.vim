@@ -47,15 +47,15 @@ if exists('g:GuiLoaded')
 
   GuiLinespace 0
   " SF Mono; San Francisco Mono
-  " Note: can set on &guifont
+  " Note: &guifont also available
+  " $ fc-list | rg Nerd | fzf
   "GuiFont! Ricty Nerd Font:h17
   GuiFont! Migu 1M:h14
-  " <bang> for Japanese.
+  "GuiFont! NotoSansMono Nerd Font:h13 " weird for me
+  "GuiFont! Cica:h16 " weird for me
+  " <bang> for Japanese, or other ambiwidth fonts
   "GuiFont! SF Mono:h12
   "GuiFont! Myrica M:h15
-  "if GuiName() ==# 'nvim-qt'
-  "  " TODO: I'd like to use Japanese on Qt.
-  "endif
 endif
 
 if exists('gonvim_running') "{{{1
