@@ -20,6 +20,7 @@ endif
 let g:eskk#no_default_mappings = 1
 " Henkan; Completion {{{1
 let g:eskk#keep_state = 1 "  0: eskk is off when insert again
+"let g:eskk#keep_state_beyond_buffer = 1
 let g:eskk#show_annotation = 1
 let g:eskk#select_cand_keys = 'abcdefgijklmnopqrstuvwxyz'
 " if unique, confirm the candidate auto.
