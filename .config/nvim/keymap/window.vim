@@ -23,20 +23,22 @@ nmap <c-w>gt <Plug>(wincopy-in-tab)
 nmap <c-w>gT <Plug>(wincopy-in-tab)
 
 " Close window {{{1
+if mapcheck('<c-w>q', 'n') ==# ''
+  nnoremap <c-w>q <Nop>
+endif
+if mapcheck('<c-w><c-q>', 'n') ==# ''
+  nnoremap <c-w><c-q> <Nop>
+endif
+
 nnoremap <silent> <c-w><c-o> <c-w>o:diffoff!<cr>
 nnoremap <silent> <c-w>o     <c-w>o:diffoff!<cr>
 nnoremap <silent> <c-w>O     :<c-u>tabonly<cr>
-
-if mapcheck('<c-w>q', 'n') ==# ''
-      \ || mapcheck('<c-w><c-q>', 'n') ==# ''
-  nnoremap <c-w>q <Nop>
-  nnoremap <c-w><c-q> <Nop>
-endif
 
 nnoremap <c-w>Z ZZ
 nnoremap <c-w>Q ZQ
 nnoremap Zz ZZ
 nnoremap Zq ZQ
+
 " Note: look after that ZQ, as :q!, locates higher than ZZ, as :wq
 " Mnemonic: Close all
 nnoremap <silent> ZC     :w <bar> windo q!<cr>
@@ -60,6 +62,13 @@ nnoremap <silent> <c-w>E :<c-u>windo q!<cr>
 " Mnemonic: $ yes
 nnoremap <silent> Zy :<c-u>qa  <cr>
 nnoremap <silent> ZY :<c-u>qa! <cr>
+
+command! -bar HelpCloseAll :call s:helpclose_all() "{{{2
+function! s:helpclose_all() abort
+  for bufnr in tabpagebuflist()
+    helpclose
+  endfor
+endfunction
 
 " Swap window {{{1
 nnoremap <c-w>h <c-w>H
