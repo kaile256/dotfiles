@@ -64,6 +64,7 @@ settings:
       w: save
       wq: quit --save
       wqa: quit --save
+      xmap: bind -m caret
       zotero-save: spawn --userscript qute-zotero
   auto_save.session:
     global: true
@@ -225,9 +226,11 @@ settings:
         cd: null
         co: null
         d: scroll-page 0 +0.5
+        gA: open -t https://www.amazon.co.jp/ref=nav_logo
         gC: open -t https://calendar.google.com/calendar/r/month?pli=1
         gM: open -t https://www.google.co.jp/maps/@34.8244519,135.4776576,15z
         gP: open -t https://app.getpocket.com/
+        ga: open https://www.amazon.co.jp/ref=nav_logo
         gc: open https://calendar.google.com/calendar/r/month?pli=1
         gf: spawn nvim-qt {url}
         gi: hint inputs --first
