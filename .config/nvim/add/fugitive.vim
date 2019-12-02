@@ -2,6 +2,12 @@
 " Repo: tpope/vim-fugitive
 " Another: source/fugitive.vim
 
+command! -bar -bang -nargs=* -complete=customlist,fugitive#EditComplete
+      \ Gw
+      \ :call fugitive#WriteCommand(<line1>, <count>, +<q-range>, <bang>0, <q-mods>, <q-args>, [<f-args>])
+      \ | wincmd p
+      \ | wincmd p
+
 command! -nargs=+ -bar -complete=file Gremote :Git remote <args>
 
 command! -nargs=+ -bar Gclone :Git clone <args>
