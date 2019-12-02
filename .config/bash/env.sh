@@ -31,6 +31,9 @@ export VMAIL_VIM=nvim-qt
 export BROWSER=qutebrowser
 # FZF
 export FZF_DEFAULT_COMMAND='rg --files --hidden --follow --glob "!.git/*"'
+export FZF_DEFAULT_OPTS='--reverse --height=80% --min-height=20 --no-mouse --multi --bind=down:preview-down --bind=up:preview-up'
+#--preview="bat  --color=always --style=header,grid --line-range :100 {}"
+
 export FZF_LEGACY_KEYBINDINGS=1
 export FZF_PREVIEW_FILE_CMD="head -n 10"
 export FZF_PREVIEW_DIR_CMD="ls"
