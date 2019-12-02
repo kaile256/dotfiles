@@ -2,10 +2,6 @@ set encoding=utf-8
 scriptencoding utf-8
 set termencoding=utf-8
 set fileencodings=ucs-bom,utf-8,euc-jp,sjis,default,latin1
-set ambiwidth=double
-" default: tcqj
-set formatoptions=jmB1cql
-"set mouse=a
 
 runtime rc/os.vim
 runtime rc/variables.vim  " don't comment out; many files depends on it.
