@@ -78,6 +78,14 @@ else
   endfunction
 endif
 " Shell Scripts; Out of Vim "{{{1
+command! -bar -nargs=* -complete=shellcmd
+      \ Killall
+      \ :silent !killall <args>
+
+command! -bar -nargs=* -complete=shellcmd
+      \ Screenkey
+      \ :silent !screenkey -g 950x1000 -t 0.4 <args> &
+
 command! -bar XinputTouchpadEnable  :!xinput Enable  Elan Touchpad
 command! -bar XinputTouchpadDisable :!xinput disable Elan Touchpad
 command! -bar TouchpadEnable  :!xinput Enable  Elan Touchpad
