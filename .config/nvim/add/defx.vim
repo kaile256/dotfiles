@@ -80,6 +80,7 @@ nnoremap <silent> <a-x><a-f>
 
 augroup DefxInsteadOfNetrw "{{{1
   au!
+  au FileType defx wincmd =
   " Ref: https://github.com/Shougo/defx.nvim/issues/121
   " Ref: /usr/share/nvim/runtime/plugin/netrwPlugin.vim
   "let g:loaded_netrw = 1 " necessary to read via https
@@ -87,7 +88,6 @@ augroup DefxInsteadOfNetrw "{{{1
   let g:loaded_netrwSettings = 1
   let g:loaded_netrwFileHandlers = 1
   " TODO: inherit jumplist after gf
-  au FileType defx wincmd =
   au VimEnter * silent! au! FileExplorer *
   au BufEnter * if s:isdir(expand('<amatch>'))
         \ | Defx `expand('<amatch>')` -search=`expand('<amatch>')` -new
