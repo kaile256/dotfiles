@@ -5,12 +5,20 @@ noremap! <c-x><c-h> ~/
 tnoremap <c-x>h     ~/
 tnoremap <c-x><c-h> ~/
 
+" makes <c-o>u work as if <c-u>
+"nnoremap o o<c-g>u
+"nnoremap O O<c-g>u
+
 " Macro "{{{1
 nnoremap \<space> q
 nnoremap <space>\ q
 " Write&Quit {{{1
-nnoremap q <Nop>
-nnoremap Q <Nop>
+if mapcheck('q', 'n') == ''
+  nnoremap q <Nop>
+endif
+if mapcheck('Q', 'n') == ''
+  nnoremap Q <Nop>
+endif
 " Write&Quit; wq
 "nnoremap <silent> <space>w :<c-u>w  <cr>
 "nnoremap <silent> <space>W :<c-u>w! <cr>
