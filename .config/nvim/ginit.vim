@@ -49,9 +49,9 @@ if exists('g:GuiLoaded')
   " SF Mono; San Francisco Mono
   " Note: &guifont also available
   " $ fc-list | rg Nerd | fzf
-  "GuiFont! Ricty Nerd Font:h17
   GuiFont! Migu 1M:h14
-  "GuiFont! NotoSansMono Nerd Font:h13 " weird for me
+  "GuiFont! NotoMono Nerd Font:h14
+  "GuiFont! Ricty Nerd Font:h17
   "GuiFont! Cica:h16 " weird for me
   " <bang> for Japanese, or other ambiwidth fonts
   "GuiFont! SF Mono:h12
