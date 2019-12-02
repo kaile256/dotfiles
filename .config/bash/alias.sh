@@ -1,7 +1,9 @@
 #!/usr/bin/env bash
 
 # From: .bashrc
-# Note: Write those alias for XDG Base Repository specification in 'env.sh'
+# Ref: fish/myconf/alias.fish
+
+# Note: write XDG-related aliases in 'env.sh'
 
 # Command; ls
 export 'LS_OPTION'='--color=auto'
@@ -22,4 +24,7 @@ alias nvr="nvr -s"
 alias kvi="nvim -u $HOME/kaile256/dotfiles/nvim/init.vim"
 # App; Linux on Android
 alias pk='./start-kali.sh'
-#alias rustlings='cd ~/rustlings && rustlings'
+
+# TODO: accept arguments to restrict candidates
+alias fzf-fonts='fc-list | fzf'
+
