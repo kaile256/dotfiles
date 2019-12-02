@@ -9,7 +9,7 @@ SourceFile=(
 #env.sh # includes initial XDG_BASEs.
 #xdg.sh
 #path.sh
-alias.sh
+alias.sh # has no mean on fish, even when loaded from .profile
 prompt.sh
 )
 for i in "${SourceFile[@]}"; do
