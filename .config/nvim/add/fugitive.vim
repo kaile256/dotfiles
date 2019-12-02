@@ -2,11 +2,11 @@
 " Repo: tpope/vim-fugitive
 " Another: source/fugitive.vim
 
-command! -bar -bang -nargs=* -complete=customlist,fugitive#EditComplete
-      \ Gw
-      \ :call fugitive#WriteCommand(<line1>, <count>, +<q-range>, <bang>0, <q-mods>, <q-args>, [<f-args>])
-      \ | wincmd p
-      \ | wincmd p
+"command! -bar -bang -nargs=* -complete=customlist,fugitive#EditComplete
+"      \ Gw
+"      \ :call fugitive#WriteCommand(<line1>, <count>, +<q-range>, <bang>0, <q-mods>, <q-args>, [<f-args>])
+"      \ | wincmd p
+"      \ | wincmd p
 
 command! -nargs=+ -bar -complete=file Gremote :Git remote <args>
 
@@ -51,6 +51,8 @@ function! s:Gvstatus(...) abort "{{{1
   " go to Staged section
   norm gs
   norm! zz
+  wincmd p
+  wincmd p
 endfunction
 
 " Functions: Pretreatment for Windows in Tab {{{1
