@@ -1,6 +1,8 @@
 " From: appearance.toml
 " Repo: mg979/vim-xtabline
+" Another: source/xtabline.vim
 
+" Note: use :XTabTheme to set up theme for xtabline
 "silent XTabTheme slate
 
 let g:xtabline_settings = {}
