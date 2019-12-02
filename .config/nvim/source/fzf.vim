@@ -84,9 +84,8 @@ let g:fzf_colors =
       \   'marker':  ['fg', 'Keyword'],
       \   'spinner': ['fg', 'Label'],
       \   'header':  ['fg', 'Comment'] }
-"}}}
 
-augroup FzfMyAutoConf "{{{
+augroup FzfMyAutoConf "{{{1
   au!
   function! s:fzf_buffer_statusline() "{{{
     " Override statusline as you like
@@ -96,6 +95,7 @@ augroup FzfMyAutoConf "{{{
     setl statusline=%#fzf1#\ >\ %#fzf2#fz%#fzf3#f
   endfunction "}}}
   au User FzfStatusLine call s:fzf_buffer_statusline()
+  au User FzfStatusLine call feedkeys('!.git ')
   "au BufWinEnter * if &ft ==# 'fzf' | runtime once/terminal
   " CAUTION: WinLeave's current file is next file, i.e., fzf when opening fzf-buffer.
   " Note: 'bufhidden' is useless for fzf.
@@ -106,4 +106,4 @@ augroup FzfMyAutoConf "{{{
   "au FileType fzf setl laststatus=0
   "      \ | au BufEnter * ++once setl laststatus=2
   "      \ | if &l:number | setl number | endif
-augroup END "}}}
+augroup END
