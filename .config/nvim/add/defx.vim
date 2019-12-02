@@ -87,6 +87,7 @@ augroup DefxInsteadOfNetrw "{{{1
   let g:loaded_netrwSettings = 1
   let g:loaded_netrwFileHandlers = 1
   " TODO: inherit jumplist after gf
+  au FileType defx wincmd =
   au VimEnter * silent! au! FileExplorer *
   au BufEnter * if s:isdir(expand('<amatch>'))
         \ | Defx `expand('<amatch>')` -search=`expand('<amatch>')` -new
