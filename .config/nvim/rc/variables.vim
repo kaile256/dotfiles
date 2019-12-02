@@ -3,11 +3,13 @@
 " Path; Suffix
 "set suffixesadd=.vim
 
-" Set; Font {{{
+" Set; Font {{{1
+set ambiwidth=double
+
 if has('unix')
   try
     set guifont=SF\ Mono:h12
-    set guifontwide=SF\ Mono:h15
+    set guifontwide=NotoMono\ Nerd\ Font:h15
     set guifontset=SF\ Mono:h15
     set printfont=SF\ Mono:h12
     "set linespace=0
@@ -24,7 +26,6 @@ elseif has('win32\|win64')
     set printfont=Monospace\ 12
   endtry
 endif
-"}}}
 
 " $VAR; for shell {{{
 let $EDITOR     = 'nvr'
