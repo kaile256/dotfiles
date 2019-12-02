@@ -15,7 +15,8 @@ set previewheight=28
 
 set synmaxcol=320
 "set autochdir
-" Color; Set TUI Color {{{1
+" Appearance {{{1
+" Term GUI Colors {{{2
 " Ref: *term-dependent-settings* or /usr/share/nvim/runtime/doc/term.txt
 if $TERM =~# '^\(tmux\|iterm\|vte\|gnome\)\(-.*\)\?$'
   set termguicolors "Enables 24-bit RGB color in TUI.
@@ -33,12 +34,12 @@ elseif $TERM =~# '^\(xterm\)\(-.*\)\?$'
   endif
 endif
 
-" Appearance; Pmenu {{{1
+" Pmenu {{{2
 " shortmess: Shorter Message
 " c-option: forbids to give |ins-completion-menu| messages.
 set shortmess+=c
 set pumheight=15
-" Appearance; Format {{{1
+" Format {{{2
 "set noemoji
 " wrap long text: s for space
 set wrap whichwrap=h,l
@@ -64,12 +65,12 @@ endfunction "}}}
 " modeline; force format as written at top/bottom of file
 set modeline
 set modelineexpr
-" Appearance; Cursor {{{1
+" Cursor {{{2
 " shorter for CursorHold & CursorHoldI
 set updatetime=300
 "" Cursor; Disable
 "set guicursor
-" Appearance; Line {{{1
+" Line {{{2
 set cursorline
 " CAUTION: cursorline-highlight causes drawing corruption.
 augroup AutoToggleCursorLine
@@ -83,18 +84,18 @@ augroup END
 " in diff mode, move cursorline in the other window as the corresponding line of the current window.
 " Error?: it would work, even not in diff mode, but just there're two or more windows in a screen.
 "set nocursorbind
-" Appearance; Column {{{1
+" Column {{{2
 " show line number on left
 set number
 set colorcolumn=81
 " signcolumn is the line beside numbers.
 set signcolumn=auto
-" Appearance; Statusbar {{{1
+" Statusbar {{{2
 set title
 set ruler
 " 2: always show the current status.
 set laststatus=2
-" Appearance; Invisible Charactars {{{1
+" Invisible Charactars {{{2
 " show space and CR
 set list
 "set list listchars=nbsp:¦_
@@ -110,7 +111,8 @@ set list
 "if executable('fish')
 "   set shell=fish
 "endif
-" Method; Imput Method {{{1
+" Insert {{{1
+" Method; Imput Method {{{2
 " 0: IM will be off, when lmap is off.
 " lmap supports 3 modes: insert, commandline and lang-arg.
 set iminsert=0
@@ -124,7 +126,7 @@ set imcmdline
 "    au InsertLeave * nested call system('fcitx-remote -c')
 "  endif
 "augroup END
-" Method; Tab&Indent {{{1
+" Method; Tab&Indent {{{2
 "" Tab-Char
 " Insert spaces, instead of a tab-char.
 set expandtab
@@ -145,15 +147,19 @@ set shiftwidth=2
 set smarttab
 " for '</>' indent, insert spaces according to &l:shiftwidth.
 set shiftround
-" Method; Pair {{{1
+" Method; Pair {{{2
 " show match parens.
 set showmatch
 set matchtime=1 " 10 times the number sec.
 " add '<' and '>' as a match pair
 set matchpairs+=<:>,「:」,『:』
-" Method; Visual Mode {{{1
+" Method; Completion {{{2
+set complete-=i " i: included files
+
+" Edit {{{1
+" Method; Visual Mode {{{2
 set virtualedit=block
-" Method; Commandline Mode {{{1
+" Method; Commandline Mode {{{2
 set noshowcmd
 "set history=10000
 " Cmdline; Completion
@@ -166,12 +172,12 @@ set wildcharm=<c-y>
 if exists('+inccommand')
   set inccommand=nosplit
 endif
-" Method; Macros "{{{1
+" Method; Macros "{{{2
 " lazyredraw: forbids to redraw screen while executing macros.
 " Note: had caused a problem w/ fugitive;
 "       expanded too wide a fugitive buffer's window.
 set lazyredraw
-" Method; Fold {{{1
+" Method; Fold {{{2
 "set foldenable " default: on
 set foldmethod=syntax
 set foldlevel=1
@@ -179,9 +185,12 @@ set foldlevelstart=1
 set foldnestmax=10
 " reduce block (e.g., [[,{)
 set foldopen=hor,mark,percent,quickfix,search,tag,undo
+
+set formatoptions=jmB1cql " default: tcqj
+"set mouse=a
 augroup myForceFormatOptions
   au!
-  au InsertEnter * if &fo =~# 'r\|o' | set formatoptions-=ro | endif
+  au BufWinEnter * if &fo =~# 'r\|o' | set fo-=r | set fo-=o | endif
   au InsertEnter * if &tw =~# ''     | set textwidth=0       | endif
   "au FileType * if getline(1, '$') ==# [] | startinsert | endif
 augroup END
@@ -220,7 +229,7 @@ augroup SetFdmDotfiles
   " TODO: Understand :mkview
   " mkview: save a file condition according to `:viewoptions`
 augroup END
-" Method; Shada {{{1
+" Method; Shada {{{2
 set shada='1000,<50,h,s10,
 augroup AutoWriteShada
   " Note: shada only saves the data on VimLeave so that
@@ -237,17 +246,14 @@ augroup END
 "  set shada=expand(l:shada_conf)
 "endfunction
 
-" Method; Session {{{1
+" Method; Session {{{2
 " terminal is regarded as an invalid argument
 " buffers,tabpages
 set sessionoptions=folds,globals
 set sessionoptions+=help,localoptions,options
 set sessionoptions+=slash,winsize
-" Method; Inc/Decrement {{{1
+" Method; Inc/Decrement {{{2
 "set nrformats+=octal
-" Method; Completion {{{1
-set complete-=i " i: included files
-
 " Leap; Multiple Windows {{{1
 set splitbelow
 set splitright
