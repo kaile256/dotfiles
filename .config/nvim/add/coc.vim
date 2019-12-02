@@ -24,7 +24,8 @@ let g:markdown_fenced_languages = [
 
 " Note: <c-o> in coc's cmdline get to normal mode of coc.nvim
 " the List of CocExtentions; "{{{1
-" Note: Have to install LSPs independently.
+" Note: have to install LSPs independently.
+" Note: coc-highlight made CPU overwork
 let g:coc_global_extensions = [
       \ 'coc-angular',
       \ 'coc-bookmark',
@@ -40,7 +41,6 @@ let g:coc_global_extensions = [
       \ 'coc-git',
       \ 'coc-gitignore',
       \ 'coc-go',
-      \ 'coc-highlight',
       \ 'coc-homeassistant',
       \ 'coc-html',
       \ 'coc-java',
@@ -79,8 +79,8 @@ command! -nargs=* -complete=custom,coc#list#options Cl  :Clist <args>
 command! -nargs=* -complete=custom,coc#list#options Cli :Clist <args>
 command! -nargs=? S :CocCommand session.save <args>
 " Mnemonic: Load sessions
-command! L        :Clist sessions
-command! Sessions :Clist sessions
+"command! L        :Clist sessions
+"command! Sessions :Clist sessions
 "command! SessionLoadC :CocCommand session.load
 command! -nargs=* -complete=custom,coc#list#options Cremove    :CocUninstall <args>
 command! Ccmd     :CocCommand
@@ -167,10 +167,8 @@ function! s:make_sure_no_space() abort "{{{2
 endfunction
 " CocDiagnostic {{{1
 " Note: Unnecessary? pop up auto.
-nmap qi <Plug>(coc-diagnostic-info)
-nmap <silent> qf <Plug>(coc-fix-current)
-nmap <silent> qp <Plug>(coc-diagnostic-prev)
-nmap <silent> qn <Plug>(coc-diagnostic-next)
+"nmap \qi <Plug>(coc-diagnostic-info)
+nmap <silent> \q <Plug>(coc-fix-current)
 nmap <silent> [q <Plug>(coc-diagnostic-prev)
 nmap <silent> ]q <Plug>(coc-diagnostic-next)
 "nmap [e <Plug>(coc-diagnostic-prev-error)
@@ -228,12 +226,20 @@ xnoremap <silent> <c-w><space>r :call CocActionAsync('jumpReferences',     'vspl
 "command! FormatOnC :call CocAction('format')
 "command! -nargs=? FoldOnC :call CocAction('fold', <f-args>)
 command! OR          :call CocAction('runCommand', 'editor.action.organizeImport')
-command! Format CocCommand prettier.formatFile
 " Mnemonic: Change the Structure.
 nmap cs <Plug>(coc-refactor)
-"set equalprg=CocActionAsync('formatSelected')
-"set equalprg=CocActionAsync('codeLensAction')
-nnoremap ql :call CocActionAsync('codeLensAction')<cr>
+
+augroup myCocPrettier
+  au!
+  au FileType javascript,typescript,css,json
+augroup END
+function! s:prettier() abort "{{{2
+  " overrides :QuickFormat; omap is still available
+  command! -buffer QuickFormat :CocCommand prettier.formatFile
+  command! -buffer Prettier    :CocCommand prettier.formatFile
+  xnoremap = <Plug>(coc-format-selected)
+  nnoremap = <Plug>(coc-format-selected)
+endfunction
 
 " Note: coc-prettier has lower priority; when the document has other
 " format provider, prettier would not work.
@@ -241,10 +247,6 @@ nnoremap ql :call CocActionAsync('codeLensAction')<cr>
 " `javascript`, `javascriptreact`,
 " `typescript`, `typescriptreact`,
 " `json` and `graphql`.
-"xnoremap <expr> = (CocHasProvider('format'))?
-"      \ '<Plug>(coc-format-selected)': '='
-"nnoremap <expr> = (CocHasProvider('format'))?
-"      \ '<Plug>(coc-format-selected)': '='
 
 " Mnemonic: Change the lhs of Equal Sign
 function! s:quick_format() abort
@@ -281,10 +283,12 @@ omap if <Plug>(coc-funcobj-i)
 vmap af <Plug>(coc-funcobj-a)
 omap af <Plug>(coc-funcobj-a)
 " CocCodeAction {{{1
-nmap qA  <Plug>(coc-codeaction)
-nmap qaa <Plug>(coc-codeaction)
-nmap qa  <Plug>(coc-codeaction-selected)
-xmap qa  <Plug>(coc-codeaction-selected)
+"set equalprg=CocActionAsync('formatSelected')
+"set equalprg=CocActionAsync('codeLensAction')
+nnoremap \A :call CocActionAsync('codeLensAction')<cr>
+nmap \aa <Plug>(coc-codeaction)
+nmap \a  <Plug>(coc-codeaction-selected)
+xmap \a  <Plug>(coc-codeaction-selected)
 " CocWorkspace {{{1
 noremap! <c-x><c-;> <esc>q:
 noremap! <c-x><c-/> <esc>q/
