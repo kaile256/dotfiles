@@ -55,32 +55,43 @@ endfunction
 
 " Functions: Pretreatment for Windows in Tab {{{1
 let s:std = {}
-let s:std.buftypes = ['terminal', '', 'help']
+let s:std.buftype = ['terminal', '', 'help']
 let s:weed = {}
-let s:weed.bufnames = ['.git\/']
+let s:weed.bufname = ['.git\/', 'FZF$']
+"let s:weed.filetype = ['fzf']
 
 function! s:is_nobuffers(bufnr, ...) abort "{{{2
   let buftype = getbufvar(a:bufnr, '&buftype')
   let bufname = bufname(a:bufnr)
-  return index(s:std.buftypes, buftype) < 0
-        \ || bufname =~# join(s:weed.bufnames, '\|')
+  return index(s:std.buftype, buftype) < 0
+        \ || bufname =~# join(s:weed.bufname, '\|')
 endfunction
 
 "function! s:is_nobuffers(bufnr, ...) abort "{{{2
-"  let buftype = getbufvar(a:bufnr, '&buftype')
 "  let bufname = bufname(a:bufnr)
-"
-"  for kind in ['std', 'weed']
-"    for l:key in keys(s:std)
-"      exe 'let' kind[l:key] '=' a:0 '>' 0 '?' a:1 ':' s:[kind][l:key]
-"    endfor
+"  for l:key in keys(s:std)
+"    if l:key ==? 'bufname' | break | endif
+"    let l:key = getbufvar(a:bufnr, '&'. l:key)
 "  endfor
 "
-"  let is_weed =
-"        \ index(weed.buftypes, buftype) < 0
-"        \ && index(std.buftypes, buftype) > 0
-"        \ && bufname =~# join(weed.bufnames, '\|')
-"        \ && bufname !~# join(std.bufnames, '\|')
+"  let std  = {}
+"  let weed = {}
+"
+"  for l:key in keys(s:std)
+"    if l:key ==? 'bufname' | break | endif
+"    let std[l:key]  = a:0 > 0 ? a:1 : s:std[l:key]
+"    let is_weed .= '&& '. index(std.filetype, l:key) > 0
+"  endfor
+"  for l:key in keys(s:weed)
+"    if l:key ==? 'bufname' | break | endif
+"    let weed[l:key] = a:0 > 0 ? a:1 : s:weed[l:key]
+"    let is_weed .= '&& '. index(weed.filetype, l:key) < 0
+"  endfor
+"
+"  let is_weed .=
+"        \ '&&'. bufname =~# join(weed.bufname, '\|')
+"        \ && bufname !~# join(std.bufname, '\|')
+"
 "  return is_weed
 "endfunction
 
