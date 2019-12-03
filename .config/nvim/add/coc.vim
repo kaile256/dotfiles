@@ -225,13 +225,13 @@ xnoremap <silent> <c-w><space>r :call CocActionAsync('jumpReferences',     'vspl
 "       when prettier is unavailable on the filetype.
 "command! FormatOnC :call CocAction('format')
 "command! -nargs=? FoldOnC :call CocAction('fold', <f-args>)
-command! OR          :call CocAction('runCommand', 'editor.action.organizeImport')
+command! OR :call CocAction('runCommand', 'editor.action.organizeImport')
 " Mnemonic: Change the Structure.
 nmap cs <Plug>(coc-refactor)
 
 augroup myCocPrettier
   au!
-  au FileType javascript,typescript,css,json
+  au FileType javascript,typescript,css,json call s:prettier()
 augroup END
 function! s:prettier() abort "{{{2
   " overrides :QuickFormat; omap is still available
