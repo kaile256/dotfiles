@@ -1,10 +1,10 @@
-" Help: options
+" From: init.vim
 
 " Appearance; Blend {{{
 " Note: it works dum CUI.
 if exists('&pumblend')
-  set pumblend=30
-  set winblend=20
+  set pumblend=40
+  set winblend=50
 endif
 "}}}
 "" $VAR: DEVROOTs and $PATH {{{1
