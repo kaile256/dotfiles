@@ -99,10 +99,14 @@ bindsym $superS+r exec terminal -e 'ranger'
 #}}}
 # Keybind; open Menu {{{
 #bindsym $Super+semicolon exec --no-startup-id i3-dmenu-desktop
-bindsym $Super+Return exec --no-startup-id i3-dmenu-desktop
+#bindsym $Super+Return exec --no-startup-id i3-dmenu-desktop
 #bindsym $SuperS+Return exec terminal -e 'bmenu'
 bindsym $Super+Ctrl+Return exec --no-startup-id $menu
 #bindsym $Super+d exec dmenu_run
+# # TODO: convert this bash-script into fish's
+# Ref: dmenu with fzf https://github.com/junegunn/fzf/wiki/Examples
+bindsym $Super+Return exec --no-startup-id terminal -t 'fzf-menu' -e 'i3-dmenu-desktop --dmenu=fzf'
+for_window [title='fzf-menu'] floating enable
 #}}}
 # Keybind; open Terminal {{{
 # urxvtc; add `-k` to kill daemon, too.
@@ -115,7 +119,7 @@ bindsym $Super+v exec --no-startup-id alacritty -e 'vim'
 bindsym $Super+a exec --no-startup-id alacritty -e 'nvim'
 bindsym $Super+n exec --no-startup-id nvim-qt
 # TODO: start nvim-qt sharing the buffer-list w/ another nvim-qt which is already started.
-bindsym $SuperS+n exec --no-startup-id i3-sensible-terminal -e "nvim-qt --server $NVIM_LISTEN_ADDRESS"
+#bindsym $SuperS+n exec --no-startup-id i3-sensible-terminal -e "nvim-qt --server $NVIM_LISTEN_ADDRESS"
 bindsym $Super+q exec --no-startup-id nvim-qt
 #bindsym $Super+r exec --no-startup-id nvim-gtk # font decayed
 bindsym $SuperS+g exec --no-startup-id glrnvim
