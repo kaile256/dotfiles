@@ -18,15 +18,15 @@ alias ## ##| ##||
 # for dein's hook {{{
 snippet hook_add
 alias ad add
-  hook_add = '${1:runtime} add/${2:}.vim'
+  hook_add = 'runtime add/${1:`substitute(substitute(matchstr(getline(search('repo =', 'bnW')), "'.*'"), "'", '', 'g'), '.*/', '', '')`}.vim'
 
 snippet hook_source
 alias so sou sour
-  hook_source = '${1:runtime} source/${2:}.vim'
+  hook_source = 'runtime source/${1:`substitute(substitute(matchstr(getline(search('repo =', 'bnW')), "'.*'"), "'", '', 'g'), '.*/', '', '')`}.vim'
 
 snippet hook_post_source
 alias po pos post
-  hook_post_source = '${1:runtime} post/${2:}.vim'
+  hook_post_source = 'runtime post/${1:`substitute(substitute(matchstr(getline(search('repo =', 'bnW')), "'.*'"), "'", '', 'g'), '.*/', '', '')`}.vim'
 
 snippet on_event
 alias ev eve even
@@ -38,7 +38,7 @@ alias ft
 
 snippet on_map
 alias ma map
-  on_map = {${1:nxo} = '${1:`substitute(matchstr(getline(search('repo =', 'bnW')), "/\zs.*'"), "'", '', 'g')`}'}
+  on_map = {${1:nxo} = '<Plug>(${1:`substitute(substitute(matchstr(getline(search('repo =', 'bnW')), "'.*'"), "'", '', 'g'), '.*/', '', '')`}'}
 
 snippet on_cmd
 alias cm cmd com
