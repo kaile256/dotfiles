@@ -38,29 +38,29 @@ nnoremap <silent> <space>b5 :<c-u>CurrentFileOnBrowser<cr>
 " Keymap; Open Words/URL under Cursor
 " Cursor; 'Go to Browser'
 " Notice: `smart-search` detects whether it is URI or not.
-nmap <space>bb <Plug>(openbrowser-smart-search)
-vmap <space>bb <Plug>(openbrowser-smart-search)
-" Cursor; Go to Browser with <cWORD>
-nmap <space>bB :<c-u>OpenBrowserSmartSearch <c-r><c-a> <cr>
-vmap <space>bB :<c-u>OpenBrowserSmartSearch <c-r><c-a> <cr>
+nmap <space>bB <Plug>(openbrowser-smart-search)
+xmap <space>bB <Plug>(openbrowser-smart-search)
+" Cursor; Go to Browser with <cWORD>, <c-r><c-a>
+nnoremap <space>ba :<c-u>OpenBrowserSmartSearch <c-r><c-a> <cr>
+xnoremap <space>ba :OpenBrowserSmartSearch<cr>
 " Cursor; GitHub
-nmap <space>bh :<c-u>OpenBrowserSmartSearch -github <c-r><c-w> <cr>
-vmap <space>bh :<c-u>OpenBrowserSmartSearch -github <c-r><c-w> <cr>
+nnoremap <space>bh :<c-u>OpenBrowserSmartSearch -github <c-r><c-w> <cr>
+xnoremap <space>bh :OpenBrowserSmartSearch -github <c-r><c-a> <cr>
 " Cursor; Github's repository
-nmap <space>bH :<c-u>OpenBrowserSmartSearch http://github.com/<c-r><c-f> <cr>
-vmap <space>bH :<c-u>OpenBrowserSmartSearch http://github.com/<c-r><c-f> <cr>
-"}}}
+nnoremap <space>bH :<c-u>OpenBrowserSmartSearch http://github.com/<c-r><c-f> <cr>
+xnoremap <space>bH :OpenBrowserSmartSearch http://github.com/<c-r><c-a> <cr>
+
 " Cursor; Gitlab
-nmap <space>bl :<c-u>OpenBrowserSmartSearch -gitlab    <c-r><c-w> <cr>
-vmap <space>bl :<c-u>OpenBrowserSmartSearch -gitlab    <c-r><c-w> <cr>
+nnoremap <space>bl :<c-u>OpenBrowserSmartSearch -gitlab    <c-r><c-w> <cr>
+xnoremap <space>bl :OpenBrowserSmartSearch -gitlab    <c-r><c-a> <cr>
 " Cursor; Gitlab's repository
-nmap <space>bL :<c-u>OpenBrowserSmartSearch -gitlab    <c-r><c-f> <cr>
-vmap <space>bL :<c-u>OpenBrowserSmartSearch -gitlab    <c-r><c-f> <cr>
+nnoremap <space>bL :<c-u>OpenBrowserSmartSearch -gitlab    <c-r><c-f> <cr>
+xnoremap <space>bL :OpenBrowserSmartSearch -gitlab    <c-r><c-a> <cr>
 " Cursor; Dictionary
 " Dictionary; Go to the free dictionary
 " Mnemonic: default `K`
-nmap <space>bK :<c-u>OpenBrowserSmartSearch -dictionary@en <c-r><c-w> <cr>
-vmap <space>bK :<c-u>OpenBrowserSmartSearch -dictionary@en <c-r><c-a> <cr>
+nnoremap <space>bK :<c-u>OpenBrowserSmartSearch -dictionary@en <c-r><c-w> <cr>
+xnoremap <space>bK :OpenBrowserSmartSearch -dictionary@en <c-r><c-a> <cr>
 " Dictionary; Get Words on thesaurus
-nmap <space>bW :<c-u>OpenBrowserSmartSearch -thesaurus <c-r><c-w> <cr>
-vmap <space>bW :<c-u>OpenBrowserSmartSearch -thesaurus <c-r><c-a> <cr>
+nnoremap <space>bW :<c-u>OpenBrowserSmartSearch -thesaurus <c-r><c-w> <cr>
+xnoremap <space>bW :OpenBrowserSmartSearch -thesaurus <c-r><c-a> <cr>
