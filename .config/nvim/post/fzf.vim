@@ -25,7 +25,7 @@
 command! -bang -nargs=* Files
       \ call fzf#vim#files(<q-args>,
       \                 <bang>0 ? fzf#vim#with_preview({'prefix': "'.git/", 'options': '--multi --reverse'}, 'right:50%:wrap')
-      \                         : fzf#vim#with_preview({'prefix': "'.git/", 'options': '--multi --reverse'}, 'right:50%'),
+      \                         : fzf#vim#with_preview({'prefix': "'.git/", 'options': '--multi --reverse'}, 'right:50%:wrap'),
       \                 <bang>0)
 
 
