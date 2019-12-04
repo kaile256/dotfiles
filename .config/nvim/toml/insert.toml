@@ -1,4 +1,77 @@
-# From: add/dein.vim
+# From: rc/dein.vim
+
+# Snippets; Engine
+[[plugins]]
+repo = 'Shougo/neosnippet.vim' #{{{
+on_event = ['InsertEnter', 'TermOpen','CmdlineEnter']
+on_map = 'NeoSnippet'
+hook_add = 'runtime add/neosnippet.vim'
+hook_source = 'runtime once/smaps.vim'
+#}}}
+#[[plugins]]
+#repo = 'SirVer/ultisnips' #{{{
+## Note: it override <TAB>
+#on_event = ['InsertEnter','TermOpen']
+#hook_post_source = 'runtime add/ultisnips.vim'
+#hook_source = 'runtime once/smaps.vim'
+##}}}
+# Snippets; Contents
+[[plugins]]
+repo = 'honza/vim-snippets' #{{{
+on_event = ['InsertEnter', 'TermOpen']
+on_source = 'neosnippet.vim'
+#}}}
+#[[plugins]]
+#repo = 'Shougo/neosnippet-snippets' #{{{
+## minimal
+#on_event = ['InsertEnter', 'TermOpen','CmdlineEnter']
+##}}}
+#[[plugins]]
+#repo = 'garbas/vim-snipmate' #{{{
+#on_event = ['InsertEnter', 'TermOpen']
+#}}}
+
+# Thesaurus;
+[[plugins]]
+repo = 'Ron89/thesaurus_query.vim' #{{{
+on_cmd = 'Thesaurus'
+hook_add = 'runtime add/thesaurus_query.vim'
+#}}}
+
+## Unicode
+#[[plugins]]
+#repo = 'chrisbra/unicode.vim' #{{{
+#on_event = 'InsertEnter'
+## Note: on_map of unicode.vim is useless; maybe because they are imap.
+##on_map = ['<Plug>(UnicodeComplete)', '<Plug>(DigraphComplete)']
+#hook_post_source = 'runtime add/unicode.vim'
+##}}}
+
+# Spell
+#[[plugins]]
+#repo = 'kamykn/spelunker.vim' #{{{
+#on_map = {ni = '<Plug>(spelunker-'}
+#hook_source = 'runtime source/spelunker.vim'
+##}}}
+#[[plugins]]
+#repo = 'rhysd/vim-grammarous' #{{{
+## Grammer Check
+## Note: Too heavy to download pre-requested files
+#on_cmd = 'GrammarousCheck'
+#hook_add = 'runtime add/grammarous.vim'
+##}}}
+#[[plugins]]
+#repo = 'shinglyu/vim-codespell' #{{{
+## only supports python?
+#on_cmd = 'Codespell'
+#hook_add = 'runtime add/codespell.vim'
+##}}}
+#[[plugins]]
+#repo = 'tweekmonster/dyslexic.vim' #{{{
+## Spell checker according to <cword>.
+#on_cmd = 'Dyslexic'
+#hook_add = 'runtime dyslexic.vimrc'
+##}}}
 
 # CapsLock
 #[[plugins]]
@@ -44,75 +117,3 @@
 #on_map = '<Plug>(complete_parameter#'
 #hook_add = 'runtime add/CompleteParameter.vim'
 ##}}}
-
-## Unicode
-#[[plugins]]
-#repo = 'chrisbra/unicode.vim' #{{{
-#on_event = 'InsertEnter'
-## Note: on_map of unicode.vim is useless; maybe because they are imap.
-##on_map = ['<Plug>(UnicodeComplete)', '<Plug>(DigraphComplete)']
-#hook_post_source = 'runtime add/unicode.vim'
-##}}}
-
-# Snippets; Engine
-[[plugins]]
-repo = 'Shougo/neosnippet.vim' #{{{
-on_event = ['InsertEnter', 'TermOpen','CmdlineEnter']
-on_map = 'NeoSnippet'
-hook_add = 'runtime add/neosnippet.vim'
-hook_source = 'runtime once/smaps.vim'
-#}}}
-#[[plugins]]
-#repo = 'SirVer/ultisnips' #{{{
-## Note: it override <TAB>
-#on_event = ['InsertEnter','TermOpen']
-#hook_post_source = 'runtime add/ultisnips.vim'
-#hook_source = 'runtime once/smaps.vim'
-##}}}
-# Snippets; Contents
-[[plugins]]
-repo = 'honza/vim-snippets' #{{{
-on_event = ['InsertEnter', 'TermOpen']
-on_source = 'neosnippet.vim'
-#}}}
-#[[plugins]]
-#repo = 'Shougo/neosnippet-snippets' #{{{
-## minimal
-#on_event = ['InsertEnter', 'TermOpen','CmdlineEnter']
-##}}}
-#[[plugins]]
-#repo = 'garbas/vim-snipmate' #{{{
-#on_event = ['InsertEnter', 'TermOpen']
-#}}}
-
-# Spell
-#[[plugins]]
-#repo = 'kamykn/spelunker.vim' #{{{
-#on_map = {ni = '<Plug>(spelunker-'}
-#hook_source = 'runtime source/spelunker.vim'
-##}}}
-#[[plugins]]
-#repo = 'rhysd/vim-grammarous' #{{{
-## Grammer Check
-## Note: Too heavy to download pre-requested files
-#on_cmd = 'GrammarousCheck'
-#hook_add = 'runtime add/grammarous.vim'
-##}}}
-#[[plugins]]
-#repo = 'shinglyu/vim-codespell' #{{{
-## only supports python?
-#on_cmd = 'Codespell'
-#hook_add = 'runtime add/codespell.vim'
-##}}}
-#[[plugins]]
-#repo = 'tweekmonster/dyslexic.vim' #{{{
-## Spell checker according to <cword>.
-#on_cmd = 'Dyslexic'
-#hook_add = 'runtime dyslexic.vimrc'
-##}}}
-
-# Thesaurus;
-[[plugins]]
-repo = 'Ron89/thesaurus_query.vim'
-on_cmd = 'Thesaurus'
-hook_add = 'runtime add/thesaurus_query.vim'
