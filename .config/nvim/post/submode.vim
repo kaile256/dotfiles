@@ -1,6 +1,27 @@
 " From: tool.toml
 " Repo: kana/vim-submode
 
+function! submode#wrapper(submode, modes, options, lhs, ...) "{{{1
+  let dict = a:1
+  let rhs = '<Nop>'
+  if len(a:000) == 2
+    if type(a:1) == type({})
+      let [dict, rhs] = [a:1, a:2]
+    else
+      let [dict, rhs] = [a:2, a:1]
+    endif
+  endif
+  let opts_to_enter = substitute(a:options, 'x', '', 'ge')
+  for mode in s:each_char(a:modes)
+    call s:define_entering_mapping(a:submode, mode, opts_to_enter, a:lhs, rhs)
+    for lhs in keys(dict)
+      call s:define_submode_mapping(a:submode, mode, a:options, lhs, dict[lhs])
+    endfor
+  endfor
+endfunction
+
+finish "{{{1
+
 function! s:seq_blackhole(key) abort
   if !get(s:, 'loaded_blackhole', 0) | return | endif
   let s:loaded_blackhole = 1
