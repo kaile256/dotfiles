@@ -3,31 +3,7 @@
 " Path; Suffix
 "set suffixesadd=.vim
 
-" Set; Font {{{1
-set ambiwidth=double
-
-if has('unix')
-  try
-    set guifont=SF\ Mono:h12
-    set guifontwide=NotoMono\ Nerd\ Font:h15
-    set guifontset=SF\ Mono:h15
-    set printfont=SF\ Mono:h12
-    "set linespace=0
-  catch
-    set guifont=Monospace:h12
-    set printfont=Monospace:h12
-  endtry
-elseif has('win32\|win64')
-  try
-    set guifont=SF_Mono:h12
-    set printfont=SF_Mono:h12
-  catch
-    set guifont=Monospace\ 12
-    set printfont=Monospace\ 12
-  endtry
-endif
-
-" $VAR; for shell {{{
+" $VAR; for shell {{{1
 let $EDITOR     = 'nvr'
 let $VISUAL     = 'nvr'
 let $GIT_EDITOR = 'nvr --remote-wait'
