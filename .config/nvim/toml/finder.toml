@@ -21,8 +21,14 @@ repo = 'fszymanski/fzf-quickfix' #{{{
 depend = 'fzf.vim'
 on_cmd = ['Quickfix']
 #}}}
+[[plugins]]
+repo = 'dominickng/fzf-session.vim' #{{{
+on_cmd = ['Session', 'Sessions']
+hook_source = 'runtime source/fzf-session.vim'
+#}}}
 #[[plugins]]
-#repo = 'yuki-ycino/fzf-preview.vim'
+#repo = 'yuki-ycino/fzf-preview.vim' #{{{
+##}}}
 #[[plugins]]
 #repo = 'srstevenson/vim-picker' #{{{
 # fzy's wrapper for vim
@@ -58,6 +64,11 @@ on_source = 'defx.nvim'
 #on_source = 'defx.nvim'
 ##}}}
 #}}} End of Defx
+#[[plugins]]
+#repo = 'skanehira/popupfiles.vim' #{{{
+## Ref: https://qiita.com/gorilla0513/items/fa4b401e7264a31868b9
+#on_cmd = 'PopupFiles'
+##}}}
 #[[plugins]]
 #repo = 'lambdalisue/fila.vim' #{{{
 ## Note: currently has no docment.
