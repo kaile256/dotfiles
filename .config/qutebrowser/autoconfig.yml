@@ -65,6 +65,7 @@ settings:
       wq: quit --save
       wqa: quit --save
       xmap: bind -m caret
+      xunmap: unbind -m caret
       zotero-save: spawn --userscript qute-zotero
   auto_save.session:
     global: true
