@@ -24,7 +24,42 @@ let g:terminal_color_15 = '#eeeeec'
 "  au! FileChangedRO * colorscheme Monokai
 "augroup END
 
-if exists('g:nyaovim_version')
+function! s:neodark_diff(...) abort "{{{1
+  hi DiffAdd cterm=reverse gui=reverse ctermfg=108 ctermbg=237 guifg=#87af87 guibg=#3a3a3a
+  hi DiffRemove  cterm=reverse gui=reverse ctermfg=167 guifg=#fb4934
+  hi DiffDelete cterm=reverse gui=reverse ctermfg=168 ctermbg=237 guifg=#d75f87 guibg=#3a3a3a
+  " the line which has difference between the one and the other.
+  hi DiffChange cterm=reverse gui=reverse ctermfg=179 ctermbg=237 guifg=#d7af5f guibg=#3a3a3a
+  " the differed characters within DiffChange
+  hi DiffText cterm=reverse gui=reverse ctermfg=74 ctermbg=236 guifg=#5fafd7 guibg=#303030
+
+  " for fugitive
+  hi diffAdded cterm=reverse gui=reverse ctermfg=108 guifg=#87af87
+  hi diffRemoved cterm=reverse gui=reverse ctermfg=168 guifg=#d75f87
+endfunction
+function! s:gruvbox_diff(...) abort "{{{1
+  hi DiffAdd     cterm=reverse gui=reverse ctermfg=142 guifg=#b8bb26
+  " the line of which only the other has.
+  hi DiffRemove  cterm=reverse gui=reverse ctermfg=167 guifg=#fb4934
+  " the line which has difference between the one and the other.
+  hi DiffChange  cterm=reverse gui=reverse ctermfg=108 guifg=#8ec07c
+  " the differed characters within DiffChange
+  hi DiffText    cterm=reverse gui=reverse ctermfg=208 guifg=#fe8019
+
+  " for fugitive
+  hi diffAdded   cterm=reverse gui=reverse ctermfg=142 guifg=#b8bb26
+  hi diffRemoved cterm=reverse gui=reverse ctermfg=167 guifg=#fb4934
+  hi diffChanged cterm=reverse gui=reverse ctermfg=108 guifg=#8ec07c
+
+  hi diffFile    cterm=reverse gui=reverse ctermfg=208 guifg=#fe8019
+  hi diffNewFile cterm=reverse gui=reverse ctermfg=214 guifg=#fabd2f
+  "hi diffLine    cterm=reverse gui=reverse ctermfg=109 guifg=#83a598
+  hi diffLine    cterm=reverse gui=reverse ctermfg=109 guifg=#36b383
+endfunction
+
+"hi Folded ctermfg=59 ctermbg=236 guifg=#5f5f5f guibg=#303030
+
+if exists('g:nyaovim_version') "{{{1
   colorscheme solarized8_light_flat
   "elseif !exists("g:GuiLoaded")
   "  " on CUI
@@ -54,23 +89,24 @@ else
     " Note: :hi should be done after :syntax.
     " line-wise
     " the line of which only the one has.
-    hi DiffAdd     cterm=reverse gui=reverse ctermfg=142 guifg=#b8bb26
-    " the line of which only the other has.
-    hi DiffRemove  cterm=reverse gui=reverse ctermfg=167 guifg=#fb4934
-    " the line which has difference between the one and the other.
-    hi DiffChange  cterm=reverse gui=reverse ctermfg=108 guifg=#8ec07c
-    " the differed characters within DiffChange
-    hi DiffText    cterm=reverse gui=reverse ctermfg=208 guifg=#fe8019
+    call s:gruvbox_diff()
+    "hi DiffAdd     cterm=reverse gui=reverse ctermfg=142 guifg=#b8bb26
+    "" the line of which only the other has.
+    "hi DiffRemove  cterm=reverse gui=reverse ctermfg=167 guifg=#fb4934
+    "" the line which has difference between the one and the other.
+    "hi DiffChange  cterm=reverse gui=reverse ctermfg=108 guifg=#8ec07c
+    "" the differed characters within DiffChange
+    "hi DiffText    cterm=reverse gui=reverse ctermfg=208 guifg=#fe8019
 
-    " for fugitive
-    hi diffAdded   cterm=reverse gui=reverse ctermfg=142 guifg=#b8bb26
-    hi diffRemoved cterm=reverse gui=reverse ctermfg=167 guifg=#fb4934
-    hi diffChanged cterm=reverse gui=reverse ctermfg=108 guifg=#8ec07c
+    "" for fugitive
+    "hi diffAdded   cterm=reverse gui=reverse ctermfg=142 guifg=#b8bb26
+    "hi diffRemoved cterm=reverse gui=reverse ctermfg=167 guifg=#fb4934
+    "hi diffChanged cterm=reverse gui=reverse ctermfg=108 guifg=#8ec07c
 
-    hi diffFile    cterm=reverse gui=reverse ctermfg=208 guifg=#fe8019
-    hi diffNewFile cterm=reverse gui=reverse ctermfg=214 guifg=#fabd2f
-    "hi diffLine    cterm=reverse gui=reverse ctermfg=109 guifg=#83a598
-    hi diffLine    cterm=reverse gui=reverse ctermfg=109 guifg=#36b383
+    "hi diffFile    cterm=reverse gui=reverse ctermfg=208 guifg=#fe8019
+    "hi diffNewFile cterm=reverse gui=reverse ctermfg=214 guifg=#fabd2f
+    ""hi diffLine    cterm=reverse gui=reverse ctermfg=109 guifg=#83a598
+    "hi diffLine    cterm=reverse gui=reverse ctermfg=109 guifg=#36b383
   endfunction "}}}2
   call s:colorschemes_neodark()
 endif
@@ -78,6 +114,8 @@ endif
 " coc.nvim supports
 hi HighlightedyankRegion ctermfg=232 ctermbg=66 guifg=#000000 guibg=#df5f29
 hi CocErrorHighlight ctermfg=Red  guifg=#ff0000
+
+hi CursorIM guibg=#fabd1f
 
 finish "{{{1
 
