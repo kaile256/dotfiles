@@ -3,8 +3,8 @@
 " Appearance; Blend {{{
 " Note: it works dum CUI.
 if exists('&pumblend')
-  set pumblend=40
-  set winblend=50
+  set pumblend=35
+  set winblend=40
 endif
 "}}}
 "" $VAR: DEVROOTs and $PATH {{{1
