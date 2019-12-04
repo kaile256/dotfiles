@@ -5,13 +5,6 @@ scriptencoding utf-8
 " Ref: /usr/share/nvim/runtime/autoload/netrw.vim
 " Ref: /usr/share/nvim/runtime/plugin/netrwPlugin.vim
 
-" Prepare commands to chmod on defx.
-" TODO: make it a carrent path.
-"command! Chmod_755 :call setfperm(<cfile>, 'rwxr-xr-x')
-"command! Chmod_666 :call setfperm(<cfile>, 'rw-rw-rw-')
-"command! Chmod_644 :call setfperm(<cfile>, 'rw-r--r--')
-"command! Chmod_444 :call setfperm(<cfile>, 'r--r--r--')
-
 "" Defx-Icons {{{1
 "" Note: defx-icons collapses i3 or qt.
 "" Note: Syntax highlighting can cause some performance issues in defx window.
@@ -57,16 +50,37 @@ call defx#custom#column('mark', {
 "let s:defx_is_wide   = {-> winwidth('.') > g:defx_standard_width}
 "let s:defx_is_narrow = {-> winwidth('.') <= g:defx_standard_width}
 function! s:defx_is_wide() abort
+  if @% =~# '\[defx\]'
+    return winwidth('.') > g:defx_sidebar_width
+  endif
   return winwidth(bufwinnr('\[defx\]')) > g:defx_sidebar_width
 endfunction
 function! s:defx_is_narrow() abort
+  if @% =~# '\[defx\]'
+    return winwidth('.') <= g:defx_sidebar_width
+  endif
   return winwidth(bufwinnr('\[defx\]')) <= g:defx_sidebar_width
 endfunction
 function! s:single_window() abort
   return len(tabpagebuflist()) <= 2
 endfunction
 
-function! s:defx_keymap_explorer() abort
+function! s:defx_commands() abort
+  " Prepare commands to chmod on defx.
+  " TODO: make it a carrent path.
+  command! -buffer -range -nargs=1 Chmod :call s:chmod(<q-args>)
+  if !exists('*s:chmod')
+    function! s:chmod(rwx) abort
+      let rwx =  a:rwx =~# 'r' ? 'r' : '-'
+      let rwx .= a:rwx =~# 'w' ? 'w' : '-'
+      let rwx .= a:rwx =~# 'x' ? 'x' : '-'
+      " TODO: get current dir
+      call setfperm(getcwd() .'/'. expand('<cfile>'), rwx .'r--r--')
+    endfunction
+  endif
+endfunction
+
+function! s:defx_keymaps() abort
   " TODO: what is the 'search' for?
   nnoremap <silent><nowait><buffer><expr> S
         \ defx#do_action('search')
@@ -77,6 +91,7 @@ function! s:defx_keymap_explorer() abort
   nnoremap <silent><nowait><buffer> gg :2<cr>
   nnoremap <silent><nowait><buffer><expr> h
         \ defx#do_action('cd', ['..'])
+  " Note: 'zb' to always show all dir/file
   nnoremap <silent><nowait><buffer><expr> l
         \ defx#do_action('open_directory')
         \ .'zb'
@@ -284,6 +299,7 @@ augroup OnDefxBuffer
   "      \ | endif
   "au WinEnter * if s:defx_is_narrow() | call setbufvar(bufnr('\[defx\]'), '&winfixwidth', 1)
   "au WinNew   * if s:defx_is_narrow() | call setbufvar(bufnr('\[defx\]'), '&winfixwidth', 0)
-  au FileType defx call s:defx_keymap_explorer()
+  au FileType defx call s:defx_keymaps()
+  au FileType defx call s:defx_commands()
   "au BufWritePost * call defx#redraw() " of course, includes a check for defx-channel
 augroup END
