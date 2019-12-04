@@ -1,7 +1,6 @@
 " From: motion.toml
 " Repo: bkad/CamelCaseMotion
-" Fork: kaile256/CamelCaseMotion
-" PR: https://github.com/bkad/CamelCaseMotion/pull/41
+" PR-Merged: bkad/CamelCaseMotion/pull/41
 
 " Convenience
 "noremap ie iw
