@@ -52,7 +52,9 @@ let g:mkdp_echo_preview_url = 1
 let g:mkdp_browserfunc = ''
 
 " absolute path to custom markdown style
-let g:mkdp_markdown_css = g:dotfiles_home .'/css/github-markdown.css'
+let s:css_home = g:dotfiles_home .'/css/'
+let g:mkdp_markdown_css = s:css_home .'/qiita-md.css'
+let g:mkdp_markdown_css = s:css_home .'/github-md.css'
 
 " absolute path to custom highlight style
 let g:mkdp_highlight_css = ''
