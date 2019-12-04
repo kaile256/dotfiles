@@ -1,9 +1,14 @@
 # From: rc/dein.vim
 
+[[plugins]]
+repo = 'kana/vim-operator-user' #{{{
+on_func = 'operator#user#'
+#}}}
+
 # Charater's Case
 [[plugins]]
-repo = 'kaile256/CamelCaseMotion' #{{{
-#repo = 'bkad/CamelCaseMotion'
+repo = 'bkad/CamelCaseMotion' #{{{
+# PR-Merged: bkad/CamelCaseMotion/pull/41
 on_map = {nxo = '<Plug>CamelCaseMotion_'}
 #on_event = 'BufRead'
 hook_add = 'runtime add/CamelCaseMotion.vim'
@@ -35,6 +40,11 @@ hook_add = 'runtime add/asterisk.vim'
 ##}}}
 
 # Jump to Target
+#[[plugins]]
+#repo = 'unblevable/quick-scope' #{{{
+#on_map = {nox = '<Plug>(QuickScope'}
+#hook_add = 'runtime add/quick-scope.vim'
+##}}}
 [[plugins]]
 repo = 'kaile256/vim-sneak' #{{{
 #repo = 'justinmk/vim-sneak'
@@ -108,7 +118,8 @@ hook_post_source = 'runtime post/sneak.vim'
 ##}}}
 [[plugins]]
 repo = 'tyru/caw.vim' #{{{
-# operater to comment out
+# operater requires kana/vim-operator-user
+# Note: no use <Plug>(caw:foo:bar:operator), why?
 on_map = '<Plug>(caw:'
 hook_add = 'runtime add/caw.vim'
 #}}}
@@ -154,13 +165,14 @@ hook_add = 'runtime add/matchup.vim'
 hook_post_source = 'runtime post/matchup.vim'
 #}}}
 [[plugins]]
-repo = 'machakann/vim-sandwich' #{{{
+repo = 'kaile256/vim-sandwich' #{{{
+#repo = 'machakann/vim-sandwich'
 on_map = {nx = '<Plug>(operator-sandwich-'}
 hook_add = 'runtime add/sandwich.vim'
 hook_done_update = '''
-exe 'argadd' g:dein_github_dir .'/machakann/vim-sandwich/autoload/textobj/sandwich/recipes.vim'
-exe 'argadd' g:dein_github_dir .'/machakann/vim-sandwich/autoload/sandwich.vim'
-exe 'argadd' g:dein_github_dir .'/machakann/vim-sandwich/autoload/operator/sandwich/operator.vim'
+exe 'argadd' g:dein_github_dir .'/kaile256/vim-sandwich/autoload/textobj/sandwich/recipes.vim'
+exe 'argadd' g:dein_github_dir .'/kaile256/vim-sandwich/autoload/sandwich.vim'
+exe 'argadd' g:dein_github_dir .'/kaile256/vim-sandwich/autoload/operator/sandwich/operator.vim'
 argdo g/= type(c) == s:type_num ? nr2char(c) : c/norm! na (c ==# "\<S-lt>")? '<':
 write
 '''
