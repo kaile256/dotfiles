@@ -14,10 +14,11 @@ command! -nargs=+ -bar Gclone :Git clone <args>
 
 " unstage all the other not to commit one unitentionally
 " Note: practically, no such command as git-unstage
+" TODO: make it work
 command! -nargs=? -bar -complete=customlist,fugitive#CommitComplete
       \ Gunstage
-      \ :silent exe <args>0
-      \ ? 'Git reset' <args>
+      \ :silent exe (<q-args> !=# '')
+      \ ? 'Git reset shellescape(expand(<q-args>))'
       \ : 'Git reset HEAD'
 
 command! -nargs=? -bar -complete=customlist,fugitive#EditComplete
@@ -171,7 +172,7 @@ nnoremap <silent> <space>gb :<c-u>Gblame<cr>
 nnoremap <silent> <space>gs :<c-u>Gvstatus<cr>
 " Add; {{{1
 " Note: <c-w>p<c-w>p is necessary to update signcolumn
-nnoremap <silent> <space>ga :<c-u>Gw <bar> Gvstatus<cr><c-w>p<c-w>p
+nnoremap <silent> <space>ga :<c-u>Gw <bar> Gvstatus <bar> call win_gotoid(bufwinid('.git/index'))<cr>
 nnoremap <silent> <space>gw :<c-u>GwWinpickVDiffStaging HEAD<cr>
 " Command! GwWinpickVDiff {{{2
 command! -bar -bang -nargs=* -complete=customlist,fugitive#EditComplete
@@ -213,3 +214,8 @@ command! -bar -nargs=?
 nnoremap <silent> <space>gd :<c-u>GwWinpickVDiff<cr>
 " Note: should be compared in current buffer
 nnoremap <silent> <space>gD :<c-u>GwWinpickVDiff HEAD<cr>
+
+" Unstage {{{1
+" TODO: make :Gunstage % work
+nnoremap <silent> <space>gu :<c-u>Gunstage %<cr>
+nnoremap <silent> <space>gU :<c-u>Gunstage<cr>
