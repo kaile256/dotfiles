@@ -5,15 +5,20 @@ set -x FZF_TMUX 1
 # use ripgrep; ignore obj. in gitignore. follow symbolic links.
 set -x FZF_DEFAULT_COMMAND 'rg --files --hidden --follow --glob "!.git/*"'
 
-bind \ex '__fzf_find_file'
+# '\e' to 'alt(=esc)-'; '\c' to 'ctrl-'
+bind \cx\cf '__fzf_find_file'
+bind \cxf   '__fzf_find_file'
 # Mnemonic: Search
-bind \es '__fzf_reverse_isearch'
-#bind \ec '__fzf_cd'
+bind \cx\cp '__fzf_reverse_isearch'
+bind \cxp   '__fzf_reverse_isearch'
+#bind \cc '__fzf_cd'
 # Mnemonic: Cd
-bind \ec '__fzf_cd --hidden'
-#bind \eo '__fzf_open'
+bind \cx\cd '__fzf_cd --hidden'
+bind \cxd   '__fzf_cd --hidden'
+
 # Mnemonic: Edit it
-bind \ee '__fzf_open --editor'
+bind \cx\cv '__fzf_open --editor'
+bind \cxv   '__fzf_open --editor'
 
 if bind -M insert >/dev/null 2>/dev/null
   bind -M insert \co '__fzf_find_file'
