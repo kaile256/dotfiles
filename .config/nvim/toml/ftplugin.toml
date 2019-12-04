@@ -43,6 +43,10 @@ hook_add = 'runtime add/lookup.vim'
 
 # Rust
 #[[plugins]]
+#repo = 'rust-lang/rust.vim' #{{{
+#on_ft = 'rust'
+##}}}
+#[[plugins]]
 #repo = 'rhysd/rust-doc.vim' #{{{
 #on_cmd = 'RustDoc'
 #hook_source = 'runtime add/rust-doc.vim'
@@ -61,23 +65,32 @@ on_ft = 'python'
 #hook_source = 'runtime source/python-mode.vim'
 ##}}}
 [[plugins]]
-repo = 'tweekmonster/braceless.vim'
+repo = 'tweekmonster/braceless.vim' #{{{
 # To: fold up to syntax of python.
 on_ft = 'python'
 hook_source = 'runtime add/braceless.vim'
+#}}}
 # Jupyter
 [[plugins]]
-repo = 'goerz/jupytext.vim'
+repo = 'goerz/jupytext.vim' #{{{
 on_ft = ['ipynb']
 hook_source = 'runtime source/jupytext.vim'
+#}}}
 [[plugins]]
-repo = 'szymonmaszke/vimpyter'
+repo = 'szymonmaszke/vimpyter' #{{{
 on_ft = ['ipynb']
 hook_source = 'runtime source/vimpyter.vim'
+#}}}
 
 # Markdown
+#[[plugins]]
+#repo = 'reroche/vim-markdown-preview' #{{{
+## several requirements
+#on_ft = 'markdown'
+##}}}
 [[plugins]]
 repo = 'iamcco/markdown-preview.nvim' #{{{
+# Ref: iamcco/markdown.css
 on_ft = 'markdown'
 build = 'cd app & yarn install'
 hook_source = 'runtime add/markdown-preview.vim'
