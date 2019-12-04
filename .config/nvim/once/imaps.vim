@@ -77,6 +77,11 @@ inoremap <silent> <a-c> <esc>:call feedkeys('c')<cr>
 inoremap <silent> <a-u> <esc>:call feedkeys('u')<cr>
 
 " Register "{{{1
+"function! s:paste() abort
+"  let char = nr2char(getchar())
+"  exe 'norm! "' char ']p`]a'
+"endfunction
+
 inoremap <expr> <c-r> '<esc>"'.nr2char(getchar()).']p`]a'
 inoremap <c-r><c-0> <c-g>u<c-r>0
 inoremap <c-r><c-space> <c-g>u<c-r>+
