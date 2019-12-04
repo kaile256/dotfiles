@@ -83,6 +83,7 @@ on_cmd = ['errorlist#Navigate']
 on_event = ['BufRead']
 hook_source = 'runtime source/errorlist.vim'
 #}}}
+
 # Checker
 #[[plugins]]
 #repo = 'haya14busa/vim-stacktrace' #{{{
