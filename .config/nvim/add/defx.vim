@@ -81,6 +81,7 @@ nnoremap <silent> <a-x><a-f>
 augroup DefxInsteadOfNetrw "{{{1
   au!
   au FileType defx wincmd =
+  au FileType defx if line('.') == 1 | norm! j | endif
   " Ref: https://github.com/Shougo/defx.nvim/issues/121
   " Ref: /usr/share/nvim/runtime/plugin/netrwPlugin.vim
   "let g:loaded_netrw = 1 " necessary to read via https
