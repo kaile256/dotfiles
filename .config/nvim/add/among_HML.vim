@@ -121,11 +121,15 @@ onoremap <silent> L L
 
 " Evacuations for default {{{1
 if mapcheck('K') !=# ''
+  " Mnemonic: Get the Keyword
   nnoremap gK K
   xnoremap gK K
 endif
 if mapcheck('J') !=# ''
+  " Mnemonic: <space>-leaving Join
   nnoremap <space>J J
   xnoremap <space>J J
+  " Mnemonic: Zipped Join (<space>-compressed)
+  nnoremap zJ J"_x
 endif
 
