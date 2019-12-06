@@ -115,6 +115,7 @@ done
 
 cd "${XDG_DATA_HOME}/qutebrowser"
 ln -nsf "${DOTFILES}/.config/qutebrowser/userscripts" .
+ln -nsf "${DOTFILES}/.config/qutebrowser/greasemonkey" .
 
 cd "$CURRENT_DIR"
 
