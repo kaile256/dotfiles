@@ -1,12 +1,22 @@
 # From: rc/dein.vim
 
 [[plugins]]
-repo = 'sheerun/vim-polyglot'
+repo = 'sheerun/vim-polyglot' #{{{
 on_if = "index(['', 'terminal', 'i3', 'javascript'], &ft) < 0"
 #if    = "index(['', 'terminal'], &ft) < 0"
 #on_if = "index(get(g:, 'polyglot_disabled', ['i3', 'javascript']), &ft) < 0"
 hook_source = 'runtime source/polyglot.vim'
+#}}}
 
+[[plugins]]
+repo = 'billyvg/tigris.nvim' #{{{
+build = './install.sh'
+#depend = 'node-host'
+# Note: node-host, previously depended on, has been merged into neovim!
+#       Ref: neovim/neovim/pull/7458
+on_ft = ['javascript', 'javascript.jsx']
+hook_source = 'runtime source/tigris.vim'
+#}}}
 #[[plugins]]
 #repo = 'fatih/vim-go' #{{{
 ## CAUTION: override ':norm K'.
@@ -35,17 +45,8 @@ hook_source = 'runtime source/polyglot.vim'
 #repo = 'Alloyed/lua-lsp' #{{{
 #on_ft = 'lua'
 #}}}
-[[plugins]]
-repo = 'billyvg/tigris.nvim' #{{{
-build = './install.sh'
-#depend = 'node-host'
-# Note: node-host, previously depended on, has been merged into neovim!
-#       Ref: neovim/neovim/pull/7458
-on_ft = ['javascript', 'javascript.jsx']
-hook_source = 'runtime source/tigris.vim'
-#}}}
 
-# for Shell or Term-Emulater;
+# for Shell
 #[[plugins]]
 #repo = 'dag/vim-fish' #{{{
 #on_ft = 'fish'
@@ -66,10 +67,15 @@ on_ft = 'zsh'
 #hook_post_source = 'runtime add/haskell.vim'
 #}}}
 
+# for Text-like
 [[plugins]]
 repo = 'plasticboy/vim-markdown' #{{{
 on_ft = 'markdown'
 hook_source = 'runtime add/markdown.vim'
+#}}}
+[[plugins]]
+repo = 'lyokha/vim-publish-helper' #{{{
+on_ft = 'pandoc'
 #}}}
 #[[plugins]]
 #repo = 'othree/html5.vim' #{{{
@@ -98,12 +104,13 @@ hook_source = 'runtime add/markdown.vim'
 #on_ft = 'text'
 ##}}}
 
-#[[plugins]]
+# for TOML
 [[plugins]]
 repo = 'delphinus/vim-toml-dein' #{{{
 # syntax highlight for 'hook_add'
 on_ft = 'toml'
 #}}}
+#[[plugins]]
 #repo = 'vmchale/tomlcheck-vim' #{{{
 #on_ft = 'toml'
 ##}}}
@@ -112,6 +119,7 @@ on_ft = 'toml'
 #on_ft = 'toml'
 ##}}}
 
+# for i3
 [[plugins]]
 repo = 'PotatoesMaster/i3-vim-syntax' #{{{
 # Note: vim-polyglot doesn't have enough syntax for i3.
