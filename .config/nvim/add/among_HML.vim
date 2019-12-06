@@ -1,10 +1,6 @@
 " From: myplug.toml
 " Repo: kaile256/vim-among_HML
 
-" among_HML#percent {{{1
-"noremap <silent> K <Cmd>call among_HML#percent(25)<cr>
-"noremap <silent> J <Cmd>call among_HML#percent(75)<cr>
-
 " among_HML#fork {{{1
 "" 13 Patterns {{{2
 "noremap <silent> H <Cmd>call among_HML#fork#init('H', '0', {
@@ -116,6 +112,12 @@ noremap <silent> L <Cmd>call among_HML#fork#init('L', '100', {
 "" among_HML#scroll {{{1
 "nnoremap <silent> <c-j> :<c-u>call among_HML#scroll#percent(25, 'down')<cr>
 "nnoremap <silent> <c-k> :<c-u>call among_HML#scroll#percent(25, 'up')<cr>
+
+" among_HML#percent {{{1
+onoremap <silent> K <Cmd>call among_HML#percent(25)<cr>
+onoremap <silent> J <Cmd>call among_HML#percent(75)<cr>
+onoremap <silent> H H
+onoremap <silent> L L
 
 " Evacuations for default {{{1
 if mapcheck('K') !=# ''
