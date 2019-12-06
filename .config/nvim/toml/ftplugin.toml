@@ -83,6 +83,16 @@ hook_source = 'runtime source/vimpyter.vim'
 #}}}
 
 # Markdown
+[[plugins]]
+repo = 'previm/previm' #{{{
+on_ft = 'markdown'
+hook_source = 'runtime source/previm.vim'
+hook_done_update = '''
+exe 'e' g:dein_github_dir .'/previm/previm/plugin/previm.vim'
+g/FileType *{md,mkd,markdown,rst,textile,asciidoc}*/norm! oau BufEnter *.{md,mkd,markdown,mdown,mkdn,mdwn}/e
+write
+'''
+#}}}
 #[[plugins]]
 #repo = 'reroche/vim-markdown-preview' #{{{
 ## several requirements
