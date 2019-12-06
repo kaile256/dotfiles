@@ -7,7 +7,7 @@
 "augroup END
 
 " open CmdWin
-noremap <space>: q:
+noremap <space>: q:i
 
 " No Highlight "{{{1
 " Ref: compare :redraw with <c-l> or :mode
@@ -17,6 +17,7 @@ nnoremap <silent> <c-space><c-space> :<c-u>noh <bar> redraw!<cr>
 
 " New window "{{{1
 nnoremap <silent> <c-w><space>n :<c-u>vnew<cr>
+nnoremap <silent> <c-w>gn       :<c-u>tabnew<cr>
 
 nnoremap <Plug>(wincopy-in-tab) <c-w>v<c-w>T
 nmap <c-w>gt <Plug>(wincopy-in-tab)
