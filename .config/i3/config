@@ -86,7 +86,7 @@ bindsym $Super+Shift+d --release exec "killall dunst; exec notify-send 'restart 
 ## Kill Focused Window
 bindsym $Super+z  kill
 # reload the configuration file
-bindsym $SuperS+c reload
+#bindsym $SuperS+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $Super+space  restart
 #}}}
@@ -128,6 +128,8 @@ bindsym $Super+g exec --no-startup-id gnvim
 bindsym $Super+y exec --no-startup-id nyaovim
 bindsym $Super+o exec --no-startup-id oni
 bindsym $Super+e exec --no-startup-id emacs
+bindsym $SuperS+v exec --no-startup-id code
+bindsym $SuperS+c exec --no-startup-id code
 #}}}
 # Keybind; open Browser {{{
 bindsym $Super+b exec qutebrowser
