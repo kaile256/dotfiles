@@ -6,6 +6,8 @@
 "  au! CmdlineLeave * if exists('g:cmd_last_cursor') | call matchdelete(g:cmd_last_cursor) | endif
 "augroup END
 
+noremap <space>/ q/
+noremap <space>? q?
 " open CmdWin
 noremap <space>: q:i
 
