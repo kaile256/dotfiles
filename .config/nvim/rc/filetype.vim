@@ -6,8 +6,15 @@ augroup AppendFileType
   au BufNewFile,BufRead *.snip   setl ft=neosnippet
   au BufNewFile,BufRead *.dict   setl ft=skkdict
   au BufNewFile,BufRead .vmailrc setl ft=yaml
-  au BufNewFile,BufRead i3/**/config,i3/**.conf setl ft=i3
-  au BufWinEnter dotfiles**,.config** setl fdm=marker
+
+  au BufNewFile,BufRead i3/**{config,.conf} setl ft=i3
+  au BufWinEnter {dotfiles,config}** setl fdm=marker
+augroup END
+
+augroup AppendPathToFind
+  au!
+  au FileType python setl path^=/usr/lib/python3.7/
+  au FileType go     setl path^=/usr/lib/go/
 augroup END
 
 augroup MyRuntimesOnFileTypes
