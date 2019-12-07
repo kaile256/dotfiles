@@ -2,8 +2,7 @@ snippet snippet
 alias sni ini
   snippet ${1:snippet title}
   alias ${3:space_broken}
-  ${4:#:options} ${4:#:space_broken}
-    ${0:indented}
+    ${0:#:indented}
 
 # Fold
 snippet {{{ beginning of fold
@@ -27,8 +26,11 @@ alias " "}} "} "}}}
   "}}}
 
 snippet filename
-alias file
-  ${1:Copy directly: `expand('%') =~ 'plugin' ? substitute(matchstr(expand('%:p'),'plugin/\zs.*\ze.vim'),'[/\\]','#','g').'#' : ''`}
+alias file fname
+# Copy it directly:
+  ${1:`expand('%') =~ 'plugin' ? substitute(matchstr(expand('%:p'),'plugin/\zs.*\ze.vim'),'[/\\]','#','g').'#' : ''`}
+
 snippet rootname
-alias root
-  ${1:Copy directly: `matchstr(expand('%:p'), 'github.com/.*/\zs.*\ze/.*/') =~ 'plugin' ? substitute(matchstr(expand('%:p'),'github.com/\zs.*\ze'),'[/\\]','#','g').'#' : ''`}
+alias root rname
+# Copy it directly:
+  ${1:`matchstr(expand('%:p'), 'github.com/.*/\zs.*\ze/.*/') =~ 'plugin' ? substitute(matchstr(expand('%:p'),'github.com/\zs.*\ze'),'[/\\]','#','g').'#' : ''`}
