@@ -1,5 +1,13 @@
 # From: rc/dein.vim
 
+# Scratch
+#[[plugins]]
+#repo = 'mtth/scratch.vim' #{{{
+## Note: cannot :source in it
+#on_cmd = ['Scratch']
+#on_map = {nx = '<Plug>(scratch-'}
+##}}}
+
 # Table-Mode
 [[plugins]]
 repo = 'dhruvasagar/vim-table-mode' #{{{
