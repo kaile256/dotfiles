@@ -38,7 +38,7 @@ alias ft
 
 snippet on_map
 alias ma map
-  on_map = {${1:nxo} = '<Plug>(${1:`substitute(substitute(matchstr(getline(search('repo =', 'bnW')), "'.*'"), "'", '', 'g'), '.*/', '', '')`}'}
+  on_map = {${1:nxo} = '<Plug>(${2:`substitute(substitute(substitute(matchstr(getline(search('repo =', 'bnW')), "'.*'"), "'", '', 'g'), '.*/', '', ''), '.vim\|vim-', '', 'g')`}${3:-}'}
 
 snippet on_cmd
 alias cm cmd com
