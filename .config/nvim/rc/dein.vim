@@ -71,6 +71,7 @@ let s:dein_toml_initial = [
       \ ]
 let s:dein_toml_lazy = [
       \ 'appearance.toml',
+      \ 'debug.toml',
       \ 'default.toml',
       \ 'denite.toml',
       \ 'extension.toml',
@@ -135,3 +136,11 @@ augroup DeinTomlAutoConf "{{{1
   au BufWinEnter filetype.toml setl syn=vim
 augroup END
 
+" unlet {{{1
+""unlet s:dein_toml_dir
+"unlet s:dein_itself
+"unlet s:dein_log_file
+"unlet s:dein_data_dir
+"unlet s:dein_toml_lazy
+"unlet s:dein_toml_initial
+"
