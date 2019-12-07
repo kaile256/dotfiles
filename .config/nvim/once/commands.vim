@@ -53,7 +53,8 @@ function! s:cd_here(args) abort
   endif
 endfunction
 
-command! -nargs=* Vint :w <bar> !vint --enable-neovim <args> %:p
+" TODO: make vint restricted to the range
+command! -nargs=* -range Vint :w <bar> !vint --enable-neovim <args> %:p
 command! -bar So :call s:source_buffer() "{{{1
 command! -bar SO :call s:source_buffer()
 
