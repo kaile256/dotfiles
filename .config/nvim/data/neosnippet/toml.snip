@@ -40,9 +40,13 @@ snippet on_map
 alias ma map
   on_map = {${1:nxo} = '<Plug>(${2:`substitute(substitute(substitute(matchstr(getline(search('repo =', 'bnW')), "'.*'"), "'", '', 'g'), '.*/', '', ''), '.vim\|vim-', '', 'g')`}${3:-}'}
 
+snippet on_func
+alias fu fn fun func
+  on_func =  ['${2:`substitute(substitute(substitute(matchstr(getline(search('repo =', 'bnW')), "'.*'"), "'", '', 'g'), '.*/', '', ''), '.vim\|vim-', '', 'g')`}#']
+
 snippet on_cmd
 alias cm cmd com
-  on_cmd = ['${1:`substitute(matchstr(getline(search('repo =', 'bnW')), "/\zs.*'"), "'", '', 'g')`}']
+  on_cmd =  ['${2:`substitute(substitute(substitute(matchstr(getline(search('repo =', 'bnW')), "'.*'"), "'", '', 'g'), '.*/', '', ''), '.vim\|vim-', '', 'g')`}#']
 
 snippet hook_done_update
 alias du
