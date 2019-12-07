@@ -77,28 +77,6 @@ write
 #hook_post_source = 'runtime add/sonictemplate.vim'
 #}}}
 
-[[plugins]]
-repo = 'infokiller/vim-errorlist' #{{{
-on_cmd = ['errorlist#Navigate']
-on_event = ['BufRead']
-hook_source = 'runtime source/errorlist.vim'
-#}}}
-
-# Checker
-#[[plugins]]
-#repo = 'haya14busa/vim-stacktrace' #{{{
-## Note: a lot of unknown_functions
-#build = 'make'
-#on_cmd = ['CStacktraceFromhist', 'LStacktraceFromhist']
-#hook_add = 'runtime add/stacktrace.vim'
-##}}}
-#[[plugins]]
-#repo = 'lacygoill/vim-stacktrace' #{{{
-## WIP: no use because of the lack of autoload-functions except main()
-#on_cmd = 'WTF'
-#hook_post_source = 'runtime add/stacktrace.vim'
-##}}}
-
 #[[plugins]]
 #repo = 'chrisbra/NrrwRgn' #{{{
 #on_event = 'VimEnter'
