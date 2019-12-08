@@ -223,10 +223,6 @@ augroup END
 
 "augroup MyAutoView
 "" Note: may cause trouble with shada in such caches as jumplist.
-augroup FoldMyConfigsAtMarker
-  au!
-  au BufWinEnter dotfiles/**,.config/** setl fdm=marker
-augroup END
 "  function! s:is_view_available() abort "{{{
 "    if !&buflisted || &bt !=# ''
 "      return 0
@@ -248,12 +244,6 @@ augroup END
 "  au BufWinLeave ?* call s:mkview()
 "  au BufReadPost ?* call s:loadview()
 "augroup END
-augroup SetFdmDotfiles
-  au!
-  au BufWinEnter .config/**,dotfiles/** if &fdm !=# 'marker' | set fdm=marker
-  " TODO: Understand :mkview
-  " mkview: save a file condition according to `:viewoptions`
-augroup END
 " Method; Shada {{{2
 set shada='1000,<50,h,s10,
 augroup AutoWriteShada
