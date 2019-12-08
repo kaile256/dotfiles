@@ -95,6 +95,11 @@ augroup FzfMyAutoConf "{{{1
     setl statusline=%#fzf1#\ >\ %#fzf2#fz%#fzf3#f
   endfunction "}}}
   au User FzfStatusLine call s:fzf_buffer_statusline()
+  function! s:fzf_buffer_keymaps() abort "{{{1
+    nnoremap <buffer> <c-f> i<PageDown><c-\><c-n>
+    nnoremap <buffer> <c-b> i<PageUp><c-\><c-n>
+  endfunction "}}}
+  au User FzfStatusLine call s:fzf_buffer_keymaps()
   au User FzfStatusLine call feedkeys('!.git ')
   "au BufWinEnter * if &ft ==# 'fzf' | runtime once/terminal
   " CAUTION: WinLeave's current file is next file, i.e., fzf when opening fzf-buffer.
