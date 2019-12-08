@@ -47,7 +47,4 @@ command! DenitePrev :Denite -resume -cursor-pos=-1 -immediately
 command! DeniteNext :Denite -resume -cursor-pos=+1 -immediately
 command! DeniteDo   :Denite -resume -do='normal! A;'
 
-command! DGbranch :Denite branch
-command! DGbranch :Denite branch
-command! DGbranch :Denite branch
-command! DGbranch :Denite branch
+command! DeniteGbranch :Denite branch
