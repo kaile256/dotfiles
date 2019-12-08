@@ -21,19 +21,19 @@ let $TERM = 'xterm-256color'
 "let g:config_home = stdpath('config')
 "let g:cache_home  = stdpath('cache')
 "let g:data_home   = stdpath('data')
-let g:config_home = empty($XDG_CONFIG_HOME) ? expand('~/.config/') : $XDG_CONFIG_HOME
-let g:cache_home = empty($XDG_CACHE_HOME) ? expand('~/.cache/') : $XDG_CACHE_HOME
-let g:data_home = empty($XDG_DATA_HOME) ? expand('~/.local/share/') : $XDG_DATA_HOME
+let g:cache_home  = empty($XDG_CACHE_HOME)  ? expand('~/.cache/')       : $XDG_CACHE_HOME
+let g:config_home = empty($XDG_CONFIG_HOME) ? expand('~/.config/')      : $XDG_CONFIG_HOME
+let g:data_home   = empty($XDG_DATA_HOME)   ? expand('~/.local/share/') : $XDG_DATA_HOME
 let g:dotfiles_home  = '~/dotfiles/'
 let g:nvim_home = empty($VIMCONFIG) ? expand(g:dotfiles_home .'/.config/nvim/') : $VIMCONFIG
-let g:nvim_data_home = g:nvim_home . 'data/'
-let g:dev_root = '~/dev/'
+let g:nvim_data_home = g:nvim_home . '/data/'
+let g:my_css_home = '~/Downloads/css'
 
 "}}}
 " $var; for Vim {{{
 if isdirectory('~/kaile256')
   let $MYVIMRC = expand('<sfile>')
-  let $HOME = expand('<sfile>:h')
+  let $HOME    = expand('<sfile>:h')
 endif
 "}}}
 
