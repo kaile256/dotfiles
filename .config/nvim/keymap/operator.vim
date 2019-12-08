@@ -40,10 +40,49 @@ endfunction "}}}1
 "nmap c <Plug>(clean-register-change)
 
 " TODO: enable to dot-repoeat
-nnoremap <expr> <Plug>(move-line-downward) (@" ==# substitute(getline('.'), '$', '\n', 'g'))? '"_ddp':  'ddp'
-nnoremap <expr> <Plug>(move-line-upward)   (@" ==# substitute(getline('.'), '$', '\n', 'g'))? '"_ddkP': 'ddkP'
-nnoremap <expr> <Plug>(copy-line-downward) (@0 ==# substitute(getline('.'), '$', '\n', 'g'))? 'p': 'yyp'
-nnoremap <expr> <Plug>(copy-line-upward)   (@0 ==# substitute(getline('.'), '$', '\n', 'g'))? 'P': 'yyP'
+nnoremap <expr> <Plug>(move-line-downward) (getline('.') ==# substitute(@", "\n", '', 'g'))? '"_ddp':  'ddp'
+nnoremap <expr> <Plug>(move-line-upward)   (getline('.') ==# substitute(@", "\n", '', 'g'))? '"_ddkP': 'ddkP'
+nnoremap <expr> <Plug>(copy-line-downward) (getline('.') ==# substitute(@0, "\n", '', 'g'))? '"0p': 'yyp'
+nnoremap <expr> <Plug>(copy-line-upward)   (getline('.') ==# substitute(@0, "\n", '', 'g'))? '"0P': 'yyP'
+
+"function! s:visualized_area() abort
+"  let cursor = {
+"        \ 'line':  line("'>"),
+"        \ 'col':  col("'>") - 1,
+"        \ }
+"  let other = {
+"        \ 'line': line("'<"),
+"        \ 'col': col("'<") - 1,
+"        \ }
+"  for key in keys(line)
+"    let above[pos] = (cursor[pos] > other[pos])? cursor[pos] : other[pos]
+"    let below[pos] = (cursor[pos] > other[pos])? cursor[pos] : other[pos]
+"  endfor
+"  for line in [above.line : below.line]
+"  if visualmode() ==# 'v'
+"    let area = getline("'<")[above.line:]
+"    let end  = getline("'>")[:below]
+"  elseif visualmode() ==# 'V'
+"    let area = chars
+"  else
+"    let area = getline("'<")[above : below]
+"    let end  = getline("'>")[above : below]
+"  endif
+"  for chars in [line("'<") + 1, line("'>") - 1]
+"    if visualmode() ==# 'v'
+"      let area .= chars[above : below] ."\n"
+"    elseif visualmode() ==# 'V'
+"    else
+"      let area .= chars[above : below] ."\n"
+"    endif
+"  endfor
+"  return area . end
+"endfunction
+"
+"command! VisualizedArea :echo s:visualized_area()
+
+nmap <silent> <Plug>(move-line-downward-repeatable) :<c-u>silent! call repeat#setreg("\<Plug>(move-line-downward)", v:register)<cr><Plug>(move-line-downward):silent! call repeat#set("\<Plug>(move-line-downward)")<cr>
+nmap <silent> <Plug>(move-line-upward-repeatable)   :<c-u>silent! call repeat#setreg("\<Plug>(move-line-upward)",   v:register)<cr><Plug>(move-line-upward):silent!   call repeat#set("\<Plug>(move-line-downward)")<cr>
 
 nmap cp <Plug>(move-line-downward)
 nmap cP <Plug>(move-line-upward)
@@ -55,8 +94,13 @@ nmap yP <Plug>(copy-line-upward)
 "nmap yp :silent! call repeat#set('\<Plug>(copy-line-downward')<cr>
 "nmap yP :silent! call repeat#set('\<Plug>(copy-line-upward')<cr>
 
-augroup EchoOperated
-  au! TextYankPost * call s:echo_operated()
+augroup myAfterYank
+  au!
+  au TextYankPost * call s:echo_operated()
+  " TODO: keep cursor after yank
+  " gv<esc> move cursor to the end of yanked character
+  "xnoremap y ygv<esc>
+  "au TextYankPost * call feedkeys("gv\<esc>")
   function! s:echo_operated() abort "{{{
     if v:event.regname ==# ''
       let l:regname = '"'
