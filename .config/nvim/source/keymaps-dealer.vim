@@ -19,7 +19,7 @@ call extend(g:keymapsDL#cmd_after#cd_path_dict, {
       \ 'd': g:dotfiles_home,
       \ 'q': $GHQ_ROOT,
       \ 'r': $VIMRUNTIME,
-      \ 't': $XDG_DATA_HOME/Trash,
+      \ 't': g:my_trash_root,
       \ 'h': '~',
       \ 'w': '%:p:h',
       \ 'n': '%:p:h',
