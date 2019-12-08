@@ -1,0 +1,1 @@
+/home/kaile256/.go/src/github.com/ParticleCore/Particle/src/Userscript/YouTubePlus.user.js
