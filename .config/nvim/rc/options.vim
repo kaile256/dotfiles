@@ -186,7 +186,7 @@ set complete-=i " i: included files
 set virtualedit=block
 " Method; Commandline Mode {{{2
 set noshowcmd
-"set history=10000
+set history=100 " default: 10000
 " Cmdline; Completion
 set wildmenu wildmode=list:longest
 "set wildmenu wildmode=longest:full
