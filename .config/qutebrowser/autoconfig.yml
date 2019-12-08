@@ -217,6 +217,7 @@ settings:
         K: fake-key <alt-up>
         L: null
         P: open -t {clipboard}
+        T: null
         U: undo
         V: enter-mode caret;; toggle-selection
         ZQ: tab-close
