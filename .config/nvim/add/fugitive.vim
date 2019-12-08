@@ -8,6 +8,10 @@
 "      \ | wincmd p
 "      \ | wincmd p
 
+" TODO: :Gpush in asynchronous
+"command! Gush
+"      \ :let s:push = jobstart('nvim --embed -c "Gpush"')
+
 command! -nargs=+ -bar -complete=file Gremote :Git remote <args>
 
 command! -nargs=+ -bar Gclone :Git clone <args>
