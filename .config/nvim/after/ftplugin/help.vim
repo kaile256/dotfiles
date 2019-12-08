@@ -7,7 +7,7 @@ if &readonly && !&modifiable
   nnoremap <buffer> u <c-u>
 endif
 
-finish
+finish "{{{1
 
 " Ref: /usr/share/nvim/runtime/ftplugin/help.vim @25
 function! s:help_toc(mods) abort "{{{
