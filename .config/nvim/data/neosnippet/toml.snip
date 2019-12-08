@@ -38,15 +38,15 @@ alias ft
 
 snippet on_map
 alias ma map
-  on_map = {${1:nxo} = '<Plug>(${2:`substitute(substitute(substitute(matchstr(getline(search('repo =', 'bnW')), "'.*'"), "'", '', 'g'), '.*/', '', ''), '.vim\|vim-', '', 'g')`}${3:-}'}
+  on_map = {${1:nxo} = '<Plug>(`substitute(substitute(substitute(matchstr(getline(search('repo =', 'bnW')), "'.*'"), "'", '', 'g'), '.*/', '', ''), '.vim\|vim-', '', 'g')`${3:-}'}
 
 snippet on_func
 alias fu fn fun func
-  on_func =  ['${2:`substitute(substitute(substitute(matchstr(getline(search('repo =', 'bnW')), "'.*'"), "'", '', 'g'), '.*/', '', ''), '.vim\|vim-', '', 'g')`}#']
+  on_func =  ['`substitute(substitute(substitute(matchstr(getline(search('repo =', 'bnW')), "'.*'"), "'", '', 'g'), '.*/', '', ''), '.vim\|vim-', '', 'g')`#${0}']
 
 snippet on_cmd
 alias cm cmd com
-  on_cmd =  ['${2:`substitute(substitute(substitute(matchstr(getline(search('repo =', 'bnW')), "'.*'"), "'", '', 'g'), '.*/', '', ''), '.vim\|vim-', '', 'g')`}#']
+  on_cmd =  ['`substitute(substitute(substitute(matchstr(getline(search('repo =', 'bnW')), "'.*'"), "'", '', 'g'), '.*/', '', ''), '.vim\|vim-', '', 'g')`${0}']
 
 snippet hook_done_update
 alias du
