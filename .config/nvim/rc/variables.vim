@@ -46,24 +46,6 @@ set rtp+=~/.config/nvim/lazy
 set rtp+=~/.config/nvim/toml
 set rtp+=~/.config/nvim/keymap
 
-" &path; for `:find` {{{1
-" ';' for upward search.
-" e.g., /usr/share/nvim;/usr will search in /usr, /usr/share, /usr/share/nvim.
-"set path+=;/
-
-" &path; Dein's cache
-set path^=~/.cache/dein/repos/github.com/**
-set path^=~/.config/**
-set path^=../**
-set path+=~/.local/nvim/**
-set path+=/etc/**
-
-" &path; negative
-set path-=~
-set path-=.git*/**
-set path-=*yarn*/**
-set path-=*node*/**
-
 " Path; Provider {{{1
 if has('python3')
   let g:python3_host_prog = '/usr/bin/python3'
