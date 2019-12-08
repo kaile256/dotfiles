@@ -80,6 +80,7 @@ nnoremap <silent> <a-x><a-f>
 
 augroup DefxInsteadOfNetrw "{{{1
   au!
+  au FileType defx exe 'setl path='. getbufvar('#', '&path')
   au FileType defx wincmd =
   au FileType defx if line('.') == 1 | norm! j | endif
   " Ref: https://github.com/Shougo/defx.nvim/issues/121
