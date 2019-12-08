@@ -45,6 +45,18 @@ hook_source = 'runtime source/tigris.vim'
 #repo = 'Alloyed/lua-lsp' #{{{
 #on_ft = 'lua'
 #}}}
+#[[plugins]]
+#repo = 'neovimhaskell/haskell-vim' #{{{
+## enough w/ coc.nvim
+#on_ft = 'haskell'
+#hook_post_source = 'runtime add/haskell.vim'
+#}}}
+
+[[plugins]]
+repo = 'yasuhiroki/circleci.vim' #{{{
+if = "expand('%:h:t') =~# '.circleci'"
+on_ft = ['yaml']
+#}}}
 
 # for Shell
 #[[plugins]]
@@ -59,13 +71,6 @@ on_ft = 'zsh'
 #repo = 'ericpruitt/tmux.vim' #{{{
 #on_ft = 'tmux'
 ##}}}
-
-#[[plugins]]
-#repo = 'neovimhaskell/haskell-vim' #{{{
-## enough w/ coc.nvim
-#on_ft = 'haskell'
-#hook_post_source = 'runtime add/haskell.vim'
-#}}}
 
 # for Text-like
 [[plugins]]
