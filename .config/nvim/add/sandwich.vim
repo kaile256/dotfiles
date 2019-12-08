@@ -1,5 +1,6 @@
 " From: motion.toml
 " Repo: machakann/vim-sandwich
+" Fork: kaile256/vim-sandwich
 
 let g:sandwich_no_default_key_mappings          = 1
 let g:operator_sandwich_no_default_key_mappings = 1
@@ -9,15 +10,15 @@ let g:textobj_sandwich_no_default_key_mappings  = 1
 
 " Let; Magic Characters {{{1
 " Note: b:g:sandwich#magicchar#f#patterns is also available
-let g:sandwich#magicchar#f#patterns = [{
-      \ 'filetype': ['vim'],
-      \ 'header' : '\<\h\k*',
-      \ 'f'    : "function! `expand('%') =~ 'autoload' ?
-      \   substitute(matchstr(expand('%:p'),'autoload/\zs.*\ze.vim'),'[/\\]','#','g').'#' : ''`
-      \   () abort",
-      \ 'F'    : 'endfunction',
-      \ 'footer' : '',
-      \ }]
+"let g:sandwich#magicchar#f#patterns = [{
+"      \ 'filetype': ['vim'],
+"      \ 'header' : '\<\h\k*',
+"      \ 'f'    : "function! `expand('%') =~ 'autoload' ?
+"      \   substitute(matchstr(expand('%:p'),'autoload/\zs.*\ze.vim'),'[/\\]','#','g').'#' : ''`
+"      \   () abort",
+"      \ 'F'    : 'endfunction',
+"      \ 'footer' : '',
+"      \ }]
 
 "" Let; Recipes of sandwich {{{1
 "" Note: b:sandwich_recipes is also available
