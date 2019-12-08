@@ -9,6 +9,8 @@ inoremap <c-o><space>y <c-\><c-o>:call feedkeys("\<c-\>\<c-o>".'"+y', 'n')<cr>
 "inoremap <c-o>p <c-\><c-o>:call feedkeys("\<esc>]p`]a")<cr>
 
 " Alt-ESC {{{1
+inoremap <silent> <a-s> <Del>
+
 inoremap <silent> <a-space> <esc>:call feedkeys("\<space>")<cr>
 inoremap <silent> <a-\> <esc>:call feedkeys('\')<cr>
 inoremap <silent> <a-q> <esc>:call feedkeys('q')<cr>
@@ -82,7 +84,9 @@ inoremap <silent> <a-u> <esc>:call feedkeys('u')<cr>
 "  exe 'norm! "' char ']p`]a'
 "endfunction
 
-inoremap <expr> <c-r> '<esc>"'.nr2char(getchar()).']p`]a'
+"inoremap <silent> <c-r> <c-g>u<c-o>:<c-u> call feedkeys("\<c-r>")<cr>
+"inoremap <expr> <c-r> '<esc>"'.nr2char(getchar()).']p`]a'
+
 inoremap <c-r><c-0> <c-g>u<c-r>0
 inoremap <c-r><c-space> <c-g>u<c-r>+
 inoremap <c-r><space>   <c-g>u<c-r>+
