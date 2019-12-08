@@ -23,7 +23,7 @@ write
 
 # Vim on Browser
 [[plugins]]
-repo = 'glacambre/firenvim'
+repo = 'glacambre/firenvim' #{{{
 hook_post_update = 'function("firenvim#install")'
 #[[plugins]]
 #repo = 'raghur/vim-ghost'
@@ -32,11 +32,17 @@ hook_post_update = 'function("firenvim#install")'
 #on_cmd = 'Ghost'
 #hook_add = 'runtime add/ghost.vim'
 #hook_add = 'runtime post/ghost.vim'
+##}}}
 
 [[plugins]]
 repo = 'mattn/qiita-vim' #{{{
 on_cmd = ['Qiita']
 #}}}
+
+#[[plugins]]
+#repo = 'aiya000/vim-webpage' #{{{
+#on_cmd =  ['WebpageShow']
+##}}}
 
 # API
 [[plugins]]
