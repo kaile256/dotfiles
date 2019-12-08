@@ -19,6 +19,22 @@ command! -bar DebugBreakpointToggle
 command! -bar DebugBreakpointAddFunction
       \ :call vimspector#AddFunctionBreakpoint(expand('<cexpr>'))
 
+command! -bar Dstart    :call vimspector#Continue()
+command! -bar Dcontinue :call vimspector#Continue()
+command! -bar Dpause    :call vimspector#Pause()
+command! -bar Drestart  :call vimspector#Restart()
+command! -bar Dstop     :call vimspector#Stop()
+
+command! -bar DstepOver :call vimspector#StepOver()
+command! -bar DstepInto :call vimspector#StepInto()
+command! -bar DstepOut  :call vimspector#StepOut()
+
+command! -bar DbreakpointToggle
+      \ :call vimspector#ToggleBreakpoint()
+
+command! -bar DbreakpointAddFunction
+      \ :call vimspector#AddFunctionBreakpoint(expand('<cexpr>'))
+
 "let g:vimspector_enable_mappings = 'HUMAN' " default: none of keymaps
 "
 " if s:mappings ==# 'VISUAL_STUDIO' "{{{1
