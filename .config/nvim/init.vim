@@ -9,6 +9,7 @@ runtime rc/backupfiles.vim
 runtime rc/dein.vim  " contains `filetype plugin indent on`
 runtime rc/options.vim
 runtime rc/filetype.vim
+runtime rc/findpath.vim
 runtime rc/loaded.vim " disturbs to :source vimscripts under $VIMRUNTIME
 " Note: `!` is required to source all the same named files.
 runtime! keymap/*.vim
