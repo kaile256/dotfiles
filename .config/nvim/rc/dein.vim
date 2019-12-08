@@ -1,4 +1,4 @@
-" From: nvim/init.vim
+" From: init.vim
 " Repo: Shougo/dein.vim
 " dummys: Shougo/dein.vim/autoload/dein/parse.vim @314
 
