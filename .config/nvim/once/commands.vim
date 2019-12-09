@@ -65,7 +65,9 @@ else
     " Note: :undojoin causes an error right after :undo.
     silent! undojoin
     silent write
-    if &ft ==# 'vim'
+    if getline(1) =~# '^#!'
+      !%:p
+    elseif &ft ==# 'vim'
       so %:p
       echomsg v:statusmsg '& sourced.'
     elseif &ft =~# 'html'
