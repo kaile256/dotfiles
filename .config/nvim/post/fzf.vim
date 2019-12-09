@@ -31,22 +31,22 @@ command! -bang -nargs=* Files
 
 command! -bang -nargs=* Ag
       \ call fzf#vim#ag(<q-args>,
-      \                 <bang>0 ? fzf#vim#with_preview({'prefix': "'.git/", 'options': '--multi --reverse'}, 'right:50%')
-      \                         : fzf#vim#with_preview({'prefix': "'.git/", 'options': '--multi --reverse'}, 'right:50%'),
+      \                 <bang>0 ? fzf#vim#with_preview({'options': '--multi --reverse'}, 'right:50%')
+      \                         : fzf#vim#with_preview({'options': '--multi --reverse'}, 'right:50%'),
       \                 <bang>0)
 
 command! -bang -nargs=* Rg
       \ call fzf#vim#grep(
       \   'rg --hidden --column --line-number --no-heading --color=always --smart-case '.shellescape(<q-args>), 1,
-      \   <bang>0 ? fzf#vim#with_preview({'prefix': "'.git/", 'options': '--reverse'}, 'right:65%')
-      \           : fzf#vim#with_preview({'prefix': "'.git/", 'options': '--reverse'}, 'right:65%'),
+      \   <bang>0 ? fzf#vim#with_preview({'options': '--multi --reverse'}, 'right:65%')
+      \           : fzf#vim#with_preview({'options': '--multi --reverse'}, 'right:65%'),
       \   <bang>0)
 
 " Note: There's no use to wrap 'GFiles?' independently;
 "       because '?' is regarded as an arg for 'GFiles'.
 " TODO: even on '?'-version, show preview.
 command! -bang -nargs=? -complete=dir Gfiles
-      \ call fzf#vim#gitfiles(<q-args>, fzf#vim#with_preview({'prefix': "'.git/", 'options': '--multi --reverse'}, 'right:65%'), <bang>0)
+      \ call fzf#vim#gitfiles(<q-args>, fzf#vim#with_preview({'options': '--multi --reverse'}, 'right:65%'), <bang>0)
 "}}}1
 " Command: expand default reverse, want preview {{{
 command! -bang -nargs=* Commands

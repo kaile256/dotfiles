@@ -1,0 +1,51 @@
+; From: polybar/launch.sh
+; Ref: https://github.com/matoruru/polybar-theme
+
+;[path]
+;polybar = ~/.config/polybar
+;colors  = ${path.polybar}/colors
+;bar     = ${path.polybar}/bar
+
+[global/wm]
+; Adjust the _NET_WM_STRUT_PARTIAL top value
+;   Used for top aligned bars
+margin-top = 0
+
+; Adjust the _NET_WM_STRUT_PARTIAL bottom value
+;   Used for bottom aligned bars
+margin-bottom = 0
+;fixed-center = true
+
+[margin]
+for-modules = 1
+
+include-file = ~/.config/polybar/colors/adapta.conf
+
+;include-file = ~/.config/polybar/bar/top.conf
+include-file  = ~/.config/polybar/bar/main.conf
+;include-file = ~/.config/polybar/bar/bottom.conf
+
+;====Module settings+======================================
+
+modules-left = powermenu pkg-check
+modules-center = i3
+modules-right = volume xbacklight cpu-graph wlan memory battery
+
+;==========================================================
+
+include-file = ~/.config/polybar/module/os/os.conf
+include-file = ~/.config/polybar/module/os/arch/pkg-check.conf
+
+include-file = ~/.config/polybar/module/pc/activity.conf
+include-file = ~/.config/polybar/module/pc/network.conf
+include-file = ~/.config/polybar/module/pc/xbacklight.conf
+include-file = ~/.config/polybar/module/pc/volume.conf
+include-file = ~/.config/polybar/module/pc/battery.conf
+
+include-file = ~/.config/polybar/module/workspace/i3.conf
+
+include-file = ~/.config/polybar/module/apps.conf
+include-file = ~/.config/polybar/module/data/date.conf
+;include-file = ~/.config/polybar/module/webpages.conf
+
+; vim: ft=dosini
