@@ -15,14 +15,12 @@ nnoremap <silent> <a-x>v
       \ -direction=topleft
       \ -winwidth=`expand(g:defx_sidebar_width)`
       \ -split=vertical
-      \ -new
       \ <cr>
 nnoremap <silent> <a-x><a-v>
       \ :<c-u>Defx `expand('%:p:h')` -search=`expand('%:p')`
       \ -direction=topleft
       \ -winwidth=`expand(g:defx_sidebar_width)`
       \ -split=vertical
-      \ -new
       \ <cr>
 " Call Defx; in horizontal {{{1
 " Note: -search must be applied full path.
@@ -31,13 +29,11 @@ nnoremap <silent> <a-x><a-s>
       \ :<c-u>Defx `expand('%:p:h')` -search=`expand('%:p')`
       \ -direction=belowright
       \ -split=horizontal
-      \ -new
       \ <cr>
 nnoremap <silent> <a-x>s
       \ :<c-u>Defx `expand('%:p:h')` -search=`expand('%:p')`
       \ -direction=belowright
       \ -split=horizontal
-      \ -new
       \ <cr>
 " Call Defx; in the window {{{1
 " Note: -search must be applied full path.
@@ -45,23 +41,19 @@ nnoremap <silent> <a-x>s
 nnoremap <silent> <a-x><a-e>
       \ :<c-u>Defx `expand('%:p:h')` -search=`expand('%:p')`
       \ -split=no
-      \ -new
       \ <cr>
 nnoremap <silent> <a-x>e
       \ :<c-u>Defx `expand('%:p:h')` -search=`expand('%:p')`
       \ -split=no
-      \ -new
       \ <cr>
 " Call Defx; in tab page {{{1
 nnoremap <silent> <a-x>b
       \ :<c-u>Defx `expand('%:p:h')` -search=`expand('%:p')`
       \ -split=tab
-      \ -new
       \ <cr>
 nnoremap <silent> <a-x><a-b>
       \ :<c-u>Defx `expand('%:p:h')` -search=`expand('%:p')`
       \ -split=tab
-      \ -new
       \ <cr>
 " Call Defx; on floating window {{{1
 " TODO: Open higher position.
@@ -69,13 +61,11 @@ nnoremap <silent> <a-x>f
       \ :<c-u>Defx `expand('%:p:h')` -search=`expand('%:p')`
       \ -split=floating
       \ -winrelative=editor
-      \ -new
       \ <cr>
 nnoremap <silent> <a-x><a-f>
       \ :<c-u>Defx `expand('%:p:h')` -search=`expand('%:p')`
       \ -split=floating
       \ -winrelative=editor
-      \ -new
       \ <cr>
 
 augroup DefxInsteadOfNetrw "{{{1
@@ -92,7 +82,8 @@ augroup DefxInsteadOfNetrw "{{{1
   " TODO: inherit jumplist after gf
   au VimEnter * silent! au! FileExplorer *
   au BufEnter * if s:isdir(expand('<amatch>'))
-        \ | Defx `expand('<amatch>')` -search=`expand('<amatch>')` -new
+        \ | Defx `expand('<amatch>')` -search=`expand('<amatch>')`
+        \ | -new
         \ | endif
   let s:isdir = {dir ->
         \ !empty(dir) && (isdirectory(dir) ||
