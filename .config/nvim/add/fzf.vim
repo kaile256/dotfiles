@@ -13,13 +13,30 @@ command! -bang -nargs=* Polybars
       \ :cd ~/.config/polybar
       \ | call fzf#vim#ag(<q-args>, fzf#vim#with_preview({
       \ 'options': '--multi --reverse'
-      \ }, 'right:50%'))
+      \ }, 'right:50%')
+      \ )
 
 command! -bang -nargs=* Downloads
-      \ :call fzf#vim#files(<q-args>, {
+      \ :call fzf#vim#files(<q-args>, fzf#vim#with_preview({
       \ 'source': 'find '. $HOME .'/Downloads',
       \ 'options': '--multi --reverse'
-      \ })
+      \ }, 'right:50%')
+      \ )
+
+command! -bang -nargs=* Etcs
+      \ :call fzf#vim#files(<q-args>, fzf#vim#with_preview({
+      \ 'source': 'find /etc',
+      \ 'options': '--multi --reverse',
+      \ }, 'right:50%')
+      \ )
+
+" TODO: avoid all the files permission-denied
+command! -bang -nargs=* Users
+      \ :call fzf#vim#files(<q-args>, fzf#vim#with_preview({
+      \ 'source': 'find /usr',
+      \ 'options': '--multi --reverse',
+      \ }, 'right:50%')
+      \ )
 
 " Note: not actually in ghq
 command! -bang -nargs=* Ghqs
