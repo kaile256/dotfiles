@@ -17,11 +17,20 @@ augroup UpdatePathToFind
 
   " why ':au BufWinEnter {*vim,dein}/**' doesn't work?
   au BufWinEnter {*vim,dein}/** call s:path.vim()
+  au BufWinEnter **/{.config,dotfiles}/**/* call s:path.dotfiles()
   " seems no use
   "au OptionSet * if expand('<amatch>') =~# 'path' | call s:path.unnecessary()
 augroup END
 
 let s:path = {}
+
+function! s:path.dotfiles() abort
+  if expand('%:p') =~# '/*vim/' | return | endif
+
+  exe 'setl path='.  '/etc'
+  exe 'setl path^='. $XDG_DATA_HOME   .'/**'
+  exe 'setl path^='. $XDG_CONFIG_HOME .'/**'
+endfunction
 
 function! s:path.vim() abort
   if expand('%:p') !~# '~\&vim\|dein' | return | endif
