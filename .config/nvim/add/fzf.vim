@@ -7,18 +7,24 @@
 " TODO: override on-going fzf-buffer
 "nnoremap <silent> <space>z :call system('killall fzf') <bar> call feedkeys("\<space>z", 'x')<cr>
 
-command! -bang -nargs=* Fzf :Files
+command! -bang -nargs=* Fzf :Files <args>
+
+command! -bang -nargs=* Polybars
+      \ :cd ~/.config/polybar
+      \ | call fzf#vim#ag(<q-args>, fzf#vim#with_preview({
+      \ 'options': '--multi --reverse'
+      \ }, 'right:50%'))
 
 command! -bang -nargs=* Downloads
       \ :call fzf#vim#files(<q-args>, {
-      \ 'source': 'find ~/Downloads',
+      \ 'source': 'find '. $HOME .'/Downloads',
       \ 'options': '--multi --reverse'
       \ })
 
 " Note: not actually in ghq
 command! -bang -nargs=* Ghqs
       \ :silent cd $GOPATH
-      \ | Fzf
+      \ | Fzf <args>
 
 command! -bang Functions
       \ :call fzf#vim#functions({'options': '--multi --reverse'})
@@ -46,7 +52,7 @@ function! s:fzf_neighbours()
         \ })
         \ )
 endfunction
-nnoremap <silent> <space>zn :<c-u>Neighbours<cr>
+"nnoremap <silent> <space>zn :<c-u>Neighbours<cr>
 
 " Command: Maps {{{1
 " TODO: set options reverse
