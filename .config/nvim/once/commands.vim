@@ -58,9 +58,7 @@ command! -nargs=* -range Vint :w <bar> !vint --enable-neovim <args> %:p
 command! -bar So :call s:source_buffer() "{{{1
 command! -bar SO :call s:source_buffer()
 
-if exists('*s:source_buffer')
-  finish
-else
+if !exists('*s:source_buffer')
   function! s:source_buffer() abort
     " Note: :undojoin causes an error right after :undo.
     silent! undojoin
@@ -80,6 +78,7 @@ else
     endif
   endfunction
 endif
+
 " Shell Scripts; Out of Vim "{{{1
 command! -bar -nargs=* -complete=shellcmd
       \ Killall
@@ -88,6 +87,10 @@ command! -bar -nargs=* -complete=shellcmd
 command! -bar -nargs=* -complete=shellcmd
       \ Screenkey
       \ :silent !screenkey -g 950x1000 -t 0.4 <args> &
+
+command! -bar -complete=shellcmd
+      \ PolybarUpdate
+      \ :silent !${XDG_CONFIG_HOME}/polybar/launch.sh
 
 command! -bar XinputTouchpadEnable  :!xinput Enable  Elan Touchpad
 command! -bar XinputTouchpadDisable :!xinput disable Elan Touchpad
