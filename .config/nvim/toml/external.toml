@@ -63,6 +63,14 @@ hook_post_source = 'runtime add/actionmenu.vim'
 #}}}
 
 # Docker
+[[plugins]]
+repo = 'kkvh/vim-docker-tools' #{{{
+on_cmd =  ['DockerToolsOpen', 'DockerToolsToggle']
+#}}}
+[[plugins]]
+repo = 'danishprakash/vim-docker' #{{{
+on_cmd =  ['DockerDocBrowser', 'DockerHubBrowser',]
+#}}}
 #[[plugins]]
 #repo = 'skanehira/docker.vim' #{{{
 ## to manage docker's images/containers
