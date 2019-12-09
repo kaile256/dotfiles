@@ -64,7 +64,7 @@ if !exists('*s:source_buffer')
     silent! undojoin
     silent write
     if getline(1) =~# '^#!'
-      !%:p
+      !%:p &
     elseif &ft ==# 'vim'
       so %:p
       echomsg v:statusmsg '& sourced.'
@@ -72,7 +72,9 @@ if !exists('*s:source_buffer')
       silent OpenBrowser %:p
       echomsg v:statusmsg
     elseif &ft ==# 'xdefault'
-      !xrdb %:p
+      !xrdb %:p &
+    elseif &ft ==# 'dosini' && expand('%:p:h') =~# '/polybar/'
+      !${XDG_CONFIG_HOME}/polybar/launch.sh &
     else
       !
     endif
@@ -90,7 +92,7 @@ command! -bar -nargs=* -complete=shellcmd
 
 command! -bar -complete=shellcmd
       \ PolybarUpdate
-      \ :silent !${XDG_CONFIG_HOME}/polybar/launch.sh
+      \ :silent !${XDG_CONFIG_HOME}/polybar/launch.sh &
 
 command! -bar XinputTouchpadEnable  :!xinput Enable  Elan Touchpad
 command! -bar XinputTouchpadDisable :!xinput disable Elan Touchpad
