@@ -19,8 +19,8 @@ while pgrep -u $UID -x polybar >/dev/null; do sleep 0.08; done
 echo -n 'Bars launching...' \
   | tee -a /tmp/polybar-top.log /tmp/polybar-bottom.log /tmp/polybar-main.log
 
-#for m in $(polybar -m|tail -1|sed -e 's/:.*$//g'); do
-for m in $(polybar --list-monitors | cut -d":" -f1); do
+#for m in $(xrandr --query | grep " connected" | cut -d" " -f1); do
+for m in $(polybar --list-monitors | cut -d':' -f1); do
   # Ref: https://raw.githubusercontent.com/edbizarro/dotfiles/7e45d14887846c204b893d4cedb6af00f54887ad/i3/.i3/startup/polybar.sh
   MONITOR=$m  polybar --reload main   >> /tmp/polybar-main.log 2>&1 &
   #MONITOR=$m polybar --reload top    >> /tmp/polybar-top.log 2>&1 &
