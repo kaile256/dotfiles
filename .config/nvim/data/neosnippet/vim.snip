@@ -178,10 +178,10 @@ alias no
 # Abbr {{{2
 snippet abbriviation
 alias ab abb abr abbr
-  ${3:c}noreabbr <expr> '${1}' (getcmdtype() == ':' && getcmdline() =~ '^$1$')? '${2}' : '$1'
+  ${3:c}noreabbr <expr> '${1}' (getcmdtype() == ':' && getcmdline() =~# '^$1$')? '${2}' : '$1'
 snippet abbr for cmdline
 alias cn cno cna cnore cnoreab cnoreabbr
-  cnoreabbr <expr> ${1} (getcmdtype() == ':' && getcmdline() =~ '^$1$')? '${2}' : '$1'
+  cnoreabbr <expr> ${1} (getcmdtype() == ':' && getcmdline() =~# '^$1$')? '${2}' : '$1'
 
 # Fold {{{2
 snippet {{{ beginning of fold
