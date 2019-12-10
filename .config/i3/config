@@ -17,6 +17,8 @@ set $SuperS Mod4+Shift
 set $Alt    Mod1
 set $AltC   Mod1+Control
 set $AltS   Mod1+Shift
+
+set $Locker ~/.config/i3/lock.sh
 #}}}
 
 ## Border Style {{{
@@ -40,9 +42,12 @@ font pango:SF Mono 11
 #}}}
 
 # Auto Start {{{
+# exec_always: reload on a restart i3 itself
 workspace_layout tabbed
 # xrandr;
-exec --no-startup-id ~/.config/i3/monitor.sh
+exec_always --no-startup-id ~/.config/i3/monitor.sh
+exec --no-startup-id alsactl daemon
+exec --no-startup-id sudo tlp start
 # nm-applet: WiFi Network Manager
 exec --no-startup-id nm-applet
 exec --no-startup-id fcitx
@@ -54,7 +59,7 @@ exec --no-startup-id fcitx
 # urxvtd: Daemon of rxvt-unicode. Use urxvtc as a client.
 #exec "urxvtd -o -f"
 #exec --no-startup-id volumeicon
-exec --no-startup-id xautolock -time 10 -locker blurlock
+exec --no-startup-id xautolock -time 5 -locker $Locker
 exec --no-startup-id nitrogen --restore; sleep 1; compton -b
 # Show the CP's status on the wallpaper.
 #exec --no-startup-id start_conky_live_maia
@@ -76,6 +81,10 @@ exec --no-startup-id pulseaudio --start
 #exec --no-startup-id pa-applet
 #bindsym $mod+Ctrl+m exec pavucontrol
 #}}}
+exec_always --no-startup-id ${XDG_CONFIG_HOME}/polybar/launch.sh
+#exec_always --no-startup-id killall -q polybar; polybar
+#exec_always --no-startup-id  ${XDG_CONFIG_HOME}/qobbar/launch.sh
+#exec_always --no-startup-id xfce4-panel --disable-wm-check
 #}}}
 
 # Keybind; Notification {{{
@@ -86,7 +95,7 @@ bindsym $Super+Shift+d --release exec "killall dunst; exec notify-send 'restart 
 ## Kill Focused Window
 bindsym $Super+z  kill
 # reload the configuration file
-#bindsym $SuperS+c reload
+bindsym $SuperS+space reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $Super+space  restart
 #}}}
@@ -164,14 +173,13 @@ bindsym $Super+Ctrl+x  mode "$systemctl"; exec notify-send 'systemctl'
 bindsym $Super+Ctrl+z  mode "$systemctl"; exec notify-send 'systemctl'
 set $systemctl Poweroff? (y)es, (n)o, (s)uspend, (r)eboot or (l)ock?
 mode "$systemctl" {
-set $Locker i3lock -i ~/Pictures/wallpaper/wall.png && sleep 1
 #bindsym s exec --no-startup-id $Locker && systemctl suspend, mode "default"
 #bindsym h exec --no-startup-id $Locker && systemctl hibernate, mode "default"
 #bindsym l exec --no-startup-id i3-msg exit, mode "default"
 #bindsym k exec --no-startup-id i3-msg exit, mode "default"
 bindsym l exec --no-startup-id $Locker, mode "default"
 bindsym k exec --no-startup-id $Locker, mode "default"
-bindsym s exec --no-startup-id $Locker && suspend, mode "default"
+bindsym s exec --no-startup-id $Locker && systemctl suspend, mode "default"
 bindsym r exec --no-startup-id systemctl reboot,  mode "default"
 bindsym p exec --no-startup-id systemctl poweroff, mode "default"
 bindsym q exec --no-startup-id systemctl poweroff, mode "default"
@@ -402,32 +410,34 @@ bindsym $SuperS+9 move container to workspace $ws9
 bindsym $SuperS+0 move container to workspace $ws10
 #}}}
 
-# Block; Status Bar {{{
-# Start i3bar to display a workspace bar (plus the system information i3status
-# finds out, if available)
-bar {
-# Use pyi3status instead (status_command python ~/.config/i3/i3status/config.py)
-status_command i3status --config ~/.config/i3/i3status/config
-#status_command i3blocks -c ~/.config/i3/i3bar/i3blocks/config
-output            eDP1
-output            HDMI1
-output            HDMI2
-output            LVDS1
-position          bottom
-mode              dock
-workspace_buttons yes
-tray_output       both
-font pango:Icons, SF Mono 12
-colors {
-background #000000
-statusline #ffffff
-focused_workspace  #ffffff #285577
-active_workspace   #ffffff #333333
-inactive_workspace #888888 #222222
-urgent_workspace   #ffffff #900000
-}
-}
-#}}}
+## Block; Status Bar {{{
+## Note: use polybar instead
+## Start i3bar to display a workspace bar (plus the system information i3status
+## finds out, if available)
+#bar {
+## Use pyi3status instead (status_command python ~/.config/i3/i3status/config.py)
+#i3bar_command ${XDG_CONFIG_HOME}/polybar/launch.sh
+#status_command i3status
+##status_command i3blocks -c ~/.config/i3/i3bar/i3blocks/config
+#output            eDP1
+#output            HDMI1
+#output            HDMI2
+#output            LVDS1
+#position          bottom
+#mode              dock
+#workspace_buttons yes
+#tray_output       both
+#font pango:Icons, SF Mono 12
+#colors {
+#background #000000
+#statusline #ffffff
+#focused_workspace  #ffffff #285577
+#active_workspace   #ffffff #333333
+#inactive_workspace #888888 #222222
+#urgent_workspace   #ffffff #900000
+#}
+#}
+##}}}
 
 ## for i3-gaps: {{{
 #
