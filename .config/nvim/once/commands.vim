@@ -64,7 +64,7 @@ if !exists('*s:source_buffer')
     silent! undojoin
     silent write
     if getline(1) =~# '^#!'
-      !%:p &
+      !%:p
     elseif &ft ==# 'vim'
       so %:p
       echomsg v:statusmsg '& sourced.'
@@ -94,10 +94,11 @@ command! -bar -complete=shellcmd
       \ PolybarUpdate
       \ :silent !${XDG_CONFIG_HOME}/polybar/launch.sh &
 
-command! -bar XinputTouchpadEnable  :!xinput Enable  Elan Touchpad
-command! -bar XinputTouchpadDisable :!xinput disable Elan Touchpad
-command! -bar TouchpadEnable  :!xinput Enable  Elan Touchpad
-command! -bar TouchpadDisable :!xinput disable Elan Touchpad
+command! -bar XinputTouchpadEnable  :!xinput enable  Elan\ Touchpad
+command! -bar TouchpadEnable        :!xinput enable  Elan\ Touchpad
+command! -bar XinputTouchpadDisable :!xinput disable Elan\ Touchpad
+command! -bar TouchpadDisable       :!xinput disable Elan\ Touchpad
+
 command! -bar MonitorTry :!xrandr |
       \ grep "HDMI2 connected"
       \ && xrandr --output eDP1 --auto
