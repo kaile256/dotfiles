@@ -3,14 +3,6 @@
 " Ref: commands.vim
 
 cnoremap <silent> <a-space> <esc>:call feedkeys("\<space>")<cr>
-" c_<c-f> to open cmd-win
-cnoremap <silent> <a-:> <c-f>
-cnoremap <silent> <a-q> <c-f>
-
-cnoremap <silent> <a-h> <c-c><c-w>h
-cnoremap <silent> <a-j> <c-c><c-w>j
-cnoremap <silent> <a-k> <c-c>
-cnoremap <silent> <a-l> <c-c><c-w>l
 
 " Note: <c-k> enter digraph when mistyped
 cnoremap <silent> <c-k><a-k> <c-c>
@@ -19,13 +11,33 @@ cnoremap <c-r><c-space> <c-r>+
 cnoremap <c-r><space>   <c-r>+
 
 " instant :verbose "{{{1
-cnoremap <silent> <a-m>  <Home>:verbose<space><cr>
-cnoremap <silent> <a-cr> <Home>:verbose<space><cr>
+cnoremap <expr> <a-m>  (getcmdtype() == ':' && getcmdline() !~# '^verb\%[ose]') ? '<Home>verbose<space><cr>' : '<cr>'
+cnoremap <expr> <a-cr> (getcmdtype() == ':' && getcmdline() !~# '^verb\%[ose]') ? '<Home>verbose<space><cr>' : '<cr>'
+cnoremap <expr> <a-j>  (getcmdtype() == ':' && getcmdline() !~# '^verb\%[ose]') ? '<Home>verbose<space><cr>' : '<cr>'
 
-" emacs-like motions {{{1
+" Style; emacs-like motions {{{1
+cnoremap <a-h> <c-c>
+cnoremap <a-k> <c-c>
+cnoremap <a-l> <c-c>
+
 cnoremap <c-a> <home>
 cnoremap <a-f> <S-right>
 cnoremap <c-f> <right>
 cnoremap <c-b> <left>
 cnoremap <a-b> <S-left>
 cnoremap <c-d> <Del>
+
+"" Style; using cmdwin {{{1
+"cnoremap <silent> <a-f> <c-f>:call feedkeys('f')<cr>
+"cnoremap <silent> <a-t> <c-f>:call feedkeys('t')<cr>
+"cnoremap <silent> <a-F> <c-f>:call feedkeys('F')<cr>
+"cnoremap <silent> <a-T> <c-f>:call feedkeys('T')<cr>
+"
+"cnoremap <a-b> <c-f>B
+"cnoremap <a-^> <c-f>^
+"cnoremap <a-0> <c-f>0
+"
+"cnoremap <a-i> <c-f>i
+"cnoremap <a-a> <c-f>a
+"cnoremap <a-I> <c-f>I
+"cnoremap <a-A> <c-f>A
