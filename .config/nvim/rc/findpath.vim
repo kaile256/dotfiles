@@ -11,12 +11,13 @@ set path=../**,/etc
 
 augroup UpdatePathToFind
   au!
-  au FileType c,cpp  setl path^=/usr/include
-  au FileType go     setl path^=/usr/lib/go
-  au FileType python setl path^=/usr/lib/python3.7
+  au FileType sh,bash setl path^=/usr/bin/
+  au FileType c,cpp   setl path^=/usr/include
+  au FileType go      setl path^=/usr/lib/go
+  au FileType python  setl path^=/usr/lib/python3.7
 
   " why ':au BufWinEnter {*vim,dein}/**' doesn't work?
-  au BufWinEnter {*vim,dein}/** call s:path.vim()
+  au BufWinEnter {*vim,dein}/**             call s:path.vim()
   au BufWinEnter **/{.config,dotfiles}/**/* call s:path.dotfiles()
   " seems no use
   "au OptionSet * if expand('<amatch>') =~# 'path' | call s:path.unnecessary()
