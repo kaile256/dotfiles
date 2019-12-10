@@ -38,13 +38,16 @@ on_cmd = 'Thesaurus'
 hook_add = 'runtime add/thesaurus_query.vim'
 #}}}
 
-## Unicode
+# Unicode
+[[plugins]]
+repo = 'chrisbra/unicode.vim' #{{{
+# Note: on_map of unicode.vim is useless; maybe because they are imap.
+on_map = {i = ['<Plug>(UnicodeComplete)', '<Plug>(DigraphComplete)']}
+hook_post_source = 'runtime add/unicode.vim'
+#}}}
 #[[plugins]]
-#repo = 'chrisbra/unicode.vim' #{{{
-#on_event = 'InsertEnter'
-## Note: on_map of unicode.vim is useless; maybe because they are imap.
-##on_map = ['<Plug>(UnicodeComplete)', '<Plug>(DigraphComplete)']
-#hook_post_source = 'runtime add/unicode.vim'
+#repo = 'arthurxavierx/vim-unicoder' #{{{
+#on_map = {i = '<Plug>(unicoder-'}
 ##}}}
 
 # Spell
