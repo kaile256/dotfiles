@@ -20,16 +20,16 @@ if mapcheck('Q', 'n') == ''
   nnoremap Q <Nop>
 endif
 " Write&Quit; wq
-"nnoremap <silent> <space>w :<c-u>w  <cr>
-"nnoremap <silent> <space>W :<c-u>w! <cr>
-"" Note: <space>q is sometimes mistyped, intending <space>w.
-"nnoremap <silent> <space>q :<c-u>w  <cr>
-" Note: :undojoin causes an error just after :undo.
-" TODO: make :undojoin work on :write
-nnoremap <silent> <space>w :<c-u>silent! undojoin <bar> w  <bar>silent! undojoin<cr>
-nnoremap <silent> <space>W :<c-u>silent! undojoin <bar> w! <bar>silent! undojoin<cr>
+nnoremap <silent> <space>w :<c-u>w  <cr>
+nnoremap <silent> <space>W :<c-u>w! <cr>
 " Note: <space>q is sometimes mistyped, intending <space>w.
-nnoremap <silent> <space>q :<c-u>silent! undojoin <bar> w  <bar>silent! undojoin<cr>
+nnoremap <silent> <space>q :<c-u>w  <cr>
+" Note: :undojoin causes an error just after :undo.
+" TODO: :undojoin on :w prevents to go back undo-history
+"nnoremap <silent> <space>w :<c-u>silent! undojoin <bar> w  <bar>silent! undojoin<cr>
+"nnoremap <silent> <space>W :<c-u>silent! undojoin <bar> w! <bar>silent! undojoin<cr>
+"" Note: <space>q is sometimes mistyped, intending <space>w.
+"nnoremap <silent> <space>q :<c-u>silent! undojoin <bar> w  <bar>silent! undojoin<cr>
 
 " Improve; i_<c-o> {{{1
 " TODO: make <c-o>yi work, as <c-o>di, <c-o>ci.
