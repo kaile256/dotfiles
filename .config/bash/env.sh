@@ -9,10 +9,10 @@ export XDG_DATA_HOME="${HOME}/.local/share"
 # for docui, which is the client for docker on TUI
 export LC_CTYPE=en_US.UTF-8
 
-# nvr & nvim-qt does NOT work as sudoedit.
-export EDITOR=nvim
-export VISUAL=nvim
-export SUDO_EDITOR=nvim
+# nvr & nvim-qt does NOT work for sudoedit.
+export EDITOR=nvim-qt
+export VISUAL=nvim-qt
+export SUDO_EDITOR=vi
 
 # Terminal
 export TERM=xterm-256color
@@ -31,7 +31,7 @@ export VMAIL_VIM=nvim-qt
 export BROWSER=qutebrowser
 # FZF
 export FZF_DEFAULT_COMMAND='rg --files --hidden --follow --glob "!.git/*"'
-export FZF_DEFAULT_OPTS='--reverse --height=80% --min-height=20 --no-mouse --multi --bind=down:preview-down --bind=up:preview-up'
+export FZF_DEFAULT_OPTS='--reverse --height=80% --min-height=20 --no-mouse --multi'
 #--preview="bat  --color=always --style=header,grid --line-range :100 {}"
 
 export FZF_LEGACY_KEYBINDINGS=1
