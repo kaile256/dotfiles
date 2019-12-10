@@ -75,7 +75,7 @@ function! s:defx_commands() abort
       let rwx .= a:rwx =~# 'w' ? 'w' : '-'
       let rwx .= a:rwx =~# 'x' ? 'x' : '-'
       " TODO: get current dir
-      call setfperm(getcwd() .'/'. expand('<cfile>'), rwx .'r--r--')
+      call setfperm(getcwd() .'/'. expand('<cfile>:p'), rwx . rwx . 'r--')
     endfunction
   endif
 endfunction
@@ -84,8 +84,8 @@ function! s:defx_keymaps() abort
   " TODO: what is the 'search' for?
   nnoremap <silent><nowait><buffer><expr> S
         \ defx#do_action('search')
-  nnoremap <silent><nowait><buffer> <c-w>=
-        \ :setl nowinfixwidth<cr><c-w>=
+  "nnoremap <silent><nowait><buffer> <c-w>=
+  "      \ :setl nowinfixwidth<cr><c-w>=
   " Explore {{{1
   " Explore; hjkl {{{2
   nnoremap <silent><nowait><buffer> gg :2<cr>
@@ -233,14 +233,14 @@ function! s:defx_keymaps() abort
   " Register {{{2
   " copy: yank in defx's register
   " Note: CANNOT register multiple files into defx-register.
-  nnoremap <nowait><buffer><expr> yp
+  nnoremap <nowait><buffer><expr> yy
         \ defx#do_action('copy')
   nnoremap <nowait><buffer><expr> cc
         \ defx#do_action('move')
   nnoremap <nowait><buffer><expr> p
         \ defx#do_action('paste')
   " yank_path: yank in plus register
-  nnoremap <nowait><buffer><expr> <space>yp
+  nnoremap <nowait><buffer><expr> <space>yy
         \ defx#async_action('yank_path')
   " Execute {{{2
   nnoremap <silent><nowait><buffer><expr> X
@@ -287,10 +287,15 @@ function! s:defx_keymaps() abort
         \ defx#do_action('repeat')
   "}}}1
 endfunction
+
 augroup OnDefxBuffer
+  au FileType defx exe 'setl path='. getbufvar('#', '&path')
+  au FileType defx wincmd =
+  au FileType defx if line('.') == 1 | norm! j | endif
   " TODO: fix coc#_complete() for 'E121: Undefined variale: b:defx'
   au!
   " TODO: highlight on top as there's filepath, or place those path on another place.
+  au FileType defx setl winfixwidth winfixheight
   au FileType defx setl nonumber signcolumn= bufhidden=wipe previewheight=25
   "au WinEnter \[defx\]*
   "      \ if @# =~# '\[defx\]'
