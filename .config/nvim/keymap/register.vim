@@ -3,7 +3,7 @@
 " Note: Put as in Insert Mode
 tnoremap <expr> <c-r> '<c-\><c-n>"'.nr2char(getchar()).'pi'
 
-"augroup MyPasteToggle
+"augroup myPasteToggle
 "  " CAUTION: when set paste, @+ is ignored.
 "  au!
 "  au InsertEnter,CmdLineEnter * silent! setl nopaste
@@ -18,9 +18,17 @@ nnoremap P ]P
 cnoremap <c-r><c-;> <c-r>:
 cnoremap <c-r>;     <c-r>:
 " Plus Register; Terminal {{{1
-tnoremap <C-R><c-space> <C-\><C-N>"+pi
-tnoremap <C-R><space>   <C-\><C-N>"+pi
+tnoremap <c-r><c-space> <c-\><c-n>"+pi
+tnoremap <c-r><space>   <c-\><c-n>"+pi
 " Plus Register; Yank {{{1
+"function! s:yank_cursor_keeping(reg) abort
+"  let save_view = winsaveview()
+"  call feedkeys("\<esc>".'"'. a:reg .'y')
+"  augroup BackToThePosition
+"    au! TextYankPost * call winrestview(save_view) | silent! augroup! BackToThePosition
+"  augroup END
+"endfunction
+"nnoremap <silent> y :call <SID>yank_cursor_keeping(v:register)<cr>
 nnoremap <space>y "+y
 xnoremap <space>y "+y
 nnoremap <space>Y "+y$
@@ -35,8 +43,6 @@ nnoremap <space>p "+p`]
 xnoremap <space>p "+p
 nnoremap <space>P "+P
 xnoremap <space>P "+P
-cnoremap <c-r><c-space> <c-r>+
-cnoremap <c-r><space>   <c-r>+
 " Plug Register; One Char {{{1
 " Use vim-sumode
 "nnoremap <space>x   "+x
@@ -52,12 +58,13 @@ xnoremap <s-space>P "0P
 " Black-Hole Register {{{1
 nnoremap <s-space>d "_d
 nnoremap <s-space>D "_D
-nnoremap <s-space>c "_c
-nnoremap <s-space>C "_C
+" Note: those won't be typed intending to put at all, especially in noremal-mode
+nnoremap c "_c
+nnoremap C "_C
+nnoremap s "_s
+nnoremap S "_S
 "nnoremap <s-space>x "_x
 "nnoremap <s-space>X "_X
-nnoremap <s-space>s "_s
-nnoremap <s-space>S "_S
 " Unnamed Register; Convenience "{{{1
 " CAUTION: Just Type p to put from unnamed register.
 cnoremap <c-r><c-'> <c-r>"
