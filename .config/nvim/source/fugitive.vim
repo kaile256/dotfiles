@@ -26,7 +26,7 @@ augroup FugitiveCallMyFunc
     nmap <buffer> S <Plug>(fugitive:gstage-prev-window)
     nmap <buffer> D <Plug>(fugitive:diff-to-HEAD)
   endfunction
-  nnoremap <silent> <Plug>(fugitive:gstage-prev-window) :<c-u>wincmd p <bar> :Gw <bar> wincmd p <bar>norm! gszz<cr>
+  nnoremap <silent> <Plug>(fugitive:gstage-prev-window) :<c-u>wincmd p <bar> :Gw <bar> wincmd p <bar>call feedkeys('gszz')<cr>
   nnoremap <silent> <Plug>(fugitive:diff-to-HEAD) :<c-u>wincmd p <bar> :Gw <bar> :GwinpickVDiff HEAD <bar> Gvstatus<cr>
 
   au FileType gitcommit call s:gitcommit_startinsert() "{{{1
