@@ -11,8 +11,9 @@ tnoremap <expr> <c-r> '<c-\><c-n>"'.nr2char(getchar()).'pi'
 "augroup END
 
 " Indent Adjustment
-nnoremap p ]p`]
-nnoremap P ]P
+nnoremap p p`]
+"nnoremap p ]p`]
+"nnoremap P ]P
 
 " Command-Line Register {{{1
 cnoremap <c-r><c-;> <c-r>:
