@@ -3,8 +3,6 @@
 
 noremap <silent> <a-space><space>   :<c-u>WindowPKreduce<cr>
 noremap <silent> <a-space><a-space> :<c-u>WindowPKreduce<cr>
-"noremap <silent> <a-space><space>   :<c-u>windo if &bt == ('nofile' <bar><bar> 'nowrite' <bar><bar> 'quickfix') <bar> quit <bar> endif<cr>
-"noremap <silent> <a-space><a-space> :<c-u>windo if &bt == ('nofile' <bar><bar> 'nowrite' <bar><bar> 'quickfix') <bar> quit <bar> endif<cr>
 
 let g:windowPK_label2patterns = {}
 let g:windowPK_label2patterns.default = {
@@ -14,8 +12,7 @@ let g:windowPK_label2patterns.default = {
       \   'quickfix',
       \   'help',
       \   ],
-      \
-      \ 'path': [
+      \ 'bufname': [
       \   'twiggy:\/\/',
       \   '.git\/',
       \   ],
@@ -29,7 +26,7 @@ augroup WindowPKonDiff
       " TODO: get all the diff bufnrs
       let s:_diff_bufnrs = []
     endif
-    "if index(s:_diff_bufnrs, bufnr('%')) | return | endif
+    if index(s:_diff_bufnrs, bufnr('%')) | return | endif
 
     " Note: on dein's hook on update, have deleted the line of dq from plugin/
     windo nnoremap <buffer><nowait> dq         :<c-u>WindowPKreduce<cr>
