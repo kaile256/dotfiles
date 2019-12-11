@@ -18,14 +18,14 @@ margin-bottom = 0
 
 [settings]
 screenchange-reload = true
+;pseudo-transparency = false
 
+;; compositing: over xor source screen
 compositing-background = over
 compositing-foreground = over
-compositing-overline = over
-compositing-underline = over
-compositing-border = over
-
-;pseudo-transparency = false
+compositing-overline   = over
+compositing-underline  = over
+compositing-border     = over
 
 [margin]
 modules = 1
@@ -51,7 +51,7 @@ include-file  = ~/.config/polybar/bar/main.conf
 modules-center = workspaces-i3
 
 modules-left   = powermenu calendar pkg-check xkeyboard
-modules-right  = volume-alsa xbacklight cpu-graph ram-percent wlan battery
+modules-right  = volume-alsa cpu-graph ram-percent wlan xbacklight battery
 
 ;==========================================================
 
