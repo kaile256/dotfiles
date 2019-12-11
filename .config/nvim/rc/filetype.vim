@@ -1,17 +1,18 @@
 " From: init.vim
 
+augroup DotfilesConfig
+  au! BufWinEnter * if search('{{{', 'cwn') | setl fdm=marker | endif
+  "au! BufWinEnter **/{dotfiles,.config}/**/* setl fdm=marker
+augroup END
+
 augroup AppendFileType
   au!
   au BufNewFile,BufRead *.txt    setl syn=help
   au BufNewFile,BufRead *.snip   setl ft=neosnippet
   au BufNewFile,BufRead *.dict   setl ft=skkdict
   au BufNewFile,BufRead .vmailrc setl ft=yaml
-  au BufNewFile,BufRead **/polybar/**/{*.conf,config} setl ft=dosini
-augroup END
 
-augroup DotfilesConfig
-  au! BufWinEnter **/dotfiles/**/* setl fdm=marker
-  "au! BufWinEnter **/{dotfiles,.config}/**/* setl fdm=marker
+  au BufNewFile,BufRead **/*conf* if &ft ==# '' | setl ft=dosini | endif
 augroup END
 
 augroup ReturnToUsualWindow
