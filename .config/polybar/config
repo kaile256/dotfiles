@@ -1,44 +1,13 @@
 ; From: polybar/launch.sh
 ; Ref: https://github.com/matoruru/polybar-theme
 
-;[path]
-;polybar = ~/.config/polybar
-;colors  = ${path.polybar}/colors
-;bar     = ${path.polybar}/bar
+[includes]
+include-file = ~/.config/polybar/commons.conf
 
-[global/wm]
-; Adjust the _NET_WM_STRUT_PARTIAL top value
-;   Used for top aligned bars
-margin-top = 0
-
-; Adjust the _NET_WM_STRUT_PARTIAL bottom value
-;   Used for bottom aligned bars
-margin-bottom = 0
-;fixed-center = true
-
-[settings]
-screenchange-reload = true
-;pseudo-transparency = false
-
-;; compositing: over xor source screen
-compositing-background = over
-compositing-foreground = over
-compositing-overline   = over
-compositing-underline  = over
-compositing-border     = over
-
-[margin]
-modules = 1
-
-[padding]
-modules = 1
-
-[module]
-margin  = 1
-padding = 1
-
+#[colorschemes]
 include-file = ~/.config/polybar/colors/adapta.conf
 
+#[bar]
 ;; Logs: /tmp/polybar-top.log
 ;;       /tmp/polybar-bottom.log
 ;;       /tmp/polybar-main.log
@@ -46,20 +15,22 @@ include-file = ~/.config/polybar/colors/adapta.conf
 include-file  = ~/.config/polybar/bar/main.conf
 ;include-file = ~/.config/polybar/bar/bottom.conf
 
-;====Module settings+======================================
+#[modules.position]
+modules-center = i3-workspaces
 
-modules-center = workspaces-i3
+modules-left = powermenu calendar pkg-check i3-mode xkeyboard
 
-modules-left   = powermenu calendar pkg-check xkeyboard
-modules-right  = volume-alsa cpu-graph ram-percent wlan xbacklight battery
+modules-right = volume-alsa cpu-graph ram-percent wlan xbacklight battery
 
-;==========================================================
+#[modules.config]
+include-file   = ~/.config/polybar/module/workspace/i3.conf
+;include-file = ~/.config/polybar/module/workspace/xworkspace.conf
 
+include-file = ~/.config/polybar/module/data/date.conf
 include-file = ~/.config/polybar/module/os/os.conf
 include-file = ~/.config/polybar/module/os/arch/pkg-check.conf
-
-include-file = ~/.config/polybar/module/pc/x/xbacklight.conf
-include-file = ~/.config/polybar/module/pc/x/xkeyboard.conf
+include-file = ~/.config/polybar/module/apps.conf
+;include-file = ~/.config/polybar/module/url.conf
 
 include-file = ~/.config/polybar/module/pc/volume.conf
 include-file = ~/.config/polybar/module/pc/ram.conf
@@ -67,11 +38,7 @@ include-file = ~/.config/polybar/module/pc/cpu.conf
 include-file = ~/.config/polybar/module/pc/network.conf
 include-file = ~/.config/polybar/module/pc/battery.conf
 
-include-file = ~/.config/polybar/module/workspace/i3.conf
-;include-file = ~/.config/polybar/module/workspace/xworkspace.conf
-
-include-file = ~/.config/polybar/module/apps.conf
-include-file = ~/.config/polybar/module/data/date.conf
-;include-file = ~/.config/polybar/module/url.conf
+include-file = ~/.config/polybar/module/pc/x/xbacklight.conf
+include-file = ~/.config/polybar/module/pc/x/xkeyboard.conf
 
 ; vim: ft=dosini
