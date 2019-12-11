@@ -61,7 +61,8 @@ command! -bar SO :call s:source_buffer()
 if !exists('*s:source_buffer')
   function! s:source_buffer() abort
     " Note: :undojoin causes an error right after :undo.
-    silent! undojoin
+    " Note: :undojoin with :w prevents to :undo before :w
+    "silent! undojoin
     silent write
     if getline(1) =~# '^#!'
       !%:p
@@ -86,20 +87,7 @@ command! -bar -nargs=* -complete=shellcmd
       \ Killall
       \ :silent !killall <args>
 
-command! -bar -nargs=* -complete=shellcmd
-      \ Screenkey
-      \ :silent !screenkey -g 950x1000 -t 0.4 <args> &
-
-command! -bar -complete=shellcmd
-      \ PolybarUpdate
-      \ :silent !${XDG_CONFIG_HOME}/polybar/launch.sh &
-
 command! -bar XinputTouchpadEnable  :!xinput enable  Elan\ Touchpad
 command! -bar TouchpadEnable        :!xinput enable  Elan\ Touchpad
 command! -bar XinputTouchpadDisable :!xinput disable Elan\ Touchpad
 command! -bar TouchpadDisable       :!xinput disable Elan\ Touchpad
-
-command! -bar MonitorTry :!xrandr |
-      \ grep "HDMI2 connected"
-      \ && xrandr --output eDP1 --auto
-      \ --output "HDMI2" --auto --above eDP1
