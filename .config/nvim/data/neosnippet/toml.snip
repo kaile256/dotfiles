@@ -18,15 +18,15 @@ alias ## ##| ##||
 # for dein's hook {{{
 snippet hook_add
 alias ad add
-  hook_add = 'runtime add/${1:`substitute(substitute(matchstr(getline(search('repo =', 'bnW')), "'.*'"), "'", '', 'g'), '.*/', '', '')`}.vim'
+  hook_add = 'runtime add/${1:`substitute(substitute(substitute(matchstr(getline(search('repo =', 'bnW')), "'.*'"), "'", '', 'g'), '.*/', '', ''), '.vim\|vim-', '', 'g')`}.vim'
 
 snippet hook_source
 alias so sou sour
-  hook_source = 'runtime source/${1:`substitute(substitute(matchstr(getline(search('repo =', 'bnW')), "'.*'"), "'", '', 'g'), '.*/', '', '')`}.vim'
+  hook_source = 'runtime source/${1:`substitute(substitute(substitute(matchstr(getline(search('repo =', 'bnW')), "'.*'"), "'", '', 'g'), '.*/', '', ''), '.vim\|vim-', '', 'g')`}.vim'
 
 snippet hook_post_source
 alias po pos post
-  hook_post_source = 'runtime post/${1:`substitute(substitute(matchstr(getline(search('repo =', 'bnW')), "'.*'"), "'", '', 'g'), '.*/', '', '')`}.vim'
+  hook_post_source = 'runtime post/${1:`substitute(substitute(substitute(matchstr(getline(search('repo =', 'bnW')), "'.*'"), "'", '', 'g'), '.*/', '', ''), '.vim\|vim-', '', 'g')`}.vim'
 
 snippet on_event
 alias ev eve even
