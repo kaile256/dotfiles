@@ -1,3 +1,7 @@
+" From: init.vim
+"
+nnoremap <silent> gX :silent !xdg-open <cfile> & <cr>
+
 function! s:line_operation(operation, direction) abort "{{{1
   if a:operation ==# 'copy' "{{{2
     " Note: :move/:copy doesn't work well if folded.
@@ -161,4 +165,3 @@ let g:backupYanked#backuplist_regnames = 'abcdefg'
 command! BackupYanked :call s:backup_yanked_contents()
 nnoremap <silent> y :BackupYanked<cr>y
 nnoremap <silent> Y :BackupYanked<cr>y$
-
