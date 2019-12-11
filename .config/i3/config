@@ -1,337 +1,41 @@
 # Help: https://i3wm.org/docs/userguide.html
 # Ref: X11/.xinitrc
 
-# Keybind; Try {{{
-#bindsym $Super+Shift+minus move scratchpad
-bindsym $Super+$Alt+h exec xdg-open /usr/share/doc/manjaro/i3_help_live.pdf
-#bindsym $Super+Shift+F3 exec gksu pcmanfm
-#bindsym $SuperS+i exec calamares_polkit
-#bindsym $Super+Ctrl+a exec terminal -e 'setup'
-#bindsym $mod+t exec --no-startup-id pkill compton
-#bindsym $mod+Ctrl+t exec --no-startup-id compton -b
-#bindsym $mod+Ctrl+x --release exec --no-startup-id xkill
-#}}}
-# Var; Keyname {{{
+# Variables {{{1
+# Var; Keyname {{{2
 set $Super  Mod4
 set $SuperS Mod4+Shift
 set $Alt    Mod1
 set $AltC   Mod1+Control
 set $AltS   Mod1+Shift
 
+# Var: command {{{2
 set $Locker ~/.config/i3/lock.sh
-#}}}
 
-## Border Style {{{
-## <normal|1pixel|pixel xx|none|pixel>
-#default_border pixel 1
-#default_floating_border normal
-## Hide borders
-#hide_edge_borders none
-## Change Borders
-#bindsym $mod+u border none
-#bindsym $mod+y border pixel 1
-#bindsym $mod+n border normal
-##}}}
-
-# General; Wallpaper {{{
-## TODO: i3-cheat sheet on desktop.
-#exec --no-startup-id "feh --bg-scale $HOME/.config/i3/~~.jpg"
-#}}}
-# General; Font {{{
+# Font {{{1
 font pango:SF Mono 11
-#}}}
 
-# Auto Start {{{
-# exec_always: reload on a restart i3 itself
+# Workspace; Name {{{1
 workspace_layout tabbed
-# xrandr;
-exec_always --no-startup-id ~/.config/i3/monitor.sh
-exec --no-startup-id alsactl daemon
-exec --no-startup-id sudo tlp start
-# nm-applet: WiFi Network Manager
-exec --no-startup-id nm-applet
-exec --no-startup-id fcitx
-# dunst: Light Notification Daemon
-#exec --no-startup-id dunst
-# parcellite: Clipboard Manager
-#exec --no-startup-id parcellite
-#exec --no-startup-id clipit
-# urxvtd: Daemon of rxvt-unicode. Use urxvtc as a client.
-#exec "urxvtd -o -f"
-#exec --no-startup-id volumeicon
-exec --no-startup-id xautolock -time 5 -locker $Locker
-exec --no-startup-id nitrogen --restore; sleep 1; compton -b
-# Show the CP's status on the wallpaper.
-#exec --no-startup-id start_conky_live_maia
-exec --no-startup-id ~/black_perl_conky/startup.sh
-#exec --no-startup-id blueman
-#exec --no-startup-id manjaro-hello
-#exec --no-startup-id pamac-tray
-#exec --no-startup-id desktop-items
-#exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-# exec_always --no-startup-id sbxkb
-#exec --no-startup-id xfce4-power-manager
-#exec_always --no-startup-id ff-theme-util
-#exec_always --no-startup-id setcursor
-# Modifier; Sound Volume {{{
-#bindsym $Super+Ctrl+m exec terminal -e 'alsamixer'
-# pulseaudio: deamon to control via keyboard.
-exec --no-startup-id pulseaudio --start
-# pulseaudio-applet: install yourself
-#exec --no-startup-id pa-applet
-#bindsym $mod+Ctrl+m exec pavucontrol
-#}}}
-exec_always --no-startup-id ${XDG_CONFIG_HOME}/polybar/launch.sh
-#exec_always --no-startup-id killall -q polybar; polybar
-#exec_always --no-startup-id  ${XDG_CONFIG_HOME}/qobbar/launch.sh
-#exec_always --no-startup-id xfce4-panel --disable-wm-check
-#}}}
 
-# Keybind; Notification {{{
-## dunst; a notification-daemon
-bindsym $Super+Shift+d --release exec "killall dunst; exec notify-send 'restart dunst'"
-#}}}
-# Keybind; i3's command {{{
-## Kill Focused Window
-bindsym $Super+z  kill
-# reload the configuration file
-bindsym $SuperS+space reload
-# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-bindsym $Super+space  restart
-#}}}
-# Keybind; Music Player {{{
-bindsym $SuperS+m exec terminal -e 'mocp'
-#}}}
-# Keybind; open File Manager {{{
-bindsym $Super+m exec pcmanfm
-bindsym $superS+r exec terminal -e 'ranger'
-#}}}
-# Keybind; open Menu {{{
-#bindsym $Super+semicolon exec --no-startup-id i3-dmenu-desktop
-#bindsym $Super+Return exec --no-startup-id i3-dmenu-desktop
-#bindsym $SuperS+Return exec terminal -e 'bmenu'
-bindsym $Super+Ctrl+Return exec --no-startup-id $menu
-#bindsym $Super+d exec dmenu_run
-# # TODO: convert this bash-script into fish's
-# Ref: dmenu with fzf https://github.com/junegunn/fzf/wiki/Examples
-bindsym $Super+Return exec --no-startup-id terminal -t 'fzf-menu' -e 'i3-dmenu-desktop --dmenu=fzf'
-for_window [title='fzf-menu'] floating enable
-#}}}
-# Keybind; open Terminal {{{
-# urxvtc; add `-k` to kill daemon, too.
-#bindsym $Super+u exec urxvtc
-bindsym $Super+u exec urxvt
-bindsym $Super+t exec alacritty
-#}}}
-# Keybind; open Editor {{{
-bindsym $Super+v exec --no-startup-id alacritty -e 'vim'
-bindsym $Super+a exec --no-startup-id alacritty -e 'nvim'
-bindsym $Super+n exec --no-startup-id nvim-qt
-# TODO: start nvim-qt sharing the buffer-list w/ another nvim-qt which is already started.
-#bindsym $SuperS+n exec --no-startup-id i3-sensible-terminal -e "nvim-qt --server $NVIM_LISTEN_ADDRESS"
-bindsym $Super+q exec --no-startup-id nvim-qt
-#bindsym $Super+r exec --no-startup-id nvim-gtk # font decayed
-bindsym $SuperS+g exec --no-startup-id glrnvim
-#bindsym $SuperS+g exec --no-startup-id gonvim
-bindsym $Super+g exec --no-startup-id gnvim
-bindsym $Super+y exec --no-startup-id nyaovim
-bindsym $Super+o exec --no-startup-id oni
-bindsym $Super+e exec --no-startup-id emacs
-bindsym $SuperS+v exec --no-startup-id code
-bindsym $SuperS+c exec --no-startup-id code
-#}}}
-# Keybind; open Browser {{{
-bindsym $Super+b exec qutebrowser
-bindsym $Super+f exec firefox
-bindsym $Super+c exec google-chrome-beta
-#bindsym $Super+p exec palemoon
-#}}}
-# Fn; Backlight {{{
-bindsym XF86MonBrightnessUp   exec xbacklight -inc 5
-bindsym XF86MonBrightnessDown exec xbacklight -dec 5
-#}}}
-# Fn; Audio Volume {{{
-# Depends: pulseaudio & pavucontrol
-# Recommend: pamixer (a frontend)
-# Recommend: pulseaudio-alsa (for flash)
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5%
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5%
-bindsym XF86AudioMute        exec --no-startup-id pactl set-sink-mute 0 toggle
-#}}}
-# Fn; Screen Shot {{{
-# depend: imagemagick
-#bindsym $Super+Print exec --no-startup-id import -window root ~/Pictures/screenshot
-bindsym $Super+Print exec --no-startup-id i3-scrot
-#}}}
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
+set $ws4 "4"
+set $ws5 "5"
+set $ws6 "6"
+set $ws7 "7"
+set $ws8 "8"
+set $ws9 "9"
+set $ws10 "0:monitor"
 
-# Mode; System {{{
-## If use i3-nagbar {{{
-#bindsym $Super+x  exec "i3-nagbar -t warning -f SF Mono 12 -m  'Do you really want to exit i3?' -b 'q:poweroff' 'systemctl poweroff' -b 'r:reboot' 'systemctl reboot' -b 'l:logout' 'i3-msg exit'", mode "$system"
-#bindsym $SuperS+x exec "i3-nagbar -t warning -f SF Mono 12 -m  'Do you really want to exit i3?' -b 'q:poweroff' 'systemctl poweroff' -b 'r:reboot' 'systemctl reboot' -b 'l:logout' 'i3-msg exit'", mode "$system"
-##}}}
-bindsym $Super+Ctrl+x  mode "$systemctl"; exec notify-send 'systemctl'
-bindsym $Super+Ctrl+z  mode "$systemctl"; exec notify-send 'systemctl'
-set $systemctl Poweroff? (y)es, (n)o, (s)uspend, (r)eboot or (l)ock?
-mode "$systemctl" {
-#bindsym s exec --no-startup-id $Locker && systemctl suspend, mode "default"
-#bindsym h exec --no-startup-id $Locker && systemctl hibernate, mode "default"
-#bindsym l exec --no-startup-id i3-msg exit, mode "default"
-#bindsym k exec --no-startup-id i3-msg exit, mode "default"
-bindsym l exec --no-startup-id $Locker, mode "default"
-bindsym k exec --no-startup-id $Locker, mode "default"
-bindsym s exec --no-startup-id $Locker && systemctl suspend, mode "default"
-bindsym r exec --no-startup-id systemctl reboot,  mode "default"
-bindsym p exec --no-startup-id systemctl poweroff, mode "default"
-bindsym q exec --no-startup-id systemctl poweroff, mode "default"
-bindsym y exec --no-startup-id systemctl poweroff, mode "default"
-bindsym u exec --no-startup-id systemctl poweroff, mode "default"
-bindsym n            mode "default"
-bindsym Escape       mode "default"
-bindsym Ctrl+[       mode "default"
-bindsym $Super+Ctrl+x  mode "default"
-bindsym Ctrl+c       mode "default"
-bindsym $Super+space mode "default"
-}
-#}}}
-# Mode; Resize Window {{{
-# you can also use the mouse for that
-mode "$resize" {
-# These bindings trigger as soon as you enter the resize mode
-#bindsym j resize shrink width 25 px or 25 ppt
-#bindsym k resize grow width 25 px or 25 ppt
-#bindsym n resize shrink width 25 px or 25 ppt
-#bindsym w resize grow width 25 px or 25 ppt
-#bindsym h resize grow height 25 px or 25 ppt
-#bindsym l resize shrink height 25 px or 25 ppt
+workspace "1" output eDP1
+workspace "0" output HDMI2
 
-# same bindings, but for the arrow keys
-bindsym h resize shrink width 25 px or 25 ppt
-bindsym j resize grow height 25 px or 25 ppt
-bindsym k resize shrink height 25 px or 25 ppt
-bindsym l resize grow width 25 px or 25 ppt
+## Apps in Floating {{{2
+# If Urgent, switch to the workspace immediately.
+#for_window [urgent=latest] focus
 
-# back to normal: Enter or Escape or $Super+r
-bindsym Return mode "default"
-bindsym Escape mode "default"
-bindsym Ctrl+c mode "default"
-}
-
-#set $resize Resize as you want: (H)igher/(L)ower | (N)arrower/(W)ider
-set $resize Resize as you want: (H)shrink(left) (N)grow(down) (K)shrink(up) (L)grow(right) | <Ctrl-C>: Cancel
-bindsym $Super+Ctrl+r mode "$resize"
-#}}}
-# Mode; Backlight {{{
-bindsym $Super+Ctrl+b mode "$backlight"
-set $backlight Backlight Control: K+5/U+10/F+20;J-5/D-10/B-20
-mode "$backlight" {
-# TODO: call current brightness.
-bindsym k exec "xbacklight -inc 5;  notify-send 'brightness up'"
-bindsym j exec "xbacklight -dec 5;  notify-send 'brightness down'"
-bindsym u exec "xbacklight -inc 10; notify-send 'brightness up'"
-bindsym d exec "xbacklight -dec 10; notify-send 'brightness down'"
-bindsym f exec "xbacklight -inc 20; notify-send 'brightness up'"
-bindsym b exec "xbacklight -dec 20; notify-send 'brightness down'"
-bindsym n            mode "default"
-bindsym Escape       mode "default"
-bindsym Ctrl+[       mode "default"
-bindsym Return       mode "default"
-bindsym Space        mode "default"
-bindsym $Super+Ctrl+b  mode "default"
-bindsym Ctrl+c       mode "default"
-bindsym Ctrl+m       mode "default"
-bindsym Ctrl+j       mode "default"
-bindsym $Super+space mode "default"
-}
-#}}}
-# Mode; Sound Volume {{{
-## Depends: pulseaudio & pavucontrol
-# Depends: pulseaudio-ctl
-# Recommend: pamixer (a frontend)
-# Recommend: pulseaudio-alsa (for flash)
-bindsym $Super+Ctrl+s mode "$sound"
-bindsym $Super+Ctrl+v mode "$sound"
-set $sound Sound Volume: (H)igher, (L)ower, (M)ute or (N)o more.
-mode "$sound" {
-bindsym h exec --no-startup-id pactl set-sink-volume 0 +5%
-bindsym l exec --no-startup-id pactl set-sink-volume 0 -5%
-bindsym u exec --no-startup-id pactl set-sink-volume 0 +5%
-bindsym d exec --no-startup-id pactl set-sink-volume 0 -5%
-bindsym m exec --no-startup-id pactl set-sink-mute   0 toggle
-bindsym k exec --no-startup-id pactl set-sink-volume 0 +5%
-bindsym j exec --no-startup-id pactl set-sink-volume 0 -5%
-#bindsym k exec --no-startup-id pulseaudio-ctl up
-#bindsym j exec --no-startup-id pulseaudio-ctl down
-#bindsym m exec --no-startup-id pulseaudio-ctl mute
-bindsym n            mode "default"
-bindsym Escape       mode "default"
-bindsym Ctrl+squarebrace       mode "default"
-bindsym Return       mode "default"
-bindsym Space        mode "default"
-bindsym $Super+Ctrl+s  mode "default"
-bindsym Ctrl+c       mode "default"
-bindsym $Super+space mode "default"
-}
-#}}}
-
-# Keybind; Focus Window {{{
-bindsym $Super+h focus left
-bindsym $Super+j focus down
-bindsym $Super+k focus up
-bindsym $Super+l focus right
-### Focus; by Cursor Keys
-#bindsym $Super+Left focus left
-#bindsym $Super+Down focus down
-#bindsym $Super+Up focus up
-#bindsym $Super+Right focus right
-### Focus; by Vim-Additional
-#bindsym $AltC+h focus left
-#bindsym $AltC+j focus down
-#bindsym $AltC+k focus up
-#bindsym $AltC+l focus right
-#}}}
-# Keybind; Move Window {{{
-bindsym $SuperS+h move left
-bindsym $SuperS+j move down
-bindsym $SuperS+k move up
-bindsym $SuperS+l move right
-### Move; by Vim-Additional
-#bindsym $AltS+h move left
-#bindsym $AltS+j move down
-#bindsym $AltS+k move up
-#bindsym $AltS+l move right
-## Move; by Cursor Keys
-#bindsym $SuperS+Left move left
-#bindsym $SuperS+Down move down
-#bindsym $SuperS+Up move up
-#bindsym $SuperS+Right move right
-#}}}
-
-# Mouse #{{{
-# Use Mouse+$Super to drag floating windows to their wanted position
-floating_modifier $Super
-#focus_follows_mouse no
-#}}}
-# Window; Layout {{{
-bindsym F11 fullscreen toggle
-bindsym $SuperS+f fullscreen toggle
-# in case, cannot move window into tabbed position.
-bindsym $SuperS+t layout tabbed
-bindsym $Super+$Alt+t layout tabbed
-#bindsym $SuperS+s split h;exec notify-send 'tile horizontally'
-#bindsym $SuperS+v split v;exec notify-send 'tile vertically'
-#bindsym $SuperS+t layout tabbed; exec notify-send 'tile tabbed'
-# stacking: like tabbed, but switch windows up & down.
-#bindsym $SuperS+s layout stacking
-#bindsym $SuperS+e layout toggle split
-#bindsym $SuperS+f floating toggle
-## on Floating; Change Focus
-# change focus between tiling / floating windows
-#bindsym $SuperS+o focus mode_toggle
-#bindsym $Super+a focus parent
-#bindsym $Super+u focus child
-#}}}
-
-## Specify Apps to Open in Floating {{{
 #for_window [title="alsamixer"] floating enable border pixel 1
 #for_window [class="calamares"] floating enable border normal
 #for_window [class="Clipgrab"] floating enable
@@ -360,57 +64,15 @@ bindsym $Super+$Alt+t layout tabbed
 #for_window [class="Timeset-gui"] floating enable border normal
 #for_window [class="(?i)virtualbox"] floating enable border normal
 #for_window [class="Xfburn"] floating enable
-##}}}
-# If Urgent, switch to the workspace immediately.
-#for_window [urgent=latest] focus
 
-# Workspace; Name {{{
-set $ws1 "1:vim"
-set $ws2 "2:browser"
-set $ws3 "3"
-set $ws4 "4"
-set $ws5 "5"
-set $ws6 "6"
-set $ws7 "7"
-set $ws8 "8"
-set $ws9 "9"
-set $ws10 "0:monitor"
-workspace "1:vim"     output eDP1
-workspace "0:monitor" output HDMI2
-#}}}
-# Workspace; Focus Switch {{{
-workspace_auto_back_and_forth yes
-#bindsym $mod+b workspace back_and_forth
-#bindsym $mod+Shift+b move container to workspace back_and_forth; workspace back_and_forth
-bindsym $Super+minus workspace prev
-bindsym $Super+equal workspace next
-bindsym $Super+Ctrl+p workspace prev
-bindsym $Super+Ctrl+n workspace next
-bindsym $Super+1 workspace $ws1
-bindsym $Super+2 workspace $ws2
-bindsym $Super+3 workspace $ws3
-bindsym $Super+4 workspace $ws4
-bindsym $Super+5 workspace $ws5
-bindsym $Super+6 workspace $ws6
-bindsym $Super+7 workspace $ws7
-bindsym $Super+8 workspace $ws8
-bindsym $Super+9 workspace $ws9
-bindsym $Super+0 workspace $ws10
-#}}}
-# Workspace; Move {{{
-bindsym $SuperS+1 move container to workspace $ws1
-bindsym $SuperS+2 move container to workspace $ws2
-bindsym $SuperS+3 move container to workspace $ws3
-bindsym $SuperS+4 move container to workspace $ws4
-bindsym $SuperS+5 move container to workspace $ws5
-bindsym $SuperS+6 move container to workspace $ws6
-bindsym $SuperS+7 move container to workspace $ws7
-bindsym $SuperS+8 move container to workspace $ws8
-bindsym $SuperS+9 move container to workspace $ws9
-bindsym $SuperS+0 move container to workspace $ws10
-#}}}
+## Border Style {{{1
+## <normal|1pixel|pixel xx|none|pixel>
+#default_border pixel 1
+#default_floating_border normal
+## Hide borders
+#hide_edge_borders none
 
-## Block; Status Bar {{{
+## Status Bar; use polybar instead {{{1
 ## Note: use polybar instead
 ## Start i3bar to display a workspace bar (plus the system information i3status
 ## finds out, if available)
@@ -437,9 +99,339 @@ bindsym $SuperS+0 move container to workspace $ws10
 #urgent_workspace   #ffffff #900000
 #}
 #}
-##}}}
 
-## for i3-gaps: {{{
+# Auto Start {{{1
+# Wallpaper
+## TODO: i3-cheat sheet on desktop.
+#exec --no-startup-id "feh --bg-scale $HOME/.config/i3/~~.jpg"
+
+# exec_always: reload on a restart i3 itself
+# xrandr;
+exec_always --no-startup-id ${MYSCRIPTS}/monitor-try.sh
+
+exec --no-startup-id alsactl daemon
+exec --no-startup-id sudo tlp start
+# nm-applet: WiFi Network Manager
+exec --no-startup-id nm-applet
+exec --no-startup-id fcitx
+# dunst: Light Notification Daemon
+#exec --no-startup-id dunst
+# parcellite: Clipboard Manager
+#exec --no-startup-id parcellite
+#exec --no-startup-id clipit
+# urxvtd: Daemon of rxvt-unicode. Use urxvtc as a client.
+#exec "urxvtd -o -f"
+#exec --no-startup-id volumeicon
+exec --no-startup-id xautolock -time 5 -locker $Locker
+exec --no-startup-id nitrogen --restore; sleep 1; compton -b
+# Show the CP's status on the wallpaper.
+#exec --no-startup-id start_conky_live_maia
+exec --no-startup-id ~/black_perl_conky/startup.sh
+#exec --no-startup-id blueman
+#exec --no-startup-id manjaro-hello
+#exec --no-startup-id pamac-tray
+#exec --no-startup-id desktop-items
+#exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+# exec_always --no-startup-id sbxkb
+#exec --no-startup-id xfce4-power-manager
+#exec_always --no-startup-id ff-theme-util
+#exec_always --no-startup-id setcursor
+# pulseaudio: deamon to control via keyboard.
+exec --no-startup-id pulseaudio --start
+# pulseaudio-applet: install yourself
+#exec --no-startup-id pa-applet
+#bindsym $mod+Ctrl+m exec pavucontrol
+exec_always --no-startup-id ${XDG_CONFIG_HOME}/polybar/launch.sh
+#exec_always --no-startup-id xfce4-panel --disable-wm-check
+
+# Keybind of i3 {{{1
+# Keybind; i3's command {{{2
+## Kill Focused Window
+bindsym $Super+z  kill
+# reload the configuration file
+bindsym $SuperS+space reload
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $Super+space  restart
+
+# Keybind; Focus Window {{{2
+bindsym $Super+h focus left
+bindsym $Super+j focus down
+bindsym $Super+k focus up
+bindsym $Super+l focus right
+### Focus; by Cursor Keys
+#bindsym $Super+Left focus left
+#bindsym $Super+Down focus down
+#bindsym $Super+Up focus up
+#bindsym $Super+Right focus right
+### Focus; by Vim-Additional
+#bindsym $AltC+h focus left
+#bindsym $AltC+j focus down
+#bindsym $AltC+k focus up
+#bindsym $AltC+l focus right
+# Keybind; Move Window {{{2
+bindsym $SuperS+h move left
+bindsym $SuperS+j move down
+bindsym $SuperS+k move up
+bindsym $SuperS+l move right
+### Move; by Vim-Additional
+#bindsym $AltS+h move left
+#bindsym $AltS+j move down
+#bindsym $AltS+k move up
+#bindsym $AltS+l move right
+## Move; by Cursor Keys
+#bindsym $SuperS+Left move left
+#bindsym $SuperS+Down move down
+#bindsym $SuperS+Up move up
+#bindsym $SuperS+Right move right
+
+# Toggle
+bindsym $Super+semicolon exec --no-startup-id ${MYSCRIPTS}/touchpad-toggle.sh
+
+# Mouse #{{{2
+# Use Mouse+$Super to drag floating windows to their wanted position
+floating_modifier $Super
+#focus_follows_mouse no
+# Window; Layout {{{2
+bindsym F11 fullscreen toggle
+bindsym $SuperS+f fullscreen toggle
+# in case, cannot move window into tabbed position.
+bindsym $SuperS+t layout tabbed
+bindsym $Super+$Alt+t layout tabbed
+#bindsym $SuperS+s split h;exec notify-send 'tile horizontally'
+#bindsym $SuperS+v split v;exec notify-send 'tile vertically'
+#bindsym $SuperS+t layout tabbed; exec notify-send 'tile tabbed'
+# stacking: like tabbed, but switch windows up & down.
+#bindsym $SuperS+s layout stacking
+#bindsym $SuperS+e layout toggle split
+#bindsym $SuperS+f floating toggle
+## on Floating; Change Focus
+# change focus between tiling / floating windows
+#bindsym $SuperS+o focus mode_toggle
+#bindsym $Super+a focus parent
+#bindsym $Super+u focus child
+
+## Borders between Windows {{{2
+#bindsym $mod+u border none
+#bindsym $mod+y border pixel 1
+#bindsym $mod+n border normal
+
+# Keybind for Mode on i3 {{{1
+# Mode; System {{{2
+## If use i3-nagbar {{{3
+#bindsym $Super+x  exec "i3-nagbar -t warning -f SF Mono 12 -m  'Do you really want to exit i3?' -b 'q:poweroff' 'systemctl poweroff' -b 'r:reboot' 'systemctl reboot' -b 'l:logout' 'i3-msg exit'", mode "$system"
+#bindsym $SuperS+x exec "i3-nagbar -t warning -f SF Mono 12 -m  'Do you really want to exit i3?' -b 'q:poweroff' 'systemctl poweroff' -b 'r:reboot' 'systemctl reboot' -b 'l:logout' 'i3-msg exit'", mode "$system"
+#}}}
+bindsym $Super+Ctrl+x  mode "$systemctl"; exec notify-send --expire-time 1100 --urgency critical 'systemctl'
+bindsym $Super+Ctrl+z  mode "$systemctl"; exec notify-send --expire-time 1100 --urgency critical 'systemctl'
+set $systemctl Poweroff? (y)es, (n)o, (s)uspend, (r)eboot or (l)ock?
+mode "$systemctl" {
+#bindsym s exec --no-startup-id $Locker && systemctl suspend, mode "default"
+#bindsym h exec --no-startup-id $Locker && systemctl hibernate, mode "default"
+#bindsym l exec --no-startup-id i3-msg exit, mode "default"
+#bindsym k exec --no-startup-id i3-msg exit, mode "default"
+bindsym l exec --no-startup-id $Locker, mode "default"
+bindsym k exec --no-startup-id $Locker, mode "default"
+bindsym s exec --no-startup-id $Locker && systemctl suspend, mode "default"
+bindsym r exec --no-startup-id systemctl reboot,  mode "default"
+bindsym p exec --no-startup-id systemctl poweroff, mode "default"
+bindsym q exec --no-startup-id systemctl poweroff, mode "default"
+bindsym y exec --no-startup-id systemctl poweroff, mode "default"
+bindsym u exec --no-startup-id systemctl poweroff, mode "default"
+bindsym n            mode "default"
+bindsym Escape       mode "default"
+bindsym Ctrl+[       mode "default"
+bindsym $Super+Ctrl+x  mode "default"
+bindsym Ctrl+c       mode "default"
+bindsym $Super+space mode "default"
+}
+# Mode; Resize Window {{{2
+# you can also use the mouse for that
+mode "$resize" {
+# These bindings trigger as soon as you enter the resize mode
+#bindsym j resize shrink width 25 px or 25 ppt
+#bindsym k resize grow width 25 px or 25 ppt
+#bindsym n resize shrink width 25 px or 25 ppt
+#bindsym w resize grow width 25 px or 25 ppt
+#bindsym h resize grow height 25 px or 25 ppt
+#bindsym l resize shrink height 25 px or 25 ppt
+
+# same bindings, but for the arrow keys
+bindsym h resize shrink width 25 px or 25 ppt
+bindsym j resize grow height 25 px or 25 ppt
+bindsym k resize shrink height 25 px or 25 ppt
+bindsym l resize grow width 25 px or 25 ppt
+
+# back to normal: Enter or Escape or $Super+r
+bindsym Return mode "default"
+bindsym Escape mode "default"
+bindsym Ctrl+c mode "default"
+}
+
+#set $resize Resize as you want: (H)igher/(L)ower | (N)arrower/(W)ider
+set $resize Resize as you want: (H)shrink(left) (N)grow(down) (K)shrink(up) (L)grow(right) | <Ctrl-C>: Cancel
+bindsym $Super+Ctrl+r mode "$resize"
+# Mode; Backlight {{{2
+bindsym $Super+Ctrl+b mode "$backlight"
+set $backlight Backlight Control: K+5/U+10/F+20;J-5/D-10/B-20
+mode "$backlight" {
+# TODO: call current brightness.
+bindsym k exec "xbacklight -inc 5;  notify-send 'brightness +5'"
+bindsym j exec "xbacklight -dec 5;  notify-send 'brightness -5'"
+bindsym u exec "xbacklight -inc 10; notify-send 'brightness +10'"
+bindsym d exec "xbacklight -dec 10; notify-send 'brightness -10'"
+bindsym f exec "xbacklight -inc 15; notify-send 'brightness +15'"
+bindsym b exec "xbacklight -dec 15; notify-send 'brightness -15'"
+bindsym n            mode "default"
+bindsym Escape       mode "default"
+bindsym Ctrl+[       mode "default"
+bindsym Return       mode "default"
+bindsym Space        mode "default"
+bindsym $Super+Ctrl+b  mode "default"
+bindsym Ctrl+c       mode "default"
+bindsym Ctrl+m       mode "default"
+bindsym Ctrl+j       mode "default"
+bindsym $Super+space mode "default"
+}
+# Mode; Sound Volume {{{2
+## Depends: pulseaudio & pavucontrol
+# Depends: pulseaudio-ctl
+# Recommend: pamixer (a frontend)
+# Recommend: pulseaudio-alsa (for flash)
+bindsym $Super+Ctrl+s mode "$sound"
+bindsym $Super+Ctrl+v mode "$sound"
+set $sound Sound Volume: (H)igher, (L)ower, (M)ute or (N)o more.
+mode "$sound" {
+bindsym h exec --no-startup-id pactl set-sink-volume 0 +5%
+bindsym l exec --no-startup-id pactl set-sink-volume 0 -5%
+bindsym u exec --no-startup-id pactl set-sink-volume 0 +5%
+bindsym d exec --no-startup-id pactl set-sink-volume 0 -5%
+bindsym m exec --no-startup-id pactl set-sink-mute   0 toggle
+bindsym k exec --no-startup-id pactl set-sink-volume 0 +5%
+bindsym j exec --no-startup-id pactl set-sink-volume 0 -5%
+#bindsym k exec --no-startup-id pulseaudio-ctl up
+#bindsym j exec --no-startup-id pulseaudio-ctl down
+#bindsym m exec --no-startup-id pulseaudio-ctl mute
+bindsym n            mode "default"
+bindsym Escape       mode "default"
+bindsym Ctrl+squarebrace       mode "default"
+bindsym Return       mode "default"
+bindsym Space        mode "default"
+bindsym $Super+Ctrl+s  mode "default"
+bindsym Ctrl+c       mode "default"
+bindsym $Super+space mode "default"
+}
+
+# Keybind for Workspace {{{1
+# Workspace; Focus Switch {{{2
+workspace_auto_back_and_forth yes
+#bindsym $mod+b workspace back_and_forth
+#bindsym $mod+Shift+b move container to workspace back_and_forth; workspace back_and_forth
+bindsym $Super+minus workspace prev
+bindsym $Super+equal workspace next
+bindsym $Super+Ctrl+p workspace prev
+bindsym $Super+Ctrl+n workspace next
+bindsym $Super+1 workspace $ws1
+bindsym $Super+2 workspace $ws2
+bindsym $Super+3 workspace $ws3
+bindsym $Super+4 workspace $ws4
+bindsym $Super+5 workspace $ws5
+bindsym $Super+6 workspace $ws6
+bindsym $Super+7 workspace $ws7
+bindsym $Super+8 workspace $ws8
+bindsym $Super+9 workspace $ws9
+bindsym $Super+0 workspace $ws10
+# Workspace; Move {{{2
+bindsym $SuperS+1 move container to workspace $ws1
+bindsym $SuperS+2 move container to workspace $ws2
+bindsym $SuperS+3 move container to workspace $ws3
+bindsym $SuperS+4 move container to workspace $ws4
+bindsym $SuperS+5 move container to workspace $ws5
+bindsym $SuperS+6 move container to workspace $ws6
+bindsym $SuperS+7 move container to workspace $ws7
+bindsym $SuperS+8 move container to workspace $ws8
+bindsym $SuperS+9 move container to workspace $ws9
+bindsym $SuperS+0 move container to workspace $ws10
+
+# Keybind for Apps {{{1
+# Keybind; Notification {{{2
+## dunst; a notification-daemon
+bindsym $Super+Shift+d --release exec "killall dunst; exec notify-send 'restart dunst'"
+
+# Keybind; open Menu {{{2
+#bindsym $Super+Return exec --no-startup-id i3-dmenu-desktop
+#bindsym $SuperS+Return exec terminal -e 'bmenu'
+bindsym $Super+Ctrl+Return exec --no-startup-id $menu
+#bindsym $Super+d exec dmenu_run
+# # TODO: convert this bash-script into fish's
+# Ref: dmenu with fzf https://github.com/junegunn/fzf/wiki/Examples
+bindsym $Super+Return exec --no-startup-id terminal -title 'fzf-menu' -iconic -e 'i3-dmenu-desktop --dmenu=fzf'
+for_window [title='fzf-menu'] floating enable
+
+# Keybind; open Terminal {{{2
+# urxvtc; add `-k` to kill daemon, too.
+#bindsym $Super+u exec urxvtc
+bindsym $Super+u exec urxvt
+bindsym $Super+t exec alacritty
+
+# Keybind; open Editor {{{2
+bindsym $Super+v exec --no-startup-id alacritty -e 'vim'
+bindsym $Super+a exec --no-startup-id alacritty -e 'nvim'
+bindsym $Super+n exec --no-startup-id nvim-qt
+# TODO: start nvim-qt sharing the buffer-list w/ another nvim-qt which is already started.
+#bindsym $SuperS+n exec --no-startup-id i3-sensible-terminal -e "nvim-qt --server $NVIM_LISTEN_ADDRESS"
+bindsym $Super+q exec --no-startup-id nvim-qt
+#bindsym $Super+r exec --no-startup-id nvim-gtk # font decayed
+bindsym $SuperS+g exec --no-startup-id glrnvim
+#bindsym $SuperS+g exec --no-startup-id gonvim
+bindsym $Super+g exec --no-startup-id gnvim
+bindsym $Super+y exec --no-startup-id nyaovim
+bindsym $Super+o exec --no-startup-id oni
+bindsym $Super+e exec --no-startup-id emacs
+bindsym $SuperS+v exec --no-startup-id code
+bindsym $SuperS+c exec --no-startup-id code
+# Keybind; open Browser {{{2
+bindsym $Super+b exec qutebrowser
+bindsym $Super+f exec firefox
+bindsym $Super+c exec google-chrome-beta
+#bindsym $Super+p exec palemoon
+
+# Keybind; Sound Volume {{{2
+#bindsym $Super+Ctrl+m exec terminal -e 'alsamixer'
+# Keybind; Music Player {{{2
+bindsym $SuperS+m exec terminal -e 'mocp'
+
+# Keybind; open File Manager {{{2
+bindsym $Super+m exec pcmanfm
+bindsym $superS+r exec terminal -e 'ranger'
+
+# Keybind on Fn {{{1
+# Fn; Backlight {{{2
+bindsym XF86MonBrightnessUp   exec xbacklight -inc 5
+bindsym XF86MonBrightnessDown exec xbacklight -dec 5
+# Fn; Audio Volume {{{2
+# Depends: pulseaudio & pavucontrol
+# Recommend: pamixer (a frontend)
+# Recommend: pulseaudio-alsa (for flash)
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5%
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5%
+bindsym XF86AudioMute        exec --no-startup-id pactl set-sink-mute 0 toggle
+# Fn; Screen Shot {{{2
+# depend: imagemagick
+#bindsym $Super+Print exec --no-startup-id import -window root ~/Pictures/screenshot
+bindsym $Super+Print exec --no-startup-id i3-scrot
+bindsym Print exec --no-startup-id exec ${MYSCRIPTS}/recording-toggle.sh
+
+# Keybind of Default {{{1
+#bindsym $Super+Shift+minus move scratchpad
+#bindsym $Super+$Alt+h exec xdg-open /usr/share/doc/manjaro/i3_help_live.pdf
+#bindsym $Super+Shift+F3 exec gksu pcmanfm
+#bindsym $SuperS+i exec calamares_polkit
+#bindsym $Super+Ctrl+a exec terminal -e 'setup'
+#bindsym $mod+t exec --no-startup-id pkill compton
+#bindsym $mod+Ctrl+t exec --no-startup-id compton -b
+#bindsym $mod+Ctrl+x --release exec --no-startup-id xkill
+
+## Config for i3-gaps: {{{1
 #
 ## Set inner/outer gaps
 #gaps inner 14
@@ -493,4 +485,3 @@ bindsym $SuperS+0 move container to workspace $ws10
 #        bindsym Return mode "default"
 #        bindsym Escape mode "default"
 #}
-##}}}
