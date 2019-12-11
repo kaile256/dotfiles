@@ -12,24 +12,17 @@ let g:findpath#search#ignore_words = ['import']
 "augroup END
 let g:findpath#list#lclose_after_select = 1
 
-command! -bar -range Find :exe "<mods> norm! \<c-w>f"
-
 nnoremap <silent> gf :<c-u>FindPath<cr>
-xnoremap <silent> gf gF
 
 " in horizontal
 nnoremap <silent> <c-w>f :<c-u>bel FindPath<cr>
-xnoremap <silent> <c-w>f <c-w>F
 
 " in vertical
 nnoremap <silent> <c-w><space>f :<c-u>vert FindPath<cr>
-xnoremap <silent> <c-w><space>f :<c-u>vert '<,'> Find<cr>
 
 " in a new tab
 nnoremap <silent> gF     :<c-u>tab FindPath<cr>
 nnoremap <silent> <c-w>F :<c-u>tab FindPath<cr>
-xnoremap <silent> gF     <c-w>gF
-xnoremap <silent> <c-w>F <c-w>gF
 
 "augroup myFindPathCandidates
 " no use
