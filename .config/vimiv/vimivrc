@@ -1,0 +1,19 @@
+# Another: vimiv/keys.conf
+# Ref: mimeapps.list
+# Ref: /usr/share/applications/vimiv.desktop
+# Orig: /etc/vimiv/vimivrc
+
+[GENERAL]
+# Note: keep start_dir at '.' to xdg-open;
+# Ref: https://github.com/karlch/vimiv/issues/72
+desktop_start_dir: .
+#show_hidden: yes
+
+[LIBRARY]
+
+[EDIT]
+autosave_images: no
+
+[ALIASES]
+
+# vim:ft=config
