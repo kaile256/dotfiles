@@ -16,6 +16,8 @@ augroup UpdatePathToFind
   au FileType go      setl path^=/usr/lib/go
   au FileType python  setl path^=/usr/lib/python3.7
 
+  au FileType dosini setl suffixesadd=.conf
+
   " why ':au BufWinEnter {*vim,dein}/**' doesn't work?
   au BufWinEnter {*vim,dein}/**             call s:path.vim()
   au BufWinEnter **/{.config,dotfiles}/**/* call s:path.dotfiles()
