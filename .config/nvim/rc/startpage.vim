@@ -1,14 +1,9 @@
 " From: init.vim
 
-augroup SetMyStartpage
+augroup myStartpage
   " Note: '++nested' is necessary for syntax
   function! s:startpage(page) abort
-    if expand('<amatch>') !=# ''
-          \ && &ft !=# ''
-          \ && &bt !=# ''
-          \ && getline(1,'$') !=# ['']
-      return
-    endif
+    if line2byte('$') !=# -1 | return | endif
 
     let s:match = {list -> index(list, a:page) >= 0}
     "function! s:match(list) closure abort
