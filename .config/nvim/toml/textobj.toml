@@ -1,4 +1,4 @@
-# From: add/dein.vir
+# From: rc/dein.vim
 
 [[plugins]]
 repo = 'kana/vim-textobj-user' #{{{
