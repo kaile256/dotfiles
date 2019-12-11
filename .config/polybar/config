@@ -16,36 +16,62 @@ margin-top = 0
 margin-bottom = 0
 ;fixed-center = true
 
+[settings]
+screenchange-reload = true
+
+compositing-background = over
+compositing-foreground = over
+compositing-overline = over
+compositing-underline = over
+compositing-border = over
+
+;pseudo-transparency = false
+
 [margin]
-for-modules = 1
+modules = 1
+
+[padding]
+modules = 1
+
+[module]
+margin  = 1
+padding = 1
 
 include-file = ~/.config/polybar/colors/adapta.conf
 
+;; Logs: /tmp/polybar-top.log
+;;       /tmp/polybar-bottom.log
+;;       /tmp/polybar-main.log
 ;include-file = ~/.config/polybar/bar/top.conf
 include-file  = ~/.config/polybar/bar/main.conf
 ;include-file = ~/.config/polybar/bar/bottom.conf
 
 ;====Module settings+======================================
 
-modules-left = powermenu pkg-check
-modules-center = i3
-modules-right = volume xbacklight cpu-graph wlan memory battery
+modules-center = workspaces-i3
+
+modules-left   = powermenu calendar pkg-check xkeyboard
+modules-right  = volume-alsa xbacklight cpu-graph ram-percent wlan battery
 
 ;==========================================================
 
 include-file = ~/.config/polybar/module/os/os.conf
 include-file = ~/.config/polybar/module/os/arch/pkg-check.conf
 
-include-file = ~/.config/polybar/module/pc/activity.conf
-include-file = ~/.config/polybar/module/pc/network.conf
-include-file = ~/.config/polybar/module/pc/xbacklight.conf
+include-file = ~/.config/polybar/module/pc/x/xbacklight.conf
+include-file = ~/.config/polybar/module/pc/x/xkeyboard.conf
+
 include-file = ~/.config/polybar/module/pc/volume.conf
+include-file = ~/.config/polybar/module/pc/ram.conf
+include-file = ~/.config/polybar/module/pc/cpu.conf
+include-file = ~/.config/polybar/module/pc/network.conf
 include-file = ~/.config/polybar/module/pc/battery.conf
 
 include-file = ~/.config/polybar/module/workspace/i3.conf
+;include-file = ~/.config/polybar/module/workspace/xworkspace.conf
 
 include-file = ~/.config/polybar/module/apps.conf
 include-file = ~/.config/polybar/module/data/date.conf
-;include-file = ~/.config/polybar/module/webpages.conf
+;include-file = ~/.config/polybar/module/url.conf
 
 ; vim: ft=dosini
