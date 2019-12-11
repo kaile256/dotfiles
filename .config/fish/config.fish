@@ -6,7 +6,7 @@
 source $HOME/.config/fish/myconf/prompt.fish
 
 source $HOME/.config/fish/myconf/alias.fish
-#source $HOME/.config/fish/myconf/env.fish
+#source $HOME/.config/fish/myconf/env.fish # read env on bash at .profile
 #source $HOME/.config/fish/myconf/path.fish
 
 source $HOME/.config/fish/myconf/fzf.fish
