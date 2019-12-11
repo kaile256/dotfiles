@@ -2,24 +2,19 @@
 " Ref: neosnippet.vim
 " Ref: ultisnips.vim
 
-if get(g:, 'loaded_smaps', 0) | finish | endif
-let g:loaded_smaps = 1
+if get(g:, 'loaded_smaps_for_snippets', 0) | finish | endif
+let g:loaded_smaps_for_snippets = 1
 
-snoremap <silent> <a-h> <esc>:call feedkeys('h')<cr>
-snoremap <silent> <a-j> <esc>:call feedkeys('j')<cr>
-snoremap <silent> <a-k> <esc>:call feedkeys('k')<cr>
-snoremap <silent> <a-l> <esc>:call feedkeys('l')<cr>
+snoremap <expr> <a-h> (getline("'<")[col("'<"):col("'>")] =~# '^#') ? '<space><BS><esc>' : '<esc>'
+snoremap <expr> <a-j> (getline("'<")[col("'<"):col("'>")] =~# '^#') ? '<space><BS><esc>j' : '<esc>j'
+snoremap <expr> <a-k> (getline("'<")[col("'<"):col("'>")] =~# '^#') ? '<space><BS><esc>k' : '<esc>k'
+snoremap <expr> <a-l> (getline("'<")[col("'<"):col("'>")] =~# '^#') ? '<space><BS><esc>l' : '<esc>l'
 
 " Put Register on Snippet Expanding
 snoremap <silent> <c-r> <space><BS><esc>:call feedkeys("\<c-r>")<cr>
 snoremap <c-r><c-space> <space><BS><c-r>+
 snoremap <c-r><space>   <space><BS><c-r>+
 snoremap <c-h>          <space><BS>
-
-snoremap <a-h> <space><BS><esc>h
-snoremap <a-j> <space><BS><esc>j
-snoremap <a-k> <space><BS><esc>k
-snoremap <a-l> <space><BS><esc>l
 
 " Alt-ESC; registers {{{1
 snoremap <silent> <a-P> <space><BS><c-g>u<esc>:call feedkeys('P')<cr>
