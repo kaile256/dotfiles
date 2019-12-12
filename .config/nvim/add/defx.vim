@@ -17,28 +17,12 @@ function! s:defx(...) abort "{{{1
         \ ? '-'. key
         \ : '-'. key .'='. val
         \ }) : ''
-  let args = join(values(dict))
 
-  let fname = expand('%:p:h')
-  let cwd   = expand('%:p')
-  if exists('b:term_title')
-    let fname = ''
-    let cwd   = matchstr(get(b:, 'term_title', getcwd()), '/\S\+')
-  endif
+  let args  = join(values(dict))
+  let cwd   = matchstr(get(b:, 'term_title', expand('%:p')), '/\S\+')
+  let fname = exists('b:term_title') ? cwd : expand('%:p:h')
 
   exe 'Defx' fname args '-search='. cwd
-  return
-
-  if exists('b:term_title')
-    exe 'Defx'
-          \ args
-          \ '-search='. matchstr(get(b:, 'term_title', getcwd()), '/\S\+')
-    return
-  endif
-
-  exe 'Defx' expand('%:p:h')
-        \ args
-        \ '-search='. expand('%:p')
 endfunction
 
 nnoremap <silent> <a-x>v
