@@ -364,7 +364,7 @@ bindsym $Super+Ctrl+Return exec --no-startup-id $menu
 #bindsym $Super+d exec dmenu_run
 # # TODO: convert this bash-script into fish's
 # Ref: dmenu with fzf https://github.com/junegunn/fzf/wiki/Examples
-bindsym $Super+Return exec --no-startup-id terminal -title 'fzf-menu' -iconic -e 'i3-dmenu-desktop --dmenu=fzf'
+bindsym $Super+Return exec --no-startup-id terminal -title 'fzf-menu' -e 'i3-dmenu-desktop --dmenu=fzf'
 for_window [title='fzf-menu'] floating enable
 
 # Keybind; open Terminal {{{2
