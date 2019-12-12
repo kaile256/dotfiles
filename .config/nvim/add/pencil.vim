@@ -10,23 +10,23 @@ let g:pencil#wrapModeDefault = 'soft'   " default: 'hard'
 let s:pencil = {}
 
 function! s:pencil.markdown() abort "{{{1
-  setl spell spl=en_us fdl=4 noru nonu nornu
+  setl spell spl=en_us,cjk fdl=4 noru nonu nornu
   setl fdo+=search
   call pencil#init()
 endfunction
 
 function! s:pencil.commit() abort "{{{1
-  setl spell spl=en_us et sw=2 ts=2 noai
+  setl spell spl=en_us,cjk et sw=2 ts=2 noai
   call pencil#init({'wrap': 'soft', 'textwidth': 72})
 endfunction
 
 function! s:pencil.mail() abort "{{{1
-  setl spell spl=en_us et sw=2 ts=2 noai nonu nornu
+  setl spell spl=en_us,cjk et sw=2 ts=2 noai nonu nornu
   call pencil#init({'wrap': 'hard', 'textwidth': 60})
 endfunction
 
 function! s:pencil.html() abort "{{{1
-  setl spell spl=en_us et sw=2 ts=2
+  setl spell spl=en_us,cjk et sw=2 ts=2
   call pencil#init({'wrap': 'soft'})
 endfunction
 
