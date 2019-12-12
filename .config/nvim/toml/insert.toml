@@ -1,5 +1,15 @@
 # From: rc/dein.vim
 
+[[plugins]]
+repo = 'reedes/vim-pencil' #{{{
+# auto format upon &tw
+on_if = '&textwidth > 0'
+on_func =  ['pencil#']
+#hook_post_source = 'runtime post/pencil.vim'
+#hook_source = 'runtime source/pencil.vim'
+hook_add = 'runtime add/pencil.vim'
+#}}}
+
 # Snippets; Engine
 [[plugins]]
 repo = 'Shougo/neosnippet.vim' #{{{
