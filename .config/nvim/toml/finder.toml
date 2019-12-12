@@ -51,7 +51,6 @@ hook_source = 'runtime source/fzf-session.vim'
 ##}}}
 [[plugins]] # has extentions
 repo = 'Shougo/defx.nvim' #{{{
-if = 'has("python3")'
 on_cmd = 'Defx'
 hook_add = 'runtime add/defx.vim'
 hook_post_source = 'runtime post/defx.vim'
