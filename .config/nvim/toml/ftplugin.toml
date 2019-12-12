@@ -1,4 +1,5 @@
 # From: rc/dein.vim
+# Ref: syntax.toml
 
 # Multiple FileType;
 [[plugins]]
@@ -83,16 +84,16 @@ hook_source = 'runtime source/vimpyter.vim'
 #}}}
 
 # Markdown
-[[plugins]]
-repo = 'previm/previm' #{{{
-on_ft = 'markdown'
-hook_source = 'runtime source/previm.vim'
-hook_done_update = '''
-exe 'e' g:dein_github_dir .'/previm/previm/plugin/previm.vim'
-g/FileType *{md,mkd,markdown,rst,textile,asciidoc}*/norm! oau BufEnter *.{md,mkd,markdown,mdown,mkdn,mdwn}/e
-write
-'''
-#}}}
+#[[plugins]]
+#repo = 'previm/previm' #{{{
+#on_ft = 'markdown'
+#hook_source = 'runtime source/previm.vim'
+#hook_done_update = '''
+#exe 'e' g:dein_github_dir .'/previm/previm/plugin/previm.vim'
+#g/FileType *{md,mkd,markdown,rst,textile,asciidoc}*/norm! oau BufEnter *.{md,mkd,markdown,mdown,mkdn,mdwn}/e
+#write
+#'''
+##}}}
 #[[plugins]]
 #repo = 'reroche/vim-markdown-preview' #{{{
 ## several requirements
@@ -103,7 +104,18 @@ repo = 'iamcco/markdown-preview.nvim' #{{{
 # Ref: iamcco/markdown.css
 on_ft = 'markdown'
 build = 'cd app & yarn install'
-hook_source = 'runtime add/markdown-preview.vim'
+hook_source = 'runtime source/markdown-preview.vim'
+#}}}
+[[plugins]]
+repo = 'euclio/vim-markdown-composer' #{{{
+on_ft = 'markdown'
+build = 'cargo build --release'
+hook_done_update = '''
+exe 'e' g:dein_github_dir .'/euclio/vim-markdown-composer/after/ftplugin/markdown/composer.vim'
+g/command!/s/Composer/Md/
+write
+'''
+hook_source = 'runtime source/markdown-composer.vim'
 #}}}
 #[[plugins]]
 #repo = 'suan/vim-instant-markdown' #{{{
@@ -111,7 +123,7 @@ hook_source = 'runtime add/markdown-preview.vim'
 #hook_source = 'runtime add/instant-markdown.vim'
 ##}}}
 
-# for Document;
+# for Document
 [[plugins]]
 repo = 'thinca/vim-ft-help_fold' #{{{
 # Note: conflicted with `set modeline`
@@ -128,3 +140,10 @@ repo = 'itchyny/vim-pdf' #{{{
 on_ft = ['pdf']
 #}}}
 
+# for Config
+[[plugins]]
+repo = 'kaile256/vim-ini-fold' #{{{
+#repo = 'matze/vim-ini-fold'
+on_ft = ['dosini', 'gitconfig', 'config', 'dosini']
+hook_source = 'runtime source/ini-fold.vim'
+#}}}
