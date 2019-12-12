@@ -125,12 +125,6 @@ on_ft = 'toml'
 #on_ft = 'toml'
 ##}}}
 [[plugins]]
-repo = 'kaile256/vim-ini-fold' #{{{
-#repo = 'matze/vim-ini-fold'
-on_ft = ['dosini', 'gitconfig', 'config', 'dosini']
-hook_source = 'runtime source/ini-fold.vim'
-#}}}
-[[plugins]]
 repo = 'PotatoesMaster/i3-vim-syntax' #{{{
 # Note: vim-polyglot doesn't have enough syntax for i3.
 # CAUTION: Not Maintained Anymore
