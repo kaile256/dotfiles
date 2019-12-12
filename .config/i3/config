@@ -29,8 +29,8 @@ set $ws8 "8"
 set $ws9 "9"
 set $ws10 "0:monitor"
 
-workspace "1" output eDP1
-workspace "0" output HDMI2
+workspace "0" output eDP1
+#workspace "0" output HDMI2
 
 ## Apps in Floating {{{2
 # If Urgent, switch to the workspace immediately.
