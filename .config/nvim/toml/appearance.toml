@@ -108,7 +108,13 @@ write
 #hook_add = 'runtime add/colorswatch.vim'
 #}}}
 
-# Colorscheme; Modifier
+# Colorscheme; Edit
+#[[plugins]]
+#repo = 'rbtnn/vim-coloredit' #{{{
+## no support for neovim
+#if = '!has("nvim")'
+#on_cmd =  ['ColorEdit']
+##}}}
 #[[plugins]]
 #repo = 'cocopon/pgmnt.vim' #{{{
 ## Template engine for colorschemes, in pure Vim script
