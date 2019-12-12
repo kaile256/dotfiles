@@ -12,7 +12,11 @@ augroup AppendFileType
   au BufNewFile,BufRead *.dict   setl ft=skkdict
   au BufNewFile,BufRead .vmailrc setl ft=yaml
 
-  au BufNewFile,BufRead **/*conf* if &ft ==# '' | setl ft=dosini | endif
+  au BufNewFile,BufRead **/*conf*
+        \ if (&ft ==# '' || &ft ==# 'conf')
+        \ && &ft !=# 'tmux'
+        \ | setl ft=dosini |
+        \ endif
 augroup END
 
 augroup ReturnToUsualWindow
@@ -20,7 +24,7 @@ augroup ReturnToUsualWindow
 augroup END
 
 function! s:adjust_winfix() abort "{{{1
-  if &bt == '' | return | endif
+  if &bt ==# '' | return | endif
 
   let b:fixwidth  = &winfixwidth
   let b:fixheight = &winfixheight
