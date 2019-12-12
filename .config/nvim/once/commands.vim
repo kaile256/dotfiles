@@ -51,6 +51,7 @@ function! s:cd_here(args) abort
   else
     !cd %:p:h
   endif
+  pwd
 endfunction
 
 " TODO: make vint restricted to the range
