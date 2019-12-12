@@ -9,76 +9,174 @@ let g:defx_sidebar_width = 30
 
 nnoremap <a-x> <Nop>
 
-" Note: when -new removed, all the defx buffers shows the same
-" Call Defx; in vertical "{{{1
+function! s:defx(...) abort "{{{1
+  "let cwd = matchstr(get(b:, 'term_title', getcwd()), '/\S\+')
+  "let wanted = expand('%:p:h')
+  let dict = a:0 > 0 ? map(a:1, {
+        \ key, val -> val == 1
+        \ ? '-'. key
+        \ : '-'. key .'='. val
+        \ }) : ''
+  let args = join(values(dict))
+
+  let fname = expand('%:p:h')
+  let cwd   = expand('%:p')
+  if exists('b:term_title')
+    let fname = ''
+    let cwd   = matchstr(get(b:, 'term_title', getcwd()), '/\S\+')
+  endif
+
+  exe 'Defx' fname args '-search='. cwd
+  return
+
+  if exists('b:term_title')
+    exe 'Defx'
+          \ args
+          \ '-search='. matchstr(get(b:, 'term_title', getcwd()), '/\S\+')
+    return
+  endif
+
+  exe 'Defx' expand('%:p:h')
+        \ args
+        \ '-search='. expand('%:p')
+endfunction
+
 nnoremap <silent> <a-x>v
-      \ :<c-u>Defx `expand('%:p:h')` -search=`expand('%:p')`
-      \ -direction=topleft
-      \ -winwidth=`expand(g:defx_sidebar_width)`
-      \ -split=vertical
-      \ -new
-      \ <cr>
+      \ :<c-u>call <SID>defx({
+      \ 'direction': 'top',
+      \ 'winwidth': expand(g:defx_sidebar_width),
+      \ 'split': 'vertical',
+      \ 'new': 1,
+      \ })<cr>
+
 nnoremap <silent> <a-x><a-v>
-      \ :<c-u>Defx `expand('%:p:h')` -search=`expand('%:p')`
-      \ -direction=topleft
-      \ -winwidth=`expand(g:defx_sidebar_width)`
-      \ -split=vertical
-      \ -new
-      \ <cr>
-" Call Defx; in horizontal {{{1
-" Note: -search must be applied full path.
-" TODO: on Term-Mode, not to get errors; like get path with !pwd.
+      \ :<c-u>call <SID>defx({
+      \ 'direction': 'top',
+      \ 'winwidth': expand(g:defx_sidebar_width),
+      \ 'split': 'vertical',
+      \ 'new': 1,
+      \ })<cr>
+
 nnoremap <silent> <a-x><a-s>
-      \ :<c-u>Defx `expand('%:p:h')` -search=`expand('%:p')`
-      \ -direction=belowright
-      \ -split=horizontal
-      \ -new
-      \ <cr>
+      \ :<c-u>call <SID>defx({
+      \ 'direction': 'bel'
+      \ 'split': 'horizontal',
+      \ 'new': 1,
+      \ })<cr>
 nnoremap <silent> <a-x>s
-      \ :<c-u>Defx `expand('%:p:h')` -search=`expand('%:p')`
-      \ -direction=belowright
-      \ -split=horizontal
-      \ -new
-      \ <cr>
-" Call Defx; in the window {{{1
-" Note: -search must be applied full path.
-" TODO: on Term-Mode, not to get errors; like get path with !pwd.
+      \ :<c-u>call <SID>defx({
+      \ 'direction': 'bel'
+      \ 'split': 'horizontal',
+      \ 'new': 1,
+      \ })<cr>
+
 nnoremap <silent> <a-x><a-e>
-      \ :<c-u>Defx `expand('%:p:h')` -search=`expand('%:p')`
-      \ -split=no
-      \ -new
-      \ <cr>
+      \ :<c-u>call <SID>defx({
+      \ 'split': 'no',
+      \ 'new': 1,
+      \ })<cr>
 nnoremap <silent> <a-x>e
-      \ :<c-u>Defx `expand('%:p:h')` -search=`expand('%:p')`
-      \ -split=no
-      \ -new
-      \ <cr>
+      \ :<c-u>call <SID>defx({
+      \ 'split': 'no',
+      \ 'new': 1,
+      \ })<cr>
 " Call Defx; in tab page {{{1
 nnoremap <silent> <a-x>b
-      \ :<c-u>Defx `expand('%:p:h')` -search=`expand('%:p')`
-      \ -split=tab
-      \ -new
-      \ <cr>
+      \ :<c-u>call <SID>defx({
+      \ 'split': 'tab',
+      \ 'new': 1,
+      \ })<cr>
 nnoremap <silent> <a-x><a-b>
-      \ :<c-u>Defx `expand('%:p:h')` -search=`expand('%:p')`
-      \ -split=tab
-      \ -new
-      \ <cr>
+      \ :<c-u>call <SID>defx({
+      \ 'split': 'tab',
+      \ 'new': 1,
+      \ })<cr>
+
 " Call Defx; on floating window {{{1
 " TODO: Open higher position.
 nnoremap <silent> <a-x>f
-      \ :<c-u>Defx `expand('%:p:h')` -search=`expand('%:p')`
-      \ -split=floating
-      \ -winrelative=editor
-      \ -new
-      \ <cr>
+      \ :<c-u>call <SID>defx({
+      \ 'split': 'floating',
+      \ 'winrelative': 'editor',
+      \ 'new': 1,
+      \ })<cr>
 nnoremap <silent> <a-x><a-f>
-      \ :<c-u>Defx `expand('%:p:h')` -search=`expand('%:p')`
-      \ -split=floating
-      \ -winrelative=editor
-      \ -new
-      \ <cr>
+      \ :<c-u>call <SID>defx({
+      \ 'split': 'floating',
+      \ 'winrelative': 'editor',
+      \ 'new': 1,
+      \ })<cr>
 
+" Note: when -new removed, all the defx buffers shows the same
+"" Call Defx; in vertical "{{{1
+"nnoremap <silent> <a-x>v
+"      \ :<c-u>Defx `expand('%:p:h')` -search=`expand('%:p')`
+"      \ -direction=topleft
+"      \ -winwidth=`expand(g:defx_sidebar_width)`
+"      \ -split=vertical
+"      \ -new
+"      \ <cr>
+"nnoremap <silent> <a-x><a-v>
+"      \ :<c-u>Defx `expand('%:p:h')` -search=`expand('%:p')`
+"      \ -direction=topleft
+"      \ -winwidth=`expand(g:defx_sidebar_width)`
+"      \ -split=vertical
+"      \ -new
+"      \ <cr>
+"" Call Defx; in horizontal {{{1
+"" Note: -search must be applied full path.
+"" TODO: on Term-Mode, not to get errors; like get path with !pwd.
+"nnoremap <silent> <a-x><a-s>
+"      \ :<c-u>Defx `expand('%:p:h')` -search=`expand('%:p')`
+"      \ -direction=belowright
+"      \ -split=horizontal
+"      \ -new
+"      \ <cr>
+"nnoremap <silent> <a-x>s
+"      \ :<c-u>Defx `expand('%:p:h')` -search=`expand('%:p')`
+"      \ -direction=belowright
+"      \ -split=horizontal
+"      \ -new
+"      \ <cr>
+"" Call Defx; in the window {{{1
+"" Note: -search must be applied full path.
+"" TODO: on Term-Mode, not to get errors; like get path with !pwd.
+"nnoremap <silent> <a-x><a-e>
+"      \ :<c-u>Defx `expand('%:p:h')` -search=`expand('%:p')`
+"      \ -split=no
+"      \ -new
+"      \ <cr>
+"nnoremap <silent> <a-x>e
+"      \ :<c-u>Defx `expand('%:p:h')` -search=`expand('%:p')`
+"      \ -split=no
+"      \ -new
+"      \ <cr>
+"" Call Defx; in tab page {{{1
+"nnoremap <silent> <a-x>b
+"      \ :<c-u>Defx `expand('%:p:h')` -search=`expand('%:p')`
+"      \ -split=tab
+"      \ -new
+"      \ <cr>
+"nnoremap <silent> <a-x><a-b>
+"      \ :<c-u>Defx `expand('%:p:h')` -search=`expand('%:p')`
+"      \ -split=tab
+"      \ -new
+"      \ <cr>
+"" Call Defx; on floating window {{{1
+"" TODO: Open higher position.
+"nnoremap <silent> <a-x>f
+"      \ :<c-u>Defx `expand('%:p:h')` -search=`expand('%:p')`
+"      \ -split=floating
+"      \ -winrelative=editor
+"      \ -new
+"      \ <cr>
+"nnoremap <silent> <a-x><a-f>
+"      \ :<c-u>Defx `expand('%:p:h')` -search=`expand('%:p')`
+"      \ -split=floating
+"      \ -winrelative=editor
+"      \ -new
+"      \ <cr>
+"
 augroup DefxInsteadOfNetrw "{{{1
   au!
   " Ref: https://github.com/Shougo/defx.nvim/issues/121
