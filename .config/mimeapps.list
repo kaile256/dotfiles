@@ -15,7 +15,7 @@ text/html=org.qutebrowser.qutebrowser.desktop
 x-scheme-handler/http=org.qutebrowser.qutebrowser.desktop
 x-scheme-handler/https=org.qutebrowser.qutebrowser.desktop
 
-text/plane=nvim-qt.desktop;nvim.desktop;vim.desktop
+text/plain=nvim-qt.desktop;nvim.desktop;vim.desktop
 text/x-python=nvim-qt.desktop;nvim.desktop;vim.desktop
 text/x-python3=nvim-qt.desktop;nvim.desktop;vim.desktop
 text/css=nvim-qt.desktop;nvim.desktop;vim.desktop
