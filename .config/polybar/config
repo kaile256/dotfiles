@@ -18,7 +18,7 @@ include-file  = ~/.config/polybar/bar/main.conf
 #[modules.position]
 modules-center = i3-workspaces
 
-modules-left = powermenu calendar pkg-check i3-mode xkeyboard
+modules-left = powermenu search-icon calendar pkg-check i3-mode xkeyboard
 
 modules-right = volume-alsa cpu-graph ram-percent wlan xbacklight battery
 
@@ -29,7 +29,7 @@ include-file   = ~/.config/polybar/module/workspace/i3.conf
 include-file = ~/.config/polybar/module/data/date.conf
 include-file = ~/.config/polybar/module/os/os.conf
 include-file = ~/.config/polybar/module/os/arch/pkg-check.conf
-include-file = ~/.config/polybar/module/apps.conf
+include-file = ~/.config/polybar/module/icons.conf
 ;include-file = ~/.config/polybar/module/url.conf
 
 include-file = ~/.config/polybar/module/pc/volume.conf
