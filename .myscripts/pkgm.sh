@@ -78,7 +78,7 @@ Package=(
   the_silver_searcher # ag
   tlp   # Save Battery of PC
   ttf-font-icons  # Mix Icon with Awesome & Ionicons without Confliction.
-  vimiv
+  vimiv-qt # an image-viewer. Use qt ver.; gtk won't update
   vmail
   #xf86-input-synaptics  # use xinput to enable config for Touchpad
   xorg-xbacklight  # backlight
@@ -148,7 +148,7 @@ YarnPack=(
 
 cd ~
 curl --compressed -o- -L https://yarnpkg.com/install.sh | bash
-for y in ${yarnPack[@]}; do
+for y in ${YarnPack[@]}; do
   yarn global add $y
 done
 
