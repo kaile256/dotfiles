@@ -33,6 +33,7 @@ function! s:path.dotfiles() abort
   exe 'setl path='.  '/etc'
   exe 'setl path^='. $XDG_DATA_HOME   .'/**'
   exe 'setl path^='. $XDG_CONFIG_HOME .'/**'
+  exe 'setl path^='. g:dotfiles_home  .'/nvim/**'
 endfunction
 
 function! s:path.vim() abort
@@ -42,6 +43,7 @@ function! s:path.vim() abort
   exe 'setl path='.  $XDG_DATA_HOME    .'/nvim/**'
   exe 'setl path^='. g:dein_github_dir .'**'
   exe 'setl path^='. $XDG_CONFIG_HOME  .'/nvim/**'
+  exe 'setl path^='. g:dotfiles_home   .'/nvim/**'
 endfunction
 
 function! s:path.unnecessary() abort
