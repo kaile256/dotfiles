@@ -141,7 +141,7 @@ exec --no-startup-id pulseaudio --start
 # pulseaudio-applet: install yourself
 #exec --no-startup-id pa-applet
 #bindsym $mod+Ctrl+m exec pavucontrol
-exec_always --no-startup-id ${XDG_CONFIG_HOME}/polybar/launch.sh
+exec_always --no-startup-id ${MYSCRIPTS}/polybar-launch.sh
 #exec_always --no-startup-id xfce4-panel --disable-wm-check
 
 # Keybind of i3 {{{1
@@ -272,15 +272,15 @@ set $resize Resize as you want: (H)shrink(left) (N)grow(down) (K)shrink(up) (L)g
 bindsym $Super+Ctrl+r mode "$resize"
 # Mode; Backlight {{{2
 bindsym $Super+Ctrl+b mode "$backlight"
-set $backlight Backlight Control: K+5/U+10/F+20;J-5/D-10/B-20
+set $backlight Backlight Control: (-): J < D < B | (+): K < U < F
 mode "$backlight" {
 # TODO: call current brightness.
-bindsym k exec "xbacklight -inc 5;  notify-send 'brightness +5'"
-bindsym j exec "xbacklight -dec 5;  notify-send 'brightness -5'"
-bindsym u exec "xbacklight -inc 10; notify-send 'brightness +10'"
-bindsym d exec "xbacklight -dec 10; notify-send 'brightness -10'"
-bindsym f exec "xbacklight -inc 15; notify-send 'brightness +15'"
-bindsym b exec "xbacklight -dec 15; notify-send 'brightness -15'"
+bindsym k exec "xbacklight -inc 1;  notify-send 'brightness +1'"
+bindsym j exec "xbacklight -dec 1;  notify-send 'brightness -1'"
+bindsym u exec "xbacklight -inc 5; notify-send 'brightness +5'"
+bindsym d exec "xbacklight -dec 5; notify-send 'brightness -5'"
+bindsym f exec "xbacklight -inc 10; notify-send 'brightness +10'"
+bindsym b exec "xbacklight -dec 10; notify-send 'brightness -10'"
 bindsym n            mode "default"
 bindsym Escape       mode "default"
 bindsym Ctrl+[       mode "default"
