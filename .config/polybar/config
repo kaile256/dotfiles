@@ -1,44 +1,42 @@
-; From: polybar/launch.sh
+; From: $MYSCRIPTS/polybar-launch.sh
 ; Ref: https://github.com/matoruru/polybar-theme
 ; Source: $GHQ_ROOT/github.com/polybar/polybar/
 ; Sample: $GHQ_ROOT/github.com/polybar/polybar-scripts/
 
 [includes]
 include-file = ~/.config/polybar/commons.conf
-
-#[colorschemes]
 include-file = ~/.config/polybar/colors/adapta.conf
 
+[include]
 #[bar]
 ;; Logs: /tmp/polybar-top.log
-;;       /tmp/polybar-bottom.log
-;;       /tmp/polybar-main.log
 ;include-file = ~/.config/polybar/bar/top.conf
+
+;;       /tmp/polybar-main.log
 include-file  = ~/.config/polybar/bar/main.conf
+
+;;       /tmp/polybar-bottom.log
 ;include-file = ~/.config/polybar/bar/bottom.conf
 
-#[modules.position]
 modules-center = i3-workspaces
+modules-left   = powermenu search-icon calendar bluetooth-stat pkg-check xkeyboard i3-mode
+modules-right  = volume-alsa cpu-graph ram-percent wlan xbacklight battery
 
-modules-left = powermenu search-icon calendar pkg-check i3-mode xkeyboard
-
-modules-right = volume-alsa cpu-graph ram-percent wlan xbacklight battery
-
+[include]
 #[modules.config]
-include-file   = ~/.config/polybar/module/workspace/i3.conf
-;include-file = ~/.config/polybar/module/workspace/xworkspace.conf
+include-file = ~/.config/polybar/module/workspace/i3.conf
 
-include-file = ~/.config/polybar/module/data/date.conf
+include-file = ~/.config/polybar/module/widgets.conf
 include-file = ~/.config/polybar/module/icons.conf
 ;include-file = ~/.config/polybar/module/url.conf
 
 include-file = ~/.config/polybar/module/pc/volume.conf
 include-file = ~/.config/polybar/module/pc/ram.conf
 include-file = ~/.config/polybar/module/pc/cpu.conf
-include-file = ~/.config/polybar/module/pc/network.conf
 include-file = ~/.config/polybar/module/pc/battery.conf
+include-file = ~/.config/polybar/module/pc/network.conf
 
-include-file = ~/.config/polybar/module/pc/x/xbacklight.conf
-include-file = ~/.config/polybar/module/pc/x/xkeyboard.conf
+include-file = ~/.config/polybar/module/pc/xbacklight.conf
+include-file = ~/.config/polybar/module/pc/xkeyboard.conf
 
 ; vim: ft=dosini
