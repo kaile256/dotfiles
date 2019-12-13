@@ -1,5 +1,6 @@
 node_modules/
 yarn/
+.mypy_cache/
 GPATH
 GRTAGS
 GTAGS
