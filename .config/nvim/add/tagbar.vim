@@ -31,9 +31,9 @@ let g:tagbar_width = 30
 " 'j': Jump to tagbar if already open
 " 'c': Close tagbar on tag selection (as if g:tagbar_autoclose == 1)
 " Mnemonic: get Indexes
-nnoremap <silent> <a-i> :<c-u>TagbarOpen fjc<cr><c-w>=
+nnoremap <silent> <a-i> :<c-u>TagbarOpen fjc<cr>
 " Mnemonic: show Outline
-nnoremap <silent> <a-o> :<c-u>TagbarToggle<cr><c-w>=
+nnoremap <silent> <a-o> :<c-u>TagbarToggle<cr>
 
 "function! s:tagbar_try() abort "{{{1
 "  TagbarToggle
@@ -51,8 +51,8 @@ augroup END
 
 function! s:keymaps_if_no_tags() abort "{{{1
   if index(['nofile', 'nowrite', 'terminal'], &bt) >= 0
-    nnoremap <silent><buffer> <a-i> :<c-u>wincmd p <bar> TagbarToggle <cr><c-w>=
-    nnoremap <silent><buffer> <a-o> :<c-u>wincmd p <bar> TagbarToggle <cr><c-w>=
+    nnoremap <silent><buffer> <a-i> :<c-u>wincmd p <bar> TagbarToggle <cr>
+    nnoremap <silent><buffer> <a-o> :<c-u>wincmd p <bar> TagbarToggle <cr>
   elseif index(['quickfix'], &bt) >= 0
     nnoremap <silent><buffer> <a-i> :<c-u>close <bar> wincmd p <cr>
     nnoremap <silent><buffer> <a-o> :<c-u>close <bar> wincmd p <cr>
