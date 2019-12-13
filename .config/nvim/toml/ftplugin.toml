@@ -147,3 +147,7 @@ repo = 'matze/vim-ini-fold' #{{{
 on_ft = ['dosini', 'gitconfig', 'config', 'dosini']
 hook_source = 'runtime source/ini-fold.vim'
 #}}}
+[[plugins]]
+repo = 'tpope/vim-jdaddy' #{{{
+on_ft = 'json'
+#}}}
