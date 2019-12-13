@@ -1,11 +1,14 @@
 " From: init.vim
 
-augroup DotfilesConfig
+augroup FoldMethodDetection
   au! BufWinEnter * if search('{{{', 'cwn') | setl fdm=marker | endif
-  "au! BufWinEnter **/{dotfiles,.config}/**/* setl fdm=marker
 augroup END
 
-augroup AppendFileType
+augroup BufTypeAdjustment
+  au! BufRead $XDG_DATA_HOME/Trash/**/* setl bt=nofile
+augroup END
+
+augroup FileTypeAdjustment
   au!
   au BufNewFile,BufRead *.txt    setl syn=help
   au BufNewFile,BufRead *.snip   setl ft=neosnippet
