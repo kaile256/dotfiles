@@ -30,10 +30,12 @@ let s:path = {}
 function! s:path.dotfiles() abort
   if expand('%:p') =~# '/*vim/' | return | endif
 
-  exe 'setl path='.  '/etc'
-  exe 'setl path^='. $XDG_DATA_HOME   .'/**'
+  " Note: ~/dotfiles/** doesn't work, why?
+  exe 'setl path='.  $XDG_DATA_HOME   .'/**'
+  exe 'setl path^='. '/etc'
+  exe 'setl path^='. $GHQ_ROOT        .'/**'
   exe 'setl path^='. $XDG_CONFIG_HOME .'/**'
-  exe 'setl path^='. g:dotfiles_home  .'/nvim/**'
+  "exe 'setl path^='. g:dotfiles_home  .'/nvim/**'
 endfunction
 
 function! s:path.vim() abort
@@ -41,9 +43,10 @@ function! s:path.vim() abort
   if expand('%:p') =~# $GOPATH        | return | endif
 
   exe 'setl path='.  $XDG_DATA_HOME    .'/nvim/**'
+  exe 'setl path^='. $GHQ_ROOT         .'/**'
   exe 'setl path^='. g:dein_github_dir .'**'
   exe 'setl path^='. $XDG_CONFIG_HOME  .'/nvim/**'
-  exe 'setl path^='. g:dotfiles_home   .'/nvim/**'
+  "exe 'setl path^='. g:dotfiles_home   .'/nvim/**'
 endfunction
 
 function! s:path.unnecessary() abort
