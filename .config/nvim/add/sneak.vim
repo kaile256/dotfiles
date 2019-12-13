@@ -23,8 +23,9 @@ let g:sneak#target_labels = 'abcedfghijklmnopqrstuvwxyz'
 
 let g:sneak#trailing_another = 'e''"'
 
-map g<space>   <Plug>Sneak_f<space>
-map g<s-space> <Plug>Sneak_F<space>
+"map g<space>   <Plug>Sneak_f<space>
+"map g<s-space> <Plug>Sneak_F<space>
+
 map ; <Plug>Sneak_;
 map , <Plug>Sneak_,
 
