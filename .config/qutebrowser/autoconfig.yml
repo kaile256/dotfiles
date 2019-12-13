@@ -164,7 +164,7 @@ settings:
         <Ctrl++>: zoom-in
         <Ctrl+->: zoom-out
         <Ctrl+2>: save
-        <Ctrl+c>: stop;; download-cancel
+        <Ctrl+c>: stop;; clear-keychain
         <Ctrl+e>: scroll-px 0 +50
         <Ctrl+h>: tab-prev
         <Ctrl+i>: forward
@@ -199,6 +199,7 @@ settings:
         <Space>P: open -t {primary}
         <Space>Q: close
         <Space>Z: close
+        <Space>\: record-macro
         <Space>p: open {primary}
         <Space>q: save
         <Space>w: save
@@ -224,6 +225,7 @@ settings:
         ZZ: tab-close
         Zq: tab-close
         Zz: tab-close
+        \<Space>: record-macro
         a: fake-key <right> ;; enter-mode insert
         cd: null
         co: null
