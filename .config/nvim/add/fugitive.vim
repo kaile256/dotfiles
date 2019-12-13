@@ -12,6 +12,11 @@
 "command! Gush
 "      \ :let s:push = jobstart('nvim --embed -c "Gpush"')
 
+command! -bang -nargs=? -range=-1 -addr=tabs
+      \ -complete=customlist,fugitive#PushComplete
+      \ Gush
+      \ :<mods>Gpush <args>
+
 command! -nargs=+ -bar -complete=file Gremote :Git remote <args>
 
 command! -nargs=+ -bar Gclone :Git clone <args>
@@ -32,8 +37,8 @@ command! -nargs=? -bar -complete=customlist,fugitive#EditComplete
 
 command! -bar -bang -nargs=* -complete=customlist,fugitive#EditComplete
       \ Gvdiffsplit
-      \ :exe fugitive#Diffsplit(0, <bang>0, "vert <mods>", <q-args>, [<f-args>])
-      \ :call s:Gdiff_keymaps()
+      \ :call fugitive#Diffsplit(0, <bang>0, "vert <mods>", <q-args>, [<f-args>])
+      \ | :call s:Gdiff_keymaps()
 
 " Note: -range=-1 is correct; either no -complete
 " Ref: tpope/vim-fugitive/plugin/fugitive.vim @368
