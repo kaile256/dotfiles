@@ -25,7 +25,6 @@ call defx#custom#option('_', {
       \ 'columns': 'mark:indent:git:icons:filename',
       \ 'winheight': winheight('.'),
       \ 'show_ignored_files': 1,
-      \ 'buffer_name': expand('<amatch>'),
       \ 'auto_cd': 1,
       \ })
 call defx#custom#column('mark', {
@@ -114,8 +113,11 @@ function! s:defx_keymaps() abort
   nnoremap <silent><nowait><buffer><expr> -
         \ defx#do_action('cd', ['..'])
   nnoremap <silent><nowait><buffer><expr> D
+        \ getcwd() =~# '^'. $XDG_DATA_HOME .'/Trash/' ?
+        \ defx#do_action('remove') :
         \ defx#do_action('remove_trash')
-        "\ defx#do_action('remove')
+  nnoremap <silent><nowait><buffer><expr> \D
+        \ defx#do_action('remove')
   nnoremap <silent><nowait><buffer><expr> R
         \ defx#do_action('rename')
   nnoremap <silent><nowait><buffer><expr> d
@@ -291,7 +293,13 @@ endfunction
 augroup OnDefxBuffer
   au FileType defx exe 'setl path='. getbufvar('#', '&path')
   au FileType defx wincmd =
-  au FileType defx if line('.') == 1 | norm! j | endif
+  "" TODO: start cursor on filename
+  "au BufEnter * if &ft ==# 'defx' |
+  "      \ call search('\a', 'cW') |
+  "      \ if winline() < (winheight('w$') / 2) | norm! zz |
+  "      \ else | norm! zb |
+  "      \ endif
+  "      \ | endif
   " TODO: fix coc#_complete() for 'E121: Undefined variale: b:defx'
   au!
   " TODO: highlight on top as there's filepath, or place those path on another place.
