@@ -1,7 +1,7 @@
 # Another: vimiv/keys.conf
 # Ref: mimeapps.list
 # Ref: /usr/share/applications/vimiv.desktop
-# Orig: /etc/vimiv/vimivrc
+# Orig: /etc/vimiv/vimivrc; only for GTK ver.
 
 [GENERAL]
 # Note: keep start_dir at '.' to xdg-open;
