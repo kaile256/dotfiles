@@ -205,7 +205,7 @@ set lazyredraw
 " Method; Fold {{{2
 "set foldenable " default: on
 set foldmethod=syntax
-set foldlevel=1
+set foldlevelstart=0
 set foldlevelstart=1
 set foldnestmax=10
 " reduce block (e.g., [[,{)
@@ -245,7 +245,7 @@ augroup END
 "  au BufReadPost ?* call s:loadview()
 "augroup END
 " Method; Shada {{{2
-set shada='1000,<50,h,s10,
+set shada='50,<50,h,s10,
 augroup AutoWriteShada
   " Note: shada only saves the data on VimLeave so that
   "       nothing won't be saved, when you start another process of neovim,
