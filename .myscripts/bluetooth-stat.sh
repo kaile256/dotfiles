@@ -4,7 +4,7 @@
 
 bluetooth_print() {
   if bluetooth | grep off >/dev/null; then
-    printf 'B'
+    printf 'ᚼ'
     return
   fi
 
