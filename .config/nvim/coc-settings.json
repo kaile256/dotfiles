@@ -1,4 +1,5 @@
 {
+  "coc.preferences.extensionUpdateCheck": "weekly",
   "coc.preferences.formatOnType": true,
   "coc.preferences.formatOnSaveFiletypes": ["css", "Markdown"],
   "coc.preferences.snippets.enable": false,
@@ -9,6 +10,13 @@
     ".projections.json",
     "dotfiles"
   ],
+
+  // see 'source' in coc-list
+  "coc.source.tag.enable": false,
+  "coc.source.emoji.filetypes": ["markdown", "config", "dosini"],
+  // source.issues depends on coc-git
+  "coc.source.issues.priority": 10,
+  "coc.source.issues.filetypes": ["gitcommit"],
 
   "signature.preferShownAbove": false,
   "signature.triggerSignatureWait": 300,
@@ -54,8 +62,6 @@
 
   "diagnostic.checkCurrentLine": true,
 
-  "coc.preferences.extensionUpdateCheck": "weekly",
-
   "session.directory": "~/.local/share/nvim/session/",
 
   "list.autoResize": false,
@@ -67,7 +73,7 @@
     "<C-t>": "action:tabe",
     "<C-s>": "action:split",
     "<C-v>": "action:vsplit",
-    "<CR>": "action:drop",
+    "<CR>":  "action:drop",
     "<C-r>": "eval:@@",
     "<c-c>": "do:cancel",
     "<a-h>": "do:cancel",
@@ -92,8 +98,6 @@
 
   "project.dbpath": "~/.coc-project",
 
-  "prettier.trailingComma": "es5",
-
   "yank.highlight.enable": true,
   "yank.enableCompletion": false,
   "yank.list.maxsize": 150,
@@ -103,9 +107,15 @@
   "translator.toLang": "en",
   "translator.maxsize": 200,
 
-  // false: Update only on saving the buffer.
-  "git.realtimeGutters": true,
+  // false: update only on saving buffer.
+  //"git.realtimeGutters": false,
+  "git.addGBlameToVirtualText": true,
+  //// b:coc_git_blame will be created
+  //"git.addGBlameToBufferVar", true,
+  "git.virtualTextPrefix": " ",
+  "git.semanticCommit.filetypes": ["gitcommit"],
 
+  "prettier.trailingComma": "es5",
   "json.format.enable": false,
 
   "vimlsp.debug": false,
@@ -120,6 +130,11 @@
   "rust-analyzer.enableCargoWatchOnStartup": "enabled",
   "rust-analyzer.trace.cargo-watch": "verbose",
   "rust-analyzer.trace.server": "verbose",
+
+  "python.linting.enabled": true,
+  "python.linting.pylintEnabled": false,
+  "python.linting.flake8Enabled": false,
+  "python.linting.mypyEnabled": true,
 
   "languageserver": {
     "dls": {
