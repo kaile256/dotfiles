@@ -1,17 +1,46 @@
 # From: rc/dein.vim
 
+[[plugins]]
+repo = 'ruanyl/vim-gh-line' #{{{
+# open github in browser at the current line
+on_cmd =  ['GHInteractive', 'GBInteractive']
+#}}}
+
 #[[plugins]]
-#repo = 'iamcco/sran.nvim'
-#if = 'has("nvim") || version >= 801'
-#hook_post_update = 'call sran#util#install()'
-#type = 'git'
-#on_event = 'BufRead'
+#repo = 'whatyouhide/vim-lengthmatters' #{{{
+## change highlight &tw
+#on_event = 'Colorscheme'
+##}}}
+
+# Blame
+#[[plugins]]
+#repo = 'rhysd/ghpr-blame.vim' #{{{
+## Note: seems no use in neovim
+#on_cmd =  ['GHPRBlame']
+##}}}
+
+# Blame in line
+#[[plugins]]
+#repo = 'tveskag/nvim-blame-line' #{{{
+#if = 'has("nvim")'
+#on_cmd =  ['ToggleBlameLine', 'SingleBlameLine', 'EnableBlameLine']
+##}}}
+#[[plugins]]
+#repo = 'iamcco/sran.nvim' #{{{
+#if = 'has("nvim") || v:version >= 801'
+#hook_done_update = 'call sran#util#install()'
+#on_func  = ['sran#rpc#']
 #hook_add = 'runtime add/sran.vim'
+##}}}
 #[[plugins]]
-#repo = 'iamcco/git-p.nvim'
-#type = 'git'
-#on_event = 'BufWinEnter'
-#hook_add = 'runtime add/git-p.vim'
+#repo = 'iamcco/git-p.nvim' #{{{
+#depend = 'sran.nvim'
+#type     = 'git'
+#on_event = 'BufRead'
+##hook_add = 'runtime add/git-p.vim'
+#hook_source = 'runtime source/git-p.vim'
+#hook_post_source = 'runtime post/git-p..vim'
+##}}}
 
 [[plugins]]
 repo = 'cohama/agit.vim' #{{{
