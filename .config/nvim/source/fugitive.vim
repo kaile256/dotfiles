@@ -10,11 +10,27 @@ augroup FugitiveCallMyFunc
     call win_gotoid(bufwinid('.git/index'))
   endfunction
 
+  command! -bang -nargs=? -range=-1 -addr=tabs
+        \ -complete=customlist,fugitive#CommitComplete
+        \ GcommitBottom
+        \ :call s:gitcommit(<q-args>)
+  function! s:gitcommit(...) abort "{{{1
+    let winnr = bufwinnr('.git/COMMIT_EDITMSG')
+    if winnr != -1
+      echo 'gitcommit-buffer updating...'
+      exe winnr 'windo GcommitDiscard'
+    endif
+    let args = a:0 > 0 ? join(a:000) : ''
+    exe 'bot 20 Gcommit' args
+  endfunction
+
   au FileType fugitive  call s:fugitive_keymap() "{{{1
   function! s:fugitive_keymap() abort "{{{0
     " TODO: Specify the window of the latest commit buffer on `dq`.
-    nnoremap <buffer><silent> cc :<C-U>bot 20 Gcommit<CR>
-    nnoremap <buffer><silent> ca :<C-U>bot 20 Gcommit --amend<CR>
+    "nnoremap <buffer><silent> cc :<C-U>bot 20 Gcommit<CR>
+    "nnoremap <buffer><silent> ca :<C-U>bot 20 Gcommit --amend<CR>
+    nnoremap <buffer><silent> cc :<c-u>GcommitBottom<cr>
+    nnoremap <buffer><silent> ca :<c-u>GcommitBottom --amend<cr>
     " To: continue to cc/ce/ca.
     xmap <buffer> c sc
     " Note: for fugitive-buffer, not for &diff
@@ -37,6 +53,8 @@ augroup FugitiveCallMyFunc
   endfunction
   au FileType gitcommit call s:gitcommit_keymap() "{{{1
   function! s:gitcommit_keymap() abort
+    command! -buffer GcommitDiscard :call s:gitcommit_discard()
+    nnoremap <silent> <Plug>(gitcommit-discard) :<c-u>GcommitDiscard<cr>
     nmap <buffer> ZQ         <Plug>(gitcommit-discard)
     nmap <buffer> Zq         <Plug>(gitcommit-discard)
     nmap <buffer> <c-w>c     <Plug>(gitcommit-discard)
@@ -79,7 +97,6 @@ augroup FugitiveCallMyFunc
   endfunction
 
   " nmap discard {{{3
-  nnoremap <silent> <Plug>(gitcommit-discard) :<c-u>call <SID>gitcommit_discard()<cr>
   function! s:gitcommit_discard() abort
     call s:gitcommit_shred()
     quit
