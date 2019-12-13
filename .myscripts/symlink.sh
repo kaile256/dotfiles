@@ -39,28 +39,24 @@ echo 'making symbolic links...'
 #)
 
 configs=(
-  qobbar # a status bar
-  polybar # a status bar
   alacritty
   awesome
   bash
-  fish
-  mimeapps.list # for qutebrowser should be the default browser
   fcitx
+  fish
   glrnvim.yml
   i3
   lynx
+  mimeapps.list # for qutebrowser should be the default browser
   nvim
   nyaovim
+  polybar # a status bar
   qutebrowser
   tmux
+  vimiv # an image viewer
   w3m
   zsh
 )
-
-#configFiles=(
-#  qtile/config.py
-#)
 
 # non-XDG based programs;
 # Create symbolic links at $HOME via $XDG_CONFIG_HOME.
@@ -83,11 +79,12 @@ home_list=(
 for config_dir in "${configs[@]}"; do
   cd "${XDG_CONFIG_HOME}"
   ln -nsf "${DOTFILES}/.config/${config_dir}" .
-  echo "Done! The config files of ${config_dir} are linked at ${XDG_CONFIG_HOME}!!"
+  echo "Done! the config files of ${config_dir} are linked at ${XDG_CONFIG_HOME}"
 done
 
-echo ""
-echo "Done! All the dotfiles are linked to ${XDG_CONFIG_HOME}"
+echo
+echo "Done! all the dotfiles are linked to ${XDG_CONFIG_HOME}!"
+echo
 
 #for config_dest in "${configFiles[@]}"; do
 #  cd config_dest
@@ -100,8 +97,13 @@ echo "Done! All the dotfiles are linked to ${XDG_CONFIG_HOME}"
 cd "$HOME"
 for home_link in "${home_list[@]}"; do
   ln -nsf "${DOTFILES}/${home_link}" .
-  echo "Done! create a symlink for ${home_link} on ${HOME}!"
+  echo "Done! created a symlink for ${home_link} on ${HOME}"
 done
+
+echo
+echo "Done! all the dotfiles are linked to ${HOME}!"
+echo
+
 
 ## Bash
 #ln -nsf ${XDG_CONFIG_HOME}/bash/.profile
