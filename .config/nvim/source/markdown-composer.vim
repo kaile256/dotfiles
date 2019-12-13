@@ -9,4 +9,4 @@ let g:markdown_composer_custom_css = [
 
 let g:markdown_composer_syntax_theme = 'qiita' " default: github
 
-"let g:markdown_composer_autostart = 0
+let g:markdown_composer_autostart = 0
