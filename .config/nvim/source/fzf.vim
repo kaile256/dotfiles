@@ -100,7 +100,7 @@ augroup FzfMyAutoConf "{{{1
     nnoremap <buffer> <c-b> i<PageUp><c-\><c-n>
   endfunction "}}}
   au User FzfStatusLine call s:fzf_buffer_keymaps()
-  au User FzfStatusLine call feedkeys('!.git ')
+  au User FzfStatusLine call feedkeys('!.git !node_modules ')
   "au BufWinEnter * if &ft ==# 'fzf' | runtime once/terminal
   " CAUTION: WinLeave's current file is next file, i.e., fzf when opening fzf-buffer.
   " Note: 'bufhidden' is useless for fzf.
