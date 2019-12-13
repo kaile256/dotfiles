@@ -36,6 +36,7 @@ let g:coc_global_extensions = [
       \ 'coc-docker',
       \ 'coc-elixir',
       \ 'coc-emoji',
+      \ 'coc-fish',
       \ 'coc-flow',
       \ 'coc-flutter',
       \ 'coc-git',
@@ -66,17 +67,48 @@ let g:coc_global_extensions = [
       \ 'coc-yaml',
       \ 'coc-yank',
       \ ]
-" TODO: convert the list into string.
-"let g:coc_extensions_all = substitute(g:coc_global_extensions, )
 "}}}
 nnoremap <expr> <C-f> coc#util#has_float() ? coc#util#float_scroll(1) : "\<C-f>"
 nnoremap <expr> <C-b> coc#util#has_float() ? coc#util#float_scroll(0) : "\<C-b>"
 
 " Command!; C-series {{{1
+command! CopenLog      :call coc#rpc#notify('openLog',  [])
+command! ClistResume   :call coc#rpc#notify('listResume', [])
+command! Cprev         :call coc#rpc#notify('listPrev', [])
+command! Cnext         :call coc#rpc#notify('listNext', [])
+command! Crestart      :call coc#rpc#restart()
+command! Cstart        :call coc#rpc#start_server()
+command! Crebuild      :call coc#util#rebuild()
+command! CInfo         :CocInfo
 
-command! -nargs=* -complete=custom,coc#list#options Clist  :CocList <args>
-command! -nargs=* -complete=custom,coc#list#options Cl  :Clist <args>
-command! -nargs=* -complete=custom,coc#list#options Cli :Clist <args>
+command! Cdisable      :CocDisable
+command! Cenable       :CocEnable
+command! Cconfig       :CocOpenConfig
+command! ClocalConfig  :CocOpenLocalConfig
+
+command! -nargs=* -range CAction
+      \ :call coc#rpc#notify('codeActionRange', [<line1>, <line2>, <f-args>])
+command! -nargs=* -range Cfix
+      \ :call coc#rpc#notify('codeActionRange', [<line1>, <line2>, 'quickfix'])
+command! -nargs=0 Cupdate
+      \ :call coc#util#update_extensions(1)
+command! -nargs=0 -bar CupdateSync
+      \ :call coc#util#update_extensions()
+
+" TODO: complete in autoload-function
+"command! -nargs=+ -complete=custom,s:SearchOptions  Csearch
+"      \ :call coc#rpc#notify('search', [<f-args>])
+"command! -nargs=* -bar -complete=custom,s:InstallOptions Cinstall
+"      \ :call coc#util#install_extension([<f-args>])
+"command! -nargs=+ -complete=custom,s:ExtensionList  Cuninstall
+"      \ :call coc#rpc#notify('CocAction', ['uninstallExtension', <f-args>])
+"command! -nargs=* -range -complete=custom,s:CommandList Ccommand
+"      \ :call coc#rpc#notify('runCommand', [<f-args>])
+
+command! -nargs=* -complete=custom,coc#list#options Clist
+      \ :call coc#rpc#notify('openList', [<f-args>])
+
+" Original {{{2
 command! -nargs=? S :CocCommand session.save <args>
 " Mnemonic: Load sessions
 "command! L        :Clist sessions
@@ -92,14 +124,15 @@ nnoremap <silent> <space>cx :Cextensions<cr>
 "command! Ctemplate   CocCommand template.templateTop
 "command! Cinit       CocCommand template.templateTop
 "command! Init        CocCommand template.templateTop
-" Note: fzf.vim is better,
-"       which has regex-like specification method on fuzzy-matcher.
+" Note: fzf.vim is better, which has regex-like specification method.
 "command! Cfiles    :Clist files
 "command! Cmru      :Clist mru
 "command! Cbuffers  :Clist buffers
 
-command! ChasProvider :call <SID>has_provider()
-function! s:has_provider() "{{{2
+command! CifHasProvider :call s:has_provider()
+command! ChasProvider   :call s:has_provider()
+command! Cprovider      :call s:has_provider()
+function! s:has_provider() "{{{3
   let l:coc_provider_list = [
         \ 'hover',
         \ 'rename',
@@ -167,10 +200,11 @@ function! s:make_sure_no_space() abort "{{{2
 endfunction
 " CocDiagnostic {{{1
 " Note: Unnecessary? pop up auto.
-"nmap \qi <Plug>(coc-diagnostic-info)
-nmap <silent> \q <Plug>(coc-fix-current)
-nmap <silent> [q <Plug>(coc-diagnostic-prev)
-nmap <silent> ]q <Plug>(coc-diagnostic-next)
+"nmap \wi <Plug>(coc-diagnostic-info)
+" Mnemonic: get Wrong line
+nmap <silent> \w <Plug>(coc-fix-current)
+nmap <silent> [w <Plug>(coc-diagnostic-prev)
+nmap <silent> ]w <Plug>(coc-diagnostic-next)
 "nmap [e <Plug>(coc-diagnostic-prev-error)
 "nmap ]e <Plug>(coc-diagnostic-next-error)
 " CocJump {{{1
@@ -229,42 +263,26 @@ command! OR :call CocAction('runCommand', 'editor.action.organizeImport')
 " Mnemonic: Change the Structure.
 nmap cs <Plug>(coc-refactor)
 
-augroup myCocPrettier
-  au!
-  au FileType javascript,typescript,css,json call s:prettier()
-augroup END
-function! s:prettier() abort "{{{2
-  " overrides :QuickFormat; omap is still available
-  command! -buffer QuickFormat :CocCommand prettier.formatFile
-  command! -buffer Prettier    :CocCommand prettier.formatFile
-  xnoremap = <Plug>(coc-format-selected)
-  nnoremap = <Plug>(coc-format-selected)
-endfunction
-
-" Note: coc-prettier has lower priority; when the document has other
-" format provider, prettier would not work.
-" Prettier's range format only support languageId including: {{{2
-" `javascript`, `javascriptreact`,
-" `typescript`, `typescriptreact`,
-" `json` and `graphql`.
-
 " Mnemonic: Change the lhs of Equal Sign
 function! s:quick_format() abort
   let save_view = winsaveview()
 
-  if CocHasProvider('format')
-    " keep ':norm' from <bang> to use <Plug>-map.
-    norm gg<Plug>(coc-format-selected)G
-    "elseif CocHasProvider('prettier')
+  if index(['javascript', 'typescript', 'css', 'json'], &ft) > 0
     " TODO: detect if coc-prettier is provided.
-    "  CocCommand prettier.formatFile
+    CocCommand prettier.formatFile
+  elseif CocHasProvider('format') && (index(['bash', 'sh'], &ft) < 0)
+    let num = line('$')
+    echomsg num 'lines should be indented by COC...'
+    " keep ':norm' from <bang> to use <Plug>-map.
+    call CocActionAsync('format')
   else
     norm! gg=G
+    " Note: echomsg '<num> line indented' as default
   endif
 
   call winrestview(save_view)
 endfunction
-command! -bar QuickFormat :call <SID>quick_format()
+command! -bar QuickFormat :call s:quick_format()
 
 omap <expr> s (v:operator ==# '=')? ':echo "@"<cr>': ':echo "nothing"<cr>'
 
@@ -275,6 +293,24 @@ omap <expr><silent> =
       \ (v:operator ==# '=')?
       \   '<esc>:QuickFormat<cr>':
       \   '='
+
+augroup myCocPrettier
+  au!
+  au FileType javascript,typescript,css,json call s:prettier()
+augroup END
+function! s:prettier() abort "{{{2
+  " overrides :QuickFormat; omap is still available
+  command! -buffer Prettier    :CocCommand prettier.formatFile
+  xnoremap <buffer> = <Plug>(coc-format-selected)
+  nnoremap <buffer> = <Plug>(coc-format-selected)
+endfunction
+
+" Note: coc-prettier has lower priority; when the document has other
+" format provider, prettier would not work.
+" Prettier's range format only support languageId including: {{{2
+" `javascript`, `javascriptreact`,
+" `typescript`, `typescriptreact`,
+" `json` and `graphql`.
 
 " CocText-Object {{{1
 " Note: mapped already as default?
