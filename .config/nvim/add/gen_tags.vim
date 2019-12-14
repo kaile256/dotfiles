@@ -2,13 +2,13 @@
 " Check: /usr/share/vim/vimfiles/plugin/gtags.vim
 " Check: /usr/share/gtags/FAQ
 
-"" Let; Auto-Generate Tags
+" Auto-Generate Tags
 let g:gen_tags#ctags_auto_gen = 1
 let g:gen_tags#gtags_auto_gen = 0
 "let g:gen_tags#ctags_auto_update = 0 " update on every BufWrite
-"let g:gen_tags#gtags_auto_update = 0 " update on every BufWrite
+let g:gen_tags#gtags_auto_update = 0
 
-let g:gen_tags#statusline = 1
+"let g:gen_tags#statusline = 1
 "let g:gen_tags#verbose = 0
 
 "let g:gen_tags#ctags_prune = 1  " 0: Recommended
