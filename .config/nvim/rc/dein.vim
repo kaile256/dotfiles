@@ -71,6 +71,7 @@ let s:dein_toml_initial = [
       \ ]
 let s:dein_toml_lazy = [
       \ 'appearance.toml',
+      \ 'colorscheme.toml',
       \ 'debug.toml',
       \ 'default.toml',
       \ 'denite.toml',
