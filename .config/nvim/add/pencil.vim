@@ -33,7 +33,7 @@ endfunction
 augroup myPencil
   aut!
   au FileType markdown,mkd call s:pencil.markdown()
-  au Filetype git,gitsendemail,*commit*,*COMMIT* call s:pencil.commit()
+  "au Filetype git,gitsendemail,*commit*,*COMMIT* call s:pencil.commit()
   au Filetype mail         call s:pencil.mail()
   au Filetype html,xml     call s:pencil.html()
 augroup END
