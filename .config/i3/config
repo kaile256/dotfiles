@@ -301,7 +301,7 @@ bindsym $Super+Ctrl+r mode "$resize"
 # Mode; Backlight {{{2
 bindsym $Super+Ctrl+b mode "$backlight"
 
-set $backlight Backlight Control: H:100, M:50, L:5 (-): J < D < B | (+): K < U < F
+set $backlight Backlight Control: H:100, M:50, L:5 (-): J < D < F | (+): K < U < B
 
 mode "$backlight" {
 bindsym h exec "notify-send --expire-time 1100 --urgency critical 'Brightness: 100' ; xbacklight -set 100 "
@@ -312,8 +312,8 @@ bindsym k exec "xbacklight -inc 1;  notify-send 'Brightness: +1'"
 bindsym j exec "xbacklight -dec 1;  notify-send 'Brightness: -1'"
 bindsym u exec "xbacklight -inc 5;  notify-send 'Brightness: +5'"
 bindsym d exec "xbacklight -dec 5;  notify-send 'Brightness: -5'"
-bindsym f exec "xbacklight -inc 10; notify-send 'Brightness: +10'"
-bindsym b exec "xbacklight -dec 10; notify-send 'Brightness: -10'"
+bindsym b exec "xbacklight -inc 10; notify-send 'Brightness: +10'"
+bindsym f exec "xbacklight -dec 10; notify-send 'Brightness: -10'"
 
 bindsym n             mode "default"
 bindsym Escape        mode "default"
