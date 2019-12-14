@@ -24,8 +24,9 @@ URxvt.visualBell:           false
 URxvt.saveLines:            3000
 
 !!! Color Scheme and Opacity - gruvbox-dark https://github.com/morhetz/gruvbox
-! Define opacity in []; [100] is no-opacity, [0] is completely invisible.
-!URxvt.depth:       20
+! [100]: 100% itself; background is completely itself
+! [0]:   0% itself; fake-background
+URxvt.depth: 50
 !! 'transparent': only in fake; for true one, use 'depth'
 !!                adjust by 'shading'
 URxvt.transparent: true
