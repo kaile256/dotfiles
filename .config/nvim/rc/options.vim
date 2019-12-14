@@ -20,27 +20,6 @@ set synmaxcol=320
 " Set; Font {{{2
 set ambiwidth=double
 
-"if has('unix')
-"  try
-"    set guifont=SF\ Mono:h12
-"    set guifontwide=NotoMono\ Nerd\ Font:h15
-"    set guifontset=SF\ Mono:h15
-"    set printfont=SF\ Mono:h12
-"    "set linespace=0
-"  catch
-"    set guifont=Monospace:h12
-"    set printfont=Monospace:h12
-"  endtry
-"elseif has('win32\|win64')
-"  try
-"    set guifont=SF_Mono:h12
-"    set printfont=SF_Mono:h12
-"  catch
-"    set guifont=Monospace\ 12
-"    set printfont=Monospace\ 12
-"  endtry
-"endif
-
 " Term GUI Colors {{{2
 " Ref: *term-dependent-settings* or /usr/share/nvim/runtime/doc/term.txt
 if $TERM =~# '^\(tmux\|iterm\|vte\|gnome\)\(-.*\)\?$'
@@ -61,6 +40,13 @@ elseif $TERM =~# '^\(xterm\)\(-.*\)\?$'
   else
     set notermguicolors
   endif
+endif
+
+" transparency {{{1
+" Note: it works dum CUI.
+if exists('&pumblend')
+  set pumblend=35
+  set winblend=40
 endif
 
 " Pmenu {{{2

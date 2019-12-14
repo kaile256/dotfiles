@@ -1,12 +1,5 @@
 " From: init.vim
 
-" Appearance; Blend {{{
-" Note: it works dum CUI.
-if exists('&pumblend')
-  set pumblend=35
-  set winblend=40
-endif
-"}}}
 "" $VAR: DEVROOTs and $PATH {{{1
 "let $DEVROOT = $HOME .'/dev'
 "
@@ -35,6 +28,28 @@ endif
 "endfor
 "unlet s:path
 "
+" Font for gvim {{{1
+"if has('unix')
+"  try
+"    set guifont=SF\ Mono:h12
+"    set guifontwide=NotoMono\ Nerd\ Font:h15
+"    set guifontset=SF\ Mono:h15
+"    set printfont=SF\ Mono:h12
+"    "set linespace=0
+"  catch
+"    set guifont=Monospace:h12
+"    set printfont=Monospace:h12
+"  endtry
+"elseif has('win32\|win64')
+"  try
+"    set guifont=SF_Mono:h12
+"    set printfont=SF_Mono:h12
+"  catch
+"    set guifont=Monospace\ 12
+"    set printfont=Monospace\ 12
+"  endtry
+"endif
+
 " if nvim-qt {{{1
 if exists('g:GuiLoaded')
 
