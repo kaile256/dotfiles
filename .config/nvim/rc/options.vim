@@ -44,9 +44,13 @@ set ambiwidth=double
 " Term GUI Colors {{{2
 " Ref: *term-dependent-settings* or /usr/share/nvim/runtime/doc/term.txt
 if $TERM =~# '^\(tmux\|iterm\|vte\|gnome\)\(-.*\)\?$'
-  set termguicolors "Enables 24-bit RGB color in TUI.
+  set termguicolors " Enables 24-bit RGB color in TUI.
+elseif $ALACRITTY_LOG =~# '\.log$'
+  set termguicolors
+
 elseif $TERM =~# '^\(rxvt\|screen\|interix\|putty\)\(-.*\)\?$'
   set notermguicolors
+
 elseif $TERM =~# '^\(xterm\)\(-.*\)\?$'
   if $XTERM_VERSION !=# ''
     set termguicolors
