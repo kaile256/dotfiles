@@ -1,55 +1,9 @@
-! xrdb reads this file
-
-! XTERM
-XTerm*termName: xterm-256color
-Term*scrollBar: False
-XTerm*cursorBlink: True
-
-! Fonts and Encoding
-XTerm*utf8: True
-XTerm*locale: True
-XTerm*utf8Title: True
-XTerm*faceName: xft:DejaVu Sans Mono
-XTerm*faceNameDoublesize: xft:Ricty Nerd Font
-XTerm*faceSize: 6
-XTerm*scaleHeight: 1.08
-
-!! Color Scheme : Tomorrow Night
-!! https://github.com/chriskempson/tomorrow-theme
-
-XTerm*background: #1D1F21
-XTerm*foreground: #C5C8C6
-! black
-XTerm*color0: #282A2E
-XTerm*color8: #373B41
-! red
-XTerm*color1: #A54242
-XTerm*color9: #CC6666
-! green
-XTerm*color2: #8C9440
-XTerm*color10: #B5BD68
-! yellow
-XTerm*color3: #DE935F
-XTerm*color11: #F0C674
-! blue
-XTerm*color4: #5F819D
-XTerm*color12: #81A2BE
-! magenta
-XTerm*color5: #85678F
-XTerm*color13: #B294BB
-! cyan
-XTerm*color6: #5E8D87
-XTerm*color14: #8ABEB7
-! white
-XTerm*color7: #707880
-XTerm*color15: #C5C8C6
+! Note: read this file by xrdb
 
 !twm &
 !xclock -geometry 50x50-1+1 &
-!xterm -geometry 80x50+494+51 &
-!xterm -geometry 80x20+494-0 &
-!exec xterm -geometry 80x66+0+0 -name login
-! urxvt (rxvt-unicode)
+
+! URxvt {{{1
 URxvt.termName: rxvt-unicode
 
 ! Window-Size (default: 80x24)
@@ -69,7 +23,15 @@ URxvt.pointerBlank:         true
 URxvt.visualBell:           false
 URxvt.saveLines:            3000
 
-!!! Fading if not focused (%)
+!!! Color Scheme and Opacity - gruvbox-dark https://github.com/morhetz/gruvbox
+! Define opacity in []; [100] is no-opacity, [0] is completely invisible.
+!URxvt.depth:       20
+!! 'transparent': only in fake; for true one, use 'depth'
+!!                adjust by 'shading'
+URxvt.transparent: true
+URxvt.shading: 70
+! Fading if not focused (%)
+! i.e., Transparency
 URxvt.fading:               100
 
 ! Font list and Spacing
@@ -81,10 +43,6 @@ URxvt.font:                 xft:SF Mono:size=13:antialias=true
 ! Note: letterSpace in negative nr. removes exagerated spaces; esp. for Japanese Fonts.
 URxvt.letterSpace:          -1
 !URxvt.lineSpace:            2  ! expand space between command-lines.
-
-!!! Color Scheme and Opacity - gruvbox-dark https://github.com/morhetz/gruvbox
-! Define opacity in []; [100] is no-opacity, [0] is completely invisible.
-URxvt.depth:       32
 
 !! Colorscheme: Solarized (or flattened)
 !URxvt.color0:      [90]#073642    /* black          */
@@ -143,7 +101,55 @@ URxvt.background:  [90]black
 !URxvt.perl-ext:
 !URxvt.perl-ext-common:
 
-! Window Manager
+! XTerm {{{1
+XTerm*termName: xterm-256color
+!exec xterm -geometry 80x66+0+0 -name login
+!xterm -geometry 80x50+494+51 &
+!xterm -geometry 80x20+494-0 &
+
+Term*scrollBar: False
+XTerm*cursorBlink: True
+
+! Fonts and Encoding
+XTerm*utf8: True
+XTerm*locale: True
+XTerm*utf8Title: True
+XTerm*faceName: xft:DejaVu Sans Mono
+XTerm*faceNameDoublesize: xft:Ricty Nerd Font
+XTerm*faceSize: 6
+XTerm*scaleHeight: 1.08
+
+!! Color Scheme : Tomorrow Night
+!! https://github.com/chriskempson/tomorrow-theme
+
+XTerm*background: #1D1F21
+XTerm*foreground: #C5C8C6
+! black
+XTerm*color0: #282A2E
+XTerm*color8: #373B41
+! red
+XTerm*color1: #A54242
+XTerm*color9: #CC6666
+! green
+XTerm*color2: #8C9440
+XTerm*color10: #B5BD68
+! yellow
+XTerm*color3: #DE935F
+XTerm*color11: #F0C674
+! blue
+XTerm*color4: #5F819D
+XTerm*color12: #81A2BE
+! magenta
+XTerm*color5: #85678F
+XTerm*color13: #B294BB
+! cyan
+XTerm*color6: #5E8D87
+XTerm*color14: #8ABEB7
+! white
+XTerm*color7: #707880
+XTerm*color15: #C5C8C6
+
+! Window Manager {{{1
 !exec qtile
 !exec i3 -V >> ~/.local/share/i3/i3log-$(date +'%F-%k-%M-%S') 2>^1
 
