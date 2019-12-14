@@ -5,6 +5,8 @@
 # Var; Keyname {{{2
 set $Super  Mod4
 set $SuperS Mod4+Shift
+set $SuperC Mod4+Control
+set $SuperA Mod4+Mod1
 set $Alt    Mod1
 set $AltC   Mod1+Control
 set $AltS   Mod1+Shift
@@ -13,12 +15,14 @@ set $AltS   Mod1+Shift
 set $Locker ~/.config/i3/lock.sh
 
 # Font {{{1
-font pango:SF Mono 11
+# Note: do NOT insert size before commas; the following fonts will be ignored
+# Ref: https://wiki.archlinux.jp/index.php/I3
+font pango:Icons, SF Mono, Hack Nerd Font, DejaVu Sans Mono 11
 
 # Workspace; Name {{{1
 workspace_layout tabbed
 
-set $ws1 "1"
+set $ws1 "1:vim"
 set $ws2 "2"
 set $ws3 "3"
 set $ws4 "4"
@@ -27,7 +31,7 @@ set $ws6 "6"
 set $ws7 "7"
 set $ws8 "8"
 set $ws9 "9"
-set $ws10 "0:monitor"
+set $ws10 "0:main"
 
 workspace "0" output eDP1
 #workspace "0" output HDMI2
@@ -169,6 +173,7 @@ bindsym $Super+l focus right
 #bindsym $AltC+k focus up
 #bindsym $AltC+l focus right
 # Keybind; Move Window {{{2
+# Note: $SuperC+h fails without error-msg
 bindsym $SuperS+h move left
 bindsym $SuperS+j move down
 bindsym $SuperS+k move up
@@ -188,6 +193,28 @@ bindsym $SuperS+l move right
 bindsym $Super+semicolon exec --no-startup-id ${MYSCRIPTS}/touchpad-toggle.sh
 
 # Mouse #{{{2
+bindsym $SuperC+w mode "$ws_style"
+set $ws_style Workspace: (F)loating, f(U)llscreen, (T)ab, (S)tacking, (H)orizontal, (V)ertical or (N)othing
+mode "$ws_style" {
+# No use?
+bindsym f exec --no-startup-id floating toggle, mode "default"
+bindsym u exec --no-startup-id fullscreen toggle, mode "default"
+bindsym t exec --no-startup-id layout tabbed, mode "default"
+bindsym s exec --no-startup-id layout stacking, mode "default"
+#bindsym s exec --no-startup-id layout stacked, mode "default"
+bindsym h exec --no-startup-id layout splith, mode "default"
+bindsym v exec --no-startup-id layout splitv, mode "default"
+
+bindsym n            mode "default"
+bindsym Escape       mode "default"
+bindsym Ctrl+squarebrace       mode "default"
+bindsym Return       mode "default"
+bindsym Space        mode "default"
+bindsym $Super+Ctrl+s  mode "default"
+bindsym Ctrl+c       mode "default"
+bindsym $Super+space mode "default"
+}
+
 # Use Mouse+$Super to drag floating windows to their wanted position
 floating_modifier $Super
 #focus_follows_mouse no
@@ -216,11 +243,12 @@ bindsym $Super+$Alt+t layout tabbed
 #bindsym $mod+n border normal
 
 # Keybind for Mode on i3 {{{1
-# Mode; System {{{2
+# Mode; Systemctl {{{2
 ## If use i3-nagbar {{{3
 #bindsym $Super+x  exec "i3-nagbar -t warning -f SF Mono 12 -m  'Do you really want to exit i3?' -b 'q:poweroff' 'systemctl poweroff' -b 'r:reboot' 'systemctl reboot' -b 'l:logout' 'i3-msg exit'", mode "$system"
 #bindsym $SuperS+x exec "i3-nagbar -t warning -f SF Mono 12 -m  'Do you really want to exit i3?' -b 'q:poweroff' 'systemctl poweroff' -b 'r:reboot' 'systemctl reboot' -b 'l:logout' 'i3-msg exit'", mode "$system"
 #}}}
+bindsym $Super+x  mode "$systemctl"; exec notify-send --expire-time 1100 --urgency critical 'systemctl'
 bindsym $Super+Ctrl+x  mode "$systemctl"; exec notify-send --expire-time 1100 --urgency critical 'systemctl'
 bindsym $Super+Ctrl+z  mode "$systemctl"; exec notify-send --expire-time 1100 --urgency critical 'systemctl'
 set $systemctl Poweroff? (y)es, (n)o, (s)uspend, (r)eboot or (l)ock?
@@ -272,26 +300,33 @@ set $resize Resize as you want: (H)shrink(left) (N)grow(down) (K)shrink(up) (L)g
 bindsym $Super+Ctrl+r mode "$resize"
 # Mode; Backlight {{{2
 bindsym $Super+Ctrl+b mode "$backlight"
-set $backlight Backlight Control: (-): J < D < B | (+): K < U < F
+
+set $backlight Backlight Control: H:100, M:50, L:5 (-): J < D < B | (+): K < U < F
+
 mode "$backlight" {
-# TODO: call current brightness.
-bindsym k exec "xbacklight -inc 1;  notify-send 'brightness +1'"
-bindsym j exec "xbacklight -dec 1;  notify-send 'brightness -1'"
-bindsym u exec "xbacklight -inc 5; notify-send 'brightness +5'"
-bindsym d exec "xbacklight -dec 5; notify-send 'brightness -5'"
-bindsym f exec "xbacklight -inc 10; notify-send 'brightness +10'"
-bindsym b exec "xbacklight -dec 10; notify-send 'brightness -10'"
-bindsym n            mode "default"
-bindsym Escape       mode "default"
-bindsym Ctrl+[       mode "default"
-bindsym Return       mode "default"
-bindsym Space        mode "default"
-bindsym $Super+Ctrl+b  mode "default"
-bindsym Ctrl+c       mode "default"
-bindsym Ctrl+m       mode "default"
-bindsym Ctrl+j       mode "default"
-bindsym $Super+space mode "default"
+bindsym h exec "notify-send --expire-time 1100 --urgency critical 'Brightness: 100' ; xbacklight -set 100 "
+bindsym m exec "notify-send --expire-time 1100 --urgency critical 'Brightness: 50'  ; xbacklight -set 50  "
+bindsym l exec "notify-send --expire-time 1100 --urgency critical 'Brightness: 5'; sleep 1; xbacklight -set 5"
+
+bindsym k exec "xbacklight -inc 1;  notify-send 'Brightness: +1'"
+bindsym j exec "xbacklight -dec 1;  notify-send 'Brightness: -1'"
+bindsym u exec "xbacklight -inc 5;  notify-send 'Brightness: +5'"
+bindsym d exec "xbacklight -dec 5;  notify-send 'Brightness: -5'"
+bindsym f exec "xbacklight -inc 10; notify-send 'Brightness: +10'"
+bindsym b exec "xbacklight -dec 10; notify-send 'Brightness: -10'"
+
+bindsym n             mode "default"
+bindsym Escape        mode "default"
+bindsym Ctrl+[        mode "default"
+bindsym Return        mode "default"
+bindsym Space         mode "default"
+bindsym $Super+Ctrl+b mode "default"
+bindsym Ctrl+c        mode "default"
+bindsym Ctrl+m        mode "default"
+bindsym Ctrl+j        mode "default"
+bindsym $Super+space  mode "default"
 }
+
 # Mode; Sound Volume {{{2
 ## Depends: pulseaudio & pavucontrol
 # Depends: pulseaudio-ctl
@@ -299,8 +334,8 @@ bindsym $Super+space mode "default"
 # Recommend: pulseaudio-alsa (for flash)
 bindsym $Super+Ctrl+s mode "$sound"
 bindsym $Super+Ctrl+v mode "$sound"
-set $sound Sound Volume: (H)igher, (L)ower, (M)ute or (N)o more.
-mode "$sound" {
+set     $sound Sound Volume: (H)igher, (L)ower, (M)ute or (N)o more.
+mode    "$sound" {
 bindsym h exec --no-startup-id pactl set-sink-volume 0 +5%
 bindsym l exec --no-startup-id pactl set-sink-volume 0 -5%
 bindsym u exec --no-startup-id pactl set-sink-volume 0 +5%
@@ -328,8 +363,8 @@ workspace_auto_back_and_forth yes
 #bindsym $mod+Shift+b move container to workspace back_and_forth; workspace back_and_forth
 bindsym $Super+minus workspace prev
 bindsym $Super+equal workspace next
-bindsym $Super+Ctrl+p workspace prev
-bindsym $Super+Ctrl+n workspace next
+bindsym $SuperC+o workspace prev
+bindsym $SuperC+i workspace next
 bindsym $Super+1 workspace $ws1
 bindsym $Super+2 workspace $ws2
 bindsym $Super+3 workspace $ws3
@@ -340,6 +375,7 @@ bindsym $Super+7 workspace $ws7
 bindsym $Super+8 workspace $ws8
 bindsym $Super+9 workspace $ws9
 bindsym $Super+0 workspace $ws10
+
 # Workspace; Move {{{2
 bindsym $SuperS+1 move container to workspace $ws1
 bindsym $SuperS+2 move container to workspace $ws2
@@ -374,8 +410,11 @@ bindsym $Super+u exec urxvt
 bindsym $Super+t exec alacritty
 
 # Keybind; open Editor {{{2
+# the numbar is RAM by htop in terminal of the editor
+# 448M
 bindsym $Super+v exec --no-startup-id alacritty -e 'vim'
 bindsym $Super+a exec --no-startup-id alacritty -e 'nvim'
+# 418M
 bindsym $Super+n exec --no-startup-id nvim-qt
 # TODO: start nvim-qt sharing the buffer-list w/ another nvim-qt which is already started.
 #bindsym $SuperS+n exec --no-startup-id i3-sensible-terminal -e "nvim-qt --server $NVIM_LISTEN_ADDRESS"
@@ -383,16 +422,19 @@ bindsym $Super+q exec --no-startup-id nvim-qt
 #bindsym $Super+r exec --no-startup-id nvim-gtk # font decayed
 bindsym $SuperS+g exec --no-startup-id glrnvim
 #bindsym $SuperS+g exec --no-startup-id gonvim
+# 612M, but firstest startup in 3 sec
 bindsym $Super+g exec --no-startup-id gnvim
 bindsym $Super+y exec --no-startup-id nyaovim
+# 718M
 bindsym $Super+o exec --no-startup-id oni
 bindsym $Super+e exec --no-startup-id emacs
+# 847M
 bindsym $SuperS+v exec --no-startup-id code
 bindsym $SuperS+c exec --no-startup-id code
 # Keybind; open Browser {{{2
 bindsym $Super+b exec qutebrowser
 bindsym $Super+f exec firefox
-bindsym $Super+c exec google-chrome-beta
+bindsym $Super+c exec google-chrome-stable
 #bindsym $Super+p exec palemoon
 
 # Keybind; Sound Volume {{{2
