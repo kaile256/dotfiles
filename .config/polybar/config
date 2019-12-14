@@ -10,13 +10,13 @@ include-file = ~/.config/polybar/colors/adapta.conf
 [include]
 #[bar]
 ;; Logs: /tmp/polybar-top.log
-;include-file = ~/.config/polybar/bar/top.conf
+;include-file = ~/.config/polybar/bar/top.ini
 
 ;;       /tmp/polybar-main.log
-include-file  = ~/.config/polybar/bar/main.conf
+include-file  = ~/.config/polybar/bar/main.ini
 
 ;;       /tmp/polybar-bottom.log
-;include-file = ~/.config/polybar/bar/bottom.conf
+;include-file = ~/.config/polybar/bar/bottom.ini
 
 modules-center = i3-workspaces
 modules-left   = powermenu search-icon calendar bluetooth-stat pkg-check xkeyboard i3-mode
