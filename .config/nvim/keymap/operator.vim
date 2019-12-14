@@ -1,6 +1,4 @@
 " From: init.vim
-"
-nnoremap <silent> gX :silent !xdg-open <cfile> & <cr>
 
 function! s:line_operation(operation, direction) abort "{{{1
   if a:operation ==# 'copy' "{{{2
@@ -106,17 +104,13 @@ augroup myAfterYank
   "xnoremap y ygv<esc>
   "au TextYankPost * call feedkeys("gv\<esc>")
   function! s:echo_operated() abort "{{{
-    if v:event.regname ==# ''
-      let l:regname = '"'
-    elseif !empty(v:event.regname)
+    if !empty(v:event.regname)
       let l:regname = v:event.regname
-    else
-      let l:regname = 'unknown'
     endif
 
     if v:event.operator ==# 'y'
-      let operated = 'Yanked'
-      let l:regname = '0'
+      let l:regname = get(l:, 'regname', '0')
+      let operated  = 'Yanked'
     elseif v:event.operator ==# 'd'
       let operated = 'Deleted'
     elseif v:event.operator ==# 'c'
@@ -126,6 +120,8 @@ augroup myAfterYank
     else
       let operated = v:event.operator
     endif
+
+    let l:regname = get(l:, 'regname', '"')
 
     if v:event.regtype ==# 'v'
       let l:regtype = 'in Charater'
@@ -144,7 +140,7 @@ augroup myAfterYank
 augroup END
 
 " TODO: Ignore difference of line's height.
-function! s:backup_yanked_contents() "{{{
+function! s:backup_yanked_contents() "{{{1
   if !exists('g:backupYanked#backuplist_regnames')
     throw " Please :let g:backupYanked#backuplist_regnames = '(a sequence of optional alphabets of register's name)'"
   endif
@@ -160,7 +156,7 @@ function! s:backup_yanked_contents() "{{{
   "let g:last_address = (g:last_address - 1) % len(g:backuplist_regnames)
   let s:latest_backup_regname =  g:backupYanked#backuplist_regnames[s:last_address]
   exe 'let @' . s:latest_backup_regname .'= getreg(0)'
-endfunction "}}}
+endfunction
 let g:backupYanked#backuplist_regnames = 'abcdefg'
 command! BackupYanked :call s:backup_yanked_contents()
 nnoremap <silent> y :BackupYanked<cr>y
