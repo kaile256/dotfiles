@@ -10,6 +10,7 @@ export XDG_DATA_HOME="$HOME/.local/share"
 
 # for docui, which is the client for docker on TUI
 export LC_CTYPE=en_US.UTF-8
+#export LANG=ja_JP.UTF-8
 
 # nvr & nvim-qt does NOT work for sudoedit.
 export EDITOR=nvim-qt
@@ -54,6 +55,7 @@ export RUSTUP_HOME="$HOME/.rustup"
 
 # Python
 export PYENV_ROOT="$HOME/.pyenv"
+export MYPY_CACHE_DIR="$XDG_CACHE_HOME/.mypy_cache"
 
 # Ruby
 export GEM_HOME="$HOME/.gem"
