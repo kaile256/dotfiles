@@ -10,6 +10,10 @@ alias ll 'ls -l'
 alias ec 'echo'
 alias ech 'echo'
 
+alias cd.. 'cd ..'
+alias cd. 'cd ..'
+alias cd-  'cd -'
+
 alias pk '~/start-kail.sh'
 
 alias pacman-mirrors-update 'sudo pacman-mirrors -f && sudo pacman -Syy'
