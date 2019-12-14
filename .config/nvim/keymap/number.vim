@@ -1,5 +1,7 @@
-"" From: init.vim
-"
+" From: init.vim
+
+finish
+
 "" CAUTION: never map on 0; that makes delay to 0-jump.
 "" CAUTION: never map on 9 for ambiguas-times macro executions.
 "
@@ -10,6 +12,7 @@
 "" Write
 "nnoremap                 2 :<c-u>w<cr>
 "nnoremap          <space>2 :<c-u>w<cr>
+
 "" Write All
 "nnoremap <silent> <space>8 :<c-u>qa<cr>
 "
