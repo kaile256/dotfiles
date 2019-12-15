@@ -2,18 +2,13 @@
 
 [[plugins]]
 repo = 'tpope/vim-fugitive' #{{{
+#repo = 'kaile256/vim-fugitive'
+# WARNING: for the case to compare only commits,
+#          keep such functions private, which close all '.git/' or 'fugitive://'
 type = 'git'
 on_event = 'BufRead'
 hook_add = 'runtime add/fugitive.vim'
 hook_source = 'runtime source/fugitive.vim'
-hook_done_update = '''
-exe 'e' g:dein_github_dir .'/tpope/vim-fugitive/plugin/fugitive.vim'
-%s/Gpush/Gush/e
-write
-exe 'e' g:dein_github_dir .'/tpope/vim-fugitive/autoload/fugitive.vim'
-g/'dq'/d
-write
-'''
 #}}}
 
 # Branch viewer
