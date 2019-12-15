@@ -151,7 +151,7 @@ exec_always --no-startup-id ${MYSCRIPTS}/polybar-launch.sh
 # Keybind of i3 {{{1
 # Keybind; i3's command {{{2
 ## Kill Focused Window
-bindsym $Super+z  kill
+#bindsym $Super+z  kill
 # reload the configuration file
 bindsym $SuperS+space reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
@@ -243,6 +243,21 @@ bindsym $Super+$Alt+t layout tabbed
 #bindsym $mod+n border normal
 
 # Keybind for Mode on i3 {{{1
+# Mode; Windowctl {{{2
+bindsym $Super+w  mode "$windowctl"; exec notify-send --expire-time 1100 'windowctl'
+bindsym $Super+z  mode "$windowctl"; exec notify-send --expire-time 1100 'windowctl'
+set $windowctl Window: C, Q or Z to kill current window
+mode "$windowctl" {
+bindsym c kill; mode "default"
+bindsym q kill; mode "default"
+bindsym z kill; mode "default"
+
+bindsym Escape       mode "default"
+bindsym Ctrl+bracket mode "default"
+bindsym Ctrl+c       mode "default"
+bindsym $Super+space mode "default"
+}
+
 # Mode; Systemctl {{{2
 ## If use i3-nagbar {{{3
 #bindsym $Super+x  exec "i3-nagbar -t warning -f SF Mono 12 -m  'Do you really want to exit i3?' -b 'q:poweroff' 'systemctl poweroff' -b 'r:reboot' 'systemctl reboot' -b 'l:logout' 'i3-msg exit'", mode "$system"
