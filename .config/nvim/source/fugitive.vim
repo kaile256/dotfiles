@@ -2,29 +2,25 @@
 " Repo: tpope/vim-fugitive
 " Another: add/fugitive.vim
 
+command! -bang -nargs=? -range=-1 -addr=tabs
+      \ -complete=customlist,fugitive#CommitComplete
+      \ GcommitBottom
+      \ :call s:gitcommit(<q-args>)
+
 augroup FugitiveCallMyFunc
   au!
-  function! s:restore_view() abort "{{{1
-    call win_gotoid(t:my_fugitive_save_winid)
-    " back to a buffer of status if there
-    call win_gotoid(bufwinid('.git/index'))
-  endfunction
-
-  command! -bang -nargs=? -range=-1 -addr=tabs
-        \ -complete=customlist,fugitive#CommitComplete
-        \ GcommitBottom
-        \ :call s:gitcommit(<q-args>)
   function! s:gitcommit(...) abort "{{{1
     let winnr = bufwinnr('.git/COMMIT_EDITMSG')
     if winnr != -1
       echo 'gitcommit-buffer updating...'
       exe winnr 'windo GcommitDiscard'
     endif
+
     let args = a:0 > 0 ? join(a:000) : ''
     exe 'bot 20 Gcommit' args
   endfunction
 
-  au FileType fugitive  call s:fugitive_keymap() "{{{1
+  au FileType fugitive call s:fugitive_keymap() "{{{1
   function! s:fugitive_keymap() abort "{{{0
     " TODO: Specify the window of the latest commit buffer on `dq`.
     "nnoremap <buffer><silent> cc :<C-U>bot 20 Gcommit<CR>
@@ -34,8 +30,6 @@ augroup FugitiveCallMyFunc
     " To: continue to cc/ce/ca.
     xmap <buffer> c sc
     " Note: for fugitive-buffer, not for &diff
-    "nnoremap <silent><buffer><nowait> dq :<c-u>WindowPKreduce<cr>
-    "xnoremap <silent><buffer><nowait> dq :<c-u>WindowPKreduce<cr>
     silent! nunmap <buffer> J
     silent! nunmap <buffer> K
     " For: especially in the case, ':norm U' to unstage all.
@@ -59,7 +53,7 @@ augroup FugitiveCallMyFunc
     nmap <buffer> Zq         <Plug>(gitcommit-discard)
     nmap <buffer> <c-w>c     <Plug>(gitcommit-discard)
     nmap <buffer> <c-w><c-c> <Plug>(gitcommit-discard)
-    nmap <buffer><nowait> dq <Plug>(gitcommit-dismiss)
+    nmap <buffer><nowait> dQ <Plug>(fugitive-dismiss)
 
     nmap <c-w>o     <Plug>(winonly-careful)
     nmap <c-w><c-o> <Plug>(winonly-careful)
@@ -100,16 +94,16 @@ augroup FugitiveCallMyFunc
   function! s:gitcommit_discard() abort
     call s:gitcommit_shred()
     quit
-    call s:restore_view()
   endfunction
 
   " nmap dismiss {{{3
-  nnoremap <silent> <Plug>(gitcommit-dismiss) :<c-u>call <SID>gitcommit_dismiss()<cr>
-  function! s:gitcommit_dismiss() abort
+  function! s:fugitive_dismiss() abort
     call s:gitcommit_shred()
     WinReduce
-    call s:restore_view()
+    "call win_gotoid(bufwinid('.git/index'))
   endfunction
+  nnoremap <silent> <Plug>(fugitive-dismiss) :<c-u>call <SID>fugitive_dismiss()<cr>
+  nmap dQ <Plug>(fugitive-dismiss)
 
   "au FIleType git call s:gitlog_keymaps() "{{{1
   "function! s:gitlog_keymaps() abort
