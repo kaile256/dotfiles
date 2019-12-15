@@ -1,5 +1,4 @@
 ; From: $MYSCRIPTS/polybar-launch.sh
-; Ref: https://github.com/matoruru/polybar-theme
 ; Source: $GHQ_ROOT/github.com/polybar/polybar/
 ; Sample: $GHQ_ROOT/github.com/polybar/polybar-scripts/
 
@@ -18,7 +17,7 @@ include-file  = ~/.config/polybar/bar/main.ini
 ;;       /tmp/polybar-bottom.log
 ;include-file = ~/.config/polybar/bar/bottom.ini
 
-modules-center = i3-workspaces
+modules-center = github i3-workspaces
 modules-left   = powermenu search-icon calendar bluetooth-stat pkg-check xkeyboard i3-mode
 modules-right  = volume-alsa cpu-graph ram-percent wlan xbacklight battery
 
@@ -28,6 +27,7 @@ include-file = ~/.config/polybar/module/workspace/i3.conf
 
 include-file = ~/.config/polybar/module/widgets.conf
 include-file = ~/.config/polybar/module/icons.conf
+include-file = ~/.config/polybar/module/notifications.conf
 ;include-file = ~/.config/polybar/module/url.conf
 
 include-file = ~/.config/polybar/module/pc/volume.conf
