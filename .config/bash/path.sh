@@ -1,29 +1,31 @@
 #!/usr/bin/env bash
 
-export PATH="$XDG_CONFIG_HOME/bash/functions:$PATH"
+Path=(
+  "$XDG_CONFIG_HOME/bash/functions" # original functions in Bash
+  "$HOME/.local/bin" # local
+  "$CARGO_HOME/bin" # rust
+  "$PYENV_ROOT/bin" # python
+  "$HOME/.gem/ruby/2.6.0/bin" # ruby
+  "$GOPATH/bin" # go
+  "$HOME/.node_modules/bin" # nodejs
+  "$HOME/.yarn/bin" # nodejs
+  #"/home/linuxbrew/.linuxbrew/bin" # linuxbrew
+)
 
-export PATH="$HOME/.local/bin:$PATH"
+appendpath () {
+  # Ref: /etc/profile
+  case ":$PATH:" in
+    *:"$1":*)
+      ;;
+    *)
+      PATH="${PATH:+$PATH:}$1"
+  esac
+}
 
-# Rust
-## Cargo
-export PATH="$CARGO_HOME/bin:$PATH"
+for path in "${Path[@]}"; do
+  appendpath "$path"
+done
 
-# Python
-## pyenv
-export PATH="$PYENV_ROOT/bin:$PATH"
+unset appendpath
 
-# Ruby
-## gem
-export PATH="$HOME/.gem/ruby/2.6.0/bin:$PATH"
-
-# Go
-export PATH="$GOPATH/bin:$PATH"
-
-## Nodejs
-export PATH="$HOME/.node_modules/bin:$PATH"
-
-## yarn
-export PATH="$HOME/.yarn/bin:$PATH"
-
-# Homebrew
-export PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"
+export PATH
