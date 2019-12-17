@@ -3,8 +3,8 @@
 # Orig: /etc/X11/xinit/xinitrc
 # .Xdefault is deprecated.
 # Note: .xprofile is for GDM/LightDM/SDDM.
-#  Ref: X11/.Xresources
-#  Ref: X11/.Xmodmap
+#  Ref: .Xresources
+#  Ref: .Xmodmap
 
 UserResources=$HOME/.config/X11/.Xresources
 UserModmap=$HOME/.config/X11/.Xmodmap
@@ -23,7 +23,7 @@ if [ -f $SystemModmap ]; then
     xmodmap $SystemModmap
 fi
 
-if [ -f "$UserResources" ]; then 
+if [ -f "$UserResources" ]; then
 
     xrdb -merge "$UserResources"
 
