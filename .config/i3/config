@@ -1,5 +1,5 @@
 # Help: https://i3wm.org/docs/userguide.html
-# Ref: X11/.xinitrc
+# Ref: .xinitrc
 
 # Font {{{1
 # Note: do NOT insert size before commas; the following fonts will be ignored
@@ -25,6 +25,8 @@ set $ScrollUp    button4
 set $ScrollDown  button5
 
 # Var: Command {{{2
+set $noid exec --no-startup-id
+
 set $locker ~/.config/i3/lock.sh
 set $browser qutebrowser
 set $chrome google-chrome-stable
@@ -33,6 +35,9 @@ for_window [title=fzf-menu] floating enable border normal
 set $termporal alacritty --title termporal --config-file $XDG_CONFIG_HOME/alacritty/floating.yml -e fish
 for_window [title=termporal] floating enable border hide_edge_borders vertical
 #set $terminal urxvt
+
+set $notify exec --no-startup-id notify-send --expire-time 1100
+set $alert  exec --no-startup-id notify-send --expire-time 1100 --urgency critical
 
 # Var; Workspace {{{2
 workspace_layout tabbed
@@ -58,6 +63,7 @@ workspace 0 output eDP1
 # Note: (?i) means case-Insensitive
 #for_window [urgent=latest] focus
 
+for_window [title="^TMP"]  floating enable border normal
 for_window [title="^Toggle"]  floating enable border normal
 for_window [title="^Package"] floating enable border normal
 #for_window [class="calamares"] floating enable border normal
@@ -87,7 +93,7 @@ for_window [title="^Package"] floating enable border normal
 #for_window [class="(?i)virtualbox"] floating enable border normal
 #for_window [class="Xfburn"] floating enable
 
-## Border Style {{{1
+# Border Style {{{1
 ## <normal|1pixel|pixel xx|none|pixel>
 #default_border pixel 1
 #default_floating_border normal
@@ -124,12 +130,12 @@ for_window [title="^Package"] floating enable border normal
 
 # Auto Start {{{1
 # Note: exec_always to reload on a restart i3 itself
-exec_always --no-startup-id ${MYSCRIPTS}/polybar-launch.sh
+exec_always --no-startup-id $MYSCRIPTS/polybar-launch.sh
 #exec_always --no-startup-id xfce4-panel --disable-wm-check
 
 # Wallpaper
 # xrandr: control monitor
-exec_always --no-startup-id ${MYSCRIPTS}/monitor-try.sh
+exec_always --no-startup-id $MYSCRIPTS/monitor-try.sh
 # xautolock: a timer to lock screen of PC
 exec --no-startup-id xautolock -time 5 -locker $locker
 # nitrogen: a wallpaper manager
@@ -141,13 +147,13 @@ exec --no-startup-id sudo tlp start
 
 exec --no-startup-id alsactl daemon
 # pulseaudio: deamon to control via keyboard.
-#exec --no-startup-id pulseaudio --start
+exec --no-startup-id pulseaudio --start
 # pa-applet (pulseaudio):
 #exec --no-startup-id pa-applet
 #exec --no-startup-id volumeicon
 
-# nm-applet: WiFi Network Manager
-exec --no-startup-id nm-applet
+# nm-applet: WiFi Network Manager; use nmcli instead
+#exec --no-startup-id nm-applet
 
 exec --no-startup-id fcitx
 # dunst: Light Notification Daemon
@@ -155,14 +161,11 @@ exec --no-startup-id fcitx
 
 # parcellite: Clipboard Manager
 #exec --no-startup-id parcellite
-#exec --no-startup-id clipit
-
-# urxvtd: Daemon of rxvt-unicode. Use urxvtc as a client.
-#exec "urxvtd -o -f"
+exec --no-startup-id clipit
 
 # Show the CP's status on the wallpaper.
 #exec --no-startup-id start_conky_live_maia
-#exec --no-startup-id blueman
+#exec --no-startup-id blueman # use bluetoothctl
 #exec --no-startup-id pamac-tray
 #exec --no-startup-id desktop-items
 #exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
@@ -171,6 +174,9 @@ exec --no-startup-id fcitx
 #exec_always --no-startup-id ff-theme-util
 #exec_always --no-startup-id setcursor
 #bindsym $mod+Ctrl+m exec pavucontrol
+
+# urxvtd: Daemon of rxvt-unicode. Use urxvtc as a client.
+#exec "urxvtd -o -f"
 
 # Ref: specifiy workspace to start in
 #    @ https://ayageman.blogspot.com/2017/02/t510-2.html
@@ -221,22 +227,22 @@ bindsym $SuperS+l move right
 #bindsym $SuperS+Right move right
 
 # Toggle
-bindsym --release $Super+comma        exec --no-startup-id $MYSCRIPTS/touchpad-toggle.sh
-bindsym --release $Super+semicolon    exec --no-startup-id $MYSCRIPTS/touchpad-toggle.sh
-bindsym --release $Super+$ClickMiddle exec --no-startup-id $MYSCRIPTS/touchpad-toggle.sh
+bindsym --release $Super+comma        $noid $MYSCRIPTS/touchpad-toggle.sh
+bindsym --release $Super+semicolon    $noid $MYSCRIPTS/touchpad-toggle.sh
+bindsym --release $Super+$ClickMiddle $noid $MYSCRIPTS/touchpad-toggle.sh
 
 # Mouse #{{{2
 bindsym $SuperC+w mode "$ws_style"
 set $ws_style Workspace: (F)loating, f(U)llscreen, (T)ab, (S)tacking, (H)orizontal, (V)ertical or (N)othing
 mode "$ws_style" {
 # No use?
-bindsym f exec --no-startup-id floating toggle, mode "default"
-bindsym u exec --no-startup-id fullscreen toggle, mode "default"
-bindsym t exec --no-startup-id layout tabbed, mode "default"
-bindsym s exec --no-startup-id layout stacking, mode "default"
-#bindsym s exec --no-startup-id layout stacked, mode "default"
-bindsym h exec --no-startup-id layout splith, mode "default"
-bindsym v exec --no-startup-id layout splitv, mode "default"
+bindsym f $noid floating toggle, mode "default"
+bindsym u $noid fullscreen toggle, mode "default"
+bindsym t $noid layout tabbed, mode "default"
+bindsym s $noid layout stacking, mode "default"
+#bindsym s $noid layout stacked, mode "default"
+bindsym h $noid layout splith, mode "default"
+bindsym v $noid layout splitv, mode "default"
 
 bindsym Escape       mode "default"
 bindsym Ctrl+squarebrace mode "default"
@@ -279,7 +285,7 @@ bindsym $Super+$Alt+t layout tabbed
 # Keybind of Mode on i3 {{{1
 # Mode; Window {{{2
 set $Window Window: (C)lose or (Q)uit to kill current window
-bindsym $Super+w mode "$Window"; exec notify-send --expire-time 1100 'Window'
+bindsym $Super+w mode "$Window"; $notify 'Window'
 
 mode "$Window" {
 bindsym --release c kill; mode "default"
@@ -301,22 +307,22 @@ bindsym Ctrl+c mode "default"
 #bindsym $SuperS+x exec "i3-nagbar -t warning -f SF Mono 12 -m  'Do you really want to exit i3?' -b 'q:poweroff' 'systemctl poweroff' -b 'r:reboot' 'systemctl reboot' -b 'l:logout' 'i3-msg exit'", mode "$system"
 #}}}
 set $Systemctl Poweroff? (Y)es, (N)o, (H)ybernate (S)uspend, (R)eboot or (L)ock?
-bindsym $Super+x mode "$Systemctl"; exec notify-send --expire-time 1100 --urgency critical 'systemctl'
+bindsym $Super+x mode "$Systemctl"; $alert 'systemctl'
 
 mode "$Systemctl" {
-#bindsym s exec --no-startup-id $locker && systemctl suspend, mode "default"
-#bindsym l exec --no-startup-id i3-msg exit, mode "default"
-#bindsym k exec --no-startup-id i3-msg exit, mode "default"
-bindsym --release h exec --no-startup-id $locker && systemctl hibernate, mode "default"
-bindsym --release l exec --no-startup-id $locker, mode "default"
-bindsym --release k exec --no-startup-id $locker, mode "default"
-bindsym --release s exec --no-startup-id $locker && systemctl suspend, mode "default"
+#bindsym s $noid $locker && systemctl suspend, mode "default"
+#bindsym l $noid i3-msg exit, mode "default"
+#bindsym k $noid i3-msg exit, mode "default"
+bindsym --release h $noid $locker && systemctl hibernate, mode "default"
+bindsym --release l $noid $locker, mode "default"
+bindsym --release k $noid $locker, mode "default"
+bindsym --release s $noid $locker && systemctl suspend, mode "default"
 
-bindsym --release r exec --no-startup-id systemctl reboot,   mode "default"
-bindsym --release p exec --no-startup-id systemctl poweroff, mode "default"
-bindsym --release q exec --no-startup-id systemctl poweroff, mode "default"
-bindsym --release y exec --no-startup-id systemctl poweroff, mode "default"
-bindsym --release u exec --no-startup-id systemctl poweroff, mode "default"
+bindsym --release r $noid systemctl reboot,   mode "default"
+bindsym --release p $noid systemctl poweroff, mode "default"
+bindsym --release q $noid systemctl poweroff, mode "default"
+bindsym --release y $noid systemctl poweroff, mode "default"
+bindsym --release u $noid systemctl poweroff, mode "default"
 
 bindsym Escape           mode "default"
 bindsym bracketleft      mode "default"
@@ -357,23 +363,23 @@ bindsym Ctrl+c mode "default"
 }
 
 # Mode; Backlight {{{2
-set $Backlight Backlight Control: H:100, M:50, L:5 (-): J < D < F | (+): K < U < B
+set $Backlight Backlight Control: H:100, M:50, L:5
 bindsym $Super+Ctrl+b mode "$Backlight"
 
 mode "$Backlight" {
-bindsym Shift+h exec "notify-send --expire-time 1100 --urgency critical 'Brightness: 100' ; xbacklight -set 100 "
-bindsym Shift+m exec "notify-send --expire-time 1100 --urgency critical 'Brightness: 50'  ; xbacklight -set 50  "
-bindsym Shift+l exec "notify-send --expire-time 1100 --urgency critical 'Brightness: 5'; sleep 1; xbacklight -set 5"
-bindsym h exec "notify-send --expire-time 1100 --urgency critical 'Brightness: 100' ; xbacklight -set 100 "
-bindsym m exec "notify-send --expire-time 1100 --urgency critical 'Brightness: 50'  ; xbacklight -set 50  "
-bindsym l exec "notify-send --expire-time 1100 --urgency critical 'Brightness: 5'; sleep 1; xbacklight -set 5"
+bindsym Shift+h $alert 'Brightness: 100'; $noid xbacklight -set 100
+bindsym h       $alert 'Brightness: 100'; $noid xbacklight -set 100
+bindsym Shift+m $alert 'Brightness: 50';  $noid xbacklight -set 50
+bindsym m       $alert 'Brightness: 50';  $noid xbacklight -set 50
+bindsym Shift+l $alert 'Brightness: 5'; $noid sleep 1; $noid xbacklight -set 5
+bindsym l       $alert 'Brightness: 5'; $noid sleep 1; $noid xbacklight -set 5
 
-bindsym k exec "xbacklight -inc 1;  notify-send 'Brightness: +1'"
-bindsym j exec "xbacklight -dec 1;  notify-send 'Brightness: -1'"
-bindsym u exec "xbacklight -inc 5;  notify-send 'Brightness: +5'"
-bindsym d exec "xbacklight -dec 5;  notify-send 'Brightness: -5'"
-bindsym b exec "xbacklight -inc 10; notify-send 'Brightness: +10'"
-bindsym f exec "xbacklight -dec 10; notify-send 'Brightness: -10'"
+bindsym k $notify 'Brightness: +1';  $noid xbacklight -inc 1
+bindsym j $notify 'Brightness: -1';  $noid xbacklight -dec 1
+bindsym u $notify 'Brightness: +5';  $noid xbacklight -inc 5
+bindsym d $notify 'Brightness: -5';  $noid xbacklight -dec 5
+bindsym b $notify 'Brightness: +10'; $noid xbacklight -inc 10
+bindsym f $notify 'Brightness: -10'; $noid xbacklight -dec 10
 
 bindsym Escape           mode "default"
 bindsym bracketleft      mode "default"
@@ -385,25 +391,34 @@ bindsym Ctrl+c        mode "default"
 }
 
 # Mode; Sound Volume {{{2
+# Ref: Relation of Alsa & PluseAudio
+# [https://qiita.com/propella/items/4699eda71cd742cba8d3]
+# `pacmd list-sinks` to get list to control
 ## Depends: pulseaudio & pavucontrol
 # Depends: pulseaudio-ctl
 # Recommend: pamixer (a frontend)
 # Recommend: pulseaudio-alsa (for flash)
-set     $Sound Sound Volume: (H)igher, (L)ower, (M)ute or (N)o more.
-bindsym $Super+Ctrl+s mode "$Sound"
-bindsym $Super+Ctrl+v mode "$Sound"
+set $Sound Sound Volume: (M)ute
+bindsym $Super+s mode "$Sound"
 
-mode    "$Sound" {
-bindsym h exec --no-startup-id pactl set-sink-volume 0 +5%
-bindsym l exec --no-startup-id pactl set-sink-volume 0 -5%
-bindsym u exec --no-startup-id pactl set-sink-volume 0 +5%
-bindsym d exec --no-startup-id pactl set-sink-volume 0 -5%
-bindsym m exec --no-startup-id pactl set-sink-mute   0 toggle
-bindsym k exec --no-startup-id pactl set-sink-volume 0 +5%
-bindsym j exec --no-startup-id pactl set-sink-volume 0 -5%
-#bindsym k exec --no-startup-id pulseaudio-ctl up
-#bindsym j exec --no-startup-id pulseaudio-ctl down
-#bindsym m exec --no-startup-id pulseaudio-ctl mute
+set $mute $noid pacmd set-sink-mute @DEFAULT_SINK@ true; mode default
+set $unmute      $noid pacmd set-sink-mute @DEFAULT_SINK@ false
+set $mute_toggle $noid pacmd set-sink-mute @DEFAULT_SINK@ toggle
+# Note: failed to use $unmute in $volume; cannot nest variable?
+set $volume $noid pacmd set-sink-mute @DEFAULT_SINK@ false; $noid pactl set-sink-volume @DEFAULT_SINK@
+
+mode "$Sound" {
+#bindsym m $mute_toggle; $alert 'Sound: mute/unmute'
+bindsym m $mute; $alert 'Sound: Mute'
+# Mnemonic: Quiet
+bindsym q $mute; $alert 'Sound: Mute'
+
+bindsym k $volume +1%;  $notify 'Sound +1%'
+bindsym j $volume -1%;  $notify 'Sound -1%'
+bindsym u $volume +5%;  $notify 'Sound +5%'
+bindsym d $volume -5%;  $notify 'Sound -5%'
+bindsym b $volume +10%; $notify 'Sound +10%'
+bindsym f $volume -10%; $notify 'Sound -10%'
 
 bindsym Escape           mode "default"
 bindsym bracketleft      mode "default"
@@ -416,8 +431,9 @@ bindsym Ctrl+c mode "default"
 
 # Keybind of Mode for apps {{{1
 # Mode; Terminal {{{2
-bindsym $Super+t  mode "$Terminal"; exec notify-send --expire-time 1100 'Select Terminal'
 set $Terminal Terminal: (A)lacritty (U)rxvt (X)term
+bindsym $Super+t mode "$Terminal"; $notify 'Select Terminal'
+
 mode "$Terminal" {
 bindsym a exec alacritty; mode "default"
 bindsym u exec urxvt;     mode "default"
@@ -438,21 +454,22 @@ bindsym Ctrl+c mode "default"
 # Mode; Editor {{{2
 set $Editor Editor: (C)ode (E)macs | nvim: (Q)t (G)o (R)ust (T)ypescript (A)lacritty
 
-bindsym $Super+e  mode "$Editor"; exec notify-send --expire-time 1100 'Select Editor'
-bindsym $SuperS+e mode "$Editor"; exec notify-send --expire-time 1100 'Select Editor'
-bindsym $SuperS+v mode "$Editor"; exec notify-send --expire-time 1100 'Select Editor'
-bindsym $SuperS+n mode "$Editor"; exec notify-send --expire-time 1100 'Select Editor'
+bindsym $Super+e  mode "$Editor"; $notify 'Select Editor'
+bindsym $SuperS+e mode "$Editor"; $notify 'Select Editor'
+bindsym $SuperS+v mode "$Editor"; $notify 'Select Editor'
+bindsym $SuperS+n mode "$Editor"; $notify 'Select Editor'
 
 mode "$Editor" {
-bindsym c exec --no-startup-id code;  mode "default"
-bindsym e exec --no-startup-id emacs; mode "default"
+bindsym c $noid code;  mode "default"
+bindsym e $noid emacs; mode "default"
 
 # Vim
-bindsym q exec --no-startup-id nvim-qt; mode "default"
-bindsym g exec --no-startup-id gonvim;  mode "default"
-bindsym r exec --no-startup-id gnvim;   mode "default"
-bindsym t exec --no-startup-id nyaovim; mode "default"
-bindsym a exec --no-startup-id glrnvim; mode "default"
+bindsym q $noid nvim-qt; mode "default"
+bindsym g $noid gonvim;  mode "default"
+bindsym r $noid gnvim;   mode "default"
+bindsym t $noid nyaovim; mode "default"
+#bindsym a $noid glrnvim; mode "default"
+bindsym a $noid alacritty -e nvim; mode "default"
 
 bindsym Escape           mode "default"
 bindsym bracketleft      mode "default"
@@ -466,16 +483,16 @@ bindsym Return mode "default"
 # Mode; Browser {{{2
 set $Browser Browser: (S)ervo (F)irefox (C)hrome (Q)utebrowser
 
-bindsym $SuperS+b  mode "$Browser"; exec notify-send --expire-time 1100 'Select Browser'
+bindsym $SuperS+b  mode "$Browser"; $notify 'Select Browser'
 
 mode "$Browser" {
-bindsym --release c exec --no-startup-id $chrome;     mode "default"
-bindsym --release q exec --no-startup-id qutebrowser; mode "default"
-bindsym --release f exec --no-startup-id firefox;     mode "default"
-bindsym --release s exec --no-startup-id servo;       mode "default"
+bindsym --release c $noid $chrome;     mode "default"
+bindsym --release q $noid qutebrowser; mode "default"
+bindsym --release f $noid firefox;     mode "default"
+bindsym --release s $noid servo;       mode "default"
 
-bindsym b        exec --no-startup-id $browser; mode "default"
-bindsym $Super+b exec --no-startup-id $browser; mode "default"
+bindsym b        $noid $browser; mode "default"
+bindsym $Super+b $noid $browser; mode "default"
 
 bindsym Escape           mode "default"
 bindsym bracketleft      mode "default"
@@ -489,7 +506,7 @@ bindsym Return mode "default"
 # Mode; Terminal {{{2
 # Mnemonic: Finder or File explorer
 set $Finder Finder: (R)anger (H)unter (P)acman-file-manager
-bindsym $Super+f  mode "$Finder"; exec notify-send --expire-time 1100 'Select Finder'
+bindsym $Super+f  mode "$Finder"; $notify 'Select Finder'
 
 mode "$Finder" {
 bindsym --release p exec pcmanfm; mode "default"
@@ -546,13 +563,13 @@ bindsym $SuperS+0 move container to workspace $ws0
 bindsym $Super+Shift+d --release exec "killall dunst; exec notify-send 'restart dunst'"
 
 # Keybind; open Menu {{{2
-#bindsym $Super+Return exec --no-startup-id i3-dmenu-desktop
+#bindsym $Super+Return $noid i3-dmenu-desktop
 #bindsym $SuperS+Return exec terminal -e 'bmenu'
-bindsym $Super+Ctrl+Return exec --no-startup-id $menu
+bindsym $Super+Ctrl+Return $noid $menu
 #bindsym $Super+d exec dmenu_run
 # # TODO: convert this bash-script into fish's
 # Ref: dmenu with fzf https://github.com/junegunn/fzf/wiki/Examples
-bindsym $Super+Return exec --no-startup-id $menu
+bindsym $Super+Return $noid $menu
 
 # Keybind; open Terminal {{{2
 # urxvtc; add `-k` to kill daemon, too.
@@ -562,25 +579,25 @@ bindsym $Super+Return exec --no-startup-id $menu
 # Keybind; open Editor {{{2
 # the numbar is RAM by htop in terminal of the editor
 # nvim on alacritty: 448M
-bindsym $Super+n exec --no-startup-id nvim-qt
-##bindsym $Super+q exec --no-startup-id nvim-qt
-#bindsym $Super+v exec --no-startup-id alacritty -e 'vim'
-#bindsym $Super+a exec --no-startup-id alacritty -e 'nvim'
+bindsym $Super+n $noid nvim-qt
+##bindsym $Super+q $noid nvim-qt
+#bindsym $Super+v $noid alacritty -e 'vim'
+#bindsym $Super+a $noid alacritty -e 'nvim'
 ## nvim-qt: 418M
 ## TODO: start nvim-qt sharing the buffer-list w/ another nvim-qt which is already started.
-##bindsym $SuperS+n exec --no-startup-id i3-sensible-terminal -e "nvim-qt --server $NVIM_LISTEN_ADDRESS"
-##bindsym $Super+r exec --no-startup-id nvim-gtk # font decayed
-#bindsym $SuperS+g exec --no-startup-id glrnvim
-##bindsym $SuperS+g exec --no-startup-id gonvim
+##bindsym $SuperS+n $noid i3-sensible-terminal -e "nvim-qt --server $NVIM_LISTEN_ADDRESS"
+##bindsym $Super+r $noid nvim-gtk # font decayed
+#bindsym $SuperS+g $noid glrnvim
+##bindsym $SuperS+g $noid gonvim
 ## gnvim: 612M, but firstest startup in 3 sec
-#bindsym $Super+g exec --no-startup-id gnvim
-##bindsym $Super+y exec --no-startup-id nyaovim
+#bindsym $Super+g $noid gnvim
+##bindsym $Super+y $noid nyaovim
 ## oni: 718M
-#bindsym $Super+o exec --no-startup-id oni
-#bindsym $Super+e exec --no-startup-id emacs
+#bindsym $Super+o $noid oni
+#bindsym $Super+e $noid emacs
 ## code: 847M
-#bindsym $SuperS+v exec --no-startup-id code
-#bindsym $SuperS+c exec --no-startup-id code
+#bindsym $SuperS+v $noid code
+#bindsym $SuperS+c $noid code
 # Keybind; open Browser {{{2
 bindsym $Super+b exec qutebrowser
 bindsym $Super+q exec qutebrowser
@@ -601,14 +618,14 @@ bindsym XF86MonBrightnessDown exec xbacklight -dec 5
 # Depends: pulseaudio & pavucontrol
 # Recommend: pamixer (a frontend)
 # Recommend: pulseaudio-alsa (for flash)
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5%
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5%
-bindsym XF86AudioMute        exec --no-startup-id pactl set-sink-mute 0 toggle
+bindsym XF86AudioRaiseVolume $noid pactl set-sink-volume 0 +5%
+bindsym XF86AudioLowerVolume $noid pactl set-sink-volume 0 -5%
+bindsym XF86AudioMute        $noid pactl set-sink-mute 0 toggle
 # Fn; Screen Shot {{{2
 # depend: imagemagick
-#bindsym $Super+Print exec --no-startup-id import -window root ~/Pictures/screenshot
-bindsym $Super+Print exec --no-startup-id i3-scrot
-bindsym Print exec --no-startup-id exec ${MYSCRIPTS}/recording-toggle.sh
+#bindsym $Super+Print $noid import -window root ~/Pictures/screenshot
+bindsym $Super+Print $noid i3-scrot
+bindsym Print $noid exec ${MYSCRIPTS}/recording-toggle.sh
 
 # Keybind of Default {{{1
 #bindsym $Super+Shift+minus move scratchpad
@@ -616,9 +633,9 @@ bindsym Print exec --no-startup-id exec ${MYSCRIPTS}/recording-toggle.sh
 #bindsym $Super+Shift+F3 exec gksu pcmanfm
 #bindsym $SuperS+i exec calamares_polkit
 #bindsym $Super+Ctrl+a exec terminal -e 'setup'
-#bindsym $mod+t exec --no-startup-id pkill compton
-#bindsym $mod+Ctrl+t exec --no-startup-id compton -b
-#bindsym $mod+Ctrl+x --release exec --no-startup-id xkill
+#bindsym $mod+t $noid pkill compton
+#bindsym $mod+Ctrl+t $noid compton -b
+#bindsym $mod+Ctrl+x --release $noid xkill
 
 ## Config for i3-gaps: {{{1
 #
