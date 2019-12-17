@@ -51,14 +51,15 @@ set $ws0 "0:main"
 workspace 0 output eDP1
 #workspace "0" output HDMI2
 
-# Apps in Floating {{{3
+# Apps in Floating Window {{{1
 # Note: must be in double-quotes, not in single
 
 # If Urgent, switch to the workspace immediately.
 # Note: (?i) means case-Insensitive
 #for_window [urgent=latest] focus
 
-#for_window [title="alsamixer"] floating enable border pixel 1
+for_window [title="^Toggle"]  floating enable border normal
+for_window [title="^Package"] floating enable border normal
 #for_window [class="calamares"] floating enable border normal
 #for_window [class="Clipgrab"] floating enable
 #for_window [title="File Transfer*"] floating enable
