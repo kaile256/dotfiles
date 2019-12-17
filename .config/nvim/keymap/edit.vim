@@ -2,12 +2,19 @@
 
 noremap! <c-x>h     ~/
 noremap! <c-x><c-h> ~/
-tnoremap <c-x>h     ~/
-tnoremap <c-x><c-h> ~/
 
 " makes <c-o>u work as if <c-u>
 "nnoremap o o<c-g>u
 "nnoremap O O<c-g>u
+
+nnoremap j gj
+nnoremap k gk
+" switch mapping.
+nnoremap gj j
+nnoremap gk k
+
+" TODO: make it work
+"xnoremap <silent> gJ :*g/^\( \\|\t\)/norm! 0"_dwgJ<cr>
 
 " Macro "{{{1
 nnoremap \<space> q
