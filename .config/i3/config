@@ -468,10 +468,10 @@ set $Browser Browser: (S)ervo (F)irefox (C)hrome (Q)utebrowser
 bindsym $SuperS+b  mode "$Browser"; exec notify-send --expire-time 1100 'Select Browser'
 
 mode "$Browser" {
-bindsym c exec --no-startup-id $chrome;     mode "default"
-bindsym q exec --no-startup-id qutebrowser; mode "default"
-bindsym f exec --no-startup-id firefox;     mode "default"
-bindsym s exec --no-startup-id servo;       mode "default"
+bindsym --release c exec --no-startup-id $chrome;     mode "default"
+bindsym --release q exec --no-startup-id qutebrowser; mode "default"
+bindsym --release f exec --no-startup-id firefox;     mode "default"
+bindsym --release s exec --no-startup-id servo;       mode "default"
 
 bindsym b        exec --no-startup-id $browser; mode "default"
 bindsym $Super+b exec --no-startup-id $browser; mode "default"
@@ -483,6 +483,26 @@ bindsym Ctrl+bracketleft mode "default"
 bindsym Ctrl+c mode "default"
 bindsym space  mode "default"
 bindsym Return mode "default"
+}
+
+# Mode; Terminal {{{2
+# Mnemonic: Finder or File explorer
+set $Finder Finder: (R)anger (H)unter (P)acman-file-manager
+bindsym $Super+f  mode "$Finder"; exec notify-send --expire-time 1100 'Select Finder'
+
+mode "$Finder" {
+bindsym --release p exec pcmanfm; mode "default"
+bindsym --release m exec pcmanfm; mode "default"
+bindsym --release r exec alacritty -e ranger; mode "default"
+bindsym --release h exec alacritty -e hunter; mode "default"
+
+bindsym Escape           mode "default"
+bindsym Ctrl+bracketleft mode "default"
+bindsym bracketleft      mode "default"
+
+bindsym Return mode "default"
+bindsym space  mode "default"
+bindsym Ctrl+c mode "default"
 }
 
 # Keybind for Workspace {{{1
@@ -571,10 +591,6 @@ bindsym $Super+q exec qutebrowser
 #bindsym $Super+Ctrl+m exec terminal -e 'alsamixer'
 # Keybind; Music Player {{{2
 bindsym $SuperS+m exec terminal -e 'mocp'
-
-# Keybind; open File Manager {{{2
-bindsym $Super+m exec pcmanfm
-bindsym $superS+r exec alacritty -e 'ranger'
 
 # Keybind on Fn {{{1
 # Fn; Backlight {{{2
