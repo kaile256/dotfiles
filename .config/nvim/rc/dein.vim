@@ -94,7 +94,7 @@ let s:dein_toml_lazy = [
       \ 'web.toml',
       \ ]
 
-if !exists('s:loaded_dein')
+if !exists('g:plugins_available')
   if dein#load_state(s:dein_cache_dir) "{{{1
     call dein#begin(s:dein_cache_dir)
     if !has('nvim') "{{{2
@@ -121,7 +121,7 @@ if !exists('s:loaded_dein')
   endif "}}}2
 
   filetype plugin indent on
-  let s:loaded_dein = 1
+  let g:plugins_available = 1
 endif
 
 augroup DeinCallMyFunctions "{{{1
