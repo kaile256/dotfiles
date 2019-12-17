@@ -2,16 +2,19 @@
 
 # Ref: $GHQ_ROOT/github.com/polybar/polybar-scripts/polybar-scripts/system-bluetooth-bluetoothctl
 
+ICON_OFF=ᚼ
+ICON_ON=ᛒ
+
 bluetooth_print() {
   if bluetooth | grep off >/dev/null; then
-    printf 'ᚼ'
+    echo $ICON_OFF
     return
   fi
 
   bluetoothctl | while read -r; do
   if [ "$(systemctl is-active "bluetooth.service")" = "active" ]; then
     # Note: use Runic Font like 'junicode'
-    printf 'ᛒ'
+    echo $ICON_ON
 
     devices_paired=$(bluetoothctl paired-devices | grep Device | cut -d ' ' -f 2)
     counter=0
