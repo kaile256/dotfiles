@@ -109,7 +109,7 @@
 
   // false: update only on saving buffer.
   //"git.realtimeGutters": false,
-  "git.addGBlameToVirtualText": true,
+  //"git.addGBlameToVirtualText": true,
   //// b:coc_git_blame will be created
   //"git.addGBlameToBufferVar", true,
   "git.virtualTextPrefix": " ",
