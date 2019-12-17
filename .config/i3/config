@@ -25,7 +25,11 @@ set $ScrollUp    button4
 set $ScrollDown  button5
 
 # Var: Command {{{2
-set $noid exec --no-startup-id
+# `--no-startup-id` disables startup-notification;
+# the notification brings cursor to the new window.
+# Ref: [exec] in i3 User's Guide
+set $noid   exec --no-startup-id
+set $always exec_always --no-startup-id
 
 set $locker ~/.config/i3/lock.sh
 set $browser qutebrowser
@@ -130,38 +134,38 @@ for_window [title="^Package"] floating enable border normal
 
 # Auto Start {{{1
 # Note: exec_always to reload on a restart i3 itself
-exec_always --no-startup-id $MYSCRIPTS/polybar-launch.sh
+$always $MYSCRIPTS/polybar-launch.sh
 #exec_always --no-startup-id xfce4-panel --disable-wm-check
 
 # Wallpaper
 # xrandr: control monitor
-exec_always --no-startup-id $MYSCRIPTS/monitor-try.sh
+$always $MYSCRIPTS/monitor-try.sh
 # xautolock: a timer to lock screen of PC
-exec --no-startup-id xautolock -time 5 -locker $locker
+$noid xautolock -time 5 -locker $locker
 # nitrogen: a wallpaper manager
-exec --no-startup-id nitrogen --restore; sleep 1; compton -b
+$noid nitrogen --restore; sleep 1; compton -b
 ## TODO: i3-cheat sheet on desktop.
-#exec --no-startup-id "feh --bg-scale $HOME/.config/i3/~~.jpg"
+#$noid "feh --bg-scale $HOME/.config/i3/~~.jpg"
 
-exec --no-startup-id sudo tlp start
+$noid sudo tlp start
 
-exec --no-startup-id alsactl daemon
+$noid alsactl daemon
 # pulseaudio: deamon to control via keyboard.
-exec --no-startup-id pulseaudio --start
+$noid pulseaudio --start
 # pa-applet (pulseaudio):
-#exec --no-startup-id pa-applet
-#exec --no-startup-id volumeicon
+#$noid pa-applet
+#$noid volumeicon
 
 # nm-applet: WiFi Network Manager; use nmcli instead
-#exec --no-startup-id nm-applet
+#$noid nm-applet
 
-exec --no-startup-id fcitx
+$noid fcitx
 # dunst: Light Notification Daemon
-#exec --no-startup-id dunst
+#$noid dunst
 
 # parcellite: Clipboard Manager
-#exec --no-startup-id parcellite
-exec --no-startup-id clipit
+#$noid parcellite
+$noid clipit
 
 # Show the CP's status on the wallpaper.
 #exec --no-startup-id start_conky_live_maia
