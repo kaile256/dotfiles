@@ -60,27 +60,47 @@ endfunction
 
 "hi Folded ctermfg=59 ctermbg=236 guifg=#5f5f5f guibg=#303030
 
+function! s:transparent() abort "{{{1
+  hi Normal      ctermbg=none guibg=none
+  hi NonText     ctermbg=none guibg=none
+  hi LineNr      ctermbg=none guibg=none
+  hi Folded      ctermbg=none guibg=none
+  hi EndOfBuffer ctermbg=none guibg=none
+  hi CursorLine  ctermbg=none guibg=none
+  hi SignColumn  ctermbg=none guibg=none
+
+  hi Comment ctermfg=245 guifg=#8a8a8a
+
+  " Note: other apps out of nvim is still invisible
+  "hi NormalFloat ctermbg=none guibg=none
+endfunction
+
 function! s:my_commons() abort "{{{1
+
   " coc.nvim supports
   hi HighlightedyankRegion ctermfg=232 ctermbg=66 guifg=#000000 guibg=#df5f29
   hi CocErrorHighlight ctermfg=red  guifg=#ff0000
 
   hi CursorIM guibg=#fabd1f
+
+  if $ALACRITTY_LOG =~# '\.log$'
+    call s:transparent()
+  endif
 endfunction
 
 function! s:my_neodark() abort "{{{1
   let g:neodark#use_256color = 1 " default: 0
   let g:neodark#italic       = 1 " default: 0
 
-  "let g:neodark#terminal_transparent      = 1 " default: 0
-  "let g:neodark#use_custom_terminal_theme = 1 " default: 0
+  let g:neodark#terminal_transparent      = 1 " default: 0
+  let g:neodark#use_custom_terminal_theme = 1 " default: 0
 
   " Note: should be done after :coloscheme.
   " 'syntax on' overrides syntax; 'enable' keeps already-defined syntax
   syntax on
 
-  hi Search ctermfg=236 ctermbg=180 guifg=#3e120a guibg=#ebb556
-  hi NormalFloat guibg=#1a0210 guifg=#957474
+  hi Search      ctermfg=236 ctermbg=180 guifg=#3e120a guibg=#ebb556
+  hi NormalFloat ctermfg=236 ctermbg=180 guibg=#1a0210 guifg=#957474
 
   " Note: reverse keeps text color;
   "       ':hi **bg=foo' will white out text's characters.
