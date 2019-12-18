@@ -1,24 +1,29 @@
-# Ref: where this file should be located?
-#      https://wiki.archlinux.jp/index.php/%E3%83%87%E3%83%95%E3%82%A9%E3%83%AB%E3%83%88%E3%82%A2%E3%83%97%E3%83%AA%E3%82%B1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3
-
 # get MIME_TYPE by $xdg-mime query filetype FILE_NAME
 # get APPLICATION_DESKTOP_FILE, i.e., foo.desktop under /usr/share/applications/
 
+# Ref: where this file should be located?
+#      https://wiki.archlinux.jp/index.php/%E3%83%87%E3%83%95%E3%82%A9%E3%83%AB%E3%83%88%E3%82%A2%E3%83%97%E3%83%AA%E3%82%B1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3
+
 [Added Associations]
 # MIME_TYPE=APPLICATION_DESKTOP_FILE;...
-# should be ';'-separated
+# should be separated by ';'
+
+#application/pdf=org.qutebrowser.qutebrowser.desktop
 
 [Removed Associations]
 
 [Default Applications]
-text/html=org.qutebrowser.qutebrowser.desktop
 x-scheme-handler/http=org.qutebrowser.qutebrowser.desktop
 x-scheme-handler/https=org.qutebrowser.qutebrowser.desktop
+
+text/html=org.qutebrowser.qutebrowser.desktop
 
 text/plain=nvim-qt.desktop;nvim.desktop;vim.desktop
 text/x-python=nvim-qt.desktop;nvim.desktop;vim.desktop
 text/x-python3=nvim-qt.desktop;nvim.desktop;vim.desktop
 text/css=nvim-qt.desktop;nvim.desktop;vim.desktop
+
+#application/pdf=org.qutebrowser.qutebrowser.desktop
 
 application/x-tar=nvim-qt.desktop;nvim.desktop;vim.desktop
 application/x-yaml=nvim-qt.desktop;nvim.desktop;vim.desktop
@@ -28,5 +33,3 @@ image/png=vimiv.desktop
 image/jpeg=vimiv.desktop
 image/gif=vimiv.desktop
 image/svg+xml=vimiv.desktop
-
-#application/pdf=vimiv.desktop
