@@ -1,37 +1,43 @@
 #!/usr/bin/env bash
 
+# Original {{{1
 export MYSCRIPTS="$HOME/.myscripts"
+export MY_API_TOKEN="$HOME/.myapi"
 
-# XDG Base Directory {{{
+# Global {{{1
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_CACHE_HOME="$HOME/.cache"
 export XDG_DATA_HOME="$HOME/.local/share"
-#}}}
 
 # for docui, which is the client for docker on TUI
 export LC_CTYPE=en_US.UTF-8
 #export LANG=ja_JP.UTF-8
+
+# Ref: https://qiita.com/gyu-don/items/d61b03e0222a7f1ce9f7
+# available icons on Qt/KDE
+export QT_QPA_PLATFORMTHEME=qt5ct
+
+# Apps {{{1
+# Japanese IM
+export GTK_IM_MODULE=fcitx
+export QT_IM_MODULE=fcitx
+export XMODIFIERS=@im=fcitx
+
+# Terminal
+export TERM=xterm-256color
+export COLORTERM=xterm-256color
 
 # nvr & nvim-qt does NOT work for sudoedit.
 export EDITOR=nvim-qt
 export VISUAL=nvim-qt
 export SUDO_EDITOR=vi
 
-# Terminal
-export TERM=xterm-256color
-export COLORTERM=xterm-256color
-
-# Japanese IM
-export GTK_IM_MODULE=fcitx
-export QT_IM_MODULE=fcitx
-export XMODIFIERS=@im=fcitx
-
-# App
 # Note: vim will override $VMAIL_VIM=nvr.
 export VMAIL_VIM=nvim-qt
 
 # Browser
 export BROWSER=qutebrowser
+
 # FZF
 export FZF_DEFAULT_COMMAND='rg --files --hidden --follow --glob "!.git/*"'
 export FZF_DEFAULT_OPTS='--reverse --height=80% --min-height=20 --no-mouse --multi'
@@ -40,10 +46,12 @@ export FZF_DEFAULT_OPTS='--reverse --height=80% --min-height=20 --no-mouse --mul
 export FZF_LEGACY_KEYBINDINGS=1
 export FZF_PREVIEW_FILE_CMD="head -n 10"
 export FZF_PREVIEW_DIR_CMD="ls"
+
 ## Tmux
 #export FZF_TMUX_HEIGHT="40%"
 #export FZF_DEFAULT_OPTS="--height $FZF_TMUX_HEIGHT"
 
+# Language {{{1
 # Go
 export GOPATH="$HOME/.go"
 ## Ghq
