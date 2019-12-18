@@ -23,7 +23,7 @@ tnoremap <silent> <a-l> <c-\><c-n>:call feedkeys('l')<cr>
 
 " ftFt
 " Note: <a-t> is used in fzf to open in new tab
-tnoremap <silent> <a-f> <c-\><c-n>:call feedkeys('f')<cr>
+"tnoremap <silent> <a-f> <c-\><c-n>:call feedkeys('f')<cr>
 "tnoremap <silent> <a-t> <c-\><c-n>:call feedkeys('t')<cr>
 tnoremap <silent> <a-F> <c-\><c-n>:call feedkeys('F')<cr>
 tnoremap <silent> <a-T> <c-\><c-n>:call feedkeys('T')<cr>
