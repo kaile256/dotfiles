@@ -46,6 +46,13 @@ command! -bar -bang -nargs=* Downloads
       \ }, 'right:50%')
       \ )
 
+command! -bar -bang -nargs=* Trash
+      \ :call fzf#vim#files(<q-args>, fzf#vim#with_preview({
+      \ 'source': 'find '. g:my_trash_root,
+      \ 'options': '--multi --reverse'
+      \ }, 'right:50%')
+      \ )
+
 command! -bar -bang -nargs=* Etcs
       \ :call fzf#vim#files(<q-args>, fzf#vim#with_preview({
       \ 'source': 'find /etc',
