@@ -102,9 +102,9 @@ no_focus [title="qutebrowser$"]
 #assign [class="^URxvt$"] → 2
 #assign [class="^URxvt$"] → output primary
 
-for_window [title="^(?i)TMPi3"]   floating enable border normal
-for_window [title="^(?i)Toggle"]  floating enable border normal
-for_window [title="^(?i)Package"] floating enable border normal
+for_window [title="^TMPi3"]   floating enable border normal
+for_window [title="^Toggle"]  floating enable border normal
+for_window [title="^Package"] floating enable border normal
 #for_window [class="calamares"] floating enable border normal
 #for_window [class="Clipgrab"] floating enable
 #for_window [title="File Transfer*"] floating enable
@@ -195,7 +195,7 @@ $noid fcitx
 # FAQ: https://dunst-project.org/faq/
 # Conf: dunst/dunstrc
 # dunst works on `notify-send`
-$always killall --quiet dunst; dunst
+$always killall --quiet dunst; sleep 1; dunst
 
 # parcellite: Clipboard Manager
 #$noid parcellite
@@ -257,10 +257,13 @@ bindsym --release $Super+$ClickMiddle $noid $MYSCRIPTS/touchpad-toggle.sh
 # Keybind of Mode on i3 {{{1
 # WARNING: use double quotes for either in `set` or `mode`
 # Mode; Layout {{{2
-set $Layout " Layout: (T)abbed (H)orizontal (V)ertical stac(K)ing (F)loating f(U)llscreen "
-bindsym $SuperS+W mode $Layout; $alert 'Layout'
+set $Layout " Layout: (T)abbed (H)orizontal (V)ertical stac(K)ing (F)loating f(U)llscreen | (W) for Window mode"
+bindsym $SuperS+W mode $Layout; $alert 'Layout mode'
 
 mode $Layout {
+bindsym W       mode $Window; $notify 'Window mode'
+bindsym Shift+W mode $Window; $notify 'Window mode'
+
 bindsym H split h; mode default; $alert 'Layout: horizontal'
 bindsym V split v; mode default; $alert 'Layout: vertical'
 
@@ -272,36 +275,35 @@ bindsym K layout stacking; mode default; $alert 'Layout: stacking'
 bindsym F floating   toggle; mode default; $alert 'Layout: floating toggle'
 bindsym U fullscreen toggle; mode default; $alert 'Layout: fullscreen toggle'
 
-bindsym Escape           mode default
-bindsym Ctrl+bracketleft mode default
+bindsym Ctrl+C           mode default
 bindsym bracketleft      mode default
-
-bindsym space  mode default
-bindsym Return mode default
-bindsym Ctrl+C mode default
+bindsym Ctrl+bracketleft mode default
 }
 
 # Mode; Window {{{2
-set $Window " Window: (C)lose or (Q)uit to kill current window | HJKL to move | <C-HJKL> to resize | (U) Toggle Floating "
-bindsym $Super+W mode $Window; $notify 'Window'
+set $Window " Window: (C)lose or (Q)uit to kill current window | HJKL to move | Shift- to resize | (W) for Layout mode "
+bindsym $Super+W mode $Window; $notify 'Window mode'
 
 mode $Window {
-bindsym --release c kill; mode default
-bindsym --release q kill; mode default
+bindsym W       mode $Layout; $alert 'Layout mode'
+bindsym Shift+W mode $Layout; $alert 'Layout mode'
+
+bindsym --release C kill; mode default
+bindsym --release Q kill; mode default
 #bindsym --release z kil; mode default
 
 bindsym plus $noid picom -cbm 0.75
 bindsym minus $noid picom -cbm 0.75
 
-bindsym Ctrl+H resize shrink width  25 px or 25 ppt
-bindsym Ctrl+K resize shrink height 25 px or 25 ppt
-bindsym Ctrl+J resize grow   height 25 px or 25 ppt
-bindsym Ctrl+L resize grow   width  25 px or 25 ppt
+bindsym Shift+H resize shrink width  25 px or 25 ppt
+bindsym Shift+K resize shrink height 25 px or 25 ppt
+bindsym Shift+J resize grow   height 25 px or 25 ppt
+bindsym Shift+L resize grow   width  25 px or 25 ppt
 
-bindsym Ctrl+F resize grow   width  50 px or 50 ppt
-bindsym Ctrl+B resize shrink width  50 px or 50 ppt
-bindsym Ctrl+D resize grow   height 50 px or 50 ppt
-bindsym Ctrl+U resize shrink height 50 px or 50 ppt
+bindsym Shift+F resize grow   width  50 px or 50 ppt
+bindsym Shift+B resize shrink width  50 px or 50 ppt
+bindsym Shift+D resize grow   height 50 px or 50 ppt
+bindsym Shift+U resize shrink height 50 px or 50 ppt
 
 # especially for floating window
 bindsym H move left  25 px
@@ -332,22 +334,14 @@ bindsym Ctrl+I focus child;  mode default
 #bindsym H layout     splith,   mode default
 #bindsym V layout     splitv,   mode default
 
-bindsym Escape           mode default
-bindsym Ctrl+bracketleft mode default
+bindsym Ctrl+C           mode default
 bindsym bracketleft      mode default
-
-bindsym space  mode default
-bindsym Return mode default
-bindsym Ctrl+C mode default
+bindsym Ctrl+bracketleft mode default
 }
 
 # Mode; Systemctl {{{2
-## If use i3-nagbar {{{3
-#bindsym $Super+X  exec "i3-nagbar -t warning -f SF Mono 12 -m  'Do you really want to exit i3?' -b 'q:poweroff' 'systemctl poweroff' -b 'r:reboot' 'systemctl reboot' -b 'l:logout' 'i3-msg exit'", mode "$system"
-#bindsym $SuperS+X exec "i3-nagbar -t warning -f SF Mono 12 -m  'Do you really want to exit i3?' -b 'q:poweroff' 'systemctl poweroff' -b 'r:reboot' 'systemctl reboot' -b 'l:logout' 'i3-msg exit'", mode "$system"
-#}}}
 set $Systemctl " Poweroff? (Y)es, (N)o, (H)ybernate (S)uspend, (R)eboot or (L)ock? "
-bindsym $Super+X mode $Systemctl; $alert 'systemctl'
+bindsym $Super+X mode $Systemctl; $alert 'Systemctl mode'
 
 mode $Systemctl {
 #bindsym S $noid $locker && systemctl suspend, mode default
@@ -364,18 +358,14 @@ bindsym --release q $noid systemctl poweroff, mode default
 bindsym --release y $noid systemctl poweroff, mode default
 bindsym --release u $noid systemctl poweroff, mode default
 
-bindsym Escape           mode default
+bindsym Ctrl+C           mode default
 bindsym bracketleft      mode default
 bindsym Ctrl+bracketleft mode default
-
-bindsym space  mode default
-bindsym Return mode default
-bindsym Ctrl+C mode default
 }
 
 # Mode; Backlight {{{2
 set $Backlight " Backlight: H:100, M:50, L:5 "
-bindsym $Super+Ctrl+B mode $Backlight
+bindsym $Super+Ctrl+B mode $Backlight; $notify 'Backlight mode'
 
 mode $Backlight {
 bindsym Shift+H $alert 'Brightness: 100'; $noid xbacklight -set 100
@@ -392,13 +382,9 @@ bindsym D $notify 'Brightness: -5';  $noid xbacklight -dec 5
 bindsym B $notify 'Brightness: +10'; $noid xbacklight -inc 10
 bindsym F $notify 'Brightness: -10'; $noid xbacklight -dec 10
 
-bindsym Escape           mode default
+bindsym Ctrl+C           mode default
 bindsym bracketleft      mode default
 bindsym Ctrl+bracketleft mode default
-
-bindsym space  mode default
-bindsym Return mode default
-bindsym Ctrl+C mode default
 }
 
 # Mode; Sound Volume {{{2
@@ -410,7 +396,7 @@ bindsym Ctrl+C mode default
 # Recommend: pamixer (a frontend)
 # Recommend: pulseaudio-alsa (for flash)
 set $Sound " Sound Volume: (M)ute "
-bindsym $Super+S mode $Sound
+bindsym $Super+S mode $Sound; $notify 'Sound mode'
 
 set $mute exec pacmd set-sink-mute @DEFAULT_SINK@ true; mode default
 set $unmute      exec pacmd set-sink-mute @DEFAULT_SINK@ false
@@ -435,13 +421,9 @@ bindsym D $volume -5%;  $notify 'Sound: -5%'
 bindsym B $volume +10%; $notify 'Sound: +10%'
 bindsym F $volume -10%; $notify 'Sound: -10%'
 
-bindsym Escape           mode default
+bindsym Ctrl+C           mode default
 bindsym bracketleft      mode default
 bindsym Ctrl+bracketleft mode default
-
-bindsym Return mode default
-bindsym space  mode default
-bindsym Ctrl+C mode default
 }
 
 # Keybind of Mode for apps {{{1
@@ -449,7 +431,7 @@ bindsym Ctrl+C mode default
 bindsym $Super+T exec $termporal
 
 set $Console " Console: (A)lacritty (U)rxvt (X)term "
-bindsym $Super+C mode $Console; $notify 'Select Console'
+bindsym $Super+C mode $Console; $notify 'Consoles'
 
 mode $Console {
 bindsym A exec alacritty; mode default
@@ -461,19 +443,14 @@ bindsym $Super+T exec $termporal; mode default
 bindsym C        exec $termporal; mode default
 bindsym $Super+C exec $termporal; mode default
 
-bindsym Escape           mode default
-bindsym Ctrl+bracketleft mode default
+bindsym Ctrl+C           mode default
 bindsym bracketleft      mode default
-
-bindsym space  mode default
-bindsym Return mode default
-bindsym Ctrl+C mode default
+bindsym Ctrl+bracketleft mode default
 }
 
 # Mode; Neovim {{{2
 set $Neovim " Neovim: (Q)t (G)o (R)ust (T)ypescript (A)lacritty "
-#bindsym $SuperS+V mode $Editor; $notify 'Select Editor'
-bindsym $Super+N mode $Neovim; $notify 'Select Editor'
+bindsym $Super+N mode $Neovim; $notify 'Neovim: backends'
 
 mode $Neovim {
 # Vim
@@ -484,19 +461,15 @@ bindsym T $noid nyaovim; mode default
 #bindsym A $noid glrnvim; mode default
 bindsym A $noid alacritty -e nvim; mode default
 
-bindsym Escape           mode default
-bindsym Ctrl+bracketleft mode default
+bindsym Ctrl+C           mode default
 bindsym bracketleft      mode default
-
-bindsym space  mode default
-bindsym Return mode default
-bindsym Ctrl+C mode default
+bindsym Ctrl+bracketleft mode default
 }
 
 # Mode; Editor {{{2
 set $Editor " Editor: (C)ode (E)macs (V)im (N)eovim "
 
-bindsym $Super+E mode $Editor; $notify 'Select Editor'
+bindsym $Super+E mode $Editor; $notify 'Editors'
 
 mode $Editor {
 bindsym C $noid code;  mode default; $notify 'Editor: vscode'
@@ -504,19 +477,15 @@ bindsym E $noid emacs; mode default; $notify 'Editor: emacs'
 bindsym V $noid $vim;  mode default; $notify 'Editor: vim'
 bindsym N $noid $nvim; mode default; $notify 'Editor: neovim'
 
-bindsym Escape           mode default
+bindsym Ctrl+C           mode default
 bindsym bracketleft      mode default
 bindsym Ctrl+bracketleft mode default
-
-bindsym Ctrl+C mode default
-bindsym space  mode default
-bindsym Return mode default
 }
 
-# Mode; Browser {{{2
+# Mode; Browser
 set $Browser " Browser: (S)ervo (F)irefox (C)hrome (Q)utebrowser "
 
-bindsym $Super+B  mode $Browser; $notify 'Select Browser'
+bindsym $Super+B mode $Browser; $notify 'Browsers'
 
 mode $Browser {
 bindsym --release c $noid $chrome;     mode default
@@ -524,22 +493,18 @@ bindsym --release q $noid qutebrowser; mode default
 bindsym --release f $noid firefox;     mode default
 bindsym --release s $noid servo;       mode default
 
-bindsym B        $noid $browser; mode default
-bindsym $Super+B $noid $browser; mode default
+bindsym --release B        $noid $browser; mode default
+bindsym --release $Super+B $noid $browser; mode default
 
-bindsym Escape           mode default
+bindsym Ctrl+C           mode default
 bindsym bracketleft      mode default
 bindsym Ctrl+bracketleft mode default
-
-bindsym Ctrl+C mode default
-bindsym space  mode default
-bindsym Return mode default
 }
 
 # Mode; Terminal {{{2
 # Mnemonic: Finder or File explorer
 set $Finder " Finder: (R)anger (H)unter (P)acman-file-manager "
-bindsym $Super+F  mode $Finder; $notify 'Select Finder'
+bindsym $Super+F  mode $Finder; $notify 'Finders'
 
 mode $Finder {
 bindsym --release p exec pcmanfm; mode default
@@ -547,13 +512,9 @@ bindsym --release m exec pcmanfm; mode default
 bindsym --release r exec alacritty -e ranger; mode default
 bindsym --release h exec alacritty -e hunter; mode default
 
-bindsym Escape           mode default
-bindsym Ctrl+bracketleft mode default
+bindsym Ctrl+C           mode default
 bindsym bracketleft      mode default
-
-bindsym Return mode default
-bindsym space  mode default
-bindsym Ctrl+C mode default
+bindsym Ctrl+bracketleft mode default
 }
 
 # Keybind for Workspace {{{1
@@ -684,8 +645,6 @@ bindsym Print $noid exec $MYSCRIPTS/recording-toggle.sh
 #mode "$mode_gaps" {
 #        bindsym O      mode "$mode_gaps_outer"
 #        bindsym I      mode "$mode_gaps_inner"
-#        bindsym Return mode "default"
-#        bindsym Escape mode "default"
 #}
 #mode "$mode_gaps_inner" {
 #        bindsym plus  gaps inner current plus 5
@@ -696,8 +655,6 @@ bindsym Print $noid exec $MYSCRIPTS/recording-toggle.sh
 #        bindsym Shift+minus gaps inner all minus 5
 #        bindsym Shift+0     gaps inner all set 0
 #
-#        bindsym Return mode "default"
-#        bindsym Escape mode "default"
 #}
 #mode "$mode_gaps_outer" {
 #        bindsym plus  gaps outer current plus 5
@@ -707,7 +664,4 @@ bindsym Print $noid exec $MYSCRIPTS/recording-toggle.sh
 #        bindsym Shift+plus  gaps outer all plus 5
 #        bindsym Shift+minus gaps outer all minus 5
 #        bindsym Shift+0     gaps outer all set 0
-#
-#        bindsym Return mode "default"
-#        bindsym Escape mode "default"
 #}
