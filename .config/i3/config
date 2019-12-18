@@ -32,24 +32,37 @@ set $noid   exec --no-startup-id
 set $always exec_always --no-startup-id
 
 set $locker ~/.config/i3/lock.sh
-set $browser qutebrowser
-set $chrome google-chrome-stable
+
 set $menu alacritty --title fzf-menu --config-file $XDG_CONFIG_HOME/alacritty/dmenu.yml -e i3-dmenu-desktop --dmenu=fzf
-for_window [title=fzf-menu] floating enable border normal
-set $termporal alacritty --title termporal --config-file $XDG_CONFIG_HOME/alacritty/floating.yml -e fish
-for_window [title=termporal] floating enable border hide_edge_borders vertical
-#set $terminal urxvt
+for_window [title=^fzf-menu$] floating enable border normal
 
 set $notify exec --no-startup-id notify-send --expire-time 1100
 set $alert  exec --no-startup-id notify-send --expire-time 1100 --urgency critical
 
 # TODO: make $bindesc available
-#set $bindesc bindsym Escape mode default; bindsym Ctrl+bracketleft mode default; bindsym bracketleft mode default; bindsym space mode default; bindsym Return mode default; bindsym Ctrl+c mode default
+#set $bindesc bindsym Escape mode default; bindsym Ctrl+bracketleft mode default; bindsym bracketleft mode default; bindsym space mode default; bindsym Return mode default; bindsym Ctrl+C mode default
+
+# Var; Apps {{{2
+set $browser qutebrowser
+set $chrome google-chrome-stable
+
+set $nvim nvim-qt
+set $vim vim
+set $vi alacritty --title vi -e vi
+
+set $urxvt urxvt
+# urxvtc; add `-k` to kill daemon, too.
+#set $urxvt urxvtc
+
+set $termporal alacritty --title termporal --config-file $XDG_CONFIG_HOME/alacritty/floating.yml -e fish
+#set $termporal alacritty --title termporal -e nvim -u $XDG_CONFIG_HOME/nvim/rc/termporal.vim
+for_window [title=^termporal$] floating enable border hide_edge_borders vertical
+#set $terminal urxvt
 
 # Var; Workspace {{{2
 workspace_layout tabbed
 
-set $ws1 "1:vim"
+set $ws1 "1"
 set $ws2 "2"
 set $ws3 "3"
 set $ws4 "4"
@@ -60,17 +73,36 @@ set $ws8 "8"
 set $ws9 "9"
 set $ws0 "0:main"
 
-workspace 0 output eDP1
+#workspace 0 output eDP1
 #workspace "0" output HDMI2
 
-# Apps in Floating Window {{{1
+# i3 Style {{{1
+# Use Mouse+$Super to drag floating windows to their wanted position
+floating_modifier $Super
+floating_maximum_size 1200 x 900
+focus_follows_mouse no
+# mouse_warping: output|none
+mouse_warping none
+
+## <normal|1pixel|pixel xx|none|pixel>
+#default_border pixel 1
+#default_floating_border normal
+## Hide borders
+#hide_edge_borders none
+
+# Criteria to be {{{1
 # Note: must be in double-quotes, not in single
 
 # If Urgent, switch to the workspace immediately.
 # Note: (?i) means case-Insensitive
 #for_window [urgent=latest] focus
 
-for_window [title="^(?i)TMP"]     floating enable border normal
+no_focus [title="qutebrowser$"]
+
+#assign [class="^URxvt$"] → 2
+#assign [class="^URxvt$"] → output primary
+
+for_window [title="^(?i)TMPi3"]   floating enable border normal
 for_window [title="^(?i)Toggle"]  floating enable border normal
 for_window [title="^(?i)Package"] floating enable border normal
 #for_window [class="calamares"] floating enable border normal
@@ -99,13 +131,6 @@ for_window [title="^(?i)Package"] floating enable border normal
 #for_window [class="Timeset-gui"] floating enable border normal
 #for_window [class="(?i)virtualbox"] floating enable border normal
 #for_window [class="Xfburn"] floating enable
-
-# Border Style {{{1
-## <normal|1pixel|pixel xx|none|pixel>
-#default_border pixel 1
-#default_floating_border normal
-## Hide borders
-#hide_edge_borders none
 
 ## Status Bar; use polybar instead {{{1
 ## Note: use polybar instead
@@ -146,10 +171,12 @@ $always $MYSCRIPTS/monitor-try.sh
 # xautolock: a timer to lock screen of PC
 $noid xautolock -time 5 -locker $locker
 # nitrogen: a wallpaper manager
-$noid nitrogen --restore; sleep 1; compton -b
+# picom: compton is deprecated name
+$noid nitrogen --restore; sleep 1; picom -b
 ## TODO: i3-cheat sheet on desktop.
 #$noid "feh --bg-scale $HOME/.config/i3/~~.jpg"
 
+# necessary?
 $noid sudo tlp start
 
 $noid alsactl daemon
@@ -163,8 +190,12 @@ $noid pulseaudio --start
 #$noid nm-applet
 
 $noid fcitx
+
 # dunst: Light Notification Daemon
-#$noid dunst
+# FAQ: https://dunst-project.org/faq/
+# Conf: dunst/dunstrc
+# dunst works on `notify-send`
+$always killall --quiet dunst; dunst
 
 # parcellite: Clipboard Manager
 #$noid parcellite
@@ -180,134 +211,66 @@ $noid clipit
 #exec --no-startup-id xfce4-power-manager
 #exec_always --no-startup-id ff-theme-util
 #exec_always --no-startup-id setcursor
-#bindsym $mod+Ctrl+m exec pavucontrol
+#bindsym $mod+Ctrl+M exec pavucontrol
 
 # urxvtd: Daemon of rxvt-unicode. Use urxvtc as a client.
-#exec "urxvtd -o -f"
+#$noid "urxvtd -o -f"
 
 # Ref: specifiy workspace to start in
 #    @ https://ayageman.blogspot.com/2017/02/t510-2.html
-$noid i3-msg 'workspace 1'; $noid qutebrowser
+# TODO: open qutebrowser in background
+#$noid i3-msg 'workspace 1' | exec qutebrowser; 'workspace 0'
 #$noid nvim-qt
 
 # Keybind of i3 {{{1
 # Note: check keyname, or keycode, by $ xmodmap -pke
 # Note: `--release` disturbs continuous actions while pressed
 
+# Note: `;` chains commands; `,` only applys former command to applied window
+# Sample: bindsym $mod+X move container to workspace 3; workspace 3
+# Sample: for_window [class="^foo$"] floating enable, move container to workspace 4
 # Keybind; i3's Reload/Restart {{{2
 # reload the configuration file
 bindsym --release $SuperS+space reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym --release $Super+space restart
 
-# Keybind; Window Focus {{{2
-bindsym $Super+h focus left
-bindsym $Super+j focus down
-bindsym $Super+k focus up
-bindsym $Super+l focus right
+# Keybind; Window {{{2
+bindsym $Super+H focus left
+bindsym $Super+J focus down
+bindsym $Super+K focus up
+bindsym $Super+L focus right
 
-# Keybind; Window Move {{{2
-# Note: $SuperC+h fails without error-msg
-bindsym $SuperS+h move left
-bindsym $SuperS+j move down
-bindsym $SuperS+k move up
-bindsym $SuperS+l move right
+# Note: $SuperC+H fails without error-msg
+bindsym $SuperS+H move left
+bindsym $SuperS+J move down
+bindsym $SuperS+K move up
+bindsym $SuperS+L move right
+
+bindsym Shift+F11 fullscreen toggle ; $alert 'Layout: fullscreen toggle'
 
 # Keybind; Touchpad Toggle {{{2
 bindsym --release $Super+comma        $noid $MYSCRIPTS/touchpad-toggle.sh
 bindsym --release $Super+semicolon    $noid $MYSCRIPTS/touchpad-toggle.sh
 bindsym --release $Super+$ClickMiddle $noid $MYSCRIPTS/touchpad-toggle.sh
 
-# Mouse #{{{2
-set $ws_style "Workspace: (F)loating, f(U)llscreen, (T)ab, (S)tacking, (H)orizontal, (V)ertical or (N)othing"
-bindsym $SuperC+w mode $ws_style
-
-mode $ws_style {
-# No use?
-bindsym f floating   toggle,   mode default
-bindsym u fullscreen toggle,   mode default
-bindsym t layout     tabbed,   mode default
-bindsym s layout     stacking, mode default
-#bindsym s layout stacked, mode default
-bindsym h layout     splith,   mode default
-bindsym v layout     splitv,   mode default
-
-bindsym Escape           mode default
-bindsym Ctrl+squarebrace mode default
-bindsym squarebrace      mode default
-
-bindsym space  mode default
-bindsym Return mode default
-bindsym Ctrl+c mode default
-}
-
-# Use Mouse+$Super to drag floating windows to their wanted position
-floating_modifier $Super
-focus_follows_mouse no
-# mouse_warping: output|none
-mouse_warping none
-
-# Window; Layout {{{2
-bindsym Shift+F11 fullscreen toggle
-# in case, cannot move window into tabbed position.
-bindsym $SuperS+t layout tabbed
-bindsym $SuperA+t layout tabbed
-#bindsym $SuperS+s split h;exec notify-send 'tile horizontally'
-#bindsym $SuperS+v split v;exec notify-send 'tile vertically'
-#bindsym $SuperS+t layout tabbed; exec notify-send 'tile tabbed'
-# stacking: like tabbed, but switch windows up & down.
-#bindsym $SuperS+s layout stacking
-#bindsym $SuperS+e layout toggle split
-#bindsym $SuperS+f floating toggle
-## on Floating; Change Focus
-# change focus between tiling / floating windows
-#bindsym $SuperS+o focus mode_toggle
-
-## Borders between Windows {{{2
-#bindsym $mod+u border none
-#bindsym $mod+y border pixel 1
-#bindsym $mod+n border normal
-
 # Keybind of Mode on i3 {{{1
 # WARNING: use double quotes for either in `set` or `mode`
-# Mode; Window {{{2
-set $Window " Window: (C)lose or (Q)uit to kill current window | HJKL to move | <C-HJKL> to resize "
-bindsym $Super+w mode $Window; $notify 'Window'
+# Mode; Layout {{{2
+set $Layout " Layout: (T)abbed (H)orizontal (V)ertical stac(K)ing (F)loating f(U)llscreen "
+bindsym $SuperS+W mode $Layout; $alert 'Layout'
 
-mode $Window {
-bindsym --release c kill; mode default
-bindsym --release q kill; mode default
-#bindsym --release z kil; mode default
+mode $Layout {
+bindsym H split h; mode default; $alert 'Layout: horizontal'
+bindsym V split v; mode default; $alert 'Layout: vertical'
 
-bindsym Ctrl+h resize shrink width  25 px or 25 ppt
-bindsym Ctrl+k resize shrink height 25 px or 25 ppt
-bindsym Ctrl+j resize grow   height 25 px or 25 ppt
-bindsym Ctrl+l resize grow   width  25 px or 25 ppt
+bindsym T layout tabbed;   mode default; $alert 'Layout: tabbed'
+bindsym K layout stacking; mode default; $alert 'Layout: stacking'
 
-bindsym Ctrl+f resize grow   width  50 px or 50 ppt
-bindsym Ctrl+b resize shrink width  50 px or 50 ppt
-bindsym Ctrl+d resize grow   height 50 px or 50 ppt
-bindsym Ctrl+u resize shrink height 50 px or 50 ppt
-
-# especially for floating window
-bindsym h move left  25 px
-bindsym j move down  25 px
-bindsym k move up    25 px
-bindsym l move right 25 px
-
-bindsym b move left  50 px
-bindsym f move right 50 px
-bindsym d move down  50 px
-bindsym u move up    50 px
-
-# Mnemonic: undo in vi or U in vim
-# mode_toggle: toggle between floating and tiling
-bindsym Shift+u focus mode_toggle
-bindsym Shift+t focus tiling
-bindsym Shift+f focus floating
-# Mnemonic: parent is older, <c-o>; child is newer, <c-i> in vim
-bindsym Ctrl+o focus parent
-bindsym Ctrl+i focus child
+# Note: Fullscreen/Floating could be irritative;
+#       window sometimes hides on the status-bar
+bindsym F floating   toggle; mode default; $alert 'Layout: floating toggle'
+bindsym U fullscreen toggle; mode default; $alert 'Layout: fullscreen toggle'
 
 bindsym Escape           mode default
 bindsym Ctrl+bracketleft mode default
@@ -315,21 +278,81 @@ bindsym bracketleft      mode default
 
 bindsym space  mode default
 bindsym Return mode default
-bindsym Ctrl+c mode default
+bindsym Ctrl+C mode default
+}
+
+# Mode; Window {{{2
+set $Window " Window: (C)lose or (Q)uit to kill current window | HJKL to move | <C-HJKL> to resize | (U) Toggle Floating "
+bindsym $Super+W mode $Window; $notify 'Window'
+
+mode $Window {
+bindsym --release c kill; mode default
+bindsym --release q kill; mode default
+#bindsym --release z kil; mode default
+
+bindsym plus $noid picom -cbm 0.75
+bindsym minus $noid picom -cbm 0.75
+
+bindsym Ctrl+H resize shrink width  25 px or 25 ppt
+bindsym Ctrl+K resize shrink height 25 px or 25 ppt
+bindsym Ctrl+J resize grow   height 25 px or 25 ppt
+bindsym Ctrl+L resize grow   width  25 px or 25 ppt
+
+bindsym Ctrl+F resize grow   width  50 px or 50 ppt
+bindsym Ctrl+B resize shrink width  50 px or 50 ppt
+bindsym Ctrl+D resize grow   height 50 px or 50 ppt
+bindsym Ctrl+U resize shrink height 50 px or 50 ppt
+
+# especially for floating window
+bindsym H move left  25 px
+bindsym J move down  25 px
+bindsym K move up    25 px
+bindsym L move right 25 px
+
+bindsym B move left  50 px
+bindsym F move right 50 px
+bindsym D move down  50 px
+bindsym U move up    50 px
+
+## Mnemonic: parent is older, <c-o>; child is newer, <c-i> in vim
+bindsym Ctrl+O focus parent; mode default
+bindsym Ctrl+I focus child;  mode default
+
+## Mnemonic: undo in vi or U in vim
+# mode_toggle: toggle between floating and tiling
+#bindsym Shift+U focus mode_toggle
+#bindsym Shift+T focus tiling
+#bindsym Shift+F floating toggle
+#bindsym Shift+U floating toggle
+
+#bindsym U fullscreen toggle,   mode default
+#bindsym T layout     tabbed,   mode default
+#bindsym S layout     stacking, mode default
+##bindsym S layout stacked, mode default
+#bindsym H layout     splith,   mode default
+#bindsym V layout     splitv,   mode default
+
+bindsym Escape           mode default
+bindsym Ctrl+bracketleft mode default
+bindsym bracketleft      mode default
+
+bindsym space  mode default
+bindsym Return mode default
+bindsym Ctrl+C mode default
 }
 
 # Mode; Systemctl {{{2
 ## If use i3-nagbar {{{3
-#bindsym $Super+x  exec "i3-nagbar -t warning -f SF Mono 12 -m  'Do you really want to exit i3?' -b 'q:poweroff' 'systemctl poweroff' -b 'r:reboot' 'systemctl reboot' -b 'l:logout' 'i3-msg exit'", mode "$system"
-#bindsym $SuperS+x exec "i3-nagbar -t warning -f SF Mono 12 -m  'Do you really want to exit i3?' -b 'q:poweroff' 'systemctl poweroff' -b 'r:reboot' 'systemctl reboot' -b 'l:logout' 'i3-msg exit'", mode "$system"
+#bindsym $Super+X  exec "i3-nagbar -t warning -f SF Mono 12 -m  'Do you really want to exit i3?' -b 'q:poweroff' 'systemctl poweroff' -b 'r:reboot' 'systemctl reboot' -b 'l:logout' 'i3-msg exit'", mode "$system"
+#bindsym $SuperS+X exec "i3-nagbar -t warning -f SF Mono 12 -m  'Do you really want to exit i3?' -b 'q:poweroff' 'systemctl poweroff' -b 'r:reboot' 'systemctl reboot' -b 'l:logout' 'i3-msg exit'", mode "$system"
 #}}}
 set $Systemctl " Poweroff? (Y)es, (N)o, (H)ybernate (S)uspend, (R)eboot or (L)ock? "
-bindsym $Super+x mode $Systemctl; $alert 'systemctl'
+bindsym $Super+X mode $Systemctl; $alert 'systemctl'
 
 mode $Systemctl {
-#bindsym s $noid $locker && systemctl suspend, mode default
-#bindsym l $noid i3-msg exit, mode default
-#bindsym k $noid i3-msg exit, mode default
+#bindsym S $noid $locker && systemctl suspend, mode default
+#bindsym L $noid i3-msg exit, mode default
+#bindsym K $noid i3-msg exit, mode default
 bindsym --release h $noid $locker && systemctl hibernate, mode default
 bindsym --release l $noid $locker, mode default
 bindsym --release k $noid $locker, mode default
@@ -347,27 +370,27 @@ bindsym Ctrl+bracketleft mode default
 
 bindsym space  mode default
 bindsym Return mode default
-bindsym Ctrl+c mode default
+bindsym Ctrl+C mode default
 }
 
 # Mode; Backlight {{{2
 set $Backlight " Backlight: H:100, M:50, L:5 "
-bindsym $Super+Ctrl+b mode $Backlight
+bindsym $Super+Ctrl+B mode $Backlight
 
 mode $Backlight {
-bindsym Shift+h $alert 'Brightness: 100'; $noid xbacklight -set 100
-bindsym h       $alert 'Brightness: 100'; $noid xbacklight -set 100
-bindsym Shift+m $alert 'Brightness: 50';  $noid xbacklight -set 50
-bindsym m       $alert 'Brightness: 50';  $noid xbacklight -set 50
-bindsym Shift+l $alert 'Brightness: 5'; $noid sleep 1; $noid xbacklight -set 5
-bindsym l       $alert 'Brightness: 5'; $noid sleep 1; $noid xbacklight -set 5
+bindsym Shift+H $alert 'Brightness: 100'; $noid xbacklight -set 100
+bindsym H       $alert 'Brightness: 100'; $noid xbacklight -set 100
+bindsym Shift+M $alert 'Brightness: 50';  $noid xbacklight -set 50
+bindsym M       $alert 'Brightness: 50';  $noid xbacklight -set 50
+bindsym Shift+L $alert 'Brightness: 5'; $noid sleep 1; $noid xbacklight -set 5
+bindsym L       $alert 'Brightness: 5'; $noid sleep 1; $noid xbacklight -set 5
 
-bindsym k $notify 'Brightness: +1';  $noid xbacklight -inc 1
-bindsym j $notify 'Brightness: -1';  $noid xbacklight -dec 1
-bindsym u $notify 'Brightness: +5';  $noid xbacklight -inc 5
-bindsym d $notify 'Brightness: -5';  $noid xbacklight -dec 5
-bindsym b $notify 'Brightness: +10'; $noid xbacklight -inc 10
-bindsym f $notify 'Brightness: -10'; $noid xbacklight -dec 10
+bindsym K $notify 'Brightness: +1';  $noid xbacklight -inc 1
+bindsym J $notify 'Brightness: -1';  $noid xbacklight -dec 1
+bindsym U $notify 'Brightness: +5';  $noid xbacklight -inc 5
+bindsym D $notify 'Brightness: -5';  $noid xbacklight -dec 5
+bindsym B $notify 'Brightness: +10'; $noid xbacklight -inc 10
+bindsym F $notify 'Brightness: -10'; $noid xbacklight -dec 10
 
 bindsym Escape           mode default
 bindsym bracketleft      mode default
@@ -375,7 +398,7 @@ bindsym Ctrl+bracketleft mode default
 
 bindsym space  mode default
 bindsym Return mode default
-bindsym Ctrl+c mode default
+bindsym Ctrl+C mode default
 }
 
 # Mode; Sound Volume {{{2
@@ -387,30 +410,30 @@ bindsym Ctrl+c mode default
 # Recommend: pamixer (a frontend)
 # Recommend: pulseaudio-alsa (for flash)
 set $Sound " Sound Volume: (M)ute "
-bindsym $Super+s mode $Sound
+bindsym $Super+S mode $Sound
 
-set $mute $noid pacmd set-sink-mute @DEFAULT_SINK@ true; mode default
-set $unmute      $noid pacmd set-sink-mute @DEFAULT_SINK@ false
-set $mute_toggle $noid pacmd set-sink-mute @DEFAULT_SINK@ toggle
+set $mute exec pacmd set-sink-mute @DEFAULT_SINK@ true; mode default
+set $unmute      exec pacmd set-sink-mute @DEFAULT_SINK@ false
+set $mute_toggle exec pacmd set-sink-mute @DEFAULT_SINK@ toggle
 # Note: failed to use $unmute in $volume; cannot nest variable?
-set $volume $noid pacmd set-sink-mute @DEFAULT_SINK@ false; $noid pactl set-sink-volume @DEFAULT_SINK@
+set $volume exec --no-startup-id pacmd set-sink-mute @DEFAULT_SINK@ false; exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@
 
 mode $Sound {
-#bindsym m $mute_toggle; $alert 'Sound: mute/unmute'
-bindsym m $mute; $alert 'Sound: Mute'
+#bindsym M $mute_toggle; $alert 'Sound: mute/unmute'
+bindsym M $mute; $alert 'Sound: Mute'
 # Mnemonic: Quiet
-bindsym q $mute; $alert 'Sound: Mute'
+bindsym Q $mute; $alert 'Sound: Mute'
 
-bindsym Shift+h $volume 100;  $notify 'Sound: 100'
-bindsym Shift+m $volume 50;  $notify 'Sound: 50'
-bindsym Shift+l $volume 0;  $notify 'Sound: 0'
+bindsym Shift+H $volume 100; $notify 'Sound: 100'
+bindsym Shift+M $volume 50;  $notify 'Sound: 50'
+bindsym Shift+L $volume 0;   $notify 'Sound: 0'
 
-bindsym k $volume +1%;  $notify 'Sound: +1%'
-bindsym j $volume -1%;  $notify 'Sound: -1%'
-bindsym u $volume +5%;  $notify 'Sound: +5%'
-bindsym d $volume -5%;  $notify 'Sound: -5%'
-bindsym b $volume +10%; $notify 'Sound: +10%'
-bindsym f $volume -10%; $notify 'Sound: -10%'
+bindsym K $volume +1%;  $notify 'Sound: +1%'
+bindsym J $volume -1%;  $notify 'Sound: -1%'
+bindsym U $volume +5%;  $notify 'Sound: +5%'
+bindsym D $volume -5%;  $notify 'Sound: -5%'
+bindsym B $volume +10%; $notify 'Sound: +10%'
+bindsym F $volume -10%; $notify 'Sound: -10%'
 
 bindsym Escape           mode default
 bindsym bracketleft      mode default
@@ -418,56 +441,74 @@ bindsym Ctrl+bracketleft mode default
 
 bindsym Return mode default
 bindsym space  mode default
-bindsym Ctrl+c mode default
+bindsym Ctrl+C mode default
 }
 
 # Keybind of Mode for apps {{{1
 # Mode; Terminal {{{2
-set $Terminal " Terminal: (A)lacritty (U)rxvt (X)term "
-bindsym $Super+t mode $Terminal; $notify 'Select Terminal'
+bindsym $Super+T exec $termporal
 
-mode $Terminal {
-bindsym a exec alacritty; mode default
-bindsym u exec urxvt;     mode default
-bindsym x exec xterm;     mode default
+set $Console " Console: (A)lacritty (U)rxvt (X)term "
+bindsym $Super+C mode $Console; $notify 'Select Console'
 
-bindsym t        exec $termporal; mode default
-bindsym $Super+t exec $termporal; mode default
+mode $Console {
+bindsym A exec alacritty; mode default
+bindsym U exec $urxvt;    mode default
+bindsym X exec xterm;     mode default
+
+bindsym T        exec $termporal; mode default
+bindsym $Super+T exec $termporal; mode default
+bindsym C        exec $termporal; mode default
+bindsym $Super+C exec $termporal; mode default
 
 bindsym Escape           mode default
 bindsym Ctrl+bracketleft mode default
 bindsym bracketleft      mode default
 
-bindsym Return mode default
 bindsym space  mode default
-bindsym Ctrl+c mode default
+bindsym Return mode default
+bindsym Ctrl+C mode default
+}
+
+# Mode; Neovim {{{2
+set $Neovim " Neovim: (Q)t (G)o (R)ust (T)ypescript (A)lacritty "
+#bindsym $SuperS+V mode $Editor; $notify 'Select Editor'
+bindsym $Super+N mode $Neovim; $notify 'Select Editor'
+
+mode $Neovim {
+# Vim
+bindsym Q $noid nvim-qt; mode default
+bindsym G $noid gonvim;  mode default
+bindsym R $noid gnvim;   mode default
+bindsym T $noid nyaovim; mode default
+#bindsym A $noid glrnvim; mode default
+bindsym A $noid alacritty -e nvim; mode default
+
+bindsym Escape           mode default
+bindsym Ctrl+bracketleft mode default
+bindsym bracketleft      mode default
+
+bindsym space  mode default
+bindsym Return mode default
+bindsym Ctrl+C mode default
 }
 
 # Mode; Editor {{{2
-set $Editor " Editor: (C)ode (E)macs | nvim: (Q)t (G)o (R)ust (T)ypescript (A)lacritty "
+set $Editor " Editor: (C)ode (E)macs (V)im (N)eovim "
 
-bindsym $Super+e  mode $Editor; $notify 'Select Editor'
-bindsym $SuperS+e mode $Editor; $notify 'Select Editor'
-bindsym $SuperS+v mode $Editor; $notify 'Select Editor'
-bindsym $SuperS+n mode $Editor; $notify 'Select Editor'
+bindsym $Super+E mode $Editor; $notify 'Select Editor'
 
 mode $Editor {
-bindsym c $noid code;  mode default
-bindsym e $noid emacs; mode default
-
-# Vim
-bindsym q $noid nvim-qt; mode default
-bindsym g $noid gonvim;  mode default
-bindsym r $noid gnvim;   mode default
-bindsym t $noid nyaovim; mode default
-#bindsym a $noid glrnvim; mode default
-bindsym a $noid alacritty -e nvim; mode default
+bindsym C $noid code;  mode default; $notify 'Editor: vscode'
+bindsym E $noid emacs; mode default; $notify 'Editor: emacs'
+bindsym V $noid $vim;  mode default; $notify 'Editor: vim'
+bindsym N $noid $nvim; mode default; $notify 'Editor: neovim'
 
 bindsym Escape           mode default
 bindsym bracketleft      mode default
 bindsym Ctrl+bracketleft mode default
 
-bindsym Ctrl+c mode default
+bindsym Ctrl+C mode default
 bindsym space  mode default
 bindsym Return mode default
 }
@@ -475,7 +516,7 @@ bindsym Return mode default
 # Mode; Browser {{{2
 set $Browser " Browser: (S)ervo (F)irefox (C)hrome (Q)utebrowser "
 
-bindsym $SuperS+b  mode $Browser; $notify 'Select Browser'
+bindsym $Super+B  mode $Browser; $notify 'Select Browser'
 
 mode $Browser {
 bindsym --release c $noid $chrome;     mode default
@@ -483,14 +524,14 @@ bindsym --release q $noid qutebrowser; mode default
 bindsym --release f $noid firefox;     mode default
 bindsym --release s $noid servo;       mode default
 
-bindsym b        $noid $browser; mode default
-bindsym $Super+b $noid $browser; mode default
+bindsym B        $noid $browser; mode default
+bindsym $Super+B $noid $browser; mode default
 
 bindsym Escape           mode default
 bindsym bracketleft      mode default
 bindsym Ctrl+bracketleft mode default
 
-bindsym Ctrl+c mode default
+bindsym Ctrl+C mode default
 bindsym space  mode default
 bindsym Return mode default
 }
@@ -498,7 +539,7 @@ bindsym Return mode default
 # Mode; Terminal {{{2
 # Mnemonic: Finder or File explorer
 set $Finder " Finder: (R)anger (H)unter (P)acman-file-manager "
-bindsym $Super+f  mode $Finder; $notify 'Select Finder'
+bindsym $Super+F  mode $Finder; $notify 'Select Finder'
 
 mode $Finder {
 bindsym --release p exec pcmanfm; mode default
@@ -512,19 +553,22 @@ bindsym bracketleft      mode default
 
 bindsym Return mode default
 bindsym space  mode default
-bindsym Ctrl+c mode default
+bindsym Ctrl+C mode default
 }
 
 # Keybind for Workspace {{{1
 # Workspace; Focus Switch {{{2
 workspace_auto_back_and_forth yes
+# [smart|urgent|focus|none]
+focus_on_window_activation smart
 #bindsym $SuperS+6 workspace back_and_forth
 #bindsym $SuperC+6 move container to workspace back_and_forth; workspace back_and_forth
 
 bindsym $Super+minus workspace prev
 bindsym $Super+equal workspace next
-bindsym $Super+o workspace prev
-bindsym $Super+i workspace next
+
+bindsym $Super+O workspace prev
+bindsym $Super+I workspace next
 
 bindsym $Super+1 workspace $ws1
 bindsym $Super+2 workspace $ws2
@@ -538,69 +582,52 @@ bindsym $Super+9 workspace $ws9
 bindsym $Super+0 workspace $ws0
 
 # Workspace; Move {{{2
-bindsym $SuperS+1 move container to workspace $ws1
-bindsym $SuperS+2 move container to workspace $ws2
-bindsym $SuperS+3 move container to workspace $ws3
-bindsym $SuperS+4 move container to workspace $ws4
-bindsym $SuperS+5 move container to workspace $ws5
-bindsym $SuperS+6 move container to workspace $ws6
-bindsym $SuperS+7 move container to workspace $ws7
-bindsym $SuperS+8 move container to workspace $ws8
-bindsym $SuperS+9 move container to workspace $ws9
-bindsym $SuperS+0 move container to workspace $ws0
+bindsym $SuperS+1 move container to workspace $ws1; workspace $ws1
+bindsym $SuperS+2 move container to workspace $ws2; workspace $ws2
+bindsym $SuperS+3 move container to workspace $ws3; workspace $ws3
+bindsym $SuperS+4 move container to workspace $ws4; workspace $ws4
+bindsym $SuperS+5 move container to workspace $ws5; workspace $ws5
+bindsym $SuperS+6 move container to workspace $ws6; workspace $ws6
+bindsym $SuperS+7 move container to workspace $ws7; workspace $ws7
+bindsym $SuperS+8 move container to workspace $ws8; workspace $ws8
+bindsym $SuperS+9 move container to workspace $ws9; workspace $ws9
+bindsym $SuperS+0 move container to workspace $ws0; workspace $ws0
 
 # Keybind for Apps {{{1
-# Keybind; Notification {{{2
-## dunst; a notification-daemon
-bindsym $Super+Shift+d --release exec "killall dunst; exec notify-send 'restart dunst'"
-
 # Keybind; open Menu {{{2
-#bindsym $Super+Return $noid i3-dmenu-desktop
-#bindsym $SuperS+Return exec terminal -e 'bmenu'
-bindsym $Super+Ctrl+Return $noid $menu
-#bindsym $Super+d exec dmenu_run
 # # TODO: convert this bash-script into fish's
 # Ref: dmenu with fzf https://github.com/junegunn/fzf/wiki/Examples
 bindsym $Super+Return $noid $menu
 
-# Keybind; open Terminal {{{2
-# urxvtc; add `-k` to kill daemon, too.
-#bindsym $Super+u exec urxvtc
-#bindsym $Super+u exec urxvt
-#bindsym $Super+t exec alacritty
 # Keybind; open Editor {{{2
 # the numbar is RAM by htop in terminal of the editor
 # nvim on alacritty: 448M
-bindsym $Super+n $noid nvim-qt
-##bindsym $Super+q $noid nvim-qt
-#bindsym $Super+v $noid alacritty -e 'vim'
-#bindsym $Super+a $noid alacritty -e 'nvim'
+#bindsym $Super+N $noid nvim-qt
+##bindsym $Super+Q $noid nvim-qt
+#bindsym $Super+V $noid alacritty -e 'vim'
+#bindsym $Super+A $noid alacritty -e 'nvim'
 ## nvim-qt: 418M
 ## TODO: start nvim-qt sharing the buffer-list w/ another nvim-qt which is already started.
-##bindsym $SuperS+n $noid i3-sensible-terminal -e "nvim-qt --server $NVIM_LISTEN_ADDRESS"
-##bindsym $Super+r $noid nvim-gtk # font decayed
-#bindsym $SuperS+g $noid glrnvim
-##bindsym $SuperS+g $noid gonvim
+##bindsym $SuperS+N $noid i3-sensible-terminal -e "nvim-qt --server $NVIM_LISTEN_ADDRESS"
+##bindsym $Super+R $noid nvim-gtk # font decayed
+#bindsym $SuperS+G $noid glrnvim
+##bindsym $SuperS+G $noid gonvim
 ## gnvim: 612M, but firstest startup in 3 sec
-#bindsym $Super+g $noid gnvim
-##bindsym $Super+y $noid nyaovim
+#bindsym $Super+G $noid gnvim
+##bindsym $Super+Y $noid nyaovim
 ## oni: 718M
-#bindsym $Super+o $noid oni
-#bindsym $Super+e $noid emacs
+#bindsym $Super+O $noid oni
+#bindsym $Super+E $noid emacs
 ## code: 847M
-#bindsym $SuperS+v $noid code
-#bindsym $SuperS+c $noid code
+#bindsym $SuperS+V $noid code
+#bindsym $SuperS+C $noid code
 # Keybind; open Browser {{{2
-bindsym $Super+b exec qutebrowser
-bindsym $Super+q exec qutebrowser
-#bindsym $Super+f exec firefox
-#bindsym $Super+c exec google-chrome-stable
-#bindsym $Super+p exec palemoon
+bindsym $Super+Q $noid qutebrowser
 
 # Keybind; Sound Volume {{{2
-#bindsym $Super+Ctrl+m exec terminal -e 'alsamixer'
+#bindsym $Super+Ctrl+M exec terminal -e 'alsamixer'
 # Keybind; Music Player {{{2
-bindsym $SuperS+m exec terminal -e 'mocp'
+bindsym $SuperS+M exec terminal -e 'mocp'
 
 # Keybind on Fn {{{1
 # Fn; Backlight {{{2
@@ -622,13 +649,13 @@ bindsym Print $noid exec $MYSCRIPTS/recording-toggle.sh
 
 # Keybind of Default {{{1
 #bindsym $Super+Shift+minus move scratchpad
-#bindsym $Super+$Alt+h exec xdg-open /usr/share/doc/manjaro/i3_help_live.pdf
+#bindsym $Super+$Alt+H exec xdg-open /usr/share/doc/manjaro/i3_help_live.pdf
 #bindsym $Super+Shift+F3 exec gksu pcmanfm
-#bindsym $SuperS+i exec calamares_polkit
-#bindsym $Super+Ctrl+a exec terminal -e 'setup'
-#bindsym $mod+t $noid pkill compton
-#bindsym $mod+Ctrl+t $noid compton -b
-#bindsym $mod+Ctrl+x --release $noid xkill
+#bindsym $SuperS+I exec calamares_polkit
+#bindsym $Super+Ctrl+A exec terminal -e 'setup'
+#bindsym $mod+T $noid pkill picom
+#bindsym $mod+Ctrl+T $noid picom -b
+#bindsym $mod+Ctrl+X --release $noid xkill
 
 ## Config for i3-gaps: {{{1
 #
@@ -648,15 +675,15 @@ bindsym Print $noid exec $MYSCRIPTS/recording-toggle.sh
 ## on|no_gaps (on=always activate and no_gaps=only activate if the gap size to the edge of the screen is 0)
 #smart_borders on
 #
-## Press $mod+Shift+g to enter the gap mode. Choose o or i for modifying outer/inner gaps. Press one of + / - (in-/decrement for current workspace) or 0 (remove gaps for current workspace). If you also press Shift with these keys, the change will be global for all workspaces.
+## Press $mod+Shift+G to enter the gap mode. Choose o or i for modifying outer/inner gaps. Press one of + / - (in-/decrement for current workspace) or 0 (remove gaps for current workspace). If you also press Shift with these keys, the change will be global for all workspaces.
 #set $mode_gaps Gaps: (o) outer, (i) inner
 #set $mode_gaps_outer Outer Gaps: +|-|0 (local), Shift + +|-|0 (global)
 #set $mode_gaps_inner Inner Gaps: +|-|0 (local), Shift + +|-|0 (global)
-#bindsym $mod+Shift+g mode "$mode_gaps"
+#bindsym $mod+Shift+G mode "$mode_gaps"
 #
 #mode "$mode_gaps" {
-#        bindsym o      mode "$mode_gaps_outer"
-#        bindsym i      mode "$mode_gaps_inner"
+#        bindsym O      mode "$mode_gaps_outer"
+#        bindsym I      mode "$mode_gaps_inner"
 #        bindsym Return mode "default"
 #        bindsym Escape mode "default"
 #}
