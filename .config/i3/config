@@ -248,9 +248,6 @@ focus_on_window_activation smart
 #bindsym $SuperS+6 workspace back_and_forth
 #bindsym $SuperC+6 move container to workspace back_and_forth; workspace back_and_forth
 
-bindsym $Super+minus workspace prev
-bindsym $Super+equal workspace next
-
 bindsym $Super+O workspace prev
 bindsym $Super+I workspace next
 
@@ -291,7 +288,14 @@ bindsym $SuperS+L move right
 
 bindsym Shift+F11 fullscreen toggle ; $alert 'Layout: fullscreen toggle'
 
+# Mnemonic: go Over the window
+bindsym $SuperS+O focus floating; mode default; $alert 'Focus: Floating'
+# Mnemonic: Insert from another window over the window
+bindsym $SuperS+I focus tiling;   mode default; $alert 'Focus: Tiling'
+
 # Keybind; Touchpad Toggle {{{2
+# Ref: https://qiita.com/iberianpig/items/08784c9b2f53b3e41409
+#   Control Trackpad by Fusuma
 $release $Super+comma        $noid $MYSCRIPTS/touchpad-toggle.sh
 $release $Super+semicolon    $noid $MYSCRIPTS/touchpad-toggle.sh
 $release $Super+$ClickMiddle $noid $MYSCRIPTS/touchpad-toggle.sh
@@ -323,7 +327,7 @@ bindsym Ctrl+bracketleft mode default
 }
 
 # Mode; Window {{{2
-set $Window " Window: (C)lose or (Q)uit to kill current window | HJKL to move | Shift- to resize | (W) for Layout mode "
+set $Window " Window: (C)lose or (Q)uit to kill current window | t(I)ling / fl(O)ating | Shift- to resize | (W) for Layout mode "
 $release $Super+W mode $Window; $shortmsg 'Window mode'
 
 mode $Window {
@@ -332,10 +336,9 @@ $release Shift+W mode $Layout; $alert 'Layout mode'
 
 $release C kill; mode default
 $release Q kill; mode default
-#$release z kil; mode default
 
-bindsym plus $noid picom -cbm 0.75
 bindsym minus $noid picom -cbm 0.75
+bindsym plus  $noid picom -cbm 0.75
 
 bindsym Shift+H resize shrink width  25 px or 25 ppt
 bindsym Shift+K resize shrink height 25 px or 25 ppt
@@ -364,17 +367,15 @@ bindsym Ctrl+I focus child;  mode default
 
 ## Mnemonic: undo in vi or U in vim
 # mode_toggle: toggle between floating and tiling
-#bindsym Shift+U focus mode_toggle
-#bindsym Shift+T focus tiling
-#bindsym Shift+F floating toggle
-#bindsym Shift+U floating toggle
+bindsym T focus mode_toggle; mode default; $alert 'Focus: Floating/Tiling'
+# Mnemonic: go Over the window
+bindsym O focus floating; mode default; $alert 'Focus: Floating'
+# Mnemonic: Insert from another window over the window
+bindsym I focus tiling;   mode default; $alert 'Focus: Tiling'
 
-#bindsym U fullscreen toggle,   mode default
-#bindsym T layout     tabbed,   mode default
-#bindsym S layout     stacking, mode default
-##bindsym S layout stacked, mode default
-#bindsym H layout     splith,   mode default
-#bindsym V layout     splitv,   mode default
+bindsym Shift+T focus mode_toggle; $alert 'Focus: Floating/Tiling'
+bindsym Shift+O focus floating;    $alert 'Focus: Floating'
+bindsym Shift+I focus tiling;      $alert 'Focus: Tiling'
 
 bindsym Ctrl+C           mode default
 bindsym bracketleft      mode default
@@ -470,6 +471,7 @@ bindsym Ctrl+bracketleft mode default
 
 # Keybind; Mode for apps {{{1
 # Mode; Terminal {{{2
+# TODO: keep transparency after restart i3
 bindsym $Super+T exec $termporal
 
 set $Console " Console: (A)lacritty (U)rxvt (X)term "
@@ -514,10 +516,10 @@ set $Editor " Editor: (C)ode (E)macs (V)im (N)eovim "
 $release $Super+E mode $Editor; $shortmsg 'Editors'
 
 mode $Editor {
-bindsym C $noid code;  mode default; $shortmsg 'Editor: vscode'
-bindsym E $noid emacs; mode default; $shortmsg 'Editor: emacs'
-bindsym V $noid $vim;  mode default; $shortmsg 'Editor: vim'
-bindsym N $noid $nvim; mode default; $shortmsg 'Editor: neovim'
+bindsym C $noid code;  mode default; $notify 'Editor: vscode'
+bindsym E $noid emacs; mode default; $notify 'Editor: emacs'
+bindsym V $noid $vim;  mode default; $notify 'Editor: vim'
+bindsym N $noid $nvim; mode default; $notify 'Editor: neovim'
 
 bindsym Ctrl+C           mode default
 bindsym bracketleft      mode default
@@ -543,7 +545,7 @@ bindsym bracketleft      mode default
 bindsym Ctrl+bracketleft mode default
 }
 
-# Mode; Terminal {{{2
+# Mode; Finder {{{2
 # Mnemonic: Finder or File explorer
 set $Finder " Finder: (R)anger (H)unter (P)acman-file-manager "
 $release $Super+F  mode $Finder; $shortmsg 'Finders'
