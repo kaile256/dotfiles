@@ -3,6 +3,7 @@
 [[plugins]]
 repo = 'reedes/vim-pencil' #{{{
 # auto format upon &tw
+if = 'exists("g:plugins_available")'
 on_if = '&textwidth > 0'
 on_func =  ['pencil#']
 #hook_post_source = 'runtime post/pencil.vim'
