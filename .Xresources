@@ -26,11 +26,13 @@ URxvt.saveLines:            3000
 !!! Color Scheme and Opacity - gruvbox-dark https://github.com/morhetz/gruvbox
 ! [100]: 100% itself; background is completely itself
 ! [0]:   0% itself; fake-background
-URxvt.depth: 50
+!URxvt.depth: 50
+
 !! 'transparent': only in fake; for true one, use 'depth'
 !!                adjust by 'shading'
-URxvt.transparent: true
-URxvt.shading: 70
+!URxvt.transparent: true
+!URxvt.shading: 70
+
 ! Fading if not focused (%)
 ! i.e., Transparency
 URxvt.fading:               100
