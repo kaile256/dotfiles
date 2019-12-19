@@ -27,46 +27,25 @@ command! -bar -bang -nargs=* -complete=buffer Terminal
       \                 <bang>0)
 
 " commands on directory {{{1
-" Note: not actually in ghq
-command! -bar -bang -nargs=* Ghqs
-      \ :silent cd $GOPATH
-      \ | Fzf <args>
+let s:cmd_to_path = {
+      \ 'Data':      $XDG_DATA_HOME,
+      \ 'Dotfiles':  g:dotfiles_home,
+      \ 'Downloads': '~/Downloads',
+      \ 'Etcs':      '/etc',
+      \ 'Ghqs':      $GHQ_ROOT,
+      \ 'Trash':     g:my_trash_root,
+      \ 'Usrs':      '/usr',
+      \ }
+
+" Note: :Ghqs is not actually in ghq
+" TODO: in :Usrs, ignore all the files permission-denied
+for cmd in keys(s:cmd_to_path)
+  exe 'command! -bar -bang -nargs=*' cmd
+        \ ':exe "Files" s:cmd_to_path[cmd]'
+endfor
 
 command! -bar -bang -nargs=* Polybars
-      \ :cd ~/.config/polybar
-      \ | call fzf#vim#ag(<q-args>, fzf#vim#with_preview({
-      \ 'options': '--multi --reverse'
-      \ }, 'right:50%')
-      \ )
-
-command! -bar -bang -nargs=* Downloads
-      \ :call fzf#vim#files(<q-args>, fzf#vim#with_preview({
-      \ 'source': 'find '. $HOME .'/Downloads',
-      \ 'options': '--multi --reverse'
-      \ }, 'right:50%')
-      \ )
-
-command! -bar -bang -nargs=* Trash
-      \ :call fzf#vim#files(<q-args>, fzf#vim#with_preview({
-      \ 'source': 'find '. g:my_trash_root,
-      \ 'options': '--multi --reverse'
-      \ }, 'right:50%')
-      \ )
-
-command! -bar -bang -nargs=* Etcs
-      \ :call fzf#vim#files(<q-args>, fzf#vim#with_preview({
-      \ 'source': 'find /etc',
-      \ 'options': '--multi --reverse',
-      \ }, 'right:50%')
-      \ )
-
-" TODO: avoid all the files permission-denied
-command! -bar -bang -nargs=* Users
-      \ :call fzf#vim#files(<q-args>, fzf#vim#with_preview({
-      \ 'source': 'find /usr',
-      \ 'options': '--multi --reverse',
-      \ }, 'right:50%')
-      \ )
+      \ :cd ~/.config/polybar | Rg
 
 command! Neighbours call s:fzf_neighbours() "{{{1
 function! s:fzf_neighbours()
