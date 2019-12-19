@@ -41,7 +41,7 @@ let s:cmd_to_path = {
 " TODO: in :Usrs, ignore all the files permission-denied
 for cmd in keys(s:cmd_to_path)
   exe 'command! -bar -bang -nargs=*' cmd
-        \ ':exe "Files" s:cmd_to_path[cmd]'
+        \ ':exe "Files"' string(s:cmd_to_path[cmd])
 endfor
 
 command! -bar -bang -nargs=* Polybars
