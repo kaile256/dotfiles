@@ -16,42 +16,41 @@ bind \cxp   '__fzf_reverse_isearch'
 bind \cx\cd '__fzf_cd --hidden'
 bind \cxd   '__fzf_cd --hidden'
 
+bind \cx\t '__fzf_complete'
+bind \cxi  '__fzf_complete'
+
 # Mnemonic: Edit it
 bind \cx\cv '__fzf_open --editor'
 bind \cxv   '__fzf_open --editor'
 
+# Note: unavailable in vim's terminal
+bind \cxr '__fzf_reverse_isearch'
+
+bind \cxq   '__ghq_repository_search'
+bind \cx\cq '__ghq_repository_search'
+
+
 if bind -M insert >/dev/null 2>/dev/null
-  bind -M insert \co '__fzf_find_file'
-  bind -M insert \es '__fzf_reverse_isearch'
-  #bind -M insert \ec '__fzf_cd'
-  bind -M insert \ec '__fzf_cd --hidden'
-  #bind -M insert \ev '__fzf_open'
-  bind -M insert \ev '__fzf_open --editor'
+    bind -M insert  \cx\cf '__fzf_find_file'
+    bind -M insert  \cxf   '__fzf_find_file'
+    # Mnemonic: Search
+    bind -M insert  \cx\cp '__fzf_reverse_isearch'
+    bind -M insert  \cxp   '__fzf_reverse_isearch'
+    #bind -M insert  \cc '__fzf_cd'
+    # Mnemonic: Cd
+    bind -M insert  \cx\cd '__fzf_cd --hidden'
+    bind -M insert  \cxd   '__fzf_cd --hidden'
+
+    bind -M insert  \cx\t '__fzf_complete'
+    bind -M insert  \cxi  '__fzf_complete'
+
+    # Mnemonic: Edit it
+    bind -M insert  \cx\cv '__fzf_open --editor'
+    bind -M insert  \cxv   '__fzf_open --editor'
+
+    # Note: unavailable in vim's terminal
+    bind -M insert  \cxr '__fzf_reverse_isearch'
+
+    bind -M insert \cxq   '__ghq_repository_search'
+    bind -M insert \cx\cq '__ghq_repository_search'
 end
-
-bind \cg '__ghq_repository_search'
-if bind -M insert >/dev/null 2>/dev/null
-  bind -M insert \cg '__ghq_repository_search'
-end
-
-#if set -q FZF_COMPLETE
-#  # seems same as find_file
-#  bind \t '__fzf_complete'
-#  if bind -M insert >/dev/null 2>/dev/null
-#    bind -M insert \t '__fzf_complete'
-#end
-#end
-
-
-## w/ ghq
-#function ghq_fzf_repo -d 'Repository search'
-#  ghq list --full-path | fzf --reverse --height=100% | read select
-#  [ -n "$select" ]; and cd "$select"
-#  echo " $select "
-#  commandline -f repaint
-#end
-#
-## keybind
-#function fish_user_key_bindings
-#  bind \cg ghq_fzf_repo
-#end
