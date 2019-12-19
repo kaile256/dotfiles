@@ -40,8 +40,9 @@ set $locker ~/.config/i3/lock.sh
 set $menu alacritty --title fzf-menu --config-file $XDG_CONFIG_HOME/alacritty/dmenu.yml -e i3-dmenu-desktop --dmenu=fzf
 for_window [title=^fzf-menu$] floating enable border normal
 
-set $notify exec --no-startup-id notify-send --expire-time 1100
-set $alert  exec --no-startup-id notify-send --expire-time 1100 --urgency critical
+set $shortmsg exec --no-startup-id notify-send --expire-time 750
+set $notify   exec --no-startup-id notify-send --expire-time 1100
+set $alert    exec --no-startup-id notify-send --expire-time 1100 --urgency critical
 
 # TODO: make $bindesc available
 #set $bindesc bindsym Escape mode default; bindsym Ctrl+bracketleft mode default; bindsym bracketleft mode default; bindsym space mode default; bindsym Return mode default; bindsym Ctrl+C mode default
@@ -323,7 +324,7 @@ bindsym Ctrl+bracketleft mode default
 
 # Mode; Window {{{2
 set $Window " Window: (C)lose or (Q)uit to kill current window | HJKL to move | Shift- to resize | (W) for Layout mode "
-$release $Super+W mode $Window; $notify 'Window mode'
+$release $Super+W mode $Window; $shortmsg 'Window mode'
 
 mode $Window {
 $release W       mode $Layout; $alert 'Layout mode'
@@ -406,7 +407,7 @@ bindsym Ctrl+bracketleft mode default
 
 # Mode; Backlight {{{2
 set $Backlight " Backlight: H:100, M:50, L:5 "
-$release $Super+Ctrl+B mode $Backlight; $notify 'Backlight mode'
+$release $Super+Ctrl+B mode $Backlight; $shortmsg 'Backlight mode'
 
 mode $Backlight {
 bindsym Shift+H $alert 'Brightness: 100'; $noid xbacklight -set 100
@@ -437,7 +438,7 @@ bindsym Ctrl+bracketleft mode default
 # Recommend: pamixer (a frontend)
 # Recommend: pulseaudio-alsa (for flash)
 set $Sound " Sound Volume: (M)ute "
-$release $Super+S mode $Sound; $notify 'Sound mode'
+$release $Super+S mode $Sound; $shortmsg 'Sound mode'
 
 set $mute exec pacmd set-sink-mute @DEFAULT_SINK@ true; mode default
 set $unmute      exec pacmd set-sink-mute @DEFAULT_SINK@ false
@@ -472,7 +473,7 @@ bindsym Ctrl+bracketleft mode default
 bindsym $Super+T exec $termporal
 
 set $Console " Console: (A)lacritty (U)rxvt (X)term "
-bindsym $Super+C mode $Console; $notify 'Consoles'
+bindsym $Super+C mode $Console; $shortmsg 'Consoles'
 
 mode $Console {
 bindsym A exec alacritty; mode default
@@ -491,7 +492,7 @@ bindsym Ctrl+bracketleft mode default
 
 # Mode; Neovim {{{2
 set $Neovim " Neovim: (Q)t (G)o (R)ust (T)ypescript (A)lacritty "
-$release $Super+N mode $Neovim; $notify 'Neovim: backends'
+$release $Super+N mode $Neovim; $shortmsg 'Neovim: backends'
 
 mode $Neovim {
 # Vim
@@ -510,13 +511,13 @@ bindsym Ctrl+bracketleft mode default
 # Mode; Editor {{{2
 set $Editor " Editor: (C)ode (E)macs (V)im (N)eovim "
 
-$release $Super+E mode $Editor; $notify 'Editors'
+$release $Super+E mode $Editor; $shortmsg 'Editors'
 
 mode $Editor {
-bindsym C $noid code;  mode default; $notify 'Editor: vscode'
-bindsym E $noid emacs; mode default; $notify 'Editor: emacs'
-bindsym V $noid $vim;  mode default; $notify 'Editor: vim'
-bindsym N $noid $nvim; mode default; $notify 'Editor: neovim'
+bindsym C $noid code;  mode default; $shortmsg 'Editor: vscode'
+bindsym E $noid emacs; mode default; $shortmsg 'Editor: emacs'
+bindsym V $noid $vim;  mode default; $shortmsg 'Editor: vim'
+bindsym N $noid $nvim; mode default; $shortmsg 'Editor: neovim'
 
 bindsym Ctrl+C           mode default
 bindsym bracketleft      mode default
@@ -526,7 +527,7 @@ bindsym Ctrl+bracketleft mode default
 # Mode; Browser
 set $Browser " Browser: (S)ervo (F)irefox (C)hrome (Q)utebrowser "
 
-$release $Super+B mode $Browser; $notify 'Browsers'
+$release $Super+B mode $Browser; $shortmsg 'Browsers'
 
 mode $Browser {
 $release c $noid $chrome;     mode default
@@ -545,7 +546,7 @@ bindsym Ctrl+bracketleft mode default
 # Mode; Terminal {{{2
 # Mnemonic: Finder or File explorer
 set $Finder " Finder: (R)anger (H)unter (P)acman-file-manager "
-$release $Super+F  mode $Finder; $notify 'Finders'
+$release $Super+F  mode $Finder; $shortmsg 'Finders'
 
 mode $Finder {
 $release p exec pcmanfm; mode default
