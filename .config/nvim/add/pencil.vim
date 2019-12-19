@@ -17,7 +17,7 @@ endfunction
 
 function! s:pencil.commit() abort "{{{1
   setl spell spl=en_us,cjk et sw=2 ts=2 noai
-  call pencil#init({'wrap': 'soft', 'textwidth': 72})
+  "call pencil#init({'wrap': 'soft', 'textwidth': 72})
 endfunction
 
 function! s:pencil.mail() abort "{{{1
@@ -33,7 +33,7 @@ endfunction
 augroup myPencil
   aut!
   au FileType markdown,mkd call s:pencil.markdown()
-  "au Filetype git,gitsendemail,*commit*,*COMMIT* call s:pencil.commit()
+  au Filetype git,gitsendemail,*commit*,*COMMIT* call s:pencil.commit()
   au Filetype mail         call s:pencil.mail()
   au Filetype html,xml     call s:pencil.html()
 augroup END
