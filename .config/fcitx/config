@@ -1,7 +1,8 @@
-# CAUTION: must not leave comment on trail.
+# CAUTION: must NOT leave any comment in trail of value.
+
 [Hotkey]
 # Trigger Input Method
-TriggerKey=SHIFT_ENTER
+TriggerKey=SUPER_U
 # Use extra trigger key only after using it to inactivate
 # Available Value:
 # True False
@@ -34,7 +35,7 @@ TriggerKey=SHIFT_ENTER
 # Activate input method
 #ActivateKey=CTRL_M
 # Inactivate Input Method
-InactivateKey=l
+InactivateKey=CTRL_W
 # Enable Hotkey to scroll Between Input Method
 # Available Value:
 # True False
@@ -85,7 +86,7 @@ InactivateKey=l
 # No
 # All
 # PerProgram
-ShareStateAmongWindow=PerProgram
+ShareStateAmongWindow=No
 # Default Input Method State
 # Available Value:
 # Inactive
