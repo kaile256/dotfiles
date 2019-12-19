@@ -64,6 +64,11 @@ if !exists('*s:source_buffer')
     " Note: :undojoin causes an error right after :undo.
     " Note: :undojoin with :w prevents to :undo before :w
     "silent! undojoin
+    if expand('%:p') =~# '^/etc/systemd/logind.conf'
+      !alacritty --title 'TMP' -e sudo systemctl restart systemd-logind
+      return
+    endif
+
     silent write
     if getline(1) =~# '^#!'
       !%:p
@@ -73,10 +78,17 @@ if !exists('*s:source_buffer')
     elseif &ft =~# 'html'
       silent OpenBrowser %:p
       echomsg v:statusmsg
+    elseif &ft ==# 'xmodmap'
+      !xmodmap %:p
     elseif &ft ==# 'xdefault'
-      !xrdb %:p &
+      !xrdb %:p
     elseif &ft ==# 'dosini' && expand('%:p:h') =~# '/polybar/'
       !${XDG_CONFIG_HOME}/polybar/launch.sh &
+    elseif &ft ==# 'i3'
+      !i3-msg restart &
+    elseif expand('%:p') =~# '\.config/fcitx/'
+      " -r: reload; no flag, '--reload'
+      !fcitx-remote -r
     else
       !
     endif
