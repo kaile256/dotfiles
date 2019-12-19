@@ -34,10 +34,19 @@ hook_add = 'runtime add/submode.vim'
 
 # Hex Editor
 [[plugins]]
-repo = 'd0c-s4vage/pfp-vim' #{{{
-on_cmd = 'Pfp'
-hook_add = 'runtime add/pfp.vim'
+repo = 'Shougo/vinarise.vim' #{{{
+on_cmd =  ['Vinarise']
+hook_add = 'runtime add/vinarise.vim'
 #}}}
+[[plugins]]
+repo = 'rootkiter/vim-hexedit' #{{{
+on_cmd =  ['Hexedit']
+#}}}
+#[[plugins]]
+#repo = 'd0c-s4vage/pfp-vim' #{{{
+#on_cmd = 'Pfp'
+#hook_add = 'runtime add/pfp.vim'
+##}}}
 
 # Floating Window
 #[[plugins]]
