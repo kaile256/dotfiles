@@ -118,9 +118,10 @@
   "prettier.trailingComma": "es5",
   "json.format.enable": false,
 
+  // From: iamcco/coc-vimlsp
   "vimlsp.debug": false,
   "vimlsp.diagnostic.enable": true,
-  "vimlsp.indexes.runtimepath": false,
+  "vimlsp.indexes.runtimepath": true,
   "vimlsp.indexes.count": 3,
   "vimlsp.indexes.gap": 100,
   "vimlsp.suggest.fromVimruntime": true,
@@ -229,6 +230,7 @@
       }
     },
     "ccls": {
+      // See more detail in MaskRay/ccls/wiki/LSP-Extensions
       "command": "ccls",
       "filetypes": ["c", "cpp", "objc", "objcpp"],
       "rootPatterns": [
