@@ -196,10 +196,9 @@ set lazyredraw
 "set foldenable " default: on
 set foldmethod=syntax
 set foldlevelstart=0
-set foldlevelstart=1
 set foldnestmax=10
 " reduce block (e.g., [[,{)
-set foldopen=hor,mark,percent,quickfix,search,tag,undo
+set foldopen=hor,insert,mark,percent,quickfix,search,tag,undo
 
 set formatoptions=jmB1cql " default: tcqj
 "set mouse=a
