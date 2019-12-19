@@ -88,6 +88,7 @@ alias restore res end tail
   ${0}
   " restore 'cpoptions' {{{1
   let &cpo = s:save_cpo
+  unlet s:save_cpo
 
   " modeline {{{1
   " vim: expandtab tabstop=2 softtabstop=2 shiftwidth=2
