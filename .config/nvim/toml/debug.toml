@@ -1,31 +1,33 @@
 # From: rc/dein.vim
 
 [[plugins]]
-repo = 'puremourning/vimspector' #{{{
+repo = 'puremourning/vimspector'
 on_func =  ['vimspector#']
 hook_add = 'runtime add/vimspector.vim'
-#hook_source = 'runtime source/vimspector.vim'
-#}}}
+hook_post_source = 'runtime post/vimspector.vim'
 
+#[[plugins]]
+#repo = 'mcasper/vim-infer-debugger'
+#on_func =  ['AddDebbuger']
+#hook_add = 'runtime add/infer-debugger.vim'
+#hook_source = 'runtime source/infer-debugger.vim'
+#
 [[plugins]]
-repo = 'infokiller/vim-errorlist' #{{{
+repo = 'infokiller/vim-errorlist'
 on_cmd = ['errorlist#Navigate']
 on_event = ['BufRead']
 hook_source = 'runtime source/errorlist.vim'
-#}}}
 
-# Checker
+#[[[Checker]]]
 #[[plugins]]
-#repo = 'haya14busa/vim-stacktrace' #{{{
+#repo = 'haya14busa/vim-stacktrace'
 ## Note: a lot of unknown_functions
 #build = 'make'
 #on_cmd = ['CStacktraceFromhist', 'LStacktraceFromhist']
 #hook_add = 'runtime add/stacktrace.vim'
-##}}}
+
 #[[plugins]]
-#repo = 'lacygoill/vim-stacktrace' #{{{
+#repo = 'lacygoill/vim-stacktrace'
 ## WIP: no use because of the lack of autoload-functions except main()
 #on_cmd = 'WTF'
 #hook_post_source = 'runtime add/stacktrace.vim'
-##}}}
-
