@@ -248,8 +248,8 @@ focus_on_window_activation smart
 #bindsym $SuperS+6 workspace back_and_forth
 #bindsym $SuperC+6 move container to workspace back_and_forth; workspace back_and_forth
 
-bindsym $Super+O workspace prev
-bindsym $Super+I workspace next
+bindsym $Super+bracketleft  workspace prev
+bindsym $Super+bracketright workspace next
 
 bindsym $Super+1 workspace $ws1
 bindsym $Super+2 workspace $ws2
@@ -288,17 +288,22 @@ bindsym $SuperS+L move right
 
 bindsym Shift+F11 fullscreen toggle ; $alert 'Layout: fullscreen toggle'
 
+# Mnemonic: `o` on visual-mode to the other end of the area
+bindsym $Super+O focus mode_toggle; $alert 'Focus: Toggle'
+
 # Mnemonic: go Over the window
 bindsym $SuperS+O focus floating; mode default; $alert 'Focus: Floating'
 # Mnemonic: Insert from another window over the window
 bindsym $SuperS+I focus tiling;   mode default; $alert 'Focus: Tiling'
 
-# Keybind; Touchpad Toggle {{{2
+# Keybind; Device Toggle {{{2
 # Ref: https://qiita.com/iberianpig/items/08784c9b2f53b3e41409
 #   Control Trackpad by Fusuma
 $release $Super+comma        $noid $MYSCRIPTS/touchpad-toggle.sh
 $release $Super+semicolon    $noid $MYSCRIPTS/touchpad-toggle.sh
 $release $Super+$ClickMiddle $noid $MYSCRIPTS/touchpad-toggle.sh
+
+bindcode 66 $alert 'CapsLock: Toggle'
 
 # Keybind; Mode on i3 {{{1
 # WARNING: use double quotes for either in `set` or `mode`
@@ -321,13 +326,23 @@ bindsym K layout stacking; mode default; $alert 'Layout: stacking'
 bindsym F floating   toggle; mode default; $alert 'Layout: floating toggle'
 bindsym U fullscreen toggle; mode default; $alert 'Layout: fullscreen toggle'
 
+bindsym Shift+H resize shrink width  25 px or 25 ppt
+bindsym Shift+K resize shrink height 25 px or 25 ppt
+bindsym Shift+J resize grow   height 25 px or 25 ppt
+bindsym Shift+L resize grow   width  25 px or 25 ppt
+
+bindsym Shift+F resize grow   width  50 px or 50 ppt
+bindsym Shift+B resize shrink width  50 px or 50 ppt
+bindsym Shift+D resize grow   height 50 px or 50 ppt
+bindsym Shift+U resize shrink height 50 px or 50 ppt
+
 bindsym Ctrl+C           mode default
 bindsym bracketleft      mode default
 bindsym Ctrl+bracketleft mode default
 }
 
 # Mode; Window {{{2
-set $Window " Window: (C)lose or (Q)uit to kill current window | t(I)ling / fl(O)ating | Shift- to resize | (W) for Layout mode "
+set $Window " Window: (C)lose or (Q)uit to kill current window | fl(O)ating toggle | (W) for Layout mode "
 $release $Super+W mode $Window; $shortmsg 'Window mode'
 
 mode $Window {
@@ -340,15 +355,13 @@ $release Q kill; mode default
 bindsym minus $noid picom -cbm 0.75
 bindsym plus  $noid picom -cbm 0.75
 
-bindsym Shift+H resize shrink width  25 px or 25 ppt
-bindsym Shift+K resize shrink height 25 px or 25 ppt
-bindsym Shift+J resize grow   height 25 px or 25 ppt
-bindsym Shift+L resize grow   width  25 px or 25 ppt
+#bindsym Shift+H move left
+#bindsym Shift+L resize grow   width  25 px or 25 ppt
 
-bindsym Shift+F resize grow   width  50 px or 50 ppt
-bindsym Shift+B resize shrink width  50 px or 50 ppt
-bindsym Shift+D resize grow   height 50 px or 50 ppt
-bindsym Shift+U resize shrink height 50 px or 50 ppt
+bindsym Shift+B move left  100 px
+bindsym Shift+F move right 100 px
+bindsym Shift+D move down  100 px
+bindsym Shift+U move up    100 px
 
 # especially for floating window
 bindsym H move left  25 px
@@ -365,17 +378,12 @@ bindsym U move up    50 px
 bindsym Ctrl+O focus parent; mode default
 bindsym Ctrl+I focus child;  mode default
 
-## Mnemonic: undo in vi or U in vim
 # mode_toggle: toggle between floating and tiling
-bindsym T focus mode_toggle; mode default; $alert 'Focus: Floating/Tiling'
-# Mnemonic: go Over the window
-bindsym O focus floating; mode default; $alert 'Focus: Floating'
-# Mnemonic: Insert from another window over the window
-bindsym I focus tiling;   mode default; $alert 'Focus: Tiling'
+bindsym $Super+O focus mode_toggle; mode default; $alert 'Focus: Toggle'
+bindsym O        focus mode_toggle; mode default; $alert 'Focus: Toggle'
 
-bindsym Shift+T focus mode_toggle; $alert 'Focus: Floating/Tiling'
-bindsym Shift+O focus floating;    $alert 'Focus: Floating'
-bindsym Shift+I focus tiling;      $alert 'Focus: Tiling'
+# TODO: send ^d, too, to kill terminal
+bindsym Ctrl+D           mode default; $alert 'Out of Fucus mode'
 
 bindsym Ctrl+C           mode default
 bindsym bracketleft      mode default
@@ -440,10 +448,12 @@ bindsym Ctrl+bracketleft mode default
 # Recommend: pulseaudio-alsa (for flash)
 set $Sound " Sound Volume: (M)ute "
 $release $Super+S mode $Sound; $shortmsg 'Sound mode'
+# Ref: https://stackoverflow.com/questions/21688115/pactl-called-from-systemd-service-always-reports-pa-context-connect-failed-co
+# when you have `Connection failure: Connection refused; pa_context_connect() failed: Connection refused`
 
-set $mute exec pacmd set-sink-mute @DEFAULT_SINK@ true; mode default
-set $unmute      exec pacmd set-sink-mute @DEFAULT_SINK@ false
-set $mute_toggle exec pacmd set-sink-mute @DEFAULT_SINK@ toggle
+set $mute exec --no-startup-id pacmd set-sink-mute @DEFAULT_SINK@ true; mode default
+set $unmute      exec --no-startup-id pacmd set-sink-mute @DEFAULT_SINK@ false
+set $mute_toggle exec --no-startup-id pacmd set-sink-mute @DEFAULT_SINK@ toggle
 # Note: failed to use $unmute in $volume; cannot nest variable?
 set $volume exec --no-startup-id pacmd set-sink-mute @DEFAULT_SINK@ false; exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@
 
@@ -547,18 +557,92 @@ bindsym Ctrl+bracketleft mode default
 
 # Mode; Finder {{{2
 # Mnemonic: Finder or File explorer
-set $Finder " Finder: (R)anger (H)unter (P)acman-file-manager "
+set $Finder " Finder: [R]anger [H]unter [P]CManFM(lxde) PCManFM-[Q]t(lxqt) [T]hunar(Xfce) (G)ooglePhoto "
 $release $Super+F  mode $Finder; $shortmsg 'Finders'
 
 mode $Finder {
 $release p exec pcmanfm; mode default
-$release m exec pcmanfm; mode default
+$release q exec pcmanfm-qt; mode default
+$release t exec thunar; mode default
+
 $release r exec alacritty -e ranger; mode default
 $release h exec alacritty -e hunter; mode default
+
+$release g exec google-photo; mode default
 
 bindsym Ctrl+C           mode default
 bindsym bracketleft      mode default
 bindsym Ctrl+bracketleft mode default
+}
+
+# Mode; Mozc {{{2
+set $Mozc " Mozc: Activated "
+bindsym $Super+M $noid fcitx-remote -s mozc; mode $Mozc; $alert 'Mozc: Activated'
+
+mode $Mozc {
+# TODO: send-key Ctrl+U and back to the fcitx-state
+bindsym Ctrl+U $noid fcitx-remote -c; mode default; $notify 'Mozc: OFF'
+bindsym Ctrl+W $noid fcitx-remote -c; mode default; $notify 'Mozc: OFF'
+
+bindsym $Super+U $noid fcitx-remote -s skk; mode $Skk; $alert 'Skk: Activated'
+
+bindsym $Super+1 $noid fcitx-remote -c; mode default; $notify 'Mozc: OFF'; workspace $ws1
+bindsym $Super+2 $noid fcitx-remote -c; mode default; $notify 'Mozc: OFF'; workspace $ws2
+bindsym $Super+3 $noid fcitx-remote -c; mode default; $notify 'Mozc: OFF'; workspace $ws3
+bindsym $Super+4 $noid fcitx-remote -c; mode default; $notify 'Mozc: OFF'; workspace $ws4
+bindsym $Super+5 $noid fcitx-remote -c; mode default; $notify 'Mozc: OFF'; workspace $ws5
+bindsym $Super+6 $noid fcitx-remote -c; mode default; $notify 'Mozc: OFF'; workspace $ws6
+bindsym $Super+7 $noid fcitx-remote -c; mode default; $notify 'Mozc: OFF'; workspace $ws7
+bindsym $Super+8 $noid fcitx-remote -c; mode default; $notify 'Mozc: OFF'; workspace $ws8
+bindsym $Super+9 $noid fcitx-remote -c; mode default; $notify 'Mozc: OFF'; workspace $ws9
+bindsym $Super+0 $noid fcitx-remote -c; mode default; $notify 'Mozc: OFF'; workspace $ws0
+bindsym $Super+H $noid fcitx-remote -c; mode default; $notify 'Mozc: OFF'; focus left
+bindsym $Super+J $noid fcitx-remote -c; mode default; $notify 'Mozc: OFF'; focus down
+bindsym $Super+K $noid fcitx-remote -c; mode default; $notify 'Mozc: OFF'; focus up
+bindsym $Super+L $noid fcitx-remote -c; mode default; $notify 'Mozc: OFF'; focus right
+bindsym $Super+O $noid fcitx-remote -c; mode default; $notify 'Mozc: OFF'; focus mode_toggle; $alert 'Focus: Toggle'
+bindsym $Super+bracketleft  $noid fcitx-remote -c; mode default; $notify 'Mozc: OFF'; workspace prev
+bindsym $Super+bracketright $noid fcitx-remote -c; mode default; $notify 'Mozc: OFF'; workspace next
+
+bindsym $Super+M         $noid fcitx-remote -c; mode default; $notify 'Mozc: OFF'
+bindsym Ctrl+C           $noid fcitx-remote -c; mode default; $notify 'Mozc: OFF'
+bindsym bracketleft      $noid fcitx-remote -c; mode default; $notify 'Mozc: OFF'
+bindsym Ctrl+bracketleft $noid fcitx-remote -c; mode default; $notify 'Mozc: OFF'
+}
+
+# Mode; Skk {{{2
+set $Skk " Skk: (q) カタカナ (l) ASCII "
+bindsym $Super+U $noid fcitx-remote -s skk; mode $Skk; $alert 'Skk: Activated'
+
+mode $Skk {
+# TODO: send-key Ctrl+U and back to the fcitx-state
+bindsym Ctrl+U $noid fcitx-remote -c; mode default; $notify 'Skk: OFF'
+bindsym Ctrl+W $noid fcitx-remote -c; mode default; $notify 'Skk: OFF'
+
+bindsym $Super+M $noid fcitx-remote -s mozc; mode $Mozc; $alert 'Mozc: Activated'
+
+bindsym $Super+1 $noid fcitx-remote -c; mode default; $notify 'Skk: OFF'; workspace $ws1
+bindsym $Super+2 $noid fcitx-remote -c; mode default; $notify 'Skk: OFF'; workspace $ws2
+bindsym $Super+3 $noid fcitx-remote -c; mode default; $notify 'Skk: OFF'; workspace $ws3
+bindsym $Super+4 $noid fcitx-remote -c; mode default; $notify 'Skk: OFF'; workspace $ws4
+bindsym $Super+5 $noid fcitx-remote -c; mode default; $notify 'Skk: OFF'; workspace $ws5
+bindsym $Super+6 $noid fcitx-remote -c; mode default; $notify 'Skk: OFF'; workspace $ws6
+bindsym $Super+7 $noid fcitx-remote -c; mode default; $notify 'Skk: OFF'; workspace $ws7
+bindsym $Super+8 $noid fcitx-remote -c; mode default; $notify 'Skk: OFF'; workspace $ws8
+bindsym $Super+9 $noid fcitx-remote -c; mode default; $notify 'Skk: OFF'; workspace $ws9
+bindsym $Super+0 $noid fcitx-remote -c; mode default; $notify 'Skk: OFF'; workspace $ws0
+bindsym $Super+H $noid fcitx-remote -c; mode default; $notify 'Skk: OFF'; focus left
+bindsym $Super+J $noid fcitx-remote -c; mode default; $notify 'Skk: OFF'; focus down
+bindsym $Super+K $noid fcitx-remote -c; mode default; $notify 'Skk: OFF'; focus up
+bindsym $Super+L $noid fcitx-remote -c; mode default; $notify 'Skk: OFF'; focus right
+bindsym $Super+O $noid fcitx-remote -c; mode default; $notify 'Skk: OFF'; focus mode_toggle; $alert 'Focus: Toggle'
+bindsym $Super+bracketleft  $noid fcitx-remote -c; mode default; $notify 'Skk: OFF'; workspace prev
+bindsym $Super+bracketright $noid fcitx-remote -c; mode default; $notify 'Skk: OFF'; workspace next
+
+bindsym $Super+U         $noid fcitx-remote -c; mode default; $notify 'Skk: OFF'
+bindsym Ctrl+C           $noid fcitx-remote -c; mode default; $notify 'Skk: OFF'
+bindsym bracketleft      $noid fcitx-remote -c; mode default; $notify 'Skk: OFF'
+bindsym Ctrl+bracketleft $noid fcitx-remote -c; mode default; $notify 'Skk: OFF'
 }
 
 # Keybind for Apps {{{1
