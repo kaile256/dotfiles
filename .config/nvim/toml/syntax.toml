@@ -9,14 +9,10 @@ on_if = "index(['', 'terminal', 'i3', 'javascript'], &ft) < 0"
 hook_source = 'runtime source/polyglot.vim'
 #}}}
 
+# Compile
 [[plugins]]
-repo = 'billyvg/tigris.nvim' #{{{
-build = './install.sh'
-#depend = 'node-host'
-# Note: node-host, previously depended on, has been merged into neovim!
-#       Ref: neovim/neovim/pull/7458
-on_ft = ['javascript', 'javascript.jsx']
-hook_source = 'runtime source/tigris.vim'
+repo = 'jackguo380/vim-lsp-cxx-highlight' #{{{
+on_ft = ['c', 'cpp', 'objc', 'objcpp']
 #}}}
 #[[plugins]]
 #repo = 'fatih/vim-go' #{{{
@@ -34,6 +30,23 @@ hook_source = 'runtime source/tigris.vim'
 #on_ft = 'kotlin'
 ##}}}
 #[[plugins]]
+#repo = 'neovimhaskell/haskell-vim' #{{{
+## enough w/ coc.nvim
+#on_ft = 'haskell'
+#hook_post_source = 'runtime add/haskell.vim'
+#}}}
+
+# Interpreter
+[[plugins]]
+repo = 'billyvg/tigris.nvim' #{{{
+build = './install.sh'
+#depend = 'node-host'
+# Note: node-host, previously depended on, has been merged into neovim!
+#       Ref: neovim/neovim/pull/7458
+on_ft = ['javascript', 'javascript.jsx']
+hook_source = 'runtime source/tigris.vim'
+#}}}
+#[[plugins]]
 #repo = 'tbastos/vim-lua' #{{{
 #on_ft = 'lua'
 #hook_source = 'runtime lua.vim'
@@ -45,18 +58,6 @@ hook_source = 'runtime source/tigris.vim'
 #[[plugins]]
 #repo = 'Alloyed/lua-lsp' #{{{
 #on_ft = 'lua'
-#}}}
-#[[plugins]]
-#repo = 'neovimhaskell/haskell-vim' #{{{
-## enough w/ coc.nvim
-#on_ft = 'haskell'
-#hook_post_source = 'runtime add/haskell.vim'
-#}}}
-
-[[plugins]]
-repo = 'yasuhiroki/circleci.vim' #{{{
-if = "expand('%:h:t') =~# '.circleci'"
-on_ft = ['yaml']
 #}}}
 
 # for Shell
@@ -72,6 +73,13 @@ on_ft = 'zsh'
 #repo = 'ericpruitt/tmux.vim' #{{{
 #on_ft = 'tmux'
 ##}}}
+
+# Test
+[[plugins]]
+repo = 'yasuhiroki/circleci.vim' #{{{
+if = "expand('%:h:t') =~# '.circleci'"
+on_ft = ['yaml']
+#}}}
 
 # for Text-like
 [[plugins]]
