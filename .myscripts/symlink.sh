@@ -42,6 +42,7 @@ configs=(
   alacritty
   awesome
   bash
+  dunst # for `notify-send`
   fcitx
   fish
   glrnvim.yml
