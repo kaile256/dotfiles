@@ -64,8 +64,8 @@ if !exists('*s:source_buffer')
     " Note: :undojoin causes an error right after :undo.
     " Note: :undojoin with :w prevents to :undo before :w
     "silent! undojoin
-    if expand('%:p') =~# '^/etc/systemd/logind.conf'
-      !alacritty --title 'TMP' -e sudo systemctl restart systemd-logind
+    if expand('%:p') =~# '/systemd/'
+      !systemctl --user daemon-reload
       return
     endif
 
