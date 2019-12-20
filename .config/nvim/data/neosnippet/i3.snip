@@ -9,3 +9,23 @@ alias #{ #{{
 snippet }}}
 alias }}} } }} pp
   }}}
+
+snippet esc
+alias [ br bra c
+  bindsym Ctrl+C           mode default
+  bindsym bracketleft      mode default
+  bindsym Ctrl+bracketleft mode default
+
+snippet mode
+alias mo mod set
+  set $${1:#:mode} " $1: ${0:#:Commands} "
+  $release $Super+${3:#:key}  mode $$1; $shortmsg '$1s'
+
+  mode $$1 {
+  $release ${4:#:key} exec ${5:#:command}; mode default
+
+  bindsym Ctrl+C           mode default
+  bindsym bracketleft      mode default
+  bindsym Ctrl+bracketleft mode default
+  }
+
