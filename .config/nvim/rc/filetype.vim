@@ -1,9 +1,5 @@
 " From: init.vim
 
-augroup FoldMethodDetection
-  au! BufWinEnter * if search('{{{', 'cwn') | setl fdm=marker | endif
-augroup END
-
 augroup BufTypeAdjustment
   au! BufRead $XDG_DATA_HOME/Trash/**/* setl bt=nofile
 augroup END
@@ -20,6 +16,15 @@ augroup FileTypeAdjustment
         \ && &ft !=# 'tmux'
         \ | setl ft=dosini |
         \ endif
+augroup END
+
+augroup FoldMethodDetection
+  au!
+  au FileType neosnippet setl fdm=indent
+  au BufWinEnter *
+        \ if &fdm ==# 'manual\|syntax'
+        \ && search('{{{\%[\d]$', 'cwn')
+        \ | setl fdm=marker | endif
 augroup END
 
 augroup ReturnToUsualWindow
