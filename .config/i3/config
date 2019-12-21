@@ -38,6 +38,8 @@ set $always exec_always --no-startup-id
 set $locker ~/.config/i3/lock.sh
 
 set $menu alacritty --title fzf-menu --config-file $XDG_CONFIG_HOME/alacritty/dmenu.yml -e i3-dmenu-desktop --dmenu=fzf
+# Note: j4-dmenu-desktop has a bug to regard some descriptions as an app
+#set $menu alacritty --title fzf-menu --config-file $XDG_CONFIG_HOME/alacritty/dmenu.yml -e j4-dmenu-desktop --dmenu=fzf
 for_window [title=^fzf-menu$] floating enable border normal
 
 set $shortmsg exec --no-startup-id notify-send --expire-time 750
@@ -174,7 +176,10 @@ $always $MYSCRIPTS/polybar-launch.sh
 # xrandr: control monitor
 $always $MYSCRIPTS/monitor-try.sh
 # xautolock: a timer to lock screen of PC
-$noid xautolock -time 5 -locker $locker
+# use xss instead of xautolock
+# Note: xss-lock subscribes the systemd-events
+$noid killall --quiet xss-lock; sleep 1; xss-lock -- $locker
+#$noid xautolock -time 5 -locker $locker
 # nitrogen: a wallpaper manager
 # picom: compton is deprecated name
 $noid nitrogen --restore; sleep 1; picom -b
@@ -391,17 +396,21 @@ bindsym Ctrl+bracketleft mode default
 }
 
 # Mode; Systemctl {{{2
-set $Systemctl " Poweroff? (Y)es, (N)o, (H)ybernate (S)uspend, (R)eboot or (L)ock? "
+set $Systemctl " Systemctl: [P]oweroff [R]eboot [L]ock [S]uspend(to RAM) [H]ybernate(to Disk) (B)oth(to RAM & Disk) "
 $release $Super+X mode $Systemctl; $alert 'Systemctl mode'
 
 mode $Systemctl {
 #bindsym S $noid $locker && systemctl suspend, mode default
 #bindsym L $noid i3-msg exit, mode default
 #bindsym K $noid i3-msg exit, mode default
-$release h $noid $locker && systemctl hibernate, mode default
 $release l $noid $locker, mode default
 $release k $noid $locker, mode default
-$release s $noid $locker && systemctl suspend, mode default
+
+$release s $noid $locker && systemctl suspend,      mode default
+# TODO: make swap
+$release h $noid $locker && systemctl hibernate,    mode default
+# hybrid-sleep: the battery depleted left disk
+$release b $noid $locker && systemctl hibrid-sleep, mode default
 
 $release r $noid systemctl reboot,   mode default
 $release p $noid systemctl poweroff, mode default
@@ -557,18 +566,19 @@ bindsym Ctrl+bracketleft mode default
 
 # Mode; Finder {{{2
 # Mnemonic: Finder or File explorer
-set $Finder " Finder: [R]anger [H]unter [P]CManFM(lxde) PCManFM-[Q]t(lxqt) [T]hunar(Xfce) (G)ooglePhoto "
+set $Finder " Finder: [N]nn [R]anger [H]unter [P]CManFM(lxde) PCManFM-[Q]t(lxqt) [T]hunar(Xfce) (G)ooglePhoto "
 $release $Super+F  mode $Finder; $shortmsg 'Finders'
 
 mode $Finder {
-$release p exec pcmanfm; mode default
-$release q exec pcmanfm-qt; mode default
-$release t exec thunar; mode default
+$release P exec pcmanfm; mode default
+$release Q exec pcmanfm-qt; mode default
+$release T exec thunar; mode default
 
-$release r exec alacritty -e ranger; mode default
-$release h exec alacritty -e hunter; mode default
+$release N exec terminal -e nnn; mode default
+$release R exec terminal -e ranger; mode default
+$release H exec alacritty -e hunter; mode default
 
-$release g exec google-photo; mode default
+$release G exec google-photo; mode default
 
 bindsym Ctrl+C           mode default
 bindsym bracketleft      mode default
@@ -611,7 +621,7 @@ bindsym Ctrl+bracketleft $noid fcitx-remote -c; mode default; $notify 'Mozc: OFF
 }
 
 # Mode; Skk {{{2
-set $Skk " Skk: (q) カタカナ (l) ASCII "
+set $Skk " Skk: (q) kata/hira (l) ASCII "
 bindsym $Super+U $noid fcitx-remote -s skk; mode $Skk; $alert 'Skk: Activated'
 
 mode $Skk {
