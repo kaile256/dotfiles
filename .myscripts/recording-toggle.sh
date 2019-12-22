@@ -17,13 +17,9 @@ else
 
   peek --no-headerbar
 
-  while true; do
-    sleep 1
-    if ! pgrep peek >/dev/null; then
-      killall --quiet screenkey ffmpeg
-      notify-send --expire-time 1100 "Recording: END"
-      break
-    fi
-  done
+  while pgrep -x peek; do sleep 1; done
+
+  killall --quiet screenkey ffmpeg
+  notify-send --expire-time 1100 "Recording: END"
 fi
 
