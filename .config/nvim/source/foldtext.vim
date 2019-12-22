@@ -5,7 +5,7 @@
 " Note: better than FoldCCtext(), which isn't a set of autoload-functions
 set foldtext=foldtext#text()
 " Note: len(v:foldlevel) is a candidate in foldtext
-let g:foldtext#text_head = 'v:folddashes'
+let g:foldtext#text_head = "v:foldlevel > 1 ? v:foldlevel .')' : v:folddashes "
 let g:foldtext#text_tail = "' '. v:folddashes .'['. (v:foldend - v:foldstart + 1) .']'"
 " Note: the length will be adjusted automatically, that is the maxchar
 let g:foldtext#text_maxchars = 78
