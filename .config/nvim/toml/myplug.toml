@@ -30,12 +30,6 @@ hook_post_source = 'runtime post/keymaps-dealer.vim'
 #}}}
 
 [[plugins]]
-repo = 'kaile256/vim-foldcolors' #{{{
-on_event = ['BufNewFile', 'BufRead']
-hook_source = 'runtime source/foldcolors.vim'
-#}}}
-
-[[plugins]]
 repo = 'kaile256/vim-lines-in-functions' #{{{
 on_cmd = ['LinesFunctions']
 #}}}
@@ -59,11 +53,17 @@ hook_add = 'runtime add/spell-temporary.vim'
 [[plugins]]
 repo = 'kaile256/vim-findpath' #{{{
 on_cmd = 'FindPath'
-hook_add = 'runtime add/findpath.vim'
+#hook_add = 'runtime add/findpath.vim'
 #}}}
 
 [[plugins]]
 repo = 'kaile256/vim-help-toc' #{{{
 on_ft = ['help', 'man']
 hook_source = 'runtime source/help-toc.vim'
+#}}}
+
+[[plugins]]
+repo = 'kaile256/vim-foldtext' #{{{
+on_event = ['BufWinEnter']
+hook_source = 'runtime source/foldtext.vim'
 #}}}
