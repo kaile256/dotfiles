@@ -2,8 +2,7 @@ snippet dein's toml format
 alias vi vim de dein [[ pp [[]]
 options head
   [[plugins]]
-  repo = '${1:}' #{{{
-  #}}}
+  repo = '${1:}'
 
 snippet #{{{ begining of fold
 alias { #{ #{{ #{{{ {} #{} #{{}} #{{{}}}
@@ -15,7 +14,7 @@ snippet ##}}} end of fold; ver. commented-out
 alias ## ##| ##||
   ##}}}
 
-# for dein's hook {{{
+# for dein's hook {{{1
 snippet hook_add
 alias ad add
   hook_add = 'runtime add/${1:`substitute(substitute(substitute(matchstr(getline(search('repo =', 'bnW')), "'.*'"), "'", '', 'g'), '.*/', '', ''), '.vim\|vim-', '', 'g')`}.vim'
@@ -67,4 +66,3 @@ alias bu bui ins install
 snippet type
 alias ty typ
   type = 'git${0}'
-#}}}
