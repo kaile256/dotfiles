@@ -20,9 +20,8 @@ augroup UpdatePathToFind
   au FileType dosini setl suffixesadd=.conf
   au FileType vim    setl isfname-==
 
-  " why ':au BufWinEnter {*vim,dein}/**' doesn't work?
-  au BufWinEnter {*vim,dein}/**             call s:path.vim()
-  au BufWinEnter **/{.config,dotfiles}/**/* call s:path.dotfiles()
+  au BufWinEnter {*vim,dein}**/*        call s:path.vim()
+  au BufWinEnter {.config,dotfiles}**/* call s:path.dotfiles()
 augroup END
 
 let s:path = {}
@@ -30,7 +29,7 @@ let s:path = {}
 function! s:path.dotfiles() abort
   if expand('%:p') =~# '/*vim/' | return | endif
 
-  exe 'setl path+='. g:dotfiles_home .'/.config/nvim/**'
+  exe 'setl path+='. g:dotfiles_home .'/.config/**'
   exe 'setl path+='. $GHQ_ROOT       .'/**'
   exe 'setl path+='. '/etc'
   exe 'setl path+='. $XDG_DATA_HOME  .'/**'
