@@ -23,6 +23,10 @@ let g:quickrun_config['vim'] = {
       \ 'command': 'w | !vint --enable-neovim',
       \ }
 
+command! -nargs=* -range=0 -complete=customlist,quickrun#complete
+      \ Qu
+      \ :call quickrun#command(<q-args>, <count>, <line1>, <line2>)
+
 " Mnemonic: pseudo Source
 nmap \s <Plug>(quickrun-op)
 "nnoremap <silent> \ss :<c-u>QuickRun<cr>
