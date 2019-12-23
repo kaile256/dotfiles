@@ -25,8 +25,6 @@ alias screenkey-below-for-left-window 'screenkey -g 950x1000 -t 0.5 &'
 
 # Fzf
 # Note: fzf --bind to execute(cd {}) doesn't work; use 'accept' instead
-alias fzf-fonts 'fc-list | fzf'
-
 alias fzf-ghq "cd (ghq list --full-path | fzf --bind 'ctrl-v:execute(nvr {})')"
 alias gz fzf-ghq
 alias zg fzf-ghq
