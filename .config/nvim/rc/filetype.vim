@@ -24,7 +24,8 @@ augroup END
 
 augroup FoldMethodDetection
   au!
-  au FileType json       setl fdm=syntax
+  " Note: fdm=syntax on json sometimes shows only '{ <blank>' line.
+  au FileType json       setl fdm=indent
   au FileType neosnippet setl fdm=indent
 
   au BufRead * if line('w$') != line('$') | setl fdl=1 | endif
