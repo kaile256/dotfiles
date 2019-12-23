@@ -18,3 +18,5 @@ endfunction
 augroup myTransparent
   au! Colorscheme * call s:transparent()
 augroup END
+
+call s:transparent()
