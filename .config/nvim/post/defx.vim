@@ -20,6 +20,7 @@ scriptencoding utf-8
 "let g:defx_icons_root_opened_tree_icon = ''
 "let g:defx_icons_nested_opened_tree_icon = ''
 "let g:defx_icons_nested_closed_tree_icon = ''
+
 " call defx#custom#foo() {{{1
 call defx#custom#option('_', {
       \ 'columns': 'mark:indent:git:icons:filename',
