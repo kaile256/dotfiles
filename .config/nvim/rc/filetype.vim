@@ -10,6 +10,10 @@ augroup FileTypeAdjustment
   au BufNewFile,BufRead *.snip   setl ft=neosnippet
   au BufNewFile,BufRead *.dict   setl ft=skkdict
   au BufNewFile,BufRead .vmailrc setl ft=yaml
+  au BufWinEnter .*
+        \ if &ft ==# ''
+        \ && search('fi$\|esac$', 'cwn')
+        \ | setl ft=sh | endif
 
   au BufNewFile,BufRead **/*conf*
         \ if (&ft ==# '' || &ft ==# 'conf')
@@ -20,9 +24,12 @@ augroup END
 
 augroup FoldMethodDetection
   au!
+  au FileType json       setl fdm=syntax
   au FileType neosnippet setl fdm=indent
+
+  au BufRead * if line('w$') != line('$') | setl fdl=1 | endif
   au BufWinEnter *
-        \ if &fdm ==# 'manual\|syntax'
+        \ if &fdm ==# ('manual' || 'syntax')
         \ && search('{{{\%[\d]$', 'cwn')
         \ | setl fdm=marker | endif
 augroup END
