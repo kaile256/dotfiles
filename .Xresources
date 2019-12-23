@@ -24,9 +24,11 @@ URxvt.visualBell:           false
 URxvt.saveLines:            3000
 
 !!! Color Scheme and Opacity - gruvbox-dark https://github.com/morhetz/gruvbox
-! [100]: 100% itself; background is completely itself
-! [0]:   0% itself; fake-background
-!URxvt.depth: 50
+! Note: apply the opacity on color config in `[]`
+! Note: work on a window-manager
+!       which supports a composite-manager like xcompmgr or picom
+! Note: keep 'depth' 32
+URxvt.depth: 32
 
 !! 'transparent': only in fake; for true one, use 'depth'
 !!                adjust by 'shading'
@@ -35,7 +37,7 @@ URxvt.saveLines:            3000
 
 ! Fading if not focused (%)
 ! i.e., Transparency
-URxvt.fading:               100
+!URxvt.fading: 100
 
 ! Font list and Spacing
 URxvt.allow_bold: true
@@ -70,6 +72,8 @@ URxvt.letterSpace:          -1
 !URxvt.background:  [90]black
 
 ! Colorscheme: Neodark
+! [100]: 100% itself; background is completely itself
+! [0]:   0% itself; fake-background
 URxvt.color0:      [90]#AE8785    /* black          */
 URxvt.color1:      [90]#DC657D    /* red            */
 URxvt.color2:      [90]#84B97C    /* green          */
@@ -89,7 +93,7 @@ URxvt.color15:     [90]#d7af87    /* bright white   */
 !URxvt.foreground:  [90]#ebdbb2
 !URxvt.background:  [90]#282828
 URxvt.foreground:  [90]white
-URxvt.background:  [90]black
+URxvt.background:  [60]black
 
 !! Italic/Bold/UnderLine
 !URxvt.colorIT:     [90]#8ec07c
