@@ -6,8 +6,8 @@
 include-file = ~/.config/polybar/commons.conf
 include-file = ~/.config/polybar/colors/adapta.conf
 
+;[[[bar]]]
 [include]
-#[bar]
 ;; Logs: /tmp/polybar-top.log
 ;include-file = ~/.config/polybar/bar/top.ini
 
