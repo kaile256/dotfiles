@@ -2,7 +2,8 @@
 
 [Hotkey]
 # Trigger Input Method
-TriggerKey=SUPER_U
+# Note: suppress default config under /etc
+TriggerKey=ALT_R_SHIFT
 # Use extra trigger key only after using it to inactivate
 # Available Value:
 # True False
