@@ -132,9 +132,9 @@ augroup END
 
 augroup DeinTomlAutoConf "{{{1
   au!
-  " TODO: make it work
-  au BufWinEnter vim**.toml setl keywordprg=:vert\ help
-  au BufWinEnter filetype.toml setl syn=vim
+  au BufEnter *vim**/*.toml setl keywordprg=:help
+  " Note: keep it unused; unreloadable by `:source`
+  "au BufWinEnter filetype.toml setl syn=vim
 augroup END
 
 " unlet {{{1
