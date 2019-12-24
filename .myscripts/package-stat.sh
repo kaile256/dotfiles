@@ -8,7 +8,7 @@ package_check() {
       CHECKER='checkupdates'
     fi
 
-    if ! updates=$($CHECKER 2> /dev/null | wc -l); then
+    if ! updates=$("$CHECKER" 2> /dev/null | wc -l); then
       updates=0
     fi
   fi
