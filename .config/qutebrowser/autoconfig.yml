@@ -140,6 +140,7 @@ settings:
         <Ctrl+j>: fake-key <Enter>
         <Ctrl+m>: fake-key <Enter>
         <Ctrl+n>: fake-key <Down>
+        <Ctrl+o>u: fake-key <undo>
         <Ctrl+p>: fake-key <Up>
         <Ctrl+q>: open-editor
         <Ctrl+r>0: insert-text {primary}
@@ -167,6 +168,7 @@ settings:
         <Ctrl++>: zoom-in
         <Ctrl+->: zoom-out
         <Ctrl+2>: save
+        <Ctrl+Shift+n>: open -w
         <Ctrl+c>: stop;; clear-keychain
         <Ctrl+e>: scroll-px 0 +50
         <Ctrl+h>: tab-prev
@@ -185,12 +187,14 @@ settings:
         <Ctrl+w><Ctrl+p>: tab-pin
         <Ctrl+w><Ctrl+t>: tab-give
         <Ctrl+w><Ctrl+v>: tab-clone
+        <Ctrl+w>N: open -p
         <Ctrl+w>Q: close
         <Ctrl+w>T: tab-give
         <Ctrl+w>Z: close
         <Ctrl+w>c: tab-close
         <Ctrl+w>h: tab-move -
         <Ctrl+w>l: tab-move +
+        <Ctrl+w>n: open -w
         <Ctrl+w>o: tab-only
         <Ctrl+w>s: tab-clone
         <Ctrl+w>v: tab-clone
@@ -226,9 +230,15 @@ settings:
         T: null
         U: undo
         V: enter-mode caret;; toggle-selection
+        ZC: close
+        ZE: close
         ZQ: tab-close
+        ZY: quit
         ZZ: tab-close
+        Zc: close
+        Ze: close
         Zq: tab-close
+        Zy: quit
         Zz: tab-close
         \<Space>: record-macro
         a: fake-key <right> ;; enter-mode insert
@@ -256,6 +266,7 @@ settings:
         l: fake-key <right>
         mode: drop-selection
         p: open {clipboard}
+        q: null
         qa: quit
         qq: tab-close
         qv: set-cmd-text -s :open

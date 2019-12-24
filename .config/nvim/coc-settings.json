@@ -104,8 +104,9 @@
   "yank.limit": 200,
 
   //"highlight.disableLanguages": [""],
+  // too many memory would be used
   "highlight.document.enable": false,
-  //"highlight.colors.enable": false,
+  "highlight.colors.enable": true,
 
   "translator.engines": ["google"],
   "translator.toLang": "en",
