@@ -16,9 +16,11 @@ augroup CocMyAutoConf
   "au CursorHold * silent call CocActionAsync('highlight')
 augroup END
 
-" Ref: coc/extensions/node_modules/coc-vimlsp/README.md
+" Ref: $XDG_CONFIG_HOME/coc/extensions/node_modules/coc-vimlsp/README.md
 let g:markdown_fenced_languages = [
       \ 'vim',
+      \ 'sh',
+      \ 'python',
       \ 'help'
       \]
 
@@ -109,7 +111,7 @@ command! -nargs=* -complete=custom,coc#list#options Clist
       \ :call coc#rpc#notify('openList', [<f-args>])
 
 " Original {{{2
-command! -nargs=? S :CocCommand session.save <args>
+command! -nargs=? Se :CocCommand session.save <args>
 " Mnemonic: Load sessions
 "command! L        :Clist sessions
 "command! Sessions :Clist sessions
@@ -188,16 +190,17 @@ endfunction
 " TODO: add fugitive#EditComplete to coc#refresh's list.
 inoremap <silent><expr> <c-n>
       \ pumvisible() ? "\<C-n>" :
-      \ <SID>make_sure_no_space() ? "\<c-n>" :
+      \ <SID>no_space_before() ? "\<c-n>" :
       \ coc#refresh()
 inoremap <silent><expr> <c-p>
       \ pumvisible() ? "\<C-p>" :
-      \ <SID>make_sure_no_space() ? "\<c-p>" :
+      \ <SID>no_space_before() ? "\<c-p>" :
       \ coc#refresh()
-function! s:make_sure_no_space() abort "{{{2
+function! s:no_space_before() abort "{{{2
   let col = col('.') - 1
   return !col || getline('.')[col - 1] =~# '\s'
 endfunction
+
 " CocDiagnostic {{{1
 " Note: Unnecessary? pop up auto.
 "nmap \wi <Plug>(coc-diagnostic-info)
@@ -284,15 +287,16 @@ function! s:quick_format() abort
 endfunction
 command! -bar QuickFormat :call s:quick_format()
 
-omap <expr> s (v:operator ==# '=')? ':echo "@"<cr>': ':echo "nothing"<cr>'
-
 " TODO: make a fork if prettier is available.
-omap <expr><silent> =
-      \ (v:operator ==# 'c')?
-      \   '<esc><Plug>(coc-rename)':
-      \ (v:operator ==# '=')?
-      \   '<esc>:QuickFormat<cr>':
-      \   '='
+"omap <expr><silent> =
+"      \ (v:operator ==# 'c')?
+"      \   '<esc><Plug>(coc-rename)':
+"      \ (v:operator ==# '=')?
+"      \   '<esc>:QuickFormat<cr>':
+"      \   '='
+
+nmap c= <Plug>(coc-rename)
+nmap <silent> == :<c-u>QuickFormat<cr>
 
 augroup myCocPrettier
   au!
@@ -326,9 +330,7 @@ nmap \aa <Plug>(coc-codeaction)
 nmap \a  <Plug>(coc-codeaction-selected)
 xmap \a  <Plug>(coc-codeaction-selected)
 " CocWorkspace {{{1
-noremap! <c-x><c-;> <esc>q:
-noremap! <c-x><c-/> <esc>q/
-command! Rename CocCommand workspace.renameCurrentFile
+command! Rename :CocCommand workspace.renameCurrentFile
 
 " CocRange, or Multiple Cursor {{{1
 hi CocCursorRange guibg=#b16286 guifg=#ebdbb2
@@ -347,11 +349,13 @@ hi CocCursorRange guibg=#b16286 guifg=#ebdbb2
 command! ColoFormat  :call CocAction('colorPresentation')
 command! ColoPalette :call CocAction('pickColor')
 nnoremap <space>cp :ColoPalette<cr>
+
 " CocList; {{{1
 " show commit contains current position
 nnoremap <silent> <space>cl :Clist<cr>
 nnoremap <silent> <space>cf :Clist files<cr>
 nnoremap <silent> <space>cb :Clist buffers<cr>
+
 " CocBookmark; {{{1
 nmap ma <Plug>(coc-bookmark-annotate)
 nmap mj <Plug>(coc-bookmark-next)
@@ -374,26 +378,32 @@ command! GchunkAdd :CocCommand git.chunkStage
 " Mnemonic: Git Put (similar to dp as diffput)
 nnoremap <space>gp :<c-u>GaddChunk<cr>
 " TODO: for-loop in range because no range available yet.
-xmap <space>gp <Plug>(coc-git-add-chunk)
+xmap <space>ga <Plug>(coc-git-add-chunk)
+" Note: :Gstatus within one command/keymap doesn't work.
+xnoremap <silent> <Plug>(coc-git-add-chunk)
+      \ :call coc#git_add_chunks()<cr>
 
-function coc#git_add_chunk() abort range
+function coc#git_add_chunks() abort range
   let save_view = winsaveview()
-  exe line("'<")
-  " TODO: be available in normal mode
-  while line('.') <= line("'>")
+  exe a:firstline
+  let c_line = line('.')
+  " TODO: be available in normal mode as an operator
+  while c_line <= a:lastline
     " FIXME: still useless, even freezes vim.
-    call feedkeys(":CocCommand git.chunkStage\<cr>", 'n')
-    call feedkeys('gj', 'n')
+    "call feedkeys(":CocCommand git.chunkStage\<cr>", 'n')
+    "call feedkeys('j', 'n')
+    CocCommand git.chunkStage
+    norm! j
+    let c_line += 1
   endwhile
   " Note: only to scroll down a fugitive-buffer.
   "Gstatus
-  "call feedkeys(":call winrestview(save_view)<cr>", 'n')
+  "call feedkeys(":call winrestview(save_view)\<cr>", 'n')
+  call winrestview(save_view)
 endfunction
-" Note: :Gstatus within one command/keymap doesn't work.
-xnoremap <silent> <Plug>(coc-git-add-chunk)
-      \ :<c-u>call coc#git_add_chunk()<cr>
 
 nnoremap U :CocCommand git.chunkUndo<cr>
+
 command! -nargs=? Gfold :CocCommand git.foldUnchanged
 function! coc#git_fold_toggle() abort
   if &l:fdm !=# 'manual'
