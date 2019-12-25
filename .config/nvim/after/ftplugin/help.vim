@@ -1,5 +1,7 @@
 " From: filetype.vim
 
+setl fdt=foldpeek#text()
+
 if &readonly && !&modifiable
   norm! zz
   setl nonumber signcolumn= nolist fdl=0
