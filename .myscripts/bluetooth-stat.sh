@@ -1,6 +1,8 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
 # Ref: $GHQ_ROOT/github.com/polybar/polybar-scripts/polybar-scripts/system-bluetooth-bluetoothctl
+
+set -Ce
 
 ICON_OFF=ᚼ
 ICON_ON=ᛒ
@@ -12,9 +14,10 @@ bluetooth_print() {
   fi
 
   bluetoothctl | while read -r; do
-  if [ "$(systemctl is-active "bluetooth.service")" = "active" ]; then
+  #if [ "$(systemctl is-active "bluetooth.service")" = "active" ]; then
+  if bluetooth | grep on >/dev/null; then
     # Note: use Runic Font like 'junicode'
-    echo $ICON_ON
+    printf "%s" $ICON_ON
 
     devices_paired=$(bluetoothctl paired-devices | grep Device | cut -d ' ' -f 2)
     counter=0
@@ -33,8 +36,6 @@ bluetooth_print() {
 
       counter=$((counter + 1))
     fi
-
-    printf '\n'
   done
 else
   echo "see ${MYSCRIPTS}/bluetooth-stat.sh"
@@ -51,6 +52,7 @@ bluetooth_toggle() {
     echo
     sudo bluetooth off
     notify-send --expire-time 3500 'Bluetooth: OFF'
+    read -r -p "Press enter to close this window..."
   else
     echo
     echo "Bluetooth: Bluetooth is currently OFF"
@@ -59,32 +61,35 @@ bluetooth_toggle() {
     sudo bluetooth on
     __bluetoothctl_toggle
     notify-send --expire-time 3500 --urgency critical "Bluetooth: Activated"
+    read -r -p "Press enter to close this window..."
   fi
 }
 
-__bluetoothctl_toggle() {
-  if bluetoothctl show | grep -q "Powered: no"; then
-    bluetoothctl power on >> /dev/null
-    sleep 1
-
-    devices_paired=$(bluetoothctl paired-devices | grep Device | cut -d ' ' -f 2)
-    echo "$devices_paired" | while read -r line; do
-    bluetoothctl connect "$line" >> /dev/null
-
-    if $line >/dev/null; then
-      notify-send --expire-time 3500 --urgency critical "Bluetooth: $line is paired"
-    fi
-  done
-else
-  devices_paired=$(bluetoothctl paired-devices | grep Device | cut -d ' ' -f 2)
-  echo "$devices_paired" | while read -r line; do
-  bluetoothctl disconnect "$line" >> /dev/null
-done
-
-bluetoothctl power off >> /dev/null
-notify-send --expire-time 3500 'Bluetooth: No device is connected'
-  fi
-}
+#__bluetoothctl_toggle() {
+#  if bluetoothctl show | grep -q "Powered: no"; then
+#    bluetoothctl power on >> /dev/null
+#    sleep 1
+#
+#    devices_paired=$(bluetoothctl paired-devices | grep Device | cut -d ' ' -f 2)
+#    echo "$devices_paired" | while read -r line; do
+#    bluetoothctl connect "$line" >> /dev/null
+#
+#    if $line >/dev/null; then
+#      notify-send --expire-time 3500 --urgency critical "Bluetooth: $line is paired"
+#    fi
+#  done
+#  read -r -p "Press enter to close this window..."
+#else
+#  devices_paired=$(bluetoothctl paired-devices | grep Device | cut -d ' ' -f 2)
+#  echo "$devices_paired" | while read -r line; do
+#  bluetoothctl disconnect "$line" >> /dev/null
+#  read -r -p "Press enter to close this window..."
+#done
+#
+#bluetoothctl power off >> /dev/null
+#notify-send --expire-time 3500 'Bluetooth: No device is connected'
+#  fi
+#}
 
 case "$1" in
   --toggle)

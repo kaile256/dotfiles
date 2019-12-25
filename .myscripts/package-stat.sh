@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+set -Ce
+
 package_check() {
   if type pacman >/dev/null; then
     if type yay >/dev/null; then
@@ -8,7 +10,7 @@ package_check() {
       CHECKER='checkupdates'
     fi
 
-    if ! updates=$("$CHECKER" 2> /dev/null | wc -l); then
+    if ! updates=$("${CHECKER}" /dev/null 2>&1 | wc -l); then
       updates=0
     fi
   fi

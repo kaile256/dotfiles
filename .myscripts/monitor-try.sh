@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 # From: i3/config
+set -Ceu
 
 off=$(xrandr --query | grep " disconnected" | cut -d" " -f1)
 for m in $off; do
