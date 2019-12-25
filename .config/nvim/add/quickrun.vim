@@ -23,6 +23,16 @@ let g:quickrun_config['vim'] = {
       \ 'command': 'w | !vint --enable-neovim',
       \ }
 
+" Ref: https://qiita.com/ssh0/items/2113db858ba5c9fd05df
+let g:quickrun_config['texmath'] = {
+      \ 'command': 'texmath',
+      \ 'outputter': 'error',
+      \ 'outputter/error/success': 'null',
+      \ 'outputter/error/error': 'quickfix',
+      \ 'srcfile': expand("%s"),
+      \ 'exec': '%c %s',
+      \ }
+
 command! -nargs=* -range=0 -complete=customlist,quickrun#complete
       \ Qu
       \ :call quickrun#command(<q-args>, <count>, <line1>, <line2>)
