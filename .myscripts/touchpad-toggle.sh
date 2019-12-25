@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+set -Ceu
+
 if xinput list Elan\ Touchpad | grep disabled >/dev/null ; then
   xinput enable Elan\ Touchpad
   notify-send --expire-time 1200 --urgency critical 'TouchPad: Activated'
