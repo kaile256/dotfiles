@@ -1,5 +1,5 @@
-snippet HEAD
-alias hea head
+snippet HEAD for vim's doc
+alias hea head vim doc
   *`expand('%:p') =~# 'doc' ? substitute(matchstr(expand('%:p'),'doc/\zs.*\ze.txt'),'[/\\]','#','g') : ''`.txt*
   `expand('%:p') =~# 'doc' && expand('%:p') =~# '_' ? '*'. substitute(substitute(matchstr(expand('%:p'),'doc/\zs.*\ze.txt'),'[/\\]','#','g'), '_', '\-', 'g') .'* *'. substitute(substitute(matchstr(expand('%:p'),'doc/\zs.*\ze.txt'),'[/\\]','#','g'), '_', '', 'g') .'*' : 'no-underbar; delete this line'`
 
@@ -7,7 +7,7 @@ alias hea head
   Author: kaile256 <kaile256acc at gmail.com>
   License: MIT license
 
-snippet TOC
+snippet TOC for vim
 alias toc contents con
 options head
   ==============================================================================
@@ -35,7 +35,7 @@ alias usa
   ------------------------------------------------------------------------------
   FUNCTION					*`expand('%:p') =~# 'doc' ? substitute(matchstr(expand('%:p'),'doc/\zs.*\ze.txt'),'[/\\]','#','g') : ''`-function*
 
-  `expand('%:p') =~# 'doc' ? substitute(matchstr(expand('%:p'),'doc/\zs.*\ze.txt'),'[/\\]','#','g') : ''`#()				*`expand('%:p') =~# 'doc' ? substitute(matchstr(expand('%:p'),'doc/\zs.*\ze.txt'),'[/\\]','#','g') : ''`-`expand('%:p') =~# 'doc' ? substitute(matchstr(expand('%:p'),'doc/\zs.*\ze.txt'),'[/\\]','#','g') : ''`
+  `expand('%:p') =~# 'doc' ? substitute(matchstr(expand('%:p'),'doc/\zs.*\ze.txt'),'[/\\]','#','g') : ''`#()				*`expand('%:p') =~# 'doc' ? substitute(matchstr(expand('%:p'),'doc/\zs.*\ze.txt'),'[/\\]','#','g') : ''`-`expand('%:p') =~# 'doc' ? substitute(matchstr(expand('%:p'),'doc/\zs.*\ze.txt'),'[/\\]','#','g') .'*' : ''`
 
 snippet tail
 alias end tai
