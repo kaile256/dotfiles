@@ -60,7 +60,7 @@ if exists('g:GuiLoaded')
   "GuiLinespace -2
   "GuiFont! NotoSansMono Nerd Font:h14
 
-  GuiLinespace 0
+  GuiLinespace 1
   " SF Mono; San Francisco Mono
   " Note: &guifont also available
   " $ fc-list | rg Nerd | fzf
