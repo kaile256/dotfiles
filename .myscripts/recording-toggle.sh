@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+set -Cue
+
 if pgrep screenkey || pgrep peek ; then
   killall --quiet screenkey peek
 else
