@@ -41,7 +41,7 @@ alias ma map
 
 snippet on_func
 alias fu fn fun func
-  on_func =  ['`substitute(substitute(substitute(matchstr(getline(search('repo =', 'bnW')), "'.*'"), "'", '', 'g'), '.*/', '', ''), '.vim\|vim-', '', 'g')`#${0}']
+  on_func =  ['`substitute(substitute(substitute(substitute(matchstr(getline(search('repo =', 'bnW')), "'.*'"), "'", '', 'g'), '.*/', '', ''), '.vim\|vim-', '', 'g'), '-', '_', 'g')`#${0}']
 
 snippet on_cmd
 alias cm cmd com
