@@ -1,11 +1,13 @@
 #!/usr/bin/env bash
 
-# C-option: do not overwrite on redirect; replace '>' with '>|' to surely overwite a file.
-# u-option: stop if an undefined variable is set, or undefined var shall be regarded as null.
-#           (e.g., var=foo && rm -fr ~/"$bar" shall remove all of '~')
-# e-option: stop if error (non 0); add '&& true' to continue even when error;
-
-#  CAUTION: DON'T set e-option on files sourced from .profile/.bashrc; an error prohibits boot-system.
+# C: prohibit to overwrite file on redirect;
+#   use '>|' instead of '>' to overwite a file with '-C'
+# u: stop if an undefined variable is set, or undefined var shall be regarded
+#   as null; otherwise, `var=foo && rm -fr ~/"$bar"` shall remove all under '~'.
+#   Be careful that $1 also stops the script with '-u'.
+# e: stop if error (non 0); add '&& true' to continue even when error with '-e'.
+#   DON'T set '-e' on files sourced from .profile/.bashrc;
+#   an error prevents to boot your system.
 
 set -Cue
 
@@ -33,9 +35,9 @@ fi
 ## $XDG programs;
 echo 'making symbolic links...'
 #vimData=(
-#  #backup
-#  #swap
-#  #undo
+#  backup
+#  swap
+#  undo
 #)
 
 configs=(
@@ -134,3 +136,5 @@ SYMBOLIC LINKS COMPLETED
 ================================================================================
 
 END
+
+[[ -x notify-send ]] || notify-send --expire-time 1800 'Symbol links are created correctly'
