@@ -1,5 +1,8 @@
 " From: init.vim
 
+" diff set foldcolumn=1
+set foldcolumn=0
+
 if get(g:, 'loaded_lazy_diff', 0) | finish | endif
 let g:loaded_lazy_diff = 1
 
