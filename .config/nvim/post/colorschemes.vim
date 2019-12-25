@@ -26,18 +26,19 @@ let g:terminal_color_15 = '#eeeeec'
 
 " functions in highlight-group {{{1
 function! s:neodark_diff(...) abort "{{{2
-  hi DiffAdd cterm=reverse gui=reverse ctermfg=108 ctermbg=237 guifg=#87af87 guibg=#3a3a3a
-  hi DiffRemove  cterm=reverse gui=reverse ctermfg=167 guifg=#fb4934
+  hi DiffAdd    cterm=reverse gui=reverse ctermfg=108 ctermbg=237 guifg=#87af87 guibg=#3a3a3a
+  hi DiffRemove cterm=reverse gui=reverse ctermfg=167 guifg=#fb4934
   hi DiffDelete cterm=reverse gui=reverse ctermfg=168 ctermbg=237 guifg=#d75f87 guibg=#3a3a3a
   " the line which has difference between the one and the other.
   hi DiffChange cterm=reverse gui=reverse ctermfg=179 ctermbg=237 guifg=#d7af5f guibg=#3a3a3a
   " the differed characters within DiffChange
-  hi DiffText cterm=reverse gui=reverse ctermfg=74 ctermbg=236 guifg=#5fafd7 guibg=#303030
+  hi DiffText   cterm=reverse gui=reverse ctermfg=74  ctermbg=236 guifg=#5fafd7 guibg=#303030
 
   " for fugitive
-  hi diffAdded cterm=reverse gui=reverse ctermfg=108 guifg=#87af87
+  hi diffAdded   cterm=reverse gui=reverse ctermfg=108 guifg=#87af87
   hi diffRemoved cterm=reverse gui=reverse ctermfg=168 guifg=#d75f87
 endfunction
+
 function! s:gruvbox_diff(...) abort "{{{2
   hi DiffAdd     cterm=reverse gui=reverse ctermfg=142 guifg=#b8bb26
   " the line of which only the other has.
@@ -58,33 +59,18 @@ function! s:gruvbox_diff(...) abort "{{{2
   hi diffLine    cterm=reverse gui=reverse ctermfg=109 guifg=#36b383
 endfunction
 
-"hi Folded ctermfg=59 ctermbg=236 guifg=#5f5f5f guibg=#303030
-
-function! s:transparent() abort "{{{1
-  hi Normal      ctermbg=none guibg=none
-  hi NonText     ctermbg=none guibg=none
-  hi LineNr      ctermbg=none guibg=none
-  hi Folded      ctermbg=none guibg=none
-  hi EndOfBuffer ctermbg=none guibg=none
-  hi CursorLine  ctermbg=none guibg=none
-  hi SignColumn  ctermbg=none guibg=none
-
-  hi Comment ctermfg=245 guifg=#8a8a8a
-
-  " Note: other apps out of nvim is still invisible
-  "hi NormalFloat ctermbg=none guibg=none
-endfunction
-
 function! s:my_commons() abort "{{{1
 
   " coc.nvim supports
   hi HighlightedyankRegion ctermfg=232 ctermbg=66 guifg=#000000 guibg=#df5f29
-  hi CocErrorHighlight ctermfg=red  guifg=#ff0000
+  hi CocErrorHighlight     ctermfg=red guifg=#ff0000
 
   hi CursorIM guibg=#fabd1f
 
+  "hi Folded ctermfg=59 ctermbg=236 guifg=#5f5f5f guibg=#303030
+
   if $ALACRITTY_LOG =~# '\.log$'
-    call s:transparent()
+    runtime rc/transparent.vim
   endif
 endfunction
 
@@ -150,28 +136,3 @@ endif
 
 " Note: have to call here to activate the config
 call s:my_commons()
-
-finish "{{{1
-
-let histring = [ 'hi', a:group,
-      \ 'guifg=' . fg[0], 'ctermfg=' . fg[1],
-      \ 'guibg=' . bg[0], 'ctermbg=' . bg[1],
-      \ 'gui=' . emstr[:-2], 'cterm=' . emstr[:-2]
-      \ ]
-
-" special
-if a:0 >= 3
-  call add(histring, 'guisp=' . a:3[0])
-endif
-
-execute join(histring, ' ')
-" Arguments: group, guifg, guibg, gui, guisp
-" i.e., guisp = s:inverse
-call s:HL('DiffDelete', s:red, s:bg0, s:inverse)
-call s:HL('DiffAdd',    s:green, s:bg0, s:inverse)
-"call s:HL('DiffChange', s:bg0, s:blue)
-"call s:HL('DiffText',   s:bg0, s:yellow)
-
-" Alternative setting
-call s:HL('DiffChange', s:aqua, s:bg0, s:inverse)
-call s:HL('DiffText',   s:yellow, s:bg0, s:inverse)
