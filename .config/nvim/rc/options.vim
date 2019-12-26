@@ -102,7 +102,7 @@ augroup END
 " Column {{{2
 " show line number on left
 set number
-set colorcolumn=81
+set colorcolumn=80
 " signcolumn is the line beside numbers.
 set signcolumn=auto
 " Statusbar {{{2
