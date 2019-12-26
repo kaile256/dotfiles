@@ -2,6 +2,11 @@
 
 " diff set foldcolumn=1
 set foldcolumn=0
+setl nowinfixwidth nowinfixheight
+
+"if winnr() == 1
+"  setl nonumber
+"endif
 
 if get(g:, 'loaded_lazy_diff', 0) | finish | endif
 let g:loaded_lazy_diff = 1
