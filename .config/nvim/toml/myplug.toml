@@ -63,7 +63,7 @@ hook_source = 'runtime source/help-toc.vim'
 #}}}
 
 [[plugins]]
-repo = 'kaile256/vim-foldtext' #{{{
+repo = 'kaile256/vim-foldpeek' #{{{
 on_event = ['BufWinEnter']
-hook_source = 'runtime source/foldtext.vim'
+hook_source = 'runtime source/foldpeek.vim'
 #}}}
