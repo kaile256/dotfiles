@@ -28,11 +28,13 @@ command! -bar -bang -nargs=* -complete=buffer Terminal
 
 " commands on directory {{{1
 let s:cmd_to_path = {
+      \ 'Config':    $XDG_CONFIG_HOME,
       \ 'Data':      $XDG_DATA_HOME,
       \ 'Dotfiles':  g:dotfiles_home,
       \ 'Downloads': '~/Downloads',
       \ 'Etcs':      '/etc',
       \ 'Ghqs':      $GHQ_ROOT,
+      \ 'Pictures':  '~/Pictures',
       \ 'Trash':     g:my_trash_root,
       \ 'Usrs':      '/usr',
       \ }
