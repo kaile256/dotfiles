@@ -105,7 +105,7 @@
 
   //"highlight.disableLanguages": [""],
   // too many memory would be used
-   "highlight.document.enable": false,
+  "highlight.document.enable": false,
   "highlight.colors.enable": true,
 
   "translator.engines": ["google"],
