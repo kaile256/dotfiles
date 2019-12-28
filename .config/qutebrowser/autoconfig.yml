@@ -93,7 +93,7 @@ settings:
         <Alt+i>: fake-key <left>
         <Alt+k>: leave-mode
         <Alt+u>: rl-yank
-        <Ctrl+d>: null
+        <Ctrl+d>: rl-delete-char
         <Ctrl+j>: completion-item-focus next
         <Ctrl+k>: completion-item-focus prev
         <Ctrl+n>: command-history-next
@@ -151,7 +151,6 @@ settings:
         <Ctrl+w>: fake-key <ctrl-backspace>
         <Ctrl+y>: insert-text {primary}
       normal:
-        '1': tab-close
         '2': save
         <: tab-move -
         <Alt+Space>: emacs
@@ -170,6 +169,7 @@ settings:
         <Ctrl+2>: save
         <Ctrl+Shift+n>: open -w
         <Ctrl+c>: stop;; clear-keychain
+        <Ctrl+d>: scroll-page 0 0.5
         <Ctrl+e>: scroll-px 0 +50
         <Ctrl+h>: tab-prev
         <Ctrl+i>: forward
@@ -202,7 +202,6 @@ settings:
         <Ctrl+y>: scroll-px 0 -50
         <Space>1: tab-close
         <Space>2: save
-        <Space><Space>: reload
         <Space>P: open -t {primary}
         <Space>Q: close
         <Space>Z: close
@@ -267,9 +266,6 @@ settings:
         mode: drop-selection
         p: open {clipboard}
         q: null
-        qa: quit
-        qq: tab-close
-        qv: set-cmd-text -s :open
         sp: pocket-save
         t: hint
         u: scroll-page 0 -0.5
