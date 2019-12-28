@@ -254,23 +254,23 @@
         "highlight": { "lsRanges": true }
       }
     },
-    "cquery": {
-      "command": "cquery",
-      "args": ["--log-file=/tmp/cq.log"],
-      "filetypes": ["c", "cpp"],
-      "rootPatterns": [
-        "compile_flags.txt",
-        "compile_commands.json",
-        ".vim/",
-        ".git/",
-        ".hg/"
-      ],
-      "initializationOptions": {
-        "cacheDirectory": "/tmp/cquery",
-        "highlight": { "enabled": true },
-        "emitInactiveRegions": true
-      }
-    },
+    //"cquery": {
+    //  "command": "cquery",
+    //  "args": ["--log-file=/tmp/cq.log"],
+    //  "filetypes": ["c", "cpp"],
+    //  "rootPatterns": [
+    //    "compile_flags.txt",
+    //    "compile_commands.json",
+    //    ".vim/",
+    //    ".git/",
+    //    ".hg/"
+    //  ],
+    //  "initializationOptions": {
+    //    "cacheDirectory": "/tmp/cquery",
+    //    "highlight": { "enabled": true },
+    //    "emitInactiveRegions": true
+    //  }
+    //},
     "intelphense": {
       "command": "intelphense",
       "args": ["--stdio"],
