@@ -1,7 +1,11 @@
 " From: init.vim
 
 augroup BufTypeAdjustment
-  au! BufRead $XDG_DATA_HOME/Trash/**/* setl bt=nofile
+  au!
+  au OptionSet textwidth exe 'setl colorcolumn='. expand(&tw + 1)
+  au BufRead $XDG_DATA_HOME/Trash/**/* setl bt=nofile
+  " Ref: https://twitter.com/_tyru_/status/1209126520511315969
+  au BufRead *.log,/tmp**/* setl backupcopy=yes
 augroup END
 
 augroup FileTypeAdjustment
@@ -24,10 +28,9 @@ augroup END
 
 augroup FoldMethodDetection
   au!
-  au FileType neosnippet setl fdm=indent
+  au FileType neosnippet,yaml setl fdm=indent
   " Note: fdm=syntax on json sometimes shows only '{ <blank>' line.
-  " TODO: apply wanted fdm on `FileType`
-  au BufNewFile,BufRead *.json setl fdm=indent
+  au FileType json setl fdm=syntax
 
   au BufRead * if line('w$') != line('$') | setl fdl=1 | endif
   au BufWinEnter *
@@ -36,13 +39,18 @@ augroup FoldMethodDetection
         \ | setl fdm=marker | endif
 augroup END
 
+augroup AlertOnFilename
+  au! BufRead /etc/{sudoers,sudoers.d/*} setl nomodifiable
+        \ | echoerr " You'd better edit by $ visudo"
+augroup END
+
 augroup FindAlternate "{{{1
   au! BufWinEnter *vim**/* call s:find_alternate()
 augroup END
 
-function! s:find_alternate() abort "{{{2
+function! s:find_alternate() abort
   let alter = expand('#:t')
-  if !search(alter, 'cWn') | return | endif
+  if empty(alter) || !search(alter, 'cWn') | return | endif
 
   call search(alter, 'cW')
   norm! zv
@@ -58,11 +66,11 @@ function! s:hist_remove(word) abort "{{{2
 endif
 endfunction
 
-augroup ReturnToUsualWindow
+augroup ReturnToUsualWindow "{{{1
   au! BufWinLeave,BufWinEnter * call s:adjust_winfix()
 augroup END
 
-function! s:adjust_winfix() abort "{{{1
+function! s:adjust_winfix() abort
   if &bt ==# '' | return | endif
 
   let b:fixwidth  = &winfixwidth
