@@ -20,6 +20,9 @@ augroup END
 let g:markdown_fenced_languages = [
       \ 'vim',
       \ 'sh',
+      \ 'go',
+      \ 'json',
+      \ 'toml',
       \ 'python',
       \ 'help'
       \]
@@ -50,6 +53,7 @@ let g:coc_global_extensions = [
       \ 'coc-json',
       \ 'coc-lists',
       \ 'coc-lua',
+      \ 'coc-markdownlint',
       \ 'coc-omni',
       \ 'coc-phpls',
       \ 'coc-post',
@@ -203,9 +207,9 @@ endfunction
 
 " CocDiagnostic {{{1
 " Note: Unnecessary? pop up auto.
-"nmap \wi <Plug>(coc-diagnostic-info)
+nmap <silent> gW <Plug>(coc-diagnostic-info)
 " Mnemonic: get Wrong line
-nmap <silent> \w <Plug>(coc-fix-current)
+nmap \w <Plug>(coc-fix-current)
 nmap <silent> [w <Plug>(coc-diagnostic-prev)
 nmap <silent> ]w <Plug>(coc-diagnostic-next)
 "nmap [e <Plug>(coc-diagnostic-prev-error)
@@ -352,9 +356,9 @@ nnoremap <space>cp :ColoPalette<cr>
 
 " CocList; {{{1
 " show commit contains current position
-nnoremap <silent> <space>cl :Clist<cr>
-nnoremap <silent> <space>cf :Clist files<cr>
-nnoremap <silent> <space>cb :Clist buffers<cr>
+nnoremap <silent> <space>cl :CocList<cr>
+nnoremap <silent> <space>cf :CocList files<cr>
+nnoremap <silent> <space>cb :CocList buffers<cr>
 
 " CocBookmark; {{{1
 nmap ma <Plug>(coc-bookmark-annotate)
@@ -371,7 +375,7 @@ nnoremap <silent> <space>cb :Clist bookmark<cr>
 "      \ --width=35
 "      \ --sources=buffer+,file+
 "      \ --file-columns=icon,git,selection,clip,indent,filename,size
-""}}}
+
 " CocGit {{{1
 command! GaddChunk :CocCommand git.chunkStage
 command! GchunkAdd :CocCommand git.chunkStage
@@ -425,11 +429,13 @@ omap ic <Plug>(coc-text-object-inner)
 xmap ic <Plug>(coc-text-object-inner)
 omap ac <Plug>(coc-text-object-outer)
 xmap ac <Plug>(coc-text-object-outer)
+
 " CocPairs {{{1
 "augroup CocPairsDisable
 "  au!
 "  au FileType vim let b:coc_pairs_disabled = ['"']
 "augroup END
+
 " CocTranslator {{{1
 " Note: CANNOT replace 'toLang' before translator yet.
 "command! CJapaneseEcho    :call coc#config("translator", {"toLang": "ja"}) <bar> CocCommand  translator.echo
@@ -444,6 +450,7 @@ command! Ctask         CocCommand todolist.create
 command! CshowTaskList :Clist    todolist
 nnoremap <silent> <space>ct :Ctask<cr>
 nnoremap <silent> <space>cs :CshowTaskList<cr>
+
 " CocYank; {{{1
 
 " Required?: closes mpreview vindow when completion is done.
@@ -451,10 +458,10 @@ nnoremap <silent> <space>cs :CshowTaskList<cr>
 "inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<CR>"
 
 function s:register_hist() abort
-  " Note: <c-o> is necessary to make (a)ppend work in Clist yank.
+  " Note: <c-o> is necessary to make (a)ppend work in Coclist yank.
   norm! <c-o>
   " TODO: select (a)ppend w/o actionmenu
-  Clist yank
+  Coclist yank
 endfunction
 inoremap <c-x><c-y> <c-o>:call <SID>register_hist()<cr>
 inoremap <c-x>y     <c-o>:call <SID>register_hist()<cr>
@@ -466,6 +473,7 @@ inoremap <c-x>y     <c-o>:call <SID>register_hist()<cr>
 "imap <C-s> <Plug>(coc-snippets-expand)
 "vmap <C-s> <Plug>(coc-snippets-select)
 "imap <C-s> <Plug>(coc-snippets-expand-jump)
+
 " CocNot Yet Mapped {{{1
 " repeat only coc's util.
 "nmap <silent> . <Plug>(coc-command-repeat)
