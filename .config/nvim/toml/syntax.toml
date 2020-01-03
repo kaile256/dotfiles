@@ -1,98 +1,97 @@
 # From: rc/dein.vim
 # Ref: ftplugin.toml
 
+#[[[Multi Filetypes]]]
 [[plugins]]
-repo = 'sheerun/vim-polyglot' #{{{
+repo = 'sheerun/vim-polyglot'
 on_if = "index(['', 'terminal', 'i3', 'javascript'], &ft) < 0"
 #if    = "index(['', 'terminal'], &ft) < 0"
 #on_if = "index(get(g:, 'polyglot_disabled', ['i3', 'javascript']), &ft) < 0"
 hook_source = 'runtime source/polyglot.vim'
-#}}}
 
-# Compile
+
+#[[[Compile]]]
 [[plugins]]
-repo = 'jackguo380/vim-lsp-cxx-highlight' #{{{
+repo = 'jackguo380/vim-lsp-cxx-highlight'
 on_ft = ['c', 'cpp', 'objc', 'objcpp']
-#}}}
+
 #[[plugins]]
-#repo = 'fatih/vim-go' #{{{
+#repo = 'fatih/vim-go'
 ## CAUTION: override ':norm K'.
 #on_ft = 'go'
 #hook_source = 'runtime source/go.vim'
-##}}}
+
 #[[plugins]]
-#repo = 'rust-lang/rust.vim' #{{{
+#repo = 'rust-lang/rust.vim'
 #on_ft = 'rust'
 #hook_source = 'runtime source/rust.vim'
-##}}}
+
 #[[plugins]]
-#repo = 'udalov/kotlin-vim' #{{{
+#repo = 'udalov/kotlin-vim'
 #on_ft = 'kotlin'
-##}}}
+
 #[[plugins]]
-#repo = 'neovimhaskell/haskell-vim' #{{{
+#repo = 'neovimhaskell/haskell-vim'
 ## enough w/ coc.nvim
 #on_ft = 'haskell'
 #hook_post_source = 'runtime add/haskell.vim'
-#}}}
 
-# Interpreter
+
+#[[[Interpreter]]]
 [[plugins]]
-repo = 'billyvg/tigris.nvim' #{{{
+repo = 'billyvg/tigris.nvim'
 build = './install.sh'
 #depend = 'node-host'
 # Note: node-host, previously depended on, has been merged into neovim!
 #       Ref: neovim/neovim/pull/7458
 on_ft = ['javascript', 'javascript.jsx']
 hook_source = 'runtime source/tigris.vim'
-#}}}
+
 #[[plugins]]
-#repo = 'tbastos/vim-lua' #{{{
+#repo = 'tbastos/vim-lua'
 #on_ft = 'lua'
 #hook_source = 'runtime lua.vim'
-##}}}
+
 #[[plugins]]
-#repo = 'drmingdrmer/vim-indent-lua' #{{{
+#repo = 'drmingdrmer/vim-indent-lua'
 #on_ft = 'lua'
-#}}}
+
 #[[plugins]]
-#repo = 'Alloyed/lua-lsp' #{{{
+#repo = 'Alloyed/lua-lsp'
 #on_ft = 'lua'
-#}}}
+
 
 # for Shell
 #[[plugins]]
-#repo = 'dag/vim-fish' #{{{
+#repo = 'dag/vim-fish'
 #on_ft = 'fish'
-##}}}
+
 [[plugins]]
-repo = 'chrisbra/vim-zsh' #{{{
+repo = 'chrisbra/vim-zsh'
 on_ft = 'zsh'
-#}}}
+
 #[[plugins]]
-#repo = 'ericpruitt/tmux.vim' #{{{
+#repo = 'ericpruitt/tmux.vim'
 #on_ft = 'tmux'
-##}}}
 
-# Test
-[[plugins]]
-repo = 'yasuhiroki/circleci.vim' #{{{
-if = "expand('%:h:t') =~# '.circleci'"
-on_ft = ['yaml']
-#}}}
 
-# for Text-like
+#[[[for Text-like]]]
 [[plugins]]
-repo = 'plasticboy/vim-markdown' #{{{
-on_ft = 'markdown'
-hook_source = 'runtime source/markdown.vim'
-#}}}
-[[plugins]]
-repo = 'lyokha/vim-publish-helper' #{{{
-on_ft = 'pandoc'
-#}}}
+repo = 'gabrielelana/vim-markdown'
+# provides fold on markdown
+on_ft = ['markdown']
+hook_source = 'runtime source/gabrielelana-markdown.vim'
 #[[plugins]]
-#repo = 'othree/html5.vim' #{{{
+#repo = 'plasticboy/vim-markdown'
+#on_ft = 'markdown'
+#hook_source = 'runtime source/plasticboy-markdown.vim'
+
+[[plugins]]
+repo = 'lyokha/vim-publish-helper'
+on_ft = 'pandoc'
+
+#[[plugins]]
+#repo = 'othree/html5.vim'
 #on_ft = 'html'
 ##[[plugins]]
 ##repo = 'mattn/emmet-vim'
@@ -106,41 +105,48 @@ on_ft = 'pandoc'
 #hook_add = '''
 #let g:cloesetag_filenames = '*.html,*.vue'
 #'''
-##}}}
+
 #[[plugins]]
-#repo = 'lervag/vimtex' #{{{
+#repo = 'lervag/vimtex'
 #on_ft = 'tex'
 #hook_post_source = 'runtime add/vimtex.vim'
-#}}}
+
 #[[plugins]]
-#repo = 'freitass/todo.txt-vim' #{{{
+#repo = 'freitass/todo.txt-vim'
 ## Use `set syn=help` instead
 #on_ft = 'text'
-##}}}
 
-# for Config
+
+#[[[Test]]]
 [[plugins]]
-repo = 'delphinus/vim-toml-dein' #{{{
+repo = 'yasuhiroki/circleci.vim'
+if = "expand('%:h:t') =~# '.circleci'"
+on_ft = ['yaml']
+
+
+#[[[for Config]]]
+[[plugins]]
+repo = 'delphinus/vim-toml-dein'
 # syntax highlight for 'hook_add'
 on_ft = 'toml'
-#}}}
+
 #[[plugins]]
-#repo = 'vmchale/tomlcheck-vim' #{{{
+#repo = 'vmchale/tomlcheck-vim'
 #on_ft = 'toml'
-##}}}
+
 #[[plugins]]
-#repo = 'cespare/vim-toml' #{{{
+#repo = 'cespare/vim-toml'
 #on_ft = 'toml'
-##}}}
+
 [[plugins]]
-repo = 'PotatoesMaster/i3-vim-syntax' #{{{
+repo = 'PotatoesMaster/i3-vim-syntax'
 # Note: vim-polyglot doesn't have enough syntax for i3.
 # CAUTION: Not Maintained Anymore
 on_ft = 'i3'
-#}}}
+
 #[[plugins]]
-#repo = 'mboughaba/i3config.vim' #{{{
+#repo = 'mboughaba/i3config.vim'
 ## Note: No enough Syntax Configured yet
 #on_ft = 'i3'
-##}}}
+
 
