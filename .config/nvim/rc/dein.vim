@@ -78,6 +78,7 @@ let s:dein_toml_lazy = [
       \ 'extension.toml',
       \ 'external.toml',
       \ 'finder.toml',
+      \ 'fold.toml',
       \ 'ftplugin.toml',
       \ 'fugitive.toml',
       \ 'git.toml',
