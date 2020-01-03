@@ -1,91 +1,96 @@
 # From: rc/dein.vim
 # Ref: syntax.toml
 
-# Multiple FileType;
+#[[[Multiple FileType]]]
 [[plugins]]
-repo = 'editorconfig/editorconfig-vim' #{{{
+repo = 'editorconfig/editorconfig-vim'
 # Note: coc-prettier doesn't use editorconfig if prettier is either unavailable.
 # Note: vim-prettier is unnecessary, though it also covers editorconfig.
 on_event = 'BufWinEnter'
 hook_source = 'runtime source/editorconfig.vim'
-#}}}
+
 #[[plugins]]
-#repo = 'prettier/vim-prettier' #{{{
+#repo = 'prettier/vim-prettier'
 ## Note: also read .editorconfig
 #on_event = 'BufWinEnter'
 #hook_add = 'runtime add/prettier.vim'
-##}}}
+
 #[[plugins]]
-#repo = 'tpope/vim-sleuth' #{{{
+#repo = 'tpope/vim-sleuth'
 ## Note: Sleuth means a detective.
 ## Enough with coc-prettier?
 ## Automatically adjusts 'shiftwidth' and 'expandtab'
 #on_event = ['BufNewFile','BufRead']
 #hook_add = 'runtime add/sleuth.vim'
-##}}}
+
 #[[plugins]]
-#repo = 'Shougo/context_filetype.vim' #{{{
+#repo = 'Shougo/context_filetype.vim'
 #on_ft = ['vimwiki','markdown','html','php','neosnippet','snippets']
-##}}}
+
 #[[plugins]]
-#repo = 'vim-syntastic/syntastic' #{{{
+#repo = 'vim-syntastic/syntastic'
 #on_ft = ['toml']
 #hook_post_source = 'runtime add/syntastic.vim'
-##}}}
 
-# Vim
+#[[[Go]]]
 [[plugins]]
-repo = 'mhinz/vim-lookup' #{{{
-# Enable to jump to definition as &runtimepath.
-#on_ft = 'vim'
-on_map = '<Cmd>lookup#'
-hook_add = 'runtime add/lookup.vim'
-#}}}
+repo = 'po3rin/vim-gofmtmd'
+if = "&ft ==# 'markdown'"
+on_cmd =  ['GoFmtMd']
+#on_ft = ['markdown']
+hook_source = 'runtime source/gofmtmd.vim'
 
-# Rust
+#[[[Rust]]]
+[[plugins]]
+repo = 'martskins/vim-cargo-search'
+if = '&ft ==# "rust"'
+on_cmd =  ['CargoSearch']
+
 #[[plugins]]
-#repo = 'rust-lang/rust.vim' #{{{
+#repo = 'rust-lang/rust.vim'
 #on_ft = 'rust'
-##}}}
+
 #[[plugins]]
-#repo = 'rhysd/rust-doc.vim' #{{{
+#repo = 'rhysd/rust-doc.vim'
 #on_cmd = 'RustDoc'
 #hook_source = 'runtime add/rust-doc.vim'
-##}}}
 
-# Python
+#[[[Python]]]
 [[plugins]]
-repo = 'plytophogy/vim-virtualenv' #{{{
+repo = 'plytophogy/vim-virtualenv'
 # supports pip-packages, independently installed in shell, to work on vim
 on_ft = 'python'
-#}}}
+[[plugins]]
+repo = 'python-rope/ropevim'
+on_ft = ['python']
+
 #[[plugins]]
-#repo = 'python-mode/python-mode' #{{{
+#repo = 'python-mode/python-mode'
 #on_ft = 'python'
 #hook_post_update = '!git submodule update --init --recursive'
 #hook_source = 'runtime source/python-mode.vim'
-##}}}
+
 [[plugins]]
-repo = 'tweekmonster/braceless.vim' #{{{
+repo = 'tweekmonster/braceless.vim'
 # To: fold up to syntax of python.
 on_ft = 'python'
 hook_source = 'runtime add/braceless.vim'
-#}}}
+
 # Jupyter
 [[plugins]]
-repo = 'goerz/jupytext.vim' #{{{
+repo = 'goerz/jupytext.vim'
 on_ft = ['ipynb']
 hook_source = 'runtime source/jupytext.vim'
-#}}}
+
 [[plugins]]
-repo = 'szymonmaszke/vimpyter' #{{{
+repo = 'szymonmaszke/vimpyter'
 on_ft = ['ipynb']
 hook_source = 'runtime source/vimpyter.vim'
-#}}}
 
-# Markdown
+
+#[[[Markdown]]]
 #[[plugins]]
-#repo = 'previm/previm' #{{{
+#repo = 'previm/previm'
 #on_ft = 'markdown'
 #hook_source = 'runtime source/previm.vim'
 #hook_done_update = '''
@@ -93,21 +98,21 @@ hook_source = 'runtime source/vimpyter.vim'
 #g/FileType *{md,mkd,markdown,rst,textile,asciidoc}*/norm! oau BufEnter *.{md,mkd,markdown,mdown,mkdn,mdwn}/e
 #write
 #'''
-##}}}
+
 #[[plugins]]
-#repo = 'reroche/vim-markdown-preview' #{{{
+#repo = 'reroche/vim-markdown-preview'
 ## several requirements
 #on_ft = 'markdown'
-##}}}
+
 [[plugins]]
-repo = 'iamcco/markdown-preview.nvim' #{{{
+repo = 'iamcco/markdown-preview.nvim'
 # Ref: iamcco/markdown.css
 on_ft = 'markdown'
 build = 'cd app & yarn install'
 hook_source = 'runtime source/markdown-preview.vim'
-#}}}
+
 [[plugins]]
-repo = 'euclio/vim-markdown-composer' #{{{
+repo = 'euclio/vim-markdown-composer'
 on_ft = 'markdown'
 build = 'cargo build --release'
 hook_done_update = '''
@@ -116,38 +121,37 @@ g/command!/s/Composer/Md/
 write
 '''
 hook_source = 'runtime source/markdown-composer.vim'
-#}}}
+
 #[[plugins]]
-#repo = 'suan/vim-instant-markdown' #{{{
+#repo = 'suan/vim-instant-markdown'
 #on_ft = 'markdown'
 #hook_source = 'runtime add/instant-markdown.vim'
-##}}}
 
-# for Document
+#[[[for Document]]]
 [[plugins]]
-repo = 'thinca/vim-ft-help_fold' #{{{
+repo = 'thinca/vim-ft-help_fold'
 # Note: conflicted with `set modeline`
 on_ft = 'help'
 hook_source = 'runtime source/ft-help_fold.vim'
-#}}}
+
 [[plugins]]
-repo = 'Konfekt/vim-office' #{{{
+repo = 'Konfekt/vim-office'
 # no need any config.
 on_ft = ['pdf', 'doc', 'docx', 'els', 'xlsx', 'ppt', 'pptx', 'odt', 'epub']
-#}}}
-[[plugins]]
-repo = 'itchyny/vim-pdf' #{{{
-on_ft = ['pdf']
-#}}}
 
-# for Config
 [[plugins]]
-repo = 'matze/vim-ini-fold' #{{{
+repo = 'itchyny/vim-pdf'
+on_ft = ['pdf']
+
+#[[[for Config]]]
+[[plugins]]
+#repo = 'matze/vim-ini-fold'
+repo = 'kaile256/vim-ini-fold'
 # PR-Merged: matze/vim-ini-fold/pull/1
-on_ft = ['dosini', 'gitconfig', 'config', 'dosini']
+# PR: matze/vim-ini-fold/pull/2
+on_ft = ['cfg', 'config', 'desktop', 'dosini', 'gitconfig', 'toml']
 hook_source = 'runtime source/ini-fold.vim'
-#}}}
+
 [[plugins]]
-repo = 'tpope/vim-jdaddy' #{{{
+repo = 'tpope/vim-jdaddy'
 on_ft = 'json'
-#}}}
