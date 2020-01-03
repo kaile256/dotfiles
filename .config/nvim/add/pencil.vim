@@ -26,7 +26,8 @@ let s:pencil = {} "{{{1
 
 function! s:pencil.commit() abort "{{{2
   setl spell spl=en_us,cjk et sw=2 ts=2 noai
-  call pencil#init({'wrap': 'soft', 'textwidth': &tw > 0 ? &tw : 72})
+  " Note: makes too slow to open buffer
+  "call pencil#init({'wrap': 'soft', 'textwidth': &tw > 0 ? &tw : 72})
 endfunction
 
 function! s:pencil.markdown() abort "{{{2
