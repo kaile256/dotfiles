@@ -11,9 +11,9 @@ tnoremap <expr> <c-r> '<c-\><c-n>"'.nr2char(getchar()).'pi'
 "augroup END
 
 " Indent Adjustment
-nnoremap p p`]
-"nnoremap p ]p`]
-"nnoremap P ]P
+"nnoremap p p`]
+nnoremap p ]p`]
+nnoremap P ]P
 
 " Command-Line Register {{{1
 cnoremap <c-r><c-;> <c-r>:
@@ -40,28 +40,30 @@ nnoremap <space>D "+D
 nnoremap <space>c "+c
 nnoremap <space>C "+C
 " Plus Register; Put {{{1
-nnoremap <space>p "+p`]
-xnoremap <space>p "+p
-nnoremap <space>P "+P
-xnoremap <space>P "+P
+nnoremap <space>p "+]p`]
+xnoremap <space>p "+]p
+nnoremap <space>P "+]P
+xnoremap <space>P "+]P
 " Plug Register; One Char {{{1
-" Use vim-sumode
-"nnoremap <space>x   "+x
-"nnoremap <space>s   "+s
-"nnoremap <space>X   "+X
-" Yank Register; Paste
+" Use vim-submode
+"nnoremap <space>x "+x
+"nnoremap <space>s "+s
+"nnoremap <space>X "+X
+
+" Yank Register {{{1
+nnoremap Y y$
 tnoremap <c-r><c-0> <c-\><c-n>"0pi
 cnoremap <c-r><c-0> <c-r>0
-nnoremap <s-space>p "0p
-xnoremap <s-space>p "0p
-nnoremap <s-space>P "0P
-xnoremap <s-space>P "0P
-" Black-Hole Register {{{1
+nnoremap <s-space>p "0]p
+xnoremap <s-space>p "0]p
+nnoremap <s-space>P "0]P
+xnoremap <s-space>P "0]P
+" Black-Hole Register
 nnoremap <s-space>d "_d
 nnoremap <s-space>D "_D
+nnoremap <s-space>c "_c
+nnoremap <s-space>C "_C
 " Note: those won't be typed intending to put at all, especially in noremal-mode
-nnoremap c "_c
-nnoremap C "_C
 nnoremap s "_s
 nnoremap S "_S
 "nnoremap <s-space>x "_x
