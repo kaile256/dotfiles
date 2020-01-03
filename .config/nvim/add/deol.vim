@@ -3,7 +3,7 @@ scriptencoding utf-8
 " Repo: Shougo/deol.nvim
 
 let g:deol#prompt_pattern = '^.\{-}❯❯❯ '
-let g:deol#shell_history_path = g:data_home . '/nvim/deol'
+let g:deol#shell_history_path = $XDG_DATA_HOME .'/nvim/deol'
 
 augroup deol-disable-dwm
   au!

@@ -23,12 +23,12 @@ if !has('nvim')
 endif
 
 " Let; Path to the directory of dein's log {{{1
-let s:dein_data_dir = g:data_home .'/dein/'
+let s:dein_data_dir = $XDG_DATA_HOME .'/dein/'
 let s:dein_log_file = s:dein_data_dir .'/dein_log.vim'
 let g:dein#install_log_filename = s:dein_log_file
 
 " Let; Path to the directory of dein's cache {{{1
-let s:dein_cache_dir   = g:cache_home       .'/dein/'
+let s:dein_cache_dir   = $XDG_CACHE_HOME       .'/dein/'
 let g:dein_github_dir  = s:dein_cache_dir   .'/repos/github.com/'
 let s:Shougo_cache_dir = s:dein_cache_dir   .'/repos/github.com/Shougo/'
 let s:dein_itself      = s:Shougo_cache_dir .'/dein.vim/'
@@ -104,7 +104,7 @@ if !exists('g:plugins_available')
       call dein#add('roxma/vim-hug-neovim-rpc')
     endif
 
-    let s:dein_toml_dir  = g:config_home .'/nvim/toml' "{{{2
+    let s:dein_toml_dir  = $XDG_CONFIG_HOME .'/nvim/toml' "{{{2
     for dir in s:dein_toml_initial
       call dein#load_toml(s:dein_toml_dir .'/'. dir, {'lazy': 0})
     endfor

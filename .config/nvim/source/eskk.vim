@@ -12,11 +12,11 @@ set imdisable " no use on neovim or nvim-qt.
 " if Server is yaskkserv,
 " TODO: auto-start on i3.
 let g:eskk#server = {'host': 'localhost', 'port': 1178}
-let g:eskk#directory = g:data_home . '/eskk'
+let g:eskk#directory = $XDG_DATA_HOME .'/eskk'
 if filereadable('/usr/share/skk/SKK-JISYO.L')
   let g:eskk#large_dictionary = '/usr/share/skk/SKK-JISYO.L'
 endif
-let g:eskk#backup_dictionary = g:data_home . '/eskk/backup'
+let g:eskk#backup_dictionary = $XDG_DATA_HOME .'/eskk/backup'
 if !isdirectory(g:eskk#backup_dictionary)
   exe '!mkdir -p' shellescape(expand(g:eskk#backup_dictionary))
 endif

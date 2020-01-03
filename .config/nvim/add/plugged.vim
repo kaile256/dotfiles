@@ -2,13 +2,13 @@
 " Repo: junegunn/vim-plug
 
 " plug#begin: Indentify the path that plugins are installed
-let s:plugged_cache_dir = g:cache_home . '/plugged'
+let s:plugged_cache_dir = $XDG_CACHE_HOME . '/plugged'
 let s:plugged_repos_dir = s:plugged_cache_dir . '/repos'
 let s:plugged_github_dir = s:plugged_repos_dir . '/github.com/'
 
 "call plug#begin('~/.local/share/nvim/plugged')
 if !isdirectory(s:plugged_cache_dir)
-  cd expand('g:cache_home')
+  cd expand('$XDG_CACHE_HOME')
   exe '!mkdir' s:plugged_cache_dir
 endif
 
