@@ -3,10 +3,14 @@
 # Any items in the `env` entry below will be added as
 # environment variables. Some entries may override variables
 # set by alacritty itself.
-#env:
-# TERM variable
-# otherwise `xterm-256color` is used.
-TERM: alacritty
+env:
+  # TERM variable
+  # otherwise `xterm-256color` is used.
+  #TERM: alacritty
+
+  # Ref: https://github.com/jwilm/alacritty/issues/3048
+  # Require to keep font size in different monitors
+  WINIT_HIDPI_FACTOR: '1'
 
 window: #{{{1
   # Window title: set it in i3/config
@@ -105,7 +109,7 @@ font: #{{{1
   #style: Italic
 
   # Point size
-  size: 8
+  size: 12.0
 
   # Offset is the extra space around each character. `offset.y` can be thought of
   # as modifying the line spacing, and `offset.x` as modifying the letter spacing.
@@ -140,7 +144,7 @@ font: #{{{1
 draw_bold_text_with_bright_colors: true
 
 # Colors (Tomorrow Night Bright)
-colors: #{{{
+colors: #{{{1
   # Default colors
   primary:
     background: "0x000000"
