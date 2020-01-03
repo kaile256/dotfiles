@@ -1,89 +1,67 @@
 # From: rc/dein.vim
 
-# Note: too complicated to configure all the extensions
-
 [[plugins]]
-repo = 'Shougo/denite.nvim' #{{{
+repo = 'Shougo/denite.nvim'
 if = 'has("python3")'
 on_cmd = 'Denite'
 hook_add = 'runtime add/denite.vim'
 #hook_source = 'runtime source/denite.vim'
 hook_post_source = 'runtime post/denite.vim'
-#}}}
 
 [[plugins]]
-repo = 'neoclide/coc-denite' #{{{
+repo = 'neoclide/coc-denite'
 on_source = 'denite.nvim'
-#}}}
 #[[plugins]]
-#repo = 'lighttiger2505/denite-vim-lsp' #{{{
+#repo = 'lighttiger2505/denite-vim-lsp'
 ## denite source for vim-lsp.
 #on_source = 'denite.nvim'
 #hook_post_source = 'runtime add/denite-lsp.vim'
-##}}}
 
-# Matcher
+#[[[Matcher]]]
 #[[plugins]]
-#repo = 'nekowasabi/denite-migemo' #{{{
+#repo = 'nekowasabi/denite-migemo'
 #on_source = 'denite.nvim'
 #hook_post_source = 'runtime add/denite-migemo.vim'
-##}}}
 [[plugins]]
-repo = 'nixprime/cpsm' #{{{
+repo = 'nixprime/cpsm'
 # A matcher developped for 'CtrlP'
 on_source = 'denite.nvim'
 hook_post_update = 'bash install.sh'
 hook_post_source = 'runtime add/cspm.vim'
-##}}}
 #[[plugins]]
-#repo = 'raghur/fruzzy' #{{{
+#repo = 'raghur/fruzzy'
 #on_source = 'denite.nvim'
 #hook_done_update = 'call fruzzy#install()'
 #hook_post_source = 'runtime add/fruzzy.vim'
-##}}}
 
 #[[plugins]]
-#repo = 'dunstontc/projectile.nvim' #{{{
+#repo = 'dunstontc/projectile.nvim'
 #on_source = 'denite.nvim'
 #hook_post_source = 'runtime add/projectile.vim'
-##}}}
 
 [[plugins]]
-repo = 'Shougo/neomru.vim' #{{{
+repo = 'Shougo/neomru.vim'
 on_source = 'denite.nvim'
-#}}}
 
 [[plugins]]
-repo = 'delphinus/vim-denite-scriptnames' #{{{
+repo = 'delphinus/vim-denite-scriptnames'
 on_source = 'denite.nvim'
-#}}}
 [[plugins]]
-repo = 'ozelentok/denite-gtags' #{{{
+repo = 'ozelentok/denite-gtags'
 on_source = 'denite.nvim'
-#}}}
 [[plugins]]
-repo = 'rafi/vim-denite-session' #{{{
+repo = 'rafi/vim-denite-session'
 on_source = 'denite.nvim'
-#}}}
 [[plugins]]
-repo = 'neoclide/denite-git' #{{{
+repo = 'neoclide/denite-git'
 on_source = 'denite.nvim'
-#}}}
 [[plugins]]
-repo = 'deresmos/denite-gitdiff' #{{{
+repo = 'deresmos/denite-gitdiff'
 on_source = 'denite.nvim'
-##}}}
 #[[plugins]]
-#repo = 'Shougo/neoyank.vim' #{{{
+#repo = 'Shougo/neoyank.vim'
 #on_source = 'denite.nvim'
-##}}}
 
-# Redis; Remote Dictionary Server
-#[[plugins]]
-#repo = 'neoclide/redismru.vim'
-#if = 'executable("redis")'
-#on_source = 'denite.nvim'
-#hook_post_source = 'runtime add/redismru.vim'
 #[[plugins]]
 #repo = 'zacharied/denite-nerdfont'
 #on_source = 'denite.nvim'
