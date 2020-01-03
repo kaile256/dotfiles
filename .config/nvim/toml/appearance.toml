@@ -1,5 +1,17 @@
 # From: rc/dein.vim
 
+[[plugins]]
+repo = 'mg979/vim-xtabline' #{{{
+on_event = ['VimEnter']
+hook_add = 'runtime add/xtabline.vim'
+hook_source = 'runtime source/xtabline.vim'
+hook_done_update = '''
+exe 'e' g:dein_github_dir .'/mg979/vim-xtabline/autoload/xtabline/maps.vim'
+g/<Plug>(XT-Select-Buffer)/s/<unique>//e
+write
+'''
+#}}}
+
 # Icons
 [[plugins]]
 repo = 'ryanoasis/vim-devicons' #{{{
