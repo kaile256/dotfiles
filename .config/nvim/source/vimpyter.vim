@@ -2,7 +2,7 @@
 " Repo: szymonmaszke/vimpyter
 
 let g:vimpyter_color = 1
-let g:vimpyter_view_directory = g:data_home .'/vimpyter/views'
+let g:vimpyter_view_directory = $XDG_DATA_HOME .'/vimpyter/views'
 
 command! -bar JupyterNotebookStart :VimpyterStartJupyter
 command! -bar JupyterNteractStart  :VimpyterStartNteract
