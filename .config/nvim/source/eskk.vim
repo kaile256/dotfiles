@@ -1,9 +1,13 @@
 scriptencoding utf-8
 " From: japanese.toml
 " Repo: tyru/eskk.vim
+" Another: add/eskk.vim
+
+" Note: EskkMap is a wrapper of eskk#map#_cmd_eskk_map(<q-args>)
 
 " TODO: Tell current mode of skk on airline/lightline
 set imdisable " no use on neovim or nvim-qt.
+
 " Path of Dictionaries {{{1
 " if Server is yaskkserv,
 " TODO: auto-start on i3.
@@ -16,13 +20,16 @@ let g:eskk#backup_dictionary = g:data_home . '/eskk/backup'
 if !isdirectory(g:eskk#backup_dictionary)
   exe '!mkdir -p' shellescape(expand(g:eskk#backup_dictionary))
 endif
+
 " Henkan; Activate {{{1
 let g:eskk#no_default_mappings = 1
-" Henkan; Completion {{{1
 "let g:eskk#keep_state = 1 "  default: 0; eskk is off when insert again
 "let g:eskk#keep_state_beyond_buffer = 1
+
+" Henkan; Completion {{{1
 let g:eskk#show_annotation = 1
 let g:eskk#select_cand_keys = 'abcdefgijklmnopqrstuvwxyz'
+let g:eskk#show_candidates_count = 2
 " if unique, confirm the candidate auto.
 let g:eskk#kakutei_when_unique_candidate = 1
 "let g:eskk#initial_mode = 'ascii'
@@ -31,6 +38,7 @@ let g:eskk#start_completion_length = 1
 let g:eskk#tab_select_completion = 0
 let g:eskk#egg_like_newline = 1 " ignore <CR> on 'kakutei'
 let g:eskk#egg_like_newline_completion = 1
+
 " Henkan; Marker {{{1
 let g:eskk#marker_henkan = '@'
 let g:eskk#marker_henkan_select = '#'
@@ -59,10 +67,15 @@ function! s:eskk_special_maps() "{{{1
     call eskk#register_mode_table(mode, t)
   endfor
 endfunction "}}}
+
 augroup EskkCallMyFunc
   au!
-  au User eskk-initialize-pre call s:eskk_special_maps()
   "au ColorScheme * ++nested hi CursorIM guibg=purple guibg=yellow
+  au User eskk-initialize-pre call s:eskk_special_maps()
+  if executable('notify-send')
+    au User eskk-enable-post  call system("notify-send --expire-time 1100 --urgency critical 'Vim: eskk is Activated'")
+    au User eskk-disable-post call system("notify-send --expire-time 1100 'Vim: eskk is OFF'")
+  endif
 augroup END
 
 " Note: useless
