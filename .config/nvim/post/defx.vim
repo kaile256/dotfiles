@@ -22,16 +22,27 @@ scriptencoding utf-8
 "let g:defx_icons_nested_closed_tree_icon = ''
 
 " call defx#custom#foo() {{{1
+call defx#custom#option('_', 'drives', [
+\ expand('~/Downloads'), expand('~')
+\ ])
+
 call defx#custom#option('_', {
       \ 'columns': 'mark:indent:git:icons:filename',
       \ 'winheight': winheight('.'),
       \ 'show_ignored_files': 1,
+      \ 'root_marker': ':',
       \ 'auto_cd': 1,
       \ })
+
+call defx#custom#column('filename', {
+      \ 'root_marker_highlight': 'Ignore',
+      \ })
+
 call defx#custom#column('mark', {
       \ 'readonly_icon': '✗',
       \ 'selected_icon': '✓',
       \ })
+
 "call defx#custom#column('icon', {
 "      \ 'directory_icon': '',
 "      \ 'opened_icon': '',
@@ -45,27 +56,23 @@ call defx#custom#column('mark', {
 "        \ 'opened_icon': '▾',
 "        \ 'root_icon': ' ',
 "        \ })
-"}}}
 
-"let s:defx_is_wide   = {-> winwidth('.') > g:defx_standard_width}
-"let s:defx_is_narrow = {-> winwidth('.') <= g:defx_standard_width}
-function! s:defx_is_wide() abort
+function! s:defx_is_wide() abort "{{{1
   if @% =~# '\[defx\]'
     return winwidth('.') > g:defx_sidebar_width
   endif
   return winwidth(bufwinnr('\[defx\]')) > g:defx_sidebar_width
 endfunction
 function! s:defx_is_narrow() abort
-  if @% =~# '\[defx\]'
-    return winwidth('.') <= g:defx_sidebar_width
-  endif
-  return winwidth(bufwinnr('\[defx\]')) <= g:defx_sidebar_width
+  return ! s:defx_is_wide()
 endfunction
 function! s:single_window() abort
   return len(tabpagebuflist()) <= 2
 endfunction
+"let s:defx_is_wide   = {-> winwidth('.') > g:defx_standard_width}
+"let s:defx_is_narrow = {-> winwidth('.') <= g:defx_standard_width}
 
-function! s:defx_commands() abort
+function! s:defx_commands() abort "{{{1
   " Prepare commands to chmod on defx.
   " TODO: make it a carrent path.
   command! -buffer -range -nargs=1 Chmod :call s:chmod(<q-args>)
@@ -80,14 +87,14 @@ function! s:defx_commands() abort
   endif
 endfunction
 
-function! s:defx_keymaps() abort
+function! s:defx_keymaps() abort "{{{1
   " TODO: what is the 'search' for?
   nnoremap <silent><nowait><buffer><expr> S
         \ defx#do_action('search')
   "nnoremap <silent><nowait><buffer> <c-w>=
   "      \ :setl nowinfixwidth<cr><c-w>=
-  " Explore {{{1
-  " Explore; hjkl {{{2
+  " Explore {{{2
+  " Explore; hjkl {{{3
   nnoremap <silent><nowait><buffer> gg :2<cr>
   nnoremap <silent><nowait><buffer><expr> h
         \ defx#do_action('cd', ['..'])
@@ -97,7 +104,7 @@ function! s:defx_keymaps() abort
         \ .'zb'
         "\ <SID>defx_is_wide()?
         "\ defx#do_action('open_tree')
-  " Explore; CWD {{{2
+  " Explore; CWD {{{3
   nnoremap <silent><nowait><buffer><expr> <c-g>
         \ defx#do_action('print')
   "" CWD; defx's
@@ -110,7 +117,7 @@ function! s:defx_keymaps() abort
         \ defx#do_action('change_vim_cwd')
         \ .':echo "cd" expand("<cfile>:p:h")<CR>'
         "\ . `:echo 'cd' ` . getcwd()
-  " Explore; netrw-like {{{2
+  " Explore; netrw-like {{{3
   nnoremap <silent><nowait><buffer><expr> -
         \ defx#do_action('cd', ['..'])
   nnoremap <silent><nowait><buffer><expr> D
@@ -125,7 +132,7 @@ function! s:defx_keymaps() abort
         \ defx#do_action('new_directory')
   nnoremap <silent><nowait><buffer><expr> %
         \ defx#do_action('new_file')
-  " Explore; Sort {{{2
+  " Explore; Sort {{{3
   nnoremap <silent><nowait><buffer><expr> st
         \ defx#do_action('toggle_sort', 'time')
   nnoremap <silent><nowait><buffer><expr> ss
@@ -143,9 +150,9 @@ function! s:defx_keymaps() abort
   "nnoremap <silent><nowait><buffer><expr> C
   "      \ defx#do_action('toggle_columns',
   "      \                'mark:indent:icon:filename:type:size:time')
-  " Select {{{1
-  " Open File {{{2
-  " Edit {{{3
+  " Select {{{2
+  " Open File {{{3
+  " Edit {{{4
   nnoremap <silent><nowait><buffer><expr> <c-j>
         \ <SID>defx_is_wide()?
         \ defx#do_action('open', 'edit'):
@@ -158,7 +165,7 @@ function! s:defx_keymaps() abort
         \ <SID>single_window()?
         \ defx#do_action('drop'):
         \ defx#do_action('multi', ['drop', 'quit'])
-  " Split {{{3
+  " Split {{{4
   nnoremap <silent><nowait><buffer><expr> o
         \ defx#is_directory()?
         \ '<c-w>s':
@@ -189,7 +196,7 @@ function! s:defx_keymaps() abort
   " Note: <c-s> freezes screen on some unix.
   "nnoremap <silent><nowait><buffer> <c-w>v
   "      \ :`expand('g:defx_sidebar_width')` wincmd v setl winfixwidth'<cr>
-  " Append window {{{3
+  " Append window {{{4
   nnoremap <silent><nowait><buffer><expr> A
         \ defx#do_action('open', 'bot vsplit')
         \ .'<c-w>p'
@@ -208,7 +215,7 @@ function! s:defx_keymaps() abort
         \ defx#async_action('multi',
         \ ['toggle_select_visual', ['drop', 'bel split']])
         \ .'<c-w>h'
-  " Preview {{{3
+  " Preview {{{4
   " Mnemonic: Insert a preview in actual windows
   " Note: :pclose to change location between vertical/horizontal
   nnoremap <silent><nowait><buffer><expr> I
@@ -222,7 +229,7 @@ function! s:defx_keymaps() abort
         \ .'<c-w>h'
   " Mnemonic: Zip Preview
   nnoremap <silent><nowait><buffer> zp <c-w>z
-  " Tree {{{2
+  " Tree {{{3
   nnoremap <silent><nowait><buffer><expr> za
         \ defx#do_action('open_or_close_tree')
   nnoremap <silent><nowait><buffer><expr> zo
@@ -233,7 +240,7 @@ function! s:defx_keymaps() abort
         \ defx#do_action('open_tree')
   nnoremap <silent><nowait><buffer><expr> zc
         \ defx#do_action('close_tree')
-  " Register {{{2
+  " Register {{{3
   " copy: yank in defx's register
   " Note: CANNOT register multiple files into defx-register.
   nnoremap <nowait><buffer><expr> yy
@@ -245,11 +252,11 @@ function! s:defx_keymaps() abort
   " yank_path: yank in plus register
   nnoremap <nowait><buffer><expr> <space>yy
         \ defx#async_action('yank_path')
-  " Execute {{{2
+  " Execute {{{3
   nnoremap <silent><nowait><buffer><expr> X
         \ defx#do_action('execute_system')
-  " Toggle {{{1
-  " Toggle; Mark {{{2
+  " Toggle {{{2
+  " Toggle; Mark {{{3
   nnoremap <silent><nowait><buffer><expr> mm
         \ defx#do_action('toggle_select')
   nnoremap <silent><nowait><buffer><expr> mj
@@ -268,7 +275,7 @@ function! s:defx_keymaps() abort
         \ defx#do_action('toggle_select_all')
   xnoremap <silent><nowait><buffer><expr> m
         \ defx#do_action('toggle_select_visual')
-  " Toggle; Hidden Files {{{2
+  " Toggle; Hidden Files {{{3
   nnoremap <silent><nowait><buffer><expr> z.
         \ defx#do_action('toggle_ignored_files')
   " fold Normal - all you need
@@ -279,7 +286,7 @@ function! s:defx_keymaps() abort
   nnoremap <silent><buffer><expr> zn
         \ defx#do_action('toggle_columns',
         \                'mark:indent:git:icons:filename')
-  " Resize; {{{2
+  " Resize; {{{3
   nnoremap <silent><nowait><buffer><expr> >
         \ defx#do_action('resize',
         \ defx#get_context().winwidth + 10)
@@ -288,10 +295,9 @@ function! s:defx_keymaps() abort
         \ defx#get_context().winwidth - 10)
   nnoremap <silent><nowait><buffer><expr> .
         \ defx#do_action('repeat')
-  "}}}1
 endfunction
 
-augroup OnDefxBuffer
+augroup OnDefxBuffer "{{{1
   au FileType defx exe 'setl path='. getbufvar('#', '&path')
   au FileType defx wincmd =
   "" TODO: start cursor on filename
