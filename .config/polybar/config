@@ -3,8 +3,8 @@
 ; Sample: $GHQ_ROOT/github.com/polybar/polybar-scripts/
 
 [includes]
-include-file = ~/.config/polybar/commons.conf
-include-file = ~/.config/polybar/colors/adapta.conf
+include-file = ~/.config/polybar/commons.ini
+include-file = ~/.config/polybar/colors/adapta.ini
 
 ;[[[bar]]]
 [include]
@@ -23,20 +23,20 @@ modules-right  = volume-alsa cpu-graph ram-percent wlan xbacklight battery
 
 [include]
 #[modules.config]
-include-file = ~/.config/polybar/module/workspace/i3.conf
+include-file = ~/.config/polybar/module/workspace/i3.ini
 
-include-file = ~/.config/polybar/module/widgets.conf
-include-file = ~/.config/polybar/module/icons.conf
-include-file = ~/.config/polybar/module/notifications.conf
-;include-file = ~/.config/polybar/module/url.conf
+include-file = ~/.config/polybar/module/widgets.ini
+include-file = ~/.config/polybar/module/icons.ini
+include-file = ~/.config/polybar/module/notifications.ini
+;include-file = ~/.config/polybar/module/url.ini
 
-include-file = ~/.config/polybar/module/pc/volume.conf
-include-file = ~/.config/polybar/module/pc/ram.conf
-include-file = ~/.config/polybar/module/pc/cpu.conf
-include-file = ~/.config/polybar/module/pc/battery.conf
-include-file = ~/.config/polybar/module/pc/network.conf
+include-file = ~/.config/polybar/module/pc/volume.ini
+include-file = ~/.config/polybar/module/pc/ram.ini
+include-file = ~/.config/polybar/module/pc/cpu.ini
+include-file = ~/.config/polybar/module/pc/battery.ini
+include-file = ~/.config/polybar/module/pc/network.ini
 
-include-file = ~/.config/polybar/module/pc/xbacklight.conf
-include-file = ~/.config/polybar/module/pc/xkeyboard.conf
+include-file = ~/.config/polybar/module/pc/xbacklight.ini
+include-file = ~/.config/polybar/module/pc/xkeyboard.ini
 
 ; vim: ft=dosini
