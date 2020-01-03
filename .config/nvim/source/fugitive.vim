@@ -103,7 +103,7 @@ augroup FugitiveCallMyFunc
     "call win_gotoid(bufwinid('.git/index'))
   endfunction
   nnoremap <silent> <Plug>(fugitive-dismiss) :<c-u>call <SID>fugitive_dismiss()<cr>
-  nmap dQ <Plug>(fugitive-dismiss)
+  "nmap dQ <Plug>(fugitive-dismiss)
 
   "au FIleType git call s:gitlog_keymaps() "{{{1
   "function! s:gitlog_keymaps() abort
