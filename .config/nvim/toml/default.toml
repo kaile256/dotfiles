@@ -1,8 +1,8 @@
 # From: rc/dein.vim
 
-# Repeat
+#[[[Repeat]]]
 [[plugins]]
-repo = 'tpope/vim-repeat' #{{{
+repo = 'tpope/vim-repeat'
 # Note: has no help
 # Note: dein doesn't load this plugin, on unknown reason,
 #       so I made a symlink to the directory at plugin/.
@@ -10,71 +10,36 @@ repo = 'tpope/vim-repeat' #{{{
 #on_map = '<Plug>(Repeat'
 #on_event = ['BufRead']
 hook_add = 'runtime add/repeat.vim'
-#}}}
 
-## Register
+##[[[Register]]]
 #[[plugins]]
-#repo = 'svermeulen/vim-easyclip' #{{{
+#repo = 'svermeulen/vim-easyclip'
 #on_event = 'BufWinEnter'
 #hook_add = 'runtime add/easyclip.vim'
 #hook_source = 'runtime source/easyclip.vim'
-##}}}
 
-# Undo
+#[[[Undo]]]
 [[plugins]]
-repo = 'simnalamburt/vim-mundo' #{{{
+repo = 'simnalamburt/vim-mundo'
 on_cmd = 'Mundo'
 hook_add = 'runtime add/mundo.vim'
-#}}}
 #[[plugins]]
-#repo = 'jaxbot/selective-undo.vim' #{{{
+#repo = 'jaxbot/selective-undo.vim'
 #on_event = 'BufRead'
 #hook_post_source = 'runtime add/selective-undo.vim'
-##}}}
 #[[plugins]]
-#repo = 'machakann/vim-highlightedundo' #{{{
+#repo = 'machakann/vim-highlightedundo'
 #if = 'executable("diff")'
 #on_event = 'BufRead'
 #hook_post_source = 'runtime add/highlightedundo.vim'
-#}}}
 #[[plugins]]
-#repo = 'mbbill/undotree' #{{{
+#repo = 'mbbill/undotree'
 #on_map = 'Undotree'
 #hook_add = 'runtime add/undotree.vim'
-##}}}
 
-# Fold
+#[[[Diff]]]
 [[plugins]]
-repo = 'kaile256/FastFold' #{{{
-#repo = 'Konfekt/FastFold'
-# lazy load inside foleded.
-on_event = 'VimEnter'
-hook_source = 'runtime source/FastFold.vim'
-#}}}
-#[[plugins]]
-#repo = 'LeafCage/foldCC' #{{{
-#on_event = 'BufWinEnter'
-#hook_post_source = 'runtime add/foldCC.vim'
-##}}}
-#[[plugins]]
-#repo = 'SwintonStreet/HighlightFoldLevelVimScript' #{{{
-# Seems not to work. May not get along with foldCC.
-#hook_add = 'runtime add/HighlightFoldLevel.vim'
-##}}}
-#[[plugins]]
-#repo = 'anschnapp/move-less' #{{{
-#on_event = 'BufRead'
-#hook_add = 'runtime add/move-less.vim'
-#}}}
-#[[plugins]]
-#repo = 'tmhedberg/SimpylFold' #{{{
-#on_ft = 'python'
-#hook_post_source = 'runtime add/SimpylFold.vim'
-##}}}
-
-# Diff
-[[plugins]]
-repo = 'rickhowe/diffchar.vim' #{{{
+repo = 'rickhowe/diffchar.vim'
 on_cmd = ['DiffCharShow', 'DiffCharToggle']
 on_if = '&diff'
 hook_source = 'runtime add/diffchar.vim'
@@ -86,22 +51,18 @@ exe 'e' g:dein_github_dir .'/rickhowe/diffchar.vim/plugin/diffchar.vim'
 %s/EDChar/DiffCharEcho/e
 write
 '''
-#}}}
 [[plugins]]
-repo = 'AndrewRadev/linediff.vim' #{{{
+repo = 'AndrewRadev/linediff.vim'
 on_cmd = 'Linediff'
 hook_add = 'runtime add/linediff.vim'
-#}}}
 #[[plugins]]
-#repo = 'chrisbra/vim-diff-enhanced' #{{{
+#repo = 'chrisbra/vim-diff-enhanced'
 #on_cmd = ['EnhancedDiff', 'PatienceDiff']
 #hook_add = 'runtime diff-enhanced.vimrc'
-##}}}
 
 # :norm <c-a>/<c-x>
 #[[plugins]]
-#repo = 'qwertologe/nextval.vim' #{{{
+#repo = 'qwertologe/nextval.vim'
 #on_map = '<Plug>nextval'
 #hook_add = 'runtime add/nextval.vim'
-##}}}
 
