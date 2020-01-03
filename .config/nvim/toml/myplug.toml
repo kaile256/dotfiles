@@ -43,11 +43,11 @@ repo = 'kaile256/vim-spell-temporary'
 on_map = {nix = '<Plug>(spellTMP-suggestion'}
 hook_add = 'runtime add/spell-temporary.vim'
 
-[[plugins]]
-repo = 'kaile256/vim-findpath'
-on_cmd = 'FindPath'
-#hook_add = 'runtime add/findpath.vim'
-
+#[[plugins]]
+#repo = 'kaile256/vim-findpath'
+#on_cmd = 'FindPath'
+##hook_add = 'runtime add/findpath.vim'
+#
 [[plugins]]
 repo = 'kaile256/vim-help-toc'
 on_ft = ['help', 'man']
