@@ -10,12 +10,6 @@ command! -bar DiffOrig
       \ | r # | 0d_
       \ | diffthis | wincmd p | diffthis
 
-"augroup ToggleLineNr
-"  au!
-"  au CmdwinEnter,CmdlineEnter * setl number
-"  au CmdwinLeave,CmdlineLeave * setl nonumber
-"augroup END
-
 command! -bar SyntaxReset        :call s:syntax_reset() "{{{1
 command! -bar HeavyBufferToReset :call s:syntax_reset()
 " TODO: automatically call this function/command as needed
@@ -56,8 +50,11 @@ endfunction
 
 " TODO: make vint restricted to the range
 command! -nargs=* -range Vint :w <bar> !vint --enable-neovim <args> %:p
+command! -nargs=* -range Vin  :Vint
+
 command! -bar So :call s:source_buffer() "{{{1
 command! -bar SO :call s:source_buffer()
+command! -bar S  :call s:source_buffer()
 
 if !exists('*s:source_buffer')
   function! s:source_buffer() abort
@@ -70,30 +67,36 @@ if !exists('*s:source_buffer')
     endif
 
     silent write
+
     if getline(1) =~# '^#!'
       !%:p
-    elseif &ft ==# 'vim'
-      so %:p
-      echomsg v:statusmsg '& sourced.'
-    elseif &ft =~# 'html'
-      silent OpenBrowser %:p
-      echomsg v:statusmsg
-    elseif &ft ==# 'xmodmap'
-      !xmodmap %:p
-    elseif &ft ==# 'xdefault'
-      !xrdb %:p
-    elseif &ft ==# 'dosini' && expand('%:p:h') =~# '/polybar/'
-      !${XDG_CONFIG_HOME}/polybar/launch.sh &
-    elseif &ft ==# 'i3'
-      !i3-msg restart &
-    elseif expand('%:p') =~# '\.config/fcitx/'
-      " -r: reload; no flag, '--reload'
-      !fcitx-remote -r
-    else
-      !
+      return
+    elseif has_key(s:ft2cmd, &ft)
+      exe s:ft2cmd[&ft]
+      return
+    elseif &ft ==# 'dosini' && has_key(s:ini_fname)
+      if expand('%:p') =~# s:ini_fname[&ft]
+        exe s:ft2cmd[&ft]
+        return
+      endif
     endif
+
+    !
   endfunction
 endif
+
+let s:ft2cmd = {
+      \ 'vim': 'so %:p | echomsg v:statusmsg "& sourced"',
+      \ 'html': 'silent OpenBrowser %:p | echomsg v:statusmsg "& open in browser',
+      \ 'xmodmap': '!xmodmap %:p',
+      \ 'xdefaults': '!xrdb %:p',
+      \ 'i3': '!i3-msg restart &',
+      \ }
+
+let s:ini_fname = {
+      \ '\.config/fcitx/': '!fcitx-remote -r',
+      \ '/polybar/':       '!${XDG_CONFIG_HOME}/polybar/launch.sh &',
+      \ }
 
 " Shell Scripts; Out of Vim "{{{1
 command! -bar -nargs=* -complete=shellcmd
