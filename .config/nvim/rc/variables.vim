@@ -14,40 +14,39 @@ let $VMAIL_VIM  = 'nvr'
 "if executable('urxvt')
 "  let $TERM = 'rxvt-unicode'
 "else
-let $TERM = 'xterm-256color'
+"  let $TERM = 'xterm-256color'
 "endif
-"}}}
-" g:var; for Path {{{
-"let g:config_home = stdpath('config')
-"let g:cache_home  = stdpath('cache')
-"let g:data_home   = stdpath('data')
-let g:cache_home  = empty($XDG_CACHE_HOME)  ? expand('~/.cache/')       : $XDG_CACHE_HOME
-let g:config_home = empty($XDG_CONFIG_HOME) ? expand('~/.config/')      : $XDG_CONFIG_HOME
-let g:data_home   = empty($XDG_DATA_HOME)   ? expand('~/.local/share/') : $XDG_DATA_HOME
+
+" g:var; for Path {{{1
+let $XDG_CACHE_HOME  = empty($XDG_CACHE_HOME)  ? expand('$HOME/.cache/')       : $XDG_CACHE_HOME
+let $XDG_CONFIG_HOME = empty($XDG_CONFIG_HOME) ? expand('$HOME/.config/')      : $XDG_CONFIG_HOME
+let $XDG_DATA_HOME   = empty($XDG_DATA_HOME)   ? expand('$HOME/.local/share/') : $XDG_DATA_HOME
+
 let g:dotfiles_home  = '~/dotfiles/'
 let g:nvim_home = empty($VIMCONFIG) ? expand(g:dotfiles_home .'/.config/nvim/') : $VIMCONFIG
 let g:nvim_data_home = g:nvim_home . '/data/'
 let g:my_css_home = '~/Downloads/css'
 let g:my_trash_root = $XDG_DATA_HOME .'/Trash'
+let g:my_memo_root  = '~/vimwiki'
 
-"}}}
-" $var; for Vim {{{
+" $var; for Vim {{{1
 if isdirectory('~/kaile256')
   let $MYVIMRC = expand('<sfile>')
   let $HOME    = expand('<sfile>:h')
 endif
-"}}}
 
+" &packpath {{{1
 " default: &pp=~/.config/nvim,/etc/xdg/nvim,~/.local/share/nvim/site,/usr/local/share/nvim/site,/usr/share/nvim/site,/usr/share/nvim/runtime,/usr/share/nvim/site/after,/usr/local/share/nvim/site/after,~/.local/share/nvim/site/after,/etc/xdg/nvim/after,~/.config/nvim/after
 " only I use in manjaro: /usr/share/nvim/runtime,~/.config/nvim/after
 set packpath=
+
 " &rtp; "{{{1
 set rtp+=~/.config/nvim/data
 set rtp+=~/.config/nvim/lazy
 set rtp+=~/.config/nvim/toml
 set rtp+=~/.config/nvim/keymap
 
-" Path; Provider {{{1
+" Provider {{{1
 if has('python3')
   let g:python3_host_prog = '/usr/bin/python3'
   "let g:python3_host_prog = system('(type pyenv &>/dev/null && echo -n "$(pyenv root)/versions/$(pyenv global | grep python3)/bin/python") || echo -n $(which python3)')
