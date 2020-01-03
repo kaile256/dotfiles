@@ -1,4 +1,6 @@
 # Orig: /etc/share/dunst/dunstrc
+# Man: dunst(1)
+# Web: https://wiki.archlinux.jp/index.php/Dunst
 
 [global]
 frame_width = 1
@@ -7,25 +9,21 @@ frame_color = "#788388"
 font = Migu 1C 13
 
 # Allow a small subset of html markup:
+# Ref: http://developer.gnome.org/pango/stable/PangoMarkupFormat.html
 #   <b>bold</b>
 #   <i>italic</i>
 #   <s>strikethrough</s>
 #   <u>underline</u>
-#
-# For a complete reference see
-# <http://developer.gnome.org/pango/stable/PangoMarkupFormat.html>.
-# If markup is not allowed, those tags will be stripped out of the
-# message.
+# If markup is not allowed, those tags will be stripped out of the message.
 markup = yes
 
-# The format of the message.  Possible variables are:
+# The format of the message, markup is allowed here:
 #   %a  appname
 #   %s  summary
 #   %b  body
 #   %i  iconname (including its path)
 #   %I  iconname (without its path)
 #   %p  progress value if set ([  0%] to [100%]) or nothing
-# Markup is allowed
 format = "%s %p\n%b"
 
 # Sort messages by urgency.
@@ -44,7 +42,6 @@ alignment = left
 # Set to 0 to disable.
 bounce_freq = 5
 
-
 # Show age of message if message is older than show_age_threshold
 # seconds.
 # Set to -1 to disable.
@@ -56,7 +53,6 @@ word_wrap = no
 
 # Ignore newlines '\n' in notifications.
 ignore_newline = no
-
 
 # The geometry of the window:
 #   [{width}]x{height}[+/-{x}+/-{y}]
@@ -155,22 +151,7 @@ icon_path = /usr/share/icons/Adwaita/16x16/status/:/usr/share/icons/Adwaita/16x1
 # Limit icons size.
 max_icon_size=32
 
-[shortcuts]
-# CAUTION: the shortcuts overrides bindings on terminal
-# Available modifiers are "ctrl", "mod1", "mod2", "mod3" and "mod4"
-# Note: get code names by `xmodmap -pke` or `xev`
-
-# Notification
-close = mod4+bracketleft
-close_all = Shift+mod4+bracketleft
-
-# Redisplay last message(s).
-# On the US keyboard layout "grave" is normally above TAB and left of "1".
-history = mod4+p
-
-# Context Menu
-context = mod4+o
-
+#[[[Colors]]]
 [urgency_low]
 # IMPORTANT: colors have to be defined in quotation marks.
 # Otherwise the "#" and following would be interpreted as a comment.
@@ -217,6 +198,25 @@ timeout = 0
 # NOTE: It might be helpful to run dunst -print in a terminal in order
 # to find fitting options for rules.
 
+[shortcuts]
+# CAUTION: the shortcuts overrides bindings on terminal
+# Available modifiers are "ctrl", "mod1", "mod2", "mod3" and "mod4"
+# Note: get code names by `xmodmap -pke` or `xev`
+
+## Notification
+#close = "mod4+bracketleft"
+#close_all = "Shift+mod4+bracketleft"
+#
+## Redisplay last message(s).
+## On the US keyboard layout "grave" is normally above TAB and left of "1".
+#history = "mod4+p"
+#
+## Context Menu
+#context = "mod4+o"
+
+#[[[Filtering]]]
+# summary: matches the 'title'(summary) of the notification
+# appname: DISCOURAGED; use 'desktop_entry' which won't get localized compared to appname
 #[espeak]
 #    summary = "*"
 #    script = dunst_espeak.sh
@@ -273,24 +273,24 @@ timeout = 0
 #    background = "#A8EB41"
 #    foreground = "#FFFFFF"
 #
-[irc]
-appname = weechat
-timeout = 0
-background = "#0033bb"
-foreground = "#dddddd"
-#
-[weechat hl]
-appname = weechat
-category = weechat.HL
-background = "#FF5C47"
-foreground = "#FFFFFF"
-#
-[weechat pn]
-appname = weechat
-category = weechat.PM
-background = "#D53B84"
-foreground = "#FFFFFF"
-#
+#[irc]
+#appname = weechat
+#timeout = 0
+#background = "#0033bb"
+#foreground = "#dddddd"
+##
+#[weechat hl]
+#appname = weechat
+#category = weechat.HL
+#background = "#FF5C47"
+#foreground = "#FFFFFF"
+##
+#[weechat pn]
+#appname = weechat
+#category = weechat.PM
+#background = "#D53B84"
+#foreground = "#FFFFFF"
+##
 #[CMUS]
 #    appname = CMUS
 #    category = cmus
