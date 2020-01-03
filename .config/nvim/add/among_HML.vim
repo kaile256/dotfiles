@@ -113,9 +113,9 @@ noremap <silent> L <Cmd>call among_HML#fork#init('L', '100', {
 "nnoremap <silent> <c-j> :<c-u>call among_HML#scroll#percent(25, 'down')<cr>
 "nnoremap <silent> <c-k> :<c-u>call among_HML#scroll#percent(25, 'up')<cr>
 
-" among_HML#percent {{{1
-onoremap <silent> K <Cmd>call among_HML#percent(25)<cr>
-onoremap <silent> J <Cmd>call among_HML#percent(75)<cr>
+" among_HML#jump {{{1
+onoremap <silent> K <Cmd>call among_HML#jump(25)<cr>
+onoremap <silent> J <Cmd>call among_HML#jump(75)<cr>
 onoremap <silent> H H
 onoremap <silent> L L
 
