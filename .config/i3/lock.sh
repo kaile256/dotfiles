@@ -2,4 +2,4 @@
 
 # Note: sleep 1 to suspend correctly
 # @ https://wiki.archlinux.jp/index.php/I3
-i3lock -i ~/Pictures/wallpaper/wall.png && sleep 1
+i3lock --nofork --image ~/Pictures/wallpaper/wall.png && sleep 1
