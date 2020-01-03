@@ -1,48 +1,51 @@
 # From: rc/dein.vim
 
+#[[[Vim]]]
 [[plugins]]
-repo = 'vim-jp/vital.vim' #{{{
+repo = 'mhinz/vim-lookup'
+# Enable to jump to definition as &runtimepath.
+#on_ft = 'vim'
+on_map = '<Cmd>lookup#'
+hook_add = 'runtime add/lookup.vim'
+
+#[[[Checker]]]
+[[plugins]]
+repo = 'tweekmonster/helpful.vim'
+on_cmd = 'HelpfulVersion'
+hook_add = 'runtime add/helpful.vim'
+[[plugins]]
+repo = 'tpope/vim-scriptease'
+on_cmd = 'scriptease#'
+hook_add = 'runtime add/scriptease.vim'
+
+[[plugins]]
+repo = 'thinca/vim-scouter'
+on_cmd = 'Scouter'
+
+#[[[Library]]]
+[[plugins]]
+repo = 'vim-jp/vital.vim'
 # a lib/ for vimscript
 on_cmd = 'Vitalize'
 hook_source = 'runtime add/vital.vim'
-#}}}
 
+#[[[Benchmark]]]
 [[plugins]]
-repo = 'tweekmonster/helpful.vim' #{{{
-on_cmd = 'HelpfulVersion'
-hook_add = 'runtime add/helpful.vim'
-#}}}
-
-[[plugins]]
-repo = 'mattn/benchvimrc-vim' #{{{
+repo = 'mattn/benchvimrc-vim'
 # not for nvim, only for vim
 on_cmd = ['BenchVimrc']
-#}}}
 [[plugins]]
-repo = 'junegunn/vim-startuptime-benchmark' #{{{
+repo = 'junegunn/vim-startuptime-benchmark'
 # how to use it?
-#}}}
 
+#[[[Test]]]
 [[plugins]]
-repo = 'thinca/vim-scouter' #{{{
-on_cmd = 'Scouter'
-#}}}
-
-[[plugins]]
-repo = 'tpope/vim-scriptease' #{{{
-on_cmd = 'scriptease#'
-hook_add = 'runtime add/scriptease.vim'
-#}}}
-
-[[plugins]]
-repo = 'rhysd/vim-themis' #{{{
+repo = 'rhysd/vim-themis'
 # A library of vim-script for test-making.
 hook_post_source = 'runtime add/themis.vim'
-#}}}
+
 #[[plugins]]
-#repo = 'junegunn/vader.vim' #{{{
+#repo = 'junegunn/vader.vim'
 ## a test-framework for vimscript.
 #on_cmd = 'Vader'
 #hook_add = 'runtime add/vader.vim'
-##}}}
-
