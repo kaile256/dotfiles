@@ -1,9 +1,10 @@
 scriptencoding utf-8
 " From: init.vim
 
+if exists('s:zenkaku') | finish | endif
+
 hi! Zenkaku cterm=reverse,bold,undercurl gui=reverse,bold,undercurl
 
-let w:zenkaku = matchadd('Zenkaku', '[ＡＢＣＤＥＦＧＨＩＪＫＬＭＮＯＰＱＲＳＴＵＶＷＸＹＺ]')
-let w:zenkaku = matchadd('Zenkaku', '[ａｂｃｄｅｆｇｈｉｊｋｌｍｎｏｐｑｒｓｔｕｖｗｘｙｚ]')
-let w:zenkaku = matchadd('Zenkaku', '[　０１２３４５６７８９]')
-
+let s:zenkaku = matchadd('Zenkaku', '[ＡＢＣＤＥＦＧＨＩＪＫＬＭＮＯＰＱＲＳＴＵＶＷＸＹＺ]')
+let s:zenkaku = matchadd('Zenkaku', '[ａｂｃｄｅｆｇｈｉｊｋｌｍｎｏｐｑｒｓｔｕｖｗｘｙｚ]')
+let s:zenkaku = matchadd('Zenkaku', '[　０１２３４５６７８９]')
