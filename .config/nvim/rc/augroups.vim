@@ -2,7 +2,6 @@
 
 augroup BufTypeAdjustment
   au!
-  au OptionSet textwidth exe 'setl colorcolumn='. expand(&tw + 1)
   au BufRead $XDG_DATA_HOME/Trash/**/* setl bt=nofile
   " Ref: https://twitter.com/_tyru_/status/1209126520511315969
   au BufRead *.log,/tmp**/* setl backupcopy=yes
@@ -45,7 +44,7 @@ augroup AlertOnFilename
 augroup END
 
 augroup FindAlternate "{{{1
-  au! BufWinEnter *vim**/* call s:find_alternate()
+  au! BufWinEnter .config/*vim**/* call s:find_alternate()
 augroup END
 
 function! s:find_alternate() abort
