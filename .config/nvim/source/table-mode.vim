@@ -2,18 +2,10 @@
 " Repo: dhruvasagar/vim-table-mode
 
 " Ref: see default values for g:var in dhruvasagar/vim-table-mode/plugin/table-mode.vim @17
-augroup TableModeCallMyFunc
+augroup myTableMode
   au!
-  function! s:arrange_table() abort "{{{
-    let s:ft = {list -> index(list, &ft) >= 0}
-    if s:ft(['org', 'vimwiki', 'markdown'])
-      if &modifiable && !&readonly
-        silent TableModeRealign
-      endif
-    endif
-  endfunction "}}}
-  au InsertLeave * call s:arrange_table()
-  au InsertEnter *.wiki,*.md,*.org,*.txt
-        \ silent TableModeEnable
-        \ | au InsertLeave * ++once silent TableModeDisable
+  au InsertEnter *.{wiki,md,org,txt} silent TableModeEnable
+  au InsertLeave *.{wiki,md,org,txt} silent TableModeRealign
+  " Note: some functions would not work if disabled on `InsertLeave`
+  "au InsertLeave *.{wiki,md,org,txt} silent TableModeDisable
 augroup END
