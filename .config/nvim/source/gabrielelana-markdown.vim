@@ -4,9 +4,6 @@
 
 let g:markdown_enable_folding = 1
 
-hi! link markdownHeadingDelimiter PreProc
-hi! link htmlLink Statement
-
 "hi! link markdownH1 String
 "hi! link markdownH2 markdownH1
 "hi! link markdownH3 markdownH1
