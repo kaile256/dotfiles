@@ -3,6 +3,26 @@
 !twm &
 !xclock -geometry 50x50-1+1 &
 
+!! Ref: http://malkalech.com/xresources_magic
+!#ifdef SRVR_alicia
+!#define  FONT       Hack Nerd Font
+!#define  FONTW      Migu 1M
+!#define  FONT_SIZE  9
+!#elif defined SRVR_abigail_foo_bar_com
+!#define  FONT       Inconsolata
+!#define  FONTW      NasuM
+!#define  FONT_SIZE  11
+!#else
+!#define  FONT       monospace:lang=en
+!#define  FONTW      monospace:lang=ja
+!#define  FONT_SIZE  9
+!#endif
+!
+!XTerm*faceName:           FONT
+!XTerm*faceNameDoublesize: FONTW
+!XTerm*faceSize:           FONT_SIZE
+!URxvt.font:               xft:FONT-FONT_SIZE, xft:FONTW
+
 ! URxvt {{{1
 URxvt.termName: rxvt-unicode
 
@@ -43,7 +63,8 @@ URxvt.depth: 32
 URxvt.allow_bold: true
 URxvt.kanji_encoding: UTF-8
 
-URxvt.font: xft:SF Mono:size=13:antialias=true,xft:Icons:size=14:antialias=true,xft:Hack Nerd Font:size=14:antialias=true
+!URxvt.font: xft:SF Mono:size=13:antialias=true,xft:Icons:size=14:antialias=true,xft:Hack Nerd Font:size=14:antialias=true
+URxvt.font: xft:Icons:size=14:antialias=true,xft:Hack Nerd Font:size=14:antialias=true
 !URxvt.font:                 xft:Dejavu Sans Mono:size=12:antialias=true,xft:MyricaM M:size=14:antialias=true
 ! Note: letterSpace in negative nr. removes exagerated spaces; esp. for Japanese Fonts.
 URxvt.letterSpace:          -1
