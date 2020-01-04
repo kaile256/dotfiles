@@ -70,8 +70,15 @@ let s:wiki_markdown.nested_syntaxes = {
 "}}}
 let g:vimwiki_list = [
       \ {},
-      \ s:wiki_index
+      \ s:wiki_index,
       \ ]
+
+"" no use
+"let g:vimwiki_syntax_variables = get(g:, 'vimwiki_syntax_variables', {'default': ''})
+"let g:vimwiki_syntax_variables = extend(g:vimwiki_syntax_variables, {
+"      \ 'markdown': copy(g:vimwiki_syntax_variables['default'])
+"      \ })
+
 " Let; List Symbols {{{1
 "let g:vimwiki_listsyms = '✗○◐●✓'
 "let g:vimwiki_listsym_rejected = '✗'
@@ -100,6 +107,7 @@ function! s:vimwiki_abbrs() abort "{{{1
 endfunction
 
 function! s:vimwiki_keymaps() abort "{{{1
+  nnoremap <silent><buffer> = <Plug>VimwikiAddHeaderLevel
   " Undo Break {{{2
   inoremap <buffer> , ,<c-g>u
   inoremap <buffer> . .<c-g>u
@@ -135,9 +143,10 @@ augroup AutoFormatVimwiki
   au!
   "au VimEnter,BufNewFile,BufRead *.md setl ft=vimwiki syn=vimwiki
   au FileType vimwiki setl tabstop=4 softtabstop=4 shiftwidth=4
-  au FileType vimwiki setl nowrap fdl=2 syn=vimwiki
+  au FileType vimwiki setl nowrap fdl=2
+  "au FileType vimwiki if expand('%:t') ==# 'md\|markdown' | setl ft=markdown | endif
   au BufWritePre vimwiki/** if &ft  ==# 'vimwiki' | VimwikiTOC
   au BufWritePre index.* if &ft  ==# 'vimwiki' | VimwikiGenerateLinks
-  au FileType vimwiki,markdown if &syn ==# 'vimwiki' | call s:vimwiki_keymaps()
-  au FileType vimwiki,markdown if &syn ==# 'vimwiki' | call s:vimwiki_abbrs()
+  au FileType vimwiki,markdown call s:vimwiki_keymaps()
+  au FileType vimwiki,markdown call s:vimwiki_abbrs()
 augroup END

@@ -2,6 +2,8 @@
 " Repo: tyru/open-browser.vim
 " Another: add/open-browser.vim
 
+let g:openbrowser_message_verbosity = 1
+
 " Let; Specify Browser {{{
 let g:openbrowser_browser_commands = [
       \ {'name': 'qutebrowser', 'args': ['{browser}', '{uri}']},
@@ -9,11 +11,12 @@ let g:openbrowser_browser_commands = [
       \ ]
 "}}}
 " 0: go to the browser.
-" 1: stay on vim.
-let g:openbrowser_force_foreground_after_open = 0
+" 1: stay in vim; open browser in background
+let g:openbrowser_force_foreground_after_open = 1
 " Let; Search Engine
 let g:openbrowser_default_search = 'duckduckgo'
-" List: Registered Search Engines {{{
+
+" List: Registered Search Engines {{{1
 let g:openbrowser_search_engines = {
       \ 'alc': 'http://eow.alc.co.jp/{query}/UTF-8/',
       \ 'archwiki@en': 'https://wiki.archlinux.org/index.php?search={query}',
@@ -40,4 +43,4 @@ let g:openbrowser_search_engines = {
       \ 'wikipedia': 'http://en.wikipedia.org/wiki/{query}',
       \ 'wikipedia-ja': 'http://ja.wikipedia.org/wiki/{query}',
       \ 'yahoo': 'http://search.yahoo.com/search?p={query}',
-      \ } "}}}
+      \ }
