@@ -110,29 +110,6 @@ augroup END
 "nnoremap <silent><expr> gF     exists('b:term_title') ? ':<c-u>call <SID>missing_find("tabe")<cr>' : '<c-w>gF'
 "xnoremap <silent><expr> gF     exists('b:term_title') ? ':<c-u>call <SID>missing_find("tabe")<cr>' : '<c-w>gF'
 
-augroup findAlter "{{{1
-  au!
-  au BufWinEnter **/.config/nvim/**/* call s:find_alter()
-augroup END
-
-function! s:find_alter() abort "{{{2
-  silent! let s:alter = expand('#:t')
-  silent! if !search(s:alter, 'cWn') | return | endif
-
-silent! call search(s:alter, 'cW')
-norm! zv
-silent! let @/ = s:alter
-au! findAlter BufLeave * if exists('s:alter') | call s:hist_remove(s:alter) | endif
-endfunction
-
-function! s:hist_remove(word) abort "{{{2
-  silent! if !search(a:word, 'cWn') && histget('/') ==# a:word
-  call histdel('/', -1)
-  let @/ = histget('/', -1)
-  silent! unlet s:alter
-endif
-endfunction
-
 " Switch; Pane {{{1
 " leap between panes
 nnoremap <a-h> <c-w>h
