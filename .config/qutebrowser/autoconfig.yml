@@ -98,6 +98,7 @@ settings:
         <Ctrl+k>: completion-item-focus prev
         <Ctrl+n>: command-history-next
         <Ctrl+p>: command-history-prev
+        <Ctrl+r>: fake-key <ctrl-v>
         <Ctrl+r><Ctrl+Space>: fake-key <Ctrl-V>
         <Ctrl+r><Space>: insert-text {clipboard}
         <Ctrl+x>: completion-item-del
@@ -127,6 +128,7 @@ settings:
         <Alt+k>: enter-mode normal
         <Alt+l>: enter-mode normal
         <Alt+o>: fake-key <tab>
+        <Alt+u>: fake-key <ctrl-z>
         <Alt+v>: fake-key <Shift-left>;; enter-mode caret
         <Alt+y>: yank selection
         <Ctrl+Alt+v>: fake-key <shift-ctrl-left>
@@ -138,6 +140,7 @@ settings:
         <Ctrl+h>: fake-key <backspace>
         <Ctrl+i>: fake-key <tab>
         <Ctrl+j>: fake-key <Enter>
+        <Ctrl+k>: fake-key <Shift-end><Delete>
         <Ctrl+m>: fake-key <Enter>
         <Ctrl+n>: fake-key <Down>
         <Ctrl+o>u: fake-key <undo>
@@ -145,8 +148,8 @@ settings:
         <Ctrl+q>: open-editor
         <Ctrl+r>0: insert-text {primary}
         <Ctrl+r><Ctrl+0>: insert-text {primary}
-        <Ctrl+r><Ctrl+Space>: insert-text {clipboard}
-        <Ctrl+r><Space>: insert-text {clipboard}
+        <Ctrl+r><Ctrl+Space>: fake-key <ctrl-v>
+        <Ctrl+r><Space>: fake-key <ctrl-v>
         <Ctrl+u>: fake-key <shift-home><Delete>
         <Ctrl+w>: fake-key <ctrl-backspace>
         <Ctrl+y>: insert-text {primary}
