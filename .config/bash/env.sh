@@ -26,6 +26,8 @@ export XMODIFIERS=@im=fcitx
 # Terminal
 export TERM=xterm-256color
 export COLORTERM=xterm-256color
+# for transparency on xterm
+([ -n "$XTERM_VERSION" ] && transset-df --id "$WINDOWID")>/dev/null
 
 # nvr & nvim-qt does NOT work for sudoedit.
 export EDITOR=nvim-qt
