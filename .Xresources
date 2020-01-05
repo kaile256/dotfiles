@@ -43,13 +43,6 @@ URxvt.pointerBlank:         true
 URxvt.visualBell:           false
 URxvt.saveLines:            3000
 
-!!! Color Scheme and Opacity - gruvbox-dark https://github.com/morhetz/gruvbox
-! Note: apply the opacity on color config in `[]`
-! Note: work on a window-manager
-!       which supports a composite-manager like xcompmgr or picom
-! Note: keep 'depth' 32
-URxvt.depth: 32
-
 !! 'transparent': only in fake; for true one, use 'depth'
 !!                adjust by 'shading'
 !URxvt.transparent: true
@@ -70,27 +63,12 @@ URxvt.font: xft:Icons:size=14:antialias=true,xft:Hack Nerd Font:size=14:antialia
 URxvt.letterSpace:          -1
 !URxvt.lineSpace:            2  ! expand space between command-lines.
 
-!! Colorscheme: Solarized (or flattened)
-!URxvt.color0:      [90]#073642    /* black          */
-!URxvt.color1:      [90]#dc322f    /* red            */
-!URxvt.color2:      [90]#859900    /* green          */
-!URxvt.color3:      [90]#b58900    /* yellow         */
-!URxvt.color4:      [90]#268bd2    /* blue           */
-!URxvt.color5:      [90]#d33682    /* magenta        */
-!URxvt.color6:      [90]#2aa198    /* cyan           */
-!URxvt.color7:      [90]#eee8d5    /* white          */
-!URxvt.color8:      [90]#002b36    /* bright black   */
-!URxvt.color9:      [90]#cb4b16    /* bright red     */
-!URxvt.color10:     [90]#586e75    /* bright green   */
-!URxvt.color11:     [90]#657b83    /* bright yellow  */
-!URxvt.color12:     [90]#839496    /* bright blue    */
-!URxvt.color13:     [90]#6c71c4    /* bright magenta */
-!URxvt.color14:     [90]#93a1a1    /* bright cyan    */
-!URxvt.color15:     [90]#fdf6e3    /* bright white   */
-!!URxvt.foreground:  [90]#ebdbb2
-!!URxvt.background:  [90]#282828
-!URxvt.foreground:  [90]white
-!URxvt.background:  [90]black
+!!! Color Scheme and Opacity - gruvbox-dark https://github.com/morhetz/gruvbox
+! Note: apply the opacity on color config in `[]`
+! Note: work on a window-manager
+!       which supports a composite-manager like xcompmgr or picom
+! Note: keep 'depth' 32
+URxvt.depth: 32
 
 ! Colorscheme: Neodark
 ! [100]: 100% itself; background is completely itself
@@ -124,6 +102,28 @@ URxvt.background:  [60]black
 !URxvt.scrollColor: [90]#504945
 !URxvt.troughColor: [90]#3C3836  ! bg-color of scrollbar.
 
+!! Colorscheme: Solarized (or flattened)
+!URxvt.color0:      [90]#073642    /* black          */
+!URxvt.color1:      [90]#dc322f    /* red            */
+!URxvt.color2:      [90]#859900    /* green          */
+!URxvt.color3:      [90]#b58900    /* yellow         */
+!URxvt.color4:      [90]#268bd2    /* blue           */
+!URxvt.color5:      [90]#d33682    /* magenta        */
+!URxvt.color6:      [90]#2aa198    /* cyan           */
+!URxvt.color7:      [90]#eee8d5    /* white          */
+!URxvt.color8:      [90]#002b36    /* bright black   */
+!URxvt.color9:      [90]#cb4b16    /* bright red     */
+!URxvt.color10:     [90]#586e75    /* bright green   */
+!URxvt.color11:     [90]#657b83    /* bright yellow  */
+!URxvt.color12:     [90]#839496    /* bright blue    */
+!URxvt.color13:     [90]#6c71c4    /* bright magenta */
+!URxvt.color14:     [90]#93a1a1    /* bright cyan    */
+!URxvt.color15:     [90]#fdf6e3    /* bright white   */
+!!URxvt.foreground:  [90]#ebdbb2
+!!URxvt.background:  [90]#282828
+!URxvt.foreground:  [90]white
+!URxvt.background:  [90]black
+
 ! EXTENTION
 ! CAUTION: spare extra extentions to save RAM.
 !URxvt.perl-ext:
@@ -135,7 +135,7 @@ XTerm*termName: xterm-256color
 !xterm -geometry 80x50+494+51 &
 !xterm -geometry 80x20+494-0 &
 
-Term*scrollBar:    False
+XTerm*scrollBar:    False
 XTerm*cursorBlink: True
 
 ! Fonts and Encoding
@@ -143,42 +143,41 @@ XTerm*utf8:      True
 XTerm*locale:    True
 XTerm*utf8Title: True
 
-XTerm*faceName: xft:DejaVu Sans Mono
+XTerm*faceName: xft:Hack Nerd Font:size=14:antialias=true
 XTerm*faceNameDoublesize: xft:Migu 1M
-XTerm*faceSize: 13
+XTerm*faceSize: 14
+! scaleHeight: the height between line and line
+!   (available: 0.9 ~ 1.5; default: 1.0)
 XTerm*scaleHeight: 1.08
+! cjk: Chinese, Japanese, Korean
+XTerm*cjkWidth : true
 
 XTerm*metaSendsEscape: true
+XTerm*borderWidth: 0
 
-!! Color Scheme : Tomorrow Night
-!! https://github.com/chriskempson/tomorrow-theme
-XTerm*background: #1D1F21
-XTerm*foreground: #C5C8C6
-
-! black
-XTerm*color0:  #282A2E
-XTerm*color8:  #373B41
-! red
-XTerm*color1:  #A54242
-XTerm*color9:  #CC6666
-! green
-XTerm*color2:  #8C9440
-XTerm*color10: #B5BD68
-! yellow
-XTerm*color3:  #DE935F
-XTerm*color11: #F0C674
-! blue
-XTerm*color4:  #5F819D
-XTerm*color12: #81A2BE
-! magenta
-XTerm*color5:  #85678F
-XTerm*color13: #B294BB
-! cyan
-XTerm*color6:  #5E8D87
-XTerm*color14: #8ABEB7
-! white
-XTerm*color7:  #707880
-XTerm*color15: #C5C8C6
+! Colorscheme: Neodark
+! [100]: 100% itself; background is completely itself
+! [0]:   0% itself; fake-background
+XTerm.color0:      #AE8785    /* black          */
+XTerm.color1:      #DC657D    /* red            */
+XTerm.color2:      #84B97C    /* green          */
+XTerm.color3:      #D4B261    /* yellow         */
+XTerm.color4:      #639EE4    /* blue           */
+XTerm.color5:      #B888E2    /* magenta        */
+XTerm.color6:      #72C7D1    /* cyan           */
+XTerm.color7:      #C7C18B    /* white          */
+XTerm.color8:      #af8787    /* bright black   */
+XTerm.color9:      #d75f87    /* bright red     */
+XTerm.color10:     #87af87    /* bright green   */
+XTerm.color11:     #d7af5f    /* bright yellow  */
+XTerm.color12:     #5fafd7    /* bright blue    */
+XTerm.color13:     #af87d7    /* bright magenta */
+XTerm.color14:     #5fd7d7    /* bright cyan    */
+XTerm.color15:     #d7af87    /* bright white   */
+!XTerm.foreground:  #ebdbb2
+!XTerm.background:  #282828
+XTerm.foreground:  white
+XTerm.background:  black
 
 ! Window Manager {{{1
 !exec qtile
