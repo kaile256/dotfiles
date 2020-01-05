@@ -5,21 +5,16 @@
 
 umask 022
 
-SourceFile=(
+SCRIPTS=(
 #env.sh # includes initial XDG_BASEs.
 #xdg.sh
 #path.sh
 alias.sh # has no mean on fish, even when loaded from .profile
 prompt.sh
 )
-for i in "${SourceFile[@]}"; do
+for i in "${SCRIPTS[@]}"; do
   source "$HOME/.config/bash/$i"
 done
-#source ~/.config/bash/xdg.sh
-#source ~/.config/bash/env.sh
-#source ~/.config/bash/path.sh
-#source ~/.config/bash/alias.sh
-#source ~/.config/bash/prompt.sh
 
 # ~/.bashrc: executed by bash(1) for non-login shells.
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
