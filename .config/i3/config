@@ -2,6 +2,7 @@
 # Ref: .xinitrc
 
 # Variables {{{1
+# NOTE: seems no case-sensitive in variable
 # Var; Font {{{2
 # Note: do NOT insert size-number before commas
 #   because the following fonts will be ignored;
@@ -63,7 +64,7 @@ set $urxvt urxvt
 
 set $termporal alacritty --title termporal --config-file $XDG_CONFIG_HOME/alacritty/floating.yml -e fish
 #set $termporal alacritty --title termporal -e nvim -u $XDG_CONFIG_HOME/nvim/rc/termporal.vim
-for_window [title=^termporal$] floating enable border hide_edge_borders vertical
+for_window [title=^termporal$] floating enable
 #set $terminal urxvt
 
 # Var; i3 Workspace {{{2
@@ -178,10 +179,11 @@ $always $MYSCRIPTS/monitor-try.sh
 # xautolock: a timer to lock screen of PC
 # use xss instead of xautolock
 # Note: xss-lock subscribes the systemd-events
-$noid killall --quiet xss-lock; sleep 1; xss-lock -- $locker
+$noid xss-lock -- $locker
 #$noid xautolock -time 5 -locker $locker
 # nitrogen: a wallpaper manager
-# picom: compton is deprecated name
+# picom: a enhanced fork of compton
+#   -b: activate on background
 $noid nitrogen --restore; sleep 1; picom -b
 ## TODO: i3-cheat sheet on desktop.
 #$noid "feh --bg-scale $HOME/.config/i3/~~.jpg"
@@ -191,7 +193,7 @@ $noid sudo tlp start
 
 $noid alsactl daemon
 # pulseaudio: deamon to control via keyboard.
-$noid pulseaudio --start
+$noid pulseaudio -k; sleep 1; pulseaudio --start
 # pa-applet (pulseaudio):
 #$noid pa-applet
 #$noid volumeicon
@@ -305,7 +307,6 @@ bindsym $SuperS+I focus tiling;   mode default; $alert 'Focus: Tiling'
 # Ref: https://qiita.com/iberianpig/items/08784c9b2f53b3e41409
 #   Control Trackpad by Fusuma
 $release $Super+comma        $noid $MYSCRIPTS/touchpad-toggle.sh
-$release $Super+semicolon    $noid $MYSCRIPTS/touchpad-toggle.sh
 $release $Super+$ClickMiddle $noid $MYSCRIPTS/touchpad-toggle.sh
 
 bindcode 66 $alert 'CapsLock: Toggle'
@@ -313,23 +314,34 @@ bindcode 66 $alert 'CapsLock: Toggle'
 # Keybind; Mode on i3 {{{1
 # WARNING: use double quotes for either in `set` or `mode`
 # Mode; Layout {{{2
-set $Layout " Layout: (T)abbed (H)orizontal (V)ertical stac(K)ing (F)loating f(U)llscreen | (W) for Window mode"
+set $Layout " Layout: (T)abbed fl(O)ating | Resize: HJKL | (W) for Window mode"
 $release $SuperS+W mode $Layout; $alert 'Layout mode'
 
 mode $Layout {
 $release W       mode $Window; $notify 'Window mode'
 $release Shift+W mode $Window; $notify 'Window mode'
 
-bindsym H split h; mode default; $alert 'Layout: horizontal'
-bindsym V split v; mode default; $alert 'Layout: vertical'
+#bindsym H split h; mode default; $alert 'Layout: horizontal'
+#bindsym V split v; mode default; $alert 'Layout: vertical'
 
 bindsym T layout tabbed;   mode default; $alert 'Layout: tabbed'
-bindsym K layout stacking; mode default; $alert 'Layout: stacking'
+#bindsym K layout stacking; mode default; $alert 'Layout: stacking'
 
 # Note: Fullscreen/Floating could be irritative;
 #       window sometimes hides on the status-bar
-bindsym F floating   toggle; mode default; $alert 'Layout: floating toggle'
-bindsym U fullscreen toggle; mode default; $alert 'Layout: fullscreen toggle'
+bindsym O floating   toggle; mode default; $alert 'Layout: floating toggle'
+#bindsym U fullscreen toggle; mode default; $alert 'Layout: fullscreen toggle'
+bindsym $Super+O focus mode_toggle; mode default; $alert 'Focus: Toggle'
+
+bindsym H resize shrink width  1 px or 1 ppt
+bindsym K resize shrink height 1 px or 1 ppt
+bindsym J resize grow   height 1 px or 1 ppt
+bindsym L resize grow   width  1 px or 1 ppt
+
+bindsym F resize grow   width  10 px or 10 ppt
+bindsym B resize shrink width  10 px or 10 ppt
+bindsym D resize grow   height 10 px or 10 ppt
+bindsym U resize shrink height 10 px or 10 ppt
 
 bindsym Shift+H resize shrink width  25 px or 25 ppt
 bindsym Shift+K resize shrink height 25 px or 25 ppt
@@ -369,10 +381,16 @@ bindsym Shift+D move down  100 px
 bindsym Shift+U move up    100 px
 
 # especially for floating window
-bindsym H move left  25 px
-bindsym J move down  25 px
-bindsym K move up    25 px
-bindsym L move right 25 px
+bindsym H move left  1 px
+bindsym J move down  1 px
+bindsym K move up    1 px
+bindsym L move right 1 px
+
+# especially for floating window
+bindsym Shift+H move left  25 px
+bindsym Shift+J move down  25 px
+bindsym Shift+K move up    25 px
+bindsym Shift+L move right 25 px
 
 bindsym B move left  50 px
 bindsym F move right 50 px
@@ -453,7 +471,7 @@ bindsym Ctrl+bracketleft mode default
 # `pacmd list-sinks` to get list to control
 ## Depends: pulseaudio & pavucontrol
 # Depends: pulseaudio-ctl
-# Recommend: pamixer (a frontend)
+# Recommend: pacmixer (a frontend of ALSA for pulseaudio)
 # Recommend: pulseaudio-alsa (for flash)
 set $Sound " Sound Volume: (M)ute "
 $release $Super+S mode $Sound; $shortmsg 'Sound mode'
@@ -464,7 +482,7 @@ set $mute exec --no-startup-id pacmd set-sink-mute @DEFAULT_SINK@ true; mode def
 set $unmute      exec --no-startup-id pacmd set-sink-mute @DEFAULT_SINK@ false
 set $mute_toggle exec --no-startup-id pacmd set-sink-mute @DEFAULT_SINK@ toggle
 # Note: failed to use $unmute in $volume; cannot nest variable?
-set $volume exec --no-startup-id pacmd set-sink-mute @DEFAULT_SINK@ false; exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@
+set $volume exec --no-startup-id pacmd set-sink-mute @DEFAULT_SINK@ false && pactl set-sink-volume @DEFAULT_SINK@
 
 mode $Sound {
 #bindsym M $mute_toggle; $alert 'Sound: mute/unmute'
@@ -472,9 +490,11 @@ bindsym M $mute; $alert 'Sound: Mute'
 # Mnemonic: Quiet
 bindsym Q $mute; $alert 'Sound: Mute'
 
+bindsym H       $volume 100; $notify 'Sound: 100'
 bindsym Shift+H $volume 100; $notify 'Sound: 100'
 bindsym Shift+M $volume 50;  $notify 'Sound: 50'
 bindsym Shift+L $volume 0;   $notify 'Sound: 0'
+bindsym L       $volume 0;   $notify 'Sound: 0'
 
 bindsym K $volume +1%;  $notify 'Sound: +1%'
 bindsym J $volume -1%;  $notify 'Sound: -1%'
@@ -489,17 +509,36 @@ bindsym Ctrl+bracketleft mode default
 }
 
 # Keybind; Mode for apps {{{1
-# Mode; Terminal {{{2
+# Mode; Terminal Location {{{2
 # TODO: keep transparency after restart i3
-bindsym $Super+T exec $termporal
+#bindsym $Super+T exec $termporal
+bindsym $Super+Return exec $termporal
 
+#set $Terminal " Console: (A)lacritty (U)rxvt (X)term "
+#bindsym $Super+C mode $Console; $shortmsg 'Consoles'
+set $Terminal " Terminal: (H)topleft (J)botleft (K)topright (L)botright"
+bindsym $Super+semicolon mode $Terminal; $shortmsg 'Terminals'
+
+mode $Terminal {
+# TODO: apply geometry by i3-msg
+bindsym H exec $urxvt -e fish; mode default
+bindsym J exec $urxvt -e fish; mode default
+bindsym K exec $urxvt -e fish; mode default
+bindsym L exec $urxvt -e fish; mode default
+
+bindsym Ctrl+C           mode default
+bindsym bracketleft      mode default
+bindsym Ctrl+bracketleft mode default
+}
+
+# Mode; Console {{{2
 set $Console " Console: (A)lacritty (U)rxvt (X)term "
 bindsym $Super+C mode $Console; $shortmsg 'Consoles'
 
 mode $Console {
-bindsym A exec alacritty; mode default
-bindsym U exec $urxvt;    mode default
-bindsym X exec xterm;     mode default
+bindsym A exec alacritty -e fish; mode default
+bindsym U exec $urxvt -e fish;    mode default
+bindsym X exec xterm -e fish;     mode default
 
 bindsym T        exec $termporal; mode default
 bindsym $Super+T exec $termporal; mode default
@@ -511,41 +550,7 @@ bindsym bracketleft      mode default
 bindsym Ctrl+bracketleft mode default
 }
 
-# Mode; Neovim {{{2
-set $Neovim " Neovim: (Q)t (G)o (R)ust (T)ypescript (A)lacritty "
-$release $Super+N mode $Neovim; $shortmsg 'Neovim: backends'
-
-mode $Neovim {
-# Vim
-bindsym Q $noid nvim-qt; mode default
-bindsym G $noid gonvim;  mode default
-bindsym R $noid gnvim;   mode default
-bindsym T $noid nyaovim; mode default
-#bindsym A $noid glrnvim; mode default
-bindsym A $noid alacritty -e nvim; mode default
-
-bindsym Ctrl+C           mode default
-bindsym bracketleft      mode default
-bindsym Ctrl+bracketleft mode default
-}
-
-# Mode; Editor {{{2
-set $Editor " Editor: (C)ode (E)macs (V)im (N)eovim "
-
-$release $Super+E mode $Editor; $shortmsg 'Editors'
-
-mode $Editor {
-bindsym C $noid code;  mode default; $notify 'Editor: vscode'
-bindsym E $noid emacs; mode default; $notify 'Editor: emacs'
-bindsym V $noid $vim;  mode default; $notify 'Editor: vim'
-bindsym N $noid $nvim; mode default; $notify 'Editor: neovim'
-
-bindsym Ctrl+C           mode default
-bindsym bracketleft      mode default
-bindsym Ctrl+bracketleft mode default
-}
-
-# Mode; Browser
+# Mode; Browser {{{2
 set $Browser " Browser: (S)ervo (F)irefox (C)hrome (Q)utebrowser "
 
 $release $Super+B mode $Browser; $shortmsg 'Browsers'
@@ -564,6 +569,63 @@ bindsym bracketleft      mode default
 bindsym Ctrl+bracketleft mode default
 }
 
+# Mode; Neovim {{{2
+set $Neovim " Neovim: (Q)t (G)o (R)ust (T)ypescript (A)lacritty "
+$release $Super+N mode $Neovim; $shortmsg 'Neovim: backends'
+
+mode $Neovim {
+# Vim
+# TODO: nvim-qt with 'nvim -c'-like startup in i3 instead, not in vimscript
+bindsym Q $noid nvim-qt; mode default
+bindsym G $noid gonvim;  mode default
+bindsym R $noid gnvim;   mode default
+bindsym T $noid nyaovim; mode default
+#bindsym A $noid glrnvim; mode default
+bindsym A $noid alacritty -e nvim; mode default
+
+bindsym Ctrl+C           mode default
+bindsym bracketleft      mode default
+bindsym Ctrl+bracketleft mode default
+}
+
+# Mode; Editor {{{2
+set $Editor " Editor: (C)ode (E)macs (V)im (N)eovim | (G)imp (P)inta "
+
+$release $Super+E mode $Editor; $shortmsg 'Editors'
+
+mode $Editor {
+bindsym C $noid code;  mode default; $notify 'Editor: vscode'
+bindsym E $noid emacs; mode default; $notify 'Editor: emacs'
+bindsym V $noid $vim;  mode default; $notify 'Editor: vim'
+bindsym N $noid $nvim; mode default; $notify 'Editor: neovim'
+
+bindsym G $noid gimp;  mode default; $notify 'Editor: gimp'
+bindsym P $noid pinta; mode default; $notify 'Editor: pinta'
+
+bindsym Ctrl+C           mode default
+bindsym bracketleft      mode default
+bindsym Ctrl+bracketleft mode default
+}
+
+# Mode; Dotfiles {{{2
+set $Dotfiles " Dotfiles: (V)im (I)3/(P)olybar (S)hell (T)erminals "
+
+$release $Super+D mode $Dotfiles; $shortmsg 'Dotfiles'
+
+set $fzf_dotfiles alacritty --title fzf_vim -e fzf-dotfiles
+
+mode $Dotfiles {
+bindsym V mode default; $notify 'Dotfiles: vimrc';      exec $fzf_dotfiles --vimrc
+bindsym I mode default; $notify 'Dotfiles: i3/polybar'; exec $fzf_dotfiles --i3
+bindsym P mode default; $notify 'Dotfiles: i3/polybar'; exec $fzf_dotfiles --i3
+bindsym S mode default; $notify 'Dotfiles: shell';      exec $fzf_dotfiles --shell
+bindsym T mode default; $notify 'Dotfiles: terminal';   exec $fzf_dotfiles --terminal
+
+bindsym Ctrl+C           mode default
+bindsym bracketleft      mode default
+bindsym Ctrl+bracketleft mode default
+}
+
 # Mode; Finder {{{2
 # Mnemonic: Finder or File explorer
 set $Finder " Finder: [N]nn [R]anger [H]unter [P]CManFM(lxde) PCManFM-[Q]t(lxqt) [T]hunar(Xfce) (G)ooglePhoto "
@@ -575,7 +637,7 @@ $release Q exec pcmanfm-qt; mode default
 $release T exec thunar; mode default
 
 $release N exec terminal -e nnn; mode default
-$release R exec terminal -e ranger; mode default
+$release R exec alacritty -e ranger; mode default
 $release H exec alacritty -e hunter; mode default
 
 $release G exec google-photo; mode default
@@ -589,10 +651,12 @@ bindsym Ctrl+bracketleft mode default
 set $Mozc " Mozc: Activated "
 bindsym $Super+M $noid fcitx-remote -s mozc; mode $Mozc; $alert 'Mozc: Activated'
 
+# TODO: deprecate mode for IME, but use script in while-loop
 mode $Mozc {
 # TODO: send-key Ctrl+U and back to the fcitx-state
 bindsym Ctrl+U $noid fcitx-remote -c; mode default; $notify 'Mozc: OFF'
 bindsym Ctrl+W $noid fcitx-remote -c; mode default; $notify 'Mozc: OFF'
+bindsym L      $noid fcitx-remote -c; mode default; $notify 'Mozc: OFF'
 
 bindsym $Super+U $noid fcitx-remote -s skk; mode $Skk; $alert 'Skk: Activated'
 
@@ -626,8 +690,9 @@ bindsym $Super+U $noid fcitx-remote -s skk; mode $Skk; $alert 'Skk: Activated'
 
 mode $Skk {
 # TODO: send-key Ctrl+U and back to the fcitx-state
-bindsym Ctrl+U $noid fcitx-remote -c; mode default; $notify 'Skk: OFF'
-bindsym Ctrl+W $noid fcitx-remote -c; mode default; $notify 'Skk: OFF'
+bindsym Ctrl+U  $noid fcitx-remote -c; mode default; $notify 'Skk: OFF'
+bindsym Ctrl+W  $noid fcitx-remote -c; mode default; $notify 'Skk: OFF'
+bindsym Shift+L $noid fcitx-remote -c; mode default; $notify 'Skk: OFF'
 
 bindsym $Super+M $noid fcitx-remote -s mozc; mode $Mozc; $alert 'Mozc: Activated'
 
@@ -659,7 +724,7 @@ bindsym Ctrl+bracketleft $noid fcitx-remote -c; mode default; $notify 'Skk: OFF'
 # Keybind; open Menu {{{2
 # # TODO: convert this bash-script into fish's
 # Ref: dmenu with fzf https://github.com/junegunn/fzf/wiki/Examples
-bindsym $Super+Return $noid $menu
+bindsym $Super+apostrophe $noid $menu
 
 # Keybind; open Editor {{{2
 # the numbar is RAM by htop in terminal of the editor
@@ -684,8 +749,10 @@ bindsym $Super+Return $noid $menu
 #bindsym $SuperS+V $noid code
 #bindsym $SuperS+C $noid code
 
+bindsym $Super+G $noid gimp; $notify 'GIMP: Stand by...'
+
 # Keybind; open Browser {{{2
-$release $Super+Q $noid qutebrowser
+$release $Super+Q $noid qutebrowser; $notify 'Qutebrowser: Stand by...'
 
 # Keybind; Sound Volume {{{2
 #bindsym $Super+Ctrl+M exec terminal -e 'alsamixer'
@@ -709,8 +776,21 @@ bindsym XF86AudioMute        $noid pactl set-sink-mute 0 toggle
 # Fn; Screen Shot {{{2
 # depend: imagemagick
 #bindsym $Super+Print $noid import -window root ~/Pictures/screenshot
-bindsym $Super+Print $noid i3-scrot
-bindsym Print $noid exec $MYSCRIPTS/recording-toggle.sh
+# fulloption-name, --rectarea, isn't work on `ksnip`
+bindsym Shift+Print  $noid ksnip -r
+bindsym $Super+Print $noid exec $MYSCRIPTS/recording-toggle.sh
+
+#set $Print " Print: (Shift+) screenshot | (Super+) record in GIF "
+#bindsym Print mode $Print; $notify 'Print: entered'
+#mode $Print {
+#bindsym Print        mode default; $noid exec $MYSCRIPTS/recording-toggle.sh
+#bindsym Shift+Print  mode default; $noid i3-scrot
+#bindsym $Super+Print mode default; $noid exec $MYSCRIPTS/recording-toggle.sh
+#
+#bindsym Ctrl+C           mode default
+#bindsym bracketleft      mode default
+#bindsym Ctrl+bracketleft mode default
+#}
 
 # Keybind of Default {{{1
 #bindsym $Super+Shift+minus move scratchpad
