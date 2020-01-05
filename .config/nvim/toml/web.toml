@@ -1,8 +1,8 @@
 # From: rc/dein.vim
 
-# Browser;
+#[[[Browser]]]
 [[plugins]]
-repo = 'tyru/open-browser.vim' #{{{
+repo = 'tyru/open-browser.vim'
 on_cmd = 'OpenBrowser'
 on_func = 'openbrowser#'
 on_map = {nx = '<Plug>(openbrowser-'}
@@ -13,17 +13,15 @@ exe 'e' g:dein_github_dir .'/tyru/open-browser.vim/plugin/openbrowser.vim'
 v/range/g/command!/norm! A-range
 write
 '''
-#}}}
 #[[plugins]]
-#repo = 'tyru/open-browser-github.vim' #{{{
+#repo = 'tyru/open-browser-github.vim'
 #depends = 'open-browser.vim'
 #on_cmd = 'OpenGithub'
 #hook_post_source = 'runtime add/open-browser-github.vim'
-##}}}
 
-# Vim on Browser
+#[[[On Browser]]]
 [[plugins]]
-repo = 'glacambre/firenvim' #{{{
+repo = 'glacambre/firenvim'
 hook_post_update = 'function("firenvim#install")'
 #[[plugins]]
 #repo = 'raghur/vim-ghost'
@@ -32,56 +30,56 @@ hook_post_update = 'function("firenvim#install")'
 #on_cmd = 'Ghost'
 #hook_add = 'runtime add/ghost.vim'
 #hook_add = 'runtime post/ghost.vim'
-##}}}
 
 [[plugins]]
-repo = 'mattn/qiita-vim' #{{{
+repo = 'mattn/qiita-vim'
 on_cmd = ['Qiita']
-#}}}
 
 #[[plugins]]
-#repo = 'aiya000/vim-webpage' #{{{
+#repo = 'aiya000/vim-webpage'
 #on_cmd =  ['WebpageShow']
-##}}}
 
-# API
+#[APIs]
 [[plugins]]
-repo = 'itchyny/calendar.vim' #{{{
+repo = 'itchyny/calendar.vim'
 on_cmd = 'Calendar'
 hook_post_source = 'runtime add/calendar.vim'
-#}}}
+
 [[plugins]]
-repo = 'wakatime/vim-wakatime' #{{{
+repo = 'wakatime/vim-wakatime'
 # tracking service for coding activity.
 # Note: visit https://wakatime.com/settings/api-key before using this plugin.
-on_cmd = 'WakaTime'
-hook_add = 'runtime add/wakatime.vim'
-#}}}
+#on_cmd = 'WakaTime' # has to start in background
+on_event = ['VimEnter']
+# Note: hook_add fails on VimEnter, BufEnter and so on.
+hook_source = 'runtime add/wakatime.vim'
+
 # API; Collaborative Editing
 [[plugins]]
-repo = 'Floobits/floobits-neovim' #{{{
+repo = 'Floobits/floobits-neovim'
 on_cmd = ['Floo', 'FlooShareDirPublic', 'FlooShareDirPrivate', 'FlooJoinWorkspace']
 hook_add = 'runtime add/floobits.vim'
-#}}}
+
 # API; WebAPI
 [[plugins]] # has extentions
-repo = 'mattn/webapi-vim' #{{{
+repo = 'mattn/webapi-vim'
 #on_map = ['Pocket']
 on_event = ['BufRead']
 hook_add = 'runtime add/webapi.vim'
+
 [[plugins]]
-repo = 'soramugi/pocket.vim' #{{{
+repo = 'soramugi/pocket.vim'
 on_cmd = ['PocketList', 'PocketArchive', 'PocketFavorite']
 hook_add = 'runtime add/pocket.vim'
-#}}}
+
 # API; Twitter
 #[[plugins]]
-#repo = 'basyura/TweetVim' #{{{
+#repo = 'basyura/TweetVim'
 #depends = 'twibill.vim'
 #on_cmd = 'TweetVim'
 #hook_post_source = 'runtime add/tweet.vim'
-##}}}
+
 #[[plugins]]
-#repo = 'basyura/twibill.vim' # {{{
+#repo = 'basyura/twibill.vim'
 #on_cmd = 'TweetVim'
-##}}}
+
