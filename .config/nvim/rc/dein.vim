@@ -28,7 +28,7 @@ let s:dein_log_file = s:dein_data_dir .'/dein_log.vim'
 let g:dein#install_log_filename = s:dein_log_file
 
 " Let; Path to the directory of dein's cache {{{1
-let s:dein_cache_dir   = $XDG_CACHE_HOME       .'/dein/'
+let s:dein_cache_dir   = $XDG_CACHE_HOME    .'/dein/'
 let g:dein_github_dir  = s:dein_cache_dir   .'/repos/github.com/'
 let s:Shougo_cache_dir = s:dein_cache_dir   .'/repos/github.com/Shougo/'
 let s:dein_itself      = s:Shougo_cache_dir .'/dein.vim/'
@@ -50,7 +50,8 @@ call extend(g:keymapsDL#cmd_after#cd_path_dict, {
 "let &path = &path . ',' . g:dein_cache_dir . '**'
 
 " Let; Path for :runtime {{{1
-let &rtp .= ','. s:dein_itself
+"let &rtp .= ','. s:dein_itself
+exe 'set rtp +='. s:dein_itself
 
 " Let; Make git clone shallow {{{1
 let g:dein#types#git#clone_depth = 1
@@ -84,6 +85,7 @@ let s:dein_toml_lazy = [
       \ 'git.toml',
       \ 'insert.toml',
       \ 'japanese.toml',
+      \ 'markdown.toml',
       \ 'memo.toml',
       \ 'motion.toml',
       \ 'myplug.toml',
