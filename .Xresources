@@ -56,9 +56,7 @@ URxvt.saveLines:            3000
 URxvt.allow_bold: true
 URxvt.kanji_encoding: UTF-8
 
-!URxvt.font: xft:SF Mono:size=13:antialias=true,xft:Icons:size=14:antialias=true,xft:Hack Nerd Font:size=14:antialias=true
-URxvt.font: xft:Icons:size=14:antialias=true,xft:Hack Nerd Font:size=14:antialias=true
-!URxvt.font:                 xft:Dejavu Sans Mono:size=12:antialias=true,xft:MyricaM M:size=14:antialias=true
+URxvt.font: xft:SF Mono:size=13:antialias=true,xft:Icons:size=14:antialias=true,xft:Hack Nerd Font:size=14:antialias=true,Migu 1M:size=12:antialias=true
 ! Note: letterSpace in negative nr. removes exagerated spaces; esp. for Japanese Fonts.
 URxvt.letterSpace:          -1
 !URxvt.lineSpace:            2  ! expand space between command-lines.
