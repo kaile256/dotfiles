@@ -188,6 +188,10 @@ $noid nitrogen --restore; sleep 1; picom -b
 ## TODO: i3-cheat sheet on desktop.
 #$noid "feh --bg-scale $HOME/.config/i3/~~.jpg"
 
+# preload: already working on `systemctl enable preload.service`
+#   to config, :e /etc/preload.conf
+#$noid systemctl start preload.service
+
 # necessary?
 $noid sudo tlp start
 
@@ -532,13 +536,14 @@ bindsym Ctrl+bracketleft mode default
 }
 
 # Mode; Console {{{2
-set $Console " Console: (A)lacritty (U)rxvt (X)term "
+set $Console " Console: (A)lacritty (U)rxvt (X)term | (G)otop "
 bindsym $Super+C mode $Console; $shortmsg 'Consoles'
 
 mode $Console {
-bindsym A exec alacritty -e fish; mode default
-bindsym U exec $urxvt -e fish;    mode default
-bindsym X exec xterm -e fish;     mode default
+bindsym A exec alacritty -e fish;  mode default
+bindsym U exec $urxvt    -e fish;  mode default
+bindsym X exec xterm     -e fish;  mode default
+bindsym G exec alacritty -e gotop; mode default
 
 bindsym T        exec $termporal; mode default
 bindsym $Super+T exec $termporal; mode default
@@ -794,13 +799,8 @@ bindsym $Super+Print $noid exec $MYSCRIPTS/recording-toggle.sh
 
 # Keybind of Default {{{1
 #bindsym $Super+Shift+minus move scratchpad
-#bindsym $Super+$Alt+H exec xdg-open /usr/share/doc/manjaro/i3_help_live.pdf
 #bindsym $Super+Shift+F3 exec gksu pcmanfm
 #bindsym $SuperS+I exec calamares_polkit
-#bindsym $Super+Ctrl+A exec terminal -e 'setup'
-#bindsym $mod+T $noid pkill picom
-#bindsym $mod+Ctrl+T $noid picom -b
-#bindsym $mod+Ctrl+X --release $noid xkill
 
 ## Config for i3-gaps: {{{1
 #
