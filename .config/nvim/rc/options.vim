@@ -1,6 +1,8 @@
 scriptencoding utf-8
 " From: init.vim
 
+"set foldmarker={{{\\d*$,}}}\\d*$
+
 if executable('rg')
   " Ref: https://ktrysmt.github.io/blog/finish-work-early-with-cli-made-by-rust/
   set grepprg=rg\ --vimgrep\ --no-heading
@@ -201,7 +203,7 @@ set foldnestmax=10
 set foldopen=hor,insert,mark,percent,quickfix,search,tag,undo
 
 set formatoptions=jmB1cql " default: tcqj
-"set mouse=a
+set mouse=a " for use from gui applications
 augroup myForceFormatOptions
   au!
   au BufWinEnter * if &fo =~# 'r\|o' | set fo-=r | set fo-=o | endif
