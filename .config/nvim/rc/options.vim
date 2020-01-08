@@ -203,7 +203,16 @@ set foldnestmax=10
 set foldopen=hor,insert,mark,percent,quickfix,search,tag,undo
 
 set formatoptions=jmB1cql " default: tcqj
-set mouse=a " for use from gui applications
+
+" 'mouse':
+"   n: Normal mode
+"   v: Visual mode
+"   i: Insert mode
+"   c: Command-line mode
+"   h: all previous modes when editing a help file
+"   a: all previous modes
+"   r: for |hit-enter| and |more-prompt| prompt
+set mouse=a
 augroup myForceFormatOptions
   au!
   au BufWinEnter * if &fo =~# 'r\|o' | set fo-=r | set fo-=o | endif
