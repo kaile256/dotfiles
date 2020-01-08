@@ -1,42 +1,44 @@
 # From: rc/dein.vim
 
+# NOTICE: `on_map` makes no sense for textobj unless you create in add/
+
 [[plugins]]
-repo = 'kana/vim-textobj-user' #{{{
+repo = 'kana/vim-textobj-user'
 # Note: enough with 'vim-matchup'
 on_event = 'BufRead'
 #hook_add = 'runtime add/textobj-user.vim'
-#}}}
+
 [[plugins]]
-repo = 'kana/vim-textobj-function' #{{{
+repo = 'kana/vim-textobj-function'
 # Note: should activates where lsp doesn't provide the kind of textobjects.
 # Note: only available on vim/java/c
 on_map = {xo = '<Plug>(textobj-function-'}
 hook_add = 'runtime add/textobj-function.vim'
-#}}}
+
 [[plugins]]
-repo = 'kana/vim-textobj-fold' #{{{
-# Note: `on_map` makes no sense in omap.
+repo = 'kana/vim-textobj-fold'
 on_source = 'vim-textobj-user'
-#hook_post_source = 'runtime add/textobj-fold.vim'
-#}}}
+#hook_add = 'runtime add/textobj-fold.vim'
+
 #[[plugins]]
-#repo = 'kana/vim-textobj-entire' #{{{
+#repo = 'kana/vim-textobj-entire'
 ## For: entire lines of current buffer.
 ## Note: `on_map` makes no sense in omap.
 #on_source = 'vim-textobj-user'
-##}}}
+
 [[plugins]]
 repo = 'glts/vim-textobj-comment'
-on_source = 'vim-textobj-user'
+on_map = {xo = '<Plug>(textobj-comment-'}
 #hook_add = 'runtime add/textobj-comment.vim'
+
 #[[plugins]]
-#repo = 'eikendev/vim-textobj-names' #{{{
+#repo = 'eikendev/vim-textobj-names'
 ## For: names separated by delimiters like -, _, /, @ or #.
 #on_event = 'BufRead'
 #hook_add = 'runtime add/textobj-names.vim'
-##}}}
+
 #[[plugins]]
-#repo = 'coderifous/textobj-word-column.vim' #{{{
+#repo = 'coderifous/textobj-word-column.vim'
 ## Note: Use it with blockwise-visual mode.
 #on_event = 'BufRead'
 #hook_add = '''
@@ -51,14 +53,14 @@ on_source = 'vim-textobj-user'
 #onoremap <silent> aQ :call TextObjWordBasedColumn("aW")<cr>
 #onoremap <silent> iQ :call TextObjWordBasedColumn("iW")<cr>
 #'''
-##}}}
+
 #[[plugins]]
-#repo = 'sgur/vim-textobj-parameter' #{{{
+#repo = 'sgur/vim-textobj-parameter'
 #on_source = 'vim-textobj-user'
 #hook_add = 'runtime add/textobj-parameter.vim'
-##}}}
+
 #[[plugins]]
-#repo = 'kana/vim-textobj-indent' #{{{
+#repo = 'kana/vim-textobj-indent'
 #on_map = '<Plug>(textobj-indent-'
 #hook_add = '''
 #let g:textobj_indent_no_default_key_mappings = 1
@@ -67,14 +69,21 @@ on_source = 'vim-textobj-user'
 #aI  <Plug>(textobj-indent-same-a)
 #iI  <Plug>(textobj-indent-same-i)
 #'''
-##}}}
-#[[plugins]]
-#repo = 'saaguero/vim-textobj-pastedtext' #{{{
+
+[[plugins]]
+repo = 'saaguero/vim-textobj-pastedtext'
+# Note: no use because it is mapped after the plugin is loaded.
 #on_map = '<Plug>(textobj-pastedtext'
-#hook_add = 'runtime add/textobj-pastedtext.vim'
-##}}}
+on_source = 'vim-textobj-user'
+hook_add = 'runtime add/textobj-pastedtext.vim'
+
+#[[[FileType]]]
 #[[plugins]]
-#repo = 'bps/vim-textobj-python' #{{{
+#repo = 'bps/vim-textobj-python'
 #on_ft = 'python'
 #hook_post_source = ':TextobjPythonDefaultKeyMappings!'
-##}}}
+
+#[[plugins]]
+#repo = 'coachshea/vim-textobj-markdown'
+## Note: enough w/ vim-textobj-fold
+#on_ft = ['markdown']
