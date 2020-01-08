@@ -146,3 +146,15 @@ augroup AdditionalUndoBreakOnFileType "{{{
   au FileType html,markdown inoremap <buffer> ? ?<c-g>u
 augroup END "}}}
 
+" time stamp
+" %Y: year
+" %b: month, like Apr, Nov
+" %d: date
+" %H: hour
+" %M: minute
+" Mnemonic: Now
+inoremap <silent> <c-r><c-n> <c-r>=strftime('%d %b %Y %H:%M')<cr>
+" Mnemonic: Time
+inoremap <silent> <c-r><c-n> <c-r>=strftime('%H:%M')<cr>
+" Mnemonic: Date
+inoremap <silent> <c-r><c-d> <c-r>=strftime('%d %b %Y')<cr>
