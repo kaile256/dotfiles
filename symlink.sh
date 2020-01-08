@@ -81,7 +81,7 @@ echo "Making Symbolic Links..." #{{{1
 echo
 
 for i in "${LOCALs[@]}"; do
-  ln -nsf "${DOTFILES}/$i" "${XDG_DATA_HOME}/$i"
+  ln -nsf "${DOTFILES}/.config/$i" "${XDG_DATA_HOME}/$i"
   echo "Done! at ${XDG_DATA_HOME}/$i"
 done
 
