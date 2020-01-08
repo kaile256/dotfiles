@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 # Original {{{1
+export MYMEMO="$HOME/vimwiki"
 export MYSCRIPTS="$HOME/.myscripts"
 export MY_API_TOKEN="$HOME/.myapi"
 
@@ -16,6 +17,13 @@ export LC_CTYPE=en_US.UTF-8
 # Ref: https://qiita.com/gyu-don/items/d61b03e0222a7f1ce9f7
 # available icons on Qt/KDE
 export QT_QPA_PLATFORMTHEME=qt5ct
+
+# Cloud {{{1
+# gcloud: a cli-tool for GCP
+# Ref: https://cloud.google.com/sdk/gcloud/reference/topic/startup
+export CLOUDSDK_PYTHON=python3
+export CLOUDSDK_GSUTIL_PYTHON=python3
+export CLOUDSDK_BQ_PYTHON=python3
 
 # Apps {{{1
 # Japanese IM
