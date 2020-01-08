@@ -23,14 +23,24 @@ nnoremap <silent> <a-s><a-p><a-t> :<c-u>tab sp <bar>NeoSnippetEdit<cr>
 
 " Note: neosnippet activate only on insert mode or select mode.
 nmap <expr> <c-\>
-      \ neosnippet#expandable_or_jumpable() ?
-      \ "g<c-h>\<Plug>(neosnippet_expand_or_jump)" : "\<c-\>"
-vmap <expr> <c-\>
-      \ neosnippet#expandable_or_jumpable() ?
-      \ "<c-g>\<Plug>(neosnippet_expand_or_jump)" : "\<c-\>"
+      \ neosnippet#expandable_or_jumpable()
+      \ ? "g<c-h>\<Plug>(neosnippet_expand_or_jump)"
+      \ : "\<c-\>"
 imap <expr> <c-\>
-      \ neosnippet#expandable_or_jumpable() ?
-      \ "\<Plug>(neosnippet_expand_or_jump)" : "\<c-\>"
+      \ neosnippet#expandable_or_jumpable()
+      \ ? "\<Plug>(neosnippet_expand_or_jump)"
+      \ : "\<c-\>"
+xmap <expr> <c-\>
+      \ neosnippet#expandable_or_jumpable()
+      \ ? "<c-g>\<Plug>(neosnippet_expand_or_jump)"
+      \ : "\<c-\>"
 smap <expr> <c-\>
-      \ neosnippet#expandable_or_jumpable() ?
-      \ "\<Plug>(neosnippet_expand_or_jump)" : "\<c-\>"
+      \ neosnippet#expandable_or_jumpable()
+      \ ? "\<Plug>(neosnippet_expand_or_jump)"
+      \ : "\<c-\>"
+
+" Note: <space> would expand unintentionally like '" ' or '{ ' for fold, '"{{{'
+"imap <silent><expr> <space>
+"      \ neosnippet#expandable_or_jumpable()
+"      \ ? "\<Plug>(neosnippet_expand_or_jump)"
+"      \ : '<space>'
