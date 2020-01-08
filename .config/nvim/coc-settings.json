@@ -60,7 +60,9 @@
 
   "codeLens.enable": true,
 
-  "diagnostic.checkCurrentLine": true,
+  //"diagnostic.checkCurrentLine": true,
+  "diagnostic.refreshAfterSave": true,
+  //"diagnostic.virtualText": true,
 
   "session.directory": "~/.local/share/nvim/session/",
 
@@ -101,7 +103,7 @@
   "yank.highlight.enable": true,
   "yank.enableCompletion": false,
   "yank.list.maxsize": 150,
-  "yank.limit": 200,
+  "yank.limit": 50,
 
   //"highlight.disableLanguages": [""],
   // too many memory would be used
@@ -138,6 +140,8 @@
   "rust-analyzer.trace.cargo-watch": "verbose",
   "rust-analyzer.trace.server": "verbose",
 
+  "python.formatting.provider": "yapf",
+  "python.formatting.yapfArgs": ["--style google"],
   "python.linting.enabled": true,
   "python.linting.pylintEnabled": false,
   "python.linting.flake8Enabled": false,
