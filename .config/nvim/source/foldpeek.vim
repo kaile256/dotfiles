@@ -10,3 +10,14 @@ augroup myFoldPeek
         \ |  setl fdt=foldpeek#text()
         \ | endif
 augroup END
+
+
+let g:foldpeek#skip_patterns = [
+      \ '^[\-=/{!* \t]*$',
+      \ '^```.*$',
+      \ '[# \t]*\[\[plugins]]',
+      \ ]
+
+let g:foldpeek#whiteout_patterns_omit = [
+      \ 'repo =',
+      \ ]
