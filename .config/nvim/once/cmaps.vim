@@ -2,6 +2,11 @@
 " Ref: cabbrs.vim
 " Ref: commands.vim
 
+cnoremap <expr> .
+      \ (getcmdtype() =~# '[:=]' && getcmdline()[getcmdpos() - 2] ==# '(')
+      \ ? (getcmdline()[getcmdpos() - 1] ==# ')') ? "'.'" : "'.')"
+      \ : '.'
+
 cnoremap <silent> <a-space> <esc>:call feedkeys("\<space>")<cr>
 
 " Note: <c-k> enter digraph when mistyped
