@@ -112,7 +112,6 @@ no_focus [title="qutebrowser$"]
 
 for_window [title="^TMPi3"]   floating enable border normal
 for_window [title="^Toggle"]  floating enable border normal
-for_window [title="^Package"] floating enable border normal
 #for_window [class="calamares"] floating enable border normal
 #for_window [class="Clipgrab"] floating enable
 #for_window [title="File Transfer*"] floating enable
