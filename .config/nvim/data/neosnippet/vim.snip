@@ -40,7 +40,8 @@ snippet header
 alias head hea
 options head
   " ============================================================================
-  " File: `substitute(expand('%:p:.'), '.*\(autoload\/\|plugin\/\)', '\1', '')`
+  " Repo: kaile256/`matchstr(expand('%:p'), '[^/]\+\ze/\(autoload\|plugin\)/')`
+  " File: `matchstr(expand('%:p:.'), '\(autoload\|plugin\)/.*')`
   " Author: kaile256
   " License: MIT license {{{
   "     Permission is hereby granted, free of charge, to any person obtaining
@@ -103,7 +104,8 @@ alias mod vim
 snippet init
 alias ini
   " ============================================================================
-  " File: `substitute(expand('%:p:.'), '.*\(autoload\/\|plugin\/\)', '\1', '')`
+  " Repo: kaile256/`matchstr(expand('%:p'), '[^/]\+\ze/\(autoload\|plugin\)/')`
+  " File: `matchstr(expand('%:p:.'), '\(autoload\|plugin\)/.*')`
   " Author: kaile256
   " License: MIT license {{{
   "     Permission is hereby granted, free of charge, to any person obtaining
@@ -144,8 +146,6 @@ alias ini
   " modeline {{{1
   " vim: expandtab tabstop=2 softtabstop=2 shiftwidth=2
   " vim: foldmethod=marker textwidth=79
-
-
 
 snippet autoload
 alias aut auto al aul aulo
