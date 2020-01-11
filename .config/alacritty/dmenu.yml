@@ -10,9 +10,9 @@ env:
 
   # Ref: https://github.com/jwilm/alacritty/issues/3048
   # Require to keep font size in different monitors
-  WINIT_HIDPI_FACTOR: '1'
+  WINIT_HIDPI_FACTOR: "1"
 
-window: #{{{1
+window:
   # Window title: set it in i3/config
   #title: fzf-menu
   # Window class (Linux only):
@@ -78,7 +78,7 @@ scrolling:
   auto_scroll: false
 
 # Font configuration (changes require restart alacritty)
-font: #{{{1
+font:
   # Normal (roman) font face
   normal:
     family: DejaVu Sans Mono
@@ -144,7 +144,7 @@ font: #{{{1
 draw_bold_text_with_bright_colors: true
 
 # Colors (Tomorrow Night Bright)
-colors: #{{{1
+colors:
   # Default colors
   primary:
     background: "0x000000"
