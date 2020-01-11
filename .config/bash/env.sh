@@ -1,9 +1,11 @@
 #!/usr/bin/env bash
 
 # Original {{{1
-export MYMEMO="$HOME/vimwiki"
 export MYSCRIPTS="$HOME/.myscripts"
 export MY_API_TOKEN="$HOME/.myapi"
+
+export MYMEMO="$HOME/vimwiki"
+export MYSUMMURY="$MYMEMO/summary"
 
 # Global {{{1
 export XDG_CONFIG_HOME="$HOME/.config"
