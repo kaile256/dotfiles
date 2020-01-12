@@ -76,7 +76,7 @@ command! CifHasProvider :call s:has_provider()
 command! ChasProvider   :call s:has_provider()
 command! Cprovider      :call s:has_provider()
 function! s:has_provider() "{{{3
-  let l:coc_provider_list = [
+  let coc_providers = [
         \ 'hover',
         \ 'rename',
         \ 'format',
@@ -101,11 +101,8 @@ function! s:has_provider() "{{{3
   let cntT = 1
   let unavailable = []
   let cntF = 1
-  for provider in l:coc_provider_list
+  for provider in coc_providers
     if CocHasProvider(provider) == v:true
-
-
-
       call add(available, cntT .'. '. provider)
       let cntT = cntT +1
     elseif CocHasProvider(provider) == v:false
@@ -129,7 +126,6 @@ function! s:has_provider() "{{{3
   echon "\n"
 endfunction
 
-"}}}
 " CocCompletion; {{{1
 " TODO: add fugitive#EditComplete to coc#refresh's list.
 inoremap <silent><expr> <c-n>
@@ -158,9 +154,9 @@ nmap <silent><expr> ]w
       \ . (exists('b:coc_diagnostic_info') && winline() > winheight('w$') / 2 ? 'zm5k' : '')
 "nmap [e <Plug>(coc-diagnostic-prev-error)
 "nmap ]e <Plug>(coc-diagnostic-next-error)
+
 " CocJump {{{1
 "" Jump; as :edit {{{2
-nnoremap <silent> gd :call CocActionAsync('jumpDefinition',     'edit')
       \ <bar> sleep 35m <bar> call feedkeys('zv')<cr>
 xnoremap <silent> gd :call CocActionAsync('jumpDefinition',     'edit')
       \ <bar> sleep 35m <bar> call feedkeys('zv')<cr>
@@ -248,11 +244,12 @@ xnoremap <silent> <c-w><space>r :call CocActionAsync('jumpReferences',     'vspl
       \ <bar> sleep 35m <bar> call feedkeys('zv')<cr>
 
 " CocFormat {{{1
+command! Import :call CocActionAsync('runCommand', 'editor.action.organizeImport')
+
 " Note: coc-prettier's editorconfig ability seems useless
 "       when prettier is unavailable on the filetype.
 "command! FormatOnC :call CocAction('format')
 "command! -nargs=? FoldOnC :call CocAction('fold', <f-args>)
-command! OR :call CocAction('runCommand', 'editor.action.organizeImport')
 " Mnemonic: Change the Structure.
 nmap cs <Plug>(coc-refactor)
 
@@ -356,7 +353,7 @@ nmap mt <Plug>(coc-bookmark-toggle)
 command! Bookmarks :Clist bookmark
 nnoremap <silent> <space>cb :Clist bookmark<cr>
 "" CocExplorer {{{1
-"command! CExplorer CocCommand explorer
+"command! Cexplorer CocCommand explorer
 "      \ --toggle
 "      \ --width=35
 "      \ --sources=buffer+,file+
@@ -419,12 +416,6 @@ omap ic <Plug>(coc-text-object-inner)
 xmap ic <Plug>(coc-text-object-inner)
 omap ac <Plug>(coc-text-object-outer)
 xmap ac <Plug>(coc-text-object-outer)
-
-" CocPairs {{{1
-"augroup CocPairsDisable
-"  au!
-"  au FileType vim let b:coc_pairs_disabled = ['"']
-"augroup END
 
 " CocTranslator {{{1
 " Note: CANNOT replace 'toLang' before translator yet.
