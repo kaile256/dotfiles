@@ -78,8 +78,9 @@ let s:foldlevel = {
       \ 8: 'ⅷ,',
       \ }
 
+"\ 1: 'ⅰ ',
 let s:foldlevel_dict = {
-      \ 1: 'ⅰ ',
+      \ 1: ' ',
       \ 2: 'ⅱ ',
       \ 3: 'ⅲ ',
       \ 4: 'ⅳ ',
@@ -91,32 +92,34 @@ let s:foldlevel_dict = {
 
 let g:foldpeek#head = ''
 
-" show which line is peeked
+" show which line is peeked {{{1
 let g:foldpeek#tail = {
-      \ 1: "' '. (%foldlevel%) . (%foldlines%) .' '",
-      \ 2: "' '. (%foldlevel%) . (%PEEK%) . '/' . (%foldlines%) .' '",
+      \ 1: "' '. (%foldlines%) . (%foldlevel%)",
+      \ 2: "' '. (%PEEK%) . '/' . (%foldlines%) . (%foldlevel%)",
       \ }
 
 let s:foldlevel = "v:foldlevel > 1 ? ". string(s:foldlevel_dict) ."[v:foldlevel] : ''"
+let s:marker_l1 = "v:foldlevel > 1 ? ". string(s:foldlevel_dict) ."[v:foldlevel] : ']'"
+let s:persome   = '(len(%percent%) == 1 ? %permill% : %percent%)'
 
-" show in percent {{{1
-let g:foldpeek#tail = {
-      \ 1: "' '. (%foldlevel%) . (%percent%) .'‰ '",
-      \ }
-
-let g:foldpeek#tail = {
-      \ 1: "' '. (%foldlevel%) . (%percent%)",
-      \ }
-
+"" show in percent {{{1
+"let g:foldpeek#tail = {
+"      \ 1: "' '. (%percent%) .'‰ ' .(%foldlevel%)",
+"      \ }
+"
+"let g:foldpeek#tail = {
+"      \ 1: "' '. (%percent%) . (%foldlevel%)",
+"      \ }
+"
 " format {{{1
 let s:foldlevel = string(s:foldlevel_dict) .'[v:foldlevel]'
 
-let g:foldpeek#format#variables = {
-      \ '1persome'   : '(len(%percent%) == 1 ? %permill% : %percent%)',
-      \ '2percent'   : "('100' * %PEEK% / %foldlines%) .'%'",
-      \ '2permill'   : "('1000' * %PEEK% / %foldlines%) .'‰''",
-      \ '3foldlevel' : string(s:foldlevel),
-      \ '3foldlines' : 'v:foldend - v:foldstart + 1',
+let g:foldpeek#format#table = {
+      \ '10persome'   : '(len(%percent%) == 1 ? %permill% : %percent%)',
+      \ '20percent'   : "('100' * %PEEK% / %foldlines%) .'%'",
+      \ '20permill'   : "('1000' * %PEEK% / %foldlines%) .'‰''",
+      \ '30foldlevel' : string(s:foldlevel),
+      \ '30foldlines' : 'v:foldend - v:foldstart + 1',
       \ }
 
 
