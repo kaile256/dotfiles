@@ -3,66 +3,14 @@
 " Branch: neoclide/coc.nvim_release
 " XDG: .config/coc/extensions
 " Json: coc-settings.json
+" Another: source/coc.vim
 
-augroup CocMyAutoConf
+augroup myCocAdd
   au!
   au BufWinEnter coc-settings.json setl keywordprg=:help
-  "au BufLeave * if &ft ==# 'coc' || 'list' | hide | endif
-  au FileType coc,list setl laststatus=0
-        \ | au BufWinEnter,WinLeave,BufLeave * ++once set laststatus=2
-  "" Only for snippet's feature?
-  "au User     CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
-  " Highlight symbol under cursor on CursorHold
-  "au CursorHold * silent call CocActionAsync('highlight')
 augroup END
 
 " Note: <c-o> in coc's cmdline get to normal mode of coc.nvim
-" the List of CocExtentions; "{{{1
-" Note: have to install LSPs independently.
-" Note: coc-highlight made CPU overwork
-let g:coc_global_extensions = [
-      \ 'coc-angular',
-      \ 'coc-bookmark',
-      \ 'coc-conjure',
-      \ 'coc-css',
-      \ 'coc-diagnostic',
-      \ 'coc-dictionary',
-      \ 'coc-docker',
-      \ 'coc-elixir',
-      \ 'coc-emoji',
-      \ 'coc-fish',
-      \ 'coc-flow',
-      \ 'coc-flutter',
-      \ 'coc-git',
-      \ 'coc-gitignore',
-      \ 'coc-go',
-      \ 'coc-homeassistant',
-      \ 'coc-html',
-      \ 'coc-java',
-      \ 'coc-json',
-      \ 'coc-lists',
-      \ 'coc-lua',
-      \ 'coc-markdownlint',
-      \ 'coc-omni',
-      \ 'coc-phpls',
-      \ 'coc-post',
-      \ 'coc-prettier',
-      \ 'coc-project',
-      \ 'coc-python',
-      \ 'coc-rust-analyzer',
-      \ 'coc-solargraph',
-      \ 'coc-sql',
-      \ 'coc-tag',
-      \ 'coc-texlab',
-      \ 'coc-todolist',
-      \ 'coc-translator',
-      \ 'coc-tsserver',
-      \ 'coc-vimlsp',
-      \ 'coc-word',
-      \ 'coc-yaml',
-      \ 'coc-yank',
-      \ ]
-"}}}
 nnoremap <expr> <C-f> coc#util#has_float() ? coc#util#float_scroll(1) : "\<C-f>"
 nnoremap <expr> <C-b> coc#util#has_float() ? coc#util#float_scroll(0) : "\<C-b>"
 
