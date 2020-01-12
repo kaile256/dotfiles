@@ -155,6 +155,9 @@ function! s:has_provider() "{{{3
   let cntF = 1
   for provider in l:coc_provider_list
     if CocHasProvider(provider) == v:true
+
+
+
       call add(available, cntT .'. '. provider)
       let cntT = cntT +1
     elseif CocHasProvider(provider) == v:false
@@ -199,56 +202,102 @@ endfunction
 nmap <silent> gW <Plug>(coc-diagnostic-info)
 " Mnemonic: get Wrong line
 nmap \w <Plug>(coc-fix-current)
-nmap <silent> [w <Plug>(coc-diagnostic-prev)
-nmap <silent> ]w <Plug>(coc-diagnostic-next)
+nmap <silent><expr> [w
+      \ '<Plug>(coc-diagnostic-prev):<c-u>sleep 2m<cr>zv'
+      \ . (exists('b:coc_diagnostic_info') && winline() > winheight('w$') / 2 ? 'zm5k' : '')
+nmap <silent><expr> ]w
+      \ '<Plug>(coc-diagnostic-next):<c-u>sleep 2m<cr>zv'
+      \ . (exists('b:coc_diagnostic_info') && winline() > winheight('w$') / 2 ? 'zm5k' : '')
 "nmap [e <Plug>(coc-diagnostic-prev-error)
 "nmap ]e <Plug>(coc-diagnostic-next-error)
 " CocJump {{{1
 "" Jump; as :edit {{{2
-nnoremap <silent> gd :call CocActionAsync('jumpDefinition',     'edit')<cr>zv
-xnoremap <silent> gd :call CocActionAsync('jumpDefinition',     'edit')<cr>zv
-nnoremap <silent> gD :call CocActionAsync('jumpDeclaration',    'edit')<cr>zv
-xnoremap <silent> gD :call CocActionAsync('jumpDeclaration',    'edit')<cr>zv
-nnoremap <silent> gI :call CocActionAsync('jumpImplementation', 'edit')<cr>zv
-xnoremap <silent> gI :call CocActionAsync('jumpImplementation', 'edit')<cr>zv
-nnoremap <silent> gy :call CocActionAsync('jumpTypeDefinition', 'edit')<cr>zv
-xnoremap <silent> gy :call CocActionAsync('jumpTypeDefinition', 'edit')<cr>zv
-nnoremap <silent> gr :call CocActionAsync('jumpReferences',     'edit')<cr>zv
-xnoremap <silent> gr :call CocActionAsync('jumpReferences',     'edit')<cr>zv
+nnoremap <silent> gd :call CocActionAsync('jumpDefinition',     'edit')
+      \ <bar> sleep 35m <bar> call feedkeys('zv')<cr>
+xnoremap <silent> gd :call CocActionAsync('jumpDefinition',     'edit')
+      \ <bar> sleep 35m <bar> call feedkeys('zv')<cr>
+nnoremap <silent> gD :call CocActionAsync('jumpDeclaration',    'edit')
+      \ <bar> sleep 35m <bar> call feedkeys('zv')<cr>
+xnoremap <silent> gD :call CocActionAsync('jumpDeclaration',    'edit')
+      \ <bar> sleep 35m <bar> call feedkeys('zv')<cr>
+nnoremap <silent> gI :call CocActionAsync('jumpImplementation', 'edit')
+      \ <bar> sleep 35m <bar> call feedkeys('zv')<cr>
+xnoremap <silent> gI :call CocActionAsync('jumpImplementation', 'edit')
+      \ <bar> sleep 35m <bar> call feedkeys('zv')<cr>
+nnoremap <silent> gy :call CocActionAsync('jumpTypeDefinition', 'edit')
+      \ <bar> sleep 35m <bar> call feedkeys('zv')<cr>
+xnoremap <silent> gy :call CocActionAsync('jumpTypeDefinition', 'edit')
+      \ <bar> sleep 35m <bar> call feedkeys('zv')<cr>
+nnoremap <silent> gr :call CocActionAsync('jumpReferences',     'edit')
+      \ <bar> sleep 35m <bar> call feedkeys('zv')<cr>
+xnoremap <silent> gr :call CocActionAsync('jumpReferences',     'edit')
+      \ <bar> sleep 35m <bar> call feedkeys('zv')<cr>
+
 "" Jump; as :split {{{2
-nnoremap <silent> <c-w>d :call CocActionAsync('jumpDefinition',     'split')<cr>zv
-xnoremap <silent> <c-w>d :call CocActionAsync('jumpDefinition',     'split')<cr>zv
-nnoremap <silent> <c-w>D :call CocActionAsync('jumpDeclaration',    'split')<cr>zv
-xnoremap <silent> <c-w>D :call CocActionAsync('jumpDeclaration',    'split')<cr>zv
-nnoremap <silent> <c-w>I :call CocActionAsync('jumpImplementation', 'split')<cr>zv
-xnoremap <silent> <c-w>I :call CocActionAsync('jumpImplementation', 'split')<cr>zv
-nnoremap <silent> <c-w>y :call CocActionAsync('jumpTypeDefinition', 'split')<cr>zv
-xnoremap <silent> <c-w>y :call CocActionAsync('jumpTypeDefinition', 'split')<cr>zv
-nnoremap <silent> <c-w>r :call CocActionAsync('jumpReferences',     'split')<cr>zv
-xnoremap <silent> <c-w>r :call CocActionAsync('jumpReferences',     'split')<cr>zv
+nnoremap <silent> <c-w>d :call CocActionAsync('jumpDefinition',     'split')
+      \ <bar> sleep 35m <bar> call feedkeys('zv')<cr>
+xnoremap <silent> <c-w>d :call CocActionAsync('jumpDefinition',     'split')
+      \ <bar> sleep 35m <bar> call feedkeys('zv')<cr>
+nnoremap <silent> <c-w>D :call CocActionAsync('jumpDeclaration',    'split')
+      \ <bar> sleep 35m <bar> call feedkeys('zv')<cr>
+xnoremap <silent> <c-w>D :call CocActionAsync('jumpDeclaration',    'split')
+      \ <bar> sleep 35m <bar> call feedkeys('zv')<cr>
+nnoremap <silent> <c-w>I :call CocActionAsync('jumpImplementation', 'split')
+      \ <bar> sleep 35m <bar> call feedkeys('zv')<cr>
+xnoremap <silent> <c-w>I :call CocActionAsync('jumpImplementation', 'split')
+      \ <bar> sleep 35m <bar> call feedkeys('zv')<cr>
+nnoremap <silent> <c-w>y :call CocActionAsync('jumpTypeDefinition', 'split')
+      \ <bar> sleep 35m <bar> call feedkeys('zv')<cr>
+xnoremap <silent> <c-w>y :call CocActionAsync('jumpTypeDefinition', 'split')
+      \ <bar> sleep 35m <bar> call feedkeys('zv')<cr>
+nnoremap <silent> <c-w>r :call CocActionAsync('jumpReferences',     'split')
+      \ <bar> sleep 35m <bar> call feedkeys('zv')<cr>
+xnoremap <silent> <c-w>r :call CocActionAsync('jumpReferences',     'split')
+      \ <bar> sleep 35m <bar> call feedkeys('zv')<cr>
 
 "" Jump; as :tabe {{{2
-nnoremap <silent> <c-w>gd :call CocActionAsync('jumpDefinition',     'tabe')<cr>zv
-xnoremap <silent> <c-w>gd :call CocActionAsync('jumpDefinition',     'tabe')<cr>zv
-nnoremap <silent> <c-w>gD :call CocActionAsync('jumpDeclaration',    'tabe')<cr>zv
-xnoremap <silent> <c-w>gD :call CocActionAsync('jumpDeclaration',    'tabe')<cr>zv
-nnoremap <silent> <c-w>gI :call CocActionAsync('jumpImplementation', 'tabe')<cr>zv
-xnoremap <silent> <c-w>gI :call CocActionAsync('jumpImplementation', 'tabe')<cr>zv
-nnoremap <silent> <c-w>gy :call CocActionAsync('jumpTypeDefinition', 'tabe')<cr>zv
-xnoremap <silent> <c-w>gy :call CocActionAsync('jumpTypeDefinition', 'tabe')<cr>zv
-nnoremap <silent> <c-w>gr :call CocActionAsync('jumpReferences',     'tabe')<cr>zv
-xnoremap <silent> <c-w>gr :call CocActionAsync('jumpReferences',     'tabe')<cr>zv
+nnoremap <silent> <c-w>gd :call CocActionAsync('jumpDefinition',     'tabe')
+      \ <bar> sleep 35m <bar> call feedkeys('zv')<cr>
+xnoremap <silent> <c-w>gd :call CocActionAsync('jumpDefinition',     'tabe')
+      \ <bar> sleep 35m <bar> call feedkeys('zv')<cr>
+nnoremap <silent> <c-w>gD :call CocActionAsync('jumpDeclaration',    'tabe')
+      \ <bar> sleep 35m <bar> call feedkeys('zv')<cr>
+xnoremap <silent> <c-w>gD :call CocActionAsync('jumpDeclaration',    'tabe')
+      \ <bar> sleep 35m <bar> call feedkeys('zv')<cr>
+nnoremap <silent> <c-w>gI :call CocActionAsync('jumpImplementation', 'tabe')
+      \ <bar> sleep 35m <bar> call feedkeys('zv')<cr>
+xnoremap <silent> <c-w>gI :call CocActionAsync('jumpImplementation', 'tabe')
+      \ <bar> sleep 35m <bar> call feedkeys('zv')<cr>
+nnoremap <silent> <c-w>gy :call CocActionAsync('jumpTypeDefinition', 'tabe')
+      \ <bar> sleep 35m <bar> call feedkeys('zv')<cr>
+xnoremap <silent> <c-w>gy :call CocActionAsync('jumpTypeDefinition', 'tabe')
+      \ <bar> sleep 35m <bar> call feedkeys('zv')<cr>
+nnoremap <silent> <c-w>gr :call CocActionAsync('jumpReferences',     'tabe')
+      \ <bar> sleep 35m <bar> call feedkeys('zv')<cr>
+xnoremap <silent> <c-w>gr :call CocActionAsync('jumpReferences',     'tabe')
+      \ <bar> sleep 35m <bar> call feedkeys('zv')<cr>
+
 "" Jump; as :vsplit {{{2
-nnoremap <silent> <c-w><space>d :call CocActionAsync('jumpDefinition',     'vsplit')<cr>zv
-xnoremap <silent> <c-w><space>d :call CocActionAsync('jumpDefinition',     'vsplit')<cr>zv
-nnoremap <silent> <c-w><space>D :call CocActionAsync('jumpDeclaration',    'vsplit')<cr>zv
-xnoremap <silent> <c-w><space>D :call CocActionAsync('jumpDeclaration',    'vsplit')<cr>zv
-nnoremap <silent> <c-w><space>I :call CocActionAsync('jumpImplementation', 'vsplit')<cr>zv
-xnoremap <silent> <c-w><space>I :call CocActionAsync('jumpImplementation', 'vsplit')<cr>zv
-nnoremap <silent> <c-w><space>y :call CocActionAsync('jumpTypeDefinition', 'vsplit')<cr>zv
-xnoremap <silent> <c-w><space>y :call CocActionAsync('jumpTypeDefinition', 'vsplit')<cr>zv
-nnoremap <silent> <c-w><space>r :call CocActionAsync('jumpReferences',     'vsplit')<cr>zv
-xnoremap <silent> <c-w><space>r :call CocActionAsync('jumpReferences',     'vsplit')<cr>zv
+nnoremap <silent> <c-w><space>d :call CocActionAsync('jumpDefinition',     'vsplit')
+      \ <bar> sleep 35m <bar> call feedkeys('zv')<cr>
+xnoremap <silent> <c-w><space>d :call CocActionAsync('jumpDefinition',     'vsplit')
+      \ <bar> sleep 35m <bar> call feedkeys('zv')<cr>
+nnoremap <silent> <c-w><space>D :call CocActionAsync('jumpDeclaration',    'vsplit')
+      \ <bar> sleep 35m <bar> call feedkeys('zv')<cr>
+xnoremap <silent> <c-w><space>D :call CocActionAsync('jumpDeclaration',    'vsplit')
+      \ <bar> sleep 35m <bar> call feedkeys('zv')<cr>
+nnoremap <silent> <c-w><space>I :call CocActionAsync('jumpImplementation', 'vsplit')
+      \ <bar> sleep 35m <bar> call feedkeys('zv')<cr>
+xnoremap <silent> <c-w><space>I :call CocActionAsync('jumpImplementation', 'vsplit')
+      \ <bar> sleep 35m <bar> call feedkeys('zv')<cr>
+nnoremap <silent> <c-w><space>y :call CocActionAsync('jumpTypeDefinition', 'vsplit')
+      \ <bar> sleep 35m <bar> call feedkeys('zv')<cr>
+xnoremap <silent> <c-w><space>y :call CocActionAsync('jumpTypeDefinition', 'vsplit')
+      \ <bar> sleep 35m <bar> call feedkeys('zv')<cr>
+nnoremap <silent> <c-w><space>r :call CocActionAsync('jumpReferences',     'vsplit')
+      \ <bar> sleep 35m <bar> call feedkeys('zv')<cr>
+xnoremap <silent> <c-w><space>r :call CocActionAsync('jumpReferences',     'vsplit')
+      \ <bar> sleep 35m <bar> call feedkeys('zv')<cr>
 
 " CocFormat {{{1
 " Note: coc-prettier's editorconfig ability seems useless
@@ -410,8 +459,12 @@ function! coc#git_fold_toggle() abort
 endfunction
 
 " Similar to the navigation on &diff
-nmap <expr> [c (&diff)? '[c': '<Plug>(coc-git-prevchunk)'
-nmap <expr> ]c (&diff)? ']c': '<Plug>(coc-git-nextchunk)'
+nmap <silent><expr> [c (&diff) ? '[c'
+      \ : '<Plug>(coc-git-prevchunk):<c-u>sleep 2m<cr>zv'
+      \ . (winline() > winheight('w$') / 2 ? 'zm5k' : '')
+nmap <silent><expr> ]c (&diff) ? ']c'
+      \ : '<Plug>(coc-git-nextchunk):<c-u>sleep 2m<cr>zv'
+      \ . (winline() > winheight('w$') / 2 ? 'zm5k' : '')
 " show chunk diff at current position
 nmap <space>gc <Plug>(coc-git-chunkinfo)
 omap ic <Plug>(coc-text-object-inner)
