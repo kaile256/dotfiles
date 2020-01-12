@@ -136,6 +136,7 @@ inoremap <silent><expr> <c-p>
       \ pumvisible() ? "\<C-p>" :
       \ <SID>no_space_before() ? "\<c-p>" :
       \ coc#refresh()
+
 function! s:no_space_before() abort "{{{2
   let col = col('.') - 1
   return !col || getline('.')[col - 1] =~# '\s'
@@ -157,91 +158,92 @@ nmap <silent><expr> ]w
 
 " CocJump {{{1
 "" Jump; as :edit {{{2
-      \ <bar> sleep 35m <bar> call feedkeys('zv')<cr>
+nnoremap <silent> gd :call CocActionAsync('jumpDefinition',     'edit')
+      \ <bar> sleep 40m <bar> call feedkeys('zv')<cr>
 xnoremap <silent> gd :call CocActionAsync('jumpDefinition',     'edit')
-      \ <bar> sleep 35m <bar> call feedkeys('zv')<cr>
+      \ <bar> sleep 40m <bar> call feedkeys('zv')<cr>
 nnoremap <silent> gD :call CocActionAsync('jumpDeclaration',    'edit')
-      \ <bar> sleep 35m <bar> call feedkeys('zv')<cr>
+      \ <bar> sleep 40m <bar> call feedkeys('zv')<cr>
 xnoremap <silent> gD :call CocActionAsync('jumpDeclaration',    'edit')
-      \ <bar> sleep 35m <bar> call feedkeys('zv')<cr>
+      \ <bar> sleep 40m <bar> call feedkeys('zv')<cr>
 nnoremap <silent> gI :call CocActionAsync('jumpImplementation', 'edit')
-      \ <bar> sleep 35m <bar> call feedkeys('zv')<cr>
+      \ <bar> sleep 40m <bar> call feedkeys('zv')<cr>
 xnoremap <silent> gI :call CocActionAsync('jumpImplementation', 'edit')
-      \ <bar> sleep 35m <bar> call feedkeys('zv')<cr>
+      \ <bar> sleep 40m <bar> call feedkeys('zv')<cr>
 nnoremap <silent> gy :call CocActionAsync('jumpTypeDefinition', 'edit')
-      \ <bar> sleep 35m <bar> call feedkeys('zv')<cr>
+      \ <bar> sleep 40m <bar> call feedkeys('zv')<cr>
 xnoremap <silent> gy :call CocActionAsync('jumpTypeDefinition', 'edit')
-      \ <bar> sleep 35m <bar> call feedkeys('zv')<cr>
+      \ <bar> sleep 40m <bar> call feedkeys('zv')<cr>
 nnoremap <silent> gr :call CocActionAsync('jumpReferences',     'edit')
-      \ <bar> sleep 35m <bar> call feedkeys('zv')<cr>
+      \ <bar> sleep 40m <bar> call feedkeys('zv')<cr>
 xnoremap <silent> gr :call CocActionAsync('jumpReferences',     'edit')
-      \ <bar> sleep 35m <bar> call feedkeys('zv')<cr>
+      \ <bar> sleep 40m <bar> call feedkeys('zv')<cr>
 
 "" Jump; as :split {{{2
 nnoremap <silent> <c-w>d :call CocActionAsync('jumpDefinition',     'split')
-      \ <bar> sleep 35m <bar> call feedkeys('zv')<cr>
+      \ <bar> sleep 40m <bar> call feedkeys('zv')<cr>
 xnoremap <silent> <c-w>d :call CocActionAsync('jumpDefinition',     'split')
-      \ <bar> sleep 35m <bar> call feedkeys('zv')<cr>
+      \ <bar> sleep 40m <bar> call feedkeys('zv')<cr>
 nnoremap <silent> <c-w>D :call CocActionAsync('jumpDeclaration',    'split')
-      \ <bar> sleep 35m <bar> call feedkeys('zv')<cr>
+      \ <bar> sleep 40m <bar> call feedkeys('zv')<cr>
 xnoremap <silent> <c-w>D :call CocActionAsync('jumpDeclaration',    'split')
-      \ <bar> sleep 35m <bar> call feedkeys('zv')<cr>
+      \ <bar> sleep 40m <bar> call feedkeys('zv')<cr>
 nnoremap <silent> <c-w>I :call CocActionAsync('jumpImplementation', 'split')
-      \ <bar> sleep 35m <bar> call feedkeys('zv')<cr>
+      \ <bar> sleep 40m <bar> call feedkeys('zv')<cr>
 xnoremap <silent> <c-w>I :call CocActionAsync('jumpImplementation', 'split')
-      \ <bar> sleep 35m <bar> call feedkeys('zv')<cr>
+      \ <bar> sleep 40m <bar> call feedkeys('zv')<cr>
 nnoremap <silent> <c-w>y :call CocActionAsync('jumpTypeDefinition', 'split')
-      \ <bar> sleep 35m <bar> call feedkeys('zv')<cr>
+      \ <bar> sleep 40m <bar> call feedkeys('zv')<cr>
 xnoremap <silent> <c-w>y :call CocActionAsync('jumpTypeDefinition', 'split')
-      \ <bar> sleep 35m <bar> call feedkeys('zv')<cr>
+      \ <bar> sleep 40m <bar> call feedkeys('zv')<cr>
 nnoremap <silent> <c-w>r :call CocActionAsync('jumpReferences',     'split')
-      \ <bar> sleep 35m <bar> call feedkeys('zv')<cr>
+      \ <bar> sleep 40m <bar> call feedkeys('zv')<cr>
 xnoremap <silent> <c-w>r :call CocActionAsync('jumpReferences',     'split')
-      \ <bar> sleep 35m <bar> call feedkeys('zv')<cr>
+      \ <bar> sleep 40m <bar> call feedkeys('zv')<cr>
 
 "" Jump; as :tabe {{{2
 nnoremap <silent> <c-w>gd :call CocActionAsync('jumpDefinition',     'tabe')
-      \ <bar> sleep 35m <bar> call feedkeys('zv')<cr>
+      \ <bar> sleep 40m <bar> call feedkeys('zv')<cr>
 xnoremap <silent> <c-w>gd :call CocActionAsync('jumpDefinition',     'tabe')
-      \ <bar> sleep 35m <bar> call feedkeys('zv')<cr>
+      \ <bar> sleep 40m <bar> call feedkeys('zv')<cr>
 nnoremap <silent> <c-w>gD :call CocActionAsync('jumpDeclaration',    'tabe')
-      \ <bar> sleep 35m <bar> call feedkeys('zv')<cr>
+      \ <bar> sleep 40m <bar> call feedkeys('zv')<cr>
 xnoremap <silent> <c-w>gD :call CocActionAsync('jumpDeclaration',    'tabe')
-      \ <bar> sleep 35m <bar> call feedkeys('zv')<cr>
+      \ <bar> sleep 40m <bar> call feedkeys('zv')<cr>
 nnoremap <silent> <c-w>gI :call CocActionAsync('jumpImplementation', 'tabe')
-      \ <bar> sleep 35m <bar> call feedkeys('zv')<cr>
+      \ <bar> sleep 40m <bar> call feedkeys('zv')<cr>
 xnoremap <silent> <c-w>gI :call CocActionAsync('jumpImplementation', 'tabe')
-      \ <bar> sleep 35m <bar> call feedkeys('zv')<cr>
+      \ <bar> sleep 40m <bar> call feedkeys('zv')<cr>
 nnoremap <silent> <c-w>gy :call CocActionAsync('jumpTypeDefinition', 'tabe')
-      \ <bar> sleep 35m <bar> call feedkeys('zv')<cr>
+      \ <bar> sleep 40m <bar> call feedkeys('zv')<cr>
 xnoremap <silent> <c-w>gy :call CocActionAsync('jumpTypeDefinition', 'tabe')
-      \ <bar> sleep 35m <bar> call feedkeys('zv')<cr>
+      \ <bar> sleep 40m <bar> call feedkeys('zv')<cr>
 nnoremap <silent> <c-w>gr :call CocActionAsync('jumpReferences',     'tabe')
-      \ <bar> sleep 35m <bar> call feedkeys('zv')<cr>
+      \ <bar> sleep 40m <bar> call feedkeys('zv')<cr>
 xnoremap <silent> <c-w>gr :call CocActionAsync('jumpReferences',     'tabe')
-      \ <bar> sleep 35m <bar> call feedkeys('zv')<cr>
+      \ <bar> sleep 40m <bar> call feedkeys('zv')<cr>
 
 "" Jump; as :vsplit {{{2
 nnoremap <silent> <c-w><space>d :call CocActionAsync('jumpDefinition',     'vsplit')
-      \ <bar> sleep 35m <bar> call feedkeys('zv')<cr>
+      \ <bar> sleep 40m <bar> call feedkeys('zv')<cr>
 xnoremap <silent> <c-w><space>d :call CocActionAsync('jumpDefinition',     'vsplit')
-      \ <bar> sleep 35m <bar> call feedkeys('zv')<cr>
+      \ <bar> sleep 40m <bar> call feedkeys('zv')<cr>
 nnoremap <silent> <c-w><space>D :call CocActionAsync('jumpDeclaration',    'vsplit')
-      \ <bar> sleep 35m <bar> call feedkeys('zv')<cr>
+      \ <bar> sleep 40m <bar> call feedkeys('zv')<cr>
 xnoremap <silent> <c-w><space>D :call CocActionAsync('jumpDeclaration',    'vsplit')
-      \ <bar> sleep 35m <bar> call feedkeys('zv')<cr>
+      \ <bar> sleep 40m <bar> call feedkeys('zv')<cr>
 nnoremap <silent> <c-w><space>I :call CocActionAsync('jumpImplementation', 'vsplit')
-      \ <bar> sleep 35m <bar> call feedkeys('zv')<cr>
+      \ <bar> sleep 40m <bar> call feedkeys('zv')<cr>
 xnoremap <silent> <c-w><space>I :call CocActionAsync('jumpImplementation', 'vsplit')
-      \ <bar> sleep 35m <bar> call feedkeys('zv')<cr>
+      \ <bar> sleep 40m <bar> call feedkeys('zv')<cr>
 nnoremap <silent> <c-w><space>y :call CocActionAsync('jumpTypeDefinition', 'vsplit')
-      \ <bar> sleep 35m <bar> call feedkeys('zv')<cr>
+      \ <bar> sleep 40m <bar> call feedkeys('zv')<cr>
 xnoremap <silent> <c-w><space>y :call CocActionAsync('jumpTypeDefinition', 'vsplit')
-      \ <bar> sleep 35m <bar> call feedkeys('zv')<cr>
+      \ <bar> sleep 40m <bar> call feedkeys('zv')<cr>
 nnoremap <silent> <c-w><space>r :call CocActionAsync('jumpReferences',     'vsplit')
-      \ <bar> sleep 35m <bar> call feedkeys('zv')<cr>
+      \ <bar> sleep 40m <bar> call feedkeys('zv')<cr>
 xnoremap <silent> <c-w><space>r :call CocActionAsync('jumpReferences',     'vsplit')
-      \ <bar> sleep 35m <bar> call feedkeys('zv')<cr>
+      \ <bar> sleep 40m <bar> call feedkeys('zv')<cr>
 
 " CocFormat {{{1
 command! Import :call CocActionAsync('runCommand', 'editor.action.organizeImport')
@@ -289,6 +291,7 @@ augroup myCocPrettier
   au!
   au FileType javascript,typescript,css,json call s:prettier()
 augroup END
+
 function! s:prettier() abort "{{{2
   " overrides :QuickFormat; omap is still available
   command! -buffer Prettier    :CocCommand prettier.formatFile
@@ -298,6 +301,7 @@ endfunction
 
 " Note: coc-prettier has lower priority; when the document has other
 " format provider, prettier would not work.
+
 " Prettier's range format only support languageId including: {{{2
 " `javascript`, `javascriptreact`,
 " `typescript`, `typescriptreact`,
@@ -309,6 +313,7 @@ vmap if <Plug>(coc-funcobj-i)
 omap if <Plug>(coc-funcobj-i)
 vmap af <Plug>(coc-funcobj-a)
 omap af <Plug>(coc-funcobj-a)
+
 " CocCodeAction {{{1
 "set equalprg=CocActionAsync('formatSelected')
 "set equalprg=CocActionAsync('codeLensAction')
@@ -316,6 +321,7 @@ nnoremap \A :call CocActionAsync('codeLensAction')<cr>
 nmap \aa <Plug>(coc-codeaction)
 nmap \a  <Plug>(coc-codeaction-selected)
 xmap \a  <Plug>(coc-codeaction-selected)
+
 " CocWorkspace {{{1
 command! Rename :CocCommand workspace.renameCurrentFile
 
@@ -332,6 +338,7 @@ hi CocCursorRange guibg=#b16286 guifg=#ebdbb2
 ""nmap <silent> <c-k> <Plug>(coc-range-select-backward)
 ""nmap <silent> * <Plug>(coc-cursors-word)
 ""nmap <silent> n <Plug>(coc-cursors-position)
+
 " CocColor; {{{1
 command! ColoFormat  :call CocAction('colorPresentation')
 command! ColoPalette :call CocAction('pickColor')
@@ -352,6 +359,7 @@ nmap mt <Plug>(coc-bookmark-toggle)
 
 command! Bookmarks :Clist bookmark
 nnoremap <silent> <space>cb :Clist bookmark<cr>
+
 "" CocExplorer {{{1
 "command! Cexplorer CocCommand explorer
 "      \ --toggle
@@ -433,7 +441,6 @@ nnoremap <silent> <space>ct :Ctask<cr>
 nnoremap <silent> <space>cs :CshowTaskList<cr>
 
 " CocYank; {{{1
-
 " Required?: closes mpreview vindow when completion is done.
 "au! CompleteDone * if pumvisible() == 0 | pclose | endif
 "inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<CR>"
