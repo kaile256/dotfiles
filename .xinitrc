@@ -6,8 +6,8 @@
 #  Ref: .Xresources
 #  Ref: .Xmodmap
 
-UserResources=$HOME/.config/X11/.Xresources
-UserModmap=$HOME/.config/X11/.Xmodmap
+UserResources=$HOME/.Xresources
+UserModmap=$HOME/.Xmodmap
 SystemSources=/etc/X11/xinit/.Xresources
 SystemModmap=/etc/X11/xinit/.Xmodmap
 
