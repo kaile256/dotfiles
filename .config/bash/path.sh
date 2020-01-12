@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 
 Path=(
+  #"/opt/brew/bin" # recommended to set before /bin
+  #"/opt/brew/sbin" # recommended to set before /bin
   "$XDG_CONFIG_HOME/bash/functions" # original functions in Bash
   "$HOME/.local/bin" # local
   "$CARGO_HOME/bin" # rust
@@ -9,7 +11,6 @@ Path=(
   "$GOPATH/bin" # go
   "$HOME/.node_modules/bin" # nodejs
   "$HOME/.yarn/bin" # nodejs
-  #"/home/linuxbrew/.linuxbrew/bin" # linuxbrew
 )
 
 appendpath () {
