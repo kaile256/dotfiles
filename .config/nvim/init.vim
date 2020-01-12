@@ -3,6 +3,9 @@ scriptencoding utf-8
 "set termencoding=utf-8
 set fileencodings=ucs-bom,utf-8,euc-jp,sjis,default,latin1
 
+" or strftime() returns in Japanese like 1月 23
+language time en_US.UTF-8
+
 runtime rc/variables.vim  " CAUTION: don't comment out; many files depends on it.
 runtime rc/os.vim
 runtime rc/dein.vim  " contains `filetype plugin indent on`
