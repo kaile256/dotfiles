@@ -3,9 +3,9 @@
 
 alias tmux 'tmux -2'
 
-alias l 'ls -la'
+alias l 'ls -Alh'
 alias la 'ls -A'
-alias ll 'ls -l'
+alias ll 'ls -lh'
 
 alias ec 'echo'
 alias ech 'echo'
@@ -13,6 +13,12 @@ alias ech 'echo'
 alias cd.. 'cd ..'
 alias cd. 'cd ..'
 alias cd-  'cd -'
+
+#alias -  'cd -'
+alias ...  'cd ../..'
+alias .2  'cd ../..'
+alias ....  'cd ../../..'
+alias .3  'cd ../../..'
 
 alias pk '~/start-kail.sh'
 
