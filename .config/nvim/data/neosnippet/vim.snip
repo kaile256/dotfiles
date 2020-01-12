@@ -8,11 +8,24 @@ alias bg
   guibg=#000000
 
 snippet scriptencoding utf-8
-alias sc ut s u scr script
+alias sc ut s u scr script utf 8
 options head
   scriptencoding utf-8
 
-# for Plugin {{{
+# for Vimrc {{{1
+snippet Address
+alias From Fr Fro fr fro from
+  " From: ${1:toml}
+  " ${2:Repo:} ${3:`expand($USER)`/}${4:repo}.vim
+
+  ${0:#:start}
+
+# for Plugin {{{1
+snippet patch for func-abort
+alias abo abor abort
+  if !has('patch-7.4.156') | finish | endif
+  " v:7.4.156: for func-abort
+
 snippet mit
 options head
   " License: MIT license {{{
