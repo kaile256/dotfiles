@@ -1,4 +1,6 @@
 " From: filetype.vim
+" BuiltIn: runtime/syntax/markdown.vim
+" Another: ftplugin/markdown.vim
 
 "hi! link htmlLink Statement
 hi! link markdownLinkUrl NonText

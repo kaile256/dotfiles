@@ -1,7 +1,8 @@
 " From: filetype.vim
+" BuiltIn: runtime/ftplugin/markdown.vim
+" Another: syntax/markdown.vim
 
-setl conceallevel=2 concealcursor=ncv
-setl nowrap foldlevel=1
+"setl nowrap conceallevel=2 concealcursor=ncv
 setl tabstop=4 softtabstop=4 shiftwidth=4
 
 " Note: (MAYBE WRONG)
