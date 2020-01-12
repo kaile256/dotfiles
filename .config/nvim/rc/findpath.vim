@@ -20,9 +20,11 @@ augroup UpdatePathToFind
   au FileType dosini setl suffixesadd=.conf
   au FileType vim    setl isfname-==
 
-  au BufWinEnter {*vim,dein}**/*        call s:path.vim()
-  au BufWinEnter {.config,dotfiles}**/* call s:path.dotfiles()
-  exe 'au BufWinEnter' $GOPATH .'**/* call s:path.ghq()'
+  au BufNewFile,BufRead {*vim,dein}**/*        call s:path.vim()
+  au BufNewFile,BufRead {.config,dotfiles}**/* call s:path.dotfiles()
+
+  exe 'au BufNewFile,BufRead' $GHQ_ROOT .'**/* call s:path.ghq()'
+  exe 'au BufNewFile,BufRead' $MYMEMO   .'**/* call s:path.memo()'
 augroup END
 
 let s:path = {} "{{{1
@@ -31,7 +33,7 @@ function! s:path.dotfiles() abort
   if expand('%:p') =~# '/*vim/' | return | endif
 
   exe 'setl path+='. g:dotfiles_home .'/.config**'
-  exe 'setl path+='. $GHQ_ROOT       .'/neovim/neovim**'
+  exe 'setl path+='. $GHQ_ROOT       .'/github.com/neovim/neovim**'
   exe 'setl path+='. '/etc'
   exe 'setl path+='. $XDG_DATA_HOME  .'**'
 
@@ -39,28 +41,34 @@ function! s:path.dotfiles() abort
 endfunction
 
 function! s:path.vim() abort
-  if expand('%:p') !~# '~\&vim\|dein' | return | endif
-  if expand('%:p') =~# $GOPATH        | return | endif
+  if expand('%:p') =~# $GHQ_ROOT | return | endif
 
   exe 'setl path+='. g:dotfiles_home   .'/.config/nvim**'
   exe 'setl path+='. g:dein_github_dir .'**'
-  exe 'setl path+='. $GHQ_ROOT         .'/neovim/neovim**'
+  exe 'setl path+='. $GHQ_ROOT         .'/github.com/neovim/neovim**'
   exe 'setl path+='. $XDG_DATA_HOME    .'/nvim**'
 
   exe 'setl path-='. &g:path
 endfunction
 
 function! s:path.ghq() abort
-  exe 'setl path+='. s:root()
+  if expand('%:p') !~# '/*vim/' | return | endif
+
+  exe 'setl path+='. s:root($GHQ_ROOT)
 
   exe 'setl path-='. &g:path
   exe 'setl path+='. '/etc'
 endfunction
 
-function! s:root() abort "{{{2
+function! s:path.memo() abort
+  exe 'setl path+='. s:root($MYMEMO)
+  call s:path.dotfiles()
+endfunction
+
+function! s:root(path) abort "{{{2
   let path = expand('%:p')
 
-  while path !~# $GHQ_ROOT .'/[^/]\+/[^/]\+[^/]\+$'
+  while path !~# a:path .'/[^/]\+/[^/]\+[^/]\+$'
     let path = fnamemodify(path, ':h')
   endwhile
 
