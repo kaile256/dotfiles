@@ -6,10 +6,10 @@
 "  au! CmdlineLeave * if exists('g:cmd_last_cursor') | call matchdelete(g:cmd_last_cursor) | endif
 "augroup END
 
-noremap <space>/ q/
-noremap <space>? q?
+nnoremap <space>/ q/
+nnoremap <space>? q?
 " open CmdWin
-noremap <space>: q:i
+nnoremap <space>: q:i
 
 " No Highlight "{{{1
 " Ref: compare :redraw with <c-l> or :mode
@@ -18,12 +18,27 @@ nnoremap <silent> <c-space><space>   :<c-u>noh <bar> redraw!<cr>
 nnoremap <silent> <c-space><c-space> :<c-u>noh <bar> redraw!<cr>
 
 " New window "{{{1
-nnoremap <silent> <c-w><space>n :<c-u>vnew<cr>
-nnoremap <silent> <c-w>gn       :<c-u>tabnew<cr>
-
 nnoremap <Plug>(wincopy-in-tab) <c-w>v<c-w>T
 nmap <c-w>gt <Plug>(wincopy-in-tab)
 nmap <c-w>gT <Plug>(wincopy-in-tab)
+
+" <c-w>^ behaves like ':sp#'
+" ':9vs#' works like ':vs#9' but with ruin of winwidth
+" TODO: make v:count work
+nnoremap <silent><expr> <c-w><space>^ ':<c-u>vs#'.   v:count .'<cr>'
+nnoremap <silent><expr> <c-w><space>^ ':<c-u>vs#'.   v:count .'<cr>'
+nnoremap <silent><expr> <c-w>g^       ':<c-u>tabe#'. v:count .'<cr>'
+nnoremap <silent><expr> <c-w>g^       ':<c-u>tabe#'. v:count .'<cr>'
+
+function! s:scratch(edit) abort "{{{2
+  let path = '/tmp/myscratch.vim'
+  exe a:edit path
+endfunction
+
+nnoremap <silent> <c-w>N        :<c-u>call <SID>scratch('e')<cr>
+nnoremap <silent> <c-w>n        :<c-u>call <SID>scratch('sp')<cr>
+nnoremap <silent> <c-w><space>n :<c-u>call <SID>scratch('vs')<cr>
+nnoremap <silent> <c-w>gn       :<c-u>call <SID>scratch('tabe')<cr>
 
 " Close window {{{1
 if mapcheck('<c-w>q', 'n') ==# ''
