@@ -54,10 +54,10 @@ on_map = {xo = '<Plug>(textobj-comment-'}
 #onoremap <silent> iQ :call TextObjWordBasedColumn("iW")<cr>
 #'''
 
-#[[plugins]]
-#repo = 'sgur/vim-textobj-parameter'
-#on_source = 'vim-textobj-user'
-#hook_add = 'runtime add/textobj-parameter.vim'
+[[plugins]]
+repo = 'sgur/vim-textobj-parameter'
+on_source = 'vim-textobj-user'
+hook_add = 'runtime add/textobj-parameter.vim'
 
 #[[plugins]]
 #repo = 'kana/vim-textobj-indent'
