@@ -98,28 +98,40 @@ let g:foldpeek#tail = {
       \ 2: "' '. (%PEEK%) . '/' . (%foldlines%) . (%foldlevel%)",
       \ }
 
-let s:foldlevel = "v:foldlevel > 1 ? ". string(s:foldlevel_dict) ."[v:foldlevel] : ''"
-let s:marker_l1 = "v:foldlevel > 1 ? ". string(s:foldlevel_dict) ."[v:foldlevel] : ']'"
-let s:persome   = '(len(%percent%) == 1 ? %permill% : %percent%)'
-
-"" show in percent {{{1
 "let g:foldpeek#tail = {
-"      \ 1: "' '. (%percent%) .'‰ ' .(%foldlevel%)",
+"      \ 1: "' '. (%foldlevel%) . (%foldlines%) .' '",
+"      \ 2: "' '. (%foldlevel%) . (%PEEK%) . '/' . (%foldlines%) .' '",
 "      \ }
-"
+
+"let s:marker_l1 = "v:foldlevel > 1 ? ". string(s:foldlevel_dict) ."[v:foldlevel] : ']'"
+"let s:persome   = '(len(%percent%) == 1 ? %permill% : %percent%)'
+
+" show in percent {{{1
+let g:foldpeek#tail = {
+      \ 1: "' '. (%percent%) . (%foldlevel%)",
+      \ }
+
+let g:foldpeek#tail = {
+      \ 1: "' '. (%permill%) . (%foldlevel%)",
+      \ }
+
 "let g:foldpeek#tail = {
-"      \ 1: "' '. (%percent%) . (%foldlevel%)",
+"      \ 1: "' '. (%persome%) . (%foldlevel%)",
 "      \ }
 "
 " format {{{1
+"let s:foldlevel = "(v:foldlevel > 1 ? ". string(s:foldlevel_dict) ."[v:foldlevel] : ' ')"
+" modify in s:foldlevel_dict w/o ternary operators
 let s:foldlevel = string(s:foldlevel_dict) .'[v:foldlevel]'
 
-let g:foldpeek#format#table = {
-      \ '10persome'   : '(len(%percent%) == 1 ? %permill% : %percent%)',
-      \ '20percent'   : "('100' * %PEEK% / %foldlines%) .'%'",
-      \ '20permill'   : "('1000' * %PEEK% / %foldlines%) .'‰''",
-      \ '30foldlevel' : string(s:foldlevel),
-      \ '30foldlines' : 'v:foldend - v:foldstart + 1',
+let g:foldpeek#table = {
+      \ '10persome' : "(len(matchstr(%percent%, '\d\+')) == 1 ? %permill% : %percent%)",
+      \
+      \ '20percent' : "(100 * %PEEK% / %foldlines%) .'%'",
+      \ '30permill' : "(1000 * %PEEK% / %foldlines%) .'‰ '",
+      \
+      \ '50foldlevel' : string(s:foldlevel),
+      \ '50foldlines' : 'v:foldend - v:foldstart + 1',
       \ }
 
 
