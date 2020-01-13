@@ -23,49 +23,40 @@ let g:foldpeek#whiteout_patterns_omit = [
       \ 'repo =',
       \ ]
 
-let s:foldlevel = {
-      \ 2: '2',
-      \ 3: '3',
-      \ 4: '4',
-      \ 5: '5',
-      \ 6: '6',
-      \ 7: '7',
-      \ 8: '8',
-      \ 9: '9'
-      \ }
-
-let s:foldlevel = {
-      \ 1: '  ',
-      \ 2: 'Ⅱ ',
-      \ 3: 'Ⅲ ',
-      \ 4: 'Ⅳ ',
-      \ 5: 'Ⅴ ',
-      \ 6: 'Ⅵ ',
-      \ 7: 'Ⅶ ',
-      \ 8: 'Ⅷ ',
-      \ 9: 'Ⅸ '
-      \ }
-
-let s:foldlevel = {
-      \ 2: '𝟚 ',
-      \ 3: '𝟛 ',
-      \ 4: '𝟜 ',
-      \ 5: '𝟝 ',
-      \ 6: '𝟞 ',
-      \ 7: '𝟟 ',
-      \ 8: '𝟠 ',
-      \ 9: '𝟡 '
-      \ }
-
-let s:foldlevel = {
-      \ 1: 'i',
-      \ 2: 'ii',
-      \ 3: 'iii',
-      \ 4: 'iv',
-      \ 5: 'v',
-      \ 6: 'vi',
-      \ 7: 'vii',
-      \ }
+" candidates for s:foldlevel_dict {{{1
+"let s:foldlevel_dict = {
+"      \ 2: '2',
+"      \ 3: '3',
+"      \ 4: '4',
+"      \ 5: '5',
+"      \ 6: '6',
+"      \ 7: '7',
+"      \ 8: '8',
+"      \ 9: '9'
+"      \ }
+"
+"let s:foldlevel_dict = {
+"      \ 1: '  ',
+"      \ 2: 'Ⅱ ',
+"      \ 3: 'Ⅲ ',
+"      \ 4: 'Ⅳ ',
+"      \ 5: 'Ⅴ ',
+"      \ 6: 'Ⅵ ',
+"      \ 7: 'Ⅶ ',
+"      \ 8: 'Ⅷ ',
+"      \ 9: 'Ⅸ '
+"      \ }
+"
+"let s:foldlevel_dict = {
+"      \ 2: '𝟚 ',
+"      \ 3: '𝟛 ',
+"      \ 4: '𝟜 ',
+"      \ 5: '𝟝 ',
+"      \ 6: '𝟞 ',
+"      \ 7: '𝟟 ',
+"      \ 8: '𝟠 ',
+"      \ 9: '𝟡 '
+"      \ }
 
 let s:foldlevel_dict = {
       \ 1: 'ⅰ ',
@@ -78,9 +69,9 @@ let s:foldlevel_dict = {
       \ 8: 'ⅷ,',
       \ }
 
+" show which line is peeked {{{1
 let g:foldpeek#head = ''
 
-" show which line is peeked {{{1
 let g:foldpeek#tail = {
       \ 1: "' '. (%foldlines%) . (%foldlevel%)",
       \ 2: "' '. (%PEEK%) . '/' . (%foldlines%) . (%foldlevel%)",
