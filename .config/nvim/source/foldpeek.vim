@@ -20,11 +20,12 @@ let g:foldpeek#skip_patterns = [
       \ ]
 
 let g:foldpeek#whiteout_patterns_omit = [
-      \ 'repo =',
+      \ 'repo = ',
       \ ]
 
 " candidates for s:foldlevel_dict {{{1
 "let s:foldlevel_dict = {
+"      \ 1: '1',
 "      \ 2: '2',
 "      \ 3: '3',
 "      \ 4: '4',
@@ -85,15 +86,19 @@ let g:foldpeek#tail = {
 "let s:marker_l1 = "v:foldlevel > 1 ? ". string(s:foldlevel_dict) ."[v:foldlevel] : ']'"
 "let s:persome   = '(len(%percent%) == 1 ? %permill% : %percent%)'
 
-" show in percent {{{1
-let g:foldpeek#tail = {
-      \ 1: "' '. (%percent%) . (%foldlevel%)",
-      \ }
+"" show in percent {{{1
+"let g:foldpeek#tail = {
+"      \ 1: "' '. (%percent%) . (%foldlevel%)",
+"      \ }
+"
 
-let g:foldpeek#tail = {
-      \ 1: "' '. (%permill%) . (%foldlevel%)",
-      \ }
-
+"" show in permill {{{1
+"let g:foldpeek#tail = {
+"      \ 1: "' '. (%permill%) . (%foldlevel%)",
+"      \ }
+"
+" show in percent/permill as the digit number {{{1
+"" no use yet
 "let g:foldpeek#tail = {
 "      \ 1: "' '. (%persome%) . (%foldlevel%)",
 "      \ }
@@ -113,4 +118,7 @@ let g:foldpeek#table = {
       \ '50foldlines' : 'v:foldend - v:foldstart + 1',
       \ }
 
-
+"let g:foldpeek#table = {
+"      \ '50foldlevel' : string(s:foldlevel),
+"      \ '50foldlines' : 'v:foldend - v:foldstart + 1',
+"      \ }
