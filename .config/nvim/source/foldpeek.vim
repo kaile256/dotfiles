@@ -13,7 +13,6 @@ augroup myFoldPeek
         \ | endif
 augroup END
 
-
 let g:foldpeek#skip_patterns = [
       \ '^[\-=/{!* \t]*$',
       \ '^```.*$',
@@ -36,6 +35,7 @@ let s:foldlevel = {
       \ }
 
 let s:foldlevel = {
+      \ 1: '  ',
       \ 2: 'Ⅱ ',
       \ 3: 'Ⅲ ',
       \ 4: 'Ⅳ ',
@@ -67,20 +67,8 @@ let s:foldlevel = {
       \ 7: 'vii',
       \ }
 
-let s:foldlevel = {
-      \ 1: 'ⅰ ',
-      \ 2: 'ⅱ ',
-      \ 3: 'ⅲ ',
-      \ 4: 'ⅳ ',
-      \ 5: 'ⅴ ',
-      \ 6: 'ⅵ ',
-      \ 7: 'ⅶ ',
-      \ 8: 'ⅷ,',
-      \ }
-
-"\ 1: 'ⅰ ',
 let s:foldlevel_dict = {
-      \ 1: ' ',
+      \ 1: 'ⅰ ',
       \ 2: 'ⅱ ',
       \ 3: 'ⅲ ',
       \ 4: 'ⅳ ',
