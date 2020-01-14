@@ -1,5 +1,8 @@
 " From: init.vim
 
+inoreabbr donw down
+inoreabbr markdonw markdown
+
 " <c-o>
 " Tips: <c-\><c-o> keeps cursor position
 " TODO: keep the cursor after <c-o>, especially <c-o>yiw
@@ -7,6 +10,22 @@
 inoremap <c-o>y        <c-\><c-o>:call feedkeys("\<c-\>\<c-o>y", 'n')<cr>
 inoremap <c-o><space>y <c-\><c-o>:call feedkeys("\<c-\>\<c-o>".'"+y', 'n')<cr>
 "inoremap <c-o>p <c-\><c-o>:call feedkeys("\<esc>]p`]a")<cr>
+
+inoremap <expr> . <SID>here()
+function! s:here() abort "{{{1
+  let line = getline('.')
+  if line =~# 'fu\%[nction]!' | return '.' | endif
+
+  if line[col('.') - 2] ==# '('
+    if line[col('.') - 1] ==# ')'
+      return "'.'"
+    endif
+
+    return "'.')"
+  endif
+
+  return '.'
+endfunction
 
 " Alt-ESC {{{1
 inoremap <silent> <a-s> <Del>
@@ -155,6 +174,6 @@ augroup END "}}}
 " Mnemonic: Now
 inoremap <silent> <c-r><c-n> <c-r>=strftime('%d %b %Y %H:%M')<cr>
 " Mnemonic: Time
-inoremap <silent> <c-r><c-n> <c-r>=strftime('%H:%M')<cr>
+inoremap <silent> <c-r><c-t> <c-r>=strftime('%H:%M')<cr>
 " Mnemonic: Date
 inoremap <silent> <c-r><c-d> <c-r>=strftime('%d %b %Y')<cr>
