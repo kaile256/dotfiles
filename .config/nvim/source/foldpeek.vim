@@ -23,7 +23,41 @@ let g:foldpeek#whiteout_patterns_omit = [
       \ 'repo = ',
       \ ]
 
-" candidates for s:foldlevel_dict {{{1
+"" show in percent {{{1
+"let g:foldpeek#tail = {
+"      \ 1: "' '. (%percent%) . (%foldlevel%)",
+"      \ }
+"
+
+"" show in permill {{{1
+"let g:foldpeek#tail = {
+"      \ 1: "' '. (%permill%) . (%foldlevel%)",
+"      \ }
+"
+"" show in percent/permill as the digit number {{{1
+"" no use yet
+"let g:foldpeek#tail = {
+"      \ 1: "' '. (%persome%) . (%foldlevel%)",
+"      \ }
+"
+" show which line is peeked {{{1
+let g:foldpeek#head = ''
+
+let g:foldpeek#tail = {
+      \ 1: "' '. (%foldlines%) . (%foldlevel%)",
+      \ 2: "' '. (%PEEK%) . '/' . (%foldlines%) . (%foldlevel%)",
+      \ }
+
+"let g:foldpeek#tail = {
+"      \ 1: "' '. (%foldlevel%) . (%foldlines%) .' '",
+"      \ 2: "' '. (%foldlevel%) . (%PEEK%) . '/' . (%foldlines%) .' '",
+"      \ }
+
+"let s:marker_l1 = "v:foldlevel > 1 ? ". string(s:foldlevel_dict) ."[v:foldlevel] : ']'"
+"let s:persome   = '(len(%percent%) == 1 ? %permill% : %percent%)'
+
+" format {{{1
+" candidates for s:foldlevel_dict {{{2
 "let s:foldlevel_dict = {
 "      \ 1: '1',
 "      \ 2: '2',
@@ -70,43 +104,22 @@ let s:foldlevel_dict = {
       \ 8: 'ⅷ,',
       \ }
 
-" show which line is peeked {{{1
-let g:foldpeek#head = ''
-
-let g:foldpeek#tail = {
-      \ 1: "' '. (%foldlines%) . (%foldlevel%)",
-      \ 2: "' '. (%PEEK%) . '/' . (%foldlines%) . (%foldlevel%)",
-      \ }
-
-"let g:foldpeek#tail = {
-"      \ 1: "' '. (%foldlevel%) . (%foldlines%) .' '",
-"      \ 2: "' '. (%foldlevel%) . (%PEEK%) . '/' . (%foldlines%) .' '",
+"let s:foldlevel_dict = {
+"      \ 1: 'い',
+"      \ 2: 'ろ',
+"      \ 3: 'は',
+"      \ 4: 'に',
+"      \ 5: 'ほ',
+"      \ 6: 'へ',
+"      \ 7: 'と',
+"      \ 8: 'ち',
 "      \ }
 
-"let s:marker_l1 = "v:foldlevel > 1 ? ". string(s:foldlevel_dict) ."[v:foldlevel] : ']'"
-"let s:persome   = '(len(%percent%) == 1 ? %permill% : %percent%)'
-
-"" show in percent {{{1
-"let g:foldpeek#tail = {
-"      \ 1: "' '. (%percent%) . (%foldlevel%)",
-"      \ }
-"
-
-"" show in permill {{{1
-"let g:foldpeek#tail = {
-"      \ 1: "' '. (%permill%) . (%foldlevel%)",
-"      \ }
-"
-" show in percent/permill as the digit number {{{1
-"" no use yet
-"let g:foldpeek#tail = {
-"      \ 1: "' '. (%persome%) . (%foldlevel%)",
-"      \ }
-"
-" format {{{1
 "let s:foldlevel = "(v:foldlevel > 1 ? ". string(s:foldlevel_dict) ."[v:foldlevel] : ' ')"
 " modify in s:foldlevel_dict w/o ternary operators
 let s:foldlevel = string(s:foldlevel_dict) .'[v:foldlevel]'
+
+"}}}2
 
 let g:foldpeek#table = {
       \ '10persome' : "(len(matchstr(%percent%, '\d\+')) == 1 ? %permill% : %percent%)",
