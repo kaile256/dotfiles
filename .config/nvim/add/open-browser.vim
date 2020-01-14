@@ -3,6 +3,8 @@
 " Another: source/open-browser.vim
 
 command! -nargs=* -bar Browser :OpenBrowserSmartSearch <args>
+
+" Cabbrs {{{1
 " Abbr; Search Engine
 cnoreabbr <expr> gb (getcmdtype() == ':' && getcmdline() =~ '^gb$')? 'OpenBrowserSmartSearch' : 'gb'
 " Engine; Rendering
@@ -27,10 +29,12 @@ cnoreabbr <expr> th (getcmdtype() == ':' && getcmdline() =~ '^OpenBrowserSmartSe
 cnoreabbr <expr> K  (getcmdtype() == ':' && getcmdline() =~ '^OpenBrowserSmartSearch K$')?  '-dictionary@en' : 'K'
 cnoreabbr <expr> dc (getcmdtype() == ':' && getcmdline() =~ '^OpenBrowserSmartSearch dc$')? '-dictionary@en' : 'dc'
 
+" Keymaps "{{{1
 " Keymap; Open Current File
 " Current File; Command!
 "command! CurrentFileOnBrowser exe 'OpenBrowser' 'ftp:///' . expand('%:p:gs?\\?/?')
 command! CurrentFileOnBrowser exe 'OpenBrowser' . expand('%:p:gs?\\?/?')
+
 " Current File; Get Current file
 nnoremap <silent> <space>b% :<c-u>CurrentFileOnBrowser<cr>
 nnoremap <silent> <space>b5 :<c-u>CurrentFileOnBrowser<cr>
