@@ -1,5 +1,5 @@
 " From: motion.toml
-
+" Repo: t9md/vim-textmanip
 
 let g:textmanip_current_mode = 1
 let g:textmanip_move_ignore_shiftwidth = 1
