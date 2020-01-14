@@ -3,12 +3,12 @@
 set -Cue
 
 # INSTALLER IDENTIFICATION
-Installer=(
+INSTALLERs=(
   apt
   pacman
 )
-for i in "${Installer[@]}"; do
-  type "$i" >> /dev/null 2>&1 && export INSTALLER="$i"
+for i in "${INSTALLERs[@]}"; do
+  type "$i" > /dev/null 2>&1 && export INSTALLER="$i"
 done
 
 [[ -n $INSTALLER ]] && echo "Installer is identified, $INSTALLER!"
@@ -22,19 +22,26 @@ Install=(
 export install="${Install[$INSTALLER]}"
 echo "$INSTALLER will install package via '$install'!!"
 
-#### WANTED-PACKAGES INSTALLATION
-Package=(
+# WANTED-PACKAGES INSTALLATION
+PACKAGEs=(
   #jot # a cli tool to take a note
   notes-cli-bin # a cli tool to take a note on markdown
   parcel-bundler # a web-app bundler w/o config
   dialog # used in `wifi-menu` at least
+  ripgrep-all # ripgrep in PDFs, E-Books, Office documents, zip, tar.gz, etc.
+  mmv # mv multiple files in your editor, for debian user
+  #otf-sans-forgetica # a font scientifically designed for study notes. fails to work on qutebrowser
   wine # a layer to run programs for Windows
   transset-df # for transparency on xterm
   q4wine # gui for `wine`
-  preload # preload apps on RAM
+  preload # preload apps on RAM; maybe requires to `systemctl disable preload` before remove the package
   trello-cli
+  git-crypt
+  fwupd # a daemon for firmware update
+  dmidecode # installed w/ fwupd? anyway, necessary
   #cadaver  # WebDAV client, of which netrw makes use.
   #conky-lua-archers
+  #android-studio # the official IDE for Android
   #crazydiskinfo # no use for NVMe. detects HDD/SSD through S.M.A.R.T; you know TBW(Tera Byte Written)?
   #fcitx-qt5
   #fcitx5-qt5-git  # Libraries for fcitx-qt5, too long to install
@@ -113,14 +120,11 @@ Package=(
   yarn
   zotero # organize research sources, essays.
   zsh
-)
-
-Manjaro=(
   dmenu-manjaro
-  i3pystatus
-  i3-style
-  bluez   # for Bluetooth
-  bluez-utils
+  #i3pystatus
+  #i3-style
+  #bluez   # for Bluetooth
+  #bluez-utils
   skk-jisyo
   libskk
   fcitx-skk
@@ -137,6 +141,7 @@ PIP3s=(
   jupyter # for neural network especially for python
   jupytext # for goerz/jupytext.vim #jupyter
   tldextract # for an userscript on qutebrowser, qute-bitwarden
+  #matplotlib # for hyiltiz/vim-plugins-profile though optional
   pocket-api  # for an userscript on qutebrowser, qute-pocket
   #notedown # for szymonmaszke/vimpyter #jupyter
   #msgpack # for neovim-qt
@@ -157,6 +162,7 @@ GEMs=(
 YARNs=(
   yaml-language-server
   diagnostic-languageserver
+  graphql-language-server
   vim-language-server
   go-language-server
   bash-language-server
@@ -184,7 +190,7 @@ DASHTs=(
   rust
 )
 
-for package in "${Package[@]}"; do
+for package in "${PACKAGEs[@]}"; do
   if [ "$INSTALLER" -ne 'apt' ] && [ $(apt list "${package}") ]; then
     echo "You have installed $package already!"
   elif [ "$INSTALLER" -ne 'pacman' ] && [ $(pacman -Q "${package}") ]; then
