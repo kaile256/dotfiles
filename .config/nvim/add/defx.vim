@@ -7,7 +7,7 @@ scriptencoding utf-8
 
 let g:defx_sidebar_width = 30
 
-augroup DefxInsteadOfNetrw "{{{1
+augroup myDefxAddInsteadOfNetrw "{{{1
   au!
   " Ref: https://github.com/Shougo/defx.nvim/issues/121
   " Ref: /usr/share/nvim/runtime/plugin/netrwPlugin.vim
@@ -26,24 +26,23 @@ augroup DefxInsteadOfNetrw "{{{1
         \ )}
 augroup END
 
-" Open Defx available on terminal {{{1
+" Open Defx even on terminal {{{1
 function! s:defx(...) abort
-  "let cwd = matchstr(get(b:, 'term_title', getcwd()), '/\S\+')
-  "let wanted = expand('%:p:h')
   let dict = a:0 > 0 ? map(a:1, {
         \ key, val -> val == 1
         \ ? '-'. key
         \ : '-'. key .'='. val
         \ }) : ''
-
   let args  = join(values(dict))
+
   let cwd   = matchstr(get(b:, 'term_title', expand('%:p')), '/\S.\+')
   let fname = exists('b:term_title') ? cwd : expand('%:p:h')
 
   let cwd   = substitute(cwd,   '[^\\]\zs ', '\\ ', 'g')
   let fname = substitute(fname, '[^\\]\zs ', '\\ ', 'g')
-
-  exe 'Defx' fname args '-search='. cwd
+  let args .= ' -search='. cwd
+  exe 'Defx' fname args
+  wincmd =
 endfunction
 
 nnoremap <a-x> <Nop>
@@ -65,13 +64,13 @@ nnoremap <silent> <a-x><a-v> :<c-u>call <SID>defx({
 
 " in horizontal {{{2
 nnoremap <silent> <a-x><a-s> :<c-u>call <SID>defx({
-      \ 'direction': 'bel'
+      \ 'direction': 'bel',
       \ 'split': 'horizontal',
       \ 'new': 1,
       \ })<cr>
 nnoremap <silent> <a-x>s
       \ :<c-u>call <SID>defx({
-      \ 'direction': 'bel'
+      \ 'direction': 'bel',
       \ 'split': 'horizontal',
       \ 'new': 1,
       \ })<cr>
