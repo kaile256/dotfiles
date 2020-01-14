@@ -1,7 +1,7 @@
 # From: rc/dein.vim
 
 [[plugins]]
-repo = 'mattn/vim-findroot' #{{{
+repo = 'mattn/vim-findroot'
 on_cmd = 'FindRoot'
 hook_add = 'runtime add/findroot.vim'
 # To enable to :FindRoot w/ other commands through <bar>.
@@ -11,10 +11,9 @@ g/command!/norm! Ea -bar
 g/s:findroot(/s/1/0
 write
 '''
-#}}}
 
 [[plugins]]
-repo = 'kaile256/vim-submode' #{{{
+repo = 'kaile256/vim-submode'
 #repo = 'kana/vim-submode'
 # make another mode!
 on_func = 'submode#'
@@ -24,33 +23,28 @@ hook_add = 'runtime add/submode.vim'
 #exe 'e' g:dein_github_dir .'/kana/vim-submode/autoload/submode.vim'
 #%s/submode-/sbm-/g
 #write
-##}}}
 
 #[[plugins]]
-#repo = 'thinca/vim-ref' #{{{
+#repo = 'thinca/vim-ref'
 #on_event = 'BufRead'
 #hook_add = 'runtime rc/ref.vim'
-##}}}
 
-# Hex Editor
+#[ Hex Editor ]
 [[plugins]]
-repo = 'Shougo/vinarise.vim' #{{{
+repo = 'Shougo/vinarise.vim'
 on_cmd =  ['Vinarise']
 hook_add = 'runtime add/vinarise.vim'
-#}}}
 [[plugins]]
-repo = 'rootkiter/vim-hexedit' #{{{
+repo = 'rootkiter/vim-hexedit'
 on_cmd =  ['Hexedit']
-#}}}
 #[[plugins]]
-#repo = 'd0c-s4vage/pfp-vim' #{{{
+#repo = 'd0c-s4vage/pfp-vim'
 #on_cmd = 'Pfp'
 #hook_add = 'runtime add/pfp.vim'
-##}}}
 
-# Floating Window
+#[ Floating Window ]
 #[[plugins]]
-#repo = 'ncm2/float-preview.nvim' #{{{
+#repo = 'ncm2/float-preview.nvim'
 #on_source = ['denite.nvim', 'deolplete.nvim', 'coc.nvim']
 #hook_source = 'runtime source/float-preview.vim'
 #hook_done_update = '''
@@ -59,47 +53,44 @@ on_cmd =  ['Hexedit']
 #g/au/InsertLeave/norm! i"
 #write
 #'''
-##}}}
 #[[plugins]]
-#repo = 'voldikss/vim-floaterm' #{{{
+#repo = 'voldikss/vim-floaterm'
 #on_cmd = 'FloatermToggle'
 #on_map = '<Plug>(floaterm-'
 #hook_add = 'runtime add/floaterm.vim'
-##}}}
 
-[[plugins]]
-repo = 'severin-lemaignan/vim-minimap' #{{{
-on_cmd = 'Minimap'
-hook_add = 'runtime add/minimap.vim'
-# the name, vim-minimap, causes error when jump to this repository.
-hook_done_update = '''
-exe 'e' g:dein_github_dir .'/severin-lemaignan/vim-minimap/autoload/minimap.py'
-g/MINIMAP/s/vim-minimap/[minimap]/e
-write
-'''
-#}}}
-
-# Template
+#[ Minimap ]
 #[[plugins]]
-#repo = 'mattn/sonictemplate-vim' #{{{
+#repo = 'severin-lemaignan/vim-minimap'
+#on_cmd = 'Minimap'
+#hook_add = 'runtime add/minimap.vim'
+## the name, vim-minimap, causes error when jump to this repository.
+#hook_done_update = '''
+#exe 'e' g:dein_github_dir .'/severin-lemaignan/vim-minimap/autoload/minimap.py'
+#g/MINIMAP/s/vim-minimap/[minimap]/e
+#write
+#'''
+#
+#[ Template ]
+#[[plugins]]
+#repo = 'mattn/sonictemplate-vim'
+## Note: Use snippet instead
 #on_event = 'BufNew'
 #hook_post_source = 'runtime add/sonictemplate.vim'
-#}}}
 
 #[[plugins]]
-#repo = 'chrisbra/NrrwRgn' #{{{
+#repo = 'chrisbra/NrrwRgn'
 #on_event = 'VimEnter'
 #hook_post_source = 'runtime add/NrrwRgn.vim'
-##}}}
+
 #[[plugins]]
-#repo = 'AndrewRadev/switch.vim' #{{{
+#repo = 'AndrewRadev/switch.vim'
 ## toggle as predefined, such as 'true' & 'false'.
 #on_if = '&modifiable'
 #hook_post_source = 'runtime add/switch.vim'
-#}}}
 
 #[[plugins]]
-#repo = 'xolox/vim-session' #{{{
+#repo = 'xolox/vim-session'
 #depend = 'xolox/vim-misc'
 #on_cmd = ['SessionOpen', 'SessionSave']
 #hook_done_update = '''
@@ -108,4 +99,8 @@ write
 #g/command!/s/RestartVim/SessionVimRestart
 #write
 #'''
-##}}}
+
+#[[plugins]]
+#repo = 'mtth/scratch.vim'
+#on_cmd =  ['Scratch']
+#
