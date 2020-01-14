@@ -1,7 +1,7 @@
 # From: rc/dein.vim
 # Ref: syntax.toml
 
-#[[[Multiple FileType]]]
+#[ Multiple FileType ]
 [[plugins]]
 repo = 'editorconfig/editorconfig-vim'
 # Note: coc-prettier doesn't use editorconfig if prettier is either unavailable.
@@ -32,7 +32,7 @@ hook_source = 'runtime source/editorconfig.vim'
 #on_ft = ['toml']
 #hook_post_source = 'runtime add/syntastic.vim'
 
-#[[[Rust]]]
+#[ Rust ]
 [[plugins]]
 repo = 'martskins/vim-cargo-search'
 if = '&ft ==# "rust"'
@@ -47,28 +47,30 @@ on_cmd =  ['CargoSearch']
 #on_cmd = 'RustDoc'
 #hook_source = 'runtime add/rust-doc.vim'
 
-#[[[Python]]]
+#[ Python ]
 [[plugins]]
 repo = 'plytophogy/vim-virtualenv'
 # supports pip-packages, independently installed in shell, to work on vim
 on_ft = 'python'
-[[plugins]]
-repo = 'python-rope/ropevim'
-on_ft = ['python']
-
+#[[plugins]]
+#repo = 'python-rope/ropevim'
+#on_ft = ['python']
+#
 #[[plugins]]
 #repo = 'python-mode/python-mode'
 #on_ft = 'python'
 #hook_post_update = '!git submodule update --init --recursive'
 #hook_source = 'runtime source/python-mode.vim'
-
-[[plugins]]
-repo = 'tweekmonster/braceless.vim'
-# To: fold up to syntax of python.
-on_ft = 'python'
-hook_source = 'runtime add/braceless.vim'
-
-# Jupyter
+#
+#[[plugins]]
+#repo = 'tweekmonster/braceless.vim'
+## To: fold up to syntax of python.
+## not work so good
+#on_ft = ['python']
+#on_cmd =  ['BracelessEnable']
+#hook_add = 'runtime add/braceless.vim'
+#
+#[ Python.Jupyter ]
 [[plugins]]
 repo = 'goerz/jupytext.vim'
 on_ft = ['ipynb']
@@ -80,12 +82,11 @@ on_ft = ['ipynb']
 hook_source = 'runtime source/vimpyter.vim'
 
 
-#[[[for Document]]]
+#[ Document ]
 [[plugins]]
-repo = 'thinca/vim-ft-help_fold'
-# Note: conflicted with `set modeline`
-on_ft = 'help'
-hook_source = 'runtime source/ft-help_fold.vim'
+repo = 'rafaqz/citation.vim'
+on_ft = ['zotero', 'pybtex']
+hook_source = 'runtime source/citation.vim'
 
 [[plugins]]
 repo = 'Konfekt/vim-office'
@@ -96,7 +97,24 @@ on_ft = ['pdf', 'doc', 'docx', 'els', 'xlsx', 'ppt', 'pptx', 'odt', 'epub']
 repo = 'itchyny/vim-pdf'
 on_ft = ['pdf']
 
-#[[[for Config]]]
+#[ Config ]
 [[plugins]]
 repo = 'tpope/vim-jdaddy'
 on_ft = 'json'
+
+#[ Quickfix ]
+[[plugins]]
+repo = 'lambdalisue/qfloc.vim'
+# provies some local keymaps
+on_ft = ['qf', 'loc']
+hook_source = 'runtime source/qfloc.vim'
+
+#[ Android ]
+[[plugins]]
+repo = 'hsanson/vim-android'
+on_ft = ['java', 'kotlin', 'xml']
+
+[[plugins]]
+repo = 'AndroidMarv/android-dev.vim'
+on_ft = ['java', 'kotlin', 'xml']
+
