@@ -18,7 +18,17 @@ on_cmd = ['errorlist#Navigate']
 on_event = ['BufRead']
 hook_source = 'runtime source/errorlist.vim'
 
-#[[[Checker]]]
+#[ on LLDB ]
+[[plugins]]
+repo = 'gilligan/vim-lldb'
+# Note: running on python2
+
+[[plugins]]
+repo = 'strottos/vim-padre'
+build = 'bash make'
+on_cmd =  ['PadreDebug', 'PadreBreakpoint']
+
+#[ Stacktrace ]
 #[[plugins]]
 #repo = 'haya14busa/vim-stacktrace'
 ## Note: a lot of unknown_functions
