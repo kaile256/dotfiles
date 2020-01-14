@@ -9,6 +9,7 @@ command! -bar DiffOrig
       \ :vert above new | setl bt=nofile
       \ | r # | 0d_
       \ | diffthis | wincmd p | diffthis
+      \ | setl diffopt=vertical,indent-heuristic,algorithm:histogram
 
 command! -bar SyntaxReset        :call s:syntax_reset() "{{{1
 command! -bar HeavyBufferToReset :call s:syntax_reset()
@@ -61,12 +62,15 @@ if !exists('*s:source_buffer')
     " Note: :undojoin causes an error right after :undo.
     " Note: :undojoin with :w prevents to :undo before :w
     "silent! undojoin
-    if expand('%:p') =~# '/systemd/'
+    let filepath = expand('%:p')
+    if filepath =~# '/systemd/'
       !systemctl --user daemon-reload
       return
     endif
 
-    silent write
+    if filewritable(filepath)
+      silent write
+    endif
 
     if getline(1) =~# '^#!'
       !%:p
@@ -74,14 +78,14 @@ if !exists('*s:source_buffer')
     elseif has_key(s:ft2cmd, &ft)
       exe s:ft2cmd[&ft]
       return
-    elseif &ft ==# 'dosini' && has_key(s:ini_fname)
-      if expand('%:p') =~# s:ini_fname[&ft]
+    elseif &ft ==# 'dosini' && has_key(s:fname)
+      if filepath =~# s:fname[&ft]
         exe s:ft2cmd[&ft]
         return
       endif
     endif
 
-    !
+    echo v:statusmsg
   endfunction
 endif
 
@@ -93,7 +97,7 @@ let s:ft2cmd = {
       \ 'i3': '!i3-msg restart &',
       \ }
 
-let s:ini_fname = {
+let s:fname = {
       \ '\.config/fcitx/': '!fcitx-remote -r',
       \ '/polybar/':       '!${XDG_CONFIG_HOME}/polybar/launch.sh &',
       \ }
