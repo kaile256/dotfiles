@@ -75,10 +75,10 @@ let s:dein_toml_lazy = [
       \ 'colorscheme.toml',
       \ 'debug.toml',
       \ 'default.toml',
-      \ 'denite.toml',
+      \ 'easymotion.toml',
       \ 'extension.toml',
       \ 'external.toml',
-      \ 'finder.toml',
+      \ 'filefinder.toml',
       \ 'fold.toml',
       \ 'ftplugin.toml',
       \ 'fugitive.toml',
@@ -94,6 +94,10 @@ let s:dein_toml_lazy = [
       \ 'textobj.toml',
       \ 'tool.toml',
       \ 'vimscript.toml',
+      \ ]
+
+let s:dein_toml_not_in_android = [
+      \ 'denite.toml',
       \ 'web.toml',
       \ ]
 
@@ -112,6 +116,11 @@ if !exists('g:plugins_available')
     endfor
     for dir in s:dein_toml_lazy
       call dein#load_toml(s:dein_toml_dir .'/'. dir, {'lazy': 1})
+    endfor
+    for dir in s:dein_toml_not_in_android
+      call dein#load_toml(s:dein_toml_dir .'/'. dir, {'lazy': 1,
+            \ 'if': "system('uname -o') !~# 'Android'",
+            \ })
     endfor
 
     "}}}2
