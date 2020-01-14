@@ -1,10 +1,13 @@
 scriptencoding utf-8
 " From: init.vim
 
-if exists('s:zenkaku') | finish | endif
+" Note: no use in s:var.
+"   Use w:var; g:var sometimes fails
+if exists('w:zenkaku') | finish | endif
 
 hi! Zenkaku cterm=reverse,bold,undercurl gui=reverse,bold,undercurl
 
-let s:zenkaku = matchadd('Zenkaku', '[ＡＢＣＤＥＦＧＨＩＪＫＬＭＮＯＰＱＲＳＴＵＶＷＸＹＺ]')
-let s:zenkaku = matchadd('Zenkaku', '[ａｂｃｄｅｆｇｈｉｊｋｌｍｎｏｐｑｒｓｔｕｖｗｘｙｚ]')
-let s:zenkaku = matchadd('Zenkaku', '[　０１２３４５６７８９]')
+" Note: no use as s:var
+let w:zenkaku = matchadd('Zenkaku', '[ＡＢＣＤＥＦＧＨＩＪＫＬＭＮＯＰＱＲＳＴＵＶＷＸＹＺ]')
+let w:zenkaku = matchadd('Zenkaku', '[ａｂｃｄｅｆｇｈｉｊｋｌｍｎｏｐｑｒｓｔｕｖｗｘｙｚ]')
+let w:zenkaku = matchadd('Zenkaku', '[　０１２３４５６７８９]')
