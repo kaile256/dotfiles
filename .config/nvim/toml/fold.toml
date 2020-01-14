@@ -13,11 +13,14 @@ hook_source = 'runtime source/FastFold.vim'
 #repo = 'anschnapp/move-less'
 #on_event = 'BufRead'
 #hook_add = 'runtime add/move-less.vim'
+
 #[[plugins]]
-#repo = 'tmhedberg/SimpylFold'
-#on_ft = 'python'
-#hook_post_source = 'runtime add/SimpylFold.vim'
-#[[[Fold Text]]]
+#repo = 'pseewald/vim-anyfold'
+## too many extra fold
+#on_ft = ['python', 'yaml']
+#hook_source = 'runtime source/anyfold.vim'
+#
+#[ Fold Text ]
 #[[plugins]]
 #repo = 'LeafCage/foldCC'
 #on_event = 'BufWinEnter'
@@ -32,3 +35,41 @@ hook_source = 'runtime source/FastFold.vim'
 #on_event = ['BufRead']
 #
 
+#[ FileType ]
+[[plugins]]
+#repo = 'matze/vim-ini-fold'
+repo = 'kaile256/vim-ini-fold'
+# PR-Merged: matze/vim-ini-fold/pull/1
+# PR: matze/vim-ini-fold/pull/2
+on_ft = ['cfg', 'config', 'desktop', 'dosini', 'gitconfig', 'toml']
+hook_source = 'runtime source/ini-fold.vim'
+
+#[[plugins]]
+#repo = 'pedrohdz/vim-yaml-folds'
+#on_ft = ['yaml', 'raml', 'sls', 'eyaml']
+#[[plugins]]
+#repo = 'tmhedberg/SimpylFold'
+## no fold on trailing blanklines
+#on_ft = ['python']
+#
+#[[plugins]]
+#repo = 'arutz12/pyfolding'
+## An excerpt from python-mode/python-mode, only for fold
+#on_ft = ['python']
+#
+#[ Indent ]
+#[[plugins]]
+#repo = 'xi/vim-indent-folding'
+## Note: includes a fdt-function
+#on_ft = ['python', 'yaml']
+#
+#[[plugins]]
+#repo = 'tomtom/indentfolds_vim'
+## Note: complicated
+#on_ft = ['python', 'yaml']
+#
+#[[plugins]]
+#repo = 'rdpate/vim-fold-indent-block'
+## Note: lack of detection
+#on_ft = ['python', 'yaml']
+#
