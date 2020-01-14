@@ -297,9 +297,9 @@ function! s:defx_keymaps() abort "{{{1
         \ defx#do_action('repeat')
 endfunction
 
-augroup OnDefxBuffer "{{{1
+augroup myDefxPost "{{{1
   au FileType defx exe 'setl path='. getbufvar('#', '&path')
-  au FileType defx wincmd =
+  au BufWinLeave * if &ft ==# 'defx' | wincmd = | endif
   "" TODO: start cursor on filename
   "au BufEnter * if &ft ==# 'defx' |
   "      \ call search('\a', 'cW') |
@@ -311,6 +311,7 @@ augroup OnDefxBuffer "{{{1
   au!
   " TODO: highlight on top as there's filepath, or place those path on another place.
   au FileType defx setl winfixwidth winfixheight
+  " 'bufhidden': default is 'hide', perhaps for resume of defx
   au FileType defx setl nonumber signcolumn= bufhidden=wipe previewheight=25
   "au WinEnter \[defx\]*
   "      \ if @# =~# '\[defx\]'
