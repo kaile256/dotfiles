@@ -1,63 +1,63 @@
 # From: rc/dein.vim
 
 [[plugins]]
-repo = 'ruanyl/vim-gh-line' #{{{
+repo = 'ruanyl/vim-gh-line'
 # open github in browser at the current line
 on_cmd =  ['GHInteractive', 'GBInteractive']
-#}}}
 
 #[[plugins]]
-#repo = 'whatyouhide/vim-lengthmatters' #{{{
+#repo = 'whatyouhide/vim-lengthmatters'
 ## change highlight &tw
 #on_event = 'Colorscheme'
-##}}}
 
-# Blame
+#[ Workflow ]
+[[plugins]]
+repo = 'jreybert/vimagit'
+on_cmd =  ['Magit']
+
+#[ Blame ]
 #[[plugins]]
-#repo = 'rhysd/ghpr-blame.vim' #{{{
+#repo = 'rhysd/ghpr-blame.vim'
 ## Note: seems no use in neovim
 #on_cmd =  ['GHPRBlame']
-##}}}
 
-# Blame in line
 #[[plugins]]
-#repo = 'tveskag/nvim-blame-line' #{{{
+#repo = 'tveskag/nvim-blame-line'
+## shows blames in virtual line
 #if = 'has("nvim")'
 #on_cmd =  ['ToggleBlameLine', 'SingleBlameLine', 'EnableBlameLine']
-##}}}
+
 #[[plugins]]
-#repo = 'iamcco/sran.nvim' #{{{
+#repo = 'iamcco/sran.nvim'
 #if = 'has("nvim") || v:version >= 801'
 #hook_done_update = 'call sran#util#install()'
 #on_func  = ['sran#rpc#']
 #hook_add = 'runtime add/sran.vim'
-##}}}
+
 #[[plugins]]
-#repo = 'iamcco/git-p.nvim' #{{{
+#repo = 'iamcco/git-p.nvim'
+## shows blames in virtual line
 #depend = 'sran.nvim'
 #type     = 'git'
 #on_event = 'BufRead'
 #hook_source = 'runtime source/git-p.vim'
-##}}}
 
+#[ Log ]
 [[plugins]]
-repo = 'cohama/agit.vim' #{{{
-# Log viewer
+repo = 'cohama/agit.vim'
+# git log viewer
 on_cmd = 'Agit'
 hook_add = 'runtime add/agit.vim'
-#}}}
 
 #[[plugins]]
-#repo = 'airblade/vim-gitgutter' #{{{
+#repo = 'airblade/vim-gitgutter'
 ## enough only with coc.nvim & fugitive.vim?
 #type = 'git'
 #on_event = 'BufRead'
 #hook_post_source = 'runtime add/gitgutter.vim'
-##}}}
 
 #[[plugins]]
-#repo = 'lambdalisue/gina.vim' #{{{
+#repo = 'lambdalisue/gina.vim'
 #on_event = ['BufWritePost']
 #hook_post_source = 'runtime add/gina.vim'
-##}}}
 
