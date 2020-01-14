@@ -30,22 +30,22 @@
 "
 " Font for gvim {{{1
 "if has('unix')
+"" Note: when 'guifontset' is not empty, it replaces 'guifont'.
 "  try
-"    set guifont=SF\ Mono:h12
 "    set guifontwide=NotoMono\ Nerd\ Font:h15
 "    set guifontset=SF\ Mono:h15
 "    set printfont=SF\ Mono:h12
 "    "set linespace=0
 "  catch
-"    set guifont=Monospace:h12
+"    set guifontset=Monospace:h12
 "    set printfont=Monospace:h12
 "  endtry
 "elseif has('win32\|win64')
 "  try
-"    set guifont=SF_Mono:h12
+"    set guifontset=SF_Mono:h12
 "    set printfont=SF_Mono:h12
 "  catch
-"    set guifont=Monospace\ 12
+"    set guifontset=Monospace\ 12
 "    set printfont=Monospace\ 12
 "  endtry
 "endif
