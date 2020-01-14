@@ -1,0 +1,129 @@
+# From: rc/dein.vim
+
+#[ Fuzzy Finder ]
+[[plugins]]
+repo = 'junegunn/fzf'
+#[ Note: :Files in fzf.vim is the same as :FZF.
+on_cmd = 'FZF'
+
+[[plugins]]
+#repo = 'junegunn/fzf.vim'
+repo = 'kaile256/fzf.vim'
+#[ Branch: kaile256/fzf.vim_verbose_commands
+#on_func = 'fzf#vim#'
+on_event = 'VimEnter'
+hook_add = 'runtime add/fzf.vim'
+hook_source = 'runtime source/fzf.vim'
+hook_post_source = 'runtime post/fzf.vim'
+[[plugins]]
+repo = 'fszymanski/fzf-quickfix'
+depend = 'fzf.vim'
+on_cmd = ['Quickfix']
+[[plugins]]
+repo = 'dominickng/fzf-session.vim'
+on_cmd = ['Session', 'Sessions']
+hook_source = 'runtime source/fzf-session.vim'
+#[[plugins]]
+#repo = 'yuki-ycino/fzf-preview.vim'
+#[[plugins]]
+#repo = 'srstevenson/vim-picker'
+# fzy's wrapper for vim
+#on_event = ['BufRead']
+#[[plugins]]
+#repo = 'liuchengxu/vim-clap'
+## Note: a fuzzy finder written in 99.7% vimscript.
+#on_cmd = 'Clap'
+#hook_add = 'runtime add/clap.vim'
+
+#[ Filer ]
+#[[plugins]]
+#repo = 'zgpio/tree.nvim'
+## Note: written in cpp!
+## not yet available via package-manager
+#build = 'make'
+#on_cmd = ['Tree']
+[[plugins]] # has extentions
+repo = 'Shougo/defx.nvim'
+on_cmd = 'Defx'
+hook_add = 'runtime add/defx.vim'
+hook_post_source = 'runtime post/defx.vim'
+[[plugins]]
+repo = 'kristijanhusak/defx-git'
+on_source = 'defx.nvim'
+#[[plugins]]
+#repo = 'kristijanhusak/defx-icons'
+#on_source = 'defx.nvim'
+#[[plugins]]
+#repo = 'skanehira/popupfiles.vim'
+## Ref: https://qiita.com/gorilla0513/items/fa4b401e7264a31868b9
+#on_cmd = 'PopupFiles'
+#[[plugins]]
+#repo = 'lambdalisue/fila.vim'
+## Note: currently has no docment.
+#on_cmd = 'Fila'
+#hook_add = 'runtime add/fila.vim'
+#[[plugins]]
+#repo = 'cocopon/vaffle.vim'
+#on_if = 'has("python3")'
+#hook_post_source = 'runtime add/vaffle.vim'
+#[[plugins]]
+#repo = 'justinmk/vim-dirvish'
+#on_event = 'BufAdd'
+#hook_post_source = 'runtime add/dirvish.vim'
+## Ranger
+#[[plugins]]
+#repo = 'Lokaltog/neoranger'
+## Note: only one pane is in use; can't call it a ranger.
+#on_event = 'BufRead'
+#hook_add = 'runtime add/neoranger.vim'
+#[[plugins]]
+#repo = 'ipod825/vim-netranger'
+## Browser for system/cloud storage
+#on_event = 'BufRead'
+#hook_post_source = 'runtime add/netranger.vim'
+#[[plugins]]
+#repo = 'rafaqz/ranger.vim'
+### semms only call the external ranger.
+#on_event = 'BufRead'
+#hook_post_source = 'runtime add/ranger.vim'
+#[[plugins]]
+#repo = 'francoiscabrol/ranger.vim'
+## semms only call the external ranger.
+#on_event = 'BufRead'
+#hook_post_source = 'runtime add/ranger.vim'
+
+#[ CTags/global ]
+[[plugins]]
+repo = 'jsfaint/gen_tags.vim'
+on_event = 'BufLeave'
+hook_post_source = 'runtime add/gen_tags.vim'
+#[[plugins]]
+#repo = 'SpaceVim/gtags.vim'
+## Only for SpaceVim? E117: Unknown function: gtags#update
+## 1. generate gtags file automatically
+## 2. quickfix list support
+## 3. A fuzzy finder souces for some plugins:
+##          denite, unite, fzf, leader-f, fzy
+#on_event = 'BufRead'
+#hook_post_source = 'runtime add/gtags.vim'
+[[plugins]]
+repo = 'majutsushi/tagbar'
+on_cmd = 'TagbarToggle'
+hook_add = 'runtime add/tagbar.vim'
+#[[plugins]]
+#repo = 'liuchengxu/vista.vim'
+## Note: supports lsp via such plugins as coc, vim-lsp.
+## Note: sort tags on the role, like function, struct, variable and so on.
+#on_cmd = 'Vista'
+#hook_add = 'runtime add/vista.vim'
+
+#[ Marks ]
+#[[plugins]]
+#repo = 'MattesGroeger/vim-bookmarks' #{{{
+## ???
+#on_cmd = ['BookmarkAnnotate', 'BookmarkShowAll', 'BookmarkNext', 'BookmarkPrev']
+#hook_add = 'runtime add/bookmarks.vim'
+#[[plugins]]
+#repo = 'jacquesbh/vim-showmarks'{{{
+#on_map = ['m','`',"'",'<space>']
+#hook_add = 'runtime add/showmarks.vim'
