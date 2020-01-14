@@ -1,4 +1,4 @@
-" From: git.toml
+" From: fugitive.toml
 " Repo: tpope/vim-fugitive
 " Another: source/fugitive.vim
 
@@ -12,8 +12,7 @@
 "command! Gush
 "      \ :let s:push = jobstart('nvim --embed -c "Gpush"')
 
-command! -bang -nargs=? -range=-1 -addr=tabs
-      \ -complete=customlist,fugitive#PushComplete
+command! -bang -nargs=? -range=-1 -addr=tabs -complete=customlist,fugitive#PushComplete
       \ Gush
       \ :<mods>Gpush <args>
 
@@ -69,6 +68,8 @@ endfunction
 let s:std = {}
 let s:std.buftype = ['terminal', '', 'help']
 let s:weed = {}
+" WARNING: for the case to compare only commits, keep such functions private,
+"          which close all '.git/' or 'fugitive://'
 let s:weed.bufname = ['.git\/', 'FZF$']
 "let s:weed.filetype = ['fzf']
 
@@ -122,7 +123,7 @@ function! s:winreduce(...) abort "{{{2
   endfor
   call win_gotoid(winID)
 endfunction
-command! WinReduce   :call s:winreduce()
+command! WinReduce :call s:winreduce()
 nnoremap <silent> <a-space><a-space> :<c-u>WinReduce<cr>
 nnoremap <silent> <a-space><space>   :<c-u>WinReduce<cr>
 
@@ -185,9 +186,8 @@ nnoremap <silent> <space>ga :<c-u>Gw <bar> Gvstatus <bar> call win_gotoid(bufwin
 nnoremap <silent> <space>gw :<c-u>GwWinpickVDiffStaging HEAD<cr>
 " Command! GwWinpickVDiff {{{2
 command! -bar -bang -nargs=* -complete=customlist,fugitive#EditComplete
-      \ GwWinpickVDiff
-      \ :Gw
-      \ | HelpCloseAll
+      \ GwinpickVDiff
+      \ :HelpCloseAll
       \ | call s:winpick()
       \ | Gvdiffsplit! <args>
 command! -bar -nargs=?
@@ -220,9 +220,9 @@ command! -bar -nargs=?
 "noremap <silent> <space>g<a-u> :Gunstage<cr>
 " Diff; {{{1
 " !: On a Merge Conflict, do a 3-diff; otherwise the same as without bang.
-nnoremap <silent> <space>gd :<c-u>GwWinpickVDiff<cr>
+nnoremap <silent> <space>gd :<c-u>GwinpickVDiff<cr>
 " Note: should be compared in current buffer
-nnoremap <silent> <space>gD :<c-u>GwWinpickVDiff HEAD<cr>
+nnoremap <silent> <space>gD :<c-u>GwinpickVDiff HEAD<cr>
 
 " Unstage {{{1
 " TODO: make :Gunstage % work
