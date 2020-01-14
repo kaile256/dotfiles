@@ -1,6 +1,6 @@
 # From: rc/dein.vim
 
-#[[[Browser]]]
+#[ Browser ]
 [[plugins]]
 repo = 'tyru/open-browser.vim'
 on_cmd = 'OpenBrowser'
@@ -13,16 +13,19 @@ exe 'e' g:dein_github_dir .'/tyru/open-browser.vim/plugin/openbrowser.vim'
 v/range/g/command!/norm! A-range
 write
 '''
+
 #[[plugins]]
 #repo = 'tyru/open-browser-github.vim'
 #depends = 'open-browser.vim'
 #on_cmd = 'OpenGithub'
 #hook_post_source = 'runtime add/open-browser-github.vim'
 
-#[[[On Browser]]]
+
+#[ On Browser ]
 [[plugins]]
 repo = 'glacambre/firenvim'
 hook_post_update = 'function("firenvim#install")'
+
 #[[plugins]]
 #repo = 'raghur/vim-ghost'
 ## depends on chrome's extention or firefox's addon.
@@ -39,7 +42,7 @@ on_cmd = ['Qiita']
 #repo = 'aiya000/vim-webpage'
 #on_cmd =  ['WebpageShow']
 
-#[APIs]
+#[ APIs ]
 [[plugins]]
 repo = 'itchyny/calendar.vim'
 on_cmd = 'Calendar'
