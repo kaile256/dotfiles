@@ -176,6 +176,7 @@ set complete-=i " i: included files
 " Edit {{{1
 " Method; Visual Mode {{{2
 set virtualedit=block
+
 " Method; Commandline Mode {{{2
 set noshowcmd
 set history=100 " default: 10000
@@ -197,6 +198,7 @@ set lazyredraw
 " Method; Fold {{{2
 "set foldenable " default: on
 set foldmethod=syntax
+" Note: 'foldlevel' is local to window
 set foldlevelstart=0
 set foldnestmax=10
 " reduce block (e.g., [[,{)
