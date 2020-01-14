@@ -4,6 +4,10 @@
 " Another: add/fzf.vim
 " Another: post/fzf.vim
 
+if exists('g:loaded_fzf')
+  unlet g:loaded_fzf
+endif
+
 " Note: :FZF! starts fzf on full-window.
 function! fzf#floating_window() abort "{{{
   " Ref: https://github.com/junegunn/fzf.vim/issues/664
