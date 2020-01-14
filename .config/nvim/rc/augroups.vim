@@ -1,23 +1,22 @@
 " From: init.vim
 
-augroup BufTypeAdjustment
+augroup myBufTypeAdjustment "{{{1
   au!
   au BufRead $XDG_DATA_HOME/Trash**/* setl bt=nofile
   " Ref: https://twitter.com/_tyru_/status/1209126520511315969
   au BufRead *.log,/tmp**/* setl backupcopy=yes
 augroup END
 
-augroup FileTypeAdjustment
+augroup myFileTypeAdjustment "{{{1
   " Note: `:setfiletype` cannot override filetype;
   "   no consideration to use it instead
   au!
   au BufNewFile,BufRead *.txt      setl syn=help
 
   au BufNewFile,BufRead .gitignore setl ft=netrw bt=
-
-  au BufNewFile,BufRead *.snip   setl ft=neosnippet
-  au BufNewFile,BufRead *.dict   setl ft=skkdict
-  au BufNewFile,BufRead .vmailrc setl ft=yaml
+  au BufNewFile,BufRead *.snip     setl ft=neosnippet
+  au BufNewFile,BufRead *.dict     setl ft=skkdict
+  au BufNewFile,BufRead .vmailrc   setl ft=yaml
 
   au BufWinEnter .*
         \ if &ft ==# ''
@@ -31,11 +30,13 @@ augroup FileTypeAdjustment
         \ endif
 augroup END
 
-augroup FoldMethodDetection
+augroup myFoldAdjustment "{{{1
   au!
   "au FileType neosnippet,yaml setl fdm=indent
   " Note: fdm=syntax on json sometimes shows only '{ <blank>' line.
   au FileType json setl fdm=syntax
+
+  au FileType yaml if expand('%:p') =~# 'qutebrowser' | setl fdl=3 | endif
 
   au BufRead * if line('w$') != line('$') | setl fdl=0 | endif
   au BufWinEnter,InsertLeave,TextChanged *
@@ -48,34 +49,34 @@ augroup FoldMethodDetection
           \ | endif
 augroup END
 
-augroup AlertOnFilename
+augroup myAlertOnFilename "{{{1
   au! BufRead /etc/{sudoers,sudoers.d/*} setl nomodifiable
         \ | echoerr " You'd better edit by $ visudo"
 augroup END
 
-augroup FindAlternate "{{{1
+augroup myFindAlternate "{{{1
   au! BufWinEnter .config/*vim**/* call s:find_alternate()
+  function! s:find_alternate() abort "{{{2
+    let alter = expand('#:t')
+    if empty(alter) || !search(alter, 'cWn') | return | endif
+
+    call search(alter, 'cW')
+    norm! zv
+    let @/ = alter
+    "au! FindAlternate BufLeave * if exists('s:alter') | call s:hist_remove(s:alter) | endif
+  endfunction
+
+  function! s:hist_remove(word) abort "{{{3
+    silent! if !search(a:word, 'cWn') && histget('/') ==# a:word
+    call histdel('/', -1)
+    let @/ = histget('/', -1)
+    silent! unlet alter
+  endif
+  endfunction
+  "}}}2
 augroup END
 
-function! s:find_alternate() abort
-  let alter = expand('#:t')
-  if empty(alter) || !search(alter, 'cWn') | return | endif
-
-  call search(alter, 'cW')
-  norm! zv
-  let @/ = alter
-  "au! FindAlternate BufLeave * if exists('s:alter') | call s:hist_remove(s:alter) | endif
-endfunction
-
-function! s:hist_remove(word) abort "{{{2
-  silent! if !search(a:word, 'cWn') && histget('/') ==# a:word
-  call histdel('/', -1)
-  let @/ = histget('/', -1)
-  silent! unlet alter
-endif
-endfunction
-
-augroup ReturnToUsualWindow "{{{1
+augroup myReturnToUsualWindow "{{{1
   au! BufWinLeave,BufWinEnter * call s:adjust_winfix()
 augroup END
 
