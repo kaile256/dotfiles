@@ -4,6 +4,10 @@ options head
   [[plugins]]
   repo = '${1:}'
 
+snippet not in Android
+alias termux ter te an and andr no not
+  if = "system('uname -o') !~# 'Android'"
+
 #snippet #{{{ begining of fold
 #alias { #{ #{{ #{{{ {} #{} #{{}} #{{{}}}
 #  #{{{
