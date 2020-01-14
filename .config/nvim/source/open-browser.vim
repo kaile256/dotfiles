@@ -6,13 +6,21 @@ let g:openbrowser_message_verbosity = 1
 
 " Let; Specify Browser {{{
 let g:openbrowser_browser_commands = [
+      \ {'name': 'xdg-open',    'args': ['{browser}', '{uri}']},
       \ {'name': 'qutebrowser', 'args': ['{browser}', '{uri}']},
-      \ {'name': 'w3m',         'args': ['{browser}', '{uri}']}
+      \ {'name': 'w3m',         'args': ['{browser}', '{uri}']},
       \ ]
-"}}}
-" 0: go to the browser.
-" 1: stay in vim; open browser in background
+
+" 0: stay in vim; open browser in background
+"   Note: at 0, vim will freezes while browser is opened which had no process
+"   before openbrowser call it.
+" 1: go to the browser.
+" Note: tyru/open-browser.vim/autoload/vital/__openbrowser__/OpenBrowser/Config.vim @13
+"   " FIXME: 'background' doesn't work now on neovim.
+"   " https://github.com/tyru/open-browser.vim/issues/102
+"   let s:background = has('nvim') ? 0 : 1
 let g:openbrowser_force_foreground_after_open = 1
+
 " Let; Search Engine
 let g:openbrowser_default_search = 'duckduckgo'
 
@@ -33,6 +41,7 @@ let g:openbrowser_search_engines = {
       \ 'google-code': 'http://code.google.com/intl/en/query/#q={query}',
       \ 'php': 'http://php.net/{query}',
       \ 'python': 'http://docs.python.org/dev/search.html?q={query}&check_keywords=yes&area=default',
+      \ 'microsoft academic': 'https://academic.microsoft.com/search?q={query}',
       \ 'dictionary@en': 'https://www.thefreedictionary.com/{query}',
       \ 'thesaurus': 'https://www.freethesaurus.com/{query}',
       \ 'twitter-search': 'http://twitter.com/search/{query}',
