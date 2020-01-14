@@ -24,6 +24,10 @@ endfunction
 "nnoremap n nzz
 "nnoremap N Nzz
 
+" between Folds {{{1
+nnoremap zJ zjzv
+nnoremap zK zkzv
+
 " Jump; via Tags {{{1
 " Note: g<c-]> jumps via ctags,
 "       or if <cword> links more than two tags, shows a list of tags.

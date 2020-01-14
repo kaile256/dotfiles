@@ -129,8 +129,7 @@ if mapcheck('J') !=# ''
   " Mnemonic: <space>-leaving Join
   nnoremap <space>J J
   xnoremap <space>J J
-  " Mnemonic: Zipped Join (<space>-compressed)
-  nnoremap zJ J"_x
+  nnoremap gJ J"_x
 endif
 
 "function! s:join() abort "{{{1
