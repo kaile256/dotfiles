@@ -2,10 +2,6 @@
 " Ref: cabbrs.vim
 " Ref: commands.vim
 
-cnoremap <expr> .
-      \ (getcmdtype() =~# '[:=]' && getcmdline()[getcmdpos() - 2] ==# '(')
-      \ ? (getcmdline()[getcmdpos() - 1] ==# ')') ? "'.'" : "'.')"
-      \ : '.'
 
 cnoremap <silent> <a-space> <esc>:call feedkeys("\<space>")<cr>
 
@@ -14,6 +10,24 @@ cnoremap <silent> <c-k><a-k> <c-c>
 
 cnoremap <c-r><c-space> <c-r>+
 cnoremap <c-r><space>   <c-r>+
+
+cnoremap <expr> . <SID>here()
+
+function! s:here() abort "{{{1
+  if getcmdtype() !~# '[:= ]' | return '.' |  endif
+
+  let line = getcmdline()
+  let pos  = getcmdpos()
+  if line[pos - 2] ==# '('
+    if  line[pos - 1] ==# ')'
+      return "'.'"
+    endif
+
+    return "'.')"
+  endif
+
+  return '.'
+endfunction
 
 " instant :verbose "{{{1
 cnoremap <expr> <a-m>  (getcmdtype() == ':' && getcmdline() !~# '^verb\%[ose]') ? '<Home>verbose<space><cr>' : '<cr>'
