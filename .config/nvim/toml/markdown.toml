@@ -1,6 +1,22 @@
 # From: rc/dein.vim
 
-#[[[Preview]]]
+#[ Table ]
+[[plugins]]
+repo = 'nora75/markdowntable'
+on_cmd =  ['TableMake', 'ToTable', 'UnTable']
+hook_source = 'runtime source/markdowntable.vim'
+
+#[ TOC ]
+[[plugins]]
+repo = 'mzlogin/vim-markdown-toc'
+on_cmd =  [
+  'GenTocGFM', 'GenTocRedcarpet', 'GenTocGitlab', 'GenTocMarked'
+  'UpdateToc', 'RemoveToc'
+]
+hook_add = 'runtime add/markdown-toc.vim'
+hook_source = 'runtime source/markdown-toc.vim'
+
+#[ Preview ]
 #[[plugins]]
 #repo = 'previm/previm'
 #on_ft = 'markdown'
@@ -39,7 +55,13 @@ hook_source = 'runtime source/markdown-composer.vim'
 #on_ft = 'markdown'
 #hook_source = 'runtime add/instant-markdown.vim'
 
-#[[[Go]]]
+[[plugins]]
+repo = 'skanehira/preview-markdown.vim'
+# preview inside vim!
+on_cmd =  ['PreviewMarkdown']
+hook_add = 'runtime add/preview-markdown.vim'
+
+#[ Fenced Filetype ]
 [[plugins]]
 repo = 'po3rin/vim-gofmtmd'
 if = "&ft ==# 'markdown'"
@@ -47,37 +69,56 @@ on_cmd =  ['GoFmtMd']
 #on_ft = ['markdown']
 hook_source = 'runtime source/gofmtmd.vim'
 
-#[[[Syntax]]]
-[[plugins]]
-repo = 'rhysd/vim-gfm-syntax'
-on_ft = ['markdown']
-
+#[ Syntax ]
+#[[plugins]]
+#repo = 'tpope/vim-markdown'
+## Note: may disable Defx on markdown
+## dev version of built-in
+#on_ft = ['markdown']
+#
 #[[plugins]]
 #repo = 'gabrielelana/vim-markdown'
 ## includes fold on markdown
 ## too heavy to `:e any.md`
 #on_ft = ['markdown']
+#hook_add = '''
+#let b:current_syntax = 'markdown'
+#let b:did_ftplugin  = 1
+#'''
 #hook_source = 'runtime source/gabrielelana-markdown.vim'
-
+#
 #[[plugins]]
 #repo = 'plasticboy/vim-markdown'
 #on_ft = 'markdown'
 #hook_source = 'runtime source/plasticboy-markdown.vim'
-
+#
 #[[plugins]]
 #repo = 'joker1007/vim-markdown-quote-syntax'
 ## Note: seems no use
 #on_ft = ['markdown']
 #hook_source = 'runtime source/markdown-quote-syntax.vim'
 #
-
-#[[[Fold]]]
+#[[plugins]]
+#repo = 'rhysd/vim-gfm-syntax'
+#on_ft = ['markdown']
+#
+#[ Pandoc ]
+#[[plugins]]
+#repo = 'vim-pandoc/vim-pandoc'
+#on_ft = ['markdown.pandoc']
+#
+#[[plugins]]
+#repo = 'vim-pandoc/vim-pandoc-syntax'
+#on_ft = ['markdown.pandoc']
+#hook_add = 'runtime add/pandoc-syntax.vim'
+#[ Fold ]
 #[[plugins]]
 #repo = 'Jagua/vim-markdown_fold'
 ## no use
 #on_ft = ['markdown']
+
 #[[plugins]]
 #repo = 'GuilloteauQ/vim-mdfold'
 ## no use
 #on_ft = ['markdown']
-
+#

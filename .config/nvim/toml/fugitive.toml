@@ -1,7 +1,7 @@
 # From: rc/dein.vim
 
 [[plugins]]
-repo = 'tpope/vim-fugitive' #{{{
+repo = 'tpope/vim-fugitive'
 #repo = 'kaile256/vim-fugitive'
 # WARNING: for the case to compare only commits,
 #          keep such functions private, which close all '.git/' or 'fugitive://'
@@ -9,26 +9,25 @@ type = 'git'
 on_event = 'BufRead'
 hook_add = 'runtime add/fugitive.vim'
 hook_source = 'runtime source/fugitive.vim'
-#}}}
 
-# Branch viewer
+#[ Branch ]
+#[[plugins]]
+#repo = 'kaile256/vim-merginal'
+##repo = 'idanarye/vim-merginal'
+## Note: twiggy is better.
+#on_cmd = ['Merginal', 'MerginalToggle']
+#hook_add = 'runtime add/merginal.vim'
+#hook_done_update = '''
+#exe 'e' g:dein_github_dir .'/idanarye/vim-merginal/plugin/merginal.vim'
+#%s/-nargs=0/-bar/e
+#write
+#exe 'e' g:dein_github_dir .'/idanarye/vim-merginal/autoload/merginal/buffers/branchList.vim'
+#v/'<cr>',/g/'cc',/norm! nEa '<cr>',
+#write
+#'''
+
 [[plugins]]
-repo = 'kaile256/vim-merginal' #{{{
-#repo = 'idanarye/vim-merginal'
-# Note: twiggy is better.
-on_cmd = ['Merginal', 'MerginalToggle']
-hook_add = 'runtime add/merginal.vim'
-hook_done_update = '''
-exe 'e' g:dein_github_dir .'/idanarye/vim-merginal/plugin/merginal.vim'
-%s/-nargs=0/-bar/e
-write
-exe 'e' g:dein_github_dir .'/idanarye/vim-merginal/autoload/merginal/buffers/branchList.vim'
-v/'<cr>',/g/'cc',/norm! nEa '<cr>',
-write
-'''
-#}}}
-[[plugins]]
-repo = 'sodapopcan/vim-twiggy' #{{{
+repo = 'sodapopcan/vim-twiggy'
 # Note: improperly save buffers.
 type = 'git'
 on_cmd = 'Twiggy'
@@ -41,63 +40,56 @@ exe 'e' g:dein_github_dir .'/sodapopcan/vim-twiggy/autoload/twiggy.vim'
 g/'dd/copy. | s/'dd/'D
 write
 '''
-###}}}
 
-# Commit-Message viewer
+#[ Commit-Message]
 [[plugins]]
-repo = 'rhysd/git-messenger.vim' #{{{
+repo = 'rhysd/git-messenger.vim'
 type = 'git'
 on_cmd = 'GitMessenger'
 hook_add = 'runtime add/git-messenger.vim'
-#}}}
 
-# for Gbrowse
+#[ Gbrowse ]
 [[plugins]]
-repo = 'tpope/vim-rhubarb' #{{{
+repo = 'tpope/vim-rhubarb'
 on_cmd = 'Gbrowse'
 hook_post_source = 'runtime add/rhubarb.vim'
-#}}}
+
 [[plugins]]
-repo = 'shumphrey/fugitive-gitlab.vim' #{{{
+repo = 'shumphrey/fugitive-gitlab.vim'
 on_cmd = 'Gbrowse'
 hook_post_source = 'runtime add/fugitive-gitlab.vim'
-#}}}
 
-# Log Wrapper
+#[ Log ]
 #[[plugins]]
-#repo = 'rbong/vim-flog' #{{{
+#repo = 'rbong/vim-flog'
 #type = 'git'
 #on_cmd = 'Flog'
 #hook_post_source = 'runtime add/flog.vim'
-##}}}
 
-# Local Log Viewer
 #[[plugins]]
-#repo = 'int3/vim-extradite' #{{{
+#repo = 'int3/vim-extradite'
 #type = 'git'
 ## Also provides diff viewer.
 ## Momo: on_cmd doesn't work.
 ##on_cmd = 'Extradite'
 #on_event = 'BufRead'
 #hook_add = 'runtime add/extradite.vim'
-##}}}
 
-## Diff Wrapper
+#[ Diff Wrapper ]
 #[[plugins]]
-#repo = 'arkwright/vim-manhunt' #{{{
+#repo = 'arkwright/vim-manhunt'
 #on_event = 'BufRead'
 #hook_post_source = 'runtime add/manhunt.vim'
-##}}}
+
 #[[plugins]]
-#repo = 'junegunn/gv.vim' #{{{
+#repo = 'junegunn/gv.vim'
 #type = 'git'
 #on_ft = ['fugitive', 'gitcommit', 'git']
 #hook_post_source = 'runtime add/gv.vim'
-##}}}
+
 #[[plugins]]
-#repo = 'rhysd/committia.vim' #{{{
+#repo = 'rhysd/committia.vim'
 #type = 'git'
 #on_ft = ['fugitive', 'gitcommit', 'git']
 ##on_source = 'vim-fugitive'
 #hook_post_source = 'runtime add/committia.vim'
-##}}}

@@ -1,161 +1,24 @@
 # From: rc/dein.vim
 
 [[plugins]]
-repo = 'kana/vim-operator-user' #{{{
+repo = 'kana/vim-operator-user'
 on_func = 'operator#user#'
-#}}}
 
-# Charater's Case
+#[ Charater's Case ]
 [[plugins]]
-repo = 'bkad/CamelCaseMotion' #{{{
+repo = 'bkad/CamelCaseMotion'
 # PR-Merged: bkad/CamelCaseMotion/pull/41
 on_map = {nxo = '<Plug>CamelCaseMotion_'}
 #on_event = 'BufRead'
 hook_add = 'runtime add/CamelCaseMotion.vim'
-#}}}
 [[plugins]]
-repo = 'arthurxavierx/vim-caser' #{{{
+repo = 'arthurxavierx/vim-caser'
 on_map = {nx = '<Plug>Caser'}
 hook_add = 'runtime add/caser.vim'
-#}}}
 
-# Search
+#[ Search ]
 [[plugins]]
-repo = 'kaile256/vim-asterisk' #{{{
-#repo = 'haya14busa/vim-asterisk'
-# Keep the cursor on `*` or `#`, even on visual mode.
-# Note: autload-function always fails on vertical x/s.
-on_map = {nx = '<Plug>(asterisk-'}
-hook_add = 'runtime add/asterisk.vim'
-#}}}
-#[[plugins]]
-#repo = 'haya14busa/vim-metarepeat' #{{{
-#on_map = {nx = '<Plug>(metarepeat'}
-#hook_add = 'runtime add/metarepeat.vim'
-##}}}
-#[[plugins]]
-#repo = 'thinca/vim-visualstar' #{{{
-#on_map = '<Plug>(visualstar-'
-#hook_add = 'runtime add/visualstar.vim'
-##}}}
-
-# Jump to Target
-#[[plugins]]
-#repo = 'unblevable/quick-scope' #{{{
-#on_map = {nox = '<Plug>(QuickScope'}
-#hook_add = 'runtime add/quick-scope.vim'
-##}}}
-[[plugins]]
-repo = 'kaile256/vim-sneak' #{{{
-#repo = 'justinmk/vim-sneak'
-# Note: just for comparison to easymotion
-on_map = {nox = '<Plug>Sneak_'}
-hook_add = 'runtime add/sneak.vim'
-hook_post_source = 'runtime post/sneak.vim'
-#hook_done_update = '''
-#exe 'e'. g:dein_github_dir .'/justinmk/vim-sneak/plugin/sneak.vim'
-#g/g:sneak#opt.prompt/d_
-#g/<Plug>Sneak_s/norm! "_dap
-#g/<Plug>Sneak_S/norm! "_dap
-#write
-#'''
-#}}}
-# Jump; Easy Motion
-#[[plugins]] # has extentions
-#repo = 'kaile256/vim-easymotion' #{{{
-##repo = 'easymotion/vim-easymotion'
-#on_map = {nox = '<Plug>(easymotion-'}
-#hook_add = 'runtime add/easymotion.vim'
-#hook_post_source = 'runtime post/easymotion.vim'
-#hook_done_update = '''
-#"exe 'e' g:dein_github_dir .'/easymotion/vim-easymotion/autoload/EasyMotion.vim
-#exe 'e' g:dein_github_dir .'/kaile256/vim-easymotion/autoload/EasyMotion.vim
-#g/\Vlen(group_values) == 1/norm! A || (g:EasyMotion_always_jump_first == 1)
-#write
-#'''
-###[[plugins]]
-###repo = 'haya14busa/vim-easyoperator-phrase' #{{{
-###on_map = '<plug>(easyoperator-'
-###hook_add = 'runtime add/easyoperator.vim'
-####}}}
-###[[plugins]]
-###repo = 'haya14busa/incsearch.vim' #{{{
-###on_event = 'ColorScheme'
-###hook_post_source = 'runtime add/incsearch.vim'
-###}}}
-###[[plugins]]
-###repo = 'haya14busa/incsearch-easymotion.vim' #{{{
-###on_event = 'ColorScheme'
-###hook_post_source = 'runtime add/incsearch-easymotion.vim'
-###}}}
-###[[plugins]]
-###repo = 'haya14busa/incsearch-fuzzy.vim' #{{{
-###on_event = 'ColorScheme'
-###hook_post_source = 'runtime add/incsearch-fuzzy.vim'
-###}}}
-###}}}
-#[[plugins]]
-#repo = 'tbo/notion' #{{{
-## Note: written in typescript & javascript
-## no highlight, so confising.
-#on_cmd = 'NotionJump'
-#hook_add = 'runtime add/notion.vim'
-##}}}
-#[[plugins]]
-#repo = 'ripxorip/aerojump.nvim' #{{{
-## seems buggy.
-#on_map = {nox = '<Plug>(Aerojump'}
-#hook_add = 'runtime add/aerojump.vim'
-##}}}
-
-# Operater; Comment out
-#[[plugins]]
-#repo = 'tomtom/tcomment_vim' #{{{
-## Memo: complex named <Plug>-mappings
-#on_map = '<Plug>TComment'
-#on_cmd = ':TComment'
-#hook_add = 'runtime add/tcomment.vim'
-##}}}
-[[plugins]]
-repo = 'tyru/caw.vim' #{{{
-# operater requires kana/vim-operator-user
-# Note: no use <Plug>(caw:foo:bar:operator), why?
-on_map = '<Plug>(caw:'
-hook_add = 'runtime add/caw.vim'
-#}}}
-#[[plugins]]
-#repo = 'scrooloose/nerdcommenter' #{{{
-## Reason: has no operater
-#on_map = '<Plug>NERDCommenter'
-#hook_add = 'runtime add/nerdcommenter.vim'
-##}}}
-#[[plugins]]
-#repo = 'tpope/vim-commentary' #{{{
-## Simplest
-#on_map = '<Cmd>Commentary'
-#hook_add = 'runtime add/plugin.vim'
-##}}}
-
-# Operater; Arrangement
-[[plugins]]
-repo = 'machakann/vim-swap'
-on_map = '<Plug>(swap-'
-hook_add = 'runtime add/swap.vim'
-[[plugins]]
-repo = 'junegunn/vim-easy-align' #{{{
-on_map = ['<Plug>(EasyAlign)', '<Plug>(LiveEasyAlign)']
-#on_cmd = 'EasyAlign'
-hook_add = 'runtime add/easy-align.vim'
-#}}}
-[[plugins]]
-repo = 'AndrewRadev/splitjoin.vim' #{{{
-on_map = '<Plug>SplitjoinJoin'
-hook_add = 'runtime add/splitjoin.vim'
-#}}}
-
-# Operater; Simultaneous
-[[plugins]]
-repo = 'andymass/vim-matchup' #{{{
+repo = 'andymass/vim-matchup'
 # Better `%`
 # Note: should be source post/ after :colo from other plugin,
 # which :colo after event-ColorScheme.
@@ -163,9 +26,87 @@ on_event = ['OptionSet']
 #on_map = {nox = '<Plug>(matchup-'}
 hook_add = 'runtime add/matchup.vim'
 hook_post_source = 'runtime post/matchup.vim'
-#}}}
 [[plugins]]
-repo = 'kaile256/vim-sandwich' #{{{
+repo = 'kaile256/vim-asterisk'
+#repo = 'haya14busa/vim-asterisk'
+# Keep the cursor on `*` or `#`, even on visual mode.
+# Note: autload-function always fails on vertical x/s.
+on_map = {nx = '<Plug>(asterisk-'}
+hook_add = 'runtime add/asterisk.vim'
+#[[plugins]]
+#repo = 'haya14busa/vim-metarepeat'
+#on_map = {nx = '<Plug>(metarepeat'}
+#hook_add = 'runtime add/metarepeat.vim'
+#[[plugins]]
+#repo = 'thinca/vim-visualstar'
+#on_map = '<Plug>(visualstar-'
+#hook_add = 'runtime add/visualstar.vim'
+
+#[ Multiple Area ]
+#[[plugins]]
+#repo = 'mg979/vim-visual-multi'
+#on_map = {nx = '<Plug>(VM-Find-'}
+#hook_add = 'runtime add/visual-multi.vim'
+#[[plugins]]
+#repo = 'terryma/vim-multiple-cursors'
+## if no mappings on add/, should use on_event.
+#on_event = 'BufWinEnter'
+##on_cmd = 'MultipleCursors'
+##on_cmd = 'multiple_cursors#'
+##on_map = {nx = '<Plug>(multiple-cursors'}
+#hook_add = 'runtime add/multiple-cursors.vim'
+#[[plugins]]
+#repo = 'matze/vim-move'
+## xmap's block-wise isn't work well.
+#on_map = {nx = '<Plug>Move'}
+#hook_add = 'runtime add/move.vim'
+[[plugins]]
+repo = 't9md/vim-textmanip'
+# Note: has copy feature
+on_map = {x = '<Plug>(textmanip-'}
+hook_add = 'runtime add/textmanip.vim'
+#[ Operater; Comment out ]
+#[[plugins]]
+#repo = 'tomtom/tcomment_vim'
+## Memo: complex named <Plug>-mappings
+#on_map = '<Plug>TComment'
+#on_cmd = ':TComment'
+#hook_add = 'runtime add/tcomment.vim'
+[[plugins]]
+repo = 'tyru/caw.vim'
+# operater requires kana/vim-operator-user
+# Note: no use <Plug>(caw:foo:bar:operator), why?
+on_map = '<Plug>(caw:'
+hook_add = 'runtime add/caw.vim'
+#[[plugins]]
+#repo = 'scrooloose/nerdcommenter'
+## Reason: has no operater
+#on_map = '<Plug>NERDCommenter'
+#hook_add = 'runtime add/nerdcommenter.vim'
+#[[plugins]]
+#repo = 'tpope/vim-commentary'
+## Simplest
+#on_map = '<Cmd>Commentary'
+#hook_add = 'runtime add/plugin.vim'
+
+#[ Operater; Arrangement ]
+[[plugins]]
+repo = 'machakann/vim-swap'
+on_map = '<Plug>(swap-'
+hook_add = 'runtime add/swap.vim'
+[[plugins]]
+repo = 'junegunn/vim-easy-align'
+on_map = ['<Plug>(EasyAlign)', '<Plug>(LiveEasyAlign)']
+#on_cmd = 'EasyAlign'
+hook_add = 'runtime add/easy-align.vim'
+[[plugins]]
+repo = 'AndrewRadev/splitjoin.vim'
+on_map = '<Plug>SplitjoinJoin'
+hook_add = 'runtime add/splitjoin.vim'
+
+#[ Operater; Simultaneous ]
+[[plugins]]
+repo = 'kaile256/vim-sandwich'
 #repo = 'machakann/vim-sandwich'
 on_map = {nx = '<Plug>(operator-sandwich-'}
 hook_add = 'runtime add/sandwich.vim'
@@ -176,40 +117,13 @@ exe 'argadd' g:dein_github_dir .'/kaile256/vim-sandwich/autoload/operator/sandwi
 argdo g/= type(c) == s:type_num ? nr2char(c) : c/norm! na (c ==# "\<S-lt>")? '<':
 write
 '''
-#}}}
 #[[plugins]]
-#repo = 'tpope/vim-surround' #{{{
+#repo = 'tpope/vim-surround'
 #on_event = 'BufRead'
 #hook_post_source = 'runtime add/surround.vim'
-#}}}
-[[plugins]]
-repo = 'mg979/vim-visual-multi'
-on_map = {nx = '<Plug>(VM-Find-'}
-hook_add = 'runtime add/visual-multi.vim'
-#[[plugins]]
-#repo = 'terryma/vim-multiple-cursors' #{{{
-## if no mappings on add/, should use on_event.
-#on_event = 'BufWinEnter'
-##on_cmd = 'MultipleCursors'
-##on_cmd = 'multiple_cursors#'
-##on_map = {nx = '<Plug>(multiple-cursors'}
-#hook_add = 'runtime add/multiple-cursors.vim'
-##}}}
-#[[plugins]]
-#repo = 'matze/vim-move' #{{{
-## xmap's block-wise isn't work well.
-#on_map = {nx = '<Plug>Move'}
-#hook_add = 'runtime add/move.vim'
-##}}}
-[[plugins]]
-repo = 't9md/vim-textmanip' #{{{
-# Note: has copy feature
-on_map = {x = '<Plug>(textmanip-'}
-hook_add = 'runtime add/textmanip.vim'
-#}}}
 
 #[[plugins]]
-#repo = 'tommcdo/vim-express' #{{{
+#repo = 'tommcdo/vim-express'
 #on_event = 'VimEnter'
 #hook_post_source = 'runtime add/express.vim'
-##}}}
+
