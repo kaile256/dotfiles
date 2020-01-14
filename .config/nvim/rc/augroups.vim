@@ -2,17 +2,23 @@
 
 augroup BufTypeAdjustment
   au!
-  au BufRead $XDG_DATA_HOME/Trash/**/* setl bt=nofile
+  au BufRead $XDG_DATA_HOME/Trash**/* setl bt=nofile
   " Ref: https://twitter.com/_tyru_/status/1209126520511315969
   au BufRead *.log,/tmp**/* setl backupcopy=yes
 augroup END
 
 augroup FileTypeAdjustment
+  " Note: `:setfiletype` cannot override filetype;
+  "   no consideration to use it instead
   au!
-  au BufNewFile,BufRead *.txt    setl syn=help
+  au BufNewFile,BufRead *.txt      setl syn=help
+
+  au BufNewFile,BufRead .gitignore setl ft=netrw bt=
+
   au BufNewFile,BufRead *.snip   setl ft=neosnippet
   au BufNewFile,BufRead *.dict   setl ft=skkdict
   au BufNewFile,BufRead .vmailrc setl ft=yaml
+
   au BufWinEnter .*
         \ if &ft ==# ''
         \ && search('fi$\|esac$', 'cwn')
@@ -27,15 +33,19 @@ augroup END
 
 augroup FoldMethodDetection
   au!
-  au FileType neosnippet,yaml setl fdm=indent
+  "au FileType neosnippet,yaml setl fdm=indent
   " Note: fdm=syntax on json sometimes shows only '{ <blank>' line.
   au FileType json setl fdm=syntax
 
-  au BufRead * if line('w$') != line('$') | setl fdl=1 | endif
-  au BufWinEnter *
-        \ if &fdm ==# ('manual' || 'syntax')
-        \ && search('{{{\%[\d]$', 'cwn')
-        \ | setl fdm=marker | endif
+  au BufRead * if line('w$') != line('$') | setl fdl=0 | endif
+  au BufWinEnter,InsertLeave,TextChanged *
+        \ if &bt ==# '' && &fdm ==# ('manual' || 'syntax')
+        \ && search('{{{\%[\d]$', 'cwn') |
+        \   setl fdm=marker
+        \ | elseif &fdm ==# 'marker'
+          \ && !search('{{{\%[\d]$', 'cwn') |
+          \   setl fdm<
+          \ | endif
 augroup END
 
 augroup AlertOnFilename
