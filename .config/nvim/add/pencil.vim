@@ -42,6 +42,6 @@ endfunction
 
 function! s:pencil.mail() abort "{{{2
   setl spell spl=en_us,cjk et sw=2 ts=2 noai nonu nornu
-  call pencil#init({'wrap': 'hard', 'textwidth': &tw > 0 ? &tw : 60})
+  call pencil#init({'wrap': 'soft', 'textwidth': &tw > 0 ? &tw : 60})
 endfunction
 
