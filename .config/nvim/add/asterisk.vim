@@ -3,6 +3,10 @@
 " Fork: kaile256/vim-asterisk
 " Ref: machakann/vim-sandwich
 
+"" Ref: https://twitter.com/Bakudankun/status/1207057884581900289
+"nnoremap <silent><expr> * v:count ? '*'
+"\ : ':sil exe "keepj norm! *" <Bar> call winrestview(' . string(winsaveview()) . ')<CR>'
+
 noremap! <c-r>/  <c-r>= substitute(@/, '\\V', '', 'e')<cr>
 noremap! <c-r> <c-r>= substitute(@/, '\\V', '', 'e')<cr>
 
@@ -63,6 +67,7 @@ tnoremap <silent> <c-r> <c-\><c-n>"= substitute(@/, '\\V', '', 'e')<cr>pi
 "endfunction "}}}
 
 " Keymaps; <Plug>-zation {{{1
+" Xmaps {{{2
 xnoremap <expr><silent> <Plug>(asterisk-dot-substitute-delete-upward)
       \ (line("'<") != line("'>"))? 'd':
       \ asterisk#do(mode(1), {'direction' : 1, 'do_jump' : 0, 'is_whole' : 0})
@@ -105,6 +110,50 @@ xnoremap <expr><silent> <Plug>(asterisk-dot-substitute-paste-downward)
 "onoremap <silent> <Plug>(asterisk-dot-substitute-operator-downward)
 "      \ :<c-u>set operatorfunc=asterisk#substitute('auto','downward')<cr>g@
 
+" Nmaps {{{2
+" TODO: make them work in nmaps
+nnoremap <expr><silent> <Plug>(asterisk-dot-substitute-delete-downward)
+      \ 'v'.
+      \ asterisk#do(mode(1), {'direction' : 1, 'do_jump' : 0, 'is_whole' : 0})
+      \ .'dgn'
+nnoremap <expr><silent> <Plug>(asterisk-dot-substitute-delete-upward)
+      \ 'v'.
+      \ asterisk#do(mode(1), {'direction' : 1, 'do_jump' : 0, 'is_whole' : 0})
+      \ .'dgN'
+" Note: troublesome in the case append in front of the selected word.
+"       e.g., risk -> asterisk in forward.
+nnoremap <expr><silent> <Plug>(asterisk-dot-substitute-change-downward)
+      \ 'v'.
+      \ asterisk#do(mode(1), {'direction' : 1, 'do_jump' : 0, 'is_whole' : 0})
+      \ .'cgn'
+nnoremap <expr><silent> <Plug>(asterisk-dot-substitute-change-upward)
+      \ 'v'.
+      \ asterisk#do(mode(1), {'direction' : 1, 'do_jump' : 0, 'is_whole' : 0})
+      \ .'cgN'
+
+" TODO: DotSubstitute by Paste
+nnoremap <expr><silent> <Plug>(asterisk-dot-substitute-paste-upward)
+      \ 'v'.
+      \ asterisk#do(mode(1), {'direction' : 1, 'do_jump' : 0, 'is_whole' : 0})
+      \ .'cgn<c-r>1<esc>': 'p'
+nnoremap <expr><silent> <Plug>(asterisk-dot-substitute-paste-downward)
+      \ 'v'.
+      \ asterisk#do(mode(1), {'direction' : 1, 'do_jump' : 0, 'is_whole' : 0})
+      \ .'cgN<c-r>1<esc>': 'p'
+
+" Experimental: for test
+"xnoremap <expr><silent> <Plug>(asterisk-dot-substitute-delete-downward)
+"      \ asterisk#substitute('d', 'downward')
+"xnoremap <silent> <Plug>(asterisk-dot-substitute-delete-downward)
+"      \ <Cmd>call asterisk#substitute('d', 'downward')<cr>
+"xnoremap <expr><silent> <Plug>(asterisk-dot-substitute-paste-downward)
+"      \ asterisk#substitute('p', 'downward')
+
+"onoremap <silent> <Plug>(asterisk-dot-substitute-operator-upward)
+"      \ :<c-u>set operatorfunc=asterisk#substitute('auto','upward')<cr>g@
+"onoremap <silent> <Plug>(asterisk-dot-substitute-operator-downward)
+"      \ :<c-u>set operatorfunc=asterisk#substitute('auto','downward')<cr>g@
+
 " keymaps; standard {{{1
 " Note: Few case to expect exclusive search
 nmap *   <Plug>(asterisk-gz*)
@@ -126,6 +175,12 @@ xmap z#  <Plug>(asterisk-z#)
 xmap gz# <Plug>(asterisk-#)
 
 " keymaps; substitute "{{{1
+" Ref: add/submode.vim
+"nmap x <Plug>(asterisk-dot-substitute-delete-downward)
+"nmap X <Plug>(asterisk-dot-substitute-delete-upward)
+"nmap s <Plug>(asterisk-dot-substitute-change-downward)
+"nmap S <Plug>(asterisk-dot-substitute-change-upward)
+" Xmaps {{{2
 " Note: x/s work duplicated with d/c respectively.
 xmap x <Plug>(asterisk-dot-substitute-delete-downward)
 " TODO: using `], smoother dot-repeat!
