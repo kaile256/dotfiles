@@ -2,10 +2,13 @@
 
 "setl signcolumn=
 "setl nomodifiable
-"nnoremap <buffer><nowait> d <c-d>
-"nnoremap <buffer><nowait> u <c-u>
 
-if getfperm(expand('<amatch>')) =~# '^r-'
-  " TODO: find the au-event to work it
-  echoerr expand('<amatch>') 'is different from what sudoers see; should be reopen by su'
+if !&modifiable && !&diff && @% !~# '.git'
+  nnoremap <buffer><nowait> d <c-d>
+  nnoremap <buffer><nowait> u <c-u>
+endif
+
+if expand('%:p') =~# '^/etc/sudoers\%[\.d/]'
+  setl nomodifiable
+  echoerr " You'd better edit by $ visudo"
 endif
