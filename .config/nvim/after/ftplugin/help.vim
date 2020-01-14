@@ -1,8 +1,10 @@
 " From: filetype.vim
 
 if &readonly && !&modifiable
-  "norm! zz
-  norm! zMzv
+  " `sleep` is no use
+  "sleep 1
+  norm! zM
+  norm! zvzt
   setl nonumber signcolumn= nolist foldlevel=0
   nnoremap <buffer> d <c-d>
   nnoremap <buffer> u <c-u>
