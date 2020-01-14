@@ -133,3 +133,8 @@ if mapcheck('J') !=# ''
   nnoremap zJ J"_x
 endif
 
+"function! s:join() abort "{{{1
+"  " FIXME: make it work
+"  silent! .1s/^\s*\\/
+"  join
+"endfunction
