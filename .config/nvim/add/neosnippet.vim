@@ -22,22 +22,22 @@ nnoremap <silent> <a-s><a-p><a-t> :<c-u>tab sp <bar>NeoSnippetEdit<cr>
 "}}}
 
 " Note: neosnippet activate only on insert mode or select mode.
-nmap <expr> <c-\>
+nmap <expr><silent> <c-\>
       \ neosnippet#expandable_or_jumpable()
       \ ? "g<c-h>\<Plug>(neosnippet_expand_or_jump)"
-      \ : "\<c-\>"
-imap <expr> <c-\>
+      \ : ":<c-u>echo 'no snippet!'<cr>"
+imap <expr><silent> <c-\>
       \ neosnippet#expandable_or_jumpable()
       \ ? "\<Plug>(neosnippet_expand_or_jump)"
-      \ : "\<c-\>"
-xmap <expr> <c-\>
+      \ : "<c-o>:<c-u>echo 'no snippet!'<cr>"
+xmap <expr><silent> <c-\>
       \ neosnippet#expandable_or_jumpable()
       \ ? "<c-g>\<Plug>(neosnippet_expand_or_jump)"
-      \ : "\<c-\>"
-smap <expr> <c-\>
+      \ : ":<c-u>echo 'no snippet!'<cr>"
+smap <expr><silent> <c-\>
       \ neosnippet#expandable_or_jumpable()
       \ ? "\<Plug>(neosnippet_expand_or_jump)"
-      \ : "\<c-\>"
+      \ : "<c-o>:<c-u>echo 'no snippet!'<cr>"
 
 " Note: <space> would expand unintentionally like '" ' or '{ ' for fold, '"{{{'
 "imap <silent><expr> <space>
