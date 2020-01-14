@@ -35,6 +35,7 @@ let s:cmd_to_path = {
       \ 'Etcs':      '/etc',
       \ 'Ghqs':      $GHQ_ROOT,
       \ 'Pictures':  '~/Pictures',
+      \ 'Tmps':      '/tmp',
       \ 'Trash':     g:my_trash_root,
       \ 'Usrs':      '/usr',
       \ }
