@@ -12,8 +12,8 @@ augroup myFileTypeAdjustment "{{{1
   "   no consideration to use it instead
   au!
   au BufNewFile,BufRead *.txt      setl syn=help
+  au BufNewFile,BufRead .gitignore setl syn=netrw
 
-  au BufNewFile,BufRead .gitignore setl ft=netrw bt=
   au BufNewFile,BufRead *.dict     setl ft=skkdict
   au BufNewFile,BufRead .vmailrc   setl ft=yaml
 
