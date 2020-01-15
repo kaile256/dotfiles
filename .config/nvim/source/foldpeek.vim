@@ -16,6 +16,7 @@ augroup END
 let g:foldpeek#skip_patterns = [
       \ '^[\-=/{!* \t]*$',
       \ '^```.*$',
+      \ '^\s*"""$',
       \ '[# \t]*\[\[plugins]]',
       \ ]
 
