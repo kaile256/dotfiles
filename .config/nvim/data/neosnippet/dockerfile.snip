@@ -1,0 +1,15 @@
+snippet alpine:latest
+alias alp al
+  apk --update --no-cahe add \
+    && ${0:packages} \
+
+snippet ENTRYPOINT
+alias en ent entry entr
+  ENTRYPOINT ["mysql"]
+
+snippet ENV
+alias env envi
+  ENV {1:FOO="bar"}
+
+
+
