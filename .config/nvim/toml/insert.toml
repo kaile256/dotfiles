@@ -10,6 +10,8 @@ hook_add = 'runtime add/pencil.vim'
 #[[[Snippets; Engine]]]
 [[plugins]]
 repo = 'Shougo/neosnippet.vim'
+# set the filetype in augroups.vim
+on_ft = ['neosnippet']
 on_map = {nov = 'neosnippet#'}
 hook_add = 'runtime add/neosnippet.vim'
 hook_source = 'runtime once/smaps.vim'
