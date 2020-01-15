@@ -78,11 +78,13 @@ if !exists('*s:source_buffer')
     elseif has_key(s:ft2cmd, &ft)
       exe s:ft2cmd[&ft]
       return
-    elseif &ft ==# 'dosini' && has_key(s:fname)
-      if filepath =~# s:fname[&ft]
-        exe s:ft2cmd[&ft]
-        return
-      endif
+    elseif &ft ==# 'dosini'
+      for l:key in keys(s:dosini)
+        if expand('%:p') =~# l:key
+          exe s:dosini[l:key]
+          return
+        endif
+      endfor
     endif
 
     echo v:statusmsg
@@ -97,7 +99,7 @@ let s:ft2cmd = {
       \ 'i3': '!i3-msg restart &',
       \ }
 
-let s:fname = {
+let s:dosini = {
       \ '\.config/fcitx/': '!fcitx-remote -r',
       \ '/polybar/':       '!${XDG_CONFIG_HOME}/polybar/launch.sh &',
       \ }
