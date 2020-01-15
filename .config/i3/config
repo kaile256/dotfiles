@@ -1,5 +1,6 @@
 # Help: https://i3wm.org/docs/userguide.html
 # Ref: .xinitrc
+# Else: /etc/lightdm/lightdm.conf
 
 # Variables {{{1
 # NOTE: seems no case-sensitive in variable
