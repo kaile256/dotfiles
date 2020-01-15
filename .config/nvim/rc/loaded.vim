@@ -5,6 +5,13 @@
 let g:loaded_vimball       = 1
 let g:loaded_vimballPlugin = 1
 
+let g:loaded_tutor_mode_plugin = 1
+
+let g:loaded_2html_plugin = 1
+command -range=% -bar TOhtml :call tohtml#Convert2HTML(<line1>, <line2>)
+
+let g:loaded_fzf = 1
+
 augroup ReloadDefaultPlugins
   au!
   au FileType netrw ++once runtime source/netrw.vim
@@ -28,6 +35,5 @@ augroup ReloadDefaultPlugins
   "  unlet g:loaded_gzip
   "  runtime! globpath('$VIMRUNTIME', '**/*zip*.vim')
   "endfunction
-
   "}}}1
 augroup END
