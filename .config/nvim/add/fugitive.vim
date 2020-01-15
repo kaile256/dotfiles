@@ -50,6 +50,10 @@ command! -bang -bar -range=-1 -addr=tabs
       \ Gvstatus
       \ :call s:Gvstatus(<q-args>)
 
+command! -bar -bang -nargs=* -complete=customlist,fugitive#EditComplete Gdiffsplit  exe fugitive#Diffsplit(1, <bang>0, "<mods>", '--show-function'. <q-args>, [<f-args>])
+command! -bar -bang -nargs=* -complete=customlist,fugitive#EditComplete Ghdiffsplit exe fugitive#Diffsplit(0, <bang>0, "<mods>", '--show-function'. <q-args>, [<f-args>])
+command! -bar -bang -nargs=* -complete=customlist,fugitive#EditComplete Gvdiffsplit exe fugitive#Diffsplit(0, <bang>0, "vert <mods>", '--show-function'. <q-args>, [<f-args>])
+
 function! s:Gdiff_keymaps() abort "{{{1
   if !&diff | return | endif
   " U works like coc-gitchunk-undo, by :diffget
