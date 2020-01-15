@@ -20,7 +20,6 @@ write
 #on_cmd = 'OpenGithub'
 #hook_post_source = 'runtime add/open-browser-github.vim'
 
-
 #[ On Browser ]
 [[plugins]]
 repo = 'glacambre/firenvim'
@@ -67,6 +66,7 @@ hook_add = 'runtime add/floobits.vim'
 [[plugins]] # has extentions
 repo = 'mattn/webapi-vim'
 #on_map = ['Pocket']
+
 on_event = ['BufRead']
 hook_add = 'runtime add/webapi.vim'
 
