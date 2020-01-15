@@ -1,4 +1,5 @@
-" From: tool.toml
+" From: default.toml
+" Repo: mbbill/undotree
 
 let g:undotree_CustomUndotreeCmd  = 'belowright vertical 30 new'
 let g:undotree_CustomDiffpanelCmd = 'botright 10 new'
