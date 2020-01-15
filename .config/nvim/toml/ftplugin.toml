@@ -102,6 +102,10 @@ on_ft = ['pdf']
 repo = 'tpope/vim-jdaddy'
 on_ft = 'json'
 
+[[plugins]]
+repo = 'danishprakash/vim-docker'
+on_cmd =  ['DockerDocBrowser', 'DockerHubBrowser',]
+
 #[ Quickfix ]
 [[plugins]]
 repo = 'lambdalisue/qfloc.vim'
