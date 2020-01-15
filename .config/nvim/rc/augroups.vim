@@ -14,9 +14,10 @@ augroup myFileTypeAdjustment "{{{1
   au BufNewFile,BufRead *.txt      setl syn=help
 
   au BufNewFile,BufRead .gitignore setl ft=netrw bt=
-  au BufNewFile,BufRead *.snip     setl ft=neosnippet
   au BufNewFile,BufRead *.dict     setl ft=skkdict
   au BufNewFile,BufRead .vmailrc   setl ft=yaml
+
+  au BufNewFile,BufRead *.snip,*.snippets setl ft=neosnippet
 
   au BufWinEnter .*
         \ if &ft ==# ''
