@@ -1,8 +1,8 @@
 # From: rc/dein.vim
 
-# LSP
+#[ LSP ]
 [[plugins]]
-repo = 'neoclide/coc.nvim' #{{{
+repo = 'neoclide/coc.nvim'
 # Branch: neoclide/coc.nvim_release
 # Note: Written in TypeScript.
 rev = 'release'
@@ -13,100 +13,110 @@ if = 'executable("yarn")'
 hook_add = 'runtime add/coc.vim'
 # For: rename :CocFoo to :Cfoo in the local-repo.
 # For: vim-fugitive creates invalid id buffer.
-hook_done_update = '''
-exe 'e'. g:dein_github_dir .'/neoclide/coc.nvim_release/plugin/coc.vim'
-" CocFoo is used by the other coc-extentions; should not be replaced.
-let s:CocUpper2Clower = 'dgnguliC'
-g/command!/g/Coc/copy. | exe 'norm!' s:CocUpper2Clower
-unlet s:CocUpper2Clower
-g/BufEnter/g/call/norm! niif expand('%:p') !~# '.git/' |
-g/BufEnter/norm! A | endif
-write
-'''
-#}}}
+#hook_done_update = '''
+#exe 'e'. g:dein_github_dir .'/neoclide/coc.nvim_release/plugin/coc.vim'
+#" CocFoo is used by the other coc-extentions; should not be replaced.
+#let s:CocUpper2Clower = 'dgnguliC'
+#g/command!/g/Coc/copy. | exe 'norm!' s:CocUpper2Clower
+#unlet s:CocUpper2Clower
+#g/BufEnter/g/call/norm! niif expand('%:p') !~# '.git/' |
+#g/BufEnter/norm! A | endif
+#write
+#'''
+
 #[[plugins]]
-#repo = 'prabirshrestha/vim-lsp' #{{{
+#repo = 'prabirshrestha/vim-lsp'
 ## Written in Pure viml
 #hook_post_source = 'runtime add/lsp.vim'
+
 #[[plugins]]
 #repo = 'prabirshrestha/async.vim'
 #on_event = 'BufRead'
 #hook_post_source = 'runtime add/async.vim'
+
 #[[plugins]]
 #repo = 'prabirshrestha/asyncomplete.vim'
 #on_event = 'BufRead'
 #hook_post_source = 'runtime add/asyncomplete.vim'
+
 #[[plugins]]
 #repo = 'prabirshrestha/asyncomplete-lsp.vim'
 #on_event = 'BufRead'
 #hook_post_source = 'runtime add/asyncomplete-lsp.vim'
-##}}}
+
 #[[plugins]]
-#repo = 'autozimu/LanguageClient-neovim' #{{{
+#repo = 'autozimu/LanguageClient-neovim'
 ## Note: Written in Rust.
 #rev = 'next'
 #build = 'bash install.sh'
 #on_event = 'BufRead'
 #hook_add = 'runtime add/LanguageClient.vim'
-##}}}
+
 #[[plugins]]
-#repo = 'OmniSharp/omnisharp-vim' #{{{
+#repo = 'OmniSharp/omnisharp-vim'
 #on_event = 'BufRead'
 #hook_add = 'runtime add/omnisharp.vim'
-##}}}
 
 [[plugins]]
-repo = 'voldikss/actionmenu.nvim' #{{{
+repo = 'voldikss/actionmenu.nvim'
 # Provides coc.nvim actionmenu features for such as 'codeAction'.
 on_source = 'coc.nvim'
 hook_post_source = 'runtime add/actionmenu.vim'
-#}}}
 
-# Docker
+#[[plugins]]
+#repo = 'neoclide/redismru.vim'
+# Redis; Remote Dictionary Server
+#if = 'executable("redis")'
+#on_source = 'denite.nvim'
+#hook_post_source = 'runtime add/redismru.vim'
+
+#[ Docker ]
 [[plugins]]
-repo = 'kkvh/vim-docker-tools' #{{{
+repo = 'kkvh/vim-docker-tools'
 on_cmd =  ['DockerToolsOpen', 'DockerToolsToggle']
-#}}}
+
 [[plugins]]
-repo = 'danishprakash/vim-docker' #{{{
-on_cmd =  ['DockerDocBrowser', 'DockerHubBrowser',]
-#}}}
+repo = 'skanehira/docker.vim'
+# to manage docker's images/containers
+# Note: unavailable on neovim because of job_start()
+on_cmd = [
+  'Docker',
+  'DockerImages',
+  'DockerImagePull',
+  'DockerImageSearch',
+  'DockerContainers',
+  'DockerMonitorStart',
+  'DockerEvents',
+  'DockerNetworks',
+  'DockerVersion'
+]
+hook_add = 'runtime add/docker.vim'
+
 #[[plugins]]
-#repo = 'skanehira/docker.vim' #{{{
-## to manage docker's images/containers
-## Note: unavailable on neovim
-#if = '!has("nvim")'
-#on_cmd = 'Docker'
-#hook_add = 'runtime add/docker.vim'
-##}}}
-#[[plugins]]
-#repo = 'skanehira/docker-compose.vim' #{{{
+#repo = 'skanehira/docker-compose.vim'
 ## Error:
 ## [dein] Error generating helptags:
 ## [dein] Vim(helptags):E154: Duplicate tag "docker-compose" in file /home/kaile256/.cache/dein/.cache/init.vim/.dein/doc/docker-compose.txt
 ## [dein] function <SNR>346_on_pull_exit[45]..<SNR>346_recache_rtp[19]..dein#recache_runtimepath[1]..dein#install#_recache_runtimepath[19]..<SNR>362_helptags, line 12
 #on_cmd = 'DockerCompose'
 #hook_add = 'runtime add/docker-compose.vim'
-##}}}
 
-# Pair Programming
+#[ Pair Programming ]
 #[[plugins]]
-#repo = 'derteta/vimpair' #{{{
+#repo = 'derteta/vimpair'
 ## Error: buggy on init
 #on_cmd = 'VimpairServerStart "127.0.0.1"'
 #hook_add = 'runtime add/vimpair.vim'
-##}}}
 
 [[plugins]]
-repo = 'xavierchow/vim-sequence-diagram' #{{{
+repo = 'xavierchow/vim-sequence-diagram'
 on_map = '<Plug>GenerateDiagram'
 on_cmd = '<Plug>GenerateDiagram'
 hook_add = 'runtime add/sequence-diagram.vim'
-#}}}
 
-# Doc
+#[ Doc ]
 [[plugins]]
-repo = 'HiPhish/info.vim' #{{{
+repo = 'HiPhish/info.vim'
 on_cmd = 'Info'
 hook_add = 'runtime add/info.vim'
 hook_done_update = '''
@@ -114,24 +124,22 @@ exe 'e' g:dein_github_dir .'/HiPhish/info.vim/plugin/info.vim'
 g/nnoremap/g/K/s/ K / gK /e
 write
 '''
-#}}}
+
 [[plugins]]
-repo = 'sunaku/vim-dasht' #{{{
+repo = 'sunaku/vim-dasht'
 on_cmd = 'Dasht'
 hook_source = 'runtime add/dasht.vim'
-#}}}
-## File Rename
+
+#[ File Rename ]
 #[[plugins]]
-#repo = 'qpkorr/vim-renamer' #{{{
+#repo = 'qpkorr/vim-renamer'
 ## Note: behaves different than what I expects.
 #on_cmd = 'Renamer'
 #hook_add = 'runtime renamer.vimrc'
-##}}}
 
-# i3-wm
+#[ i3-wm ]
 #[[plugins]]
-#repo = 'termhn/i3-vim-nav' #{{{
+#repo = 'termhn/i3-vim-nav'
 #on_if = 'isdirectory("~/go/sadd/github.com/termhn/i3-vim-nav")'
 #hook_post_source = 'runtime add/i3-vim-nav.vim'
-##}}}
 
