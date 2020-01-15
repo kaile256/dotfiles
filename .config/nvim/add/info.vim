@@ -3,5 +3,5 @@
 
 augroup InfoMyAutoConf
   au!
-  au TermOpen * setl keywordprg=:Info
+  exe 'au' $TermOpen '* setl keywordprg=:Info'
 augroup END

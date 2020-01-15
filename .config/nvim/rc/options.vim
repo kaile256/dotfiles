@@ -247,7 +247,9 @@ augroup END
 "  au BufReadPost ?* call s:loadview()
 "augroup END
 " Method; Shada {{{2
-set shada='100,<50,h,s10,
+if has('nvim')
+  set shada='100,<50,h,s10,
+endif
 augroup AutoWriteShada
   " Note: shada only saves the data on VimLeave so that
   "       nothing won't be saved, when you start another process of neovim,

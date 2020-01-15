@@ -39,11 +39,9 @@ augroup OnTerminalBuffer
   "if @% == '' && &ft ==# '' && &bt ==# ''
   "  au VimEnter * nested call termopen(&shell)
   "endif
-  if has('nvim')
-    au TermOpen * setl nonumber signcolumn= bufhidden=wipe
-    au TermOpen * norm! 0
-    au TermOpen * startinsert
-  endif
+  exe 'au' $TermOpen '* setl nonumber signcolumn= bufhidden=wipe'
+  exe 'au' $TermOpen '* norm! 0'
+  exe 'au' $TermOpen '* startinsert'
 augroup END
 
 "" Function; ls-grep
