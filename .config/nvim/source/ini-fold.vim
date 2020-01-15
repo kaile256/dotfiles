@@ -11,6 +11,6 @@ let g:ini_fold_enabled_filetypes = {
       \ 'toml':      1,
       \ }
 
-augroup myIniFoldAdjustment
-  au! BufEnter *vim**/*.toml let b:ini_fold_enable = 3
-augroup END
+"augroup myIniFoldAdjustment
+"  au! BufEnter *vim**/*.toml let b:ini_fold_enable = 3
+"augroup END
