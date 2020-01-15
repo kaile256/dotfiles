@@ -12,7 +12,8 @@
 "command! Gush
 "      \ :let s:push = jobstart('nvim --embed -c "Gpush"')
 
-command! -bang -nargs=? -range=-1 -addr=tabs -complete=customlist,fugitive#PushComplete
+command! -bang -nargs=? -range=-1 -addr=tabs
+      \ -complete=customlist,fugitive#PushComplete
       \ Gush
       \ :<mods>Gpush <args>
 
@@ -20,9 +21,13 @@ command! -nargs=+ -bar -complete=file Gremote :Git remote <args>
 
 command! -nargs=+ -bar Gclone :Git clone <args>
 
-" unstage all the other not to commit one unitentionally
+command! -bang -nargs=? -range=-1 -addr=tabs
+      \ -complete=customlist,fugitive#GrepComplete
+      \ Gfunctions
+      \ :Ggrep --show-function --line-number <args>
+
 " Note: practically, no such command as git-unstage
-" TODO: make it work
+" TODO: make it work to unstage all the other not to commit one unitentionally
 command! -nargs=? -bar -complete=customlist,fugitive#CommitComplete
       \ Gunstage
       \ :silent exe (<q-args> !=# '')
