@@ -105,14 +105,17 @@ alias restore res end tail
   unlet s:save_cpo
 
   " modeline {{{1
-  " vim: expandtab tabstop=2 softtabstop=2 shiftwidth=2
-  " vim: foldmethod=marker textwidth=79
+  " vim: et ts=2 sts=2 sw=2 fdm=marker tw=79
 
 snippet mode
 alias mod vim
   " modeline {{{1
-  " vim: expandtab tabstop=2 softtabstop=2 shiftwidth=2
-  " vim: foldmethod=marker textwidth=79
+  " vim: et ts=2 sts=2 sw=2 fdm=marker tw=79
+
+snippet mode with hardtab
+alias tab noet noe
+  " modeline {{{1
+  " vim: noet ts=2 sts=2 sw=2 fdm=marker tw=79
 
 snippet init
 alias ini
