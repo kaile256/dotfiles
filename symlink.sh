@@ -34,28 +34,29 @@ HOMEs=(
 )
 
 CONFIGs=(
-  alacritty
-  awesome
   bash
-  dunst # for `notify-send`
-  fcitx
   fish
-  glrnvim.yml
-  i3
-  ranger/rc.conf
   lynx
-  mimeapps.list # for qutebrowser should be the default browser
   nvim
-  nyaovim
-  polybar # a status bar
-  qutebrowser
+  ranger/rc.conf
   tmux
-  vimiv # an image viewer
   w3m
   zsh
 )
 
-CURRENT_DIR=$PWD #{{{1
+NON_ANDROIDs=(
+  alacritty
+  awesome
+  dunst # for `notify-send`
+  fcitx
+  glrnvim.yml
+  i3
+  mimeapps.list # for qutebrowser should be the default browser
+  nyaovim
+  polybar # a status bar
+  qutebrowser
+  vimiv # an image viewer
+)
 
 XDG_CACHE_HOME="${HOME}/.cache"
 XDG_CONFIG_HOME="${HOME}/.config"
@@ -99,7 +100,12 @@ for i in "${CONFIGs[@]}"; do
   echo "Done! at ${XDG_CONFIG_HOME}/$i"
 done
 
-cd "$CURRENT_DIR"
+if [ "$(uname -o)" != "Android" ]; then
+  for i in "${NON_ANDROIDs[@]}"; do
+    ln -nsf "${DOTFILES}/.config/$i" "${XDG_CONFIG_HOME}/$i"
+    echo "Done! at ${XDG_CONFIG_HOME}/$i"
+  done
+fi
 
 if type notify-send >/dev/null; then
   notify-send --expire-time 1800 'Symbol links are created correctly'
