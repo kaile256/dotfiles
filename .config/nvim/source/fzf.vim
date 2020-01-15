@@ -30,8 +30,12 @@ function! fzf#floating_window() abort "{{{
 
   call nvim_open_win(buf, v:true, opts)
 endfunction "}}}
-let g:fzf_layout = {'window': 'call fzf#floating_window()'}
-"let g:fzf_layout = {'down': '~25%'}
+
+if has('nvim')
+  let g:fzf_layout = {'window': 'call fzf#floating_window()'}
+else
+  let g:fzf_layout = {'down': '~25%'}
+endif
 
 "let g:fzf_command_prefix = 'Fzf' " makes complex hook on dein.
 " Note: write in a string w/ no spaces, not in a list.
