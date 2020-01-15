@@ -44,11 +44,14 @@ export EDITOR=nvim-qt
 export VISUAL=nvim-qt
 export SUDO_EDITOR=vi
 
-# Note: vim will override $VMAIL_VIM=nvr.
-export VMAIL_VIM=nvim-qt
-
 # Browser
 export BROWSER=qutebrowser
+
+# Docker
+export DOCKER_HOST=unix://$XDG_RUNTIME_DIR/docker.sock
+
+# Note: vim will override $VMAIL_VIM=nvr.
+export VMAIL_VIM=nvim-qt
 
 # FZF
 export FZF_DEFAULT_COMMAND='rg --files --hidden --follow --glob "!.git/*"'
