@@ -14,6 +14,7 @@ map ge <Plug>CamelCaseMotion_ge
 "omap <expr> <Plug>CamelCaseMotion_e_modified (getline('.')[col('.')] ==# ' ') ? 'l' : '<Plug>CamelCaseMotion_e'
 "omap e <Plug>CamelCaseMotion_e_modified
 
+" Mnemonic: Quickback
 map q <Plug>CamelCaseMotion_ge
 noremap Q gE
 
