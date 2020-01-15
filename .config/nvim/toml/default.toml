@@ -23,6 +23,8 @@ hook_add = 'runtime add/repeat.vim'
 repo = 'simnalamburt/vim-mundo'
 on_cmd = 'Mundo'
 hook_add = 'runtime add/mundo.vim'
+hook_source = 'runtime source/mundo.vim'
+
 #[[plugins]]
 #repo = 'jaxbot/selective-undo.vim'
 #on_event = 'BufRead'
