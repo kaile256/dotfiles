@@ -89,7 +89,8 @@ function! s:keymaps_terminal() abort "{{{2
 endfunction
 augroup gfOnTerminal
   " Note: expr fails to work especially on terminal
-  au! TermOpen * call s:keymaps_terminal()
+  au!
+  exe 'au' $TermOpen '* call s:keymaps_terminal()'
 augroup END
 
 "function! s:missing_find(edit) abort "{{{2
