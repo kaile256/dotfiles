@@ -10,7 +10,11 @@ snoremap <expr> <a-j> (getline("'<")[col("'<"):col("'>")] =~# '^#') ? '<space><B
 snoremap <expr> <a-k> (getline("'<")[col("'<"):col("'>")] =~# '^#') ? '<space><BS><esc>k' : '<esc>k'
 snoremap <expr> <a-l> (getline("'<")[col("'<"):col("'>")] =~# '^#') ? '<space><BS><esc>l' : '<esc>l'
 
-" Put Register on Snippet Expanding
+" Insert mode like {{{1
+snoremap <c-d> <space><BS><c-d>
+snoremap <c-t> <space><BS><c-t>
+
+" Put Register on Snippet Expanding {{{1
 snoremap <silent> <c-r> <space><BS><esc>:call feedkeys("\<c-r>")<cr>
 snoremap <c-r><c-space> <space><BS><c-r>+
 snoremap <c-r><space>   <space><BS><c-r>+
