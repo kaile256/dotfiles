@@ -1,9 +1,7 @@
 " From: myplug.toml
 " Repo: kaile256/vim-help-toc
 
-let g:help#toc#filetypes = ['help', 'man']
-
-augroup myHelpTOC
+augroup myHelpTocSource
   au!
   au FileType help,man call s:help_keymaps()
 augroup END
