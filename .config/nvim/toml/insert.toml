@@ -10,29 +10,29 @@ hook_add = 'runtime add/pencil.vim'
 #[[[Snippets; Engine]]]
 [[plugins]]
 repo = 'Shougo/neosnippet.vim'
-on_event = ['InsertEnter', 'TermOpen','CmdlineEnter']
-on_map = 'NeoSnippet'
+on_map = {nov = 'neosnippet#'}
 hook_add = 'runtime add/neosnippet.vim'
 hook_source = 'runtime once/smaps.vim'
+
 #[[plugins]]
 #repo = 'SirVer/ultisnips'
 ## Note: it override <TAB>
-#on_event = ['InsertEnter','TermOpen']
+#on_event = ['InsertEnter']
 #hook_post_source = 'runtime add/ultisnips.vim'
 #hook_source = 'runtime once/smaps.vim'
 
 #[[[Snippets; Contents]]]
 [[plugins]]
 repo = 'honza/vim-snippets'
-on_event = ['InsertEnter', 'TermOpen']
-on_source = 'neosnippet.vim'
+on_source = ['neosnippet.vim']
+
 #[[plugins]]
 #repo = 'Shougo/neosnippet-snippets'
 ## minimal
-#on_event = ['InsertEnter', 'TermOpen','CmdlineEnter']
+#on_event = ['InsertEnter']
 #[[plugins]]
 #repo = 'garbas/vim-snipmate'
-#on_event = ['InsertEnter', 'TermOpen']
+#on_event = ['InsertEnter']
 
 #[[[Thesaurus]]]
 [[plugins]]
