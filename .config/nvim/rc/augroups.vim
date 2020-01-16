@@ -1,5 +1,11 @@
 " From: init.vim
 
+augroup myXinputToggle "{{{1
+  au!
+  au InsertEnter * call system('xinput disable Elan\ TrackPoint')
+  au FocusLost   * call system('xinput enable  Elan\ TrackPoint')
+augroup END
+
 augroup myBufTypeAdjustment "{{{1
   au!
   au BufRead $XDG_DATA_HOME/Trash**/* setl bt=nofile
