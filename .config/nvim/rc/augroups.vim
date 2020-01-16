@@ -3,7 +3,9 @@
 augroup myXinputToggle "{{{1
   au!
   au InsertEnter * call system('xinput disable Elan\ TrackPoint')
-  au FocusLost   * call system('xinput enable  Elan\ TrackPoint')
+  au InsertEnter * call system('xinput disable Elan\ TouchPad')
+
+  au FocusLost,VimLeave * call system('xinput enable  Elan\ TrackPoint')
 augroup END
 
 augroup myBufTypeAdjustment "{{{1
@@ -17,9 +19,6 @@ augroup myFileTypeAdjustment "{{{1
   " Note: `:setfiletype` cannot override filetype;
   "   no consideration to use it instead
   au!
-  au BufNewFile,BufRead *.txt      setl syn=help
-  au BufNewFile,BufRead .gitignore setl syn=netrw
-
   au BufNewFile,BufRead *.dict     setl ft=skkdict
   au BufNewFile,BufRead .vmailrc   setl ft=yaml
 
@@ -35,6 +34,13 @@ augroup myFileTypeAdjustment "{{{1
         \ && &ft !=# 'tmux'
         \ | setl ft=dosini |
         \ endif
+augroup END
+
+augroup mySyntaxAdjustment "{{{1
+  au!
+  au BufNewFile,BufRead *.txt      setl syn=help
+  au BufNewFile,BufRead .gitignore setl syn=netrw
+  "au FileType sh if getline(1) =~# 'bash$' | setl ft=bash syn=sh | endif
 augroup END
 
 augroup myFoldAdjustment "{{{1
@@ -54,6 +60,11 @@ augroup myFoldAdjustment "{{{1
           \ && !search('{{{\%[\d]$', 'cwn') |
           \   setl fdm<
           \ | endif
+augroup END
+
+augroup myIsFileNameAdjustment "{{{1
+  au!
+  au FileType dosini setl isfname-==
 augroup END
 
 augroup myAlertOnFilename "{{{1
@@ -79,8 +90,8 @@ augroup myFindAlternate "{{{1
     let @/ = histget('/', -1)
     silent! unlet alter
   endif
-  endfunction
-  "}}}2
+endfunction
+"}}}2
 augroup END
 
 augroup myReturnToUsualWindow "{{{1
