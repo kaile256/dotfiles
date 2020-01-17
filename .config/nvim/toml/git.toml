@@ -65,8 +65,11 @@ hook_add = 'runtime add/agit.vim'
 [[plugins]]
 repo = 'aacunningham/vim-fuzzy-stash'
 on_cmd =  ['GStashList']
+on_func =  ['fuzzystash#list_stash']
 hook_add = 'runtime add/fuzzy-stash.vim'
 
-[[plugins]]
-repo = 'tweekmonster/gitbusy.vim'
-on_cmd =  ['GitBusy']
+#[[plugins]]
+#repo = 'tweekmonster/gitbusy.vim'
+## automatic stash on checkout, via :GitBusy
+#on_cmd =  ['GitBusy']
+#
