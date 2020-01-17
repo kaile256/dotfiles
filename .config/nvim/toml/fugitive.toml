@@ -28,10 +28,12 @@ hook_source = 'runtime source/fugitive.vim'
 
 [[plugins]]
 repo = 'sodapopcan/vim-twiggy'
+# CAUTION: useless if &shell=fish
 # Note: improperly save buffers.
 type = 'git'
 on_cmd = 'Twiggy'
 hook_add = 'runtime add/twiggy.vim'
+hook_source = 'runtime source/twiggy.vim'
 hook_done_update = '''
 exe 'e' g:dein_github_dir .'/sodapopcan/vim-twiggy/plugin/twiggy.vim'
 g/command/norm! e -range -addr=lines
