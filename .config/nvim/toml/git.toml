@@ -61,3 +61,12 @@ hook_add = 'runtime add/agit.vim'
 #on_event = ['BufWritePost']
 #hook_post_source = 'runtime add/gina.vim'
 
+#[ Stash ]
+[[plugins]]
+repo = 'aacunningham/vim-fuzzy-stash'
+on_cmd =  ['GStashList']
+hook_add = 'runtime add/fuzzy-stash.vim'
+
+[[plugins]]
+repo = 'tweekmonster/gitbusy.vim'
+on_cmd =  ['GitBusy']
