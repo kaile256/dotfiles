@@ -41,7 +41,7 @@ command! -nargs=? -bar -complete=customlist,fugitive#EditComplete
 
 command! -bar -bang -nargs=* -complete=customlist,fugitive#EditComplete
       \ Gvdiffsplit
-      \ :call fugitive#Diffsplit(0, <bang>0, "vert <mods>", <q-args>, [<f-args>])
+      \ :call fugitive#Diffsplit(0, <bang>0, 'vert <mods>', <q-args>, [<f-args>])
       \ | :call s:Gdiff_keymaps()
 
 " Note: -range=-1 is correct; either no -complete
@@ -50,9 +50,18 @@ command! -bang -bar -range=-1 -addr=tabs
       \ Gvstatus
       \ :call s:Gvstatus(<q-args>)
 
-command! -bar -bang -nargs=* -complete=customlist,fugitive#EditComplete Gdiffsplit  exe fugitive#Diffsplit(1, <bang>0, "<mods>", '--show-function'. <q-args>, [<f-args>])
-command! -bar -bang -nargs=* -complete=customlist,fugitive#EditComplete Ghdiffsplit exe fugitive#Diffsplit(0, <bang>0, "<mods>", '--show-function'. <q-args>, [<f-args>])
-command! -bar -bang -nargs=* -complete=customlist,fugitive#EditComplete Gvdiffsplit exe fugitive#Diffsplit(0, <bang>0, "vert <mods>", '--show-function'. <q-args>, [<f-args>])
+command! -bar -bang -nargs=*
+      \ -complete=customlist,fugitive#EditComplete
+      \ Gdiffsplit
+      \ :exe fugitive#Diffsplit(1, <bang>0, '<mods>', '--function-context '. <q-args>, [<f-args>])
+command! -bar -bang -nargs=*
+      \ -complete=customlist,fugitive#EditComplete
+      \ Ghdiffsplit
+      \ :exe fugitive#Diffsplit(0, <bang>0, '<mods>', '--function-context '. <q-args>, [<f-args>])
+command! -bar -bang -nargs=*
+      \ -complete=customlist,fugitive#EditComplete
+      \ Gvdiffsplit
+      \ :exe fugitive#Diffsplit(0, <bang>0, 'vert <mods>', '--function-context '. <q-args>, [<f-args>])
 
 function! s:Gdiff_keymaps() abort "{{{1
   if !&diff | return | endif
@@ -191,7 +200,7 @@ nnoremap <silent> <space>gb :<c-u>Gblame<cr>
 nnoremap <silent> <space>gs :<c-u>Gvstatus<cr>
 " Add; {{{1
 " Note: <c-w>p<c-w>p is necessary to update signcolumn
-nnoremap <silent> <space>ga :<c-u>Gw <bar> Gvstatus <bar> call win_gotoid(bufwinid('.git/index'))<cr>
+nnoremap <silent> <space>ga :<c-u>silent Gw <bar> Gvstatus <bar> call win_gotoid(bufwinid('.git/index'))<cr>
 nnoremap <silent> <space>gw :<c-u>GwWinpickVDiffStaging HEAD<cr>
 " Command! GwWinpickVDiff {{{2
 command! -bar -bang -nargs=* -complete=customlist,fugitive#EditComplete
@@ -201,23 +210,23 @@ command! -bar -bang -nargs=* -complete=customlist,fugitive#EditComplete
       \ | Gvdiffsplit! <args>
 command! -bar -nargs=?
       \ GwWinpickVDiffStaging
-      \ :Gw
+      \ :silent Gw
       \ | HelpCloseAll
       \ | call s:winpick()
       \ | call s:Gvdiffw(<q-args>)
 
 "}}}
-nnoremap <silent> <space>go :<c-u>Gw <bar> only<cr>
+nnoremap <silent> <space>go :<c-u>silent Gw <bar> only<cr>
 nnoremap <silent> <space>gO :<c-u>GwOnlyVDiffStaging HEAD<cr>
 " Command! GwOnlyVDiff {{{2
 command! -bar -bang -nargs=? -complete=customlist,fugitive#EditComplete
       \ GwOnlyVDiff
-      \ :Gw
+      \ :silent Gw
       \ | only
       \ | Gvdiffsplit! <args>
 command! -bar -nargs=?
       \ GwOnlyVDiffStaging
-      \ :Gw
+      \ :silent Gw
       \ | only
       \ | call s:Gvdiffw (<q-args>)
 "}}}
