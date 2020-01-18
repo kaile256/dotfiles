@@ -118,5 +118,5 @@ augroup OnFugitiveBuffer
   au!
   " TODO: Go back to Gstatus' buffer when `:quit` on gitcommit's buffer
   au FileType fugitive,fugitiveblame,gitcommit setl nonumber signcolumn= bufhidden=wipe
-  au FileType gitcommit setl spell
+  au FileType gitcommit setl spell spl=en_us,cjk
 augroup END

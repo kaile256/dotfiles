@@ -5,6 +5,7 @@ if &readonly && !&modifiable
   "sleep 1
   norm! zM
   norm! zvzt
+  setl spell spl=en_us,cjk
   setl nonumber signcolumn= nolist foldlevel=0
   nnoremap <buffer> d <c-d>
   nnoremap <buffer> u <c-u>
