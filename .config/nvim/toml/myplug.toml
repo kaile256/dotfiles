@@ -64,11 +64,14 @@ hook_source = 'runtime source/foldpeek.vim'
 [[plugins]]
 repo = 'kaile256/vim-yaml-fold'
 on_ft = [
+  'sh',
+  'zsh',
+  'bash',
+  'eyaml'
   'python',
-  'yaml',
   'raml',
   'sls',
-  'eyaml'
+  'yaml',
 ]
 hook_source = 'runtime source/yaml-fold.vim'
 
@@ -84,13 +87,13 @@ on_ft = ['markdown']
 repo = 'kaile256/vim-toml-fold'
 # a fork from matze/vim-ini-fold
 on_ft = [
-  'toml',
-  'gitconfig',
-  'dosini',
-  'config',
-  'markdown',
-  'conf',
-  'desktop',
   'cfg'
+  'conf',
+  'config',
+  'desktop',
+  'dosini',
+  'gitconfig',
+  'markdown',
+  'toml',
 ]
 hook_source = 'runtime source/toml-fold.vim'
