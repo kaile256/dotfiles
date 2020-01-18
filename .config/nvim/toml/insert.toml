@@ -1,12 +1,12 @@
 # From: rc/dein.vim
 
-[[plugins]]
-repo = 'reedes/vim-pencil'
-# auto format upon &tw
-on_func = ['pencil#']
-on_cmd  = ['Pencil']
-hook_add = 'runtime add/pencil.vim'
-
+#[[plugins]]
+#repo = 'reedes/vim-pencil'
+## auto format upon &tw
+#on_func = ['pencil#']
+#on_cmd  = ['Pencil']
+#hook_add = 'runtime add/pencil.vim'
+#
 #[[[Snippets; Engine]]]
 [[plugins]]
 repo = 'Shougo/neosnippet.vim'
