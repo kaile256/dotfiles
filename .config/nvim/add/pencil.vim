@@ -9,6 +9,7 @@ let g:pencil#textwidth       = 79     " default: 74
 augroup myPencil
   au!
   " Note: 'colorcolumn' fails to work this plugin
+  au OptionSet * if &virtualedit ==# 'block' | set ve=block | endif
   au OptionSet colorcolumn,textwidth call s:colorcolumn()
 
   au Filetype git,gitsendemail,*commit*,*COMMIT* call s:pencil.commit()
