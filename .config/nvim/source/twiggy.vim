@@ -21,5 +21,6 @@ let g:twiggy_remote_branch_sort = 'date'
 
 augroup myTwiggySourceLocalMaps
   au!
-  au FileType twiggy nnoremap <buffer><silent> % call twiggy#call('gc')
+  au FileType twiggy nnoremap <buffer><silent> % :call twiggy#call('gc')<cr>
+  au FileType twiggy nnoremap <buffer><silent> D :call twiggy#call('dd')<cr>
 augroup END
