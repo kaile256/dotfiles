@@ -53,39 +53,35 @@ endfunction
 command! -nargs=* -range Vint :w <bar> !vint --enable-neovim <args> %:p
 command! -nargs=* -range Vin  :Vint
 
-command! -bar So :call s:source_buffer() "{{{1
+command! -bar S  :call s:source_buffer() "{{{1
+command! -bar So :call s:source_buffer()
 command! -bar SO :call s:source_buffer()
-command! -bar S  :call s:source_buffer()
 
 if !exists('*s:source_buffer')
   function! s:source_buffer() abort
     " Note: :undojoin causes an error right after :undo.
     " Note: :undojoin with :w prevents to :undo before :w
     "silent! undojoin
-    let filepath = expand('%:p')
-    if filepath =~# '/systemd/'
-      !systemctl --user daemon-reload
-      return
-    endif
 
-    if filewritable(filepath)
-      silent write
+    if filewritable('%:p')
+      write
     endif
 
     if getline(1) =~# '^#!'
       !%:p
       return
+
     elseif has_key(s:ft2cmd, &ft)
       exe s:ft2cmd[&ft]
       return
-    elseif &ft ==# 'dosini'
-      for l:key in keys(s:dosini)
-        if expand('%:p') =~# l:key
-          exe s:dosini[l:key]
-          return
-        endif
-      endfor
     endif
+
+    for l:key in s:fname2cmd
+      if expand('%:p') =~# s:fname2cmd
+        exe s:fname2cmd[l:key]
+        return
+      endif
+    endfor
 
     echo v:statusmsg
   endfunction
@@ -99,17 +95,15 @@ let s:ft2cmd = {
       \ 'i3': '!i3-msg restart &',
       \ }
 
-let s:dosini = {
+let s:fname2cmd = {
       \ '\.config/fcitx/': '!fcitx-remote -r',
-      \ '/polybar/':       '!${XDG_CONFIG_HOME}/polybar/launch.sh &',
+      \ '/polybar/': '!${XDG_CONFIG_HOME}/polybar/launch.sh &',
+      \ '/etc/systemd/': '!systemctl --user daemon-reload',
+      \ '/etc/fstab': 'call suda#system("mount -a")',
       \ }
 
 " Shell Scripts; Out of Vim "{{{1
+" enable copletion
 command! -bar -nargs=* -complete=shellcmd
       \ Killall
       \ :silent !killall <args>
-
-command! -bar XinputTouchpadEnable  :!xinput enable  Elan\ Touchpad
-command! -bar TouchpadEnable        :!xinput enable  Elan\ Touchpad
-command! -bar XinputTouchpadDisable :!xinput disable Elan\ Touchpad
-command! -bar TouchpadDisable       :!xinput disable Elan\ Touchpad
