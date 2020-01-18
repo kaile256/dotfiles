@@ -1,7 +1,8 @@
 " From: myplug.toml
 " Repo: kaile256/vim-yaml-fold
 
-let g:yamlfold#debug = 8
+let g:yamlfold#debug#enable = 1
+let g:yamlfold#debug#lines  = 5
 
 let g:yamlfold#from_firstline = 1
 
