@@ -8,7 +8,7 @@ let g:mundo_right = 1
 let g:mundo_width = (&columns / 2)  " relative to editor's width
 
 let g:mundo_preview_bottom = 1
-let g:mundo_preview_height = (&lines * 8 / 10) " relative to editor's height
+let g:mundo_preview_height = (&lines * 7 / 12) " relative to editor's height
 "let g:mundo_auto_preview_delay = 250  " default: 250ms
 
 "let g:mundo_tree_statusline = 1
