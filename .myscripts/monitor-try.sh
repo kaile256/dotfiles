@@ -11,11 +11,11 @@ done
 #on=$(xrandr --query | grep " connected" | cut -d" " -f1 | grep HDMI)
 if monitor=$(xrandr --query | grep " connected" | cut -d" " -f1 | grep HDMI); then
   xrandr --output eDP1 --auto
-  xrandr --output "$monitor" --auto --above eDP1
+  xrandr --output "$monitor" --brightness 0.8 --auto --above eDP1
   xbacklight -set 5
 else
   xrandr --output eDP1 --auto
-  xbacklight -set 25
+  #xbacklight -set 25
 fi
 
 #st_prev="disconnected"
