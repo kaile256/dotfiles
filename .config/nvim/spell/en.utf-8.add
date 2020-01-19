@@ -117,3 +117,9 @@ w
 vimlsp
 s
 modeline's
+backlight
+o
+pacman
+filesystem
+expr's
+expr
