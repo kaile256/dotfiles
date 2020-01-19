@@ -35,13 +35,16 @@ function! s:defx(...) abort
         \ }) : ''
   let args  = join(values(dict))
 
-  let cwd   = matchstr(get(b:, 'term_title', expand('%:p')), '/\S.\+')
-  let fname = exists('b:term_title') ? cwd : expand('%:p:h')
-
-  let cwd   = substitute(cwd,   '[^\\]\zs ', '\\ ', 'g')
+  let fname = matchstr(get(b:, 'term_title', expand('%:p')), '/\S.\+')
   let fname = substitute(fname, '[^\\]\zs ', '\\ ', 'g')
-  let args .= ' -search='. cwd
-  exe 'Defx' fname args
+
+  " b:term_title won't show filename but shows cwd.
+  let cwd = exists('b:term_title') ? fname : expand('%:p:h')
+  let cwd = substitute(cwd, '[^\\]\zs ', '\\ ', 'g')
+
+  let args .= ' -search='. fname
+  exe 'Defx' cwd args
+
   wincmd =
 endfunction
 
