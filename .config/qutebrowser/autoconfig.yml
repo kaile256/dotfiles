@@ -6,440 +6,451 @@
 
 config_version: 2
 settings:
-    aliases:
-        global:
-            H: help -t
-            L: session-load
-            O: open -t
-            Pocket: open -t https://app.getpocket.com/
-            R: session-load
-            S: session-save -o
-            W: session-save -o
-            abbr: config-dict-add aliases
-            alias: config-dict-add aliases
-            cabbr: config-dict-add aliases
-            cmap: bind -m command
-            cmd: config-dict-add aliases
-            command: config-dict-add aliases
-            cunabbr: config-dict-remove aliases
-            cunmap: unbind -m command
-            e: session-load
-            emacs: enter-mode passthrough
-            emap: bind -m passthrough
-            emode: enter-mode passthrough
-            h: help
-            hmap: bind -m hint
-            hunmap: unbind -m hint
-            imap: bind -m insert
-            iunmap: bind -m insert
-            lds: session-load
-            list: open https://app.getpocket.com/
-            map: bind
-            mess: messages
-            mk: config-dict-add url.searchengines
-            mks: session-save -o
-            mkurl: config-dict-add url.searchengines
-            nmap: bind
-            nunmap: unbind
-            nvim: spawn nvim-qt
-            o: open
-            pmap: bind -m prompt
-            pocket-open: open https://app.getpocket.com/
-            pocket-save: spawn --userscript qutepocket
-            punmap: unbind -m prompt
-            q: tab-close
-            qa: quit
-            r: session-load
-            rm: config-dict-remove url.searchengines
-            rmurl: config-dict-remove url.searchengines
-            sl: session-load
-            so: config-source
-            ss: session-save
-            unabbr: config-dict-remove aliases
-            unalias: config-dict-remove aliases
-            uncmd: config-dict-remove aliases
-            unmap: unbind
-            vmap: bind -m caret
-            vunmap: unbind -m caret
-            w: save
-            wq: quit --save
-            wqa: quit --save
-            xmap: bind -m caret
-            xunmap: unbind -m caret
-            zotero-save: spawn --userscript qute-zotero
-    auto_save.session:
-        global: true
-    backend:
-        global: webengine
-    bindings.commands:
-        global:
-            caret:
-                ':': 'set-cmd-text :'
-                <Alt+v>: enter-mode insert
-                <Ctrl+b>: scroll-page 0 -1
-                <Ctrl+d>: scroll-page 0 0.5
-                <Ctrl+f>: scroll-page 0 1
-                <Ctrl+u>: scroll-page 0 -0.5
-                A: enter-mode insert;; fake-key <end>
-                I: enter-mode insert;; fake-key <home>
-                V: move-to-start-of-line;; reverse-selection;; move-to-end-of-line
-                W: move-to-next-char
-                b: move-to-prev-word
-                i: hint inputs --first
-                s: fake-key <delete>
-                w: move-to-next-word
-            command:
-                <Alt+a>: fake-key <right>
-                <Alt+i>: fake-key <left>
-                <Alt+k>: leave-mode
-                <Alt+u>: rl-yank
-                <Ctrl+d>: rl-delete-char
-                <Ctrl+j>: completion-item-focus next
-                <Ctrl+k>: completion-item-focus prev
-                <Ctrl+n>: command-history-next
-                <Ctrl+p>: command-history-prev
-                <Ctrl+r>: fake-key <ctrl-v>
-                <Ctrl+r><Ctrl+Space>: fake-key <Ctrl-V>
-                <Ctrl+r><Space>: insert-text {clipboard}
-                <Ctrl+x>: completion-item-del
-            hint:
-                <Alt+h>: leave-mode
-                <Alt+j>: leave-mode
-                <Alt+k>: leave-mode
-                <Alt+l>: leave-mode
-            insert:
-                <Alt+Backspace>: fake-key <Ctrl-Backspace>
-                <Alt+Shift+a>: fake-key <end>
-                <Alt+Shift+i>: fake-key <home>
-                <Alt+Shift+o>: fake-key <shift-tab>
-                <Alt+Shift+v>: fake-key <home><shift-end>
-                <Alt+[>: tab-prev
-                <Alt+]>: tab-next
-                <Alt+a>: fake-key <right>
-                <Alt+b>: fake-key <ctrl-left>
-                <Alt+d>: fake-key <Ctrl-Delete>
-                <Alt+f>: fake-key <Ctrl-Right>
-                <Alt+g><Alt+g>: leave-mode;; scroll-to-perc 0
-                <Alt+g><Alt+o>: leave-mode;; hint inputs --first
-                <Alt+g>o: hint inputs --first
-                <Alt+h>: enter-mode normal
-                <Alt+i>: fake-key <left>
-                <Alt+j>: enter-mode normal
-                <Alt+k>: enter-mode normal
-                <Alt+l>: enter-mode normal
-                <Alt+o>: fake-key <tab>
-                <Alt+u>: fake-key <ctrl-z>
-                <Alt+v>: fake-key <Shift-left>;; enter-mode caret
-                <Alt+y>: yank selection
-                <Ctrl+Alt+v>: fake-key <shift-ctrl-left>
-                <Ctrl+a>: fake-key <Home>
-                <Ctrl+b>: fake-key <Left>
-                <Ctrl+d>: fake-key <Delete>
-                <Ctrl+e>: fake-key <End>
-                <Ctrl+f>: fake-key <Right>
-                <Ctrl+h>: fake-key <backspace>
-                <Ctrl+i>: fake-key <tab>
-                <Ctrl+j>: fake-key <Enter>
-                <Ctrl+k>: fake-key <Shift-end><Delete>
-                <Ctrl+m>: fake-key <Enter>
-                <Ctrl+n>: fake-key <Down>
-                <Ctrl+o>u: fake-key <undo>
-                <Ctrl+p>: fake-key <Up>
-                <Ctrl+q>: open-editor
-                <Ctrl+r>0: insert-text {primary}
-                <Ctrl+r><Ctrl+0>: insert-text {primary}
-                <Ctrl+r><Ctrl+Space>: fake-key <ctrl-v>
-                <Ctrl+r><Space>: fake-key <ctrl-v>
-                <Ctrl+u>: fake-key <shift-home><Delete>
-                <Ctrl+w>: fake-key <ctrl-backspace>
-                <Ctrl+y>: insert-text {primary}
-            normal:
-                '2': save
-                <: tab-move -
-                <Alt+Space>: emacs
-                <Alt+[>: tab-prev
-                <Alt+]>: tab-next
-                <Alt+e>: edit-url
-                <Alt+f>: tab-next
-                <Alt+h>: tab-prev
-                <Alt+i>: tab-next
-                <Alt+l>: tab-next
-                <Alt+o>: tab-prev
-                <Alt+q><Alt+b>: set-cmd-text -s :buffer
-                <Alt+q><Alt+v>: set-cmd-text -s :open
-                <Ctrl++>: zoom-in
-                <Ctrl+->: zoom-out
-                <Ctrl+2>: save
-                <Ctrl+Shift+n>: open -w
-                <Ctrl+c>: stop;; clear-keychain
-                <Ctrl+d>: scroll-page 0 0.5
-                <Ctrl+e>: scroll-px 0 +50
-                <Ctrl+h>: tab-prev
-                <Ctrl+i>: forward
-                <Ctrl+j>: scroll-px 0 +60
-                <Ctrl+k>: scroll-px 0 -60
-                <Ctrl+l>: tab-next
-                <Ctrl+n>: null
-                <Ctrl+o>: back
-                <Ctrl+p>: null
-                <Ctrl+t>: null
-                <Ctrl+v>: null
-                <Ctrl+w>: null
-                <Ctrl+w><Ctrl+c>: tab-close
-                <Ctrl+w><Ctrl+o>: window-only
-                <Ctrl+w><Ctrl+p>: tab-pin
-                <Ctrl+w><Ctrl+t>: tab-give
-                <Ctrl+w><Ctrl+v>: tab-clone
-                <Ctrl+w>N: open -p
-                <Ctrl+w>Q: close
-                <Ctrl+w>T: tab-give
-                <Ctrl+w>Z: close
-                <Ctrl+w>c: tab-close
-                <Ctrl+w>h: tab-move -
-                <Ctrl+w>l: tab-move +
-                <Ctrl+w>n: open -w
-                <Ctrl+w>o: tab-only
-                <Ctrl+w>s: tab-clone
-                <Ctrl+w>v: tab-clone
-                <Ctrl+x>: null
-                <Ctrl+y>: scroll-px 0 -50
-                <Space>1: tab-close
-                <Space>2: save
-                <Space>P: open -t {primary}
-                <Space>Q: close
-                <Space>Z: close
-                <Space>\: record-macro
-                <Space>p: open {primary}
-                <Space>q: save
-                <Space>w: save
-                <Space>y: yank selection
-                <Space>yy: enter-mode caret;; yank;; leave-mode
-                <Space>zB: set-cmd-text -s :quickmark-load -t
-                <Space>zb: set-cmd-text -s :quickmark-load
-                <Space>ze: set-cmd-text -s :open
-                <Space>zt: set-cmd-text -s :open -t
-                <Space>zv: set-cmd-text -s :open
-                <い>: enter-mode insert
-                '>': tab-move +
-                D: null
-                E: edit-url
-                H: null
-                I: hint inputs --first
-                J: fake-key <alt-down>
-                K: fake-key <alt-up>
-                L: null
-                P: open -t {clipboard}
-                T: null
-                U: undo
-                V: enter-mode caret;; toggle-selection
-                ZC: close
-                ZE: close
-                ZQ: tab-close
-                ZY: quit
-                ZZ: tab-close
-                Zc: close
-                Ze: close
-                Zq: tab-close
-                Zy: quit
-                Zz: tab-close
-                \<Space>: record-macro
-                a: fake-key <right> ;; enter-mode insert
-                b: scroll-page 0 -1.0
-                cd: null
-                co: null
-                d: scroll-page 0 +0.5
-                f: scroll-page 0 +1.0
-                gA: open -t https://www.amazon.co.jp/ref=nav_logo
-                gC: open -t https://calendar.google.com/calendar/r/month?pli=1
-                gM: open -t https://www.google.co.jp/maps/@34.8244519,135.4776576,15z
-                gP: open -t https://app.getpocket.com/
-                ga: open https://www.amazon.co.jp/ref=nav_logo
-                gc: open https://calendar.google.com/calendar/r/month?pli=1
-                gf: spawn nvim-qt {url}
-                gi: hint inputs --first
-                gm: open https://www.google.co.jp/maps/@34.8244519,135.4776576,15z
-                go: scroll-to-perc 0;; hint inputs --first
-                gp: open https://app.getpocket.com/
-                gs: view-source
-                h: fake-key <left>
-                i: enter-mode insert
-                j: fake-key <down>
-                k: fake-key <up>
-                l: fake-key <right>
-                mode: drop-selection
-                p: open {clipboard}
-                q: null
-                sp: pocket-save
-                t: hint
-                u: scroll-page 0 -0.5
-                wc: tab-close
-                wq: bookmark-del;; bookmark-add;; tab-close
-                wqa: bookmark-del;; bookmark-add;; quit
-                yv: enter-mode caret;; yank;; leave-mode
-                yy: yank
-                zH: scroll-to-perc -x 0
-                zL: scroll-to-perc -x
-                zh: scroll left
-                zl: scroll right
-            passthrough:
-                <Alt+x>: 'set-cmd-text :'
-                <Ctrl+b>: <left>
-                <Ctrl+f>: <right>
-                <Ctrl+g>: leave-mode
-                <Ctrl+n>: fake-key <down>
-                <Ctrl+p>: fake-key <up>
-            prompt:
-                <Ctrl+c>: leave-mode
-                <Ctrl+n>: prompt-item-focus next
-                <Ctrl+p>: prompt-item-focus prev
-    colors.statusbar.command.bg:
-        global: black
-    colors.statusbar.command.private.bg:
-        global: purple
-    colors.statusbar.command.private.fg:
-        global: white
-    colors.statusbar.insert.bg:
-        global: darkgreen
-    colors.statusbar.private.bg:
-        global: purple
-    completion.height:
-        global: 30%
-    completion.open_categories:
-        global:
-        - quickmarks
-        - bookmarks
-        - history
-    completion.scrollbar.width:
-        global: 2
-    completion.use_best_match:
-        global: true
-    content.host_blocking.lists:
-        global: null
-    content.mute:
-        global: false
-    content.notifications:
-        https://www.reddit.com: false
-    content.plugins:
-        global: true
-    content.private_browsing:
-        global: false
-    content.user_stylesheets:
-        global: null
-    downloads.location.directory:
-        global: ~/Downloads
-    downloads.location.remember:
-        global: false
-    downloads.position:
-        global: bottom
-    editor.command:
-        global:
-        - nvim-qt
-        - '{file}'
-    editor.encoding:
-        global: utf-8
-    fonts.completion.category:
-        global: bold 12pt sf mono, Migu 1M, hack nerd font, icon
-    fonts.completion.entry:
-        global: 12pt sf mono, Migu 1M, hack nerd font, icon
-    fonts.debug_console:
-        global: 12pt sf mono, migu 1m, hack nerd font, icon
-    fonts.downloads:
-        global: 12pt sf mono, migu 1m, hack nerd font, icon
-    fonts.hints:
-        global: bold 12pt sf mono, migu , hack nerd font, icon
-    fonts.keyhint:
-        global: 12pt sf mono, migu 1m, hack nerd font, icon
-    fonts.messages.error:
-        global: 12pt sf mono, migu 1m, hack nerd font, icon
-    fonts.messages.info:
-        global: 12pt sf mono, migu 1m, hack nerd font, icon
-    fonts.messages.warning:
-        global: 12pt sf mono, migu 1m, hack nerd font, icon
-    fonts.monospace:
-        global: '"xos4 Terminus", Terminus, Monospace, "DejaVu Sans Mono", Monaco, "Bitstream
-        Vera Sans Mono", "Andale Mono", "Courier New", Courier, "Liberation Mono", monospace,
-        Fixed, Consolas, Terminal'
-    fonts.prompts:
-        global: 12pt sf mono, migu 1m, hack nerd font, icon
-    fonts.statusbar:
-        global: 12pt sf mono, migu 1m, hack nerd font, icon
-    fonts.tabs:
-        global: 12pt sf mono, migu 1m, hack nerd font, icon
-    fonts.web.family.cursive:
-        global: sf mono, migu 1m, hack nerd font, icon
-    fonts.web.family.fantasy:
-        global: sf mono, migu 1m, hack nerd font, icon
-    fonts.web.family.fixed:
-        global: sf mono, migu 1m, hack nerd font, icon
-    fonts.web.family.sans_serif:
-        global: sf mono, migu 1m, hack nerd font, icons
-    fonts.web.family.serif:
-        global: SF Mono, migu 1m, hack nerd font, icons
-    fonts.web.family.standard:
-        global: sf mono, Hack Nerd Font, Migu 1m, icons
-    fonts.web.size.default:
-        global: 15
-    fonts.web.size.default_fixed:
-        global: 12
-    fonts.web.size.minimum:
-        global: 9
-    input.insert_mode.auto_load:
-        global: false
-    input.insert_mode.plugins:
-        global: true
-    new_instance_open_target:
-        global: tab
-    qt.highdpi:
-        global: false
-    qt.process_model:
-        global: process-per-site-instance
-    scrolling.bar:
-        global: always
-    scrolling.smooth:
-        global: false
-    session.default_name:
-        global: last
-    session.lazy_restore:
-        global: false
-    spellcheck.languages:
-        global: null
-    tabs.background:
-        global: true
-    tabs.new_position.unrelated:
-        global: next
-    tabs.select_on_remove:
-        global: next
-    tabs.title.format_pinned:
-        global: '{index}'
-    tabs.undo_stack_size:
-        global: 100
-    tabs.wrap:
-        global: true
-    url.incdec_segments:
-        global:
-        - path
-        - query
-    url.open_base_url:
-        global: true
-    url.searchengines:
-        global:
-            DEFAULT: https://duckduckgo.com/?q={}
-            K: https://www.thefreedictionary.com/{}
-            am: https://www.amazon.co.jp/s?k={}
-            ar: https://wiki.archlinux.org/?search={}
-            aw: https://wiki.archlinux.org/?search={}
-            dh: https://hub.docker.com/search?q={}
-            gh: https://github.com/search?o=desc&q={}&s=updated&type=Repositories
-            gm: https://www.google.co.jp/maps/place/{}
-            go: https://golang.org/search?q={}
-            mf: https://github.com/search?o=desc&q={}&s=forks&type=Repositories
-            ms: https://github.com/search?o=desc&q={}&s=stars&type=Repositories
-            qi: https://qiita.com/search?q={}&sort=stock
-            ru: https://github.com/search?o=desc&q={}&s=updated&type=Repositories
-            th: https://www.freethesaurus.com/{}
-            tw: http://twitter.com/search/{}
-            wk: http://en.wikipedia.org/wiki/{}
-            wl: https://ejje.weblio.jp/content/{}?erl=true
-            yu: https://www.youtube.com/watch?v={}
-    url.start_pages:
-        global: https://ja.wikipedia.org/wiki/
+  aliases:
+    global:
+      H: help -t
+      L: session-load
+      O: open -t
+      Pocket: open -t https://app.getpocket.com/
+      R: session-load
+      S: session-save -o
+      W: session-save -o
+      abbr: config-dict-add aliases
+      alias: config-dict-add aliases
+      cabbr: config-dict-add aliases
+      cmap: bind -m command
+      cmd: config-dict-add aliases
+      command: config-dict-add aliases
+      command!: config-dict-add --replace aliases
+      cunabbr: config-dict-remove aliases
+      cunmap: unbind -m command
+      e: session-load
+      e!: reload -f
+      e%: reload
+      emacs: enter-mode passthrough
+      emap: bind -m passthrough
+      emode: enter-mode passthrough
+      h: help
+      hmap: bind -m hint
+      hunmap: unbind -m hint
+      imap: bind -m insert
+      iunmap: bind -m insert
+      lds: session-load
+      list: open https://app.getpocket.com/
+      map: bind
+      mess: messages
+      mk: config-dict-add url.searchengines
+      mks: session-save -o
+      mkurl: config-dict-add url.searchengines
+      nmap: bind
+      nunmap: unbind
+      nvim: spawn nvim-qt
+      o: open
+      pmap: bind -m prompt
+      pocket-open: open https://app.getpocket.com/
+      pocket-save: spawn --userscript qutepocket
+      punmap: unbind -m prompt
+      q: tab-close
+      qa: quit
+      r: session-load
+      rm: config-dict-remove url.searchengines
+      rmurl: config-dict-remove url.searchengines
+      sl: session-load
+      so: config-source
+      ss: session-save
+      unabbr: config-dict-remove aliases
+      unalias: config-dict-remove aliases
+      uncmd: config-dict-remove aliases
+      unmap: unbind
+      vmap: bind -m caret
+      vunmap: unbind -m caret
+      w: save
+      wq: quit --save
+      wqa: quit --save
+      xmap: bind -m caret
+      xunmap: unbind -m caret
+      zotero-save: spawn --userscript qute-zotero
+  auto_save.session:
+    global: true
+  backend:
+    global: webengine
+  bindings.commands:
+    global:
+      caret:
+        ':': 'set-cmd-text :'
+        <Alt+v>: enter-mode insert
+        <Ctrl+b>: scroll-page 0 -1
+        <Ctrl+d>: scroll-page 0 0.5
+        <Ctrl+f>: scroll-page 0 1
+        <Ctrl+u>: scroll-page 0 -0.5
+        A: enter-mode insert;; fake-key <end>
+        I: enter-mode insert;; fake-key <home>
+        V: move-to-start-of-line;; reverse-selection;; move-to-end-of-line
+        W: move-to-next-char
+        b: move-to-prev-word
+        i: hint inputs --first
+        s: fake-key <delete>
+        w: move-to-next-word
+      command:
+        <Alt+a>: fake-key <right>
+        <Alt+i>: fake-key <left>
+        <Alt+k>: leave-mode
+        <Alt+u>: rl-yank
+        <Ctrl+d>: rl-delete-char
+        <Ctrl+j>: completion-item-focus next
+        <Ctrl+k>: completion-item-focus prev
+        <Ctrl+n>: command-history-next
+        <Ctrl+p>: command-history-prev
+        <Ctrl+r>: fake-key <ctrl-v>
+        <Ctrl+r><Ctrl+Space>: fake-key <Ctrl-V>
+        <Ctrl+r><Space>: insert-text {clipboard}
+        <Ctrl+x>: completion-item-del
+      hint:
+        <Alt+h>: leave-mode
+        <Alt+j>: leave-mode
+        <Alt+k>: leave-mode
+        <Alt+l>: leave-mode
+      insert:
+        <Alt+Backspace>: fake-key <Ctrl-Backspace>
+        <Alt+Shift+a>: fake-key <end>
+        <Alt+Shift+i>: fake-key <home>
+        <Alt+Shift+o>: fake-key <shift-tab>
+        <Alt+Shift+v>: fake-key <home><shift-end>
+        <Alt+[>: tab-prev
+        <Alt+]>: tab-next
+        <Alt+a>: fake-key <right>
+        <Alt+b>: fake-key <ctrl-left>
+        <Alt+d>: fake-key <Ctrl-Delete>
+        <Alt+f>: fake-key <Ctrl-Right>
+        <Alt+g><Alt+g>: leave-mode;; scroll-to-perc 0
+        <Alt+g><Alt+o>: leave-mode;; hint inputs --first
+        <Alt+g>o: hint inputs --first
+        <Alt+h>: enter-mode normal
+        <Alt+i>: fake-key <left>
+        <Alt+j>: enter-mode normal
+        <Alt+k>: enter-mode normal
+        <Alt+l>: enter-mode normal
+        <Alt+o>: fake-key <tab>
+        <Alt+u>: fake-key <ctrl-z>
+        <Alt+v>: fake-key <Shift-left>;; enter-mode caret
+        <Alt+y>: yank selection
+        <Ctrl+Alt+v>: fake-key <shift-ctrl-left>
+        <Ctrl+a>: fake-key <Home>
+        <Ctrl+b>: fake-key <Left>
+        <Ctrl+d>: fake-key <Delete>
+        <Ctrl+e>: fake-key <End>
+        <Ctrl+f>: fake-key <Right>
+        <Ctrl+h>: fake-key <backspace>
+        <Ctrl+i>: fake-key <tab>
+        <Ctrl+j>: fake-key <Enter>
+        <Ctrl+k>: fake-key <Shift-end><Delete>
+        <Ctrl+m>: fake-key <Enter>
+        <Ctrl+n>: fake-key <Down>
+        <Ctrl+o>u: fake-key <undo>
+        <Ctrl+p>: fake-key <Up>
+        <Ctrl+q>: open-editor
+        <Ctrl+r>0: insert-text {primary}
+        <Ctrl+r><Ctrl+0>: insert-text {primary}
+        <Ctrl+r><Ctrl+Space>: fake-key <ctrl-v>
+        <Ctrl+r><Space>: fake-key <ctrl-v>
+        <Ctrl+u>: fake-key <shift-home><Delete>
+        <Ctrl+w>: fake-key <ctrl-backspace>
+        <Ctrl+y>: insert-text {primary}
+      normal:
+        '2': save
+        <: tab-move -
+        <Alt+Space>: emacs
+        <Alt+[>: tab-prev
+        <Alt+]>: tab-next
+        <Alt+e>: edit-url
+        <Alt+f>: tab-next
+        <Alt+h>: tab-prev
+        <Alt+i>: tab-next
+        <Alt+l>: tab-next
+        <Alt+o>: tab-prev
+        <Alt+q><Alt+b>: set-cmd-text -s :buffer
+        <Alt+q><Alt+v>: set-cmd-text -s :open
+        <Ctrl++>: zoom-in
+        <Ctrl+->: zoom-out
+        <Ctrl+2>: save
+        <Ctrl+Shift+n>: open -w
+        <Ctrl+a>: enter-mode insert ;; fake-key <home>
+        <Ctrl+c>: stop;; clear-keychain
+        <Ctrl+d>: scroll-page 0 0.5
+        <Ctrl+e>: scroll-px 0 +50
+        <Ctrl+h>: tab-prev
+        <Ctrl+i>: forward
+        <Ctrl+j>: scroll-px 0 +60
+        <Ctrl+k>: scroll-px 0 -60
+        <Ctrl+l>: tab-next
+        <Ctrl+n>: null
+        <Ctrl+o>: back
+        <Ctrl+p>: null
+        <Ctrl+t>: null
+        <Ctrl+v>: null
+        <Ctrl+w>: null
+        <Ctrl+w><Ctrl+c>: tab-close
+        <Ctrl+w><Ctrl+o>: window-only
+        <Ctrl+w><Ctrl+p>: tab-pin
+        <Ctrl+w><Ctrl+t>: tab-give
+        <Ctrl+w><Ctrl+v>: tab-clone
+        <Ctrl+w>N: open -p
+        <Ctrl+w>Q: close
+        <Ctrl+w>T: tab-give
+        <Ctrl+w>Z: close
+        <Ctrl+w>c: tab-close
+        <Ctrl+w>h: tab-move -
+        <Ctrl+w>l: tab-move +
+        <Ctrl+w>n: open -w
+        <Ctrl+w>o: tab-only
+        <Ctrl+w>s: tab-clone
+        <Ctrl+w>v: tab-clone
+        <Ctrl+x>: null
+        <Ctrl+y>: scroll-px 0 -50
+        <Space>1: tab-close
+        <Space>2: save
+        <Space>P: open -t {primary}
+        <Space>Q: close
+        <Space>Z: close
+        <Space>\: record-macro
+        <Space>p: open {primary}
+        <Space>q: save
+        <Space>w: save
+        <Space>y: yank selection
+        <Space>yy: enter-mode caret;; yank;; leave-mode
+        <Space>zB: set-cmd-text -s :quickmark-load -t
+        <Space>zb: set-cmd-text -s :quickmark-load
+        <Space>ze: set-cmd-text -s :open
+        <Space>zt: set-cmd-text -s :open -t
+        <Space>zv: set-cmd-text -s :open
+        <い>: enter-mode insert
+        '>': tab-move +
+        D: null
+        E: edit-url
+        H: null
+        I: hint inputs --first
+        J: fake-key <alt-down>
+        K: fake-key <alt-up>
+        L: null
+        P: open -t {clipboard}
+        T: null
+        U: undo
+        V: enter-mode caret;; toggle-selection
+        ZC: close
+        ZE: close
+        ZQ: tab-close
+        ZY: quit
+        ZZ: tab-close
+        Zc: close
+        Ze: close
+        Zq: tab-close
+        Zy: quit
+        Zz: tab-close
+        \<Space>: record-macro
+        a: fake-key <right> ;; enter-mode insert
+        b: scroll-page 0 -1.0
+        cd: null
+        co: null
+        d: scroll-page 0 +0.5
+        f: scroll-page 0 +1.0
+        gA: open -t https://www.amazon.co.jp/ref=nav_logo
+        gC: open -t https://calendar.google.com/calendar/r/month?pli=1
+        gM: open -t https://www.google.co.jp/maps/@34.8244519,135.4776576,15z
+        gP: open -t https://app.getpocket.com/
+        ga: open https://www.amazon.co.jp/ref=nav_logo
+        gc: open https://calendar.google.com/calendar/r/month?pli=1
+        gf: spawn nvim-qt {url}
+        gi: hint inputs --first
+        gm: open https://www.google.co.jp/maps/@34.8244519,135.4776576,15z
+        go: scroll-to-perc 0;; hint inputs --first
+        gp: open https://app.getpocket.com/
+        gs: view-source
+        gw: fake-key gw
+        h: fake-key <left>
+        i: enter-mode insert
+        j: fake-key <down>
+        k: fake-key <up>
+        l: fake-key <right>
+        mode: drop-selection
+        p: open {clipboard}
+        q: null
+        r: fake-key r
+        sp: pocket-save
+        t: fake-key t;; enter-mode insert
+        u: scroll-page 0 -0.5
+        wc: tab-close
+        wq: bookmark-del;; bookmark-add;; tab-close
+        wqa: bookmark-del;; bookmark-add;; quit
+        yv: enter-mode caret;; yank;; leave-mode
+        yy: yank
+        zH: scroll-to-perc -x 0
+        zL: scroll-to-perc -x
+        zh: scroll left
+        zl: scroll right
+      passthrough:
+        <Alt+x>: 'set-cmd-text :'
+        <Ctrl+b>: <left>
+        <Ctrl+f>: <right>
+        <Ctrl+g>: leave-mode
+        <Ctrl+n>: fake-key <down>
+        <Ctrl+p>: fake-key <up>
+      prompt:
+        <Ctrl+c>: leave-mode
+        <Ctrl+n>: prompt-item-focus next
+        <Ctrl+p>: prompt-item-focus prev
+  colors.statusbar.command.bg:
+    global: black
+  colors.statusbar.command.private.bg:
+    global: purple
+  colors.statusbar.command.private.fg:
+    global: white
+  colors.statusbar.insert.bg:
+    global: darkgreen
+  colors.statusbar.private.bg:
+    global: purple
+  completion.height:
+    global: 30%
+  completion.open_categories:
+    global:
+    - quickmarks
+    - bookmarks
+    - history
+  completion.scrollbar.width:
+    global: 2
+  completion.use_best_match:
+    global: true
+  content.host_blocking.lists:
+    global: null
+  content.mute:
+    global: false
+  content.notifications:
+    https://www.reddit.com: false
+  content.plugins:
+    global: true
+  content.private_browsing:
+    global: false
+  content.user_stylesheets:
+    global: null
+  downloads.location.directory:
+    global: ~/Downloads
+  downloads.location.remember:
+    global: false
+  downloads.position:
+    global: bottom
+  editor.command:
+    global:
+    - nvim-qt
+    - '{file}'
+  editor.encoding:
+    global: utf-8
+  fonts.completion.category:
+    global: bold 12pt sf mono, Migu 1M, hack nerd font, icon
+  fonts.completion.entry:
+    global: 12pt sf mono, Migu 1M, hack nerd font, icon
+  fonts.debug_console:
+    global: 12pt sf mono, migu 1m, hack nerd font, icon
+  fonts.downloads:
+    global: 12pt sf mono, migu 1m, hack nerd font, icon
+  fonts.hints:
+    global: bold 12pt sf mono, migu , hack nerd font, icon
+  fonts.keyhint:
+    global: 12pt sf mono, migu 1m, hack nerd font, icon
+  fonts.messages.error:
+    global: 12pt sf mono, migu 1m, hack nerd font, icon
+  fonts.messages.info:
+    global: 12pt sf mono, migu 1m, hack nerd font, icon
+  fonts.messages.warning:
+    global: 12pt sf mono, migu 1m, hack nerd font, icon
+  fonts.monospace:
+    global: '"xos4 Terminus", Terminus, Monospace, "DejaVu Sans Mono", Monaco, "Bitstream
+      Vera Sans Mono", "Andale Mono", "Courier New", Courier, "Liberation Mono", monospace,
+      Fixed, Consolas, Terminal'
+  fonts.prompts:
+    global: 12pt sf mono, migu 1m, hack nerd font, icon
+  fonts.statusbar:
+    global: 12pt sf mono, migu 1m, hack nerd font, icon
+  fonts.tabs:
+    global: 12pt sf mono, migu 1m, hack nerd font, icon
+  fonts.web.family.cursive:
+    global: sf mono, migu 1m, hack nerd font, icon
+  fonts.web.family.fantasy:
+    global: sf mono, migu 1m, hack nerd font, icon
+  fonts.web.family.fixed:
+    global: sf mono, migu 1m, hack nerd font, icon
+  fonts.web.family.sans_serif:
+    global: sf mono, migu 1m, hack nerd font, icons
+  fonts.web.family.serif:
+    global: SF Mono, migu 1m, hack nerd font, icons
+  fonts.web.family.standard:
+    global: sf mono, Hack Nerd Font, Migu 1m, icons
+  fonts.web.size.default:
+    global: 15
+  fonts.web.size.default_fixed:
+    global: 12
+  fonts.web.size.minimum:
+    global: 9
+  input.insert_mode.auto_load:
+    global: false
+  input.insert_mode.plugins:
+    global: true
+  new_instance_open_target:
+    global: tab
+  qt.highdpi:
+    global: false
+  qt.process_model:
+    global: process-per-site-instance
+  scrolling.bar:
+    global: always
+  scrolling.smooth:
+    global: false
+  session.default_name:
+    global: last
+  session.lazy_restore:
+    global: false
+  spellcheck.languages:
+    global:
+    - en-US
+  tabs.background:
+    global: true
+  tabs.new_position.unrelated:
+    global: next
+  tabs.select_on_remove:
+    global: next
+  tabs.title.format_pinned:
+    global: '{index}'
+  tabs.undo_stack_size:
+    global: 100
+  tabs.wrap:
+    global: true
+  url.incdec_segments:
+    global:
+    - path
+    - query
+  url.open_base_url:
+    global: true
+  url.searchengines:
+    global:
+      DEFAULT: https://duckduckgo.com/?q={}
+      K: https://www.thefreedictionary.com/{}
+      am: https://www.amazon.co.jp/s?k={}
+      ar: https://wiki.archlinux.org/?search={}
+      aw: https://wiki.archlinux.org/?search={}
+      dh: https://hub.docker.com/search?q={}
+      gh: https://github.com/search?o=desc&q={}&s=updated&type=Repositories
+      gm: https://www.google.co.jp/maps/place/{}
+      go: https://golang.org/search?q={}
+      mf: https://github.com/search?o=desc&q={}&s=forks&type=Repositories
+      ms: https://github.com/search?o=desc&q={}&s=stars&type=Repositories
+      qb: https://www.reddit.com/r/qutebrowser/search/?q={}
+      qi: https://qiita.com/search?q={}&sort=stock
+      rd: https://www.reddit.com/search/?q={}
+      rq: https://www.reddit.com/r/qutebrowser/search/?q={}
+      rqb: https://www.reddit.com/r/qutebrowser/search/?q={}
+      ru: https://github.com/search?o=desc&q={}&s=updated&type=Repositories
+      th: https://www.freethesaurus.com/{}
+      tw: http://twitter.com/search/{}
+      wk: http://en.wikipedia.org/wiki/{}
+      wl: https://ejje.weblio.jp/content/{}?erl=true
+      yu: https://www.youtube.com/watch?v={}
+  url.start_pages:
+    global: https://ja.wikipedia.org/wiki/
