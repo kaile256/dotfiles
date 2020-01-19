@@ -12,24 +12,25 @@ set -Cue #{{{
 #}}}
 
 LOCALs=(
-  qutebrowser/userscripts
-  qutebrowser/greasemonkey
   #nvim/swap
+  qutebrowser/greasemonkey
+  qutebrowser/userscripts
 )
 
 HOMEs=(
-  .myscripts
-  .vimrc
   .Xmodmap
   .Xresources
   .bashrc
-  .taskrc
-  .profile
   .ctags
   .doom.d
+  .editorconfig
   .gitconfig
-  .tigrc
   .gonvim
+  .myscripts
+  .profile
+  .taskrc
+  .tigrc
+  .vimrc
   .zshenv
 )
 
