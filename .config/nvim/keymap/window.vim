@@ -22,6 +22,26 @@ nnoremap <Plug>(wincopy-in-tab) <c-w>v<c-w>T
 nmap <c-w>gt <Plug>(wincopy-in-tab)
 nmap <c-w>gT <Plug>(wincopy-in-tab)
 
+nnoremap <silent> <c-w><space>T :<c-u>call <SID>wincopy_to_another_proc()
+nnoremap <silent> <c-w><space>t :<c-u>call <SID>wincopy_to_another_proc()
+function! s:wincopy_to_another_proc() abort
+  if executable('nvim-qt')
+    silent !nvim-qt %:p &
+    return
+  elseif executable('nvim')
+    silent !xterm -e nvim %:p &
+    return
+  elseif executable('vim')
+    silent !xterm -e vim %:p &
+    return
+  elseif executable('vi')
+    silent !xterm -e vi %:p &
+    return
+  endif
+
+  echoerr 'You have no executable vi-like editor!'
+endfunction
+
 " <c-w>^ behaves like ':sp#'
 " ':9vs#' works like ':vs#9' but with ruin of winwidth
 " TODO: make v:count work
