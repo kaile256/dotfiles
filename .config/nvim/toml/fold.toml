@@ -38,7 +38,6 @@ hook_source = 'runtime source/FastFold.vim'
 #[ FileType ]
 #[[plugins]]
 #repo = 'matze/vim-ini-fold'
-#rev = 'c5ba417dd57942e6463e7079f0650ae0722d72c9'
 ##repo = 'kaile256/vim-ini-fold'
 ## PR-Merged: matze/vim-ini-fold/pull/1
 ## PR: matze/vim-ini-fold/pull/2
