@@ -2,33 +2,21 @@
 
 set -Cue
 
-# INSTALLER IDENTIFICATION
-INSTALLERs=(
-  apt
-  pacman
-)
-for i in "${INSTALLERs[@]}"; do
-  type "$i" > /dev/null 2>&1 && export INSTALLER="$i"
-done
-
-[[ -n $INSTALLER ]] && echo "Installer is identified, $INSTALLER!"
-
-declare -A Install
-Install=(
-  ['pacman']='pacman -S'
-  ['apt']='apt install'
-)
-
-export install="${Install[$INSTALLER]}"
-echo "$INSTALLER will install package via '$install'!!"
-
-# WANTED-PACKAGES INSTALLATION
 PACKAGEs=(
+  udiskie # a wrapper of udisk2 to mount automatically
+  #uzbl # a browser w/ vim-like keybinds. The development ends.
+  #doas # an alternative to sudo(1); a port of OpenBSD or try opendoas from 'community'
+  light-locker # use instead of i3lock, which doesn't work well with multiple monitors
+  #lightdm-webkit2-greeter # set a theme for lightdm at login-window
+  #lightdm-webkit-theme-litarvan # a theme for lightdm-webkit2-greeter. Cool.
+  #jdk-openjdk # toggl-cli needs javac; or use java-environment-common. The symlink from /usr/bin/javac and so on may be broken; update it yourself.
+  #toggl-cli # use python's one instead from github
   #jot # a cli tool to take a note
-  notes-cli-bin # a cli tool to take a note on markdown
+  #notes-cli-bin # a cli tool to take a note on markdown
   parcel-bundler # a web-app bundler w/o config
   dialog # used in `wifi-menu` at least
   ripgrep-all # ripgrep in PDFs, E-Books, Office documents, zip, tar.gz, etc.
+  tor-browser
   mmv # mv multiple files in your editor, for debian user
   #otf-sans-forgetica # a font scientifically designed for study notes. fails to work on qutebrowser
   wine # a layer to run programs for Windows
@@ -95,7 +83,7 @@ PACKAGEs=(
   npm # necessary for coc's command at all even w/ yarn
   nvme-cli # a NVMe manager, can be a secure eraser
   pavucontrol # Sound: GUI?
-  pdfarranger # pdf editor
+  #pdfarranger # a pdf editor
   pdfjs  # PDF viewer in browser
   peek # a screen recorder
   polybar # a substitute of i3-bar
@@ -103,7 +91,7 @@ PACKAGEs=(
   pyenv
   qemu # for multibootusb
   qtqr # generate/decode QR codes
-  ranger-git # a vim-binding file explorer
+  ranger # a vim-binding file explorer
   rclone  # sync lib for cloud-service like dropbox, Gdrive.
   ripgrep
   ruby
@@ -137,6 +125,11 @@ Remove=(
 )
 
 PIP3s=(
+  requests # for Uehara25/WeblioSearcher
+  beautifulsoup4
+  readability # for readability on Qutebrowser
+  document # for readability on Qutebrowser
+  togglCli # AuHau/toggl-cli
   #falcon  # Solve fcitx problem on Qt
   jupyter # for neural network especially for python
   jupytext # for goerz/jupytext.vim #jupyter
@@ -190,6 +183,31 @@ DASHTs=(
   rust
 )
 
+GHQs=(
+  sachaos/toggl
+)
+
+# INSTALL PACKAGES {{{1
+INSTALLERs=(
+  apt
+  pacman
+)
+
+for i in "${INSTALLERs[@]}"; do
+  type "$i" > /dev/null 2>&1 && export INSTALLER="$i"
+done
+
+[[ -n $INSTALLER ]] && echo "Installer is identified, $INSTALLER!"
+
+declare -A Install
+Install=(
+  ['pacman']='pacman -S'
+  ['apt']='apt install'
+)
+
+export install="${Install[$INSTALLER]}"
+echo "$INSTALLER will install package via '$install'!!"
+
 for package in "${PACKAGEs[@]}"; do
   if [ "$INSTALLER" -ne 'apt' ] && [ $(apt list "${package}") ]; then
     echo "You have installed $package already!"
@@ -219,6 +237,7 @@ done
 
 cd ~ || exit
 
+# INSTALL OTHER PACKAGES {{{1
 curl --compressed -o- -L https://yarnpkg.com/install.sh | bash
 
 # Ref: https://www.rust-lang.org/tools/install
@@ -227,28 +246,35 @@ rustup install nightly
 rustup default nightly
 
 for p in "${YARNs[@]}"; do
+  type yarn || echo 'You have no executable yarn'
   yarn global add "$p"
 done
 
 for p in "${PIP3s[@]}"; do
-  pip3 install --user "$p"
-done
+  type pip3 && pip="pip3" || type pip && pip="pip" \
+    || echo 'You have no executable yarn'
+      $pip install --user "$p"
+    done
 
-for p in "${GEMs[@]}"; do
-  gem install "$p"
-done
+    for p in "${GEMs[@]}"; do
+      gem install "$p"
+    done
 
-for p in "${RUSTUPs[@]}"; do
-  rustup component add "$p"
-done
+    for p in "${RUSTUPs[@]}"; do
+      rustup component add "$p"
+    done
 
-for p in "${LUAROCKs[@]}"; do
-  luarocks install --local "$p"
-done
+    for p in "${LUAROCKs[@]}"; do
+      luarocks install --local "$p"
+    done
 
-for doc in "${DASHTs[@]}"; do
-  dasht-docsets-install "$doc"
-done
+    for doc in "${DASHTs[@]}"; do
+      dasht-docsets-install "$doc"
+    done
+
+    for p in "${GHQs[@]}"; do
+      ghq get "$p"
+    done
 
 # doom-emacs: one of emacsen's config files for vimmer.
 git clone https://github.com/hlissner/doom-emacs ~/.emacs.d
