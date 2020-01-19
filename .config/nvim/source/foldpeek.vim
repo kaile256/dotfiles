@@ -14,14 +14,16 @@ augroup myFoldPeek
 augroup END
 
 let g:foldpeek#skip_patterns = [
-      \ '^[\-=/{!* \t]*$',
+      \ '^[#\-=/{!* \t]*$',
       \ '^```.*$',
       \ '^\s*"""$',
       \ '[# \t]*\[\[plugins]]',
+      \ '[# \t]*\[\[\=package]'
       \ ]
 
 let g:foldpeek#whiteout_patterns_omit = [
       \ 'repo = ',
+      \ 'name = ',
       \ ]
 
 "" show in percent {{{1
