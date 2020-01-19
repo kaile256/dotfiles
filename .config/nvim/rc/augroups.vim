@@ -110,3 +110,8 @@ function! s:adjust_winfix() abort
   exe get(b:, 'fixwidth',  0) ? 'setl wfh' : 'setl nowfh'
   exe get(b:, 'fixheight', 0) ? 'setl wfw' : 'setl nowfw'
 endfunction
+
+augroup mySpellLangForJapanese "{{{1
+  " this one is which you're most likely to use?
+  autocmd OptionSet spell if &spl ==# 'en' | setl spl=en_us,cjk | endif
+augroup end
