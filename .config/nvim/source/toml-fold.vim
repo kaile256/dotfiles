@@ -1,4 +1,4 @@
-" From: ftplugin.toml
+" From: myplug.toml
 " Repo: kaile256/vim-toml-fold
 
 let g:tomlfold#styles_on_filetype = {
