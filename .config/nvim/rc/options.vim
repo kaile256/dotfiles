@@ -248,7 +248,12 @@ augroup END
 "augroup END
 " Method; Shada {{{2
 if has('nvim')
-  set shada='100,<50,h,s10,
+  " see doc by `:h 'shada'`; single-quote is required for options
+  " -': jumplist and changelist
+  " -<: max number of lines for register
+  " -h: disable 'hlsearch' after loading the shada
+  " -s:
+  set shada='200,<50,h,s10,
 endif
 augroup AutoWriteShada
   " Note: shada only saves the data on VimLeave so that
