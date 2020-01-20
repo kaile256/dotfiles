@@ -25,6 +25,7 @@ HOMEs=(
   .doom.d
   .editorconfig
   .gitconfig
+  .gitignore
   .gonvim
   .myscripts
   .profile
