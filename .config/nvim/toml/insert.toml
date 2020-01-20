@@ -7,7 +7,7 @@
 #on_cmd  = ['Pencil']
 #hook_add = 'runtime add/pencil.vim'
 #
-#[[[Snippets; Engine]]]
+#[ Snippets; Engine ]
 [[plugins]]
 repo = 'Shougo/neosnippet.vim'
 # set the filetype in augroups.vim
@@ -23,7 +23,7 @@ hook_source = 'runtime once/smaps.vim'
 #hook_post_source = 'runtime add/ultisnips.vim'
 #hook_source = 'runtime once/smaps.vim'
 
-#[[[Snippets; Contents]]]
+#[ Snippets; Contents ]
 [[plugins]]
 repo = 'honza/vim-snippets'
 on_source = ['neosnippet.vim']
@@ -36,13 +36,13 @@ on_source = ['neosnippet.vim']
 #repo = 'garbas/vim-snipmate'
 #on_event = ['InsertEnter']
 
-#[[[Thesaurus]]]
+#[ Thesaurus ]
 [[plugins]]
 repo = 'Ron89/thesaurus_query.vim'
 on_cmd = 'Thesaurus'
 hook_add = 'runtime add/thesaurus_query.vim'
 
-#[[[Unicode]]]
+#[ Unicode ]
 [[plugins]]
 repo = 'chrisbra/unicode.vim'
 # Note: on_map of unicode.vim is useless; maybe because they are imap.
@@ -52,7 +52,7 @@ hook_post_source = 'runtime add/unicode.vim'
 #repo = 'arthurxavierx/vim-unicoder'
 #on_map = {i = '<Plug>(unicoder-'}
 
-#[[[Spell]]]
+#[ Spell ]
 #[[plugins]]
 #repo = 'kamykn/spelunker.vim'
 #on_map = {ni = '<Plug>(spelunker-'}
@@ -74,7 +74,7 @@ hook_add = 'runtime add/codespell.vim'
 #on_cmd = 'Dyslexic'
 #hook_add = 'runtime dyslexic.vimrc'
 
-#[[[CapsLock]]]
+#[ CapsLock ]
 #[[plugins]]
 #repo = 'tpope/vim-capslock'
 ## Doesn't Work
@@ -86,7 +86,7 @@ hook_add = 'runtime add/codespell.vim'
 #on_event = ['InsertEnter', 'CmdlineEnter']
 #hook_post_source = 'runtime add/switch-esc-capslock.vim'
 
-#[[[Completion]]]
+#[ Completion ]
 #[[plugins]]
 #repo = 'Shougo/deoplete.nvim'
 ## good with eskk.vim
@@ -110,3 +110,9 @@ hook_add = 'runtime add/codespell.vim'
 ## Enough w/ lsp and snippets?
 #on_map = '<Plug>(complete_parameter#'
 #hook_add = 'runtime add/CompleteParameter.vim'
+#
+#[ Spell ]
+[[plugins]]
+repo = 'reedes/vim-lexical'
+on_func =  ['lexical#init']
+hook_source = 'runtime source/lexical.vim'
