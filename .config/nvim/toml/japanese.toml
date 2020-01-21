@@ -1,14 +1,13 @@
 # From: rc/dein.vim
 
-# Document
+#[ Help ]
 [[plugins]]
-repo = 'vim-jp/vimdoc-ja-working' #{{{
+repo = 'vim-jp/vimdoc-ja-working'
 on_cmd = ['Helptags', 'help', 'helpgrep']
-#}}}
 
-# Imput Method
+#[ SKK ]
 [[plugins]]
-repo = 'tyru/eskk.vim' #{{{
+repo = 'tyru/eskk.vim'
 on_cmd = 'eskk#enable()'
 hook_add = 'runtime add/eskk.vim'
 hook_source = 'runtime source/eskk.vim'
@@ -17,13 +16,12 @@ exe 'e' g:dein_github_dir .'/tyru/eskk.vim/autoload/eskk.vim'
 %s/<C-j>/<C-space>/e
 write
 '''
-#}}}
 [[plugins]]
-repo = 'tyru/skkdict.vim' #{{{
+repo = 'tyru/skkdict.vim'
 # Syntax Files for skkdict.
-on_ft = 'skkdict'
-#}}}
+on_path = '*.dict'
 
+#[ Motion ]
 [[plugins]]
 repo = 'deton/jasegment.vim'
 # no mappings for 'w', 'e', and so on.
@@ -38,11 +36,10 @@ on_ft = 'markdown'
 #hook_post_source = 'runtime add/jasentence.vim'
 
 #[[plugins]]
-#repo = 'fuenor/JpFormat.vim' #{{{
+#repo = 'fuenor/JpFormat.vim'
 #on_ft = ['markdown']
 #on_cmd = 'Jp'
 #hook_add = 'runtime add/JqFormat.vim'
-##}}}
 
 #[[plugins]]
 #repo = 'kana/vim-textobj-jabraces'
