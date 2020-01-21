@@ -5,19 +5,20 @@
 " Another: post/fzf.vim
 
 let s:path_dict = {
-      \ 'v': g:nvim_home,
-      \ 'l': $XDG_DATA_HOME,
-      \ 'f': $XDG_CONFIG_HOME,
+      \ '.': '.',
+      \ '<space>': ':<c-u>FindRoot',
+      \ 'c': g:dein_cache_dir,
       \ 'd': g:dotfiles_home,
+      \ 'f': $XDG_CONFIG_HOME,
+      \ 'h': '~',
+      \ 'l': $XDG_DATA_HOME,
+      \ 'm': $MYMEMO,
+      \ 'n': '%:p:h',
       \ 'q': $GHQ_ROOT,
       \ 'r': $VIMRUNTIME,
       \ 't': g:my_trash_root,
-      \ 'h': '~',
+      \ 'v': g:nvim_home,
       \ 'w': '%:p:h',
-      \ 'n': '%:p:h',
-      \ '.': '.',
-      \ '': '%:p:h',
-      \ 'm': $MYMEMO,
       \ }
 
 function! s:fzf_maps(prefix, command, ...) abort
@@ -28,7 +29,7 @@ function! s:fzf_maps(prefix, command, ...) abort
   for l:key in keys(s:path_dict)
     let lhs = lhs_raw . l:key
 
-    if s:path_dict[l:key] =~# '^:'
+   if s:path_dict[l:key] =~# '^:'
       " To: otherwise, commands to cd.
       " Note: if E:trainling-character, check if ':command -bar' in plugin's vimscript.
       let l:cd = s:path_dict[l:key]
