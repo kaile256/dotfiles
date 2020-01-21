@@ -28,9 +28,9 @@ let s:dein_log_file = s:dein_data_dir .'/dein_log.vim'
 let g:dein#install_log_filename = s:dein_log_file
 
 " Let; Path to the directory of dein's cache {{{1
-let s:dein_cache_dir   = $XDG_CACHE_HOME    .'/dein/'
-let g:dein_github_dir  = s:dein_cache_dir   .'/repos/github.com/'
-let s:Shougo_cache_dir = s:dein_cache_dir   .'/repos/github.com/Shougo/'
+let g:dein_cache_dir   = $XDG_CACHE_HOME    .'/dein/'
+let g:dein_github_dir  = g:dein_cache_dir   .'/repos/github.com/'
+let s:Shougo_cache_dir = g:dein_cache_dir   .'/repos/github.com/Shougo/'
 let s:dein_itself      = s:Shougo_cache_dir .'/dein.vim/'
 
 " call p:auto_install() if !has('dein.vim') {{{2
@@ -38,13 +38,6 @@ if !isdirectory(s:dein_itself)
   exe '!mkdir -p' shellescape(expand(s:Shougo_cache_dir))
   exe '!git clone https://github.com/Shougo/dein.vim' shellescape(expand(s:dein_itself))
 endif
-
-if !exists('g:keymapsDL#cmd_after#cd_path_dict') "{{{2
-  let g:keymapsDL#cmd_after#cd_path_dict = {}
-endif
-call extend(g:keymapsDL#cmd_after#cd_path_dict, {
-      \ 'c': s:dein_cache_dir,
-      \ })
 
 " Let; Path for :find {{{1
 "let &path = &path . ',' . g:dein_cache_dir . '**'
@@ -102,8 +95,8 @@ let s:dein_toml_not_in_android = [
       \ ]
 
 if !exists('g:plugins_available')
-  if dein#load_state(s:dein_cache_dir) "{{{1
-    call dein#begin(s:dein_cache_dir)
+  if dein#load_state(g:dein_cache_dir) "{{{1
+    call dein#begin(g:dein_cache_dir)
     if !has('nvim') "{{{2
       " make compatible on vim
       call dein#add('roxma/nvim-yarp')
