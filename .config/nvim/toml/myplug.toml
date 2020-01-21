@@ -17,14 +17,14 @@ hook_add = 'runtime add/among_HML.vim'
 #on_cmd = ['WindowPKreduce', 'WindowPKpick', 'WindowPKoly', 'WindowPKfloating', 'WindowPKcopy', 'WindowPKtabGive']
 #hook_add = 'runtime add/window-picker.vim'
 
-[[plugins]]
-repo = 'kaile256/vim-keymaps-dealer'
-# Note: must load the plugin before mapped, cannot lazy-load.
-on_event = 'VimEnter'
-hook_source = 'runtime source/keymaps-dealer.vim'
-# Note: autoload-functions in vimrc must be called after loading the autoload/.
-hook_post_source = 'runtime post/keymaps-dealer.vim'
-
+#[[plugins]]
+#repo = 'kaile256/vim-keymaps-dealer'
+## Note: must load the plugin before mapped, cannot lazy-load.
+#on_event = 'VimEnter'
+#hook_source = 'runtime source/keymaps-dealer.vim'
+## Note: autoload-functions in vimrc must be called after loading the autoload/.
+#hook_post_source = 'runtime post/keymaps-dealer.vim'
+#
 [[plugins]]
 repo = 'kaile256/vim-lines-in-functions'
 on_cmd = ['LinesFunctions']
