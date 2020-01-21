@@ -27,7 +27,6 @@ let g:nvim_home = empty($VIMCONFIG) ? expand(g:dotfiles_home .'/.config/nvim/') 
 let g:nvim_data_home = g:nvim_home . '/data/'
 let g:my_css_home = '~/Downloads/css'
 let g:my_trash_root = $XDG_DATA_HOME .'/Trash'
-let g:my_memo_root  = '~/vimwiki'
 
 " $var; for Vim {{{1
 if isdirectory('~/kaile256')
