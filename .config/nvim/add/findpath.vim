@@ -12,19 +12,22 @@ let g:findpath#search#ignore_words = ['import']
 "augroup END
 let g:findpath#list#lclose_after_select = 1
 
-nnoremap <silent> gf :<c-u>FindPath<cr>
 
-" in horizontal
-nnoremap <silent> <c-w>f :<c-u>bel FindPath<cr>
+augroup myFindPath
+  au! BufWinEnter .config/nvim**/* call s:findpath_keymaps()
+augroup END
 
-" in vertical
-nnoremap <silent> <c-w><space>f :<c-u>vert FindPath<cr>
+function! s:findpath_keymaps() abort "{{{1
+  nnoremap <buffer><silent> gf :<c-u>FindPath<cr>
 
-" in a new tab
-nnoremap <silent> gF     :<c-u>tab FindPath<cr>
-nnoremap <silent> <c-w>F :<c-u>tab FindPath<cr>
+  " in horizontal
+  nnoremap <buffer><silent> <c-w>f :<c-u>bel FindPath<cr>
 
-"augroup myFindPathCandidates
-" no use
-"  au! FileType findpath.candidates nmap <silent><buffer> <cr> <Plug>(findpath-candidate-select):lclose<cr>
-"augroup END
+  " in vertical
+  nnoremap <buffer><silent> <c-w><space>f :<c-u>vert FindPath<cr>
+
+  " in a new tab
+  nnoremap <buffer><silent> gF     :<c-u>tab FindPath<cr>
+  nnoremap <buffer><silent> <c-w>F :<c-u>tab FindPath<cr>
+endfunction
+

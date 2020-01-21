@@ -1,12 +1,7 @@
 " From: tool.toml
 " Repo: mattn/vim-findroot
 
-" Mnemonic: find Project-root
-call extend(g:keymapsDL#cmd_after#cd_path_dict, {
-      \ '<space>': ':<c-u>FindRoot',
-      \ })
-
-function! s:hub_create(path, ...) abort "{{{1
+function! s:hub_create(path, ...) abort
   " TODO: distinguish flag and path
   if a:path ==# '.'
     FindRoot
