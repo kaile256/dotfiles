@@ -21,15 +21,15 @@ alias termux ter te an and andr no not
 # for dein's hook {{{1
 snippet hook_add
 alias ad add
-  hook_add = 'runtime add/${1:`substitute(substitute(substitute(matchstr(getline(search('repo =', 'bnW')), "'.*'"), "'", '', 'g'), '.*/', '', ''), '.vim\|vim-', '', 'g')`}.vim'
+  hook_add = 'runtime add/${1:`substitute(substitute(substitute(matchstr(getline(search('repo =', 'bnW')), "'.*'"), "'", '', 'g'), '.*/', '', ''), '\.vim\|vim-', '', 'g')`}.vim'
 
 snippet hook_source
 alias so sou sour
-  hook_source = 'runtime source/${1:`substitute(substitute(substitute(matchstr(getline(search('repo =', 'bnW')), "'.*'"), "'", '', 'g'), '.*/', '', ''), '.vim\|vim-', '', 'g')`}.vim'
+  hook_source = 'runtime source/${1:`substitute(substitute(substitute(matchstr(getline(search('repo =', 'bnW')), "'.*'"), "'", '', 'g'), '.*/', '', ''), '\.vim\|vim-', '', 'g')`}.vim'
 
 snippet hook_post_source
 alias po pos post
-  hook_post_source = 'runtime post/${1:`substitute(substitute(substitute(matchstr(getline(search('repo =', 'bnW')), "'.*'"), "'", '', 'g'), '.*/', '', ''), '.vim\|vim-', '', 'g')`}.vim'
+  hook_post_source = 'runtime post/${1:`substitute(substitute(substitute(matchstr(getline(search('repo =', 'bnW')), "'.*'"), "'", '', 'g'), '.*/', '', ''), '\.vim\|vim-', '', 'g')`}.vim'
 
 snippet on_event
 alias ev eve even
@@ -41,15 +41,15 @@ alias ft
 
 snippet on_map
 alias ma map
-  on_map = {${1:nxo} = '<Plug>(`substitute(substitute(substitute(matchstr(getline(search('repo =', 'bnW')), "'.*'"), "'", '', 'g'), '.*/', '', ''), '.vim\|vim-', '', 'g')`${3:-}'}
+  on_map = {${1:nxo} = '<Plug>(`substitute(substitute(substitute(matchstr(getline(search('repo =', 'bnW')), "'.*'"), "'", '', 'g'), '.*/', '', ''), '\.vim\|vim-', '', 'g')`${3:-}'}
 
 snippet on_func
 alias fu fn fun func
-  on_func =  ['`substitute(substitute(substitute(substitute(matchstr(getline(search('repo =', 'bnW')), "'.*'"), "'", '', 'g'), '.*/', '', ''), '.vim\|vim-', '', 'g'), '-', '_', 'g')`#${0}']
+  on_func =  ['`substitute(substitute(substitute(substitute(matchstr(getline(search('repo =', 'bnW')), "'.*'"), "'", '', 'g'), '.*/', '', ''), '\.vim\|vim-', '', 'g'), '-', '_', 'g')`#${0}']
 
 snippet on_cmd
 alias cm cmd com
-  on_cmd =  ['`substitute(substitute(substitute(matchstr(getline(search('repo =', 'bnW')), "'.*'"), "'", '', 'g'), '.*/', '', ''), '.vim\|vim-', '', 'g')`${0}']
+  on_cmd =  ['`substitute(substitute(substitute(matchstr(getline(search('repo =', 'bnW')), "'.*'"), "'", '', 'g'), '.*/', '', ''), '\.vim\|vim-', '', 'g')`${0}']
 
 snippet hook_done_update
 alias du
