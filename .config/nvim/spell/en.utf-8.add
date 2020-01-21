@@ -19,7 +19,6 @@ mdwiki
 nvim's
 textobj
 textobject
-#
 plugins
 repo
 easymotion
@@ -123,3 +122,4 @@ pacman
 filesystem
 expr's
 expr
+manjaro
