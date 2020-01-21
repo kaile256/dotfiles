@@ -27,6 +27,7 @@ HOMEs=(
   .gitconfig
   .gitignore
   .gonvim
+  .markdownlint.yaml
   .myscripts
   .profile
   .taskrc
