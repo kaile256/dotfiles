@@ -64,10 +64,12 @@ repo = 'junegunn/vim-startuptime-benchmark'
 [[plugins]]
 repo = 'thinca/vim-themis'
 # A library of vim-script for test-making.
+on_path = '.themisrc'
 hook_post_source = 'runtime add/themis.vim'
 
 [[plugins]]
 repo = 'junegunn/vader.vim'
 # a test-framework for vimscript.
 on_cmd = 'Vader'
+on_path = '*.vader'
 hook_add = 'runtime add/vader.vim'
