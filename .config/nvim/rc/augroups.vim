@@ -2,8 +2,8 @@
 
 augroup myXinputToggle "{{{1
   au!
-  au InsertEnter * call system('xinput disable Elan\ TrackPoint')
-  au InsertEnter * call system('xinput disable Elan\ TouchPad')
+  exe 'au InsertEnter,'. $TermOpen "* call system('xinput disable Elan\ TrackPoint')"
+  exe 'au InsertEnter,'. $TermOpen "* call system('xinput disable Elan\ TouchPad')"
 
   au FocusLost,VimLeave * call system('xinput enable  Elan\ TrackPoint')
 augroup END
