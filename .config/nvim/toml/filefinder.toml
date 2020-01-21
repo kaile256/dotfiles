@@ -7,14 +7,18 @@ repo = 'junegunn/fzf'
 on_cmd = 'FZF'
 
 [[plugins]]
-#repo = 'junegunn/fzf.vim'
-repo = 'kaile256/fzf.vim'
+repo = 'junegunn/fzf.vim'
+#repo = 'kaile256/fzf.vim'
 #[ Branch: kaile256/fzf.vim_verbose_commands
 #on_func = 'fzf#vim#'
 on_event = 'VimEnter'
-hook_add = 'runtime add/fzf.vim'
+hook_add = '''
+runtime add/fzf.vim
+runtime add/fzf-keymaps.vim
+'''
 hook_source = 'runtime source/fzf.vim'
 hook_post_source = 'runtime post/fzf.vim'
+
 [[plugins]]
 repo = 'fszymanski/fzf-quickfix'
 depend = 'fzf.vim'
@@ -119,11 +123,11 @@ hook_add = 'runtime add/tagbar.vim'
 
 #[ Marks ]
 #[[plugins]]
-#repo = 'MattesGroeger/vim-bookmarks' #{{{
+#repo = 'MattesGroeger/vim-bookmarks'
 ## ???
 #on_cmd = ['BookmarkAnnotate', 'BookmarkShowAll', 'BookmarkNext', 'BookmarkPrev']
 #hook_add = 'runtime add/bookmarks.vim'
 #[[plugins]]
-#repo = 'jacquesbh/vim-showmarks'{{{
+#repo = 'jacquesbh/vim-showmarks'
 #on_map = ['m','`',"'",'<space>']
 #hook_add = 'runtime add/showmarks.vim'
