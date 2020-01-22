@@ -53,10 +53,8 @@ alias cm cmd com
 
 snippet hook_done_update
 alias du up
-  hook_done_update = '''
-  ${1:exe 'e' g:dein_github_dir .'/`substitute(matchstr(getline(search('repo =', 'bnW')), "'.*'"), "'", '', 'g')`}/${2:plugin/}${4:`substitute(substitute(matchstr(getline(search('repo =', 'bnW')), "'.*'"), "'", '', 'g'), '.*/', '', '')`.vim}'
-  write
-  '''
+  hook_done_update = 'UpdateRemotePlugins'
+
 snippet exe
 alias e
   ${1:exe 'e' g:dein_github_dir .'/`substitute(matchstr(getline(search('repo =', 'bnW')), "'.*'"), "'", '', 'g')`}/${2:plugin/}${4:`substitute(substitute(matchstr(getline(search('repo =', 'bnW')), "'.*'"), "'", '', 'g'), '.*/', '', '')`.vim}'
