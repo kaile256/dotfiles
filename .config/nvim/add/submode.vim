@@ -7,14 +7,14 @@ let g:submode_keep_leaving_key = 1
 
 function! s:undojoiner(char, ...) abort "{{{1
   let rhs = a:0 > 0 ? a:1 : a:char
-  "call submode#enter_with('undojoiner_'. a:char, 'n', 's', a:char, rhs)
-  "call submode#map('undojoiner_'. a:char, 'n', 's', a:char, ':undojoin <bar> norm! '. rhs .'<cr>')
+  call submode#enter_with('undojoiner_'. a:char, 'n', 's', a:char, rhs)
+  call submode#map('undojoiner_'. a:char, 'n', 's', a:char, ':undojoin <bar> norm! '. rhs .'<cr>')
 
-  call submode#wrapper('undojoiner_'. a:char, 'n', 's', a:char,
-        \ rhs, {
-        \ a:char : ':undojoin <bar> norm! '. rhs .'<cr>',
-        \ '.'    : ':undojoin <bar> norm! '. rhs .'<cr>',
-        \ })
+  "call submode#wrapper('undojoiner_'. a:char, 'n', 's', a:char,
+  "      \ rhs, {
+  "      \ a:char : ':undojoin <bar> norm! '. rhs .'<cr>',
+  "      \ '.'    : ':undojoin <bar> norm! '. rhs .'<cr>',
+  "      \ })
 endfunction
 
 nnoremap <silent> <c-x>
