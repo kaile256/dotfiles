@@ -1,5 +1,5 @@
 scriptencoding utf-8
-" From: finder.toml
+" From: filefinder.toml
 " Repo: Shougo/defx.nvim
 " Another: post/defx.vim
 " Ref: /usr/share/nvim/runtime/autoload/netrw.vim
