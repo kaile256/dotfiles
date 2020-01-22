@@ -52,7 +52,7 @@ alias cm cmd com
   on_cmd =  ['`substitute(substitute(substitute(matchstr(getline(search('repo =', 'bnW')), "'.*'"), "'", '', 'g'), '.*/', '', ''), '\.vim\|vim-', '', 'g')`${0}']
 
 snippet hook_done_update
-alias du
+alias du up
   hook_done_update = '''
   ${1:exe 'e' g:dein_github_dir .'/`substitute(matchstr(getline(search('repo =', 'bnW')), "'.*'"), "'", '', 'g')`}/${2:plugin/}${4:`substitute(substitute(matchstr(getline(search('repo =', 'bnW')), "'.*'"), "'", '', 'g'), '.*/', '', '')`.vim}'
   write
