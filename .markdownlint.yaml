@@ -1,0 +1,6 @@
+default: true
+
+line_length: false
+
+blanks-around-headers:
+    lines_above: 0
