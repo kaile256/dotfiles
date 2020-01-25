@@ -5,7 +5,7 @@
 let g:quickrun_no_default_key_mappings = 1
 
 let g:quickrun_config = {
-      \ 'runner': 'vimproc',
+      \ 'runner': 'remote',
       \ 'runner/vimproc/updatetime': 100,
       \ 'outputter': 'loclist',
       \ 'outputter/buffer/append': 1,
@@ -16,7 +16,8 @@ let g:quickrun_config = {
 
 let g:quickrun_config['markdown'] = {
       \ 'type': 'markdown/pandoc',
-      \ 'outputter/browser/name': 'qutebrowser'
+      \ 'outputter': 'browser',
+      \ 'outputter/browser/name': 'qutebrowser',
       \ }
 
 let g:quickrun_config['vim'] = {

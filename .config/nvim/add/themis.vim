@@ -1,2 +1,2 @@
 " From: vimscript.toml
-" Repo: rhysd/vim-themis
+" Repo: thinca/vim-themis

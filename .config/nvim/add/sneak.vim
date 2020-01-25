@@ -5,7 +5,7 @@
 " Another: post/sneak.vim
 
 let g:sneak#no_default_mapping = 1
-let g:sneak#prompt = 'Sneak: 4 chars >>> '
+let g:sneak#prompt = 'Sneak: {n} chars >>> '
 let g:sneak#no_prompt = 1
 
 " use 'ignorecase' & 'smartcase'
@@ -70,21 +70,21 @@ onoremap <expr><silent> T (v:operator ==# 'd')?
       \ ":call sneak#users('T', 'never')<cr>":
       \ ":call sneak#users('T')<cr>"
 
-augroup SneakBuffers "{{{1
-  au! FileType * if &ro | call s:sneak_readonly_keymaps() | endif "{{{2
-  function! s:sneak_readonly_keymaps() abort
-    nnoremap <buffer><silent> f :call sneak#users('f2p')<cr>
-    nnoremap <buffer><silent> t :call sneak#users('t2p')<cr>
-    nnoremap <buffer><silent> F :call sneak#users('F2p')<cr>
-    nnoremap <buffer><silent> T :call sneak#users('T2p')<cr>
-
-    xnoremap <buffer><silent> f :call sneak#users('f2pv')<cr>
-    xnoremap <buffer><silent> t :call sneak#users('t2pv')<cr>
-    xnoremap <buffer><silent> F :call sneak#users('F2pv')<cr>
-    xnoremap <buffer><silent> T :call sneak#users('T2pv')<cr>
-  endfunction
-  "}}}2
-augroup END
+"augroup SneakBuffers "{{{1
+"  au! FileType * if &ft ==# 'help' | call s:sneak_readonly_keymaps() | endif "{{{2
+"  function! s:sneak_readonly_keymaps() abort
+"    nnoremap <buffer><silent> f :call sneak#users('f2p')<cr>
+"    nnoremap <buffer><silent> t :call sneak#users('t2p')<cr>
+"    nnoremap <buffer><silent> F :call sneak#users('F2p')<cr>
+"    nnoremap <buffer><silent> T :call sneak#users('T2p')<cr>
+"
+"    xnoremap <buffer><silent> f :call sneak#users('f2pv')<cr>
+"    xnoremap <buffer><silent> t :call sneak#users('t2pv')<cr>
+"    xnoremap <buffer><silent> F :call sneak#users('F2pv')<cr>
+"    xnoremap <buffer><silent> T :call sneak#users('T2pv')<cr>
+"  endfunction
+"  "}}}2
+"augroup END
 
 finish "{{{1
 

@@ -25,7 +25,7 @@ call extend(g:keymapsDL#cmd_after#cd_path_dict, {
       \ 'n': '%:p:h',
       \ '.': '.',
       \ '': '%:p:h',
-      \ 'm': g:my_memo_root,
+      \ 'm': $MYMEMO,
       \ })
 
 let g:keymapsDL#cmd_after#split_dict = {
