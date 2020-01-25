@@ -19,10 +19,7 @@ augroup myFileTypeAdjustment "{{{1
   " Note: `:setfiletype` cannot override filetype;
   "   no consideration to use it instead
   au!
-  au BufNewFile,BufRead *.dict     setl ft=skkdict
   au BufNewFile,BufRead .vmailrc   setl ft=yaml
-
-  au BufNewFile,BufRead *.snip,*.snippets setl ft=neosnippet
 
   au BufWinEnter .*
         \ if &ft ==# ''
