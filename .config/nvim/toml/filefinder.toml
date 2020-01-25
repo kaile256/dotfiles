@@ -48,9 +48,12 @@ hook_source = 'runtime source/fzf-session.vim'
 #on_cmd = ['Tree']
 [[plugins]] # has extentions
 repo = 'Shougo/defx.nvim'
+hook_done_update = 'UpdateRemotePlugins'
+#rev = '1.0'
 on_cmd = 'Defx'
 hook_add = 'runtime add/defx.vim'
 hook_post_source = 'runtime post/defx.vim'
+
 [[plugins]]
 repo = 'kristijanhusak/defx-git'
 on_source = 'defx.nvim'
