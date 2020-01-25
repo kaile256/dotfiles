@@ -1,6 +1,7 @@
 # From: fish/config.fish
 # Ref: bash/alias.sh
 
+alias make 'make --jobs 8'
 alias tmux 'tmux -2'
 
 alias l 'ls -Alh'
@@ -13,6 +14,9 @@ alias ech 'echo'
 alias cd.. 'cd ..'
 alias cd. 'cd ..'
 alias cd-  'cd -'
+
+# cause an error
+#alias cd/  'cd /'
 
 #alias -  'cd -'
 alias ...  'cd ../..'
@@ -28,6 +32,9 @@ alias rwatch 'cd ~/rustlings && rustlings watch'
 
 # Screenkey
 alias screenkey-below-for-left-window 'screenkey -g 950x1000 -t 0.5 &'
+
+# -s: silence 'no server found' message, still causes an error in terminal
+alias nvr 'nvr -s'
 
 # Fzf
 # Note: fzf --bind to execute(cd {}) doesn't work; use 'accept' instead
