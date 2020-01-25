@@ -1,5 +1,6 @@
 " From: tool.toml
 " Repo: kana/vim-submode
+" Another: add/submode.vim
 
 function! submode#wrapper(submode, modes, options, lhs, ...) "{{{1
   let dict = a:1
