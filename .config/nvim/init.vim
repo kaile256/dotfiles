@@ -1,7 +1,8 @@
 set encoding=utf-8
 scriptencoding utf-8
 "set termencoding=utf-8
-set fileencodings=ucs-bom,utf-8,euc-jp,sjis,default,latin1
+" sjis: Shift-JIS
+set fileencodings=ucs-bom,utf-8,euc-jp,sjis,cp932,default,latin1
 
 " or strftime() returns in Japanese like 1月 23
 language time en_US.UTF-8
