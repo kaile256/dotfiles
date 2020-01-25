@@ -63,6 +63,7 @@ hook_source = 'runtime source/foldpeek.vim'
 
 [[plugins]]
 repo = 'kaile256/vim-yaml-fold'
+on_func =  ['yamlfold#activate']
 on_ft = [
   'sh',
   'zsh',
