@@ -2,7 +2,24 @@
 
 set -Cue
 
+# All themes set in `lxappearance`
 PACKAGEs=(
+  nerd-fonts-dejavu-complete
+  apvlv # a pdf view of vi-binding
+  #inkscape # an image editor, like gimp and pinta
+  nethogs # show network processes like `top` for cpu usage
+  mosh # Mobile Shell, an alternative of ssh; survive disconnects
+  lxappearance-gtk3 # GTK+ theme switcher of LXDE (GTK+ 3 version)
+  bibata-cursor-theme
+  adapta-maia-theme
+  papirus-icon-theme
+  papirus-maia-icon-theme
+  nitrogen # a browser of wallpaper
+  picom # an X compositor, an enhanced fork of compton
+  dunst # a notification-tool, notify-send
+  #i3-wm-iconpatch # crashes too often
+  #i3-scrot # screenshot on i3wm
+  i3lock
   udiskie # a wrapper of udisk2 to mount automatically
   #uzbl # a browser w/ vim-like keybinds. The development ends.
   #doas # an alternative to sudo(1); a port of OpenBSD or try opendoas from 'community'
@@ -76,7 +93,7 @@ PACKAGEs=(
   multibootusb # to create live usb
   neovim-nightly
   neovim-qt-git # non-git ver. has a bug, missing its depending lib.
-  nerd-fonts-complete
+  #nerd-fonts-complete
   #nerd-fonts-ricty # unavailable
   brew-git # a pkgm for macOS (or Linux)
   ninja # a build system for clang
@@ -95,7 +112,7 @@ PACKAGEs=(
   rclone  # sync lib for cloud-service like dropbox, Gdrive.
   ripgrep
   ruby
-  rxvt-unicode-truecolor
+  #rxvt-unicode-truecolor # broken; instead, use https://github.com/illef/rxvt-unicode-truecolor-illef: installed in THE OTHERS
   screenkey-git # display typed-key; useful w/ peek
   shellcheck  # a linter for shell
   task # taskwarrior
@@ -120,29 +137,28 @@ PACKAGEs=(
   skktools
 )
 
-Remove=(
-  manjaro-hello
-)
-
 PIP3s=(
-  requests # for Uehara25/WeblioSearcher
-  beautifulsoup4
-  readability # for readability on Qutebrowser
-  document # for readability on Qutebrowser
-  togglCli # AuHau/toggl-cli
   #falcon  # Solve fcitx problem on Qt
+  #matplotlib # for hyiltiz/vim-plugins-profile though optional
+  #msgpack # for neovim-qt
+  #notedown # for szymonmaszke/vimpyter #jupyter
+  #oauth2client
+  beautifulsoup4
+  document # for readability on Qutebrowser
   jupyter # for neural network especially for python
   jupytext # for goerz/jupytext.vim #jupyter
-  tldextract # for an userscript on qutebrowser, qute-bitwarden
-  #matplotlib # for hyiltiz/vim-plugins-profile though optional
-  pocket-api  # for an userscript on qutebrowser, qute-pocket
-  #notedown # for szymonmaszke/vimpyter #jupyter
-  #msgpack # for neovim-qt
-  #oauth2client
+  lizard # detect cyclomatic complexity
+  neovim
+  neovim-remote
   pfp # hex editor tool, which is used by vim-pfp
   pipenv
+  pocket-api  # for an userscript on qutebrowser, qute-pocket
+  pynvim
+  readability # for readability on Qutebrowser
+  requests # for Uehara25/WeblioSearcher
   tasklib # py-lib for taskwarrior
-  lizard # detect cyclomatic complexity
+  tldextract # for an userscript on qutebrowser, qute-bitwarden
+  togglCli # AuHau/toggl-cli
 )
 
 GEMs=(
@@ -151,7 +167,6 @@ GEMs=(
   binman # to build man page
 )
 
-# Yarn
 YARNs=(
   yaml-language-server
   diagnostic-languageserver
@@ -186,6 +201,20 @@ DASHTs=(
 GHQs=(
   sachaos/toggl
 )
+
+REMOVEs=(
+  manjaro-hello
+  i3blocks
+  i3blocks-contrib
+)
+
+INITPATH=$(pwd)
+cd "$HOME"
+# REMOVE UNNECESSARY {{{1
+
+for p in "${REMOVEs[@]}"; do
+  yay -Rs "$p"
+done
 
 # INSTALL PACKAGES {{{1
 INSTALLERs=(
@@ -238,43 +267,51 @@ done
 cd ~ || exit
 
 # INSTALL OTHER PACKAGES {{{1
-curl --compressed -o- -L https://yarnpkg.com/install.sh | bash
+#echo "Updating npm..."
+#sudo npm install -g npm
 
-# Ref: https://www.rust-lang.org/tools/install
-curl https://sh.rustup.rs -sSf | sh
-rustup install nightly
-rustup default nightly
-
+if type yarn; then
+  yarn global add yarn
+else
+  echo 'Installing yarn...'
+  curl --compressed -o- -L https://yarnpkg.com/install.sh | bash
+fi
 for p in "${YARNs[@]}"; do
-  type yarn || echo 'You have no executable yarn'
   yarn global add "$p"
 done
 
-for p in "${PIP3s[@]}"; do
-  type pip3 && pip="pip3" || type pip && pip="pip" \
-    || echo 'You have no executable yarn'
-      $pip install --user "$p"
-    done
+if type pip3 && pip="pip3" || type pip && pip="pip" ; then
+  $pip install $pip
+  for p in "${PIP3s[@]}"; do
+    $pip install --user "$p"
+  done
+fi
 
-    for p in "${GEMs[@]}"; do
-      gem install "$p"
-    done
+for p in "${GEMs[@]}"; do
+  gem install "$p"
+done
 
-    for p in "${RUSTUPs[@]}"; do
-      rustup component add "$p"
-    done
+if type rustup ; then
+  # Ref: https://www.rust-lang.org/tools/install
+  curl https://sh.rustup.rs -sSf | sh
+  rustup install nightly
+  rustup default nightly
+fi
+for p in "${RUSTUPs[@]}"; do
+  rustup component add "$p"
+done
 
-    for p in "${LUAROCKs[@]}"; do
-      luarocks install --local "$p"
-    done
+for p in "${LUAROCKs[@]}"; do
+  luarocks install --local "$p"
+done
 
-    for doc in "${DASHTs[@]}"; do
-      dasht-docsets-install "$doc"
-    done
+for doc in "${DASHTs[@]}"; do
+  dasht-docsets-install "$doc"
+done
 
-    for p in "${GHQs[@]}"; do
-      ghq get "$p"
-    done
+for p in "${GHQs[@]}"; do
+  ghq get "$p"
+done
 
 # doom-emacs: one of emacsen's config files for vimmer.
 git clone https://github.com/hlissner/doom-emacs ~/.emacs.d
@@ -292,11 +329,20 @@ git clone https://github.com/hlissner/doom-emacs ~/.emacs.d
 # for go-lsp, gopls
 GO111MODULE=on go get golang.org/x/tools/gopls@latest
 
+# THE OTHERS in GITHUB {{{1
 # Font: SFMonoSquare
 # Ref: https://github.com/delphinus/homebrew-sfmono-square
-sudo chown -R "$(whoami)" /opt/brew
-brew tap delphinus/sfmono-square
-brew install sfmono-square
+#sudo chown -R "$(whoami)" /opt/brew
+#brew tap delphinus/sfmono-square
+#brew install sfmono-square
+#open "$(brew --prefix sfmono-square)/share/fonts"
 
-open "$(brew --prefix sfmono-square)/share/fonts"
-# open fonts with Finder
+URXVT_PATCHED=rxvt-unicode-truecolor-illef
+URXVT_PATCHED_DIR=/tmp/$URXVT_PATCHED
+git clone -b master --depth 1 https://github.com/illef/$URXVT_PATCHED $URXVT_PATCHED_DIR
+cd $URXVT_PATCHED_DIR
+makepkg -si
+
+# END {{{1
+
+cd "$INITPATH"
