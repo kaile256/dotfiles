@@ -173,6 +173,7 @@ settings:
         <Ctrl++>: zoom-in
         <Ctrl+->: zoom-out
         <Ctrl+2>: save
+        <Ctrl+Enter>: fake-key <ctrl-enter>
         <Ctrl+Shift+n>: open -w
         <Ctrl+a>: enter-mode insert ;; fake-key <home>
         <Ctrl+c>: stop;; clear-keychain
@@ -325,6 +326,8 @@ settings:
     global: false
   content.notifications:
     https://www.reddit.com: false
+  content.pdfjs:
+    global: true
   content.plugins:
     global: true
   content.private_browsing:
@@ -335,8 +338,14 @@ settings:
     global: ~/Downloads
   downloads.location.remember:
     global: false
+  downloads.location.suggestion:
+    global: both
+  downloads.open_dispatcher:
+    global: ranger {}
   downloads.position:
     global: bottom
+  downloads.remove_finished:
+    global: 18000000
   editor.command:
     global:
     - nvim-qt
@@ -344,51 +353,55 @@ settings:
   editor.encoding:
     global: utf-8
   fonts.completion.category:
-    global: bold 12pt sf mono, Migu 1M, hack nerd font, icon
+    global: bold 12pt DejaVuSansMono Nerd Font, icons
   fonts.completion.entry:
-    global: 12pt sf mono, Migu 1M, hack nerd font, icon
+    global: 12pt DejaVuSansMono Nerd Font, icons
+  fonts.contextmenu:
+    global: null
   fonts.debug_console:
-    global: 12pt sf mono, migu 1m, hack nerd font, icon
+    global: 12pt DejaVuSansMono Nerd Font, icons
   fonts.downloads:
-    global: 12pt sf mono, migu 1m, hack nerd font, icon
+    global: 11pt DejaVuSansMono Nerd Font, icons
   fonts.hints:
-    global: bold 12pt sf mono, migu , hack nerd font, icon
+    global: bold 12pt DejaVuSansMono Nerd Font, icons
   fonts.keyhint:
-    global: 12pt sf mono, migu 1m, hack nerd font, icon
+    global: bold 12pt DejaVuSansMono Nerd Font, icons
   fonts.messages.error:
-    global: 12pt sf mono, migu 1m, hack nerd font, icon
+    global: 12pt DejaVuSansMono Nerd Font, icons
   fonts.messages.info:
-    global: 12pt sf mono, migu 1m, hack nerd font, icon
+    global: 12pt DejaVuSansMono Nerd Font, icons
   fonts.messages.warning:
-    global: 12pt sf mono, migu 1m, hack nerd font, icon
+    global: 12pt DejaVuSansMono Nerd Font, icons
   fonts.monospace:
     global: '"xos4 Terminus", Terminus, Monospace, "DejaVu Sans Mono", Monaco, "Bitstream
       Vera Sans Mono", "Andale Mono", "Courier New", Courier, "Liberation Mono", monospace,
       Fixed, Consolas, Terminal'
   fonts.prompts:
-    global: 12pt sf mono, migu 1m, hack nerd font, icon
+    global: bold 12pt DejaVuSansMono Nerd Font, icons
   fonts.statusbar:
-    global: 12pt sf mono, migu 1m, hack nerd font, icon
+    global: bold 12pt DejaVuSansMono Nerd Font, icons
   fonts.tabs:
-    global: 12pt sf mono, migu 1m, hack nerd font, icon
+    global: bold 12pt DejaVuSansMono Nerd Font, icons
   fonts.web.family.cursive:
-    global: sf mono, migu 1m, hack nerd font, icon
+    global: DejaVuSansMono Nerd Font, icons
   fonts.web.family.fantasy:
-    global: sf mono, migu 1m, hack nerd font, icon
+    global: DejaVuSansMono Nerd Font, icons
   fonts.web.family.fixed:
-    global: sf mono, migu 1m, hack nerd font, icon
+    global: DejaVuSansMono Nerd Font, icons
   fonts.web.family.sans_serif:
-    global: sf mono, migu 1m, hack nerd font, icons
+    global: DejaVuSansMono Nerd Font, icons
   fonts.web.family.serif:
-    global: SF Mono, migu 1m, hack nerd font, icons
+    global: DejaVuSansMono Nerd Font, icons
   fonts.web.family.standard:
-    global: sf mono, Hack Nerd Font, Migu 1m, icons
+    global: DejaVuSansMono Nerd Font, icons
   fonts.web.size.default:
     global: 15
   fonts.web.size.default_fixed:
-    global: 12
+    global: 14
   fonts.web.size.minimum:
     global: 9
+  hints.uppercase:
+    global: true
   input.insert_mode.auto_load:
     global: false
   input.insert_mode.plugins:
