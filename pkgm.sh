@@ -4,7 +4,8 @@ set -Cue
 
 # All themes set in `lxappearance`
 PACKAGEs=(
-  nerd-fonts-dejavu-complete
+  nerd-fonts-meslo # slightly thicker than dejavu. LG in the font-family name means Line-Gaps. DZ means Dotted-Zero(a dot in 0); without it, Slashed-Zero(a slash in 0)
+  #nerd-fonts-dejavu-complete
   apvlv # a pdf view of vi-binding
   #inkscape # an image editor, like gimp and pinta
   nethogs # show network processes like `top` for cpu usage
