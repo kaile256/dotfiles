@@ -17,7 +17,9 @@ set previewheight=28
 "set nomore
 
 set synmaxcol=320
-"set autochdir
+" 'autochdir': with it on, some plugins may not work
+set autochdir
+
 " Appearance {{{1
 " Set; Font {{{2
 set ambiwidth=double
