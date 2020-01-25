@@ -11,7 +11,9 @@
 [[plugins]]
 repo = 'Shougo/neosnippet.vim'
 # set the filetype in augroups.vim
-on_map = {nov = 'neosnippet#'}
+# it disturbs on 'n', of cource
+#on_map = {nov = 'neosnippet#'}
+on_func =  ['neosnippet#']
 on_path = ['*.snip', '*.snippets']
 hook_add = 'runtime add/neosnippet.vim'
 hook_source = 'runtime once/smaps.vim'
