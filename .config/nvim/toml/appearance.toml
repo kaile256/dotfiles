@@ -1,68 +1,60 @@
 # From: rc/dein.vim
 
-[[plugins]]
-repo = 'mg979/vim-xtabline' #{{{
-on_event = ['VimEnter']
-hook_add = 'runtime add/xtabline.vim'
-hook_source = 'runtime source/xtabline.vim'
-hook_done_update = '''
-exe 'e' g:dein_github_dir .'/mg979/vim-xtabline/autoload/xtabline/maps.vim'
-g/<Plug>(XT-Select-Buffer)/s/<unique>//e
-write
-'''
-#}}}
+#[[plugins]]
+#repo = 'mg979/vim-xtabline'
+# Note: use airline simply
+#on_event = ['VimEnter']
+#hook_add = 'runtime add/xtabline.vim'
+#hook_source = 'runtime source/xtabline.vim'
+#hook_done_update = '''
+#exe 'e' g:dein_github_dir .'/mg979/vim-xtabline/autoload/xtabline/maps.vim'
+#g/<Plug>(XT-Select-Buffer)/s/<unique>//e
+#write
+#'''
 
 # Icons
 [[plugins]]
-repo = 'ryanoasis/vim-devicons' #{{{
+repo = 'ryanoasis/vim-devicons'
 on_event = 'BufRead'
 hook_post_source = 'runtime add/devicons.vim'
-#}}}
 
 # Indent
 #[[plugins]]
-#repo = 'Yggdroot/indentLine' #{{{
+#repo = 'Yggdroot/indentLine'
 ## Note: Causes a bulk of problems
 #on_event = 'BufRead'
 #hook_add = 'runtime add/indentLine.vim'
-##}}}
 
 # Resonance
 [[plugins]]
-repo = 'itchyny/vim-cursorword' #{{{
+repo = 'itchyny/vim-cursorword'
 # Underlines appear on every word under the cursor.
 on_event = 'CursorMoved'
 # Error: no such Event CursorWord0
 #hook_add = 'let g:cursorword_highlight = 0'
 hook_post_source = 'runtime add/cursorword.vim'
-#}}}
 #[[plugins]]
-#repo = 't9md/vim-quickhl' #{{{
+#repo = 't9md/vim-quickhl'
 ## Note: buggy
 #on_map = {nx = '<Plug>(quickhl-'}
 #on_map = {nx = '<Plug>(operator-quickhl-'}
 #hook_add = 'runtime add/quickhl.vim'
-##}}}
 #[[plugins]]
-#repo = 'junegunn/rainbow_parentheses.vim' #{{{
+#repo = 'junegunn/rainbow_parentheses.vim'
 #on_event = 'BufWinEnter'
 #hook_post_source = 'runtime add/rainbow_parentheses.vim'
-##}}}
 #[[plugins]]
-#repo = 'luochen1990/rainbow' #{{{
+#repo = 'luochen1990/rainbow'
 ## CAUTION: source add/rainbow.vim AFTER :colorscheme.
 #on_event = 'BufReadPre'
-##}}}
 
 #[[plugins]]
-#repo = 'wellle/context.vim' #{{{
+#repo = 'wellle/context.vim'
 ## shows function/if/while and so on in a preview
 ## Note: too slow
 #on_event = ['BufWinEnter']
 #hook_source = 'runtime source/context.vim'
-##}}}
 #[[plugins]]
-#repo = 'junegunn/limelight.vim' #{{{
+#repo = 'junegunn/limelight.vim'
 #on_cmd = 'Limelight'
 #hook_add = 'runtime add/limelight.vim'
-##}}}
