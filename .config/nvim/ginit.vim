@@ -60,15 +60,19 @@ if exists('g:GuiLoaded')
   "GuiLinespace -2
   "GuiFont! NotoSansMono Nerd Font:h14
 
-  GuiLinespace 1
+  "GuiLinespace 1
   " SF Mono; San Francisco Mono
   " Note: &guifont also available
   " $ fc-list | rg Nerd | fzf
-  GuiFont! Migu 1M:h14
+  "GuiFont! DejaVuSansMono Nerd Font:h13
+  "GuiFont! Migu 1M:h14
   "GuiFont! Cica:h16 " weird for me
   " <bang> for Japanese, or other ambiwidth fonts
   "GuiFont! SF Mono:h12
   "GuiFont! Myrica M:h15
+
+  GuiFont! MesloLGS Nerd Font:h13
+  GuiLinespace -1
 endif
 
 if exists('gonvim_running') "{{{1
