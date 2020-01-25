@@ -23,8 +23,8 @@ scriptencoding utf-8
 
 " call defx#custom#foo() {{{1
 call defx#custom#option('_', 'drives', [
-\ expand('~/Downloads'), expand('~')
-\ ])
+      \ expand('~/Downloads'), expand('~')
+      \ ])
 
 call defx#custom#option('_', {
       \ 'columns': 'mark:indent:git:icons:filename',
@@ -269,7 +269,15 @@ function! s:defx_keymaps() abort "{{{1
         \ defx#do_action('clear_select_all')
   "" Mark; All
   nnoremap <silent><nowait><buffer><expr> ma
-        \ defx#async_action('multi', ['clear_select_all','toggle_select_all'])
+        \ defx#async_action('multi', ['clear_select_all', 'toggle_select_all'])
+  nnoremap <silent><nowait><buffer><expr> mgg
+        \ defx#async_action('clear_select_all').
+        \ 'vggj'.
+        \ defx#async_action('toggle_select_visual')
+  nnoremap <silent><nowait><buffer><expr> mG
+        \ defx#async_action('clear_select_all').
+        \ 'vG'.
+        \ defx#async_action('toggle_select_visual')
   "" Mark; Reverse selected conditions.
   nnoremap <silent><nowait><buffer><expr> mr
         \ defx#do_action('toggle_select_all')
