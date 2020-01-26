@@ -3,9 +3,11 @@
 !twm &
 !xclock -geometry 50x50-1+1 &
 
+Xcursor.theme: Bibata Oil
+
 !! Ref: http://malkalech.com/xresources_magic
 !#ifdef SRVR_alicia
-!#define  FONT       Hack Nerd Font
+!#define  FONT       MesloLGSDZ Nerd Font
 !#define  FONTW      Migu 1M
 !#define  FONT_SIZE  9
 !#elif defined SRVR_abigail_foo_bar_com
@@ -56,7 +58,7 @@ URxvt.saveLines:            3000
 URxvt.allow_bold: true
 URxvt.kanji_encoding: UTF-8
 
-URxvt.font: xft:SF Mono:size=13:antialias=true,xft:Icons:size=14:antialias=true,xft:Hack Nerd Font:size=14:antialias=true,Migu 1M:size=12:antialias=true
+URxvt.font: xft:Icons:size=14:antialias=true,xft:MesloLGSDZ Nerd Font:size=14:antialias=true,Migu 1M:size=12:antialias=true
 ! Note: letterSpace in negative nr. removes exagerated spaces; esp. for Japanese Fonts.
 URxvt.letterSpace:          -1
 !URxvt.lineSpace:            2  ! expand space between command-lines.
@@ -141,7 +143,7 @@ XTerm*utf8:      True
 XTerm*locale:    True
 XTerm*utf8Title: True
 
-XTerm*faceName: xft:Hack Nerd Font:size=14:antialias=true
+XTerm*faceName: xft:MesloLGS Nerd Font:size=14:antialias=true
 XTerm*faceNameDoublesize: xft:Migu 1M
 XTerm*faceSize: 14
 ! scaleHeight: the height between line and line
