@@ -1,4 +1,4 @@
-" From: extension.toml
+" From: default.toml
 " Repo: rickhowe/diffchar.vim
 
 " TODO: keep both DiffChange & DiffText from sometimes being overrided
@@ -22,4 +22,4 @@
 "augroup END
 
 let g:DiffColors = 1  " all available colors in dynamic random order
-let g:DiffExpr = 0
+let g:DiffExpr   = 0
