@@ -1,6 +1,6 @@
 # From: rc/dein.vim
 
-#[[[Repeat]]]
+#[ Repeat ]
 [[plugins]]
 repo = 'tpope/vim-repeat'
 # Note: has no help
@@ -11,14 +11,14 @@ repo = 'tpope/vim-repeat'
 #on_event = ['BufRead']
 hook_add = 'runtime add/repeat.vim'
 
-##[[[Register]]]
+##[ Register ]
 #[[plugins]]
 #repo = 'svermeulen/vim-easyclip'
 #on_event = 'BufWinEnter'
 #hook_add = 'runtime add/easyclip.vim'
 #hook_source = 'runtime source/easyclip.vim'
 
-#[[[Undo]]]
+#[ Undo ]
 [[plugins]]
 repo = 'simnalamburt/vim-mundo'
 on_cmd = 'Mundo'
@@ -39,7 +39,7 @@ hook_source = 'runtime source/mundo.vim'
 #on_map = 'Undotree'
 #hook_add = 'runtime add/undotree.vim'
 
-#[[[Diff]]]
+#[ Diff ]
 [[plugins]]
 repo = 'rickhowe/diffchar.vim'
 #on_cmd = ['DiffCharShow', 'DiffCharToggle']
