@@ -1,4 +1,5 @@
 " From: init.vim
+" Another: tmaps.vim
 
 "" Even as a startpage, startinsert {{{1
 "setl nonumber signcolumn= bufhidden=wipe
@@ -8,6 +9,9 @@
 if &bt ==# 'terminal'
   nnoremap <buffer> d <c-d>
   nnoremap <buffer> u <c-u>
+
+  nnoremap <buffer> D <c-f>
+  nnoremap <buffer> U <c-b>
 endif
 
 " As a startpage, not startinsert {{{1

@@ -1,4 +1,5 @@
 " From: init.vim
+" Another: terminal.vim
 
 "" TODO: more accurate pattern to ':' in ternminal
 "" Note: currently no use, why?
