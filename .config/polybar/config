@@ -2,12 +2,7 @@
 ; Source: $GHQ_ROOT/github.com/polybar/polybar/
 ; Sample: $GHQ_ROOT/github.com/polybar/polybar-scripts/
 
-[includes]
-include-file = ~/.config/polybar/commons.ini
-include-file = ~/.config/polybar/colors/adapta.ini
-
-;[[[bar]]]
-[include]
+;[ Bar ]
 ;; Logs: /tmp/polybar-top.log
 ;include-file = ~/.config/polybar/bar/top.ini
 
@@ -18,15 +13,18 @@ include-file  = ~/.config/polybar/bar/main.ini
 ;include-file = ~/.config/polybar/bar/bottom.ini
 
 modules-center = github i3-workspaces
-modules-left   = linuxmenu search-icon calendar bluetooth-stat pkg-check xkeyboard i3-mode
-modules-right  = volume-alsa cpu-graph ram-percent wlan xbacklight battery
+modules-left   = calendar battery bluetooth-stat xkeyboard i3-mode
+modules-right  = volume-alsa cpu-graph ram-percent wlan xbacklight
 
-[include]
-#[modules.config]
+;[ Common ]
+include-file = ~/.config/polybar/commons.ini
+include-file = ~/.config/polybar/colors/adapta.ini
+
+#[ Modules ]
 include-file = ~/.config/polybar/module/workspace/i3.ini
 
 include-file = ~/.config/polybar/module/widgets.ini
-include-file = ~/.config/polybar/module/icons.ini
+;include-file = ~/.config/polybar/module/icons.ini
 include-file = ~/.config/polybar/module/notifications.ini
 ;include-file = ~/.config/polybar/module/url.ini
 
