@@ -4,13 +4,18 @@
 
 # Variables {{{1
 # NOTE: seems no case-sensitive in variable
+
 # Var; Font {{{2
 # Note: do NOT insert size-number before commas
 #   because the following fonts will be ignored;
 #   thus, write different-sized fonts in another line
 # Ref: https://wiki.archlinux.jp/index.php/I3
-font pango:Icons 14
-font pango:SF Mono, Hack Nerd Font, DejaVu Sans Mono 11
+#font pango:Migu 1M 11
+font pango:DejaVuSansMono Nerd Font 11
+#font pango:Icons 14
+# Note: some fonts such as MesloLGS, Hack causes a bug on in sequences of 'fi'
+#font pango:Hack Nerd Font, DejaVu Sans Mono 11
+#font pango:SF Mono Square 14
 
 # Var; Keyname {{{2
 set $Super  Mod4
@@ -152,7 +157,6 @@ $always xset -dpms
 # xset -s(Screen saver)
 $always xset s off
 
-# Wallpaper
 # xrandr: control monitor
 $always $MYSCRIPTS/monitor-try.sh
 # xautolock: a timer to lock screen of PC
@@ -164,7 +168,7 @@ $noid xss-lock -- $locker
 #$noid xautolock -time 5 -locker $locker
 
 # nitrogen: a wallpaper manager
-# picom: a enhanced fork of compton
+# picom: an enhanced fork of compton
 #   -b: activate on background
 $noid nitrogen --restore; sleep 1; picom -b
 ## TODO: i3-cheat sheet on desktop.
@@ -177,9 +181,13 @@ $noid nitrogen --restore; sleep 1; picom -b
 # necessary?
 $noid sudo tlp start
 
-$noid alsactl daemon
+# udiskie, a wrapper for udisk2
+$noid udiskie --automount --notify &
+
 # pulseaudio: deamon to control via keyboard.
-$noid pulseaudio -k; sleep 1; pulseaudio --start
+$always pulseaudio --kill; sleep 2; pulseaudio --start
+
+$noid alsactl daemon
 # pa-applet (pulseaudio):
 #$noid pa-applet
 #$noid volumeicon
@@ -513,15 +521,18 @@ set $volume exec --no-startup-id pacmd set-sink-mute @DEFAULT_SINK@ false && pac
 
 mode $Sound {
 #bindsym M $mute_toggle; $alert 'Sound: mute/unmute'
-bindsym M $mute; $alert 'Sound: Mute'
+# Mnemonic: Silence
+bindsym S $mute; $alert 'Sound: Mute'
 # Mnemonic: Quiet
 bindsym Q $mute; $alert 'Sound: Mute'
 
-bindsym H       $volume 100; $notify 'Sound: 100'
-bindsym Shift+H $volume 100; $notify 'Sound: 100'
-bindsym Shift+M $volume 50;  $notify 'Sound: 50'
-bindsym Shift+L $volume 0;   $notify 'Sound: 0'
-bindsym L       $volume 0;   $notify 'Sound: 0'
+# Note: it is weird thatset to 50% will set to 72%
+bindsym H $volume 100%; $notify 'Sound: 100'
+bindsym M $volume 30%;  $notify 'Sound: 50'
+bindsym L $volume 0%;   $notify 'Sound: 0'
+bindsym Shift+H $volume 100%; $notify 'Sound: 100'
+bindsym Shift+M $volume 30%;  $notify 'Sound: 50'
+bindsym Shift+L $volume 0%;   $notify 'Sound: 0'
 
 bindsym K $volume +1%;  $notify 'Sound: +1%'
 bindsym J $volume -1%;  $notify 'Sound: -1%'
