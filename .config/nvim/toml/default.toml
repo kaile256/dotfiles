@@ -42,7 +42,7 @@ hook_source = 'runtime source/mundo.vim'
 #[[[Diff]]]
 [[plugins]]
 repo = 'rickhowe/diffchar.vim'
-on_cmd = ['DiffCharShow', 'DiffCharToggle']
+#on_cmd = ['DiffCharShow', 'DiffCharToggle']
 on_if = '&diff'
 hook_source = 'runtime add/diffchar.vim'
 hook_done_update = '''
