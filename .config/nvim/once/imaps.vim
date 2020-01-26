@@ -41,7 +41,7 @@ inoremap <silent> <a-~> <esc>:call feedkeys('~')<cr>
 " <a-ai> could be just <left>/<right>, but I prefer <esc> before.
 inoremap <a-O> <esc>O
 inoremap <a-o> <esc>o
-inoremap <a-I> <c-g>U<Home>
+inoremap <a-I> <c-g>U<esc>I
 inoremap <a-A> <c-g>U<End>
 inoremap <a-a> <c-g>U<Right>
 inoremap <a-i> <c-g>U<Left>
