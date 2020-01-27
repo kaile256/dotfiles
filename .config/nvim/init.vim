@@ -1,6 +1,10 @@
 set encoding=utf-8
 scriptencoding utf-8
-"set termencoding=utf-8
+
+if exists('+termencoding')
+  let &termencoding = &encoding
+endif
+
 " sjis: Shift-JIS
 set fileencodings=ucs-bom,utf-8,euc-jp,sjis,cp932,default,latin1
 
