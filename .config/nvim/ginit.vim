@@ -28,13 +28,12 @@
 "endfor
 "unlet s:path
 "
-" Font for gvim {{{1
+"" Font for gvim {{{1
 "if has('unix')
-"" Note: when 'guifontset' is not empty, it replaces 'guifont'.
+"  " Note: when 'guifontset' is not empty, it replaces 'guifont'.
 "  try
-"    set guifontwide=NotoMono\ Nerd\ Font:h15
-"    set guifontset=SF\ Mono:h15
-"    set printfont=SF\ Mono:h12
+"    set guifontset=DejaVuSansMono\ Nerd\ Font:h12
+"    set printfont=DejaVuSansMono\ Nerd\ Font:h12
 "    "set linespace=0
 "  catch
 "    set guifontset=Monospace:h12
@@ -49,7 +48,7 @@
 "    set printfont=Monospace\ 12
 "  endtry
 "endif
-
+"
 " if nvim-qt {{{1
 if exists('g:GuiLoaded')
 
