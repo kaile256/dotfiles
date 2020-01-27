@@ -2,6 +2,8 @@
 
 # Ref: https://wiki.archlinux.org/index.php/Fzf
 
+set -Cue
+
 install() {
   if type pacman >/dev/null; then
     if type yay >/dev/null; then
@@ -27,6 +29,8 @@ remove() {
     $MANAGER -Qeq | fzf --multi --preview-window right:65% --preview "$MANAGER -Qi {1}" | xargs -ro "$REMOVER" -Rs
   fi
 }
+
+set +u
 
 case "$1" in
   remove)
