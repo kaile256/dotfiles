@@ -71,7 +71,7 @@ let s:dein_toml_lazy = [
       \ 'easymotion.toml',
       \ 'extension.toml',
       \ 'external.toml',
-      \ 'filefinder.toml',
+      \ 'browse.toml',
       \ 'fold.toml',
       \ 'ftplugin.toml',
       \ 'fugitive.toml',
