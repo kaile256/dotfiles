@@ -16,14 +16,18 @@ function! s:send_to_cmdline(delete) abort range "{{{
     return
   endif
 
-  exe getline('.')
+  let line = getline('.')
+  echo line
+  exe line
   if a:delete ==# 'delete' | delete _ | endif
 endfunction "}}}
 
 " TODO: I prefer to use <c-o> in insert-mode.
 " CAUTION: d:/y: disturbs expected behavior on visualmode
-noremap <silent> g: :call <SID>send_to_cmdline('delete')<cr>
-noremap <silent> z: :call <SID>send_to_cmdline('keep')<cr>
+nnoremap <silent> g: :<c-u>call <SID>send_to_cmdline('delete')<cr>
+nnoremap <silent> z: :<c-u>call <SID>send_to_cmdline('keep')<cr>
+xnoremap <silent> g: :call <SID>send_to_cmdline('delete')<cr>
+xnoremap <silent> z: :call <SID>send_to_cmdline('keep')<cr>
 
 function! s:fold_up_vimscript() abort "{{{
   if &readonly && !&modifiable | return | endif
