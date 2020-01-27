@@ -39,8 +39,9 @@ smap <expr><silent> <c-\>
       \ ? "\<Plug>(neosnippet_expand_or_jump)"
       \ : "<c-o>:<c-u>echo 'no snippet!'<cr>"
 
-" Note: <space> would expand unintentionally like '" ' or '{ ' for fold, '"{{{'
-"imap <silent><expr> <space>
+"" Note: <TAB>/<space> would expand unintentionally
+"   e.g., '" ' or '{ ' for fold, '"{{{'
+"imap <silent><expr> <c-i>
 "      \ neosnippet#expandable_or_jumpable()
 "      \ ? "\<Plug>(neosnippet_expand_or_jump)"
-"      \ : '<space>'
+"      \ : "\<c-i>"
