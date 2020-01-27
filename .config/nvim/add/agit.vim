@@ -1,11 +1,11 @@
-" From: external.toml
+" From: git.toml
 " Repo: cohama/agit.vim
 
 let g:agit_no_default_mappings = 0
 
-command! Glog       :Agit
-command! GlogGlobal :Agit
-command! GlogLocal  :AgitFile
+command! -bar Glog       :Agit
+command! -bar GlogGlobal :Agit
+command! -bar GlogLocal  :AgitFile
 
 nnoremap <silent> g<a-u> :<c-u>GlocalLog<cr>
 
