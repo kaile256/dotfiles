@@ -1,4 +1,4 @@
-" From: finder.toml
+" From: browse.toml
 " Repo: junegunn/fzf.vim
 " Fork: kaile256/fzf.vim
 " Another: add/fzf.vim
@@ -63,10 +63,10 @@ let g:fzf_action = {
       \ 'alt-a': 'argadd',
       \ 'alt-o': 'badd',
       \ 'alt-q': function('s:list_in_quickfix'),
-      \ 'alt-s': 'split',
+      \ 'alt-s': 'bel split',
       \ 'alt-t': 'tab split',
       \ 'alt-p': 'vert bot pedit',
-      \ 'alt-v': 'vsplit',
+      \ 'alt-v': 'bot vsplit',
       \ 'alt-w': 'verbose',
       \ 'ctrl-z': "\<Nop>",
       \ }
@@ -107,8 +107,9 @@ augroup FzfMyAutoConf "{{{1
     nnoremap <buffer> <c-f> i<PageDown><c-\><c-n>
     nnoremap <buffer> <c-b> i<PageUp><c-\><c-n>
   endfunction "}}}
+  "au User FzfStatusLine call feedkeys('!.git !node_modules ')
   au User FzfStatusLine call s:fzf_buffer_keymaps()
-  au User FzfStatusLine call feedkeys('!.git !node_modules ')
+
   "au BufWinEnter * if &ft ==# 'fzf' | runtime once/terminal
   " CAUTION: WinLeave's current file is next file, i.e., fzf when opening fzf-buffer.
   " Note: 'bufhidden' is useless for fzf.
