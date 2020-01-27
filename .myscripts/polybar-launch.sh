@@ -3,7 +3,7 @@
 # Conf: polybar/config
 # i3: i3/config
 
-set -Cu
+set -Cue
 
 #if [[ $1 = "restart" ]]; then
 ## https://tonooo71.github.io/2018/06/180607_polybar_setting/
@@ -12,29 +12,58 @@ set -Cu
 #        sleep 0.1
 #fi
 
-# Terminate already running bar instances
-killall --quiet polybar
+__kill_polybar() {
+  # Terminate already running bar instances
+  killall --quiet polybar
 
-while pgrep -u $UID -x polybar >/dev/null; do sleep 1; done
+  while pgrep -u $UID -x polybar >>/dev/null; do sleep 0.01; done
+}
 
-LABEL=(
+BARNAME=(
   main   # /tmp/polybar-main.log
   top    # /tmp/polybar-top.log
   bottom # /tmp/polybar-bottom.log
 )
 
-for n in "${LABEL[@]}"; do
-  LOG="/tmp/polybar-${n}.log"
-  DATE=$(date '+%T')
-
-  echo "                          at $DATE Polybar Launching..." >> "$LOG" 2>&1
-
-  for m in $(polybar --list-monitors | cut -d':' -f1); do
-    # Ref: https://raw.githubusercontent.com/edbizarro/dotfiles/7e45d14887846c204b893d4cedb6af00f54887ad/i3/.i3/startup/polybar.sh
-    MONITOR=$m polybar --reload "$n" >> "$LOG" 2>&1 &
+__launch_only() {
+  for b in "${BARNAME[@]}"; do
+    for m in $(polybar --list-monitors | cut -d':' -f1); do
+      # Ref: https://raw.githubusercontent.com/edbizarro/dotfiles/7e45d14887846c204b893d4cedb6af00f54887ad/i3/.i3/startup/polybar.sh
+      MONITOR=$m polybar --reload "$b" &
+    done
   done
+}
 
-  echo '==================================== END' >> "$LOG"
-  echo >> "$LOG"
-done
+__launch_with_log() {
+  local LOG
+  local DATE
 
+  for b in "${BARNAME[@]}"; do
+    LOG="/tmp/polybar-${b}.log"
+    DATE=$(date '+%T')
+
+    echo "                          at $DATE Polybar Launching..." >> "$LOG" 2>&1
+
+    for m in $(polybar --list-monitors | cut -d':' -f1); do
+      # Ref: https://raw.githubusercontent.com/edbizarro/dotfiles/7e45d14887846c204b893d4cedb6af00f54887ad/i3/.i3/startup/polybar.sh
+      MONITOR=$m polybar --reload "$b" >> "$LOG" 2>&1 &
+    done
+
+    echo '==================================== END' >> "$LOG"
+    echo >> "$LOG"
+  done
+}
+
+set +u
+
+case "$1" in
+  --debug)
+    __kill_polybar
+    __launch_with_log
+    ;;
+
+  *)
+    __kill_polybar
+    __launch_only
+    ;;
+esac
