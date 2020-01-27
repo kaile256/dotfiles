@@ -1,9 +1,23 @@
 #!/usr/bin/env bash
 
-set -Cue
+set -Cue #{{{
+# C: prohibit to overwrite file on redirect;
+#   use '>|' instead of '>' to overwite a file with '-C'
+# u: stop if an undefined variable is set, or undefined var shall be regarded
+#   as null; otherwise, `var=foo && rm -fr ~/"$bar"` shall remove all under '~'.
+#   Be careful that $1 also stops the script with '-u'.
+# e: stop if error (non 0); add '&& true' to continue even when error with '-e'.
+#   DON'T set '-e' on files sourced from .profile/.bashrc;
+#   an error prevents to boot your system.
+#}}}
 
 # All themes set in `lxappearance`
 PACKAGEs=(
+  blugon # a blue light filter for X
+  #thinkfinger # fprint may be an better alternative. A driver for fingerprint reader on ThinkPad; seems no use on the model
+  #fprintd # no device found on thinkpad.
+  #fingerprint-gui # No device found on thinkpad
+  aide # Advanced Intrusion Detection Environment; checks file-integrity and detects intrusion
   nerd-fonts-meslo # slightly thicker than dejavu. LG in the font-family name means Line-Gaps. DZ means Dotted-Zero(a dot in 0); without it, Slashed-Zero(a slash in 0)
   #nerd-fonts-dejavu-complete
   apvlv # a pdf view of vi-binding
@@ -75,7 +89,7 @@ PACKAGEs=(
   cargo  # select rustup
   gufw  # a simple firewall
   ccls # Language-Server for C, C++, Object-C
-  clamav  # anti-virus for unix, must be a root-user
+  clamav  # a security service of anti-virus, works on systemctl. update the virus-definetions by `freshclam`, which can also run on systemctl
   clang
   clipgrab # a video downloader
   cmake
@@ -116,7 +130,8 @@ PACKAGEs=(
   #rxvt-unicode-truecolor # broken; instead, use https://github.com/illef/rxvt-unicode-truecolor-illef: installed in THE OTHERS
   screenkey-git # display typed-key; useful w/ peek
   shellcheck  # a linter for shell
-  task # taskwarrior
+  #task # taskwarrior
+  #vit # taskwarrior on TUI w/ vi-key bindings
   the_silver_searcher # ag
   tlp   # Save Battery of PC
   ttf-font-icons  # Mix Icon with Awesome & Ionicons without Confliction.
@@ -169,15 +184,16 @@ GEMs=(
 )
 
 YARNs=(
-  yaml-language-server
-  diagnostic-languageserver
-  graphql-language-server
-  vim-language-server
-  go-language-server
-  bash-language-server
+  #graphql-language-server # no longer supported
   #tslib
-  readability # for userscript on qutebrowser, readability
+  bash-language-server
+  diagnostic-languageserver
+  dockerfile-language-server-nodejs
+  go-language-server
   neovim
+  readability # for userscript on qutebrowser, readability
+  vim-language-server
+  yaml-language-server
 )
 
 RUSTUPs=(
