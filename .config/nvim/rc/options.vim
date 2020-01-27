@@ -256,21 +256,24 @@ if has('nvim')
   " -h: disable 'hlsearch' after loading the shada
   " -s:
   set shada='200,<50,h,s10,
+
+  augroup myAutoWriteShada
+    " Note: shada only saves the data on VimLeave so that
+    "       nothing won't be saved, when you start another process of neovim,
+    "       i.e., no data won't share with the running neovim process then.
+    au! InsertLeave * wshada
+    "au! FocusGained * rshada!
+  augroup END
+
+  "function! s:save_jumplists() abort
+  " TODO: should share jumplist on multiple neovim processes.
+  "  let l:shada_conf = execute('set shada')
+  "  set shada='100
+  "  wshada
+  "  set shada=expand(l:shada_conf)
+  "endfunction
+
 endif
-augroup AutoWriteShada
-  " Note: shada only saves the data on VimLeave so that
-  "       nothing won't be saved, when you start another process of neovim,
-  "       i.e., no data won't share with the running neovim process then.
-  au! InsertLeave * wshada
-  "au! FocusGained * rshada!
-augroup END
-"function! s:save_jumplists() abort
-" TODO: should share jumplist on multiple neovim processes.
-"  let l:shada_conf = execute('set shada')
-"  set shada='100
-"  wshada
-"  set shada=expand(l:shada_conf)
-"endfunction
 
 " Method; Session {{{2
 " terminal is regarded as an invalid argument
