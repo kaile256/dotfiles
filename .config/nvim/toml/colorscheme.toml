@@ -37,7 +37,7 @@ repo = 'vim-airline/vim-airline'
 on_event = 'VimEnter'
 # Uncompatible with nyaovim?
 # Better to be sourced earlier than colorschemes
-hook_source = 'runtime add/airline.vim'
+hook_source = 'runtime source/airline.vim'
 hook_post_source = 'set noshowmode noruler'
 hook_done_update = '''
 exe 'e' g:dein_github_dir .'/vim-airline/vim-airline/autoload/airline/extensions.vim'

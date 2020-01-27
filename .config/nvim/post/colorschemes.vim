@@ -1,4 +1,4 @@
-" From: appearance.toml
+" From: colorscheme.toml
 " Repo: flazz/vim-colorschemes
 
 "augroup AlertOnBuffer
