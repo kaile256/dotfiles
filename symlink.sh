@@ -20,6 +20,7 @@ LOCALs=(
 HOMEs=(
   .Xmodmap
   .Xresources
+  .Xresources.d
   .bashrc
   .ctags
   .doom.d
@@ -37,7 +38,9 @@ HOMEs=(
 )
 
 CONFIGs=(
+  X11
   bash
+  blugon
   fish
   lynx
   nvim
