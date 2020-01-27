@@ -10,6 +10,7 @@ type = 'git'
 on_event = 'BufRead'
 hook_add = 'runtime add/fugitive.vim'
 hook_source = 'runtime source/fugitive.vim'
+hook_post_source = 'command! -bar Glog :Agit'
 
 #[ Branch ]
 #[[plugins]]
@@ -47,23 +48,28 @@ write
 '''
 
 #[ Commit Log Viewer ]
-[[plugins]]
-repo = 'rbong/vim-flog'
-type = 'git'
-on_cmd = 'Flog'
-hook_post_source = 'runtime add/flog.vim'
-
-[[plugins]]
-repo = 'gregsexton/gitv'
-type = 'git'
-on_cmd = ['Gitv']
-
-[[plugins]]
-repo = 'junegunn/gv.vim'
-# ':GV!' for the current file; ':GV?' shows in location-list
-type = 'git'
-on_cmd = ['GV']
-
+#[[plugins]]
+#repo = 'gregsexton/gitv'
+## Use agit instead
+#type = 'git'
+#on_cmd = ['Gitv']
+#hook_source = 'runtime source/gitv.vim'
+#
+#[[plugins]]
+#repo = 'rbong/vim-flog'
+## Cons: unnecessary trailing spaces
+## Pros: as default, the date of update is written on top of lines
+#type = 'git'
+#on_cmd = 'Flog'
+#hook_post_source = 'runtime add/flog.vim'
+#
+#[[plugins]]
+#repo = 'junegunn/gv.vim'
+## Cons: no colors on tree of branches as default
+## ':GV!' for the current file; ':GV?' shows in location-list
+#type = 'git'
+#on_cmd = ['GV']
+#
 #[[plugins]]
 #repo = 'int3/vim-extradite'
 #type = 'git'
