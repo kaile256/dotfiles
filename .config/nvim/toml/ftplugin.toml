@@ -113,6 +113,12 @@ repo = 'lambdalisue/qfloc.vim'
 on_ft = ['qf', 'loc']
 hook_source = 'runtime source/qfloc.vim'
 
+#[[plugins]]
+#repo = 'infokiller/vim-errorlist'
+#on_cmd = ['errorlist#Navigate']
+#on_event = ['BufRead']
+#hook_source = 'runtime source/errorlist.vim'
+#
 #[ Android ]
 [[plugins]]
 repo = 'hsanson/vim-android'
