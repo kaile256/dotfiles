@@ -16,15 +16,14 @@ augroup UpdatePathToFind
   au FileType go      setl path^=/usr/lib/go
   au FileType python  setl path^=/usr/lib/python3.8
 
-
   au FileType dosini setl suffixesadd=.conf
   au FileType vim    setl isfname-==
 
   au BufNewFile,BufRead {*vim,dein}**/*        call s:path.vim()
   au BufNewFile,BufRead {.config,dotfiles}**/* call s:path.dotfiles()
 
-  exe 'au BufNewFile,BufRead' $GHQ_ROOT .'**/* call s:path.ghq()'
-  exe 'au BufNewFile,BufRead' $MYMEMO   .'**/* call s:path.memo()'
+  au BufNewFile,BufRead $GHQ_ROOT**/* call s:path.ghq()
+  au BufNewFile,BufRead $MYMEMO**/*   call s:path.memo()
 augroup END
 
 let s:path = {} "{{{1
@@ -62,7 +61,7 @@ endfunction
 
 function! s:path.memo() abort
   exe 'setl path+='. s:root($MYMEMO)
-  call s:path.dotfiles()
+  "call s:path.dotfiles()
 endfunction
 
 function! s:root(path) abort "{{{2
