@@ -39,7 +39,6 @@ let g:coc_global_extensions = [
       \ 'coc-git',
       \ 'coc-gitignore',
       \ 'coc-go',
-      \ 'coc-graphql',
       \ 'coc-homeassistant',
       \ 'coc-html',
       \ 'coc-java',
