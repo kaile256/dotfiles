@@ -6,11 +6,14 @@ scriptencoding utf-8
 " Ref: vimwiki_dev/ftplugin/vimwiki.vim @195
 " Another: post/foldpeek.vim
 
-augroup myFoldPeek
-  au! OptionSet *
+augroup myFoldPeekSource
+  au!
+  au OptionSet *
         \ if &fdt !=# 'foldpeek#text()'
         \ |  setl fdt=foldpeek#text()
         \ | endif
+
+  au FileType help let b:foldpeek_whiteout_patterns_fill = ['*']
 augroup END
 
 let g:foldpeek#skip_patterns = [
