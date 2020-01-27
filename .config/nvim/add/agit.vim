@@ -3,8 +3,9 @@
 
 let g:agit_no_default_mappings = 0
 
-command! GglobalLog :Agit
-command! GlocalLog  :AgitFile
+command! Glog       :Agit
+command! GlogGlobal :Agit
+command! GlogLocal  :AgitFile
 
 nnoremap <silent> g<a-u> :<c-u>GlocalLog<cr>
 
