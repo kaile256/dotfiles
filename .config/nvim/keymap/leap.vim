@@ -2,7 +2,7 @@ scriptencoding utf-8
 " From: init.vim
 
 " TODO: make it work anywhere
-nnoremap <silent> gX :call <SID>xdg_open()<cr>
+nnoremap <silent> gX :<c-u>call <SID>xdg_open()<cr>
 function! s:xdg_open() abort "{{{1
   let cfile = substitute(expand('<cfile>'), '.\+=/', '/', '')
   "silent exe '!xdg-open' cfile '&'
@@ -114,25 +114,4 @@ augroup END
 "xnoremap <silent><expr> <c-w>F exists('b:term_title') ? ':<c-u>call <SID>missing_find("tabe")<cr>' : '<c-w>gF'
 "nnoremap <silent><expr> gF     exists('b:term_title') ? ':<c-u>call <SID>missing_find("tabe")<cr>' : '<c-w>gF'
 "xnoremap <silent><expr> gF     exists('b:term_title') ? ':<c-u>call <SID>missing_find("tabe")<cr>' : '<c-w>gF'
-
-" Switch; Pane {{{1
-" leap between panes
-nnoremap <a-h> <c-w>h
-nnoremap <a-j> <c-w>j
-nnoremap <a-k> <c-w>k
-nnoremap <a-l> <c-w>l
-
-" avoid a stack on command-line
-cnoremap <a-k> <c-c>
-
-" Switch; Tab Page {{{1
-"" Move between Tabs
-nnoremap <c-h> gT
-nnoremap <c-l> gt
-nnoremap <a-]> gt
-nnoremap <a-[> gT
-inoremap <a-[> <esc>gT
-inoremap <a-]> <esc>gt
-tnoremap <a-]> <c-\><c-n>gt
-tnoremap <a-[> <c-\><c-n>gT
 

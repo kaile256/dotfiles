@@ -108,11 +108,32 @@ function! s:helpclose_all() abort
   endfor
 endfunction
 
+" Move in Window {{{1
+" leap between panes
+nnoremap <a-h> <c-w>h
+nnoremap <a-j> <c-w>j
+nnoremap <a-k> <c-w>k
+nnoremap <a-l> <c-w>l
+
+" avoid a stack on command-line
+cnoremap <a-k> <c-c>
+
+" Move in Tab Page {{{1
+"" Move between Tabs
+nnoremap <c-h> gT
+nnoremap <c-l> gt
+nnoremap <a-]> gt
+nnoremap <a-[> gT
+inoremap <a-[> <esc>gT
+inoremap <a-]> <esc>gt
+tnoremap <a-]> <c-\><c-n>gt
+tnoremap <a-[> <c-\><c-n>gT
+
 " Swap window {{{1
-nnoremap <c-w>h <c-w>H
-nnoremap <c-w>j <c-w>J
-nnoremap <c-w>k <c-w>K
-nnoremap <c-w>l <c-w>L
+nnoremap <a-H> <c-w>H
+nnoremap <a-J> <c-w>J
+nnoremap <a-K> <c-w>K
+nnoremap <a-L> <c-w>L
 
 " Resize window {{{1
 nnoremap <c-left> <c-w><
