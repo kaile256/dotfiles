@@ -75,7 +75,6 @@ let s:toml_pc_only = [
 
 let s:toml_lazy = [
       \ 'appearance.toml',
-      \ 'colorscheme.toml',
       \ 'debug.toml',
       \ 'default.toml',
       \ 'easymotion.toml',
