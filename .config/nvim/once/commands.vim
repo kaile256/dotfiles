@@ -63,8 +63,10 @@ if !exists('*s:source_buffer')
     " Note: :undojoin with :w prevents to :undo before :w
     "silent! undojoin
 
-    if filewritable('%:p')
-      write
+    let msg = 'nothing done'
+    if filewritable(expand('%:p'))
+      silent write
+      let msg = v:statusmsg
     endif
 
     if getline(1) =~# '^#!'
@@ -72,24 +74,35 @@ if !exists('*s:source_buffer')
       return
 
     elseif has_key(s:ft2cmd, &ft)
-      exe s:ft2cmd[&ft]
-      return
+      let l:val = s:ft2cmd[&ft]
+
+    else
+      for l:key in s:fname2cmd
+        if expand('%:p') =~# s:fname2cmd
+          let l:val = s:fname2cmd[l:key]
+          break
+        endif
+      endfor
+
+      echoerr msg
     endif
 
-    for l:key in s:fname2cmd
-      if expand('%:p') =~# s:fname2cmd
-        exe s:fname2cmd[l:key]
-        return
-      endif
-    endfor
+    if exists('l:val')
+      if type(l:val) == type([])
+        exe l:val[0]
+        echo msg '&' l:val[1]
 
-    echo v:statusmsg
+      else
+        exe l:val
+      endif
+    endif
+
   endfunction
 endif
 
 let s:ft2cmd = {
-      \ 'vim': 'so %:p | echomsg v:statusmsg "& sourced"',
-      \ 'html': 'silent OpenBrowser %:p | echomsg v:statusmsg "& open in browser',
+      \ 'vim': ['so %:p', 'sourced'],
+      \ 'html': ['silent OpenBrowser %:p', 'open in browser'],
       \ 'xmodmap': '!xmodmap %:p',
       \ 'xdefaults': '!xrdb %:p',
       \ 'i3': '!i3-msg restart &',
