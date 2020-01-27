@@ -18,22 +18,25 @@ nnoremap <silent> g<a-u> :<c-u>GlocalLog<cr>
 "augroup END
 
 function! s:agit_commands() abort
-  command! -buffer GbisectStart :AgitGit bisect start HEAD <hash> \%#
-  let agit_commands = {
-        \ 'rebase': 'AgitGitConfirm rebase',
+  command! -buffer -bar GbisectStart :AgitGit bisect start HEAD <hash> \%#
+
+  let agit_cmds = {
+        \ 'bisectBad':         'AgitGit bisect bad',
+        \ 'bisectGood':        'AgitGit bisect good',
+        \ 'bisectReset':       'AgitGit bisect reset',
+        \ 'rebase':            'AgitGitConfirm rebase',
         \ 'rebaseInteractive': 'AgitGitConfirm! rebase --interactive',
-        \ 'reset': 'AgitGitConfirm reset',
-        \ 'resetSoft': 'AgitGitConfirm reset --soft',
-        \ 'resetHard': 'AgitGitConfirm reset --hard',
-        \ 'bisectGood': 'AgitGit bisect good',
-        \ 'bisectBad': 'AgitGit bisect bad',
-        \ 'bisectReset': 'AgitGit bisect reset',
-        \ 'revert': 'AgitGit revertgood',
+        \ 'reset':             'AgitGitConfirm reset',
+        \ 'resetHard':         'AgitGitConfirm reset --hard',
+        \ 'resetSoft':         'AgitGitConfirm reset --soft',
+        \ 'revert':            'AgitGit revertgood',
         \ }
-  for cmd in keys(agit_commands)
-    exe 'command! -buffer G'. cmd ':'. agit_commands[cmd] '<hash>'
+
+  for cmd in keys(agit_cmds)
+    exe 'command! -buffer -bar Agit'. cmd ':'. agit_cmds[cmd] '<hash>'
   endfor
 endfunction
+
 " TODO: show diff w/ uncommited buffer.
 "       1. :AgitFile, setl winfixwidth
 "       2. open the uncommited buffer to the end
