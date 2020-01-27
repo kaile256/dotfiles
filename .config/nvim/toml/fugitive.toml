@@ -31,6 +31,8 @@ hook_source = 'runtime source/fugitive.vim'
 repo = 'sodapopcan/vim-twiggy'
 # CAUTION: useless if &shell=fish
 # Note: improperly save buffers.
+# Note: no features to browse commit history;
+#   gv.vim or gitv are recommended for the use
 type = 'git'
 on_cmd = 'Twiggy'
 hook_add = 'runtime add/twiggy.vim'
@@ -44,30 +46,23 @@ g/'dd/copy. | s/'dd/'D
 write
 '''
 
-#[ Commit-Message]
+#[ Commit Log Viewer ]
 [[plugins]]
-repo = 'rhysd/git-messenger.vim'
+repo = 'rbong/vim-flog'
 type = 'git'
-on_cmd = 'GitMessenger'
-hook_add = 'runtime add/git-messenger.vim'
-
-#[ Gbrowse ]
-[[plugins]]
-repo = 'tpope/vim-rhubarb'
-on_cmd = 'Gbrowse'
-hook_post_source = 'runtime add/rhubarb.vim'
+on_cmd = 'Flog'
+hook_post_source = 'runtime add/flog.vim'
 
 [[plugins]]
-repo = 'shumphrey/fugitive-gitlab.vim'
-on_cmd = 'Gbrowse'
-hook_post_source = 'runtime add/fugitive-gitlab.vim'
+repo = 'gregsexton/gitv'
+type = 'git'
+on_cmd = ['Gitv']
 
-#[ Log ]
-#[[plugins]]
-#repo = 'rbong/vim-flog'
-#type = 'git'
-#on_cmd = 'Flog'
-#hook_post_source = 'runtime add/flog.vim'
+[[plugins]]
+repo = 'junegunn/gv.vim'
+# ':GV!' for the current file; ':GV?' shows in location-list
+type = 'git'
+on_cmd = ['GV']
 
 #[[plugins]]
 #repo = 'int3/vim-extradite'
@@ -77,6 +72,26 @@ hook_post_source = 'runtime add/fugitive-gitlab.vim'
 ##on_cmd = 'Extradite'
 #on_event = 'BufRead'
 #hook_add = 'runtime add/extradite.vim'
+
+#[ Commit Message]
+[[plugins]]
+repo = 'rhysd/git-messenger.vim'
+type = 'git'
+on_cmd = 'GitMessenger'
+hook_add = 'runtime add/git-messenger.vim'
+
+#[ Hundlers to Gbrowse ]
+[[plugins]]
+repo = 'tpope/vim-rhubarb'
+# ':Gbrowse' for github.vom
+type = 'git'
+# Note: ':Gbrowse' will be overrided in plugin/ of vim-fugitive
+#on_cmd = ['Gbrowse']
+on_source = ['vim-fugitive']
+
+[[plugins]]
+repo = 'shumphrey/fugitive-gitlab.vim'
+on_source = ['vim-fugitive']
 
 #[ Diff Wrapper ]
 #[[plugins]]
