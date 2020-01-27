@@ -1,4 +1,4 @@
-" From: toml/external.toml
+" From: fugitive.toml
 
 function! Flogdiff(mods) abort
   let l:path = fnameescape(flog#get_state().path[0])
