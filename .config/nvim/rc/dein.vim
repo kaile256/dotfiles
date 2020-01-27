@@ -1,6 +1,8 @@
 " From: init.vim
 " Repo: Shougo/dein.vim
-" dummys: Shougo/dein.vim/autoload/dein/parse.vim @314
+
+" Note: you can see the function of dummys commands for lazy load on
+"   Shougo/dein.vim/autoload/dein/parse.vim @314
 
 " CmdAbbr; Call Function {{{1
 cnoreabbr <expr> du (getcmdtype() == ':' && getcmdline() =~ '^du$')? 'call dein#update()' : 'du'
@@ -22,12 +24,12 @@ if !has('nvim')
   if &compatible | set nocompatible | endif
 endif
 
-" Let; Path to the directory of dein's log {{{1
+" Path to the directory for dein's log {{{1
 let s:dein_data_dir = $XDG_DATA_HOME .'/dein/'
 let s:dein_log_file = s:dein_data_dir .'/dein_log.vim'
 let g:dein#install_log_filename = s:dein_log_file
 
-" Let; Path to the directory of dein's cache {{{1
+" Path to the directory for dein's cache {{{1
 let g:dein_cache_dir   = $XDG_CACHE_HOME    .'/dein/'
 let g:dein_github_dir  = g:dein_cache_dir   .'/repos/github.com/'
 let s:Shougo_cache_dir = g:dein_cache_dir   .'/repos/github.com/Shougo/'
@@ -39,14 +41,14 @@ if !isdirectory(s:dein_itself)
   exe '!git clone https://github.com/Shougo/dein.vim' shellescape(expand(s:dein_itself))
 endif
 
-" Let; Path for :find {{{1
+" Path for :find {{{1
 "let &path = &path . ',' . g:dein_cache_dir . '**'
 
-" Let; Path for :runtime {{{1
+" Path for :runtime {{{1
 "let &rtp .= ','. s:dein_itself
 exe 'set rtp +='. s:dein_itself
 
-" Let; Make git clone shallow {{{1
+" Make git clone shallow {{{1
 let g:dein#types#git#clone_depth = 1
 let g:dein#types#git#default_protocol = 'ssh'
 
@@ -54,16 +56,24 @@ let g:dein#install_progress_type      = 'tabline'
 if has('unix')
   let g:dein#enable_notification = 1
 endif
-"}}}1
+
+" List of TOML {{{1
+let s:dein_toml_dir = $XDG_CONFIG_HOME .'/nvim/toml'
 
 "let g:dein#types#git#pull_command = 'pull --ff --ff-only'
 " Note: if bugs after installation, like no command ':Ag' or ':Gush' on
 "       vim-fugitive, doubt if you really quitted vim by vim itself, i.e., had
 "       not quitted by i3wm.
-let s:dein_toml_initial = [
-      \ 'Init.toml'
+let s:toml_startup = [
+      \ 'startup.toml'
       \ ]
-let s:dein_toml_lazy = [
+
+let s:toml_pc_only = [
+      \ 'denite.toml',
+      \ 'web.toml',
+      \ ]
+
+let s:toml_lazy = [
       \ 'appearance.toml',
       \ 'colorscheme.toml',
       \ 'debug.toml',
@@ -89,34 +99,72 @@ let s:dein_toml_lazy = [
       \ 'vimscript.toml',
       \ ]
 
-let s:dein_toml_not_in_android = [
-      \ 'denite.toml',
-      \ 'web.toml',
-      \ ]
-
+" Load Plugins by Dein {{{1
 if !exists('g:plugins_available')
-  if dein#load_state(g:dein_cache_dir) "{{{1
+  if dein#load_state(g:dein_cache_dir)
     call dein#begin(g:dein_cache_dir)
+
     if !has('nvim') "{{{2
       " make compatible on vim
       call dein#add('roxma/nvim-yarp')
       call dein#add('roxma/vim-hug-neovim-rpc')
     endif
 
-    let s:dein_toml_dir  = $XDG_CONFIG_HOME .'/nvim/toml' "{{{2
-    for dir in s:dein_toml_initial
-      call dein#load_toml(s:dein_toml_dir .'/'. dir, {'lazy': 0})
+    " load toml {{{2
+    "" using globpath() {{{3
+    "" Note: too slow to startup vim, using globpath() by 1 or 2 seconds
+    "let s:globpath      = {arg -> split(globpath(s:dein_toml_dir, arg))}
+    "let s:toml_startup  = s:globpath('startup/*.toml')
+    "let s:toml_lazy     = s:globpath('*.toml')
+    "let s:toml_pc_only  = s:globpath('pc_only/*.toml')
+
+    "for dir in s:toml_startup
+    "  call dein#load_toml(dir, {'lazy': 0})
+    "endfor
+    "for dir in s:toml_lazy
+    "  call dein#load_toml(dir, {'lazy': 1})
+    "endfor
+    "for dir in s:toml_pc_only
+    "  call dein#load_toml(dir, {'lazy': 1,
+    "        \ 'if': "system('uname -o') !~# 'Android'",
+    "        \ })
+    "endfor
+
+    " using a wrapper function {{{3
+    let s:load_toml = {path, opt -> dein#load_toml(
+          \ s:dein_toml_dir .'/'. path, opt
+          \ )}
+    for path in s:toml_startup
+      call s:load_toml(path, {'lazy': 0})
     endfor
-    for dir in s:dein_toml_lazy
-      call dein#load_toml(s:dein_toml_dir .'/'. dir, {'lazy': 1})
+    for path in s:toml_lazy
+      call s:load_toml(path, {'lazy': 1})
     endfor
-    for dir in s:dein_toml_not_in_android
-      call dein#load_toml(s:dein_toml_dir .'/'. dir, {'lazy': 1,
+    for path in s:toml_pc_only
+      call s:load_toml(path, {
+            \ 'lazy': 1,
             \ 'if': "system('uname -o') !~# 'Android'",
             \ })
     endfor
 
-    "}}}2
+    "" raw {{{3
+    "let s:load_toml = {path, opt -> dein#load_toml(
+    "      \ s:dein_toml_dir .'/'. path, opt
+    "      \ )}
+    "for path in s:toml_startup
+    "  call dein#load_toml(s:dein_toml_dir .'/startup/'. path, {'lazy': 0})
+    "endfor
+    "for path in s:toml_lazy
+    "  call dein#load_toml(s:dein_toml_dir .'/'. path, {'lazy': 1})
+    "endfor
+    "for path in s:toml_pc_only
+    "  call dein#load_toml(s:dein_toml_dir .'/pc_only/'. path, {
+    "        \ 'lazy': 1,
+    "        \ 'if': "system('uname -o') !~# 'Android'",
+    "        \ })
+    "endfor
+    ""}}}2
+
     call dein#end()
     call dein#save_state()
   endif
