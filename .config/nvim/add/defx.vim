@@ -1,5 +1,5 @@
 scriptencoding utf-8
-" From: filefinder.toml
+" From: browse.toml
 " Repo: Shougo/defx.nvim
 " Another: post/defx.vim
 " Ref: /usr/share/nvim/runtime/autoload/netrw.vim
@@ -9,14 +9,19 @@ let g:defx_sidebar_width = 30
 
 augroup myDefxAddInsteadOfNetrw "{{{1
   au!
+
   " Ref: https://github.com/Shougo/defx.nvim/issues/121
   " Ref: /usr/share/nvim/runtime/plugin/netrwPlugin.vim
-  "let g:loaded_netrw = 1 " necessary to read via https
+  "let g:loaded_netrw       = 1 " necessary to read via https
   "let g:loaded_netrwPlugin = 1 " necessary to read via https
-  let g:loaded_netrwSettings = 1
+  let g:loaded_netrwSettings     = 1
   let g:loaded_netrwFileHandlers = 1
+
+  " Ref: *netrw-activate*
+  au VimEnter * if expand('%') == '' | e. | endif
   " TODO: inherit jumplist after gf
   au VimEnter * silent! au! FileExplorer *
+
   au BufEnter * if s:isdir(expand('<amatch>'))
         \ | Defx `expand('<amatch>')` -search=`expand('<amatch>')` -new
         \ | endif
