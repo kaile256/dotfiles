@@ -2,6 +2,15 @@
 
 [[plugins]]
 repo = 'puremourning/vimspector'
+# Support:
+#   python2/3, TCL, Bash
+#   Any languages supported by gdb or lldb like C, C++
+# Known to work:
+#   Java (see caveats)
+#   C# (with dotnet core)
+#   Go (requires Delve, install it yourself)
+#   Node.js (nodes should be less than 12)
+#   Anything running in chrome like javascript
 on_func =  ['vimspector#']
 hook_add = 'runtime add/vimspector.vim'
 hook_post_source = 'runtime post/vimspector.vim'
@@ -12,22 +21,16 @@ hook_post_source = 'runtime post/vimspector.vim'
 #hook_add = 'runtime add/infer-debugger.vim'
 #hook_source = 'runtime source/infer-debugger.vim'
 #
-[[plugins]]
-repo = 'infokiller/vim-errorlist'
-on_cmd = ['errorlist#Navigate']
-on_event = ['BufRead']
-hook_source = 'runtime source/errorlist.vim'
-
 #[ on LLDB ]
-[[plugins]]
-repo = 'gilligan/vim-lldb'
-# Note: running on python2
-
-[[plugins]]
-repo = 'strottos/vim-padre'
-build = 'bash make'
-on_cmd =  ['PadreDebug', 'PadreBreakpoint']
-
+#[[plugins]]
+#repo = 'gilligan/vim-lldb'
+## Note: running on python2
+#
+#[[plugins]]
+#repo = 'strottos/vim-padre'
+#build = 'bash make'
+#on_cmd =  ['PadreDebug', 'PadreBreakpoint']
+#
 #[ Stacktrace ]
 #[[plugins]]
 #repo = 'haya14busa/vim-stacktrace'
