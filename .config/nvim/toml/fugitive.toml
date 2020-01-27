@@ -1,4 +1,5 @@
 # From: rc/dein.vim
+# Ref: git.toml
 
 [[plugins]]
 repo = 'tpope/vim-fugitive'
