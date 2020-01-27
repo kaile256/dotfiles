@@ -139,8 +139,8 @@ hook_add = 'runtime add/try-colorscheme.vim'
 [[plugins]]
 repo = 'cocopon/inspecthi.vim'
 # Generates a beautiful color swatch from the current buffer
-on_cmd = ['Inspecthi', 'ColoLinks']
-#hook_add = 'runtime add/inspecthi.vim'
+on_cmd = ['Inspecthi']
+hook_add = 'runtime add/inspecthi.vim'
 hook_done_update = '''
 exe 'e' g:dein_github_dir .'/cocopon/inspecthi.vim/plugin/inspecthi.vim'
 %s/\<Inspecthi\>/ColoLinks
