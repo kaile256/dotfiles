@@ -109,11 +109,16 @@ hook_add = 'runtime add/docker.vim'
 #hook_add = 'runtime add/docker-compose.vim'
 
 #[ Pair Programming ]
-[[plugins]]
-repo = 'cathook/vim-shrvim'
-on_cmd = ['ShrVimConnect']
-hook_add = 'runtime add/shrvim.vim'
-
+#[[plugins]]
+#repo = 'cathook/vim-shrvim'
+# Note: necessary to rewrite to work it
+#on_cmd = ['ShrVimConnect']
+#hook_add = 'runtime add/shrvim.vim'
+#build = '''
+#mv vim/plugin .
+#rmdir vim
+#'''
+#
 #[[plugins]]
 #repo = 'derteta/vimpair'
 ## Error: buggy on init

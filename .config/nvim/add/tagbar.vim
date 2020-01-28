@@ -1,4 +1,4 @@
-" From: finder.toml
+" From: browse.toml
 " Repo: majutsushi/tagbar
 
 let g:tagbar_iconchars = ['*', '#']
