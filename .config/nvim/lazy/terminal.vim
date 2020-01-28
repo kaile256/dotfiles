@@ -7,6 +7,8 @@
 "startinsert | finish
 
 if &bt ==# 'terminal'
+  nnoremap <buffer> o i
+
   nnoremap <buffer> d <c-d>
   nnoremap <buffer> u <c-u>
 
