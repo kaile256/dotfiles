@@ -22,8 +22,9 @@ alias f=fish
 # `-s`: outputs no error even if no nvim server running.
 alias nvr="nvr -s"
 alias kvi="nvim -u $HOME/kaile256/dotfiles/nvim/init.vim"
+
 # App; Linux on Android
-alias pk='./start-kali.sh'
+alias pk='~/start-kali.sh'
 
 # TODO: accept arguments to restrict candidates
 alias fzf-fonts='fc-list | fzf'
