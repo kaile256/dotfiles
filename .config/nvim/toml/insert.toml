@@ -26,14 +26,15 @@ hook_source = 'runtime once/smaps.vim'
 #hook_source = 'runtime once/smaps.vim'
 
 #[ Snippets; Contents ]
-[[plugins]]
-repo = 'honza/vim-snippets'
-on_source = ['neosnippet.vim']
-
 #[[plugins]]
-#repo = 'Shougo/neosnippet-snippets'
-## minimal
-#on_event = ['InsertEnter']
+#repo = 'honza/vim-snippets'
+#on_source = ['neosnippet.vim']
+#
+[[plugins]]
+repo = 'Shougo/neosnippet-snippets'
+# minimal
+on_event = ['InsertEnter']
+
 #[[plugins]]
 #repo = 'garbas/vim-snipmate'
 #on_event = ['InsertEnter']
