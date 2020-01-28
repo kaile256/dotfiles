@@ -58,7 +58,10 @@ if has('unix')
 endif
 
 " List of TOML {{{1
-let s:dein_toml_dir = $XDG_CONFIG_HOME .'/nvim/toml'
+" Note: path could be different on the files managed in dotfiles
+"   if g:dein_toml_dir's includes $XDG_CONFIG_HOME
+let g:dein_toml_dir = '/nvim/toml/'
+let s:dein_toml_dir = $XDG_CONFIG_HOME . g:dein_toml_dir
 
 "let g:dein#types#git#pull_command = 'pull --ff --ff-only'
 " Note: if bugs after installation, like no command ':Ag' or ':Gush' on
