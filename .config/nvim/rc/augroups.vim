@@ -45,7 +45,6 @@ augroup END
 
 augroup myFoldAdjustment "{{{1
   au!
-  "au FileType neosnippet,yaml setl fdm=indent
   " Note: fdm=syntax on json sometimes shows only '{ <blank>' line.
   au FileType json setl fdm=syntax
 
