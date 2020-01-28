@@ -17,8 +17,8 @@ set previewheight=28
 "set nomore
 
 set synmaxcol=320
-" 'autochdir': with it on, some plugins may not work
-set autochdir
+" 'autochdir': with it on, some plugins may not work, like vim-findroot
+"set autochdir
 
 " Appearance {{{1
 " Set; Font {{{2
@@ -124,6 +124,7 @@ set list
 "  au BufEnter,CursorHold * if &l:list == 0 | setl list | endif
 "augroup END
 "set listchars=tab:»-,trail:-,eol:↲,extends:»,precedes:«,nbsp:%
+"set listchars=tab:> ,trail:-,nbsp:+
 
 " Method; Shell {{{1
 " CAUTION: some plugins depends on bash, such as twiggy.vim.
@@ -219,7 +220,7 @@ set formatoptions=jmB1cql " default: tcqj
 set mouse=a
 augroup myForceFormatOptions
   au!
-  au BufWinEnter * if &fo =~# 'r\|o' | set fo-=r | set fo-=o | endif
+  au OptionSet * if &fo =~# 'r\|o' | silent set fo-=r fo-=o | endif
   au InsertEnter * if &tw =~# ''     | set textwidth=0       | endif
   "au FileType * if getline(1, '$') ==# [] | startinsert | endif
 augroup END
