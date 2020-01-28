@@ -401,6 +401,8 @@ mode $Window {
 $release W       mode $Layout; $alert 'Layout mode'
 $release Shift+W mode $Layout; $alert 'Layout mode'
 
+bindsym T layout tabbed;   mode default; $alert 'Layout: tabbed'
+
 $release C kill; mode default
 $release Q kill; mode default
 
@@ -627,6 +629,24 @@ $release 6 $noid i3-msg 'workspace 6; exec qutebrowser'; mode default
 $release 7 $noid i3-msg 'workspace 7; exec qutebrowser'; mode default
 $release 8 $noid i3-msg 'workspace 8; exec qutebrowser'; mode default
 $release 9 $noid i3-msg 'workspace 9; exec qutebrowser'; mode default
+
+bindsym Ctrl+C           mode default
+bindsym bracketleft      mode default
+bindsym Ctrl+bracketleft mode default
+}
+
+# Mode; Vim {{{2
+set $Vim " Vim: (X)term (U)rxvt (A)lacritty "
+$release $Super+V mode $Vim; $shortmsg 'Vim: backends'
+
+mode $Vim {
+# Vim
+# Note: <a-h> and so kind does NOT seem to work on vim
+# TODO: nvim-qt with 'nvim -c'-like startup in i3 instead, not in vimscript
+bindsym U $noid urxvt -e vim; mode default
+# Note: some shortcut like '<c-u>' to delete does NOT work on vim's terminal (vim-fzf at least) on xterm
+bindsym X $noid xterm -e vim; mode default
+bindsym A $noid alacritty -e vim; mode default
 
 bindsym Ctrl+C           mode default
 bindsym bracketleft      mode default
