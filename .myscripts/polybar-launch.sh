@@ -5,24 +5,10 @@
 
 set -Cue
 
-#if [[ $1 = "restart" ]]; then
-## https://tonooo71.github.io/2018/06/180607_polybar_setting/
-## Note: seems only to open twice a polybar
-#        i3-msg restart
-#        sleep 0.1
-#fi
-
-__kill_polybar() {
-  # Terminate already running bar instances
-  killall --quiet polybar
-
-  while pgrep -u $UID -x polybar >>/dev/null; do sleep 0.01; done
-}
-
 BARNAME=(
   main   # /tmp/polybar-main.log
-  top    # /tmp/polybar-top.log
-  bottom # /tmp/polybar-bottom.log
+  #top    # /tmp/polybar-top.log
+  #bottom # /tmp/polybar-bottom.log
 )
 
 __launch_only() {
@@ -33,6 +19,13 @@ __launch_only() {
     done
   done
 }
+
+#if [[ $1 = "restart" ]]; then
+## https://tonooo71.github.io/2018/06/180607_polybar_setting/
+## Note: seems only to open twice a polybar
+#        i3-msg restart
+#        sleep 0.1
+#fi
 
 __launch_with_log() {
   local LOG
@@ -52,6 +45,13 @@ __launch_with_log() {
     echo '==================================== END' >> "$LOG"
     echo >> "$LOG"
   done
+}
+
+__kill_polybar() {
+# Terminate already running bar instances
+killall --quiet polybar && true
+
+while pgrep -u $UID -x polybar >>/dev/null; do sleep 0.01; done
 }
 
 set +u
