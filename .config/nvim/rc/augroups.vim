@@ -8,18 +8,14 @@ augroup myXinputToggle "{{{1
   au FocusLost,VimLeave * call system('xinput enable  Elan\ TrackPoint')
 augroup END
 
-augroup myBufTypeAdjustment "{{{1
-  au!
-  au BufRead $XDG_DATA_HOME/Trash**/* setl bt=nofile
-  " Ref: https://twitter.com/_tyru_/status/1209126520511315969
-  au BufRead *.log,/tmp**/* setl backupcopy=yes
-augroup END
-
 augroup myFileTypeAdjustment "{{{1
   " Note: `:setfiletype` cannot override filetype;
   "   no consideration to use it instead
   au!
-  au BufNewFile,BufRead .vmailrc   setl ft=yaml
+  " FIXME: set ft=xdefaults
+  au BufNewFile,BufRead {.Xresources.d,X11}**/* setl ft=xdefaults
+
+  au BufNewFile,BufRead .vmailrc setl ft=yaml
 
   au BufWinEnter .*
         \ if &ft ==# ''
@@ -38,6 +34,13 @@ augroup mySyntaxAdjustment "{{{1
   au BufNewFile,BufRead *.txt      setl syn=help
   au BufNewFile,BufRead .gitignore setl syn=netrw
   "au FileType sh if getline(1) =~# 'bash$' | setl ft=bash syn=sh | endif
+augroup END
+
+augroup myBufTypeAdjustment "{{{1
+  au!
+  au BufRead $XDG_DATA_HOME/Trash**/* setl bt=nofile
+  " Ref: https://twitter.com/_tyru_/status/1209126520511315969
+  au BufRead *.log,/tmp**/* setl backupcopy=yes
 augroup END
 
 augroup myFoldAdjustment "{{{1
