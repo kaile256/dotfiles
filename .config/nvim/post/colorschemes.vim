@@ -103,8 +103,10 @@ augroup myColorschemes "{{{1
 augroup END
 
 " :colorscheme up to os/gui {{{1
-if execute('!uname -o') ==? 'Android'
-  colorscheme molokai_dark
+if system('uname -o') =~? 'Android'
+  "colorscheme molokai_dark
+  colorscheme gruvebox
+
 elseif exists('g:nyaovim_version')
   colorscheme solarized8_light_flat
   "elseif !exists("g:GuiLoaded")
@@ -112,6 +114,7 @@ elseif exists('g:nyaovim_version')
   "  let g:solarized_termcolors=256
   "  colorscheme solarized8_light_flat
   "  "colorscheme solarized8_dark_flat
+
 else
   colorscheme neodark
   call s:my_neodark()
