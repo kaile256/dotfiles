@@ -29,16 +29,17 @@ augroup myFireNvimSourceModFileTypes
   au BufEnter play.rust-lang.org_*.txt call s:set_font(s:firenvim_font) | setl filetype=rust
 augroup END
 
-let s:firenvim_font = 'Migu\ 1M'
+let s:firenvim_font = 'DejaVuSansMono\ Nerd\ Font'
 function! s:set_font(font) abort
   exe 'set guifontset='. a:font .':h14'
 endfunction
 
-augroup myFireNvimSource
-  au!
-  au TextChanged  * ++nested call s:delay_write()
-  au TextChangedI * ++nested call s:delay_write()
-augroup END
+"augroup myFireNvimSource
+"" Ref: https://medium.com/@cappyzawa/firenvim%E3%82%92%E4%BD%BF%E3%81%A3%E3%81%A6web%E3%81%A7%E3%82%82vim%E3%82%8B-9147d3c89beb
+"  au!
+"  au TextChanged  * ++nested call s:delay_write()
+"  au TextChangedI * ++nested call s:delay_write()
+"augroup END
 
 function! s:write(timer) abort
   let s:nowrite = 0
