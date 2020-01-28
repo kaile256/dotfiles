@@ -46,6 +46,7 @@ hook_source = 'runtime source/fzf-session.vim'
 ## not yet available via package-manager
 #build = 'make'
 #on_cmd = ['Tree']
+
 [[plugins]] # has extentions
 repo = 'Shougo/defx.nvim'
 hook_done_update = 'UpdateRemotePlugins'
@@ -57,9 +58,13 @@ hook_post_source = 'runtime post/defx.vim'
 [[plugins]]
 repo = 'kristijanhusak/defx-git'
 on_source = 'defx.nvim'
+
 #[[plugins]]
 #repo = 'kristijanhusak/defx-icons'
+## FIXME: No collapses on unicode, which is a problem on vim or something else
 #on_source = 'defx.nvim'
+#hook_source = 'runtime source/defx-icons.vim'
+
 #[[plugins]]
 #repo = 'skanehira/popupfiles.vim'
 ## Ref: https://qiita.com/gorilla0513/items/fa4b401e7264a31868b9

@@ -1,29 +1,15 @@
 scriptencoding utf-8
-" From: finder.toml
+" From: browse.toml
 " Repo: Shougo/defx.nvim
 " Another: add/defx.vim
 " Ref: /usr/share/nvim/runtime/autoload/netrw.vim
 " Ref: /usr/share/nvim/runtime/plugin/netrwPlugin.vim
-
-"" Defx-Icons {{{1
-"" Note: defx-icons collapses i3 or qt.
-"" Note: Syntax highlighting can cause some performance issues in defx window.
-"let g:defx_icons_enable_syntax_highlight = 0
-"let g:defx_icons_column_length = 2
-"let g:defx_icons_directory_icon = ''
-"let g:defx_icons_directory_icon = ''
-"let g:defx_icons_mark_icon = '*'
-"let g:defx_icons_parent_icon = ''
-"let g:defx_icons_default_icon = ''
-"let g:defx_icons_directory_symlink_icon = ''
-"" Options below are applicable only when using "tree" feature
-"let g:defx_icons_root_opened_tree_icon = ''
-"let g:defx_icons_nested_opened_tree_icon = ''
-"let g:defx_icons_nested_closed_tree_icon = ''
+" Ref: source/defx-icons.vim
 
 " call defx#custom#foo() {{{1
 call defx#custom#option('_', 'drives', [
-      \ expand('~/Downloads'), expand('~')
+      \ expand('~'),
+      \ expand('~/Downloads'),
       \ ])
 
 call defx#custom#option('_', {
