@@ -7,7 +7,7 @@ declare dryrun verbose
 
 set -e
 
-err() {
+err(){
   printf "${c_red}%s${c_reset}\n" "$*" >&2
 }
 
