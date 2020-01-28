@@ -44,7 +44,6 @@ CONFIGs=(
   fish
   lynx
   nvim
-  ranger/rc.conf
   tmux
   w3m
   zsh
@@ -57,6 +56,7 @@ NON_ANDROIDs=(
   fcitx
   glrnvim.yml
   i3
+  ranger/rc.conf
   mimeapps.list # for qutebrowser should be the default browser
   nyaovim
   polybar # a status bar
@@ -115,7 +115,7 @@ if [ "$(uname -o)" != "Android" ]; then
   done
 fi
 
-if type notify-send >/dev/null; then
+if type notify-send >/dev/null 2>&1 ; then
   notify-send --expire-time 1800 'Symbol links are created correctly'
   cat << END
 
