@@ -22,8 +22,8 @@ augroup UpdatePathToFind
   au BufNewFile,BufRead {*vim,dein}**/*        call s:path.vim()
   au BufNewFile,BufRead {.config,dotfiles}**/* call s:path.dotfiles()
 
-  au BufNewFile,BufRead $GHQ_ROOT**/* call s:path.ghq()
   au BufNewFile,BufRead $MYMEMO**/*   call s:path.memo()
+  au BufNewFile,BufRead $GHQ_ROOT**/* call s:path.ghq()
 augroup END
 
 let s:path = {} "{{{1
@@ -50,24 +50,32 @@ function! s:path.vim() abort
   exe 'setl path-='. &g:path
 endfunction
 
+function! s:path.memo() abort
+  exe 'setl path+='. $MYMEMO
+  "call s:path.dotfiles()
+endfunction
+
 function! s:path.ghq() abort
   if expand('%:p') !~# '/*vim/' | return | endif
 
-  exe 'setl path+='. s:root($GHQ_ROOT)
+  exe 'setl path+='. s:project_root($GHQ_ROOT)
 
   exe 'setl path-='. &g:path
   exe 'setl path+='. '/etc'
 endfunction
 
-function! s:path.memo() abort
-  exe 'setl path+='. s:root($MYMEMO)
-  "call s:path.dotfiles()
-endfunction
-
-function! s:root(path) abort "{{{2
+function! s:project_root(path) abort "{{{2
   let path = expand('%:p')
+  let project_pattern = '/[^/]\+/[^/]\+[^/]\+'
 
-  while path !~# a:path .'/[^/]\+/[^/]\+[^/]\+$'
+  if path[len(a:path) - 2 : ] !~# project_pattern
+    " TODO: make sure it work
+    echoerr 'This function is NOT appropriate on' a:path
+  endif
+
+  let repo_path = a:path . project_pattern .'$'
+
+  while path !~# repo_path
     let path = fnamemodify(path, ':h')
   endwhile
 
