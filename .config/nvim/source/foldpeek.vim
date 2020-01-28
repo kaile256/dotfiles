@@ -13,20 +13,33 @@ augroup myFoldPeekSource
         \ |  setl fdt=foldpeek#text()
         \ | endif
 
-  au FileType help let b:foldpeek_whiteout_patterns_fill = ['*']
+  au FileType help let b:foldpeek_whiteout_patterns_fill = ['\s*\zs\*\k\+\*$']
+  au FileType help let b:foldpeek_skip_patterns = [
+        \ '^[>#\-=/{!* \t]*$',
+        \ '^\*\k\+\*$'
+        \ ]
+
+  au FileType toml if expand('%:p') =~# expand(g:dein_toml_dir) |
+        \ let b:foldpeek_skip_patterns = [
+        \   '^[>#\-=/{!* \t]*$',
+        \   '[# \t]*\[\[plugins]]',
+        \   '[# \t]*\[\[\=package]',
+        \   ]
+        \ |
+        \ let b:foldpeek_whiteout_patterns_omit = [
+        \   'repo = ',
+        \   ]
+        \ | else |
+          \ let b:foldpeek_whiteout_patterns_omit = [
+          \   'name = ',
+          \   ]
+          \ | endif
 augroup END
 
 let g:foldpeek#skip_patterns = [
-      \ '^[#\-=/{!* \t]*$',
+      \ '^[>#\-=/{!* \t]*$',
       \ '^```.*$',
       \ '^\s*"""$',
-      \ '[# \t]*\[\[plugins]]',
-      \ '[# \t]*\[\[\=package]'
-      \ ]
-
-let g:foldpeek#whiteout_patterns_omit = [
-      \ 'repo = ',
-      \ 'name = ',
       \ ]
 
 " table of variales on foldpeek {{{1
