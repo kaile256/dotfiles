@@ -49,6 +49,7 @@ set rtp+=~/.config/nvim/keymap
 " Provider {{{1
 if has('python3')
   let g:python3_host_prog = '/usr/bin/python3'
+  "let g:python3_host_prog = $MYMEMO .'/.local/Python-3.7.6'
   "let g:python3_host_prog = system('(type pyenv &>/dev/null && echo -n "$(pyenv root)/versions/$(pyenv global | grep python3)/bin/python") || echo -n $(which python3)')
 endif
 if has('python2')
