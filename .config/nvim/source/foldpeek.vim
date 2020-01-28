@@ -13,7 +13,9 @@ augroup myFoldPeekSource
         \ |  setl fdt=foldpeek#text()
         \ | endif
 
-  au FileType help let b:foldpeek_whiteout_patterns_fill = ['\s*\zs\*\k\+\*$']
+  au FileType help let b:foldpeek_whiteout_patterns_fill = [
+        \ '\s*\zs\*\k\+\*\($\|\s*\ze\*\)'
+        \ ]
   au FileType help let b:foldpeek_skip_patterns = [
         \ '^[>#\-=/{!* \t]*$',
         \ '^\*\k\+\*$'
