@@ -103,22 +103,27 @@ augroup myColorschemes "{{{1
 augroup END
 
 " :colorscheme up to os/gui {{{1
-if system('uname -o') =~? 'Android'
-  "colorscheme molokai_dark
-  colorscheme gruvbox
+try
+  if system('uname -o') =~? 'Android'
+    "colorscheme molokai_dark
+    colorscheme gruvbox
 
-elseif exists('g:nyaovim_version')
-  colorscheme solarized8_light_flat
-  "elseif !exists("g:GuiLoaded")
-  "  " on CUI
-  "  let g:solarized_termcolors=256
-  "  colorscheme solarized8_light_flat
-  "  "colorscheme solarized8_dark_flat
+  elseif exists('g:nyaovim_version')
+    colorscheme solarized8_light_flat
+    "elseif !exists("g:GuiLoaded")
+    "  " on CUI
+    "  let g:solarized_termcolors=256
+    "  colorscheme solarized8_light_flat
+    "  "colorscheme solarized8_dark_flat
 
-else
-  colorscheme neodark
-  call s:my_neodark()
-endif
+  else
+    colorscheme neodark
+    call s:my_neodark()
+  endif
+
+catch
+  colorscheme murphy
+endtry
 
 " Note: have to call here to activate the config
 call s:my_commons()
