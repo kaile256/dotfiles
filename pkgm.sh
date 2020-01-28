@@ -45,7 +45,6 @@ PACKAGEs=(
   #toggl-cli # use python's one instead from github
   #jot # a cli tool to take a note
   #notes-cli-bin # a cli tool to take a note on markdown
-  parcel-bundler # a web-app bundler w/o config
   dialog # used in `wifi-menu` at least
   ripgrep-all # ripgrep in PDFs, E-Books, Office documents, zip, tar.gz, etc.
   tor-browser
@@ -192,6 +191,7 @@ YARNs=(
   go-language-server
   mermaid # generetes diagram, flowchart and ganttchart in markdown
   neovim
+  parcel-bundler # a web-app bundler w/o config
   readability # for userscript on qutebrowser, readability
   vim-language-server
   yaml-language-server
