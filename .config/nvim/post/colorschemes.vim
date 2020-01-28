@@ -105,7 +105,7 @@ augroup END
 " :colorscheme up to os/gui {{{1
 if system('uname -o') =~? 'Android'
   "colorscheme molokai_dark
-  colorscheme gruvebox
+  colorscheme gruvbox
 
 elseif exists('g:nyaovim_version')
   colorscheme solarized8_light_flat
