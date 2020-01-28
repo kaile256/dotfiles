@@ -190,6 +190,7 @@ YARNs=(
   diagnostic-languageserver
   dockerfile-language-server-nodejs
   go-language-server
+  mermaid # generetes diagram, flowchart and ganttchart in markdown
   neovim
   readability # for userscript on qutebrowser, readability
   vim-language-server
