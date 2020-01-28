@@ -80,6 +80,7 @@ augroup FugitiveCallMyFunc
 
   " gitcommit mappings & functions {{{2
   function! s:gitcommit_shred() abort
+    " FIXME: keep the window that cursor was previously in
     let winID      = bufwinid('%')
     let commit_win = bufwinid('COMMIT_EDITMSG')
     if commit_win > 0
