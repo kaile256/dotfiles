@@ -84,14 +84,7 @@ else
   exit 1
 fi
 
-echo "Making Symbolic Links..." #{{{1
-echo
-
-for i in "${LOCALs[@]}"; do
-  ln -nsf "${DOTFILES}/.config/$i" "${XDG_DATA_HOME}/$i"
-  echo "Done! at ${XDG_DATA_HOME}/$i"
-done
-
+echo "Making Symbolic Links..."
 echo
 
 for i in "${HOMEs[@]}"; do
@@ -106,7 +99,16 @@ for i in "${CONFIGs[@]}"; do
   echo "Done! at ${XDG_CONFIG_HOME}/$i"
 done
 
+echo
+
 if [ "$(uname -o)" != "Android" ]; then
+  for i in "${LOCALs[@]}"; do
+    ln -nsf "${DOTFILES}/.config/$i" "${XDG_DATA_HOME}/$i"
+    echo "Done! at ${XDG_DATA_HOME}/$i"
+  done
+
+  echo
+
   for i in "${NON_ANDROIDs[@]}"; do
     ln -nsf "${DOTFILES}/.config/$i" "${XDG_CONFIG_HOME}/$i"
     echo "Done! at ${XDG_CONFIG_HOME}/$i"
