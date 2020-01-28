@@ -17,3 +17,8 @@ hook_done_update = 'UpdateRemotePlugins'
 repo = 'Shougo/vimproc.vim'
 # run vim-plugins asynchronously, like openbrowser, quickrun.
 build = 'make'
+
+#[[plugins]]
+#repo = 'glacambre/firenvim'
+#hook_post_update = 'call firenvim#install(0)'
+#hook_source      = 'runtime source/firenvim.vim'
