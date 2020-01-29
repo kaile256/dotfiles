@@ -61,12 +61,16 @@ function! s:agit_keymaps() abort "{{{1
   ""   the default name is the hash under cursor
   "nmap <buffer> cO <Plug>(agit-git-checkout-b)
 
-  "nmap <buffer> rv <Plug>(agit-git-revert)
+  nmap <buffer> dd <Plug>(agit-git-revert)
+  nmap <buffer> D  <Plug>(agit-git-revert)
+
   "nmap <buffer> rs <Plug>(agit-git-reset-soft)
   "nmap <buffer> rS <Plug>(agit-git-reset)
   "nmap <buffer> rH <Plug>(agit-git-reset-hard)
-  "nmap <buffer> rB <Plug>(agit-git-rebase)
-  "nmap <buffer> rb <Plug>(agit-git-rebase-i)
+
+  "nmap <buffer> R <Plug>(agit-git-rebase)
+  nmap <buffer> R <Plug>(agit-git-rebase-i)
+
   "nmap <buffer> rs <Plug>(agit-git-bisect-start)
   "nmap <buffer> rg <Plug>(agit-git-bisect-good)
   "nmap <buffer> rb <Plug>(agit-git-bisect-bad)
