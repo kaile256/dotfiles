@@ -142,6 +142,10 @@ hook_post_source = 'runtime post/colorschemes.vim'
 # Note: no use to ':au Colorscheme' at start even in /source
 #hook_source      = 'runtime source/colorschemes.vim'
 
+#[[plugins]]
+#repo = 'rafi/awesome-vim-colorschemes'
+#on_event = ['VimEnter']
+#
 [[plugins]]
 repo = 'rhysd/try-colorscheme.vim'
 # try colorscheme via URL/Repo
