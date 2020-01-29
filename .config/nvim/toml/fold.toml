@@ -38,10 +38,18 @@ hook_source = 'runtime source/FastFold.vim'
 #[ FileType ]
 #[[plugins]]
 #repo = 'matze/vim-ini-fold'
-##repo = 'kaile256/vim-ini-fold'
 ## PR-Merged: matze/vim-ini-fold/pull/1
 ## PR: matze/vim-ini-fold/pull/2
-#on_ft = ['cfg', 'config', 'desktop', 'dosini', 'gitconfig', 'toml']
+#on_ft = [
+#  'cfg'
+#  'conf',
+#  'config',
+#  'desktop',
+#  'dosini',
+#  'gitconfig',
+#  'markdown',
+#  'toml',
+#]
 #hook_source = 'runtime source/ini-fold.vim'
 #
 #[[plugins]]
