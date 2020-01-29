@@ -42,6 +42,7 @@ settings:
       mk: config-dict-add url.searchengines
       mks: session-save -o
       mkurl: config-dict-add url.searchengines
+      mkurl!: config-dict-add aliases --replace
       nmap: bind
       nunmap: unbind
       nvim: spawn nvim-qt
@@ -146,7 +147,7 @@ settings:
         <Ctrl+k>: fake-key <Shift-end><Delete>
         <Ctrl+m>: fake-key <Enter>
         <Ctrl+n>: fake-key <Down>
-        <Ctrl+o>u: fake-key <undo>
+        <Ctrl+o>u: fake-key <ctrl-z>
         <Ctrl+p>: fake-key <Up>
         <Ctrl+q>: open-editor
         <Ctrl+r>0: insert-text {primary}
@@ -181,12 +182,12 @@ settings:
         <Ctrl+e>: scroll-px 0 +50
         <Ctrl+h>: tab-prev
         <Ctrl+i>: forward
-        <Ctrl+j>: scroll-px 0 +60
-        <Ctrl+k>: scroll-px 0 -60
+        <Ctrl+j>: fake-key <alt-down>
+        <Ctrl+k>: fake-key <alt-up>
         <Ctrl+l>: tab-next
-        <Ctrl+n>: null
+        <Ctrl+n>: fake-key <down>
         <Ctrl+o>: back
-        <Ctrl+p>: null
+        <Ctrl+p>: fake-key <up>
         <Ctrl+t>: null
         <Ctrl+v>: null
         <Ctrl+w>: null
@@ -219,9 +220,13 @@ settings:
         <Space>w: save
         <Space>y: yank selection
         <Space>yy: enter-mode caret;; yank;; leave-mode
-        <Space>zB: set-cmd-text -s :quickmark-load -t
-        <Space>zb: set-cmd-text -s :quickmark-load
+        <Space>zB: set-cmd-text -s :buffer -t
+        <Space>zM: open -t https://app.clickup.com/3640947/v/b/6-7920396-2
+        <Space>zO: '''history -t'''
+        <Space>zb: set-cmd-text -s :buffer
         <Space>ze: set-cmd-text -s :open
+        <Space>zm: open https://app.clickup.com/3640947/v/b/6-7920396-2
+        <Space>zo: history
         <Space>zt: set-cmd-text -s :open -t
         <Space>zv: set-cmd-text -s :open
         <い>: enter-mode insert
@@ -320,6 +325,11 @@ settings:
     global: 2
   completion.use_best_match:
     global: true
+  content.autoplay:
+    global: false
+  content.headers.user_agent:
+    global: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko)
+      Chrome/79.0.3945.88 Safari/537.36
   content.host_blocking.lists:
     global: null
   content.mute:
@@ -377,11 +387,11 @@ settings:
       Vera Sans Mono", "Andale Mono", "Courier New", Courier, "Liberation Mono", monospace,
       Fixed, Consolas, Terminal'
   fonts.prompts:
-    global: bold 12pt DejaVuSansMono Nerd Font, icons
+    global: 12pt DejaVuSansMono Nerd Font, icons
   fonts.statusbar:
-    global: bold 12pt DejaVuSansMono Nerd Font, icons
+    global: 12pt DejaVuSansMono Nerd Font, icons
   fonts.tabs:
-    global: bold 12pt DejaVuSansMono Nerd Font, icons
+    global: bold 11pt DejaVuSansMono Nerd Font, icons
   fonts.web.family.cursive:
     global: DejaVuSansMono Nerd Font, icons
   fonts.web.family.fantasy:
@@ -452,6 +462,7 @@ settings:
       gh: https://github.com/search?o=desc&q={}&s=updated&type=Repositories
       gm: https://www.google.co.jp/maps/place/{}
       go: https://golang.org/search?q={}
+      ja: https://duckduckgo.com/?q={}&ia=web
       mf: https://github.com/search?o=desc&q={}&s=forks&type=Repositories
       ms: https://github.com/search?o=desc&q={}&s=stars&type=Repositories
       qb: https://www.reddit.com/r/qutebrowser/search/?q={}
@@ -460,9 +471,10 @@ settings:
       rq: https://www.reddit.com/r/qutebrowser/search/?q={}
       rqb: https://www.reddit.com/r/qutebrowser/search/?q={}
       ru: https://github.com/search?o=desc&q={}&s=updated&type=Repositories
+      so: https://stackoverflow.com/search?q={}
       th: https://www.freethesaurus.com/{}
       tw: http://twitter.com/search/{}
-      wk: http://en.wikipedia.org/wiki/{}
+      wk: https://en.wikipedia.org/w/index.php?search={}
       wl: https://ejje.weblio.jp/content/{}?erl=true
       yu: https://www.youtube.com/watch?v={}
   url.start_pages:
