@@ -11,7 +11,8 @@ setl nowinfixwidth nowinfixheight
 if get(g:, 'loaded_lazy_diff', 0) | finish | endif
 let g:loaded_lazy_diff = 1
 
-set diffopt=iwhite,iwhiteeol,iblank
+set diffopt=
+"set diffopt=iwhite,iwhiteeol,iblank
 set diffopt+=filler,internal
 set diffopt+=vertical,indent-heuristic
 set diffopt+=algorithm:histogram
