@@ -41,9 +41,7 @@ hook_source = 'runtime source/firenvim.vim'
 ## depends on chrome's extention or firefox's addon.
 #hook_done_update = 'GhostInstall'
 #on_cmd = 'Ghost'
-#hook_add = 'runtime add/ghost.vim'
-#hook_add = 'runtime post/ghost.vim'
-
+#
 [[plugins]]
 repo = 'mattn/qiita-vim'
 on_cmd = ['Qiita']
