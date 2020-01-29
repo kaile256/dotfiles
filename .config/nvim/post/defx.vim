@@ -226,6 +226,20 @@ function! s:defx_keymaps() abort "{{{1
         \ defx#do_action('open_tree')
   nnoremap <silent><nowait><buffer><expr> zc
         \ defx#do_action('close_tree')
+  " Note: CANNOT open multiple trees presently
+  "nnoremap <silent><nowait><buffer><expr> zr
+  "      \ defx#async_action('multi', [
+  "      \ 'clear_select_all',
+  "      \ 'toggle_select_all',
+  "      \ 'open_tree',
+  "      \ ])
+  "nnoremap <silent><nowait><buffer><expr> zR
+  "      \ defx#async_action('multi', [
+  "      \ 'clear_select_all',
+  "      \ 'toggle_select_all',
+  "      \ 'open_tree_recursive',
+  "      \ ])
+
   " Register {{{3
   " copy: yank in defx's register
   " Note: CANNOT register multiple files into defx-register.
