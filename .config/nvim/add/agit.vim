@@ -53,10 +53,13 @@ function! s:agit_keymaps() abort "{{{1
   nmap <buffer> dl <Plug>(agit-diff-with-local)
   "nmap <buffer> <c-g> <Plug>(agit-print-commitmsg)
 
-  nmap <buffer> co <Plug>(agit-git-checkout)
-  " checkout -b: create a new branch to checkout
-  nmap <buffer> cO <Plug>(agit-git-checkout-b)
-  nmap <buffer> D <Plug>(agit-git-branch-d)
+  "" deletes the branch under cursor
+  "nmap <buffer> D <Plug>(agit-git-branch-d)
+  "" checks out to the branch under cursor
+  "nmap <buffer> co <Plug>(agit-git-checkout)
+  "" checkout -b: create a new branch to checkout
+  ""   the default name is the hash under cursor
+  "nmap <buffer> cO <Plug>(agit-git-checkout-b)
 
   "nmap <buffer> rv <Plug>(agit-git-revert)
   "nmap <buffer> rs <Plug>(agit-git-reset-soft)
