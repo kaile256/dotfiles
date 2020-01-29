@@ -132,7 +132,7 @@ hook_post_source = 'runtime post/colorschemes.vim'
 [[plugins]]
 repo = 'rhysd/try-colorscheme.vim'
 # try colorscheme via URL/Repo
-on_func =  ['try_colorscheme#try']
+on_func =  ['try_colorscheme#']
 hook_add = 'runtime add/try-colorscheme.vim'
 
 #[ Colorscheme.Edit ]
