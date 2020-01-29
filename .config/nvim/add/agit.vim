@@ -45,7 +45,7 @@ endfunction
 "       1. :AgitFile, setl winfixwidth
 "       2. open the uncommited buffer to the end
 
-function! s:agit_keymaps() abort "{{{
+function! s:agit_keymaps() abort "{{{1
   "nmap <buffer> u <Plug>(agit-reload)
   " stat: how changed
   nmap <buffer> <c-j> <Plug>(agit-scrolldown-stat)
@@ -79,4 +79,4 @@ function! s:agit_keymaps() abort "{{{
   "nmap <buffer>  <Plug>(agit-git-cherry-pick)
   " Note: use :tabclose
   nmap <buffer> <c-w>C <Plug>(agit-exit)
-endfunction "}}}
+endfunction
