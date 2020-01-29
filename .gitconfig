@@ -26,8 +26,10 @@
 [filter "*"]
 	smudge = "sed -e '/kaile256;/d'"
 #[push]
-  # upstream: push to the corresponding, upstream branch
-  # current: push to current in remote
+  # nothing: always demands arguments like `git push origin master`
+  # matching: push to the same named repo anyway
+  # upstream: push to the upstream (antecedent) branch
+  # current: push as the same name in remote
   # simple: (default) push to the current branch if the same name branch exists
   #   in remote; otherwise, push to the upstream.
   #default = current
