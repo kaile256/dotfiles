@@ -27,19 +27,15 @@ nnoremap <silent> <c-w><space>t :<c-u>call <SID>wincopy_to_another_proc()<cr>
 function! s:wincopy_to_another_proc() abort
   if executable('nvim-qt')
     silent !nvim-qt %:p &
-    return
   elseif executable('nvim')
     silent !xterm -e nvim %:p &
-    return
   elseif executable('vim')
     silent !xterm -e vim %:p &
-    return
   elseif executable('vi')
     silent !xterm -e vi %:p &
-    return
+  else
+    echoerr 'You have no executable vi-like editor!'
   endif
-
-  echoerr 'You have no executable vi-like editor!'
 endfunction
 
 " <c-w>^ behaves like ':sp#'
