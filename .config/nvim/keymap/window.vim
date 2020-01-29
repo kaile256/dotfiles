@@ -36,6 +36,8 @@ function! s:wincopy_to_another_proc() abort
   else
     echoerr 'You have no executable vi-like editor!'
   endif
+
+  quit
 endfunction
 
 " <c-w>^ behaves like ':sp#'
