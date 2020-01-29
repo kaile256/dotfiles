@@ -21,6 +21,8 @@ let s:splits = {
       \ '<a-t>': 'tabe',
       \ '<a-s>': 'sp',
       \ '<a-e>': 'e',
+      \ '<a-E>': 'only',
+      \ '<a-o>': 'only',
       \ }
 
 function! s:maps(prefix, command, ...) abort
