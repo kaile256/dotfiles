@@ -1,31 +1,12 @@
 # From: rc/dein.vim
 
-# Required
+#[ Required ]
 [[plugins]]
 repo = 'Shougo/dein.vim'
 hook_done_update = 'UpdateRemotePlugins'
-# CAUTION: thousands of files, too heavy to argadd all under the dein's cache.
-#hook_done_update = '''
-#exe 'argadd' g:dein_cache_dir .'/**/*.vim'
-#argdo g/function!/v/"{{{/norm! A "{{{
-#argdo g/endfunction/v/"}}}/norm! A "}}}
-#argdo write
-#argdel
-#'''
 
 [[plugins]]
 repo = 'Shougo/vimproc.vim'
 # run vim-plugins asynchronously, like openbrowser, quickrun.
 build = 'make'
 
-[[plugins]]
-repo = 'wakatime/vim-wakatime'
-# tracking service for coding activity.
-# Note: visit https://wakatime.com/settings/api-key before using this plugin.
-hook_source = 'runtime add/wakatime.vim'
-
-# API; Collaborative Editing
-#[[plugins]]
-#repo = 'glacambre/firenvim'
-#hook_post_update = 'call firenvim#install(0)'
-#hook_source      = 'runtime source/firenvim.vim'
