@@ -83,12 +83,12 @@ command! -bar -bang -nargs=* Cmds :Commands
 " Note: :Cmaps isn't so often needed.
 command! -bar -bang -nargs=* Cm   :Commands
 
-command! Co :Colors
+command! -bar -nargs=* Co :Colors <args>
 
-command! H :Helptags
-command! He :Helptags
-command! Hel :Helptags
-command! Help :Helptags
+command! -bar -nargs=* H    :Helptags <args>
+command! -bar -nargs=* He   :Helptags <args>
+command! -bar -nargs=* Hel  :Helptags <args>
+command! -bar -nargs=* Help :Helptags <args>
 
 " Command: wiki {{{1
 " Note: the commands below are all wrapper,
