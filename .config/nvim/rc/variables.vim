@@ -6,7 +6,7 @@
 " $VAR; for shell {{{1
 let $EDITOR     = 'nvr'
 let $VISUAL     = 'nvr'
-let $GIT_EDITOR = 'nvr --remote-wait'
+let $GIT_EDITOR = 'nvr -cc split --remote-wait'
 let $VMAIL_VIM  = 'nvr'
 "let $BROWSER    = 'qutebrowser'
 
