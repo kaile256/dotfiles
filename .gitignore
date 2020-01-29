@@ -1,3 +1,4 @@
+tmp/
 node_modules/
 yarn/
 .mypy_cache/
