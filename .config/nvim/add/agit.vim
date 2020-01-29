@@ -1,7 +1,7 @@
 " From: git.toml
 " Repo: cohama/agit.vim
 
-let g:agit_no_default_mappings = 0
+let g:agit_no_default_mappings = 1
 
 command! -bar GlogGlobal :Agit
 command! -bar Gl         :Agit
@@ -13,13 +13,11 @@ command! -bar Gll        :AgitFile
 
 nnoremap <silent> g<a-u> :<c-u>GlocalLog<cr>
 
-" TODO: find the reason for E:modifiable-is-off.
-"augroup AgitMyWrapCommands
-"  au!
-"  au FileType agit      call <SID>agit_commands() | <SID>agit_keymaps()
-"  au FileType agit_diff call <SID>diff_commands() | <SID>agit_keymaps()
-"  au FileType agit_stat call <SID>stat_commands() | <SID>agit_keymaps()
-"augroup END
+augroup myAgitAdd
+  au!
+  au FileType agit,agit_diff,agit_stat call <SID>agit_commands()
+  au FileType agit,agit_diff,agit_stat call <SID>agit_keymaps()
+augroup END
 
 function! s:agit_commands() abort
   command! -buffer -bar GbisectStart :AgitGit bisect start HEAD <hash> \%#
