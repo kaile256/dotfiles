@@ -47,9 +47,12 @@ endfunction
 
 function! s:agit_keymaps() abort "{{{1
   "nmap <buffer> u <Plug>(agit-reload)
+
   " stat: how changed
-  nmap <buffer> <c-j> <Plug>(agit-scrolldown-stat)
-  nmap <buffer> <c-k> <Plug>(agit-scrollup-stat)
+  " <Plug>(agit-scrolldown/up-foo) scroll from another window in remote
+  nmap <buffer> <c-n> <Plug>(agit-scrolldown-stat)
+  nmap <buffer> <c-p> <Plug>(agit-scrollup-stat)
+
   nmap <buffer> <c-j> <Plug>(agit-scrolldown-diff)
   nmap <buffer> <c-k> <Plug>(agit-scrollup-diff)
 
