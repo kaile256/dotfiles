@@ -45,3 +45,5 @@ trustExitCode = true
 [pull]
   # Because of `--no-ff` on merge, `pull` will also dirty commit.
 	ff = only
+[rerere]
+	enabled = true
