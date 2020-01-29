@@ -1,4 +1,4 @@
-" From: ftplugin.toml
+" From: fold.toml
 " Repo: matze/vim-ini-fold
 " Fork: kaile256/vim-ini-fold
 
