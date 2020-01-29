@@ -63,6 +63,13 @@ command! -bar -bang -nargs=*
       \ Gvdiffsplit
       \ :exe fugitive#Diffsplit(0, <bang>0, 'vert <mods>', '--function-context '. <q-args>, [<f-args>])
 
+" in new tab, if any unnecessary windows are there.
+" TODO: set unstage; should trace <SNR> via :scriptnames.
+" &@:<C-U>execute <SNR>277_Do('Unstage',0)<CR>
+" &@:exe <SNR>277_EchoExec('reset', '-q')<CR>
+"command! Gunstage :execute <SNR>219_Do('Unstage',0)
+"noremap <silent> <space>g<a-u> :Gunstage<cr>
+
 function! s:Gdiff_keymaps() abort "{{{1
   if !&diff | return | endif
   " U works like coc-gitchunk-undo, by :diffget
@@ -88,7 +95,7 @@ let s:std.buftype = ['terminal', '', 'help']
 let s:weed = {}
 " WARNING: for the case to compare only commits, keep such functions private,
 "          which close all '.git/' or 'fugitive://'
-let s:weed.bufname = ['.git\/', 'FZF$']
+let s:weed.bufname = ['\.git\/', 'FZF$']
 "let s:weed.filetype = ['fzf']
 
 function! s:is_nobuffers(bufnr, ...) abort "{{{2
@@ -196,51 +203,48 @@ endfunction
 
 " Info; Blame {{{1
 nnoremap <silent> <space>gb :<c-u>Gblame<cr>
+
 " Info; Status {{{1
 nnoremap <silent> <space>gs :<c-u>Gvstatus<cr>
+
 " Add; {{{1
 " Note: <c-w>p<c-w>p is necessary to update signcolumn
 nnoremap <silent> <space>ga :<c-u>silent Gw <bar> Gvstatus <bar> call win_gotoid(bufwinid('.git/index'))<cr>
-nnoremap <silent> <space>gw :<c-u>GwWinpickVDiffStaging HEAD<cr>
-" Command! GwWinpickVDiff {{{2
-command! -bar -bang -nargs=* -complete=customlist,fugitive#EditComplete
-      \ GwinpickVDiff
-      \ :HelpCloseAll
-      \ | call s:winpick()
-      \ | Gvdiffsplit! <args>
-command! -bar -nargs=?
-      \ GwWinpickVDiffStaging
+nnoremap <silent> <space>gw :<c-u>GwToDiffWithStat HEAD<cr>
+
+command! -bar -nargs=*
+      \ GwToDiffWithStat
       \ :silent Gw
       \ | HelpCloseAll
       \ | call s:winpick()
       \ | call s:Gvdiffw(<q-args>)
 
-"}}}
+" Command! GwWinpickVDiff {{{2
 nnoremap <silent> <space>go :<c-u>silent Gw <bar> only<cr>
-nnoremap <silent> <space>gO :<c-u>GwOnlyVDiffStaging HEAD<cr>
-" Command! GwOnlyVDiff {{{2
-command! -bar -bang -nargs=? -complete=customlist,fugitive#EditComplete
+nnoremap <silent> <space>gO :<c-u>GwToDiff HEAD<cr>
+
+command! -bar -bang -nargs=* -complete=customlist,fugitive#EditComplete
       \ GwOnlyVDiff
       \ :silent Gw
       \ | only
       \ | Gvdiffsplit! <args>
-command! -bar -nargs=?
-      \ GwOnlyVDiffStaging
+command! -bar -nargs=*
+      \ GwToDiff
       \ :silent Gw
       \ | only
       \ | call s:Gvdiffw (<q-args>)
-"}}}
-" in new tab, if any unnecessary windows are there.
-" TODO: set unstage; should trace <SNR> via :scriptnames.
-" &@:<C-U>execute <SNR>277_Do('Unstage',0)<CR>
-" &@:exe <SNR>277_EchoExec('reset', '-q')<CR>
-"command! Gunstage :execute <SNR>219_Do('Unstage',0)
-"noremap <silent> <space>g<a-u> :Gunstage<cr>
+
 " Diff; {{{1
 " !: On a Merge Conflict, do a 3-diff; otherwise the same as without bang.
-nnoremap <silent> <space>gd :<c-u>GwinpickVDiff<cr>
+nnoremap <silent> <space>gd :<c-u>Gdiff<cr>
 " Note: should be compared in current buffer
-nnoremap <silent> <space>gD :<c-u>GwinpickVDiff HEAD<cr>
+nnoremap <silent> <space>gD :<c-u>Gdiff HEAD<cr>
+
+command! -bar -bang -nargs=* -complete=customlist,fugitive#EditComplete
+      \ Gdiff
+      \ :HelpCloseAll
+      \ | call s:winpick()
+      \ | Gvdiffsplit! <args>
 
 " Unstage {{{1
 " TODO: make :Gunstage % work
