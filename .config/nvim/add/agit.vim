@@ -46,14 +46,6 @@ endfunction
 function! s:agit_keymaps() abort "{{{1
   "nmap <buffer> u <Plug>(agit-reload)
 
-  " stat: how changed
-  " <Plug>(agit-scrolldown/up-foo) scroll from another window in remote
-  nmap <buffer> <c-n> <Plug>(agit-scrolldown-stat)
-  nmap <buffer> <c-p> <Plug>(agit-scrollup-stat)
-
-  nmap <buffer> <c-j> <Plug>(agit-scrolldown-diff)
-  nmap <buffer> <c-k> <Plug>(agit-scrollup-diff)
-
   nmap <buffer> gC <Plug>(agit-show-commit)
 
   nmap <buffer> y# <PLug>(agit-yank-hash)
@@ -78,6 +70,16 @@ function! s:agit_keymaps() abort "{{{1
   "nmap <buffer> rs <Plug>(agit-git-bisect-reset)
 
   "nmap <buffer>  <Plug>(agit-git-cherry-pick)
-  " Note: use :tabclose
-  nmap <buffer> <c-w>C <Plug>(agit-exit)
+
+  "nmap <buffer> <c-w>C <Plug>(agit-exit)
+
+  " Remote Scroll {{{2
+  " <Plug>(agit-scrolldown/up-foo) scroll from another window in remote
+  nmap <buffer> <c-n> <Plug>(agit-scrolldown-stat)
+  nmap <buffer> <c-p> <Plug>(agit-scrollup-stat)
+
+  nmap <buffer> <c-j> <Plug>(agit-scrolldown-diff)
+  nmap <buffer> <c-k> <Plug>(agit-scrollup-diff)
+
+  "}}}2
 endfunction
