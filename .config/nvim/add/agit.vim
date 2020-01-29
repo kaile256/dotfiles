@@ -73,6 +73,11 @@ function! s:agit_keymaps() abort "{{{1
 
   "nmap <buffer> <c-w>C <Plug>(agit-exit)
 
+  nnoremap d <c-d>
+  nnoremap u <c-u>
+  nnoremap D <c-f>
+  nnoremap U <c-b>
+
   " Remote Scroll {{{2
   " <Plug>(agit-scrolldown/up-foo) scroll from another window in remote
   nmap <buffer> <c-n> <Plug>(agit-scrolldown-stat)
