@@ -77,27 +77,22 @@ nnoremap Zq ZQ
 
 " Note: look after that ZQ, as :q!, locates higher than ZZ, as :wq
 " Mnemonic: Close all
-nnoremap <silent> ZC     :w <bar> windo q!<cr>
-nnoremap <silent> Zc     :w <bar> windo q!<cr>
-nnoremap <silent> <c-w>C :w <bar> windo q!<cr>
-function! s:writeable() abort "{{{2
-  if &modifiable && !&ro
-    write
-  endif
-endfunction
-"}}}
+nnoremap <silent> ZC     :<c-u>w <bar> windo norm! ZQ<cr>
+nnoremap <silent> Zc     :<c-u>w <bar> windo norm! ZQ<cr>
+nnoremap <silent> <c-w>C :<c-u>w <bar> windo norm! ZQ<cr>
 
 " Mnemonic: Eliminate current tabpage
-nnoremap <silent> ZE :windo q!<cr>
-nnoremap <silent> Ze :windo q!<cr>
-
+nnoremap <silent> ZE :<c-u>windo norm! ZQ<cr>
+nnoremap <silent> Ze :<c-u>windo norm! ZQ<cr>
 " Mnemonic: <c-w>c is for :close as default
-nnoremap <silent> <c-w>e :<c-u>windo q!<cr>
-nnoremap <silent> <c-w>E :<c-u>windo q!<cr>
+nnoremap <silent> <c-w>e :<c-u>windo norm! ZQ<cr>
+nnoremap <silent> <c-w>E :<c-u>windo norm! ZQ<cr>
 
 " Mnemonic: $ yes
 nnoremap <silent> Zy :<c-u>qa  <cr>
-nnoremap <silent> ZY :<c-u>qa! <cr>
+nnoremap <silent> ZY :<c-u>qa  <cr>
+nnoremap <silent> Zn :<c-u>wqa <cr>
+nnoremap <silent> ZN :<c-u>wqa <cr>
 
 command! -bar HelpCloseAll :call s:helpclose_all() "{{{2
 function! s:helpclose_all() abort
