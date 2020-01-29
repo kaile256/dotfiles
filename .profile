@@ -10,7 +10,7 @@
 #[[ -z $DISPLAY && $XDG_VTNR -eq 1 ]] && exec startx
 #exec qtile
 
-xinput disable Elan\ Touchpad
+( type xinput && xinput disable Elan\ Touchpad ) >/dev/null 2>&1
 
 source ~/.config/bash/env.sh # includes initial XDG_BASEs.
 source ~/.config/bash/path.sh
