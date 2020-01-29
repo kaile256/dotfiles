@@ -7,11 +7,11 @@ nnoremap <buffer> <a-i> :cnext<cr>
 nnoremap <buffer> <a-]> :cnewer<cr>
 nnoremap <buffer> <a-[> :colder<cr>
 
-" Note: use lambdalisue/qfloc.vim instead
+" Ref: https://thinca.hatenablog.com/entry/20130708/1373210009
 " Note: lambdalisue/qfloc.vim starts from the URL,
 "   but it has too exessive scripts
 
-function! s:del_entry() range abort
+function! s:del_entry() range abort "{{{1
   let qf = getqflist()
   let history = get(w:, 'qf_history', [])
   call add(history, copy(qf))
@@ -21,19 +21,21 @@ function! s:del_entry() range abort
   execute a:firstline
 endfunction
 
-nnoremap <silent><buffer> u :<c-u>call <SID>undo_entry()<cr>
+nnoremap <silent><buffer> dd :call <SID>del_entry()<cr>
+nnoremap <silent><buffer> x  :call <SID>del_entry()<cr>
+xnoremap <silent><buffer> d  :call <SID>del_entry()<cr>
+xnoremap <silent><buffer> x  :call <SID>del_entry()<cr>
 
-function! s:undo_entry() abort
+function! s:undo_entry() abort "{{{1
   let history = get(w:, 'qf_history', [])
   if !empty(history)
     call setqflist(remove(history, -1), 'r')
   endif
 endfunction
 
-noremap <silent><buffer><expr> j <SID>jk(v:count1)
-noremap <silent><buffer><expr> k <SID>jk(-v:count1)
+nnoremap <silent><buffer> u :<c-u>call <SID>undo_entry()<cr>
 
-function! s:jk(motion) abort
+function! s:jk(motion) abort "{{{1
   let max = line('$')
   let list = getloclist(0)
 
@@ -51,3 +53,7 @@ function! s:jk(motion) abort
 
   return (pos + 1) . 'G'
 endfunction
+
+noremap <silent><buffer><expr> j <SID>jk(v:count1)
+noremap <silent><buffer><expr> k <SID>jk(-v:count1)
+
