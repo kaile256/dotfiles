@@ -107,12 +107,12 @@ repo = 'danishprakash/vim-docker'
 on_cmd =  ['DockerDocBrowser', 'DockerHubBrowser',]
 
 #[ Quickfix ]
-[[plugins]]
-repo = 'lambdalisue/qfloc.vim'
-# provies some local keymaps
-on_ft = ['qf', 'loc']
-hook_source = 'runtime source/qfloc.vim'
-
+#[[plugins]]
+#repo = 'lambdalisue/qfloc.vim'
+## provies some local keymaps
+#on_ft = ['qf', 'loc']
+#hook_source = 'runtime source/qfloc.vim'
+#
 #[[plugins]]
 #repo = 'infokiller/vim-errorlist'
 #on_cmd = ['errorlist#Navigate']
