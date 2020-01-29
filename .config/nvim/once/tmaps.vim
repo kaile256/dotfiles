@@ -8,9 +8,9 @@
 tnoremap <c-x>h     ~/
 tnoremap <c-x><c-h> ~/
 
-tnoremap <silent> <Plug>(hightlight-off) <c-\><c-n>:<c-u>noh <bar> redraw!<cr>i
-tmap     <silent> <c-space><space>       <Plug>(hightlight-off)
-tmap     <silent> <c-space><c-space>     <Plug>(hightlight-off)
+tnoremap <silent> <Plug>(highlight-off) <c-\><c-n>:<c-u>noh <bar> redraw!<cr>i
+tmap     <silent> <c-space><space>       <Plug>(highlight-off)
+tmap     <silent> <c-space><c-space>     <Plug>(highlight-off)
 
 " before typo
 tnoremap <c-cr> <cr>
