@@ -71,6 +71,12 @@ depends = 'vim-airline'
 on_event = 'VimEnter'
 
 [[plugins]]
+repo = 'renyard/vim-git-flow-format'
+type = 'git'
+depends = 'vim-airline'
+on_event = ['BufRead']
+
+[[plugins]]
 repo = 'mg979/vim-xtabline'
 on_event = ['VimEnter']
 hook_add = 'runtime add/xtabline.vim'
@@ -108,6 +114,13 @@ write
 #on_source = 'lightline.vim'
 #hook_post_source = 'runtime add/lightline-buffer.vim'
 
+#[[plugins]]
+#repo = 'edkolev/promptline.vim'
+#on_event = ['TermOpen']
+## Note: this plugin is for shell
+## TODO: necessary to config for bash/zsh/fish to use this plugin
+#hook_post_source = 'runtime post/promptline.vim'
+#
 #[ Colorscheme ]
 #[[plugins]]
 #repo = 'KeitaNakamura/neodark.vim'
