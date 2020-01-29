@@ -22,8 +22,8 @@ nnoremap <Plug>(wincopy-in-tab) <c-w>v<c-w>T
 nmap <c-w>gt <Plug>(wincopy-in-tab)
 nmap <c-w>gT <Plug>(wincopy-in-tab)
 
-nnoremap <silent> <c-w><space>T :<c-u>call <SID>wincopy_to_another_proc()
-nnoremap <silent> <c-w><space>t :<c-u>call <SID>wincopy_to_another_proc()
+nnoremap <silent> <c-w><space>T :<c-u>call <SID>wincopy_to_another_proc()<cr>
+nnoremap <silent> <c-w><space>t :<c-u>call <SID>wincopy_to_another_proc()<cr>
 function! s:wincopy_to_another_proc() abort
   if executable('nvim-qt')
     silent !nvim-qt %:p &
