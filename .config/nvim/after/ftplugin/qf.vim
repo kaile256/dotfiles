@@ -8,16 +8,8 @@ nnoremap <buffer> <a-]> :cnewer<cr>
 nnoremap <buffer> <a-[> :colder<cr>
 
 " Note: use lambdalisue/qfloc.vim instead
-" Ref: https://thinca.hatenablog.com/entry/20130708/1373210009
-
-noremap <buffer> p <cr>zz<c-w>p
-noremap <buffer> <c-j> j<cr>zz<c-w>p
-noremap <buffer> <c-k> k<cr>zz<c-w>p
-
-nnoremap <silent><buffer> dd :call <SID>del_entry()<cr>
-nnoremap <silent><buffer> x  :call <SID>del_entry()<cr>
-xnoremap <silent><buffer> d  :call <SID>del_entry()<cr>
-xnoremap <silent><buffer> x  :call <SID>del_entry()<cr>
+" Note: lambdalisue/qfloc.vim starts from the URL,
+"   but it has too exessive scripts
 
 function! s:del_entry() range abort
   let qf = getqflist()
