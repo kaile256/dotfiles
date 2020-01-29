@@ -54,16 +54,24 @@ __kill_polybar() {
   while pgrep -u $UID -x polybar >>/dev/null; do sleep 0.01; done
 }
 
+restart_polybar() {
+  __kill_polybar
+  __launch_only
+}
+
+restart_polybar_with_log() {
+  __kill_polybar
+  __launch_with_log
+}
+
 set +u
 
 case "$1" in
   --debug)
-    __kill_polybar
-    __launch_with_log
+    restart_polybar_with_log
     ;;
 
   *)
-    __kill_polybar
-    __launch_only
+    restart_polybar
     ;;
 esac
