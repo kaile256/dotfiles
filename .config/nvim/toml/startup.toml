@@ -18,6 +18,13 @@ repo = 'Shougo/vimproc.vim'
 # run vim-plugins asynchronously, like openbrowser, quickrun.
 build = 'make'
 
+[[plugins]]
+repo = 'wakatime/vim-wakatime'
+# tracking service for coding activity.
+# Note: visit https://wakatime.com/settings/api-key before using this plugin.
+hook_source = 'runtime add/wakatime.vim'
+
+# API; Collaborative Editing
 #[[plugins]]
 #repo = 'glacambre/firenvim'
 #hook_post_update = 'call firenvim#install(0)'
