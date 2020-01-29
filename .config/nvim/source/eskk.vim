@@ -41,7 +41,7 @@ let g:eskk#egg_like_newline_completion = 1
 
 " Henkan; Marker {{{1
 let g:eskk#marker_henkan = '@'
-let g:eskk#marker_henkan_select = '#'
+let g:eskk#marker_henkan_select = '%'
 let g:eskk#marker_okuri = '*'
 let g:eskk#marker_jisyo_touroku = '?'
 
