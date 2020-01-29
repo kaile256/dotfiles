@@ -11,6 +11,9 @@
 [merge]
   tool = nvr -s
 	ff = false
+	conflictstyle = diff3
+[mergetool]
+  prompt = false
 [mergetool "nvr"]
   cmd = nvr -s -d $LOCAL $BASE $REMOTE $MERGED -c 'wincmd J | wincmd ='
 [mergetool "vim_mergetool"]
