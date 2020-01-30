@@ -10,4 +10,4 @@ let g:fuzzystash#actions = {
 "command! -nargs=? Gstash :call fuzzystash#create_stash(<q-args>)
 
 "command! -nargs=? GstashList :call fuzzystash#list_stash(<q-args>)
-command! -nargs=? Gstashs    :call fuzzystash#list_stash(<q-args>)
+command! -nargs=? Gstashes    :call fuzzystash#list_stash(<q-args>)
