@@ -10,5 +10,5 @@ let g:fzf#git#stash#actions = {
       \ 'alt-s': 'show',
       \ }
 
-command! -nargs=? Gstashes :call fzf#git#stash#list(<q-args>)
-"command! -nargs=? GstashList :call fzf#git#stash#list(<q-args>)
+command! Gstashes :call fzf#git#stash#list()
+"command! GstashList :call fzf#git#stash#list()
