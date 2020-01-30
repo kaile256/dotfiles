@@ -37,17 +37,6 @@ command! V :vs   %:p:h
 " Mnemonic: Horizontal (h muet)
 command! O :sp   %:p:h
 command! T :tabe %:p:h
-command! -bang -bar -nargs=? Cd call s:cd_here(<q-bang>) "{{{2
-command! -bang -bar -nargs=? CD call s:cd_here(<q-bang>)
-
-function! s:cd_here(args) abort
-  if a:args ==# ''
-    cd %:p:h
-  else
-    !cd %:p:h
-  endif
-  pwd
-endfunction
 
 " TODO: make vint restricted to the range
 command! -nargs=* -range Vint :w <bar> !vint --enable-neovim <args> %:p
