@@ -169,14 +169,13 @@ alias aut auto al aul aulo
 #}}}
 
 # Excmds {{{1
-delete au augroup ... autocmd block
 snippet augroup
 abbr au aug augr
   augroup ${1}
   au!
   au ${3:BufNewFile,BufRead} ${4:*} ${5}
   augroup END
-delete f function
+
 snippet function
 alias f fu fun func function
   function! ${1:`expand('%') =~ 'autoload' ? substitute(matchstr(expand('%:p'),'autoload/\zs.*\ze.vim'),'[/\\]','#','g').'#' : ''`}${2:#:do}(${3:#:{{name\}[, {arglist\}] [, {dict\}]}) ${4:#:range }abort "{{{${0}
