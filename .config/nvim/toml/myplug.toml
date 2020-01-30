@@ -48,10 +48,21 @@ hook_add = 'runtime add/spell-temporary.vim'
 #on_cmd = 'FindPath'
 ##hook_add = 'runtime add/findpath.vim'
 #
+#[ Help ]
 [[plugins]]
 repo = 'kaile256/vim-help-toc'
 on_ft = ['help', 'man']
 hook_source = 'runtime source/help-toc.vim'
+
+#[ Git ]
+[[plugins]]
+repo = 'kaile256/vim-fzf-git'
+on_event = ['BufRead']
+on_func = [
+'fzf#git#',
+'fzf#git#stash#',
+]
+hook_add = 'runtime add/fzf-git.vim'
 
 #[ Fold ]
 [[plugins]]
