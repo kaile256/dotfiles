@@ -70,8 +70,10 @@ augroup myIsFileNameAdjustment "{{{1
   au FileType dosini setl isfname-==
 augroup END
 
-augroup myAlertOnFilename "{{{1
-  au! BufRead /etc/{sudoers,sudoers.d/*} setl nomodifiable
+augroup myAlert "{{{1
+  " checktime: check if any buffers are changed out of the process
+  au FocusGained * checktime
+  au BufRead /etc/{sudoers,sudoers.d/*} setl nomodifiable
         \ | echoerr " You'd better edit by $ visudo"
 augroup END
 
