@@ -1,5 +1,9 @@
 " From: init.vim
 
+augroup myAutoChdir "{{{1
+  au! BufWritePre * silent! cd %:p:h
+augroup END
+
 augroup myXinputToggle "{{{1
   au!
   exe 'au InsertEnter,'. $TermOpen "* call system('xinput disable Elan\ TrackPoint')"
