@@ -78,7 +78,7 @@ hook_add = 'runtime add/fuzzy-stash.vim'
 #[ Merge ]
 [[plugins]]
 repo = 'samoshkin/vim-mergetool'
-on_cmd = ['Mergetool']
+on_cmd = ['MergetoolStart']
 hook_add = 'runtime add/mergetool.vim'
 hook_source = 'runtime source/mergetool.vim'
 
