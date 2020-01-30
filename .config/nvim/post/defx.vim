@@ -245,6 +245,14 @@ function! s:defx_keymaps() abort "{{{1
   " Note: CANNOT register multiple files into defx-register.
   nnoremap <nowait><buffer><expr> yy
         \ defx#do_action('copy')
+  " TODO: send 'r' to select rename at the prompt
+  "   Note:
+  "     ':call feedkeys("r", "nt")<cr>' only append the text itself to fname.
+  nnoremap <nowait><buffer><expr> yp
+        \ defx#do_action('multi', [
+        \ 'copy',
+        \ 'paste',
+        \ ])
   nnoremap <nowait><buffer><expr> cc
         \ defx#do_action('move')
   nnoremap <nowait><buffer><expr> p
