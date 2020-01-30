@@ -54,10 +54,12 @@ command! -bar -bang -nargs=*
       \ -complete=customlist,fugitive#EditComplete
       \ Gdiffsplit
       \ :exe fugitive#Diffsplit(1, <bang>0, '<mods>', '--function-context '. <q-args>, [<f-args>])
+
 command! -bar -bang -nargs=*
       \ -complete=customlist,fugitive#EditComplete
       \ Ghdiffsplit
       \ :exe fugitive#Diffsplit(0, <bang>0, '<mods>', '--function-context '. <q-args>, [<f-args>])
+
 command! -bar -bang -nargs=*
       \ -complete=customlist,fugitive#EditComplete
       \ Gvdiffsplit
