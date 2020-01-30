@@ -2,11 +2,6 @@
 " Repo: tpope/vim-fugitive
 " Another: add/fugitive.vim
 
-command! -bang -nargs=? -range=-1 -addr=tabs
-      \ -complete=customlist,fugitive#CommitComplete
-      \ GcommitBottom
-      \ :call s:gitcommit(<q-args>)
-
 augroup FugitiveCallMyFunc
   au!
   function! s:gitcommit(...) abort "{{{1
@@ -21,23 +16,34 @@ augroup FugitiveCallMyFunc
   endfunction
 
   au FileType fugitive call s:fugitive_keymap() "{{{1
-  function! s:fugitive_keymap() abort "{{{0
+  function! s:fugitive_keymap() abort "{{{2
+    " Note: for fugitive-buffer, not for &diff
+    silent! nunmap <buffer> J
+    silent! nunmap <buffer> K
+
+    " especially for the case ':norm U' to unstage all
+    nnoremap <buffer><silent> <Plug>(fugitive:gstage-prev-window)
+          \ :<c-u>wincmd p <bar> Gw <bar> wincmd p <bar>
+          \ call feedkeys('gszz')<cr>
+    nmap <buffer> S <Plug>(fugitive:gstage-prev-window)
+
+    nnoremap <buffer><silent> <Plug>(fugitive:diff-to-HEAD)
+          \ :<c-u>wincmd p <bar> Gw <bar> GwToDiff HEAD <bar> Gvstatus<cr>
+    nmap <buffer> D <Plug>(fugitive:diff-to-HEAD)
+
+    command! -bang -nargs=? -range=-1 -addr=tabs -buffer
+          \ -complete=customlist,fugitive#CommitComplete
+          \ GcommitBottom
+          \ :call s:gitcommit(<q-args>)
+
     " TODO: Specify the window of the latest commit buffer on `dq`.
     "nnoremap <buffer><silent> cc :<C-U>bot 20 Gcommit<CR>
     "nnoremap <buffer><silent> ca :<C-U>bot 20 Gcommit --amend<CR>
     nnoremap <buffer><silent> cc :<c-u>GcommitBottom<cr>
     nnoremap <buffer><silent> ca :<c-u>GcommitBottom --amend<cr>
     " To: continue to cc/ce/ca.
-    xmap <buffer> c sc
-    " Note: for fugitive-buffer, not for &diff
-    silent! nunmap <buffer> J
-    silent! nunmap <buffer> K
-    " For: especially in the case, ':norm U' to unstage all.
-    nmap <buffer> S <Plug>(fugitive:gstage-prev-window)
-    nmap <buffer> D <Plug>(fugitive:diff-to-HEAD)
+    xnoremap <buffer> c sc
   endfunction
-  nnoremap <silent> <Plug>(fugitive:gstage-prev-window) :<c-u>wincmd p <bar> :Gw <bar> wincmd p <bar>call feedkeys('gszz')<cr>
-  nnoremap <silent> <Plug>(fugitive:diff-to-HEAD) :<c-u>wincmd p <bar> :Gw <bar> :GwinpickVDiff HEAD <bar> Gvstatus<cr>
 
   au FileType gitcommit call s:gitcommit_startinsert() "{{{1
   function! s:gitcommit_startinsert()
