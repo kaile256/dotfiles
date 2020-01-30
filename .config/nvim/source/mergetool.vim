@@ -2,10 +2,24 @@
 " Repo: samoshkin/vim-mergetool
 " Another: add/mergetool.vim
 
-" Available:
-"   m: merged
-"   r: remote
-"   b: base
+" Note:
+"   vim-mergetool removes conflict markers from MERGED file, and picks up
+"   `ours/local` side of a conflict by default.
+" Available: local, remote, base, unmodifiled
+"   unmodifiled: keep from removing conflict markers
+"   local: current branch HEAD.
+"   remote: HEAD of the branch we're going to merge
+"   base: common ancestor of two branches, i.e. git merge-base branchX branchY
+"   Note:
+"     in uppercase, those revision are derived from MERGED file by picking up
+"     either side of a conflict from conflict markers
+" Default: local
+"let g:mergetool_prefer_revision = 'remote'
+
+" Available: mrb,
+"   m: MERGED file
+"   r: remote file
+"   b: base file
 "   ,: split in below after it
 " Default: 'mr'
 "let g:mergetool_layout = 'mr'
