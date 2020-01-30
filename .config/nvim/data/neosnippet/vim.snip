@@ -169,6 +169,10 @@ alias aut auto al aul aulo
 #}}}
 
 # Excmds {{{1
+snippet command
+alias com cmd comm co
+  command! -bar ${1:-nargs=*} ${2:#:Command Name} :${3:#:Commands}
+
 snippet augroup
 abbr au aug augr
   augroup ${1}

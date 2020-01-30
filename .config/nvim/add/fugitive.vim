@@ -12,6 +12,8 @@
 "command! Gush
 "      \ :let s:push = jobstart('nvim --embed -c "Gpush"')
 
+command! -bar Gtash :Git stash
+
 command! -bang -nargs=? -range=-1 -addr=tabs
       \ -complete=customlist,fugitive#PushComplete
       \ Gush
