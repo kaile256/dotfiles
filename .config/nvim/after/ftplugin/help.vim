@@ -7,6 +7,7 @@ if &readonly && !&modifiable
   norm! zvzt
   setl spell spl=en_us,cjk
   setl nonumber signcolumn= nolist foldlevel=0
+  setl conceallevel=0
   nnoremap <buffer> d <c-d>
   nnoremap <buffer> u <c-u>
 endif
