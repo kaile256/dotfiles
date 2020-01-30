@@ -62,7 +62,7 @@ on_func = [
 'fzf#git#',
 'fzf#git#stash#',
 ]
-hook_add = 'runtime add/fzf-git.vim'
+#hook_add = 'runtime add/fzf-git.vim'
 
 #[ Fold ]
 [[plugins]]
