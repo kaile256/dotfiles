@@ -68,7 +68,7 @@ set $urxvt urxvt
 # urxvtc; add `-k` to kill daemon, too.
 #set $urxvt urxvtc
 
-set $termporal alacritty --title termporal --config-file $XDG_CONFIG_HOME/alacritty/floating.yml -e fish
+set $termporal alacritty --title termporal --config-file $XDG_CONFIG_HOME/alacritty/botright.yml -e fish
 #set $termporal alacritty --title termporal -e nvim -u $XDG_CONFIG_HOME/nvim/rc/termporal.vim
 for_window [title=^termporal$] floating enable
 #set $terminal urxvt
