@@ -29,6 +29,7 @@ snippet introduction
 alias int intr intro
   ==============================================================================
   INTRODUCTION							*`expand('%:p') =~# 'doc' ? substitute(matchstr(expand('%:p'),'doc/\zs.*\ze.txt'),'[/\\]','#','g') : 'not-in-doc'`-intro*
+
   ${1:#:write a description}
 
   Latest version:
