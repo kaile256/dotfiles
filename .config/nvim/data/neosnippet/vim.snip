@@ -82,13 +82,15 @@ options head
 
 snippet loaded
 alias load loa
-  if exists('g:loaded_${1:`substitute(substitute(matchstr(expand('%:p'), 'autoload/\|plugin\/*\.vim'), 'autoload\|plugin/\(.*\).vim', '\1', ''), '/', '_', 'g')`}') | finish | endif "{{{1
-  let g:loaded_$1 = 1
+  if exists('g:loaded_`substitute(substitute(matchstr(expand('%:p'), '\(autoload\|plugin\)/\zs.*'), '\(n\|\.\)\=vim-\=', '', 'g'), '/', '_', 'g')`') | finish | endif "{{{1
+  let g:loaded_`substitute(substitute(matchstr(expand('%:p'), '\(autoload\|plugin\)/\zs.*'), '\(n\|\.\)\=vim-\=', '', 'g'), '/', '_', 'g')` = 1
 
   " save 'cpoptions'
   let s:save_cpo = &cpo
   set cpo&vim
   "}}}1
+
+  ${0:TARGET}
 
 snippet cpoptions
 alias cpo pop save
