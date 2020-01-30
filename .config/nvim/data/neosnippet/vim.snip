@@ -78,6 +78,8 @@ options head
   " }}}
   " ============================================================================
 
+  ${0:TARGET}
+
 snippet loaded
 alias load loa
   if exists('g:loaded_${1:`substitute(substitute(matchstr(expand('%:p'), 'autoload/\|plugin\/*\.vim'), 'autoload\|plugin/\(.*\).vim', '\1', ''), '/', '_', 'g')`}') | finish | endif "{{{1
