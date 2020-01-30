@@ -1,4 +1,4 @@
-" From: finder.toml
+" From: browse.toml
 " Repo: junegunn/fzf.vim
 " Fork: kaile256/fzf.vim
 " Another: add/fzf-keymaps.vim
