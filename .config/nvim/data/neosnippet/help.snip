@@ -8,11 +8,16 @@ alias hea head
   Author: kaile256 <kaile256acc at gmail.com>
   License: MIT license
 
+  ${0:TARGET}
+
+  ==============================================================================
+  vim:ft=help:tw=78:ts=8:sts=8:sw=8:noet:norl:fen
+
 snippet TOC
 alias toc contents con
 options head
   ==============================================================================
-  CONTENTS			*`expand('%:p') =~# 'doc' ? substitute(matchstr(expand('%:p'),'doc/\zs.*\ze.txt'),'[/\\]','#','g') : 'not-in-doc'`-contents*
+  CONTENTS						*`expand('%:p') =~# 'doc' ? substitute(matchstr(expand('%:p'),'doc/\zs.*\ze.txt'),'[/\\]','#','g') : 'not-in-doc'`-contents*
 
   Introduction			|`expand('%:p') =~# 'doc' ? substitute(matchstr(expand('%:p'),'doc/\zs.*\ze.txt'),'[/\\]','#','g') : 'not-in-doc'`-introduction|
   Usage					|`expand('%:p') =~# 'doc' ? substitute(matchstr(expand('%:p'),'doc/\zs.*\ze.txt'),'[/\\]','#','g') : 'not-in-doc'`-usage|
@@ -37,7 +42,7 @@ alias int inf
 snippet usage
 alias usa
   ==============================================================================
-  USAGE						*`expand('%:p') =~# 'doc' ? substitute(matchstr(expand('%:p'),'doc/\zs.*\ze.txt'),'[/\\]','#','g') : ''`-usage*
+  USAGE							*`expand('%:p') =~# 'doc' ? substitute(matchstr(expand('%:p'),'doc/\zs.*\ze.txt'),'[/\\]','#','g') : ''`-usage*
 
 snippet variable
 alias var va
@@ -66,6 +71,6 @@ alias exa ex exam
   EXAMPLE							*`expand('%:p') =~# 'doc' ? substitute(matchstr(expand('%:p'),'doc/\zs.*\ze.txt'),'[/\\]','#','g') : ''`-example*
 
 snippet tail
-alias end tai
+alias end tai mod
   ==============================================================================
   vim:ft=help:tw=78:ts=8:sts=8:sw=8:noet:norl:fen
