@@ -23,16 +23,20 @@ hook_post_source = 'runtime post/fzf.vim'
 repo = 'fszymanski/fzf-quickfix'
 depend = 'fzf.vim'
 on_cmd = ['Quickfix']
+
 [[plugins]]
 repo = 'dominickng/fzf-session.vim'
 on_cmd = ['Session', 'Sessions']
 hook_source = 'runtime source/fzf-session.vim'
+
 #[[plugins]]
 #repo = 'yuki-ycino/fzf-preview.vim'
+
 #[[plugins]]
 #repo = 'srstevenson/vim-picker'
 # fzy's wrapper for vim
 #on_event = ['BufRead']
+
 #[[plugins]]
 #repo = 'liuchengxu/vim-clap'
 ## Note: a fuzzy finder written in 99.7% vimscript.
@@ -74,35 +78,42 @@ on_source = 'defx.nvim'
 #repo = 'skanehira/popupfiles.vim'
 ## Ref: https://qiita.com/gorilla0513/items/fa4b401e7264a31868b9
 #on_cmd = 'PopupFiles'
+
 #[[plugins]]
 #repo = 'lambdalisue/fila.vim'
 ## Note: currently has no docment.
 #on_cmd = 'Fila'
 #hook_add = 'runtime add/fila.vim'
+
 #[[plugins]]
 #repo = 'cocopon/vaffle.vim'
 #on_if = 'has("python3")'
 #hook_post_source = 'runtime add/vaffle.vim'
+
 #[[plugins]]
 #repo = 'justinmk/vim-dirvish'
 #on_event = 'BufAdd'
 #hook_post_source = 'runtime add/dirvish.vim'
-## Ranger
+
+##[ Ranger ]
 #[[plugins]]
 #repo = 'Lokaltog/neoranger'
 ## Note: only one pane is in use; can't call it a ranger.
 #on_event = 'BufRead'
 #hook_add = 'runtime add/neoranger.vim'
+
 #[[plugins]]
 #repo = 'ipod825/vim-netranger'
 ## Browser for system/cloud storage
 #on_event = 'BufRead'
 #hook_post_source = 'runtime add/netranger.vim'
+
 #[[plugins]]
 #repo = 'rafaqz/ranger.vim'
 ### semms only call the external ranger.
 #on_event = 'BufRead'
 #hook_post_source = 'runtime add/ranger.vim'
+
 #[[plugins]]
 #repo = 'francoiscabrol/ranger.vim'
 ## semms only call the external ranger.
@@ -114,6 +125,7 @@ on_source = 'defx.nvim'
 repo = 'jsfaint/gen_tags.vim'
 on_event = 'BufLeave'
 hook_post_source = 'runtime add/gen_tags.vim'
+
 #[[plugins]]
 #repo = 'SpaceVim/gtags.vim'
 ## Only for SpaceVim? E117: Unknown function: gtags#update
@@ -123,6 +135,7 @@ hook_post_source = 'runtime add/gen_tags.vim'
 ##          denite, unite, fzf, leader-f, fzy
 #on_event = 'BufRead'
 #hook_post_source = 'runtime add/gtags.vim'
+
 [[plugins]]
 repo = 'majutsushi/tagbar'
 on_cmd = 'TagbarToggle'
@@ -141,6 +154,7 @@ hook_add = 'runtime add/tagbar.vim'
 ## ???
 #on_cmd = ['BookmarkAnnotate', 'BookmarkShowAll', 'BookmarkNext', 'BookmarkPrev']
 #hook_add = 'runtime add/bookmarks.vim'
+
 #[[plugins]]
 #repo = 'jacquesbh/vim-showmarks'
 #on_map = ['m','`',"'",'<space>']
