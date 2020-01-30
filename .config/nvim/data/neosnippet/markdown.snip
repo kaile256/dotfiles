@@ -1,23 +1,20 @@
 snippet vplug
 alias vp vpl vim plug plu pl vi
-  `substitute(expand('%:p:h'), '.*\/', '', '')`
-  ===
+  # `substitute(expand('%:p:h'), '.*\/', '', '')`
 
-  `substitute(expand('%:p:h'), '.*\/', '', '')``"\<space>"` is
+  `substitute(expand('%:p:h'), '.*\/', '', '')` is ${0:TARGET}
 
-  Installation
-  ------------
+  ## Installation
 
   Install the plugin using your favorite package manager
 
-  #### For dein.vim
+  ### For dein.vim
   \`\`\`vim
   call dein#add('`substitute(expand('%:p:h'), '\v.*\/(.*\/)', '\1', '')`')
   \`\`\`
 
-  Usage
-  -----
-  #### Examples
+  ## Usage
+  ### Examples
 
 snippet qiita
 alias qi qii
