@@ -32,6 +32,12 @@ hook_source = 'runtime source/fzf-session.vim'
 #[[plugins]]
 #repo = 'yuki-ycino/fzf-preview.vim'
 
+[[plugins]]
+repo = 'krzbe/fzf-git-submodules'
+on_func = ['fzf#submodules#']
+on_cmd = ['Components']
+hook_add = 'runtime add/fzf-git-submodules.vim'
+
 #[[plugins]]
 #repo = 'srstevenson/vim-picker'
 # fzy's wrapper for vim
