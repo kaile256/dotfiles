@@ -201,13 +201,13 @@ function! s:additional() abort "{{{2
   call win_gotoid(bufwinid('.git/index'))
 endfunction
 
-" Info; Blame {{{1
+" Blame {{{1
 nnoremap <silent> <space>gb :<c-u>Gblame<cr>
 
-" Info; Status {{{1
+" Status {{{1
 nnoremap <silent> <space>gs :<c-u>Gvstatus<cr>
 
-" Add; {{{1
+" Add{{{1
 " Note: <c-w>p<c-w>p is necessary to update signcolumn
 nnoremap <silent> <space>ga :<c-u>silent Gw <bar> Gvstatus <bar> call win_gotoid(bufwinid('.git/index'))<cr>
 nnoremap <silent> <space>gw :<c-u>GwToDiffWithStat HEAD<cr>
@@ -219,7 +219,7 @@ command! -bar -nargs=*
       \ | call s:winpick()
       \ | call s:Gvdiffw(<q-args>)
 
-" Command! GwWinpickVDiff {{{2
+" Add to Diff {{{2
 nnoremap <silent> <space>go :<c-u>silent Gw <bar> only<cr>
 nnoremap <silent> <space>gO :<c-u>GwToDiff HEAD<cr>
 
@@ -234,7 +234,7 @@ command! -bar -nargs=*
       \ | only
       \ | call s:Gvdiffw (<q-args>)
 
-" Diff; {{{1
+" Diff {{{1
 " !: On a Merge Conflict, do a 3-diff; otherwise the same as without bang.
 nnoremap <silent> <space>gd :<c-u>Gdiff<cr>
 " Note: should be compared in current buffer
