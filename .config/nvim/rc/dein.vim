@@ -145,7 +145,7 @@ if !exists('g:plugins_available')
     for path in s:toml_pc_only
       call s:load_toml(path, {
             \ 'lazy': 1,
-            \ 'if': "system('uname -o') !~# 'Android'",
+            \ 'if': "executable('xinput')",
             \ })
     endfor
 
