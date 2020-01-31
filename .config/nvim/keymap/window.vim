@@ -6,10 +6,10 @@
 "  au! CmdlineLeave * if exists('g:cmd_last_cursor') | call matchdelete(g:cmd_last_cursor) | endif
 "augroup END
 
-nnoremap <space>/ q/
-nnoremap <space>? q?
+nnoremap <space>/ q/kzb
+nnoremap <space>? q?kzb
 " open CmdWin
-nnoremap <space>: q:i
+nnoremap <space>: q:kzb
 
 " No Highlight "{{{1
 " Ref: compare :redraw with <c-l> or :mode
