@@ -53,8 +53,8 @@ snippet header
 alias head hea
 options head
   " ============================================================================
-  " Repo: kaile256/`matchstr(expand('%:p'), '[^/]\+\ze/\(autoload\|plugin\)/')`
-  " File: `matchstr(expand('%:p:.'), '\(autoload\|plugin\)/.*')`
+  " Repo: kaile256/`vplug#name#repo()`
+  " File: `vplug#name#file()`
   " Author: kaile256
   " License: MIT license {{{
   "     Permission is hereby granted, free of charge, to any person obtaining
@@ -82,8 +82,8 @@ options head
 
 snippet loaded
 alias load loa
-  if exists('g:loaded_`substitute(substitute(matchstr(expand('%:p'), '\(autoload\|plugin\)/\zs.*'), '\(n\|\.\)\=vim-\=', '', 'g'), '/', '_', 'g')`') | finish | endif "{{{1
-  let g:loaded_`substitute(substitute(matchstr(expand('%:p'), '\(autoload\|plugin\)/\zs.*'), '\(n\|\.\)\=vim-\=', '', 'g'), '/', '_', 'g')` = 1
+  if exists('g:loaded_${1:`vplug#name#plugin()`}') | finish | endif "{{{1
+  let g:loaded_$1 = 1
 
   " save 'cpoptions'
   let s:save_cpo = &cpo
@@ -123,8 +123,8 @@ alias tab noet noe
 snippet init
 alias ini
   " ============================================================================
-  " Repo: kaile256/`matchstr(expand('%:p'), '[^/]\+\ze/\(autoload\|plugin\)/')`
-  " File: `matchstr(expand('%:p:.'), '\(autoload\|plugin\)/.*')`
+  " Repo: kaile256/`vplug#name#repo()`
+  " File: `vplug#name#file()`
   " Author: kaile256
   " License: MIT license {{{
   "     Permission is hereby granted, free of charge, to any person obtaining
@@ -148,7 +148,7 @@ alias ini
   " }}}
   " ============================================================================
 
-  if exists('g:loaded_${1:`substitute(substitute(expand('%:p'), '.*/autoload/\|plugin\/\(*\)\.vim', '\1', ''), '/', '_', 'g')`}') | finish | endif
+  if exists('g:loaded_${1:`vplug#name#plugin()`}') | finish | endif
   let g:loaded_$1 = 1
 
   " save 'cpoptions' {{{
@@ -165,10 +165,6 @@ alias ini
   " modeline {{{1
   " vim: expandtab tabstop=2 softtabstop=2 shiftwidth=2
   " vim: foldmethod=marker textwidth=79
-
-snippet autoload
-alias aut auto al aul aulo
-  `substitute(substitute(expand('%:p'), '.*/autoload/\(.*\).vim', '\1', ''), '/', '#', 'g') .'#'`
 
 #}}}
 
