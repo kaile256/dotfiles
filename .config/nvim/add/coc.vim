@@ -93,10 +93,10 @@ endfunction
 nmap <silent> gW <Plug>(coc-diagnostic-info)
 " Mnemonic: get Wrong line
 nmap \w <Plug>(coc-fix-current)
-nmap <silent><expr> [w
+map <silent><expr> [w
       \ '<Plug>(coc-diagnostic-prev):<c-u>sleep 5m<cr>zv'
       \ . (exists('b:coc_diagnostic_info') && winline() > winheight('w$') / 2 ? 'zm5k' : '')
-nmap <silent><expr> ]w
+map <silent><expr> ]w
       \ '<Plug>(coc-diagnostic-next):<c-u>sleep 5m<cr>zv'
       \ . (exists('b:coc_diagnostic_info') && winline() > winheight('w$') / 2 ? 'zm5k' : '')
 "nmap [e <Plug>(coc-diagnostic-prev-error)
@@ -360,10 +360,10 @@ function! coc#git_fold_toggle() abort
 endfunction
 
 " Similar to the navigation on &diff
-nmap <silent><expr> [c (&diff) ? '[c'
+map <silent><expr> [c (&diff) ? '[c'
       \ : '<Plug>(coc-git-prevchunk):<c-u>sleep 5m<cr>zv'
       \ . (winline() > winheight('w$') / 2 ? 'zm5k' : '')
-nmap <silent><expr> ]c (&diff) ? ']c'
+map <silent><expr> ]c (&diff) ? ']c'
       \ : '<Plug>(coc-git-nextchunk):<c-u>sleep 5m<cr>zv'
       \ . (winline() > winheight('w$') / 2 ? 'zm5k' : '')
 
