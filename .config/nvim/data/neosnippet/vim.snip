@@ -181,12 +181,13 @@ abbr au aug augr
   augroup END
 
 snippet function
-alias f fu fun func function
-  function! ${1:`expand('%') =~ 'autoload' ? substitute(matchstr(expand('%:p'),'autoload/\zs.*\ze.vim'),'[/\\]','#','g').'#' : ''`}${2:#:do}(${3:#:{{name\}[, {arglist\}] [, {dict\}]}) ${4:#:range }abort "{{{${0}
+alias fu fun func function
+  function! ${1:`vplug#prefix#function()`}${2:#:do}(${3:#:args) ${4:#:range }abort "{{{${0:TARGET}
+# the TARGET is in case to delete abort and to set foldlevel on the foldmarker
   endfunction
 
 snippet redir
-alias r re red
+alias re red rd
 options head
   redir ${1:=>} ${2:#: =>: var | >: file | @a: register a}
   ${4}
