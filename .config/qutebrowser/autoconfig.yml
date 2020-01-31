@@ -461,8 +461,7 @@ settings:
       dh: https://hub.docker.com/search?q={}
       gh: https://github.com/search?o=desc&q={}&s=updated&type=Repositories
       gm: https://www.google.co.jp/maps/place/{}
-      go: https://golang.org/search?q={}
-      ja: https://duckduckgo.com/?q={}&ia=web
+      gl: https://golang.org/search?q={}
       mf: https://github.com/search?o=desc&q={}&s=forks&type=Repositories
       ms: https://github.com/search?o=desc&q={}&s=stars&type=Repositories
       qb: https://www.reddit.com/r/qutebrowser/search/?q={}
