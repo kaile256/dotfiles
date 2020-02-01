@@ -53,8 +53,8 @@ snippet header
 alias head hea
 options head
   " ============================================================================
-  " Repo: kaile256/`vplug#name#repo()`
-  " File: `vplug#name#file()`
+  " Repo: kaile256/`neosnippet#name#repo()`
+  " File: `neosnippet#name#file()`
   " Author: kaile256
   " License: MIT license {{{
   "     Permission is hereby granted, free of charge, to any person obtaining
@@ -82,7 +82,7 @@ options head
 
 snippet loaded
 alias load loa
-  if exists('g:loaded_${1:`vplug#name#plugin()`}') | finish | endif "{{{1
+  if exists('g:loaded_${1:`neosnippet#name#plugin()`}') | finish | endif "{{{1
   let g:loaded_$1 = 1
 
   " save 'cpoptions'
@@ -123,8 +123,8 @@ alias tab noet noe
 snippet init
 alias ini
   " ============================================================================
-  " Repo: kaile256/`vplug#name#repo()`
-  " File: `vplug#name#file()`
+  " Repo: kaile256/`neosnippet#name#repo()`
+  " File: `neosnippet#name#file()`
   " Author: kaile256
   " License: MIT license {{{
   "     Permission is hereby granted, free of charge, to any person obtaining
@@ -148,7 +148,7 @@ alias ini
   " }}}
   " ============================================================================
 
-  if exists('g:loaded_${1:`vplug#name#plugin()`}') | finish | endif
+  if exists('g:loaded_${1:`neosnippet#name#plugin()`}') | finish | endif
   let g:loaded_$1 = 1
 
   " save 'cpoptions' {{{
@@ -174,8 +174,8 @@ alias com cmd comm co
   command! -bar ${1:-nargs=*} ${2:#:Command Name} :${3:#:Commands}
 
 snippet augroup
-abbr au aug augr
-  augroup ${1}
+alias au aug augr
+  augroup ${1:my}${2:`neosnippet#name#file()`}
   au!
   au ${3:BufNewFile,BufRead} ${4:*} ${5}
   augroup END
