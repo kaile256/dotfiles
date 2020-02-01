@@ -182,7 +182,7 @@ abbr au aug augr
 
 snippet function
 alias fu fun func function
-  function! ${1:`vplug#prefix#function()`}${2:#:do}(${3:#:args) ${4:#:range }abort "{{{${0:TARGET}
+  function! ${1:`neosnippet#prefix#function()`}${2:#:do}(${3:#:args}) ${4:#:range }abort "{{{${0:TARGET}
 # the TARGET is in case to delete abort and to set foldlevel on the foldmarker
   endfunction
 
