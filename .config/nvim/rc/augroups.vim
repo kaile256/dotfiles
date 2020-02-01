@@ -128,7 +128,9 @@ augroup myFcitxRemote "{{{1
     " -r: reload fcitx config
     " -c: inactivate input method
     " -o: activate input method
+    " Note: 'FocusLost' to `fcitx-remote -o` will activate fcitx when switching
+    "   to another vim
+    "au FocusLost   * call system('fcitx-remote -o')
     au FocusGained * call system('fcitx-remote -c')
-    au FocusLost   * call system('fcitx-remote -o')
   endif
 augroup END
