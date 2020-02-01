@@ -120,3 +120,15 @@ augroup mySpellLangForJapanese "{{{1
   " this one is which you're most likely to use?
   autocmd OptionSet spell if &spl ==# 'en' | setl spl=en_us,cjk | endif
 augroup end
+
+augroup myFcitxRemote "{{{1
+  au!
+  if executable('fcitx-remote')
+    " -e: ask fcitx to exit
+    " -r: reload fcitx config
+    " -c: inactivate input method
+    " -o: activate input method
+    au FocusGained * call system('fcitx-remote -c')
+    au FocusLost   * call system('fcitx-remote -o')
+  endif
+augroup END
