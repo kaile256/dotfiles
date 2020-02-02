@@ -52,56 +52,55 @@ if !exists('*s:source_buffer')
     " Note: :undojoin with :w prevents to :undo before :w
     "silent! undojoin
 
-    let msg = 'nothing done'
+    let s:msg = 'nothing done'
     if filewritable(expand('%:p'))
       silent write
-      let msg = v:statusmsg
+      let s:msg = v:statusmsg
     endif
 
     if getline(1) =~# '^#!'
-      !%:p
+      call s:do_as_shebang()
       return
+    endif
 
-    elseif has_key(s:ft2cmd, &ft)
-      let l:val = s:ft2cmd[&ft]
-
+    if has_key(s:ft2cmd, &ft)
+      call s:do_as_dict(s:ft2cmd, &ft)
     else
-      for l:key in s:fname2cmd
-        if expand('%:p') =~# s:fname2cmd
-          let l:val = s:fname2cmd[l:key]
-          break
-        endif
-      endfor
-
-      echoerr msg
+      call s:do_as_dict(s:fname2cmd, expand('%:p'))
     endif
-
-    if exists('l:val')
-      if type(l:val) == type([])
-        exe l:val[0]
-        echo msg '&' l:val[1]
-
-      else
-        exe l:val
-      endif
-    endif
-
   endfunction
 endif
+
+function! s:do_as_shebang() abort "{{{2
+  silent !%:p
+  echo s:msg .'&'. matchstr(getline(1), '^#!\zs.*') .'is done'
+endfunction
+
+function! s:do_as_dict(dict, compared) abort "{{{2
+  for l:key in keys(a:dict)
+    if a:compared !~# l:key | continue | endif
+
+    let l:val = a:dict[l:key]
+
+    exe l:val[0]
+    echo s:msg '&' l:val[1]
+    break
+  endfor
+endfunction
 
 let s:ft2cmd = {
       \ 'vim': ['so %:p', 'sourced'],
       \ 'html': ['silent OpenBrowser %:p', 'open in browser'],
-      \ 'xmodmap': '!xmodmap %:p',
-      \ 'xdefaults': '!xrdb %:p',
-      \ 'i3': '!i3-msg restart &',
+      \ 'xmodmap': ['!xmodmap %:p', 'xmodmap is updated'],
+      \ 'xdefaults': ['!xrdb %:p', 'X is updated'],
+      \ 'i3': ['!i3-msg restart &', 'i3 restarted'],
       \ }
 
 let s:fname2cmd = {
-      \ '\.config/fcitx/': '!fcitx-remote -r',
-      \ '/polybar/': '!${XDG_CONFIG_HOME}/polybar/launch.sh &',
-      \ '/etc/systemd/': '!systemctl --user daemon-reload',
-      \ '/etc/fstab': 'call suda#system("mount -a")',
+      \ '/\.config/fcitx/': ['!fcitx-remote -r', 'fcitx restarted'],
+      \ '/polybar/': ['!${XDG_CONFIG_HOME}/polybar/launch.sh &', 'polybar restarted'],
+      \ '/etc/systemd/': ['!systemctl --user daemon-reload', 'system daemon is reloaded'],
+      \ '/etc/fstab': ['call suda#system("mount -a")', 'fstab is reloaded'],
       \ }
 
 " Shell Scripts; Out of Vim "{{{1
