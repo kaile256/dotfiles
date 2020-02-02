@@ -28,6 +28,7 @@ command! -bar -bang -nargs=* -complete=buffer Terminal
       \                 <bang>0)
 
 " commands on directory {{{1
+" TODO: get :Ghqs to include the files under $GOPATH/src/, too.
 let s:cmd_to_path = {
       \ 'Config':    $XDG_CONFIG_HOME,
       \ 'Data':      $XDG_DATA_HOME,
@@ -52,10 +53,10 @@ command! -bar -bang -nargs=* Polybars
       \ :cd ~/.config/polybar | Rg
 
 command! Neighbours call s:fzf_neighbours() "{{{1
-function! s:fzf_neighbours()
-  let current_file = expand("%")
+function! s:fzf_neighbours() abort
+  let current_file = expand('%')
   let cwd = fnamemodify(current_file, ':p:h')
-  let command = 'ag -g "" -f ' . cwd . ' --depth 0'
+  let command = 'ag --filename-pattern "" --follow' . cwd . ' --depth 0'
 
   call fzf#vim#files('', fzf#vim#with_preview({
         \ 'source': command,
