@@ -13,6 +13,7 @@ set -Cue #{{{
 
 # All themes set in `lxappearance`
 PACKAGEs=(
+  tk # necessary to push the first commit of cloned repo to remote fork?
   net-tools # includes `route`
   traceroute
   #gdrive # A Google Drive CLI Client; failed to get access token
@@ -180,6 +181,8 @@ PIP3s=(
 )
 
 GEMs=(
+  licensee # detects what I can to the repository as the license included
+  bundler # required by licensee
   neovim
   md2man # to build man page
   binman # to build man page
