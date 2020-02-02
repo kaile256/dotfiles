@@ -87,16 +87,16 @@ augroup myFindAlternate "{{{1
     norm! zv
     let @/ = alter
     "au! FindAlternate BufLeave * if exists('s:alter') | call s:hist_remove(s:alter) | endif
+    "function! s:hist_remove(word) abort "{{{3
+    "  silent! if !search(a:word, 'cWn') && histget('/') ==# a:word
+    "  call histdel('/', -1)
+    "  let @/ = histget('/', -1)
+    "  silent! unlet alter
+    "  endif
+    "endfunction
   endfunction
 
-  function! s:hist_remove(word) abort "{{{3
-    silent! if !search(a:word, 'cWn') && histget('/') ==# a:word
-    call histdel('/', -1)
-    let @/ = histget('/', -1)
-    silent! unlet alter
-  endif
-endfunction
-"}}}2
+  "}}}2
 augroup END
 
 augroup myReturnToUsualWindow "{{{1
