@@ -20,6 +20,7 @@ on_cmd =  ['Magit']
 #[[plugins]]
 #repo = 'rhysd/ghpr-blame.vim'
 ## Note: seems no use in neovim
+#if = "!has('nvim')
 #on_cmd =  ['GHPRBlame']
 
 #[[plugins]]
