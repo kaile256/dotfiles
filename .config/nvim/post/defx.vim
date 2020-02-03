@@ -153,6 +153,15 @@ function! s:defx_keymaps() abort "{{{1
         \ <SID>single_window()?
         \ defx#do_action('drop'):
         \ defx#do_action('multi', ['drop', 'quit'])
+  xnoremap <silent><nowait><buffer><expr> P
+        \ defx#async_action('multi',
+        \ ['clear_select_all', 'toggle_select_visual', 'drop'])
+  xnoremap <silent><nowait><buffer><expr> <c-j>
+        \ defx#async_action('multi',
+        \ ['clear_select_all', 'toggle_select_visual', 'drop', 'quit'])
+  xnoremap <silent><nowait><buffer><expr> <CR>
+        \ defx#async_action('multi',
+        \ ['clear_select_all', 'toggle_select_visual', 'drop', 'quit'])
   " Split {{{4
   nnoremap <silent><nowait><buffer><expr> o
         \ defx#is_directory()?
@@ -163,24 +172,27 @@ function! s:defx_keymaps() abort "{{{1
         \ defx#is_directory()?
         \ '<c-w>s':
         \ defx#async_action('multi',
-        \ ['toggle_select_visual', ['drop', 'bel split'], 'quit'])
-        "\ ['toggle_select_visual', ['drop', 'bel split']])
+        \ ['clear_select_all', 'toggle_select_visual',
+        \ ['drop', 'bel split'], 'quit'])
+        "\ ['clear_select_all', 'toggle_select_visual', ['drop', 'bel split']])
   nnoremap <silent><nowait><buffer><expr> O
         \ defx#is_directory()?
         \ '28<c-w>v':
         \ defx#do_action('multi', [['open', 'bot vsplit'], 'quit'])
         "\ defx#do_action('open', 'bot vsplit')
+  " TODO: open multiple buffers in each new windows in visualmode
   xnoremap <silent><nowait><buffer><expr> O
         \ defx#is_directory()?
         \ '28<c-w>v':
         \ defx#async_action('multi',
-        \ ['toggle_select_visual', ['open', 'bot vsplit'], 'quit'])
+        \ ['clear_select_all', 'toggle_select_visual',
+        \ ['open', 'bot vsplit'], 'quit'])
         "\ ['toggle_select_visual', ['open', 'bot vsplit']])
   nnoremap <silent><nowait><buffer><expr> gO
         \ defx#do_action('open', 'tabe')
   xnoremap <silent><nowait><buffer><expr> gO
         \ defx#async_action('multi',
-        \ ['toggle_select_visual', ['open', 'tabe']])
+        \ ['clear_select_all', 'toggle_select_visual', ['open', 'tabe']])
   " Note: <c-s> freezes screen on some unix.
   "nnoremap <silent><nowait><buffer> <c-w>v
   "      \ :`expand('g:defx_sidebar_width')` wincmd v setl winfixwidth'<cr>
@@ -190,7 +202,7 @@ function! s:defx_keymaps() abort "{{{1
         \ .'<c-w>p'
   xnoremap <silent><nowait><buffer><expr> A
         \ defx#async_action('multi',
-        \ ['toggle_select_visual', ['open', 'bot vsplit']])
+        \ ['clear_select_all', 'toggle_select_visual', ['open', 'bot vsplit']])
         \ .'<c-w>p'
   " FIXME: always keep cursor on defx after drop to :split ANYWHERE
   nnoremap <silent><nowait><buffer><expr> a
@@ -201,7 +213,7 @@ function! s:defx_keymaps() abort "{{{1
         \ .'<c-w>h'
   xnoremap <silent><nowait><buffer><expr> a
         \ defx#async_action('multi',
-        \ ['toggle_select_visual', ['drop', 'bel split']])
+        \ ['clear_select_all', 'toggle_select_visual', ['drop', 'bel split']])
         \ .'<c-w>h'
   " Preview {{{4
   " Mnemonic: Insert a preview in actual windows
