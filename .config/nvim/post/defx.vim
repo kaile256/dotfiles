@@ -136,9 +136,11 @@ function! s:defx_keymaps() abort "{{{1
   "nnoremap <silent><nowait><buffer><expr> C
   "      \ defx#do_action('toggle_columns',
   "      \                'mark:indent:icon:filename:type:size:time')
-  " Select {{{2
-  " Open File {{{3
+  " Open File {{{2
   " Edit {{{4
+  " Mnemonic: Push the buffer
+  nnoremap <silent><nowait><buffer><expr> P
+        \ defx#do_action('drop')
   nnoremap <silent><nowait><buffer><expr> <c-j>
         \ <SID>defx_is_wide()?
         \ defx#do_action('open', 'edit'):
