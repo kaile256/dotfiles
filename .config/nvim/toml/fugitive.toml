@@ -13,6 +13,7 @@ hook_source = 'runtime source/fugitive.vim'
 hook_post_source = '''
 command! -bar Glog  :Agit
 command! -bar Gllog :AgitFile
+command! Gbrowse :CocCommand git.browserOpen
 '''
 
 #[ Branch ]
@@ -51,13 +52,13 @@ write
 '''
 
 #[ Commit Log Viewer ]
-#[[plugins]]
-#repo = 'gregsexton/gitv'
-## Use agit instead
-#type = 'git'
-#on_cmd = ['Gitv']
-#hook_source = 'runtime source/gitv.vim'
-#
+[[plugins]]
+repo = 'gregsexton/gitv'
+# Use agit instead
+type = 'git'
+on_cmd = ['Gitv']
+hook_source = 'runtime source/gitv.vim'
+
 #[[plugins]]
 #repo = 'rbong/vim-flog'
 ## Cons: unnecessary trailing spaces
@@ -90,18 +91,18 @@ on_cmd = 'GitMessenger'
 hook_add = 'runtime add/git-messenger.vim'
 
 #[ Hundlers to Gbrowse ]
-[[plugins]]
-repo = 'tpope/vim-rhubarb'
-# ':Gbrowse' for github.vom
-type = 'git'
-# Note: ':Gbrowse' will be overrided in plugin/ of vim-fugitive
-#on_cmd = ['Gbrowse']
-on_source = ['vim-fugitive']
-
-[[plugins]]
-repo = 'shumphrey/fugitive-gitlab.vim'
-on_source = ['vim-fugitive']
-
+#[[plugins]]
+#repo = 'tpope/vim-rhubarb'
+## ':Gbrowse' for github.vom
+#type = 'git'
+## Note: ':Gbrowse' will be overrided in plugin/ of vim-fugitive
+##on_cmd = ['Gbrowse']
+#on_source = ['vim-fugitive']
+#
+#[[plugins]]
+#repo = 'shumphrey/fugitive-gitlab.vim'
+#on_source = ['vim-fugitive']
+#
 #[ Diff Wrapper ]
 #[[plugins]]
 #repo = 'arkwright/vim-manhunt'
