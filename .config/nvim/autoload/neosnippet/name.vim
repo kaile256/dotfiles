@@ -6,7 +6,7 @@ let s:save_cpo = &cpo
 set cpo&vim
 "}}}1
 
-let dir_list = [
+let s:dir_list = [
       \ 'autoload',
       \ 'doc',
       \ 'ftdetect',
@@ -17,7 +17,7 @@ let dir_list = [
       \ 'colors',
       \ ]
 
-let s:dir = '\('. join(dir_list, '/\|') .'\)'
+let s:dir = '\('. join(s:dir_list, '/\|') .'\)'
 
 function! neosnippet#name#plugin() abort
   return matchstr(expand('%:p'), '/\%[vim-]\zs[^/]\+\ze\%[.n]\%[vim]/'. s:dir)
