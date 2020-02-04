@@ -69,39 +69,40 @@ if !exists('*s:source_buffer')
       call s:do_as_dict(s:fname2cmd, expand('%:p'))
     endif
   endfunction
+
+  function! s:do_as_shebang() abort "{{{2
+    silent !%:p
+    echo s:msg .'&'. matchstr(getline(1), '^#!\zs.*') .'is done'
+  endfunction
+
+  function! s:do_as_dict(dict, compared) abort "{{{2
+    for l:key in keys(a:dict)
+      if a:compared !~# l:key | continue | endif
+
+      let l:val = a:dict[l:key]
+
+      silent exe l:val[0]
+      echo s:msg '&' l:val[1]
+      break
+    endfor
+  endfunction
+
+  let s:ft2cmd = {
+        \ 'vim': ['so %:p', 'sourced'],
+        \ 'html': ['silent OpenBrowser %:p', 'open in browser'],
+        \ 'xmodmap': ['!xmodmap %:p', 'xmodmap is updated'],
+        \ 'xdefaults': ['!xrdb %:p', 'X is updated'],
+        \ 'i3': ['!i3-msg restart &', 'i3 restarted'],
+        \ }
+
+  let s:fname2cmd = {
+        \ '/\.config/fcitx/': ['!fcitx-remote -r', 'fcitx restarted'],
+        \ '/polybar/': ['!${XDG_CONFIG_HOME}/polybar/launch.sh &', 'polybar restarted'],
+        \ '/etc/systemd/': ['!systemctl --user daemon-reload', 'system daemon is reloaded'],
+        \ '/etc/fstab': ['call suda#system("mount -a")', 'fstab is reloaded'],
+        \ }
+
 endif
-
-function! s:do_as_shebang() abort "{{{2
-  silent !%:p
-  echo s:msg .'&'. matchstr(getline(1), '^#!\zs.*') .'is done'
-endfunction
-
-function! s:do_as_dict(dict, compared) abort "{{{2
-  for l:key in keys(a:dict)
-    if a:compared !~# l:key | continue | endif
-
-    let l:val = a:dict[l:key]
-
-    silent exe l:val[0]
-    echo s:msg '&' l:val[1]
-    break
-  endfor
-endfunction
-
-let s:ft2cmd = {
-      \ 'vim': ['so %:p', 'sourced'],
-      \ 'html': ['silent OpenBrowser %:p', 'open in browser'],
-      \ 'xmodmap': ['!xmodmap %:p', 'xmodmap is updated'],
-      \ 'xdefaults': ['!xrdb %:p', 'X is updated'],
-      \ 'i3': ['!i3-msg restart &', 'i3 restarted'],
-      \ }
-
-let s:fname2cmd = {
-      \ '/\.config/fcitx/': ['!fcitx-remote -r', 'fcitx restarted'],
-      \ '/polybar/': ['!${XDG_CONFIG_HOME}/polybar/launch.sh &', 'polybar restarted'],
-      \ '/etc/systemd/': ['!systemctl --user daemon-reload', 'system daemon is reloaded'],
-      \ '/etc/fstab': ['call suda#system("mount -a")', 'fstab is reloaded'],
-      \ }
 
 " Shell Scripts; Out of Vim "{{{1
 " enable copletion
