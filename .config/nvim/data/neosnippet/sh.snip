@@ -10,3 +10,7 @@ alias # #! she sh bash ba bas bah ini init
   set -Cue
 
   ${0:TARGET}
+
+snippet shopt
+alias opt op ext
+  shopt -s ${1:`shell('shopt')`}

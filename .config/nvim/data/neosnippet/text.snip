@@ -1,5 +1,5 @@
 snippet HEAD for vim's doc
-alias hea head vim doc
+alias hea head vim doc vp vpl ini
   *`expand('%:p') =~# 'doc' ? substitute(matchstr(expand('%:p'),'doc/\zs.*\ze.txt'),'[/\\]','#','g') : ''`.txt*
   `expand('%:p') =~# 'doc' && expand('%:p') =~# '_' ? '*'. substitute(substitute(matchstr(expand('%:p'),'doc/\zs.*\ze.txt'),'[/\\]','#','g'), '_', '\-', 'g') .'* *'. substitute(substitute(matchstr(expand('%:p'),'doc/\zs.*\ze.txt'),'[/\\]','#','g'), '_', '', 'g') .'*' : 'no-underbar; delete this line'`
 
