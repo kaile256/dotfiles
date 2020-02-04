@@ -2,20 +2,26 @@
 " Repo: simnalamburt/vim-mundo
 " Another: add/mundo.vim
 
-"let g:mundo_disable = 1
+" TODO: ignore write state which has no change
 
+"let g:mundo_disable = 1
+let g:mundo_prefer_python3 = 1
+
+" Note:
+"   0: open __Mundo__ by 'wincmd H'; __Mundo_Preview__ in 'topleft'
+"   1: open __Mundo__ by 'wincmd L'; __Mundo_Preview__ in 'botright'
 let g:mundo_right = 1
 let g:mundo_width = (&columns / 2)  " relative to editor's width
 
 let g:mundo_preview_bottom = 1
 let g:mundo_preview_height = (&lines * 7 / 12) " relative to editor's height
-"let g:mundo_auto_preview_delay = 250  " default: 250ms
+"let g:mundo_auto_preview_delay = 750  " default: 250ms
 
 "let g:mundo_tree_statusline = 1
 "let g:mundo_preview_statusline = 1
 
 let g:mundo_inline_undo   = 1  " one-line preview on than full-diff.
-let g:mundo_auto_preview  = 0
+let g:mundo_auto_preview  = 1
 let g:mundo_verbose_graph = 0  " Verbose '|' between lines
 let g:mundo_mirror_graph  = 1  " 1: Extend undo-branchs to left.
 
