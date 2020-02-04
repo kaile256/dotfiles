@@ -31,21 +31,6 @@ endfunction
 "  endfunction
 "augroup END
 "}}}
-command! -bar ZZ :norm ZZ
-command! -bar Zz :norm Zz
-command! -bar ZQ :norm ZQ
-command! -bar Zq :norm Zq
-
-command! -bar ZC :norm ZZ
-command! -bar Zc :norm Zz
-command! -bar ZE :norm ZQ
-command! -bar Ze :norm Zq
-
-command! -bar ZE :norm ZY
-command! -bar Ze :norm Zy
-command! -bar ZC :norm ZN
-command! -bar Zc :norm Zn
-
 " Open parent directory {{{1
 command! E :e    %:p:h
 command! V :vs   %:p:h
