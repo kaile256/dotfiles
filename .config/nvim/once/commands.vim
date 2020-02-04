@@ -82,7 +82,7 @@ function! s:do_as_dict(dict, compared) abort "{{{2
 
     let l:val = a:dict[l:key]
 
-    exe l:val[0]
+    silent exe l:val[0]
     echo s:msg '&' l:val[1]
     break
   endfor
