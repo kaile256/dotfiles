@@ -81,7 +81,7 @@ let s:toml_lazy = [
       \ 'debug.toml',
       \ 'default.toml',
       \ 'easymotion.toml',
-      \ 'extension.toml',
+      \ 'ext.toml',
       \ 'external.toml',
       \ 'browse.toml',
       \ 'fold.toml',
@@ -97,7 +97,6 @@ let s:toml_lazy = [
       \ 'shell.toml',
       \ 'syntax.toml',
       \ 'textobj.toml',
-      \ 'tool.toml',
       \ 'vimscript.toml',
       \ ]
 

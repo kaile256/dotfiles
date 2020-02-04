@@ -5,7 +5,7 @@
 #repo = 'Yggdroot/indentLine'
 ## Note: Causes a bulk of problems
 #on_event = 'BufRead'
-#hook_add = 'runtime add/indentLine.vim'
+#hook_source = 'runtime source/indentLine.vim'
 
 #[ Resonance ]
 [[plugins]]
