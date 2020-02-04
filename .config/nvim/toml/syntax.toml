@@ -9,6 +9,26 @@ on_if = "index(['', 'terminal', 'i3', 'javascript'], &ft) < 0"
 #on_if = "index(get(g:, 'polyglot_disabled', ['i3', 'javascript']), &ft) < 0"
 hook_source = 'runtime source/polyglot.vim'
 
+[[plugins]]
+repo = 'maralla/validator.vim'
+# Note: async
+on_ft = [
+  'vim',
+  'c',
+  'cpp',
+  'python',
+  'cython',
+  'css',
+  'javascript',
+  'ruby',
+  'json',
+  'lua',
+  'sh',
+  'rst',
+  'go',
+  'rust'
+]
+hook_source = 'runtime source/validator.vim'
 
 #[ Compile ]
 [[plugins]]
