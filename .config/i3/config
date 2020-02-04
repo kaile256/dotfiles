@@ -604,6 +604,8 @@ bindsym Ctrl+bracketleft mode default
 }
 
 # Mode; Browser {{{2
+bindsym $Super+grave      $noid alacritty --title termporal --config-file $XDG_CONFIG_HOME/alacritty/center.yml -e fzf-qutebrowser-bookmarks qutebrowser
+bindsym $Super+apostrophe $noid alacritty --title termporal --config-file $XDG_CONFIG_HOME/alacritty/center.yml -e fzf-qutebrowser-bookmarks qutebrowser
 set $Browser " Browser: (S)ervo (V)ivaldi (F)irefox (C)hrome (Q)utebrowser "
 
 $release $Super+B mode $Browser; $shortmsg 'Browsers'
@@ -819,7 +821,7 @@ bindsym Ctrl+bracketleft $noid fcitx-remote -c; mode default; $alert 'Skk: OFF'
 # Keybind; open Menu {{{2
 # # TODO: convert this bash-script into fish's
 # Ref: dmenu with fzf https://github.com/junegunn/fzf/wiki/Examples
-bindsym $Super+apostrophe $noid $menu
+bindsym $Super+backslash $noid $menu
 
 # Keybind; open Editor {{{2
 # the numbar is RAM by htop in terminal of the editor
