@@ -23,6 +23,10 @@ on_cmd = [
 hook_add = 'runtime add/SQHell.vim'
 hook_source = 'runtime source/SQHell.vim'
 
+[[plugins]]
+repo = 'tpope/vim-dadbod'
+on_cmd = ['DB']
+
 #[ Minimap ]
 #[[plugins]]
 #repo = 'severin-lemaignan/vim-minimap'
