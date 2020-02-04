@@ -8,4 +8,5 @@ augroup mySQHelladd
   au BufRead *
         \ if getline(1) =~# '^SQLite format '
         \   | SQHShowDatabases
+        \ | endif
 augroup END
