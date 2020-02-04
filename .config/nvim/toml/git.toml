@@ -5,37 +5,32 @@
 repo = 'ruanyl/vim-gh-line'
 # open github in browser at the current line
 on_cmd =  ['GHInteractive', 'GBInteractive']
-
 #[[plugins]]
 #repo = 'whatyouhide/vim-lengthmatters'
 ## change highlight &tw
 #on_event = 'Colorscheme'
-
 #[ Workflow ]
 [[plugins]]
 repo = 'jreybert/vimagit'
 on_cmd =  ['Magit']
-
 #[ Blame ]
 #[[plugins]]
 #repo = 'rhysd/ghpr-blame.vim'
 ## Note: seems no use in neovim
 #if = "!has('nvim')
 #on_cmd =  ['GHPRBlame']
-
 #[[plugins]]
 #repo = 'tveskag/nvim-blame-line'
+# Note: seems to have some bugs
 ## shows blames in virtual line
 #if = 'has("nvim")'
 #on_cmd =  ['ToggleBlameLine', 'SingleBlameLine', 'EnableBlameLine']
-
 #[[plugins]]
 #repo = 'iamcco/sran.nvim'
 #if = 'has("nvim") || v:version >= 801'
 #hook_done_update = 'call sran#util#install()'
 #on_func  = ['sran#rpc#']
 #hook_add = 'runtime add/sran.vim'
-
 #[[plugins]]
 #repo = 'iamcco/git-p.nvim'
 ## shows blames in virtual line
@@ -43,7 +38,6 @@ on_cmd =  ['Magit']
 #type     = 'git'
 #on_event = 'BufRead'
 #hook_source = 'runtime source/git-p.vim'
-
 #[ Log ]
 [[plugins]]
 repo = 'cohama/agit.vim'
@@ -51,35 +45,24 @@ repo = 'cohama/agit.vim'
 # TODO: set each colors on different branch's flow like vim-gitv
 on_cmd = 'Agit'
 hook_add = 'runtime add/agit.vim'
-
 #[[plugins]]
 #repo = 'airblade/vim-gitgutter'
 ## enough only with coc.nvim & fugitive.vim?
 #type = 'git'
 #on_event = 'BufRead'
 #hook_post_source = 'runtime add/gitgutter.vim'
-
 #[[plugins]]
 #repo = 'lambdalisue/gina.vim'
 #on_event = ['BufWritePost']
 #hook_post_source = 'runtime add/gina.vim'
-
 #[ Stash ]
-#[[plugins]]
-#repo = 'aacunningham/vim-fuzzy-stash'
-#on_cmd =  ['GStashList']
-#on_func =  ['fuzzystash#list_stash']
-#hook_add = 'runtime add/fuzzy-stash.vim'
-#
 #[[plugins]]
 #repo = 'tweekmonster/gitbusy.vim'
 ## automatic stash on checkout, via :GitBusy
 #on_cmd =  ['GitBusy']
-#
 #[ Merge ]
 [[plugins]]
 repo = 'samoshkin/vim-mergetool'
 on_cmd = ['MergetoolStart']
 hook_add = 'runtime add/mergetool.vim'
 hook_source = 'runtime source/mergetool.vim'
-
