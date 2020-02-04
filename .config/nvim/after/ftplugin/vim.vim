@@ -24,10 +24,10 @@ endfunction "}}}
 
 " TODO: I prefer to use <c-o> in insert-mode.
 " CAUTION: d:/y: disturbs expected behavior on visualmode
-nnoremap <silent> g: :<c-u>call <SID>send_to_cmdline('delete')<cr>
-nnoremap <silent> z: :<c-u>call <SID>send_to_cmdline('keep')<cr>
-xnoremap <silent> g: :call <SID>send_to_cmdline('delete')<cr>
-xnoremap <silent> z: :call <SID>send_to_cmdline('keep')<cr>
+nnoremap <buffer><silent> g: :<c-u>call <SID>send_to_cmdline('delete')<cr>
+nnoremap <buffer><silent> z: :<c-u>call <SID>send_to_cmdline('keep')<cr>
+xnoremap <buffer><silent> g: :call <SID>send_to_cmdline('delete')<cr>
+xnoremap <buffer><silent> z: :call <SID>send_to_cmdline('keep')<cr>
 
 function! s:fold_up_vimscript() abort "{{{
   if &readonly && !&modifiable | return | endif
