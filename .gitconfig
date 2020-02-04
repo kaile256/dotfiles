@@ -50,3 +50,5 @@ trustExitCode = true
 	ff = only
 [rerere]
 	enabled = true
+[alias]
+	pr = pull-request
