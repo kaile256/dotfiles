@@ -73,6 +73,7 @@ augroup FugitiveCallMyFunc
 
   nnoremap <silent> <Plug>(winonly-careful) :<c-u>call <SID>winonly_careful()<cr>
   function! s:winonly_careful() abort
+    wincmd H
     call s:gitcommit_shred()
     only
     diffoff!
