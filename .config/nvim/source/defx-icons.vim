@@ -4,12 +4,12 @@ scriptencoding utf-8
 " Ref: post/defx.vim
 
 let g:defx_icons_gui_colors = {
-\ 'red': 'FFFFFF'
-\ }
+      \ 'red': 'FFFFFF'
+      \ }
 
 let g:defx_icons_term_colors = {
-\ 'red': 2
-\ }
+      \ 'red': 2
+      \ }
 
 " FIXME: defx-icons collapses i3 or qt
 " Note: Syntax highlighting can cause some performance issues in defx window.
