@@ -10,21 +10,42 @@ repo = 'tpope/vim-repeat'
 #on_map = '<Plug>(Repeat'
 #on_event = ['BufRead']
 hook_add = 'runtime add/repeat.vim'
-
+#[ Mode ]
+[[plugins]]
+repo = 'kaile256/vim-submode'
+#repo = 'kana/vim-submode'
+# make another mode!
+on_func = 'submode#'
+hook_add = 'runtime add/submode.vim'
+#hook_post_source = 'runtime post/submode.vim'
+#hook_done_update = '''
+#exe 'e' g:dein_github_dir .'/kana/vim-submode/autoload/submode.vim'
+#%s/submode-/sbm-/g
+#write
+#[ cd ]
+[[plugins]]
+repo = 'mattn/vim-findroot'
+on_cmd = 'FindRoot'
+hook_add = 'runtime add/findroot.vim'
+# To enable to :FindRoot w/ other commands through <bar>.
+hook_done_update = '''
+exe 'e' g:dein_github_dir .'/mattn/vim-findroot/plugin/findroot.vim'
+g/command!/norm! Ea -bar
+g/s:findroot(/s/1/0
+write
+'''
 ##[ Register ]
 #[[plugins]]
 #repo = 'svermeulen/vim-easyclip'
 #on_event = 'BufWinEnter'
 #hook_add = 'runtime add/easyclip.vim'
 #hook_source = 'runtime source/easyclip.vim'
-
 #[ Undo ]
 [[plugins]]
 repo = 'simnalamburt/vim-mundo'
 on_cmd = 'Mundo'
 hook_add = 'runtime add/mundo.vim'
 hook_source = 'runtime source/mundo.vim'
-
 #[[plugins]]
 #repo = 'jaxbot/selective-undo.vim'
 #on_event = 'BufRead'
@@ -38,7 +59,6 @@ hook_source = 'runtime source/mundo.vim'
 #repo = 'mbbill/undotree'
 #on_map = 'Undotree'
 #hook_add = 'runtime add/undotree.vim'
-
 #[ Diff ]
 [[plugins]]
 repo = 'rickhowe/diffchar.vim'
@@ -61,10 +81,29 @@ hook_add = 'runtime add/linediff.vim'
 #repo = 'chrisbra/vim-diff-enhanced'
 #on_cmd = ['EnhancedDiff', 'PatienceDiff']
 #hook_add = 'runtime diff-enhanced.vimrc'
-
 # :norm <c-a>/<c-x>
 #[[plugins]]
 #repo = 'qwertologe/nextval.vim'
 #on_map = '<Plug>nextval'
 #hook_add = 'runtime add/nextval.vim'
-
+#[ Help ]
+#[[plugins]]
+#repo = 'thinca/vim-ref'
+#on_event = 'BufRead'
+#hook_add = 'runtime rc/ref.vim'
+#[ Floating Window ]
+#[[plugins]]
+#repo = 'ncm2/float-preview.nvim'
+#on_source = ['denite.nvim', 'deolplete.nvim', 'coc.nvim']
+#hook_source = 'runtime source/float-preview.vim'
+#hook_done_update = '''
+#exe 'e' g:dein_github_dir .'/ncm2/float-preview.nvim/plugin/float_preview.vim'
+#g/au/Complete/norm! i"
+#g/au/InsertLeave/norm! i"
+#write
+#'''
+#[[plugins]]
+#repo = 'voldikss/vim-floaterm'
+#on_cmd = 'FloatermToggle'
+#on_map = '<Plug>(floaterm-'
+#hook_add = 'runtime add/floaterm.vim'
