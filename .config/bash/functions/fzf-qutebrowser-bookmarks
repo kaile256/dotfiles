@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 URL=$XDG_CONFIG_HOME/qutebrowser/bookmarks/urls
-type "$1" && BROWSER="$1" || BROWSER=xdg-open
+type "$1" >/dev/null 2>&1 && BROWSER="$1" || BROWSER=xdg-open
 
 fzf < "$URL" | cut -d' ' -f1 | xargs "${BROWSER}"
 
