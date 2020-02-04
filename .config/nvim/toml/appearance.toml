@@ -193,3 +193,9 @@ write
 ##on_cmd = 'ColorizerAttachToBuffer'
 #on_cmd = "lua require'colorizer'.setup()"
 #hook_add = 'runtime add/colorizer.lua.vim'
+[[plugins]]
+repo = 'RRethy/vim-hexokinase'
+build = 'make hexokinase'
+on_cmd = ['HexokinaseToggle', 'HexokinaseTurnOn']
+hook_add = 'runtime add/hexokinase.vim'
+hook_source = 'runtime source/hexokinase.vim'
