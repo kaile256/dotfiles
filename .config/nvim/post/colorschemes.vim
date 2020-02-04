@@ -69,7 +69,7 @@ function! s:my_neodark() abort "{{{1
 
   hi Search      ctermfg=236 ctermbg=180 guifg=#3e120a guibg=#ebb556
   " NormalFloat: color for winblend, or floating windows
-  hi NormalFloat ctermfg=236 ctermbg=180 guibg=#1a0210 guifg=#9f994a
+  hi NormalFloat ctermfg=236 ctermbg=180 guibg=#3a192c guifg=#9f994a
 
   " Note: reverse keeps text color;
   "       ':hi **bg=foo' will white out text's characters.
