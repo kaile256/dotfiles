@@ -99,21 +99,16 @@ augroup myFindAlternate "{{{1
   "}}}2
 augroup END
 
-augroup myReturnToUsualWindow "{{{1
-  au! BufWinLeave,BufWinEnter * call s:adjust_winfix()
+augroup WinfixBufLocal "{{{1
+  au!
+  au OptionSet wfw,wfh let b:fixwidth = &wfw | let b:fixheight = &wfh
+  au BufWinLeave,BufWinEnter * call s:adjust_winfix()
 augroup END
 
 function! s:adjust_winfix() abort
-  if &bt ==# '' | return | endif
-
-  let b:fixwidth  = &winfixwidth
-  let b:fixheight = &winfixheight
-
-  setl nowinfixwidth
-  setl nowinfixheight
-
-  exe get(b:, 'fixwidth',  0) ? 'setl wfh' : 'setl nowfh'
-  exe get(b:, 'fixheight', 0) ? 'setl wfw' : 'setl nowfw'
+  " Note: bothe wfw and wfh are local to window
+  exe get(b:, 'fixwidth',  0) ? 'set wfh' : 'set nowfh'
+  exe get(b:, 'fixheight', 0) ? 'set wfw' : 'set nowfw'
 endfunction
 
 augroup mySpellLangForJapanese "{{{1
