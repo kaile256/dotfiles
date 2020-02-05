@@ -1,5 +1,5 @@
-" From: tool.toml
-" Repo: https://github.com/rhysd/committia.vim
+" From: fugitive.toml
+" Repo: rhysd/committia.vim
 " Help: None
 
 let g:committia_hooks = {}
@@ -51,7 +51,7 @@ augroup END
 "<Plug>(committia-scroll-diff-down-half)
 "<Plug>(committia-scroll-diff-up-half)
 "<Plug>(committia-scroll-diff-down-page)
-"<Plug>(committia-scroll-diff-up-page) 
+"<Plug>(committia-scroll-diff-up-page)
 
 " default: 1
 " 0: always attempts to open committia's buffer with a COMMIT_EDITMSG buffer.
@@ -64,17 +64,17 @@ augroup END
 
 " default: 160
 " employ single column mode if the width of window is narrower than the value.
-"let g:committia_min_window_width 
+"let g:committia_min_window_width
 
 " default: 'belowright split'
 " Vim command to open a status window in multi-columns mode.
-"let g:committia_status_window_opencmd 
+"let g:committia_status_window_opencmd
 
 " default: 'botright vsplit'
 " Vim command to open a diff window in multi-columns mode.
-"let g:committia_diff_window_opencmd 
+"let g:committia_diff_window_opencmd
 
 " default: 'belowright split'
 " Vim command to open a diff window in single-column mode.
-"let g:committia_singlecolumn_diff_window_opencmd 
+"let g:committia_singlecolumn_diff_window_opencmd
 ""}}}
