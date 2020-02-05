@@ -281,6 +281,7 @@ settings:
         p: open {clipboard}
         q: null
         r: fake-key r
+        sP: spawn --userscript qutepocket;; open -t https://app.getpocket.com/
         sp: pocket-save
         t: fake-key t;; enter-mode insert
         u: scroll-page 0 -0.5
@@ -460,10 +461,11 @@ settings:
       aw: https://wiki.archlinux.org/?search={}
       dh: https://hub.docker.com/search?q={}
       gh: https://github.com/search?o=desc&q={}&s=updated&type=Repositories
-      gm: https://www.google.co.jp/maps/place/{}
       gl: https://golang.org/search?q={}
+      gm: https://www.google.co.jp/maps/place/{}
       mf: https://github.com/search?o=desc&q={}&s=forks&type=Repositories
       ms: https://github.com/search?o=desc&q={}&s=stars&type=Repositories
+      pyd: https://docs.python.org/3/search.html?q={}&check_keywords=yes&area=default
       qb: https://www.reddit.com/r/qutebrowser/search/?q={}
       qi: https://qiita.com/search?q={}&sort=stock
       rd: https://www.reddit.com/search/?q={}
