@@ -316,10 +316,12 @@ nnoremap <silent> <space>cb :Clist bookmark<cr>
 "      \ --file-columns=icon,git,selection,clip,indent,filename,size
 
 " CocGit {{{1
-command! GaddChunk :CocCommand git.chunkStage
-command! GchunkAdd :CocCommand git.chunkStage
-" Mnemonic: Git Put (similar to dp as diffput)
-nnoremap <space>gp :<c-u>GaddChunk<cr>
+command! GchunkAdd  :CocCommand git.chunkStage
+command! GchunkUndo :CocCommand git.chunkUndo
+" Mnemonic: Git Put (similar to diff-put)
+nnoremap <space>gp :<c-u>GchunkAdd<cr>
+" Mnemonic: Git Omit (similar to diff-obtain)
+nnoremap <space>go :<c-u>GchunkUndo<cr>
 " TODO: for-loop in range because no range available yet.
 xmap <space>ga <Plug>(coc-git-add-chunk)
 " Note: :Gstatus within one command/keymap doesn't work.
