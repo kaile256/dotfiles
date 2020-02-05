@@ -19,8 +19,10 @@ let g:twiggy_local_branch_sort = 'mru'
 " Values can be either 'alpha'or 'date'.
 let g:twiggy_remote_branch_sort = 'date'
 
-augroup myTwiggySourceLocalMaps
+augroup myTwiggySource
   au!
+  au FileType twiggy setl winfixwidth
+
   au FileType twiggy nnoremap <buffer><silent> % :call twiggy#call('gc')<cr>
   au FileType twiggy nnoremap <buffer><silent> D :call twiggy#call('dd')<cr>
 augroup END
