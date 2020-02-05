@@ -165,7 +165,7 @@ augroup AdditionalUndoBreakOnFileType "{{{
   au FileType html,markdown inoremap <buffer> ? ?<c-g>u
 augroup END "}}}
 
-" time stamp
+" Time Stamp {{{1
 " %Y: year
 " %b: month, like Apr, Nov
 " %d: date
