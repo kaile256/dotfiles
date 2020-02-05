@@ -8,7 +8,10 @@ augroup myNeoSnippetAdd
 augroup END
 
 let g:neosnippet#snippets_directory = g:nvim_data_home .'/neosnippet'
-let g:neosnippet#enable_snipmate_compatibility = 1 " includes vim-snippets.
+"let g:neosnippet#disable_runtime_snippets = 1
+"let g:neosnippet#enable_snipmate_compatibility = 1
+
+"let g:neosnippet#enable_completed_snippet = 1
 
 nnoremap <silent> <a-s><a-p><a-e> :<c-u>NeoSnippetEdit<cr>
 nnoremap <silent> <a-s><a-p><a-s> :<c-u>sp  <bar>NeoSnippetEdit<cr>
