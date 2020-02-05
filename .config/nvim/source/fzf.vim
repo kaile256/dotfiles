@@ -54,6 +54,11 @@ function! s:list_in_quickfix(lines) "{{{2
   copen
   cc
 endfunction "}}}
+
+function! s:fzf_yank_fullpath(lines) abort "{{{1
+  let @+ = join(map(a:lines, "fnamemodify(v:val, ':p')"))
+endfunction
+
 " <alt-k> for cancel.
 " Note: seems not work with <alt> like <alt-k>.
 " bdelete/bwipeout work incorrect, lured to current buffer.
@@ -62,16 +67,18 @@ endfunction "}}}
 let g:fzf_action = {
       \ 'alt-a': 'argadd',
       \ 'alt-o': 'badd',
+      \ 'alt-p': 'vert bot pedit',
       \ 'alt-q': function('s:list_in_quickfix'),
       \ 'alt-s': 'bel split',
       \ 'alt-t': 'tab split',
-      \ 'alt-p': 'vert bot pedit',
       \ 'alt-v': 'bot vsplit',
       \ 'alt-w': 'verbose',
+      \ 'alt-y': function('s:fzf_yank_fullpath'),
       \ 'ctrl-z': "\<Nop>",
       \ }
-" [Buffers] Rather Jump to window than just to open.
-let g:fzf_buffers_jump = 1
+
+" [Buffers] Rather Jump to edited buffer than to open as another
+let g:fzf_buffers_jump = 0
 " [[B]Commits] Customize the options used by 'git log':
 let g:fzf_commits_log_options = '--graph --color=always --format="%C(auto)%h%d %s %C(black)%C(bold)%cr"'
 let g:fzf_history_dir = '~/.local/share/fzf-history'
