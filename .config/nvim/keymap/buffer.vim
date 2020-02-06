@@ -12,26 +12,40 @@ endfunction "}}}
 nnoremap <silent> <a-s><a-o> :<c-u>call <SID>my_source_vimrc()<cr>
 nnoremap <silent> <a-s>o     :<c-u>call <SID>my_source_vimrc()<cr>
 
-" Keymap; 'Show Status' of current buffer
-" TODO: Make it work
-function! s:echo_wanted_info() abort
-  let l:wanted_info_list = [
-        \ &syn,
-        \ &ft,
-        \ &bt,
-        \ &fdm,
-        \ &fdl,
-        \ &tw,
-        \ &fo,
-        \ &cole
-        \ ]
-  for wanted in l:wanted_info_list
-    let l:str = "'". wanted ."'"
-    echo l:str . " = " . wanted
-  endfor
-endfunction
-"nnoremap <silent> <a-s><a-s> :<c-u>call <SID>echo_wanted_info()<cr>
-"nnoremap <silent> <a-s>s     :<c-u>call <SID>echo_wanted_info()<cr>
+let s:info_list = [
+      \ '&syn',
+      \ '&ft',
+      \ '&bt',
+      \
+      \ 'FOLD',
+      \ '&fdm',
+      \ '&fdl',
+      \
+      \ 'FORMAT',
+      \ '&tw',
+      \ '&formatoptions',
+      \
+      \ 'CONCEAL',
+      \ '&cole',
+      \ ]
+let s:width = 30
 
-nnoremap <silent> <a-s><a-s> :echo "&syn='" . &syn . "'; &ft='" . &ft . "'; &bt='" . &bt . "'; &fdm='" . &fdm . "'; &fdl=" . &fdl . "; &tw='" .&tw. "'; &fo='" .&fo. "'; &cole='" . &cole . "'" <cr>
-nnoremap <silent> <a-s>s     :echo "&syn='" . &syn . "'; &ft='" . &ft . "'; &bt='" . &bt . "'; &fdm='" . &fdm . "'; &fdl=" . &fdl . "; &tw='" .&tw. "'; &fo='" .&fo. "'; &cole='" . &cole . "'" <cr>
+function! s:opt_check() abort
+  let list = filter(deepcopy(s:info_list), "v:val =~# '&' ")
+  let max = len(list)
+  for opt in s:info_list
+    try
+      let l:val = eval(opt)
+    catch
+      let trail = repeat('=', s:width - len(opt))
+      echo '==' opt trail
+      continue
+    endtry
+    let num = index(list, opt) + 1
+    let gap = repeat(' ', len(max) - len(num))
+    echo gap .. num .'. '. opt 'is' l:val
+  endfo
+endfunction
+
+nnoremap <silent> <a-s><a-s> :<c-u>call <SID>opt_check()<cr>
+nnoremap <silent> <a-s>s     :<c-u>call <SID>opt_check()<cr>
