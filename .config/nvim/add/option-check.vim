@@ -19,5 +19,7 @@ let g:opt_check#list = [
       \ '&cocu',
       \ ]
 
+let g:opt_check#partition = repeat('=', 20)
+
 nnoremap <silent> <a-s><a-s> :<c-u>VimOptCheck<cr>
 nnoremap <silent> <a-s>s     :<c-u>VimOptCheck<cr>
