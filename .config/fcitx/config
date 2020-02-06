@@ -3,7 +3,7 @@
 [Hotkey]
 # Trigger Input Method
 # Note: suppress default config under /etc
-TriggerKey=ALT_R_SHIFT
+TriggerKey=Disabled
 # Use extra trigger key only after using it to inactivate
 # Available Value:
 # True False
@@ -30,13 +30,13 @@ TriggerKey=ALT_R_SHIFT
 # Super+Right Ctrl
 # Disabled
 # Custom
-#SwitchKey=L_SHIFT
+SwitchKey=Disabled
 # Custom switch key
 #CustomSwitchKey=
 # Activate input method
 #ActivateKey=CTRL_M
 # Inactivate Input Method
-InactivateKey=CTRL_W
+InactivateKey=Disabled
 # Enable Hotkey to scroll Between Input Method
 # Available Value:
 # True False
@@ -106,7 +106,7 @@ DefaultInputMethodState=Inactive
 # Commit when toggle state
 # Available Value:
 # True False
-#SendTextWhenSwitchEng=True
+SendTextWhenSwitchEng=True
 # Candidate Word Number
 #CandidateWordNumber=5
 # Give the tips of Phrase
