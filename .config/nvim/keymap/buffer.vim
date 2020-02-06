@@ -43,7 +43,8 @@ function! s:opt_check() abort
     endtry
     let num = index(list, opt) + 1
     let gap = repeat(' ', len(max) - len(num))
-    echo gap .. num .'. '. opt 'is' l:val
+    let ret = type(l:val) != type(1) ? string(l:val) : l:val
+    echo gap .. num .'. '. opt 'is' ret
   endfo
 endfunction
 
