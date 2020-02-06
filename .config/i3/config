@@ -812,7 +812,11 @@ bindsym $Super+O $noid fcitx-remote -c; mode default; $alert 'Skk: OFF'; focus m
 bindsym $Super+bracketleft  $noid fcitx-remote -c; mode default; $alert 'Skk: OFF'; workspace prev
 bindsym $Super+bracketright $noid fcitx-remote -c; mode default; $alert 'Skk: OFF'; workspace next
 
-bindsym $Super+U         $noid fcitx-remote -c; mode default; $alert 'Skk: OFF'
+# TODO: return to skk's japanese input by <c-space>
+bindsym L        $noid fcitx-remote -c; mode default; $alert 'Skk: OFF'
+bindsym Shift+L  $noid fcitx-remote -c; mode default; $alert 'Skk: OFF'
+bindsym $Super+U $noid fcitx-remote -c; mode default; $alert 'Skk: OFF'
+
 bindsym Ctrl+C           $noid fcitx-remote -c; mode default; $alert 'Skk: OFF'
 bindsym bracketleft      $noid fcitx-remote -c; mode default; $alert 'Skk: OFF'
 bindsym Ctrl+bracketleft $noid fcitx-remote -c; mode default; $alert 'Skk: OFF'
