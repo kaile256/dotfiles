@@ -52,7 +52,7 @@ if !exists('*s:source_buffer')
     " Note: :undojoin with :w prevents to :undo before :w
     "silent! undojoin
 
-    let s:msg = 'nothing done'
+    let s:msg = 'no write'
     if filewritable(expand('%:p'))
       silent write
       let s:msg = v:statusmsg
@@ -65,9 +65,13 @@ if !exists('*s:source_buffer')
 
     if has_key(s:ft2cmd, &ft)
       call s:do_as_dict(s:ft2cmd, &ft)
+      return
     else
       call s:do_as_dict(s:fname2cmd, expand('%:p'))
+      return
     endif
+
+    echoerr s:msg '& all'
   endfunction
 
   function! s:do_as_shebang() abort "{{{2
@@ -97,6 +101,7 @@ if !exists('*s:source_buffer')
 
   let s:fname2cmd = {
         \ '/\.config/fcitx/': ['!fcitx-remote -r', 'fcitx restarted'],
+        \ '/libskk/': ['!fcitx-remote -r', 'fcitx restarted'],
         \ '/polybar/': ['!${XDG_CONFIG_HOME}/polybar/launch.sh &', 'polybar restarted'],
         \ '/etc/systemd/': ['!systemctl --user daemon-reload', 'system daemon is reloaded'],
         \ '/etc/fstab': ['call suda#system("mount -a")', 'fstab is reloaded'],
