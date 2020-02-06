@@ -12,6 +12,7 @@ let g:opt_check#list = [
       \ s:partition,
       \ 'FOLD',
       \ '&fdm',
+      \ '&fdt',
       \ '&fdl',
       \ s:partition,
       \ 'FORMAT',
