@@ -41,6 +41,7 @@ set $release bindsym --release
 
 set $noid   exec --no-startup-id
 set $always exec_always --no-startup-id
+set $restart exec_always
 
 set $locker ~/.config/i3/lock.sh
 
@@ -185,7 +186,7 @@ $noid sudo tlp start
 $noid udiskie --automount --notify &
 
 # pulseaudio: deamon to control via keyboard.
-$always pulseaudio --kill; sleep 2; pulseaudio --start
+$restart pulseaudio --kill; sleep 2; pulseaudio --start
 
 $noid alsactl daemon
 # pa-applet (pulseaudio):
