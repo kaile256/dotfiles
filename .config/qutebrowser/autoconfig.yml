@@ -212,8 +212,6 @@ settings:
         <Space>1: tab-close
         <Space>2: save
         <Space>P: open -t {primary}
-        <Space>Q: close
-        <Space>Z: close
         <Space>\: record-macro
         <Space>p: open {primary}
         <Space>q: save
