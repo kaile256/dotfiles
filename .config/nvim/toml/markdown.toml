@@ -91,6 +91,7 @@ hook_source = 'runtime source/gofmtmd.vim'
 #
 [[plugins]]
 repo = 'plasticboy/vim-markdown'
+# includes independent synax in fenced block
 on_ft = 'markdown'
 hook_source = 'runtime source/plasticboy-markdown.vim'
 
