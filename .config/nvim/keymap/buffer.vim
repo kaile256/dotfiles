@@ -12,7 +12,7 @@ endfunction "}}}
 nnoremap <silent> <a-s><a-o> :<c-u>call <SID>my_source_vimrc()<cr>
 nnoremap <silent> <a-s>o     :<c-u>call <SID>my_source_vimrc()<cr>
 
-let s:info_list = [
+let s:opt_list = [
       \ '&syn',
       \ '&ft',
       \ '&bt',
@@ -31,9 +31,9 @@ let s:info_list = [
 let s:width = 30
 
 function! s:opt_check() abort
-  let list = filter(deepcopy(s:info_list), "v:val =~# '&' ")
+  let list = filter(deepcopy(s:opt_list), "v:val =~# '&' ")
   let max = len(list)
-  for opt in s:info_list
+  for opt in s:opt_list
     try
       let l:val = eval(opt)
     catch
