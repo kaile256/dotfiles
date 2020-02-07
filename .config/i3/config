@@ -60,6 +60,7 @@ set $alert    exec --no-startup-id notify-send --expire-time 1100 --urgency crit
 # Var; Apps {{{2
 set $browser qutebrowser
 set $chrome google-chrome-stable
+set $vivaldi vivaldi-stable
 
 set $nvim nvim-qt
 set $vim vim
@@ -228,8 +229,9 @@ $noid clipit
 # Ref: specifiy workspace to start in
 #    @ https://ayageman.blogspot.com/2017/02/t510-2.html
 # TODO: open qutebrowser in background
-#$noid i3-msg 'workspace 1' | exec qutebrowser; workspace 0
-#$noid nvim-qt
+$noid qutebrowser
+$noid $vivaldi
+$noid nvim-qt
 
 # Note: exec_always to reload on a restart i3 itself
 $always $MYSCRIPTS/polybar-launch.sh
@@ -616,7 +618,7 @@ $release q $noid qutebrowser;    mode default; $noid xinput enable Elan\ Touchpa
 $release c $noid $chrome;        mode default; $noid xinput enable Elan\ Touchpad; $noid xinput enable Elan\ TrackPoint
 $release f $noid firefox;        mode default; $noid xinput enable Elan\ Touchpad; $noid xinput enable Elan\ TrackPoint
 $release s $noid servo;          mode default; $noid xinput enable Elan\ Touchpad; $noid xinput enable Elan\ TrackPoint
-$release v $noid vivaldi-stable; mode default; $noid xinput enable Elan\ Touchpad; $noid xinput enable Elan\ TrackPoint
+$release v $noid $vivaldi; mode default; $noid xinput enable Elan\ Touchpad; $noid xinput enable Elan\ TrackPoint
 
 bindsym Ctrl+C           mode default
 bindsym bracketleft      mode default
