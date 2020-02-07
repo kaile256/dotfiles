@@ -92,6 +92,7 @@ settings:
         i: hint inputs --first
         s: fake-key <delete>
         w: move-to-next-word
+        y: yank selection
       command:
         <Alt+a>: fake-key <right>
         <Alt+i>: fake-key <left>
@@ -286,7 +287,7 @@ settings:
         wc: tab-close
         wq: bookmark-del;; bookmark-add;; tab-close
         wqa: bookmark-del;; bookmark-add;; quit
-        yv: enter-mode caret;; yank;; leave-mode
+        yv: yank selection
         yy: yank
         zH: scroll-to-perc -x 0
         zL: scroll-to-perc -x
