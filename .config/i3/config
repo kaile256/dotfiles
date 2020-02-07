@@ -151,7 +151,7 @@ for_window [title="^Toggle"]  floating enable border normal
 #for_window [class="(?i)virtualbox"] floating enable border normal
 #for_window [class="Xfburn"] floating enable
 
-# Auto Start {{{1
+# AutoStart Background {{{1
 # Note: see the config by `xset q`
 # xset -b: disable beep
 $noid xset -b
@@ -228,16 +228,17 @@ $noid clipit
 # urxvtd: Daemon of rxvt-unicode. Use urxvtc as a client.
 #$noid "urxvtd -o -f"
 
+# Note: exec_always to reload on a restart i3 itself
+$always $MYSCRIPTS/polybar-launch.sh
+#exec_always --no-startup-id xfce4-panel --disable-wm-check
+
+# AutoStart Applications {{{1
 # Ref: specifiy workspace to start in
 #    @ https://ayageman.blogspot.com/2017/02/t510-2.html
 # TODO: open qutebrowser in background
 $noid qutebrowser
-$noid $VIVALDI
+$noid $vivaldi
 $noid nvim-qt
-
-# Note: exec_always to reload on a restart i3 itself
-$always $MYSCRIPTS/polybar-launch.sh
-#exec_always --no-startup-id xfce4-panel --disable-wm-check
 
 ## Status Bar; use polybar instead {{{1
 ## Note: use polybar instead
@@ -616,11 +617,11 @@ set $Browser " Browser: (S)ervo (V)ivaldi (F)irefox (C)hrome (Q)utebrowser "
 $release $Super+B mode $Browser; $shortmsg 'Browsers'
 
 mode $Browser {
-$release q $noid qutebrowser;    mode default; $noid xinput enable Elan\ Touchpad; $noid xinput enable Elan\ TrackPoint
-$release c $noid $chrome;        mode default; $noid xinput enable Elan\ Touchpad; $noid xinput enable Elan\ TrackPoint
-$release f $noid firefox;        mode default; $noid xinput enable Elan\ Touchpad; $noid xinput enable Elan\ TrackPoint
-$release s $noid servo;          mode default; $noid xinput enable Elan\ Touchpad; $noid xinput enable Elan\ TrackPoint
-$release v $noid $VIVALDI; mode default; $noid xinput enable Elan\ Touchpad; $noid xinput enable Elan\ TrackPoint
+$release q $noid qutebrowser; mode default; $noid xinput enable Elan\ Touchpad; $noid xinput enable Elan\ TrackPoint
+$release c $noid $chrome;     mode default; $noid xinput enable Elan\ Touchpad; $noid xinput enable Elan\ TrackPoint
+$release f $noid firefox;     mode default; $noid xinput enable Elan\ Touchpad; $noid xinput enable Elan\ TrackPoint
+$release s $noid servo;       mode default; $noid xinput enable Elan\ Touchpad; $noid xinput enable Elan\ TrackPoint
+$release v $noid $vivaldi;    mode default; $noid xinput enable Elan\ Touchpad; $noid xinput enable Elan\ TrackPoint
 
 bindsym Ctrl+C           mode default
 bindsym bracketleft      mode default
