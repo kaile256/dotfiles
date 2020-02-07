@@ -114,7 +114,7 @@ hook_source = 'runtime source/toml-fold.vim'
 
 [[plugins]]
 repo = 'kaile256/vim-SandJoin'
-on_map = {nx = '<Plug>(SandJoin)'}
+on_map = {nx = '<Plug>(SandJoin-'}
 on_cmd = ['SandJoin']
 on_func = ['SandJoin#']
 hook_add = 'runtime add/SandJoin.vim'
