@@ -232,7 +232,7 @@ $noid clipit
 #    @ https://ayageman.blogspot.com/2017/02/t510-2.html
 # TODO: open qutebrowser in background
 $noid qutebrowser
-$noid $vivaldi
+$noid $VIVALDI
 $noid nvim-qt
 
 # Note: exec_always to reload on a restart i3 itself
@@ -620,7 +620,7 @@ $release q $noid qutebrowser;    mode default; $noid xinput enable Elan\ Touchpa
 $release c $noid $chrome;        mode default; $noid xinput enable Elan\ Touchpad; $noid xinput enable Elan\ TrackPoint
 $release f $noid firefox;        mode default; $noid xinput enable Elan\ Touchpad; $noid xinput enable Elan\ TrackPoint
 $release s $noid servo;          mode default; $noid xinput enable Elan\ Touchpad; $noid xinput enable Elan\ TrackPoint
-$release v $noid $vivaldi; mode default; $noid xinput enable Elan\ Touchpad; $noid xinput enable Elan\ TrackPoint
+$release v $noid $VIVALDI; mode default; $noid xinput enable Elan\ Touchpad; $noid xinput enable Elan\ TrackPoint
 
 bindsym Ctrl+C           mode default
 bindsym bracketleft      mode default
@@ -879,7 +879,7 @@ bindsym XF86AudioMute        $noid pactl set-sink-mute 0 toggle
 #bindsym $Super+Print $noid import -window root ~/Pictures/screenshot
 # fulloption-name, --rectarea, isn't work on `ksnip`
 bindsym Shift+Print  $noid ksnip -r
-bindsym $Super+Print $noid exec $MYSCRIPTS/recording-toggle.sh
+bindsym $Super+Print $noid $MYSCRIPTS/recording-toggle.sh
 
 #set $Print " Print: (Shift+) screenshot | (Super+) record in GIF "
 #bindsym Print mode $Print; $notify 'Print: entered'
