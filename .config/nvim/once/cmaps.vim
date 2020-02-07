@@ -11,24 +11,25 @@ cnoremap <silent> <c-k><a-k> <c-c>
 cnoremap <c-r><c-space> <c-r>+
 cnoremap <c-r><space>   <c-r>+
 
-cnoremap <expr> . <SID>here()
+"cnoremap <expr> . <SID>here()
 
-function! s:here() abort "{{{1
-  if getcmdtype() !~# '[:= ]' | return '.' |  endif
-
-  let line = getcmdline()
-  let pos  = getcmdpos()
-  if line[pos - 2] ==# '('
-    if  line[pos - 1] ==# ')'
-      return "'.'"
-    endif
-
-    return "'.')"
-  endif
-
-  return '.'
-endfunction
-
+"function! s:here() abort "{{{1
+" FIXME: sometimes causes error and return '-1'
+"  if getcmdtype() !~# '[:= ]' | return '.' |  endif
+"
+"  let line = getcmdline()
+"  let pos  = getcmdpos()
+"  if line[pos - 2] ==# '('
+"    if  line[pos - 1] ==# ')'
+"      return "'.'"
+"    endif
+"
+"    return "'.')"
+"  endif
+"
+"  return '.'
+"endfunction
+"
 " instant :verbose "{{{1
 cnoremap <expr> <a-m>  (getcmdtype() == ':' && getcmdline() !~# '^verb\%[ose]') ? '<Home>verbose<space><cr>' : '<cr>'
 cnoremap <expr> <a-cr> (getcmdtype() == ':' && getcmdline() !~# '^verb\%[ose]') ? '<Home>verbose<space><cr>' : '<cr>'
