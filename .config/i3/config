@@ -4,7 +4,6 @@
 
 # Variables {{{1
 # NOTE: seems no case-sensitive in variable
-
 # Var; Font {{{2
 # Note: do NOT insert size-number before commas
 #   because the following fonts will be ignored;
@@ -75,8 +74,10 @@ set $termporal alacritty --title termporal --config-file $XDG_CONFIG_HOME/alacri
 for_window [title=^termporal$] floating enable
 #set $terminal urxvt
 
+# Workspaces {{{1
 # Var; i3 Workspace {{{2
 workspace_layout tabbed
+workspace_auto_back_and_forth no
 
 set $ws1 "1"
 set $ws2 "2"
@@ -116,6 +117,7 @@ mouse_warping none
 #for_window [urgent=latest] focus
 
 no_focus [title="qutebrowser$"]
+no_focus [title="Vivaldi$"]
 
 #assign [class="^URxvt$"] → 2
 #assign [class="^URxvt$"] → output primary
