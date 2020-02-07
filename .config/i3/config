@@ -273,6 +273,7 @@ $noid nvim-qt
 #bindsym Ctrl+i $noid xdotool Tab
 
 # Keybind; i3 {{{1
+bindsym $SuperS+T layout tabbed; $alert 'Layout: tabbed'
 # Note: check keyname, or keycode, by $ xmodmap -pke
 # Note: `--release` disturbs continuous actions while pressed
 
