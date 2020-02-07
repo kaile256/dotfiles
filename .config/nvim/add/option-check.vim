@@ -2,31 +2,24 @@
 " Repo: kaile256/vim-option-check
 
 let g:opt_check#evaluable = '^[&$]'
+let g:opt_check#conj_partition = ':: '
 
-let s:partition = repeat('=', 20)
+let s:partition = repeat('=', 40)
 
 let g:opt_check#list = [
-      \ '&syn',
-      \ '&ft',
-      \ '&bt',
+      \ ['&syn', '&ft', '&bt'],
       \ s:partition,
       \ 'FOLD',
-      \ '&fdm',
-      \ '&fdt',
-      \ '&fdl',
+      \ ['&fdm', '&fdt', '&fdl'],
       \ s:partition,
       \ 'FORMAT',
-      \ '&tw',
-      \ '&fo',
+      \ ['&tw', '&fo'],
       \ s:partition,
       \ 'CONCEAL',
-      \ '&cole',
-      \ '&cocu',
+      \ ['&cole', '&cocu'],
       \ s:partition,
       \ 'DEFAULT EDITOR',
-      \ '$EDITOR',
-      \ '$VISUAL',
-      \ '$SUDO_EDITOR',
+      \ ['$EDITOR', '$VISUAL', '$SUDO_EDITOR'],
       \ ]
 
 nnoremap <silent> <a-s><a-s> :<c-u>VimOptCheck<cr>
