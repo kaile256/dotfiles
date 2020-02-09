@@ -236,9 +236,10 @@ $always $MYSCRIPTS/polybar-launch.sh
 # Ref: specifiy workspace to start in
 #    @ https://ayageman.blogspot.com/2017/02/t510-2.html
 # TODO: open qutebrowser in background
-$noid qutebrowser
+
+#$noid qutebrowser
 $noid $vivaldi
-$noid nvim-qt
+#$noid nvim-qt
 
 ## Status Bar; use polybar instead {{{1
 ## Note: use polybar instead
@@ -268,11 +269,13 @@ $noid nvim-qt
 #}
 #}
 
-# Keybind; xdotool {{{1
-# bind <tab> via xdotool seems no use in Qutebrowser
-#bindsym Ctrl+i $noid xdotool Tab
+# Keybind; i3's Reload/Restart {{{1
+# reload the configuration file
+$release $SuperS+space reload
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+$release $Super+space restart
 
-# Keybind; i3 {{{1
+# Keybind; i3 Workspace {{{1
 bindsym $SuperS+T layout tabbed; $alert 'Layout: tabbed'
 # Note: check keyname, or keycode, by $ xmodmap -pke
 # Note: `--release` disturbs continuous actions while pressed
@@ -281,14 +284,7 @@ bindsym $SuperS+T layout tabbed; $alert 'Layout: tabbed'
 # Sample: bindsym $mod+X move container to workspace 3; workspace 3
 # Sample: for_window [class="^foo$"] floating enable, move container to workspace 4
 
-# Keybind; i3's Reload/Restart {{{2
-# reload the configuration file
-$release $SuperS+space reload
-# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-$release $Super+space restart
-
-# Keybind; Workspace {{{2
-# Workspace; Focus Switch {{{3
+# Workspace; Focus Switch {{{2
 workspace_auto_back_and_forth yes
 # [smart|urgent|focus|none]
 focus_on_window_activation smart
@@ -321,7 +317,7 @@ bindsym $SuperS+8 move container to workspace $ws8; workspace $ws8
 bindsym $SuperS+9 move container to workspace $ws9; workspace $ws9
 bindsym $SuperS+0 move container to workspace $ws0; workspace $ws0
 
-# Workspace; Move in background {{{3
+# Workspace; Move in background {{{2
 bindsym $SuperC+1 move container to workspace $ws1
 bindsym $SuperC+2 move container to workspace $ws2
 bindsym $SuperC+3 move container to workspace $ws3
@@ -332,6 +328,17 @@ bindsym $SuperC+7 move container to workspace $ws7
 bindsym $SuperC+8 move container to workspace $ws8
 bindsym $SuperC+9 move container to workspace $ws9
 bindsym $SuperC+0 move container to workspace $ws0
+
+bindsym $SuperA+1 move container to workspace $ws1
+bindsym $SuperA+2 move container to workspace $ws2
+bindsym $SuperA+3 move container to workspace $ws3
+bindsym $SuperA+4 move container to workspace $ws4
+bindsym $SuperA+5 move container to workspace $ws5
+bindsym $SuperA+6 move container to workspace $ws6
+bindsym $SuperA+7 move container to workspace $ws7
+bindsym $SuperA+8 move container to workspace $ws8
+bindsym $SuperA+9 move container to workspace $ws9
+bindsym $SuperA+0 move container to workspace $ws0
 
 # Keybind; Window {{{2
 bindsym $Super+H focus left
@@ -364,6 +371,10 @@ $release $Super+$ClickMiddle $noid $MYSCRIPTS/touchpad-toggle.sh
 
 # 66: CapsLock
 bindcode 66 $alert 'CapsLock: Toggle'
+
+# Keybind; xdotool {{{1
+# bind <tab> via xdotool seems no use in Qutebrowser
+#bindsym Ctrl+i $noid xdotool Tab
 
 # Keybind; Mode on i3 {{{1
 # WARNING: use double quotes for either in `set` or `mode`
