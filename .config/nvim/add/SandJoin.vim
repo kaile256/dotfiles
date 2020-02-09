@@ -3,18 +3,8 @@
 
 let g:SandJoin#no_default_mappings = 1
 
-if mapcheck('J', 'n') !=# ''
-  " Mnemonic: <space>-leaving Join
-  nmap <space>J <Plug>(SandJoin-J)
-else
-  nmap J <Plug>(SandJoin-J)
-endif
-
-if mapcheck('J', 'x') !=# ''
-  xmap <space>J <Plug>(SandJoin-J)
-else
-  xmap J <Plug>(SandJoin-J)
-endif
+nmap <space>J <Plug>(SandJoin-J)
+xmap <space>J <Plug>(SandJoin-J)
 
 nmap gJ <Plug>(SandJoin-gJ)
 xmap gJ <Plug>(SandJoin-gJ)
