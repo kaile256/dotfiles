@@ -72,7 +72,6 @@ let s:toml_startup = [
       \ ]
 
 let s:toml_pc_only = [
-      \ 'denite.toml',
       \ 'web.toml',
       \ ]
 
