@@ -106,92 +106,52 @@ map <silent><expr> ]w
 " Note: for 'zv', not in Async
 
 "" Jump; as :edit {{{2
-nnoremap <silent> gd :call CocAction('jumpDefinition',     'edit')
-      \ <bar> call feedkeys('zv')<cr>
-xnoremap <silent> gd :call CocAction('jumpDefinition',     'edit')
-      \ <bar> call feedkeys('zv')<cr>
-nnoremap <silent> gD :call CocAction('jumpDeclaration',    'edit')
-      \ <bar> call feedkeys('zv')<cr>
-xnoremap <silent> gD :call CocAction('jumpDeclaration',    'edit')
-      \ <bar> call feedkeys('zv')<cr>
-nnoremap <silent> gI :call CocAction('jumpImplementation', 'edit')
-      \ <bar> call feedkeys('zv')<cr>
-xnoremap <silent> gI :call CocAction('jumpImplementation', 'edit')
-      \ <bar> call feedkeys('zv')<cr>
-nnoremap <silent> gy :call CocAction('jumpTypeDefinition', 'edit')
-      \ <bar> call feedkeys('zv')<cr>
-xnoremap <silent> gy :call CocAction('jumpTypeDefinition', 'edit')
-      \ <bar> call feedkeys('zv')<cr>
-nnoremap <silent> gr :call CocAction('jumpReferences',     'edit')
-      \ <bar> call feedkeys('zv')<cr>
-xnoremap <silent> gr :call CocAction('jumpReferences',     'edit')
-      \ <bar> call feedkeys('zv')<cr>
+nnoremap <silent> gd :call CocAction('jumpDefinition',     'edit')<cr>zv
+xnoremap <silent> gd :call CocAction('jumpDefinition',     'edit')<cr>zv
+nnoremap <silent> gD :call CocAction('jumpDeclaration',    'edit')<cr>zv
+xnoremap <silent> gD :call CocAction('jumpDeclaration',    'edit')<cr>zv
+nnoremap <silent> gI :call CocAction('jumpImplementation', 'edit')<cr>zv
+xnoremap <silent> gI :call CocAction('jumpImplementation', 'edit')<cr>zv
+nnoremap <silent> gy :call CocAction('jumpTypeDefinition', 'edit')<cr>zv
+xnoremap <silent> gy :call CocAction('jumpTypeDefinition', 'edit')<cr>zv
+nnoremap <silent> gr :call CocAction('jumpReferences',     'edit')<cr>zv
+xnoremap <silent> gr :call CocAction('jumpReferences',     'edit')<cr>zv
 
 "" Jump; as :split {{{2
-nnoremap <silent> <c-w>d :call CocAction('jumpDefinition',     'split')
-      \ <bar> call feedkeys('zv')<cr>
-xnoremap <silent> <c-w>d :call CocAction('jumpDefinition',     'split')
-      \ <bar> call feedkeys('zv')<cr>
-nnoremap <silent> <c-w>D :call CocAction('jumpDeclaration',    'split')
-      \ <bar> call feedkeys('zv')<cr>
-xnoremap <silent> <c-w>D :call CocAction('jumpDeclaration',    'split')
-      \ <bar> call feedkeys('zv')<cr>
-nnoremap <silent> <c-w>I :call CocAction('jumpImplementation', 'split')
-      \ <bar> call feedkeys('zv')<cr>
-xnoremap <silent> <c-w>I :call CocAction('jumpImplementation', 'split')
-      \ <bar> call feedkeys('zv')<cr>
-nnoremap <silent> <c-w>y :call CocAction('jumpTypeDefinition', 'split')
-      \ <bar> call feedkeys('zv')<cr>
-xnoremap <silent> <c-w>y :call CocAction('jumpTypeDefinition', 'split')
-      \ <bar> call feedkeys('zv')<cr>
-nnoremap <silent> <c-w>r :call CocAction('jumpReferences',     'split')
-      \ <bar> call feedkeys('zv')<cr>
-xnoremap <silent> <c-w>r :call CocAction('jumpReferences',     'split')
-      \ <bar> call feedkeys('zv')<cr>
+nnoremap <silent> <c-w>d :call CocAction('jumpDefinition',     'split')<cr>zv
+xnoremap <silent> <c-w>d :call CocAction('jumpDefinition',     'split')<cr>zv
+nnoremap <silent> <c-w>D :call CocAction('jumpDeclaration',    'split')<cr>zv
+xnoremap <silent> <c-w>D :call CocAction('jumpDeclaration',    'split')<cr>zv
+nnoremap <silent> <c-w>I :call CocAction('jumpImplementation', 'split')<cr>zv
+xnoremap <silent> <c-w>I :call CocAction('jumpImplementation', 'split')<cr>zv
+nnoremap <silent> <c-w>y :call CocAction('jumpTypeDefinition', 'split')<cr>zv
+xnoremap <silent> <c-w>y :call CocAction('jumpTypeDefinition', 'split')<cr>zv
+nnoremap <silent> <c-w>r :call CocAction('jumpReferences',     'split')<cr>zv
+xnoremap <silent> <c-w>r :call CocAction('jumpReferences',     'split')<cr>zv
 
 "" Jump; as :tabe {{{2
-nnoremap <silent> <c-w>gd :call CocAction('jumpDefinition',     'tabe')
-      \ <bar> call feedkeys('zv')<cr>
-xnoremap <silent> <c-w>gd :call CocAction('jumpDefinition',     'tabe')
-      \ <bar> call feedkeys('zv')<cr>
-nnoremap <silent> <c-w>gD :call CocAction('jumpDeclaration',    'tabe')
-      \ <bar> call feedkeys('zv')<cr>
-xnoremap <silent> <c-w>gD :call CocAction('jumpDeclaration',    'tabe')
-      \ <bar> call feedkeys('zv')<cr>
-nnoremap <silent> <c-w>gI :call CocAction('jumpImplementation', 'tabe')
-      \ <bar> call feedkeys('zv')<cr>
-xnoremap <silent> <c-w>gI :call CocAction('jumpImplementation', 'tabe')
-      \ <bar> call feedkeys('zv')<cr>
-nnoremap <silent> <c-w>gy :call CocAction('jumpTypeDefinition', 'tabe')
-      \ <bar> call feedkeys('zv')<cr>
-xnoremap <silent> <c-w>gy :call CocAction('jumpTypeDefinition', 'tabe')
-      \ <bar> call feedkeys('zv')<cr>
-nnoremap <silent> <c-w>gr :call CocAction('jumpReferences',     'tabe')
-      \ <bar> call feedkeys('zv')<cr>
-xnoremap <silent> <c-w>gr :call CocAction('jumpReferences',     'tabe')
-      \ <bar> call feedkeys('zv')<cr>
+nnoremap <silent> <c-w>gd :call CocAction('jumpDefinition',     'tabe')<cr>zv
+xnoremap <silent> <c-w>gd :call CocAction('jumpDefinition',     'tabe')<cr>zv
+nnoremap <silent> <c-w>gD :call CocAction('jumpDeclaration',    'tabe')<cr>zv
+xnoremap <silent> <c-w>gD :call CocAction('jumpDeclaration',    'tabe')<cr>zv
+nnoremap <silent> <c-w>gI :call CocAction('jumpImplementation', 'tabe')<cr>zv
+xnoremap <silent> <c-w>gI :call CocAction('jumpImplementation', 'tabe')<cr>zv
+nnoremap <silent> <c-w>gy :call CocAction('jumpTypeDefinition', 'tabe')<cr>zv
+xnoremap <silent> <c-w>gy :call CocAction('jumpTypeDefinition', 'tabe')<cr>zv
+nnoremap <silent> <c-w>gr :call CocAction('jumpReferences',     'tabe')<cr>zv
+xnoremap <silent> <c-w>gr :call CocAction('jumpReferences',     'tabe')<cr>zv
 
 "" Jump; as :vsplit {{{2
-nnoremap <silent> <c-w><space>d :call CocAction('jumpDefinition',     'vsplit')
-      \ <bar> call feedkeys('zv')<cr>
-xnoremap <silent> <c-w><space>d :call CocAction('jumpDefinition',     'vsplit')
-      \ <bar> call feedkeys('zv')<cr>
-nnoremap <silent> <c-w><space>D :call CocAction('jumpDeclaration',    'vsplit')
-      \ <bar> call feedkeys('zv')<cr>
-xnoremap <silent> <c-w><space>D :call CocAction('jumpDeclaration',    'vsplit')
-      \ <bar> call feedkeys('zv')<cr>
-nnoremap <silent> <c-w><space>I :call CocAction('jumpImplementation', 'vsplit')
-      \ <bar> call feedkeys('zv')<cr>
-xnoremap <silent> <c-w><space>I :call CocAction('jumpImplementation', 'vsplit')
-      \ <bar> call feedkeys('zv')<cr>
-nnoremap <silent> <c-w><space>y :call CocAction('jumpTypeDefinition', 'vsplit')
-      \ <bar> call feedkeys('zv')<cr>
-xnoremap <silent> <c-w><space>y :call CocAction('jumpTypeDefinition', 'vsplit')
-      \ <bar> call feedkeys('zv')<cr>
-nnoremap <silent> <c-w><space>r :call CocAction('jumpReferences',     'vsplit')
-      \ <bar> call feedkeys('zv')<cr>
-xnoremap <silent> <c-w><space>r :call CocAction('jumpReferences',     'vsplit')
-      \ <bar> call feedkeys('zv')<cr>
+nnoremap <silent> <c-w><space>d :call CocAction('jumpDefinition',     'vsplit')<cr>zv
+xnoremap <silent> <c-w><space>d :call CocAction('jumpDefinition',     'vsplit')<cr>zv
+nnoremap <silent> <c-w><space>D :call CocAction('jumpDeclaration',    'vsplit')<cr>zv
+xnoremap <silent> <c-w><space>D :call CocAction('jumpDeclaration',    'vsplit')<cr>zv
+nnoremap <silent> <c-w><space>I :call CocAction('jumpImplementation', 'vsplit')<cr>zv
+xnoremap <silent> <c-w><space>I :call CocAction('jumpImplementation', 'vsplit')<cr>zv
+nnoremap <silent> <c-w><space>y :call CocAction('jumpTypeDefinition', 'vsplit')<cr>zv
+xnoremap <silent> <c-w><space>y :call CocAction('jumpTypeDefinition', 'vsplit')<cr>zv
+nnoremap <silent> <c-w><space>r :call CocAction('jumpReferences',     'vsplit')<cr>zv
+xnoremap <silent> <c-w><space>r :call CocAction('jumpReferences',     'vsplit')<cr>zv
 
 " CocFormat {{{1
 command! Import :call CocActionAsync('runCommand', 'editor.action.organizeImport')
