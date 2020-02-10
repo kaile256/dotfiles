@@ -76,7 +76,7 @@ if !exists('*s:source_buffer')
 
   function! s:do_as_shebang() abort "{{{2
     silent !%:p
-    echo s:msg .'&'. matchstr(getline(1), '^#!\zs.*') .'is done'
+    echo s:msg '&' matchstr(getline(1), '^#!\zs.*') 'is done'
   endfunction
 
   function! s:do_as_dict(dict, compared) abort "{{{2
