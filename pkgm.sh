@@ -233,8 +233,21 @@ REMOVEs=(
   i3blocks-contrib
 )
 
-INITPATH=$(pwd)
+CWD=$(pwd)
 cd "$HOME"
+
+# DETECT PACKAGE MANAGER {{{1
+INSTALLERs=(
+  yay
+  apt
+)
+
+for i in "${INSTALLERs[@]}"; do
+  type "$i" >/dev/null 2>&1 && export INSTALLER="$i" && break
+done
+
+[[ -n $INSTALLER ]] && echo "Installer is identified, $INSTALLER!"
+
 # REMOVE UNNECESSARY {{{1
 
 for p in "${REMOVEs[@]}"; do
@@ -244,17 +257,6 @@ for p in "${REMOVEs[@]}"; do
 done
 
 # INSTALL PACKAGES {{{1
-INSTALLERs=(
-  yay
-  apt
-)
-
-for i in "${INSTALLERs[@]}"; do
-  type "$i" > /dev/null 2>&1 && export INSTALLER="$i" && break
-done
-
-[[ -n $INSTALLER ]] && echo "Installer is identified, $INSTALLER!"
-
 declare -A Install
 Install=(
   ['yay']='yay -S'
@@ -269,8 +271,6 @@ for p in "${PACKAGEs[@]}"; do
   echo "Installing $p..."
   $install "$p"
 done
-
-cd ~ || exit
 
 # INSTALL OTHER PACKAGES {{{1
 #echo "Updating npm..."
@@ -352,4 +352,4 @@ makepkg -si
 
 # END {{{1
 
-cd "$INITPATH"
+cd "$CWD"
