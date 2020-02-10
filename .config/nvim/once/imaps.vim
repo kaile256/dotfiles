@@ -1,5 +1,8 @@
 " From: init.vim
 
+" as default, <F1> do `:help`
+inoremap <F1> <Nop>
+
 inoreabbr donw down
 inoreabbr markdonw markdown
 
