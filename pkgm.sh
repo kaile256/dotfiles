@@ -13,6 +13,7 @@ set -Cue #{{{
 
 # All themes set in `lxappearance`
 PACKAGEs=(
+  #clojure-lsp-bin # returns 404
   tk # necessary to push the first commit of cloned repo to remote fork?
   net-tools # includes `route`
   traceroute
@@ -237,55 +238,36 @@ cd "$HOME"
 # REMOVE UNNECESSARY {{{1
 
 for p in "${REMOVEs[@]}"; do
+  yay -Q "$p" >/dev/null 2>&1 || break
+  echo "Remove an unnecessary package, \"$p\""
   yay -Rs "$p"
 done
 
 # INSTALL PACKAGES {{{1
 INSTALLERs=(
+  yay
   apt
-  pacman
 )
 
 for i in "${INSTALLERs[@]}"; do
-  type "$i" > /dev/null 2>&1 && export INSTALLER="$i"
+  type "$i" > /dev/null 2>&1 && export INSTALLER="$i" && break
 done
 
 [[ -n $INSTALLER ]] && echo "Installer is identified, $INSTALLER!"
 
 declare -A Install
 Install=(
-  ['pacman']='pacman -S'
-  ['apt']='apt install'
+  ['yay']='yay -S'
+  ['apt']='sudo apt install'
 )
 
 export install="${Install[$INSTALLER]}"
-echo "$INSTALLER will install package via '$install'!!"
+echo "$INSTALLER will install package via '$install'"
 
-for package in "${PACKAGEs[@]}"; do
-  if [ "$INSTALLER" -ne 'apt' ] && [ $(apt list "${package}") ]; then
-    echo "You have installed $package already!"
-  elif [ "$INSTALLER" -ne 'pacman' ] && [ $(pacman -Q "${package}") ]; then
-    echo "Installing $package..."
-    sudo "$install" "$package" || {
-
-      if "$INSTALLER" == 'apt';then
-        echo "Try to curl to install $package..."
-        if "$package" == 'pyenv'; then
-          curl https://pyenv.run | bash
-        fi
-        if "$package" == 'cargo'; then
-          curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-          source ~/.local/share/cargo/env
-        fi
-        if "$package" == 'rxvt-unicode'; then
-          sudo apt install rxvt-unicode-256-color
-        fi
-
-      elif "$INSTALLER" == 'pacman'; then
-        echo "Try to yay to install $package..." && yay -S "$package"
-      fi
-    }
-  fi
+for p in "${PACKAGEs[@]}"; do
+  yay -Q "p" >/dev/null 2>&1 || break
+  echo "Installing $p..."
+  $install "$p"
 done
 
 cd ~ || exit
