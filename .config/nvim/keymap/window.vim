@@ -7,7 +7,7 @@
 "augroup END
 
 " as default, <F1> do `:help`
-nnoremap <F1> <Nop>
+noremap <F1> <Nop>
 
 nnoremap <space>/ q/kzb
 nnoremap <space>? q?kzb
