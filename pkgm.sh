@@ -293,6 +293,7 @@ if type pip3 && pip="pip3" || type pip && pip="pip" ; then
   done
 fi
 
+gem update
 for p in "${GEMs[@]}"; do
   gem install "$p"
 done
