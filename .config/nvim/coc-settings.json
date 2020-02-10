@@ -290,10 +290,9 @@
       "rootPatterns": ["go.mod"],
       "filetypes": ["go"],
       "initializationOptions": {
-        "gocodeCompletionEnabled": true,
         "diagnositicsEnabled": true,
         "lintTool": "golint",
-        "formatTool": "goimports",
+        "formatTool": "gofumpt",
         "formatFlags": ["-w"]
       }
     },
@@ -340,6 +339,15 @@
       "initializationOptions": {
         "storagePath": "/tmp/intelphense"
       }
+    },
+    "clojure": {
+      "command": "bash",
+      "args": ["-c", "clojure-lsp"],
+      "filetypes": ["clojure"],
+      "rootPatterns": ["project.clj"],
+      "additionalSchemes": ["jar", "zipfile"],
+      "trace.server": "verbose",
+      "initializationOptions": {}
     },
     "dockerfile": {
       "command": "docker-langserver",

@@ -65,7 +65,8 @@ nnoremap <s-space>c "_c
 nnoremap <s-space>C "_C
 " Note: those won't be typed intending to put at all, especially in noremal-mode
 nnoremap s "_s
-nnoremap S "_S
+nnoremap S "_Xi
+
 "nnoremap <s-space>x "_x
 "nnoremap <s-space>X "_X
 " Unnamed Register; Convenience "{{{1

@@ -1,5 +1,8 @@
 " From: init.vim
 
+" as default, <F1> do `:help`
+inoremap <F1> <Nop>
+
 inoreabbr donw down
 inoreabbr markdonw markdown
 
@@ -11,22 +14,23 @@ inoremap <c-o>y        <c-\><c-o>:call feedkeys("\<c-\>\<c-o>y", 'n')<cr>
 inoremap <c-o><space>y <c-\><c-o>:call feedkeys("\<c-\>\<c-o>".'"+y', 'n')<cr>
 "inoremap <c-o>p <c-\><c-o>:call feedkeys("\<esc>]p`]a")<cr>
 
-inoremap <expr> . <SID>here()
-function! s:here() abort "{{{1
-  let line = getline('.')
-  if line =~# 'fu\%[nction]!' | return '.' | endif
-
-  if line[col('.') - 2] ==# '('
-    if line[col('.') - 1] ==# ')'
-      return "'.'"
-    endif
-
-    return "'.')"
-  endif
-
-  return '.'
-endfunction
-
+" somtimes returns `-1` as an error
+"inoremap <expr> . <SID>here()
+"function! s:here() abort "{{{1
+"  let line = getline('.')
+"  if line =~# 'fu\%[nction]!' | return '.' | endif
+"
+"  if line[col('.') - 2] ==# '('
+"    if line[col('.') - 1] ==# ')'
+"      return "'.'"
+"    endif
+"
+"    return "'.')"
+"  endif
+"
+"  return '.'
+"endfunction
+"
 " Alt-ESC {{{1
 inoremap <silent> <a-s> <Del>
 

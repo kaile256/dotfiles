@@ -3,7 +3,7 @@
 set -Cue
 
 if pgrep screenkey || pgrep peek ; then
-  killall --quiet screenkey peek
+  killall --quiet screenkey peek ffmpeg
 else
   notify-send --expire-time 1100 --urgency critical "Recording: Start"
 

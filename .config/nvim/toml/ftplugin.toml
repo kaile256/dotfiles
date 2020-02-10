@@ -80,8 +80,23 @@ hook_source = 'runtime source/jupytext.vim'
 repo = 'szymonmaszke/vimpyter'
 on_ft = ['ipynb']
 hook_source = 'runtime source/vimpyter.vim'
-
-
+[[plugins]]
+repo = 'williamjameshandley/vimteractive'
+on_ft = [
+  'ipython',
+  'julia',
+  'maple',
+  'bash',
+  'zsh',
+  'python',
+  'clojure',
+  'apl',
+]
+hook_source = 'runtime source/vimteractive.vim'
+#[ Clojure ]
+[[plugins]]
+repo = 'clojure-vim/async-clj-omni'
+on_ft = ['clojure']
 #[ Document ]
 [[plugins]]
 repo = 'rafaqz/citation.vim'

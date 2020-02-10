@@ -5,9 +5,10 @@ Path=(
   #"/opt/brew/sbin" # recommended to set before /bin
   "$XDG_CONFIG_HOME/bash/functions" # original functions in Bash
   "$HOME/.local/bin" # local
+  "$HOME/bin"
   "$CARGO_HOME/bin" # rust
   "$PYENV_ROOT/bin" # python
-  "$HOME/.gem/ruby/2.6.0/bin" # ruby
+  "$HOME/.gem/ruby/2.7.0/bin" # ruby
   "$GOPATH/bin" # go
   "$HOME/.node_modules/bin" # nodejs
   "$HOME/.yarn/bin" # nodejs

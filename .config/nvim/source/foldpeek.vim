@@ -103,6 +103,7 @@ let s:foldlevel_dict = {
       \ 6: '[6]',
       \ 7: '[7]',
       \ 8: '[8]',
+      \ 9: '[9]',
       \ }
 
 "let s:foldlevel_dict = {
@@ -131,8 +132,6 @@ let g:foldpeek#table = {
       \ '50foldlevel' : string(s:foldlevel),
       \ '50foldlines' : 'v:foldend - v:foldstart + 1',
       \ }
-
-let s:foldlines = 'v:foldend - v:foldstart + 1'
 
 "let g:foldpeek#table = {
 "      \ '50foldlevel' : string(s:foldlevel),

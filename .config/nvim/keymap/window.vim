@@ -6,6 +6,9 @@
 "  au! CmdlineLeave * if exists('g:cmd_last_cursor') | call matchdelete(g:cmd_last_cursor) | endif
 "augroup END
 
+" as default, <F1> do `:help`
+noremap <F1> <Nop>
+
 nnoremap <space>/ q/kzb
 nnoremap <space>? q?kzb
 " open CmdWin

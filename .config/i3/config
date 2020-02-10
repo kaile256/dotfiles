@@ -4,7 +4,6 @@
 
 # Variables {{{1
 # NOTE: seems no case-sensitive in variable
-
 # Var; Font {{{2
 # Note: do NOT insert size-number before commas
 #   because the following fonts will be ignored;
@@ -41,6 +40,7 @@ set $release bindsym --release
 
 set $noid   exec --no-startup-id
 set $always exec_always --no-startup-id
+set $restart exec_always
 
 set $locker ~/.config/i3/lock.sh
 
@@ -59,6 +59,7 @@ set $alert    exec --no-startup-id notify-send --expire-time 1100 --urgency crit
 # Var; Apps {{{2
 set $browser qutebrowser
 set $chrome google-chrome-stable
+set $vivaldi vivaldi-stable
 
 set $nvim nvim-qt
 set $vim vim
@@ -73,8 +74,10 @@ set $termporal alacritty --title termporal --config-file $XDG_CONFIG_HOME/alacri
 for_window [title=^termporal$] floating enable
 #set $terminal urxvt
 
+# Workspaces {{{1
 # Var; i3 Workspace {{{2
 workspace_layout tabbed
+workspace_auto_back_and_forth no
 
 set $ws1 "1"
 set $ws2 "2"
@@ -114,6 +117,7 @@ mouse_warping none
 #for_window [urgent=latest] focus
 
 no_focus [title="qutebrowser$"]
+no_focus [title="Vivaldi$"]
 
 #assign [class="^URxvt$"] → 2
 #assign [class="^URxvt$"] → output primary
@@ -147,7 +151,7 @@ for_window [title="^Toggle"]  floating enable border normal
 #for_window [class="(?i)virtualbox"] floating enable border normal
 #for_window [class="Xfburn"] floating enable
 
-# Auto Start {{{1
+# AutoStart Background {{{1
 # Note: see the config by `xset q`
 # xset -b: disable beep
 $noid xset -b
@@ -185,7 +189,7 @@ $noid sudo tlp start
 $noid udiskie --automount --notify &
 
 # pulseaudio: deamon to control via keyboard.
-$always pulseaudio --kill; sleep 2; pulseaudio --start
+$restart pulseaudio --kill; sleep 2; pulseaudio --start
 
 $noid alsactl daemon
 # pa-applet (pulseaudio):
@@ -224,15 +228,18 @@ $noid clipit
 # urxvtd: Daemon of rxvt-unicode. Use urxvtc as a client.
 #$noid "urxvtd -o -f"
 
-# Ref: specifiy workspace to start in
-#    @ https://ayageman.blogspot.com/2017/02/t510-2.html
-# TODO: open qutebrowser in background
-#$noid i3-msg 'workspace 1' | exec qutebrowser; workspace 0
-#$noid nvim-qt
-
 # Note: exec_always to reload on a restart i3 itself
 $always $MYSCRIPTS/polybar-launch.sh
 #exec_always --no-startup-id xfce4-panel --disable-wm-check
+
+# AutoStart Applications {{{1
+# Ref: specifiy workspace to start in
+#    @ https://ayageman.blogspot.com/2017/02/t510-2.html
+# TODO: open qutebrowser in background
+
+#$noid qutebrowser
+$noid $vivaldi
+#$noid nvim-qt
 
 ## Status Bar; use polybar instead {{{1
 ## Note: use polybar instead
@@ -262,11 +269,14 @@ $always $MYSCRIPTS/polybar-launch.sh
 #}
 #}
 
-# Keybind; xdotool {{{1
-# bind <tab> via xdotool seems no use in Qutebrowser
-#bindsym Ctrl+i $noid xdotool Tab
+# Keybind; i3's Reload/Restart {{{1
+# reload the configuration file
+$release $SuperS+space reload
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+$release $Super+space restart
 
-# Keybind; i3 {{{1
+# Keybind; i3 Workspace {{{1
+bindsym $SuperS+T layout tabbed; $alert 'Layout: tabbed'
 # Note: check keyname, or keycode, by $ xmodmap -pke
 # Note: `--release` disturbs continuous actions while pressed
 
@@ -274,14 +284,7 @@ $always $MYSCRIPTS/polybar-launch.sh
 # Sample: bindsym $mod+X move container to workspace 3; workspace 3
 # Sample: for_window [class="^foo$"] floating enable, move container to workspace 4
 
-# Keybind; i3's Reload/Restart {{{2
-# reload the configuration file
-$release $SuperS+space reload
-# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-$release $Super+space restart
-
-# Keybind; Workspace {{{2
-# Workspace; Focus Switch {{{3
+# Workspace; Focus Switch {{{2
 workspace_auto_back_and_forth yes
 # [smart|urgent|focus|none]
 focus_on_window_activation smart
@@ -314,7 +317,7 @@ bindsym $SuperS+8 move container to workspace $ws8; workspace $ws8
 bindsym $SuperS+9 move container to workspace $ws9; workspace $ws9
 bindsym $SuperS+0 move container to workspace $ws0; workspace $ws0
 
-# Workspace; Move in background {{{3
+# Workspace; Move in background {{{2
 bindsym $SuperC+1 move container to workspace $ws1
 bindsym $SuperC+2 move container to workspace $ws2
 bindsym $SuperC+3 move container to workspace $ws3
@@ -325,6 +328,17 @@ bindsym $SuperC+7 move container to workspace $ws7
 bindsym $SuperC+8 move container to workspace $ws8
 bindsym $SuperC+9 move container to workspace $ws9
 bindsym $SuperC+0 move container to workspace $ws0
+
+bindsym $SuperA+1 move container to workspace $ws1
+bindsym $SuperA+2 move container to workspace $ws2
+bindsym $SuperA+3 move container to workspace $ws3
+bindsym $SuperA+4 move container to workspace $ws4
+bindsym $SuperA+5 move container to workspace $ws5
+bindsym $SuperA+6 move container to workspace $ws6
+bindsym $SuperA+7 move container to workspace $ws7
+bindsym $SuperA+8 move container to workspace $ws8
+bindsym $SuperA+9 move container to workspace $ws9
+bindsym $SuperA+0 move container to workspace $ws0
 
 # Keybind; Window {{{2
 bindsym $Super+H focus left
@@ -357,6 +371,10 @@ $release $Super+$ClickMiddle $noid $MYSCRIPTS/touchpad-toggle.sh
 
 # 66: CapsLock
 bindcode 66 $alert 'CapsLock: Toggle'
+
+# Keybind; xdotool {{{1
+# bind <tab> via xdotool seems no use in Qutebrowser
+#bindsym Ctrl+i $noid xdotool Tab
 
 # Keybind; Mode on i3 {{{1
 # WARNING: use double quotes for either in `set` or `mode`
@@ -611,11 +629,11 @@ set $Browser " Browser: (S)ervo (V)ivaldi (F)irefox (C)hrome (Q)utebrowser "
 $release $Super+B mode $Browser; $shortmsg 'Browsers'
 
 mode $Browser {
-$release q $noid qutebrowser;    mode default
-$release c $noid $chrome;        mode default; $noid xinput enable Elan\ Touchpad
-$release f $noid firefox;        mode default; $noid xinput enable Elan\ Touchpad
-$release s $noid servo;          mode default; $noid xinput enable Elan\ Touchpad
-$release v $noid vivaldi-stable; mode default; $noid xinput enable Elan\ Touchpad
+$release q $noid qutebrowser; mode default; $noid xinput enable Elan\ Touchpad; $noid xinput enable Elan\ TrackPoint
+$release c $noid $chrome;     mode default; $noid xinput enable Elan\ Touchpad; $noid xinput enable Elan\ TrackPoint
+$release f $noid firefox;     mode default; $noid xinput enable Elan\ Touchpad; $noid xinput enable Elan\ TrackPoint
+$release s $noid servo;       mode default; $noid xinput enable Elan\ Touchpad; $noid xinput enable Elan\ TrackPoint
+$release v $noid $vivaldi;    mode default; $noid xinput enable Elan\ Touchpad; $noid xinput enable Elan\ TrackPoint
 
 bindsym Ctrl+C           mode default
 bindsym bracketleft      mode default
@@ -811,7 +829,11 @@ bindsym $Super+O $noid fcitx-remote -c; mode default; $alert 'Skk: OFF'; focus m
 bindsym $Super+bracketleft  $noid fcitx-remote -c; mode default; $alert 'Skk: OFF'; workspace prev
 bindsym $Super+bracketright $noid fcitx-remote -c; mode default; $alert 'Skk: OFF'; workspace next
 
-bindsym $Super+U         $noid fcitx-remote -c; mode default; $alert 'Skk: OFF'
+# TODO: return to skk's japanese input by <c-space>
+bindsym L        $noid fcitx-remote -c; mode default; $alert 'Skk: OFF'
+bindsym Shift+L  $noid fcitx-remote -c; mode default; $alert 'Skk: OFF'
+bindsym $Super+U $noid fcitx-remote -c; mode default; $alert 'Skk: OFF'
+
 bindsym Ctrl+C           $noid fcitx-remote -c; mode default; $alert 'Skk: OFF'
 bindsym bracketleft      $noid fcitx-remote -c; mode default; $alert 'Skk: OFF'
 bindsym Ctrl+bracketleft $noid fcitx-remote -c; mode default; $alert 'Skk: OFF'
@@ -870,7 +892,7 @@ bindsym XF86AudioMute        $noid pactl set-sink-mute 0 toggle
 #bindsym $Super+Print $noid import -window root ~/Pictures/screenshot
 # fulloption-name, --rectarea, isn't work on `ksnip`
 bindsym Shift+Print  $noid ksnip -r
-bindsym $Super+Print $noid exec $MYSCRIPTS/recording-toggle.sh
+bindsym $Super+Print $noid $MYSCRIPTS/recording-toggle.sh
 
 #set $Print " Print: (Shift+) screenshot | (Super+) record in GIF "
 #bindsym Print mode $Print; $notify 'Print: entered'

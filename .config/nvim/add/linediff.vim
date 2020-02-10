@@ -1,7 +1,7 @@
 " From: default.toml
 " Repo: AndrewRadev/linediff.vim
 
-command! -range DiffLines :Linediff
+command! -range DiffLines :call linediff#Linediff(<line1>, <line2>, {})
 
 " Keymap; Get Compared
 nnoremap gC :Linediff<cr>

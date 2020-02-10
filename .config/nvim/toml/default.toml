@@ -62,17 +62,9 @@ hook_source = 'runtime source/mundo.vim'
 #[ Diff ]
 [[plugins]]
 repo = 'rickhowe/diffchar.vim'
-#on_cmd = ['DiffCharShow', 'DiffCharToggle']
 on_if = '&diff'
+on_func = ['diffchar#']
 hook_source = 'runtime add/diffchar.vim'
-hook_done_update = '''
-exe 'e' g:dein_github_dir .'/rickhowe/diffchar.vim/plugin/diffchar.vim'
-%s/SDChar/DiffCharShow/e
-%s/RDChar/DiffCharReset/e
-%s/TDChar/DiffCharToggle/e
-%s/EDChar/DiffCharEcho/e
-write
-'''
 [[plugins]]
 repo = 'AndrewRadev/linediff.vim'
 on_cmd = 'Linediff'

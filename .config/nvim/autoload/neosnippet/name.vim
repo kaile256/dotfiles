@@ -23,9 +23,13 @@ function! neosnippet#name#plugin() abort
   return matchstr(expand('%:p'), '/\%[vim-]\zs[^/]\+\ze\%[.n]\%[vim]/'. s:dir)
 endfunction
 
+function! neosnippet#name#plugin_underscored() abort
+  return substitute(neosnippet#name#plugin(), '-', '_', 'g')
+endfunction
+
 function! neosnippet#name#file() abort
   return expand('%:p') =~# s:dir
-        \ ? matchstr(expand('%:p:.'), s:dir .'.*')
+        \ ? matchstr(expand('%:p'), s:dir .'.*')
         \ : matchstr(expand('%:r'), '[^.]*\ze\.')
 endfunction
 

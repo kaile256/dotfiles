@@ -12,6 +12,10 @@
 
 ( type xinput && xinput disable Elan\ Touchpad ) >/dev/null 2>&1
 
+## surely disable <c-s>, which freezes screen
+##   => https://github.com/williamjameshandley/vimteractive
+#stty -ixon
+
 source ~/.config/bash/env.sh # includes initial XDG_BASEs.
 source ~/.config/bash/path.sh
 #source ~/.config/bash/alias.sh # no use for fish on vim

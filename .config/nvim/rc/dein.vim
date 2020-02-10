@@ -72,7 +72,6 @@ let s:toml_startup = [
       \ ]
 
 let s:toml_pc_only = [
-      \ 'denite.toml',
       \ 'web.toml',
       \ ]
 
@@ -105,7 +104,7 @@ if !exists('g:plugins_available')
   if dein#load_state(g:dein_cache_dir)
     call dein#begin(g:dein_cache_dir)
 
-    if !has('nvim') "{{{2
+    if !has('nvim') " but only for vim {{{2
       " make compatible on vim
       call dein#add('roxma/nvim-yarp')
       call dein#add('roxma/vim-hug-neovim-rpc')
@@ -141,12 +140,11 @@ if !exists('g:plugins_available')
     for path in s:toml_lazy
       call s:load_toml(path, {'lazy': 1})
     endfor
-    for path in s:toml_pc_only
-      call s:load_toml(path, {
-            \ 'lazy': 1,
-            \ 'if': "executable('xinput')",
-            \ })
-    endfor
+    if executable('xinput')
+      for path in s:toml_pc_only
+        call s:load_toml(path, {'lazy': 1})
+      endfor
+    endif
 
     "" raw {{{3
     "let s:load_toml = {path, opt -> dein#load_toml(

@@ -3,7 +3,7 @@
 " Another: syntax/markdown.vim
 
 setl spell spl=en_us,cjk
-"setl nowrap conceallevel=2 concealcursor=ncv
+"setl nowrap conceallevel=2 concealcursor=nc
 setl tabstop=4 softtabstop=4 shiftwidth=4
 
 " Note: (MAYBE WRONG)

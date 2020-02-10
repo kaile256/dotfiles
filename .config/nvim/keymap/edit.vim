@@ -19,6 +19,7 @@ nnoremap gk k
 " Macro "{{{1
 nnoremap \<space> q
 nnoremap <space>\ q
+
 " Write&Quit {{{1
 if mapcheck('q', 'n') == ''
   nnoremap q <Nop>
@@ -49,6 +50,7 @@ onoremap <silent> <a-h> <ESC>:call feedkeys('h')<cr>
 onoremap <silent> <a-j> <ESC>:call feedkeys('j')<cr>
 onoremap <silent> <a-k> <ESC>:call feedkeys('k')<cr>
 onoremap <silent> <a-l> <ESC>:call feedkeys('l')<cr>
+
 " Fold; Uniquely Open Fold {{{1
 " i.e., close all the others
 noremap zU zMzv

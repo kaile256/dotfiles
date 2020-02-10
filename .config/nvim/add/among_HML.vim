@@ -125,13 +125,14 @@ if mapcheck('K') !=# ''
   nnoremap gK K
   xnoremap gK K
 endif
-if mapcheck('J') !=# ''
-  " Mnemonic: <space>-leaving Join
-  nnoremap <space>J J
-  xnoremap <space>J J
-  nnoremap gJ J"_x
-endif
 
+"if mapcheck('J') !=# ''
+"  " Mnemonic: <space>-leaving Join
+"  nnoremap <space>J J
+"  xnoremap <space>J J
+"  nnoremap gJ J"_x
+"endif
+"
 "function! s:join() abort "{{{1
 "  " FIXME: make it work
 "  silent! .1s/^\s*\\/
