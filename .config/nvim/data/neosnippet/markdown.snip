@@ -11,10 +11,16 @@ alias vp vpl vim plug plu pl vi
   ### For dein.vim
 
   \`\`\`vim
-  call dein#add('`substitute(expand('%:p:h'), '\v.*\/(.*\/)', '\1', '')`')
+  call dein#add('kaile256/`neosnippet#name#repo()`')
+  \`\`\`
+
+  \`\`\`toml
+  [[plugin]]
+  repo = 'kaile256/`neosnippet#name#repo()`'
   \`\`\`
 
   ## Usage
+
   ### Examples
 
 snippet qiita
