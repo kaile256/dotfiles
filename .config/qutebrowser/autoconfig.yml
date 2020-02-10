@@ -167,9 +167,7 @@ settings:
         <Alt+e>: edit-url
         <Alt+f>: tab-next
         <Alt+h>: tab-prev
-        <Alt+i>: tab-next
         <Alt+l>: tab-next
-        <Alt+o>: tab-prev
         <Alt+q><Alt+b>: set-cmd-text -s :buffer
         <Alt+q><Alt+v>: set-cmd-text -s :open
         <Ctrl++>: zoom-in
@@ -260,11 +258,13 @@ settings:
         f: scroll-page 0 +1.0
         gA: open -t https://www.amazon.co.jp/ref=nav_logo
         gC: open -t https://calendar.google.com/calendar/r/month?pli=1
+        gH: open -t qute://history/
         gM: open -t https://www.google.co.jp/maps/@34.8244519,135.4776576,15z
         gP: open -t https://app.getpocket.com/
         ga: open https://www.amazon.co.jp/ref=nav_logo
         gc: open https://calendar.google.com/calendar/r/month?pli=1
         gf: spawn nvim-qt {url}
+        gh: open qute://history/
         gi: hint inputs --first
         gm: open https://www.google.co.jp/maps/@34.8244519,135.4776576,15z
         go: scroll-to-perc 0;; hint inputs --first
@@ -464,6 +464,7 @@ settings:
       gm: https://www.google.co.jp/maps/place/{}
       mf: https://github.com/search?o=desc&q={}&s=forks&type=Repositories
       ms: https://github.com/search?o=desc&q={}&s=stars&type=Repositories
+      pc: https://app.getpocket.com/search/{}
       pyd: https://docs.python.org/3/search.html?q={}&check_keywords=yes&area=default
       qb: https://www.reddit.com/r/qutebrowser/search/?q={}
       qi: https://qiita.com/search?q={}&sort=stock
