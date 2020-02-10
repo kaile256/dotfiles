@@ -18,6 +18,9 @@ let g:opt_check#list = [
       \ 'CONCEAL',
       \ ['&cole', '&cocu'],
       \ s:partition,
+      \ 'PATH',
+      \ '&path',
+      \ s:partition,
       \ 'DEFAULT EDITOR',
       \ ['$EDITOR', '$VISUAL', '$SUDO_EDITOR'],
       \ ]
