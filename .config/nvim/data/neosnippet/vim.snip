@@ -12,7 +12,6 @@ alias sc ut s u scr script utf 8
 options head
   scriptencoding utf-8
 
-# for Vimrc {{{1
 snippet Address
 alias From Fr Fro fr fro from
   " From: ${1:toml}
@@ -20,7 +19,6 @@ alias From Fr Fro fr fro from
 
   ${0:#:start}
 
-# for Plugin {{{1
 snippet patch for func-abort
 alias abo abor abort
   if !has('patch-7.4.156') | finish | endif
@@ -110,12 +108,12 @@ alias restore res end tail tai ta foo foot fo
   " modeline {{{1
   " vim: et ts=2 sts=2 sw=2 fdm=marker tw=79
 
-snippet mode
-alias mo mod mode
+snippet modeline/softtab
+alias mo mod
   " modeline {{{1
   " vim: et ts=2 sts=2 sw=2 fdm=marker tw=79
 
-snippet mode with hardtab
+snippet modeline/hardtab
 alias tab noet noe
   " modeline {{{1
   " vim: noet ts=2 sts=2 sw=2 fdm=marker tw=79
@@ -163,12 +161,10 @@ alias ini
   unlet s:save_cpo
 
   " modeline {{{1
-  " vim: expandtab tabstop=2 softtabstop=2 shiftwidth=2
-  " vim: foldmethod=marker textwidth=79
+  " vim: noet ts=2 sts=2 sw=2 fdm=marker tw=79
 
 #}}}
 
-# Excmds {{{1
 snippet command
 alias com cmd comm co
   command! -bar ${1:-nargs=*} ${2:#:Command Name} :${3:#:Commands}
@@ -198,15 +194,13 @@ snippet noremap
 alias no
   ${0:n}noremap ${1:<silent>} ${2} ${4::<c-u>}${3}${4:<cr>}
 
-# Abbr {{{2
-snippet abbriviation
+snippet noreabbrev
 alias ab abb abr abbr
   ${3:c}noreabbr <expr> '${1}' (getcmdtype() == ':' && getcmdline() =~# '^$1$')? '${2}' : '$1'
-snippet abbr for cmdline
+snippet cnoreabbrev
 alias cn cno cna cnore cnoreab cnoreabbr
   cnoreabbr <expr> ${1} (getcmdtype() == ':' && getcmdline() =~# '^$1$')? '${2}' : '$1'
 
-# Fold {{{2
 snippet {{{ beginning of fold
 alias  { pp {{ {{{ {} {{}} {{{}}}
   {{{
@@ -220,7 +214,6 @@ snippet ""}}} end of fold
 alias "" ""}} ""
   ""}}}
 
-# Terminal {{{2
 snippet <c-\><c-n> from Terminal-Job mode
 alias < <c <c- <c-\ <c-\>
   <c-\><c-n>

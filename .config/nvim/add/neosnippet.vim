@@ -1,18 +1,6 @@
 " From: insert.toml
 " Repo: Shougo/neosnippet.vim
 
-augroup myNeoSnippetAdd
-  au!
-  au FileType neosnippet setl fdm=indent
-  "au InsertLeave * NeoSnippetClearMarkers
-augroup END
-
-let g:neosnippet#snippets_directory = g:nvim_data_home .'/neosnippet'
-"let g:neosnippet#disable_runtime_snippets = 1
-"let g:neosnippet#enable_snipmate_compatibility = 1
-
-"let g:neosnippet#enable_completed_snippet = 1
-
 nnoremap <silent> <a-s><a-p><a-e> :<c-u>NeoSnippetEdit<cr>
 nnoremap <silent> <a-s><a-p><a-s> :<c-u>sp  <bar>NeoSnippetEdit<cr>
 nnoremap <silent> <a-s><a-p><a-v> :<c-u>vs  <bar>NeoSnippetEdit<cr>
