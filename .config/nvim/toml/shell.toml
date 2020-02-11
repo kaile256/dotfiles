@@ -35,6 +35,7 @@ repo = 'thinca/vim-quickrun' #{{{
 on_cmd = 'QuickRun'
 on_map = '<Plug>(quickrun'
 hook_add = 'runtime add/quickrun.vim'
+hook_source = 'runtime source/quickrun.vim'
 [[plugins]]
 repo = 'heavenshell/vim-quickrun-hook-unittest'
 # Note: g:quickrun_config is loaded on each :QuickRun
