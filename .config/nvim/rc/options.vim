@@ -124,7 +124,7 @@ set list
 "  au BufEnter,CursorHold * if &l:list == 0 | setl list | endif
 "augroup END
 "set listchars=tab:»-,trail:-,eol:↲,extends:»,precedes:«,nbsp:%
-set listchars=tab:__\|,trail:-,nbsp:+
+set listchars=tab:\ \ \|,trail:-,nbsp:+
 
 " Method; Shell {{{1
 " CAUTION: some plugins depends on bash, such as twiggy.vim.
