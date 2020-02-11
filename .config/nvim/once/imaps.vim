@@ -102,41 +102,23 @@ inoremap <silent> <a-c> <esc>:call feedkeys('c')<cr>
 inoremap <silent> <a-u> <esc>:call feedkeys('u')<cr>
 
 " Register "{{{1
-"function! s:paste() abort
-"  let char = nr2char(getchar())
-"  exe 'norm! "' char ']p`]a'
-"endfunction
+" '=': the expression register
+" 'insert literally' includes, e.g., '' when <BS> was typed in register
+" '<c-r>': insert literally; 'textwidth', 'formatoptions', etc. still apply
+" '<c-o>': insert literally, but no auto-indent;
+"   insert above, when register is linewise, like with `P`
+" '<c-p>': insert literally and fix indent
+inoremap <c-r> <c-g>u<c-r><c-p>
 
-"inoremap <silent> <c-r> <c-g>u<c-o>:<c-u> call feedkeys("\<c-r>")<cr>
-"inoremap <expr> <c-r> '<esc>"'.nr2char(getchar()).']p`]a'
-
-inoremap <c-r><c-0> <c-g>u<c-r>0
-inoremap <c-r><c-space> <c-g>u<c-r>+
-inoremap <c-r><space>   <c-g>u<c-r>+
-inoremap <c-r><c-;> <c-g>u<c-r>:
-inoremap <c-r>;     <c-g>u<c-r>:
-inoremap <c-r><c-'> <c-g>u<c-r>"
-inoremap <c-r>'     <c-g>u<c-r>"
-inoremap <c-r><c-\> <c-g>u<c-r>"
-inoremap <c-r>\     <c-g>u<c-r>"
-
-" CAUTION: '=' register crashes when any char follows it in keymaps
-"inoremap <c-r>= <c-o>:call <SID>paste_toggle()<cr><c-r>=
-inoremap <c-r>= <c-r>=
-"function! s:paste_toggle() abort "{{{2
-"  " Ref: kaile256/vim-spell-temporary/autoload/spellTMP.vim @55
-"  let b:paste = &paste
-"  setl paste
-"  augroup myPasteToggle
-"    au! TextChangedI,TextChanged,InsertLeave * ++once if exists('b:paste') | let &paste = b:paste | endif
-"  augroup END
-"  try
-"    call feedkeys("\<c-r>", 'nt')
-"  catch /^Vim:Interrupt$/
-"    let &paste = b:paste
-"    silent! augroup! myPasteToggle
-"  endtry
-"endfunction
+inoremap <c-r><c-0> <c-g>u<c-r><c-p>0
+inoremap <c-r><c-space> <c-g>u<c-r><c-p>+
+inoremap <c-r><space>   <c-g>u<c-r><c-p>+
+inoremap <c-r><c-;> <c-g>u<c-r><c-p>:
+inoremap <c-r>;     <c-g>u<c-r><c-p>:
+inoremap <c-r><c-'> <c-g>u<c-r><c-p>"
+inoremap <c-r>'     <c-g>u<c-r><c-p>"
+inoremap <c-r><c-\> <c-g>u<c-r><c-p>"
+inoremap <c-r>\     <c-g>u<c-r><c-p>"
 
 " Undo Break; {{{1
 inoremap <a-P> <c-g>u<esc>:call feedkeys('P')<cr>
