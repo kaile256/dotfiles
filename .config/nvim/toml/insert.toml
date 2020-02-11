@@ -28,6 +28,7 @@ hook_source = 'runtime once/smaps.vim'
 #[ Snippets; Contents ]
 #[[plugins]]
 #repo = 'honza/vim-snippets'
+## starts for snipmate
 #on_source = ['neosnippet.vim']
 #
 [[plugins]]
