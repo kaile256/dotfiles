@@ -11,11 +11,11 @@ let g:mundo_prefer_python3 = 1
 "   0: open __Mundo__ by 'wincmd H'; __Mundo_Preview__ in 'topleft'
 "   1: open __Mundo__ by 'wincmd L'; __Mundo_Preview__ in 'botright'
 let g:mundo_right = 1
-let g:mundo_width = (&columns / 2)  " relative to editor's width
+let g:mundo_width = (&columns / 3)  " relative to editor's width
 
 let g:mundo_preview_bottom = 1
-let g:mundo_preview_height = (&lines * 7 / 12) " relative to editor's height
-"let g:mundo_auto_preview_delay = 750  " default: 250ms
+let g:mundo_preview_height = (&lines /2) " relative to editor's height
+let g:mundo_auto_preview_delay = 400  " default: 250ms
 
 "let g:mundo_tree_statusline = 1
 "let g:mundo_preview_statusline = 1
@@ -53,4 +53,5 @@ let g:mundo_mappings = {
 augroup MyMundoConf
   au!
   au FileType Mundo,MundoDiff setl signcolumn=
+  au FileType Mundo setl winfixwidth
 augroup END
