@@ -1,37 +1,33 @@
 # From: rc/dein.vim
 
-# Sudo
+#[ Sudo ]
 [[plugins]]
-repo = 'lambdalisue/suda.vim' #{{{
+repo = 'lambdalisue/suda.vim'
 if = 'executable("sudo")'
 on_event = 'CmdlineEnter'
 on_func = 'suda#'
 hook_add = 'runtime add/suda.vim'
-#}}}
 #[[plugins]]
-#repo = 'chrisbra/SudoEdit.vim' #{{{
+#repo = 'chrisbra/SudoEdit.vim'
 ## Useless w/ neovim
 #on_cmd = 'Sudo'
 #hook_post_source = 'runtime add/SudoEdit.vim'
-##}}}
 
-# REPL;
+#[ REPL ]
 #[[plugins]]
-#repo = 'metakirby5/codi.vim' #{{{
+#repo = 'metakirby5/codi.vim'
 ## REPL while coding one char by one, in the same buffer.
 #on_ft = ['python', 'javascript', 'coffeescript', 'haskell', 'ruby', 'OCaml', 'R', 'clojure', 'php', 'lua', 'cpp', 'julia', 'elm', 'elixir', 'typescript', 'mathjs']
 #hook_post_source = 'runtime add/codi.vim'
-##}}}
 #[[plugins]]
-#repo = 'sillybun/vim-repl' #{{{
+#repo = 'sillybun/vim-repl'
 ## Only for python?
 #on_cmd = 'REPL'
 #hook_add = 'runtime add/repl.vim'
-##}}}
 
-# Shell; Async Processor
+#[ Shell; Async Processor ]
 [[plugins]] # has extensions
-repo = 'thinca/vim-quickrun' #{{{
+repo = 'thinca/vim-quickrun'
 on_cmd = 'QuickRun'
 on_map = '<Plug>(quickrun'
 hook_add = 'runtime add/quickrun.vim'
@@ -43,29 +39,24 @@ if = "index(['php', 'python', 'ruby', 'go', 'javascript'], &ft) >= 0"
 on_cmd = 'QuickRun'
 on_map = '<Plug>(quickrun'
 hook_source = 'runtime source/quickrun-unittest.vim'
-#}}}
 #[[plugins]]
-#repo = 'neomake/neomake' #{{{
+#repo = 'neomake/neomake'
 #on_cmd = 'make'
 #hook_add = 'runtime add/neomake.vim'
-##}}}
 [[plugins]]
-repo = 'skywind3000/asyncrun.vim' #{{{
+repo = 'skywind3000/asyncrun.vim'
 # Only supports external shell to qf.
 on_cmd = 'AsyncRun'
 hook_add = 'runtime add/asyncrun.vim'
-#}}}
 
-# Shell; Wrapper
+#[ Shell; Wrapper ]
 #[[plugins]]
-#repo = 'kassio/neoterm' #{{{
+#repo = 'kassio/neoterm'
 ## also has async-run feature.
 #on_cmd = ['T']
 #hook_add = 'runtime add/neoterm.vim'
-##}}}
 #[[plugins]]
-#repo = 'Shougo/deol.nvim' #{{{
+#repo = 'Shougo/deol.nvim'
 #on_event = 'VimEnter'
 #hook_post_source = 'runtime add/deol.vim'
-##}}}
 
