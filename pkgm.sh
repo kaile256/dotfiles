@@ -13,6 +13,7 @@ set -Cue #{{{
 
 # All themes set in `lxappearance`
 PACKAGEs=(
+  #upx # returns 404; the Ultimate Packer for eXcutables
   #clojure-lsp-bin # returns 404
   tk # necessary to push the first commit of cloned repo to remote fork?
   net-tools # includes `route`
