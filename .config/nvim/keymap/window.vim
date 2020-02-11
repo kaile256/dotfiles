@@ -55,7 +55,7 @@ nnoremap <silent><expr> <c-w>g^       ':<c-u>tabe#'. v:count .'<cr>'
 nnoremap <silent><expr> <c-w>g^       ':<c-u>tabe#'. v:count .'<cr>'
 
 function! s:scratch(edit) abort "{{{2
-  let path = '/tmp/myscratch.vim'
+  let path = '/tmp/myScratch.'. expand('%:e')
   exe a:edit path
 endfunction
 
