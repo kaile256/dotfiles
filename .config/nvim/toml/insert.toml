@@ -16,7 +16,10 @@ repo = 'Shougo/neosnippet.vim'
 on_func =  ['neosnippet#']
 on_path = ['\.snip$', '\.snippets$']
 hook_add = 'runtime add/neosnippet.vim'
-hook_source = 'runtime once/smaps.vim'
+hook_source = '''
+runtime once/smaps.vim
+runtime source/neosnippet.vim
+'''
 
 #[[plugins]]
 #repo = 'SirVer/ultisnips'
@@ -34,7 +37,7 @@ hook_source = 'runtime once/smaps.vim'
 [[plugins]]
 repo = 'Shougo/neosnippet-snippets'
 # minimal
-on_event = ['InsertEnter']
+on_source = 'neosnippet.vim'
 
 #[[plugins]]
 #repo = 'garbas/vim-snipmate'
