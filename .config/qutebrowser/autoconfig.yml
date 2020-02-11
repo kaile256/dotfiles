@@ -418,6 +418,8 @@ settings:
     global: true
   new_instance_open_target:
     global: tab
+  new_instance_open_target_window:
+    global: last-focused
   qt.highdpi:
     global: false
   qt.process_model:
@@ -435,6 +437,8 @@ settings:
     - en-US
   tabs.background:
     global: true
+  tabs.last_close:
+    global: close
   tabs.new_position.unrelated:
     global: next
   tabs.select_on_remove:
@@ -444,7 +448,7 @@ settings:
   tabs.undo_stack_size:
     global: 100
   tabs.wrap:
-    global: true
+    global: false
   url.incdec_segments:
     global:
     - path
