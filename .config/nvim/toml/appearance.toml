@@ -3,7 +3,7 @@
 #[ Indent ]
 #[[plugins]]
 #repo = 'Yggdroot/indentLine'
-## Note: Causes a bulk of problems
+## Note: Causes a bulk of problems, e.g., defx cannot conceal '**'.
 #on_event = 'BufRead'
 #hook_source = 'runtime source/indentLine.vim'
 
