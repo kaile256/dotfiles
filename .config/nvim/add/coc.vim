@@ -231,7 +231,12 @@ nmap \a  <Plug>(coc-codeaction-selected)
 xmap \a  <Plug>(coc-codeaction-selected)
 
 " CocWorkspace {{{1
-command! Rename :CocCommand workspace.renameCurrentFile
+command! -bar Rename :CocCommand workspace.renameCurrentFile
+
+" CocSession {{{1
+command! -bar -nargs=? Save :CocCommand session.save <args>
+command! -bar -nargs=? Load :CocCommand session.load <args>
+command! -bar -nargs=? Sessions :CocCommand session.load <args>
 
 " CocRange, or Multiple Cursor {{{1
 hi CocCursorRange guibg=#b16286 guifg=#ebdbb2
