@@ -1,5 +1,39 @@
 {
   "adapters": {
+    "chrome": {
+      "command": [
+        "node",
+        "${gadgetDir}/debugger-for-chrome/out/src/chromeDebug.js"
+      ],
+      "name": "chrome"
+    },
+    "vscode-go": {
+      "command": [
+        "node",
+        "${gadgetDir}/vscode-go/out/src/debugAdapter/goDebug.js"
+      ],
+      "name": "delve"
+    },
+    "vscode-node": {
+      "command": [
+        "node",
+        "${gadgetDir}/download/vscode-node-debug2/src/nodeDebug.ts"
+      ],
+      "name": "node2",
+      "type": "node2"
+    },
+    "vscode-php": {
+      "command": ["node", "${gadgetDir}/vscode-php-debug/out/phpDebug.js"],
+      "name": "node2",
+      "type": "node2"
+    },
+    "vscode-python": {
+      "command": [
+        "node",
+        "${gadgetDir}/vscode-python/out/client/debugger/debugAdapter/main.js"
+      ],
+      "name": "vscode-python"
+    },
     "lldb-mi": {
       "name": "lldb-mi",
       "command": [
