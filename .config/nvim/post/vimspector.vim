@@ -1,5 +1,6 @@
 " From: debug.toml
 " Repo: puremourning/vimspector
+" Another: add/vimspector.vim
 " Web: https://puremourning.github.io/vimspector-web/
 " Depends: https://github.com/Microsoft/vscode-cpptools
 
