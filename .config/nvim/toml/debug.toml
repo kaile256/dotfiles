@@ -12,12 +12,12 @@ repo = 'puremourning/vimspector'
 #   Node.js (nodes should be less than 12)
 #   Anything running in chrome like javascript
 build = '''
-./install_gadget.py --enable-all
-./install_gadget.py --enable-go
+./install_gadget.py --force-all
 ./install_gadget.py --force-enable-node
-./install_gadget.py --force-enable-chrome # for javascript or others
+./install_gadget.py --force-enable-chrome
 ./install_gadget.py --force-enable-csharp
 ./install_gadget.py --force-enable-php
+./install_gadget.py --enable-go
 '''
 on_func =  ['vimspector#']
 hook_add = 'runtime add/vimspector.vim'
@@ -29,6 +29,15 @@ hook_post_source = 'runtime post/vimspector.vim'
 #hook_add = 'runtime add/infer-debugger.vim'
 #hook_source = 'runtime source/infer-debugger.vim'
 #
+
+#[ on GDB ]
+[[plugins]]
+repo = 'sakhnik/nvim-gdb'
+build = './install.sh'
+hook_done_update = 'UpdateRemotePlugins'
+on_cmd = ['GdbStart']
+hook_source = 'runtime source/gdb.vim'
+
 #[ on LLDB ]
 #[[plugins]]
 #repo = 'gilligan/vim-lldb'
