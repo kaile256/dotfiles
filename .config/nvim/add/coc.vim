@@ -15,38 +15,7 @@ nnoremap <expr> <C-f> coc#util#has_float() ? coc#util#float_scroll(1) : "\<C-f>"
 nnoremap <expr> <C-b> coc#util#has_float() ? coc#util#float_scroll(0) : "\<C-b>"
 
 " Command!; C-series {{{1
-command! CopenLog      :call coc#rpc#notify('openLog',  [])
-command! ClistResume   :call coc#rpc#notify('listResume', [])
-command! Cprev         :call coc#rpc#notify('listPrev', [])
-command! Cnext         :call coc#rpc#notify('listNext', [])
-command! Crestart      :call coc#rpc#restart()
-command! Cstart        :call coc#rpc#start_server()
-command! Crebuild      :call coc#util#rebuild()
-command! CInfo         :CocInfo
-
-command! Cdisable      :CocDisable
-command! Cenable       :CocEnable
 command! Cconfig       :CocOpenConfig
-command! ClocalConfig  :CocOpenLocalConfig
-
-command! -nargs=* -range CAction
-      \ :call coc#rpc#notify('codeActionRange', [<line1>, <line2>, <f-args>])
-command! -nargs=* -range Cfix
-      \ :call coc#rpc#notify('codeActionRange', [<line1>, <line2>, 'quickfix'])
-command! -nargs=0 Cupdate
-      \ :call coc#util#update_extensions(1)
-command! -nargs=0 -bar CupdateSync
-      \ :call coc#util#update_extensions()
-
-" TODO: complete in autoload-function
-"command! -nargs=+ -complete=custom,s:SearchOptions  Csearch
-"      \ :call coc#rpc#notify('search', [<f-args>])
-"command! -nargs=* -bar -complete=custom,s:InstallOptions Cinstall
-"      \ :call coc#util#install_extension([<f-args>])
-"command! -nargs=+ -complete=custom,s:ExtensionList  Cuninstall
-"      \ :call coc#rpc#notify('CocAction', ['uninstallExtension', <f-args>])
-"command! -nargs=* -range -complete=custom,s:CommandList Ccommand
-"      \ :call coc#rpc#notify('runCommand', [<f-args>])
 
 command! -nargs=* -complete=custom,coc#list#options Clist
       \ :call coc#rpc#notify('openList', [<f-args>])
