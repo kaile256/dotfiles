@@ -66,3 +66,9 @@ repo = 'samoshkin/vim-mergetool'
 on_cmd = ['MergetoolStart']
 hook_add = 'runtime add/mergetool.vim'
 hook_source = 'runtime source/mergetool.vim'
+
+#[ Git Ignore ]
+[[plugins]]
+repo = 'iwataka/gitignore.vim'
+type = 'git'
+on_cmd = ['Gitignore']
