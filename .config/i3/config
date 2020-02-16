@@ -189,7 +189,7 @@ $noid sudo tlp start
 $noid udiskie --automount --notify &
 
 # pulseaudio: deamon to control via keyboard.
-$restart pulseaudio --kill; sleep 2; pulseaudio --start
+$restart pulseaudio --kill; sleep 2; pulseaudio --start &
 
 $noid alsactl daemon
 # pa-applet (pulseaudio):
