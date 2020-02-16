@@ -24,11 +24,11 @@ repo = 'fszymanski/fzf-quickfix'
 depend = 'fzf.vim'
 on_cmd = ['Quickfix']
 
-[[plugins]]
-repo = 'dominickng/fzf-session.vim'
-on_cmd = ['Session', 'Sessions']
-hook_source = 'runtime source/fzf-session.vim'
-
+#[[plugins]]
+#repo = 'dominickng/fzf-session.vim'
+#on_cmd = ['Session', 'Sessions']
+#hook_source = 'runtime source/fzf-session.vim'
+#
 #[[plugins]]
 #repo = 'yuki-ycino/fzf-preview.vim'
 
