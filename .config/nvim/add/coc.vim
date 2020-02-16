@@ -201,6 +201,11 @@ xmap \a  <Plug>(coc-codeaction-selected)
 
 " CocWorkspace {{{1
 command! -bar Rename :CocCommand workspace.renameCurrentFile
+command! -bar Re     :CocCommand workspace.renameCurrentFile
+command! -bar Mv     :CocCommand workspace.renameCurrentFile
+command! -bar MV     :CocCommand workspace.renameCurrentFile
+
+command! -bar -nargs=? CocDebug :CocCommand workspace.showOutput <args>
 
 " CocSession {{{1
 command! -bar -nargs=? Save :CocCommand session.save <args>
