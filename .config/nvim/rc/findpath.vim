@@ -13,8 +13,9 @@ augroup UpdatePathToFind
   au!
   au FileType sh,bash setl path^=/usr/bin/
   au FileType c,cpp   setl path^=/usr/include
-  au FileType go      setl path^=/usr/lib/go/src/**
-  au FileType python  setl path^=/usr/lib/python3.8/**
+  au FileType go      exe 'setl path^='. $GOPATH .'/src/**,/usr/lib/go/src/**'
+  au FileType python  exe 'setl path^='. $XDG_DATA_HOME
+        \ .'/lib/python3.8/site-packages/**,/usr/lib/python3.8/**'
 
   au FileType dosini setl suffixesadd=.conf
   au FileType vim    setl isfname-==
