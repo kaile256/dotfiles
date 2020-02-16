@@ -70,6 +70,9 @@ on_ft = 'python'
 #on_cmd =  ['BracelessEnable']
 #hook_add = 'runtime add/braceless.vim'
 #
+#[[plugins]]
+#repo = 'heavenshell/vim-pydocstring'
+#on_ft = ['python']
 #[ Python.Jupyter ]
 [[plugins]]
 repo = 'goerz/jupytext.vim'
@@ -121,6 +124,24 @@ on_ft = 'json'
 repo = 'danishprakash/vim-docker'
 on_cmd =  ['DockerDocBrowser', 'DockerHubBrowser',]
 
+#[ CSV ]
+[[plugins]]
+repo = 'mechatroner/rainbow_csv'
+on_ft = ['csv', 'sql']
+[[plugins]]
+repo = 'chrisbra/csv.vim'
+on_ft = ['vsv']
+#[ DB ]
+[[plugins]]
+repo = 'alcesleo/vim-uppercase-sql/'
+on_ft = ['sql']
+[[plugins]]
+repo = 'mattn/vim-sqlfmt'
+build = 'pip3 install --upgrade sqlparse'
+on_ft = ['sql']
+[[plugins]]
+repo = 'cosminadrianpopescu/vim-sql-workbench'
+on_ft = ['sql']
 #[ Quickfix ]
 #[[plugins]]
 #repo = 'lambdalisue/qfloc.vim'
