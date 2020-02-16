@@ -59,6 +59,7 @@ augroup myFoldAdjustment "{{{1
   au FileType yaml if expand('%:p') =~# 'qutebrowser' | setl fdl=3 | endif
 
   au BufRead * if line('w$') != line('$') | setl fdl=0 | endif
+  au BufRead * norm! zv
   au BufWinEnter,InsertLeave,TextChanged *
         \ if &bt ==# '' && &fdm ==# ('manual' || 'syntax')
         \ && search('{{{\%[\d]$', 'cwn') |
@@ -132,4 +133,9 @@ augroup myFcitxRemote "{{{1
     "au FocusLost   * call system('fcitx-remote -o')
     au FocusGained * call system('fcitx-remote -c')
   endif
+augroup END
+
+augroup myRegisterModify "{{{1
+  au!
+  au FocusGained * if @+ !~# '^https://' && @+ !~# "\<NL>$" | let @+ .= "\<NL>" | endif
 augroup END
