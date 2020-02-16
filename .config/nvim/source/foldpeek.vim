@@ -39,7 +39,7 @@ augroup myFoldPeekSource
 augroup END
 
 let g:foldpeek#skip_patterns = [
-      \ '^[>#\-=/{!* \t]*$',
+      \ '^[<>#\-=/{!* \t]*$',
       \ '^```.*$',
       \ '^\s*"""$',
       \ ]
