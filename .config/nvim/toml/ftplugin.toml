@@ -133,7 +133,7 @@ repo = 'chrisbra/csv.vim'
 on_ft = ['vsv']
 #[ DB ]
 [[plugins]]
-repo = 'alcesleo/vim-uppercase-sql/'
+repo = 'alcesleo/vim-uppercase-sql'
 on_ft = ['sql']
 [[plugins]]
 repo = 'mattn/vim-sqlfmt'
