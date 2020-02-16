@@ -35,3 +35,7 @@ let g:quickrun_config['texmath'] = {
       \ 'exec': '%c %s',
       \ }
 
+augroup myQuickrunSource
+  au!
+  au FileType * if expand('%') =~# '\[quickrun output]$' | setl fdl=99 | endif
+augroup END
