@@ -220,7 +220,8 @@ set formatoptions=jmB1cql " default: tcqj
 set mouse=a
 augroup myForceFormatOptions
   au!
-  au OptionSet * if &fo =~# 'r\|o' | silent set fo-=r fo-=o | endif
+  "au OptionSet * if &fo =~# 'r\|o' | silent set fo-=r fo-=o | endif
+  au InsertCharPre * if &fo =~# 'r\|o' | silent set fo-=r fo-=o | endif
   au InsertEnter * if &tw =~# ''     | set textwidth=0       | endif
   "au FileType * if getline(1, '$') ==# [] | startinsert | endif
 augroup END
@@ -278,9 +279,9 @@ endif
 
 " Method; Session {{{2
 " terminal is regarded as an invalid argument
-" buffers,tabpages
-set sessionoptions=folds,globals
-set sessionoptions+=help,localoptions,options
+" buffers,tabpages,fold,help
+set sessionoptions=globals
+set sessionoptions+=localoptions,options
 set sessionoptions+=slash,winsize
 " Method; Inc/Decrement {{{2
 "set nrformats+=octal
