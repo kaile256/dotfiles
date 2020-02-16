@@ -25,7 +25,7 @@ hook_add = 'runtime add/suda.vim'
 #on_cmd = 'REPL'
 #hook_add = 'runtime add/repl.vim'
 
-#[ Shell; Async Processor ]
+#[ Async Processor ]
 [[plugins]] # has extensions
 repo = 'thinca/vim-quickrun'
 on_cmd = 'QuickRun'
@@ -48,6 +48,11 @@ repo = 'skywind3000/asyncrun.vim'
 # Only supports external shell to qf.
 on_cmd = 'AsyncRun'
 hook_add = 'runtime add/asyncrun.vim'
+
+[[plugins]]
+repo = 'skywind3000/asynctasks.vim'
+depend = ['asyncrun.vim']
+on_cmd = ['AsyncTask']
 
 #[ Shell; Wrapper ]
 #[[plugins]]
