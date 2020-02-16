@@ -9,8 +9,11 @@ let s:partition = repeat('=', 40)
 let g:opt_check#list = [
       \ ['&syn', '&ft', '&bt'],
       \ s:partition,
+      \ 'WINDOW',
+      \ ['&wfw', '&wfh'],
+      \ s:partition,
       \ 'FOLD',
-      \ ['&fdm', '&fdt', '&fdl'],
+      \ ['&fdm', '&fde', '&fdt', '&fdl'],
       \ s:partition,
       \ 'FORMAT',
       \ ['&tw', '&fo'],
