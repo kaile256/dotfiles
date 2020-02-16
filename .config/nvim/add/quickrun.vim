@@ -21,7 +21,7 @@ function! s:quickrun_holding_ft() abort
   let bufnr = bufnr('%')
   let ft = getbufvar(bufnr, '&filetype')
   QuickRun
-  let bufnr_qr = bufnr('\[quickrun output]')
+  let bufnr_qr = bufnr('\[quickrun output\]')
   call setbufvar(bufnr_qr, '&filetype', ft)
 endfunction
 
