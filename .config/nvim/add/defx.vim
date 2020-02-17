@@ -22,8 +22,8 @@ augroup myDefxAddInsteadOfNetrw "{{{1
   " TODO: inherit jumplist after gf
   au VimEnter * silent! au! FileExplorer *
 
-  au BufEnter * if s:isdir(expand('<amatch>'))
-        \ | Defx `expand('<amatch>')` -search=`expand('<amatch>')` -new
+  au BufEnter * if s:isdir(expand("<amatch>"))
+        \ | Defx `expand("<amatch>")` -search=`expand("<amatch>")` -new
         \ | endif
   let s:isdir = {dir ->
         \ !empty(dir) && (isdirectory(dir) ||
