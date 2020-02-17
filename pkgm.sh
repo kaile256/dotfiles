@@ -13,6 +13,11 @@ set -Cue #{{{
 
 # All themes set in `lxappearance`
 PACKAGEs=(
+  #libreoffice-fresh-ja # returns 404
+  #libreoffice-still-ja # returns 404
+  gdb # a debugger
+  lldb # a debugger for llvm
+  bashdb # a bash's debugger
   #upx # returns 404; the Ultimate Packer for eXcutables
   #clojure-lsp-bin # returns 404
   tk # necessary to push the first commit of cloned repo to remote fork?
@@ -159,6 +164,8 @@ PACKAGEs=(
 )
 
 PIP3s=(
+  gibo # stdout a template for .gitignore as filetype
+  sqlparse # parse for SQL; used in vim-sqlfmt
   #falcon  # Solve fcitx problem on Qt
   #matplotlib # for hyiltiz/vim-plugins-profile though optional
   #msgpack # for neovim-qt
