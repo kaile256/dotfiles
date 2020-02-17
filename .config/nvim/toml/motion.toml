@@ -2,7 +2,8 @@
 
 [[plugins]]
 repo = 'kana/vim-operator-user'
-on_func = 'operator#user#'
+on_source = ['caw.vim']
+on_func = 'operator#user#define'
 
 #[ Charater's Case ]
 [[plugins]]
