@@ -189,7 +189,7 @@ $noid sudo tlp start
 $noid udiskie --automount --notify &
 
 # pulseaudio: deamon to control via keyboard.
-$restart pulseaudio --kill; sleep 2; pulseaudio --start &
+$restart pulseaudio --kill; sleep 1; pulseaudio --start &
 
 $noid alsactl daemon
 # pa-applet (pulseaudio):
@@ -540,7 +540,7 @@ bindsym Ctrl+bracketleft mode default
 # Depends: pulseaudio-ctl
 # Recommend: pacmixer (a frontend of ALSA for pulseaudio)
 # Recommend: pulseaudio-alsa (for flash)
-set $Sound " Sound Volume: (M)ute "
+set $Sound " Sound Volume: (Q)uiet or (S)ilence to mute "
 $release $Super+S mode $Sound; $shortmsg 'Sound mode'
 # Ref: https://stackoverflow.com/questions/21688115/pactl-called-from-systemd-service-always-reports-pa-context-connect-failed-co
 # when you have `Connection failure: Connection refused; pa_context_connect() failed: Connection refused`
