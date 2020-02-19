@@ -16,6 +16,14 @@ augroup SlackEdit
   autocmd BufWriteCmd slack://* call edit_slack#WriteCh(expand("<amatch>"))
 augroup END
 
+augroup SlackKeymaps
+  au!
+  au FileType slack call edit_slack#keymap#noremap()
+  if !get(g:, 'edit_slack_no_default_mappings')
+    au FileType slack call edit_slack#keymap#map()
+  endif
+augroup END
+
 "command! -bar -range=1 -nargs=? SlackCh
 "      \ :call edit_slack#open#buffer(<q-mods>, <q-count>, 'ch', <f-args>)
 "
