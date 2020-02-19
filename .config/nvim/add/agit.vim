@@ -23,15 +23,15 @@ function! s:agit_commands() abort
   command! -buffer -bar GbisectStart :AgitGit bisect start HEAD <hash> \%#
 
   let agit_cmds = {
-        \ 'bisectBad':         'AgitGit bisect bad',
-        \ 'bisectGood':        'AgitGit bisect good',
-        \ 'bisectReset':       'AgitGit bisect reset',
-        \ 'rebase':            'AgitGitConfirm rebase',
-        \ 'rebaseInteractive': 'AgitGitConfirm! rebase --interactive',
-        \ 'reset':             'AgitGitConfirm reset',
-        \ 'resetHard':         'AgitGitConfirm reset --hard',
-        \ 'resetSoft':         'AgitGitConfirm reset --soft',
-        \ 'revert':            'AgitGit revertgood',
+        \ 'BisectBad':         'AgitGit bisect bad',
+        \ 'BisectGood':        'AgitGit bisect good',
+        \ 'BisectReset':       'AgitGit bisect reset',
+        \ 'Rebase':            'AgitGitConfirm rebase',
+        \ 'RebaseInteractive': 'AgitGitConfirm! rebase --interactive',
+        \ 'Reset':             'AgitGitConfirm reset',
+        \ 'ResetHard':         'AgitGitConfirm reset --hard',
+        \ 'ResetSoft':         'AgitGitConfirm reset --soft',
+        \ 'Revert':            'AgitGit revert',
         \ }
 
   for cmd in keys(agit_cmds)
@@ -68,8 +68,9 @@ function! s:agit_keymaps() abort "{{{1
   "nmap <buffer> rS <Plug>(agit-git-reset)
   "nmap <buffer> rH <Plug>(agit-git-reset-hard)
 
-  "nmap <buffer> R <Plug>(agit-git-rebase)
-  nmap <buffer> R <Plug>(agit-git-rebase-i)
+  nmap <buffer> R <Plug>(agit-git-rebase)
+  xmap <buffer> R <Plug>(agit-git-rebase)
+  "nmap <buffer> R <Plug>(agit-git-rebase-i)
 
   "nmap <buffer> rs <Plug>(agit-git-bisect-start)
   "nmap <buffer> rg <Plug>(agit-git-bisect-good)
