@@ -69,6 +69,16 @@ xmap \c <Plug>(operator-sandwich-replace)
 "omap <space>a <Plug>(textobj-sandwich-query-a)
 "xmap <space>a <Plug>(textobj-sandwich-query-a)
 
+omap i* <Plug>(textobj-sandwich-query-i)*
+xmap i* <Plug>(textobj-sandwich-query-i)*
+omap a* <Plug>(textobj-sandwich-query-a)*
+xmap a* <Plug>(textobj-sandwich-query-a)*
+
+omap i\| <Plug>(textobj-sandwich-query-i)\|
+xmap i\| <Plug>(textobj-sandwich-query-i)\|
+omap a\| <Plug>(textobj-sandwich-query-a)\|
+xmap a\| <Plug>(textobj-sandwich-query-a)\|
+
 "" a text surrounded by a pair of literally the same characters as user input
 "" i.e., the text-obj followed by '(' is regarded to be surrounded by '(' and '('
 omap <space>i <Plug>(textobj-sandwich-literal-query-i)
