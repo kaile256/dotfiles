@@ -65,7 +65,7 @@ augroup myFoldAdjustment "{{{1
         \ && search('{{{\%[\d]$', 'cwn') |
         \   setl fdm=marker
         \ | elseif &fdm ==# 'marker'
-          \ && !search('{{{\%[\d]$', 'cwn') |
+          \ && !search('{{{\%[\d]', 'cwn') |
           \   setl fdm<
           \ | endif
 augroup END
