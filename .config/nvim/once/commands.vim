@@ -31,13 +31,6 @@ endfunction
 "  endfunction
 "augroup END
 "}}}
-" Open parent directory {{{1
-command! E :e    %:p:h
-command! V :vs   %:p:h
-" Mnemonic: Horizontal (h muet)
-command! O :sp   %:p:h
-command! T :tabe %:p:h
-
 " Lint {{{1
 " TODO: make vint restricted to the range
 command! -bar -range -nargs=* Lint :call s:lint_buffer(<f-args>)
