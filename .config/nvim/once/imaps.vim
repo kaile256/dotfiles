@@ -36,15 +36,15 @@ inoremap <silent> <a-s> <Del>
 
 inoremap <silent> <a-space> <esc>:call feedkeys("\<space>")<cr>
 inoremap <silent> <a-\> <esc>:call feedkeys('\')<cr>
-inoremap <silent> <a-q> <esc>:call feedkeys('q')<cr>
-inoremap <silent> <a-U> <esc>:call feedkeys('U')<cr>
-inoremap <silent> <a-.> <esc>:call feedkeys('.')<cr>
-inoremap <silent> <a-~> <esc>:call feedkeys('~')<cr>
 
+let s:alt_mappings = 'jklwebWEBftFTqQuUoOpxdcXDCy.~"#*,;/'''
+for s:key in split(s:alt_mappings, '\ze')
+  exe 'inoremap <silent> <a-'. s:key .'> <esc>:call feedkeys("' s:key '")<cr>'
+endfor
+
+unlet s:alt_mappings s:key
 " i/a/o "{{{2
 " <a-ai> could be just <left>/<right>, but I prefer <esc> before.
-inoremap <a-O> <esc>O
-inoremap <a-o> <esc>o
 inoremap <a-I> <c-g>U<esc>I
 inoremap <a-A> <c-g>U<End>
 inoremap <a-a> <c-g>U<Right>
@@ -54,54 +54,66 @@ inoremap <a-i> <c-g>U<Left>
 "inoremap <a-a> <c-g>U<esc>la
 "inoremap <a-i> <c-g>U<esc>i
 
-" h/j/k/l {{{2
-" CAUTION: Never careless mapping on <i_a-hjkl>
-" CAUTION: Remember n_<a-hjkl> for Win-Leap
-" For: make sure <a-hjkl> work as <esc>hjkl, e.g., while pop-up menu shows.
-" Note: <a-h> behaves as <esc> is more instinctive than <esc>h.
 inoremap <a-h> <esc>
-inoremap <silent> <a-j> <esc>:call feedkeys('j')<cr>
-inoremap <silent> <a-k> <esc>:call feedkeys('k')<cr>
-inoremap <silent> <a-l> <esc>:call feedkeys('l')<cr>
 
-" w/e/b {{{2
-inoremap <silent> <a-W> <esc>:call feedkeys('W')<cr>
-inoremap <silent> <a-B> <esc>:call feedkeys('B')<cr>
-inoremap <silent> <a-E> <esc>:call feedkeys('E')<cr>
-inoremap <silent> <a-w> <esc>:call feedkeys('w')<cr>
-inoremap <silent> <a-b> <esc>:call feedkeys('b')<cr>
-inoremap <silent> <a-e> <esc>:call feedkeys('e')<cr>
-
-" f/t/;/, {{{2
-inoremap <silent> <a-F> <esc>:call feedkeys('F')<cr>
-inoremap <silent> <a-f> <esc>:call feedkeys('f')<cr>
-inoremap <silent> <a-T> <esc>:call feedkeys('T')<cr>
-inoremap <silent> <a-t> <esc>:call feedkeys('t')<cr>
-inoremap <silent> <a-;> <esc>:call feedkeys(';')<cr>
-inoremap <silent> <a-,> <esc>:call feedkeys(',')<cr>
-inoremap <silent> <a-/> <esc>:call feedkeys('/')<cr>
-inoremap <silent> <a-'> <esc>:call feedkeys("'")<cr>
-inoremap <silent> <a-`> <esc>:call feedkeys(``')<cr>
-inoremap <silent> <a-*> <esc>:call feedkeys("*")<cr>
-inoremap <silent> <a-#> <esc>:call feedkeys('#')<cr>
-
-" registers {{{2
-inoremap <silent> <a-P> <c-g>u<esc>:call feedkeys('P')<cr>
-inoremap <silent> <a-p> <c-g>u<esc>:call feedkeys('p')<cr>
-inoremap <silent> <a-c-r> <esc><c-r>
-
-inoremap <silent> <a-"> <esc>:call feedkeys('"')<cr>
-inoremap <silent> <a-Y> <esc>y$
-inoremap <silent> <a-X> <esc>:call feedkeys('X')<cr>
-inoremap <silent> <a-D> <esc>:call feedkeys('D')<cr>
-inoremap <silent> <a-C> <esc>:call feedkeys('C')<cr>
-inoremap <silent> <a-y> <esc>:call feedkeys('y')<cr>
-inoremap <silent> <a-x> <esc>:call feedkeys('x')<cr>
-inoremap <silent> <a-d> <esc>:call feedkeys('d')<cr>
-inoremap <silent> <a-c> <esc>:call feedkeys('c')<cr>
-inoremap <silent> <a-u> <esc>:call feedkeys('u')<cr>
+inoremap <a-c-r> <esc><c-r>
+inoremap <a-Y>   <esc>y$
 
 " Register "{{{1
+"function! s:paste() abort
+"  let char = nr2char(getchar())
+"  exe 'norm! "' char ']p`]a'
+"endfunction
+
+"inoremap <silent> <c-r> <c-g>u<c-o>:<c-u> call feedkeys("\<c-r>")<cr>
+"inoremap <expr> <c-r> '<esc>"'.nr2char(getchar()).']p`]a'
+
+"inoremap <silent> <c-r> <esc>:call <SID>paste()<cr>
+"
+"function! s:paste() abort
+"  let nr = getchar()
+"
+"  "if index(s:reg_special, nr) >= 0
+"  "  call feedkeys("\<c-r>". nr2char(nr), 'n')
+"  "  return
+"  "endif
+"
+"  let regname = get(s:reg_dict, nr, nr2char(nr))
+"
+"  startinsert
+"  call feedkeys("\<c-r>\<c-p>". regname, 'n')
+"
+"  "exe 'norm! "'. regname .']p`]'
+"  "call feedkeys('a', 'n')
+"endfunction
+"
+"let s:reg_dict = {
+"      \ '<t_ü>0': 0,
+"      \
+"      \ '<t_ü> ': '+',
+"      \ '32': '+',
+"      \
+"      \ '<t_ü>;': ':',
+"      \
+"      \ "<t_ü>'": '"',
+"      \ '39': '"',
+"      \ '92': '"',
+"      \ '28': '"',
+"      \ }
+"
+"" 64, '=': the expression register
+"" 'insert literally' includes, e.g., '' when <BS> was typed in register
+"" 18, '<c-r>': insert literally; 'textwidth', 'formatoptions', etc. still apply
+"" 15, '<c-o>': insert literally, but no auto-indent;
+""   insert above, when register is linewise, like with `P`
+"" 16, '<c-p>': insert literally and fix indent
+"let s:reg_special = [
+"      \ '61', '<t_ü>=',
+"      \ '18',
+"      \ '16',
+"      \ '15',
+"      \ ]
+
 " '=': the expression register
 " 'insert literally' includes, e.g., '' when <BS> was typed in register
 " '<c-r>': insert literally; 'textwidth', 'formatoptions', etc. still apply
@@ -111,10 +123,15 @@ inoremap <silent> <a-u> <esc>:call feedkeys('u')<cr>
 inoremap <c-r> <c-g>u<c-r><c-p>
 
 inoremap <c-r><c-0> <c-g>u<c-r><c-p>0
-inoremap <c-r><c-space> <c-g>u<c-r><c-p>+
-inoremap <c-r><space>   <c-g>u<c-r><c-p>+
+
 inoremap <c-r><c-;> <c-g>u<c-r><c-p>:
 inoremap <c-r>;     <c-g>u<c-r><c-p>:
+
+inoremap <c-r><c-space> <c-g>u<c-r><c-p>+
+inoremap <c-r><space>   <c-g>u<c-r><c-p>+
+" less confused in browser
+inoremap <c-r><c-v>     <c-g>u<c-r><c-p>+
+
 inoremap <c-r><c-'> <c-g>u<c-r><c-p>"
 inoremap <c-r>'     <c-g>u<c-r><c-p>"
 inoremap <c-r><c-\> <c-g>u<c-r><c-p>"
