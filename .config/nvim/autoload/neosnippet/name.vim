@@ -20,7 +20,7 @@ let s:dir_list = [
 let s:dir = '\('. join(s:dir_list, '/\|') .'\)'
 
 function! neosnippet#name#plugin() abort
-  return matchstr(expand('%:p'), '/\%[vim-]\zs[^/]\+\ze\%[.n]\%[vim]/'. s:dir)
+  return matchstr(expand('%:p'), '/\%[vim-]\zs[^/]\{-}\ze\%[.n]\%[vim]/'. s:dir)
 endfunction
 
 function! neosnippet#name#plugin_underscored() abort
