@@ -238,7 +238,7 @@ $always $MYSCRIPTS/polybar-launch.sh
 # TODO: open qutebrowser in background
 
 #$noid qutebrowser
-$noid $vivaldi
+#$noid $vivaldi
 #$noid nvim-qt
 
 ## Status Bar; use polybar instead {{{1
