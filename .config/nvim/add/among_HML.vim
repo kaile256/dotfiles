@@ -1,6 +1,8 @@
 " From: myplug.toml
 " Repo: kaile256/vim-among_HML
 
+let g:among_HML#no_default_mappings = 1
+
 " among_HML#fork {{{1
 "" 13 Patterns {{{2
 "noremap <silent> H <Cmd>call among_HML#fork#init('H', '0', {
