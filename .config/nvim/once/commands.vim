@@ -38,9 +38,31 @@ command! V :vs   %:p:h
 command! O :sp   %:p:h
 command! T :tabe %:p:h
 
+" Lint {{{1
 " TODO: make vint restricted to the range
-command! -nargs=* -range Vint :w <bar> !vint --enable-neovim <args> %:p
-command! -nargs=* -range Vin  :Vint
+command! -bar -range -nargs=* Lint :call s:lint_buffer(<f-args>)
+command! -bar -range -nargs=* Lin  :call s:lint_buffer(<f-args>)
+let s:ft2lint = {
+      \ 'vim': '!vint --enable-neovim',
+      \ 'go': ['go vet', 'golint'],
+      \ }
+function! s:lint_buffer(...) abort range
+  if index(keys(s:ft2lint), &ft) < 0
+    echo 'no config to lint for filetype, "'. &ft .'"'
+  endif
+  if filewritable(expand('%:p'))
+    silent write
+  endif
+  let args = join(a:000)
+  let cmds = s:ft2lint[&ft]
+
+  if type(cmds) != type([])
+    let cmds = [ cmds ]
+  endif
+  for cmd in cmds
+    exe cmd args '%:p'
+  endfor
+endfunction
 
 command! -bar S  :call s:source_buffer() "{{{1
 command! -bar So :call s:source_buffer()
