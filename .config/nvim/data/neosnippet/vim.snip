@@ -80,7 +80,7 @@ options head
 
 snippet loaded
 alias load loa
-  if exists('g:loaded_${1:`neosnippet#name#plugin()`}') | finish | endif "{{{1
+  if exists('g:loaded_${1:`neosnippet#name#plugin_underscored()`}') | finish | endif "{{{1
   let g:loaded_$1 = 1
 
   " save 'cpoptions'
@@ -161,7 +161,7 @@ alias ini
   unlet s:save_cpo
 
   " modeline {{{1
-  " vim: noet ts=2 sts=2 sw=2 fdm=marker tw=79
+  " vim: et ts=2 sts=2 sw=2 fdm=marker tw=79
 
 #}}}
 
