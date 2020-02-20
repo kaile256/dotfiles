@@ -1,11 +1,9 @@
 " From: motion.toml
 " Repo: tyru/caw.vim
-
-" Note: tildepos('~') is now hatpos
-
-let g:caw_operator_keymappings = 1 " depends on kana/vim-operator-user
+" Another: source/caw.vim
 
 " '^': hatpos
+" Note: tildepos('~') is now hatpos
 nmap \^ <Plug>(caw:hatpos:toggle:operator)
 nmap \h <Plug>(caw:hatpos:toggle:operator)
 xmap \^ <Plug>(caw:hatpos:toggle)
@@ -14,8 +12,8 @@ xmap \h <Plug>(caw:hatpos:toggle)
 "nmap \^ <Plug>(caw:hatpos:uncomment:operator)
 
 " '0': zeropos
-"nmap \x <Plug>(caw:zeropos:toggle:operator)
-"xmap \x <Plug>(caw:zeropos:toggle)
+nmap \0 <Plug>(caw:zeropos:toggle:operator)
+xmap \0 <Plug>(caw:zeropos:toggle)
 "nmap <space>nm <Plug>(caw:zeropos:comment:operator)
 "nmap <space>nm <Plug>(caw:zeropos:uncomment:operator)
 
