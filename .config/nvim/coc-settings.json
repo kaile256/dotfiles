@@ -176,7 +176,7 @@
   //"git.realtimeGutters": false,
   //"git.addGBlameToVirtualText": true,
   //// b:coc_git_blame will be created
-  //"git.addGBlameToBufferVar", true,
+  //"git.addGBlameToBufferVar": true,
   "git.virtualTextPrefix": " ",
   "git.semanticCommit.filetypes": ["gitcommit"],
 
