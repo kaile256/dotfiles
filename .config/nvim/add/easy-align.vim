@@ -18,13 +18,31 @@ nmap \q <Plug>(EasyAlign)
 xmap \q <Plug>(EasyAlign)
 
 " TODO: not limited to cursorline, but let it behave as an operatopr
-nnoremap <silent> <Plug>(EasyAlign-on-space) :EasyAlign<cr>$*<space>
-xnoremap <silent> <Plug>(EasyAlign-on-space) :EasyAlign<cr>$*<space>
+nnoremap <silent> <Plug>(EasyAlign-on-space) 0:EasyAlign<cr>$*<space>
+xnoremap <silent> <Plug>(EasyAlign-on-space) 0:EasyAlign<cr>$*<space>
+nmap \Q <Plug>(EasyAlign-on-space)
+xmap \Q <Plug>(EasyAlign-on-space)
 
-" Space Adjustment; limited only to space adjustment.
-" On Selected Area;
-xmap \Q        <Plug>(EasyAlign-on-space)
-xmap \q<space> <Plug>(EasyAlign-on-space)
-" Line-wise;
-nmap \Q        <Plug>(EasyAlign-on-space)
-nmap \q<space> <Plug>(EasyAlign-on-space)
+"augroup myEasyAlignAdd
+"  au FileType vim   call s:keymap_easyalign_vim()
+"  au FileType *sql* call s:keymap_easyalign_sql()
+"augroup END
+"
+"function! s:keymap_easyalign_vim() abort "{{{1
+"  nnoremap <silent><buffer><expr> <Plug>(EasyAlign-dict)
+"        \ getline('.') =~# '^\s*\'
+"        \   ? '<Plug>(EasyAlign)i{<cr>2<space>'
+"        \   : '<Plug(EasyAlign)i{'
+"  xnoremap <silent><buffer><expr> <Plug>(EasyAlign-dict)
+"        \ getline("'>") =~# '^\s*\'
+"        \   ? '<Plug>(EasyAlign)i{<cr>2<space>'
+"        \   : '<Plug(EasyAlign)i{'
+"  nmap <buffer> \qi{<space> <Plug>(EasyAlign-dict)
+"  xmap <buffer> \qi}<space> <Plug>(EasyAlign-dict)
+"endfunction
+"
+""function! s:keymap_easyalign_sql() abort "{{{1
+""  nmap <buffer> \q <Plug>(EasyAlign)i{<cr><space>
+""  nmap <buffer> \q <Plug>(EasyAlign)i}<cr><space>
+""endfunction
+"
