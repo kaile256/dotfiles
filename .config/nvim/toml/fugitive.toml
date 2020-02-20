@@ -42,14 +42,6 @@ type = 'git'
 on_cmd = 'Twiggy'
 hook_add = 'runtime add/twiggy.vim'
 hook_source = 'runtime source/twiggy.vim'
-hook_done_update = '''
-exe 'e' g:dein_github_dir .'/sodapopcan/vim-twiggy/plugin/twiggy.vim'
-g/command/norm! e -range -addr=lines
-write
-exe 'e' g:dein_github_dir .'/sodapopcan/vim-twiggy/autoload/twiggy.vim'
-g/'dd/copy. | s/'dd/'D
-write
-'''
 
 #[ Commit Log Viewer ]
 [[plugins]]
