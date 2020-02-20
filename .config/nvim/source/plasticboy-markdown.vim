@@ -16,7 +16,7 @@ hi! link htmlH1 String
 hi! link htmlH2 htmlH1
 hi! link htmlH3 htmlH1
 
-hi! link mkdBold NonText
+"hi! link mkdBold NonText
 hi! link mkdURL NonText
 hi! link mkdCodeDelimiter NonText
 hi! link mkdCodeStart NonText
