@@ -2,4 +2,6 @@
 " Repo: cocopon/inspecthi.vim
 
 command! -bar SynLinks :Inspecthi
-command! -bar HiLinks  :Inspecthi
+
+" causes error with the scripts of vim-polyglot
+"command! -bar HiLinks  :Inspecthi
