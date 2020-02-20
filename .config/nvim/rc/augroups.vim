@@ -139,3 +139,11 @@ augroup myRegisterModify "{{{1
   au!
   au FocusGained * if @+ !~# '^https://' && @+ !~# "\<NL>$" | let @+ .= "\<NL>" | endif
 augroup END
+" augroup myAutoColorColumn "{{{1
+"  au!
+"  au BufRead * call s:set_colorcolumn()
+"  function! s:set_colorcolumn() abort
+"    if &tw == 0 | return | endif
+"    exe 'setl colorcolumn=' &tw + 1
+"  endfunction
+" augroup END
