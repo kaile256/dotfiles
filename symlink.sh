@@ -35,6 +35,7 @@ HOMEs=(
   .tigrc
   .vimrc
   .zshenv
+  bin
 )
 
 CONFIGs=(
