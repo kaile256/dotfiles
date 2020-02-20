@@ -6,6 +6,12 @@ scriptencoding utf-8
 " Ref: vimwiki_dev/ftplugin/vimwiki.vim @195
 " Another: post/foldpeek.vim
 
+let g:foldpeek#maxwidth = '
+      \ &colorcolumn > 0 ? &colorcolumn - 1
+      \                  : &textwidth > 0 ? &textwidth
+      \                                   : 79
+      \ '
+
 augroup myFoldPeekSource
   au!
   au OptionSet *
