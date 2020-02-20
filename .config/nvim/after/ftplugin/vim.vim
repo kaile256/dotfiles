@@ -1,5 +1,11 @@
 " From: ftplugin.vim
 
+inoremap <buffer><expr> r
+      \ (getline('.') =~# 'function!\&.*(.*)\(.*range\)\@!')
+      \ && (getline('.')[col('.') - 2] ==# ' ')
+      \ ? 'range'
+      \ : 'r'
+
 inoremap <buffer><expr> a
       \ (getline('.') =~# 'function!\&.*(.*)\(.*abort\)\@!')
       \ && (getline('.')[col('.') - 2] ==# ' ')
