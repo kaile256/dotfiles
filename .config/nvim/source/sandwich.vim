@@ -9,15 +9,16 @@ let g:textobj_sandwich_no_default_key_mappings  = 1
 
 "let g:operator#sandwich#timeoutlen = 500 " default: &timeoutlen (=1000ms).
 
-" Let; Magic Characters {{{1
-" Note: b:g:sandwich#magicchar#f#patterns is also available
-"let g:sandwich#magicchar#f#patterns = [{
-"      \ 'filetype': ['vim'],
+" Magic Characters {{{1
+" Note: magicchar-f will work like a textobj, for example, `\df` will change
+"   `foo(arg)` into `arg`.
+" Note: magicchar-t works only on header, not on footer
+" Note: b:sandwich_magicchar_f_patterns is also available
+
+" let g:sandwich#magicchar#f#patterns = [{
 "      \ 'header' : '\<\h\k*',
-"      \ 'f'    : "function! `expand('%') =~ 'autoload' ?
-"      \   substitute(matchstr(expand('%:p'),'autoload/\zs.*\ze.vim'),'[/\\]','#','g').'#' : ''`
-"      \   () abort",
-"      \ 'F'    : 'endfunction',
+"      \ 'bra'    : '(',
+"      \ 'ket'    : ')',
 "      \ 'footer' : '',
 "      \ }]
 
