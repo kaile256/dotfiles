@@ -47,7 +47,9 @@ hook_source = 'runtime source/gdb.vim'
 #repo = 'strottos/vim-padre'
 #build = 'bash make'
 #on_cmd =  ['PadreDebug', 'PadreBreakpoint']
-#
+#[[plugins]]
+#repo = 'dbgx/lldb.nvim'
+# requires python2
 #[ Stacktrace ]
 #[[plugins]]
 #repo = 'haya14busa/vim-stacktrace'
