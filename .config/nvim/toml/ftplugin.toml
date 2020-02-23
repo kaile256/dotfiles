@@ -100,6 +100,27 @@ hook_source = 'runtime source/vimteractive.vim'
 [[plugins]]
 repo = 'clojure-vim/async-clj-omni'
 on_ft = ['clojure']
+#[ Html ]
+[[plugins]]
+repo = 'mattn/emmet-vim'
+on_ft = ['html', 'xml']
+#[[plugins]]
+#repo = 'alvan/vim-closetag'
+## Html; Auto Close for html-tags
+#on_event = 'BufRead'
+#hook_add = 'runtime! add/closetag.vim'
+#on_ft = ['html', 'javascript']
+#hook_add = '''
+#let g:cloesetag_filenames = '*.html,*.vue'
+#'''
+[[plugins]]
+repo = 'lyokha/vim-publish-helper'
+on_ft = 'pandoc'
+#[[plugins]]
+#repo = 'lervag/vimtex'
+#on_ft = 'tex'
+#hook_post_source = 'runtime add/vimtex.vim'
+
 #[ Document ]
 [[plugins]]
 repo = 'rafaqz/citation.vim'

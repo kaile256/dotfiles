@@ -96,36 +96,14 @@ on_ft = 'zsh'
 
 
 #[ for Text-like ]
-[[plugins]]
-repo = 'lyokha/vim-publish-helper'
-on_ft = 'pandoc'
-
 #[[plugins]]
 #repo = 'othree/html5.vim'
+# Note: contributes in vim-polyglot
 #on_ft = 'html'
-##[[plugins]]
-##repo = 'mattn/emmet-vim'
-##on_ft = 'html'
-#[[plugins]]
-## Html; Auto Close for html-tags
-#repo = 'alvan/vim-closetag'
-#on_event = 'BufRead'
-#hook_add = 'runtime! add/closetag.vim'
-#on_ft = ['html', 'javascript']
-#hook_add = '''
-#let g:cloesetag_filenames = '*.html,*.vue'
-#'''
-
-#[[plugins]]
-#repo = 'lervag/vimtex'
-#on_ft = 'tex'
-#hook_post_source = 'runtime add/vimtex.vim'
-
 #[[plugins]]
 #repo = 'freitass/todo.txt-vim'
 ## Use `set syn=help` instead
 #on_ft = 'text'
-
 
 #[ Test ]
 [[plugins]]
