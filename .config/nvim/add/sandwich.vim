@@ -3,6 +3,15 @@
 " Fork: kaile256/vim-sandwich
 " Another: source/sandwich.vim
 
+" Note: *sandwich-magiccharacters*
+"   t/T (Tag): foo<cr> to <foo>arg</foo>
+"   f/F (Function): foo<cr> to foo(arg)
+"   i/I (Instant): foo<cr>end<cr>  to foo(arg)end
+" addition to that those character will work like a textobj, for example,
+" `\df` will change `foo(arg)` into `arg`.
+"
+" <space>: all the successive spaces will be deleted as a pair of spaces
+
 " TextObj
 " a text surrounded by a pair of braket or of the same characters as user input
 " i.e., the text-obj followed by '(' is regarded to be surrounded by '(' and ')'
