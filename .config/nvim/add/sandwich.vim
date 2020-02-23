@@ -7,8 +7,6 @@
 "   t/T (Tag): foo<cr> to <foo>arg</foo>
 "   f/F (Function): foo<cr> to foo(arg)
 "   i/I (Instant): foo<cr>end<cr>  to foo(arg)end
-" addition to that those character will work like a textobj, for example,
-" `\df` will change `foo(arg)` into `arg`.
 "
 " <space>: all the successive spaces will be deleted as a pair of spaces
 
