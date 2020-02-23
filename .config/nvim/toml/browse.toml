@@ -64,7 +64,8 @@ hook_add = 'runtime add/fzf-git-submodules.vim'
 #
 [[plugins]] # has extentions
 repo = 'Shougo/defx.nvim'
-hook_done_update = 'UpdateRemotePlugins'
+# /usr/share/nvim/runtime/plugin/rplugin.vim line 63
+hook_done_update = 'call remote#host#UpdateRemotePlugins()'
 #rev = '1.0'
 on_cmd = 'Defx'
 hook_add = 'runtime add/defx.vim'
