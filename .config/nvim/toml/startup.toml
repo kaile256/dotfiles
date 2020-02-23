@@ -3,7 +3,6 @@
 #[ Required ]
 [[plugins]]
 repo = 'Shougo/dein.vim'
-hook_done_update = 'UpdateRemotePlugins'
 
 [[plugins]]
 repo = 'Shougo/vimproc.vim'
