@@ -50,7 +50,8 @@ exe 'set rtp +='. s:dein_itself
 
 " Make git clone shallow {{{1
 let g:dein#types#git#clone_depth = 1
-let g:dein#types#git#default_protocol = 'ssh'
+" FIXME: dein fails to install plugins in such case as none are installed.
+"let g:dein#types#git#default_protocol = 'ssh'
 
 let g:dein#install_progress_type      = 'tabline'
 if has('unix')
