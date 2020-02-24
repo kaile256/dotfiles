@@ -2,6 +2,13 @@
 " Repo: tpope/vim-fugitive
 " Another: source/fugitive.vim
 
+" auto substitute url for ssh to github
+command! -bar -nargs=1
+      \ GsetUrlToOrigin
+      \ :exe 'Git remote set-url origin' substitute(<q-args>,
+      \   'https://github.com/\([^/]\+/[^/]\+\).*',
+      \   'github:\1.git', '')
+
 "command! -bar -bang -nargs=* -complete=customlist,fugitive#EditComplete
 "      \ Gw
 "      \ :call fugitive#WriteCommand(<line1>, <count>, +<q-range>, <bang>0, <q-mods>, <q-args>, [<f-args>])
