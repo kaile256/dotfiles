@@ -108,18 +108,17 @@ hook_add = 'runtime add/easy-align.vim'
 #
 #[ Operater; Simultaneous ]
 [[plugins]]
-repo = 'kaile256/vim-sandwich'
-#repo = 'machakann/vim-sandwich'
-on_map = {nx = '<Plug>(operator-sandwich-'}
+repo = 'machakann/vim-sandwich'
+on_map = {nox = '<Plug>(operator-sandwich-'}
 hook_add = 'runtime add/sandwich.vim'
 hook_source = 'runtime source/sandwich.vim'
-hook_done_update = '''
-exe 'argadd' g:dein_github_dir .'/kaile256/vim-sandwich/autoload/textobj/sandwich/recipes.vim'
-exe 'argadd' g:dein_github_dir .'/kaile256/vim-sandwich/autoload/sandwich.vim'
-exe 'argadd' g:dein_github_dir .'/kaile256/vim-sandwich/autoload/operator/sandwich/operator.vim'
-argdo g/= type(c) == s:type_num ? nr2char(c) : c/norm! na (c ==# "\<S-lt>")? '<':
-write
-'''
+#hook_done_update = '''
+#exe 'argadd' g:dein_github_dir .'/kaile256/vim-sandwich/autoload/textobj/sandwich/recipes.vim'
+#exe 'argadd' g:dein_github_dir .'/kaile256/vim-sandwich/autoload/sandwich.vim'
+#exe 'argadd' g:dein_github_dir .'/kaile256/vim-sandwich/autoload/operator/sandwich/operator.vim'
+#argdo g/= type(c) == s:type_num ? nr2char(c) : c/norm! na (c ==# "\<S-lt>")? '<':
+#write
+#'''
 #[[plugins]]
 #repo = 'tpope/vim-surround'
 #on_event = 'BufRead'
