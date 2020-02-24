@@ -1,6 +1,8 @@
 " From: browse.toml
 " Repo: ludovicchabant/vim-gutentags
 
+let g:gutentags_cache_dir = $XDG_CACHE_HOME .'/gutentags'
+
 " prevents Gutentags from loading at all so that you have to
 " `:source plugin/gutentags.vim` with `g:gutentags_dont_load = 0` on demand;
 " if g:gutentags_enabled = 0 but g:gutentags_dont_load = 1, load the plugin but
