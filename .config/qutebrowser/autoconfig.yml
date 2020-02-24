@@ -104,8 +104,8 @@ settings:
         <Ctrl+n>: command-history-next
         <Ctrl+p>: command-history-prev
         <Ctrl+r>: fake-key <ctrl-v>
-        <Ctrl+r><Ctrl+Space>: fake-key <Ctrl-V>
-        <Ctrl+r><Space>: insert-text {clipboard}
+        <Ctrl+r><Ctrl+Space>: fake-key <ctrl-v>
+        <Ctrl+r><Space>: fake-key <ctrl-v>
         <Ctrl+x>: completion-item-del
       hint:
         <Alt+h>: leave-mode
@@ -155,7 +155,7 @@ settings:
         <Ctrl+r><Ctrl+0>: insert-text {primary}
         <Ctrl+r><Ctrl+Space>: fake-key <ctrl-v>
         <Ctrl+r><Space>: fake-key <ctrl-v>
-        <Ctrl+u>: fake-key <shift-home><Delete>
+        <Ctrl+u>: fake-key <shift-home><backspace>
         <Ctrl+w>: fake-key <ctrl-backspace>
         <Ctrl+y>: insert-text {primary}
       normal:
@@ -370,6 +370,10 @@ settings:
     global: null
   fonts.debug_console:
     global: 12pt DejaVuSansMono Nerd Font, icons
+  fonts.default_family:
+    global:
+    - xos4 Terminus
+    - Terminus
   fonts.downloads:
     global: 11pt DejaVuSansMono Nerd Font, icons
   fonts.hints:
@@ -382,10 +386,6 @@ settings:
     global: 12pt DejaVuSansMono Nerd Font, icons
   fonts.messages.warning:
     global: 12pt DejaVuSansMono Nerd Font, icons
-  fonts.monospace:
-    global: '"xos4 Terminus", Terminus, Monospace, "DejaVu Sans Mono", Monaco, "Bitstream
-      Vera Sans Mono", "Andale Mono", "Courier New", Courier, "Liberation Mono", monospace,
-      Fixed, Consolas, Terminal'
   fonts.prompts:
     global: 12pt DejaVuSansMono Nerd Font, icons
   fonts.statusbar:
@@ -448,7 +448,7 @@ settings:
   tabs.undo_stack_size:
     global: 100
   tabs.wrap:
-    global: false
+    global: true
   url.incdec_segments:
     global:
     - path
