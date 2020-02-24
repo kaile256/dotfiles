@@ -6,8 +6,8 @@
 command! -bar -nargs=1
       \ GsetUrlToOrigin
       \ :exe 'Git remote set-url origin' substitute(<q-args>,
-      \   'https://github.com/\([^/]\+/[^/]\+\).*',
-      \   'github:\1.git', '')
+      \   '\(^\|https://github.com/\)\([^/]\+/[^/]\+\).*',
+      \   'github:\2.git', '')
 
 "command! -bar -bang -nargs=* -complete=customlist,fugitive#EditComplete
 "      \ Gw
