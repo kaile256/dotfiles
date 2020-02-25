@@ -139,6 +139,7 @@ on_ft = ['pdf']
 #[ Config ]
 [[plugins]]
 repo = 'tpope/vim-jdaddy'
+# provides omap/xmap for json and gq/gw, which formats lines
 on_ft = 'json'
 
 [[plugins]]
