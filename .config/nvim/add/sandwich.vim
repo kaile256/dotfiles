@@ -10,7 +10,7 @@
 "
 " <space>: all the successive spaces will be deleted as a pair of spaces
 
-" TextObj
+" TextObj "{{{1
 " a text surrounded by a pair of braket or of the same characters as user input
 " i.e., the text-obj followed by '(' is regarded to be surrounded by '(' and ')'
 omap i* <Plug>(textobj-sandwich-query-i)*
@@ -52,3 +52,22 @@ xmap \y <Plug>(operator-sandwich-add)
 xmap \d <Plug>(operator-sandwich-delete)
 xmap \c <Plug>(operator-sandwich-replace)
 
+" with magicchars tag/func
+xmap <Plug>(operator-sandwich-add-tag)  <Plug>(operator-sandwich-add)t
+xmap <Plug>(operator-sandwich-add-func) <Plug>(operator-sandwich-add)f
+xmap \t <Plug>(operator-sandwich-add-tag)
+xmap \f <Plug>(operator-sandwich-add-func)
+
+" TODO: make a set of operator of magicchars for nmaps;
+"   Note: currently (at 02e3b6d),
+"     <Plug>(operator-sandwich-add-query1st)f works without textobj at least.
+"     <Plug>(operator-sandwich-add-query1st)t does *not* work with any motions.
+"   Ref: machakann/vim-sandwich/autoload/sandwich.vim #34
+"     you can see sandwich#magicchar#t#tag() in g:sandwich#default_recipes
+"   Note: the difference between 'tag' and 'tagname'
+"     in 'tag', the prompt is 'Input tag:'
+"     in 'tagname', the prompt is 'Input tag name:'
+nmap <Plug>(operator-sandwich-add-tag) <Plug>(operator-sandwich-add-query1st)t
+nmap <Plug>(operator-sandwich-add-func) <Plug>(operator-sandwich-add-query1st)f
+nmap \t zv<Plug>(operator-sandwich-add-tag)
+nmap \f zv<Plug>(operator-sandwich-add-func)
