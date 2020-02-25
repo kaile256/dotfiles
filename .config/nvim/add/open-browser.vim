@@ -28,16 +28,16 @@ cnoreabbr <expr> K  (getcmdtype() == ':' && getcmdline() =~ '^OpenBrowserSmartSe
 cnoreabbr <expr> dc (getcmdtype() == ':' && getcmdline() =~ '^OpenBrowserSmartSearch dc$')? '-dictionary@en' : 'dc'
 
 function! s:openbrowser_in(engine, ...) abort "{{{1
-  let query = a:0
+  let words = a:0
         \ ? getline('.')[col("'<") - 1 : col("'>") - 1]
-        \ : expand('<cWORD>')
+        \ : expand('<cfile>')
 
-  let query = index(keys(g:openbrowser_search_engines), a:engine) >= 0
-        \ ? '-'. a:engine .' '. query
-        \ : a:engine .. query
+  let args = a:engine =~# '/$'
+        \ ? a:engine .. words
+        \ : '-'. a:engine .' '. words
 
-  echo 'OpenBrowserSmartSearch '. query
-  exe  'OpenBrowserSmartSearch '. query
+  echo 'OpenBrowserSmartSearch '. args
+  exe  'OpenBrowserSmartSearch '. args
 endfunction
 
 let s:prefix_for_openbrowser = '<space>b'
