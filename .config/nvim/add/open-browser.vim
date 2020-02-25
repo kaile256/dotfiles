@@ -2,7 +2,7 @@
 " Repo: tyru/open-browser.vim
 " Another: source/open-browser.vim
 
-command! -nargs=* -bar Browser :OpenBrowserSmartSearch <args>
+command! -range -nargs=* -bar Browser :OpenBrowserSmartSearch <args>
 
 " Cabbrs {{{1
 " Abbr; Search Engine
@@ -65,6 +65,8 @@ xnoremap <space>bL :OpenBrowserSmartSearch -gitlab    <c-r><c-a> <cr>
 " Mnemonic: default `K`
 nnoremap <space>bK :<c-u>OpenBrowserSmartSearch -dictionary@en <c-r><c-w> <cr>
 xnoremap <space>bK :OpenBrowserSmartSearch -dictionary@en <c-r><c-a> <cr>
-" Dictionary; Get Words on thesaurus
-nnoremap <space>bW :<c-u>OpenBrowserSmartSearch -thesaurus <c-r><c-w> <cr>
-xnoremap <space>bW :OpenBrowserSmartSearch -thesaurus <c-r><c-a> <cr>
+nnoremap <space>bT :<c-u>OpenBrowserSmartSearch -thesaurus <c-r><c-w> <cr>
+xnoremap <space>bT :OpenBrowserSmartSearch -thesaurus <c-r><c-a> <cr>
+
+nnoremap <space>bW :<c-u>OpenBrowserSmartSearch -weblio <c-r><c-w> <cr>
+xnoremap <space>bW :OpenBrowserSmartSearch -weblio <c-r><c-a> <cr>
