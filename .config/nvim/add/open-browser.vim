@@ -2,8 +2,6 @@
 " Repo: tyru/open-browser.vim
 " Another: source/open-browser.vim
 
-command! -range -nargs=* -bar Browser :OpenBrowserSmartSearch <args>
-
 " Cabbrs {{{1
 " Abbr; Search Engine
 cnoreabbr <expr> gb (getcmdtype() == ':' && getcmdline() =~ '^gb$')? 'OpenBrowserSmartSearch' : 'gb'
@@ -29,44 +27,34 @@ cnoreabbr <expr> th (getcmdtype() == ':' && getcmdline() =~ '^OpenBrowserSmartSe
 cnoreabbr <expr> K  (getcmdtype() == ':' && getcmdline() =~ '^OpenBrowserSmartSearch K$')?  '-dictionary@en' : 'K'
 cnoreabbr <expr> dc (getcmdtype() == ':' && getcmdline() =~ '^OpenBrowserSmartSearch dc$')? '-dictionary@en' : 'dc'
 
-" Keymaps "{{{1
-" Keymap; Open Current File
-" Current File; Command!
-"command! CurrentFileOnBrowser exe 'OpenBrowser' 'ftp:///' . expand('%:p:gs?\\?/?')
-command! CurrentFileOnBrowser exe 'OpenBrowser' . expand('%:p:gs?\\?/?')
+function! s:openbrowser_in(engine, ...) abort "{{{1
+  let query = a:0
+        \ ? getline('.')[col("'<") - 1 : col("'>") - 1]
+        \ : expand('<cWORD>')
 
-" Current File; Get Current file
-nnoremap <silent> <space>b% :<c-u>CurrentFileOnBrowser<cr>
-nnoremap <silent> <space>b5 :<c-u>CurrentFileOnBrowser<cr>
+  let query = index(keys(g:openbrowser_search_engines), a:engine) >= 0
+        \ ? '-'. a:engine .' '. query
+        \ : a:engine .. query
 
-" Keymap; Open Words/URL under Cursor
-" Cursor; 'Go to Browser'
-" Notice: `smart-search` detects whether it is URI or not.
-nmap <space>bB <Plug>(openbrowser-smart-search)
-xmap <space>bB <Plug>(openbrowser-smart-search)
-" Cursor; Go to Browser with <cWORD>, <c-r><c-a>
-nnoremap <space>ba :<c-u>OpenBrowserSmartSearch <c-r><c-a> <cr>
-xnoremap <space>ba :OpenBrowserSmartSearch<cr>
-" Cursor; GitHub
-nnoremap <space>bh :<c-u>OpenBrowserSmartSearch -github <c-r><c-w> <cr>
-xnoremap <space>bh :OpenBrowserSmartSearch -github <c-r><c-a> <cr>
-" Cursor; Github's repository
-nnoremap <space>bH :<c-u>OpenBrowserSmartSearch http://github.com/<c-r><c-f> <cr>
-xnoremap <space>bH :OpenBrowserSmartSearch http://github.com/<c-r><c-a> <cr>
+  echo 'OpenBrowserSmartSearch '. query
+  exe  'OpenBrowserSmartSearch '. query
+endfunction
 
-" Cursor; Gitlab
-nnoremap <space>bl :<c-u>OpenBrowserSmartSearch -gitlab    <c-r><c-w> <cr>
-xnoremap <space>bl :OpenBrowserSmartSearch -gitlab    <c-r><c-a> <cr>
-" Cursor; Gitlab's repository
-nnoremap <space>bL :<c-u>OpenBrowserSmartSearch -gitlab    <c-r><c-f> <cr>
-xnoremap <space>bL :OpenBrowserSmartSearch -gitlab    <c-r><c-a> <cr>
-" Cursor; Dictionary
-" Dictionary; Go to the free dictionary
-" Mnemonic: default `K`
-nnoremap <space>bK :<c-u>OpenBrowserSmartSearch -dictionary@en <c-r><c-w> <cr>
-xnoremap <space>bK :OpenBrowserSmartSearch -dictionary@en <c-r><c-a> <cr>
-nnoremap <space>bT :<c-u>OpenBrowserSmartSearch -thesaurus <c-r><c-w> <cr>
-xnoremap <space>bT :OpenBrowserSmartSearch -thesaurus <c-r><c-a> <cr>
-
-nnoremap <space>bW :<c-u>OpenBrowserSmartSearch -weblio <c-r><c-w> <cr>
-xnoremap <space>bW :OpenBrowserSmartSearch -weblio <c-r><c-a> <cr>
+let s:prefix_for_openbrowser = '<space>b'
+let s:key2engine = {
+      \ 'A': 'archwiki@en',
+      \ 'B': 'duckduckgo',
+      \ 'D': 'duckduckgo',
+      \ 'H': 'http://github.com/',
+      \ 'K': 'wikipedia',
+      \ 'L': 'gitlab',
+      \ 'T': 'thesaurus',
+      \ 'W': 'weblio',
+      \ }
+for s:key in keys(s:key2engine)
+  exe 'nnoremap <silent>' s:prefix_for_openbrowser .. s:key
+        \ ':<c-u>call <SID>openbrowser_in(' string(s:key2engine[s:key]) ')<cr>'
+  exe 'xnoremap <silent>' s:prefix_for_openbrowser .. s:key
+        \ ':call <SID>openbrowser_in(' string(s:key2engine[s:key]) ', "x")<cr>'
+endfor
+unlet s:key s:key2engine s:prefix_for_openbrowser
