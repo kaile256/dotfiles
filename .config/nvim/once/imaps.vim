@@ -39,7 +39,7 @@ inoremap <silent> <a-\> <esc>:call feedkeys('\')<cr>
 
 let s:alt_mappings = 'jklwebWEBftFTqQuUoOpxdcXDCy.~"#*,;/'''
 for s:key in split(s:alt_mappings, '\ze')
-  exe 'inoremap <silent> <a-'. s:key .'> <esc>:call feedkeys("' s:key '")<cr>'
+  exe 'inoremap <silent> <a-'. s:key .'> <esc>:call feedkeys("'. s:key .'")<cr>'
 endfor
 
 unlet s:alt_mappings s:key
