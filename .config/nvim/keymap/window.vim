@@ -17,16 +17,16 @@ nnoremap <space>: q:kzb
 " No Highlight "{{{1
 " Ref: compare :redraw with <c-l> or :mode
 
-inoremap <silent> <Plug>(highlight-off) <Cmd>noh  <bar> redraw!<cr>
-nnoremap <silent> <Plug>(highlight-off) :<c-u>noh <bar> redraw!<cr>
-imap     <silent> <c-l>                  <Plug>(highlight-off)
-nmap     <silent> <c-space><space>       <Plug>(highlight-off)
-nmap     <silent> <c-space><c-space>     <Plug>(highlight-off)
+inoremap <silent> <SID>(highlight-off) <Cmd>noh  <bar> redraw!<cr>
+nnoremap <silent> <SID>(highlight-off) :<c-u>noh <bar> redraw!<cr>
+inoremap <script> <c-l>              <SID>(highlight-off)
+nnoremap <script> <c-space><space>   <SID>(highlight-off)
+nnoremap <script> <c-space><c-space> <SID>(highlight-off)
 
 " New window "{{{1
-nnoremap <Plug>(wincopy-in-tab) <c-w>v<c-w>T
-nmap <c-w>gt <Plug>(wincopy-in-tab)
-nmap <c-w>gT <Plug>(wincopy-in-tab)
+nnoremap <SID>(wincopy-in-tab) <c-w>v<c-w>T
+nnoremap <script> <c-w>gt <SID>(wincopy-in-tab)
+nnoremap <script> <c-w>gT <SID>(wincopy-in-tab)
 
 nnoremap <silent> <c-w><space>T :<c-u>call <SID>wincopy_to_another_proc()<cr>
 nnoremap <silent> <c-w><space>t :<c-u>call <SID>wincopy_to_another_proc()<cr>
