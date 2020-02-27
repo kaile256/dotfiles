@@ -96,6 +96,12 @@ on_ft = [
   'apl',
 ]
 hook_source = 'runtime source/vimteractive.vim'
+
+#[ Java ]
+#[[plugins]]
+#repo = 'dansomething/vim-eclim'
+#on_ft = ['java']
+
 #[ Clojure ]
 [[plugins]]
 repo = 'clojure-vim/async-clj-omni'
