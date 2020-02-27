@@ -1,5 +1,7 @@
 " From: insert.toml
 " Repo: Shougo/neosnippet.vim
+" Another: source/neosnippet.vim
+" Snip: Shougo/neosnippet-snippets/neosnippets
 
 nnoremap <silent> <a-s><a-p><a-e> :<c-u>NeoSnippetEdit<cr>
 nnoremap <silent> <a-s><a-p><a-s> :<c-u>sp  <bar>NeoSnippetEdit<cr>

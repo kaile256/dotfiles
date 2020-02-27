@@ -1,5 +1,7 @@
 " From: insert.toml
 " Repo: Shougo/neosnippet.vim
+" Another: add/neosnippet.vim
+" Snip: Shougo/neosnippet-snippets/neosnippets
 
 augroup myNeoSnippetSource
   au!
