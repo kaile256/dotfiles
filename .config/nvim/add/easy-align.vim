@@ -18,10 +18,9 @@ nmap \q <Plug>(EasyAlign)
 xmap \q <Plug>(EasyAlign)
 
 " TODO: not limited to cursorline, but let it behave as an operatopr
-nnoremap <silent> <Plug>(EasyAlign-on-space) 0:EasyAlign<cr>$*<space>
-xnoremap <silent> <Plug>(EasyAlign-on-space) 0:EasyAlign<cr>$*<space>
-nmap \Q <Plug>(EasyAlign-on-space)
-xmap \Q <Plug>(EasyAlign-on-space)
+noremap <silent> <SID>(EasyAlign-on-space) 0:EasyAlign<cr>$*<space>
+nnoremap <script> \Q <SID>(EasyAlign-on-space)
+xnoremap <script> \Q <SID>(EasyAlign-on-space)
 
 "augroup myEasyAlignAdd
 "  au FileType vim   call s:keymap_easyalign_vim()
