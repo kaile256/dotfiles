@@ -9,13 +9,13 @@ command! -nargs=* -range=0 -complete=customlist,quickrun#complete
 
 " Mnemonic: pseudo Source
 nmap \s <Plug>(quickrun-op)
-noremap <silent> <Plug>(quickrun-holding-ft)
+noremap <silent> <SID>(quickrun-holding-ft)
       \ :<c-u>call <SID>quickrun_holding_ft()<cr>
 
-nmap \ss <Plug>(quickrun-holding-ft)
-nmap \S  <Plug>(quickrun-holding-ft)
-xmap \s  <Plug>(quickrun-holding-ft)
-xmap \S  <Plug>(quickrun-holding-ft)
+nnoremap <script> \ss <SID>(quickrun-holding-ft)
+nnoremap <script> \S  <SID>(quickrun-holding-ft)
+xnoremap <script> \s  <SID>(quickrun-holding-ft)
+xnoremap <script> \S  <SID>(quickrun-holding-ft)
 
 function! s:quickrun_holding_ft() abort
   let bufnr = bufnr('%')
@@ -33,9 +33,9 @@ augroup END
 function! s:quickrun_keymaps() abort
   if expand('%') !~# '\[quickrun output]$' | return | endif
 
-  noremap <silent><buffer> <Plug>(quickrun-holding-ft)
+  noremap <script><silent><buffer> <SID>(quickrun-holding-ft)
         \ <c-w>p
-        \ :<c-u>call <SID>quickrun_holding_ft()<cr>
+        \ <SID>(quickrun-holding-ft)
         \ <c-w>p
 endfunction
 
