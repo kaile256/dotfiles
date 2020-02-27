@@ -120,22 +120,23 @@ inoremap <a-Y>   <esc>y$
 " '<c-o>': insert literally, but no auto-indent;
 "   insert above, when register is linewise, like with `P`
 " '<c-p>': insert literally and fix indent
-inoremap <c-r> <c-g>u<c-r><c-p>
+let s:registers = {
+      \ '<c-0>': '0',
+      \ '<c-;>': ':',
+      \ ';': ':',
+      \ '<c-space>': '+',
+      \ '<space>': '+',
+      \ '<c-v>': '+',
+      \ "<c-'>": '"',
+      \ "'": '"',
+      \ }
 
-inoremap <c-r><c-0> <c-g>u<c-r><c-p>0
-
-inoremap <c-r><c-;> <c-g>u<c-r><c-p>:
-inoremap <c-r>;     <c-g>u<c-r><c-p>:
-
-inoremap <c-r><c-space> <c-g>u<c-r><c-p>+
-inoremap <c-r><space>   <c-g>u<c-r><c-p>+
-" less confused in browser
-inoremap <c-r><c-v>     <c-g>u<c-r><c-p>+
-
-inoremap <c-r><c-'> <c-g>u<c-r><c-p>"
-inoremap <c-r>'     <c-g>u<c-r><c-p>"
-inoremap <c-r><c-\> <c-g>u<c-r><c-p>"
-inoremap <c-r>\     <c-g>u<c-r><c-p>"
+inoremap <SID>(literal-paste) <c-g>u<c-r><c-p>
+imap <c-r> <SID>(literal-paste)
+for s:reg in keys(s:registers)
+  exe 'imap <c-r>'. s:reg '<SID>(literal-paste)'. s:registers[s:reg]
+endfor
+unlet s:reg s:registers
 
 " Undo Break; {{{1
 inoremap <a-P> <c-g>u<esc>:call feedkeys('P')<cr>
