@@ -22,14 +22,14 @@ augroup FugitiveCallMyFunc
     silent! nunmap <buffer> K
 
     " especially for the case ':norm U' to unstage all
-    nnoremap <buffer><silent> <Plug>(fugitive:gstage-prev-window)
+    nnoremap <buffer><silent> <SID>(fugitive:gstage-prev-window)
           \ :<c-u>wincmd p <bar> Gw <bar> wincmd p <bar>
           \ call feedkeys('gszz')<cr>
-    nmap <buffer> S <Plug>(fugitive:gstage-prev-window)
+    nnoremap <script><buffer> S <SID>(fugitive:gstage-prev-window)
 
-    nnoremap <buffer><silent> <Plug>(fugitive:diff-to-HEAD)
+    nnoremap <buffer><silent> <SID>(fugitive:diff-to-HEAD)
           \ :<c-u>wincmd p <bar> Gw <bar> GwToDiff HEAD <bar> Gvstatus<cr>
-    nmap <buffer> D <Plug>(fugitive:diff-to-HEAD)
+    nnoremap <script><buffer> D <SID>(fugitive:diff-to-HEAD)
 
     command! -bang -nargs=? -range=-1 -addr=tabs -buffer
           \ -complete=customlist,fugitive#CommitComplete
@@ -54,15 +54,15 @@ augroup FugitiveCallMyFunc
   au FileType gitcommit call s:gitcommit_keymap() "{{{1
   function! s:gitcommit_keymap() abort
     command! -buffer GcommitDiscard :call s:gitcommit_discard()
-    nnoremap <silent> <Plug>(gitcommit-discard) :<c-u>GcommitDiscard<cr>
-    nmap <buffer> ZQ         <Plug>(gitcommit-discard)
-    nmap <buffer> Zq         <Plug>(gitcommit-discard)
-    nmap <buffer> <c-w>c     <Plug>(gitcommit-discard)
-    nmap <buffer> <c-w><c-c> <Plug>(gitcommit-discard)
-    nmap <buffer><nowait> dQ <Plug>(fugitive-dismiss)
+    nnoremap <silent> <SID>(gitcommit-discard) :<c-u>GcommitDiscard<cr>
+    nnoremap <script><buffer> ZQ         <SID>(gitcommit-discard)
+    nnoremap <script><buffer> Zq         <SID>(gitcommit-discard)
+    nnoremap <script><buffer> <c-w>c     <SID>(gitcommit-discard)
+    nnoremap <script><buffer> <c-w><c-c> <SID>(gitcommit-discard)
+    nnoremap <script><buffer><nowait> dQ <SID>(fugitive-dismiss)
 
-    nmap <c-w>o     <Plug>(winonly-careful)
-    nmap <c-w><c-o> <Plug>(winonly-careful)
+    nnoremap <script> <c-w>o     <SID>(winonly-careful)
+    nnoremap <script> <c-w><c-o> <SID>(winonly-careful)
 
     " TODO: make <SID>sendkey() work!
     " CAUTION: <c-u> is very useful
@@ -71,7 +71,7 @@ augroup FugitiveCallMyFunc
     "inoremap <buffer><nowait> <c-q> <esc>:call <SID>sendkey(getchar())<cr>a
   endfunction
 
-  nnoremap <silent> <Plug>(winonly-careful) :<c-u>call <SID>winonly_careful()<cr>
+  nnoremap <silent> <SID>(winonly-careful) :<c-u>call <SID>winonly_careful()<cr>
   function! s:winonly_careful() abort
     wincmd H
     call s:gitcommit_shred()
@@ -110,8 +110,8 @@ augroup FugitiveCallMyFunc
     WinReduce
     "call win_gotoid(bufwinid('.git/index'))
   endfunction
-  nnoremap <silent> <Plug>(fugitive-dismiss) :<c-u>call <SID>fugitive_dismiss()<cr>
-  "nmap dQ <Plug>(fugitive-dismiss)
+  nnoremap <silent> <SID>(fugitive-dismiss) :<c-u>call <SID>fugitive_dismiss()<cr>
+  "nmap dQ <SID>(fugitive-dismiss)
 
   "au FIleType git call s:gitlog_keymaps() "{{{1
   "function! s:gitlog_keymaps() abort
