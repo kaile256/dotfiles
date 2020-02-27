@@ -61,7 +61,9 @@ set pumheight=15
 " Format {{{2
 "set noemoji
 " wrap long text: s for space
-set wrap whichwrap=h,l
+set wrap
+"set whichwrap=h,l
+set whichwrap=
 augroup NoWrapWithinAWord
   au! FileType * if !&modifiable | setl linebreak showbreak= | endif
 augroup END
