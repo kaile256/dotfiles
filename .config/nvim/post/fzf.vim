@@ -44,13 +44,13 @@ command! -bar -bang -nargs=? -complete=dir Gfiles :call fzf#vim#gitfiles(<q-args
       \ )
 
 " Command: expand default reverse, want preview {{{1
-command! -bar -bang -nargs=* Commands
-      \ :call fzf#vim#commands({'options': '--multi', '--reverse'}, <bang>0)
+"command! -bar -bang -nargs=* Commands
+"      \ :call fzf#vim#commands({'options': '--multi --reverse'}, <bang>0)
 
 " TODO: show all the previews:
 "   1. detect how does the fzf.vim get the preview.
 command! -bar -bang -nargs=* Marks :call fzf#vim#marks(
-      \ fzf#vim#with_preview({'prefix': "'.git/", 'options': '--multi --reverse'}, 'right:50%'),
+      \ fzf#vim#with_preview({'options': '--multi --reverse'}, 'right:50%'),
       \ )
 
 command! -bar -bang -nargs=* History
