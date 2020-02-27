@@ -76,6 +76,7 @@ hook_add = 'runtime add/linediff.vim'
 # :norm <c-a>/<c-x>
 #[[plugins]]
 #repo = 'qwertologe/nextval.vim'
+## has some errors; unintended deletion of words around the target numbers
 #on_map = '<Plug>nextval'
 #hook_add = 'runtime add/nextval.vim'
 #[ Help ]
