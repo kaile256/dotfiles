@@ -28,7 +28,24 @@ hook_post_source = 'runtime post/vimspector.vim'
 #on_func =  ['AddDebbuger']
 #hook_add = 'runtime add/infer-debugger.vim'
 #hook_source = 'runtime source/infer-debugger.vim'
-#
+[[plugins]]
+repo = 'vim-vdebug/vdebug'
+# Config: /etc/php/php.ini
+# depends on `xdebug`, install it via pecl which is in php-pear (a php repo)
+# Documents:
+#   A list of all settings:  https://xdebug.org/docs-settings.php
+#   A list of all functions: https://xdebug.org/docs-functions.php
+#   Profiling instructions:  https://xdebug.org/docs-profiling2.php
+#   Remote debugging:        https://xdebug.org/docs-debugger.php
+on_cmd = ['Vdebug']
+on_ft = [
+  'php',
+  'python',
+  'ruby',
+  'perl',
+  'javascript',
+]
+hook_source = 'runtime source/vdebug.vim'
 
 #[ on GDB ]
 [[plugins]]
