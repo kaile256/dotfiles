@@ -67,7 +67,11 @@ xmap \f <Plug>(operator-sandwich-add-func)
 "   Note: the difference between 'tag' and 'tagname'
 "     in 'tag', the prompt is 'Input tag:'
 "     in 'tagname', the prompt is 'Input tag name:'
-nmap <Plug>(operator-sandwich-add-tag) <Plug>(operator-sandwich-add-query1st)t
-nmap <Plug>(operator-sandwich-add-func) <Plug>(operator-sandwich-add-query1st)f
-nmap \t zv<Plug>(operator-sandwich-add-tag)
-nmap \f zv<Plug>(operator-sandwich-add-func)
+nmap <SID>(operator-sandwich-add-tag)
+      \ :echo 'Input Motion:'<cr>
+      \ <Plug>(operator-sandwich-add-query1st)t
+nmap <SID>(operator-sandwich-add-func)
+      \ :echo 'Input Motion:'<cr>
+      \ <Plug>(operator-sandwich-add-query1st)f
+nnoremap <script> \t zv<SID>(operator-sandwich-add-tag)
+nnoremap <script> \f zv<SID>(operator-sandwich-add-func)
