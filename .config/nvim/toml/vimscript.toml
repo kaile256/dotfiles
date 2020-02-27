@@ -33,6 +33,7 @@ hook_add = 'runtime add/scriptease.vim'
 [[plugins]]
 repo = 'thinca/vim-scouter'
 on_cmd = 'Scouter'
+hook_add = 'runtime add/scouter.vim'
 
 #[ Library ]
 [[plugins]]
