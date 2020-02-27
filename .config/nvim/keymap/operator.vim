@@ -42,10 +42,15 @@ endfunction "}}}1
 "nmap c <Plug>(clean-register-change)
 
 " TODO: enable to dot-repoeat
-nnoremap <expr> <Plug>(move-line-downward) (getline('.') ==# substitute(@", "\n", '', 'g'))? '"_ddp':  'ddp'
-nnoremap <expr> <Plug>(move-line-upward)   (getline('.') ==# substitute(@", "\n", '', 'g'))? '"_ddkP': 'ddkP'
-nnoremap <expr> <Plug>(copy-line-downward) (getline('.') ==# substitute(@0, "\n", '', 'g'))? '"0p': 'yyp'
-nnoremap <expr> <Plug>(copy-line-upward)   (getline('.') ==# substitute(@0, "\n", '', 'g'))? '"0P': 'yyP'
+nnoremap <expr> <SID>(move-line-downward) (getline('.') ==# substitute(@", "\n", '', 'g'))? '"_ddp':  'ddp'
+nnoremap <expr> <SID>(move-line-upward)   (getline('.') ==# substitute(@", "\n", '', 'g'))? '"_ddkP': 'ddkP'
+nnoremap <expr> <SID>(copy-line-downward) (getline('.') ==# substitute(@0, "\n", '', 'g'))? '"0p': 'yyp'
+nnoremap <expr> <SID>(copy-line-upward)   (getline('.') ==# substitute(@0, "\n", '', 'g'))? '"0P': 'yyP'
+
+nnoremap <script> cp <SID>(move-line-downward)
+nnoremap <script> cP <SID>(move-line-upward)
+nnoremap <script> yp <SID>(copy-line-downward)
+nnoremap <script> yP <SID>(copy-line-upward)
 
 "function! s:visualized_area() abort
 "  let cursor = {
@@ -83,13 +88,10 @@ nnoremap <expr> <Plug>(copy-line-upward)   (getline('.') ==# substitute(@0, "\n"
 "
 "command! VisualizedArea :echo s:visualized_area()
 
-nmap <silent> <Plug>(move-line-downward-repeatable) :<c-u>silent! call repeat#setreg("\<Plug>(move-line-downward)", v:register)<cr><Plug>(move-line-downward):silent! call repeat#set("\<Plug>(move-line-downward)")<cr>
-nmap <silent> <Plug>(move-line-upward-repeatable)   :<c-u>silent! call repeat#setreg("\<Plug>(move-line-upward)",   v:register)<cr><Plug>(move-line-upward):silent!   call repeat#set("\<Plug>(move-line-downward)")<cr>
-
-nmap cp <Plug>(move-line-downward)
-nmap cP <Plug>(move-line-upward)
-nmap yp <Plug>(copy-line-downward)
-nmap yP <Plug>(copy-line-upward)
+nmap <script><silent> <SID>(move-line-downward-repeatable)
+      \ :<c-u>silent! call repeat#setreg("\<SID>(move-line-downward)", v:register)<cr><SID>(move-line-downward):silent! call repeat#set("\<SID>(move-line-downward)")<cr>
+nmap <script><silent> <SID>(move-line-upward-repeatable)
+      \ :<c-u>silent! call repeat#setreg("\<SID>(move-line-upward)",   v:register)<cr><SID>(move-line-upward):silent!   call repeat#set("\<SID>(move-line-downward)")<cr>
 
 "nmap cp :silent! call repeat#set('\<Plug>(move-line-downward')<cr>
 "nmap cP :silent! call repeat#set('\<Plug>(move-line-upward')<cr>
