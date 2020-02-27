@@ -85,6 +85,8 @@ augroup END
 augroup myFindAlternate "{{{1
   au! BufWinEnter .config/*vim**/* call s:find_alternate()
   function! s:find_alternate() abort "{{{2
+    if v:hlsearch | return | endif
+
     let alter = expand('#:t')
     if empty(alter) || !search(alter, 'cWn') | return | endif
 
