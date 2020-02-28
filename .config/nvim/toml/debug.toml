@@ -46,12 +46,11 @@ on_ft = [
   'javascript',
 ]
 hook_source = 'runtime source/vdebug.vim'
-
 #[ on GDB ]
 [[plugins]]
 repo = 'sakhnik/nvim-gdb'
 build = './install.sh'
-hook_done_update = 'UpdateRemotePlugins'
+hook_done_update = 'call remote#host#UpdateRemotePlugins()'
 on_cmd = ['GdbStart']
 hook_source = 'runtime source/gdb.vim'
 
@@ -80,3 +79,32 @@ hook_source = 'runtime source/gdb.vim'
 ## WIP: no use because of the lack of autoload-functions except main()
 #on_cmd = 'WTF'
 #hook_post_source = 'runtime add/stacktrace.vim'
+
+#[ Test ]
+[[plugins]] # has extensions
+repo = 'thinca/vim-quickrun'
+on_cmd = 'QuickRun'
+on_map = '<Plug>(quickrun'
+hook_add = 'runtime add/quickrun.vim'
+hook_source = 'runtime source/quickrun.vim'
+[[plugins]]
+repo = 'heavenshell/vim-quickrun-hook-unittest'
+# Note: g:quickrun_config is loaded on each :QuickRun
+if = "index(['php', 'python', 'ruby', 'go', 'javascript'], &ft) >= 0"
+on_cmd = 'QuickRun'
+on_map = '<Plug>(quickrun'
+hook_source = 'runtime source/quickrun-unittest.vim'
+[[plugins]]
+repo = 'janko/vim-test'
+# run test in vim
+hook_source = 'runtime source/test.vim'
+[[plugins]]
+repo = 'tpope/vim-dispatch'
+# async build and test
+on_cmd = ['Dispatch']
+[[plugins]]
+repo = 'neomake/neomake'
+on_cmd = 'Neomake'
+on_func = ['neomake#configure#']
+hook_source = 'runtime source/neomake.vim'
+hook_post_source = 'runtime post/neomake.vim'
