@@ -1,4 +1,6 @@
-" From: 'tool.toml'
+" From: debug.toml
+" Repo: neomake/neomake
+" Another: post/neomake.vim
 
 " 0 - Errors only
 " 1 - Quiet message
