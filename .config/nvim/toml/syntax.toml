@@ -4,6 +4,7 @@
 #[ Multi Filetypes ]
 [[plugins]]
 repo = 'sheerun/vim-polyglot'
+# No syntax for java
 on_if = "index(['', 'terminal', 'i3', 'javascript'], &ft) < 0"
 #if    = "index(['', 'terminal'], &ft) < 0"
 #on_if = "index(get(g:, 'polyglot_disabled', ['i3', 'javascript']), &ft) < 0"
