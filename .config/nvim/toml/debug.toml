@@ -81,21 +81,16 @@ hook_source = 'runtime source/gdb.vim'
 #hook_post_source = 'runtime add/stacktrace.vim'
 
 #[ Test ]
-[[plugins]] # has extensions
-repo = 'thinca/vim-quickrun'
-on_cmd = 'QuickRun'
-on_map = '<Plug>(quickrun'
-hook_add = 'runtime add/quickrun.vim'
-hook_source = 'runtime source/quickrun.vim'
-[[plugins]]
-repo = 'heavenshell/vim-quickrun-hook-unittest'
-# Note: g:quickrun_config is loaded on each :QuickRun
-if = "index(['php', 'python', 'ruby', 'go', 'javascript'], &ft) >= 0"
-on_cmd = 'QuickRun'
-on_map = '<Plug>(quickrun'
-hook_source = 'runtime source/quickrun-unittest.vim'
 [[plugins]]
 repo = 'janko/vim-test'
+# run on test file or the last touched test file.
+on_cmd = [
+  'TestNearest',
+  'TestFile',
+  'TestSuite',
+  'TestLast',
+  'TestVisit',
+]
 # run test in vim
 hook_source = 'runtime source/test.vim'
 [[plugins]]
@@ -108,3 +103,6 @@ on_cmd = 'Neomake'
 on_func = ['neomake#configure#']
 hook_source = 'runtime source/neomake.vim'
 hook_post_source = 'runtime post/neomake.vim'
+[[plugins]]
+repo = 'skywind3000/asynctasks.vim'
+on_cmd = ['AsyncTask']
