@@ -38,7 +38,7 @@ let s:dein_itself      = s:Shougo_cache_dir .'/dein.vim/'
 
 " call p:auto_install() if !has('dein.vim') {{{2
 if !isdirectory(s:dein_itself)
-  exe '!mkdir -p' shellescape(expand(s:Shougo_cache_dir))
+  call mkdir(expand(s:Shougo_cache_dir), 'p')
   exe '!git clone https://github.com/Shougo/dein.vim' shellescape(expand(s:dein_itself))
 endif
 
@@ -51,8 +51,10 @@ exe 'set rtp +='. s:dein_itself
 
 " Make git clone shallow {{{1
 let g:dein#types#git#clone_depth = 1
-" FIXME: dein fails to install plugins in such case as none are installed.
-"let g:dein#types#git#default_protocol = 'ssh'
+if filereadable(expand('$HOME/.ssh/config'))
+  " ssh for private repository
+  let g:dein#types#git#default_protocol = 'ssh'
+endif
 
 let g:dein#install_progress_type      = 'tabline'
 if has('unix')
