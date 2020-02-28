@@ -21,12 +21,22 @@ command! -bar DebugBreakpointAddFunction
       \ :call vimspector#AddFunctionBreakpoint(expand('<cexpr>'))
 
 " watch the specified variable
-command! -bar -nargs=1 -complete=custom,vimspector#CompleteExpr
+command! -bar -nargs=? -complete=custom,vimspector#CompleteExpr
       \ DebugWatch
-      \ :call vimspector#AddWatch(<f-args>)
-command! -bar -nargs=1 -complete=custom,vimspector#CompleteExpr
+      \ :call s:vimspector_wrapper('AddWatch', <f-args>)
+command! -bar -nargs=? -complete=custom,vimspector#CompleteExpr
       \ DebugEvaluate
-      \ :call vimspector#Evaluate(<f-args>)
-command! -bar -nargs=1 -complete=custom,vimspector#CompleteOutput
+      \ :call s:vimspector_wrapper('Evaluate', <f-args>)
+command! -bar -nargs=? -complete=custom,vimspector#CompleteOutput
       \ DebugShowOutput
-      \ :call vimspector#ShowOutput(<f-args>)
+      \ :call s:vimspector_wrapper('ShowOutput', <f-args>)
+
+function! s:vimspector_wrapper(func, ...) abort
+  if empty(get(a:, '000'))
+    let args = expand('<cexpr>')
+  else
+    let args = a:1
+  endif
+
+  call {'vimspector#'. a:func}(args)
+endfunction
