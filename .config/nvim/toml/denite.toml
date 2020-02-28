@@ -2,7 +2,7 @@
 
 [[plugins]]
 repo = 'Shougo/denite.nvim'
-if = 'has("python3")'
+hook_done_update = 'call remote#host#UpdateRemotePlugins()'
 on_cmd = 'Denite'
 hook_add = 'runtime add/denite.vim'
 #hook_source = 'runtime source/denite.vim'
@@ -18,7 +18,7 @@ on_source = 'denite.nvim'
 #on_source = 'denite.nvim'
 #hook_post_source = 'runtime add/denite-lsp.vim'
 
-#[[[Matcher]]]
+#[ Matcher ]
 #[[plugins]]
 #repo = 'nekowasabi/denite-migemo'
 #on_source = 'denite.nvim'
@@ -27,6 +27,9 @@ on_source = 'denite.nvim'
 [[plugins]]
 repo = 'nixprime/cpsm'
 # A matcher developped for 'CtrlP'
+build = '''
+type cpsm || pip install --user cpsm
+'''
 on_source = 'denite.nvim'
 hook_post_update = 'bash install.sh'
 hook_post_source = 'runtime add/cspm.vim'
@@ -42,6 +45,7 @@ hook_post_source = 'runtime add/cspm.vim'
 #on_source = 'denite.nvim'
 #hook_post_source = 'runtime add/projectile.vim'
 
+#[ Extensions ]
 [[plugins]]
 repo = 'Shougo/neomru.vim'
 on_source = 'denite.nvim'
