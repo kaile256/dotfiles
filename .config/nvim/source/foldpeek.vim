@@ -23,8 +23,8 @@ augroup myFoldPeekSource
         \ '\s*\zs\*\k\+\*\($\|\s*\ze\*\)'
         \ ]
   au FileType help let b:foldpeek_skip_patterns = [
-        \ '^[>#\-=/{!* \t]*$',
-        \ '^\*\k\+\*$'
+        \ '^[<>#\-=/{!* \t]*$',
+        \ '^\*\a\+\*$',
         \ ]
 
   au FileType toml if expand('%:p') =~# expand(g:dein_toml_dir) |
