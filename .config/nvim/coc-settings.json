@@ -205,6 +205,8 @@
   "python.linting.flake8Enabled": false,
   "python.linting.mypyEnabled": true,
 
+  "java.errors.incompleteClasspath.severity": "ignore",
+
   "languageserver": {
     "dls": {
       "command": "diagnostic-languageserver",
