@@ -23,6 +23,21 @@ xmap i\| <Plug>(textobj-sandwich-query-i)\|
 omap a\| <Plug>(textobj-sandwich-query-a)\|
 xmap a\| <Plug>(textobj-sandwich-query-a)\|
 
+omap i/ <Plug>(textobj-sandwich-query-i)/
+xmap i/ <Plug>(textobj-sandwich-query-i)/
+omap a/ <Plug>(textobj-sandwich-query-a)/
+xmap a/ <Plug>(textobj-sandwich-query-a)/
+
+omap i: <Plug>(textobj-sandwich-query-i):
+xmap i: <Plug>(textobj-sandwich-query-i):
+omap a: <Plug>(textobj-sandwich-query-a):
+xmap a: <Plug>(textobj-sandwich-query-a):
+
+omap i; <Plug>(textobj-sandwich-query-i);
+xmap i; <Plug>(textobj-sandwich-query-i);
+omap a; <Plug>(textobj-sandwich-query-a);
+xmap a; <Plug>(textobj-sandwich-query-a);
+
 "" FIXME: make 'i.' work
 "omap i. <Plug>(textobj-sandwich-query-i).
 "xmap i. <Plug>(textobj-sandwich-query-i).
