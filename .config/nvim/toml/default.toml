@@ -84,6 +84,16 @@ hook_add = 'runtime add/linediff.vim'
 #repo = 'thinca/vim-ref'
 #on_event = 'BufRead'
 #hook_add = 'runtime rc/ref.vim'
+#[ Window ]
+#[[plugins]]
+#repo = 'camspiers/lens.vim'
+#on_func = ['lens#']
+#hook_source = 'runtime source/lens.vim'
+#[[plugins]]
+#repo = 'camspiers/animate.vim'
+#on_source = ['lens.vim']
+#on_func = ['animate#']
+
 #[ Floating Window ]
 #[[plugins]]
 #repo = 'ncm2/float-preview.nvim'
