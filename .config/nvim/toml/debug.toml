@@ -104,6 +104,7 @@ on_cmd = [
 ]
 [[plugins]]
 repo = 'neomake/neomake'
+# as a linter, use LSP plugin instead
 on_cmd = 'Neomake'
 on_func = ['neomake#configure#']
 hook_source = 'runtime source/neomake.vim'
