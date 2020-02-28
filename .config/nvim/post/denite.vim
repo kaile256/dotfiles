@@ -5,19 +5,39 @@
 nnoremap <silent> <a-p> :<c-u>keepj DenitePrev<cr>
 nnoremap <silent> <a-n> :<c-u>keepj DeniteNext<cr>
 
-" Options: Shougo/denite.nvim/autoload/denite/init.vim @90 {{{1
+" Options: "{{{1
+" Ref: Shougo/denite.nvim/autoload/denite/init.vim @97
+
+let s:denite_pos = {}
+let s:denite_pos.row = (&lines   * 10/100)
+let s:denite_pos.col = (&columns * 5/100)
+
+let s:denite_height = &lines   * 80/100
+let s:denite_width  = &columns * 40/100
 call denite#custom#option('default', {
-      \ 'immediately-1': v:true,
-      \ 'split': 'tab',
+      \ 'statusline': 0,
+      \ 'immediately-1': 1,
+      \
       \ 'matchers': 'matcher/cpsm',
       \ 'sorters': 'sorter/sublime',
-      \ 'winrow': (&lines /7),
-      \ 'wincol': (&columns /10),
-      \ 'winheight': (&lines *95/100),
-      \ 'winwidth': (&columns *95/100),
-      \ 'vertical_preview': v:true,
+      \
+      \ 'winrow': s:denite_pos.row,
+      \ 'wincol': s:denite_pos.col,
+      \
+      \ 'winheight':      s:denite_height,
+      \ 'preview_height': s:denite_height,
+      \
+      \ 'winwidth':      s:denite_width,
+      \ 'preview_width': (&columns * 50/100),
+      \
+      \ 'split': 'floating',
+      \ 'vertical_preview': 1,
+      \ 'floating_preview': 1,
+      \
+      \ 'auto_resize': 1,
       \ 'auto_action': 'preview',
       \ })
+unlet s:denite_height s:denite_width s:denite_pos
 
 " Grep; {{{1
 " Use Interactive Mode
@@ -92,33 +112,60 @@ call denite#custom#source('file/rec',
 " Default Actions {{{1
 "call denite#custom#kind('file', 'default_action', 'split')
 
-augroup DeniteMyAutoConf "{{{1
+augroup myDenitePost "{{{1
   au!
-  au WinLeave,BufLeave * if index(['denite', 'denite-filter'], &ft) >= 0 | hide | wincmd z | endif
-augroup END
-augroup DeniteCallMyFunctions "{{{1
-  au!
+  "au WinLeave,BufLeave \[denite\]* call denite#do_map('quit')
+  au User denite-preview call s:denite_preview_options() "{{{2
+  function! s:denite_preview_options() abort
+    setl number bt=nofile
+  endfunction "}}}2
+  au FileType denite-filter call s:denite_filter_keymaps() "{{{2
+  function! s:denite_filter_keymaps() abort
+    " back to normalmode {{{3
+    imap <buffer> <a-h> <Plug>(denite_filter_quit)
+    imap <buffer> <a-j> <Plug>(denite_filter_quit)
+    imap <buffer> <a-k> <Plug>(denite_filter_quit)
+    imap <buffer> <a-l> <Plug>(denite_filter_quit)
+    imap <buffer> <C-c> <Plug>(denite_filter_quit)
+    " update {{{3
+    imap <buffer> <c-j> <Plug>(denite_filter_update)
+
+    inoremap <silent><buffer><expr> <c-l>
+          \ denite#do_map('redraw')
+    inoremap <silent><buffer><expr> <c-d>
+          \ getline('.')[:col('.')] =~? '\w'?
+          \ denite#do_map('quit'):
+          \ '<del>'
+    " select {{{3
+    inoremap <silent><buffer><expr> <TAB>
+          \ denite#do_map('toggle_select')
+    inoremap <silent><buffer> <C-j>
+          \ <esc><c-w>p:call cursor(line('.') + 1, 0)<cr><c-w>pA
+    inoremap <silent><buffer> <C-k>
+          \ <esc><c-w>p:call cursor(line('.') - 1, 0)<cr><c-w>pA
+  endfunction "}}}2
   au FileType denite call s:denite_keymaps() "{{{2
   function! s:denite_keymaps() abort
     nnoremap <silent><buffer><expr> i
           \ denite#do_map('open_filter_buffer')
     " quit {{{3
+    " TODO: get current split more flexible
     nnoremap <silent><buffer><expr> <a-h>
-          \ denite#init#_user_options().split ==# 'floating' ?
-          \ denite#do_map('quit'):
-          \ '<c-w>h'
+         \ denite#custom#_get().option.default.split ==# 'floating' ?
+         \ denite#do_map('quit') :
+         \ '<c-w>h'
     nnoremap <silent><buffer><expr> <a-j>
-          \ denite#init#_user_options().split ==# 'floating' ?
-          \ denite#do_map('quit'):
-          \ '<c-w>j'
+         \ denite#custom#_get().option.default.split ==# 'floating' ?
+         \ denite#do_map('quit') :
+         \ '<c-w>j'
     nnoremap <silent><buffer><expr> <a-k>
-          \ denite#init#_user_options().split ==# 'floating' ?
-          \ denite#do_map('quit'):
-          \ '<c-w>k'
+         \ denite#custom#_get().option.default.split ==# 'floating' ?
+         \ denite#do_map('quit') :
+         \ '<c-w>k'
     nnoremap <silent><buffer><expr> <a-l>
-          \ denite#init#_user_options().split ==# 'floating' ?
-          \ denite#do_map('quit'):
-          \ '<c-w>l'
+         \ denite#custom#_get().option.default.split ==# 'floating' ?
+         \ denite#do_map('quit') :
+         \ '<c-w>l'
 
     " Open {{{3
     nnoremap <silent><buffer><expr> <CR>
@@ -146,14 +193,10 @@ augroup DeniteCallMyFunctions "{{{1
     nnoremap <silent><buffer><expr> P
           \ denite#do_map('do_action', 'preview')
 
-    "nnoremap <silent><buffer> k
-    "      \ k:call
-    "      \ denite#do_map('do_action', 'preview')
-    "      \ <cr>
-    "nnoremap <silent><buffer> j
-    "      \ j:call
-    "      \ denite#do_map('do_action', 'preview')
-    "      \ <cr>
+    nnoremap <silent><buffer> k
+          \ k:call denite#do_map('do_action', 'preview')<cr>
+    nnoremap <silent><buffer> j
+          \ j:call denite#do_map('do_action', 'preview')<cr>
 
     " Select {{{3
     nnoremap <silent><buffer><expr> mm
@@ -187,30 +230,5 @@ augroup DeniteCallMyFunctions "{{{1
       onoremap <buffer><silent> F :call sneak#users('F2', v:operator)<cr>
       onoremap <buffer><silent> T :call sneak#users('T2', v:operator)<cr>
     endif
-  endfunction "}}}
-  au FileType denite-filter call s:denite_filter_keymaps() "{{{2
-  function! s:denite_filter_keymaps() abort
-    " back to normalmode {{{3
-    imap <buffer> <a-h> <Plug>(denite_filter_quit)
-    imap <buffer> <a-j> <Plug>(denite_filter_quit)
-    imap <buffer> <a-k> <Plug>(denite_filter_quit)
-    imap <buffer> <a-l> <Plug>(denite_filter_quit)
-    imap <buffer> <C-c> <Plug>(denite_filter_quit)
-    " update {{{3
-    imap <buffer> <c-j> <Plug>(denite_filter_update)
-
-    inoremap <silent><buffer><expr> <c-l>
-          \ denite#do_map('redraw')
-    inoremap <silent><buffer><expr> <c-d>
-          \ getline('.')[:col('.')] =~? '\w'?
-          \ denite#do_map('quit'):
-          \ '<del>'
-    " select {{{3
-    inoremap <silent><buffer><expr> <TAB>
-          \ denite#do_map('toggle_select')
-    inoremap <silent><buffer> <C-j>
-          \ <esc><c-w>p:call cursor(line('.') + 1, 0)<cr><c-w>pA
-    inoremap <silent><buffer> <C-k>
-          \ <esc><c-w>p:call cursor(line('.') - 1, 0)<cr><c-w>pA
   endfunction "}}}2
 augroup END
