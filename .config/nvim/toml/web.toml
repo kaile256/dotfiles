@@ -8,17 +8,17 @@ on_cmd = 'OpenBrowser'
 on_func = 'openbrowser#'
 hook_add = 'runtime add/open-browser.vim'
 hook_source = 'runtime source/open-browser.vim'
-hook_done_update = '''
-exe 'e' g:dein_github_dir .'/tyru/open-browser.vim/plugin/openbrowser.vim'
-v/range/g/command!/norm! A-range
-write
-'''
 
-#[[plugins]]
-#repo = 'tyru/open-browser-github.vim'
-#depends = 'open-browser.vim'
-#on_cmd = 'OpenGithub'
-#hook_post_source = 'runtime add/open-browser-github.vim'
+[[plugins]]
+repo = 'tyru/open-browser-github.vim'
+depends = 'open-browser.vim'
+on_cmd = [
+  'OpenGithubFile',
+  'OpenGithubIssue',
+  'OpenGithubPullReq',
+  'OpenGithubProject',
+  'OpenGithubCommit',
+]
 
 [[plugins]]
 repo = 'aiya000/vim-webpage'
@@ -115,8 +115,8 @@ repo = 'yaasita/edit-slack.vim'
 # get the binary in yaasita/edit-slack
 on_path = 'slack:\/\/'
 on_func = [
-'edit_slack#open#buffer',
-'edit_slack#open#sidebar',
+  'edit_slack#open#buffer',
+  'edit_slack#open#sidebar',
 ]
 hook_add = 'runtime add/edit-slack.vim'
 hook_source = 'runtime source/edit-slack.vim'
