@@ -96,7 +96,12 @@ hook_source = 'runtime source/test.vim'
 [[plugins]]
 repo = 'tpope/vim-dispatch'
 # async build and test
-on_cmd = ['Dispatch']
+on_cmd = [
+  'Dispatch',
+  'Make',
+  'Focus',
+  'Start',
+]
 [[plugins]]
 repo = 'neomake/neomake'
 on_cmd = 'Neomake'
