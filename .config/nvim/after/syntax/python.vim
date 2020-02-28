@@ -1,7 +1,5 @@
 " Orig: /usr/share/nvim/runtime/syntax/python.vim
 
-let g:python_highlight_all = 1
-
 "syn match pythonVariable "^\s*\w\+\s\ze=\+\s"
 " Note: no use on \.\zs; probably, some default sytax match prevents it
 syn match pythonMethod "\.[^.(),[ \t]\+\ze[()]"
