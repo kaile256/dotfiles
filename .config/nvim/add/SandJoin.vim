@@ -17,7 +17,6 @@ set nojoinspaces
 "      \ ],
 "      \ }
 
-"\   ['\(^\|^\s*["\\].*\)\@<!\zs$', ' | ', '^bottom'],
 let g:SandJoin#no_default_mappings = 1
 
 nmap <space>J <Plug>(SandJoin-J)
