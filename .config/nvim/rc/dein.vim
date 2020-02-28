@@ -83,7 +83,7 @@ let s:toml_lazy = [
       \ 'appearance.toml',
       \ 'debug.toml',
       \ 'default.toml',
-      \ 'easymotion.toml',
+      \ 'denite.toml',
       \ 'ext.toml',
       \ 'external.toml',
       \ 'browse.toml',
