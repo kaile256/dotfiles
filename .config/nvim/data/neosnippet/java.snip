@@ -1,0 +1,61 @@
+# Else: Shougo/neosnippet-snippets/neosnippets/java.snip
+
+snippet import
+alias imp im ip
+  import java.${1};
+
+# Method {{{1
+snippet new
+alias nw ne
+  ${1:#:class_name} = new $1${2:#:remove?}()
+
+snippet public class
+alias pc ini init
+  public class `expand('%:t:r')` {
+    ${0:TARGET}
+  }
+
+snippet main
+alias ma mn
+  public static void main(String[] args) ${1:#:throws Exception }{
+    ${0:TARGET}
+  }
+
+snippet public static void
+alias psv
+  public static void ${1:method}(${2:#:type args}) {
+    ${0:TARGET}
+  }
+
+snippet private
+alias pv
+  public class `expand('%:t:r')` {
+    ${0:TARGET}
+  }
+
+# Functions {{{1
+snippet println
+options word
+alias pl
+  System.out.println(${1});
+
+snippet print
+options word
+alias pr
+  System.out.print(${1});
+
+snippet format
+options word
+alias fo for
+  System.out.format(${1});
+
+snippet ();
+alias (; (
+  (${0:TARGET});
+
+# Type {{{1
+snippet String
+alias st str S St Str
+  String ${0:TARGET}
+
+
