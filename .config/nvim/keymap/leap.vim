@@ -115,3 +115,34 @@ augroup END
 "nnoremap <silent><expr> gF     exists('b:term_title') ? ':<c-u>call <SID>missing_find("tabe")<cr>' : '<c-w>gF'
 "xnoremap <silent><expr> gF     exists('b:term_title') ? ':<c-u>call <SID>missing_find("tabe")<cr>' : '<c-w>gF'
 
+" Edit Syntax {{{1
+function! s:edit_syntax(open) abort
+  let ft_vim = &ft .'.vim'
+  let vimrcs = fnamemodify($MYVIMRC, ':p:h')
+
+  let fname = join([vimrcs, 'syntax', ft_vim], '/')
+  let after = join([vimrcs, 'after', 'syntax', ft_vim], '/')
+
+  for f in [fname, after]
+    if !filereadable(f) | continue | endif
+    exe a:open f
+    return
+  endfor
+
+  echohl ErrorMsg
+  echomsg 'currently, you have no syntax files for &ft='. &ft .'; edit' fname
+  echohl None
+  exe a:open fname
+endfunction
+
+let s:opens = {
+      \ '<a-e>': 'e',
+      \ '<a-s>': 'sp',
+      \ '<a-t>': 'tabe',
+      \ '<a-v>': 'vs',
+      \ }
+for s:key in keys(s:opens)
+  exe 'nnoremap <silent> <a-s><a-y>'. s:key
+        \ ':call <SID>edit_syntax(' string(s:opens[s:key]) ')<cr>'
+endfor
+unlet s:key s:opens
