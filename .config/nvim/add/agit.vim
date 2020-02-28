@@ -15,42 +15,55 @@ nnoremap <silent> g<a-u> :<c-u>GlocalLog<cr>
 
 augroup myAgitAdd
   au!
-  au FileType agit,agit_diff,agit_stat call <SID>agit_commands()
-  au FileType agit,agit_diff,agit_stat call <SID>agit_keymaps()
+  "au FileType agit call s:agit_commands()
+  au FileType agit* call s:agit_common_keymaps()
+  au FileType agit  call s:agit_keymaps()
+  au FileType agit_stat call s:agit_stat_keymaps()
 augroup END
 
-function! s:agit_commands() abort
-  command! -buffer -bar GbisectStart :AgitGit bisect start HEAD <hash> \%#
-
-  let agit_cmds = {
-        \ 'BisectBad':         'AgitGit bisect bad',
-        \ 'BisectGood':        'AgitGit bisect good',
-        \ 'BisectReset':       'AgitGit bisect reset',
-        \ 'Rebase':            'AgitGitConfirm rebase',
-        \ 'RebaseInteractive': 'AgitGitConfirm! rebase --interactive',
-        \ 'Reset':             'AgitGitConfirm reset',
-        \ 'ResetHard':         'AgitGitConfirm reset --hard',
-        \ 'ResetSoft':         'AgitGitConfirm reset --soft',
-        \ 'Revert':            'AgitGit revert',
-        \ }
-
-  for cmd in keys(agit_cmds)
-    exe 'command! -buffer -bar Agit'. cmd ':'. agit_cmds[cmd] '<hash>'
-  endfor
-endfunction
+"function! s:agit_commands() abort "{{{1
+"  command! -buffer -bar AgitBisectStart :AgitGit bisect start HEAD <hash> \%#
+"
+"  let agit_cmds = {
+"        \ 'BisectBad':         'AgitGit bisect bad',
+"        \ 'BisectGood':        'AgitGit bisect good',
+"        \ 'BisectReset':       'AgitGit bisect reset',
+"        \
+"        \ 'Rebase':            'AgitGitConfirm rebase',
+"        \ 'RebaseInteractive': 'AgitGitConfirm! rebase --interactive',
+"        \
+"        \ 'Reset':             'AgitGitConfirm reset',
+"        \ 'ResetHard':         'AgitGitConfirm reset --hard',
+"        \ 'ResetSoft':         'AgitGitConfirm reset --soft',
+"        \
+"        \ 'Revert':            'AgitGit revert',
+"        \ }
+"
+"  for cmd in keys(agit_cmds)
+"    exe 'command! -buffer -bar Agit'. cmd ':'. agit_cmds[cmd]
+"  endfor
+"endfunction
 
 " TODO: show diff w/ uncommited buffer.
 "       1. :AgitFile, setl winfixwidth
 "       2. open the uncommited buffer to the end
 
-function! s:agit_keymaps() abort "{{{1
-  "nmap <buffer> u <Plug>(agit-reload)
+function! s:agit_common_keymaps() abort "{{{1
+  nmap <buffer> U <Plug>(agit-reload)
+endfunction
 
-  nmap <buffer> gC <Plug>(agit-show-commit)
-
-  nmap <buffer> y# <PLug>(agit-yank-hash)
+function! s:agit_stat_keymaps() abort "{{{1
+  " Ref: cohama/agit.vim/autoload/agit/view/stat.vim
   nmap <buffer> di <Plug>(agit-diff)
   nmap <buffer> dl <Plug>(agit-diff-with-local)
+endfunction
+
+function! s:agit_keymaps() abort "{{{1
+  " Ref: cohama/agit.vim/autoload/agit/view/log.vim
+  "nmap <buffer> gC <Plug>(agit-show-commit)
+
+  nmap <buffer> y# <PLug>(agit-yank-hash)
+
   "nmap <buffer> <c-g> <Plug>(agit-print-commitmsg)
 
   "" deletes the branch under cursor
@@ -61,15 +74,18 @@ function! s:agit_keymaps() abort "{{{1
   ""   the default name is the hash under cursor
   "nmap <buffer> cO <Plug>(agit-git-checkout-b)
 
+  " revert to the commit under cursor
   nmap <buffer> dd <Plug>(agit-git-revert)
   nmap <buffer> D  <Plug>(agit-git-revert)
 
-  "nmap <buffer> rs <Plug>(agit-git-reset-soft)
-  "nmap <buffer> rS <Plug>(agit-git-reset)
-  "nmap <buffer> rH <Plug>(agit-git-reset-hard)
+  " reset to the commit under cursor
+  nmap <buffer> rs <Plug>(agit-git-reset-soft)
+  nmap <buffer> rH <Plug>(agit-git-reset-hard)
+  " reset --mixed
+  nmap <buffer> rm <Plug>(agit-git-reset)
 
+  " rebase HEAD to the commit under cursor in the keymaps
   nmap <buffer> R <Plug>(agit-git-rebase)
-  xmap <buffer> R <Plug>(agit-git-rebase)
   "nmap <buffer> R <Plug>(agit-git-rebase-i)
 
   "nmap <buffer> rs <Plug>(agit-git-bisect-start)
@@ -81,10 +97,16 @@ function! s:agit_keymaps() abort "{{{1
 
   "nmap <buffer> <c-w>C <Plug>(agit-exit)
 
+  " Scroll {{{2
   nnoremap <buffer> d <c-d>
   nnoremap <buffer> u <c-u>
   nnoremap <buffer> D <c-f>
   nnoremap <buffer> U <c-b>
+
+  xnoremap <buffer> d <c-d>
+  xnoremap <buffer> u <c-u>
+  xnoremap <buffer> D <c-f>
+  xnoremap <buffer> U <c-b>
 
   " Remote Scroll {{{2
   " <Plug>(agit-scrolldown/up-foo) scroll from another window in remote
