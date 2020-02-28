@@ -186,9 +186,22 @@ on_ft = ['sql']
 #[ Android ]
 [[plugins]]
 repo = 'hsanson/vim-android'
-on_ft = ['java', 'kotlin', 'xml']
+# especially for gradle
+on_ft = [
+  'groovy',
+  'java',
+  'kotlin',
+  'xml'
+]
 
-[[plugins]]
-repo = 'AndroidMarv/android-dev.vim'
-on_ft = ['java', 'kotlin', 'xml']
+#[[plugins]]
+#repo = 'AndroidMarv/android-dev.vim'
+## unimplemented yet and the development stopped
+#on_ft = ['java', 'kotlin', 'xml']
+
+#[ iOS ]
+#[[plugins]]
+#repo = 'keith/swift.vim'
+## vim-polyglot has also a syntax for swift
+#on_ft = ['swift']
 
