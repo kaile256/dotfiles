@@ -27,6 +27,19 @@ hook_add = 'runtime add/suda.vim'
 
 #[ Async Processor ]
 [[plugins]]
+repo = 'thinca/vim-quickrun'
+on_cmd = 'QuickRun'
+on_map = '<Plug>(quickrun'
+hook_add = 'runtime add/quickrun.vim'
+hook_source = 'runtime source/quickrun.vim'
+[[plugins]]
+repo = 'heavenshell/vim-quickrun-hook-unittest'
+# Note: g:quickrun_config is loaded on each :QuickRun
+if = "index(['php', 'python', 'ruby', 'go', 'javascript'], &ft) >= 0"
+on_cmd = 'QuickRun'
+on_map = '<Plug>(quickrun'
+hook_source = 'runtime source/quickrun-unittest.vim'
+[[plugins]]
 repo = 'skywind3000/asyncrun.vim'
 # Only supports external shell to qf.
 on_cmd = 'AsyncRun'
