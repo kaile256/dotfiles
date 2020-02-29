@@ -1,9 +1,15 @@
+snippet source &ft.vim
+alias so sou ft
+options head
+  source `expand('%:t:r')`.vim
+
 snippet TARGET
 alias ta tg tar ${ $0 0 ${0
   \${0:TARGET}
 
 snippet snippet
 alias sni ini snip
+options head
   snippet ${1:#:title}
   alias ${3:#:space separated}
   `repeat(' ', &tabstop)`${0:TARGET}
