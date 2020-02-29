@@ -1,3 +1,4 @@
+scriptencoding utf-8
 " From: motion.toml
 " Repo: haya14busa/vim-asterisk
 " Fork: kaile256/vim-asterisk
