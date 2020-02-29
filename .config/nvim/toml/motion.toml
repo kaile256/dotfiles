@@ -28,8 +28,8 @@ on_event = ['OptionSet']
 hook_add = 'runtime add/matchup.vim'
 hook_post_source = 'runtime post/matchup.vim'
 [[plugins]]
+repo = 'haya14busa/vim-asterisk'
 repo = 'kaile256/vim-asterisk'
-#repo = 'haya14busa/vim-asterisk'
 # Keep the cursor on `*` or `#`, even on visual mode.
 # Note: autload-function always fails on vertical x/s.
 on_map = {nx = '<Plug>(asterisk-'}
@@ -109,7 +109,10 @@ hook_add = 'runtime add/easy-align.vim'
 #[ Operater; Simultaneous ]
 [[plugins]]
 repo = 'machakann/vim-sandwich'
-on_map = {nox = '<Plug>(operator-sandwich-'}
+on_map = {nox = [
+  '<Plug>(operator-sandwich-',
+  '<Plug>(textobj-sandwich-query-',
+]}
 hook_add = 'runtime add/sandwich.vim'
 hook_source = 'runtime source/sandwich.vim'
 #hook_done_update = '''
