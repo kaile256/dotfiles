@@ -130,7 +130,7 @@ hook_source = 'runtime source/sandwich.vim'
 #hook_post_source = 'runtime add/express.vim'
 
 #[ Easy Motion ]
-#[[plugins]] # has extentions
+#[[plugins]]
 #repo = 'kaile256/vim-easymotion'
 ##repo = 'easymotion/vim-easymotion'
 #on_map = {nox = '<Plug>(easymotion-'}
@@ -143,7 +143,6 @@ hook_source = 'runtime source/sandwich.vim'
 #write
 #'''
 
-#[ Easy Motion; Extensions ]
 #[[plugins]]
 #repo = 'haya14busa/vim-easyoperator-phrase'
 #on_map = '<plug>(easyoperator-'
