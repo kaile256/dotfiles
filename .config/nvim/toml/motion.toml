@@ -130,12 +130,12 @@ hook_source = 'runtime source/sandwich.vim'
 #hook_post_source = 'runtime add/express.vim'
 
 #[ Easy Motion ]
-#[[plugins]]
-#repo = 'kaile256/vim-easymotion'
-##repo = 'easymotion/vim-easymotion'
-#on_map = {nox = '<Plug>(easymotion-'}
-#hook_add = 'runtime add/easymotion.vim'
-#hook_post_source = 'runtime post/easymotion.vim'
+[[plugins]]
+repo = 'easymotion/vim-easymotion'
+on_map = {nox = '<Plug>(easymotion-'}
+hook_add = 'runtime add/easymotion.vim'
+hook_source = 'runtime source/easymotion.vim'
+hook_post_source = 'runtime post/easymotion.vim'
 #hook_done_update = '''
 #"exe 'e' g:dein_github_dir .'/easymotion/vim-easymotion/autoload/EasyMotion.vim
 #exe 'e' g:dein_github_dir .'/kaile256/vim-easymotion/autoload/EasyMotion.vim
