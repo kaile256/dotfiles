@@ -184,7 +184,7 @@ set virtualedit=block
 
 " Method; Commandline Mode {{{2
 set noshowcmd
-set history=100 " default: 10000
+set history=100 " default: 10000, history of ':' commands
 " Cmdline; Completion
 set wildmenu wildmode=list:longest
 "set wildmenu wildmode=longest:full
@@ -255,11 +255,14 @@ augroup END
 " Method; Shada {{{2
 if has('nvim')
   " see doc by `:h 'shada'`; single-quote is required for options
-  " -': jumplist and changelist
-  " -<: max number of lines for register
-  " -h: disable 'hlsearch' after loading the shada
-  " -s:
-  set shada='200,<50,h,s10,
+  "   ': jumplist and changelist
+  "   <: max number of lines for register
+  "   h: disable 'hlsearch' after loading the shada
+  "   s:
+  " Default:
+  "   Win32:  !,'100,<50,s10,h,rA:,rB:
+  "   others: !,'100,<50,s10,h
+  set shada='500,<50,h,s10,
 
   augroup myAutoWriteShada
     " Note: shada only saves the data on VimLeave so that
