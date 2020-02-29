@@ -8,14 +8,15 @@ command! -nargs=* -range=0 -complete=customlist,quickrun#complete
       \ :call quickrun#command(<q-args>, <count>, <line1>, <line2>)
 
 " Mnemonic: pseudo Source
-nmap \s <Plug>(quickrun-op)
-noremap <silent> <SID>(quickrun-holding-ft)
+nmap \r <Plug>(quickrun-op)
+nnoremap <silent> <SID>(quickrun-holding-ft)
+      \ :<c-u>call <SID>quickrun_holding_ft()<cr>
+xnoremap <silent> <SID>(quickrun-holding-ft)
       \ :<c-u>call <SID>quickrun_holding_ft()<cr>
 
-nnoremap <script> \ss <SID>(quickrun-holding-ft)
-nnoremap <script> \S  <SID>(quickrun-holding-ft)
-xnoremap <script> \s  <SID>(quickrun-holding-ft)
-xnoremap <script> \S  <SID>(quickrun-holding-ft)
+nnoremap <script> \rr <SID>(quickrun-holding-ft)
+nnoremap <script> \R  <SID>(quickrun-holding-ft)
+xnoremap <script> \r  <SID>(quickrun-holding-ft)
 
 function! s:quickrun_holding_ft() abort
   let bufnr = bufnr('%')
