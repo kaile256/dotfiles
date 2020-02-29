@@ -2,6 +2,7 @@
 
 [[plugins]]
 repo = 'puremourning/vimspector'
+# Web: https://puremourning.github.io/vimspector-web/
 # Support:
 #   python2/3, TCL, Bash
 #   Any languages supported by gdb or lldb like C, C++
