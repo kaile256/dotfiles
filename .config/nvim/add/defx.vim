@@ -190,7 +190,7 @@ nnoremap <silent> <a-x><a-f> :<c-u>call <SID>defx({
 "
 " Open Memo Directory {{{1
 nnoremap <silent> <SID>(defx-memo)
-      \ :<c-u>Defx `expand($MYMEMO .'/sync')`
+      \ :<c-u>Defx `expand($MYMEMO .'/sync/memo')`
       \ -direction=topleft
       \ -winwidth=`expand(g:defx_sidebar_width)`
       \ -split=vertical
