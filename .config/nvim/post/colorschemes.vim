@@ -71,12 +71,13 @@ function! s:my_neodark() abort "{{{1
   " NormalFloat: color for winblend, or floating windows
   hi NormalFloat ctermfg=236 ctermbg=180 guibg=#3a192c guifg=#9f994a
 
+  call s:gruvbox_diff()
+
   " Note: reverse keeps text color;
   "       ':hi **bg=foo' will white out text's characters.
   " Note: :hi should be done after :syntax.
   " line-wise
   " the line of which only the one has.
-  call s:gruvbox_diff()
   "hi DiffAdd     cterm=reverse gui=reverse ctermfg=142 guifg=#b8bb26
   "" the line of which only the other has.
   "hi DiffRemove  cterm=reverse gui=reverse ctermfg=167 guifg=#fb4934
