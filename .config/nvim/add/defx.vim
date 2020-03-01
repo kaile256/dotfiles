@@ -188,3 +188,14 @@ nnoremap <silent> <a-x><a-f> :<c-u>call <SID>defx({
 "      \ -new
 "      \ <cr>
 "
+" Open Memo Directory {{{1
+nnoremap <silent> <SID>(defx-memo)
+      \ :<c-u>Defx `expand($MYMEMO .'/sync')`
+      \ -direction=topleft
+      \ -winwidth=`expand(g:defx_sidebar_width)`
+      \ -split=vertical
+      \ -new
+      \ <cr>
+nnoremap <silent><script> <a-x>m     <SID>(defx-memo)
+nnoremap <silent><script> <a-x><a-m> <SID>(defx-memo)
+
