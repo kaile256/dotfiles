@@ -123,3 +123,14 @@ hook_add = 'runtime add/SandJoin.vim'
 repo = 'kaile256/vim-option-check'
 on_cmd = ['VimOptCheck']
 hook_add = 'runtime add/option-check.vim'
+
+#[ Memo ]
+[[plugins]]
+repo = 'kaile256/vim-private-note'
+on_cmd = ['Note']
+
+#[ Snippet ]
+[[plugins]]
+repo = 'kaile256/vim-snip-functions'
+on_source = ['neosnippet.vim']
+on_func = ['snip#vim#']
