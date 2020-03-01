@@ -38,6 +38,14 @@ on_cmd =  ['Magit']
 #type     = 'git'
 #on_event = 'BufRead'
 #hook_source = 'runtime source/git-p.vim'
+[[plugins]]
+repo = 'zivyangll/git-blame.vim'
+on_cmd = ['GitBlame']
+on_func = ['gitblame#echo']
+hook_add = '''
+exe 'source' g:dein_github_dir .'/zivyangll/git-blame.vim/plugin/gitblame.vim'
+'''
+
 #[ Log ]
 [[plugins]]
 repo = 'cohama/agit.vim'
@@ -55,6 +63,20 @@ hook_add = 'runtime add/agit.vim'
 #repo = 'lambdalisue/gina.vim'
 #on_event = ['BufWritePost']
 #hook_post_source = 'runtime add/gina.vim'
+
+#[ Rebase ]
+[[plugins]]
+repo = 'hotwatermorning/auto-git-diff'
+on_ft = ['gitrebase', 'git-rebase-todo']
+on_map = {nx = '<Plug>(auto-git-diff-'}
+#[[plugins]]
+#repo = 'salcode/vim-interactive-rebase-reverse'
+## reverse commit order from top-to-bottom to bottom-to-top
+#on_ft = ['gitrebase']
+[[plugins]]
+repo = 'piersy/vim-rebase-view'
+on_func = ['rebase_view#']
+
 #[ Stash ]
 #[[plugins]]
 #repo = 'tweekmonster/gitbusy.vim'
