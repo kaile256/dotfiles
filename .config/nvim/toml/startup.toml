@@ -4,8 +4,8 @@
 [[plugins]]
 repo = 'Shougo/dein.vim'
 
-[[plugins]]
-repo = 'Shougo/vimproc.vim'
-# run vim-plugins asynchronously, like openbrowser, quickrun.
-build = 'make'
+#[[plugins]]
+#repo = 'Shougo/vimproc.vim'
+## run vim-plugins asynchronously, like openbrowser, quickrun.
+#build = 'make'
 
