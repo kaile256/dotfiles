@@ -58,7 +58,7 @@ augroup myFoldAdjustment "{{{1
 
   au FileType yaml if expand('%:p') =~# 'qutebrowser' | setl fdl=3 | endif
 
-  au BufRead * if line('w$') != line('$') | setl fdl=0 | endif
+  au BufRead * if line('w$') < line('$') | setl fdl=0 | endif
   au BufRead * norm! zv
   au BufWinEnter,InsertLeave,TextChanged *
         \ if &bt ==# '' && &fdm ==# ('manual' || 'syntax')
