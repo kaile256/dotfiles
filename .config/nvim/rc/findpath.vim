@@ -20,8 +20,10 @@ augroup UpdatePathToFind
   au FileType dosini setl suffixesadd=.conf
   au FileType vim    setl isfname-==
 
-  au BufNewFile,BufRead {*vim,dein}**/*        call s:path.vim()
   au BufNewFile,BufRead {.config,dotfiles}**/* call s:path.dotfiles()
+
+  "au BufNewFile,BufRead {*vim,dein}**/* setl suffixesadd=.toml
+  au BufNewFile,BufRead {*vim,dein}**/* call s:path.vim()
 
   au BufNewFile,BufRead $MYMEMO**/*   call s:path.memo()
   au BufNewFile,BufRead $GHQ_ROOT**/* call s:path.ghq()
