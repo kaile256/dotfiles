@@ -12,8 +12,8 @@ augroup END
 " merge snippets to my fork of neosnippet-snippets/neosnippets
 let g:neosnippet#snippets_directory = [
       \ g:dein_github_dir .'/Shougo/neosnippet-snippets/neosnippets',
-      \ g:nvim_data_home .'/neosnippet',
       \ ]
+      "\ g:nvim_data_home .'/neosnippet',
 
 "let g:neosnippet#disable_runtime_snippets = 1
 

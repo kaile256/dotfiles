@@ -1,4 +1,4 @@
-# Sample: /home/kaile256/.cache/dein/repos/github.com/honza/vim-snippets/snippets/vim.snippets
+# Sample: Shougo/neosnippet-snippets/neosnippets/vim.snip
 
 snippet guifg
 alias fg gui
@@ -51,8 +51,8 @@ snippet header
 alias head hea
 options head
   " ============================================================================
-  " Repo: kaile256/`neosnippet#name#repo()`
-  " File: `neosnippet#name#file()`
+  " Repo: kaile256/`snip#vim#name_of_repo()`
+  " File: `snip#vim#path_root_to_file()`
   " Author: kaile256
   " License: MIT license {{{
   "     Permission is hereby granted, free of charge, to any person obtaining
@@ -80,7 +80,7 @@ options head
 
 snippet loaded
 alias load loa
-  if exists('g:loaded_${1:`neosnippet#name#plugin_underscored()`}') | finish | endif "{{{1
+  if exists('g:loaded_${1:`snip#vim#name_of_plugin_underscored()`}') | finish | endif "{{{1
   let g:loaded_$1 = 1
 
   " save 'cpoptions'
@@ -89,6 +89,12 @@ alias load loa
   "}}}1
 
   ${0:TARGET}
+
+snippet no_default_mappings
+alias no nm nom nod no_
+  if !get('`snip#vim#name_of_plugin_underscored()`#no_default_mappings')
+    ${0:TARGET}
+  endif
 
 snippet cpoptions
 alias cpo pop save
@@ -121,8 +127,8 @@ alias tab noet noe
 snippet init
 alias ini
   " ============================================================================
-  " Repo: kaile256/`neosnippet#name#repo()`
-  " File: `neosnippet#name#file()`
+  " Repo: kaile256/`snip#vim#name_of_repo()`
+  " File: `snip#vim#path_root_to_file()`
   " Author: kaile256
   " License: MIT license {{{
   "     Permission is hereby granted, free of charge, to any person obtaining
@@ -146,7 +152,7 @@ alias ini
   " }}}
   " ============================================================================
 
-  if exists('g:loaded_${1:`neosnippet#name#plugin()`}') | finish | endif
+  if exists('g:loaded_${1:`snip#vim#name_of_plugin()`}') | finish | endif
   let g:loaded_$1 = 1
 
   " save 'cpoptions' {{{
@@ -171,7 +177,7 @@ alias com cmd comm co
 
 snippet augroup
 alias au aug augr
-  augroup ${1:my}${2:`neosnippet#name#file()`}
+  augroup ${1:my}${2:`snip#vim#path_root_to_file()`}
   au!
   au ${3:BufNewFile,BufRead} ${4:*} ${5}
   augroup END

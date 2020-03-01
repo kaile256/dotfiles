@@ -11,12 +11,12 @@ alias vp vpl vim plug plu pl vi
   ### For dein.vim
 
   \`\`\`vim
-  call dein#add('kaile256/`neosnippet#name#repo()`')
+  call dein#add('kaile256/`snip#vim#name_of_repo()`')
   \`\`\`
 
   \`\`\`toml
   [[plugin]]
-  repo = 'kaile256/`neosnippet#name#repo()`'
+  repo = 'kaile256/`snip#vim#name_of_repo()`'
   \`\`\`
 
   ## Usage
@@ -34,3 +34,9 @@ options head
   ---
 
   ${3:TARGET}
+
+snippet fenced expr
+alias ```
+  \`\`\`${1:vim}${2:#::fname}
+  ${0:TARGET}
+  \`\`\`

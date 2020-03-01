@@ -1,0 +1,20 @@
+snippet func
+alias f fu fn fun
+  func ${1:main}() {
+    ${0:#:contents}
+  }
+
+snippet Println
+alias fmt fm Pr P Pri Pl
+  fmt.Println(${1:#:var})
+
+snippet {}
+alias {
+  {
+  ${0:TARGET}
+  }
+
+snippet } else {
+alias el els
+  } else${1: if }${2:#:cond } {
+  ${0:TARGET}
