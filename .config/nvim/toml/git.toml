@@ -38,13 +38,19 @@ on_cmd =  ['Magit']
 #type     = 'git'
 #on_event = 'BufRead'
 #hook_source = 'runtime source/git-p.vim'
-[[plugins]]
-repo = 'zivyangll/git-blame.vim'
-on_cmd = ['GitBlame']
-on_func = ['gitblame#echo']
-hook_add = '''
-exe 'source' g:dein_github_dir .'/zivyangll/git-blame.vim/plugin/gitblame.vim'
-'''
+#[[plugins]]
+#repo = 'zivyangll/git-blame.vim'
+## Ref: zivyangll/git-blame.vim/issues/18
+##  causes an error on 'cd' with vimproc
+#on_cmd = ['GitBlame']
+#on_func = ['gitblame#echo']
+#hook_add = '''
+#exe 'source' g:dein_github_dir .'/zivyangll/git-blame.vim/plugin/gitblame.vim'
+#'''
+
+#[[plugins]]
+#repo = 'RobertAudi/git-blame.vim'
+#on_func = ['gitblame#blame']
 
 #[ Log ]
 [[plugins]]
