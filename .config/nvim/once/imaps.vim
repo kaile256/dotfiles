@@ -1,4 +1,28 @@
+scriptencoding utf-8
 " From: init.vim
+
+" too slow
+"inoremap <silent> <Plug>(adjust-newline) <esc>:<c-u>call <SID>adjust_newline()<cr>
+"
+"function! s:adjust_newline() abort
+"  let max_col = -1
+"
+"  if getbufvar(bufnr('%'), '&colorcolumn') > 0
+"    let max_col = &colorcolumn - 1
+"  elseif getbufvar(bufnr('%'), '&textwidth') > 0
+"    let max_col = &textwidth
+"  endif
+"
+"  if max_col >= 0 && col('.') + 1 > max_col
+"    exe "norm! Bi\<CR>"
+"  endif
+"
+"  exe "norm! a\<CR>"
+"  startinsert
+"endfunction
+"
+"imap <c-j> <Plug>(adjust-newline)
+"imap <c-m> <Plug>(adjust-newline)
 
 " as default, <F1> do `:help`
 inoremap <F1> <Nop>
