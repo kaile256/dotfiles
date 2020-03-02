@@ -2,6 +2,8 @@
 " Repo: cohama/agit.vim
 
 let g:agit_no_default_mappings = 1
+" auto refresh on BufEnter
+let g:agit_enable_auto_refresh = 1
 
 command! -bar GlogGlobal :Agit
 command! -bar Gl         :Agit
