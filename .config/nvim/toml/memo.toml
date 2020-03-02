@@ -26,11 +26,12 @@ hook_source = 'runtime source/table-mode.vim'
 #[ Vimwiki ]
 #[[plugins]]
 #repo = 'vimwiki/vimwiki'
+## causes an error of too recursive syntax in fenced block of markdown
 #rev = 'dev'
-##rev = 'v2.4.1'  # the repo is dirty to activate.
-#on_event = 'VimEnter'
-#hook_add = 'runtime add/vimwiki.vim'
-#hook_source = 'runtime source/vimwiki.vim'
+#on_ft = ['vimwiki', 'markdown']
+##on_event = 'VimEnter'
+##hook_add = 'runtime add/vimwiki.vim'
+##hook_source = 'runtime source/vimwiki.vim'
 
 #[[plugins]]
 #repo = 'tbabej/taskwiki'
@@ -50,7 +51,8 @@ hook_source = 'runtime source/table-mode.vim'
 repo = 'blindFS/vim-taskwarrior'
 # enables grid-view on taskwiki.
 if = "executable('task')"
-on_cmd = ['TaskWikiGrid', 'TW']
+on_cmd = ['TW']
+on_map = {nx = '<Plug>(taskwarrior_'}
 hook_post_source = 'runtime source/taskwarrior.vim'
 
 #[ Org Mode ]
