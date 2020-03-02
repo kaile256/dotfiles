@@ -52,9 +52,9 @@ hook_source = 'runtime source/FastFold.vim'
 #]
 #hook_source = 'runtime source/ini-fold.vim'
 #
-#[[plugins]]
-#repo = 'pedrohdz/vim-yaml-folds'
-#on_ft = ['yaml', 'raml', 'sls', 'eyaml']
+[[plugins]]
+repo = 'pedrohdz/vim-yaml-folds'
+on_ft = ['yaml', 'raml', 'sls', 'eyaml']
 #[[plugins]]
 #repo = 'tmhedberg/SimpylFold'
 ## no fold on trailing blanklines
