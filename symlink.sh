@@ -34,6 +34,7 @@ HOMEs=(
   .taskrc
   .tigrc
   .vimrc
+  .vimspector.json
   .zshenv
   bin
 )
