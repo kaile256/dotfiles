@@ -9,6 +9,10 @@ hook_add = 'runtime add/denite.vim'
 hook_post_source = 'runtime post/denite.vim'
 
 [[plugins]]
+repo = 'Shougo/unite.vim'
+on_cmd = ['Unite']
+
+[[plugins]]
 repo = 'neoclide/coc-denite'
 on_source = 'denite.nvim'
 
