@@ -21,17 +21,22 @@ build = '''
 #   RuntimeError: Failed to install gadgets: vscode-node-debug2
 #
 # --force-enable-csharp installs vscode-mono-debug
-./install_gadget.py --force-all
+
+#./install_gadget.py \
 #--force-enable-chrome \
 #--force-enable-csharp \
 #--force-enable-php \
 #--force-enable-java \
 #--all
+
+./install_gadget.py --force-all
+
 '''
 on_func =  ['vimspector#']
 # Configuration:
 #   default adapters are configured in .gadgets.json
-#   for project local use, create a .vimspector.json
+#   .gadgets.json only contains 'adapters' without 'configurations'
+#   so that create a .vimspector.json to use vimspector at all.
 hook_add = 'runtime add/vimspector.vim'
 hook_post_source = 'runtime post/vimspector.vim'
 
