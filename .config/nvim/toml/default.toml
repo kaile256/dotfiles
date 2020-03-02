@@ -83,10 +83,12 @@ hook_add = 'runtime add/linediff.vim'
 #on_map = '<Plug>nextval'
 #hook_add = 'runtime add/nextval.vim'
 #[ Help ]
-#[[plugins]]
-#repo = 'thinca/vim-ref'
-#on_event = 'BufRead'
-#hook_add = 'runtime rc/ref.vim'
+[[plugins]]
+repo = 'thinca/vim-ref'
+on_cmd = ['Ref']
+on_func = ['ref#']
+on_map = {nx = '<Plug>(ref-'}
+hook_source = 'runtime source/ref.vim'
 #[ Window ]
 #[[plugins]]
 #repo = 'camspiers/lens.vim'
