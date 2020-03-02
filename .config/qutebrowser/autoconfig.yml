@@ -66,6 +66,7 @@ settings:
       vmap: bind -m caret
       vunmap: unbind -m caret
       w: save
+      wl: https://ejje.weblio.jp/content/{}?erl=true
       wq: quit --save
       wqa: quit --save
       xmap: bind -m caret
@@ -478,6 +479,7 @@ settings:
       rq: https://www.reddit.com/r/qutebrowser/search/?q={}
       rqb: https://www.reddit.com/r/qutebrowser/search/?q={}
       ru: https://github.com/search?o=desc&q={}&s=updated&type=Repositories
+      sf: https://stackoverflow.com/search?q={}
       so: https://stackoverflow.com/search?q={}
       th: https://www.freethesaurus.com/{}
       tw: http://twitter.com/search/{}
