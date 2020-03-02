@@ -2,6 +2,8 @@
 
 [[plugins]]
 repo = 'puremourning/vimspector'
+# Note: Debug adapter can be installed in vscode.
+#
 # Document: https://puremourning.github.io/vimspector/
 # Support:
 #   python2/3, TCL, Bash
