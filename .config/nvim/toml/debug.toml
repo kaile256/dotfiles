@@ -13,14 +13,25 @@ repo = 'puremourning/vimspector'
 #   Node.js (nodes should be less than 12)
 #   Anything running in chrome like javascript
 build = '''
+# --force-all contains an error; actually, --force-enable-node has a bug:
+#   Traceback (most recent call last):
+#     File "/home/kaile256/.cache/dein/repos/github.com/puremourning/vimspector/inst
+#   all_gadget.py", line 661, in <module>
+#       raise RuntimeError( 'Failed to install gadgets: {}'.format(
+#   RuntimeError: Failed to install gadgets: vscode-node-debug2
+#
+# --force-enable-csharp installs vscode-mono-debug
 ./install_gadget.py --force-all
-./install_gadget.py --force-enable-node
-./install_gadget.py --force-enable-chrome
-./install_gadget.py --force-enable-csharp
-./install_gadget.py --force-enable-php
-./install_gadget.py --enable-go
+#--force-enable-chrome \
+#--force-enable-csharp \
+#--force-enable-php \
+#--force-enable-java \
+#--all
 '''
 on_func =  ['vimspector#']
+# Configuration:
+#   default adapters are configured in .gadgets.json
+#   for project local use, create a .vimspector.json
 hook_add = 'runtime add/vimspector.vim'
 hook_post_source = 'runtime post/vimspector.vim'
 
