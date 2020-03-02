@@ -4,9 +4,6 @@ scriptencoding utf-8
 " as default, <F1> do `:help`
 inoremap <F1> <Nop>
 
-inoreabbr donw down
-inoreabbr markdonw markdown
-
 " <c-o>
 " Tips: <c-\><c-o> keeps cursor position
 " TODO: keep the cursor after <c-o>, especially <c-o>yiw
