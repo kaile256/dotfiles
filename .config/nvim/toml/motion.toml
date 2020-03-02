@@ -12,6 +12,9 @@ repo = 'bkad/CamelCaseMotion'
 on_map = {nxo = '<Plug>CamelCaseMotion_'}
 #on_event = 'BufRead'
 hook_add = 'runtime add/CamelCaseMotion.vim'
+#hook_post_source = '''
+#call add(g:camelcasemotion#forward_to_end_list, "%(\a|\d)+\ze#")
+#'''
 [[plugins]]
 repo = 'arthurxavierx/vim-caser'
 on_map = {nx = '<Plug>Caser'}
@@ -184,6 +187,7 @@ repo = 'unblevable/quick-scope'
 # show a spot light on less frequently used characters.
 on_event = ['Syntax']
 hook_source = 'runtime source/quick-scope.vim'
+hook_post_source = 'runtime post/quick-scope.vim'
 #[[plugins]]
 #repo = 'tbo/notion'
 ## Note: written in typescript & javascript
