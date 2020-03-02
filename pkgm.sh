@@ -13,6 +13,9 @@ set -Cue #{{{
 
 # All themes set in `lxappearance`
 PACKAGEs=(
+  #intellij-idea-ultimate-edition-jre
+  eclipse-java # an IDE for java
+  php-pear # PHP Extension and Application Repository; it includes `pecl`
   #libreoffice-fresh-ja # returns 404
   #libreoffice-still-ja # returns 404
   gdb # a debugger
@@ -198,12 +201,13 @@ GEMs=(
 )
 
 YARNs=(
+  nvm # a version manager of Node.js
   #graphql-language-server # no longer supported
   #tslib
   bash-language-server
   diagnostic-languageserver
   dockerfile-language-server-nodejs
-  go-language-server
+  #go-language-server # no longer maintained; use gopls instead
   mermaid # generetes diagram, flowchart and ganttchart in markdown
   neovim
   parcel-bundler # a web-app bundler w/o config
@@ -230,6 +234,11 @@ DASHTs=(
   python
   rust
 )
+
+# config: /etc/php/php.ini
+PECLs=(
+  xdebug # required by vdebug, a vim's debugger
+  )
 
 GHQs=(
   sachaos/toggl
@@ -326,6 +335,11 @@ done
 
 for p in "${GHQs[@]}"; do
   ghq get "$p"
+done
+
+sudo pecl channel-update pecl.php.net
+for p in "${PECLs[@]}"; do
+  sudo pecl install "$p"
 done
 
 # doom-emacs: one of emacsen's config files for vimmer.
