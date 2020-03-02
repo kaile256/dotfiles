@@ -1,6 +1,6 @@
 # From: rc/dein.vim
 
-# Scratch
+#[ Scratch ]
 #[[plugins]]
 #repo = 'mtth/scratch.vim'
 ## Note: cannot :source in it
@@ -11,7 +11,7 @@
 repo = 'mattn/gist-vim'
 on_cmd =  ['Gist']
 hook_source = 'runtime source/gist.vim'
-# Table-Mode
+#[ Table-Mode ]
 [[plugins]]
 repo = 'dhruvasagar/vim-table-mode'
 on_ft = ['org', 'text', 'vimwiki', 'markdown']
@@ -23,7 +23,7 @@ hook_source = 'runtime source/table-mode.vim'
 #on_ft = ['vimwiki','org','markdown','tex','toml']
 #hook_post_source = 'runtime add/voom.vim'
 
-# Vimwiki
+#[ Vimwiki ]
 #[[plugins]]
 #repo = 'vimwiki/vimwiki'
 #rev = 'dev'
@@ -53,7 +53,7 @@ if = "executable('task')"
 on_cmd = ['TaskWikiGrid', 'TW']
 hook_post_source = 'runtime source/taskwarrior.vim'
 
-# Org Mode
+#[ Org Mode ]
 #[[plugins]]
 #repo = 'jceb/vim-orgmode'
 #on_ft = 'org'
