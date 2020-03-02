@@ -6,39 +6,52 @@
 "  au! FileChangedRO * colorscheme Monokai
 "augroup END
 
-" functions in highlight-group {{{1
-function! s:neodark_diff(...) abort "{{{2
-  hi DiffAdd    cterm=reverse gui=reverse ctermfg=108 ctermbg=237 guifg=#87af87 guibg=#3a3a3a
-  hi DiffRemove cterm=reverse gui=reverse ctermfg=167 guifg=#fb4934
-  hi DiffDelete cterm=reverse gui=reverse ctermfg=168 ctermbg=237 guifg=#d75f87 guibg=#3a3a3a
-  " the line which has difference between the one and the other.
-  hi DiffChange cterm=reverse gui=reverse ctermfg=179 ctermbg=237 guifg=#d7af5f guibg=#3a3a3a
-  " the differed characters within DiffChange
-  hi DiffText   cterm=reverse gui=reverse ctermfg=74  ctermbg=236 guifg=#5fafd7 guibg=#303030
+function! s:neodark_diff(...) abort "{{{1
+  if exists('s:syn_diff')
+    if s:syn_diff ==# 'neodark' | return | endif
+  endif
+  let s:syn_diff = 'neodark'
 
   " for fugitive
-  hi diffAdded   cterm=reverse gui=reverse ctermfg=108 guifg=#87af87
-  hi diffRemoved cterm=reverse gui=reverse ctermfg=168 guifg=#d75f87
+  hi diffAdded   ctermfg=108 guifg=#87af87
+  hi diffRemoved ctermfg=168 guifg=#d75f87
+
+  hi DiffAdd    cterm=bold gui=bold ctermfg=108 ctermbg=237 guifg=#87af87 guibg=#3a3a3a
+  hi DiffRemove cterm=bold gui=bold ctermfg=167 guifg=#fb4934
+  hi DiffDelete cterm=bold gui=bold ctermfg=168 ctermbg=237 guifg=#d75f87 guibg=#3a3a3a
+  " the line which has difference between the one and the other.
+  hi DiffChange cterm=bold gui=bold ctermfg=179 ctermbg=237 guifg=#d7af5f guibg=#3a3a3a
+  " the differed characters within DiffChange
+  hi DiffText   cterm=bold gui=bold ctermfg=74  ctermbg=236 guifg=#5fafd7 guibg=#303030
+
+  " for fugitive
+  hi diffAdded   cterm=bold gui=bold ctermfg=108 guifg=#87af87
+  hi diffRemoved cterm=bold gui=bold ctermfg=168 guifg=#d75f87
 endfunction
 
-function! s:gruvbox_diff(...) abort "{{{2
-  hi DiffAdd     cterm=reverse gui=reverse ctermfg=142 guifg=#b8bb26
+function! s:gruvbox_diff(...) abort "{{{1
+  if exists('s:syn_diff')
+    if s:syn_diff ==# 'gruvbox' | return | endif
+  endif
+  let s:syn_diff = 'gruvbox'
+
+  hi DiffAdd     cterm=bold gui=bold ctermfg=142 guifg=#b8bb26
   " the line of which only the other has.
-  hi DiffRemove  cterm=reverse gui=reverse ctermfg=167 guifg=#fb4934
+  hi DiffRemove  cterm=bold gui=bold ctermfg=167 guifg=#fb4934
   " the line which has difference between the one and the other.
-  hi DiffChange  cterm=reverse gui=reverse ctermfg=108 guifg=#8ec07c
+  hi DiffChange  cterm=bold gui=bold ctermfg=108 guifg=#8ec07c
   " the differed characters within DiffChange
-  hi DiffText    cterm=reverse gui=reverse ctermfg=208 guifg=#fe8019
+  hi DiffText    cterm=bold gui=bold ctermfg=208 guifg=#fe8019
 
   " for fugitive
-  hi diffAdded   cterm=reverse gui=reverse ctermfg=142 guifg=#b8bb26
-  hi diffRemoved cterm=reverse gui=reverse ctermfg=167 guifg=#fb4934
-  hi diffChanged cterm=reverse gui=reverse ctermfg=108 guifg=#8ec07c
+  hi diffAdded   cterm=bold gui=bold ctermfg=142 guifg=#b8bb26
+  hi diffRemoved cterm=bold gui=bold ctermfg=167 guifg=#fb4934
+  hi diffChanged cterm=bold gui=bold ctermfg=108 guifg=#8ec07c
 
-  hi diffFile    cterm=reverse gui=reverse ctermfg=208 guifg=#fe8019
-  hi diffNewFile cterm=reverse gui=reverse ctermfg=214 guifg=#fabd2f
-  "hi diffLine    cterm=reverse gui=reverse ctermfg=109 guifg=#83a598
-  hi diffLine    cterm=reverse gui=reverse ctermfg=109 guifg=#36b383
+  hi diffFile    cterm=bold gui=bold ctermfg=208 guifg=#fe8019
+  hi diffNewFile cterm=bold gui=bold ctermfg=214 guifg=#fabd2f
+  "hi diffLine    cterm=bold gui=bold ctermfg=109 guifg=#83a598
+  hi diffLine    cterm=bold gui=bold ctermfg=109 guifg=#36b383
 endfunction
 
 function! s:my_commons() abort "{{{1
@@ -71,7 +84,7 @@ function! s:my_neodark() abort "{{{1
   " NormalFloat: color for winblend, or floating windows
   hi NormalFloat ctermfg=236 ctermbg=180 guibg=#3a192c guifg=#9f994a
 
-  call s:gruvbox_diff()
+  "call s:gruvbox_diff()
 
   " Note: reverse keeps text color;
   "       ':hi **bg=foo' will white out text's characters.
@@ -97,15 +110,24 @@ function! s:my_neodark() abort "{{{1
   "hi diffLine    cterm=reverse gui=reverse ctermfg=109 guifg=#36b383
 endfunction
 
-augroup myColorschemes "{{{1
+augroup myColorschemesAdjustment "{{{1
   au!
   au Colorscheme *       call s:my_commons()
   au Colorscheme neodark call s:my_neodark()
 augroup END
 
+" augroup myColorschemesAdjustHighlightDiff "{{{1
+"   au FileType git if &diff | call s:gruvbox_diff()
+"        \ | else | call s:neodark_diff() |
+"          \ endif
+"   au OptionSet diff if &ft =~# 'git' | call s:neodark_diff()
+"        \ | else | call s:gruvbox_diff() |
+"          \ endif
+" augroup END
+
 " :colorscheme up to os/gui {{{1
 try
-  if system('uname -o') =~? 'Android'
+  if !executable('xinput')
     "colorscheme molokai_dark
     colorscheme gruvbox
 
