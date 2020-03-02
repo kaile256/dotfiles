@@ -46,9 +46,8 @@ hook_source = 'runtime source/twiggy.vim'
 #[ Commit Log Viewer ]
 [[plugins]]
 repo = 'gregsexton/gitv'
-# Use agit instead
-type = 'git'
 on_cmd = ['Gitv']
+hook_add = 'runtime add/gitv.vim'
 hook_source = 'runtime source/gitv.vim'
 
 #[[plugins]]
