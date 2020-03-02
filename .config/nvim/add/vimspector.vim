@@ -35,5 +35,13 @@ let g:vimspector_enable_mappings = 'VISUAL_STUDIO'
 "command! -bar DebugStart :call vimspector#Continue()
 "command! -bar Dstart     :call vimspector#Continue()
 
-command! -bar DebugStart
-      \ :call vimspector#LaunchWithSettings({'configuration': &ft .'_file'})
+" set values name in configuration at .vimspector.json as you like
+command! -bar -nargs=? -bang DebugStart
+      \ if empty(<q-bang>) |
+      \ call vimspector#Launch()
+      \ | elseif empty(<q-args>) |
+      \ call vimspector#LaunchWithSettings({'configuration': &ft .'_file'})
+      \ | else |
+      \ call vimspector#LaunchWithSettings({'configuration': <q-args>})
+      \ endif
+
