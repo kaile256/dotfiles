@@ -6,7 +6,7 @@
 
 let s:path_dict = {
       \ '.': '.',
-      \ '<space>': ':<c-u>FindRoot',
+      \ '<space>': ':<c-u>silent FindRoot',
       \ 'c': g:dein_cache_dir,
       \ 'd': g:dotfiles_home,
       \ 'f': $XDG_CONFIG_HOME,
