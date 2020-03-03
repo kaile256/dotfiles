@@ -1,32 +1,19 @@
 " From: init.vim
 
 augroup myStartpage
-  " Note: '++nested' is necessary for syntax
-  function! s:startpage(page) abort
-    if line2byte('$') !=# -1 | return | endif
-
-    let s:match = {list -> index(list, a:page) >= 0}
-    "function! s:match(list) closure abort
-    "  return index(a:list, a:page) >= 0
-    "endfunction
-    if a:page ==# 'mdwiki'
-      e ~/vimwiki/mdwiki/index.md
-    elseif s:match(['task', 'taskwiki'])
-      e ~/vimwiki/tasks.wiki
-    elseif s:match(['wiki', 'vimwiki'])
-      VimwikiIndex
-    elseif a:page ==# 'diary'
-      e ~/vimwiki/diary/index.wiki
-    elseif s:match(['term', 'terminal', 'fish'])
-      call termopen('fish')
-      setl nonumber signcolumn=no
-    elseif isdirectory(a:page) || filereadable(a:page)
-      Defx a:page -a:page
-    else
-      Defx `expand('<amatch>')` -`expand('<amatch>')`
-    endif
-  endfunction
-  " FIXME: the arg is 'term' causes an echoerr:
-  "        'Can only call this function in an unmodified buffer'
-  au! VimEnter * ++nested silent! call s:startpage('terminal')
+  " FIXME: syntax/keymaps in defx
+  au! VimEnter * nested silent! call s:startpage('fish')
 augroup END
+
+function! s:startpage(page) abort
+  " Ref: mhinz/vim-startify/plugin/startify.vim @ s:on_vimenter()
+  if argc() || line2byte('$') != -1 | return | endif
+
+  if executable(a:page)
+    call termopen(a:page)
+    setl nonumber signcolumn=no
+    return
+  endif
+
+  e a:page
+endfunction
