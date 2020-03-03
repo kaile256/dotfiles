@@ -1,8 +1,5 @@
 " From: init.vim
 
-noremap! <c-x>h     ~/
-noremap! <c-x><c-h> ~/
-
 " makes <c-o>u work as if <c-u>
 "nnoremap o o<c-g>u
 "nnoremap O O<c-g>u
