@@ -58,7 +58,10 @@ cnoremap <a-f> <S-Right>
 cnoremap <c-f> <Right>
 cnoremap <c-b> <Left>
 cnoremap <a-b> <S-Left>
+
 cnoremap <c-d> <Del>
+" useless only to print <S-Del>
+"cnoremap <a-d> <S-Del>
 
 " Style; vi-like to open cmdwin {{{1
 "cnoremap <a-b> <c-f>B
