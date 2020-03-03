@@ -118,6 +118,14 @@ on_ft = ['yaml']
 #repo = 'exu/pgsql.vim'
 #on_event = ['BufRead']
 #
+#[ Network ]
+[[plugins]]
+repo = 'momota/cisco.vim'
+on_path = '\.cisco$'
+[[plugins]]
+repo = 'momota/junos.vim'
+on_path = '\.junos$'
+
 #[ for Config ]
 [[plugins]]
 repo = 'delphinus/vim-toml-dein'
