@@ -200,4 +200,3 @@ augroup END
 "unlet s:dein_data_dir
 "unlet s:dein_toml_lazy
 "unlet s:dein_toml_initial
-"
