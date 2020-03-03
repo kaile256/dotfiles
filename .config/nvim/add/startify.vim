@@ -1,4 +1,4 @@
-" From: Init.toml
+" From: default.toml
 
 let g:startify_lists = [
       \ { 'type': 'sessions',  'header': ['   Sessions']       },
