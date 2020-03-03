@@ -24,13 +24,23 @@ hook_source = 'runtime source/editorconfig.vim'
 #hook_add = 'runtime add/sleuth.vim'
 
 #[[plugins]]
-#repo = 'Shougo/context_filetype.vim'
-#on_ft = ['vimwiki','markdown','html','php','neosnippet','snippets']
-
-#[[plugins]]
 #repo = 'vim-syntastic/syntastic'
 #on_ft = ['toml']
 #hook_post_source = 'runtime add/syntastic.vim'
+
+[[plugins]]
+repo = 'Shougo/context_filetype.vim'
+# tell Vim it is another filetype other than &ft on the context
+on_source = ['ultisnips', 'neosnippet.vim']
+on_ft = [
+  'html',
+  'javascript',
+  'markdown',
+  'neosnippet',
+  'php',
+  'snippets',
+  'vimwiki',
+]
 
 #[ Rust ]
 [[plugins]]
