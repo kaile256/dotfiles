@@ -222,9 +222,9 @@ set formatoptions=jmB1cql " default: tcqj
 set mouse=a
 augroup myForceFormatOptions
   au!
-  "au OptionSet * if &fo =~# 'r\|o' | silent set fo-=r fo-=o | endif
-  au InsertCharPre * if &fo =~# 'r\|o' | silent set fo-=r fo-=o | endif
-  au InsertEnter * if &tw =~# ''     | set textwidth=0       | endif
+  au FileType * if &fo =~# 'r\|o' | silent set fo-=r fo-=o | endif
+  "au InsertCharPre * if &fo =~# 'r\|o' | silent set fo-=r fo-=o | endif
+  au InsertEnter * if &tw =~# '' | set textwidth=0 | endif
   "au FileType * if getline(1, '$') ==# [] | startinsert | endif
 augroup END
 "set foldclose " when cursor is out of fold, close automatically.
