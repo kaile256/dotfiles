@@ -12,21 +12,16 @@ function! s:neodark_diff(...) abort "{{{1
   endif
   let s:syn_diff = 'neodark'
 
-  " for fugitive
-  hi! diffAdded   ctermfg=108 guifg=#87af87
-  hi! diffRemoved ctermfg=168 guifg=#d75f87
-
-  hi! DiffAdd    cterm=bold gui=bold ctermfg=108 ctermbg=237 guifg=#87af87 guibg=#3a3a3a
+  " the removed lines
   hi! DiffRemove cterm=bold gui=bold ctermfg=167 guifg=#fb4934
-  hi! DiffDelete cterm=bold gui=bold ctermfg=168 ctermbg=237 guifg=#d75f87 guibg=#3a3a3a
-  " the line which has difference between the one and the other.
-  hi! DiffChange cterm=bold gui=bold ctermfg=179 ctermbg=237 guifg=#d7af5f guibg=#3a3a3a
-  " the differed characters within DiffChange
-  hi! DiffText   cterm=bold gui=bold ctermfg=74  ctermbg=236 guifg=#5fafd7 guibg=#303030
 
-  " for fugitive
-  hi! diffAdded   cterm=bold gui=bold ctermfg=108 guifg=#87af87
-  hi! diffRemoved cterm=bold gui=bold ctermfg=168 guifg=#d75f87
+  " the line which has any differences
+  hi! DiffChange cterm=bold gui=bold ctermfg=179 ctermbg=237 guifg=#d7af5f guibg=#3a3a3a
+
+  " character-wise within DiffChange
+  hi! DiffAdd    cterm=bold gui=bold ctermfg=108 ctermbg=237 guifg=#87af87 guibg=#3a3a3a
+  hi! DiffDelete cterm=bold gui=bold ctermfg=168 ctermbg=237 guifg=#d75f87 guibg=#3a3a3a
+  hi! DiffText   cterm=bold gui=bold ctermfg=74  ctermbg=236 guifg=#5fafd7 guibg=#303030
 endfunction
 
 function! s:gruvbox_diff(...) abort "{{{1
@@ -43,11 +38,7 @@ function! s:gruvbox_diff(...) abort "{{{1
   " the differed characters within DiffChange
   hi! DiffText    cterm=bold gui=bold ctermfg=208 guifg=#fe8019
 
-  " for fugitive
-  hi! diffAdded   cterm=bold gui=bold ctermfg=142 guifg=#b8bb26
-  hi! diffRemoved cterm=bold gui=bold ctermfg=167 guifg=#fb4934
-  hi! diffChanged cterm=bold gui=bold ctermfg=108 guifg=#8ec07c
-
+" for fugitive
   hi! diffFile    cterm=bold gui=bold ctermfg=208 guifg=#fe8019
   hi! diffNewFile cterm=bold gui=bold ctermfg=214 guifg=#fabd2f
   "hi diffLine    cterm=bold gui=bold ctermfg=109 guifg=#83a598
@@ -67,6 +58,11 @@ function! s:my_commons() abort "{{{1
   if $ALACRITTY_LOG =~# '\.log$'
     runtime rc/transparent.vim
   endif
+
+  " for fugitive
+  hi! link diffAdded   DiffAdd
+  hi! link diffRemoved DiffRemove
+  hi! link diffChanged DiffChange
 endfunction
 
 function! s:my_neodark() abort "{{{1
