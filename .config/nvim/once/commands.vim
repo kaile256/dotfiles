@@ -2,16 +2,6 @@
 " Ref: cmaps.vim
 " Ref: cabbrs.vim
 
-"augroup SwitchToWrittenBuffer
-"  au!
-"  " if BufWriteCmd was set, buffer could be unwritable from Vim.
-"  " FIXME:
-"  au BufWritePost *
-"       \ if fnamemodify(expand('<amatch>'), ':p') !=# expand('%:p') |
-"       \   exe 'e' fnamemodify(expand('<amatch>'), ':p')
-"       \ | endif
-"augroup END
-
 command! -bar SynEcho :return synIDattr(synID(line('.'), col('.'), 1), 'name')
 
 command! -bar CursorCharIs
@@ -141,3 +131,18 @@ endif
 command! -bar -nargs=* -complete=shellcmd
       \ Killall
       \ :silent !killall <args>
+
+augroup myAutoChdirOnWrite "{{{1
+  au! BufWritePre * silent! cd %:p:h
+augroup END
+
+"augroup mySwitchToWrittenBuffer "{{{1
+"  au!
+"  " if BufWriteCmd was set, buffer could be unwritable from Vim.
+"  " FIXME:
+"  au BufWritePost *
+"       \ if fnamemodify(expand('<amatch>'), ':p') !=# expand('%:p') |
+"       \   exe 'e' fnamemodify(expand('<amatch>'), ':p')
+"       \ | endif
+"augroup END
+

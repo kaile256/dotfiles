@@ -1,9 +1,5 @@
 " From: init.vim
 
-augroup myAutoChdir "{{{1
-  au! BufWritePre * silent! cd %:p:h
-augroup END
-
 augroup myAutoWinResize "{{{1
   au! VimResized * wincmd =
 augroup END
@@ -106,7 +102,7 @@ augroup myFindAlternate "{{{1
   "}}}2
 augroup END
 
-augroup WinfixBufLocal "{{{1
+augroup myWinfixBufLocal "{{{1
   au!
   au OptionSet wfw,wfh let b:fixwidth = &wfw | let b:fixheight = &wfh
   au BufWinLeave,BufWinEnter * call s:adjust_winfix()
