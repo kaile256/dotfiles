@@ -2,6 +2,18 @@
 " Ref: cmaps.vim
 " Ref: cabbrs.vim
 
+"augroup SwitchToWrittenBuffer
+"  au!
+"  " if BufWriteCmd was set, buffer could be unwritable from Vim.
+"  " FIXME:
+"  au BufWritePost *
+"       \ if fnamemodify(expand('<amatch>'), ':p') !=# expand('%:p') |
+"       \   exe 'e' fnamemodify(expand('<amatch>'), ':p')
+"       \ | endif
+"augroup END
+
+command! -bar SynEcho :return synIDattr(synID(line('.'), col('.'), 1), 'name')
+
 command! -bar CursorCharIs
       \ :echo "'". getline('.')[col('.') - 1] ."' is the character under cursor, as getline('.')[col('.') - 1]"
 
