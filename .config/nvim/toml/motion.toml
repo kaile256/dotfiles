@@ -118,7 +118,6 @@ on_map = {nox = [
 ]}
 hook_add = 'runtime add/sandwich.vim'
 hook_source = 'runtime source/sandwich.vim'
-hook_post_source = 'runtime post/sandwich.vim'
 #hook_done_update = '''
 #exe 'argadd' g:dein_github_dir .'/kaile256/vim-sandwich/autoload/textobj/sandwich/recipes.vim'
 #exe 'argadd' g:dein_github_dir .'/kaile256/vim-sandwich/autoload/sandwich.vim'
