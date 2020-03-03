@@ -1,29 +1,38 @@
 " From: init.vim
 
 let s:path_dict = {
-      \ 'v': g:nvim_home,
-      \ 'l': $XDG_DATA_HOME,
-      \ 'f': $XDG_CONFIG_HOME,
+      \ '': '%:p:h',
+      \ '.': '.',
       \ 'd': g:dotfiles_home,
+      \ 'f': $XDG_CONFIG_HOME,
+      \ 'h': '~',
+      \ 'l': $XDG_DATA_HOME,
+      \ 'm': $MYMEMO,
+      \ 'n': '%:p:h',
       \ 'q': $GHQ_ROOT,
       \ 'r': $VIMRUNTIME,
       \ 't': g:my_trash_root,
-      \ 'h': '~',
+      \ 'v': g:nvim_home,
       \ 'w': '%:p:h',
-      \ 'n': '%:p:h',
-      \ '.': '.',
-      \ '': '%:p:h',
-      \ 'm': $MYMEMO,
       \ }
 
 let s:splits = {
-      \ '<a-v>': 'vs',
-      \ '<a-t>': 'tabe',
-      \ '<a-s>': 'sp',
-      \ '<a-e>': 'e',
-      \ '<a-E>': 'only',
-      \ '<a-o>': 'only',
+      \ 'v': 'vs',
+      \ 't': 'tabe',
+      \ 's': 'sp',
+      \ 'e': 'e',
+      \ 'E': 'only',
+      \ 'o': 'only',
       \ }
+
+" let s:splits = {
+"      \ '<a-v>': 'vs',
+"      \ '<a-t>': 'tabe',
+"      \ '<a-s>': 'sp',
+"      \ '<a-e>': 'e',
+"      \ '<a-E>': 'only',
+"      \ '<a-o>': 'only',
+"      \ }
 
 function! s:maps(prefix, command, ...) abort
   " To: like :Fzf
@@ -57,4 +66,4 @@ endfunction
 if exists('s:loaded') | finish | endif
 let s:loaded = 1
 
-call s:maps('<space>t', 'te fish')
+call s:maps('<a-t>', 'te fish')
