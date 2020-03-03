@@ -165,7 +165,6 @@ settings:
         <Alt+Space>: emacs
         <Alt+[>: tab-prev
         <Alt+]>: tab-next
-        <Alt+e>: edit-url
         <Alt+f>: tab-next
         <Alt+h>: tab-prev
         <Alt+l>: tab-next
@@ -230,7 +229,6 @@ settings:
         <い>: enter-mode insert
         '>': tab-move +
         D: null
-        E: edit-url
         H: null
         I: hint inputs --first
         J: fake-key <alt-down>
@@ -259,6 +257,7 @@ settings:
         f: scroll-page 0 +1.0
         gA: open -t https://www.amazon.co.jp/ref=nav_logo
         gC: open -t https://calendar.google.com/calendar/r/month?pli=1
+        gE: edit-url
         gH: open -t qute://history/
         gM: open -t https://www.google.co.jp/maps/@34.8244519,135.4776576,15z
         gP: open -t https://app.getpocket.com/
