@@ -27,6 +27,7 @@ augroup RuntimesSelection
   au!
   au VimEnter    * ++once runtime once/omaps.vim
   au InsertEnter * ++once runtime once/imaps.vim
+  au InsertEnter,CmdLineEnter,CmdWinEnter * ++once runtime once/autocorrect.vim
   au CmdLineEnter,CmdWinEnter * ++once runtime once/cmaps.vim
   au CmdLineEnter,CmdWinEnter * ++once runtime once/cabbrs.vim
   au CmdLineEnter,CmdWinEnter * ++once runtime once/commands.vim
