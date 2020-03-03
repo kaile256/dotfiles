@@ -129,3 +129,6 @@ hook_source = 'runtime source/ref.vim'
 #[[plugins]]
 #repo = 'thaerkh/vim-workspace'
 #
+#[ Startpage ]
+#[[plugins]]
+#repo = 'mhinz/vim-startify'
