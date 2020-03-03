@@ -3,6 +3,7 @@
 " Another: syntax/markdown.vim
 
 setl spell spl=en_us,cjk
+setl fdl=1
 "setl nowrap conceallevel=2 concealcursor=nc
 setl tabstop=4 softtabstop=4 shiftwidth=4
 
@@ -11,13 +12,26 @@ setl tabstop=4 softtabstop=4 shiftwidth=4
 "   the `*` for list shall be replaced with `-` by prettier, the lint will say
 "   nothing after the replacement.
 "   Ref: markdownlint MD004 ul-style
-inoremap <expr><buffer> *
+
+"inoremap <expr><buffer> *
+"      \ (getline('.')[:col('.')] !~# '[^* \t]')
+"      \ ? '- [ ] '
+"      \ : '*'
+"
+"" FIXME: if matched, return true
+"inoremap <expr><buffer> #
+"      \ (getline('.') =~? '^\s*- \[\( \|x\)\]')
+"      \ && (getline('.')[col('.') - 4 : col('.')] !=# '()\[]')
+"      \ ? "[]()\<Left>"
+"      \ : '#'
+
+inoreabbr <expr><buffer> *
       \ (getline('.')[:col('.')] !~# '[^* \t]')
       \ ? '- [ ] '
       \ : '*'
 
 " FIXME: if matched, return true
-inoremap <expr><buffer> #
+inoreabbr <expr><buffer> #
       \ (getline('.') =~? '^\s*- \[\( \|x\)\]')
       \ && (getline('.')[col('.') - 4 : col('.')] !=# '()\[]')
       \ ? "[]()\<Left>"
