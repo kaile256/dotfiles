@@ -6,7 +6,7 @@
 augroup myNeoSnippetSource
   au!
   au FileType neosnippet setl fdm=indent
-  "au InsertLeave * NeoSnippetClearMarkers
+  au BufWritePre * NeoSnippetClearMarkers
 augroup END
 
 " merge snippets to my fork of neosnippet-snippets/neosnippets
@@ -19,4 +19,14 @@ let g:neosnippet#snippets_directory = [
 
 "let g:neosnippet#enable_snipmate_compatibility = 1
 
-"let g:neosnippet#enable_completed_snippet = 1
+" enable prototype functions
+let g:neosnippet#enable_completed_snippet = 1
+
+" TBC: On CompletDone, expand next snippet automatically.
+"   Addition to that, disable manual expansion.
+"let g:neosnippet#enable_complete_done = 1
+
+let g:neosnippet#scope_aliases = {
+      \ 'ruby': 'ruby,ruby-rails',
+      \ 'json': 'json,jsonc',
+      \ }
