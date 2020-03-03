@@ -6,6 +6,7 @@
 augroup myNeoSnippetSource
   au!
   au FileType neosnippet setl fdm=indent
+  au FileType neosnippet setl keywordprg=:help
   au BufWritePre * NeoSnippetClearMarkers
 augroup END
 
