@@ -17,7 +17,7 @@ let g:sneak#no_prompt = 1
 "let g:sneak#f_reset = 1
 "let g:sneak#t_reset = 1
 
-let g:sneak#label = 1
+"let g:sneak#label = 1
 " default for g:sneak#label_esc is "\<space>"
 "let g:sneak#label_esc = '.'
 let g:sneak#target_labels = 'abcedfghijklmnopqrstuvwxyz'
