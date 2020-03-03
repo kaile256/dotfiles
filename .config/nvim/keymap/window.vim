@@ -55,7 +55,11 @@ nnoremap <silent><expr> <c-w>g^       ':<c-u>tabe#'. v:count .'<cr>'
 nnoremap <silent><expr> <c-w>g^       ':<c-u>tabe#'. v:count .'<cr>'
 
 function! s:scratch(edit) abort "{{{2
-  let path = '/tmp/foo.'. expand('%:e')
+  let prefix = '/tmp/foo.'
+  let ext = expand('%:e')
+  if empty(ext) | let ext = 'md' | endif
+
+  let path = prefix . ext
   exe a:edit path
 endfunction
 
