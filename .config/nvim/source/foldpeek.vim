@@ -152,6 +152,7 @@ augroup myFoldPeekSource "{{{1
 
   au FileType help call s:peek_help()
   au FileType toml call s:peek_toml()
+  au FileType neosnippet call s:peek_neosnippet()
 augroup END
 
 function! s:peek_help() abort "{{{2
@@ -182,4 +183,12 @@ function! s:peek_toml() abort "{{{2
           \ 'name = ',
           \ ]
   endif
+endfunction
+
+function! s:peek_neosnippet() abort "{{{2
+  let b:foldpeek_whiteout_patterns_omit = [
+        \ ]
+  " let b:foldpeek_whiteout_patterns_omit = [
+  "      \ '^snippet\s*'
+  "      \ ]
 endfunction
