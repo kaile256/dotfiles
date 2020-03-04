@@ -3,6 +3,7 @@
 " Another: add/vimspector.vim
 " Web: https://puremourning.github.io/vimspector-web/
 " Depends: https://github.com/Microsoft/vscode-cpptools
+" JSON: ~/.vimspector.json
 
 command! -bar DebugContinue     :call vimspector#Continue()
 command! -bar DebugPause        :call vimspector#Pause()
