@@ -12,38 +12,6 @@ let g:foldpeek#maxwidth = '
       \                                   : 79
       \ '
 
-augroup myFoldPeekSource
-  au!
-  au OptionSet *
-        \ if &fdt !=# 'foldpeek#text()'
-        \ |  setl fdt=foldpeek#text()
-        \ | endif
-
-  au FileType help let b:foldpeek_whiteout_patterns_fill = [
-        \ '\s*\zs\*\k\+\*\($\|\s*\ze\*\)'
-        \ ]
-  au FileType help let b:foldpeek_skip_patterns = [
-        \ '^[<>#\-=/{!* \t]*$',
-        \ '^\*\a\+\*$',
-        \ ]
-
-  au FileType toml if expand('%:p') =~# expand(g:dein_toml_dir) |
-        \ let b:foldpeek_skip_patterns = [
-        \   '^[>#\-=/{!* \t]*$',
-        \   '[# \t]*\[\[plugins]]',
-        \   '[# \t]*\[\[\=package]',
-        \   ]
-        \ |
-        \ let b:foldpeek_whiteout_patterns_omit = [
-        \   'repo = ',
-        \   ]
-        \ | else |
-          \ let b:foldpeek_whiteout_patterns_omit = [
-          \   'name = ',
-          \   ]
-          \ | endif
-augroup END
-
 let g:foldpeek#skip_patterns = [
       \ '^[<>#\-=/{!* \t]*$',
       \ '^```.*$',
@@ -176,3 +144,42 @@ let g:foldpeek#tail = {
 "let s:marker_l1 = "v:foldlevel > 1 ? ". string(s:foldlevel_dict) ."[v:foldlevel] : ']'"
 "let s:persome   = '(len(%percent%) == 1 ? %permill% : %percent%)'
 
+augroup myFoldPeekSource "{{{1
+  au!
+  au OptionSet * if &fdt !=# 'foldpeek#text()' |
+        \   setl fdt=foldpeek#text()
+        \ | endif
+
+  au FileType help call s:peek_help()
+  au FileType toml call s:peek_toml()
+augroup END
+
+function! s:peek_help() abort "{{{2
+  let b:foldpeek_whiteout_patterns_fill = [
+        \ '\s*\zs\*\k\+\*\($\|\s*\ze\*\)'
+        \ ]
+
+  let b:foldpeek_skip_patterns = [
+        \ '^[<>#\-=/{!* \t]*$',
+        \ '^\*\a\+\*$',
+        \ ]
+endfunction
+
+function! s:peek_toml() abort "{{{2
+  if expand('%:p') =~# expand(g:dein_toml_dir)
+    let b:foldpeek_skip_patterns = [
+          \ '^[>#\-=/{!* \t]*$',
+          \ '[# \t]*\[\[plugins]]',
+          \ '[# \t]*\[\[\=package]',
+          \ ]
+
+    let b:foldpeek_whiteout_patterns_omit = [
+          \ 'repo = ',
+          \ ]
+
+  else
+    let b:foldpeek_whiteout_patterns_omit = [
+          \ 'name = ',
+          \ ]
+  endif
+endfunction
