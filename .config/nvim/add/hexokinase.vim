@@ -3,3 +3,4 @@
 " Another: source/hexokinase.vim
 
 command! -bar ColoShow :HexokinaseToggle
+command! -bar HexColor :HexokinaseToggle
