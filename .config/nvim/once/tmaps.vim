@@ -5,8 +5,8 @@
 "" Note: currently no use, why?
 "tnoremap <expr> : (getline('.')[col('.')] ==# ' ' && getline('.')[col('.') - 2] ==# ' ')? '<c-\><c-n>:' : ':'
 
-tnoremap <c-x>h     ~/
-tnoremap <c-x><c-h> ~/
+" col is different than in Normal mode (it may depend on the prompt width)
+tnoremap <expr> ? (getline('.')[col('.')] ==# '~') ? '/' : '?'
 
 tnoremap <silent> <Plug>(highlight-off) <c-\><c-n>:<c-u>noh <bar> redraw!<cr>i
 tmap     <silent> <c-space><space>       <Plug>(highlight-off)
