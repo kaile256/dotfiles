@@ -64,7 +64,11 @@ on_ft = ['yaml', 'raml', 'sls', 'eyaml']
 #repo = 'arutz12/pyfolding'
 ## An excerpt from python-mode/python-mode, only for fold
 #on_ft = ['python']
-#
+#[[plugins]]
+#repo = 'demophoon/bash-fold-expr'
+## not so good
+#on_ft = ['sh', 'zsh']
+
 #[ Indent ]
 #[[plugins]]
 #repo = 'xi/vim-indent-folding'
