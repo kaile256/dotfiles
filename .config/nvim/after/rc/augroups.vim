@@ -56,15 +56,24 @@ augroup myFoldAdjustment "{{{1
 
   au BufRead * if line('w$') < line('$') | setl fdl=0 | endif
   au BufRead * norm! zv
-  au BufWinEnter,InsertLeave,TextChanged *
-        \ if &bt ==# '' && &fdm ==# ('manual' || 'syntax')
-        \ && search('{{{\%[\d]$', 'cwn') |
-        \   setl fdm=marker
-        \ | elseif &fdm ==# 'marker'
-          \ && !search('{{{\%[\d]', 'cwn') |
-          \   setl fdm<
-          \ | endif
+  au BufWinEnter,InsertLeave,TextChanged * call s:set_fdm_marker()
 augroup END
+function! s:set_fdm_marker() abort "{{{1
+  if !&modifiable
+    return
+
+  elseif empty(&bt) && !empty(&fde)
+        \ && &fdm ==# 'expr\|diff'
+    return
+  endif
+
+  if search('{{{\%[\d]$', 'cwn')
+    setl fdm=marker
+
+  elseif &fdm ==# 'marker' && !search('{{{\%[\d]', 'cwn')
+    setl fdm<
+  endif
+endfunction
 
 augroup myIsFileNameAdjustment "{{{1
   au!
