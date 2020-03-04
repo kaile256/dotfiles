@@ -17,22 +17,13 @@ let s:path_dict = {
       \ }
 
 let s:splits = {
-      \ 'v': 'vs',
-      \ 't': 'tabe',
-      \ 's': 'sp',
-      \ 'e': 'e',
-      \ 'E': 'only',
-      \ 'o': 'only',
-      \ }
-
-" let s:splits = {
-"      \ '<a-v>': 'vs',
-"      \ '<a-t>': 'tabe',
-"      \ '<a-s>': 'sp',
-"      \ '<a-e>': 'e',
-"      \ '<a-E>': 'only',
-"      \ '<a-o>': 'only',
-"      \ }
+     \ '<a-v>': 'vs',
+     \ '<a-t>': 'tabe',
+     \ '<a-s>': 'sp',
+     \ '<a-e>': 'e',
+     \ '<a-E>': 'only',
+     \ '<a-o>': 'only',
+     \ }
 
 function! s:maps(prefix, command, ...) abort
   " To: like :Fzf
@@ -66,4 +57,5 @@ endfunction
 if exists('s:loaded') | finish | endif
 let s:loaded = 1
 
-call s:maps('<a-t>', 'te fish')
+" type 't' with pressed <space> as <a-t>
+call s:maps('<space>t', 'te fish')
