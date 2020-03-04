@@ -47,12 +47,12 @@ xmap <expr><silent> <SID>(neosnippet-try)
 " TODO: make no split for i_CTRL-a
 imap <expr><silent> <SID>(neosnippet-try)
       \ neosnippet#expandable_or_jumpable()
-      \ ? "\<Plug>(neosnippet_expand_or_jump)\<c-g>u"
-      \ : "<c-o>:<c-u>echo 'no snippet!'<cr>\<c-g>u"
+      \ ? "\<Plug>(neosnippet_expand_or_jump)"
+      \ : "<c-o>:<c-u>echo 'no snippet!'<cr>"
 smap <expr><silent> <SID>(neosnippet-try)
       \ neosnippet#expandable_or_jumpable()
-      \ ? "\<Plug>(neosnippet_expand_or_jump)\<c-g>u"
-      \ : "<c-o>:<c-u>echo 'no snippet!'<cr>\<c-g>u"
+      \ ? "\<Plug>(neosnippet_expand_or_jump)"
+      \ : "<c-o>:<c-u>echo 'no snippet!'<cr>"
 
 noremap  <script> <c-\> <SID>(neosnippet-try)
 inoremap <script> <c-\> <SID>(neosnippet-try)
