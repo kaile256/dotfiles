@@ -8,12 +8,12 @@
 nnoremap <silent><expr> gf            <SID>is_hash() ? ":call <SID>Gopen('edit')<cr>"   : 'gf'
 nnoremap <silent><expr> gF            <SID>is_hash() ? ":call <SID>Gopen('split')<cr>"  : 'gF'
 nnoremap <silent><expr> <c-w>f        <SID>is_hash() ? ":call <SID>Gopen('tabe')<cr>"   : '<c-w>F'
-nnoremap <silent><expr> <c-w><space>f <SID>is_hash() ? ":call <SID>Gopen('vsplit')<cr>" : '<Cmd>vert wincmd F<cr>'
+nnoremap <silent><expr> <c-w><space>f <SID>is_hash() ? ":call <SID>Gopen('vsplit')<cr>" : "\<Cmd>vert wincmd F\<cr>"
 
 xnoremap <silent><expr> gf            <SID>is_hash() ? ":call <SID>Gopen('edit')<cr>"   : 'gf'
 xnoremap <silent><expr> gF            <SID>is_hash() ? ":call <SID>Gopen('split')<cr>"  : 'gF'
 xnoremap <silent><expr> <c-w>f        <SID>is_hash() ? ":call <SID>Gopen('tabe')<cr>"   : '<c-w>F'
-xnoremap <silent><expr> <c-w><space>f <SID>is_hash() ? ":call <SID>Gopen('vsplit')<cr>" : '<Cmd>vert wincmd F<cr>'
+xnoremap <silent><expr> <c-w><space>f <SID>is_hash() ? ":call <SID>Gopen('vsplit')<cr>" : "\<Cmd>vert wincmd F\<cr>"
 
 function! s:is_hash() abort "{{{1
   " <cfile> and <cWORD> is inappropriate for ddc70ca6..01581d37
