@@ -70,15 +70,19 @@ hook_source = 'runtime add/wakatime.vim'
 repo = 'Floobits/floobits-neovim'
 on_cmd = ['Floo', 'FlooShareDirPublic', 'FlooShareDirPrivate', 'FlooJoinWorkspace']
 hook_add = 'runtime add/floobits.vim'
+#[[plugins]]
+#repo = 'basyura/twibill.vim'
+#on_cmd = 'TweetVim'
 
-# API; WebAPI
-[[plugins]] # has extentions
+#[ WebAPI ]
+[[plugins]]
 repo = 'mattn/webapi-vim'
-#on_map = ['Pocket']
-
-on_event = ['BufRead']
-hook_add = 'runtime add/webapi.vim'
-
+# an interface
+on_func = [
+  'webapi#',
+  'webapi#http#',
+  'webapi#html#',
+]
 [[plugins]]
 repo = 'soramugi/pocket.vim'
 on_cmd = ['PocketList', 'PocketArchive', 'PocketFavorite']
@@ -91,9 +95,12 @@ hook_add = 'runtime add/pocket.vim'
 #on_cmd = 'TweetVim'
 #hook_post_source = 'runtime add/tweet.vim'
 
-#[[plugins]]
-#repo = 'basyura/twibill.vim'
-#on_cmd = 'TweetVim'
+[[plugins]]
+repo = 'ankokumoyashi/weblio_vim'
+# TODO: make it work
+script_type = 'plugin'
+on_cmd = ['Weblio']
+hook_add = 'runtime add/weblio.vim'
 
 #[ Slack ]
 #[[plugins]]
