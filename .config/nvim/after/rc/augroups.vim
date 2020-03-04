@@ -58,19 +58,28 @@ augroup myFoldAdjustment "{{{1
   au BufRead * norm! zv
   au BufWinEnter,InsertLeave,TextChanged * call s:set_fdm_marker()
 augroup END
-function! s:set_fdm_marker() abort "{{{1
+function! s:set_fdm_marker() abort "{{{2
   if !&modifiable
     return
 
-  elseif empty(&bt) && !empty(&fde)
-        \ && &fdm ==# 'expr\|diff'
+  elseif &fdm !=# 'diff' && &diff
+    setl fdm=diff
+    return
+
+  elseif &fdm !=# 'expr' && &foldexpr != 0
+    " empty(&foldexpr) sometimes returns non 0 even when it has to be 0.
+    setl fdm=expr
     return
   endif
 
-  if search('{{{\%[\d]$', 'cwn')
-    setl fdm=marker
+  if &fdm ==# 'diff\|expr' | return | endif
 
-  elseif &fdm ==# 'marker' && !search('{{{\%[\d]', 'cwn')
+  if &fdm !=# 'marker'
+    if search('{{{\%[\d]$', 'cwn')
+      setl fdm=marker
+    endif
+  elseif &fdm !=# &g:fdm && &fdm ==# 'marker'
+        \ && !search('{{{\%[\d]', 'cwn')
     setl fdm<
   endif
 endfunction
