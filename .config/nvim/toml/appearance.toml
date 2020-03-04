@@ -126,11 +126,16 @@ write
 ## Looks like dracula scheme.
 #on_event = 'VimEnter'
 #hook_post_source = 'runtime add/candid.vim'
+[[plugins]]
+repo = 'joshdick/onedark.vim'
+on_func = ['onedark#']
+#on_event = ['VimEnter']
 
 #[ Colorscheme.Collection ]
 [[plugins]]
 repo = 'flazz/vim-colorschemes'
 # Note: not include airline/lightline's
+# some colorschemes like onedark need another repo to call autoload-functions
 on_event = 'VimEnter'
 hook_post_source = 'runtime post/colorschemes.vim'
 # Note: no use to ':au Colorscheme' at start even in /source
