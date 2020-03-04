@@ -22,6 +22,10 @@ function! s:neodark_diff(...) abort "{{{1
   hi! DiffAdd    cterm=bold gui=bold ctermfg=108 ctermbg=237 guifg=#87af87 guibg=#3a3a3a
   hi! DiffDelete cterm=bold gui=bold ctermfg=168 ctermbg=237 guifg=#d75f87 guibg=#3a3a3a
   hi! DiffText   cterm=bold gui=bold ctermfg=74  ctermbg=236 guifg=#5fafd7 guibg=#303030
+
+  "hi! DiffAdd    cterm=bold gui=bold ctermfg=74  ctermbg=236 guifg=#5fafd7 guibg=#303030
+  "hi! DiffDelete cterm=bold gui=bold ctermfg=168 ctermbg=237 guifg=#d75f87 guibg=#3a3a3a
+  "hi! DiffText   cterm=bold gui=bold ctermfg=108 ctermbg=237 guifg=#87af87 guibg=#3a3a3a
 endfunction
 
 function! s:gruvbox_diff(...) abort "{{{1
@@ -30,21 +34,37 @@ function! s:gruvbox_diff(...) abort "{{{1
   endif
   let s:syn_diff = 'gruvbox'
 
-  hi! DiffAdd     cterm=bold gui=bold ctermfg=142 guifg=#b8bb26
-  " the line of which only the other has.
-  hi! DiffRemove  cterm=bold gui=bold ctermfg=167 guifg=#fb4934
-  " the line which has difference between the one and the other.
   hi! DiffChange  cterm=bold gui=bold ctermfg=108 guifg=#8ec07c
-  " the differed characters within DiffChange
+
+  hi! DiffAdd     cterm=bold gui=bold ctermfg=142 guifg=#b8bb26
+  hi! DiffRemove  cterm=bold gui=bold ctermfg=167 guifg=#fb4934
   hi! DiffText    cterm=bold gui=bold ctermfg=208 guifg=#fe8019
 
-" for fugitive
+  " for fugitive
   hi! diffFile    cterm=bold gui=bold ctermfg=208 guifg=#fe8019
   hi! diffNewFile cterm=bold gui=bold ctermfg=214 guifg=#fabd2f
   "hi diffLine    cterm=bold gui=bold ctermfg=109 guifg=#83a598
   hi! diffLine    cterm=bold gui=bold ctermfg=109 guifg=#36b383
 endfunction
 
+function! s:mixed_diff(...) abort "{{{1
+  if exists('s:syn_diff')
+    if s:syn_diff ==# 'mixed' | return | endif
+  endif
+  let s:syn_diff = 'mixed'
+
+  hi! DiffChange cterm=bold gui=bold ctermfg=179 ctermbg=237 guifg=#d7af5f guibg=#3a3a3a
+
+  hi! DiffAdd cterm=bold gui=bold ctermfg=74 ctermbg=236 guifg=#5fafd7 guibg=#303030
+  hi! DiffRemove  cterm=bold gui=bold ctermfg=167 guifg=#fb4934
+  hi! DiffText    cterm=bold gui=bold ctermfg=208 guifg=#fe8019
+
+  " " for fugitive
+  " hi! diffFile    cterm=bold gui=bold ctermfg=208 guifg=#fe8019
+  " hi! diffNewFile cterm=bold gui=bold ctermfg=214 guifg=#fabd2f
+  " "hi diffLine    cterm=bold gui=bold ctermfg=109 guifg=#83a598
+  " hi! diffLine    cterm=bold gui=bold ctermfg=109 guifg=#36b383
+endfunction
 function! s:my_commons() abort "{{{1
 
   " coc.nvim supports
@@ -80,8 +100,9 @@ function! s:my_neodark() abort "{{{1
   " NormalFloat: color for winblend, or floating windows
   hi! NormalFloat ctermfg=236 ctermbg=180 guibg=#3a192c guifg=#9f994a
 
+  call s:mixed_diff()
   "call s:gruvbox_diff()
-  call s:neodark_diff()
+  " call s:neodark_diff()
 
   " Note: reverse keeps text color;
   "       ':hi **bg=foo' will white out text's characters.
