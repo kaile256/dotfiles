@@ -5,14 +5,14 @@
 "     init.vim (30)
 "     /init.vim 40
 
-nnoremap <silent><expr> gf            <SID>is_hash() ? ":call <SID>Gopen('edit')<cr>"   : 'gf'
-nnoremap <silent><expr> gF            <SID>is_hash() ? ":call <SID>Gopen('split')<cr>"  : 'gF'
-nnoremap <silent><expr> <c-w>f        <SID>is_hash() ? ":call <SID>Gopen('tabe')<cr>"   : '<c-w>F'
-nnoremap <silent><expr> <c-w><space>f <SID>is_hash() ? ":call <SID>Gopen('vsplit')<cr>" : "\<Cmd>vert wincmd F\<cr>"
+nnoremap <silent><expr> gf <SID>is_hash() ? ":call <SID>Gopen('edit')<cr>"  : 'gf'
+xnoremap <silent><expr> gf <SID>is_hash() ? ":call <SID>Gopen('edit')<cr>"  : 'gf'
+nnoremap <silent><expr> gF <SID>is_hash() ? ":call <SID>Gopen('split')<cr>" : 'gF'
+xnoremap <silent><expr> gF <SID>is_hash() ? ":call <SID>Gopen('split')<cr>" : 'gF'
 
-xnoremap <silent><expr> gf            <SID>is_hash() ? ":call <SID>Gopen('edit')<cr>"   : 'gf'
-xnoremap <silent><expr> gF            <SID>is_hash() ? ":call <SID>Gopen('split')<cr>"  : 'gF'
+nnoremap <silent><expr> <c-w>f        <SID>is_hash() ? ":call <SID>Gopen('tabe')<cr>"   : '<c-w>F'
 xnoremap <silent><expr> <c-w>f        <SID>is_hash() ? ":call <SID>Gopen('tabe')<cr>"   : '<c-w>F'
+nnoremap <silent><expr> <c-w><space>f <SID>is_hash() ? ":call <SID>Gopen('vsplit')<cr>" : "\<Cmd>vert wincmd F\<cr>"
 xnoremap <silent><expr> <c-w><space>f <SID>is_hash() ? ":call <SID>Gopen('vsplit')<cr>" : "\<Cmd>vert wincmd F\<cr>"
 
 function! s:is_hash() abort "{{{1
