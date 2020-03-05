@@ -14,6 +14,10 @@ snoremap <expr> <a-o> (getline("'<")[col("'<"):col("'>")] =~# '^#') ? '<space><B
 snoremap <expr> <a-O> (getline("'<")[col("'<"):col("'>")] =~# '^#') ? '<space><BS><esc>O' : '<esc>O'
 
 " Insert mode like {{{1
+snoremap <BS>  <space><BS>
+snoremap <c-u> <space><c-u>
+snoremap <c-w> <space><c-w>
+
 snoremap <c-d> <space><BS><c-d>
 snoremap <c-t> <space><BS><c-t>
 
@@ -21,7 +25,6 @@ snoremap <c-t> <space><BS><c-t>
 snoremap <silent> <c-r> <space><BS><esc>:call feedkeys("\<c-r>")<cr>
 snoremap <c-r><c-space> <space><BS><c-r>+
 snoremap <c-r><space>   <space><BS><c-r>+
-snoremap <c-h>          <space><BS>
 
 " Alt-ESC; registers {{{1
 snoremap <silent> <a-P> <space><BS><c-g>u<esc>:call feedkeys('P')<cr>
