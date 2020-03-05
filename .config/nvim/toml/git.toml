@@ -59,6 +59,7 @@ repo = 'cohama/agit.vim'
 # TODO: set each colors on different branch's flow like vim-gitv
 on_cmd = 'Agit'
 hook_add = 'runtime add/agit.vim'
+hook_source = 'runtime source/agit.vim'
 #[[plugins]]
 #repo = 'airblade/vim-gitgutter'
 ## enough only with coc.nvim & fugitive.vim?
