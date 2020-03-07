@@ -1,57 +1,58 @@
+# thyme `git config --global --add SUBCOMMAND OPTION VALUE`
 [user]
 	email = 46470475+kaile256@users.noreply.github.com
-	name = kaile
+	name = kaile256
 [core]
-  editor = nvr -s --remote-wait-silent
+	editor = nvr -s --remote-wait-silent
 	excludesfile = .mypy_cache/
-[diff]
-  tool = nvr -s
-[difftool "nvr"]
-  cmd = nvr -s -d $LOCAL $REMOTE
-[merge]
-  tool = nvr -s
-	ff = false
-	conflictstyle = diff3
-[mergetool]
-  prompt = false
-[mergetool "nvr"]
-  cmd = nvr -s -d $LOCAL $BASE $REMOTE $MERGED -c 'wincmd J | wincmd ='
-[mergetool "vim_mergetool"]
-cmd = vim -f -c "MergetoolStart" "$MERGED" "$BASE" "$LOCAL" "$REMOTE"
-trustExitCode = true
-[url "github:"]
-  # limited to push; conflicted with cargo
-  # Note: repo individually.
-  # TODO: need config for ghq get foo/bar inspite of cargo install foobar.
-  # 'pushInsteadOf = https://github.com/' to :Gpush of vim-fugitive at least.
-  # 'InsteadOf = https://github.com/' to install private plugins by dein.vim.
-  #InsteadOf = https://github.com/
-  #InsteadOf = git@github.com:
-[ghq]
-  root = /home/kaile256/.go/src
-[filter "*"]
-	smudge = "sed -e '/kaile256;/d'"
-#[push]
-  # nothing: always demands arguments like `git push origin master`
-  # matching: push to the same named repo anyway
-  # upstream: push to the upstream (antecedent) branch
-  # current: push as the same name in remote
-  # simple: (default) push to the current branch if the same name branch exists
-  #   in remote; otherwise, push to the upstream.
-  #default = current
 [color]
 	status = auto
 	branch = auto
 	interactive = auto
 	diff = auto
 	ui = auto
+[ghq]
+	root = $GHQ_ROOT
+[diff]
+	tool = nvr -s
+[difftool "nvr"]
+	cmd = nvr -s -d $LOCAL $REMOTE
+[merge]
+	tool = nvr -s
+	ff = false
+	conflictstyle = diff3
+[mergetool]
+	prompt = false
+[mergetool "nvr"]
+	cmd = nvr -s -d $LOCAL $BASE $REMOTE $MERGED -c 'wincmd J | wincmd ='
+[mergetool "vim_mergetool"]
+	cmd = vim -f -c "MergetoolStart" "$MERGED" "$BASE" "$LOCAL" "$REMOTE"
+	trustExitCode = true
+[url "github:"]
+	# limited to push; conflicted with cargo
+	# Note: repo individually.
+	# TODO: need config for ghq get foo/bar inspite of cargo install foobar.
+	# 'pushInsteadOf = https://github.com/' to :Gpush of vim-fugitive at least.
+	# 'InsteadOf = https://github.com/' to install private plugins by dein.vim.
+	#InsteadOf = https://github.com/
+	#InsteadOf = git@github.com:
+#[push]
+	# nothing: always demands arguments like `git push origin master`
+	# matching: push to the same named repo anyway
+	# upstream: push to the upstream (antecedent) branch
+	# current: push as the same name in remote
+	# simple: (default) push to the current branch if the same name branch exists
+	#   in remote; otherwise, push to the upstream.
+	#default = current
 [pull]
-  # Because of `--no-ff` on merge, `pull` will also dirty commit.
+	# Because of `--no-ff` on merge, `pull` will also dirty commit.
 	ff = only
 [rerere]
 	enabled = true
 [alias]
-  # Note: pr and pull-request is a different commands provided by `hub`
-  #   `pr`: List or checkout GitHub pull requests
-  #   `pull-request`: Open a pull request on GitHub
-  #pr = pull-request
+	# Note: pr and pull-request is a different commands provided by `hub`
+	#   `pr`: List or checkout GitHub pull requests
+	#   `pull-request`: Open a pull request on GitHub
+	#pr = pull-request
+[rebase]
+	autosquash = true
