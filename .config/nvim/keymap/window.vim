@@ -17,9 +17,12 @@ nnoremap <space>: q:kzb
 " No Highlight "{{{1
 " Ref: compare :redraw with <c-l> or :mode
 
+tnoremap <silent> <SID>(highlight-off) <Cmd>noh  <bar> redraw!<cr><c-l>
 inoremap <silent> <SID>(highlight-off) <Cmd>noh  <bar> redraw!<cr>
 nnoremap <silent> <SID>(highlight-off) :<c-u>noh <bar> redraw!<cr>
-inoremap <script> <c-l>              <SID>(highlight-off)
+
+tnoremap <script> <c-l> <SID>(highlight-off)
+inoremap <script> <c-l> <SID>(highlight-off)
 nnoremap <script> <c-space><space>   <SID>(highlight-off)
 nnoremap <script> <c-space><c-space> <SID>(highlight-off)
 
