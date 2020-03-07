@@ -38,6 +38,12 @@ xmap i; <Plug>(textobj-sandwich-query-i);
 omap a; <Plug>(textobj-sandwich-query-a);
 xmap a; <Plug>(textobj-sandwich-query-a);
 
+" disable to include a space out of quotes
+omap a' <Plug>(textobj-sandwich-query-a)'
+xmap a' <Plug>(textobj-sandwich-query-a)'
+omap a" <Plug>(textobj-sandwich-query-a)"
+xmap a" <Plug>(textobj-sandwich-query-a)"
+
 "" FIXME: make 'i.' work
 "omap i. <Plug>(textobj-sandwich-query-i).
 "xmap i. <Plug>(textobj-sandwich-query-i).
