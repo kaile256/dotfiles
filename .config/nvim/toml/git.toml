@@ -53,6 +53,10 @@ on_cmd =  ['Magit']
 #on_func = ['gitblame#blame']
 
 #[ Log ]
+#[[plugins]]
+#repo = 'junkblocker/git-time-lapse'
+## use map to <Left>/<Right> and <S-Left>/<S-Right>
+#on_cmd = ['GitTimeLapse']
 [[plugins]]
 repo = 'cohama/agit.vim'
 # git log viewer; faster than the others presently
