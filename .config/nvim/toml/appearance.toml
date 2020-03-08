@@ -56,9 +56,8 @@ repo = 'vim-airline/vim-airline'
 # to use extentions, it check by exists('*foo'); surely loaded after all the
 # plugin are loaded before vim-airline is loaded.
 # on_source is slower to be set.
-#on_event = 'VimEnter'
+on_if = "exists('*FugitiveHead') && exists(':CocCommand')"
 on_event = ['Syntax']
-depend = ['vim-fugitive']
 # Uncompatible with nyaovim?
 # Better to be sourced earlier than colorschemes
 #hook_add = '''

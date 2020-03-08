@@ -3,6 +3,7 @@
 
 let g:airline_theme = 'term'
 
+let g:airline#extensions#branch#empty_message = '...'
 let g:airline#extensions#branch#format = 2
 
 "let g:airline_powerline_fonts = 1
