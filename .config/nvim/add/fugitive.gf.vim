@@ -10,20 +10,28 @@
 "     init.vim (30)
 "     /init.vim 40
 
-nnoremap <silent><expr> gf <SID>is_hash() ? ":call <SID>Gopen('edit')<cr>"  : 'gF'
-xnoremap <silent><expr> gf <SID>is_hash() ? ":call <SID>Gopen('edit')<cr>"  : 'gF'
-nnoremap <silent><expr> <c-w>f <SID>is_hash() ? ":call <SID>Gopen('split')<cr>" : '<c-w>F'
-xnoremap <silent><expr> <c-w>f <SID>is_hash() ? ":call <SID>Gopen('split')<cr>" : '<c-w>F'
+noremap <silent><expr> <SID>(fugitive-gf)
+      \ <SID>is_hash() ? ":call <SID>Gopen('edit')<cr>"  : 'gF'
+noremap <silent><expr> <SID>(fugitive-gf-tab)
+      \ <SID>is_hash() ? ":call <SID>Gopen('tabe')<cr>" : '<c-w>gF'
 
-nnoremap <silent><expr> <c-w>F  <SID>is_hash() ? ":call <SID>Gopen('tabe')<cr>" : '<c-w>gF'
-xnoremap <silent><expr> <c-w>F  <SID>is_hash() ? ":call <SID>Gopen('tabe')<cr>" : '<c-w>gF'
-nnoremap <silent><expr> <c-w>gf <SID>is_hash() ? ":call <SID>Gopen('tabe')<cr>" : '<c-w>gF'
-xnoremap <silent><expr> <c-w>gf <SID>is_hash() ? ":call <SID>Gopen('tabe')<cr>" : '<c-w>gF'
+noremap <silent><expr> <SID>(fugitive-gf-horizontal)
+      \ <SID>is_hash() ? ":call <SID>Gopen('split')<cr>" : '<c-w>F'
+nnoremap <silent><expr> <SID>(fugitive-gf-vertical)
+      \ <SID>is_hash() ? ":call <SID>Gopen('vsplit')<cr>" : '<Cmd>vert wincmd F<cr>'
 
-nnoremap <silent><expr> <c-w><space>f <SID>is_hash()
-      \ ? ":call <SID>Gopen('vsplit')<cr>" : "<Cmd>vert wincmd F<cr>"
-xnoremap <silent><expr> <c-w><space>f <SID>is_hash()
-      \ ? ":call <SID>Gopen('vsplit')<cr>" : "<Cmd>vert wincmd F<cr>"
+nnoremap <script> gf <SID>(fugitive-gf)
+xnoremap <script> gf <SID>(fugitive-gf)
+
+nnoremap <script> <c-w>F  <SID>(fugitive-gf-tab)
+xnoremap <script> <c-w>F  <SID>(fugitive-gf-tab)
+nnoremap <script> <c-w>gf <SID>(fugitive-gf-tab)
+xnoremap <script> <c-w>gf <SID>(fugitive-gf-tab)
+
+nnoremap <script> <c-w>f <SID>(fugitive-gf-horizontal)
+xnoremap <script> <c-w>f <SID>(fugitive-gf-horizontal)
+nnoremap <script> <c-w><space>f <SID>(fugitive-gf-vertical)
+xnoremap <script> <c-w><space>f <SID>(fugitive-gf-vertical)
 
 function! s:is_hash() abort "{{{1
   " <cfile> and <cWORD> is inappropriate for ddc70ca6..01581d37
@@ -37,7 +45,7 @@ function! s:is_hash() abort "{{{1
   endif
 
   if cfile =~# '^[0-9]\+$\|^[a-z]\+$'
-        \ || len(cfile) < 8
+        \ || len(cfile) < 7
     " echoerr cfile 'is probably not a commit-hash; abort'
     return 0
   endif
