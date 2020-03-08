@@ -602,6 +602,7 @@ bindsym Ctrl+bracketleft mode default
 }
 
 # Mode; Console {{{2
+bindsym $Super+U exec $urxvt -e fish
 set $Console " Console: (A)lacritty (U)rxvt (X)term | (G)otop "
 bindsym $Super+C mode $Console; $shortmsg 'Consoles'
 
@@ -772,7 +773,7 @@ bindsym Ctrl+U $noid fcitx-remote -c; mode default; $notify 'Mozc: OFF'
 bindsym Ctrl+W $noid fcitx-remote -c; mode default; $notify 'Mozc: OFF'
 bindsym L      $noid fcitx-remote -c; mode default; $alert 'Mozc: OFF'
 
-bindsym $Super+U $noid fcitx-remote -s skk; mode $Skk; $alert 'Skk: Activated'
+bindsym $Super+I $noid fcitx-remote -s skk; mode $Skk; $alert 'Skk: Activated'
 
 bindsym $Super+1 $noid fcitx-remote -c; mode default; $alert 'Mozc: OFF'; workspace $ws1
 bindsym $Super+2 $noid fcitx-remote -c; mode default; $alert 'Mozc: OFF'; workspace $ws2
@@ -800,7 +801,7 @@ bindsym Ctrl+bracketleft $noid fcitx-remote -c; mode default; $alert 'Mozc: OFF'
 
 # Mode; Skk {{{2
 set $Skk " Skk: (q) kata/hira (l) ASCII "
-bindsym $Super+U $noid fcitx-remote -s skk; mode $Skk; $notify 'Skk: Activated'
+bindsym $Super+I $noid fcitx-remote -s skk; mode $Skk; $notify 'Skk: Activated'
 
 mode $Skk {
 # TODO: send-key Ctrl+U and back to the fcitx-state
@@ -832,7 +833,7 @@ bindsym $Super+bracketright $noid fcitx-remote -c; mode default; $alert 'Skk: OF
 # TODO: return to skk's japanese input by <c-space>
 bindsym L        $noid fcitx-remote -c; mode default; $alert 'Skk: OFF'
 bindsym Shift+L  $noid fcitx-remote -c; mode default; $alert 'Skk: OFF'
-bindsym $Super+U $noid fcitx-remote -c; mode default; $alert 'Skk: OFF'
+bindsym $Super+I $noid fcitx-remote -c; mode default; $alert 'Skk: OFF'
 
 bindsym Ctrl+C           $noid fcitx-remote -c; mode default; $alert 'Skk: OFF'
 bindsym bracketleft      $noid fcitx-remote -c; mode default; $alert 'Skk: OFF'
@@ -890,8 +891,7 @@ bindsym XF86AudioMute        $noid pactl set-sink-mute 0 toggle
 # Fn; Screen Shot {{{2
 # depend: imagemagick
 #bindsym $Super+Print $noid import -window root ~/Pictures/screenshot
-# fulloption-name, --rectarea, isn't work on `ksnip`
-bindsym Shift+Print  $noid ksnip -r
+bindsym Shift+Print  $noid shutter --select
 bindsym $Super+Print $noid $MYSCRIPTS/recording-toggle.sh
 
 #set $Print " Print: (Shift+) screenshot | (Super+) record in GIF "
