@@ -53,16 +53,28 @@ hook_post_source = 'runtime add/devicons.vim'
 #[ Statusline ]
 [[plugins]]
 repo = 'vim-airline/vim-airline'
-on_event = 'VimEnter'
+# to use extentions, it check by exists('*foo'); surely loaded after all the
+# plugin are loaded before vim-airline is loaded.
+# on_source is slower to be set.
+#on_event = 'VimEnter'
+on_event = ['Syntax']
+depend = ['vim-fugitive']
 # Uncompatible with nyaovim?
 # Better to be sourced earlier than colorschemes
+#hook_add = '''
+#" make sure extention to work
+#if !exists('*FugitiveHead')
+#  function! FugitiveHead(...) abort
+#    call fugitive#head(join(a:000, ','))
+#  endfunction
+#endif
+#'''
 hook_source = 'runtime source/airline.vim'
 hook_post_source = 'set noshowmode noruler'
 [[plugins]]
 repo = 'vim-airline/vim-airline-themes'
 # Note: original only has 'dark'
-depends = 'vim-airline'
-on_event = 'VimEnter'
+on_source = ['vim-airline']
 
 [[plugins]]
 repo = 'renyard/vim-git-flow-format'

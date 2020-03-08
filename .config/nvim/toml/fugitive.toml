@@ -3,11 +3,10 @@
 
 [[plugins]]
 repo = 'tpope/vim-fugitive'
-#repo = 'kaile256/vim-fugitive'
 # WARNING: for the case to compare only commits,
 #          keep such functions private, which close all '.git/' or 'fugitive://'
-type = 'git'
-on_event = 'BufRead'
+# to activate branch feature on airline, load it on VimEnter
+on_event = ['VimEnter']
 hook_add = '''
 runtime add/fugitive.vim
 runtime add/fugitive.gf.vim
@@ -16,6 +15,7 @@ hook_source = 'runtime source/fugitive.vim'
 hook_post_source = '''
 command! -bar Glog  :Agit
 command! -bar Gllog :AgitFile
+" Gbrowse depends on other handlers; coc's surely work.
 command! Gbrowse :CocCommand git.browserOpen
 '''
 
