@@ -1,3 +1,8 @@
+" Repo: tpope/vim-fugitive
+" Toml: fugitive.toml
+" Another: add/fugitive.vim
+" Another: source/fugitive.vim
+
 " Ref: $GHQ_ROOT/github.com/neovim/neovim/src/nvim/normal.c @6906 nv_gotofile
 " if a number follows filename/path, jump to the linenumber on the buffer:
 "     init.vim:10
