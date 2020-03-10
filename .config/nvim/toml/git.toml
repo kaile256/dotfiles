@@ -11,6 +11,15 @@ on_cmd =  ['GHInteractive', 'GBInteractive']
 #on_event = 'Colorscheme'
 #[ Workflow ]
 [[plugins]]
+repo = 'iberianpig/tig-explorer.vim'
+# no nest of vim-tig-vim-tig-... using host vim process
+on_cmd = [
+  'TigOpenCurrentFile',
+  'TigOpenProjectRootDir',
+  'TigGrep',
+  'TigBlame',
+]
+[[plugins]]
 repo = 'jreybert/vimagit'
 on_cmd =  ['Magit']
 #[ Blame ]
