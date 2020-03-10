@@ -95,12 +95,12 @@ hook_add = 'runtime add/pocket.vim'
 #on_cmd = 'TweetVim'
 #hook_post_source = 'runtime add/tweet.vim'
 
-[[plugins]]
-repo = 'ankokumoyashi/weblio_vim'
-# TODO: make it work
-script_type = 'plugin'
-on_cmd = ['Weblio']
-hook_add = 'runtime add/weblio.vim'
+#[[plugins]]
+#repo = 'ankokumoyashi/weblio_vim'
+## TODO: make it work
+#script_type = 'plugin'
+#on_cmd = ['Weblio']
+#hook_add = 'runtime add/weblio.vim'
 
 #[ Slack ]
 #[[plugins]]
