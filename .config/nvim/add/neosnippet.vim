@@ -18,48 +18,42 @@ nnoremap <silent> <a-s><a-p><a-t> :<c-u>tab sp <bar>NeoSnippetEdit<cr>
 "inoremap <silent><expr> <TAB>
 "      \ pumvisible() ? "\<C-n>" :
 "      \ <SID>is_after_space() ? "\<TAB>" :
-"      \ neosnippet#mappings#expand_or_jump_impl()
+"      \ neosnippet#mappings#jump_or_expand_impl()
 "
 "function! s:is_after_space() abort
 "  let col = col('.') - 1
 "  return !col || getline('.')[col - 1]  =~# '\s'
 "endfunction
 "}}}
-
-" Note: neosnippet activate only on insert mode or select mode.
-"nmap <expr><silent> <c-\>
-"      \ neosnippet#expandable_or_jumpable()
-"      \ ? "g<c-h>\<Plug>(neosnippet_expand_or_jump)"
-"      \ : ":<c-u>echo 'no snippet!'<cr>"
-"xmap <expr><silent> <c-\>
-"      \ neosnippet#expandable_or_jumpable()
-"      \ ? "<c-g>\<Plug>(neosnippet_expand_or_jump)"
-"      \ : ":<c-u>echo 'no snippet!'<cr>"
+"
 nmap <expr><silent> <SID>(neosnippet-try)
       \ neosnippet#expandable_or_jumpable()
-      \ ? "\<Plug>(neosnippet_expand_or_jump)"
+      \ ? "\<Plug>(neosnippet_jump_or_expand)"
       \ : ":<c-u>echo 'no snippet!'<cr>"
 xmap <expr><silent> <SID>(neosnippet-try)
       \ neosnippet#expandable_or_jumpable()
-      \ ? "\<Plug>(neosnippet_expand_or_jump)"
+      \ ? "\<Plug>(neosnippet_jump_or_expand)"
       \ : ":<c-u>echo 'no snippet!'<cr>"
 
 " TODO: make no split for i_CTRL-a
 imap <expr><silent> <SID>(neosnippet-try)
       \ neosnippet#expandable_or_jumpable()
-      \ ? "\<Plug>(neosnippet_expand_or_jump)"
+      \ ? "\<Plug>(neosnippet_jump_or_expand)"
       \ : "<c-o>:<c-u>echo 'no snippet!'<cr>"
 smap <expr><silent> <SID>(neosnippet-try)
       \ neosnippet#expandable_or_jumpable()
-      \ ? "\<Plug>(neosnippet_expand_or_jump)"
+      \ ? "\<Plug>(neosnippet_jump_or_expand)"
       \ : "<c-o>:<c-u>echo 'no snippet!'<cr>"
 
-noremap  <script> <c-\> <SID>(neosnippet-try)
+" noremap for 'noxi' modes fails to remove any place-holder
 inoremap <script> <c-\> <SID>(neosnippet-try)
+snoremap <script> <c-\> <SID>(neosnippet-try)
+xnoremap <script> <c-\> <SID>(neosnippet-try)
+nnoremap <script> <c-\> <SID>(neosnippet-try)
 
 "" Note: <TAB>/<space> would expand unintentionally
 "   e.g., '" ' or '{ ' for fold, '"{{{'
 "imap <silent><expr> <c-i>
 "      \ neosnippet#expandable_or_jumpable()
-"      \ ? "\<Plug>(neosnippet_expand_or_jump)"
+"      \ ? "\<Plug>(neosnippet_jump_or_expand)"
 "      \ : "\<c-i>"
