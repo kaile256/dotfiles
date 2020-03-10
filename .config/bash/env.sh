@@ -4,7 +4,7 @@
 export MYSCRIPTS="$HOME/.myscripts"
 export MY_API_TOKEN="$HOME/.myapi"
 
-export MYMEMO="$HOME/Memo"
+export MYMEMO="$HOME/Memo/sync/note"
 export MYSUMMURY="$MYMEMO/summary"
 
 # Global {{{1
