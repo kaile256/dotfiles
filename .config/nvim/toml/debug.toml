@@ -56,7 +56,8 @@ repo = 'vim-vdebug/vdebug'
 #   A list of all functions: https://xdebug.org/docs-functions.php
 #   Profiling instructions:  https://xdebug.org/docs-profiling2.php
 #   Remote debugging:        https://xdebug.org/docs-debugger.php
-on_cmd = ['Vdebug']
+# has no command
+on_ft = ['php']
 hook_source = 'runtime source/vdebug.vim'
 #[ on GDB ]
 [[plugins]]
