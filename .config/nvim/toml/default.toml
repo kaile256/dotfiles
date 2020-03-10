@@ -60,14 +60,14 @@ hook_source = 'runtime source/mundo.vim'
 #on_map = 'Undotree'
 #hook_add = 'runtime add/undotree.vim'
 #[ Diff ]
-[[plugins]]
-repo = 'rickhowe/diffchar.vim'
-on_if = '&diff'
-# DiffUpdated for Internal diff
-# FilterWritePost for External diff
-on_event = ['DiffUpdated', 'FilterWritePost']
-on_func = ['diffchar#']
-hook_source = 'runtime add/diffchar.vim'
+#[[plugins]]
+#repo = 'rickhowe/diffchar.vim'
+#on_if = '&diff'
+## DiffUpdated for Internal diff
+## FilterWritePost for External diff
+#on_event = ['DiffUpdated', 'FilterWritePost']
+#on_func = ['diffchar#']
+#hook_source = 'runtime add/diffchar.vim'
 [[plugins]]
 repo = 'AndrewRadev/linediff.vim'
 on_cmd = 'Linediff'
