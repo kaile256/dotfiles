@@ -74,3 +74,13 @@ repo = 'junegunn/vader.vim'
 on_cmd = 'Vader'
 on_path = '*.vader'
 hook_add = 'runtime add/vader.vim'
+
+#[ Local ]
+#[[plugins]]
+#repo = 'embear/vim-localvimrc'
+
+[[plugins]]
+repo = 'thinca/vim-localrc'
+# add ".local.vimrc"
+#on_if = "expand('%:p') =~# fnamemodify($MYVIMRC, ':h')"
+on_event = ['VimEnter']
