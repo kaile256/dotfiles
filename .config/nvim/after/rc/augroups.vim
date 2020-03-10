@@ -163,3 +163,22 @@ augroup END
 "    exe 'setl colorcolumn=' &tw + 1
 "  endfunction
 " augroup END
+" augroup followSymbolicLinkhome "{{{1
+" FIXME: be available
+"   au!
+"   " BufReadPre *cannot* read another buffer
+"   au BufReadCmd * call s:reread(resolve(expand('<afile>')))
+" augroup END
+
+" function! s:reread(path) abort "{{{2
+"   " Ref: http://takegue.hatenablog.com/entry/2014/12/15/053320
+"   if a:path ==# bufname('%') | return | endif
+
+"   let pos = getpos('.')
+"   " this function is to be used by BufReadCmd, use `:new` instead of `:enew`.
+"   new
+"   " unless `:bwipeout`, `:e` only reopens current buffer.
+"   exe 'bw' bufname('%')
+"   exe 'e'   a:path
+"   call setpos('.', pos)
+" endfunction
