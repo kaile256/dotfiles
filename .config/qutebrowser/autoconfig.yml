@@ -487,6 +487,7 @@ settings:
       tw: http://twitter.com/search/{}
       wk: https://en.wikipedia.org/w/index.php?search={}
       wl: https://ejje.weblio.jp/content/{}?erl=true
-      yu: https://www.youtube.com/watch?v={}
+      yt: https://www.youtube.com/results?search_query={}
+      yu: https://www.youtube.com/results?search_query={}
   url.start_pages:
     global: https://ja.wikipedia.org/wiki/
