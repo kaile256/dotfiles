@@ -62,7 +62,8 @@
 
   //"diagnostic.refreshAfterSave": true,
   //"diagnostic.checkCurrentLine": true,
-  //"diagnostic.virtualText": true,
+  "diagnostic.virtualText": false,
+  //"diagnostic.messageTarget": "float",
 
   "session.directory": "~/.local/share/nvim/session/",
 
@@ -201,11 +202,12 @@
   "python.formatting.provider": "yapf",
   //"python.formatting.yapfArgs": ["--style google"],
   "python.linting.enabled": true,
+  "python.linting.flake8Enabled": true,
   "python.linting.pylintEnabled": false,
-  "python.linting.flake8Enabled": false,
   "python.linting.mypyEnabled": true,
 
   "java.errors.incompleteClasspath.severity": "ignore",
+  "java.format.onType.fixComment.enabled": false,
 
   "languageserver": {
     "dls": {
@@ -239,12 +241,12 @@
               "note": "info"
             }
           },
-          "vint": {
-            "command": "vint",
-            "sourceName": "vint",
-            "debounce": 200,
-            "args": ["--neovim-enable", "-"]
-          },
+          //"vint": {
+          //  "command": "vint",
+          //  "sourceName": "vint",
+          //  "debounce": 200,
+          //  "args": ["--warning", "--neovim-enable"]
+          //},
           "languagetool": {
             "command": "languagetool",
             "sourceName": "languagetool",
@@ -269,8 +271,8 @@
           "sh": "shellcheck",
           "elixir": ["mix_credo", "mix_credo_compile"],
           "eelixir": ["mix_credo", "mix_credo_compile"],
-          "php": "phpcs",
-          "vim": "vint"
+          "php": "phpcs"
+          //"vim": "vint"
         },
         "formatters": {
           "commad": "dartfmt",
@@ -335,11 +337,11 @@
     //  }
     //},
     "intelphense": {
-      "command": "intelphense",
+      "command": "intelephense",
       "args": ["--stdio"],
       "filetypes": ["php"],
       "initializationOptions": {
-        "storagePath": "/tmp/intelphense"
+        "storagePath": "/tmp/intelephense"
       }
     },
     "clojure": {
