@@ -11,9 +11,22 @@ set -Cue #{{{
 #   an error prevents to boot your system.
 #}}}
 
+# `paccache -ruk3`
 # All themes set in `lxappearance`
 PACKAGEs=(
+  ifplugd # for netctl to Ethernet
+  wpa_actiond # for netctl to Wifi
+  phpunit # unit test for php
+  xampp # a distro of Apache including MySQL, SQLite PHP, Perl etc.
+  shutter # make a screenshot!
+  #ksnip # make a screenshot!; use shutter instead
+  #wpa_supplicant_gui # wpa_supplicant on GUI, Qt; useless?
+  #adb-screen-tools
+  android-tools # includes `adb`
+  #android-sdk-platform-tools # Platform-toools for Google Android SDK; conflict to android-tools
+  adbcontrol # Remote control Android through `adb`
   #intellij-idea-ultimate-edition-jre
+  eclipse-vrapper # provides vim-bind for eclipse
   eclipse-java # an IDE for java
   php-pear # PHP Extension and Application Repository; it includes `pecl`
   #libreoffice-fresh-ja # returns 404
@@ -201,6 +214,7 @@ GEMs=(
 )
 
 YARNs=(
+  intelephense # a LSP server for php
   nvm # a version manager of Node.js
   #graphql-language-server # no longer supported
   #tslib
@@ -238,7 +252,7 @@ DASHTs=(
 # config: /etc/php/php.ini
 PECLs=(
   xdebug # required by vdebug, a vim's debugger
-  )
+)
 
 GHQs=(
   sachaos/toggl
@@ -371,6 +385,14 @@ URXVT_PATCHED_DIR=/tmp/$URXVT_PATCHED
 git clone -b master --depth 1 https://github.com/illef/$URXVT_PATCHED $URXVT_PATCHED_DIR
 cd $URXVT_PATCHED_DIR
 makepkg -si
+
+# ACTIVATION {{{1
+echo "Enable wpa_supplicant:"
+systemctl enable wpa_supplicant.service
+echo "Enable systemd-networkd:"
+systemctl enable systemd-networkd.service
+echo "Enable systemd-networkd@:"
+systemctl enable systemd-networkd@.service
 
 # END {{{1
 
