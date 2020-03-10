@@ -54,8 +54,6 @@ function! s:maps(prefix, command, ...) abort
   endfor
 endfunction
 
-if exists('s:loaded') | finish | endif
-let s:loaded = 1
-
 " type 't' with pressed <space> as <a-t>
 call s:maps('<space>t', 'te fish')
+unlet s:path_dict s:splits
