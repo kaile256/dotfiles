@@ -31,7 +31,7 @@ endfunction
 augroup myQuickrunAdd
   au!
   au FileType quickrun call s:quickrun_keymaps()
-  au FileType quickrun setl nonumber
+  au FileType quickrun setl nonumber fdl=99
 augroup END
 
 function! s:quickrun_keymaps() abort
