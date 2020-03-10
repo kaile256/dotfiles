@@ -128,9 +128,16 @@ endif
 
 " Shell Scripts; Out of Vim "{{{1
 " enable copletion
-command! -bar -nargs=* -complete=shellcmd
-      \ Killall
-      \ :silent !killall <args>
+command! -bar -nargs=* -complete=shellcmd Kill
+      \ :call s:killall(<q-args>)
+function! s:killall(...) abort "{{{2
+  let args = join(get(a:, '000'))
+  if empty(args)
+    !killall vim nvim nvim-qt
+  else
+    exe '!killall' args
+  endif
+endfunction
 
 augroup myAutoChdirOnWrite "{{{1
   au! BufWritePre * silent! cd %:p:h
