@@ -18,7 +18,8 @@ nnoremap <space>: q:kzb
 " Ref: compare :redraw with <c-l> or :mode
 
 tnoremap <silent> <SID>(highlight-off) <Cmd>noh  <bar> redraw!<cr><c-l>
-inoremap <silent> <SID>(highlight-off) <Cmd>noh  <bar> redraw!<cr>
+"inoremap <silent> <SID>(highlight-off) <Cmd>noh  <bar> redraw!<cr>
+inoremap <silent> <SID>(highlight-off) <Cmd>noh  <bar> mode<cr>
 nnoremap <silent> <SID>(highlight-off) :<c-u>noh <bar> redraw!<cr>
 
 tnoremap <script> <c-l> <SID>(highlight-off)
@@ -58,11 +59,12 @@ nnoremap <silent><expr> <c-w>g^       ':<c-u>tabe#'. v:count .'<cr>'
 nnoremap <silent><expr> <c-w>g^       ':<c-u>tabe#'. v:count .'<cr>'
 
 function! s:scratch(edit) abort "{{{2
-  let prefix = '/tmp/foo.'
+  "let prefix = '/tmp/foo.'
+  let prefix = tempname()
   let ext = expand('%:e')
   if empty(ext) | let ext = 'md' | endif
 
-  let path = prefix . ext
+  let path = prefix .'.'. ext
   exe a:edit path
 endfunction
 
