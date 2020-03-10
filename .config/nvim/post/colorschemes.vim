@@ -56,8 +56,8 @@ function! s:mixed_diff(...) abort "{{{1
   hi! DiffChange cterm=bold gui=bold ctermfg=179 ctermbg=237 guifg=#d7af5f guibg=#3a3a3a
 
   hi! DiffRemove  cterm=bold gui=bold ctermfg=167 guifg=#fb4934
-  hi! DiffAdd  cterm=bold,underline gui=bold,underline ctermfg=74  ctermbg=236 guifg=#5fafd7 guibg=#303030
-  hi! DiffText cterm=bold           gui=bold           ctermfg=208 guifg=#fe8019
+  hi! DiffAdd  cterm=bold gui=bold ctermfg=74  ctermbg=236 guifg=#5fafd7 guibg=#303030
+  hi! DiffText cterm=bold gui=bold ctermfg=208 guifg=#fe8019
 
   " " for fugitive
   " hi! diffFile    cterm=bold gui=bold ctermfg=208 guifg=#fe8019
