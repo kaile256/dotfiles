@@ -23,8 +23,6 @@ plugins
 repo
 easymotion
 easymotion's
-#eymap
-#eymap/!
 keymap
 plugin
 gitlab's
@@ -127,3 +125,7 @@ proc
 termux
 refactor
 async
+h
+DHCP
+Cisco
+ARP
