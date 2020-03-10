@@ -10,7 +10,7 @@
 #[ Snippets; Engine ]
 [[plugins]]
 repo = 'Shougo/neosnippet.vim'
-# PR: Shougo/neosnippet.vim/pull/486
+# Merged PR: Shougo/neosnippet.vim/pull/486
 # set the filetype in augroups.vim
 # it disturbs on 'n', of cource
 on_map = {nvi = '<Plug>(neosnippet'}
