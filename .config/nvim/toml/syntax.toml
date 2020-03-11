@@ -32,6 +32,18 @@ hook_source = 'runtime source/polyglot.vim'
 #]
 #hook_source = 'runtime source/validator.vim'
 #
+[[plugins]]
+repo = 'fcpg/vim-weblogs'
+on_ft = [
+  'fail2banlog'
+  'httplog',
+  'httplogerror',
+  'modseclog',
+  'modsectx',
+  'phplog',
+  'webmonolog',
+ ]
+
 #[ Compile ]
 [[plugins]]
 repo = 'jackguo380/vim-lsp-cxx-highlight'
