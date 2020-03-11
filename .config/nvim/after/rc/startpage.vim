@@ -1,7 +1,7 @@
 " From: init.vim
 
 augroup myStartpage
-  " FIXME: syntax/keymaps in defx
+  " FIXME: currently, no syntax/keymaps on defx
   au! VimEnter * nested silent! call s:startpage('fish')
 augroup END
 
