@@ -44,56 +44,6 @@ on_source = 'neosnippet.vim'
 #repo = 'garbas/vim-snipmate'
 #on_event = ['InsertEnter']
 
-#[ Thesaurus ]
-[[plugins]]
-repo = 'Ron89/thesaurus_query.vim'
-on_cmd = 'Thesaurus'
-hook_add = 'runtime add/thesaurus_query.vim'
-
-#[ Unicode ]
-[[plugins]]
-repo = 'chrisbra/unicode.vim'
-# Note: on_map of unicode.vim is useless; maybe because they are imap.
-on_map = {i = ['<Plug>(UnicodeComplete)', '<Plug>(DigraphComplete)']}
-hook_post_source = 'runtime add/unicode.vim'
-#[[plugins]]
-#repo = 'arthurxavierx/vim-unicoder'
-#on_map = {i = '<Plug>(unicoder-'}
-
-#[ Spell ]
-#[[plugins]]
-#repo = 'kamykn/spelunker.vim'
-#on_map = {ni = '<Plug>(spelunker-'}
-#hook_source = 'runtime source/spelunker.vim'
-#[[plugins]]
-#repo = 'rhysd/vim-grammarous'
-## Grammer Check
-## Note: Too heavy to download pre-requested files
-#on_cmd = 'GrammarousCheck'
-#hook_add = 'runtime add/grammarous.vim'
-[[plugins]]
-repo = 'shinglyu/vim-codespell'
-# only supports python?
-on_cmd = 'Codespell'
-hook_add = 'runtime add/codespell.vim'
-#[[plugins]]
-#repo = 'tweekmonster/dyslexic.vim'
-## Spell checker according to <cword>.
-#on_cmd = 'Dyslexic'
-#hook_add = 'runtime dyslexic.vimrc'
-
-#[ CapsLock ]
-#[[plugins]]
-#repo = 'tpope/vim-capslock'
-## Doesn't Work
-#on_event = ['InsertEnter', 'CmdlineEnter']
-#hook_post_source = 'runtime add/capslock.vim'
-#[[plugins]]
-#repo = 'mattn/vim-switch-esc-capslock'
-#### For Windows?
-#on_event = ['InsertEnter', 'CmdlineEnter']
-#hook_post_source = 'runtime add/switch-esc-capslock.vim'
-
 #[ Completion ]
 #[[plugins]]
 #repo = 'Shougo/deoplete.nvim'
@@ -119,8 +69,65 @@ hook_add = 'runtime add/codespell.vim'
 #on_map = '<Plug>(complete_parameter#'
 #hook_add = 'runtime add/CompleteParameter.vim'
 #
-#[ Spell ]
+#[ Auto Pair ]
+#[[plugins]]
+#repo = 'jiangmiao/auto-pairs'
+#on_event = ['InsertCharPre']
 [[plugins]]
-repo = 'reedes/vim-lexical'
-on_func =  ['lexical#init']
-hook_source = 'runtime source/lexical.vim'
+repo = 'cohama/lexima.vim'
+on_event = ['InsertCharPre']
+#[ Unicode ]
+[[plugins]]
+repo = 'chrisbra/unicode.vim'
+# Note: on_map of unicode.vim is useless; maybe because they are imap.
+on_map = {i = ['<Plug>(UnicodeComplete)', '<Plug>(DigraphComplete)']}
+hook_post_source = 'runtime add/unicode.vim'
+#[[plugins]]
+#repo = 'arthurxavierx/vim-unicoder'
+#on_map = {i = '<Plug>(unicoder-'}
+
+#[ Thesaurus ]
+[[plugins]]
+repo = 'Ron89/thesaurus_query.vim'
+on_cmd = 'Thesaurus'
+hook_add = 'runtime add/thesaurus_query.vim'
+
+#[ Spell ]
+#[[plugins]]
+#repo = 'kamykn/spelunker.vim'
+#on_map = {ni = '<Plug>(spelunker-'}
+#hook_source = 'runtime source/spelunker.vim'
+#[[plugins]]
+#repo = 'rhysd/vim-grammarous'
+## Grammer Check
+## Note: Too heavy to download pre-requested files
+#on_cmd = 'GrammarousCheck'
+#hook_add = 'runtime add/grammarous.vim'
+[[plugins]]
+repo = 'shinglyu/vim-codespell'
+# only supports python?
+on_cmd = 'Codespell'
+hook_add = 'runtime add/codespell.vim'
+#[[plugins]]
+#repo = 'tweekmonster/dyslexic.vim'
+## Spell checker according to <cword>.
+#on_cmd = 'Dyslexic'
+#hook_add = 'runtime dyslexic.vimrc'
+
+#[[plugins]]
+#repo = 'reedes/vim-lexical'
+## spell-check up to the language
+#on_func =  ['lexical#init']
+#hook_source = 'runtime source/lexical.vim'
+#[ CapsLock ]
+#[[plugins]]
+#repo = 'tpope/vim-capslock'
+## Doesn't Work
+#on_event = ['InsertEnter', 'CmdlineEnter']
+#hook_post_source = 'runtime add/capslock.vim'
+#[[plugins]]
+#repo = 'mattn/vim-switch-esc-capslock'
+#### For Windows?
+#on_event = ['InsertEnter', 'CmdlineEnter']
+#hook_post_source = 'runtime add/switch-esc-capslock.vim'
+
