@@ -1,3 +1,6 @@
+" TOML: insert.toml
+" Repo: cohama/lexima.vim
+
 " in case for typo
 if has('lexima.vim')
   inoremap '<BS> '<Right><BS><BS>
