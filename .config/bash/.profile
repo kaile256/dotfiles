@@ -16,12 +16,13 @@
 ##   => https://github.com/williamjameshandley/vimteractive
 #stty -ixon
 
-source ~/.config/bash/env.sh # includes initial XDG_BASEs.
-source ~/.config/bash/path.sh
-#source ~/.config/bash/alias.sh # no use for fish on vim
-
-# a prompt
-eval "$(starship init bash)"
+SCRIPTS=(
+  env.sh
+  path.sh
+)
+for f in "${SCRIPTS[@]}"; do
+  source "$HOME/.config/bash/$f"
+done
 
 # INIT
 #eval "$(anyenv init -)"
