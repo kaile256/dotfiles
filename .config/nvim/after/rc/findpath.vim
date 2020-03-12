@@ -13,12 +13,17 @@ augroup UpdatePathToFind
   au!
   au FileType sh,bash setl path^=/usr/bin/
   au FileType c,cpp   setl path^=/usr/include
+  "au FileType java   setl path^=/usr/lib/jvm/
   au FileType go      exe 'setl path^='. $GOPATH .'/src/**,/usr/lib/go/src/**'
   au FileType python  exe 'setl path^='. $XDG_DATA_HOME
         \ .'/lib/python3.8/site-packages/**,/usr/lib/python3.8/**'
 
   au FileType dosini setl suffixesadd=.conf
   au FileType vim    setl isfname-==
+
+  " Apache
+  au BufRead */httpd/* setl path^=/opt/httpd/**
+  au BufRead */lampp/* setl path^=/opt/lampp/**
 
   au BufNewFile,BufRead {.config,dotfiles}**/* call s:path.dotfiles()
 
