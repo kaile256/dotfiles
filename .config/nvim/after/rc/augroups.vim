@@ -153,7 +153,7 @@ augroup END
 
 augroup myRegisterModify "{{{1
   au!
-  au FocusGained * if @+ !~# '^https://' && @+ !~# "\<NL>$" | let @+ .= "\<NL>" | endif
+  au FocusGained *.toml if @+ !~# '^https://' && @+ !~# "\<NL>$" | let @+ .= "\<NL>" | endif
 augroup END
 " augroup myAutoColorColumn "{{{1
 "  au!
