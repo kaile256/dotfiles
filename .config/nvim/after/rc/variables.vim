@@ -22,6 +22,9 @@ let $XDG_CACHE_HOME  = empty($XDG_CACHE_HOME)  ? expand('$HOME/.cache/')       :
 let $XDG_CONFIG_HOME = empty($XDG_CONFIG_HOME) ? expand('$HOME/.config/')      : $XDG_CONFIG_HOME
 let $XDG_DATA_HOME   = empty($XDG_DATA_HOME)   ? expand('$HOME/.local/share/') : $XDG_DATA_HOME
 
+let $MYMEMO = empty($MYMEMO) ? expand('$HOME/Memo/') : $MYMEMO
+let $MYDEV  = empty($MYDEV)  ? expand('$HOME/dev/')  : $MYDEV
+
 let g:dotfiles_home  = '~/dotfiles/'
 let g:nvim_home = empty($VIMCONFIG) ? expand(g:dotfiles_home .'/.config/nvim/') : $VIMCONFIG
 let g:nvim_data_home = g:nvim_home . '/data/'
