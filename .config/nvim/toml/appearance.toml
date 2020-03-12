@@ -44,6 +44,12 @@ hook_post_source = 'runtime add/cursorword.vim'
 #on_cmd = 'Limelight'
 #hook_add = 'runtime add/limelight.vim'
 
+[[plugins]]
+repo = 'machakann/vim-highlightedyank'
+# coc's highlight on yank sometimes leaves the highlight after the role.
+on_event = ['TextYankPost']
+hook_source = 'runtime source/highlightedyank.vim'
+
 #[ Icons ]
 [[plugins]]
 repo = 'ryanoasis/vim-devicons'
