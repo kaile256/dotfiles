@@ -9,8 +9,14 @@ inoremap <F1> <Nop>
 " TODO: keep the cursor after <c-o>, especially <c-o>yiw
 " Note: default <c-o>yy only inserts yy w/o yank.
 inoremap <c-o>y        <c-\><c-o>:call feedkeys("\<c-\>\<c-o>y", 'n')<cr>
-inoremap <c-o><space>y <c-\><c-o>:call feedkeys("\<c-\>\<c-o>".'"+y', 'n')<cr>
+inoremap <c-o><space>y <c-\><c-o>:call feedkeys("\<c-\>\<c-o>\"+y", 'n')<cr>
 "inoremap <c-o>p <c-\><c-o>:call feedkeys("\<esc>]p`]a")<cr>
+
+inoremap <script> <c-;> <SID>(append-semicolon)
+inoremap <expr> <SID>(append-semicolon)
+      \ getline('.') !~# ';\s*$'
+      \ ? "<C-g>u<C-o>:keepjumps norm! A;<c-o>gi<CR>"
+      \ : '<C-o>:echo "A semicolon already at the end of line!"<CR>'
 
 " somtimes returns `-1` as an error
 "inoremap <expr> . <SID>here()
