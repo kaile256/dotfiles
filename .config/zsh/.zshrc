@@ -10,7 +10,22 @@ SourceFile=(
   zinit.zsh
 )
 for i in ${SourceFile[@]}; do
-  source ~/.config/zsh/$i
+  source "$HOME/.config/zsh/$i"
 done
 
-zpcompinit -C
+bindkey -e
+
+# share with the other terminals
+setopt share_history
+
+# no duplicated history
+setopt histignorealldups
+
+# cd only with dir name
+setopt auto_cd
+
+# fix command failure
+setopt correct
+
+# disable <C-s> and <C-q>
+setopt no_flow_control
