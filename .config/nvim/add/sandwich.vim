@@ -73,6 +73,22 @@ xmap \y <Plug>(operator-sandwich-add)
 xmap \d <Plug>(operator-sandwich-delete)
 xmap \c <Plug>(operator-sandwich-replace)
 
+xmap \* <Plug>(operator-sandwich-add)*
+xmap \` <Plug>(operator-sandwich-add)`
+xmap \' <Plug>(operator-sandwich-add)'
+xmap \" <Plug>(operator-sandwich-add)"
+xmap \( <Plug>(operator-sandwich-add)(
+xmap \) <Plug>(operator-sandwich-add))
+xmap \< <Plug>(operator-sandwich-add)<
+xmap \> <Plug>(operator-sandwich-add)>
+xmap \[ <Plug>(operator-sandwich-add)[
+xmap \] <Plug>(operator-sandwich-add)]
+xmap \{ <Plug>(operator-sandwich-add){
+xmap \} <Plug>(operator-sandwich-add)}
+xmap \/ <Plug>(operator-sandwich-add)/
+
+xmap \\| <Plug>(operator-sandwich-add)\|
+
 " with magicchars tag/func
 xmap <Plug>(operator-sandwich-add-tag)  <Plug>(operator-sandwich-add)t
 xmap <Plug>(operator-sandwich-add-func) <Plug>(operator-sandwich-add)f
