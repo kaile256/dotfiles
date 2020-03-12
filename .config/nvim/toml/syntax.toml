@@ -5,10 +5,8 @@
 [[plugins]]
 repo = 'sheerun/vim-polyglot'
 # No syntax for java
-on_if = "index(['', 'terminal', 'i3', 'javascript'], &ft) < 0"
+on_if = "&ft !=# '\|zsh\|terminal\|i3\|javascript'"
 on_event = ['FileType']
-#if    = "index(['', 'terminal'], &ft) < 0"
-#on_if = "index(get(g:, 'polyglot_disabled', ['i3', 'javascript']), &ft) < 0"
 hook_source = 'runtime source/polyglot.vim'
 
 #[[plugins]]
@@ -95,13 +93,16 @@ hook_source = 'runtime source/tigris.vim'
 #on_ft = 'lua'
 
 
-# for Shell
+#[ Shell ]
 #[[plugins]]
 #repo = 'dag/vim-fish'
 #on_ft = 'fish'
 
 [[plugins]]
 repo = 'chrisbra/vim-zsh'
+on_ft = 'zsh'
+[[plugins]]
+repo = 'zinit-zsh/zinit-vim-syntax'
 on_ft = 'zsh'
 
 #[[plugins]]
