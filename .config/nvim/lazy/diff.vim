@@ -50,14 +50,15 @@ augroup END
 " augroup RemoveIrritativeHead
 "   au!
 "   au TextYankPost *{d,D}iff* call s:trim_head()
+"   " au TextYankPost *diff*,*Diff* call s:trim_head()
 " augroup END
 
 " function! s:trim_head() abort
 "   let regname = v:event.regname
-"   if !empty(regname)
-"     let @{regnamem} = substitute(regname, "\(^\|\<NL>\)\zs[-+]", '', 'g')
-"   else
+"   if empty(regname)
 "     " FIXME: care for blackhole-register(_)
-"     let @" = substitute(regname, '^[-+]', '', '')
+"     let regname = '"'
 "   endif
+"   let pat = '\(^\|\n\)\zs\s*[-+]'
+"   let @{regnamem} = substitute(regname, pat, '', 'g')
 " endfunction
