@@ -43,6 +43,21 @@ augroup LeaveDiffMode
   au WinEnter *
         \ if (winnr('$') == 1)
         \ && getbufvar(winbufnr('.'), '&diff') == 1
-        \ |  diffoff!
+        \ |   diffoff!
         \ | endif
 augroup END
+
+" augroup RemoveIrritativeHead
+"   au!
+"   au TextYankPost *{d,D}iff* call s:trim_head()
+" augroup END
+
+" function! s:trim_head() abort
+"   let regname = v:event.regname
+"   if !empty(regname)
+"     let @{regnamem} = substitute(regname, "\(^\|\<NL>\)\zs[-+]", '', 'g')
+"   else
+"     " FIXME: care for blackhole-register(_)
+"     let @" = substitute(regname, '^[-+]', '', '')
+"   endif
+" endfunction
