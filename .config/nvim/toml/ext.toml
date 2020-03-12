@@ -46,13 +46,6 @@ hook_source = 'runtime source/SQHell.vim'
 #write
 #'''
 #
-#[ Template ]
-#[[plugins]]
-#repo = 'mattn/sonictemplate-vim'
-## Note: Use snippet instead
-#on_event = 'BufNew'
-#hook_post_source = 'runtime add/sonictemplate.vim'
-
 #[[plugins]]
 #repo = 'chrisbra/NrrwRgn'
 #on_event = 'VimEnter'

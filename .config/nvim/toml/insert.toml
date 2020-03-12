@@ -7,6 +7,12 @@
 #on_cmd  = ['Pencil']
 #hook_add = 'runtime add/pencil.vim'
 #
+#[ Template ]
+[[plugins]]
+repo = 'mattn/vim-sonictemplate'
+on_cmd = ['Template']
+on_map = {ni = ['<Plug>(sonictemplate']}
+
 #[ Snippets; Engine ]
 [[plugins]]
 repo = 'Shougo/neosnippet.vim'
@@ -73,9 +79,13 @@ on_source = 'neosnippet.vim'
 #[[plugins]]
 #repo = 'jiangmiao/auto-pairs'
 #on_event = ['InsertCharPre']
+#[[plugins]]
+#repo = 'cohama/lexima.vim'
+#on_event = ['InsertCharPre']
 [[plugins]]
-repo = 'cohama/lexima.vim'
+repo = 'tpope/vim-endwise'
 on_event = ['InsertCharPre']
+
 #[ Unicode ]
 [[plugins]]
 repo = 'chrisbra/unicode.vim'
