@@ -5,6 +5,9 @@
 
 umask 022
 
+# a prompt; causes error in .profile
+eval "$(starship init bash)"
+
 SCRIPTS=(
   #env.sh # includes initial XDG_BASEs.
   #xdg.sh
