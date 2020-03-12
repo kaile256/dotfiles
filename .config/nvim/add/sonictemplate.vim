@@ -1,11 +1,12 @@
-" Repo: mattn/vim-sonictemplate
 " TOML: insert.toml
+" Repo: mattn/vim-sonictemplate
+" Another: source/sonictemplate.vim
+" Else: data/sonictemplate
 
-let g:sonictemplate_vim_template_dir = [
-      \ '$HOME/.config/nvim/data/sonictemplate'
-      \ ]
+" intelligent asks which template to use in command line
+" the difference than <Plug>(sonictemplate) is the completion
+imap <c-+> <Plug>(sonictemplate-intelligent)
+nmap <c-+> <Plug>(sonictemplate-intelligent)
 
-let g:sonictemplate_vim_vars = {}
-let g:sonictemplate_vim_vars['_'] = {
-      \ 'author': 'kaile256',
-      \ }
+imap <c-=> <Plug>(sonictemplate-postfix)
+nmap <c-=> <Plug>(sonictemplate-postfix)

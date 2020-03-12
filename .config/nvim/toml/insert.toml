@@ -12,6 +12,9 @@
 repo = 'mattn/vim-sonictemplate'
 on_cmd = ['Template']
 on_map = {ni = ['<Plug>(sonictemplate']}
+on_path = '.stpl'
+hook_add = 'runtime add/sonictemplate.vim'
+hook_source = 'runtime source/sonictemplate.vim'
 
 #[ Snippets; Engine ]
 [[plugins]]
