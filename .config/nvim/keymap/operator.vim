@@ -160,6 +160,5 @@ function! s:backup_yanked_contents() "{{{1
   exe 'let @' . s:latest_backup_regname .'= getreg(0)'
 endfunction
 let g:backupYanked#backuplist_regnames = 'abcdefg'
-command! BackupYanked :call s:backup_yanked_contents()
-nnoremap <silent> y :BackupYanked<cr>y
-nnoremap <silent> Y :BackupYanked<cr>y$
+nnoremap <silent> y :call <SID>backup_yanked_contents()<cr>y
+nnoremap <silent> Y :call <SID>backup_yanked_contents()<cr>y$
