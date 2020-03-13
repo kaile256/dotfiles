@@ -7,7 +7,6 @@
 let g:switch_mapping = ''
 " let g:switch_reverse_mapping = ''
 
-" let g:switch_custom_definitions =
-"     \ [
-"     \   ['foo', 'bar', 'baz']
-"     \ ]
+let g:switch_custom_definitions = [
+    \   [0, 'null'],
+    \ ]
