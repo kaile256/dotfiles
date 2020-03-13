@@ -81,12 +81,12 @@ let s:toml_pc_only = [
 
 let s:toml_lazy = [
       \ 'appearance.toml',
+      \ 'browse.toml',
       \ 'debug.toml',
       \ 'default.toml',
       \ 'denite.toml',
       \ 'ext.toml',
       \ 'external.toml',
-      \ 'browse.toml',
       \ 'fold.toml',
       \ 'ftplugin.toml',
       \ 'fugitive.toml',
@@ -101,6 +101,7 @@ let s:toml_lazy = [
       \ 'syntax.toml',
       \ 'textobj.toml',
       \ 'vimscript.toml',
+      \ 'xampp.toml',
       \ ]
 
 " Load Plugins by Dein {{{1

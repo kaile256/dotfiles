@@ -1,0 +1,69 @@
+# From: rc/dein.vim
+# Else: toml/ftplugin.toml
+
+#[ HTML ]
+[[plugins]]
+repo = 'mattn/emmet-vim'
+on_cmd = ['Emmet', 'EmmetIntall']
+on_ft = ['html', 'xml', 'xsl']
+[[plugins]]
+repo = 'alvan/vim-closetag'
+# Html; Auto Close for html-tags
+on_ft = ['html']
+hook_add = 'runtime! add/closetag.vim'
+on_ft = ['html', 'javascript']
+hook_add = '''
+let g:cloesetag_filenames = '*.html,*.vue'
+'''
+[[plugins]]
+repo = 'lyokha/vim-publish-helper'
+on_ft = 'pandoc'
+#[[plugins]]
+#repo = 'lervag/vimtex'
+#on_ft = 'tex'
+#hook_post_source = 'runtime add/vimtex.vim'
+
+#[ PHP ]
+#[[plugins]]
+#repo = 'phpactor/phpactor'
+#on_ft = ['php']
+
+#[ CSV ]
+[[plugins]]
+repo = 'mechatroner/rainbow_csv'
+on_ft = ['csv', 'sql']
+[[plugins]]
+repo = 'chrisbra/csv.vim'
+on_ft = ['csv']
+
+#[ SQL ]
+[[plugins]]
+repo = 'joereynolds/SQHell.vim'
+on_cmd = [
+'SQHShowDatabases',
+'SQHShowTablesForDatabase',
+]
+hook_add = 'runtime add/SQHell.vim'
+hook_source = 'runtime source/SQHell.vim'
+
+#[[plugins]]
+#repo = 'tpope/vim-dadbod'
+#on_cmd = ['DB']
+#
+#[[plugins]]
+#repo = 'vim-scripts/dbext.vim'
+#on_cmd = [
+#'DBExtSQL',
+#'DBConnect',
+#]
+#
+[[plugins]]
+repo = 'alcesleo/vim-uppercase-sql'
+on_ft = ['sql']
+[[plugins]]
+repo = 'mattn/vim-sqlfmt'
+build = 'pip3 install --upgrade sqlparse'
+on_ft = ['sql']
+[[plugins]]
+repo = 'cosminadrianpopescu/vim-sql-workbench'
+on_ft = ['sql']

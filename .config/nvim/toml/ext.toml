@@ -13,27 +13,6 @@ on_cmd =  ['Hexedit']
 #on_cmd = 'Pfp'
 #hook_add = 'runtime add/pfp.vim'
 
-#[ SQL ]
-[[plugins]]
-repo = 'joereynolds/SQHell.vim'
-on_cmd = [
-'SQHShowDatabases',
-'SQHShowTablesForDatabase',
-]
-hook_add = 'runtime add/SQHell.vim'
-hook_source = 'runtime source/SQHell.vim'
-
-#[[plugins]]
-#repo = 'tpope/vim-dadbod'
-#on_cmd = ['DB']
-#
-#[[plugins]]
-#repo = 'vim-scripts/dbext.vim'
-#on_cmd = [
-#'DBExtSQL',
-#'DBConnect',
-#]
-#
 #[ Minimap ]
 #[[plugins]]
 #repo = 'severin-lemaignan/vim-minimap'
@@ -50,12 +29,6 @@ hook_source = 'runtime source/SQHell.vim'
 #repo = 'chrisbra/NrrwRgn'
 #on_event = 'VimEnter'
 #hook_post_source = 'runtime add/NrrwRgn.vim'
-
-#[[plugins]]
-#repo = 'AndrewRadev/switch.vim'
-## toggle as predefined, such as 'true' & 'false'.
-#on_if = '&modifiable'
-#hook_post_source = 'runtime add/switch.vim'
 
 #[[plugins]]
 #repo = 'mtth/scratch.vim'

@@ -1,5 +1,6 @@
 # From: rc/dein.vim
-# Ref: syntax.toml
+# Else: syntax.toml
+# Else: xampp.toml
 
 #[ Multiple FileType ]
 [[plugins]]
@@ -131,28 +132,6 @@ on_ft = [
 [[plugins]]
 repo = 'clojure-vim/async-clj-omni'
 on_ft = ['clojure']
-#[ Html ]
-[[plugins]]
-repo = 'mattn/emmet-vim'
-on_cmd = ['Emmet', 'EmmetIntall']
-on_ft = ['html', 'xml', 'xsl']
-[[plugins]]
-repo = 'alvan/vim-closetag'
-# Html; Auto Close for html-tags
-on_ft = ['html']
-hook_add = 'runtime! add/closetag.vim'
-on_ft = ['html', 'javascript']
-hook_add = '''
-let g:cloesetag_filenames = '*.html,*.vue'
-'''
-[[plugins]]
-repo = 'lyokha/vim-publish-helper'
-on_ft = 'pandoc'
-#[[plugins]]
-#repo = 'lervag/vimtex'
-#on_ft = 'tex'
-#hook_post_source = 'runtime add/vimtex.vim'
-
 #[ Document ]
 [[plugins]]
 repo = 'rafaqz/citation.vim'
@@ -178,24 +157,6 @@ on_ft = 'json'
 repo = 'danishprakash/vim-docker'
 on_cmd =  ['DockerDocBrowser', 'DockerHubBrowser',]
 
-#[ CSV ]
-[[plugins]]
-repo = 'mechatroner/rainbow_csv'
-on_ft = ['csv', 'sql']
-[[plugins]]
-repo = 'chrisbra/csv.vim'
-on_ft = ['vsv']
-#[ DB ]
-[[plugins]]
-repo = 'alcesleo/vim-uppercase-sql'
-on_ft = ['sql']
-[[plugins]]
-repo = 'mattn/vim-sqlfmt'
-build = 'pip3 install --upgrade sqlparse'
-on_ft = ['sql']
-[[plugins]]
-repo = 'cosminadrianpopescu/vim-sql-workbench'
-on_ft = ['sql']
 #[ Quickfix ]
 #[[plugins]]
 #repo = 'lambdalisue/qfloc.vim'
