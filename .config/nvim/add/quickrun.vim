@@ -14,15 +14,18 @@ nnoremap <silent> <SID>(quickrun-holding-syn)
 xnoremap <silent> <SID>(quickrun-holding-syn)
       \ :<c-u>call <SID>quickrun_holding_syn()<cr>
 
+nnoremap <script> \\ <SID>(quickrun-holding-syn)
+xnoremap <script> \\ <SID>(quickrun-holding-syn)
 nnoremap <script> \rr <SID>(quickrun-holding-syn)
 nnoremap <script> \R  <SID>(quickrun-holding-syn)
 xnoremap <script> \r  <SID>(quickrun-holding-syn)
 
 function! s:quickrun_holding_syn() abort
-  if filewritable(expand('%:p')) | w | endif
+  if filewritable(expand('%:p')) | silent w | endif
 
   let bufnr = bufnr('%')
   let syn = getbufvar(bufnr, '&syntax')
+  echo 'QuickRun running...'
   QuickRun
   let bufnr_qr = bufnr('\[quickrun output\]')
   call setbufvar(bufnr_qr, '&syntax', syn)
