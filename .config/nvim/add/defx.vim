@@ -188,6 +188,17 @@ nnoremap <silent> <a-x><a-f> :<c-u>call <SID>defx({
 "      \ -new
 "      \ <cr>
 "
+" Open Dev Directory {{{1
+nnoremap <silent> <SID>(defx-dev)
+      \ :<c-u>Defx `expand($MYDEV)`
+      \ -direction=botright
+      \ -winwidth=25
+      \ -split=vertical
+      \ -new
+      \ <cr>
+nnoremap <script> <a-x>d     <SID>(defx-dev)
+nnoremap <script> <a-x><a-d> <SID>(defx-dev)
+
 " Open Memo Directory {{{1
 nnoremap <silent> <SID>(defx-memo)
       \ :<c-u>Defx `expand($MYMEMO)`
@@ -196,6 +207,5 @@ nnoremap <silent> <SID>(defx-memo)
       \ -split=vertical
       \ -new
       \ <cr>
-nnoremap <silent><script> <a-x>m     <SID>(defx-memo)
-nnoremap <silent><script> <a-x><a-m> <SID>(defx-memo)
-
+nnoremap <script> <a-x>m     <SID>(defx-memo)
+nnoremap <script> <a-x><a-m> <SID>(defx-memo)
