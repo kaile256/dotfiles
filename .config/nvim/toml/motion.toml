@@ -110,7 +110,7 @@ hook_source = 'runtime source/switch.vim'
 [[plugins]]
 repo = 'junegunn/vim-easy-align'
 on_map = ['<Plug>(EasyAlign)', '<Plug>(LiveEasyAlign)']
-#on_cmd = 'EasyAlign'
+on_cmd = 'EasyAlign'
 hook_add = 'runtime add/easy-align.vim'
 [[plugins]]
 repo = 'AndrewRadev/splitjoin.vim'
