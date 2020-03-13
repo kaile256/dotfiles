@@ -1,14 +1,5 @@
-" From: tool.toml
+" TOML: motion.toml
+" Another: source/switch.vim
 
-" Reset default mappings.
-let g:switch_mapping = ''
-let g:switch_reverse_mapping = ''
-
-" switch#Switch()
-" switch#Switch({'reverse': 1}) or :call switch#Switch({'reverse': v:true})
-" switch#Switch({'definitions': list_of_definitions})
-
-" let g:switch_custom_definitions =
-"     \ [
-"     \   ['foo', 'bar', 'baz']
-"     \ ]
+nnoremap <silent> <c-n> :<c-u>Switch<cr>
+nnoremap <silent> <c-p> :<c-u>SwitchReverse<cr>

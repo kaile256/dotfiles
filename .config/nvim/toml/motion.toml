@@ -99,6 +99,14 @@ hook_source = 'runtime source/caw.vim'
 repo = 'machakann/vim-swap'
 on_map = '<Plug>(swap-'
 hook_add = 'runtime add/swap.vim'
+
+[[plugins]]
+repo = 'AndrewRadev/switch.vim'
+# switch as predefined, such as "true" & "false".
+on_cmd = ['Switch', 'SwitchReverse']
+hook_add = 'runtime add/switch.vim'
+hook_source = 'runtime source/switch.vim'
+
 [[plugins]]
 repo = 'junegunn/vim-easy-align'
 on_map = ['<Plug>(EasyAlign)', '<Plug>(LiveEasyAlign)']
@@ -119,13 +127,14 @@ on_map = {nox = [
 ]}
 hook_add = 'runtime add/sandwich.vim'
 hook_source = 'runtime source/sandwich.vim'
-#hook_done_update = '''
-#exe 'argadd' g:dein_github_dir .'/kaile256/vim-sandwich/autoload/textobj/sandwich/recipes.vim'
-#exe 'argadd' g:dein_github_dir .'/kaile256/vim-sandwich/autoload/sandwich.vim'
-#exe 'argadd' g:dein_github_dir .'/kaile256/vim-sandwich/autoload/operator/sandwich/operator.vim'
-#argdo g/= type(c) == s:type_num ? nr2char(c) : c/norm! na (c ==# "\<S-lt>")? '<':
-#write
-#'''
+hook_done_update = '''
+exe 'argadd' g:dein_github_dir .'/machakann/vim-sandwich/autoload/textobj/sandwich/recipes.vim'
+exe 'argadd' g:dein_github_dir .'/machakann/vim-sandwich/autoload/sandwich.vim'
+exe 'argadd' g:dein_github_dir .'/machakann/vim-sandwich/autoload/operator/sandwich/operator.vim'
+silent! argdo! g/= type(c) == s:type_num ? nr2char(c) : c/norm! na (c ==# "\<S-lt>") ? '<' :
+silent! argdo! write
+argdelete *
+'''
 #[[plugins]]
 #repo = 'tpope/vim-surround'
 #on_event = 'BufRead'
