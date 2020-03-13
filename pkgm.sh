@@ -14,6 +14,14 @@ set -Cue #{{{
 # `paccache -ruk3`
 # All themes set in `lxappearance`
 PACKAGEs=(
+  jad # Java Decompiler
+  openjdk11-src # source files
+  jdk11-openjdk # Java Development Kit; set default java by `archlinux-java`
+  jre11-openjdk # Java Runtime Environment; set default java by `archlinux-java`
+  powerline-fonts
+  starship # a prompt set for any shell
+  apache
+  wireshark-qt # a packet capture
   ifplugd # for netctl to Ethernet
   wpa_actiond # for netctl to Wifi
   phpunit # unit test for php
