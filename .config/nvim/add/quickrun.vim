@@ -19,7 +19,7 @@ nnoremap <script> \R  <SID>(quickrun-holding-syn)
 xnoremap <script> \r  <SID>(quickrun-holding-syn)
 
 function! s:quickrun_holding_syn() abort
-  if filewritable('%:p') | w | endif
+  if filewritable(expand('%:p')) | w | endif
 
   let bufnr = bufnr('%')
   let syn = getbufvar(bufnr, '&syntax')
