@@ -104,6 +104,7 @@ hook_add = 'runtime add/swap.vim'
 repo = 'AndrewRadev/switch.vim'
 # switch as predefined, such as "true" & "false".
 on_cmd = ['Switch', 'SwitchReverse']
+on_func = ['switch#']
 hook_add = 'runtime add/switch.vim'
 hook_source = 'runtime source/switch.vim'
 
