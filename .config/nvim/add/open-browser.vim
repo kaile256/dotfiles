@@ -33,7 +33,7 @@ function! s:openbrowser_in(engine, ...) abort "{{{1
         \ : expand('<cfile>')
 
   let args = a:engine =~# '/$'
-        \ ? a:engine .. words
+        \ ? a:engine . words
         \ : '-'. a:engine .' '. words
 
   echo 'OpenBrowserSmartSearch '. args
@@ -52,9 +52,9 @@ let s:key2engine = {
       \ 'W': 'weblio',
       \ }
 for s:key in keys(s:key2engine)
-  exe 'nnoremap <silent>' s:prefix_for_openbrowser .. s:key
+  exe 'nnoremap <silent>' s:prefix_for_openbrowser . s:key
         \ ':<c-u>call <SID>openbrowser_in(' string(s:key2engine[s:key]) ')<cr>'
-  exe 'xnoremap <silent>' s:prefix_for_openbrowser .. s:key
+  exe 'xnoremap <silent>' s:prefix_for_openbrowser . s:key
         \ ':call <SID>openbrowser_in(' string(s:key2engine[s:key]) ', "x")<cr>'
 endfor
 unlet s:key s:key2engine s:prefix_for_openbrowser
