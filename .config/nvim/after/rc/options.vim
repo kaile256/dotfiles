@@ -188,6 +188,7 @@ set history=100 " default: 10000, history of ':' commands
 " Cmdline; Completion
 set wildmenu wildmode=list:longest
 "set wildmenu wildmode=longest:full
+set completeopt=menu,preview,longest
 " 'wildcharm' works exactly like 'wildchar', which is <TAB> in vim as default,
 " but it keeps to work in cnoremap.
 set wildcharm=<c-y>
@@ -220,13 +221,14 @@ set formatoptions=jmB1cql " default: tcqj
 "   a: all previous modes
 "   r: for |hit-enter| and |more-prompt| prompt
 set mouse=a
-augroup myForceFormatOptions
-  au!
-  au FileType * if &fo =~# 'r\|o' | silent set fo-=r fo-=o | endif
-  "au InsertCharPre * if &fo =~# 'r\|o' | silent set fo-=r fo-=o | endif
-  au InsertEnter * if &tw =~# '' | set textwidth=0 | endif
-  "au FileType * if getline(1, '$') ==# [] | startinsert | endif
-augroup END
+set textwidth=79
+"augroup myForceFormatOptions
+"  au!
+"  "au OptionSet * if &fo =~# 'r\|o' | silent set fo-=r fo-=o | endif
+"  "au InsertCharPre * if &fo =~# 'r\|o' | silent set fo-=r fo-=o | endif
+  au InsertEnter * if &conceallevel != 0 && &tw =~# '' | set textwidth=0 | endif
+"  "au FileType * if getline(1, '$') ==# [] | startinsert | endif
+"augroup END
 "set foldclose " when cursor is out of fold, close automatically.
 
 "augroup MyAutoView
