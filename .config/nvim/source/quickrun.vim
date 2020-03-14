@@ -37,5 +37,5 @@ let g:quickrun_config['texmath'] = {
 
 augroup myQuickrunSource
   au!
-  au FileType * if expand('%') =~# '\[quickrun output]$' | setl fdl=99 | endif
+  au FileType quickrun setl nonumber fdl=99
 augroup END
