@@ -128,4 +128,5 @@ augroup OnFugitiveBuffer
   au FileType fugitive,fugitiveblame,gitcommit setl nonumber signcolumn= bufhidden=wipe
   au FileType gitcommit setl spell spl=en_us,cjk colorcolumn=73
   au FileType git setl fdl=99
+  au BufRead fugitive:///* setl buftype=nofile
 augroup END
