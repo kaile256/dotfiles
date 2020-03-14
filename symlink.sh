@@ -42,10 +42,10 @@ HOMEs=(
 CONFIGs=(
   X11
   bash
-  blugon
   fish
   lynx
   nvim
+  starship.toml
   tmux
   w3m
   zsh
@@ -54,15 +54,16 @@ CONFIGs=(
 NON_ANDROIDs=(
   alacritty
   awesome
+  blugon # blue light modifier
   dunst # for `notify-send`
   fcitx
   glrnvim.yml
   i3
-  ranger/rc.conf
   mimeapps.list # for qutebrowser should be the default browser
   nyaovim
   polybar # a status bar
   qutebrowser
+  ranger/rc.conf
   vimiv # an image viewer
 )
 
