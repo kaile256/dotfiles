@@ -74,14 +74,14 @@ function! s:agit_keymaps() abort "{{{1
   nmap <buffer> D  <Plug>(agit-git-revert)
 
   " reset to the commit under cursor
-  nmap <buffer> rs <Plug>(agit-git-reset-soft)
+  nmap <buffer> rS <Plug>(agit-git-reset-soft)
   nmap <buffer> rH <Plug>(agit-git-reset-hard)
   " reset --mixed
-  nmap <buffer> rm <Plug>(agit-git-reset)
+  nmap <buffer> rM <Plug>(agit-git-reset)
 
   " rebase HEAD to the commit under cursor in the keymaps
-  nmap <buffer> R <Plug>(agit-git-rebase)
-  "nmap <buffer> R <Plug>(agit-git-rebase-i)
+  "nmap <buffer> R <Plug>(agit-git-rebase)
+  nmap <buffer> rB <Plug>(agit-git-rebase-i)
 
   "nmap <buffer> rs <Plug>(agit-git-bisect-start)
   "nmap <buffer> rg <Plug>(agit-git-bisect-good)
