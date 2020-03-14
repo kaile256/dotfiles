@@ -15,10 +15,18 @@ augroup myCocSource
   "au CursorHold * silent call CocActionAsync('highlight')
 augroup END
 
-augroup myCocSourceImport
+augroup myCocSourceAutoImport
   au!
-  au BufWritePre *.go call CocActionAsync('runCommand', 'editor.action.organizeImport')
+  au BufWritePre *.go   silent call s:cocImport('editor.action.organizeImport')
+  au BufWritePre *.java silent call s:cocImport('java.action.organizeImports')
 augroup END
+function! s:cocImport(coc_cmd) abort "{{{1
+  if line('$') < 1000
+    " Synchronized import is better with some commands like QuickRun
+    call CocAction('runCommand', a:coc_cmd)
+  endif
+  call CocActionAsync('runCommand', a:coc_cmd)
+endfunction
 
 " the List of CocExtentions; "{{{1
 " Note: have to install LSPs independently.
