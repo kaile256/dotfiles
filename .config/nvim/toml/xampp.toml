@@ -22,6 +22,11 @@ on_ft = 'pandoc'
 #repo = 'lervag/vimtex'
 #on_ft = 'tex'
 #hook_post_source = 'runtime add/vimtex.vim'
+#[[plugins]]
+#repo = 'greyblake/vim-preview'
+## causes error
+#on_func = ['preview#show_html']
+#hook_source = 'runtime source/preview.vim'
 
 #[ PHP ]
 #[[plugins]]
