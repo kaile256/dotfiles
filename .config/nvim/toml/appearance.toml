@@ -41,6 +41,11 @@ on_event = ['TextYankPost']
 hook_source = 'runtime source/highlightedyank.vim'
 
 #[ Rainbow ]
+[[plugins]]
+repo = 'luochen1990/rainbow'
+# Notice: to activate, either g:rainbow_active or g:rainbow_conf must exists.
+on_cmd = ['RainbowToggleOn']
+hook_source = 'runtime source/luochen1990-rainbow.vim'
 #[[plugins]]
 #repo = 'kien/rainbow_parentheses.vim'
 # less scripts than 'frazrepo/vim-rainbow'
@@ -55,19 +60,13 @@ hook_source = 'runtime source/highlightedyank.vim'
 #  'rust',
 #]
 #hook_source = 'runtime source/rainbow_parentheses.vim'
-[[plugins]]
-repo = 'frazrepo/vim-rainbow'
-# customizable up to filetypes
-on_func = ['rainbow#']
-on_cmd = ['RainbowLoad']
-hook_add = 'runtime add/rainbow.vim'
-hook_source = 'runtime source/rainbow.vim'
 #[[plugins]]
-#repo = 'luochen1990/rainbow'
-## no use
-#on_cmd = [
-#  'RainbowToggle',
-#]
+#repo = 'frazrepo/vim-rainbow'
+## customizable up to filetypes
+#on_func = ['rainbow#']
+#on_cmd = ['RainbowLoad']
+#hook_add = 'runtime add/rainbow.vim'
+#hook_source = 'runtime source/rainbow.vim'
 #[[plugins]]
 #repo = 'thiagoalessio/rainbow_levels.vim'
 ## changes highlight as the indent, *not* up to parentheses
