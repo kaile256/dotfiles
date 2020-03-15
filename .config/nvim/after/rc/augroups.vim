@@ -59,16 +59,17 @@ augroup myFoldAdjustment "{{{1
   au BufWinEnter,InsertLeave,TextChanged * call s:set_fdm_marker()
 augroup END
 function! s:set_fdm_marker() abort "{{{2
-  if !&modifiable
-    return
+  if !&modifiable | return | endif
 
-  elseif &diff && &fdm !=# 'diff'
+  if &diff && &fdm !=# 'diff'
     setl fdm=diff
+    call s:update_undo_fdm()
     return
 
-  elseif !empty(&foldexpr) && &fdm !=# 'expr'
-    " empty(&foldexpr) sometimes returns non 0 even when it has to be 0.
+  elseif (&foldexpr != 0 || &foldexpr !=# '0') && &fdm !=# 'expr'
+    " Note: empty() fails because &fde returns '0' in string when &fdm is expr
     setl fdm=expr
+    call s:update_undo_fdm()
     return
   endif
 
@@ -77,11 +78,21 @@ function! s:set_fdm_marker() abort "{{{2
   if &fdm !=# 'marker'
     if search('{{{\%[\d]$', 'cwn')
       setl fdm=marker
+      call s:update_undo_fdm()
     endif
   elseif &fdm !=# &g:fdm && &fdm ==# 'marker'
         \ && !search('{{{\%[\d]', 'cwn')
     setl fdm<
   endif
+endfunction
+
+function! s:update_undo_fdm() abort "{{{2
+  if exists('b:undo_ftplugin')
+    let b:undo_ftplugin .= ' | '
+  else
+    let b:undo_ftplugin = ''
+  endif
+  let b:undo_ftplugin .= 'setl fdm<'
 endfunction
 
 augroup myIsFileNameAdjustment "{{{1
