@@ -44,7 +44,8 @@ hook_source = 'runtime source/highlightedyank.vim'
 [[plugins]]
 repo = 'luochen1990/rainbow'
 # Notice: to activate, either g:rainbow_active or g:rainbow_conf must exists.
-on_cmd = ['RainbowToggleOn']
+on_event = ['BufRead']
+#hook_add = 'runtime add/luochen1990-rainbow.vim'
 hook_source = 'runtime source/luochen1990-rainbow.vim'
 #[[plugins]]
 #repo = 'kien/rainbow_parentheses.vim'
