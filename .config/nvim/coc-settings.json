@@ -208,6 +208,7 @@
 
   "java.errors.incompleteClasspath.severity": "ignore",
   "java.format.onType.fixComment.enabled": false,
+  "java.format.settings.url": "$COC_DATA_HOME/extensions/node_modules/redhat.java/eclipse-formatter.xml",
 
   "languageserver": {
     "dls": {
