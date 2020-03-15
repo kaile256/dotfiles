@@ -24,16 +24,6 @@ hook_post_source = 'runtime add/cursorword.vim'
 #hook_add = 'runtime add/quickhl.vim'
 
 #[[plugins]]
-#repo = 'junegunn/rainbow_parentheses.vim'
-#on_event = 'BufWinEnter'
-#hook_post_source = 'runtime add/rainbow_parentheses.vim'
-
-#[[plugins]]
-#repo = 'luochen1990/rainbow'
-## CAUTION: source add/rainbow.vim AFTER :colorscheme.
-#on_event = 'BufReadPre'
-
-#[[plugins]]
 #repo = 'wellle/context.vim'
 ## shows function/if/while and so on in a preview
 ## Note: too slow
@@ -49,6 +39,28 @@ repo = 'machakann/vim-highlightedyank'
 # coc's highlight on yank sometimes leaves the highlight after the role.
 on_event = ['TextYankPost']
 hook_source = 'runtime source/highlightedyank.vim'
+
+#[ Rainbow ]
+#[[plugins]]
+#repo = 'kien/rainbow_parentheses.vim'
+## sometimes fails to work
+#on_cmd = ['RainbowParenthesesActivate']
+[[plugins]]
+repo = 'frazrepo/vim-rainbow'
+# 'kien/rainbow_parentheses.vim' is an alternative, which has less scripts
+on_func = ['rainbow#']
+hook_add = 'runtime add/rainbow.vim'
+hook_source = 'runtime source/rainbow.vim'
+#[[plugins]]
+#repo = 'luochen1990/rainbow'
+## no use
+#on_cmd = [
+#  'RainbowToggle',
+#]
+#[[plugins]]
+#repo = 'thiagoalessio/rainbow_levels.vim'
+## changes highlight as the indent, *not* up to parentheses
+#on_cmd = ['RainbowLevelsOn', 'RainbowLevelsToggle']
 
 #[ Icons ]
 [[plugins]]
