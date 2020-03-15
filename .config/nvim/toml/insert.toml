@@ -82,7 +82,6 @@ on_source = 'neosnippet.vim'
 [[plugins]]
 repo = 'alvan/vim-closetag'
 # Html; Auto Close for html-tags
-on_ft = ['html']
 hook_add = 'runtime! add/closetag.vim'
 on_ft = ['html', 'javascript']
 hook_add = '''
@@ -91,13 +90,13 @@ let g:cloesetag_filenames = '*.html,*.vue'
 #[[plugins]]
 #repo = 'jiangmiao/auto-pairs'
 #on_event = ['InsertEnter']
-#[[plugins]]
-#repo = 'cohama/lexima.vim'
-#on_event = ['InsertEnter']
 [[plugins]]
-repo = 'tpope/vim-endwise'
-if = "&ft ==# 'lua\|elixir\|ruby\|crystal\|sh\|zs\|hvb\|vbnet\|aspvbs\|vim\|c\|cpp\|xdefaults\|haskell\|objc\|make\|verilog\|matlab\|htmljinja\|jinja.html\|snippets'"
+repo = 'cohama/lexima.vim'
 on_event = ['InsertEnter']
+#[[plugins]]
+#repo = 'tpope/vim-endwise'
+#if = "&ft ==# 'lua\|elixir\|ruby\|crystal\|sh\|zs\|hvb\|vbnet\|aspvbs\|vim\|c\|cpp\|xdefaults\|haskell\|objc\|make\|verilog\|matlab\|htmljinja\|jinja.html\|snippets'"
+#on_event = ['InsertEnter']
 
 #[ Unicode ]
 [[plugins]]
