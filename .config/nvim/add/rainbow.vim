@@ -1,4 +1,9 @@
-"""" From: appearance.toml
+" TOML: appearance.toml
+" Repo: frazrepo/vim-rainbow
+" Another: source/rainbow.vim
 
-" set 0 to active only on :RainbowToggle
-let g:reinbow_active = 1
+augroup myRainbowAdd
+  au!
+  " FIXME: Make it work from autocmd
+  au FileType c,cpp,objc,objcpp,go,java,rust call rainbow#load()
+augroup END

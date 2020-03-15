@@ -41,16 +41,18 @@ on_event = ['TextYankPost']
 hook_source = 'runtime source/highlightedyank.vim'
 
 #[ Rainbow ]
-#[[plugins]]
-#repo = 'kien/rainbow_parentheses.vim'
-## sometimes fails to work
-#on_cmd = ['RainbowParenthesesActivate']
 [[plugins]]
-repo = 'frazrepo/vim-rainbow'
-# 'kien/rainbow_parentheses.vim' is an alternative, which has less scripts
-on_func = ['rainbow#']
-hook_add = 'runtime add/rainbow.vim'
-hook_source = 'runtime source/rainbow.vim'
+repo = 'kien/rainbow_parentheses.vim'
+# sometimes fails to work
+on_func = ['rainbow_parentheses#']
+hook_add = 'runtime add/rainbow_parentheses.vim'
+#[[plugins]]
+#repo = 'frazrepo/vim-rainbow'
+## 'kien/rainbow_parentheses.vim' is an alternative, which has less scripts
+## fails to work from autocmd
+#on_func = ['rainbow#']
+#hook_add = 'runtime add/rainbow.vim'
+#hook_source = 'runtime source/rainbow.vim'
 #[[plugins]]
 #repo = 'luochen1990/rainbow'
 ## no use
