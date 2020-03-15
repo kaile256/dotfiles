@@ -13,10 +13,9 @@ let g:rainbow_conf.parentheses = [
       \ 'start=/{/ end=/}/'
       \ ]
 
+" to disable, apply 0.
 let g:rainbow_conf.separately = {
-      \ 'help': {
-      \   'parentheses': [''],
-      \   }
+      \ 'help': 0
       \ }
 " let g:rainbow_conf.separately = {
 "      \ 'vim': {
