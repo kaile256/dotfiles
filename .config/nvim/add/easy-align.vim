@@ -17,8 +17,8 @@
 nmap \q <Plug>(EasyAlign)
 xmap \q <Plug>(EasyAlign)
 
-" TODO: not limited to cursorline, but let it behave as an operatopr
-noremap <silent> <SID>(EasyAlign-on-space) 0:EasyAlign<cr>$*<space>
+nnoremap <silent> <SID>(EasyAlign-on-space) :EasyAlign *\ ig[] <cr>
+xnoremap <silent> <SID>(EasyAlign-on-space) :EasyAlign *\ ig[] <cr>
 nnoremap <script> \Q <SID>(EasyAlign-on-space)
 xnoremap <script> \Q <SID>(EasyAlign-on-space)
 
