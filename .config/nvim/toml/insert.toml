@@ -93,6 +93,7 @@ let g:cloesetag_filenames = '*.html,*.vue'
 [[plugins]]
 repo = 'cohama/lexima.vim'
 on_event = ['InsertEnter']
+hook_post_source = 'runtime post/lexima.vim'
 #[[plugins]]
 #repo = 'tpope/vim-endwise'
 #if = "&ft ==# 'lua\|elixir\|ruby\|crystal\|sh\|zs\|hvb\|vbnet\|aspvbs\|vim\|c\|cpp\|xdefaults\|haskell\|objc\|make\|verilog\|matlab\|htmljinja\|jinja.html\|snippets'"
