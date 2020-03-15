@@ -2,5 +2,5 @@
 " Repo: RRethy/vim-hexokinase
 " Another: source/hexokinase.vim
 
-command! -bar ColoShow :HexokinaseToggle
-command! -bar HexColor :HexokinaseToggle
+command! -bar ColoShowToggle :HexokinaseToggle
+command! -bar HexColorToggle :HexokinaseToggle
