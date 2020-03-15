@@ -45,8 +45,8 @@ hook_source = 'runtime source/highlightedyank.vim'
 repo = 'luochen1990/rainbow'
 # Notice: to activate, either g:rainbow_active or g:rainbow_conf must exists.
 on_event = ['BufRead']
-#hook_add = 'runtime add/luochen1990-rainbow.vim'
-hook_source = 'runtime source/luochen1990-rainbow.vim'
+#hook_add = 'runtime add/rainbow-luochen1990.vim'
+hook_source = 'runtime source/rainbow-luochen1990.vim'
 #[[plugins]]
 #repo = 'kien/rainbow_parentheses.vim'
 # less scripts than 'frazrepo/vim-rainbow'
@@ -66,8 +66,8 @@ hook_source = 'runtime source/luochen1990-rainbow.vim'
 ## customizable up to filetypes
 #on_func = ['rainbow#']
 #on_cmd = ['RainbowLoad']
-#hook_add = 'runtime add/rainbow.vim'
-#hook_source = 'runtime source/rainbow.vim'
+#hook_add = 'runtime add/rainbow-frazrepo.vim'
+#hook_source = 'runtime source/rainbow-frazrepo.vim'
 #[[plugins]]
 #repo = 'thiagoalessio/rainbow_levels.vim'
 ## changes highlight as the indent, *not* up to parentheses

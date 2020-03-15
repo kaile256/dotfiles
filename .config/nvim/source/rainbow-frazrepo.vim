@@ -1,6 +1,6 @@
 " TOML: appearance.toml
 " From: frazrepo/vim-rainbow
-" Another: add/rainbow.vim
+" Another: add/rainbow-frazrepo.vim
 
 " activate on any filetypes if g:rainbow_load_separately doesn't exist.
 let g:rainbow_active = 1
