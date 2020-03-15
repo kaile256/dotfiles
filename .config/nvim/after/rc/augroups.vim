@@ -62,11 +62,11 @@ function! s:set_fdm_marker() abort "{{{2
   if !&modifiable
     return
 
-  elseif &fdm !=# 'diff' && &diff
+  elseif &diff && &fdm !=# 'diff'
     setl fdm=diff
     return
 
-  elseif &fdm !=# 'expr' && &foldexpr != 0
+  elseif !empty(&foldexpr) && &fdm !=# 'expr'
     " empty(&foldexpr) sometimes returns non 0 even when it has to be 0.
     setl fdm=expr
     return
