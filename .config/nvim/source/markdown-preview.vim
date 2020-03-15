@@ -7,11 +7,11 @@ augroup myMarkdowndPreview
   " Note: why? ':au FileType markdown' is no use
   au BufEnter *.{md,mkd,markdown,mdown,mkdn,mdwn} command! -buffer MdPreview     :MarkdownPreview
   au BufEnter *.{md,mkd,markdown,mdown,mkdn,mdwn} command! -buffer MdStopPreview :MarkdownPreviewStop
-  au BufEnter *.{md,mkd,markdown,mdown,mkdn,mdwn} call s:md_keymaps() "{{{1
-  function! s:md_keymaps() abort
-    nmap <buffer><silent> qR  <Plug>MarkdownPreview
-    nmap <buffer><silent> qrr <Plug>MarkdownPreview
-  endfunction
+  " au BufEnter *.{md,mkd,markdown,mdown,mkdn,mdwn} call s:md_keymaps() "{{{1
+  " function! s:md_keymaps() abort
+  "   nmap <buffer><silent> qR  <Plug>MarkdownPreview
+  "   nmap <buffer><silent> qrr <Plug>MarkdownPreview
+  " endfunction
 
   "}}}1
 augroup END
