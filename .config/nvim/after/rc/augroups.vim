@@ -61,6 +61,8 @@ augroup END
 function! s:set_fdm_marker() abort "{{{2
   if !&modifiable | return | endif
 
+  if &fdm ==# 'diff\|expr' | return | endif
+
   if &diff && &fdm !=# 'diff'
     setl fdm=diff
     call s:update_undo_fdm()
@@ -72,8 +74,6 @@ function! s:set_fdm_marker() abort "{{{2
     call s:update_undo_fdm()
     return
   endif
-
-  if &fdm ==# 'diff\|expr' | return | endif
 
   if &fdm !=# 'marker'
     if search('{{{\%[\d]$', 'cwn')
