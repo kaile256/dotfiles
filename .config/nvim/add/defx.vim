@@ -76,8 +76,7 @@ nnoremap <silent> <a-x><a-s> :<c-u>call <SID>defx({
       \ 'split': 'horizontal',
       \ 'new': 1,
       \ })<cr>
-nnoremap <silent> <a-x>s
-      \ :<c-u>call <SID>defx({
+nnoremap <silent> <a-x>s :<c-u>call <SID>defx({
       \ 'direction': 'bel',
       \ 'split': 'horizontal',
       \ 'new': 1,
