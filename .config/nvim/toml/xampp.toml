@@ -7,15 +7,6 @@ repo = 'mattn/emmet-vim'
 on_cmd = ['Emmet', 'EmmetIntall']
 on_ft = ['html', 'xml', 'xsl']
 [[plugins]]
-repo = 'alvan/vim-closetag'
-# Html; Auto Close for html-tags
-on_ft = ['html']
-hook_add = 'runtime! add/closetag.vim'
-on_ft = ['html', 'javascript']
-hook_add = '''
-let g:cloesetag_filenames = '*.html,*.vue'
-'''
-[[plugins]]
 repo = 'lyokha/vim-publish-helper'
 on_ft = 'pandoc'
 #[[plugins]]

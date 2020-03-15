@@ -79,6 +79,15 @@ on_source = 'neosnippet.vim'
 #hook_add = 'runtime add/CompleteParameter.vim'
 #
 #[ Auto Pair ]
+[[plugins]]
+repo = 'alvan/vim-closetag'
+# Html; Auto Close for html-tags
+on_ft = ['html']
+hook_add = 'runtime! add/closetag.vim'
+on_ft = ['html', 'javascript']
+hook_add = '''
+let g:cloesetag_filenames = '*.html,*.vue'
+'''
 #[[plugins]]
 #repo = 'jiangmiao/auto-pairs'
 #on_event = ['InsertCharPre']
