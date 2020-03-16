@@ -145,34 +145,51 @@ let s:before_quote = '\%#[`''"]'
 " TODO: <C-,> to move cursor to the right, then append a comma and a white space
 let g:lexima#default_rules += [
       \ {'char': '<c-,>', 'input': ',<Space>'},
-      \ {'char': '<c-,>', 'at': '\%#)',  'input': '),<Space>',  'delete': 1},
-      \ {'char': '<c-,>', 'at': '\%#]',  'input': '],<Space>',  'delete': 1},
-      \ {'char': '<c-,>', 'at': '\%#}',  'input': '},<Space>',  'delete': 1},
-      \ {'char': '<c-,>', 'at': '\%#`',  'input': '`,<Space>',  'delete': 1},
-      \ {'char': '<c-,>', 'at': '\%#"',  'input': '",<Space>"',  'delete': 1},
-      \
-      \ {'char': '<c-,>', 'at': "\%#'", 'input': "',<Space>''", 'delete': 1},
+      \ {'char': '<c-,>', 'at': '\%#)', 'input': '),<Space>', 'delete': 1},
+      \ {'char': '<c-,>', 'at': '\%#]', 'input': '],<Space>', 'delete': 1},
+      \ {'char': '<c-,>', 'at': '\%#}', 'input': '},<Space>', 'delete': 1},
+      \ {'char': '<c-,>', 'at': '\%#`', 'input': '`,<Space>', 'delete': 1},
+      \ {'char': '<c-,>', 'at': '\%#"', 'input': '",<Space>', 'delete': 1},
+      \ {'char': '<c-,>', 'at': "\%#'", 'input': "',<Space>", 'delete': 1},
       \ ]
 
 let g:lexima#default_rules += [
       \ {'char': '<c-:>', 'input': ':<Space>'},
-      \ {'char': '<c-:>', 'at': '\%#)',  'input': '):<Space>',  'delete': 1},
-      \ {'char': '<c-:>', 'at': '\%#]',  'input': ']:<Space>',  'delete': 1},
-      \ {'char': '<c-:>', 'at': '\%#}',  'input': '}:<Space>',  'delete': 1},
-      \ {'char': '<c-:>', 'at': '\%#`',  'input': '`:<Space>',  'delete': 1},
-      \ {'char': '<c-:>', 'at': '\%#"',  'input': '":<Space>',  'delete': 1},
-      \ {'char': '<c-:>', 'at': '\%#''', 'input': ''':<Space>', 'delete': 1},
+      \ {'char': '<c-:>', 'at': '\%#)', 'input': '):<Space>', 'delete': 1},
+      \ {'char': '<c-:>', 'at': '\%#]', 'input': ']:<Space>', 'delete': 1},
+      \ {'char': '<c-:>', 'at': '\%#}', 'input': '}:<Space>', 'delete': 1},
+      \ {'char': '<c-:>', 'at': '\%#`', 'input': '`:<Space>', 'delete': 1},
+      \ {'char': '<c-:>', 'at': '\%#"', 'input': '":<Space>', 'delete': 1},
+      \ {'char': '<c-:>', 'at': "\%#'", 'input': "':<Space>", 'delete': 1},
+      \ ]
+let g:lexima#default_rules += [
+      \ {'char': '<c-">', 'input': ':<Space>'},
+      \ {'char': '<c-">', 'at': '\%#)', 'input': '):<Space>', 'delete': 1},
+      \ {'char': '<c-">', 'at': '\%#]', 'input': ']:<Space>', 'delete': 1},
+      \ {'char': '<c-">', 'at': '\%#}', 'input': '}:<Space>', 'delete': 1},
+      \ {'char': '<c-">', 'at': '\%#`', 'input': '`:<Space>', 'delete': 1},
+      \ {'char': '<c-">', 'at': '\%#"', 'input': '":<Space>', 'delete': 1},
+      \ {'char': '<c-">', 'at': "\%#'", 'input': "':<Space>", 'delete': 1},
       \ ]
 
 " end of the line
 let g:lexima#default_rules += [
       \ {'char': '<c-;>', 'input': '<End>;<CR>'},
-      \ {'char': '<c-;>', 'at': '\%#)',  'input': ');<CR>',  'delete': 1},
-      \ {'char': '<c-;>', 'at': '\%#]',  'input': '];<CR>',  'delete': 1},
-      \ {'char': '<c-;>', 'at': '\%#}',  'input': '};<CR>',  'delete': 1},
-      \ {'char': '<c-;>', 'at': '\%#`',  'input': '`;<CR>',  'delete': 1},
-      \ {'char': '<c-;>', 'at': '\%#"',  'input': '";<CR>',  'delete': 1},
-      \ {'char': '<c-;>', 'at': '\%#''', 'input': ''';<CR>', 'delete': 1},
+      \ {'char': '<c-;>', 'at': '\%#)', 'input': ');<CR>', 'delete': 1},
+      \ {'char': '<c-;>', 'at': '\%#]', 'input': '];<CR>', 'delete': 1},
+      \ {'char': '<c-;>', 'at': '\%#}', 'input': '};<CR>', 'delete': 1},
+      \ {'char': '<c-;>', 'at': '\%#`', 'input': '`;<CR>', 'delete': 1},
+      \ {'char': '<c-;>', 'at': '\%#"', 'input': '";<CR>', 'delete': 1},
+      \ {'char': '<c-;>', 'at': "\%#'", 'input': "';<CR>", 'delete': 1},
+      \ ]
+let g:lexima#default_rules += [
+      \ {'char': "<c-'>", 'input': '<End>;<CR>'},
+      \ {'char': "<c-'>", 'at': '\%#)', 'input': ');<CR>', 'delete': 1},
+      \ {'char': "<c-'>", 'at': '\%#]', 'input': '];<CR>', 'delete': 1},
+      \ {'char': "<c-'>", 'at': '\%#}', 'input': '};<CR>', 'delete': 1},
+      \ {'char': "<c-'>", 'at': '\%#`', 'input': '`;<CR>', 'delete': 1},
+      \ {'char': "<c-'>", 'at': '\%#"', 'input': '";<CR>', 'delete': 1},
+      \ {'char': "<c-'>", 'at': "\%#'", 'input': "';<CR>", 'delete': 1},
       \ ]
 
 unlet s:before_close s:before_paren s:before_quote
