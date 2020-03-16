@@ -5,8 +5,10 @@
 " Note: you can see the function of dummys commands for lazy load on
 "   Shougo/dein.vim/autoload/dein/parse.vim @314
 
-" For local use
-let $DEIN_PRIVATE_HOME = expand('$XDG_CONFIG_HOME/nvim/private')
+let $DEIN_CONFIG_HOME = expand('$XDG_CONFIG_HOME/nvim/dein')
+let $DEIN_TOML_HOME   = expand('$DEIN_CONFIG_HOME/toml')
+" For the plugins in local path
+let $DEIN_PRIVATE_HOME = expand('$DEIN_CONFIG_HOME/private')
 
 " CmdAbbr; Call Function {{{1
 cnoreabbr <expr> du (getcmdtype() == ':' && getcmdline() =~ '^du$')? 'call dein#update()' : 'du'
@@ -68,8 +70,6 @@ endif
 " List of TOML {{{1
 " Note: path could be different on the files managed in dotfiles
 "   if g:dein_toml_dir's includes $XDG_CONFIG_HOME
-let g:dein_toml_dir = '/nvim/toml/'
-let s:dein_toml_dir = $XDG_CONFIG_HOME . g:dein_toml_dir
 
 "let g:dein#types#git#pull_command = 'pull --ff --ff-only'
 " Note: if bugs after installation, like no command ':Ag' or ':Gush' on
@@ -141,7 +141,7 @@ if !exists('g:plugins_available')
 
     " using a wrapper function {{{3
     let s:load_toml = {path, opt -> dein#load_toml(
-          \ s:dein_toml_dir .'/'. path, opt
+          \ $DEIN_TOML_HOME .'/'. path, opt
           \ )}
     for s:path in s:toml_startup
       call s:load_toml(s:path, {'lazy': 0})

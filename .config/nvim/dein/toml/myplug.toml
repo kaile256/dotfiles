@@ -101,9 +101,9 @@ hook_source = 'runtime source/yaml-fold.vim'
 #repo = 'kaile256/vim-viml-fold'
 #on_ft = ['vim']
 
-[[plugins]]
-repo = '$DEIN_PRIVATE_HOME/vim-markdown-fold'
-on_ft = ['markdown']
+#[[plugins]]
+#repo = 'kaile256/vim-markdown-fold'
+#on_ft = ['markdown']
 
 [[plugins]]
 repo = '$DEIN_PRIVATE_HOME/vim-toml-fold'

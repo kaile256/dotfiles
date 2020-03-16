@@ -167,7 +167,7 @@ function! s:peek_help() abort "{{{2
 endfunction
 
 function! s:peek_toml() abort "{{{2
-  if expand('%:p') =~# expand(g:dein_toml_dir)
+  if expand('%:p') =~# expand($DEIN_TOML_HOME)
     let b:foldpeek_skip_patterns = [
           \ '^[>#\-=/{!* \t]*$',
           \ '[# \t]*\[\[plugins]]',
