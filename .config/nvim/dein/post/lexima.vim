@@ -15,7 +15,7 @@ let g:lexima#default_rules = []
 " Note: '\%#' represents the cursor position; see the help.
 " Notice: single quote in double quotes sometimes fails to apply the rule.
 " Excerpt: Available Values for rule {{{1
-"   char: the only required key
+"   char: the only required key to be mapped
 "
 "   at: (Regex) where the cursor should be.
 "   except: (Regex) where the rule must *not* be applied.
@@ -25,7 +25,7 @@ let g:lexima#default_rules = []
 "   delete: (Number/String) delete the number of right characters of the cursor;
 "     usually use it for {'char': '<BS>'}. It is dot-repeatable in spite of
 "     '<Del>' in 'input'
-"   leave: move the cusor to the right as the count
+"   leave: move the cusor to the right as the count; cannot be negative
 "
 "   mode: available values are ['i', ':', '/', '?', 'c']; default as 'i'
 "   filetype: set it or work on any filetypes
@@ -127,36 +127,55 @@ let g:lexima#default_rules += [
 "      \ ]
 
 " Addtional Rules {{{1
+let s:before_close = '\%#[\])}''"]'
+let s:before_paren = '\%#[\])}]'
+let s:before_quote = '\%#[`''"]'
+
 " Ref: Jump cursor over the provided pairs
 "   https://karubabu.hateblo.jp/entry/2017/05/24/190010
-let g:lexima#default_rules += [
-      \ {'char': '<TAB>', 'at': '\%#)',  'leave': 1},
-      \ {'char': '<TAB>', 'at': '\%#"',  'leave': 1},
-      \ {'char': '<TAB>', 'at': '\%#]',  'leave': 1},
-      \ {'char': '<TAB>', 'at': '\%#}',  'leave': 1},
-      \ {'char': '<TAB>', 'at': '\%#''', 'leave': 1},
-      \ ]
-
-" TODO: <C-,> to move cursor to the right, then append a comma and a white space
-let g:lexima#default_rules += [
-      \ {'char': '<C-,>', 'input': ',<Space>'},
-      \ {'char': '<C-,>', 'at': '\%#)',  'input_after': ',<Space>', 'leave': 1},
-      \ {'char': '<C-,>', 'at': '\%#"',  'input_after': ',<Space>', 'leave': 1},
-      \ {'char': '<C-,>', 'at': '\%#]',  'input_after': ',<Space>', 'leave': 1},
-      \ {'char': '<C-,>', 'at': '\%#}',  'input_after': ',<Space>', 'leave': 1},
-      \ {'char': '<C-,>', 'at': '\%#''', 'input_after': ',<Space>', 'leave': 1},
-      \ ]
-
-" " FIXME: <C-;> currently returns <C-;>, the 'char'
 " let g:lexima#default_rules += [
-"      \ {'char': '<c-;>', 'input': ';<Space>'},
-"      \ {'char': '<c-;>', 'at': '\%#)',  'input_after': ';<Space>', 'leave': 1},
-"      \ {'char': '<c-;>', 'at': '\%#"',  'input_after': ';<Space>', 'leave': 1},
-"      \ {'char': '<c-;>', 'at': '\%#]',  'input_after': ';<Space>', 'leave': 1},
-"      \ {'char': '<c-;>', 'at': '\%#}',  'input_after': ';<Space>', 'leave': 1},
-"      \ {'char': '<c-;>', 'at': '\%#''', 'input_after': ';<Space>', 'leave': 1},
+"      \ {'char': '<TAB>', 'at': '\%#)',  'leave': 1},
+"      \ {'char': '<TAB>', 'at': '\%#"',  'leave': 1},
+"      \ {'char': '<TAB>', 'at': '\%#]',  'leave': 1},
+"      \ {'char': '<TAB>', 'at': '\%#}',  'leave': 1},
+"      \ {'char': '<TAB>', 'at': '\%#''', 'leave': 1},
 "      \ ]
 
+" Note: Both 'input' and 'input_after' seems to fail with 'leave'.
+" TODO: <C-,> to move cursor to the right, then append a comma and a white space
+let g:lexima#default_rules += [
+      \ {'char': '<c-,>', 'input': ',<Space>'},
+      \ {'char': '<c-,>', 'at': '\%#)',  'input': '),<Space>',  'delete': 1},
+      \ {'char': '<c-,>', 'at': '\%#]',  'input': '],<Space>',  'delete': 1},
+      \ {'char': '<c-,>', 'at': '\%#}',  'input': '},<Space>',  'delete': 1},
+      \ {'char': '<c-,>', 'at': '\%#`',  'input': '`,<Space>',  'delete': 1},
+      \ {'char': '<c-,>', 'at': '\%#"',  'input': '",<Space>"',  'delete': 1},
+      \
+      \ {'char': '<c-,>', 'at': "\%#'", 'input': "',<Space>''", 'delete': 1},
+      \ ]
+
+let g:lexima#default_rules += [
+      \ {'char': '<c-:>', 'input': ':<Space>'},
+      \ {'char': '<c-:>', 'at': '\%#)',  'input': '):<Space>',  'delete': 1},
+      \ {'char': '<c-:>', 'at': '\%#]',  'input': ']:<Space>',  'delete': 1},
+      \ {'char': '<c-:>', 'at': '\%#}',  'input': '}:<Space>',  'delete': 1},
+      \ {'char': '<c-:>', 'at': '\%#`',  'input': '`:<Space>',  'delete': 1},
+      \ {'char': '<c-:>', 'at': '\%#"',  'input': '":<Space>',  'delete': 1},
+      \ {'char': '<c-:>', 'at': '\%#''', 'input': ''':<Space>', 'delete': 1},
+      \ ]
+
+" end of the line
+let g:lexima#default_rules += [
+      \ {'char': '<c-;>', 'input': '<End>;<CR>'},
+      \ {'char': '<c-;>', 'at': '\%#)',  'input': ');<CR>',  'delete': 1},
+      \ {'char': '<c-;>', 'at': '\%#]',  'input': '];<CR>',  'delete': 1},
+      \ {'char': '<c-;>', 'at': '\%#}',  'input': '};<CR>',  'delete': 1},
+      \ {'char': '<c-;>', 'at': '\%#`',  'input': '`;<CR>',  'delete': 1},
+      \ {'char': '<c-;>', 'at': '\%#"',  'input': '";<CR>',  'delete': 1},
+      \ {'char': '<c-;>', 'at': '\%#''', 'input': ''';<CR>', 'delete': 1},
+      \ ]
+
+unlet s:before_close s:before_paren s:before_quote
 " Ref: Activate :iabbr through lexima
 "   http://pekepekesamurai.hatenablog.com/entry/2015/04/23/223559
 " FIXME:
