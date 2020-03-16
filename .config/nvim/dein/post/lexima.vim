@@ -60,9 +60,10 @@ let g:lexima#default_rules += [
       \ {'char': '"', 'at': '\(^\s*\|\s\|[\[({]\)\%#', 'input_after': '"'},
       \ {'char': '`', 'at': '\(^\s*\|\s\|[\[({]\)\%#', 'input_after': '`'},
       \
-      \ {'char': "'", 'at': '\%#''',   'leave': 1},
-      \ {'char': '"', 'at': '\%#"',    'leave': 1},
-      \ {'char': '`', 'at': '\%#`',    'leave': 1},
+      \ {'char': "'", 'at': '\%#''', 'leave': 1},
+      \ {'char': '"', 'at': '\%#"',  'leave': 1},
+      \ {'char': '`', 'at': '\%#`',  'leave': 1},
+      \
       \ {'char': "'", 'at': "\\%#'''", 'leave': 3},
       \ {'char': '"', 'at': '\%#"""',  'leave': 3},
       \ {'char': '`', 'at': '\%#```',  'leave': 3},
