@@ -5,10 +5,10 @@
 " Note: you can see the function of dummys commands for lazy load on
 "   Shougo/dein.vim/autoload/dein/parse.vim @314
 
-let $DEIN_CONFIG_HOME = expand('$XDG_CONFIG_HOME/nvim/dein')
-let $DEIN_TOML_HOME   = expand('$DEIN_CONFIG_HOME/toml')
+let s:dein_config_home = expand('$XDG_CONFIG_HOME/nvim/dein/')
+let s:dein_toml_home   = s:dein_config_home .'/toml/'
 " For the plugins in local path
-let $DEIN_PRIVATE_HOME = expand('$DEIN_CONFIG_HOME/private')
+let $DEIN_PRIVATE_HOME = s:dein_config_home .'/private/'
 
 " CmdAbbr; Call Function {{{1
 cnoreabbr <expr> du (getcmdtype() == ':' && getcmdline() =~ '^du$')? 'call dein#update()' : 'du'
@@ -141,7 +141,7 @@ if !exists('g:plugins_available')
 
     " using a wrapper function {{{3
     let s:load_toml = {path, opt -> dein#load_toml(
-          \ $DEIN_TOML_HOME .'/'. path, opt
+          \ s:dein_toml_home .'/'. path, opt
           \ )}
     for s:path in s:toml_startup
       call s:load_toml(s:path, {'lazy': 0})
