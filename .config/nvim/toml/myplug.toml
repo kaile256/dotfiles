@@ -1,10 +1,31 @@
-# From: rc/dein.vim
+# From: dein/dein.vim
 
 # Note: Don't locate the plugins under $MYVIMRC for dein's hook.
 [[plugins]]
 repo = 'kaile256/vim-among_HML'
 on_func = ['among_HML#', 'among_HML#fork#']
 hook_add = 'runtime add/among_HML.vim'
+
+[[plugins]]
+repo = 'kaile256/vim-spell-temporary'
+on_map = {nix = '<Plug>(spellTMP-suggestion'}
+hook_add = 'runtime add/spell-temporary.vim'
+
+#[ Fold ]
+[[plugins]]
+repo = 'kaile256/vim-foldpeek'
+if = "&bt !=# 'terminal'"
+on_event = ['BufWinEnter']
+hook_source = 'runtime source/foldpeek.vim'
+#hook_post_source = 'runtime post/foldpeek.vim'
+
+[[plugins]]
+repo = 'kaile256/vim-SandJoin'
+on_map = {nx = '<Plug>(SandJoin-'}
+on_cmd = ['SandJoin']
+on_func = ['SandJoin#']
+hook_add = 'runtime add/SandJoin.vim'
+
 
 #[[plugins]]
 #repo = 'kaile256/vim-sensible_K'
@@ -25,9 +46,9 @@ hook_add = 'runtime add/among_HML.vim'
 ## Note: autoload-functions in vimrc must be called after loading the autoload/.
 #hook_post_source = 'runtime post/keymaps-dealer.vim'
 #
-[[plugins]]
-repo = 'kaile256/vim-lines-in-functions'
-on_cmd = ['LinesFunctions']
+#[[plugins]]
+#repo = 'kaile256/vim-lines-in-functions'
+#on_cmd = ['LinesFunctions']
 
 #[[plugins]]
 #repo = 'kaile256/vim-fvf'
@@ -38,11 +59,6 @@ on_cmd = ['LinesFunctions']
 #hook_source = 'runtime source/fzf.vim'
 #hook_post_source = 'runtime post/fzf.vim'
 
-[[plugins]]
-repo = 'kaile256/vim-spell-temporary'
-on_map = {nix = '<Plug>(spellTMP-suggestion'}
-hook_add = 'runtime add/spell-temporary.vim'
-
 #[[plugins]]
 #repo = 'kaile256/vim-findpath'
 #on_cmd = 'FindPath'
@@ -50,13 +66,13 @@ hook_add = 'runtime add/spell-temporary.vim'
 #
 #[ Help ]
 [[plugins]]
-repo = 'kaile256/vim-help-toc'
+repo = '$DEIN_PRIVATE_HOME/vim-help-toc'
 on_ft = ['help', 'man']
 hook_source = 'runtime source/help-toc.vim'
 
 #[ Git ]
 [[plugins]]
-repo = 'kaile256/vim-fzf-git'
+repo = '$DEIN_PRIVATE_HOME/vim-fzf-git'
 type = 'git'
 on_event = ['BufRead']
 on_cmd = ['GStashes']
@@ -66,16 +82,8 @@ on_func = [
 ]
 #hook_add = 'runtime add/fzf-git.vim'
 
-#[ Fold ]
 [[plugins]]
-repo = 'kaile256/vim-foldpeek'
-if = "&bt !=# 'terminal'"
-on_event = ['BufWinEnter']
-hook_source = 'runtime source/foldpeek.vim'
-#hook_post_source = 'runtime post/foldpeek.vim'
-
-[[plugins]]
-repo = 'kaile256/vim-yaml-fold'
+repo = '$DEIN_PRIVATE_HOME/vim-yaml-fold'
 on_func =  ['yamlfold#activate']
 on_ft = [
   'sh',
@@ -94,11 +102,11 @@ hook_source = 'runtime source/yaml-fold.vim'
 #on_ft = ['vim']
 
 [[plugins]]
-repo = 'kaile256/vim-markdown-fold'
+repo = '$DEIN_PRIVATE_HOME/vim-markdown-fold'
 on_ft = ['markdown']
 
 [[plugins]]
-repo = 'kaile256/vim-toml-fold'
+repo = '$DEIN_PRIVATE_HOME/vim-toml-fold'
 # a fork from matze/vim-ini-fold
 on_ft = [
   'cfg'
@@ -113,24 +121,17 @@ on_ft = [
 hook_source = 'runtime source/toml-fold.vim'
 
 [[plugins]]
-repo = 'kaile256/vim-SandJoin'
-on_map = {nx = '<Plug>(SandJoin-'}
-on_cmd = ['SandJoin']
-on_func = ['SandJoin#']
-hook_add = 'runtime add/SandJoin.vim'
-
-[[plugins]]
-repo = 'kaile256/vim-option-check'
+repo = '$DEIN_PRIVATE_HOME/vim-option-check'
 on_cmd = ['VimOptCheck']
 hook_add = 'runtime add/option-check.vim'
 
 #[ Memo ]
 [[plugins]]
-repo = 'kaile256/vim-private-note'
+repo = '$DEIN_PRIVATE_HOME/vim-private-note'
 on_cmd = ['Note']
 
 #[ Snippet ]
 [[plugins]]
-repo = 'kaile256/vim-snip-functions'
+repo = '$DEIN_PRIVATE_HOME/vim-snip-functions'
 on_source = ['neosnippet.vim']
 on_func = ['snip#vim#']
