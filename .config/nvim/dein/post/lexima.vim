@@ -170,7 +170,9 @@ let g:lexima#default_rules += [
 " Addtional Rules on FileType {{{1
 let g:lexima#default_rules += [
       \ {'char': '<Space>', 'at': '"\%#"', 'delete': 1, 'filetype': 'vim'},
-      \ {'char': '\', 'at': '^\s*\\\%#', 'input': '\<space>', 'filetype': 'vim'},
+      \ {'char': '<TAB>',   'at': '"\%#"', 'delete': 1, 'filetype': 'vim'},
+      \ {'char': '<TAB>', 'at': '{\%#}', 'input': '{{', 'delete': 1, 'filetype': 'vim'},
+      \
       \ {'char': "'", 'at': '\\\%#', 'leave': 1, 'filetype': ['vim', 'sh', 'csh', 'ruby', 'tcsh', 'zsh']},
       \ ]
 
