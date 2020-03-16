@@ -21,7 +21,7 @@ nnoremap <script> \R  <SID>(quickrun-holding-syn)
 xnoremap <script> \r  <SID>(quickrun-holding-syn)
 
 function! s:quickrun_holding_syn() abort
-  if !&readonly || !&modifiable
+  if &readonly || !&modifiable
     echohl WarningMsg
     echo 'This buffer is *not* for QuickRun'
     echohl Normal
