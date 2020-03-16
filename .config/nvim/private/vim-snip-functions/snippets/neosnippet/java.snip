@@ -1,0 +1,134 @@
+# Else: Shougo/neosnippet-snippets/neosnippets/java.snip
+
+snippet package
+alias pa pc
+  package ${1:#:com.Package};
+
+snippet import: java.foo;
+alias ja jav java
+  import java.${1:util.}${2:List};
+
+snippet Class: public interface
+alias pi
+abbr declare "public class" in the file name
+  public interface `expand('%:t:r')` {
+    public static void main(String[] args) ${1:throws Exception }{
+    }
+  }
+
+snippet Class: class implements interface
+alias ci
+  class ${1} implements ${2} {
+    ${3:String} ${4:str} = ${5:#:const};
+    ${6:public} ${7:void} ${8:#:method}(${9});
+  }
+
+snippet Class: public class
+alias pc ini init
+abbr declare "public class" in the file name
+options indent
+  public class `expand('%:t:r')` {
+    public static void main(String[] args) ${1:throws Exception }{
+    }
+  }
+
+snippet Class: main
+alias ma mn
+  public static void main(String[] args) ${1:throws Exception }{
+    ${0:TARGET}
+  }
+
+snippet Class: general class
+alias class cl cls cla
+  class ${1:#:name} {
+  }
+
+snippet Method: public static void
+alias psv
+  public static void ${1:#:method}(${2:#:type args}) {
+    ${0:TARGET}
+  }
+
+snippet Method: public static
+alias ps
+  public static ${1:void} ${2:#:method}(${3:#:String[] args}) {
+    ${0:TARGET}
+  }
+
+snippet Method: public void
+alias pv
+  public ${1:void} ${2:#:method}(${3:#:String[] args}) {
+    ${0:TARGET}
+  }
+
+snippet Method: private void
+alias prv
+abbr <`5:#:(used in drop down popup menu)`>
+regexp <`7:#:'^\s*' (a pattern to be expanded)`>
+options <`9:#:head(no previous char except '\s') word(means \a?) indent`>
+
+snippet Method: static void
+alias sv
+options head
+  static void ${1:main}(${2:String} ${3:str}) {
+    ${0:TARGET}
+  }
+snippet Call: println
+options word
+alias pl echo
+  System.out.println(${1});
+
+snippet Call: print
+options word
+alias pr
+  System.out.print(${1});
+
+snippet Call: format
+options word
+alias fo for
+  System.out.format(${1});
+
+snippet Call: ();
+alias (; (
+  (${0:TARGET});
+
+snippet Type: implements
+alias ip il
+  class ${1:#:class name} implements ${2:#:interface} {
+    ${0:TARGET}
+  }
+
+snippet Type: int
+  int ${0:};
+
+snippet Type: char
+  char ${0:#:single quoted};
+
+snippet Type: String
+alias st str S St Str
+  String ${0:#:double quoted};
+
+snippet Type: list
+alias [] {} {
+  {${0:#:comma separated}};
+
+snippet Type: doc
+alias /* */
+  /*
+  ${0:TARGET}
+  */
+
+snippet Type: jdoc
+alias /** */
+  /**
+  ${0:TARGET}
+  */
+
+snippet Type: new
+alias nw ne
+  ${1:#:class_name} = new $1${2:#:remove?}()
+
+snippet Operator: else
+alias else el }e }{
+options word
+  } else${1: if }{2:#:( condition )} {

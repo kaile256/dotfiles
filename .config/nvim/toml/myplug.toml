@@ -135,3 +135,10 @@ on_cmd = ['Note']
 repo = '$DEIN_PRIVATE_HOME/vim-snip-functions'
 on_source = ['neosnippet.vim']
 on_func = ['snip#vim#']
+
+[[plugins]]
+repo = '$DEIN_PRIVATE_HOME/vim-clever-newline'
+on_event = ['BufRead']
+
+#[[plugins]]
+#repo = '$DEIN_PRIVATE_HOME/vim-font-resize'

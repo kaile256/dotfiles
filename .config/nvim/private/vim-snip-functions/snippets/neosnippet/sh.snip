@@ -1,0 +1,35 @@
+snippet Cue
+abbr set -Cue
+alias Cue Ceu Ce se
+  set -Cue
+
+snippet shebang
+alias # #! she sh bash ba bas bah ini init
+  #!/usr/bin/env bash
+
+  set -Cue
+
+  ${0:TARGET}
+
+snippet shopt
+alias opt op ext
+  shopt -s ${1:`shell('shopt')`}
+
+snippet >/dev/null 2>&1
+alias dn dev >/ /de /dev 2>
+  >/dev/null 2>&1
+
+snippet declare -A HASH
+alias dec -A has hash
+options head
+  declare -A ${1:HASH}
+  $1=(
+    [${2:"key"}]="value"
+  )
+
+snippet Hear Document
+alias her eod eo ed cat ca
+options head word
+  cat - << EOD
+  `repeat(' ', &tabstop)`${0:TARGET}
+  EOD

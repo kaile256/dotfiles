@@ -1,0 +1,83 @@
+snippet fenced expr
+alias ``` ``
+  \`\`\`${1:vim}${2:#::fname}
+  ${0:TARGET}
+  \`\`\`
+
+snippet vplug
+alias vp vpl vim plug plu pl vi
+  # `substitute(expand('%:p:h'), '.*\/', '', '')`
+
+  `substitute(expand('%:p:h'), '.*\/', '', '')` is ${0:TARGET}
+
+  ## Installation
+
+  Install the plugin using your favorite package manager
+
+  ### For dein.vim
+
+  \`\`\`vim
+  call dein#add('kaile256/`snip#vim#name_of_repo()`')
+  \`\`\`
+
+  If you set up dein to manage plugins in TOML,
+
+  \`\`\`toml
+  [[plugin]]
+  repo = 'kaile256/`snip#vim#name_of_repo()`'
+  \`\`\`
+
+  This is recommended in lazy load:
+
+  \`\`\`toml
+  [[plugin]]
+  repo = 'kaile256/`snip#vim#name_of_repo()`'
+  on_${1:func} = ['${2:`snip#vim#prefix_for_function()`']
+  hook_add = '''
+  noremap <silent> ${3:#:key} :call `snip#vim#prefix_for_function()`${5:#:func_name}()<CR>
+  '''
+  \`\`\`
+
+  ## Usage
+
+  ### Examples
+
+  ## License
+
+  MIT
+
+snippet qiita
+alias qi qii
+options head
+  ---
+  title: ${1:#:title}
+  tags: ${2:#:tags}
+  author: kaile256
+  slide: false
+  ---
+
+  ${3:TARGET}
+
+snippet task
+alias ta tk tas
+options indent
+  ## ${1:#:Title}
+
+  ${50:#:description}
+
+  status: ${20:TODO}
+  tags: ${30:#:tag sequence}
+  date:
+    - due:
+    - start:
+    - end:
+  time:
+    - estimated:
+    - tracked:
+  dependency:
+    - blocking:
+    - waiting_on:
+    - link_to:
+
+  - [ ] ${50:subtask}
+
