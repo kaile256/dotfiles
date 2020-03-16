@@ -14,6 +14,7 @@ cmap <c-h> <BS>
 " g:lexima#newline_rules is a list of dict
 
 " Note: '\%#' represents the cursor position; see the help.
+" Notice: single quote in double quotes sometimes fails to apply the rule.
 " Excerpt: Available Values for rule {{{1
 "   char: the only required key
 "
@@ -32,7 +33,7 @@ cmap <c-h> <BS>
 "   syntax: like vimString, Constant, NonText
 "   priority: the bigger, the higher priority; default as 0.
 
-" Overwrite Rules {{{1
+" Overwrite Default Rules {{{1
 let g:lexima#default_rules = []
 
 " Rules for Parentheses {{{2
@@ -66,9 +67,9 @@ let g:lexima#default_rules += [
       \ {'char': "'", 'at': '\w\%#''\@!'},
       \ {'char': '"', 'at': '\\\%#'},
       \
-      \ {'char': "'", 'input_after': "'", 'at': '^\s*'},
-      \ {'char': '"', 'input_after': '"', 'at': '^\s*'},
-      \ {'char': '`', 'input_after': '`', 'at': '^\s*'},
+      \ {'char': "'", 'input_after': "'", 'at': '\(^\s*\|\s\)\%#'},
+      \ {'char': '"', 'input_after': '"', 'at': '\(^\s*\|\s\)\%#'},
+      \ {'char': '`', 'input_after': '`', 'at': '\(^\s*\|\s\)\%#'},
       \
       \ {'char': "'", 'input_after': "'''", 'at': "''\\%#"},
       \ {'char': '"', 'input_after': '"""', 'at': '""\%#'},
@@ -97,22 +98,80 @@ let g:lexima#default_rules += [
       \ {'char': '<BS>', 'at': "'''\\%#'''", 'input': '<BS><BS><BS>', 'delete': 3},
       \ {'char': '<BS>', 'at': '"""\%#"""',  'input': '<BS><BS><BS>', 'delete': 3},
       \ {'char': '<BS>', 'at': '```\%#```',  'input': '<BS><BS><BS>', 'delete': 3},
+      \ {'char': '<BS>', 'at': '```\%#```',  'input': '<BS><BS><BS>', 'delete': 3},
       \ ]
 
-" Overwrite rules on FileType {{{1
 let g:lexima#default_rules += [
-      \ {'char': '"', 'at': '^\s*\%#', 'filetype': 'vim'},
-      \ {'char': '"', 'at': '\%#\s*$', 'filetype': 'vim'},
-      \ {'char': "'", 'at': '\\\%#', 'leave': 1, 'filetype': ['vim', 'sh', 'csh', 'ruby', 'tcsh', 'zsh']},
+      \ {'char': '<C-w>', 'at': '(\%#)',   'delete': 1},
+      \ {'char': '<C-w>', 'at': '{\%#}',   'delete': 1},
+      \ {'char': '<C-w>', 'at': '\[\%#\]', 'delete': 1},
       \
-      \ {'char': "'", 'at': "^\s\+'''\r\%#\r'''", 'input_after': "''", 'filetype': 'toml'},
+      \ {'char': '<C-w>', 'at': "'\\%#'", 'delete': 1},
+      \ {'char': '<C-w>', 'at': '"\%#"',  'delete': 1},
+      \ {'char': '<C-w>', 'at': '`\%#`',  'delete': 1},
+      \
+      \ {'char': '<C-w>', 'at': "'''\\%#'''", 'input': '<C-w>', 'delete': 3},
+      \ {'char': '<C-w>', 'at': '"""\%#"""',  'input': '<C-w>', 'delete': 3},
+      \ {'char': '<C-w>', 'at': '```\%#```',  'input': '<C-w>', 'delete': 3},
+      \ {'char': '<C-w>', 'at': '```\%#```',  'input': '<C-w>', 'delete': 3},
       \ ]
 
-" suppress rules
+let g:lexima#default_rules += [
+      \ {'char': '<C-u>', 'at': '(\%#)',   'delete': 1},
+      \ {'char': '<C-u>', 'at': '{\%#}',   'delete': 1},
+      \ {'char': '<C-u>', 'at': '\[\%#\]', 'delete': 1},
+      \
+      \ {'char': '<C-u>', 'at': "'\\%#'", 'delete': 1},
+      \ {'char': '<C-u>', 'at': '"\%#"',  'delete': 1},
+      \ {'char': '<C-u>', 'at': '`\%#`',  'delete': 1},
+      \
+      \ {'char': '<C-u>', 'at': "'''\\%#'''", 'input': '<C-u>', 'delete': 3},
+      \ {'char': '<C-u>', 'at': '"""\%#"""',  'input': '<C-u>', 'delete': 3},
+      \ {'char': '<C-u>', 'at': '```\%#```',  'input': '<C-u>', 'delete': 3},
+      \ {'char': '<C-u>', 'at': '```\%#```',  'input': '<C-u>', 'delete': 3},
+      \ ]
+
+"" Rules for Spaces {{{2
+"" cohama/lexima.vim/autoload/lexima.vim @ 84
+"" modify g:lexima#space_rules into default_rule because of
+"" g:lexima_enable_space_rules
+"let g:lexima#default_rules += [
+"      \ {'char': '<Space>', 'at': '\(["]\)\%#\1', 'delete': 1},
+"      \ ]
+
+" Overwrite Rules on FileType {{{1
+let g:lexima#default_rules += [
+      \ {'char': '<Space>', 'at': '"\%#"', 'delete': 1, 'filetype': 'vim'},
+      \ {'char': '\', 'at': '^\s*\\\%#', 'input': '\<space>', 'filetype': 'vim'},
+      \ {'char': "'", 'at': '\\\%#', 'leave': 1, 'filetype': ['vim', 'sh', 'csh', 'ruby', 'tcsh', 'zsh']},
+      \ ]
+
+" suppress rules on FileType
 let g:lexima#default_rules += [
       \ {'char': "'", 'filetype': ['haskell', 'lisp', 'clojure', 'ocaml', 'reason', 'scala', 'rust']},
       \ {'char': '`', 'filetype': ['ocaml', 'reason']},
       \ ]
+
+" Addtional Rules {{{1
+" Ref: Jump cursor over the provided pairs
+"   https://karubabu.hateblo.jp/entry/2017/05/24/190010
+let g:lexima#default_rules += [
+      \ {'char': '<TAB>', 'at': '\%#)',  'leave': 1},
+      \ {'char': '<TAB>', 'at': '\%#"',  'leave': 1},
+      \ {'char': '<TAB>', 'at': '\%#]',  'leave': 1},
+      \ {'char': '<TAB>', 'at': '\%#}',  'leave': 1},
+      \ {'char': '<TAB>', 'at': '\%#''', 'leave': 1},
+      \ ]
+
+" Ref: Activate :iabbr through lexima
+"   http://pekepekesamurai.hatenablog.com/entry/2015/04/23/223559
+" FIXME:
+" inoremap <expr> <CR> pumvisible() ? "\<C-Y>" : lexima#expand('<CR>', 'i')
+" call lexima#insmode#map_hook('before', '<CR>', "\<ESC>")
+" inoremap <expr> <C-j> pumvisible() ? "\<C-Y>" : lexima#expand('<C-j>', 'i')
+" call lexima#insmode#map_hook('before', '<C-j>', "\<ESC>")
+" inoremap <expr> <space> lexima#expand('<space>', 'i')
+" call lexima#insmode#map_hook('before', '<Space>', "\<ESC>")
 
 " function! s:substitute(list, before, after) abort "{{{1
 "   let ret_dict = {}
@@ -126,26 +185,6 @@ let g:lexima#default_rules += [
 "   unlet s:key_exchange
 "   return ret_dict
 " endfunction
-
-" Addtional rules {{{1
-" Ref: Jump cursor over the provided pairs
-"   https://karubabu.hateblo.jp/entry/2017/05/24/190010
-call lexima#add_rule({'char': '<TAB>', 'at': '\%#)', 'leave': 1})
-call lexima#add_rule({'char': '<TAB>', 'at': '\%#"', 'leave': 1})
-call lexima#add_rule({'char': '<TAB>', 'at': '\%#]', 'leave': 1})
-call lexima#add_rule({'char': '<TAB>', 'at': '\%#}', 'leave': 1})
-" Notice: single quote in double quotes sometimes fails to apply the rule
-call lexima#add_rule({'char': '<TAB>', 'at': '\%#''', 'leave': 1})
-
-" Ref: Activate :iabbr through lexima
-"   http://pekepekesamurai.hatenablog.com/entry/2015/04/23/223559
-" FIXME:
-" inoremap <expr> <CR> pumvisible() ? "\<C-Y>" : lexima#expand('<CR>', 'i')
-" call lexima#insmode#map_hook('before', '<CR>', "\<ESC>")
-" inoremap <expr> <C-j> pumvisible() ? "\<C-Y>" : lexima#expand('<C-j>', 'i')
-" call lexima#insmode#map_hook('before', '<C-j>', "\<ESC>")
-" inoremap <expr> <space> lexima#expand('<space>', 'i')
-" call lexima#insmode#map_hook('before', '<Space>', "\<ESC>")
 
 " Addtional Rules in loop {{{1
 " let s:rules = {}
