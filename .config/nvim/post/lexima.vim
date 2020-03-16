@@ -11,6 +11,7 @@ call lexima#insmode#define_altanative_key('<C-j>', '<CR>')
 " TODO: extend g:lexima#newline_rules for <C-j> to work like <CR>, too
 " g:lexima#newline_rules is a list of dict
 
+let g:lexima#default_rules = []
 " Note: '\%#' represents the cursor position; see the help.
 " Notice: single quote in double quotes sometimes fails to apply the rule.
 " Excerpt: Available Values for rule {{{1
@@ -31,10 +32,7 @@ call lexima#insmode#define_altanative_key('<C-j>', '<CR>')
 "   syntax: like vimString, Constant, NonText
 "   priority: the bigger, the higher priority; default as 0.
 
-" Overwrite Default Rules {{{1
-let g:lexima#default_rules = []
-
-" Rules for Parentheses {{{2
+" Overwrite Rules for Parentheses {{{1
 let s:chars_following__paren = '\%#\ze[^\]}) \t]'
 
 " parentheses to open
@@ -56,7 +54,7 @@ let g:lexima#default_rules += [
 
 unlet s:chars_following__paren
 
-" Rules for Quote {{{2
+" Overwrite Rules for Quote {{{1
 
 " let s:chars_following__quote = '\%#\ze[^\]}) \t]'
 
@@ -83,7 +81,7 @@ let g:lexima#default_rules += [
 
 " unlet s:chars_following__quote
 
-" Rules for Backspaces {{{2
+" Overwrite Rules for Backspaces {{{1
 let g:lexima#default_rules += [
       \ {'char': '<BS>', 'at': '(\%#)',   'delete': 1},
       \ {'char': '<BS>', 'at': '{\%#}',   'delete': 1},
@@ -129,26 +127,13 @@ let g:lexima#default_rules += [
       \ {'char': '<C-u>', 'at': '```\%#```',  'input': '<C-u>', 'delete': 3},
       \ ]
 
-"" Rules for Spaces {{{2
+"" Overwrite Rules for Spaces {{{1
 "" cohama/lexima.vim/autoload/lexima.vim @ 84
 "" modify g:lexima#space_rules into default_rule because of
 "" g:lexima_enable_space_rules
 "let g:lexima#default_rules += [
 "      \ {'char': '<Space>', 'at': '\(["]\)\%#\1', 'delete': 1},
 "      \ ]
-
-" Overwrite Rules on FileType {{{1
-let g:lexima#default_rules += [
-      \ {'char': '<Space>', 'at': '"\%#"', 'delete': 1, 'filetype': 'vim'},
-      \ {'char': '\', 'at': '^\s*\\\%#', 'input': '\<space>', 'filetype': 'vim'},
-      \ {'char': "'", 'at': '\\\%#', 'leave': 1, 'filetype': ['vim', 'sh', 'csh', 'ruby', 'tcsh', 'zsh']},
-      \ ]
-
-" suppress rules on FileType
-let g:lexima#default_rules += [
-      \ {'char': "'", 'filetype': ['haskell', 'lisp', 'clojure', 'ocaml', 'reason', 'scala', 'rust']},
-      \ {'char': '`', 'filetype': ['ocaml', 'reason']},
-      \ ]
 
 " Addtional Rules {{{1
 " Ref: Jump cursor over the provided pairs
@@ -170,6 +155,19 @@ let g:lexima#default_rules += [
 " call lexima#insmode#map_hook('before', '<C-j>', "\<ESC>")
 " inoremap <expr> <space> lexima#expand('<space>', 'i')
 " call lexima#insmode#map_hook('before', '<Space>', "\<ESC>")
+
+" Addtional Rules on FileType {{{1
+let g:lexima#default_rules += [
+      \ {'char': '<Space>', 'at': '"\%#"', 'delete': 1, 'filetype': 'vim'},
+      \ {'char': '\', 'at': '^\s*\\\%#', 'input': '\<space>', 'filetype': 'vim'},
+      \ {'char': "'", 'at': '\\\%#', 'leave': 1, 'filetype': ['vim', 'sh', 'csh', 'ruby', 'tcsh', 'zsh']},
+      \ ]
+
+" suppress rules on FileType
+let g:lexima#default_rules += [
+      \ {'char': "'", 'filetype': ['haskell', 'lisp', 'clojure', 'ocaml', 'reason', 'scala', 'rust']},
+      \ {'char': '`', 'filetype': ['ocaml', 'reason']},
+      \ ]
 
 " function! s:substitute(list, before, after) abort "{{{1
 "   let ret_dict = {}
