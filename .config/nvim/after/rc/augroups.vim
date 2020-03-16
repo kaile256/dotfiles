@@ -61,7 +61,7 @@ augroup END
 function! s:set_fdm_marker() abort "{{{2
   if !&modifiable | return | endif
 
-  if &fdm ==# 'diff\|expr' | return | endif
+  if &fdm =~# 'diff\|expr' | return | endif
 
   if &diff && &fdm !=# 'diff'
     setl fdm=diff
