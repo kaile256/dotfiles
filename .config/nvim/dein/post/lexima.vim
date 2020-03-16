@@ -85,7 +85,6 @@ let g:lexima#default_rules += [
       \ {'char': '<BS>', 'at': "'''\\%#'''", 'input': '<BS><BS><BS>', 'delete': 3},
       \ {'char': '<BS>', 'at': '"""\%#"""',  'input': '<BS><BS><BS>', 'delete': 3},
       \ {'char': '<BS>', 'at': '```\%#```',  'input': '<BS><BS><BS>', 'delete': 3},
-      \ {'char': '<BS>', 'at': '```\%#```',  'input': '<BS><BS><BS>', 'delete': 3},
       \ ]
 
 let g:lexima#default_rules += [
