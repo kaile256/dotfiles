@@ -16,62 +16,84 @@ cmap <c-h> <BS>
 " Note: '\%#' represents the cursor position; see the help.
 " Excerpt: Available Values for rule {{{1
 "   char: the only required key
-"   at: (regex) where the cursor should be.
-"   except: (regex) where the rule must *not* be applied.
-"   input input_after
-"   mode: available values are ['i', ':', '/', '?', 'c']
+"
+"   at: (Regex) where the cursor should be.
+"   except: (Regex) where the rule must *not* be applied.
+"
+"   input: (String) input instead of 'char'.
+"   input_after: (String) insert the string after the cursor.
 "   leave: move the cusor to the right as the count
-"   delete: useful for dot-repeat
+"
+"   delete: (Number/String) delete the number of right characters of the cursor;
+"     usually use it for {'char': '<BS>'}. It is dot-repeatable in spite of
+"     '<Del>' in 'input'
+"
+"   mode: available values are ['i', ':', '/', '?', 'c']; default as 'i'
 "   filetype: set it or work on any filetypes
 "   syntax: like vimString, Constant, NonText
-"   priority: the bigger, the higher priority; default is set to 0.
+"   priority: the bigger, the higher priority; default as 0.
 
 " Overwrite default rules {{{1
 
 let g:lexima#default_rules = [
-      \ {'char': '(', 'input_after': ')'},
       \ {'char': '(', 'at': '\\\%#'},
+      \ {'char': '(', 'input_after': ')'},
       \ {'char': ')', 'at': '\%#)', 'leave': 1},
-      \ {'char': '<BS>', 'at': '(\%#)', 'delete': 1},
+      \ {'char': '[', 'at': '\\\%#'},
+      \ {'char': '[', 'input_after': ']'},
+      \ {'char': ']', 'at': '\%#]', 'leave': 1},
       \ {'char': '{', 'input_after': '}'},
       \ {'char': '}', 'at': '\%#}', 'leave': 1},
-      \ {'char': '<BS>', 'at': '{\%#}', 'delete': 1},
-      \ {'char': '[', 'input_after': ']'},
-      \ {'char': '[', 'at': '\\\%#'},
-      \ {'char': ']', 'at': '\%#]', 'leave': 1},
-      \ {'char': '<BS>', 'at': '\[\%#\]', 'delete': 1},
       \ ]
 
 let g:lexima#default_rules += [
-      \ {'char': '"', 'input_after': '"'},
-      \ {'char': '"', 'at': '\%#"', 'leave': 1},
-      \ {'char': '"', 'at': '\\\%#'},
-      \ {'char': '"', 'at': '^\s*\%#', 'filetype': 'vim'},
-      \ {'char': '"', 'at': '\%#\s*$', 'filetype': 'vim'},
-      \ {'char': '<BS>', 'at': '"\%#"', 'delete': 1},
+      \ {'char': "'", 'at': "''\\%#", 'input_after': "'''"},
+      \ {'char': "'", 'at': '\%#''',   'leave': 1},
+      \ {'char': "'", 'at': "\\%#'''", 'leave': 3},
+      \ {'char': "'", 'at': '\\\%#'},
+      \ {'char': "'", 'at': '\w\%#''\@!'},
+      \ {'char': "'", 'input_after': "'"},
+      \
       \ {'char': '"', 'at': '""\%#', 'input_after': '"""'},
       \ {'char': '"', 'at': '\%#"""', 'leave': 3},
-      \ {'char': '<BS>', 'at': '"""\%#"""', 'input': '<BS><BS><BS>', 'delete': 3},
-      \ {'char': "'", 'input_after': "'"},
-      \ {'char': "'", 'at': '\%#''', 'leave': 1},
-      \ {'char': "'", 'at': '\w\%#''\@!'},
-      \ {'char': "'", 'at': '\\\%#'},
-      \ {'char': "'", 'at': '\\\%#', 'leave': 1, 'filetype': ['vim', 'sh', 'csh', 'ruby', 'tcsh', 'zsh']},
-      \ {'char': "'", 'filetype': ['haskell', 'lisp', 'clojure', 'ocaml', 'reason', 'scala', 'rust']},
-      \ {'char': '<BS>', 'at': "'\\%#'", 'delete': 1},
-      \ {'char': "'", 'at': "''\\%#", 'input_after': "'''"},
-      \ {'char': "'", 'at': "\\%#'''", 'leave': 3},
-      \ {'char': '<BS>', 'at': "'''\\%#'''", 'input': '<BS><BS><BS>', 'delete': 3},
-      \ {'char': '`', 'input_after': '`'},
+      \ {'char': '"', 'at': '\%#"', 'leave': 1},
+      \ {'char': '"', 'at': '\\\%#'},
+      \ {'char': '"', 'input_after': '"'},
+      \
       \ {'char': '`', 'at': '\%#`', 'leave': 1},
-      \ {'char': '<BS>', 'at': '`\%#`', 'delete': 1},
-      \ {'char': '`', 'filetype': ['ocaml', 'reason']},
-      \ {'char': '`', 'at': '``\%#', 'input_after': '```'},
       \ {'char': '`', 'at': '\%#```', 'leave': 3},
-      \ {'char': '<BS>', 'at': '```\%#```', 'input': '<BS><BS><BS>', 'delete': 3},
+      \ {'char': '`', 'at': '``\%#', 'input_after': '```'},
+      \ {'char': '`', 'input_after': '`'},
       \ ]
 
+" Overwrite rules of Backspaces {{{1
 let g:lexima#default_rules += [
+      \ {'char': '<BS>', 'at': '(\%#)',   'delete': 1},
+      \ {'char': '<BS>', 'at': '{\%#}',   'delete': 1},
+      \ {'char': '<BS>', 'at': '\[\%#\]', 'delete': 1},
+      \
+      \ {'char': '<BS>', 'at': "'\\%#'", 'delete': 1},
+      \ {'char': '<BS>', 'at': '"\%#"',  'delete': 1},
+      \ {'char': '<BS>', 'at': '`\%#`',  'delete': 1},
+      \
+      \ {'char': '<BS>', 'at': "'''\\%#'''", 'input': '<BS><BS><BS>', 'delete': 3},
+      \ {'char': '<BS>', 'at': '"""\%#"""',  'input': '<BS><BS><BS>', 'delete': 3},
+      \ {'char': '<BS>', 'at': '```\%#```',  'input': '<BS><BS><BS>', 'delete': 3},
+      \ ]
+
+" Overwrite rules on FileType {{{1
+let g:lexima#default_rules += [
+      \ {'char': '"', 'at': '^\s*\%#', 'filetype': 'vim'},
+      \ {'char': '"', 'at': '\%#\s*$', 'filetype': 'vim'},
+      \ {'char': "'", 'at': '\\\%#', 'leave': 1, 'filetype': ['vim', 'sh', 'csh', 'ruby', 'tcsh', 'zsh']},
+      \
+      \ {'char': "'", 'at': "^\s\+'''\r\%#\r'''", 'input_after': "''", 'filetype': 'toml'},
+      \ ]
+
+" suppress rules
+let g:lexima#default_rules += [
+      \ {'char': "'", 'filetype': ['haskell', 'lisp', 'clojure', 'ocaml', 'reason', 'scala', 'rust']},
+      \ {'char': '`', 'filetype': ['ocaml', 'reason']},
       \ ]
 
 " function! s:substitute(list, before, after) abort "{{{1
@@ -124,3 +146,5 @@ call lexima#insmode#map_hook('before', '<CR>', "\<C-]>")
 " endfor
 " unlet s:rules
 
+" Finally: Override the rules though lexima#add_rule() "{{{1
+call lexima#set_default_rules()
