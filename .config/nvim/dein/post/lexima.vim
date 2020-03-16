@@ -153,13 +153,13 @@ let s:before_quote = '\%#[`''"]'
 
 " Ref: Jump cursor over the provided pairs
 "   https://karubabu.hateblo.jp/entry/2017/05/24/190010
-" let g:lexima#default_rules += [
-"      \ {'char': '<TAB>', 'at': '\%#)',  'leave': 1},
-"      \ {'char': '<TAB>', 'at': '\%#"',  'leave': 1},
-"      \ {'char': '<TAB>', 'at': '\%#]',  'leave': 1},
-"      \ {'char': '<TAB>', 'at': '\%#}',  'leave': 1},
-"      \ {'char': '<TAB>', 'at': '\%#''', 'leave': 1},
-"      \ ]
+let g:lexima#default_rules += [
+     \ {'char': '<TAB>', 'at': '\%#)',  'leave': 1},
+     \ {'char': '<TAB>', 'at': '\%#"',  'leave': 1},
+     \ {'char': '<TAB>', 'at': '\%#]',  'leave': 1},
+     \ {'char': '<TAB>', 'at': '\%#}',  'leave': 1},
+     \ {'char': '<TAB>', 'at': '\%#''', 'leave': 1},
+     \ ]
 
 " Note: Both 'input' and 'input_after' seems to fail with 'leave'.
 " TODO: <C-,> to move cursor to the right, then append a comma and a white space
@@ -227,6 +227,7 @@ unlet s:before_close s:before_paren s:before_quote
 let g:lexima#default_rules += [
       \ {'char': '<Space>', 'at': '"\%#"', 'delete': 1, 'filetype': 'vim'},
       \ {'char': '<TAB>',   'at': '"\%#"', 'delete': 1, 'filetype': 'vim'},
+      \
       \ {'char': '<TAB>', 'at': '{\%#}', 'input': '{{', 'delete': 1, 'filetype': 'vim'},
       \
       \ {'char': "'", 'at': '\\\%#', 'leave': 1, 'filetype': ['vim', 'sh', 'csh', 'ruby', 'tcsh', 'zsh']},
