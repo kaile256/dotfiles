@@ -110,20 +110,21 @@ let g:lexima#default_rules += [
       \ {'char': '`', 'at': '``\%#',  'input': '`<CR>', 'input_after': '<CR>```'},
       \ ]
 
-" Reduce into a pair of quotes
-let g:lexima#default_rules += [
-      \ {'char': '<BS>', 'at': "'''\\%#", 'input': '<BS><BS>', 'delete': 3},
-      \ {'char': '<BS>', 'at': '"""\%#',  'input': '<BS><BS>', 'delete': 3},
-      \ {'char': '<BS>', 'at': '```\%#',  'input': '<BS><BS>', 'delete': 3},
-      \
-      \ {'char': '<C-w>', 'at': "'''\\%#", 'input': '<BS><BS>', 'delete': 3},
-      \ {'char': '<C-w>', 'at': '"""\%#',  'input': '<BS><BS>', 'delete': 3},
-      \ {'char': '<C-w>', 'at': '```\%#',  'input': '<BS><BS>', 'delete': 3},
-      \
-      \ {'char': '<C-u>', 'at': "'''\\%#", 'input': '<BS><BS>', 'delete': 3},
-      \ {'char': '<C-u>', 'at': '"""\%#',  'input': '<BS><BS>', 'delete': 3},
-      \ {'char': '<C-u>', 'at': '```\%#',  'input': '<BS><BS>', 'delete': 3},
-      \ ]
+" Note: it would, of course, remove the text inside
+" " Reduce into a pair of quotes
+" let g:lexima#default_rules += [
+"      \ {'char': '<BS>', 'at': "'''\\%#", 'input': '<BS><BS>', 'delete': 3},
+"      \ {'char': '<BS>', 'at': '"""\%#',  'input': '<BS><BS>', 'delete': 3},
+"      \ {'char': '<BS>', 'at': '```\%#',  'input': '<BS><BS>', 'delete': 3},
+"      \
+"      \ {'char': '<C-w>', 'at': "'''\\%#", 'input': '<BS><BS>', 'delete': 3},
+"      \ {'char': '<C-w>', 'at': '"""\%#',  'input': '<BS><BS>', 'delete': 3},
+"      \ {'char': '<C-w>', 'at': '```\%#',  'input': '<BS><BS>', 'delete': 3},
+"      \
+"      \ {'char': '<C-u>', 'at': "'''\\%#", 'input': '<BS><BS>', 'delete': 3},
+"      \ {'char': '<C-u>', 'at': '"""\%#',  'input': '<BS><BS>', 'delete': 3},
+"      \ {'char': '<C-u>', 'at': '```\%#',  'input': '<BS><BS>', 'delete': 3},
+"      \ ]
 
 " " Remove triple quote block
 " let g:lexima#default_rules += [
