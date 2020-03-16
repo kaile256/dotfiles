@@ -14,6 +14,9 @@ set -Cue #{{{
 # `paccache -ruk3`
 # All themes set in `lxappearance`
 PACKAGEs=(
+  languagetool # OSS server for spell check
+  jdk8-openjdk
+  jre8-openjdk
   jad # Java Decompiler
   openjdk11-src # source files
   jdk11-openjdk # Java Development Kit; set default java by `archlinux-java`
