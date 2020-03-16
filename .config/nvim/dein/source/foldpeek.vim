@@ -167,7 +167,7 @@ function! s:peek_help() abort "{{{2
 endfunction
 
 function! s:peek_toml() abort "{{{2
-  if expand('%:p') =~# expand($DEIN_TOML_HOME)
+  if expand('%:p') =~# fnamemodify($MYVIMRC, ':h')
     let b:foldpeek_skip_patterns = [
           \ '^[>#\-=/{!* \t]*$',
           \ '[# \t]*\[\[plugins]]',
