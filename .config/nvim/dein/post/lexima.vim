@@ -81,6 +81,7 @@ let g:lexima#default_rules += [
       \
       \ ]
 
+" TODO: Remove closing parentheses after the cursor on <C-w> and <C-u>.
 let g:lexima#default_rules += [
       \ {'char': '<C-w>', 'at': '(\%#)',   'delete': 1},
       \ {'char': '<C-w>', 'at': '{\%#}',   'delete': 1},
