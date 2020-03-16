@@ -146,6 +146,16 @@ let g:lexima#default_rules += [
       \ {'char': '<TAB>', 'at': '\%#''', 'leave': 1},
       \ ]
 
+" TODO: <C-,> to move cursor to the right, then append a comma and a white space
+let g:lexima#default_rules += [
+      \ {'char': '<C-,>', 'input': ',<Space>'},
+      \ {'char': '<C-,>', 'at': '\%#)',  'input_after': ',<Space>', 'leave': 1},
+      \ {'char': '<C-,>', 'at': '\%#"',  'input_after': ',<Space>', 'leave': 1},
+      \ {'char': '<C-,>', 'at': '\%#]',  'input_after': ',<Space>', 'leave': 1},
+      \ {'char': '<C-,>', 'at': '\%#}',  'input_after': ',<Space>', 'leave': 1},
+      \ {'char': '<C-,>', 'at': '\%#''', 'input_after': ',<Space>', 'leave': 1},
+      \ ]
+
 " Ref: Activate :iabbr through lexima
 "   http://pekepekesamurai.hatenablog.com/entry/2015/04/23/223559
 " FIXME:
