@@ -21,7 +21,14 @@ nnoremap <script> \R  <SID>(quickrun-holding-syn)
 xnoremap <script> \r  <SID>(quickrun-holding-syn)
 
 function! s:quickrun_holding_syn() abort
-  if filewritable(expand('%:p')) | silent w | endif
+  if !&readonly || !&modifiable
+    echohl WarningMsg
+    echo 'This buffer is *not* for QuickRun'
+    echohl Normal
+    return
+  elseif filewritable(expand('%:p'))
+    silent w
+  endif
 
   let bufnr = bufnr('%')
   let syn = getbufvar(bufnr, '&syntax')
