@@ -6,9 +6,7 @@
 imap <c-h> <BS>
 cmap <c-h> <BS>
 
-" inoremap <expr> <c-j> lexima#expand('<C-j>', 'i')
-" FIXME: it makes any other keys correctly.
-" call lexima#insmode#define_altanative_key('<C-j>', '<CR>')
+call lexima#insmode#define_altanative_key('<C-j>', '<CR>')
 
 " TODO: extend g:lexima#newline_rules for <C-j> to work like <CR>, too
 " g:lexima#newline_rules is a list of dict
