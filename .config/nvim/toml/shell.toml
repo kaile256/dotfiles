@@ -28,6 +28,7 @@ hook_add = 'runtime add/suda.vim'
 #[ Async Processor ]
 [[plugins]]
 repo = 'Shougo/vimproc.vim'
+on_source = ['vim-quickrun']
 on_func = ['vimproc#']
 # run vim-plugins asynchronously, like openbrowser, quickrun.
 build = 'make'
