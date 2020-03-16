@@ -58,7 +58,7 @@ unlet s:chars_following__paren
 
 " Rules for Quote {{{2
 
-let s:chars_following__quote = '\%#\ze[^\]}) \t]'
+" let s:chars_following__quote = '\%#\ze[^\]}) \t]'
 
 let g:lexima#default_rules += [
       \ {'char': "'", 'at': '\\\%#'},
@@ -81,7 +81,7 @@ let g:lexima#default_rules += [
       \ {'char': '`', 'at': '\%#```',  'leave': 3},
       \ ]
 
-unlet s:chars_following__quote
+" unlet s:chars_following__quote
 
 " Rules for Backspaces {{{2
 let g:lexima#default_rules += [
