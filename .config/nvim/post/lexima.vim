@@ -22,18 +22,17 @@ cmap <c-h> <BS>
 "
 "   input: (String) input instead of 'char'.
 "   input_after: (String) insert the string after the cursor.
-"   leave: move the cusor to the right as the count
-"
 "   delete: (Number/String) delete the number of right characters of the cursor;
 "     usually use it for {'char': '<BS>'}. It is dot-repeatable in spite of
 "     '<Del>' in 'input'
+"   leave: move the cusor to the right as the count
 "
 "   mode: available values are ['i', ':', '/', '?', 'c']; default as 'i'
 "   filetype: set it or work on any filetypes
 "   syntax: like vimString, Constant, NonText
 "   priority: the bigger, the higher priority; default as 0.
 
-" Overwrite default rules {{{1
+" Overwrite Rules {{{1
 let g:lexima#default_rules = []
 
 " Rules for Parentheses {{{2
@@ -58,18 +57,22 @@ let g:lexima#default_rules += [
 
 unlet s:chars_following__paren
 
-" Rules for Quote {{{1
+" Rules for Quote {{{2
 
-let s:chars_following__quote = '\%#\($\|[ \t]})]\)\@!'
+let s:chars_following__quote = '\%#\ze[^\]}) \t]'
 
 let g:lexima#default_rules += [
       \ {'char': "'", 'at': '\\\%#'},
       \ {'char': "'", 'at': '\w\%#''\@!'},
       \ {'char': '"', 'at': '\\\%#'},
       \
-      \ {'char': "'", 'input_after': "'"},
-      \ {'char': '"', 'input_after': '"'},
-      \ {'char': '`', 'input_after': '`'},
+      \ {'char': "'", 'input_after': "'", 'at': '^\s*'},
+      \ {'char': '"', 'input_after': '"', 'at': '^\s*'},
+      \ {'char': '`', 'input_after': '`', 'at': '^\s*'},
+      \
+      \ {'char': "'", 'input_after': "'''", 'at': "''\\%#"},
+      \ {'char': '"', 'input_after': '"""', 'at': '""\%#'},
+      \ {'char': '`', 'input_after': '```', 'at': '``\%#'},
       \
       \ {'char': "'", 'at': '\%#''',   'leave': 1},
       \ {'char': '"', 'at': '\%#"',    'leave': 1},
@@ -77,10 +80,6 @@ let g:lexima#default_rules += [
       \ {'char': "'", 'at': "\\%#'''", 'leave': 3},
       \ {'char': '"', 'at': '\%#"""',  'leave': 3},
       \ {'char': '`', 'at': '\%#```',  'leave': 3},
-      \
-      \ {'char': "'", 'at': "''\\%#", 'input_after': "'''"},
-      \ {'char': '"', 'at': '""\%#',  'input_after': '"""'},
-      \ {'char': '`', 'at': '``\%#',  'input_after': '```'},
       \ ]
 
 unlet s:chars_following__quote
@@ -140,9 +139,14 @@ call lexima#add_rule({'char': '<TAB>', 'at': '\%#''', 'leave': 1})
 
 " Ref: Activate :iabbr through lexima
 "   http://pekepekesamurai.hatenablog.com/entry/2015/04/23/223559
-call lexima#insmode#map_hook('before', '<Space>', "\<C-]>")
-call lexima#insmode#map_hook('before', '<CR>', "\<C-]>")
-" call lexima#insmode#map_hook('before', '<C-j>', "\<C-]>")
+" FIXME:
+" inoremap <expr> <CR> pumvisible() ? "\<C-Y>" : lexima#expand('<CR>', 'i')
+" call lexima#insmode#map_hook('before', '<CR>', "\<ESC>")
+" inoremap <expr> <C-j> pumvisible() ? "\<C-Y>" : lexima#expand('<C-j>', 'i')
+" call lexima#insmode#map_hook('before', '<C-j>', "\<ESC>")
+" inoremap <expr> <space> lexima#expand('<space>', 'i')
+" call lexima#insmode#map_hook('before', '<Space>', "\<ESC>")
+
 " Addtional Rules in loop {{{1
 " let s:rules = {}
 " let s:rules.newlines = [
