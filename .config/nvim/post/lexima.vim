@@ -34,39 +34,58 @@ cmap <c-h> <BS>
 "   priority: the bigger, the higher priority; default as 0.
 
 " Overwrite default rules {{{1
+let g:lexima#default_rules = []
 
-let g:lexima#default_rules = [
+" Rules for Parentheses {{{2
+let s:chars_following__paren = '\%#\ze[^\]}) \t]'
+
+" parentheses to open
+let g:lexima#default_rules += [
       \ {'char': '(', 'at': '\\\%#'},
-      \ {'char': '(', 'input_after': ')'},
-      \ {'char': ')', 'at': '\%#)', 'leave': 1},
       \ {'char': '[', 'at': '\\\%#'},
-      \ {'char': '[', 'input_after': ']'},
+      \
+      \ {'char': '(', 'input_after': ')', 'except': s:chars_following__paren},
+      \ {'char': '[', 'input_after': ']', 'except': s:chars_following__paren},
+      \ {'char': '{', 'input_after': '}', 'except': s:chars_following__paren},
+      \ ]
+
+" parentheses to close
+let g:lexima#default_rules += [
+      \ {'char': ')', 'at': '\%#)', 'leave': 1},
       \ {'char': ']', 'at': '\%#]', 'leave': 1},
-      \ {'char': '{', 'input_after': '}'},
       \ {'char': '}', 'at': '\%#}', 'leave': 1},
       \ ]
 
+unlet s:chars_following__paren
+
+" Rules for Quote {{{1
+
+let s:chars_following__quote = '\%#\($\|[ \t]})]\)\@!'
+
 let g:lexima#default_rules += [
-      \ {'char': "'", 'at': "''\\%#", 'input_after': "'''"},
-      \ {'char': "'", 'at': '\%#''',   'leave': 1},
-      \ {'char': "'", 'at': "\\%#'''", 'leave': 3},
       \ {'char': "'", 'at': '\\\%#'},
       \ {'char': "'", 'at': '\w\%#''\@!'},
-      \ {'char': "'", 'input_after': "'"},
-      \
-      \ {'char': '"', 'at': '""\%#', 'input_after': '"""'},
-      \ {'char': '"', 'at': '\%#"""', 'leave': 3},
-      \ {'char': '"', 'at': '\%#"', 'leave': 1},
       \ {'char': '"', 'at': '\\\%#'},
-      \ {'char': '"', 'input_after': '"'},
       \
-      \ {'char': '`', 'at': '\%#`', 'leave': 1},
-      \ {'char': '`', 'at': '\%#```', 'leave': 3},
-      \ {'char': '`', 'at': '``\%#', 'input_after': '```'},
+      \ {'char': "'", 'input_after': "'"},
+      \ {'char': '"', 'input_after': '"'},
       \ {'char': '`', 'input_after': '`'},
+      \
+      \ {'char': "'", 'at': '\%#''',   'leave': 1},
+      \ {'char': '"', 'at': '\%#"',    'leave': 1},
+      \ {'char': '`', 'at': '\%#`',    'leave': 1},
+      \ {'char': "'", 'at': "\\%#'''", 'leave': 3},
+      \ {'char': '"', 'at': '\%#"""',  'leave': 3},
+      \ {'char': '`', 'at': '\%#```',  'leave': 3},
+      \
+      \ {'char': "'", 'at': "''\\%#", 'input_after': "'''"},
+      \ {'char': '"', 'at': '""\%#',  'input_after': '"""'},
+      \ {'char': '`', 'at': '``\%#',  'input_after': '```'},
       \ ]
 
-" Overwrite rules of Backspaces {{{1
+unlet s:chars_following__quote
+
+" Rules for Backspaces {{{2
 let g:lexima#default_rules += [
       \ {'char': '<BS>', 'at': '(\%#)',   'delete': 1},
       \ {'char': '<BS>', 'at': '{\%#}',   'delete': 1},
@@ -148,3 +167,4 @@ call lexima#insmode#map_hook('before', '<CR>', "\<C-]>")
 
 " Finally: Override the rules though lexima#add_rule() "{{{1
 call lexima#set_default_rules()
+
