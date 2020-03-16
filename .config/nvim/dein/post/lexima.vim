@@ -3,8 +3,7 @@
 " Another: add/lexima.vim
 
 " in lexima, <c-h> is unequal to <BS>
-imap <c-h> <BS>
-cmap <c-h> <BS>
+map! <c-h> <BS>
 
 call lexima#insmode#define_altanative_key('<C-j>', '<CR>')
 
@@ -57,13 +56,9 @@ let g:lexima#default_rules += [
       \ {'char': "'", 'at': '\w\%#''\@!'},
       \ {'char': '"', 'at': '\\\%#'},
       \
-      \ {'char': "'", 'input_after': "'", 'at': '\(^\s*\|\s\|[\[({]\)\%#'},
-      \ {'char': '"', 'input_after': '"', 'at': '\(^\s*\|\s\|[\[({]\)\%#'},
-      \ {'char': '`', 'input_after': '`', 'at': '\(^\s*\|\s\|[\[({]\)\%#'},
-      \
-      \ {'char': "'", 'input_after': "'''", 'at': "''\\%#"},
-      \ {'char': '"', 'input_after': '"""', 'at': '""\%#'},
-      \ {'char': '`', 'input_after': '```', 'at': '``\%#'},
+      \ {'char': "'", 'at': '\(^\s*\|\s\|[\[({]\)\%#', 'input_after': "'"},
+      \ {'char': '"', 'at': '\(^\s*\|\s\|[\[({]\)\%#', 'input_after': '"'},
+      \ {'char': '`', 'at': '\(^\s*\|\s\|[\[({]\)\%#', 'input_after': '`'},
       \
       \ {'char': "'", 'at': '\%#''',   'leave': 1},
       \ {'char': '"', 'at': '\%#"',    'leave': 1},
@@ -83,9 +78,6 @@ let g:lexima#default_rules += [
       \ {'char': '<BS>', 'at': '"\%#"',  'delete': 1},
       \ {'char': '<BS>', 'at': '`\%#`',  'delete': 1},
       \
-      \ {'char': '<BS>', 'at': "'''\\%#'''", 'input': '<BS><BS><BS>', 'delete': 3},
-      \ {'char': '<BS>', 'at': '"""\%#"""',  'input': '<BS><BS><BS>', 'delete': 3},
-      \ {'char': '<BS>', 'at': '```\%#```',  'input': '<BS><BS><BS>', 'delete': 3},
       \ ]
 
 let g:lexima#default_rules += [
@@ -96,11 +88,6 @@ let g:lexima#default_rules += [
       \ {'char': '<C-w>', 'at': "'\\%#'", 'delete': 1},
       \ {'char': '<C-w>', 'at': '"\%#"',  'delete': 1},
       \ {'char': '<C-w>', 'at': '`\%#`',  'delete': 1},
-      \
-      \ {'char': '<C-w>', 'at': "'''\\%#'''", 'input': '<C-w>', 'delete': 3},
-      \ {'char': '<C-w>', 'at': '"""\%#"""',  'input': '<C-w>', 'delete': 3},
-      \ {'char': '<C-w>', 'at': '```\%#```',  'input': '<C-w>', 'delete': 3},
-      \ {'char': '<C-w>', 'at': '```\%#```',  'input': '<C-w>', 'delete': 3},
       \ ]
 
 let g:lexima#default_rules += [
@@ -111,11 +98,29 @@ let g:lexima#default_rules += [
       \ {'char': '<C-u>', 'at': "'\\%#'", 'delete': 1},
       \ {'char': '<C-u>', 'at': '"\%#"',  'delete': 1},
       \ {'char': '<C-u>', 'at': '`\%#`',  'delete': 1},
+      \ ]
+
+" Overwrite Triple quotes {{{1
+" Produce triple quoted block
+let g:lexima#default_rules += [
+      \ {'char': "'", 'at': "''\\%#", 'input': "'<CR>", 'input_after': "<CR>'''"},
+      \ {'char': '"', 'at': '""\%#',  'input': '"<CR>', 'input_after': '<CR>"""'},
+      \ {'char': '`', 'at': '``\%#',  'input': '`<CR>', 'input_after': '<CR>```'},
+      \ ]
+
+" Remove triple quote block
+let g:lexima#default_rules += [
+      \ {'char': '<BS>', 'at': "'''\\%#", 'input': '<BS><BS><BS>', 'delete': 4},
+      \ {'char': '<BS>', 'at': '"""\%#',  'input': '<BS><BS><BS>', 'delete': 4},
+      \ {'char': '<BS>', 'at': '```\%#',  'input': '<BS><BS><BS>', 'delete': 4},
       \
-      \ {'char': '<C-u>', 'at': "'''\\%#'''", 'input': '<C-u>', 'delete': 3},
-      \ {'char': '<C-u>', 'at': '"""\%#"""',  'input': '<C-u>', 'delete': 3},
-      \ {'char': '<C-u>', 'at': '```\%#```',  'input': '<C-u>', 'delete': 3},
-      \ {'char': '<C-u>', 'at': '```\%#```',  'input': '<C-u>', 'delete': 3},
+      \ {'char': '<C-w>', 'at': "'''\\%#", 'input': '<C-w>', 'delete': 4},
+      \ {'char': '<C-w>', 'at': '"""\%#',  'input': '<C-w>', 'delete': 4},
+      \ {'char': '<C-w>', 'at': '```\%#',  'input': '<C-w>', 'delete': 4},
+      \
+      \ {'char': '<C-u>', 'at': "'''\\%#", 'input': '<C-u>', 'delete': 4},
+      \ {'char': '<C-u>', 'at': '"""\%#',  'input': '<C-u>', 'delete': 4},
+      \ {'char': '<C-u>', 'at': '```\%#',  'input': '<C-u>', 'delete': 4},
       \ ]
 
 "" Overwrite Rules for Spaces {{{1
