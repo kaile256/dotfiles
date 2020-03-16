@@ -1,4 +1,4 @@
-" From: extension.toml
+" From: default.toml
 " Repo: tpope/vim-repeat
 
 " Note: zv is implemented as default,
