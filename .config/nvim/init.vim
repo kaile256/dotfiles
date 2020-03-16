@@ -13,7 +13,7 @@ language time en_US.UTF-8
 
 runtime rc/variables.vim  " CAUTION: don't comment out; many files depends on it.
 runtime rc/os.vim
-runtime rc/dein.vim  " contains `filetype plugin indent on`
+runtime dein/dein.vim  " contains `filetype plugin indent on`
 runtime rc/backupfiles.vim
 runtime rc/options.vim
 runtime rc/augroups.vim

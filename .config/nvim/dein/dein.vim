@@ -5,6 +5,9 @@
 " Note: you can see the function of dummys commands for lazy load on
 "   Shougo/dein.vim/autoload/dein/parse.vim @314
 
+" For local use
+let $DEIN_PRIVATE_HOME = expand('$XDG_CONFIG_HOME/nvim/private')
+
 " CmdAbbr; Call Function {{{1
 cnoreabbr <expr> du (getcmdtype() == ':' && getcmdline() =~ '^du$')? 'call dein#update()' : 'du'
 " direct-install      [dein#direct_install] install a plugin directly
@@ -97,14 +100,12 @@ let s:toml_lazy = [
       \ 'markdown.toml',
       \ 'memo.toml',
       \ 'motion.toml',
+      \ 'myplug.toml',
       \ 'shell.toml',
       \ 'syntax.toml',
       \ 'textobj.toml',
       \ 'vimscript.toml',
       \ 'xampp.toml',
-      \ ]
-let s:toml_private = [
-      \ 'myplug.toml',
       \ ]
 
 " Load Plugins by Dein {{{1
@@ -148,9 +149,11 @@ if !exists('g:plugins_available')
     for s:path in s:toml_lazy
       call s:load_toml(s:path, {'lazy': 1})
     endfor
-    for s:path in s:toml_private
-      call s:load_toml(s:path, {'lazy': 1})
-    endfor
+    " for s:path in s:toml_private
+    "   " TODO: load plugins from local directory
+    "   " call s:load_toml(s:path, {'lazy': 1, 'path': expand('$XDG_CONFIG_HOME/nvim/private'), 'type': 'git'})
+    "   call s:load_toml(s:path, {'lazy': 1})
+    " endfor
     if executable('xinput')
       for s:path in s:toml_pc_only
         call s:load_toml(s:path, {'lazy': 1})
