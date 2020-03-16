@@ -45,7 +45,7 @@ endif
 " Path for :find {{{1
 "let &path = &path . ',' . g:dein_cache_dir . '**'
 
-" Path for :runtime {{{1
+" Runtime Path for dein {{{1
 "let &rtp .= ','. s:dein_itself
 exe 'set rtp +='. s:dein_itself
 exe 'set rtp +='. $XDG_CONFIG_HOME .'/nvim/dein/'
