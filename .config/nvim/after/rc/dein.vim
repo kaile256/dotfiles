@@ -48,6 +48,7 @@ endif
 " Path for :runtime {{{1
 "let &rtp .= ','. s:dein_itself
 exe 'set rtp +='. s:dein_itself
+exe 'set rtp +='. $XDG_CONFIG_HOME .'/nvim/dein/'
 
 " Make git clone shallow {{{1
 let g:dein#types#git#clone_depth = 1
