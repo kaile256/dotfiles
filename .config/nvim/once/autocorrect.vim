@@ -4,6 +4,8 @@
 " FIXME: ignore '=~?'
 noremap! <expr> ?
       \ getline('.')[col('.') - 2] ==# '~' ? '/' : '?'
+" noremap! <expr> ?
+"      \ getline('.') =~# '\(^\|[^=]\)\~\%#' ? '/' : '?'
 
 let s:auto_corrects = [
       \ ['VInt', 'Vint'],
