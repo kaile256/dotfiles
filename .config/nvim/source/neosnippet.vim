@@ -5,7 +5,7 @@
 
 augroup myNeoSnippetSource
   au!
-  au FileType neosnippet setl fdm=indent
+  "au FileType neosnippet setl fdm=indent
   au FileType neosnippet setl keywordprg=:help
   au BufWritePre * NeoSnippetClearMarkers
 augroup END
@@ -18,10 +18,10 @@ let g:neosnippet#snippets_directory = [
 
 "let g:neosnippet#disable_runtime_snippets = 1
 
-"let g:neosnippet#enable_snipmate_compatibility = 1
+let g:neosnippet#enable_snipmate_compatibility = 1
 
 " enable prototype functions
-let g:neosnippet#enable_completed_snippet = 1
+"let g:neosnippet#enable_completed_snippet = 1
 
 " TBC: On CompletDone, expand next snippet automatically.
 "   Addition to that, disable manual expansion.
