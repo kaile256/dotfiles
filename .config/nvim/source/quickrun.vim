@@ -6,7 +6,7 @@
 let g:quickrun_no_default_key_mappings = 1
 
 let g:quickrun_config = {
-      \ 'runner': 'remote',
+      \ 'runner/vimproc': 1,
       \ 'runner/vimproc/updatetime': 100,
       \ 'outputter': 'loclist',
       \ 'outputter/buffer/append': 1,
