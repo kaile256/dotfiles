@@ -156,6 +156,16 @@ let g:lexima#default_rules += [
       \ {'char': '<C-,>', 'at': '\%#''', 'input_after': ',<Space>', 'leave': 1},
       \ ]
 
+" " FIXME: <C-;> currently returns <C-;>, the 'char'
+" let g:lexima#default_rules += [
+"      \ {'char': '<c-;>', 'input': ';<Space>'},
+"      \ {'char': '<c-;>', 'at': '\%#)',  'input_after': ';<Space>', 'leave': 1},
+"      \ {'char': '<c-;>', 'at': '\%#"',  'input_after': ';<Space>', 'leave': 1},
+"      \ {'char': '<c-;>', 'at': '\%#]',  'input_after': ';<Space>', 'leave': 1},
+"      \ {'char': '<c-;>', 'at': '\%#}',  'input_after': ';<Space>', 'leave': 1},
+"      \ {'char': '<c-;>', 'at': '\%#''', 'input_after': ';<Space>', 'leave': 1},
+"      \ ]
+
 " Ref: Activate :iabbr through lexima
 "   http://pekepekesamurai.hatenablog.com/entry/2015/04/23/223559
 " FIXME:
