@@ -1,6 +1,6 @@
 " From: syntax.toml
 " Repo: gabrielelana/vim-markdown
-" Ref: source/plasticboy-markdown.vim
+" Ref: source/markdown-plasticboy.vim
 
 let g:markdown_enable_folding = 1
 

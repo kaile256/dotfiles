@@ -1,9 +1,9 @@
-" From: syntax.toml
+" From: markdown.toml
 " Repo: plasticboy/vim-markdown
-" Ref: source/gabrielelana-markdown.vim
+" Ref: source/markdown-gabrielelana.vim
 
 " folding works weird on InsertLeave
-let g:vim_markdown_folding_disabled  = 1
+"let g:vim_markdown_folding_disabled  = 1
 let g:vim_markdown_override_foldtext = 0
 
 let g:vim_markdown_toc_autofit = 1
