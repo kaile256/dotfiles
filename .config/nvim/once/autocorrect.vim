@@ -3,7 +3,7 @@
 " type ~? to ~/
 " FIXME: ignore '=~?'
 noremap! <expr> ?
-      \ getline('.')[col('.') - 2] =~# '~' ? '/' : '?'
+      \ getline('.')[col('.') - 2] ==# '~' ? '/' : '?'
 
 let s:auto_corrects = [
       \ ['VInt', 'Vint'],
