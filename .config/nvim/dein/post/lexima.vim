@@ -14,6 +14,7 @@ call lexima#insmode#define_altanative_key('<C-j>', '<CR>')
 let g:lexima#default_rules = []
 " Note: '\%#' represents the cursor position; see the help.
 " Notice: single quote in double quotes sometimes fails to apply the rule.
+" Notice: in double quotes, backslash requires double to escape
 " Excerpt: Available Values for rule {{{1
 "   char: the only required key to be mapped
 "
