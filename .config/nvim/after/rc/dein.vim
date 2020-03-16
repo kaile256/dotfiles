@@ -96,12 +96,14 @@ let s:toml_lazy = [
       \ 'markdown.toml',
       \ 'memo.toml',
       \ 'motion.toml',
-      \ 'myplug.toml',
       \ 'shell.toml',
       \ 'syntax.toml',
       \ 'textobj.toml',
       \ 'vimscript.toml',
       \ 'xampp.toml',
+      \ ]
+let s:toml_private = [
+      \ 'myplug.toml',
       \ ]
 
 " Load Plugins by Dein {{{1
@@ -139,17 +141,21 @@ if !exists('g:plugins_available')
     let s:load_toml = {path, opt -> dein#load_toml(
           \ s:dein_toml_dir .'/'. path, opt
           \ )}
-    for path in s:toml_startup
-      call s:load_toml(path, {'lazy': 0})
+    for s:path in s:toml_startup
+      call s:load_toml(s:path, {'lazy': 0})
     endfor
-    for path in s:toml_lazy
-      call s:load_toml(path, {'lazy': 1})
+    for s:path in s:toml_lazy
+      call s:load_toml(s:path, {'lazy': 1})
+    endfor
+    for s:path in s:toml_private
+      call s:load_toml(s:path, {'lazy': 1})
     endfor
     if executable('xinput')
-      for path in s:toml_pc_only
-        call s:load_toml(path, {'lazy': 1})
+      for s:path in s:toml_pc_only
+        call s:load_toml(s:path, {'lazy': 1})
       endfor
     endif
+    unlet s:path
 
     "" raw {{{3
     "let s:load_toml = {path, opt -> dein#load_toml(
