@@ -33,16 +33,14 @@ let g:lexima#default_rules = []
 "   priority: the bigger, the higher priority; default as 0.
 
 " Overwrite Rules for Parentheses {{{1
-let s:chars_following__paren = '\%#\ze[^\]}) \t]'
-
 " parentheses to open
 let g:lexima#default_rules += [
       \ {'char': '(', 'at': '\\\%#'},
       \ {'char': '[', 'at': '\\\%#'},
       \
-      \ {'char': '(', 'input_after': ')', 'except': s:chars_following__paren},
-      \ {'char': '[', 'input_after': ']', 'except': s:chars_following__paren},
-      \ {'char': '{', 'input_after': '}', 'except': s:chars_following__paren},
+      \ {'char': '(', 'input_after': ')', 'except': '\%#\ze[^\]}) \t]'},
+      \ {'char': '[', 'input_after': ']', 'except': '\%#\ze[^\]}) \t]'},
+      \ {'char': '{', 'input_after': '}', 'except': '\%#\ze[^\]}) \t]'},
       \ ]
 
 " parentheses to close
@@ -52,20 +50,15 @@ let g:lexima#default_rules += [
       \ {'char': '}', 'at': '\%#}', 'leave': 1},
       \ ]
 
-unlet s:chars_following__paren
-
 " Overwrite Rules for Quote {{{1
-
-" let s:chars_following__quote = '\%#\ze[^\]}) \t]'
-
 let g:lexima#default_rules += [
       \ {'char': "'", 'at': '\\\%#'},
       \ {'char': "'", 'at': '\w\%#''\@!'},
       \ {'char': '"', 'at': '\\\%#'},
       \
-      \ {'char': "'", 'input_after': "'", 'at': '\(^\s*\|\s\)\%#'},
-      \ {'char': '"', 'input_after': '"', 'at': '\(^\s*\|\s\)\%#'},
-      \ {'char': '`', 'input_after': '`', 'at': '\(^\s*\|\s\)\%#'},
+      \ {'char': "'", 'input_after': "'", 'at': '\(^\s*\|\s\|[\[({]\)\%#'},
+      \ {'char': '"', 'input_after': '"', 'at': '\(^\s*\|\s\|[\[({]\)\%#'},
+      \ {'char': '`', 'input_after': '`', 'at': '\(^\s*\|\s\|[\[({]\)\%#'},
       \
       \ {'char': "'", 'input_after': "'''", 'at': "''\\%#"},
       \ {'char': '"', 'input_after': '"""', 'at': '""\%#'},
@@ -78,8 +71,6 @@ let g:lexima#default_rules += [
       \ {'char': '"', 'at': '\%#"""',  'leave': 3},
       \ {'char': '`', 'at': '\%#```',  'leave': 3},
       \ ]
-
-" unlet s:chars_following__quote
 
 " Overwrite Rules for Backspaces {{{1
 let g:lexima#default_rules += [
