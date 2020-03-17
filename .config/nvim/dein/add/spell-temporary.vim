@@ -1,5 +1,5 @@
 " From: myplug.toml
-" Repo: kaile256/vim-spell-temporary
+" Repo: $DEIN_PRIVATE_HOME/vim-spell-temporary
 
 " let g:spellTMP#without_autoselect_in_normal = 1
 
