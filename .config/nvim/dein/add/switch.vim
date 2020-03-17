@@ -13,11 +13,10 @@ inoremap <script> <c--> <Esc><SID>(switch-next)a
 inoremap <script> <c-+> <Esc><SID>(switch-prev)a
 
 function! s:get_word_head(cmd) abort "{{{1
-  let word = expand('<cword>')
+  let word_boundary = '\S\+'
   " switched word can be different length so that keep on top before switched
-  call search(word, 'bc')
+  call search(word_boundary, 'bc')
   exe a:cmd
-  let switched = expand('<cword>')
-  call search(switched, 'ec')
+  call search(word_boundary, 'ec')
 endfunction
 
