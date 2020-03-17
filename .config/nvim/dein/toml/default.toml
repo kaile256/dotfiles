@@ -4,12 +4,11 @@
 [[plugins]]
 repo = 'tpope/vim-repeat'
 # Note: has no help
-# Note: dein doesn't load this plugin, on unknown reason,
-#       so I made a symlink to the directory at plugin/.
-#       Therefore, the lazy loading doesn't work either.
-#on_map = '<Plug>(Repeat'
-#on_event = ['BufRead']
+# Note: dein seems to load except autoload/ if on_map at least.
+script_type = 'plugin'
+on_map = '<Plug>(Repeat'
 hook_add = 'runtime add/repeat.vim'
+
 #[ Mode ]
 [[plugins]]
 repo = 'kaile256/vim-submode'
