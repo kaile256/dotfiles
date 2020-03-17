@@ -181,11 +181,11 @@ let s:before_quote = '\%#[`''"]'
 " Ref: Jump cursor over the provided pairs
 "   https://karubabu.hateblo.jp/entry/2017/05/24/190010
 let g:lexima#default_rules += [
-     \ {'char': '<TAB>', 'at': '\%#)',  'leave': 1},
-     \ {'char': '<TAB>', 'at': '\%#"',  'leave': 1},
-     \ {'char': '<TAB>', 'at': '\%#]',  'leave': 1},
-     \ {'char': '<TAB>', 'at': '\%#}',  'leave': 1},
-     \ {'char': '<TAB>', 'at': "\\%#'", 'leave': 1},
+     \ {'char': '<TAB>', 'at': '\%#)',  'leave': 1, 'mode': 'i'},
+     \ {'char': '<TAB>', 'at': '\%#"',  'leave': 1, 'mode': 'i'},
+     \ {'char': '<TAB>', 'at': '\%#]',  'leave': 1, 'mode': 'i'},
+     \ {'char': '<TAB>', 'at': '\%#}',  'leave': 1, 'mode': 'i'},
+     \ {'char': '<TAB>', 'at': "\\%#'", 'leave': 1, 'mode': 'i'},
      \ ]
 
 let g:lexima#default_rules += [
@@ -207,6 +207,17 @@ let g:lexima#default_rules += [
       \ {'char': '<c-,>', 'at': '\%#`',  'input': '`,<Space>', 'delete': 1},
       \ {'char': '<c-,>', 'at': '\%#"',  'input': '",<Space>', 'delete': 1},
       \ {'char': '<c-,>', 'at': "\\%#'", 'input': "',<Space>", 'delete': 1},
+      \ ]
+
+" Especially for VimScript
+let g:lexima#default_rules += [
+      \ {'char': '<c-.>', 'input': '.<Space>'},
+      \ {'char': '<c-.>', 'at': '\%#)',  'input': ').<Space>', 'delete': 1},
+      \ {'char': '<c-.>', 'at': '\%#]',  'input': '].<Space>', 'delete': 1},
+      \ {'char': '<c-.>', 'at': '\%#}',  'input': '}.<Space>', 'delete': 1},
+      \ {'char': '<c-.>', 'at': '\%#`',  'input': '`.<Space>', 'delete': 1},
+      \ {'char': '<c-.>', 'at': '\%#"',  'input': '".<Space>', 'delete': 1},
+      \ {'char': '<c-.>', 'at': "\\%#'", 'input': "'.<Space>", 'delete': 1},
       \ ]
 
 let g:lexima#default_rules += [
@@ -262,9 +273,9 @@ unlet s:before_close s:before_paren s:before_quote
 " Addtional Rules on FileType {{{1
 let g:lexima#default_rules += [
       \ {'char': '<Space>', 'at': '"\%#"', 'delete': 1, 'filetype': 'vim'},
-      \ {'char': '<TAB>',   'at': '"\%#"', 'delete': 1, 'filetype': 'vim'},
+      \ {'char': '<TAB>',   'at': '"\%#"', 'delete': 1, 'filetype': 'vim', 'mode': 'i'},
       \
-      \ {'char': '<TAB>', 'at': '{\%#}', 'input': '{{', 'delete': 1, 'filetype': 'vim'},
+      \ {'char': '<TAB>', 'at': '{\%#}', 'input': '{{', 'delete': 1, 'filetype': 'vim', 'mode': 'i'},
       \
       \ {'char': "'", 'at': '\\\%#', 'leave': 1, 'filetype': ['vim', 'sh', 'csh', 'ruby', 'tcsh', 'zsh']},
       \ ]
