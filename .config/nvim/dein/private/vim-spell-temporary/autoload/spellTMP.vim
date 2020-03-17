@@ -34,12 +34,13 @@ set cpo&vim
 
 function! spellTMP#spell_suggestion() "{{{1
   if &spell != 1
-    augroup SpelltmpAutoDisableSpell
-      au! CompleteDone *
-            \ setl nospell
-            \ | silent! augroup! SpelltmpAutoDisableSpell
-    augroup END
     setl spell
+    augroup SpelltmpDetach
+      au!
+      au CompleteDone * call s:detach_spell()
+      " <C-c> causes neither CompleteDone nor InsertLeave
+      au CursorMoved,CursorHold * call s:detach_spell()
+    augroup END
   endif
 
   if mode('i') ==# 'niI'
@@ -48,17 +49,17 @@ function! spellTMP#spell_suggestion() "{{{1
     call spellTMP#_get_end_of_word()
   endif
 
-  try
-    " Note: '<c-x>s' forces to take cursor back to the last misspelled word.
-    call feedkeys("\<c-x>s", 'n') " start spell-completion
+  " Note: '<C-x>s' forces to take cursor back to the last misspelled word.
+  call feedkeys("\<C-x>s", 'n') " start spell-completion
 
-    " if !exists('i_mode') && get(g:, 'spellTMP#without_autoselect_in_normal', 0)
-    "   call feedkeys("\<c-p>", 'n') " keep the word from being replaced at first
-    " endif
-  catch /^Vim:Interrupt$/
-    setl nospell
-    silent! augroup! SpelltmpAutoDisableSpell
-  endtry
+  " if !exists('i_mode') && get(g:, 'spellTMP#without_autoselect_in_normal', 0)
+  "   call feedkeys("\<c-p>", 'n') " keep the word from being replaced at first
+  " endif
+endfunction
+
+function! s:detach_spell() abort "{{{1
+  setl nospell
+  au! SpelltmpDetach
 endfunction
 
 function! spellTMP#_get_end_of_word() "{{{1
