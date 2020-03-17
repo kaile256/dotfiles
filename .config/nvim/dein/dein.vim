@@ -8,7 +8,7 @@
 let s:dein_config_home = expand('$XDG_CONFIG_HOME/nvim/dein/')
 let s:dein_toml_home   = s:dein_config_home .'/toml/'
 " For the plugins in local path
-let $DEIN_PRIVATE_HOME = s:dein_config_home .'/private/'
+let $DEIN_PRIVATE_HOME = s:dein_config_home .'/.private/'
 
 " CmdAbbr; Call Function {{{1
 cnoreabbr <expr> du (getcmdtype() == ':' && getcmdline() =~ '^du$')? 'call dein#update()' : 'du'

@@ -57,15 +57,13 @@ alias ps
 
 snippet Method: public void
 alias pv
-  public ${1:void} ${2:#:method}(${3:#:String[] args}) {
-    ${0:TARGET}
+  public ${1:void} ${2:Main}(${3:#:String[] args}) {
   }
 
 snippet Method: private void
 alias prv
-abbr <`5:#:(used in drop down popup menu)`>
-regexp <`7:#:'^\s*' (a pattern to be expanded)`>
-options <`9:#:head(no previous char except '\s') word(means \a?) indent`>
+  private void ${1:Main}(${3:#:String arg}) {
+  }
 
 snippet Method: static void
 alias sv
