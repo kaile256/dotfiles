@@ -28,6 +28,7 @@ let g:lexima#default_rules = []
 "   leave: move the cusor to the right as the count; cannot be negative
 "
 "   mode: available values are ['i', ':', '/', '?', 'c']; default as 'i'
+"     'c' stands for ':/?'.
 "   filetype: set it or work on any filetypes
 "   syntax: like vimString, Constant, NonText
 "   priority: the bigger, the higher priority; default as 0.
@@ -274,6 +275,7 @@ let g:lexima#default_rules += [
       \ {'char': '`', 'filetype': ['ocaml', 'reason']},
       \ ]
 
+let g:lexima#default_rules = map(g:lexima#default_rules, extend({'mode': 'i:'}))
 " function! s:substitute(list, before, after) abort "{{{1
 "   let ret_dict = {}
 "   let s:key_exchange = {arg -> substitute(arg, a:before, a:after, '', 'g')}
