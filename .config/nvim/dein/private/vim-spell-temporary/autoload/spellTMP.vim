@@ -43,9 +43,7 @@ function! spellTMP#spell_suggestion() "{{{1
     augroup END
   endif
 
-  if mode('i') ==# 'niI'
-    let i_mode = 1
-  else
+  if mode('i') !=# 'niI'
     call s:get_end_of_word()
   endif
 
