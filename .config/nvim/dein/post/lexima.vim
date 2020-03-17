@@ -172,7 +172,7 @@ let g:lexima#default_rules += [
 "      \ {'char': '<Space>', 'at': '\(["]\)\%#\1', 'delete': 1},
 "      \ ]
 
-" Addtional Rules {{{1
+" Addtional Rules to Skip Out {{{1
 let s:before_close = '\%#[\])}''"]'
 let s:before_paren = '\%#[\])}]'
 let s:before_quote = '\%#[`''"]'
@@ -188,7 +188,6 @@ let g:lexima#default_rules += [
      \ ]
 
 " Note: Both 'input' and 'input_after' seems to fail with 'leave'.
-" TODO: <C-,> to move cursor to the right, then append a comma and a white space
 let g:lexima#default_rules += [
       \ {'char': '<c-,>', 'input': ',<Space>'},
       \ {'char': '<c-,>', 'at': '\%#)', 'input': '),<Space>', 'delete': 1},
