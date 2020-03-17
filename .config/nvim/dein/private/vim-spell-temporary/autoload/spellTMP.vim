@@ -32,19 +32,18 @@ let s:save_cpo = &cpo
 set cpo&vim
 "}}}
 
-function! spellTMP#spell_suggestion() "{{{1
-  if &spell != 1
-    setl spell
+function! spellTMP#spell_suggestion(mode) "{{{1
+  call s:get_end_of_word(a:mode)
+
+  if &spell == 0
     augroup SpelltmpDetach
       au!
-      au CompleteDone * call s:detach_spell()
-      " <C-c> causes neither CompleteDone nor InsertLeave
-      au CursorMoved,CursorHold * call s:detach_spell()
+      " Note: <C-c> causes neither CompleteDone nor InsertLeave.
+      " Note: CursorMove set nospell before the completion starts.
+      au CompleteChanged * call s:overwrite_the_augroup()
     augroup END
-  endif
 
-  if mode('i') !=# 'niI'
-    call s:get_end_of_word()
+    setl spell
   endif
 
   " Note: '<C-x>s' forces to take cursor back to the last misspelled word.
@@ -54,30 +53,28 @@ function! spellTMP#spell_suggestion() "{{{1
   call feedkeys("\<C-n>\<C-p>", 'n')
 endfunction
 
+function! s:overwrite_the_augroup() abort "{{{1
+  " Overwrite the augroup.
+  augroup SpelltmpDetach
+    au!
+    au CompleteDone,CursorMoved * call s:detach_spell()
+  augroup END
+endfunction
+
 function! s:detach_spell() abort "{{{1
+  if pumvisible() | return | endif
   setl nospell
   au! SpelltmpDetach
 endfunction
 
-function! s:get_end_of_word() "{{{1
-  let col = col('.') - 1
+function! s:get_end_of_word(mode) "{{{1
   " signs which can be inserted between chars
-  let signs = [' ', '#', '_', '.', '-', '=', '/', '[', ']', '(', ')']
-  let cnt = 0
-
-  while getline('.')[col] !=# signs[cnt]
-    let cnt += 1
-
-    if col('.') == col('$') - 1 | break | endif
-
-    if cnt == len(signs)
-      let cnt = 0
-      norm! l
-      break
-    endif
-  endwhile
-
-  startinsert
+  let word_boundary = '\w\+'
+  call search(word_boundary, 'ce')
+  if a:mode =~# '[nx]'
+    " startinsert will start at the left of the cursor position
+    call feedkeys('a', 'n')
+  endif
 endfunction
 
 " restore 'cpoptions' {{{1
