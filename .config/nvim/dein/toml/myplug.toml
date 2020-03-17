@@ -7,7 +7,7 @@ on_func = ['among_HML#', 'among_HML#fork#']
 hook_add = 'runtime add/among_HML.vim'
 
 [[plugins]]
-repo = 'kaile256/vim-spell-temporary'
+repo = '$DEIN_PRIVATE_HOME/vim-spell-temporary'
 on_map = {nix = '<Plug>(spellTMP-suggestion'}
 hook_add = 'runtime add/spell-temporary.vim'
 
