@@ -33,6 +33,29 @@ let g:lexima#default_rules = []
 "   syntax: like vimString, Constant, NonText
 "   priority: the bigger, the higher priority; default as 0.
 
+" Overwrite Rules for Newline {{{1
+" Copied from cohama/lexima.vim/autoload/lexima.vim @75
+let g:lexima#newline_rules = [
+      \ {'char': '<CR>', 'at': '(\%#)',  'input_after': '<CR>'},
+      \ {'char': '<CR>', 'at': '{\%#}',  'input_after': '<CR>'},
+      \ {'char': '<CR>', 'at': '\[\%#]', 'input_after': '<CR>'},
+      \
+      \ {'char': '<CR>', 'at': '(\%#$',  'input_after': '<CR>)', 'except': '\C\v^(\s*)\S.*%#\n%(%(\s*|\1\s.+)\n)*\1\)'},
+      \ {'char': '<CR>', 'at': '{\%#$',  'input_after': '<CR>}', 'except': '\C\v^(\s*)\S.*%#\n%(%(\s*|\1\s.+)\n)*\1\}'},
+      \ {'char': '<CR>', 'at': '\[\%#$', 'input_after': '<CR>]', 'except': '\C\v^(\s*)\S.*%#\n%(%(\s*|\1\s.+)\n)*\1\]'},
+      \ ]
+
+" Insert backslashes when filetype is vim
+let g:lexima#newline_rules += [
+      \ {'char': '<CR>', 'at': '(\%#)',  'input': '<CR>\ ', 'input_after': '<CR>\ ', 'filetype': 'vim'},
+      \ {'char': '<CR>', 'at': '{\%#}',  'input': '<CR>\ ', 'input_after': '<CR>\ ', 'filetype': 'vim'},
+      \ {'char': '<CR>', 'at': '\[\%#]', 'input': '<CR>\ ', 'input_after': '<CR>\ ', 'filetype': 'vim'},
+      \
+      \ {'char': '<CR>', 'at': '(\%#$',  'input': '<CR>\ ', 'input_after': '<CR>\ )', 'except': '\C\v^(\s*)\S.*%#\n%(%(\s*|\1\s.+)\n)*\1\)', 'filetype': 'vim'},
+      \ {'char': '<CR>', 'at': '{\%#$',  'input': '<CR>\ ', 'input_after': '<CR>\ }', 'except': '\C\v^(\s*)\S.*%#\n%(%(\s*|\1\s.+)\n)*\1\}', 'filetype': 'vim'},
+      \ {'char': '<CR>', 'at': '\[\%#$', 'input': '<CR>\ ', 'input_after': '<CR>\ ]', 'except': '\C\v^(\s*)\S.*%#\n%(%(\s*|\1\s.+)\n)*\1\]', 'filetype': 'vim'},
+      \ ]
+
 " Overwrite Rules for Parentheses {{{1
 " parentheses to open
 let g:lexima#default_rules += [
@@ -181,8 +204,8 @@ let s:before_quote = '\%#[`''"]'
 " Ref: Jump cursor over the provided pairs
 "   https://karubabu.hateblo.jp/entry/2017/05/24/190010
 let g:lexima#default_rules += [
-     \ {'char': '<TAB>', 'at': '\%#[\])}`"'']',  'leave': 1, 'mode': 'i'},
-     \ ]
+      \ {'char': '<TAB>', 'at': '\%#[\])}`"'']',  'leave': 1, 'mode': 'i'},
+      \ ]
 
 let g:lexima#default_rules += [
       \ {'char': '<c-space>', 'input': '<space>'},
