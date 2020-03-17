@@ -270,6 +270,10 @@ unlet s:before_close s:before_paren s:before_quote
 " inoremap <expr> <space> lexima#expand('<space>', 'i')
 " call lexima#insmode#map_hook('before', '<Space>', "\<ESC>")
 
+" Addtional Rules for Polymorphic Use {{{1
+let g:lexima#default_rules += [
+      \ {'char': '<C-d>', 'at': '\%#[\])}''"]', 'delete': 1}
+      \ ]
 " Addtional Rules on FileType {{{1
 let g:lexima#default_rules += [
       \ {'char': '<Space>', 'at': '"\%#"', 'delete': 1, 'filetype': 'vim'},
