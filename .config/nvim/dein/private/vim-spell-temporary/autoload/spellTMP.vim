@@ -52,9 +52,8 @@ function! spellTMP#spell_suggestion() "{{{1
   " Note: '<C-x>s' forces to take cursor back to the last misspelled word.
   call feedkeys("\<C-x>s", 'n') " start spell-completion
 
-  " if !exists('i_mode') && get(g:, 'spellTMP#without_autoselect_in_normal', 0)
-  "   call feedkeys("\<c-p>", 'n') " keep the word from being replaced at first
-  " endif
+  " Note: <C-x>s once remove current word
+  call feedkeys("\<C-n>\<C-p>", 'n')
 endfunction
 
 function! s:detach_spell() abort "{{{1
