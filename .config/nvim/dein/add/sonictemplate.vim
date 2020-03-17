@@ -5,8 +5,9 @@
 
 " intelligent asks which template to use in command line
 " the difference than <Plug>(sonictemplate) is the completion
-imap <c-_> <Plug>(sonictemplate-intelligent)
-nmap <c-_> <Plug>(sonictemplate-intelligent)
+" Note: Vim regards <C-S-_> as <C-_>
+imap <C-S-_> <Plug>(sonictemplate-intelligent)
+nmap <C-S-_> <Plug>(sonictemplate-intelligent)
 
 imap <c-=> <Plug>(sonictemplate-postfix)
 nmap <c-=> <Plug>(sonictemplate-postfix)
