@@ -260,7 +260,9 @@ let g:lexima#default_rules += [
 
 " end of the line
 let g:lexima#default_rules += [
-      \ {'char': '<c-;>', 'input': '<End>;<CR>'},
+      \ {'char': '<c-;>', 'input': '<End><CR>'},
+      \ {'char': '<c-;>', 'except': ';\s*$', 'input': '<End>;<CR>'},
+      \
       \ {'char': '<c-;>', 'at': '\%#)',  'input': ');<CR>', 'delete': 1},
       \ {'char': '<c-;>', 'at': '\%#]',  'input': '];<CR>', 'delete': 1},
       \ {'char': '<c-;>', 'at': '\%#}',  'input': '};<CR>', 'delete': 1},
@@ -269,7 +271,9 @@ let g:lexima#default_rules += [
       \ {'char': '<c-;>', 'at': "\\%#'", 'input': "';<CR>", 'delete': 1},
       \ ]
 let g:lexima#default_rules += [
-      \ {'char': "<c-'>", 'input': '<End>;<CR>'},
+      \ {'char': "<c-'>", 'input': '<End><CR>'},
+      \ {'char': "<c-'>", 'except': ';\s*$', 'input': '<End>;<CR>'},
+      \
       \ {'char': "<c-'>", 'at': '\%#)',  'input': ');<CR>', 'delete': 1},
       \ {'char': "<c-'>", 'at': '\%#]',  'input': '];<CR>', 'delete': 1},
       \ {'char': "<c-'>", 'at': '\%#}',  'input': '};<CR>', 'delete': 1},
