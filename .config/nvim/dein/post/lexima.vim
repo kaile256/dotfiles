@@ -181,11 +181,7 @@ let s:before_quote = '\%#[`''"]'
 " Ref: Jump cursor over the provided pairs
 "   https://karubabu.hateblo.jp/entry/2017/05/24/190010
 let g:lexima#default_rules += [
-     \ {'char': '<TAB>', 'at': '\%#)',  'leave': 1, 'mode': 'i'},
-     \ {'char': '<TAB>', 'at': '\%#"',  'leave': 1, 'mode': 'i'},
-     \ {'char': '<TAB>', 'at': '\%#]',  'leave': 1, 'mode': 'i'},
-     \ {'char': '<TAB>', 'at': '\%#}',  'leave': 1, 'mode': 'i'},
-     \ {'char': '<TAB>', 'at': "\\%#'", 'leave': 1, 'mode': 'i'},
+     \ {'char': '<TAB>', 'at': '\%#[\])}`"'']',  'leave': 1, 'mode': 'i'},
      \ ]
 
 let g:lexima#default_rules += [
