@@ -24,9 +24,9 @@
 " }}}
 " ============================================================================
 
-nnoremap <silent> <Plug>(spellTMP-suggestion) :<c-u>call      spellTMP#spell_suggestion()<cr>
-xnoremap <silent> <Plug>(spellTMP-suggestion) `>:<c-u>call    spellTMP#spell_suggestion()<cr>
-inoremap <silent> <Plug>(spellTMP-suggestion) <c-o>:<c-u>call spellTMP#spell_suggestion()<cr>
+nnoremap <silent> <Plug>(spellTMP-suggestion) :<c-u>call      spellTMP#spell_suggestion('n')<cr>
+xnoremap <silent> <Plug>(spellTMP-suggestion) `>:<c-u>call    spellTMP#spell_suggestion('x')<cr>
+inoremap <silent> <Plug>(spellTMP-suggestion) <c-o>:<c-u>call spellTMP#spell_suggestion('i')<cr>
 
 if !get(g:, 'spellTMP#no_default_mappings', 0)
   imap <c-x>s     <Plug>(spellTMP-suggestion)
