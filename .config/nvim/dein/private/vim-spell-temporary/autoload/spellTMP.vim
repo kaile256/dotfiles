@@ -46,7 +46,7 @@ function! spellTMP#spell_suggestion() "{{{1
   if mode('i') ==# 'niI'
     let i_mode = 1
   else
-    call spellTMP#_get_end_of_word()
+    call s:get_end_of_word()
   endif
 
   " Note: '<C-x>s' forces to take cursor back to the last misspelled word.
@@ -62,7 +62,7 @@ function! s:detach_spell() abort "{{{1
   au! SpelltmpDetach
 endfunction
 
-function! spellTMP#_get_end_of_word() "{{{1
+function! s:get_end_of_word() "{{{1
   let col = col('.') - 1
   " signs which can be inserted between chars
   let signs = [' ', '#', '_', '.', '-', '=', '/', '[', ']', '(', ')']
