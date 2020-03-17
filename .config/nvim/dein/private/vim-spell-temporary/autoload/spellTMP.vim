@@ -39,7 +39,7 @@ function! spellTMP#spell_suggestion(mode) "{{{1
     augroup SpelltmpDetach
       au!
       " Note: <C-c> causes neither CompleteDone nor InsertLeave.
-      " Note: CursorMove set nospell before the completion starts.
+      " Note: CursorMoved will set nospell before the completion starts.
       au CompleteChanged * call s:overwrite_the_augroup()
     augroup END
 
@@ -57,6 +57,7 @@ function! s:overwrite_the_augroup() abort "{{{1
   " Overwrite the augroup.
   augroup SpelltmpDetach
     au!
+    " CursorMoved for <C-c>
     au CompleteDone,CursorMoved * call s:detach_spell()
   augroup END
 endfunction
