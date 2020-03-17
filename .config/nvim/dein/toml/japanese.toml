@@ -13,7 +13,7 @@ hook_add = 'runtime add/eskk.vim'
 hook_source = 'runtime source/eskk.vim'
 hook_done_update= '''
 exe 'e' g:dein_github_dir .'/tyru/eskk.vim/autoload/eskk.vim'
-%s/<C-j>/<C-space>/e
+silent! %s/<C-j>/<C-_>/e
 write
 '''
 [[plugins]]
