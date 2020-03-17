@@ -141,6 +141,29 @@ let g:lexima#default_rules += [
 "      \ {'char': '<C-u>', 'at': '```\%#',  'input': '<C-u>', 'delete': 4},
 "      \ ]
 
+
+" Note: In the first place, 'sandwich' doen't treat the quotes over lines.
+" let s:triple2single = {char ->
+"      \ '<C-o>'
+"      \ .'<Plug>(operator-sandwich-delete)'. char
+"      \ .'<C-o>'
+"      \ .'<Plug>(operator-sandwich-delete)'. char
+"      \ }
+
+" let g:lexima#default_rules += [
+"     \ {'char': '<script> <BS>', 'at': "'''\\%#", 'input': '<SID>triple2single("''")'},
+"     \ {'char': '<script> <BS>', 'at': '"""\%#',  'input': '<SID>triple2single("\"")'},
+"     \ {'char': '<script> <BS>', 'at': '```\%#',  'input': '<SID>triple2single("`")'},
+"     \
+"     \ {'char': '<script> <C-w>', 'at': "'''\\%#", 'input': '<SID>triple2single("''")'},
+"     \ {'char': '<script> <C-w>', 'at': '"""\%#',  'input': '<SID>triple2single("\"")'},
+"     \ {'char': '<script> <C-w>', 'at': '```\%#',  'input': '<SID>triple2single("`")'},
+"     \
+"     \ {'char': '<script> <C-u>', 'at': "'''\\%#", 'input': '<SID>triple2single("''")'},
+"     \ {'char': '<script> <C-u>', 'at': '"""\%#',  'input': '<SID>triple2single("\"")'},
+"     \ {'char': '<script> <C-u>', 'at': '```\%#',  'input': '<SID>triple2single("`")'},
+"     \ ]
+
 "" Overwrite Rules for Spaces {{{1
 "" cohama/lexima.vim/autoload/lexima.vim @ 84
 "" modify g:lexima#space_rules into default_rule because of
