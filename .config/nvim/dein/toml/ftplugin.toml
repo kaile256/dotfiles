@@ -128,6 +128,15 @@ on_ft = [
 #repo = 'dansomething/vim-eclim'
 #on_ft = ['java']
 
+#[[plugins]]
+#repo = 'vim-scripts/javaimp.vim'
+## useless if neither settings of $SERVLET_HOME, $JAVA_HOME nor $XML_HOME
+#on_ft = ['java']
+#[[plugins]]
+#repo = 'jvenant/vim-java-imports'
+## depends on ctags or cscope
+#on_ft = ['java']
+
 #[ Clojure ]
 [[plugins]]
 repo = 'clojure-vim/async-clj-omni'
