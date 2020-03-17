@@ -18,8 +18,8 @@ augroup FugitiveCallMyFunc
   au FileType fugitive call s:fugitive_keymap() "{{{1
   function! s:fugitive_keymap() abort "{{{2
     " Note: for fugitive-buffer, not for &diff
-    silent! nunmap <buffer> J
-    silent! nunmap <buffer> K
+    silent! unmap <buffer> J
+    silent! unmap <buffer> K
 
     " especially for the case ':norm U' to unstage all
     nnoremap <buffer><silent> <SID>(fugitive:gstage-prev-window)
