@@ -1,6 +1,7 @@
 " TOML: insert.toml
 " Repo: cohama/lexima.vim
 " Another: add/lexima.vim
+" Another: source/lexima.vim
 
 " in lexima, <c-h> is unequal to <BS>
 map! <c-h> <BS>
@@ -52,6 +53,8 @@ let g:lexima#newline_rules = [
 
 " Insert backslashes when filetype is vim
 let g:lexima#newline_rules += [
+      \ {'char': '<CR>', 'at': '^\s*\', 'input': '<CR>\ ', 'filetype': 'vim'},
+      \
       \ {'char': '<CR>', 'at': '(\%#)',  'input': '<CR>\ ', 'input_after': '<CR>\ ', 'filetype': 'vim'},
       \ {'char': '<CR>', 'at': '{\%#}',  'input': '<CR>\ ', 'input_after': '<CR>\ ', 'filetype': 'vim'},
       \ {'char': '<CR>', 'at': '\[\%#]', 'input': '<CR>\ ', 'input_after': '<CR>\ ', 'filetype': 'vim'},
@@ -66,6 +69,7 @@ let g:lexima#newline_rules += [
 let g:lexima#default_rules += [
       \ {'char': '(', 'at': '\\\%#'},
       \ {'char': '[', 'at': '\\\%#'},
+      \ {'char': '{', 'at': '\\\%#'},
       \
       \ {'char': '(', 'input_after': ')', 'except': '\%#\ze[^\]}) \t]'},
       \ {'char': '[', 'input_after': ']', 'except': '\%#\ze[^\]}) \t]'},
