@@ -209,6 +209,17 @@ let g:lexima#default_rules += [
       \ ]
 
 let g:lexima#default_rules += [
+      \ {'char': '<C-=>', 'input': ' = '},
+      \ {'char': '<C-=>', 'at': '\s\%#', 'input': '= '},
+      \ {'char': '<C-=>', 'at': '\%#)',  'input': ') = ', 'delete': 1},
+      \ {'char': '<C-=>', 'at': '\%#]',  'input': '] = ', 'delete': 1},
+      \ {'char': '<C-=>', 'at': '\%#}',  'input': '} = ', 'delete': 1},
+      \ {'char': '<C-=>', 'at': '\%#`',  'input': '` = ', 'delete': 1},
+      \ {'char': '<C-=>', 'at': '\%#"',  'input': '" = ', 'delete': 1},
+      \ {'char': '<C-=>', 'at': "\\%#'", 'input': "' = ", 'delete': 1},
+      \ ]
+
+let g:lexima#default_rules += [
       \ {'char': '<c-space>', 'input': ' '},
       \ {'char': '<c-space>', 'at': '\%#)',  'input': ') ', 'delete': 1},
       \ {'char': '<c-space>', 'at': '\%#]',  'input': '] ', 'delete': 1},
