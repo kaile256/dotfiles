@@ -6,6 +6,10 @@ repo = 'vim-jp/vimdoc-ja-working'
 on_cmd = ['Helptags', 'help', 'helpgrep']
 
 #[ SKK ]
+#[[plugins]]
+#repo = 'tyru/skk.vim'
+#on_map = {ci = ['<Plug>(skk']}
+#hook_add = 'runtime add/skk.vim'
 [[plugins]]
 repo = 'tyru/eskk.vim'
 on_cmd = 'eskk#enable()'
