@@ -2,7 +2,7 @@
 " Ref: cmaps.vim
 " Ref: cabbrs.vim
 
-command! -bar SynEcho :return synIDattr(synID(line('.'), col('.'), 1), 'name')
+command! -bar SynEcho :echo synIDattr(synID(line('.'), col('.'), 1), 'name')
 
 command! -bar CursorCharIs
       \ :echo "'". getline('.')[col('.') - 1] ."' is the character under cursor, as getline('.')[col('.') - 1]"
