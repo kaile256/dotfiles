@@ -138,7 +138,7 @@ on_func = ['snip#vim#']
 
 [[plugins]]
 repo = '$DEIN_PRIVATE_HOME/vim-clever-newline'
-on_event = ['BufRead']
+on_event = ['BufAdd']
 
 #[[plugins]]
 #repo = '$DEIN_PRIVATE_HOME/vim-font-resize'
