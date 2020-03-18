@@ -201,61 +201,62 @@ let s:before_close = '\%#[\])}''"]'
 let s:before_paren = '\%#[\])}]'
 let s:before_quote = '\%#[`''"]'
 
+" Note: 'leave' seems to make 'input' and 'input_after' fail
 " Ref: Jump cursor over the provided pairs
 "   https://karubabu.hateblo.jp/entry/2017/05/24/190010
 let g:lexima#default_rules += [
-      \ {'char': '<TAB>', 'at': '\%#[\])}`"'']',  'leave': 1, 'mode': 'i'},
+      \ {'char': '<TAB>', 'at': '\%#[\])}`"'']', 'leave': 1, 'mode': 'i'},
       \ ]
 
 let g:lexima#default_rules += [
-      \ {'char': '<c-space>', 'input': '<space>'},
-      \ {'char': '<c-space>', 'at': '\%#)',  'input': ')<space>', 'delete': 1},
-      \ {'char': '<c-space>', 'at': '\%#]',  'input': ']<space>', 'delete': 1},
-      \ {'char': '<c-space>', 'at': '\%#}',  'input': '}<space>', 'delete': 1},
-      \ {'char': '<c-space>', 'at': '\%#`',  'input': '`<space>', 'delete': 1},
-      \ {'char': '<c-space>', 'at': '\%#"',  'input': '"<space>', 'delete': 1},
-      \ {'char': '<c-space>', 'at': "\\%#'", 'input': "'<space>", 'delete': 1},
+      \ {'char': '<c-space>', 'input': ' '},
+      \ {'char': '<c-space>', 'at': '\%#)',  'input': ') ', 'delete': 1},
+      \ {'char': '<c-space>', 'at': '\%#]',  'input': '] ', 'delete': 1},
+      \ {'char': '<c-space>', 'at': '\%#}',  'input': '} ', 'delete': 1},
+      \ {'char': '<c-space>', 'at': '\%#`',  'input': '` ', 'delete': 1},
+      \ {'char': '<c-space>', 'at': '\%#"',  'input': '" ', 'delete': 1},
+      \ {'char': '<c-space>', 'at': "\\%#'", 'input': "' ", 'delete': 1},
       \ ]
 
 " Note: Both 'input' and 'input_after' seems to fail with 'leave'.
 let g:lexima#default_rules += [
-      \ {'char': '<c-,>', 'input': ',<Space>'},
-      \ {'char': '<c-,>', 'at': '\%#)',  'input': '),<Space>', 'delete': 1},
-      \ {'char': '<c-,>', 'at': '\%#]',  'input': '],<Space>', 'delete': 1},
-      \ {'char': '<c-,>', 'at': '\%#}',  'input': '},<Space>', 'delete': 1},
-      \ {'char': '<c-,>', 'at': '\%#`',  'input': '`,<Space>', 'delete': 1},
-      \ {'char': '<c-,>', 'at': '\%#"',  'input': '",<Space>', 'delete': 1},
-      \ {'char': '<c-,>', 'at': "\\%#'", 'input': "',<Space>", 'delete': 1},
+      \ {'char': '<c-,>', 'input': ', '},
+      \ {'char': '<c-,>', 'at': '\%#)',  'input': '), ', 'delete': 1},
+      \ {'char': '<c-,>', 'at': '\%#]',  'input': '], ', 'delete': 1},
+      \ {'char': '<c-,>', 'at': '\%#}',  'input': '}, ', 'delete': 1},
+      \ {'char': '<c-,>', 'at': '\%#`',  'input': '`, ', 'delete': 1},
+      \ {'char': '<c-,>', 'at': '\%#"',  'input': '", ', 'delete': 1},
+      \ {'char': '<c-,>', 'at': "\\%#'", 'input': "', ", 'delete': 1},
       \ ]
 
 " Especially for VimScript
 let g:lexima#default_rules += [
-      \ {'char': '<c-.>', 'input': '.<Space>'},
-      \ {'char': '<c-.>', 'at': '\%#)',  'input': ').<Space>', 'delete': 1},
-      \ {'char': '<c-.>', 'at': '\%#]',  'input': '].<Space>', 'delete': 1},
-      \ {'char': '<c-.>', 'at': '\%#}',  'input': '}.<Space>', 'delete': 1},
-      \ {'char': '<c-.>', 'at': '\%#`',  'input': '`.<Space>', 'delete': 1},
-      \ {'char': '<c-.>', 'at': '\%#"',  'input': '".<Space>', 'delete': 1},
-      \ {'char': '<c-.>', 'at': "\\%#'", 'input': "'.<Space>", 'delete': 1},
+      \ {'char': '<c-.>', 'input': '. '},
+      \ {'char': '<c-.>', 'at': '\%#)',  'input': '). ', 'delete': 1},
+      \ {'char': '<c-.>', 'at': '\%#]',  'input': ']. ', 'delete': 1},
+      \ {'char': '<c-.>', 'at': '\%#}',  'input': '}. ', 'delete': 1},
+      \ {'char': '<c-.>', 'at': '\%#`',  'input': '`. ', 'delete': 1},
+      \ {'char': '<c-.>', 'at': '\%#"',  'input': '". ', 'delete': 1},
+      \ {'char': '<c-.>', 'at': "\\%#'", 'input': "'. ", 'delete': 1},
       \ ]
 
 let g:lexima#default_rules += [
-      \ {'char': '<c-:>', 'input': ':<Space>'},
-      \ {'char': '<c-:>', 'at': '\%#)',  'input': '):<Space>', 'delete': 1},
-      \ {'char': '<c-:>', 'at': '\%#]',  'input': ']:<Space>', 'delete': 1},
-      \ {'char': '<c-:>', 'at': '\%#}',  'input': '}:<Space>', 'delete': 1},
-      \ {'char': '<c-:>', 'at': '\%#`',  'input': '`:<Space>', 'delete': 1},
-      \ {'char': '<c-:>', 'at': '\%#"',  'input': '":<Space>', 'delete': 1},
-      \ {'char': '<c-:>', 'at': "\\%#'", 'input': "':<Space>", 'delete': 1},
+      \ {'char': '<c-:>', 'input': ': '},
+      \ {'char': '<c-:>', 'at': '\%#)',  'input': '): ', 'delete': 1},
+      \ {'char': '<c-:>', 'at': '\%#]',  'input': ']: ', 'delete': 1},
+      \ {'char': '<c-:>', 'at': '\%#}',  'input': '}: ', 'delete': 1},
+      \ {'char': '<c-:>', 'at': '\%#`',  'input': '`: ', 'delete': 1},
+      \ {'char': '<c-:>', 'at': '\%#"',  'input': '": ', 'delete': 1},
+      \ {'char': '<c-:>', 'at': "\\%#'", 'input': "': ", 'delete': 1},
       \ ]
 let g:lexima#default_rules += [
-      \ {'char': '<c-">', 'input': ':<Space>'},
-      \ {'char': '<c-">', 'at': '\%#)',  'input': '):<Space>', 'delete': 1},
-      \ {'char': '<c-">', 'at': '\%#]',  'input': ']:<Space>', 'delete': 1},
-      \ {'char': '<c-">', 'at': '\%#}',  'input': '}:<Space>', 'delete': 1},
-      \ {'char': '<c-">', 'at': '\%#`',  'input': '`:<Space>', 'delete': 1},
-      \ {'char': '<c-">', 'at': '\%#"',  'input': '":<Space>', 'delete': 1},
-      \ {'char': '<c-">', 'at': "\\%#'", 'input': "':<Space>", 'delete': 1},
+      \ {'char': '<c-">', 'input': ': '},
+      \ {'char': '<c-">', 'at': '\%#)',  'input': '): ', 'delete': 1},
+      \ {'char': '<c-">', 'at': '\%#]',  'input': ']: ', 'delete': 1},
+      \ {'char': '<c-">', 'at': '\%#}',  'input': '}: ', 'delete': 1},
+      \ {'char': '<c-">', 'at': '\%#`',  'input': '`: ', 'delete': 1},
+      \ {'char': '<c-">', 'at': '\%#"',  'input': '": ', 'delete': 1},
+      \ {'char': '<c-">', 'at': "\\%#'", 'input': "': ", 'delete': 1},
       \ ]
 
 " end of the line
