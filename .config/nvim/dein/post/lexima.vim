@@ -282,6 +282,12 @@ let g:lexima#default_rules += [
       \ {'char': "<c-'>", 'at': "\\%#'", 'input': "';<CR>", 'delete': 1},
       \ ]
 
+"" Useless
+" nmap <C-'> <C-;>
+" nmap <C-"> <C-:>
+" call lexima#insmode#define_altanative_key("<C-'>", '<C-;>')
+" call lexima#insmode#define_altanative_key('<C-">', '<C-:>')
+
 unlet s:before_close s:before_paren s:before_quote
 " Ref: Activate :iabbr through lexima
 "   http://pekepekesamurai.hatenablog.com/entry/2015/04/23/223559
