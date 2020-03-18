@@ -34,6 +34,10 @@ hook_add = 'runtime add/scriptease.vim'
 repo = 'thinca/vim-scouter'
 on_cmd = 'Scouter'
 hook_add = 'runtime add/scouter.vim'
+[[plugins]]
+repo = 'AndrewRadev/bufferize.vim'
+on_cmd = ['Bufferize']
+hook_add = 'runtime add/bufferize.vim'
 
 #[ Library ]
 [[plugins]]
