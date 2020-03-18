@@ -11,6 +11,11 @@ call lexima#insmode#define_altanative_key('<C-j>', '<CR>')
 " g:lexima#newline_rules is a list of dict
 
 let g:lexima#default_rules = []
+let s:rules_insert  = []
+let s:rules_colon   = []
+let s:rules_i_colon = []
+let s:rules_c_all   = []
+let s:rules_ic_all  = []
 " Note: '\%#' represents the cursor position; see the help.
 " Notice: single quote in double quotes sometimes fails to apply the rule.
 " Notice: in double quotes, backslash requires double to escape
@@ -204,8 +209,8 @@ let s:before_quote = '\%#[`''"]'
 " Note: 'leave' seems to make 'input' and 'input_after' fail
 " Ref: Jump cursor over the provided pairs
 "   https://karubabu.hateblo.jp/entry/2017/05/24/190010
-let g:lexima#default_rules += [
-      \ {'char': '<TAB>', 'at': '\%#[\])}`"'']', 'leave': 1, 'mode': 'i'},
+let s:rules_insert += [
+      \ {'char': '<TAB>', 'at': '\%#[\])}`"'']', 'leave': 1},
       \ ]
 
 let g:lexima#default_rules += [
@@ -262,28 +267,28 @@ let g:lexima#default_rules += [
       \ ]
 
 " end of the line
-let g:lexima#default_rules += [
-      \ {'char': '<C-;>', 'input': '<End> ', 'mode': 'c'},
-      \ {'char': '<C-;>', 'except': ';\s*$', 'input': '<End>; ', 'mode': 'c'},
+let s:rules_c_all += [
+      \ {'char': '<C-;>', 'input': '<End> '},
+      \ {'char': '<C-;>', 'except': ';\s*$', 'input': '<End>; '},
       \
-      \ {'char': '<C-;>', 'at': '\%#)',  'input': '); ', 'delete': 1, 'mode': 'c'},
-      \ {'char': '<C-;>', 'at': '\%#]',  'input': ']; ', 'delete': 1, 'mode': 'c'},
-      \ {'char': '<C-;>', 'at': '\%#}',  'input': '}; ', 'delete': 1, 'mode': 'c'},
-      \ {'char': '<C-;>', 'at': '\%#`',  'input': '`; ', 'delete': 1, 'mode': 'c'},
-      \ {'char': '<C-;>', 'at': '\%#"',  'input': '"; ', 'delete': 1, 'mode': 'c'},
-      \ {'char': '<C-;>', 'at': "\\%#'", 'input': "'; ", 'delete': 1, 'mode': 'c'},
+      \ {'char': '<C-;>', 'at': '\%#)',  'input': '); ', 'delete': 1},
+      \ {'char': '<C-;>', 'at': '\%#]',  'input': ']; ', 'delete': 1},
+      \ {'char': '<C-;>', 'at': '\%#}',  'input': '}; ', 'delete': 1},
+      \ {'char': '<C-;>', 'at': '\%#`',  'input': '`; ', 'delete': 1},
+      \ {'char': '<C-;>', 'at': '\%#"',  'input': '"; ', 'delete': 1},
+      \ {'char': '<C-;>', 'at': "\\%#'", 'input': "'; ", 'delete': 1},
       \ ]
 
-let g:lexima#default_rules += [
-      \ {'char': '<C-;>', 'input': '<End><CR>', 'mode': 'i'},
-      \ {'char': '<C-;>', 'except': ';\s*$', 'input': '<End>;<CR>', 'mode': 'i'},
+let s:rules_insert += [
+      \ {'char': '<C-;>', 'input': '<End><CR>'},
+      \ {'char': '<C-;>', 'except': ';\s*$', 'input': '<End>;<CR>'},
       \
-      \ {'char': '<C-;>', 'at': '\%#)',  'input': ');<CR>', 'delete': 1, 'mode': 'i'},
-      \ {'char': '<C-;>', 'at': '\%#]',  'input': '];<CR>', 'delete': 1, 'mode': 'i'},
-      \ {'char': '<C-;>', 'at': '\%#}',  'input': '};<CR>', 'delete': 1, 'mode': 'i'},
-      \ {'char': '<C-;>', 'at': '\%#`',  'input': '`;<CR>', 'delete': 1, 'mode': 'i'},
-      \ {'char': '<C-;>', 'at': '\%#"',  'input': '";<CR>', 'delete': 1, 'mode': 'i'},
-      \ {'char': '<C-;>', 'at': "\\%#'", 'input': "';<CR>", 'delete': 1, 'mode': 'i'},
+      \ {'char': '<C-;>', 'at': '\%#)',  'input': ');<CR>', 'delete': 1},
+      \ {'char': '<C-;>', 'at': '\%#]',  'input': '];<CR>', 'delete': 1},
+      \ {'char': '<C-;>', 'at': '\%#}',  'input': '};<CR>', 'delete': 1},
+      \ {'char': '<C-;>', 'at': '\%#`',  'input': '`;<CR>', 'delete': 1},
+      \ {'char': '<C-;>', 'at': '\%#"',  'input': '";<CR>', 'delete': 1},
+      \ {'char': '<C-;>', 'at': "\\%#'", 'input': "';<CR>", 'delete': 1},
       \ ]
 
 "" Useless
@@ -304,8 +309,8 @@ unlet s:before_close s:before_paren s:before_quote
 " call lexima#insmode#map_hook('before', '<Space>', "\<ESC>")
 
 " Addtional Rules for Polymorphic Use {{{1
-let g:lexima#default_rules += [
-      \ {'char': '<C-d>', 'at': '\%#[\])}''"]', 'delete': 1, 'mode': 'i'}
+let s:rules_insert += [
+      \ {'char': '<C-d>', 'at': '\%#[\])}''"]', 'delete': 1}
       \ ]
 " Addtional Rules on FileType {{{1
 let g:lexima#default_rules += [
@@ -361,6 +366,18 @@ let g:lexima#default_rules += [
 " Finally: Override the rules though lexima#add_rule() "{{{1
 " Apply all the maps to both Insert and Command mode when unspecified
 call map(g:lexima#default_rules, "extend(v:val, {'mode': 'i:'}, 'keep')")
+call map(s:rules_insert,  "extend(v:val, {'mode': 'i'},  'keep')")
+call map(s:rules_i_colon, "extend(v:val, {'mode': 'i:'}, 'keep')")
+call map(s:rules_colon,   "extend(v:val, {'mode': ':'},  'keep')")
+call map(s:rules_c_all,   "extend(v:val, {'mode': 'c'},  'keep')")
+call map(s:rules_ic_all,  "extend(v:val, {'mode': 'ic'}, 'keep')")
+
+let g:lexima#default_rules +=
+      \ s:rules_insert
+      \ + s:rules_i_colon
+      \ + s:rules_colon
+      \ + s:rules_c_all
+      \ + s:rules_ic_all
 
 call lexima#set_default_rules()
 
