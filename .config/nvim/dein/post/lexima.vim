@@ -263,15 +263,27 @@ let g:lexima#default_rules += [
 
 " end of the line
 let g:lexima#default_rules += [
-      \ {'char': '<C-;>', 'input': '<End><CR>'},
-      \ {'char': '<C-;>', 'except': ';\s*$', 'input': '<End>;<CR>'},
+      \ {'char': '<C-;>', 'input': '<End> ', 'mode': 'c'},
+      \ {'char': '<C-;>', 'except': ';\s*$', 'input': '<End>; ', 'mode': 'c'},
       \
-      \ {'char': '<C-;>', 'at': '\%#)',  'input': ');<CR>', 'delete': 1},
-      \ {'char': '<C-;>', 'at': '\%#]',  'input': '];<CR>', 'delete': 1},
-      \ {'char': '<C-;>', 'at': '\%#}',  'input': '};<CR>', 'delete': 1},
-      \ {'char': '<C-;>', 'at': '\%#`',  'input': '`;<CR>', 'delete': 1},
-      \ {'char': '<C-;>', 'at': '\%#"',  'input': '";<CR>', 'delete': 1},
-      \ {'char': '<C-;>', 'at': "\\%#'", 'input': "';<CR>", 'delete': 1},
+      \ {'char': '<C-;>', 'at': '\%#)',  'input': '); ', 'delete': 1, 'mode': 'c'},
+      \ {'char': '<C-;>', 'at': '\%#]',  'input': ']; ', 'delete': 1, 'mode': 'c'},
+      \ {'char': '<C-;>', 'at': '\%#}',  'input': '}; ', 'delete': 1, 'mode': 'c'},
+      \ {'char': '<C-;>', 'at': '\%#`',  'input': '`; ', 'delete': 1, 'mode': 'c'},
+      \ {'char': '<C-;>', 'at': '\%#"',  'input': '"; ', 'delete': 1, 'mode': 'c'},
+      \ {'char': '<C-;>', 'at': "\\%#'", 'input': "'; ", 'delete': 1, 'mode': 'c'},
+      \ ]
+
+let g:lexima#default_rules += [
+      \ {'char': '<C-;>', 'input': '<End><CR>', 'mode': 'i'},
+      \ {'char': '<C-;>', 'except': ';\s*$', 'input': '<End>;<CR>', 'mode': 'i'},
+      \
+      \ {'char': '<C-;>', 'at': '\%#)',  'input': ');<CR>', 'delete': 1, 'mode': 'i'},
+      \ {'char': '<C-;>', 'at': '\%#]',  'input': '];<CR>', 'delete': 1, 'mode': 'i'},
+      \ {'char': '<C-;>', 'at': '\%#}',  'input': '};<CR>', 'delete': 1, 'mode': 'i'},
+      \ {'char': '<C-;>', 'at': '\%#`',  'input': '`;<CR>', 'delete': 1, 'mode': 'i'},
+      \ {'char': '<C-;>', 'at': '\%#"',  'input': '";<CR>', 'delete': 1, 'mode': 'i'},
+      \ {'char': '<C-;>', 'at': "\\%#'", 'input': "';<CR>", 'delete': 1, 'mode': 'i'},
       \ ]
 
 "" Useless
