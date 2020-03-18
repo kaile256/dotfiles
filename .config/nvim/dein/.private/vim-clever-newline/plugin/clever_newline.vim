@@ -59,7 +59,11 @@ endif
 function! s:is_in_commentblock(diff) abort "{{{1
   if &commentstring !~# '%s' | return 0 | endif
 
-  let cms      = substitute(split(&commentstring, '%s')[0], '\*', '\\*', 'g')
+  if &fo =~# 'r\|o'
+    silent! set fo-=r fo-=o
+  endif
+
+  let cms = substitute(split(&commentstring, '%s')[0], '\*', '\\*', 'g')
   let cms_head = '^\s*'. cms
 
   let line = line('.')
