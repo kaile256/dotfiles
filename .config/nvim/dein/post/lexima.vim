@@ -53,7 +53,7 @@ let g:lexima#newline_rules = [
 
 " Insert backslashes when filetype is vim
 let g:lexima#newline_rules += [
-      \ {'char': '<CR>', 'at': '^\s*\', 'input': '<CR>\ ', 'filetype': 'vim'},
+      \ {'char': '<CR>', 'at': '^\s*\', 'input': '<CR>\ ', 'except': '[]})]\s*$', 'filetype': 'vim'},
       \
       \ {'char': '<CR>', 'at': '(\%#)',  'input': '<CR>\ ', 'input_after': '<CR>\ ', 'filetype': 'vim'},
       \ {'char': '<CR>', 'at': '{\%#}',  'input': '<CR>\ ', 'input_after': '<CR>\ ', 'filetype': 'vim'},
