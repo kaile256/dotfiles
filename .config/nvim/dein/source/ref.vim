@@ -1,8 +1,7 @@
 " From: default.toml
 " Repo: thinca/vim-ref
 
-" map to K in plugin/ will be done with `silent!` and `<unique>`
-"let g:ref_no_default_key_mappings = 1
+let g:ref_no_default_key_mappings = 1
 
 augroup myRefSou
   au!
