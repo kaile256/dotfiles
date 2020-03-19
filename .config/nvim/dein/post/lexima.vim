@@ -298,23 +298,7 @@ let g:lexima#default_rules += [
       \ {'char': '<C-:>', 'at': s:separeter_triple .'\%#', 'input': '<BS><BS><BS>: ', 'priority': 50},
       \ ]
 
-" end of the line
-let s:rules_c_all += [
-      \ {'char': '<C-;>', 'input': '<End> '},
-      \ {'char': '<C-;>', 'except': ';\s*$', 'input': '<End>; '},
-      \
-      \ {'char': '<C-;>', 'at': '\%#)',  'input': '); ', 'delete': 1},
-      \ {'char': '<C-;>', 'at': '\%#]',  'input': ']; ', 'delete': 1},
-      \ {'char': '<C-;>', 'at': '\%#}',  'input': '}; ', 'delete': 1},
-      \ {'char': '<C-;>', 'at': '\%#`',  'input': '`; ', 'delete': 1},
-      \ {'char': '<C-;>', 'at': '\%#"',  'input': '"; ', 'delete': 1},
-      \ {'char': '<C-;>', 'at': "\\%#'", 'input': "'; ", 'delete': 1},
-      \
-      \ {'char': '<C-;>', 'at': s:separeter_single .'\%#', 'input': '<BS>; ',         'priority': 30},
-      \ {'char': '<C-;>', 'at': s:separeter_double .'\%#', 'input': '<BS><BS>; ',     'priority': 40},
-      \ {'char': '<C-;>', 'at': s:separeter_triple .'\%#', 'input': '<BS><BS><BS>; ', 'priority': 50},
-      \ ]
-
+" Semicolon with a new line; map for Commandline mode separately
 let s:rules_insert += [
       \ {'char': '<C-;>', 'input': '<End><CR>'},
       \ {'char': '<C-;>', 'except': ';\s*$', 'input': '<End>;<CR>'},
@@ -329,6 +313,22 @@ let s:rules_insert += [
       \ {'char': '<C-;>', 'at': s:separeter_single .'\%#', 'input': '<BS>; <CR>',         'priority': 30},
       \ {'char': '<C-;>', 'at': s:separeter_double .'\%#', 'input': '<BS><BS>; <CR>',     'priority': 40},
       \ {'char': '<C-;>', 'at': s:separeter_triple .'\%#', 'input': '<BS><BS><BS>; <CR>', 'priority': 50},
+      \ ]
+
+let s:rules_c_all += [
+      \ {'char': '<C-;>', 'input': '<End> '},
+      \ {'char': '<C-;>', 'except': ';\s*$', 'input': '<End>; '},
+      \
+      \ {'char': '<C-;>', 'at': '\%#)',  'input': '); ', 'delete': 1},
+      \ {'char': '<C-;>', 'at': '\%#]',  'input': ']; ', 'delete': 1},
+      \ {'char': '<C-;>', 'at': '\%#}',  'input': '}; ', 'delete': 1},
+      \ {'char': '<C-;>', 'at': '\%#`',  'input': '`; ', 'delete': 1},
+      \ {'char': '<C-;>', 'at': '\%#"',  'input': '"; ', 'delete': 1},
+      \ {'char': '<C-;>', 'at': "\\%#'", 'input': "'; ", 'delete': 1},
+      \
+      \ {'char': '<C-;>', 'at': s:separeter_single .'\%#', 'input': '<BS>; ',         'priority': 30},
+      \ {'char': '<C-;>', 'at': s:separeter_double .'\%#', 'input': '<BS><BS>; ',     'priority': 40},
+      \ {'char': '<C-;>', 'at': s:separeter_triple .'\%#', 'input': '<BS><BS><BS>; ', 'priority': 50},
       \ ]
 
 "" Useless
