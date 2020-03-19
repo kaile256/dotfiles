@@ -101,7 +101,9 @@ augroup myIsFileNameAdjustment "{{{1
 augroup END
 
 augroup myAlert "{{{1
-  " checktime: check if any buffers are changed out of the process
+  " checktime: check if any buffers are changed out of the process.
+  "   With 'autoread', it will update the buffer w/o asking.
+  set noautoread
   au FocusGained * checktime
   au BufRead /etc/{sudoers,sudoers.d/*} setl nomodifiable
         \ | echoerr " You'd better edit by $ visudo"
