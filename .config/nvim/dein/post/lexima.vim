@@ -239,7 +239,6 @@ let g:lexima#default_rules += [
       \ {'char': '<C-space>', 'at': "\\%#'", 'input': "' ", 'delete': 1},
       \ ]
 
-" Note: Both 'input' and 'input_after' seems to fail with 'leave'.
 let g:lexima#default_rules += [
       \ {'char': '<C-,>', 'input': ', '},
       \ {'char': '<C-,>', 'at': '\%#)',  'input': '), ', 'delete': 1},
