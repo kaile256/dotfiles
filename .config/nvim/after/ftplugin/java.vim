@@ -1,11 +1,10 @@
 " Syntax: syntax/java.vim
 
-finish
-
 augroup myJava
   au!
   " au BufWritePre *.java call s:class_automation()
-  au BufWritePre *.java call s:complete_semicolon()
+  " FIXME: make it work
+  au InsertLeave *.java call s:complete_semicolon()
 augroup END
 
 " function! s:class_automation() abort "{{{1
@@ -20,21 +19,24 @@ augroup END
 " endfunction
 
 function! s:complete_semicolon() abort "{{{1
+  if getline('.') =~# ';\s*$' | return | endif
+
   if &gdefault
     setl nogdefault
     let is_gdefault_on = 1
   endif
 
-  " FIXME
-  " Note: '\@!' in a pattern fails; split it
-  " silent! keeppatterns g/)\s*;\@!$/if line =~# '\<if\s*' | norm! A
+  call s:append_semicolon()
 
   if exists('is_gdefault_on')
     setl gdefault
   endif
 
-  " let line = getline('.')
-  " if line =~# ');\@!$'
-  "   norm! A;
-  " endif
+endfunction
+
+function! s:append_semicolon() abort "{{{1
+  let line = getline('.')
+  if line =~# '^package\|^import'
+    silent! keeppatterns s/[^;]\zs\s*$/;/
+  endif
 endfunction
