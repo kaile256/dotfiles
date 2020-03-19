@@ -27,7 +27,8 @@ function! s:switch_vim() "{{{1
   let b:switch_custom_definitions = [
         \ ['noremap',  'nnoremap', 'xnoremap'],
         \ ['inoremap', 'cnoremap', 'tnoremap'],
-        \ ['<silent>', '<script>']
+        \ ['<silent>', '<script>'],
+        \ ['==', '!='],
         \ ]
 endfunction
 
