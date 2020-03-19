@@ -218,6 +218,14 @@ let s:rules_insert += [
       \ {'char': '<TAB>', 'at': '\%#[\])}`"'']', 'leave': 1},
       \ ]
 
+" Note: both '=' and '+' works unexpectedly either with or without '\'.
+let s:delimeter_atom = '[,.;:]'
+let s:opareter_atom  = '[\-*/&|!]'
+let s:separeter_single =  s:delimeter_atom
+let s:separeter_double = '\(\s'. s:opareter_atom .'\)\|\('. s:delimeter_atom .'\s\)'
+" for example, regard ' ==' as a triple
+let s:separeter_triple = '\s'. s:opareter_atom .'\{2}'
+
 let g:lexima#default_rules += [
       \ {'char': '<C-=>', 'input': ' = '},
       \ {'char': '<C-=>', 'at': '\s\%#', 'input': '= '},
@@ -227,6 +235,10 @@ let g:lexima#default_rules += [
       \ {'char': '<C-=>', 'at': '\%#`',  'input': '` = ', 'delete': 1},
       \ {'char': '<C-=>', 'at': '\%#"',  'input': '" = ', 'delete': 1},
       \ {'char': '<C-=>', 'at': "\\%#'", 'input': "' = ", 'delete': 1},
+      \
+      \ {'char': '<C-=>', 'at': s:separeter_single .'\%#', 'input': '<BS> =',         'priority': 30},
+      \ {'char': '<C-=>', 'at': s:separeter_double .'\%#', 'input': '<BS><BS> =',     'priority': 40},
+      \ {'char': '<C-=>', 'at': s:separeter_triple .'\%#', 'input': '<BS><BS><BS> =', 'priority': 50},
       \ ]
 
 let g:lexima#default_rules += [
@@ -237,6 +249,10 @@ let g:lexima#default_rules += [
       \ {'char': '<C-space>', 'at': '\%#`',  'input': '` ', 'delete': 1},
       \ {'char': '<C-space>', 'at': '\%#"',  'input': '" ', 'delete': 1},
       \ {'char': '<C-space>', 'at': "\\%#'", 'input': "' ", 'delete': 1},
+      \
+      \ {'char': '<C-space>', 'at': s:separeter_single .'\%#', 'input': '<BS> ',         'priority': 30},
+      \ {'char': '<C-space>', 'at': s:separeter_double .'\%#', 'input': '<BS><BS> ',     'priority': 40},
+      \ {'char': '<C-space>', 'at': s:separeter_triple .'\%#', 'input': '<BS><BS><BS> ', 'priority': 50},
       \ ]
 
 let g:lexima#default_rules += [
@@ -247,6 +263,10 @@ let g:lexima#default_rules += [
       \ {'char': '<C-,>', 'at': '\%#`',  'input': '`, ', 'delete': 1},
       \ {'char': '<C-,>', 'at': '\%#"',  'input': '", ', 'delete': 1},
       \ {'char': '<C-,>', 'at': "\\%#'", 'input': "', ", 'delete': 1},
+      \
+      \ {'char': '<C-,>', 'at': s:separeter_single .'\%#', 'input': '<BS>, ',         'priority': 30},
+      \ {'char': '<C-,>', 'at': s:separeter_double .'\%#', 'input': '<BS><BS>, ',     'priority': 40},
+      \ {'char': '<C-,>', 'at': s:separeter_triple .'\%#', 'input': '<BS><BS><BS>, ', 'priority': 50},
       \ ]
 
 " Especially for VimScript
@@ -258,6 +278,10 @@ let g:lexima#default_rules += [
       \ {'char': '<C-.>', 'at': '\%#`',  'input': '`. ', 'delete': 1},
       \ {'char': '<C-.>', 'at': '\%#"',  'input': '". ', 'delete': 1},
       \ {'char': '<C-.>', 'at': "\\%#'", 'input': "'. ", 'delete': 1},
+      \
+      \ {'char': '<C-.>', 'at': s:separeter_single .'\%#', 'input': '<BS>. ',         'priority': 30},
+      \ {'char': '<C-.>', 'at': s:separeter_double .'\%#', 'input': '<BS><BS>. ',     'priority': 40},
+      \ {'char': '<C-.>', 'at': s:separeter_triple .'\%#', 'input': '<BS><BS><BS>. ', 'priority': 50},
       \ ]
 
 let g:lexima#default_rules += [
@@ -268,6 +292,10 @@ let g:lexima#default_rules += [
       \ {'char': '<C-:>', 'at': '\%#`',  'input': '`: ', 'delete': 1},
       \ {'char': '<C-:>', 'at': '\%#"',  'input': '": ', 'delete': 1},
       \ {'char': '<C-:>', 'at': "\\%#'", 'input': "': ", 'delete': 1},
+      \
+      \ {'char': '<C-:>', 'at': s:separeter_single .'\%#', 'input': '<BS>: ',         'priority': 30},
+      \ {'char': '<C-:>', 'at': s:separeter_double .'\%#', 'input': '<BS><BS>: ',     'priority': 40},
+      \ {'char': '<C-:>', 'at': s:separeter_triple .'\%#', 'input': '<BS><BS><BS>: ', 'priority': 50},
       \ ]
 
 " end of the line
@@ -281,6 +309,10 @@ let s:rules_c_all += [
       \ {'char': '<C-;>', 'at': '\%#`',  'input': '`; ', 'delete': 1},
       \ {'char': '<C-;>', 'at': '\%#"',  'input': '"; ', 'delete': 1},
       \ {'char': '<C-;>', 'at': "\\%#'", 'input': "'; ", 'delete': 1},
+      \
+      \ {'char': '<C-;>', 'at': s:separeter_single .'\%#', 'input': '<BS>; ',         'priority': 30},
+      \ {'char': '<C-;>', 'at': s:separeter_double .'\%#', 'input': '<BS><BS>; ',     'priority': 40},
+      \ {'char': '<C-;>', 'at': s:separeter_triple .'\%#', 'input': '<BS><BS><BS>; ', 'priority': 50},
       \ ]
 
 let s:rules_insert += [
@@ -293,6 +325,10 @@ let s:rules_insert += [
       \ {'char': '<C-;>', 'at': '\%#`',  'input': '`;<CR>', 'delete': 1},
       \ {'char': '<C-;>', 'at': '\%#"',  'input': '";<CR>', 'delete': 1},
       \ {'char': '<C-;>', 'at': "\\%#'", 'input': "';<CR>", 'delete': 1},
+      \
+      \ {'char': '<C-;>', 'at': s:separeter_single .'\%#', 'input': '<BS>; <CR>',         'priority': 30},
+      \ {'char': '<C-;>', 'at': s:separeter_double .'\%#', 'input': '<BS><BS>; <CR>',     'priority': 40},
+      \ {'char': '<C-;>', 'at': s:separeter_triple .'\%#', 'input': '<BS><BS><BS>; <CR>', 'priority': 50},
       \ ]
 
 "" Useless
