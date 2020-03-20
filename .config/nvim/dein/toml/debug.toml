@@ -59,6 +59,13 @@ repo = 'vim-vdebug/vdebug'
 # has no command
 on_ft = ['php']
 hook_source = 'runtime source/vdebug.vim'
+
+#[ Adopter ]
+[[plugins]]
+repo = 'puremourning/vim-debug-adapter'
+if = '&ft ==# "vim"'
+on_cmd = ['vimspector#']
+
 #[ on GDB ]
 [[plugins]]
 repo = 'sakhnik/nvim-gdb'
