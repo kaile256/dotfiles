@@ -124,15 +124,15 @@ onoremap <silent> L L
 " Evacuations for default {{{1
 if mapcheck('K') !=# ''
   " Mnemonic: Get the Keyword
-  nnoremap gK K
-  xnoremap gK K
+  silent! nnoremap <unique> gK K
+  silent! xnoremap <unique> gK K
 endif
 
 "if mapcheck('J') !=# ''
 "  " Mnemonic: <space>-leaving Join
-"  nnoremap <space>J J
-"  xnoremap <space>J J
-"  nnoremap gJ J"_x
+"  silent! nnoremap <unique> <space>J J
+"  silent! xnoremap <unique> <space>J J
+"  silent! nnoremap <unique> gJ J"_x
 "endif
 "
 "function! s:join() abort "{{{1
