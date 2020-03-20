@@ -6,11 +6,11 @@ nnoremap <silent> <SID>(switch-next)
       \ :<c-u>call <SID>get_word_head('Switch')<cr>
 nnoremap <silent> <SID>(switch-prev)
       \ :<c-u>call <SID>get_word_head('SwitchReverse')<cr>
-nnoremap <script> <c--> <SID>(switch-next)
-nnoremap <script> <c-+> <SID>(switch-prev)
+nnoremap <script> <c-+> <SID>(switch-next)
+nnoremap <script> <c--> <SID>(switch-prev)
 
-inoremap <script> <c--> <Esc><SID>(switch-next)a
-inoremap <script> <c-+> <Esc><SID>(switch-prev)a
+inoremap <script> <c-+> <Esc><SID>(switch-next)a
+inoremap <script> <c--> <Esc><SID>(switch-prev)a
 
 function! s:get_word_head(cmd) abort "{{{1
   let word_boundary = '\S\+'
