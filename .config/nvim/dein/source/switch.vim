@@ -35,7 +35,7 @@ endfunction
 function! s:switch_java() "{{{1
   let b:switch_custom_definitions = [
         \   [0, 'null'],
-        \   ['public', 'private', 'protected']
+        \   ['private', 'protected', 'public']
         \ ]
 endfunction
 
