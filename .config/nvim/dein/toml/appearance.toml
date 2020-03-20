@@ -11,7 +11,7 @@
 [[plugins]]
 repo = 'itchyny/vim-cursorword'
 # Underlines appear on every word under the cursor.
-on_event = 'CursorMoved'
+on_event = 'BufAdd'
 # Error: no such Event CursorWord0
 #hook_add = 'let g:cursorword_highlight = 0'
 hook_post_source = 'runtime add/cursorword.vim'
@@ -44,7 +44,7 @@ hook_source = 'runtime source/highlightedyank.vim'
 [[plugins]]
 repo = 'luochen1990/rainbow'
 # Notice: to activate, either g:rainbow_active or g:rainbow_conf must exists.
-on_event = ['BufRead']
+on_event = ['BufAdd']
 #hook_add = 'runtime add/rainbow-luochen1990.vim'
 hook_source = 'runtime source/rainbow-luochen1990.vim'
 #[[plugins]]
@@ -77,7 +77,6 @@ hook_source = 'runtime source/rainbow-luochen1990.vim'
 [[plugins]]
 repo = 'ryanoasis/vim-devicons'
 on_event = 'BufRead'
-hook_post_source = 'runtime add/devicons.vim'
 
 #[ Statusline ]
 [[plugins]]

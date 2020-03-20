@@ -10,7 +10,8 @@ let g:lexima_enable_space_rules   = 0
 let g:lexima_enable_endwise_rules = 0
 
 augroup myLeximaSource
-  au!
+  if exists('#myLeximaSource') | au! myLeximaSource
+  endif
   au InsertLeave * call s:remove_end_of_pairs()
 augroup END
 
@@ -22,7 +23,7 @@ function! s:remove_end_of_pairs() abort "{{{1
     return
   endif
 
-  let pairs  = ['[]', '{}', '()', "''", '""', '``']
+  let pairs  = ['\[]', '{}', '()', "''", '""', '``']
   let before = '\(.\)$'
   let after  = '\\zs\1\\s*$'
   call map(pairs, 'substitute(v:val,'. string(before) .','. string(after) .', "e")')

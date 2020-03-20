@@ -36,6 +36,8 @@ let g:quickrun_config['texmath'] = {
       \ }
 
 augroup myQuickrunSource
-  au!
+  if exists('#myQuickrunSource')
+    au! myQuickrunSource
+  endif
   au FileType quickrun setl nonumber fdl=99
 augroup END

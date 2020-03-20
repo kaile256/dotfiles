@@ -12,8 +12,10 @@ let g:switch_mapping = ''
 " it doesn't seem to expect regexp
 " let g:switch_custom_definitions = [ ]
 
-augroup mySwitchSourceOnFileType
-  au!
+if exists('#mySwitchAdd')
+  au! mySwitchAdd
+endif
+augroup mySwitchAdd
   au FileType vim      call s:switch_vim()
   au FileType java     call s:switch_java()
   au FileType markdown call s:switch_markdown()

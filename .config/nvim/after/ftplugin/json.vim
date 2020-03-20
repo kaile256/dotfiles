@@ -8,8 +8,10 @@
 setl fdm=syntax fdl=2
 "setl noexpandtab
 
-augroup JsonAutoAdjustment
-  au!
+augroup myJsonFtplugin
+  if exists('#myJsonFtplugin')
+    au! myJsonFtplugin
+  endif
   au InsertLeave json call s:json_format()
 augroup END
 

@@ -22,8 +22,10 @@ let g:firenvim_config.localSettings = {
 "      \   },
 "      \ }
 
+if exists('#myFireNvimSourceModFileTypes')
+  au! myFireNvimSourceModFileTypes
+endif
 augroup myFireNvimSourceModFileTypes
-  au!
   au BufEnter github.com_*.txt         call s:set_font(s:firenvim_font) | setl filetype=markdown
   au BufEnter play.golang.org_*.txt    call s:set_font(s:firenvim_font) | setl filetype=go
   au BufEnter play.rust-lang.org_*.txt call s:set_font(s:firenvim_font) | setl filetype=rust

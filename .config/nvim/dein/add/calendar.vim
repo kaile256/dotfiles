@@ -2,12 +2,15 @@
 "  Ref: defx.vimrc
 
 let g:calendar_google_calendar = 1
-let g:calendar_google_task = 1
+let g:calendar_google_task     = 1
 
 command! Cal :Calendar
 
-augroup CalendarCallMyFunc
-  au! FileType calendar call s:calendar_keymap()
+if exists('#myCalendarPost')
+  au! myCalendarPost
+endif
+augroup myCalendarPost
+  au FileType calendar call s:calendar_keymap()
 augroup END
 
 function! s:calendar_keymap() abort

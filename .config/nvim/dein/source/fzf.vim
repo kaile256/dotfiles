@@ -101,8 +101,10 @@ let g:fzf_colors =
       \   'spinner': ['fg', 'Label'],
       \   'header':  ['fg', 'Comment'] }
 
-augroup FzfMyAutoConf "{{{1
-  au!
+if exists('#myFzfSource')
+  au! myFzfSource
+endif
+augroup myFzfSource "{{{1
   function! s:fzf_buffer_statusline() "{{{
     " Override statusline as you like
     hi fzf1 ctermfg=161 ctermbg=251

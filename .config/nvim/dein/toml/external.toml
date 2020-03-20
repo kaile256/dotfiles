@@ -132,15 +132,15 @@ on_cmd = '<Plug>GenerateDiagram'
 hook_add = 'runtime add/sequence-diagram.vim'
 
 #[ Doc ]
-[[plugins]]
-repo = 'HiPhish/info.vim'
-on_cmd = 'Info'
-hook_add = 'runtime add/info.vim'
-hook_done_update = '''
-exe 'e' g:dein_github_dir .'/HiPhish/info.vim/plugin/info.vim'
-g/nnoremap/g/K/s/ K / gK /e
-write
-'''
+#[[plugins]]
+#repo = 'HiPhish/info.vim'
+#on_cmd = 'Info'
+#hook_add = 'runtime add/info.vim'
+#hook_done_update = '''
+#exe 'e' g:dein_github_dir .'/HiPhish/info.vim/plugin/info.vim'
+#g/nnoremap/g/K/s/ K / gK /e
+#write
+#'''
 
 [[plugins]]
 repo = 'sunaku/vim-dasht'

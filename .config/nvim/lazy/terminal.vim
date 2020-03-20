@@ -39,8 +39,10 @@ let g:terminal_color_13 = '#ad7fa8'
 let g:terminal_color_14 = '#00f5e9'
 let g:terminal_color_15 = '#eeeeec'
 
-augroup OnTerminalBuffer
-  au!
+augroup myTerminalLazy
+  if exists('#myTerminalLazy')
+    au! myTerminalLazy
+  endif
   " Open Terminal as Startpage
   "if @% == '' && &ft ==# '' && &bt ==# ''
   "  au VimEnter * nested call termopen(&shell)

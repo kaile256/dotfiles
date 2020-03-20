@@ -128,8 +128,10 @@ function! s:my_neodark() abort "{{{1
   "hi diffLine    cterm=reverse gui=reverse ctermfg=109 guifg=#36b383
 endfunction
 
+if exists('#myColorschemesAdjustment')
+  au! myColorschemesAdjustment
+endif
 augroup myColorschemesAdjustment "{{{1
-  au!
   au Colorscheme *       call s:my_commons()
   au Colorscheme neodark call s:my_neodark()
 augroup END

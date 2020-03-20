@@ -1,7 +1,9 @@
 " Syntax: syntax/java.vim
 
-augroup myJava
-  au!
+augroup myJavaFtplugin
+  if exists('#myJavaFtplugin')
+    au! myJavaFtplugin
+  endif
   " au BufWritePre *.java call s:class_automation()
   " FIXME: make it work
   au InsertLeave *.java call s:complete_semicolon()

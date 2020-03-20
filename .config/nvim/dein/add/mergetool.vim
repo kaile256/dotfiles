@@ -2,17 +2,19 @@
 " Repo: samoshkin/vim-mergetool
 " Another: source/mergetool.vim
 
-command! -bar Gresolve        :MergetoolStart | call s:mergetool_config()
-command! -bar GmergeToolStart :MergetoolStart
-command! -bar GmergeToolStop  :MergetoolStop
+command! -bar GmergeToolStart :call s:mergetool_start()
+command! -bar GmergeToolStop  :call s:mergetool_stop()
 
-function! s:mergetool_config() abort "{{{1
+function! s:mergetool_start() abort "{{{1
+  MergetoolStart
+
   augroup myMergetoolAutoStop
-    au!
-    au OptionSet diff
-          \ if !&diff
-          \ |   MergetoolStop
-          \ |   silent! augroup! myMergetoolAutoStop
-          \ | endif
+    au BufWinLeave <buffer> call s:mergetool_stop()
+    au OptionSet diff if !&diff | call s:mergetool_stop() | endif
   augroup END
+endfunction
+
+function! s:mergetool_stop() abort "{{{1
+    MergetoolStop
+    silent! augroup! myMergetoolAutoStop
 endfunction

@@ -3,7 +3,8 @@
 [[plugins]]
 repo = 'Konfekt/FastFold'
 # lazy load inside foleded.
-on_event = 'VimEnter'
+if = '&foldenable'
+on_event = 'BufReadPre'
 hook_source = 'runtime source/FastFold.vim'
 #[[plugins]]
 #repo = 'SwintonStreet/HighlightFoldLevelVimScript'

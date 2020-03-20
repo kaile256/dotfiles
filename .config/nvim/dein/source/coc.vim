@@ -5,20 +5,21 @@
 " Json: coc-settings.json
 " Another: add/coc.vim
 
+if exists('#myCocSource')
+  au! myCocSource
+endif
 augroup myCocSource
-  au!
   au FileType coc,list setl laststatus=0
         \ | au BufWinEnter,WinLeave,BufLeave * ++once set laststatus=2
   "" Only for snippet's feature?
   "au User     CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
   " Highlight symbol under cursor on CursorHold
   "au CursorHold * silent call CocActionAsync('highlight')
-augroup END
 
-augroup myCocSourceAutoImport
-  au!
+  " Auto Import {{{1
   au BufWritePre *.go   silent call s:cocImport('editor.action.organizeImport')
-  au BufWritePre *.java silent call s:cocImport('java.action.organizeImports')
+  " Either editor's or java's fails to work on java
+  " au BufWritePre *.java silent call s:cocImport('java.action.organizeImports')
 augroup END
 function! s:cocImport(coc_cmd) abort "{{{1
   if line('$') < 1000
@@ -76,8 +77,10 @@ let g:coc_global_extensions = [
       \ ]
 
 " CocPairs {{{1
+" if exists('#myCocPairsDisable')
+"   au! myCocPairsDisable
+" endif
 "augroup myCocPairsDisable
-"  au!
 "  au FileType vim let b:coc_pairs_disabled = ['"']
 "augroup END
 

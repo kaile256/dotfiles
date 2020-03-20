@@ -4,9 +4,9 @@
 [[plugins]]
 repo = 'mhinz/vim-lookup'
 # Enable to jump to definition as &runtimepath.
-#on_ft = 'vim'
-on_map = '<Cmd>lookup#'
-hook_add = 'runtime add/lookup.vim'
+on_ft = 'vim'
+#on_map = '<Cmd>lookup#'
+hook_source = 'runtime source/lookup.vim'
 
 #[ Help ]
 [[plugins]]
@@ -15,10 +15,10 @@ repo = 'thinca/vim-ft-help_fold'
 on_ft = 'help'
 hook_source = 'runtime source/ft-help_fold.vim'
 
-[[plugins]]
-repo = 'LeafCage/vimhelpgenerator'
-on_cmd =  ['VimHelpGenerator']
-hook_source = 'runtime source/vimhelpgenerator.vim'
+#[[plugins]]
+#repo = 'LeafCage/vimhelpgenerator'
+#on_cmd =  ['VimHelpGenerator']
+#hook_source = 'runtime source/vimhelpgenerator.vim'
 
 #[ Checker ]
 [[plugins]]
@@ -77,7 +77,6 @@ repo = 'junegunn/vader.vim'
 # a test-framework for vimscript.
 on_cmd = 'Vader'
 on_path = '*.vader'
-hook_add = 'runtime add/vader.vim'
 
 #[ Local ]
 #[[plugins]]

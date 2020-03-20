@@ -2,8 +2,10 @@
 " Repo: tpope/vim-fugitive
 " Another: add/fugitive.vim
 
-augroup FugitiveCallMyFunc
-  au!
+if exists('#myFugitiveSource')
+  au! myFugitiveSource
+endif
+augroup myFugitiveSource
   function! s:gitcommit(...) abort "{{{1
     let winnr = bufwinnr('.git/COMMIT_EDITMSG')
     if winnr != -1
@@ -120,10 +122,7 @@ augroup FugitiveCallMyFunc
   "endfunction
 
   "}}}1
-augroup END
-
-augroup OnFugitiveBuffer
-  au!
+  " on Fugitive Buffer {{{1
   " TODO: Go back to Gstatus' buffer when `:quit` on gitcommit's buffer
   au FileType fugitive,fugitiveblame,gitcommit setl nonumber signcolumn= bufhidden=wipe
   au FileType gitcommit setl spell spl=en_us,cjk colorcolumn=73

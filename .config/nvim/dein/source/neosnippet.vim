@@ -3,8 +3,10 @@
 " Another: add/neosnippet.vim
 " Snip: Shougo/neosnippet-snippets/neosnippets
 
+if exists('#myNeoSnippetSource')
+  au! myNeoSnippetSource
+endif
 augroup myNeoSnippetSource
-  au!
   "au FileType neosnippet setl fdm=indent
   au FileType neosnippet setl keywordprg=:help
   au BufWritePre * NeoSnippetClearMarkers

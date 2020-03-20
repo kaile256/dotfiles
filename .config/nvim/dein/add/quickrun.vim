@@ -40,7 +40,9 @@ function! s:quickrun_holding_syn() abort
 endfunction
 
 augroup myQuickrunAdd
-  au!
+  if exists('#myQuickrunAdd')
+    au! myQuickrunAdd
+  endif
   au FileType quickrun call s:quickrun_keymaps()
 augroup END
 

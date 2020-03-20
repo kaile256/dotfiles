@@ -1,8 +1,10 @@
 " From: ftplugin.toml
 " Repo: mhinz/vim-lookup
 
-augroup LookupCallMyFunc
-  au!
+augroup myLookupSource
+  if exists('#myLookupSource')
+    au! myLookupSource
+  endif
   au FileType vim call s:lookup_keymaps()
   function! s:lookup_keymaps() abort
     nnoremap <silent><buffer> <c-]>         :<c-u>call     lookup#lookup()<cr>zvzt

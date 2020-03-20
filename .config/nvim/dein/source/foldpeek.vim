@@ -145,7 +145,10 @@ let g:foldpeek#tail = {
 "let s:persome   = '(len(%percent%) == 1 ? %permill% : %percent%)'
 
 augroup myFoldPeekSource "{{{1
-  au!
+  if exists('#myFoldPeekSource')
+    au! myFoldPeekSource
+  endif
+
   au OptionSet * if &fdt !=# 'foldpeek#text()' |
         \   setl fdt=foldpeek#text()
         \ | endif

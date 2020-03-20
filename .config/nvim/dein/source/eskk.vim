@@ -68,8 +68,10 @@ function! s:eskk_special_maps() "{{{1
   endfor
 endfunction "}}}
 
-augroup EskkCallMyFunc
-  au!
+if exists('#myEskkSource')
+  au! myEskkSource
+endif
+augroup myEskkSource
   "au ColorScheme * ++nested hi CursorIM guibg=purple guibg=yellow
   au User eskk-initialize-pre call s:eskk_special_maps()
   if executable('notify-send')

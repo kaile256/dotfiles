@@ -1,8 +1,11 @@
 " From: init.vim
 
 augroup myStartpage
+  if exists('#myStartpage')
+    au! myStartpage
+  endif
   " FIXME: currently, no syntax/keymaps on defx
-  au! VimEnter * nested silent! call s:startpage('fish')
+  au VimEnter * nested silent! call s:startpage('fish')
 augroup END
 
 function! s:startpage(page) abort

@@ -327,6 +327,9 @@ function! s:defx_keymaps() abort "{{{1
         \ defx#do_action('repeat')
 endfunction
 
+if exists('#myDefxPost')
+  au! myDefxPost
+endif
 augroup myDefxPost "{{{1
   au FileType defx exe 'setl path='. getbufvar('#', '&path')
   au BufWinLeave * if &ft ==# 'defx' | wincmd = | endif

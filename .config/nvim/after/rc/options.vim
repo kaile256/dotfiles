@@ -64,8 +64,11 @@ set pumheight=15
 set wrap
 "set whichwrap=h,l
 set whichwrap=
-augroup NoWrapWithinAWord
-  au! FileType * if !&modifiable | setl linebreak showbreak= | endif
+augroup myNoWrapWithinAWord
+  if exists('#myNoWrapWithinAWord')
+    au! myNoWrapWithinAWord
+  endif
+  au FileType * if !&modifiable | setl linebreak showbreak= | endif
 augroup END
 " `breakindent` keeps visually indented according to the actual line.
 set breakindent
@@ -94,8 +97,10 @@ set updatetime=300
 " Line {{{2
 set cursorline
 " CAUTION: cursorline-highlight causes drawing corruption.
-augroup AutoToggleCursorLine
-  au!
+augroup myAutoToggleCursorLine
+  if exists('#myAutoToggleCursorLine')
+    au! myAutoToggleCursorLine
+  endif
   " Note: InsertEnter & WinLeave used to be useless.
   au WinEnter,InsertLeave * setl cursorline
   au WinLeave,InsertEnter * setl nocursorline
@@ -226,7 +231,7 @@ set textwidth=79
 "  au!
 "  "au OptionSet * if &fo =~# 'r\|o' | silent set fo-=r fo-=o | endif
 "  "au InsertCharPre * if &fo =~# 'r\|o' | silent set fo-=r fo-=o | endif
-  au InsertEnter * if &conceallevel != 0 && &tw =~# '' | set textwidth=0 | endif
+" au InsertEnter * if &conceallevel != 0 && &tw =~# '' | set textwidth=0 | endif
 "  "au FileType * if getline(1, '$') ==# [] | startinsert | endif
 "augroup END
 "set foldclose " when cursor is out of fold, close automatically.
@@ -267,10 +272,13 @@ if has('nvim')
   set shada='500,<50,h,s10,
 
   augroup myAutoWriteShada
+    if exists('#myAutoWriteShada')
+      au! myAutoWriteShada
+    endif
     " Note: shada only saves the data on VimLeave so that
     "       nothing won't be saved, when you start another process of neovim,
     "       i.e., no data won't share with the running neovim process then.
-    au! InsertLeave * wshada
+    au InsertLeave * wshada
     "au! FocusGained * rshada!
   augroup END
 

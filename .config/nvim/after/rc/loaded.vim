@@ -13,8 +13,10 @@ command! -range=% -bar ToHtml :call tohtml#Convert2HTML(<line1>, <line2>)
 
 let g:loaded_fzf = 1
 
-augroup ReloadDefaultPlugins
-  au!
+augroup myLoadedRc
+  if exists('#myLoadedRc')
+    au! myLoadedRc
+  endif
   au FileType netrw ++once runtime source/netrw.vim
   " FIXME: work all below
   "au BufReadPre *.tar ++once call s:runtime_tar() "{{{1

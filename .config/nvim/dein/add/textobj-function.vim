@@ -3,8 +3,10 @@
 
 let g:textobj_function_no_default_key_mappings = 1
 
-augroup LetTextobjFuncOnlyWhenRequired
-  au!
+augroup myTextObjFunctionSource
+  if exists('#myTextObjFunctionSource')
+    au! myTextObjFunctionSource
+  endif
   au FileType vim omap <buffer> af <Plug>(textobj-function-a)zv
   au FileType vim omap <buffer> if <Plug>(textobj-function-i)zv
   au FileType vim omap <buffer> aF <Plug>(textobj-function-A)zv

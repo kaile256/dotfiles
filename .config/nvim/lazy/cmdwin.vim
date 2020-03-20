@@ -1,8 +1,11 @@
 " From: init.vim
 
-augroup ReduceCmdHistory
-  au!
+augroup myCmdWinLazy
+  if exists('#myCmdWinLazy')
+    au! myCmdWinLazy
+  endif
   " Ref: https://qiita.com/monaqa/items/e22e6f72308652fc81e2
+  "   Reduce the histroy
   au CmdWinEnter : g/^qa\?!\?$/d _
   au CmdWinEnter : g/^wq\?a\?!\?$/d _
   au CmdWinEnter : %s/\s\+$/e

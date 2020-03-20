@@ -17,8 +17,10 @@ set diffopt+=filler,internal
 set diffopt+=vertical,indent-heuristic
 set diffopt+=algorithm:histogram
 
-augroup EnterDiffMode
-  au!
+augroup myDiffLazy
+  if exists('#myDiffLazy')
+    au! myDiffLazy
+  endif
   "au OptionSet * if &diff | setl wrap | endif " diffchar could cause error
   "au WinEnter,OptionSet *
   "      \ if &l:fdm !=# 'diff'
@@ -35,10 +37,6 @@ augroup EnterDiffMode
     xnoremap <silent><buffer> <a-d><a-o> :diffget<cr>
   endfunction "}}}
   au WinEnter * if &diff | call s:diff_keymaps() | endif
-augroup END
-
-augroup LeaveDiffMode
-  au!
   " Turn off diff mode, without any other windows.
   au WinEnter *
         \ if (winnr('$') == 1)

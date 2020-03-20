@@ -36,7 +36,6 @@ type cpsm || pip install --user cpsm
 '''
 on_source = 'denite.nvim'
 hook_post_update = 'bash install.sh'
-hook_post_source = 'runtime add/cspm.vim'
 
 #[[plugins]]
 #repo = 'raghur/fruzzy'

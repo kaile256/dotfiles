@@ -16,7 +16,10 @@ function! s:transparent() abort
 endfunction
 
 augroup myTransparent
-  au! Colorscheme * call s:transparent()
+  if exists('#myTransparent')
+    au! myTransparent
+  endif
+  au Colorscheme * call s:transparent()
 augroup END
 
 call s:transparent()

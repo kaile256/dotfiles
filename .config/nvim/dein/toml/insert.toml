@@ -82,7 +82,7 @@ on_source = ['neosnippet.vim']
 [[plugins]]
 repo = 'alvan/vim-closetag'
 # Html; Auto Close for html-tags
-hook_add = 'runtime! add/closetag.vim'
+hook_add = 'runtime add/closetag.vim'
 on_ft = ['html', 'javascript']
 hook_add = '''
 let g:cloesetag_filenames = '*.html,*.vue'

@@ -5,8 +5,10 @@
 " Json: coc-settings.json
 " Another: source/coc.vim
 
+if exists('#myCocAdd')
+  au! myCocAdd
+endif
 augroup myCocAdd
-  au!
   au BufWinEnter coc-settings.json setl keywordprg=:help
 augroup END
 
@@ -164,8 +166,10 @@ command! -bar QuickFormat :call s:quick_format()
 nmap c= <Plug>(coc-rename)
 nmap <silent> == :<c-u>QuickFormat<cr>
 
+if exists('#myCocPrettier')
+  au! myCocPrettier
+endif
 augroup myCocPrettier
-  au!
   au FileType javascript,typescript,css,json call s:prettier()
 augroup END
 

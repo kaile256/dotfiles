@@ -7,9 +7,10 @@ scriptencoding utf-8
 
 let g:defx_sidebar_width = 30
 
+if exists('#myDefxAddInsteadOfNetrw')
+  au! myDefxAddInsteadOfNetrw
+endif
 augroup myDefxAddInsteadOfNetrw "{{{1
-  au!
-
   " Ref: https://github.com/Shougo/defx.nvim/issues/121
   " Ref: /usr/share/nvim/runtime/plugin/netrwPlugin.vim
   "let g:loaded_netrw       = 1 " necessary to read via https

@@ -17,7 +17,7 @@ repo = 'dhruvasagar/vim-table-mode'
 on_ft = ['org', 'text', 'vimwiki', 'markdown']
 hook_source = 'runtime source/table-mode.vim'
 
-# Outliner
+#[ Outliner ]
 #[[plugins]]
 #repo = 'vim-voom/VOoM'
 #on_ft = ['vimwiki','org','markdown','tex','toml']
@@ -47,13 +47,13 @@ hook_source = 'runtime source/table-mode.vim'
 #on_cmd = ['TaskWiki']
 #hook_post_source = 'runtime add/AnsiEsc.vim'
 
-[[plugins]]
-repo = 'blindFS/vim-taskwarrior'
-# enables grid-view on taskwiki.
-if = "executable('task')"
-on_cmd = ['TW']
-on_map = {nx = '<Plug>(taskwarrior_'}
-hook_post_source = 'runtime source/taskwarrior.vim'
+#[[plugins]]
+#repo = 'blindFS/vim-taskwarrior'
+## enables grid-view on taskwiki.
+#if = "executable('task')"
+#on_cmd = ['TW']
+#on_map = {nx = '<Plug>(taskwarrior'}
+#hook_post_source = 'runtime source/taskwarrior.vim'
 
 #[ Org Mode ]
 #[[plugins]]

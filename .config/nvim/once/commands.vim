@@ -140,7 +140,10 @@ function! s:killall(...) abort "{{{2
 endfunction
 
 augroup myAutoChdirOnWrite "{{{1
-  au! BufWritePre * silent! cd %:p:h
+  if exists('#myAutoChdirOnWrite')
+    au! myAutoChdirOnWrite
+  endif
+  au BufWritePre * silent! cd %:p:h
 augroup END
 
 "augroup mySwitchToWrittenBuffer "{{{1

@@ -6,7 +6,7 @@
 repo = 'sheerun/vim-polyglot'
 # No syntax for java
 # includes syntax for systemd
-on_if = "&ft !=# '\|zsh\|terminal\|i3\|javascript'"
+if = "&ft !=# '\|zsh\|terminal\|i3\|javascript'"
 on_event = ['FileType']
 hook_source = 'runtime source/polyglot.vim'
 
@@ -99,9 +99,9 @@ hook_source = 'runtime source/tigris.vim'
 #repo = 'dag/vim-fish'
 #on_ft = 'fish'
 
-[[plugins]]
-repo = 'chrisbra/vim-zsh'
-on_ft = 'zsh'
+#[[plugins]]
+#repo = 'chrisbra/vim-zsh'
+#on_ft = 'zsh'
 [[plugins]]
 repo = 'zinit-zsh/zinit-vim-syntax'
 on_ft = 'zsh'

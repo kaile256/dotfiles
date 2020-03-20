@@ -99,7 +99,9 @@ nmap <script><silent> <SID>(move-line-upward-repeatable)
 "nmap yP :silent! call repeat#set('\<Plug>(copy-line-upward')<cr>
 
 augroup myAfterYank
-  au!
+  if exists('#myAfterYank')
+    au! myAfterYank
+  endif
   au TextYankPost * call s:echo_operated()
   " TODO: keep cursor after yank
   " gv<esc> move cursor to the end of yanked character

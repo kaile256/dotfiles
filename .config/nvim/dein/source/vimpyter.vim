@@ -7,11 +7,13 @@ let g:vimpyter_view_directory = $XDG_DATA_HOME .'/vimpyter/views'
 command! -bar JupyterNotebookStart :VimpyterStartJupyter
 command! -bar JupyterNteractStart  :VimpyterStartNteract
 
-augroup VimpyterCallMyFunctions
-  au!
+if exists('#myVimpyterSource')
+  au! myVimpyterSource
+endif
+augroup myVimpyterSource
+  au FileType ipynb call s:ipynb_keymap()
   function! s:ipynb_keymap() abort
-    nnoremap <buffer><silent><nowait> <space>i :VimpyterInsertPythonBlock<cr>
+    nnoremap <buffer><silent> <space>i :<c-u>VimpyterInsertPythonBlock<cr>
   endfunction
-  au FileType ipynb call <SID>ipynb_keymap()
 augroup END
 

@@ -168,8 +168,10 @@ inoremap <c-w> <c-g>u<c-w>
 "inoremap <c-v> <c-g>u<c-v>
 
 
-augroup AdditionalUndoBreakOnFileType "{{{
-  au!
+augroup myImapsOnce "{{{
+  if exists('#myImapsOnce')
+    au! myImapsOnce
+  endif
   au FileType html,markdown inoremap <buffer> , ,<c-g>u
   au FileType html,markdown inoremap <buffer> . .<c-g>u
   au FileType html,markdown inoremap <buffer> ! !<c-g>u

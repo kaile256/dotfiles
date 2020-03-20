@@ -71,8 +71,10 @@ function! s:gitmessenger_with_hunks()
   endif
 endfunction
 
-augroup GitMessengerBuffer
-  au!
-  au FileType gitmessengerpopup call <SID>keymap_on_gitmessenger_popup()
-  "au CursorHold * call <SID>simple_gitmessenger()
+if exists('#myGitMessengerAdd')
+  au! myGitMessengerAdd
+endif
+augroup myGitMessengerAdd
+  au FileType gitmessengerpopup call s:keymap_on_gitmessenger_popup()
+  "au CursorHold * call s:simple_gitmessenger()
 augroup END

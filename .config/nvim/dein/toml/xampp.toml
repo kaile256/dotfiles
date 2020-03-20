@@ -36,8 +36,8 @@ on_ft = ['csv']
 [[plugins]]
 repo = 'joereynolds/SQHell.vim'
 on_cmd = [
-'SQHShowDatabases',
-'SQHShowTablesForDatabase',
+  'SQHShowDatabases',
+  'SQHShowTablesForDatabase',
 ]
 hook_add = 'runtime add/SQHell.vim'
 hook_source = 'runtime source/SQHell.vim'

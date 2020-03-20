@@ -9,8 +9,10 @@
 " '':  current directory; keep empty between two commas (i.e., set path+=,,)
 set path=.**,/etc
 
-augroup UpdatePathToFind
-  au!
+augroup myFindPathRc
+  if exists('#myFindPathRc')
+    au! myFindPathRc
+  endif
   au FileType sh,bash setl path^=/usr/bin/
   au FileType c,cpp   setl path^=/usr/include
   "au FileType java   setl path^=/usr/lib/jvm/

@@ -2,7 +2,9 @@
 " Repo: thinca/vim-ft-help_fold
 
 augroup myHelpFoldSource
-  au!
+  if exists('#myHelpFoldSource')
+    au! myHelpFoldSource
+  endif
   au OptionSet text,help * call s:helpfold()
 augroup END
 

@@ -4,9 +4,10 @@
 
 nnoremap <silent> <a-u> :<c-u>MundoToggle<cr>
 
-augroup myMundoAddTrimHead
+augroup myMundoAdd
+  if exists('#myMundoAdd') | au! myMundoAdd
+  endif
   " also available on git-diff
-  au!
   " FIXME: make it work
   au TextYankPost *{d,D}iff* call s:trim_head()
 augroup END
@@ -18,5 +19,5 @@ function! s:trim_head() abort
     let regname = '"'
   endif
   let pat = '\(^\|\n\)\zs\s*[-+]'
-  let @{regname} = substitute(regname, pat, '', 'g')
+  exe 'let @'. regname "= substitute('@'". regname ", pat, '', 'g')"
 endfunction

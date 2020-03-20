@@ -112,8 +112,10 @@ call denite#custom#source('file/rec',
 " Default Actions {{{1
 "call denite#custom#kind('file', 'default_action', 'split')
 
+if exists('#myDenitePost')
+  au! myDenitePost
+endif
 augroup myDenitePost "{{{1
-  au!
   "au WinLeave,BufLeave \[denite\]* call denite#do_map('quit')
   au User denite-preview call s:denite_preview_options() "{{{2
   function! s:denite_preview_options() abort
