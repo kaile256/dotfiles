@@ -26,7 +26,7 @@ repo = 'andymass/vim-matchup'
 # Better `%`
 # Note: should be source post/ after :colo from other plugin,
 # which :colo after event-ColorScheme.
-on_event = ['OptionSet']
+on_event = ['BufAdd']
 #on_map = {nox = '<Plug>(matchup-'}
 hook_add = 'runtime add/matchup.vim'
 hook_post_source = 'runtime post/matchup.vim'
