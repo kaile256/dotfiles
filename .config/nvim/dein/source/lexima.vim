@@ -3,6 +3,12 @@
 " Another: add/lexima.vim
 " Another: post/lexima.vim
 
+" call lexima#set_default_rules() manually after the plugin loaded, which
+" should be done in post/ to update by ':source %'
+let g:lexima_no_default_rules     = 1
+let g:lexima_enable_space_rules   = 0
+let g:lexima_enable_endwise_rules = 0
+
 augroup myLeximaSource
   au!
   au InsertLeave * call s:remove_end_of_pairs()
