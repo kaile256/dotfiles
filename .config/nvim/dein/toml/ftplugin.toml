@@ -166,6 +166,22 @@ on_ft = 'json'
 repo = 'danishprakash/vim-docker'
 on_cmd =  ['DockerDocBrowser', 'DockerHubBrowser',]
 
+#[ XML ]
+#[[plugins]]
+#repo = 'tpope/vim-ragtag'
+## provides mappings for these filetypes
+#on_ft = [
+#  '*html*', 'wml', 'jsp', 'gsp', 'mustache', 'smarty',
+#  'php', 'asp*', 'cf', 'mason', 'eruby', 'liquid', 'jst', 'eelixir',
+#  'xml', 'xslt', 'xsd', 'docbk',
+#  'javascript.jsx', 'jsx', 'javascriptreact', 'handlebars',
+#  'typescript.tsx', 'tsx', 'typescriptreact',
+#]
+#[[plugins]]
+#repo = 'sukima/xmledit'
+#on_ft = ['html', 'php', 'xhtml', 'xml']
+#build = 'make install'
+
 #[ Quickfix ]
 #[[plugins]]
 #repo = 'lambdalisue/qfloc.vim'
