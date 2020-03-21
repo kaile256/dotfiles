@@ -1,7 +1,7 @@
 " From: external.toml
 " Repo: neoclide/coc.nvim
 " Branch: neoclide/coc.nvim_release
-" XDG: ~/.config/coc/extensions
+" XDG: $XDG_CONFIG_HOME/coc/extensions/node_modules/
 " Json: coc-settings.json
 " Another: source/coc.vim
 

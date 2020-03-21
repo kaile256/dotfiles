@@ -1,7 +1,7 @@
 " From: external.toml
 " Repo: neoclide/coc.nvim
 " Branch: neoclide/coc.nvim_release
-" XDG: .config/coc/extensions
+" XDG: $XDG_CONFIG_HOME/coc/extensions/node_modules/
 " Json: coc-settings.json
 " Another: add/coc.vim
 
@@ -145,9 +145,13 @@ augroup myCocSource "{{{1
       endfunction
     augroup END
 
-    CocCommand java.debug.vimspector.start
     " Ref: add/vimspector.vim & .vimspector.json
-    call vimspector#LaunchWithSettings({'configuration': 'java_coc_debug'})
+    " configure in coc-settings.json
+    CocCommand java.debug.vimspector.start
+    " function! JavaDebugCallback(err, port) abort
+    "   call vimspector#LaunchWithSettings({'configuration': 'coc-java-debug', 'AdapterPort': a:port})
+    " endfunction
+    " call CocActionAsync('runCommand', 'vscode.java.startDebugSession', function('JavaDebugCallback'))
   endfunction
   " Auto Import {{{2
   au BufWritePre *.go   silent call s:cocImport('editor.action.organizeImport')
