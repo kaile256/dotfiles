@@ -268,6 +268,7 @@ settings:
         go: scroll-to-perc 0;; hint inputs --first
         gp: open https://app.getpocket.com/
         gs: view-source
+        gv: fake-key <ctrl-a>
         gw: fake-key gw
         h: fake-key <left>
         i: enter-mode insert
