@@ -2,7 +2,8 @@
 " Repo: kaile256/vim-help-toc
 
 augroup myHelpTocSource
-  au!
+  if exists('#myHelpTocSource') | au! myHelpTocSource
+  endif
   au FileType help,man call s:help_keymaps()
 augroup END
 
