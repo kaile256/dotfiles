@@ -131,3 +131,10 @@ hook_source = 'runtime source/ref.vim'
 #[ Startpage ]
 #[[plugins]]
 #repo = 'mhinz/vim-startify'
+
+#[ Menu ]
+[[plugins]]
+repo = 'skywind3000/quickmenu.vim'
+on_func = ['quickmenu#toggle']
+hook_add = 'runtime add/quickmenu.vim'
+hook_post_source = 'runtime post/quickmenu.vim'
