@@ -50,7 +50,7 @@
     }
   },
   "configurations": {
-    "java_file": {
+    "java_coc_debug": {
       "adapter": "coc-java-debug-server",
       "configuration": {
         "request": "attach",

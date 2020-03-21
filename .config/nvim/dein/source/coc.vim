@@ -133,8 +133,6 @@ augroup myCocSource "{{{1
       call system('java -Xdebug -Xrunjdwp:server=y,transport=dt_socket,suspend=y,address='. port .' '. java_class)
     endif
 
-    CocCommand java.debug.vimspector.start
-
     augroup myCocSource_StopDebugJava
       if exists('#myCocSource_StopDebugJava') | au! myCocSource_StopDebugJava
       endif
@@ -145,6 +143,10 @@ augroup myCocSource "{{{1
         call system('kill '. pid)
         silent! augroup! myCocSource_StopDebugJava
       endfunction
+
+      CocCommand java.debug.vimspector.start
+      " Ref: add/vimspector.vim
+      call vimspector#LaunchWithSettings({'configuration': 'java_coc_debug'})
     endfunction
   augroup END
   " Auto Import {{{2
