@@ -1,15 +1,14 @@
 " From: filetype.vim
 
 if &readonly && !&modifiable
-  " `sleep` is no use
-  "sleep 1
-  norm! zM
-  norm! zvzt
   setl spell spl=en_us,cjk
   setl nonumber signcolumn= nolist foldlevel=0
   setl conceallevel=0
   nnoremap <buffer> d <c-d>
   nnoremap <buffer> u <c-u>
+
+  " ':sleep' is no use
+  norm! zMzvzt
 endif
 
 finish "{{{1
