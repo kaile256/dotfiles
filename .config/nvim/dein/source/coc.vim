@@ -123,8 +123,30 @@ augroup myCocSource "{{{1
   "   https://github.com/dansomething/coc-java-debug
   " Note: the same named commands will be shown duplicated and confuse you;
   "   you had better name another distinguished.
-  au FileType java command! -bar -buffer DebugStartJava
-        \ :CocCommand java.debug.vimspector.start
+  au FileType java command! -bar -buffer DebugStartJava :call s:debug_start_java()
+  function! s:debug_start_java() abort "{{{3
+    let port = '5005'
+    let port_check = 'lsof -i:'. port
+    let java_class = expand('%:t:r')
+    if system(port_check)
+      " enable remote debugging
+      call system('java -Xdebug -Xrunjdwp:server=y,transport=dt_socket,suspend=y,address='. port .' '. java_class)
+    endif
+
+    CocCommand java.debug.vimspector.start
+
+    augroup myCocSource_StopDebugJava
+      if exists('#myCocSource_StopDebugJava') | au! myCocSource_StopDebugJava
+      endif
+      au VimLeavePre *        call s:kill_java_remote_debugger()
+      au BufWinLeave <buffer> call s:kill_java_remote_debugger()
+      function! s:kill_java_remote_debugger() closure "{{{4
+        let pid = matchstr(system(port_check), 'java\s*\zs\d\+')
+        call system('kill '. pid)
+        silent! augroup! myCocSource_StopDebugJava
+      endfunction
+    endfunction
+  augroup END
   " Auto Import {{{2
   au BufWritePre *.go   silent call s:cocImport('editor.action.organizeImport')
   " Either editor's or java's fails to work on java
