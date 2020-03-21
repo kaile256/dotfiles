@@ -2,7 +2,7 @@
 " Ref: neosnippet.vim
 " Ref: ultisnips.vim
 
-if get(g:, 'loaded_smaps_for_snippets', 0) | finish | endif
+if exists('g:loaded_smaps_for_snippets') | finish | endif
 let g:loaded_smaps_for_snippets = 1
 
 snoremap <expr> <a-h> (getline("'<")[col("'<"):col("'>")] =~# '^#') ? '<space><BS><esc>' : '<esc>'
