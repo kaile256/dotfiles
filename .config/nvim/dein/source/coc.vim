@@ -123,7 +123,7 @@ augroup myCocSource "{{{1
   "   https://github.com/dansomething/coc-java-debug
   " Note: the same named commands will be shown duplicated and confuse you;
   "   you had better name another distinguished.
-  au FileType java command! -bar -buffer DebugStartJava :call s:debug_start_java()
+  au FileType java command! -bar -buffer JavaDebugStart :call s:debug_start_java()
   function! s:debug_start_java() abort "{{{3
     let port = '5005'
     let port_check = 'lsof -i:'. port
@@ -146,7 +146,7 @@ augroup myCocSource "{{{1
     augroup END
 
     CocCommand java.debug.vimspector.start
-    " Ref: add/vimspector.vim
+    " Ref: add/vimspector.vim & .vimspector.json
     call vimspector#LaunchWithSettings({'configuration': 'java_coc_debug'})
   endfunction
   " Auto Import {{{2
