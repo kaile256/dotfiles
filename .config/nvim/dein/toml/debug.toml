@@ -61,7 +61,7 @@ repo = 'vim-vdebug/vdebug'
 on_ft = ['php']
 hook_source = 'runtime source/vdebug.vim'
 
-#[ Adopter ]
+#[ Debug Adopter ]
 [[plugins]]
 repo = 'puremourning/vim-debug-adapter'
 if = '&ft ==# "vim"'
