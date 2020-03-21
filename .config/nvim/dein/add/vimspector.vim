@@ -1,11 +1,26 @@
 " From: debug.toml
 " Repo: puremourning/vimspector
 " Another: post/vimspector.vim
+" JSON: .vimspector.json
 " Web: https://puremourning.github.io/vimspector-web/
 " Depends: https://github.com/Microsoft/vscode-cpptools
 " Ref: see https://qiita.com/deresmos/items/01a59df438e1b881ef11
 
-let g:vimspector_enable_mappings = 'VISUAL_STUDIO'
+" set values name in configuration at .vimspector.json as you like
+command! -bar -nargs=? -bang DebugStart :call s:debug_start(<q-bang>, <q-args>)
+function! s:debug_start(...) abort "{{{1
+  let args = join(a:000)
+
+  if args =~# '^! '
+    call vimspector#Launch()
+  elseif args =~# '\s*'
+    call vimspector#LaunchWithSettings({'configuration': &ft .'_file'})
+  else
+    call vimspector#LaunchWithSettings({'configuration': args})
+  endif
+endfunction
+
+let g:vimspector_enable_mappings = 'VISUAL_STUDIO' "{{{1
 " Excerpt: puremourning/vimspector/plugin/vimspector.vim
 "   if s:mappings ==# 'VISUAL_STUDIO'
 "     nmap <F5>         <Plug>VimspectorContinue
@@ -31,17 +46,4 @@ let g:vimspector_enable_mappings = 'VISUAL_STUDIO'
 "     nmap <F11>        <Plug>VimspectorStepInto
 "     nmap <F12>        <Plug>VimspectorStepOut
 "   endif
-
-"command! -bar DebugStart :call vimspector#Continue()
-"command! -bar Dstart     :call vimspector#Continue()
-
-" set values name in configuration at .vimspector.json as you like
-command! -bar -nargs=? -bang DebugStart
-      \ if empty(<q-bang>) |
-      \ call vimspector#Launch()
-      \ | elseif empty(<q-args>) |
-      \ call vimspector#LaunchWithSettings({'configuration': &ft .'_file'})
-      \ | else |
-      \ call vimspector#LaunchWithSettings({'configuration': <q-args>})
-      \ endif
 
