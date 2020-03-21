@@ -8,11 +8,11 @@ scriptencoding utf-8
 "nnoremap <silent><expr> * v:count ? '*'
 "\ : ':sil exe "keepj norm! *" <Bar> call winrestview(' . string(winsaveview()) . ')<CR>'
 
-noremap! <c-r>/  <c-r>= substitute(@/, '\\V', '', 'e')<cr>
-noremap! <c-r> <c-r>= substitute(@/, '\\V', '', 'e')<cr>
-
-tnoremap <silent> <c-r>/  <c-\><c-n>"= substitute(@/, '\\V', '', 'e')<cr>pi
-tnoremap <silent> <c-r> <c-\><c-n>"= substitute(@/, '\\V', '', 'e')<cr>pi
+" Note: Vim regards <C-_> as <C-/>
+noremap! <expr><silent> <c-r>/     substitute(@/, '^\\[mv]', '', 'i')
+tnoremap <expr><silent> <c-r>/     substitute(@/, '^\\[mv]', '', 'i')
+noremap! <expr><silent> <c-r><c-_> substitute(@/, '^\\[mv]', '', 'i')
+tnoremap <expr><silent> <c-r><c-_> substitute(@/, '^\\[mv]', '', 'i')
 
 "function! asterisk#substitute(operator, direction) abort "{{{
 "" TODO: Make the function work
