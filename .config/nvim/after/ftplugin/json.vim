@@ -25,3 +25,15 @@ function! s:json_format() abort
     .-1 s/"$/",/
   endif
 endfunction
+
+setl fdm=expr fde=JsonFoldExpr()
+function! JsonFoldExpr() abort "{{{1
+  let line = getline(v:lnum)
+  if line =~# '[\[{]$'
+    return '>'. indent(v:lnum) / &shiftwidth
+  elseif line =~# '^\s*[\]}]'
+    return '<'. indent(v:lnum) / &shiftwidth
+  endif
+
+  return '='
+endfunction
