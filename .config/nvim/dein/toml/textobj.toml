@@ -4,20 +4,23 @@
 
 [[plugins]]
 repo = 'kana/vim-textobj-user'
-# Note: enough with 'vim-matchup'
-on_event = 'BufRead'
+#on_event = 'BufRead'
+on_func = ['textobj#user#plugin']
 #hook_add = 'runtime add/textobj-user.vim'
 
 [[plugins]]
 repo = 'kana/vim-textobj-function'
 # Note: should activates where lsp doesn't provide the kind of textobjects.
-# Note: only available on vim/java/c
-on_map = {xo = '<Plug>(textobj-function-'}
-hook_add = 'runtime add/textobj-function.vim'
+# Note: available on vim/java/c, but coc's are better on java; don't know on c
+on_ft = ['vim']
+#on_map = {xo = '<Plug>(textobj-function-'}
+hook_source = 'runtime source/textobj-function.vim'
 
 [[plugins]]
 repo = 'kana/vim-textobj-fold'
-on_source = 'vim-textobj-user'
+if = '&foldenable'
+on_event = ['BufRead']
+#on_source = 'vim-textobj-user'
 #hook_add = 'runtime add/textobj-fold.vim'
 
 #[[plugins]]
@@ -28,7 +31,7 @@ on_source = 'vim-textobj-user'
 
 [[plugins]]
 repo = 'glts/vim-textobj-comment'
-on_map = {xo = '<Plug>(textobj-comment-'}
+on_event = ['BufRead']
 #hook_add = 'runtime add/textobj-comment.vim'
 
 #[[plugins]]
@@ -56,8 +59,7 @@ on_map = {xo = '<Plug>(textobj-comment-'}
 
 [[plugins]]
 repo = 'sgur/vim-textobj-parameter'
-on_source = 'vim-textobj-user'
-hook_add = 'runtime add/textobj-parameter.vim'
+on_event = ['BufRead', 'TextChanged']
 
 #[[plugins]]
 #repo = 'kana/vim-textobj-indent'
@@ -74,8 +76,8 @@ hook_add = 'runtime add/textobj-parameter.vim'
 repo = 'saaguero/vim-textobj-pastedtext'
 # Note: no use because it is mapped after the plugin is loaded.
 #on_map = '<Plug>(textobj-pastedtext'
-on_source = 'vim-textobj-user'
-hook_add = 'runtime add/textobj-pastedtext.vim'
+on_event = ['TextChanged']
+hook_source = 'runtime source/textobj-pastedtext.vim'
 
 #[[[FileType]]]
 #[[plugins]]
