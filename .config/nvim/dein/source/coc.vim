@@ -5,30 +5,6 @@
 " Json: coc-settings.json
 " Another: add/coc.vim
 
-if exists('#myCocSource')
-  au! myCocSource
-endif
-augroup myCocSource
-  au FileType coc,list setl laststatus=0
-        \ | au BufWinEnter,WinLeave,BufLeave * ++once set laststatus=2
-  "" Only for snippet's feature?
-  "au User     CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
-  " Highlight symbol under cursor on CursorHold
-  "au CursorHold * silent call CocActionAsync('highlight')
-
-  " Auto Import {{{1
-  au BufWritePre *.go   silent call s:cocImport('editor.action.organizeImport')
-  " Either editor's or java's fails to work on java
-  " au BufWritePre *.java silent call s:cocImport('java.action.organizeImports')
-augroup END
-function! s:cocImport(coc_cmd) abort "{{{1
-  if line('$') < 1000
-    " Synchronized import is better with some commands like QuickRun
-    call CocAction('runCommand', a:coc_cmd)
-  endif
-  call CocActionAsync('runCommand', a:coc_cmd)
-endfunction
-
 " the List of CocExtentions; "{{{1
 " Note: have to install LSPs independently.
 " Note: coc-highlight made CPU overwork
@@ -74,20 +50,11 @@ let g:coc_global_extensions = [
       \ 'coc-word',
       \ 'coc-yaml',
       \ 'coc-yank',
+      \ 'https://github.com/dansomething/coc-java-debug',
       \ ]
 
-" CocPairs {{{1
-" if exists('#myCocPairsDisable')
-"   au! myCocPairsDisable
-" endif
-"augroup myCocPairsDisable
-"  au FileType vim let b:coc_pairs_disabled = ['"']
-"augroup END
-
 " CocCheckProvider {{{1
-command! CifHasProvider :call s:has_provider()
-command! ChasProvider   :call s:has_provider()
-command! Cprovider      :call s:has_provider()
+command! CocHasProvider   :call s:has_provider()
 function! s:has_provider()
   let coc_providers = [
         \ 'hover',
@@ -139,4 +106,36 @@ function! s:has_provider()
   echon join(unavailable, "\n\t  ")
   echon "\n"
 endfunction
+
+augroup myCocSource "{{{1
+  if exists('#myCocSource') | au! myCocSource
+  endif
+  " " No Status Line on coc's buffer; useless {{{2
+  " au FileType coc,list setl laststatus=0
+  "     \ | au BufWinEnter,WinLeave,BufLeave * ++once set laststatus=2
+  " Snippets on Coc {{{2
+  au User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
+  " Highlight symbol under cursor on CursorHold
+  "au CursorHold * silent call CocActionAsync('highlight')
+
+  " Vimspector on Coc {{{2
+  " Ref: Override DebugStart of Vimspector @add/vimspector.vim
+  "   https://github.com/dansomething/coc-java-debug
+  au FileType java command! -bar -buffer DebugStart
+        \ :CocCommand java.debug.vimspector.start
+  " Auto Import {{{2
+  au BufWritePre *.go   silent call s:cocImport('editor.action.organizeImport')
+  " Either editor's or java's fails to work on java
+  " au BufWritePre *.java silent call s:cocImport('java.action.organizeImports')
+  function! s:cocImport(coc_cmd) abort "{{{3
+    if line('$') < 1000
+      " Synchronized import is better with some commands like QuickRun
+      call CocAction('runCommand', a:coc_cmd)
+    endif
+    call CocActionAsync('runCommand', a:coc_cmd)
+  endfunction
+
+  "" CocPairs {{{2
+  "  au FileType vim let b:coc_pairs_disabled = ['"']
+augroup END
 

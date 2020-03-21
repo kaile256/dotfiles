@@ -50,7 +50,7 @@
     }
   },
   "configurations": {
-    "java_coc": {
+    "java_file": {
       "adapter": "coc-java-debug-server",
       "configuration": {
         "request": "attach",
@@ -64,7 +64,7 @@
         }
       }
     },
-    "java_file": {
+    "java_lsp": {
       "adapter": "java-language-server",
       "configuration": {
         "request": "launch",
