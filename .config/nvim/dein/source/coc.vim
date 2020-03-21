@@ -143,12 +143,12 @@ augroup myCocSource "{{{1
         call system('kill '. pid)
         silent! augroup! myCocSource_StopDebugJava
       endfunction
+    augroup END
 
-      CocCommand java.debug.vimspector.start
-      " Ref: add/vimspector.vim
-      call vimspector#LaunchWithSettings({'configuration': 'java_coc_debug'})
-    endfunction
-  augroup END
+    CocCommand java.debug.vimspector.start
+    " Ref: add/vimspector.vim
+    call vimspector#LaunchWithSettings({'configuration': 'java_coc_debug'})
+  endfunction
   " Auto Import {{{2
   au BufWritePre *.go   silent call s:cocImport('editor.action.organizeImport')
   " Either editor's or java's fails to work on java
