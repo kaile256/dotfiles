@@ -2,6 +2,7 @@
 " Ref: cabbrs.vim
 " Ref: commands.vim
 
+cnoremap <c-o> <c-d>
 
 cnoremap <silent> <a-space> <esc>:call feedkeys("\<space>")<cr>
 
@@ -31,9 +32,33 @@ cnoremap <c-r><space>   <c-r>+
 "endfunction
 "
 " instant :verbose "{{{1
-cnoremap <expr> <a-m>  (getcmdtype() == ':' && getcmdline() !~# '^verb\%[ose]') ? '<Home>verbose<space><cr>' : '<cr>'
-cnoremap <expr> <a-cr> (getcmdtype() == ':' && getcmdline() !~# '^verb\%[ose]') ? '<Home>verbose<space><cr>' : '<cr>'
-cnoremap <expr> <a-j>  (getcmdtype() == ':' && getcmdline() !~# '^verb\%[ose]') ? '<Home>verbose<space><cr>' : '<cr>'
+cnoremap <silent><expr> <a-m>  <SID>verbose_in_qf()
+cnoremap <silent><expr> <a-cr> <SID>verbose_in_qf()
+cnoremap <silent><expr> <a-j>  <SID>verbose_in_qf()
+function! s:verbose_in_qf() abort "{{{2
+  if getcmdtype() !=# ':' | return | endif
+
+  let cmd = getcmdline()
+  if cmd =~# '^\s*cexpr'
+    return "\<CR>"
+  endif
+
+  if cmd =~# '^\S\+$'
+    let cmd = 'set '. cmd
+  endif
+  if cmd !~# 'verb\%[ose] '
+    let cmd = 'verbose '. cmd
+  endif
+
+  return "\<c-u>lexpr execute(". string(cmd) .")\<cr>"
+endfunction
+
+augroup myCmapsOnce
+  if exists('#myCmapsOnce') | au! myCmapsOnce
+  endif
+  " FIXME: Close when the cursor is out of buffer.
+  au QuickFixCmdPost lexpr :lopen | au WinLeave,BufLeave <buffer> :lclose
+augroup END
 
 cnoremap <a-q> <c-f>
 
