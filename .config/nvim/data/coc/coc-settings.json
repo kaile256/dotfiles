@@ -206,6 +206,9 @@
   "python.linting.pylintEnabled": false,
   "python.linting.mypyEnabled": true,
 
+  //"java.import.gradle.enabled": true,
+  "java.import.maven.enabled": true,
+
   "java.errors.incompleteClasspath.severity": "ignore",
   "java.format.onType.fixComment.enabled": false,
   "java.configuration.updateBuildConfiguration": "automatic",
@@ -213,6 +216,12 @@
   //"java.codeGeneration.useBlocks": true,
   //// add javadoc on method
   //"java.codeGeneration.generateComments": true,
+  "java.format.settings.url": "/home/kaile256/.config/coc/extensions/node_modules/redhat.java/eclipse-formatter.xml",
+
+  // vimspector through coc-java-debug
+  // the adapter name in .vimspector.json
+  "java.debug.vimspector.profile": "coc-java-debug",
+  //"java.debug.vimspector.substitution.adapterPort": "AdapterPort",
 
   "languageserver": {
     "dls": {
@@ -385,6 +394,5 @@
         }
       }
     }
-  },
-  "java.format.settings.url": "/home/kaile256/.config/coc/extensions/node_modules/redhat.java/eclipse-formatter.xml"
+  }
 }
