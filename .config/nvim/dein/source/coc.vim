@@ -121,7 +121,9 @@ augroup myCocSource "{{{1
   " Vimspector on Coc {{{2
   " Ref: Override DebugStart of Vimspector @add/vimspector.vim
   "   https://github.com/dansomething/coc-java-debug
-  au FileType java command! -bar -buffer DebugStart
+  " Note: the same named commands will be shown duplicated and confuse you;
+  "   you had better name another distinguished.
+  au FileType java command! -bar -buffer DebugStartJava
         \ :CocCommand java.debug.vimspector.start
   " Auto Import {{{2
   au BufWritePre *.go   silent call s:cocImport('editor.action.organizeImport')
