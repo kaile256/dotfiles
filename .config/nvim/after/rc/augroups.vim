@@ -1,18 +1,16 @@
 " From: init.vim
 
 " Bundling augroups, it took shorter by 905.823 msec.
-if exists('#myAugroups')
-  au! myAugroups
-endif
 augroup myAugroups
+  if exists('#myAugroups') | au! myAugroups
+  endif
   " myAutoWinResize "{{{1
   au VimResized * wincmd =
 
   " myXinputToggle "{{{1
-
+  " TODO: disable only the touchpad except mouse buttons
   exe 'au InsertEnter,'. $TermOpen "* call system('xinput disable Elan\\ TrackPoint')"
   exe 'au InsertEnter,'. $TermOpen "* call system('xinput disable Elan\\ Touchpad')"
-
   au FocusLost,VimLeave * call system('xinput enable  Elan\ TrackPoint')
 
   " myFileTypeAdjustment "{{{1
