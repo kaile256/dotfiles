@@ -2,8 +2,9 @@
 " Repo: andymass/vim-matchup
 " Another: post/matchup.vim
 
-"let g:loaded_matchit    = 1
-"let g:loaded_matchparen = 1
+" Without them, sometimes fails to set up for matchup.vim
+let g:loaded_matchit    = 1
+let g:loaded_matchparen = 1
 
 let g:matchup_mouse_enabled  = 0
 let g:matchup_delim_stopline = 500
