@@ -334,19 +334,19 @@ command! CshowTaskList :Clist    todolist
 nnoremap <silent> <space>ct :Ctask<cr>
 nnoremap <silent> <space>cs :CshowTaskList<cr>
 
-" CocYank; {{{1
-" Required?: closes mpreview vindow when completion is done.
-"au! CompleteDone * if pumvisible() == 0 | pclose | endif
-"inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<CR>"
+" " CocYank; {{{1
+" " Required?: closes mpreview vindow when completion is done.
+" "au! CompleteDone * if pumvisible() == 0 | pclose | endif
+" "inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<CR>"
 
-function s:register_hist() abort
-  " Note: <c-o> is necessary to make (a)ppend work in Coclist yank.
-  norm! <c-o>
-  " TODO: select (a)ppend w/o actionmenu
-  Coclist yank
-endfunction
-inoremap <c-x><c-y> <c-o>:call <SID>register_hist()<cr>
-inoremap <c-x>y     <c-o>:call <SID>register_hist()<cr>
+" function s:register_hist() abort
+"   " Note: <c-o> is necessary to make (a)ppend work in Coclist yank.
+"   norm! <c-o>
+"   " TODO: select (a)ppend w/o actionmenu
+"   CocList yank
+" endfunction
+" inoremap <c-x><c-y> <c-o>:call <SID>register_hist()<cr>
+" inoremap <c-x>y     <c-o>:call <SID>register_hist()<cr>
 
 " CocSnippet; {{{1
 " TODO: See doc to Assign the dir where snippets will be saved.
