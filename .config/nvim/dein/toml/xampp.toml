@@ -3,6 +3,11 @@
 
 #[ HTML ]
 [[plugins]]
+repo = 'turbio/bracey.vim'
+on_cmd = ['Bracey']
+hook_add = 'runtime add/bracey.vim'
+hook_source = 'runtime source/bracey.vim'
+[[plugins]]
 repo = 'mattn/emmet-vim'
 on_cmd = ['Emmet', 'EmmetIntall']
 on_ft = ['html', 'xml', 'xsl']
