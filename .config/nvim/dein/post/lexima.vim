@@ -206,7 +206,7 @@ let g:lexima#default_rules += [
 "      \ {'char': '<Space>', 'at': '\(["]\)\%#\1', 'delete': 1},
 "      \ ]
 
-" Addtional Rules to Skip Out {{{1
+" Addtional Rules to Skip Out; break repeat {{{1
 let s:before_close = '\%#[\])}''"]'
 let s:before_paren = '\%#[\])}]'
 let s:before_quote = '\%#[`''"]'
@@ -224,120 +224,69 @@ let s:opareter_atom  = '[\-*/&|!]'
 let s:separeter_single =  s:delimeter_atom
 let s:separeter_double = '\(\s'. s:opareter_atom .'\)\|\('. s:delimeter_atom .'\s\)'
 " for example, regard ' ==' as a triple
-let s:separeter_triple = '\s'. s:opareter_atom .'\{2}'
-
-let g:lexima#default_rules += [
-      \ {'char': '<C-=>', 'input': ' = '},
-      \ {'char': '<C-=>', 'at': '\s\%#', 'input': '= '},
-      \ {'char': '<C-=>', 'at': '\%#)',  'input': ') = ', 'delete': 1},
-      \ {'char': '<C-=>', 'at': '\%#]',  'input': '] = ', 'delete': 1},
-      \ {'char': '<C-=>', 'at': '\%#}',  'input': '} = ', 'delete': 1},
-      \ {'char': '<C-=>', 'at': '\%#`',  'input': '` = ', 'delete': 1},
-      \ {'char': '<C-=>', 'at': '\%#"',  'input': '" = ', 'delete': 1},
-      \ {'char': '<C-=>', 'at': "\\%#'", 'input': "' = ", 'delete': 1},
-      \
-      \ {'char': '<C-=>', 'at': s:separeter_single .'\%#', 'input': '<BS> =',         'priority': 30},
-      \ {'char': '<C-=>', 'at': s:separeter_double .'\%#', 'input': '<BS><BS> =',     'priority': 40},
-      \ {'char': '<C-=>', 'at': s:separeter_triple .'\%#', 'input': '<BS><BS><BS> =', 'priority': 50},
-      \ ]
+let s:separeter_triple = '\s'. s:opareter_atom .'\{2}' .'\|\s=\s'
 
 let g:lexima#default_rules += [
       \ {'char': '<C-space>', 'input': ' '},
-      \ {'char': '<C-space>', 'at': '\%#)',  'input': ') ', 'delete': 1},
-      \ {'char': '<C-space>', 'at': '\%#]',  'input': '] ', 'delete': 1},
-      \ {'char': '<C-space>', 'at': '\%#}',  'input': '} ', 'delete': 1},
-      \ {'char': '<C-space>', 'at': '\%#`',  'input': '` ', 'delete': 1},
-      \ {'char': '<C-space>', 'at': '\%#"',  'input': '" ', 'delete': 1},
-      \ {'char': '<C-space>', 'at': "\\%#'", 'input': "' ", 'delete': 1},
+      \ {'char': '<C-=>',     'input': ' = '},
       \
-      \ {'char': '<C-space>', 'at': s:separeter_single .'\%#', 'input': '<BS> ',         'priority': 30},
-      \ {'char': '<C-space>', 'at': s:separeter_double .'\%#', 'input': '<BS><BS> ',     'priority': 40},
-      \ {'char': '<C-space>', 'at': s:separeter_triple .'\%#', 'input': '<BS><BS><BS> ', 'priority': 50},
-      \ ]
-
-let g:lexima#default_rules += [
       \ {'char': '<C-,>', 'input': ', '},
-      \ {'char': '<C-,>', 'at': '\%#)',  'input': '), ', 'delete': 1},
-      \ {'char': '<C-,>', 'at': '\%#]',  'input': '], ', 'delete': 1},
-      \ {'char': '<C-,>', 'at': '\%#}',  'input': '}, ', 'delete': 1},
-      \ {'char': '<C-,>', 'at': '\%#`',  'input': '`, ', 'delete': 1},
-      \ {'char': '<C-,>', 'at': '\%#"',  'input': '", ', 'delete': 1},
-      \ {'char': '<C-,>', 'at': "\\%#'", 'input': "', ", 'delete': 1},
-      \
-      \ {'char': '<C-,>', 'at': s:separeter_single .'\%#', 'input': '<BS>, ',         'priority': 30},
-      \ {'char': '<C-,>', 'at': s:separeter_double .'\%#', 'input': '<BS><BS>, ',     'priority': 40},
-      \ {'char': '<C-,>', 'at': s:separeter_triple .'\%#', 'input': '<BS><BS><BS>, ', 'priority': 50},
-      \ ]
-
-" Especially for VimScript
-let g:lexima#default_rules += [
       \ {'char': '<C-.>', 'input': '. '},
-      \ {'char': '<C-.>', 'at': '\%#)',  'input': '). ', 'delete': 1},
-      \ {'char': '<C-.>', 'at': '\%#]',  'input': ']. ', 'delete': 1},
-      \ {'char': '<C-.>', 'at': '\%#}',  'input': '}. ', 'delete': 1},
-      \ {'char': '<C-.>', 'at': '\%#`',  'input': '`. ', 'delete': 1},
-      \ {'char': '<C-.>', 'at': '\%#"',  'input': '". ', 'delete': 1},
-      \ {'char': '<C-.>', 'at': "\\%#'", 'input': "'. ", 'delete': 1},
-      \
-      \ {'char': '<C-.>', 'at': s:separeter_single .'\%#', 'input': '<BS>. ',         'priority': 30},
-      \ {'char': '<C-.>', 'at': s:separeter_double .'\%#', 'input': '<BS><BS>. ',     'priority': 40},
-      \ {'char': '<C-.>', 'at': s:separeter_triple .'\%#', 'input': '<BS><BS><BS>. ', 'priority': 50},
+      \ {'char': '<C-:>', 'input': ': '},
+      \ {'char': '<C-;>', 'input': '; '},
       \ ]
 
 let g:lexima#default_rules += [
-      \ {'char': '<C-:>', 'input': ': '},
-      \ {'char': '<C-:>', 'at': '\%#)',  'input': '): ', 'delete': 1},
-      \ {'char': '<C-:>', 'at': '\%#]',  'input': ']: ', 'delete': 1},
-      \ {'char': '<C-:>', 'at': '\%#}',  'input': '}: ', 'delete': 1},
-      \ {'char': '<C-:>', 'at': '\%#`',  'input': '`: ', 'delete': 1},
-      \ {'char': '<C-:>', 'at': '\%#"',  'input': '": ', 'delete': 1},
-      \ {'char': '<C-:>', 'at': "\\%#'", 'input': "': ", 'delete': 1},
+      \ {'char': '<C-space>', 'at': '\s\%#', 'input': '<BS>'},
+      \ {'char': '<C-=>',     'at': '\s\%#', 'input': '= '},
       \
-      \ {'char': '<C-:>', 'at': s:separeter_single .'\%#', 'input': '<BS>: ',         'priority': 30},
-      \ {'char': '<C-:>', 'at': s:separeter_double .'\%#', 'input': '<BS><BS>: ',     'priority': 40},
-      \ {'char': '<C-:>', 'at': s:separeter_triple .'\%#', 'input': '<BS><BS><BS>: ', 'priority': 50},
+      \ {'char': '<C-,>', 'at': '\s\%#', 'input': '<BS>, '},
+      \ {'char': '<C-.>', 'at': '\s\%#', 'input': '<BS>. '},
+      \ {'char': '<C-:>', 'at': '\s\%#', 'input': '<BS>: '},
+      \ {'char': '<C-;>', 'at': '\s\%#', 'input': '<BS>; '},
       \ ]
 
-" Semicolon with a new line; map for Commandline mode separately
-let s:rules_insert += [
-      \ {'char': '<C-;>', 'input': '<End><CR>'},
-      \ {'char': '<C-;>', 'except': ';\s*$', 'input': '<End>;<CR>'},
+let g:lexima#default_rules += [
+      \ {'char': '<C-space>', 'at': s:before_close,  'input': '<Right><space>'},
       \
-      \ {'char': '<C-;>', 'at': '\%#)',  'input': ');<CR>', 'delete': 1},
-      \ {'char': '<C-;>', 'at': '\%#]',  'input': '];<CR>', 'delete': 1},
-      \ {'char': '<C-;>', 'at': '\%#}',  'input': '};<CR>', 'delete': 1},
-      \ {'char': '<C-;>', 'at': '\%#`',  'input': '`;<CR>', 'delete': 1},
-      \ {'char': '<C-;>', 'at': '\%#"',  'input': '";<CR>', 'delete': 1},
-      \ {'char': '<C-;>', 'at': "\\%#'", 'input': "';<CR>", 'delete': 1},
+      \ {'char': '<C-=>', 'at': s:before_close, 'input': '<Right> = '},
       \
-      \ {'char': '<C-;>', 'at': s:separeter_single .'\%#', 'input': '<BS>; <CR>',         'priority': 30},
-      \ {'char': '<C-;>', 'at': s:separeter_double .'\%#', 'input': '<BS><BS>; <CR>',     'priority': 40},
-      \ {'char': '<C-;>', 'at': s:separeter_triple .'\%#', 'input': '<BS><BS><BS>; <CR>', 'priority': 50},
+      \ {'char': '<C-,>', 'at': s:before_close, 'input': '<Right>, '},
+      \ {'char': '<C-:>', 'at': s:before_close, 'input': '<Right>: '},
+      \ {'char': '<C-.>', 'at': s:before_paren, 'input': '<Right>.'},
+      \ {'char': '<C-.>', 'at': s:before_quote, 'input': '<Right>. '},
+      \
+      \ {'char': '<C-;>', 'at': s:before_close, 'input': '<End>;', 'except': ';\s*$', 'mode': 'i'},
+      \ {'char': '<C-;>', 'at': s:before_close, 'input': '<End>;', 'except': 'if.*\ze;\s*$', 'mode': 'i'},
+      \ {'char': '<C-;>', 'at': s:before_close, 'input': '<Right>; ', 'mode':   'c'},
       \ ]
 
-let s:rules_c_all += [
-      \ {'char': '<C-;>', 'input': '<End> '},
-      \ {'char': '<C-;>', 'except': ';\s*$', 'input': '<End>; '},
+let g:lexima#default_rules += [
+      \ {'char': '<C-=>', 'at': s:separeter_single .'\%#', 'input': '<BS> = '},
+      \ {'char': '<C-=>', 'at': s:separeter_double .'\%#', 'input': '<BS><BS> = '},
+      \ {'char': '<C-=>', 'at': s:separeter_triple .'\%#', 'input': '<BS><BS><BS> = '},
       \
-      \ {'char': '<C-;>', 'at': '\%#)',  'input': '); ', 'delete': 1},
-      \ {'char': '<C-;>', 'at': '\%#]',  'input': ']; ', 'delete': 1},
-      \ {'char': '<C-;>', 'at': '\%#}',  'input': '}; ', 'delete': 1},
-      \ {'char': '<C-;>', 'at': '\%#`',  'input': '`; ', 'delete': 1},
-      \ {'char': '<C-;>', 'at': '\%#"',  'input': '"; ', 'delete': 1},
-      \ {'char': '<C-;>', 'at': "\\%#'", 'input': "'; ", 'delete': 1},
+      \ {'char': '<C-,>', 'at': s:separeter_single .'\%#', 'input': '<BS>, '},
+      \ {'char': '<C-,>', 'at': s:separeter_double .'\%#', 'input': '<BS><BS>, '},
+      \ {'char': '<C-,>', 'at': s:separeter_triple .'\%#', 'input': '<BS><BS><BS>, '},
       \
-      \ {'char': '<C-;>', 'at': s:separeter_single .'\%#', 'input': '<BS>; ',         'priority': 30},
-      \ {'char': '<C-;>', 'at': s:separeter_double .'\%#', 'input': '<BS><BS>; ',     'priority': 40},
-      \ {'char': '<C-;>', 'at': s:separeter_triple .'\%#', 'input': '<BS><BS><BS>; ', 'priority': 50},
+      \ {'char': '<C-.>', 'at': s:separeter_single .'\%#', 'input': '<BS>. '},
+      \ {'char': '<C-.>', 'at': s:separeter_double .'\%#', 'input': '<BS><BS>. '},
+      \ {'char': '<C-.>', 'at': s:separeter_triple .'\%#', 'input': '<BS><BS><BS>. '},
+      \
+      \ {'char': '<C-:>', 'at': s:separeter_single .'\%#', 'input': '<BS>: '},
+      \ {'char': '<C-:>', 'at': s:separeter_double .'\%#', 'input': '<BS><BS>: '},
+      \ {'char': '<C-:>', 'at': s:separeter_triple .'\%#', 'input': '<BS><BS><BS>: '},
+      \
+      \ {'char': '<C-;>', 'at': s:separeter_single .'\%#', 'input': '<BS>; '},
+      \ {'char': '<C-;>', 'at': s:separeter_double .'\%#', 'input': '<BS><BS>; '},
+      \ {'char': '<C-;>', 'at': s:separeter_triple .'\%#', 'input': '<BS><BS><BS>; '},
       \ ]
-
-"" Useless
-" nmap <C-'> <C-;>
-" nmap <C-"> <C-:>
-" call lexima#insmode#define_altanative_key("<C-'>", '<C-;>')
-" call lexima#insmode#define_altanative_key('<C-">', '<C-:>')
 
 unlet s:before_close s:before_paren s:before_quote
+unlet s:delimeter_atom s:opareter_atom
+unlet s:separeter_single s:separeter_double s:separeter_triple
+
 " Ref: Activate :iabbr through lexima
 "   http://pekepekesamurai.hatenablog.com/entry/2015/04/23/223559
 " FIXME:
@@ -348,6 +297,321 @@ unlet s:before_close s:before_paren s:before_quote
 " inoremap <expr> <space> lexima#expand('<space>', 'i')
 " call lexima#insmode#map_hook('before', '<Space>', "\<ESC>")
 
+" " Addtional Rules to Skip Out with direct Switch {{{1
+" let s:before_close = '\%#[\])}''"]'
+" let s:before_paren = '\%#[\])}]'
+" let s:before_quote = '\%#[`''"]'
+
+" " Note: 'leave' seems to make 'input' and 'input_after' fail
+" " Ref: Jump cursor over the provided pairs
+" "   https://karubabu.hateblo.jp/entry/2017/05/24/190010
+" let s:rules_insert += [
+"     \ {'char': '<TAB>', 'at': '\%#[\])}`"'']', 'leave': 1},
+"     \ ]
+
+" " Note: both '=' and '+' works unexpectedly either with or without '\'.
+" let s:delimeter_atom = '[,.;:]'
+" let s:opareter_atom  = '[\-*/&|!]'
+" let s:separeter_single =  s:delimeter_atom
+" let s:separeter_double = '\(\s'. s:opareter_atom .'\)\|\('. s:delimeter_atom .'\s\)'
+" " for example, regard ' ==' as a triple
+" let s:separeter_triple = '\s'. s:opareter_atom .'\{2}'
+
+" let g:lexima#default_rules += [
+"     \ {'char': '<C-=>', 'input': ' = '},
+"     \ {'char': '<C-=>', 'at': '\s\%#', 'input': '= '},
+"     \ {'char': '<C-=>', 'at': '\%#)',  'input': ') = ', 'delete': 1},
+"     \ {'char': '<C-=>', 'at': '\%#]',  'input': '] = ', 'delete': 1},
+"     \ {'char': '<C-=>', 'at': '\%#}',  'input': '} = ', 'delete': 1},
+"     \ {'char': '<C-=>', 'at': '\%#`',  'input': '` = ', 'delete': 1},
+"     \ {'char': '<C-=>', 'at': '\%#"',  'input': '" = ', 'delete': 1},
+"     \ {'char': '<C-=>', 'at': "\\%#'", 'input': "' = ", 'delete': 1},
+"     \
+"     \ {'char': '<C-=>', 'at': s:separeter_single .'\%#', 'input': '<BS> =',         'priority': 30},
+"     \ {'char': '<C-=>', 'at': s:separeter_double .'\%#', 'input': '<BS><BS> =',     'priority': 40},
+"     \ {'char': '<C-=>', 'at': s:separeter_triple .'\%#', 'input': '<BS><BS><BS> =', 'priority': 50},
+"     \ ]
+
+" let g:lexima#default_rules += [
+"     \ {'char': '<C-space>', 'input': ' '},
+"     \ {'char': '<C-space>', 'at': '\%#)',  'input': ') ', 'delete': 1},
+"     \ {'char': '<C-space>', 'at': '\%#]',  'input': '] ', 'delete': 1},
+"     \ {'char': '<C-space>', 'at': '\%#}',  'input': '} ', 'delete': 1},
+"     \ {'char': '<C-space>', 'at': '\%#`',  'input': '` ', 'delete': 1},
+"     \ {'char': '<C-space>', 'at': '\%#"',  'input': '" ', 'delete': 1},
+"     \ {'char': '<C-space>', 'at': "\\%#'", 'input': "' ", 'delete': 1},
+"     \
+"     \ {'char': '<C-space>', 'at': s:separeter_single .'\%#', 'input': '<BS> ',         'priority': 30},
+"     \ {'char': '<C-space>', 'at': s:separeter_double .'\%#', 'input': '<BS><BS> ',     'priority': 40},
+"     \ {'char': '<C-space>', 'at': s:separeter_triple .'\%#', 'input': '<BS><BS><BS> ', 'priority': 50},
+"     \ ]
+
+" let g:lexima#default_rules += [
+"     \ {'char': '<C-,>', 'input': ', '},
+"     \ {'char': '<C-,>', 'at': '\%#)',  'input': '), ', 'delete': 1},
+"     \ {'char': '<C-,>', 'at': '\%#]',  'input': '], ', 'delete': 1},
+"     \ {'char': '<C-,>', 'at': '\%#}',  'input': '}, ', 'delete': 1},
+"     \ {'char': '<C-,>', 'at': '\%#`',  'input': '`, ', 'delete': 1},
+"     \ {'char': '<C-,>', 'at': '\%#"',  'input': '", ', 'delete': 1},
+"     \ {'char': '<C-,>', 'at': "\\%#'", 'input': "', ", 'delete': 1},
+"     \
+"     \ {'char': '<C-,>', 'at': s:separeter_single .'\%#', 'input': '<BS>, ',         'priority': 30},
+"     \ {'char': '<C-,>', 'at': s:separeter_double .'\%#', 'input': '<BS><BS>, ',     'priority': 40},
+"     \ {'char': '<C-,>', 'at': s:separeter_triple .'\%#', 'input': '<BS><BS><BS>, ', 'priority': 50},
+"     \ ]
+
+" let g:lexima#default_rules += [
+"     \ {'char': '<C-,>', 'input': ', '},
+"     \ {'char': '<C-,>', 'at': '\%#)',  'input': '),', 'delete': 1, 'filetype': 'json'},
+"     \ {'char': '<C-,>', 'at': '\%#]',  'input': '],', 'delete': 1, 'filetype': 'json'},
+"     \ {'char': '<C-,>', 'at': '\%#}',  'input': '},', 'delete': 1, 'filetype': 'json'},
+"     \ {'char': '<C-,>', 'at': '\%#`',  'input': '`,', 'delete': 1, 'filetype': 'json'},
+"     \ {'char': '<C-,>', 'at': '\%#"',  'input': '",', 'delete': 1, 'filetype': 'json'},
+"     \ {'char': '<C-,>', 'at': "\\%#'", 'input': "',", 'delete': 1, 'filetype': 'json'},
+"     \
+"     \ {'char': '<C-,>', 'at': s:separeter_single .'\%#', 'input': '<BS>,',         'priority': 30, 'filetype': 'json'},
+"     \ {'char': '<C-,>', 'at': s:separeter_double .'\%#', 'input': '<BS><BS>,',     'priority': 40, 'filetype': 'json'},
+"     \ {'char': '<C-,>', 'at': s:separeter_triple .'\%#', 'input': '<BS><BS><BS>,', 'priority': 50, 'filetype': 'json'},
+"     \ ]
+
+" let g:lexima#default_rules += [
+"     \ {'char': '<C-.>', 'input': '.'},
+"     \ {'char': '<C-.>', 'at': '\%#)',  'input': ').', 'delete': 1},
+"     \ {'char': '<C-.>', 'at': '\%#]',  'input': '].', 'delete': 1},
+"     \ {'char': '<C-.>', 'at': '\%#}',  'input': '}.', 'delete': 1},
+"     \ {'char': '<C-.>', 'at': '\%#`',  'input': '`.', 'delete': 1},
+"     \ {'char': '<C-.>', 'at': '\%#"',  'input': '".', 'delete': 1},
+"     \ {'char': '<C-.>', 'at': "\\%#'", 'input': "'.", 'delete': 1},
+"     \
+"     \ {'char': '<C-.>', 'at': s:separeter_single .'\%#', 'input': '<BS>.',         'priority': 30},
+"     \ {'char': '<C-.>', 'at': s:separeter_double .'\%#', 'input': '<BS><BS>.',     'priority': 40},
+"     \ {'char': '<C-.>', 'at': s:separeter_triple .'\%#', 'input': '<BS><BS><BS>.', 'priority': 50},
+"     \ ]
+
+" let g:lexima#default_rules += [
+"     \ {'char': '<C-.>', 'input': '. ', 'filetype': 'vim'},
+"     \ {'char': '<C-.>', 'at': '\%#`',  'input': '`. ', 'delete': 1, 'filetype': 'vim'},
+"     \ {'char': '<C-.>', 'at': '\%#"',  'input': '". ', 'delete': 1, 'filetype': 'vim'},
+"     \ {'char': '<C-.>', 'at': "\\%#'", 'input': "'. ", 'delete': 1, 'filetype': 'vim'},
+"     \
+"     \ {'char': '<C-.>', 'at': s:separeter_single .'\%#', 'input': '<BS>. ',         'priority': 30, 'filetype': 'vim'},
+"     \ {'char': '<C-.>', 'at': s:separeter_double .'\%#', 'input': '<BS><BS>. ',     'priority': 40, 'filetype': 'vim'},
+"     \ {'char': '<C-.>', 'at': s:separeter_triple .'\%#', 'input': '<BS><BS><BS>. ', 'priority': 50, 'filetype': 'vim'},
+"     \ ]
+
+" let g:lexima#default_rules += [
+"     \ {'char': '<C-:>', 'input': ': '},
+"     \ {'char': '<C-:>', 'at': '\%#)',  'input': '): ', 'delete': 1},
+"     \ {'char': '<C-:>', 'at': '\%#]',  'input': ']: ', 'delete': 1},
+"     \ {'char': '<C-:>', 'at': '\%#}',  'input': '}: ', 'delete': 1},
+"     \ {'char': '<C-:>', 'at': '\%#`',  'input': '`: ', 'delete': 1},
+"     \ {'char': '<C-:>', 'at': '\%#"',  'input': '": ', 'delete': 1},
+"     \ {'char': '<C-:>', 'at': "\\%#'", 'input': "': ", 'delete': 1},
+"     \
+"     \ {'char': '<C-:>', 'at': s:separeter_single .'\%#', 'input': '<BS>: ',         'priority': 30},
+"     \ {'char': '<C-:>', 'at': s:separeter_double .'\%#', 'input': '<BS><BS>: ',     'priority': 40},
+"     \ {'char': '<C-:>', 'at': s:separeter_triple .'\%#', 'input': '<BS><BS><BS>: ', 'priority': 50},
+"     \ ]
+
+" " Semicolon with a new line; map for Commandline mode separately
+" let s:rules_insert += [
+"     \ {'char': '<C-;>', 'input': '<End><CR>'},
+"     \ {'char': '<C-;>', 'except': ';\s*$', 'input': '<End>;<CR>'},
+"     \
+"     \ {'char': '<C-;>', 'at': '\%#)',  'input': ');<CR>', 'delete': 1},
+"     \ {'char': '<C-;>', 'at': '\%#]',  'input': '];<CR>', 'delete': 1},
+"     \ {'char': '<C-;>', 'at': '\%#}',  'input': '};<CR>', 'delete': 1},
+"     \ {'char': '<C-;>', 'at': '\%#`',  'input': '`;<CR>', 'delete': 1},
+"     \ {'char': '<C-;>', 'at': '\%#"',  'input': '";<CR>', 'delete': 1},
+"     \ {'char': '<C-;>', 'at': "\\%#'", 'input': "';<CR>", 'delete': 1},
+"     \
+"     \ {'char': '<C-;>', 'at': s:separeter_single .'\%#', 'input': '<BS>; <CR>',         'priority': 30},
+"     \ {'char': '<C-;>', 'at': s:separeter_double .'\%#', 'input': '<BS><BS>; <CR>',     'priority': 40},
+"     \ {'char': '<C-;>', 'at': s:separeter_triple .'\%#', 'input': '<BS><BS><BS>; <CR>', 'priority': 50},
+"     \ ]
+
+" let s:rules_c_all += [
+"     \ {'char': '<C-;>', 'input': '<End> '},
+"     \ {'char': '<C-;>', 'except': ';\s*$', 'input': '<End>; '},
+"     \
+"     \ {'char': '<C-;>', 'at': '\%#)',  'input': '); ', 'delete': 1},
+"     \ {'char': '<C-;>', 'at': '\%#]',  'input': ']; ', 'delete': 1},
+"     \ {'char': '<C-;>', 'at': '\%#}',  'input': '}; ', 'delete': 1},
+"     \ {'char': '<C-;>', 'at': '\%#`',  'input': '`; ', 'delete': 1},
+"     \ {'char': '<C-;>', 'at': '\%#"',  'input': '"; ', 'delete': 1},
+"     \ {'char': '<C-;>', 'at': "\\%#'", 'input': "'; ", 'delete': 1},
+"     \
+"     \ {'char': '<C-;>', 'at': s:separeter_single .'\%#', 'input': '<BS>; ',         'priority': 30},
+"     \ {'char': '<C-;>', 'at': s:separeter_double .'\%#', 'input': '<BS><BS>; ',     'priority': 40},
+"     \ {'char': '<C-;>', 'at': s:separeter_triple .'\%#', 'input': '<BS><BS><BS>; ', 'priority': 50},
+"     \ ]
+
+" "" Useless
+" " nmap <C-'> <C-;>
+" " nmap <C-"> <C-:>
+" " call lexima#insmode#define_altanative_key("<C-'>", '<C-;>')
+" " call lexima#insmode#define_altanative_key('<C-">', '<C-:>')
+
+" unlet s:before_close s:before_paren s:before_quote
+" unlet s:delimeter_atom s:opareter_atom
+" unlet s:separeter_single s:separeter_double s:separeter_triple
+
+" " Ref: Activate :iabbr through lexima
+" "   http://pekepekesamurai.hatenablog.com/entry/2015/04/23/223559
+" " FIXME:
+" " inoremap <expr> <CR> pumvisible() ? "\<C-Y>" : lexima#expand('<CR>', 'i')
+" " call lexima#insmode#map_hook('before', '<CR>', "\<ESC>")
+" " inoremap <expr> <C-j> pumvisible() ? "\<C-Y>" : lexima#expand('<C-j>', 'i')
+" " call lexima#insmode#map_hook('before', '<C-j>', "\<ESC>")
+" " inoremap <expr> <space> lexima#expand('<space>', 'i')
+" " call lexima#insmode#map_hook('before', '<Space>', "\<ESC>")
+
+" " Addtional Rules to Skip Out without switch {{{1
+" let s:before_close = '\%#[\])}''"]'
+" let s:before_paren = '\%#[\])}]'
+" let s:before_quote = '\%#[`''"]'
+
+" " Note: 'leave' seems to make 'input' and 'input_after' fail
+" " Ref: Jump cursor over the provided pairs
+" "   https://karubabu.hateblo.jp/entry/2017/05/24/190010
+" let s:rules_insert += [
+"      \ {'char': '<TAB>', 'at': '\%#[\])}`"'']', 'leave': 1},
+"      \ ]
+
+" " Note: both '=' and '+' works unexpectedly either with or without '\'.
+" let s:delimeter_atom = '[,.;:]'
+" let s:opareter_atom  = '[\-*/&|!]'
+" let s:separeter_single =  s:delimeter_atom
+" let s:separeter_double = '\(\s'. s:opareter_atom .'\)\|\('. s:delimeter_atom .'\s\)'
+" " for example, regard ' ==' as a triple
+" let s:separeter_triple = '\s'. s:opareter_atom .'\{2}'
+
+" " let g:lexima#default_rules += [
+" "      \ {'char': '<C-=>', 'input': ' = '},
+" "      \ {'char': '<C-=>', 'at': '\s\%#', 'input': '= '},
+" "      \ {'char': '<C-=>', 'at': '\%#)',  'input': ') = ', 'delete': 1},
+" "      \ {'char': '<C-=>', 'at': '\%#]',  'input': '] = ', 'delete': 1},
+" "      \ {'char': '<C-=>', 'at': '\%#}',  'input': '} = ', 'delete': 1},
+" "      \ {'char': '<C-=>', 'at': '\%#`',  'input': '` = ', 'delete': 1},
+" "      \ {'char': '<C-=>', 'at': '\%#"',  'input': '" = ', 'delete': 1},
+" "      \ {'char': '<C-=>', 'at': "\\%#'", 'input': "' = ", 'delete': 1},
+" "      \ ]
+
+" let g:lexima#default_rules += [
+"      \ {'char': '<C-=>', 'input': ' = '},
+"      \ {'char': '<C-=>', 'at': '\s\%#', 'input': '= '},
+"      \ {'char': '<C-=>', 'at': '\%#)',  'input': ') = ', 'delete': 1},
+"      \ {'char': '<C-=>', 'at': '\%#]',  'input': '] = ', 'delete': 1},
+"      \ {'char': '<C-=>', 'at': '\%#}',  'input': '} = ', 'delete': 1},
+"      \ {'char': '<C-=>', 'at': '\%#`',  'input': '` = ', 'delete': 1},
+"      \ {'char': '<C-=>', 'at': '\%#"',  'input': '" = ', 'delete': 1},
+"      \ {'char': '<C-=>', 'at': "\\%#'", 'input': "' = ", 'delete': 1},
+"      \
+"      \ {'char': '<C-=>', 'at': s:separeter_single .'\%#', 'input': '<BS> =',         'priority': 30},
+"      \ {'char': '<C-=>', 'at': s:separeter_double .'\%#', 'input': '<BS><BS> =',     'priority': 40},
+"      \ {'char': '<C-=>', 'at': s:separeter_triple .'\%#', 'input': '<BS><BS><BS> =', 'priority': 50},
+"      \ ]
+
+" let g:lexima#default_rules += [
+"      \ {'char': '<C-space>', 'input': ' '},
+"      \ {'char': '<C-space>', 'at': '\%#)',  'input': ') ', 'delete': 1},
+"      \ {'char': '<C-space>', 'at': '\%#]',  'input': '] ', 'delete': 1},
+"      \ {'char': '<C-space>', 'at': '\%#}',  'input': '} ', 'delete': 1},
+"      \ {'char': '<C-space>', 'at': '\%#`',  'input': '` ', 'delete': 1},
+"      \ {'char': '<C-space>', 'at': '\%#"',  'input': '" ', 'delete': 1},
+"      \ {'char': '<C-space>', 'at': "\\%#'", 'input': "' ", 'delete': 1},
+"      \ ]
+
+" let g:lexima#default_rules += [
+"      \ {'char': '<C-,>', 'input': ', '},
+"      \ {'char': '<C-,>', 'at': '\%#)',  'input': '), ', 'delete': 1},
+"      \ {'char': '<C-,>', 'at': '\%#]',  'input': '], ', 'delete': 1},
+"      \ {'char': '<C-,>', 'at': '\%#}',  'input': '}, ', 'delete': 1},
+"      \ {'char': '<C-,>', 'at': '\%#`',  'input': '`, ', 'delete': 1},
+"      \ {'char': '<C-,>', 'at': '\%#"',  'input': '", ', 'delete': 1},
+"      \ {'char': '<C-,>', 'at': "\\%#'", 'input': "', ", 'delete': 1},
+"      \ ]
+
+" let g:lexima#default_rules += [
+"      \ {'char': '<C-,>', 'input': ', '},
+"      \ {'char': '<C-,>', 'at': '\%#)',  'input': '),', 'delete': 1, 'filetype': 'json'},
+"      \ {'char': '<C-,>', 'at': '\%#]',  'input': '],', 'delete': 1, 'filetype': 'json'},
+"      \ {'char': '<C-,>', 'at': '\%#}',  'input': '},', 'delete': 1, 'filetype': 'json'},
+"      \ {'char': '<C-,>', 'at': '\%#`',  'input': '`,', 'delete': 1, 'filetype': 'json'},
+"      \ {'char': '<C-,>', 'at': '\%#"',  'input': '",', 'delete': 1, 'filetype': 'json'},
+"      \ {'char': '<C-,>', 'at': "\\%#'", 'input': "',", 'delete': 1, 'filetype': 'json'},
+"      \ ]
+
+" let g:lexima#default_rules += [
+"      \ {'char': '<C-.>', 'input': '.'},
+"      \ {'char': '<C-.>', 'at': '\%#)',  'input': ').', 'delete': 1},
+"      \ {'char': '<C-.>', 'at': '\%#]',  'input': '].', 'delete': 1},
+"      \ {'char': '<C-.>', 'at': '\%#}',  'input': '}.', 'delete': 1},
+"      \ {'char': '<C-.>', 'at': '\%#`',  'input': '`.', 'delete': 1},
+"      \ {'char': '<C-.>', 'at': '\%#"',  'input': '".', 'delete': 1},
+"      \ {'char': '<C-.>', 'at': "\\%#'", 'input': "'.", 'delete': 1},
+"      \ ]
+
+" let g:lexima#default_rules += [
+"      \ {'char': '<C-.>', 'input': '. ', 'filetype': 'vim'},
+"      \ {'char': '<C-.>', 'at': '\%#`',  'input': '`. ', 'delete': 1, 'filetype': 'vim'},
+"      \ {'char': '<C-.>', 'at': '\%#"',  'input': '". ', 'delete': 1, 'filetype': 'vim'},
+"      \ {'char': '<C-.>', 'at': "\\%#'", 'input': "'. ", 'delete': 1, 'filetype': 'vim'},
+"      \ ]
+
+" let g:lexima#default_rules += [
+"      \ {'char': '<C-:>', 'input': ': '},
+"      \ {'char': '<C-:>', 'at': '\%#)',  'input': '): ', 'delete': 1},
+"      \ {'char': '<C-:>', 'at': '\%#]',  'input': ']: ', 'delete': 1},
+"      \ {'char': '<C-:>', 'at': '\%#}',  'input': '}: ', 'delete': 1},
+"      \ {'char': '<C-:>', 'at': '\%#`',  'input': '`: ', 'delete': 1},
+"      \ {'char': '<C-:>', 'at': '\%#"',  'input': '": ', 'delete': 1},
+"      \ {'char': '<C-:>', 'at': "\\%#'", 'input': "': ", 'delete': 1},
+"      \ ]
+
+" " Semicolon with a new line; map for Commandline mode separately
+" let s:rules_insert += [
+"      \ {'char': '<C-;>', 'input': '<End><CR>'},
+"      \ {'char': '<C-;>', 'except': ';\s*$', 'input': '<End>;<CR>'},
+"      \ {'char': '<C-;>', 'at': '\%#)',  'input': ');<CR>', 'delete': 1},
+"      \ {'char': '<C-;>', 'at': '\%#]',  'input': '];<CR>', 'delete': 1},
+"      \ {'char': '<C-;>', 'at': '\%#}',  'input': '};<CR>', 'delete': 1},
+"      \ {'char': '<C-;>', 'at': '\%#`',  'input': '`;<CR>', 'delete': 1},
+"      \ {'char': '<C-;>', 'at': '\%#"',  'input': '";<CR>', 'delete': 1},
+"      \ {'char': '<C-;>', 'at': "\\%#'", 'input': "';<CR>", 'delete': 1},
+"      \ ]
+
+" let s:rules_c_all += [
+"      \ {'char': '<C-;>', 'input': '<End> '},
+"      \ {'char': '<C-;>', 'except': ';\s*$', 'input': '<End>; '},
+"      \ {'char': '<C-;>', 'at': '\%#)',  'input': '); ', 'delete': 1},
+"      \ {'char': '<C-;>', 'at': '\%#]',  'input': ']; ', 'delete': 1},
+"      \ {'char': '<C-;>', 'at': '\%#}',  'input': '}; ', 'delete': 1},
+"      \ {'char': '<C-;>', 'at': '\%#`',  'input': '`; ', 'delete': 1},
+"      \ {'char': '<C-;>', 'at': '\%#"',  'input': '"; ', 'delete': 1},
+"      \ {'char': '<C-;>', 'at': "\\%#'", 'input': "'; ", 'delete': 1},
+"      \ ]
+
+" "" Useless
+" " nmap <C-'> <C-;>
+" " nmap <C-"> <C-:>
+" " call lexima#insmode#define_altanative_key("<C-'>", '<C-;>')
+" " call lexima#insmode#define_altanative_key('<C-">', '<C-:>')
+
+" unlet s:before_close s:before_paren s:before_quote
+" unlet s:delimeter_atom s:opareter_atom
+" unlet s:separeter_single s:separeter_double s:separeter_triple
+
+" " Ref: Activate :iabbr through lexima
+" "   http://pekepekesamurai.hatenablog.com/entry/2015/04/23/223559
+" " FIXME:
+" " inoremap <expr> <CR> pumvisible() ? "\<C-Y>" : lexima#expand('<CR>', 'i')
+" " call lexima#insmode#map_hook('before', '<CR>', "\<ESC>")
+" " inoremap <expr> <C-j> pumvisible() ? "\<C-Y>" : lexima#expand('<C-j>', 'i')
+" " call lexima#insmode#map_hook('before', '<C-j>', "\<ESC>")
+" " inoremap <expr> <space> lexima#expand('<space>', 'i')
+" " call lexima#insmode#map_hook('before', '<Space>', "\<ESC>")
+
 " Addtional Rules for Polymorphic Use {{{1
 let s:rules_insert += [
       \ {'char': '<C-d>', 'at': '\%#[\])}''"]', 'delete': 1}
@@ -357,7 +621,7 @@ let g:lexima#default_rules += [
       \ {'char': '<Space>', 'at': '"\%#"', 'delete': 1, 'filetype': 'vim'},
       \ {'char': '<TAB>',   'at': '"\%#"', 'delete': 1, 'filetype': 'vim', 'mode': 'i'},
       \
-      \ {'char': '<TAB>', 'at': '{\%#}', 'input': '{{', 'delete': 1, 'filetype': 'vim', 'mode': 'i'},
+      \ {'char': '<TAB>', 'at': '{\%#}', 'input': '{{', 'delete': 1, 'filetype': 'vim', 'priority': 80, 'mode': 'i'},
       \
       \ {'char': "'", 'at': '\\\%#', 'leave': 1, 'filetype': ['vim', 'sh', 'csh', 'ruby', 'tcsh', 'zsh']},
       \ ]
