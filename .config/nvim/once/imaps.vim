@@ -201,11 +201,15 @@ augroup END "}}}
 " %-m: Month
 " %-d: Date
 " Mnemonic: Now
-inoremap <silent> <c-r><c-n> <c-r>=strftime('%d %b %Y %H:%M')<cr>
+inoremap <expr> <c-r><c-n> strftime('%d %b %Y %H:%M')
 " Mnemonic: Time
-inoremap <silent> <c-r><c-t> <c-r>=strftime('%H:%M')<cr>
+inoremap <expr> <c-r><c-t> strftime('%H:%M')
 " Mnemonic: Date
-inoremap <silent> <c-r><c-d> <c-r>=strftime('%d %b %Y')<cr>
+inoremap <expr> <c-r><c-d> strftime('%d %b %Y')
+
+inoremap <expr> <c-r><c-t> expand('%:t')
+" Mnemonic: Working file
+inoremap <expr> <c-r><c-w> expand('%:r')
 
 " NewLine Adjustment "{{{1
 " too slow
