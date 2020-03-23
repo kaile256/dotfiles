@@ -29,7 +29,6 @@ repo = 'andymass/vim-matchup'
 on_event = ['BufAdd']
 #on_map = {nox = '<Plug>(matchup-'}
 hook_add = 'runtime add/matchup.vim'
-hook_post_source = 'runtime post/matchup.vim'
 [[plugins]]
 repo = 'haya14busa/vim-asterisk'
 repo = 'kaile256/vim-asterisk'

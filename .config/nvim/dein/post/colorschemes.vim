@@ -72,6 +72,7 @@ function! s:my_commons() abort "{{{1
   hi! CocErrorHighlight     ctermfg=red guifg=#ff0000
 
   hi! CursorIM guibg=#fabd1f
+  hi! MatchParen ctermfg=magenta ctermbg=yellow guifg=#e6c50f guibg=#8924ff
 
   "hi Folded ctermfg=59 ctermbg=236 guifg=#5f5f5f guibg=#303030
 
