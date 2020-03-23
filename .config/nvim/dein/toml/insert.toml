@@ -18,30 +18,30 @@
 #hook_source = 'runtime source/sonictemplate.vim'
 
 ##[ Snippets; Engine ]
-#[[plugins]]
-#repo = 'Shougo/neosnippet.vim'
-## Merged PR: Shougo/neosnippet.vim/pull/486
-## set the filetype in augroups.vim
-## it disturbs on 'n', of cource
-#on_map = {nvi = '<Plug>(neosnippet'}
-#on_func =  ['neosnippet#']
-#on_path = ['\.snip$', '\.snippets$']
-#hook_add = 'runtime add/neosnippet.vim'
-#hook_source = '''
-#  runtime once/smaps.vim
-#  runtime source/neosnippet.vim
-#'''
-
 [[plugins]]
-repo = 'SirVer/ultisnips'
-# Note: it override <TAB>
-on_cmd = ['UltiSnipsEdit']
-on_path = '\.snippets$'
-hook_add = 'runtime add/ultisnips.vim'
+repo = 'Shougo/neosnippet.vim'
+# Merged PR: Shougo/neosnippet.vim/pull/486
+# set the filetype in augroups.vim
+# it disturbs on 'n', of cource
+on_map = {nvi = '<Plug>(neosnippet'}
+on_func =  ['neosnippet#']
+on_path = ['\.snip$', '\.snippets$']
+hook_add = 'runtime add/neosnippet.vim'
 hook_source = '''
   runtime once/smaps.vim
-  runtime source/ultisnips.vim
+  runtime source/neosnippet.vim
 '''
+
+#[[plugins]]
+#repo = 'SirVer/ultisnips'
+## Note: it override <TAB>
+#on_cmd = ['UltiSnipsEdit']
+#on_path = '\.snippets$'
+#hook_add = 'runtime add/ultisnips.vim'
+#hook_source = '''
+#  runtime once/smaps.vim
+#  runtime source/ultisnips.vim
+#'''
 
 #[[plugins]]
 #repo = 'garbas/vim-snipmate'
