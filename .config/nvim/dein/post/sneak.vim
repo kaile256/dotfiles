@@ -14,6 +14,6 @@ augroup mySneakPost
   if exists('#mySneakPost') | au! mySneakPost
   endif
   " keep cursor while waiting input
-  au User SneakEnter let s:cursor = matchadd('Cursor', '\%#')
+  au User SneakEnter let s:cursor = matchadd('DiffAdd', '\%#')
   au User SneakLeave call matchdelete(s:cursor)
 augroup END

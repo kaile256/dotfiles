@@ -33,7 +33,13 @@ g/command!/norm! Ea -bar
 g/s:findroot(/s/1/0
 write
 '''
-##[ Register ]
+#[ Register ]
+[[plugins]]
+repo = 'svermeulen/vim-yoink'
+on_map = {nx = ['<Plug>(Yoink']}
+hook_add = 'runtime add/yoink.vim'
+hook_source = 'runtime source/yoink.vim'
+#hook_post_source = 'call yoink#onVimEnter()'
 #[[plugins]]
 #repo = 'svermeulen/vim-easyclip'
 #on_event = 'BufWinEnter'
