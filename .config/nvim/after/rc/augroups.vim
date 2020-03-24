@@ -1,6 +1,5 @@
 " From: init.vim
 
-" Bundling augroups, it took shorter by 905.823 msec.
 augroup myAugroups
   if exists('#myAugroups') | au! myAugroups
   endif
