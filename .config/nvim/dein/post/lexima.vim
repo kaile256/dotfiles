@@ -115,26 +115,15 @@ let g:lexima#default_rules += [
       \
       \ ]
 
-" TODO: Remove closing parentheses after the cursor on <C-w> and <C-u>.
+" TODO: replace with map() for 'at' key; regex seems to make a delay to remove
+let s:remove_close = '<ESC>:silent! keepjumps keeppatterns s/\%#.\zs[\]})''"`]\+<CR>gi'
 let g:lexima#default_rules += [
-      \ {'char': '<C-w>', 'at': '(\%#)',   'delete': 1},
-      \ {'char': '<C-w>', 'at': '{\%#}',   'delete': 1},
-      \ {'char': '<C-w>', 'at': '\[\%#\]', 'delete': 1},
-      \
-      \ {'char': '<C-w>', 'at': "'\\%#'", 'delete': 1},
-      \ {'char': '<C-w>', 'at': '"\%#"',  'delete': 1},
-      \ {'char': '<C-w>', 'at': '`\%#`',  'delete': 1},
+      \ {'char': '<C-w>', 'at': '[[{(''"`]\%#[\]})''"`]',
+      \   'input': '<c-w>'. s:remove_close},
+      \ {'char': '<C-u>', 'at': '[[{(''"`]\%#[\]})''"`]',
+      \   'input': '<c-u>'. s:remove_close},
       \ ]
-
-let g:lexima#default_rules += [
-      \ {'char': '<C-u>', 'at': '(\%#)',   'delete': 1},
-      \ {'char': '<C-u>', 'at': '{\%#}',   'delete': 1},
-      \ {'char': '<C-u>', 'at': '\[\%#\]', 'delete': 1},
-      \
-      \ {'char': '<C-u>', 'at': "'\\%#'", 'delete': 1},
-      \ {'char': '<C-u>', 'at': '"\%#"',  'delete': 1},
-      \ {'char': '<C-u>', 'at': '`\%#`',  'delete': 1},
-      \ ]
+unlet s:remove_close
 
 " Overwrite Triple quotes {{{1
 " Produce triple quoted block
