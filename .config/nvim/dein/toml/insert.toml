@@ -18,6 +18,19 @@
 #hook_source = 'runtime source/sonictemplate.vim'
 
 ##[ Snippets; Engine ]
+#[[plugins]]
+#repo = 'SirVer/ultisnips'
+## Note: it override <TAB>
+#on_func = ['UltiSnips#ExpandSnippet']
+#on_map = {nvi = ['<Plug>(ultisnips-']}
+#on_cmd = ['UltiSnipsEdit']
+#on_path = '\.snippets$'
+#hook_add = 'runtime add/ultisnips.vim'
+#hook_source = '''
+#  runtime once/smaps.vim
+#  runtime source/ultisnips.vim
+#'''
+
 [[plugins]]
 repo = 'Shougo/neosnippet.vim'
 # Merged PR: Shougo/neosnippet.vim/pull/486
@@ -33,16 +46,16 @@ hook_source = '''
 '''
 
 #[[plugins]]
-#repo = 'SirVer/ultisnips'
-## Note: it override <TAB>
-#on_cmd = ['UltiSnipsEdit']
-#on_path = '\.snippets$'
-#hook_add = 'runtime add/ultisnips.vim'
+#repo = 'Shougo/deoppet.nvim'
+#hook_done_update = 'call remote#host#UpdateRemotePlugins()'
+#on_func = ['deoppet#']
+#on_path = ['\.snip$', '\.snippets$']
+#hook_add = 'runtime add/deoppet.vim'
 #hook_source = '''
 #  runtime once/smaps.vim
-#  runtime source/ultisnips.vim
+#  runtime source/deoppet.vim
 #'''
-
+#hook_post_source = 'call deoppet#initialize()'
 #[[plugins]]
 #repo = 'garbas/vim-snipmate'
 #on_event = ['InsertEnter']
