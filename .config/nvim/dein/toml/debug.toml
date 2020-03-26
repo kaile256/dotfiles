@@ -124,6 +124,8 @@ on_cmd = [
   'Focus',
   'Start',
 ]
+hook_add = 'runtime add/dispatch.vim'
+hook_source = 'runtime source/dispatch.vim'
 [[plugins]]
 repo = 'neomake/neomake'
 # as a linter, use LSP plugin instead
@@ -135,3 +137,8 @@ hook_source = 'runtime source/neomake.vim'
 [[plugins]]
 repo = 'skywind3000/asynctasks.vim'
 on_cmd = ['AsyncTask']
+
+#[ Compiler ]
+[[plugins]]
+repo = 'vim-scripts/Maven-Compiler'
+on_ft = ['java']
