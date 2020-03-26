@@ -203,9 +203,9 @@ let s:before_quote = '\%#[`''"]'
 " Note: 'leave' seems to make 'input' and 'input_after' fail
 " Ref: Jump cursor over the provided pairs
 "   https://karubabu.hateblo.jp/entry/2017/05/24/190010
-let s:rules_insert += [
-      \ {'char': '<TAB>', 'at': '\%#[\])}`"'']', 'leave': 1},
-      \ ]
+" let s:rules_insert += [
+"      \ {'char': '<TAB>', 'at': '\%#[\])}`"'']', 'leave': 1},
+"      \ ]
 
 " Note: both '=' and '+' works unexpectedly either with or without '\'.
 let s:delimeter_atom = '[,.;:]'
