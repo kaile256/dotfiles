@@ -6,7 +6,7 @@
 repo = 'sheerun/vim-polyglot'
 # No syntax for java
 # includes syntax for systemd
-if = "&ft !=# '\|zsh\|terminal\|i3\|javascript'"
+if = "&ft !=# '\|zsh\|terminal\|i3\|javascript\|haskell'"
 on_event = ['FileType']
 hook_source = 'runtime source/polyglot.vim'
 
@@ -65,10 +65,12 @@ on_ft = ['c', 'cpp', 'objc', 'objcpp']
 
 #[[plugins]]
 #repo = 'neovimhaskell/haskell-vim'
-## enough w/ coc.nvim
+## the development stopped 2 y ago
 #on_ft = 'haskell'
 #hook_post_source = 'runtime add/haskell.vim'
-
+[[plugins]]
+repo = 'goolord/vim2hs'
+on_ft = ['haskell']
 
 #[ Interpreter ]
 [[plugins]]
