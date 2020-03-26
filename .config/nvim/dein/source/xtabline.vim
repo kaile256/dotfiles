@@ -24,7 +24,8 @@ endif
 let g:xtabline_settings.bookmarks_file = s:bookmarks_file
 let g:xtabline_settings.sessions_data  = s:sessions_data
 
-let g:xtabline_settings.map_prefix = 'gx'
+let g:xtabline_settings.enable_mappings = 0
+" let g:xtabline_settings.map_prefix = 'gx'
 
 let g:xtabline_settings.recent_buffers = 8
 
