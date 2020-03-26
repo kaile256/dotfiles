@@ -5,7 +5,7 @@
 " Else: add/sneak.vim
 " Else: post/sneak.vim
 
-let g:sneak#no_default_mapping = 1
+let g:sneak#no_default_mappings = 1
 let g:sneak#prompt = 'Sneak: {n} chars >>> '
 let g:sneak#no_prompt = 1
 
