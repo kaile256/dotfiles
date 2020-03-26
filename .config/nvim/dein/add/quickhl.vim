@@ -8,22 +8,15 @@
 "      \ "gui=bold ctermfg=7   ctermbg=3   guibg=#40a070 guifg=#ffffff",
 "      \ ]
 
-"let g:quickhl_manual_keywords._ = [
-"      \ "finish",
-"      \ {"pattern": '\s\+$', "regexp": 1 },
-"      \ {"pattern": '\d\{1,3}\.\d\{1,3}\.\d\{1,3}\.\d\{1,3}', "regexp": 1 },
-"      \ ]
+" no highlight on cword on CursorMoved
+let g:quickhl_cword_enable_at_startup = 0
 
-"nmap <space>n <Plug>(quickhl-manual-this)
-xmap <space>n <Plug>(quickhl-manual-this)
-nmap <F9>     <Plug>(quickhl-manual-toggle)
-xmap <F9>     <Plug>(quickhl-manual-toggle)
+nmap m* <Plug>(quickhl-manual-this-whole-word)
+xmap m* <Plug>(quickhl-manual-this-whole-word)
 
-nmap <space>m <Plug>(quickhl-manual-reset)
-xmap <space>m <Plug>(quickhl-manual-reset)
+nmap m<c-h> <Plug>(quickhl-manual-reset)
+xmap m<c-h> <Plug>(quickhl-manual-reset)
+nmap m<BS> <Plug>(quickhl-manual-reset)
+xmap m<BS> <Plug>(quickhl-manual-reset)
 
-nmap <space>j <Plug>(quickhl-cword-toggle)
-
-nmap <space>] <Plug>(quickhl-tag-toggle)
-
-map <space>n <Plug>(operator-quickhl-manual-this-motion)
+nmap m <Plug>(operator-quickhl-manual-this-motion)
