@@ -1,5 +1,7 @@
 " Syntax: syntax/java.vim
 
+compiler javac
+
 augroup myJavaFtplugin
   if exists('#myJavaFtplugin')
     au! myJavaFtplugin
