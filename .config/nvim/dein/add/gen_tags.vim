@@ -1,6 +1,6 @@
-" From: finder.toml
-" Check: /usr/share/vim/vimfiles/plugin/gtags.vim
-" Check: /usr/share/gtags/FAQ
+" TOML: finder.toml
+" Ref: /usr/share/vim/vimfiles/plugin/gtags.vim
+" Ref: /usr/share/gtags/FAQ
 
 " Auto-Generate Tags
 let g:gen_tags#ctags_auto_gen = 1
