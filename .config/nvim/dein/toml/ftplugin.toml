@@ -136,11 +136,16 @@ on_ft = [
 #repo = 'jvenant/vim-java-imports'
 ## depends on ctags or cscope
 #on_ft = ['java']
+#[ Haskell ]
+[[plugins]]
+repo = 'itchyny/vim-haskell-indent'
+on_ft = ['haskell']
 
 #[ Clojure ]
 [[plugins]]
 repo = 'clojure-vim/async-clj-omni'
 on_ft = ['clojure']
+
 #[ Document ]
 [[plugins]]
 repo = 'rafaqz/citation.vim'
