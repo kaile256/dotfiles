@@ -2,6 +2,8 @@
 " Repo: SirVer/ultisnips
 " Another: add/ultisnips.vim
 
+hi! link snipLeadingSpaces NonText
+
 let g:UltiSnipsEditSplit = 'context'
 
 let g:UltiSnipsSnippetDirectories = [
