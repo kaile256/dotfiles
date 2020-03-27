@@ -46,6 +46,7 @@ on_ft = [
 #[ Compile ]
 [[plugins]]
 repo = 'jackguo380/vim-lsp-cxx-highlight'
+# semantic highlight; recommended with ccls on coc.nvim
 on_ft = ['c', 'cpp', 'objc', 'objcpp']
 
 #[[plugins]]
