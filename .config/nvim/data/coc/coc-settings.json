@@ -185,6 +185,8 @@
 
   "json.format.enable": false,
 
+  "html.format.enable": false,
+
   // From: iamcco/coc-vimlsp
   "vimlsp.debug": false,
   "vimlsp.diagnostic.enable": true,
@@ -327,7 +329,14 @@
       ],
       "initializationOptions": {
         "cache": {
-          "directory": "/tmp/ccls"
+          "directory": "/tmp/ccls-cache"
+        },
+        "cacheFormat": "json",
+        "client": {
+          "snippetSupport": true
+        },
+        "clang": {
+          "resourceDir": "/usr/lib/clang/9.0.1"
         },
         // highlight by jackguo380/vim-lsp-cxx-highlight
         "highlight": { "lsRanges": true }
@@ -350,14 +359,14 @@
     //    "emitInactiveRegions": true
     //  }
     //},
-    "intelphense": {
-      "command": "intelephense",
-      "args": ["--stdio"],
-      "filetypes": ["php"],
-      "initializationOptions": {
-        "storagePath": "/tmp/intelephense"
-      }
-    },
+    //"intelphense": {
+    //  "command": "intelephense",
+    //  "args": ["--stdio"],
+    //  "filetypes": ["php"],
+    //  "initializationOptions": {
+    //    "storagePath": "/tmp/intelephense"
+    //  }
+    //},
     "clojure": {
       "command": "bash",
       "args": ["-c", "clojure-lsp"],
