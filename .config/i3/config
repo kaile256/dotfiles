@@ -646,7 +646,7 @@ bindsym Ctrl+bracketleft mode default
 set $Qutebrowser " Qutebrowser: Type a Number for workspace to launch "
 
 #$release $Super+Q $noid qutebrowser; $notify 'Qutebrowser: Stand by...'
-$release $Super+Q mode $Qutebrowser; $shortmsg 'Qutebrowser'
+#$release $Super+Q mode $Qutebrowser; $shortmsg 'Qutebrowser'
 
 mode $Qutebrowser {
 # FIXME: make the mode work. If possible, start in background.
