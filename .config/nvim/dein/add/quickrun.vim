@@ -32,9 +32,10 @@ function! s:quickrun_holding_syn() abort
 
   let bufnr = bufnr('%')
   let syn = getbufvar(bufnr, '&syntax')
-  " " Note: Duplicate echo with Coc's import on BufWritePre
-  " echo 'QuickRun running...'
-  QuickRun
+
+  let input = input('QuickRun: ')
+  exe 'QuickRun <='. input
+
   let bufnr_qr = bufnr('\[quickrun output\]')
   call setbufvar(bufnr_qr, '&syntax', syn)
 endfunction
