@@ -10,26 +10,27 @@
 set path=.**,/etc
 
 augroup myFindPathRc
-  if exists('#myFindPathRc')
-    au! myFindPathRc
+  if exists('#myFindPathRc') | au! myFindPathRc
   endif
+
   au FileType sh,bash setl path^=/usr/bin/
-  au FileType c,cpp   setl path^=/usr/include
+  au FileType c,cpp   setl path^=/usr/include,/usr/lib/clang/9.0.1/include
   "au FileType java   setl path^=/usr/lib/jvm/
   au FileType go      exe 'setl path^='. $GOPATH .'/src/**,/usr/lib/go/src/**'
   au FileType python  exe 'setl path^='. $XDG_DATA_HOME
         \ .'/lib/python3.8/site-packages/**,/usr/lib/python3.8/**'
 
+  au FileType vim setl isfname-== isfname-=,
+
   au FileType dosini setl suffixesadd=.conf
-  au FileType vim    setl isfname-==
+  "au BufNewFile,BufRead {*vim,dein}**/* setl suffixesadd=.toml
 
   " Apache
-  au BufRead */httpd/* setl path^=/opt/httpd/**
+  " au BufRead */httpd/* setl path^=/opt/httpd/**
   au BufRead */lampp/* setl path^=/opt/lampp/**
 
   au BufNewFile,BufRead {.config,dotfiles}**/* call s:path.dotfiles()
 
-  "au BufNewFile,BufRead {*vim,dein}**/* setl suffixesadd=.toml
   au BufNewFile,BufRead {*vim,dein}**/* call s:path.vim()
 
   au BufNewFile,BufRead $MYMEMO**/*   call s:path.memo()
