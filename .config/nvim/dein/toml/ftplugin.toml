@@ -136,6 +136,13 @@ on_ft = [
 #repo = 'jvenant/vim-java-imports'
 ## depends on ctags or cscope
 #on_ft = ['java']
+
+#[ C/C++ ]
+[[plugins]]
+repo = 'stevearc/vim-arduino'
+# includes syntax/ Ultisnips/(only extends cpp's)
+on_path = '\.ino'
+
 #[ Haskell ]
 [[plugins]]
 repo = 'itchyny/vim-haskell-indent'
