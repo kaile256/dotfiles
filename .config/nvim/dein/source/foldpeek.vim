@@ -152,10 +152,17 @@ augroup myFoldPeekSource "{{{1
         \   setl fdt=foldpeek#text()
         \ | endif
 
+  au FileType php,html call s:peek_php()
   au FileType help call s:peek_help()
   au FileType toml call s:peek_toml()
   au FileType neosnippet call s:peek_neosnippet()
 augroup END
+
+function! s:peek_php() abort "{{{2
+  let b:foldpeek_skip_patterns = [
+        \ '<p>'
+        \ ]
+endfunction
 
 function! s:peek_help() abort "{{{2
   let b:foldpeek_whiteout_patterns_fill = [
