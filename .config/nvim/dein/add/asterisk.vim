@@ -6,7 +6,7 @@ scriptencoding utf-8
 
 "" Ref: https://twitter.com/Bakudankun/status/1207057884581900289
 "nnoremap <silent><expr> * v:count ? '*'
-"\ : ':sil exe "keepj norm! *" <Bar> call winrestview(' . string(winsaveview()) . ')<CR>'
+      "\ : ':sil exe "keepj norm! *" <Bar> call winrestview(' . string(winsaveview()) . ')<CR>'
 
 " Note: Vim regards <C-_> as <C-/>
 noremap! <expr><silent> <c-r>/     substitute(@/, '^\\[mv]', '', 'i')
@@ -77,64 +77,76 @@ xmap <c-w><space>gz# <c-w>v<Plug>(asterisk-#)
 " Note: x/s work duplicated with d/c respectively.
 xmap x <Plug>(asterisk-dot-substitute-delete-downward)
 " TODO: using `], smoother dot-repeat!
-xmap c <Plug>(asterisk-dot-substitute-change-downward)
+xmap s <Plug>(asterisk-dot-substitute-change-downward)
 " Note: when over lines, keep blockwise even on X/S, unrepeatable.
 xmap X <Plug>(asterisk-dot-substitute-delete-upward)
 " TODO: using `[, smoother dot-repeat!
-xmap C <Plug>(asterisk-dot-substitute-change-upward)
+xmap S <Plug>(asterisk-dot-substitute-change-upward)
 
-"function! asterisk#substitute(operator, direction) abort "{{{2
-"" TODO: Make the function work
-"  " Note: because this func has autoload func., cannot be autoload func. itself.
-"
-"  " Specify operator wanted {{{3
-"  " Note: a:operator acceptable is ['d', 'c', 'p', 'auto'].
-"  if a:operator ==# 'auto'
-"    let l:operator = v:operator
-"    " Note: conditions below are for in visual mode.
-"    " TODO: specify 'v'; v:operator do never become 'v'.
-"  elseif a:operator ==# 'd'
-"    let l:operator = 'd'
-"  elseif a:operator ==# 'c'
-"    let l:operator = 'c'
-"  elseif a:operator !=# 'p'
-"    " Thrown messages {{{4
-"    " Note: 'p' is unnecessary to specify l:operator in this function at least.
-"    "       because 'p' use different syntax than 'd' and 'c'.
-"    throw "Please set a:operator, whether 'd', 'c' or 'p', in asterisk#substitute('here!', direction) on vmap"
-"  else
-"    throw "Please set a:operator, whether 'd', 'c' or 'auto', in asterisk#substitute('here!', direction) on omap or nmap"
-"    "
-"  endif
-"
-"  " Specify operating direction {{{3
-"  if a:direction ==# ('up' || 'upward')
-"    let l:direction = 'gN'
-"  elseif a:direction ==# ('down' || 'downward')
-"    let l:direction = 'gn'
-"  else
-"    throw "Please set a direction, whether 'up' or 'down' in asterisk#substitute(operator, 'here!')"
-"  endif
-"
-"  " Return: dot-jumpable substitution {{{3
-"  if line("'<") != line("'>")
-"    exe 'norm!'. l:operator
-"    return
-"  endif
-"
-"  call asterisk#do(mode(1), {'direction' : 1, 'do_jump' : 0, 'is_whole' : 0})
-"
-"  " TODO: specify 'v'; v:operator do never become 'v'.
-"  " Note: a:operator acceptable is ['d', 'c', 'p', 'auto'].
-"  if a:operator ==# 'p'
-"    " e.g., 'norm! cgn<c-r>0<esc>'
-"    exe 'norm! c'. l:direction .''. l:regname .''
-"    return
-"  endif
-"
-"  " e.g., 'norm! dgn', 'cgn'
-"  exe 'norm! '. l:operator . l:direction
-"endfunction
+" WIP: keymaps by a wrapper function {{{2
+
+"xnoremap <expr><silent> <Plug>(asterisk-dot-substitute-delete-downward)
+"      \ asterisk#substitute('d', 'downward')
+"xnoremap <silent> <Plug>(asterisk-dot-substitute-delete-downward)
+"      \ <Cmd>call asterisk#substitute('d', 'downward')<cr>
+"xnoremap <expr><silent> <Plug>(asterisk-dot-substitute-paste-downward)
+"      \ asterisk#substitute('p', 'downward')
+
+"onoremap <silent> <Plug>(asterisk-dot-substitute-operator-upward)
+"      \ :<c-u>set operatorfunc=asterisk#substitute('auto','upward')<cr>g@
+"onoremap <silent> <Plug>(asterisk-dot-substitute-operator-downward)
+"      \ :<c-u>set operatorfunc=asterisk#substitute('auto','downward')<cr>g@
+
+function! asterisk#substitute(operator, direction) abort
+  " TODO: Make the function work
+  " Note: because this func has autoload func., cannot be autoload func. itself.
+
+  " Specify operator wanted {{{3
+  " Note: a:operator acceptable is ['d', 'c', 'p', 'auto'].
+  if a:operator ==# 'auto'
+    let operator = v:operator
+    " Note: conditions below are for in visual mode.
+    " TODO: specify 'v'; v:operator do never become 'v'.
+  elseif a:operator ==# 'd'
+    let operator = 'd'
+  elseif a:operator ==# 'c'
+    let operator = 'c'
+  elseif a:operator !=# 'p'
+    " Throw error message {{{4
+    " Note: 'p' is unnecessary to specify l:operator in this function at least.
+    "       because 'p' use different syntax than 'd' and 'c'.
+    throw "Please set a:operator, whether 'd', 'c' or 'p', in asterisk#substitute('here!', direction) on vmap"
+  else
+    throw "Please set a:operator, whether 'd', 'c' or 'auto', in asterisk#substitute('here!', direction) on omap or nmap"
+    "
+  endif
+
+  " Specify operating direction {{{3
+  if a:direction =~# 'up\%[ward]'
+    let direction = 'gN'
+  elseif a:direction =~# 'down\%[ward]'
+    let direction = 'gn'
+  else
+    throw "Please set a direction, whether 'up' or 'down' in asterisk#substitute(operator, 'here!')"
+  endif
+
+  " Return: dot-jumpable substitution {{{3
+  if line("'<") != line("'>")
+    return operator
+  endif
+
+  call asterisk#do(mode(1), {'direction' : 1, 'do_jump' : 0, 'is_whole' : 0})
+
+  " TODO: specify 'v'; v:operator do never become 'v'.
+  " Note: a:operator acceptable is ['d', 'c', 'p', 'auto'].
+  if a:operator ==# 'p'
+    " e.g., 'c'. 'gn' <c-r>'. 0 .'<esc>'
+    return 'c'. direction ."\<C-r>". regname ."\<Esc>"
+  endif
+
+  " e.g., 'c' . 'gn'
+  return operator . direction
+endfunction
 " <Plug>-zation {{{2
 " Xmaps {{{3
 xnoremap <expr><silent> <Plug>(asterisk-dot-substitute-delete-upward)
@@ -209,19 +221,6 @@ nnoremap <expr><silent> <Plug>(asterisk-dot-substitute-paste-downward)
       \ 'v'.
       \ asterisk#do(mode(1), {'direction' : 1, 'do_jump' : 0, 'is_whole' : 0})
       \ .'cgN<c-r>1<esc>': 'p'
-
-" Experimental: for test
-"xnoremap <expr><silent> <Plug>(asterisk-dot-substitute-delete-downward)
-"      \ asterisk#substitute('d', 'downward')
-"xnoremap <silent> <Plug>(asterisk-dot-substitute-delete-downward)
-"      \ <Cmd>call asterisk#substitute('d', 'downward')<cr>
-"xnoremap <expr><silent> <Plug>(asterisk-dot-substitute-paste-downward)
-"      \ asterisk#substitute('p', 'downward')
-
-"onoremap <silent> <Plug>(asterisk-dot-substitute-operator-upward)
-"      \ :<c-u>set operatorfunc=asterisk#substitute('auto','upward')<cr>g@
-"onoremap <silent> <Plug>(asterisk-dot-substitute-operator-downward)
-"      \ :<c-u>set operatorfunc=asterisk#substitute('auto','downward')<cr>g@
 
 " WIP: paste/operator "{{{1
 " when paste on selected area, we don't use initial P.
