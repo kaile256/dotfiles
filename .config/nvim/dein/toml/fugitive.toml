@@ -18,6 +18,7 @@ command! -bar Gllog :AgitFile
 " Gbrowse depends on other handlers; coc's surely work.
 command! Gbrowse :CocCommand git.browserOpen
 '''
+#fugitive_git_gitrebase  = 'runtime add/fugitive.gf.vim'
 
 #[ Branch ]
 #[[plugins]]
@@ -77,7 +78,7 @@ hook_source = 'runtime source/gitv.vim'
 #on_event = 'BufRead'
 #hook_add = 'runtime add/extradite.vim'
 
-#[ Commit Message]
+#[ Commit Message ]
 [[plugins]]
 repo = 'rhysd/git-messenger.vim'
 type = 'git'
