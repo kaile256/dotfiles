@@ -18,18 +18,18 @@
 #hook_source = 'runtime source/sonictemplate.vim'
 
 ##[ Snippets; Engine ]
-#[[plugins]]
-#repo = 'SirVer/ultisnips'
-## Note: it override <TAB>
-#on_func = ['UltiSnips#ExpandSnippet']
-#on_map = {nvi = ['<Plug>(ultisnips-']}
-#on_cmd = ['UltiSnipsEdit']
-#on_path = '\.snippets$'
-#hook_add = 'runtime add/ultisnips.vim'
-#hook_source = '''
-#  runtime once/smaps.vim
-#  runtime source/ultisnips.vim
-#'''
+[[plugins]]
+repo = 'SirVer/ultisnips'
+# Note: it override <TAB>
+on_func = ['UltiSnips#ExpandSnippet']
+on_map = {nvi = ['<Plug>(ultisnips-']}
+on_cmd = ['UltiSnipsEdit']
+on_path = ['\.snippets$']
+hook_add = 'runtime add/ultisnips.vim'
+hook_source = '''
+  runtime once/smaps.vim
+  runtime source/ultisnips.vim
+'''
 
 [[plugins]]
 repo = 'Shougo/neosnippet.vim'
@@ -38,7 +38,7 @@ repo = 'Shougo/neosnippet.vim'
 # it disturbs on 'n', of cource
 on_map = {nvi = '<Plug>(neosnippet'}
 on_func =  ['neosnippet#']
-on_path = ['\.snip$', '\.snippets$']
+on_path = ['\.snip$']
 hook_add = 'runtime add/neosnippet.vim'
 hook_source = '''
   runtime once/smaps.vim
