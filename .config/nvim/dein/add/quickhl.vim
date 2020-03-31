@@ -14,9 +14,18 @@ let g:quickhl_cword_enable_at_startup = 0
 nmap m* <Plug>(quickhl-manual-this-whole-word)
 xmap m* <Plug>(quickhl-manual-this-whole-word)
 
+nmap mc <Plug>(quickhl-manual-reset)
+xmap mc <Plug>(quickhl-manual-reset)
 nmap m<c-h> <Plug>(quickhl-manual-reset)
 xmap m<c-h> <Plug>(quickhl-manual-reset)
 nmap m<BS> <Plug>(quickhl-manual-reset)
 xmap m<BS> <Plug>(quickhl-manual-reset)
 
-nmap m <Plug>(operator-quickhl-manual-this-motion)
+" nmap m <Plug>(operator-quickhl-manual-this-motion)
+nmap <silent> m :call <SID>quickhl_with_mark()<cr>
+
+function! s:quickhl_with_mark() abort
+  let char = nr2char(getchar())
+  exe 'norm! m'. char
+  exe "norm \<Plug>(operator-quickhl-manual-this-motion)". char
+endfunction
