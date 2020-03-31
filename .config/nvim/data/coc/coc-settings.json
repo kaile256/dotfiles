@@ -286,7 +286,6 @@
           "markdown": ["write-good", "markdownlint"],
           "sh": "shellcheck",
           "elixir": ["mix_credo", "mix_credo_compile"],
-          "eelixir": ["mix_credo", "mix_credo_compile"],
           "php": "phpcs"
           //"vim": "vint"
         },
@@ -319,7 +318,7 @@
     "ccls": {
       // See more detail in MaskRay/ccls/wiki/LSP-Extensions
       "command": "ccls",
-      "filetypes": ["c", "cpp", "objc", "objcpp"],
+      "filetypes": ["c", "cpp", "objc", "objcpp", "arduino"],
       "rootPatterns": [
         ".ccls",
         "compile_commands.json",
@@ -359,14 +358,14 @@
     //    "emitInactiveRegions": true
     //  }
     //},
-    //"intelphense": {
-    //  "command": "intelephense",
-    //  "args": ["--stdio"],
-    //  "filetypes": ["php"],
-    //  "initializationOptions": {
-    //    "storagePath": "/tmp/intelephense"
-    //  }
-    //},
+    "intelphense": {
+      "command": "intelephense",
+      "args": ["--stdio"],
+      "filetypes": ["php"],
+      "initializationOptions": {
+        "storagePath": "/tmp/intelephense"
+      }
+    },
     "clojure": {
       "command": "bash",
       "args": ["-c", "clojure-lsp"],
