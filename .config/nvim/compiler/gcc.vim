@@ -39,7 +39,7 @@ if exists('g:compiler_gcc_ignore_unmatched_lines')
   CompilerSet errorformat+=%-G%.%#
 endif
 
-CompilerSet makeprg=gcc\ %
+CompilerSet makeprg=gcc\ %:p
 
 let &cpo = s:cpo_save
 unlet s:cpo_save
