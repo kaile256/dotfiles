@@ -250,27 +250,28 @@ let g:lexima#default_rules += [
       \ {'char': '<C-;>', 'at': s:before_close, 'input': '<Right>; ', 'mode':   'c'},
       \ ]
 
-let g:lexima#default_rules += [
-      \ {'char': '<C-=>', 'at': s:separeter_single .'\%#', 'input': '<BS> = '},
-      \ {'char': '<C-=>', 'at': s:separeter_double .'\%#', 'input': '<BS><BS> = '},
-      \ {'char': '<C-=>', 'at': s:separeter_triple .'\%#', 'input': '<BS><BS><BS> = '},
-      \
-      \ {'char': '<C-,>', 'at': s:separeter_single .'\%#', 'input': '<BS>, '},
-      \ {'char': '<C-,>', 'at': s:separeter_double .'\%#', 'input': '<BS><BS>, '},
-      \ {'char': '<C-,>', 'at': s:separeter_triple .'\%#', 'input': '<BS><BS><BS>, '},
-      \
-      \ {'char': '<C-.>', 'at': s:separeter_single .'\%#', 'input': '<BS>. '},
-      \ {'char': '<C-.>', 'at': s:separeter_double .'\%#', 'input': '<BS><BS>. '},
-      \ {'char': '<C-.>', 'at': s:separeter_triple .'\%#', 'input': '<BS><BS><BS>. '},
-      \
-      \ {'char': '<C-:>', 'at': s:separeter_single .'\%#', 'input': '<BS>: '},
-      \ {'char': '<C-:>', 'at': s:separeter_double .'\%#', 'input': '<BS><BS>: '},
-      \ {'char': '<C-:>', 'at': s:separeter_triple .'\%#', 'input': '<BS><BS><BS>: '},
-      \
-      \ {'char': '<C-;>', 'at': s:separeter_single .'\%#', 'input': '<BS>; '},
-      \ {'char': '<C-;>', 'at': s:separeter_double .'\%#', 'input': '<BS><BS>; '},
-      \ {'char': '<C-;>', 'at': s:separeter_triple .'\%#', 'input': '<BS><BS><BS>; '},
-      \ ]
+" FIXME:
+" let g:lexima#default_rules += [
+"      \ {'char': '<C-=>', 'at': s:separeter_single .'\%#', 'input': '<BS> = '},
+"      \ {'char': '<C-=>', 'at': s:separeter_double .'\%#', 'input': '<BS><BS> = '},
+"      \ {'char': '<C-=>', 'at': s:separeter_triple .'\%#', 'input': '<BS><BS><BS> = '},
+"      \
+"      \ {'char': '<C-,>', 'at': s:separeter_single .'\%#', 'input': '<BS>, '},
+"      \ {'char': '<C-,>', 'at': s:separeter_double .'\%#', 'input': '<BS><BS>, '},
+"      \ {'char': '<C-,>', 'at': s:separeter_triple .'\%#', 'input': '<BS><BS><BS>, '},
+"      \
+"      \ {'char': '<C-.>', 'at': s:separeter_single .'\%#', 'input': '<BS>. '},
+"      \ {'char': '<C-.>', 'at': s:separeter_double .'\%#', 'input': '<BS><BS>. '},
+"      \ {'char': '<C-.>', 'at': s:separeter_triple .'\%#', 'input': '<BS><BS><BS>. '},
+"      \
+"      \ {'char': '<C-:>', 'at': s:separeter_single .'\%#', 'input': '<BS>: '},
+"      \ {'char': '<C-:>', 'at': s:separeter_double .'\%#', 'input': '<BS><BS>: '},
+"      \ {'char': '<C-:>', 'at': s:separeter_triple .'\%#', 'input': '<BS><BS><BS>: '},
+"      \
+"      \ {'char': '<C-;>', 'at': s:separeter_single .'\%#', 'input': '<BS>; '},
+"      \ {'char': '<C-;>', 'at': s:separeter_double .'\%#', 'input': '<BS><BS>; '},
+"      \ {'char': '<C-;>', 'at': s:separeter_triple .'\%#', 'input': '<BS><BS><BS>; '},
+"      \ ]
 
 unlet s:before_close s:before_paren s:before_quote
 unlet s:delimeter_atom s:opareter_atom
