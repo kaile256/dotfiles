@@ -38,6 +38,9 @@ hook_source = 'runtime source/FastFold.vim'
 
 #[ FileType ]
 #[[plugins]]
+#repo = 'LucHermitte/VimFold4C'
+#on_ft = ['c', 'cpp']
+#[[plugins]]
 #repo = 'matze/vim-ini-fold'
 ## PR-Merged: matze/vim-ini-fold/pull/1
 ## PR: matze/vim-ini-fold/pull/2
