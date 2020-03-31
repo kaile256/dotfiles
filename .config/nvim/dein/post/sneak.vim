@@ -18,4 +18,5 @@ augroup mySneakPost
   " keep cursor while waiting input
   au User SneakEnter let s:cursor = matchadd('SneakCursor', '\%#')
   au User SneakLeave call matchdelete(s:cursor)
+  au User SneakEnter call eskk#disable()
 augroup END
