@@ -2,6 +2,8 @@
 " BuiltIn: runtime/syntax/markdown.vim
 " Another: ftplugin/markdown.vim
 
+setl signcolumn=no
+
 "hi! link htmlLink Statement
 hi! link markdownLinkUrl NonText
 hi! link markdownHeadingDelimiter PreProc
