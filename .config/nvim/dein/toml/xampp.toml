@@ -11,9 +11,9 @@ hook_source = 'runtime source/bracey.vim'
 repo = 'mattn/emmet-vim'
 on_cmd = ['Emmet', 'EmmetIntall']
 on_ft = ['html', 'xml', 'xsl']
-[[plugins]]
-repo = 'lyokha/vim-publish-helper'
-on_ft = 'pandoc'
+#[[plugins]]
+#repo = 'lyokha/vim-publish-helper'
+#on_ft = 'pandoc'
 #[[plugins]]
 #repo = 'lervag/vimtex'
 #on_ft = 'tex'
@@ -25,6 +25,16 @@ on_ft = 'pandoc'
 #hook_source = 'runtime source/preview.vim'
 
 #[ PHP ]
+[[plugins]]
+repo = 'vim-scripts/php.vim-html-enhanced'
+on_ft = ['php']
+#[[plugins]]
+#repo = 'berrygoudswaard/vim-php-html-indent'
+#on_ft = ['php']
+#[[plugins]]
+#repo = '2072/PHP-Indenting-for-VIm'
+#on_ft = ['php']
+
 #[[plugins]]
 #repo = 'phpactor/phpactor'
 #on_ft = ['php']
