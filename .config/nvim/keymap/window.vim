@@ -17,6 +17,7 @@ nnoremap <space>: q:kzb
 " No Highlight "{{{1
 " Ref: compare :redraw with <c-l> or :mode
 
+" TODO: causes some event to append another process easier
 nnoremap <silent> <SID>(highlight-off) :<c-u>noh <bar> redraw!<cr>
 tnoremap <silent> <SID>(highlight-off) <Cmd>noh  <bar> redraw!<cr><c-l>
 " :mode once makes screen dirty
