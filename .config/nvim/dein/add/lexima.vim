@@ -2,13 +2,13 @@
 " Repo: cohama/lexima.vim
 " Another: post/lexima.vim
 
-inoremap <expr> " lexima#expand('"', 'i')
-inoremap <expr> ' lexima#expand("'", 'i')
-inoremap <expr> ` lexima#expand('`', 'i')
+inoremap <silent><expr> " lexima#expand('"', 'i')
+inoremap <silent><expr> ' lexima#expand("'", 'i')
+inoremap <silent><expr> ` lexima#expand('`', 'i')
 
-inoremap <expr> ( lexima#expand('(', 'i')
-inoremap <expr> [ lexima#expand('[', 'i')
-inoremap <expr> { lexima#expand('{', 'i')
+inoremap <silent><expr> ( lexima#expand('(', 'i')
+inoremap <silent><expr> [ lexima#expand('[', 'i')
+inoremap <silent><expr> { lexima#expand('{', 'i')
 
 " inoremap <expr> ) lexima#expand(')',  'i')
 " inoremap <expr> ] lexima#expand(']',  'i')
