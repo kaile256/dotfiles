@@ -1,6 +1,58 @@
+snippet Meta: init
+alias meta init ini
+  <html>
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html">
+  </head>
+  <body>
+    ${2}
+  </body>
+  </html>
+
+snippet Meta: UTF-8
+alias utf u8
+  <meta charset="UTF-8">
+
+snippet Meta: text/html
+alias th mh
+  <meta http-equiv="Content-Type" content="text/html">
+
+snippet Form: action
+alias form fo ac act
+options head
+  <form action="${1:action}.php" ${2:method="POST"}>
+    ${0}
+  </form>
+
+snippet Input: text
+alias text tex tx
+  <input type="text" name="${1:var}"${2: #:value="default"} />
+snippet Input: radio
+alias rad radio
+  <input type="radio" name="${1:var}" value="${2:val}" />
+snippet Input: checkbox
+alias che check chb
+  <input type="checkbox" name="${1:var}" value="${2:val}"${3: checked=checked}/>
+snippet Input: submit
+alias sub subm submit
+  <input type="submit" />
+
+snippet Super: $_POST
+alias post PO pos
+  $${1:foo} = $_POST['${2:bar}'];
 snippet <?php ?>
-alias php ini
+alias php
 options head
   <?php
-    ${1:TARGET};
+    ${1:TARGET}
   ?>
+
+snippet br\n after chars
+alias br \n
+  . "<br>\n";
+
+snippet br\n on head
+alias br \n
+options head
+  echo "<br>\n";
