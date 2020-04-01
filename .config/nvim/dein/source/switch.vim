@@ -16,8 +16,9 @@ if exists('#mySwitchAdd')
   au! mySwitchAdd
 endif
 augroup mySwitchAdd
-  au FileType vim      call s:switch_vim()
-  au FileType java     call s:switch_java()
+  au FileType vim call s:switch_vim()
+  au FileType php call s:switch_php()
+  au FileType java call s:switch_java()
   au FileType markdown call s:switch_markdown()
 augroup END
 
@@ -31,6 +32,13 @@ function! s:switch_vim() "{{{1
         \ ['inoremap', 'cnoremap', 'tnoremap'],
         \ ['<silent>', '<script>'],
         \ ['==', '!='],
+        \ ]
+endfunction
+
+function! s:switch_php() "{{{1
+  let b:switch_custom_definitions = [
+        \   [0, 'null'],
+        \   ['submit', 'text', 'radio'],
         \ ]
 endfunction
 
