@@ -97,6 +97,7 @@ let s:toml_lazy = [
       \ 'git.toml',
       \ 'insert.toml',
       \ 'japanese.toml',
+      \ 'lsp.toml',
       \ 'markdown.toml',
       \ 'memo.toml',
       \ 'motion.toml',

@@ -1,0 +1,80 @@
+# From: dein/dein.vim
+
+#[ coc.nvim ]
+[[plugins]]
+repo = 'neoclide/coc.nvim'
+# Branch: neoclide/coc.nvim_release
+# Note: Written in TypeScript.
+if  = 'executable("yarn")'
+rev = 'release'
+#hook_done_update = 'yarn install --frozen-lockfile'
+
+on_func  = ['CocAction', 'CocActionAsync']
+on_event = 'BufRead'
+
+hook_add    = 'runtime add/coc.vim'
+hook_source = 'runtime source/coc.vim'
+
+hook_done_update = '''
+exe 'e'. g:dein_github_dir .'/neoclide/coc.nvim_release/plugin/coc.vim'
+" For: vim-fugitive creates invalid id buffer.
+" use expand('%:p'), not '<abuf>'
+g/BufEnter/g/call/norm! niif expand('%:p') !~# '.git/' |
+g/BufEnter/norm! A | endif
+write
+
+"" For: rename :CocFoo to :Cfoo in the local-repo.
+"" CocFoo is used by the other coc-extentions; should not be replaced.
+"let s:CocUpper2Clower = 'dgnguliC'
+"g/command!/g/Coc/copy. | exe 'norm!' s:CocUpper2Clower
+"unlet s:CocUpper2Clower
+"write
+'''
+
+[[plugins]]
+repo = 'voldikss/actionmenu.nvim'
+# Provides coc.nvim actionmenu features for such as 'codeAction'.
+on_source = 'coc.nvim'
+hook_post_source = 'runtime add/actionmenu.vim'
+
+#[[plugins]]
+#repo = 'neoclide/redismru.vim'
+# Redis; Remote Dictionary Server
+#if = 'executable("redis")'
+#on_source = 'denite.nvim'
+#hook_post_source = 'runtime add/redismru.vim'
+
+#[ vim-lsp ]
+#[[plugins]]
+#repo = 'prabirshrestha/vim-lsp'
+## Written in Pure viml
+#hook_post_source = 'runtime add/lsp.vim'
+
+#[[plugins]]
+#repo = 'prabirshrestha/async.vim'
+#on_event = 'BufRead'
+#hook_post_source = 'runtime add/async.vim'
+
+#[[plugins]]
+#repo = 'prabirshrestha/asyncomplete.vim'
+#on_event = 'BufRead'
+#hook_post_source = 'runtime add/asyncomplete.vim'
+
+#[[plugins]]
+#repo = 'prabirshrestha/asyncomplete-lsp.vim'
+#on_event = 'BufRead'
+#hook_post_source = 'runtime add/asyncomplete-lsp.vim'
+
+#[[plugins]]
+#repo = 'autozimu/LanguageClient-neovim'
+## Note: Written in Rust.
+#rev = 'next'
+#build = 'bash install.sh'
+#on_event = 'BufRead'
+#hook_add = 'runtime add/LanguageClient.vim'
+
+#[[plugins]]
+#repo = 'OmniSharp/omnisharp-vim'
+#on_event = 'BufRead'
+#hook_add = 'runtime add/omnisharp.vim'
+
