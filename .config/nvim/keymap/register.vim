@@ -54,9 +54,9 @@ xnoremap <space>P "+]P
 nnoremap Y y$
 tnoremap <c-r><c-0> <c-\><c-n>"0pi
 cnoremap <c-r><c-0> <c-r>0
-nnoremap <s-space>p "0]p
+" nnoremap <s-space>p "0]p
 xnoremap <s-space>p "0]p
-nnoremap <s-space>P "0]P
+" nnoremap <s-space>P "0]P
 xnoremap <s-space>P "0]P
 " Black-Hole Register
 nnoremap <s-space>d "_d
