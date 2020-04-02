@@ -124,8 +124,7 @@ augroup myFugitiveSource
   "}}}1
   " on Fugitive Buffer {{{1
   " TODO: Go back to Gstatus' buffer when `:quit` on gitcommit's buffer
-  au FileType fugitive,fugitiveblame,gitcommit setl nonumber signcolumn= bufhidden=wipe
-  au FileType gitcommit setl spell spl=en_us,cjk colorcolumn=73
+  au FileType fugitive,fugitiveblame setl nonumber signcolumn= bufhidden=wipe
   au FileType git setl fdl=99
   au BufRead fugitive:///* setl buftype=nofile
 augroup END
