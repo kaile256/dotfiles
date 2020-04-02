@@ -152,6 +152,10 @@ for_window [title="^Toggle"]  floating enable border normal
 #for_window [class="Xfburn"] floating enable
 
 # AutoStart Background {{{1
+# Note: exec_always to reload on a restart i3 itself
+$always $MYSCRIPTS/polybar-launch.sh
+#exec_always --no-startup-id xfce4-panel --disable-wm-check
+
 # Note: see the config by `xset q`
 # xset -b: disable beep
 $noid xset -b
@@ -188,14 +192,6 @@ $noid sudo tlp start
 # udiskie, a wrapper for udisk2
 $noid udiskie --automount --notify &
 
-# pulseaudio: deamon to control via keyboard.
-$restart pulseaudio --kill; sleep 1; pulseaudio --start &
-
-$noid alsactl daemon
-# pa-applet (pulseaudio):
-#$noid pa-applet
-#$noid volumeicon
-
 $noid systemctl --user start docker
 
 # nm-applet: WiFi Network Manager; use nmcli instead
@@ -228,9 +224,15 @@ $noid clipit
 # urxvtd: Daemon of rxvt-unicode. Use urxvtc as a client.
 #$noid "urxvtd -o -f"
 
-# Note: exec_always to reload on a restart i3 itself
-$always $MYSCRIPTS/polybar-launch.sh
-#exec_always --no-startup-id xfce4-panel --disable-wm-check
+$noid alsactl daemon
+# pa-applet (pulseaudio):
+#$noid pa-applet
+#$noid volumeicon
+
+# pulseaudio: deamon to control via keyboard.
+# `$ systemctl --user status pulseaudio` returns
+# pulseaudio.service: Start request repeated too quickly.
+$restart pulseaudio --kill; sleep 4; pulseaudio --start &
 
 # AutoStart Applications {{{1
 # Ref: specifiy workspace to start in
@@ -374,7 +376,9 @@ bindcode 66 $alert 'CapsLock: Toggle'
 
 # Keybind; xdotool {{{1
 # bind <tab> via xdotool seems no use in Qutebrowser
-#bindsym Ctrl+i $noid xdotool Tab
+# `bindsym` w/o `--release` causes nothing; even with it, lazy response
+$release Ctrl+I $noid xdotool key Tab
+$release Ctrl+bracketleft $noid xdotool key Escape
 
 # Keybind; Mode on i3 {{{1
 # WARNING: use double quotes for either in `set` or `mode`
@@ -552,7 +556,7 @@ set $mute_toggle exec --no-startup-id pacmd set-sink-mute @DEFAULT_SINK@ toggle
 set $volume exec --no-startup-id pacmd set-sink-mute @DEFAULT_SINK@ false && pactl set-sink-volume @DEFAULT_SINK@
 
 mode $Sound {
-#bindsym M $mute_toggle; $alert 'Sound: mute/unmute'
+bindsym $Super+S $mute_toggle; $alert 'Sound: Mute Toggle'
 # Mnemonic: Silence
 bindsym S $mute; $alert 'Sound: Mute'
 # Mnemonic: Quiet
