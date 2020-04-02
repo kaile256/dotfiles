@@ -3,6 +3,8 @@
 " Another: source/eskk.vim
 " Another: post/eskk.vim
 
+set imdisable " no use on neovim or nvim-qt.
+
 " Note: <a-space> works in the same way as <esc>l.
 " lmap for Insert, Command-line, Lang-Arg
 " Note: Vim regards <C-_> as <C-/>

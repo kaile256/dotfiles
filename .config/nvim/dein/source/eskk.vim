@@ -7,7 +7,6 @@ scriptencoding utf-8
 " Note: EskkMap is a wrapper of eskk#map#_cmd_eskk_map(<q-args>)
 
 " TODO: Tell current mode of skk on airline/lightline
-set imdisable " no use on neovim or nvim-qt.
 
 " Path of Dictionaries {{{1
 " if Server is yaskkserv,
