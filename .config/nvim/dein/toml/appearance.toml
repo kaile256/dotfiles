@@ -1,11 +1,10 @@
 # From: rc/dein.vim
 
 #[ Indent ]
-#[[plugins]]
-#repo = 'Yggdroot/indentLine'
-## Note: Causes a bulk of problems, e.g., defx cannot conceal '**'.
-#on_event = 'BufRead'
-#hook_source = 'runtime source/indentLine.vim'
+[[plugins]]
+repo = 'Yggdroot/indentLine'
+on_ft = ['python']
+hook_source = 'runtime source/indentLine.vim'
 
 #[ Resonance ]
 [[plugins]]
