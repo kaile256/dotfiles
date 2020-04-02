@@ -114,11 +114,7 @@ on_ft = 'zsh'
 #on_ft = 'tmux'
 
 
-#[ for Text-like ]
-#[[plugins]]
-#repo = 'othree/html5.vim'
-# Note: contributes in vim-polyglot
-#on_ft = 'html'
+#[ Text-like ]
 #[[plugins]]
 #repo = 'freitass/todo.txt-vim'
 ## Use `set syn=help` instead
