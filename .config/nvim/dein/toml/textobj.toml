@@ -23,12 +23,13 @@ on_event = ['BufRead']
 #on_source = 'vim-textobj-user'
 #hook_add = 'runtime add/textobj-fold.vim'
 
-#[[plugins]]
-#repo = 'kana/vim-textobj-entire'
-## For: entire lines of current buffer.
-## Note: `on_map` makes no sense in omap.
-#on_source = 'vim-textobj-user'
-
+[[plugins]]
+repo = 'kana/vim-textobj-entire'
+# For: entire lines of current buffer.
+# Note: `on_map` makes no sense in omap.
+on_map = {ox = ['<Plug>(textobj-entire']}
+hook_add = 'runtime add/textobj-entire.vim'
+hook_post_source = 'runtime post/textobj-entire.vim'
 [[plugins]]
 repo = 'glts/vim-textobj-comment'
 on_event = ['BufRead']
