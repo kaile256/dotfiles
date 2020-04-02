@@ -8,11 +8,17 @@ let b:undo_ftplugin .= 'setl fdm< fde<'
 
 function! HelpFoldExpr() abort "{{{1
   let line = getline(v:lnum)
-
-  if line =~# '^[=-]\+$'
+  if line =~# '^=\+$'
     return '>1'
-  elseif line =~# '\*.*\*\s*$' && line !~# '^\s*\u\+'
+  elseif line =~# '^-\+$'
     return '>2'
+  elseif line =~# '\*.*\*\s*$' && line !~# '^\s*\u\+'
+    "if getline(v:lnum - 1) =~# '^=\+$'
+    "  return '='
+    "elseif getline(v:lnum - 1) =~# '^-\+$'
+    "  return '='
+    "endif
+    return '>3'
   endif
 
   return '='
