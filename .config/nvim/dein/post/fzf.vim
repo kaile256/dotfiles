@@ -23,17 +23,17 @@
 
 " Command! expand default w/ preview {{{1
 command! -bar -bang -nargs=* Files :call fzf#vim#files(<q-args>,
-      \ fzf#vim#with_preview({'options': '--multi --reverse'}, 'right:50%:wrap'),
+      \ fzf#vim#with_preview({'options': '--multi --reverse --bind "ctrl-]:toggle-preview"'}, 'right:50%:wrap'),
       \ )
 
 
 command! -bar -bang -nargs=* Ag :call fzf#vim#ag(<q-args>,
-      \ fzf#vim#with_preview({'options': '--multi --reverse'}, 'right:50%:wrap'),
+      \ fzf#vim#with_preview({'options': '--multi --reverse --bind "ctrl-]:toggle-preview"'}, 'right:50%:wrap'),
       \ )
 
 command! -bar -bang -nargs=* Rg :call fzf#vim#grep(
       \ 'rg --hidden --column --line-number --no-heading --color=always --smart-case '.shellescape(<q-args>), 1,
-      \ fzf#vim#with_preview({'options': '--multi --reverse'}, 'right:50%:wrap')
+      \ fzf#vim#with_preview({'options': '--multi --reverse --bind "ctrl-]:toggle-preview"'}, 'right:50%:wrap')
       \ )
 
 " Note: There's no use to wrap 'GFiles?' independently;
