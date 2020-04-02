@@ -17,6 +17,19 @@ let s:rules_colon   = []
 let s:rules_i_colon = []
 let s:rules_c_all   = []
 let s:rules_ic_all  = []
+
+let s:before_close = '\%#[\])}''"]'
+let s:before_paren = '\%#[\])}]'
+let s:before_quote = '\%#[`''"]'
+
+" Note: both '=' and '+' works unexpectedly either with or without '\'.
+let s:delimeter_atom = '[,.;:]'
+let s:opareter_atom  = '[\-*/&|!]'
+let s:separeter_single =  s:delimeter_atom
+let s:separeter_double = '\(\s'. s:opareter_atom .'\)\|\('. s:delimeter_atom .'\s\)'
+" for example, regard ' ==' as a triple
+let s:separeter_triple = '\s'. s:opareter_atom .'\{2}' .'\|\s=\s'
+
 " Note: '\%#' represents the cursor position; see the help.
 " Notice: single quote in double quotes sometimes fails to apply the rule.
 " Notice: in double quotes, backslash requires double to escape
@@ -196,24 +209,12 @@ let g:lexima#default_rules += [
 "      \ ]
 
 " Addtional Rules to Skip Out; break repeat {{{1
-let s:before_close = '\%#[\])}''"]'
-let s:before_paren = '\%#[\])}]'
-let s:before_quote = '\%#[`''"]'
-
 " Note: 'leave' seems to make 'input' and 'input_after' fail
 " Ref: Jump cursor over the provided pairs
 "   https://karubabu.hateblo.jp/entry/2017/05/24/190010
 " let s:rules_insert += [
 "      \ {'char': '<TAB>', 'at': '\%#[\])}`"'']', 'leave': 1},
 "      \ ]
-
-" Note: both '=' and '+' works unexpectedly either with or without '\'.
-let s:delimeter_atom = '[,.;:]'
-let s:opareter_atom  = '[\-*/&|!]'
-let s:separeter_single =  s:delimeter_atom
-let s:separeter_double = '\(\s'. s:opareter_atom .'\)\|\('. s:delimeter_atom .'\s\)'
-" for example, regard ' ==' as a triple
-let s:separeter_triple = '\s'. s:opareter_atom .'\{2}' .'\|\s=\s'
 
 let g:lexima#default_rules += [
       \ {'char': '<C-space>', 'input': ' '},
@@ -272,10 +273,6 @@ let g:lexima#default_rules += [
 "      \ {'char': '<C-;>', 'at': s:separeter_double .'\%#', 'input': '<BS><BS>; '},
 "      \ {'char': '<C-;>', 'at': s:separeter_triple .'\%#', 'input': '<BS><BS><BS>; '},
 "      \ ]
-
-unlet s:before_close s:before_paren s:before_quote
-unlet s:delimeter_atom s:opareter_atom
-unlet s:separeter_single s:separeter_double s:separeter_triple
 
 " Ref: Activate :iabbr through lexima
 "   http://pekepekesamurai.hatenablog.com/entry/2015/04/23/223559
@@ -675,3 +672,6 @@ let g:lexima#default_rules +=
 
 call lexima#set_default_rules()
 
+unlet s:before_close s:before_paren s:before_quote
+unlet s:delimeter_atom s:opareter_atom
+unlet s:separeter_single s:separeter_double s:separeter_triple
