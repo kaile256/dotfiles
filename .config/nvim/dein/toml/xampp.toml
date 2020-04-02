@@ -9,8 +9,8 @@ hook_add = 'runtime add/bracey.vim'
 hook_source = 'runtime source/bracey.vim'
 [[plugins]]
 repo = 'mattn/emmet-vim'
-on_cmd = ['Emmet', 'EmmetIntall']
-on_ft = ['html', 'xml', 'xsl']
+on_ft = ['html', 'xml', 'xsl', 'php']
+
 #[[plugins]]
 #repo = 'lyokha/vim-publish-helper'
 #on_ft = 'pandoc'
