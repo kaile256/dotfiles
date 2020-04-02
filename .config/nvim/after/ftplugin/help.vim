@@ -1,7 +1,6 @@
 " From: filetype.vim
 
 if &readonly && !&modifiable
-  setl spell spl=en_us,cjk
   setl nonumber signcolumn= nolist foldlevel=0
   setl conceallevel=0
   nnoremap <buffer> d <c-d>
