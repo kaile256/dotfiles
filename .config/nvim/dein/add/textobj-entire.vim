@@ -2,8 +2,9 @@
 " Repo: kana/vim-textobj-entire
 " Another: post/textobj-entire.vim
 
+" entire-i excludes empty lines both before and after the codes;
+" entire-e incluses the empty lines
 omap i<CR> <Plug>(textobj-entire-i)
-omap a<CR> <Plug>(textobj-entire-a)
-
 xmap i<CR> <Plug>(textobj-entire-i)
-xmap a<CR> <Plug>(textobj-entire-a)
+omap a<CR> <Plug>(textobj-entire-i)
+xmap a<CR> <Plug>(textobj-entire-i)
