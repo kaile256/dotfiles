@@ -124,6 +124,11 @@ on_ft = 'zsh'
 ## Use `set syn=help` instead
 #on_ft = 'text'
 
+#[ Diagram ]
+[[plugins]]
+repo = 'aklt/plantuml-syntax'
+on_path = ['\.pu$', '\.uml$', '\.puml$', '\.iuml$', '\.plantuml$']
+
 #[ Test ]
 [[plugins]]
 repo = 'yasuhiroki/circleci.vim'
