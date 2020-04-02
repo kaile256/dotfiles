@@ -208,6 +208,7 @@ endif
 set lazyredraw
 " Method; Fold {{{2
 "set foldenable " default: on
+" setglobal foldminlines=40 " open if the fold block is less than the size
 set foldmethod=syntax
 " Note: 'foldlevel' is local to window
 set foldlevelstart=0
