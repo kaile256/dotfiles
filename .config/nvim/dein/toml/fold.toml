@@ -4,7 +4,9 @@
 repo = 'Konfekt/FastFold'
 # lazy load inside foleded.
 if = '&foldenable'
-on_event = 'BufReadPre'
+# BufReadPre causes error. This is the message:
+#   Vim(split):E201: *ReadPre autocommands must not change current buffer
+on_event = 'BufRead'
 hook_source = 'runtime source/FastFold.vim'
 #[[plugins]]
 #repo = 'SwintonStreet/HighlightFoldLevelVimScript'
