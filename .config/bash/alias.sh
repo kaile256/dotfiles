@@ -23,6 +23,8 @@ alias f=fish
 alias nvr="nvr -s"
 alias kvi="nvim -u $HOME/kaile256/dotfiles/nvim/init.vim"
 
+alias pg='pgrep'
+
 # App; Linux on Android
 alias pk='~/start-kali.sh'
 

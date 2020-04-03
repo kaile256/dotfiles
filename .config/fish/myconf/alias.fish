@@ -24,6 +24,8 @@ alias .2  'cd ../..'
 alias ....  'cd ../../..'
 alias .3  'cd ../../..'
 
+alias pg 'pgrep'
+
 alias pk '~/start-kail.sh'
 
 alias pacman-mirrors-update 'sudo pacman-mirrors -f && sudo pacman -Syy'
@@ -36,7 +38,7 @@ alias screenkey-below-for-left-window 'screenkey -g 950x1000 -t 0.5 &'
 # -s: silence 'no server found' message, still causes an error in terminal
 alias nvr 'nvr -s'
 
-# Fzf
+# Fzf {{{1
 # Note: fzf --bind to execute(cd {}) doesn't work; use 'accept' instead
 alias fzf-ghq "cd (ghq list --full-path | fzf --bind 'ctrl-v:execute(nvr {})')"
 alias gz fzf-ghq
