@@ -184,6 +184,8 @@ set matchpairs+=<:>,「:」,『:』
 set complete-=i " i: included files
 
 " Edit {{{1
+set nojoinspaces
+
 " Method; Visual Mode {{{2
 set virtualedit=block
 
