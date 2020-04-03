@@ -1,14 +1,12 @@
 scriptencoding utf-8
 " From: init.vim
 
-"set foldmarker={{{\\d*$,}}}\\d*$
-
 if executable('rg')
   " Ref: https://ktrysmt.github.io/blog/finish-work-early-with-cli-made-by-rust/
   set grepprg=rg\ --vimgrep\ --no-heading
   set grepformat=%f:%l:%c:%m,%f:%l:%m
 endif
-command! -nargs=+ -complete=file Grep tab silent grep --sort-files <args>
+command! -nargs=+ -complete=file Grep silent tab grep --sort-files <args>
 
 " Time in ms to wait for a mapped sequence to complete.
 " For: made me notice if any mappings are in Caleene's way.
@@ -20,11 +18,104 @@ set synmaxcol=320
 " 'autochdir': with it on, some plugins may not work, like vim-findroot
 "set autochdir
 
-" Appearance {{{1
-" Set; Font {{{2
+" Shell {{{1
+" CAUTION: some plugins depends on bash, such as twiggy.vim.
+"if executable('fish')
+"   set shell=fish
+"endif
+
+" Mouse {{{1
+" 'mouse':
+"   n: Normal mode
+"   v: Visual mode
+"   i: Insert mode
+"   c: Command-line mode
+"   h: all previous modes when editing a help file
+"   a: all previous modes
+"   r: for |hit-enter| and |more-prompt| prompt
+set mouse=a
+"augroup MyAutoView
+"" Note: may cause trouble with shada in such caches as jumplist.
+"  function! s:is_view_available() abort "{{{
+"    if !&buflisted || &bt !=# ''
+"      return 0
+"    elseif !filewritable(expand('%:p'))
+"      return 0
+"    endif
+"    return 1
+"  endfunction "}}}
+"  function! s:mkview() abort "{{{
+"    if s:is_view_available()
+"      silent! mkview
+"    endif
+"  endfunction "}}}
+"  function! s:loadview() abort "{{{
+"    if s:is_view_available()
+"      silent! loadview
+"    endif
+"  endfunction "}}}
+"  au BufWinLeave ?* call s:mkview()
+"  au BufReadPost ?* call s:loadview()
+"augroup END
+" Shada {{{2
+if has('nvim')
+  " see doc by `:h 'shada'`; single-quote is required for options
+  "   ': jumplist and changelist
+  "   <: max number of lines for register
+  "   h: disable 'hlsearch' after loading the shada
+  "   s:
+  " Default:
+  "   Win32:  !,'100,<50,s10,h,rA:,rB:
+  "   others: !,'100,<50,s10,h
+  set shada='500,<50,h,s10,
+
+  augroup myAutoWriteShada
+    if exists('#myAutoWriteShada')
+      au! myAutoWriteShada
+    endif
+    " Note: shada only saves the data on VimLeave so that
+    "       nothing won't be saved, when you start another process of neovim,
+    "       i.e., no data won't share with the running neovim process then.
+    au InsertLeave * wshada
+    "au! FocusGained * rshada!
+  augroup END
+
+  "function! s:save_jumplists() abort
+  " TODO: should share jumplist on multiple neovim processes.
+  "  let l:shada_conf = execute('set shada')
+  "  set shada='100
+  "  wshada
+  "  set shada=expand(l:shada_conf)
+  "endfunction
+
+endif
+
+" Session {{{2
+" terminal is regarded as an invalid argument
+" buffers,tabpages,fold,help
+set sessionoptions=globals
+set sessionoptions+=localoptions,options
+set sessionoptions+=slash,winsize
+" Inc/Decrement {{{2
+"set nrformats+=octal
+" Fold {{{1
+"set foldenable " default: on
+" setglobal foldminlines=40 " open if the fold block is less than the size
+set foldmethod=syntax
+" Note: 'foldlevel' is local to window
+set foldlevelstart=0
+set foldnestmax=10
+" reduce block (e.g., [[,{)
+set foldopen=hor,insert,mark,percent,quickfix,search,tag,undo
+
+set formatoptions=jmB1cql " default: tcqj
+
+"set foldmarker={{{\\d*$,}}}\\d*$
+
+" Appearance; Font {{{1
 set ambiwidth=double
 
-" Term GUI Colors {{{2
+" Appearance; Term GUI Colors {{{1
 " Ref: *term-dependent-settings* or /usr/share/nvim/runtime/doc/term.txt
 if $TERM =~# '^\(tmux\|iterm\|vte\|gnome\)\(-.*\)\?$'
   set termguicolors " Enables 24-bit RGB color in TUI.
@@ -46,7 +137,7 @@ elseif $TERM =~# '^\(xterm\)\(-.*\)\?$'
   endif
 endif
 
-" transparency {{{1
+" Appearance; transparency {{{1
 " Note: it works dum CUI.
 if exists('&pumblend')
   set pumblend=35
@@ -133,13 +224,38 @@ set list
 "set listchars=tab:»-,trail:-,eol:↲,extends:»,precedes:«,nbsp:%
 set listchars=tab:\ \ \|,trail:-,nbsp:+
 
-" Method; Shell {{{1
-" CAUTION: some plugins depends on bash, such as twiggy.vim.
-"if executable('fish')
-"   set shell=fish
-"endif
-" Insert {{{1
-" Method; Imput Method {{{2
+" Split; Multiple Windows {{{1
+set splitbelow
+set splitright
+
+" Mode; Visual Mode {{{1
+set virtualedit=block
+
+" Mode; Commandline Mode {{{1
+set noshowcmd
+set history=100 " default: 10000, history of ':' commands
+" Cmdline; Completion
+set wildmenu wildmode=list:longest
+"set wildmenu wildmode=longest:full
+set completeopt=menu,preview,longest
+" 'wildcharm' works exactly like 'wildchar', which is <TAB> in vim as default,
+" but it keeps to work in cnoremap.
+set wildcharm=<c-y>
+" for `:substitute`
+if exists('+inccommand')
+  set inccommand=nosplit
+endif
+
+" Edit; Join {{{1
+set nojoinspaces
+
+" Edit; Macros {{{1
+" lazyredraw: forbids to redraw screen while executing macros.
+" Note: had caused a problem w/ fugitive;
+"       expanded too wide a fugitive buffer's window.
+set lazyredraw
+
+" Insert; Imput Method {{{1
 " 0: IM will be off, when lmap is off.
 " lmap supports 3 modes: insert, commandline and lang-arg.
 set iminsert=0
@@ -153,7 +269,19 @@ set imcmdline
 "    au InsertLeave * nested call system('fcitx-remote -c')
 "  endif
 "augroup END
-" Method; Tab&Indent {{{2
+
+" Insert; Text Width {{{1
+set textwidth=79
+"augroup myForceFormatOptions
+"  au!
+"  "au OptionSet * if &fo =~# 'r\|o' | silent set fo-=r fo-=o | endif
+"  "au InsertCharPre * if &fo =~# 'r\|o' | silent set fo-=r fo-=o | endif
+" au InsertEnter * if &conceallevel != 0 && &tw =~# '' | set textwidth=0 | endif
+"  "au FileType * if getline(1, '$') ==# [] | startinsert | endif
+"augroup END
+"set foldclose " when cursor is out of fold, close automatically.
+
+" Insert; Tab&Indent {{{1
 "" Tab-Char
 " Insert spaces, instead of a tab-char.
 set expandtab
@@ -174,146 +302,23 @@ set shiftwidth=2
 set smarttab
 " for '</>' indent, insert spaces according to &l:shiftwidth.
 set shiftround
-" Method; Pair {{{2
+
+" Insert; Completion {{{1
+set complete-=i " i: included files
+
+" Motion; Pair {{{1
 " show match parens.
 set showmatch
 set matchtime=1 " 10 times the number sec.
 " add '<' and '>' as a match pair
 set matchpairs+=<:>,「:」,『:』
-" Method; Completion {{{2
-set complete-=i " i: included files
-
-" Edit {{{1
-set nojoinspaces
-
-" Method; Visual Mode {{{2
-set virtualedit=block
-
-" Method; Commandline Mode {{{2
-set noshowcmd
-set history=100 " default: 10000, history of ':' commands
-" Cmdline; Completion
-set wildmenu wildmode=list:longest
-"set wildmenu wildmode=longest:full
-set completeopt=menu,preview,longest
-" 'wildcharm' works exactly like 'wildchar', which is <TAB> in vim as default,
-" but it keeps to work in cnoremap.
-set wildcharm=<c-y>
-" for `:substitute`
-if exists('+inccommand')
-  set inccommand=nosplit
-endif
-" Method; Macros "{{{2
-" lazyredraw: forbids to redraw screen while executing macros.
-" Note: had caused a problem w/ fugitive;
-"       expanded too wide a fugitive buffer's window.
-set lazyredraw
-" Method; Fold {{{2
-"set foldenable " default: on
-" setglobal foldminlines=40 " open if the fold block is less than the size
-set foldmethod=syntax
-" Note: 'foldlevel' is local to window
-set foldlevelstart=0
-set foldnestmax=10
-" reduce block (e.g., [[,{)
-set foldopen=hor,insert,mark,percent,quickfix,search,tag,undo
-
-set formatoptions=jmB1cql " default: tcqj
-
-" 'mouse':
-"   n: Normal mode
-"   v: Visual mode
-"   i: Insert mode
-"   c: Command-line mode
-"   h: all previous modes when editing a help file
-"   a: all previous modes
-"   r: for |hit-enter| and |more-prompt| prompt
-set mouse=a
-set textwidth=79
-"augroup myForceFormatOptions
-"  au!
-"  "au OptionSet * if &fo =~# 'r\|o' | silent set fo-=r fo-=o | endif
-"  "au InsertCharPre * if &fo =~# 'r\|o' | silent set fo-=r fo-=o | endif
-" au InsertEnter * if &conceallevel != 0 && &tw =~# '' | set textwidth=0 | endif
-"  "au FileType * if getline(1, '$') ==# [] | startinsert | endif
-"augroup END
-"set foldclose " when cursor is out of fold, close automatically.
-
-"augroup MyAutoView
-"" Note: may cause trouble with shada in such caches as jumplist.
-"  function! s:is_view_available() abort "{{{
-"    if !&buflisted || &bt !=# ''
-"      return 0
-"    elseif !filewritable(expand('%:p'))
-"      return 0
-"    endif
-"    return 1
-"  endfunction "}}}
-"  function! s:mkview() abort "{{{
-"    if s:is_view_available()
-"      silent! mkview
-"    endif
-"  endfunction "}}}
-"  function! s:loadview() abort "{{{
-"    if s:is_view_available()
-"      silent! loadview
-"    endif
-"  endfunction "}}}
-"  au BufWinLeave ?* call s:mkview()
-"  au BufReadPost ?* call s:loadview()
-"augroup END
-" Method; Shada {{{2
-if has('nvim')
-  " see doc by `:h 'shada'`; single-quote is required for options
-  "   ': jumplist and changelist
-  "   <: max number of lines for register
-  "   h: disable 'hlsearch' after loading the shada
-  "   s:
-  " Default:
-  "   Win32:  !,'100,<50,s10,h,rA:,rB:
-  "   others: !,'100,<50,s10,h
-  set shada='500,<50,h,s10,
-
-  augroup myAutoWriteShada
-    if exists('#myAutoWriteShada')
-      au! myAutoWriteShada
-    endif
-    " Note: shada only saves the data on VimLeave so that
-    "       nothing won't be saved, when you start another process of neovim,
-    "       i.e., no data won't share with the running neovim process then.
-    au InsertLeave * wshada
-    "au! FocusGained * rshada!
-  augroup END
-
-  "function! s:save_jumplists() abort
-  " TODO: should share jumplist on multiple neovim processes.
-  "  let l:shada_conf = execute('set shada')
-  "  set shada='100
-  "  wshada
-  "  set shada=expand(l:shada_conf)
-  "endfunction
-
-endif
-
-" Method; Session {{{2
-" terminal is regarded as an invalid argument
-" buffers,tabpages,fold,help
-set sessionoptions=globals
-set sessionoptions+=localoptions,options
-set sessionoptions+=slash,winsize
-" Method; Inc/Decrement {{{2
-"set nrformats+=octal
-" Leap; Multiple Windows {{{1
-set splitbelow
-set splitright
-
-" Leap; Jump {{{1
+" Motion; Jump {{{1
 " nostartofline: keep cursor column on jump, like `gg`, `M`.
 set nostartofline
 " hidden: ignore unwritten buffers to jump.
 set hidden
 
-" Leap; Search {{{1
+" Motion; Search {{{1
 set noignorecase
 "set ignorecase smartcase
 "set smartcase
