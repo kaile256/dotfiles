@@ -2,8 +2,6 @@
 " Ref: cmaps.vim
 " Ref: cabbrs.vim
 
-command! -bar SynEcho :echo synIDattr(synID(line('.'), col('.'), 1), 'name')
-
 command! -bar CursorCharIs
       \ :echo "'". getline('.')[col('.') - 1] ."' is the character under cursor, as getline('.')[col('.') - 1]"
 
@@ -59,9 +57,10 @@ function! s:lint_buffer(...) abort range
   endfor
 endfunction
 
-command! -bar S  :call s:source_buffer() "{{{1
-command! -bar So :call s:source_buffer()
+command! -bar So :call s:source_buffer() "{{{1
 command! -bar SO :call s:source_buffer()
+command! -bar OS :call s:source_buffer()
+command! -bar Os :call s:source_buffer()
 
 if !exists('*s:source_buffer')
   function! s:source_buffer() abort
