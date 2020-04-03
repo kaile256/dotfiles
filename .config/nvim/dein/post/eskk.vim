@@ -50,9 +50,15 @@ augroup myEskkSource
     "EskkMap -type=mode:hankata:toggle-kata q
     "EskkMap -type=mode:hankata:q-key q
   endfunction "}}}
+
   if executable('notify-send')
     au User eskk-enable-post  call system("notify-send --expire-time 1100 --urgency critical 'Vim: eskk is Activated'")
     au User eskk-disable-post call system("notify-send --expire-time 1100 'Vim: eskk is OFF'")
   endif
+
+  " Note: eskk with &tw > 0 splits the input and force users delete previous words
+  "   to type again.
+  au User eskk-enable-post  let s:tw = &tw | setlocal tw=0
+  au User eskk-disable-post let &tw = s:tw
 augroup END/eskk.vim
 
