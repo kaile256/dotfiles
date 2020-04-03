@@ -1,23 +1,8 @@
 " From: myplug.toml
 " Repo: kaile256/vim-SandJoin
+" Another: source/SandJoin.vim
 
 set nojoinspaces
-
-"let g:SandJoin#patterns = {
-"      \ '_': [
-"      \   ['[^ \t\\]\zs\s\+', ' ', 'GLOBAL'],
-"      \ ],
-"      \ 'sh': [
-"      \   ['\(^\|[;\\]\|do\|then\)\@<!$', '; ', '^bottom'],
-"      \   ['[ \t\\]*$', '', '^bottom'],
-"      \ ],
-"      \ 'vim': [
-"      \   ['^\s*\([^"| \t\\]\)\s*', ' | \1', '^top'],
-"      \   ['^[ \t\\]*', '', '^top'],
-"      \ ],
-"      \ }
-
-let g:SandJoin#no_default_mappings = 1
 
 nmap <space>J <Plug>(SandJoin-J)
 xmap <space>J <Plug>(SandJoin-J)
