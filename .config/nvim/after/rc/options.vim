@@ -227,7 +227,7 @@ set formatoptions=jmB1cql " default: tcqj
 "   a: all previous modes
 "   r: for |hit-enter| and |more-prompt| prompt
 set mouse=a
-setglobal textwidth=79
+set textwidth=79
 "augroup myForceFormatOptions
 "  au!
 "  "au OptionSet * if &fo =~# 'r\|o' | silent set fo-=r fo-=o | endif
