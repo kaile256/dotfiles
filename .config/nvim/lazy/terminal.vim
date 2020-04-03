@@ -1,5 +1,6 @@
 " From: init.vim
 " Another: tmaps.vim
+" Another: keymap/open_terminal.vim
 
 "" Even as a startpage, startinsert {{{1
 "setl nonumber signcolumn= bufhidden=wipe

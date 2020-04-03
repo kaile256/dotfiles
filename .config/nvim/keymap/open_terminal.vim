@@ -1,4 +1,6 @@
 " From: init.vim
+" Another: tmaps.vim
+" Another: lazy/terminal.vim
 
 let s:path_dict = {
       \ '': '%:p:h',

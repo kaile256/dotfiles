@@ -1,5 +1,6 @@
 " From: init.vim
-" Another: terminal.vim
+" Another: lazy/terminal.vim
+" Another: keymap/open_terminal.vim
 
 "" TODO: more accurate pattern to ':' in ternminal
 "" Note: currently no use, why?
