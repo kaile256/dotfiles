@@ -1,4 +1,4 @@
-" From: finder.toml
+" TOML: browse.toml
 " Repo: zgpio/tree.nvim
 " Another: post/tree.vim
 
