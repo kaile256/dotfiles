@@ -38,6 +38,19 @@ URxvt.font: FONT_SET
 !XTerm*faceSize: 14
 
 ! URxvt {{{1
+! Ref:
+!   Ctrl+Shift is a shortcut to input any Unicode character like <C-v> in vim
+!   https://www.reddit.com/r/urxvt/comments/35x03n/if_youve_been_vexed_by_urxvts_picture_insert_mode/
+URxvt.iso14755: false
+URxvt.iso14755_52: false
+
+! Ref: https://unix.stackexchange.com/questions/294337/rebinding-ctrl-alt-cv-to-ctrl-shift-cv-in-urxvt-9-20/329556#329556
+URxvt.keysym.Shift-Control-V: eval:paste_clipboard
+URxvt.keysym.Shift-Control-C: eval:selection_to_clipboard
+! Disable keybinds with `builtin-string:`
+URxvt.keysym.Control-Meta-c: builtin-string:
+URxvt.keysym.Control-Meta-v: builtin-string:
+
 URxvt.termName: rxvt-unicode
 
 ! Window-Size (default: 80x24)
