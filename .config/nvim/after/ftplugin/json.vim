@@ -9,8 +9,7 @@ setl fdm=syntax fdl=2
 "setl noexpandtab
 
 augroup myJsonFtplugin
-  if exists('#myJsonFtplugin')
-    au! myJsonFtplugin
+  if exists('#myJsonFtplugin') | au! myJsonFtplugin
   endif
   au InsertLeave json call s:json_format()
 augroup END
@@ -29,6 +28,20 @@ endfunction
 setl fdm=expr fde=JsonFoldExpr()
 function! JsonFoldExpr() abort "{{{1
   let line = getline(v:lnum)
+
+  " let s:lnum_end = nextnonblank(v:lnum)
+  " let next       = getline(s:lnum_end)
+  " if v:lnum < s:lnum_end
+  "   return '='
+  " elseif v:lnum == s:lnum_end
+  "   return '<'. indent(v:lnum) / &shiftwidth
+  " endif
+  " while matchstr(line, '\w\+\.') ==# matchstr(next, '\w\+\.')
+  "   let s:lnum_end = nextnonblank(s:lnum_end)
+  "   let next       = getline(s:lnum_end)
+  " endwhile
+  " return '>'. indent(v:lnum) / &shiftwidth
+
   if line =~# '[\[{]$'
     return '>'. indent(v:lnum) / &shiftwidth
   elseif line =~# '^\s*[\]}]'
