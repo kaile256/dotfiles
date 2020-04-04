@@ -3,6 +3,23 @@
 
 let g:airline_theme = 'term'
 
+augroup myAirlineSou
+  if exists('#myAirlineSou') | au! myAirlineSou
+  endif
+  au ColorScheme * ++nested call s:set_airline_theme("<amatch>")
+augroup END
+function! s:set_airline_theme(coloname) abort
+  let themes = airline#util#themes(a:coloname)
+
+  if empty(themes)
+    let theme = g:airline_theme
+  else
+    let theme = themes[len(themes) - 1]
+  endif
+
+  exe 'AirlineTheme' theme
+endfunction
+
 let g:airline#extensions#branch#empty_message = '...'
 let g:airline#extensions#branch#format = 2
 
