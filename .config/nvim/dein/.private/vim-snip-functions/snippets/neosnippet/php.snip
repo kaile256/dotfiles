@@ -15,7 +15,7 @@ alias utf u8
   <meta charset="UTF-8">
 
 snippet Meta: text/html
-alias th mh
+alias th thtml
   <meta http-equiv="Content-Type" content="text/html">
 
 snippet Form: action
@@ -44,9 +44,12 @@ alias post PO pos
 snippet <?php ?>
 alias php
 options head
-  <?php
-    ${1:TARGET}
-  ?>
+  <?php`snip#general#space_or_newline(0)`?>
+
+snippet <?= ?>
+alias = ?=
+options head
+  <?= ${1} ?>
 
 snippet br\n after chars
 alias br \n
@@ -56,3 +59,16 @@ snippet br\n on head
 alias br \n
 options head
   echo "<br>\n";
+
+snippet else
+alias el els
+options head
+  `getline('.') !~# '^\s*}' ? '} ' : ''`else ${1:if ($\{2\}) }{
+snippet catch
+alias cat ca ct
+options head
+  `getline('.') !~# '^\s*}' ? '} ' : ''`catch (${1}Exception $e) {
+snippet finally
+alias fin
+options head
+  `getline('.') !~# '^\s*}' ? '} ' : ''`finally {
