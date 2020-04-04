@@ -40,7 +40,7 @@ augroup myRuntimesSelection
   exe 'au' $TermOpen '* runtime lazy/terminal.vim'
   exe 'au' $TermOpen '* ++once runtime once/tmaps.vim'
 
-  au OptionSet   diff if &diff | runtime lazy/diff.vim     | endif
-  au BufWinEnter *    if &ro   | runtime lazy/readonly.vim | endif
+  au OptionSet diff     if &diff | runtime lazy/diff.vim     | endif
+  au OptionSet readonly if &ro   | runtime lazy/readonly.vim | endif
   "au BufWritePre * if getfperm('<amatch>') =~# '^rwx' | setl ff=unix | endif
 augroup END
