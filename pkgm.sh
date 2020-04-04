@@ -13,7 +13,20 @@ set -Cue #{{{
 
 # `paccache -ruk3`
 # All themes set in `lxappearance`
+# Preferences:
+#   ntp: sync time
 PACKAGEs=(
+  composer # php dependency manager on PHPStorm?
+  rxvt-unicode-improve-font-rendering
+  xcape # Config modifier keys to act as other keys with/without another key
+  skypeforlinux-stable-bin
+  virtualbox
+  llvm
+  podman # a substitute for docker
+  ttf-octicons
+  #haskell-language-server-git # returns 404
+  #haskell-ide-engine # install as the language server; returns 404
+  maven # Java's build tool
   languagetool # OSS server for spell check
   jdk8-openjdk
   jre8-openjdk
@@ -145,7 +158,7 @@ PACKAGEs=(
   multibootusb # to create live usb
   neovim-nightly
   neovim-qt-git # non-git ver. has a bug, missing its depending lib.
-  #nerd-fonts-complete
+  nerd-fonts-complete
   #nerd-fonts-ricty # unavailable
   brew-git # a pkgm for macOS (or Linux)
   ninja # a build system for clang
@@ -391,11 +404,11 @@ GO111MODULE=on go get golang.org/x/tools/gopls@latest
 #brew install sfmono-square
 #open "$(brew --prefix sfmono-square)/share/fonts"
 
-URXVT_PATCHED=rxvt-unicode-truecolor-illef
-URXVT_PATCHED_DIR=/tmp/$URXVT_PATCHED
-git clone -b master --depth 1 https://github.com/illef/$URXVT_PATCHED $URXVT_PATCHED_DIR
-cd $URXVT_PATCHED_DIR
-makepkg -si
+#URXVT_PATCHED=rxvt-unicode-truecolor-illef
+#URXVT_PATCHED_DIR=/tmp/$URXVT_PATCHED
+#git clone -b master --depth 1 https://github.com/illef/$URXVT_PATCHED $URXVT_PATCHED_DIR
+#cd $URXVT_PATCHED_DIR
+#makepkg -si
 
 # ACTIVATION {{{1
 echo "Enable wpa_supplicant:"
@@ -404,6 +417,14 @@ echo "Enable systemd-networkd:"
 systemctl enable systemd-networkd.service
 echo "Enable systemd-networkd@:"
 systemctl enable systemd-networkd@.service
+
+echo "Recache fonts"
+fc-cache --verbose
+
+echo "Activate MySQL:"
+# Ref: https://dominicm.com/install-mysql-mariadb-on-arch-linux/
+sudo mysql_install_db --user=mysql --basedir=/usr --datadir=/var/lib/mysql
+mysql_secure_installation
 
 # END {{{1
 
