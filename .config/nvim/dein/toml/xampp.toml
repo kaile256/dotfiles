@@ -29,15 +29,20 @@ on_ft = ['html', 'xml', 'xsl', 'php']
 # Note: contributes in vim-polyglot
 #on_ft = 'html'
 #[ PHP ]
-[[plugins]]
-repo = 'vim-scripts/php.vim-html-enhanced'
-on_ft = ['php']
+#[[plugins]]
+#repo = 'lvht/phpfold.vim'
+## no use?
+#on_ft = ['php']
+#[[plugins]]
+#repo = 'vim-scripts/php.vim-html-enhanced'
+#on_ft = ['php']
 #[[plugins]]
 #repo = 'berrygoudswaard/vim-php-html-indent'
+## <?php ?> tag gets no indent level
 #on_ft = ['php']
-#[[plugins]]
-#repo = '2072/PHP-Indenting-for-VIm'
-#on_ft = ['php']
+[[plugins]]
+repo = '2072/PHP-Indenting-for-VIm'
+on_ft = ['php']
 
 #[[plugins]]
 #repo = 'phpactor/phpactor'
@@ -72,9 +77,9 @@ hook_source = 'runtime source/SQHell.vim'
 #'DBConnect',
 #]
 #
-[[plugins]]
-repo = 'alcesleo/vim-uppercase-sql'
-on_ft = ['sql']
+#[[plugins]]
+#repo = 'alcesleo/vim-uppercase-sql'
+#on_ft = ['sql']
 [[plugins]]
 repo = 'mattn/vim-sqlfmt'
 build = 'pip3 install --upgrade sqlparse'
