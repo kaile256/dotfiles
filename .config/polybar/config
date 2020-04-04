@@ -7,7 +7,7 @@
 ;include-file = ~/.config/polybar/bar/top.ini
 
 ;;       /tmp/polybar-main.log
-include-file  = ~/.config/polybar/bar/main.ini
+include-file = ~/.config/polybar/bar/main.ini
 
 ;;       /tmp/polybar-bottom.log
 ;include-file = ~/.config/polybar/bar/bottom.ini
