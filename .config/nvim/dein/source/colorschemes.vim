@@ -1,0 +1,23 @@
+" From: appearance.toml
+" Repo: flazz/vim-colorschemes
+" Another: post/colorschemes.vim
+
+augroup myColorschemesSo
+  if exists('#myColorschemesSo') | au! myColorschemesSo
+  endif
+  au Colorscheme * ++nested call s:my_commons()
+augroup END
+
+function! s:my_commons() abort
+  hi! HighlightedyankRegion ctermfg=232 ctermbg=66 guifg=#000000 guibg=#df5f29
+  hi! CocErrorHighlight     ctermfg=red guifg=#ff0000
+
+  hi! CursorIM guibg=#fabd1f
+  hi! MatchParen ctermfg=magenta ctermbg=yellow guifg=#e6c50f guibg=#8924ff
+
+  "hi Folded ctermfg=59 ctermbg=236 guifg=#5f5f5f guibg=#303030
+
+  if $ALACRITTY_LOG =~# '\.log$'
+    runtime rc/transparent.vim
+  endif
+endfunction
