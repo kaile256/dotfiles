@@ -44,9 +44,7 @@ let $TermOpen = has('nvim') ? 'TermOpen' : 'TerminalOpen'
 set packpath=
 
 " &rtp; "{{{1
-set rtp+=~/.config/nvim/data
 set rtp+=~/.config/nvim/lazy
-set rtp+=~/.config/nvim/toml
 set rtp+=~/.config/nvim/keymap
 
 " Provider {{{1
