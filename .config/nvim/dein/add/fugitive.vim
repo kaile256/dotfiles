@@ -158,7 +158,7 @@ function! s:winreduce(...) abort "{{{2
   for bufnr in tabpagebuflist()
     if s:is_nobuffers(bufnr, a:0 > 0 ? a:1 : [])
       let winnr = bufwinnr(bufnr)
-      exe winnr 'windo quit'
+      exe winnr 'windo close'
     endif
   endfor
   call win_gotoid(winID)
