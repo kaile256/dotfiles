@@ -18,3 +18,10 @@ let g:UltiSnipsRemoveSelectModeMappings = 0
 "let g:UltiSnipsJumpForwardTrigger  = '<c-n>'
 "let g:UltiSnipsJumpBackwardTrigger = '<c-p>'
 
+augroup myUltisnipsSo
+  if exists('myUltisnipsSo') | au! myUltisnipsSo
+  endif
+  " Note: neosnippet could override default ft.
+  au FileType neosnippet
+        \ if expand('%:e') ==# 'snippets' | setl ft=snippets | endif
+augroup END
