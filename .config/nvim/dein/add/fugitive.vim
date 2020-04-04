@@ -94,7 +94,10 @@ endfunction
 function! s:Gvstatus(...) abort "{{{1
   let args = a:0 > 0 ? join(a:000) : ''
   " Note: cannot use :Gvstatus itself, of course
-  exe 'vert bot 35 Gstatus' args
+  exe 'vert bot 34 Gstatus' args
+  if has('nvim')
+    call nvim_win_set_width(0, 34)
+  endif
   setl winfixwidth
   wincmd =
   " go to Staged section
