@@ -51,7 +51,7 @@ __kill_polybar() {
   # Terminate already running bar instances
   killall --quiet polybar && true
 
-  while pgrep -u $UID -x polybar >>/dev/null; do sleep 0.50; done
+  while pgrep -u $UID -x polybar >>/dev/null; do sleep 1; done
 }
 
 restart_polybar() {
