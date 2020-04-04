@@ -35,7 +35,6 @@ options indent
 snippet Class: main
 alias ma mn
   public static void main(String[] args) ${1:throws Exception }{
-    ${0:TARGET}
   }
 
 snippet Class: general class
@@ -127,6 +126,6 @@ alias nw ne
   ${1:#:class_name} = new $1${2:#:remove?}()
 
 snippet Operator: else
-alias else el }e }{
+alias else el els }e }{
 options word
   } else${1: if }{2:#:( condition )} {
