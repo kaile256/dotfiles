@@ -1,4 +1,6 @@
 {
+  // "suggest.enablePreview" should be true to use preview
+  "coc.preferences.hoverTarget": "preview",
   "coc.preferences.extensionUpdateCheck": "weekly",
   "coc.preferences.formatOnType": true,
   "coc.preferences.formatOnSaveFiletypes": ["css", "Markdown"],
@@ -21,11 +23,11 @@
   "signature.preferShownAbove": false,
   "signature.triggerSignatureWait": 300,
 
+  "suggest.enablePreview": true,
+  "suggest.floatEnable": true,
   "suggest.minTriggerInputLength": 0,
   "suggest.autoTrigger": "always",
   "suggest.acceptSuggestionOnCommitCharacter": true,
-  "suggest.enablePreview": false,
-  "suggest.floatEnable": true,
   "suggest.noselect": true,
   "suggest.timeout": 500,
   "suggest.triggerAfterInsertEnter": false,
@@ -64,6 +66,7 @@
   //"diagnostic.checkCurrentLine": true,
   "diagnostic.virtualText": false,
   //"diagnostic.messageTarget": "float",
+  "diagnostic.joinMessageLines": true,
 
   "session.directory": "~/.local/share/nvim/session/",
 
@@ -285,8 +288,8 @@
           "email": "languagetool",
           "markdown": ["write-good", "markdownlint"],
           "sh": "shellcheck",
-          "elixir": ["mix_credo", "mix_credo_compile"],
-          "php": "phpcs"
+          "elixir": ["mix_credo", "mix_credo_compile"]
+          //"php": "phpcs"
           //"vim": "vint"
         },
         "formatters": {
