@@ -12,7 +12,7 @@ function! HelpFoldExpr() abort "{{{1
     return '>1'
   elseif line =~# '^-\+$'
     return '>2'
-  elseif line =~# '\*.*\*\s*$' && line !~# '^\s*\u\+'
+  elseif line =~# '\s\+\*\S\+\*\s*$' && line !~# '^\s*\u\+'
     "if getline(v:lnum - 1) =~# '^=\+$'
     "  return '='
     "elseif getline(v:lnum - 1) =~# '^-\+$'
