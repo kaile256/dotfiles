@@ -24,7 +24,8 @@ alias .2  'cd ../..'
 alias ....  'cd ../../..'
 alias .3  'cd ../../..'
 
-alias pg 'pgrep'
+#alias pg 'pgrep'
+alias pg 'ps aux | grep'
 
 alias pk '~/start-kail.sh'
 
