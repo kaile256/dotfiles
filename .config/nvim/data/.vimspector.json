@@ -1,6 +1,7 @@
 {
   "adapters": {
-    "coc-java-debug-server": {
+    "java-coc-debug-server": {
+      "type": "java",
       "name": "vscode-java",
       "port": "${AdapterPort}"
     },
@@ -47,12 +48,24 @@
       "command": ["node", "${gadgetDir}/vscode-php-debug/out/phpDebug.js"],
       "name": "node2",
       "type": "node2"
+    },
+    "vim-debug-adapter": {
+
+    },
+    "lldb-vscode": {
+      "name": "lldb",
+      "command": ["lldb-vscode"],
+      "env": {
+        "LLDB_LAUNCH_FLAG_LAUNCH_IN_TTY": "YES"
+      }
     }
   },
   "configurations": {
-    "java_coc_debug": {
-      "adapter": "coc-java-debug-server",
+    "coc-java-debug": {
+      "adapter": "java-coc-debug-server",
       "configuration": {
+        "name": "Java: Current File through coc.nvim",
+        "type": "java",
         "request": "attach",
         "host": "127.0.0.1",
         "port": "5005"
@@ -152,23 +165,24 @@
         }
       }
     },
-    "javascript_file_in_chrome": {
-      "adapter": "chrome",
-      "configuration": {
-        "request": "launch",
-        "url": "http://localhost:1234/",
-        "webRoot": "${workspaceRoot}/www"
-      }
-    },
-    "javascript_file": {
+    "javascript_workspace": {
       "adapter": "vscode-node",
       "configuration": {
+        "name": "JavaScript: Workspace",
         "request": "launch",
         "protocol": "auto",
         "stopOnEntry": true,
         "console": "integratedTerminal",
         "program": "${workspaceRoot}/simple.js",
         "cwd": "${workspaceRoot}"
+      }
+    },
+    "javascript_file_in_chrome": {
+      "adapter": "chrome",
+      "configuration": {
+        "request": "launch",
+        "url": "http://localhost:1234/",
+        "webRoot": "${workspaceRoot}/www"
       }
     },
     "go_file": {
@@ -179,82 +193,6 @@
         "mode": "debug",
         "dlvToolPath": "/usr/bin/dlv",
         "trace": true
-      }
-    },
-    "simple_c_program - lldb-mi Launch": {
-      "adapter": "lldb-mi",
-      "configuration": {
-        "request": "launch",
-        "target": "support/test/cpp/simple_c_program/test",
-        "args": [],
-        "cwd": ".",
-        "lldbmipath": "$HOME/.vscode/extensions/ms-vscode.cpptools-0.20.1/debugAdapters/lldb/bin/lldb-mi",
-        "trace": true,
-        "logFilePath": "$HOME/.vimspector.protocol.log"
-      }
-    },
-    "simple_c_progra - ms Launch": {
-      "adapter": "cppdbg",
-      "configuration": {
-        "name": "ms Launch",
-        "type": "cppdbg",
-        "request": "launch",
-        "program": "${workspaceRoot}/support/test/cpp/simple_c_program/test",
-        "args": [],
-        "cwd": "$HOME",
-        "environment": [],
-        "externalConsole": true,
-        "MIMode": "lldb"
-      }
-    },
-    "simple_c_program - MS Attach": {
-      "adapter": "cppdbg",
-      "configuration": {
-        "name": "(lldb) Attach",
-        "type": "cppdbg",
-        "request": "attach",
-        "program": "${workspaceRoot}/support/test/cpp/simple_c_program/test",
-        "MIMode": "lldb"
-      }
-    },
-    "bashdb": {
-      "adapter": "bashdb",
-      "configuration": {
-        "type": "bashdb",
-        "request": "launch",
-        "name": "Bash-Debug (simplest configuration)",
-        "program": "$HOME/.vim/bundle/YouCompleteMe/install.sh",
-        "args": [],
-        "cwd": "$HOME/.vim/bundle/YouCompleteMe",
-        "pathBash": "bash",
-        "pathBashdb": "bashdb",
-        "pathCat": "cat",
-        "pathMkfifo": "mkfifo",
-        "pathPkill": "pkill",
-        "showDebugOutput": true,
-        "trace": true
-      }
-    },
-    "lldb launch": {
-      "adapter": "lldb",
-      "configuration": {
-        "type": "lldb",
-        "request": "launch",
-        "name": "LLDB: Launch",
-        "program": "$HOME/Development/vim/src/vim",
-        "args": [],
-        "cwd": "$HOME/Development/vim"
-      }
-    },
-    "racerd": {
-      "adapter": "lldb",
-      "configuration": {
-        "type": "lldb",
-        "request": "launch",
-        "name": "LLDB: Launch",
-        "program": "$HOME/.vim/bundle/YouCompleteMe/third_party/ycmd/third_party/racerd/target/debug/racerd",
-        "args": ["serve", "--port=12345", "--secret-file=secretfile"],
-        "cwd": "$HOME/.vim/bundle/YouCompleteMe/third_party/ycmd"
       }
     },
     "cpp_file": {
@@ -286,13 +224,13 @@
         }
       }
     },
-    "c_file": {
-      "adapter": "cppdbg",
+    "c_file_lldb": {
+      "adapter": "lldb-vscode",
       "configuration": {
         "name": "ms Launch",
         "type": "cppdbg",
         "request": "launch",
-        "program": "${workspaceRoot}/test",
+        "program": "${file}",
         "args": [],
         "cwd": "${workspaceRoot}",
         "environment": [],
@@ -308,6 +246,46 @@
         "request": "attach",
         "program": "${workspaceRoot}/test",
         "MIMode": "lldb"
+      }
+    },
+    "bashdb": {
+      "adapter": "bashdb",
+      "configuration": {
+        "type": "bashdb",
+        "request": "launch",
+        "name": "Bash-Debug (simplest configuration)",
+        "program": "$HOME/.vim/bundle/YouCompleteMe/install.sh",
+        "args": [],
+        "cwd": "$HOME/.vim/bundle/YouCompleteMe",
+        "pathBash": "bash",
+        "pathBashdb": "bashdb",
+        "pathCat": "cat",
+        "pathMkfifo": "mkfifo",
+        "pathPkill": "pkill",
+        "showDebugOutput": true,
+        "trace": true
+      }
+    },
+    "c_file": {
+      "adapter": "lldb",
+      "configuration": {
+        "type": "lldb",
+        "request": "launch",
+        "name": "LLDB: Launch",
+        "args": [],
+        "program": "${file}",
+        "cwd": "${workspaceRoot}"
+      }
+    },
+    "racerd": {
+      "adapter": "lldb",
+      "configuration": {
+        "type": "lldb",
+        "request": "launch",
+        "name": "LLDB: Launch",
+        "program": "$HOME/.vim/bundle/YouCompleteMe/third_party/ycmd/third_party/racerd/target/debug/racerd",
+        "args": ["serve", "--port=12345", "--secret-file=secretfile"],
+        "cwd": "$HOME/.vim/bundle/YouCompleteMe/third_party/ycmd"
       }
     },
     "launch - netcoredbg": {
