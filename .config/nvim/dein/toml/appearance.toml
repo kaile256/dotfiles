@@ -169,6 +169,23 @@ write
 repo = 'joshdick/onedark.vim'
 on_func = ['onedark#']
 #on_event = ['VimEnter']
+#[ Colorscheme.monokai ]
+#[[plugins]]
+#repo = 'phanviet/vim-monokai-pro'
+## purple-base monokai.
+#on_event = ['VimEnter']
+#[[plugins]]
+#repo = 'patstockwell/vim-monokai-tasty'
+## the colorscheme name is 'vim-monokai-tasty'.
+#on_event = ['VimEnter']
+#[[plugins]]
+#repo = 'ErichDonGubler/vim-sublime-monokai'
+#on_event = ['VimEnter']
+[[plugins]]
+repo = 'sainnhe/sonokai'
+on_event = ['VimEnter']
+hook_source = 'runtime source/sonokai.vim'
+hook_post_source = 'runtime post/sonokai.vim'
 
 #[ Colorscheme.Collection ]
 [[plugins]]
@@ -187,7 +204,7 @@ hook_post_source = 'runtime post/colorschemes.vim'
 [[plugins]]
 repo = 'rhysd/try-colorscheme.vim'
 # try colorscheme via URL/Repo
-on_func =  ['try_colorscheme#']
+on_func =  ['try_colorscheme#try']
 hook_add = 'runtime add/try-colorscheme.vim'
 
 #[ Colorscheme.Edit ]
