@@ -1,14 +1,33 @@
 " From: init.vim
 
+if expand('%:p') =~# '\(/\.git\)\|\(^/\(home\|tmp\)\)/'
+      \ || &diff
+  finish
+endif
+
+setl nomodifiable
 "setl signcolumn=
-"setl nomodifiable
 
-if !&modifiable && !&diff && @% !~# '\.git'
-  nnoremap <buffer> d <c-d>
-  nnoremap <buffer> u <c-u>
-endif
+augroup myReadonlyLazy
+  au!
+  au OptionSet modifiable call s:map_toggle()
+augroup END
 
-if expand('%:p') =~# '^/etc/sudoers\%[\.d/]'
-  setl nomodifiable
-  echoerr " You'd better edit by $ visudo"
-endif
+function! s:map_toggle() abort
+  if !&modifiable
+    nnoremap <buffer> d <c-d>
+    nnoremap <buffer> u <c-u>
+    return
+  endif
+
+  try
+    nunmap <buffer> u
+  catch
+    nunmap u
+  endtry
+  try
+    nunmap <buffer> d
+  catch
+    nunmap d
+  endtry
+endfunction
