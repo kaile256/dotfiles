@@ -14,21 +14,12 @@ augroup myNeodarkSo
   au Colorscheme neodark ++nested call s:my_neodark()
 augroup END
 function! s:my_neodark() abort "{{{1
-  hi! Search      ctermfg=236 ctermbg=180 guifg=#3e120a guibg=#ebb556
-  " NormalFloat: color for winblend, or floating windows
-  hi! NormalFloat ctermfg=236 ctermbg=180 guibg=#3a192c guifg=#9f994a
-
-  call s:mixed_diff()
+  call s:modified_diff()
   "call s:gruvbox_diff()
   " call s:neodark_diff()
 endfunction
 
-function! s:mixed_diff(...) abort "{{{2
-  if exists('s:syn_diff')
-    if s:syn_diff ==# 'mixed' | return | endif
-  endif
-  let s:syn_diff = 'mixed'
-
+function! s:modified_diff(...) abort "{{{2
   hi! DiffChange cterm=bold gui=bold ctermfg=179 ctermbg=237 guifg=#d7af5f guibg=#3a3a3a
 
   hi! DiffRemove  cterm=bold gui=bold ctermfg=167 guifg=#fb4934
@@ -41,12 +32,8 @@ function! s:mixed_diff(...) abort "{{{2
   " "hi diffLine    cterm=bold gui=bold ctermfg=109 guifg=#83a598
   " hi! diffLine    cterm=bold gui=bold ctermfg=109 guifg=#36b383
 endfunction
-function! s:neodark_diff(...) abort "{{{2
-  if exists('s:syn_diff')
-    if s:syn_diff ==# 'neodark' | return | endif
-  endif
-  let s:syn_diff = 'neodark'
 
+function! s:neodark_diff(...) abort "{{{2
   " the removed lines
   hi! DiffRemove cterm=bold gui=bold ctermfg=167 guifg=#fb4934
 
@@ -62,12 +49,8 @@ function! s:neodark_diff(...) abort "{{{2
   "hi! DiffDelete cterm=bold gui=bold ctermfg=168 ctermbg=237 guifg=#d75f87 guibg=#3a3a3a
   "hi! DiffText   cterm=bold gui=bold ctermfg=108 ctermbg=237 guifg=#87af87 guibg=#3a3a3a
 endfunction
-function! s:gruvbox_diff(...) abort "{{{2
-  if exists('s:syn_diff')
-    if s:syn_diff ==# 'gruvbox' | return | endif
-  endif
-  let s:syn_diff = 'gruvbox'
 
+function! s:gruvbox_diff(...) abort "{{{2
   hi! DiffChange  cterm=bold gui=bold ctermfg=108 guifg=#8ec07c
 
   hi! DiffAdd     cterm=bold gui=bold ctermfg=142 guifg=#b8bb26
