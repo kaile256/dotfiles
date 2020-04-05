@@ -5,10 +5,9 @@
 " Json: coc-settings.json
 " Another: source/coc.vim
 
-if exists('#myCocAdd')
-  au! myCocAdd
-endif
 augroup myCocAdd
+  if exists('#myCocAdd') | au! myCocAdd
+  endif
   au BufWinEnter coc-settings.json setl keywordprg=:help
 augroup END
 
