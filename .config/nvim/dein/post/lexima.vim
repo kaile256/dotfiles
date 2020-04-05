@@ -18,9 +18,19 @@ let s:rules_i_colon = []
 let s:rules_c_all   = []
 let s:rules_ic_all  = []
 
-let s:before_close = '\%#[\])}''"]'
-let s:before_paren = '\%#[\])}]'
-let s:before_quote = '\%#[`''"]'
+let s:close = '[\])}''"]'
+let s:paren = '[\])}]'
+let s:quote = '[`''"]'
+
+let s:not_close = '[^'. s:close[1:]
+let s:not_paren = '[^'. s:paren[1:]
+let s:not_quote = '[^'. s:quote[1:]
+
+let s:before_close = '\%#'. s:close
+let s:before_paren = '\%#'. s:paren
+let s:before_quote = '\%#'. s:quote
+
+let s:on_word = '\(\%#'. s:not_close .'\)\|\('. s:not_close .'\%#\)'
 
 " Note: both '=' and '+' works unexpectedly either with or without '\'.
 let s:delimeter_atom = '[,.;:]'
