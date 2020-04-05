@@ -83,8 +83,9 @@ if mapcheck('<c-w><c-q>', 'n') ==# ''
   nnoremap <c-w><c-q> <Nop>
 endif
 
-nnoremap <silent> <c-w><c-o> <c-w>o:diffoff!<cr>
-nnoremap <silent> <c-w>o     <c-w>o:diffoff!<cr>
+" Note: `:` should *not* be inserted in mappings because of i_CTRL-O
+nnoremap <silent> <c-w><c-o> :<c-u>wincmd o <bar> diffoff!<cr>
+nnoremap <silent> <c-w>o     :<c-u>wincmd o <bar> diffoff!<cr>
 nnoremap <silent> <c-w>O     :<c-u>tabonly<cr>
 
 nnoremap <c-w>Z ZZ
