@@ -241,14 +241,14 @@ nnoremap <silent> <space>cf :CocList files<cr>
 nnoremap <silent> <space>cb :CocList buffers<cr>
 
 " CocBookmark; {{{1
-nmap ma <Plug>(coc-bookmark-annotate)
-nmap mj <Plug>(coc-bookmark-next)
-nmap mk <Plug>(coc-bookmark-prev)
+nmap mA <Plug>(coc-bookmark-annotate)
+" nmap mj <Plug>(coc-bookmark-next)
+" nmap mk <Plug>(coc-bookmark-prev)
 nmap md <Plug>(coc-bookmark-toggle)
-nmap mt <Plug>(coc-bookmark-toggle)
+" nmap mt <Plug>(coc-bookmark-toggle)
 
-command! Bookmarks :Clist bookmark
-nnoremap <silent> <space>cb :Clist bookmark<cr>
+command! -bar Bookmarks :Coclist bookmark
+nnoremap <silent> <space>cb :Coclist bookmark<cr>
 
 "" CocExplorer {{{1
 "command! Cexplorer CocCommand explorer
