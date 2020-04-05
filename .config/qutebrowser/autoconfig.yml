@@ -72,6 +72,8 @@ settings:
       xmap: bind -m caret
       xunmap: unbind -m caret
       zotero-save: spawn --userscript qute-zotero
+  auto_save.interval:
+    global: 15000
   auto_save.session:
     global: true
   backend:
@@ -185,6 +187,7 @@ settings:
         <Ctrl+n>: fake-key <down>
         <Ctrl+o>: back
         <Ctrl+p>: fake-key <up>
+        <Ctrl+q>: null
         <Ctrl+t>: null
         <Ctrl+v>: null
         <Ctrl+w>: null
@@ -233,7 +236,7 @@ settings:
         K: fake-key <alt-up>
         L: null
         P: open -t {clipboard}
-        T: null
+        T: hint
         U: undo
         V: enter-mode caret;; toggle-selection
         ZC: close
@@ -300,7 +303,9 @@ settings:
         <Ctrl+n>: fake-key <down>
         <Ctrl+p>: fake-key <up>
       prompt:
+        <Alt+o>: fake-key <S-TAB>
         <Ctrl+c>: leave-mode
+        <Ctrl+i>: fake-key <TAB>
         <Ctrl+n>: prompt-item-focus next
         <Ctrl+p>: prompt-item-focus prev
   colors.completion.category.border.bottom:
@@ -315,6 +320,12 @@ settings:
     global: darkgreen
   colors.statusbar.private.bg:
     global: purple
+  colors.tabs.selected.odd.fg:
+    global: white
+  colors.webpage.bg:
+    global: white
+  colors.webpage.prefers_color_scheme_dark:
+    global: false
   completion.height:
     global: 30%
   completion.open_categories:
@@ -328,6 +339,10 @@ settings:
     global: true
   content.autoplay:
     global: false
+  content.cookies.accept:
+    global: no-3rdparty
+  content.default_encoding:
+    global: utf-8
   content.headers.user_agent:
     global: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko)
       Chrome/79.0.3945.88 Safari/537.36
@@ -418,6 +433,8 @@ settings:
     global: false
   input.insert_mode.plugins:
     global: true
+  input.partial_timeout:
+    global: 3000
   new_instance_open_target:
     global: tab
   new_instance_open_target_window:
@@ -473,6 +490,7 @@ settings:
       gm: https://www.google.co.jp/maps/place/{}
       mf: https://github.com/search?o=desc&q={}&s=forks&type=Repositories
       ms: https://github.com/search?o=desc&q={}&s=stars&type=Repositories
+      note: https://note.com/search?context=note&mode=search&q={}
       pc: https://app.getpocket.com/search/{}
       pyd: https://docs.python.org/3/search.html?q={}&check_keywords=yes&area=default
       qb: https://www.reddit.com/r/qutebrowser/search/?q={}
