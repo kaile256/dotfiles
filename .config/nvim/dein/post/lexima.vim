@@ -113,9 +113,9 @@ let g:lexima#default_rules += [
       \ {'char': "'", 'at': '\w\%#''\@!'},
       \ {'char': '"', 'at': '\\\%#'},
       \
-      \ {'char': "'", 'at': '\(^\s*\|\s\|[\[({]\)\%#', 'input_after': "'"},
-      \ {'char': '"', 'at': '\(^\s*\|\s\|[\[({]\)\%#', 'input_after': '"'},
-      \ {'char': '`', 'at': '\(^\s*\|\s\|[\[({]\)\%#', 'input_after': '`'},
+      \ {'char': "'", 'except': s:on_word, 'input_after': "'"},
+      \ {'char': '"', 'except': s:on_word, 'input_after': '"'},
+      \ {'char': '`', 'except': s:on_word, 'input_after': '`'},
       \
       \ {'char': "'", 'at': '\%#''', 'leave': 1},
       \ {'char': '"', 'at': '\%#"',  'leave': 1},
