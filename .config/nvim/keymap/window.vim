@@ -92,6 +92,8 @@ nnoremap <c-w>Z ZZ
 nnoremap <c-w>Q ZQ
 nnoremap Zz ZZ
 nnoremap Zq ZQ
+nnoremap ZW ZQ
+nnoremap Zw ZQ
 
 " Note: look after that ZQ, as :q!, locates higher than ZZ, as :wq
 " Mnemonic: Close all
