@@ -214,9 +214,11 @@ let g:lexima#default_rules += [
 "" cohama/lexima.vim/autoload/lexima.vim @ 84
 "" modify g:lexima#space_rules into default_rule because of
 "" g:lexima_enable_space_rules
-"let g:lexima#default_rules += [
-"      \ {'char': '<Space>', 'at': '\(["]\)\%#\1', 'delete': 1},
-"      \ ]
+let g:lexima#default_rules += [
+      \ {'char': '<Space>', 'at': '(\%#)', 'input_after': '<Space>'},
+      \ {'char': '<Space>', 'at': '{\%#}', 'input_after': '<Space>'},
+      \ {'char': '<Space>', 'at': '\[\%#]', 'input_after': '<Space>'},
+      \ ]
 
 " Addtional Rules to Skip Out; break repeat {{{1
 " Note: 'leave' seems to make 'input' and 'input_after' fail
