@@ -26,6 +26,11 @@ nmap <silent> m :call <SID>quickhl_with_mark()<cr>
 
 function! s:quickhl_with_mark() abort
   let char = nr2char(getchar())
-  exe 'norm! m'. char
+  if char =~# '[ia]$'
+    " accept textobj, too.
+    let char .= nr2char(getchar())
+  endif
+  " set 'i' or 'a' as a mark anyway if the motion is a textobj.
+  exe 'norm! m'. char[0]
   exe "norm \<Plug>(operator-quickhl-manual-this-motion)". char
 endfunction
