@@ -149,3 +149,8 @@ on_event = ['BufAdd']
 [[plugins]]
 repo = '$DEIN_PRIVATE_HOME/vim-sql-uppercase'
 # Note: kinda fork of alcesleo/vim-uppercase-sql
+
+#[ Colorscheme ]
+[[plugins]]
+repo = '$DEIN_PRIVATE_HOME/vim-highlight-info'
+on_cmd = ['HlInfo']
