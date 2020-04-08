@@ -32,6 +32,16 @@ augroup myDefxAddInsteadOfNetrw "{{{1
         \ )}
 augroup END
 
+function! s:defx_or_netrw(dirname) abort
+  if !s:isdir(a:dirname) | return | endif
+  try
+    exe 'Defx' a:dirname '-search='. a:dirname '-new'
+  catch
+    " /usr/share/nvim/runtime/autoload/netrw.vim
+    call netrw#LocalBrowseCheck(a:dirname)
+  endtry
+endfunction
+
 " Open Defx even on terminal {{{1
 function! s:defx(...) abort
   let dict = a:0 > 0 ? map(a:1, {
