@@ -32,10 +32,10 @@ cnoremap <c-r><space>   <c-r>+
 "endfunction
 "
 " instant :verbose "{{{1
-cnoremap <silent><expr> <a-m>  <SID>verbose_in_qf()
-cnoremap <silent><expr> <a-cr> <SID>verbose_in_qf()
-cnoremap <silent><expr> <a-j>  <SID>verbose_in_qf()
-function! s:verbose_in_qf() abort "{{{2
+cnoremap <silent><expr> <a-m>  <SID>verbose_in_quickfix()
+cnoremap <silent><expr> <a-cr> <SID>verbose_in_quickfix()
+cnoremap <silent><expr> <a-j>  <SID>verbose_in_quickfix()
+function! s:verbose_in_quickfix() abort "{{{2
   if getcmdtype() !=# ':' | return | endif
 
   let cmd = getcmdline()
