@@ -25,23 +25,32 @@
 " ============================================================================
 
 let g:private_note#default_path = get(g:, 'private_note#default_path',
-      \ $XDG_DATA_HOME .'/private_note/'. expand('%:r') .'.md'
+      \ "$XDG_DATA_HOME .'/private_note/'. expand('%:t:r') .'.md'"
       \ )
 
 " TODO: create dir under the specified paths
 
 function! private_note#new(mods, ...) abort
   let open = empty(a:mods) ? 'e' : a:mods .' sp'
-  let paths = empty(get(a:, '000'))
-        \ ? a:000
-        \ : get(g:, 'private_note#default_path', [])
+  let path = empty(get(a:, '000'))
+        \ ? a:1
+        \ : g:private_note#default_path
+
+  call s:mkdir_on_demand(path)
 
   try
-    for p in paths
-      exe open p
-    endfor
+    exe open eval(path)
   catch
-    throw 'invalid arguments'
+    exe open path
   endtry
 endfunction
 
+function! s:mkdir_on_demand(path) abort
+  let dir = fnamemodify(a:path, ':h')
+  if isdirectory(dir) | return | endif
+
+  let confirm = input('Private Note: Parent directories does NOT exists; create the directories? ([y]es/[n]o) : ')
+  if confirm =~? 'y\%[es]'
+    call mkdir(dir, 'p')
+  endif
+endfunction
