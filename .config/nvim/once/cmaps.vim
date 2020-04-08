@@ -43,7 +43,7 @@ function! s:verbose_in_quickfix() abort "{{{2
     return "\<CR>"
   endif
 
-  if cmd =~# '^\S\+$'
+  if cmd !~# '^\s*:' && cmd =~# '^[a-z=]\+$'
     let cmd = 'set '. cmd
   endif
   if cmd !~# 'verb\%[ose] '
