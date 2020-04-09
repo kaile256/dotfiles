@@ -26,7 +26,7 @@ augroup myFindPathRc
   "au BufNewFile,BufRead {*vim,dein}**/* setl suffixesadd=.toml
 
   " Apache
-  " au BufRead */httpd/* setl path^=/opt/httpd/**
+  au BufRead */httpd/* setl path^=/etc/httpd/**
   au BufRead */lampp/* setl path^=/opt/lampp/**
 
   au BufNewFile,BufRead {.config,dotfiles}**/* call s:path.dotfiles()
