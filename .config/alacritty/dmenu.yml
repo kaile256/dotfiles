@@ -74,11 +74,15 @@ scrolling:
   # scrollback is enabled (history > 0).
   multiplier: 3
 
-  # Scroll to the bottom when new text is written to the terminal.
-  auto_scroll: false
+  ## Scroll to the bottom when new text is written to the terminal.
+  # Deplicated
+  #auto_scroll: false
 
 # Font configuration (changes require restart alacritty)
 font:
+  # Point size
+  size: 8.0
+
   # Normal (roman) font face
   normal:
     family: DejaVu Sans Mono
@@ -107,9 +111,6 @@ font:
 
   # The `style` can be specified to pick a specific face.
   #style: Italic
-
-  # Point size
-  size: 12.0
 
   # Offset is the extra space around each character. `offset.y` can be thought of
   # as modifying the line spacing, and `offset.x` as modifying the letter spacing.
