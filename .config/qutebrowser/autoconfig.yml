@@ -262,6 +262,7 @@ settings:
         gH: open -t qute://history/
         gM: open -t https://www.google.co.jp/maps/@34.8244519,135.4776576,15z
         gP: open -t https://app.getpocket.com/
+        gS: view-source --pygments
         ga: open https://www.amazon.co.jp/ref=nav_logo
         gc: open https://calendar.google.com/calendar/r/month?pli=1
         gf: spawn nvim-qt {url}
@@ -271,7 +272,7 @@ settings:
         go: scroll-to-perc 0;; hint inputs --first
         gp: open https://app.getpocket.com/
         gs: view-source
-        gv: fake-key <ctrl-a>
+        gv: fake-key <ctrl-a>;; enter-mode caret
         gw: fake-key gw
         h: fake-key <left>
         i: enter-mode insert
@@ -485,9 +486,11 @@ settings:
       bhw: https://wiki.bash-hackers.org/start?do=search&id=start&sf=1&q={}
       bw: https://wiki.bash-hackers.org/start?do=search&id=start&sf=1&q={}
       dh: https://hub.docker.com/search?q={}
+      dl: https://www.deepl.com/ja/translator/ja/{}
       gh: https://github.com/search?o=desc&q={}&s=updated&type=Repositories
       gl: https://golang.org/search?q={}
       gm: https://www.google.co.jp/maps/place/{}
+      gt: https://translate.google.co.jp/#view=home&op=translate&sl=auto&tl=ja&text={}
       mf: https://github.com/search?o=desc&q={}&s=forks&type=Repositories
       ms: https://github.com/search?o=desc&q={}&s=stars&type=Repositories
       note: https://note.com/search?context=note&mode=search&q={}
