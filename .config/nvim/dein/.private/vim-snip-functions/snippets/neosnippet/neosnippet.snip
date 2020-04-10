@@ -15,10 +15,7 @@ snippet snippet
 alias sn sni snip si sin
 options head indent word
   snippet ${1:#:Title}
-  alias ${2:#:them}
-  abbr ${5:#:(used in drop down popup menu)}
-  regexp ${7:#:'^\s*' (a pattern to be expanded)}
-  options ${9:#:head(no previous char except '\s') word(means \a?) indent(keep indent)}
+  options ${2:head}
   `repeat(' ', &tabstop)`${0:TARGET}
 
 # Fold
