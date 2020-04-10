@@ -2,15 +2,14 @@
 " Repo: flazz/vim-colorschemes
 " Another: source/colorschemes.vim
 
-command! -bar -nargs=1 Colorscheme :call s:set_colorscheme(<q-args>)
-command! -bar -nargs=1 Colo        :call s:set_colorscheme(<q-args>)
+command! -bar -nargs=1 -complete=color Colo
+      \ :call s:set_colorscheme(<q-args>)
+command! -bar -nargs=1 -complete=color Colorscheme
+      \ :call s:set_colorscheme(<q-args>)
 
 function! s:set_colorscheme(name) abort
   exe 'runtime source/'. a:name .'.vim'
   exe 'colorscheme' a:name
-  exe 'runtime post/'. a:name .'.vim'
-  " 'syntax on' overrides syntax; 'enable' keeps already-defined syntax
-  syntax on
 endfunction
 
 augroup myColorschemesPost
