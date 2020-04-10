@@ -1,5 +1,10 @@
 " From: init.vim
 
+xnoremap ia <ESC>vi
+xnoremap ai <ESC>vi
+onoremap <expr> ia "\<ESC>". v:operator .'a'
+onoremap <expr> ai "\<ESC>". v:operator .'a'
+
 " Usual Expect {{{1
 onoremap Y <esc>y$
 onoremap D <esc>D
