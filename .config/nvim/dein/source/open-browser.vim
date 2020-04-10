@@ -6,8 +6,8 @@ let g:openbrowser_message_verbosity = 1
 
 " Let; Specify Browser {{{
 let g:openbrowser_browser_commands = [
-      \ {'name': 'xdg-open',    'args': ['{browser}', '{uri}']},
       \ {'name': 'qutebrowser', 'args': ['{browser}', '{uri}']},
+      \ {'name': 'xdg-open',    'args': ['{browser}', '{uri}']},
       \ {'name': 'w3m',         'args': ['{browser}', '{uri}']},
       \ ]
 
