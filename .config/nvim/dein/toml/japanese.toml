@@ -17,8 +17,11 @@ hook_add = 'runtime add/eskk.vim'
 hook_source = 'runtime source/eskk.vim'
 hook_done_update= '''
 exe 'e' g:dein_github_dir .'/tyru/eskk.vim/autoload/eskk.vim'
-silent! %s/<C-j>/<C-_>/e
-write
+" Comment out unnecessary modes
+silent! g/^\s*"\@!Eskk.*zenei/norm! I"
+silent! g/^\s*"\@!Eskk.*to-hira/norm! I"
+silent! g/^\s*"\@!sticky.*;/norm! I"
+write!
 '''
 [[plugins]]
 repo = 'tyru/skkdict.vim'
