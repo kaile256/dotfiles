@@ -54,14 +54,9 @@ hook_add = 'runtime add/fzf-git-submodules.vim'
 #repo = 'zgpio/tree.nvim'
 ## Note: written in cpp!
 ## Note: not yet available via package-manager
-#build = '''
-#" FIXME: causes no error
-#make
-#mv src/app/viml/* .
-#mv src/app/*.vim autoload/
-#'''
+#path = 'src/app/viml/'
 #on_cmd = ['Tree']
-#
+
 [[plugins]] # has extentions
 repo = 'Shougo/defx.nvim'
 # /usr/share/nvim/runtime/plugin/rplugin.vim line 63
