@@ -5,7 +5,7 @@ repo = 'kana/vim-operator-user'
 on_source = ['caw.vim']
 on_func = 'operator#user#define'
 
-#[ Operater; Comment out ]
+#[ Comment out ]
 #[[plugins]]
 #repo = 'tomtom/tcomment_vim'
 ## Memo: complex named <Plug>-mappings
@@ -30,7 +30,7 @@ hook_source = 'runtime source/caw.vim'
 #on_map = '<Cmd>Commentary'
 #hook_add = 'runtime add/plugin.vim'
 
-#[ Operater; Arrangement ]
+#[ Arrangement ]
 [[plugins]]
 repo = 'machakann/vim-swap'
 on_map = '<Plug>(swap-'
@@ -55,7 +55,12 @@ on_cmd = ['SplitjoinJoin', 'SplitjoinSplit']
 on_map = ['<Plug>SplitjoinJoin', '<Plug>SplitjoinSplit']
 hook_add = 'runtime add/splitjoin.vim'
 
-#[ Operater; Simultaneous ]
+[[plugins]]
+repo = 'emonkak/vim-operator-sort'
+on_map = {nx = ['<Plug>(operator-sort']}
+hook_add = 'runtime add/operator-sort.vim'
+
+#[ Simultaneous ]
 [[plugins]]
 repo = 'machakann/vim-sandwich'
 on_map = {nox = [
