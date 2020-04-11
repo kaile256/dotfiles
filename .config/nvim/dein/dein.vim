@@ -102,6 +102,7 @@ let s:toml_lazy = [
       \ 'memo.toml',
       \ 'motion.toml',
       \ 'myplug.toml',
+      \ 'operator.toml',
       \ 'shell.toml',
       \ 'syntax.toml',
       \ 'textobj.toml',

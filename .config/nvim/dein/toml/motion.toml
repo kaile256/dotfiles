@@ -1,9 +1,4 @@
-# From: rc/dein.vim
-
-[[plugins]]
-repo = 'kana/vim-operator-user'
-on_source = ['caw.vim']
-on_func = 'operator#user#define'
+# From: dein/dein.vim
 
 #[ Charater's Case ]
 [[plugins]]
@@ -68,83 +63,6 @@ repo = 't9md/vim-textmanip'
 # Note: has copy feature
 on_map = {x = '<Plug>(textmanip-'}
 hook_add = 'runtime add/textmanip.vim'
-#[ Operater; Comment out ]
-#[[plugins]]
-#repo = 'tomtom/tcomment_vim'
-## Memo: complex named <Plug>-mappings
-#on_map = '<Plug>TComment'
-#on_cmd = ':TComment'
-#hook_add = 'runtime add/tcomment.vim'
-[[plugins]]
-repo = 'tyru/caw.vim'
-# operater requires kana/vim-operator-user
-# Note: no use <Plug>(caw:foo:bar:operator), why?
-on_map = '<Plug>(caw:'
-hook_add = 'runtime add/caw.vim'
-hook_source = 'runtime source/caw.vim'
-#[[plugins]]
-#repo = 'scrooloose/nerdcommenter'
-## Reason: has no operater
-#on_map = '<Plug>NERDCommenter'
-#hook_add = 'runtime add/nerdcommenter.vim'
-#[[plugins]]
-#repo = 'tpope/vim-commentary'
-## Simplest
-#on_map = '<Cmd>Commentary'
-#hook_add = 'runtime add/plugin.vim'
-
-#[ Operater; Arrangement ]
-[[plugins]]
-repo = 'machakann/vim-swap'
-on_map = '<Plug>(swap-'
-hook_add = 'runtime add/swap.vim'
-
-[[plugins]]
-repo = 'AndrewRadev/switch.vim'
-# switch as predefined, such as "true" & "false".
-on_cmd = ['Switch', 'SwitchReverse']
-on_func = ['switch#']
-hook_add = 'runtime add/switch.vim'
-hook_source = 'runtime source/switch.vim'
-
-[[plugins]]
-repo = 'junegunn/vim-easy-align'
-on_map = ['<Plug>(EasyAlign)', '<Plug>(LiveEasyAlign)']
-on_cmd = 'EasyAlign'
-hook_add = 'runtime add/easy-align.vim'
-[[plugins]]
-repo = 'AndrewRadev/splitjoin.vim'
-on_cmd = ['SplitjoinJoin', 'SplitjoinSplit']
-on_map = ['<Plug>SplitjoinJoin', '<Plug>SplitjoinSplit']
-hook_add = 'runtime add/splitjoin.vim'
-
-#[ Operater; Simultaneous ]
-[[plugins]]
-repo = 'machakann/vim-sandwich'
-on_map = {nox = [
-  '<Plug>(operator-sandwich-',
-  '<Plug>(textobj-sandwich-query-',
-]}
-hook_add = 'runtime add/sandwich.vim'
-hook_source = 'runtime source/sandwich.vim'
-hook_done_update = '''
-exe 'argadd' g:dein_github_dir .'/machakann/vim-sandwich/autoload/textobj/sandwich/recipes.vim'
-exe 'argadd' g:dein_github_dir .'/machakann/vim-sandwich/autoload/sandwich.vim'
-exe 'argadd' g:dein_github_dir .'/machakann/vim-sandwich/autoload/operator/sandwich/operator.vim'
-silent! argdo! g/= type(c) == s:type_num ? nr2char(c) : c/norm! na (c ==# "\<S-lt>") ? '<' :
-silent! argdo! write
-argdelete *
-'''
-#[[plugins]]
-#repo = 'tpope/vim-surround'
-#on_event = 'BufRead'
-#hook_post_source = 'runtime add/surround.vim'
-
-#[[plugins]]
-#repo = 'tommcdo/vim-express'
-#on_event = 'VimEnter'
-#hook_post_source = 'runtime add/express.vim'
-
 #[ Easy Motion ]
 #[[plugins]]
 #repo = 'easymotion/vim-easymotion'
