@@ -80,7 +80,7 @@ repo = 'saaguero/vim-textobj-pastedtext'
 on_event = ['TextChanged']
 hook_source = 'runtime source/textobj-pastedtext.vim'
 
-#[[[FileType]]]
+#[ on FileType ]
 #[[plugins]]
 #repo = 'bps/vim-textobj-python'
 #on_ft = 'python'
