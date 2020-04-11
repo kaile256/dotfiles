@@ -4,7 +4,8 @@
 
 " entire-i excludes empty lines both before and after the codes;
 " entire-e incluses the empty lines
-omap i<CR> <Plug>(textobj-entire-i)``
-omap a<CR> <Plug>(textobj-entire-i)``
+omap i<CR> <Plug>(textobj-entire-i)
+omap a<CR> <Plug>(textobj-entire-i)
+
 xmap i<CR> <Plug>(textobj-entire-i)
 xmap a<CR> <Plug>(textobj-entire-i)
