@@ -68,8 +68,10 @@ augroup myAugroups
       call s:update_undo_fdm()
       return
 
-    elseif (&foldexpr != 0 || &foldexpr !=# '0') && &fdm !=# 'expr'
-      " Note: empty() fails because &fde returns '0' in string when &fdm is expr
+    elseif &foldexpr =~# '\(#\)\|\(^\u\).*)$' && &fdm !=# 'expr'
+      " FIXME: set fdm=expr reasonably
+      "   !&foldexpr sets fdm=expr
+      "   &foldexpr =~# '#\|\(^\u\).*)$' sets fdm=expr
       setl fdm=expr
       call s:update_undo_fdm()
       return
@@ -103,7 +105,7 @@ augroup myAugroups
   " checktime: check if any buffers are changed out of the process.
   "   With 'autoread', it will update the buffer w/o asking.
   set noautoread
-  au FocusGained * checktime
+  " au FocusGained * checktime
   au BufRead /etc/{sudoers,sudoers.d/*} setl nomodifiable
         \ | echoerr " You'd better edit by $ visudo"
 
