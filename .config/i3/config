@@ -609,27 +609,27 @@ bindsym bracketleft      mode default
 bindsym Ctrl+bracketleft mode default
 }
 
-# Mode; Console {{{2
-bindsym $Super+U exec $urxvt -e fish
-bindsym $Super+A exec alacritty -e zsh
-set $Console " Console: (A)lacritty (U)rxvt (X)term | (G)otop "
-bindsym $Super+C mode $Console; $shortmsg 'Consoles'
+## Mode; Console {{{2
+#bindsym $Super+U exec $urxvt -e fish
+#bindsym $Super+A exec alacritty -e zsh
+#set $Console " Console: (A)lacritty (U)rxvt (X)term | (G)otop "
+#bindsym $Super+C mode $Console; $shortmsg 'Consoles'
 
-mode $Console {
-bindsym A exec alacritty -e fish;  mode default
-bindsym U exec $urxvt    -e fish;  mode default
-bindsym X exec xterm     -e fish;  mode default
-bindsym G exec alacritty -e gotop; mode default
+#mode $Console {
+#bindsym A exec alacritty -e fish;  mode default
+#bindsym U exec $urxvt    -e fish;  mode default
+#bindsym X exec xterm     -e fish;  mode default
+#bindsym G exec alacritty -e gotop; mode default
 
-bindsym T        exec $termporal; mode default
-bindsym $Super+T exec $termporal; mode default
-bindsym C        exec $termporal; mode default
-bindsym $Super+C exec $termporal; mode default
+#bindsym T        exec $termporal; mode default
+#bindsym $Super+T exec $termporal; mode default
+#bindsym C        exec $termporal; mode default
+#bindsym $Super+C exec $termporal; mode default
 
-bindsym Ctrl+C           mode default
-bindsym bracketleft      mode default
-bindsym Ctrl+bracketleft mode default
-}
+#bindsym Ctrl+C           mode default
+#bindsym bracketleft      mode default
+#bindsym Ctrl+bracketleft mode default
+#}
 
 # Mode; Browser {{{2
 bindsym $Super+grave      $noid alacritty --title termporal --config-file $XDG_CONFIG_HOME/alacritty/center.yml -e fzf-qutebrowser-bookmarks qutebrowser
@@ -714,6 +714,8 @@ bindsym Ctrl+bracketleft mode default
 
 # Mode; Editor {{{2
 set $Editor " Editor: (C)ode (E)macs (V)im (N)eovim | (G)imp (P)inta "
+
+bindsym $Super+C $noid code;
 
 $release $Super+E mode $Editor; $shortmsg 'Editors'
 
