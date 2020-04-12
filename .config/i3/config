@@ -199,6 +199,10 @@ $noid systemctl --user start docker
 
 $noid fcitx
 
+# bind for SandS on skk
+# FIXME: faster response
+#$noid xmodmap -e 'keycode 255=space'; xmodmap -e 'keycode 65=Shift_L'; xcape -e '#65=space'
+
 # dunst: Light Notification Daemon
 # FAQ: https://dunst-project.org/faq/
 # Conf: dunst/dunstrc
@@ -232,7 +236,7 @@ $noid alsactl daemon
 # pulseaudio: deamon to control via keyboard.
 # `$ systemctl --user status pulseaudio` returns
 # pulseaudio.service: Start request repeated too quickly.
-$restart pulseaudio --kill; sleep 4; pulseaudio --start &
+$restart pulseaudio --kill; sleep 5; pulseaudio --start &
 
 # AutoStart Applications {{{1
 # Ref: specifiy workspace to start in
@@ -727,24 +731,24 @@ bindsym bracketleft      mode default
 bindsym Ctrl+bracketleft mode default
 }
 
-# Mode; Dotfiles {{{2
-set $Dotfiles " Dotfiles: (V)im (I)3/(P)olybar (S)hell (T)erminals "
+## Mode; Dotfiles {{{2
+#set $Dotfiles " Dotfiles: (V)im (I)3/(P)olybar (S)hell (T)erminals "
 
-$release $Super+D mode $Dotfiles; $shortmsg 'Dotfiles'
+#$release $Super+D mode $Dotfiles; $shortmsg 'Dotfiles'
 
-set $fzf_dotfiles alacritty --title fzf_vim -e fzf-dotfiles
+#set $fzf_dotfiles alacritty --title fzf_vim -e fzf-dotfiles
 
-mode $Dotfiles {
-bindsym V mode default; $notify 'Dotfiles: vimrc';      exec $fzf_dotfiles --vimrc
-bindsym I mode default; $notify 'Dotfiles: i3/polybar'; exec $fzf_dotfiles --i3
-bindsym P mode default; $notify 'Dotfiles: i3/polybar'; exec $fzf_dotfiles --i3
-bindsym S mode default; $notify 'Dotfiles: shell';      exec $fzf_dotfiles --shell
-bindsym T mode default; $notify 'Dotfiles: terminal';   exec $fzf_dotfiles --terminal
+#mode $Dotfiles {
+#bindsym V mode default; $notify 'Dotfiles: vimrc';      exec $fzf_dotfiles --vimrc
+#bindsym I mode default; $notify 'Dotfiles: i3/polybar'; exec $fzf_dotfiles --i3
+#bindsym P mode default; $notify 'Dotfiles: i3/polybar'; exec $fzf_dotfiles --i3
+#bindsym S mode default; $notify 'Dotfiles: shell';      exec $fzf_dotfiles --shell
+#bindsym T mode default; $notify 'Dotfiles: terminal';   exec $fzf_dotfiles --terminal
 
-bindsym Ctrl+C           mode default
-bindsym bracketleft      mode default
-bindsym Ctrl+bracketleft mode default
-}
+#bindsym Ctrl+C           mode default
+#bindsym bracketleft      mode default
+#bindsym Ctrl+bracketleft mode default
+#}
 
 # Mode; Finder {{{2
 # Mnemonic: Finder or File explorer
