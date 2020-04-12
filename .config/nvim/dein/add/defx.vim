@@ -15,21 +15,14 @@ augroup myDefxAddInsteadOfNetrw "{{{1
   " Ref: /usr/share/nvim/runtime/plugin/netrwPlugin.vim
   "let g:loaded_netrw       = 1 " necessary to read via https
   "let g:loaded_netrwPlugin = 1 " necessary to read via https
-  let g:loaded_netrwSettings     = 1
-  let g:loaded_netrwFileHandlers = 1
+  " let g:loaded_netrwSettings     = 1
+  " let g:loaded_netrwFileHandlers = 1
 
   " Ref: *netrw-activate*
   au VimEnter * if expand('%') == '' | e. | endif
   " TODO: inherit jumplist after gf
   au VimEnter * silent! au! FileExplorer *
-
-  au BufEnter * if s:isdir(expand('<amatch>'))
-        \ | Defx `expand('<amatch>')` -search=`expand('<amatch>')` -new
-        \ | endif
-  let s:isdir = {dir ->
-        \ !empty(dir) && (isdirectory(dir) ||
-        \ (!empty($SYSTEMDRIVE) && isdirectory('/'.tolower($SYSTEMDRIVE[0]).a:dir))
-        \ )}
+  au BufEnter * call s:defx_or_netrw(expand('<amatch>'))
 augroup END
 
 function! s:defx_or_netrw(dirname) abort
@@ -38,9 +31,14 @@ function! s:defx_or_netrw(dirname) abort
     exe 'Defx' a:dirname '-search='. a:dirname '-new'
   catch
     " /usr/share/nvim/runtime/autoload/netrw.vim
-    call netrw#LocalBrowseCheck(a:dirname)
+    exe 'Explore' a:dirname
   endtry
 endfunction
+
+let s:isdir = {dir ->
+      \ !empty(dir) && (isdirectory(dir) ||
+      \ (!empty($SYSTEMDRIVE) && isdirectory('/'.tolower($SYSTEMDRIVE[0]).a:dir))
+      \ )}
 
 " Open Defx even on terminal {{{1
 function! s:defx(...) abort
