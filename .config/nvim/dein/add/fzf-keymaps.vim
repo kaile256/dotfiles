@@ -37,7 +37,10 @@ function! s:fzf_maps(prefix, command, ...) abort
       let l:cd = ':<c-u>cd '. s:path_dict[l:key]
     endif
 
-    let rhs = l:cd .'<bar>'. a:command .'<cr>'
+    " TODO: close fzf-window before another starts;
+    "   the error statement is 'E16: Invalid range: 2wincmd w'
+    let close_fzf = ":<c-u>windo if &ft ==# 'fzf' <bar> close <bar> endif"
+    let rhs = close_fzf .'<bar>'. l:cd .'<bar>'. a:command .'<cr>'
 
     let modes = a:0 > 0 ? a:1 : 'nx'
     let modes = split(modes, '\ze')
