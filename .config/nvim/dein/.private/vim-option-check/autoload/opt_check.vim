@@ -60,7 +60,7 @@ function! s:echo_in_oneline(list) abort "{{{1
       let conj = g:opt_check#conj_evaluable
       " set format in g:eval_check#format
       let format = l:val .' is '. opt
-    catch
+    catch /^Vim\%((\a\+)\)\=:E15/
       let conj = g:opt_check#conj_partition
       let format = l:val
     endtry
