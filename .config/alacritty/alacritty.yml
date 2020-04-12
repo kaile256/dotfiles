@@ -91,7 +91,8 @@ scrolling:
   # faux_multiplier: 3
 
   # Scroll to the bottom when new text is written to the terminal.
-  auto_scroll: false
+  # deprecated
+  #auto_scroll: false
 
 # Spaces per Tab (changes require restart)
 #
@@ -100,7 +101,8 @@ scrolling:
 # Some applications, like Emacs, rely on knowing about the width of a tab.
 # To prevent unexpected behavior in these applications, it's also required to
 # change the `it` value in terminfo when altering this setting.
-tabspaces: 8
+# deprecated
+#tabspaces: 8
 
 # Font configuration (changes require restart alacritty)
 font:
@@ -141,7 +143,7 @@ font:
   #style: Italic
 
   # Point size
-  size: 13.0
+  size: 8.5
 
   # Offset is the extra space around each character. `offset.y` can be thought of
   # as modifying the line spacing, and `offset.x` as modifying the letter spacing.
