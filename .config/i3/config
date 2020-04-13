@@ -848,7 +848,7 @@ bindsym Ctrl+bracketleft $noid fcitx-remote -c; mode default; $alert 'Skk: OFF'
 }
 
 # Keybind for Apps {{{1
-bindsym $Super+C $noid code
+#bindsym $Super+C $noid code
 bindsym $Super+U $noid $urxvt -e fish
 bindsym $Super+A $noid alacritty -e zsh
 # # TODO: convert this bash-script into fish's
