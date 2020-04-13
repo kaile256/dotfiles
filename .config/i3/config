@@ -610,8 +610,6 @@ bindsym Ctrl+bracketleft mode default
 }
 
 ## Mode; Console {{{2
-#bindsym $Super+U exec $urxvt -e fish
-#bindsym $Super+A exec alacritty -e zsh
 #set $Console " Console: (A)lacritty (U)rxvt (X)term | (G)otop "
 #bindsym $Super+C mode $Console; $shortmsg 'Consoles'
 
@@ -714,8 +712,6 @@ bindsym Ctrl+bracketleft mode default
 
 # Mode; Editor {{{2
 set $Editor " Editor: (C)ode (E)macs (V)im (N)eovim | (G)imp (P)inta "
-
-bindsym $Super+C $noid code;
 
 $release $Super+E mode $Editor; $shortmsg 'Editors'
 
@@ -852,7 +848,9 @@ bindsym Ctrl+bracketleft $noid fcitx-remote -c; mode default; $alert 'Skk: OFF'
 }
 
 # Keybind for Apps {{{1
-# Keybind; open Menu {{{2
+bindsym $Super+C $noid code
+bindsym $Super+U $noid $urxvt -e fish
+bindsym $Super+A $noid alacritty -e zsh
 # # TODO: convert this bash-script into fish's
 # Ref: dmenu with fzf https://github.com/junegunn/fzf/wiki/Examples
 bindsym $Super+backslash $noid $menu
