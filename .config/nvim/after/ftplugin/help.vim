@@ -1,8 +1,9 @@
 " From: filetype.vim
 
-if &readonly && !&modifiable
-  setl nonumber signcolumn= nolist foldlevel=0
+if &modifiable || !&readonly
   setl conceallevel=0
+else
+  setl nonumber signcolumn= nolist foldlevel=0
   nnoremap <buffer> d <c-d>
   nnoremap <buffer> u <c-u>
 
