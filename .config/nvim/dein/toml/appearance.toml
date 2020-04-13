@@ -175,6 +175,9 @@ write
 repo = 'joshdick/onedark.vim'
 on_func = ['onedark#']
 #on_event = ['VimEnter']
+[[plugins]]
+repo = 'drewtempelmeyer/palenight.vim'
+on_event = ['VimEnter']
 #[ Colorscheme.monokai ]
 #[[plugins]]
 #repo = 'phanviet/vim-monokai-pro'
