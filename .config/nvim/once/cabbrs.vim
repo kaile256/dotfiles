@@ -11,12 +11,19 @@
 "  endif
 "endfunction
 
-" Abbr; for vimdiff {{{1
-cnoreabbr <expr> dth (getcmdtype() == ':' && getcmdline() =~ '^dth$')? 'diffthis' : 'dth'
-cnoreabbr <expr> dof (getcmdtype() == ':' && getcmdline() =~ '^dof$')? 'diffoff!' : 'dof'
+function s:cabbr() abort
+  let dict = {
+        \ 'ch':  string('checkhealth <bar> setl bt=nofile'),
+        \ 'dof': 'len(tabpagebuflist()) == 2 ? "windo diffoff!" : "diffoff!"',
+        \ 'dth': 'len(tabpagebuflist()) == 2 ? "windo diffthis" : "diffthis"',
+        \ 'man': string('Man'),
+        \ }
 
-" Abbr; Before Typo {{{1
-cnoreabbr <expr> man (getcmdtype() == ':' && getcmdline() =~ '^man$')? 'Man' : 'man'
-
-" Abbr; :checkhealth {{{1
-cnoreabbr <silent><expr> ch (getcmdtype() == ':' && getcmdline() =~ '^ch$')? 'checkhealth <bar> setl bt=nofile' : 'ch'
+  for key in keys(dict)
+    exe 'cnoreabbr <expr>' key
+          \ '(getcmdtype() == ":" && getcmdline() =~? "^\s*'. key .'\s*$")'
+          \ '?' dict[key] ':' string(key)
+  endfor
+endfunction
+call s:cabbr()
+delfunction s:cabbr
