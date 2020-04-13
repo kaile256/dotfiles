@@ -3,11 +3,20 @@
 #[ Docker ]
 [[plugins]]
 repo = 'kkvh/vim-docker-tools'
-on_cmd =  ['DockerToolsOpen', 'DockerToolsToggle']
+# Manage docker containers with it.
+on_func = [
+  'docker_tools#dt_open',
+  'docker_tools#dt_set_host',
+  'docker_tools#complete',
+  'docker_tools#container_action',
+  'docker_tools#container_logs',
+]
+hook_add = 'runtime add/docker-tools.vim'
+hook_post_source = 'runtime post/docker-tools.vim'
 
 [[plugins]]
 repo = 'skanehira/docker.vim'
-# to manage docker's images/containers
+# Manage docker's images/containers
 # Note: unavailable on neovim because of job_start()
 on_cmd = [
   'Docker',
