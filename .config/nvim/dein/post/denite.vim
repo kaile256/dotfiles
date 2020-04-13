@@ -13,8 +13,9 @@ let s:denite_pos.row = (&lines   * 5/100)
 let s:denite_pos.col = (&columns * 3/100)
 
 let s:denite_win = {}
-let s:denite_win.height = &lines   * 90/100
-let s:denite_win.width  = &columns * 45/100
+let s:denite_win.height = (&lines   * 90/100)
+let s:denite_win.width  = (&columns * 45/100)
+
 call denite#custom#option('default', {
       \ 'statusline': 0,
       \ 'immediately-1': 1,
