@@ -34,11 +34,6 @@ nnoremap <space>y "+y
 xnoremap <space>y "+y
 nnoremap <space>Y "+y$
 xnoremap <space>Y "+y$
-" Plus Register; Delete {{{1
-nnoremap <space>d "+d
-nnoremap <space>D "+D
-nnoremap <space>c "+c
-nnoremap <space>C "+C
 " Plus Register; Put {{{1
 nnoremap <space>p "+]p`]
 xnoremap <space>p "+]p
@@ -58,14 +53,17 @@ cnoremap <c-r><c-0> <c-r>0
 xnoremap <s-space>p "0]p
 " nnoremap <s-space>P "0]P
 xnoremap <s-space>P "0]P
-" Black-Hole Register
-nnoremap <s-space>d "_d
-nnoremap <s-space>D "_D
-nnoremap <s-space>c "_c
-nnoremap <s-space>C "_C
+
+" Black-Hole Register {{{1
 " Note: those won't be typed intending to put at all, especially in noremal-mode
-nnoremap s "_s
-nnoremap S "_Xi
+nnoremap <space>s "_s
+" Note: `S` deletes all the current line
+nnoremap <space>S "_Xi
+" Note: not so often you want to delete words into clipboard
+nnoremap <space>d "_d
+nnoremap <space>D "_D
+nnoremap <space>c "_c
+nnoremap <space>C "_C
 
 "nnoremap <s-space>x "_x
 "nnoremap <s-space>X "_X
