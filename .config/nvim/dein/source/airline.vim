@@ -14,7 +14,7 @@ function! s:set_airline_theme(coloname) abort
   if empty(themes)
     let theme = g:airline_theme
   else
-    let theme = themes[len(themes) - 1]
+    let theme = themes[0]
   endif
 
   exe 'AirlineTheme' theme
