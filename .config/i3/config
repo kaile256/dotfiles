@@ -692,12 +692,13 @@ bindsym Ctrl+bracketleft mode default
 }
 
 # Mode; Neovim {{{2
-set $Neovim " Neovim: (Q)t (G)o (R)ust (T)ypescript (A)lacritty "
+set $Neovim " Neovim: (Q)t (E)ovim (G)o (R)ust (T)ypescript (A)lacritty "
 $release $Super+N mode $Neovim; $shortmsg 'Neovim: backends'
 
 mode $Neovim {
 # Vim
 # TODO: nvim-qt with 'nvim -c'-like startup in i3 instead, not in vimscript
+bindsym E $noid eovim;   mode default
 bindsym Q $noid nvim-qt; mode default
 bindsym G $noid gonvim;  mode default
 bindsym R $noid gnvim;   mode default
