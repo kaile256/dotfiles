@@ -8,7 +8,7 @@ command! -bar -nargs=1 -complete=color Colorscheme
       \ :call s:set_colorscheme(<q-args>)
 
 function! s:set_colorscheme(name) abort
-  exe 'runtime source/'. a:name .'.vim'
+  exe 'runtime colorschemes/'. a:name .'.vim'
   exe 'colorscheme' a:name
 endfunction
 
