@@ -65,11 +65,10 @@ on_event = ['VimEnter']
 # Note: hook_add fails on VimEnter, BufEnter and so on.
 hook_source = 'runtime add/wakatime.vim'
 
-# API; Collaborative Editing
+#[ Collaborative Editing ]
 [[plugins]]
 repo = 'Floobits/floobits-neovim'
-on_cmd = ['Floo', 'FlooShareDirPublic', 'FlooShareDirPrivate', 'FlooJoinWorkspace']
-hook_add = 'runtime add/floobits.vim'
+on_cmd = ['FlooShareDirPublic', 'FlooShareDirPrivate', 'FlooJoinWorkspace']
 #[[plugins]]
 #repo = 'basyura/twibill.vim'
 #on_cmd = 'TweetVim'
