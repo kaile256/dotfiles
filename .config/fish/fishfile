@@ -1,6 +1,4 @@
 # for fisher, the plugin manager
 decors/fish-ghq
-sijad/gitignore
-fishpkg/fish-spin
-junegunn/fzf
 jethrokuan/fzf
+oh-my-fish/plugin-balias
