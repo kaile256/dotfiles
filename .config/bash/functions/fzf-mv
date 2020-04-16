@@ -49,7 +49,7 @@ pick_files() {
         printf '%s\n' "$f"
       fi
     done |
-    fzf --multi --header='move these files'  || return 1
+    fzf --multi --header='Select files to move'  || return 1
 }
 
 pick_destination() {
@@ -62,7 +62,7 @@ pick_destination() {
       sort -h |
       fzf --print-query \
       --history="${HOME}/.cache/fzmv_history" \
-      --header="${errors:-move files here}")
+      --header="${errors:-Select files to move}")
     query=${browse_info[0]}
     browse_dir=${browse_info[1]}
     files=( "${browse_info[@]:2}" )
