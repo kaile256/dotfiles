@@ -10,6 +10,7 @@ hook_post_source = 'runtime post/denite.vim'
 
 [[plugins]]
 repo = 'Shougo/unite.vim'
+on_func = ['unite#']
 on_cmd = ['Unite']
 
 [[plugins]]
@@ -81,3 +82,6 @@ on_source = 'denite.nvim'
 #repo = 'zacharied/denite-nerdfont'
 #on_source = 'denite.nvim'
 #hook_post_source = 'runtime add/denite-nerdfont.vim'
+[[plugins]]
+repo = 'Shougo/neossh.vim'
+on_source = ['unite.vim', 'denite.nvim']
