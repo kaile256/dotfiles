@@ -2,14 +2,21 @@
 # Else: toml/ftplugin.toml
 
 #[ HTML ]
-[[plugins]]
-repo = 'turbio/bracey.vim'
-on_cmd = ['Bracey']
-hook_add = 'runtime add/bracey.vim'
-hook_source = 'runtime source/bracey.vim'
+#[[plugins]]
+#repo = 'hl037/vim-visualHtml'
+## causes error on &ro
+#on_ft = ['html', 'php', 'css']
+#[[plugins]]
+#repo = 'turbio/bracey.vim'
+# no use
+#build = 'npm install --prefix server'
+#on_cmd = ['Bracey']
+#hook_add = 'runtime add/bracey.vim'
+#hook_source = 'runtime source/bracey.vim'
 [[plugins]]
 repo = 'mattn/emmet-vim'
 on_ft = ['html', 'xml', 'xsl', 'php']
+hook_source = 'runtime source/emmet.vim'
 
 #[[plugins]]
 #repo = 'lyokha/vim-publish-helper'
@@ -36,13 +43,14 @@ on_ft = ['html', 'xml', 'xsl', 'php']
 #[[plugins]]
 #repo = 'vim-scripts/php.vim-html-enhanced'
 #on_ft = ['php']
-#[[plugins]]
-#repo = 'berrygoudswaard/vim-php-html-indent'
-## <?php ?> tag gets no indent level
-#on_ft = ['php']
 [[plugins]]
-repo = '2072/PHP-Indenting-for-VIm'
+repo = 'berrygoudswaard/vim-php-html-indent'
+# <?php ?> tag gets no indent level
 on_ft = ['php']
+#[[plugins]]
+#repo = '2072/PHP-Indenting-for-VIm'
+## strange indent
+#on_ft = ['php']
 
 #[[plugins]]
 #repo = 'phpactor/phpactor'
@@ -87,3 +95,9 @@ on_ft = ['sql']
 [[plugins]]
 repo = 'cosminadrianpopescu/vim-sql-workbench'
 on_ft = ['sql']
+
+#[ nginx ]
+[[plugins]]
+repo = 'spacewander/openresty-vim'
+# syntax and omnicomp for nginx
+on_ft = ['nginx']
