@@ -12,7 +12,7 @@ function! CppFoldExpr() abort
   let next = getline(v:lnum + 1)
 
   if prev[0] =~# '^$'
-        \ &&(line =~# '^#' || line =~# '^\/[/*]')
+        \ &&(line =~# '^#' || line =~# '^\/[/*]\v(\*\/)@!')
     return '>1'
 
   elseif line =~# '{\|\/\*$'
