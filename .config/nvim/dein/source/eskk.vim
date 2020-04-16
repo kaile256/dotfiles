@@ -27,7 +27,7 @@ let g:eskk#keep_state = 1 "  default: 0; eskk is off when insert again
 "let g:eskk#keep_state_beyond_buffer = 1
 
 " Henkan; Completion {{{1
-let g:eskk#show_annotation = 1
+" let g:eskk#show_annotation = 1
 let g:eskk#select_cand_keys = 'abcdefgijklmnopqrstuvwxyz'
 let g:eskk#show_candidates_count = 3
 " if unique, confirm the candidate auto.
@@ -46,7 +46,7 @@ let g:eskk#marker_okuri = '*'
 let g:eskk#marker_jisyo_touroku = '?'
 
 " Cursor Color {{{1
-" Note: useless for normal cursor and hira
+" Note: useless on nvim
 let g:eskk#cursor_color = {
       \ 'ascii':  ['BlueViolet', 'Indigo'],
       \ 'hira':   ['Fuchsia', 'pink'],
