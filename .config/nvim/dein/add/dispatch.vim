@@ -6,8 +6,5 @@ nnoremap <silent> <SID>(dispatch)
       \ :<c-u>write
       \ <bar>Dispatch -dir=<c-r>=expand('%:p:h')<cr><cr>
 
-nnoremap <script> \<CR> <SID>(dispatch)
-nnoremap <script> `<CR> <SID>(dispatch)
-
-nnoremap <script> <space><CR> <SID>(dispatch)
-nnoremap <script> <CR><space> <SID>(dispatch)
+nnoremap <script> \` <SID>(dispatch)
+nnoremap <script> `\ <SID>(dispatch)
