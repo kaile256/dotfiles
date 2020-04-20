@@ -9,18 +9,20 @@ command! -nargs=* -range=0 -complete=customlist,quickrun#complete
 
 " Mnemonic: pseudo Source
 nmap \r <Plug>(quickrun-op)
-nnoremap <silent> <SID>(quickrun-holding-syn)
-      \ :<c-u>call <SID>quickrun_holding_syn()<cr>
-xnoremap <silent> <SID>(quickrun-holding-syn)
+noremap <silent> <SID>(quickrun-with-input)
+      \ :<c-u>call <SID>quickrun_holding_syn(input('QuickRun: '))<cr>
+noremap <silent> <SID>(quickrun-holding-syn)
       \ :<c-u>call <SID>quickrun_holding_syn()<cr>
 
+nnoremap <script> \<CR> <SID>(quickrun-with-input)
+xnoremap <script> \<CR> <SID>(quickrun-with-input)
 nnoremap <script> \\ <SID>(quickrun-holding-syn)
 xnoremap <script> \\ <SID>(quickrun-holding-syn)
 nnoremap <script> \rr <SID>(quickrun-holding-syn)
 nnoremap <script> \R  <SID>(quickrun-holding-syn)
 xnoremap <script> \r  <SID>(quickrun-holding-syn)
 
-function! s:quickrun_holding_syn() abort
+function! s:quickrun_holding_syn(...) abort
   if &readonly || !&modifiable
     echohl WarningMsg
     echo 'This buffer is *not* for QuickRun'
@@ -33,7 +35,7 @@ function! s:quickrun_holding_syn() abort
   let bufnr = bufnr('%')
   let syn = getbufvar(bufnr, '&syntax')
 
-  let input = input('QuickRun: ')
+  let input = a:0 > 0 ? a:1 : ''
   exe 'QuickRun <='. input
 
   let bufnr_qr = bufnr('\[quickrun output\]')
