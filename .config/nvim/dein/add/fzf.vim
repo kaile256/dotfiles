@@ -69,7 +69,6 @@ endfunction
 
 " Command: Maps {{{1
 " TODO: set options reverse
-command! -bar -bang -nargs=* Amaps call fzf#vim#maps('',  <bang>0)
 command! -bar -bang -nargs=* Nmaps call fzf#vim#maps('n', <bang>0)
 command! -bar -bang -nargs=* Imaps call fzf#vim#maps('i', <bang>0)
 command! -bar -bang -nargs=* Xmaps call fzf#vim#maps('x', <bang>0)
