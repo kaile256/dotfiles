@@ -15,10 +15,11 @@ augroup myFindPathRc
 
   au FileType sh,bash setl path^=/usr/bin/
   au FileType c,cpp   setl path^=/usr/include,/usr/lib/clang/9.0.1/include
+  au FileType cpp     setl path^=/usr/include/c++/9.3.0
   "au FileType java   setl path^=/usr/lib/jvm/
   au FileType go      exe 'setl path^='. $GOPATH .'/src/**,/usr/lib/go/src/**'
   au FileType python  exe 'setl path^='. $XDG_DATA_HOME
-        \ .'/lib/python3.8/site-packages/**,/usr/lib/python3.8/**'
+        \ .'/../lib/python3.8/site-packages**,/usr/lib/python3.8**'
 
   au FileType vim setl isfname-== isfname-=,
 
@@ -43,8 +44,8 @@ function! s:path.dotfiles() abort
   if expand('%:p') =~# '/*vim/' | return | endif
 
   exe 'setl path+='. g:dotfiles_home .'/.config**'
-  exe 'setl path+='. $GHQ_ROOT       .'/github.com/neovim/neovim**'
-  exe 'setl path+='. '/etc'
+  " exe 'setl path+='. $GHQ_ROOT       .'/github.com/neovim/neovim**'
+  " exe 'setl path+='. '/etc'
   exe 'setl path+='. $XDG_DATA_HOME  .'**'
 
   exe 'setl path-='. &g:path
