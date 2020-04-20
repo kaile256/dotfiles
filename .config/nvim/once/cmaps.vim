@@ -50,7 +50,7 @@ function! s:verbose_in_quickfix() abort "{{{2
     let cmd = 'verbose '. cmd
   endif
 
-  return "\<c-u>lexpr execute(". string(cmd) .")\<cr>"
+  return "\<End>\<C-u>lexpr execute(". string(cmd) .")\<CR>"
 endfunction
 
 augroup myCmapsOnce
