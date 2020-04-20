@@ -2,7 +2,7 @@ snippet dein's toml format
 alias vi vim dein [ [] pp [[]]
 options head
   [[plugins]]
-  repo = '${1:}'
+  repo = '${1}'
 
 snippet not in Android
 alias termux ter te an and andr no not
@@ -21,15 +21,15 @@ alias termux ter te an and andr no not
 # for dein's hook {{{1
 snippet hook_add
 alias ad add
-  hook_add = 'runtime add/${1:`substitute(substitute(substitute(matchstr(getline(search('repo =', 'bnW')), "'.*'"), "'", '', 'g'), '.*/', '', ''), '\.n\=vim\|n\=vim-', '', 'g')`}.vim'
+  hook_add = 'runtime add/${1:`snip#vim#name_of_plugin()`}.vim'
 
 snippet hook_source
 alias so sou sour
-  hook_source = 'runtime source/${1:`substitute(substitute(substitute(matchstr(getline(search('repo =', 'bnW')), "'.*'"), "'", '', 'g'), '.*/', '', ''), '\.n\=vim\|n\=vim-', '', 'g')`}.vim'
+  hook_source = 'runtime source/${1:`snip#vim#name_of_plugin()`}.vim'
 
 snippet hook_post_source
 alias po pos post
-  hook_post_source = 'runtime post/${1:`substitute(substitute(substitute(matchstr(getline(search('repo =', 'bnW')), "'.*'"), "'", '', 'g'), '.*/', '', ''), '\.n\=vim\|n\=vim-', '', 'g')`}.vim'
+  hook_post_source = 'runtime post/${1:`snip#vim#name_of_plugin()`}.vim'
 
 snippet on_event
 alias ev eve even
@@ -41,15 +41,15 @@ alias ft
 
 snippet on_map
 alias ma map
-  on_map = {${1:nox} = ['<Plug>(`substitute(substitute(substitute(matchstr(getline(search('repo =', 'bnW')), "'.*'"), "'", '', 'g'), '.*/', '', ''), '\.n\=vim\|n\=vim-', '', 'g')`']}
+  on_map = {${1:nox} = ['<Plug>(${2:`snip#vim#name_of_plugin()`}']}
 
 snippet on_func
 alias fu fn fun func
-  on_func = ['`substitute(substitute(substitute(substitute(matchstr(getline(search('repo =', 'bnW')), "'.*'"), "'", '', 'g'), '.*/', '', ''), '\.n\=vim\|n\=vim-', '', 'g'), '-', '_', 'g')`#${0}']
+  on_func = ['${1:`snip#vim#prefix_for_function()`}']
 
 snippet on_cmd
 alias cm cmd com
-  on_cmd = ['`substitute(substitute(substitute(matchstr(getline(search('repo =', 'bnW')), "'.*'"), "'", '', 'g'), '.*/', '', ''), '\.n\=vim\|n\=vim-', '', 'g')`${0}']
+  on_cmd = ['${1:`snip#vim#name_of_plugin()`}']
 
 snippet hook_done_update
 alias du up don done
