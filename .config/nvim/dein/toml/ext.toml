@@ -34,7 +34,7 @@ on_cmd =  ['Hexedit']
 #repo = 'mtth/scratch.vim'
 #on_cmd =  ['Scratch']
 #
-#[ Plugin ]
+#[ Plugin's ]
 [[plugins]]
 repo = 'wsdjeg/dein-ui.vim'
 on_cmd = 'DeinUpdate'
