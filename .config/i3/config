@@ -886,17 +886,17 @@ bindsym $Super+backslash $noid $menu
 $release $SuperS+M exec terminal -e 'mocp'
 
 # Keybind on Fn {{{1
-# Fn; Backlight {{{2
-bindsym XF86MonBrightnessUp   $noid xbacklight -inc 5; $notify 'Brightness: +5'
-bindsym XF86MonBrightnessDown $noid xbacklight -dec 5; $notify 'Brightness: -5'
+## Fn; Backlight {{{2
+#bindsym XF86MonBrightnessUp   $noid xbacklight -inc 5; $notify 'Brightness: +5'
+#bindsym XF86MonBrightnessDown $noid xbacklight -dec 5; $notify 'Brightness: -5'
 
-# Fn; Audio Volume {{{2
-# Depends: pulseaudio & pavucontrol
-# Recommend: pamixer (a frontend)
-# Recommend: pulseaudio-alsa (for flash)
-bindsym XF86AudioRaiseVolume $noid pactl set-sink-volume 0 +5%
-bindsym XF86AudioLowerVolume $noid pactl set-sink-volume 0 -5%
-bindsym XF86AudioMute        $noid pactl set-sink-mute 0 toggle
+## Fn; Audio Volume {{{2
+## Depends: pulseaudio & pavucontrol
+## Recommend: pamixer (a frontend)
+## Recommend: pulseaudio-alsa (for flash)
+#bindsym XF86AudioRaiseVolume $noid pactl set-sink-volume 0 +5%; $notify 'Volume: +5'
+#bindsym XF86AudioLowerVolume $noid pactl set-sink-volume 0 -5%; $notify 'Volume: -5'
+#bindsym XF86AudioMute        $noid pactl set-sink-mute 0 toggle; $notify 'Volume: Mute Toggle'
 
 # Fn; Screen Shot {{{2
 # depend: imagemagick
