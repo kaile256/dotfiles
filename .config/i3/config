@@ -888,7 +888,7 @@ $release $SuperS+M exec terminal -e 'mocp'
 # Keybind on Fn {{{1
 # Fn; Backlight {{{2
 bindsym XF86MonBrightnessUp   $noid xbacklight -inc 5; $notify 'Brightness: +5'
-bindsym XF86MonBrightnessDown $noid xbacklight -dec 5; $notify 'Brightness: +5'
+bindsym XF86MonBrightnessDown $noid xbacklight -dec 5; $notify 'Brightness: -5'
 
 # Fn; Audio Volume {{{2
 # Depends: pulseaudio & pavucontrol
