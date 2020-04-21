@@ -3,13 +3,6 @@
 " Fork: kaile256/vim-sandwich
 " Another: source/sandwich.vim
 
-" Note: *sandwich-magiccharacters*
-"   t/T (Tag): foo<cr> to <foo>arg</foo>
-"   f/F (Function): foo<cr> to foo(arg)
-"   i/I (Instant): foo<cr>end<cr>  to foo(arg)end
-"
-" <space>: all the successive spaces will be deleted as a pair of spaces
-
 " TextObj "{{{1
 " a text surrounded by a pair of braket or of the same characters as user input
 " i.e., the text-obj followed by '(' is regarded to be surrounded by '(' and ')'
@@ -49,7 +42,7 @@ xmap i. <Plug>(textobj-sandwich-query-i)\.
 omap a. <Plug>(textobj-sandwich-query-a)\.
 xmap a. <Plug>(textobj-sandwich-query-a)\.
 
-" TextObj Literal
+" TextObj Literal {{{1
 "" a text surrounded by a pair of literally the same characters as user input
 "" i.e., the text-obj followed by '(' is regarded to be surrounded by '(' and '('
 "omap <space>i <Plug>(textobj-sandwich-literal-query-i)
@@ -87,6 +80,14 @@ xmap \} <Plug>(operator-sandwich-add)}
 xmap \/ <Plug>(operator-sandwich-add)/
 
 xmap \\| <Plug>(operator-sandwich-add)\|
+
+" Magic chars for tag/func {{{1
+" Note: *sandwich-magiccharacters*
+"   t/T (Tag): foo<cr> to <foo>arg</foo>
+"   f/F (Function): foo<cr> to foo(arg)
+"   i/I (Instant): foo<cr>end<cr>  to foo(arg)end
+"
+" <space>: all the successive spaces will be deleted as a pair of spaces
 
 " with magicchars tag/func
 xmap <Plug>(operator-sandwich-add-tag)  <Plug>(operator-sandwich-add)t
