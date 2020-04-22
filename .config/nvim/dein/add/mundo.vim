@@ -7,7 +7,7 @@ nnoremap <silent> <a-u> :<c-u>call <SID>mundo_toggle()<cr>
 function! s:mundo_toggle() abort
   if bufwinnr(bufnr("__Mundo__")) != -1
         \ || bufwinnr(bufnr("__Mundo_Preview__")) != -1
-    MundoClose
+    MundoHide
     return
   endif
 
