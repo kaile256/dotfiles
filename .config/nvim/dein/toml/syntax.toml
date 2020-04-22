@@ -6,7 +6,7 @@
 repo = 'sheerun/vim-polyglot'
 # No syntax for java
 # includes syntax for systemd
-if = "&ft !=# '\|zsh\|terminal\|i3\|javascript\|haskell'"
+if = "&ft !=# '\|zsh\|terminal\|i3\|javascript\|haskell\|php\|cpp'"
 on_event = ['FileType']
 hook_source = 'runtime source/polyglot.vim'
 
@@ -47,7 +47,7 @@ on_ft = [
 [[plugins]]
 repo = 'jackguo380/vim-lsp-cxx-highlight'
 # semantic highlight; recommended with ccls on coc.nvim
-on_ft = ['c', 'cpp', 'objc', 'objcpp']
+on_ft = ['c', 'cpp', 'objc', 'objcpp', 'cc']
 
 #[[plugins]]
 #repo = 'fatih/vim-go'
@@ -128,8 +128,7 @@ on_path = ['\.pu$', '\.uml$', '\.puml$', '\.iuml$', '\.plantuml$']
 #[ Test ]
 [[plugins]]
 repo = 'yasuhiroki/circleci.vim'
-if = "expand('%:h:t') =~# '.circleci'"
-on_ft = ['yaml']
+on_path = '\.circleci/config.yml'
 
 #[ Database ]
 #[[plugins]]
