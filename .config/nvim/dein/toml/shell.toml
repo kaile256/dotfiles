@@ -27,12 +27,23 @@ hook_add = 'runtime add/suda.vim'
 
 #[ Async Processor ]
 [[plugins]]
+repo = 'skywind3000/asyncrun.vim'
+# Only supports external shell to qf.
+on_cmd = 'AsyncRun'
+hook_add = 'runtime add/asyncrun.vim'
+
+[[plugins]]
+repo = 'skywind3000/asynctasks.vim'
+depend = ['asyncrun.vim']
+on_cmd = ['AsyncTask']
+
+[[plugins]]
 repo = 'Shougo/vimproc.vim'
 on_source = ['vim-quickrun']
 on_func = ['vimproc#']
 # run vim-plugins asynchronously, like openbrowser, quickrun.
 build = 'make'
-
+#[ QuickRun ]
 [[plugins]]
 repo = 'thinca/vim-quickrun'
 on_cmd = 'QuickRun'
@@ -47,16 +58,17 @@ on_cmd = 'QuickRun'
 on_map = '<Plug>(quickrun'
 hook_source = 'runtime source/quickrun-unittest.vim'
 [[plugins]]
-repo = 'skywind3000/asyncrun.vim'
-# Only supports external shell to qf.
-on_cmd = 'AsyncRun'
-hook_add = 'runtime add/asyncrun.vim'
-
-[[plugins]]
-repo = 'skywind3000/asynctasks.vim'
-depend = ['asyncrun.vim']
-on_cmd = ['AsyncTask']
-
+repo = 'syusui-s/vim-quickrun-neovim-terminal'
+# set runner 'neovim_terminal'
+on_source = ['vim-quickrun']
+#[[plugins]]
+#repo = 'lambdalisue/vim-quickrun-neovim-job'
+## set runner 'neovim_job'
+#on_source = ['vim-quickrun']
+#[[plugins]]
+#repo = 'ogura01/quickrun-runner-job-on-neovim.nvim'
+## set runner 'job_on_neovim'
+#on_source = ['vim-quickrun']
 #[ Shell; Wrapper ]
 #[[plugins]]
 #repo = 'kassio/neoterm'

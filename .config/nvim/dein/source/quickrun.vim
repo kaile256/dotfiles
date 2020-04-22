@@ -5,9 +5,28 @@
 
 let g:quickrun_no_default_key_mappings = 1
 
-let g:quickrun_config = {
-      \ 'runner': 'vimproc',
-      \ 'runner/vimproc/updatetime': 100,
+nnoremap <expr><silent> <C-c>
+      \ quickrun#is_running()
+      \ ? quickrun#sweep_sessions()
+      \ : "\<C-c>"
+
+let g:quickrun_config = {}
+" Note: runners remarks
+"   'system' is default but too slow.
+"   'shell' is fast but only returns in lee.
+"   'vimproc' returns too late; freezes in 20 sec before showing result.
+"   'python' returns error.
+"   'remote' demands has('clientserver') is true.
+"   'concurrent_process' returns nothing but expended time.
+"   both 'job' and 'terminal' is, of cource, only available on Vim.
+"   'vimscript' returns 'E78: Unknown mark'.
+"
+" Note: Non Official Plugins
+"   'neovim_job' is fast to compile; too slow to show the result.
+"   'neovim_terminal' is quick but returns no time-recoding
+
+let g:quickrun_config['_'] = {
+      \ 'runner': 'neovim_terminal',
       \ 'outputter': 'loclist',
       \ 'outputter/buffer/append': 1,
       \ 'outputter/buffer/close_on_empty': 1,
