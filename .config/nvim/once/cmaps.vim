@@ -43,14 +43,14 @@ function! s:verbose_in_quickfix() abort "{{{2
     return "\<CR>"
   endif
 
-  if cmd !~# '^\s*:' && cmd =~# '^[a-z=]\+$'
-    let cmd = 'set '. cmd
-  endif
+  " if cmd !~# '^\s*:' && cmd =~# '^[a-z=]\+$'
+  "   let cmd = 'set '. cmd
+  " endif
   if cmd !~# 'verb\%[ose] '
     let cmd = 'verbose '. cmd
   endif
 
-  return "\<End>\<C-u>lexpr execute(". string(cmd) .")\<CR>"
+  return "\<End>\<C-u>lexpr execute(". string(cmd) .") \<bar> lopen \<CR>"
 endfunction
 
 augroup myCmapsOnce
