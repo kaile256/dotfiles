@@ -23,20 +23,15 @@ nnoremap <script> \R  <SID>(quickrun-holding-syn)
 xnoremap <script> \r  <SID>(quickrun-holding-syn)
 
 function! s:quickrun_holding_syn(...) abort
-  if &readonly || !&modifiable
-    echohl WarningMsg
-    echo 'This buffer is *not* for QuickRun'
-    echohl Normal
-    return
-  elseif filewritable(expand('%:p'))
+  if &modifiable && !&readonly
     silent w
   endif
 
   let bufnr = bufnr('%')
   let syn = getbufvar(bufnr, '&syntax')
 
-  let input = a:0 > 0 ? a:1 : ''
-  exe 'QuickRun <='. input
+  let input = a:0 > 0 ? join(a:000) : ''
+  exe 'QuickRun -args' string(input)
 
   let bufnr_qr = bufnr('\[quickrun output\]')
   call setbufvar(bufnr_qr, '&syntax', syn)
