@@ -1,5 +1,6 @@
 " From: appearance.toml
 " Repo: t9md/vim-quickhl
+" Another: post/quickhl.vim
 
 "let g:quickhl_manual_colors = [
 "      \ "gui=bold ctermfg=16  ctermbg=153 guifg=#ffffff guibg=#0a7383",

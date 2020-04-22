@@ -1,4 +1,4 @@
-# From: rc/dein.vim
+# From: dein/dein.vim
 
 #[ Capslock ]
 [[plugins]]
@@ -28,6 +28,7 @@ on_map = {
   n  = '<Plug>(operator-quickhl-',
 }
 hook_add = 'runtime add/quickhl.vim'
+hook_post_source = 'runtime post/quickhl.vim'
 
 #[[plugins]]
 #repo = 'wellle/context.vim'
@@ -162,15 +163,9 @@ write
 #
 #[ Colorscheme ]
 #[[plugins]]
-#repo = 'KeitaNakamura/neodark.vim'
-#on_event = 'VimEnter'
-#hook_source = 'runtime add/neodark.vim'
-
-#[[plugins]]
 #repo = 'flrnprz/candid.vim'
 ## Looks like dracula scheme.
 #on_event = 'VimEnter'
-#hook_post_source = 'runtime add/candid.vim'
 [[plugins]]
 repo = 'joshdick/onedark.vim'
 on_func = ['onedark#']
@@ -178,7 +173,16 @@ on_func = ['onedark#']
 [[plugins]]
 repo = 'drewtempelmeyer/palenight.vim'
 on_event = ['VimEnter']
+[[plugins]]
+repo = 'jonathanfilip/vim-lucius'
+on_event = ['VimEnter']
+[[plugins]]
+repo = 'raphamorim/lucario'
+on_event = 'VimEnter'
 #[ Colorscheme.monokai ]
+[[plugins]]
+repo = 'tomasr/molokai'
+on_event = 'VimEnter'
 #[[plugins]]
 #repo = 'phanviet/vim-monokai-pro'
 ## purple-base monokai.
