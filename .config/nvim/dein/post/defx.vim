@@ -343,7 +343,7 @@ augroup myDefxPost "{{{1
   " TODO: fix coc#_complete() for 'E121: Undefined variale: b:defx'
   au!
   " TODO: highlight on top as there's filepath, or place those path on another place.
-  au FileType defx setl winfixwidth winfixheight
+  au FileType defx setl winfixwidth
   " 'bufhidden': default is 'hide', perhaps for resume of defx
   au FileType defx setl nonumber signcolumn= bufhidden=wipe previewheight=25
   "au WinEnter \[defx\]*
