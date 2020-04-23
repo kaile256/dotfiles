@@ -33,8 +33,24 @@ function! s:quickrun_holding_syn(...) abort
   let input = a:0 > 0 ? join(a:000) : ''
   exe 'QuickRun -args' string(input)
 
-  let bufnr_qr = bufnr('\[quickrun output\]')
-  call setbufvar(bufnr_qr, '&syntax', syn)
+  let buflist = tabpagebuflist()
+  " Note: some outputter is named unrelated to quickrun
+  let bufnr_qr = buflist[len(buflist) - 1]
+
+  if getbufvar(bufnr_qr, '&buftype') ==# 'terminal'
+    if bufnr('%') == bufnr_qr
+      " leave term-job mode
+      call feedkeys("\<C-\>\<C-N>", 'n')
+    else
+      stopinsert
+    endif
+  endif
+
+  "" at the time, line('$') probably returns 0.
+  " if line('$') < 80
+  "   " of cource, syntax will be done synchronously.
+  "   call setbufvar(bufnr_qr, '&syntax', syn)
+  " endif
 endfunction
 
 augroup myQuickrunAdd
