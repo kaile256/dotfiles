@@ -7,9 +7,7 @@ endif
 let b:undo_ftplugin .= 'setl fdm< fde<'
 
 function! SnippetsFoldExpr() abort
-  let line = getline(v:lnum)
-  if line =~? '^\%[#]\s*snippet\s*'
-    " includes commented-out lines.
+  if synIDattr(synID(v:lnum, 1, 0), 'name') =~# 'snipSnippetHeaderKeyword'
     return '>1'
   endif
   return '='
