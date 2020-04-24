@@ -3,38 +3,27 @@
 " Another: source/colorschemes.vim
 
 augroup myColorschemesPost
-  if exists('myColorschemesPost') | au! myColorschemesPost
+  if exists('#myColorschemesPost') | au! myColorschemesPost
   endif
-  au VimEnter * ++nested colorscheme neodark
+  au VimEnter * ++nested call s:set_colorscheme()
   " set variables on the colorscheme
   au ColorScheme * ++nested exe 'runtime source/<amatch>.vim'
   " overrides original colorschemes
   au ColorSchemePre * ++nested exe 'runtime colorschemes/<amatch>.vim'
 augroup END
 
-"" Set Colorscheme up to os/gui
-"try
-"  if !executable('xinput')
-"    "colorscheme molokai_dark
-"    Colorscheme gruvbox
-
-"  elseif exists('g:nyaovim_version')
-"    Colorscheme solarized8_light_flat
-"    "elseif !exists("g:GuiLoaded")
-"    "  " on CUI
-"    "  let g:solarized_termcolors=256
-"    "  colorscheme solarized8_light_flat
-"    "  "colorscheme solarized8_dark_flat
-
-"  else
-"    Colorscheme neodark
-"    " colorscheme onedark
-"    " colorscheme colorsbox-stnight
-"    " colorscheme Monokai
-"    " colorscheme colorsbox-stnight
-"  endif
-
-"catch
-"  colorscheme murphy
-"endtry
-
+function! s:set_colorscheme() abort
+  try
+    if executable('xinput')
+      if expand($TERM) =~# 'rxvt'
+        colorscheme gruvbox
+      else
+        colorscheme neodark
+      endif
+    else
+      colorscheme sonokai
+    endif
+  catch /E185/
+    colorscheme slate
+  endtry
+endfunction
