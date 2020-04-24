@@ -2,20 +2,12 @@
 " Repo: flazz/vim-colorschemes
 " Another: source/colorschemes.vim
 
-command! -bar -nargs=1 -complete=color Colo
-      \ :call s:set_colorscheme(<q-args>)
-command! -bar -nargs=1 -complete=color Colorscheme
-      \ :call s:set_colorscheme(<q-args>)
-
-function! s:set_colorscheme(name) abort
-  exe 'runtime colorschemes/'. a:name .'.vim'
-  exe 'colorscheme' a:name
-endfunction
-
 augroup myColorschemesPost
   if exists('myColorschemesPost') | au! myColorschemesPost
   endif
-  au VimEnter * ++nested Colorscheme neodark
+  au VimEnter * ++nested colorscheme neodark
+  " overrides original colorschemes
+  au ColorScheme * ++nested exe 'runtime colorschemes/'. g:colors_name .'.vim'
 augroup END
 
 "" Set Colorscheme up to os/gui
