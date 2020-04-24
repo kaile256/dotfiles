@@ -6,7 +6,7 @@ else
 endif
 let b:undo_ftplugin .= 'setl fdm< fde<'
 
-function! HelpFoldExpr() abort "{{{1
+function! HelpFoldExpr() abort
   let line = getline(v:lnum)
   if line =~# '^=\+$'
     return '>1'
