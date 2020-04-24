@@ -3,9 +3,10 @@
 " Repo: flazz/vim-colorschemes
 " Another: add/gruvbox.vim
 
+set notermguicolors
+
 if $TERM =~# 'rxvt\|gnome'
   let g:gruvbox_italic = 1
 endif
 
 "let g:gruvbox_contrast_dark = 'hard'
-
