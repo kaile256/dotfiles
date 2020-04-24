@@ -3,11 +3,6 @@
 " Ref: post/coloschemes.vim
 " Ref: source/coloschemes.vim
 
-let g:neodark#italic = 1
-let g:neodark#use_256color = 1
-let g:neodark#terminal_transparent = 1
-let g:neodark#use_custom_terminal_theme = 1
-
 augroup myNeodarkSo
   if exists('#myNeodarkSo') | au! myNeodarkSo
   endif
