@@ -47,23 +47,23 @@ nnoremap <silent> <SID>(sneak-T) :<c-u>call sneak#users('T', 'never')<cr>
 "nnoremap <silent> s :call sneak#users('/2')<cr>
 "nnoremap <silent> S :call sneak#users('?2')<cr>
 
-xnoremap <silent> <SID>(sneak-f) :call sneak#users('fv', 'never')<cr>
-xnoremap <silent> <SID>(sneak-F) :call sneak#users('Fv', 'never')<cr>
-xnoremap <silent> <SID>(sneak-t) :call sneak#users('tv', 'never')<cr>
-xnoremap <silent> <SID>(sneak-T) :call sneak#users('Tv', 'never')<cr>
+xnoremap <silent> <SID>(sneak-f) :<c-u>call sneak#users('fv', 'never')<cr>
+xnoremap <silent> <SID>(sneak-F) :<c-u>call sneak#users('Fv', 'never')<cr>
+xnoremap <silent> <SID>(sneak-t) :<c-u>call sneak#users('tv', 'never')<cr>
+xnoremap <silent> <SID>(sneak-T) :<c-u>call sneak#users('Tv', 'never')<cr>
 
 onoremap <expr><silent> <SID>(sneak-f) (v:operator ==# 'd')?
-      \ ":call sneak#users('f', 'never')<cr>":
-      \ ":call sneak#users('f')<cr>"
+      \ ":<c-u>call sneak#users('f', 'never')<cr>":
+      \ ":<c-u>call sneak#users('f')<cr>"
 onoremap <expr><silent> <SID>(sneak-F) (v:operator ==# 'd')?
-      \ ":call sneak#users('F', 'never')<cr>":
-      \ ":call sneak#users('F')<cr>"
+      \ ":<c-u>call sneak#users('F', 'never')<cr>":
+      \ ":<c-u>call sneak#users('F')<cr>"
 onoremap <expr><silent> <SID>(sneak-t) (v:operator ==# 'd')?
-      \ ":call sneak#users('t', 'never')<cr>":
-      \ ":call sneak#users('t')<cr>"
+      \ ":<c-u>call sneak#users('t', 'never')<cr>":
+      \ ":<c-u>call sneak#users('t')<cr>"
 onoremap <expr><silent> <SID>(sneak-T) (v:operator ==# 'd')?
-      \ ":call sneak#users('T', 'never')<cr>":
-      \ ":call sneak#users('T')<cr>"
+      \ ":<c-u>call sneak#users('T', 'never')<cr>":
+      \ ":<c-u>call sneak#users('T')<cr>"
 
 "augroup SneakBuffers "{{{1
 "  au! FileType * if &ft ==# 'help' | call s:sneak_readonly_keymaps() | endif "{{{2
