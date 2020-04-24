@@ -10,6 +10,10 @@ map w  <Plug>CamelCaseMotion_w
 map b  <Plug>CamelCaseMotion_b
 map e  <Plug>CamelCaseMotion_e
 map ge <Plug>CamelCaseMotion_ge
+sunmap w
+sunmap b
+sunmap e
+sunmap ge
 " TODO: no delay on 'e' in operator
 "omap <expr> <Plug>CamelCaseMotion_e_modified (getline('.')[col('.')] ==# ' ') ? 'l' : '<Plug>CamelCaseMotion_e'
 "omap e <Plug>CamelCaseMotion_e_modified
@@ -17,6 +21,8 @@ map ge <Plug>CamelCaseMotion_ge
 " Mnemonic: Quickback
 map q <Plug>CamelCaseMotion_ge
 noremap Q gE
+sunmap q
+sunmap Q
 
 " Overwrite; Text Object
 " TODO: keep cursor
