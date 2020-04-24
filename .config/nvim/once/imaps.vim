@@ -12,9 +12,10 @@ inoremap <expr> <SID>(ctrl-k)
 imap <c-k> <SID>(ctrl-k)
 
 " TODO: keep the cursor after <c-o>, especially <c-o>yiw
-" Note: default <c-o>yy only inserts yy w/o yank.
-inoremap <c-o>y        <c-\><c-o>:call feedkeys("\<c-\>\<c-o>y", 'n')<cr>
-inoremap <c-o><space>y <c-\><c-o>:call feedkeys("\<c-\>\<c-o>\"+y", 'n')<cr>
+" Note: default <c-o>yy only inserts 'yy' w/o yank probably because the other
+" mappings with :nmap to y like y<c-g>.
+inoremap <silent> <c-o>y        <c-\><c-o>:call feedkeys("\<c-\>\<c-o>y", 'n')<cr>
+inoremap <silent> <c-o><space>y <c-\><c-o>:call feedkeys("\<c-\>\<c-o>\"+y", 'n')<cr>
 "inoremap <c-o>p <c-\><c-o>:call feedkeys("\<esc>]p`]a")<cr>
 
 " TODO: Associate with lexima
