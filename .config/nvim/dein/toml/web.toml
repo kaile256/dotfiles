@@ -1,4 +1,4 @@
-# From: rc/dein.vim
+# From: dein/dein.vim
 
 #[ Browser ]
 [[plugins]]
@@ -132,3 +132,9 @@ build = '''
 go build
 mv edit-slack ../edit-slack.vim/edit-slack
 '''
+
+#[ AtCoder ]
+[[plugins]]
+repo = 'ka-tsu-mo/at-vim-coder'
+on_cmd = ['AtVimCoder']
+hook_source = 'runtime source/at-vim-coder.vim'
