@@ -4,8 +4,13 @@ scriptencoding utf-8
 " as default, <F1> do `:help`
 inoremap <F1> <Nop>
 
-" <c-o>
-" Tips: <c-\><c-o> keeps cursor position
+" Tips: i_CTRL-\_CTRL-O keeps cursor position
+inoremap <expr> <SID>(ctrl-k)
+      \ col('.') == len(getline('.')) + 1
+      \ ? ''
+      \ : '<c-\><C-o>"_D'
+imap <c-k> <SID>(ctrl-k)
+
 " TODO: keep the cursor after <c-o>, especially <c-o>yiw
 " Note: default <c-o>yy only inserts yy w/o yank.
 inoremap <c-o>y        <c-\><c-o>:call feedkeys("\<c-\>\<c-o>y", 'n')<cr>
