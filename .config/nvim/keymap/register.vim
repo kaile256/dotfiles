@@ -64,9 +64,9 @@ nnoremap <space>d "_d
 nnoremap <space>D "_D
 nnoremap <space>c "_c
 nnoremap <space>C "_C
+nnoremap <space>x "_x
+nnoremap <space>X "_X
 
-"nnoremap <s-space>x "_x
-"nnoremap <s-space>X "_X
 " Unnamed Register; Convenience "{{{1
 " CAUTION: Just Type p to put from unnamed register.
 cnoremap <c-r><c-'> <c-r>"
