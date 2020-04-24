@@ -6,8 +6,10 @@ augroup myColorschemesPost
   if exists('myColorschemesPost') | au! myColorschemesPost
   endif
   au VimEnter * ++nested colorscheme neodark
+  " set variables on the colorscheme
+  au ColorScheme * ++nested exe 'runtime source/<amatch>.vim'
   " overrides original colorschemes
-  au ColorScheme * ++nested exe 'runtime colorschemes/'. g:colors_name .'.vim'
+  au ColorSchemePre * ++nested exe 'runtime colorschemes/<amatch>.vim'
 augroup END
 
 "" Set Colorscheme up to os/gui
