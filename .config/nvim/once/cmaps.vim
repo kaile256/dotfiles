@@ -6,8 +6,8 @@ cnoremap <c-o> <c-d>
 
 cnoremap <silent> <a-space> <esc>:call feedkeys("\<space>")<cr>
 
-" Note: <c-k> enter digraph when mistyped
-cnoremap <silent> <c-k><a-k> <c-c>
+" " Note: <c-k> enter digraph when mistyped
+" cnoremap <silent> <c-k><a-k> <c-c>
 
 cnoremap <c-r><c-space> <c-r>+
 cnoremap <c-r><space>   <c-r>+
@@ -86,7 +86,15 @@ cnoremap <a-b> <S-Left>
 
 cnoremap <c-d> <Del>
 " useless only to print <S-Del>
-"cnoremap <a-d> <S-Del>
+" cnoremap <a-d> <S-Right><C-w>
+
+cnoremap <expr> <c-k> <SID>remove_to_end()
+function! s:remove_to_end() abort
+  let line = getcmdline()
+  let col  = getcmdpos()
+  let len  = len(line) - col + 1
+  return repeat("\<Del>", len)
+endfunction
 
 " Style; vi-like to open cmdwin {{{1
 "cnoremap <a-b> <c-f>B
