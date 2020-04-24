@@ -10,12 +10,18 @@
 
 map ; <Plug>Sneak_;
 map , <Plug>Sneak_,
+sunmap ;
+sunmap ,
 
 " original wrapper
-map f <Plug>(sneak-f)
-map F <Plug>(sneak-F)
-map t <Plug>(sneak-t)
-map T <Plug>(sneak-T)
+noremap <script> f <SID>(sneak-f)
+noremap <script> F <SID>(sneak-F)
+noremap <script> t <SID>(sneak-t)
+noremap <script> T <SID>(sneak-T)
+sunmap f
+sunmap F
+sunmap t
+sunmap T
 
 " sneak#wrap('{operatorName}', {inputLength}, {reverse?}, {t/f}, {label})
 " mode: operatorName; '{'':n,v:operator,visualmode()}
@@ -28,10 +34,10 @@ map T <Plug>(sneak-T)
 "nnoremap <expr> f sneak#wrap('f2', 'label')
 
 " sneak#users() {{{1
-nnoremap <silent> <Plug>(sneak-f) :call sneak#users('f', 'never')<cr>
-nnoremap <silent> <Plug>(sneak-F) :call sneak#users('F', 'never')<cr>
-nnoremap <silent> <Plug>(sneak-t) :call sneak#users('t', 'never')<cr>
-nnoremap <silent> <Plug>(sneak-T) :call sneak#users('T', 'never')<cr>
+nnoremap <silent> <SID>(sneak-f) :<c-u>call sneak#users('f', 'never')<cr>
+nnoremap <silent> <SID>(sneak-F) :<c-u>call sneak#users('F', 'never')<cr>
+nnoremap <silent> <SID>(sneak-t) :<c-u>call sneak#users('t', 'never')<cr>
+nnoremap <silent> <SID>(sneak-T) :<c-u>call sneak#users('T', 'never')<cr>
 " Note: another word following f/t provides no prompt
 "nnoremap <silent> fe :call sneak#users('f2p', 'never')<cr>e
 "nnoremap <silent> te :call sneak#users('t2p', 'never')<cr>e
@@ -41,21 +47,21 @@ nnoremap <silent> <Plug>(sneak-T) :call sneak#users('T', 'never')<cr>
 "nnoremap <silent> s :call sneak#users('/2')<cr>
 "nnoremap <silent> S :call sneak#users('?2')<cr>
 
-xnoremap <silent> <Plug>(sneak-f) :call sneak#users('fv', 'never')<cr>
-xnoremap <silent> <Plug>(sneak-F) :call sneak#users('Fv', 'never')<cr>
-xnoremap <silent> <Plug>(sneak-t) :call sneak#users('tv', 'never')<cr>
-xnoremap <silent> <Plug>(sneak-T) :call sneak#users('Tv', 'never')<cr>
+xnoremap <silent> <SID>(sneak-f) :call sneak#users('fv', 'never')<cr>
+xnoremap <silent> <SID>(sneak-F) :call sneak#users('Fv', 'never')<cr>
+xnoremap <silent> <SID>(sneak-t) :call sneak#users('tv', 'never')<cr>
+xnoremap <silent> <SID>(sneak-T) :call sneak#users('Tv', 'never')<cr>
 
-onoremap <expr><silent> <Plug>(sneak-f) (v:operator ==# 'd')?
+onoremap <expr><silent> <SID>(sneak-f) (v:operator ==# 'd')?
       \ ":call sneak#users('f', 'never')<cr>":
       \ ":call sneak#users('f')<cr>"
-onoremap <expr><silent> <Plug>(sneak-F) (v:operator ==# 'd')?
+onoremap <expr><silent> <SID>(sneak-F) (v:operator ==# 'd')?
       \ ":call sneak#users('F', 'never')<cr>":
       \ ":call sneak#users('F')<cr>"
-onoremap <expr><silent> <Plug>(sneak-t) (v:operator ==# 'd')?
+onoremap <expr><silent> <SID>(sneak-t) (v:operator ==# 'd')?
       \ ":call sneak#users('t', 'never')<cr>":
       \ ":call sneak#users('t')<cr>"
-onoremap <expr><silent> <Plug>(sneak-T) (v:operator ==# 'd')?
+onoremap <expr><silent> <SID>(sneak-T) (v:operator ==# 'd')?
       \ ":call sneak#users('T', 'never')<cr>":
       \ ":call sneak#users('T')<cr>"
 
