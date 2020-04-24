@@ -20,30 +20,29 @@
 ##[ Snippets; Engine ]
 [[plugins]]
 repo = 'SirVer/ultisnips'
-# Note: it override <TAB>
-on_func = ['UltiSnips#ExpandSnippet']
+#on_source = 'coc.nvim'
+## Note: it override <TAB>
+on_event = ['InsertEnter']
+on_func = ['UltiSnips#ExpandSnippetOrJump']
 on_map = {nvi = ['<Plug>(ultisnips-']}
 on_cmd = ['UltiSnipsEdit']
 on_path = ['\.snippets$']
 hook_add = 'runtime add/ultisnips.vim'
-hook_source = '''
-  runtime once/smaps.vim
-  runtime source/ultisnips.vim
-'''
-
-[[plugins]]
-repo = 'Shougo/neosnippet.vim'
-# Merged PR: Shougo/neosnippet.vim/pull/486
-# set the filetype in augroups.vim
-# it disturbs on 'n', of cource
-on_map = {nvi = '<Plug>(neosnippet'}
-on_func =  ['neosnippet#']
-on_path = ['\.snip$']
-hook_add = 'runtime add/neosnippet.vim'
-hook_source = '''
-  runtime once/smaps.vim
-  runtime source/neosnippet.vim
-'''
+hook_source = 'runtime source/ultisnips.vim'
+#hook_post_source = 'runtime post/ultisnips.vim'
+#[[plugins]]
+#repo = 'Shougo/neosnippet.vim'
+## Merged PR: Shougo/neosnippet.vim/pull/486
+## set the filetype in augroups.vim
+## it disturbs on 'n', of cource
+#on_map = {nvi = '<Plug>(neosnippet'}
+#on_func =  ['neosnippet#']
+#on_path = ['\.snip$']
+#hook_add = 'runtime add/neosnippet.vim'
+#hook_source = '''
+#  runtime once/smaps.vim
+#  runtime source/neosnippet.vim
+#'''
 
 #[[plugins]]
 #repo = 'Shougo/deoppet.nvim'
@@ -61,14 +60,20 @@ hook_source = '''
 #on_event = ['InsertEnter']
 
 #[ Snippets; Contents ]
-[[plugins]]
-repo = 'Shougo/neosnippet-snippets'
-on_source = ['neosnippet.vim']
-
 #[[plugins]]
-#repo = 'honza/vim-snippets'
-## originally,snippets for snipmate
+#repo = 'Shougo/neosnippet-snippets'
 #on_source = ['neosnippet.vim']
+
+[[plugins]]
+repo = 'honza/vim-snippets'
+# originally, snippets for snipmate
+on_source = ['ultisnips', 'neosnippet.vim']
+[[plugins]]
+repo = 'gillescastel/latex-snippets'
+on_ft = ['tex']
+[[plugins]]
+repo = 'epilande/vim-react-snippets'
+on_ft = ['javascript']
 
 #[ Completion ]
 #[[plugins]]
@@ -99,11 +104,8 @@ on_source = ['neosnippet.vim']
 [[plugins]]
 repo = 'alvan/vim-closetag'
 # Html; Auto Close for html-tags
-hook_add = 'runtime add/closetag.vim'
-on_ft = ['html', 'javascript']
-hook_add = '''
-let g:cloesetag_filenames = '*.html,*.vue'
-'''
+hook_add = 'runtime source/closetag.vim'
+on_ft = ['html', 'xml', 'jsx']
 #[[plugins]]
 #repo = 'jiangmiao/auto-pairs'
 #on_event = ['InsertEnter']
