@@ -1,37 +1,19 @@
-# A valid snippet should starts with:
-#
-#		snippet trigger_word [ "description" [ options ] ]
-#
-# and end with:
-#
-#		endsnippet
-#
-# Snippet options:
-#
-#		b - Beginning of line.
-#		i - In-word expansion.
-#		w - Word boundary.
-#		r - Regular expression
-#		e - custom context snippet
-#		A - Snippet will be triggered automatically, when condition matches.
-#
-# Basic example:
-#
-#		snippet emitter "emitter properties" b
-#		private readonly ${1} = new Emitter<$2>()
-#		public readonly ${1/^_(.*)/$1/}: Event<$2> = this.$1.event
-#		endsnippet
-#
-# Online reference: https://github.com/SirVer/ultisnips/blob/master/doc/UltiSnips.txt
-
-snippet au "augroup AugroupName"
-augroup ${1:MyAugroup} ${9:"\{\{\{}
-au!
-au ${2:Event} ${3:*} ${4:command}
-${5:au ${6:Event} ${7:*} ${8:command}}
-augroup END ${9:"\}\}\}}
+snippet 'fu(n(c(tion)?)?)?' "function!" rb
+function! ${1:`!v snip#vim#prefix_for_function()`}${2:#:do}(${3:#:args}) abort${4:#: range }
+endfunction
 endsnippet
 
-snippet ab "abbriviation for cmdline"
-${3:c}noreabbr <expr> ${1:key} (getcmdtype() == ':' && getcmdline() =~ '^$1$')? '${2:expand}' : '$1'
+snippet 'fol(d)?' "fold with b:undo_ftplugin" rb
+setl fdm=expr fde=${1:`!v substitute(toupper(expand('%:t:r')[0]) . expand('%:t:r')[1:], 'fold\|\W\|_', '', 'g')`FoldExpr()} fdl=1
+if exists('b:undo_ftplugin')
+	let b:undo_ftplugin .= ' | '
+else
+	let b:undo_ftplugin = ''
+endif
+let b:undo_ftplugin .= 'setl fdm< fde<'
+
+function! $1 abort
+  ${2:let line = getline(v:lnum)}
+	return '='
+endfunction
 endsnippet
