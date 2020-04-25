@@ -1,0 +1,95 @@
+snippet '^(vi(m)?|dein)$' "for dein.toml" rb
+[[plugins]]
+repo = '`!v matchstr(@+, 'https://github.com/\zs[^/]\+/[^/]\+')`'
+on_$0
+endsnippet
+
+snippet '((h)?ook_)?a(dd)?' "hook_add = 'runtime add/foo.vim'" rb
+hook_add = 'runtime add/${1:`!v matchstr(getline(search('^repo =')), "repo = '.\\{-\}/\\zs.\\{-\}\\ze'", 'nbW')`}.vim'
+endsnippet
+
+snippet '((h)?ook_)?s(ource)?' "hook_source = 'runtime source/foo.vim" rb
+hook_source = 'runtime source/${1:`!v snip#vim#name_of_plugin()`}.vim'
+endsnippet
+
+snippet '((h)?ook_)?p(o(st_source)?)?' "hook_post_source = 'runtime post/foo.vim'" rb
+hook_post_source = 'runtime post/${1:`!v snip#vim#name_of_plugin()`}.vim'
+endsnippet
+
+snippet '((h)?ook_)?d(one_)?u(pdate)?' "hook_done_update = 'UpdateRemotePlugins'" rb
+hook_done_update = '${1:call remote#host#UpdateRemotePlugins()}'
+endsnippet
+
+snippet '(o(n(_)?)?)?ev(ent)?' "on_event" rb
+alias ev eve even
+on_event = ['${1:BufRead}']
+endsnippet
+
+snippet '(o(n(_)?)?)?ft' "on_ft" rb
+on_ft = ['${1:vim}']
+endsnippet
+
+snippet '(o(n(_)?)?)?m(ap)?' "on_map" rb
+on_map = {${1:nox} = ['<Plug>(${2:`!v snip#vim#name_of_plugin()`}']}
+endsnippet
+
+snippet '(o(n(_)?)?)?fu(nc)?' "on_func" rb
+on_func = ['${1:`!v snip#vim#prefix_for_function()`}']
+endsnippet
+
+snippet '(o(n(_)?)?)?cmd' "on_cmd" rb
+on_cmd = ['${1:`!v snip#vim#name_of_plugin()`}']
+endsnippet
+
+snippet '(o(n(_)?)?)?pa(th)?' "on_path" rb
+on_path = '${0:#:\.ext (conpared in "=~#"}'
+endsnippet
+
+snippet on_source
+alias ons onso os oso
+on_source = ['${1:vim-fugitive}']
+endsnippet
+
+snippet build
+alias bu bui ins install
+build = '${1:./install.sh}'
+endsnippet
+
+snippet type
+alias ty typ
+type = 'git${0}'
+endsnippet
+
+snippet 'd(e)?p(end)?' "depend = ['other plugins']" rb
+depend = ['${1:vim-fugitive}']
+
+endsnippet
+
+snippet 'sudo|trusted' "trusted = 1 (load plugin as in 'sudo'" rb
+trusted = 1
+endsnippet
+
+snippet 'time(out)?' "timeout = (second)" rb
+timeout = ${1:#:1(sec)}
+endsnippet
+
+snippet 's(cript_type)?p(lugin)?' "set the repo under plugin/" rb
+script_type = 'plugin'
+endsnippet
+
+snippet 's(cript_type)?i(ndent)?' "set the repo under indent/" rb
+script_type = 'indent'
+endsnippet
+
+snippet 's(cript_type)?ft(plugn)?' "set the repo under ftplugin/" rb
+script_type = 'plugin'
+endsnippet
+
+snippet 's(cript_type)?c((o)?(l)?ors)?' "set the repo under colors/" rb
+script_type = 'colors'
+endsnippet
+
+snippet 's(cript_type)?syn(tax)?' "set the repo under syntax/" rb
+script_type = 'syntax'
+endsnippet
+

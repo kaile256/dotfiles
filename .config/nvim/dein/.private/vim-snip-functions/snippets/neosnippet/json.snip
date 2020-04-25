@@ -1,11 +1,13 @@
 # Else: no other snippets
 
 snippet {}
+abbr {...},
 alias {
   {
   "${1:#:name}": ${0:TARGET}
   }`getline(line('.') + 1) =~# '^\s*"' ? ',' : ''`
 
 snippet "",
+abbr "...": foo,
 alias ", :
   "${1:#:name}": ${2:TARGET}${3:`getline(line('.') + 1) =~# '^\s*"' ? ',' : ''`}
