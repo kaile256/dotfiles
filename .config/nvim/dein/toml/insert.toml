@@ -18,31 +18,30 @@
 #hook_source = 'runtime source/sonictemplate.vim'
 
 ##[ Snippets; Engine ]
-[[plugins]]
-repo = 'SirVer/ultisnips'
-#on_source = 'coc.nvim'
-## Note: it override <TAB>
-on_event = ['InsertEnter']
-on_func = ['UltiSnips#ExpandSnippetOrJump']
-on_map = {nvi = ['<Plug>(ultisnips-']}
-on_cmd = ['UltiSnipsEdit']
-on_path = ['\.snippets$']
-hook_add = 'runtime add/ultisnips.vim'
-hook_source = 'runtime source/ultisnips.vim'
-#hook_post_source = 'runtime post/ultisnips.vim'
 #[[plugins]]
-#repo = 'Shougo/neosnippet.vim'
-## Merged PR: Shougo/neosnippet.vim/pull/486
-## set the filetype in augroups.vim
-## it disturbs on 'n', of cource
-#on_map = {nvi = '<Plug>(neosnippet'}
-#on_func =  ['neosnippet#']
-#on_path = ['\.snip$']
-#hook_add = 'runtime add/neosnippet.vim'
-#hook_source = '''
-#  runtime once/smaps.vim
-#  runtime source/neosnippet.vim
-#'''
+#repo = 'SirVer/ultisnips'
+## Note: too lazy because of lazy-controlled CursorMoved or else.
+##on_source = 'coc.nvim'
+### Note: it override <TAB>
+#on_event = ['InsertEnter']
+#on_func = ['UltiSnips#ExpandSnippetOrJump']
+#on_map = {nvi = ['<Plug>(ultisnips-']}
+#on_cmd = ['UltiSnipsEdit']
+#on_path = ['\.snippets$']
+#hook_add = 'runtime add/ultisnips.vim'
+#hook_source = 'runtime source/ultisnips.vim'
+##hook_post_source = 'runtime post/ultisnips.vim'
+[[plugins]]
+repo = 'Shougo/neosnippet.vim'
+# Merged PR: Shougo/neosnippet.vim/pull/486
+# set the filetype in augroups.vim
+# it disturbs on 'n', of cource
+on_source = ['coc.nvim']
+on_map = {nvi = '<Plug>(neosnippet'}
+on_func =  ['neosnippet#']
+on_path = ['\.snip$']
+hook_add = 'runtime add/neosnippet.vim'
+hook_source = 'runtime source/neosnippet.vim'
 
 #[[plugins]]
 #repo = 'Shougo/deoppet.nvim'
@@ -60,9 +59,9 @@ hook_source = 'runtime source/ultisnips.vim'
 #on_event = ['InsertEnter']
 
 #[ Snippets; Contents ]
-#[[plugins]]
-#repo = 'Shougo/neosnippet-snippets'
-#on_source = ['neosnippet.vim']
+[[plugins]]
+repo = 'Shougo/neosnippet-snippets'
+on_source = ['neosnippet.vim']
 
 [[plugins]]
 repo = 'honza/vim-snippets'
