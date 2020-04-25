@@ -111,6 +111,8 @@ endfunction
 augroup myCocSource "{{{1
   if exists('#myCocSource') | au! myCocSource
   endif
+
+  au BufRead coc-settings.json setl commentstring=//%s
   " " No Status Line on coc's buffer; useless {{{2
   " au FileType coc,list setl laststatus=0
   "     \ | au BufWinEnter,WinLeave,BufLeave * ++once set laststatus=2
