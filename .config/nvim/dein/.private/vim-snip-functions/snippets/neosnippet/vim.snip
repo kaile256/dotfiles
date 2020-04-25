@@ -1,178 +1,25 @@
 # Sample: Shougo/neosnippet-snippets/neosnippets/vim.snip
 
-snippet ColorScheme: guifg
-alias fg gui
-  guifg=#000000
-snippet ColorScheme: guibg
-alias bg
-  guibg=#000000
-
-snippet Vimrc: scriptencoding utf-8
+snippet scriptencoding_utf-8
 alias sc ut s u scr script utf 8
 options head
   scriptencoding utf-8
 
-snippet Vimrc: Address
+snippet Vimrc:_Address
 alias From Fr Fro fr fro from
   " From: ${1:toml}
   " ${2:Repo:} ${3:`expand($USER)`/}${4:repo}.vim
 
   ${0:#:start}
 
-snippet License: MIT
-alias mit
-options head
-  " License: MIT license {{{
-  "     Permission is hereby granted, free of charge, to any person obtaining
-  "     a copy of this software and associated documentation files (the
-  "     "Software"), to deal in the Software without restriction, including
-  "     without limitation the rights to use, copy, modify, merge, publish,
-  "     distribute, sublicense, and/or sell copies of the Software, and to
-  "     permit persons to whom the Software is furnished to do so, subject to
-  "     the following conditions:
-  "
-  "     The above copyright notice and this permission notice shall be included
-  "     in all copies or substantial portions of the Software.
-  "
-  "     THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
-  "     OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
-  "     MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
-  "     IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
-  "     CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
-  "     TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
-  "     SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-  " }}}
+snippet ColorScheme:_guifg
+alias fg gui
+  guifg=#000000
+snippet ColorScheme:_guibg
+alias bg
+  guibg=#000000
 
-snippet Plugin: patch for func-abort
-alias abo abor abort
-  if !has('patch-7.4.156') | finish | endif
-  " v:7.4.156: for func-abort
-
-snippet Plugin: init
-alias ini
-  " ============================================================================
-  " Repo: kaile256/`snip#vim#name_of_repo()`
-  " File: `snip#vim#path_root_to_file()`
-  " Author: kaile256
-  " License: MIT license {{{
-  "     Permission is hereby granted, free of charge, to any person obtaining
-  "     a copy of this software and associated documentation files (the
-  "     "Software"), to deal in the Software without restriction, including
-  "     without limitation the rights to use, copy, modify, merge, publish,
-  "     distribute, sublicense, and/or sell copies of the Software, and to
-  "     permit persons to whom the Software is furnished to do so, subject to
-  "     the following conditions:
-  "
-  "     The above copyright notice and this permission notice shall be included
-  "     in all copies or substantial portions of the Software.
-  "
-  "     THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
-  "     OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
-  "     MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
-  "     IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
-  "     CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
-  "     TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
-  "     SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-  " }}}
-  " ============================================================================
-
-  if exists('g:loaded_${1:`snip#vim#name_of_plugin()`}') | finish | endif
-  let g:loaded_$1 = 1
-
-  " save 'cpoptions' {{{
-  let s:save_cpo = &cpo
-  set cpo&vim
-  "}}}
-
-  ${0}
-
-  " restore 'cpoptions' {{{1
-  let &cpo = s:save_cpo
-  unlet s:save_cpo
-
-  " modeline {{{1
-  " vim: et ts=2 sts=2 sw=2 fdm=marker tw=79
-
-#}}}
-
-snippet Plugin: header
-alias head hea
-options head
-  " ============================================================================
-  " Repo: kaile256/`snip#vim#name_of_repo()`
-  " File: `snip#vim#path_root_to_file()`
-  " Author: kaile256
-  " License: MIT license {{{
-  "     Permission is hereby granted, free of charge, to any person obtaining
-  "     a copy of this software and associated documentation files (the
-  "     "Software"), to deal in the Software without restriction, including
-  "     without limitation the rights to use, copy, modify, merge, publish,
-  "     distribute, sublicense, and/or sell copies of the Software, and to
-  "     permit persons to whom the Software is furnished to do so, subject to
-  "     the following conditions:
-  "
-  "     The above copyright notice and this permission notice shall be included
-  "     in all copies or substantial portions of the Software.
-  "
-  "     THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
-  "     OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
-  "     MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
-  "     IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
-  "     CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
-  "     TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
-  "     SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-  " }}}
-  " ============================================================================
-
-  ${0:TARGET}
-
-snippet Plugin: loaded
-alias load loa
-  if exists('g:loaded_${1:`snip#vim#name_of_plugin_underscored()`}') | finish | endif "{{{
-  let g:loaded_$1 = 1
-  "}}}
-
-  " save 'cpoptions' "{{{
-  let s:save_cpo = &cpo
-  set cpo&vim
-  "}}}
-
-  ${0:TARGET}
-
-snippet Plugin: no_default_mappings
-alias no nm nom nod no_
-  if !get('`snip#vim#name_of_plugin_underscored()`#no_default_mappings')
-  endif
-
-snippet Plugin: cpoptions
-alias cpo pop save
-options head
-  " save 'cpoptions' {{{
-  let s:save_cpo = &cpo
-  set cpo&vim
-  "}}}
-  ${0:TARGET}
-
-snippet Plugin: end of plugin
-alias restore res end tail tai ta foo foot fo
-  " restore 'cpoptions' {{{1
-  let &cpo = s:save_cpo
-  unlet s:save_cpo
-
-  " modeline {{{1
-  " vim: et ts=2 sts=2 sw=2 fdm=marker tw=79
-
-snippet Plugin: modeline/softtab
-alias mo mod
-  " modeline {{{1
-  " vim: et ts=2 sts=2 sw=2 fdm=marker tw=79
-
-snippet Plugin: modeline/hardtab
-alias tab noet noe
-  " modeline {{{1
-  " vim: noet ts=2 sts=2 sw=2 fdm=marker tw=79
-
-snippet Script: b:undo_ftplugin
+snippet Script:_undo_ftplugin
 alias undo unf und
   if exists('b:undo_ftplugin')
     let b:undo_ftplugin .= ' | '
@@ -181,11 +28,11 @@ alias undo unf und
   endif
   let b:undo_ftplugin .= 'setl ${1:fdm< fde<}'
 
-snippet Script: command
+snippet Script:_command
 alias com cmd comm co
   command! -bar ${1:-nargs=*} ${2:#:Command Name} :${3:#:Commands}
 
-snippet Script: augroup
+snippet Script:_augroup
 alias au aug augr
 options indent
   augroup ${1:my}${2:`snip#vim#path_root_to_file()`}
@@ -193,47 +40,33 @@ options indent
     au ${3:BufNewFile,BufRead} ${4:*} ${5}
   augroup END
 
-snippet Script: function
+snippet Script:_function
 alias fu fun func function
   function! ${1:`snip#vim#prefix_for_function()`}${2:#:do}(${3:#:args}) abort ${4:#:range }"{{{${8:#:remove fold}
   endfunction
 
-snippet Script: redir
+snippet Script:_redir
 alias re red rd
 options head
   redir ${1:=>} ${2:#: =>: var | >: file | @a: register a}
   ${4}
   redir END
 
-snippet Script: noremap
+snippet Script:_noremap
 alias no
   ${0:n}noremap ${1:<silent>} ${2} ${4::<c-u>}${3}${4:<cr>}
 
-snippet Script: noreabbrev
+snippet Script:_noreabbrev
 alias ab abb abr abbr
   ${3:c}noreabbr <expr> '${1}' (getcmdtype() == ':' && getcmdline() =~# '^$1$')? '${2}' : '$1'
-snippet Script: cnoreabbrev
+snippet Script:_cnoreabbrev
 alias cn cno cna cnore cnoreab cnoreabbr
   cnoreabbr <expr> ${1} (getcmdtype() == ':' && getcmdline() =~# '^$1$')? '${2}' : '$1'
 
-snippet Script: <c-\><c-n> from Terminal-Job mode
+snippet Script:_<c-\><c-n>_from_Terminal-Job_mode
 alias < <c <c- <c-\ <c-\> \ n n\
   <c-\><c-n>
-snippet Script: tnoremap prewritten '<c-\><c-n>'
+snippet Script:_tnoremap_prewritten_'<c-\><c-n>'
 alias tn tno tnor tnore tnorem tnorema tnoremap
   tnoremap ${1:<silent>} ${2} <c-\><c-n>:${0} <cr>
-
-snippet Fold: {{{ beginning of fold
-alias  pp {{{ { {{
-  {{{
-
-snippet Fold: "{{{ beginning of fold
-alias  "{ "pp "{{ "{{{ "{}" "{{}}" "{{{}}}" "|
-  "{{{
-snippet Fold: "}}} end of fold
-alias " "}} "} } }} "}" "}}" "}}}"
-  "}}}
-snippet Fold: ""}}} end of fold
-alias "" ""}} ""
-  ""}}}
 
