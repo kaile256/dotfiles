@@ -1,7 +1,7 @@
 " This file is only for vim original; not for neovim
 
 set rtp^=~/.config/nvim
-runtime! init.vim
+runtime init.vim
 
 if has('gui_running') " not on ginit.vim, but .gvimrc.
   "set guioptions-=mbTRLrl
