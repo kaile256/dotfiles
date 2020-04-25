@@ -17,6 +17,7 @@ let g:coc_global_extensions = [
       \ 'coc-dictionary',
       \ 'coc-docker',
       \ 'coc-elixir',
+      \ 'coc-emmet',
       \ 'coc-emoji',
       \ 'coc-fish',
       \ 'coc-flow',
