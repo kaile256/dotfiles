@@ -1,4 +1,5 @@
-setl fdm=expr fde=HelpFoldExpr() fdl=1
+setl fdm=expr fde=HelpFoldExpr()
+
 if exists('b:undo_ftplugin')
   let b:undo_ftplugin .= ' | '
 else
