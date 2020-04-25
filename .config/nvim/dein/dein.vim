@@ -50,24 +50,19 @@ endif
 " Path for :find {{{1
 "let &path = &path . ',' . g:dein_cache_dir . '**'
 
-" Runtime Path for dein {{{1
+" Runtime Path for Dein {{{1
 "let &rtp .= ','. s:dein_itself
 exe 'set rtp +='. s:dein_itself
 exe 'set rtp +='. $XDG_CONFIG_HOME .'/nvim/dein/'
 
 " Make git clone shallow {{{1
 let g:dein#types#git#clone_depth = 1
-if filereadable(expand('$HOME/.ssh/config'))
-  " ssh for private repository
-  let g:dein#types#git#default_protocol = 'ssh'
-endif
-
-let g:dein#install_progress_type      = 'tabline'
+let g:dein#install_progress_type = 'tabline'
 if has('unix')
   let g:dein#enable_notification = 1
 endif
 
-" List of TOML {{{1
+" Define list of TOML for the function {{{1
 " Note: path could be different on the files managed in dotfiles
 "   if g:dein_toml_dir's includes $XDG_CONFIG_HOME
 
@@ -75,13 +70,6 @@ endif
 " Note: if bugs after installation, like no command ':Ag' or ':Gush' on
 "       vim-fugitive, doubt if you really quitted vim by vim itself, i.e., had
 "       not quitted by i3wm.
-let s:toml_startup = [
-      \ 'startup.toml'
-      \ ]
-
-let s:toml_pc_only = [
-      \ 'web.toml',
-      \ ]
 
 let s:toml_lazy = [
       \ 'appearance.toml',
@@ -110,77 +98,51 @@ let s:toml_lazy = [
       \ 'xampp.toml',
       \ ]
 
-" Load Plugins by Dein {{{1
-if !exists('g:plugins_available')
+" Define the function to load plugins {{{1
+function! s:load_plugins(list) abort
+  " both toml and plugin's name are loadable.
+
+  for dict in a:list
+    if get(dict['opt'], 'if', 1) == 0
+      continue
+    endif
+
+    for fname in dict['fnames']
+      if fname !~# '\.toml$'
+        call dein#add(fname, dict['opt'])
+        continue
+      endif
+      " format: dein#load_toml(path, opt)
+      call dein#load_toml(s:dein_toml_home .'/'. fname, dict['opt'])
+    endfor
+  endfor
+endfunction
+
+let s:tomls = [{
+      \ 'opt': {'lazy': 0},
+      \ 'fnames': ['startup.toml'],
+      \ }, {
+      \ 'opt': {'lazy': 1},
+      \ 'fnames': s:toml_lazy,
+      \ }, {
+      \ 'opt': {'lazy': 1, 'if': executable('xinput')},
+      \ 'fnames': ['web.toml'],
+      \ }, {
+      \ 'opt': {'lazy': 1, 'if': !has('nvim')},
+      \ 'fnames': [
+      \   'roxma/nvim-yarp',
+      \   'roxma/vim-hug-neovim-rpc',
+      \ ],
+      \ }]
+
+let s:load_the_plugins = function('s:load_plugins', [s:tomls])
+unlet s:tomls s:toml_lazy
+
+" Load plugins by Dein {{{1
+if !exists('s:is_loaded')
   if dein#load_state(g:dein_cache_dir)
     call dein#begin(g:dein_cache_dir)
-
-    if !has('nvim') " but only for vim {{{2
-      " make compatible on vim
-      call dein#add('roxma/nvim-yarp')
-      call dein#add('roxma/vim-hug-neovim-rpc')
-    endif
-
-    " load toml {{{2
-    "" using globpath() {{{3
-    "" Note: too slow to startup vim, using globpath() by 1 or 2 seconds
-    "let s:globpath      = {arg -> split(globpath(s:dein_toml_dir, arg))}
-    "let s:toml_startup  = s:globpath('startup/*.toml')
-    "let s:toml_lazy     = s:globpath('*.toml')
-    "let s:toml_pc_only  = s:globpath('pc_only/*.toml')
-
-    "for dir in s:toml_startup
-    "  call dein#load_toml(dir, {'lazy': 0})
-    "endfor
-    "for dir in s:toml_lazy
-    "  call dein#load_toml(dir, {'lazy': 1})
-    "endfor
-    "for dir in s:toml_pc_only
-    "  call dein#load_toml(dir, {'lazy': 1,
-    "        \ 'if': "system('uname -o') !~# 'Android'",
-    "        \ })
-    "endfor
-
-    " using a wrapper function {{{3
-    let s:load_toml = {path, opt -> dein#load_toml(
-          \ s:dein_toml_home .'/'. path, opt
-          \ )}
-    for s:path in s:toml_startup
-      call s:load_toml(s:path, {'lazy': 0})
-    endfor
-    for s:path in s:toml_lazy
-      call s:load_toml(s:path, {'lazy': 1})
-    endfor
-    " for s:path in s:toml_private
-    "   " TODO: load plugins from local directory
-    "   " call s:load_toml(s:path, {'lazy': 1, 'path': expand('$XDG_CONFIG_HOME/nvim/private'), 'type': 'git'})
-    "   call s:load_toml(s:path, {'lazy': 1})
-    " endfor
-    if executable('xinput')
-      for s:path in s:toml_pc_only
-        call s:load_toml(s:path, {'lazy': 1})
-      endfor
-    endif
-    unlet s:path
-
-    "" raw {{{3
-    "let s:load_toml = {path, opt -> dein#load_toml(
-    "      \ s:dein_toml_dir .'/'. path, opt
-    "      \ )}
-    "for path in s:toml_startup
-    "  call dein#load_toml(s:dein_toml_dir .'/startup/'. path, {'lazy': 0})
-    "endfor
-    "for path in s:toml_lazy
-    "  call dein#load_toml(s:dein_toml_dir .'/'. path, {'lazy': 1})
-    "endfor
-    "for path in s:toml_pc_only
-    "  call dein#load_toml(s:dein_toml_dir .'/pc_only/'. path, {
-    "        \ 'lazy': 1,
-    "        \ 'if': "system('uname -o') !~# 'Android'",
-    "        \ })
-    "endfor
-    ""}}}2
-
+    call s:load_the_plugins()
     call dein#end()
     call dein#save_state()
   endif
@@ -190,7 +152,7 @@ if !exists('g:plugins_available')
   endif "}}}2
 
   filetype plugin indent on
-  let g:plugins_available = 1
+  let s:is_loaded = 1
 endif
 
 augroup DeinCallMyFunctions "{{{1
@@ -205,11 +167,3 @@ augroup DeinTomlAutoConf "{{{1
   " Note: keep it unused; unreloadable by `:source`
   "au BufWinEnter filetype.toml setl syn=vim
 augroup END
-
-" unlet {{{1
-""unlet s:dein_toml_dir
-"unlet s:dein_itself
-"unlet s:dein_log_file
-"unlet s:dein_data_dir
-"unlet s:dein_toml_lazy
-"unlet s:dein_toml_initial
