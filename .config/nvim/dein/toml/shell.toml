@@ -66,16 +66,17 @@ hook_source = 'runtime source/quickrun-unittest.vim'
 #repo = 'ogura01/quickrun-runner-job-on-neovim.nvim'
 ## set runner 'job_on_neovim'
 #on_source = ['vim-quickrun']
-#[[plugins]]
-#repo = 'statiolake/vim-quickrun-runner-nvimterm'
-### doesn't work on 'develop'
-## set runner 'nvimterm'
-#on_source = ['vim-quickrun']
 [[plugins]]
-repo = 'syusui-s/vim-quickrun-neovim-terminal'
+repo = 'statiolake/vim-quickrun-runner-nvimterm'
 ## doesn't work on 'develop'
-# set runner 'neovim_terminal'
+# set runner 'nvimterm'
 on_source = ['vim-quickrun']
+#[[plugins]]
+#repo = 'syusui-s/vim-quickrun-neovim-terminal'
+### Note: irritatively startinsert
+### doesn't work on 'develop'
+## set runner 'neovim_terminal'
+#on_source = ['vim-quickrun']
 
 #[ Shell; Wrapper ]
 #[[plugins]]
