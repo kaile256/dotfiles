@@ -1,4 +1,4 @@
-# From: rc/dein.vim
+# From: dein/dein.vim
 # Else: syntax.toml
 # Else: xampp.toml
 
@@ -138,6 +138,9 @@ on_ft = [
 #on_ft = ['java']
 
 #[ C/C++ ]
+[[plugins]]
+repo = 'quark-zju/vim-cpp-auto-include'
+on_ft = 'cpp'
 [[plugins]]
 repo = 'stevearc/vim-arduino'
 # includes syntax/ Ultisnips/(only extends cpp's)
