@@ -14,5 +14,4 @@ nnoremap <silent> <SID>(ultisnips-expand-or-jump) :<C-u>call UltiSnips#ExpandSni
 snoremap <script> <SID>(ultisnips-expand-or-jump) <Esc><SID>(ultisnips-expand-or-jump)
 xnoremap <script> <SID>(ultisnips-expand-or-jump) <Esc><SID>(ultisnips-expand-or-jump)
 
-" WIP:
 noremap <silent> <a-s><a-p> :<c-u>UltiSnipsEdit<cr>
