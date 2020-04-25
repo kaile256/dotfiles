@@ -58,11 +58,12 @@ hook_add = 'runtime add/asterisk.vim'
 ## xmap's block-wise isn't work well.
 #on_map = {nx = '<Plug>Move'}
 #hook_add = 'runtime add/move.vim'
-[[plugins]]
-repo = 't9md/vim-textmanip'
-# Note: has copy feature
-on_map = {x = '<Plug>(textmanip-'}
-hook_add = 'runtime add/textmanip.vim'
+#[[plugins]]
+#repo = 't9md/vim-textmanip'
+## use vim-exchange instead
+## Note: best move area plugin
+#on_map = {x = '<Plug>(textmanip-'}
+#hook_add = 'runtime add/textmanip.vim'
 #[ Easy Motion ]
 #[[plugins]]
 #repo = 'easymotion/vim-easymotion'
