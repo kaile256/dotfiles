@@ -7,7 +7,9 @@ endif
 let b:undo_ftplugin .= 'setl fdm< fde<'
 
 function! SnippetsFoldExpr() abort
-  if synIDattr(synID(v:lnum, 1, 0), 'name') =~# 'snipSnippetHeaderKeyword'
+  let syntax = synIDattr(synID(v:lnum, 1, 0), 'name')
+  if syntax =~# 'snip.*Keyword' && syntax !~# 'Footer'
+    " for Header/Context/Priority etc.
     return '>1'
   endif
   return '='
