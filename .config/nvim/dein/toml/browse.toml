@@ -179,3 +179,12 @@ hook_add = 'runtime add/tagbar.vim'
 #repo = 'jacquesbh/vim-showmarks'
 #on_map = ['m','`',"'",'<space>']
 #hook_add = 'runtime add/showmarks.vim'
+
+#[ Alternate File ]
+#[[plugins]]
+#repo = 'compactcode/alternate.vim'
+#on_func = [
+#  'alternate#FindAlternate',
+#  'alternate#FindTest',
+#]
+#hook_add = 'runtime add/alternate.vim'
