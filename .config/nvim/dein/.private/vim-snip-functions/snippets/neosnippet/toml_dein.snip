@@ -1,0 +1,103 @@
+snippet dein's_toml_format
+alias vi vim dein [ [] pp
+options head
+  [[plugins]]
+  repo = '${1:`matchstr(@+, 'https://github.com/\zs[^/]\+/[^/]\+')`}'
+
+#snippet #{{{ begining of fold
+#alias { #{ #{{ #{{{ {} #{} #{{}} #{{{}}}
+#  #{{{
+#snippet #}}} end of fold
+#alias # } #} #}} #}}} #| #||
+#  #}}}
+#snippet ##}}} end of fold; ver. commented-out
+#alias ## ##| ##||
+#  ##}}}
+
+# for dein's hook {{{1
+snippet hook_add
+alias ad add
+  hook_add = 'runtime add/${1:`snip#vim#name_of_plugin()`}.vim'
+
+snippet hook_source
+alias so sou sour
+  hook_source = 'runtime source/${1:`snip#vim#name_of_plugin()`}.vim'
+
+snippet hook_post_source
+alias po pos post
+  hook_post_source = 'runtime post/${1:`snip#vim#name_of_plugin()`}.vim'
+
+snippet hook_done_update
+alias du up don done
+  hook_done_update = '${1:call remote#host#UpdateRemotePlugins()}'
+
+snippet on_event
+alias ev eve even
+  on_event = ['${1:BufRead}']
+
+snippet on_ft
+alias ft
+  on_ft = ['${1:vim}']
+
+snippet on_map
+alias ma map
+  on_map = {${1:nox} = ['<Plug>(${2:`snip#vim#name_of_plugin()`}']}
+
+snippet on_func
+alias fu fn fun func
+  on_func = ['${1:`snip#vim#prefix_for_function()`}']
+
+snippet on_cmd
+alias cm cmd com
+  on_cmd = ['${1:`snip#vim#name_of_plugin()`}']
+
+snippet on_path
+alias pa pat pah
+  on_path = '${0:#:\.ext (conpared in "=~#"}'
+
+snippet on_source
+alias ons onso os oso
+  on_source = ['${1:vim-fugitive}']
+
+snippet build
+alias bu bui ins install
+  build = '${1:./install.sh}'
+
+snippet type
+alias ty typ
+  type = 'git${0}'
+
+snippet depend
+alias de dep dp dpd dpn dn
+  depend = ['${1:vim-fugitive}']
+
+abbr use plugin as in "sudo"
+alias sudo
+  trusted = 1
+snippet timeout
+alias time timeout
+options head
+  timeout = ${1:#:1(sec)}
+
+snippet script_type:_plugin_for_dein
+alias plugin
+  script_type = 'plugin'
+snippet script_type:_indent_for_dein
+alias indent
+  script_type = 'indent'
+snippet script_type:_ftplugin_for_dein
+alias ftplugin
+  script_type = 'plugin'
+snippet script_type:_colors_for_dein
+alias colors
+  script_type = 'colors'
+snippet script_type:_syntax_for_dein
+alias syntax
+  script_type = 'syntax'
+
+snippet exe
+alias e
+  ${1:exe 'e' g:dein_github_dir .'/`substitute(matchstr(getline(search('repo =', 'bnW')), "'.*'"), "'", '', 'g')`}/${2:plugin/}${4:`substitute(substitute(matchstr(getline(search('repo =', 'bnW')), "'.*'"), "'", '', 'g'), '.*/', '', '')`.vim}'
+  ${0}
+  write
+
