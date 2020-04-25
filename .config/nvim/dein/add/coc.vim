@@ -11,9 +11,9 @@ augroup myCocAdd
   au BufWinEnter coc-settings.json setl keywordprg=:help
 augroup END
 
-" Note: <c-o> in coc's cmdline get to normal mode of coc.nvim
-nnoremap <expr> <C-f> coc#util#has_float() ? coc#util#float_scroll(1) : "\<C-f>"
-nnoremap <expr> <C-b> coc#util#has_float() ? coc#util#float_scroll(0) : "\<C-b>"
+" " Note: <c-o> in coc's cmdline get to normal mode of coc.nvim
+" nnoremap <expr> <C-f> coc#util#has_float() ? coc#util#float_scroll(1) : "\<C-f>"
+" nnoremap <expr> <C-b> coc#util#has_float() ? coc#util#float_scroll(0) : "\<C-b>"
 
 " Command!; C-series {{{1
 command! Cconfig       :CocOpenConfig
@@ -194,6 +194,27 @@ omap if <Plug>(coc-funcobj-i)
 vmap af <Plug>(coc-funcobj-a)
 omap af <Plug>(coc-funcobj-a)
 
+" " CocSnippets {{{1
+" " Note: Regex is interpreted by JavaScript while original UltiSnips
+" " interprets in Python.
+" " Help: $COC_DATA_HOME/extensions/node_modules/coc-snippets
+" " Note: it works without ultisnips itself.
+" "nmap <a-s><a-p> CocCommand snippets.editSnippets<cr>
+" " Trigger Just Snippets; <tab> to General Completion
+" imap <c-\> <Plug>(coc-snippets-expand)
+" vmap <c-\> <Plug>(coc-snippets-select)
+" imap <c-\> <Plug>(coc-snippets-expand-jump)
+
+" nnoremap <silent> <a-s><a-p><a-e> :<C-u>CocCommand snippets.editSnippets<CR>
+" nnoremap <silent> <a-s><a-p><a-s> :<C-u>sp <bar> CocCommand snippets.editSnippets<CR>
+" nnoremap <silent> <a-s><a-p><a-v> :<C-u>vs <bar> CocCommand snippets.editSnippets<CR>
+" nnoremap <silent> <a-s><a-p><a-t> :<C-u>tabe <bar> CocCommand snippets.editSnippets<CR>
+
+" nnoremap <silent> <a-s><a-p>e :<C-u>CocCommand snippets.editSnippets<CR>
+" nnoremap <silent> <a-s><a-p>s :<C-u>sp <bar> CocCommand snippets.editSnippets<CR>
+" nnoremap <silent> <a-s><a-p>v :<C-u>vs <bar> CocCommand snippets.editSnippets<CR>
+" nnoremap <silent> <a-s><a-p>t :<C-u>tabe <bar> CocCommand snippets.editSnippets<CR>
+
 " CocCodeAction {{{1
 "set equalprg=CocActionAsync('formatSelected')
 "set equalprg=CocActionAsync('codeLensAction')
@@ -346,14 +367,6 @@ nnoremap <silent> <space>cs :CshowTaskList<cr>
 " endfunction
 " inoremap <c-x><c-y> <c-o>:call <SID>register_hist()<cr>
 " inoremap <c-x>y     <c-o>:call <SID>register_hist()<cr>
-
-" CocSnippet; {{{1
-" TODO: See doc to Assign the dir where snippets will be saved.
-"nmap <a-s><a-p> CocCommand snippets.editSnippets<cr>
-"" Trigger Just Snippets; <tab> to General Completion
-"imap <C-s> <Plug>(coc-snippets-expand)
-"vmap <C-s> <Plug>(coc-snippets-select)
-"imap <C-s> <Plug>(coc-snippets-expand-jump)
 
 " CocNot Yet Mapped {{{1
 " repeat only coc's util.
