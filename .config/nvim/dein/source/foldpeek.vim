@@ -156,11 +156,12 @@ augroup myFoldPeekSource "{{{1
   au FileType help call s:peek_help()
   au FileType toml call s:peek_toml()
   au FileType neosnippet call s:peek_neosnippet()
+  au FileType snippets call s:peek_ultisnips()
 augroup END
 
 function! s:peek_php() abort "{{{2
   let b:foldpeek_skip_patterns = [
-        \ '<p>'
+        \ '^\s*<\w\+>\s*$',
         \ ]
 endfunction
 
@@ -200,4 +201,10 @@ function! s:peek_neosnippet() abort "{{{2
   " let b:foldpeek_whiteout_patterns_omit = [
   "      \ '^snippet\s*'
   "      \ ]
+endfunction
+function! s:peek_ultisnips() abort "{{{2
+  let b:foldpeek_whiteout_patterns_left = [
+        \ ['^snippet ', '".*"'],
+        \ ['^snippet ', 'snippet \zs\v[^"]+"@!'],
+        \ ]
 endfunction
