@@ -8,7 +8,7 @@ command! -nargs=* -range=0 -complete=customlist,quickrun#complete
       \ :call quickrun#command(<q-args>, <count>, <line1>, <line2>)
 
 " Mnemonic: pseudo Source
-nmap \r <Plug>(quickrun-op)
+nmap \ <Plug>(quickrun-op)
 noremap <silent> <SID>(quickrun-with-input)
       \ :<c-u>call <SID>quickrun_holding_syn(input('QuickRun: '))<cr>
 noremap <silent> <SID>(quickrun-holding-syn)
@@ -18,9 +18,6 @@ nnoremap <script> \<CR> <SID>(quickrun-with-input)
 xnoremap <script> \<CR> <SID>(quickrun-with-input)
 nnoremap <script> \\ <SID>(quickrun-holding-syn)
 xnoremap <script> \\ <SID>(quickrun-holding-syn)
-nnoremap <script> \rr <SID>(quickrun-holding-syn)
-nnoremap <script> \R  <SID>(quickrun-holding-syn)
-xnoremap <script> \r  <SID>(quickrun-holding-syn)
 
 function! s:quickrun_holding_syn(...) abort
   if &modifiable && !&readonly
