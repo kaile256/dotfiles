@@ -1,11 +1,5 @@
 # From: dein/dein.vim
 
-#[ Capslock ]
-[[plugins]]
-repo = 'tpope/vim-capslock'
-# used in airline
-on_event = ['VimEnter']
-
 #[ Indent ]
 [[plugins]]
 repo = 'Yggdroot/indentLine'
