@@ -5,11 +5,12 @@
 " Another: add/sneak.vim
 
 hi! Sneak cterm=bold gui=bold ctermfg=magenta  guifg=#ed53cd
+" highlight for sneak-vertical-scope
 hi! SneakScope cterm=reverse gui=reverse
+" highlight for sneak-label-mode
 hi! SneakLabel cterm=bold,reverse gui=bold,reverse
       \ ctermfg=208 ctermbg=236
       \ guifg=#fe8019 guibg=#303030
-
 hi! SneakCursor cterm=reverse gui=reverse ctermfg=green  guifg=#3de476
 
 augroup mySneakPost
