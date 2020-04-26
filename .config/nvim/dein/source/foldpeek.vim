@@ -166,14 +166,16 @@ function! s:peek_php() abort "{{{2
 endfunction
 
 function! s:peek_help() abort "{{{2
-  let b:foldpeek_whiteout_patterns_fill = [
-        \ '\s*\zs\*\k\+\*\($\|\s*\ze\*\)'
+  let b:foldpeek_whiteout_patterns_left = [
+        \ '^\u\+\s\+',
+        \ '\*.\+\*\s*$',
         \ ]
-
-  let b:foldpeek_skip_patterns = [
-        \ '^[<>#\-=/{!* \t]*$',
-        \ '^\*\a\+\*$',
+  let b:foldpeek_whiteout_patterns_substitute = [
+        \ ['\v*(.+)\*', '  * \1', ''],
+        \ ['\*\s*\*', ' / ', 'g'],
+        \ ['^\ze\u', '- ', ''],
         \ ]
+        "\ ['\v\W+vim\W+(.*)', '(\1)', ''],
 endfunction
 
 function! s:peek_toml() abort "{{{2
@@ -206,5 +208,9 @@ function! s:peek_ultisnips() abort "{{{2
   let b:foldpeek_whiteout_patterns_left = [
         \ ['^snippet ', '".*"'],
         \ ['^snippet ', 'snippet \zs\v[^"]+"@!'],
+        \ ]
+
+  let b:foldpeek_whiteout_patterns_substitute = [
+        \ ['snippet \zs\ze[^"]', '"no description" => ', ''],
         \ ]
 endfunction
