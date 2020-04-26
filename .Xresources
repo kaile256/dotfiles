@@ -10,13 +10,14 @@ Xcursor.theme: Bibata Oil
 ! Font for each {{{1
 !! Ref for fonts on each system: http://malkalech.com/xresources_magic#i-7
 
-#define NAME_FONT MesloLGSDZ Nerd Font
+! Note: Meslo inserts wider blanklines within lines.
+#define NAME_FONT DejaVuSansMono Nerd Font
 #define SIZE_FONT 13
 #define OPT_FONT  size=SIZE_FONT:antialias=true
 #define FONT  xft:NAME_FONT:OPT_FONT
 
-#define NAME_FONTW Migu1M Nerd Font
-#define SIZE_FONTW 12
+#define NAME_FONTW Migu1M
+#define SIZE_FONTW 15
 #define OPT_FONTW  size=SIZE_FONTW:antialias=true
 #define FONTW  xft:NAME_FONTW:OPT_FONTW
 
