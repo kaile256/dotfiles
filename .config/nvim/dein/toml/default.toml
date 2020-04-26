@@ -45,6 +45,19 @@ hook_add = 'runtime add/yoink.vim'
 #on_event = 'BufWinEnter'
 #hook_add = 'runtime add/easyclip.vim'
 #hook_source = 'runtime source/easyclip.vim'
+[[plugins]]
+repo = 'junegunn/vim-peekaboo'
+on_map = {nxi = ['<Plug>(peekaboo']}
+hook_add = 'runtime add/peekaboo.vim'
+hook_source = 'runtime source/peekaboo.vim'
+#hook_post_source = 'runtime post/peekaboo.vim'
+
+#[ Mark ]
+#[[plugins]]
+#repo = 'Yilin-Yang/vim-markbar'
+## peekaboo for marks
+#on_map = {nx = ['<Plug>OpenMarkbar']}
+
 #[ Undo ]
 [[plugins]]
 repo = 'simnalamburt/vim-mundo'
@@ -94,6 +107,11 @@ on_cmd = ['Ref']
 on_func = ['ref#']
 on_map = {nx = '<Plug>(ref-'}
 hook_source = 'runtime source/ref.vim'
+#[[plugins]]
+#repo = 'notomo/helpeek.vim'
+## provides a wrapper command to show help in a floating/popup window.
+#on_cmd = ['Helpeek']
+
 #[ Window ]
 #[[plugins]]
 #repo = 'camspiers/lens.vim'
