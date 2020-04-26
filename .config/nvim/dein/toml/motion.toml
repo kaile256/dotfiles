@@ -130,4 +130,11 @@ hook_post_source = 'runtime post/sneak.vim'
 #on_map = {nox = '<Plug>(Aerojump'}
 #hook_add = 'runtime add/aerojump.vim'
 
-
+#[ Mouse ]
+[[plugins]]
+repo = 'notomo/gesture.nvim'
+if = 'executable("xinput")'
+build = 'npm run setup'
+on_cmd = ['GestureDraw']
+hook_add = 'runtime add/gesture.vim'
+hook_post_source = 'runtime post/gesture.vim'
