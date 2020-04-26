@@ -26,6 +26,12 @@ on_cmd =  ['WebpageShow']
 on_func =  ['webpage#']
 hook_add = 'runtime add/webpage.vim'
 hook_source = 'runtime source/webpage.vim'
+#[[plugins]]
+#repo = 'notomo/ctrlb.nvim'
+## let Vim control a browser in remote.
+## Note: only supports firefox?
+#build = 'npm run setup'
+#on_cmd = ['Ctrlb']
 
 #[ On Browser ]
 [[plugins]]
