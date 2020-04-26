@@ -12,6 +12,11 @@ cnoremap <silent> <a-space> <esc>:call feedkeys("\<space>")<cr>
 cnoremap <c-r><c-space> <c-r>+
 cnoremap <c-r><space>   <c-r>+
 
+" Note: <expr> work with lexima.
+cnoremap <SID>(paste-visualized)
+      \ <C-r>=getline("'<")[col("'<") - 1 : col("'>") - 1]<CR>
+cnoremap <script> <c-r><c-v> <SID>(paste-visualized)
+
 "cnoremap <expr> . <SID>here()
 
 "function! s:here() abort "{{{1
@@ -86,7 +91,17 @@ cnoremap <a-b> <S-Left>
 
 cnoremap <c-d> <Del>
 " useless only to print <S-Del>
-" cnoremap <a-d> <S-Right><C-w>
+
+cnoremap <expr> <a-d> <SID>remove_to_wordend()
+function! s:remove_to_wordend() abort
+  " FIXME: find what is wrong.
+  let line = getcmdline()
+  let col  = getcmdpos() - 1
+
+  let to_wordend = matchstr(line[col:], '.\{-}\ze\v(\W|$)')
+  let len = len(to_wordend)
+  return repeat("\<Del>", len)
+endfunction
 
 cnoremap <expr> <c-k> <SID>remove_to_end()
 function! s:remove_to_end() abort
