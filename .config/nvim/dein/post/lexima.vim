@@ -22,15 +22,12 @@ let s:close = '[\])}''"]'
 let s:paren = '[\])}]'
 let s:quote = '[`''"]'
 
-let s:not_close = '[^'. s:close[1:]
-let s:not_paren = '[^'. s:paren[1:]
-let s:not_quote = '[^'. s:quote[1:]
+let s:space_or_paren = '[=\[\](){} \t]'
+let s:new = s:space_or_paren .'\%#\($\|'. s:space_or_paren .'\)'
 
 let s:before_close = '\%#'. s:close
 let s:before_paren = '\%#'. s:paren
 let s:before_quote = '\%#'. s:quote
-
-let s:on_word = '\(\%#'. s:not_close .'\)\|\('. s:not_close .'\%#\)'
 
 " Note: both '=' and '+' works unexpectedly either with or without '\'.
 let s:delimeter_atom = '[,.;:]'
@@ -68,10 +65,6 @@ let g:lexima#newline_rules = [
       \ {'char': '<CR>', 'at': '(\%#)',  'input_after': '<CR>'},
       \ {'char': '<CR>', 'at': '{\%#}',  'input_after': '<CR>'},
       \ {'char': '<CR>', 'at': '\[\%#]', 'input_after': '<CR>'},
-      \
-      \ {'char': '<CR>', 'at': '(\%#$',  'input_after': '<CR>)', 'except': '\C\v^(\s*)\S.*%#\n%(%(\s*|\1\s.+)\n)*\1\)'},
-      \ {'char': '<CR>', 'at': '{\%#$',  'input_after': '<CR>}', 'except': '\C\v^(\s*)\S.*%#\n%(%(\s*|\1\s.+)\n)*\1\}'},
-      \ {'char': '<CR>', 'at': '\[\%#$', 'input_after': '<CR>]', 'except': '\C\v^(\s*)\S.*%#\n%(%(\s*|\1\s.+)\n)*\1\]'},
       \ ]
 
 " Insert backslashes when filetype is vim
@@ -81,10 +74,6 @@ let g:lexima#newline_rules += [
       \ {'char': '<CR>', 'at': '(\%#)',  'input': '<CR>\ ', 'input_after': '<CR>\ ', 'filetype': 'vim'},
       \ {'char': '<CR>', 'at': '{\%#}',  'input': '<CR>\ ', 'input_after': '<CR>\ ', 'filetype': 'vim'},
       \ {'char': '<CR>', 'at': '\[\%#]', 'input': '<CR>\ ', 'input_after': '<CR>\ ', 'filetype': 'vim'},
-      \
-      \ {'char': '<CR>', 'at': '(\%#$',  'input': '<CR>\ ', 'input_after': '<CR>\ )', 'except': '\C\v^(\s*)\S.*%#\n%(%(\s*|\1\s.+)\n)*\1\)', 'filetype': 'vim'},
-      \ {'char': '<CR>', 'at': '{\%#$',  'input': '<CR>\ ', 'input_after': '<CR>\ }', 'except': '\C\v^(\s*)\S.*%#\n%(%(\s*|\1\s.+)\n)*\1\}', 'filetype': 'vim'},
-      \ {'char': '<CR>', 'at': '\[\%#$', 'input': '<CR>\ ', 'input_after': '<CR>\ ]', 'except': '\C\v^(\s*)\S.*%#\n%(%(\s*|\1\s.+)\n)*\1\]', 'filetype': 'vim'},
       \ ]
 
 " Overwrite Rules for Parentheses {{{1
@@ -109,13 +98,13 @@ let g:lexima#default_rules += [
 
 " Overwrite Rules for Quote {{{1
 let g:lexima#default_rules += [
+      \ {'char': "'", 'at': s:new, 'input_after': "'"},
+      \ {'char': '"', 'at': s:new, 'input_after': '"'},
+      \ {'char': '`', 'at': s:new, 'input_after': '`'},
+      \
       \ {'char': "'", 'at': '\\\%#'},
       \ {'char': "'", 'at': '\w\%#''\@!'},
       \ {'char': '"', 'at': '\\\%#'},
-      \
-      \ {'char': "'", 'except': s:on_word, 'input_after': "'"},
-      \ {'char': '"', 'except': s:on_word, 'input_after': '"'},
-      \ {'char': '`', 'except': s:on_word, 'input_after': '`'},
       \
       \ {'char': "'", 'at': '\%#''', 'leave': 1},
       \ {'char': '"', 'at': '\%#"',  'leave': 1},
@@ -151,9 +140,9 @@ unlet s:remove_close
 " Overwrite Triple quotes {{{1
 " Produce triple quoted block
 let g:lexima#default_rules += [
-      \ {'char': "'", 'at': "''\\%#", 'input': "'<CR>", 'input_after': "<CR>'''"},
-      \ {'char': '"', 'at': '""\%#',  'input': '"<CR>', 'input_after': '<CR>"""'},
-      \ {'char': '`', 'at': '``\%#',  'input': '`<CR>', 'input_after': '<CR>```'},
+      \ {'char': "'", 'at': "''\\%#", 'except': '\%#\S', 'input': "'<CR>", 'input_after': "<CR>'''"},
+      \ {'char': '"', 'at': '""\%#',  'except': '\%#\S', 'input': '"<CR>', 'input_after': '<CR>"""'},
+      \ {'char': '`', 'at': '``\%#',  'except': '\%#\S', 'input': '`<CR>', 'input_after': '<CR>```'},
       \ ]
 
 " Note: it would, of course, remove the text inside
@@ -620,7 +609,8 @@ let g:lexima#default_rules += [
       \ {'char': '<Space>', 'at': '"\%#"', 'delete': 1, 'filetype': 'vim'},
       \ {'char': '<TAB>',   'at': '"\%#"', 'delete': 1, 'filetype': 'vim', 'mode': 'i'},
       \
-      \ {'char': '<TAB>', 'at': '{\%#}', 'input': '{{', 'delete': 1, 'filetype': 'vim', 'priority': 80, 'mode': 'i'},
+      \ {'char': '<TAB>', 'at': '{\%#}',     'input': '{{', 'delete': 1, 'filetype': 'vim', 'priority': 80, 'mode': 'i'},
+      \ {'char': '<TAB>', 'at': '"{\%#["}]', 'input': '{{', 'delete': 1, 'filetype': 'vim', 'priority': 80, 'mode': 'i'},
       \
       \ {'char': "'", 'at': '\\\%#', 'leave': 1, 'filetype': ['vim', 'sh', 'csh', 'ruby', 'tcsh', 'zsh']},
       \ ]
