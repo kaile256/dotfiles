@@ -93,7 +93,7 @@ URxvt.letterSpace:          -1
 ! Note: work on a window-manager
 !       which supports a composite-manager like xcompmgr or picom
 ! Note: keep 'depth' 32
-URxvt.depth: 32
+!URxvt.depth: 32
 
 ! Colorscheme: Neodark
 ! [100]: 100% itself; background is completely itself
