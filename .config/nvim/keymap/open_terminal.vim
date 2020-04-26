@@ -20,12 +20,12 @@ let s:path_dict = {
 
 let s:splits = {
      \ '<a-E>': 'only',
-     \ '<a-S>': 'bot sp',
      \ '<a-e>': 'e',
      \ '<a-o>': 'only',
      \ '<a-s>': 'sp',
      \ '<a-t>': 'tabe',
      \ '<a-v>': 'vs',
+     \ 'S': 'bot sp',
      \ }
 
 function! s:maps(prefix, command, ...) abort
