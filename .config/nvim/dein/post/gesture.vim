@@ -5,5 +5,5 @@
 " register gestures
 call gesture#register().up().down().noremap('G')
 call gesture#register().down().up().noremap('gg')
-call gesture#register().left().noremap(":\<C-u>tabprev\<CR>")
-call gesture#register().right().noremap(":\<C-u>tabnext\<CR>")
+call gesture#register().left().noremap(":\<C-u>tabprev\<CR>", {'silent': 1})
+call gesture#register().right().noremap(":\<C-u>tabnext\<CR>", {'silent': 1})
