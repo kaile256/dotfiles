@@ -1,6 +1,6 @@
 " TOML: motion.toml
 " Repo: notomo/gesture.nvim
-" Another: post/gesture.nvim
+" Another: post/gesture.vim
 
 " register gestures
 call gesture#register().up().down().noremap('G')
