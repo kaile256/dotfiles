@@ -18,6 +18,7 @@ let s:path_dict = {
       \ 'w': '%:p:h',
       \ }
 
+" Note: With <mods>, i.e., ':vert te', is meaningless.
 let s:splits = {
      \ '<a-E>': 'only',
      \ '<a-e>': 'e',
