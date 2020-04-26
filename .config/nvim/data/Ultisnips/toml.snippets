@@ -8,7 +8,7 @@ snippet '((h)?ook_)?a(dd)?' "hook_add = 'runtime add/foo.vim'" rb
 hook_add = 'runtime add/${1:`!v matchstr(getline(search('^repo =')), "repo = '.\\{-\}/\\zs.\\{-\}\\ze'", 'nbW')`}.vim'
 endsnippet
 
-snippet '((h)?ook_)?s(ource)?' "hook_source = 'runtime source/foo.vim" rb
+snippet '((h)?ook_)?s(o(urce)?)?' "hook_source = 'runtime source/foo.vim" rb
 hook_source = 'runtime source/${1:`!v snip#vim#name_of_plugin()`}.vim'
 endsnippet
 
@@ -21,7 +21,6 @@ hook_done_update = '${1:call remote#host#UpdateRemotePlugins()}'
 endsnippet
 
 snippet '(o(n(_)?)?)?ev(ent)?' "on_event" rb
-alias ev eve even
 on_event = ['${1:BufRead}']
 endsnippet
 
@@ -46,7 +45,6 @@ on_path = '${0:#:\.ext (conpared in "=~#"}'
 endsnippet
 
 snippet on_source
-alias ons onso os oso
 on_source = ['${1:vim-fugitive}']
 endsnippet
 
