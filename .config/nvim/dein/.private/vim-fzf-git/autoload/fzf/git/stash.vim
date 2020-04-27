@@ -37,15 +37,6 @@ let g:fzf#git#stash#actions = get(g:, 'fzf#git#stash#actions', {
 
 let g:fzf#git#stash#options = get(g:, 'fzf#git#stash#options', [])
 
-" Note: because of deepcopy(), the map() should NOT be called in functions
-"   though it is preferable to refer to g:fzf#git#stash#actions each time to
-"   update
-let s:stash_actions = map(deepcopy(g:fzf#git#stash#actions), "
-      \ index(s:stash_possible, substitute(v:val, '\s*--.*', '', '')) >= 0
-      \   ? 'git stash '. v:val
-      \   : v:val
-      \ ")
-
 function! fzf#git#stash#list() "{{{1
   let root = s:get_git_root()
   if empty(root)
