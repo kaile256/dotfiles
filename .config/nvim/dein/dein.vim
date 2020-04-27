@@ -102,6 +102,8 @@ let s:toml_lazy = [
 function! s:load_plugins(list) abort
   " both toml and plugin's name are loadable.
 
+  " TODO: get plugins' normalized name to map() to override dict like 'hook_add'
+  " to 'runtime add/(normalized_name).vim'.
   for dict in a:list
     if get(dict['opt'], 'if', 1) == 0
       continue
@@ -155,15 +157,13 @@ if !exists('s:is_loaded')
   let s:is_loaded = 1
 endif
 
-augroup DeinCallMyFunctions "{{{1
-  au!
-  " To: inititialize to source 'hook_post_source'.
-  "au VimEnter * call dein#call_hook('post_source')
-augroup END
+augroup myDeinRc "{{{1
+  if exists('#myDeinRc') | au! myDeinRc
+  endif
+  au BufRead *vim**/*.toml setl keywordprg=:help
 
-augroup DeinTomlAutoConf "{{{1
-  au!
-  au BufEnter *vim**/*.toml setl keywordprg=:help
+  " Inititialize to source 'hook_post_source'.
+  "au VimEnter * call dein#call_hook('post_source')
   " Note: keep it unused; unreloadable by `:source`
   "au BufWinEnter filetype.toml setl syn=vim
 augroup END
