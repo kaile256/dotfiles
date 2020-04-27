@@ -1,4 +1,4 @@
-" From: external.toml
+" From: lsp.toml
 " Repo: neoclide/coc.nvim
 " Branch: neoclide/coc.nvim_release
 " XDG: $XDG_CONFIG_HOME/coc/extensions/node_modules/
