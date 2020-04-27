@@ -73,12 +73,11 @@ repo = 'cohama/agit.vim'
 on_cmd = 'Agit'
 hook_add = 'runtime add/agit.vim'
 hook_source = 'runtime source/agit.vim'
-#[[plugins]]
-#repo = 'airblade/vim-gitgutter'
-## enough only with coc.nvim & fugitive.vim?
-#type = 'git'
-#on_event = 'BufRead'
-#hook_post_source = 'runtime add/gitgutter.vim'
+[[plugins]]
+repo = 'airblade/vim-gitgutter'
+# enough only with coc.nvim & fugitive.vim?
+on_source = ['vim-foldpeek']
+on_event = 'BufRead'
 #[[plugins]]
 #repo = 'lambdalisue/gina.vim'
 #on_event = ['BufWritePost']
