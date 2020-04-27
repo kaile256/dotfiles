@@ -1,3 +1,37 @@
-snippet std::cout << foo << std::endl;
+# neosnippet-snippets/cpp.snip
+
+snippet #define_for_vec.at(num)
+abbr "foo[num] for foo.at(num) on vector"
+alias #at at
+options head
+  #define _GLIBCXX_DEBUG 0
+  #define _LIBCPP_DEBUG 0
+
+snippet #include_standard
+alias #io, #std
+options head
+  #include <iostream>
+  #include <vector>
+
+snippet #include_iostream
+alias #io
+options head
+  #include <iostream>
+
+snippet #include_vector
+alias #vec
+options head
+  #include <vector>
+
+snippet #include_regex
+alias #re #reg
+options head
+  #include <regex>
+
+snippet using_foo::bar;
+abbr use usi
+  using ${1:std}::${2:cout};
+
+snippet std::cout_<<_foo_<<_std::endl;
 alias std co cou cout
-  std::cout << ${1} << std::endl;
+  cout << ${1} << endl;
