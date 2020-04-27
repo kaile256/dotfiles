@@ -91,10 +91,17 @@ let s:foldlevel_dict = {
 "      \ }
 
 " show which line is peeked {{{1
-" let g:foldpeek#head = "foldpeek#head('%HUNK%')"
+" let g:foldpeek#head = ''
+" let g:foldpeek#head = "foldpeek#head()"
 " let g:foldpeek#tail = "foldpeek#tail('%PEEK%')"
 
-let g:foldpeek#head = ''
+function! foldpeek#head() abort
+  let hunk_sign = ''
+  if exists('g:loaded_gitgutter') && gitgutter#fold#is_changed()
+    let hunk_sign = '=> '
+  endif
+  return hunk_sign
+endfunction
 
 function! foldpeek#tail(PEEK) abort
   let foldlines = v:foldend - v:foldstart + 1
@@ -102,9 +109,9 @@ function! foldpeek#tail(PEEK) abort
 
   let foldinfo = foldlines . foldlevel
 
-    let hunk_sign = ''
+  let hunk_sign = ''
   if exists('g:loaded_gitgutter') && gitgutter#fold#is_changed()
-    let hunk_sign = '@ '
+    let hunk_sign = ' <= '
   endif
 
   if a:PEEK == 1
