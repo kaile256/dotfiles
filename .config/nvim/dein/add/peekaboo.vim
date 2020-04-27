@@ -11,4 +11,4 @@ nmap @ <Plug>(peekaboo-macro)
 
 nmap " <Plug>(peekaboo-register)
 xmap " <Plug>(peekaboo-register)
-imap <c-r><c-\> <Plug>(peekaboo-register)
+imap <c-r><c-i> <Plug>(peekaboo-register)
