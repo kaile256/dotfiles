@@ -1,7 +1,7 @@
 " From: filetype.vim
 
 if &modifiable || !&readonly
-  setl conceallevel=0
+  " setl conceallevel=2
 else
   setl nonumber signcolumn= nolist foldlevel=0
   nnoremap <buffer> d <c-d>
