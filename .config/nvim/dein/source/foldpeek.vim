@@ -94,22 +94,24 @@ let s:foldlevel_dict = {
 " let g:foldpeek#head = "foldpeek#head('%HUNK%')"
 " let g:foldpeek#tail = "foldpeek#tail('%PEEK%')"
 
-function! foldpeek#head(HUNK) abort
-  if empty(a:HUNK)
-    return ''
-  endif
-  return a:HUNK
-endfunction
+let g:foldpeek#head = ''
 
 function! foldpeek#tail(PEEK) abort
   let foldlines = v:foldend - v:foldstart + 1
   let foldlevel = s:foldlevel_dict[v:foldlevel]
 
-  if a:PEEK == 1
-    return ' '. foldlines . foldlevel
+  let foldinfo = foldlines . foldlevel
+
+    let hunk_sign = ''
+  if exists('g:loaded_gitgutter') && gitgutter#fold#is_changed()
+    let hunk_sign = '@ '
   endif
 
-  return ' '. (a:PEEK) .'/'. foldlines . foldlevel
+  if a:PEEK == 1
+    return ' '. hunk_sign . foldinfo
+  endif
+
+  return ' '. hunk_sign . (a:PEEK) .'/'. foldinfo
 endfunction
 
 augroup myFoldPeekSource "{{{1
