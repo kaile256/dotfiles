@@ -18,8 +18,7 @@ let g:foldpeek#skip_patterns = [
       \ '^\s*"""$',
       \ ]
 
-" table of variales on foldpeek {{{1
-" candidates for s:foldlevel_dict {{{2
+" candidates for s:foldlevel_dict {{{1
 "let s:foldlevel_dict = {
 "      \ 1: '❶ ',
 "      \ 2: '❷ ',
@@ -91,58 +90,27 @@ let s:foldlevel_dict = {
 "      \ 8: 'ち',
 "      \ }
 
-"let s:foldlevel = "(v:foldlevel > 1 ? ". string(s:foldlevel_dict) ."[v:foldlevel] : ' ')"
-" modify in s:foldlevel_dict w/o ternary operators
-let s:foldlevel = string(s:foldlevel_dict) .'[v:foldlevel]'
-
-"}}}2
-
-let g:foldpeek#table = {
-      \ '10persome' : "(len(matchstr(%percent%, '\d\+')) == 1 ? %permill% : %percent%)",
-      \
-      \ '20percent' : "(100  * %PEEK% / %foldlines%) .'%'",
-      \ '30permill' : "(1000 * %PEEK% / %foldlines%) .'‰ '",
-      \
-      \ '50foldlevel' : string(s:foldlevel),
-      \ '50foldlines' : 'v:foldend - v:foldstart + 1',
-      \ }
-
-"let g:foldpeek#table = {
-"      \ '50foldlevel' : string(s:foldlevel),
-"      \ '50foldlines' : 'v:foldend - v:foldstart + 1',
-"      \ }
-"" show in percent {{{1
-"let g:foldpeek#tail = {
-"      \ 1: "' '. (%percent%) . (%foldlevel%)",
-"      \ }
-"
-
-"" show in permill {{{1
-"let g:foldpeek#tail = {
-"      \ 1: "' '. (%permill%) . (%foldlevel%)",
-"      \ }
-"
-"" show in percent/permill as the digit number {{{1
-"" no use yet
-"let g:foldpeek#tail = {
-"      \ 1: "' '. (%persome%) . (%foldlevel%)",
-"      \ }
-"
 " show which line is peeked {{{1
-let g:foldpeek#head = ''
+" let g:foldpeek#head = "foldpeek#head('%HUNK%')"
+" let g:foldpeek#tail = "foldpeek#tail('%PEEK%')"
 
-let g:foldpeek#tail = {
-      \ 1: "' '. (%foldlines%) . (%foldlevel%)",
-      \ 2: "' '. (%PEEK%) .'/'. (%foldlines%) . (%foldlevel%)",
-      \ }
+function! foldpeek#head(HUNK) abort
+  if empty(a:HUNK)
+    return ''
+  endif
+  return a:HUNK
+endfunction
 
-"let g:foldpeek#tail = {
-"      \ 1: "' '. (%foldlevel%) . (%foldlines%) .' '",
-"      \ 2: "' '. (%foldlevel%) . (%PEEK%) . '/' . (%foldlines%) .' '",
-"      \ }
+function! foldpeek#tail(PEEK) abort
+  let foldlines = v:foldend - v:foldstart + 1
+  let foldlevel = s:foldlevel_dict[v:foldlevel]
 
-"let s:marker_l1 = "v:foldlevel > 1 ? ". string(s:foldlevel_dict) ."[v:foldlevel] : ']'"
-"let s:persome   = '(len(%percent%) == 1 ? %permill% : %percent%)'
+  if a:PEEK == 1
+    return ' '. foldlines . foldlevel
+  endif
+
+  return ' '. (a:PEEK) .'/'. foldlines . foldlevel
+endfunction
 
 augroup myFoldPeekSource "{{{1
   if exists('#myFoldPeekSource') | au! myFoldPeekSource
