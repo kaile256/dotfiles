@@ -92,9 +92,10 @@ let s:foldlevel_dict = {
 
 " show which line is peeked {{{1
 let g:foldpeek#head = "FoldpeekHead()"
-let g:foldpeek#tail = "FoldpeekTail(%PEEK%)"
+let g:foldpeek#tail = 'FoldpeekTail(%PEEK%)'
+let s:hunk_info_format = '(+%a -%m -%r)'
 
-function! FoldpeekHead() abort
+function! FoldpeekHead() abort "{{{2
   let hunk_sign = ''
   if exists('g:loaded_gitgutter') && gitgutter#fold#is_changed()
     let hunk_sign = '(*) '
@@ -102,7 +103,56 @@ function! FoldpeekHead() abort
   return hunk_sign
 endfunction
 
-function! s:get_signs() abort
+function! FoldpeekTail(PEEK) abort "{{{2
+  let foldlines = v:foldend - v:foldstart + 1
+  let foldlevel = s:foldlevel_dict[v:foldlevel]
+
+  let fold_info = foldlines . foldlevel
+
+  let hunk_info = ''
+  if exists('g:loaded_gitgutter') && gitgutter#fold#is_changed()
+    let hunk_info_row = s:hunk_info()
+    let hunk_added    = hunk_info_row[0]
+    let hunk_modified = hunk_info_row[1]
+    let hunk_removed  = hunk_info_row[2]
+
+    let hunk_info = s:hunk_info_format
+    let hunk_info = substitute(hunk_info, '%a', hunk_added,    'g')
+    let hunk_info = substitute(hunk_info, '%m', hunk_modified, 'g')
+    let hunk_info = substitute(hunk_info, '%r', hunk_removed,  'g')
+  endif
+
+  if a:PEEK == 1
+    return ' '.  hunk_info . fold_info
+  endif
+
+  return ' '. (a:PEEK) .'/'.  hunk_info . fold_info
+endfunction
+
+function! s:hunk_info() abort "{{{3
+  let hunk_info = [0, 0, 0]
+  let signs = s:get_signs()
+
+  for sign in signs
+    if sign.name !~# 'GitGutterLine' | continue | endif
+    if v:foldstart > sign.lnum || sign.lnum > v:foldend
+      continue
+    endif
+
+    if sign.name =~# 'Added'
+      let hunk_info[0] += 1
+    elseif sign.name =~# 'Modified'
+      let hunk_info[1] += 1
+    elseif sign.name =~# 'Removed'
+      let hunk_info[2] += 1
+    endif
+  endfor
+
+  return hunk_info
+endfunction
+
+
+function! s:get_signs() abort "{{{4
   let bufnr = bufnr('%')
   if exists('*getbufinfo')
     let bufinfo = getbufinfo(bufnr)[0]
@@ -129,52 +179,6 @@ function! s:get_signs() abort
 
   let g:hunk_signs =  signs
   return signs
-endfunction
-
-function! s:hunk_info() abort
-  let hunk_info = [0, 0, 0]
-  let signs = s:get_signs()
-
-  for sign in signs
-    if sign.name !~# 'GitGutterLine' | continue | endif
-    if v:foldstart > sign.lnum || sign.lnum > v:foldend
-      continue
-    endif
-
-    if sign.name =~# 'Added'
-      let hunk_info[0] += 1
-    elseif sign.name =~# 'Modified'
-      let hunk_info[1] += 1
-    elseif sign.name =~# 'Removed'
-      let hunk_info[2] += 1
-    endif
-  endfor
-
-  return hunk_info
-endfunction
-
-function! FoldpeekTail(PEEK) abort
-  let foldlines = v:foldend - v:foldstart + 1
-  let foldlevel = s:foldlevel_dict[v:foldlevel]
-
-  let fold_info = foldlines . foldlevel
-
-  let hunk_info = ''
-  if exists('g:loaded_gitgutter') && gitgutter#fold#is_changed()
-    let hunk_info_row = s:hunk_info()
-    let g:hunk_info_row = s:hunk_info()
-    let hunk_added   = '+'. hunk_info_row[0]
-    let hunk_changed = '~'. hunk_info_row[1]
-    let hunk_removed = '-'. hunk_info_row[2]
-    let hunk_info = join([hunk_added, hunk_changed, hunk_removed])
-    let hunk_info = ' ('. hunk_info .') '
-  endif
-
-  if a:PEEK == 1
-    return ' '. hunk_info . fold_info
-  endif
-
-  return ' '. hunk_info . (a:PEEK) .'/'. fold_info
 endfunction
 
 augroup myFoldPeekSource "{{{1
