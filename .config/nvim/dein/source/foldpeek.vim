@@ -91,7 +91,8 @@ let s:foldlevel_dict = {
 "      \ }
 
 " show which line is peeked {{{1
-let g:foldpeek#head = "FoldpeekHead()"
+let g:foldpeek#head = 'FoldpeekHead()'
+let g:foldpeek#head = ''
 let g:foldpeek#tail = 'FoldpeekTail()'
 let s:hunk_sign = '(*) '
 let s:hunk_format = '(+%a ~%m -%r)'
@@ -123,12 +124,11 @@ function! FoldpeekTail() abort "{{{2
     let hunk_info = substitute(hunk_info, '%r', hunk_removed,  'g')
   endif
 
-  let info = hunk_info . fold_info
   if g:foldpeek_lnum == 1
-    return ' '. info
+    return ' '. hunk_info . fold_info
   endif
 
-  return ' '. g:foldpeek_lnum .'/'. info
+  return ' '. hunk_info . g:foldpeek_lnum .'/'. fold_info
 endfunction
 
 augroup myFoldPeekSource "{{{1
