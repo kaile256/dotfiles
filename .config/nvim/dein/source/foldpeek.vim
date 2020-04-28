@@ -93,7 +93,7 @@ let s:foldlevel_dict = {
 " show which line is peeked {{{1
 let g:foldpeek#head = "FoldpeekHead()"
 let g:foldpeek#tail = 'FoldpeekTail(%PEEK%)'
-let s:hunk_info_format = '(+%a -%m -%r)'
+let s:hunk_format = '(+%a -%m -%r)'
 
 function! FoldpeekHead() abort "{{{2
   let hunk_sign = ''
@@ -116,7 +116,7 @@ function! FoldpeekTail(PEEK) abort "{{{2
     let hunk_modified = hunk_info_row[1]
     let hunk_removed  = hunk_info_row[2]
 
-    let hunk_info = s:hunk_info_format
+    let hunk_info = s:hunk_format
     let hunk_info = substitute(hunk_info, '%a', hunk_added,    'g')
     let hunk_info = substitute(hunk_info, '%m', hunk_modified, 'g')
     let hunk_info = substitute(hunk_info, '%r', hunk_removed,  'g')
@@ -141,9 +141,11 @@ function! s:hunk_info() abort "{{{3
 
     if sign.name =~# 'Added'
       let hunk_info[0] += 1
-    elseif sign.name =~# 'Modified'
+    endif
+    if sign.name =~# 'Modified'
       let hunk_info[1] += 1
-    elseif sign.name =~# 'Removed'
+    endif
+    if sign.name =~# 'Removed'
       let hunk_info[2] += 1
     endif
   endfor
