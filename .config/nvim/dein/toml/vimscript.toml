@@ -44,7 +44,11 @@ hook_add = 'runtime add/bufferize.vim'
 repo = 'vim-jp/vital.vim'
 # a lib/ for vimscript
 on_cmd = 'Vitalize'
-hook_source = 'runtime add/vital.vim'
+[[plugins]]
+repo = 'haya14busa/underscore.vim'
+# provides library to enable method-chain through vital.vim:
+#   let s:_ = s:V.import('Underscore').import()
+on_cmd = 'Vitalize'
 
 #[ Profile/Benchmark ]
 #[[plugins]]
