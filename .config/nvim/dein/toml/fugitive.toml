@@ -57,11 +57,11 @@ hook_source = 'runtime source/gitv.vim'
 
 #[[plugins]]
 #repo = 'rbong/vim-flog'
-## Cons: unnecessary trailing spaces
+## Cons: unnecessary trailing spaces and too heavy to preview
 ## Pros: as default, the date of update is written on top of lines
 #on_cmd = 'Flog'
-#hook_post_source = 'runtime add/flog.vim'
-#
+#hook_source = 'runtime source/flog.vim'
+
 #[[plugins]]
 #repo = 'junegunn/gv.vim'
 ## Cons: no colors on tree of branches as default
@@ -112,7 +112,6 @@ hook_add = 'runtime add/git-messenger.vim'
 
 #[[plugins]]
 #repo = 'rhysd/committia.vim'
-#type = 'git'
+#if = 'has("nvim")'
 #on_ft = ['fugitive', 'gitcommit', 'git']
-##on_source = 'vim-fugitive'
 #hook_post_source = 'runtime add/committia.vim'
