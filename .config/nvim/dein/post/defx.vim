@@ -43,6 +43,12 @@ call defx#custom#column('mark', {
 "        \ 'root_icon': ' ',
 "        \ })
 
+function! s:defx_do_action_visual(action, ...) abort "{{{1
+  " Note: it fails in multi sequence at once.
+  return defx#do_action('multi', ['clear_select_all', 'toggle_select_visual'])
+        \ . defx#do_action('multi', [a:action, join(a:000, ',')])
+endfunction
+
 function! s:defx_is_wide() abort "{{{1
   if @% =~# '\[defx\]'
     return winwidth('.') > g:defx_sidebar_width
@@ -110,6 +116,10 @@ function! s:defx_keymaps() abort "{{{1
         \ getcwd() =~# '^'. $XDG_DATA_HOME .'/Trash/' ?
         \ defx#do_action('remove') :
         \ defx#do_action('remove_trash')
+  xnoremap <silent><nowait><buffer><expr> D
+        \ getcwd() =~# '^'. $XDG_DATA_HOME .'/Trash/'
+        \   ? <SID>defx_do_action_visual('remove')
+        \   : <SID>defx_do_action_visual('remove_trash')
   nnoremap <silent><nowait><buffer><expr> \D
         \ defx#do_action('remove')
   nnoremap <silent><nowait><buffer><expr> R
