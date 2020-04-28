@@ -129,6 +129,10 @@ hook_post_source = 'runtime post/sneak.vim'
 ## seems buggy.
 #on_map = {nox = '<Plug>(Aerojump'}
 #hook_add = 'runtime add/aerojump.vim'
+[[plugins]]
+repo = 'tyru/columnskip.vim'
+on_map = {nox = ['<Plug>(columnskip:']}
+hook_add = 'runtime add/columnskip.vim'
 
 #[ Mouse ]
 [[plugins]]
