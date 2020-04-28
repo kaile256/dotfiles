@@ -1,4 +1,4 @@
-# From: rc/dein.vim
+# From: dein/dein.vim
 
 # NOTICE: `on_map` makes no sense for textobj unless you create in add/
 
