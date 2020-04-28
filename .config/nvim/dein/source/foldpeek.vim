@@ -92,18 +92,19 @@ let s:foldlevel_dict = {
 
 " show which line is peeked {{{1
 let g:foldpeek#head = "FoldpeekHead()"
-let g:foldpeek#tail = 'FoldpeekTail(%PEEK%)'
-let s:hunk_format = '(+%a -%m -%r)'
+let g:foldpeek#tail = 'FoldpeekTail()'
+let s:hunk_sign = '(*) '
+let s:hunk_format = '(+%a ~%m -%r)'
 
 function! FoldpeekHead() abort "{{{2
   let hunk_sign = ''
   if exists('g:loaded_gitgutter') && gitgutter#fold#is_changed()
-    let hunk_sign = '(*) '
+    let hunk_sign = s:hunk_sign
   endif
   return hunk_sign
 endfunction
 
-function! FoldpeekTail(PEEK) abort "{{{2
+function! FoldpeekTail() abort "{{{2
   let foldlines = v:foldend - v:foldstart + 1
   let foldlevel = s:foldlevel_dict[v:foldlevel]
 
@@ -122,11 +123,12 @@ function! FoldpeekTail(PEEK) abort "{{{2
     let hunk_info = substitute(hunk_info, '%r', hunk_removed,  'g')
   endif
 
-  if a:PEEK == 1
-    return ' '.  hunk_info . fold_info
+  let info = hunk_info . fold_info
+  if g:foldpeek_lnum == 1
+    return ' '. info
   endif
 
-  return ' '. (a:PEEK) .'/'.  hunk_info . fold_info
+  return ' '. g:foldpeek_lnum .'/'. info
 endfunction
 
 function! s:hunk_info() abort "{{{3
