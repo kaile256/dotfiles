@@ -92,9 +92,9 @@ let s:foldlevel_dict = {
 
 " show which line is peeked {{{1
 let g:foldpeek#head = 'FoldpeekHead()'
-let g:foldpeek#head = ''
+" let g:foldpeek#head = ''
 let g:foldpeek#tail = 'FoldpeekTail()'
-let s:hunk_sign = '(*) '
+let s:hunk_sign = '@ '
 let s:hunk_format = '(+%a ~%m -%r)'
 
 function! FoldpeekHead() abort "{{{2
@@ -113,22 +113,18 @@ function! FoldpeekTail() abort "{{{2
 
   let hunk_info = ''
   if foldpeek#has_any_hunks()
-    let hunk_info_row = foldpeek#hunk_info()
-    let hunk_added    = hunk_info_row[0]
-    let hunk_modified = hunk_info_row[1]
-    let hunk_removed  = hunk_info_row[2]
-
+    let hunks = foldpeek#hunk_info()
     let hunk_info = s:hunk_format
-    let hunk_info = substitute(hunk_info, '%a', hunk_added,    'g')
-    let hunk_info = substitute(hunk_info, '%m', hunk_modified, 'g')
-    let hunk_info = substitute(hunk_info, '%r', hunk_removed,  'g')
+    let hunk_info = substitute(hunk_info, '%a', hunks.Added,    'g')
+    let hunk_info = substitute(hunk_info, '%m', hunks.Modified, 'g')
+    let hunk_info = substitute(hunk_info, '%r', hunks.Removed,  'g')
   endif
 
-  if g:foldpeek_lnum == 1
-    return ' '. hunk_info . fold_info
+  if g:foldpeek_lnum > 1
+    let fold_info = g:foldpeek_lnum .'/'. fold_info
   endif
 
-  return ' '. hunk_info . g:foldpeek_lnum .'/'. fold_info
+  return ' '. hunk_info . fold_info
 endfunction
 
 augroup myFoldPeekSource "{{{1
