@@ -98,7 +98,7 @@ let s:hunk_format = '(+%a ~%m -%r)'
 
 function! FoldpeekHead() abort "{{{2
   let hunk_sign = ''
-  if exists('g:loaded_gitgutter') && gitgutter#fold#is_changed()
+  if foldpeek#has_any_hunks()
     let hunk_sign = s:hunk_sign
   endif
   return hunk_sign
@@ -111,7 +111,7 @@ function! FoldpeekTail() abort "{{{2
   let fold_info = foldlines . foldlevel
 
   let hunk_info = ''
-  if exists('g:loaded_gitgutter') && gitgutter#fold#is_changed()
+  if foldpeek#has_any_hunks()
     let hunk_info_row = foldpeek#hunk_info()
     let hunk_added    = hunk_info_row[0]
     let hunk_modified = hunk_info_row[1]
