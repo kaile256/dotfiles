@@ -33,6 +33,13 @@ g/command!/norm! Ea -bar
 g/s:findroot(/s/1/0
 write
 '''
+
+#[ Cmdline ]
+[[plugins]]
+repo = 'tyru/vim-altercmd'
+on_event = ['CmdLineEnter', 'CmdWinEnter']
+hook_post_source = 'runtime post/altercmd.vim'
+
 #[ Register ]
 [[plugins]]
 repo = 'svermeulen/vim-yoink'

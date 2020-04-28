@@ -31,7 +31,7 @@ augroup myRuntimesSelection
   au InsertEnter * ++once runtime once/imaps.vim
   au InsertEnter,CmdLineEnter,CmdWinEnter * ++once runtime once/autocorrect.vim
   au CmdLineEnter,CmdWinEnter * ++once runtime once/cmaps.vim
-  au CmdLineEnter,CmdWinEnter * ++once runtime once/cabbrs.vim
+  " au CmdLineEnter,CmdWinEnter * ++once runtime once/cabbrs.vim
   au CmdLineEnter,CmdWinEnter * ++once runtime once/commands.vim
   au CmdwinEnter * runtime lazy/cmdwin.vim
   au Syntax      * runtime lazy/zenkaku.vim

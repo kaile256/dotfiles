@@ -2,6 +2,9 @@
 " Ref: cmaps.vim
 " Ref: commands.vim
 
+" Use vim-altercmd or another instead.
+finish
+
 "augroup myCmdLineOptimization
 "  au! CmdlineChanged * call s:cmdline_optimize()
 "augroup END
@@ -21,9 +24,27 @@ function s:cabbr() abort
 
   for key in keys(dict)
     exe 'cnoreabbr <expr>' key
-          \ '(getcmdtype() == ":" && getcmdline() =~? "^\s*'. key .'\s*$")'
-          \ '?' dict[key] ':' string(key)
+          \ s:cond(key) '?' dict[key] ':' string(key)
   endfor
 endfunction
-call s:cabbr()
-delfunction s:cabbr
+
+function s:cond(key) abort
+  " let mods_list = [
+  "     \ 'tab',
+  "     \ 'rightb%[elow]',
+  "     \ 'bo%[tright]',
+  "     \ 'bel%[right]',
+  "     \ 'lefta%[bove]',
+  "     \ 'abo%[veleft]',
+  "     \ 'to%[pleft]',
+  "     \ ]
+  " call map(mods_list, '"(". v:val .")"')
+  " let mods_expr = '\v^[: \t]*'. join(mods_list, '\|')
+
+  " let line = "substitute(getcmdline(), '". mods_expr ."', '', '')"
+
+  return "(getcmdtype() == ':' && getcmdline() =~? '^[: \\t]*". a:key ."\\s*$')"
+endfunction
+
+" call s:cabbr()
+" delfunction s:cabbr
