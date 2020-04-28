@@ -5,10 +5,21 @@ scriptencoding utf-8
 inoremap <F1> <Nop>
 
 " Tips: i_CTRL-\_CTRL-O keeps cursor position
-inoremap <expr> <SID>(ctrl-k)
-      \ col('.') == len(getline('.')) + 1
-      \ ? ''
-      \ : '<c-\><C-o>"_D'
+inoremap <expr> <SID>(ctrl-k) <SID>remove_to_end()
+      "\ col('.') == len(getline('.')) + 1
+      "\ ? ''
+      "\ : '<c-\><C-o>"_D'
+function! s:remove_to_end() abort
+  " TODO: make it dot-repeatable independent to line length
+  let line = getline('.')
+  let col = col('.')
+  if col == len(line) + 1
+    return ''
+  endif
+  let len = len(line) - col + 1
+  return repeat("\<Del>", len)
+endfunction
+
 imap <c-k> <SID>(ctrl-k)
 
 " TODO: keep the cursor after <c-o>, especially <c-o>yiw
@@ -45,17 +56,26 @@ inoremap <silent> <c-o><space>y <c-\><c-o>:call feedkeys("\<c-\>\<c-o>\"+y", 'n'
 "endfunction
 "
 " Alt-ESC {{{1
+function! s:alt_mappings() abort
+" Note: required because popup-menu prevents default <A-(key)>
+let alt_mappings = '."#*,;/'''
+      \ .'bcdefghjklmnoqrstuvwxyz'
+      \ .'BCDEFGHJKLMNOQRSTUVWXYZ'
+
+for key in split(alt_mappings, '\ze')
+  exe 'inoremap <silent> <a-'. key .'> <esc>:call feedkeys('''. key .''')<cr>'
+endfor
+endfunction
+call s:alt_mappings()
+
 inoremap <silent> <a-s> <Del>
 
-inoremap <silent> <a-space> <esc>:call feedkeys("\<space>")<cr>
-inoremap <silent> <a-\> <esc>:call feedkeys('\')<cr>
+" keep cursor in expected postition as mapleader of operator.
+inoremap <silent> <a-~> <esc>:call feedkeys('l~')<cr>
+inoremap <silent> <a-g> <esc>:call feedkeys('lg')<cr>
+inoremap <silent> <a-\> <esc>:call feedkeys('l\')<cr>
+inoremap <silent> <a-space> <esc>:call feedkeys("l\<space>")<cr>
 
-let s:alt_mappings = 'jklwebWEBftFTqQuUoOpxdcXDCy.~"#*,;/'''
-for s:key in split(s:alt_mappings, '\ze')
-  exe 'inoremap <silent> <a-'. s:key .'> <esc>:call feedkeys("'. s:key .'")<cr>'
-endfor
-
-unlet s:alt_mappings s:key
 " i/a/o "{{{2
 " <a-ai> could be just <left>/<right>, but I prefer <esc> before.
 inoremap <a-I> <c-g>U<esc>I
@@ -67,7 +87,7 @@ inoremap <a-i> <c-g>U<Left>
 "inoremap <a-a> <c-g>U<esc>la
 "inoremap <a-i> <c-g>U<esc>i
 
-inoremap <a-h> <esc>
+" inoremap <a-h> <esc>
 
 inoremap <a-c-r> <esc><c-r>
 inoremap <a-Y>   <esc>y$
@@ -139,7 +159,6 @@ let s:registers = {
       \ ';': ':',
       \ '<c-space>': '+',
       \ '<space>': '+',
-      \ '<c-v>': '+',
       \ "<c-'>": '"',
       \ "'": '"',
       \ }
@@ -152,6 +171,7 @@ endfor
 unlet s:reg s:registers
 
 " Undo Break; {{{1
+inoremap <a-p> <c-g>u<esc>:call feedkeys('p')<cr>
 inoremap <a-P> <c-g>u<esc>:call feedkeys('P')<cr>
 
 "" Undo Break; New Line
