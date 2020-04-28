@@ -3,44 +3,34 @@ alias vi vim dein [ [] pp
 options head
   [[plugins]]
   repo = '${1:`matchstr(@+, 'https://github.com/\zs[^/]\+/[^/]\+')`}'
+  on_${0:TARGET}
 
-#snippet #{{{ begining of fold
-#alias { #{ #{{ #{{{ {} #{} #{{}} #{{{}}}
-#  #{{{
-#snippet #}}} end of fold
-#alias # } #} #}} #}}} #| #||
-#  #}}}
-#snippet ##}}} end of fold; ver. commented-out
-#alias ## ##| ##||
-#  ##}}}
-
-# for dein's hook {{{1
 snippet hook_add
-alias ad add
+alias ha had hoa
   hook_add = 'runtime add/${1:`snip#vim#name_of_plugin()`}.vim'
 
 snippet hook_source
-alias so sou sour
+alias hs hso hos so sou
   hook_source = 'runtime source/${1:`snip#vim#name_of_plugin()`}.vim'
 
 snippet hook_post_source
-alias po pos post
+alias hp hpo hop po pos post
   hook_post_source = 'runtime post/${1:`snip#vim#name_of_plugin()`}.vim'
 
 snippet hook_done_update
-alias du up don done
+alias du up don done hd
   hook_done_update = '${1:call remote#host#UpdateRemotePlugins()}'
 
 snippet on_event
-alias ev eve even
+alias ev eve eve oe ov oev on_e one
   on_event = ['${1:BufRead}']
 
 snippet on_ft
-alias ft
+alias ft of oft onf on_f on_ft
   on_ft = ['${1:vim}']
 
 snippet on_map
-alias ma map
+regexp '\%[on_]m\%[ap]'
   on_map = {${1:nox} = ['<Plug>(${2:`snip#vim#name_of_plugin()`}']}
 
 snippet on_func
@@ -56,7 +46,7 @@ alias pa pat pah
   on_path = '${0:#:\.ext (conpared in "=~#"}'
 
 snippet on_source
-alias ons onso os oso
+alias ons onso os oso on_s on_so
   on_source = ['${1:vim-fugitive}']
 
 snippet build
