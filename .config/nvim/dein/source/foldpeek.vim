@@ -93,7 +93,6 @@ let s:foldlevel_dict = {
 " show which line is peeked {{{1
 " let g:foldpeek#head = ''
 " let g:foldpeek#head = "foldpeek#head()"
-" let g:foldpeek#tail = "foldpeek#tail('%PEEK%')"
 
 function! foldpeek#head() abort
   let hunk_sign = ''
@@ -103,22 +102,80 @@ function! foldpeek#head() abort
   return hunk_sign
 endfunction
 
-function! foldpeek#tail(PEEK) abort
+
+function! FoldpeekTail(PEEK) abort
   let foldlines = v:foldend - v:foldstart + 1
   let foldlevel = s:foldlevel_dict[v:foldlevel]
 
-  let foldinfo = foldlines . foldlevel
+  let fold_info = foldlines . foldlevel
 
-  let hunk_sign = ''
+  let hunk_info = ''
   if exists('g:loaded_gitgutter') && gitgutter#fold#is_changed()
-    let hunk_sign = ' <= '
+    function! s:get_signs() abort "{{{
+      let bufnr = bufnr('%')
+      if exists('*getbufinfo')
+        let bufinfo = getbufinfo(bufnr)[0]
+        let signs = has_key(bufinfo, 'signs') ? bufinfo.signs : []
+
+      else
+        let signs = []
+
+        redir => signlines
+        silent execute 'sign place buffer='. bufnr
+        redir END
+
+        for signline in filter(split(signlines, '\n')[2:], 'v:val =~# "="')
+          " Typical sign line before v8.1.0614:  line=88 id=1234 name=GitGutterLineAdded
+          " We assume splitting is faster than a regexp.
+          let components = split(signline)
+          call add(signs, {
+                \ 'lnum': str2nr(split(components[0], '=')[1]),
+                \ 'id':   str2nr(split(components[1], '=')[1]),
+                \ 'name':        split(components[2], '=')[1]
+                \ })
+        endfor
+      endif
+
+      let g:hunk_signs =  signs
+      return signs
+    endfunction "}}}
+
+    function! s:hunk_info() abort "{{{
+      let hunk_info = [0, 0, 0]
+      let signs = s:get_signs()
+
+      for sign in signs
+        if sign.name !~# 'GitGutterLine' | continue | endif
+        if v:foldstart > sign.lnum || sign.lnum > v:foldend
+          continue
+        endif
+
+        if sign.name =~# 'Added'
+          let hunk_info[0] += 1
+        elseif sign.name =~# 'Modified'
+          let hunk_info[1] += 1
+        elseif sign.name =~# 'Removed'
+          let hunk_info[2] += 1
+        endif
+      endfor
+
+      return hunk_info
+    endfunction "}}}
+
+    let hunk_info_row = s:hunk_info()
+    let g:hunk_info_row = s:hunk_info()
+    let hunk_added   = '+'. hunk_info_row[0]
+    let hunk_changed = '~'. hunk_info_row[1]
+    let hunk_removed = '-'. hunk_info_row[2]
+    let hunk_info = join([hunk_added, hunk_changed, hunk_removed])
+    let hunk_info = ' ('. hunk_info .') '
   endif
 
   if a:PEEK == 1
-    return ' '. hunk_sign . foldinfo
+    return ' '. hunk_info . fold_info
   endif
 
-  return ' '. hunk_sign . (a:PEEK) .'/'. foldinfo
+  return ' '. hunk_info . (a:PEEK) .'/'. fold_info
 endfunction
 
 augroup myFoldPeekSource "{{{1
