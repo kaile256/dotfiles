@@ -59,7 +59,6 @@ hook_source = 'runtime source/gitv.vim'
 #repo = 'rbong/vim-flog'
 ## Cons: unnecessary trailing spaces
 ## Pros: as default, the date of update is written on top of lines
-#type = 'git'
 #on_cmd = 'Flog'
 #hook_post_source = 'runtime add/flog.vim'
 #
