@@ -155,7 +155,7 @@ function! s:peek_help() abort "{{{2
         \ ]
   let b:foldpeek_whiteout_patterns_substitute = [
         \ ['\v*(.+)\*', '  * \1', ''],
-        \ ['\*\s*\*', ' / ', 'g'],
+        \ ['\*\s*\*', ' || ', 'g'],
         \ ['^\ze\u', '- ', ''],
         \ ]
 endfunction
