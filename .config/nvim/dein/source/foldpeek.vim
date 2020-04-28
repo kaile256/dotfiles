@@ -112,7 +112,7 @@ function! FoldpeekTail() abort "{{{2
 
   let hunk_info = ''
   if exists('g:loaded_gitgutter') && gitgutter#fold#is_changed()
-    let hunk_info_row = s:hunk_info()
+    let hunk_info_row = foldpeek#hunk_info()
     let hunk_added    = hunk_info_row[0]
     let hunk_modified = hunk_info_row[1]
     let hunk_removed  = hunk_info_row[2]
@@ -129,58 +129,6 @@ function! FoldpeekTail() abort "{{{2
   endif
 
   return ' '. g:foldpeek_lnum .'/'. info
-endfunction
-
-function! s:hunk_info() abort "{{{3
-  let hunk_info = [0, 0, 0]
-  let signs = s:get_signs()
-
-  for sign in signs
-    if sign.name !~# 'GitGutterLine' | continue | endif
-    if v:foldstart > sign.lnum || sign.lnum > v:foldend
-      continue
-    endif
-
-    if sign.name =~# 'Added'
-      let hunk_info[0] += 1
-    endif
-    if sign.name =~# 'Modified'
-      let hunk_info[1] += 1
-    endif
-    if sign.name =~# 'Removed'
-      let hunk_info[2] += 1
-    endif
-  endfor
-
-  return hunk_info
-endfunction
-
-
-function! s:get_signs() abort "{{{4
-  let bufnr = bufnr('%')
-  if exists('*getbufinfo')
-    let bufinfo = getbufinfo(bufnr)[0]
-    let signs = has_key(bufinfo, 'signs') ? bufinfo.signs : []
-
-  else
-    let signs = []
-
-    redir => signlines
-    silent execute 'sign place buffer='. bufnr
-    redir END
-
-    for signline in filter(split(signlines, '\n')[2:], 'v:val =~# "="')
-      " Typical sign line before v8.1.0614:  line=88 id=1234 name=GitGutterLineAdded
-      " We assume splitting is faster than a regexp.
-      let components = split(signline)
-      call add(signs, {
-            \ 'lnum': str2nr(split(components[0], '=')[1]),
-            \ 'id':   str2nr(split(components[1], '=')[1]),
-            \ 'name':        split(components[2], '=')[1]
-            \ })
-    endfor
-  endif
-  return signs
 endfunction
 
 augroup myFoldPeekSource "{{{1
