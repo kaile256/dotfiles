@@ -7,39 +7,6 @@ scriptencoding utf-8
 
 let g:defx_sidebar_width = 30
 
-if exists('#myDefxAddInsteadOfNetrw')
-  au! myDefxAddInsteadOfNetrw
-endif
-augroup myDefxAddInsteadOfNetrw "{{{1
-  " Ref: https://github.com/Shougo/defx.nvim/issues/121
-  " Ref: /usr/share/nvim/runtime/plugin/netrwPlugin.vim
-  "let g:loaded_netrw       = 1 " necessary to read via https
-  "let g:loaded_netrwPlugin = 1 " necessary to read via https
-  " let g:loaded_netrwSettings     = 1
-  " let g:loaded_netrwFileHandlers = 1
-
-  " Ref: *netrw-activate*
-  au VimEnter * if expand('%') == '' | e. | endif
-  " TODO: inherit jumplist after gf
-  au VimEnter * silent! au! FileExplorer *
-  au BufEnter * call s:defx_or_netrw(expand('<amatch>'))
-augroup END
-
-function! s:defx_or_netrw(dirname) abort
-  if !s:isdir(a:dirname) | return | endif
-  try
-    exe 'Defx' a:dirname '-search='. a:dirname '-new'
-  catch
-    " /usr/share/nvim/runtime/autoload/netrw.vim
-    exe 'Explore' a:dirname
-  endtry
-endfunction
-
-let s:isdir = {dir ->
-      \ !empty(dir) && (isdirectory(dir) ||
-      \ (!empty($SYSTEMDRIVE) && isdirectory('/'.tolower($SYSTEMDRIVE[0]).a:dir))
-      \ )}
-
 " Open Defx even on terminal {{{1
 function! s:defx(...) abort
   let dict = a:0 > 0 ? map(a:1, {
@@ -231,3 +198,36 @@ nnoremap <silent> <SID>(defx-memo)
       \ <cr>
 nnoremap <script> <a-x>m     <SID>(defx-memo)
 nnoremap <script> <a-x><a-m> <SID>(defx-memo)
+
+augroup myDefxAddInsteadOfNetrw "{{{1
+  if exists('#myDefxAddInsteadOfNetrw') | au! myDefxAddInsteadOfNetrw
+  endif
+  " Ref: https://github.com/Shougo/defx.nvim/issues/121
+  " Ref: /usr/share/nvim/runtime/plugin/netrwPlugin.vim
+  "let g:loaded_netrw       = 1 " necessary to read via https
+  "let g:loaded_netrwPlugin = 1 " necessary to read via https
+  " let g:loaded_netrwSettings     = 1
+  " let g:loaded_netrwFileHandlers = 1
+
+  " Ref: *netrw-activate*
+  au VimEnter * if expand('%') == '' | e. | endif
+  " TODO: inherit jumplist after gf
+  au VimEnter * silent! au! FileExplorer *
+  au BufEnter * call s:defx_or_netrw(expand('<amatch>'))
+augroup END
+
+function! s:defx_or_netrw(dirname) abort
+  if !s:isdir(a:dirname) | return | endif
+  try
+    exe 'Defx' a:dirname '-search='. a:dirname '-new'
+  catch
+    " /usr/share/nvim/runtime/autoload/netrw.vim
+    exe 'Explore' a:dirname
+  endtry
+endfunction
+
+let s:isdir = {dir ->
+      \ !empty(dir) && (isdirectory(dir) ||
+      \ (!empty($SYSTEMDRIVE) && isdirectory('/'.tolower($SYSTEMDRIVE[0]).a:dir))
+      \ )}
+
