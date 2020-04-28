@@ -611,6 +611,7 @@ let g:lexima#default_rules += [
       \
       \ {'char': '<TAB>', 'at': '{\%#}',     'input': '{{', 'delete': 1, 'filetype': 'vim', 'priority': 80, 'mode': 'i'},
       \ {'char': '<TAB>', 'at': '"{\%#["}]', 'input': '{{', 'delete': 1, 'filetype': 'vim', 'priority': 80, 'mode': 'i'},
+      \ {'char': '<TAB>', 'at': '"}\%#"', 'input': '}}', 'delete': 1, 'filetype': 'vim', 'priority': 80, 'mode': 'i'},
       \
       \ {'char': "'", 'at': '\\\%#', 'leave': 1, 'filetype': ['vim', 'sh', 'csh', 'ruby', 'tcsh', 'zsh']},
       \ ]
