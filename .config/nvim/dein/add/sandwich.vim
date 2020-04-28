@@ -1,4 +1,4 @@
-" From: motion.toml
+" From: operator.toml
 " Repo: machakann/vim-sandwich
 " Fork: kaile256/vim-sandwich
 " Another: source/sandwich.vim
@@ -41,6 +41,11 @@ omap i. <Plug>(textobj-sandwich-query-i).
 xmap i. <Plug>(textobj-sandwich-query-i).
 omap a. <Plug>(textobj-sandwich-query-a).
 xmap a. <Plug>(textobj-sandwich-query-a).
+
+omap i_ <Plug>(textobj-sandwich-query-i)_
+xmap i_ <Plug>(textobj-sandwich-query-i)_
+omap a_ <Plug>(textobj-sandwich-query-a)_
+xmap a_ <Plug>(textobj-sandwich-query-a)_
 
 " TextObj Literal {{{1
 "" a text surrounded by a pair of literally the same characters as user input
