@@ -180,8 +180,6 @@ function! s:get_signs() abort "{{{4
             \ })
     endfor
   endif
-
-  let g:hunk_signs =  signs
   return signs
 endfunction
 
