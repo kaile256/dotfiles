@@ -206,7 +206,7 @@ endfunction
 
 function! s:peek_help() abort "{{{2
   let b:foldpeek_whiteout_patterns_left = [
-        \ '^\u\+\s\+',
+        \ '^\u[A-Z \t]\+\(\*.\+\*\s*$\)\@=',
         \ '\*.\+\*\s*$',
         \ ]
   let b:foldpeek_whiteout_patterns_substitute = [
@@ -214,7 +214,6 @@ function! s:peek_help() abort "{{{2
         \ ['\*\s*\*', ' / ', 'g'],
         \ ['^\ze\u', '- ', ''],
         \ ]
-        "\ ['\v\W+vim\W+(.*)', '(\1)', ''],
 endfunction
 
 function! s:peek_toml() abort "{{{2
