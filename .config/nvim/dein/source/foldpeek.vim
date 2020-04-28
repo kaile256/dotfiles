@@ -91,17 +91,67 @@ let s:foldlevel_dict = {
 "      \ }
 
 " show which line is peeked {{{1
-" let g:foldpeek#head = ''
-" let g:foldpeek#head = "foldpeek#head()"
+let g:foldpeek#head = "FoldpeekHead()"
+let g:foldpeek#tail = "FoldpeekTail(%PEEK%)"
 
-function! foldpeek#head() abort
+function! FoldpeekHead() abort
   let hunk_sign = ''
   if exists('g:loaded_gitgutter') && gitgutter#fold#is_changed()
-    let hunk_sign = '=> '
+    let hunk_sign = '(*) '
   endif
   return hunk_sign
 endfunction
 
+function! s:get_signs() abort
+  let bufnr = bufnr('%')
+  if exists('*getbufinfo')
+    let bufinfo = getbufinfo(bufnr)[0]
+    let signs = has_key(bufinfo, 'signs') ? bufinfo.signs : []
+
+  else
+    let signs = []
+
+    redir => signlines
+    silent execute 'sign place buffer='. bufnr
+    redir END
+
+    for signline in filter(split(signlines, '\n')[2:], 'v:val =~# "="')
+      " Typical sign line before v8.1.0614:  line=88 id=1234 name=GitGutterLineAdded
+      " We assume splitting is faster than a regexp.
+      let components = split(signline)
+      call add(signs, {
+            \ 'lnum': str2nr(split(components[0], '=')[1]),
+            \ 'id':   str2nr(split(components[1], '=')[1]),
+            \ 'name':        split(components[2], '=')[1]
+            \ })
+    endfor
+  endif
+
+  let g:hunk_signs =  signs
+  return signs
+endfunction
+
+function! s:hunk_info() abort
+  let hunk_info = [0, 0, 0]
+  let signs = s:get_signs()
+
+  for sign in signs
+    if sign.name !~# 'GitGutterLine' | continue | endif
+    if v:foldstart > sign.lnum || sign.lnum > v:foldend
+      continue
+    endif
+
+    if sign.name =~# 'Added'
+      let hunk_info[0] += 1
+    elseif sign.name =~# 'Modified'
+      let hunk_info[1] += 1
+    elseif sign.name =~# 'Removed'
+      let hunk_info[2] += 1
+    endif
+  endfor
+
+  return hunk_info
+endfunction
 
 function! FoldpeekTail(PEEK) abort
   let foldlines = v:foldend - v:foldstart + 1
@@ -111,57 +161,6 @@ function! FoldpeekTail(PEEK) abort
 
   let hunk_info = ''
   if exists('g:loaded_gitgutter') && gitgutter#fold#is_changed()
-    function! s:get_signs() abort "{{{
-      let bufnr = bufnr('%')
-      if exists('*getbufinfo')
-        let bufinfo = getbufinfo(bufnr)[0]
-        let signs = has_key(bufinfo, 'signs') ? bufinfo.signs : []
-
-      else
-        let signs = []
-
-        redir => signlines
-        silent execute 'sign place buffer='. bufnr
-        redir END
-
-        for signline in filter(split(signlines, '\n')[2:], 'v:val =~# "="')
-          " Typical sign line before v8.1.0614:  line=88 id=1234 name=GitGutterLineAdded
-          " We assume splitting is faster than a regexp.
-          let components = split(signline)
-          call add(signs, {
-                \ 'lnum': str2nr(split(components[0], '=')[1]),
-                \ 'id':   str2nr(split(components[1], '=')[1]),
-                \ 'name':        split(components[2], '=')[1]
-                \ })
-        endfor
-      endif
-
-      let g:hunk_signs =  signs
-      return signs
-    endfunction "}}}
-
-    function! s:hunk_info() abort "{{{
-      let hunk_info = [0, 0, 0]
-      let signs = s:get_signs()
-
-      for sign in signs
-        if sign.name !~# 'GitGutterLine' | continue | endif
-        if v:foldstart > sign.lnum || sign.lnum > v:foldend
-          continue
-        endif
-
-        if sign.name =~# 'Added'
-          let hunk_info[0] += 1
-        elseif sign.name =~# 'Modified'
-          let hunk_info[1] += 1
-        elseif sign.name =~# 'Removed'
-          let hunk_info[2] += 1
-        endif
-      endfor
-
-      return hunk_info
-    endfunction "}}}
-
     let hunk_info_row = s:hunk_info()
     let g:hunk_info_row = s:hunk_info()
     let hunk_added   = '+'. hunk_info_row[0]
