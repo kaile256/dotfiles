@@ -187,12 +187,8 @@ function! s:peek_neosnippet() abort "{{{2
   "      \ ]
 endfunction
 function! s:peek_ultisnips() abort "{{{2
-  let b:foldpeek_whiteout_patterns_left = [
-        \ ['^snippet ', '".*"'],
-        \ ['^snippet ', 'snippet \zs\v[^"]+"@!'],
-        \ ]
-
   let b:foldpeek_whiteout_patterns_substitute = [
-        \ ['snippet \zs\ze[^"]', '"no description" => ', ''],
+        \ ['^snippet \zs''\S\{-}''', "'regexp'"],
+        \ ['^snippet \S\+ [^"]\+$', '"no description" => ', ''],
         \ ]
 endfunction
