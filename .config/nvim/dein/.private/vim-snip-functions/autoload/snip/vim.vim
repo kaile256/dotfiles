@@ -24,10 +24,6 @@
 " }}}
 " ============================================================================
 
-if exists('g:loaded_snip_function') | finish | endif "{{{
-let g:loaded_snip_function = 1
-"}}}
-
 " save 'cpoptions' "{{{
 let s:save_cpo = &cpo
 set cpo&vim
@@ -51,19 +47,35 @@ unlet s:dir_list
 "   1. the repository is 'user/vim-plugin-name'
 "   2. cwd is 'current-file.vim'
 
-let s:fname_shotest_match = '[^/]\{-}'
 function! snip#vim#name_of_repo() abort
+  if &ft ==# 'toml'
+    let lnum = search('^repo = ', 'nbW')
+    let line = getline(lnum)
+    let repo = matchstr(line, 'repo = ''\zs.\{-}\ze''')
+
+    return repo
+  endif
+
   " return 'vim-plugin-name'
   return matchstr(expand('%:p'),
         \ '\%['. s:dir .']'
-        \ .'\zs\%[vim-]'. s:fname_shotest_match .'\%[.n]\%[vim]\ze'.
+        \ .'\zs\%[vim-].\{-}\%[.n]\%[vim]\ze'.
         \ s:dir)
+endfunction
+
+function! snip#vim#name_of_plugin_row() abort
+  " return 'vim-plugin-name', 'plugin-name.nvim' or so kind.
+  return matchstr(snip#vim#name_of_repo(),
+        \ '/\zs.*$')
 endfunction
 
 function! snip#vim#name_of_plugin() abort
   " return 'plugin-name'
-  return matchstr(snip#vim#name_of_repo(),
-        \ '^\%[n]\%[vim-]\zs'. s:fname_shotest_match .'\ze\%[.n]\%[vim]$')
+  let plugin_name = snip#vim#name_of_plugin_row()
+  return plugin_name !~# 'vim'
+        \ ? plugin_name
+        \ : matchstr(plugin_name,
+        \   '\%[n]\%[vim-]\zs.\{-}\ze\%[.n]\%[vim]$')
 endfunction
 
 function! snip#vim#path_root_to_file() abort
