@@ -10,10 +10,6 @@
 
 command! -bar -bang -nargs=* Fzf :Files <args>
 
-command! GrepCWORD
-      \ :FindRoot
-      \ | Ag expand('<cWORD>')
-
 command! -bar -bang Functions
       \ :call fzf#vim#functions({'options': '--multi --reverse'})
 " TODO: show preview as :function shows
@@ -104,17 +100,14 @@ command! RgHelp  :cd /usr/share/nvim/runtime/doc <bar> Rg
 "imap <c-x><c-f> <c-o>:cd ~<cr><plug>(fzf-complete-file-ag)
 "imap <c-x>f     <c-o>:cd ~<cr><plug>(fzf-complete-file-ag)
 
-nmap <le>z <fzf>
-nmap <silent> <fzf>b :<c-u> Buffers<cr>
-nmap <silent> <fzf>G :<c-u> Gfiles<cr>
-nmap <silent> <fzf>g :<c-u> Gfiles?<cr>
+nmap <silent> <space>zb :<c-u> Buffers<cr>
+nmap <silent> <space>zG :<c-u> GFiles<cr>
+nmap <silent> <space>zg :<c-u> GFiles?<cr>
 "" Mnemonic: 'Old' Buffer
-nmap <silent> <fzf>o :<c-u> History<cr>
+nmap <silent> <space>zo :<c-u> History<cr>
 "" Mnemonic: Search in Current File
-nmap <silent> <fzf>/ :<c-u> BLines<cr>
-nmap <silent> <fzf>; :<c-u> History:<cr>
-
-nnoremap <silent> gG :GrepCWORD<cr>
+nmap <silent> <space>z/ :<c-u> BLines<cr>
+nmap <silent> <space>z; :<c-u> History:<cr>
 
 " Keymaps for Files {{{1
 let s:path_dict = {
@@ -167,6 +160,6 @@ function! s:fzf_maps(prefix, command, ...) abort
 endfor
 endfunction
 
-call s:fzf_maps('\z', 'Fzf')
-call s:fzf_maps('\r', 'Rg')
-call s:fzf_maps('\a', 'Ag', 'n')
+call s:fzf_maps('<space>z', 'Fzf')
+call s:fzf_maps('<space>r', 'Rg')
+call s:fzf_maps('<space>a', 'Ag', 'n')
