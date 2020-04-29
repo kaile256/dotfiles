@@ -14,7 +14,9 @@ hook_source = 'runtime source/gist.vim'
 #[ Table-Mode ]
 [[plugins]]
 repo = 'dhruvasagar/vim-table-mode'
-on_ft = ['org', 'text', 'vimwiki', 'markdown']
+on_cmd = ['TableModeRealign']
+#on_ft = ['org', 'text', 'vimwiki', 'markdown']
+hook_add = 'runtime add/table-mode.vim'
 hook_source = 'runtime source/table-mode.vim'
 
 #[ Outliner ]

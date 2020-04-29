@@ -1,5 +1,6 @@
 " From: memo.toml
 " Repo: dhruvasagar/vim-table-mode
+" Another: source/table-mode.vim
 
 "let g:table_mode_disable_mappings = 1
 
@@ -20,12 +21,10 @@ let g:table_mode_echo_cell_map = '<Nop>'
 let g:table_mode_sort_map = '<Nop>'
 
 " Ref: see default values for g:var in dhruvasagar/vim-table-mode/plugin/table-mode.vim @17
-if exists('#myTableModeSource')
-  au! myTableModeSource
-endif
-augroup myTableModeSource
-  au BufRead *.{wiki,md,org,txt} silent TableModeEnable
-  au InsertLeave *.{wiki,md,org,txt} silent TableModeRealign
-  " Note: some functions would not work if disabled on `InsertLeave`
-  "au InsertLeave *.{wiki,md,org,txt} silent TableModeDisable
-augroup END
+" augroup myTableModeSource
+"   if exists('#myTableModeSource') | au! myTableModeSource | endif
+"   " au BufRead *.{wiki,md,org,txt} TableModeEnable
+"   au InsertLeave *.{wiki,md,org,txt} TableModeRealign
+"   " Note: some functions would not work if disabled on `InsertLeave`
+"   "au InsertLeave *.{wiki,md,org,txt} silent TableModeDisable
+" augroup END
