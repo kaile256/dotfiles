@@ -65,22 +65,17 @@ endfunction
 
 function! snip#vim#name_of_plugin_row() abort
   " return 'vim-plugin-name', 'plugin-name.nvim' or so kind.
-  return matchstr(snip#vim#name_of_repo(),
-        \ '/\zs.*$')
+  return substitute(snip#vim#name_of_repo(), '.\{-}/', '', '')
 endfunction
 
 function! snip#vim#name_of_plugin() abort
   " return 'plugin-name'
-  let plugin_name = snip#vim#name_of_plugin_row()
-  return plugin_name !~# 'vim'
-        \ ? plugin_name
-        \ : matchstr(plugin_name,
-        \   '\%[n]\%[vim-]\zs.\{-}\ze\%[.n]\%[vim]$')
+  return substitute(snip#vim#name_of_plugin_row(), '\v%[-]%[n]vim%[-]', '', 'g')
 endfunction
 
 function! snip#vim#path_root_to_file() abort
   " return 'path/to/current-file' after 'vim-plugin-name/'
-  return matchstr(expand('%:p'), snip#vim#name_of_repo() .'/\zs.*')
+  return substitute(expand('%:p'), snip#vim#name_of_repo(), '/.\{-}', '', '')
 endfunction
 
 function! s:underscored(path) abort
