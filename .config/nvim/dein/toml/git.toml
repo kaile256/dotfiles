@@ -78,6 +78,8 @@ repo = 'airblade/vim-gitgutter'
 # enough only with coc.nvim & fugitive.vim?
 on_source = ['vim-foldpeek']
 on_event = 'BufRead'
+hook_add = 'runtime add/gitgutter.vim'
+hook_source = 'runtime source/gitgutter.vim'
 #[[plugins]]
 #repo = 'lambdalisue/gina.vim'
 #on_event = ['BufWritePost']
