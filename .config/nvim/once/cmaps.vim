@@ -44,7 +44,7 @@ function! s:verbose_in_quickfix() abort "{{{2
   if getcmdtype() !=# ':' | return | endif
 
   let cmd = getcmdline()
-  if cmd =~# '^\s*cexpr'
+  if cmd =~# '^\s*[cl]expr\s\+execute('
     return "\<CR>"
   endif
 
@@ -54,14 +54,18 @@ function! s:verbose_in_quickfix() abort "{{{2
   if cmd !~# 'verb\%[ose] '
     let cmd = 'verbose '. cmd
   endif
-
-  return "\<End>\<C-u>lexpr execute(". string(cmd) .") \<bar> lopen \<CR>"
+  augroup openLoclistOfVerbosed
+    au!
+    au QuickFixCmdPost lexpr lopen
+  augroup END
+  return "\<End>\<C-u>lexpr execute(". string(cmd) .")\<CR>"
 endfunction
 
 augroup myCmapsOnce
   if exists('#myCmapsOnce') | au! myCmapsOnce
   endif
   " FIXME: Close when the cursor is out of buffer.
+  au QuickFixCmdPost cexpr :copen | au WinLeave,BufLeave <buffer> :cclose
   au QuickFixCmdPost lexpr :lopen | au WinLeave,BufLeave <buffer> :lclose
 augroup END
 
