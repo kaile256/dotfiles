@@ -218,10 +218,10 @@ omap af <Plug>(coc-funcobj-a)
 " CocCodeAction {{{1
 "set equalprg=CocActionAsync('formatSelected')
 "set equalprg=CocActionAsync('codeLensAction')
-nnoremap \A :call CocActionAsync('codeLensAction')<cr>
-nmap \aa <Plug>(coc-codeaction)
-nmap \a  <Plug>(coc-codeaction-selected)
-xmap \a  <Plug>(coc-codeaction-selected)
+nnoremap \X :call CocActionAsync('codeLensAction')<cr>
+nmap \xx <Plug>(coc-codeaction)
+nmap \x  <Plug>(coc-codeaction-selected)
+xmap \x  <Plug>(coc-codeaction-selected)
 
 " CocWorkspace {{{1
 command! -bar Rename :CocCommand workspace.renameCurrentFile
