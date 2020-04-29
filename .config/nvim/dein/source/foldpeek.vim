@@ -99,7 +99,7 @@ let s:hunk_format = '(+%a ~%m -%r)'
 
 function! FoldpeekHead() abort "{{{2
   let hunk_sign = ''
-  if foldpeek#has_any_hunks()
+  if foldpeek#git#has_any_hunks()
     let hunk_sign = s:hunk_sign
   endif
   return hunk_sign
@@ -112,8 +112,8 @@ function! FoldpeekTail() abort "{{{2
   let fold_info = foldlines . foldlevel
 
   let hunk_info = ''
-  if foldpeek#has_any_hunks()
-    let hunks = foldpeek#hunk_info()
+  if foldpeek#git#has_any_hunks()
+    let hunks = foldpeek#git#hunk_info()
     let hunk_info = s:hunk_format
     let hunk_info = substitute(hunk_info, '%a', hunks.Added,    'g')
     let hunk_info = substitute(hunk_info, '%m', hunks.Modified, 'g')
@@ -131,7 +131,7 @@ augroup myFoldPeekSource "{{{1
   if exists('#myFoldPeekSource') | au! myFoldPeekSource
   endif
 
-  au OptionSet * if &fdt !=# 'foldpeek#text()' |
+  au BufWinEnter * if &fdt !=# 'foldpeek#text()' |
         \   setl fdt=foldpeek#text()
         \ | endif
 
