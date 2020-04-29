@@ -15,7 +15,7 @@ function! fzf#floating_window() abort "{{{
   let buf = nvim_create_buf(v:false, v:true)
   call setbufvar(buf, '&signcolumn', 'no')
 
-  let width = float2nr(&columns - (&columns * 1 / 10))
+  let width = float2nr(&columns * 95 / 100)
   let height = &lines - 2
   let y = &lines - 10
   let x = float2nr((&columns - width) / 2)
@@ -34,7 +34,7 @@ endfunction "}}}
 if has('nvim')
   let g:fzf_layout = {'window': 'call fzf#floating_window()'}
 else
-  let g:fzf_layout = {'down': '~25%'}
+  let g:fzf_layout = {'window': {'width': 0.94, 'height': 0.95, 'highlight': 'Ignore', 'border': 'right' }}
 endif
 
 "let g:fzf_command_prefix = 'Fzf' " makes complex hook on dein.
