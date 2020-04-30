@@ -27,9 +27,9 @@ let g:quickrun_config = {}
 "   'nvimterm' works more synchronously than 'neovim_terminal'.
 
 let g:quickrun_config['_'] = {
-      \ 'runner': 'neovim_terminal',
+      \ 'runner': 'nvimterm',
       \ 'outputter': 'loclist',
-      \ 'runner/neovim_terminal/into': 0,
+      \ 'runner/nvimterm/into': 0,
       \ 'outputter/buffer/append': 1,
       \ 'outputter/buffer/close_on_empty': 1,
       \ 'hook/time/enable': 1,
