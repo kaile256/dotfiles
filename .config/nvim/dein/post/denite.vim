@@ -118,11 +118,12 @@ augroup myDenitePost "{{{1
   if exists('#myDenitePost') | au! myDenitePost
   endif
   "au WinLeave,BufLeave \[denite\]* call denite#do_map('quit')
-  "au User denite-preview call s:denite_preview_options() "{{{2
-  "function! s:denite_preview_options() abort
-  " " Note: on denite-preview, apply the
-  "  setl number bt=nofile
-  "endfunction "}}}2
+  au User denite-preview call s:denite_preview_options() "{{{2
+  function! s:denite_preview_options() abort
+    if bufname('%') =~# '\[denite\]'
+      setl number bt=nofile
+    endif
+  endfunction "}}}2
   au FileType denite-filter call s:denite_filter_keymaps() "{{{2
   function! s:denite_filter_keymaps() abort
     " back to normalmode {{{3
