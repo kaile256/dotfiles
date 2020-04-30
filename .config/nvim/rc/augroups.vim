@@ -36,19 +36,19 @@ augroup myAugroups
   "      \ | setl ft=dosini |
   "      \ endif
 
-  " " SyntaxAdjustment "{{{1
+  " " SyntaxAdjustment {{{1
 
   " au BufNewFile,BufRead *.txt      setl syn=help
   " au BufNewFile,BufRead .gitignore setl syn=netrw
   " "au FileType sh if getline(1) =~# 'bash$' | setl ft=bash syn=sh | endif
 
-  " " BufTypeAdjustment "{{{1
+  " " BufTypeAdjustment {{{1
 
   " au BufRead $XDG_DATA_HOME/Trash**/* setl bt=nofile
   " " Ref: https://twitter.com/_tyru_/status/1209126520511315969
   " au BufRead *.log,/tmp**/* setl backupcopy=yes
 
-  " " FoldAdjustment "{{{1
+  " " FoldAdjustment {{{1
 
   " " Note: fdm=syntax on json sometimes shows only '{ <blank>' line.
   " au FileType json setl fdm=syntax
@@ -57,45 +57,53 @@ augroup myAugroups
 
   " au BufRead * if line('w$') < line('$') | setl fdl=0 | endif
   " au BufRead * norm! zv
-  " au BufWinEnter,InsertLeave,TextChanged * call s:set_fdm_marker()
-  " function! s:set_fdm_marker() abort "{{{2
-  "   if !&modifiable | return | endif
+  au BufRead,BufWrite * call s:set_fdm_marker()
+  function! s:set_fdm_marker() abort "{{{2
+    if !&modifiable | return | endif
 
-  "   if &fdm =~# 'diff\|expr' | return | endif
+    if &fdm =~# 'diff\|expr' | return | endif
 
-  "   if &diff && &fdm !=# 'diff'
-  "     setl fdm=diff
-  "     call s:update_undo_fdm()
-  "     return
+    try
+      let last_fdm = &fdm
+      if &diff && &fdm !=# 'diff'
+        setl fdm=diff
+        " call s:update_undo_fdm()
+        return
 
-  "   elseif &foldexpr =~# '\(#\)\|\(^\u\).*)$' && &fdm !=# 'expr'
-  "     " FIXME: set fdm=expr reasonably
-  "     "   !&foldexpr sets fdm=expr
-  "     "   &foldexpr =~# '#\|\(^\u\).*)$' sets fdm=expr
-  "     setl fdm=expr
-  "     call s:update_undo_fdm()
-  "     return
-  "   endif
+      elseif &foldexpr =~# '\(#\)\|\(^\u\).*)$' && &fdm !=# 'expr'
+        " FIXME: set fdm=expr reasonably
+        "   !&foldexpr sets fdm=expr
+        "   &foldexpr =~# '#\|\(^\u\).*)$' sets fdm=expr
+        setl fdm=expr
+        call s:update_undo_fdm()
+        return
+      endif
 
-  "   if &fdm !=# 'marker'
-  "     if search('{{{\%[\d]$', 'cwn')
-  "       setl fdm=marker
-  "       call s:update_undo_fdm()
-  "     endif
-  "   elseif &fdm !=# &g:fdm && &fdm ==# 'marker'
-  "        \ && !search('{{{\%[\d]', 'cwn')
-  "     setl fdm<
-  "   endif
-  " endfunction
+      if &fdm !=# 'marker'
+        if search('{{{\%[\d]$', 'cwn')
+          setl fdm=marker
+          call s:update_undo_fdm()
+        endif
+      elseif &fdm !=# &g:fdm && &fdm ==# 'marker'
+            \ && !search('{{{\%[\d]', 'cwn')
+        setl fdm<
+      endif
 
-  " function! s:update_undo_fdm() abort "{{{2
-  "   if exists('b:undo_ftplugin')
-  "     let b:undo_ftplugin .= ' | '
-  "   else
-  "     let b:undo_ftplugin = ''
-  "   endif
-  "   let b:undo_ftplugin .= 'setl fdm<'
-  " endfunction
+    finally
+      if last_fdm ==# &fdm | return | endif
+      " fold could close upon fdm changes.
+      norm! zv
+    endtry
+  endfunction
+
+  function! s:update_undo_fdm() abort "{{{2
+    if exists('b:undo_ftplugin')
+      let b:undo_ftplugin .= ' | '
+    else
+      let b:undo_ftplugin = ''
+    endif
+    let b:undo_ftplugin .= 'setl fdm<'
+  endfunction
 
   " " IsFileNameAdjustment "{{{1
 
