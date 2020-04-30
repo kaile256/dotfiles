@@ -26,12 +26,9 @@ function! s:netrw_browse_check() abort "{{{1
 endfunction
 
 function! s:netrw_avoid_period() abort "{{{1
-  if getline('.') ==# '\.\./'
+  while getline('.') =~# '^\s*\.\+\/\s*$'
     norm! gj
-  endif
-  if getline('.') ==# '\./'
-    norm! gj
-  endif
+  endwhile
 endfunction
 
 augroup NetrwCallMyFunc "{{{1
