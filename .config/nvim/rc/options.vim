@@ -67,7 +67,7 @@ if has('nvim')
   " Default:
   "   Win32:  !,'100,<50,s10,h,rA:,rB:
   "   others: !,'100,<50,s10,h
-  set shada='500,<50,h,s10,
+  set shada='1000,<50,h,s10,
 
   augroup myAutoWriteShada
     if exists('#myAutoWriteShada')
