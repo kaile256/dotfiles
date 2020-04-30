@@ -2,7 +2,7 @@
 " Repo: sheerun/vim-polyglot
 
 let g:polyglot_disabled = [
-      \ 'cpp',
+      \ 'c++11',
       \ 'haskell',
       \ 'i3',
       \ 'javascript',
