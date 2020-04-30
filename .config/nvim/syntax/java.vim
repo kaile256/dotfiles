@@ -1,4 +1,4 @@
-" Orig: /usr/share/nvim/runtime/syntax/java.vim
+" Orig: $VIMRUNTIME/syntax/java.vim
 " Another: after/syntax/java.vim
 
 let g:java_highlight_all = 1
