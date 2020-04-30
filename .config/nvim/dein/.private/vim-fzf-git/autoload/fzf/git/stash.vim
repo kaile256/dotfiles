@@ -97,8 +97,9 @@ function! s:get_header() abort "{{{2
 
   for l:key in sort(keys(g:fzf#git#stash#actions))
     " `s:stash_options` incluedes 'git stash' redundantly
-    let cmd = substitute(g:fzf#git#stash#actions[l:key],
-          \ 'git\s\+\%[stash]', '', '')
+    let cmd = g:fzf#git#stash#actions[l:key]
+    let cmd = substitute(cmd, '\s\+git\s\+', '', '')
+    let cmd = substitute(cmd, '\s\+stash\s\+', '', '')
     let header .= toupper(l:key) .' to '. cmd .', '
   endfor
 
