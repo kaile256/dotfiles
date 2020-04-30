@@ -4,6 +4,7 @@
 [[plugins]]
 repo = 'kkvh/vim-docker-tools'
 # Manage docker containers with it.
+if = '!has("nvim")'
 on_func = [
   'docker_tools#dt_open',
   'docker_tools#dt_set_host',
@@ -16,6 +17,7 @@ hook_post_source = 'runtime post/docker-tools.vim'
 
 [[plugins]]
 repo = 'skanehira/docker.vim'
+if = '!has("nvim")'
 # Manage docker's images/containers
 # Note: unavailable on neovim because of job_start()
 on_cmd = [
