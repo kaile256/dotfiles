@@ -14,13 +14,6 @@ command! -bar -bang Functions
       "\ fzf#vim#with_preview({'options': '--multi --reverse'}, 'right:60%:wrap'),
       "\ <bang>0)
 
-" TODO: selector of terminal-buffer.
-command! -bar -bang -nargs=* -complete=buffer Terminal
-      \ call fzf#vim#buffers(<q-args>,
-      \                 <bang>0 ? fzf#vim#with_preview({'prefix': "'.git/", 'options': '--multi --reverse'}, 'right:65%')
-      \                         : fzf#vim#with_preview({'prefix': "'.git/", 'options': '--multi --reverse'}, 'right:65%'),
-      \                 <bang>0)
-
 " commands on directory {{{1
 " TODO: get :Ghqs to include the files under $GOPATH/src/, too.
 let s:cmd_to_path = {
