@@ -8,13 +8,11 @@ repo = 'neoclide/coc.nvim'
 if  = 'executable("yarn")'
 rev = 'release'
 #hook_done_update = 'yarn install --frozen-lockfile'
-
 on_func  = ['CocAction', 'CocActionAsync']
+on_map  = {nvi = ['<Plug>(coc-']}
 on_event = 'BufRead'
-
 hook_add    = 'runtime add/coc.vim'
 hook_source = 'runtime source/coc.vim'
-
 hook_done_update = '''
 exe 'e'. g:dein_github_dir .'/neoclide/coc.nvim_release/plugin/coc.vim'
 " For: vim-fugitive creates invalid id buffer.
@@ -30,6 +28,10 @@ write
 "unlet s:CocUpper2Clower
 "write
 '''
+[[plugins]]
+repo = 'antoinemadec/coc-fzf'
+on_cmd = ['CocFzfList']
+hook_add = 'runtime add/coc-fzf.vim'
 
 [[plugins]]
 repo = 'voldikss/actionmenu.nvim'
@@ -78,3 +80,9 @@ hook_post_source = 'runtime add/actionmenu.vim'
 #on_event = 'BufRead'
 #hook_add = 'runtime add/omnisharp.vim'
 
+#[ Format ]
+#[[plugins]]
+#repo = 'rhysd/vim-clang-format'
+## only formats written headers; not insert new
+#on_ft = ['c', 'cpp', 'objc', 'javascript', 'java', 'typescript', 'protobuf']
+#on_source = 'runtime source/clang-format.vim'
