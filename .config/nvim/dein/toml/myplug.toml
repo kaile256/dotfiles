@@ -135,7 +135,7 @@ hook_source = 'runtime source/private-note.vim'
 #[ Snippet ]
 [[plugins]]
 repo = '$DEIN_PRIVATE_HOME/vim-snip-functions'
-on_source = ['neosnippet.vim', 'ultisnips']
+on_source = ['coc.nvim', 'neosnippet.vim', 'ultisnips']
 on_func = ['snip#vim#']
 
 [[plugins]]
