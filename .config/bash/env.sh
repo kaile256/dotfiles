@@ -58,11 +58,11 @@ export DOCKER_HOST=unix://$XDG_RUNTIME_DIR/docker.sock
 export VMAIL_VIM=nvim-qt
 
 # FZF
-export FZF_DEFAULT_COMMAND='rg --files --hidden --follow --glob "!.git/*"'
-export FZF_DEFAULT_OPTS='--reverse --height=80% --min-height=20 --no-mouse --multi'
+export FZF_DEFAULT_COMMAND='rg --no-line-number --files --hidden --follow --glob "!.git/*"'
+export FZF_DEFAULT_OPTS='--reverse --height=80% --min-height=20 --no-mouse --multi --preview-window=noborder'
 #--preview="bat  --color=always --style=header,grid --line-range :100 {}"
 
-export FZF_LEGACY_KEYBINDINGS=1
+export FZF_LEGACY_KEYBINDINGS=0
 export FZF_PREVIEW_FILE_CMD="head -n 10"
 export FZF_PREVIEW_DIR_CMD="ls"
 
