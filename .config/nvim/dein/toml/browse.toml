@@ -8,14 +8,8 @@ on_cmd = 'FZF'
 
 [[plugins]]
 repo = 'junegunn/fzf.vim'
-#repo = 'kaile256/fzf.vim'
-#[ Branch: kaile256/fzf.vim_verbose_commands
-#on_func = 'fzf#vim#'
-on_event = 'VimEnter'
-hook_add = '''
-runtime add/fzf.vim
-runtime add/fzf-keymaps.vim
-'''
+on_event = ['CmdLineEnter']
+hook_add = 'runtime add/fzf.vim'
 hook_source = 'runtime source/fzf.vim'
 hook_post_source = 'runtime post/fzf.vim'
 
@@ -37,7 +31,11 @@ repo = 'krzbe/fzf-git-submodules'
 on_func = ['fzf#submodules#']
 on_cmd = ['Components']
 hook_add = 'runtime add/fzf-git-submodules.vim'
-
+[[plugins]]
+repo = 'ichihara-3/fzf-gitswitch.vim'
+on_cmd = ['Branches']
+on_map = {nx = ['<Plug>(fzf_gs']}
+hook_add = 'runtime add/fzf-gitswitch..vim'
 #[[plugins]]
 #repo = 'srstevenson/vim-picker'
 # fzy's wrapper for vim
