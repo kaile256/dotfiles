@@ -46,7 +46,10 @@ hi! link VirtualIndent NonText
 augroup VirtualIndent
   if exists('#VirtualIndent') | au! VirtualIndent
   endif
-  au BufEnter,InsertLeave * call s:virtual_indent()
+  au BufEnter,InsertLeave,BufWrite * call s:virtual_indent()
   " Note: it could causes problems with neosnippets without the restriction.
   au TextChanged * if mode() =~# 'n' | call s:virtual_indent() | endif
+  au TextChangedI * if !empty(nvim_buf_get_virtual_text(0, line('.') - 1)) |
+        \ call s:virtual_indent()
+        \ | endif
 augroup END
