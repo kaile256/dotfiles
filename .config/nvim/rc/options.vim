@@ -1,6 +1,9 @@
 scriptencoding utf-8
 " From: init.vim
 
+"" Note: EndOfBuffer is set of trailing '~' at end of buffer.
+" hi! link EndOfBuffer Ignore
+
 if executable('rg')
   " Ref: https://ktrysmt.github.io/blog/finish-work-early-with-cli-made-by-rust/
   set grepprg=rg\ --vimgrep\ --no-heading
