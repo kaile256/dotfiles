@@ -1,7 +1,13 @@
 ! From: .xinitrc
 !  Ref: .Xresources
 
-! Note: check by $ xmodmap -pke
+! Note: check keycodes by `xmodmap -pke` or `xcape -d`
+!   or you'll get in /usr/include/X11/keysymdef.h (without XK_prefix)
+! Ref: SandS with xcape
+!   https://qiita.com/ychubachi@github/items/95830219f1bdf912280b
+!keycode 255=space
+!! 65 is 'space' as default.
+!keycode 65=Shift_L
 
 ! Switch Caps_Lock & Control_L
 !remove Lock    = Caps_Lock
