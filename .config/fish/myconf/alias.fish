@@ -1,51 +1,52 @@
 # From: fish/config.fish
 # Ref: bash/alias.sh
 
-alias make 'make --jobs 8'
-alias tmux 'tmux -2'
+# `balias` let us completion
+balias make 'make --jobs 8'
+balias tmux 'tmux -2'
 
-alias l 'ls -Alh'
-alias la 'ls -A'
-alias ll 'ls -lh'
+balias l 'ls -Alh'
+balias la 'ls -A'
+balias ll 'ls -lh'
 
-alias ec 'echo'
-alias ech 'echo'
+balias ec 'echo'
+balias ech 'echo'
 
-alias cd.. 'cd ..'
-alias cd. 'cd ..'
-alias cd-  'cd -'
+balias cd.. 'cd ..'
+balias cd. 'cd ..'
+balias cd-  'cd -'
 
 # cause an error
-#alias cd/  'cd /'
+#balias cd/  'cd /'
 
-#alias -  'cd -'
-alias ...  'cd ../..'
-alias .2  'cd ../..'
-alias ....  'cd ../../..'
-alias .3  'cd ../../..'
+#balias -  'cd -'
+balias ...  'cd ../..'
+balias .2  'cd ../..'
+balias ....  'cd ../../..'
+balias .3  'cd ../../..'
 
-#alias pg 'pgrep'
-alias pg 'ps aux | grep'
+#balias pg 'pgrep'
+balias pg 'ps aux | grep'
 
-alias pk '~/start-kail.sh'
+balias pk '~/start-kail.sh'
 
-alias pacman-mirrors-update 'sudo pacman-mirrors -f && sudo pacman -Syy'
+balias pacman-mirrors-update 'sudo pacman-mirrors -f && sudo pacman -Syy'
 
-alias rwatch 'cd ~/rustlings && rustlings watch'
+balias rwatch 'cd ~/rustlings && rustlings watch'
 
 # Screenkey
-alias screenkey-below-for-left-window 'screenkey -g 950x1000 -t 0.5 &'
+balias screenkey-below-for-left-window 'screenkey -g 950x1000 -t 0.5 &'
 
 # -s: silence 'no server found' message, still causes an error in terminal
-alias nvr 'nvr -s'
+balias nvr 'nvr -s'
 
 # Fzf {{{1
 # Note: fzf --bind to execute(cd {}) doesn't work; use 'accept' instead
-alias fzf-ghq "cd (ghq list --full-path | fzf --bind 'ctrl-v:execute(nvr {})')"
-alias gz fzf-ghq
-alias zg fzf-ghq
+balias fzf-ghq "cd (ghq list --full-path | fzf --bind 'ctrl-v:execute(nvr {})')"
+balias gz fzf-ghq
+balias zg fzf-ghq
 
 # for functions
-alias zzh 'fzf-ssh'
-alias Qq 'fzf-pacman-Qq'
-alias qq 'fzf-pacman-Qq'
+balias zzh 'fzf-ssh'
+balias Qq 'fzf-pacman-Qq'
+balias qq 'fzf-pacman-Qq'
