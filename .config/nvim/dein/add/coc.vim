@@ -204,6 +204,7 @@ omap af <Plug>(coc-funcobj-a)
 " vmap <c-\> <Plug>(coc-snippets-select)
 " imap <c-\> <Plug>(coc-snippets-expand-jump)
 
+" " Note: slower than UltiSnips' command, `:UltiSnipsEdit`.
 " nnoremap <silent> <a-s><a-p><a-e> :<C-u>CocCommand snippets.editSnippets<CR>
 " nnoremap <silent> <a-s><a-p><a-s> :<C-u>sp <bar> CocCommand snippets.editSnippets<CR>
 " nnoremap <silent> <a-s><a-p><a-v> :<C-u>vs <bar> CocCommand snippets.editSnippets<CR>
