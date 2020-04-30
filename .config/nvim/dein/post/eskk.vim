@@ -16,7 +16,7 @@ augroup myEskkSource
     call t.add_map('zr', '®')
     call t.add_map('tm', '™')
     call t.add_map('z ', '　')
-    call t.add_map('L', 'l')
+    call t.add_map('z.', '.')
     """ Input the dot after a number as-is (e.g. "1.")
     " NOTICE: in the eskk's maps, cannot type sequence of numbers
     " for n in range(10)
