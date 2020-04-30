@@ -30,6 +30,11 @@ command! -bang -nargs=? -range=-1 -addr=tabs
       \ Gush
       \ :<mods>Gpush <args>
 
+command! -bang -nargs=? -range=-1 -addr=tabs
+      \ -complete=customlist,fugitive#PullComplete
+      \ Gull
+      \ :<mods>Gpull <args>
+
 command! -nargs=+ -bar -complete=file Gremote :Git remote <args>
 
 command! -nargs=+ -bar Gclone :Git clone <args>
