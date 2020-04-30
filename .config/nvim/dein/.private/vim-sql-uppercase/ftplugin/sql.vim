@@ -2,6 +2,14 @@
 
 let s:sql_words = []
 
+if &ft ==# 'mysql'
+  let s:sql_words += [
+        \ 'identified',
+        \ 'load',
+        \ 'use',
+        \ ]
+endif
+
 let s:sql_words += [
       \ 'absolute',
       \ 'action',
@@ -390,14 +398,17 @@ let s:sql_words += [
       \ 'zone',
       \ ]
 
+let s:in_comment = {line, col ->
+      \ synIDattr(synIDtrans(synID(line, col, 0)), 'name')
+      \   =~? 'Comment\|String'
+      \ }
+
 function! s:uppercase_keywords(word) abort
   " Do not uppercase word if within a comment or string
-  if synIDattr(synIDtrans(synID(line('.'), col('.') - 1, 0)), 'name')
-        \ =~# 'Comment\|String'
-    return
-  else
-    exe 'inoreabbrev <buffer>' tolower(a:word) toupper(a:word)
-  endif
+  exe 'inoreabbrev <expr><buffer>' a:word
+        \ s:in_comment(line('.'), col('.') - 1)
+        \   ? string(a:word)
+        \   : string(toupper(a:word))
 endfunction
 
 for word in uniq(s:sql_words)
