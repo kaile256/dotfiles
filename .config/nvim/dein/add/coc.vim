@@ -60,15 +60,14 @@ endfunction
 
 " CocDiagnostic {{{1
 " Note: Unnecessary? pop up auto.
-nmap <silent> gW <Plug>(coc-diagnostic-info)
-" Mnemonic: get Wrong line
-nmap \w <Plug>(coc-fix-current)
-map <silent><expr> [w
-      \ '<Plug>(coc-diagnostic-prev):<c-u>sleep 5m<cr>zv'
-      \ . (exists('b:coc_diagnostic_info') && winline() > winheight('w$') / 2 ? 'zm5k' : '')
-map <silent><expr> ]w
-      \ '<Plug>(coc-diagnostic-next):<c-u>sleep 5m<cr>zv'
-      \ . (exists('b:coc_diagnostic_info') && winline() > winheight('w$') / 2 ? 'zm5k' : '')
+nmap <silent> gX <Plug>(coc-diagnostic-info)
+noremap <SID>(zv) :<C-u>sleep 5m <bar> norm! zv<CR>
+
+" Mnemonic: get Info
+nmap \X <Plug>(coc-fix-current)
+map <silent> [x <Plug>(coc-diagnostic-prev)<SID>(zv)
+map <silent> ]x <Plug>(coc-diagnostic-next)<SID>(zv)
+
 "nmap [e <Plug>(coc-diagnostic-prev-error)
 "nmap ]e <Plug>(coc-diagnostic-next-error)
 
