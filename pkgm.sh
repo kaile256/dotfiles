@@ -16,6 +16,13 @@ set -Cue #{{{
 # Preferences:
 #   ntp: sync time
 PACKAGEs=(
+  sshfs # mount another filesystem via ssh
+  php-fpm # required by nginx to run php
+  nginx-unit-php
+  nginx
+  android-emulator
+  android-bash-completion
+  bluez-hid2hci
   composer # php dependency manager on PHPStorm?
   rxvt-unicode-improve-font-rendering
   xcape # Config modifier keys to act as other keys with/without another key
@@ -160,7 +167,7 @@ PACKAGEs=(
   neovim-qt-git # non-git ver. has a bug, missing its depending lib.
   nerd-fonts-complete
   #nerd-fonts-ricty # unavailable
-  brew-git # a pkgm for macOS (or Linux)
+  #brew-git # a pkgm for macOS (or Linux)
   ninja # a build system for clang
   npm # necessary for coc's command at all even w/ yarn
   nvme-cli # a NVMe manager, can be a secure eraser
@@ -204,6 +211,7 @@ PACKAGEs=(
 )
 
 PIP3s=(
+  xkeysnail # remapper for each devices/apps
   gibo # stdout a template for .gitignore as filetype
   sqlparse # parse for SQL; used in vim-sqlfmt
   #falcon  # Solve fcitx problem on Qt
