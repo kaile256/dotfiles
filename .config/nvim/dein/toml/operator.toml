@@ -3,7 +3,10 @@
 [[plugins]]
 repo = 'kana/vim-operator-user'
 on_source = ['caw.vim']
-on_func = 'operator#user#define'
+on_func = ['operator#user#define']
+[[plugins]]
+repo = 'thinca/vim-operator-sequence'
+on_func = ['operater#sequence#']
 
 #[ Comment out ]
 #[[plugins]]
