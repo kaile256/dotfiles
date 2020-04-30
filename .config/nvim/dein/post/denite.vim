@@ -156,21 +156,21 @@ augroup myDenitePost "{{{1
     " quit {{{3
     " TODO: get current split more flexible
     nnoremap <silent><buffer><expr> <a-h>
-         \ denite#custom#_get().option.default.split ==# 'floating' ?
-         \ denite#do_map('quit') :
-         \ '<c-w>h'
+          \ denite#custom#_get().option.default.split ==# 'floating' ?
+          \ denite#do_map('quit') :
+          \ '<c-w>h'
     nnoremap <silent><buffer><expr> <a-j>
-         \ denite#custom#_get().option.default.split ==# 'floating' ?
-         \ denite#do_map('quit') :
-         \ '<c-w>j'
+          \ denite#custom#_get().option.default.split ==# 'floating' ?
+          \ denite#do_map('quit') :
+          \ '<c-w>j'
     nnoremap <silent><buffer><expr> <a-k>
-         \ denite#custom#_get().option.default.split ==# 'floating' ?
-         \ denite#do_map('quit') :
-         \ '<c-w>k'
+          \ denite#custom#_get().option.default.split ==# 'floating' ?
+          \ denite#do_map('quit') :
+          \ '<c-w>k'
     nnoremap <silent><buffer><expr> <a-l>
-         \ denite#custom#_get().option.default.split ==# 'floating' ?
-         \ denite#do_map('quit') :
-         \ '<c-w>l'
+          \ denite#custom#_get().option.default.split ==# 'floating' ?
+          \ denite#do_map('quit') :
+          \ '<c-w>l'
 
     " Open {{{3
     nnoremap <silent><buffer><expr> <CR>
