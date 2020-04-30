@@ -6,6 +6,6 @@
 xmap \c <Plug>(Exchange)
 " operator
 nmap \c <Plug>(Exchange)
-nmap \cc <Plug>(ExchangeLine)
+nmap \C <Plug>(ExchangeLine)
 
-nmap \C <Plug>(ExchangeClear)
+nmap \cc <Plug>(ExchangeClear)
