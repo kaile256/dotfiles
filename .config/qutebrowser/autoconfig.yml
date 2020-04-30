@@ -249,9 +249,11 @@ settings:
         Zq: tab-close
         Zy: quit
         Zz: tab-close
+        '[': tab-prev
         \<Space>: record-macro
+        ']': tab-next
         a: fake-key <right> ;; enter-mode insert
-        b: scroll-page 0 -1.0
+        b: fake-key <alt+Up>
         cd: null
         co: null
         d: scroll-page 0 +0.5
@@ -287,6 +289,7 @@ settings:
         sp: pocket-save
         t: fake-key t;; enter-mode insert
         u: scroll-page 0 -0.5
+        w: fake-key <Ctrl+right>
         wc: tab-close
         wq: bookmark-del;; bookmark-add;; tab-close
         wqa: bookmark-del;; bookmark-add;; quit
@@ -494,7 +497,7 @@ settings:
       mf: https://github.com/search?o=desc&q={}&s=forks&type=Repositories
       ms: https://github.com/search?o=desc&q={}&s=stars&type=Repositories
       note: https://note.com/search?context=note&mode=search&q={}
-      pc: https://app.getpocket.com/search/{}
+      pk: https://app.getpocket.com/search/{}
       pyd: https://docs.python.org/3/search.html?q={}&check_keywords=yes&area=default
       qb: https://www.reddit.com/r/qutebrowser/search/?q={}
       qi: https://qiita.com/search?q={}&sort=stock
