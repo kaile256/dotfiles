@@ -35,7 +35,15 @@ let g:fzf#git#stash#actions = get(g:, 'fzf#git#stash#actions', {
       \ 'return': 'git stash apply',
       \ })
 
-let g:fzf#git#stash#options = get(g:, 'fzf#git#stash#options', [])
+let g:fzf#git#stash#options = get(g:, 'fzf#git#stash#options', [
+      \ '--ansi',
+      \ '--multi',
+      \ '--reverse',
+      \ '--inline-info',
+      \ '--tiebreak=index',
+      \ '--prompt', 'GitStashes> ',
+      \ '--preview', 'grep -o "stash@{[0-9]\+}" <<< {} | xargs git stash show --format=format: -p --color=always'
+      \ ])
 
 function! fzf#git#stash#list() "{{{1
   let root = s:get_git_root()
@@ -63,15 +71,7 @@ function! s:stash_options() abort "{{{1
   let opt = {
         \ 'source': 'git stash list',
         \ 'sink*':  function('s:stash_sink'),
-        \ 'options': get(g:, 'fzf#git#stash#options', [
-        \   '--ansi',
-        \   '--multi',
-        \   '--reverse',
-        \   '--inline-info',
-        \   '--tiebreak=index',
-        \   '--prompt', 'GitStashes> ',
-        \   '--preview', 'grep -o "stash@{[0-9]\+}" <<< {} | xargs git stash show --format=format: -p --color=always'
-        \ ])
+        \ 'options': g:fzf#git#stash#options,
         \ }
 
   let expect_keys = join(keys(g:fzf#git#stash#actions), ',')
