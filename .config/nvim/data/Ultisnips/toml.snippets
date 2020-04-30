@@ -1,46 +1,46 @@
-snippet '^(vi(m)?|dein)$' "for dein.toml" rb
+snippet '^(vim_dein|dein_vim)$' "for dein.toml" brA
 [[plugins]]
 repo = '`!v matchstr(@+, 'https://github.com/\zs[^/]\+/[^/]\+')`'
 on_$0
 endsnippet
 
-snippet '((h)?ook_)?a(dd)?' "hook_add = 'runtime add/foo.vim'" rb
-hook_add = 'runtime add/${1:`!v matchstr(getline(search('^repo =')), "repo = '.\\{-\}/\\zs.\\{-\}\\ze'", 'nbW')`}.vim'
+snippet hook_add "hook_add = 'runtime add/foo.vim'" bA
+hook_add = 'runtime add/${1:`!v snip#vim#name_of_plugin()`}.vim'
 endsnippet
 
-snippet '((h)?ook_)?s(o(urce)?)?' "hook_source = 'runtime source/foo.vim" rb
+snippet hook_source "hook_source = 'runtime source/foo.vim" bA
 hook_source = 'runtime source/${1:`!v snip#vim#name_of_plugin()`}.vim'
 endsnippet
 
-snippet '((h)?ook_)?p(o(st_source)?)?' "hook_post_source = 'runtime post/foo.vim'" rb
+snippet hook_post_source "hook_post_source = 'runtime post/foo.vim'" bA
 hook_post_source = 'runtime post/${1:`!v snip#vim#name_of_plugin()`}.vim'
 endsnippet
 
-snippet '((h)?ook_)?d(one_)?u(pdate)?' "hook_done_update = 'UpdateRemotePlugins'" rb
+snippet hook_done_update "hook_done_update = 'UpdateRemotePlugins'" bA
 hook_done_update = '${1:call remote#host#UpdateRemotePlugins()}'
 endsnippet
 
-snippet '(o(n(_)?)?)?ev(ent)?' "on_event" rb
+snippet on_event "on_event" bA
 on_event = ['${1:BufRead}']
 endsnippet
 
-snippet '(o(n(_)?)?)?ft' "on_ft" rb
+snippet on_ft "on_ft" bA
 on_ft = ['${1:vim}']
 endsnippet
 
-snippet '(o(n(_)?)?)?m(ap)?' "on_map" rb
+snippet on_map "on_map" bA
 on_map = {${1:nox} = ['<Plug>(${2:`!v snip#vim#name_of_plugin()`}']}
 endsnippet
 
-snippet '(o(n(_)?)?)?fu(nc)?' "on_func" rb
+snippet on_func "on_func" bA
 on_func = ['${1:`!v snip#vim#prefix_for_function()`}']
 endsnippet
 
-snippet '(o(n(_)?)?)?cmd' "on_cmd" rb
+snippet on_cmd "on_cmd" bA
 on_cmd = ['${1:`!v snip#vim#name_of_plugin()`}']
 endsnippet
 
-snippet '(o(n(_)?)?)?pa(th)?' "on_path" rb
+snippet on_path "on_path" bA
 on_path = '${0:#:\.ext (conpared in "=~#"}'
 endsnippet
 
@@ -57,7 +57,7 @@ alias ty typ
 type = 'git${0}'
 endsnippet
 
-snippet 'd(e)?p(end)?' "depend = ['other plugins']" rb
+snippet depend "depend = ['other plugins']" bA
 depend = ['${1:vim-fugitive}']
 
 endsnippet
@@ -66,7 +66,7 @@ snippet 'sudo|trusted' "trusted = 1 (load plugin as in 'sudo'" rb
 trusted = 1
 endsnippet
 
-snippet 'time(out)?' "timeout = (second)" rb
+snippet timeout "timeout = (second)" bA
 timeout = ${1:#:1(sec)}
 endsnippet
 
