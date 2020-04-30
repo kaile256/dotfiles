@@ -87,3 +87,25 @@ argdelete *
 #on_event = 'VimEnter'
 #hook_post_source = 'runtime add/express.vim'
 
+#[ Substitute ]
+#[[plugins]]
+#repo = 'svermeulen/vim-subversive'
+## just puts selected area into :s.
+#on_map = {nx = ['<Plug>(Subversive']}
+#hook_add = 'runtime add/subversive.vim'
+
+#[ Swap ]
+#[[plugins]]
+#repo = 'tommcdo/vim-exchange'
+#on_map = {nx = ['<Plug>(Exchange']}
+#hook_add = 'runtime add/exchange.vim'
+#hook_source = 'runtime source/exchange.vim'
+#[[plugins]]
+#repo = 'osyo-manga/vim-operator-swap'
+## Require 2 keys to be mapped.
+#on_map = {nx = ['<Plug>(operator-swap']}
+#hook_add = 'runtime add/operator-swap.vim'
+[[plugins]]
+repo = 'SausageCats/vim-operator-swap'
+on_map = {nx = ['<Plug>(vim-operator-swap-']}
+hook_add = 'runtime add/operator-swap.vim'
