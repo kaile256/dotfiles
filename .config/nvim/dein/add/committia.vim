@@ -1,6 +1,6 @@
 " From: fugitive.toml
 " Repo: rhysd/committia.vim
-" Help: None
+" Help: rhysd/committia.vim/README.md
 
 let g:committia_hooks = {}
 " edit_open
