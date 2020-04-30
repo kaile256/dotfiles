@@ -1,5 +1,5 @@
-snippet 'fu(n(c(tion)?)?)?(!)?' "function! foo() ... endfunction" rb
-function! ${1:`!v snip#vim#prefix_for_function()`}${2:#:do}(${3:#:args}) abort${4:#: range}
+snippet function! "function! foo() ... endfunction" bA
+function! ${1:`!v snip#vim#prefix_for_function()`}${2:#:do}(${3:#:args}) abort${4}
 endfunction
 endsnippet
 
