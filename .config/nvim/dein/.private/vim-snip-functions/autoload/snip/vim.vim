@@ -70,7 +70,7 @@ endfunction
 
 function! snip#vim#name_of_plugin() abort
   " return 'plugin-name'
-  return substitute(snip#vim#name_of_plugin_row(), '\v%[-]%[n]vim%[-]', '', 'g')
+  return substitute(snip#vim#name_of_plugin_row(), '\v%[.]%[-]%[n]vim%[-]', '', 'g')
 endfunction
 
 function! snip#vim#path_root_to_file() abort
