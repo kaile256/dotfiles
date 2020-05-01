@@ -31,6 +31,9 @@ alias pk='~/start-kali.sh'
 # TODO: accept arguments to restrict candidates
 alias fzf-fonts='fc-list | fzf'
 
+alias zg=ghq-cd
+alias gz=ghq-cd
+
 # Ref: https://qiita.com/yutakatay/items/f19b2a0a962a587db5cf
 #alias nvim-how-slower=echo "scale=3; $(nvim --startuptime /tmp/stime_mine.log -c 'quit' > /dev/null && tail -n 1 /tmp/stime_mine.log | cut -d ' ' -f1) / $(nvim -u DEFAULTS --startuptime /tmp/stime_def.log -c 'quit' > /dev/null && tail -n 1 /tmp/stime_def.log | cut -d ' ' -f1)" | bc | xargs -i echo {}x slower your Vim than the default.
 #alias vim-how-slower=echo "scale=3; $(vim --startuptime /tmp/stime_mine.log -c 'quit' > /dev/null && tail -n 1 /tmp/stime_mine.log | cut -d ' ' -f1) / $(vim -u DEFAULTS --startuptime /tmp/stime_def.log -c 'quit' > /dev/null && tail -n 1 /tmp/stime_def.log | cut -d ' ' -f1)" | bc | xargs -i echo {}x slower your Vim than the default.

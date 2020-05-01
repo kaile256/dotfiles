@@ -43,8 +43,8 @@ balias nvr 'nvr -s'
 # Fzf {{{1
 # Note: fzf --bind to execute(cd {}) doesn't work; use 'accept' instead
 balias fzf-ghq "cd (ghq list --full-path | fzf --bind 'ctrl-v:execute(nvr {})')"
-balias gz fzf-ghq
-balias zg fzf-ghq
+balias gz ghq-cd
+balias zg ghq-cd
 
 # for functions
 balias zzh 'fzf-ssh'
