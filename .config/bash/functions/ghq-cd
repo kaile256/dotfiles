@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+
+set -Cue
+
+# Ref: https://qiita.com/tomoyamachi/items/e51d2906a5bb24cf1684
+ghq-cd() {
+local src
+
+src=$(ghq list | fzf --preview-window=60% \
+  --preview "ls -la $(ghq root)/{} | tail -n+4 \
+  | awk '{printf \"%s.%s\t%s\n\", \$6,\$7,\$9}'")
+  #| awk -v 'OFS=\t' '{print \$6\".\"\$7,\$9}'")
+  if [ -n "$src" ]; then
+    cd "$(ghq root)/$src"
+  fi
+}
+
+ghq-cd
