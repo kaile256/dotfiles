@@ -36,41 +36,6 @@ cnoremap <script> <c-r><c-v> <SID>(paste-visualized)
 "  return '.'
 "endfunction
 "
-" instant :verbose "{{{1
-cnoremap <silent><expr> <a-m>  <SID>verbose_in_quickfix()
-cnoremap <silent><expr> <a-cr> <SID>verbose_in_quickfix()
-cnoremap <silent><expr> <a-j>  <SID>verbose_in_quickfix()
-function! s:verbose_in_quickfix() abort "{{{2
-  if getcmdtype() !=# ':' | return | endif
-
-  let cmd = getcmdline()
-  if cmd =~# '^\s*[cl]expr\s\+execute('
-    return "\<CR>"
-  endif
-
-  " if cmd !~# '^\s*:' && cmd =~# '^[a-z=]\+$'
-  "   let cmd = 'set '. cmd
-  " endif
-  if cmd !~# 'verb\%[ose] '
-    let cmd = 'verbose '. cmd
-  endif
-  augroup openLoclistOfVerbosed
-    au!
-    au QuickFixCmdPost lexpr lopen
-  augroup END
-  return "\<End>\<C-u>lexpr execute(". string(cmd) .")\<CR>"
-endfunction
-
-augroup myCmapsOnce
-  if exists('#myCmapsOnce') | au! myCmapsOnce
-  endif
-  " FIXME: Close when the cursor is out of buffer.
-  au QuickFixCmdPost cexpr :copen | au WinLeave,BufLeave <buffer> :cclose
-  au QuickFixCmdPost lexpr :lopen | au WinLeave,BufLeave <buffer> :lclose
-augroup END
-
-cnoremap <a-q> <c-f>
-
 " Open cmdwin {{{1
 cnoremap <a-i> <c-f>i
 cnoremap <a-a> <c-f>a
@@ -123,3 +88,38 @@ endfunction
 "cnoremap <silent> <a-t> <c-f>:call feedkeys("\<esc>t")<cr>
 "cnoremap <silent> <a-F> <c-f>:call feedkeys("\<esc>F")<cr>
 "cnoremap <silent> <a-T> <c-f>:call feedkeys("\<esc>T")<cr>
+" Shorcut: instant :verbose "{{{1
+cnoremap <silent><expr> <a-m>  <SID>verbose_in_quickfix()
+cnoremap <silent><expr> <a-cr> <SID>verbose_in_quickfix()
+cnoremap <silent><expr> <a-j>  <SID>verbose_in_quickfix()
+function! s:verbose_in_quickfix() abort "{{{2
+  if getcmdtype() !=# ':' | return | endif
+
+  let cmd = getcmdline()
+  if cmd =~# '^\s*[cl]expr\s\+execute('
+    return "\<CR>"
+  endif
+
+  " if cmd !~# '^\s*:' && cmd =~# '^[a-z=]\+$'
+  "   let cmd = 'set '. cmd
+  " endif
+  if cmd !~# 'verb\%[ose] '
+    let cmd = 'verbose '. cmd
+  endif
+  augroup openLoclistOfVerbosed
+    au!
+    au QuickFixCmdPost lexpr lopen
+  augroup END
+  return "\<End>\<C-u>lexpr execute(". string(cmd) .")\<CR>"
+endfunction
+
+augroup myCmapsOnce
+  if exists('#myCmapsOnce') | au! myCmapsOnce
+  endif
+  " FIXME: Close when the cursor is out of buffer.
+  au QuickFixCmdPost cexpr :copen | au WinLeave,BufLeave <buffer> :cclose
+  au QuickFixCmdPost lexpr :lopen | au WinLeave,BufLeave <buffer> :lclose
+augroup END
+
+cnoremap <a-q> <c-f>
+
