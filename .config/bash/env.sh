@@ -13,6 +13,8 @@ export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_CACHE_HOME="$HOME/.cache"
 export XDG_DATA_HOME="$HOME/.local/share"
 
+# Locale
+export LC_TIME=en_US.UTF-8
 # for docui, which is the client for docker on TUI
 export LC_CTYPE=en_US.UTF-8
 #export LANG=ja_JP.UTF-8
