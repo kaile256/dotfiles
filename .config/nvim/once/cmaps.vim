@@ -123,3 +123,26 @@ augroup END
 
 cnoremap <a-q> <c-f>
 
+" Shortcut: instant window-assign {{{1
+cnoremap <silent><expr> <a-t> <SID>assign_window('tab')
+cnoremap <silent><expr> <a-v> <SID>assign_window('vert bot')
+cnoremap <silent><expr> <a-s> <SID>assign_window('bot')
+cnoremap <silent><expr> <a-e> <SID>assign_window('')
+
+function! s:assign_window(mods) abort
+  let line = getcmdline()
+
+  let mods_list = [
+        \ 'tab',
+        \ 'vert\%[ical] bot\%[tright]',
+        \ 'bot\%[tright]'
+        \ ]
+
+  for mods in mods_list
+    let mods .= '\s\+'
+    let line = substitute(line, mods, '', '')
+  endfor
+
+  let ret = "\<C-u>". a:mods .' '. line ."\<CR>"
+  return ret
+endfunction
