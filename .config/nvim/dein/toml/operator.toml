@@ -105,10 +105,13 @@ argdelete *
 #hook_source = 'runtime source/exchange.vim'
 #[[plugins]]
 #repo = 'osyo-manga/vim-operator-swap'
+## Note: does't work.
 ## Require 2 keys to be mapped.
 #on_map = {nx = ['<Plug>(operator-swap']}
 #hook_add = 'runtime add/operator-swap.vim'
 [[plugins]]
 repo = 'SausageCats/vim-operator-swap'
-on_map = {nx = ['<Plug>(vim-operator-swap-']}
-hook_add = 'runtime add/operator-swap.vim'
+# Require 2 keys to be mapped.
+on_map = {nx = ['<Plug>(operator-swap-']}
+hook_add = 'runtime add/operator-swap-SausageCats.vim'
+hook_source = 'runtime source/operator-swap-SausageCats.vim'
