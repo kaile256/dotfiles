@@ -90,7 +90,7 @@ let s:foldlevel_dict = {
 "      \ 8: 'ち',
 "      \ }
 
-" show which line is peeked {{{1
+" Head & Tail {{{1
 let g:foldpeek#head = 'FoldpeekHead()'
 " let g:foldpeek#head = ''
 let g:foldpeek#tail = 'FoldpeekTail()'
@@ -99,7 +99,7 @@ let s:hunk_format = '(+%a ~%m -%r)'
 
 function! FoldpeekHead() abort "{{{2
   let hunk_sign = ''
-  if foldpeek#git#has_any_hunks()
+  if foldpeek#git#status().has_diff
     let hunk_sign = s:hunk_sign
   endif
   return hunk_sign
@@ -111,20 +111,20 @@ function! FoldpeekTail() abort "{{{2
 
   let fold_info = foldlines . foldlevel
 
-  let hunk_info = ''
-  if foldpeek#git#has_any_hunks()
-    let hunks = foldpeek#git#hunk_info()
-    let hunk_info = s:hunk_format
-    let hunk_info = substitute(hunk_info, '%a', hunks.Added,    'g')
-    let hunk_info = substitute(hunk_info, '%m', hunks.Modified, 'g')
-    let hunk_info = substitute(hunk_info, '%r', hunks.Removed,  'g')
+  let git_info = ''
+  let git_stat = foldpeek#git#status()
+  if git_stat.has_diff
+    let git_info = s:hunk_format
+    let git_info = substitute(git_info, '%a', git_stat.Added,    'g')
+    let git_info = substitute(git_info, '%m', git_stat.Modified, 'g')
+    let git_info = substitute(git_info, '%r', git_stat.Removed,  'g')
   endif
 
   if g:foldpeek_lnum > 1
     let fold_info = g:foldpeek_lnum .'/'. fold_info
   endif
 
-  return ' '. hunk_info . fold_info
+  return ' '. git_info . fold_info
 endfunction
 
 augroup myFoldPeekSource "{{{1
