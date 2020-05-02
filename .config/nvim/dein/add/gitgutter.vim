@@ -3,8 +3,8 @@
 " Another: source/gitgutter.vim
 
 " default: [c and ]c without g:gitgutter_map_keys
-nmap [c <Plug>(GitGutterNextHunk)
-nmap ]c <Plug>(GitGutterPrevHunk)
+nmap [c <Plug>(GitGutterPrevHunk)
+nmap ]c <Plug>(GitGutterNextHunk)
 
 nmap U <Plug>(GitGutterUndoHunk)
 nmap <space>gp <Plug>(GitGutterStageHunk)
