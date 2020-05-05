@@ -1,25 +1,18 @@
 " From: appearance.toml
 " Repo: vim-airline/vim-airline
 
-let g:airline_theme = 'term'
+let g:airline_theme = 'base16_vim'
 
+" let g:airline_powerline_fonts = 1
+let g:airline_detect_iminsert = 1
 let g:airline_highlighting_cache = 1
 
-  if empty(themes)
-    let theme = g:airline_theme
-  else
-    let theme = themes[0]
-  endif
-
-  exe 'AirlineTheme' theme
-endfunction
+let g:airline#parts#ffenc#skip_expected_string = 'utf-8[unix]'
 
 let g:airline#extensions#branch#empty_message = '...'
 let g:airline#extensions#branch#format = 2
 
-"let g:airline_powerline_fonts = 1
-
-let g:airline_detect_iminsert = 1
+let g:airline#extensions#hunks#non_zero_only = 1
 
 let g:airline#extensions#whitespace#enabled = 0
 
@@ -27,8 +20,11 @@ let g:airline#extensions#whitespace#enabled = 0
 "let airline#extensions#coc#stl_format_warn = '%W{[%w(#%fw)]}'
 
 let g:airline#extensions#bufferline#enabled = 0
-let g:airline#extensions#tabline#enabled = 0
 
+" let g:airline#extensions#tabline#enabled = 1
+" let g:airline#extensions#tabline#fnametruncate = 1
+" let g:airline#extensions#tabline#buffer_nr_show = 1
+"
 "let g:airline#extensions#tabline#show_buffers = 0
 "let g:airline#extensions#tabline#show_tab_count = 0
 "
