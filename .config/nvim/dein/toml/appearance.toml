@@ -132,10 +132,10 @@ write
 #on_event = 'BufRead'
 #hook_source = 'runtime rc/spaceline.vim'
 
-#[[plugins]] # has extentions
+#[[plugins]]
 #repo = 'itchyny/lightline.vim'
-#on_event = 'BufAdd'
-#hook_post_source = 'runtime add/lightline.vim'
+#on_event = 'Syntax'
+#hook_source = 'runtime source/lightline.vim'
 
 #[[plugins]]
 #repo = 'albertomontesg/lightline-asyncrun'
