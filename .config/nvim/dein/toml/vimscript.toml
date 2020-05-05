@@ -9,12 +9,11 @@ on_ft = 'vim'
 hook_source = 'runtime source/lookup.vim'
 
 #[ Help ]
-[[plugins]]
-repo = 'thinca/vim-ft-help_fold'
-# Note: conflicted with `set modeline`
-on_ft = 'help'
-hook_source = 'runtime source/ft-help_fold.vim'
-
+#[[plugins]]
+#repo = 'thinca/vim-ft-help_fold'
+## Note: conflicted with `set modeline`
+#on_ft = 'help'
+#hook_source = 'runtime source/ft-help_fold.vim'
 #[[plugins]]
 #repo = 'LeafCage/vimhelpgenerator'
 #on_cmd =  ['VimHelpGenerator']
