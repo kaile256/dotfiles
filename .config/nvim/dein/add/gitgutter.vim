@@ -8,7 +8,15 @@ nmap ]c <Plug>(GitGutterNextHunk)
 
 nmap U <Plug>(GitGutterUndoHunk)
 nmap <space>gp <Plug>(GitGutterStageHunk)
-xmap <space>gp <Plug>(GitGutterStageHunk)
+xmap <silent> <space>gp :<C-u>call <SID>stage_hunks_in_range()<CR>
+
+function! s:stage_hunks_in_range() abort
+  norm! '<
+  while line('.') < line("'>")
+    silent! GitGutterStageHunk
+    norm! j
+  endwhile
+endfunction
 
 omap <SID>(textobj-hunk-i) <Plug>(GitGutterTextObjectInnerPending)
 xmap <SID>(textobj-hunk-i) <Plug>(GitGutterTextObjectInnerVisual)
