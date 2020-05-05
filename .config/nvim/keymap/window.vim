@@ -117,7 +117,11 @@ nnoremap <silent> ZN :<c-u>wqa <cr>
 command! -bar HelpCloseAll :call s:helpclose_all() "{{{2
 function! s:helpclose_all() abort
   for bufnr in tabpagebuflist()
-    helpclose
+    if getbufvar(bufnr, '&filetype') !=# 'help' | continue | endif
+    if getbufvar(bufnr, '&modifiable') | continue | endif
+
+    let winnr = bufwinnr(bufnr)
+    exe winnr 'close'
   endfor
 endfunction
 
