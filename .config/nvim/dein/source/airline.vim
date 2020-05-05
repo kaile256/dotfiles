@@ -3,13 +3,7 @@
 
 let g:airline_theme = 'term'
 
-augroup myAirlineSou
-  if exists('#myAirlineSou') | au! myAirlineSou
-  endif
-  au ColorScheme * ++nested call s:set_airline_theme("<amatch>")
-augroup END
-function! s:set_airline_theme(coloname) abort
-  let themes = airline#util#themes(a:coloname)
+let g:airline_highlighting_cache = 1
 
   if empty(themes)
     let theme = g:airline_theme
@@ -54,3 +48,20 @@ let g:airline#extensions#tabline#enabled = 0
 "    \ 's'  : 'S',
 "    \ 'S'  : 'S',
 "    \ }
+
+augroup myAirlineSo "{{{1
+  if exists('#myAirlineSo') | au! myAirlineSo
+  endif
+  au ColorScheme * ++nested call s:set_airline_theme("<amatch>")
+augroup END
+function! s:set_airline_theme(coloname) abort
+  let themes = airline#util#themes(a:coloname)
+
+  if empty(themes)
+    let theme = g:airline_theme
+  else
+    let theme = themes[0]
+  endif
+
+  exe 'AirlineTheme' theme
+endfunction
