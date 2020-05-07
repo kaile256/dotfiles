@@ -1,11 +1,9 @@
 " From: init.vim
 
-" type ~? to ~/
-" FIXME: ignore '=~?'
-noremap! <expr> ?
-      \ getline('.')[col('.') - 2] ==# '~' ? '/' : '?'
-" noremap! <expr> ?
-"      \ getline('.') =~# '\(^\|[^=]\)\~\%#' ? '/' : '?'
+" type ~/ except =~? and !~?
+inoremap <expr> ?
+      \ search('[=!]\@<!\~\%#', 'nbcW')
+      \ ? '/' : '?'
 
 let s:auto_corrects = [
       \ ['VInt', 'Vint'],
