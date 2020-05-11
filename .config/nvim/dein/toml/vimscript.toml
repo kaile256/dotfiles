@@ -79,7 +79,7 @@ hook_post_source = 'runtime add/themis.vim'
 repo = 'junegunn/vader.vim'
 # a test-framework for vimscript.
 on_cmd = 'Vader'
-on_path = '*.vader'
+on_path = '\.vader'
 
 #[ Local ]
 #[[plugins]]
