@@ -1,7 +1,7 @@
 " From: init.vim
 
-xnoremap ia <ESC>vi
-xnoremap ai <ESC>vi
+onoremap <silent> gv :<c-u>norm! gv<cr>
+
 onoremap <expr> ia "\<ESC>". v:operator .'a'
 onoremap <expr> ai "\<ESC>". v:operator .'a'
 
