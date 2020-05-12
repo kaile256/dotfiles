@@ -80,6 +80,7 @@ repo = 'junegunn/vader.vim'
 # a test-framework for vimscript.
 on_cmd = 'Vader'
 on_path = '\.vader'
+hook_source = 'runtime source/vader.vim'
 
 #[ Local ]
 #[[plugins]]
