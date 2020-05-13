@@ -3,8 +3,8 @@
 " Ref: post/coloschemes.vim
 " Ref: source/coloschemes.vim
 
-augroup myNeodarkSo
-  if exists('#myNeodarkSo') | au! myNeodarkSo
+augroup myNeodark
+  if exists('#myNeodark') | au! myNeodark
   endif
   au Colorscheme neodark ++nested call s:my_neodark()
 augroup END
