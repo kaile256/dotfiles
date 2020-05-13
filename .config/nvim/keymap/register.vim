@@ -1,8 +1,5 @@
 " From: init.vim
 
-" Note: Put as in Insert Mode
-tnoremap <expr> <c-r> '<c-\><c-n>"'.nr2char(getchar()).'pi'
-
 "augroup myPasteToggle
 "  " CAUTION: when set paste, @+ is ignored.
 "  au!
@@ -18,9 +15,6 @@ nnoremap P ]P
 " Command-Line Register {{{1
 cnoremap <c-r><c-;> <c-r>:
 cnoremap <c-r>;     <c-r>:
-" Plus Register; Terminal {{{1
-tnoremap <c-r><c-space> <c-\><c-n>"+pi
-tnoremap <c-r><space>   <c-\><c-n>"+pi
 " Plus Register; Yank {{{1
 "function! s:yank_cursor_keeping(reg) abort
 "  let save_view = winsaveview()
@@ -47,7 +41,6 @@ xnoremap <space>P "+]P
 
 " Yank Register {{{1
 nnoremap Y y$
-tnoremap <c-r><c-0> <c-\><c-n>"0pi
 cnoremap <c-r><c-0> <c-r>0
 " nnoremap <s-space>p "0]p
 xnoremap <s-space>p "0]p

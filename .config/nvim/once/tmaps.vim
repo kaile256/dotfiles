@@ -16,6 +16,22 @@ tnoremap <script> <c-space><c-space> <SID>(highlight-off)
 " before typo
 tnoremap <c-cr> <cr>
 
+" Register {{{1
+" Note: Put as in Insert Mode
+tnoremap <expr> <c-r> '<c-\><c-n>"'.nr2char(getchar()).'pi'
+
+" Yank Register
+tnoremap <c-r><c-0> <c-\><c-n>"0pi
+
+" Plus Register via <Space>
+tnoremap <c-r><c-space> <c-\><c-n>"+pi
+tnoremap <c-r><space>   <c-\><c-n>"+pi
+
+" Expr Register
+" Disturb to insert 'pi' in cmdline.
+" TODO: Insert the result into prompt.
+tnoremap <c-r>= <c-\><c-n>"=
+
 " Alt-Esc {{{1
 tnoremap <a-:> <c-\><c-n>:
 tnoremap <silent> <a-space> <c-\><c-n>:call feedkeys("\<space>")<cr>
