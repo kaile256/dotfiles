@@ -73,6 +73,9 @@ build = './install.sh'
 hook_done_update = 'call remote#host#UpdateRemotePlugins()'
 on_cmd = ['GdbStart']
 hook_source = 'runtime source/gdb.vim'
+[[plugins]]
+repo = '$VIMRUNTIME/pack/dist/opt/termdebug'
+on_cmd = ['Termdebug', 'TermdebugCommand']
 
 #[ on LLDB ]
 #[[plugins]]
