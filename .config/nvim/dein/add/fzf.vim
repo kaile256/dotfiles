@@ -78,10 +78,7 @@ command! -bar -bang -nargs=* Cm   :Commands
 
 command! -bar -nargs=* Co :Colors <args>
 
-command! -bar -nargs=* H    :Helptags <args>
-command! -bar -nargs=* He   :Helptags <args>
-command! -bar -nargs=* Hel  :Helptags <args>
-command! -bar -nargs=* Help :Helptags <args>
+command! -bar -nargs=* -complete=help H :Helptags <args>
 
 " Command: wiki {{{1
 " Note: the commands below are all wrapper,

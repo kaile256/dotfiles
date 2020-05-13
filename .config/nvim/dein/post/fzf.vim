@@ -1,4 +1,4 @@
-" From: finder.toml
+" From: browse.toml
 " Repo: junegunn/fzf.vim
 " Another: add/fzf.vim
 " Another: source/fzf.vim
@@ -11,8 +11,9 @@ command! -bar -bang -nargs=* Marks
       \     'right:50%'),
       \ )
 
-command! -bar -bang -nargs=* Helptags
+command! -bar -bang -nargs=* -complete=help Helptags
       \ :call fzf#vim#helptags(
-      \   fzf#vim#with_preview({'options': '--multi --reverse'},
-      \     'right:50%'),
+      \   fzf#vim#with_preview({'options': '--multi --reverse'
+      \     .' '. (empty(<q-args>) ? '' : '--query=<q-args>'
+      \   )}, 'right:50%'),
       \ )

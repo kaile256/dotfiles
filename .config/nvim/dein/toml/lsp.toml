@@ -28,10 +28,11 @@ write
 "unlet s:CocUpper2Clower
 "write
 '''
-[[plugins]]
-repo = 'antoinemadec/coc-fzf'
-on_cmd = ['CocFzfList']
-hook_add = 'runtime add/coc-fzf.vim'
+#[[plugins]]
+#repo = 'antoinemadec/coc-fzf'
+## Useless to select another options.
+#on_cmd = ['CocFzfList']
+#hook_add = 'runtime add/coc-fzf.vim'
 
 [[plugins]]
 repo = 'voldikss/actionmenu.nvim'
