@@ -9,30 +9,8 @@ if exists('g:loaded_fzf')
 endif
 
 " Note: :FZF! starts fzf on full-window.
-function! fzf#floating_window() abort "{{{
-  " Ref: https://github.com/junegunn/fzf.vim/issues/664
-
-  let buf = nvim_create_buf(v:false, v:true)
-  call setbufvar(buf, '&signcolumn', 'no')
-
-  let width = float2nr(&columns * 95 / 100)
-  let height = &lines - 2
-  let y = &lines - 10
-  let x = float2nr((&columns - width) / 2)
-
-  let opts = {
-        \ 'relative': 'editor',
-        \ 'row': y,
-        \ 'col': x,
-        \ 'width': width,
-        \ 'height': height
-        \ }
-
-  call nvim_open_win(buf, v:true, opts)
-endfunction "}}}
-
 if has('nvim')
-  let g:fzf_layout = {'window': 'call fzf#floating_window()'}
+  let g:fzf_layout = {'window': 'call my#floating_window()'}
 else
   let g:fzf_layout = {'window': {'width': 0.94, 'height': 0.95, 'border': 'right'}}
 endif
