@@ -22,4 +22,12 @@ function! s:my_dracula() abort
   hi! SpecialKey ctermfg=231 ctermbg=235 guifg=#69743f
 
   hi! Error cterm=bold gui=bold ctermfg=9 ctermbg=NONE guifg=Red guibg=NONE
+
+  hi! DiffChange cterm=bold gui=bold ctermfg=179 guifg=#d7af5f ctermbg=NONE guibg=NONE
+  hi! DiffRemove cterm=bold gui=bold ctermfg=167 guifg=#fb4934 ctermbg=NONE guibg=NONE
+  hi! DiffAdd    cterm=bold gui=bold ctermfg=74  guifg=#3dff17 ctermbg=NONE guibg=NONE
+  hi! DiffText   cterm=bold gui=bold ctermfg=208 guifg=#fe8019 ctermbg=NONE guibg=NONE
+
+  set winblend=40
+  hi! NormalFloat cterm=bold gui=bold ctermfg=190 guifg=#cfbd2f ctermbg=22 guibg=#0b4100
 endfunction
