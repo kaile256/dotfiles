@@ -8,10 +8,9 @@ let g:agit_enable_auto_refresh = 1
 
 "let g:agit_stat_location = 'topleft' " hopefully
 
-if exists('#myAgitAdd')
-  au! myAgitAdd
-endif
-augroup myAgitAdd
+augroup myAgitSo
+  if exists('#myAgitSo') | au! myAgitSo
+  endif
   "au FileType agit call s:agit_commands()
   au FileType agit* call s:agit_common_keymaps()
   au FileType agit  call s:agit_keymaps()
