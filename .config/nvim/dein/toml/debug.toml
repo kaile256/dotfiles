@@ -41,6 +41,7 @@ on_func =  ['vimspector#']
 #   so that create a .vimspector.json to use vimspector at all.
 # TODO: install all the adapters on DAP respectively with dein
 hook_add = 'runtime add/vimspector.vim'
+hook_source = 'runtime source/vimspector.vim'
 hook_post_source = 'runtime post/vimspector.vim'
 
 #[[plugins]]
