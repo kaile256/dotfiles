@@ -25,6 +25,10 @@ on_cmd = ['Quickfix']
 #
 #[[plugins]]
 #repo = 'yuki-ycino/fzf-preview.vim'
+## too many settings to imitate the config of fzf.vim
+#on_cmd = 'FzfPreview.*'
+#hook_add = 'runtime add/fzf-preview.vim'
+#hook_source = 'runtime source/fzf-preview.vim'
 
 [[plugins]]
 repo = 'krzbe/fzf-git-submodules'
@@ -59,7 +63,7 @@ hook_add = 'runtime add/fzf-gitswitch..vim'
 repo = 'Shougo/defx.nvim'
 # /usr/share/nvim/runtime/plugin/rplugin.vim line 63
 hook_done_update = 'call remote#host#UpdateRemotePlugins()'
-#rev = '1.0'
+rev = 'fdf0c22'
 on_cmd = 'Defx'
 hook_add = 'runtime add/defx.vim'
 hook_post_source = 'runtime post/defx.vim'
