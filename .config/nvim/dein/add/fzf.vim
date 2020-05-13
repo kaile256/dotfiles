@@ -80,15 +80,15 @@ command! -bar -nargs=* Co :Colors <args>
 
 command! -bar -nargs=* -complete=help H :Helptags <args>
 
-" Command: wiki {{{1
-" Note: the commands below are all wrapper,
-"       so that they must be loaded on hook_add.
-command! AgWiki  :cd ~/vimwiki                   <bar> Ag
-command! RgWiki  :cd ~/vimwiki                   <bar> Rg
-command! AgDiary :cd ~/vimwiki/diary             <bar> Ag
-command! RgDiary :cd ~/vimwiki/diary             <bar> Rg
-command! AgHelp  :cd /usr/share/nvim/runtime/doc <bar> Ag
-command! RgHelp  :cd /usr/share/nvim/runtime/doc <bar> Rg
+" " Command: wiki {{{1
+" " Note: the commands below are all wrapper,
+" "       so that they must be loaded on hook_add.
+" command! AgWiki  :cd ~/vimwiki                   <bar> Ag
+" command! RgWiki  :cd ~/vimwiki                   <bar> Rg
+" command! AgDiary :cd ~/vimwiki/diary             <bar> Ag
+" command! RgDiary :cd ~/vimwiki/diary             <bar> Rg
+" command! AgHelp  :cd /usr/share/nvim/runtime/doc <bar> Ag
+" command! RgHelp  :cd /usr/share/nvim/runtime/doc <bar> Rg
 
 " Keymaps {{{1
 "imap <c-x><c-f> <c-o>:cd ~<cr><plug>(fzf-complete-file-ag)
