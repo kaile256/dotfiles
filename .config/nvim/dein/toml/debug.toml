@@ -64,7 +64,7 @@ hook_source = 'runtime source/vdebug.vim'
 #[ Debug Adopter ]
 [[plugins]]
 repo = 'puremourning/vim-debug-adapter'
-if = '&ft ==# "vim"'
+on_if = '&ft ==# "vim"'
 on_cmd = ['vimspector#']
 
 #[ on GDB ]
