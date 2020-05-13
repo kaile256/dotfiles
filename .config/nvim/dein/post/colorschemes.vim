@@ -17,12 +17,16 @@ function! s:set_colorscheme() abort
     if executable('xinput')
       if expand($TERM) =~# 'rxvt'
         colorscheme gruvbox
+      elseif system('xrandr --query | grep " connected"') =~# 'HDMI'
+        colorscheme dracula
       else
         colorscheme neodark
       endif
+
     else
       colorscheme sonokai
     endif
+
   catch /E185/
     colorscheme slate
   endtry
