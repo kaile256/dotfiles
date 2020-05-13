@@ -10,7 +10,7 @@ augroup myDracula
 augroup END
 
 function! s:my_dracula() abort
-  hi! Todo ctermfg=199 ctermbg=15 guifg=#c75895 guibg=#ffffff
+  hi! Todo ctermfg=199 ctermbg=15 guifg=#fa57b0 guibg=#ffffff
 
   hi! Comment ctermfg=61 guifg=#ababab
   hi! Folded ctermfg=61 ctermbg=235 guifg=#7988b8 guibg=#282a36
@@ -18,4 +18,8 @@ function! s:my_dracula() abort
   hi! Visual ctermbg=241 guibg=#684380
 
   hi! Search cterm=bold gui=bold ctermfg=236 ctermbg=180 guifg=#353917 guibg=#b5b5e8
+
+  hi! SpecialKey ctermfg=231 ctermbg=235 guifg=#69743f
+
+  hi! Error cterm=bold gui=bold ctermfg=9 ctermbg=NONE guifg=Red guibg=NONE
 endfunction
