@@ -12,6 +12,8 @@ augroup END
 function! s:my_dracula() abort
   hi! Todo ctermfg=199 ctermbg=15 guifg=#fa57b0 guibg=#ffffff
 
+  hi! link SignColumn Number
+
   hi! Comment ctermfg=61 guifg=#ababab
   hi! Folded ctermfg=61 ctermbg=235 guifg=#7988b8 guibg=#282a36
 
