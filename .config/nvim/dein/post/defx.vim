@@ -147,7 +147,7 @@ function! s:defx_keymaps() abort "{{{1
   "      \ defx#do_action('toggle_columns',
   "      \                'mark:indent:icon:filename:type:size:time')
   " Open File {{{2
-  " Edit {{{4
+  " Edit {{{3
   " Mnemonic: Push the buffer
   nnoremap <silent><nowait><buffer><expr> P
         \ defx#do_action('drop')
@@ -172,7 +172,7 @@ function! s:defx_keymaps() abort "{{{1
   xnoremap <silent><nowait><buffer><expr> <CR>
         \ defx#async_action('multi',
         \ ['clear_select_all', 'toggle_select_visual', 'drop', 'quit'])
-  " Split {{{4
+  " Split {{{3
   nnoremap <silent><nowait><buffer><expr> o
         \ defx#is_directory()?
         \ '<c-w>s':
@@ -239,7 +239,7 @@ function! s:defx_keymaps() abort "{{{1
         \ .'<c-w>h'
   " Mnemonic: Zip Preview
   nnoremap <silent><nowait><buffer> zp <c-w>z
-  " Tree {{{3
+  " in Tree {{{3
   nnoremap <silent><nowait><buffer><expr> za
         \ defx#do_action('open_or_close_tree')
   nnoremap <silent><nowait><buffer><expr> zo
@@ -264,7 +264,7 @@ function! s:defx_keymaps() abort "{{{1
   "      \ 'open_tree_recursive',
   "      \ ])
 
-  " Register {{{3
+  " Register {{{2
   " copy: yank in defx's register
   " Note: CANNOT register multiple files into defx-register.
   nnoremap <nowait><buffer><expr> yy
