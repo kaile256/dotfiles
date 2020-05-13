@@ -1,7 +1,8 @@
 " TOML: appearance.toml
 " Repo: flazz/vim-colorschemes
-" Ref: post/coloschemes.vim
-" Ref: source/coloschemes.vim
+" Ref: post/colorschemes.vim
+" Ref: source/colorschemes.vim
+" Another: source/neodark.vim
 
 augroup myNeodark
   if exists('#myNeodark') | au! myNeodark
