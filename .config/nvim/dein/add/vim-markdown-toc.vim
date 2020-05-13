@@ -3,7 +3,8 @@
 " Another: source/markdown-toc.vim
 
 augroup myMarkdownTocAdd
-  au!
+  if exists('#myMarkdownTocAdd') | au! myMarkdownTocAdd
+  endif
   au FileType markdown command -bar -buffer TocGenGFM       :GenTocGFM
   au FileType markdown command -bar -buffer TocGenGitlab    :GenTocGitlab
   au FileType markdown command -bar -buffer TocGenMarked    :GenTocMarked
