@@ -1,4 +1,4 @@
-# From: rc/dein.vim
+# From: dein/dein.vim
 
 [[plugins]]
 repo = 'puremourning/vimspector'
@@ -76,6 +76,9 @@ hook_source = 'runtime source/gdb.vim'
 [[plugins]]
 repo = '$VIMRUNTIME/pack/dist/opt/termdebug'
 on_cmd = ['Termdebug', 'TermdebugCommand']
+[[plugins]]
+repo = 'cpiger/NeoDebug'
+on_cmd = ['NeoDebug']
 
 #[ on LLDB ]
 #[[plugins]]
@@ -114,7 +117,6 @@ on_cmd = [
   'TestLast',
   'TestVisit',
 ]
-# run test in vim
 hook_source = 'runtime source/test.vim'
 [[plugins]]
 repo = 'tpope/vim-dispatch'
