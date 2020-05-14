@@ -10,28 +10,32 @@ augroup myDracula
 augroup END
 
 function! s:my_dracula() abort
-  hi! Todo ctermfg=199 ctermbg=15 guifg=#fa57b0 guibg=#ffffff
+  hi! TODO ctermfg=199 guifg=White ctermbg=15 guibg=#fa57b0 cterm=undercurl,bold gui=undercurl,bold guisp=Red
+
+  hi! Statement ctermfg=212 guifg=#fe82e3
+  hi! Identifier ctermfg=117 guifg=#b2fd8b
+  hi! Type ctermfg=117 guifg=#8be9fd
 
   hi! link SignColumn Number
 
   hi! Comment ctermfg=61 guifg=#ababab
-  hi! Folded ctermfg=61 ctermbg=235 guifg=#7988b8 guibg=#282a36
+  hi! Folded ctermfg=61 guifg=#7988b8 ctermbg=235 guibg=#282a36
 
   hi! Visual ctermbg=241 guibg=#684380
 
-  hi! Search cterm=bold gui=bold ctermfg=236 ctermbg=180 guifg=#353917 guibg=#b5b5e8
+  hi! Search ctermfg=236 guifg=#353917 ctermbg=180 guibg=#b5b5e8 cterm=bold gui=bold
 
-  hi! SpecialKey ctermfg=231 ctermbg=235 guifg=#69743f
+  hi! SpecialKey ctermfg=231 guifg=#69743f ctermbg=235
 
-  hi! Error cterm=bold gui=bold ctermfg=9 ctermbg=NONE guifg=Red guibg=NONE
+  hi! Error ctermfg=9 guifg=Red ctermbg=NONE guibg=NONE cterm=bold gui=bold
 
-  hi! DiffChange cterm=bold gui=bold ctermfg=179 guifg=#d7af5f ctermbg=NONE guibg=NONE
-  hi! DiffRemove cterm=bold gui=bold ctermfg=167 guifg=#fb4934 ctermbg=NONE guibg=NONE
-  hi! DiffAdd    cterm=bold gui=bold ctermfg=74  guifg=#3dff17 ctermbg=NONE guibg=NONE
-  hi! DiffText   cterm=bold gui=bold ctermfg=208 guifg=#fe8019 ctermbg=NONE guibg=NONE
+  hi! DiffChange ctermfg=179 guifg=#d7af5f ctermbg=NONE guibg=NONE cterm=bold gui=bold
+  hi! DiffRemove ctermfg=167 guifg=#fb4934 ctermbg=NONE guibg=NONE cterm=bold gui=bold
+  hi! DiffAdd    ctermfg=74  guifg=#3dff17 ctermbg=NONE guibg=NONE cterm=bold gui=bold
+  hi! DiffText   ctermfg=208 guifg=#fe8019 ctermbg=NONE guibg=NONE cterm=bold gui=bold
 
   if exists('&winblend')
     set winblend=40
   endif
-  hi! NormalFloat cterm=bold gui=bold ctermfg=190 guifg=#cfbd2f ctermbg=22 guibg=#0b4100
+  hi! NormalFloat ctermfg=190 guifg=#cfbd2f ctermbg=22 guibg=#0b4100 cterm=bold gui=bold
 endfunction
