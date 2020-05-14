@@ -7,18 +7,24 @@ else
 endif
 let b:undo_ftplugin .= 'setl fdm< fde<'
 
-function! HelpFoldExpr() abort
+function! HelpFoldExpr() abort "{{{1
   let line = getline(v:lnum)
   let prev = getline(v:lnum - 1)
   let next = getline(v:lnum + 1)
 
-  if line =~# '^=\+$' && prev !~# '\u[A-Z ]\+\s\+\*.*\*\s*$'
+  if line =~# '\u[A-Z ]\+\s\+\*.*\*\s*$'
+        \ && prev !~# '^[-=]\+$'
+        \ && next !~# '^[-=]\+$'
+    return '>1'
+
+  elseif line =~# '^=\+$' && prev !~# '\u[ A-Z]\+\s\+\*.*\*\s*$'
     " index under line
     return '>1'
-  elseif line =~# '^-\+$' && prev !~# '\u[A-Z ]\+\s\+\*.*\*\s*$'
+  elseif line =~# '^-\+$' && prev !~# '\u[ A-Z]\+\s\+\*.*\*\s*$'
     return '>2'
+  endif
 
-  elseif line =~# '\u[A-Z ]\+\s\+\*.*\*\s*$' && next =~# '^=\+$'
+  if line =~# '\u[A-Z ]\+\s\+\*.*\*\s*$' && next =~# '^=\+$'
     " index over line
     return '>1'
   elseif line =~# '\u[A-Z ]\+\s\+\*.*\*\s*$' && next =~# '^-\+$'
@@ -27,6 +33,9 @@ function! HelpFoldExpr() abort
   elseif line =~# '\s\+\*\S\+\*\s*$'
         \ && line !~# '^\s*\u\+'
         \ &&  prev !~# '\s\+\*\S\+\*\s*$'
+    if prev =~# '^[-=]\+$'
+      return '='
+    endif
     return '>3'
   endif
 
