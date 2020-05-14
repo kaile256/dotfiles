@@ -20,14 +20,6 @@ function! s:map_toggle() abort
     return
   endif
 
-  try
-    nunmap <buffer> u
-  catch
-    nunmap u
-  endtry
-  try
-    nunmap <buffer> d
-  catch
-    nunmap d
-  endtry
+  silent! nunmap <buffer> u
+  silent! nunmap <buffer> d
 endfunction
