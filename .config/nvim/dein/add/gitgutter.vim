@@ -2,6 +2,8 @@
 " Repo: airblade/vim-gitgutter
 " Another: source/gitgutter.vim
 
+command! -bar PreviewHunk :GitGutterPreviewHunk
+
 " default: [c and ]c without g:gitgutter_map_keys
 nmap [c <Plug>(GitGutterPrevHunk)
 nmap ]c <Plug>(GitGutterNextHunk)
