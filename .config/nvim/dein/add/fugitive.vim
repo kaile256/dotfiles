@@ -16,15 +16,7 @@ command! -bar -nargs=1
 "      \ | wincmd p
 "      \ | wincmd p
 
-" TODO: :Gpush in asynchronous
-"command! Gush
-"      \ :let s:push = jobstart('nvim --embed -c "Gpush"')
-
-command! -bar -nargs=*
-      \ -complete=customlist,fugitive#CompleteObject
-      \ Gstash
-      \ :Git stash <args>
-
+" Note: :Gpush works asynchronous with 'tpope/vim-dispatch'
 command! -bang -nargs=? -range=-1 -addr=tabs
       \ -complete=customlist,fugitive#PushComplete
       \ Gush
