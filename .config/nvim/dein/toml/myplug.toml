@@ -142,8 +142,10 @@ on_func = ['snip#vim#']
 repo = '$DEIN_PRIVATE_HOME/vim-clever-newline'
 on_event = ['BufAdd']
 
-#[[plugins]]
-#repo = '$DEIN_PRIVATE_HOME/vim-font-resize'
+[[plugins]]
+repo = '$DEIN_PRIVATE_HOME/vim-GuiFont-resize'
+on_map = {n = ['<plug>(GuiFont-resize']}
+hook_add = 'runtime add/GuiFont-resize.vim'
 
 #[ SQL ]
 [[plugins]]
