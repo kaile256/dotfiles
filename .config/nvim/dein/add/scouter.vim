@@ -10,3 +10,9 @@ command! -bar -bang -nargs=* -complete=file
 "   ScouterFromNvimRoot **/*.vim: 4287
 "   ScouterFromNvimRoot **/*.toml: 2313
 "   else: *.json, *.snip, etc.
+
+" 14 May 2020:
+"   ScouterFromNvimRoot *: 5572
+"   ScouterFromNvimRoot **: 9566
+"   ScouterFromNvimRoot **/*.vim: 5475
+"   ScouterFromNvimRoot **/*.vim: 2942
