@@ -517,19 +517,23 @@ bindsym Ctrl+bracketleft mode default
 }
 
 # Mode; Backlight {{{2
-set $Backlight " Backlight: H:100, M:50, L:5 "
+set $Backlight " Backlight: H:100 K:75 M:50 J:25 L:5 "
 $release $Super+Ctrl+B mode $Backlight; $shortmsg 'Backlight mode'
 
 mode $Backlight {
 bindsym Shift+H $alert 'Brightness: 100'; $noid xbacklight -set 100
 bindsym H       $alert 'Brightness: 100'; $noid xbacklight -set 100
+bindsym Shift+K $alert 'Brightness: 75';  $noid xbacklight -set 75
+bindsym K       $alert 'Brightness: 75';  $noid xbacklight -set 75
 bindsym Shift+M $alert 'Brightness: 50';  $noid xbacklight -set 50
 bindsym M       $alert 'Brightness: 50';  $noid xbacklight -set 50
+bindsym Shift+J $alert 'Brightness: 25';  $noid xbacklight -set 25
+bindsym J       $alert 'Brightness: 25';  $noid xbacklight -set 25
 bindsym Shift+L $alert 'Brightness: 5'; $noid sleep 1; $noid xbacklight -set 5
 bindsym L       $alert 'Brightness: 5'; $noid sleep 1; $noid xbacklight -set 5
 
-bindsym K $notify 'Brightness: +1';  $noid xbacklight -inc 1
-bindsym J $notify 'Brightness: -1';  $noid xbacklight -dec 1
+bindsym P $notify 'Brightness: +1';  $noid xbacklight -inc 1
+bindsym N $notify 'Brightness: -1';  $noid xbacklight -dec 1
 bindsym U $notify 'Brightness: +5';  $noid xbacklight -inc 5
 bindsym D $notify 'Brightness: -5';  $noid xbacklight -dec 5
 bindsym B $notify 'Brightness: +10'; $noid xbacklight -inc 10
