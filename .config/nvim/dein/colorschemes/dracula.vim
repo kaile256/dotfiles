@@ -10,7 +10,10 @@ augroup myDracula
 augroup END
 
 function! s:my_dracula() abort
-  hi! TODO ctermfg=199 guifg=White ctermbg=15 guibg=#fa57b0 cterm=undercurl,bold gui=undercurl,bold guisp=Red
+  " hi! TODO ctermfg=199 guifg=White ctermbg=15 guibg=#fa57b0 cterm=undercurl,bold gui=undercurl,bold guisp=Red
+  hi! TODO ctermfg=White guifg=White ctermbg=15 guibg=#42325f cterm=bold,underline gui=bold,underline guisp=Red
+
+  hi! NonText ctermfg=231 guifg=#8d94b7
 
   hi! Statement ctermfg=212 guifg=#fe82e3
   hi! Identifier ctermfg=117 guifg=#b2fd8b
