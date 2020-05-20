@@ -29,8 +29,6 @@ command! -bang -nargs=? -range=-1 -addr=tabs
 
 command! -nargs=+ -bar -complete=file Gremote :Git remote <args>
 
-command! -nargs=+ -bar Gclone :Git clone <args>
-
 command! -bang -nargs=? -range=-1 -addr=tabs
       \ -complete=customlist,fugitive#GrepComplete
       \ Gfunctions
