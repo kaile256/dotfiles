@@ -12,8 +12,8 @@ augroup myAugroups
 
   " XinputToggle "{{{1
   " TODO: disable only the touchpad except mouse buttons
-  exe 'au InsertEnter,'. $TermOpen "* call system('xinput disable Elan\\ TrackPoint')"
-  exe 'au InsertEnter,'. $TermOpen "* call system('xinput disable Elan\\ Touchpad')"
+  exe 'au InsertEnter,'. TermOpen "* call system('xinput disable Elan\\ TrackPoint')"
+  exe 'au InsertEnter,'. TermOpen "* call system('xinput disable Elan\\ Touchpad')"
   au FocusLost,VimLeave * call system('xinput enable  Elan\ TrackPoint')
 
   " FileTypeAdjustment "{{{1

@@ -41,16 +41,13 @@ let g:terminal_color_14 = '#00f5e9'
 let g:terminal_color_15 = '#eeeeec'
 
 augroup myTerminalLazy
-  if exists('#myTerminalLazy')
-    au! myTerminalLazy
+  if exists('#myTerminalLazy') | au! myTerminalLazy
   endif
   " Open Terminal as Startpage
   "if @% == '' && &ft ==# '' && &bt ==# ''
   "  au VimEnter * nested call termopen(&shell)
   "endif
-  exe 'au' $TermOpen '* setl nonumber signcolumn= bufhidden=wipe'
-  exe 'au' $TermOpen '* norm! 0'
-  exe 'au' $TermOpen '* startinsert'
+  exe 'au' TermOpen '* call <SID>set_opts_for_term()'
 augroup END
 
 "" Function; ls-grep

@@ -5,5 +5,5 @@ if exists('#InfoAdd')
   au! myInfoAdd
 endif
 augroup myInfoAdd
-  exe 'au' $TermOpen '* setl keywordprg=:Info'
+  exe 'au' TermOpen '* setl keywordprg=:Info'
 augroup END

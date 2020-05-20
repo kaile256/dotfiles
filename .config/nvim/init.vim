@@ -39,8 +39,8 @@ augroup myRuntimesSelection
   au Syntax      * runtime lazy/zenkaku.vim
   " Note: VimEnter,BufNew for not to startinsert on VimEnter
   "au VimEnter,BufNew * if &bt ==# 'terminal' | runtime lazy/terminal.vim | endif
-  exe 'au' $TermOpen '* runtime lazy/terminal.vim'
-  exe 'au' $TermOpen '* ++once runtime once/tmaps.vim'
+  exe 'au' TermOpen '* runtime lazy/terminal.vim'
+  exe 'au' TermOpen '* ++once runtime once/tmaps.vim'
 
   au OptionSet diff     if &diff | runtime lazy/diff.vim     | endif
   au OptionSet readonly if &ro   | runtime lazy/readonly.vim | endif
