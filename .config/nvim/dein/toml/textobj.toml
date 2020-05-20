@@ -58,9 +58,9 @@ on_event = ['BufRead']
 #onoremap <silent> iQ :call TextObjWordBasedColumn("iW")<cr>
 #'''
 
-[[plugins]]
-repo = 'sgur/vim-textobj-parameter'
-on_event = ['BufRead', 'TextChanged']
+#[[plugins]]
+#repo = 'sgur/vim-textobj-parameter'
+#on_event = ['BufRead', 'TextChanged']
 
 #[[plugins]]
 #repo = 'kana/vim-textobj-indent'
