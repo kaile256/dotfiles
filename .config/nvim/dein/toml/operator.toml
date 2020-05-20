@@ -36,7 +36,7 @@ hook_source = 'runtime source/caw.vim'
 #[ Arrangement ]
 [[plugins]]
 repo = 'machakann/vim-swap'
-on_map = '<Plug>(swap-'
+on_map = {nox = '<Plug>(swap-'}
 hook_add = 'runtime add/swap.vim'
 
 [[plugins]]
