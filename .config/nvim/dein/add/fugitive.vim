@@ -41,9 +41,8 @@ command! -nargs=? -bar -complete=customlist,fugitive#CommitComplete
       \ :silent exe 'Git reset HEAD' (empty(<q-args>) ? '' : <q-args>)
 
 command! -nargs=? -bar -complete=customlist,fugitive#EditComplete
-      \ GaddSingle
-      \ :Gunstage
-      \ | Gw
+      \ GaddOnly
+      \ :Gunstage | Gw
 
 command! -bar -bang -nargs=* -complete=customlist,fugitive#EditComplete
       \ Gvdiffsplit
@@ -179,7 +178,7 @@ function! s:Gvdiffw(...) abort "{{{2
   let obj = a:0 > 0 ? a:1 : ''
 
   exe 'Gvdiffsplit!' obj
-  GaddSingle
+  GaddOnly
 
   "" Note: 'wrap' causes gaps when text lengths are different each other
   "setl wrap
