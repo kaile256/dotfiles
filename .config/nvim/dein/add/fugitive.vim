@@ -38,9 +38,7 @@ command! -bang -nargs=? -range=-1 -addr=tabs
 " TODO: make it work to unstage all the other not to commit one unitentionally
 command! -nargs=? -bar -complete=customlist,fugitive#CommitComplete
       \ Gunstage
-      \ :silent exe (<q-args> !=# '')
-      \ ? 'Git reset shellescape(expand(<q-args>))'
-      \ : 'Git reset HEAD'
+      \ :silent exe 'Git reset HEAD' (empty(<q-args>) ? '' : <q-args>)
 
 command! -nargs=? -bar -complete=customlist,fugitive#EditComplete
       \ GaddSingle
@@ -260,6 +258,5 @@ command! -bar -bang -nargs=* -complete=customlist,fugitive#EditComplete
       \ | Gvdiffsplit! <args>
 
 " Unstage {{{1
-" TODO: make :Gunstage % work
 nnoremap <silent> <space>gu :<c-u>Gunstage %<cr>
 nnoremap <silent> <space>gU :<c-u>Gunstage<cr>
