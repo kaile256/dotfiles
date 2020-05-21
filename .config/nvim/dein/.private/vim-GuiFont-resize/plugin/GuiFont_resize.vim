@@ -33,7 +33,7 @@ if exists('g:loaded_GuiFont_resize') | finish | endif
 let g:loaded_GuiFont_resize = 1
 
 let g:GuiFont_resize#default_size = get(g:, 'GuiFont_resize#default_size',
-      \ matchstr(g:GuiFont, ':h\zs\d\+')
+      \ matchstr(g:GuiFont, ':h\zs\d\+'))
 
 command! -bar -bang -nargs=?
       \ GuiFontResize
