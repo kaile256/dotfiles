@@ -210,7 +210,7 @@ augroup myDefxAddInsteadOfNetrw "{{{1
   " let g:loaded_netrwFileHandlers = 1
 
   " Ref: *netrw-activate*
-  au VimEnter * if expand('%') == '' | e. | endif
+  au VimEnter * if expand('%') ==# '' | e. | endif
   " TODO: inherit jumplist after gf
   au VimEnter * silent! au! FileExplorer *
   au BufEnter * call s:defx_or_netrw(expand('<amatch>'))
