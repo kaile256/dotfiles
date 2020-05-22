@@ -190,7 +190,7 @@ nnoremap <script> <a-x><a-d> <SID>(defx-dev)
 
 " Open Memo Directory {{{1
 nnoremap <silent> <SID>(defx-memo)
-      \ :<c-u>Defx `expand($MYMEMO)`
+      \ :<c-u>Defx `expand('$MYMEMO/note')`
       \ -direction=botright
       \ -winwidth=25
       \ -split=vertical
