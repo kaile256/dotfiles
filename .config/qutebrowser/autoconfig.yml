@@ -205,6 +205,7 @@ settings:
         <Ctrl+w>l: tab-move +
         <Ctrl+w>n: open -w
         <Ctrl+w>o: tab-only
+        <Ctrl+w>p: tab-pin
         <Ctrl+w>s: tab-clone
         <Ctrl+w>v: tab-clone
         <Ctrl+x>: null
@@ -230,13 +231,14 @@ settings:
         <い>: enter-mode insert
         '>': tab-move +
         D: null
+        F: hint
         H: null
         I: hint inputs --first
         J: fake-key <alt-down>
         K: fake-key <alt-up>
         L: null
         P: open -t {clipboard}
-        T: hint
+        T: hint all tab
         U: undo
         V: enter-mode caret;; toggle-selection
         ZC: close
@@ -262,6 +264,7 @@ settings:
         gC: open -t https://calendar.google.com/calendar/r/month?pli=1
         gE: edit-url
         gH: open -t qute://history/
+        gI: hint inputs
         gM: open -t https://www.google.co.jp/maps/@34.8244519,135.4776576,15z
         gP: open -t https://app.getpocket.com/
         gS: view-source --pygments
