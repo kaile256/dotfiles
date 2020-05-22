@@ -13,11 +13,17 @@ nmap <space>gp <Plug>(GitGutterStageHunk)
 xmap <silent> <space>gp :<C-u>call <SID>stage_hunks_in_range()<CR>
 
 function! s:stage_hunks_in_range() abort
+  let save_view = winsaveview()
   norm! '<
   while line('.') < line("'>")
+    let lnum = line('.')
     silent! GitGutterStageHunk
-    norm! j
+    silent! GitGutterNextHunk
+    if lnum == line('.')
+      break
+    endif
   endwhile
+  call winrestview(save_view)
 endfunction
 
 omap <SID>(textobj-hunk-i) <Plug>(GitGutterTextObjectInnerPending)
@@ -29,4 +35,3 @@ omap ic <SID>(textobj-hunk-i)
 xmap ic <SID>(textobj-hunk-i)
 omap ac <SID>(textobj-hunk-a)
 xmap ac <SID>(textobj-hunk-a)
-
