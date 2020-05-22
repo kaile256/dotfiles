@@ -58,26 +58,6 @@ hook_add = 'runtime add/fzf-gitswitch..vim'
 ## Note: not yet available via package-manager
 #path = 'src/app/viml/'
 #on_cmd = ['Tree']
-
-[[plugins]] # has extentions
-repo = 'Shougo/defx.nvim'
-# /usr/share/nvim/runtime/plugin/rplugin.vim line 63
-hook_done_update = 'call remote#host#UpdateRemotePlugins()'
-rev = 'fdf0c22'
-on_cmd = 'Defx'
-hook_add = 'runtime add/defx.vim'
-hook_post_source = 'runtime post/defx.vim'
-
-[[plugins]]
-repo = 'kristijanhusak/defx-git'
-on_source = 'defx.nvim'
-
-#[[plugins]]
-#repo = 'kristijanhusak/defx-icons'
-## FIXME: No collapses on unicode, which is a problem on vim or something else
-#on_source = 'defx.nvim'
-#hook_source = 'runtime source/defx-icons.vim'
-
 #[[plugins]]
 #repo = 'skanehira/popupfiles.vim'
 ## Ref: https://qiita.com/gorilla0513/items/fa4b401e7264a31868b9
@@ -98,6 +78,27 @@ on_source = 'defx.nvim'
 #repo = 'justinmk/vim-dirvish'
 #on_event = 'BufAdd'
 #hook_post_source = 'runtime add/dirvish.vim'
+
+#[ Filer.Defx ]
+[[plugins]]
+repo = 'Shougo/defx.nvim'
+# /usr/share/nvim/runtime/plugin/rplugin.vim line 63
+hook_done_update = 'call remote#host#UpdateRemotePlugins()'
+# Notice: After the second opening a buffer from defx-buffer, Vim comes to open
+# an empty buffer instead.
+rev = 'c5d8afe'
+on_cmd = 'Defx'
+hook_add = 'runtime add/defx.vim'
+hook_post_source = 'runtime post/defx.vim'
+[[plugins]]
+repo = 'kristijanhusak/defx-git'
+on_source = 'defx.nvim'
+
+#[[plugins]]
+#repo = 'kristijanhusak/defx-icons'
+## FIXME: No collapses on unicode, which is a problem on vim or something else
+#on_source = 'defx.nvim'
+#hook_source = 'runtime source/defx-icons.vim'
 
 ##[ Ranger ]
 #[[plugins]]
