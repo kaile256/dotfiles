@@ -32,6 +32,7 @@ augroup myFindPathRc
 
   au BufNewFile,BufRead {.config,dotfiles}**/* call s:path.dotfiles()
 
+  exe 'au' TermOpen '* call s:path.vim()'
   au BufNewFile,BufRead {*vim,dein}**/* call s:path.vim()
 
   au BufNewFile,BufRead $MYMEMO**/*   call s:path.memo()
