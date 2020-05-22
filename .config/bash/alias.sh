@@ -20,7 +20,7 @@ alias f=fish
 
 # App; Neovim
 # `-s`: outputs no error even if no nvim server running.
-alias nvr="nvr -s"
+alias nvr="nvr -s --remote-wait-silent"
 alias kvi="nvim -u $HOME/kaile256/dotfiles/nvim/init.vim"
 
 alias pg='pgrep'

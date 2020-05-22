@@ -38,7 +38,8 @@ balias rwatch 'cd ~/rustlings && rustlings watch'
 balias screenkey-below-for-left-window 'screenkey -g 950x1000 -t 0.5 &'
 
 # -s: silence 'no server found' message, still causes an error in terminal
-balias nvr 'nvr -s'
+# `balias` causes complete recursively.
+alias nvr 'nvr -s --remote-wait-silent'
 
 # Fzf {{{1
 # Note: fzf --bind to execute(cd {}) doesn't work; use 'accept' instead
