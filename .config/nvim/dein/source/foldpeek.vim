@@ -134,61 +134,94 @@ augroup myFoldPeekSource "{{{1
   au BufWinEnter * if &fdt !=# 'foldpeek#text()' |
         \   setl fdt=foldpeek#text()
         \ | endif
-
-  au FileType php,html call s:peek_php()
-  au FileType help call s:peek_help()
-  au FileType toml call s:peek_toml()
-  au FileType neosnippet call s:peek_neosnippet()
-  au FileType snippets call s:peek_ultisnips()
+  au FileType * call s:set_patterns()
 augroup END
 
-function! s:peek_php() abort "{{{2
+let s:peek = {}
+function! s:set_patterns() abort
+  let b:foldpeek_whiteout_patterns = {}
+  silent! call s:peek[&ft]()
+  if empty(b:foldpeek_whiteout_patterns)
+    unlet b:foldpeek_whiteout_patterns
+  endif
+endfunction
+
+function! s:peek.php() abort "{{{2
   let b:foldpeek_skip_patterns = [
         \ '^\s*<\w\+>\s*$',
         \ ]
 endfunction
 
-function! s:peek_help() abort "{{{2
-  let b:foldpeek_whiteout_patterns_left = [
-        \ '^\u[A-Z \t]\+\(\*.\+\*\s*$\)\@=',
-        \ '\*.\+\*\s*$',
+function! s:peek.help() abort "{{{2
+  let title_under_line = '^\u[A-Z ]\{-}\ze\s*\(\*.\+\*\s*$\)\@='
+  let help_tag = '\*.\+\*\s*$'
+  let b:foldpeek_whiteout_patterns.match = [
+        \ title_under_line,
+        \ help_tag,
         \ ]
-  let b:foldpeek_whiteout_patterns_substitute = [
-        \ ['\v*(.+)\*', '  * \1', ''],
-        \ ['\*\s*\*', ' || ', 'g'],
-        \ ['^\ze\u', '- ', ''],
+
+  " function! FoldpeekHelp() abort
+  "   let offset = foldpeek#status().offset
+  "   " let offset = 0
+  "   let help_tag = '\*.\+\*\s*$'
+  "   let line = ''
+  "   let sub = ''
+  "   let subtitle = '^\S.\+\(\ze\(  \|\t\)\|$\)'
+  "   if getline(v:foldstart + offset) =~# help_tag
+  "     while line =~# help_tag
+  "       let line = getline(v:foldstart + offset)
+  "       let sub = matchstr(line, subtitle)
+  "       if !empty(sub) | break | endif
+  "       let offset += 1
+  "     endwhile
+  "   endif
+
+  "   return 'offset is '. offset
+  "   let ret = (!empty(sub) ? sub : '\1')
+  "   return '  * '. ret
+  " endfunction
+
+  let Mark_on_title = ['^\ze\u', '- ', '']
+  let function_tag = ['\v*.+-(.*\(\))\*', '  * \1', '']
+  let Indent_tag = ['\v*(.+)\*', '  * \1', '']
+  let Separate_multi_tags = ['\*\s*\*', ' || ', 'g']
+  let b:foldpeek_whiteout_patterns.substitute = [
+        \ Mark_on_title,
+        \ function_tag,
+        \ Indent_tag,
+        \ Separate_multi_tags,
         \ ]
 endfunction
 
-function! s:peek_toml() abort "{{{2
+function! s:peek.toml() abort "{{{2
   if expand('%:p') =~# fnamemodify($MYVIMRC, ':h')
     let b:foldpeek_skip_patterns = [
-          \ '^[>#\-=/{!* \t]*$',
           \ '[# \t]*\[\[plugins]]',
-          \ '[# \t]*\[\[\=package]',
           \ ]
 
-    let b:foldpeek_whiteout_patterns_omit = [
+    let b:foldpeek_whiteout_patterns.omit = [
           \ 'repo = ',
           \ ]
 
   else
-    let b:foldpeek_whiteout_patterns_omit = [
+    let b:foldpeek_whiteout_patterns.omit = [
           \ 'name = ',
           \ ]
   endif
 endfunction
 
-function! s:peek_neosnippet() abort "{{{2
-  let b:foldpeek_whiteout_patterns_omit = [
-        \ ]
-  " let b:foldpeek_whiteout_patterns_omit = [
-  "      \ '^snippet\s*'
-  "      \ ]
-endfunction
-function! s:peek_ultisnips() abort "{{{2
-  let b:foldpeek_whiteout_patterns_substitute = [
-        \ ['^snippet \zs''\S\{-}''', "'regexp'"],
+function! s:peek.snippets() abort "{{{2
+  let b:foldpeek_whiteout_patterns.substitute = [
+        \ ['^snippet \zs''\S\{-}''', "'regexp'", ''],
         \ ['^snippet \S\+ [^"]\+$', '"no description" => ', ''],
+        \ ]
+endfunction
+
+function! s:peek.typescript() abort "{{{2
+  let Remove_modifier = ['(.\{-}\zspublic \ze.\{-})', '', '']
+  let Remove_type_annotation = ['(.\{-}\zs:\s\+\S\{-1,}\ze[,)]', '', '']
+  let b:foldpeek_whiteout_patterns.subloop = [
+        \ Remove_modifier,
+        \ Remove_type_annotation,
         \ ]
 endfunction
