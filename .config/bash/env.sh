@@ -1,12 +1,13 @@
 #!/usr/bin/env bash
 
 # Original {{{1
-export MYSCRIPTS="$HOME/.myscripts"
+export MY_SCRIPTS="$HOME/.myscripts"
 export MY_API_TOKEN="$HOME/.myapi"
+export DOTFILES_HOME="$HOME/dotfiles"
 
-export MYDEV="$HOME/dev"
-export MYMEMO="$HOME/Memo/sync/note"
-export MYSUMMURY="$MYMEMO/summary"
+export MY_DEV="$HOME/dev"
+export MY_MEMO="$HOME/Memo"
+export MY_SUMMURY="$MY_MEMO/summary"
 
 # Global {{{1
 export XDG_CONFIG_HOME="$HOME/.config"
@@ -57,7 +58,7 @@ export BROWSER=qutebrowser
 export DOCKER_HOST=unix://$XDG_RUNTIME_DIR/docker.sock
 
 # Note: vim will override $VMAIL_VIM=nvr.
-export VMAIL_VIM=nvim-qt
+export VMAIL_VIM=$VISUAL
 
 # FZF
 export FZF_DEFAULT_COMMAND='rg --no-line-number --files --hidden --follow --glob "!.git/*"'

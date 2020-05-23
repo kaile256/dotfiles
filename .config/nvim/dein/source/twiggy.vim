@@ -53,6 +53,8 @@ let g:twiggy_keymaps_on_branch = {
       \ '>>':   ['Stash',      [1]],
       \ }
 
+finish
+
 " 0 to remote; 1 to local
 "let g:twiggy_keymaps_on_branch = {
 "      \ '<CR>': ['Checkout',   []],
@@ -66,6 +68,7 @@ let g:twiggy_keymaps_on_branch = {
 "      \ 'D':    ['Delete',     []],
 "      \ 'F':    ['Fetch',      [0]],
 "      \ 'f':    ['Fetch',      [0]],
+"      \ 'm':    ['Merge',      [0, '']],
 "      \ 'm':    ['Merge',      [0, '']],
 "      \ 'M':    ['Merge',      [1, '']],
 "      \ 'gm':   ['Merge',      [0, '--no-ff']],
@@ -100,3 +103,30 @@ let g:twiggy_keymaps_on_branch = {
 " 'I':    ['CycleSort',        [0, -1]],
 " 'gi':   ['CycleSort',        [1, 1]],
 " 'gI':   ['CycleSort',        [1, -1]],
+" 0 to remote; 1 to local
+
+let g:twiggy_keymaps_on_branch = {
+     \ '<CR>': ['Checkout',   []],
+     \ 'c':    ['Checkout',   []],
+     \ 'o':    ['Checkout',   []],
+     \ 'C':    ['Checkout',   'remote'],
+     \ 'O':    ['Checkout',   'remote'],
+     \ 'gc':   ['CheckoutAs', ],
+     \ '%':    ['CheckoutAs', ],
+     \ 'dd':   ['Delete',     ],
+     \ 'f':    ['Fetch',      ],
+     \ 'm':  ['Merge', ],
+     \ 'M':  ['Merge', 'remote'],
+     \ 'gm': ['Merge', '--no-ff'],
+     \ 'gM': ['Merge', 'remote', '--no-ff'],
+     \ 'r':    ['Rebase',     ],
+     \ 'R':    ['Rebase',   'remote'],
+     \ 'P':    ['Push',       []],
+     \ 'gP':   ['Push',       'remote'],
+     \ '!P':   ['Push',       '--force'],
+     \ 'p':    ['Pull',       []],
+     \ ',':    ['Rename',     []],
+     \ '<<':   ['Stash',      [0]],
+     \ '>>':   ['Stash',      [1]],
+     \ }
+

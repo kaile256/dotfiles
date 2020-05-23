@@ -153,7 +153,7 @@ for_window [title="^Toggle"]  floating enable border normal
 
 # AutoStart Background {{{1
 # Note: exec_always to reload on a restart i3 itself
-$always $MYSCRIPTS/polybar-launch.sh
+$always $MY_SCRIPTS/polybar-launch.sh
 #exec_always --no-startup-id xfce4-panel --disable-wm-check
 
 # Note: see the config by `xset q`
@@ -166,7 +166,7 @@ $always xset -dpms
 $always xset s off
 
 # xrandr: control monitor
-$always $MYSCRIPTS/monitor-try.sh
+$always $MY_SCRIPTS/monitor-try.sh
 # xautolock: a timer to lock screen of PC
 # use xss instead of xautolock
 # Note: xss-lock subscribes the systemd-events
@@ -371,9 +371,9 @@ bindsym $SuperS+I focus tiling;   mode default; $alert 'Focus: Tiling'
 # Keybind; Device Toggle {{{2
 # Ref: https://qiita.com/iberianpig/items/08784c9b2f53b3e41409
 #   Control Trackpad by Fusuma
-$release $Super+comma  $noid $MYSCRIPTS/touchpad-toggle.sh
-$release $Super+period $noid $MYSCRIPTS/touchpad-toggle.sh
-$release $Super+$ClickMiddle $noid $MYSCRIPTS/touchpad-toggle.sh
+$release $Super+comma  $noid $MY_SCRIPTS/touchpad-toggle.sh
+$release $Super+period $noid $MY_SCRIPTS/touchpad-toggle.sh
+$release $Super+$ClickMiddle $noid $MY_SCRIPTS/touchpad-toggle.sh
 
 # 66: CapsLock
 bindcode 66 $alert 'CapsLock: Toggle'
@@ -906,14 +906,14 @@ $release $SuperS+M exec terminal -e 'mocp'
 # depend: imagemagick
 #bindsym $Super+Print $noid import -window root ~/Pictures/screenshot
 bindsym Shift+Print  $noid shutter --select
-bindsym $Super+Print $noid $MYSCRIPTS/recording-toggle.sh
+bindsym $Super+Print $noid $MY_SCRIPTS/recording-toggle.sh
 
 #set $Print " Print: (Shift+) screenshot | (Super+) record in GIF "
 #bindsym Print mode $Print; $notify 'Print: entered'
 #mode $Print {
-#bindsym Print        mode default; $noid exec $MYSCRIPTS/recording-toggle.sh
+#bindsym Print        mode default; $noid exec $MY_SCRIPTS/recording-toggle.sh
 #bindsym Shift+Print  mode default; $noid i3-scrot
-#bindsym $Super+Print mode default; $noid exec $MYSCRIPTS/recording-toggle.sh
+#bindsym $Super+Print mode default; $noid exec $MY_SCRIPTS/recording-toggle.sh
 #
 #bindsym Ctrl+C           mode default
 #bindsym bracketleft      mode default

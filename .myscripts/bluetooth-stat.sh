@@ -38,7 +38,7 @@ bluetooth_print() {
     fi
   done
 else
-  echo "see ${MYSCRIPTS}/bluetooth-stat.sh"
+  echo "see ${MY_SCRIPTS}/bluetooth-stat.sh"
   fi
 done
 }

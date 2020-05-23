@@ -25,7 +25,7 @@ command! -bar -bang Functions
 let s:cmd_to_path = {
       \ 'Config':    $XDG_CONFIG_HOME,
       \ 'Data':      $XDG_DATA_HOME,
-      \ 'Dotfiles':  g:dotfiles_home,
+      \ 'Dotfiles':  $DOTFILES_HOME,
       \ 'Downloads': '~/Downloads',
       \ 'Etcs':      '/etc',
       \ 'Ghqs':      $GHQ_ROOT,
@@ -107,8 +107,8 @@ nmap <silent> <space>z; :<c-u> History:<cr>
 let s:path_dict = {
       \ '.': '.',
       \ '<space>': ':<c-u>silent FindRoot',
-      \ 'c': g:dein_cache_dir,
-      \ 'd': g:dotfiles_home,
+      \ 'c': $DEIN_CACHE_HOME,
+      \ 'd': $DOTFILES_HOME,
       \ 'f': $XDG_CONFIG_HOME,
       \ 'h': '~',
       \ 'l': $XDG_DATA_HOME,

@@ -5,11 +5,11 @@
 let s:path_dict = {
       \ '': '%:p:h',
       \ '.': '.',
-      \ 'd': g:dotfiles_home,
+      \ 'd': $DOTFILES_HOME,
       \ 'f': $XDG_CONFIG_HOME,
       \ 'h': '~',
       \ 'l': $XDG_DATA_HOME,
-      \ 'm': $MYMEMO,
+      \ 'm': $MY_MEMO,
       \ 'n': '%:p:h',
       \ 'q': $GHQ_ROOT,
       \ 'r': $VIMRUNTIME,
