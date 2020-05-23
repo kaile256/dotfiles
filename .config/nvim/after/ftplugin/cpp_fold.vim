@@ -1,4 +1,4 @@
-setl fdm=expr fde=CppFoldExpr()
+setl fdm=expr fde=CppFoldExpr(v:lnum)
 if exists('b:undo_ftplugin')
   let b:undo_ftplugin .= ' | '
 else
@@ -6,10 +6,10 @@ else
 endif
 let b:undo_ftplugin .= 'setl fdm< fde<'
 
-function! CppFoldExpr() abort
-  let line = getline(v:lnum)
-  let prev = getline(v:lnum - 1)
-  let next = getline(v:lnum + 1)
+function! CppFoldExpr(lnum) abort
+  let line = getline(a:lnum)
+  let prev = getline(a:lnum - 1)
+  let next = getline(a:lnum + 1)
 
   if prev[0] =~# '^$'
         \ &&(line =~# '^#' || line =~# '^\/[/*]\v(\*\/)@!')
