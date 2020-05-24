@@ -60,7 +60,7 @@ function! s:fzf_neighbours() abort
 endfunction
 "nnoremap <silent> <space>zn :<c-u>Neighbours<cr>
 
-" Command: Maps {{{1
+" Command: Maps with keymaps {{{1
 " TODO: set options reverse
 command! -bar -bang -nargs=* Nmaps call fzf#vim#maps('n', <bang>0)
 command! -bar -bang -nargs=* Imaps call fzf#vim#maps('i', <bang>0)
@@ -70,6 +70,15 @@ command! -bar -bang -nargs=* Vmaps call fzf#vim#maps('v', <bang>0)
 command! -bar -bang -nargs=* Cmaps call fzf#vim#maps('c', <bang>0)
 command! -bar -bang -nargs=* Omaps call fzf#vim#maps('o', <bang>0)
 command! -bar -bang -nargs=* Tmaps call fzf#vim#maps('t', <bang>0)
+
+nnoremap <silent> <space>zN :<C-u>Nmaps<CR>
+nnoremap <silent> <space>zI :<C-u>Imaps<CR>
+nnoremap <silent> <space>zX :<C-u>Xmaps<CR>
+nnoremap <silent> <space>zS :<C-u>Smaps<CR>
+nnoremap <silent> <space>zV :<C-u>Vmaps<CR>
+nnoremap <silent> <space>zC :<C-u>Cmaps<CR>
+nnoremap <silent> <space>zO :<C-u>Omaps<CR>
+nnoremap <silent> <space>zT :<C-u>Tmaps<CR>
 
 " Command: shortcut {{{1
 command! -bar -bang -nargs=* Cmds :Commands
