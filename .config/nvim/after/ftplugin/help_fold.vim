@@ -9,6 +9,8 @@ let b:undo_ftplugin .= 'setl fdm< fde<'
 
 let s:pat_tag_line = '\s\+\*\S\+\*\s*$'
 let s:pat_index_line = '\(\d\+\.\w\+|\u[ A-Z]\+\)\s\+\*.*\*\s*$'
+let s:pat_subindex_line = '\~$'
+let s:has_subindex_line = search(s:pat_subindex_line, 'nbw') > 0
 
 let s:pat_main_separator = '^=\+$'
 let s:pat_sub_separator = '^-\+$'
@@ -16,7 +18,14 @@ let s:pat_either_separator = '^[-=]\+$'
 
 let s:has_main_separator = search(s:pat_main_separator, 'nbw') > 0
 let s:has_sub_separator = search(s:pat_sub_separator, 'nbw') > 0
-let s:has_both_separators = s:has_main_separator && s:has_sub_separator
+
+let s:foldlevel_at_index = string(
+      \  (s:has_main_separator ? 1 : 0)
+      \ + (s:has_sub_separator ? 1 : 0)
+      \ + (s:has_subindex_line ? 1 : 0)
+      \ )
+let s:foldlevel_at_tag = s:foldlevel_at_index + 1
+
 
 function! HelpFoldExpr(lnum) abort "{{{1
   let line = getline(a:lnum)
@@ -28,13 +37,7 @@ function! HelpFoldExpr(lnum) abort "{{{1
         \ && next !~# s:pat_either_separator
         \ && next !~# s:pat_index_line
 
-    if s:has_main_separator
-      return '>2'
-    elseif s:has_sub_separator
-      return '>3'
-    endif
-
-    return '>1'
+    return '>'. s:foldlevel_at_index
 
   elseif line =~# s:pat_main_separator && prev !~# s:pat_index_line
     " index under line
@@ -54,12 +57,9 @@ function! HelpFoldExpr(lnum) abort "{{{1
         \ &&  prev !~# s:pat_tag_line
     if prev =~# s:pat_either_separator
       return '='
-
-    elseif s:has_both_separators
-      return '>3'
     endif
 
-    return '>2'
+    return '>'. s:foldlevel_at_tag
   endif
 
   return '='
