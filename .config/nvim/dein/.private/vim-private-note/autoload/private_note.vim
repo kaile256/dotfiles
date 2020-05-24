@@ -24,33 +24,84 @@
 " }}}
 " ============================================================================
 
-let g:private_note#default_path = get(g:, 'private_note#default_path',
-      \ "$XDG_DATA_HOME .'/private_note/'. expand('%:t:r') .'.md'"
+let g:private_note#root_path = get(g:, 'private_note#root_path',
+      \ $XDG_DATA_HOME .'/private_note'
       \ )
 
-" TODO: create dir under the specified paths
+let g:private_note#default_filename = get(g:, 'private_note#default_filename',
+      \ 'expand("%:t:r")'
+      \ )
 
-function! private_note#new(mods, ...) abort
+let g:private_note#default_extension = get(g:, 'private_note#default_extension',
+      \ '.md'
+      \ )
+
+function! private_note#new(mods, path) abort
   let open = empty(a:mods) ? 'e' : a:mods .' sp'
-  let path = empty(get(a:, '000'))
-        \ ? a:1
-        \ : g:private_note#default_path
+  let path = empty(a:path) ? s:set_default_path() : a:path
 
   call s:mkdir_on_demand(path)
 
+  exe open path
+endfunction
+
+function! s:set_default_path() abort "{{{1
+  let paths = {
+       \ 'dir': g:private_note#root_path,
+       \ 'fname': g:private_note#default_filename,
+       \ 'ext': g:private_note#default_extension,
+       \ }
+
+  for tmp in keys(paths)
+    let {tmp} = paths[tmp]
+    let {tmp} = s:try_eval({tmp})
+    let {tmp} = s:tidy_path({tmp})
+  endfor
+  let path = '/'. dir .'/'. fname . ext
+
+  let g:foo = path
+  return path
+endfunction
+
+function! s:try_eval(args) abort "{{{1
   try
-    exe open eval(path)
+    return eval(a:args)
   catch
-    exe open path
+    return a:args
   endtry
 endfunction
 
-function! s:mkdir_on_demand(path) abort
+function! s:tidy_path(path) abort "{{{1
+  " Tidy path without '//'
+
+  let ret = a:path
+  let ret = substitute(ret, '^\/', '', '')
+  let ret = substitute(ret, '\/$', '', '')
+  return ret
+endfunction
+
+function! s:mkdir_on_demand(path) abort "{{{1
+  " Create directories with confirmation if parent directories don't exist.
+
   let dir = fnamemodify(a:path, ':h')
   if isdirectory(dir) | return | endif
 
-  let confirm = input('Private Note: Parent directories does NOT exists; create the directories? ([y]es/[n]o) : ')
-  if confirm =~? 'y\%[es]'
+  let existed = dir
+  while !isdirectory(existed)
+    let existed = fnamemodify(existed, ':h')
+  endwhile
+  let existed .= '/'
+
+  let lack = substitute(dir, '^'. existed, '', '')
+  let lack .= '/'
+
+  let confirmed = input(' Private Note: '
+        \ .'create dir '
+        \ .'"'. lack .'" under "'. existed .'"'
+        \ .'? ([y]es/[n]o) : ')
+
+  if confirmed =~? 'y\%[es]'
     call mkdir(dir, 'p')
   endif
 endfunction
+
