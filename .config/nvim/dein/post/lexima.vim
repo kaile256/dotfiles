@@ -22,9 +22,6 @@ let s:close = '[\])}''"]'
 let s:paren = '[\])}]'
 let s:quote = '[`''"]'
 
-let s:space_or_paren = '[=\[\](){} \t]'
-let s:new = s:space_or_paren .'\%#\($\|'. s:space_or_paren .'\)'
-
 let s:before_close = '\%#'. s:close
 let s:before_paren = '\%#'. s:paren
 let s:before_quote = '\%#'. s:quote
@@ -97,10 +94,13 @@ let g:lexima#default_rules += [
       \ ]
 
 " Overwrite Rules for Quote {{{1
+" Note: a pattern '[=\[\](){} \t]' for 'Space or Parentheses'
+let s:Let_it_double = '\([=\[\](){} \t]\|^\)' .'\%#'. '\($\|[=\[\](){} \t]\)'
+
 let g:lexima#default_rules += [
-      \ {'char': "'", 'at': s:new, 'input_after': "'"},
-      \ {'char': '"', 'at': s:new, 'input_after': '"'},
-      \ {'char': '`', 'at': s:new, 'input_after': '`'},
+      \ {'char': "'", 'at': s:Let_it_double, 'input_after': "'"},
+      \ {'char': '"', 'at': s:Let_it_double, 'input_after': '"'},
+      \ {'char': '`', 'at': s:Let_it_double, 'input_after': '`'},
       \
       \ {'char': "'", 'at': '\\\%#'},
       \ {'char': "'", 'at': '\w\%#''\@!'},
@@ -114,6 +114,7 @@ let g:lexima#default_rules += [
       \ {'char': '"', 'at': '\%#"""',  'leave': 3},
       \ {'char': '`', 'at': '\%#```',  'leave': 3},
       \ ]
+unlet s:Let_it_double
 
 " Overwrite Rules for Backspaces {{{1
 let g:lexima#default_rules += [
