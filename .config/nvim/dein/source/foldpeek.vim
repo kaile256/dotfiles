@@ -6,17 +6,16 @@ scriptencoding utf-8
 " Ref: vimwiki_dev/ftplugin/vimwiki.vim @195
 " Another: post/foldpeek.vim
 
-let g:foldpeek#maxwidth = '
-      \ &colorcolumn > 0 ? &colorcolumn - 1
-      \                  : &textwidth > 0 ? &textwidth
-      \                                   : 79
-      \ '
+let g:foldpeek#maxwidth = &colorcolumn > 0 ? &colorcolumn - 1
+      \                   : (&tw > 0 ? &tw : 79)
 
-let g:foldpeek#skip_patterns = [
-      \ '^[<>#\-=/{!* \t]*$',
-      \ '^```.*$',
-      \ '^\s*"""$',
-      \ ]
+" let g:foldpeek#whiteout#patterns = {
+"      \ 'substitute': [
+"      \   ['{\zs\s*$', ' … }', ''],
+"      \   ['(\zs\s*$', ' … )', ''],
+"      \   ['[\zs\s*$', ' … ]', ''],
+"      \   ]
+"      \ }
 
 " candidates for s:foldlevel_dict {{{1
 "let s:foldlevel_dict = {
