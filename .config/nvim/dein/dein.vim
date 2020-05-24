@@ -74,6 +74,7 @@ endif
 let s:toml_lazy = [
       \ 'appearance.toml',
       \ 'browse.toml',
+      \ 'colorscheme.toml',
       \ 'debug.toml',
       \ 'default.toml',
       \ 'denite.toml',

@@ -1,0 +1,113 @@
+# From: dein/dein.vim
+
+#[ Colorscheme ]
+#[[plugins]]
+#repo = 'flrnprz/candid.vim'
+## Looks like dracula scheme.
+#on_event = 'VimEnter'
+[[plugins]]
+repo = 'joshdick/onedark.vim'
+on_func = ['onedark#']
+#on_event = ['VimEnter']
+[[plugins]]
+repo = 'drewtempelmeyer/palenight.vim'
+on_event = ['VimEnter']
+[[plugins]]
+repo = 'jonathanfilip/vim-lucius'
+on_event = ['VimEnter']
+[[plugins]]
+repo = 'raphamorim/lucario'
+on_event = 'VimEnter'
+#[ Colorscheme.monokai ]
+[[plugins]]
+repo = 'tomasr/molokai'
+on_event = 'VimEnter'
+#[[plugins]]
+#repo = 'phanviet/vim-monokai-pro'
+## purple-base monokai.
+#on_event = ['VimEnter']
+#[[plugins]]
+#repo = 'patstockwell/vim-monokai-tasty'
+## the colorscheme name is 'vim-monokai-tasty'.
+#on_event = ['VimEnter']
+#[[plugins]]
+#repo = 'ErichDonGubler/vim-sublime-monokai'
+#on_event = ['VimEnter']
+#[[plugins]]
+#repo = 'fratajczak/one-monokai-vim'
+#on_event = ['VimEnter']
+[[plugins]]
+repo = 'sainnhe/sonokai'
+on_event = ['VimEnter']
+hook_source = 'runtime source/sonokai.vim'
+#hook_post_source = 'runtime post/sonokai.vim'
+
+#[ Colorscheme.Collection ]
+[[plugins]]
+repo = 'flazz/vim-colorschemes'
+# Note: not include airline/lightline's
+# some colorschemes like onedark need another repo to call autoload-functions
+on_event = 'VimEnter'
+hook_source = 'runtime source/colorschemes.vim'
+hook_post_source = 'runtime post/colorschemes.vim'
+
+#[[plugins]]
+#repo = 'rafi/awesome-vim-colorschemes'
+#on_event = ['VimEnter']
+#
+[[plugins]]
+repo = 'rhysd/try-colorscheme.vim'
+# try colorscheme via URL/Repo
+on_func =  ['try_colorscheme#try']
+hook_add = 'runtime add/try-colorscheme.vim'
+
+#[ Colorscheme.Edit ]
+[[plugins]]
+repo = 'guns/xterm-color-table.vim'
+on_cmd = ['XtermColorTable']
+#[[plugins]]
+#repo = 'cocopon/inspecthi.vim'
+## Generates a beautiful color swatch from the current buffer
+#on_cmd = ['Inspecthi']
+#hook_add = 'runtime add/inspecthi.vim'
+#hook_done_update = '''
+#exe 'e' g:dein_github_dir .'/cocopon/inspecthi.vim/plugin/inspecthi.vim'
+#%s/\<Inspecthi\>/ColoLinks
+#write
+#'''
+
+#[[plugins]]
+#repo = 'cocopon/colorswatch.vim'
+## Inspects a link structure of highlighting groups
+#on_cmd = 'ColorSwatchGenerate'
+#hook_add = 'runtime add/colorswatch.vim'
+
+#[[plugins]]
+#repo = 'rbtnn/vim-coloredit'
+## no support for neovim
+#if = '!has("nvim")'
+#on_cmd =  ['ColorEdit']
+
+#[[plugins]]
+#repo = 'cocopon/pgmnt.vim'
+## Template engine for colorschemes, in pure Vim script
+## e.g., if g:colors_name ==# 'iceberg' | call pgmnt#foo#bar('foobar', 'foofoo') ...
+#on_event = 'VimEnter'
+#hook_post_source = 'runtime add/pgmnt.vim'
+
+#[[plugins]]
+#repo = 'norcalli/nvim-terminal.lua'
+#on_cmd = "lua require 'terminal'.setup"
+#hook_add = 'runtime add/terminal.lua.vim'
+
+#[[plugins]]
+#repo = 'norcalli/nvim-colorizer.lua'
+##on_cmd = 'ColorizerAttachToBuffer'
+#on_cmd = "lua require'colorizer'.setup()"
+#hook_add = 'runtime add/colorizer.lua.vim'
+[[plugins]]
+repo = 'RRethy/vim-hexokinase'
+build = 'make hexokinase'
+on_cmd = ['HexokinaseToggle', 'HexokinaseTurnOn']
+hook_add = 'runtime add/hexokinase.vim'
+hook_source = 'runtime source/hexokinase.vim'
