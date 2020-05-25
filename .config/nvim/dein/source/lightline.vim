@@ -23,7 +23,6 @@ let g:lightline.colorscheme = 'one'
 " and so on.
 let g:lightline.tabline = {
       \ 'left': [
-      \   ['branch'],
       \   ['tabs'],
       \ ],
       \
@@ -37,11 +36,14 @@ let g:lightline.tabline = {
 " 'tab_component_function' which takes a winnr as an arg.
 let g:lightline.tab = {
       \ 'active': [
-      \   'filename', 'modified'
+      \   'filename',
+      \   'modified',
       \ ],
       \
       \ 'inactive': [
-      \   'tabnum', 'filename', 'modified',
+      \   'tabnum',
+      \   'filename',
+      \   'modified',
       \ ],
       \ }
 
