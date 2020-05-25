@@ -70,7 +70,8 @@ if exists('g:GuiLoaded')
   "GuiFont! SF Mono:h12
   "GuiFont! Myrica M:h15
 
-  GuiFont! MesloLGS Nerd Font:h13
+  " GuiFont! MesloLGS Nerd Font:h13
+  GuiFont! Meslo LG S for Powerline:h13
   GuiLinespace -1
 endif
 
