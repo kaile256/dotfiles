@@ -126,31 +126,38 @@ function! LL_filetype() abort
   return &ft
 endfunction
 
-function! LL_branch() abort
+function! LL_git_branch() abort "{{{2
   let branch = ''
   try
     let branch = FugitiveHead()
   finally
+    if exists('*GitGutterGetHunkSummary()')
+          \ && GitGutterGetHunkSummary() != [0, 0, 0]
+      let branch .= '!'
+    endif
     return !empty(branch) ? branch : '...'
   endtry
 endfunction
 
-function! LL_git_status() abort
+function! LL_git_diff() abort "{{{2
+  if !exists('*GitGutterGetHunkSummary()') | return '' | endif
+
+  let hunks = GitGutterGetHunkSummary()
+  if hunks == [0, 0, 0] | return '' | endif
+
   let added    = '+'
   let modified = '~'
   let removed  = '-'
   let signs = [added, modified, removed]
 
-  let hunks = GitGutterGetHunkSummary()
   let ret = []
-
   let i = 0
   for sign in signs
     call add(ret, sign . hunks[i])
     let i += 1
   endfor
 
-  return join(ret, ' ')
+  return join(ret)
 endfunction
 
 augroup myLightlineSo
