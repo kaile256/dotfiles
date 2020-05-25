@@ -95,6 +95,10 @@ let g:lightline.active = {
 " Define Components {{{1
 " Note: Priority: (High)component_expand > component_function > component(Low)
 
+let g:lightline.component = {
+      \ 'lineinfo': '%2v:%-3l'
+      \ }
+
 let g:lightline.component_expand = {
       \ 'readonly': '!&modifiable ? "x" : (&ro ? "RO" : "")',
       \
