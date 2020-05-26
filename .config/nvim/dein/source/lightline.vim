@@ -6,7 +6,9 @@ let g:lightline = {}
 
 let g:lightline.colorscheme = 'one'
 
-" Define Separator {{{1
+" Define Components {{{1
+
+" Define Separator {{{2
 
 " let g:lightline = {
 "      \ 'separator': { 'left': '', 'right': '' },
@@ -18,38 +20,7 @@ let g:lightline.colorscheme = 'one'
 "      \ 'subseparator': { 'left': '⮁', 'right': '⮃' }
 "      \ }
 
-" Define Tabline {{{1
-" Note: tabline seems to update fewer times than status line.
-" Note: All the indices except 'tabs' should be defined in 'component_function'
-" and so on.
-let g:lightline.tabline = {
-      \ 'left': [
-      \   ['git_branch'], ['git_diff'],
-      \ ],
-      \
-      \ 'right': [
-      \   ['tabs'],
-      \   ['cwd'],
-      \ ],
-      \ }
-
-" Note: The 'tab' is only for 'tabline', nested once.
-" Note: Components in 'tabs' should be defined in 'tab_component' or
-" 'tab_component_function' which takes a winnr as an arg.
-let g:lightline.tab = {
-      \ 'active': [
-      \   'filename',
-      \   'modified',
-      \ ],
-      \
-      \ 'inactive': [
-      \   'tabnum',
-      \   'filename',
-      \   'modified',
-      \ ],
-      \ }
-
-
+" Define Components for Tabline {{{2
 " let g:lightline.tab_component_function = {
 "      \ 'bufnr': 'LL_tab_modified',
 "      \ }
@@ -63,38 +34,7 @@ let g:lightline.tab = {
 "        \ : (gettabwinvar(a:n, winnr, '&modifiable') ? '' : '-')
 " endfunction
 
-" Define the Order of Statusbar {{{1
-
-let g:lightline.inactive = {
-      \ 'left': [
-      \   ['filename'],
-      \   ['readonly'],
-      \ ],
-      \
-      \ 'right': [
-      \   ['percent'],
-      \   ['lineinfo'],
-      \   ['filetype'],
-      \ ],
-      \ }
-
-" Note: 'right' fills right to left
-let g:lightline.active = {
-      \ 'left': [
-      \   ['mode'],
-      \   ['git_branch', 'git_diff'],
-      \   ['readonly', 'paste', 'spell'],
-      \ ],
-      \
-      \ 'right': [
-      \   ['percent'],
-      \   ['lineinfo'],
-      \   ['fileformat', 'fileencoding', 'filetype'],
-      \   ['notification'],
-      \ ],
-      \ }
-
-" Define Components {{{1
+" Define Components for Statusline {{{2
 " Note: Priority: (High)component_expand > component_function > component(Low)
 
 let g:lightline.component = {
@@ -123,7 +63,8 @@ let g:lightline.component_function = {
       \ 'git_diff': 'LL_git_diff',
       \ }
 
-function! LL_notification() abort "{{{2
+" Define Components Functions {{{2
+function! LL_notification() abort "{{{3
   for msg in ['gutentags#statusline()', 'LL_coc_notice()']
     if exists('*'. msg)
       let msg = eval(msg)
@@ -169,16 +110,16 @@ function! LL_coc_notice() abort "{{{3
   return 'Coc: '. b:coc_diagnostic_info['lnums'][0] .' has "'. msg .'"'
 endfunction
 
-function! LL_filename() abort "{{{2
+function! LL_filename() abort "{{{3
   return (filewritable('%:p') ? '?' : '')
         \ . pathshorten(getcwd()) .'/'. expand('%:t')
 endfunction
 
-function! LL_getcwd() abort "{{{2
+function! LL_getcwd() abort "{{{3
   return pathshorten(getcwd())
 endfunction
 
-function! LL_filetype() abort "{{{2
+function! LL_filetype() abort "{{{3
   if &bt =~# 'terminal\|help' || &ft ==# expand('%:e')
     return ''
   elseif empty(&ft)
@@ -188,7 +129,7 @@ function! LL_filetype() abort "{{{2
   return &ft
 endfunction
 
-function! LL_git_branch() abort "{{{2
+function! LL_git_branch() abort "{{{3
   if &bt ==# 'terminal'
     return 'TERM'
   endif
@@ -207,7 +148,7 @@ function! LL_git_branch() abort "{{{2
   endtry
 endfunction
 
-function! LL_git_diff() abort "{{{2
+function! LL_git_diff() abort "{{{3
   if !exists('*GitGutterGetHunkSummary()') | return '' | endif
 
   let hunks = GitGutterGetHunkSummary()
@@ -227,6 +168,69 @@ function! LL_git_diff() abort "{{{2
 
   return join(ret)
 endfunction
+
+" Define the Order {{{1
+
+" Define the order of Tabline {{{2
+" Note: The 'tab' is only for 'tabline', nested once.
+" Note: Components in 'tabs' should be defined in 'tab_component' or
+" 'tab_component_function' which takes a winnr as an arg.
+let g:lightline.tab = {
+      \ 'active': [
+      \   'filename',
+      \   'modified',
+      \ ],
+      \
+      \ 'inactive': [
+      \   'tabnum',
+      \   'filename',
+      \   'modified',
+      \ ],
+      \ }
+
+" Note: tabline seems to update fewer times than status line.
+" Note: All the indices except 'tabs' should be defined in 'component_function'
+" and so on.
+let g:lightline.tabline = {
+      \ 'left': [
+      \   ['git_branch'], ['git_diff'],
+      \ ],
+      \
+      \ 'right': [
+      \   ['tabs'],
+      \   ['cwd'],
+      \ ],
+      \ }
+
+" Define the order of Statusline {{{2
+" Note: 'right' fills right to left
+let g:lightline.active = {
+      \ 'left': [
+      \   ['mode'],
+      \   ['git_branch', 'git_diff'],
+      \   ['readonly', 'paste', 'spell'],
+      \ ],
+      \
+      \ 'right': [
+      \   ['percent'],
+      \   ['lineinfo'],
+      \   ['fileformat', 'fileencoding', 'filetype'],
+      \   ['notification'],
+      \ ],
+      \ }
+
+let g:lightline.inactive = {
+      \ 'left': [
+      \   ['filename'],
+      \   ['readonly'],
+      \ ],
+      \
+      \ 'right': [
+      \   ['percent'],
+      \   ['lineinfo'],
+      \   ['filetype'],
+      \ ],
+      \ }
 
 augroup myLightlineSo "{{{1
   if exists('#myLightlineSo') | au! myLightlineSo
