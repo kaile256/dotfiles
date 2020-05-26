@@ -136,31 +136,31 @@ on_source = 'defx.nvim'
 #hook_post_source = 'runtime add/ranger.vim'
 
 #[ CTags/global ]
-[[plugins]]
-repo = 'ludovicchabant/vim-gutentags'
-# Some similar plugins ("vim-tags", "vim-autotag", "vim-automatic-ctags", etc.)
-# all fail on one or more of the requirements
-# * No other dependency than Vim: no Python, Ruby, or whatever.
-# * Cross-platform: should work on at least Mac and Windows.
-# * Incremental tags generation: don't re-generate the whole project all the
-#   time.
-# * External process management: if the ctags process is taking a long time,
-#   don't run another one because I saved the file again.
-# * Keep the tag file consistent: don't just append the current file's tags to
-#   the tag file, otherwise you will still "see" tags for deleted or renamed
-#   classes and functions.
-# * Automatically create the tag file on `BufWritePost`
-on_cmd = ['GutentagsUpdate']
-on_source = ['gutentags_plus']
-hook_source = 'runtime source/gutentags.vim'
-[[plugins]]
-repo = 'skywind3000/gutentags_plus'
-on_cmd = 'GscopeFind'
 #[[plugins]]
-#repo = 'jsfaint/gen_tags.vim'
-## requires both ctags and GNU global executable
-#on_event = ['BufWritePost']
-#hook_post_source = 'runtime add/gen_tags.vim'
+#repo = 'ludovicchabant/vim-gutentags'
+## Some similar plugins ("vim-tags", "vim-autotag", "vim-automatic-ctags", etc.)
+## all fail on one or more of the requirements
+## * No other dependency than Vim: no Python, Ruby, or whatever.
+## * Cross-platform: should work on at least Mac and Windows.
+## * Incremental tags generation: don't re-generate the whole project all the
+##   time.
+## * External process management: if the ctags process is taking a long time,
+##   don't run another one because I saved the file again.
+## * Keep the tag file consistent: don't just append the current file's tags to
+##   the tag file, otherwise you will still "see" tags for deleted or renamed
+##   classes and functions.
+## * Automatically create the tag file on `BufWritePost`
+#on_cmd = ['GutentagsUpdate']
+#on_source = ['gutentags_plus']
+#hook_source = 'runtime source/gutentags.vim'
+#[[plugins]]
+#repo = 'skywind3000/gutentags_plus'
+#on_cmd = 'GscopeFind'
+[[plugins]]
+repo = 'jsfaint/gen_tags.vim'
+# requires both ctags and GNU global executable
+on_event = ['BufWritePost']
+hook_source = 'runtime source/gen_tags.vim'
 
 #[[plugins]]
 #repo = 'SpaceVim/gtags.vim'

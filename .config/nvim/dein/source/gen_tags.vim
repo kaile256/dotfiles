@@ -1,5 +1,7 @@
 " TOML: browse.toml
 " Repo: jsfaint/gen_tags.vim
+" Ref: /usr/share/vim/vimfiles/plugin/gtags.vim
+" Ref: /usr/share/gtags/FAQ
 
 " let g:gen_tags#ctags_auto_gen = 1
 " let g:gen_tags#gtags_auto_gen = 1
