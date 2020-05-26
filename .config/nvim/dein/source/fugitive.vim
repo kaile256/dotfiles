@@ -6,17 +6,6 @@ if exists('#myFugitiveSource')
   au! myFugitiveSource
 endif
 augroup myFugitiveSource
-  function! s:gitcommit(...) abort "{{{1
-    let winnr = bufwinnr('.git/COMMIT_EDITMSG')
-    if winnr != -1
-      echo 'gitcommit-buffer updating...'
-      exe winnr 'windo GcommitDiscard'
-    endif
-
-    let args = a:0 > 0 ? join(a:000) : ''
-    exe 'bot 20 Gcommit' args
-  endfunction
-
   au FileType fugitive call s:fugitive_keymap() "{{{1
   function! s:fugitive_keymap() abort "{{{2
     " Note: for fugitive-buffer, not for &diff
@@ -33,16 +22,8 @@ augroup myFugitiveSource
           \ :<c-u>wincmd p <bar> Gw <bar> GwToDiff HEAD <bar> Gvstatus<cr>
     nnoremap <script><buffer> D <SID>(fugitive:diff-to-HEAD)
 
-    command! -bang -nargs=? -range=-1 -addr=tabs -buffer
-          \ -complete=customlist,fugitive#CommitComplete
-          \ GcommitBottom
-          \ :call s:gitcommit(<q-args>)
-
-    " TODO: Specify the window of the latest commit buffer on `dq`.
-    "nnoremap <buffer><silent> cc :<C-U>bot 20 Gcommit<CR>
-    "nnoremap <buffer><silent> ca :<C-U>bot 20 Gcommit --amend<CR>
-    nnoremap <buffer><silent> cc :<c-u>GcommitBottom<cr>
-    nnoremap <buffer><silent> ca :<c-u>GcommitBottom --amend<cr>
+    nnoremap <buffer><silent> cc :<c-u>bot 20 Gcommit<cr>
+    nnoremap <buffer><silent> ca :<c-u>bot 20 Gcommit --amend<cr>
     " To: continue to cc/ce/ca.
     xnoremap <buffer> c sc
   endfunction
