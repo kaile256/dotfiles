@@ -140,9 +140,12 @@ repo = 'ludovicchabant/vim-gutentags'
 #   the tag file, otherwise you will still "see" tags for deleted or renamed
 #   classes and functions.
 # * Automatically create the tag file on `BufWritePost`
-on_event = ['BufWritePost']
+on_cmd = ['GutentagsUpdate']
+on_source = ['gutentags_plus']
 hook_source = 'runtime source/gutentags.vim'
-
+[[plugins]]
+repo = 'skywind3000/gutentags_plus'
+on_cmd = 'GscopeFind'
 #[[plugins]]
 #repo = 'jsfaint/gen_tags.vim'
 ## requires both ctags and GNU global executable
