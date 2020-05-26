@@ -158,7 +158,8 @@ on_source = 'defx.nvim'
 #on_cmd = 'GscopeFind'
 [[plugins]]
 repo = 'jsfaint/gen_tags.vim'
-# requires both ctags and GNU global executable
+# Override &cscopeprg.
+if = 'executable("gtags") || executable("ctags")'
 on_event = ['BufWritePost']
 hook_source = 'runtime source/gen_tags.vim'
 
