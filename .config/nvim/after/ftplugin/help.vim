@@ -74,7 +74,7 @@ function! s:help_toc(mods) abort "{{{
       endif
     endif
 
-    let index = substitute(index, '\s\+$', '', 'g')
+    let index = substitute(index, '\s\+$', '', 'ge')
 
     let is_index = !empty(index) && last_index != lnum
     if is_index

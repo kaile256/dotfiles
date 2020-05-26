@@ -41,7 +41,7 @@ function s:cond(key) abort
   " call map(mods_list, '"(". v:val .")"')
   " let mods_expr = '\v^[: \t]*'. join(mods_list, '\|')
 
-  " let line = "substitute(getcmdline(), '". mods_expr ."', '', '')"
+  " let line = "substitute(getcmdline(), '". mods_expr ."', '', 'e')"
 
   return "(getcmdtype() == ':' && getcmdline() =~? '^[: \\t]*". a:key ."\\s*$')"
 endfunction

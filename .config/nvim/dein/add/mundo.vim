@@ -39,5 +39,5 @@ function! s:trim_head() abort
     let regname = '"'
   endif
   let pat = '\(^\|\n\)\zs\s*[-+]'
-  exe 'let @'. regname "= substitute('@'". regname ", pat, '', 'g')"
+  exe 'let @'. regname "= substitute(@". regname ", pat, '', 'ge')"
 endfunction

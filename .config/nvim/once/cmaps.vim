@@ -153,7 +153,7 @@ function! s:assign_window(mods) abort
 
   for mods in mods_list
     let mods .= '\s\+'
-    let line = substitute(line, mods, '', '')
+    let line = substitute(line, mods, '', 'e')
   endfor
 
   let ret = "\<C-u>". a:mods .' '. line ."\<CR>"

@@ -18,14 +18,14 @@ function! s:defx(...) abort
 
   let fname = matchstr(get(b:, 'term_title', expand('%:p')), '/\S.\+')
   let fname = fnameescape(fname)
-  " let fname = substitute(fname, '[^\\]\zs ', '\\ ', 'g')
+  " let fname = substitute(fname, '[^\\]\zs ', '\\ ', 'ge')
 
   call s:mk_p_dir_on_demand(fname)
 
   " b:term_title won't show filename but shows cwd.
   let cwd = exists('b:term_title') ? fname : expand('%:p:h')
   let cwd = fnameescape(cwd)
-  " let cwd = substitute(cwd, '[^\\]\zs ', '\\ ', 'g')
+  " let cwd = substitute(cwd, '[^\\]\zs ', '\\ ', 'ge')
 
   let args .= ' -search='. fname
   exe 'Defx' cwd args

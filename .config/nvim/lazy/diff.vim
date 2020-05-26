@@ -58,5 +58,5 @@ augroup END
 "     let regname = '"'
 "   endif
 "   let pat = '\(^\|\n\)\zs\s*[-+]'
-"   let @{regnamem} = substitute(regname, pat, '', 'g')
+"   let @{regnamem} = substitute(regname, pat, '', 'ge')
 " endfunction

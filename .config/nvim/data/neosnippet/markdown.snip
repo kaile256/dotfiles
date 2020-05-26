@@ -1,8 +1,8 @@
 snippet vplug
 alias vp vpl vim plug plu pl vi
-  # `substitute(expand('%:p:h'), '.*\/', '', '')`
+  # `substitute(expand('%:p:h'), '.*\/', '', 'e')`
 
-  `substitute(expand('%:p:h'), '.*\/', '', '')` is ${0:TARGET}
+  `substitute(expand('%:p:h'), '.*\/', '', 'e')` is ${0:TARGET}
 
   ## Installation
 

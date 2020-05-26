@@ -12,7 +12,7 @@ command! -buffer -bar PreviewOnBrowser :call s:preview_on_browser()
 
 function! s:preview_on_browser() abort "{{{1
   let fname = expand('%:p')
-  let url = substitute(fname, '.*/public_html/', 'https://localhost/~'. $USER .'/', '')
+  let url = substitute(fname, '.*/public_html/', 'https://localhost/~'. $USER .'/', 'e')
   exe '!xdg-open' url
 endfunction
 

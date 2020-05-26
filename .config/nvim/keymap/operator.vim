@@ -31,7 +31,7 @@ endfunction "}}}1
 "function! s:the_line_is_identical_to_regcontents() abort
 "  if !has_key(v:event, 'regname')
 "    " TODO: have to check character-wise
-"    return (@" ==# substitute(getline('v'), '$', '\n', 'g'))
+"    return (@" ==# substitute(getline('v'), '$', '\n', 'ge'))
 "  endif
 "endfunction
 "nnoremap <expr> <Plug>(clean-register-delete)
@@ -42,10 +42,10 @@ endfunction "}}}1
 "nmap c <Plug>(clean-register-change)
 
 " TODO: enable to dot-repoeat
-nnoremap <expr> <SID>(move-line-downward) (getline('.') ==# substitute(@", "\n", '', 'g'))? '"_ddp':  'ddp'
-nnoremap <expr> <SID>(move-line-upward)   (getline('.') ==# substitute(@", "\n", '', 'g'))? '"_ddkP': 'ddkP'
-nnoremap <expr> <SID>(copy-line-downward) (getline('.') ==# substitute(@0, "\n", '', 'g'))? '"0p': 'yyp'
-nnoremap <expr> <SID>(copy-line-upward)   (getline('.') ==# substitute(@0, "\n", '', 'g'))? '"0P': 'yyP'
+nnoremap <expr> <SID>(move-line-downward) (getline('.') ==# substitute(@", "\n", '', 'ge'))? '"_ddp':  'ddp'
+nnoremap <expr> <SID>(move-line-upward)   (getline('.') ==# substitute(@", "\n", '', 'ge'))? '"_ddkP': 'ddkP'
+nnoremap <expr> <SID>(copy-line-downward) (getline('.') ==# substitute(@0, "\n", '', 'ge'))? '"0p': 'yyp'
+nnoremap <expr> <SID>(copy-line-upward)   (getline('.') ==# substitute(@0, "\n", '', 'ge'))? '"0P': 'yyP'
 
 nnoremap <script> cp <SID>(move-line-downward)
 nnoremap <script> cP <SID>(move-line-upward)

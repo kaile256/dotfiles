@@ -4,11 +4,11 @@ scriptencoding utf-8
 " TODO: make it work anywhere
 nnoremap <silent> gX :<c-u>call <SID>xdg_open()<cr>
 function! s:xdg_open() abort "{{{1
-  let cfile = substitute(expand('<cfile>'), '.\+=/', '/', '')
+  let cfile = substitute(expand('<cfile>'), '.\+=/', '/', 'e')
   "silent exe '!xdg-open' cfile '&'
   let fname = cfile
 
-  let noSpace = substitute(fname, '[^\\]\zs ', '\\ ', 'g')
+  let noSpace = substitute(fname, '[^\\]\zs ', '\\ ', 'ge')
   let fname = findfile(noSpace)
   "let dir   = matchstr(get(b:, 'term_title', getcwd()), '/\S.\+')
   "let fname = dir . '/'. cfile
