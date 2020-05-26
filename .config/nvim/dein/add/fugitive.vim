@@ -256,6 +256,8 @@ command! -bar -bang -nargs=* -complete=customlist,fugitive#EditComplete
       \ | call s:winpick()
       \ | Gvdiffsplit! <args>
 
-" Unstage {{{1
+" Staging {{{1
+nnoremap <silent> <space>gc :<c-u>bot 20 Gcommit<cr>
+nnoremap <silent> <space>gC :<c-u>bot 20 Gcommit --amend<cr>
 nnoremap <silent> <space>gu :<c-u>Gunstage %<cr>
 nnoremap <silent> <space>gU :<c-u>Gunstage<cr>
