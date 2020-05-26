@@ -14,7 +14,9 @@ let g:loaded_lazy_diff = 1
 set diffopt=
 "set diffopt=iwhite,iwhiteeol,iblank
 set diffopt+=filler,internal
-set diffopt+=vertical,indent-heuristic
+set diffopt+=closeoff,hiddenoff
+set diffopt+=vertical
+set diffopt+internal,indent-heuristic
 set diffopt+=algorithm:histogram
 
 augroup myDiffLazy

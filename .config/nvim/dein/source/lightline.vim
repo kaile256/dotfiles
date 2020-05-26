@@ -24,10 +24,11 @@ let g:lightline.colorscheme = 'one'
 " and so on.
 let g:lightline.tabline = {
       \ 'left': [
-      \   ['tabs'],
+      \   ['git_branch'], ['git_diff'],
       \ ],
       \
       \ 'right': [
+      \   ['tabs'],
       \   ['cwd'],
       \ ],
       \ }
