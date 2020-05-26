@@ -9,6 +9,7 @@ nmap \C <Plug>(operator-swap-area2-swap)
 xmap \c <Plug>(operator-swap-area1)
 xmap \C <Plug>(operator-swap-area2-swap)
 
-" nmap \cc <Plug>(operator-swap-area1)Vl
-" nmap \CC <Plug>(operator-swap-area2-swap)Vl
-" nmap \Cc <Plug>(operator-swap-area2-swap)Vl
+" Note: \cc forces \c to fail.
+" nmap \cc V<Plug>(operator-swap-area1)
+" nmap \CC V<Plug>(operator-swap-area2-swap)
+" nmap \Cc V<Plug>(operator-swap-area2-swap)
