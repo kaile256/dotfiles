@@ -188,14 +188,20 @@ function! LL_filetype() abort "{{{2
 endfunction
 
 function! LL_git_branch() abort "{{{2
+  if &bt ==# 'terminal'
+    return 'TERM'
+  endif
+
   let branch = ''
   try
     let branch = FugitiveHead()
+
   finally
     if exists('*GitGutterGetHunkSummary()')
           \ && GitGutterGetHunkSummary() != [0, 0, 0]
       let branch .= '!'
     endif
+
     return !empty(branch) ? branch : '...'
   endtry
 endfunction
