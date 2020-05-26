@@ -164,7 +164,7 @@ function! LL_git_diff() abort "{{{2
   return join(ret)
 endfunction
 
-augroup myLightlineSo
+augroup myLightlineSo "{{{1
   if exists('#myLightlineSo') | au! myLightlineSo
   endif
   au CmdlineLeave * call lightline#update()
