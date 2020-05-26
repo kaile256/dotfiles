@@ -65,13 +65,14 @@ let g:lightline.tab = {
 
 let g:lightline.inactive = {
       \ 'left': [
-      \   ['filename']
+      \   ['filename'],
+      \   ['readonly'],
       \ ],
       \
       \ 'right': [
-      \   ['branch'],
       \   ['percent'],
       \   ['lineinfo'],
+      \   ['filetype'],
       \ ],
       \ }
 
@@ -79,16 +80,15 @@ let g:lightline.inactive = {
 let g:lightline.active = {
       \ 'left': [
       \   ['mode'],
-      \   ['paste', 'spell'],
-      \   ['readonly'],
-      \   ['coc'],
-      \   ['filename'],
+      \   ['git_branch', 'git_diff'],
+      \   ['readonly', 'paste', 'spell'],
       \ ],
       \
       \ 'right': [
       \   ['percent'],
-      \   ['fileformat', 'fileencoding', 'filetype'],
       \   ['lineinfo'],
+      \   ['fileformat', 'fileencoding', 'filetype'],
+      \   ['notification'],
       \ ],
       \ }
 
@@ -103,28 +103,81 @@ let g:lightline.component_expand = {
       \ 'readonly': '!&modifiable ? "x" : (&ro ? "RO" : "")',
       \
       \ 'fileformat':   '&ff ==# "unix" ? "" : &ff',
+      \
       \ 'fileencoding':
       \   'empty(&fenc) ? &enc : (&fenc ==# "utf-8" ? "" : &fenc)',
-      \
-      \ 'filename': 'empty(expand("%:t")) ? "No Name" : expand("%:t")',
       \ }
 
 let g:lightline.component_function = {
-      \ 'coc': 'coc#status',
+      \ 'notification': 'LL_notification',
+      \
       \ 'filetype': 'LL_filetype',
-      \ 'branch': 'LL_branch',
+      \
       \ 'cwd': 'LL_getcwd',
+      \ 'filename': 'LL_filename',
+      \
+      \ 'git_branch': 'LL_git_branch',
+      \ 'git_diff': 'LL_git_diff',
       \ }
 
-function! LL_getcwd() abort
+function! LL_notification() abort "{{{2
+  for msg in ['gutentags#statusline()', 'LL_coc_notice()']
+    try
+      let msg = eval(msg)
+    catch
+      if !empty(msg)
+        return msg
+      endif
+    endtry
+  endfor
+
+  return LL_errmsg()
+endfunction
+
+function! LL_errmsg() abort "{{{2
+  let msg = get(v:, 'errmsg', '')
+  if msg !~# '^E803:'
+    " Note: vim-cursorword provides 'E803: ID not found' unlimitedly.
+    let s:msg = msg
+    return msg
+  else
+    return get(s:, 'msg', '')
+  endif
+endfunction
+
+function! LL_coc_notice() abort "{{{2
+  let msg = ''
+
+  if !exists('b:coc_diagnostic_info')
+
+  elseif get(b:coc_diagnostic_info, 'warning') != 0
+    let msg = 'Warn'
+  elseif get(b:coc_diagnostic_info, 'error') != 0
+    let msg = 'Error'
+  elseif get(b:coc_diagnostic_info, 'information') != 0
+    let msg = 'Info'
+  elseif get(b:coc_diagnostic_info, 'hint') != 0
+    let msg = 'Hint'
+  endif
+
+  if empty(msg) | return '' | endif
+  return 'Coc: '. b:coc_diagnostic_info['lnums'][0] .' has "'. msg .'"'
+endfunction
+
+function! LL_filename() abort "{{{2
+  return (filewritable('%:p') ? '?' : '')
+        \ . pathshorten(getcwd()) .'/'. expand('%:t')
+endfunction
+
+function! LL_getcwd() abort "{{{2
   return pathshorten(getcwd())
 endfunction
 
-function! LL_filetype() abort
+function! LL_filetype() abort "{{{2
   if &bt =~# 'terminal\|help' || &ft ==# expand('%:e')
     return ''
   elseif empty(&ft)
-    return 'no ft'
+    return '[no ft]'
   endif
 
   return &ft
