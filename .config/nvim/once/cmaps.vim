@@ -88,10 +88,23 @@ endfunction
 "cnoremap <silent> <a-t> <c-f>:call feedkeys("\<esc>t")<cr>
 "cnoremap <silent> <a-F> <c-f>:call feedkeys("\<esc>F")<cr>
 "cnoremap <silent> <a-T> <c-f>:call feedkeys("\<esc>T")<cr>
-" Shorcut: instant :verbose "{{{1
-cnoremap <silent><expr> <a-m>  <SID>verbose_in_quickfix()
-cnoremap <silent><expr> <a-cr> <SID>verbose_in_quickfix()
-cnoremap <silent><expr> <a-j>  <SID>verbose_in_quickfix()
+
+" Shorcut: instant execution "{{{1
+cnoremap <script> <a-m>  <SID>(execute-shortcut)
+cnoremap <script> <a-cr> <SID>(execute-shortcut)
+cnoremap <script> <a-j>  <SID>(execute-shortcut)
+
+cnoremap <silent><expr> <SID>(execute-shortcut)
+      \ (getcmdtype() ==# '=')
+      \ ? <SID>quick_execute()
+      \ : <SID>verbose_in_quickfix()
+
+function! s:quick_execute() abort "{{{2
+  let cmd = getcmdline()
+  let cmd = substitute(cmd, '^\s*exe\%[cute](', '', 'e')
+  return "\<End>\<C-u>execute(". string(cmd) .")\<CR>"
+endfunction
+
 function! s:verbose_in_quickfix() abort "{{{2
   if getcmdtype() !=# ':' | return | endif
 
