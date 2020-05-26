@@ -1,5 +1,15 @@
 # From: dein/dein.vim
 
+[[plugins]]
+repo = 'dyng/ctrlsf.vim'
+# Get grep-results under project-root, or current directory, into a buffer to
+# edit. Async.
+on_map = {nx = ['<Plug>CtrlSF']}
+on_cmd = ['CtrlSFOpen', 'CtrlSFToggle']
+hook_add = 'runtime add/ctrlsf.vim'
+hook_source = 'runtime source/ctrlsf.vim'
+hook_post_source = 'runtime post/ctrlsf.vim'
+
 #[ Fuzzy Finder ]
 [[plugins]]
 repo = 'junegunn/fzf'
