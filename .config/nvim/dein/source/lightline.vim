@@ -21,9 +21,23 @@ let g:lightline.colorscheme = 'one'
 "      \ }
 
 " Define Components for Tabline {{{2
-" let g:lightline.tab_component_function = {
-"      \ 'bufnr': 'LL_tab_modified',
-"      \ }
+let g:lightline.tab_component_function = {
+      \ 'path': 'LL_tab_path',
+      \ }
+
+function! LL_tab_path(n) abort
+  let buflist = tabpagebuflist(a:n)
+  let winnr = tabpagewinnr(a:n)
+  let bufname = expand('#'. buflist[winnr - 1])
+
+  let dir_path  = fnamemodify(bufname, ':p:h')
+  let short_dir = pathshorten(dir_path)
+  let dir = fnamemodify(short_dir, ':h:t') .'/'. fnamemodify(short_dir, ':t')
+
+  let fname = fnamemodify(bufname, ':t')
+  let path = pathshorten(dir) .'/'. fname
+  return fname !=# '' ? path : '[No Name]'
+endfunction
 
 " Modify lightline#tab#modified(n) directly
 " itchyny/lightline.vim/autoload/lightline/tab.vim.
@@ -177,7 +191,7 @@ endfunction
 " 'tab_component_function' which takes a winnr as an arg.
 let g:lightline.tab = {
       \ 'active': [
-      \   'filename',
+      \   'path',
       \   'modified',
       \ ],
       \
@@ -193,11 +207,10 @@ let g:lightline.tab = {
 " and so on.
 let g:lightline.tabline = {
       \ 'left': [
-      \   ['git_branch'], ['git_diff'],
+      \   ['tabs'],
       \ ],
       \
       \ 'right': [
-      \   ['tabs'],
       \   ['cwd'],
       \ ],
       \ }
