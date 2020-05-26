@@ -135,7 +135,7 @@ function! LL_notification() abort "{{{2
   return LL_errmsg()
 endfunction
 
-function! LL_errmsg() abort "{{{2
+function! LL_errmsg() abort "{{{3
   let msg = get(v:, 'errmsg', '')
   if msg !~# '^E803:'
     " Note: vim-cursorword provides 'E803: ID not found' unlimitedly.
@@ -146,7 +146,7 @@ function! LL_errmsg() abort "{{{2
   endif
 endfunction
 
-function! LL_coc_notice() abort "{{{2
+function! LL_coc_notice() abort "{{{3
   let msg = ''
 
   if !exists('b:coc_diagnostic_info')
