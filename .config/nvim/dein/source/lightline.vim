@@ -7,15 +7,16 @@ let g:lightline = {}
 let g:lightline.colorscheme = 'one'
 
 " Define Separator {{{1
+
 " let g:lightline = {
 "      \ 'separator': { 'left': '', 'right': '' },
 "      \ 'subseparator': { 'left': '', 'right': '' },
 "      \ }
 
 " let g:lightline = {
-"    \ 'separator': { 'left': '⮀', 'right': '⮂' },
-"    \ 'subseparator': { 'left': '⮁', 'right': '⮃' }
-"    \ }
+"      \ 'separator': { 'left': '⮀', 'right': '⮂' },
+"      \ 'subseparator': { 'left': '⮁', 'right': '⮃' }
+"      \ }
 
 " Define Tabline {{{1
 " Note: tabline seems to update fewer times than status line.
