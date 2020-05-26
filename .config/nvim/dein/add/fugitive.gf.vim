@@ -14,8 +14,8 @@ nnoremap <script> gf <SID>(fugitive-gf)
 xnoremap <script> gf <SID>(fugitive-gf)
 
 nnoremap <script> gF      <SID>(fugitive-gf-tab)
-nnoremap <script> gF      <SID>(fugitive-gf-tab)
-xnoremap <script> <c-w>F  <SID>(fugitive-gf-tab)
+xnoremap <script> gF      <SID>(fugitive-gf-tab)
+nnoremap <script> <c-w>F  <SID>(fugitive-gf-tab)
 xnoremap <script> <c-w>F  <SID>(fugitive-gf-tab)
 nnoremap <script> <c-w>gf <SID>(fugitive-gf-tab)
 xnoremap <script> <c-w>gf <SID>(fugitive-gf-tab)
@@ -25,6 +25,16 @@ xnoremap <script> <c-w>f <SID>(fugitive-gf-horizontal)
 nnoremap <script> <c-w><space>f <SID>(fugitive-gf-vertical)
 xnoremap <script> <c-w><space>f <SID>(fugitive-gf-vertical)
 
+" Define Helpers {{{1
+function! s:is_hash() abort
+  return expand('<cword>') =~# '^\x\{6,}$'
+endfunction
+
+function! s:Gopen(open) abort
+  exe 'G'. a:open expand('<cword>')
+endfunction
+
+" Define mappings {{{2
 " TODO: the mappings should be better to be restricted to git-related buffer
 "   via dein in TOML
 noremap <silent><expr> <SID>(fugitive-gf)
@@ -33,30 +43,7 @@ noremap <silent><expr> <SID>(fugitive-gf-tab)
       \ <SID>is_hash() ? ":call <SID>Gopen('tabe')<cr>" : '<c-w>gF'
 
 noremap <silent><expr> <SID>(fugitive-gf-horizontal)
-      \ <SID>is_hash() ? ":call <SID>Gopen('split')<cr>" : '<c-w>F'
+      \ <SID>is_hash() ? ":call <SID>Gopen('pedit')<cr>" : '<c-w>F'
 nnoremap <silent><expr> <SID>(fugitive-gf-vertical)
       \ <SID>is_hash() ? ":call <SID>Gopen('vsplit')<cr>" : '<Cmd>vert wincmd F<cr>'
 
-function! s:is_hash() abort "{{{1
-  " <cfile> and <cWORD> is inappropriate for ddc70ca6..01581d37
-  let cfile = expand('<cword>')
-
-  " \x\+ matches a word, 'add', for example; so regard 'cfile' as *not* a hash
-  " when it has not a number or not a character though the pattern could be a
-  " hash.
-  if cfile !~# '^\x\+$'
-    return 0
-  endif
-
-  if cfile =~# '^[0-9]\+$\|^[a-z]\+$'
-        \ || len(cfile) < 7
-    " echoerr cfile 'is probably not a commit-hash; abort'
-    return 0
-  endif
-
-  return 1
-endfunction
-
-function! s:Gopen(open) abort "{{{1
-  exe 'G'. a:open expand('<cword>')
-endfunction
