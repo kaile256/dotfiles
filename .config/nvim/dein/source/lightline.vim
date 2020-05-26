@@ -123,13 +123,15 @@ let g:lightline.component_function = {
 
 function! LL_notification() abort "{{{2
   for msg in ['gutentags#statusline()', 'LL_coc_notice()']
-    try
+    if exists('*'. msg)
       let msg = eval(msg)
-    catch
-      if !empty(msg)
-        return msg
-      endif
-    endtry
+    else
+      let msg = ''
+    endif
+
+    if !empty(msg)
+      return msg
+    endif
   endfor
 
   return LL_errmsg()
