@@ -6,6 +6,68 @@ let g:lightline = {}
 
 let g:lightline.colorscheme = 'one'
 
+" Define the Order {{{1
+
+" Define the order of Tabline {{{2
+" Note: The 'tab' is only for 'tabline', nested once.
+" Note: Components in 'tabs' should be defined in 'tab_component' or
+" 'tab_component_function' which takes a winnr as an arg.
+let g:lightline.tab = {
+      \ 'active': [
+      \   'path',
+      \   'modified',
+      \ ],
+      \
+      \ 'inactive': [
+      \   'tabnum',
+      \   'filename',
+      \   'modified',
+      \ ],
+      \ }
+
+" Note: tabline seems to update fewer times than status line.
+" Note: All the indices except 'tabs' should be defined in 'component_function'
+" and so on.
+let g:lightline.tabline = {
+      \ 'left': [
+      \   ['tabs'],
+      \ ],
+      \
+      \ 'right': [
+      \   ['cwd'],
+      \ ],
+      \ }
+
+" Define the order of Statusline {{{2
+" Note: 'right' fills right to left
+let g:lightline.active = {
+      \ 'left': [
+      \   ['mode'],
+      \   ['git_branch', 'git_diff'],
+      \   ['readonly', 'paste', 'spell'],
+      \ ],
+      \
+      \ 'right': [
+      \   ['percent'],
+      \   ['lineinfo'],
+      \   ['fileformat', 'fileencoding', 'filetype'],
+      \   ['notification'],
+      \ ],
+      \ }
+
+let g:lightline.inactive = {
+      \ 'left': [
+      \   ['filename'],
+      \   ['readonly'],
+      \ ],
+      \
+      \ 'right': [
+      \   ['percent'],
+      \   ['lineinfo'],
+      \   ['filetype'],
+      \ ],
+      \ }
+
 " Define Components {{{1
 
 " Define Separator {{{2
@@ -182,68 +244,6 @@ function! LL_git_diff() abort "{{{3
 
   return join(ret)
 endfunction
-
-" Define the Order {{{1
-
-" Define the order of Tabline {{{2
-" Note: The 'tab' is only for 'tabline', nested once.
-" Note: Components in 'tabs' should be defined in 'tab_component' or
-" 'tab_component_function' which takes a winnr as an arg.
-let g:lightline.tab = {
-      \ 'active': [
-      \   'path',
-      \   'modified',
-      \ ],
-      \
-      \ 'inactive': [
-      \   'tabnum',
-      \   'filename',
-      \   'modified',
-      \ ],
-      \ }
-
-" Note: tabline seems to update fewer times than status line.
-" Note: All the indices except 'tabs' should be defined in 'component_function'
-" and so on.
-let g:lightline.tabline = {
-      \ 'left': [
-      \   ['tabs'],
-      \ ],
-      \
-      \ 'right': [
-      \   ['cwd'],
-      \ ],
-      \ }
-
-" Define the order of Statusline {{{2
-" Note: 'right' fills right to left
-let g:lightline.active = {
-      \ 'left': [
-      \   ['mode'],
-      \   ['git_branch', 'git_diff'],
-      \   ['readonly', 'paste', 'spell'],
-      \ ],
-      \
-      \ 'right': [
-      \   ['percent'],
-      \   ['lineinfo'],
-      \   ['fileformat', 'fileencoding', 'filetype'],
-      \   ['notification'],
-      \ ],
-      \ }
-
-let g:lightline.inactive = {
-      \ 'left': [
-      \   ['filename'],
-      \   ['readonly'],
-      \ ],
-      \
-      \ 'right': [
-      \   ['percent'],
-      \   ['lineinfo'],
-      \   ['filetype'],
-      \ ],
-      \ }
 
 augroup myLightlineSo "{{{1
   if exists('#myLightlineSo') | au! myLightlineSo
