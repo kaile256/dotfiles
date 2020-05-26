@@ -105,8 +105,9 @@ let g:lightline.component_expand = {
       \
       \ 'fileformat':   '&ff ==# "unix" ? "" : &ff',
       \
-      \ 'fileencoding':
-      \   'empty(&fenc) ? &enc : (&fenc ==# "utf-8" ? "" : &fenc)',
+      \ 'fileencoding': 'empty(&fenc)
+      \   ? (&enc  ==# "utf-8" ? "" : &enc)
+      \   : (&fenc ==# "utf-8" ? "" : &fenc)',
       \ }
 
 let g:lightline.component_function = {
