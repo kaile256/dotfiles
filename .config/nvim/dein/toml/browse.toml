@@ -194,3 +194,15 @@ hook_add = 'runtime add/tagbar.vim'
 #  'alternate#FindTest',
 #]
 #hook_add = 'runtime add/alternate.vim'
+
+#[ Project ]
+#[[plugins]]
+#repo = 'tpope/vim-projectionist'
+#on_event = ['BufRead']
+## Note: this plugin provides no commands before its autocmds provide them.
+##on_cmd = [
+##  'E', 'S', 'V', 'T',
+##  'A', 'AS', 'AV', 'AT',
+##  'Edoc', 'Eplugin',
+##]
+#hook_source = 'runtime source/projectionist.vim'
