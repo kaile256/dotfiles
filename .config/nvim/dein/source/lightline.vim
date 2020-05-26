@@ -97,7 +97,7 @@ function! LL_tab_path(n) abort
   let dir = fnamemodify(short_dir, ':h:t') .'/'. fnamemodify(short_dir, ':t')
 
   let fname = fnamemodify(bufname, ':t')
-  let path = pathshorten(dir) .'/'. fname
+  let path = dir .'/'. fname
   return fname !=# '' ? path : '[No Name]'
 endfunction
 
