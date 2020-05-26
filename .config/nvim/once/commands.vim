@@ -30,7 +30,7 @@ endfunction
 "    endif
 "  endfunction
 "augroup END
-"}}}
+
 " Lint {{{1
 " TODO: make vint restricted to the range
 command! -bar -range -nargs=* Lint :call s:lint_buffer(<f-args>)
