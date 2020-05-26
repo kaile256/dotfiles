@@ -219,15 +219,20 @@ nnoremap <silent> <space>gs :<c-u>Gvstatus<cr>
 
 " Add{{{1
 " Note: <c-w>p<c-w>p is necessary to update signcolumn
-nnoremap <silent> <space>ga :<c-u>silent Gw <bar> Gvstatus <bar> call win_gotoid(bufwinid('.git/index'))<cr>
-nnoremap <silent> <space>gw :<c-u>GwToDiffWithStat HEAD<cr>
+nnoremap <silent> <space>ga :<c-u>silent Gw<CR>
+nnoremap <silent> <space>gA :<c-u>silent Gw
+      \ <bar> Gvstatus <bar> call win_gotoid(bufwinid('.git/index'))<cr>
+nnoremap <silent> <space>gw :<c-u>silent Gw
+      \ <bar> Gvstatus <bar> call win_gotoid(bufwinid('.git/index'))<cr>
 
-command! -bar -nargs=*
-      \ GwToDiffWithStat
-      \ :silent Gw
-      \ | HelpCloseAll
-      \ | call s:winpick()
-      \ | call s:Gvdiffw(<q-args>)
+" nnoremap <silent> <space>gw :<c-u>GwToDiffWithStat HEAD<cr>
+
+" command! -bar -nargs=*
+"      \ GwToDiffWithStat
+"      \ :silent Gw
+"      \ | HelpCloseAll
+"      \ | call s:winpick()
+"      \ | call s:Gvdiffw(<q-args>)
 
 " Add to Diff {{{2
 nnoremap <silent> <space>go :<c-u>silent Gw <bar> only<cr>
