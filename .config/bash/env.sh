@@ -95,8 +95,8 @@ export RUSTUP_HOME="$HOME/.rustup"
 export PYENV_ROOT="$HOME/.pyenv"
 export MYPY_CACHE_DIR="$XDG_CACHE_HOME/.mypy_cache"
 
-# Ruby
-export GEM_HOME="$HOME/.gem"
+## Ruby
+#export GEM_HOME="$HOME/.gem"
 
 # Haskell
 export STACK_ROOT="$HOME/.haskell/stack"
