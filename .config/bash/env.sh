@@ -77,6 +77,10 @@ export FZF_PREVIEW_DIR_CMD="ls"
 ## Vim
 export THEMIS_HOME=$XDG_CONFIG_HOME/nvim/data/bin/themis
 
+# GTag
+export GTAGSCONF=/usr/share/gtags/gtags.conf
+export GTAGSLABEL=pygments
+
 # Language {{{1
 # Go
 export GOPATH="$HOME/.go"
