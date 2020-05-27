@@ -58,7 +58,7 @@ endfunction
 function! s:defx_is_narrow() abort
   return ! s:defx_is_wide()
 endfunction
-function! s:single_window() abort
+function! s:single_window_with_defx() abort
   return len(tabpagebuflist()) <= 2
 endfunction
 "let s:defx_is_wide   = {-> winwidth('.') > g:defx_standard_width}
@@ -154,13 +154,13 @@ function! s:defx_keymaps() abort "{{{1
   nnoremap <silent><nowait><buffer><expr> <c-j>
         \ <SID>defx_is_wide()?
         \ defx#do_action('open', 'edit'):
-        \ <SID>single_window()?
+        \ <SID>single_window_with_defx()?
         \ defx#do_action('drop'):
         \ defx#do_action('multi', ['drop', 'quit'])
   nnoremap <silent><nowait><buffer><expr> <CR>
         \ <SID>defx_is_wide()?
         \ defx#do_action('open', 'edit'):
-        \ <SID>single_window()?
+        \ <SID>single_window_with_defx()?
         \ defx#do_action('drop'):
         \ defx#do_action('multi', ['drop', 'quit'])
   xnoremap <silent><nowait><buffer><expr> P
