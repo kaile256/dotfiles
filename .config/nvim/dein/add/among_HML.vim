@@ -34,10 +34,10 @@ let g:among_HML#no_default_mappings = 1
 "      \ call feedkeys('L')<cr>
 "
 " 9 Patterns -- H/L simple {{{2
-noremap <silent> H <Cmd>call among_HML#fork#init('H', '0', {
-      \ 'J': '12.5',
-      \ })<bar>
-      \ call feedkeys('H')<cr>
+" noremap <silent> H <Cmd>call among_HML#fork#init('H', '0', {
+"      \ 'J': '12.5',
+"      \ })<bar>
+"      \ call feedkeys('H')<cr>
 
 noremap <silent> K <Cmd>call among_HML#fork#init('K', 25, {
       \ 'K': '12.5',
@@ -57,10 +57,10 @@ noremap <silent> J <Cmd>call among_HML#fork#init('J', 75, {
       \ })<bar>
       \ call feedkeys('J')<cr>
 
-noremap <silent> L <Cmd>call among_HML#fork#init('L', '100', {
-      \ 'K': '87.5',
-      \ })<bar>
-      \ call feedkeys('L')<cr>
+" noremap <silent> L <Cmd>call among_HML#fork#init('L', '100', {
+"      \ 'K': '87.5',
+"      \ })<bar>
+"      \ call feedkeys('L')<cr>
 
 "" 9 Patterns -- H/L complex {{{2
 "noremap <silent> H <Cmd>call among_HML#fork#init('H', '0', {
@@ -118,8 +118,8 @@ noremap <silent> L <Cmd>call among_HML#fork#init('L', '100', {
 " among_HML#jump {{{1
 onoremap <silent> K <Cmd>call among_HML#jump(25)<cr>
 onoremap <silent> J <Cmd>call among_HML#jump(75)<cr>
-onoremap <silent> H H
-onoremap <silent> L L
+" onoremap <silent> H H
+" onoremap <silent> L L
 
 " Evacuations for default {{{1
 if mapcheck('K') !=# ''
