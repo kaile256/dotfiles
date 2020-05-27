@@ -150,6 +150,7 @@ let g:lightline.component_expand = {
 
 " Define Components Functions {{{2
 function! LL_notification() abort "{{{3
+  let msg = ''
   for msg in ['gutentags#statusline()', 'LL_coc_notice()']
     if exists('*'. msg)
       let msg = eval(msg)
@@ -162,7 +163,11 @@ function! LL_notification() abort "{{{3
     endif
   endfor
 
-  return LL_errmsg()
+  if empty(msg)
+    let msg =  LL_errmsg()
+  endif
+
+  return len(msg) < winwidth(0) ? msg : ''
 endfunction
 
 function! LL_errmsg() abort "{{{3
