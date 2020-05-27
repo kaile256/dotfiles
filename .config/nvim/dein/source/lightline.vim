@@ -94,14 +94,9 @@ function! LL_tab_path(n) abort
   let winnr = tabpagewinnr(a:n)
   let bufname = expand('#'. buflist[winnr - 1])
 
-  let dir_path  = fnamemodify(bufname, ':p:h')
-  let short_dir = pathshorten(dir_path)
-  let dir = fnamemodify(short_dir, ':h:t') .'/'. fnamemodify(short_dir, ':t')
-
-  let fname = fnamemodify(bufname, ':t')
-  let path = dir .'/'. fname
-  return fname !=# '' ? path : '[No Name]'
+  return s:modify_path(bufname)
 endfunction
+
 
 " Modify lightline#tab#modified(n) directly
 " itchyny/lightline.vim/autoload/lightline/tab.vim.
@@ -194,9 +189,34 @@ function! LL_coc_notice() abort "{{{3
   return 'Coc: '. b:coc_diagnostic_info['lnums'][0] .' has "'. msg .'"'
 endfunction
 
-function! LL_filename() abort "{{{3
-  return (filewritable('%:p') ? '?' : '')
-        \ . pathshorten(getcwd()) .'/'. expand('%:t')
+function! LL_path() abort "{{{3
+  " TODO: return the window's filename
+  let bufname = expand('%')
+  return s:modify_path(bufname)
+endfunction
+
+function! s:modify_path(bufname) abort "{{{3
+  if &bt ==# 'terminal'
+    if @% =~# 'FZF'
+      return 'FZF running...'
+    endif
+    " Return 'running shell':'id'
+    return substitute(a:bufname, '.\{-}\(\d\+\):\(\S\+\)$', '\2:\1', 'e')
+  endif
+  if a:bufname =~# '\[.\{-}]'
+    return matchstr(a:bufname, '\[.\{-}]')
+  elseif a:bufname =~# '__.\{-}__'
+    return matchstr(a:bufname, '__.\{-}__')
+    " return '['. matchstr(a:bufname, '__\zs.\{-}\ze__') .']'
+  endif
+
+  let dir_path  = fnamemodify(a:bufname, ':p:h')
+  let short_dir = pathshorten(dir_path)
+  let dir = fnamemodify(short_dir, ':h:t') .'/'. fnamemodify(short_dir, ':t')
+
+  let fname = fnamemodify(a:bufname, ':t')
+  let path = dir .'/'. fname
+  return fname !=# '' ? path : '[No Name]'
 endfunction
 
 function! LL_getcwd() abort "{{{3
