@@ -11,7 +11,10 @@ let g:loaded_tutor_mode_plugin = 1
 let g:loaded_2html_plugin = 1
 command! -range=% -bar ToHtml :call tohtml#Convert2HTML(<line1>, <line2>)
 
+" Path: /usr/share/vim/vimfiles/plugin/
 let g:loaded_fzf = 1
+let g:loaded_gtags = 1
+let g:loaded_gtags_cscope = 1
 
 augroup myLoadedRc
   if exists('#myLoadedRc')
