@@ -205,6 +205,10 @@ endfunction
 function! LL_git_branch() abort "{{{3
   if &bt ==# 'terminal'
     return 'TERM'
+  elseif &ft =~# 'help\|man'
+    " Return the title.
+    " The substitute() only for 'help'.
+    return substitute(matchstr(getline(1), '\S\+'), '\*\|\.txt', '', 'ge')
   elseif !empty(&bt)
     return ''
   endif
