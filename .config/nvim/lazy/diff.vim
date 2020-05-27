@@ -16,7 +16,7 @@ set diffopt=
 set diffopt+=filler,internal
 set diffopt+=closeoff,hiddenoff
 set diffopt+=vertical
-set diffopt+internal,indent-heuristic
+set diffopt+=internal,indent-heuristic
 set diffopt+=algorithm:histogram
 
 augroup myDiffLazy
