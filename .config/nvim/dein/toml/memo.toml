@@ -1,4 +1,12 @@
-# From: rc/dein.vim
+# From: dein/dein.vim
+
+#[ Task Management ]
+#[[plugins]]
+#repo = 'vitalk/vim-simple-todo'
+## just create mappings which produce a list inserting "[ ]" and so on.
+#on_map = {niv = '<Plug>(simple-todo-'}
+#hook_add = 'runtime add/simple-todo.vim'
+#hook_source = 'runtime source/simple-todo.vim'
 
 #[ Scratch ]
 #[[plugins]]
