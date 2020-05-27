@@ -25,6 +25,13 @@ augroup myFugitiveSource
     nnoremap <buffer><silent> ca :<c-u>bot 20 Gcommit --amend<cr>
     " To: continue to cc/ce/ca.
     xnoremap <buffer> c sc
+    nnoremap <buffer> R :<C-u>call <SID>git_reset()<CR>
+  endfunction
+
+  function! s:git_reset() abort "{{{2
+    let hash = matchstr(getline('.'), '\x\{,6}')
+    if empty(hash) | return | endif
+    exe 'Git reset' hash
   endfunction
 
   au FileType gitcommit call s:gitcommit_startinsert() "{{{1
