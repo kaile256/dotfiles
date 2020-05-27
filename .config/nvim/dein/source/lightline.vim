@@ -87,6 +87,7 @@ let g:lightline.inactive = {
 " Note: Use 'component_expand' instead if 'tabpagenr' involves no component.
 let g:lightline.tab_component_function = {
       \ 'path': 'LL_tab_path',
+      \ 'modified': 'LL_tab_modified',
       \ }
 
 function! LL_tab_path(n) abort
@@ -100,12 +101,17 @@ endfunction
 
 " Modify lightline#tab#modified(n) directly
 " itchyny/lightline.vim/autoload/lightline/tab.vim.
-"
-" function! LL_tab_modified(n) abort
-"   let winnr = tabpagewinnr(a:n)
-"   return gettabwinvar(a:n, winnr, '&modified') ? '*'
-"        \ : (gettabwinvar(a:n, winnr, '&modifiable') ? '' : '-')
-" endfunction
+
+function! LL_tab_modified(n) abort
+  let winnr = tabpagewinnr(a:n)
+
+  if !empty(gettabwinvar(a:n, winnr, '&buftype'))
+    return ''
+  endif
+
+  return gettabwinvar(a:n, winnr, '&modified') ? '*'
+        \ : (gettabwinvar(a:n, winnr, '&modifiable') ? '' : '-')
+endfunction
 
 " Define Components for Statusline {{{2
 " Note: Priority: (High)component_expand > component_function > component(Low)
