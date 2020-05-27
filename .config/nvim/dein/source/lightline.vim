@@ -125,17 +125,17 @@ let g:lightline.component_expand = {
       \ 'fileencoding': 'empty(&fenc)
       \   ? (&enc  ==# "utf-8" ? "" : &enc)
       \   : (&fenc ==# "utf-8" ? "" : &fenc)',
-      \ }
-
-let g:lightline.component_function = {
+      \
+      \ 'git_branch': 'LL_git_branch',
+      \
       \ 'notification': 'LL_notification',
       \
       \ 'filetype': 'LL_filetype',
       \
       \ 'cwd': 'LL_getcwd',
+      \
       \ 'filename': 'LL_filename',
       \
-      \ 'git_branch': 'LL_git_branch',
       \ 'git_diff': 'LL_git_diff',
       \ }
 
