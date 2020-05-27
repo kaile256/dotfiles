@@ -40,8 +40,9 @@ command! -nargs=? -bar -complete=customlist,fugitive#CommitComplete
       \ Gunstage
       \ :silent exe 'Git reset HEAD' (empty(<q-args>) ? '' : <q-args>)
 
+" Note: `:Gw --only` just stages a file named '--only'.
 command! -nargs=? -bar -complete=customlist,fugitive#EditComplete
-      \ GaddOnly
+      \ GwOnly
       \ :Gunstage | Gw
 
 command! -bar -bang -nargs=* -complete=customlist,fugitive#EditComplete
@@ -178,7 +179,7 @@ function! s:Gvdiffw(...) abort "{{{2
   let obj = a:0 > 0 ? a:1 : ''
 
   exe 'Gvdiffsplit!' obj
-  GaddOnly
+  GwOnly
 
   "" Note: 'wrap' causes gaps when text lengths are different each other
   "setl wrap
