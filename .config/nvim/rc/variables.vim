@@ -18,15 +18,15 @@ let $VMAIL_VIM  = 'nvr'
 "endif
 
 " g:var; for Path {{{1
-let $XDG_CACHE_HOME  = empty($XDG_CACHE_HOME)  ? expand('$HOME/.cache/')       : $XDG_CACHE_HOME
-let $XDG_CONFIG_HOME = empty($XDG_CONFIG_HOME) ? expand('$HOME/.config/')      : $XDG_CONFIG_HOME
-let $XDG_DATA_HOME   = empty($XDG_DATA_HOME)   ? expand('$HOME/.local/share/') : $XDG_DATA_HOME
+let $XDG_CACHE_HOME  = empty($XDG_CACHE_HOME)  ? $HOME .'/.cache/'       : $XDG_CACHE_HOME
+let $XDG_CONFIG_HOME = empty($XDG_CONFIG_HOME) ? $HOME .'/.config/'      : $XDG_CONFIG_HOME
+let $XDG_DATA_HOME   = empty($XDG_DATA_HOME)   ? $HOME .'/.local/share/' : $XDG_DATA_HOME
 
-let $MYMEMO = empty($MYMEMO) ? expand('$HOME/Memo/') : $MYMEMO
-let $MYDEV  = empty($MYDEV)  ? expand('$HOME/dev/')  : $MYDEV
+let $MY_MEMO = empty($MY_MEMO) ? $HOME .'/Memo/' : $MY_MEMO
+let $MY_DEV  = empty($MY_DEV)  ? $HOME .'/dev/'  : $MY_DEV
 
-let g:dotfiles_home  = '~/dotfiles/'
-let g:nvim_home = empty($VIMCONFIG) ? expand(g:dotfiles_home .'/.config/nvim/') : $VIMCONFIG
+let $DOTFILES_HOME = empty($DOTFILES_HOME) ? $HOME .'/dotfiles/' : $DOTFILES_HOME
+let g:nvim_home = empty($VIMCONFIG) ? $DOTFILES_HOME .'/.config/nvim/' : $VIMCONFIG
 let g:nvim_data_home = g:nvim_home . '/data/'
 let g:my_css_home = '~/Downloads/css'
 let g:my_trash_root = $XDG_DATA_HOME .'/Trash'
@@ -50,10 +50,10 @@ set rtp+=~/.config/nvim/keymap
 " Provider {{{1
 if has('python3')
   let g:python3_host_prog = '/usr/bin/python3'
-  "let g:python3_host_prog = $MYMEMO .'/.local/Python-3.7.6'
+  "let g:python3_host_prog = $MY_MEMO .'/.local/Python-3.7.6'
   "let g:python3_host_prog = system('(type pyenv &>/dev/null && echo -n "$(pyenv root)/versions/$(pyenv global | grep python3)/bin/python") || echo -n $(which python3)')
 endif
-if has('python2')
+if has('python')
   let g:python_host_prog = system('(type pyenv &>/dev/null && echo -n "$(pyenv root)/versions/$(pyenv global | grep python2)/bin/python") || echo -n $(which python2)')
 endif
 let g:ruby_host_prog = '/usr/bin/ruby'
