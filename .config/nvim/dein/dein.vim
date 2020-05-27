@@ -5,10 +5,15 @@
 " Note: you can see the function of dummys commands for lazy load on
 "   Shougo/dein.vim/autoload/dein/parse.vim @314
 
-let s:dein_config_home = expand('$XDG_CONFIG_HOME/nvim/dein/')
-let s:dein_toml_home   = s:dein_config_home .'/toml/'
+let $DEIN_CONFIG_HOME = expand('$XDG_CONFIG_HOME/nvim/dein/')
+let $DEIN_TOML_HOME   = $DEIN_CONFIG_HOME .'/toml/'
 " For the plugins in local path
-let $DEIN_PRIVATE_HOME = s:dein_config_home .'/.private/'
+let $DEIN_PRIVATE_HOME = $DEIN_CONFIG_HOME .'/.private/'
+
+" ':source' should be faster than ':runtime'
+let $DEIN_ADD_HOME = $DEIN_CONFIG_HOME .'/add'
+let $DEIN_SOURCE_HOME = $DEIN_CONFIG_HOME .'/source'
+let $DEIN_POST_HOME = $DEIN_CONFIG_HOME .'/post'
 
 " CmdAbbr; Call Function {{{1
 cnoreabbr <expr> du (getcmdtype() == ':' && getcmdline() =~ '^du$')? 'call dein#update()' : 'du'
@@ -36,9 +41,10 @@ let s:dein_log_file = s:dein_data_dir .'/dein_log.vim'
 let g:dein#install_log_filename = s:dein_log_file
 
 " Path to the directory for dein's cache {{{1
-let g:dein_cache_dir   = $XDG_CACHE_HOME    .'/dein/'
-let g:dein_github_dir  = g:dein_cache_dir   .'/repos/github.com/'
-let s:Shougo_cache_dir = g:dein_cache_dir   .'/repos/github.com/Shougo/'
+" Let me '$DEIN_CACHE_HOME' for shell in Vim/Neovim
+let $DEIN_CACHE_HOME   = $XDG_CACHE_HOME    .'/dein/'
+let g:dein_github_dir  = $DEIN_CACHE_HOME   .'/repos/github.com/'
+let s:Shougo_cache_dir = $DEIN_CACHE_HOME   .'/repos/github.com/Shougo/'
 let s:dein_itself      = s:Shougo_cache_dir .'/dein.vim/'
 
 " call p:auto_install() if !has('dein.vim') {{{2
@@ -116,7 +122,7 @@ function! s:load_plugins(list) abort
         continue
       endif
       " format: dein#load_toml(path, opt)
-      call dein#load_toml(s:dein_toml_home .'/'. fname, dict['opt'])
+      call dein#load_toml($DEIN_TOML_HOME .'/'. fname, dict['opt'])
     endfor
   endfor
 endfunction
@@ -143,8 +149,9 @@ unlet s:tomls s:toml_lazy
 
 " Load plugins by Dein {{{1
 if !exists('s:is_loaded')
-  if dein#load_state(g:dein_cache_dir)
-    call dein#begin(g:dein_cache_dir)
+  if dein#load_state($DEIN_CACHE_HOME)
+    call dein#begin($DEIN_CACHE_HOME)
+    " TODO: make faster to load tomls (it takes 1 sec. or more)
     call s:load_the_plugins()
     call dein#end()
     call dein#save_state()
