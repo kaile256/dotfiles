@@ -88,6 +88,8 @@ function! s:Gvstatus(...) abort "{{{1
   let args = a:0 > 0 ? join(a:000) : ''
   " Note: cannot use :Gvstatus itself, of course
   exe 'vert bot 34 Gstatus' args
+  if bufwinnr('\.git/index') == -1 | return | endif
+
   if has('nvim')
     call nvim_win_set_width(0, 34)
   endif
