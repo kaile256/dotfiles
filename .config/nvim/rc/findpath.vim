@@ -35,7 +35,7 @@ augroup myFindPathRc
   exe 'au' TermOpen '* call s:path.vim()'
   au BufNewFile,BufRead {*vim,dein}**/* call s:path.vim()
 
-  au BufNewFile,BufRead $MYMEMO**/*   call s:path.memo()
+  au BufNewFile,BufRead $MY_MEMO**/*   call s:path.memo()
   au BufNewFile,BufRead $GHQ_ROOT**/* call s:path.ghq()
 augroup END
 
@@ -44,7 +44,7 @@ let s:path = {} "{{{1
 function! s:path.dotfiles() abort
   if expand('%:p') =~# '/*vim/' | return | endif
 
-  exe 'setl path+='. g:dotfiles_home .'/.config**'
+  exe 'setl path+='. $DOTFILES_HOME .'/.config**'
   " exe 'setl path+='. $GHQ_ROOT       .'/github.com/neovim/neovim**'
   " exe 'setl path+='. '/etc'
   exe 'setl path+='. $XDG_DATA_HOME  .'**'
@@ -55,7 +55,7 @@ endfunction
 function! s:path.vim() abort
   if expand('%:p') =~# $GHQ_ROOT | return | endif
 
-  exe 'setl path+='. g:dotfiles_home   .'/.config/nvim**'
+  exe 'setl path+='. $DOTFILES_HOME   .'/.config/nvim**'
   exe 'setl path+='. g:dein_github_dir .'**'
   exe 'setl path+='. $GHQ_ROOT         .'/github.com/neovim/neovim**'
   exe 'setl path+='. $XDG_DATA_HOME    .'/nvim**'
@@ -64,7 +64,7 @@ function! s:path.vim() abort
 endfunction
 
 function! s:path.memo() abort
-  exe 'setl path+='. $MYMEMO
+  exe 'setl path+='. $MY_MEMO
   "call s:path.dotfiles()
 endfunction
 
