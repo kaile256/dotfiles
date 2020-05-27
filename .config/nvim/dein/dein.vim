@@ -108,6 +108,8 @@ let s:toml_lazy = [
 " Define the function to load plugins {{{1
 function! s:load_plugins(list) abort
   " both toml and plugin's name are loadable.
+  " Note: dict['idx'] is faster than dict.idx
+  " map() works slower because it's not so different than additional for-loop.
 
   " TODO: get plugins' normalized name to map() to override dict like 'hook_add'
   " to 'runtime add/(normalized_name).vim'.
