@@ -45,11 +45,10 @@ nnoremap <silent> <a-i> :<c-u>TagbarOpen fjc<cr>
 "" let g:tagbar_map_ {{{1
 "let g:tagbar_map_previewwin =
 
-if exists('#myTagbarAdd')
-  au! myTagbarAdd
-endif
 augroup myTagbarAdd "{{{1
-  au OptionSet * call s:keymaps_if_no_tags()
+  if exists('#myTagbarAdd') | au! myTagbarAdd
+  endif
+  au FileType * call s:keymaps_if_no_tags()
 augroup END
 
 function! s:keymaps_if_no_tags() abort "{{{1
