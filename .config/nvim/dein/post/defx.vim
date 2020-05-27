@@ -174,29 +174,29 @@ function! s:defx_keymaps() abort "{{{1
         \ ['clear_select_all', 'toggle_select_visual', 'drop', 'quit'])
   " Split {{{3
   nnoremap <silent><nowait><buffer><expr> o
-        \ defx#is_directory()?
-        \ '<c-w>s':
-        \ defx#do_action('multi', [['drop', 'bel split'], 'quit'])
+        \ defx#is_directory()
+        \ ? defx#do_action('open')
+        \ : defx#do_action('multi', [['drop', 'bel split'], 'quit'])
         "\ defx#do_action('drop', 'bel split')
   xnoremap <silent><nowait><buffer><expr> o
-        \ defx#is_directory()?
-        \ '<c-w>s':
-        \ defx#async_action('multi',
-        \ ['clear_select_all', 'toggle_select_visual',
-        \ ['drop', 'bel split'], 'quit'])
+        \ defx#is_directory()
+        \ ? '<Esc>'. defx#do_action('open')
+        \ : defx#async_action('multi',
+        \   ['clear_select_all', 'toggle_select_visual',
+        \   ['drop', 'bel split'], 'quit'])
         "\ ['clear_select_all', 'toggle_select_visual', ['drop', 'bel split']])
   nnoremap <silent><nowait><buffer><expr> O
-        \ defx#is_directory()?
-        \ '28<c-w>v':
-        \ defx#do_action('multi', [['open', 'bot vsplit'], 'quit'])
+        \ defx#is_directory()
+        \ ? defx#do_action('open')
+        \ : defx#do_action('multi', [['open', 'bot vsplit'], 'quit'])
         "\ defx#do_action('open', 'bot vsplit')
   " TODO: open multiple buffers in each new windows in visualmode
   xnoremap <silent><nowait><buffer><expr> O
-        \ defx#is_directory()?
-        \ '28<c-w>v':
-        \ defx#async_action('multi',
-        \ ['clear_select_all', 'toggle_select_visual',
-        \ ['open', 'bot vsplit'], 'quit'])
+        \ defx#is_directory()
+        \ ? '<Esc>'. defx#do_action('open')
+        \ : defx#async_action('multi',
+        \   ['clear_select_all', 'toggle_select_visual',
+        \   ['open', 'bot vsplit'], 'quit'])
         "\ ['toggle_select_visual', ['open', 'bot vsplit']])
   nnoremap <silent><nowait><buffer><expr> gO
         \ defx#do_action('open', 'tabe')
