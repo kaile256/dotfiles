@@ -2,10 +2,9 @@
 " Repo: tpope/vim-fugitive
 " Another: add/fugitive.vim
 
-if exists('#myFugitiveSource')
-  au! myFugitiveSource
-endif
 augroup myFugitiveSource
+  if exists('#myFugitiveSource') | au! myFugitiveSource
+  endif
   au FileType fugitive call s:fugitive_keymap() "{{{1
   function! s:fugitive_keymap() abort "{{{2
     " Note: for fugitive-buffer, not for &diff
