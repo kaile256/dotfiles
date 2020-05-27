@@ -49,10 +49,8 @@ if has('gui_running') "{{{1
       set printfont=Monospace\ 12
     endtry
   endif
-elseif exists('g:GuiLoaded') "{{{1
-  " if nvim-qt
 
-  set termguicolors
+elseif exists('g:GuiLoaded') " if nvim-qt {{{1
   " /usr/share/nvim-qt/runtime/plugin/nvim_gui_shim.vim
   GuiTabline   0
   GuiPopupmenu 0
