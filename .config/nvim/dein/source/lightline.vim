@@ -83,6 +83,8 @@ let g:lightline.inactive = {
 "      \ }
 
 " Define Components for Tabline {{{2
+
+" Note: Use 'component_expand' instead if 'tabpagenr' involves no component.
 let g:lightline.tab_component_function = {
       \ 'path': 'LL_tab_path',
       \ }
@@ -112,6 +114,12 @@ endfunction
 
 " Define Components for Statusline {{{2
 " Note: Priority: (High)component_expand > component_function > component(Low)
+
+" Note: Available types are raw, or tabsel, left, middle and right and so on,
+" which g:lightline#colorscheme#one#palette[key] has.
+" let g:lightline.component_type = {
+"      \ 'git_branch': 'right',
+"      \ }
 
 let g:lightline.component = {
       \ 'lineinfo': '%2v:%-3l'
