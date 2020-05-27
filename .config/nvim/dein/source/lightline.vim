@@ -82,72 +82,6 @@ let g:lightline.inactive = {
 "      \ 'subseparator': { 'left': '⮁', 'right': '⮃' }
 "      \ }
 
-" Define Components for Tabline {{{2
-
-" Note: Use 'component_expand' instead if 'tabpagenr' involves no component.
-let g:lightline.tab_component_function = {
-      \ 'path': 'LL_tab_path',
-      \ 'modified': 'LL_tab_modified',
-      \ }
-
-function! LL_tab_path(n) abort
-  let buflist = tabpagebuflist(a:n)
-  let winnr = tabpagewinnr(a:n)
-  let bufname = expand('#'. buflist[winnr - 1])
-
-  return s:modify_path(bufname)
-endfunction
-
-
-" Modify lightline#tab#modified(n) directly
-" itchyny/lightline.vim/autoload/lightline/tab.vim.
-
-function! LL_tab_modified(n) abort
-  let winnr = tabpagewinnr(a:n)
-
-  if !empty(gettabwinvar(a:n, winnr, '&buftype'))
-    return ''
-  endif
-
-  return gettabwinvar(a:n, winnr, '&modified') ? '*'
-        \ : (gettabwinvar(a:n, winnr, '&modifiable') ? '' : '-')
-endfunction
-
-" Define Components for Statusline {{{2
-" Note: Priority: (High)component_expand > component_function > component(Low)
-
-" Note: Available types are raw, or tabsel, left, middle and right and so on,
-" which g:lightline#colorscheme#one#palette[key] has.
-" let g:lightline.component_type = {
-"      \ 'git_branch': 'right',
-"      \ }
-
-let g:lightline.component = {
-      \ 'lineinfo': '%2v:%-3l'
-      \ }
-
-let g:lightline.component_expand = {
-      \ 'readonly': '!&modifiable ? "x" : (&ro ? "RO" : "")',
-      \
-      \ 'fileformat':   '&ff ==# "unix" ? "" : &ff',
-      \
-      \ 'fileencoding': 'empty(&fenc)
-      \   ? (&enc  ==# "utf-8" ? "" : &enc)
-      \   : (&fenc ==# "utf-8" ? "" : &fenc)',
-      \
-      \ 'git_branch': 'LL_git_branch',
-      \
-      \ 'notification': 'LL_notification',
-      \
-      \ 'filetype': 'LL_filetype',
-      \
-      \ 'cwd': 'LL_getcwd',
-      \
-      \ 'filename': 'LL_filename',
-      \
-      \ 'git_diff': 'LL_git_diff',
-      \ }
-
 " Define Components Functions {{{2
 function! LL_notification() abort "{{{3
   let msg = ''
@@ -282,6 +216,72 @@ function! LL_git_diff() abort "{{{3
   endfor
 
   return join(ret)
+endfunction
+
+" Define Components for Statusline {{{2
+" Note: Priority: (High)component_expand > component_function > component(Low)
+
+" Note: Available types are raw, or tabsel, left, middle and right and so on,
+" which g:lightline#colorscheme#one#palette[key] has.
+" let g:lightline.component_type = {
+"      \ 'git_branch': 'right',
+"      \ }
+
+let g:lightline.component = {
+      \ 'lineinfo': '%2v:%-3l'
+      \ }
+
+let g:lightline.component_expand = {
+      \ 'readonly': '!&modifiable ? "x" : (&ro ? "RO" : "")',
+      \
+      \ 'fileformat':   '&ff ==# "unix" ? "" : &ff',
+      \
+      \ 'fileencoding': 'empty(&fenc)
+      \   ? (&enc  ==# "utf-8" ? "" : &enc)
+      \   : (&fenc ==# "utf-8" ? "" : &fenc)',
+      \
+      \ 'git_branch': 'LL_git_branch',
+      \
+      \ 'notification': 'LL_notification',
+      \
+      \ 'filetype': 'LL_filetype',
+      \
+      \ 'cwd': 'LL_getcwd',
+      \
+      \ 'filename': 'LL_filename',
+      \
+      \ 'git_diff': 'LL_git_diff',
+      \ }
+
+" Define Components for Tabline {{{2
+
+" Note: Use 'component_expand' instead if 'tabpagenr' involves no component.
+let g:lightline.tab_component_function = {
+      \ 'path': 'LL_tab_path',
+      \ 'modified': 'LL_tab_modified',
+      \ }
+
+function! LL_tab_path(n) abort
+  let buflist = tabpagebuflist(a:n)
+  let winnr = tabpagewinnr(a:n)
+  let bufname = expand('#'. buflist[winnr - 1])
+
+  return s:modify_path(bufname)
+endfunction
+
+
+" Modify lightline#tab#modified(n) directly
+" itchyny/lightline.vim/autoload/lightline/tab.vim.
+
+function! LL_tab_modified(n) abort
+  let winnr = tabpagewinnr(a:n)
+
+  if !empty(gettabwinvar(a:n, winnr, '&buftype'))
+    return ''
+  endif
+
+  return gettabwinvar(a:n, winnr, '&modified') ? '*'
+        \ : (gettabwinvar(a:n, winnr, '&modifiable') ? '' : '-')
 endfunction
 
 augroup myLightlineSo "{{{1
