@@ -4,6 +4,8 @@ scriptencoding utf-8
 "" Note: EndOfBuffer is set of trailing '~' at end of buffer.
 " hi! link EndOfBuffer Ignore
 
+set showtabline=2
+
 if executable('rg')
   " Ref: https://ktrysmt.github.io/blog/finish-work-early-with-cli-made-by-rust/
   set grepprg=rg\ --vimgrep\ --no-heading
