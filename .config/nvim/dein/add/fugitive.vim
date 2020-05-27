@@ -208,14 +208,13 @@ nnoremap <silent> <space>gs :<c-u>Gvstatus<cr>
 nnoremap <silent> <space>ga :<C-u>Gw<CR>
 nnoremap <silent> <space>gA :<C-u>Gw <bar> GcommitBottom <CR>
 
-" nnoremap <silent> <space>gw :<c-u>GwToDiffWithStat HEAD<cr>
+nnoremap <silent> <space>gw :<c-u>Gw <bar> GvdiffWithStat HEAD<cr>
 
-" command! -bar -nargs=*
-"      \ GwToDiffWithStat
-"      \ :silent Gw
-"      \ | HelpCloseAll
-"      \ | call s:winpick()
-"      \ | call s:Gvdiffw(<q-args>)
+command! -bar -nargs=*
+     \ GvdiffWithStat
+     \ :HelpCloseAll
+     \ | call s:winpick()
+     \ | call s:Gvdiffw(<q-args>)
 
 " Add to Diff {{{2
 nnoremap <silent> <space>go :<c-u>silent Gw <bar> only<cr>
