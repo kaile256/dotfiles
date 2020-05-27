@@ -40,15 +40,12 @@ command! -nargs=? -bar -complete=customlist,fugitive#CommitComplete
       \ Gunstage
       \ :silent exe 'Git reset HEAD' (empty(<q-args>) ? '' : <q-args>)
 
+command! -bar -nargs=? GcommitBottom :bot 20 Git commit <args>
+
 " Note: `:Gw --only` just stages a file named '--only'.
 command! -nargs=? -bar -complete=customlist,fugitive#EditComplete
       \ GwOnly
       \ :Gunstage | Gw
-
-command! -bar -bang -nargs=* -complete=customlist,fugitive#EditComplete
-      \ Gvdiffsplit
-      \ :call fugitive#Diffsplit(0, <bang>0, 'vert <mods>', <q-args>, [<f-args>])
-      \ | :call s:Gdiff_keymaps()
 
 " Note: -range=-1 is correct; either no -complete
 " Ref: tpope/vim-fugitive/plugin/fugitive.vim @368
@@ -56,20 +53,6 @@ command! -bang -bar -range=-1 -addr=tabs
       \ Gvstatus
       \ :call s:Gvstatus(<q-args>)
 
-command! -bar -bang -nargs=*
-      \ -complete=customlist,fugitive#EditComplete
-      \ Gdiffsplit
-      \ :exe fugitive#Diffsplit(1, <bang>0, '<mods>', '--function-context '. <q-args>, [<f-args>])
-
-command! -bar -bang -nargs=*
-      \ -complete=customlist,fugitive#EditComplete
-      \ Ghdiffsplit
-      \ :exe fugitive#Diffsplit(0, <bang>0, '<mods>', '--function-context '. <q-args>, [<f-args>])
-
-command! -bar -bang -nargs=*
-      \ -complete=customlist,fugitive#EditComplete
-      \ Gvdiffsplit
-      \ :exe fugitive#Diffsplit(0, <bang>0, 'vert <mods>', '--function-context '. <q-args>, [<f-args>])
 
 " in new tab, if any unnecessary windows are there.
 " TODO: set unstage; should trace <SNR> via :scriptnames.
@@ -222,11 +205,8 @@ nnoremap <silent> <space>gs :<c-u>Gvstatus<cr>
 
 " Add{{{1
 " Note: <c-w>p<c-w>p is necessary to update signcolumn
-nnoremap <silent> <space>ga :<c-u>silent Gw<CR>
-nnoremap <silent> <space>gA :<c-u>silent Gw
-      \ <bar> Gvstatus <bar> call win_gotoid(bufwinid('.git/index'))<cr>
-nnoremap <silent> <space>gw :<c-u>silent Gw
-      \ <bar> Gvstatus <bar> call win_gotoid(bufwinid('.git/index'))<cr>
+nnoremap <silent> <space>ga :<C-u>Gw<CR>
+nnoremap <silent> <space>gA :<C-u>Gw <bar> GcommitBottom <CR>
 
 " nnoremap <silent> <space>gw :<c-u>GwToDiffWithStat HEAD<cr>
 
@@ -266,6 +246,6 @@ command! -bar -bang -nargs=* -complete=customlist,fugitive#EditComplete
 
 
 " Commit {{{1
-nnoremap <silent> <space>cc :<c-u>bot 20 Git commit<cr>
-nnoremap <silent> <space>ca :<c-u>bot 20 Git commit --amend<cr>
-nnoremap <silent> <space>ce :<c-u>bot 20 Git commit --amend --no-edit<cr>
+nnoremap <silent> <space>cc :<c-u>GcommitBottom<cr>
+nnoremap <silent> <space>ca :<c-u>GcommitBottom --amend<cr>
+nnoremap <silent> <space>ce :<c-u>GcommitBottom --amend --no-edit<cr>

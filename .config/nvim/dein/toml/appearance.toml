@@ -80,29 +80,29 @@ repo = 'ryanoasis/vim-devicons'
 on_event = 'BufRead'
 
 #[ Statusline ]
-[[plugins]]
-repo = 'vim-airline/vim-airline'
-# to use extentions, it check by exists('*foo'); surely loaded after all the
-# plugin are loaded before vim-airline is loaded.
-# on_source is slower to be set.
-on_if = "exists('*FugitiveHead') && exists(':CocCommand')"
-on_event = ['Syntax']
-# Uncompatible with nyaovim?
-# Better to be sourced earlier than colorschemes
-#hook_add = '''
-#" make sure extention to work
-#if !exists('*FugitiveHead')
-#  function! FugitiveHead(...) abort
-#    call fugitive#head(join(a:000, ','))
-#  endfunction
-#endif
-#'''
-hook_source = 'runtime source/airline.vim'
-hook_post_source = 'set noshowmode noruler'
-[[plugins]]
-repo = 'vim-airline/vim-airline-themes'
-# Note: original only has 'dark'
-on_source = ['vim-airline']
+#[[plugins]]
+#repo = 'vim-airline/vim-airline'
+## to use extentions, it check by exists('*foo'); surely loaded after all the
+## plugin are loaded before vim-airline is loaded.
+## on_source is slower to be set.
+#on_if = "exists('*FugitiveHead') && exists(':CocCommand')"
+#on_event = ['Syntax']
+## Uncompatible with nyaovim?
+## Better to be sourced earlier than colorschemes
+##hook_add = '''
+##" make sure extention to work
+##if !exists('*FugitiveHead')
+##  function! FugitiveHead(...) abort
+##    call fugitive#head(join(a:000, ','))
+##  endfunction
+##endif
+##'''
+#hook_source = 'runtime source/airline.vim'
+#hook_post_source = 'set noshowmode noruler'
+#[[plugins]]
+#repo = 'vim-airline/vim-airline-themes'
+## Note: original only has 'dark'
+#on_source = ['vim-airline']
 
 [[plugins]]
 repo = 'renyard/vim-git-flow-format'
@@ -110,16 +110,16 @@ type = 'git'
 depends = 'vim-airline'
 on_event = ['BufRead']
 
-[[plugins]]
-repo = 'mg979/vim-xtabline'
-on_event = ['VimEnter']
-#hook_add = 'runtime add/xtabline.vim'
-hook_source = 'runtime source/xtabline.vim'
-hook_done_update = '''
-exe 'e' g:dein_github_dir .'/mg979/vim-xtabline/autoload/xtabline/maps.vim'
-g/<Plug>(XT-Select-Buffer)/s/<unique>//e
-write
-'''
+#[[plugins]]
+#repo = 'mg979/vim-xtabline'
+#on_event = ['VimEnter']
+##hook_add = 'runtime add/xtabline.vim'
+#hook_source = 'runtime source/xtabline.vim'
+#hook_done_update = '''
+#exe 'e' g:dein_github_dir .'/mg979/vim-xtabline/autoload/xtabline/maps.vim'
+#g/<Plug>(XT-Select-Buffer)/s/<unique>//e
+#write
+#'''
 
 #[[plugins]]
 #repo = 'liuchengxu/eleline.vim'
@@ -132,10 +132,10 @@ write
 #on_event = 'BufRead'
 #hook_source = 'runtime rc/spaceline.vim'
 
-#[[plugins]]
-#repo = 'itchyny/lightline.vim'
-#on_event = 'Syntax'
-#hook_source = 'runtime source/lightline.vim'
+[[plugins]]
+repo = 'itchyny/lightline.vim'
+on_event = 'Syntax'
+hook_source = 'runtime source/lightline.vim'
 
 #[[plugins]]
 #repo = 'albertomontesg/lightline-asyncrun'
