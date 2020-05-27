@@ -4,7 +4,7 @@ scriptencoding utf-8
 "" Note: EndOfBuffer is set of trailing '~' at end of buffer.
 " hi! link EndOfBuffer Ignore
 
-set showtabline=2
+set showtabline=2 " 2: always show tabline
 
 if executable('rg')
   " Ref: https://ktrysmt.github.io/blog/finish-work-early-with-cli-made-by-rust/
