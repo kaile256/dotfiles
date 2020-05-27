@@ -5,6 +5,8 @@
 balias make 'make --jobs 8'
 balias tmux 'tmux -2'
 
+balias b 'bash'
+
 balias l 'ls -Alh'
 balias la 'ls -A'
 balias ll 'ls -lh'
