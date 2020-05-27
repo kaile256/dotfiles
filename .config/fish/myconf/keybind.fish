@@ -21,8 +21,8 @@ bind \cxd   '__fzf_cd --hidden'
 bind \cx\cv '__fzf_open --editor'
 bind \cxv   '__fzf_open --editor'
 
-bind \cxq   '__ghq_repository_search'
-bind \cx\cq '__ghq_repository_search'
+#bind \cxq   '__ghq_repository_search'
+#bind \cx\cq '__ghq_repository_search'
 
 if bind -M insert >/dev/null 2>/dev/null
     bind -M insert  \cx\t '__fzf_complete'
@@ -35,8 +35,8 @@ if bind -M insert >/dev/null 2>/dev/null
     bind -M insert  \cx\cd '__fzf_cd --hidden'
     bind -M insert  \cxd   '__fzf_cd'
 
-    bind -M insert \cxq   '__ghq_repository_search'
-    bind -M insert \cx\cq '__ghq_repository_search'
+    #bind -M insert \cxq   '__ghq_repository_search'
+    #bind -M insert \cx\cq '__ghq_repository_search'
     #bind -M insert  \cx\cv '__fzf_open --editor'
     #bind -M insert  \cxv   '__fzf_open --editor'
 
