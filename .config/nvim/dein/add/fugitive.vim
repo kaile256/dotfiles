@@ -203,7 +203,10 @@ nnoremap <silent> <space>gb :<c-u>Gblame<cr>
 " Status {{{1
 nnoremap <silent> <space>gs :<c-u>Gvstatus<cr>
 
-" Add{{{1
+" Staging {{{1
+nnoremap <silent> <space>gu :<C-u>Gunstage <CR>
+nnoremap <silent> <space>gU :<C-u>Gunstage % <CR>
+
 " Note: <c-w>p<c-w>p is necessary to update signcolumn
 nnoremap <silent> <space>ga :<C-u>Gw<CR>
 nnoremap <silent> <space>gA :<C-u>Gw <bar> GcommitBottom <CR>
