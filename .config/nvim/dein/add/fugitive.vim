@@ -264,8 +264,8 @@ command! -bar -bang -nargs=* -complete=customlist,fugitive#EditComplete
       \ | call s:winpick()
       \ | Gvdiffsplit! <args>
 
-" Staging {{{1
-nnoremap <silent> <space>gc :<c-u>bot 20 Gcommit<cr>
-nnoremap <silent> <space>gC :<c-u>bot 20 Gcommit --amend<cr>
-nnoremap <silent> <space>gu :<c-u>Gunstage %<cr>
-nnoremap <silent> <space>gU :<c-u>Gunstage<cr>
+
+" Commit {{{1
+nnoremap <silent> <space>cc :<c-u>bot 20 Git commit<cr>
+nnoremap <silent> <space>ca :<c-u>bot 20 Git commit --amend<cr>
+nnoremap <silent> <space>ce :<c-u>bot 20 Git commit --amend --no-edit<cr>
