@@ -169,7 +169,7 @@ function! LL_getcwd() abort "{{{3
 endfunction
 
 function! LL_filetype() abort "{{{3
-  if &bt =~# 'terminal\|help' || &ft ==# expand('%:e')
+  if !empty(&bt) || &ft ==# expand('%:e')
     return ''
   elseif empty(&ft)
     return '[no ft]'
@@ -181,6 +181,8 @@ endfunction
 function! LL_git_branch() abort "{{{3
   if &bt ==# 'terminal'
     return 'TERM'
+  elseif !empty(&bt)
+    return ''
   endif
 
   let branch = ''
@@ -232,7 +234,8 @@ let g:lightline.component = {
       \ }
 
 let g:lightline.component_expand = {
-      \ 'readonly': '!&modifiable ? "x" : (&ro ? "RO" : "")',
+      \ 'readonly': 'empty(&bt) ? ""'
+      \   .'!&modifiable ? "[no modifiable]" : (&ro ? "RO" : "")',
       \
       \ 'fileformat':   '&ff ==# "unix" ? "" : &ff',
       \
