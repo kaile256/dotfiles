@@ -114,4 +114,10 @@ augroup myFugitiveSource
   au FileType fugitive,fugitiveblame setl nonumber signcolumn= bufhidden=wipe
   au FileType git setl fdl=99
   au BufRead fugitive:///* setl buftype=nofile
+
+  " Go back edited buffer {{{1
+  au FileType fugitive,gitcommit
+        \ if getwinvar(winnr('#'), '&ft') !~# 'fugitive\|gitcommit'
+        \ | let s:save_winid = win_getid(winnr('#')) | endif
+  au BufWinLeave .git/{index,COMMIT_EDITMSG} call win_gotoid(s:save_winid)
 augroup END
