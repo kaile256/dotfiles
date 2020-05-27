@@ -3,6 +3,6 @@
 " Another: post/ctrlsf.vim
 " Another: source/ctrlsf.vim
 
-" Mnemonic: get it to Edit
-nmap <space>e <Plug>CtrlSFCCwordExec
-xmap <space>e <Plug>CtrlSFVwordExec
+" Mnemonic: Grep
+nmap <space>G <Plug>CtrlSFCCwordExec
+xmap <space>G <Plug>CtrlSFVwordExec
