@@ -77,21 +77,21 @@ xmap \y <Plug>(operator-sandwich-add)
 xmap \d <Plug>(operator-sandwich-delete)
 xmap \r <Plug>(operator-sandwich-replace)
 
-xmap \* <Plug>(operator-sandwich-add)*
-xmap \` <Plug>(operator-sandwich-add)`
-xmap \' <Plug>(operator-sandwich-add)'
-xmap \" <Plug>(operator-sandwich-add)"
-xmap \( <Plug>(operator-sandwich-add)(
-xmap \) <Plug>(operator-sandwich-add))
-xmap \< <Plug>(operator-sandwich-add)<
-xmap \> <Plug>(operator-sandwich-add)>
-xmap \[ <Plug>(operator-sandwich-add)[
-xmap \] <Plug>(operator-sandwich-add)]
-xmap \{ <Plug>(operator-sandwich-add){
-xmap \} <Plug>(operator-sandwich-add)}
-xmap \/ <Plug>(operator-sandwich-add)/
+" xmap \* <Plug>(operator-sandwich-add)*
+" xmap \` <Plug>(operator-sandwich-add)`
+" xmap \' <Plug>(operator-sandwich-add)'
+" xmap \" <Plug>(operator-sandwich-add)"
+" xmap \( <Plug>(operator-sandwich-add)(
+" xmap \) <Plug>(operator-sandwich-add))
+" xmap \< <Plug>(operator-sandwich-add)<
+" xmap \> <Plug>(operator-sandwich-add)>
+" xmap \[ <Plug>(operator-sandwich-add)[
+" xmap \] <Plug>(operator-sandwich-add)]
+" xmap \{ <Plug>(operator-sandwich-add){
+" xmap \} <Plug>(operator-sandwich-add)}
+" xmap \/ <Plug>(operator-sandwich-add)/
 
-xmap \\| <Plug>(operator-sandwich-add)\|
+" xmap \\| <Plug>(operator-sandwich-add)\|
 
 " Magic chars for tag/func {{{1
 " Note: *sandwich-magiccharacters*
