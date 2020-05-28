@@ -42,7 +42,7 @@ let g:lightline.tabline = {
 " Note: 'right' fills right to left
 let g:lightline.active = {
       \ 'left': [
-      \   ['mode'],
+      \   ['mode', 'preview'],
       \   ['git_branch', 'git_diff'],
       \   ['readonly', 'paste', 'spell'],
       \   ['filepath'],
@@ -58,6 +58,7 @@ let g:lightline.active = {
 
 let g:lightline.inactive = {
       \ 'left': [
+      \   ['preview'],
       \   ['fullpath'],
       \ ],
       \
@@ -149,6 +150,7 @@ let g:lightline.component = {
 
 " Note: 'component_function' seems unnecessary.
 let g:lightline.component_expand = {
+      \ 'preview': '&previewwindow ? "= PREVIEW =" : ""',
       \ 'readonly': '!empty(&bt) ? "" :'
       \   .'!&modifiable ? "no modifiable" : (&ro ? "RO" : "")',
       \
