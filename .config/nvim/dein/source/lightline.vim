@@ -143,7 +143,7 @@ endfunction
 "      \ }
 
 let g:lightline.component = {
-      \ 'lineinfo': '%2v:%-3l'
+      \ 'lineinfo': '%2v:%2l/%-3L',
       \ }
 
 " Note: 'component_function' seems unnecessary.
