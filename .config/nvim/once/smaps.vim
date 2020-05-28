@@ -13,6 +13,8 @@ snoremap <expr> <a-l> (getline("'<")[col("'<"):col("'>")] =~# '^#') ? '<space><B
 snoremap <expr> <a-o> (getline("'<")[col("'<"):col("'>")] =~# '^#') ? '<space><BS><esc>o' : '<esc>o'
 snoremap <expr> <a-O> (getline("'<")[col("'<"):col("'>")] =~# '^#') ? '<space><BS><esc>O' : '<esc>O'
 
+snoremap <a-a> <esc>a
+
 " Insert mode like {{{1
 snoremap <BS>  <space><BS>
 snoremap <c-u> <space><c-u>
