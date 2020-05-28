@@ -1,6 +1,6 @@
 " From: filetype.vim
 
-if &modifiable || !&readonly
+if &modifiable || !&readonly || @% =~# 'fugitive:\/\/\/'
   " setl conceallevel=2
 else
   setl nonumber signcolumn= nolist foldlevel=0
