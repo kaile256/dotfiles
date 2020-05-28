@@ -60,7 +60,7 @@ function! s:agit_keymaps() abort "{{{1
 
   nmap <buffer> y# <PLug>(agit-yank-hash)
 
-  "nmap <buffer> <c-g> <Plug>(agit-print-commitmsg)
+  nmap <buffer> <C-g> <Plug>(agit-print-commitmsg)
 
   " deletes the branch under cursor
   nmap <buffer> dD <Plug>(agit-git-branch-d)

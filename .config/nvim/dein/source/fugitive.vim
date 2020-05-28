@@ -75,6 +75,15 @@ function! s:git_reset() abort "{{{3
   let hash = matchstr(getline('.'), '\x\{,6}')
   if empty(hash) | return | endif
   exe 'Git reset' hash
+
+  " Make sure the cursor on 'git-status' for the use out of 'git-status'.
+  " TODO: Update all 'git-status' in current tab.
+  let winid = bufwinid('\.git/index')
+  if winid == -1 | return | endif
+  call win_gotoid(winid)
+
+  " Update index
+  e!
 endfunction
 
 function! s:gitcommit_shred() abort "{{{3
