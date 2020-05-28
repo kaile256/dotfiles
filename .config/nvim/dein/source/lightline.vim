@@ -14,14 +14,14 @@ let g:lightline.colorscheme = 'one'
 " 'tab_component_function' which takes a winnr as an arg.
 let g:lightline.tab = {
       \ 'active': [
-      \   'filepath',
-      \   'modified',
+      \   'tab_filepath',
+      \   'tab_modified',
       \ ],
       \
       \ 'inactive': [
       \   'tabnum',
-      \   'filepath',
-      \   'modified',
+      \   'tab_filepath',
+      \   'tab_modified',
       \ ],
       \ }
 
@@ -86,8 +86,8 @@ let g:lightline.inactive = {
 
 " Note: Use 'component_expand' instead if 'tabpagenr' involves no component.
 let g:lightline.tab_component_function = {
-      \ 'filepath': 'LL_tab_path',
-      \ 'modified': 'LL_tab_modified',
+      \ 'tab_filepath': 'LL_tab_path',
+      \ 'tab_modified': 'LL_tab_modified',
       \ }
 
 function! LL_tab_path(n) abort
@@ -376,7 +376,7 @@ let g:lightline.component_expand = {
 
 " Note: Use 'component_expand' instead if 'tabpagenr' involves no component.
 let g:lightline.tab_component_function = {
-      \ 'filepath': 'LL_tab_path',
+      \ 'tab_filepath': 'LL_tab_path',
       \ 'modified': 'LL_tab_modified',
       \ }
 
