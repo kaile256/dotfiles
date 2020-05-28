@@ -50,6 +50,15 @@ augroup myTerminalLazy
   exe 'au' TermOpen '* call <SID>set_opts_for_term()'
 augroup END
 
+function! s:set_opts_for_term() abort "{{{2
+  " Without the check that current buffer is terminal, opening terminal
+  " background like with QuickRun apply all the config on non-terminal buffer.
+  if &bt !=# 'terminal' | return | endif
+  setl nonumber signcolumn= bufhidden=wipe
+  norm! 0
+  startinsert
+endfunction
+
 "" Function; ls-grep
 "function! s:grep_heavy_bufnr()
 "  " TODO: get bufnr('term://') in hidden-buffers to bufdelete them.
