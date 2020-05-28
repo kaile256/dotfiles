@@ -58,7 +58,7 @@ let g:lightline.active = {
 
 let g:lightline.inactive = {
       \ 'left': [
-      \   ['filename'],
+      \   ['fullpath'],
       \ ],
       \
       \ 'right': [
@@ -144,6 +144,7 @@ endfunction
 
 let g:lightline.component = {
       \ 'lineinfo': '%2v:%2l/%-3L',
+      \ 'fullpath': '%F',
       \ }
 
 " Note: 'component_function' seems unnecessary.
