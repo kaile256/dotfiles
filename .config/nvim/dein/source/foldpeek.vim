@@ -165,10 +165,12 @@ function! s:peek.php() abort "{{{2
 endfunction
 
 function! s:peek.help() abort "{{{2
-  let title_under_line = '^\u[A-Z ]\{-}\ze\s*\(\*.\+\*\s*$\)\@='
+  let index = '^\(\u\|\d\+\.\).\{-}\ze\s*\(\*.\+\*\s*$\)\@='
+  let help_tag_index = '^\s*.\{-}\ze\s\+\*.\+\*\s*$'
   let help_tag = '\*.\+\*\s*$'
   let b:foldpeek_whiteout_patterns.match = [
-        \ title_under_line,
+        \ index,
+        \ help_tag_index,
         \ help_tag,
         \ ]
 
