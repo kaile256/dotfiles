@@ -14,13 +14,13 @@ let g:lightline.colorscheme = 'one'
 " 'tab_component_function' which takes a winnr as an arg.
 let g:lightline.tab = {
       \ 'active': [
-      \   'path',
+      \   'filepath',
       \   'modified',
       \ ],
       \
       \ 'inactive': [
       \   'tabnum',
-      \   'filename',
+      \   'filepath',
       \   'modified',
       \ ],
       \ }
@@ -45,6 +45,7 @@ let g:lightline.active = {
       \   ['mode'],
       \   ['git_branch', 'git_diff'],
       \   ['readonly', 'paste', 'spell'],
+      \   ['filepath'],
       \ ],
       \
       \ 'right': [
@@ -58,7 +59,6 @@ let g:lightline.active = {
 let g:lightline.inactive = {
       \ 'left': [
       \   ['filename'],
-      \   ['readonly'],
       \ ],
       \
       \ 'right': [
@@ -81,6 +81,94 @@ let g:lightline.inactive = {
 "      \ 'separator': { 'left': '⮀', 'right': '⮂' },
 "      \ 'subseparator': { 'left': '⮁', 'right': '⮃' }
 "      \ }
+
+" Define Components for Tabline {{{2
+
+" Note: Use 'component_expand' instead if 'tabpagenr' involves no component.
+let g:lightline.tab_component_function = {
+      \ 'filepath': 'LL_tab_path',
+      \ 'modified': 'LL_tab_modified',
+      \ }
+
+function! LL_tab_path(n) abort
+  let buflist = tabpagebuflist(a:n)
+  let winnr = tabpagewinnr(a:n)
+  let bufname = expand('#'. buflist[winnr - 1])
+
+  return s:modify_path(bufname)
+endfunction
+
+function! s:modify_path(bufname) abort
+  if &bt ==# 'terminal'
+    " Return 'running shell':'id'
+    return substitute(a:bufname, '.\{-}\(\d\+\):\(\S\+\)$', '\2:\1', 'e')
+  endif
+  if a:bufname =~# '\[.\{-}]'
+    return matchstr(a:bufname, '\[.\{-}]')
+  elseif a:bufname =~# '__.\{-}__'
+    return matchstr(a:bufname, '__.\{-}__')
+    " return '['. matchstr(a:bufname, '__\zs.\{-}\ze__') .']'
+  endif
+
+  let dir_path  = fnamemodify(a:bufname, ':p:h')
+  let short_dir = pathshorten(dir_path)
+  let dir = fnamemodify(short_dir, ':h:t') .'/'. fnamemodify(short_dir, ':t')
+
+  let fname = fnamemodify(a:bufname, ':t')
+  let path = dir .'/'. fname
+  return fname !=# '' ? path : '[No Name]'
+endfunction
+
+" Modify lightline#tab#modified(n) directly
+" itchyny/lightline.vim/autoload/lightline/tab.vim.
+
+function! LL_tab_modified(n) abort
+  let winnr = tabpagewinnr(a:n)
+
+  if !empty(gettabwinvar(a:n, winnr, '&buftype'))
+    return ''
+  endif
+
+  return gettabwinvar(a:n, winnr, '&modified') ? '*'
+        \ : (gettabwinvar(a:n, winnr, '&modifiable') ? '' : '-')
+endfunction
+
+" Define Components for Statusline {{{2
+" Note: Priority: (High)component_expand > component_function > component(Low)
+
+" Note: Available types are raw, or tabsel, left, middle and right and so on,
+" which g:lightline#colorscheme#one#palette[key] has.
+" let g:lightline.component_type = {
+"      \ 'git_branch': 'right',
+"      \ }
+
+let g:lightline.component = {
+      \ 'lineinfo': '%2v:%-3l'
+      \ }
+
+" Note: 'component_function' seems unnecessary.
+let g:lightline.component_expand = {
+      \ 'readonly': '!empty(&bt) ? "" :'
+      \   .'!&modifiable ? "no modifiable" : (&ro ? "RO" : "")',
+      \
+      \ 'fileformat':   '&ff ==# "unix" ? "" : &ff',
+      \
+      \ 'fileencoding': 'empty(&fenc)
+      \   ? (&enc  ==# "utf-8" ? "" : &enc)
+      \   : (&fenc ==# "utf-8" ? "" : &fenc)',
+      \
+      \ 'git_branch': 'LL_git_branch',
+      \
+      \ 'notification': 'LL_notification',
+      \
+      \ 'filetype': 'LL_filetype',
+      \
+      \ 'cwd': 'LL_getcwd',
+      \
+      \ 'filepath': 'LL_filepath',
+      \
+      \ 'git_diff': 'LL_git_diff',
+      \ }
 
 " Define Components Functions {{{2
 function! LL_notification() abort "{{{3
@@ -158,7 +246,7 @@ endfunction
 "      \ 't':      'TERMINAL'
 "      \ }
 
-function! LL_path() abort "{{{3
+function! LL_filepath() abort "{{{3
   " TODO: return the window's filename
   let bufname = expand('%')
   return s:modify_path(bufname)
@@ -288,7 +376,7 @@ let g:lightline.component_expand = {
 
 " Note: Use 'component_expand' instead if 'tabpagenr' involves no component.
 let g:lightline.tab_component_function = {
-      \ 'path': 'LL_tab_path',
+      \ 'filepath': 'LL_tab_path',
       \ 'modified': 'LL_tab_modified',
       \ }
 
