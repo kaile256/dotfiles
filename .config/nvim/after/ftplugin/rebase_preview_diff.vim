@@ -1,1 +1,0 @@
-fugitive_preview_diff.vim
