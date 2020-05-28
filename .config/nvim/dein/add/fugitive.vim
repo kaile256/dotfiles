@@ -201,6 +201,7 @@ nnoremap <silent> <space>gb :<c-u>Gblame<cr>
 
 " Status {{{1
 nnoremap <silent> <space>gs :<c-u>Gvstatus<cr>
+nnoremap <silent> <space>gS :<c-u>tab Gstatus<cr>
 
 " Staging {{{1
 nnoremap <silent> <space>gu :<C-u>Gunstage <CR>
