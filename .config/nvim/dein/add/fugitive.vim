@@ -245,6 +245,11 @@ command! -bar -bang -nargs=* -complete=customlist,fugitive#EditComplete
       \ | Gvdiffsplit! <args>
 
 " Commit {{{1
+nnoremap <silent> <SID>(show-last-commit)
+      \ :<c-u>GcommitBottom --amend <bar> stopinsert<CR>
+nnoremap <script> <space>gc <SID>(show-last-commit)
+nnoremap <silent> <space>gC :<c-u>GcommitBottom<cr>
+
 nnoremap <silent> <space>cc :<c-u>GcommitBottom<cr>
 nnoremap <silent> <space>ca :<c-u>GcommitBottom --amend<cr>
 nnoremap <silent> <space>ce :<c-u>GcommitBottom --amend --no-edit<cr>
