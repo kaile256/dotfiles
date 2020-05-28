@@ -34,6 +34,8 @@ endfunction
 " Define Keymaps on Buffer {{{2
 function! s:fugitive_keymap() abort "{{{3
   " Note: for fugitive-buffer, not for &diff
+  silent! unmap j
+  silent! unmap k
   silent! unmap <buffer> J
   silent! unmap <buffer> K
 
