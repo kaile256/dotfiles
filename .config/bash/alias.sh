@@ -6,11 +6,11 @@
 # Note: write XDG-related aliases in 'env.sh'
 
 # Command; ls
-export 'LS_OPTION'='--color=auto'
-alias ls="ls --color=auto"
-alias la="ls --color=auto -A"
-alias ll="ls --color=auto -l"
-alias  l="ls --color=auto -lA"
+export LS_OPTION="--color=auto"
+alias ls='ls $LS_OPTION'
+alias la='ls $LS_OPTION -A'
+alias ll='ls $LS_OPTION -l'
+alias  l='ls $LS_OPTION -lA'
 # Command; echo
 alias ec='echo'
 alias ech='echo'
