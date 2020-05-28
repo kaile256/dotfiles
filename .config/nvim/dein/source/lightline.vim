@@ -274,7 +274,8 @@ function! s:modify_path(bufname) abort "{{{3
 
   let fname = fnamemodify(a:bufname, ':t')
   let path = dir .'/'. fname
-  return fname !=# '' ? path : '[No Name]'
+
+  return empty(fname) ? '[No Name]' : path
 endfunction
 
 function! LL_getcwd() abort "{{{3
