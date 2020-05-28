@@ -51,7 +51,6 @@ function! s:fugitive_keymap() abort "{{{3
   nnoremap <buffer><silent> ca :<c-u>bot 20 Gcommit --amend<cr>
   " To: continue to cc/ce/ca.
   xnoremap <buffer> c sc
-  nnoremap <buffer> R :<C-u>call <SID>git_reset()<CR>
 endfunction
 
 function! s:gitcommit_keymap() abort "{{{3
@@ -67,12 +66,6 @@ function! s:gitcommit_keymap() abort "{{{3
 
   nnoremap <script> <c-w>o     <SID>(winonly-careful)
   nnoremap <script> <c-w><c-o> <SID>(winonly-careful)
-endfunction
-
-function! s:git_reset() abort "{{{3
-  let hash = matchstr(getline('.'), '\x\{,6}')
-  if empty(hash) | return | endif
-  exe 'Git reset' hash
 endfunction
 
 function! s:gitcommit_shred() abort "{{{3
