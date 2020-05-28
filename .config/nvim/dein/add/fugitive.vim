@@ -207,7 +207,6 @@ nnoremap <silent> <space>gs :<c-u>Gvstatus<cr>
 nnoremap <silent> <space>gu :<C-u>Gunstage <CR>
 nnoremap <silent> <space>gU :<C-u>Gunstage % <CR>
 
-" Note: <c-w>p<c-w>p is necessary to update signcolumn
 nnoremap <silent> <space>ga :<C-u>Gw<CR>
 nnoremap <silent> <space>gA :<C-u>Gw <bar> GcommitBottom <CR>
 
