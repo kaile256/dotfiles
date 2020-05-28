@@ -10,16 +10,13 @@ let g:textobj_function_no_default_key_mappings = 1
 " nnoremap [f
 " xnoremap [f
 
-augroup myTextObjFunctionSource
-  if exists('#myTextObjFunctionSource')
-    au! myTextObjFunctionSource
+augroup myTextObjFunctionSo
+  if exists('#myTextObjFunctionSo') | au! myTextObjFunctionSo
   endif
-  au FileType vim omap <buffer> af <Plug>(textobj-function-a)zv
-  au FileType vim omap <buffer> if <Plug>(textobj-function-i)zv
-  au FileType vim omap <buffer> aF <Plug>(textobj-function-A)zv
-  au FileType vim omap <buffer> iF <Plug>(textobj-function-I)zv
-  au FileType vim xmap <buffer> af <Plug>(textobj-function-a)zv
-  au FileType vim xmap <buffer> if <Plug>(textobj-function-i)zv
-  au FileType vim xmap <buffer> aF <Plug>(textobj-function-A)zv
-  au FileType vim xmap <buffer> iF <Plug>(textobj-function-I)zv
+  au FileType vim omap <buffer> if <Plug>(textobj-function-i)
+  au FileType vim omap <buffer> af <Plug>(textobj-function-A)
+  au FileType vim omap <buffer> iF <Plug>(textobj-function-I)
+  au FileType vim xmap <buffer> if <Plug>(textobj-function-i)
+  au FileType vim xmap <buffer> af <Plug>(textobj-function-A)
+  au FileType vim xmap <buffer> iF <Plug>(textobj-function-I)
 augroup END
