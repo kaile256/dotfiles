@@ -8,6 +8,13 @@ command! -bar PreviewHunk :GitGutterPreviewHunk
 nmap [c <Plug>(GitGutterPrevHunk)
 nmap ]c <Plug>(GitGutterNextHunk)
 
+" TODO: Make prev/next hunk work on Visual mode.
+xmap [c <Plug>(GitGutterPrevHunk)
+xmap ]c <Plug>(GitGutterNextHunk)
+
+nmap [C <Plug>(GitGutterPrevHunk)<SID>(gitgutter-stage-hunks)
+nmap ]C <Plug>(GitGutterNextHunk)<SID>(gitgutter-stage-hunks)
+
 " Staging Hunks {{{1
 nmap U <Plug>(GitGutterUndoHunk)
 
