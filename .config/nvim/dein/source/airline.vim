@@ -12,7 +12,7 @@ let g:airline#parts#ffenc#skip_expected_string = 'utf-8[unix]'
 let g:airline#extensions#branch#empty_message = '...'
 let g:airline#extensions#branch#format = 2
 
-let g:airline#extensions#hunks#non_zero_only = 1
+" let g:airline#extensions#hunks#non_zero_only = 1
 
 let g:airline#extensions#whitespace#enabled = 0
 
