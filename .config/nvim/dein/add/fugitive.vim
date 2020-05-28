@@ -53,7 +53,6 @@ command! -bang -bar -range=-1 -addr=tabs
       \ Gvstatus
       \ :call s:Gvstatus(<q-args>)
 
-
 " in new tab, if any unnecessary windows are there.
 " TODO: set unstage; should trace <SNR> via :scriptnames.
 " &@:<C-U>execute <SNR>277_Do('Unstage',0)<CR>
@@ -244,7 +243,6 @@ command! -bar -bang -nargs=* -complete=customlist,fugitive#EditComplete
       \ :HelpCloseAll
       \ | call s:winpick()
       \ | Gvdiffsplit! <args>
-
 
 " Commit {{{1
 nnoremap <silent> <space>cc :<c-u>GcommitBottom<cr>
