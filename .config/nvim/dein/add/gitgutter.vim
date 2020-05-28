@@ -24,7 +24,7 @@ xmap <silent> <space>gP :<C-u>call <SID>stage_hunks_in_range()<bar>
 function! s:stage_hunks_in_range() abort "{{{2
   let save_view = winsaveview()
   norm! '<
-  while line('.') < line("'>")
+  while line('.') <= line("'>")
     let lnum = line('.')
     silent! GitGutterStageHunk
     silent! GitGutterNextHunk
