@@ -273,7 +273,7 @@ endfunction
 
 function! s:modify_path(bufname) abort "{{{3
   if &bt ==# 'terminal'
-    if @% =~# 'FZF'
+    if a:bufname =~# 'FZF'
       return 'FZF running...'
     endif
     " Return 'running shell':'id'
