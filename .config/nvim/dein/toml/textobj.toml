@@ -90,3 +90,8 @@ hook_source = 'runtime source/textobj-pastedtext.vim'
 #repo = 'coachshea/vim-textobj-markdown'
 ## Note: enough w/ vim-textobj-fold
 #on_ft = ['markdown']
+#[ Git ]
+[[plugins]]
+repo = 'rhysd/vim-textobj-conflict'
+on_map = {ox = ['<Plug>(textobj-conflict-']}
+hook_add = 'runtime add/textobj-conflict.vim'

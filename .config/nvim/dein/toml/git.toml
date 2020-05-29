@@ -74,6 +74,13 @@ on_cmd = 'Agit'
 hook_add = 'runtime add/agit.vim'
 hook_source = 'runtime source/agit.vim'
 [[plugins]]
+repo = 'lambdalisue/gina.vim'
+on_cmd = ['Gina']
+hook_add = 'runtime add/gina.vim'
+hook_post_source = 'runtime post/gina.vim'
+
+#[ Hunk ]
+[[plugins]]
 repo = 'airblade/vim-gitgutter'
 # enough only with coc.nvim & fugitive.vim?
 on_source = ['vim-foldpeek']
