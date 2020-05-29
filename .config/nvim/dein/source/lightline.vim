@@ -152,7 +152,7 @@ let g:lightline.component_function = {
 " lightline#update().
 let g:lightline.component_expand = {
       \ 'preview': '&previewwindow ? "= PREVIEW =" : ""',
-      \ 'readonly': '&bt ==# "" ? "" : !&modifiable ? "no modifiable" : (&ro ? "RO" : "")',
+      \ 'readonly': 'LL_readonly',
       \
       \ 'fileformat': '&ff ==# "unix" ? "" : &ff',
       \ 'fileencoding': 'empty(&fenc) ? (&enc ==# "utf-8" ? "" : &enc) : (&fenc ==# "utf-8" ? "" : &fenc)',
@@ -166,6 +166,23 @@ let LL_percent = {-> line('$') > 100 ? s:hold_length(line('.') * 100 / line('$')
 let s:cur_col = {-> s:hold_length(col('.'), 2) . (&colorcolumn > 0 ? '.'. (&cc - 1) : '')}
 let s:cur_line = {-> s:hold_length(line('.'), 2) .'.'. line('$')}
 let LL_lineinfo = {-> s:cur_col() .':'. s:cur_line()}
+
+function! LL_readonly() abort "{{{3
+  if &bt !=# ''
+    if &bt =~# 'nofile\|help'
+      return ''
+    endif
+    return '['. &bt .']'
+  endif
+
+  if !modifiable
+    return '[no modifiable]'
+  elseif &readonly
+    return '[RO]'
+  endif
+
+  return ''
+endfunction
 
 function! LL_notification() abort "{{{3
   let msg = ''
