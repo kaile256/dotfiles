@@ -1,6 +1,5 @@
 " From: browse.toml
 " Repo: junegunn/fzf.vim
-" Fork: kaile256/fzf.vim
 " Another: add/fzf.vim
 " Another: post/fzf.vim
 
