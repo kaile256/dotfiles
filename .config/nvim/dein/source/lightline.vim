@@ -92,6 +92,11 @@ let g:lightline.tab_component_function = {
       \ }
 
 function! LL_tab_path(n) abort
+  if &ft ==# 'defx'
+    let defx_cwd = matchstr(getline(1), ':\zs.*')
+    return 'defx://'. defx_cwd
+  endif
+
   let buflist = tabpagebuflist(a:n)
   let winnr = tabpagewinnr(a:n)
   let bufname = expand('#'. buflist[winnr - 1])
