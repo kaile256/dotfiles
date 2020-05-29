@@ -148,18 +148,8 @@ let g:lightline.component = {
       \ 'fullpath': '%F',
       \ }
 
-" Note: 'component_function' seems unnecessary.
-let g:lightline.component_expand = {
-      \ 'preview': '&previewwindow ? "= PREVIEW =" : ""',
-      \ 'readonly': '!empty(&bt) ? "" :'
-      \   .'!&modifiable ? "no modifiable" : (&ro ? "RO" : "")',
-      \
-      \ 'fileformat':   '&ff ==# "unix" ? "" : &ff',
-      \ 'percent': 'line("$") / line("w$") > 5 ? "%p%" : ""',
-      \
-      \ 'fileencoding': 'empty(&fenc)
-      \   ? (&enc  ==# "utf-8" ? "" : &enc)
-      \   : (&fenc ==# "utf-8" ? "" : &fenc)',
+let g:lightline.component_function = {
+      \ 'percent': 'LL_percent',
       \
       \ 'git_branch': 'LL_git_branch',
       \
@@ -174,7 +164,19 @@ let g:lightline.component_expand = {
       \ 'git_diff': 'LL_git_diff',
       \ }
 
+" Note: Less frequently updated; 'component_expand' is only updated by
+" lightline#update().
+let g:lightline.component_expand = {
+      \ 'preview': '&previewwindow ? "= PREVIEW =" : ""',
+      \ 'readonly': '&bt ==# "" ? "" : !&modifiable ? "no modifiable" : (&ro ? "RO" : "")',
+      \
+      \ 'fileformat': '&ff ==# "unix" ? "" : &ff',
+      \ 'fileencoding': 'empty(&fenc) ? (&enc ==# "utf-8" ? "" : &enc) : (&fenc ==# "utf-8" ? "" : &fenc)',
+      \ }
+
 " Define Components Functions {{{2
+let LL_percent = {-> line('$') > 100 ? line('.') * 100 / line('$') .'%' : ''}
+
 function! LL_notification() abort "{{{3
   let msg = ''
   for msg in ['gutentags#statusline()', 'LL_coc_notice()']
