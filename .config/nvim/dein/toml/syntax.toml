@@ -1,6 +1,19 @@
 # From: rc/dein.vim
 # Ref: ftplugin.toml
 
+#[ Detect ]
+[[plugins]]
+repo = 'itchyny/vim-autoft'
+# Fill &ft as predefined patterns if empty(&ft).
+on_if = '&ft ==# ""'
+on_event = ['TextChanged', 'InsertLeave']
+hook_source = 'runtime source/autoft.vim'
+
+#[ Append Highlight ]
+[[plugins]]
+repo = 'itchyny/vim-highlighturl'
+on_event = ['Colorscheme']
+
 #[ Multi Filetypes ]
 [[plugins]]
 repo = 'sheerun/vim-polyglot'
