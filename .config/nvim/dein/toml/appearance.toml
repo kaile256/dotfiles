@@ -103,34 +103,11 @@ on_event = 'BufRead'
 #repo = 'vim-airline/vim-airline-themes'
 ## Note: original only has 'dark'
 #on_source = ['vim-airline']
-
-[[plugins]]
-repo = 'renyard/vim-git-flow-format'
-type = 'git'
-depends = 'vim-airline'
-on_event = ['BufRead']
-
 #[[plugins]]
-#repo = 'mg979/vim-xtabline'
-#on_event = ['VimEnter']
-##hook_add = 'runtime add/xtabline.vim'
-#hook_source = 'runtime source/xtabline.vim'
-#hook_done_update = '''
-#exe 'e' g:dein_github_dir .'/mg979/vim-xtabline/autoload/xtabline/maps.vim'
-#g/<Plug>(XT-Select-Buffer)/s/<unique>//e
-#write
-#'''
-
-#[[plugins]]
-#repo = 'liuchengxu/eleline.vim'
-#on_event = 'VimEnter'
-#hook_source = 'runtime source/eleline.vim'
-
-#[[plugins]]
-#repo = 'hardcoreplayers/spaceline.vim'
-## Not good w/ neovim-qt
-#on_event = 'BufRead'
-#hook_source = 'runtime rc/spaceline.vim'
+#repo = 'renyard/vim-git-flow-format'
+#type = 'git'
+#depends = 'vim-airline'
+#on_event = ['BufRead']
 
 [[plugins]]
 repo = 'itchyny/lightline.vim'
