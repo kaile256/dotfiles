@@ -14,4 +14,4 @@ let g:gutentags_cache_dir = $XDG_CACHE_HOME .'/gutentags'
 "   cscope: generate a code database file using `cscope`
 "   gtags_cscope: generate a code database file using `gtags`
 " Default: ['ctags']
-"g:gutentags_modules = ['ctags']
+let g:gutentags_modules = ['ctags', 'gtags_cscope']
