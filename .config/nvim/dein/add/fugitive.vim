@@ -172,7 +172,6 @@ function! s:Gvdiffw(...) abort "{{{2
   "wincmd p
 
   call s:check_scrollable()
-  call s:Gvstatus()
   call s:additional()
 endfunction
 
@@ -192,8 +191,6 @@ function! s:additional() abort "{{{2
     norm! ]c
     return
   endif
-  " back to a buffer of status if there
-  call win_gotoid(bufwinid('.git/index'))
 endfunction
 
 " Blame {{{1
@@ -210,10 +207,9 @@ nnoremap <silent> <space>gU :<C-u>Gunstage % <CR>
 nnoremap <silent> <space>ga :<C-u>Gw<CR>
 nnoremap <silent> <space>gA :<C-u>Gw <bar> GcommitBottom <CR>
 
-nnoremap <silent> <space>gw :<c-u>Gw <bar> GvdiffWithStat HEAD<cr>
+nnoremap <silent> <space>gw :<c-u>Gw <bar> GvdiffOnly HEAD<cr>
 
-command! -bar -nargs=*
-     \ GvdiffWithStat
+command! -bar -nargs=* GvdiffOnly
      \ :HelpCloseAll
      \ | call s:winpick()
      \ | call s:Gvdiffw(<q-args>)
