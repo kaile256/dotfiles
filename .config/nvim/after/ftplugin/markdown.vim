@@ -27,7 +27,7 @@ setl tabstop=4 softtabstop=4 shiftwidth=4
 
 inoreabbr <expr><buffer> *
       \ (getline('.')[:col('.')] !~# '[^* \t]')
-      \ ? '- [ ] '
+      \ ? '- [ ]'
       \ : '*'
 
 " FIXME: if matched, return true
