@@ -33,27 +33,29 @@ let g:mundo_mirror_graph  = 1  " 1: Extend undo-branchs to left.
 " 'play_to': undo/redo to the selected-undo history, motionaly.
 " TODO: echo 'preparing...'; too slow to show diff.
 let g:mundo_mappings = {
-          \ '<cr>': 'preview',
-          \ 'j': 'move_older',
-          \ 'k': 'move_newer',
-          \ 'zj': 'move_older_write',
-          \ 'zk': 'move_newer_write',
-          \ 'gg': 'move_top',
-          \ 'G': 'move_bottom',
-          \ 'P': 'play_to',
-          \ 'D': 'diff',
-          \ '/': 'search',
-          \ 'n': 'next_match',
-          \ 'N': 'previous_match',
-          \ 'd': 'diff_current_buffer',
-          \ 'p': 'diff_current_buffer',
-          \ '?': 'toggle_help',
-          \ }
+      \ '<cr>': 'preview',
+      \ 'j': 'move_older',
+      \ 'k': 'move_newer',
+      \ 'zj': 'move_older_write',
+      \ 'zk': 'move_newer_write',
+      \ 'gg': 'move_top',
+      \ 'G': 'move_bottom',
+      \ 'P': 'play_to',
+      \ 'D': 'diff',
+      \ '/': 'search',
+      \ 'n': 'next_match',
+      \ 'N': 'previous_match',
+      \ 'd': 'diff_current_buffer',
+      \ 'p': 'diff_current_buffer',
+      \ '?': 'toggle_help',
+      \ }
 
 if exists('#myMundoSource')
   au! myMundoSource
 endif
 augroup myMundoSource
+  if exists('#myMundoSource') | au! myMundoSource
+  endif
   au FileType Mundo,MundoDiff setl signcolumn=
   au FileType Mundo setl winfixwidth
 augroup END
