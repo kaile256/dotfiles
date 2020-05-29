@@ -195,15 +195,23 @@ function! s:peek.help() abort "{{{2
   "   return '  * '. ret
   " endfunction
 
-  let Mark_on_title = ['^\ze\u', '- ', '']
-  let function_tag = ['\v*.+-(.*\(\))\*', '  * \1', '']
-  let Indent_tag = ['\v*(.+)\*', '  * \1', '']
+  let capitarized_index = '^\(\u.\{-1,}\)\s*\*.\+\*\s*$'
+  let numbered_index    = '^\(\d.\+\)\s*$'
+
+  let sub_index = '\(^\s*\S\{2,}.*\)\s\+\*.\+\*\s*$'
+  let help_tag  = '^\s\{-}\*\(\S.\+\)\*$'
+
+  let Mark_on_capitalized_index = [capitarized_index, '- \1', '']
+  let Mark_on_numbered_index    = [numbered_index, '- \1', '']
   let Separate_multi_tags = ['\*\s*\*', ' || ', 'g']
+  let Indent_sub_index = [sub_index, '  * \1', '']
+  let Show_only_tags_index = [help_tag, '  * \1', '']
   let b:foldpeek_whiteout_patterns.substitute = [
-        \ Mark_on_title,
-        \ function_tag,
-        \ Indent_tag,
+        \ Mark_on_capitalized_index,
+        \ Mark_on_numbered_index,
         \ Separate_multi_tags,
+        \ Indent_sub_index,
+        \ Show_only_tags_index,
         \ ]
 endfunction
 
