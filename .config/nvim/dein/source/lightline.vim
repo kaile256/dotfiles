@@ -104,27 +104,6 @@ function! LL_tab_path(n) abort
   return s:modify_path(bufname)
 endfunction
 
-function! s:modify_path(bufname) abort
-  if &bt ==# 'terminal'
-    " Return 'running shell':'id'
-    return substitute(a:bufname, '.\{-}\(\d\+\):\(\S\+\)$', '\2:\1', 'e')
-  endif
-  if a:bufname =~# '\[.\{-}]'
-    return matchstr(a:bufname, '\[.\{-}]')
-  elseif a:bufname =~# '__.\{-}__'
-    return matchstr(a:bufname, '__.\{-}__')
-    " return '['. matchstr(a:bufname, '__\zs.\{-}\ze__') .']'
-  endif
-
-  let dir_path  = fnamemodify(a:bufname, ':p:h')
-  let short_dir = pathshorten(dir_path)
-  let dir = fnamemodify(short_dir, ':h:t') .'/'. fnamemodify(short_dir, ':t')
-
-  let fname = fnamemodify(a:bufname, ':t')
-  let path = dir .'/'. fname
-  return fname !=# '' ? path : '[No Name]'
-endfunction
-
 " Modify lightline#tab#modified(n) directly
 " itchyny/lightline.vim/autoload/lightline/tab.vim.
 
