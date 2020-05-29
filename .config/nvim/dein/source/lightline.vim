@@ -155,6 +155,7 @@ let g:lightline.component_expand = {
       \   .'!&modifiable ? "no modifiable" : (&ro ? "RO" : "")',
       \
       \ 'fileformat':   '&ff ==# "unix" ? "" : &ff',
+      \ 'percent': 'line("$") / line("w$") > 5 ? "%p%" : ""',
       \
       \ 'fileencoding': 'empty(&fenc)
       \   ? (&enc  ==# "utf-8" ? "" : &enc)
