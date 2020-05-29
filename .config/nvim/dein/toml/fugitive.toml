@@ -110,8 +110,9 @@ hook_add = 'runtime add/git-messenger.vim'
 #on_ft = ['fugitive', 'gitcommit', 'git']
 #hook_post_source = 'runtime add/gv.vim'
 
-#[[plugins]]
-#repo = 'rhysd/committia.vim'
-#if = 'has("nvim")'
-#on_ft = ['fugitive', 'gitcommit', 'git']
-#hook_post_source = 'runtime add/committia.vim'
+[[plugins]]
+repo = 'rhysd/committia.vim'
+# Doesn't work on Neovim without manual set of variables, $GIT_DIR and so on.
+on_func = ['committia#open']
+on_ft = ['fugitive', 'gitcommit', 'git']
+hook_source = 'runtime source/committia.vim'
