@@ -144,12 +144,12 @@ endfunction
 "      \ }
 
 let g:lightline.component = {
-      \ 'lineinfo': '%2v:%2l/%-3L',
       \ 'fullpath': '%F',
       \ }
 
 let g:lightline.component_function = {
       \ 'percent': 'LL_percent',
+      \ 'lineinfo': 'LL_lineinfo',
       \
       \ 'git_branch': 'LL_git_branch',
       \
@@ -175,7 +175,13 @@ let g:lightline.component_expand = {
       \ }
 
 " Define Components Functions {{{2
-let LL_percent = {-> line('$') > 100 ? line('.') * 100 / line('$') .'%' : ''}
+let s:hold_length = {text, max -> repeat(' ', max - len(text)) . text}
+" let s:hold_length_inverse = {text, max -> text . repeat(' ', max - len(text))}
+let LL_percent = {-> line('$') > 100 ? s:hold_length(line('.') * 100 / line('$'), 2) .'%' : ''}
+
+let s:cur_col = {-> s:hold_length(col('.'), 2) . (&colorcolumn > 0 ? '.'. (&cc - 1) : '')}
+let s:cur_line = {-> s:hold_length(line('.'), 2) .'.'. line('$')}
+let LL_lineinfo = {-> s:cur_col() .':'. s:cur_line()}
 
 function! LL_notification() abort "{{{3
   let msg = ''
