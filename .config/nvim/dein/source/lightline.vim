@@ -43,7 +43,7 @@ let g:lightline.tabline = {
 let g:lightline.active = {
       \ 'left': [
       \   ['mode', 'preview'],
-      \   ['git_branch', 'git_diff'],
+      \   ['specific_buffer', 'git_branch', 'git_diff'],
       \   ['readonly', 'paste', 'spell'],
       \   ['filepath'],
       \ ],
@@ -135,6 +135,7 @@ let g:lightline.component_function = {
       \ 'percent': 'LL_percent',
       \ 'lineinfo': 'LL_lineinfo',
       \
+      \ 'specific_buffer': 'LL_specific_buffer',
       \ 'git_branch': 'LL_git_branch',
       \
       \ 'notification': 'LL_notification',
@@ -307,16 +308,20 @@ function! LL_filetype() abort "{{{3
   return &ft
 endfunction
 
-function! LL_git_branch() abort "{{{3
+function! LL_specific_buffer() abort "{{{3
   if &bt ==# 'terminal'
     return 'TERM'
   elseif &ft =~# 'help\|man'
     " Return the title.
     " The substitute() only for 'help'.
     return substitute(matchstr(getline(1), '\S\+'), '\*\|\.txt', '', 'ge')
-  elseif !empty(&bt)
-    return ''
   endif
+
+  return ''
+endfunction
+
+function! LL_git_branch() abort "{{{3
+  if &bt !=# '' | return '' | endif
 
   let branch = ''
   try
@@ -328,7 +333,7 @@ function! LL_git_branch() abort "{{{3
       let branch .= '!'
     endif
 
-    return !empty(branch) ? branch : '...'
+    return branch !=# '' ? branch : '...'
   endtry
 endfunction
 
