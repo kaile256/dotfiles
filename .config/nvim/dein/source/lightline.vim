@@ -264,8 +264,10 @@ endfunction
 "      \ }
 
 function! LL_filepath() abort "{{{3
+  if &bt !=# '' | return '' | endif
+
   " TODO: return the window's filename
-  let bufname = expand('%')
+  let bufname = bufname()
   return s:modify_path(bufname)
 endfunction
 
