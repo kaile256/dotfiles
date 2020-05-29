@@ -169,10 +169,7 @@ let LL_lineinfo = {-> s:cur_col() .':'. s:cur_line()}
 
 function! LL_readonly() abort "{{{3
   if &bt !=# ''
-    if &bt =~# 'nofile\|help'
-      return ''
-    endif
-    return '['. &bt .']'
+    return ''
   endif
 
   if !modifiable
