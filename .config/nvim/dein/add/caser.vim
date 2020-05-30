@@ -9,14 +9,25 @@ let g:caser_no_mappings = 1
 nmap \u <Nop>
 xmap \u <Nop>
 
-" CamelCaseButStartsInCapitalized
-" Mnemonic: change case like gu/gU
-nmap \um <Plug>CaserMixedCase
-xmap \um <Plug>CaserVMixedCase
+" reset sentence normally
+nmap \u<space> <Plug>CaserSpaceCase
+xmap \u<space> <Plug>CaserVSpaceCase
+
+" Start at capitalized and the rest in lower case.
+nmap \u( <Plug>CaserSentenceCase
+nmap \u) <Plug>CaserSentenceCase
+xmap \u( <Plug>CaserVSentenceCase
+xmap \u) <Plug>CaserVSentenceCase
 
 " Title Case
 nmap \ut <Plug>CaserTitleCase
 xmap \ut <Plug>CaserVTitleCase
+
+" Case for Programming {{{1
+" CamelCaseButStartsInCapitalized
+" Mnemonic: change case like gu/gU
+nmap \um <Plug>CaserMixedCase
+xmap \um <Plug>CaserVMixedCase
 
 " camelCase
 nmap \uc <Plug>CaserCamelCase
@@ -31,16 +42,6 @@ xmap \_ <Plug>CaserVSnakeCase
 " SNAKE_CASE_IN_UPPER
 nmap \U <Plug>CaserUpperCase
 xmap \U <Plug>CaserVUpperCase
-
-" Start at capitalized and the rest in lower case.
-nmap \u( <Plug>CaserSentenceCase
-nmap \u) <Plug>CaserSentenceCase
-xmap \u( <Plug>CaserVSentenceCase
-xmap \u) <Plug>CaserVSentenceCase
-
-" reset sentence normally
-nmap \u<space> <Plug>CaserSpaceCase
-xmap \u<space> <Plug>CaserVSpaceCase
 
 " hyphen-in-lower-case
 nmap \u- <Plug>CaserKebabCase
