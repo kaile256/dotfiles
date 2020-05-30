@@ -71,19 +71,6 @@ command! -bar -nargs=* Co :Colors <args>
 
 command! -bar -nargs=* -complete=help H :Helptags <args>
 
-" Keymaps {{{1
-"imap <c-x><c-f> <c-o>:cd ~<cr><plug>(fzf-complete-file-ag)
-"imap <c-x>f     <c-o>:cd ~<cr><plug>(fzf-complete-file-ag)
-
-nmap <silent> <space>zb :<c-u> Buffers<cr>
-nmap <silent> <space>zG :<c-u> GFiles<cr>
-nmap <silent> <space>zg :<c-u> GFiles?<cr>
-"" Mnemonic: 'Old' Buffer
-nmap <silent> <space>zo :<c-u> History<cr>
-"" Mnemonic: Search in Current File
-nmap <silent> <space>z/ :<c-u> BLines<cr>
-nmap <silent> <space>z; :<c-u> History:<cr>
-
 " Keymaps for Files {{{1
 let s:path_dict = {
       \ '.': '.',
@@ -138,3 +125,25 @@ endfunction
 call s:fzf_maps('<space>z', 'Fzf')
 call s:fzf_maps('<space>r', 'Rg')
 call s:fzf_maps('<space>a', 'Ag', 'n')
+
+" Keymaps {{{1
+"imap <c-x><c-f> <c-o>:cd ~<cr><plug>(fzf-complete-file-ag)
+"imap <c-x>f     <c-o>:cd ~<cr><plug>(fzf-complete-file-ag)
+
+" That is, fzf under project-root.
+nmap <silent> <space>z<space> :<c-u> GFiles<cr>
+nmap <silent> <space>zg :<c-u> GFiles?<cr>
+nmap <silent> <space>zG :<c-u> GFiles<cr>
+nmap <silent> <space>zb :<c-u> Buffers<cr>
+
+" Mnemonic: Search in Current File
+nmap <silent> <space>z/ :<c-u> BLines<cr>
+nmap <silent> <space>z<CR> :<c-u> BLines<cr>
+
+" Mnemonic: 'Old' Buffer
+nmap <silent> <space>zo :<c-u> History<cr>
+
+nmap <silent> <space>z? :<c-u> History/<cr>
+
+nmap <silent> <space>z; :<c-u> History:<cr>
+nmap <silent> <space>z: :<c-u> History:<cr>
