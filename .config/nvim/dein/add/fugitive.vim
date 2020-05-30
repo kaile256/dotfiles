@@ -20,12 +20,12 @@ command! -bar -nargs=1
 command! -bang -nargs=? -range=-1 -addr=tabs
       \ -complete=customlist,fugitive#PushComplete
       \ Gush
-      \ :<mods> Gpush <args>
+      \ :<mods> Git push <args>
 
 command! -bang -nargs=? -range=-1 -addr=tabs
       \ -complete=customlist,fugitive#PullComplete
       \ Gull
-      \ :<mods> Gpull <args>
+      \ :<mods> Git pull <args>
 
 command! -nargs=+ -bar -complete=file Gremote :Git remote <args>
 
