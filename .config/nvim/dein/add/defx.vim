@@ -20,7 +20,7 @@ function! s:defx(...) abort
   let fname = fnameescape(fname)
   " let fname = substitute(fname, '[^\\]\zs ', '\\ ', 'ge')
 
-  call s:mk_p_dir_on_demand(fname)
+  call s:mkdir_on_demand(fname)
 
   " b:term_title won't show filename but shows cwd.
   let cwd = exists('b:term_title') ? fname : expand('%:p:h')
@@ -33,12 +33,27 @@ function! s:defx(...) abort
   wincmd =
 endfunction
 
-function! s:mk_p_dir_on_demand(path) abort
+function! s:mkdir_on_demand(path) abort "{{{1
+  " Create directories with confirmation if parent directories don't exist.
+
   let dir = fnamemodify(a:path, ':h')
   if isdirectory(dir) | return | endif
 
-  let confirm = input('Defx: Parent directories does NOT exists; create the directories? ([y]es/[n]o) : ')
-  if confirm =~? 'y\%[es]'
+  let existed = dir
+  while !isdirectory(existed)
+    let existed = fnamemodify(existed, ':h')
+  endwhile
+  let existed .= '/'
+
+  let lack = substitute(dir, '^'. existed, '', 'e')
+  let lack .= '/'
+
+  let confirmed = input(' Defx: '
+        \ .'create dir '
+        \ .'"'. lack .'" under "'. existed .'"'
+        \ .'? ([y]es/[n]o) : ')
+
+  if confirmed =~? 'y\%[es]'
     call mkdir(dir, 'p')
   endif
 endfunction
