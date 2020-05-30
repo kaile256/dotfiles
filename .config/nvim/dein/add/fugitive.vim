@@ -27,8 +27,6 @@ command! -bang -nargs=? -range=-1 -addr=tabs
       \ Gull
       \ :<mods> Git pull <args>
 
-command! -nargs=+ -bar -complete=file Gremote :Git remote <args>
-
 command! -bang -nargs=? -range=-1 -addr=tabs
       \ -complete=customlist,fugitive#GrepComplete
       \ Gfunctions
