@@ -12,6 +12,7 @@ call defx#custom#option('_', 'drives', [
       \ expand('~/Downloads'),
       \ ])
 
+" TODO: Get defx's cwd with neither auto_cd nor getline(1).
 call defx#custom#option('_', {
       \ 'columns': 'mark:indent:git:icons:filename',
       \ 'winheight': winheight('.'),
