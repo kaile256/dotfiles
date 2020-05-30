@@ -42,24 +42,6 @@ for cmd in keys(s:cmd_to_path)
         \ ':exe "Files"' string(s:cmd_to_path[cmd])
 endfor
 
-command! -bar -bang -nargs=* Polybars
-      \ :cd ~/.config/polybar | Rg
-
-command! Neighbours call s:fzf_neighbours() "{{{1
-function! s:fzf_neighbours() abort
-  let current_file = expand('%')
-  let cwd = fnamemodify(current_file, ':p:h')
-  let command = 'ag --filename-pattern "" --follow' . cwd . ' --depth 0'
-
-  call fzf#vim#files('', fzf#vim#with_preview({
-        \ 'source': command,
-        \ 'sink':   'e',
-        \ 'options': '--multi --extended --no-sort',
-        \ })
-        \ )
-endfunction
-"nnoremap <silent> <space>zn :<c-u>Neighbours<cr>
-
 " Command: Maps with keymaps {{{1
 " TODO: set options reverse
 command! -bar -bang -nargs=* Nmaps call fzf#vim#maps('n', <bang>0)
@@ -88,16 +70,6 @@ command! -bar -bang -nargs=* Cm   :Commands
 command! -bar -nargs=* Co :Colors <args>
 
 command! -bar -nargs=* -complete=help H :Helptags <args>
-
-" " Command: wiki {{{1
-" " Note: the commands below are all wrapper,
-" "       so that they must be loaded on hook_add.
-" command! AgWiki  :cd ~/vimwiki                   <bar> Ag
-" command! RgWiki  :cd ~/vimwiki                   <bar> Rg
-" command! AgDiary :cd ~/vimwiki/diary             <bar> Ag
-" command! RgDiary :cd ~/vimwiki/diary             <bar> Rg
-" command! AgHelp  :cd /usr/share/nvim/runtime/doc <bar> Ag
-" command! RgHelp  :cd /usr/share/nvim/runtime/doc <bar> Rg
 
 " Keymaps {{{1
 "imap <c-x><c-f> <c-o>:cd ~<cr><plug>(fzf-complete-file-ag)
