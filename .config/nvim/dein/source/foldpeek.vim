@@ -158,6 +158,13 @@ function! s:set_patterns() abort
   endif
 endfunction
 
+function! s:peek.vim() abort "{{{2
+  " when &fdm is *not* set to 'marker'
+  let b:foldpeek_skip_patterns = [
+        \ '^\s*au!\s*$'
+        \ ]
+endfunction
+
 function! s:peek.php() abort "{{{2
   let b:foldpeek_skip_patterns = [
         \ '^\s*<\w\+>\s*$',
