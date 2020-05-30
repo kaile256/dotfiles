@@ -4,7 +4,11 @@
 " Ref: add/easymotion.vim
 " Another: add/sneak.vim
 
-hi! Sneak cterm=bold gui=bold ctermfg=magenta  guifg=#ed53cd
+if g:colors_name ==# 'neodark'
+  hi! Sneak ctermfg=magenta guifg=#ed53cd ctermbg=NONE guibg=NONE cterm=bold gui=bold
+else
+  hi! Sneak ctermfg=magenta guifg=#82009c ctermbg=white guibg=#ffa44b cterm=bold gui=bold
+endif
 " highlight for sneak-vertical-scope
 hi! SneakScope cterm=reverse gui=reverse
 " highlight for sneak-label-mode
