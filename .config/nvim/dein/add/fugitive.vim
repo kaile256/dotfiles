@@ -10,12 +10,6 @@ command! -bar -nargs=1
       \   '\(^\|https://github.com/\)\([^/]\+/[^/]\+\).*',
       \   'github:\2.git', '')
 
-"command! -bar -bang -nargs=* -complete=customlist,fugitive#EditComplete
-"      \ Gw
-"      \ :call fugitive#WriteCommand(<line1>, <count>, +<q-range>, <bang>0, <q-mods>, <q-args>, [<f-args>])
-"      \ | wincmd p
-"      \ | wincmd p
-
 " Note: :Gpush works asynchronous with 'tpope/vim-dispatch'
 command! -bang -nargs=? -range=-1 -addr=tabs
       \ -complete=customlist,fugitive#PushComplete
