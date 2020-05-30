@@ -59,6 +59,7 @@ function! s:defx_is_narrow() abort
   return ! s:defx_is_wide()
 endfunction
 function! s:single_window_with_defx() abort
+  " Return if no other windows but two window (defx and the other).
   return len(tabpagebuflist()) <= 2
 endfunction
 "let s:defx_is_wide   = {-> winwidth('.') > g:defx_standard_width}
