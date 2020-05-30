@@ -140,3 +140,10 @@ endif
 "  silent! .1s/^\s*\\/
 "  join
 "endfunction
+
+" augroup myAmongHMLPost
+"   " TODO: Remove any mappings on J/K on <buffer>.
+"   au!
+"   au BufNew * if maparg('J', '', 0, 1).buffer | unmap <buffer> J | endif
+"   au BufNew * if maparg('K', '', 0, 1).buffer | unmap <buffer> K | endif
+" augroup END
