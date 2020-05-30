@@ -6,6 +6,9 @@
 
 let g:caser_no_mappings = 1
 
+nmap \u <Nop>
+xmap \u <Nop>
+
 " Mnemonic: change case like gu/gU
 nmap \um <Plug>CaserMixedCase
 xmap \um <Plug>CaserVMixedCase
