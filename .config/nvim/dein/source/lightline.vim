@@ -203,7 +203,7 @@ function! LL_notification() abort "{{{3
 
   if winwidth(0) < 50 | return '' | endif
 
-  while len(msg) > (winwidth(0) / 2)
+  while len(msg) > (winwidth(0) * 3 / 4)
     let msg = matchstr(msg, '^.\{'. (len(msg) * 2 / 3) .'}')
   endwhile
 
