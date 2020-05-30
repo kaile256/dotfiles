@@ -292,6 +292,10 @@ function! s:modify_path(bufname) abort "{{{3
   let fname = fnamemodify(a:bufname, ':t')
   let path = dir .'/'. fname
 
+  if @% =~# '^fugitive:\/\/'
+    let path = 'fugitive://'. path
+  endif
+
   return empty(fname) ? '[No Name]' : path
 endfunction
 
@@ -316,6 +320,8 @@ function! LL_specific_buffer() abort "{{{3
     " Return the title.
     " The substitute() only for 'help'.
     return substitute(matchstr(getline(1), '\S\+'), '\*\|\.txt', '', 'ge')
+  elseif @% =~# '^fugitive:\/\/'
+      return 'FUGITIVE'
   endif
 
   return ''
