@@ -40,7 +40,7 @@ command! -nargs=? -bar -complete=customlist,fugitive#CommitComplete
       \ Gunstage
       \ :silent exe 'Git reset HEAD' (empty(<q-args>) ? '' : <q-args>)
 
-command! -bar -nargs=? GcommitBottom :bot 20 Git commit <args>
+command! -bar -nargs=* GcommitBottom :bot 20 Git commit <args>
 
 " Note: `:Gw --only` just stages a file named '--only'.
 command! -nargs=? -bar -complete=customlist,fugitive#EditComplete
