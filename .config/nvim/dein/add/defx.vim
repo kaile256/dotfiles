@@ -219,17 +219,27 @@ augroup myDefxAddInsteadOfNetrw "{{{1
   endif
   " Ref: https://github.com/Shougo/defx.nvim/issues/121
   " Ref: /usr/share/nvim/runtime/plugin/netrwPlugin.vim
-  "let g:loaded_netrw       = 1 " necessary to read via https
-  "let g:loaded_netrwPlugin = 1 " necessary to read via https
-  " let g:loaded_netrwSettings     = 1
-  " let g:loaded_netrwFileHandlers = 1
+  let g:loaded_netrwPlugin = 1 " necessary to read via https
 
   " Ref: *netrw-activate*
   au VimEnter * if expand('%') ==# '' | e. | endif
   " TODO: inherit jumplist after gf
   au VimEnter * silent! au! FileExplorer *
   au BufEnter * call s:defx_or_netrw(expand('<amatch>'))
+
+  au FileReadCmd file://* call s:netrw_cmd('Nread')
+  au BufReadCmd,FileReadCmd ftp://*,rcp://*,scp://*,http://*,https://*,dav://*,davs://*,rsync://*,sftp://*
+       \ call s:netrw_cmd('Nread')
+  au SourcePre,SourceCmd ftp://*,rcp://*,scp://*,http://*,file://*,https://*,dav://*,davs://*,rsync://*,sftp://*
+       \ call !s:netrw_cmd('Nsource')
 augroup END
+
+function! s:netrw_cmd(cmd) abort
+  if exists(':Nread') | return | endif
+  unlet g:loaded_netrwPlugin
+  source $VIMRUNTIME/plugin/netrwPlugin.vim
+  exe a:cmd expand('<amatch>')
+endfunction
 
 function! s:defx_or_netrw(dirname) abort
   if !s:isdir(a:dirname) | return | endif
@@ -237,6 +247,10 @@ function! s:defx_or_netrw(dirname) abort
     exe 'Defx' a:dirname '-search='. a:dirname '-new'
   catch
     " /usr/share/nvim/runtime/autoload/netrw.vim
+    if !exists(':Explore')
+      unlet g:loaded_netrwPlugin
+      source $VIMRUNTIME/plugin/netrwPlugin.vim
+    endif
     exe 'Explore' a:dirname
   endtry
 endfunction
