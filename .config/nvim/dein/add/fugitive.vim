@@ -203,11 +203,16 @@ nnoremap <silent> <space>gS :<c-u>tab Gstatus<cr>
 " Staging {{{1
 nnoremap <silent> <space>gu :<C-u>Gunstage <CR>
 nnoremap <silent> <space>gU :<C-u>Gunstage % <CR>
+xnoremap <silent> <space>gu :<C-u>Gunstage <CR>
+xnoremap <silent> <space>gU :<C-u>Gunstage % <CR>
 
 nnoremap <silent> <space>ga :<C-u>Gw<CR>
 nnoremap <silent> <space>gA :<C-u>Gw <bar> GcommitBottom <CR>
+xnoremap <silent> <space>ga :<C-u>Gw<CR>
+xnoremap <silent> <space>gA :<C-u>Gw <bar> GcommitBottom <CR>
 
 nnoremap <silent> <space>gw :<c-u>Gw <bar> GvdiffOnly HEAD<cr>
+xnoremap <silent> <space>gw :<c-u>Gw <bar> GvdiffOnly HEAD<cr>
 
 command! -bar -nargs=* GvdiffOnly
      \ :HelpCloseAll
