@@ -132,6 +132,7 @@ let g:lightline.component = {
       \ }
 
 let g:lightline.component_function = {
+      \ 'mode': 'LL_mode',
       \ 'percent': 'LL_percent',
       \ 'lineinfo': 'LL_lineinfo',
       \
@@ -239,29 +240,27 @@ function! LL_coc_notice() abort "{{{3
   return 'Coc: '. b:coc_diagnostic_info['lnums'][0] .' has "'. msg .'"'
 endfunction
 
-" function! LL_mode() abort "{{{3
-"   " FIXME: lightline fails to update the result of this function; therefore,
-"   " overwrite the function, lightline#mode()
-"   if !empty(&bt) && &bt !~# 'terminal'
-"     return toupper(&ft)
-"   endif
+function! LL_mode() abort "{{{3
+  if !empty(&bt) && &bt !~# 'terminal'
+    return toupper(&ft)
+  endif
 
-"   return get(g:lightline.mode_map, mode(), '')
-" endfunction
+  return get(g:lightline.mode_map, mode(), '')
+endfunction
 
-" let g:lightline.mode_map = {
-"      \ 'n':      'NORMAL',
-"      \ 'i':      'INSERT',
-"      \ 'R':      'REPLACE',
-"      \ 'v':      'VISUAL',
-"      \ 'V':      'V-LINE',
-"      \ "\<C-v>": 'V-BLOCK',
-"      \ 'c':      'COMMAND',
-"      \ 's':      'SELECT',
-"      \ 'S':      'S-LINE',
-"      \ "\<C-s>": 'S-BLOCK',
-"      \ 't':      'TERMINAL'
-"      \ }
+let g:lightline.mode_map = {
+     \ 'n':      'NORMAL',
+     \ 'i':      'INSERT',
+     \ 'R':      'REPLACE',
+     \ 'v':      'VISUAL',
+     \ 'V':      'V-LINE',
+     \ "\<C-v>": 'V-BLOCK',
+     \ 'c':      'COMMAND',
+     \ 's':      'SELECT',
+     \ 'S':      'S-LINE',
+     \ "\<C-s>": 'S-BLOCK',
+     \ 't':      'TERMINAL'
+     \ }
 
 function! LL_filepath() abort "{{{3
   if &bt !=# '' | return '' | endif
