@@ -44,6 +44,6 @@ noremap <silent><expr> <SID>(fugitive-gf-tab)
 
 noremap <silent><expr> <SID>(fugitive-gf-horizontal)
       \ <SID>is_hash() ? ":call <SID>Gopen('pedit')<cr>" : '<c-w>F'
-nnoremap <silent><expr> <SID>(fugitive-gf-vertical)
+noremap <silent><expr> <SID>(fugitive-gf-vertical)
       \ <SID>is_hash() ? ":call <SID>Gopen('vsplit')<cr>" : '<Cmd>vert wincmd F<cr>'
 
