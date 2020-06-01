@@ -92,8 +92,6 @@ hook_add = 'runtime add/fzf-gitswitch..vim'
 #[ Filer.Defx ]
 [[plugins]]
 repo = 'Shougo/defx.nvim'
-# /usr/share/nvim/runtime/plugin/rplugin.vim line 63
-hook_done_update = 'call remote#host#UpdateRemotePlugins()'
 # Notice: After the second opening a buffer from defx-buffer, Vim comes to open
 # an empty buffer instead.
 rev = 'c5d8afe'

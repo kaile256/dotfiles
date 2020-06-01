@@ -2,7 +2,6 @@
 
 [[plugins]]
 repo = 'Shougo/denite.nvim'
-hook_done_update = 'call remote#host#UpdateRemotePlugins()'
 on_cmd = 'Denite'
 hook_add = 'runtime add/denite.vim'
 #hook_source = 'runtime source/denite.vim'
