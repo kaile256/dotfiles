@@ -229,15 +229,17 @@ augroup myDefxAddInsteadOfNetrw "{{{1
 
   au FileReadCmd file://* call s:netrw_cmd('Nread')
   au BufReadCmd,FileReadCmd ftp://*,rcp://*,scp://*,http://*,https://*,dav://*,davs://*,rsync://*,sftp://*
-       \ call s:netrw_cmd('Nread')
+        \ call s:netrw_cmd('Nread')
   au SourcePre,SourceCmd ftp://*,rcp://*,scp://*,http://*,file://*,https://*,dav://*,davs://*,rsync://*,sftp://*
-       \ call !s:netrw_cmd('Nsource')
+        \ call s:netrw_cmd('Nsource')
 augroup END
 
 function! s:netrw_cmd(cmd) abort
-  if exists(':Nread') | return | endif
-  unlet g:loaded_netrwPlugin
-  source $VIMRUNTIME/plugin/netrwPlugin.vim
+  if !exists(':Nread')
+    unlet g:loaded_netrwPlugin
+    source $VIMRUNTIME/plugin/netrwPlugin.vim
+  endif
+
   exe a:cmd expand('<amatch>')
 endfunction
 
