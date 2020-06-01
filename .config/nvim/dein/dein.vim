@@ -150,11 +150,11 @@ if !exists('s:is_loaded')
     call dein#begin($DEIN_CACHE_HOME)
     " TODO: make faster to load tomls (it takes 1 sec. or more)
     call dein#add('Shougo/dein.vim') " Required
-    call s:load_the_plugins()
     if !has('nvim')
       call dein#add('roxma/nvim-yarp')
       call dein#add('roxma/vim-hug-neovim-rpc')
     endif
+    call s:load_the_plugins()
     call dein#end()
     call dein#save_state()
   endif
