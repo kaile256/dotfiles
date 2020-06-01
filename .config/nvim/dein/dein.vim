@@ -161,6 +161,10 @@ if !exists('s:is_loaded')
 
   if dein#check_install() "{{{2
     call dein#install()
+    if has('nvim')
+      " call remote#host#UpdateRemotePlugins()
+      call dein#remote_plugin()
+    endif
   endif "}}}2
 
   filetype plugin indent on
