@@ -12,14 +12,11 @@ backend: alacritty
 # fallback fonts according to the given orders if possible.
 # NOTE: Not all backends support fallback font.
 fonts:
-    - Migu 1M
-    - Dejavu Sans Mono
+    - Meslo LG S for Powerline
     - Icons
-    #- Source Code Pro
-    #- monofur
 
 #font_size: 15 # on urxvt
-font_size: 8 # on alacritty
+font_size: 12 # on alacritty
 #font_size: 13 # on kitty
 
 # Doesn't work.
