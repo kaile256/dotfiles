@@ -105,6 +105,12 @@ let s:toml_lazy = [
       \ 'xampp.toml',
       \ ]
 
+if executable('xinput')
+  let s:toml_lazy += [
+        \ 'web.toml'
+        \ ]
+endif
+
 " Define the function to load plugins {{{1
 function! s:load_plugins(list) abort
   " both toml and plugin's name are loadable.
@@ -133,9 +139,6 @@ endfunction
 let s:tomls = [{
       \ 'opt': {'lazy': 1},
       \ 'fnames': s:toml_lazy,
-      \ }, {
-      \ 'opt': {'lazy': 1, 'if': executable('xinput')},
-      \ 'fnames': ['web.toml'],
       \ }]
 
 let s:load_the_plugins = function('s:load_plugins', [s:tomls])
