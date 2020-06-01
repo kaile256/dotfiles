@@ -68,7 +68,32 @@ if has('unix')
   let g:dein#enable_notification = 1
 endif
 
-" Define list of TOML for the function {{{1
+" the Function to load plugins {{{1
+function! s:load_plugins(list) abort
+  " both toml and plugin's name are loadable.
+  " Note: dict['idx'] is faster than dict.idx
+  " map() works slower because it's not so different than additional for-loop.
+
+  " TODO: get plugins' normalized name to map() to override dict like 'hook_add'
+  " to 'runtime add/(normalized_name).vim'.
+  for dict in a:list
+    if get(dict['opt'], 'if', 1) == 0
+      continue
+    endif
+
+    for fname in dict['fnames']
+      if fname =~# '\.toml$'
+        " format: dein#load_toml(path, opt)
+        call dein#load_toml($DEIN_TOML_HOME .'/'. fname, dict['opt'])
+        continue
+      endif
+
+      call dein#add(fname, dict['opt'])
+    endfor
+  endfor
+endfunction
+
+" the List of TOML {{{1
 " Note: path could be different on the files managed in dotfiles
 "   if g:dein_toml_dir's includes $XDG_CONFIG_HOME
 
@@ -110,31 +135,6 @@ if executable('xinput')
         \ 'web.toml'
         \ ]
 endif
-
-" Define the function to load plugins {{{1
-function! s:load_plugins(list) abort
-  " both toml and plugin's name are loadable.
-  " Note: dict['idx'] is faster than dict.idx
-  " map() works slower because it's not so different than additional for-loop.
-
-  " TODO: get plugins' normalized name to map() to override dict like 'hook_add'
-  " to 'runtime add/(normalized_name).vim'.
-  for dict in a:list
-    if get(dict['opt'], 'if', 1) == 0
-      continue
-    endif
-
-    for fname in dict['fnames']
-      if fname =~# '\.toml$'
-        " format: dein#load_toml(path, opt)
-        call dein#load_toml($DEIN_TOML_HOME .'/'. fname, dict['opt'])
-        continue
-      endif
-
-      call dein#add(fname, dict['opt'])
-    endfor
-  endfor
-endfunction
 
 let s:tomls = [{
       \ 'opt': {'lazy': 1},
