@@ -119,12 +119,13 @@ function! s:load_plugins(list) abort
     endif
 
     for fname in dict['fnames']
-      if fname !~# '\.toml$'
-        call dein#add(fname, dict['opt'])
+      if fname =~# '\.toml$'
+        " format: dein#load_toml(path, opt)
+        call dein#load_toml($DEIN_TOML_HOME .'/'. fname, dict['opt'])
         continue
       endif
-      " format: dein#load_toml(path, opt)
-      call dein#load_toml($DEIN_TOML_HOME .'/'. fname, dict['opt'])
+
+      call dein#add(fname, dict['opt'])
     endfor
   endfor
 endfunction
