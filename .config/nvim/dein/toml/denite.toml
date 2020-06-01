@@ -29,14 +29,14 @@ on_source = 'denite.nvim'
 #on_source = 'denite.nvim'
 #hook_post_source = 'runtime add/denite-migemo.vim'
 
-[[plugins]]
-repo = 'nixprime/cpsm'
-# A matcher developped for 'CtrlP'
-build = '''
-type cpsm || pip install --user cpsm
-'''
-on_source = 'denite.nvim'
-hook_post_update = 'bash install.sh'
+#[[plugins]]
+#repo = 'nixprime/cpsm'
+## A matcher developped for 'CtrlP'
+#build = '''
+#type cpsm || pip install --user cpsm
+#'''
+#on_source = 'denite.nvim'
+#hook_post_update = 'bash install.sh'
 
 #[[plugins]]
 #repo = 'raghur/fruzzy'
