@@ -168,6 +168,9 @@ if !exists('s:is_loaded')
   endif "}}}2
 
   filetype plugin indent on
+  if !has('nvim')
+    syntax on
+  endif
   let s:is_loaded = 1
 endif
 
