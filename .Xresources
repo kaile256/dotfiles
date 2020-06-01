@@ -7,7 +7,122 @@ Xcursor.theme: Bibata Oil
 
 !#include ".Xresources.d/font"
 
-! Font for each {{{1
+! Colorscheme {{{1
+! Neodark
+#define _fg        #bcbcbc
+#define _bg        #AE8785
+#define _black     #263A45
+#define _red       #DC657D
+#define _green     #84B97C
+#define _yellow    #D4B261
+#define _blue      #639EE4
+#define _magenta   #B888E2
+#define _cyan      #72C7D1
+#define _white     #C7C18B
+#define br_black   #af8787
+#define br_red     #d75f87
+#define br_green   #87af87
+#define br_yellow  #d7af5f
+#define br_blue    #5fafd7
+#define br_magenta #af87d7
+#define br_cyan    #5fd7d7
+#define br_white   #d7af87
+
+!! Solarized (or flattened)
+!#define _black     #073642
+!#define _red       #dc322f
+!#define _green     #859900
+!#define _yellow    #b58900
+!#define _blue      #268bd2
+!#define _magenta   #d33682
+!#define _cyan      #2aa198
+!#define _white     #eee8d5
+!#define br_black   #002b36
+!#define br_red     #cb4b16
+!#define br_green   #586e75
+!#define br_yellow  #657b83
+!#define br_blue    #839496
+!#define br_magenta #6c71c4
+!#define br_cyan    #93a1a1
+!#define br_white   #fdf6e3
+!#define _fg        #ebdbb2
+!#define _bg        #282828
+
+! Colors for XTerm {{{1
+! Use black in background
+XTerm*reverseVideo: on
+XTerm*borderWidth: 0
+
+! [100]: 100% itself; background is completely itself
+! [0]:   0% itself; fake-background
+XTerm.foreground: _fg
+XTerm.background: _bg
+
+XTerm.color0:  _black
+XTerm.color1:  _red
+XTerm.color2:  _green
+XTerm.color3:  _yellow
+XTerm.color4:  _blue
+XTerm.color5:  _magenta
+XTerm.color6:  _cyan
+XTerm.color7:  _white
+XTerm.color8:  br_black
+XTerm.color9:  br_red
+XTerm.color10: br_green
+XTerm.color11: br_yellow
+XTerm.color12: br_blue
+XTerm.color13: br_magenta
+XTerm.color14: br_cyan
+XTerm.color15: br_white
+
+!! Forbid bold font faces; bold type is light blue.
+!XTerm*colorBDMode: true
+!XTerm*colorBD: rgb:82/a4/d3
+!! Do not underscore text, underlined text is white.
+!XTerm*colorULMode: true
+!XTerm*colorUL: rgb:e4/e4/e4
+
+! Colors for URxvt {{{1
+
+!! Color Scheme and Opacity - gruvbox-dark https://github.com/morhetz/gruvbox
+! Note: apply the opacity on color config in `[]`
+! Note: work on a window-manager
+!       which supports a composite-manager like xcompmgr or picom
+! Note: keep 'depth' 32
+!URxvt.depth: 32
+
+! [100]: 100% itself; background is completely itself
+! [0]:   0% itself; fake-background
+URxvt.color0:  [90]_black
+URxvt.color1:  [90]_red
+URxvt.color2:  [90]_green
+URxvt.color3:  [90]_yellow
+URxvt.color4:  [90]_blue
+URxvt.color5:  [90]_magenta
+URxvt.color6:  [90]_cyan
+URxvt.color7:  [90]_white
+URxvt.color8:  [90]br_black
+URxvt.color9:  [90]br_red
+URxvt.color10: [90]br_green
+URxvt.color11: [90]br_yellow
+URxvt.color12: [90]br_blue
+URxvt.color13: [90]br_magenta
+URxvt.color14: [90]br_cyan
+URxvt.color15: [90]br_white
+!URxvt.foreground:  [90]#ebdbb2
+!URxvt.background:  [90]#282828
+URxvt.foreground: [90]_white
+URxvt.background: [70]_black
+
+!! Italic/Bold/UnderLine
+!URxvt.colorIT:     [90]#8ec07c
+!URxvt.colorBD:     [90]#fe8019
+!URxvt.colorUL:     [90]#83a598
+
+!URxvt.scrollColor: [90]#504945
+!URxvt.troughColor: [90]#3C3836  ! bg-color for scrollbar.
+
+! Font {{{1
 !! Ref for fonts on each system: http://malkalech.com/xresources_magic#i-7
 
 ! Note: Meslo inserts wider blanklines within lines.
@@ -90,67 +205,6 @@ URxvt.kanji_encoding: UTF-8
 ! Note: letterSpace in negative nr. removes exagerated spaces; esp. for Japanese Fonts.
 URxvt.letterSpace:          -1
 !URxvt.lineSpace:            2  ! expand space between command-lines.
-
-!!! Color Scheme and Opacity - gruvbox-dark https://github.com/morhetz/gruvbox
-! Note: apply the opacity on color config in `[]`
-! Note: work on a window-manager
-!       which supports a composite-manager like xcompmgr or picom
-! Note: keep 'depth' 32
-!URxvt.depth: 32
-
-! Colorscheme: Neodark
-! [100]: 100% itself; background is completely itself
-! [0]:   0% itself; fake-background
-URxvt.color0:      [90]#AE8785    /* black          */
-URxvt.color1:      [90]#DC657D    /* red            */
-URxvt.color2:      [90]#84B97C    /* green          */
-URxvt.color3:      [90]#D4B261    /* yellow         */
-URxvt.color4:      [90]#639EE4    /* blue           */
-URxvt.color5:      [90]#B888E2    /* magenta        */
-URxvt.color6:      [90]#72C7D1    /* cyan           */
-URxvt.color7:      [90]#C7C18B    /* white          */
-URxvt.color8:      [90]#af8787    /* bright black   */
-URxvt.color9:      [90]#d75f87    /* bright red     */
-URxvt.color10:     [90]#87af87    /* bright green   */
-URxvt.color11:     [90]#d7af5f    /* bright yellow  */
-URxvt.color12:     [90]#5fafd7    /* bright blue    */
-URxvt.color13:     [90]#af87d7    /* bright magenta */
-URxvt.color14:     [90]#5fd7d7    /* bright cyan    */
-URxvt.color15:     [90]#d7af87    /* bright white   */
-!URxvt.foreground:  [90]#ebdbb2
-!URxvt.background:  [90]#282828
-URxvt.foreground:  [90]white
-URxvt.background:  [70]black
-
-!! Italic/Bold/UnderLine
-!URxvt.colorIT:     [90]#8ec07c
-!URxvt.colorBD:     [90]#fe8019
-!URxvt.colorUL:     [90]#83a598
-
-!URxvt.scrollColor: [90]#504945
-!URxvt.troughColor: [90]#3C3836  ! bg-color of scrollbar.
-
-!! Colorscheme: Solarized (or flattened)
-!URxvt.color0:      [90]#073642    /* black          */
-!URxvt.color1:      [90]#dc322f    /* red            */
-!URxvt.color2:      [90]#859900    /* green          */
-!URxvt.color3:      [90]#b58900    /* yellow         */
-!URxvt.color4:      [90]#268bd2    /* blue           */
-!URxvt.color5:      [90]#d33682    /* magenta        */
-!URxvt.color6:      [90]#2aa198    /* cyan           */
-!URxvt.color7:      [90]#eee8d5    /* white          */
-!URxvt.color8:      [90]#002b36    /* bright black   */
-!URxvt.color9:      [90]#cb4b16    /* bright red     */
-!URxvt.color10:     [90]#586e75    /* bright green   */
-!URxvt.color11:     [90]#657b83    /* bright yellow  */
-!URxvt.color12:     [90]#839496    /* bright blue    */
-!URxvt.color13:     [90]#6c71c4    /* bright magenta */
-!URxvt.color14:     [90]#93a1a1    /* bright cyan    */
-!URxvt.color15:     [90]#fdf6e3    /* bright white   */
-!!URxvt.foreground:  [90]#ebdbb2
-!!URxvt.background:  [90]#282828
-!URxvt.foreground:  [90]white
-!URxvt.background:  [90]black
 
 ! EXTENTION
 ! CAUTION: spare extra extentions to save RAM.
