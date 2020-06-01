@@ -130,20 +130,11 @@ function! s:load_plugins(list) abort
 endfunction
 
 let s:tomls = [{
-      \ 'opt': {'lazy': 0},
-      \ 'fnames': ['startup.toml'],
-      \ }, {
       \ 'opt': {'lazy': 1},
       \ 'fnames': s:toml_lazy,
       \ }, {
       \ 'opt': {'lazy': 1, 'if': executable('xinput')},
       \ 'fnames': ['web.toml'],
-      \ }, {
-      \ 'opt': {'lazy': 1, 'if': !has('nvim')},
-      \ 'fnames': [
-      \   'roxma/nvim-yarp',
-      \   'roxma/vim-hug-neovim-rpc',
-      \ ],
       \ }]
 
 let s:load_the_plugins = function('s:load_plugins', [s:tomls])
@@ -154,7 +145,12 @@ if !exists('s:is_loaded')
   if dein#load_state($DEIN_CACHE_HOME)
     call dein#begin($DEIN_CACHE_HOME)
     " TODO: make faster to load tomls (it takes 1 sec. or more)
+    call dein#add('Shougo/dein.vim') " Required
     call s:load_the_plugins()
+    if !has('nvim')
+      call dein#add('roxma/nvim-yarp')
+      call dein#add('roxma/vim-hug-neovim-rpc')
+    endif
     call dein#end()
     call dein#save_state()
   endif
