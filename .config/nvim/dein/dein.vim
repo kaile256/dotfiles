@@ -163,7 +163,7 @@ if !exists('s:is_loaded')
     call dein#install()
     if has('nvim')
       " call remote#host#UpdateRemotePlugins()
-      call dein#remote_plugin()
+      call dein#remote_plugins()
     endif
   endif "}}}2
 
