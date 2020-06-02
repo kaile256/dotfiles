@@ -28,6 +28,7 @@ HOMEs=(
   .gitconfig
   .gitignore
   .gonvim
+  .gvimrc
   .markdownlint.yaml
   .myscripts
   .profile
