@@ -14,10 +14,10 @@ if has('gui_running')
   if has('unix')
     " Note: when 'guifontset' is not empty, it replaces 'guifont'.
     try
-      set guifont=Meslo \LG \S \for \Powerline\ 13.5
-      set guifontwide=Meslo \LG \S \for \Powerline\ 13.5
-      set guifontset=Meslo \LG \S \for \Powerline\ 13.5
-      set printfont=Meslo \LG \S \for \Powerline\ 13.5
+      set guifont=Meslo\ LG\ S\ for\ Powerline\ 13.5
+      set guifontwide=Meslo\ LG\ S\ for\ Powerline\ 13.5
+      set guifontset=Meslo\ LG\ S\ for\ Powerline\ 13.5
+      set printfont=Meslo\ LG\ S\ for\ Powerline\ 13.5
       "set linespace=0
     catch
       set guifont=Monospace\ 12
