@@ -734,26 +734,7 @@ bindsym bracketleft      mode default
 bindsym Ctrl+bracketleft mode default
 }
 
-## Mode; Dotfiles {{{2
-#set $Dotfiles " Dotfiles: (V)im (I)3/(P)olybar (S)hell (T)erminals "
-
-#$release $Super+D mode $Dotfiles; $shortmsg 'Dotfiles'
-
-#set $fzf_dotfiles alacritty --title fzf_vim -e fzf-dotfiles
-
-#mode $Dotfiles {
-#bindsym V mode default; $notify 'Dotfiles: vimrc';      exec $fzf_dotfiles --vimrc
-#bindsym I mode default; $notify 'Dotfiles: i3/polybar'; exec $fzf_dotfiles --i3
-#bindsym P mode default; $notify 'Dotfiles: i3/polybar'; exec $fzf_dotfiles --i3
-#bindsym S mode default; $notify 'Dotfiles: shell';      exec $fzf_dotfiles --shell
-#bindsym T mode default; $notify 'Dotfiles: terminal';   exec $fzf_dotfiles --terminal
-
-#bindsym Ctrl+C           mode default
-#bindsym bracketleft      mode default
-#bindsym Ctrl+bracketleft mode default
-#}
-
-# Mode; Finder {{{2
+# Finder {{{2
 # Mnemonic: Finder or File explorer
 set $Finder " Finder: [N]nn [R]anger [H]unter [P]CManFM(lxde) PCManFM-[Q]t(lxqt) [T]hunar(Xfce) (G)ooglePhoto "
 $release $Super+F  mode $Finder; $shortmsg 'Finders'
@@ -859,29 +840,6 @@ bindsym $Super+A $noid alacritty -e zsh
 # # TODO: convert this bash-script into fish's
 # Ref: dmenu with fzf https://github.com/junegunn/fzf/wiki/Examples
 bindsym $Super+backslash $noid $menu
-
-# Keybind; open Editor {{{2
-# the numbar is RAM by htop in terminal of the editor
-# nvim on alacritty: 448M
-#bindsym $Super+N $noid nvim-qt
-##bindsym $Super+Q $noid nvim-qt
-#bindsym $Super+V $noid alacritty -e 'vim'
-#bindsym $Super+A $noid alacritty -e 'nvim'
-## nvim-qt: 418M
-## TODO: start nvim-qt sharing the buffer-list w/ another nvim-qt which is already started.
-##bindsym $SuperS+N $noid i3-sensible-terminal -e "nvim-qt --server $NVIM_LISTEN_ADDRESS"
-##bindsym $Super+R $noid nvim-gtk # font decayed
-#bindsym $SuperS+G $noid glrnvim
-##bindsym $SuperS+G $noid gonvim
-## gnvim: 612M, but firstest startup in 3 sec
-#bindsym $Super+G $noid gnvim
-##bindsym $Super+Y $noid nyaovim
-## oni: 718M
-#bindsym $Super+O $noid oni
-#bindsym $Super+E $noid emacs
-## code: 847M
-#bindsym $SuperS+V $noid code
-#bindsym $SuperS+C $noid code
 
 # Keybind; Sound Volume {{{2
 #bindsym $Super+Ctrl+M exec terminal -e 'alsamixer'
