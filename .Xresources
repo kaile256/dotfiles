@@ -84,12 +84,22 @@ XTerm.color15: br_white
 
 ! Colors for URxvt {{{1
 
-!! Color Scheme and Opacity - gruvbox-dark https://github.com/morhetz/gruvbox
+! Color Scheme and Opacity or Transparency:
+! Set 'depth' to 32, with a composite-manager like `xcompmgr` or `picom`.
+! For fake transparecy instead, use 'transparent'.
+
 ! Note: apply the opacity on color config in `[]`
 ! Note: work on a window-manager
 !       which supports a composite-manager like xcompmgr or picom
 ! Note: keep 'depth' 32
 !URxvt.depth: 32
+
+!! 'transparent' only in fake; adjust the percentage with 'shading'
+!URxvt.transparent: true
+!URxvt.shading: 70
+
+!! Fade (in percentage) the other windows, which gets no focus.
+!URxvt.fading: 100
 
 ! [100]: 100% itself; background is completely itself
 ! [0]:   0% itself; fake-background
@@ -144,8 +154,7 @@ URxvt.background: [70]_black
   #define FONT_SET FONT,FONTW
 #endif
 
-URxvt.font: FONT_SET
-
+! Font for XTerm {{{1
 XTerm*faceName:           FONT
 XTerm*faceNameDoublesize: FONTW
 XTerm*faceSize:           FONT_SIZE
@@ -155,114 +164,74 @@ XTerm*faceSize:           FONT_SIZE
 !XTerm*faceNameDoublesize: xft:Migu 1M
 !XTerm*faceSize: 14
 
-! URxvt {{{1
-! Ref:
-!   Ctrl+Shift is a shortcut to input any Unicode character like <C-v> in vim
-!   https://www.reddit.com/r/urxvt/comments/35x03n/if_youve_been_vexed_by_urxvts_picture_insert_mode/
+! scaleHeight: the height between line and line
+!   (available: 0.9 ~ 1.5; default: 1.0)
+XTerm*scaleHeight: 1.08
+
+! Fonts and Encoding
+XTerm*utf8:      true
+XTerm*locale:    true
+XTerm*utf8Title: true
+! cjk: Chinese, Japanese, Korean
+XTerm*cjkWidth : True
+
+! Font for URxvt {{{1
+URxvt.font: FONT_SET
+
+! Note: letterSpace in negative nr. removes exagerated spaces; esp. for Japanese Fonts.
+URxvt.letterSpace: -1
+!URxvt.lineSpace:  2 ! expand space between command-lines.
+
+! Font list and Spacing
+URxvt.allow_bold: true
+URxvt.kanji_encoding: UTF-8
+
+! Keybinds {{{1
+! Use Alt-key
+XTerm*metaSendsEscape: True
+
+! Ctrl+Shift is a shortcut to input any Unicode character like <C-v> in vim
+! https://www.reddit.com/r/urxvt/comments/35x03n/if_youve_been_vexed_by_urxvts_picture_insert_mode/
 URxvt.iso14755: false
 URxvt.iso14755_52: false
 
-! Ref: https://unix.stackexchange.com/questions/294337/rebinding-ctrl-alt-cv-to-ctrl-shift-cv-in-urxvt-9-20/329556#329556
+! https://unix.stackexchange.com/questions/294337/rebinding-ctrl-alt-cv-to-ctrl-shift-cv-in-urxvt-9-20/329556#329556
 URxvt.keysym.Shift-Control-V: eval:paste_clipboard
 URxvt.keysym.Shift-Control-C: eval:selection_to_clipboard
 ! Disable keybinds with `builtin-string:`
 URxvt.keysym.Control-Meta-c: builtin-string:
 URxvt.keysym.Control-Meta-v: builtin-string:
 
+! Misc. for XTerm {{{1
+XTerm*termName: xterm-256color
+!exec xterm -geometry 80x66+0+0 -name login
+!xterm -geometry 80x50+494+51 &
+!xterm -geometry 80x20+494-0 &
+
+XTerm*scrollBar:   false
+XTerm*cursorBlink: true
+
+! Misc. for URxvt {{{1
 URxvt.termName: rxvt-unicode
 
 ! Window-Size (default: 80x24)
 !URxvt.geometry:             96x32
 
 ! Scroll-Bar
-URxvt.scrollBar_right:      false
+URxvt.scrollBar_right:    false
 ! true: no background (= no floating) on scrollbar.
-URxvt.scrollBar_floating:   false
-URxvt.scrollstyle:          plain
+URxvt.scrollBar_floating: false
+URxvt.scrollstyle:        plain
 
-URxvt.cursorBlink:          true
-URxvt.cursorUnderline:      true
+URxvt.cursorBlink:        true
+URxvt.cursorUnderline:    true
 ! true: Hide the pointer on typing keyboard
-URxvt.pointerBlank:         true
+URxvt.pointerBlank:       true
 
-URxvt.visualBell:           false
-URxvt.saveLines:            3000
+URxvt.visualBell:         false
+URxvt.saveLines:          3000
 
-!! 'transparent': only in fake; for true one, use 'depth'
-!!                adjust by 'shading'
-!URxvt.transparent: true
-!URxvt.shading: 70
-
-! Fading if not focused (%)
-! i.e., Transparency
-!URxvt.fading: 100
-
-! Font list and Spacing
-URxvt.allow_bold: true
-URxvt.kanji_encoding: UTF-8
-
-!URxvt.font: xft:SF Mono:size=13:antialias=true,xft:Icons:size=14:antialias=true,xft:MesloLGSDZ Nerd Font:size=14:antialias=true,Migu 1M:size=12:antialias=true
-! Note: letterSpace in negative nr. removes exagerated spaces; esp. for Japanese Fonts.
-URxvt.letterSpace:          -1
-!URxvt.lineSpace:            2  ! expand space between command-lines.
-
-! EXTENTION
+! Extentions
 ! CAUTION: spare extra extentions to save RAM.
 !URxvt.perl-ext:
 !URxvt.perl-ext-common:
-
-! XTerm {{{1
-XTerm*termName: xterm-256color
-!exec xterm -geometry 80x66+0+0 -name login
-!xterm -geometry 80x50+494+51 &
-!xterm -geometry 80x20+494-0 &
-
-XTerm*scrollBar:    False
-XTerm*cursorBlink: True
-
-! Fonts and Encoding
-XTerm*utf8:      True
-XTerm*locale:    True
-XTerm*utf8Title: True
-
-! scaleHeight: the height between line and line
-!   (available: 0.9 ~ 1.5; default: 1.0)
-XTerm*scaleHeight: 1.08
-! cjk: Chinese, Japanese, Korean
-XTerm*cjkWidth : True
-
-! Use Alt-key
-XTerm*metaSendsEscape: True
-
-! Use black in background
-XTerm*reverseVideo: on
-XTerm*borderWidth: 0
-
-! Colorscheme: Neodark
-! [100]: 100% itself; background is completely itself
-! [0]:   0% itself; fake-background
-XTerm.color0:      #AE8785    /* black          */
-XTerm.color1:      #DC657D    /* red            */
-XTerm.color2:      #84B97C    /* green          */
-XTerm.color3:      #D4B261    /* yellow         */
-XTerm.color4:      #639EE4    /* blue           */
-XTerm.color5:      #B888E2    /* magenta        */
-XTerm.color6:      #72C7D1    /* cyan           */
-XTerm.color7:      #C7C18B    /* white          */
-XTerm.color8:      #af8787    /* bright black   */
-XTerm.color9:      #d75f87    /* bright red     */
-XTerm.color10:     #87af87    /* bright green   */
-XTerm.color11:     #d7af5f    /* bright yellow  */
-XTerm.color12:     #5fafd7    /* bright blue    */
-XTerm.color13:     #af87d7    /* bright magenta */
-XTerm.color14:     #5fd7d7    /* bright cyan    */
-XTerm.color15:     #d7af87    /* bright white   */
-!XTerm.foreground:  #ebdbb2
-!XTerm.background:  #282828
-XTerm.foreground:  white
-XTerm.background:  black
-
-! Window Manager {{{1
-!exec qtile
-!exec i3 -V >> ~/.local/share/i3/i3log-$(date +'%F-%k-%M-%S') 2>^1
-
