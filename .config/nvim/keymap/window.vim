@@ -147,10 +147,10 @@ tnoremap <a-]> <c-\><c-n>gt
 tnoremap <a-[> <c-\><c-n>gT
 
 " Swap window {{{1
-nnoremap <a-H> <c-w>H
-nnoremap <a-J> <c-w>J
-nnoremap <a-K> <c-w>K
-nnoremap <a-L> <c-w>L
+nnoremap <A-S-H> <c-w>H
+nnoremap <A-S-J> <c-w>J
+nnoremap <A-S-K> <c-w>K
+nnoremap <A-S-L> <c-w>L
 
 " Resize window {{{1
 nnoremap <c-left> <c-w><
