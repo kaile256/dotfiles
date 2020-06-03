@@ -37,7 +37,7 @@ let g:GuiFont_resize#default_size = get(g:, 'GuiFont_resize#default_size',
 
 command! -bar -bang -nargs=?
       \ GuiFontResize
-      \ :call GuiFont#resize(<q-args>, <q-bang>)
+      \ :call GuiFont#resize(<q-args>, <bang>0)
 
 nnoremap <silent> <Plug>(GuiFont-resize-larger)
       \ :<C-u>GuiFontResize +<C-r>=v:count1<CR><CR>

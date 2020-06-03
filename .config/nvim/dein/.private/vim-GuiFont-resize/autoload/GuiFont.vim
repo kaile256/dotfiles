@@ -44,7 +44,7 @@ function! GuiFont#resize(num, bang) abort "{{{1
   if empty(a:num)
     let new_font_size = g:GuiFont_resize#default_size
   else
-    let new_font_size = exists(a:bang)
+    let new_font_size = a:bang
           \ ? abs(eval(a:num))
           \ : prev_font_size + eval(a:num)
   endif
