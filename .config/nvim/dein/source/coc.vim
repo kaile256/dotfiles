@@ -8,10 +8,10 @@
 " the List of CocExtentions; "{{{1
 " Note: have to install LSPs independently.
 " Note: coc-highlight made CPU overwork
+" Note: coc-clangd only provides completion support.
 let g:coc_global_extensions = [
       \ 'coc-angular',
       \ 'coc-bookmark',
-      \ 'coc-clangd',
       \ 'coc-conjure',
       \ 'coc-css',
       \ 'coc-deno',
@@ -116,15 +116,18 @@ augroup myCocSource "{{{1
   if exists('#myCocSource') | au! myCocSource
   endif
 
+  au FileType list nnoremap <buffer> <CR> <TAB>
   " " CocNvimInit triggered after coc services have started.
   " au User CocNvimInit call CocAction('runCommand', 'tsserver.watchBuild')
 
+  au User CursorHold call CocActionAsync('doHover')
+  au User CursorHoldI call CocActionAsync('showSignatureHelp')
   au BufRead coc-settings.json setl commentstring=//%s
   " " No Status Line on coc's buffer; useless {{{2
   " au FileType coc,list setl laststatus=0
   "     \ | au BufWinEnter,WinLeave,BufLeave * ++once set laststatus=2
   " Snippets on Coc {{{2
-  au User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
+  " au User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
   " Highlight symbol under cursor on CursorHold
   "au CursorHold * silent call CocActionAsync('highlight')
 
@@ -164,17 +167,11 @@ augroup myCocSource "{{{1
     " call CocActionAsync('runCommand', 'vscode.java.startDebugSession', function('JavaDebugCallback'))
   endfunction
   " Auto Import {{{2
-  au BufWritePre *.go   silent call s:cocImport('editor.action.organizeImport')
   " Either editor's or java's fails to work on java
-  " au BufWritePre *.java silent call s:cocImport('java.action.organizeImports')
-  function! s:cocImport(coc_cmd) abort "{{{3
-    if line('$') < 1000
-      " Synchronized import is better with some commands like QuickRun
-      call CocAction('runCommand', a:coc_cmd)
-    endif
-    call CocActionAsync('runCommand', a:coc_cmd)
-  endfunction
-
+  " au BufWritePre *.java silent call CocActionAsync('runCommand', 'java.action.organizeImports')
+  au BufWritePre *.go call CocActionAsync('runCommand', 'editor.action.organizeImport')
+  au BufWritePre *.ts call CocActionAsync('runCommand', 'tsserver.organizeImports')
+  au CursorHold * call CocActionAsync('highlight')
   "" CocPairs {{{2
   "  au FileType vim let b:coc_pairs_disabled = ['"']
 augroup END
