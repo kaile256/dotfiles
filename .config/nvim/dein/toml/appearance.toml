@@ -44,8 +44,9 @@ hook_source = 'runtime source/highlightedyank.vim'
 #[ Rainbow ]
 [[plugins]]
 repo = 'luochen1990/rainbow'
+if = 'has("nvim")'
 # Notice: to activate, either g:rainbow_active or g:rainbow_conf must exists.
-on_event = ['BufAdd']
+on_event = 'Syntax'
 #hook_add = 'runtime add/rainbow-luochen1990.vim'
 hook_source = 'runtime source/rainbow-luochen1990.vim'
 #[[plugins]]

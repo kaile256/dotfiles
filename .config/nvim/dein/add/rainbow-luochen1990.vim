@@ -5,5 +5,5 @@
 augroup myRainbowLuochen1990Source
   au!
   " use g:rainbow_active instead
-  au Syntax,ColorScheme * call rainbow_main#load()
+  au Syntax,ColorScheme * ++nested call rainbow_main#load()
 augroup END
