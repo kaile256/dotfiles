@@ -90,31 +90,46 @@
   "list.source.mru.maxLength": 50,
   "list.source.mru.ignoreGitIgnore": false,
   "list.source.grep.defaultArgs": ["--regex"],
+
+  //"list.nextKeymap": "<C-,>",
+  //"list.previousKeymap": "<C-.>",
   "list.insertMappings": {
-    "<C-t>": "action:tabe",
-    "<C-s>": "action:split",
-    "<C-v>": "action:vsplit",
+    "<C-,>": "normal:j",
+    "<C-.>": "normal:k",
+
+    "<A-t>": "action:tabe",
+    "<A-s>": "action:split",
+    "<A-v>": "action:vsplit",
     "<CR>": "action:drop",
-    "<C-r>": "eval:@@",
-    "<c-c>": "do:cancel",
-    "<a-h>": "do:cancel",
-    "<a-j>": "do:cancel",
-    "<a-k>": "do:cancel",
-    "<a-l>": "do:cancel",
-    "<c-r>": "prompt.paste",
-    "<c-a>": "prompt.start",
-    "<c-e>": "prompt.end",
-    "<c-f>": "prompt.right",
-    "<c-b>": "prompt.left",
-    "<c-d>": "prompt.deletebackward"
+
+    "<C-?>": "do:help",
+    "<C-c>": "do:exit",
+    "<A-h>": "do:exit",
+    "<A-j>": "do:exit",
+    "<A-l>": "do:exit",
+    "<Esc>": "do:toggleMode", // between Insert and Normal mode of CocList.
+    "<A-k>": "do:toggleMode",
+
+    "<C-r>": "prompt.insertregister",
+    "<C-a>": "prompt.start",
+    "<C-e>": "prompt.end",
+    "<C-f>": "prompt.right",
+    "<C-b>": "prompt.left",
+    "<C-d>": "prompt.deletebackward"
   },
   "list.normalMappings": {
-    "m": "do.toggle",
-    "d": "action:delete",
     "e": "action:drop",
-    "<c-t>": "action:tab",
-    "<c-v>": "action:vsplit",
-    "<c-s>": "action:split"
+    "O": "action:vsplit",
+    "d": "action:delete",
+    "gO": "action:tab",
+    "o": "action:split",
+
+    "<C-c>": "do:exit",
+    "<A-h>": "do:exit",
+    "<A-k>": "do:exit",
+    "<A-l>": "do:exit",
+    "<A-j>": "do:toggleMode",
+    "i": "do.toggleMode"
   },
 
   "project.dbpath": "~/.coc-project",
