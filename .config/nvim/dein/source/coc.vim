@@ -5,6 +5,8 @@
 " Json: coc-settings.json
 " Another: add/coc.vim
 
+hi! CocCodeLens ctermfg=240 guifg=#585858
+
 " the List of CocExtentions; "{{{1
 " Note: have to install LSPs independently.
 " Note: coc-highlight made CPU overwork
