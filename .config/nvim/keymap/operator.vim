@@ -1,102 +1,62 @@
 " From: init.vim
 
-function! s:line_operation(operation, direction) abort "{{{1
-  if a:operation ==# 'copy' "{{{2
-    " Note: :move/:copy doesn't work well if folded.
-    if a:direction ==# 'downward'
-      norm! yyp
-    elseif a:direction ==# 'upward'
-      norm! yyP
-    endif
+function! s:is_registered() abort
+  return getline('.') ==# substitute(@", "\n", '', 'ge')
+endfunction
 
-  elseif a:operation ==# 'move' "{{{2
-    if v:event.regname ==# '' && getline('.') ==# @"
-      let l:regname = '"_'
-      if a:direction ==# 'downward'
-        exe 'norm!' l:regname .'ddp'
-      elseif a:direction ==# 'upward'
-        exe 'norm!' l:regname .'ddkP'
-      endif
-    endif
+command! -bar -bang CopyLine :call s:CopyLine(<bang>0)
+function! s:CopyLine(bang) abort
+  let is_registered = getline('.') ==# substitute(@", "\n", '', 'ge')
+  let put = a:bang ? 'P' : 'p'
+  let pre = is_registered ? '' : 'yy'
+
+  exe 'norm! '. pre . put
+  let sequence = ":CopyLine"
+  if a:bang
+    let sequence .= '!'
   endif
-endfunction "}}}1
+  let sequence .= "\<CR>"
+  call s:set_repeat(sequence)
+endfunction
 
-"nnoremap <silent> <Plug>(move-line-downward) :call <SID>line_operation('move', downward')<cr>
-"nnoremap <silent> <Plug>(move-line-upward)   :call <SID>line_operation('move', 'upward')<cr>
-"nnoremap <silent> <Plug>(copy-line-downward) :call <SID>line_operation('copy', downward')<cr>
-"nnoremap <silent> <Plug>(copy-line-upward)   :call <SID>line_operation('copy', 'upward')<cr>
-"nnoremap <silent> <Plug>(copy-line-upward)   :call <SID>line_operation('copy', 'upward')<cr>
+command! -bar -bang MoveLine :call s:MoveLine(<bang>0)
+function! s:MoveLine(bang) abort
+  let is_registered = getline('.') ==# substitute(@", "\n", '', 'ge')
+  let reg = is_registered ? '"_' : '""'
+  let put = a:bang ? (line('.') == line('$') ? 'P' : 'kP') : 'p'
 
-"" keep register clean
-"function! s:the_line_is_identical_to_regcontents() abort
-"  if !has_key(v:event, 'regname')
-"    " TODO: have to check character-wise
-"    return (@" ==# substitute(getline('v'), '$', '\n', 'ge'))
-"  endif
-"endfunction
-"nnoremap <expr> <Plug>(clean-register-delete)
-"      \ <SID>the_line_is_identical_to_regcontents()? '"_d': 'd'
-"nnoremap <expr> <Plug>(clean-register-change)
-"      \ <SID>the_line_is_identical_to_regcontents()? '"_c': 'c'
-"nmap d <Plug>(clean-register-delete)
-"nmap c <Plug>(clean-register-change)
+  exe 'norm! '. reg .'dd'. put
+  let sequence = ":MoveLine"
+  if a:bang
+    let sequence .= '!'
+  endif
+  let sequence .= "\<CR>"
+  call s:set_repeat(sequence)
+endfunction
 
-" TODO: enable to dot-repoeat
-nnoremap <expr> <SID>(move-line-downward) (getline('.') ==# substitute(@", "\n", '', 'ge'))? '"_ddp':  'ddp'
-nnoremap <expr> <SID>(move-line-upward)   (getline('.') ==# substitute(@", "\n", '', 'ge'))? '"_ddkP': 'ddkP'
-nnoremap <expr> <SID>(copy-line-downward) (getline('.') ==# substitute(@0, "\n", '', 'ge'))? '"0p': 'yyp'
-nnoremap <expr> <SID>(copy-line-upward)   (getline('.') ==# substitute(@0, "\n", '', 'ge'))? '"0P': 'yyP'
+function! s:set_repeat(sequence) abort
+  let sequence = a:sequence
+  if get(g:, 'repeat_sequence') =~# sequence
+    let sequence = ":undojoin \<bar>". sequence
+  endif
+  silent! call repeat#set(sequence)
+endfunction
 
-nnoremap <script> cp <SID>(move-line-downward)
-nnoremap <script> cP <SID>(move-line-upward)
-nnoremap <script> yp <SID>(copy-line-downward)
-nnoremap <script> yP <SID>(copy-line-upward)
+" " TODO: enable to dot-repoeat
+" nnoremap <silent><expr> <Plug>(copy-line-upward)   (<SID>is_registered() ? '"0' : 'yy') .'P'. ':call repeat#set("\<Plug>(copy-line-upward)")<CR>'
+" nnoremap <silent><expr> <Plug>(copy-line-downward) (<SID>is_registered() ? '"0' : 'yy') .'p'. ':call repeat#set("\<Plug>(copy-line-downward)")<CR>'
+" nnoremap <silent><expr> <Plug>(move-line-upward)   (<SID>is_registered() ? '"_' : '') .'dd'. (line('.') == line('$') ? 'P' : 'kP') . ':call repeat#set("\<Plug>(move-line-upward)")<CR>'
+" nnoremap <silent><expr> <Plug>(move-line-downward) (<SID>is_registered() ? '"_' : '') .'ddp'. ':call repeat#set("\<Plug>(move-line-downward)")<CR>'
 
-"function! s:visualized_area() abort
-"  let cursor = {
-"        \ 'line':  line("'>"),
-"        \ 'col':  col("'>") - 1,
-"        \ }
-"  let other = {
-"        \ 'line': line("'<"),
-"        \ 'col': col("'<") - 1,
-"        \ }
-"  for key in keys(line)
-"    let above[pos] = (cursor[pos] > other[pos])? cursor[pos] : other[pos]
-"    let below[pos] = (cursor[pos] > other[pos])? cursor[pos] : other[pos]
-"  endfor
-"  for line in [above.line : below.line]
-"  if visualmode() ==# 'v'
-"    let area = getline("'<")[above.line:]
-"    let end  = getline("'>")[:below]
-"  elseif visualmode() ==# 'V'
-"    let area = chars
-"  else
-"    let area = getline("'<")[above : below]
-"    let end  = getline("'>")[above : below]
-"  endif
-"  for chars in [line("'<") + 1, line("'>") - 1]
-"    if visualmode() ==# 'v'
-"      let area .= chars[above : below] ."\n"
-"    elseif visualmode() ==# 'V'
-"    else
-"      let area .= chars[above : below] ."\n"
-"    endif
-"  endfor
-"  return area . end
-"endfunction
-"
-"command! VisualizedArea :echo s:visualized_area()
+nnoremap <silent> <Plug>(copy-line-upward)   :<C-u>CopyLine!<CR>
+nnoremap <silent> <Plug>(copy-line-downward) :<C-u>CopyLine<CR>
+nnoremap <silent> <Plug>(move-line-upward)   :<C-u>MoveLine!<CR>
+nnoremap <silent> <Plug>(move-line-downward) :<C-u>MoveLine<CR>
 
-nmap <script><silent> <SID>(move-line-downward-repeatable)
-      \ :<c-u>silent! call repeat#setreg("\<SID>(move-line-downward)", v:register)<cr><SID>(move-line-downward):silent! call repeat#set("\<SID>(move-line-downward)")<cr>
-nmap <script><silent> <SID>(move-line-upward-repeatable)
-      \ :<c-u>silent! call repeat#setreg("\<SID>(move-line-upward)",   v:register)<cr><SID>(move-line-upward):silent!   call repeat#set("\<SID>(move-line-downward)")<cr>
-
-"nmap cp :silent! call repeat#set('\<Plug>(move-line-downward')<cr>
-"nmap cP :silent! call repeat#set('\<Plug>(move-line-upward')<cr>
-"nmap yp :silent! call repeat#set('\<Plug>(copy-line-downward')<cr>
-"nmap yP :silent! call repeat#set('\<Plug>(copy-line-upward')<cr>
+nmap cp <Plug>(move-line-downward)
+nmap cP <Plug>(move-line-upward)
+nmap yp <Plug>(copy-line-downward)
+nmap yP <Plug>(copy-line-upward)
 
 augroup myAfterYank
   if exists('#myAfterYank')
