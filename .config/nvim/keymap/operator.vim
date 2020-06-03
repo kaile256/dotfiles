@@ -42,12 +42,6 @@ function! s:set_repeat(sequence) abort
   silent! call repeat#set(sequence)
 endfunction
 
-" " TODO: enable to dot-repoeat
-" nnoremap <silent><expr> <Plug>(copy-line-upward)   (<SID>is_registered() ? '"0' : 'yy') .'P'. ':call repeat#set("\<Plug>(copy-line-upward)")<CR>'
-" nnoremap <silent><expr> <Plug>(copy-line-downward) (<SID>is_registered() ? '"0' : 'yy') .'p'. ':call repeat#set("\<Plug>(copy-line-downward)")<CR>'
-" nnoremap <silent><expr> <Plug>(move-line-upward)   (<SID>is_registered() ? '"_' : '') .'dd'. (line('.') == line('$') ? 'P' : 'kP') . ':call repeat#set("\<Plug>(move-line-upward)")<CR>'
-" nnoremap <silent><expr> <Plug>(move-line-downward) (<SID>is_registered() ? '"_' : '') .'ddp'. ':call repeat#set("\<Plug>(move-line-downward)")<CR>'
-
 nnoremap <silent> <Plug>(copy-line-upward)   :<C-u>CopyLine!<CR>
 nnoremap <silent> <Plug>(copy-line-downward) :<C-u>CopyLine<CR>
 nnoremap <silent> <Plug>(move-line-upward)   :<C-u>MoveLine!<CR>
