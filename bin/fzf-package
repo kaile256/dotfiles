@@ -1,0 +1,45 @@
+#!/usr/bin/env sh
+
+# Ref: https://wiki.archlinux.org/index.php/Fzf
+
+set -Cue
+
+install() {
+  if type pacman >/dev/null; then
+    if type yay >/dev/null; then
+      MANAGER='yay'
+      INSTALLER='yay'
+    else
+      MANAGER='pacman'
+      INSTALLER='sudo pacman'
+    fi
+    $MANAGER -Slq | fzf -m --preview-window right:65% --preview "$MANAGER -Si {1}" | xargs -ro "$INSTALLER" -S
+  fi
+}
+
+remove() {
+  if type pacman >/dev/null; then
+    if type yay >/dev/null; then
+      MANAGER='yay'
+      REMOVER='yay'
+    else
+      MANAGER='pacman'
+      REMOVER='sudo pacman'
+    fi
+    $MANAGER -Qeq | fzf --multi --preview-window right:65% --preview "$MANAGER -Qi {1}" | xargs -ro "$REMOVER" -Rs
+  fi
+}
+
+set +u
+
+case "$1" in
+  remove)
+    remove
+    ;;
+  --remove)
+    remove
+    ;;
+  *)
+    install
+    ;;
+esac

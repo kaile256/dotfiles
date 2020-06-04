@@ -3,7 +3,6 @@
 Path=(
   #"/opt/brew/bin" # recommended to set before /bin
   #"/opt/brew/sbin" # recommended to set before /bin
-  "$XDG_CONFIG_HOME/bash/functions" # original functions in Bash
   "$HOME/.local/bin" # local
   "$HOME/bin"
   "$CARGO_HOME/bin" # rust

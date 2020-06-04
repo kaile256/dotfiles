@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+# Should be 'sourced' to cd, or this script works only on child process.
+
+set -Cue
+
+# Ref: https://qiita.com/tomoyamachi/items/e51d2906a5bb24cf1684
+src=$(ghq list | fzf --preview-window=60% \
+  --preview "ls -la $(ghq root)/{} | tail -n+4 \
+  | awk '{printf \"%s.%s\t%s\n\", \$6,\$7,\$9}'")
+  #| awk -v 'OFS=\t' '{print \$6\".\"\$7,\$9}'")
+
+  path="$(ghq root)/$src"
+
+  if [ -n "$src" ]; then
+    cd "$path"
+  fi

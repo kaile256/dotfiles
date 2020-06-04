@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+
+set -Cue
+
+# Ref: https://itrendbuzz.com/bitly-url-shortener-using-shell-script/
+# Bitly Generic Access Token
+Accesstoken=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+api=https://api-ssl.bitly.com/v4/shorten
+
+echo -n "Enter your Long URL: "
+read -r longurl
+
+echo "[+] URL Shortening Started..."
+
+  # If no URL you will see this Alert message
+  if [[ ! $longurl ]]; then
+    echo -e "Error URL Missing"
+    exit 1
+  fi
+
+# Curl request
+curl -s -H Authorization:\ $Accesstoken -H Content-Type: -d '{"long_url": "'"$longurl"'"}' $api | jq -j .link | xsel -ib; xsel -ob; echo
