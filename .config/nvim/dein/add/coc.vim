@@ -12,35 +12,12 @@ augroup myCocAdd
 augroup END
 
 " " Note: <c-o> in coc's cmdline get to normal mode of coc.nvim
-" nnoremap <expr> <C-f> coc#util#has_float() ? coc#util#float_scroll(1) : "\<C-f>"
-" nnoremap <expr> <C-b> coc#util#has_float() ? coc#util#float_scroll(0) : "\<C-b>"
+nmap <silent><expr> <C-w>w     coc#util#has_float() ? "\<Plug>(coc-float-jump)" : '<C-w>w'
+nmap <silent><expr> <C-w><C-w> coc#util#has_float() ? "\<Plug>(coc-float-jump)" : '<C-w><C-w>'
 
-" Command!; C-series {{{1
-command! Cconfig       :CocOpenConfig
-
-command! -nargs=* -complete=custom,coc#list#options Clist
-      \ :call coc#rpc#notify('openList', [<f-args>])
-
-" Original {{{2
-command! -nargs=? Se :CocCommand session.save <args>
-" Mnemonic: Load sessions
-"command! L        :Clist sessions
-"command! Sessions :Clist sessions
-"command! SessionLoadC :CocCommand session.load
-command! -nargs=* -complete=custom,coc#list#options Cremove    :CocUninstall <args>
-command! Ccmd     :CocCommand
-command! Ccommand :CocCommand
-command! Cextensions :CocList extensions
-nnoremap <silent> <space>cx :Cextensions<cr>
-"command! -nargs=+ Csearch        :Csearch <f-args>
-"command! -nargs=+ Cgrep        :Clist grep -regex <f-args>
-"command! Ctemplate   CocCommand template.templateTop
-"command! Cinit       CocCommand template.templateTop
-"command! Init        CocCommand template.templateTop
-" Note: fzf.vim is better, which has regex-like specification method.
-"command! Cfiles    :Clist files
-"command! Cmru      :Clist mru
-"command! Cbuffers  :Clist buffers
+nnoremap <silent> <space>cx :CocList extensions<cr>
+"command! -nargs=+ Csearch :CocSearch <f-args>
+"command! -nargs=+ Cgrep :CocList grep -regex <f-args>
 
 " CocCompletion; {{{1
 " TODO: add fugitive#EditComplete to coc#refresh's list.
@@ -64,63 +41,12 @@ nmap <silent> gX <Plug>(coc-diagnostic-info)
 noremap <SID>(zv) :<C-u>sleep 5m <bar> norm! zv<CR>
 
 " Mnemonic: get Info
-nmap \X <Plug>(coc-fix-current)
+nmap \x <Plug>(coc-fix-current)
 map <silent> [x <Plug>(coc-diagnostic-prev)<SID>(zv)
 map <silent> ]x <Plug>(coc-diagnostic-next)<SID>(zv)
 
 "nmap [e <Plug>(coc-diagnostic-prev-error)
 "nmap ]e <Plug>(coc-diagnostic-next-error)
-
-" CocJump {{{1
-" Note: for 'zv', not in Async
-
-"" Jump; as :edit {{{2
-nnoremap <silent> gd :call CocAction('jumpDefinition',     'edit')<cr>zv
-xnoremap <silent> gd :call CocAction('jumpDefinition',     'edit')<cr>zv
-nnoremap <silent> gD :call CocAction('jumpDeclaration',    'edit')<cr>zv
-xnoremap <silent> gD :call CocAction('jumpDeclaration',    'edit')<cr>zv
-nnoremap <silent> gI :call CocAction('jumpImplementation', 'edit')<cr>zv
-xnoremap <silent> gI :call CocAction('jumpImplementation', 'edit')<cr>zv
-nnoremap <silent> gy :call CocAction('jumpTypeDefinition', 'edit')<cr>zv
-xnoremap <silent> gy :call CocAction('jumpTypeDefinition', 'edit')<cr>zv
-nnoremap <silent> gr :call CocAction('jumpReferences',     'edit')<cr>zv
-xnoremap <silent> gr :call CocAction('jumpReferences',     'edit')<cr>zv
-
-"" Jump; as :split {{{2
-nnoremap <silent> <c-w>d :call CocAction('jumpDefinition',     'split')<cr>zv
-xnoremap <silent> <c-w>d :call CocAction('jumpDefinition',     'split')<cr>zv
-nnoremap <silent> <c-w>D :call CocAction('jumpDeclaration',    'split')<cr>zv
-xnoremap <silent> <c-w>D :call CocAction('jumpDeclaration',    'split')<cr>zv
-nnoremap <silent> <c-w>I :call CocAction('jumpImplementation', 'split')<cr>zv
-xnoremap <silent> <c-w>I :call CocAction('jumpImplementation', 'split')<cr>zv
-nnoremap <silent> <c-w>y :call CocAction('jumpTypeDefinition', 'split')<cr>zv
-xnoremap <silent> <c-w>y :call CocAction('jumpTypeDefinition', 'split')<cr>zv
-nnoremap <silent> <c-w>r :call CocAction('jumpReferences',     'split')<cr>zv
-xnoremap <silent> <c-w>r :call CocAction('jumpReferences',     'split')<cr>zv
-
-"" Jump; as :tabe {{{2
-nnoremap <silent> <c-w>gd :call CocAction('jumpDefinition',     'tabe')<cr>zv
-xnoremap <silent> <c-w>gd :call CocAction('jumpDefinition',     'tabe')<cr>zv
-nnoremap <silent> <c-w>gD :call CocAction('jumpDeclaration',    'tabe')<cr>zv
-xnoremap <silent> <c-w>gD :call CocAction('jumpDeclaration',    'tabe')<cr>zv
-nnoremap <silent> <c-w>gI :call CocAction('jumpImplementation', 'tabe')<cr>zv
-xnoremap <silent> <c-w>gI :call CocAction('jumpImplementation', 'tabe')<cr>zv
-nnoremap <silent> <c-w>gy :call CocAction('jumpTypeDefinition', 'tabe')<cr>zv
-xnoremap <silent> <c-w>gy :call CocAction('jumpTypeDefinition', 'tabe')<cr>zv
-nnoremap <silent> <c-w>gr :call CocAction('jumpReferences',     'tabe')<cr>zv
-xnoremap <silent> <c-w>gr :call CocAction('jumpReferences',     'tabe')<cr>zv
-
-"" Jump; as :vsplit {{{2
-nnoremap <silent> <c-w><space>d :call CocAction('jumpDefinition',     'vsplit')<cr>zv
-xnoremap <silent> <c-w><space>d :call CocAction('jumpDefinition',     'vsplit')<cr>zv
-nnoremap <silent> <c-w><space>D :call CocAction('jumpDeclaration',    'vsplit')<cr>zv
-xnoremap <silent> <c-w><space>D :call CocAction('jumpDeclaration',    'vsplit')<cr>zv
-nnoremap <silent> <c-w><space>I :call CocAction('jumpImplementation', 'vsplit')<cr>zv
-xnoremap <silent> <c-w><space>I :call CocAction('jumpImplementation', 'vsplit')<cr>zv
-nnoremap <silent> <c-w><space>y :call CocAction('jumpTypeDefinition', 'vsplit')<cr>zv
-xnoremap <silent> <c-w><space>y :call CocAction('jumpTypeDefinition', 'vsplit')<cr>zv
-nnoremap <silent> <c-w><space>r :call CocAction('jumpReferences',     'vsplit')<cr>zv
-xnoremap <silent> <c-w><space>r :call CocAction('jumpReferences',     'vsplit')<cr>zv
 
 " CocFormat {{{1
 command! Import :call CocActionAsync('runCommand', 'editor.action.organizeImport')
@@ -188,10 +114,16 @@ endfunction
 
 " CocText-Object {{{1
 " Note: mapped already as default?
-vmap if <Plug>(coc-funcobj-i)
+xmap if <Plug>(coc-funcobj-i)
 omap if <Plug>(coc-funcobj-i)
-vmap af <Plug>(coc-funcobj-a)
+xmap af <Plug>(coc-funcobj-a)
 omap af <Plug>(coc-funcobj-a)
+
+" for class/struct/interface
+xmap im <Plug>(coc-classobj-i)
+omap im <Plug>(coc-classobj-i)
+xmap am <Plug>(coc-classobj-a)
+omap am <Plug>(coc-classobj-a)
 
 " " CocSnippets {{{1
 " " Note: Regex is interpreted by JavaScript while original UltiSnips
@@ -255,15 +187,16 @@ hi CocCursorRange guibg=#b16286 guifg=#ebdbb2
 ""nmap <silent> n <Plug>(coc-cursors-position)
 
 " CocColor; {{{1
-command! ColoFormat  :call CocAction('colorPresentation')
-command! ColoPalette :call CocAction('pickColor')
-nnoremap <space>cp :ColoPalette<cr>
+command! -bar ColorReformat    :call CocAction('colorPresentation')
+command! -bar ColorShowPalette :call CocAction('pickColor')
+nnoremap <space>cp :ColorShowPalette<cr>
 
 " CocList; {{{1
 " show commit contains current position
 nnoremap <silent> <space>cl :CocList<cr>
 nnoremap <silent> <space>cf :CocList files<cr>
 nnoremap <silent> <space>cb :CocList buffers<cr>
+nnoremap <silent> <space>cx :CocList extensions<cr>
 
 " CocBookmark; {{{1
 nmap mA <Plug>(coc-bookmark-annotate)
@@ -353,12 +286,6 @@ endif
 command! CEnglishEcho    :call coc#config("translator", {"toLang": "en"}) <bar> CocCommand translator.echo
 command! CEnglishReplace :call coc#config("translator", {"toLang": "en"}) <bar> CocCommand translator.replace
 command! CEnglishPum     :call coc#config("translator", {"toLang": "en"}) <bar> CocCommand translator.popup
-
-" CocTodo, or Task {{{1
-command! Ctask         CocCommand todolist.create
-command! CshowTaskList :Clist    todolist
-nnoremap <silent> <space>ct :Ctask<cr>
-nnoremap <silent> <space>cs :CshowTaskList<cr>
 
 " " CocYank; {{{1
 " " Required?: closes mpreview vindow when completion is done.
