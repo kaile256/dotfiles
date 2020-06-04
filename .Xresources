@@ -53,8 +53,6 @@ Xcursor.theme: Bibata Oil
 XTerm*reverseVideo: on
 XTerm*borderWidth: 0
 
-! [100]: 100% itself; background is completely itself
-! [0]:   0% itself; fake-background
 XTerm.foreground: _fg
 XTerm.background: _bg
 

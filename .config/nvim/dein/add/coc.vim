@@ -232,9 +232,13 @@ command! -bar MV     :CocCommand workspace.renameCurrentFile
 command! -bar -nargs=? CocDebug :CocCommand workspace.showOutput <args>
 
 " CocSession {{{1
-command! -bar -nargs=? Save :CocCommand session.save <args>
-command! -bar -nargs=? Load :CocCommand session.load <args>
-command! -bar -nargs=? Sessions :CocCommand session.load <args>
+command! -bar -nargs=? LoadSession :exe (<q-args> ==# '')
+      \ ? 'CocList session'
+      \ : 'CocCommand session.load' <args>
+command! -bar -nargs=? SaveSession :CocCommand session.save <args>
+
+nnoremap <silent> <space>cs :<C-u>CocList    sessions<CR>
+nnoremap <silent> <space>cS :<C-u>CocCommand session.save<CR>
 
 " CocRange, or Multiple Cursor {{{1
 hi CocCursorRange guibg=#b16286 guifg=#ebdbb2
