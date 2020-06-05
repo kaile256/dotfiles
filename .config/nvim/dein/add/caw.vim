@@ -25,15 +25,15 @@ xmap \l <Plug>(caw:dollarpos:toggle)
 "nmap \$ <Plug>(caw:dollarpos:comment:operator)
 "nmap \$ <Plug>(caw:dollarpos:uncomment:operator)
 
-"nmap \x <Plug>(caw:wrap:toggle:operator)
-"nmap <space>nm <Plug>(caw:wrap:uncomment:operator)
-"nmap <space>nm <Plug>(caw:wrap:comment:operator)
+nmap \% <Plug>(caw:wrap:toggle:operator)
+" nmap <space>nm <Plug>(caw:wrap:uncomment:operator)
+" nmap <space>nm <Plug>(caw:wrap:comment:operator)
 
-"nmap <space>nm <Plug>(caw:box:comment:operator:operator)
+nmap \b <Plug>(caw:box:comment:operator:operator)
 
 " Start Insert with comment-string
-nmap \O <Plug>(caw:jump:comment-prev:operator)
-nmap \o <Plug>(caw:jump:comment-next:operator)
+" nmap \O <Plug>(caw:jump:comment-prev:operator)
+" nmap \o <Plug>(caw:jump:comment-next:operator)
 
 finish
 " Deprecated named <Plug>s {{{1
