@@ -47,9 +47,9 @@ endfunction
 
 function! s:set_default_path() abort "{{{1
   let paths = {
-       \ 'dir': g:private_note#root_path,
-       \ 'fname': g:private_note#default_filename,
-       \ 'ext': g:private_note#default_extension,
+       \ 'dir':   get(b:, 'private_note_root_path', g:private_note#root_path),
+       \ 'fname': get(b:, 'private_note_default_filename', g:private_note#default_filename),
+       \ 'ext':   get(b:, 'private_note_default_extension', g:private_note#default_extension),
        \ }
 
   for tmp in keys(paths)
