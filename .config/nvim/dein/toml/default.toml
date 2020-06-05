@@ -39,6 +39,12 @@ write
 repo = 'tyru/vim-altercmd'
 on_event = ['CmdLineEnter', 'CmdWinEnter']
 hook_post_source = 'runtime post/altercmd.vim'
+[[plugins]]
+repo = 'markonm/traces.vim'
+# Pattern preview for :s, :g, :v and :sort.
+if = 'has("patch-8.0.1206")'
+on_event = 'CmdLineEnter'
+hook_source = 'runtime source/traces.vim'
 
 #[ Register ]
 [[plugins]]
