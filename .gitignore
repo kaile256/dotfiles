@@ -1,18 +1,18 @@
 tmp/
 node_modules/
 yarn/
-.mypy_cache/
+log/
+dbus/
+spell/
+.vmail/
+.zplugin/
+*cache*
 GPATH
 GRTAGS
 GTAGS
 tags
 *hist*
 *.log
-.zplugin/
-log/
-dbus/
-spell/**
-.vmail/
 
 # Swap
 [._]*.s[a-v][a-z]
