@@ -1,12 +1,14 @@
 " Starts From: https://www.reddit.com/r/neovim/comments/fxjjqh/indent_guides_on_blank_lines_with_virtual_text/?utm_name=iossmf
 
 let g:virtual_indent_namespace = get(g:, 'virtual_indent_namespace',
-      \ nvim_create_namespace('virtual_indent'))
+      \ 'virtual_indent')
+
+let s:namespace = nvim_create_namespace(g:virtual_indent_namespace)
 
 function! s:virtual_indent() abort
   if !&modifiable | return | endif
 
-  call nvim_buf_clear_namespace(0, g:virtual_indent_namespace, 1, -1)
+  call nvim_buf_clear_namespace(0, s:namespace, 1, -1)
 
   let save_view = winsaveview()
   let save_fdo  = &foldopen
@@ -27,7 +29,7 @@ function! s:virtual_indent() abort
     if l:indent > 0
       call nvim_buf_set_virtual_text(
             \   0,
-            \   g:virtual_indent_namespace,
+            \   s:namespace,
             \   line - 1,
             \   [[repeat(repeat(' ', &shiftwidth - 1) .'¦', l:indent / &shiftwidth),
             \     'VirtualIndent']],
