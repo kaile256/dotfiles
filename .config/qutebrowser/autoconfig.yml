@@ -14,6 +14,7 @@ settings:
       Pocket: open -t https://app.getpocket.com/
       R: session-load
       S: session-save -o
+      Save: session-save o
       W: session-save -o
       abbr: config-dict-add aliases
       alias: config-dict-add aliases
@@ -231,14 +232,14 @@ settings:
         <い>: enter-mode insert
         '>': tab-move +
         D: null
-        F: hint
+        F: hint links current
         H: null
         I: hint inputs --first
         J: fake-key <alt-down>
         K: fake-key <alt-up>
         L: null
         P: open -t {clipboard}
-        T: hint all tab
+        T: hint links tab-bg --rapid
         U: undo
         V: enter-mode caret;; toggle-selection
         ZC: close
@@ -266,9 +267,10 @@ settings:
         gH: open -t qute://history/
         gI: hint inputs
         gM: open -t https://www.google.co.jp/maps/@34.8244519,135.4776576,15z
+        gO: hint inputs
         gP: open -t https://app.getpocket.com/
         gS: view-source --pygments
-        ga: open https://www.amazon.co.jp/ref=nav_logo
+        ga: hint inputs
         gc: open https://calendar.google.com/calendar/r/month?pli=1
         gf: spawn nvim-qt {url}
         gh: open qute://history/
@@ -296,6 +298,7 @@ settings:
         wc: tab-close
         wq: bookmark-del;; bookmark-add;; tab-close
         wqa: bookmark-del;; bookmark-add;; quit
+        yf: hint links yank
         yv: yank selection
         yy: yank
         zH: scroll-to-perc -x 0
@@ -512,6 +515,7 @@ settings:
       ru: https://github.com/search?o=desc&q={}&s=updated&type=Repositories
       sf: https://stackoverflow.com/search?q={}
       so: https://stackoverflow.com/search?q={}
+      sym: http://symbolhound.com/?q={}
       th: https://www.freethesaurus.com/{}
       tw: http://twitter.com/search/{}
       wk: https://en.wikipedia.org/w/index.php?search={}
