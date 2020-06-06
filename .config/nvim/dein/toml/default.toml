@@ -130,6 +130,16 @@ repo = 'notomo/helpeek.vim'
 on_cmd = ['Helpeek']
 
 #[ Window ]
+[[plugins]]
+repo = 'AndrewRadev/undoquit.vim'
+on_func = ['undoquit#SaveWindowQuitHistory']
+on_cmd = ['Undoquit', 'UndoquitTab', 'UndoableTabclose']
+hook_add = 'runtime add/undoquit.vim'
+#[[plugins]]
+#repo = 'tyru/undoclosewin.vim'
+## Doesn't seem to work.
+#on_cmd = ['UcwRestoreWindow', 'UcwOpenHistoryBuffer']
+#on_map = {n = ['<Plug>(ucw-restore-window)']}
 #[[plugins]]
 #repo = 'camspiers/lens.vim'
 #on_func = ['lens#']
