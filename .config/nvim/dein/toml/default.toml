@@ -72,6 +72,10 @@ hook_source = 'runtime source/peekaboo.vim'
 #on_map = {nx = ['<Plug>OpenMarkbar']}
 
 #[ Undo ]
+#[[plugins]]
+#repo = 'machakann/vim-highlightedundo'
+## TODO: Make it compatible with vim-repeat
+#on_map = '<Plug>(highlightedundo-'
 [[plugins]]
 repo = 'simnalamburt/vim-mundo'
 on_cmd = 'Mundo'
