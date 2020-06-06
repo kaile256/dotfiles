@@ -11,7 +11,8 @@ augroup myNeodark
 augroup END
 function! s:my_neodark() abort "{{{1
   call s:modified_diff()
-  hi! Search      ctermfg=236 ctermbg=180 guifg=#3e120a guibg=#ebb556
+  hi! Search ctermfg=236 guifg=#3e120a ctermbg=180 guibg=#ebb556
+  hi! Whitespace ctermfg=239 guifg=#4e4e4e
 
   hi! Comment guifg=#797676
   hi! Folded guifg=#7c7c7c
