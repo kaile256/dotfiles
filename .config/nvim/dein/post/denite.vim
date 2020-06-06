@@ -8,38 +8,46 @@ nnoremap <silent> <a-n> :<c-u>keepj Dnext<cr>
 " Options: through denite#custom#option() "{{{1
 " Ref: Shougo/denite.nvim/autoload/denite/init.vim @97
 
-let s:denite_pos = {}
-let s:denite_pos.row = (&lines   * 5/100)
-let s:denite_pos.col = (&columns * 3/100)
-
-let s:denite_win = {}
-let s:denite_win.height = (&lines   * 90/100)
-let s:denite_win.width  = (&columns * 45/100)
-
-call denite#custom#option('default', {
+let s:denite_opt = {
       \ 'statusline': 0,
       \ 'immediately-1': 1,
       \
       \ 'matchers': 'matcher/cpsm',
       \ 'sorters': 'sorter/sublime',
-      \
-      \ 'winrow': s:denite_pos.row,
-      \ 'wincol': s:denite_pos.col,
-      \
-      \ 'winheight':      s:denite_win.height,
-      \ 'preview_height': s:denite_win.height,
-      \
-      \ 'winwidth':      s:denite_win.width,
-      \ 'preview_width': (&columns * 50/100),
-      \
-      \ 'split': 'floating',
+      \ 'empty': 0,
+      \ 'split': 'tab',
       \ 'vertical_preview': 1,
-      \ 'floating_preview': 1,
       \
       \ 'auto_resize': 1,
       \ 'auto_action': 'preview',
-      \ })
-unlet s:denite_pos s:denite_win
+      \ }
+
+" let s:denite_pos = {}
+" let s:denite_pos.row = {-> &lines   * 5/100}
+" let s:denite_pos.col = {-> &columns * 3/100}
+
+" let s:denite_win = {}
+" let s:denite_win.height = (&lines   * 90/100)
+" let s:denite_win.width  = (&columns * 45/100)
+
+" let s:denite_floating_opt = {
+"      \ 'floating_preview': 0,
+"      \
+"      \ 'winheight':      s:denite_win.height,
+"      \ 'preview_height': s:denite_win.height,
+"      \
+"      \ 'winwidth':      s:denite_win.width,
+"      \ 'preview_width': (&columns * 50/100),
+"      \
+"      \
+"      \ 'winrow': s:denite_pos.row(),
+"      \ 'wincol': s:denite_pos.col(),
+"      \ }
+" call extend(s:denite_opt, s:denite_floating_opt)
+" unlet s:denite_floating_opt
+
+call denite#custom#option('default', s:denite_opt)
+unlet s:denite_opt
 
 " Grep; {{{1
 " Use Interactive Mode
