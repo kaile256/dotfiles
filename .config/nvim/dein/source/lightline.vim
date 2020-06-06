@@ -30,6 +30,7 @@ let g:lightline.tab = {
 " and so on.
 let g:lightline.tabline = {
       \ 'left': [
+      \   ['tabpage_indicator'],
       \   ['tabs'],
       \ ],
       \
@@ -148,6 +149,8 @@ let g:lightline.component_function = {
       \ 'filepath': 'LL_filepath',
       \
       \ 'git_diff': 'LL_git_diff',
+      \
+      \ 'tabpage_indicator': 'LL_tab_indicator',
       \ }
 
 " Note: Less frequently updated; 'component_expand' is only updated by
@@ -168,6 +171,8 @@ let LL_percent = {-> line('$') > 100 ? s:hold_length(line('.') * 100 / line('$')
 let s:cur_col = {-> s:hold_length(col('.'), 2) . (&colorcolumn > 0 ? '.'. (&cc - 1) : '')}
 let s:cur_line = {-> s:hold_length(line('.'), 2) .'.'. line('$')}
 let LL_lineinfo = {-> s:cur_col() .':'. s:cur_line()}
+
+let LL_tab_indicator = {-> tabpagenr("$") == 1 ? "" : "[". tabpagenr() ."/". tabpagenr("$") ."]"} " it doesn't work on 'component_expand'
 
 function! LL_readonly() abort "{{{3
   if &bt !=# ''
