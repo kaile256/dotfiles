@@ -254,18 +254,18 @@ function! LL_mode() abort "{{{3
 endfunction
 
 let g:lightline.mode_map = {
-     \ 'n':      'NORMAL',
-     \ 'i':      'INSERT',
-     \ 'R':      'REPLACE',
-     \ 'v':      'VISUAL',
-     \ 'V':      'V-LINE',
-     \ "\<C-v>": 'V-BLOCK',
-     \ 'c':      'COMMAND',
-     \ 's':      'SELECT',
-     \ 'S':      'S-LINE',
-     \ "\<C-s>": 'S-BLOCK',
-     \ 't':      'TERMINAL'
-     \ }
+      \ 'n':      'NORMAL',
+      \ 'i':      'INSERT',
+      \ 'R':      'REPLACE',
+      \ 'v':      'VISUAL',
+      \ 'V':      'V-LINE',
+      \ "\<C-v>": 'V-BLOCK',
+      \ 'c':      'COMMAND',
+      \ 's':      'SELECT',
+      \ 'S':      'S-LINE',
+      \ "\<C-s>": 'S-BLOCK',
+      \ 't':      'TERMINAL'
+      \ }
 
 function! LL_filepath() abort "{{{3
   if &bt !=# '' | return '' | endif
@@ -326,7 +326,7 @@ function! LL_specific_buffer() abort "{{{3
     " The substitute() only for 'help'.
     return substitute(matchstr(getline(1), '\S\+'), '\*\|\.txt', '', 'ge')
   elseif @% =~# '^fugitive:\/\/'
-      return 'FUGITIVE'
+    return 'FUGITIVE'
   endif
 
   return ''
