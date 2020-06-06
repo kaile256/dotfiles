@@ -93,7 +93,7 @@ let g:lightline.tab_component_function = {
 
 function! LL_tab_path(n) abort
   if &ft ==# 'defx'
-    let defx_cwd = matchstr(getline(1), ':\zs.*')
+    let defx_cwd = matchstr(getline(1), ':\zs\S*')
     return 'defx://'. defx_cwd
   endif
 
