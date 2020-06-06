@@ -126,6 +126,13 @@ augroup myDenitePost "{{{1
   endfunction "}}}2
   au FileType denite-filter call s:denite_filter_keymaps() "{{{2
   function! s:denite_filter_keymaps() abort
+    " Emacs-like Cursor Move {{{3
+    inoremap <buffer> <C-a> <Home>
+    inoremap <buffer> <A-f> <S-Right>
+    inoremap <buffer> <C-f> <Right>
+    inoremap <buffer> <C-b> <Left>
+    inoremap <buffer> <A-b> <S-Left>
+
     " back to normalmode {{{3
     imap <buffer> <a-h> <Plug>(denite_filter_quit)
     imap <buffer> <a-j> <Plug>(denite_filter_quit)
