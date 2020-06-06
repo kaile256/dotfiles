@@ -102,9 +102,9 @@ on_map = {nx = '<Plug>(auto-git-diff-'}
 #repo = 'salcode/vim-interactive-rebase-reverse'
 ## reverse commit order from top-to-bottom to bottom-to-top
 #on_ft = ['gitrebase']
-[[plugins]]
-repo = 'piersy/vim-rebase-view'
-on_func = ['rebase_view#']
+#[[plugins]]
+#repo = 'piersy/vim-rebase-view'
+#lazy = 0
 
 #[ Stash ]
 #[[plugins]]
