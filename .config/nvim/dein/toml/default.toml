@@ -134,6 +134,7 @@ on_cmd = ['Helpeek']
 repo = 'AndrewRadev/undoquit.vim'
 on_func = ['undoquit#SaveWindowQuitHistory']
 on_cmd = ['Undoquit', 'UndoquitTab', 'UndoableTabclose']
+on_event = 'QuitPre'
 hook_add = 'runtime add/undoquit.vim'
 #[[plugins]]
 #repo = 'tyru/undoclosewin.vim'
