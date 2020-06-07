@@ -47,8 +47,7 @@ function! undoquit#Only(prefix_count, suffix_count, bang) abort
   let winnr = s:set_count(a:prefix_count, a:suffix_count)
   let cur_nr = winnr > 0 ? winnr : winnr()
 
-  let last_winnr = winnr('$')
-  if last_winnr == 1
+  if winnr('$') == 1
     echo 'Already only one window'
     return
   endif
@@ -60,6 +59,8 @@ function! undoquit#Only(prefix_count, suffix_count, bang) abort
     endfor
   endif
 
+  " winnr('$') would be different than the previous check 'if only one window'.
+  let last_winnr = winnr('$')
   if last_winnr == 1 | return | endif
 
   for _ in range(2, last_winnr)
@@ -71,8 +72,7 @@ endfunction
 function! undoquit#Tabonly(prefix_count, suffix_count, bang) abort
   " Note: {count} is *not* so free as built-in tabonly
 
-  let last_tabnr = tabpagenr('$')
-  if last_tabnr == 1
+  if tabpagenr('$') == 1
     echo 'Already only one tab page'
     return
   endif
@@ -86,6 +86,7 @@ function! undoquit#Tabonly(prefix_count, suffix_count, bang) abort
     endfor
   endif
 
+  let last_tabnr = tabpagenr('$')
   if last_tabnr == 1 | return | endif
 
   for _ in range(2, last_tabnr)
