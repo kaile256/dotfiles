@@ -3,10 +3,8 @@
 #[ Repeat ]
 [[plugins]]
 repo = 'tpope/vim-repeat'
-# Note: has no help
-# Note: dein seems to load except autoload/ if on_map at least.
-script_type = 'plugin'
-on_map = '<Plug>(Repeat'
+# Note: has no doc/
+lazy = 0
 hook_add = 'runtime add/repeat.vim'
 
 #[ Mode ]
