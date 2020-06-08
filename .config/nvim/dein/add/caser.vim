@@ -24,7 +24,7 @@ nmap \ut <Plug>CaserTitleCase
 xmap \ut <Plug>CaserVTitleCase
 
 " Case for Programming {{{1
-" CamelCaseButStartsInCapitalized
+" PascalCase
 " Mnemonic: change case like gu/gU
 nmap \um <Plug>CaserMixedCase
 xmap \um <Plug>CaserVMixedCase
