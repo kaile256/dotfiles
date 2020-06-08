@@ -298,6 +298,7 @@ settings:
         wc: tab-close
         wq: bookmark-del;; bookmark-add;; tab-close
         wqa: bookmark-del;; bookmark-add;; quit
+        yc: hint code userscript code_select.py
         yf: hint links yank
         yv: yank selection
         yy: yank
