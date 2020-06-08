@@ -35,11 +35,13 @@ endfunction
 
 function! undoquit#Close(prefix_count, suffix_count, bang) abort
   let winnr = s:set_count(a:prefix_count, a:suffix_count)
-  let save_view = winsaveview()
-  exe winnr .'wincmd w'
+  if !empty(winnr)
+    let save_view = winsaveview()
+    exe winnr .'wincmd w'
+  endif
   call undoquit#SaveWindowQuitHistory()
   exe 'close'.a:bang
-  call winrestview(save_view)
+  silent! call winrestview(save_view)
 endfunction
 
 function! undoquit#Only(prefix_count, suffix_count, bang) abort
