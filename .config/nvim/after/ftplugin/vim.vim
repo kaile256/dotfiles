@@ -12,29 +12,6 @@ inoremap <buffer><expr> a
       \ ? 'abort'
       \ : 'a'
 
-function! s:send_to_cmdline(delete) abort range "{{{
-  " TODO: start reverse highlight the cmd-edit mode at the first-line,
-  "       which had better be removed when VimLeave.
-  if mode() =~? 'v'
-    " TODO: restrict only in visualized area.
-    exe join(getline("'<", "'>"), "\<c-j>")
-    if a:delete ==# 'delete' | *delete _ | endif
-    return
-  endif
-
-  let line = getline('.')
-  echo line
-  exe line
-  if a:delete ==# 'delete' | delete _ | endif
-endfunction "}}}
-
-" TODO: I prefer to use <c-o> in insert-mode.
-" CAUTION: d:/y: disturbs expected behavior on visualmode
-nnoremap <buffer><silent> g: :<c-u>call <SID>send_to_cmdline('delete')<cr>
-nnoremap <buffer><silent> z: :<c-u>call <SID>send_to_cmdline('keep')<cr>
-xnoremap <buffer><silent> g: :call <SID>send_to_cmdline('delete')<cr>
-xnoremap <buffer><silent> z: :call <SID>send_to_cmdline('keep')<cr>
-
 function! s:fold_up_vimscript() abort "{{{
   if &readonly && !&modifiable | return | endif
 
