@@ -130,11 +130,11 @@ let g:lexima#default_rules += [
       \ ]
 
 " TODO: replace with map() for 'at' key; regex seems to make a delay to remove
-let s:remove_close = '<ESC>:silent! keepjumps keeppatterns s/\%#.\zs[\]})''"`]\+<CR>gi'
+let s:remove_close = '<ESC>:silent! keepjumps keeppatterns s/\%#[\]})''"`]\+//ge<CR>gi'
 let g:lexima#default_rules += [
-      \ {'char': '<C-w>', 'at': '[[{(''"`]\%#[\]})''"`]',
+      \ {'char': '<C-w>', 'at': '\%#[\]})''"`]',
       \   'input': '<c-w>'. s:remove_close},
-      \ {'char': '<C-u>', 'at': '[[{(''"`]\%#[\]})''"`]',
+      \ {'char': '<C-u>', 'at': '\%#[\]})''"`]',
       \   'input': '<c-u>'. s:remove_close},
       \ ]
 unlet s:remove_close
