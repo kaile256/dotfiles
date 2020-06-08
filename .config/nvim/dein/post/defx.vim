@@ -30,20 +30,6 @@ call defx#custom#column('mark', {
       \ 'selected_icon': '✓',
       \ })
 
-"call defx#custom#column('icon', {
-"      \ 'directory_icon': '',
-"      \ 'opened_icon': '',
-"      \ })
-"call defx#custom#column('icon', {
-"      \ 'directory_icon': '',
-"      \ 'opened_icon': '',
-"      \ })
-"call defx#custom#column('icon', {
-"        \ 'directory_icon': '▸',
-"        \ 'opened_icon': '▾',
-"        \ 'root_icon': ' ',
-"        \ })
-
 function! s:defx_do_action_visual(action, ...) abort "{{{1
   " Note: it fails in multi sequence at once.
   return defx#do_action('multi', ['clear_select_all', 'toggle_select_visual'])
