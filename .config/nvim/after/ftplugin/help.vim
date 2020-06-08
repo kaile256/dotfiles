@@ -3,12 +3,9 @@
 if &modifiable || !&readonly || @% =~# 'fugitive:\/\/\/'
   " setl conceallevel=2
 else
-  setl nonumber signcolumn= nolist foldlevel=0
+  setl signcolumn= nolist foldlevel=0
   nnoremap <buffer> d <c-d>
   nnoremap <buffer> u <c-u>
-
-  " ':sleep' is no use
-  norm! zMzvzt
 endif
 
 finish "{{{1
