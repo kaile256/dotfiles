@@ -19,7 +19,6 @@ augroup myFugitiveSo
   au FileType gitcommit call s:gitcommit_keymap()
   au FileType gitcommit call s:gitcommit_startinsert()
 
-  au FileType git setl fdl=99
   au FileType fugitive,fugitiveblame setl nonumber signcolumn= bufhidden=wipe
   au BufRead fugitive:///* setl buftype=nofile
 augroup END
