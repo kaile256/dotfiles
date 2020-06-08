@@ -27,9 +27,46 @@ CompilerSet errorformat=
       \%X%*\\a:\ Leaving\ directory\ %*[`']%f',
       \%DMaking\ %*\\a\ in\ %f
 
-CompilerSet makeprg=g++\ %:p
+" Ref: https://codeforces.com/blog/entry/15547#comment-205104
+let s:opt = [
+      \ '-o\ %:t:r',
+      \ '-Wall',
+      \ '-Wextra',
+      \ '-O2',
+      \ '-pedantic'
+      \ ]
+
+" Warnings which either '-Wall' and '-Wextra' doesn't cover.
+let s:opt += [
+      \ '-Wshadow',
+      \ '-Wformat=2',
+      \ '-Wfloat-equal',
+      \ '-Wconversion',
+      \ '-Wlogical-op',
+      \ '-Wshift-overflow=2',
+      \ '-Wduplicated-cond',
+      \ ]
+
+let s:opt += [
+      \ '-D_GLIBCXX_DEBUG',
+      \ '-D_GLIBCXX_DEBUG_PEDANTIC',
+      \ '-fsanitize=address',
+      \ '-fsanitize=undefined',
+      \ '-fno-sanitize-recover',
+      \ '-fstack-protector',
+      \ ]
+
+if expand('%:p') =~? '/atcoder/'
+  let s:opt += [
+        \ '-std=c++14',
+        \ '-DDEBUG',
+        \ ]
+endif
+
+let s:makeprg = ["g++", '%:p'] + s:opt
+
+exe 'CompilerSet makeprg='. join(s:makeprg, '\ ')
+unlet s:opt s:makeprg
 
 let &cpo = s:cpo_save
 unlet s:cpo_save
-
-
