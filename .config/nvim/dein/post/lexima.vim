@@ -18,7 +18,7 @@ let s:rules_i_colon = []
 let s:rules_c_all   = []
 let s:rules_ic_all  = []
 
-let s:close = '[\])}''"]'
+let s:close = '[\])}`''"]'
 let s:paren = '[\])}]'
 let s:quote = '[`''"]'
 
