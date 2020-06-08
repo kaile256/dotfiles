@@ -25,6 +25,142 @@ snippet using_foo::bar;
 abbr use usi
   using ${1:std}::${2:cout};
 
-snippet std::cout_<<_foo_<<_std::endl;
-alias std co cou cout
-  cout << ${1} << endl;
+snippet std::cout_<<_foo_<<_std::"\n";
+abbr cout << foo << "\n";
+  ${1:std::}cout << ${1} << "\n";
+
+snippet for++i
+abbr for (int x = 0; ...; ++x
+options head
+  for (int ${1:i} = 0; $1 < ${2:#:max}; ++$1) {
+    ${0}
+  }
+snippet main
+options head
+# Optimize <iostream> if include it, inserting some lines:
+# - cin.tie(0);
+# - ios::sync_with_stdio(false);
+
+  int main(int argc, char const *argv[]) {
+    `search('#include <iostream>', 'nbW') ? "cin.tie(0);\nios::sync_with_stdio(false);\n\n" : ''`${1:return 0;}
+  }
+
+snippet math_GreatCommonDivisor()
+abbr int gcd(int a, int b)
+alias gcd
+options head
+    int gcd(int a, int b) {
+        return b ? gcd(b, a % b) : a;
+    }
+
+snippet math_N_GreatCommonDivisor()
+abbr int ngcd(vector<int> a)
+alias ngcd
+options head
+    int res;
+    res = a[0];
+    for (int i = 1; i < a.size() && res != 1; i++) {
+        res = gcd(a[i], res);
+        }
+        return res;
+    }
+snippet math_LeastCommonMultiple()
+abbr int lcm(int a, int b)
+alias lcm
+options head
+    int lcm(int a, int b) {
+        return a / gcd(a, b) * b;
+    }
+snippet math_N_LeastCommonMultiple()
+abbr int nlcm(vector<int> numbers)
+alias nlcm
+    int nlcm(vector<int> numbers) {
+        int res;
+        res = numbers[0];
+        for (int i = 1; i < numbers.size(); i++) {
+        res = lcm(res, numbers[i])
+        }
+        return res;
+    }
+snippet math_is_prime()
+abbr bool isPrime()
+alias isprime prime
+options head
+    bool isPrime(int x) {
+        if (x < 2)
+        return 0;
+        else if (x == 2)
+        return 1;
+        if (x % 2 == 0)
+        return 0;
+        for (int i = 3; i * i <= x; i += 2)
+        if (x % i == 0)
+            return 0;
+        return 1;
+    }
+
+snippet math_sum_of_digits
+abbr int SumOfDigits()
+alias sumOfDigits digitSum
+options head
+  int sumOfDigits(int n) {
+    int ret = 0;
+    while (n > 0) {
+      ret += n % 10;
+      n /= 10;
+    }
+    return ret;
+  }
+snippet math_number_of_digits
+abbr int numOfDigits()
+alias numOfDigits digitNum
+options head
+  int numOfDigits(int n) {
+    int ret++;
+    while (n > 0) {
+      ret += n % 10;
+      n /= 10;
+    }
+    return ret;
+  }
+snippet math_enum_div
+abbr vector<int> enum_div(int n)
+options head
+  vector<int> enum_div(int n) {
+    vector<int> ret;
+    for (int i = 1; i*i <= n; ++i) {
+      if (n % i == 0) {
+        ret.push_back(i);
+        if (i != i && i * i != n) {
+          ret.push_back(n / i);
+        }
+      }
+    }
+    return ret;
+  }
+snippet count_char_in_string
+options head
+  int count_char_in_string(string s, char c) {
+    return count(s.cbegin(), s.cend(), c);
+  }
+snippet atcoder
+abbr macros for AtCoder
+options head
+  #include <iostream>
+  #include <vector>
+  #include <algorithm>
+  #include <cstdio>
+
+  #define LLI long long int;
+  #define FOR(i, A, Z) for (int (i)=(A); (i)<(Z); ++(i))
+  #define REP(i, n) FOR((i), 0, (n))
+
+  using namespace std;
+
+  main${1:#: expand?}
+
+snippet scanf("_%c",_&c)
+abbr scanf without "\s"
+options head
+  `search('#include <stdio.h>', 'nWb') ? '' : append(0, '#include <stdio.h>')`
+  scanf(" %${1:d}", &${2:n});
