@@ -1,11 +1,10 @@
 " From: init.vim
 
 augroup myStartpage
-  if exists('#myStartpage')
-    au! myStartpage
+  if exists('#myStartpage') | au! myStartpage
   endif
   " FIXME: currently, no syntax/keymaps on defx
-  au VimEnter * nested silent! call s:startpage('fish')
+  au VimEnter * ++nested silent! call s:startpage('fish')
 augroup END
 
 function! s:startpage(page) abort
@@ -13,8 +12,15 @@ function! s:startpage(page) abort
   if argc() || line2byte('$') != -1 | return | endif
 
   if executable(a:page)
-    call termopen(a:page)
+    if has('nvim')
+      call termopen(a:page)
+    else
+      " FIXME: Disturb to open terminal twice on Vim.
+      term ++curwin ++close fish
+      call feedkeys("\<C-d>", 'n')
+    endif
     setl nonumber signcolumn=no
+    call feedkeys("\<C-\>\<C-n>", 'n')
     return
   endif
 
