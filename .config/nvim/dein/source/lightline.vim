@@ -46,7 +46,6 @@ let g:lightline.active = {
       \   ['mode', 'preview'],
       \   ['specific_buffer', 'git_branch', 'git_diff'],
       \   ['readonly', 'paste', 'spell'],
-      \   ['filepath'],
       \ ],
       \
       \ 'right': [
