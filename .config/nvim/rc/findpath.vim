@@ -13,9 +13,7 @@ augroup myFindPathRc
   if exists('#myFindPathRc') | au! myFindPathRc
   endif
 
-  au FileType sh,bash setl path^=/usr/bin/
-  au FileType c,cpp   setl path^=/usr/include,/usr/lib/clang/10.0.0/include
-  au FileType cpp     setl path^=/usr/include/c++/10.1.0
+  au FileType sh setl path^=/usr/bin/
   "au FileType java   setl path^=/usr/lib/jvm/
   au FileType go      exe 'setl path^='. $GOPATH .'/src/**,/usr/lib/go/src/**'
   au FileType python  exe 'setl path^='. $XDG_DATA_HOME
