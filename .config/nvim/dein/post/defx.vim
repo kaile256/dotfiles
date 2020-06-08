@@ -337,6 +337,9 @@ function! s:defx_keymaps() abort "{{{1
         \ defx#get_context().winwidth - 10)
   nnoremap <silent><nowait><buffer><expr> .
         \ defx#do_action('repeat')
+  " Git "{{{2
+  nmap <silent><nowait><buffer> ga <Plug>(defx-git-stage)
+  "}}}
 endfunction
 
 augroup myDefxPost "{{{1
