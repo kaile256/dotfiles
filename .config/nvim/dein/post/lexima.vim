@@ -18,14 +18,6 @@ let s:rules_i_colon = []
 let s:rules_c_all   = []
 let s:rules_ic_all  = []
 
-let s:close = '[\])}`''"]'
-let s:paren = '[\])}]'
-let s:quote = '[`''"]'
-
-let s:before_close = '\%#'. s:close
-let s:before_paren = '\%#'. s:paren
-let s:before_quote = '\%#'. s:quote
-
 " Note: both '=' and '+' works unexpectedly either with or without '\'.
 let s:delimeter_atom = '[,.;:]'
 let s:opareter_atom  = '[\-*/&|!]'
@@ -239,6 +231,14 @@ let g:lexima#default_rules += [
       \ {'char': '<C-;>', 'at': '\s\%#', 'input': '<BS>; '},
       \ ]
 
+let s:close = '[\])}`''",.]'
+let s:paren = '[\])}]'
+let s:quote = '[`''"]'
+
+let s:before_close = '\%#'. s:close
+let s:before_paren = '\%#'. s:paren
+let s:before_quote = '\%#'. s:quote
+
 let g:lexima#default_rules += [
       \ {'char': '<C-space>', 'at': s:before_close,  'input': '<Right><space>'},
       \
@@ -253,6 +253,8 @@ let g:lexima#default_rules += [
       \ {'char': '<C-;>', 'at': s:before_close, 'input': '<End>;', 'except': 'if.*\ze;\s*$', 'mode': 'i'},
       \ {'char': '<C-;>', 'at': s:before_close, 'input': '<Right>; ', 'mode':   'c'},
       \ ]
+
+unlet s:before_close s:before_paren s:before_quote
 
 " FIXME:
 " let g:lexima#default_rules += [
