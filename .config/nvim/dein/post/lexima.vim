@@ -85,6 +85,14 @@ let g:lexima#default_rules += [
       \ {'char': '}', 'at': '\%#}', 'leave': 1},
       \ ]
 
+let s:block_start = '\s*\(if\|while\|for\)\s\+\(.*\%#.\{-}\)\s*'
+let s:Insert_paren = '<ESC>:s/'. s:block_start .'/\1 (\2) /e<CR>:call search(") ", "e")<CR>a'
+let g:lexima#default_rules += [
+      \ {'char': ')', 'at': s:block_start, 'except': s:block_start .'(',
+      \     'input': s:Insert_paren, 'filetype': ['c', 'cpp', 'php']}
+      \ ]
+unlet s:block_start s:Insert_paren
+
 " Overwrite Rules for Quote {{{1
 " Note: a pattern '[=\[\](){} \t]' for 'Space or Parentheses'
 " let s:Let_it_double = '\([=\[\](){} \t]\|^\)' .'\%#'. '\($\|[=\[\](){} \t]\)'
