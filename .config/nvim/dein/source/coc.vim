@@ -12,8 +12,10 @@ hi! CocCodeLens ctermfg=240 guifg=#585858
 " Note: coc-highlight made CPU overwork
 " Note: coc-clangd only provides completion support.
 let g:coc_global_extensions = [
+      \ 'coc-actions',
       \ 'coc-angular',
       \ 'coc-bookmark',
+      \ 'coc-cmake',
       \ 'coc-conjure',
       \ 'coc-css',
       \ 'coc-deno',
@@ -55,6 +57,7 @@ let g:coc_global_extensions = [
       \ 'coc-vetur',
       \ 'coc-vimlsp',
       \ 'coc-word',
+      \ 'coc-xml',
       \ 'coc-yaml',
       \ 'coc-yank',
       \ 'https://github.com/dansomething/coc-java-debug',
