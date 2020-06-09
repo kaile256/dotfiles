@@ -10,13 +10,16 @@ let g:rainbow_conf = {}
 " extend() will be applied to the copy
 let g:rainbow_conf.operators = ''
 let g:rainbow_conf.parentheses = [
-      \ 'start=/{/ end=/}/'
+      \ 'start=/{/ end=/}/ fold',
+      \ 'start=/(/ end=/)/ fold',
+      \ 'start=/\[/ end=/]/ fold',
       \ ]
 
 " to disable, apply 0.
 let g:rainbow_conf.separately = {
       \ 'help': 0,
       \ 'fzf': 0,
+      \ 'toml': 0,
       \ }
 " let g:rainbow_conf.separately = {
 "      \ 'vim': {
@@ -30,8 +33,8 @@ let g:rainbow_conf.separately = {
 let s:colors_order = [
       \ 'white',
       \ 'magenta',
-      \ 'orange',
       \ 'green',
+      \ 'orange',
       \ 'brown',
       \ 'yellow',
       \ ]
