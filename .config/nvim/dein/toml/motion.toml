@@ -134,10 +134,10 @@ on_map = {nox = ['<Plug>(columnskip:']}
 hook_add = 'runtime add/columnskip.vim'
 
 #[ Mouse ]
-[[plugins]]
-repo = 'notomo/gesture.nvim'
-if = 'executable("xinput")'
-build = 'npm run setup'
-on_cmd = ['GestureDraw']
-hook_add = 'runtime add/gesture.vim'
-hook_post_source = 'runtime post/gesture.vim'
+#[[plugins]]
+#repo = 'notomo/gesture.nvim'
+#if = 'executable("xinput")'
+#build = 'npm run setup'
+#on_cmd = ['GestureDraw']
+#hook_add = 'runtime add/gesture.vim'
+#hook_post_source = 'runtime post/gesture.vim'
