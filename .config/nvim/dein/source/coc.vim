@@ -5,6 +5,17 @@
 " Json: coc-settings.json
 " Another: add/coc.vim
 
+function! s:CodeLensToggle() abort
+  const on  = 'ctermfg=226 guifg=#ffff00'
+  const off = 'ctermfg=240 guifg=#585858'
+
+  let color = on
+  if execute('hi CocCodeLens') =~# on
+    let color = off
+  endif
+  exe 'hi! CocCodeLens' color
+endfunction
+command! -bar CodeLensToggle :call s:CodeLensToggle()
 hi! CocCodeLens ctermfg=240 guifg=#585858
 
 " the List of CocExtentions; "{{{1
