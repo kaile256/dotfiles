@@ -88,12 +88,12 @@ let g:lexima#default_rules += [
 " Overwrite Rules for Quote {{{1
 " Note: a pattern '[=\[\](){} \t]' for 'Space or Parentheses'
 " let s:Let_it_double = '\([=\[\](){} \t]\|^\)' .'\%#'. '\($\|[=\[\](){} \t]\)'
-let s:Let_it_double =  '\%#'. '\W\{-}'
+let s:Let_it_double = '\%#'. '\w'
 
 let g:lexima#default_rules += [
-      \ {'char': "'", 'at': s:Let_it_double, 'input_after': "'"},
-      \ {'char': '"', 'at': s:Let_it_double, 'input_after': '"'},
-      \ {'char': '`', 'at': s:Let_it_double, 'input_after': '`'},
+      \ {'char': "'", 'except': s:Let_it_double, 'input_after': "'"},
+      \ {'char': '"', 'except': s:Let_it_double, 'input_after': '"'},
+      \ {'char': '`', 'except': s:Let_it_double, 'input_after': '`'},
       \
       \ {'char': "'", 'at': '\\\%#'},
       \ {'char': "'", 'at': '\w\%#''\@!'},
@@ -121,13 +121,14 @@ let g:lexima#default_rules += [
       \
       \ ]
 
-" TODO: replace with map() for 'at' key; regex seems to make a delay to remove
-let s:remove_close = '<ESC>:silent! keepjumps keeppatterns s/\%#[\]})''"`]\+//ge<CR>gi'
+" Note: The '.' in `:s/pattern/` is required for <C-u>.
+" Note: s:remove_close . '<C-w>' fails to insert again to <C-w>.
+let s:remove_close = '<ESC>l:silent! keeppatterns s/\%#\s*[\]})''"`]\+//e<CR>gi'
 let g:lexima#default_rules += [
-      \ {'char': '<C-w>', 'at': '\%#[\]})''"`]',
-      \   'input': '<c-w>'. s:remove_close},
-      \ {'char': '<C-u>', 'at': '\%#[\]})''"`]',
-      \   'input': '<c-u>'. s:remove_close},
+      \ {'char': '<C-w>', 'at': '[[{(''"`]\s*\%#\s*[\]})''"`]', 'mode': 'i',
+      \   'input': '<C-w>'. s:remove_close},
+      \ {'char': '<C-u>', 'at': '\%#\s*[\]})''"`]', 'mode': 'i',
+      \   'input': '<C-u>'. s:remove_close},
       \ ]
 unlet s:remove_close
 
@@ -228,7 +229,8 @@ let g:lexima#default_rules += [
       \ {'char': '<C-,>', 'at': '\s\%#', 'input': '<BS>, '},
       \ {'char': '<C-.>', 'at': '\s\%#', 'input': '<BS>. '},
       \ {'char': '<C-:>', 'at': '\s\%#', 'input': '<BS>: '},
-      \ {'char': '<C-;>', 'at': '\s\%#', 'input': '<BS>; '},
+      \ {'char': '<C-;>', 'except': '\s\+if\s\+(.*\%#.*)', 'input': '<C-g>U<End>;', 'mode': 'i'},
+      \ {'char': '<C-;>', 'at': '[.,;:]$', 'input': '', 'mode': 'i'},
       \ ]
 
 let s:close = '[\])}`''",.]'
@@ -240,7 +242,7 @@ let s:before_paren = '\%#'. s:paren
 let s:before_quote = '\%#'. s:quote
 
 let g:lexima#default_rules += [
-      \ {'char': '<C-space>', 'at': s:before_close,  'input': '<Right><space>'},
+      \ {'char': '<C-space>', 'at': s:before_close,  'input': '<C-g>U<Right><space>'},
       \
       \ {'char': '<C-=>', 'at': s:before_close, 'input': '<Right> = '},
       \
@@ -628,7 +630,7 @@ let g:lexima#default_rules += [
 
 " function! s:substitute(list, before, after) abort "{{{1
 "   let ret_dict = {}
-"   let s:key_exchange = {arg -> substitute(arg, a:before, a:after, '', 'g')}
+"   let s:key_exchange = {arg -> substitute(arg, a:before, a:after, '', 'ge')}
 "   for dict in deepcopy(a:list)
 "     let wanted_val = map(dict, {key, _ -> {s:key_exchange(key)}})
 "     let wanted_key = map(dict, {_, val -> {s:key_exchange(val)}})
@@ -679,6 +681,5 @@ let g:lexima#default_rules +=
 
 call lexima#set_default_rules()
 
-unlet s:before_close s:before_paren s:before_quote
 unlet s:delimeter_atom s:opareter_atom
 unlet s:separeter_single s:separeter_double s:separeter_triple
