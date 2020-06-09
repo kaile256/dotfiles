@@ -62,10 +62,13 @@ on_cmd = ['Vdebug']
 hook_source = 'runtime source/vdebug.vim'
 
 #[ Debug Adopter ]
-[[plugins]]
-repo = 'puremourning/vim-debug-adapter'
-on_if = '&ft ==# "vim"'
-on_cmd = ['vimspector#']
+#[[plugins]]
+#repo = 'puremourning/vim-debug-adapter'
+## for Vimspector
+## requires Vim modification from puremourning's fork; that is, no use for
+## Neovim.
+#depends = 'vimspector'
+#lazy = 0
 
 #[ on GDB ]
 [[plugins]]
