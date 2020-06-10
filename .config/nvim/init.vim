@@ -8,6 +8,7 @@ set fileencodings=ucs-bom,utf-8,euc-jp,sjis,cp932,default,latin1
 language time en_US.UTF-8
 
 let mapleader = '<Nop>'
+noremap <space> <Nop>
 
 runtime rc/variables.vim  " CAUTION: don't comment out; many files depends on it.
 runtime rc/os.vim
