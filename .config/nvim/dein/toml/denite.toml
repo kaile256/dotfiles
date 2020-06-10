@@ -44,10 +44,12 @@ hook_source = 'runtime source/coc-denite.vim'
 #hook_done_update = 'call fruzzy#install()'
 #hook_post_source = 'runtime add/fruzzy.vim'
 
-#[[plugins]]
+[[plugins]]
+repo = 'RicardoMing/projectile.denite'
 #repo = 'dunstontc/projectile.nvim'
-#on_source = 'denite.nvim'
-#hook_post_source = 'runtime add/projectile.vim'
+on_source = 'denite.nvim'
+hook_add = 'runtime add/projectile.vim'
+hook_source = 'runtime source/projectile.vim'
 
 #[ Extensions ]
 [[plugins]]
