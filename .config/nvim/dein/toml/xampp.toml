@@ -100,4 +100,4 @@ on_ft = ['sql']
 [[plugins]]
 repo = 'spacewander/openresty-vim'
 # syntax and omnicomp for nginx
-on_ft = ['nginx']
+lazy = 0
