@@ -83,11 +83,7 @@ on_cmd = ['FlooShareDirPublic', 'FlooShareDirPrivate', 'FlooJoinWorkspace']
 [[plugins]]
 repo = 'mattn/webapi-vim'
 # an interface
-on_func = [
-  'webapi#',
-  'webapi#http#',
-  'webapi#html#',
-]
+lazy = 0
 [[plugins]]
 repo = 'soramugi/pocket.vim'
 on_cmd = ['PocketList', 'PocketArchive', 'PocketFavorite']
