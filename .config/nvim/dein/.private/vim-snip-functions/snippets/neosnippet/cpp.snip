@@ -82,22 +82,38 @@ alias nlcm
         }
         return res;
     }
-snippet math_is_prime()
-abbr bool isPrime()
+snippet is_prime()
+abbr bool is_prime()
 alias isprime prime
-options head
-    bool isPrime(int x) {
-        if (x < 2)
-        return 0;
-        else if (x == 2)
-        return 1;
-        if (x % 2 == 0)
-        return 0;
-        for (int i = 3; i * i <= x; i += 2)
-        if (x % i == 0)
-            return 0;
-        return 1;
+options head word indent
+  bool is_prime(int x) {
+    if (x < 2)
+    return 0;
+    else if (x == 2)
+    return 1;
+    if (x % 2 == 0)
+    return 0;
+    for (int i = 3; i * i <= x; i += 2)
+    if (x % i == 0)
+      return 0;
+    return 1;
+  }
+snippet print_2D_table()
+abbr cout << 2D_table()
+alias 2d
+options head word indent
+  void print_2D_table(std::vector<std::vector<${1:int}>> table, char sep) {
+    using namespace std;
+    for(int i = 0; i < table.size(); ++i) {
+      for(int j = 0; j < table.at(i).size(); ++j) {
+        cout << table.at(i).at(j);
+        if (j == table.at(i).size() - 1)
+          cout << '\n';
+        else
+          cout << sep;
+      }
     }
+  }
 
 snippet math_sum_of_digits
 abbr int SumOfDigits()
