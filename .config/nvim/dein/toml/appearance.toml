@@ -117,6 +117,7 @@ on_event = 'BufRead'
 repo = 'itchyny/lightline.vim'
 on_event = 'Syntax'
 hook_source = 'runtime source/lightline.vim'
+hook_post_source = 'runtime post/lightline.vim'
 
 #[[plugins]]
 #repo = 'albertomontesg/lightline-asyncrun'
