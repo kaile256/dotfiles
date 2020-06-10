@@ -4,7 +4,6 @@
 [[plugins]]
 repo = 'kkvh/vim-docker-tools'
 # Manage docker containers with it.
-if = '!has("nvim")'
 on_func = [
   'docker_tools#dt_open',
   'docker_tools#dt_set_host',
