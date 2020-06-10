@@ -50,6 +50,11 @@ repo = 'fcpg/vim-weblogs'
 lazy = 0
 
 #[ Compile ]
+#[[plugins]]
+#repo = 'jackguo380/vim-lsp-cxx-highlight'
+## Note: imperfect
+## semantic highlight; recommended with ccls on coc.nvim
+#on_ft = ['c', 'cpp', 'objc', 'objcpp', 'cc']
 [[plugins]]
 repo = 'jackguo380/vim-lsp-cxx-highlight'
 # semantic highlight; recommended with ccls on coc.nvim
