@@ -89,3 +89,13 @@ on_source = ['vim-quickrun']
 #on_event = 'VimEnter'
 #hook_post_source = 'runtime add/deol.vim'
 
+#[ Man ]
+[[plugins]]
+repo = 'jez/vim-superman'
+if = '!has("nvim")'
+on_cmd = ['SuperMan']
+[[plugins]]
+repo = 'vim-utils/vim-man'
+if = '!has("nvim")'
+# :Mangrep with vim-dispatch is recommanded.
+on_cmd = ['Man', 'VMan', 'Mangrep']
