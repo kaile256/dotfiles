@@ -1,3 +1,12 @@
+snippet snippet
+alias sn sni snip si sin
+options head indent word
+  snippet ${1}
+  abbr ${2:#:Description for Completion}
+  alias ${3}
+  options ${5:head word indent}
+    ${0:TARGET}
+
 snippet source &ft.vim
 alias so sou ft
 options head
@@ -11,33 +20,6 @@ snippet neosnippets
 alias neo sample sam sm
   `split(&cms, '%s')[0]` Sample: Shougo/neosnippet-snippets/neosnippets/`expand('%:t:r')`.snip
 
-snippet snippet
-alias sn sni snip si sin
-options head indent word
-  snippet ${1:#:Title}
-  options ${2:head}
-  `repeat(' ', &tabstop)`${0:TARGET}
-
-snippet Fold_beginning_without_comment
-alias  { pp {{ {{
-    {{{
-snippet Fold_beginning_with_comment
-alias  #{ #pp #{{ #{{
-    #{{{
-snippet Fold_beginning_without_comment_vim
-alias _"{ "pp "{{ "{{
-    "{{{
-
-snippet Fold_end_without_comment
-alias  }} } }}}
-  }}}
-snippet Fold_end_with_comment
-alias # #}} #} #}}}
-  #}}}
-snippet Fold_end_with_comment_vim
-alias " "}} "} "}}}
-  "}}}
-
 snippet filename
 alias file fname
 # Copy it directly:
@@ -47,8 +29,3 @@ snippet rootname
 alias root rname
 # Copy it directly:
   ${1:`matchstr(expand('%:p'), 'github.com/.*/\zs.*\ze/.*/') =~ 'plugin' ? substitute(matchstr(expand('%:p'),'github.com/\zs.*\ze'),'[/\\]','#','g').'#' : ''`}
-
-snippet indent replacement for neosnippet
-alias tab ta in ind id
-options head
-  \`repeat(' ', &tabstop)\`
