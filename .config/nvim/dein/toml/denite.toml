@@ -14,7 +14,8 @@ on_cmd = ['Unite']
 
 [[plugins]]
 repo = 'neoclide/coc-denite'
-on_source = 'denite.nvim'
+on_source = ['denite.nvim']
+hook_source = 'runtime source/coc-denite.vim'
 
 #[[plugins]]
 #repo = 'lighttiger2505/denite-vim-lsp'
