@@ -14,7 +14,7 @@ hook_post_source = 'runtime post/ctrlsf.vim'
 [[plugins]]
 repo = 'junegunn/fzf'
 #[ Note: :Files in fzf.vim is the same as :FZF.
-on_cmd = 'FZF'
+on_event = 'CmdLineEnter'
 
 [[plugins]]
 repo = 'junegunn/fzf.vim'
