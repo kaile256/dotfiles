@@ -109,7 +109,7 @@ set sessionoptions+=slash,winsize
 " setglobal foldminlines=40 " open if the fold block is less than the size
 set foldmethod=syntax
 " Note: 'foldlevel' is local to window
-set foldlevelstart=0
+set foldlevelstart=1
 set foldnestmax=10
 " reduce block (e.g., [[,{)
 set foldopen=hor,insert,mark,percent,quickfix,search,tag,undo
