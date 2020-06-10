@@ -196,6 +196,11 @@ hook_add = 'runtime add/tagbar.vim'
 #hook_add = 'runtime add/showmarks.vim'
 
 #[ Alternate File ]
+[[plugins]]
+repo = 'kana/vim-altr'
+on_map = {nx = '<Plug>(altr-'}
+hook_add = 'runtime add/altr.vim'
+hook_post_source = 'runtime post/altr.vim'
 #[[plugins]]
 #repo = 'compactcode/alternate.vim'
 #on_func = [
