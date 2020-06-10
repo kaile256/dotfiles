@@ -146,21 +146,27 @@ options head
 snippet atcoder
 abbr macros for AtCoder
 options head
-  #include <iostream>
-  #include <vector>
   #include <algorithm>
+  #include <iostream>
+  #include <iomanip>
+  #include <vector>
   #include <cstdio>
 
-  #define LLI long long int;
-  #define FOR(i, A, Z) for (int (i)=(A); (i)<(Z); ++(i))
-  #define REP(i, n) FOR((i), 0, (n))
+# Keep REP in upper; ccls gets rep() rather than rep0()
+  #define REP(i, A, Z) for (int(i) = (A); (i) < (Z); ++(i))
+  #define rep0(i, n) REP((i), 0, (n))
+  #define rep1(i, n) rep((i), 1, (n))
+  #define ALL(x) (x).begin(), (x).end()
+  #define RALL(x) (x).rbegin(), (x).rend()
+
+  #define optimize_cin() ios::sync_with_stdio(!cin.tie(0))
+  #define len(x) ((long long)(x).size())
+  #define pb push_back
+  #define endl '\n'
+
+  #define MOD7 1000000007
+  #define PI 3.1415926535
 
   using namespace std;
 
-  main${1:#: expand?}
-
-snippet scanf("_%c",_&c)
-abbr scanf without "\s"
-options head
-  `search('#include <stdio.h>', 'nWb') ? '' : append(0, '#include <stdio.h>')`
-  scanf(" %${1:d}", &${2:n});
+  main${1}
