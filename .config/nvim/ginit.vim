@@ -3,23 +3,8 @@ if exists('g:GuiLoaded') " if nvim-qt
   GuiTabline   0
   GuiPopupmenu 0
 
-  " Noto: google's; NO TO-fu
-  "GuiLinespace -2
-  "GuiFont! NotoSansMono Nerd Font:h14
-
-  "GuiLinespace 1
-  " SF Mono; San Francisco Mono
-  " Note: &guifont also available
-  " $ fc-list | rg Nerd | fzf
-  "GuiFont! DejaVuSansMono Nerd Font:h13
-  "GuiFont! Migu 1M:h14
-  "GuiFont! Cica:h16 " weird for me
-  " <bang> for Japanese, or other ambiwidth fonts
-  "GuiFont! SF Mono:h12
-  "GuiFont! Myrica M:h15
-
-  " GuiFont! MesloLGS Nerd Font:h13
-  GuiFont! Meslo LG S for Powerline:h13
+  " <bang> for Japanese and other ambiwidth fonts
+  GuiFont! JetBrainsMonoMedium Nerd Font:h11
   GuiLinespace -1
 
 elseif exists('gonvim_running')
