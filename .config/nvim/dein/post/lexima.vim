@@ -88,7 +88,7 @@ let g:lexima#default_rules += [
 let s:block_start = '\s*\(if\|while\|for\)\s\+\(.*\%#.*\)\s*'
 let s:Insert_paren = '<ESC>:keepjumps keeppatterns s/'. s:block_start .'/\1 (\2)/e<CR>gi<Right><Right>'
 let g:lexima#default_rules += [
-      \ {'char': ')', 'at': s:block_start, 'except': s:block_start .'(',
+      \ {'char': ')', 'at': s:block_start, 'except': s:block_start .'(', 'mode': 'i',
       \     'input': s:Insert_paren, 'filetype': ['c', 'cpp', 'php']}
       \ ]
 unlet s:block_start s:Insert_paren
