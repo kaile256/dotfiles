@@ -80,6 +80,14 @@ repo = 'saaguero/vim-textobj-pastedtext'
 on_event = ['TextChanged']
 hook_source = 'runtime source/textobj-pastedtext.vim'
 
+[[plugins]]
+repo = 'amerlyq/vim-textobj-keyvalue'
+on_map = {ox = ['<Plug>(textobj-key-', '<Plug>(textobj-value-']}
+hook_add = 'runtime add/textobj-keyvalue.vim'
+#[[plugins]]
+#repo = 'vimtaku/vim-textobj-keyvalue'
+## Possibly better on Vimscript, but the name is duplicated to that of amerlyq.
+#hook_add = 'runtime add/textobj-keyvalue.vim'
 #[ on FileType ]
 #[[plugins]]
 #repo = 'bps/vim-textobj-python'
