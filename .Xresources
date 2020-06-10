@@ -135,8 +135,8 @@ URxvt.background: [70]_black
 
 ! Note: Meslo inserts wider blanklines within lines.
 !#define FONT_NAME DejaVuSansMono Nerd Font
-#define FONT_NAME Meslo LG S DZ for Powerline
-#define FONT_SIZE 13
+#define FONT_NAME JetBrainsMonoMedium Nerd Font
+#define FONT_SIZE 12
 #define FONT_OPT  size=FONT_SIZE:antialias=true
 #define FONT      xft:FONT_NAME:FONT_OPT
 
@@ -164,7 +164,7 @@ XTerm*faceSize:           FONT_SIZE
 
 ! scaleHeight: the height between line and line
 !   (available: 0.9 ~ 1.5; default: 1.0)
-XTerm*scaleHeight: 1.08
+XTerm*scaleHeight: 0.9
 
 ! Fonts and Encoding
 XTerm*utf8:      true
@@ -176,9 +176,10 @@ XTerm*cjkWidth : True
 ! Font for URxvt {{{1
 URxvt.font: FONT_SET
 
-! Note: letterSpace in negative nr. removes exagerated spaces; esp. for Japanese Fonts.
+! Note: Set a negative number to reduce whitespace width between characters.
 URxvt.letterSpace: -1
-!URxvt.lineSpace:  2 ! expand space between command-lines.
+! Reduce lines between lines.
+URxvt.lineSpace: -1
 
 ! Font list and Spacing
 URxvt.allow_bold: true
