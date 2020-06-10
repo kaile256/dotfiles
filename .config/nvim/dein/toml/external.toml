@@ -31,7 +31,7 @@ on_cmd = [
   'DockerNetworks',
   'DockerVersion'
 ]
-hook_add = 'runtime add/docker.vim'
+hook_source = 'runtime source/docker.vim'
 
 #[[plugins]]
 #repo = 'skanehira/docker-compose.vim'
