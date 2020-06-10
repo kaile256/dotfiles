@@ -81,12 +81,12 @@ on_ft = ['javascript']
 #on_if = 'has("python3")'
 #on_event = ['InsertCharPre', 'InsertEnter']
 #hook_post_source = 'runtime add/deoplete.vim'
-##[[plugins]]
-##repo = 'SevereOverfl0w/deoplete-github'
-##on_ft = ['gitcommit']
-##[[plugins]]
-##repo = 'wellle/tmux-complete.vim'
-##on_ft = 'tmux'
+#[[plugins]]
+#repo = 'SevereOverfl0w/deoplete-github'
+#on_ft = ['gitcommit']
+#[[plugins]]
+#repo = 'wellle/tmux-complete.vim'
+#on_ft = 'tmux'
 #[[plugins]]
 #repo = 'deoplete-plugins/deoplete-zsh'
 #on_ft = 'zsh'
