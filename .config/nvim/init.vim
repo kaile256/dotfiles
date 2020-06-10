@@ -23,9 +23,9 @@ runtime! keymap/*.vim
 runtime rc/startpage.vim
 
 augroup myRuntimesSelection
-  if exists('#myRuntimesSelection')
-    au! myRuntimesSelection
+  if exists('#myRuntimesSelection') | au! myRuntimesSelection
   endif
+
   au VimEnter    * ++once runtime once/omaps.vim
   au InsertEnter * ++once runtime once/imaps.vim
   au InsertEnter,CmdLineEnter,CmdWinEnter * ++once runtime once/autocorrect.vim
