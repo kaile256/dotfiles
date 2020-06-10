@@ -100,7 +100,7 @@ hook_add = 'runtime add/defx.vim'
 hook_post_source = 'runtime post/defx.vim'
 [[plugins]]
 repo = 'kristijanhusak/defx-git'
-on_source = 'defx.nvim'
+lazy = 0
 
 [[plugins]]
 repo = 'kristijanhusak/defx-icons'
