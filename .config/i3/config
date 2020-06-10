@@ -591,29 +591,9 @@ bindsym Ctrl+bracketleft mode default
 }
 
 # Keybind; Mode for apps {{{1
-# Mode; Terminal Location {{{2
-# TODO: keep transparency after restart i3
-#bindsym $Super+T exec $termporal
-bindsym $Super+Return exec $termporal
-
-#set $Terminal " Console: (A)lacritty (U)rxvt (X)term "
-#bindsym $Super+C mode $Console; $shortmsg 'Consoles'
-set $Terminal " Terminal: (H)topleft (J)botleft (K)topright (L)botright"
-bindsym $Super+semicolon mode $Terminal; $shortmsg 'Terminals'
-
-mode $Terminal {
-# TODO: apply geometry by i3-msg
-bindsym H exec $urxvt -e fish; mode default
-bindsym J exec $urxvt -e fish; mode default
-bindsym K exec $urxvt -e fish; mode default
-bindsym L exec $urxvt -e fish; mode default
-
-bindsym Ctrl+C           mode default
-bindsym bracketleft      mode default
-bindsym Ctrl+bracketleft mode default
-}
-
-## Mode; Console {{{2
+# Terminal {{{2
+$release $Super+T $noid xterm; $notify " XTerm "
+$release $Super+C $noid kitty; $notify " Kitty "
 #set $Console " Console: (A)lacritty (U)rxvt (X)term | (G)otop "
 #bindsym $Super+C mode $Console; $shortmsg 'Consoles'
 
