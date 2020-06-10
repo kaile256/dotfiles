@@ -55,11 +55,11 @@ hook_add = 'runtime add/fzf-gitswitch..vim'
 # fzy's wrapper for vim
 #on_event = ['BufRead']
 
-#[[plugins]]
-#repo = 'liuchengxu/vim-clap'
-## Note: a fuzzy finder written in 99.7% vimscript.
-#on_cmd = 'Clap'
-#hook_add = 'runtime add/clap.vim'
+[[plugins]]
+repo = 'liuchengxu/vim-clap'
+build = 'bash install.sh'
+on_cmd = 'Clap'
+hook_source = 'runtime source/clap.vim'
 
 #[ Filer ]
 #[[plugins]]
