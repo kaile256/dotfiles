@@ -176,7 +176,7 @@ cnoremap <expr> <A-u> <SID>toggle_case()
 
 function! s:toggle_case() abort
   let line = getcmdline()
-  let mods_list = [
+  let ignore_list = [
         \ 'tab',
         \ 'vert\%[tical]',
         \ 'rightb\%[elow]',
@@ -185,13 +185,15 @@ function! s:toggle_case() abort
         \ 'lefta\%[bove]',
         \ 'abo\%[veleft]',
         \ 'to\%[pleft]',
+        \ 'verb\%[ose]',
+        \ 'com\%[mand]',
         \ ]
 
   let range = matchstr(line, '^\A\+')
   let line = substitute(line, range, '', 'e')
 
   let mods = ''
-  for m in mods_list
+  for m in ignore_list
     let new_mods = matchstr(line, '^'. m .'\s*')
     let line = substitute(line, new_mods, '', 'e')
     let mods .= new_mods
