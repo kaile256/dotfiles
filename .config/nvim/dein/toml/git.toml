@@ -4,7 +4,7 @@
 [[plugins]]
 repo = 'ruanyl/vim-gh-line'
 # open github in browser at the current line
-on_cmd =  ['GHInteractive', 'GBInteractive']
+on_cmd = ['GHInteractive', 'GBInteractive']
 #[[plugins]]
 #repo = 'whatyouhide/vim-lengthmatters'
 ## change highlight &tw
