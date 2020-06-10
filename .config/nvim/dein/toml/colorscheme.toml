@@ -1,23 +1,25 @@
 # From: dein/dein.vim
 
 #[ Colorscheme ]
+[[plugins]]
+repo = 'dracula/vim'
+lazy = 0
 #[[plugins]]
 #repo = 'flrnprz/candid.vim'
 ## Looks like dracula scheme.
 #on_event = 'VimEnter'
 [[plugins]]
 repo = 'joshdick/onedark.vim'
-on_func = ['onedark#']
-#on_event = ['VimEnter']
+lazy = 0
 [[plugins]]
 repo = 'drewtempelmeyer/palenight.vim'
-on_event = ['VimEnter']
+lazy = 0
 [[plugins]]
 repo = 'jonathanfilip/vim-lucius'
-on_event = ['VimEnter']
+lazy = 0
 [[plugins]]
 repo = 'raphamorim/lucario'
-on_event = 'VimEnter'
+lazy = 0
 #[ Colorscheme.monokai ]
 [[plugins]]
 repo = 'tomasr/molokai'
