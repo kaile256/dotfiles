@@ -10,8 +10,7 @@ lazy = 0
 repo = 'kana/vim-textobj-function'
 # Note: should activates where lsp doesn't provide the kind of textobjects.
 # Note: available on vim/java/c, but coc's are better on java; don't know on c
-on_ft = ['vim']
-#on_map = {xo = '<Plug>(textobj-function-'}
+on_ft = 'vim'
 hook_source = 'runtime source/textobj-function.vim'
 
 [[plugins]]
