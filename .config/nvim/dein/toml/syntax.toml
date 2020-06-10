@@ -136,12 +136,12 @@ lazy = 0
 #[ Diagram ]
 [[plugins]]
 repo = 'aklt/plantuml-syntax'
-on_path = ['\.pu$', '\.uml$', '\.puml$', '\.iuml$', '\.plantuml$']
+lazy = 0
 
 #[ Test ]
 [[plugins]]
 repo = 'yasuhiroki/circleci.vim'
-on_path = '\.circleci/config.yml'
+lazy = 0
 
 #[ Database ]
 #[[plugins]]
@@ -151,16 +151,16 @@ on_path = '\.circleci/config.yml'
 #[ Network ]
 [[plugins]]
 repo = 'momota/cisco.vim'
-on_path = '\.cisco$'
+lazy = 0
 [[plugins]]
 repo = 'momota/junos.vim'
-on_path = '\.junos$'
+lazy = 0
 
 #[ for Config ]
 [[plugins]]
 repo = 'delphinus/vim-toml-dein'
 # syntax highlight for 'hook_add'
-on_ft = 'toml'
+lazy = 0
 
 #[[plugins]]
 #repo = 'vmchale/tomlcheck-vim'
@@ -174,7 +174,7 @@ on_ft = 'toml'
 repo = 'PotatoesMaster/i3-vim-syntax'
 # Note: vim-polyglot doesn't have enough syntax for i3.
 # CAUTION: Not Maintained Anymore
-on_ft = 'i3'
+lazy = 0
 
 #[[plugins]]
 #repo = 'mboughaba/i3config.vim'
