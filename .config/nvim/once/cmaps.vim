@@ -171,3 +171,42 @@ function! s:assign_window(mods) abort
   let ret = "\<C-u>". a:mods .' '. line ."\<CR>"
   return ret
 endfunction
+
+cnoremap <expr> <A-u> <SID>toggle_case()
+
+function! s:toggle_case() abort
+  let line = getcmdline()
+  let mods_list = [
+        \ 'tab',
+        \ 'vert\%[tical]',
+        \ 'rightb\%[elow]',
+        \ 'bo\%[tright]',
+        \ 'bel\%[right]',
+        \ 'lefta\%[bove]',
+        \ 'abo\%[veleft]',
+        \ 'to\%[pleft]',
+        \ ]
+
+  let range = matchstr(line, '^\A\+')
+  let line = substitute(line, range, '', 'e')
+
+  let mods = ''
+  for m in mods_list
+    let new_mods = matchstr(line, '^'. m .'\s*')
+    let line = substitute(line, new_mods, '', 'e')
+    let mods .= new_mods
+  endfor
+
+  let col = match(line, '^\A*\a')
+  let prefix = col > 0 ? line[:col - 1] : ''
+  let suffix = line[col + 1:]
+
+  if line[col] =~# '\u'
+    let ret = prefix .. tolower(line[col]) .. suffix
+  else
+    let ret = prefix .. toupper(line[col]) .. suffix
+  endif
+
+  let ret = "\<End>\<C-u>". range .. mods .. ret
+  return ret
+endfunction
