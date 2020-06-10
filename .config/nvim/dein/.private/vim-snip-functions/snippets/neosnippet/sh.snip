@@ -1,10 +1,12 @@
-snippet Cue
+snippet set
 abbr set -Cue
 alias Cue Ceu Ce se
+options head word indent
   set -Cue
 
-snippet shebang
-alias # #! she sh bash ba bas bah ini init
+snippet bash
+alias # #! she sh ba bas bah ini init
+options head word indent
   #!/usr/bin/env bash
 
   set -Cue
@@ -17,19 +19,20 @@ alias opt op ext
 
 snippet >/dev/null 2>&1
 alias dn dev >/ /de /dev 2>
+options head word indent
   >/dev/null 2>&1
 
 snippet declare -A HASH
 alias dec -A has hash
-options head
+options head word indent
   declare -A ${1:HASH}
   $1=(
     [${2:"key"}]="value"
   )
 
-snippet Hear Document
+snippet heardoc
 alias her eod eo ed cat ca
-options head word
+options head word indent
   cat - << EOD
-  `repeat(' ', &tabstop)`${0:TARGET}
+    ${0:TARGET}
   EOD
