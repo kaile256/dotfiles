@@ -6,13 +6,6 @@ scriptencoding utf-8
 
 set showtabline=2 " 2: always show tabline
 
-if executable('rg')
-  " Ref: https://ktrysmt.github.io/blog/finish-work-early-with-cli-made-by-rust/
-  set grepprg=rg\ --vimgrep\ --no-heading
-  set grepformat=%f:%l:%c:%m,%f:%l:%m
-endif
-command! -nargs=+ -complete=file Grep silent tab grep --sort-files <args>
-
 " Time in ms to wait for a mapped sequence to complete.
 " For: made me notice if any mappings are in Caleene's way.
 set timeoutlen=3000
@@ -28,6 +21,14 @@ set synmaxcol=320
 "if executable('fish')
 "   set shell=fish
 "endif
+
+" Grep {{{1
+if executable('rg')
+  " Ref: https://ktrysmt.github.io/blog/finish-work-early-with-cli-made-by-rust/
+  set grepprg=rg\ --vimgrep\ --no-heading
+  set grepformat=%f:%l:%c:%m,%f:%l:%m
+endif
+command! -nargs=+ -complete=file Grep silent tab grep --sort-files <args>
 
 " Mouse {{{1
 " 'mouse':
