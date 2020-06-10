@@ -78,7 +78,7 @@ on_source = ['vim-quickrun']
 ## set runner 'neovim_terminal'
 #on_source = ['vim-quickrun']
 
-#[ Shell; Wrapper ]
+#[ Terminal; Wrapper ]
 #[[plugins]]
 #repo = 'kassio/neoterm'
 ## also has async-run feature.
