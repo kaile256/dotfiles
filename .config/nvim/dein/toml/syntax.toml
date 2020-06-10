@@ -46,15 +46,8 @@ hook_source = 'runtime source/polyglot.vim'
 #
 [[plugins]]
 repo = 'fcpg/vim-weblogs'
-on_ft = [
-  'fail2banlog'
-  'httplog',
-  'httplogerror',
-  'modseclog',
-  'modsectx',
-  'phplog',
-  'webmonolog',
- ]
+# syntax for web-related log files
+lazy = 0
 
 #[ Compile ]
 [[plugins]]
