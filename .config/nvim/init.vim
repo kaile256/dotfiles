@@ -10,6 +10,9 @@ language time en_US.UTF-8
 let mapleader = '<Nop>'
 noremap <space> <Nop>
 
+let g:TermOpen = has('nvim') ? 'TermOpen' :
+      \ (exists('##TerminalWinOpen') ? 'TerminalWinOpen' : 'TerminalOpen')
+
 runtime rc/variables.vim  " CAUTION: don't comment out; many files depends on it.
 runtime rc/os.vim
 runtime dein/dein.vim  " contains `filetype plugin indent on`

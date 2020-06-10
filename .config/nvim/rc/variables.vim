@@ -36,7 +36,6 @@ if isdirectory('~/kaile256')
   let $MYVIMRC = expand('<sfile>')
   let $HOME    = expand('<sfile>:h')
 endif
-let g:TermOpen = has('nvim') ? 'TermOpen' : 'TerminalOpen'
 
 " &packpath {{{1
 " default: &pp=~/.config/nvim,/etc/xdg/nvim,~/.local/share/nvim/site,/usr/local/share/nvim/site,/usr/share/nvim/site,/usr/share/nvim/runtime,/usr/share/nvim/site/after,/usr/local/share/nvim/site/after,~/.local/share/nvim/site/after,/etc/xdg/nvim/after,~/.config/nvim/after
