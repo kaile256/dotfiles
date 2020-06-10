@@ -56,9 +56,11 @@ lazy = 0
 ## semantic highlight; recommended with ccls on coc.nvim
 #on_ft = ['c', 'cpp', 'objc', 'objcpp', 'cc']
 [[plugins]]
-repo = 'jackguo380/vim-lsp-cxx-highlight'
-# semantic highlight; recommended with ccls on coc.nvim
-on_ft = ['c', 'cpp', 'objc', 'objcpp', 'cc']
+repo = 'bfrg/vim-cpp-modern'
+lazy = 0
+#[[plugins]]
+#repo = 'octol/vim-cpp-enhanced-highlight'
+#lazy = 0
 
 #[[plugins]]
 #repo = 'fatih/vim-go'
@@ -118,7 +120,7 @@ hook_source = 'runtime source/tigris.vim'
 #on_ft = 'zsh'
 [[plugins]]
 repo = 'zinit-zsh/zinit-vim-syntax'
-on_ft = 'zsh'
+lazy = 0
 
 #[[plugins]]
 #repo = 'ericpruitt/tmux.vim'
