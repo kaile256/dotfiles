@@ -89,10 +89,14 @@ hook_add = 'runtime add/gitgutter.vim'
 hook_source = 'runtime source/gitgutter.vim'
 hook_post_source = 'runtime post/gitgutter.vim'
 #[[plugins]]
-#repo = 'lambdalisue/gina.vim'
-#on_event = ['BufWritePost']
-#hook_post_source = 'runtime add/gina.vim'
-
+#repo = 'mhinz/vim-signify'
+## works without 'git'
+#on_event = ['BufRead']
+##hook_source = 'runtime source/signify.vim'
+#[[plugins]]
+#repo = 'chrisbra/changesPlugin'
+## works without 'git'
+#on_event = ['BufRead']
 #[ Rebase ]
 [[plugins]]
 repo = 'hotwatermorning/auto-git-diff'
