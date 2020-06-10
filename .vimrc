@@ -6,6 +6,7 @@ runtime init.vim
 imap <Cmd> <Esc>:
 nmap <Cmd> :<C-u>
 
+set backspace=indent,eol,start
 set guicursor=n-v-c-sm:block,i-ci-ve:ver25,r-cr-o:hor20,a:blinkon0
 let &t_SI = "\e[5 q" " Insert mode
 let &t_SR = "\e[4 q" " Replace mode
