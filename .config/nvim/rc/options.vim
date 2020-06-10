@@ -4,8 +4,6 @@ scriptencoding utf-8
 "" Note: EndOfBuffer is set of trailing '~' at end of buffer.
 " hi! link EndOfBuffer Ignore
 
-set showtabline=2 " 2: always show tabline
-
 " Time in ms to wait for a mapped sequence to complete.
 " For: made me notice if any mappings are in Caleene's way.
 set timeoutlen=3000
@@ -218,6 +216,8 @@ set title
 set ruler
 " 2: always show the current status.
 set laststatus=2
+set showtabline=2 " 2: always show tabline
+
 " Invisible Charactars {{{2
 " show space and CR
 set list
