@@ -4,9 +4,7 @@
 
 [[plugins]]
 repo = 'kana/vim-textobj-user'
-#on_event = 'BufRead'
-on_func = ['textobj#user#plugin']
-#hook_add = 'runtime add/textobj-user.vim'
+lazy = 0
 
 [[plugins]]
 repo = 'kana/vim-textobj-function'
