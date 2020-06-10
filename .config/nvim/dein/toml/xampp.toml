@@ -46,7 +46,7 @@ hook_source = 'runtime source/emmet.vim'
 [[plugins]]
 repo = 'berrygoudswaard/vim-php-html-indent'
 # <?php ?> tag gets no indent level
-on_ft = ['php']
+lazy = 0
 #[[plugins]]
 #repo = '2072/PHP-Indenting-for-VIm'
 ## strange indent
