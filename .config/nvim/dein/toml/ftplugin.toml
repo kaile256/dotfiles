@@ -31,17 +31,7 @@ hook_source = 'runtime source/editorconfig.vim'
 
 [[plugins]]
 repo = 'Shougo/context_filetype.vim'
-# tell Vim it is another filetype other than &ft on the context
-on_source = ['ultisnips', 'neosnippet.vim']
-on_ft = [
-  'html',
-  'javascript',
-  'markdown',
-  'neosnippet',
-  'php',
-  'snippets',
-  'vimwiki',
-]
+lazy = 0
 
 #[ Rust ]
 [[plugins]]
@@ -149,12 +139,12 @@ on_path = '\.ino'
 #[ Haskell ]
 [[plugins]]
 repo = 'itchyny/vim-haskell-indent'
-on_ft = ['haskell']
+lazy = 0
 
 #[ Clojure ]
 [[plugins]]
 repo = 'clojure-vim/async-clj-omni'
-on_ft = ['clojure']
+lazy = 0
 
 #[ Document ]
 [[plugins]]
@@ -164,12 +154,11 @@ hook_source = 'runtime source/citation.vim'
 
 [[plugins]]
 repo = 'Konfekt/vim-office'
-# no need any config.
-on_ft = ['pdf', 'doc', 'docx', 'els', 'xlsx', 'ppt', 'pptx', 'odt', 'epub']
+lazy = 0
 
 [[plugins]]
 repo = 'itchyny/vim-pdf'
-on_ft = ['pdf']
+lazy = 0
 
 #[ Config ]
 [[plugins]]
@@ -179,7 +168,7 @@ on_ft = 'json'
 
 [[plugins]]
 repo = 'danishprakash/vim-docker'
-on_cmd =  ['DockerDocBrowser', 'DockerHubBrowser',]
+lazy = 0
 
 #[ XML ]
 #[[plugins]]
