@@ -142,5 +142,9 @@ mv edit-slack ../edit-slack.vim/edit-slack
 #[ AtCoder ]
 [[plugins]]
 repo = 'ka-tsu-mo/at-vim-coder'
-on_cmd = ['AtVimCoder']
+on_cmd = 'AtVimCoder'
 hook_source = 'runtime source/at-vim-coder.vim'
+[[plugins]]
+repo = 'cannot-fly-pig/vim-atcoder'
+if = '!has("nvim")'
+on_cmd = 'Atcoder'
