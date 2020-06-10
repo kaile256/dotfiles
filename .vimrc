@@ -1,15 +1,16 @@
-" This file is only for vim original; not for neovim
+" This file is only for Vim not for Neovim
 
 set rtp^=~/.config/nvim
 runtime init.vim
 
-if has('gui_running') " not on ginit.vim, but .gvimrc.
-  "set guioptions-=mbTRLrl
-  set guioptions-=m
-  set guioptions-=b
-  set guioptions-=T
-  set guioptions-=R
-  set guioptions-=L
-  set guioptions-=l
-  set guioptions-=r
+imap <Cmd> <Esc>:
+nmap <Cmd> :<C-u>
+
+set guicursor=n-v-c-sm:block,i-ci-ve:ver25,r-cr-o:hor20,a:blinkon0
+let &t_SI = "\e[5 q" " Insert mode
+let &t_SR = "\e[4 q" " Replace mode
+let &t_me = "\e[1 q" " the Other mode
+
+if exists('+termencoding')
+  let &termencoding = &encoding
 endif
