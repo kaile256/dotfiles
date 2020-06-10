@@ -79,6 +79,12 @@ on_source = ['vim-quickrun']
 #on_source = ['vim-quickrun']
 
 #[ Terminal; Wrapper ]
+[[plugins]]
+repo = 'rhysd/reply.vim'
+on_cmd = ['Repl', 'ReplAuto', 'ReplSend']
+[[plugins]]
+repo = 'sillybun/vim-repl'
+on_cmd = ['REPLSendAll', 'SendCurrentLine', 'SendLineToREPL']
 #[[plugins]]
 #repo = 'kassio/neoterm'
 ## also has async-run feature.
