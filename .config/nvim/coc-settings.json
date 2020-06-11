@@ -151,22 +151,36 @@
   "cSpell.spellCheckDelayMs": 1000,
   "cSpell.allowCompoundWords": true,
   "cSpell.words": [
+    // general
+    "struct",
+
     // cli tools
     "cmake",
     "lsof",
+    "phpcs",
+
+    // abbreviation
+    "isdir",
 
     // FileType
+    "dosini",
     "deno",
     "ccls",
     "objc",
     "objcpp",
 
-    // Vimscript
+    // Vim Plugin name
     "defx",
     "lexima",
 
-    // abbreviation
-    "isdir",
+    // Cpp
+    "iostream",
+    "cout",
+    "scanf",
+
+    // Python
+    "pyperclip",
+    "qute",
 
     // LSP
     "vimlsp",
@@ -182,26 +196,28 @@
     "mypy",
     "yapf",
     "pylint",
-    "pydocStyle",
-
-    // Others
-    "iostream",
-    "cout",
-    "scanf",
-
-    "pyperclip",
-    "qute"
+    "pydocStyle"
   ],
 
   "cSpell.ignoreRegExpList": [
+    // Both '\s' and '\S' is invalid here.
+
+    // Regexp
+    "[^ \t]*([^\t])?",
+
     // repo name like foo/bar
     "[^/]+/[^/]+",
+
+    // Unicode
+    "\\u[0-9a-f]+",
 
     // Cpp
     " <cstd.+> ",
 
     // Vim
     ".abbr ",
+    "vs(plit)?",
+    "tabe(dit)?",
     // prefix for autoload-function
     " .+#"
   ],
