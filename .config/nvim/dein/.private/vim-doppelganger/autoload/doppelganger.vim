@@ -50,9 +50,9 @@ function! doppelganger#create(upper, lower) abort "{{{1
   while cur_lnum > stop_lnum
     let the_pair = s:get_the_outermost_pair_in_the_line(cur_lnum)
     if the_pair == [] | continue | endif
-    let pat_close = the_pair[1]
-    let text = s:get_pos_open(pat_close)
-    call s:set_doppelganger(cur_lnum, text)
+    let pos_open = s:get_pos_open(the_pair)
+    let text = getline(pos_open[0])
+    call s:set_text_on_lnum(cur_lnum, text)
     let cur_lnum = s:get_nextlnum(cur_lnum)
     exe cur_lnum
   endwhile
@@ -97,17 +97,21 @@ endfunction
 
 function! s:get_pos_open(pair_dict) abort "{{{1
   " Assume it's the *start* of pair when we get the same pos of pat_end twice.
+  let pat_open = a:pair_dict[0]
+  let pat_close = a:pair_dict[1]
 
   let save_ignorecase = &ignorecase
   set noignorecase
-  while cur_match_pos
-    let cur_match_pos = searchpos(a:pat_end, s:search_flags_unmove)
-    if cur_match_pos == last_match_pos
-      let &ignorecase = save_ignorecase
-      return cur_match_pos
-    endif
-    let last_match_pos = cur_match_pos
+  let cur_pos_close  = [0, 0]
+  let last_pos_close = [-1, -1]
+  while cur_pos_close != last_pos_close
+    let cur_pos_open = searchpos(pat_open, s:search_flags_mobile)
+    let cur_pos_close = searchpos(pat_close, s:search_flags_unmove)
+    let last_pos_close = cur_pos_close
   endwhile
+
+  let &ignorecase = save_ignorecase
+  return cur_pos_open
 endfunction
 
 function! s:get_nextlnum(lnum) abort "{{{1
