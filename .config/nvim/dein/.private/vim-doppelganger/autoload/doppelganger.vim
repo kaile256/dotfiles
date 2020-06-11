@@ -40,7 +40,7 @@ let s:namespace = nvim_create_namespace('doppelganger')
 let s:search_flags_mobile = 'Wbz'
 let s:search_flags_unmove = 'nWbz'
 
-function! doppelganger#create(line1, line2) abort "{{{1
+function! doppelganger#create(upper, lower) abort "{{{1
   let save_view = winsaveview()
   call nvim_buf_clear_namespace(0, s:namespace, 1, -1)
 
