@@ -9,7 +9,7 @@
 #   because the following fonts will be ignored;
 #   thus, write different-sized fonts in another line
 # Ref: https://wiki.archlinux.jp/index.php/I3
-font pango:JetBrainsMonoMedium Nerd Font 10
+font pango:JetBrainsMonoMedium Nerd Font 9.8
 #font pango:Icons 14
 # Note: some fonts such as MesloLGS, Hack causes a bug on in sequences of 'fi'
 #font pango:Hack Nerd Font, DejaVu Sans Mono 11
@@ -659,6 +659,7 @@ bindsym Ctrl+bracketleft mode default
 # Mode; Vim {{{2
 set $Vim " Vim: (X)term (U)rxvt (A)lacritty "
 $release $Super+V mode $Vim; $shortmsg 'Vim: backends'
+$release $Super+g $noid gvim
 
 mode $Vim {
 # Vim
