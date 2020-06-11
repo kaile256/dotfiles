@@ -671,6 +671,3 @@ let g:lexima#default_rules += [
 call map(g:lexima#default_rules, "extend(v:val, {'mode': ':i'}, 'keep')")
 
 call lexima#set_default_rules()
-
-unlet s:delimeter_atom s:opareter_atom
-unlet s:separeter_single s:separeter_double s:separeter_triple
