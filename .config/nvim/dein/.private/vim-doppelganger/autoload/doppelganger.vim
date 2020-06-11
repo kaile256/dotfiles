@@ -121,8 +121,8 @@ function! s:get_nextlnum(lnum) abort "{{{1
   return next
 endfunction
 
-function! s:set_doppelganger(lnum, text) abort "{{{1
-  let text = substitute(a:text, s:p[0], '', 'e')
+function! s:set_text_on_lnum(lnum, text) abort "{{{1
+  let text = substitute(a:text, s:the_pair[0], '', 'e')
   if text ==# '' | return | endif
 
   let chunks = [[text, 'Comment']]
