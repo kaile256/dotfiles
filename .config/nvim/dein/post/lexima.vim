@@ -668,7 +668,7 @@ let g:lexima#default_rules += [
 
 " Finally: Override the rules though lexima#add_rule() "{{{1
 " Apply all the maps to both Insert and Command mode when unspecified
-call map(g:lexima#default_rules, "extend(v:val, {'mode': 'i:'}, 'keep')")
+call map(g:lexima#default_rules, "extend(v:val, {'mode': ':i'}, 'keep')")
 
 call lexima#set_default_rules()
 
