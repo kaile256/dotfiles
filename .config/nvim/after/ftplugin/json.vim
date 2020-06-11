@@ -3,19 +3,14 @@
 " Ref: /usr/share/nvim/runtime/syntax/json.vim
 "let g:vim_json_syntax_conceal = 0
 "
-"" `conceallevel` is local to window
-"setl conceallevel=0
-setl fdm=syntax fdl=2
-"setl noexpandtab
+setlocal conceallevel=0
+setlocal fdl=0 fdm=expr fde=JsonFoldExpr(v:lnum)
 
 augroup myJsonFtplugin
   if exists('#myJsonFtplugin') | au! myJsonFtplugin
   endif
   au InsertLeave json call s:json_format()
 augroup END
-
-if exists('g:loaded_functions_json') | finish | endif
-let g:loaded_functions_json = 1
 
 function! s:json_format() abort
   keeppatterns s/":"/": "/g
@@ -25,27 +20,30 @@ function! s:json_format() abort
   endif
 endfunction
 
-setl fdm=expr fde=JsonFoldExpr()
-function! JsonFoldExpr() abort "{{{1
-  let line = getline(v:lnum)
+let s:start_of_block = '\%[//].*[\[{]$'
+let s:end_of_block = '\(".*\)\@<![\]}],\=$'
+let s:blank_line = '^\s*$'
 
-  " let s:lnum_end = nextnonblank(v:lnum)
-  " let next       = getline(s:lnum_end)
-  " if v:lnum < s:lnum_end
-  "   return '='
-  " elseif v:lnum == s:lnum_end
-  "   return '<'. indent(v:lnum) / &shiftwidth
-  " endif
-  " while matchstr(line, '\w\+\.') ==# matchstr(next, '\w\+\.')
-  "   let s:lnum_end = nextnonblank(s:lnum_end)
-  "   let next       = getline(s:lnum_end)
-  " endwhile
-  " return '>'. indent(v:lnum) / &shiftwidth
+function! JsonFoldExpr(lnum) abort
+  let line = getline(a:lnum)
+  let next = getline(a:lnum + 1)
+  let prev = getline(a:lnum - 1)
 
-  if line =~# '[\[{]$'
-    return '>'. indent(v:lnum) / &shiftwidth
-  elseif line =~# '^\s*[\]}]'
-    return '<'. indent(v:lnum) / &shiftwidth
+  if line =~# s:start_of_block
+    " The first line equals to 0.
+    return 'a'. (line(a:lnum) == 0 ? 1 : ((prev =~# s:blank_line) + 1))
+  elseif line =~# s:end_of_block
+    return 's'. (1 + (next =~# s:blank_line))
+  endif
+
+  if prev =~# s:blank_line && next !~# s:blank_line
+    return 'a1'
+
+    " elseif next =~# s:blank_line && prev !~# s:blank_line
+    "   return 's1'
+  elseif line =~# s:blank_line
+        \ && next !~# s:blank_line && prev !~# s:blank_line
+    return 's1'
   endif
 
   return '='
