@@ -1,24 +1,11 @@
-" From: filetype.vim
-
-" Ref: /usr/share/nvim/runtime/syntax/json.vim
-"let g:vim_json_syntax_conceal = 0
-"
-setlocal conceallevel=0
 setlocal fdl=0 fdm=expr fde=JsonFoldExpr(v:lnum)
+if exists('b:undo_ftplugin')
+  let b:undo_ftplugin .= ' | '
+else
+  let b:undo_ftplugin = ''
+endif
+let b:undo_ftplugin .= 'setl fdm< fde<'
 
-augroup myJsonFtplugin
-  if exists('#myJsonFtplugin') | au! myJsonFtplugin
-  endif
-  au InsertLeave json call s:json_format()
-augroup END
-
-function! s:json_format() abort
-  keeppatterns s/":"/": "/g
-
-  if getline('.') =~# '"'
-    .-1 s/"$/",/
-  endif
-endfunction
 
 let s:start_of_block = '\%[//].*[\[{]$'
 let s:end_of_block = '\(".*\)\@<![\]}],\=$'
@@ -31,7 +18,7 @@ function! JsonFoldExpr(lnum) abort
 
   if line =~# s:start_of_block
     " The first line equals to 0.
-    return 'a'. (line(a:lnum) == 0 ? 1 : ((prev =~# s:blank_line) + 1))
+    return 'a'. (line(a:lnum) == 0 ? 1 : 1 + (prev =~# s:blank_line))
   elseif line =~# s:end_of_block
     return 's'. (1 + (next =~# s:blank_line))
   endif
