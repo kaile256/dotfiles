@@ -101,6 +101,14 @@ function! LL_tab_path(n) abort
   let winnr = tabpagewinnr(a:n)
   let bufname = expand('#'. buflist[winnr - 1])
 
+  if getbufvar(bufnr(bufname), '&bt') ==# 'terminal'
+    if bufname =~# 'FZF'
+      return 'FZF running...'
+    endif
+    " Return 'running shell':'id'
+    return substitute(bufname, '.\{-}\(\d\+\):\(\S\+\)$', '\2:\1', 'e')
+  endif
+
   return s:modify_path(bufname)
 endfunction
 
@@ -275,20 +283,6 @@ function! LL_filepath() abort "{{{3
 endfunction
 
 function! s:modify_path(bufname) abort "{{{3
-  if &bt ==# 'terminal'
-    if a:bufname =~# 'FZF'
-      return 'FZF running...'
-    endif
-    " Return 'running shell':'id'
-    return substitute(a:bufname, '.\{-}\(\d\+\):\(\S\+\)$', '\2:\1', 'e')
-  endif
-  if a:bufname =~# '\[.\{-}]'
-    return matchstr(a:bufname, '\[.\{-}]')
-  elseif a:bufname =~# '__.\{-}__'
-    return matchstr(a:bufname, '__.\{-}__')
-    " return '['. matchstr(a:bufname, '__\zs.\{-}\ze__') .']'
-  endif
-
   let dir_path  = fnamemodify(a:bufname, ':p:h')
   let short_dir = pathshorten(dir_path)
   let dir = fnamemodify(short_dir, ':h:t') .'/'. fnamemodify(short_dir, ':t')
