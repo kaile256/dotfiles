@@ -45,8 +45,8 @@ function! doppelganger#create(line1, line2) abort "{{{1
   call nvim_buf_clear_namespace(0, s:namespace, 1, -1)
 
   " Search upward from a line under the bottom of window (by an offset).
-  let cur_lnum = s:get_bottom_lnum(a:line2)
-  let stop_lnum = s:get_top_lnum(a:line1)
+  let cur_lnum = s:get_bottom_lnum(a:lower)
+  let stop_lnum = s:get_top_lnum(a:upper)
   while cur_lnum > stop_lnum
     let the_pair = s:get_the_outermost_pair_in_the_line(cur_lnum)
     if the_pair == [] | continue | endif
@@ -62,7 +62,7 @@ endfunction
 function! s:get_bottom_lnum(lnum) abort "{{{1
   let foldend = foldclosedend(a:lnum)
   let lnum = foldend == -1 ? a:lnum : foldend
-  let offset = min([g:doppelganger#max_offset, line('$') - line(foldend)])
+  let offset = min([g:doppelganger#max_offset, line('$') - lnum])
   return lnum + offset
 endfunction
 
@@ -70,8 +70,8 @@ function! s:get_top_lnum(lnum) abort "{{{1
   " stop side like '{'
   let foldstart = foldclosed(a:lnum)
   let lnum = foldstart == -1 ? a:lnum : foldstart
-  let offset = min([g:doppelganger#max_offset, line('$') - line(foldstart)])
-  return lnum - offset
+  let offset = min([g:doppelganger#max_offset, lnum])
+  return lnum - offset + 1
 endfunction
 
 function! s:get_the_outermost_pair_in_the_line(lnum) abort "{{{1
