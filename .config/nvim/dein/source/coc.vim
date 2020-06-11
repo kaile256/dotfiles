@@ -21,18 +21,22 @@ hi! CocCodeLens ctermfg=240 guifg=#585858
 " the List of CocExtentions; "{{{1
 " Note: have to install LSPs independently.
 " Note: coc-highlight made CPU overwork
-" Note: coc-clangd only provides completion support.
+" Note: coc-clangs only provides completion support.
+" Note: coc-conventional provides completion support for gitcommit.
 let g:coc_global_extensions = [
       \ 'coc-actions',
       \ 'coc-angular',
       \ 'coc-bookmark',
       \ 'coc-cmake',
       \ 'coc-conjure',
+      \ 'coc-conventional',
+      \ 'coc-cspell-dicts',
       \ 'coc-css',
       \ 'coc-deno',
       \ 'coc-diagnostic',
       \ 'coc-dictionary',
       \ 'coc-docker',
+      \ 'coc-docthis',
       \ 'coc-elixir',
       \ 'coc-emmet',
       \ 'coc-emoji',
@@ -56,9 +60,11 @@ let g:coc_global_extensions = [
       \ 'coc-post',
       \ 'coc-prettier',
       \ 'coc-project',
+      \ 'coc-pyright',
       \ 'coc-python',
       \ 'coc-rust-analyzer',
       \ 'coc-solargraph',
+      \ 'coc-spell-checker',
       \ 'coc-sql',
       \ 'coc-tag',
       \ 'coc-texlab',
