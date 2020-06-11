@@ -95,11 +95,7 @@ function! s:get_the_outermost_pair_in_the_line(lnum) abort "{{{1
   return the_pair
 endfunction
 
-function! s:get_start_of_pair(pat_end) abort "{{{1
-  return getline(s:get_pos_open(a:pat_end)[0])
-endfunction
-
-function! s:get_pos_open(pat_end) abort "{{{1
+function! s:get_pos_open(pair_dict) abort "{{{1
   " Assume it's the *start* of pair when we get the same pos of pat_end twice.
 
   let save_ignorecase = &ignorecase
