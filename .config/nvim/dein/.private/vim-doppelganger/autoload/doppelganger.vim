@@ -32,9 +32,9 @@ set cpo&vim
 let g:doppelganger#max_offset = get(g:, 'doppelganger#max_offset', 300)
 
 let s:pairs = [
-      \ ['{', '}$'],
-      \ ['(', ')$'],
-      \ ['[', ']$']
+      \ ['{', '},\=$'],
+      \ ['(', '),\=$'],
+      \ ['[', '],\=$']
       \ ]
 let s:namespace = nvim_create_namespace('doppelganger')
 let s:search_flags_mobile = 'Wbz'
