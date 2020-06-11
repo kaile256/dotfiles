@@ -391,7 +391,7 @@
     //    "emitInactiveRegions": true
     //  }
     //},
-    "intelphense": {
+    "intelephense": {
       "command": "intelephense",
       "args": ["--stdio"],
       "filetypes": ["php"],
