@@ -5,7 +5,7 @@ options head indent word
   abbr ${2:#:Description for Completion}
   alias ${3}
   options ${5:head word indent}
-    ${0:TARGET}
+  `repeat(' ', &tabstop)`${0:TARGET}
 
 snippet source &ft.vim
 alias so sou ft

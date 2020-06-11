@@ -12,11 +12,6 @@ call lexima#insmode#define_altanative_key('<C-j>', '<CR>')
 " g:lexima#newline_rules is a list of dict
 
 let g:lexima#default_rules = []
-let s:rules_insert  = []
-let s:rules_colon   = []
-let s:rules_i_colon = []
-let s:rules_c_all   = []
-let s:rules_ic_all  = []
 
 " Note: both '=' and '+' works unexpectedly either with or without '\'.
 let s:delimeter_atom = '[,.;:]'
@@ -615,8 +610,8 @@ unlet s:before_close s:before_paren s:before_quote
 " " call lexima#insmode#map_hook('before', '<Space>', "\<ESC>")
 
 " Addtional Rules for Polymorphic Use {{{1
-let s:rules_insert += [
-      \ {'char': '<C-d>', 'at': '\%#[\])}''"]', 'delete': 1}
+let g:lexima#default_rules += [
+      \ {'char': '<C-d>', 'at': '\%#[\])}''"]', 'delete': 1, 'mode': 'i'}
       \ ]
 " Addtional Rules on FileType {{{1
 let g:lexima#default_rules += [
@@ -674,18 +669,6 @@ let g:lexima#default_rules += [
 " Finally: Override the rules though lexima#add_rule() "{{{1
 " Apply all the maps to both Insert and Command mode when unspecified
 call map(g:lexima#default_rules, "extend(v:val, {'mode': 'i:'}, 'keep')")
-call map(s:rules_insert,  "extend(v:val, {'mode': 'i'},  'keep')")
-call map(s:rules_i_colon, "extend(v:val, {'mode': 'i:'}, 'keep')")
-call map(s:rules_colon,   "extend(v:val, {'mode': ':'},  'keep')")
-call map(s:rules_c_all,   "extend(v:val, {'mode': 'c'},  'keep')")
-call map(s:rules_ic_all,  "extend(v:val, {'mode': 'ic'}, 'keep')")
-
-let g:lexima#default_rules +=
-      \ s:rules_insert
-      \ + s:rules_i_colon
-      \ + s:rules_colon
-      \ + s:rules_c_all
-      \ + s:rules_ic_all
 
 call lexima#set_default_rules()
 
