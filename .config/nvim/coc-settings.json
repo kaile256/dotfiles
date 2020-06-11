@@ -148,6 +148,64 @@
   "translator.toLang": "en",
   "translator.maxsize": 200,
 
+  "cSpell.spellCheckDelayMs": 1000,
+  "cSpell.allowCompoundWords": true,
+  "cSpell.words": [
+    // cli tools
+    "cmake",
+    "lsof",
+
+    // FileType
+    "deno",
+    "ccls",
+    "objc",
+    "objcpp",
+
+    // Vimscript
+    "defx",
+    "lexima",
+
+    // abbreviation
+    "isdir",
+
+    // LSP
+    "vimlsp",
+    "cquery",
+    "intelephense",
+    "dartfmt",
+    "hlint",
+
+    "golint",
+    "gofumpt",
+    "gopls",
+
+    "mypy",
+    "yapf",
+    "pylint",
+    "pydocStyle",
+
+    // Others
+    "iostream",
+    "cout",
+    "scanf",
+
+    "pyperclip",
+    "qute"
+  ],
+
+  "cSpell.ignoreRegExpList": [
+    // repo name like foo/bar
+    "[^/]+/[^/]+",
+
+    // Cpp
+    " <cstd.+> ",
+
+    // Vim
+    ".abbr ",
+    // prefix for autoload-function
+    " .+#"
+  ],
+
   "explorer.keyMappings": {
     "k": "nodePrev",
     "j": "nodeNext",
