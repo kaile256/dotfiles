@@ -48,7 +48,7 @@ function! doppelganger#create(upper, lower) abort "{{{1
   let cur_lnum = s:get_bottom_lnum(a:lower)
   let stop_lnum = s:get_top_lnum(a:upper)
   while cur_lnum > stop_lnum
-    let the_pair = s:get_the_outermost_pair_in_the_line(cur_lnum)
+    let the_pair = s:specify_the_outermost_pair_in_the_line(cur_lnum)
     if the_pair == [] | continue | endif
     let pos_open = s:get_pos_open(the_pair)
     let text = getline(pos_open[0])
@@ -74,24 +74,25 @@ function! s:get_top_lnum(lnum) abort "{{{1
   return lnum - offset + 1
 endfunction
 
-function! s:get_the_outermost_pair_in_the_line(lnum) abort "{{{1
+function! s:specify_the_outermost_pair_in_the_line(lnum) abort "{{{1
   let line = getline(a:lnum)
-  let biggest_match_col = -1
+  " matchend() never returns 0.
+  let biggest_match_col = 0
   let the_pair = []
+  silent! unlet s:the_pair
 
   for p in s:pairs
-    let col = -1
-    while 1
-      let col = matchend(line, p[1], col)
-      if col == -1
-        break
-      elseif col > biggest_match_col
-        let biggest_match_col = col
+    let match_col = 0
+    while match_col != -1
+      let match_col = matchend(line, p[1], match_col)
+      if match_col > biggest_match_col
+        let biggest_match_col = match_col
         let the_pair = p
       endif
     endwhile
   endfor
 
+  let s:the_pair = the_pair
   return the_pair
 endfunction
 
