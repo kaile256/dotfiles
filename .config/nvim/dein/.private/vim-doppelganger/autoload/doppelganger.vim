@@ -29,6 +29,8 @@ let s:save_cpo = &cpo
 set cpo&vim
 "}}}
 
+hi def link DoppelGanger NonText
+
 let g:doppelganger#max_offset = get(g:, 'doppelganger#max_offset', 300)
 
 let s:pairs = [
@@ -136,7 +138,7 @@ function! s:set_text_on_lnum(lnum, text) abort "{{{1
   let text = substitute(a:text, s:the_pair[0], '', 'e')
   if text ==# '' | return | endif
 
-  let chunks = [[text, 'Comment']]
+  let chunks = [[text, 'DoppelGanger']]
   call nvim_buf_set_virtual_text(
         \ 0,
         \ s:namespace,
