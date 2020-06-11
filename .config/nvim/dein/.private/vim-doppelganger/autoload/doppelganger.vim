@@ -53,7 +53,7 @@ function! doppelganger#create(upper, lower) abort "{{{1
     let pos_open = s:get_pos_open(the_pair)
     let text = getline(pos_open[0])
     call s:set_text_on_lnum(cur_lnum, text)
-    let cur_lnum = s:get_nextlnum(cur_lnum)
+    let cur_lnum = s:get_nextlnum(cur_lnum, stop_lnum)
     exe cur_lnum
   endwhile
   call winrestview(save_view)
@@ -115,10 +115,21 @@ function! s:get_pos_open(pair_dict) abort "{{{1
   return cur_pos_open
 endfunction
 
-function! s:get_nextlnum(lnum) abort "{{{1
-  let foldstart = foldclosed(a:lnum - 1)
-  let next = foldstart == -1 ? a:lnum - 1 : foldstart
-  return next
+function! s:get_nextlnum(lnum, stop_lnum) abort "{{{1
+  let next = foldclosed(a:lnum - 1)
+  let save_next = next
+  while s:is_inside_fold(next) || next > a:stop_lnum
+    let next = foldclosed(next - 1)
+    if next > 0
+      let save_next = next
+      let next -= 1
+    endif
+  endwhile
+  return save_next
+endfunction
+
+function! s:is_inside_fold(num) abort "{{{1
+  return a:num != -1
 endfunction
 
 function! s:set_text_on_lnum(lnum, text) abort "{{{1
