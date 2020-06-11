@@ -49,6 +49,7 @@ let g:lexima#newline_rules = [
       \ {'char': '<CR>', 'at': '(\%#)',  'input_after': '<CR>'},
       \ {'char': '<CR>', 'at': '{\%#}',  'input_after': '<CR>'},
       \ {'char': '<CR>', 'at': '\[\%#]', 'input_after': '<CR>'},
+      \ {'char': '<CR>', 'at': '/\*\%#\*/', 'input_after': '<CR>'},
       \ ]
 
 " Insert backslashes when filetype is vim
@@ -205,6 +206,7 @@ let g:lexima#default_rules += [
       \ {'char': '<Space>', 'at': '(\%#)', 'input_after': '<Space>'},
       \ {'char': '<Space>', 'at': '{\%#}', 'input_after': '<Space>'},
       \ {'char': '<Space>', 'at': '\[\%#]', 'input_after': '<Space>'},
+      \ {'char': '<Space>', 'at': '/\*\%#\*/', 'input_after': '<Space>'},
       \ ]
 
 " Addtional Rules to Skip Out; break repeat {{{1
