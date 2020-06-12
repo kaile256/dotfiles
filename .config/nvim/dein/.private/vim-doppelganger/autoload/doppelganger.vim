@@ -50,13 +50,16 @@ function! doppelganger#create(upper, lower) abort "{{{1
   let cur_lnum = s:get_bottom_lnum(a:lower)
   let stop_lnum = s:get_top_lnum(a:upper)
   while cur_lnum > stop_lnum
+    let cur_lnum = s:set_curpos(cur_lnum, stop_lnum)
     let the_pair = s:specify_the_outermost_pair_in_the_line(cur_lnum)
-    if the_pair == [] | continue | endif
-    let pos_open = s:get_pos_open(the_pair)
-    let text = getline(pos_open[0])
-    call s:set_text_on_lnum(cur_lnum, text)
-    let cur_lnum = s:get_nextlnum(cur_lnum, stop_lnum)
-    exe cur_lnum
+    if the_pair != []
+      let lnum_open = s:get_lnum_open(the_pair, stop_lnum)
+      if lnum_open > stop_lnum
+        let text = getline(lnum_open)
+        call s:set_text_on_lnum(cur_lnum, text)
+      endif
+    endif
+    let cur_lnum -= 1
   endwhile
   call winrestview(save_view)
 endfunction
@@ -117,20 +120,23 @@ function! s:get_pos_open(pair_dict) abort "{{{1
   return cur_pos_open
 endfunction
 
-function! s:get_nextlnum(lnum, stop_lnum) abort "{{{1
-  let next = a:lnum - 1
+function! s:set_curpos(lnum, stop_lnum) abort "{{{1
+  let next = a:lnum
   if !s:is_inside_fold(next)
+    exe next
     return next
   endif
 
   let save_next = next
   while s:is_inside_fold(next) || next > a:stop_lnum
-    let next = foldclosed(next - 1)
     if next > 0
       let save_next = next
       let next -= 1
     endif
+    let next = foldclosed(next)
   endwhile
+
+  exe save_next
   return save_next
 endfunction
 
