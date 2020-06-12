@@ -85,14 +85,7 @@ function! s:specify_the_outermost_pair_in_the_line(lnum) abort "{{{1
   for p in pairs
     let match_col = 0
     while match_col != -1
-      try
-        let match_col = matchend(line, s:last_item(p), match_col)
-      catch /^Vim:E65:/
-        " Note: E65 sometimes happens when a pair contains atoms like '\1'.
-        " FIXME: This ':try' seems useless. Even when catch without any
-        " arguments, it freezes Vim.
-        continue
-      endtry
+      let match_col = matchend(line, s:last_item(p), match_col)
       if match_col > biggest_match_col
         let biggest_match_col = match_col
         let the_pair = p
