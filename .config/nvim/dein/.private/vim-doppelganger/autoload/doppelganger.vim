@@ -99,14 +99,23 @@ endfunction
 function! s:get_lnum_open(pair_dict, stop_lnum) abort "{{{1
   let pat_open = a:pair_dict[0]
   let pat_close = a:pair_dict[1]
+  let flags_mobile_upward = 'cbWz'
   let flags_unmove_upward = 'nbWz'
+  let Skip_comments =
+        \ 'synIDattr(synID(line("."), col("."), 0), "name") =~? "string\|comment"'
+
   norm! $
-  let lnum_open = searchpair(pat_open, '', pat_close, flags_unmove_upward)
-  if lnum_open == s:cur_lnum
-    " Continue the while loop anyway.
-    return 0
+  let lnum_close = search(pat_close, flags_mobile_upward)
+  " searchpair() fails to parse line-continuation with 'c'-flag
+  let lnum_open = searchpair(pat_open, '', pat_close,
+        \ flags_unmove_upward, Skip_comments)
+
+  if lnum_close == s:cur_lnum && lnum_open != s:cur_lnum
+    return lnum_open
   endif
-  return lnum_open
+
+  " Continue the while loop anyway.
+  return 0
 endfunction
 
 function! s:set_curpos(stop_lnum) abort "{{{1
