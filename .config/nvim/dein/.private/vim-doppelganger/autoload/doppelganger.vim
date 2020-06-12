@@ -147,10 +147,11 @@ endfunction
 
 function! s:set_text_on_lnum(text) abort "{{{1
   let pat_open = s:the_pair[0]
-  let text = substitute(a:text, pat_open .'$\|^'. pat_open, '', 'e')
+  let text = substitute(a:text, pat_open .'\(.*'. pat_open .'\)\@!', '', 'e')
   if text ==# '' | return | endif
 
-  let text = substitute(text, '^\s*', g:doppelganger#prefix, 'e')
+  let text = substitute(text, '^\s*', '', 'e')
+  let text = g:doppelganger#prefix . text
   let chunks = [[text, 'DoppelGanger']]
   let print_lnum = s:cur_lnum - 1
   call nvim_buf_set_virtual_text(
