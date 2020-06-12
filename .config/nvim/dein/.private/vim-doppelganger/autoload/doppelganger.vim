@@ -32,12 +32,12 @@ set cpo&vim
 hi def link DoppelGanger NonText
 
 let g:doppelganger#prefix = get(g:, 'doppelganger#prefix', '◂ ')
-
-let s:pairs = [
+let g:doppelganger#pairs = get(g:, 'doppelganger#pairs', [
       \ ['{', '}'],
       \ ['(', ')'],
       \ ['\[', ']'],
-      \ ]
+      \ ])
+
 let s:namespace = nvim_create_namespace('doppelganger')
 
 function! doppelganger#create(upper, lower) abort "{{{1
