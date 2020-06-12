@@ -34,9 +34,9 @@ hi def link DoppelGanger NonText
 let g:doppelganger#prefix = get(g:, 'doppelganger#prefix', '◂ ')
 
 let s:pairs = [
-      \ ['{', '},\=$'],
-      \ ['(', '),\=$'],
-      \ ['\[', '],\=$']
+      \ ['{', '}'],
+      \ ['(', ')'],
+      \ ['\[', ']']
       \ ]
 let s:namespace = nvim_create_namespace('doppelganger')
 
