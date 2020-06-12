@@ -33,6 +33,12 @@ set cpo&vim
 "}}}
 
 let g:doppelganger#max_offset = get(g:, 'doppelganger#max_offset', 100)
+let g:doppelganger#prefix = get(g:, 'doppelganger#prefix', '◂ ')
+let g:doppelganger#pairs = get(g:, 'doppelganger#pairs', [
+      \ ['{', '}'],
+      \ ['(', ')'],
+      \ ['\[', ']'],
+      \ ])
 
 command! -bar -range=% DoppelGanger
       \ :call doppelganger#create(<line1>, <line2>)
