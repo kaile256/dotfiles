@@ -149,10 +149,11 @@ function! s:set_text_on_lnum(lnum, text) abort "{{{1
   if text ==# '' | return | endif
 
   let chunks = [[text, 'DoppelGanger']]
+  let print_lnum = a:lnum - 1
   call nvim_buf_set_virtual_text(
         \ 0,
         \ s:namespace,
-        \ a:lnum,
+        \ print_lnum,
         \ chunks,
         \ {}
         \ )
