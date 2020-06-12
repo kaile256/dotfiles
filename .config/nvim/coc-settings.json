@@ -208,6 +208,9 @@
     // repo name like foo/bar
     "[^/]+/[^/]+",
 
+    // Where person name appear
+    "maintainer.*",
+
     // Unicode
     "\\u[0-9a-f]+",
 
