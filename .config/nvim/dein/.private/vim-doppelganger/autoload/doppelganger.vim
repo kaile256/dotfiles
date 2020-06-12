@@ -117,9 +117,30 @@ function! s:set_pairs() abort "{{{1
 endfunction
 
 function! s:parse_matchwords() abort "{{{1
-  let pair_list = split(b:match_words, ',')
-  let pairs = map(deepcopy(pair_list), 'split(v:val, ":")')
+  let pairs = split(b:match_words, ',')
+  call map(pairs, 'split(v:val, ":")')
+  call map(pairs, function("s:swap_atoms"))
   return pairs
+endfunction
+
+function! s:swap_atoms(_, pat) abort "{{{1
+  if s:last_item(a:pat) !~# '\\\d'
+    return a:pat
+  endif
+
+  let pat = a:pat
+  let cnt = 0
+  let pat_to_save = '\\(.\{-}\\)'
+  while s:last_item(pat) =~# '\\\d'
+    " Sample from vim-closetag:
+    " ['<\@<=\([^/][^ \t>]*\)\%(>\|$\|[ \t][^>]*\%(>\|$\)\)', '<\@<=/\1>']
+    let cnt += 1
+    let pat_atom = '\\'. cnt
+    let save_match = matchstr(pat[0], pat_to_save)
+    let pat[0] = substitute(pat[0], pat_to_save, pat_atom, 'e')
+    let pat[len(pat) - 1] = substitute(s:last_item(pat), pat_atom, save_match, 'e')
+  endwhile
+  return pat
 endfunction
 
 function! s:get_lnum_open(pair_dict, stop_lnum) abort "{{{1
