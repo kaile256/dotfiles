@@ -164,6 +164,7 @@ function! s:set_text_on_lnum(lnum, text) abort "{{{1
   let text = substitute(a:text, s:the_pair[0], '', 'e')
   if text ==# '' | return | endif
 
+  let text = substitute(text, '^\s*', '', 'e')
   let chunks = [[text, 'DoppelGanger']]
   let print_lnum = a:lnum - 1
   call nvim_buf_set_virtual_text(
