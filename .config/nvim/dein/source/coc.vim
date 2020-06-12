@@ -191,9 +191,9 @@ augroup myCocSource "{{{1
   " Auto Import {{{2
   " Either editor's or java's fails to work on java
   " au BufWritePre *.java silent call CocActionAsync('runCommand', 'java.action.organizeImports')
-  au BufWritePre *.go call CocActionAsync('runCommand', 'editor.action.organizeImport')
-  au BufWritePre *.ts call CocActionAsync('runCommand', 'tsserver.organizeImports')
-  au CursorHold * call CocActionAsync('highlight')
+  " Note: Keep it BufWrite (not BufWritePre); format could be different from
+  " that by <Plug>(coc-format-selected)
+  au BufWrite *.go,*.ts call CocActionAsync('runCommand', 'editor.action.organizeImport')
   "" CocPairs {{{2
   "  au FileType vim let b:coc_pairs_disabled = ['"']
 augroup END
