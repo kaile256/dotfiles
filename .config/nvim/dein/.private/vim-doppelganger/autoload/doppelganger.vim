@@ -130,8 +130,8 @@ function! s:get_nextlnum(lnum, stop_lnum) abort "{{{1
   return save_next
 endfunction
 
-function! s:is_inside_fold(num) abort "{{{1
-  return a:num != -1
+function! s:is_inside_fold(lnum) abort "{{{1
+  return foldclosed(a:lnum) != -1
 endfunction
 
 function! s:set_text_on_lnum(lnum, text) abort "{{{1
