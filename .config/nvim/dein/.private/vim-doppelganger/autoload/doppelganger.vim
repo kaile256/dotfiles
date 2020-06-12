@@ -137,19 +137,19 @@ function! s:get_lnum_open(pair_dict, stop_lnum) abort "{{{1
 endfunction
 
 function! s:set_curpos(stop_lnum) abort "{{{1
-  let next = s:cur_lnum
-  if !s:is_inside_fold(next)
-    exe next
-    return next
+  let lnum = s:cur_lnum
+  if !s:is_inside_fold(lnum)
+    exe lnum
+    return lnum
   endif
 
-  let save_next = next
-  while s:is_inside_fold(next) || next > a:stop_lnum
-    if next > 0
-      let save_next = next
-      let next -= 1
+  let save_next = lnum
+  while s:is_inside_fold(lnum) || lnum > a:stop_lnum
+    if lnum > 0
+      let save_next = lnum
+      let lnum -= 1
     endif
-    let next = foldclosed(next)
+    let lnum = foldclosed(lnum)
   endwhile
 
   exe save_next
