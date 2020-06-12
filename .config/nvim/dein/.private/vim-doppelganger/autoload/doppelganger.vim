@@ -41,6 +41,8 @@ let s:pairs = [
 let s:namespace = nvim_create_namespace('doppelganger')
 
 function! doppelganger#create(upper, lower) abort "{{{1
+  if mode() ==? 's' | return | endif
+
   let save_view = winsaveview()
   call nvim_buf_clear_namespace(0, s:namespace, 1, -1)
 
