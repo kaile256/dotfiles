@@ -45,19 +45,19 @@ function! doppelganger#create(upper, lower) abort "{{{1
   call nvim_buf_clear_namespace(0, s:namespace, 1, -1)
 
   " Search upward from a line under the bottom of window (by an offset).
-  let cur_lnum = s:get_bottom_lnum(a:lower)
+  let s:cur_lnum = s:get_bottom_lnum(a:lower)
   let stop_lnum = s:get_top_lnum(a:upper)
-  while cur_lnum > stop_lnum
-    let cur_lnum = s:set_curpos(cur_lnum, stop_lnum)
-    let the_pair = s:specify_the_outermost_pair_in_the_line(cur_lnum)
+  while s:cur_lnum > stop_lnum
+    let s:cur_lnum = s:set_curpos(s:cur_lnum, stop_lnum)
+    let the_pair = s:specify_the_outermost_pair_in_the_line(s:cur_lnum)
     if the_pair != []
       let lnum_open = s:get_lnum_open(the_pair, stop_lnum)
       if lnum_open > stop_lnum
         let text = getline(lnum_open)
-        call s:set_text_on_lnum(cur_lnum, text)
+        call s:set_text_on_lnum(s:cur_lnum, text)
       endif
     endif
-    let cur_lnum -= 1
+    let s:cur_lnum -= 1
   endwhile
   call winrestview(save_view)
 endfunction
