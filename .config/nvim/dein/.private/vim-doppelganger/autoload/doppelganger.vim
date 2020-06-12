@@ -48,13 +48,13 @@ function! doppelganger#create(upper, lower) abort "{{{1
   let s:cur_lnum = s:get_bottom_lnum(a:lower)
   let stop_lnum = s:get_top_lnum(a:upper)
   while s:cur_lnum > stop_lnum
-    let s:cur_lnum = s:set_curpos(s:cur_lnum, stop_lnum)
+    let s:cur_lnum = s:set_curpos(stop_lnum)
     let the_pair = s:specify_the_outermost_pair_in_the_line(s:cur_lnum)
     if the_pair != []
       let lnum_open = s:get_lnum_open(the_pair, stop_lnum)
       if lnum_open > stop_lnum
         let text = getline(lnum_open)
-        call s:set_text_on_lnum(s:cur_lnum, text)
+        call s:set_text_on_lnum(text)
       endif
     endif
     let s:cur_lnum -= 1
@@ -136,8 +136,8 @@ function! s:get_lnum_open(pair_dict, stop_lnum) abort "{{{1
   return lnum
 endfunction
 
-function! s:set_curpos(lnum, stop_lnum) abort "{{{1
-  let next = a:lnum
+function! s:set_curpos(stop_lnum) abort "{{{1
+  let next = s:cur_lnum
   if !s:is_inside_fold(next)
     exe next
     return next
@@ -160,13 +160,13 @@ function! s:is_inside_fold(lnum) abort "{{{1
   return foldclosed(a:lnum) != -1
 endfunction
 
-function! s:set_text_on_lnum(lnum, text) abort "{{{1
+function! s:set_text_on_lnum(text) abort "{{{1
   let text = substitute(a:text, s:the_pair[0], '', 'e')
   if text ==# '' | return | endif
 
   let text = substitute(text, '^\s*', '', 'e')
   let chunks = [[text, 'DoppelGanger']]
-  let print_lnum = a:lnum - 1
+  let print_lnum = s:cur_lnum - 1
   call nvim_buf_set_virtual_text(
         \ 0,
         \ s:namespace,
