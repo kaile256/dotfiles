@@ -145,7 +145,8 @@ function! s:is_inside_fold(lnum) abort "{{{1
 endfunction
 
 function! s:set_text_on_lnum(text) abort "{{{1
-  let text = substitute(a:text, s:the_pair[0], '', 'e')
+  let pat_open = s:the_pair[0]
+  let text = substitute(a:text, pat_open .'$\|^'. pat_open, '', 'e')
   if text ==# '' | return | endif
 
   let text = substitute(text, '^\s*', g:doppelganger#prefix, 'e')
