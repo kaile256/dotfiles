@@ -83,11 +83,12 @@ function! s:specify_the_outermost_pair_in_the_line(lnum) abort "{{{1
   let biggest_match_col = 0
   let the_pair = []
   silent! unlet s:the_pair
+  let pairs = s:set_pairs()
 
-  for p in s:pairs
+  for p in pairs
     let match_col = 0
     while match_col != -1
-      let match_col = matchend(line, p[1], match_col)
+      let match_col = matchend(line, p[len(p) - 1], match_col)
       if match_col > biggest_match_col
         let biggest_match_col = match_col
         let the_pair = p
@@ -99,9 +100,27 @@ function! s:specify_the_outermost_pair_in_the_line(lnum) abort "{{{1
   return the_pair
 endfunction
 
+function! s:set_pairs() abort "{{{1
+  if exists('b:doppelganger_pairs')
+    return b:doppelganger_pairs
+  endif
+
+  if exists('b:match_words')
+    let b:doppelganger_pairs = s:parse_matchwords()
+  endif
+
+  return g:doppelganger#pairs
+endfunction
+
+function! s:parse_matchwords() abort "{{{1
+  let pair_list = split(b:match_words, ',')
+  let pairs = map(deepcopy(pair_list), 'split(v:val, ":")')
+  return pairs
+endfunction
+
 function! s:get_lnum_open(pair_dict, stop_lnum) abort "{{{1
   let pat_open = a:pair_dict[0]
-  let pat_close = a:pair_dict[1]
+  let pat_close = a:pair_dict[len(a:pair_dict) - 1]
   let flags_mobile_upward_inc = 'cbW'
   let flags_unmove_upward_exc = 'nbWz'
   let Skip_comments = 'synIDattr(synID(line("."), col("."), 0), "name") =~? "comment"'
