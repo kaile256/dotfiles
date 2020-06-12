@@ -8,8 +8,9 @@ runtime once/smaps.vim
 augroup myNeoSnippetSource
   if exists('#myNeoSnippetSource') | au! myNeoSnippetSource
   endif
-  "au FileType neosnippet setl fdm=indent
-  au FileType neosnippet setl keywordprg=:help
+  " Note: 'modelines' is always set global.
+  au FileType neosnippet setlocal modelines=1
+  au FileType neosnippet setlocal keywordprg=:help
   au BufWritePre * NeoSnippetClearMarkers
 augroup END
 
