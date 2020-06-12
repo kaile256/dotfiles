@@ -114,7 +114,7 @@ function! s:get_lnum_open(pair_dict, stop_lnum) abort "{{{1
   let lnum_open = searchpair(pat_open, '', pat_close,
         \ flags_unmove_upward, Skip_comments)
 
-  if lnum_close == s:cur_lnum && lnum_open != s:cur_lnum
+  if lnum_close == s:cur_lnum && lnum_open != lnum_close
     return lnum_open
   endif
 
