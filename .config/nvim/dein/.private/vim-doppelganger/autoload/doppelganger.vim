@@ -118,7 +118,11 @@ function! s:get_pos_open(pair_dict) abort "{{{1
 endfunction
 
 function! s:get_nextlnum(lnum, stop_lnum) abort "{{{1
-  let next = foldclosed(a:lnum - 1)
+  let next = a:lnum - 1
+  if !s:is_inside_fold(next)
+    return next
+  endif
+
   let save_next = next
   while s:is_inside_fold(next) || next > a:stop_lnum
     let next = foldclosed(next - 1)
