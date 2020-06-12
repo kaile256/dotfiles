@@ -55,8 +55,7 @@ function! doppelganger#create(upper, lower) abort "{{{1
     if the_pair != []
       let lnum_open = s:get_lnum_open(the_pair, stop_lnum)
       if lnum_open > stop_lnum
-        let text = getline(lnum_open)
-        call s:set_text_on_lnum(text)
+        call s:set_text_on_lnum(lnum_open)
       endif
     endif
     let s:cur_lnum -= 1
@@ -145,13 +144,9 @@ function! s:is_inside_fold(lnum) abort "{{{1
   return foldclosed(a:lnum) != -1
 endfunction
 
-function! s:set_text_on_lnum(text) abort "{{{1
-  let pat_open = s:the_pair[0]
-  let text = substitute(a:text, pat_open .'\(.*'. pat_open .'\)\@!', '', 'e')
-  if text ==# '' | return | endif
-
-  let text = substitute(text, '^\s*', '', 'e')
-  let text = g:doppelganger#prefix . text
+function! s:set_text_on_lnum(lnum_open) abort "{{{1
+  let text = getline(a:lnum_open)
+  let text = s:modify_text(text, a:lnum_open)
   let chunks = [[text, 'DoppelGanger']]
   let print_lnum = s:cur_lnum - 1
   call nvim_buf_set_virtual_text(
@@ -161,6 +156,25 @@ function! s:set_text_on_lnum(text) abort "{{{1
         \ chunks,
         \ {}
         \ )
+endfunction
+
+function! s:modify_text(text, lnum) abort "{{{1
+  let lnum = a:lnum
+  let text = a:text
+  while 1
+    let text = getline(lnum)
+    let text = s:truncate_pat_open(text)
+    let text = substitute(text, '^\s*', '', 'e')
+    if text !~# '^\s*$' | break | endif
+    let lnum -= 1
+  endwhile
+  let text = g:doppelganger#prefix . text
+  return text
+endfunction
+
+function! s:truncate_pat_open(text) abort "{{{1
+  let pat_open = s:the_pair[0]
+  return substitute(a:text, pat_open .'\(.*'. pat_open .'\)\@!\S*', '', 'e')
 endfunction
 
 " restore 'cpoptions' {{{1
