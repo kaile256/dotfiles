@@ -100,40 +100,16 @@ function! s:specify_the_outermost_pair_in_the_line(lnum) abort "{{{1
 endfunction
 
 function! s:get_lnum_open(pair_dict, stop_lnum) abort "{{{1
-  let save_view = winsaveview()
-  let save_ignorecase = &ignorecase
-  set noignorecase
-
-  " Assume it's the *start* of pair when we get the same pos of pat_end twice.
   let pat_open = a:pair_dict[0]
   let pat_close = a:pair_dict[1]
-
-  let pos_open = [0, 0]
-  let last_pos_open = pos_open
-  let pos_close = [a:stop_lnum, -1]
-
-  let last_pos_close = [-2, -2]
-  let flags_mobile_upward = 'bWz'
-  let flags_unmove_downward = 'Wz'
-
+  let flags_unmove_upward = 'nbWz'
   norm! $
-  while pos_close != last_pos_close && pos_close[0] >= a:stop_lnum
-    " TODO: detect if *not* in 'Comment' or 'String'.
-    "
-    " searchpos() should return twice either [0, 0] or the pos of pos_close.
-    let pos_open = searchpos(pat_open, flags_mobile_upward)
-    let pos_close = searchpos(pat_close, flags_unmove_downward)
-    if pos_open != [0, 0]
-      let last_pos_open = pos_open
-    endif
-    let last_pos_close = pos_close
-  endwhile
-
-  let &ignorecase = save_ignorecase
-  call winrestview(save_view)
-
-  let lnum = last_pos_open[0]
-  return lnum
+  let lnum_open = searchpair(pat_open, '', pat_close, flags_unmove_upward)
+  if lnum_open == s:cur_lnum
+    " Continue the while loop anyway.
+    return 0
+  endif
+  return lnum_open
 endfunction
 
 function! s:set_curpos(stop_lnum) abort "{{{1
