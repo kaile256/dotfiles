@@ -29,13 +29,12 @@
 	cmd = vim -f -c "MergetoolStart" "$MERGED" "$BASE" "$LOCAL" "$REMOTE"
 	trustExitCode = true
 [url "github:"]
-	# limited to push; conflicted with cargo
-	# Note: repo individually.
-	# TODO: need config for ghq get foo/bar inspite of cargo install foobar.
-	# 'pushInsteadOf = https://github.com/' to :Gpush of vim-fugitive at least.
-	# 'InsteadOf = https://github.com/' to install private plugins by dein.vim.
-	#InsteadOf = https://github.com/
-	#InsteadOf = git@github.com:
+	# Cargo to build is incompatible with 'InsteadOf = either https://github.com/
+	# or git@github.com:'
+	# Fugitive to :Git push requires 'pushInsteadOf = https://github.com/'
+	# Dein to install private repo requires 'InsteadOf = https://github.com/'
+	pushInsteadOf = https://github.com/
+	pushInsteadOf = git@github.com:
 #[push]
 	# nothing: always demands arguments like `git push origin master`
 	# matching: push to the same named repo anyway
