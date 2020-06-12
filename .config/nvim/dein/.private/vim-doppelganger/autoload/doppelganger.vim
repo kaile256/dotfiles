@@ -33,6 +33,10 @@ hi def link DoppelGanger NonText
 
 let s:namespace = nvim_create_namespace('doppelganger')
 
+function! s:last_item(arr) abort "{{{1
+  return a:arr[len(a:arr) - 1]
+endfunction
+
 function! doppelganger#create(upper, lower) abort "{{{1
   if mode() ==? 's' | return | endif
 
@@ -82,7 +86,7 @@ function! s:specify_the_outermost_pair_in_the_line(lnum) abort "{{{1
     let match_col = 0
     while match_col != -1
       try
-        let match_col = matchend(line, p[len(p) - 1], match_col)
+        let match_col = matchend(line, s:last_item(p), match_col)
       catch /^Vim:E65:/
         " Note: E65 sometimes happens when a pair contains atoms like '\1'.
         " FIXME: This ':try' seems useless. Even when catch without any
@@ -120,7 +124,7 @@ endfunction
 
 function! s:get_lnum_open(pair_dict, stop_lnum) abort "{{{1
   let pat_open = a:pair_dict[0]
-  let pat_close = a:pair_dict[len(a:pair_dict) - 1]
+  let pat_close = s:last_item(a:pair_dict)
   let flags_mobile_upward_inc = 'cbW'
   let flags_unmove_upward_exc = 'nbWz'
   let Skip_comments = 'synIDattr(synID(line("."), col("."), 0), "name") =~? "comment"'
