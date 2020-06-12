@@ -105,8 +105,7 @@ function! s:get_lnum_open(pair_dict, stop_lnum) abort "{{{1
   let pat_close = a:pair_dict[1]
   let flags_mobile_upward = 'cbWz'
   let flags_unmove_upward = 'nbWz'
-  let Skip_comments =
-        \ 'synIDattr(synID(line("."), col("."), 0), "name") =~? "string\|comment"'
+  let Skip_comments = 'synIDattr(synID(line("."), col("."), 0), "name") =~? "comment"'
 
   norm! $
   let lnum_close = search(pat_close, flags_mobile_upward)
