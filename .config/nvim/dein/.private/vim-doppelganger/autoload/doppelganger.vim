@@ -31,8 +31,6 @@ set cpo&vim
 
 hi def link DoppelGanger NonText
 
-let g:doppelganger#max_offset = get(g:, 'doppelganger#max_offset', 300)
-
 let s:pairs = [
       \ ['{', '},\=$'],
       \ ['(', '),\=$'],
@@ -63,18 +61,17 @@ function! doppelganger#create(upper, lower) abort "{{{1
 endfunction
 
 function! s:get_bottom_lnum(lnum) abort "{{{1
+  " close side like '}'
   let foldend = foldclosedend(a:lnum)
   let lnum = foldend == -1 ? a:lnum : foldend
-  let offset = min([g:doppelganger#max_offset, line('$') - lnum])
-  return lnum + offset
+  return lnum
 endfunction
 
 function! s:get_top_lnum(lnum) abort "{{{1
-  " stop side like '{'
+  " open side like '{'
   let foldstart = foldclosed(a:lnum)
   let lnum = foldstart == -1 ? a:lnum : foldstart
-  let offset = min([g:doppelganger#max_offset, lnum])
-  return lnum - offset + 1
+  return lnum
 endfunction
 
 function! s:specify_the_outermost_pair_in_the_line(lnum) abort "{{{1

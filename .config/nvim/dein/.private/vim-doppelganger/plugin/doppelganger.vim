@@ -32,13 +32,17 @@ let s:save_cpo = &cpo
 set cpo&vim
 "}}}
 
-command! -bar DoppelGanger
+let g:doppelganger#max_offset = get(g:, 'doppelganger#max_offset', 100)
+
+command! -bar -range=% DoppelGanger
       \ :call doppelganger#create(<line1>, <line2>)
 
+let s:default_top = {-> max([0, line('w0') - g:doppelganger#max_offset])}
+let s:default_bot = {-> min([line('$'), line('w$') + g:doppelganger#max_offset])}
+
 augroup doppelganger
-  au!
-  au InsertLeave,TextChanged *
-        \ call doppelganger#create(line('w0'), line('w$'))
+  au! BufWinEnter,InsertLeave,TextChanged *
+        \ call doppelganger#create(s:default_top(), s:default_bot())
 augroup END
 
 " restore 'cpoptions' {{{1
