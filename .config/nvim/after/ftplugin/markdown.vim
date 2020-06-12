@@ -2,7 +2,7 @@
 " BuiltIn: runtime/ftplugin/markdown.vim
 " Another: syntax/markdown.vim
 
-setl spell spl=en_us,cjk
+" setl spell spl=en_us,cjk
 setl fdl=1
 "setl nowrap conceallevel=2 concealcursor=nc
 setl tabstop=4 softtabstop=4 shiftwidth=4
