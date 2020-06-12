@@ -49,7 +49,9 @@ let g:lexima#newline_rules = [
       \ {'char': '<CR>', 'at': '(\%#)',  'input_after': '<CR>'},
       \ {'char': '<CR>', 'at': '{\%#}',  'input_after': '<CR>'},
       \ {'char': '<CR>', 'at': '\[\%#]', 'input_after': '<CR>'},
-      \ {'char': '<CR>', 'at': '/\*\%#\*/', 'input_after': '<CR>'},
+      \ {'char': '<CR>', 'at': '/\*\%#\*/', 'input_after': '<CR><space>'},
+      \ {'char': '<CR>', 'at': '<.\{-}>\%#<.\{-}>', 'input_after': '<CR>',
+      \     'filetype': ['htm', 'html', 'xml', 'php']},
       \ ]
 
 " Insert backslashes when filetype is vim
@@ -59,6 +61,12 @@ let g:lexima#newline_rules += [
       \ {'char': '<CR>', 'at': '(\%#)',  'input': '<CR>\ ', 'input_after': '<CR>\ ', 'filetype': 'vim'},
       \ {'char': '<CR>', 'at': '{\%#}',  'input': '<CR>\ ', 'input_after': '<CR>\ ', 'filetype': 'vim'},
       \ {'char': '<CR>', 'at': '\[\%#]', 'input': '<CR>\ ', 'input_after': '<CR>\ ', 'filetype': 'vim'},
+      \ ]
+
+" up to Filetype
+let g:lexima#newline_rules += [
+      \ {'char': '<CR>', 'at': '<.\{-}>\%#<.\{-}>', 'input_after': '<CR>',
+      \     'filetype': ['htm', 'html', 'xml', 'php']},
       \ ]
 
 " Overwrite Rules for Parentheses {{{1
