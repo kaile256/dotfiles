@@ -445,10 +445,10 @@
           "snippetSupport": true
         },
         "clang": {
-          "resourceDir": "/usr/lib/clang/9.0.1"
-        },
-        // highlight by jackguo380/vim-lsp-cxx-highlight
-        "highlight": { "lsRanges": true }
+          "resourceDir": "/usr/lib/clang/10.0.0"
+        }
+        // highlight by jackguo380/vim-lsp-cxx-highlight; incomplete
+        //"highlight": { "lsRanges": true }
       }
     },
     //"cquery": {
