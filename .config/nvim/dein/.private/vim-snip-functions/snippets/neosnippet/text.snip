@@ -7,9 +7,6 @@ alias hea head vim doc vp vpl ini
   Author: kaile256 <kaile256acc at gmail.com>
   License: MIT license
 
-snippet TOC for vim
-alias toc contents con
-options head
   ==============================================================================
   CONTENTS			*`expand('%:p') =~# 'doc' ? substitute(matchstr(expand('%:p'),'doc/\zs.*\ze.txt'),'[/\\]','#','g') : 'not-in-doc'`-contents*
 
@@ -18,8 +15,6 @@ options head
     function			|`expand('%:p') =~# 'doc' ? substitute(matchstr(expand('%:p'),'doc/\zs.*\ze.txt'),'[/\\]','#','g') : 'not-in-doc'`-function|
     command			|`expand('%:p') =~# 'doc' ? substitute(matchstr(expand('%:p'),'doc/\zs.*\ze.txt'),'[/\\]','#','g') : 'not-in-doc'`-command|
 
-snippet intro
-alias start int
   ==============================================================================
   INTRODUCTION
   ${1:#:write a description}
@@ -27,8 +22,6 @@ alias start int
   Latest version:
   https://github.com/kaile256/vim-`expand('%:p') =~# 'doc' ? substitute(expand('%:p'),'.*/doc/\(.*\).txt', '\1','g') : 'not-in-doc'`
 
-snippet usage
-alias usa
   ==============================================================================
   USAGE						*`expand('%:p') =~# 'doc' ? substitute(matchstr(expand('%:p'),'doc/\zs.*\ze.txt'),'[/\\]','#','g') : ''`-usage*
 
@@ -37,8 +30,6 @@ alias usa
 
   `expand('%:p') =~# 'doc' ? substitute(matchstr(expand('%:p'),'doc/\zs.*\ze.txt'),'[/\\]','#','g') : ''`#()				*`expand('%:p') =~# 'doc' ? substitute(matchstr(expand('%:p'),'doc/\zs.*\ze.txt'),'[/\\]','#','g') : ''`-`expand('%:p') =~# 'doc' ? substitute(matchstr(expand('%:p'),'doc/\zs.*\ze.txt'),'[/\\]','#','g') .'*' : ''`
 
-snippet tail
-alias end tai
   ==============================================================================
   vim:tw=78:ts=4:sts=4:sw=4:ft=help:norl:noet:fen
 
