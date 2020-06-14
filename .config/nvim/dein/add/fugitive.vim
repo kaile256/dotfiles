@@ -208,11 +208,6 @@ command! -bar -nargs=* GvdiffOnly
 nnoremap <silent> <space>go :<c-u>silent Gw <bar> only<cr>
 nnoremap <silent> <space>gO :<c-u>GwToDiff HEAD<cr>
 
-command! -bar -bang -nargs=* -complete=customlist,fugitive#EditComplete
-      \ GwOnlyVDiff
-      \ :silent Gw
-      \ | only
-      \ | Gvdiffsplit! <args>
 command! -bar -nargs=*
       \ GwToDiff
       \ :silent Gw
