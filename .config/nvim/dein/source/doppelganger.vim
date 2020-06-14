@@ -3,4 +3,5 @@
 
 " let g:doppelganger#prefix = '▸ '
 
-hi! Doppelganger ctermfg=242 guifg=#666666 cterm=italic gui=italic
+let g:doppelganger#ego#max_offset = 4
+hi! Doppelganger ctermfg=97 guifg=#875faf cterm=italic gui=italic
