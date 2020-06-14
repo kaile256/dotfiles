@@ -13,9 +13,8 @@ let g:matchup_matchparen_hi_surround_always = 1 " requires '_defferred'=1
 " hi! MatchBackground guibg=#262626 ctermbg=235
 " hi! MatchBackground guibg=#4e4e4e ctermbg=239
 
-let g:matchup_matchparen_offscreen = {
-      \ 'method': 'popup',
-      \ }
+let g:matchup_matchparen_offscreen = {}
+
 "let g:matchup_surround_enabled = 1 " 1: provides maps ds% and cs%
 "let g:matchup_text_obj_linewise_operators = ['d', 'y', ]
 
