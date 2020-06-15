@@ -1,5 +1,7 @@
 # From: dein/dein.vim
 # Else: syntax.toml
+# Else: compiler.toml
+# Else: script.toml
 # Else: xampp.toml
 
 #[ Multiple FileType ]
@@ -9,13 +11,11 @@ repo = 'editorconfig/editorconfig-vim'
 # Note: vim-prettier is unnecessary, though it also covers editorconfig.
 on_event = 'BufWinEnter'
 hook_source = 'runtime source/editorconfig.vim'
-
 #[[plugins]]
 #repo = 'prettier/vim-prettier'
 ## Note: also read .editorconfig
 #on_event = 'BufWinEnter'
 #hook_add = 'runtime add/prettier.vim'
-
 #[[plugins]]
 #repo = 'tpope/vim-sleuth'
 ## Note: Sleuth means a detective.
@@ -23,151 +23,12 @@ hook_source = 'runtime source/editorconfig.vim'
 ## Automatically adjusts 'shiftwidth' and 'expandtab'
 #on_event = ['BufNewFile','BufRead']
 #hook_add = 'runtime add/sleuth.vim'
-
 #[[plugins]]
 #repo = 'vim-syntastic/syntastic'
 #on_ft = ['toml']
 #hook_post_source = 'runtime add/syntastic.vim'
-
 [[plugins]]
 repo = 'Shougo/context_filetype.vim'
-lazy = 0
-
-#[ Rust ]
-[[plugins]]
-repo = 'martskins/vim-cargo-search'
-if = '&ft ==# "rust"'
-on_cmd =  ['CargoSearch']
-
-#[[plugins]]
-#repo = 'rust-lang/rust.vim'
-#on_ft = 'rust'
-
-#[[plugins]]
-#repo = 'rhysd/rust-doc.vim'
-#on_cmd = 'RustDoc'
-#hook_source = 'runtime add/rust-doc.vim'
-
-#[ Python ]
-[[plugins]]
-repo = 'plytophogy/vim-virtualenv'
-# supports pip-packages, independently installed in shell, to work on vim
-on_ft = 'python'
-#[[plugins]]
-#repo = 'python-rope/ropevim'
-#on_ft = ['python']
-#
-#[[plugins]]
-#repo = 'python-mode/python-mode'
-#on_ft = 'python'
-#hook_post_update = '!git submodule update --init --recursive'
-#hook_source = 'runtime source/python-mode.vim'
-#
-#[[plugins]]
-#repo = 'tweekmonster/braceless.vim'
-## To: fold up to syntax of python.
-## not work so good
-#on_ft = ['python']
-#on_cmd =  ['BracelessEnable']
-#hook_add = 'runtime add/braceless.vim'
-#
-#[[plugins]]
-#repo = 'heavenshell/vim-pydocstring'
-#on_ft = ['python']
-#[ Python.Jupyter ]
-[[plugins]]
-repo = 'goerz/jupytext.vim'
-on_ft = ['ipynb']
-hook_source = 'runtime source/jupytext.vim'
-
-[[plugins]]
-repo = 'szymonmaszke/vimpyter'
-on_ft = ['ipynb']
-hook_source = 'runtime source/vimpyter.vim'
-[[plugins]]
-repo = 'williamjameshandley/vimteractive'
-on_ft = [
-  'ipython',
-  'julia',
-  'maple',
-  'bash',
-  'zsh',
-  'python',
-  'clojure',
-  'apl',
-]
-hook_source = 'runtime source/vimteractive.vim'
-
-#[ Ryby ]
-[[plugins]]
-repo = 'tpope/vim-rails'
-on_ft = [
-  #'javascript',
-  'coffee',
-  'css',
-  'eruby',
-  'haml',
-  'less',
-  'railslog'
-  'ruby',
-  'sass',
-  'scss',
-]
-#[ Java ]
-#[[plugins]]
-#repo = 'dansomething/vim-eclim'
-#on_ft = ['java']
-
-#[[plugins]]
-#repo = 'vim-scripts/javaimp.vim'
-## useless if neither settings of $SERVLET_HOME, $JAVA_HOME nor $XML_HOME
-#on_ft = ['java']
-#[[plugins]]
-#repo = 'jvenant/vim-java-imports'
-## depends on ctags or cscope
-#on_ft = ['java']
-
-#[ C/C++ ]
-[[plugins]]
-repo = 'quark-zju/vim-cpp-auto-include'
-on_ft = 'cpp'
-[[plugins]]
-repo = 'stevearc/vim-arduino'
-# includes syntax/ Ultisnips/(only extends cpp's)
-on_path = '\.ino'
-
-#[ Haskell ]
-[[plugins]]
-repo = 'itchyny/vim-haskell-indent'
-lazy = 0
-
-#[ Clojure ]
-[[plugins]]
-repo = 'clojure-vim/async-clj-omni'
-lazy = 0
-
-#[ Document ]
-[[plugins]]
-repo = 'rafaqz/citation.vim'
-on_ft = ['zotero', 'pybtex']
-hook_source = 'runtime source/citation.vim'
-
-[[plugins]]
-repo = 'Konfekt/vim-office'
-lazy = 0
-
-[[plugins]]
-repo = 'itchyny/vim-pdf'
-lazy = 0
-
-#[ Config ]
-[[plugins]]
-repo = 'tpope/vim-jdaddy'
-# provides omap/xmap for json and gq/gw, which formats lines
-on_ft = 'json'
-
-[[plugins]]
-repo = 'danishprakash/vim-docker'
 lazy = 0
 
 #[ XML ]
@@ -185,39 +46,4 @@ lazy = 0
 #repo = 'sukima/xmledit'
 #on_ft = ['html', 'php', 'xhtml', 'xml']
 #build = 'make install'
-
-#[ Quickfix ]
-#[[plugins]]
-#repo = 'lambdalisue/qfloc.vim'
-## provies some local keymaps
-#on_ft = ['qf', 'loc']
-#hook_source = 'runtime source/qfloc.vim'
-#
-#[[plugins]]
-#repo = 'infokiller/vim-errorlist'
-#on_cmd = ['errorlist#Navigate']
-#on_event = ['BufRead']
-#hook_source = 'runtime source/errorlist.vim'
-#
-#[ Android ]
-[[plugins]]
-repo = 'hsanson/vim-android'
-# especially for gradle
-on_ft = [
-  'groovy',
-  'java',
-  'kotlin',
-  'xml'
-]
-
-#[[plugins]]
-#repo = 'AndroidMarv/android-dev.vim'
-## unimplemented yet and the development stopped
-#on_ft = ['java', 'kotlin', 'xml']
-
-#[ iOS ]
-#[[plugins]]
-#repo = 'keith/swift.vim'
-## vim-polyglot has also a syntax for swift
-#on_ft = ['swift']
 

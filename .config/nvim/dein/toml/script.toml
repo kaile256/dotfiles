@@ -1,0 +1,108 @@
+# From: dein/dein.vim
+# Else: ftplugin.toml
+# Else: syntax.toml
+# Else: compiler.toml
+# Else: xampp.toml
+
+#[ Python ]
+[[plugins]]
+repo = 'plytophogy/vim-virtualenv'
+# supports pip-packages, independently installed in shell, to work on vim
+on_ft = 'python'
+#[[plugins]]
+#repo = 'python-rope/ropevim'
+#on_ft = ['python']
+#
+#[[plugins]]
+#repo = 'python-mode/python-mode'
+#on_ft = 'python'
+#hook_post_update = '!git submodule update --init --recursive'
+#hook_source = 'runtime source/python-mode.vim'
+#
+#[[plugins]]
+#repo = 'tweekmonster/braceless.vim'
+## To: fold up to syntax of python.
+## not work so good
+#on_ft = ['python']
+#on_cmd =  ['BracelessEnable']
+#hook_add = 'runtime add/braceless.vim'
+#
+#[[plugins]]
+#repo = 'heavenshell/vim-pydocstring'
+#on_ft = ['python']
+#[ Python.Jupyter ]
+[[plugins]]
+repo = 'goerz/jupytext.vim'
+on_ft = ['ipynb']
+hook_source = 'runtime source/jupytext.vim'
+
+[[plugins]]
+repo = 'szymonmaszke/vimpyter'
+on_ft = ['ipynb']
+hook_source = 'runtime source/vimpyter.vim'
+[[plugins]]
+repo = 'williamjameshandley/vimteractive'
+on_ft = [
+  'ipython',
+  'julia',
+  'maple',
+  'bash',
+  'zsh',
+  'python',
+  'clojure',
+  'apl',
+]
+hook_source = 'runtime source/vimteractive.vim'
+
+#[ Ryby ]
+[[plugins]]
+repo = 'tpope/vim-rails'
+on_ft = [
+  #'javascript',
+  'coffee',
+  'css',
+  'eruby',
+  'haml',
+  'less',
+  'railslog'
+  'ruby',
+  'sass',
+  'scss',
+]
+#[ Clojure ]
+[[plugins]]
+repo = 'clojure-vim/async-clj-omni'
+# No configurations for coc.nvim; the others require!
+#on_source = [
+#  'asyncomplete.vim',
+#  'coc.nvim',
+#  'deoplete.nvim',
+#  'ncm2',
+#]
+lazy = 0
+
+#[ Document ]
+[[plugins]]
+repo = 'rafaqz/citation.vim'
+on_ft = ['zotero', 'pybtex']
+hook_source = 'runtime source/citation.vim'
+
+[[plugins]]
+repo = 'Konfekt/vim-office'
+# no need any config.
+lazy = 0
+
+[[plugins]]
+repo = 'itchyny/vim-pdf'
+lazy = 0
+
+#[ Config ]
+[[plugins]]
+repo = 'tpope/vim-jdaddy'
+# provides omap/xmap for json and gq/gw, which formats lines
+on_ft = 'json'
+
+[[plugins]]
+repo = 'danishprakash/vim-docker'
+lazy = 0
+

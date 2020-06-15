@@ -1,0 +1,88 @@
+# From: dein/dein.vim
+# Else: ftplugin.toml
+# Else: syntax.toml
+# Else: script.toml
+# Else: xampp.toml
+
+#[ Rust ]
+[[plugins]]
+repo = 'martskins/vim-cargo-search'
+if = '&ft ==# "rust"'
+on_cmd =  ['CargoSearch']
+
+#[[plugins]]
+#repo = 'rust-lang/rust.vim'
+#on_ft = 'rust'
+
+#[[plugins]]
+#repo = 'rhysd/rust-doc.vim'
+#on_cmd = 'RustDoc'
+#hook_source = 'runtime add/rust-doc.vim'
+
+
+#[ C/C++ ]
+[[plugins]]
+repo = 'mattkretz/vim-compilerexplorer'
+on_path = ['\.cpp$', '\.asm$', '\.mca$']
+#[ C/C++ Header ]
+[[plugins]]
+repo = 'zhaohuaxishi/auto-header'
+# requires `cpplint`
+lazy = 0
+#[[plugins]]
+#repo = 'quark-zju/vim-cpp-auto-include'
+## doesn't work. Only work when the cpp file is under `/tmp`.
+#on_ft = 'cpp'
+#[[plugins]]
+#repo = 'dan-t/vim-cpp-include'
+## provides :CppIncludeSort and :CppInclude.
+#depends = 'vim-fn'
+#on_ft = ['c', 'cpp']
+#[[plugins]]
+#repo = 'dan-t/vim-fn'
+#on_func = 'fn#'
+#[[plugins]]
+#repo = 'johan-sun/auto-include'
+## just provides commands to `:put` args with '#include'
+#on_ft = ['c', 'cpp']
+#[ Haskell ]
+[[plugins]]
+repo = 'itchyny/vim-haskell-indent'
+lazy = 0
+
+#[ Java ]
+#[[plugins]]
+#repo = 'dansomething/vim-eclim'
+#on_ft = ['java']
+
+#[[plugins]]
+#repo = 'vim-scripts/javaimp.vim'
+## useless if neither settings of $SERVLET_HOME, $JAVA_HOME nor $XML_HOME
+#on_ft = ['java']
+#[[plugins]]
+#repo = 'jvenant/vim-java-imports'
+## depends on ctags or cscope
+#on_ft = ['java']
+
+#[ Android ]
+[[plugins]]
+repo = 'hsanson/vim-android'
+# especially for gradle
+on_ft = [
+  'groovy',
+  'java',
+  'kotlin',
+  'xml'
+]
+
+#[[plugins]]
+#repo = 'AndroidMarv/android-dev.vim'
+## unimplemented yet and the development stopped
+#on_ft = ['java', 'kotlin', 'xml']
+
+#[ iOS ]
+#[[plugins]]
+#repo = 'keith/swift.vim'
+## vim-polyglot has also a syntax for swift
+#on_ft = ['swift']
+
