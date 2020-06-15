@@ -98,9 +98,7 @@ let g:lexima#default_rules += [
 unlet s:block_start s:Insert_paren
 
 " Overwrite Rules for Quote {{{1
-" Note: a pattern '[=\[\](){} \t]' for 'Space or Parentheses'
-" let s:Let_it_double = '\([=\[\](){} \t]\|^\)' .'\%#'. '\($\|[=\[\](){} \t]\)'
-let s:Let_it_double = '\%#'. '\w'
+let s:Let_it_double = '\w\%#\|\%#\w'
 
 let g:lexima#default_rules += [
       \ {'char': "'", 'except': s:Let_it_double, 'input_after': "'"},
