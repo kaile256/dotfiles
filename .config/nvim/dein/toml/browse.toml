@@ -175,6 +175,7 @@ hook_source = 'runtime source/gen_tags.vim'
 repo = 'majutsushi/tagbar'
 on_cmd = 'TagbarToggle'
 hook_add = 'runtime add/tagbar.vim'
+hook_source = 'runtime source/tagbar.vim'
 
 #[[plugins]]
 #repo = 'liuchengxu/vista.vim'
