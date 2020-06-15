@@ -4,8 +4,6 @@
 [[plugins]]
 repo = 'neoclide/coc.nvim'
 # Branch: neoclide/coc.nvim_release
-# Note: Written in TypeScript.
-if  = 'executable("yarn")'
 rev = 'release'
 #hook_done_update = 'yarn install --frozen-lockfile'
 on_func  = ['CocAction', 'CocActionAsync']
