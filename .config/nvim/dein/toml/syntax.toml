@@ -161,18 +161,22 @@ repo = 'momota/junos.vim'
 lazy = 0
 
 #[ for Config ]
-[[plugins]]
-repo = 'delphinus/vim-toml-dein'
-# syntax highlight for 'hook_add'
-lazy = 0
-
 #[[plugins]]
 #repo = 'vmchale/tomlcheck-vim'
 #on_ft = 'toml'
-
+[[plugins]]
+repo = 'cespare/vim-toml'
+# fails when lazy=0
+on_ft = 'toml'
 #[[plugins]]
-#repo = 'cespare/vim-toml'
+#repo = 'maralla/vim-toml-enhance'
+#depends = 'cespare/vim-toml'
 #on_ft = 'toml'
+[[plugins]]
+repo = 'delphinus/vim-toml-dein'
+# syntax highlight for 'hook_add'
+depends = 'cespare/vim-toml'
+on_ft = 'toml'
 
 [[plugins]]
 repo = 'PotatoesMaster/i3-vim-syntax'
