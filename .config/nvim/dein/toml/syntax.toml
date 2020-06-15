@@ -86,6 +86,10 @@ lazy = 0
 repo = 'goolord/vim2hs'
 on_ft = ['haskell']
 
+[[plugins]]
+repo = 'stevearc/vim-arduino'
+# includes syntax/ Ultisnips/(only extends cpp's)
+lazy = 0
 #[ Interpreter ]
 [[plugins]]
 repo = 'billyvg/tigris.nvim'
