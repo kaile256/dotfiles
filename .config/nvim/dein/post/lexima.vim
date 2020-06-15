@@ -79,6 +79,10 @@ let g:lexima#default_rules += [
       \ {'char': '(', 'input_after': ')', 'except': '\%#[^\]}) \t]'},
       \ {'char': '[', 'input_after': ']', 'except': '\%#[^\]}) \t]'},
       \ {'char': '{', 'input_after': '}', 'except': '\%#[^\]}) \t]'},
+      \
+      \ {'char': '(', 'at': '\%#[,.;:]', 'input_after': ')'},
+      \ {'char': '[', 'at': '\%#[,.;:]', 'input_after': ']'},
+      \ {'char': '{', 'at': '\%#[,.;:]', 'input_after': '}'},
       \ ]
 
 " parentheses to close
