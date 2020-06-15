@@ -24,6 +24,12 @@ on_cmd =  ['CargoSearch']
 [[plugins]]
 repo = 'mattkretz/vim-compilerexplorer'
 on_path = ['\.cpp$', '\.asm$', '\.mca$']
+hook_source = 'let g:compilerexplorer#no_default_mappings = 1'
+[[plugins]]
+repo = 'ldrumm/compiler-explorer.vim'
+# WARNING: This plugin's pre-alpha.
+if = 'exists("+job")'
+on_cmd = ['CEToggleAsView']
 #[ C/C++ Header ]
 [[plugins]]
 repo = 'zhaohuaxishi/auto-header'
