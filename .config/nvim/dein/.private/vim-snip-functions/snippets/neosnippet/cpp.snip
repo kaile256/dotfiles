@@ -11,15 +11,26 @@ alias #io
 options head
   #include <iostream>
 
-snippet #include_vector
-alias #vec
-options head
-  #include <vector>
+snippet ios
+alias io
+options word
+  `NS_cpp_include()`iostream>
 
-snippet #include_regex
-alias #re #reg
-options head
-  #include <regex>
+snippet vector
+alias vec ve
+options word
+  `NS_cpp_include()`vector>
+
+snippet regex
+alias re reg
+options word
+  `NS_cpp_include()`regex>
+
+snippet /*
+abbr Comment
+alias *
+options word indent
+  /*${1: comment }*/
 
 snippet using_foo::bar;
 abbr use usi
