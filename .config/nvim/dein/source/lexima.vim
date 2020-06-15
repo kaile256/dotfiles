@@ -23,14 +23,19 @@ function! s:remove_end_of_pairs() abort "{{{1
     return
   endif
 
-  let pairs  = ['\[]', '{}', '()', "''", '""', '``']
+" let pairs  = ['\%#\[\zs]', '\%#{\zs}', '\%#(\zs)']
+" let pairs += ['\%#`\zs`', '\%#"\zs"', "\%#'\zs'"]
+  let pairs = ['\[]', '{}', '()']
+  let pairs += ['``', '""', "''"]
+
   let before = '\v(.)(.)$'
-  let after  = '\\%#\1\\zs\2'
-  call map(pairs, 'substitute(v:val,'. string(before) .','. string(after) .', "e")')
+  let after = '\1\\zs\2'
+  call map(pairs, 'substitute(v:val, before, after, "e")')
+  call map(pairs, '"\\%#". v:val')
+
   let pat = join(pairs, '\|')
 
-  let g:pat = pat
   let save_view = winsaveview()
-  exe 'keeppattern s/'. pat .'//e'
+  exe 'keeppattern keepjump s/'. pat .'//e'
   call winrestview(save_view)
 endfunction
