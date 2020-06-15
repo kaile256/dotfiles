@@ -18,14 +18,14 @@ on_event = 'BufAdd'
 #hook_add = 'let g:cursorword_highlight = 0'
 hook_post_source = 'runtime add/cursorword.vim'
 
-[[plugins]]
-repo = 't9md/vim-quickhl'
-on_map = {
-  nx = '<Plug>(quickhl-',
-  n  = '<Plug>(operator-quickhl-',
-}
-hook_add = 'runtime add/quickhl.vim'
-hook_post_source = 'runtime post/quickhl.vim'
+#[[plugins]]
+#repo = 't9md/vim-quickhl'
+#on_map = {
+#  nx = '<Plug>(quickhl-',
+#  n  = '<Plug>(operator-quickhl-',
+#}
+#hook_add = 'runtime add/quickhl.vim'
+#hook_post_source = 'runtime post/quickhl.vim'
 
 #[[plugins]]
 #repo = 'wellle/context.vim'
