@@ -35,6 +35,15 @@ options head
   for (int ${1:i} = 0; $1 < ${2:#:max}; ++$1) {
     ${0}
   }
+
+snippet func
+abbr int func(int n) {...}
+alias fn fu fun
+options head word indent
+# leave 'main' when no main function found.
+  `search('int main', 'nw') ? "${1:int} ${2:func}(${3:int n}) ${4:noexcept }{\n${0:TARGET}\n}" : 'main'`
+
+
 snippet main
 options head
 # Optimize <iostream> if include it, inserting some lines:
