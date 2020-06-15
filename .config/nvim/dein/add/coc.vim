@@ -40,8 +40,9 @@ endfunction
 nmap <silent> gX <Plug>(coc-diagnostic-info)
 noremap <SID>(zv) :<C-u>sleep 5m <bar> norm! zv<CR>
 
-" Mnemonic: get Info
-nmap \x <Plug>(coc-fix-current)
+nmap \x         <Plug>(coc-fix-current)
+imap <C-x>x     <C-o><Plug>(coc-fix-current)
+imap <C-x><C-x> <C-o><Plug>(coc-fix-current)
 map <silent> [x <Plug>(coc-diagnostic-prev)<SID>(zv)
 map <silent> ]x <Plug>(coc-diagnostic-next)<SID>(zv)
 
