@@ -91,3 +91,16 @@ repo = 'thinca/vim-localrc'
 # add ".local.vimrc"
 #on_if = "expand('%:p') =~# fnamemodify($MYVIMRC, ':h')"
 on_event = ['VimEnter']
+#[ Quickfix ]
+#[[plugins]]
+#repo = 'lambdalisue/qfloc.vim'
+## provies some local keymaps
+#on_ft = ['qf', 'loc']
+#hook_source = 'runtime source/qfloc.vim'
+#
+#[[plugins]]
+#repo = 'infokiller/vim-errorlist'
+#on_cmd = ['errorlist#Navigate']
+#on_event = ['BufRead']
+#hook_source = 'runtime source/errorlist.vim'
+#
