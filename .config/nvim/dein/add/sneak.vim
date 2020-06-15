@@ -23,6 +23,25 @@ sunmap F
 sunmap t
 sunmap T
 
+" Table;                                               mode,         inputLen  r, f, l
+nnoremap <silent> <SID>(sneak-f) :<c-u>call sneak#wrap('',           v:count1, 0, 1, 0)<cr>
+xnoremap <silent> <SID>(sneak-f) :<c-u>call sneak#wrap(visualmode(), v:count1, 0, 1, 0)<cr>
+onoremap <silent> <SID>(sneak-f) :<c-u>call sneak#wrap(v:operator,   v:count1, 0, 1, 0)<cr>
+
+nnoremap <silent> <SID>(sneak-t) :<c-u>call sneak#wrap('',           v:count1, 0, 0, 0)<cr>
+xnoremap <silent> <SID>(sneak-t) :<c-u>call sneak#wrap(visualmode(), v:count1, 0, 0, 0)<cr>
+onoremap <silent> <SID>(sneak-t) :<c-u>call sneak#wrap(v:operator,   v:count1, 0, 0, 0)<cr>
+
+nnoremap <silent> <SID>(sneak-F) :<c-u>call sneak#wrap('',           v:count1, 1, 1, 0)<cr>
+xnoremap <silent> <SID>(sneak-F) :<c-u>call sneak#wrap(visualmode(), v:count1, 1, 1, 0)<cr>
+onoremap <silent> <SID>(sneak-F) :<c-u>call sneak#wrap(v:operator,   v:count1, 1, 1, 0)<cr>
+
+nnoremap <silent> <SID>(sneak-T) :<c-u>call sneak#wrap('',           v:count1, 1, 0, 0)<cr>
+xnoremap <silent> <SID>(sneak-T) :<c-u>call sneak#wrap(visualmode(), v:count1, 1, 0, 0)<cr>
+onoremap <silent> <SID>(sneak-T) :<c-u>call sneak#wrap(v:operator,   v:count1, 1, 0, 0)<cr>
+
+finish
+
 " sneak#wrap('{operatorName}', {inputLength}, {reverse?}, {t/f}, {label})
 " mode: operatorName; '{'':n,v:operator,visualmode()}
 " i: inputLength; {[0-n]}
@@ -81,25 +100,28 @@ onoremap <expr><silent> <SID>(sneak-T) (v:operator ==# 'd')?
 "  "}}}2
 "augroup END
 
-" " sneak#wrap() {{{1
+" sneak#wrap() {{{1
+" Table;                                               mode,         inputLen  r, f, l
+nnoremap <silent> <SID>(sneak-f) :<c-u>call sneak#wrap('',           v:count1, 0, 1, 0)<cr>
+xnoremap <silent> <SID>(sneak-f) :<c-u>call sneak#wrap(visualmode(), v:count1, 0, 1, 0)<cr>
+onoremap <silent> <SID>(sneak-f) :<c-u>call sneak#wrap(v:operator,   v:count1, 0, 1, 0)<cr>
 
-" " Table;                                  mode,         i, r, f, l
-" nnoremap <silent> f :<c-u>call sneak#wrap('',           1, 0, 1, 1)<cr>
-" xnoremap <silent> f :<c-u>call sneak#wrap(visualmode(), 1, 0, 1, 1)<cr>
-" onoremap <silent> f :<c-u>call sneak#wrap(v:operator,   1, 0, 1, 1)<cr>
+nnoremap <silent> <SID>(sneak-t) :<c-u>call sneak#wrap('',           v:count1, 0, 0, 0)<cr>
+xnoremap <silent> <SID>(sneak-t) :<c-u>call sneak#wrap(visualmode(), v:count1, 0, 0, 0)<cr>
+onoremap <silent> <SID>(sneak-t) :<c-u>call sneak#wrap(v:operator,   v:count1, 0, 0, 0)<cr>
 
-" nnoremap <silent> t :<c-u>call sneak#wrap('',           1, 0, 0, 1)<cr>
-" xnoremap <silent> t :<c-u>call sneak#wrap(visualmode(), 1, 0, 0, 1)<cr>
-" onoremap <silent> t :<c-u>call sneak#wrap(v:operator,   1, 0, 0, 1)<cr>
+nnoremap <silent> <SID>(sneak-F) :<c-u>call sneak#wrap('',           v:count1, 1, 1, 0)<cr>
+xnoremap <silent> <SID>(sneak-F) :<c-u>call sneak#wrap(visualmode(), v:count1, 1, 1, 0)<cr>
+onoremap <silent> <SID>(sneak-F) :<c-u>call sneak#wrap(v:operator,   v:count1, 1, 1, 0)<cr>
 
-" nnoremap <silent> F :<c-u>call sneak#wrap('',           1, 1, 1, 1)<cr>
-" xnoremap <silent> F :<c-u>call sneak#wrap(visualmode(), 1, 1, 1, 1)<cr>
-" onoremap <silent> F :<c-u>call sneak#wrap(v:operator,   1, 1, 1, 1)<cr>
+nnoremap <silent> <SID>(sneak-T) :<c-u>call sneak#wrap('',           v:count1, 1, 0, 0)<cr>
+xnoremap <silent> <SID>(sneak-T) :<c-u>call sneak#wrap(visualmode(), v:count1, 1, 0, 0)<cr>
+onoremap <silent> <SID>(sneak-T) :<c-u>call sneak#wrap(v:operator,   v:count1, 1, 0, 0)<cr>
 
-" nnoremap <silent> T :<c-u>call sneak#wrap('',           1, 1, 0, 1)<cr>
-" xnoremap <silent> T :<c-u>call sneak#wrap(visualmode(), 1, 1, 0, 1)<cr>
-" onoremap <silent> T :<c-u>call sneak#wrap(v:operator,   1, 1, 0, 1)<cr>
-" finish
+map f <SID>(sneak-f)
+map t <SID>(sneak-t)
+map F <SID>(sneak-F)
+map T <SID>(sneak-T)
 
 " " Table;                    operator,     i, r, f, l
 " " <Plug>Sneak_s: sneak#wrap('',           2, 0, 2, 1)
