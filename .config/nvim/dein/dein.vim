@@ -179,7 +179,7 @@ endif
 augroup myDeinRc "{{{1
   if exists('#myDeinRc') | au! myDeinRc
   endif
-  au BufRead *vim**/*.toml setl keywordprg=:help
+  au BufRead *vim**/*.toml setlocal foldlevel=0 keywordprg=:help
 
   " Inititialize to source 'hook_post_source'.
   "au VimEnter * call dein#call_hook('post_source')
