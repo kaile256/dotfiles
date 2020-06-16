@@ -636,6 +636,10 @@ let g:lexima#default_rules += [
       \     'input': ' >> ', 'filetype': 'cpp'},
       \ {'char': '<Space>', 'at': 'cout << [^<]\+\%#',
       \     'input': ' << ', 'filetype': 'cpp'},
+      \ {'char': '<C-Space>', 'at': 'cin >> [^>]\+\%#',
+      \     'input': '<C-g>U<Right> >> ', 'filetype': 'cpp'},
+      \ {'char': '<C-Space>', 'at': 'cout << [^<]\+\%#',
+      \     'input': '<C-g>U<Right> << ', 'filetype': 'cpp'},
       \
       \ {'char': '<Space>', 'at': 'cin >> \{2,}\%#', 'input': '>> ', 'filetype': 'cpp'},
       \ {'char': '<Space>', 'at': 'cout <<  \{2,}\%#', 'input': '<< ', 'filetype': 'cpp'},
