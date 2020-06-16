@@ -1,11 +1,11 @@
 " From: default.toml
 " Repo: AndrewRadev/linediff.vim
 
-command! -range DiffLines :call linediff#Linediff(<line1>, <line2>, {})
-
 " Keymap; Get Compared
-nnoremap gC :Linediff<cr>
-xnoremap gC :Linediff<cr>
+nnoremap gc :Linediff<cr>
+xnoremap gc :Linediff<cr>
+
+nnoremap gC :LinediffReset<cr>
 
 " default: tabnew
 "let g:linediff_first_buffer_command = 'new'

@@ -644,6 +644,10 @@ let g:lexima#default_rules += [
       \ {'char': '<Space>', 'at': 'cin >> \{2,}\%#', 'input': '>> ', 'filetype': 'cpp'},
       \ {'char': '<Space>', 'at': 'cout <<  \{2,}\%#', 'input': '<< ', 'filetype': 'cpp'},
       \
+      \ {'char': '<Space>', 'at': '\(if\|for\|while\)\%#', 'input': ' (', 'input_after': ')', 'filetype': 'cpp'},
+      \ ]
+
+let g:lexima#default_rules += [
       \ {'char': '<Space>', 'at': '"\%#"', 'delete': 1, 'filetype': 'vim'},
       \ {'char': '<TAB>',   'at': '"\%#"', 'delete': 1, 'filetype': 'vim', 'mode': 'i'},
       \
