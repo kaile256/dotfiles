@@ -644,7 +644,8 @@ let g:lexima#default_rules += [
       \ {'char': '<Space>', 'at': 'cin >> \{2,}\%#', 'input': '>> ', 'filetype': 'cpp'},
       \ {'char': '<Space>', 'at': 'cout <<  \{2,}\%#', 'input': '<< ', 'filetype': 'cpp'},
       \
-      \ {'char': '<Space>', 'at': '\(if\|for\|while\)\%#', 'input': ' (', 'input_after': ')', 'filetype': 'cpp'},
+      \ {'char': '<Space>', 'at': '\(if\|for\|while\)\%#', 'syntax': 'Statement',
+      \     'input': ' (', 'input_after': ')', 'filetype': 'cpp'},
       \ ]
 
 let g:lexima#default_rules += [
