@@ -88,7 +88,12 @@ hook_source = 'runtime source/clap.vim'
 #repo = 'justinmk/vim-dirvish'
 #on_event = 'BufAdd'
 #hook_post_source = 'runtime add/dirvish.vim'
-
+# [[plugins]]
+# repo = 'vifm/vifm.vim'
+# # an vifm interface for Vim
+# if = 'executable("vifm")'
+# on_cmd = 'Vifm'
+#
 #[ Filer.Defx ]
 [[plugins]]
 repo = 'Shougo/defx.nvim'
