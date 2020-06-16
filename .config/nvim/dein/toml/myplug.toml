@@ -138,10 +138,10 @@ repo = '$DEIN_PRIVATE_HOME/vim-snip-functions'
 on_source = ['coc.nvim', 'neosnippet.vim', 'ultisnips']
 on_func = ['snip#vim#']
 
-[[plugins]]
-repo = '$DEIN_PRIVATE_HOME/vim-clever-newline'
-on_event = ['BufAdd']
-
+# [[plugins]]
+# repo = '$DEIN_PRIVATE_HOME/vim-clever-newline'
+# on_event = ['BufAdd']
+#
 [[plugins]]
 repo = '$DEIN_PRIVATE_HOME/vim-GuiFont-resize'
 on_map = {n = ['<plug>(GuiFont-resize']}
