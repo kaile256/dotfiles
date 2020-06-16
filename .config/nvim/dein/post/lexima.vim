@@ -630,8 +630,8 @@ let g:lexima#default_rules += [
       \ {'char': '<Space>', 'at': 'cin\%#', 'except': '\%#[^;]',
       \     'input': ' >> ', 'filetype': 'cpp'},
       \ {'char': '<Space>', 'at': 'cout\%#', 'except': '\%#[^;]',
-      \
       \     'input': ' << ', 'filetype': 'cpp'},
+      \
       \ {'char': '<Space>', 'at': 'cin >> [^>]\+\%#',
       \     'input': ' >> ', 'filetype': 'cpp'},
       \ {'char': '<Space>', 'at': 'cout << [^<]\+\%#',
