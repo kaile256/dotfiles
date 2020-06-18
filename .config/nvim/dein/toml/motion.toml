@@ -99,6 +99,7 @@ hook_add = 'runtime add/asterisk.vim'
 repo = 'deris/vim-shot-f'
 # Highlight chars which you get directly.
 on_map = {nox = ['<Plug>(shot-f-']}
+hook_add = 'runtime add/shot-f.vim'
 hook_source = 'runtime source/shot-f.vim'
 # [[plugins]]
 # repo = 'justinmk/vim-sneak'
@@ -130,6 +131,10 @@ hook_source = 'runtime source/shot-f.vim'
 # # Note: highlight only characters in current line
 # on_map = '<Plug>ExtendedFt'
 # hook_add = 'runtime add/extended-ft.vim'
+[[plugins]]
+repo = 'deris/vim-shot-f'
+# Highlight chars which you get directly.
+on_map = {nox = ['<Plug>(shot-f-']}
 #[[plugins]]
 #repo = 'tbo/notion'
 ## Note: written in typescript & javascript
