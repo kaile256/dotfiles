@@ -187,9 +187,9 @@ repo = 'liuchengxu/vista.vim'
 # Note: supports lsp via such plugins as coc, vim-lsp.
 # Note: sort tags on the role, like function, struct, variable and so on.
 on_cmd = 'Vista'
-on_source = 'lightline.vim'
 hook_add = 'runtime add/vista.vim'
 hook_source = 'runtime source/vista.vim'
+hook_post_source = 'runtime post/vista.vim'
 
 #[ Marks ]
 #[[plugins]]
