@@ -627,22 +627,16 @@ let g:lexima#default_rules += [
       \ ]
 " Addtional Rules on FileType {{{1
 let g:lexima#default_rules += [
-      \ {'char': '<Space>', 'at': 'cin\%#', 'except': '\%#[^;]',
+      \ {'char': '<space>', 'at': 'cin\%#', 'input': ' >> '},
+      \ {'char': '<space>', 'at': 'cout\%#', 'input': ' << '},
+      \ {'char': '<Space>', 'at': 'cin.*[^> ]\+\%#', 'except': '\%#.\{-}[''"]',
       \     'input': ' >> ', 'filetype': 'cpp'},
-      \ {'char': '<Space>', 'at': 'cout\%#', 'except': '\%#[^;]',
+      \ {'char': '<Space>', 'at': 'cout.*[^< ]\+\%#', 'except': '\%#.\{-}[''"]',
       \     'input': ' << ', 'filetype': 'cpp'},
-      \
-      \ {'char': '<Space>', 'at': 'cin >> [^>]\+\%#',
-      \     'input': ' >> ', 'filetype': 'cpp'},
-      \ {'char': '<Space>', 'at': 'cout << [^<]\+\%#',
-      \     'input': ' << ', 'filetype': 'cpp'},
-      \ {'char': '<C-Space>', 'at': 'cin >> [^>]\+\%#',
+      \ {'char': '<C-Space>', 'at': 'cin >> .\{-}\%#[''"]',
       \     'input': '<C-g>U<Right> >> ', 'filetype': 'cpp'},
-      \ {'char': '<C-Space>', 'at': 'cout << [^<]\+\%#',
+      \ {'char': '<C-Space>', 'at': 'cout << .\{-}\%#[''"]',
       \     'input': '<C-g>U<Right> << ', 'filetype': 'cpp'},
-      \
-      \ {'char': '<Space>', 'at': 'cin >> \{2,}\%#', 'input': '>> ', 'filetype': 'cpp'},
-      \ {'char': '<Space>', 'at': 'cout <<  \{2,}\%#', 'input': '<< ', 'filetype': 'cpp'},
       \
       \ {'char': '<Space>', 'at': '\(if\|for\|while\)\%#', 'syntax': 'Statement',
       \     'input': ' (', 'input_after': ')', 'filetype': 'cpp'},
