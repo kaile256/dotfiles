@@ -96,26 +96,35 @@ hook_add = 'runtime add/asterisk.vim'
 
 #[ Sort of EasyMotion ]
 [[plugins]]
-#repo = 'justinmk/vim-sneak'
-repo = 'kaile256/vim-sneak'
-# Open PR: justinmk/vim-sneak/pull/248
-on_map = {nox = '<Plug>Sneak_'}
-hook_add = 'runtime add/sneak.vim'
-hook_source = 'runtime source/sneak.vim'
-hook_post_source = 'runtime post/sneak.vim'
-#hook_done_update = '''
-#exe 'e'. g:dein_github_dir .'/justinmk/vim-sneak/plugin/sneak.vim'
-#g/g:sneak#opt.prompt/d_
-#g/<Plug>Sneak_s/norm! "_dap
-#g/<Plug>Sneak_S/norm! "_dap
-#write
-#'''
+repo = 'deris/vim-shot-f'
+# Highlight chars which you get directly.
+on_map = {nox = ['<Plug>(shot-f-']}
+hook_source = 'runtime source/shot-f.vim'
+# [[plugins]]
+# repo = 'justinmk/vim-sneak'
+# # repo = 'kaile256/vim-sneak'
+# # Open PR: justinmk/vim-sneak/pull/248
+# on_map = {nox = '<Plug>Sneak_'}
+# on_func = 'sneak#'
+# hook_add = 'runtime add/sneak.vim'
+# hook_source = 'runtime source/sneak.vim'
+# hook_post_source = 'runtime post/sneak.vim'
+# #hook_done_update = '''
+# #exe 'e'. g:dein_github_dir .'/justinmk/vim-sneak/plugin/sneak.vim'
+# #g/g:sneak#opt.prompt/d_
+# #g/<Plug>Sneak_s/norm! "_dap
+# #g/<Plug>Sneak_S/norm! "_dap
+# #write
+# #'''
 #[[plugins]]
 #repo = 'unblevable/quick-scope'
 ## show a spot light on less frequently used characters.
 #on_event = ['Syntax']
 #hook_source = 'runtime source/quick-scope.vim'
 #hook_post_source = 'runtime post/quick-scope.vim'
+# [[plugins]]
+# repo = 'dahu/vim-fanfingtastic'
+# on_map = {nox = ['<Plug>(fanfingtastic_']}
 # [[plugins]]
 # repo = 'svermeulen/vim-extended-ft'
 # # Note: highlight only characters in current line
