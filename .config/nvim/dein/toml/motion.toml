@@ -116,6 +116,11 @@ hook_post_source = 'runtime post/sneak.vim'
 #on_event = ['Syntax']
 #hook_source = 'runtime source/quick-scope.vim'
 #hook_post_source = 'runtime post/quick-scope.vim'
+# [[plugins]]
+# repo = 'svermeulen/vim-extended-ft'
+# # Note: highlight only characters in current line
+# on_map = '<Plug>ExtendedFt'
+# hook_add = 'runtime add/extended-ft.vim'
 #[[plugins]]
 #repo = 'tbo/notion'
 ## Note: written in typescript & javascript
