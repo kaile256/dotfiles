@@ -8,3 +8,9 @@
 " Mnemonic: Outline
 nnoremap <silent> <A-x>o     :<C-u>Vista coc<CR>
 nnoremap <silent> <A-x><A-o> :<C-u>Vista coc<CR>
+
+augroup myVistaAdd
+  au!
+  au FileType markdown nnoremap <buffer><silent> <A-x>o     :<C-u>Vista toc<CR>
+  au FileType markdown nnoremap <buffer><silent> <A-x><A-o> :<C-u>Vista toc<CR>
+augroup END
