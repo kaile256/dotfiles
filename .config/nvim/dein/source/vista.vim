@@ -3,7 +3,7 @@ scriptencoding utf-8
 " Repo: liuchengxu/vista.vim
 " Another: add/vista.vim
 
-let g:ista_highlight_whole_line = 1
+let g:vista_highlight_whole_line = 1
 
 "let g:vista_default_executive = 'ctags'
 "let g:vista_fzf_preview = ['right:50%']
