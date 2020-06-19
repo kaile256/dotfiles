@@ -128,6 +128,7 @@ let g:lexima#default_rules += [
       \ {'char': '<BS>', 'at': '(\%#)',   'delete': 1},
       \ {'char': '<BS>', 'at': '{\%#}',   'delete': 1},
       \ {'char': '<BS>', 'at': '\[\%#\]', 'delete': 1},
+      \ {'char': '<BS>', 'at': '<\%#>',   'delete': 1},
       \
       \ {'char': '<BS>', 'at': "'\\%#'", 'delete': 1},
       \ {'char': '<BS>', 'at': '"\%#"',  'delete': 1},
@@ -137,14 +138,15 @@ let g:lexima#default_rules += [
 
 " Note: The '.' in `:s/pattern/` is required for <C-u>.
 " Note: s:remove_close . '<C-w>' fails to insert again to <C-w>.
-let s:remove_close = '<ESC>l:silent! keeppatterns s/\%#\s*[\]})''"`]\+//e<CR>gi'
+let s:following_ends = '\%#\w\=\zs\s*[\]})>''"`]*'
+let s:remove_close = ':silent! keepjumps keeppatterns s/'. s:following_ends .'//e<CR>gi'
 let g:lexima#default_rules += [
-      \ {'char': '<C-w>', 'at': '[[{(''"`]\s*\%#\s*[\]})''"`]', 'mode': 'i',
-      \   'input': '<C-w>'. s:remove_close},
-      \ {'char': '<C-u>', 'at': '\%#\s*[\]})''"`]', 'mode': 'i',
-      \   'input': '<C-u>'. s:remove_close},
+      \ {'char': '<C-w>', 'at': s:following_ends, 'mode': 'i',
+      \   'input': '<C-w><Esc>'. s:remove_close},
+      \
+      \ {'char': '<C-u>', 'mode': 'i', 'input': '<C-u><Esc>'. s:remove_close},
       \ ]
-unlet s:remove_close
+unlet s:remove_close s:following_ends
 
 " Overwrite Triple quotes {{{1
 " Produce triple quoted block
