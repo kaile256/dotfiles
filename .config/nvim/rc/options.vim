@@ -117,7 +117,7 @@ set formatoptions=jmB1cql " default: tcqj
 "set foldmarker={{{\\d*$,}}}\\d*$
 
 " Appearance; Font {{{1
-set ambiwidth=double
+" set ambiwidth=double
 
 " Appearance; Term GUI Colors {{{1
 " Ref: *term-dependent-settings* or /usr/share/nvim/runtime/doc/term.txt
