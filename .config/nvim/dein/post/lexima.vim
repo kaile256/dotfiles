@@ -150,7 +150,7 @@ let g:lexima#default_rules += [
 
 " Note: The '.' in `:s/pattern/` is required for <C-u>.
 " Note: s:remove_close . '<C-w>' fails to insert again to <C-w>.
-let s:following_ends = '\%#\w\=\zs\s*[\]})>''"`]*'
+let s:following_ends = '\%#\w\{,2}\zs\s*[\]})>''"`]*'
 let s:remove_close = ':silent! keepjumps keeppatterns s/'. s:following_ends .'//e<CR>gi'
 let g:lexima#default_rules += [
       \ {'char': '<C-w>', 'at': s:following_ends, 'mode': 'i',
