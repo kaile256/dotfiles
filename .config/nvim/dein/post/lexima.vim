@@ -71,6 +71,18 @@ let g:lexima#newline_rules += [
 
 " Overwrite Rules for Parentheses {{{1
 " parentheses to open
+if has('nvim')
+  let g:lexima#default_rules += [
+        \ {'char': '<S-lt>', 'input': '<'},
+        \ {'char': '<S-lt>', 'at': '\a\%#', 'input': '<', 'input_after': '>', 'filetype': 'cpp', 'mode': 'i'},
+        \ ]
+else
+  let g:lexima#default_rules += [
+        \ {'char': '<', 'input': '<'},
+        \ {'char': '<', 'at': '\a\%#', 'input': '<', 'input_after': '>', 'filetype': 'cpp', 'mode': 'i'},
+        \ ]
+endif
+
 let g:lexima#default_rules += [
       \ {'char': '(', 'at': '\\\%#'},
       \ {'char': '[', 'at': '\\\%#'},
