@@ -2,8 +2,8 @@
 # Ref: bash/alias.sh
 
 # `balias` let us completion
-balias make 'make --jobs 8'
-balias tmux 'tmux -2'
+alias make 'make --jobs 8'
+alias tmux 'tmux -2'
 
 balias b 'bash'
 
