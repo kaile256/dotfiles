@@ -38,13 +38,15 @@ endfunction
 " CocDiagnostic {{{1
 " Note: Unnecessary? pop up auto.
 nmap <silent> gX <Plug>(coc-diagnostic-info)
-noremap <SID>(zv) :<C-u>sleep 5m <bar> norm! zv<CR>
+noremap <SID>(zv) :<C-u>sleep 5m<CR>zv
 
 nmap \x         <Plug>(coc-fix-current)
 imap <C-x>x     <C-o><Plug>(coc-fix-current)
 imap <C-x><C-x> <C-o><Plug>(coc-fix-current)
 map <silent> [x <Plug>(coc-diagnostic-prev)<SID>(zv)
 map <silent> ]x <Plug>(coc-diagnostic-next)<SID>(zv)
+map <silent> [X <Plug>(coc-diagnostic-prev)<SID>(zv)<Plug>(coc-fix-current)
+map <silent> ]X <Plug>(coc-diagnostic-next)<SID>(zv)<Plug>(coc-fix-current)
 
 "nmap [e <Plug>(coc-diagnostic-prev-error)
 "nmap ]e <Plug>(coc-diagnostic-next-error)
