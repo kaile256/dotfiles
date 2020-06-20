@@ -6,13 +6,14 @@ scriptencoding utf-8
 hi! link DefxIconsMarkIcon  Statement
 hi! link DefxIconsCopyIcon  WarningMsg
 hi! link DefxIconsMoveIcon  ErrorMsg
-hi! link DefxIconsDirectory PreProc
 
+hi! link DefxIconsDirectory PreProc
 hi! link DefxIconsParentDirectory  Directory
 hi! link DefxIconsSymlinkDirectory Directory
-hi! link DefxIconsOpenedTreeIcon   Directory
-hi! link DefxIconsNestedTreeIcon   Directory
-hi! link DefxIconsClosedTreeIcon   PreProc
+
+hi! link DefxIconsClosedTreeIcon PreProc
+hi! link DefxIconsOpenedTreeIcon Directory
+hi! link DefxIconsNestedTreeIcon Directory
 
 " let g:defx_icons_enable_syntax_highlight = 0
 " let g:defx_icons_column_length = 0
