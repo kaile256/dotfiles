@@ -65,7 +65,7 @@ xmap a_ <Plug>(textobj-sandwich-query-a)_
 " into Operators "{{{1
 " Mnemonic: Yield a pair of bans
 nmap \y zv<Plug>(operator-sandwich-add)
-nmap \Y zv<Plug>(operator-sandwich-add)iW
+nmap \Y zv<Plug>(operator-sandwich-add)$
 " Mnemonic: Dispose the bans
 nmap \d zv<Plug>(operator-sandwich-delete)<Plug>(operator-sandwich-release-count)<Plug>(textobj-sandwich-query-a)
 nmap \D zv<Plug>(operator-sandwich-delete)<Plug>(operator-sandwich-release-count)<Plug>(textobj-sandwich-auto-a)
