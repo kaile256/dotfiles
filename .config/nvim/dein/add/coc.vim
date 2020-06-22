@@ -116,17 +116,17 @@ endfunction
 " `json` and `graphql`.
 
 " CocText-Object {{{1
-" Note: mapped already as default?
-xmap if <Plug>(coc-funcobj-i)
-omap if <Plug>(coc-funcobj-i)
-xmap af <Plug>(coc-funcobj-a)
-omap af <Plug>(coc-funcobj-a)
+" Mnemonic: Respects ]m/[m
+xmap im <Plug>(coc-funcobj-i)
+omap im <Plug>(coc-funcobj-i)
+xmap am <Plug>(coc-funcobj-a)
+omap am <Plug>(coc-funcobj-a)
 
 " for class/struct/interface
-xmap im <Plug>(coc-classobj-i)
-omap im <Plug>(coc-classobj-i)
-xmap am <Plug>(coc-classobj-a)
-omap am <Plug>(coc-classobj-a)
+xmap iM <Plug>(coc-classobj-i)
+omap iM <Plug>(coc-classobj-i)
+xmap aM <Plug>(coc-classobj-a)
+omap aM <Plug>(coc-classobj-a)
 
 " " CocSnippets {{{1
 " " Note: Regex is interpreted by JavaScript while original UltiSnips
