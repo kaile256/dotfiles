@@ -73,15 +73,8 @@ let g:lightline.inactive = {
 
 " Define Separator {{{2
 
-" let g:lightline = {
-"      \ 'separator': { 'left': '', 'right': '' },
-"      \ 'subseparator': { 'left': '', 'right': '' },
-"      \ }
-
-" let g:lightline = {
-"      \ 'separator': { 'left': '⮀', 'right': '⮂' },
-"      \ 'subseparator': { 'left': '⮁', 'right': '⮃' }
-"      \ }
+let g:lightline['separator']    = { 'left': '', 'right': '' }
+let g:lightline['subseparator'] = { 'left': '', 'right': '' }
 
 " Define Components for Tabline {{{2
 
