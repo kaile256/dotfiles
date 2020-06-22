@@ -13,6 +13,12 @@
 "   could be more complicated overwriting some default mappings like 'iW',
 "   'ip', 'i(' which may be already overwritten by other plugins.
 
+" Words between <Space> should be selected by 'iW/aW'.
+omap i<Space> <Plug>(textobj-sandwich-auto-i)
+xmap i<Space> <Plug>(textobj-sandwich-auto-i)
+omap a<Space> <Plug>(textobj-sandwich-auto-a)
+xmap a<Space> <Plug>(textobj-sandwich-auto-a)
+
 omap i* <Plug>(textobj-sandwich-query-i)*
 xmap i* <Plug>(textobj-sandwich-query-i)*
 omap a* <Plug>(textobj-sandwich-query-a)*
