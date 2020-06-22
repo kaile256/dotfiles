@@ -13,10 +13,11 @@ let g:textobj_function_no_default_key_mappings = 1
 augroup myTextObjFunctionSo
   if exists('#myTextObjFunctionSo') | au! myTextObjFunctionSo
   endif
-  au FileType vim omap <buffer> if <Plug>(textobj-function-i)
-  au FileType vim omap <buffer> af <Plug>(textobj-function-A)
-  au FileType vim omap <buffer> iF <Plug>(textobj-function-I)
-  au FileType vim xmap <buffer> if <Plug>(textobj-function-i)
-  au FileType vim xmap <buffer> af <Plug>(textobj-function-A)
-  au FileType vim xmap <buffer> iF <Plug>(textobj-function-I)
+  " Mnemonic: Respect default [m/]m
+  au FileType vim omap <buffer> im <Plug>(textobj-function-i)
+  au FileType vim omap <buffer> am <Plug>(textobj-function-A)
+  au FileType vim omap <buffer> iM <Plug>(textobj-function-I)
+  au FileType vim xmap <buffer> im <Plug>(textobj-function-i)
+  au FileType vim xmap <buffer> am <Plug>(textobj-function-A)
+  au FileType vim xmap <buffer> iM <Plug>(textobj-function-I)
 augroup END
