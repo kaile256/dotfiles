@@ -641,6 +641,10 @@ let g:lexima#default_rules += [
       \ ]
 " Addtional Rules on FileType {{{1
 let g:lexima#default_rules += [
+      \ {'char': '<space>', 'at': '(.*\%#.*)',  'filetype': 'cpp', 'priority': 90},
+      \ {'char': '<space>', 'at': '{.*\%#.*}',  'filetype': 'cpp', 'priority': 90},
+      \ {'char': '<space>', 'at': '\[.*\%#.*]', 'filetype': 'cpp', 'priority': 90},
+      \
       \ {'char': '<space>', 'at': 'cin\%#', 'input': ' >> '},
       \ {'char': '<space>', 'at': 'cout\%#', 'input': ' << '},
       \ {'char': '<Space>', 'at': 'cin.*[^> ]\+\%#', 'except': '\%#.\{-}[''"]',
