@@ -1,4 +1,4 @@
-" From: motion.toml
+" From: operator.toml
 " Repo: machakann/vim-sandwich
 " Fork: kaile256/vim-sandwich
 " Another: add/sandwich.vim
