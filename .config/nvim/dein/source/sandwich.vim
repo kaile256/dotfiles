@@ -19,36 +19,47 @@ let g:textobj_sandwich_no_default_key_mappings  = 1
 " Note: magicchar-t works only on header, not on footer
 " Note: b:sandwich_magicchar_f_patterns is also available
 
-" let g:sandwich#magicchar#f#patterns = [{
-"      \ 'header' : '\<\h\k*',
-"      \ 'bra'    : '(',
-"      \ 'ket'    : ')',
-"      \ 'footer' : '',
-"      \ }]
+augroup mySandwich-FPatternsOnFiletype
+  au!
+  au FileType vim let b:sandwich_magicchar_f_patterns = [{
+        \ 'header' : '\<\h[a-zA-Z0-9_:]*',
+        \ 'bra'    : '(',
+        \ 'ket'    : ')',
+        \ 'footer' : '',
+        \ }]
+augroup END
 
-"" Let; Recipes of sandwich {{{1
-"" Note: b:sandwich_recipes is also available
-"let g:sandwich#recipes = [{
-"      \ 'input': ['>'],
-"      \ 'buns': ['<', '>'],
-"      \ 'kind': ['add', 'replace'],
-"      \ 'action': ['add'],
-"      \ 'match_syntax': 1,
-"      \ 'nesting': 1,
-"      \ }, {
-"      \ 'input':  ['}'],
-"      \ 'buns': ['{\s*', '\s*}'],
-"      \ 'kind': ['delete', 'replace', 'textobj'],
-"      \ 'action': ['delete'],
-"      \ 'match_syntax': 1,
-"      \ 'nesting': 1,
-"      \ 'regex': 1,
-"      \ }, {
-"      \ 'filetype': ['html'],
-"      \ 'input': ['t'],
-"      \ 'buns': ['TagInput(1)', 'TagInput(0)'],
-"      \ 'kind': ['add', 'replace'],
-"      \ 'action': ['add'],
-"      \ 'expr': 1,
-"      \ }]
-"
+" Let; Recipes of sandwich {{{1
+" Note: b:sandwich_recipes is also available
+let g:sandwich#recipes = deepcopy(g:sandwich#default_recipes)
+let g:sandwich#recipes += [{
+      \ 'input': ['>'],
+      \ 'buns': ['>', '<'],
+      \ 'kind': ['replace', 'textobj'],
+      \ }, {
+      \ 'input':  [')'],
+      \ 'buns': [')*', '('],
+      \ 'kind': ['replace', 'textobj'],
+      \ }, {
+      \ 'input':  ['}'],
+      \ 'buns': ['}*', '{'],
+      \ 'kind': ['replace', 'textobj'],
+      \ }]
+
+let g:sandwich#recipes += [{
+      \ 'input': ['>'],
+      \ 'buns': ['>[,; \t]', '<'],
+      \ 'regex': 1,
+      \ 'kind': ['delete'],
+      \ }, {
+      \ 'input':  [')'],
+      \ 'buns': [')[,; \t]*', '('],
+      \ 'regex': 1,
+      \ 'kind': ['delete'],
+      \ }, {
+      \ 'input':  ['}'],
+      \ 'buns': ['}[,; \t]*', '{'],
+      \ 'regex': 1,
+      \ 'kind': ['delete'],
+      \ }]
+
