@@ -9,7 +9,7 @@ augroup myColorschemesPost
   " set variables on the colorscheme
   au ColorScheme * ++nested exe 'runtime source/<amatch>.vim'
   " overrides original colorschemes
-  au ColorSchemePre * ++nested exe 'runtime colorschemes/<amatch>.vim'
+  au ColorSchemePre * ++nested exe 'runtime colorscheme_pre/<amatch>.vim'
 augroup END
 
 function! s:set_colorscheme() abort
