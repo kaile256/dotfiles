@@ -67,8 +67,8 @@ hook_add = 'runtime add/operator-sort.vim'
 [[plugins]]
 repo = 'machakann/vim-sandwich'
 on_map = {nox = [
+  '<Plug>(textobj-sandwich-',
   '<Plug>(operator-sandwich-',
-  '<Plug>(textobj-sandwich-query-',
 ]}
 hook_add = 'runtime add/sandwich.vim'
 hook_source = 'runtime source/sandwich.vim'
