@@ -657,6 +657,9 @@ let g:lexima#default_rules += [
       \ {'char': '<C-Space>', 'at': 'cout << .\{-}\%#[''"]',
       \     'input': '<C-g>U<Right> << ', 'filetype': 'cpp'},
       \
+      \ {'char': ',', 'at': 'cin.*\%#',  'except': ';.*\%#', 'input': ' >>', 'filetype': 'cpp'},
+      \ {'char': ',', 'at': 'cout.*\%#', 'except': ';.*\%#', 'input': ' <<', 'filetype': 'cpp'},
+      \
       \ {'char': '<Space>', 'at': '\(if\|for\|while\)\%#', 'syntax': ['cConditional', 'cRepeat'],
       \     'input': ' (', 'input_after': ')', 'filetype': 'cpp'},
       \ ]
