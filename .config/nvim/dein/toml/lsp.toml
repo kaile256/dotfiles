@@ -9,7 +9,10 @@ rev = 'release'
 on_func  = ['CocAction', 'CocActionAsync']
 on_map  = {nvi = ['<Plug>(coc-']}
 on_event = 'BufRead'
-hook_add    = 'runtime add/coc.vim'
+hook_add    = '''
+runtime add/coc.vim
+runtime add/coc.jump.vim
+'''
 hook_source = 'runtime source/coc.vim'
 hook_done_update = '''
 exe 'e'. g:dein_github_dir .'/neoclide/coc.nvim_release/plugin/coc.vim'
