@@ -7,6 +7,16 @@ repo = 'kana/vim-textobj-user'
 lazy = 0
 
 [[plugins]]
+repo = 'glts/vim-textobj-comment'
+on_event = 'BufRead'
+hook_done_update = '''
+exe 'e' g:dein_github_dir .'glts/vim-textobj-comment/plugin/textobj/comment.vim'
+" Mnemonic: Note
+g/'select-/s/c\ze',/n
+g/'select-/s/C\ze',/N
+write
+'''
+[[plugins]]
 repo = 'kana/vim-textobj-function'
 # Note: should activates where lsp doesn't provide the kind of textobjects.
 # Note: available on vim/java/c, but coc's are better on java; don't know on c
@@ -27,11 +37,6 @@ repo = 'kana/vim-textobj-entire'
 on_map = {ox = ['<Plug>(textobj-entire']}
 hook_add = 'runtime add/textobj-entire.vim'
 hook_post_source = 'runtime post/textobj-entire.vim'
-[[plugins]]
-repo = 'glts/vim-textobj-comment'
-on_event = ['BufRead']
-#hook_add = 'runtime add/textobj-comment.vim'
-
 #[[plugins]]
 #repo = 'eikendev/vim-textobj-names'
 ## For: names separated by delimiters like -, _, /, @ or #.
