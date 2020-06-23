@@ -5,10 +5,11 @@
 " Json: coc-settings.json
 " Another: source/coc.vim
 
-augroup myCocAdd
-  if exists('#myCocAdd') | au! myCocAdd
+augroup myCoc-Keywordprg
+  if exists('#myCoc-Keywordprg') | au! myCoc-Keywordprg
   endif
-  au BufWinEnter coc-settings.json setl keywordprg=:help
+  let &g:keywordprg = ':silent! call CocActionAsync("showSignatureHelp") | silent! call CocActionAsync("doHover")'
+  au BufWinEnter coc-settings.json setlocal keywordprg=:help
 augroup END
 
 " " Note: <c-o> in coc's cmdline get to normal mode of coc.nvim
