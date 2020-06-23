@@ -7,10 +7,7 @@ repo = 'tpope/vim-fugitive'
 #          keep such functions private, which close all '.git/' or 'fugitive://'
 # to activate branch feature on airline, load it on VimEnter
 on_event = ['VimEnter']
-hook_add = '''
-runtime add/fugitive.vim
-runtime add/fugitive.gf.vim
-'''
+hook_add = 'runtime add/fugitive.vim'
 hook_source = 'runtime source/fugitive.vim'
 hook_post_source = '''
 command! -bar Glog  :Agit

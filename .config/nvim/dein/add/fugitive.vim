@@ -1,7 +1,8 @@
 " From: fugitive.toml
 " Repo: tpope/vim-fugitive
-" Another: add/fugitive.gf.vim
 " Another: source/fugitive.vim
+
+runtime add/fugitive.gf.vim
 
 " auto substitute url for ssh to github
 command! -bar -nargs=1
