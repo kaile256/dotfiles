@@ -20,20 +20,10 @@ nnoremap <silent> <space>cx :CocList extensions<cr>
 "command! -nargs=+ Cgrep :CocList grep -regex <f-args>
 
 " CocCompletion; {{{1
-" TODO: add fugitive#EditComplete to coc#refresh's list.
-inoremap <silent><expr> <c-n>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>no_space_before() ? "\<c-n>" :
-      \ coc#refresh()
-inoremap <silent><expr> <c-p>
-      \ pumvisible() ? "\<C-p>" :
-      \ <SID>no_space_before() ? "\<c-p>" :
-      \ coc#refresh()
-
-function! s:no_space_before() abort "{{{2
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1] =~# '\s'
-endfunction
+inoremap <silent><expr> <C-n>
+      \ pumvisible() ? "\<C-n>" : coc#refresh()
+inoremap <silent><expr> <C-p>
+      \ pumvisible() ? "\<C-p>" : coc#refresh()
 
 " CocDiagnostic {{{1
 " Note: Unnecessary? pop up auto.
