@@ -4,6 +4,26 @@
 "nnoremap o o<c-g>u
 "nnoremap O O<c-g>u
 
+nnoremap <silent> <C-x> :<C-u>call <SID>mod_char("\<C-x>")<CR>
+nnoremap <silent> <C-a> :<C-u>call <SID>mod_char("\<C-a>")<CR>
+xnoremap <silent> <C-x> :call <SID>mod_char("\<C-x>")<CR>
+xnoremap <silent> <C-a> :call <SID>mod_char("\<C-a>")<CR>
+function! s:mod_char(map) abort
+  let save_nrformats = &nrformats
+  set nrformats=alpha
+  let save_view = winsaveview()
+  let single = '\v((<|_\zs)\a(\ze_|>))|\d'
+  if search(single, 'cW') != save_view['lnum']
+    call winrestview(save_view)
+    if search(single, 'cWb') != save_view['lnum']
+      call winrestview(save_view)
+      return
+    endif
+  endif
+  exe 'norm!' a:map
+  let &nrformats = save_nrformats
+endfunction
+
 nnoremap j gj
 nnoremap k gk
 " switch mapping.
