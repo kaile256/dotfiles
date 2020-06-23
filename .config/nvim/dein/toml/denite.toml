@@ -58,15 +58,15 @@ on_source = 'denite.nvim'
 
 [[plugins]]
 repo = 'delphinus/vim-denite-scriptnames'
-on_source = 'denite.nvim'
+lazy = 0
 
 [[plugins]]
 repo = 'ozelentok/denite-gtags'
-on_source = 'denite.nvim'
+lazy = 0
 
 [[plugins]]
 repo = 'rafi/vim-denite-session'
-on_source = 'denite.nvim'
+lazy = 0
 
 [[plugins]]
 repo = 'neoclide/denite-git'
@@ -80,10 +80,10 @@ on_source = 'denite.nvim'
 #repo = 'Shougo/neoyank.vim'
 #on_source = 'denite.nvim'
 
-#[[plugins]]
-#repo = 'zacharied/denite-nerdfont'
-#on_source = 'denite.nvim'
-#hook_post_source = 'runtime add/denite-nerdfont.vim'
+[[plugins]]
+repo = 'zacharied/denite-nerdfont'
+# nerdfont character to insert
+lazy = 0
 [[plugins]]
 repo = 'Shougo/neossh.vim'
-on_source = ['unite.vim', 'denite.nvim']
+lazy = 0
