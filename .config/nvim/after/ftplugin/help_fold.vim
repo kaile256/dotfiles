@@ -41,18 +41,16 @@ function! HelpFoldExpr(lnum) abort "{{{1
 
     return '>'. s:foldlevel_at_index
 
-  elseif prev =~# s:pat_main_separator && line =~# s:pat_main_index_line
-    " index under line
+  elseif prev =~# s:pat_main_separator
     return '>1'
-  elseif prev =~# s:pat_sub_separator && line =~# s:pat_main_index_line
+  elseif prev =~# s:pat_sub_separator
     return '>2'
   endif
 
-  if line =~# s:pat_main_index_line && next =~# s:pat_main_separator
-    " index over line
-    return '>1'
-  elseif line =~# s:pat_main_index_line && next =~# s:pat_sub_separator
-    return '>2'
+  if next =~# s:pat_main_separator
+    return '<1'
+  elseif next =~# s:pat_sub_separator
+    return '<2'
 
   elseif line =~# s:pat_tag_line
         \ && prev !~# s:pat_tag_line
