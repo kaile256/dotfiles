@@ -136,24 +136,14 @@ function! s:defx_keymaps() abort "{{{1
   "      \                'mark:indent:icon:filename:type:size:time')
   " Open File {{{2
   " Edit {{{3
-  " Mnemonic: Push the buffer
-  nnoremap <silent><nowait><buffer><expr> P
-        \ defx#do_action('drop')
-  nnoremap <silent><nowait><buffer><expr> <c-j>
-        \ <SID>defx_is_wide()?
-        \ defx#do_action('open', 'edit'):
-        \ <SID>single_window_with_defx()?
-        \ defx#do_action('drop'):
-        \ defx#do_action('multi', ['drop', 'quit'])
+  nnoremap <silent><nowait><buffer><expr> <C-j>
+        \ <SID>defx_is_wide()
+        \ ? defx#do_action('open', 'edit')
+        \ : defx#do_action('multi', ['drop', 'quit'])
   nnoremap <silent><nowait><buffer><expr> <CR>
-        \ <SID>defx_is_wide()?
-        \ defx#do_action('open', 'edit'):
-        \ <SID>single_window_with_defx()?
-        \ defx#do_action('drop'):
-        \ defx#do_action('multi', ['drop', 'quit'])
-  xnoremap <silent><nowait><buffer><expr> P
-        \ defx#async_action('multi',
-        \ ['clear_select_all', 'toggle_select_visual', 'drop'])
+        \ <SID>defx_is_wide()
+        \ ? defx#do_action('open', 'edit')
+        \ : defx#do_action('multi', ['drop', 'quit'])
   xnoremap <silent><nowait><buffer><expr> <c-j>
         \ defx#async_action('multi',
         \ ['clear_select_all', 'toggle_select_visual', 'drop', 'quit'])
