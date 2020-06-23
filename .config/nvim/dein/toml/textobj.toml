@@ -93,5 +93,6 @@ hook_add = 'runtime add/textobj-keyvalue.vim'
 #[ Git ]
 [[plugins]]
 repo = 'rhysd/vim-textobj-conflict'
-on_map = {ox = ['<Plug>(textobj-conflict-']}
-hook_add = 'runtime add/textobj-conflict.vim'
+# map to '='
+on_if = '&diff'
+on_event = 'BufRead'
