@@ -22,14 +22,9 @@ repo = 'kana/vim-textobj-function'
 # Note: available on vim/java/c, but coc's are better on java; don't know on c
 on_ft = 'vim'
 hook_source = 'runtime source/textobj-function.vim'
-
 [[plugins]]
 repo = 'kana/vim-textobj-fold'
-if = '&foldenable'
-on_event = ['BufRead']
-#on_source = 'vim-textobj-user'
-#hook_add = 'runtime add/textobj-fold.vim'
-
+on_event = 'BufRead'
 [[plugins]]
 repo = 'kana/vim-textobj-entire'
 # For: entire lines of current buffer.
@@ -42,7 +37,6 @@ hook_post_source = 'runtime post/textobj-entire.vim'
 ## For: names separated by delimiters like -, _, /, @ or #.
 #on_event = 'BufRead'
 #hook_add = 'runtime add/textobj-names.vim'
-
 #[[plugins]]
 #repo = 'coderifous/textobj-word-column.vim'
 ## Note: Use it with blockwise-visual mode.
@@ -59,11 +53,9 @@ hook_post_source = 'runtime post/textobj-entire.vim'
 #onoremap <silent> aQ :call TextObjWordBasedColumn("aW")<cr>
 #onoremap <silent> iQ :call TextObjWordBasedColumn("iW")<cr>
 #'''
-
 #[[plugins]]
 #repo = 'sgur/vim-textobj-parameter'
 #on_event = ['BufRead', 'TextChanged']
-
 #[[plugins]]
 #repo = 'kana/vim-textobj-indent'
 #on_map = '<Plug>(textobj-indent-'
@@ -74,14 +66,12 @@ hook_post_source = 'runtime post/textobj-entire.vim'
 #aI  <Plug>(textobj-indent-same-a)
 #iI  <Plug>(textobj-indent-same-i)
 #'''
-
 [[plugins]]
 repo = 'saaguero/vim-textobj-pastedtext'
 # Note: no use because it is mapped after the plugin is loaded.
 #on_map = '<Plug>(textobj-pastedtext'
-on_event = ['TextChanged']
+on_event = 'TextChanged'
 hook_source = 'runtime source/textobj-pastedtext.vim'
-
 [[plugins]]
 repo = 'amerlyq/vim-textobj-keyvalue'
 on_map = {ox = ['<Plug>(textobj-key-', '<Plug>(textobj-value-']}
