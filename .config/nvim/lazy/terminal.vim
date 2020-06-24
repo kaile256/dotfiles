@@ -56,7 +56,7 @@ function! s:set_opts_for_term() abort "{{{2
   if &bt !=# 'terminal' | return | endif
   setl nonumber signcolumn= bufhidden=wipe
   norm! 0
-  startinsert
+  " startinsert " Some plugin start terminal with inserting 'i'.
 endfunction
 
 "" Function; ls-grep
