@@ -48,10 +48,9 @@ xnoremap <s-space>p "0]p
 xnoremap <s-space>P "0]P
 
 " Black-Hole Register {{{1
-" Note: those won't be typed intending to put at all, especially in noremal-mode
-nnoremap <space>s "_s
-" Note: `S` deletes all the current line
-nnoremap <space>S "_Xi
+nnoremap <expr> s 'x'. v:count1 .'i'
+nnoremap <expr> S 'X'. v:count1 .'i'
+
 " Note: not so often you want to delete words into clipboard
 nnoremap <space>d "_d
 nnoremap <space>D "_D
