@@ -82,17 +82,17 @@ repo = '$VIMRUNTIME/pack/dist/opt/termdebug'
 on_cmd = ['Termdebug', 'TermdebugCommand']
 [[plugins]]
 repo = 'cpiger/NeoDebug'
-on_cmd = ['NeoDebug']
+on_cmd = 'NeoDebug'
 
 #[ on LLDB ]
+# [[plugins]]
+# repo = 'strottos/vim-padre'
+# if = 'has("+job")'
+# build = 'bash make'
+# on_cmd =  ['PadreDebug', 'PadreBreakpoint']
 #[[plugins]]
 #repo = 'gilligan/vim-lldb'
 ## Note: running on python2
-#
-#[[plugins]]
-#repo = 'strottos/vim-padre'
-#build = 'bash make'
-#on_cmd =  ['PadreDebug', 'PadreBreakpoint']
 #[[plugins]]
 #repo = 'dbgx/lldb.nvim'
 # requires python2
