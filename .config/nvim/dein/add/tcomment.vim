@@ -7,4 +7,3 @@ let g:tcomment_maps = 0
 nmap <silent> \e  <Plug>TComment_gc
 xmap <silent> \e  <Plug>TComment_gc
 nmap <silent> \ee <Plug>TComment_gcc
-xmap <silent> \ee <Plug>TComment_gcc
