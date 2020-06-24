@@ -19,15 +19,6 @@ augroup myAugroups
   exe 'au InsertEnter,'. TermOpen "* call system('xinput disable Elan\\ Touchpad')"
   au FocusLost,VimLeave * call system('xinput enable  Elan\ TrackPoint')
 
-  " FileTypeAdjustment "{{{1
-  " Note: `:setfiletype` cannot override filetype;
-  "   no consideration to use it instead
-
-  " FIXME: set ft=xdefaults
-  au BufNewFile,BufRead {.Xresources.d,X11}**/* setl ft=xdefaults
-
-  au BufNewFile,BufRead .vmailrc setl ft=yaml
-
   " WinfixBufLocal "{{{1
 
   au OptionSet wfw,wfh let b:fixwidth = &wfw | let b:fixheight = &wfh
