@@ -10,7 +10,7 @@ xnoremap <silent> <C-x> :call <SID>mod_char("\<C-x>")<CR>
 xnoremap <silent> <C-a> :call <SID>mod_char("\<C-a>")<CR>
 function! s:mod_char(map) abort
   let save_view = winsaveview()
-  let single = '\v((<|_\zs)\a(\ze_|>))|\d'
+  let single = '\v((<|_\zs)\\@<!\a:@!(\ze_|>))|\d'
   if search(single, 'cW') != save_view['lnum']
     call winrestview(save_view)
     if search(single, 'cWb') != save_view['lnum']
