@@ -247,6 +247,9 @@ endfunction
 
 function! LL_mode() abort "{{{3
   if !empty(&bt) && &bt !~# 'terminal'
+    if @% =~? 'vimspector'
+      return @%
+    endif
     return toupper(&ft)
   endif
 
