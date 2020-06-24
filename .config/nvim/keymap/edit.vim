@@ -9,8 +9,6 @@ nnoremap <silent> <C-a> :<C-u>call <SID>mod_char("\<C-a>")<CR>
 xnoremap <silent> <C-x> :call <SID>mod_char("\<C-x>")<CR>
 xnoremap <silent> <C-a> :call <SID>mod_char("\<C-a>")<CR>
 function! s:mod_char(map) abort
-  let save_nrformats = &nrformats
-  set nrformats=alpha
   let save_view = winsaveview()
   let single = '\v((<|_\zs)\a(\ze_|>))|\d'
   if search(single, 'cW') != save_view['lnum']
@@ -20,6 +18,9 @@ function! s:mod_char(map) abort
       return
     endif
   endif
+
+  let save_nrformats = &nrformats
+  set nrformats=alpha
   exe 'norm!' v:count1 .. a:map
   let &nrformats = save_nrformats
 endfunction
