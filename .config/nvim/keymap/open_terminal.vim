@@ -2,62 +2,41 @@
 " Another: tmaps.vim
 " Another: lazy/terminal.vim
 
-let s:path_dict = {
-      \ '': '%:p:h',
-      \ '.': '.',
-      \ 'd': $DOTFILES_HOME,
-      \ 'f': $XDG_CONFIG_HOME,
-      \ 'h': '~',
-      \ 'l': $XDG_DATA_HOME,
-      \ 'm': $MY_MEMO,
-      \ 'n': '%:p:h',
-      \ 'q': $GHQ_ROOT,
-      \ 'r': $VIMRUNTIME,
-      \ 't': g:my_trash_root,
-      \ 'v': g:nvim_home,
-      \ 'w': '%:p:h',
-      \ }
+function! s:term_open(mods, ...) abort
+  try
+    cd %:h
+  catch /E472: Command failed/
+    cd ~
+  endtry
 
-" Note: With <mods>, i.e., ':vert te', is meaningless.
-let s:splits = {
-     \ '<a-E>': 'only',
-     \ '<a-e>': 'e',
-     \ '<a-o>': 'only',
-     \ '<a-s>': 'sp',
-     \ '<a-t>': 'tabe',
-     \ '<a-v>': 'vs',
-     \ 'S': 'bot sp',
-     \ }
+  if has('nvim')
+    exe 'term fish'
+    startinsert
+    return
+  endif
 
-function! s:maps(prefix, command, ...) abort
-  " To: like :Fzf
-  let map_arg = '<silent>'
-  let lhs_raw = map_arg . a:prefix
-
-  for l:key in keys(s:path_dict)
-    let lhs = lhs_raw . l:key
-
-    if s:path_dict[l:key] =~# '^:'
-      " To: otherwise, commands to cd.
-      " Note: if E:trainling-character, check if ':command -bar' in plugin's vimscript.
-      let l:cd = s:path_dict[l:key]
-    else
-      let l:cd = ':<c-u>cd '. s:path_dict[l:key]
+  let opt = '++close'
+  for arg in a:000
+    if arg =~# '^++'
+      let opt .= ' '. arg
     endif
-
-    let modes = a:0 > 0 ? a:1 : 'nx'
-    let modes = split(modes, '\ze')
-
-    for l:key in keys(s:splits)
-      let rhs = l:cd .'<bar>'. s:splits[l:key] .'<bar>'. a:command .'<cr>'
-      for mode in modes
-        exe mode .'noremap ' lhs . l:key  rhs
-      endfor
-    endfor
-
   endfor
+  exe a:mods 'term' opt 'fish'
+  startinsert
 endfunction
 
-" type 't' with pressed <space> as <a-t>
-call s:maps('<space>t', 'te fish')
-unlet s:path_dict s:splits
+command! -bar -nargs=* TermOpen :call s:term_open(<q-mods>, <f-args>)
+
+if has('nvim')
+  nnoremap <silent> <space>te :<C-u>TermOpen<CR>
+  nnoremap <silent> <space>tv :<C-u>vs   <bar>   TermOpen<CR>
+  nnoremap <silent> <space>ts :<C-u>sp   <bar>   TermOpen<CR>
+  nnoremap <silent> <space>tt :<C-u>tabe <bar>   TermOpen<CR>
+  nnoremap <silent> <space>tS :<C-u>bot  sp<bar> TermOpen<CR>
+else
+  nnoremap <silent> <space>te :<C-u>TermOpen fish ++curwin<CR>
+  nnoremap <silent> <space>tv :<C-u>vert TermOpen<CR>
+  nnoremap <silent> <space>ts :<C-u>bel  TermOpen<CR>
+  nnoremap <silent> <space>tt :<C-u>tab  TermOpen<CR>
+  nnoremap <silent> <space>tS :<C-u>bot  TermOpen<CR>
+endif
