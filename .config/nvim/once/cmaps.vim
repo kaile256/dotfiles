@@ -9,21 +9,6 @@ cnoremap <silent> <a-space> <esc>:call feedkeys("\<space>")<cr>
 " " Note: <c-k> enter digraph when mistyped
 " cnoremap <silent> <c-k><a-k> <c-c>
 
-function! s:plaintext(reg, sep) abort
-  let yanked = eval(a:reg)
-  let no_backslash_leader = substitute(yanked, '[\n\r]\s*\\', ' ', 'ge')
-  let no_extra_spaces     = substitute(no_backslash_leader, '\s\+', ' ', 'ge')
-
-  let list = split(no_extra_spaces, '[\n\r]\+')
-  let no_newline = join(list, a:sep)
-  return no_newline
-endfunction
-
-cnoremap <expr> <c-r><space>   <SID>plaintext('@+', '')
-cnoremap <expr> <c-r><c-space> <SID>plaintext('@+', '')
-cnoremap <expr> <c-r>0     <SID>plaintext('@0', ' \| ')
-cnoremap <expr> <c-r><c-0> <SID>plaintext('@0', ' \| ')
-
 " Note: <expr> work with lexima.
 cnoremap <SID>(paste-visualized)
       \ <C-r>=getline("'<")[col("'<") - 1 : col("'>") - 1]<CR>
