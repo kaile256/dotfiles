@@ -246,7 +246,7 @@ function! LL_coc_notice() abort "{{{3
 endfunction
 
 function! LL_mode() abort "{{{3
-  if !empty(&bt) && &bt !~# 'terminal'
+  if &bt !=# '' && &bt !~# 'terminal'
     if @% =~? 'vimspector'
       return @%
     endif

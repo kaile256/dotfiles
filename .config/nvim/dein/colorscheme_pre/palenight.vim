@@ -14,7 +14,7 @@ function! s:my_palenight() abort
   " hi! ErrorMsg ctermfg=231 ctermbg=212 guifg=#7411a8 guibg=#ff79c6 cterm=bold gui=bold
   " hi! WarningMsg ctermfg=231 ctermbg=212 guifg=#7411a8 guibg=#ff79c6 cterm=bold gui=bold
 
-  hi! NonText ctermfg=231 guifg=#8d94b7
+  hi! SpecialKey ctermfg=245 guifg=#8a8a8a
 
   " hi! Statement ctermfg=212 guifg=#fe82e3
   " hi! Identifier ctermfg=117 guifg=#b2fd8b
