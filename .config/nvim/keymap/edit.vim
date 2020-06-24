@@ -20,7 +20,7 @@ function! s:mod_char(map) abort
       return
     endif
   endif
-  exe 'norm!' a:map
+  exe 'norm!' v:count1 .. a:map
   let &nrformats = save_nrformats
 endfunction
 
