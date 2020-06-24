@@ -116,11 +116,7 @@ function! s:verbose_in_quickfix() abort "{{{2
   if cmd !~# 'verb\%[ose] '
     let cmd = 'verbose '. cmd
   endif
-  augroup openLoclistOfVerbosed
-    au!
-    au QuickFixCmdPost lexpr lopen
-  augroup END
-  return "\<End>\<C-u>lexpr execute(". string(cmd) .")\<CR>"
+  return "\<End>\<C-u>lexpr execute(". string(cmd) .") \<bar> bot lopen \<CR>"
 endfunction
 
 cnoremap <a-q> <c-f>
