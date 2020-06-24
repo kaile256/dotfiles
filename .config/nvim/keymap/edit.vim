@@ -11,6 +11,7 @@ xnoremap <silent> <C-a> :call <SID>mod_char("\<C-a>")<CR>
 function! s:mod_char(map) abort
   let save_view = winsaveview()
   let single = '\v((<|_\zs)\\@<!\a:@!(\ze_|>))|\d'
+  " Do nothing if the pattern couldn't be found in current line.
   if search(single, 'cW') != save_view['lnum']
     call winrestview(save_view)
     if search(single, 'cWb') != save_view['lnum']
