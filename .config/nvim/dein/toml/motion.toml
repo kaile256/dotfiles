@@ -64,18 +64,19 @@ hook_add = 'runtime add/asterisk.vim'
 #on_map = {x = '<Plug>(textmanip-'}
 #hook_add = 'runtime add/textmanip.vim'
 #[ Easy Motion ]
-#[[plugins]]
-#repo = 'easymotion/vim-easymotion'
-#on_map = {nox = '<Plug>(easymotion-'}
-#hook_add = 'runtime add/easymotion.vim'
-#hook_source = 'runtime source/easymotion.vim'
-#hook_post_source = 'runtime post/easymotion.vim'
-##hook_done_update = '''
-##"exe 'e' g:dein_github_dir .'/easymotion/vim-easymotion/autoload/EasyMotion.vim
-##exe 'e' g:dein_github_dir .'/kaile256/vim-easymotion/autoload/EasyMotion.vim
-##g/\Vlen(group_values) == 1/norm! A || (g:EasyMotion_always_jump_first == 1)
-##write
-##'''
+[[plugins]]
+repo = 'easymotion/vim-easymotion'
+on_map = {nox = '<Plug>(easymotion-'}
+on_func = ['EasyMotion#S', 'EasyMotion#T']
+hook_add = 'runtime add/easymotion.vim'
+hook_source = 'runtime source/easymotion.vim'
+hook_post_source = 'runtime post/easymotion.vim'
+#hook_done_update = '''
+#"exe 'e' g:dein_github_dir .'/easymotion/vim-easymotion/autoload/EasyMotion.vim
+#exe 'e' g:dein_github_dir .'/kaile256/vim-easymotion/autoload/EasyMotion.vim
+#g/\Vlen(group_values) == 1/norm! A || (g:EasyMotion_always_jump_first == 1)
+#write
+#'''
 
 #[[plugins]]
 #repo = 'haya14busa/vim-easyoperator-phrase'
