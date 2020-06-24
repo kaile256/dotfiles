@@ -33,14 +33,21 @@ function! s:T(cnt, mode) abort
   call EasyMotion#T(cnt, a:mode, 1)
 endfunction
 
-nmap <silent> <space>f :<C-u>call <SID>f(v:count, 0)<CR>
-xmap <silent> <space>f :<C-u>call <SID>f(v:count, 1)<CR>
-nmap <silent> <space>F :<C-u>call <SID>F(v:count, 0)<CR>
-xmap <silent> <space>F :<C-u>call <SID>F(v:count, 1)<CR>
-nmap <silent> <space>t :<C-u>call <SID>t(v:count, 0)<CR>
-xmap <silent> <space>t :<C-u>call <SID>t(v:count, 1)<CR>
-nmap <silent> <space>T :<C-u>call <SID>T(v:count, 0)<CR>
-xmap <silent> <space>T :<C-u>call <SID>T(v:count, 1)<CR>
+nnoremap <silent> <space>f :<C-u>call <SID>f(v:count, 0)<CR>
+onoremap <silent> <space>f :<C-u>call <SID>f(v:count, 0)<CR>
+xnoremap <silent> <space>f :<C-u>call <SID>f(v:count, 1)<CR>
+
+nnoremap <silent> <space>F :<C-u>call <SID>F(v:count, 0)<CR>
+onoremap <silent> <space>F :<C-u>call <SID>F(v:count, 0)<CR>
+xnoremap <silent> <space>F :<C-u>call <SID>F(v:count, 1)<CR>
+
+nnoremap <silent> <space>t :<C-u>call <SID>t(v:count, 0)<CR>
+onoremap <silent> <space>t :<C-u>call <SID>t(v:count, 0)<CR>
+xnoremap <silent> <space>t :<C-u>call <SID>t(v:count, 1)<CR>
+
+nnoremap <silent> <space>T :<C-u>call <SID>T(v:count, 0)<CR>
+onoremap <silent> <space>T :<C-u>call <SID>T(v:count, 0)<CR>
+xnoremap <silent> <space>T :<C-u>call <SID>T(v:count, 1)<CR>
 
 " Keymap; ft;,
 "map f <Plug>(easymotion-f)
