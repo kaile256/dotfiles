@@ -170,6 +170,8 @@ for s:reg in keys(s:registers)
 endfor
 unlet s:reg s:registers
 
+inoremap <c-r><c-0> <c-r>0
+
 " Undo Break; {{{1
 inoremap <a-p> <c-g>u<esc>:call feedkeys('p')<cr>
 inoremap <a-P> <c-g>u<esc>:call feedkeys('P')<cr>

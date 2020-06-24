@@ -41,7 +41,7 @@ xnoremap <space>P "+]P
 
 " Yank Register {{{1
 nnoremap Y y$
-cnoremap <c-r><c-0> <c-r>0
+
 " nnoremap <s-space>p "0]p
 xnoremap <s-space>p "0]p
 " nnoremap <s-space>P "0]P
