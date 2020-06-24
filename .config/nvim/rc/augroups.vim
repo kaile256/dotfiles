@@ -7,6 +7,9 @@ augroup myAugroups
   au VimResized * wincmd =
 
   " Open QuickFix on some commands {{{1
+  " FIXME: Close the window where cursor has gone.
+  au QuickFixCmdPost cexpr :bot copen | au WinLeave <buffer> :cclose
+  au QuickFixCmdPost lexpr :bot lopen | au WinLeave <buffer> :lclose
   au QuickFixCmdPost grep,helpgrep cwindow
   au QuickFixCmdPost lhelpgrep lwindow
 
