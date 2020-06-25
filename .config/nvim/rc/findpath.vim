@@ -8,6 +8,8 @@
 " '.': relative to the directory of the current file
 " '':  current directory; keep empty between two commas (i.e., set path+=,,)
 set path=./**,/etc
+set isfname-=,
+set isfname-==
 
 augroup myFindPathRc
   if exists('#myFindPathRc') | au! myFindPathRc
@@ -18,8 +20,6 @@ augroup myFindPathRc
   au FileType go      exe 'setl path^='. $GOPATH .'/src/**,/usr/lib/go/src/**'
   au FileType python  exe 'setl path^='. $XDG_DATA_HOME
         \ .'/../lib/python3.8/site-packages**,/usr/lib/python3.8**'
-
-  au FileType vim setl isfname-== isfname-=,
 
   au FileType dosini setl suffixesadd=.conf
   "au BufNewFile,BufRead {*vim,dein}**/* setl suffixesadd=.toml
