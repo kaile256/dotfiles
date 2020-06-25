@@ -357,8 +357,6 @@ bindsym $SuperS+J move down
 bindsym $SuperS+K move up
 bindsym $SuperS+L move right
 
-bindsym Shift+F11 fullscreen toggle ; $alert 'Layout: fullscreen toggle'
-
 # Mnemonic: `o` on visual-mode to the other end of the area
 bindsym $Super+O focus mode_toggle; $alert 'Focus: Toggle'
 
