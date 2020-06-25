@@ -33,12 +33,6 @@ nnoremap <space>p "+]p`]
 xnoremap <space>p "+]p
 nnoremap <space>P "+]P
 xnoremap <space>P "+]P
-" Plug Register; One Char {{{1
-" Use vim-submode
-"nnoremap <space>x "+x
-"nnoremap <space>s "+s
-"nnoremap <space>X "+X
-
 " Yank Register {{{1
 nnoremap Y y$
 
