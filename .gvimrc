@@ -12,25 +12,22 @@ if has('gui_running')
 
   " Note: Linux prefers 1.5x font size; Mac prefers 2x; Win prefers any size.
   if has('unix')
-    " Note: when 'guifontset' is not empty, it replaces 'guifont'.
+    " Tips: Try `:set guifont=*`, then get the format by `:set guifont?`.
     try
-      set guifont=Meslo\ LG\ S\ for\ Powerline\ 13.5
-      set guifontwide=Meslo\ LG\ S\ for\ Powerline\ 13.5
-      set guifontset=Meslo\ LG\ S\ for\ Powerline\ 13.5
-      set printfont=Meslo\ LG\ S\ for\ Powerline\ 13.5
-      "set linespace=0
+      let &guifont   = 'JetBrainsMonoMedium Nerd Font 10.5'
+      let &printfont = 'JetBrainsMonoMedium Nerd Font 10.5'
+      set linespace=1
     catch
       set guifont=Monospace\ 12
       set printfont=Monospace\ 12
     endtry
   elseif has('win64') || has('win32')
     try
-      set guifont=SF_Mono:h12
-      set guifont=SF_Mono:h12
-      set printfont=SF_Mono:h12
+      set guifont=JetBrainsMonoMedium_Nerd_Font:h12
+      set printfont=JetBrainsMonoMedium_Nerd_Font:h12
     catch
-      set guifont=Monospace\ 12
-      set printfont=Monospace\ 12
+      set guifont=Monospace:h12
+      set printfont=Monospace:h12
     endtry
   endif
 endif
