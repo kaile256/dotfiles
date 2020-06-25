@@ -9,10 +9,10 @@ scriptencoding utf-8
       "\ : ':sil exe "keepj norm! *" <Bar> call winrestview(' . string(winsaveview()) . ')<CR>'
 
 " Note: Vim regards <C-_> as <C-/>
-noremap! <expr><silent> <c-r>/     substitute(@/, '^\\[mv]', '', 'ie')
-tnoremap <expr><silent> <c-r>/     substitute(@/, '^\\[mv]', '', 'ie')
-noremap! <expr><silent> <c-r><c-_> substitute(@/, '^\\[mv]', '', 'ie')
-tnoremap <expr><silent> <c-r><c-_> substitute(@/, '^\\[mv]', '', 'ie')
+noremap! <expr> <c-r>/     substitute(@/, '^\\[mv]', '', 'ie')
+tnoremap <expr> <c-r>/     substitute(@/, '^\\[mv]', '', 'ie')
+noremap! <expr> <c-r><c-_> substitute(@/, '^\\[mv]', '', 'ie')
+tnoremap <expr> <c-r><c-_> substitute(@/, '^\\[mv]', '', 'ie')
 
 " Standard mappings {{{1
 " Note: Few case to expect exclusive search
