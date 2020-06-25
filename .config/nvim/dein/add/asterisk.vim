@@ -69,32 +69,19 @@ xmap gz# <Plug>(asterisk-#)
 " xmap <c-w><space>gz# <c-w>v<Plug>(asterisk-#)
 
 " Substitute mappings "{{{1
-function! s:asterisk_substitute(key, direction, regname) abort
-  let s:asterisk = funcref('asterisk#do', [mode(1), {'direction' : 1, 'do_jump' : 0, 'is_whole' : 0}])
 
-  if a:key =~? "\<C-r>"
-    return s:asterisk() .'"_cg'. a:direction
-          \ .. a:key .. a:regname
-          \ .. (a:regname =~# '=' ? '' : "\<ESC>")
-  endif
+xnoremap <silent><expr> x asterisk#substitute('d', 'n', v:register)
+xnoremap <silent><expr> X asterisk#substitute('d', 'N', v:register)
+xnoremap <silent><expr> s asterisk#substitute('c', 'n', v:register)
+xnoremap <silent><expr> S asterisk#substitute('c', 'N', v:register)
 
-  let key = (a:key =~? '[dx]' ? 'd' : 'c')
-  let keys = '"'. a:regname .. key
+xnoremap <silent><expr> <space>x asterisk#substitute('d', 'n', '_')
+xnoremap <silent><expr> <space>X asterisk#substitute('d', 'N', '_')
+xnoremap <silent><expr> <space>s asterisk#substitute('c', 'n', '_')
+xnoremap <silent><expr> <space>S asterisk#substitute('c', 'N', '_')
 
-  if mode(1) !~# "[vV\<C-v>]"
-    return keys
-  endif
-
-  return s:asterisk() .. keys .'g'. a:direction
-endfunction
-
-xnoremap <expr> x <SID>asterisk_substitute('d', 'n', '_')
-xnoremap <expr> X <SID>asterisk_substitute('d', 'N', '_')
-xnoremap <expr> s <SID>asterisk_substitute('c', 'n', '_')
-xnoremap <expr> S <SID>asterisk_substitute('c', 'N', '_')
-
-xnoremap <expr> p <SID>asterisk_substitute("\<C-r>\<C-p>", 'n', v:register)
-xnoremap <expr> P <SID>asterisk_substitute("\<C-r>\<C-p>", 'N', v:register)
+xnoremap <silent><expr> p asterisk#substitute("\<C-r>\<C-p>", 'n', v:register)
+xnoremap <silent><expr> P asterisk#substitute("\<C-r>\<C-p>", 'N', v:register)
 
 " " TODO: dot-Repeatable
 " onoremap <expr> r <SID>asterisk_omap('n', v:register)
