@@ -84,7 +84,7 @@ function! s:mappings() abort
   nnoremap <buffer> mt :<C-u>call vimspector#ShowOutput('server')<CR>
   nnoremap <buffer> mc :<C-u>call vimspector#ShowOutput('Console')<CR>
 
-  if &ft !=# '\|vimspector'  | return | endif
+  if &ft !~# '\|vimspector'  | return | endif
 
   nmap <buffer> R :<C-u>VimspectorReset<CR>
 
