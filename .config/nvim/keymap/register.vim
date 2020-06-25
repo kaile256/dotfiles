@@ -1,12 +1,5 @@
 " From: init.vim
 
-"augroup myPasteToggle
-"  " CAUTION: when set paste, @+ is ignored.
-"  au!
-"  au InsertEnter,CmdLineEnter * silent! setl nopaste
-"  au BufWinEnter,WinEnter,InsertLeave * silent! setl paste
-"augroup END
-
 " nnoremap p p`]
 " nnoremap p ]p`]
 nnoremap P ]P
