@@ -24,14 +24,14 @@ build = '''
 #
 # --force-enable-csharp installs vscode-mono-debug
 
-#./install_gadget.py \
-#--force-enable-chrome \
-#--force-enable-csharp \
-#--force-enable-php \
-#--force-enable-java \
-#--all
+./install_gadget.py \
+  --force-enable-chrome \
+  --force-enable-csharp \
+  --force-enable-php \
+  --force-enable-java \
+  --all
 
-./install_gadget.py --force-all
+# ./install_gadget.py --force-all
 
 '''
 on_func =  ['vimspector#']
