@@ -138,6 +138,7 @@ unlet s:Let_it_double
 " Delete duplicated '"' to comment in Vimscript.
 let g:lexima#default_rules += [
       \ {'char': '<Space>',   'at': '^\s*"\%#"', 'input': '<C-g>U<Del><space>', 'filetype': 'vim'},
+      \ {'char': '<S-Space>', 'input': '<space>', 'filetype': 'vim'},
       \ {'char': '<S-Space>', 'at': '^\s*"\%#"', 'input': '<C-g>U<Del><space>', 'filetype': 'vim'},
       \ ]
 
