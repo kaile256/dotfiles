@@ -135,6 +135,12 @@ let g:lexima#default_rules += [
       \ ]
 unlet s:Let_it_double
 
+" Delete duplicated '"' to comment in Vimscript.
+let g:lexima#default_rules += [
+      \ {'char': '<Space>',   'at': '^\s*"\%#"', 'input': '<C-g>U<Del><space>', 'filetype': 'vim'},
+      \ {'char': '<S-Space>', 'at': '^\s*"\%#"', 'input': '<C-g>U<Del><space>', 'filetype': 'vim'},
+      \ ]
+
 " Overwrite Rules for Backspaces {{{1
 let g:lexima#default_rules += [
       \ {'char': '<BS>', 'at': '(\%#)',   'delete': 1},
