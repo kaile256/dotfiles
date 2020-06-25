@@ -9,10 +9,15 @@ scriptencoding utf-8
       "\ : ':sil exe "keepj norm! *" <Bar> call winrestview(' . string(winsaveview()) . ')<CR>'
 
 " Note: Vim regards <C-_> as <C-/>
-noremap! <expr> <c-r>/     substitute(@/, '^\\[mv]\c', '', '')
-tnoremap <expr> <c-r>/     substitute(@/, '^\\[mv]\c', '', '')
-noremap! <expr> <c-r><c-_> substitute(@/, '^\\[mv]\c', '', '')
-tnoremap <expr> <c-r><c-_> substitute(@/, '^\\[mv]\c', '', '')
+" FIXME: Remove all the escape sequences;
+" currently, '\\\ze[\/]' turns out '\ze[/]'.
+noremap! <expr> <SID>(paste-literal)
+      \ substitute(substitute(@/, '^\\[mv]\c', '', ''), '\\\ze[\/]', '', 'g')
+tnoremap <script> <c-r>/     <SID>(paste-literal)
+noremap! <script> <c-r>/     <SID>(paste-literal)
+tnoremap <script> <c-r>/     <SID>(paste-literal)
+noremap! <script> <c-r><c-_> <SID>(paste-literal)
+tnoremap <script> <c-r><c-_> <SID>(paste-literal)
 
 " Standard mappings {{{1
 " Note: Few case to expect exclusive search
