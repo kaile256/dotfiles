@@ -1,66 +1,30 @@
 " From: debug.toml
 " Repo: puremourning/vimspector
 " Another: add/vimspector.vim
+" Another: source/vimspector.vim
+
 " Web: https://puremourning.github.io/vimspector-web/
 " Depends: https://github.com/Microsoft/vscode-cpptools
 " JSON: ~/.vimspector.json
 
-finish
+" Breakpoint
+sign define vimspectorBP text=b> texthl=Error
+" Disabled Breakpoint
+sign define vimspectorBPDisabled text=x> texthl=WarningMsg
+" sign define vimspectorBPCond text=C> texthl=Normal
+" Program Counter (Current line)
+sign define vimspectorPC text==> texthl=Search
 
-function! s:install_commands() abort
-  command! -bar Continue     :call vimspector#Continue()
-  command! -bar Pause        :call vimspector#Pause()
-  command! -bar Restart      :call vimspector#Restart()
-  command! -bar Stop         :call vimspector#Stop()
-  command! -bar StopAndClose :call vimspector#Reset()
+" Note: Vimspector only defines <Plug>VimspectorContinue (has no command).
+nnoremap <F5> :<C-u>VimspectorContinue<CR>
+inoremap <F5> <Esc>:<C-u>VimspectorContinue<CR>
 
-  command! -bar StepOver :call vimspector#StepOver()
-  command! -bar StepInto :call vimspector#StepInto()
-  " exec until current function is done
-  command! -bar StepOut  :call vimspector#StepOut()
-
-  command! -bar BreakpointToggle
-        \ :call vimspector#ToggleBreakpoint()
-  command! -bar BreakpointAddFunction
-        \ :call vimspector#AddFunctionBreakpoint(expand('<cexpr>'))
-
-  " watch the specified variable
-  command! -bar -nargs=? -complete=custom,vimspector#CompleteExpr
-        \ Watch
-        \ :call s:vimspector_wrapper('AddWatch', <f-args>)
-  command! -bar -nargs=? -complete=custom,vimspector#CompleteExpr
-        \ Evaluate
-        \ :call s:vimspector_wrapper('Evaluate', <f-args>)
-  command! -bar -nargs=? -complete=custom,vimspector#CompleteOutput
-        \ ShowOutput
-        \ :call s:vimspector_wrapper('ShowOutput', <f-args>)
-endfunction
-
-function! s:delete_commands() abort
-  delcommand Continue
-  delcommand Pause
-  delcommand Restart
-  delcommand Stop
-  delcommand StopAndClose
-
-  delcommand StepOver
-  delcommand StepInto
-  delcommand StepOut
-
-  delcommand BreakpointToggle
-  delcommand BreakpointAddFunction
-
-  delcommand Watch
-  delcommand Evaluate
-  delcommand ShowOutput
-endfunction
-
-function! s:vimspector_wrapper(func, ...) abort
-  if empty(get(a:, '000'))
-    let args = expand('<cexpr>')
-  else
-    let args = a:1
-  endif
-
-  call {'vimspector#'. a:func}(args)
-endfunction
+imap <F5>     <Esc><Plug>VimspectorContinue
+imap <S-F5>   <Esc><Plug>VimspectorStop
+imap <C-S-F5> <Esc><Plug>VimspectorRestart
+imap <F6>     <Esc><Plug>VimspectorPause
+imap <F9>     <Esc><Plug>VimspectorToggleBreakpoint
+imap <S-F9>   <Esc><Plug>VimspectorAddFunctionBreakpoint
+imap <F10>    <Esc><Plug>VimspectorStepOver
+imap <F11>    <Esc><Plug>VimspectorStepInto
+imap <S-F11>  <Esc><Plug>VimspectorStepOut
