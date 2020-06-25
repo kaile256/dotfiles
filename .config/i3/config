@@ -610,7 +610,7 @@ $release $Super+C $noid kitty; $notify " Kitty "
 #bindsym Ctrl+bracketleft mode default
 #}
 
-# Mode; Browser {{{2
+# Browser {{{2
 bindsym $Super+grave      $noid alacritty --title termporal --config-file $XDG_CONFIG_HOME/alacritty/center.yml -e fzf-qutebrowser-bookmarks qutebrowser
 bindsym $Super+apostrophe $noid alacritty --title termporal --config-file $XDG_CONFIG_HOME/alacritty/center.yml -e fzf-qutebrowser-bookmarks qutebrowser
 set $Browser " Browser: (S)ervo (V)ivaldi (F)irefox (C)hrome (Q)utebrowser "
@@ -654,7 +654,7 @@ bindsym bracketleft      mode default
 bindsym Ctrl+bracketleft mode default
 }
 
-# Mode; Vim {{{2
+# Vim {{{2
 set $Vim " Vim: (X)term (U)rxvt (A)lacritty "
 $release $Super+V mode $Vim; $shortmsg 'Vim: backends'
 $release $Super+g $noid gvim
@@ -673,7 +673,7 @@ bindsym bracketleft      mode default
 bindsym Ctrl+bracketleft mode default
 }
 
-# Mode; Neovim {{{2
+# Neovim {{{2
 set $Neovim " Neovim: (Q)t (E)ovim (G)o (R)ust g(L)rnvim | (A)lacritty "
 $release $Super+N mode $Neovim; $shortmsg 'Neovim: backends'
 
@@ -693,7 +693,7 @@ bindsym bracketleft      mode default
 bindsym Ctrl+bracketleft mode default
 }
 
-# Mode; Editor {{{2
+# Editor {{{2
 set $Editor " Editor: (C)ode (E)macs (V)im (N)eovim | (G)imp (P)inta "
 
 $release $Super+E mode $Editor; $shortmsg 'Editors'
