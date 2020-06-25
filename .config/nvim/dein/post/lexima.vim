@@ -178,9 +178,9 @@ let g:lexima#default_rules += [
 " modify g:lexima#space_rules into default_rule because of
 " g:lexima_enable_space_rules
 let g:lexima#default_rules += [
-      \ {'char': '<Space>', 'at': '(\%#)', 'input_after': '<Space>'},
-      \ {'char': '<Space>', 'at': '{\%#}', 'input_after': '<Space>'},
-      \ {'char': '<Space>', 'at': '\[\%#]', 'input_after': '<Space>'},
+      \ {'char': '<Space>', 'at': '(\%#)',     'input_after': '<Space>'},
+      \ {'char': '<Space>', 'at': '{\%#}',     'input_after': '<Space>'},
+      \ {'char': '<Space>', 'at': '\[\%#]',    'input_after': '<Space>'},
       \ {'char': '<Space>', 'at': '/\*\%#\*/', 'input_after': '<Space>'},
       \ ]
 
