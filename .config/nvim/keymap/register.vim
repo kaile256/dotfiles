@@ -7,10 +7,14 @@
 "  au BufWinEnter,WinEnter,InsertLeave * silent! setl paste
 "augroup END
 
-" Indent Adjustment
-"nnoremap p p`]
-nnoremap p ]p`]
+" nnoremap p p`]
+" nnoremap p ]p`]
 nnoremap P ]P
+
+nnoremap <SID>(xp-repeatable) :<C-u>call repeat#set(":undojoin\<lt>CR>\"_xp")<CR>
+nmap <expr><silent> p
+      \ ((@" ==# @-) ? '<SID>(xp-repeatable)' : '')
+      \ .']p`]'
 
 " Command-Line Register {{{1
 cnoremap <c-r><c-;> <c-r>:
