@@ -32,7 +32,7 @@ function! s:debug_start() abort
   call s:setup_symlink()
   call vimspector#Continue()
 
-  call s:set_options()
+  windo call s:set_options()
   windo call s:mappings()
 endfunction
 
@@ -101,8 +101,13 @@ function! s:mappings() abort
 endfunction
 
 function! s:set_options() abort
-  let console_winnr = bufwinnr('Console')
-  exe console_winnr 'windo setlocal nonumber colorcolumn= ft=vimspector'
+  if @% ==# 'vimspector.Console'
+    setlocal nonumber colorcolumn= ft=vimspector
+  endif
+
+  if &ft =~# '\|vimspector'  | return | endif
+
+  setlocal wrap nofoldenable
 
   " augroup myVimspector-autoReset
   "   au!
