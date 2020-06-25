@@ -13,6 +13,8 @@ scriptencoding utf-8
 " currently, '\\\ze[\/]' turns out '\ze[/]'.
 noremap! <expr> <SID>(paste-literal)
       \ substitute(substitute(@/, '^\\[mv]\c', '', ''), '\\\ze[\/]', '', 'g')
+tnoremap <expr> <SID>(paste-literal)
+      \ substitute(substitute(@/, '^\\[mv]\c', '', ''), '\\\ze[\/]', 'g', '')
 tnoremap <script> <c-r>/     <SID>(paste-literal)
 noremap! <script> <c-r>/     <SID>(paste-literal)
 tnoremap <script> <c-r>/     <SID>(paste-literal)
