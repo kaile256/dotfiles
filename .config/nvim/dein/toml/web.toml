@@ -135,6 +135,12 @@ go build
 mv edit-slack ../edit-slack.vim/edit-slack
 '''
 
+#[ Gist ]
+[[plugins]]
+repo = 'mattn/gist-vim'
+on_cmd = 'Gist'
+hook_source = 'runtime source/gist.vim'
+
 #[ AtCoder ]
 [[plugins]]
 repo = 'ka-tsu-mo/at-vim-coder'

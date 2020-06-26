@@ -15,10 +15,6 @@
 #on_cmd = ['Scratch']
 #on_map = {nx = '<Plug>(scratch-'}
 
-[[plugins]]
-repo = 'mattn/gist-vim'
-on_cmd =  ['Gist']
-hook_source = 'runtime source/gist.vim'
 #[ Table-Mode ]
 [[plugins]]
 repo = 'dhruvasagar/vim-table-mode'
