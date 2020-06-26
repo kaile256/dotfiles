@@ -1,11 +1,12 @@
 # From: dein/dein.vim
 
-#[[plugins]]
-#repo = 'reedes/vim-pencil'
-## auto format upon &tw
-#on_func = ['pencil#']
-#on_cmd  = ['Pencil']
-#hook_add = 'runtime add/pencil.vim'
+# [[plugins]]
+# repo = 'reedes/vim-pencil'
+# # auto format upon &tw
+# on_func = 'pencil#'
+# on_cmd  = 'Pencil'
+# hook_add = 'runtime add/pencil.vim'
+# hook_source = 'runtime source/pencil.vim'
 #
 #[ Template ]
 #[[plugins]]
@@ -61,15 +62,14 @@ hook_source = 'runtime source/neosnippet.vim'
 #[ Snippets; Contents ]
 [[plugins]]
 repo = 'Shougo/neosnippet-snippets'
-on_source = ['neosnippet.vim']
-
+on_source = 'neosnippet.vim'
 [[plugins]]
 repo = 'honza/vim-snippets'
 # originally, snippets for snipmate
 on_source = ['ultisnips', 'neosnippet.vim']
 [[plugins]]
 repo = 'gillescastel/latex-snippets'
-on_ft = ['tex']
+on_ft = 'tex'
 [[plugins]]
 repo = 'epilande/vim-react-snippets'
 on_ft = ['javascript']
