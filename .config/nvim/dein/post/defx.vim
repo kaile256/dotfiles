@@ -118,19 +118,17 @@ function! s:defx_keymaps() abort "{{{1
         \ defx#do_action('new_file')
   " Explore; Sort {{{3
   nnoremap <silent><nowait><buffer><expr> st
-        \ defx#do_action('toggle_sort', 'time')
+        \ defx#do_action('multi', ['toggle_sort', 'time', 'redraw'])
   nnoremap <silent><nowait><buffer><expr> ss
-        \ defx#do_action('toggle_sort', 'size')
+        \ defx#do_action('multi', ['toggle_sort', 'size', 'redraw'])
   nnoremap <silent><nowait><buffer><expr> sz
-        \ defx#do_action('toggle_sort', 'size')
-  nnoremap <silent><nowait><buffer><expr> se
-        \ defx#do_action('toggle_sort', 'extention')
+        \ defx#do_action('multi', ['toggle_sort', 'size', 'redraw'])
   nnoremap <silent><nowait><buffer><expr> sx
-        \ defx#do_action('toggle_sort', 'extention')
+        \ defx#do_action('multi', ['toggle_sort', 'extention', 'redraw'])
   nnoremap <silent><nowait><buffer><expr> sf
-        \ defx#do_action('toggle_sort', 'filename')
+        \ defx#do_action('multi', ['toggle_sort', 'filename', 'redraw'])
   nnoremap <silent><nowait><buffer><expr> sn
-        \ defx#do_action('toggle_sort', 'filename')
+        \ defx#do_action('multi', ['toggle_sort', 'filename', 'redraw'])
   "nnoremap <silent><nowait><buffer><expr> C
   "      \ defx#do_action('toggle_columns',
   "      \                'mark:indent:icon:filename:type:size:time')
@@ -320,7 +318,9 @@ function! s:defx_keymaps() abort "{{{1
   nnoremap <silent><nowait><buffer><expr> .
         \ defx#do_action('repeat')
   " Git "{{{2
-  nmap <silent><nowait><buffer> ga <Plug>(defx-git-stage)
+  nmap <silent><nowait><buffer> >> <Plug>(defx-git-stage)
+  nmap <silent><nowait><buffer> << <Plug>(defx-git-reset)
+  " nmap <silent><nowait><buffer> << <Plug>(defx-git-discard)
   "}}}
 endfunction
 
