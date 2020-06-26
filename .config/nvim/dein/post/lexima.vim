@@ -88,9 +88,9 @@ let g:lexima#default_rules += [
       \ {'char': '[', 'at': '\\\%#', 'mode': 'i'},
       \ {'char': '{', 'at': '\\\%#', 'mode': 'i'},
       \
-      \ {'char': '(', 'input_after': ')', 'except': '\%#[^\]}) \t]', 'mode': 'i'},
-      \ {'char': '[', 'input_after': ']', 'except': '\%#[^\]}) \t]', 'mode': 'i'},
-      \ {'char': '{', 'input_after': '}', 'except': '\%#[^\]}) \t]', 'mode': 'i'},
+      \ {'char': '(', 'input_after': ')', 'except': '\%#[^\]})''"` \t]', 'mode': 'i'},
+      \ {'char': '[', 'input_after': ']', 'except': '\%#[^\]})''"` \t]', 'mode': 'i'},
+      \ {'char': '{', 'input_after': '}', 'except': '\%#[^\]})''"` \t]', 'mode': 'i'},
       \
       \ {'char': '(', 'at': '\%#[,.;:]', 'input_after': ')', 'mode': 'i'},
       \ {'char': '[', 'at': '\%#[,.;:]', 'input_after': ']', 'mode': 'i'},
