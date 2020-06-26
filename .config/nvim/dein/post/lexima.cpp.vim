@@ -7,8 +7,10 @@ let s:key2rules[';'] = [
       \ ]
 
 let s:key2rules['{'] = [
-      \ {'input_after': '};', 'except': 'template <.*\%#',
-      \     'at': '\v<struct|return|class> .*\%#'},
+      \ {'input_after': '};',
+      \     'at': '\v<(struct|return|class)> .*\%#',
+      \     'except': '\v(template <|;).*%#',
+      \ },
       \ ]
 
 let s:key2rules['<Space>'] = [
