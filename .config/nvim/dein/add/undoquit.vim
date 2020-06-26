@@ -75,7 +75,7 @@ function! undoquit#Tabonly(prefix_count, suffix_count, bang) abort
   " Note: {count} is *not* so free as built-in tabonly
 
   if tabpagenr('$') == 1
-    echo 'Already only one tab page'
+    echoerr 'E784: Cannot close lat tab page'
     return
   endif
 
