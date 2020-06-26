@@ -11,7 +11,7 @@
 " <Plug>(easymotion-s): the range is inside current screen.
 " <Plug>(easymotion-sl): the range is limited to current line.
 
-let s:cnt = {cnt -> cnt == 0 ? 2 : cnt}
+let s:cnt = {default -> v:count == 0 ? default : v:count}
 
 function! s:f(cnt, mode) abort
   let cnt = s:cnt(a:cnt)
@@ -33,21 +33,21 @@ function! s:T(cnt, mode) abort
   call EasyMotion#T(cnt, a:mode, 1)
 endfunction
 
-nnoremap <silent> <space>f :<C-u>call <SID>f(v:count, 0)<CR>
-onoremap <silent> <space>f :<C-u>call <SID>f(v:count, 0)<CR>
-xnoremap <silent> <space>f :<C-u>call <SID>f(v:count, 1)<CR>
+nnoremap <silent> <space>f :<C-u>call <SID>f(1, 0)<CR>
+onoremap <silent> <space>f :<C-u>call <SID>f(1, 0)<CR>
+xnoremap <silent> <space>f :<C-u>call <SID>f(1, 1)<CR>
 
-nnoremap <silent> <space>F :<C-u>call <SID>F(v:count, 0)<CR>
-onoremap <silent> <space>F :<C-u>call <SID>F(v:count, 0)<CR>
-xnoremap <silent> <space>F :<C-u>call <SID>F(v:count, 1)<CR>
+nnoremap <silent> <space>F :<C-u>call <SID>F(1, 0)<CR>
+onoremap <silent> <space>F :<C-u>call <SID>F(1, 0)<CR>
+xnoremap <silent> <space>F :<C-u>call <SID>F(1, 1)<CR>
 
-nnoremap <silent> <space>t :<C-u>call <SID>t(v:count, 0)<CR>
-onoremap <silent> <space>t :<C-u>call <SID>t(v:count, 0)<CR>
-xnoremap <silent> <space>t :<C-u>call <SID>t(v:count, 1)<CR>
+nnoremap <silent> <space>t :<C-u>call <SID>t(1, 0)<CR>
+onoremap <silent> <space>t :<C-u>call <SID>t(1, 0)<CR>
+xnoremap <silent> <space>t :<C-u>call <SID>t(1, 1)<CR>
 
-nnoremap <silent> <space>T :<C-u>call <SID>T(v:count, 0)<CR>
-onoremap <silent> <space>T :<C-u>call <SID>T(v:count, 0)<CR>
-xnoremap <silent> <space>T :<C-u>call <SID>T(v:count, 1)<CR>
+nnoremap <silent> <space>T :<C-u>call <SID>T(1, 0)<CR>
+onoremap <silent> <space>T :<C-u>call <SID>T(1, 0)<CR>
+xnoremap <silent> <space>T :<C-u>call <SID>T(1, 1)<CR>
 
 " Keymap; ft;,
 "map f <Plug>(easymotion-f)
