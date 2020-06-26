@@ -98,9 +98,9 @@ let g:lexima#default_rules += [
       \ ]
 
 " parentheses to close
-" FIXME: ')' in command line works as {'leave': 1} when the cursor is before ')'
+" FIXME: ')' in command line works as {'leave': 1} wherever cursor is before ')'
 let g:lexima#default_rules += [
-      \ {'char': ')', 'at': '\%#)', 'leave': 1},
+      \ {'char': ')', 'at': '\%#)', 'leave': 1, 'mode': 'i'},
       \ {'char': ']', 'at': '\%#]', 'leave': 1},
       \ {'char': '}', 'at': '\%#}', 'leave': 1},
       \ ]
