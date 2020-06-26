@@ -12,6 +12,12 @@ augroup myCoc-Keywordprg
   au BufWinEnter coc-settings.json setlocal keywordprg=:help
 augroup END
 
+function! s:CommandList(...) abort
+  let list = coc#rpc#request('CommandList', a:000)
+  return join(list, "\n")
+endfunction
+command! -nargs=* -complete=custom,s:CommandList -range Coc :CocCommand
+
 " " Note: <c-o> in coc's cmdline get to normal mode of coc.nvim
 nmap <silent><expr> <C-w>w     coc#util#has_float() ? "\<Plug>(coc-float-jump)" : '<C-w>w'
 nmap <silent><expr> <C-w><C-w> coc#util#has_float() ? "\<Plug>(coc-float-jump)" : '<C-w><C-w>'
