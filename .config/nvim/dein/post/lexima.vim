@@ -117,9 +117,9 @@ unlet s:block_start s:Insert_paren
 let s:Let_it_double = '\w\%#\|\%#\w'
 
 let g:lexima#default_rules += [
-      \ {'char': "'", 'except': s:Let_it_double, 'input_after': "'"},
-      \ {'char': '"', 'except': s:Let_it_double, 'input_after': '"'},
-      \ {'char': '`', 'except': s:Let_it_double, 'input_after': '`'},
+      \ {'char': "'", 'except': s:Let_it_double, 'input_after': "'", 'mode': 'i'},
+      \ {'char': '"', 'except': s:Let_it_double, 'input_after': '"', 'mode': 'i'},
+      \ {'char': '`', 'except': s:Let_it_double, 'input_after': '`', 'mode': 'i'},
       \
       \ {'char': "'", 'at': '\\\%#'},
       \ {'char': "'", 'at': '\w\%#''\@!'},
