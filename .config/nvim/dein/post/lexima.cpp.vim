@@ -21,8 +21,8 @@ let s:key2rules['<Space>'] = [
       \ {'input': ' >> ',  'at': 'cin\%#'},
       \ {'input': ' << ', 'at': 'cout\%#'},
       \
-      \ {'input': ' >> ',  'at': 'cin.*[^> ]\+\%#', 'except': '\%#[^;]\+'},
-      \ {'input': ' << ', 'at': 'cout.*[^< ]\+\%#', 'except': '\%#[^;]\+'},
+      \ {'input': ' >> ',  'at': 'cin.*[^> ]\+\%#', 'except': '\v(;.*%#|%#.*[^;\]\)])'},
+      \ {'input': ' << ', 'at': 'cout.*[^< ]\+\%#', 'except': '\v(;.*%#|%#.*[^;\]\)])'},
       \
       \ {'input': ' (', 'input_after': ')',
       \     'at': '\(if\|for\|while\)\%#',
