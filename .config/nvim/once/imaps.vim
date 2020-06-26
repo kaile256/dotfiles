@@ -1,6 +1,49 @@
 scriptencoding utf-8
 " From: init.vim
 
+inoremap <C-f> <C-g>U<Right>
+inoremap <C-b> <C-g>U<Left>
+
+function! s:jump_back(char) abort
+  if search(a:char, 'bW')
+    call feedkeys('i', 'n')
+  else
+    call feedkeys('gi', 'n')
+  endif
+endfunction
+
+function! s:jump_out(char) abort
+  if search(a:char, 'W')
+    " let next_sequence = getline('.')[col('.'):]
+
+    " if next_sequence ==# ''
+    "   let chars = "\<space>"
+
+    " elseif next_sequence =~# '^\s'
+    "   let chars = "\<C-g>U\<Right>"
+    "   if next_sequence[1:] !=# ''
+    "     let chars = "\<C-g>U\<Right>\<space>\<C-g>U\<Left>"
+    "   endif
+
+    " else
+    "   let chars = "\<space>"
+    " endif
+
+    call feedkeys('a', 'n')
+    " call feedkeys('a'. chars, 'n')
+  else
+    call feedkeys('gi', 'n')
+  endif
+endfunction
+
+inoremap <silent> <C-(>   <Esc>:call <SID>jump_back('[[({]') <CR>
+" " doesn't matter to map to <Esc>?
+" inoremap <silent> <C-[>   <Esc>:call <SID>jump_back('[') <CR>
+" inoremap <silent> <C-S-[> <Esc>:call <SID>jump_back('{') <CR>
+
+inoremap <silent> <C-)>   <Esc>:call <SID>jump_out('[\])}]') <CR>
+inoremap <silent> <C-]>   <Esc>:call <SID>jump_out('[\])}]') <CR>
+
 " as default, <F1> do `:help`
 inoremap <F1> <Nop>
 
