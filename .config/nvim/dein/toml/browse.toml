@@ -105,7 +105,6 @@ lazy = 0
 
 [[plugins]]
 repo = 'kristijanhusak/defx-icons'
-if = '$TERM =~# "kitty"'
 on_source = 'defx.nvim'
 hook_source = 'runtime source/defx-icons.vim'
 
