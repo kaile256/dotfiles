@@ -232,36 +232,57 @@
     "*": "toggleSelection",
     "<tab>": "actionMenu",
 
-    "h": "collapse",
-    "l": "expand",
-    "J": ["toggleSelection", "normal:j"],
-    "K": ["toggleSelection", "normal:k"],
-    "gl": "expandRecursive",
-    "gh": "collapseRecursive",
-    "o": "expandOrCollapse",
-    "<cr>": "open",
-    "e": "open",
+    "zo": "expand",
+    "zO": "expand:recursive",
+    "zc": "collapse",
+    "zC": "collapse:recursive",
+    "za": ["expanded?", "collapse", "expand"],
+    "zA": ["expanded?", "collapse:recursive", "expand:recursive"],
+
+    "zU": "expand:compact",
+
+    "zr": "expand:recursive",
+    "zm": "collapse:recursive",
+
+    "h": "gotoParent",
+    "l": "open",
+
+    "+": ["toggleSelection", "normal:j"],
+    "-": ["toggleSelection", "normal:k"],
+
+    "J": "normal:J",
+    "K": "normal:K",
+
+    "<CR>": "open:previousWindow",
+    "<C-j>": "open:previousWindow",
+
+    "o": "open:split:intelligent",
+    "O": "open:vsplit",
+    "gO": "open:tab",
+
     "E": "openInVsplit",
     "t": "openInTab",
     "<bs>": "gotoParent",
 
-    "y": "copyFilepath",
-    "Y": "copyFilename",
+    "y": "copyFilepath", // to clipboard
+    "Y": "copyFilename", // to clipboard
+
     "c": "copyFile",
     "x": "cutFile",
     "p": "pasteFile",
-    "d": "delete",
-    "D": "deleteForever",
 
-    "a": "addFile",
-    "A": "addDirectory",
+    "D": "delete",
+    "gD": "deleteForever",
+
+    "%": "addFile",
+    "d": "addDirectory",
     "r": "rename",
 
     ".": "toggleHidden",
-    "R": "refresh",
+    "<C-r>": "refresh",
+    "<Esc>": "esc",
 
     "?": "help",
-    "q": "quit",
     "X": "systemExecute",
     "gd": "listDrive",
 
@@ -279,8 +300,8 @@
 
     "[c": "gitPrev",
     "]c": "gitNext",
-    "<<": "gitStage",
-    ">>": "gitUnstage"
+    ">>": "gitStage",
+    "<<": "gitUnstage"
   },
 
   // false: update only on saving buffer.
