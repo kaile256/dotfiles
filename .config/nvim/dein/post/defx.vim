@@ -98,8 +98,8 @@ function! s:defx_keymaps() abort "{{{1
         \ .':echo "cd" expand("<cfile>:p:h")<CR>'
         "\ . `:echo 'cd' ` . getcwd()
   " Explore; netrw-like {{{3
-  nnoremap <silent><nowait><buffer><expr> -
-        \ defx#do_action('cd', ['..'])
+  " nnoremap <silent><nowait><buffer><expr> -
+  "       \ defx#do_action('cd', ['..'])
   nnoremap <silent><nowait><buffer><expr> D
         \ getcwd() =~# '^'. $XDG_DATA_HOME .'/Trash/' ?
         \ defx#do_action('remove') :
@@ -311,10 +311,10 @@ function! s:defx_keymaps() abort "{{{1
         \ defx#do_action('toggle_columns',
         \                'mark:indent:git:icons:filename')
   " Resize; {{{3
-  nnoremap <silent><nowait><buffer><expr> >
+  nnoremap <silent><nowait><buffer><expr> +
         \ defx#do_action('resize',
         \ defx#get_context().winwidth + 10)
-  nnoremap <silent><nowait><buffer><expr> <
+  nnoremap <silent><nowait><buffer><expr> -
         \ defx#do_action('resize',
         \ defx#get_context().winwidth - 10)
   nnoremap <silent><nowait><buffer><expr> .
