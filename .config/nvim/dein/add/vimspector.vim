@@ -98,6 +98,8 @@ function! s:mappings() abort
 endfunction
 
 function! s:set_options() abort
+  setlocal nofoldenable
+
   if @% ==# 'vimspector.Console'
     setlocal nonumber colorcolumn= ft=vimspector
   endif
