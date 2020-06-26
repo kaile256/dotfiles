@@ -110,13 +110,11 @@ on_ft = ['html', 'xml', 'jsx']
 #on_event = ['InsertEnter']
 [[plugins]]
 repo = 'cohama/lexima.vim'
-on_func = ['lexima#']
-hook_add = 'runtime add/lexima.vim'
+on_event = ['InsertEnter', 'CmdlineEnter']
+# on_func = 'lexima#'
+# hook_add = 'runtime add/lexima.vim'
 hook_source = 'runtime source/lexima.vim'
-hook_post_source = '''
-runtime post/lexima.vim
-" runtime post/lexima.clever-newline.vim
-'''
+hook_post_source = 'runtime post/lexima.vim'
 #[[plugins]]
 #repo = 'mattn/vim-lexiv'
 ## seems WIP
