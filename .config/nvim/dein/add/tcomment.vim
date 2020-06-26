@@ -3,7 +3,6 @@
 
 let g:tcomment_maps = 0
 
-" Mnemonic: Explanation
-nmap <silent> \e  <Plug>TComment_gc
-xmap <silent> \e  <Plug>TComment_gc
-nmap <silent> \ee <Plug>TComment_gcc
+nmap <silent> \z  <Plug>TComment_gc
+xmap <silent> \z  <Plug>TComment_gc
+nmap <silent> \zz <Plug>TComment_gcc
