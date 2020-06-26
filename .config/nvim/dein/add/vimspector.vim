@@ -70,8 +70,6 @@ function! s:setup_symlink() abort
 endfunction
 
 function! s:mappings() abort
-  nmap <buffer> <F1> :<C-u>VimspectorReset<CR>
-
   nnoremap <buffer><expr> mw vimspector#AddWatch()
   nnoremap <buffer><expr> mW vimspector#DeleteWatch()
 

@@ -15,6 +15,8 @@ sign define vimspectorBPDisabled text=x> texthl=WarningMsg
 " Program Counter (Current line)
 sign define vimspectorPC text==> texthl=Search
 
+nnoremap <F4> :<C-u>VimspectorReset<CR>
+
 " Note: Vimspector only defines <Plug>VimspectorContinue (has no command).
 nnoremap <F5> :<C-u>VimspectorContinue<CR>
 inoremap <F5> <Esc>:<C-u>VimspectorContinue<CR>
