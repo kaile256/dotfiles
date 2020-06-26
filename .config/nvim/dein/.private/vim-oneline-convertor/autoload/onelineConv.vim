@@ -13,6 +13,10 @@ endfunction
 function! onelineConv#shscript(reg, ...) abort
   " especially for Bash script
   let text = getreg(a:reg)
+  if getline('.') ==# ''
+    " Regard termianl is waiting for stdin here; therefore, execute it.
+    return text ."\n"
+  endif
 
   let sep = a:0 > 0 ? a:1 : s:set_separator(a:reg)
   let no_newline = s:join_newlines(text, sep)
