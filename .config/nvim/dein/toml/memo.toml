@@ -1,6 +1,19 @@
 # From: dein/dein.vim
 
+#[ Org Mode ]
+# [[plugins]]
+# repo = 'jceb/vim-orgmode'
+# on_path = 'org$'
+# hook_post_source = 'runtime add/orgmode.vim'
+# [[plugins]]
+# repo = 'dhruvasagar/vim-dotoo'
+# on_path = 'dotoo$'
+#
 #[ Task Management ]
+# [[plugins]]
+# repo = 'https://gitlab.com/igrep/text_kanban.vim'
+# on_cmd = 'TextKanbanOpenBoard'
+# on_func = 'text_kanban#open_board'
 #[[plugins]]
 #repo = 'vitalk/vim-simple-todo'
 ## just create mappings which produce a list inserting "[ ]" and so on.
@@ -38,14 +51,12 @@ hook_source = 'runtime source/table-mode.vim'
 ##on_event = 'VimEnter'
 ##hook_add = 'runtime add/vimwiki.vim'
 ##hook_source = 'runtime source/vimwiki.vim'
-
 #[[plugins]]
 #repo = 'tbabej/taskwiki'
 #if = 'executable("task")'
 #on_source = 'vimwiki'
 #hook_post_update = '!pip install --user --upgrade -r requirements.txt'
 #hook_source = 'runtime add/taskwiki.vim'
-
 #[[plugins]]
 #repo = 'powerman/vim-plugin-AnsiEsc'
 ## Provides Color support on chart of taskwiki.
@@ -53,6 +64,7 @@ hook_source = 'runtime source/table-mode.vim'
 #on_cmd = ['TaskWiki']
 #hook_post_source = 'runtime add/AnsiEsc.vim'
 
+#[ Task Worrior ]
 #[[plugins]]
 #repo = 'blindFS/vim-taskwarrior'
 ## enables grid-view on taskwiki.
@@ -60,12 +72,6 @@ hook_source = 'runtime source/table-mode.vim'
 #on_cmd = ['TW']
 #on_map = {nx = '<Plug>(taskwarrior'}
 #hook_post_source = 'runtime source/taskwarrior.vim'
-
-#[ Org Mode ]
-#[[plugins]]
-#repo = 'jceb/vim-orgmode'
-#on_ft = 'org'
-#hook_post_source = 'runtime add/orgmode.vim'
 
 #[[plugins]]
 #repo = 'vim-scripts/utl.vim'
