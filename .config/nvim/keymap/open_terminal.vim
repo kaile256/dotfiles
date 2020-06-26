@@ -32,7 +32,7 @@ if has('nvim')
   nnoremap <silent> <space>tv :<C-u>vs   <bar>   TermOpen<CR>
   nnoremap <silent> <space>ts :<C-u>sp   <bar>   TermOpen<CR>
   nnoremap <silent> <space>tt :<C-u>tabe <bar>   TermOpen<CR>
-  nnoremap <silent> <space>tS :<C-u>bot  sp<bar> TermOpen<CR>
+  nnoremap <silent> <space>tb :<C-u>bot  sp<bar> TermOpen<CR>
 else
   nnoremap <silent> <space>te :<C-u>TermOpen fish ++curwin<CR>
   nnoremap <silent> <space>tv :<C-u>vert TermOpen<CR>
