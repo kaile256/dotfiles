@@ -51,7 +51,6 @@ function! s:setup_symlink() abort
     return
   endif
 
-  let origin = substitute(config_file, '\\\zs\\', '', 'g')
   let path = fnamemodify(@%, ':p')
   if path =~# '^/tmp/'
     let dest = '/tmp'
