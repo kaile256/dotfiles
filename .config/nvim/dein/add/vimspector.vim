@@ -61,7 +61,7 @@ function! s:setup_symlink() abort
   endif
   let dest .= '/.vimspector.json'
 
-  if system('readlink '. dest) !=# config_file
+  if system('readlink '. dest) !=# config_file ."\n"
     echo 'Vimspector: Generating a symbolic link from' config_file .'...'
     let Setup_config = 'ln -sf '. config_file .' '. dest
     call system(Setup_config)
