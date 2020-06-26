@@ -84,10 +84,6 @@ hook_source = 'runtime source/clap.vim'
 #on_if = 'has("python3")'
 #hook_post_source = 'runtime add/vaffle.vim'
 
-#[[plugins]]
-#repo = 'justinmk/vim-dirvish'
-#on_event = 'BufAdd'
-#hook_post_source = 'runtime add/dirvish.vim'
 # [[plugins]]
 # repo = 'vifm/vifm.vim'
 # # an vifm interface for Vim
@@ -113,6 +109,21 @@ if = '$TERM =~# "kitty"'
 on_source = 'defx.nvim'
 hook_source = 'runtime source/defx-icons.vim'
 
+# #[ Filer.Dirvish ]
+# [[plugins]]
+# repo = 'justinmk/vim-dirvish'
+# on_cmd = 'Dirvish'
+# hook_post_source = 'runtime add/dirvish.vim'
+# [[plugins]]
+# repo = 'bounceme/remote-viewer'
+# on_path = ['^ssh://', '^ftp://']
+# [[plugins]]
+# repo = 'kristijanhusak/vim-dirvish-git'
+# on_source = 'vim-dirvish'
+# [[plugins]]
+# repo = 'fsharpasharp/vim-dirvinist'
+# on_source = 'vim-dirvish'
+#
 ##[ Ranger ]
 #[[plugins]]
 #repo = 'Lokaltog/neoranger'
