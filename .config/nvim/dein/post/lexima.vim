@@ -84,17 +84,17 @@ else
 endif
 
 let g:lexima#default_rules += [
-      \ {'char': '(', 'at': '\\\%#'},
-      \ {'char': '[', 'at': '\\\%#'},
-      \ {'char': '{', 'at': '\\\%#'},
+      \ {'char': '(', 'at': '\\\%#', 'mode': 'i'},
+      \ {'char': '[', 'at': '\\\%#', 'mode': 'i'},
+      \ {'char': '{', 'at': '\\\%#', 'mode': 'i'},
       \
-      \ {'char': '(', 'input_after': ')', 'except': '\%#[^\]}) \t]'},
-      \ {'char': '[', 'input_after': ']', 'except': '\%#[^\]}) \t]'},
-      \ {'char': '{', 'input_after': '}', 'except': '\%#[^\]}) \t]'},
+      \ {'char': '(', 'input_after': ')', 'except': '\%#[^\]}) \t]', 'mode': 'i'},
+      \ {'char': '[', 'input_after': ']', 'except': '\%#[^\]}) \t]', 'mode': 'i'},
+      \ {'char': '{', 'input_after': '}', 'except': '\%#[^\]}) \t]', 'mode': 'i'},
       \
-      \ {'char': '(', 'at': '\%#[,.;:]', 'input_after': ')'},
-      \ {'char': '[', 'at': '\%#[,.;:]', 'input_after': ']'},
-      \ {'char': '{', 'at': '\%#[,.;:]', 'input_after': '}'},
+      \ {'char': '(', 'at': '\%#[,.;:]', 'input_after': ')', 'mode': 'i'},
+      \ {'char': '[', 'at': '\%#[,.;:]', 'input_after': ']', 'mode': 'i'},
+      \ {'char': '{', 'at': '\%#[,.;:]', 'input_after': '}', 'mode': 'i'},
       \ ]
 
 " parentheses to close
