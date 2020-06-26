@@ -101,12 +101,12 @@ function! s:set_options() abort
   setlocal nofoldenable
 
   if @% ==# 'vimspector.Console'
-    setlocal nonumber colorcolumn= ft=vimspector
+    setlocal nonumber ft=vimspector
   endif
 
   if &bt ==# ''  | return | endif
 
-  setlocal wrap nofoldenable
+  setlocal wrap colorcolumn=
 
   " augroup myVimspector-autoReset
   "   au!
