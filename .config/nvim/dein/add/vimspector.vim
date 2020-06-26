@@ -81,7 +81,7 @@ function! s:mappings() abort
   nnoremap <buffer> mt :<C-u>call vimspector#ShowOutput('server')<CR>
   nnoremap <buffer> mc :<C-u>call vimspector#ShowOutput('Console')<CR>
 
-  if &ft !~# '\|vimspector'  | return | endif
+  if &bt ==# ''  | return | endif
 
   nmap <buffer> R :<C-u>VimspectorReset<CR>
 
@@ -104,7 +104,7 @@ function! s:set_options() abort
     setlocal nonumber colorcolumn= ft=vimspector
   endif
 
-  if &ft =~# '\|vimspector'  | return | endif
+  if &bt ==# ''  | return | endif
 
   setlocal wrap nofoldenable
 
