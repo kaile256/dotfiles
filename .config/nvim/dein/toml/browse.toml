@@ -169,13 +169,13 @@ hook_source = 'runtime source/defx-icons.vim'
 #[[plugins]]
 #repo = 'skywind3000/gutentags_plus'
 #on_cmd = 'GscopeFind'
-[[plugins]]
-repo = 'jsfaint/gen_tags.vim'
-# Override &cscopeprg.
-if = 'executable("gtags") || executable("ctags")'
-on_event = ['BufWritePost']
-hook_source = 'runtime source/gen_tags.vim'
-
+# [[plugins]]
+# repo = 'jsfaint/gen_tags.vim'
+# # Override &cscopeprg.
+# if = 'executable("gtags") || executable("ctags")'
+# on_cmd = 'GenGTAGS'
+# hook_source = 'runtime source/gen_tags.vim'
+#
 #[[plugins]]
 #repo = 'SpaceVim/gtags.vim'
 ## Only for SpaceVim? E117: Unknown function: gtags#update
