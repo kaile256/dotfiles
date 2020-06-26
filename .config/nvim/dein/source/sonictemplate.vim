@@ -4,7 +4,7 @@
 " Else: data/sonictemplate
 
 let g:sonictemplate_vim_template_dir = [
-      \ expand('$XDG_CONFIG_HOME/nvim/data/sonictemplate'),
+      \ expand('$VIM_ANOTHER_HOME/sonictemplate'),
       \ ]
 
 " expand in {{_input_:var}}; when var is unset, prompt ask an input for it

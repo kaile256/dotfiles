@@ -1,4 +1,0 @@
-\(\S.*\)\p\%[rint]l\%[n]$
-  System.out.println({{$1}});
-  {{_cursor_}}
-

@@ -1,3 +1,9 @@
-  let g:sonictemplate_vim_template_dir = ['${HOME}/.config/nvim/template']
+" TOML: insert.toml
+" Repo: aperezdc/vim-template
+" Another: source/template.vim
 
-  nnoremap <space>tmp :Template 
+augroup myTemplate-autoStart
+  au!
+  au BufNewFile */atcoder/*.cpp :Template atcoder.cpp
+augroup END
+
