@@ -11,13 +11,13 @@ nmap <A-s><A-p> <A-s>p
 " " Note: <A-s><A-u> cannot be mapped!?
 " nnoremap <silent> <A-s><M-u> :<C-u>UltiSnipsEdit<cr>
 
-" imap <c-\> <Plug>(ultisnips-expand-or-jump)
-" nmap <c-\> <Plug>(ultisnips-expand-or-jump)
-" smap <c-\> <Plug>(ultisnips-expand-or-jump)
-" xmap <c-\> <Plug>(ultisnips-expand-or-jump)
+" Note: mappings of coc-snippets won't support some flags, regex and other features.
+inoremap <silent> <Plug>UltiSnipExpandOrJump <C-r>=UltiSnips#ExpandSnippetOrJump()<CR>
+snoremap <silent> <Plug>UltiSnipExpandOrJump <Esc>:call UltiSnips#ExpandSnippetOrJump()<CR>
+xnoremap <silent> <Plug>UltiSnipExpandOrJump  :call UltiSnips#SaveLastVisualSelection()<cr>gvs
+nnoremap <silent> <Plug>UltiSnipExpandOrJump <Esc>:call UltiSnips#ExpandSnippetOrJump()<CR>
 
-" inoremap <silent> <Plug>(ultisnips-expand-or-jump) <C-r>=UltiSnips#ExpandSnippetOrJump()<CR>
-" snoremap <silent> <Plug>(ultisnips-expand-or-jump) <Esc>:call UltiSnips#ExpandSnippetOrJump()<CR>
-" xnoremap <silent> <Plug>(ultisnips-expand-or-jump)  :call UltiSnips#SaveLastVisualSelection()<cr>gvs
-" nnoremap <silent> <Plug>(ultisnips-expand-or-jump) <Esc>:call UltiSnips#ExpandSnippetOrJump()<CR>
-
+imap <c-\> <Plug>UltiSnipExpandOrJump
+nmap <c-\> <Plug>UltiSnipExpandOrJump
+smap <c-\> <Plug>UltiSnipExpandOrJump
+xmap <c-\> <Plug>UltiSnipExpandOrJump
