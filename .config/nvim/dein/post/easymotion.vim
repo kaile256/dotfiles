@@ -3,12 +3,13 @@
 " Else: add/easymotion.vim
 " Else: source/easymotion.vim
 
-hi link EasyMotionTarget ErrorMsg
-hi link EasyMotionTarget2First ErrorMsg
-hi link EasyMotionTarget2Second ErrorMsg
-hi link EasyMotionShade Nontext
-hi link EasyMotionMoveHL ErrorMsg
-hi link EasyMotionIncSearch Search
+hi! link EasyMotionTarget        ErrorMsg
+hi! link EasyMotionTarget2First  ErrorMsg
+hi! link EasyMotionTarget2Second ErrorMsg
+
+hi! link EasyMotionShade     Comment
+hi! link EasyMotionMoveHL    ErrorMsg
+hi! link EasyMotionIncSearch Search
 
 " Enable '<' in easymotion
 EMCommandLineNoreMap <S-lt> <
