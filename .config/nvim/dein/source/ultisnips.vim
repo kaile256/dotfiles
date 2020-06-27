@@ -25,12 +25,10 @@ let g:UltiSnipsListSnippets = ''
 " Note: when g:UltiSnipsExpandTrigger == g:UltiSnipsJumpForwardTrigger, it
 " works as expand-or-jump mapping.
 let g:UltiSnipsExpandTrigger      = '<Nop>'
-let g:UltiSnipsJumpForwardTrigger = '<Nop>'
-"
-" Note: i_CTRL-F adjusts indent with no insertions where '!^F' in &cinkeys.
-" Note: behaves as no mappings unless snippets are in editing.
-let g:UltiSnipsJumpForwardTrigger  = '<Nop>'
-let g:UltiSnipsJumpBackwardTrigger = '<Nop>'
+" Note: The Jump-mappings only override keys while UltiSnips working.
+let g:UltiSnipsJumpForwardTrigger = '<C-]>'
+" Note: <Esc> stops working snippets, which often happens inconsiderately.
+let g:UltiSnipsJumpBackwardTrigger = '<C-[>'
 
 let g:UltiSnipsSnippetDirectories = [
       \ expand('$VIM_ANOTHER_HOME/UltiSnips'),
