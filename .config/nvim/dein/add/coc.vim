@@ -130,11 +130,19 @@ omap aM <Plug>(coc-classobj-a)
 " " interprets in Python.
 " " Help: $COC_DATA_HOME/extensions/node_modules/coc-snippets
 " " Note: it works without ultisnips itself.
-" "nmap <a-s><a-p> CocCommand snippets.editSnippets<cr>
-" " Trigger Just Snippets; <tab> to General Completion
-" imap <c-\> <Plug>(coc-snippets-expand)
-" vmap <c-\> <Plug>(coc-snippets-select)
-" imap <c-\> <Plug>(coc-snippets-expand-jump)
+
+xmap <c-\> <Plug>(coc-snippets-select)
+imap <c-\> <Plug>(coc-snippets-expand-jump)
+
+smap <expr> <C-\> coc#expandableOrJumpable()
+      \ ? '<Plug>(coc-snippets-expand-jump)'
+      \ : (coc#rpc#request('snippetNext', []) ? '' : '')
+
+augroup myCocSnippets
+  if exists('#myCocSnippets') | au! myCocSnippets
+  endif
+  au BufWritePost *.snippets call coc#refresh()
+augroup END
 
 " " Note: slower than UltiSnips' command, `:UltiSnipsEdit`.
 " nnoremap <silent> <a-s><a-p><a-e> :<C-u>CocCommand snippets.editSnippets<CR>
