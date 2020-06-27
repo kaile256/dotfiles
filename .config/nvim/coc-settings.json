@@ -25,15 +25,23 @@
   "signature.preferShownAbove": false,
   "signature.triggerSignatureWait": 300,
 
+  "refactor.openCommand": "tabe",
+  //"refactor.beforeContext": 5,
+  //"refactor.afterContext": 5,
+
+  "suggest.highPrioritySourceLimit": 100, // default: 90
+  // "suggest.numberSelect": true, // completion with numbers 0 to 9 to select
   "suggest.enablePreview": true,
+  "suggest.detailMaxLength": 20,
   "suggest.floatEnable": true,
-  "suggest.minTriggerInputLength": 0,
+  // "suggest.minTriggerInputLength": 1,
+  // "suggest.triggerAfterInsertEnter": true,
   "suggest.autoTrigger": "always",
-  "suggest.acceptSuggestionOnCommitCharacter": true,
   "suggest.noselect": true,
   "suggest.timeout": 500,
-  "suggest.triggerAfterInsertEnter": false,
+  "suggest.acceptSuggestionOnCommitCharacter": true,
   "suggest.triggerCompletionWait": 200,
+
   "suggest.completionItemKindLabels": {
     "keyword": "\uf1de",
     "variable": "\ue79b",
