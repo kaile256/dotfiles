@@ -209,7 +209,7 @@
   ],
 
   "cSpell.ignoreRegExpList": [
-    // Both '\s' and '\S' is invalid here.
+    // Note: Both '\s' and '\S' is invalid here.
 
     // Regexp
     "[^ \t]*([^\t])?",
