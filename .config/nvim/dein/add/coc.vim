@@ -150,11 +150,6 @@ augroup END
 " nnoremap <silent> <a-s><a-p><a-v> :<C-u>vs <bar> CocCommand snippets.editSnippets<CR>
 " nnoremap <silent> <a-s><a-p><a-t> :<C-u>tabe <bar> CocCommand snippets.editSnippets<CR>
 
-" nnoremap <silent> <a-s><a-p>e :<C-u>CocCommand snippets.editSnippets<CR>
-" nnoremap <silent> <a-s><a-p>s :<C-u>sp <bar> CocCommand snippets.editSnippets<CR>
-" nnoremap <silent> <a-s><a-p>v :<C-u>vs <bar> CocCommand snippets.editSnippets<CR>
-" nnoremap <silent> <a-s><a-p>t :<C-u>tabe <bar> CocCommand snippets.editSnippets<CR>
-
 " CocCodeAction {{{1
 "set equalprg=CocActionAsync('formatSelected')
 "set equalprg=CocActionAsync('codeLensAction')
