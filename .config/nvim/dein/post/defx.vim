@@ -295,14 +295,21 @@ function! s:defx_keymaps() abort "{{{1
   " Toggle; Hidden Files {{{3
   nnoremap <silent><nowait><buffer><expr> z.
         \ defx#do_action('toggle_ignored_files')
-  " fold Normal - all you need
-  nnoremap <silent><buffer><expr> zN
+
+  " Mnemonic: Full info
+  nnoremap <silent><buffer><expr> zf
         \ defx#do_action('toggle_columns',
         \                'mark:indent:git:icons:filename:type:size:time')
-  " fold None of unnecessary
-  nnoremap <silent><buffer><expr> zn
+  " Mnemonic: Delete info
+  nnoremap <silent><buffer><expr> zd
         \ defx#do_action('toggle_columns',
         \                'mark:indent:git:icons:filename')
+
+  " Mnemonic: None of extra chars to be concealed
+  nnoremap <silent><buffer> zn :<C-u>setlocal concealcursor=nv<CR>
+  " Mnemonic: Nothing are concealed
+  nnoremap <silent><buffer> zN :<C-u>setlocal concealcursor=<CR>
+
   " Resize; {{{3
   nnoremap <silent><nowait><buffer><expr> +
         \ defx#do_action('resize',
