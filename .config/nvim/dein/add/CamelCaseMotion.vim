@@ -25,8 +25,12 @@ sunmap q
 sunmap Q
 
 " Overwrite; Text Object
-" TODO: keep cursor
 omap iw <Plug>CamelCaseMotion_ie
 xmap iw <Plug>CamelCaseMotion_ie
-"omap ib <Plug>CamelCaseMotion_ib
-"xmap ib <Plug>CamelCaseMotion_ib
+
+omap <expr> aw search('\%#\a\+$', 'cnW')
+      \ ? '<Plug>CamelCaseMotion_ie'
+      \ : '<Plug>CamelCaseMotion_iw'
+xmap <expr> aw search('\%#\a\+$', 'cnW')
+      \ ? '<Plug>CamelCaseMotion_ie'
+      \ : '<Plug>CamelCaseMotion_iw'
