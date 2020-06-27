@@ -1,0 +1,122 @@
+" TOML: default.toml
+" Repo: inkarkat/vim-UnconditionalPaste
+" Another: source/UnconditionalPaste.vim
+
+" Note: UnconditionalPaste.vim has no xmap/vmap
+
+" Excerpt: imap
+"     Char, Comma, Unjoin, Escape, Queried, Inlined, Togglecase,
+"     RecallUnjoin, RecallEscape, RecallQueried,
+"     RecallCombinatorial, RecallQueriedJoined,
+"     CharCondensed, QueriedJoined,
+"     Combinatorial,
+
+imap <C-R><C-C>                <Plug>UnconditionalPasteCharI
+imap <C-R>,                    <Plug>UnconditionalPasteCommaI
+imap <C-R><C-U>                <Plug>UnconditionalPasteUnjoinI
+imap <C-R><C-\>                <Plug>UnconditionalPasteEscapeI
+imap <C-R><C-Q>                <Plug>UnconditionalPasteQueriedI
+imap <C-R><Tab>                <Plug>UnconditionalPasteInlinedI
+imap <C-R>~                    <Plug>UnconditionalPasteTogglecaseI
+imap <C-R><C-U><C-U>           <Plug>UnconditionalPasteRecallUnjoinI
+imap <C-R><C-\><C-\>           <Plug>UnconditionalPasteRecallEscapeI
+imap <C-R><C-C><C-C>           <Plug>UnconditionalPasteCharCondensedI
+imap <C-R><C-H>                <Plug>UnconditionalPasteCombinatorialI
+imap <C-R><C-Q><C-G>           <Plug>UnconditionalPasteQueriedJoinedI
+imap <C-R><C-Q><C-Q>           <Plug>UnconditionalPasteRecallQueriedI
+imap <C-R><C-H><C-H>           <Plug>UnconditionalPasteRecallCombinatorialI
+imap <C-R><C-Q><C-Q><C-G><C-G> <Plug>UnconditionalPasteRecallQueriedJoinedI
+
+" Excerpt: nmap
+"     After/Before
+nmap gcp  <Plug>UnconditionalPasteCharAfter
+nmap glp  <Plug>UnconditionalPasteLineAfter
+nmap gpp  <Plug>UnconditionalPastePlusAfter
+nmap grp  <Plug>UnconditionalPasteGrepAfter
+nmap g,p  <Plug>UnconditionalPasteCommaAfter
+nmap gPp  <Plug>UnconditionalPasteGPlusAfter
+nmap gbp  <Plug>UnconditionalPasteBlockAfter
+nmap gcP  <Plug>UnconditionalPasteCharBefore
+nmap glP  <Plug>UnconditionalPasteLineBefore
+nmap gpP  <Plug>UnconditionalPastePlusBefore
+nmap grP  <Plug>UnconditionalPasteGrepBefore
+nmap g,P  <Plug>UnconditionalPasteCommaBefore
+nmap gBp  <Plug>UnconditionalPasteJaggedAfter
+nmap gPP  <Plug>UnconditionalPasteGPlusBefore
+nmap g\p  <Plug>UnconditionalPasteEscapeAfter
+nmap gbP  <Plug>UnconditionalPasteBlockBefore
+nmap gsp  <Plug>UnconditionalPasteSpacedAfter
+nmap gujp <Plug>UnconditionalPasteUnjoinAfter
+nmap g,op <Plug>UnconditionalPasteCommaOrAfter
+nmap g>p  <Plug>UnconditionalPasteShiftedAfter
+nmap gBP  <Plug>UnconditionalPasteJaggedBefore
+nmap g\P  <Plug>UnconditionalPasteEscapeBefore
+nmap gcip <Plug>UnconditionalPasteInlinedAfter
+nmap gqp  <Plug>UnconditionalPasteQueriedAfter
+nmap gsP  <Plug>UnconditionalPasteSpacedBefore
+nmap gujP <Plug>UnconditionalPasteUnjoinBefore
+
+nmap g,ap <Plug>UnconditionalPasteCommaAndAfter
+nmap g,np <Plug>UnconditionalPasteCommaNorAfter
+nmap g,oP <Plug>UnconditionalPasteCommaOrBefore
+nmap g>P  <Plug>UnconditionalPasteShiftedBefore
+nmap g]p  <Plug>UnconditionalPasteIndentedAfter
+nmap gciP <Plug>UnconditionalPasteInlinedBefore
+nmap gqP  <Plug>UnconditionalPasteQueriedBefore
+nmap g#p  <Plug>UnconditionalPasteCommentedAfter
+nmap g,aP <Plug>UnconditionalPasteCommaAndBefore
+nmap g,nP <Plug>UnconditionalPasteCommaNorBefore
+nmap gUp  <Plug>UnconditionalPasteUppercaseAfter
+nmap g[P  <Plug>UnconditionalPasteIndentedBefore
+nmap g[p  <Plug>UnconditionalPasteIndentedBefore
+nmap g]P  <Plug>UnconditionalPasteIndentedBefore
+nmap gqbp <Plug>UnconditionalPasteDelimitedAfter
+nmap gup  <Plug>UnconditionalPasteLowercaseAfter
+nmap g#P  <Plug>UnconditionalPasteCommentedBefore
+nmap g=p  <Plug>UnconditionalPasteExpressionAfter
+nmap gRp  <Plug>UnconditionalPasteRecallGrepAfter
+nmap gUP  <Plug>UnconditionalPasteUppercaseBefore
+nmap g[[p <Plug>UnconditionalPasteLessIndentAfter
+nmap g]]p <Plug>UnconditionalPasteMoreIndentAfter
+nmap gcgp <Plug>UnconditionalPasteJustJoinedAfter
+nmap gqbP <Plug>UnconditionalPasteDelimitedBefore
+nmap guP  <Plug>UnconditionalPasteLowercaseBefore
+nmap g~p  <Plug>UnconditionalPasteTogglecaseAfter
+nmap g=P  <Plug>UnconditionalPasteExpressionBefore
+nmap gRP  <Plug>UnconditionalPasteRecallGrepBefore
+nmap gSp  <Plug>UnconditionalPasteParagraphedAfter
+nmap g[[P <Plug>UnconditionalPasteLessIndentBefore
+
+nmap g[[P <Plug>UnconditionalPasteLessIndentBefore
+nmap g]]P <Plug>UnconditionalPasteMoreIndentBefore
+nmap gcgP <Plug>UnconditionalPasteJustJoinedBefore
+nmap g~P  <Plug>UnconditionalPasteTogglecaseBefore
+nmap gSP  <Plug>UnconditionalPasteParagraphedBefore
+nmap gUJp <Plug>UnconditionalPasteRecallUnjoinAfter
+nmap g\\p <Plug>UnconditionalPasteRecallEscapeAfter
+nmap gr!p <Plug>UnconditionalPasteInvertedGrepAfter
+nmap gCp  <Plug>UnconditionalPasteCharCondensedAfter
+nmap gQp  <Plug>UnconditionalPasteRecallQueriedAfter
+nmap gUJP <Plug>UnconditionalPasteRecallUnjoinBefore
+nmap g\\P <Plug>UnconditionalPasteRecallEscapeBefore
+nmap ghp  <Plug>UnconditionalPasteCombinatorialAfter
+nmap gqgp <Plug>UnconditionalPasteQueriedJoinedAfter
+nmap gr!P <Plug>UnconditionalPasteInvertedGrepBefore
+nmap gCP  <Plug>UnconditionalPasteCharCondensedBefore
+nmap gQP  <Plug>UnconditionalPasteRecallQueriedBefore
+nmap ghP  <Plug>UnconditionalPasteCombinatorialBefore
+nmap gqgP <Plug>UnconditionalPasteQueriedJoinedBefore
+nmap gQBp <Plug>UnconditionalPasteRecallDelimitedAfter
+nmap g,"p <Plug>UnconditionalPasteCommaDoubleQuoteAfter
+nmap g,'p <Plug>UnconditionalPasteCommaSingleQuoteAfter
+nmap g==p <Plug>UnconditionalPasteRecallExpressionAfter
+nmap gQBP <Plug>UnconditionalPasteRecallDelimitedBefore
+nmap g,"P <Plug>UnconditionalPasteCommaDoubleQuoteBefore
+nmap g,'P <Plug>UnconditionalPasteCommaSingleQuoteBefore
+nmap g==P <Plug>UnconditionalPasteRecallExpressionBefore
+nmap gR!p <Plug>UnconditionalPasteRecallInvertedGrepAfter
+nmap gHp  <Plug>UnconditionalPasteRecallCombinatorialAfter
+nmap gQgp <Plug>UnconditionalPasteRecallQueriedJoinedAfter
+nmap gR!P <Plug>UnconditionalPasteRecallInvertedGrepBefore
+nmap gHP  <Plug>UnconditionalPasteRecallCombinatorialBefore
+nmap gQgP <Plug>UnconditionalPasteRecallQueriedJoinedBefore
