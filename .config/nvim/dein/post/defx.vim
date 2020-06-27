@@ -241,31 +241,26 @@ function! s:defx_keymaps() abort "{{{1
   "      \ ])
 
   " Register {{{2
+  " yank_path: yank in plus register
+  nnoremap <nowait><buffer><expr> C
+        \ defx#async_action('yank_path')
   " copy: yank in defx's register
-  " Note: CANNOT register multiple files into defx-register.
-  nnoremap <nowait><buffer><expr> yy
+  nnoremap <nowait><buffer><expr> c
         \ defx#do_action('copy')
-  xnoremap <nowait><buffer><expr> y
+  xnoremap <nowait><buffer><expr> c
         \ defx#async_action('multi',
         \ ['clear_select_all', 'toggle_select_visual', 'copy'])
   " TODO: send 'r' to select rename at the prompt
   "   Note:
   "     ':call feedkeys("r", "nt")<cr>' only append the text itself to fname.
-  nnoremap <nowait><buffer><expr> yp
-        \ defx#do_action('multi', [
-        \ 'copy',
-        \ 'paste',
-        \ ])
-  nnoremap <nowait><buffer><expr> cc
+  nnoremap <nowait><buffer><expr> x
         \ defx#do_action('move')
-  xnoremap <nowait><buffer><expr> c
+  xnoremap <nowait><buffer><expr> x
         \ defx#async_action('multi',
         \ ['clear_select_all', 'toggle_select_visual', 'move'])
   nnoremap <nowait><buffer><expr> p
         \ defx#do_action('paste')
-  " yank_path: yank in plus register
-  nnoremap <nowait><buffer><expr> <space>yy
-        \ defx#async_action('yank_path')
+
   " Execute {{{3
   nnoremap <silent><nowait><buffer><expr> X
         \ defx#do_action('execute_system')
