@@ -87,7 +87,7 @@
     "typescript": ["javascript"]
   },
   "snippets.userSnippetsDirectory": "~/.config/nvim/data/UltiSnips",
-  "snippets.priority": 20,
+  "snippets.priority": 100,
 
   "emmet.includeLanguages": {
     "vue-html": "html",
