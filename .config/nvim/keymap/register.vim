@@ -39,7 +39,7 @@ xnoremap <s-space>p "0]p
 xnoremap <s-space>P "0]P
 
 " Black-Hole Register {{{1
-nnoremap <expr> s 'x'. v:count1 .'i'
+nnoremap <expr> s 'x'. v:count1 .(col('.') == col('$') - 1 ? 'a' : 'i')
 nnoremap <expr> S 'X'. v:count1 .'i'
 
 " Note: Not so often you want to delete words into clipboard.
