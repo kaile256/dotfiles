@@ -8,6 +8,12 @@
 # hook_add = 'runtime add/pencil.vim'
 # hook_source = 'runtime source/pencil.vim'
 #
+[[plugins]]
+repo = 'kana/vim-smartchr'
+# Change mappings as count of key typed.
+# For expample, type '>' once, '>'; twice, '>>'; three times '->'.
+on_func = 'smartchr#loop'
+
 #[ Template ]
 # [[plugins]]
 # repo = 'aperezdc/vim-template'
