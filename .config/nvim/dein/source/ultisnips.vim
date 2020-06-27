@@ -33,7 +33,7 @@ let g:UltiSnipsJumpForwardTrigger  = '<Nop>'
 let g:UltiSnipsJumpBackwardTrigger = '<Nop>'
 
 let g:UltiSnipsSnippetDirectories = [
-      \ expand('$VIM_ANOTHER_HOME/Ultisnips'),
+      \ expand('$VIM_ANOTHER_HOME/UltiSnips'),
       \ ]
 
 let g:UltiSnipsRemoveSelectModeMappings = 0

@@ -1,0 +1,19 @@
+snippet 'ini(t)?' "initialize snippets with another path" rb
+# Ref: honza/vim-snippets/UltiSnips/`!v expand('%:t:r')`.snippets
+snippet ${1:trigger} "${2:#:description}" ${3:#:r(gex), b(egin), A(utomatic), w(ord-boundary)}
+${0:endsnippet}
+endsnippet
+
+snippet 'sni(ppets)?' "initialize snippets" rb
+snippet ${1:#trigger} "${2:#:description}" ${3:#:option}
+$2
+${1:endsnippet}
+endsnippet
+
+snippet '#!|exp(r)?' "expr with shebang" r
+\`${0:#!}/usr/bin/env ${1:bash} ${2:#:expr}\`
+endsnippet
+
+snippet 'vi(m)?' "expr for vim" r
+\`!v ${1:#:expr}\`
+endsnippet

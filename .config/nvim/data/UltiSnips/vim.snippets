@@ -1,0 +1,20 @@
+snippet 'fun(ction)?' "function! foo() ... endfunction" br
+function! ${1:`!v snip#vim#prefix_for_function()`}${2:#:do}(${3:#:args}) abort${4}
+endfunction
+endsnippet
+
+snippet 'fold' "fold with b:undo_ftplugin" rb
+setl fdm=expr fde=${1:`!v substitute(toupper(expand('%:t:r')[0]) . expand('%:t:r')[1:], 'fold\|\W\|_', '', 'g')`FoldExpr()}
+
+if exists('b:undo_ftplugin')
+	let b:undo_ftplugin .= ' | '
+else
+	let b:undo_ftplugin = ''
+endif
+let b:undo_ftplugin .= 'setl fdm< fde<'
+
+function! $1 abort
+  ${2:let line = getline(v:lnum)}
+	return '='
+endfunction
+endsnippet

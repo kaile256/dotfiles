@@ -1,0 +1,20 @@
+# Ref: honza/vim-snippets/UltiSnips/snippets.snippets
+
+# Includes call(), rall()
+snippet '\b[cr]*(all|begin)' "$1.begin(), $1.end()" rw
+`!v matchstr(getline('.'), '\a\ze\v(all|begin)')`begin(), `!v matchstr(getline('.'), '(\zs\h\S*\ze\v(all|begin)')`end()
+endsnippet
+
+snippet 't(e)?m(p(late)?)?' "template <typename T>" rw
+template <${1:typename} ${2:T}> ${3:func}($2 ${4:args}) {
+	${4:return 0;}
+	}
+endsnippet
+
+snippet '(/)?\*' "/* ... */" rw
+/*${1:Comment}*/
+endsnippet
+
+snippet 'elseif' "else if (cond)" A
+else if ($1)
+endsnippet

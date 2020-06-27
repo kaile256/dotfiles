@@ -77,7 +77,7 @@
     "javascriptreact": ["javascript"],
     "typescript": ["javascript"]
   },
-  "snippets.userSnippetsDirectory": "~/.config/nvim/data/Ultisnips",
+  "snippets.userSnippetsDirectory": "~/.config/nvim/data/UltiSnips",
   "snippets.priority": 20,
 
   "emmet.includeLanguages": {
