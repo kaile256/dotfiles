@@ -9,14 +9,20 @@
 # hook_source = 'runtime source/pencil.vim'
 #
 #[ Template ]
-#[[plugins]]
-#repo = 'mattn/vim-sonictemplate'
-## Note: postfix completion works like snippet.
-#on_cmd = ['Template']
-#on_map = {ni = ['<Plug>(sonictemplate']}
-#on_path = '.stpl'
-#hook_add = 'runtime add/sonictemplate.vim'
-#hook_source = 'runtime source/sonictemplate.vim'
+# [[plugins]]
+# repo = 'aperezdc/vim-template'
+# # Note: Doesn't work.
+# on_cmd = 'Template'
+# hook_add = 'runtime add/template.vim'
+# hook_source = 'runtime source/template.vim'
+[[plugins]]
+repo = 'mattn/vim-sonictemplate'
+# Includes postfix-completion support which expands like snippet.
+on_cmd = 'Template'
+on_map = {ni = ['<Plug>(sonictemplate']}
+on_path = ['base-', 'snip-']
+hook_add = 'runtime add/sonictemplate.vim'
+hook_source = 'runtime source/sonictemplate.vim'
 
 #[ Snippets; Engine ]
 #[[plugins]]
