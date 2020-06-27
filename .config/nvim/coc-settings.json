@@ -76,7 +76,8 @@
   //"diagnostic.checkCurrentLine": true,
   "diagnostic.virtualText": false,
   //"diagnostic.messageTarget": "float",
-  "diagnostic.joinMessageLines": true,
+  "diagnostic.highlightOffset": 500,
+  "diagnostic.hintSign": ">",
 
   "session.directory": "~/.local/share/nvim/session/",
 
