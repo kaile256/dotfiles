@@ -22,7 +22,7 @@ command! -nargs=* -complete=custom,s:CommandList -range Coc :CocCommand
 nmap <silent><expr> <C-w>w     coc#util#has_float() ? "\<Plug>(coc-float-jump)" : '<C-w>w'
 nmap <silent><expr> <C-w><C-w> coc#util#has_float() ? "\<Plug>(coc-float-jump)" : '<C-w><C-w>'
 
-nnoremap <silent> <space>cx :CocList extensions<cr>
+nnoremap <silent> <space>cx :<C-u>CocList extensions<cr>
 "command! -nargs=+ Csearch :CocSearch <f-args>
 "command! -nargs=+ Cgrep :CocList grep -regex <f-args>
 
