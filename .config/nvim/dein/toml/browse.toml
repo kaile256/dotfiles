@@ -72,13 +72,6 @@ hook_source = 'runtime source/clap.vim'
 #repo = 'skanehira/popupfiles.vim'
 ## Ref: https://qiita.com/gorilla0513/items/fa4b401e7264a31868b9
 #on_cmd = 'PopupFiles'
-
-#[[plugins]]
-#repo = 'lambdalisue/fila.vim'
-## Note: currently has no docment.
-#on_cmd = 'Fila'
-#hook_add = 'runtime add/fila.vim'
-
 #[[plugins]]
 #repo = 'cocopon/vaffle.vim'
 #on_if = 'has("python3")'
