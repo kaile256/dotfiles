@@ -2,8 +2,8 @@
 
 # Includes call(), rbegin()
 # snippet '\b[cr]*(all|begin)' "$1.begin(), $1.end()" rw
-snippet '(begin|all)' "$1.begin(), $1.end()" ir
-begin(), `!v matchstr(getline('.'), '\.\zs\h\S*\ze\v(all|begin)')`end()
+snippet '(begin|all)' "$1.$2begin(), $1.$2end()" ir
+begin(), `!v matchstr(getline('.'), '(\zs\h\S*\ze\v(all|begin)')`end()
 endsnippet
 
 snippet 't(e)?m(p(late)?)?' "template <typename T>" rw
