@@ -6,7 +6,8 @@
 nnoremap <A-s> <Nop>
 
 " Mnemonic: Snippet of Ultisnips
-nnoremap <silent> <A-s>u :<C-u>UltiSnipsEdit<cr>
+nnoremap <silent> <A-s>p :<C-u>UltiSnipsEdit<cr>
+nmap <A-s><A-p> <A-s>p
 " " Note: <A-s><A-u> cannot be mapped!?
 " nnoremap <silent> <A-s><M-u> :<C-u>UltiSnipsEdit<cr>
 
