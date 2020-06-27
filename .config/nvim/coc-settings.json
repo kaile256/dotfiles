@@ -143,18 +143,18 @@
 
   "project.dbpath": "~/.coc-project",
 
-  "yank.highlight.enable": true,
+  "yank.highlight.enable": false,
   "yank.enableCompletion": false,
   "yank.list.maxsize": 150,
   "yank.limit": 50,
 
   //"highlight.disableLanguages": [""],
-  // too many memory would be used
+  // too high-rate CPU usage
   "highlight.document.enable": false,
   "highlight.colors.enable": true,
 
   "translator.engines": ["google"],
-  "translator.toLang": "en",
+  "translator.toLang": "ja",
   "translator.maxsize": 200,
 
   "cSpell.spellCheckDelayMs": 1000,
