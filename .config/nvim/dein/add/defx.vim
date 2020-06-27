@@ -66,14 +66,18 @@ nnoremap <silent> <a-x>v :<c-u>call <SID>defx({
       \ 'winwidth': expand(g:defx_sidebar_width),
       \ 'split': 'vertical',
       \ 'new': 1,
-      \ })<cr>
+      \ })
+      \ <bar> setlocal wfw
+      \ <CR>
 
 nnoremap <silent> <a-x><a-v> :<c-u>call <SID>defx({
       \ 'direction': 'top',
       \ 'winwidth': expand(g:defx_sidebar_width),
       \ 'split': 'vertical',
       \ 'new': 1,
-      \ })<cr>
+      \ })
+      \ <bar> setlocal wfw
+      \ <CR>
 
 " in horizontal {{{2
 nnoremap <silent> <a-x><a-s> :<c-u>call <SID>defx({
