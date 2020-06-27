@@ -4,25 +4,41 @@
 "nnoremap o o<c-g>u
 "nnoremap O O<c-g>u
 
-nnoremap <silent> <C-x> :<C-u>call <SID>mod_char("\<C-x>")<CR>
-nnoremap <silent> <C-a> :<C-u>call <SID>mod_char("\<C-a>")<CR>
-xnoremap <silent> <C-x> :call <SID>mod_char("\<C-x>")<CR>
-xnoremap <silent> <C-a> :call <SID>mod_char("\<C-a>")<CR>
-function! s:mod_char(map) abort
+nnoremap <silent> <C-x> :<C-u>call <SID>increment_index("\<C-x>")<CR>
+nnoremap <silent> <C-a> :<C-u>call <SID>increment_index("\<C-a>")<CR>
+xnoremap <silent> <C-x> :call <SID>increment_index("\<C-x>")<CR>
+xnoremap <silent> <C-a> :call <SID>increment_index("\<C-a>")<CR>
+function! s:find_index() abort
   let save_view = winsaveview()
-  let single = '\v\d|((<([\<\\])@<!|_\zs)\a:@!(\ze_|>))'
-  " Do nothing if the pattern couldn't be found in current line.
-  if search(single, 'cW') != save_view['lnum']
+  " Return true if cursor is on the very position that escaped alphabet char.
+  if searchpos('\\\zs\a', 'cWn') == [save_view['lnum'], save_view['col'] + 1]
+    return 1
+  endif
+
+  " Regard those chars that beside underscore ('_') as isolated.
+  "
+  " List of chars to be ignored even when they look isolated:
+  "     1. escaped by a backslash ('\')
+  "     2. modifier prefix like, 'C' in '<C-x>' or 'A' in <A-j>'
+  let pat_isolated = '\v\d|((<([\<\\])@<!|_\zs)\a:@!(\ze_|>))'
+  " Set cursor to an index char/number if it's found in the cursor line;
+  " otherwise, get back to the saved position.
+  if search(pat_isolated, 'cW') != save_view['lnum']
     call winrestview(save_view)
-    if search(single, 'cWb') != save_view['lnum']
+    if search(pat_isolated, 'cWb') != save_view['lnum']
       call winrestview(save_view)
-      return
+      return 0
     endif
   endif
+  return 1
+endfunction
+
+function! s:increment_index(cmd) abort
+  if !s:find_index() | return | endif
 
   let save_nrformats = &nrformats
   set nrformats=alpha
-  exe 'norm!' v:count1 .. a:map
+  exe 'norm!' v:count1 .. a:cmd
   let &nrformats = save_nrformats
 endfunction
 
