@@ -6,13 +6,16 @@ runtime once/smaps.vim
 
 hi! link snipLeadingSpaces NonText
 
+augroup myUltisnipsSo
+  if exists('myUltisnipsSo') | au! myUltisnipsSo
+  endif
+  " Note: neosnippet could override default ft.
+  au FileType neosnippet
+        \ if expand('%:e') ==# 'snippets' | setl ft=snippets | endif
+  "au BufWrite *.snippets call UltiSnips#RefreshSnippets()
+augroup END
+
 let g:UltiSnipsEditSplit = 'context'
-
-let g:UltiSnipsSnippetDirectories = [
-      \ $XDG_CONFIG_HOME .'/nvim/data/Ultisnips',
-      \ ]
-
-let g:UltiSnipsRemoveSelectModeMappings = 0
 
 " Note: the variables to map should be filled to suppress unexpected, local
 "   behaviors.
@@ -26,8 +29,16 @@ let g:UltiSnipsJumpForwardTrigger = '<Nop>'
 "
 " Note: i_CTRL-F adjusts indent with no insertions where '!^F' in &cinkeys.
 " Note: behaves as no mappings unless snippets are in editing.
-let g:UltiSnipsJumpForwardTrigger  = '<c-f>'
-let g:UltiSnipsJumpBackwardTrigger = '<c-b>'
+let g:UltiSnipsJumpForwardTrigger  = '<Nop>'
+let g:UltiSnipsJumpBackwardTrigger = '<Nop>'
+
+let g:UltiSnipsSnippetDirectories = [
+      \ expand('$VIM_ANOTHER_HOME/Ultisnips'),
+      \ ]
+
+let g:UltiSnipsRemoveSelectModeMappings = 0
+
+finish "{{{1
 
 inoremap <expr> <SID>(ultisnips-jump-forward)  UltiSnips#JumpForwards()
 inoremap <expr> <SID>(ultisnips-jump-backward) UltiSnips#JumpBackwards()
@@ -40,12 +51,3 @@ inoremap <script> <c-f> <SID>(ultisnips-jump-forward)
 inoremap <script> <c-b> <SID>(ultisnips-jump-backward)
 snoremap <script> <c-f> <SID>(ultisnips-jump-forward)
 snoremap <script> <c-b> <SID>(ultisnips-jump-backward)
-
-augroup myUltisnipsSo
-  if exists('myUltisnipsSo') | au! myUltisnipsSo
-  endif
-  " Note: neosnippet could override default ft.
-  au FileType neosnippet
-        \ if expand('%:e') ==# 'snippets' | setl ft=snippets | endif
-  "au BufWrite *.snippets call UltiSnips#RefreshSnippets()
-augroup END
