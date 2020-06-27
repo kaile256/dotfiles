@@ -125,18 +125,10 @@ omap iM <Plug>(coc-classobj-i)
 xmap aM <Plug>(coc-classobj-a)
 omap aM <Plug>(coc-classobj-a)
 
-" " CocSnippets {{{1
-" " Note: Regex is interpreted by JavaScript while original UltiSnips
-" " interprets in Python.
-" " Help: $COC_DATA_HOME/extensions/node_modules/coc-snippets
-" " Note: it works without ultisnips itself.
-
-xmap <c-\> <Plug>(coc-snippets-select)
-imap <c-\> <Plug>(coc-snippets-expand-jump)
-
-smap <expr> <C-\> coc#expandableOrJumpable()
-      \ ? '<Plug>(coc-snippets-expand-jump)'
-      \ : (coc#rpc#request('snippetNext', []) ? '' : '')
+" CocSnippets {{{1
+" Note: Regex is interpreted by JavaScript while UltiSnips does in Python.
+" Help: $COC_DATA_HOME/extensions/node_modules/coc-snippets
+" Note: it works without ultisnips itself.
 
 augroup myCocSnippets
   if exists('#myCocSnippets') | au! myCocSnippets
