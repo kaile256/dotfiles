@@ -324,26 +324,8 @@ augroup myDefxPost "{{{1
   endif
   au FileType defx exe 'setl path='. getbufvar('#', '&path')
   au BufWinLeave * if &ft ==# 'defx' | wincmd = | endif
-  "" TODO: start cursor on filename
-  "au BufEnter * if &ft ==# 'defx' |
-  "      \ call search('\a', 'cW') |
-  "      \ if winline() < (winheight('w$') / 2) | norm! zz |
-  "      \ else | norm! zb |
-  "      \ endif
-  "      \ | endif
-  " TODO: fix coc#_complete() for 'E121: Undefined variale: b:defx'
-  au!
-  " TODO: highlight on top as there's filepath, or place those path on another place.
-  au FileType defx setl winfixwidth
-  " 'bufhidden': default is 'hide', perhaps for resume of defx
-  au FileType defx setl nonumber signcolumn= bufhidden=wipe previewheight=25
-  "au WinEnter \[defx\]*
-  "      \ if @# =~# '\[defx\]'
-  "      \ && len(tabpagebuflist()) > 1
-  "      \  | wincmd p | wincmd p
-  "      \ | endif
-  "au WinEnter * if s:defx_is_narrow() | call setbufvar(bufnr('\[defx\]'), '&winfixwidth', 1)
-  "au WinNew   * if s:defx_is_narrow() | call setbufvar(bufnr('\[defx\]'), '&winfixwidth', 0)
+  au BufWinLeave * setlocal nowfw nowfh
+  au FileType defx setlocal nonumber signcolumn= bufhidden=wipe
   au FileType defx call s:defx_keymaps()
   au FileType defx call s:defx_commands()
   "au BufWritePost * call defx#redraw() " of course, includes a check for defx-channel
