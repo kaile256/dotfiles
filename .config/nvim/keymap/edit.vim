@@ -20,6 +20,7 @@ function! s:find_index() abort
   " List of chars to be ignored even when they look isolated:
   "     1. escaped by a backslash ('\')
   "     2. modifier prefix like, 'C' in '<C-x>' or 'A' in <A-j>'
+  "     3. prefix for variables' scope of Vimscript like g:, s:, l:
   let pat_isolated = '\v\d|((<([\<\\])@<!|_\zs)\a:@!(\ze_|>))'
   " Set cursor to an index char/number if it's found in the cursor line;
   " otherwise, get back to the saved position.
