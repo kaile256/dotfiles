@@ -6,6 +6,19 @@ repo = 'tpope/vim-repeat'
 # Note: has no doc/
 lazy = 0
 hook_add = 'runtime add/repeat.vim'
+# [[plugins]]
+# repo = 'Houl/repmo-vim'
+# on_func = 'repmo#'
+# hook_add = 'runtime add/repmo.vim'
+#[[plugins]]
+#repo = 'vim-scripts/repeatable-motions.vim'
+
+#[ Paste ]
+[[plugins]]
+repo = 'inkarkat/vim-UnconditionalPaste'
+on_map = {nox = ['<Plug>UnconditionalPaste']}
+hook_add = 'runtime add/UnconditionalPaste.vim'
+hook_source = 'runtime source/UnconditionalPaste.vim'
 
 #[ Mode ]
 [[plugins]]
