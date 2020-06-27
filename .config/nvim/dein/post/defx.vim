@@ -326,6 +326,7 @@ augroup myDefxPost "{{{1
   au BufWinLeave * if &ft ==# 'defx' | wincmd = | endif
   au BufWinLeave * setlocal nowfw nowfh
   au FileType defx setlocal nonumber signcolumn= bufhidden=wipe
+  au FileType defx setlocal concealcursor=nv
   au FileType defx call s:defx_keymaps()
   au FileType defx call s:defx_commands()
   "au BufWritePost * call defx#redraw() " of course, includes a check for defx-channel
