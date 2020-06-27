@@ -1,8 +1,9 @@
 # Ref: honza/vim-snippets/UltiSnips/snippets.snippets
 
-# Includes call(), rall()
-snippet '\b[cr]*(all|begin)' "$1.begin(), $1.end()" rw
-`!v matchstr(getline('.'), '\a\ze\v(all|begin)')`begin(), `!v matchstr(getline('.'), '(\zs\h\S*\ze\v(all|begin)')`end()
+# Includes call(), rbegin()
+# snippet '\b[cr]*(all|begin)' "$1.begin(), $1.end()" rw
+snippet '(begin|all)' "$1.begin(), $1.end()" ir
+begin(), `!v matchstr(getline('.'), '\.\zs\h\S*\ze\v(all|begin)')`end()
 endsnippet
 
 snippet 't(e)?m(p(late)?)?' "template <typename T>" rw
