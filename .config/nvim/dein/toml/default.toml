@@ -76,6 +76,11 @@ hook_add = 'runtime add/peekaboo.vim'
 hook_source = 'runtime source/peekaboo.vim'
 #hook_post_source = 'runtime post/peekaboo.vim'
 
+#[ Increment ]
+# [[plugins]]
+# repo = 'triglav/vim-visual-increment'
+# on_map = {'x' = ['<Plug>VisualIncrement', '<Plug>VisualDecrement']}
+#
 #[ Mark ]
 #[[plugins]]
 #repo = 'Yilin-Yang/vim-markbar'
