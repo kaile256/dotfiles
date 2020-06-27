@@ -89,7 +89,17 @@ hook_source = 'runtime source/clap.vim'
 # # an vifm interface for Vim
 # if = 'executable("vifm")'
 # on_cmd = 'Vifm'
-#
+#[ Filer.fern ]
+[[plugins]]
+repo = 'lambdalisue/fern.vim'
+on_cmd = 'Fern'
+hook_add = 'runtime add/fern.vim'
+hook_source = 'runtime source/fern.vim'
+[[plugins]]
+repo = 'lambdalisue/fern-renderer-devicons.vim'
+on_source = 'fern.vim'
+hook_source = 'let g:fern#renderer = "devicons"'
+
 #[ Filer.Defx ]
 [[plugins]]
 repo = 'Shougo/defx.nvim'
