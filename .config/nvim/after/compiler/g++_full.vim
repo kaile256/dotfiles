@@ -1,7 +1,7 @@
 if exists('b:current_compiler')
   finish
 endif
-let b:current_compiler = 'g++'
+let b:current_compiler = 'g++_full'
 
 let s:cpo_save = &cpo
 set cpo&vim
@@ -40,14 +40,27 @@ let s:opt += [
       \ '-D_GLIBCXX_DEBUG_PEDANTIC',
       \ ]
 
+" Warnings which either '-Wall' and '-Wextra' doesn't cover.
+let s:opt += [
+      \ '-pedantic',
+      \
+      \ '-Wshadow',
+      \ '-Wfloat-equal',
+      \ '-Wconversion',
+      \ '-Wduplicated-cond',
+      \ '-Wformat=2' ,
+      \ '-Wshift-overflow=2',
+      \
+      \ '-fsanitize=address',
+      \ '-fsanitize=undefined',
+      \ '-fno-sanitize-recover',
+      \ '-fstack-protector',
+      \ ]
+
 let s:opt += [
       \ '-std=c++14',
       \ '-D_LOCAL',
       \ ]
-
-" let s:opt += [
-"       \ '-o\ %:t:r',
-"       \ ]
 
 let s:makeprg = ["g++", '%:p'] + s:opt
 
