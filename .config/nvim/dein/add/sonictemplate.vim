@@ -10,6 +10,11 @@ augroup END
 
 function! s:expand_template(label) abort
   if line('$') == 1 && getline(1) ==# ''
+    if @% =~# 'tmp.cpp$' && len(@+) > 800
+      put! =@+
+      return
+    endif
+
     Template atcoder
   endif
 endfunction
