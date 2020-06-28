@@ -6,3 +6,7 @@ map f <Plug>(shot-f-f)
 map F <Plug>(shot-f-F)
 map t <Plug>(shot-f-t)
 map T <Plug>(shot-f-T)
+sunmap f
+sunmap F
+sunmap t
+sunmap T
