@@ -1,0 +1,29 @@
+{
+  "configurations": {
+    "Node": {
+      "adapter": "vscode-node",
+
+      "configuration": {
+        "request": "launch",
+        "protocol": "auto",
+
+        "environment": [],
+        "cwd": "${workspaceRoot}",
+        "program": "${file}",
+
+        "stopOnEntry": true,
+
+        "args": []
+      }
+    },
+
+    "Chrome": {
+      "adapter": "chrome",
+      "configuration": {
+        "request": "launch",
+        "url": "http://localhost:8080",
+        "webRoot": "${WorkspaceRoot}/www"
+      }
+    }
+  }
+}

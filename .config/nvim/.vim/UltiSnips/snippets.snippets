@@ -1,0 +1,13 @@
+snippet 'sn(i(ppet)?)?' "initialize ultisnips" rb
+`!p snip.rv = "snippet"` ${1:Tab_trigger} "${2:Description}" ${3:b}
+${0:${VISUAL}}
+`!p snip.rv = "endsnippet"`
+endsnippet
+
+snippet '#!|exp(r)?' "expr with shebang" r
+\`${0:#!}/usr/bin/env ${1:bash} ${2:#:expr}\`
+endsnippet
+
+snippet 'vi(m)?' "expr for vim" r
+\`!v ${1:#:expr}\`
+endsnippet

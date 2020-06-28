@@ -1,0 +1,33 @@
+{
+  "configurations": {
+    "PHP: current file": {
+      "adapter": "vscode-php-debug",
+      "configuration": {
+        "request": "php",
+        "program": "${file}",
+        "cwd": "${fileDirname}",
+        "port": 9000
+      }
+    },
+
+    "PHP: listen for XDebug": {
+      "adapter": "vscode-php-debug",
+
+      "configuration": {
+        "request": "launch",
+
+        "cwd": "${workspaceRoot}",
+        "port": 9000,
+
+        "stopOnEntry": true,
+
+        "environment": [],
+        "args": [],
+
+        "pathMappings": {
+          "/var/www/html": "${workspaceRoot}"
+        }
+      }
+    }
+  }
+}

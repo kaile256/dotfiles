@@ -85,7 +85,7 @@ let s:path_dict = {
       \ 'q': $GHQ_ROOT,
       \ 'r': $VIMRUNTIME,
       \ 't': g:my_trash_root,
-      \ 'v': g:nvim_home,
+      \ 'v': $NVIM_CONFIG_HOME,
       \ 'w': '%:p:h',
       \ }
 

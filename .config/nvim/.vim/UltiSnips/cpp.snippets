@@ -1,0 +1,35 @@
+# Ref: honza/vim-snippets/UltiSnips/snippets.snippets
+
+# Includes call(), rbegin()
+# snippet '\b[cr]*(all|begin)' "$1.begin(), $1.end()" rw
+snippet '(begin|all)' "$1.$2begin(), $1.$2end()" ir
+begin(), `!v matchstr(getline('.'), '(\zs\h\S*\ze\v(all|begin)')`end()
+endsnippet
+
+priority 1
+snippet '(?<=\()(begin|all)' "$1.$2begin(), $1.$2end()" ir
+begin(${1:v}), end($1)
+endsnippet
+
+snippet template "template <typename T>" b
+template <${1:typename} ${2:T}> ${3:func}($2 ${4:args}) {
+	${4:return 0;}
+	}
+endsnippet
+
+snippet '(/)?\*' "/* ... */" rw
+/*${1:Comment}*/
+endsnippet
+
+snippet elseif "else if (cond)" A
+else if ($1)
+endsnippet
+
+snippet 'cin \>\> [a-zA-Z]' "Description" rA
+cin >> `!v substitute(matchstr(getline(search('\a\+ [, a-zA-Z]\+;', 'cnbW')), '\a\+ \zs[, a-zA-Z]\+;'), ',', ' >>', 'g')`
+endsnippet
+
+snippet 'for \(au(?!.*:)' "for (auto &&x : v)" Ar
+for (auto &&${1:x} : ${2:v}`!v search('\%#.*)', 'cnW') ? '' : ')'`
+endsnippet
+

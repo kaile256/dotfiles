@@ -13,7 +13,7 @@ endif
 " Mnemonic: n -- Neighbours
 "           l -- $XDG_DATA_HOME is usually at ~/.local/share
 call extend(g:keymapsDL#cmd_after#cd_path_dict, {
-      \ 'v': g:nvim_home,
+      \ 'v': $NVIM_CONFIG_HOME,
       \ 'l': $XDG_DATA_HOME,
       \ 'f': $XDG_CONFIG_HOME,
       \ 'd': g:dotfiles_home,

@@ -56,4 +56,6 @@ int main() {
   std::ios::sync_with_stdio(false);
 
   {{_cursor_}}
+
+  cout << '\n';
 }

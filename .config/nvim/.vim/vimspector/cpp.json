@@ -1,0 +1,84 @@
+// TOML: debug.toml
+// Repo: puremourning/vimspector
+
+{
+  "configurations": {
+    // The label that vimspector will ask if configurations has multiple keys;
+    // keep it alone to launch without any pause.
+    "Launch -- GDB": {
+      // Select an adapter from "adapters" or ${gadgetDir} which's downloaded by `install_gadget.py`
+      "adapter": "vscode-cpptools",
+
+      "configuration": {
+        // Requires compile with debug flag
+        "name": "gdb for a.out",
+        "type": "cppdbg",
+
+        // Gdb requires `-exec p foo` for container like vector, decor.
+        "MIMode": "gdb",
+
+        "request": "launch",
+
+        "cwd": "${workspaceRoot}",
+        "program": "${fileDirname}/a.out",
+
+        "stopAtEntry": true,
+
+        "logFilePath": "/tmp/vimspector_cpp.log",
+
+        "environment": [],
+        "args": [],
+
+        "setupCommands": [
+          {
+            "description": "Show items in container like vector, decor",
+            // https://github.com/Microsoft/vscode-cpptools/issues/1414
+
+            "text": "-enable-pretty-printing",
+            "ignoreFailures": true
+          }
+        ]
+      }
+      //},
+      //
+      //"Launch -- LLDB": {
+      //  "adapter": "lldb-vscode",
+      //
+      //  "configuration": {
+      //    // FIXME: Get stdin
+      //    "name": "lldb for a.out",
+      //    "type": "cppdbg",
+      //
+      //    "MIMode": "lldb",
+      //
+      //    "request": "launch",
+      //
+      //    "cwd": "${workspaceRoot}",
+      //    "program": "${fileDirname}/a.out",
+      //
+      //    "stopAtEntry": false,
+      //    "externalConsole": true,
+      //
+      //    "logFilePath": "/tmp/vimspector_cpp.log",
+      //
+      //    "environment": [],
+      //    "args": []
+      //  }
+    }
+  },
+
+  "adapters": {
+    "lldb-vscode": {
+      "name": "lldb",
+      "attach": {
+        "pidProperty": "pid",
+        "pidSelect": "ask"
+      },
+
+      "command": ["/usr/bin/lldb-vscode"],
+      "env": {
+        "LLDB_LAUNCH_FLAG_LAUNCH_IN_TTY": "YES"
+      }
+    }
+  }
+}

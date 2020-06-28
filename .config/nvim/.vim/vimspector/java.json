@@ -1,0 +1,28 @@
+{
+  "configurations": {
+    "coc-java-debug": {
+      "adapter": "java-coc-debug-server",
+      "configuration": {
+        "name": "Java: Current File through coc.nvim",
+        "type": "java",
+        "request": "attach",
+        "host": "127.0.0.1",
+        "port": "5005"
+      },
+      "breakpoints": {
+        "exception": {
+          "caught": "N",
+          "uncaught": "N"
+        }
+      }
+    },
+
+    "adapters": {
+      "java-coc-debug-server": {
+        "type": "java",
+        "name": "vscode-java",
+        "port": "${AdapterPort}"
+      }
+    }
+  }
+}

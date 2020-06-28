@@ -27,7 +27,17 @@
         "logFilePath": "/tmp/vimspector_cpp.log",
 
         "environment": [],
-        "args": []
+        "args": [],
+
+        "setupCommands": [
+          {
+            "description": "Show items in container like vector, decor",
+            // https://github.com/Microsoft/vscode-cpptools/issues/1414
+
+            "text": "-enable-pretty-printing",
+            "ignoreFailures": true
+          }
+        ]
       }
       //},
       //

@@ -28,9 +28,45 @@
       "command": ["node", "${gadgetDir}/vscode-bash-debug/out/bashDebug.js"],
       "name": "vscode-bash"
     },
-    "vscode-cpptools": {
-      "command": ["node", "${gadgetDir}/vscode-cpptools/dist/main.js"],
-      "name": "vscode-cpp"
+    "cpptools-remote": {
+      "command": ["${gadgetDir}/vscode-cpptools/debugAdapter/OpenDebug07"],
+      "name": "cppdbg",
+      "configuration": {
+        "type": "cppdbg"
+      },
+      "launch": {
+        "remote": {
+          "host": "${host}",
+          "account": "${account}",
+          "launchCommand": [
+            "gdbserver",
+            "--once",
+            "--no-startup-with-shell",
+            "--disable-randomisation",
+            "0.0.0.0:${port}",
+            "%CMD%"
+          ]
+        }
+      },
+      "attach": {
+        "host": "${host}",
+        "account": "${account}",
+        "attachCommand": [
+          "gdbserver",
+          "--once",
+          "--attach",
+          "0.0.0.0:${port}",
+          "%PID%"
+        ]
+      },
+      "initCompleteCommand": ["kill", "-TRAP", "%PID%"]
+    },
+    "lldb-vscode": {
+      "name": "lldb",
+      "command": ["lldb-vscode"],
+      "env": {
+        "LLDB_LAUNCH_FLAG_LAUNCH_IN_TTY": "YES"
+      }
     },
     "vscode-go": {
       "command": [
@@ -48,16 +84,6 @@
       "command": ["node", "${gadgetDir}/vscode-php-debug/out/phpDebug.js"],
       "name": "node2",
       "type": "node2"
-    },
-    "vim-debug-adapter": {
-
-    },
-    "lldb-vscode": {
-      "name": "lldb",
-      "command": ["lldb-vscode"],
-      "env": {
-        "LLDB_LAUNCH_FLAG_LAUNCH_IN_TTY": "YES"
-      }
     }
   },
   "configurations": {
@@ -200,15 +226,14 @@
       "configuration": {
         "type": "cppdbg",
         "request": "launch",
-        "program": "${workspaceRoot}/${fileBasenameNoExtension}",
-        "args": [],
         "cwd": "${workspaceRoot}",
+        "program": "${fileDirname}/${fileBasenameNoExtension}",
+        "args": [],
         "environment": [],
-        "externalConsole": false,
+        "externalConsole": true,
         "stopAtEntry": true,
         "stopOnEntry": true,
-        "MImode": "${VIMSPECTOR_MIMODE}",
-        "miDebuggerPath": "${VIMSPECTOR_MI_DEBUGGER}",
+        "MIMode": "gdb",
         "logging": {
           "engineLogging": true
         }
