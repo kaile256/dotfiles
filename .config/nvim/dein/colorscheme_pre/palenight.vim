@@ -11,10 +11,11 @@ augroup END
 
 function! s:my_palenight() abort
   hi! TODO ctermfg=White guifg=White ctermbg=15 guibg=#42325f cterm=bold,underline gui=bold,underline guisp=Red
-  " hi! ErrorMsg ctermfg=231 ctermbg=212 guifg=#7411a8 guibg=#ff79c6 cterm=bold gui=bold
-  " hi! WarningMsg ctermfg=231 ctermbg=212 guifg=#7411a8 guibg=#ff79c6 cterm=bold gui=bold
 
+  hi! link Whitespace Comment
+  " hi! link lineNr Comment
   hi! SpecialKey ctermfg=245 guifg=#8a8a8a
+  hi! NonText ctermfg=238 guifg=#444444
 
   " hi! Statement ctermfg=212 guifg=#fe82e3
   " hi! Identifier ctermfg=117 guifg=#b2fd8b
