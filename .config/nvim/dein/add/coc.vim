@@ -217,67 +217,66 @@ nnoremap <silent> <space>cb :Coclist bookmark<cr>
 "      \ --file-columns=icon,git,selection,clip,indent,filename,size
 
 " CocGit {{{1
-if exists('g:loaded_gitgutter')
-  command! GchunkAdd  :CocCommand git.chunkStage
-  command! GchunkUndo :CocCommand git.chunkUndo
-  " Mnemonic: Git Put (similar to diff-put)
-  nnoremap <space>gp :<c-u>GchunkAdd<cr>
-  " Mnemonic: Git Omit (similar to diff-obtain)
-  nnoremap <space>go :<c-u>GchunkUndo<cr>
-  " TODO: for-loop in range because no range available yet.
-  xmap <space>ga <Plug>(coc-git-add-chunk)
-  " Note: :Gstatus within one command/keymap doesn't work.
-  xnoremap <silent> <Plug>(coc-git-add-chunk)
-        \ :call coc#git_add_chunks()<cr>
+" Note: Use gitgutter instead which has less delay.
+" command! GchunkAdd  :CocCommand git.chunkStage
+" command! GchunkUndo :CocCommand git.chunkUndo
+" " Mnemonic: Git Put (similar to diff-put)
+" nnoremap <space>gp :<c-u>GchunkAdd<cr>
+" " Mnemonic: Git Omit (similar to diff-obtain)
+" nnoremap <space>go :<c-u>GchunkUndo<cr>
+" " TODO: for-loop in range because no range available yet.
+" xmap <space>ga <Plug>(coc-git-add-chunk)
+" " Note: :Gstatus within one command/keymap doesn't work.
+" xnoremap <silent> <Plug>(coc-git-add-chunk)
+"      \ :call coc#git_add_chunks()<cr>
 
-  function coc#git_add_chunks() abort range
-    let save_view = winsaveview()
-    exe a:firstline
-    let c_line = line('.')
-    " TODO: be available in normal mode as an operator
-    while c_line <= a:lastline
-      " FIXME: still useless, even freezes vim.
-      "call feedkeys(":CocCommand git.chunkStage\<cr>", 'n')
-      "call feedkeys('j', 'n')
-      CocCommand git.chunkStage
-      norm! j
-      let c_line += 1
-    endwhile
-    " Note: only to scroll down a fugitive-buffer.
-    "Gstatus
-    "call feedkeys(":call winrestview(save_view)\<cr>", 'n')
-    call winrestview(save_view)
-  endfunction
+" function coc#git_add_chunks() abort range
+"   let save_view = winsaveview()
+"   exe a:firstline
+"   let c_line = line('.')
+"   " TODO: be available in normal mode as an operator
+"   while c_line <= a:lastline
+"     " FIXME: still useless, even freezes vim.
+"     "call feedkeys(":CocCommand git.chunkStage\<cr>", 'n')
+"     "call feedkeys('j', 'n')
+"     CocCommand git.chunkStage
+"     norm! j
+"     let c_line += 1
+"   endwhile
+"   " Note: only to scroll down a fugitive-buffer.
+"   "Gstatus
+"   "call feedkeys(":call winrestview(save_view)\<cr>", 'n')
+"   call winrestview(save_view)
+" endfunction
 
-  nnoremap U :CocCommand git.chunkUndo<cr>
+" nnoremap U :CocCommand git.chunkUndo<cr>
 
-  command! -nargs=? Gfold :CocCommand git.foldUnchanged
-  function! coc#git_fold_toggle() abort
-    if &l:fdm !=# 'manual'
-      let b:coc#_save_fdm = &l:fdm
-      Ccommand git.foldUnchanged
-    elseif exists('b:fdm')
-      exe 'set fdm='. b:coc#_save_fdm
-    else
-      set fdm=syntax
-    endif
-  endfunction
+" command! -nargs=? Gfold :CocCommand git.foldUnchanged
+" function! coc#git_fold_toggle() abort
+"   if &l:fdm !=# 'manual'
+"     let b:coc#_save_fdm = &l:fdm
+"     Ccommand git.foldUnchanged
+"   elseif exists('b:fdm')
+"     exe 'set fdm='. b:coc#_save_fdm
+"   else
+"     set fdm=syntax
+"   endif
+" endfunction
 
-  " Similar to the navigation on &diff
-  map <silent><expr> [c (&diff) ? '[c'
-        \ : '<Plug>(coc-git-prevchunk):<c-u>sleep 5m<cr>zv'
-        \ . (winline() > winheight('w$') / 2 ? 'zm5k' : '')
-  map <silent><expr> ]c (&diff) ? ']c'
-        \ : '<Plug>(coc-git-nextchunk):<c-u>sleep 5m<cr>zv'
-        \ . (winline() > winheight('w$') / 2 ? 'zm5k' : '')
+" " Similar to the navigation on &diff
+" map <silent><expr> [c (&diff) ? '[c'
+"      \ : '<Plug>(coc-git-prevchunk):<c-u>sleep 5m<cr>zv'
+"      \ . (winline() > winheight('w$') / 2 ? 'zm5k' : '')
+" map <silent><expr> ]c (&diff) ? ']c'
+"      \ : '<Plug>(coc-git-nextchunk):<c-u>sleep 5m<cr>zv'
+"      \ . (winline() > winheight('w$') / 2 ? 'zm5k' : '')
 
-  " show chunk diff at current position
-  nmap <space>gc <Plug>(coc-git-chunkinfo)
-  omap ic <Plug>(coc-text-object-inner)
-  xmap ic <Plug>(coc-text-object-inner)
-  omap ac <Plug>(coc-text-object-outer)
-  xmap ac <Plug>(coc-text-object-outer)
-endif
+" " show chunk diff at current position
+" nmap <space>gc <Plug>(coc-git-chunkinfo)
+" omap ic <Plug>(coc-text-object-inner)
+" xmap ic <Plug>(coc-text-object-inner)
+" omap ac <Plug>(coc-text-object-outer)
+" xmap ac <Plug>(coc-text-object-outer)
 
 " CocTranslator {{{1
 " Note: CANNOT replace 'toLang' before translator yet.
