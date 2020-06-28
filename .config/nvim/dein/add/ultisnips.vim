@@ -4,15 +4,34 @@
 " Another: post/ultisnips.vim
 
 " Note: mappings of coc-snippets won't support some flags, regex and other features.
-inoremap <silent> <Plug>UltiSnipExpandOrJump <C-r>=UltiSnips#ExpandSnippetOrJump()<CR>
-snoremap <silent> <Plug>UltiSnipExpandOrJump <Esc>:call UltiSnips#ExpandSnippetOrJump()<CR>
-xnoremap <silent> <Plug>UltiSnipExpandOrJump  :call UltiSnips#SaveLastVisualSelection()<cr>gvs
-nnoremap <silent> <Plug>UltiSnipExpandOrJump <Esc>:call UltiSnips#ExpandSnippetOrJump()<CR>
 
-imap <c-\> <Plug>UltiSnipExpandOrJump
-nmap <c-\> <Plug>UltiSnipExpandOrJump
-smap <c-\> <Plug>UltiSnipExpandOrJump
-xmap <c-\> <Plug>UltiSnipExpandOrJump
+" Note: <expr>-UltiSnips#ExpandSnippet() throws `E533: Not allowed here`.
+inoremap <silent> <Plug>UltiSnipExpand <C-r>=UltiSnips#ExpandSnippet()<CR>
+nnoremap <silent> <Plug>UltiSnipExpand <Esc>:call UltiSnips#ExpandSnippet()<CR>
+snoremap <silent> <Plug>UltiSnipExpand <Esc>:call UltiSnips#ExpandSnippet()<CR>
+xnoremap <silent> <Plug>UltiSnipExpand :call      UltiSnips#SaveLastVisualSelection()<cr>gvs
+
+" Tips: UltiSnips will stop with either <Nop>, <Esc> and <C-o> because
+" internally `do autocmd User UltiSnipsExitLastSnippet` occurs.
+imap <expr> <c-\> <sid>is_expandable() ? '<Plug>UltiSnipExpand' : ''
+nmap <expr> <c-\> <sid>is_expandable() ? '<Plug>UltiSnipExpand' : ''
+smap <expr> <c-\> <sid>is_expandable() ? '<Plug>UltiSnipExpand' : ''
+xmap <expr> <c-\> <sid>is_expandable() ? '<Plug>UltiSnipExpand' : ''
+
+function! s:is_expandable() abort
+  " Note: word boundary check seems unnecessary.
+  return UltiSnips#SnippetsInCurrentScope() != {}
+endfunction
+
+" inoremap <silent> <Plug>UltiSnipExpandOrJump <C-r>=UltiSnips#ExpandSnippetOrJump()<CR>
+" snoremap <silent> <Plug>UltiSnipExpandOrJump <Esc>:callUltiSnips#ExpandSnippetOrJump()<CR>
+" xnoremap <silent> <Plug>UltiSnipExpandOrJump  :call UltiSnips#SaveLastVisualSelection()<cr>gvs
+" nnoremap <silent> <Plug>UltiSnipExpandOrJump <Esc>:call UltiSnips#ExpandSnippetOrJump()<CR>
+
+" imap <c-\> <Plug>UltiSnipExpandOrJump
+" nmap <c-\> <Plug>UltiSnipExpandOrJump
+" smap <c-\> <Plug>UltiSnipExpandOrJump
+" xmap <c-\> <Plug>UltiSnipExpandOrJump
 
 nnoremap <A-s> <Nop>
 
