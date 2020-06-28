@@ -2,7 +2,7 @@ scriptencoding utf-8
 " From: japanese.toml
 " Repo: tyru/eskk.vim
 " Another: add/eskk.vim
-" Another: source
+" Another: source/eskk.vim
 
 augroup myEskkSource
   if exists('#myEskkSource') | au! myEskkSource
