@@ -1,7 +1,6 @@
 scriptencoding utf-8
 " From: motion.toml
 " Repo: haya14busa/vim-asterisk
-" Fork: kaile256/vim-asterisk
 " Ref: machakann/vim-sandwich
 
 "" Ref: https://twitter.com/Bakudankun/status/1207057884581900289
