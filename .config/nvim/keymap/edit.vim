@@ -4,10 +4,16 @@
 "nnoremap o o<c-g>u
 "nnoremap O O<c-g>u
 
-nnoremap <silent> <C-x> :<C-u>call <SID>increment_index("\<C-x>")<CR>
-nnoremap <silent> <C-a> :<C-u>call <SID>increment_index("\<C-a>")<CR>
-xnoremap <silent> <C-x> :call <SID>increment_index("\<C-x>")<CR>
-xnoremap <silent> <C-a> :call <SID>increment_index("\<C-a>")<CR>
+nnoremap <silent> <Plug>(index-decrement) :<C-u>call <SID>increment_index("\<C-x>")<CR>
+nnoremap <silent> <Plug>(index-increment) :<C-u>call <SID>increment_index("\<C-a>")<CR>
+xnoremap <silent> <Plug>(index-decrement) :call <SID>increment_index("\<C-x>")<CR>
+xnoremap <silent> <Plug>(index-increment) :call <SID>increment_index("\<C-a>")<CR>
+
+nmap <C-x> <Plug>(index-decrement)
+nmap <C-a> <Plug>(index-increment)
+xmap <C-x> <Plug>(index-decrement)
+xmap <C-a> <Plug>(index-increment)
+
 function! s:find_index() abort
   let save_view = winsaveview()
   " Return true if cursor is on the very position that escaped alphabet char.
@@ -41,6 +47,12 @@ function! s:increment_index(cmd) abort
   set nrformats=alpha
   exe 'norm!' v:count1 .. a:cmd
   let &nrformats = save_nrformats
+
+  if a:cmd ==# "\<C-x>"
+    silent! call repeat#set("\<Plug>(index-decrement)")
+  elseif a:cmd ==# "\<C-a>"
+    silent! call repeat#set("\<Plug>(index-increment)")
+  endif
 endfunction
 
 nnoremap j gj
