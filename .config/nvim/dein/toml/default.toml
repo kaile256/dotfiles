@@ -32,6 +32,13 @@ hook_add = 'runtime add/submode.vim'
 #e $DEIN_GITHUB_DIR/kana/vim-submode/autoload/submode.vim
 #%s/submode-/sbm-/g
 #write
+
+#[ Inline Edit ]
+[[plugins]]
+repo = 'AndrewRadev/inline_edit.vim'
+# Edit in another window, like markdown's fenced scripts
+on_cmd = 'InlineEdit'
+
 #[ cd ]
 [[plugins]]
 repo = 'mattn/vim-findroot'
