@@ -333,9 +333,8 @@ set nostartofline
 set hidden
 
 " Motion; Search {{{1
-set noignorecase
-"set ignorecase smartcase
-"set smartcase
+set ignorecase
+set smartcase
 set incsearch hlsearch nowrapscan
 " fold all lines unmatched on {pattern}.
 " CAUTION: foldable is apt to collapse format.
