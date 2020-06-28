@@ -106,10 +106,10 @@ map <silent> J <Cmd>call among_HML#fork#init('J', 75, {
 "      \ })<bar>
 "      \ call feedkeys('L')<cr>
 "
-"" among_HML#get_half {{{1
-"nmap <silent> H  :<c-u>call among_HML#get_half#to(0)<cr>
-""nmap <silent> gM :<c-u>call among_HML#get_half#to(50)<cr>
-"nmap <silent> L  :<c-u>call among_HML#get_half#to(100)<cr>
+"" among_HML#asymptote {{{1
+" nmap <silent> H  :<c-u>call among_HML#asymptote#to(0)<cr>
+" "nmap <silent> gM :<c-u>call among_HML#asymptote#to(50)<cr>
+" nmap <silent> L  :<c-u>call among_HML#asymptote#to(100)<cr>
 
 "" among_HML#scroll {{{1
 "nmap <silent> <c-j> :<c-u>call among_HML#scroll#percent(25, 'down')<cr>
