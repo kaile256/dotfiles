@@ -1,5 +1,4 @@
 " From: init.vim
-" From: startup.toml
 " Repo: Shougo/dein.vim
 
 " Note: you can see the function of dummys commands for lazy load on
