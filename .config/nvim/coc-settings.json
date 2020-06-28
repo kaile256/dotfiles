@@ -70,7 +70,7 @@
     "default": "\uf29c"
   },
 
-  "codeLens.enable": true,
+  //"codeLens.enable": true,
 
   //"diagnostic.refreshAfterSave": true,
   //"diagnostic.checkCurrentLine": true,
