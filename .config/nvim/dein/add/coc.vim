@@ -162,6 +162,9 @@ command! -bar Re     :CocCommand workspace.renameCurrentFile
 command! -bar Mv     :CocCommand workspace.renameCurrentFile
 command! -bar MV     :CocCommand workspace.renameCurrentFile
 
+silent! CAlterCommand mv :CocCommand workspace.renameCurrentFile
+nnoremap <silent> <space>cr :<C-u>CocCommand workspace.renameCurrentFile
+
 command! -bar -nargs=? CocDebug :CocCommand workspace.showOutput <args>
 
 " CocSession {{{1
