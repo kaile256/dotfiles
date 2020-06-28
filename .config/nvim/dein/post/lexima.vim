@@ -205,7 +205,6 @@ let g:lexima#default_rules += [
       \ ]
 
 let g:lexima#default_rules += [
-      \ {'char': '<C-space>', 'at': '\s\%#', 'input': '<BS>'},
       \ {'char': '<C-=>',     'at': '\s\%#', 'input': '= '},
       \
       \ {'char': '<C-,>', 'at': '\s\%#', 'input': '<BS>, '},
