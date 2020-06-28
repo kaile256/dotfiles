@@ -74,10 +74,10 @@ endfunction
 function! undoquit#Tabonly(prefix_count, suffix_count, bang) abort
   " Note: {count} is *not* so free as built-in tabonly
 
-  if tabpagenr('$') == 1
-    echoerr 'E784: Cannot close lat tab page'
-    return
-  endif
+  " if tabpagenr('$') == 1
+  "   echoerr 'E784: Cannot close lat tab page'
+  "   return
+  " endif
 
   let tabpagenr = s:set_count(a:prefix_count, a:suffix_count)
   let cur_nr = tabpagenr > 0 ? tabpagenr : tabpagenr()
