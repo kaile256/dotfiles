@@ -1,15 +1,13 @@
-"""" Memo: Orgmode.org
-"""" From: tool.toml
+" Memo: Orgmode.org
+" From: tool.toml
 
-augroup OrgMode "{{{
+augroup OrgMode
   au!
-  au FileType org,orgagenda setlocal buftype=quickfix
-
   au FileType org call s:org_general()
   au FileType org call s:org_keymap()
   "au FileType org setlocal highlight clear Folded
   au InsertLeave * if &filetype == 'org' | norm zH | endif
-augroup END "}}}
+augroup END
 
 " Emacs' export output is displayed
 let g:org_export_verbose=1
