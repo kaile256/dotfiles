@@ -35,6 +35,7 @@ let $MY_DEV  = empty($MY_DEV)  ? $HOME .'/dev/'  : $MY_DEV
 let $DOTFILES_HOME = empty($DOTFILES_HOME) ? $HOME .'/dotfiles/' : $DOTFILES_HOME
 let $NVIM_CONFIG_HOME = $XDG_CONFIG_HOME .'/nvim/'
 let $VIM_CONFIG_HOME = $HOME .'/.vim/'
+let $VIM_ANOTHER_HOME = $VIM_CONFIG_HOME
 let g:my_css_home = '~/Downloads/css'
 let g:my_trash_root = $XDG_DATA_HOME .'/Trash'
 
