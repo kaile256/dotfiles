@@ -73,9 +73,9 @@ hook_source = 'runtime source/neosnippet.vim'
 #on_event = ['InsertEnter']
 
 #[ Snippets; Contents ]
-[[plugins]]
-repo = 'Shougo/neosnippet-snippets'
-on_source = 'neosnippet.vim'
+# [[plugins]]
+# repo = 'Shougo/neosnippet-snippets'
+# on_source = 'neosnippet.vim'
 [[plugins]]
 repo = 'honza/vim-snippets'
 # originally, snippets for snipmate
