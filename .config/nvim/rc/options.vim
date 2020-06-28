@@ -95,11 +95,19 @@ if has('nvim')
 endif
 
 " Session {{{2
-" terminal is regarded as an invalid argument
-" buffers,tabpages,fold,help
-set sessionoptions=globals
-set sessionoptions+=localoptions,options
-set sessionoptions+=slash,winsize
+set sessionoptions=
+set ssop+=blank
+set ssop+=help
+set ssop+=resize
+set ssop+=tabpages
+set ssop+=winpos
+set ssop+=winsize
+if exists('+terminal')
+  set ssop+=terminal
+endif
+if has('win32') || has('win64')
+  set ssop+=slash
+endif
 " Inc/Decrement {{{2
 "set nrformats+=octal
 " Fold {{{1
