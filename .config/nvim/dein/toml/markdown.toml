@@ -31,7 +31,7 @@ hook_source = 'runtime source/markdown-preview.vim'
 #on_ft = 'markdown'
 #build = 'cargo build --release'
 #hook_done_update = '''
-#exe 'e' g:dein_github_dir .'/euclio/vim-markdown-composer/after/ftplugin/markdown/composer.vim'
+#e $DEIN_GITHUB_DIR/euclio/vim-markdown-composer/after/ftplugin/markdown/composer.vim
 #g/command!/s/Composer/Md/
 #write
 #'''
@@ -42,7 +42,7 @@ hook_source = 'runtime source/markdown-preview.vim'
 #on_ft = 'markdown'
 #hook_source = 'runtime source/previm.vim'
 #hook_done_update = '''
-#exe 'e' g:dein_github_dir .'/previm/previm/plugin/previm.vim'
+#e $DEIN_GITHUB_DIR/previm/previm/plugin/previm.vim
 #g/FileType *{md,mkd,markdown,rst,textile,asciidoc}*/norm! oau BufEnter *.{md,mkd,markdown,mdown,mkdn,mdwn}/e
 #write
 #'''

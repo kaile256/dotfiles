@@ -18,9 +18,9 @@ let g:neosnippet#enable_auto_clear_markers = 0
 
 " merge snippets to my fork of neosnippet-snippets/neosnippets
 let g:neosnippet#snippets_directory = [
-      \ g:dein_github_dir .'/Shougo/neosnippet-snippets/neosnippets',
+      \ expand('$DEIN_GITHUB_DIR/Shougo/neosnippet-snippets/neosnippets'),
+      \ expand('$VIM_CONFIG_HOME/neosnippet'),
       \ ]
-      "\ g:nvim_data_home .'/neosnippet',
 
 let g:neosnippet#disable_runtime_snippets = {
       \ '_': 1,

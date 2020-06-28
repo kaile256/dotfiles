@@ -15,7 +15,7 @@ runtime add/coc.jump.vim
 '''
 hook_source = 'runtime source/coc.vim'
 hook_done_update = '''
-exe 'e'. g:dein_github_dir .'/neoclide/coc.nvim_release/plugin/coc.vim'
+e $DEIN_GITHUB_DIR/neoclide/coc.nvim_release/plugin/coc.vim
 " For: vim-fugitive creates invalid id buffer.
 " use expand('%:p'), not '<abuf>'
 g/BufEnter/g/call/norm! niif expand('%:p') !~# '.git/' |

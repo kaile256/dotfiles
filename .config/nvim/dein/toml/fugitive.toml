@@ -26,10 +26,10 @@ command! GBrowse :CocCommand git.browserOpen
 #on_cmd = ['Merginal', 'MerginalToggle']
 #hook_add = 'runtime add/merginal.vim'
 #hook_done_update = '''
-#exe 'e' g:dein_github_dir .'/idanarye/vim-merginal/plugin/merginal.vim'
+#e $DEIN_GITHUB_DIR/idanarye/vim-merginal/plugin/merginal.vim
 #%s/-nargs=0/-bar/e
 #write
-#exe 'e' g:dein_github_dir .'/idanarye/vim-merginal/autoload/merginal/buffers/branchList.vim'
+#e $DEIN_GITHUB_DIR/idanarye/vim-merginal/autoload/merginal/buffers/branchList.vim
 #v/'<cr>',/g/'cc',/norm! nEa '<cr>',
 #write
 #'''

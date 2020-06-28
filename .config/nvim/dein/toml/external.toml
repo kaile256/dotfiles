@@ -70,7 +70,7 @@ hook_add = 'runtime add/sequence-diagram.vim'
 #on_cmd = 'Info'
 #hook_add = 'runtime add/info.vim'
 #hook_done_update = '''
-#exe 'e' g:dein_github_dir .'/HiPhish/info.vim/plugin/info.vim'
+#e $DEIN_GITHUB_DIR/HiPhish/info.vim/plugin/info.vim
 #g/nnoremap/g/K/s/ K / gK /e
 #write
 #'''

@@ -42,8 +42,8 @@ let g:dein#install_log_filename = s:dein_log_file
 
 " Path to the directory for dein's cache {{{1
 " Let me '$DEIN_CACHE_HOME' for shell in Vim/Neovim
-let $DEIN_CACHE_HOME   = $XDG_CACHE_HOME    .'/dein/'
-let g:dein_github_dir  = $DEIN_CACHE_HOME   .'/repos/github.com/'
+let $DEIN_CACHE_HOME = $XDG_CACHE_HOME  .'/dein/'
+let $DEIN_GITHUB_DIR = $DEIN_CACHE_HOME .'/repos/github.com/'
 let s:Shougo_cache_dir = $DEIN_CACHE_HOME   .'/repos/github.com/Shougo/'
 let s:dein_itself      = s:Shougo_cache_dir .'/dein.vim/'
 

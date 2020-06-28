@@ -29,7 +29,7 @@ on_func = 'submode#'
 hook_add = 'runtime add/submode.vim'
 #hook_post_source = 'runtime post/submode.vim'
 #hook_done_update = '''
-#exe 'e' g:dein_github_dir .'/kana/vim-submode/autoload/submode.vim'
+#e $DEIN_GITHUB_DIR/kana/vim-submode/autoload/submode.vim
 #%s/submode-/sbm-/g
 #write
 #[ cd ]
@@ -39,7 +39,7 @@ on_cmd = 'FindRoot'
 hook_add = 'runtime add/findroot.vim'
 # To enable to :FindRoot w/ other commands through <bar>.
 hook_done_update = '''
-exe 'e' g:dein_github_dir .'/mattn/vim-findroot/plugin/findroot.vim'
+e $DEIN_GITHUB_DIR/mattn/vim-findroot/plugin/findroot.vim
 g/command!/norm! Ea -bar
 g/s:findroot(/s/1/0
 write
@@ -172,7 +172,7 @@ hook_add = 'runtime add/undoquit.vim'
 #on_source = ['denite.nvim', 'deolplete.nvim', 'coc.nvim']
 #hook_source = 'runtime source/float-preview.vim'
 #hook_done_update = '''
-#exe 'e' g:dein_github_dir .'/ncm2/float-preview.nvim/plugin/float_preview.vim'
+#e $DEIN_GITHUB_DIR/ncm2/float-preview.nvim/plugin/float_preview.vim
 #g/au/Complete/norm! i"
 #g/au/InsertLeave/norm! i"
 #write
@@ -188,7 +188,7 @@ hook_add = 'runtime add/undoquit.vim'
 #depend = 'xolox/vim-misc'
 #on_cmd = ['SessionOpen', 'SessionSave']
 #hook_done_update = '''
-#exe 'e' g:dein_github_dir .'xolox/vim-session/plugin/session.vim
+#e $DEIN_GITHUB_DIRxolox/vim-session/plugin/session.vim
 #g/command!/g/Session /norm! ndeBP
 #g/command!/s/RestartVim/SessionVimRestart
 #write

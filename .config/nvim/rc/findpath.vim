@@ -54,7 +54,7 @@ function! s:path.vim() abort
   if expand('%:p') =~# $GHQ_ROOT | return | endif
 
   exe 'setl path+='. $DOTFILES_HOME   .'/.config/nvim**'
-  exe 'setl path+='. g:dein_github_dir .'**'
+  exe 'setl path+='. $DEIN_GITHUB_DIR .'**'
   exe 'setl path+='. $GHQ_ROOT         .'/github.com/neovim/neovim**'
   exe 'setl path+='. $XDG_DATA_HOME    .'/nvim**'
 

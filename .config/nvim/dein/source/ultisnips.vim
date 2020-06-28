@@ -31,7 +31,8 @@ let g:UltiSnipsJumpForwardTrigger = '<C-]>'
 let g:UltiSnipsJumpBackwardTrigger = '<C-[>'
 
 let g:UltiSnipsSnippetDirectories = [
-      \ expand('$VIM_ANOTHER_HOME/UltiSnips'),
+      \ expand('$DEIN_GITHUB_DIR/honza/vim-snippets/UltiSnips'),
+      \ expand('$VIM_CONFIG_HOME/UltiSnips'),
       \ ]
 
 let g:UltiSnipsRemoveSelectModeMappings = 0

@@ -10,7 +10,7 @@ lazy = 0
 repo = 'glts/vim-textobj-comment'
 on_event = 'BufRead'
 hook_done_update = '''
-exe 'e' g:dein_github_dir .'glts/vim-textobj-comment/plugin/textobj/comment.vim'
+e $DEIN_GITHUB_DIRglts/vim-textobj-comment/plugin/textobj/comment.vim
 " Mnemonic: Explaination
 g/'select-/s/c\ze',/e
 g/'select-/s/C\ze',/E

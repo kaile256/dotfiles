@@ -73,7 +73,7 @@ on_cmd = ['XtermColorTable']
 #on_cmd = ['Inspecthi']
 #hook_add = 'runtime add/inspecthi.vim'
 #hook_done_update = '''
-#exe 'e' g:dein_github_dir .'/cocopon/inspecthi.vim/plugin/inspecthi.vim'
+#e $DEIN_GITHUB_DIR/cocopon/inspecthi.vim/plugin/inspecthi.vim
 #%s/\<Inspecthi\>/ColoLinks
 #write
 #'''
