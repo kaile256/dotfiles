@@ -1,4 +1,4 @@
-" TOML: motion.toml
+" TOML: operator.toml
 " Repo: AndrewRadev/switch.vim
 " Another: source/switch.vim
 
