@@ -33,7 +33,7 @@ let $MY_MEMO = empty($MY_MEMO) ? $HOME .'/Memo/' : $MY_MEMO
 let $MY_DEV  = empty($MY_DEV)  ? $HOME .'/dev/'  : $MY_DEV
 
 let $DOTFILES_HOME = empty($DOTFILES_HOME) ? $HOME .'/dotfiles/' : $DOTFILES_HOME
-let $NVIM_CONFIG_HOME = empty($VIMCONFIG) ?  $XDG_CONFIG_HOME .'/nvim/' : $VIMCONFIG
+let $NVIM_CONFIG_HOME = $XDG_CONFIG_HOME .'/nvim/'
 let $VIM_CONFIG_HOME = $HOME .'/.vim/'
 let g:my_css_home = '~/Downloads/css'
 let g:my_trash_root = $XDG_DATA_HOME .'/Trash'
