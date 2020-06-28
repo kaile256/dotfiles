@@ -85,6 +85,7 @@ hook_source = 'runtime source/clap.vim'
 #[ Filer.fern ]
 [[plugins]]
 repo = 'lambdalisue/fern.vim'
+# Note: hard to see redraw on changing directory.
 on_cmd = 'Fern'
 hook_add = 'runtime add/fern.vim'
 hook_source = 'runtime source/fern.vim'
@@ -96,8 +97,8 @@ hook_source = 'let g:fern#renderer = "devicons"'
 #[ Filer.Defx ]
 [[plugins]]
 repo = 'Shougo/defx.nvim'
-# Notice: After the second opening a buffer from defx-buffer, Vim comes to open
-# an empty buffer instead.
+# Error: After the second opening a buffer from defx-buffer, Vim comes to open
+# an empty buffer missing expected path.
 rev = 'c5d8afe'
 on_cmd = 'Defx'
 hook_add = 'runtime add/defx.vim'
