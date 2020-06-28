@@ -6,6 +6,8 @@ runtime init.vim
 imap <Cmd> <Esc>:
 nmap <Cmd> :<C-u>
 
+" set verbosefile=/tmp/vim-log
+set clipboard=unnamed,unnamedplus
 set backspace=indent,eol,start
 set guicursor=n-v-c-sm:block,i-ci-ve:ver25,r-cr-o:hor20,a:blinkon0
 let &t_SI = "\e[5 q" " Insert mode
