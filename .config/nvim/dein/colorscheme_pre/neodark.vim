@@ -19,6 +19,8 @@ function! s:my_neodark() abort "{{{1
   hi! Folded guifg=#7c7c7c
   "call s:gruvbox_diff()
   " call s:neodark_diff()
+
+  hi! DoppelgangerVirtualText ctermfg=97 guifg=#875faf cterm=italic gui=italic
 endfunction
 
 function! s:modified_diff(...) abort "{{{2
