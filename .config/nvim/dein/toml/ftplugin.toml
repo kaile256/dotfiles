@@ -47,3 +47,15 @@ lazy = 0
 #on_ft = ['html', 'php', 'xhtml', 'xml']
 #build = 'make install'
 
+#[ SuperCollider ]
+[[plugins]]
+repo = 'supercollider/scvim'
+# includes fake REPL, tag-jumps, auto-completion via tags.
+on_path = '\.scd\?$'
+[[plugins]]
+repo = 'davidgranstrom/scnvim'
+# includes snippets on UltiSnips
+if = 'has("nvim")'
+hook_done_update = 'call scnvim#install()'
+on_path = '\.scd\?$'
+
