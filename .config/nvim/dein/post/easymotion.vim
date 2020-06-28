@@ -3,9 +3,9 @@
 " Another: add/easymotion.vim
 " Another: source/easymotion.vim
 
-hi! link EasyMotionTarget        ErrorMsg
-hi! link EasyMotionTarget2First  ErrorMsg
-hi! link EasyMotionTarget2Second ErrorMsg
+hi! EasyMotionTarget        ctermfg=Magenta guifg=Magenta
+hi! EasyMotionTarget2First  ctermfg=Green   guifg=Green3
+hi! EasyMotionTarget2Second ctermfg=Red     guifg=Red
 
 hi! link EasyMotionShade     Comment
 hi! link EasyMotionMoveHL    ErrorMsg
