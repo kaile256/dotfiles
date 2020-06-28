@@ -81,6 +81,8 @@
 
   "session.directory": "~/.local/share/nvim/session/",
 
+  // "snippets.autoTrigger": false,
+  // "suggest.snippetIndicator": "...",
   "snippets.extends": {
     "cpp": ["c"],
     "javascriptreact": ["javascript"],

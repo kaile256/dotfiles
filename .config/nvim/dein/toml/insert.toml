@@ -31,20 +31,21 @@ hook_add = 'runtime add/sonictemplate.vim'
 hook_source = 'runtime source/sonictemplate.vim'
 
 #[ Snippets; Engine ]
-#[[plugins]]
-#repo = 'SirVer/ultisnips'
-## Note: leave the plugin not to be commented out and set path for document
-## Note: coc-snippets doesn't warn at some wrong expressions.
-## Note: coc-snippets independently shows preview in completion.
-## Note: too lazy because of lazy-controlled CursorMoved or else.
-## Note: Once interrupted, no longer do the keymaps work.
-#on_func = ['UltiSnips#ExpandSnippetOrJump']
-## defined in g:UltiSnipsExpandTrigger
-#on_map = {nvi = ['<Plug>(ultisnips-']}
-#on_cmd = ['UltiSnipsEdit']
-#on_path = ['\.snip$']
-#hook_add = 'runtime add/ultisnips.vim'
-#hook_source = 'runtime source/ultisnips.vim'
+[[plugins]]
+repo = 'SirVer/ultisnips'
+# Note: leave the plugin not to be commented out and set path for document
+# Note: coc-snippets doesn't warn at some wrong expressions.
+# Note: coc-snippets independently shows preview in completion.
+# Note: too lazy because of lazy-controlled CursorMoved or else.
+# Note: Once interrupted, no longer do the keymaps work.
+on_func = 'UltiSnips#ExpandSnippetOrJump'
+# # defined in g:UltiSnipsExpandTrigger
+# on_map = {nvi = ['<Plug>(ultisnips-']}
+on_cmd = 'UltiSnipsEdit'
+on_path = '\.snip$'
+hook_add = 'runtime add/ultisnips.vim'
+hook_source = 'runtime source/ultisnips.vim'
+hook_post_source = 'runtime post/ultisnips.vim'
 [[plugins]]
 repo = 'Shougo/neosnippet.vim'
 # Merged PR: Shougo/neosnippet.vim/pull/486
