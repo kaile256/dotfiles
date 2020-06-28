@@ -42,15 +42,15 @@ function! s:set_repeat(sequence) abort
   silent! call repeat#set(sequence)
 endfunction
 
-nnoremap <silent> <Plug>(copy-line-upward)   :<C-u>CopyLine!<CR>
-nnoremap <silent> <Plug>(copy-line-downward) :<C-u>CopyLine<CR>
-nnoremap <silent> <Plug>(move-line-upward)   :<C-u>MoveLine!<CR>
-nnoremap <silent> <Plug>(move-line-downward) :<C-u>MoveLine<CR>
+nnoremap <silent> <Plug>(copy-line-forward)  :<C-u>CopyLine!<CR>
+nnoremap <silent> <Plug>(copy-line-backward) :<C-u>CopyLine<CR>
+nnoremap <silent> <Plug>(move-line-forward)  :<C-u>MoveLine!<CR>
+nnoremap <silent> <Plug>(move-line-backward) :<C-u>MoveLine<CR>
 
-nmap cp <Plug>(move-line-downward)
-nmap cP <Plug>(move-line-upward)
-nmap yp <Plug>(copy-line-downward)
-nmap yP <Plug>(copy-line-upward)
+nmap cp <Plug>(move-line-backward)
+nmap cP <Plug>(move-line-forward)
+nmap yp <Plug>(copy-line-backward)
+nmap yP <Plug>(copy-line-forward)
 
 augroup myAfterYank
   if exists('#myAfterYank')
