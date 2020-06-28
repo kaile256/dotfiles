@@ -306,7 +306,7 @@ function! s:defx_keymaps() abort "{{{1
         \                'mark:indent:git:icons:filename')
 
   " Mnemonic: None of extra chars to be concealed
-  nnoremap <silent><buffer> zn :<C-u>setlocal concealcursor=nv<CR>
+  nnoremap <silent><buffer> zn :<C-u>setlocal concealcursor=nvc<CR>
   " Mnemonic: Nothing are concealed
   nnoremap <silent><buffer> zN :<C-u>setlocal concealcursor=<CR>
 
@@ -333,7 +333,7 @@ augroup myDefxPost "{{{1
   au BufWinLeave * if &ft ==# 'defx' | wincmd = | endif
   au BufWinLeave * setlocal nowfw nowfh
   au FileType defx setlocal nonumber signcolumn= bufhidden=wipe
-  au FileType defx setlocal concealcursor=nv
+  au FileType defx setlocal concealcursor=nvc
   au FileType defx call s:defx_keymaps()
   au FileType defx call s:defx_commands()
   "au BufWritePost * call defx#redraw() " of course, includes a check for defx-channel
