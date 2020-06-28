@@ -33,8 +33,8 @@ let g:rainbow_conf.separately = {
 let s:colors_order = [
       \ 'white',
       \ 'magenta',
-      \ 'green',
       \ 'orange',
+      \ 'green',
       \ 'brown',
       \ 'yellow',
       \ ]
