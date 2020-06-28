@@ -1,8 +1,8 @@
 " From: motion.toml
 " Repo: easymotion/vim-easymotion
 " Fork: kaile256/vim-easymotion
-" Else: add/easymotion.vim
-" Else: post/easymotion.vim
+" Another: add/easymotion.vim
+" Another: post/easymotion.vim
 " Ref: add/sneak.vim
 
 " Original

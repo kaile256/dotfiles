@@ -1,7 +1,7 @@
 " From: motion.toml
 " Repo: easymotion/vim-easymotion
-" Else: add/easymotion.vim
-" Else: source/easymotion.vim
+" Another: add/easymotion.vim
+" Another: source/easymotion.vim
 
 hi! link EasyMotionTarget        ErrorMsg
 hi! link EasyMotionTarget2First  ErrorMsg

@@ -1,8 +1,7 @@
 " From: motion.toml
 " Repo: easymotion/vim-easymotion
-" Fork: kaile256/vim-easymotion
-" Else: add/easymotion.vim
-" Else: source/easymotion.vim
+" Another: source/easymotion.vim
+" Another: post/easymotion.vim
 " Ref: add/sneak.vim
 
 " Excerpt of Help; about keymap
