@@ -1,7 +1,14 @@
+source ns/ns.vim
+
+snippet package
+abbr package main
+alias pa pak pac
+options head
+	package ${1:main}
+
 snippet func
-alias f fu fn fun
-	func ${1:main}(${2:len int}) (${3:nums []int}) {
-		${0:TARGET}
+alias f fu fn fun main
+	func ${1:main}(${2:len int}) ${3:(nums []int) }{
 		return
 	}
 
@@ -9,23 +16,15 @@ snippet Println
 alias fmt fm Pr P Pri Pl
 	fmt.Println(${1:res})
 
-snippet {}
-alias {
-	{
-		${0:TARGET}
-	}
-
-snippet } else {
+snippet else
 alias el els
-	`` else${1: if }${2:#:cond } {
-	${0:TARGET}
+	`NS_if('}\zs\s\+\#%', '}')` else ${1:if ${2:#:cond\} }{
 
 snippet scan
 abbr var N int; fmt.Scan(&N)
 alias in
 options head word indent
-	var ${1:N} ${2:int}
-	fmt.Scan(&$1)
+	fmt.Scan(&${1:a})
 
 snippet slice
 abbr func scanNums(len int) (nums []int)

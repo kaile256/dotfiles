@@ -1,6 +1,17 @@
-snippet travis ci
-alias tra tr
+snippet vader
+alias vim
+  language: sh
 
-snippet {{{
-alias { {{
-  {{{${0:}
+  before_script: |
+    git clone https://github.com/junegunn/vader.vim.git
+
+  script: |
+    vim -Nu <(cat << VIMRC
+    filetype off
+    set rtp+=vader.vim
+    set rtp+=.
+    ${2:set rtp+=after}
+    filetype plugin indent on
+    syntax enable
+    VIMRC) -c 'Vader! test/*' >/dev/null
+    )

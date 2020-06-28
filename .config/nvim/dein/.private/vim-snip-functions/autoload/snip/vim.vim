@@ -47,7 +47,12 @@ unlet s:dir_list
 "   1. the repository is 'user/vim-plugin-name'
 "   2. cwd is 'current-file.vim'
 
-function! snip#vim#name_of_repo() abort
+" Helper Functions "{{{1
+function! s:underscored(path) abort
+  return substitute(a:path, '-', '_', 'g')
+endfunction
+
+function! snip#vim#name_of_repo() abort "{{{1
   if &ft ==# 'toml'
     let lnum = search('^repo = ', 'nbW')
     let line = getline(lnum)
@@ -63,37 +68,38 @@ function! snip#vim#name_of_repo() abort
         \ s:dir)
 endfunction
 
-function! snip#vim#name_of_plugin_row() abort
+function! snip#vim#name_of_plugin_row() abort "{{{1
   " return 'vim-plugin-name', 'plugin-name.nvim' or so kind.
-  return substitute(snip#vim#name_of_repo(), '.\{-}/', '', '')
+  return substitute(snip#vim#name_of_repo(), '.\{-}/', '', 'e')
 endfunction
 
-function! snip#vim#name_of_plugin() abort
+
+function! snip#vim#name_of_plugin() abort "{{{1
   " return 'plugin-name'
-  return substitute(snip#vim#name_of_plugin_row(), '\v%[.]%[-]%[n]vim%[-]', '', 'g')
+  let ret = substitute(snip#vim#name_of_plugin_row(), '[.-]n\?vim$', '', 'e')
+
+  " keep 'vim' if the plugin name is 'vimfoo' not 'vim-foo'.
+  let ret = substitute(ret, '^n\?vim-', '', 'e')
+  return ret
 endfunction
 
-function! snip#vim#path_root_to_file() abort
+function! snip#vim#path_root_to_file() abort "{{{1
   " return 'path/to/current-file' after 'vim-plugin-name/'
-  return substitute(expand('%:p'), snip#vim#name_of_repo(), '/.\{-}', '', '')
+  return substitute(snip#vim#name_of_repo(), '/.\{-}', '', 'e')
 endfunction
 
-function! s:underscored(path) abort
-  return substitute(a:path, '-', '_', 'g')
-endfunction
-
-function! snip#vim#name_of_plugin_underscored() abort
+function! snip#vim#name_of_plugin_underscored() abort "{{{1
   " return 'plugin_name'
   return s:underscored(snip#vim#name_of_plugin())
 endfunction
 
-function! snip#vim#prefix_for_function() abort
+function! snip#vim#prefix_for_function() abort "{{{1
   " return 's:' or 'root#to#current_file#'
   let fname = matchstr(expand('%:p'), '/autoload/\zs.*\ze\.vim$')
   if empty(fname) | return 's:' | endif
 
   let underscored = s:underscored(fname)
-  let prefix_for_autoload = substitute(underscored, '[/\\]', '#', 'g') .'#'
+  let prefix_for_autoload = substitute(underscored, '[/\\]', '#', 'ge') .'#'
   return prefix_for_autoload
 endfunction
 

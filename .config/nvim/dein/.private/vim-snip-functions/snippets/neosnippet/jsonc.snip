@@ -1,0 +1,27 @@
+snippet vimspector
+alias vim
+options head
+  {
+    "configurations": {
+      "${1:#:label for Vimspector}": {
+
+        "adapter": "${2:#:adapter of "adapters" in ${gadgetDir\}}",
+
+        "configuration": {
+#         "name": "unnecessary for Vimspector",
+#         "type": "${3:#:cppdbg}",
+          "request": "launch",
+
+          "environment": [],
+
+          "cwd": "${workspaceRoot}",
+          "program": "${file}",
+
+          "stopOnEntry": true,
+
+          "args": [],
+
+        }
+      }
+    }
+  }

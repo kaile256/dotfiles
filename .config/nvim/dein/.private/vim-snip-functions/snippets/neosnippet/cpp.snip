@@ -1,25 +1,31 @@
 # neosnippet-snippets/cpp.snip
 
-snippet #include_standard
-alias #io, #std
+include c.snip
+source ns/cpp/*.vim
+
+snippet init
 options head
   #include <iostream>
   #include <vector>
+  #include <algorithm>
 
-snippet #include_iostream
-alias #io
+  main${1}
+
+snippet include
+alias #in #inc #include
 options head
-  #include <iostream>
+  #include ${1:<iostream>}
 
-snippet ios
-alias io
+snippet iostream
+alias io ios ios>
 options word
   `NS_cpp_include()`iostream>
 
 snippet vector
 alias vec ve
 options word
-  `NS_cpp_include()`vector>
+# `NS_cpp_include()`vector>
+  vector<${1:int}>
 
 snippet regex
 alias re reg
@@ -32,13 +38,71 @@ alias *
 options word indent
   /*${1: comment }*/
 
-snippet using_foo::bar;
-abbr use usi
+snippet using_namespace
+alias usn uns
+  using namespace ${1:std};
+
+snippet using=
+  using ${1:LL} = ${2:long long};
+
+snippet using::
   using ${1:std}::${2:cout};
 
-snippet std::cout_<<_foo_<<_std::"\n";
-abbr cout << foo << "\n";
-  ${1:std::}cout << ${1} << "\n";
+snippet struct
+options word indent
+  struct ${1:Struct} {
+    $1() {${2:#:Constructor}}
+  };
+
+snippet EPS
+abbr epsilon for double
+alias eps
+options head
+  constexpr double EPS = 1e-12;
+
+snippet cin
+abbr cin >> foo;
+alias ci in
+  `NS_cpp_cin()`
+
+snippet cout
+alias cou co out
+  `NS_cpp_cout()`
+
+snippet endl
+abbr std::endl;
+alias end en
+options word
+  `NS_cpp_std()`endl
+
+snippet forward
+abbr std::forward
+alias fo for fow
+options word
+  `NS_cpp_std`forward
+
+snippet lambda
+alias [](){} []
+options word
+  `search('\a.*\%#', 'nbW') ? '' : '${1:auto ${2:func\}} = '`[](${3:auto n}) {
+    ${4:return ret;}
+  };
+
+snippet template
+abbr template <typename T>
+alias tm tem temp
+options head
+  template <${1:typename} ${2:T}>
+
+snippet distance
+abbr distance(a.begin(), a.end())
+options word
+  distance(${1:a.begin()}, ${2:a.end()})
+
+snippet all
+abbr v.begin(), v.end()
+options word
+   `matchstr(getline('.'), '\a\zeall')`begin(), `matchstr(getline('.'), '(\zs\h\+\ze\.')``matchstr(getline('.'), '\a\zeall')`.end(), ${1}
 
 snippet for++i
 abbr for (int x = 0; ...; ++x
@@ -50,7 +114,7 @@ options head
 snippet func
 abbr int func(int n) {...}
 alias fn fu fun
-options head word indent
+options word indent
 # leave 'main' when no main function found.
   `search('int main', 'nw') ? "${1:int} ${2:func}(${3:int n}) ${4:noexcept }{\n${0:TARGET}\n}" : 'main'`
 
@@ -60,18 +124,30 @@ options head
 # Optimize <iostream> if include it, inserting some lines:
 # - cin.tie(0);
 # - ios::sync_with_stdio(false);
-
-  int main(int argc, char const *argv[]) {
-    `search('#include <iostream>', 'nbW') ? "cin.tie(0);\nios::sync_with_stdio(false);\n\n" : ''`${1:return 0;}
+  int main() {
+    ${2:return 0;}
   }
+# int main(${1:int argc, char const *argv[]}) {
+#   `search('#include <iostream>', 'nbW') && search('using namespace std;', 'nbW') ? "cin.tie(0);\nios::sync_with_stdio(false);\n\n" : ''`${2:return 0;}
+# }
 
-snippet math_GreatCommonDivisor()
+snippet gcd
 abbr int gcd(int a, int b)
-alias gcd
 options head
-    int gcd(int a, int b) {
-        return b ? gcd(b, a % b) : a;
+# from /usr/include/c++/10.1.0/bits/stl_algo.h
+    template<typename _EuclideanRingElement>
+      _GLIBCXX20_CONSTEXPR
+      _EuclideanRingElement
+      __gcd(_EuclideanRingElement __m, _EuclideanRingElement __n)
+      {
+        while (__n != 0)
+    {
+      _EuclideanRingElement __t = __m % __n;
+      __m = __n;
+      __n = __t;
     }
+        return __m;
+      }
 
 snippet math_N_GreatCommonDivisor()
 abbr int ngcd(vector<int> a)
@@ -102,63 +178,36 @@ alias nlcm
         }
         return res;
     }
-snippet is_prime()
+
+snippet is_prime
 abbr bool is_prime()
-alias isprime prime
 options head word indent
-  bool is_prime(int x) {
-    if (x < 2)
-    return 0;
-    else if (x == 2)
-    return 1;
-    if (x % 2 == 0)
-    return 0;
-    for (int i = 3; i * i <= x; i += 2)
-    if (x % i == 0)
-      return 0;
-    return 1;
-  }
-snippet print_2D_table()
-abbr cout << 2D_table()
-alias 2d
-options head word indent
-  void print_2D_table(std::vector<std::vector<${1:int}>> table, char sep) {
-    using namespace std;
-    for(int i = 0; i < table.size(); ++i) {
-      for(int j = 0; j < table.at(i).size(); ++j) {
-        cout << table.at(i).at(j);
-        if (j == table.at(i).size() - 1)
-          cout << '\n';
-        else
-          cout << sep;
-      }
+  template <typename T> bool is_prime(T n) {
+    if (n == 2)
+      return true;
+    if (n < 2 || n % 2 == 0)
+      return false;
+    for (T i = 2; i * i <= n; i += 2) {
+      if (n % i == 0)
+        return false;
     }
+    return true;
   }
 
-snippet math_sum_of_digits
-abbr int SumOfDigits()
-alias sumOfDigits digitSum
-options head
-  int sumOfDigits(int n) {
-    int ret = 0;
-    while (n > 0) {
-      ret += n % 10;
-      n /= 10;
-    }
-    return ret;
-  }
-snippet math_number_of_digits
-abbr int numOfDigits()
-alias numOfDigits digitNum
-options head
-  int numOfDigits(int n) {
-    int ret++;
-    while (n > 0) {
-      ret += n % 10;
-      n /= 10;
-    }
-    return ret;
-  }
+snippet print_2D_table
+abbr cout << 2D_table()
+alias 2d table
+options head word indent
+  `(indent('.') ? '' : "void print_2D_table(std::vector<std::vector<${1:int}>> $2, char sep) {\n") . (search('using namespace std;', 'nb') ? '' : "using namespace std;\n")`for(int i = 0; i < ${2:table}.size(); ++i) {
+      for(int j = 0; j < $2.at(i).size(); ++j) {
+        cout << $2.at(i).at(j);
+        if (j == $2.at(i).size() - 1)
+          cout << '\n';
+        else
+          cout << '`indent('.') ? "${3:,}" : 'sep'`';
+      }
+    }`indent('.') ? '' : "\n}"`
+
 snippet math_enum_div
 abbr vector<int> enum_div(int n)
 options head
@@ -179,61 +228,10 @@ options head
   int count_char_in_string(string s, char c) {
     return count(s.cbegin(), s.cend(), c);
   }
-snippet atcoder
-abbr macros for AtCoder
-options head
-  #include <algorithm>
-  #include <iostream>
-  #include <string>
-  #include <vector>
-  #include <cstdio>
 
-  #define REP(i, A, Z) for (auto (i) = (A); (i) < (Z); ++(i))
-  #define RREP(i, A, Z) for (auto (i) = (A); (i) > (Z); --(i))
-  #define rep0(i, n) REP((i), 0, (n))
-  #define rep1(i, n) REP((i), 1, (n))
-  #define rrep0(i, n) RREP((i), (n), 0)
-  #define rrep1(i, n) RREP((i), (n), 1)
-
-  #define ALL(x) (x).begin(), (x).end()
-  #define RALL(x) (x).rbegin(), (x).rend()
-
-  #define optimize_cin() ios::sync_with_stdio(!cin.tie(0))
-  #define pb push_back
-  #define endl '\n'
-
-  #define MOD 1000000007
-  #define PI 3.14159265358979323
-  const double EPS = 1e-8;
-
-  using ll = long long;
-
-  using namespace std;
-
-  template <typename T> inline void cout_vector(vector<T> &v) {
-    for (auto &x : v)
-      cout << x << ' ';
-    cout << '\n';
-  }
-
-  template <class T> inline bool chmin(T &a, T b) {
-    if (a > b) {
-      a = b;
-      return true;
-    }
-    return false;
-  }
-
-  template <class T> inline bool chmax(T &a, T b) {
-    if (a < b) {
-      a = b;
-      return true;
-    }
-    return false;
-  }
-
-  int main() {
-    cin.tie(0);
-    ios::sync_with_stdio(false);
-    ${2:return 0;}
-  }
+snippet N
+abbr Expand variables from declaration for stdin/stdout
+alias n X x A a H h R r
+regexp 'cin\|cout'
+options word
+  `substitute(matchstr(getline(search('\h\+,[a-zA-Z0-9, ]\+;', 'nbW')), '\h\+,[a-zA-Z0-9, ]\+'), ',', ' '. matchstr(getline('.'), '[<>]\{2}'), 'g')`;

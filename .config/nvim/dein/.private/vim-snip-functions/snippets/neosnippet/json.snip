@@ -11,3 +11,25 @@ snippet "",
 abbr "...": foo,
 alias ", :
   "${1:#:name}": ${2:TARGET}${3:`getline(line('.') + 1) =~# '^\s*"' ? ',' : ''`}
+
+snippet vimspector
+abbr config for vimspector
+alias dap
+options head word indent
+  {
+    "configurations": {
+      "`expand('%:t:r')`": {
+        "adapter": "${1:#:adapter from adapters or gadgets}",
+        "configuration": {
+          "name": "gdb",
+          "type": "cppdbg",
+          "request": "${4:launch}",
+          "program": "${fileDirname}/${6:${fileBasenameNoExtension}}",
+          "stopAtEntry": true,
+          "stopOnEntry": true,
+          "args": [],
+          "cwd": "${workspaceRoot}"
+        }
+      }
+    }
+  }
