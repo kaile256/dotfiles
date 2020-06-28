@@ -1,4 +1,4 @@
-" From: motion.toml
+" From: operator.toml
 " Repo: tyru/caw.vim
 " Another: source/caw.vim
 
