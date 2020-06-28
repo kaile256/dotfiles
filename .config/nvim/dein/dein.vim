@@ -180,6 +180,21 @@ augroup myDeinRc "{{{1
   endif
   au BufRead *vim**/*.toml setlocal foldlevel=0 keywordprg=:help
 
+  au BufWinEnter *vim**/*.toml call s:find_the_plugin()
+  function! s:find_the_plugin() abort "{{{2
+    let alt_path = fnamemodify(@#, ':p')
+    if alt_path !~# '\v/(add|source|post)/.*\.vim$'
+      return
+    endif
+    let config_fname = fnamemodify(alt_path, ':t:r')
+    let pat = substitute(config_fname, '[-_]', '.', 'ge')
+    let pat = 'repo = .*\zs'. pat
+
+    exe 0
+    call search(pat, 'w')
+    norm! zvzz
+  endfunction
+
   " Inititialize to source 'hook_post_source'.
   "au VimEnter * call dein#call_hook('post_source')
   " Note: keep it unused; unreloadable by `:source`
