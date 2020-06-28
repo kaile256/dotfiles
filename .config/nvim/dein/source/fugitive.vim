@@ -52,7 +52,11 @@ function! s:fugitive_keymap() abort "{{{3
   nnoremap <buffer><silent> ca :<c-u>bot 20 Gcommit --amend<cr>
   " To: continue to cc/ce/ca.
   xnoremap <buffer> c sc
-  nnoremap <buffer> R :<C-u>call <SID>git_reset()<CR>
+  nnoremap <silent><buffer> R :<C-u>call <SID>git_reset()<CR>
+  " Mnemonic: Commit Everything (cA is predefined to squash! and edit the msg)
+  nnoremap <silent><buffer> cE :<C-u>call <SID>commit_all()<CR>
+  " Mnemonic: Commit Interactive
+  nnoremap <silent><buffer> rI :<C-u>call <SID>git_rebase()<CR>
 endfunction
 
 function! s:gitcommit_keymap() abort "{{{3
@@ -70,9 +74,67 @@ function! s:gitcommit_keymap() abort "{{{3
   nnoremap <script> <c-w><c-o> <SID>(winonly-careful)
 endfunction
 
+function! s:git_rebase() abort "{{{3
+  if s:commit_all()
+    " Rebase interactively
+    norm ri
+    return
+  endif
+
+  echo 'Abort git-rebase'
+  return
+endfunction
+
+function! s:commit_all(...) abort "{{{3
+  let save_view = winsaveview()
+  call s:stage_all()
+  let has_uncommitted = search('^Staged (\d\+)$', 'wn') > 0
+  if has_uncommitted
+
+    let branch = FugitiveHead()
+    let is_confirmed = input('Commit all the files at "'. branch .'"? y[es]/n[o]: ')
+    if is_confirmed !~# 'y\%[es]'
+      echon "\nAbort git-commit"
+      call search('^Staged (\d\+)$', 'w')
+      norm u
+      call winrestview(save_view)
+      return 0
+    endif
+  endif
+
+  let msg = a:0 > 0 ? a:1 : '[TMP] RESET to the HEAD after all'
+  exe 'Git commit -m "' msg '"'
+  call winrestview(save_view)
+  return 1
+endfunction
+
+function! s:stage_all() abort "{{{3
+  let save_view = winsaveview()
+  norm! go
+  " Make sure cursor on 'Untracked', or at least on 'Unstaged', to commit all.
+  let has_unstaged  = search('^Unstaged (\d\+)$', 'nw') > 0
+  let has_untracked = search('^Untracked (\d\+)$', 'w') > 0
+  " Stage and commit all the files before the reset on the hash, using the
+  " default buffer-mapping to stage.
+  if has_unstaged || has_untracked
+    norm s
+    echo 'Done! Stage all'
+  endif
+  call winrestview(save_view)
+endfunction
+
 function! s:git_reset() abort "{{{3
   let hash = matchstr(getline('.'), '\x\{,6}')
   if empty(hash) | return | endif
+
+  let is_confirmed = input('Git Reset to '. hash .'? y[es]/n[o]: ')
+  if is_confirmed !~# 'y\%[es]'
+    echo 'Abort git-reset at' hash
+    return
+  endif
+
+  call s:commit_all()
+
   exe 'Git reset' hash
 
   " Make sure the cursor on 'git-status' for the use out of 'git-status'.
