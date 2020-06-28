@@ -1,7 +1,6 @@
-scriptencoding utf-8
-" From: motion.toml
+" TOML: motion.toml
 " Repo: haya14busa/vim-asterisk
-" Ref: machakann/vim-sandwich
+" Another: source/asterisk.vim
 
 "" Ref: https://twitter.com/Bakudankun/status/1207057884581900289
 "nnoremap <silent><expr> * v:count ? '*'
