@@ -4,10 +4,17 @@
 "set suffixesadd=.vim
 
 " $VAR; for shell {{{1
-let $EDITOR     = 'nvr'
-let $VISUAL     = 'nvr'
-let $GIT_EDITOR = 'nvr -cc split --remote-wait'
-let $VMAIL_VIM  = 'nvr'
+if has('nvim')
+  let $EDITOR     = 'nvr'
+  let $VISUAL     = 'nvr'
+  let $GIT_EDITOR = 'nvr --remote-tab-wait-silent'
+  let $VMAIL_VIM  = 'nvr'
+else
+  let $EDITOR     = 'vim --remote-wait-silent --'
+  let $VISUAL     = 'vim --remote-wait-silent --'
+  let $GIT_EDITOR = 'vim --remote-wait-silent --'
+  let $VMAIL_VIM  = 'vim --remote-wait-silent --'
+endif
 "let $BROWSER    = 'qutebrowser'
 
 "set shell=fish " keep shell=bash, most plugin-makers expects it.
