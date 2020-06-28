@@ -10,6 +10,7 @@ nmap <Cmd> :<C-u>
 set clipboard=unnamed,unnamedplus
 set backspace=indent,eol,start
 set guicursor=n-v-c-sm:block,i-ci-ve:ver25,r-cr-o:hor20,a:blinkon0
+
 let &t_SI = "\e[5 q" " Insert mode
 let &t_SR = "\e[4 q" " Replace mode
 let &t_me = "\e[1 q" " the Other mode
