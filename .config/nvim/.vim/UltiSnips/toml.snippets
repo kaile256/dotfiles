@@ -4,19 +4,19 @@ repo = '`!v matchstr(@+, 'https://github.com/\zs[^/]\+/[^/]\+')`'
 $0
 endsnippet
 
-snippet hook_add "hook_add = 'runtime add/foo.vim'" b
+snippet 'h(ook_)?a(dd)?' "hook_add = 'runtime add/foo.vim'" br
 hook_add = 'runtime add/${1:`!v snip#vim#name_of_plugin()`}.vim'
 endsnippet
 
-snippet hook_source "hook_source = 'runtime source/foo.vim" b
+snippet 'h(ook_)?s(ource)?' "hook_source = 'runtime source/foo.vim" br
 hook_source = 'runtime source/${1:`!v snip#vim#name_of_plugin()`}.vim'
 endsnippet
 
-snippet hook_post_source "hook_post_source = 'runtime post/foo.vim'" b
+snippet 'h(ook_)?p(ost_)?(s(ource)?)?' "hook_post_source = 'runtime post/foo.vim'" br
 hook_post_source = 'runtime post/${1:`!v snip#vim#name_of_plugin()`}.vim'
 endsnippet
 
-snippet hook_done_update "hook_done_update = 'UpdateRemotePlugins'" b
+snippet '(h(ook_)?)?d(one_)?u(pdate)?' "hook_done_update = 'UpdateRemotePlugins'" br
 hook_done_update = '${1:call remote#host#UpdateRemotePlugins()}'
 endsnippet
 
