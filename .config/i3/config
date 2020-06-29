@@ -63,11 +63,6 @@ set $urxvt urxvt
 # urxvtc; add `-k` to kill daemon, too.
 #set $urxvt urxvtc
 
-set $termporal alacritty --title termporal --config-file $XDG_CONFIG_HOME/alacritty/botright.yml -e fish
-#set $termporal alacritty --title termporal -e nvim -u $XDG_CONFIG_HOME/nvim/rc/termporal.vim
-for_window [title=^termporal$] floating enable
-#set $terminal urxvt
-
 # Workspaces {{{1
 # Var; i3 Workspace {{{2
 workspace_layout tabbed
@@ -588,10 +583,18 @@ bindsym bracketleft      mode default
 bindsym Ctrl+bracketleft mode default
 }
 
-# Keybind; Mode for apps {{{1
+# Keybind: Apps {{{1
 # Terminal {{{2
 $release $Super+T $noid xterm; $notify " XTerm "
 $release $Super+C $noid kitty; $notify " Kitty "
+
+for_window [title=^termporal$] floating enable
+set $termporal alacritty \
+    --title termporal \
+    --config-file $XDG_CONFIG_HOME/alacritty/center.yml \
+    -e fish
+bindsym $Super+Return $noid $termporal
+
 #set $Console " Console: (A)lacritty (U)rxvt (X)term | (G)otop "
 #bindsym $Super+C mode $Console; $shortmsg 'Consoles'
 
