@@ -251,6 +251,12 @@ let g:lexima#default_rules += [
       \ {'char': '`', 'filetype': ['ocaml', 'reason']},
       \ ]
 
+" <TAB> to create marker
+let g:lexima#default_rules += [
+      \ {'char': '<TAB>', 'filetype': ['vim', 'i3'],
+      \     'at': '{\%#}', 'input': '<C-g>U<Del>{{'}
+      \ ]
+
 " Finally: Override the rules though lexima#add_rule() "{{{1
 " Apply all the maps to both Insert and Command mode when unspecified
 call map(g:lexima#default_rules, "extend(v:val, {'mode': ':i'}, 'keep')")
