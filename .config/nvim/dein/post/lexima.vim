@@ -63,7 +63,7 @@ let g:lexima#newline_rules += [
       \ {'char': '<CR>', 'at': '\[\%#]', 'input': '<CR>\ ', 'input_after': '<CR>\ ', 'filetype': 'vim'},
       \ ]
 
-" up to Filetype
+" Spilt <tag><\tag> on <CR>
 let g:lexima#newline_rules += [
       \ {'char': '<CR>', 'at': '<.\{-}>\%#<.\{-}>', 'input_after': '<CR>',
       \     'filetype': ['htm', 'html', 'xml', 'php']},
