@@ -1,4 +1,4 @@
-" From: tool.toml
+" TOML: default.toml
 " Repo: simnalamburt/vim-mundo
 " Another: source/mundo.vim
 
