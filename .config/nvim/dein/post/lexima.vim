@@ -52,15 +52,6 @@ let g:lexima#newline_rules = [
       \ {'char': '<CR>', 'at': '/\*\%#\*/', 'input_after': '<CR><space>'},
       \ ]
 
-" Insert backslashes when filetype is vim
-let g:lexima#newline_rules += [
-      \ {'char': '<CR>', 'at': '^\s*\', 'input': '<CR>\ ', 'except': '[]})]\s*$', 'filetype': 'vim'},
-      \
-      \ {'char': '<CR>', 'at': '(\%#)',  'input': '<CR>\ ', 'input_after': '<CR>\ ', 'filetype': 'vim'},
-      \ {'char': '<CR>', 'at': '{\%#}',  'input': '<CR>\ ', 'input_after': '<CR>\ ', 'filetype': 'vim'},
-      \ {'char': '<CR>', 'at': '\[\%#]', 'input': '<CR>\ ', 'input_after': '<CR>\ ', 'filetype': 'vim'},
-      \ ]
-
 " Spilt <tag><\tag> on <CR>
 let g:lexima#newline_rules += [
       \ {'char': '<CR>', 'at': '<.\{-}>\%#<.\{-}>', 'input_after': '<CR>',
@@ -133,15 +124,6 @@ let g:lexima#default_rules += [
       \ ]
 unlet s:Let_it_double
 
-" Delete duplicated '"' to comment in Vimscript.
-let g:lexima#default_rules += [
-      \ {'char': '<TAB>',   'at': '^\s*"\%#"', 'input': '<C-g>U<Del><TAB>',   'filetype': 'vim'},
-      \ {'char': '<Space>', 'at': '^\s*"\%#"', 'input': '<C-g>U<Del><space>', 'filetype': 'vim'},
-      \ {'char': '<S-Space>', 'input': '<space>'},
-      \ {'char': '<S-Space>', 'input': '<space>', 'filetype': 'vim'},
-      \ {'char': '<S-Space>', 'at': '^\s*"\%#"', 'input': '<C-g>U<Del><space>', 'filetype': 'vim'},
-      \ ]
-
 " Overwrite Rules for Backspaces {{{1
 let g:lexima#default_rules += [
       \ {'char': '<BS>', 'at': '(\%#)',   'delete': 1},
@@ -194,7 +176,8 @@ let g:lexima#default_rules += [
 "      \ ]
 
 let g:lexima#default_rules += [
-      \ {'char': '<C-space>', 'input': ' '},
+      \ {'char': '<S-Space>', 'input': '<space>'},
+      \ {'char': '<C-space>', 'input': '<space>'},
       \ {'char': '<C-=>',     'input': ' = '},
       \
       \ {'char': '<C-,>', 'input': ', '},
@@ -248,6 +231,7 @@ let g:lexima#default_rules += [
 
 " Addtional Rules on FileType {{{1
 source $DEIN_POST_HOME/lexima.cpp.vim
+source $DEIN_POST_HOME/lexima.vim.vim
 
 " Suppress some rules up to filetype.
 let g:lexima#default_rules += [
