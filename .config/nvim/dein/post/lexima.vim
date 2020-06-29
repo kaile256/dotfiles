@@ -156,6 +156,12 @@ unlet s:remove_close s:following_ends
 "      \ {'char': '`', 'at': '``\%#',  'except': '\%#\S', 'input': '`<CR>', 'input_after': '<CR>```', 'mode': 'i'},
 "      \ ]
 
+let g:lexima#default_rules += [
+     \ {'char': "'", 'at': "''\\%#", 'except': '\%#\S', 'input': "'"},
+     \ {'char': '"', 'at': '""\%#',  'except': '\%#\S', 'input': '"'},
+     \ {'char': '`', 'at': '``\%#',  'except': '\%#\S', 'input': '`'},
+     \ ]
+
 " Overwrite Rules for Spaces {{{1
 " cohama/lexima.vim/autoload/lexima.vim @ 84
 " modify g:lexima#space_rules into default_rule because of
