@@ -2,9 +2,13 @@
 " Repo: nishigori/increment-activator
 " Another: source/increment-activator.vim
 
+let g:increment_activator_no_default_key_mappings = 1
+
 let g:increment_activator_filetype_candidates = {}
 
 let g:increment_activator_filetype_candidates['_'] = [
+      \ ['==', '!='],
+      \
       \ [0, 'null'],
       \ ['first', 'second', 'third'],
       \
@@ -15,6 +19,7 @@ let g:increment_activator_filetype_candidates['_'] = [
       \ ['height', 'width'],
       \
       \ ['next', 'prev'],
+      \ ['lower', 'upper'],
       \ ]
 
 let g:increment_activator_filetype_candidates['java'] = [
@@ -22,8 +27,13 @@ let g:increment_activator_filetype_candidates['java'] = [
       \ ]
 
 let g:increment_activator_filetype_candidates['vim'] = [
-      \ ['noremap',  'nnoremap', 'xnoremap'],
+      \ ['nmap', 'xmap'],
+      \ ['imap', 'cmap', 'tmap'],
+      \
+      \ ['nnoremap', 'xnoremap'],
       \ ['inoremap', 'cnoremap', 'tnoremap'],
+      \
       \ ['<silent>', '<script>'],
-      \ ['==', '!='],
+      \
+      \ ['\zs', '\ze'],
       \ ]
