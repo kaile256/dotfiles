@@ -123,7 +123,7 @@ hook_add = 'runtime add/mergetool.vim'
 hook_source = 'runtime source/mergetool.vim'
 
 #[ Git Ignore ]
-[[plugins]]
-repo = 'iwataka/gitignore.vim'
-type = 'git'
-on_cmd = ['Gitignore']
+# [[plugins]]
+# repo = 'iwataka/gitignore.vim'
+# on_cmd = 'Gitignore'
+
