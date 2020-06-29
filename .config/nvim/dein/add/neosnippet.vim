@@ -4,11 +4,11 @@
 " Else: once/smaps.vim
 " Snip: Shougo/neosnippet-snippets/neosnippets
 
-" ':map' for 'noxi' modes fails to remove any place-holder
-imap <c-\> <Plug>(neosnippet_jump_or_expand)
-smap <c-\> <Plug>(neosnippet_jump_or_expand)
-xmap <c-\> <Plug>(neosnippet_jump_or_expand)
-nmap <c-\> <Plug>(neosnippet_jump_or_expand)
+" " ':map' for 'noxi' modes fails to remove any place-holder
+" imap <c-\> <Plug>(neosnippet_jump_or_expand)
+" smap <c-\> <Plug>(neosnippet_jump_or_expand)
+" xmap <c-\> <Plug>(neosnippet_jump_or_expand)
+" nmap <c-\> <Plug>(neosnippet_jump_or_expand)
 
 nnoremap <A-s> <Nop>
 nnoremap <silent> <a-s><a-n> :<C-u>call <SID>neosnipet_edit()<CR>
