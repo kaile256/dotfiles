@@ -40,9 +40,11 @@ nnoremap <silent> <A-s>p :<C-u>call <SID>edit_snippets()<CR>
 nmap <A-s><A-p> <A-s>p
 
 function! s:edit_snippets() abort
-  let open = 'bel sp'
+  let open = 'sp | wincmd T | vs'
   if winwidth(0) > 2 * (&tw ? &tw : 80)
     let open = 'bot vs'
+  elseif winheight(0) > 20
+    let open = 'bel sp'
   endif
 
   exe open $VIM_ANOTHER_HOME .'/UltiSnips/'. &ft .'.snippets'
