@@ -86,11 +86,10 @@ XTerm.color15: br_white
 ! Set 'depth' to 32, with a composite-manager like `xcompmgr` or `picom`.
 ! For fake transparecy instead, use 'transparent'.
 
-! Note: apply the opacity on color config in `[]`
-! Note: work on a window-manager
-!       which supports a composite-manager like xcompmgr or picom
-! Note: keep 'depth' 32
-!URxvt.depth: 32
+! Note: Apply the opacity on color config in `[]`
+! Note: Keep 'depth' 32
+! Note: Run composite-manager ike `xcompmgr` or `picom`
+URxvt.depth: 32
 
 !! 'transparent' only in fake; adjust the percentage with 'shading'
 !URxvt.transparent: true
