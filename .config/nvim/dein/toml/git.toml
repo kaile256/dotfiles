@@ -98,10 +98,10 @@ hook_post_source = 'runtime post/gitgutter.vim'
 ## works without 'git'
 #on_event = ['BufRead']
 #[ Rebase ]
-[[plugins]]
-repo = 'hotwatermorning/auto-git-diff'
-on_ft = ['gitrebase', 'git-rebase-todo']
-on_map = {nx = '<Plug>(auto-git-diff-'}
+# [[plugins]]
+# repo = 'hotwatermorning/auto-git-diff'
+# on_ft = ['gitrebase', 'git-rebase-todo']
+# on_map = {nx = '<Plug>(auto-git-diff-'}
 #[[plugins]]
 #repo = 'salcode/vim-interactive-rebase-reverse'
 ## reverse commit order from top-to-bottom to bottom-to-top
