@@ -1,4 +1,4 @@
-" TOML: motion.toml
+" TOML: operator.toml
 " Repo: AndrewRadev/switch.vim
 " Another: add/switch.vim
 
@@ -12,45 +12,56 @@ let g:switch_mapping = ''
 " it doesn't seem to expect regexp
 " let g:switch_custom_definitions = [ ]
 
-if exists('#mySwitchAdd')
-  au! mySwitchAdd
-endif
 augroup mySwitchAdd
-  au FileType vim call s:switch_vim()
-  au FileType php call s:switch_php()
-  au FileType java call s:switch_java()
-  au FileType markdown call s:switch_markdown()
+  if exists('#mySwitchAdd') | au! mySwitchAdd
+  endif
+  au FileType * if has_key(s:definitions, &ft) |
+        \ let b:switch_custom_definitions = s:definitions[&ft]
+        \ | endif
 augroup END
 
 let g:switch_custom_definitions = [
+      \ ['==', '!='],
+      \ [0, 'null'],
+      \
+      \ ['first', 'second', 'third'],
+      \
+      \ ['L', 'R'],
+      \ ['left', 'right'],
+      \ ['H', 'W'],
+      \ ['height', 'width'],
+      \
       \ ['next', 'prev'],
+      \ ['lower', 'upper'],
       \ ]
 
-function! s:switch_vim() "{{{1
-  let b:switch_custom_definitions = [
-        \ ['noremap',  'nnoremap', 'xnoremap'],
-        \ ['inoremap', 'cnoremap', 'tnoremap'],
-        \ ['<silent>', '<script>'],
-        \ ['==', '!='],
-        \ ]
-endfunction
+let s:definitions = {}
 
-function! s:switch_php() "{{{1
-  let b:switch_custom_definitions = [
-        \   [0, 'null'],
-        \   ['submit', 'text', 'radio'],
-        \ ]
-endfunction
+let s:definitions['gitrebase'] = [
+      \ ['pick', 'squash'],
+      \ ]
 
-function! s:switch_java() "{{{1
-  let b:switch_custom_definitions = [
-        \   [0, 'null'],
-        \   ['private', 'protected', 'public']
-        \ ]
-endfunction
+let s:definitions['vim'] = [
+      \ ['==', '!='],
+      \ ['\zs', '\ze'],
+      \
+      \ ['nmap', 'xmap'],
+      \ ['imap', 'cmap', 'tmap'],
+      \
+      \ ['nnoremap', 'xnoremap'],
+      \ ['inoremap', 'cnoremap', 'tnoremap'],
+      \
+      \ ['<silent>', '<script>'],
+      \ ]
 
-function! s:switch_markdown() "{{{1
-  let b:switch_custom_definitions = [
-        \ ['first', 'second', 'third']
-        \ ]
-endfunction
+let s:definitions['php'] = [
+      \ ['submit', 'text', 'radio'],
+      \ ]
+
+let s:definitions['java'] = [
+      \ ['private', 'protected', 'public']
+      \ ]
+
+let s:definitions['markdown'] = [
+      \ ['first', 'second', 'third']
+      \ ]
