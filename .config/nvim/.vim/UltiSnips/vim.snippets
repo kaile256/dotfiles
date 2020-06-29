@@ -18,3 +18,133 @@ function! $1 abort
 	return '='
 endfunction
 endsnippet
+
+snippet init "Let's create a plugin!" b
+" ============================================================================
+" Repo: kaile256/`!v snip#vim#name_of_repo()`
+" File: `!v snip#vim#path_root_to_file()`
+" Author: kaile256
+" License: MIT license {{{
+"     Permission is hereby granted, free of charge, to any person obtaining
+"     a copy of this software and associated documentation files (the
+"     "Software"), to deal in the Software without restriction, including
+"     without limitation the rights to use, copy, modify, merge, publish,
+"     distribute, sublicense, and/or sell copies of the Software, and to
+"     permit persons to whom the Software is furnished to do so, subject to
+"     the following conditions:
+"
+"     The above copyright notice and this permission notice shall be included
+"     in all copies or substantial portions of the Software.
+"
+"     THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+"     OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+"     MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+"     IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
+"     CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+"     TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+"     SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+" }}}
+" ============================================================================
+
+if exists('g:loaded_${1:`!v snip#vim#name_of_plugin()`}') | finish | endif
+let g:loaded_$1 = 1
+
+" save 'cpoptions' {{{
+let s:save_cpo = &cpo
+set cpo&vim
+"}}}
+
+${0}
+
+" restore 'cpoptions' {{{1
+let &cpo = s:save_cpo
+unlet s:save_cpo
+
+" modeline {{{1
+" vim: et ts=2 sts=2 sw=2 fdm=marker tw=79
+endsnippet
+
+snippet header "Header for Plugin" b
+" ============================================================================
+" Repo: kaile256/`!v snip#vim#name_of_repo()`
+" File: `!v snip#vim#path_root_to_file()`
+" Author: kaile256
+" License: MIT license {{{
+"     Permission is hereby granted, free of charge, to any person obtaining
+"     a copy of this software and associated documentation files (the
+"     "Software"), to deal in the Software without restriction, including
+"     without limitation the rights to use, copy, modify, merge, publish,
+"     distribute, sublicense, and/or sell copies of the Software, and to
+"     permit persons to whom the Software is furnished to do so, subject to
+"     the following conditions:
+"
+"     The above copyright notice and this permission notice shall be included
+"     in all copies or substantial portions of the Software.
+"
+"     THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+"     OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+"     MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+"     IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
+"     CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+"     TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+"     SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+" }}}
+" ============================================================================
+endsnippet
+
+snippet mit "MIT License" b
+" License: MIT license {{{
+"     Permission is hereby granted, free of charge, to any person obtaining
+"     a copy of this software and associated documentation files (the
+"     "Software"), to deal in the Software without restriction, including
+"     without limitation the rights to use, copy, modify, merge, publish,
+"     distribute, sublicense, and/or sell copies of the Software, and to
+"     permit persons to whom the Software is furnished to do so, subject to
+"     the following conditions:
+"
+"     The above copyright notice and this permission notice shall be included
+"     in all copies or substantial portions of the Software.
+"
+"     THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+"     OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+"     MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+"     IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
+"     CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+"     TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+"     SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+" }}}
+endsnippet
+
+snippet loaded "if exists(g:loaded_$1) | finish | endif" b
+if exists('g:loaded_${1:`!v snip#vim#name_of_plugin_underscored()`}') | finish | endif "{{{1
+let g:loaded_$1 = 1
+
+" save 'cpoptions'
+let s:save_cpo = &cpo
+set cpo&vim
+"}}}1
+${0}
+endsnippet
+
+snippet cpoptions "Save cpoptions" b
+" save 'cpoptions' {{{
+let s:save_cpo = &cpo
+set cpo&vim
+"}}}1
+${0}
+endsnippet
+
+snippet footer "Boilerplate for end of plugin" b
+alias restore res end tail tai ta foo foot fo
+" restore 'cpoptions' {{{1
+let &cpo = s:save_cpo
+unlet s:save_cpo
+
+" modeline {{{1
+" vim: et ts=2 sts=2 sw=2 fdm=marker tw=79
+endsnippet
+
+snippet modeline "" b
+" modeline {{{1
+" vim: et ts=2 sts=2 sw=2 fdm=marker tw=79
+endsnippet
