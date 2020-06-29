@@ -127,3 +127,11 @@ hook_source = 'runtime source/mergetool.vim'
 # repo = 'iwataka/gitignore.vim'
 # on_cmd = 'Gitignore'
 
+#[ Conflict ]
+[[plugins]]
+repo = 'rhysd/conflict-marker.vim'
+# Highlight conflict markers like '<<<<<<<'.
+# Provide mappings to jump among Conflict markers.
+# Extend matchit.vim
+on_event = 'BufRead'
+hook_post_source = 'runtime post/conflict-marker.vim'
