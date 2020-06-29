@@ -615,8 +615,14 @@ bindsym $Super+Return $noid $termporal
 #}
 
 # Browser {{{2
-bindsym $Super+grave      $noid alacritty --title termporal --config-file $XDG_CONFIG_HOME/alacritty/center.yml -e fzf-qutebrowser-bookmarks qutebrowser
-bindsym $Super+apostrophe $noid alacritty --title termporal --config-file $XDG_CONFIG_HOME/alacritty/center.yml -e fzf-qutebrowser-bookmarks qutebrowser
+for_window [title=^Qutebrowser_bookmarks$] floating enable border normal
+set $Qutebrowser_bookmarks alacritty \
+    --title Qutebrowser_bookmarks \
+    --config-file $XDG_CONFIG_HOME/alacritty/center.yml \
+    -e fzf-qutebrowser-bookmarks qutebrowser
+bindsym $Super+apostrophe $noid $Qutebrowser_bookmarks
+bindsym $Super+grave $noid $Qutebrowser_bookmarks
+
 set $Browser " Browser: (S)ervo (V)ivaldi (F)irefox (C)hrome (Q)utebrowser "
 
 $release $Super+B mode $Browser; $shortmsg 'Browsers'
