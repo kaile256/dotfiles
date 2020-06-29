@@ -118,6 +118,11 @@ hook_source = 'runtime source/mundo.vim'
 #on_map = 'Undotree'
 #hook_add = 'runtime add/undotree.vim'
 #[ Diff ]
+[[plugins]]
+repo = 'will133/vim-dirdiff'
+# Compare a pair of directories recursively and start vimdiff.
+on_cmd = 'DirDiff'
+
 #[[plugins]]
 #repo = 'rickhowe/diffchar.vim'
 #on_if = '&diff'
