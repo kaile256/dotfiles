@@ -104,7 +104,8 @@ function! s:commit_all(...) abort "{{{3
 
   let msg = a:0 > 0 ? a:1 : '[TMP] RESET to the HEAD after all'
   exe 'Git commit -m "' msg '"'
-  call winrestview(save_view)
+  " Note: winrestview() here is meaningless because lines made of lists of
+  " uncommited files/directories will disappear after committing.
   return 1
 endfunction
 
