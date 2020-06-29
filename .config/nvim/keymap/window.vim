@@ -96,9 +96,9 @@ nnoremap Zq ZQ
 " Use AndrewRadev/undoquit.vim instead
 " " Note: look after that ZQ, as :q!, locates higher than ZZ, as :wq
 " " Mnemonic: Close all
-" nnoremap <silent> ZC     :<c-u>w <bar> windo norm! ZQ<cr>
-" nnoremap <silent> Zc     :<c-u>w <bar> windo norm! ZQ<cr>
-" nnoremap <silent> <c-w>C :<c-u>w <bar> windo norm! ZQ<cr>
+" nnoremap <silent> ZC     :<c-u>up <bar> windo norm! ZQ<cr>
+" nnoremap <silent> Zc     :<c-u>up <bar> windo norm! ZQ<cr>
+" nnoremap <silent> <c-w>C :<c-u>up <bar> windo norm! ZQ<cr>
 
 " " Mnemonic: Eliminate current tabpage
 " nnoremap <silent> ZE :<c-u>windo norm! ZQ<cr>

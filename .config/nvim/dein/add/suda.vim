@@ -13,8 +13,8 @@ function! s:sudo_write(path) abort
   let path = empty(a:path) ? '%:p' : fnameescape(a:path)
   try
     " write as simply `:w`
-    exe 'w' path
+    exe 'up' path
   catch
-    exe 'w suda://'. path
+    exe 'up suda://'. path
   endtry
 endfunction
