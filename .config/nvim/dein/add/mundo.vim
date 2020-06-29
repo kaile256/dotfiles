@@ -28,16 +28,14 @@ augroup myMundoAdd
   if exists('#myMundoAdd') | au! myMundoAdd
   endif
   " also available on git-diff
-  " FIXME: make it work
-  au TextYankPost *{d,D}iff* call s:trim_head()
+  au TextYankPost *Mundo* call s:trim_head()
 augroup END
 
 function! s:trim_head() abort
   let regname = v:event.regname
-  if empty(regname)
-    " FIXME: care for blackhole-register(_)
-    let regname = '"'
-  endif
-  let pat = '\(^\|\n\)\zs\s*[-+]'
-  exe 'let @'. regname "= substitute(@". regname ", pat, '', 'ge')"
+  let lines = split(getreg(regname), "\n")
+  let lines_modifed = map(lines, 'substitute(v:val, ''^\s*\zs[-+]'', " ", "")')
+  let contents = join(lines_modifed, "\n")
+
+  call setreg(regname, contents, 'l')
 endfunction
