@@ -43,11 +43,6 @@ set $restart exec_always
 
 set $locker ~/.config/i3/lock.sh
 
-set $menu alacritty --title fzf-menu --config-file $XDG_CONFIG_HOME/alacritty/dmenu.yml -e i3-dmenu-desktop --dmenu=fzf
-# Note: j4-dmenu-desktop has a bug to regard some descriptions as an app
-#set $menu alacritty --title fzf-menu --config-file $XDG_CONFIG_HOME/alacritty/dmenu.yml -e j4-dmenu-desktop --dmenu=fzf
-for_window [title=^fzf-menu$] floating enable border normal
-
 set $shortmsg exec --no-startup-id notify-send --expire-time 750
 set $notify   exec --no-startup-id notify-send --expire-time 1100
 set $alert    exec --no-startup-id notify-send --expire-time 1100 --urgency critical
@@ -818,12 +813,21 @@ bindsym Ctrl+bracketleft $noid fcitx-remote -c; mode default; $alert 'Skk: OFF'
 }
 
 # Keybind for Apps {{{1
-#bindsym $Super+C $noid code
-bindsym $Super+U $noid $urxvt -e fish
-bindsym $Super+A $noid alacritty -e zsh
-# # TODO: convert this bash-script into fish's
+# Menu for Desktop apps {{{2
 # Ref: dmenu with fzf https://github.com/junegunn/fzf/wiki/Examples
+# Note: j4-dmenu-desktop has a bug to regard some descriptions as an app
+#set $menu alacritty --title fzf-menu --config-file $XDG_CONFIG_HOME/alacritty/dmenu.yml -e j4-dmenu-desktop --dmenu=fzf
+for_window [title=^fzf-menu$] floating enable border normal
+set $menu alacritty \
+    --title fzf-menu \
+    --config-file $XDG_CONFIG_HOME/alacritty/dmenu.yml \
+    -e i3-dmenu-desktop --dmenu=fzf
 bindsym $Super+backslash $noid $menu
+
+
+# Start shell {{{2
+bindsym $Super+U $noid $urxvt -e fish
+bindsym $Super+A $noid alacritty -e fish
 
 # Keybind; Sound Volume {{{2
 #bindsym $Super+Ctrl+M exec terminal -e 'alsamixer'
