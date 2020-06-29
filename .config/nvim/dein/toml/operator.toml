@@ -44,12 +44,12 @@ on_cmd = ['Switch', 'SwitchReverse']
 on_func = ['switch#']
 # hook_add = 'runtime add/switch.vim'
 hook_source = 'runtime source/switch.vim'
-[[plugins]]
-repo = 'nishigori/increment-activator'
-# almost same as AndrewRadev/switch.vim; configurable in Dict of filetypes.
-on_map = {ni = ['<Plug>(increment-activator']}
-hook_add = 'runtime add/increment-activator.vim'
-
+# [[plugins]]
+# repo = 'nishigori/increment-activator'
+# # almost same as AndrewRadev/switch.vim; configurable in Dict of filetypes.
+# # Note: it only work for word boundary.
+# on_map = {ni = ['<Plug>(increment-activator']}
+# hook_add = 'runtime add/increment-activator.vim'
 [[plugins]]
 repo = 'junegunn/vim-easy-align'
 on_map = ['<Plug>(EasyAlign)', '<Plug>(LiveEasyAlign)']
