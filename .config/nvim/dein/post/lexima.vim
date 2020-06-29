@@ -237,7 +237,12 @@ unlet s:before_close s:before_paren s:before_quote
 
 " Addtional Rules for Polymorphic Use {{{1
 let g:lexima#default_rules += [
-      \ {'char': '<C-d>', 'at': '\%#[\])}''"`]', 'input': '', 'delete': 1, 'mode': 'i'}
+      \ {'char': '<C-d>', 'at': '\%#[\])}>''"`]', 'input': '', 'delete': 1, 'mode': 'i'}
+      \ ]
+
+" <TAB> to create marker
+let g:lexima#default_rules += [
+      \ {'char': '<TAB>', 'at': '{\%#}', 'input': '<C-g>U<Del>{{', 'mode': 'i'}
       \ ]
 
 " Addtional Rules on FileType {{{1
@@ -247,12 +252,6 @@ source $DEIN_POST_HOME/lexima.cpp.vim
 let g:lexima#default_rules += [
       \ {'char': "'", 'filetype': ['haskell', 'lisp', 'clojure', 'ocaml', 'reason', 'scala', 'rust']},
       \ {'char': '`', 'filetype': ['ocaml', 'reason']},
-      \ ]
-
-" <TAB> to create marker
-let g:lexima#default_rules += [
-      \ {'char': '<TAB>', 'filetype': ['vim', 'i3'],
-      \     'at': '{\%#}', 'input': '<C-g>U<Del>{{'}
       \ ]
 
 " Finally: Override the rules though lexima#add_rule() "{{{1
