@@ -170,9 +170,9 @@ unlet s:remove_close s:following_ends
 " Overwrite Triple quotes {{{1
 " Produce triple quoted block
 let g:lexima#default_rules += [
-      \ {'char': "'", 'at': "''\\%#", 'except': '\%#\S', 'input': "'<CR>", 'input_after': "<CR>'''"},
-      \ {'char': '"', 'at': '""\%#',  'except': '\%#\S', 'input': '"<CR>', 'input_after': '<CR>"""'},
-      \ {'char': '`', 'at': '``\%#',  'except': '\%#\S', 'input': '`<CR>', 'input_after': '<CR>```'},
+      \ {'char': "'", 'at': "''\\%#", 'except': '\%#\S', 'input': "'<CR>", 'input_after': "<CR>'''", 'mode': 'i'},
+      \ {'char': '"', 'at': '""\%#',  'except': '\%#\S', 'input': '"<CR>', 'input_after': '<CR>"""', 'mode': 'i'},
+      \ {'char': '`', 'at': '``\%#',  'except': '\%#\S', 'input': '`<CR>', 'input_after': '<CR>```', 'mode': 'i'},
       \ ]
 
 " Overwrite Rules for Spaces {{{1
