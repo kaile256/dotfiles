@@ -1,8 +1,8 @@
 " TOML: appearance.toml
 " Repo: flazz/vim-colorschemes
-" Ref: post/coloschemes.vim
-" Ref: source/coloschemes.vim
-" Another: colorschemes/neodark.vim
+" Ref: post/colorschemes.vim
+" Ref: source/colorschemes.vim
+" Another: colorscheme_pre/neodark.vim
 
 let g:neodark#italic = 1
 let g:neodark#use_256color = 1
