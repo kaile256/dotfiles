@@ -241,6 +241,13 @@ let g:lexima#default_rules += [
 
 " Finally: Override the rules though lexima#add_rule() "{{{1
 " Apply all the maps to both Insert and Command mode when unspecified
-call map(g:lexima#default_rules, "extend(v:val, {'mode': ':i'}, 'keep')")
+call map(g:lexima#default_rules, 'extend(v:val, {"mode": "i"}, "keep")')
+" let foo = map(deepcopy(g:lexima#default_rules), 'substitute(get(v:val, "input"), ''\ze<\(Right\|End\)>\c'', "<C-g>U", "g"')
+
+" " Ref: Enable :iabbr in lexima (currently, iabbr works without the hooks)
+" "   http://pekepekesamurai.hatenablog.com/entry/2015/04/23/223559
+" call lexima#insmode#map_hook('before', '<Space>', "\<ESC>")
+" call lexima#insmode#map_hook('before', '<C-j>',   "\<ESC>")
+" call lexima#insmode#map_hook('after', '<CR>',    "\<CR>:-1s/\s\+$<CR>")
 
 call lexima#set_default_rules()
