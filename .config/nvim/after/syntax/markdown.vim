@@ -5,7 +5,11 @@
 setl signcolumn=no
 
 "hi! link htmlLink Statement
-hi! link markdownLinkUrl NonText
+
+hi! link mkdCodeStart Comment
+hi! link mkdCodeEnd   Comment
+hi! link markdownLinkUrl Comment
+
 hi! link markdownHeadingDelimiter PreProc
 
 " for Items in markdown {{{1
