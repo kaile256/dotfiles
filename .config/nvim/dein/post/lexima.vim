@@ -63,33 +63,33 @@ let g:lexima#newline_rules += [
 if has('nvim')
   let g:lexima#default_rules += [
         \ {'char': '<S-lt>', 'input': '<'},
-        \ {'char': '<S-lt>', 'at': '\a\%#', 'input': '<', 'input_after': '>', 'filetype': 'cpp', 'mode': 'i'},
+        \ {'char': '<S-lt>', 'at': '\a\%#', 'input': '<', 'input_after': '>', 'filetype': 'cpp'},
         \ ]
 else
   let g:lexima#default_rules += [
         \ {'char': '<', 'input': '<'},
-        \ {'char': '<', 'at': '\a\%#', 'input': '<', 'input_after': '>', 'filetype': 'cpp', 'mode': 'i'},
+        \ {'char': '<', 'at': '\a\%#', 'input': '<', 'input_after': '>', 'filetype': 'cpp'},
         \ ]
 endif
 
 let g:lexima#default_rules += [
-      \ {'char': '(', 'at': '\\\%#', 'mode': 'i'},
-      \ {'char': '[', 'at': '\\\%#', 'mode': 'i'},
-      \ {'char': '{', 'at': '\\\%#', 'mode': 'i'},
+      \ {'char': '(', 'at': '\\\%#'},
+      \ {'char': '[', 'at': '\\\%#'},
+      \ {'char': '{', 'at': '\\\%#'},
       \
-      \ {'char': '(', 'input_after': ')', 'except': '\%#[^\]})''"` \t]', 'mode': 'i'},
-      \ {'char': '[', 'input_after': ']', 'except': '\%#[^\]})''"` \t]', 'mode': 'i'},
-      \ {'char': '{', 'input_after': '}', 'except': '\%#[^\]})''"` \t]', 'mode': 'i'},
+      \ {'char': '(', 'input_after': ')', 'except': '\%#[^\]})''"` \t]'},
+      \ {'char': '[', 'input_after': ']', 'except': '\%#[^\]})''"` \t]'},
+      \ {'char': '{', 'input_after': '}', 'except': '\%#[^\]})''"` \t]'},
       \
-      \ {'char': '(', 'at': '\%#[,.;:]', 'input_after': ')', 'mode': 'i'},
-      \ {'char': '[', 'at': '\%#[,.;:]', 'input_after': ']', 'mode': 'i'},
-      \ {'char': '{', 'at': '\%#[,.;:]', 'input_after': '}', 'mode': 'i'},
+      \ {'char': '(', 'at': '\%#[,.;:]', 'input_after': ')'},
+      \ {'char': '[', 'at': '\%#[,.;:]', 'input_after': ']'},
+      \ {'char': '{', 'at': '\%#[,.;:]', 'input_after': '}'},
       \ ]
 
 " parentheses to close
 " FIXME: ')' in command line works as {'leave': 1} wherever cursor is before ')'
 let g:lexima#default_rules += [
-      \ {'char': ')', 'at': '\%#)', 'leave': 1, 'mode': 'i'},
+      \ {'char': ')', 'at': '\%#)', 'leave': 1},
       \ {'char': ']', 'at': '\%#]', 'leave': 1},
       \ {'char': '}', 'at': '\%#}', 'leave': 1},
       \ ]
@@ -97,7 +97,7 @@ let g:lexima#default_rules += [
 let s:block_start = '\s*\(if\|while\|for\)\s\+\([^(]*\%#.*\)\s*'
 let s:Insert_paren = '<ESC>:keepjumps keeppatterns s/'. s:block_start .'/\1 (\2)/e<CR>gi<Right><Right>'
 let g:lexima#default_rules += [
-      \ {'char': ')', 'at': s:block_start, 'except': s:block_start .'(', 'mode': 'i',
+      \ {'char': ')', 'at': s:block_start, 'except': s:block_start .'(',
       \     'input': s:Insert_paren, 'filetype': ['c', 'cpp', 'php']}
       \ ]
 unlet s:block_start s:Insert_paren
@@ -106,9 +106,9 @@ unlet s:block_start s:Insert_paren
 let s:Let_it_double = '\w\%#\|\%#\w'
 
 let g:lexima#default_rules += [
-      \ {'char': "'", 'except': s:Let_it_double, 'input_after': "'", 'mode': 'i'},
-      \ {'char': '"', 'except': s:Let_it_double, 'input_after': '"', 'mode': 'i'},
-      \ {'char': '`', 'except': s:Let_it_double, 'input_after': '`', 'mode': 'i'},
+      \ {'char': "'", 'except': s:Let_it_double, 'input_after': "'"},
+      \ {'char': '"', 'except': s:Let_it_double, 'input_after': '"'},
+      \ {'char': '`', 'except': s:Let_it_double, 'input_after': '`'},
       \
       \ {'char': "'", 'at': '\\\%#'},
       \ {'char': "'", 'at': '\w\%#''\@!'},
@@ -141,19 +141,18 @@ let g:lexima#default_rules += [
 let s:following_ends = '\%#[a-zA-Z \t_]*\zs\s\{-}[\]})>''"`]*'
 let s:remove_close = ':silent! keepjumps keeppatterns s/'. s:following_ends .'//e<CR>gi'
 let g:lexima#default_rules += [
-      \ {'char': '<C-w>', 'at': '[\[({]\s*\%#', 'mode': 'i',
+      \ {'char': '<C-w>', 'at': '[\[({]\s*\%#',
       \   'input': '<C-w><Esc>'. s:remove_close},
-      \
-      \ {'char': '<C-u>', 'mode': 'i', 'input': '<C-u><Esc>'. s:remove_close},
+      \ {'char': '<C-u>', 'input': '<C-u><Esc>'. s:remove_close},
       \ ]
 unlet s:remove_close s:following_ends
 
 " " Overwrite Triple quotes {{{1
 " " Produce triple quoted block
 " let g:lexima#default_rules += [
-"      \ {'char': "'", 'at': "''\\%#", 'except': '\%#\S', 'input': "'<CR>", 'input_after': "<CR>'''", 'mode': 'i'},
-"      \ {'char': '"', 'at': '""\%#',  'except': '\%#\S', 'input': '"<CR>', 'input_after': '<CR>"""', 'mode': 'i'},
-"      \ {'char': '`', 'at': '``\%#',  'except': '\%#\S', 'input': '`<CR>', 'input_after': '<CR>```', 'mode': 'i'},
+"      \ {'char': "'", 'at': "''\\%#", 'except': '\%#\S', 'input': "'<CR>", 'input_after': "<CR>'''"},
+"      \ {'char': '"', 'at': '""\%#',  'except': '\%#\S', 'input': '"<CR>', 'input_after': '<CR>"""'},
+"      \ {'char': '`', 'at': '``\%#',  'except': '\%#\S', 'input': '`<CR>', 'input_after': '<CR>```'},
 "      \ ]
 
 let g:lexima#default_rules += [
@@ -227,12 +226,12 @@ unlet s:before_close s:before_paren s:before_quote
 
 " Addtional Rules for Polymorphic Use {{{1
 let g:lexima#default_rules += [
-      \ {'char': '<C-d>', 'at': '\%#[\])}>''"`]', 'input': '', 'delete': 1, 'mode': 'i'}
+      \ {'char': '<C-d>', 'at': '\%#[\])}>''"`]', 'input': '', 'delete': 1}
       \ ]
 
 " <TAB> to create marker
 let g:lexima#default_rules += [
-      \ {'char': '<TAB>', 'at': '{\%#}', 'input': '<C-g>U<Del>{{', 'mode': 'i'}
+      \ {'char': '<TAB>', 'at': '{\%#}', 'input': '<C-g>U<Del>{{'}
       \ ]
 
 " Addtional Rules on FileType {{{1
