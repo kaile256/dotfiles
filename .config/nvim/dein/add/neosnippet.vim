@@ -10,35 +10,25 @@ smap <c-\> <Plug>(neosnippet_jump_or_expand)
 xmap <c-\> <Plug>(neosnippet_jump_or_expand)
 nmap <c-\> <Plug>(neosnippet_jump_or_expand)
 
-nmap <a-s><a-p> <sid>
-
-nmap <sid>e     <SID>(neosnipet-edit)
-nmap <sid><a-e> <SID>(neosnipet-edit)
-nmap <sid>s     <SID>(neosnipet-split)
-nmap <sid><a-s> <SID>(neosnipet-split)
-nmap <sid>v     <SID>(neosnipet-vsplit)
-nmap <sid><a-v> <SID>(neosnipet-vsplit)
-nmap <sid>t     <SID>(neosnipet-tabe)
-nmap <sid><a-t> <SID>(neosnipet-tabe)
-
-nnoremap <silent> <SID>(neosnipet-edit)
-      \ :<c-u>call <SID>neosnipet_edit()<cr>
-nnoremap <silent> <SID>(neosnipet-split)
-      \ :<c-u>call <SID>neosnipet_edit('sp')<cr>
-nnoremap <silent> <SID>(neosnipet-vsplit)
-      \ :<c-u>call <SID>neosnipet_edit('vs')<cr>
-nnoremap <silent> <SID>(neosnipet-tabe)
-      \ :<c-u>call <SID>neosnipet_edit('tab sp')<cr>
+nnoremap <A-s> <Nop>
+nnoremap <silent> <a-s><a-n> :<C-u>call <SID>neosnipet_edit()<CR>
 
 function! s:neosnipet_edit(...) abort
-  let open = a:0 > 0 ? join(a:000) .'|' : ''
-  if &ft == 'toml' && !empty(matchstr(expand('%:p'), '/.vim/'))
+  " let open = a:0 > 0 ? join(a:000) .'|' : ''
+  let open = 'sp | wincmd T | vs'
+  if winwidth(0) > 2 * (&tw ? &tw : 80)
+    let open = 'bot vs'
+  elseif winheight(0) > 20
+    let open = 'bel sp'
+  endif
+
+  if &ft ==# 'toml' && !empty(matchstr(expand('%:p'), '/.vim/'))
     let dein_toml = 'toml_dein'
-    exe open 'NeoSnippetEdit' dein_toml
+    exe open $VIM_ANOTHER_HOME .'/neosnippet/'. dein_toml .'.snip'
     return
   endif
 
-  exe open 'NeoSnippetEdit'
+  exe open $VIM_ANOTHER_HOME .'/neosnippet/'. &ft .'.snip'
 endfunction
 
 " Note: is_after_space() often conflicts w/ snippet_jump() feature. {{{
