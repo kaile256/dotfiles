@@ -50,8 +50,6 @@ let g:lexima#newline_rules = [
       \ {'char': '<CR>', 'at': '{\%#}',  'input_after': '<CR>'},
       \ {'char': '<CR>', 'at': '\[\%#]', 'input_after': '<CR>'},
       \ {'char': '<CR>', 'at': '/\*\%#\*/', 'input_after': '<CR><space>'},
-      \ {'char': '<CR>', 'at': '<.\{-}>\%#<.\{-}>', 'input_after': '<CR>',
-      \     'filetype': ['htm', 'html', 'xml', 'php']},
       \ ]
 
 " Insert backslashes when filetype is vim
