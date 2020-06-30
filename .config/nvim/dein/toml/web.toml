@@ -58,18 +58,27 @@ on_cmd = ['Qiita']
 
 #[ APIs ]
 [[plugins]]
-repo = 'itchyny/calendar.vim'
-on_cmd = 'Calendar'
-hook_source = 'runtime source/calendar.vim'
-
-[[plugins]]
 repo = 'wakatime/vim-wakatime'
 # tracking service for coding activity.
 # Note: visit https://wakatime.com/settings/api-key before using this plugin.
 #on_cmd = 'WakaTime' # has to start in background
 on_event = ['VimEnter']
+
+#[ Google ]
+[[plugins]]
+repo = 'itchyny/calendar.vim'
+on_cmd = 'Calendar'
+hook_source = 'runtime source/calendar.vim'
 # Note: hook_add fails on VimEnter, BufEnter and so on.
 hook_source = 'runtime add/wakatime.vim'
+# [[plugins]]
+# repo = 'mattn/googletasks-vim'
+# # Only interactive at once in echo style.
+# on_cmd = 'GoogleTasks'
+[[plugins]]
+repo = 'mbsperry/done.vim'
+# Interact with GoogleTasks asynchronously.
+on_cmd = ['Tasks', 'AddTask']
 
 #[ Collaborative Editing ]
 [[plugins]]
