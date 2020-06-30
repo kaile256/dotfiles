@@ -1,10 +1,10 @@
 " TOML: web.toml
 " Repo: itchyny/calendar.vim
 
+let g:calendar_google_task = 1
 let g:calendar_google_calendar = 1
-let g:calendar_google_task     = 1
 
-command! Cal :Calendar
+let g:calendar_updatetime = 1000 " (ms)
 
 if exists('#myCalendarPost')
   au! myCalendarPost
