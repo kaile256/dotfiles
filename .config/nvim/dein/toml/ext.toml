@@ -34,6 +34,11 @@ on_cmd =  ['Hexedit']
 #repo = 'mtth/scratch.vim'
 #on_cmd =  ['Scratch']
 #
+#[ Calendar ]
+# [[plugins]]
+# repo = 'rizumi/gosasyu.vim'
+# # Generate calendar in Markdown format on scratch buffer.
+# on_cmd = 'Gosasyu'
 #[ Plugin's ]
 [[plugins]]
 repo = 'wsdjeg/dein-ui.vim'
