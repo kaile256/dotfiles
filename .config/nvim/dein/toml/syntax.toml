@@ -137,6 +137,9 @@ lazy = 0
 #repo = 'freitass/todo.txt-vim'
 ## Use `set syn=help` instead
 #on_ft = 'text'
+[[plugins]]
+repo = 'qnighy/satysfi.vim'
+on_path = 'saty'
 
 #[ Diagram ]
 [[plugins]]
