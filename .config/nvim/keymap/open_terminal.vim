@@ -5,7 +5,7 @@
 function! s:term_open(mods, ...) abort
   try
     cd %:h
-  catch /E472: Command failed/
+  catch /^Vim\%((\a\+)\)\=:E\(472\|499\)/
     cd ~
   endtry
 
