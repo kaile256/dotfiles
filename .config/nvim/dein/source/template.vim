@@ -6,7 +6,7 @@ let g:templates_no_autocmd = 1
 let g:templates_no_builtin_templates = 1
 
 let g:templates_directory = [
-      \ $VIM_ANOTHER_HOME .'/template',
+      \ expand('$VIM_CONFIG_HOME/template'),
       \ ]
 
 " let g:templates_global_name_prefix = ''
