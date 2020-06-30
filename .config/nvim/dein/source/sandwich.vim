@@ -63,3 +63,10 @@ let g:sandwich#recipes += [{
       \ 'kind': ['delete'],
       \ }]
 
+" https://github.com/monaqa/dotfiles/blob/32f70b3f92d75eaab07a33f8bf28ee17927476e8/.config/nvim/plugin-settings.vim#L679-L685
+let g:sandwich#recipes += [
+      \ {'buns': ['（', '）'], 'nesting': 1, 'input': ['j(', 'j)', 'jp']},
+      \ {'buns': ['「', '」'], 'nesting': 1, 'input': ['j[', 'j]', 'jb']},
+      \ {'buns': ['『', '』'], 'nesting': 1, 'input': ['j{', 'j}', 'jB']},
+      \ {'buns': ['【', '】'], 'nesting': 1, 'input': ['j<', 'j>', 'jk']},
+      \ ]
