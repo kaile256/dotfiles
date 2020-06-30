@@ -1,0 +1,66 @@
+# From: dein/dein.vim
+# Ref: private.toml
+
+[[plugins]]
+repo = 'kaile256/vim-among_HML'
+on_func = ['among_HML#', 'among_HML#fork#']
+hook_add = 'source $DEIN_ADD_HOME/among_HML.vim'
+
+[[plugins]]
+repo = 'kaile256/vim-SandJoin'
+on_map = {nx = '<Plug>(SandJoin-'}
+on_cmd = ['SandJoin']
+on_func = ['SandJoin#']
+hook_add = 'source $DEIN_ADD_HOME/SandJoin.vim'
+hook_source = 'source $DEIN_SOURCE_HOME/SandJoin.vim'
+
+#[[plugins]]
+#repo = 'kaile256/vim-sensible_K'
+## Note: the plugin defines no map/cmd, only using augroup.
+#on_event = 'VimEnter'
+#hook_add = 'source $DEIN_ADD_HOME/sensible_K.vim'
+#
+#[[plugins]]
+#repo = 'kaile256/vim-window-picker'
+#on_cmd = ['WindowPKreduce', 'WindowPKpick', 'WindowPKoly', 'WindowPKfloating', 'WindowPKcopy', 'WindowPKtabGive']
+#hook_add = 'source $DEIN_ADD_HOME/window-picker.vim'
+
+#[[plugins]]
+#repo = 'kaile256/vim-keymaps-dealer'
+## Note: must load the plugin before mapped, cannot lazy-load.
+#on_event = 'VimEnter'
+#hook_source = 'runtime source/keymaps-dealer.vim'
+## Note: autoload-functions in vimrc must be called after loading the autoload/.
+#hook_post_source = 'runtime post/keymaps-dealer.vim'
+#
+#[[plugins]]
+#repo = 'kaile256/vim-lines-in-functions'
+#on_cmd = ['LinesFunctions']
+
+#[[plugins]]
+#repo = 'kaile256/vim-fvf'
+#on_event = 'VimEnter'
+#rev = 'refactoring'
+##rev = 'verbose_commands'
+#hook_add = 'source $DEIN_ADD_HOME/fzf.vim'
+#hook_source = 'runtime source/fzf.vim'
+#hook_post_source = 'runtime post/fzf.vim'
+
+#[[plugins]]
+#repo = 'kaile256/vim-findpath'
+#on_cmd = 'FindPath'
+##hook_add = 'source $DEIN_ADD_HOME/findpath.vim'
+#
+#[ Fold ]
+[[plugins]]
+repo = 'kaile256/vim-foldpeek'
+if = "&bt !=# 'terminal'"
+on_event = ['BufWinEnter']
+hook_source = 'runtime source/foldpeek.vim'
+#hook_post_source = 'runtime post/foldpeek.vim'
+
+#[ Appearance ]
+[[plugins]]
+repo = 'kaile256/vim-doppelganger'
+on_event = 'BufRead'
+hook_source = 'runtime source/doppelganger.vim'

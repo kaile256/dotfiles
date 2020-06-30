@@ -1,0 +1,122 @@
+# From: dein/dein.vim
+# Ref: public.toml
+
+[[plugins]]
+repo = '$DEIN_PRIVATE_HOME/vim-spell-temporary'
+on_map = {nix = '<Plug>(spellTMP-suggestion'}
+hook_add = 'source $DEIN_ADD_HOME/spell-temporary.vim'
+
+[[plugins]]
+repo = '$DEIN_PRIVATE_HOME/vim-auto-foldmethod'
+on_event = 'BufWinEnter'
+
+[[plugins]]
+repo = '$DEIN_PRIVATE_HOME/vim-toml-fold'
+# a fork from matze/vim-ini-fold
+on_ft = [
+  'cfg'
+  'conf',
+  'config',
+  'desktop',
+  'dosini',
+  'gitconfig',
+  'markdown',
+  'toml',
+]
+hook_source = 'runtime source/toml-fold.vim'
+
+[[plugins]]
+repo = '$DEIN_PRIVATE_HOME/vim-yaml-fold'
+on_func =  ['yamlfold#activate']
+on_ft = [
+  'sh',
+  'zsh',
+  'bash',
+  'eyaml'
+  'python',
+  'raml',
+  'sls',
+  'yaml',
+]
+hook_source = 'runtime source/yaml-fold.vim'
+
+#[[plugins]]
+#repo = 'kaile256/vim-viml-fold'
+#on_ft = ['vim']
+
+#[[plugins]]
+#repo = 'kaile256/vim-markdown-fold'
+#on_ft = ['markdown']
+#[ Help ]
+[[plugins]]
+repo = '$DEIN_PRIVATE_HOME/vim-help-toc'
+on_ft = ['help', 'man']
+hook_source = 'runtime source/help-toc.vim'
+
+#[ Git ]
+[[plugins]]
+repo = '$DEIN_PRIVATE_HOME/vim-preview-hash-mode'
+on_cmd = 'PreviewHashMode'
+
+[[plugins]]
+repo = '$DEIN_PRIVATE_HOME/vim-fzf-git'
+on_event = 'BufRead'
+on_cmd = 'GStashes'
+on_func = [
+  'fzf#git#',
+  'fzf#git#stash#',
+]
+#hook_add = 'source $DEIN_ADD_HOME/fzf-git.vim'
+
+[[plugins]]
+repo = '$DEIN_PRIVATE_HOME/vim-option-check'
+on_cmd = 'VimOptCheck'
+hook_add = 'source $DEIN_ADD_HOME/option-check.vim'
+#[ Memo ]
+[[plugins]]
+repo = '$DEIN_PRIVATE_HOME/vim-private-note'
+on_cmd = 'Note'
+hook_add = 'source $DEIN_ADD_HOME/private-note.vim'
+hook_source = 'source $DEIN_SOURCE_HOME/private-note.vim'
+
+#[ Snippet ]
+[[plugins]]
+repo = '$DEIN_PRIVATE_HOME/vim-snip-functions'
+on_source = ['coc.nvim', 'neosnippet.vim', 'ultisnips']
+on_func = ['snip#vim#']
+
+# [[plugins]]
+# repo = '$DEIN_PRIVATE_HOME/vim-clever-newline'
+# on_event = ['BufAdd']
+#
+[[plugins]]
+repo = '$DEIN_PRIVATE_HOME/vim-GuiFont-resize'
+on_map = {n = '<Plug>(GuiFont-resize'}
+hook_add = 'source $DEIN_ADD_HOME/GuiFont-resize.vim'
+
+#[ SQL ]
+[[plugins]]
+repo = '$DEIN_PRIVATE_HOME/vim-toupper'
+# Note: kinda fork of alcesleo/vim-uppercase-sql
+lazy = 0
+
+#[ Colorscheme ]
+[[plugins]]
+repo = '$DEIN_PRIVATE_HOME/vim-highlight-info'
+on_cmd = 'HlInfo'
+
+#[ Indent ]
+[[plugins]]
+repo = '$DEIN_PRIVATE_HOME/vim-virtual-indent'
+# Ref: https://www.reddit.com/r/neovim/comments/fxjjqh/indent_guides_on_blank_lines_with_virtual_text/?utm_name=iossmf
+if = 'has("nvim")'
+on_event = 'BufRead'
+
+#[ Register ]
+[[plugins]]
+repo = '$DEIN_PRIVATE_HOME/vim-oneline-convertor'
+on_event = 'CmdLineEnter'
+
+[[plugins]]
+repo = '$DEIN_PRIVATE_HOME/vim-countable-s'
+on_event = 'BufWinEnter'
