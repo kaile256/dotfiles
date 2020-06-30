@@ -18,7 +18,7 @@ function! s:find_index() abort
   let save_view = winsaveview()
   " Return true if cursor is on the very position that escaped alphabet char.
   if searchpos('\\\zs\a', 'cWn') == [save_view['lnum'], save_view['col'] + 1]
-    return 1
+    return getline('.')[col('.') - 0]
   endif
 
   " Regard those chars that beside underscore ('_') as isolated.
@@ -34,27 +34,50 @@ function! s:find_index() abort
     call winrestview(save_view)
     if search(pat_isolated, 'cWb') != save_view['lnum']
       call winrestview(save_view)
-      return 0
+      return ''
     endif
   endif
-  return 1
+  " Exclude characters after current column to get pattern.
+  return matchstr(getline('.')[:col('.') - 1], pat_isolated .'$')
 endfunction
 
 function! s:increment_index(cmd) abort
-  if !s:find_index() | return | endif
+  let target = s:find_index()
+  if target ==# '' | return | endif
+  if target =~# '\d\+'
+    exe 'norm!' a:cmd
+    return
+  endif
+
   if a:cmd ==# "\<C-x>"
+    let op = '-'
     silent! call repeat#set("\<Plug>(index-decrement)")
   elseif a:cmd ==# "\<C-a>"
+    let op = '+'
     silent! call repeat#set("\<Plug>(index-increment)")
   else
     echoerr '[Increment Index] Invalid argument:' a:cmd
     return
   endif
 
-  let save_nrformats = &nrformats
-  set nrformats=alpha
-  exe 'norm!' v:count1 .. a:cmd
-  let &nrformats = save_nrformats
+  if target =~# '\a'
+    let save_nrformats = &nrformats
+    set nrformats=alpha
+    exe 'norm!' v:count1 .. a:cmd
+    let &nrformats = save_nrformats
+    return
+  endif
+
+  " TODO: Implement pattern in s:find_index()
+  " Ref: Increment any other characters than ascii.
+  " https://github.com/monaqa/dotfiles/blob/32f70b3f92d75eaab07a33f8bf28ee17927476e8/.config/nvim/init.vim#L950-L960
+  let save_eventignore = &eventignore
+  set eventignore=TextChangedI,TextYankPost,InsertEnter,InsertEnter
+  let @/ = target
+  let num = char2nr(target)
+  exe 'norm! cgn'. nr2char(eval(num .. op .. v:count1))
+  call histdel('/', -1)
+  let &eventignore = save_eventignore
 endfunction
 
 nnoremap j gj
