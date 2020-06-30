@@ -42,17 +42,19 @@ endfunction
 
 function! s:increment_index(cmd) abort
   if !s:find_index() | return | endif
+  if a:cmd ==# "\<C-x>"
+    silent! call repeat#set("\<Plug>(index-decrement)")
+  elseif a:cmd ==# "\<C-a>"
+    silent! call repeat#set("\<Plug>(index-increment)")
+  else
+    echoerr '[Increment Index] Invalid argument:' a:cmd
+    return
+  endif
 
   let save_nrformats = &nrformats
   set nrformats=alpha
   exe 'norm!' v:count1 .. a:cmd
   let &nrformats = save_nrformats
-
-  if a:cmd ==# "\<C-x>"
-    silent! call repeat#set("\<Plug>(index-decrement)")
-  elseif a:cmd ==# "\<C-a>"
-    silent! call repeat#set("\<Plug>(index-increment)")
-  endif
 endfunction
 
 nnoremap j gj
