@@ -236,7 +236,10 @@ set list
 "  au BufEnter,CursorHold * if &l:list == 0 | setl list | endif
 "augroup END
 "set listchars=tab:»-,trail:-,eol:↲,extends:»,precedes:«,nbsp:%
-set listchars=tab:\ \ \|,trail:-,nbsp:+
+let &listchars = 'tab:  |'
+set listchars+=trail:-,nbsp:+
+set listchars+=extends:~,precedes:«
+set listchars+=conceal:_
 
 " Split; Multiple Windows {{{1
 set splitbelow
