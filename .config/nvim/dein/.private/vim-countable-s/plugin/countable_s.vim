@@ -36,11 +36,11 @@ set cpo&vim
 " - cl/ch only count range of motion
 " - xi/Xi isn't repeatable (only repeat 'i');
 nnoremap <expr> <Plug>(countable-s)
-      \ ':<C-u>silent! call repeat#set("<Plug>(countable-s)")<CR>'.
-      \ 'x'. v:count1 .(col('.') == col('$') - 1 ? 'a' : 'i')
+      \ col('.') == col('$') - 1
+      \     ? '<Esc>x:undojoin<CR>'. v:count1 .'a'
+      \     : '<Esc>x:undojoin<CR>'. v:count1 .'i'
 nnoremap <expr> <Plug>(countable-S)
-      \ ':<C-u>silent! call repeat#set("<Plug>(countable-S)")<CR>'.
-      \ 'X'. v:count1 .'i'
+      \ '<Esc>X:undojoin<CR>'. v:count1 . 'i'
 
 silent! nmap <unique> s <Plug>(countable-s)
 silent! nmap <unique> S <Plug>(countable-S)
