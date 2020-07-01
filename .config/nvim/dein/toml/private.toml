@@ -120,3 +120,10 @@ on_event = 'CmdLineEnter'
 [[plugins]]
 repo = '$DEIN_PRIVATE_HOME/vim-countable-s'
 on_event = 'BufWinEnter'
+
+#[ Increment ]
+[[plugins]]
+repo = '$DEIN_PRIVATE_HOME/vim-increment-identifier'
+on_map = {nx = '<Plug>(id-'}
+on_func = 'identifier#increment'
+hook_add = 'runtime add/increment-identifier.vim'
