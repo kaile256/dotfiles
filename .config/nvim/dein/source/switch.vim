@@ -20,46 +20,24 @@ let g:switch_mapping = ''
 
 let g:switch_custom_definitions = [
       \ ['==', '!='],
-      \ [0, 'null'],
+      \ ['0;', 'null;'],
       \
       \ ['first', 'second', 'third'],
       \
-      \ ['L', 'R'],
+      \ {
+      \   '\<L\>': 'R',
+      \   '\<R\>': 'L',
+      \ },
       \ ['left', 'right'],
-      \ ['H', 'W'],
+      \ {
+      \   '\<H\>': 'W',
+      \   '\<W\>': 'H',
+      \ },
       \ ['height', 'width'],
       \
       \ ['next', 'prev'],
       \ ['lower', 'upper'],
-      \ ]
-
-let s:definitions = {}
-
-let s:definitions['gitrebase'] = [
-      \ ['pick', 'squash'],
-      \ ]
-
-let s:definitions['vim'] = [
-      \ ['==', '!='],
-      \ ['\zs', '\ze'],
       \
-      \ ['nmap', 'xmap'],
-      \ ['imap', 'cmap', 'tmap'],
-      \
-      \ ['nnoremap', 'xnoremap'],
-      \ ['inoremap', 'cnoremap', 'tnoremap'],
-      \
-      \ ['<silent>', '<script>'],
+      \ ['private', 'public'],
       \ ]
 
-let s:definitions['php'] = [
-      \ ['submit', 'text', 'radio'],
-      \ ]
-
-let s:definitions['java'] = [
-      \ ['private', 'protected', 'public']
-      \ ]
-
-let s:definitions['markdown'] = [
-      \ ['first', 'second', 'third']
-      \ ]
