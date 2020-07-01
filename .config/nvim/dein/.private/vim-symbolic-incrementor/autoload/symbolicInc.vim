@@ -64,7 +64,7 @@ function! s:find_target() abort
 
   " List of special cases where the pattern regards a char as isolated, which
   " is different from the simple pattern '\<.\>':
-  "     - one letter char beside underscore ('_')
+  "     - one letter char beside underscore ('_') like `ptr_a` to `ptr_b`
   "     - any kind of quoted unicode char like '"あ"'
   "
   " List of chars to be ignored even when they look isolated:
