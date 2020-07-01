@@ -65,7 +65,7 @@ function! s:find_target() abort
   " List of special cases where the pattern regards a char as isolated, which
   " is different from the simple pattern '\<.\>':
   "     - one letter char beside underscore ('_')
-  "     - any kind of quoted ambiwidth char like '"あ"'
+  "     - any kind of quoted unicode char like '"あ"'
   "
   " List of chars to be ignored even when they look isolated:
   "     - escaped alphabet with a backslash ('\')
@@ -85,7 +85,11 @@ function! s:find_target() abort
 
   " Exclude characters after current column to get pattern.
   if is_found
-    return matchstr(getline('.')[:col('.') - 1], pat_isolated .'$')
+    let ret = matchstr(getline('.')[:col('.') - 1], '.*'. pat_isolated)
+    " The '+2' is for unicode
+    return len(ret) == 0
+          \ ? matchstr(getline('.')[:col('.') + 2], '.*'. pat_isolated)
+          \ : ret
   endif
 
   return ''
