@@ -32,7 +32,6 @@ function! identifier#increment(cmd) abort
     return
   endif
 
-  " TODO: Implement pattern in s:find_id()
   " Ref: Increment any other characters than ascii.
   " https://github.com/monaqa/dotfiles/blob/32f70b3f92d75eaab07a33f8bf28ee17927476e8/.config/nvim/init.vim#L950-L960
   let save_eventignore = &eventignore
