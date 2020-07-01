@@ -14,7 +14,7 @@ function! symbolicInc#decrement() abort
 endfunction
 
 function! s:increment(cmd) abort
-  let target = s:find_id()
+  let target = s:find_target()
   if len(target) == 0 | return | endif
   if target =~# '\d\+'
     exe 'norm!' a:cmd
@@ -55,7 +55,7 @@ function! s:increment(cmd) abort
   let &eventignore = save_eventignore
 endfunction
 
-function! s:find_id() abort
+function! s:find_target() abort
   let save_view = winsaveview()
   " Return true if cursor is on the very position that escaped alphabet char.
   if searchpos('\\\zs\a', 'cWn') == [save_view['lnum'], save_view['col'] + 1]

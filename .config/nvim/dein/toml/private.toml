@@ -126,4 +126,4 @@ on_event = 'BufWinEnter'
 repo = '$DEIN_PRIVATE_HOME/vim-increment-identifier'
 on_map = {nx = '<Plug>(id-'}
 on_func = 'identifier#increment'
-hook_add = 'runtime add/increment-identifier.vim'
+hook_add = 'runtime add/symbolic-incrementor.vim'
