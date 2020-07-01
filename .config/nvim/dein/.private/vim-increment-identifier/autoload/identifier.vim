@@ -1,3 +1,8 @@
+" save 'cpoptions' {{{
+let s:save_cpo = &cpo
+set cpo&vim
+"}}}
+
 function! identifier#increment(cmd) abort
   let target = s:find_id()
   if len(target) == 0 | return | endif
@@ -87,15 +92,6 @@ function! s:search_in_line(pat, ...) abort
     endif
   endwhile
 
-  " call winrestview(save_view)
-  " if search(a:pat, 'cWb') == save_view['lnum']
-  "   if !s:is_abbr()
-  "     while search(a:pat, 'cWb') == save_view['lnum']
-  "     endwhile
-  "   endif
-  "   return 1
-  " endif
-
   if line('.') == save_view['lnum']
     return 1
   endif
@@ -104,3 +100,9 @@ function! s:search_in_line(pat, ...) abort
   return 0
 endfunction
 
+" restore 'cpoptions' {{{1
+let &cpo = s:save_cpo
+unlet s:save_cpo
+
+" modeline {{{1
+" vim: et ts=2 sts=2 sw=2 fdm=marker tw=79
