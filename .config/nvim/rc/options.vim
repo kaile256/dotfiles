@@ -37,29 +37,10 @@ command! -nargs=+ -complete=file Grep silent tab grep --sort-files <args>
 "   a: all previous modes
 "   r: for |hit-enter| and |more-prompt| prompt
 set mouse=a
-"augroup MyAutoView
-"" Note: may cause trouble with shada in such caches as jumplist.
-"  function! s:is_view_available() abort "{{{
-"    if !&buflisted || &bt !=# ''
-"      return 0
-"    elseif !filewritable(expand('%:p'))
-"      return 0
-"    endif
-"    return 1
-"  endfunction "}}}
-"  function! s:mkview() abort "{{{
-"    if s:is_view_available()
-"      silent! mkview
-"    endif
-"  endfunction "}}}
-"  function! s:loadview() abort "{{{
-"    if s:is_view_available()
-"      silent! loadview
-"    endif
-"  endfunction "}}}
-"  au BufWinLeave ?* call s:mkview()
-"  au BufReadPost ?* call s:loadview()
-"augroup END
+
+" View {{{1
+set viewoptions=cursor,folds
+
 " Shada {{{2
 if has('nvim')
   " see doc by `:h 'shada'`; single-quote is required for options
