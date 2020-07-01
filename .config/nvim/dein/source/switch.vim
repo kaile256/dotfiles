@@ -12,13 +12,11 @@ let g:switch_mapping = ''
 " it doesn't seem to expect regexp
 " let g:switch_custom_definitions = [ ]
 
-augroup mySwitchAdd
-  if exists('#mySwitchAdd') | au! mySwitchAdd
-  endif
-  au FileType * if has_key(s:definitions, &ft) |
-        \ let b:switch_custom_definitions = s:definitions[&ft]
-        \ | endif
-augroup END
+" Excerpt: Regexp support in Dictionary, {'if_matched': 'then_this_one'}, e.g.,
+" let b:switch_custom_definitions = [{
+"     \ '<div\(.\{-}\)>\(.\{-}\)</div>':   '<span\1>\2</span>',
+"     \ '<span\(.\{-}\)>\(.\{-}\)</span>': '<div\1>\2</div>',
+"     \ }]
 
 let g:switch_custom_definitions = [
       \ ['==', '!='],
