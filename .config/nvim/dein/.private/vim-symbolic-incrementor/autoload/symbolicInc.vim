@@ -93,7 +93,7 @@ function! s:find_in_line(pat, direction) abort
   let save_view = winsaveview()
   let flags = 'W'
   if a:direction ==# 'backward'
-    let flags .= 'c'
+    let flags .= 'b'
   endif
 
   let s:is_abbr = {-> getline('.')[:col('.')] =~# '''[st] $'}
