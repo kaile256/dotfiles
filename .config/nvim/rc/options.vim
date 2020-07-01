@@ -157,37 +157,8 @@ endif
 " c-option: forbids to give |ins-completion-menu| messages.
 set shortmess+=c
 set pumheight=15
-" Format {{{2
-"set noemoji
-" wrap long text: s for space
-set wrap
-"set whichwrap=h,l
-set whichwrap=
-augroup myNoWrapWithinAWord
-  if exists('#myNoWrapWithinAWord')
-    au! myNoWrapWithinAWord
-  endif
-  au FileType * if !&modifiable | setl linebreak showbreak= | endif
-augroup END
-" `breakindent` keeps visually indented according to the actual line.
-set breakindent
-set showbreak=>\
-" Note: `breakat` ONLY works for ASCII characters.
-set breakat+=
-function! s:auto_format_if_modifiable() "{{{
-  if &readonly == 0
-    setl linebreak
-  else
-    setl nolinebreak
-    if &textwidth != 0
-      setl textwidth=0
-    endif
-  endif
-endfunction "}}}
-"set indentkeys+=
-" modeline; force format as written at top/bottom of file
-set modeline
-set modelineexpr
+" set pumwidth=12
+
 " Cursor {{{2
 " shorter for CursorHold & CursorHoldI
 set updatetime=300
