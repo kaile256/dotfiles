@@ -113,7 +113,7 @@ function! s:find_in_line(pat, direction) abort
   endwhile
 
   if line('.') == save_view['lnum']
-    return 1
+    return search(a:pat, 'nc'. flags) == save_view['lnum']
   endif
 
   call winrestview(save_view)
