@@ -2,6 +2,12 @@
 " BuiltIn: runtime/ftplugin/markdown.vim
 " Another: syntax/markdown.vim
 
+augroup myMarkdownFtplugin-modify_trailing_spaces
+  au!
+  au BufWritePre <buffer> %s/\s\{3,}$/  /e
+  au BufWritePre <buffer> %s/\s\@<!\s$//e
+augroup END
+
 " setl spell spl=en_us,cjk
 setl fdl=1
 "setl nowrap conceallevel=2 concealcursor=nc
