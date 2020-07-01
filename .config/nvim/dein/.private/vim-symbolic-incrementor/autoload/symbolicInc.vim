@@ -71,6 +71,8 @@ function! s:find_target() abort
   "     - escaped alphabet with a backslash ('\')
   "     - modifier prefix like, 'C' in '<C-x>' or 'A' in <A-j>'
   "     - prefix for variables' scope of Vimscript like g:, s:, l:
+  "     - alphabet after apostrophe like `don't` or `it's`, which is detected
+  "       by s:is_abbr() in s:find_in_line()
   let pat_isolated = '\v([''"])\zs.\ze\1|((<([\<\\])@<!|_\zs)\a:@!(\ze_|>))|\d'
 
   let is_found = 0
