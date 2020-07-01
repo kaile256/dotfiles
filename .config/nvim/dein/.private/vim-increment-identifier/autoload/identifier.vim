@@ -41,7 +41,7 @@ function! identifier#increment(cmd) abort
   set ei+=InsertLeave
   let @/ = target
   let num = char2nr(target)
-  exe 'norm! cgn'. nr2char(eval(num .. op .. v:count1))
+  exe 'norm! r'. nr2char(eval(num .. op .. v:count1))
   call histdel('/', -1)
   let &eventignore = save_eventignore
 endfunction
