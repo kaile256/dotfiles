@@ -1,3 +1,5 @@
+scriptencoding utf-8
+
 " save 'cpoptions' {{{
 let s:save_cpo = &cpo
 set cpo&vim
