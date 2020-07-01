@@ -120,10 +120,3 @@ on_event = 'CmdLineEnter'
 [[plugins]]
 repo = '$DEIN_PRIVATE_HOME/vim-countable-s'
 on_event = 'BufWinEnter'
-
-#[ Increment ]
-[[plugins]]
-repo = '$DEIN_PRIVATE_HOME/vim-symbolic-incrementor'
-on_map = {nx = '<Plug>(symbolicInc-'}
-on_func = 'symbolicInc#'
-hook_add = 'runtime add/symbolic-incrementor.vim'

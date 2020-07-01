@@ -64,3 +64,10 @@ hook_source = 'runtime source/foldpeek.vim'
 repo = 'kaile256/vim-doppelganger'
 on_event = 'BufRead'
 hook_source = 'runtime source/doppelganger.vim'
+
+#[ Increment ]
+[[plugins]]
+repo = 'kaile256/vim-symbolic-incrementor'
+on_map = {nx = '<Plug>(symbolicInc-'}
+on_func = 'symbolicInc#'
+hook_add = 'runtime add/symbolic-incrementor.vim'
