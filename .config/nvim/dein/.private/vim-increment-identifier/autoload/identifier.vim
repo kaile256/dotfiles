@@ -34,7 +34,11 @@ function! identifier#increment(cmd) abort
   " Ref: Increment any other characters than ascii.
   " https://github.com/monaqa/dotfiles/blob/32f70b3f92d75eaab07a33f8bf28ee17927476e8/.config/nvim/init.vim#L950-L960
   let save_eventignore = &eventignore
-  set eventignore=TextChangedI,TextYankPost,InsertEnter,InsertEnter
+  set eventignore=
+  set ei+=TextChangedI
+  set ei+=TextYankPost
+  set ei+=InsertEnter
+  set ei+=InsertLeave
   let @/ = target
   let num = char2nr(target)
   exe 'norm! cgn'. nr2char(eval(num .. op .. v:count1))
