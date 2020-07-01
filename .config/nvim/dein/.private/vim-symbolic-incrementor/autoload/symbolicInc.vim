@@ -23,12 +23,12 @@ function! s:increment(cmd) abort
 
   if a:cmd ==# "\<C-x>"
     let op = '-'
-    silent! call repeat#set("\<Plug>(id-decrement)")
+    silent! call repeat#set("\<Plug>(symbolicInc-decrement)")
   elseif a:cmd ==# "\<C-a>"
     let op = '+'
-    silent! call repeat#set("\<Plug>(id-increment)")
+    silent! call repeat#set("\<Plug>(symbolicInc-increment)")
   else
-    echoerr '[Increment Index] Invalid argument:' a:cmd
+    echoerr '[Symbolic Incrementor] Invalid argument:' a:cmd
     return
   endif
 
