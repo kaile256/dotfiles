@@ -55,7 +55,10 @@ function! s:find_id() abort
     return getline('.')[col('.') - 1]
   endif
 
-  " Regard those chars that beside underscore ('_') as isolated.
+  " List of special cases where the pattern regards a char as isolated, which
+  " is different from the simple pattern '\<.\>':
+  "     - one letter char beside underscore ('_')
+  "     - any kind of quoted ambiwidth char like '"あ"'
   "
   " List of chars to be ignored even when they look isolated:
   "     - escaped alphabet with a backslash ('\')
