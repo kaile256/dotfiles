@@ -2,23 +2,11 @@
 " Ref: cmaps.vim
 " Ref: cabbrs.vim
 
-command! -bar CursorCharIs
-      \ :echo "'". getline('.')[col('.') - 1] ."' is the character under cursor, as getline('.')[col('.') - 1]"
-
 command! -bar DiffOrig
       \ :vert above new | setl bt=nofile
       \ | r # | 0d_
       \ | diffthis | wincmd p | diffthis
       \ | setl diffopt=vertical,indent-heuristic,algorithm:histogram
-
-command! -bar SyntaxReset        :call s:syntax_reset() "{{{1
-command! -bar HeavyBufferToReset :call s:syntax_reset()
-" TODO: automatically call this function/command as needed
-function! s:syntax_reset() abort
-  let save_syn = &syn
-  setl syntax=
-  let &l:syntax = save_syn
-endfunction
 
 "augroup AutoMkdirSuggestionOnSave "{{{1
 "  au!
