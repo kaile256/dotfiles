@@ -1,8 +1,7 @@
 scriptencoding utf-8
 " From: init.vim
 
-"" Note: EndOfBuffer is set of trailing '~' at end of buffer.
-" hi! link EndOfBuffer Ignore
+runtime! options/*.vim
 
 " Time in ms to wait for a mapped sequence to complete.
 " For: made me notice if any mappings are in Caleene's way.
@@ -119,9 +118,6 @@ set foldlevelstart=1
 set foldnestmax=10
 " reduce block (e.g., [[,{)
 set foldopen=hor,insert,mark,percent,quickfix,search,tag,undo
-
-set formatoptions=jmB1cql " default: tcqj
-
 "set foldmarker={{{\\d*$,}}}\\d*$
 
 " Appearance; Font {{{1
@@ -263,9 +259,6 @@ if exists('+inccommand')
   set inccommand=nosplit
 endif
 
-" Edit; Join {{{1
-set nojoinspaces
-
 " Edit; Macros {{{1
 " lazyredraw: forbids to redraw screen while executing macros.
 " Note: had caused a problem w/ fugitive;
@@ -286,17 +279,6 @@ set imcmdline
 "    au InsertLeave * nested call system('fcitx-remote -c')
 "  endif
 "augroup END
-
-" Insert; Text Width {{{1
-set textwidth=79
-"augroup myForceFormatOptions
-"  au!
-"  "au OptionSet * if &fo =~# 'r\|o' | silent set fo-=r fo-=o | endif
-"  "au InsertCharPre * if &fo =~# 'r\|o' | silent set fo-=r fo-=o | endif
-" au InsertEnter * if &conceallevel != 0 && &tw =~# '' | set textwidth=0 | endif
-"  "au FileType * if getline(1, '$') ==# [] | startinsert | endif
-"augroup END
-"set foldclose " when cursor is out of fold, close automatically.
 
 " Insert; Tab&Indent {{{1
 "" Tab-Char
