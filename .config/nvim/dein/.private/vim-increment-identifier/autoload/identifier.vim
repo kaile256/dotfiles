@@ -58,30 +58,32 @@ function! s:find_id() abort
   " Regard those chars that beside underscore ('_') as isolated.
   "
   " List of chars to be ignored even when they look isolated:
-  "     1. escaped by a backslash ('\')
-  "     2. modifier prefix like, 'C' in '<C-x>' or 'A' in <A-j>'
-  "     3. prefix for variables' scope of Vimscript like g:, s:, l:
-  let pat_isolated = '\v\d|((<([\<\\])@<!|_\zs)\a:@!(\ze_|>))'
-  let is_found = s:search_in_line(pat_isolated)
-  if !is_found
-    let is_found = s:search_in_line(pat_isolated, 'reverse')
-  endif
-  if !is_found
-    let pat_quoted = '\v([''"])\zs.\ze\1'
-    let quoted = s:search_in_line(pat_quoted)
-    if quoted
-      return ''
+  "     - escaped alphabet with a backslash ('\')
+  "     - modifier prefix like, 'C' in '<C-x>' or 'A' in <A-j>'
+  "     - prefix for variables' scope of Vimscript like g:, s:, l:
+  let pat_isolated = '\v([''"])\zs.\ze\1|((<([\<\\])@<!|_\zs)\a:@!(\ze_|>))|\d'
+
+  let is_found = 0
+  for direction in ['forward', 'backward']
+    if s:find_in_line(pat_isolated, direction)
+      let is_found = 1
+      break
     endif
-  endif
+  endfor
+
   " Exclude characters after current column to get pattern.
-  return matchstr(getline('.')[:col('.') - 1], pat_isolated .'$')
+  if is_found
+    return matchstr(getline('.')[:col('.') - 1], pat_isolated .'$')
+  endif
+
+  return ''
 endfunction
 
-function! s:search_in_line(pat, ...) abort
+function! s:find_in_line(pat, direction) abort
   let save_view = winsaveview()
   let flags = 'W'
-  if get(a:, 1, '') ==# 'reverse'
-    let flags .= 'b'
+  if a:direction ==# 'backward'
+    let flags .= 'c'
   endif
 
   let s:is_abbr = {-> getline('.')[:col('.')] =~# '''[st] $'}
