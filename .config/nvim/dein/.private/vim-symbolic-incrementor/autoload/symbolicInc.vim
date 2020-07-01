@@ -73,7 +73,9 @@ function! s:find_target() abort
   "     - prefix for variables' scope of Vimscript like g:, s:, l:
   "     - alphabet after apostrophe like `don't` or `it's`, which is detected
   "       by s:is_abbr() in s:find_in_line()
-  let pat_isolated = '\v([''"])\zs.\ze\1|((<([\<\\])@<!|_\zs)\a:@!(\ze_|>))|\d'
+  let pat_isolated = '\v([''"])\zs[^][./\?|<>;:''"-=_+`~!@#$%^&*(){}]\ze\1'
+        \ .'|'. '\v((<([\<\\])@<!|_\zs)\a:@!(\ze_|>))'
+        \ .'|'. '\d'
 
   let is_found = 0
   for direction in ['forward', 'backward']
