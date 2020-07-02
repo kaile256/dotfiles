@@ -3,8 +3,13 @@
 " Another: lazy/terminal.vim
 
 function! s:term_open(mods, ...) abort
+  let path = '%:h'
+  if &ft ==# 'defx'
+    let path = matchstr(getline(1), ':\zs\f\+')
+  endif
+
   try
-    cd %:h
+    exe 'cd' path
   catch /^Vim\%((\a\+)\)\=:E\(472\|499\)/
     cd ~
   endtry
