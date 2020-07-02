@@ -45,13 +45,12 @@ augroup mySwitchAdd-set_local_definitions "{{{1
     au! mySwitchAdd-set_local_definitions
   endif
   au BufWinEnter * call s:set_local_definitions()
-  au BufWinLeave * :silent! unlet b:switch_custom_definitions
 augroup END
 
 function! s:set_local_definitions() abort
-  if has_key(s:definitions, &ft)
-    let b:switch_custom_definitions = s:definitions[&ft]
-  endif
+  if !has_key(s:definitions, &ft) | return | endif
+  let b:switch_custom_definitions = s:definitions[&ft]
+  au BufWinLeave <buffer> ++once :silent! unlet b:switch_custom_definitions
 endfunction
 call s:set_local_definitions()
 
