@@ -20,6 +20,8 @@ let s:definitions['vim'] = [
       \ ['nnoremap', 'xnoremap', 'onoremap'],
       \ ['inoremap', 'cnoremap', 'tnoremap'],
       \
+      \ ['finish', 'return'],
+      \
       \ ['<silent>', '<script>'],
       \
       \ ['plugin/', 'autoload/'],
