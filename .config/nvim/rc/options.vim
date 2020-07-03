@@ -232,28 +232,6 @@ set imcmdline
 "  endif
 "augroup END
 
-" Insert; Tab&Indent {{{1
-"" Tab-Char
-" Insert spaces, instead of a tab-char.
-set expandtab
-" number of spaces, inserted by <TAB>, that a tab-char counts for.
-set tabstop=2
-" number of spaces, inserted by <TAB>, next to tab-chars.
-set softtabstop=2
-"" Tab&Indent; Indent
-" indent depends on the first char of the prev line.
-set autoindent
-" indent depends on the last char of the prev line.
-"set smartindent
-" indent setting for c-lang.
-"set cindent
-" number of spaces inserted by autoindent.
-set shiftwidth=2
-" for manual indent, insert spaces according to &l:shiftwidth.
-set smarttab
-" for '</>' indent, insert spaces according to &l:shiftwidth.
-set shiftround
-
 " Insert; Completion {{{1
 set complete-=i " i: included files
 
