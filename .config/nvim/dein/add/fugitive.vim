@@ -22,16 +22,24 @@ command! -bang -nargs=? -range=-1 -addr=tabs
       \ Gull
       \ :<mods> Git pull <args>
 
+command! -bar -bang -nargs=* -complete=customlist,fugitive#EditComplete
+      \ Ghdiffsplit
+      \ :exe fugitive#Diffsplit(0, <bang>0, "<mods>", <q-args>, ['--function-context', <f-args>])
+command! -bar -bang -nargs=* -complete=customlist,fugitive#EditComplete
+      \ Gvdiffsplit
+      \ :exe fugitive#Diffsplit(0, <bang>0, "vert <mods>", <q-args>, ['--function-context', <f-args>])
+
+" FIXME
 command! -bang -nargs=? -range=-1 -addr=tabs
       \ -complete=customlist,fugitive#GrepComplete
       \ Gfunctions
-      \ :Ggrep --show-function --line-number <args>
+      \ :Glgrep --show-function --line-number <args>
 
 " Note: practically, no such command as git-unstage
 " TODO: make it work to unstage all the other not to commit one unitentionally
 command! -nargs=? -bar -complete=customlist,fugitive#CommitComplete
       \ Gunstage
-      \ :silent exe 'Git reset HEAD' (empty(<q-args>) ? '' : <q-args>)
+      \ :silent exe 'Git reset HEAD' (empty(<q-args>) ? '| echo "Unstage all!"' : <q-args>)
 
 command! -bar -nargs=* GcommitBottom :bot 20 Git commit <args>
 
@@ -117,7 +125,7 @@ endfunction
 function! s:winreduce(...) abort "{{{2
   let winID = bufwinid('%')
 
-  if exists('a:1')
+  if a:0 > 0
     let bufdict = a:1
   endif
 
@@ -128,6 +136,8 @@ function! s:winreduce(...) abort "{{{2
     endif
   endfor
   call win_gotoid(winID)
+
+  wincmd =
 endfunction
 command! WinReduce :call s:winreduce()
 nnoremap <silent> <a-space><a-space> :<c-u>WinReduce<cr>
@@ -197,10 +207,10 @@ nnoremap <silent> <space>gA :<C-u>Gw <bar> GcommitBottom <CR>
 xnoremap <silent> <space>ga :<C-u>Gw<CR>
 xnoremap <silent> <space>gA :<C-u>Gw <bar> GcommitBottom <CR>
 
-nnoremap <silent> <space>gw :<c-u>Gw <bar> GvdiffOnly HEAD<cr>
-xnoremap <silent> <space>gw :<c-u>Gw <bar> GvdiffOnly HEAD<cr>
+nnoremap <silent> <space>gw :<c-u>Gw <bar> GwdiffOnly HEAD<cr>
+xnoremap <silent> <space>gw :<c-u>Gw <bar> GwdiffOnly HEAD<cr>
 
-command! -bar -nargs=* GvdiffOnly
+command! -bar -nargs=* GwdiffOnly
      \ :HelpCloseAll
      \ | call s:winpick()
      \ | call s:Gvdiffw(<q-args>)
@@ -217,12 +227,12 @@ command! -bar -nargs=*
 
 " Diff {{{1
 " !: On a Merge Conflict, do a 3-diff; otherwise the same as without bang.
-nnoremap <silent> <space>gd :<c-u>Gdiff<cr>
+nnoremap <silent> <space>gd :<c-u>GdiffOnly<cr>
 " Note: should be compared in current buffer
-nnoremap <silent> <space>gD :<c-u>Gdiff HEAD<cr>
+nnoremap <silent> <space>gD :<c-u>GwdiffOnly HEAD<cr>
 
 command! -bar -bang -nargs=* -complete=customlist,fugitive#EditComplete
-      \ Gdiff
+      \ GdiffOnly
       \ :HelpCloseAll
       \ | call s:winpick()
       \ | Gvdiffsplit! <args>
