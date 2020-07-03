@@ -1,6 +1,11 @@
 # From: dein/dein.vim
 
 #[ Indent ]
+# [[plugins]]
+# repo = 'nathanaelkane/vim-indent-guides'
+# # Fill indent by colors
+# on_ft = 'snippets'
+# hook_source = 'runtime source/indent-guides.vim'
 [[plugins]]
 repo = 'Yggdroot/indentLine'
 on_ft = 'python'
