@@ -63,8 +63,9 @@ endfunction
 
 nnoremap <a-x> <Nop>
 
-" in vertical {{{2
-nnoremap <silent> <a-x>v :<c-u>call <SID>defx({
+" in Sidebar {{{2
+nmap <A-x><A-x> <A-x>x
+nnoremap <silent> <A-x>x :<c-u>call <SID>defx({
       \ 'direction': 'top',
       \ 'winwidth': expand(g:defx_sidebar_width),
       \ 'columns': g:defx_format_delimited,
@@ -74,43 +75,43 @@ nnoremap <silent> <a-x>v :<c-u>call <SID>defx({
       \ <bar> setlocal wfw
       \ <CR>
 
-nnoremap <silent> <a-x><a-v> :<c-u>call <SID>defx({
-      \ 'direction': 'top',
-      \ 'winwidth': expand(g:defx_sidebar_width),
+" in vertical {{{2
+nmap <A-x><A-v> <A-x>v
+nnoremap <silent> <A-x>v :<c-u>call <SID>defx({
+      \ 'direction': 'bel',
+      \ 'winwidth': winwidth('.') / 2,
       \ 'split': 'vertical',
       \ 'new': 1,
       \ })
-      \ <bar> setlocal wfw
       \ <CR>
 
 " in horizontal {{{2
-nnoremap <silent> <a-x><a-s> :<c-u>call <SID>defx({
+nmap <A-x><A-s> <A-x>s
+nnoremap <silent> <A-x>s :<c-u>call <SID>defx({
       \ 'direction': 'bel',
       \ 'split': 'horizontal',
+      \ 'winheight': winheight('.') / 2,
       \ 'new': 1,
       \ })<cr>
-nnoremap <silent> <a-x>s :<c-u>call <SID>defx({
-      \ 'direction': 'bel',
+
+nmap <A-x><A-b> <A-x>b
+nnoremap <silent> <A-x>b :<c-u>call <SID>defx({
+      \ 'direction': 'bot',
       \ 'split': 'horizontal',
+      \ 'winheight': winheight('.') / 2,
       \ 'new': 1,
       \ })<cr>
 
 " in current window {{{2
-nnoremap <silent> <a-x><a-e> :<c-u>call <SID>defx({
-      \ 'split': 'no',
-      \ 'new': 1,
-      \ })<cr>
-nnoremap <silent> <a-x>e :<c-u>call <SID>defx({
+nmap <A-x><A-e> <A-x>e
+nnoremap <silent> <A-x>e :<c-u>call <SID>defx({
       \ 'split': 'no',
       \ 'new': 1,
       \ })<cr>
 
 " in tab page {{{2
-nnoremap <silent> <a-x>b :<c-u>call <SID>defx({
-      \ 'split': 'tab',
-      \ 'new': 1,
-      \ })<cr>
-nnoremap <silent> <a-x><a-b> :<c-u>call <SID>defx({
+nmap <A-x><A-t> <A-x>t
+nnoremap <silent> <A-x>t :<c-u>call <SID>defx({
       \ 'split': 'tab',
       \ 'new': 1,
       \ })<cr>
