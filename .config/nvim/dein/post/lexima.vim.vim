@@ -23,7 +23,7 @@ function! s:parse_list(dict) abort
         \ -> map(list, {_, dict
         \     -> extend(dict, {
         \         'char': key,
-        \         'filetype': 'cpp',
+        \         'filetype': 'vim',
         \         'mode': 'i',
         \         }, 'keep')
         \     })
