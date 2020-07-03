@@ -17,6 +17,14 @@ let g:switch_mapping = ''
 let g:switch_custom_definitions = []
 
 let g:switch_custom_definitions += [
+      \ [
+      \   'foo',   'bar',    'baz',    'qux', 'quux',
+      \   'corge', 'grault', 'garply', 'waldo',
+      \   'fred',  'plugh',  'xyzzy',  'thud'
+      \ ],
+      \
+      \ ['1st', '2nd', '3rd', '4th'],
+      \
       \ ['==', '!='],
       \ ['first', 'second', 'third'],
       \
