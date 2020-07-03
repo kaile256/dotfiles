@@ -9,6 +9,7 @@ hi! link snipLeadingSpaces NonText
 augroup myUltisnipsSo
   if exists('myUltisnipsSo') | au! myUltisnipsSo
   endif
+  au BufWinEnter *.snippets setlocal modelines=1
   au FileType snippets setlocal keywordprg=:help
   " Note: neosnippet could override default ft.
   au FileType neosnippet if expand('%:e') ==# 'snippets' |
