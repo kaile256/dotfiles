@@ -205,7 +205,7 @@ nnoremap <silent> <a-x><a-f> :<c-u>call <SID>defx({
 nnoremap <silent> <SID>(defx-dev)
       \ :<c-u>Defx `expand($MY_DEV)`
       \ -direction=botright
-      \ -winwidth=25
+      \ -winwidth=<C-r>=g:defx_sidebar_width<CR>
       \ -split=vertical
       \ -new
       \ <cr>
@@ -216,7 +216,7 @@ nnoremap <script> <a-x><a-d> <SID>(defx-dev)
 nnoremap <silent> <SID>(defx-memo)
       \ :<c-u>Defx `expand('$MY_MEMO/note')`
       \ -direction=botright
-      \ -winwidth=25
+      \ -winwidth=<C-r>=g:defx_sidebar_width<CR>
       \ -split=vertical
       \ -new
       \ <cr>
