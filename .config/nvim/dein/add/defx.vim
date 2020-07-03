@@ -5,7 +5,10 @@ scriptencoding utf-8
 " Ref: /usr/share/nvim/runtime/autoload/netrw.vim
 " Ref: /usr/share/nvim/runtime/plugin/netrwPlugin.vim
 
-let g:defx_sidebar_width = 30
+let g:defx_sidebar_width = 35
+
+let g:defx_format_delimited = 'mark:indent:git:icons:filename'
+let g:defx_format_full      = g:defx_format_delimited .':type:size:time'
 
 " Open Defx even on terminal {{{1
 function! s:defx(...) abort
@@ -64,6 +67,7 @@ nnoremap <a-x> <Nop>
 nnoremap <silent> <a-x>v :<c-u>call <SID>defx({
       \ 'direction': 'top',
       \ 'winwidth': expand(g:defx_sidebar_width),
+      \ 'columns': g:defx_format_delimited,
       \ 'split': 'vertical',
       \ 'new': 1,
       \ })

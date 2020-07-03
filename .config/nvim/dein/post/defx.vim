@@ -14,8 +14,7 @@ call defx#custom#option('_', 'drives', [
 
 " TODO: Get defx's cwd with neither auto_cd nor getline(1).
 call defx#custom#option('_', {
-      \ 'columns': 'mark:indent:git:icons:filename',
-      \ 'winheight': winheight('.'),
+      \ 'columns': g:defx_format_full,
       \ 'show_ignored_files': 1,
       \ 'root_marker': ':',
       \ 'auto_cd': 1,
@@ -296,14 +295,12 @@ function! s:defx_keymaps() abort "{{{1
   nnoremap <silent><nowait><buffer><expr> z.
         \ defx#do_action('toggle_ignored_files')
 
-  " Mnemonic: Full info
+  " Mnemonic: Full format
   nnoremap <silent><buffer><expr> zf
-        \ defx#do_action('toggle_columns',
-        \                'mark:indent:git:icons:filename:type:size:time')
-  " Mnemonic: Delete info
+        \ defx#do_action('toggle_columns', g:defx_format_full)
+  " Mnemonic: Delimited format
   nnoremap <silent><buffer><expr> zd
-        \ defx#do_action('toggle_columns',
-        \                'mark:indent:git:icons:filename')
+        \ defx#do_action('toggle_columns', g:defx_format_delimited)
 
   " Mnemonic: None of extra chars to be concealed
   nnoremap <silent><buffer> zn :<C-u>setlocal concealcursor=nvc<CR>
