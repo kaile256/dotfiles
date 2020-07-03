@@ -31,9 +31,6 @@ function! s:parse_list(dict) abort
 
   for rules in rules_list
     call extend(g:lexima#default_rules, rules)
-    " for r in rules
-    "   call lexima#add_rule(r)
-    " endfor
   endfor
 endfunction
 
