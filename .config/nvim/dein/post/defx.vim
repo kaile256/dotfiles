@@ -326,8 +326,7 @@ endfunction
 augroup myDefxPost "{{{1
   if exists('#myDefxPost') | au! myDefxPost
   endif
-  au FileType defx exe 'setl path='. getbufvar('#', '&path')
-  au BufWinLeave * if &ft ==# 'defx' | wincmd = | endif
+  au FileType defx exe 'setlocal path='. getbufvar('#', '&path')
   au BufWinLeave * setlocal nowfw nowfh
   au FileType defx setlocal nonumber signcolumn= bufhidden=wipe
   au FileType defx setlocal concealcursor=nvc
