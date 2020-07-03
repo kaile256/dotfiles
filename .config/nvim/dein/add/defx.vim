@@ -32,8 +32,6 @@ function! s:defx(...) abort
 
   let args .= ' -search='. fname
   exe 'Defx' cwd args
-
-  wincmd =
 endfunction
 
 function! s:mkdir_on_demand(path) abort "{{{1
