@@ -36,10 +36,10 @@ function! s:defx_do_action_visual(action, ...) abort "{{{1
 endfunction
 
 function! s:defx_is_wide() abort "{{{1
-  if @% =~# '\[defx\]'
+  if @% =~# '\[defx]'
     return winwidth('.') > g:defx_sidebar_width
   endif
-  return winwidth(bufwinnr('\[defx\]')) > g:defx_sidebar_width
+  return winwidth(bufwinnr('\[defx]')) > g:defx_sidebar_width
 endfunction
 function! s:defx_is_narrow() abort
   return ! s:defx_is_wide()
