@@ -3,8 +3,8 @@
 
 " Excerpt:
 " * Filter
-"   1.in interactive mode <c-f>: type g/pat/ or v/pat/
-"   2.in command-line, after :EasyAlign,
+"   1. in interactive mode <c-f>: type g/pat/ or v/pat/
+"   2. in command-line, after :EasyAlign,
 "      put `{'filter': 'g/pat/'}`, or g/pat/ or v/pat/
 "      (just type only '/'; no need to type '\/')
 
