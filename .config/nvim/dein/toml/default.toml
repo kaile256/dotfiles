@@ -13,6 +13,12 @@ hook_add = 'runtime add/repeat.vim'
 #[[plugins]]
 #repo = 'vim-scripts/repeatable-motions.vim'
 
+#[ Split ]
+# [[plugins]]
+# repo = 'rhysd/clever-split.vim'
+# on_cmd = 'Clever'
+# hook_add = 'runtime add/clever-split.vim'
+
 #[ Paste ]
 [[plugins]]
 repo = 'inkarkat/vim-UnconditionalPaste'
