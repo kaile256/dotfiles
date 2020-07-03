@@ -28,8 +28,11 @@ let g:switch_custom_definitions += [
       \ ['==', '!='],
       \ ['first', 'second', 'third'],
       \
+      \ ['new', 'old'],
       \ ['next', 'prev'],
       \ ['lower', 'upper'],
+      \
+      \ ['earlier', 'later'],
       \
       \ ['private', 'public'],
       \
