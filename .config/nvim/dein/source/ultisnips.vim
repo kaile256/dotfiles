@@ -12,7 +12,7 @@ augroup myUltisnipsSo
   au BufWinEnter *.snippets setlocal modelines=1
   au FileType snippets setlocal keywordprg=:help
   " Note: neosnippet could override default ft.
-  au FileType neosnippet if expand('%:e') ==# 'snippets' |
+  au Syntax neosnippet if expand('%:e') ==# 'snippets' |
         \ setlocal ft=snippets
         \ | endif
   "au BufWrite *.snippets call UltiSnips#RefreshSnippets()
