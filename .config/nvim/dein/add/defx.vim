@@ -76,8 +76,8 @@ nnoremap <silent> <A-x>x :<c-u>call <SID>defx({
 " in vertical {{{2
 nmap <A-x><A-v> <A-x>v
 nnoremap <silent> <A-x>v :<c-u>call <SID>defx({
-      \ 'direction': 'bel',
-      \ 'winwidth': winwidth('.') / 2,
+      \ 'direction': 'bot',
+      \ 'winwidth': &columns / 2,
       \ 'split': 'vertical',
       \ 'new': 1,
       \ })
@@ -88,7 +88,7 @@ nmap <A-x><A-s> <A-x>s
 nnoremap <silent> <A-x>s :<c-u>call <SID>defx({
       \ 'direction': 'bel',
       \ 'split': 'horizontal',
-      \ 'winheight': winheight('.') / 2,
+      \ 'winheight': &lines / 2,
       \ 'new': 1,
       \ })<cr>
 
@@ -96,7 +96,7 @@ nmap <A-x><A-b> <A-x>b
 nnoremap <silent> <A-x>b :<c-u>call <SID>defx({
       \ 'direction': 'bot',
       \ 'split': 'horizontal',
-      \ 'winheight': winheight('.') / 2,
+      \ 'winheight': &lines / 2,
       \ 'new': 1,
       \ })<cr>
 
