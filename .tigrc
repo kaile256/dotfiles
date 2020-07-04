@@ -13,3 +13,7 @@ set diff-view = line-number:yes,interval=1 text,commit-title-overflow=no
 
 bind main R !git rebase -i %(commit)
 bind diff R !git rebase -i %(commit)
+
+set git-colors = no
+
+color cursor black green
