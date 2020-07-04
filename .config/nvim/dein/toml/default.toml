@@ -55,18 +55,22 @@ repo = 'AndrewRadev/inline_edit.vim'
 # Edit in another window, like markdown's fenced scripts
 on_cmd = 'InlineEdit'
 
-#[ cd ]
+#[ Find Root ]
 [[plugins]]
-repo = 'mattn/vim-findroot'
-on_cmd = 'FindRoot'
-hook_add = 'runtime add/findroot.vim'
-# To enable to :FindRoot w/ other commands through <bar>.
-hook_done_update = '''
-e $DEIN_GITHUB_DIR/mattn/vim-findroot/plugin/findroot.vim
-g/command!/norm! Ea -bar
-g/s:findroot(/s/1/0
-write
-'''
+repo = 'airblade/vim-rooter'
+on_cmd = 'Rooter'
+hook_source = 'runtime source/rooter.vim'
+# [[plugins]]
+# repo = 'mattn/vim-findroot'
+# on_cmd = 'FindRoot'
+# hook_add = 'runtime add/findroot.vim'
+# # To enable to :FindRoot w/ other commands through <bar>.
+# hook_done_update = '''
+# e $DEIN_GITHUB_DIR/mattn/vim-findroot/plugin/findroot.vim
+# g/command!/norm! Ea -bar
+# g/s:findroot(/s/1/0
+# write
+# '''
 
 #[ Cmdline ]
 [[plugins]]
