@@ -150,10 +150,12 @@ augroup myDefxAddInsteadOfNetrw "{{{1
   au BufEnter * call s:defx_or_netrw(expand('<amatch>'))
 
   au FileReadCmd file://* call s:netrw_cmd('Nread')
-  au BufReadCmd,FileReadCmd ftp://*,rcp://*,scp://*,http://*,https://*,dav://*,davs://*,rsync://*,sftp://*
-        \ call s:netrw_cmd('Nread')
-  au SourcePre,SourceCmd ftp://*,rcp://*,scp://*,http://*,file://*,https://*,dav://*,davs://*,rsync://*,sftp://*
-        \ call s:netrw_cmd('Nsource')
+
+  au BufReadCmd,FileReadCmd http://*,https://*,rsync://*,sftp://*    call s:netrw_cmd('Nread')
+  au BufReadCmd,FileReadCmd ftp://*,rcp://*,scp://*,dav://*,davs://* call s:netrw_cmd('Nread')
+
+  au SourcePre,SourceCmd file://*,http://*,https://*,rsync://*,sftp://* call s:netrw_cmd('Nsource')
+  au SourcePre,SourceCmd ftp://*,rcp://*,scp://*,dav://*,davs://*       call s:netrw_cmd('Nsource')
 augroup END
 
 function! s:netrw_cmd(cmd) abort
