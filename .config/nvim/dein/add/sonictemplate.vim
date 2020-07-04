@@ -4,19 +4,31 @@
 " Else: data/sonictemplate
 
 augroup mySonicTemplate-autoStart
-  au!
-  au BufWinEnter */atcoder/*.cpp :call s:expand_template('atcoder')
+  if exists('#mySonicTemplate-autoStart') | au! mySonicTemplate-autoStart
+  endif
+
+  au BufWinEnter *tmp* :call s:expand_template('')
+
+  au BufWinEnter */atcoder**/*.cpp :call s:expand_template('atcoder')
+  au BufWinEnter LICENSE :call s:expand_template('LICENSE-mit')
 augroup END
 
 function! s:expand_template(label) abort
-  if line('$') == 1 && getline(1) ==# ''
-    if @% =~# 'tmp.cpp$' && len(@+) > 800
-      put! =@+
-      return
-    endif
-
-    Template atcoder
+  if line('$') != 1 || getline(1) !=# ''
+    return
   endif
+
+  let prefix = 'SonicTemplate:'
+  if @% =~# 'tmp' && len(@+) > 800
+    put! =@+
+    echo prefix 'Expanded from clipboard!'
+    return
+  endif
+
+  if len(a:label) == 0 | return | endif
+
+  exe 'Template' a:label
+  echo prefix 'Expanded "'. a:label .'"'
 endfunction
 
 finish
