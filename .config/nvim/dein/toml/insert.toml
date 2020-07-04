@@ -118,6 +118,22 @@ on_ft = ['javascript']
 #
 #[ Auto Pair ]
 [[plugins]]
+repo = 'AndrewRadev/tagalong.vim'
+# Automatic change the other of tag-pair with nmap to c/i/a.
+on_ft = [
+  'html',
+  'xml',
+  'jsx',
+  'eruby',
+  'ejs',
+  'eco',
+  'php',
+  'htmldjango',
+  'javascriptreact',
+  'typescriptreact',
+]
+hook_source = 'runtime source/tagalong.vim'
+[[plugins]]
 repo = 'alvan/vim-closetag'
 # Html; Auto Close for html-tags
 hook_add = 'runtime source/closetag.vim'
