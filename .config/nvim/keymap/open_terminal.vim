@@ -3,7 +3,7 @@
 " Another: lazy/terminal.vim
 
 function! s:term_open(mods, ...) abort
-  let path = '%:h'
+  let path = expand('%:p:h')
   if &ft ==# 'defx'
     let path = matchstr(getline(1), ':\zs\f\+')
   endif
@@ -14,19 +14,21 @@ function! s:term_open(mods, ...) abort
     cd ~
   endtry
 
+  let shell = 'fish -C "cd '. path .'"'
+
   if has('nvim')
-    exe 'term fish'
-    startinsert
-    return
+    let term_open = 'term '. shell
+  else
+    let opt = '++close'
+    for arg in a:000
+      if arg =~# '^++'
+        let opt .= ' '. arg
+      endif
+    endfor
+    let term_open = a:mods .' term '. opt .' '. shell
   endif
 
-  let opt = '++close'
-  for arg in a:000
-    if arg =~# '^++'
-      let opt .= ' '. arg
-    endif
-  endfor
-  exe a:mods 'term' opt 'fish'
+  exe term_open
   startinsert
 endfunction
 
