@@ -114,25 +114,27 @@ nnoremap <silent> <A-x>t :<c-u>call <SID>defx({
       \ 'new': 1,
       \ })<cr>
 
-" Open Dev Directory {{{1
+" Open at the End side {{{1
+function! s:defx_endbar(path) abort
+  exe 'Defx' expand(a:path)
+        \ '-direction=botright'
+        \ '-winwidth='. g:defx_sidebar_width
+        \ '-split=vertical'
+        \ '-new'
+endfunction
+
 nnoremap <silent> <SID>(defx-dev)
-      \ :<c-u>Defx `expand($MY_DEV)`
-      \ -direction=botright
-      \ -winwidth=<C-r>=g:defx_sidebar_width<CR>
-      \ -split=vertical
-      \ -new
-      \ <cr>
+      \ :<C-u>call <SID>defx_endbar($MY_DEV)<CR>
 nnoremap <script> <a-x>d     <SID>(defx-dev)
 nnoremap <script> <a-x><a-d> <SID>(defx-dev)
 
-" Open Memo Directory {{{1
+nnoremap <silent> <SID>(defx-practice)
+      \ :<C-u>call <SID>defx_endbar('$MY_DEV/atcoder')<CR>
+nnoremap <script> <a-x>p     <SID>(defx-practice)
+nnoremap <script> <a-x><a-p> <SID>(defx-practice)
+
 nnoremap <silent> <SID>(defx-memo)
-      \ :<c-u>Defx `expand('$MY_MEMO/note')`
-      \ -direction=botright
-      \ -winwidth=<C-r>=g:defx_sidebar_width<CR>
-      \ -split=vertical
-      \ -new
-      \ <cr>
+      \ :<C-u>call <SID>defx_endbar('$MY_MEMO/note')<CR>
 nnoremap <script> <a-x>m     <SID>(defx-memo)
 nnoremap <script> <a-x><a-m> <SID>(defx-memo)
 
