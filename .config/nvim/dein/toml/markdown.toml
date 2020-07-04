@@ -25,7 +25,11 @@ repo = 'iamcco/markdown-preview.nvim'
 on_ft = ['markdown', 'pandoc.markdown', 'rmd']
 build = 'cd app & yarn install'
 hook_source = 'runtime source/markdown-preview.vim'
-
+# [[plugins]]
+# repo = 'AndrewRadev/quickmd'
+# # set css at `~/.quickmd.css` or `~/.config/quickmd.css`
+# build = 'cargo install quickmd'
+# on_ft = 'markdown'
 #[[plugins]]
 #repo = 'euclio/vim-markdown-composer'
 #on_ft = 'markdown'
