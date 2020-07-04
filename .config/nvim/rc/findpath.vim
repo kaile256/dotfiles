@@ -25,13 +25,13 @@ augroup myFindPathRc
   "au BufNewFile,BufRead {*vim,dein}**/* setl suffixesadd=.toml
 
   " Apache
-  au BufRead */httpd/* setl path^=/etc/httpd/**
-  au BufRead */lampp/* setl path^=/opt/lampp/**
+  au BufNewFile,BufRead */httpd/* setl path^=/etc/httpd/**
+  au BufNewFile,BufRead */lampp/* setl path^=/opt/lampp/**
 
-  au BufNewFile,BufRead {.config,dotfiles}**/* call s:path.dotfiles()
+  au BufNewFile,BufRead *{.config,dotfiles}**/* call s:path.dotfiles()
 
   exe 'au' TermOpen '* call s:path.vim()'
-  au BufNewFile,BufRead {*vim,dein}**/* call s:path.vim()
+  au BufNewFile,BufRead *{*vim,dein}**/* call s:path.vim()
 
   au BufNewFile,BufRead $MY_MEMO**/*   call s:path.memo()
   au BufNewFile,BufRead $GHQ_ROOT**/* call s:path.ghq()
