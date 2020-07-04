@@ -17,6 +17,12 @@ g/'select-/s/C\ze',/E
 write
 '''
 [[plugins]]
+repo = 'AndrewRadev/dsf.vim'
+# Sandwich like textobj for foo('bar', 'baz') format.
+# It works more expectedly than sandwich's.
+on_map = {ox = '<Plug>DsfTextObject'}
+hook_add = 'runtime add/dsf.vim'
+[[plugins]]
 repo = 'kana/vim-textobj-function'
 # Note: should activates where lsp doesn't provide the kind of textobjects.
 # Note: available on vim/java/c, but coc's are better on java; don't know on c
