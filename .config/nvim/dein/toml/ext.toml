@@ -1,5 +1,11 @@
 # From: rc/dein.vim
 
+#[ mp3 ]
+[[plugins]]
+repo = 'AndrewRadev/id3.vim'
+# Edit metadata for mp3 files.
+# When 'flac' package is installed, it also works for FLAC files.
+if = 'executable("id3")'
 #[ Hex Editor ]
 [[plugins]]
 repo = 'Shougo/vinarise.vim'
