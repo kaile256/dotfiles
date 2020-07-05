@@ -12,6 +12,8 @@ on_cmd = ['GHInteractive', 'GBInteractive']
 #[ Workflow ]
 [[plugins]]
 repo = 'iberianpig/tig-explorer.vim'
+# Neovim seems to have no problems with nvr.
+if = '!has("nvim")'
 # no nest of vim-tig-vim-tig-... using host vim process
 on_cmd = [
   'TigOpenCurrentFile',
@@ -19,6 +21,11 @@ on_cmd = [
   'TigGrep',
   'TigBlame',
 ]
+hook_source = 'runtime source/tig-explorer.vim'
+# [[plugins]]
+# repo = 'rbgrouleff/bclose.vim'
+# if = 'has("nvim")'
+# on_source = 'tig-explorer.vim'
 [[plugins]]
 repo = 'jreybert/vimagit'
 on_cmd =  ['Magit']
