@@ -6,16 +6,12 @@ function! s:term_open(mods, path) abort
   let path = a:path
   if path ==# ''
     let path = substitute(expand('%:p:h'), '\S\+://', '', '')
-  endif
-  if &ft ==# 'defx'
+  elseif &ft ==# 'defx'
     let path = matchstr(getline(1), ':\zs\f\+')
   endif
-
-  try
-    exe 'cd' path
-  catch /^Vim\%((\a\+)\)\=:E\(472\|499\)/
-    cd ~
-  endtry
+  if !isdirectory(path)
+    let path = $HOME
+  endif
 
   let shell = 'fish -C "cd '. path .'"'
 
