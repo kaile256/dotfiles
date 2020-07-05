@@ -11,7 +11,7 @@ let s:key2rules = {}
 
 " Insert backslashes when filetype is vim
 let s:key2rules['<CR>'] = [
-      \ {'at': '^\s*\', 'input': '<CR>\ ', 'except': '[]})]\s*$'},
+      \ {'at': '^\s*\\.*\%#', 'input': '<CR>\ ', 'except': '[]})]\s*$'},
       \
       \ {'at': '(\%#)',  'input': '<CR>\ ', 'input_after': '<CR>\ '},
       \ {'at': '{\%#}',  'input': '<CR>\ ', 'input_after': '<CR>\ '},
