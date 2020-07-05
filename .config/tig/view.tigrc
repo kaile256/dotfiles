@@ -1,0 +1,19 @@
+# Man: tigrc
+
+# main view: the start page
+# The 'commit-title' column must always be last.
+set main-view = id date:relative-compact author commit-title:graph=true,refs=true
+
+set blame-view = id:true,color date:relative-compact author line-number:true,interval=1 text
+
+set pager-view = line-number:true,interval=1 text
+
+set stage-view = line-number:true,interval=1 text
+
+set log-view   = line-number:true,interval=1 text
+
+set blob-view  = line-number:true,interval=1 text
+
+set diff-view  = line-number:true,interval=1 text,commit-title-overflow=no
+
+# vim:syn=tmux

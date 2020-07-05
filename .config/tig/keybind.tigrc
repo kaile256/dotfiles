@@ -1,0 +1,14 @@
+# Man: tigrc
+
+bind generic <C-f> move-page-down
+bind generic <C-b> move-page-up
+
+bind main R !git reset --mixed %(commit)
+
+bind main ri !git rebase -i %(commit)
+bind diff ri !git rebase -i %(commit)
+
+bind diff <C-p> :toggle diff-context -1
+bind diff <C-n> :toggle diff-context +1
+
+# vim:syn=tmux
