@@ -1,22 +1,36 @@
 # Man: tigrc
 
+# Note: The editor tig uses is $GIT_EDITOR.
+# Note: for bool-values, set either "1", "true" or "yes".
+
 # main view: the start page
 # The 'commit-title' column must always be last.
-set main-view = id date:relative-compact author commit-title:graph=yes,refs=yes
+set main-view = id date:relative-compact author commit-title:graph=true,refs=true
 
 # blame view: show line-number, interval=1
-set blame-view = date:default author:email-user id:yes,color line-number:yes,interval=1 text
+set blame-view = id:true,color date:relative-compact author line-number:true,interval=1 text
 
 # default: line-number:no,interval=5
-set pager-view = line-number:yes,interval=1 text
-set stage-view = line-number:yes,interval=1 text
-set log-view = line-number:yes,interval=1 text
-set blob-view = line-number:yes,interval=1 text
-set diff-view = line-number:yes,interval=1 text,commit-title-overflow=no
+set pager-view = line-number:true,interval=1 text
+set stage-view = line-number:true,interval=1 text
+set log-view   = line-number:true,interval=1 text
+set blob-view  = line-number:true,interval=1 text
+set diff-view  = line-number:true,interval=1 text,commit-title-overflow=no
 
-bind main R !git rebase -i %(commit)
-bind diff R !git rebase -i %(commit)
+set wrap-lines = true
+# set line-graphics = utf-8
+set tab-size = 4
 
 set git-colors = no
-
 color cursor black green
+
+bind generic <C-f> move-page-down
+bind generic <C-b> move-page-up
+
+bind main ri !git rebase -i %(commit)
+bind main R !git reset --mixed %(commit)
+bind diff ri !git rebase -i %(commit)
+
+bind diff <C-p> :toggle diff-context -1
+bind diff <C-n> :toggle diff-context +1
+
