@@ -1,5 +1,8 @@
-# main view: show commit-ID on Left
-set main-view = id date author:email-user commit-title:graph=yes,refs=yes
+# Man: tigrc
+
+# main view: the start page
+# The 'commit-title' column must always be last.
+set main-view = id date:relative-compact author commit-title:graph=yes,refs=yes
 
 # blame view: show line-number, interval=1
 set blame-view = date:default author:email-user id:yes,color line-number:yes,interval=1 text
