@@ -339,9 +339,10 @@ function! LL_git_branch() abort "{{{3
 endfunction
 
 function! LL_git_diff() abort "{{{3
-  if len(get(b:, 'coc_git_status')) > 0
-    return matchstr(b:coc_git_status, '\s*\zs\S.*\ze\s*')
-  endif
+  " if exists('b:coc_git_status')
+  "   Note: b:coc_git_status often fails to update.
+  "   return matchstr(b:coc_git_status, '\s*\zs\S.*\ze\s*')
+  " endif
 
   if !exists('*GitGutterGetHunkSummary()') | return '' | endif
 
