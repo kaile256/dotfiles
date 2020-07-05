@@ -1,14 +1,32 @@
 # Man: tigrc
 
+# Tips: To unbind default keybind, `bind [view] [key] none`
+
+bind generic g none # view-grep
+bind generic r none # view-refs
+bind main G move-last-line # :toggle commit-title-graph
+
+bind generic gg move-first-line
+bind generic G  move-last-line
 bind generic <C-f> move-page-down
 bind generic <C-b> move-page-up
 
 bind main R !git reset --mixed %(commit)
+
+bind main   zr :toggle commit-title-refs
+bind reflog zr :toggle commit-title-refs
+
+bind main gr view-refs
+bind main gs view-status
+bind main gS view-status
+bind main gG view-grep
 
 bind main ri !git rebase -i %(commit)
 bind diff ri !git rebase -i %(commit)
 
 bind diff <C-p> :toggle diff-context -1
 bind diff <C-n> :toggle diff-context +1
+
+bind stash D ?git stash drop %(stash)
 
 # vim:syn=tmux
