@@ -24,8 +24,8 @@ bind main gG view-grep
 bind main ri !git rebase -i %(commit)
 bind diff ri !git rebase -i %(commit)
 
-bind diff <C-p> :toggle diff-context -1
-bind diff <C-n> :toggle diff-context +1
+bind diff <C-p> :toggle diff-context - 1
+bind diff <C-n> :toggle diff-context + 1
 
 bind stash D ?git stash drop %(stash)
 
