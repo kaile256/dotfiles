@@ -1,4 +1,6 @@
 # Man: tigrc
+# Another: view/config
+# Another: keybind.tigrc
 
 # Note: The editor tig uses is $GIT_EDITOR.
 # Note: for bool-values, set either "1", "true" or "yes".
@@ -13,4 +15,4 @@ set tab-size = 4
 set git-colors = no
 color cursor black green
 
-# vim:syn=tmux
+# vim:ft=tig

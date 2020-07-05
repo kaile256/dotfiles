@@ -1,4 +1,6 @@
 # Man: tigrc
+# Another: tig/config
+# Another: view.tigrc
 
 # Tips: To unbind default keybind, `bind [view] [key] none`
 
@@ -16,10 +18,12 @@ bind main R !git reset --mixed %(commit)
 bind main   zr :toggle commit-title-refs
 bind reflog zr :toggle commit-title-refs
 
-bind main gr view-refs
-bind main gs view-status
-bind main gS view-status
-bind main gG view-grep
+bind generic d none # view-diff
+bind generic gd view-diff
+bind generic gr view-refs
+bind generic gs view-status
+bind generic gS view-status
+bind generic gG view-grep
 
 bind main ri !git rebase -i %(commit)
 bind diff ri !git rebase -i %(commit)
@@ -29,4 +33,4 @@ bind diff <C-n> :toggle diff-context + 1
 
 bind stash D ?git stash drop %(stash)
 
-# vim:syn=tmux
+# vim:ft=tig

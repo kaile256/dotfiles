@@ -1,4 +1,6 @@
 # Man: tigrc
+# Another: tig/config
+# Another: keybind.tigrc
 
 # main view: the start page
 # The 'commit-title' column must always be last.
@@ -16,4 +18,4 @@ set blob-view  = line-number:true,interval=1 text
 
 set diff-view  = line-number:true,interval=1 text,commit-title-overflow=no
 
-# vim:syn=tmux
+# vim:ft=tig
