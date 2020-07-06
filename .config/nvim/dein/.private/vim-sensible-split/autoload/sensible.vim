@@ -60,6 +60,22 @@ function! sensible#split(...)
   return split
 endfunction
 
+function! sensible#new(...)
+  let new = 'tabnew'
+  let bang = a:0 > 0 ? a:1 : 0
+  if bang
+    let new = 'split | wincmd T | vnew'
+  endif
+
+  if s:wants_vertical()
+    let new = 'vnew'
+  elseif s:wants_horizontal()
+    let new = 'new'
+  endif
+
+  return new
+endfunction
+
 function! sensible#mods(bang, ...)
   if a:0 > 0 && join(a:000) =~# 'help\|man'
     for bufnr in tabpagebuflist()
