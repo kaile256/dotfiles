@@ -193,7 +193,7 @@ hook_source = 'runtime source/defx-icons.vim'
 
 [[plugins]]
 repo = 'majutsushi/tagbar'
-on_cmd = 'TagbarToggle'
+on_cmd = 'Tagbar'
 hook_add = 'runtime add/tagbar.vim'
 hook_source = 'runtime source/tagbar.vim'
 
