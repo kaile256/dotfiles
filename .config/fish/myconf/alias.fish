@@ -28,7 +28,7 @@ balias ....  'cd ../../..'
 balias .3  'cd ../../..'
 
 #balias pg 'pgrep'
-balias pg 'ps aux | grep'
+balias pg 'ps aux | rg --color always'
 
 balias pk '~/start-kail.sh'
 
