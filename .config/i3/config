@@ -522,7 +522,6 @@ bindsym H $alert 'Brightness: 45'; $noid xbacklight -set 45
 bindsym K $alert 'Brightness: 40'; $noid xbacklight -set 40
 bindsym M $alert 'Brightness: 30'; $noid xbacklight -set 30
 bindsym J $alert 'Brightness: 25'; $noid xbacklight -set 25
-
 bindsym L $alert 'Brightness: 5';  $noid xbacklight -set 5
 
 bindsym P $notify 'Brightness: +1';  $noid xbacklight -inc 1
