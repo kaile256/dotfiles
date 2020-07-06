@@ -149,6 +149,7 @@ hook_source = 'runtime source/mundo.vim'
 repo = 'will133/vim-dirdiff'
 # Compare a pair of directories recursively and start vimdiff.
 on_cmd = 'DirDiff'
+hook_add = 'runtime add/dirdiff.vim'
 
 #[[plugins]]
 #repo = 'rickhowe/diffchar.vim'
