@@ -253,7 +253,15 @@ function! LL_mode() abort "{{{3
     return toupper(&ft)
   endif
 
-  return get(g:lightline.mode_map, mode(), '')
+  let mode = get(g:lightline.mode_map, mode(), '')
+  if exists('g:loaded_eskk')
+    let eskk_mode = substitute(eskk#statusline(), 'eskk:', '', '')
+    if eskk_mode !=# ''
+      let mode = substitute(mode, '.\{3}\zs.*', eskk_mode, '')
+    endif
+  endif
+
+  return mode
 endfunction
 
 let g:lightline.mode_map = {
