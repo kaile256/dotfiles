@@ -329,8 +329,10 @@ endfunction
 augroup myDefxPost "{{{1
   if exists('#myDefxPost') | au! myDefxPost
   endif
-  au FileType defx exe 'setlocal path='. getbufvar('#', '&path')
-  au BufWinLeave * setlocal nowfw nowfh
+  au FileType defx let &l:path = getbufvar('#', '&path')
+  au FileType defx wincmd =
+
+  " au FileType defx au BufWipeout <buffer> ++once setlocal nowfw nowfh
   au FileType defx setlocal nonumber signcolumn= bufhidden=wipe
   au FileType defx setlocal concealcursor=nvc
   au FileType defx call s:defx_keymaps()
