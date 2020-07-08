@@ -4,7 +4,7 @@
 # [[plugins]]
 # repo = 'jceb/vim-orgmode'
 # on_path = 'org$'
-# hook_post_source = 'runtime add/orgmode.vim'
+# hook_source = 'runtime source/orgmode.vim'
 # [[plugins]]
 # repo = 'dhruvasagar/vim-dotoo'
 # on_path = 'dotoo$'
