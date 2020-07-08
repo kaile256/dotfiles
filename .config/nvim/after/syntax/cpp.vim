@@ -1,5 +1,5 @@
 " Ref: $VIMRUNTIME/syntax/cpp.vim
-" Ref: syntax/cpp.vim
+" Ref: ftplugin/cpp.vim
 
 " Note: `runtime! syntax/c.vim` is done under $VIMRUNTIME/syntax/cpp.vim
 
