@@ -101,6 +101,7 @@ repo = 'Shougo/defx.nvim'
 # an empty buffer missing expected path.
 rev = 'c5d8afe'
 on_cmd = 'Defx'
+# Ref: ftplugin/defx
 hook_add = 'runtime add/defx.vim'
 hook_post_source = 'runtime post/defx.vim'
 [[plugins]]
