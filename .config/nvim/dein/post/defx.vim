@@ -212,10 +212,9 @@ function! s:defx_keymaps() abort "{{{1
         \ .'<c-w>='
   " FIXME: keep cursor on defx after :pedit ANYWHERE
   nnoremap <silent><nowait><buffer><expr> i
-        \ <SID>defx_is_wide()?
-        \ defx#do_action('open', 'pclose <bar> pedit'):
-        \ defx#do_action('drop', 'pclose <bar> pedit')
-        \ .'<c-w>h'
+        \ <SID>defx_is_wide()
+        \ ? defx#do_action('open', 'pclose <bar> pedit')
+        \ : defx#do_action('drop', 'pclose <bar> pedit') .'<C-w>h'
   " Mnemonic: Zip Preview
   nnoremap <silent><nowait><buffer> zp <c-w>z
   " in Tree {{{3
