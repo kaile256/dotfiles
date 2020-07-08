@@ -79,11 +79,14 @@ endfunction
 " Ref: https://github.com/tpope/vim-markdown (dev ver)
 let g:markdown_fenced_languages = [
       \ 'bash=sh',
+      \ 'css',
       \ 'go',
       \ 'help',
+      \ 'js=javascript',
       \ 'json',
       \ 'python',
       \ 'toml',
+      \ 'ts=typescript',
       \ 'vim',
       \ 'yaml',
       \ ]
