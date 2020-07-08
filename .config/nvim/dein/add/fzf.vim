@@ -30,6 +30,7 @@ let s:cmd_to_path = {
       \ 'Etcs':      '/etc',
       \ 'Ghqs':      $GHQ_ROOT,
       \ 'Pictures':  '~/Pictures',
+      \ 'Runtimes':   $VIMRUNTIME,
       \ 'Tmps':      '/tmp',
       \ 'Trash':     g:my_trash_root,
       \ 'Usrs':      '/usr',
