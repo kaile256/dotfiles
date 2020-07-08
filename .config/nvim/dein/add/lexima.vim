@@ -1,5 +1,6 @@
 " TOML: insert.toml
 " Repo: cohama/lexima.vim
+" Another: source/lexima.vim
 " Another: post/lexima.vim
 
 inoremap <silent><expr> " lexima#expand('"', 'i')
