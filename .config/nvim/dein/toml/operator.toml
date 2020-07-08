@@ -8,18 +8,18 @@ repo = 'thinca/vim-operator-sequence'
 lazy = 0
 
 #[ Comment out ]
+# [[plugins]]
+# repo = 'tomtom/tcomment_vim'
+# # Memo: complex named <Plug>-mappings
+# on_map = '<Plug>TComment'
+# hook_add = 'runtime add/tcomment.vim'
 [[plugins]]
-repo = 'tomtom/tcomment_vim'
-# Memo: complex named <Plug>-mappings
-on_map = '<Plug>TComment'
-hook_add = 'runtime add/tcomment.vim'
-#[[plugins]]
-#repo = 'tyru/caw.vim'
-## operater requires kana/vim-operator-user
-## Note: no use <Plug>(caw:foo:bar:operator), why?
-#on_map = '<Plug>(caw:'
-#hook_add = 'runtime add/caw.vim'
-#hook_source = 'runtime source/caw.vim'
+repo = 'tyru/caw.vim'
+# operater requires kana/vim-operator-user
+# Note: no use <Plug>(caw:foo:bar:operator), why?
+on_map = '<Plug>(caw:'
+hook_add = 'runtime add/caw.vim'
+hook_source = 'runtime source/caw.vim'
 #[[plugins]]
 #repo = 'scrooloose/nerdcommenter'
 ## Reason: has no operater
