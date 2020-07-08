@@ -129,10 +129,8 @@ xmap \f <Plug>(operator-sandwich-add-func)
 "     in 'tag', the prompt is 'Input tag:'
 "     in 'tagname', the prompt is 'Input tag name:'
 nmap <SID>(operator-sandwich-add-tag)
-      \ :echo 'Input Motion:'<cr>
       \ <Plug>(operator-sandwich-add-query1st)t
 nmap <SID>(operator-sandwich-add-func)
-      \ :echo 'Input Motion:'<cr>
       \ <Plug>(operator-sandwich-add-query1st)f
 nnoremap <script> \t zv<SID>(operator-sandwich-add-tag)
 nnoremap <script> \f zv<SID>(operator-sandwich-add-func)
