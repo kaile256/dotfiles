@@ -15,6 +15,8 @@ call defx#custom#option('_', 'drives', [
 " TODO: Get defx's cwd with neither auto_cd nor getline(1).
 call defx#custom#option('_', {
       \ 'columns': g:defx_format_full,
+      \ 'split': 'no',
+      \ 'new': 1,
       \ 'show_ignored_files': 1,
       \ 'root_marker': ':',
       \ 'auto_cd': 1,
