@@ -337,5 +337,6 @@ augroup myDefxPost "{{{1
   au FileType defx setlocal concealcursor=nvc
   au FileType defx call s:defx_keymaps()
   au FileType defx call s:defx_commands()
-  "au BufWritePost * call defx#redraw() " of course, includes a check for defx-channel
+
+  au BufEnter \[defx]* call defx#redraw()
 augroup END
