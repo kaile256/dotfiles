@@ -33,8 +33,9 @@ HOMEs=(
   .myscripts
   .profile
   .taskrc
-  .tigrc
+  .goneovim
   .vimrc
+  .vim
   .vimspector.json
   .zshenv
   bin
@@ -44,9 +45,12 @@ CONFIGs=(
   X11
   bash
   fish
+  kitty
   lynx
   nvim
+  picom.conf
   starship.toml
+  tig
   tmux
   w3m
   zsh
