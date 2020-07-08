@@ -10,6 +10,8 @@ augroup myColorschemesPost
   au ColorScheme * ++nested exe 'runtime source/<amatch>.vim'
   " overrides original colorschemes
   au ColorSchemePre * ++nested exe 'runtime colorscheme_pre/<amatch>.vim'
+  au ColorSchemePre * ++nested exe 'runtime colorscheme_pre/'.
+        \ matchstr('<amatch>', '\S\{-}\ze_') .'.vim'
 augroup END
 
 function! s:set_colorscheme() abort
