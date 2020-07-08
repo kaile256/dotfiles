@@ -111,6 +111,9 @@ function! s:defx_keymaps() abort "{{{1
         \ defx#do_action('remove')
   nnoremap <silent><nowait><buffer><expr> R
         \ defx#do_action('rename')
+  xnoremap <silent><nowait><buffer><expr> R
+        \ defx#do_action('multi',
+        \     ['clear_select_all', 'toggle_select_visual', 'rename'])
   nnoremap <silent><nowait><buffer><expr> d
         \ defx#do_action('new_directory')
   nnoremap <silent><nowait><buffer><expr> %
