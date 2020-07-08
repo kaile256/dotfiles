@@ -22,7 +22,7 @@ function! s:set_colorscheme() abort
       elseif system('xrandr --query | grep " connected"') =~# 'HDMI'
         colorscheme dracula
       else
-        colorscheme neodark
+        colorscheme palenight
       endif
 
     else
