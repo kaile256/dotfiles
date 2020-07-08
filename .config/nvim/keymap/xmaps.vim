@@ -1,6 +1,9 @@
 " From: init.vim
 
-xnoremap <silent> <a-space> <esc>:call feedkeys("\<space>")<cr>
+" Select current line without <NL>
+xnoremap <expr> v (mode() ==# 'v') ? '<Esc>$v0' : 'v'
+
+xmap <a-space> <Esc><Space>
 
 xnoremap <a-a> <esc>a
 xnoremap <a-i> <esc>i
