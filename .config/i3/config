@@ -225,7 +225,8 @@ $noid alsactl daemon
 # pulseaudio: deamon to control via keyboard.
 # `$ systemctl --user status pulseaudio` returns
 # pulseaudio.service: Start request repeated too quickly.
-$restart pulseaudio --kill; sleep 5; pulseaudio --start &
+# With `exec_always` disconnect devices every time.
+$noid pulseaudio --kill; sleep 5; pulseaudio --start &
 
 # AutoStart Applications {{{1
 # Ref: specifiy workspace to start in
