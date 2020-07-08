@@ -207,7 +207,8 @@ function! s:defx_keymaps() abort "{{{1
   " Mnemonic: Insert a preview in actual windows
   " Note: :pclose to change location between vertical/horizontal
   nnoremap <silent><nowait><buffer><expr> I
-        \ defx#do_action('open', 'pclose <bar> vert bot pedit')
+        \ '<C-w>z'.
+        \ defx#do_action('open', 'vert bot pedit')
         \ .'<c-w>='
   " FIXME: keep cursor on defx after :pedit ANYWHERE
   nnoremap <silent><nowait><buffer><expr> i
