@@ -15,15 +15,13 @@ repo = 'itchyny/vim-highlighturl'
 on_event = 'Colorscheme'
 
 #[ Multi Filetypes ]
-#[[plugins]]
-#repo = 'sheerun/vim-polyglot'
-## Note: it often fails on guard.
-## No syntax for java
-## includes syntax for systemd
-#if = "&ft !=# '\|zsh\|terminal\|i3\|javascript\|haskell\|php\|cpp'"
-#on_event = ['FileType']
-#hook_source = 'runtime source/polyglot.vim'
-
+# [[plugins]]
+# repo = 'sheerun/vim-polyglot'
+# # Note: it often fails on guard.
+# # No syntax for java
+# on_event = 'FileType'
+# hook_source = 'runtime source/polyglot.vim'
+#
 #[[plugins]]
 #repo = 'maralla/validator.vim'
 ## Note: async
