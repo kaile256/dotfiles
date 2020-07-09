@@ -44,6 +44,16 @@ function! s:wants_horizontal()
   return eval(g:sensible_split#horizontal_condition)
 endfunction
 
+function! sensible#style()
+  if s:wants_vertical()
+    return 'vertical'
+  elseif s:wants_horizontal()
+    return 'horizontal'
+  endif
+
+  return 'tab'
+endfunction
+
 function! sensible#_split(bang)
   " For a command with bang
 
