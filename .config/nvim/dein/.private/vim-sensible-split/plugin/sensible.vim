@@ -41,11 +41,17 @@ command! -bar -bang -nargs=+ -complete=command
 
 command! -bar -bang -nargs=? -complete=help
       \ SensibleHelp
-      \ :exe <q-mods> sensible#cword('help', '<bang>0')
+      \ :exe <q-mods> (<q-args> ==# ''
+      \   ? sensible#cword('help', '<bang>0')
+      \   : sensible#_mods('<bang>0', 'help <args>')
+      \ )
 if has('nvim')
   command! -bar -bang -nargs=? -complete=shellcmd
         \ SensibleMan
-        \ :exe <q-mods> sensible#cword('Man', '<bang>0')
+        \ :exe <q-mods> (<q-args> ==# ''
+        \   ? sensible#cword('Man', '<bang>0')
+        \   : sensible#_mods('<bang>0', 'Man <args>')
+        \ )
 endif
 
 augroup sensibleSplit
