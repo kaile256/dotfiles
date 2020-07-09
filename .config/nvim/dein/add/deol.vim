@@ -1,5 +1,5 @@
 scriptencoding utf-8
-" From: tool.toml
+" From: shell.toml
 " Repo: Shougo/deol.nvim
 
 let g:deol#prompt_pattern = '^.\{-}❯❯❯ '
