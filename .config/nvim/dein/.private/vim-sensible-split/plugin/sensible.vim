@@ -37,7 +37,7 @@ command! -bar -bang -nargs=*
       \ :exe <q-mods> sensible#_new('<bang>0') <q-args>
 command! -bar -bang -nargs=+ -complete=command
       \ SensibleMods
-      \ :exe <q-mods> sensible#mods('<bang>0') <q-args>
+      \ :exe <q-mods> sensible#_mods('<bang>0', <q-args>)
 
 command! -bar -bang -nargs=? -complete=command
       \ SensibleHelp

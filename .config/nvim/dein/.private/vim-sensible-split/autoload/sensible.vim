@@ -96,32 +96,27 @@ function! sensible#new()
   return 'tabnew'
 endfunction
 
-function! sensible#mods(bang, ...)
-  if a:0 > 0 && join(a:000) =~# 'help\|man'
-    for bufnr in tabpagebuflist()
-      if getbufvar(bufnr, '&filetype', 'help\|man')
-        return ''
-      endif
-    endfor
+function! sensible#_mods(bang, cmd)
+  if a:cmd =~# '\s*\(help\|man\)'
+    let bufnr = bufwinnr('\.txt$')
+    if getbufvar(bufnr, '&filetype', 'help\|man')
+      return a:cmd
+    endif
   endif
 
-  let mods = 'tab'
-  let bang = a:0 > 0 ? a:1 : 0
-  if bang
-    let mods = 'split | wincmd T | vertical'
+  let mods = sensible#mods()
+  return mods .' '. a:cmd
+endfunction
+
+function! sensible#mods()
+  let style = sensible#style()
+  if style ==? 'vertical'
+    return 'vertical'
+  elseif style ==? 'horizontal'
+    return 'below'
   endif
 
-  if s:wants_vertical()
-    let mods = 'vertical'
-  elseif s:wants_horizontal()
-    let mods = 'below'
-  endif
-
-  if a:0 > 0 && a:1 ==# ''
-    return mods
-  endif
-
-  return mods .' '. join(a:000)
+  return 'tab'
 endfunction
 
 function! sensible#cword(cmd, ...)
