@@ -65,15 +65,15 @@ function! sensible#_split(bang)
   return split
 endfunction
 
-function! sensible#split(...)
-  let split = 'tabe'
-  if s:wants_vertical()
-    let split = 'vsplit'
-  elseif s:wants_horizontal()
-    let split = 'split'
+function! sensible#split()
+  let style = sensible#style()
+  if style ==? 'vertical'
+    return 'vsplit'
+  elseif style ==? 'horizontal'
+    return 'split'
   endif
 
-  return split
+  return 'tabe'
 endfunction
 
 function! sensible#new(...)
