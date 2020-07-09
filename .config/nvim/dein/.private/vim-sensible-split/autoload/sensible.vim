@@ -119,18 +119,16 @@ function! sensible#mods()
   return 'tab'
 endfunction
 
-function! sensible#cword(cmd, ...)
+function! sensible#cword(bang, cmd)
   let col = col('.') + 1
   let str = '\(\k\|-\)*'
   let args = matchstr(getline('.'), str .'\%'. col .'c'. str)
   let args = substitute(args, '\w[,.]$', '', '')
 
-  let bang = a:0 > 0 && a:1 ? '!' : ''
-
   try
-    return 'SensibleMods'. bang .' '. a:cmd .' '. args
+    return 'SensibleMods'. a:bang .' '. a:cmd .' '. args
   catch /E149/
-    return 'SensibleMods'. bang .' '. a:cmd .' '. expand('<cword>')
+    return 'SensibleMods'. a:bang .' '. a:cmd .' '. expand('<cword>')
   endtry
 endfunction
 
