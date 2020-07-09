@@ -65,6 +65,15 @@ function! sensible#_split(bang)
   return split
 endfunction
 
+function! sensible#_new(bang)
+  let new = sensible#new()
+  if new =~? 'tabnew\|tabe\%[dit]'
+    return a:bang ? 'split | wincmd T | vnew' : 'tabnew'
+  endif
+
+  return new
+endfunction
+
 function! sensible#split()
   let style = sensible#style()
   if style ==? 'vertical'
@@ -76,20 +85,15 @@ function! sensible#split()
   return 'tabe'
 endfunction
 
-function! sensible#new(...)
-  let new = 'tabnew'
-  let bang = a:0 > 0 ? a:1 : 0
-  if bang
-    let new = 'split | wincmd T | vnew'
+function! sensible#new()
+  let style = sensible#style()
+  if style ==? 'vertical'
+    return 'vnew'
+  elseif style ==? 'horizontal'
+    return 'new'
   endif
 
-  if s:wants_vertical()
-    let new = 'vnew'
-  elseif s:wants_horizontal()
-    let new = 'new'
-  endif
-
-  return new
+  return 'tabnew'
 endfunction
 
 function! sensible#mods(bang, ...)
