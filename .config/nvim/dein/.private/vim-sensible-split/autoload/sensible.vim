@@ -44,13 +44,19 @@ function! s:wants_horizontal()
   return eval(g:sensible_split#horizontal_condition)
 endfunction
 
-function! sensible#split(...)
-  let split = 'tabe'
-  let bang = a:0 > 0 ? a:1 : 0
-  if bang
-    let split = 'split | wincmd T | vsplit'
+function! sensible#_split(bang)
+  " For a command with bang
+
+  let split = sensible#split()
+  if split =~? 'tabnew\|tabe\%[dit]'
+    return a:bang ? 'split | wincmd T | vsplit' : 'tabe'
   endif
 
+  return split
+endfunction
+
+function! sensible#split(...)
+  let split = 'tabe'
   if s:wants_vertical()
     let split = 'vsplit'
   elseif s:wants_horizontal()

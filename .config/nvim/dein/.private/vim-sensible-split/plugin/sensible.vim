@@ -31,7 +31,7 @@ set cpo&vim
 
 command! -bar -bang -nargs=*
       \ SensibleSplit
-      \ :exe <q-mods> sensible#split('<bang>0') <q-args>
+      \ :exe <q-mods> sensible#_split('<bang>0') <q-args>
 command! -bar -bang -nargs=+ -complete=command
       \ SensibleMods
       \ :exe <q-mods> sensible#mods('<bang>0') <q-args>
