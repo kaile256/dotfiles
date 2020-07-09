@@ -39,11 +39,11 @@ command! -bar -bang -nargs=+ -complete=command
       \ SensibleMods
       \ :exe <q-mods> sensible#_mods('<bang>0', <q-args>)
 
-command! -bar -bang -nargs=? -complete=command
+command! -bar -bang -nargs=? -complete=help
       \ SensibleHelp
       \ :exe <q-mods> sensible#cword('help', '<bang>0')
 if has('nvim')
-  command! -bar -bang -nargs=? -complete=command
+  command! -bar -bang -nargs=? -complete=shellcmd
         \ SensibleMan
         \ :exe <q-mods> sensible#cword('Man', '<bang>0')
 endif
