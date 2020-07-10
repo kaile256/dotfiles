@@ -21,4 +21,11 @@ function! s:calendar_keymap() abort
   nunmap <buffer> <c-j>
   nunmap <buffer> <c-k>
   nunmap <buffer> <c-l>
+
+  " TODO: Create replace commands, <Plug>(calendar_view_week),
+  " <Plug>(calendar_view_days), etc.
+  " nnoremap <Plug>(calendar_view_week) :<C-u>Calendar -view=week<CR>
+  " nmap gw <Plug>(calendar_view_week)
+  " nmap <buffer> < <Plug>(calendar_view_left)
+  " nmap <buffer> > <Plug>(calendar_view_right)
 endfunction
