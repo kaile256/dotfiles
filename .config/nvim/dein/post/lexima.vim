@@ -130,6 +130,7 @@ let g:lexima#default_rules += [
       \ {'char': '<BS>', 'at': '{\%#}',   'delete': 1},
       \ {'char': '<BS>', 'at': '\[\%#\]', 'delete': 1},
       \ {'char': '<BS>', 'at': '<\%#>',   'delete': 1},
+      \ {'char': '<BS>', 'at': '\s\%#\s', 'delete': 1},
       \
       \ {'char': '<BS>', 'at': "'\\%#'", 'delete': 1},
       \ {'char': '<BS>', 'at': '"\%#"',  'delete': 1},
