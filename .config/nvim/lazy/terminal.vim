@@ -15,6 +15,11 @@ if &bt ==# 'terminal'
 
   nnoremap <buffer> D <c-f>
   nnoremap <buffer> U <c-b>
+
+  if !has('nvim')
+    " <C-w> works as a prefix in Vim.
+    tnoremap <buffer> <C-w> <C-w>.
+  endif
 endif
 
 " As a startpage, not startinsert {{{1
