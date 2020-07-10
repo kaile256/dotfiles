@@ -101,8 +101,7 @@ function! LL_tab_path(n) abort
     if bufname =~# 'FZF'
       return 'FZF running...'
     endif
-    " Return 'running shell':'id'
-    return substitute(bufname, '.\{-}\(\d\+\):\(\S\+\)$', '\2:\1', 'e')
+    return get(b:, 'terminal_job_pid')
   endif
 
   return s:modify_path(bufname)
