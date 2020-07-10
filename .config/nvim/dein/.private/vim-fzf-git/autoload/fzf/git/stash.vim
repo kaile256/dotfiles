@@ -98,8 +98,8 @@ function! s:get_header() abort "{{{2
   for l:key in sort(keys(g:fzf#git#stash#actions))
     " `s:stash_options` incluedes 'git stash' redundantly
     let cmd = g:fzf#git#stash#actions[l:key]
-    let cmd = substitute(cmd, '\s\+git\s\+', '', '')
-    let cmd = substitute(cmd, '\s\+stash\s\+', '', '')
+    let cmd = substitute(cmd, '\s*git\s*', '', '')
+    let cmd = substitute(cmd, '\s*stash\s\+', '', '')
     let header .= toupper(l:key) .' to '. cmd .', '
   endfor
 
@@ -109,24 +109,31 @@ endfunction
 
 function! s:stash_sink(lines) "{{{2
   " a:lines are selected lines in fzf except a:lines[0] which represents typed key
-  let cmd = get(g:fzf#git#stash#actions, a:lines[0])
+  let key = a:lines[0]
+  let cmd = get(g:fzf#git#stash#actions, key, '')
+  let commits = a:lines[1:]
+
   if cmd ==# ''
-    " return if the key isn't set in --expect
+    " Return if the key isn't set in --expect
+    echo 'Unexpected key: ' key
     return
 
   elseif cmd ==# 'drop'
-    " the other git-stash commands makes no sense in mutiple selection
-    for line in a:lines[1:]
+    " The other git-stash commands makes no sense in mutiple selection
+    for line in commits
       let stash = matchstr(line, 'stash@{[0-9]\+}')
       call system(cmd .' '. stash)
-      echomsg stash 'was dropped'
+      checktime
+      echo cmd stash
     endfor
 
   else
-    let stash = matchstr(a:lines[1], 'stash@{[0-9]\+}')
+    let stash = matchstr(commits[1], 'stash@{[0-9]\+}')
     call system(cmd .' '. stash)
     checktime
+    echo cmd stash
   endif
+
 endfunction
 
 " restore 'cpoptions' {{{1
