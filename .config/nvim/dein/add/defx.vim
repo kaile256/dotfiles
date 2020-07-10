@@ -121,6 +121,7 @@ function! s:defx_endbar(path) abort
         \ '-winwidth='. g:defx_sidebar_width
         \ '-split=vertical'
         \ '-new'
+  setlocal wfw
 endfunction
 
 nnoremap <silent> <SID>(defx-dev)
