@@ -2,36 +2,7 @@
 " Another: tmaps.vim
 " Another: lazy/terminal.vim
 
-function! s:term_open(mods, path) abort
-  let path = a:path
-  if path ==# ''
-    let path = substitute(expand('%:p:h'), '\S\+://', '', '')
-  elseif &ft ==# 'defx'
-    let path = matchstr(getline(1), ':\zs\f\+')
-  endif
-  if !isdirectory(path)
-    let path = $HOME
-  endif
-
-  let shell = 'fish -C "cd '. path .'"'
-
-  if has('nvim')
-    let term_open = 'term '. shell
-  else
-    let opt = '++close'
-    for arg in a:000
-      if arg =~# '^++'
-        let opt .= ' '. arg
-      endif
-    endfor
-    let term_open = a:mods .' term '. opt .' '. shell
-  endif
-
-  exe term_open
-  startinsert
-endfunction
-
-command! -bar -nargs=* TermOpen :call s:term_open(<q-mods>, <q-args>)
+command! -bar -nargs=* TermOpen :call s:term_open(<q-mods>, <f-args>)
 
 " Note: <Space>t would be mapped by some easymotion like plugins.
 if has('nvim')
@@ -59,3 +30,41 @@ nmap <A-t><A-e> <A-t>e
 nmap <A-t><A-v> <A-t>v
 nmap <A-t><A-s> <A-t>s
 nmap <A-t><A-b> <A-t>b
+
+function! s:term_open(mods, ...) abort
+  let path = ''
+  if a:0 > 0
+    let path = a:1 =~# '^++' ? a:000[len(a:000) - 1] : a:1
+  endif
+  if path ==# ''
+    let path = substitute(expand('%:p:h'), '\S\+://', '', '')
+  elseif &ft ==# 'defx'
+    let path = matchstr(getline(1), ':\zs\f\+')
+  endif
+  if !isdirectory(path)
+    let path = $HOME
+  endif
+
+  let shell = 'fish -C "cd '. path .'"'
+
+  if has('nvim')
+    let term_open = 'term '. shell
+  else
+    let opt = ''
+    let opt .= ' ++close'
+    let opt .= ' ++kill=term'
+    if a:0 > 0
+      for arg in a:000
+        if arg =~# '^++'
+          let opt .= ' '. arg
+        endif
+      endfor
+    endif
+    let term_open = a:mods .' term '. opt .' '. shell
+    let g:foo = term_open
+  endif
+
+  exe term_open
+  startinsert
+endfunction
+
