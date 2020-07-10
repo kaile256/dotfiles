@@ -143,7 +143,7 @@
     "i": "do.toggleMode"
   },
 
-  "project.dbpath": "~/.coc-project",
+  "project.dbpath": "~/.local/share/.coc-project",
 
   "yank.highlight.enable": false,
   "yank.enableCompletion": false,
