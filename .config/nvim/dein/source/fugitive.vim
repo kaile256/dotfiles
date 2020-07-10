@@ -93,6 +93,8 @@ endfunction
 
 function! s:commit_all(...) abort "{{{3
   let save_view = winsaveview()
+  " " TBC: Without reset to HEAD, it may fail to restore?
+  " Git reset HEAD
   call s:stage_all()
   let has_uncommitted = search('^Staged (\d\+)$', 'wn') > 0
   if has_uncommitted
