@@ -24,4 +24,4 @@
 " }}}
 " ============================================================================
 
-command! -bar -nargs=* Note :call private_note#new(<q-mods>, <q-args>)
+command! -bar -nargs=* PrivateNote :call private_note#new(<q-mods>, <q-args>)
