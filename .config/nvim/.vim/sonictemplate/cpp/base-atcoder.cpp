@@ -29,9 +29,14 @@ using std::cout;
 using std::iterator;
 using std::vector;
 
-template <typename T> inline void answer(vector<T> &v) {
+template <typename T> inline void cout_vector(vector<T> &v) {
+#if _LOCAL
+  char sep = '\t';
+#else
+  char sep = ' ';
+#endif
   for (auto &&x : v)
-    cout << x << ' ';
+    cout << x << sep;
   cout << '\n';
 }
 
