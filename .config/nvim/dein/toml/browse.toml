@@ -62,12 +62,26 @@ on_cmd = 'Clap'
 hook_source = 'runtime source/clap.vim'
 
 #[ Filer ]
-#[[plugins]]
-#repo = 'zgpio/tree.nvim'
-## Note: written in cpp!
-## Note: not yet available via package-manager
-#path = 'src/app/viml/'
-#on_cmd = ['Tree']
+[[plugins]]
+repo = 'ipod825/vim-netranger'
+on_cmd = ['NETRemoteList', 'NETRemotePush', 'NETRemotePull']
+hook_add = 'runtime add/netranger.vim'
+[[plugins]]
+repo = 'zgpio/tree.nvim'
+# Note: written in cpp!
+rtp = 'src/app/viml'
+build = '''
+  cmake \
+      -DBoost_USE_STATIC_LIBS=ON \
+      -DCMAKE_BUILD_TYPE=Release \
+      -S . \
+      -B ./src/app/viml/bin
+
+  make -C ./src/app/viml/bin
+'''
+on_cmd = 'Tree'
+hook_add = 'runtime add/tree.vim'
+hook_source = 'runtime source/tree.vim'
 #[[plugins]]
 #repo = 'skanehira/popupfiles.vim'
 ## Ref: https://qiita.com/gorilla0513/items/fa4b401e7264a31868b9
