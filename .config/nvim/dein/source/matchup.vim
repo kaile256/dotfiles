@@ -5,7 +5,7 @@
 let g:matchup_matchparen_nomode = 'i' " modes where matchup should be disabled
 
 let g:matchup_mouse_enabled  = 0
-let g:matchup_delim_stopline = 500
+let g:matchup_delim_stopline = 1000
 
 " let g:matchup_matchparen_deferred = 1
 " let g:matchup_matchparen_hi_surround_always = 1 " requires '_defferred'=1
