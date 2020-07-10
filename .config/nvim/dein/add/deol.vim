@@ -1,9 +1,7 @@
-scriptencoding utf-8
-" From: shell.toml
+" TOML: shell.toml
 " Repo: Shougo/deol.nvim
-
-let g:deol#prompt_pattern = '^.\{-}❯❯❯ '
-let g:deol#shell_history_path = $XDG_DATA_HOME .'/nvim/deol'
+" Another: source/deol.vim
+" Another: post/deol.vim
 
 nnoremap <silent> <A-t>e :<C-u>     Deol<CR>
 nnoremap <silent> <A-t>s :<C-u>sp   <bar>   Deol<CR>
