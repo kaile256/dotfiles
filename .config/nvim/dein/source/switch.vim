@@ -37,7 +37,10 @@ let g:switch_custom_definitions += [
 
 let g:switch_custom_definitions += [
       \ ['left', 'right'],
+      \ ['Left', 'Right'],
+      \
       \ ['height', 'width'],
+      \ ['Height', 'Width'],
       \
       \ ['new', 'old'],
       \ ['New', 'Old'],
