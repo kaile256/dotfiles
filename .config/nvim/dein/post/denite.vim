@@ -50,6 +50,7 @@ call denite#custom#option('default', s:denite_opt)
 unlet s:denite_opt
 
 " Grep; {{{1
+call denite#custom#source('sorter', 'reverse', 1)
 " Use Interactive Mode
 call denite#custom#source('grep', 'args', ['', '', '!'])
 
