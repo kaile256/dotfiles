@@ -37,10 +37,11 @@
   // "suggest.minTriggerInputLength": 1,
   // "suggest.triggerAfterInsertEnter": true,
   "suggest.autoTrigger": "always",
-  "suggest.noselect": true,
-  "suggest.timeout": 500,
   "suggest.acceptSuggestionOnCommitCharacter": true,
-  "suggest.triggerCompletionWait": 200,
+  "suggest.noselect": true,
+  "suggest.timeout": 1000,
+  "suggest.triggerAfterInsertEnter": false,
+  "suggest.triggerCompletionWait": 300,
 
   "suggest.completionItemKindLabels": {
     "keyword": "\uf1de",
