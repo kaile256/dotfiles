@@ -82,6 +82,12 @@ repo = 'clojure-vim/async-clj-omni'
 #]
 lazy = 0
 
+#[ Shell ]
+[[plugins]]
+repo = 'tjdevries/coc-zsh'
+depends = 'coc.nvim''
+on_ft = 'zsh'
+
 #[ Document ]
 [[plugins]]
 repo = 'rafaqz/citation.vim'
