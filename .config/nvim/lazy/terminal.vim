@@ -2,13 +2,21 @@
 " Another: tmaps.vim
 " Another: keymap/open_terminal.vim
 
-"" Even as a startpage, startinsert {{{1
-"setl nonumber signcolumn= bufhidden=wipe
-"norm! 0
-"startinsert | finish
+if &bt !=# 'terminal' | finish | endif
+
+function! s:start_insert(type) abort
+  let len = col('$') - col('.')
+  if a:type ==# 'a'
+    let len -= 1
+  endif
+  return "i\<End>". repeat("\<Left>", len)
+endfunction
 
 if &bt ==# 'terminal'
-  " nnoremap <buffer> o i
+  nnoremap <buffer> o i
+
+  nnoremap <expr><buffer> i <SID>start_insert('i')
+  nnoremap <expr><buffer> a <SID>start_insert('a')
 
   nnoremap <buffer> I i<Home>
   " Note: <End> could complete cmdline on fish.
