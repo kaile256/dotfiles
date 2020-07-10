@@ -64,8 +64,8 @@ snippet 'sudo|trusted' "trusted = 1 (load plugin as in 'sudo'" rb
 trusted = 1
 endsnippet
 
-snippet timeout "timeout = (second)" bA
-timeout = ${1:#:1(sec)}
+snippet timeout "[dein] timeout sec for updating/installing plugin" b
+timeout = ${1:200 # 1(sec)}
 endsnippet
 
 snippet 's(cript_type)?p(lugin)?' "set the repo under plugin/" rb
