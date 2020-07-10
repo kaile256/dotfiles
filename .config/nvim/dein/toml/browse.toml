@@ -77,11 +77,20 @@ hook_source = 'runtime source/clap.vim'
 #on_if = 'has("python3")'
 #hook_post_source = 'runtime add/vaffle.vim'
 
-# [[plugins]]
-# repo = 'vifm/vifm.vim'
-# # an vifm interface for Vim
-# if = 'executable("vifm")'
-# on_cmd = 'Vifm'
+[[plugins]]
+repo = 'vifm/vifm.vim'
+# An interface for vifm
+if = 'executable("vifm")'
+on_cmd = 'Vifm'
+hook_add = 'runtime add/vifm.vim'
+[[plugins]]
+repo = 'mcchrish/nnn.vim'
+# An interface for nnn
+if = 'executable("nnn")'
+on_func = 'nnn#'
+# on_cmd = 'NnnPicker'
+hook_add = 'runtime add/nnn.vim'
+
 #[ Filer.fern ]
 [[plugins]]
 repo = 'lambdalisue/fern.vim'
