@@ -315,8 +315,8 @@
     "<<": "gitUnstage"
   },
 
-  // false: update only on saving buffer.
-  //"git.realtimeGutters": false,
+  "git.enableGutters": false, // Use gitgutter instead.
+  // "git.realtimeGutters": false, // false: update only on saving buffer.
   //"git.addGBlameToVirtualText": true,
   //// b:coc_git_blame will be created
   //"git.addGBlameToBufferVar": true,
