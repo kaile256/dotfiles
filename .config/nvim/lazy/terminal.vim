@@ -12,26 +12,24 @@ function! s:start_insert(type) abort
   return "i\<End>". repeat("\<Left>", len)
 endfunction
 
-if &bt ==# 'terminal'
-  nnoremap <buffer> o i
+nnoremap <buffer> o i
 
-  nnoremap <expr><buffer> i <SID>start_insert('i')
-  nnoremap <expr><buffer> a <SID>start_insert('a')
+nnoremap <expr><buffer> i <SID>start_insert('i')
+nnoremap <expr><buffer> a <SID>start_insert('a')
 
-  nnoremap <buffer> I i<Home>
-  " Note: <End> could complete cmdline on fish.
-  nnoremap <buffer> A i<End>
+nnoremap <buffer> I i<Home>
+" Note: <End> could complete cmdline on fish.
+nnoremap <buffer> A i<End>
 
-  nnoremap <buffer> d <c-d>
-  nnoremap <buffer> u <c-u>
+nnoremap <buffer> d <c-d>
+nnoremap <buffer> u <c-u>
 
-  nnoremap <buffer> D <c-f>
-  nnoremap <buffer> U <c-b>
+nnoremap <buffer> D <c-f>
+nnoremap <buffer> U <c-b>
 
-  if !has('nvim')
-    " <C-w> works as a prefix in Vim.
-    tnoremap <buffer> <C-w> <C-w>.
-  endif
+if !has('nvim')
+  " <C-w> works as a prefix in Vim.
+  tnoremap <buffer> <C-w> <C-w>.
 endif
 
 " As a startpage, not startinsert {{{1
