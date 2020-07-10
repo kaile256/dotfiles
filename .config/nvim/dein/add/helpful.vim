@@ -4,6 +4,7 @@
 "nnoremap <silent> gV :<c-u>call helpful#cursor_word()<cr>
 "xnoremap <silent> gV :<c-u>call helpful#cursor_word()<cr>
 
+" Mnemonic: Get the Version of Vim
 nnoremap <silent> gV :<c-u>call helpful#lookup(expand('<cword>'))<cr>
 xnoremap <silent> gV :<c-u>call helpful#lookup(expand('<cword>'))<cr>
 
