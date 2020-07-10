@@ -46,9 +46,10 @@ let g:lightline.tabline = {
 " Note: 'right' fills right to left
 let g:lightline.active = {
       \ 'left': [
-      \   ['mode', 'preview'],
+      \   ['mode', 'preview', 'coc_errors', 'coc_warnings'],
       \   ['specific_buffer', 'git_branch', 'git_diff'],
       \   ['readonly', 'paste', 'spell'],
+      \   ['vista'],
       \ ],
       \
       \ 'right': [
