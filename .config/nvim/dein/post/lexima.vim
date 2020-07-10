@@ -162,6 +162,12 @@ let g:lexima#default_rules += [
      \ {'char': '`', 'at': '``\%#',  'except': '\%#\S', 'input': '`'},
      \ ]
 
+let g:lexima#default_rules += [
+     \ {'char': "'", 'at': "'''\\%#", 'except': '\%#\S', 'input': '', 'input_after': "'''"},
+     \ {'char': '"', 'at': '"""\%#',  'except': '\%#\S', 'input': '', 'input_after': '"""'},
+     \ {'char': '`', 'at': '```\%#',  'except': '\%#\S', 'input': '', 'input_after': '```'},
+     \ ]
+
 " Overwrite Rules for Spaces {{{1
 " cohama/lexima.vim/autoload/lexima.vim @ 84
 " modify g:lexima#space_rules into default_rule because of
