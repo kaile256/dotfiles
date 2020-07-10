@@ -23,7 +23,7 @@ hi! CocCodeLens ctermfg=240 guifg=#585858
 " the List of CocExtentions; "{{{1
 " Note: have to install LSPs independently.
 " Note: coc-highlight made CPU overwork
-" Note: coc-clangs only provides completion support.
+" Note: coc-clangd only provides completion support; use ccls instead.
 " Note: coc-conventional provides completion support for gitcommit.
 let g:coc_global_extensions = [
       \ 'coc-actions',
