@@ -71,6 +71,10 @@ export FZF_LEGACY_KEYBINDINGS=0
 export FZF_PREVIEW_FILE_CMD="head -n 10"
 export FZF_PREVIEW_DIR_CMD="ls"
 
+# NNN
+
+export NNN_TRASH=1
+
 ## Tmux
 #export FZF_TMUX_HEIGHT="40%"
 #export FZF_DEFAULT_OPTS="--height $FZF_TMUX_HEIGHT"
