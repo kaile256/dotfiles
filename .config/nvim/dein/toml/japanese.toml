@@ -3,7 +3,7 @@
 #[ Help ]
 [[plugins]]
 repo = 'vim-jp/vimdoc-ja-working'
-on_cmd = ['Helptags', 'help', 'helpgrep']
+lazy = 0
 
 #[ SKK ]
 #[[plugins]]
@@ -26,7 +26,7 @@ write!
 [[plugins]]
 repo = 'tyru/skkdict.vim'
 # Syntax Files for skkdict.
-on_path = '*.dict'
+lazy = 0
 
 #[ Motion ]
 [[plugins]]
