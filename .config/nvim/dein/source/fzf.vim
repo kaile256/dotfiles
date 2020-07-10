@@ -41,6 +41,7 @@ function! s:fzf_yank_fullpath(lines) abort "{{{1
   let @+ = join(map(a:lines, "fnamemodify(v:val, ':p')"))
 endfunction
 
+" Note: Currently, g:fzf_action has nothing to do with :Rg.
 " <alt-k> for cancel.
 " Note: seems not work with <alt> like <alt-k>.
 " bdelete/bwipeout work incorrect, lured to current buffer.
