@@ -8,6 +8,8 @@ nnoremap <silent> <C-w>U :UndoquitTab<CR>
 nnoremap <silent> ZE :<C-u>UndoableTabclose <CR>
 " Mnemonic: Close tabpage
 nnoremap <silent> ZC :<C-u>up <bar> UndoableTabclose <CR>
+nmap Ze ZE
+nmap Zc ZC
 
 nnoremap <silent> <C-w>c :UndoableClose<CR>
 nnoremap <silent> <C-w>o :UndoableOnly<CR>
