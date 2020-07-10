@@ -154,6 +154,8 @@ let g:lightline.component_function = {
       \ 'git_diff': 'LL_git_diff',
       \
       \ 'tabpage_indicator': 'LL_tab_indicator',
+      \
+      \ 'vista': 'LL_vista',
       \ }
 
 " Note: Less frequently updated; 'component_expand' is only updated by
@@ -175,7 +177,9 @@ let s:cur_col = {-> s:hold_length(col('.'), 2) . (&colorcolumn > 0 ? '.'. (&cc -
 let s:cur_line = {-> s:hold_length(line('.'), 2) .'.'. line('$')}
 let LL_lineinfo = {-> s:cur_col() .':'. s:cur_line()}
 
-let LL_tab_indicator = {-> tabpagenr("$") == 1 ? "" : "[". tabpagenr() ."/". tabpagenr("$") ."]"} " it doesn't work on 'component_expand'
+let LL_tab_indicator = {-> tabpagenr('$') == 1 ? 'tab' : '['. tabpagenr() .'/'. tabpagenr('$') .']'} " it doesn't work on 'component_expand'
+
+let LL_vista = {-> get(b:, 'vista_nearest_method_or_function', '')}
 
 function! LL_readonly() abort "{{{3
   if &bt !=# ''
