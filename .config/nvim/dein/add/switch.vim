@@ -40,6 +40,10 @@ let s:definitions['markdown'] = [
       \ ['first', 'second', 'third']
       \ ]
 
+let s:definitions['python'] = [
+      \ ['spam', 'ham', 'eggs'],
+      \ ]
+
 augroup mySwitchAdd-set_local_definitions "{{{1
   " Note: b:switch_custom_definitions should be defined in advance of the
   " plugin loaded.
