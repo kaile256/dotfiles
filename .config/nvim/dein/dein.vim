@@ -4,10 +4,10 @@
 " Note: you can see the function of dummys commands for lazy load on
 "   Shougo/dein.vim/autoload/dein/parse.vim @314
 
-let $DEIN_CONFIG_HOME = expand('$XDG_CONFIG_HOME/nvim/dein/')
-let $DEIN_TOML_HOME   = $DEIN_CONFIG_HOME .'/toml/'
+let $DEIN_CONFIG_HOME = expand('$XDG_CONFIG_HOME/nvim/dein')
+let $DEIN_TOML_HOME   = $DEIN_CONFIG_HOME .'/toml'
 " For the plugins in local path
-let $DEIN_PRIVATE_HOME = $DEIN_CONFIG_HOME .'/.private/'
+let $DEIN_PRIVATE_HOME = $DEIN_CONFIG_HOME .'/.private'
 
 " ':source' should be faster than ':runtime'
 let $DEIN_ADD_HOME = $DEIN_CONFIG_HOME .'/add'
@@ -35,16 +35,16 @@ if !has('nvim')
 endif
 
 " Path to the directory for dein's log {{{1
-let s:dein_data_dir = $XDG_DATA_HOME .'/dein/'
+let s:dein_data_dir = $XDG_DATA_HOME .'/dein'
 let s:dein_log_file = s:dein_data_dir .'/dein_log.vim'
 let g:dein#install_log_filename = s:dein_log_file
 
 " Path to the directory for dein's cache {{{1
 " Let me '$DEIN_CACHE_HOME' for shell in Vim/Neovim
-let $DEIN_CACHE_HOME = $XDG_CACHE_HOME  .'/dein/'
-let $DEIN_GITHUB_DIR = $DEIN_CACHE_HOME .'/repos/github.com/'
-let s:Shougo_cache_dir = $DEIN_CACHE_HOME   .'/repos/github.com/Shougo/'
-let s:dein_itself      = s:Shougo_cache_dir .'/dein.vim/'
+let $DEIN_CACHE_HOME = $XDG_CACHE_HOME  .'/dein'
+let $DEIN_GITHUB_DIR = $DEIN_CACHE_HOME .'/repos/github.com'
+let s:Shougo_cache_dir = $DEIN_CACHE_HOME   .'/repos/github.com/Shougo'
+let s:dein_itself      = s:Shougo_cache_dir .'/dein.vim'
 
 " call p:auto_install() if !has('dein.vim') {{{2
 if !isdirectory(s:dein_itself)
@@ -58,7 +58,7 @@ endif
 " Runtime Path for Dein {{{1
 "let &rtp .= ','. s:dein_itself
 exe 'set rtp +='. s:dein_itself
-exe 'set rtp +='. $XDG_CONFIG_HOME .'/nvim/dein/'
+exe 'set rtp +='. $XDG_CONFIG_HOME .'/nvim/dein'
 
 " Make git clone shallow {{{1
 let g:dein#types#git#clone_depth = 1
