@@ -10,6 +10,10 @@
 if &bt ==# 'terminal'
   " nnoremap <buffer> o i
 
+  nnoremap <buffer> I i<Home>
+  " Note: <End> could complete cmdline on fish.
+  nnoremap <buffer> A i<End>
+
   nnoremap <buffer> d <c-d>
   nnoremap <buffer> u <c-u>
 
