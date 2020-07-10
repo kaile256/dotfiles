@@ -200,6 +200,12 @@ let g:lexima#default_rules += [
       \ {'char': '<C-:>', 'at': '\s\%#', 'input': '<BS>: '},
       \ ]
 
+let g:lexima#default_rules += [
+      \ {'char': '<C-&>', 'input': '&'},
+      \ {'char': '<C-&>', 'at': '\%#\S', 'input': '<space><C-g>U<Left><space>'},
+      \ {'char': '<C-&>', 'at': '\s\%#\S', 'input': '<C-g>U<Left><space>'},
+      \ ]
+
 let s:close = '[\])}`''",.]'
 let s:paren = '[\])}]'
 let s:quote = '[`''"]'
@@ -209,6 +215,7 @@ let s:before_paren = '\%#'. s:paren
 let s:before_quote = '\%#'. s:quote
 
 let g:lexima#default_rules += [
+      \
       \ {'char': '<C-space>', 'at': '\%#.', 'input': '<C-g>U<Right><space>'},
       \
       \ {'char': '<C-=>', 'at': '\%#.', 'input': '<C-g>U<Right> = '},
