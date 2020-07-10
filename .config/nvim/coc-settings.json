@@ -291,8 +291,7 @@
     "r": "rename",
 
     ".": "toggleHidden",
-    "<C-r>": "refresh",
-    "<Esc>": "esc",
+    "U": "refresh",
 
     "?": "help",
     "X": "systemExecute",
