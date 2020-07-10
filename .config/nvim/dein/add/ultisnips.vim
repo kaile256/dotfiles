@@ -13,15 +13,10 @@ xnoremap <silent> <Plug>UltiSnipExpand :call      UltiSnips#SaveLastVisualSelect
 
 " Tips: UltiSnips will stop with either <Nop>, <Esc> and <C-o> because
 " internally `do autocmd User UltiSnipsExitLastSnippet` occurs.
-imap <expr> <c-\> <sid>is_expandable() ? '<Plug>UltiSnipExpand' : ''
-nmap <expr> <c-\> <sid>is_expandable() ? '<Plug>UltiSnipExpand' : ''
-smap <expr> <c-\> <sid>is_expandable() ? '<Plug>UltiSnipExpand' : ''
-xmap <expr> <c-\> <sid>is_expandable() ? '<Plug>UltiSnipExpand' : ''
-
-function! s:is_expandable() abort
-  " Note: word boundary check seems unnecessary.
-  return UltiSnips#SnippetsInCurrentScope() != {}
-endfunction
+imap <c-\> <Plug>UltiSnipExpand
+nmap <c-\> <Plug>UltiSnipExpand
+smap <c-\> <Plug>UltiSnipExpand
+xmap <c-\> <Plug>UltiSnipExpand
 
 " inoremap <silent> <Plug>UltiSnipExpandOrJump <C-r>=UltiSnips#ExpandSnippetOrJump()<CR>
 " snoremap <silent> <Plug>UltiSnipExpandOrJump <Esc>:callUltiSnips#ExpandSnippetOrJump()<CR>
