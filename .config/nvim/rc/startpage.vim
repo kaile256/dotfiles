@@ -24,5 +24,5 @@ function! s:startpage(page) abort
     return
   endif
 
-  e a:page
+  exe 'e' a:page
 endfunction
