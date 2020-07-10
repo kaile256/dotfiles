@@ -451,7 +451,7 @@
       "rootPatterns": ["go.mod"],
       "filetypes": ["go"],
       "initializationOptions": {
-        "diagnositicsEnabled": true,
+        "diagnosticsEnabled": true,
         "lintTool": "golint",
         "formatTool": "gofumpt",
         "formatFlags": ["-w"]
