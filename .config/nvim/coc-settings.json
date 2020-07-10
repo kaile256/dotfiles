@@ -346,8 +346,9 @@
 
   "python.formatting.provider": "yapf",
   //"python.formatting.yapfArgs": ["--style google"],
-  // Use pyright as linter
+  // Use coc-pyright, too
   "python.linting.enabled": true,
+  "python.linting.flake8Enabled": true,
   "python.linting.pylintEnabled": false,
 
   //"java.import.gradle.enabled": true,
