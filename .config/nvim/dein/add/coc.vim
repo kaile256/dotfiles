@@ -197,8 +197,8 @@ nnoremap <space>cp :ColorShowPalette<cr>
 " CocList; {{{1
 " show commit contains current position
 nnoremap <silent> <space>cl :CocList<cr>
-nnoremap <silent> <space>cf :CocList files<cr>
-nnoremap <silent> <space>cb :CocList buffers<cr>
+" nnoremap <silent> <space>cf :CocList files<cr>
+" nnoremap <silent> <space>cb :CocList buffers<cr>
 nnoremap <silent> <space>cx :CocList extensions<cr>
 
 " CocBookmark; {{{1
