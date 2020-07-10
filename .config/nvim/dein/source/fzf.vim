@@ -109,7 +109,10 @@ augroup myFzfSource "{{{1
   " Note: 'bufhidden' is useless for fzf.
   "au FileType fzf setl bufhidden=wipe
   " Note: both :quit and :close causes errors instead.
-  au WinLeave,BufLeave * if &ft ==# 'fzf' | hide | silent! !killall fzf
+  if has('nvim')
+    " FIXME: hide fzf witout error on Vim
+    au WinLeave,BufLeave term://*FZF* if &ft ==# 'fzf' | hide | silent! !killall fzf
+  endif
   " Note: Makes no sense but auto-set nonumber on tab-open.
   "au FileType fzf setl laststatus=0
   "      \ | au BufEnter * ++once setl laststatus=2
