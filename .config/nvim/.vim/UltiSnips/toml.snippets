@@ -68,23 +68,6 @@ snippet timeout "[dein] timeout sec for updating/installing plugin" b
 timeout = ${1:200 # 1(sec)}
 endsnippet
 
-snippet 's(cript_type)?p(lugin)?' "set the repo under plugin/" rb
-script_type = 'plugin'
+snippet script_type "[dein] copy the repo under $1/ and add &rtp there" b
+script_type = '${1:colors}'
 endsnippet
-
-snippet 's(cript_type)?i(ndent)?' "set the repo under indent/" rb
-script_type = 'indent'
-endsnippet
-
-snippet 's(cript_type)?ft(plugn)?' "set the repo under ftplugin/" rb
-script_type = 'plugin'
-endsnippet
-
-snippet 's(cript_type)?c((o)?(l)?ors)?' "set the repo under colors/" rb
-script_type = 'colors'
-endsnippet
-
-snippet 's(cript_type)?syn(tax)?' "set the repo under syntax/" rb
-script_type = 'syntax'
-endsnippet
-
