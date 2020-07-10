@@ -15,7 +15,7 @@ call defx#custom#column('git', 'indicators', {
       \ 'Untracked' : '✭',
       \ 'Renamed'   : '➜',
       \ 'Unmerged'  : '═',
-      \ 'Ignored'   : '☒',
+      \ 'Ignored'   : '_',
       \ 'Deleted'   : '✖',
       \ 'Unknown'   : '?'
       \ })
