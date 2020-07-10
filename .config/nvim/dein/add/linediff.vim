@@ -2,10 +2,10 @@
 " Repo: AndrewRadev/linediff.vim
 
 " Keymap; Get Compared
-nnoremap gc :Linediff<cr>
-xnoremap gc :Linediff<cr>
+nnoremap gC :Linediff<cr>
+xnoremap gC :Linediff<cr>
 
-nnoremap gC :LinediffReset<cr>
+nnoremap g<C-c> :LinediffReset<cr>
 
 " default: tabnew
 "let g:linediff_first_buffer_command = 'new'
