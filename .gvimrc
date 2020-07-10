@@ -14,8 +14,8 @@ if has('gui_running')
   if has('unix')
     " Tips: Try `:set guifont=*`, then get the format by `:set guifont?`.
     try
-      let &guifont   = 'JetBrainsMonoMedium Nerd Font 10.5'
-      let &printfont = 'JetBrainsMonoMedium Nerd Font 10.5'
+      let &guifont   = 'JetBrainsMono Nerd Font 10.5'
+      let &printfont = 'JetBrainsMono Nerd Font 10.5'
       set linespace=1
     catch
       set guifont=Monospace\ 12
@@ -23,8 +23,8 @@ if has('gui_running')
     endtry
   elseif has('win64') || has('win32')
     try
-      set guifont=JetBrainsMonoMedium_Nerd_Font:h12
-      set printfont=JetBrainsMonoMedium_Nerd_Font:h12
+      set guifont=JetBrainsMono_Nerd_Font:h12
+      set printfont=JetBrainsMono_Nerd_Font:h12
     catch
       set guifont=Monospace:h12
       set printfont=Monospace:h12
