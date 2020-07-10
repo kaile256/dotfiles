@@ -1,4 +1,4 @@
-" From: 'tool.toml'
+" TOML: memo.toml
 
 let g:memolist_path = '~/CloudNote/'
 
