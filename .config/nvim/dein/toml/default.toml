@@ -6,10 +6,11 @@ repo = 'tpope/vim-repeat'
 # Note: has no doc/
 lazy = 0
 hook_add = 'runtime add/repeat.vim'
-# [[plugins]]
-# repo = 'Houl/repmo-vim'
-# on_func = 'repmo#'
-# hook_add = 'runtime add/repmo.vim'
+[[plugins]]
+repo = 'Houl/repmo-vim'
+on_func = 'repmo#'
+hook_add = 'runtime add/repmo.vim'
+hook_post_source = 'runtime post/repmo.vim'
 #[[plugins]]
 #repo = 'vim-scripts/repeatable-motions.vim'
 
