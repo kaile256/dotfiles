@@ -11,7 +11,13 @@ endif
 if has('nvim')
   let g:fzf_layout = {'window': 'call my#floating_window()'}
 else
-  let g:fzf_layout = {'window': {'width': 0.94, 'height': 0.95, 'border': 'right'}}
+  " Possible keys: width, height, xoffset, yoffset, border
+  let g:fzf_layout = {'window': {
+        \ 'width':     0.94,
+        \ 'height':    0.95,
+        \ 'border':    'right',
+        \ 'highlight': 'NormalFloat',
+        \ }}
 endif
 
 "let g:fzf_command_prefix = 'Fzf' " makes complex hook on dein.
