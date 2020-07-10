@@ -28,6 +28,16 @@ let s:definitions['vim'] = [
       \ ['add/', 'source/', 'post/'],
       \ ]
 
+let s:definitions['gitcommit'] = [
+      \ ['feat', 'fix', 'refactor'],
+      \ ['style', 'docs'],
+      \ ]
+
+let s:definitions['gitrebase'] = [
+      \ ['pick', 'squash', 'reword', 'edit', 'exec', 'break', 'merge'],
+      \ ['reset', 'label']
+      \ ]
+
 let s:definitions['php'] = [
       \ ['submit', 'text', 'radio'],
       \ ]
