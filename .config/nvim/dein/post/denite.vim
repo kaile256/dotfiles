@@ -55,14 +55,14 @@ call denite#custom#source('grep', 'args', ['', '', '!'])
 
 call denite#custom#var('grep', 'command', [
       \ 'rg',
-      \ '--files',
-      \ '--glob',
-      \ '--preview-window=right:50%',
-      \ '!.git'
       \ ])
-
-call denite#custom#var('grep', 'default_opts',
-      \ ['-i', '--vimgrep', '--no-heading'])
+call denite#custom#var('grep', 'default_opts', [
+      \ '--vimgrep',
+      \ '--no-heading',
+      \ '--files',
+      \ '--preview-window=right:50%',
+      \ '--glob "!{.git,node_modules}/*"'
+      \ ])
 call denite#custom#var('grep', 'recursive_opts', [])
 call denite#custom#var('grep', 'pattern_opt', ['--regexp'])
 call denite#custom#var('grep', 'separator', ['--'])
