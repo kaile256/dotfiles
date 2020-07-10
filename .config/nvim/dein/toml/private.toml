@@ -111,11 +111,11 @@ repo = '$DEIN_PRIVATE_HOME/vim-highlight-info'
 on_cmd = 'HlInfo'
 
 #[ Indent ]
-[[plugins]]
-repo = '$DEIN_PRIVATE_HOME/vim-virtual-indent'
-# Ref: https://www.reddit.com/r/neovim/comments/fxjjqh/indent_guides_on_blank_lines_with_virtual_text/?utm_name=iossmf
-if = 'has("nvim")'
-on_event = 'BufRead'
+# [[plugins]]
+# repo = '$DEIN_PRIVATE_HOME/vim-virtual-indent'
+# # Ref: https://www.reddit.com/r/neovim/comments/fxjjqh/indent_guides_on_blank_lines_with_virtual_text/?utm_name=iossmf
+# if = 'has("nvim")'
+# on_event = 'BufRead'
 
 #[ Register ]
 [[plugins]]
