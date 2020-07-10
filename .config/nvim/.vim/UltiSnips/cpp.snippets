@@ -41,7 +41,19 @@ snippet 'cin \>\> [a-zA-Z]' "Description" rA
 cin >> `!v substitute(matchstr(getline(search('\a\+ [, a-zA-Z]\+;', 'cnbW')), '\a\+ \zs[, a-zA-Z]\+;'), ',', ' >>', 'g')`
 endsnippet
 
-snippet 'for \(au(?!.*:)' "for (auto &&x : v)" Ar
-for (auto &&${1:x} : ${2:v}`!v search('\%#.*)', 'cnW') ? '' : ')'`
+snippet idx "distance(v.begin(), itr_v)" w
+distance(${1:v}.begin(), ${2:itr})
+endsnippet
+
+snippet .pb "push_back" i
+.push_back
+endsnippet
+
+snippet ub "Stop at itr_$1 == $2.end()" w
+upper_bound
+endsnippet
+
+snippet lb "Stop at itr_$1 == $2.end()" w
+lower_bound
 endsnippet
 
