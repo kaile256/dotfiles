@@ -2,7 +2,8 @@
 " Repo: simnalamburt/vim-mundo
 " Another: source/mundo.vim
 
-nnoremap <silent> <a-u> :<c-u>call <SID>mundo_toggle()<cr>
+nnoremap <silent> <A-x><A-u> :<C-u>call <SID>mundo_toggle()<cr>
+nmap <A-x>u <A-x><A-u>
 
 function! s:mundo_toggle() abort
   if bufwinnr(bufnr("__Mundo__")) != -1
