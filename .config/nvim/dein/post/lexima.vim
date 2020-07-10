@@ -43,7 +43,9 @@ let s:separeter_triple = '\s'. s:opareter_atom .'\{2}' .'\|\s=\s'
 
 " Overwrite Rules for Newline {{{1
 " Copied from cohama/lexima.vim/autoload/lexima.vim @75
-let g:lexima#newline_rules = [
+let g:lexima#newline_rules = []
+
+let g:lexima#newline_rules += [
       \ {'char': '<CR>', 'at': '(\%#)',  'input_after': '<CR>'},
       \ {'char': '<CR>', 'at': '{\%#}',  'input_after': '<CR>'},
       \ {'char': '<CR>', 'at': '\[\%#]', 'input_after': '<CR>'},
