@@ -9,10 +9,15 @@
 " Note: Vim regards <C-_> as <C-/>
 " FIXME: Remove all the escape sequences;
 " currently, '\\\ze[\/]' turns out '\ze[/]'.
-noremap! <expr> <SID>(paste-literal)
-      \ substitute(substitute(@/, '^\\[mv]\c', '', ''), '\\\ze[\/]', '', 'g')
-tnoremap <expr> <SID>(paste-literal)
-      \ substitute(substitute(@/, '^\\[mv]\c', '', ''), '\\\ze[\/]', 'g', '')
+noremap! <expr> <SID>(paste-literal) <SID>paste_literal()
+tnoremap <expr> <SID>(paste-literal) <SID>paste_literal()
+
+function! s:paste_literal() abort
+  let no_magic = substitute(@/, '^\%(\\C\)*\\[mv]\c', '', '')
+  let no_ignorecase = substitute(no_magic, '\v(^\\C)|(\\C$)', '', '')
+  let no_escape = substitute(no_ignorecase, '\\\ze[\/]', '', 'g')
+  return no_escape
+endfunction
 
 noremap! <script> <c-r>/     <SID>(paste-literal)
 tnoremap <script> <c-r>/     <SID>(paste-literal)
