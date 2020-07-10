@@ -322,6 +322,7 @@
   //"git.addGBlameToBufferVar": true,
   "git.virtualTextPrefix": " ",
   "git.semanticCommit.filetypes": ["gitcommit"],
+  "git.showCommitInFloating": true, // or in popup
 
   "prettier.trailingComma": "es5",
 
