@@ -42,7 +42,7 @@ on_ft = ['ipynb']
 hook_source = 'runtime source/vimpyter.vim'
 [[plugins]]
 repo = 'williamjameshandley/vimteractive'
-if = '!exists("+terminal")'
+if = 'has("terminal")'
 on_ft = [
   'ipython',
   'julia',
