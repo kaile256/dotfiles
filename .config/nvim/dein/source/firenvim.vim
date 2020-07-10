@@ -4,10 +4,16 @@
 let g:firenvim_config = {}
 " Ref: https://medium.com/@cappyzawa/firenvim%E3%82%92%E4%BD%BF%E3%81%A3%E3%81%A6web%E3%81%A7%E3%82%82vim%E3%82%8B-9147d3c89beb
 
+let g:firenvim_config.globalSettings = {
+      \ 'alt': 'all',
+      \ }
+
 let g:firenvim_config.localSettings = {
       \ '.*': {
+      \   'cmdline': 'neovim',
       \   'selector': 'textarea, div[role="textbox"]',
       \   'priority': 0,
+      \   'takeover': 'never'
       \   }
       \ }
 
