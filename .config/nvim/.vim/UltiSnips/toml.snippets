@@ -52,9 +52,8 @@ snippet build
 build = '${1:./install.sh}'
 endsnippet
 
-snippet type
-alias ty typ
-type = 'git${0}'
+snippet type "[dein] 'git', 'none', or 'raw (with 'script_type')'" b
+type = '${1:git}'
 endsnippet
 
 snippet depends "depends = 'other plugins'" b
