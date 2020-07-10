@@ -1,17 +1,5 @@
 " From: ftplugin.vim
 
-inoremap <buffer><expr> r
-      \ (getline('.') =~# 'function!\&.*(.*)\(.*range\)\@!')
-      \ && (getline('.')[col('.') - 2] ==# ' ')
-      \ ? 'range'
-      \ : 'r'
-
-inoremap <buffer><expr> a
-      \ (getline('.') =~# 'function!\&.*(.*)\(.*abort\)\@!')
-      \ && (getline('.')[col('.') - 2] ==# ' ')
-      \ ? 'abort'
-      \ : 'a'
-
 function! s:fold_up_vimscript() abort "{{{
   if &readonly && !&modifiable | return | endif
 
