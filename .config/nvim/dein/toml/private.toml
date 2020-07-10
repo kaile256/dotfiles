@@ -52,6 +52,11 @@ hook_source = 'runtime source/yaml-fold.vim'
 repo = '$DEIN_PRIVATE_HOME/vim-help-toc'
 on_ft = ['help', 'man']
 hook_source = 'runtime source/help-toc.vim'
+[[plugins]]
+repo = '$DEIN_PRIVATE_HOME/vim-sensible-split'
+lazy = 0
+# on_cmd = ['SensibleMods', 'SensibleSplit']
+# hook_add = 'source $DEIN_ADD_HOME/sensible-split.vim'
 
 #[ Git ]
 [[plugins]]
