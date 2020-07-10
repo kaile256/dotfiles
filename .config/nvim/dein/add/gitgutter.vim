@@ -5,12 +5,12 @@
 command! -bar PreviewHunk :GitGutterPreviewHunk
 
 " default: [c and ]c without g:gitgutter_map_keys
-nmap [c <Plug>(GitGutterPrevHunk)
-nmap ]c <Plug>(GitGutterNextHunk)
+silent! nmap <unique> [c <Plug>(GitGutterPrevHunk)
+silent! nmap <unique> ]c <Plug>(GitGutterNextHunk)
 
 " TODO: Make prev/next hunk work on Visual mode.
-xmap [c <Plug>(GitGutterPrevHunk)
-xmap ]c <Plug>(GitGutterNextHunk)
+silent! xmap <unique> [c <Plug>(GitGutterPrevHunk)
+silent! xmap <unique> ]c <Plug>(GitGutterNextHunk)
 
 nmap [C <Plug>(GitGutterPrevHunk)<SID>(gitgutter-stage-hunks)
 nmap ]C <Plug>(GitGutterNextHunk)<SID>(gitgutter-stage-hunks)
