@@ -11,6 +11,18 @@ snippet '(?<=\()(begin|all)' "$1.$2begin(), $1.$2end()" ir
 begin(${1:v}), end($1)
 endsnippet
 
+snippet '(#)?in(c(lude)?)?' "header" bri
+#include ${1:<vector>}
+endsnippet
+
+snippet '(#)?de(f(ine)?)?' "macro" bri
+#define ${1}
+endsnippet
+
+snippet ll "long long" i
+long long ${1}
+endsnippet
+
 snippet template "template <typename T>" b
 template <${1:typename} ${2:T}> ${3:func}($2 ${4:args}) {
 	${4:return 0;}
