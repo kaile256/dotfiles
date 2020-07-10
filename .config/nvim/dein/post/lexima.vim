@@ -3,10 +3,8 @@
 " Another: add/lexima.vim
 " Another: source/lexima.vim
 
-" in lexima, <c-h> is unequal to <BS>
-map! <c-h> <BS>
-
-call lexima#insmode#define_altanative_key('<C-j>', '<CR>')
+map! <C-h> <BS>
+map! <C-j> <CR>
 
 " TODO: extend g:lexima#newline_rules for <C-j> to work like <CR>, too
 " g:lexima#newline_rules is a list of dict
