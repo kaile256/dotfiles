@@ -172,36 +172,6 @@ function! s:peek.php() abort "{{{2
 endfunction
 
 function! s:peek.help() abort "{{{2
-  let index = '^\(\u\|\d\+\.\).\{-}\ze\s*\(\*.\+\*\s*$\)\@='
-  let help_tag_index = '^\s*.\{-}\ze\s\+\*.\+\*\s*$'
-  let help_tag = '\*.\+\*\s*$'
-  let b:foldpeek_whiteout_patterns.match = [
-        \ index,
-        \ help_tag_index,
-        \ help_tag,
-        \ ]
-
-  " function! FoldpeekHelp() abort
-  "   let offset = foldpeek#status().offset
-  "   " let offset = 0
-  "   let help_tag = '\*.\+\*\s*$'
-  "   let line = ''
-  "   let sub = ''
-  "   let subtitle = '^\S.\+\(\ze\(  \|\t\)\|$\)'
-  "   if getline(v:foldstart + offset) =~# help_tag
-  "     while line =~# help_tag
-  "       let line = getline(v:foldstart + offset)
-  "       let sub = matchstr(line, subtitle)
-  "       if !empty(sub) | break | endif
-  "       let offset += 1
-  "     endwhile
-  "   endif
-
-  "   return 'offset is '. offset
-  "   let ret = (!empty(sub) ? sub : '\1')
-  "   return '  * '. ret
-  " endfunction
-
   let capitarized_index = '^\(\u.\{-1,}\)\s*\*.\+\*\s*$'
   let numbered_index    = '^\(\d.\+\)\s*$'
 
