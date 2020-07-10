@@ -88,15 +88,18 @@ let g:lightline.tab_component_function = {
       \ }
 
 function! LL_tab_path(n) abort
-  if &ft ==# 'defx'
-    let defx_cwd = matchstr(getline(1), ':\zs\S*')
-    return 'defx://'. defx_cwd
-  endif
-
   let buflist = tabpagebuflist(a:n)
   let winnr = tabpagewinnr(a:n)
-  let bufname = expand('#'. buflist[winnr - 1])
+  let bufnr = buflist[winnr - 1]
 
+  if getbufvar(bufnr, '&ft') ==# 'defx'
+    let path = matchstr(getline(1), ':\zs\f\+')
+    let path = 'defx://'. path
+    let path = s:modify_path(path)
+    return path
+  endif
+
+  let bufname = expand('#'. bufnr)
   if getbufvar(bufnr(bufname), '&bt') ==# 'terminal'
     if bufname =~# 'FZF'
       return 'FZF running...'
