@@ -43,7 +43,7 @@ settings:
       mk: config-dict-add url.searchengines
       mks: session-save -o
       mkurl: config-dict-add url.searchengines
-      mkurl!: config-dict-add aliases --replace
+      mkurl!: config-dict-add url.searchengines --replace
       nmap: bind
       nunmap: unbind
       nvim: spawn nvim-qt
@@ -140,12 +140,16 @@ settings:
         <Alt+u>: fake-key <ctrl-z>
         <Alt+v>: fake-key <Shift-left>;; enter-mode caret
         <Alt+y>: yank selection
+        <Ctrl+Alt+,>: fake-key <Ctrl+alt+,>
         <Ctrl+Alt+v>: fake-key <shift-ctrl-left>
+        <Ctrl+Shift+n>: <Alt-down>
+        <Ctrl+Shift+p>: fake-key <alt-up>
         <Ctrl+a>: fake-key <Home>
         <Ctrl+b>: fake-key <Left>
         <Ctrl+d>: fake-key <Delete>
         <Ctrl+e>: fake-key <End>
         <Ctrl+f>: fake-key <Right>
+        <Ctrl+g>: fake-key <Esc>
         <Ctrl+h>: fake-key <backspace>
         <Ctrl+i>: fake-key <tab>
         <Ctrl+j>: fake-key <Enter>
@@ -165,7 +169,6 @@ settings:
       normal:
         '2': save
         <: tab-move -
-        <Alt+Space>: emacs
         <Alt+[>: tab-prev
         <Alt+]>: tab-next
         <Alt+f>: tab-next
@@ -174,12 +177,13 @@ settings:
         <Ctrl++>: zoom-in
         <Ctrl+->: zoom-out
         <Ctrl+2>: save
-        <Ctrl+Enter>: fake-key <ctrl-enter>
+        <Ctrl+Enter>: enter-mode insert;; fake-key <ctrl-enter> ;; leave-mode
         <Ctrl+Shift+n>: open -w
         <Ctrl+a>: enter-mode insert ;; fake-key <home>
         <Ctrl+c>: stop;; clear-keychain
         <Ctrl+d>: scroll-page 0 0.5
         <Ctrl+e>: scroll-px 0 +50
+        <Ctrl+g>: enter-mode passthrough
         <Ctrl+h>: tab-prev
         <Ctrl+i>: forward
         <Ctrl+j>: fake-key <alt-down>
@@ -208,15 +212,21 @@ settings:
         <Ctrl+w>o: tab-only
         <Ctrl+w>p: tab-pin
         <Ctrl+w>s: tab-clone
+        <Ctrl+w>u: undo
         <Ctrl+w>v: tab-clone
         <Ctrl+x>: null
         <Ctrl+y>: scroll-px 0 -50
+        <Enter>: enter-mode insert;; fake-key <enter> ;; leave-mode
         <Space>1: tab-close
         <Space>2: save
+        <Space>F: hint links tab-bg
         <Space>P: open -t {primary}
+        <Space>T: hint all tab-bg
         <Space>\: record-macro
+        <Space>f: hint links current
         <Space>p: open {primary}
         <Space>q: save
+        <Space>t: hint all current
         <Space>w: save
         <Space>y: yank selection
         <Space>yy: enter-mode caret;; yank;; leave-mode
@@ -231,16 +241,16 @@ settings:
         <Space>zv: set-cmd-text -s :open
         <い>: enter-mode insert
         '>': tab-move +
-        D: null
-        F: hint links current
+        D: scroll-page 0 +1.0
+        F: hint links tab-bg
         H: null
         I: hint inputs --first
         J: fake-key <alt-down>
         K: fake-key <alt-up>
         L: null
         P: open -t {clipboard}
-        T: hint links tab-bg --rapid
-        U: undo
+        T: hint links tab-bg
+        U: fake-key <alt+Up>
         V: enter-mode caret;; toggle-selection
         ZC: close
         ZE: close
@@ -255,7 +265,7 @@ settings:
         '[': tab-prev
         \<Space>: record-macro
         ']': tab-next
-        a: fake-key <right> ;; enter-mode insert
+        a: hint inputs
         b: fake-key <alt+Up>
         cd: null
         co: null
@@ -263,22 +273,27 @@ settings:
         f: scroll-page 0 +1.0
         gA: open -t https://www.amazon.co.jp/ref=nav_logo
         gC: open -t https://calendar.google.com/calendar/r/month?pli=1
+        gD: hint links tab-bg
         gE: edit-url
+        gF: hint all tab-bg
         gH: open -t qute://history/
         gI: hint inputs
         gM: open -t https://www.google.co.jp/maps/@34.8244519,135.4776576,15z
         gO: hint inputs
         gP: open -t https://app.getpocket.com/
         gS: view-source --pygments
+        gT: hint links tab-bg --rapid
         ga: hint inputs
         gc: open https://calendar.google.com/calendar/r/month?pli=1
-        gf: spawn nvim-qt {url}
+        gd: hint links current
+        gf: hint all current
         gh: open qute://history/
         gi: hint inputs --first
         gm: open https://www.google.co.jp/maps/@34.8244519,135.4776576,15z
         go: scroll-to-perc 0;; hint inputs --first
         gp: open https://app.getpocket.com/
         gs: view-source
+        gu: spawn nvim-qt {url}
         gv: fake-key <ctrl-a>;; enter-mode caret
         gw: fake-key gw
         h: fake-key <left>
@@ -291,6 +306,7 @@ settings:
         q: null
         r: fake-key r
         sP: spawn --userscript qutepocket;; open -t https://app.getpocket.com/
+        sk: null
         sp: pocket-save
         t: fake-key t;; enter-mode insert
         u: scroll-page 0 -0.5
@@ -391,49 +407,51 @@ settings:
   editor.encoding:
     global: utf-8
   fonts.completion.category:
-    global: bold 12pt DejaVuSansMono Nerd Font, icons
+    global: 11pt JetBrainsMonoMedium Nerd Font, icons
   fonts.completion.entry:
-    global: 12pt DejaVuSansMono Nerd Font, icons
+    global: 11pt JetBrainsMono Nerd Font, icons
   fonts.contextmenu:
-    global: null
+    global: 11pt JetBrainsMono Nerd Font, icons
   fonts.debug_console:
-    global: 12pt DejaVuSansMono Nerd Font, icons
+    global: 12pt JetBrainsMonoMedium Nerd Font, icons
   fonts.default_family:
     global:
-    - xos4 Terminus
+    - JetBrainsMonoMedium Nerd Font
     - Terminus
+  fonts.default_size:
+    global: 11pt
   fonts.downloads:
-    global: 11pt DejaVuSansMono Nerd Font, icons
+    global: 11pt JetBrainsMonoMedium Nerd Font, icons
   fonts.hints:
-    global: bold 12pt DejaVuSansMono Nerd Font, icons
+    global: bold 11pt JetBrainsMonoMedium Nerd Font, icons
   fonts.keyhint:
-    global: bold 12pt DejaVuSansMono Nerd Font, icons
+    global: 11pt JetBrainsMonoMedium Nerd Font, icons
   fonts.messages.error:
-    global: 12pt DejaVuSansMono Nerd Font, icons
+    global: 11pt JetBrainsMonoMedium Nerd Font, icons
   fonts.messages.info:
-    global: 12pt DejaVuSansMono Nerd Font, icons
+    global: 11pt JetBrainsMonoMedium Nerd Font, icons
   fonts.messages.warning:
-    global: 12pt DejaVuSansMono Nerd Font, icons
+    global: 11pt JetBrainsMonoMedium Nerd Font, icons
   fonts.prompts:
-    global: 12pt DejaVuSansMono Nerd Font, icons
+    global: 11pt JetBrainsMonoMedium Nerd Font, icons
   fonts.statusbar:
-    global: 12pt DejaVuSansMono Nerd Font, icons
+    global: 11pt JetBrainsMonoMedium Nerd Font, icons
   fonts.tabs:
-    global: bold 11pt DejaVuSansMono Nerd Font, icons
+    global: bold 11pt JetBrainsMonoMedium Nerd Font, icons
   fonts.web.family.cursive:
-    global: DejaVuSansMono Nerd Font, icons
+    global: JetBrainsMonoMedium Nerd Font, icons
   fonts.web.family.fantasy:
-    global: DejaVuSansMono Nerd Font, icons
+    global: JetBrainsMonoMedium Nerd Font, icons
   fonts.web.family.fixed:
-    global: DejaVuSansMono Nerd Font, icons
+    global: JetBrainsMonoMedium Nerd Font, icons
   fonts.web.family.sans_serif:
-    global: DejaVuSansMono Nerd Font, icons
+    global: JetBrainsMonoMedium Nerd Font, icons
   fonts.web.family.serif:
-    global: DejaVuSansMono Nerd Font, icons
+    global: JetBrainsMonoMedium Nerd Font, icons
   fonts.web.family.standard:
-    global: DejaVuSansMono Nerd Font, icons
+    global: JetBrainsMonoMedium Nerd Font, icons
   fonts.web.size.default:
-    global: 15
+    global: 14
   fonts.web.size.default_fixed:
     global: 14
   fonts.web.size.minimum:
@@ -505,6 +523,7 @@ settings:
       ms: https://github.com/search?o=desc&q={}&s=stars&type=Repositories
       note: https://note.com/search?context=note&mode=search&q={}
       pk: https://app.getpocket.com/search/{}
+      py: https://docs.python.org/3/search.html?q={}
       pyd: https://docs.python.org/3/search.html?q={}&check_keywords=yes&area=default
       qb: https://www.reddit.com/r/qutebrowser/search/?q={}
       qi: https://qiita.com/search?q={}&sort=stock
@@ -517,7 +536,8 @@ settings:
       sf: https://stackoverflow.com/search?q={}
       so: https://stackoverflow.com/search?q={}
       sym: http://symbolhound.com/?q={}
-      th: https://www.freethesaurus.com/{}
+      th: https://www.thesaurus.com/browse/{}?s=t
+      tt: https://teratail.com/search?q={}
       tw: http://twitter.com/search/{}
       wk: https://en.wikipedia.org/w/index.php?search={}
       wl: https://ejje.weblio.jp/content/{}?erl=true
