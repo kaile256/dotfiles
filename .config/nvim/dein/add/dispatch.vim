@@ -2,8 +2,22 @@
 " Repo: tpope/vim-dispatch
 " Another: source/dispatch.vim
 
-nnoremap <silent> <SID>(dispatch)
-      \ :<c-u>write
-      \ <bar>Dispatch! -dir=<c-r>=expand('%:p:h')<cr><cr>
+" Note: Dispatch internally uses commands `E533: Not allowed here` for <expr>.
+nnoremap <silent> `\ :<C-u>call <SID>dispatch()<CR>
 
-nnoremap <script> `\ <SID>(dispatch)
+function! s:dispatch() abort
+  if &modifed
+    update
+  else
+    checktime
+  endif
+
+  let Dispatch = 'Dispatch -dir='. expand('%:p:h')
+  " if &ft ==# 'cpp' && search('\v(low|upp)er_bound', 'nw')
+  "   " Error: attempt to dereference a past-the-end iterator.
+  "   exe Dispatch 'g++ %'
+  "   return
+  " endif
+
+  exe Dispatch
+endfunction
