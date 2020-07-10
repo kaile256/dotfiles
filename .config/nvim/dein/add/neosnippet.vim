@@ -43,31 +43,32 @@ endfunction
 "endfunction
 "}}}
 " " Wrapper to echo when no snippet {{{1
+finish
 " " Note: \<c-u>g fails to remove place-holders
-" nmap <expr><silent> <SID>(neosnippet-try)
-"      \ neosnippet#expandable_or_jumpable()
-"      \ ? "\<Plug>(neosnippet_jump_or_expand)"
-"      \ : ":<c-u>echo 'no snippet!'<cr>"
-" xmap <expr><silent> <SID>(neosnippet-try)
-"      \ neosnippet#expandable_or_jumpable()
-"      \ ? "\<Plug>(neosnippet_jump_or_expand)"
-"      \ : ":<c-u>echo 'no snippet!'<cr>"
+nmap <expr><silent> <SID>(neosnippet-try)
+     \ neosnippet#expandable_or_jumpable()
+     \ ? "\<Plug>(neosnippet_jump_or_expand)"
+     \ : ":<c-u>echo 'No Snippets!'<cr>"
+xmap <expr><silent> <SID>(neosnippet-try)
+     \ neosnippet#expandable_or_jumpable()
+     \ ? "\<Plug>(neosnippet_jump_or_expand)"
+     \ : ":<c-u>echo 'No Snippets!'<cr>"
 
-" " TODO: make no split for i_CTRL-a
-" imap <expr><silent> <SID>(neosnippet-try)
-"      \ neosnippet#expandable_or_jumpable()
-"      \ ? "\<Plug>(neosnippet_jump_or_expand)"
-"      \ : "<c-o>:<c-u>echo 'no snippet!'<cr>"
-" smap <expr><silent> <SID>(neosnippet-try)
-"      \ neosnippet#expandable_or_jumpable()
-"      \ ? "\<Plug>(neosnippet_jump_or_expand)"
-"      \ : "<c-o>:<c-u>echo 'no snippet!'<cr>"
+" TODO: make no split for i_CTRL-a
+imap <expr><silent> <SID>(neosnippet-try)
+     \ neosnippet#expandable_or_jumpable()
+     \ ? "\<Plug>(neosnippet_jump_or_expand)"
+     \ : "<c-o>:<c-u>echo 'No Snippets!'<cr>"
+smap <expr><silent> <SID>(neosnippet-try)
+     \ neosnippet#expandable_or_jumpable()
+     \ ? "\<Plug>(neosnippet_jump_or_expand)"
+     \ : "<c-o>:<c-u>echo 'No Snippets!'<cr>"
 
-" " noremap for 'noxi' modes fails to remove any place-holder
-" inoremap <script> <c-\> <SID>(neosnippet-try)
-" snoremap <script> <c-\> <SID>(neosnippet-try)
-" xnoremap <script> <c-\> <SID>(neosnippet-try)
-" nnoremap <script> <c-\> <SID>(neosnippet-try)
+" noremap for 'noxi' modes fails to remove any place-holder
+imap <script> <c-\> <SID>(neosnippet-try)
+smap <script> <c-\> <SID>(neosnippet-try)
+xmap <script> <c-\> <SID>(neosnippet-try)
+nmap <script> <c-\> <SID>(neosnippet-try)
 
 " " <TAB> mapping "{{{1
 " "" Note: <TAB>/<space> would expand unintentionally
