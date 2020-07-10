@@ -1,22 +1,46 @@
-snippet 'fun(ction)?' "function! foo() ... endfunction" br
-function! ${1:`!v snip#vim#prefix_for_function()`}${2:#:do}(${3:#:args}) abort${4}
+global !p
+# WIP
+def plugin_name_underscored():
+  # TODO: make it work.
+  plugin_path = vim.eval('expand(@%)')
+  plugin_name = plugin_path.replace('.*vim-', '')
+  return plugin_name
+endglobal
+
+snippet catch "catch error E$1" b
+catch /^Vim\v%((\a+))?:E${1:123}/
+endsnippet
+
+snippet 'f(u)?n(c(tion)?)?' "function! foo() ... endfunction" wr
+function! ${1:`!v snip#vim#prefix_for_function()`}${2:#:do}(${3:#:args}) abort$4
 endfunction
 endsnippet
 
-snippet 'fold' "fold with b:undo_ftplugin" rb
+snippet 'au((g)?roup)?' "augroup foo ... augroup END" br
+augroup my${1:name}
+  au!
+  au ${2:FileType} ${3:*}
+augroup END
+endsnippet
+
+snippet fold "fold with b:undo_ftplugin" b
 setl fdm=expr fde=${1:`!v substitute(toupper(expand('%:t:r')[0]) . expand('%:t:r')[1:], 'fold\|\W\|_', '', 'g')`FoldExpr()}
 
 if exists('b:undo_ftplugin')
-	let b:undo_ftplugin .= ' | '
+  let b:undo_ftplugin .= ' | '
 else
-	let b:undo_ftplugin = ''
+  let b:undo_ftplugin = ''
 endif
 let b:undo_ftplugin .= 'setl fdm< fde<'
 
 function! $1 abort
   ${2:let line = getline(v:lnum)}
-	return '='
+  return '='
 endfunction
+endsnippet
+
+snippet scriptencoding "" b
+scriptencoding utf-8
 endsnippet
 
 snippet init "Let's create a plugin!" b
@@ -45,9 +69,6 @@ snippet init "Let's create a plugin!" b
 "     SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 " }}}
 " ============================================================================
-
-if exists('g:loaded_${1:`!v snip#vim#name_of_plugin()`}') | finish | endif
-let g:loaded_$1 = 1
 
 " save 'cpoptions' {{{
 let s:save_cpo = &cpo
@@ -89,7 +110,7 @@ snippet header "Header for Plugin" b
 "     TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
 "     SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 " }}}
-" ============================================================================
+" ============================================================================`!v nextnonblank(line('.') + 1) == line('.') + 1 ? '' : "\n"`
 endsnippet
 
 snippet mit "MIT License" b
@@ -116,32 +137,25 @@ snippet mit "MIT License" b
 endsnippet
 
 snippet loaded "if exists(g:loaded_$1) | finish | endif" b
-if exists('g:loaded_${1:`!v snip#vim#name_of_plugin_underscored()`}') | finish | endif "{{{1
-let g:loaded_$1 = 1
+if exists('g:loaded_`!v substitute(matchstr(@%, 'vim-\zs.\{-}\ze/'), '-', '_', 'g')`') | finish | endif "{{{
+let g:loaded_`!v substitute(matchstr(@%, 'vim-\zs.\{-}\ze/'), '-', '_', 'g')` = 1
 
-" save 'cpoptions'
-let s:save_cpo = &cpo
-set cpo&vim
-"}}}1
-${0}
+`!v nextnonblank(line('.') + 1) == line('.') + 1 ? '' : "\n"`
 endsnippet
 
 snippet cpoptions "Save cpoptions" b
 " save 'cpoptions' {{{
 let s:save_cpo = &cpo
 set cpo&vim
-"}}}1
-${0}
+"}}}`!v nextnonblank(line('.') + 1) == line('.') + 1 ? '' : "\n"`
 endsnippet
 
 snippet footer "Boilerplate for end of plugin" b
-alias restore res end tail tai ta foo foot fo
 " restore 'cpoptions' {{{1
 let &cpo = s:save_cpo
 unlet s:save_cpo
 
-" modeline {{{1
-" vim: et ts=2 sts=2 sw=2 fdm=marker tw=79
+modeline${1}
 endsnippet
 
 snippet modeline "" b
