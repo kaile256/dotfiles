@@ -275,15 +275,6 @@ nnoremap <silent> <space>cb :Coclist bookmark<cr>
 " omap ac <Plug>(coc-text-object-outer)
 " xmap ac <Plug>(coc-text-object-outer)
 
-" CocTranslator {{{1
-" Note: CANNOT replace 'toLang' before translator yet.
-"command! CJapaneseEcho    :call coc#config("translator", {"toLang": "ja"}) <bar> CocCommand  translator.echo
-"command! CJapaneseReplace :call coc#config("translator", {"toLang": "ja"}) <bar> CocCommand translator.replace
-"command! CJapanesePum     :call coc#config("translator", {"toLang": "ja"}) <bar> CocCommand  translator.popup
-command! CEnglishEcho    :call coc#config("translator", {"toLang": "en"}) <bar> CocCommand translator.echo
-command! CEnglishReplace :call coc#config("translator", {"toLang": "en"}) <bar> CocCommand translator.replace
-command! CEnglishPum     :call coc#config("translator", {"toLang": "en"}) <bar> CocCommand translator.popup
-
 " " CocYank; {{{1
 " " Required?: closes mpreview vindow when completion is done.
 " "au! CompleteDone * if pumvisible() == 0 | pclose | endif
