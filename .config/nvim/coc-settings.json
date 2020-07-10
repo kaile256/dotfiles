@@ -335,7 +335,7 @@
   "vimlsp.diagnostic.enable": true,
   "vimlsp.indexes.runtimepath": true,
   "vimlsp.indexes.count": 3,
-  "vimlsp.indexes.gap": 100,
+  "vimlsp.indexes.gap": 500,
   "vimlsp.suggest.fromVimruntime": true,
   "vimlsp.suggest.fromRuntimepath": false,
   "vimlsp.trace.server": "verbose",
