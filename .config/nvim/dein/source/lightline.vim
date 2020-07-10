@@ -342,7 +342,7 @@ function! LL_git_branch() abort "{{{3
       let branch .= '!'
     endif
 
-    return branch !=# '' ? branch : '...'
+    return branch !=# '' ? ' '. branch : '...'
   endtry
 endfunction
 
