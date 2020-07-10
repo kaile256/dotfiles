@@ -111,7 +111,6 @@ repo = 'tpope/vim-speeddating'
 on_func = 'speeddating#'
 on_map = {nx = '<Plug>SpeeDdating'}
 hook_add = 'runtime add/speeddating.vim'
-hook_source = 'runtime source/speeddating.vim'
 # [[plugins]]
 # repo = 'triglav/vim-visual-increment'
 # on_map = {'x' = ['<Plug>VisualIncrement', '<Plug>VisualDecrement']}
