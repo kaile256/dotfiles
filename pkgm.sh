@@ -16,6 +16,20 @@ set -Cue #{{{
 # Preferences:
 #   ntp: sync time
 PACKAGEs=(
+  openshot-git # video editor; cross-platform for Linux, Mac and Windows
+  #gifcurry # GIF editor; depends on gtk
+  supercollider # Programming Language to create sounds
+  boost # Cpp source libraries - development headers
+  # neovide-git # Neovim GUI written in Rust; cursor moves too slow.
+  #otf-hasklig # low-heigh fonts
+  #otf-operator-mono-nerd # too bold to read on Neovim-qt
+  nerd-fonts-jetbrains-mono #
+  #nerd-fonts-victor-mono # too thin to read on Neovim-qt
+  cling # cpp's interpretor; required for REPL. Install the default.
+  st # a terminal emulater lighter than urxvt/xterm
+  compiledb # a generator for clang's JSON
+  git-secrets # type git secrets --install on a repo
+  deno-bin # a better runtime than node.js which include TypeScript compiler
   sshfs # mount another filesystem via ssh
   php-fpm # required by nginx to run php
   nginx-unit-php
