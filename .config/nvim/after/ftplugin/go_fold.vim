@@ -31,6 +31,10 @@ function! GoFoldExpr(lnum) abort
     " elseif line =~# '[^`]*`$'
     "   return 's1'
 
+  elseif indent(a:lnum) > 0 && prev =~# '^$' && line !~# '".*"'
+    " a block but not in import-block
+    return '>'. (indent(a:lnum) / &shiftwidth + 1)
+
   elseif line =~# s:comment_start
     return 'a1'
   elseif line =~# s:comment_end
