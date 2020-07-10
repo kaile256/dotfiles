@@ -179,8 +179,6 @@ endif
 augroup myDeinRc "{{{1
   if exists('#myDeinRc') | au! myDeinRc
   endif
-  au BufRead *vim**/*.toml setlocal foldlevel=0 keywordprg=:help
-
   au BufWinEnter *vim**/*.toml call s:find_the_plugin()
   function! s:find_the_plugin() abort "{{{2
     let alt_path = fnamemodify(@#, ':p')
