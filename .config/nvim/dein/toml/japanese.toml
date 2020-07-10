@@ -15,7 +15,7 @@ repo = 'tyru/eskk.vim'
 on_cmd = 'eskk#enable()'
 hook_add = 'runtime add/eskk.vim'
 hook_source = 'runtime source/eskk.vim'
-hook_done_update= '''
+hook_done_update = '''
 e $DEIN_GITHUB_DIR/tyru/eskk.vim/autoload/eskk.vim
 " Comment out unnecessary modes
 silent! g/^\s*"\@!Eskk.*zenei/norm! I"
