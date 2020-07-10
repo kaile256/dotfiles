@@ -46,6 +46,16 @@ build = 'make'
 #[ QuickRun ]
 [[plugins]]
 repo = 'thinca/vim-quickrun'
+# Note: QuickRun ignores any `-input` on Neovim.
+if = 'has("nvim")'
+on_cmd = 'QuickRun'
+on_map = '<Plug>(quickrun'
+hook_add = 'runtime add/quickrun.vim'
+hook_source = 'runtime source/quickrun.vim'
+[[plugins]]
+repo = 'thinca/vim-quickrun'
+if = '!has("nvim")'
+rev = 'develop'
 on_cmd = 'QuickRun'
 on_map = '<Plug>(quickrun'
 hook_add = 'runtime add/quickrun.vim'
