@@ -3,6 +3,8 @@
 " Another: add/sonictemplate.vim
 " Else: data/sonictemplate
 
+let g:sonictemplate_key = '<Nop>' " prefix to expand emplates
+
 let g:sonictemplate_vim_template_dir = [
       \ expand('$VIM_ANOTHER_HOME/sonictemplate'),
       \ ]
