@@ -11,14 +11,6 @@ map! <C-j> <CR>
 
 let g:lexima#default_rules = []
 
-" Note: both '=' and '+' works unexpectedly either with or without '\'.
-let s:delimeter_atom = '[,.;:]'
-let s:opareter_atom  = '[\-*/&|!]'
-let s:separeter_single =  s:delimeter_atom
-let s:separeter_double = '\(\s'. s:opareter_atom .'\)\|\('. s:delimeter_atom .'\s\)'
-" for example, regard ' ==' as a triple
-let s:separeter_triple = '\s'. s:opareter_atom .'\{2}' .'\|\s=\s'
-
 " Note: '\%#' represents the cursor position; see the help.
 " Notice: single quote in double quotes sometimes fails to apply the rule.
 " Notice: in double quotes, backslash requires double to escape
