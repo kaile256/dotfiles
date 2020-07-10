@@ -8,6 +8,9 @@ let s:namespace = nvim_create_namespace(g:virtual_indent_namespace)
 function! s:virtual_indent() abort
   if !&modifiable | return | endif
 
+  " For expansion of snippets functions
+  if mode() !=# 'n' | return | endif
+
   call nvim_buf_clear_namespace(0, s:namespace, 1, -1)
 
   let save_view = winsaveview()
