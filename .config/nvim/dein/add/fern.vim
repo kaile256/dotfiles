@@ -2,8 +2,10 @@
 " Repo: lambdalisue/fern.vim
 " Another: source/fern.vim
 
-nnoremap <silent> <A-x>f :<C-u>call <SID>fern()<CR>
-xnoremap <silent> <A-x>f :<C-u>call <SID>fern()<CR>
+nmap <A-x><A-r> <A-x>r
+xmap <A-x><A-r> <A-x>r
+nnoremap <silent> <A-x>r :<C-u>call <SID>fern()<CR>
+xnoremap <silent> <A-x>r :<C-u>call <SID>fern()<CR>
 
 function! s:fern() abort
   if &bt ==# ''
