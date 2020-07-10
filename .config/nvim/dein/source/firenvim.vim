@@ -26,15 +26,10 @@ if exists('#myFireNvimSourceModFileTypes')
   au! myFireNvimSourceModFileTypes
 endif
 augroup myFireNvimSourceModFileTypes
-  au BufEnter github.com_*.txt         call s:set_font(s:firenvim_font) | setl filetype=markdown
-  au BufEnter play.golang.org_*.txt    call s:set_font(s:firenvim_font) | setl filetype=go
-  au BufEnter play.rust-lang.org_*.txt call s:set_font(s:firenvim_font) | setl filetype=rust
+  au BufEnter github.com_*.txt         setlocal filetype=markdown
+  au BufEnter play.golang.org_*.txt    setlocal filetype=go
+  au BufEnter play.rust-lang.org_*.txt setlocal filetype=rust
 augroup END
-
-let s:firenvim_font = 'DejaVuSansMono\ Nerd\ Font'
-function! s:set_font(font) abort
-  exe 'set guifontset='. a:font .':h14'
-endfunction
 
 "augroup myFireNvimSource
 "" Ref: https://medium.com/@cappyzawa/firenvim%E3%82%92%E4%BD%BF%E3%81%A3%E3%81%A6web%E3%81%A7%E3%82%82vim%E3%82%8B-9147d3c89beb
