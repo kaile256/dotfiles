@@ -140,7 +140,7 @@ function! s:git_reset() abort "{{{3
     return
   endif
 
-  call s:commit_all()
+  " call s:commit_all()
 
   exe 'Git reset' hash
 
