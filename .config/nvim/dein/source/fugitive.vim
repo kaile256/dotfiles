@@ -15,6 +15,7 @@ augroup END
 augroup myFugitiveSo
   if exists('#myFugitiveSo') | au! myFugitiveSo
   endif
+  au FileTYpe git,fugitive call s:unmap()
   au FileType fugitive  call s:fugitive_keymap()
   au FileType gitcommit call s:gitcommit_keymap()
   au FileType gitcommit call s:gitcommit_startinsert()
@@ -31,12 +32,17 @@ function! s:gitcommit_startinsert() "{{{2
 endfunction
 
 " Define Keymaps on Buffer {{{2
-function! s:fugitive_keymap() abort "{{{3
-  " Note: for fugitive-buffer, not for &diff
-  silent! unmap j
-  silent! unmap k
+function! s:unmap() abort
   silent! unmap <buffer> J
   silent! unmap <buffer> K
+  silent! unmap <buffer> *
+  silent! unmap <buffer> #
+endfunction
+
+function! s:fugitive_keymap() abort "{{{3
+  " Note: for fugitive-buffer, not for &diff
+  noremap <buffer> j j
+  noremap <buffer> k k
 
   " especially for the case ':norm U' to unstage all
   nnoremap <buffer><silent> <SID>(fugitive:gstage-prev-window)
