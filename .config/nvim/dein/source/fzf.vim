@@ -27,8 +27,7 @@ let g:fzf_commands_expect = 'ctrl-x,alt-x'
 " Original
 " TODO: implement g:vars below:
 "let g:fzf_preview_excluded = ['history']
-let g:fzf_default_options = '--multi --reverse'
-let g:fzf_extract_pattern = '^.git$'
+let g:fzf_default_options = '--multi --reverse --keep-right'
 let g:fzf_preview_default_style = 'right:60%:wrap'
 
 " on Fzf Buffer; Action-Command {{{1
