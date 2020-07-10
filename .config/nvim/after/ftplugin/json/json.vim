@@ -4,6 +4,7 @@
 "let g:vim_json_syntax_conceal = 0
 
 if fnamemodify(@%, ':p') =~# 'vimspector' && &ft ==# 'json'
+  hi! link jsonCommentError Comment
   setlocal ft=jsonc
 endif
 
