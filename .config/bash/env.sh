@@ -22,10 +22,10 @@ export LC_CTYPE=en_US.UTF-8
 
 # Ref: https://qiita.com/gyu-don/items/d61b03e0222a7f1ce9f7
 # available icons on Qt/KDE
-#export QT_QPA_PLATFORMTHEME=qt5ct
+export QT_QPA_PLATFORMTHEME=qt5ct
 # Ref: https://www.reddit.com/r/qutebrowser/comments/enr181/how_to_switch_default_file_manager/
 #   enable the imo nicer looking GTK file picker.
-export QT_QPA_PLATFORMTHEME=gtk3
+# export QT_QPA_PLATFORMTHEME=gtk3
 
 # Cloud {{{1
 # gcloud: a cli-tool for GCP
