@@ -144,8 +144,8 @@ augroup myCocSource "{{{1
   " " CocNvimInit triggered after coc services have started.
   " au User CocNvimInit call CocAction('runCommand', 'tsserver.watchBuild')
 
-  au User CursorHold call CocActionAsync('doHover')
-  au User CursorHoldI call CocActionAsync('showSignatureHelp')
+  au CursorHoldI * call CocActionAsync('doHover')
+  au CursorHoldI * call CocActionAsync('showSignatureHelp')
   au BufRead coc-settings.json setl commentstring=//%s
   " " No Status Line on coc's buffer; useless {{{2
   " au FileType coc,list setl laststatus=0
