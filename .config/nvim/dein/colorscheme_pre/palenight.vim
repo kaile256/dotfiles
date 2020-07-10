@@ -15,7 +15,7 @@ function! s:my_palenight() abort
   hi! link Whitespace Comment
   " hi! link lineNr Comment
   hi! SpecialKey ctermfg=245 guifg=#8a8a8a
-  hi! NonText ctermfg=238 guifg=#444444
+  hi! NonText ctermfg=239 guifg=#4e4e4e
 
   " hi! Statement ctermfg=212 guifg=#fe82e3
   " hi! Identifier ctermfg=117 guifg=#b2fd8b
