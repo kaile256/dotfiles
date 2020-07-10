@@ -2,12 +2,11 @@
 " BuiltIn: runtime/syntax/markdown.vim
 " Another: ftplugin/markdown.vim
 
-setl signcolumn=no
-
 "hi! link htmlLink Statement
 
 hi! link mkdCodeStart Comment
 hi! link mkdCodeEnd   Comment
+hi! link mkdURL Comment
 hi! link markdownLinkUrl Comment
 
 hi! link markdownHeadingDelimiter PreProc
