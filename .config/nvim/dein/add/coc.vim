@@ -232,16 +232,11 @@ nnoremap <silent> <space>cb :Coclist bookmark<cr>
 " xnoremap <silent> <Plug>(coc-git-add-chunk)
 "      \ :call coc#git_add_chunks()<cr>
 
-" function coc#git_add_chunks() abort range
+" function coc#git_add_chunks() abort
 "   let save_view = winsaveview()
-"   exe a:firstline
-"   let c_line = line('.')
-"   " TODO: be available in normal mode as an operator
-"   while c_line <= a:lastline
-"     " FIXME: still useless, even freezes vim.
-"     "call feedkeys(":CocCommand git.chunkStage\<cr>", 'n')
-"     "call feedkeys('j', 'n')
-"     CocCommand git.chunkStage
+"   norm '<
+"   while line('.') <= line("'>")
+"     silent! CocCommand git.chunkStage
 "     norm! j
 "     let c_line += 1
 "   endwhile
