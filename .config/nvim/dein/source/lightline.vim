@@ -1,6 +1,9 @@
 scriptencoding utf-8
 " From: appearance.toml
 " Repo: itchyny/lightline.vim
+" Another: post/lightline.vim
+
+setglobal noshowmode
 
 let g:lightline = {}
 
@@ -294,8 +297,10 @@ function! s:modify_path(bufname) abort "{{{3
   let fname = fnamemodify(a:bufname, ':t')
   let path = dir .'/'. fname
 
-  if @% =~# '^fugitive:\/\/'
-    let path = 'fugitive://'. path
+  if a:bufname =~# '^fugitive:\/\/'
+    return 'fugitive://'. path
+  elseif a:bufname =~# '^defx://'
+    return 'defx://'. path
   endif
 
   return empty(fname) ? '[No Name]' : path
