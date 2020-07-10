@@ -46,6 +46,19 @@ augroup END
 
 function! s:agit_common_keymaps() abort "{{{1
   nmap <buffer> U <Plug>(agit-reload)
+
+  nnoremap <silent><buffer> zr :<C-u>call <SID>agit_fold('r')<CR>
+  nnoremap <silent><buffer> zR :<C-u>call <SID>agit_fold('R')<CR>
+  nnoremap <silent><buffer> zm :<C-u>call <SID>agit_fold('m')<CR>
+  nnoremap <silent><buffer> zM :<C-u>call <SID>agit_fold('M')<CR>
+endfunction
+
+function! s:agit_fold(arg) abort "{{{1
+  let save_winID = win_getid()
+  let diff_winID = win_getid(bufwinnr('\[Agit diff]'))
+  call win_gotoid(diff_winID)
+  exe 'norm! z'. a:arg
+  call win_gotoid(save_winID)
 endfunction
 
 function! s:agit_stat_keymaps() abort "{{{1
