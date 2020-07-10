@@ -31,6 +31,23 @@ function! s:expand_template(label) abort
   echo prefix 'Expanded "'. a:label .'"'
 endfunction
 
+nnoremap <silent> <A-s>t :<C-u>call <SID>sonictemplate_edit()<CR>
+nmap <A-s><A-t> <A-s>t
+function! s:sonictemplate_edit() abort
+  let dir = $VIM_ANOTHER_HOME .'/sonictemplate/'. &ft
+  let targets = readdir(dir)
+
+  let file = ''
+  if len(targets) == 0
+    let file = 'base-init.'. &ft
+  elseif len(targets) == 1
+    let file = targets[0]
+  endif
+  let path = dir .'/'. file
+
+  exe 'SensibleSplit' path
+endfunction
+
 finish
 
 " intelligent asks which template to use in command line
