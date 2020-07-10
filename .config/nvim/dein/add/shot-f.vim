@@ -2,6 +2,8 @@
 " Repo: deris/vim-shot-f
 " Another: source/shot-f.vim
 
+if len(mapcheck('f', 'n')) != 0 | finish | endif
+
 map f <Plug>(shot-f-f)
 map F <Plug>(shot-f-F)
 map t <Plug>(shot-f-t)
