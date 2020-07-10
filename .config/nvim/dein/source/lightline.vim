@@ -376,4 +376,8 @@ augroup myLightlineSo "{{{1
   if exists('#myLightlineSo') | au! myLightlineSo
   endif
   au CmdlineLeave * call lightline#update()
+
+  au User UltiSnipsExitLastSnippet   call lightline#update()
+  au User UltiSnipsEnterFirstSnippet call lightline#update()
+  au User CocStatusChange,CocDiagnosticChange call lightline#update()
 augroup END
