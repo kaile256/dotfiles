@@ -24,9 +24,9 @@ long long ${1}
 endsnippet
 
 snippet template "template <typename T>" b
-template <${1:typename} ${2:T}> ${3:func}($2 ${4:args}) {
-	${4:return 0;}
-	}
+template <${1:typename} ${2:T}> ${3:void} ${4:funcname}(${5:$2} ${6:args}) {
+  ${0:return 0;}
+  }
 endsnippet
 
 snippet '(/)?\*' "/* ... */" rw
