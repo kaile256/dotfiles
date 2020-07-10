@@ -41,3 +41,30 @@ slide: false
 
 ${3:# contents}
 endsnippet
+
+snippet component "graph" b
+\`\`\`plantuml
+@startuml
+
+actor ${1:person}
+
+node "${2:# node1}"{
+
+  $1 -${2:down}-> [${2:component}] : ${3:# action}
+
+}
+
+
+node "${4:# node2}"{
+
+  database ${5:DB}
+
+  [$2]-${6:right}->[${7:# component2}] : ${action2}
+
+  [$7]-${8:right}->$5 : ${10:# action2}
+
+}
+
+@enduml
+\`\`\`
+endsnippet
