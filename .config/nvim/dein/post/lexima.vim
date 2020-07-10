@@ -209,18 +209,18 @@ let s:before_paren = '\%#'. s:paren
 let s:before_quote = '\%#'. s:quote
 
 let g:lexima#default_rules += [
-      \ {'char': '<C-space>', 'at': s:before_close,  'input': '<C-g>U<Right><space>'},
+      \ {'char': '<C-space>', 'at': '\%#.', 'input': '<C-g>U<Right><space>'},
       \
-      \ {'char': '<C-=>', 'at': s:before_close, 'input': '<Right> = '},
+      \ {'char': '<C-=>', 'at': '\%#.', 'input': '<C-g>U<Right> = '},
       \
-      \ {'char': '<C-,>', 'at': s:before_close, 'input': '<Right>, '},
-      \ {'char': '<C-:>', 'at': s:before_close, 'input': '<Right>: '},
-      \ {'char': '<C-.>', 'at': s:before_paren, 'input': '<Right>.'},
-      \ {'char': '<C-.>', 'at': s:before_quote, 'input': '<Right>. '},
+      \ {'char': '<C-,>', 'at': '\%#.', 'input': '<C-g>U<Right>, '},
+      \ {'char': '<C-:>', 'at': '\%#.', 'input': '<C-g>U<Right>: '},
+      \ {'char': '<C-.>', 'at': s:before_paren, 'input': '<C-g>U<Right>.'},
+      \ {'char': '<C-.>', 'at': s:before_quote, 'input': '<C-g>U<Right>. '},
       \
-      \ {'char': '<C-;>', 'at': s:before_close, 'input': '<End>;', 'except': ';\s*$', 'mode': 'i'},
-      \ {'char': '<C-;>', 'at': s:before_close, 'input': '<End>;', 'except': 'if.*\ze;\s*$', 'mode': 'i'},
-      \ {'char': '<C-;>', 'at': s:before_close, 'input': '<Right>; ', 'mode':   'c'},
+      \ {'char': '<C-;>', 'at': '\%#.',       'input': '<C-g>U<Right>; ', 'mode': 'c'},
+      \ {'char': '<C-;>', 'at': '\%#.*;\s*$', 'input': '<C-g>U<Right>; '},
+      \ {'char': '<C-;>', 'at': '\%#.', 'input': '<Esc>A;'},
       \ ]
 
 unlet s:before_close s:before_paren s:before_quote
