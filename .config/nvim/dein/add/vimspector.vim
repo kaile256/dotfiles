@@ -45,7 +45,7 @@ function! s:setup_symlink() abort
     endfor
   endif
 
-  let config_file = g:nvim_data_home .'/vimspector/'. ft .'.json'
+  let config_file = $VIM_ANOTHER_HOME .'/vimspector/'. ft .'.json'
   if !filereadable(config_file)
     echoerr 'Vimspector: You have no "'. config_file .'"'
     return
