@@ -2,6 +2,8 @@
 " Repo: andymass/vim-matchup
 " Another: add/matchup.vim
 
+let g:matchup_matchparen_nomode = 'i' " modes where matchup should be disabled
+
 let g:matchup_mouse_enabled  = 0
 let g:matchup_delim_stopline = 500
 
