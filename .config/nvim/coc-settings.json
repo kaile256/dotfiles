@@ -283,7 +283,7 @@
     "p": "pasteFile",
 
     "D": "delete",
-    "gD": "deleteForever",
+    "\\D": "deleteForever",
 
     "%": "addFile",
     "d": "addDirectory",
