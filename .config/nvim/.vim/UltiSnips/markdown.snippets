@@ -1,29 +1,43 @@
-# A valid snippet should starts with:
-#
-#		snippet trigger_word [ "description" [ options ] ]
-#
-# and end with:
-#
-#		endsnippet
-#
-# Snippet options:
-#
-#		b - Beginning of line.
-#		i - In-word expansion.
-#		w - Word boundary.
-#		r - Regular expression
-#		e - Custom context snippet
-#		A - Snippet will be triggered automatically, when condition matches.
-#
-# Basic example:
-#
-#		snippet emitter "emitter properties" b
-#		private readonly ${1} = new Emitter<$2>()
-#		public readonly ${1/^_(.*)/$1/}: Event<$2> = this.$1.event
-#		endsnippet
-#
-# Online reference: https://github.com/SirVer/ultisnips/blob/master/doc/UltiSnips.txt
+snippet vim "README for Vim plugin" b
+# `!v substitute(expand('%:p:h'), '.*\/', '', 'e')`
 
-snippet *[ "task init"
-* [ ] ${2::${2:tag}:} ${1:task}
+`!v substitute(expand('%:p:h'), '.*\/', '', 'e')` is ${0:TARGET}
+
+## Installation
+
+Install the plugin using your favorite package manager
+
+### For dein.vim
+
+\`\`\`vim
+call dein#add('kaile256/`!v snip#vim#name_of_repo()`')
+\`\`\`
+
+\`\`\`toml
+[[plugin]]
+repo = 'kaile256/`!v snip#vim#name_of_repo()`'
+\`\`\`
+
+This is recommended in lazy load:
+
+\`\`\`toml
+[[plugin]]
+repo = 'kaile256/`!v snip#vim#name_of_repo()`'
+\`\`\`
+
+## Usage
+
+### Examples
+
+endsnippet
+
+snippet qiita
+---
+title: ${1:Qiita # title}
+tags: ${2:# tags}
+author: kaile256
+slide: false
+---
+
+${3:# contents}
 endsnippet
