@@ -81,28 +81,27 @@ function! s:agit_keymaps() abort "{{{1
   "nmap <buffer> co <Plug>(agit-git-checkout)
   " checkout -b: create a new branch to checkout
   "   the default name is the hash under cursor
-  nmap <buffer> cO <Plug>(agit-git-checkout-b)
+  nmap <buffer> co <Plug>(agit-git-checkout-b)
 
   " revert to the commit under cursor
-  nmap <buffer> dd <Plug>(agit-git-revert)
-  nmap <buffer> D  <Plug>(agit-git-revert)
+  nmap <buffer> rv <Plug>(agit-git-revert)
 
   " reset to the commit under cursor
-  nmap <buffer> rS <Plug>(agit-git-reset-soft)
-  nmap <buffer> rH <Plug>(agit-git-reset-hard)
+  nmap <buffer> rs <Plug>(agit-git-reset-soft)
+  nmap <buffer> rh <Plug>(agit-git-reset-hard)
   " reset --mixed
-  nmap <buffer> rM <Plug>(agit-git-reset)
+  nmap <buffer> rm <Plug>(agit-git-reset)
 
   " rebase HEAD to the commit under cursor in the keymaps
   "nmap <buffer> R <Plug>(agit-git-rebase)
-  nmap <buffer> rB <Plug>(agit-git-rebase-i)
+  nmap <buffer> ri <plug>(agit-git-rebase-i)
 
   "nmap <buffer> rs <Plug>(agit-git-bisect-start)
   "nmap <buffer> rg <Plug>(agit-git-bisect-good)
   "nmap <buffer> rb <Plug>(agit-git-bisect-bad)
   "nmap <buffer> rs <Plug>(agit-git-bisect-reset)
 
-  "nmap <buffer>  <Plug>(agit-git-cherry-pick)
+  nmap <buffer> cp <Plug>(agit-git-cherry-pick)
 
   "nmap <buffer> <c-w>C <Plug>(agit-exit)
 
