@@ -30,7 +30,12 @@ function! s:debug_start() abort
   endif
 
   call s:setup_symlink()
-  call vimspector#Continue()
+
+  if &ft ==# 'java'
+    CocCommand java.debug.vimspector.start
+  else
+    call vimspector#Continue()
+  endif
 
   windo call s:set_options()
   windo call s:mappings()
