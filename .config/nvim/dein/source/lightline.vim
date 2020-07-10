@@ -290,20 +290,28 @@ function! LL_filepath() abort "{{{3
 endfunction
 
 function! s:modify_path(bufname) abort "{{{3
-  let dir_path  = fnamemodify(a:bufname, ':p:h')
-  let short_dir = pathshorten(dir_path)
-  let dir = fnamemodify(short_dir, ':h:t') .'/'. fnamemodify(short_dir, ':t')
+  let scheme = matchstr(a:bufname, '^\S\{-}://')
+  let bufname = substitute(a:bufname, '^'. scheme, '', '')
 
-  let fname = fnamemodify(a:bufname, ':t')
-  let path = dir .'/'. fname
-
-  if a:bufname =~# '^fugitive:\/\/'
-    return 'fugitive://'. path
-  elseif a:bufname =~# '^defx://'
-    return 'defx://'. path
+  if bufname =~# '/$' " if is a directory
+    let path_end = matchstr(bufname, '.*/\zs.\{-}/$')
+    let dir_path = fnamemodify(bufname, ':p:h:h')
+    let short_dir = pathshorten(dir_path)
+    let dir = fnamemodify(short_dir, ':h') .'/'. fnamemodify(short_dir, ':t')
+  else
+    let path_end = fnamemodify(bufname, ':t')
+    let dir_path = fnamemodify(bufname, ':p:h')
+    let short_dir = pathshorten(dir_path)
+    let dir = fnamemodify(short_dir, ':h:t') .'/'. fnamemodify(short_dir, ':t')
   endif
 
-  return empty(fname) ? '[No Name]' : path
+  if a:bufname =~# '^\S\{-}://'
+    let dir_path = substitute(dir_path, scheme, '', '')
+    return scheme .. dir .'/'. path_end
+  endif
+
+  let path = dir .'/'. path_end
+  return empty(path_end) ? '[No Name]' : path
 endfunction
 
 function! LL_getcwd() abort "{{{3
