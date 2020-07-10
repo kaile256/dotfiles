@@ -25,30 +25,32 @@ let g:switch_custom_definitions += [
       \
       \ ['1st', '2nd', '3rd', '4th'],
       \
+      \ [' + ', ' - '],
+      \
       \ ['==', '!='],
       \ ['first', 'second', 'third'],
       \
-      \ ['new', 'old'],
-      \ ['next', 'prev'],
-      \ ['lower', 'upper'],
-      \
-      \ ['earlier', 'later'],
-      \
       \ ['private', 'public'],
       \
-      \ ['inc', 'dec'],
-      \ ['decrement', 'increment'],
+      \ ['path', 'dir', 'file'],
       \ ]
 
 let g:switch_custom_definitions += [
-      \ {
-      \   '\<L\>': 'R',
-      \   '\<R\>': 'L',
-      \ },
       \ ['left', 'right'],
-      \ {
-      \   '\<H\>': 'W',
-      \   '\<W\>': 'H',
-      \ },
       \ ['height', 'width'],
+      \
+      \ ['new', 'old'],
+      \ ['New', 'Old'],
+      \
+      \ ['up', 'down'],
+      \ ['Up', 'Down'],
+      \
+      \ ['next', 'prev'],
+      \ ['Next', 'Prev'],
+      \
+      \ ['lower', 'upper'],
+      \ ['earlier', 'later'],
+      \
+      \ ['inc', 'dec'],
+      \ ['decrement', 'increment'],
       \ ]
