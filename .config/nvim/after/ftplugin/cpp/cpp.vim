@@ -1,4 +1,4 @@
-setl cinkeys+=;
+setlocal cinkeys+=;
 
 if &ft ==# 'cpp'
   compiler g++
