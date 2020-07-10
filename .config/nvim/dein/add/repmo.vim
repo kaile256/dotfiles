@@ -2,10 +2,10 @@
 " Repo: Houl/repmo-vim
 " Another: post/repmo.vim
 
-map <expr> [c repmo#Key('<Plug>(GitGutterPrevHunk)', '<Plug>(GitGutterNextHunk)')
-map <expr> ]c repmo#Key('<Plug>(GitGutterNextHunk)', '<Plug>(GitGutterPrevHunk)')
-sunmap [c
-sunmap ]c
+nmap <expr> [c repmo#Key('<Plug>(GitGutterPrevHunk)', '<Plug>(GitGutterNextHunk)')
+nmap <expr> ]c repmo#Key('<Plug>(GitGutterNextHunk)', '<Plug>(GitGutterPrevHunk)')
+xmap <expr> [c repmo#Key('<Plug>(GitGutterPrevHunk)', '<Plug>(GitGutterNextHunk)')
+xmap <expr> ]c repmo#Key('<Plug>(GitGutterNextHunk)', '<Plug>(GitGutterPrevHunk)')
 
 map <expr> f repmo#ZapKey('<Plug>(shot-f-f)')
 map <expr> F repmo#ZapKey('<Plug>(shot-f-F)')
