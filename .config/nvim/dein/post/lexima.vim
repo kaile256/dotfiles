@@ -239,7 +239,8 @@ let g:lexima#default_rules += [
 
 " <TAB> to create marker
 let g:lexima#default_rules += [
-      \ {'char': '<TAB>', 'at': '{\%#}', 'input': '<C-g>U<Del>{{'}
+      \ {'char': '<TAB>', 'at': '{\%#}', 'input': '<C-g>U<Del>{{'},
+      \ {'char': '<TAB>', 'at': '\([^{]\){\%#}\1', 'input': '<C-g>U<Del><C-g>U<Del>{{'},
       \ ]
 
 " Addtional Rules on FileType {{{1
