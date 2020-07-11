@@ -256,6 +256,9 @@ set nostartofline
 " hidden: ignore unwritten buffers to jump.
 set hidden
 
+" set switchbuf=
+" set swb+=useopen " Use existing buffer if possible without new one.
+
 " Motion; Search {{{1
 set ignorecase
 set smartcase
