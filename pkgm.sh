@@ -55,7 +55,7 @@ PACKAGEs=(
   openjdk11-src # source files
   jdk11-openjdk # Java Development Kit; set default java by `archlinux-java`
   jre11-openjdk # Java Runtime Environment; set default java by `archlinux-java`
-  powerline-fonts
+  # powerline-fonts
   starship # a prompt set for any shell
   apache
   wireshark-qt # a packet capture
