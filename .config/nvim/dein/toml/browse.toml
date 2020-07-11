@@ -100,7 +100,8 @@ hook_add = 'runtime add/vifm.vim'
 [[plugins]]
 repo = 'mcchrish/nnn.vim'
 # An interface for nnn
-if = 'executable("nnn")'
+# Note: often fails to render on Neovim.
+if = 'executable("nnn") && !has("nvim")'
 on_func = 'nnn#'
 # on_cmd = 'NnnPicker'
 hook_add = 'runtime add/nnn.vim'
