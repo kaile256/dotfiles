@@ -216,8 +216,8 @@ endfor
 unlet s:reg s:registers
 
 " Undo Break; {{{1
-inoremap <a-p> <c-g>u<esc>:call feedkeys('p')<cr>
-inoremap <a-P> <c-g>u<esc>:call feedkeys('P')<cr>
+imap <A-p>   <C-g>u<Esc>p
+imap <A-S-P> <C-g>u<Esc>P
 
 "" Undo Break; New Line
 "inoremap <c-j> <c-g>u<c-j>
