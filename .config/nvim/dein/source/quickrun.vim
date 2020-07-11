@@ -22,14 +22,33 @@ let g:quickrun_config = {}
 "   'vimscript' returns 'E78: Unknown mark'.
 "
 " Note: Non Official Plugins for neovim; they all don't work on 'develop'
-"   'neovim_job' is fast to compile; too slow to show the result.
-"   'neovim_terminal' is quick but returns no time-recoding
-"   'nvimterm' works more synchronously than 'neovim_terminal'.
+"   'neovim_job' from 'lambdalisue/vim-quickrun-neovim-job':
+"       is faster to compile; too slow to show the result.
+"       shows result only after all the results are calculated.
+"
+"   'neovim_terminal' from 'syusui-s/vim-quickrun-neovim-terminal':
+"       quick but returns no time-recoding, only leaves a tail of output.
+"
+"   'nvimterm' from 'statiolake/vim-quickrun-runner-nvimterm':
+"       seems to work more asynchronously than 'neovim_terminal'.
+"       quick but returns no time-recoding, only leaves a tail of output.
+"       It overrides outputter with 'null',
+"       which ignore 'outputter/any/config'; the buftype must be 'terminal'.
 
-let g:quickrun_config['_'] = {
-      \ 'runner': 'nvimterm',
+if exists('*ch_close_in')
+  let g:quickrun_config['_'] = {
+        \ 'runner': 'job',
+        \ }
+
+else
+  let g:quickrun_config['_'] = {
+        \ 'runner': 'vimproc',
+        \ 'runner/vimproc/updatetime': 600,
+        \ }
+endif
+
+call extend(g:quickrun_config['_'], {
       \ 'outputter': 'loclist',
-      \ 'runner/nvimterm/into': 0,
       \ 'outputter/buffer/append': 1,
       \ 'outputter/buffer/close_on_empty': 1,
       \ 'hook/time/enable': 1,
