@@ -61,7 +61,7 @@ hook_source = 'runtime source/tig-explorer.vim'
 #on_cmd = ['GitBlame']
 #on_func = ['gitblame#echo']
 #hook_add = '''
-#exe 'source' g:dein_github_dir .'/zivyangll/git-blame.vim/plugin/gitblame.vim'
+#source $DEIN_GITHUB_DIR/zivyangll/git-blame.vim/plugin/gitblame.vim
 #'''
 
 #[[plugins]]
