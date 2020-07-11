@@ -243,6 +243,7 @@ settings:
         '>': tab-move +
         D: scroll-page 0 +1.0
         F: hint links tab-bg
+        G: fake-key <End>
         H: null
         I: hint inputs --first
         J: fake-key <alt-down>
@@ -287,6 +288,7 @@ settings:
         gc: open https://calendar.google.com/calendar/r/month?pli=1
         gd: hint links current
         gf: hint all current
+        gg: fake-key <Home>
         gh: open qute://history/
         gi: hint inputs --first
         gm: open https://www.google.co.jp/maps/@34.8244519,135.4776576,15z
