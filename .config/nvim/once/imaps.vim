@@ -121,8 +121,8 @@ inoremap <silent> <a-space> <esc>:call feedkeys("l\<space>")<cr>
 
 " i/a/o "{{{2
 " <a-ai> could be just <left>/<right>, but I prefer <esc> before.
-inoremap <a-I> <c-g>U<esc>I
-inoremap <a-A> <c-g>U<End>
+inoremap <A-S-I> <c-g>U<esc>I
+inoremap <A-S-A> <c-g>U<End>
 inoremap <a-a> <c-g>U<Right>
 inoremap <a-i> <c-g>U<Left>
 "inoremap <a-I> <c-g>U<esc>I
@@ -132,8 +132,8 @@ inoremap <a-i> <c-g>U<Left>
 
 " inoremap <a-h> <esc>
 
-inoremap <a-c-r> <esc><c-r>
-inoremap <a-Y>   <esc>y$
+inoremap <A-C-r> <esc><c-r>
+inoremap <A-S-Y> <esc>y$
 
 " Register "{{{1
 "function! s:paste() abort
