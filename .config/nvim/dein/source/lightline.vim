@@ -399,5 +399,4 @@ augroup myLightlineSo "{{{1
 
   au User UltiSnipsExitLastSnippet   call lightline#update()
   au User UltiSnipsEnterFirstSnippet call lightline#update()
-  au User CocStatusChange,CocDiagnosticChange call lightline#update()
 augroup END
