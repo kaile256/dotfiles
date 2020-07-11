@@ -71,8 +71,8 @@ PACKAGEs=(
   #android-sdk-platform-tools # Platform-toools for Google Android SDK; conflict to android-tools
   adbcontrol # Remote control Android through `adb`
   #intellij-idea-ultimate-edition-jre
-  eclipse-vrapper # provides vim-bind for eclipse
-  eclipse-java # an IDE for java
+  # eclipse-vrapper # provides vim-bind for eclipse
+  # eclipse-java # an IDE for java
   php-pear # PHP Extension and Application Repository; it includes `pecl`
   #libreoffice-fresh-ja # returns 404
   #libreoffice-still-ja # returns 404
