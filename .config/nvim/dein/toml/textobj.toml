@@ -30,7 +30,8 @@ on_ft = 'vim'
 hook_source = 'runtime source/textobj-function.vim'
 [[plugins]]
 repo = 'kana/vim-textobj-fold'
-on_event = 'BufRead'
+on_map = {ox = '<Plug>(textobj-fold'}
+hook_add = 'runtime add/textobj-fold.vim'
 [[plugins]]
 repo = 'kana/vim-textobj-entire'
 # For: entire lines of current buffer.
