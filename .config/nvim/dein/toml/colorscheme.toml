@@ -4,10 +4,10 @@
 [[plugins]]
 repo = 'dracula/vim'
 lazy = 0
-#[[plugins]]
-#repo = 'flrnprz/candid.vim'
-## Looks like dracula scheme.
-#on_event = 'VimEnter'
+[[plugins]]
+repo = 'flrnprz/candid.vim'
+# Looks like dracula scheme.
+lazy = 0
 [[plugins]]
 repo = 'joshdick/onedark.vim'
 lazy = 0
