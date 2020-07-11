@@ -3,7 +3,7 @@
 " Another: add/easymotion.vim
 " Another: source/easymotion.vim
 
-hi! EasyMotionTarget        ctermfg=Magenta guifg=Magenta
+hi! EasyMotionTarget        ctermfg=Magenta guifg=Magenta cterm=bold gui=bold
 hi! EasyMotionTarget2First  ctermfg=Green   guifg=Green3
 hi! EasyMotionTarget2Second ctermfg=Red     guifg=Red
 
