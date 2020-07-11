@@ -280,7 +280,7 @@
     "y": "copyFilepath", // to clipboard
     "Y": "copyFilename", // to clipboard
 
-    "c": "copyFile",
+    "cc": "copyFile",
     "x": "cutFile",
     "p": "pasteFile",
 
