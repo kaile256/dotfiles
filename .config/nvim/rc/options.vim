@@ -249,9 +249,8 @@ set whichwrap=
 " show match parens.
 set showmatch
 set matchtime=1 " 10 times the number sec.
-" add '<' and '>' as a match pair
 set matchpairs+=<:>,「:」,『:』
-" Motion; Jump {{{1
+
 " nostartofline: keep cursor column on jump, like `gg`, `M`.
 set nostartofline
 " hidden: ignore unwritten buffers to jump.
