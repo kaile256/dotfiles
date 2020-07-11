@@ -2,6 +2,12 @@
 " Repo: Houl/repmo-vim
 " Another: post/repmo.vim
 
+noremap <SID>(zv) :<C-u>sleep 5m<CR>zv
+nmap <expr><silent> [x repmo#Key('<Plug>(coc-diagnostic-prev)', '<Plug>(coc-diagnostic-next)') .'<SID>(zv)'
+nmap <expr><silent> ]x repmo#Key('<Plug>(coc-diagnostic-next)', '<Plug>(coc-diagnostic-prev)') .'<SID>(zv)'
+xmap <expr><silent> [x repmo#Key('<Plug>(coc-diagnostic-prev)', '<Plug>(coc-diagnostic-next)') .'<SID>(zv)'
+xmap <expr><silent> ]x repmo#Key('<Plug>(coc-diagnostic-next)', '<Plug>(coc-diagnostic-prev)') .'<SID>(zv)'
+
 nmap <expr> [c repmo#Key('<Plug>(GitGutterPrevHunk)', '<Plug>(GitGutterNextHunk)')
 nmap <expr> ]c repmo#Key('<Plug>(GitGutterNextHunk)', '<Plug>(GitGutterPrevHunk)')
 xmap <expr> [c repmo#Key('<Plug>(GitGutterPrevHunk)', '<Plug>(GitGutterNextHunk)')
