@@ -1,6 +1,6 @@
 " TOML: appearance.toml
 " Repo: sainnhe/sonokai
-" Another: colorschemes/sonokai.vim
+" Another: colorscheme_pre/sonokai.vim
 
 set termguicolors
 
