@@ -101,7 +101,7 @@ function! LL_tab_path(n) abort
   endif
 
   let bufname = expand('#'. bufnr)
-  if getbufvar(bufnr(bufname), '&bt') ==# 'terminal'
+  if getbufvar(bufnr, '&bt') ==# 'terminal'
     if bufname =~# 'FZF'
       return 'FZF running...'
     endif
