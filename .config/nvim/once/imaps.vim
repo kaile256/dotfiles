@@ -42,7 +42,6 @@ inoremap <silent> <C-(>   <Esc>:call <SID>jump_back('[[({]') <CR>
 " inoremap <silent> <C-S-[> <Esc>:call <SID>jump_back('{') <CR>
 
 inoremap <silent> <C-)>   <Esc>:call <SID>jump_out('[\])}]') <CR>
-inoremap <silent> <C-]>   <Esc>:call <SID>jump_out('[\])}]') <CR>
 
 " as default, <F1> do `:help`
 inoremap <F1> <Nop>
