@@ -2,6 +2,9 @@
 " Repo: Houl/repmo-vim
 " Another: post/repmo.vim
 
+" Note:
+" #SelfKey() for non-recursive mappings like <C-y> to <C-y>/<C-e>.
+
 noremap <SID>(zv) :<C-u>sleep 5m<CR>zv
 nmap <expr><silent> [x repmo#Key('<Plug>(coc-diagnostic-prev)', '<Plug>(coc-diagnostic-next)') .'<SID>(zv)'
 nmap <expr><silent> ]x repmo#Key('<Plug>(coc-diagnostic-next)', '<Plug>(coc-diagnostic-prev)') .'<SID>(zv)'
