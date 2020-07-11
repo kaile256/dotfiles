@@ -73,15 +73,15 @@ hook_source = 'runtime source/vdebug.vim'
 #lazy = 0
 
 #[ on GDB ]
-[[plugins]]
-repo = 'sakhnik/nvim-gdb'
-# Works with gdb, ldb, pdb and BashDB.
-if = 'has("nvim")'
-build = 'bash install.sh'
-hook_done_update = 'call remote#host#UpdateRemotePlugins()'
-on_cmd = ['GdbStart', 'GdbStartLLDB', 'GdbStartPDB', 'GdbStartBashDB']
-hook_source = 'runtime source/nvim-gdb.vim'
-hook_post_source = 'runtime post/nvim-gdb.vim'
+# [[plugins]]
+# repo = 'sakhnik/nvim-gdb'
+# # Works with gdb, ldb, pdb and BashDB.
+# if = 'has("nvim")'
+# build = 'bash install.sh'
+# hook_done_update = 'call remote#host#UpdateRemotePlugins()'
+# on_cmd = ['GdbStart', 'GdbStartLLDB', 'GdbStartPDB', 'GdbStartBashDB']
+# hook_source = 'runtime source/nvim-gdb.vim'
+# hook_post_source = 'runtime post/nvim-gdb.vim'
 [[plugins]]
 repo = '$VIMRUNTIME/pack/dist/opt/termdebug'
 on_cmd = ['Termdebug', 'TermdebugCommand']
