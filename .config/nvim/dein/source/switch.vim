@@ -17,6 +17,11 @@ let g:switch_mapping = ''
 let g:switch_custom_definitions = []
 
 let g:switch_custom_definitions += [
+      \ ['should', 'must'],
+      \ ['could', 'would'],
+      \ ]
+
+let g:switch_custom_definitions += [
       \ [
       \   'foo',   'bar',    'baz',    'qux', 'quux',
       \   'corge', 'grault', 'garply', 'waldo',
