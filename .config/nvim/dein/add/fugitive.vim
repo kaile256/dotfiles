@@ -211,9 +211,9 @@ nnoremap <silent> <space>gw :<c-u>Gw <bar> GwdiffOnly HEAD<cr>
 xnoremap <silent> <space>gw :<c-u>Gw <bar> GwdiffOnly HEAD<cr>
 
 command! -bar -nargs=* GwdiffOnly
-     \ :HelpCloseAll
-     \ | call s:winpick()
-     \ | call s:Gvdiffw(<q-args>)
+      \ :HelpCloseAll
+      \ | call s:winpick()
+      \ | call s:Gvdiffw(<q-args>)
 
 " Add to Diff {{{2
 nnoremap <silent> <space>go :<c-u>silent Gw <bar> only<cr>
