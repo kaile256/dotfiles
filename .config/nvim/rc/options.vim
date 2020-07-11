@@ -242,7 +242,9 @@ set imcmdline
 " Insert; Completion {{{1
 set complete-=i " i: included files
 
-" Motion; Pair {{{1
+" Motion {{{1
+set whichwrap=
+
 " show match parens.
 set showmatch
 set matchtime=1 " 10 times the number sec.
