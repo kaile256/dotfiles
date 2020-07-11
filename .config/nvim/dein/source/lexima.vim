@@ -16,6 +16,8 @@ augroup myLeximaSource
 augroup END
 
 function! s:remove_end_of_pairs() abort "{{{1
+  if !&modifiable | return | endif
+
   if col('.') != col('$') - 2
     " NOTICE: Type the other of the pairs
     "   This function will remove the end of the pair when the cursor is in the
