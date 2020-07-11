@@ -1,0 +1,7 @@
+" vim:ft=vim
+
+" :mark mark /full/directory/path [filename]
+
+mark b ~/bin/
+mark h ~/
+
