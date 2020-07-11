@@ -2,6 +2,13 @@
 
 let s:key2rules = {}
 
+let s:key2rules['<C-:>'] = [
+      \ {'at': '\%#>', 'input': '<C-g>U<Right>:'},
+      \ ]
+let s:key2rules['='] = [
+      \ {'input': '=', 'at': '\%#.*;'},
+      \ {'input': '=', 'input_after': ';', 'except': '(.*\%#.*)$'},
+      \ ]
 let s:key2rules[';'] = [
       \ {'input': '; ', 'at': 'if (.*\%#.*)'},
       \ ]
