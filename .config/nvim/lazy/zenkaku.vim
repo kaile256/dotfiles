@@ -15,3 +15,5 @@ let w:zenkaku = matchadd('Zenkaku', '[　０１２３４５６７８９]')
 " syn match operatorNot '\S\@<!!'
 hi! operatorNot ctermfg=15 guifg=#ffffff cterm=bold gui=bold
 let w:syn_operator_not = matchadd('OperatorNot', '\S\@<!!\ze\s*\a')
+
+let w:annotation = matchadd('TODO', '\v(TODO|FIXME|XXX|WARNING|NOTE|Note|Tips)\ze: ')
