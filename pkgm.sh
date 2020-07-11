@@ -190,7 +190,7 @@ PACKAGEs=(
   pdfjs  # PDF viewer in browser
   peek # a screen recorder
   polybar # a substitute of i3-bar
-  pulseaudio # Sound:
+  pulseaudio-git # Sound:
   pyenv
   qemu # for multibootusb
   qtqr # generate/decode QR codes
