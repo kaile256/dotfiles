@@ -206,14 +206,14 @@ let s:registers = {
       \ "'": '"',
       \ }
 
-inoremap <SID>(literal-paste) <c-g>u<c-r><c-p>
-imap <c-r> <SID>(literal-paste)
+inoremap <expr> <SID>(literal-paste)
+      \ '<c-g>u<c-r>'.
+      \ (len(split(getreg(v:register), "[\n\m]")) > 1 ? '<c-p>' : '')
+imap <C-r> <SID>(literal-paste)
 for s:reg in keys(s:registers)
   exe 'imap <c-r>'. s:reg '<SID>(literal-paste)'. s:registers[s:reg]
 endfor
 unlet s:reg s:registers
-
-inoremap <c-r><c-0> <c-r>0
 
 " Undo Break; {{{1
 inoremap <a-p> <c-g>u<esc>:call feedkeys('p')<cr>
