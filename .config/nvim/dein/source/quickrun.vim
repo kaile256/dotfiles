@@ -76,6 +76,14 @@ let g:quickrun_config.texmath = {
       \ 'exec': '%c %s',
       \ }
 
+let g:quickrun_config['vimspec'] = {
+      \ 'command': 'themis',
+      \ 'exec': '%c %s',
+      \ 'outputter': 'error',
+      \ 'outputter/error/success': 'null',
+      \ 'outputter/error/error': 'quickfix',
+      \ }
+
 augroup myQuickrunSource
   if exists('#myQuickrunSource') | au! myQuickrunSource
   endif
