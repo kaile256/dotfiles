@@ -52,10 +52,11 @@ nnoremap <space>c "_c
 nnoremap <space>C "_C
 
 " Tips: Keep <space>d in noremap
-nnoremap <silent><expr> dk
-      \ 'd'
-      \ . (line('.') == line('$') ? 'k' : 'kk')
-      \ .':silent! call repeat#set("dk")<CR>'
+omap <silent><expr> k
+      \ (v:operator ==# 'd')
+      \     ? 'd'. (line('.') == line('$') ? 'k' : 'kk')
+      \         .':silent! call repeat#set("dk")<CR>'
+      \     : 'k'
 
 " Note: Leave xmaps for 'x/s' for add/asterisk.vim.
 xnoremap <space>d "_d
