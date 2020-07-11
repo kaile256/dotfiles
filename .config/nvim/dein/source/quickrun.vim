@@ -79,5 +79,5 @@ let g:quickrun_config.texmath = {
 augroup myQuickrunSource
   if exists('#myQuickrunSource') | au! myQuickrunSource
   endif
-  au FileType quickrun setl nonumber fdl=99 bt=nofile
+  au FileType quickrun setlocal nonumber nofoldenable
 augroup END
