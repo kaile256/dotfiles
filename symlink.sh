@@ -47,11 +47,13 @@ CONFIGs=(
   fish
   kitty
   lynx
+  nnn
   nvim
   picom.conf
   starship.toml
   tig
   tmux
+  vifm
   w3m
   zsh
 )
