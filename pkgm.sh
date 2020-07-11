@@ -102,7 +102,7 @@ PACKAGEs=(
   papirus-icon-theme
   papirus-maia-icon-theme
   nitrogen # a browser of wallpaper
-  picom # an X compositor, an enhanced fork of compton
+  picom-ibhagwan-git # an X compositor, an enhanced fork of compton
   dunst # a notification-tool, notify-send
   #i3-wm-iconpatch # crashes too often
   #i3-scrot # screenshot on i3wm
