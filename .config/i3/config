@@ -929,4 +929,4 @@ bindsym $Super+Print $noid $MY_SCRIPTS/recording-toggle.sh
 #        bindsym Shift+0     gaps outer all set 0
 #}
 
-
+# vim:fdm=marker
