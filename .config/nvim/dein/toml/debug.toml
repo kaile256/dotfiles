@@ -34,7 +34,9 @@ build = '''
 # ./install_gadget.py --force-all
 
 '''
-on_func =  ['vimspector#']
+on_func = 'vimspector#'
+on_map = '<Plug>Vimspector'
+on_cmd = 'Vimspector'
 # Configuration:
 #   default adapters are configured in .gadgets.json
 #   .gadgets.json only contains 'adapters' without 'configurations'
