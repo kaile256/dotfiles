@@ -3,6 +3,11 @@ scriptencoding utf-8
 
 runtime! options/*.vim
 
+"set verbosefile=/tmp/nvim-log
+
+" Note: EndOfBuffer is set of trailing '~' at end of buffer.
+hi! link EndOfBuffer Ignore
+
 " Time in ms to wait for a mapped sequence to complete.
 " For: made me notice if any mappings are in Caleene's way.
 set timeoutlen=3000
