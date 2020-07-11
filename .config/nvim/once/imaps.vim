@@ -99,14 +99,23 @@ inoremap <silent> <c-o><space>y <c-\><c-o>:call feedkeys("\<c-\>\<c-o>\"+y", 'n'
 "
 " Alt-ESC {{{1
 function! s:alt_mappings() abort
-" Note: required because popup-menu prevents default <A-(key)>
-let alt_mappings = '."#*,;/'''
-      \ .'bcdefghjklmnoqrstuvwxyz'
-      \ .'BCDEFGHJKLMNOQRSTUVWXYZ'
+  function! s:alt_upper_mappings(key) abort
+    " Use '<A-S-O>' instead of '<a-O>'; Vim put 'Ï' while Neovim '<Esc>O'.
+    " exe 'set <A-S-'. a:key .'>='. a:key
+    exe 'imap <silent> <A-S-'. a:key .'> <ESC>'. toupper(a:key)
+    "exe 'imap <silent> <A-s-'. a:key .'> <esc>:call feedkeys("'. toupper(a:key) .'")<cr>'
+  endfunction
 
-for key in split(alt_mappings, '\ze')
-  exe 'inoremap <silent> <a-'. key .'> <esc>:call feedkeys('''. key .''')<cr>'
-endfor
+  let alphabets = map(range(char2nr('a'), char2nr('z')), 'nr2char(v:val)')
+  for key in alphabets
+    call s:alt_upper_mappings(key)
+  endfor
+
+  let symbols = split('."#*,;/''', '\zs')
+  for key in alphabets + symbols
+    "exe 'imap <silent> <A-'. key .'> <esc>:call feedkeys("'. key .'")<cr>'
+    exe 'imap <silent> <A-'. key .'> <ESC>'. key
+  endfor
 endfunction
 call s:alt_mappings()
 
