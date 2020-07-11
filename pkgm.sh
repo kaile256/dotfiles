@@ -262,6 +262,8 @@ GEMs=(
 )
 
 YARNs=(
+  typescript
+  ts-node
   intelephense # a LSP server for php
   nvm # a version manager of Node.js
   #graphql-language-server # no longer supported
