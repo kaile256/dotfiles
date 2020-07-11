@@ -105,7 +105,10 @@ function! LL_tab_path(n) abort
     if bufname =~# 'FZF'
       return 'FZF running...'
     endif
-    return get(b:, 'terminal_job_pid')
+    if has('nvim')
+      return getbufvar(bufnr, 'terminal_job_pid', 'terminal')
+    endif
+    return matchstr(term_getjob(bufnr), '\d\+')
   endif
 
   return s:modify_path(bufname)
