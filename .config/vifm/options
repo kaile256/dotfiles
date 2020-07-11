@@ -1,5 +1,8 @@
 " vim: ft=vim
 
+" Selected color scheme
+colorscheme onedark
+
 " Command used to edit files in various contexts.
 set vicmd='less --line-number'
 
@@ -44,10 +47,6 @@ set novimhelp " Use Vim's format of help file (has highlighting and "hyperlinks"
 " press return on the file name set this.
 
 set norunexec
-
-" Selected color scheme
-
-colorscheme Default
 
 " Format for displaying time in file list. For example:
 " TIME_STAMP_FORMAT=%m/%d-%H:%M
