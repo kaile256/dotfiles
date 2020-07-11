@@ -113,10 +113,10 @@ call s:alt_mappings()
 inoremap <silent> <a-s> <Del>
 
 " keep cursor in expected postition as mapleader of operator.
-inoremap <silent> <a-~> <esc>:call feedkeys('l~')<cr>
-inoremap <silent> <a-g> <esc>:call feedkeys('lg')<cr>
-inoremap <silent> <a-\> <esc>:call feedkeys('l\')<cr>
-inoremap <silent> <a-space> <esc>:call feedkeys("l\<space>")<cr>
+imap <A-~> <esc>l~
+imap <A-g> <esc>lg
+imap <A-\> <esc>l\
+imap <A-space> <Esc>l<space>
 
 " i/a/o "{{{2
 " <a-ai> could be just <left>/<right>, but I prefer <esc> before.
