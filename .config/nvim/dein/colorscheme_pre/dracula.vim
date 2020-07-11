@@ -26,7 +26,7 @@ function! s:my_dracula() abort
   hi! Comment ctermfg=61 guifg=#ababab
   hi! Folded ctermfg=61 guifg=#7988b8 ctermbg=235 guibg=#282a36
 
-  hi! Visual ctermbg=241 guibg=#684380
+  hi! Visual ctermbg=128 guibg=#af00df
 
   hi! Search ctermfg=236 guifg=#353917 ctermbg=180 guibg=#b5b5e8 cterm=bold gui=bold
 
