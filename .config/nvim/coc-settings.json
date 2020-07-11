@@ -107,15 +107,15 @@
   //"list.nextKeymap": "<C-,>",
   //"list.previousKeymap": "<C-.>",
   "list.insertMappings": {
-    "<C-,>": "normal:j",
-    "<C-.>": "normal:k",
+    // "<C-,>": "normal:j",
+    // "<C-.>": "normal:k",
 
     "<A-t>": "action:tabe",
     "<A-s>": "action:split",
     "<A-v>": "action:vsplit",
     "<CR>": "action:drop",
 
-    "<C-?>": "do:help",
+    "<A-d>": "do:help",
     "<C-c>": "do:exit",
     "<A-h>": "do:exit",
     "<A-j>": "do:exit",
@@ -134,7 +134,7 @@
     "e": "action:drop",
     "O": "action:vsplit",
     "d": "action:delete",
-    "gO": "action:tab",
+    "<A-t>": "action:tab",
     "o": "action:split",
 
     "<C-c>": "do:exit",
