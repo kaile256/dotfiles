@@ -3,6 +3,7 @@
 # Another: view.tigrc
 
 # Tips: To unbind default keybind, `bind [view] [key] none`
+# Note: '!' executes external command; '?' asks you to execute external command
 
 bind generic g none # view-grep
 bind generic r none # view-refs
