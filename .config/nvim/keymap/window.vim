@@ -18,7 +18,8 @@ nnoremap <space>: q:kzb
 " Ref: compare :redraw with <c-l> or :mode
 
 " TODO: causes some event to append another process easier
-nnoremap <silent> <SID>(highlight-off) :<c-u>noh <bar> redraw!<cr>
+nnoremap <silent> <SID>(highlight-off)
+      \ :<C-u>noh <bar> redraw! <C-r>=(&diff ? '<bar>diffupdate' : '')<CR><CR>
 tnoremap <silent> <SID>(highlight-off) <Cmd>noh  <bar> redraw!<cr><c-l>
 " :mode once makes screen dirty
 inoremap <silent> <SID>(highlight-off) <Cmd>noh  <bar> mode <bar> mode<cr>
