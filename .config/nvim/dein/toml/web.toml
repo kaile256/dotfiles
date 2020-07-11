@@ -131,7 +131,6 @@ hook_add = 'runtime add/pocket.vim'
 #
 [[plugins]]
 repo = 'yaasita/edit-slack.vim'
-# get the binary in yaasita/edit-slack
 on_path = 'slack:\/\/'
 on_func = [
   'edit_slack#open#buffer',
@@ -139,11 +138,13 @@ on_func = [
 ]
 hook_add = 'runtime add/edit-slack.vim'
 hook_source = 'runtime source/edit-slack.vim'
-[[plugins]]
-repo = 'yaasita/edit-slack'
 build = '''
-go build
-mv edit-slack ../edit-slack.vim/edit-slack
+  # get the binary of yaasita/edit-slack
+  git clone --depth=1 https://github.com/yaasita/edit-slack
+  go build -o ../tmp -pkgdir edit-slack/
+
+  rm -rf edit-slack/
+  mv tmp edit-slack
 '''
 
 #[ Gist ]
