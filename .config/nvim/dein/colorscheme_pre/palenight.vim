@@ -34,10 +34,12 @@ function! s:my_palenight() abort
   "
   " hi! Error ctermfg=9 guifg=Red ctermbg=NONE guibg=NONE cterm=bold gui=bold
 
-  hi! DiffChange ctermfg=180 guifg=#ffcb6b ctermbg=235 guibg=#292D3E cterm=bold gui=bold
-  hi! DiffAdd    ctermfg=114 guifg=#C3E88D ctermbg=235 guibg=#292D3E cterm=bold gui=bold
-  hi! DiffDelete ctermfg=204 guifg=#ff5370 ctermbg=235 guibg=#292D3E cterm=bold gui=bold
-  hi! DiffText   ctermfg=235 guifg=#292D3E ctermbg=180 guibg=#ffcb6b cterm=bold gui=bold
+  " hi! DiffChange ctermfg=180 guifg=#ffcb6b ctermbg=235 guibg=#292D3E cterm=bold gui=bold
+  " hi! DiffAdd    ctermfg=114 guifg=#C3E88D ctermbg=235 guibg=#292D3E cterm=bold gui=bold
+  " hi! DiffDelete ctermfg=204 guifg=#ff5370 ctermbg=235 guibg=#292D3E cterm=bold gui=bold
+  " hi! DiffText   ctermfg=235 guifg=#292D3E ctermbg=180 guibg=#ffcb6b cterm=bold gui=bold
+
+  hi! DiffText cterm=bold gui=bold
 
   hi! NormalFloat ctermfg=190 guifg=#cfbd2f ctermbg=22 guibg=#0b4100 cterm=bold gui=bold
 
