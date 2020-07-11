@@ -4,8 +4,7 @@
 #[ Detect ]
 [[plugins]]
 repo = 'itchyny/vim-autoft'
-# Fill &ft as predefined patterns if empty(&ft).
-on_if = '&ft ==# ""'
+# Fill &ft as predefined patterns when &ft is undefined.
 on_event = ['TextChanged', 'InsertLeave']
 hook_source = 'runtime source/autoft.vim'
 

@@ -10,3 +10,14 @@ let g:autoft_config = {
       \ 'sh':   '^#!.*\%(\<sh\>\|\<bash\>\)\s*$',
       \ }
 
+let g:loaded_autoft = 1
+augroup autoft
+  au!
+  au TextChanged,InsertLeave * call s:autoft()
+augroup END
+
+function! s:autoft() abort
+  if &ft !=# '' | return | endif
+  silent! call autoft#set()
+endfunction
+
