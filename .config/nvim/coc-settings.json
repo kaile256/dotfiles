@@ -12,6 +12,7 @@
     ".git",
     ".hg",
     ".projections.json",
+    ".config",
     "dotfiles"
   ],
 
