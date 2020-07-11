@@ -95,7 +95,7 @@ function! s:commit_all(...) abort "{{{3
   let save_view = winsaveview()
   " " TBC: Without reset to HEAD, it may fail to restore?
   " Git reset HEAD
-  call s:stage_all()
+  Git add --all
   let has_uncommitted = search('^Staged (\d\+)$', 'wn') > 0
   if has_uncommitted
 
@@ -115,21 +115,6 @@ function! s:commit_all(...) abort "{{{3
   " Note: winrestview() here is meaningless because lines made of lists of
   " uncommited files/directories will disappear after committing.
   return 1
-endfunction
-
-function! s:stage_all() abort "{{{3
-  let save_view = winsaveview()
-  norm! go
-  " Make sure cursor on 'Untracked', or at least on 'Unstaged', to commit all.
-  let has_unstaged  = search('^Unstaged (\d\+)$', 'nw') > 0
-  let has_untracked = search('^Untracked (\d\+)$', 'w') > 0
-  " Stage and commit all the files before the reset on the hash, using the
-  " default buffer-mapping to stage.
-  if has_unstaged || has_untracked
-    norm s
-    echo 'Done! Stage all'
-  endif
-  call winrestview(save_view)
 endfunction
 
 function! s:git_reset() abort "{{{3
