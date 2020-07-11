@@ -36,10 +36,12 @@ hook_source = 'runtime source/webpage.vim'
 #[ On Browser ]
 [[plugins]]
 repo = 'glacambre/firenvim'
-# TODO: make it work
-on_func =  ['firenvim#']
-# Note: firenvim#install(0) install manifest for each available browsers
-hook_post_update = 'call firenvim#install(0)'
+on_func = 'firenvim#'
+build = '''
+npm install
+npm run build
+npm run install_manifests # do firenvim#install(0) inside.
+'''
 hook_source = 'runtime source/firenvim.vim'
 
 #[[plugins]]
