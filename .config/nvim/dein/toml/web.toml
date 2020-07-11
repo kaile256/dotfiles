@@ -161,3 +161,14 @@ hook_source = 'runtime source/at-vim-coder.vim'
 repo = 'cannot-fly-pig/vim-atcoder'
 if = '!has("nvim")'
 on_cmd = 'Atcoder'
+
+#[ Client ]
+[[plugins]]
+repo = 'mattn/vim-reading-vimrc'
+# Requires `go get github.com/mattn/gitter-cli`
+if = '!has("nvim")'
+on_cmd = 'ReadingVimrc'
+[[plugins]]
+repo = 'dansomething/vim-hackernews'
+on_cmd = 'HackerNews'
+
