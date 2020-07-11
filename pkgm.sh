@@ -225,6 +225,8 @@ PACKAGEs=(
 )
 
 PIP3s=(
+  online-judge-tools # Tools for Codeforces, AtCoder, HackerRanck, etc.
+  pygments # for GTAGS
   xkeysnail # remapper for each devices/apps
   gibo # stdout a template for .gitignore as filetype
   sqlparse # parse for SQL; used in vim-sqlfmt
