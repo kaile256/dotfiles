@@ -51,6 +51,12 @@ lazy = 0
 #repo = 'johan-sun/auto-include'
 ## just provides commands to `:put` args with '#include'
 #on_ft = ['c', 'cpp']
+
+#[ Go ]
+[[plugins]]
+repo = 'sebdah/vim-delve'
+on_ft = 'go'
+
 #[ Haskell ]
 [[plugins]]
 repo = 'itchyny/vim-haskell-indent'
