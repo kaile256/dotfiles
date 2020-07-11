@@ -14,7 +14,11 @@ let s:definitions['sh'] = [
       \ {
       \   '\[ \(\S.\{-}\) ];': 'test \1;',
       \   'test \(\S.\{-}\);': '[ \1 ];'
-      \ }
+      \ },
+      \
+      \ {
+      \   'fi\n\s*if':  'elif',
+      \ },
       \ ]
 
 let s:definitions['vim'] = [
