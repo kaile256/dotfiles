@@ -37,8 +37,8 @@ snippet elseif "else if (cond)" A
 else if ($1)
 endsnippet
 
-snippet 'cin \>\> [a-zA-Z]' "Description" rA
-cin >> `!v substitute(matchstr(getline(search('\a\+ [, a-zA-Z]\+;', 'cnbW')), '\a\+ \zs[, a-zA-Z]\+;'), ',', ' >>', 'g')`
+snippet 'for \(au(?!.*:)' "for (auto &&x : v)" r
+for (auto &&${1:x} : ${2:v}`!v search('\%#.*)', 'cnW') ? '' : ')'`
 endsnippet
 
 snippet idx "distance(v.begin(), itr_v)" w
