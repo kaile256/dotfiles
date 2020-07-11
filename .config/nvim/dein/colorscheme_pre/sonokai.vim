@@ -19,4 +19,6 @@ function! s:my_sonokai() abort
   hi! link phpType         Green
   hi! link phpClasses      Green
   hi! link phpSuperglobals Green
+
+  hi! DoppelgangerVirtualText ctermfg=64 guifg=#5f8700 cterm=italic gui=italic
 endfunction
