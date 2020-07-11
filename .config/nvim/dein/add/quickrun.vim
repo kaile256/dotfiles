@@ -50,9 +50,8 @@ function! s:quickrun_holding_syn(...) abort
   " endif
 endfunction
 
-augroup myQuickrunAdd
-  if exists('#myQuickrunAdd')
-    au! myQuickrunAdd
+augroup myQuickrunAdd "{{{1
+  if exists('#myQuickrunAdd') | au! myQuickrunAdd
   endif
   au FileType quickrun call s:quickrun_keymaps()
 augroup END
