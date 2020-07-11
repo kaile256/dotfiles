@@ -97,6 +97,15 @@ fi
 echo "Making Symbolic Links..."
 echo
 
+notify_msg() {
+  msg=$1
+  [ -z "$msg" ] && return
+  if type notify-send >/dev/null 2>&1; then
+    notify-send --expire-time 3500 --urgency=critical "$msg"
+  fi
+  echo "$msg"
+}
+
 create_symlink() {
   target=$1
   resource=$2
