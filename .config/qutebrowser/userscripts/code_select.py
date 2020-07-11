@@ -1,0 +1,1 @@
+/home/kaile256/.local/share/ghq/github.com/LaurenceWarne/qute-code-hint/code_select.py
