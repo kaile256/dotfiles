@@ -6,11 +6,12 @@ inoremap <expr> ?
       \ ? '/' : '?'
 
 let s:auto_corrects = [
-      \ ['VInt', 'Vint'],
+      \ ['disabel', 'disable'],
       \ ['donw', 'down'],
       \ ['endfi', 'endif'],
       \ ['markdonw', 'markdown'],
       \ ['teh', 'the'],
+      \ ['ture', 'true'],
       \ ]
 for s:key in s:auto_corrects
   " '!' is prohibited to :noreabbr though :abbr is allowed.
