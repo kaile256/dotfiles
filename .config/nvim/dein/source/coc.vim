@@ -20,6 +20,8 @@ endfunction
 command! -bar CodeLensToggle :call s:CodeLensToggle()
 hi! CocCodeLens ctermfg=240 guifg=#585858
 
+let g:coc_channel_timeout = 50
+
 " the List of CocExtentions; "{{{1
 " Note: have to install LSPs independently.
 " Note: coc-highlight made CPU overwork
