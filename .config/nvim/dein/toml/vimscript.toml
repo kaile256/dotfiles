@@ -64,9 +64,6 @@ lazy = 0
 repo = 'mattn/benchvimrc-vim'
 if = "!has('nvim')"
 on_cmd = ['BenchVimrc']
-[[plugins]]
-repo = 'junegunn/vim-startuptime-benchmark'
-# how to use it?
 
 #[ Test Framework ]
 [[plugins]]
