@@ -53,3 +53,10 @@ balias zg "bass source ghq-cd"
 balias zzh 'fzf-ssh'
 balias Qq 'fzf-pacman-Qq'
 balias qq 'fzf-pacman-Qq'
+
+# FIXME: make them work even with $EDITOR contains some arguments to connect
+# remote server like `vim --remote-wait-silent`
+alias e   '$EDITOR'
+alias sp  '$EDITOR -o'
+alias vs  '$EDITOR -O'
+alias tabe '$EDITOR -p'
