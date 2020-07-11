@@ -2,8 +2,8 @@
 " Repo: Houl/repmo-vim
 " Another: post/repmo.vim
 
-map <expr> ; repmo#LastKey(';')
-map <expr> , repmo#LastRevKey(',')
+map <silent><expr> ; repmo#LastKey(';')
+map <silent><expr> , repmo#LastRevKey(',')
 
 sunmap ;
 sunmap ,
