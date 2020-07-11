@@ -204,6 +204,7 @@ set splitright
 set virtualedit=block
 
 " Mode; Commandline Mode {{{1
+" set report=0 " report when more than the number of lines are changed.
 set noshowcmd
 set history=100 " default: 10000, history of ':' commands
 " Cmdline; Completion
