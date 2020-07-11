@@ -240,6 +240,8 @@ command! -bar -bang -nargs=* -complete=customlist,fugitive#EditComplete
 " Commit {{{1
 nnoremap <silent> <space>gC :<c-u>GcommitBottom<cr>
 
+" Note: <space>cc/ca would be used to distinguish whether register should be
+" '_' or 'unnamed'.
 nnoremap <silent> <space>gcc :<c-u>GcommitBottom<cr>
 nnoremap <silent> <space>gca :<c-u>GcommitBottom --amend<cr>
 nnoremap <silent><expr> <space>gce
