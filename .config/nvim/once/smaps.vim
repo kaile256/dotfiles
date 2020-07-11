@@ -5,14 +5,6 @@
 if exists('g:loaded_smaps_for_snippets') | finish | endif
 let g:loaded_smaps_for_snippets = 1
 
-snoremap <expr> <a-h> (getline("'<")[col("'<"):col("'>")] =~# '^#') ? '<space><BS><esc>' : '<esc>'
-snoremap <expr> <a-j> (getline("'<")[col("'<"):col("'>")] =~# '^#') ? '<space><BS><esc>j' : '<esc>j'
-snoremap <expr> <a-k> (getline("'<")[col("'<"):col("'>")] =~# '^#') ? '<space><BS><esc>k' : '<esc>k'
-snoremap <expr> <a-l> (getline("'<")[col("'<"):col("'>")] =~# '^#') ? '<space><BS><esc>l' : '<esc>l'
-
-snoremap <expr> <a-o> (getline("'<")[col("'<"):col("'>")] =~# '^#') ? '<space><BS><esc>o' : '<esc>o'
-snoremap <expr> <a-O> (getline("'<")[col("'<"):col("'>")] =~# '^#') ? '<space><BS><esc>O' : '<esc>O'
-
 snoremap <a-a> <esc>a
 
 " Insert mode like {{{1
