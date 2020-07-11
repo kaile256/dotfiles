@@ -52,6 +52,12 @@ call extend(g:quickrun_config['_'], {
       \ 'outputter/buffer/append': 1,
       \ 'outputter/buffer/close_on_empty': 1,
       \ 'hook/time/enable': 1,
+      \ })
+
+let g:quickrun_config['cpp'] = {
+      \ 'type': 'cpp/g++',
+      \ 'input': '=@+',
+      \ 'cmdopt': '-std=c++14'
       \ }
 
 let g:quickrun_config.markdown = {
