@@ -7,6 +7,7 @@ let s:key2rules[';'] = [
       \ ]
 
 let s:key2rules['{'] = [
+      \ {'input_after': '};', 'at': ' = .*\%#', 'except': '\v(;.*%#|%#.*;$)'},
       \ {'input_after': '};',
       \     'at': '\v<(struct|return|class)> .*\%#',
       \     'except': '\v(template <|;).*%#',
