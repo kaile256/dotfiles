@@ -253,6 +253,10 @@ nnoremap <silent><nowait><buffer><expr> .
 " Git "{{{1
 nmap <silent><nowait><buffer> >> <Plug>(defx-git-stage)
 nmap <silent><nowait><buffer> << <Plug>(defx-git-reset)
+xmap <silent><nowait><buffer> >>
+      \ defx#async_action('clear_select_all')
+      \ . defx#async_action('toggle_select_visual')
+      \ . '<Plug>(defx-git-stage)'
 " nmap <silent><nowait><buffer> << <Plug>(defx-git-discard)
 "}}}
 
