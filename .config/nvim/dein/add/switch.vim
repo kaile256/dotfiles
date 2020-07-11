@@ -10,6 +10,13 @@
 
 let s:definitions = {}
 
+let s:definitions['sh'] = [
+      \ {
+      \   '\[ \(\S.\{-}\) ];': 'test \1;',
+      \   'test \(\S.\{-}\);': '[ \1 ];'
+      \ }
+      \ ]
+
 let s:definitions['vim'] = [
       \ ['==', '!='],
       \ ['\\zs', '\\ze'],
