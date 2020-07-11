@@ -450,6 +450,9 @@ echo "Activate MySQL:"
 sudo mysql_install_db --user=mysql --basedir=/usr --datadir=/var/lib/mysql
 mysql_secure_installation
 
+# Git {{{1
+git secrets --install .git-templates/git-secrets
+
 # END {{{1
 
 cd "$CWD"
