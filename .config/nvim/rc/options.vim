@@ -135,7 +135,7 @@ endif
 " Appearance; transparency {{{1
 " Note: it works dum CUI.
 if exists('&pumblend')
-  set pumblend=35
+  set pumblend=45
   set winblend=40
 endif
 
