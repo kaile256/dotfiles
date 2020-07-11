@@ -198,6 +198,7 @@ set listchars+=conceal:_
 " Split; Multiple Windows {{{1
 set splitbelow
 set splitright
+" set noequalalways
 
 " Mode; Visual Mode {{{1
 set virtualedit=block
