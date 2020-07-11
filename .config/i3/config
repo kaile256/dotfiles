@@ -396,7 +396,6 @@ bindsym O floating   toggle; mode default; $alert 'Layout: floating toggle'
 #bindsym U fullscreen toggle; mode default; $alert 'Layout: fullscreen toggle'
 bindsym $Super+O focus mode_toggle; mode default; $alert 'Focus: Toggle'
 
-bindsym F11 fullscreen
 bindsym H resize shrink width  1 px or 1 ppt
 bindsym K resize shrink height 1 px or 1 ppt
 bindsym J resize grow   height 1 px or 1 ppt
