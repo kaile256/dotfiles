@@ -10,15 +10,15 @@ if has('nvim')
   let $GIT_EDITOR = 'nvr --remote-wait-silent'
   let $VMAIL_VIM  = 'nvr --remote-wait-silent'
 elseif has('gui_running')
-  let $EDITOR     = 'gvim --remote-wait-silent --'
-  let $VISUAL     = 'gvim --remote-wait-silent --'
-  let $GIT_EDITOR = 'gvim --remote-wait-silent --'
-  let $VMAIL_VIM  = 'gvim --remote-wait-silent --'
+  let $EDITOR     = 'gvim --remote-wait-silent'
+  let $VISUAL     = 'gvim --remote-wait-silent'
+  let $GIT_EDITOR = 'gvim --remote-wait-silent'
+  let $VMAIL_VIM  = 'gvim --remote-wait-silent'
 else
-  let $EDITOR     = 'vim --remote-wait-silent --'
-  let $VISUAL     = 'vim --remote-wait-silent --'
-  let $GIT_EDITOR = 'vim --remote-wait-silent --'
-  let $VMAIL_VIM  = 'vim --remote-wait-silent --'
+  let $EDITOR     = 'vim --remote-wait-silent'
+  let $VISUAL     = 'vim --remote-wait-silent'
+  let $GIT_EDITOR = 'vim --remote-wait-silent'
+  let $VMAIL_VIM  = 'vim --remote-wait-silent'
 endif
 "let $BROWSER    = 'qutebrowser'
 
