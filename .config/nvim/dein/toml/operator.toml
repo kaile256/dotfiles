@@ -88,9 +88,9 @@ on_map = {nox = [
 hook_add = 'runtime add/sandwich.vim'
 hook_source = 'runtime source/sandwich.vim'
 hook_done_update = '''
-exe 'argadd' g:dein_github_dir .'/machakann/vim-sandwich/autoload/textobj/sandwich/recipes.vim'
-exe 'argadd' g:dein_github_dir .'/machakann/vim-sandwich/autoload/sandwich.vim'
-exe 'argadd' g:dein_github_dir .'/machakann/vim-sandwich/autoload/operator/sandwich/operator.vim'
+exe 'argadd' $DEIN_GITHUB_DIR .'/machakann/vim-sandwich/autoload/textobj/sandwich/recipes.vim'
+exe 'argadd' $DEIN_GITHUB_DIR .'/machakann/vim-sandwich/autoload/sandwich.vim'
+exe 'argadd' $DEIN_GITHUB_DIR .'/machakann/vim-sandwich/autoload/operator/sandwich/operator.vim'
 silent! argdo! g/= type(c) == s:type_num ? nr2char(c) : c/norm! na (c ==# "\<S-lt>") ? '<' :
 silent! argdo! write
 argdelete *
