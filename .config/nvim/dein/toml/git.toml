@@ -26,9 +26,9 @@ hook_source = 'runtime source/tig-explorer.vim'
 # repo = 'rbgrouleff/bclose.vim'
 # if = 'has("nvim")'
 # on_source = 'tig-explorer.vim'
-[[plugins]]
-repo = 'jreybert/vimagit'
-on_cmd =  ['Magit']
+# [[plugins]]
+# repo = 'jreybert/vimagit'
+# on_cmd =  'Magit'
 #[ Blame ]
 #[[plugins]]
 #repo = 'rhysd/ghpr-blame.vim'
