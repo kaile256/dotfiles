@@ -437,8 +437,6 @@ GO111MODULE=on go get golang.org/x/tools/gopls@latest
 #makepkg -si
 
 # ACTIVATION {{{1
-echo "Enable wpa_supplicant:"
-systemctl enable wpa_supplicant.service
 echo "Enable systemd-networkd:"
 systemctl enable systemd-networkd.service
 echo "Enable systemd-networkd@:"
