@@ -32,9 +32,9 @@ hook_source = 'runtime source/tig-explorer.vim'
 #[ Blame ]
 #[[plugins]]
 #repo = 'rhysd/ghpr-blame.vim'
-## Note: seems no use in neovim
-#if = "!has('nvim')
-#on_cmd =  ['GHPRBlame']
+## Note: Dominant behavior on a tab
+#on_cmd =  'GHPRBlame'
+#hook_source = 'runtime source/ghpr-blame.vim'
 #[[plugins]]
 #repo = 'tveskag/nvim-blame-line'
 # Note: seems to have some bugs
