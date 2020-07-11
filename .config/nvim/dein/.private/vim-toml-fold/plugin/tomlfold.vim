@@ -38,9 +38,14 @@ augroup IniFoldActivate
     au!
     au FileType * call tomlfold#activate()
     " to update fold in case
-    au InsertLeave,TextChanged * if &fdm ==# 'expr' && &fde =~# '^tomlfold#expr'
-                \ | call tomlfold#activate() | endif
+    au InsertLeave,TextChanged * call s:fold_update()
 augroup END
+
+function! s:fold_update() abort
+    if &fdm ==# 'expr' && &fde =~# '^tomlfold#expr'
+        call tomlfold#activate()
+    endif
+endfunction
 
 " restore 'cpoptions' {{{1
 let &cpo = s:save_cpo
