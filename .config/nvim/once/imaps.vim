@@ -118,6 +118,8 @@ function! s:alt_mappings() abort
   endfor
 endfunction
 call s:alt_mappings()
+delfunction s:alt_mappings
+delfunction s:alt_upper_mappings
 
 inoremap <silent> <a-s> <Del>
 
