@@ -97,31 +97,50 @@ fi
 echo "Making Symbolic Links..."
 echo
 
+create_symlink() {
+  target=$1
+  resource=$2
+  dest=$3
+
+  expected="$dest/$target"
+
+  if test -e "$expected" && readlink "$expected" >/dev/null 2>&1; then
+    ln -nsf "${DOTFILES}/$resource/$target" "$expected"
+    echo "Done! at $expected"
+    return
+  fi
+
+  errormsg="CAUTION: $expected has already existed."
+
+  if type notify-send >/dev/null 2>&1; then
+    notify-send --expire-time 3500 --urgency=critical "$errormsg"
+  fi
+
+  echo "$errormsg"
+  exit 1
+}
+
 for i in "${HOMEs[@]}"; do
-  ln -nsf "${DOTFILES}/$i" "${HOME}/$i"
-  echo "Done! at ${HOME}/$i"
+  create_symlink "$i" "" "$HOME"
 done
 
 echo
 
 for i in "${CONFIGs[@]}"; do
-  ln -nsf "${DOTFILES}/.config/$i" "${XDG_CONFIG_HOME}/$i"
-  echo "Done! at ${XDG_CONFIG_HOME}/$i"
+  create_symlink "$i" .config "$XDG_CONFIG_HOME"
 done
 
 echo
 
 if [ "$(uname -o)" != "Android" ]; then
   for i in "${LOCALs[@]}"; do
-    ln -nsf "${DOTFILES}/.config/$i" "${XDG_DATA_HOME}/$i"
-    echo "Done! at ${XDG_DATA_HOME}/$i"
+    create_symlink "$i" .config "$XDG_DATA_HOME"
   done
 
   echo
 
   for i in "${NON_ANDROIDs[@]}"; do
-    ln -nsf "${DOTFILES}/.config/$i" "${XDG_CONFIG_HOME}/$i"
-    echo "Done! at ${XDG_CONFIG_HOME}/$i"
+    create_symlink "$i" .config "$XDG_CONFIG_HOME"
   done
 fi
 
