@@ -96,7 +96,8 @@ endif
 " Inc/Decrement {{{2
 "set nrformats+=octal
 " Fold {{{1
-"set foldenable " default: on
+set nofoldenable
+"set foldclose " when cursor is out of fold, close automatically.
 " setglobal foldminlines=40 " open if the fold block is less than the size
 set foldmethod=syntax
 " Note: 'foldlevel' is local to window
