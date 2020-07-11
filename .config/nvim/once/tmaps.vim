@@ -13,7 +13,8 @@ tnoremap <silent> <SID>(highlight-off) <c-\><c-n>:<c-u>noh <bar> redraw!<cr>i
 tnoremap <script> <c-space><space>   <SID>(highlight-off)
 tnoremap <script> <c-space><c-space> <SID>(highlight-off)
 
-" before typo
+" Produce no terminfo-sequences
+tnoremap <C--> -
 tnoremap <c-cr> <cr>
 
 " Register {{{1
