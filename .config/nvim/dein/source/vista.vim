@@ -13,8 +13,8 @@ let g:vista_cursor_delay = 1000
 let g:vista_update_on_text_changed_delay = 1000
 let g:vista_floating_delay = 0
 
-let g:vista_fold_toggle_icons = ['-', '*']
-" let g:vista_icon_indent = ['', '']
+" let g:vista_fold_toggle_icons = ['-', '*']
+let g:vista_icon_indent = ["╰─▸ ", "├─▸ "]
 
 " let g:vista_sidebar_position = 'vertical botright'
 let g:vista_sidebar_width = 40
