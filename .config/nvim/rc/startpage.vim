@@ -4,7 +4,9 @@ augroup myStartpage
   if exists('#myStartpage') | au! myStartpage
   endif
   " FIXME: currently, no syntax/keymaps on defx
-  au VimEnter * ++nested silent! call s:startpage('fish')
+  if has('nvim')
+    au VimEnter * ++nested silent! call s:startpage('fish')
+  endif
 augroup END
 
 function! s:startpage(page) abort
