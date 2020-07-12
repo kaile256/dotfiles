@@ -160,10 +160,14 @@ augroup myDenitePost "{{{1
     " select {{{3
     inoremap <silent><buffer><expr> <TAB>
           \ denite#do_map('toggle_select')
-    inoremap <silent><buffer> <C-j>
-          \ <esc><c-w>p:call cursor(line('.') + 1, 0)<cr><c-w>pA
     inoremap <silent><buffer> <C-k>
-          \ <esc><c-w>p:call cursor(line('.') - 1, 0)<cr><c-w>pA
+          \ <Esc>
+          \ :call denite#move_to_parent()<CR>k
+          \ :call denite#move_to_filter()<CR>A
+    inoremap <silent><buffer> <C-j>
+          \ <Esc>
+          \ :call denite#move_to_parent()<CR>j
+          \ :call denite#move_to_filter()<CR>A
   endfunction "}}}2
   au FileType denite call s:denite_keymaps() "{{{2
   function! s:denite_keymaps() abort
