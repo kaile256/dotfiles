@@ -32,7 +32,7 @@ command! -bang -nargs=? -range=-1 -addr=tabs
 " TODO: make it work to unstage all the other not to commit one unitentionally
 command! -nargs=? -bar -complete=customlist,fugitive#CommitComplete
       \ Gunstage
-      \ :silent exe 'Git reset HEAD' (empty(<q-args>) ? '| echo "Unstage all!"' : <q-args>)
+      \ :silent Git reset HEAD <args>
 
 command! -bar -nargs=* GcommitBottom :bot 20 Git commit <args>
 
