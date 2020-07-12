@@ -61,4 +61,10 @@
 	#   `pull-request`: Open a pull request on GitHub
 	#pr = pull-request
 [rebase]
-	autosquash = true
+	autoSquash = true
+	#autoStash = true
+ [credential]
+ 	# Cache ID and password for https in 24 hours on RAM
+ 	helper = cache --timeout=86400
+[init]
+	templateDir = ~/.git-templates/git-secrets
