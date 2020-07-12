@@ -2,14 +2,12 @@ nnoremap <silent> <a-TAB> :<C-u>call <SID>source_buffer()<CR>
 
 if !exists('*s:source_buffer')
   function! s:source_buffer() abort
-    " Note: :undojoin causes an error right after :undo.
-    " Note: :undojoin with :w prevents to :undo before :w
-    "silent! undojoin
-
-    let s:msg = 'no write'
+    let s:msg = 'no write but'
     if filewritable(expand('%:p'))
-      silent write
-      let s:msg = v:statusmsg
+      silent! exe &modified ? 'up' : 'checktime'
+      if v:statusmsg =~# 'written'
+        let s:msg = v:statusmsg .' &'
+      endif
     endif
 
     if getline(1) =~# '^#!'
@@ -30,7 +28,7 @@ if !exists('*s:source_buffer')
 
   function! s:do_as_shebang() abort "{{{2
     silent !%:p
-    echo s:msg '&' matchstr(getline(1), '^#!\zs.*') 'is done'
+    echo s:msg matchstr(getline(1), '^#!\zs.*') 'is done'
   endfunction
 
   function! s:do_as_dict(dict, compared) abort "{{{2
@@ -40,7 +38,7 @@ if !exists('*s:source_buffer')
       let l:val = a:dict[l:key]
 
       silent exe l:val[0]
-      echo s:msg '&' l:val[1]
+      echo s:msg l:val[1]
       break
     endfor
   endfunction
