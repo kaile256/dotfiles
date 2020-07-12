@@ -185,7 +185,6 @@ settings:
         <Ctrl+d>: scroll-page 0 0.5
         <Ctrl+e>: scroll-px 0 +50
         <Ctrl+f>: fake-key <PgDown>
-        <Ctrl+g>: enter-mode passthrough
         <Ctrl+h>: tab-prev
         <Ctrl+i>: forward
         <Ctrl+j>: fake-key <alt-down>
@@ -289,6 +288,7 @@ settings:
         ga: hint inputs
         gc: open https://calendar.google.com/calendar/r/month?pli=1
         gd: hint links current
+        ge: enter-mode passthrough
         gf: hint all current
         gg: fake-key <Home>
         gh: open qute://history/
