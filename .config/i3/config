@@ -228,7 +228,7 @@ $noid alsactl daemon
 # With `exec_always` disconnect devices every time.
 $noid pulseaudio --kill; sleep 5; pulseaudio --start &
 
-$always $MY_SCRIPTS/connect-keyboard.sh
+$always $MY_SCRIPTS/connect-keyboard.sh >/dev/null 2>&1
 
 # AutoStart Applications {{{1
 # Ref: specifiy workspace to start in
