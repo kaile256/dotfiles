@@ -15,7 +15,7 @@ command! -bar -nargs=1
 command! -bang -nargs=? -range=-1 -addr=tabs
       \ -complete=customlist,fugitive#PushComplete
       \ Gush
-      \ :<mods> Git push <args>
+      \ :exe <q-mods> 'Git push' (<q-args> ==# '' ? 'origin HEAD': <q-args>)
 
 command! -bang -nargs=? -range=-1 -addr=tabs
       \ -complete=customlist,fugitive#PullComplete
