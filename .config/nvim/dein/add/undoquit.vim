@@ -12,6 +12,7 @@ nmap Ze ZE
 nmap Zc ZC
 
 nnoremap <silent> <C-w>c :UndoableClose<CR>
+" TODO: close gitcommit without saving
 nnoremap <silent> <C-w>o :UndoableOnly<CR>
 nnoremap <silent> <C-w>O :UndoableTabonly<CR>
 
