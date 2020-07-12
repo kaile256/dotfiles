@@ -76,7 +76,9 @@ augroup END
 
 function! s:set_local_definitions() abort
   if !has_key(s:definitions, &ft) | return | endif
+  silent! unlockvar b:switch_custom_definitions
   let b:switch_custom_definitions = s:definitions[&ft]
+  lockvar b:switch_custom_definitions
   au BufWinLeave <buffer> ++once :silent! unlet b:switch_custom_definitions
 endfunction
 call s:set_local_definitions()
