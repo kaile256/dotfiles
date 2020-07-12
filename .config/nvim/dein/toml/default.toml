@@ -242,8 +242,8 @@ hook_add = 'runtime add/undoquit.vim'
 #repo = 'mhinz/vim-startify'
 
 #[ Menu ]
-[[plugins]]
-repo = 'skywind3000/quickmenu.vim'
-on_func = ['quickmenu#toggle']
-hook_add = 'runtime add/quickmenu.vim'
-hook_post_source = 'runtime post/quickmenu.vim'
+# [[plugins]]
+# # repo = 'skywind3000/quickmenu.vim'
+# on_func = ['quickmenu#toggle']
+# hook_add = 'runtime add/quickmenu.vim'
+# hook_post_source = 'runtime post/quickmenu.vim'
