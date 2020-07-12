@@ -26,7 +26,7 @@
 [merge]
 	tool = nvr -s
 	ff = false
-	conflictstyle = diff3
+	conflictStyle = diff3
 [mergetool]
 	prompt = false
 [mergetool "nvr"]
