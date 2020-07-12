@@ -6,7 +6,7 @@
 " Else: post/sneak.vim
 
 let g:sneak#no_default_mappings = 1
-let g:sneak#prompt = 'Sneak: {n} chars >>> '
+" let g:sneak#prompt = 'Sneak: v:count1 chars >>> '
 let g:sneak#no_prompt = 1
 
 " use 'ignorecase' & 'smartcase'
