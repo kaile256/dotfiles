@@ -29,6 +29,7 @@ repo = 'haya14busa/vim-asterisk'
 # Keep the cursor on `*` or `#`, even on visual mode.
 # Note: autload-function always fails on vertical x/s.
 on_map = {nx = '<Plug>(asterisk-'}
+on_func = ['asterisk#do', 'asterisk#substitute']
 hook_add = 'runtime add/asterisk.vim'
 hook_source = 'runtime source/asterisk.vim'
 #[[plugins]]
