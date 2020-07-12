@@ -14,6 +14,15 @@ nnoremap <space>? q?kzb
 " open CmdWin
 nnoremap <space>: q:kzb
 
+nnoremap <space>R :<C-u>call <SID>temp_relnum()<CR>
+function! s:temp_relnum() abort
+  set relativenumber
+  augroup myTmpRelnum
+    au!
+    au CursorMoved * ++once set norelativenumber
+  augroup END
+endfunction
+
 " No Highlight "{{{1
 " Ref: compare :redraw with <c-l> or :mode
 
