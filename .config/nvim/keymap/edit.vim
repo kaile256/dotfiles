@@ -25,16 +25,12 @@ if mapcheck('Q', 'n') == ''
   nnoremap Q <Nop>
 endif
 " Write&Quit; wq
-nnoremap <silent> <space>w :<c-u>up  <cr>
-nnoremap <silent> <space>W :<c-u>up! <cr>
+nnoremap <silent><expr> <space>w
+      \ ':<C-u>'. (&modified ? 'up' : 'checktime') .'<CR>'
+nnoremap <silent><expr> <space>W
+      \ ':<C-u>'. (&modified ? 'up!' : 'checktime') .'<CR>'
 " Note: <space>q is sometimes mistyped, intending <space>w.
-nnoremap <silent> <space>q :<c-u>up  <cr>
-" Note: :undojoin causes an error just after :undo.
-" TODO: :undojoin on :w prevents to go back undo-history
-"nnoremap <silent> <space>w :<c-u>silent! undojoin <bar> w  <bar>silent! undojoin<cr>
-"nnoremap <silent> <space>W :<c-u>silent! undojoin <bar> w! <bar>silent! undojoin<cr>
-"" Note: <space>q is sometimes mistyped, intending <space>w.
-"nnoremap <silent> <space>q :<c-u>silent! undojoin <bar> w  <bar>silent! undojoin<cr>
+nmap <silent><expr> <space>q <space>w
 
 " Improve; i_<c-o> {{{1
 " TODO: make <c-o>yi work, as <c-o>di, <c-o>ci.
