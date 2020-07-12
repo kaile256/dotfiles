@@ -71,6 +71,8 @@ lazy = 0
 [[plugins]]
 repo = 'neoclide/denite-git'
 on_source = 'denite.nvim'
+hook_add = 'runtime add/denite-git.vim'
+hook_post_source = 'runtime post/denite-git.vim'
 
 [[plugins]]
 repo = 'deresmos/denite-gitdiff'
