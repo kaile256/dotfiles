@@ -108,25 +108,19 @@ notify_msg() {
 
 create_symlink() {
   target=$1
-  resource=$2
-  dest=$3
+  resource="${DOTFILES}/$2/$target"
+  dest=$3/$target
 
-  expected="$dest/$target"
-
-  if test -e "$expected" && readlink "$expected" >/dev/null 2>&1; then
-    ln -nsf "${DOTFILES}/$resource/$target" "$expected"
-    echo "Done! at $expected"
-    return
+  if [ -e "$dest" ]; then
+    if ! readlink "$dest" >/dev/null 2>&1; then
+      notify_msg "Abort -- \"$dest\" has already existed"
+      exit 1
+    fi
   fi
 
-  errormsg="CAUTION: $expected has already existed."
-
-  if type notify-send >/dev/null 2>&1; then
-    notify-send --expire-time 3500 --urgency=critical "$errormsg"
-  fi
-
-  echo "$errormsg"
-  exit 1
+  ln -nsf "$resource" "$dest"
+  echo "Done! at $dest"
+  return
 }
 
 for i in "${HOMEs[@]}"; do
