@@ -3,8 +3,6 @@
 " Another: add/fugitive.vim
 " Another: source/fugitive.vim
 
-command! -bar Glog  :Agit
-command! -bar Gllog :AgitFile
 " Gbrowse depends on other handlers; coc's surely work.
 command! Gbrowse :CocCommand git.browserOpen
 command! GBrowse :CocCommand git.browserOpen
