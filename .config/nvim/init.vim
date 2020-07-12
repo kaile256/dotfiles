@@ -40,7 +40,7 @@ augroup myRuntimesSelection
 
   exe 'au' TermOpen '* runtime lazy/terminal.vim'
   au CmdwinEnter * runtime lazy/cmdwin.vim
-  au Syntax      * runtime lazy/zenkaku.vim
+  au WinNew * runtime lazy/zenkaku.vim
 
   au OptionSet diff     if &diff | runtime lazy/diff.vim     | endif
   au OptionSet readonly if &ro   | runtime lazy/readonly.vim | endif
