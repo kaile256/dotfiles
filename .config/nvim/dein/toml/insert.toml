@@ -55,7 +55,6 @@ repo = 'Shougo/neosnippet.vim'
 # Merged PR: Shougo/neosnippet.vim/pull/486
 # set the filetype in augroups.vim
 # it disturbs on 'n', of cource
-on_source = ['coc.nvim']
 on_map = {nvi = '<Plug>(neosnippet'}
 on_func =  ['neosnippet#']
 on_path = ['\.snip$']
