@@ -1,0 +1,40 @@
+#!/usr/bin/env sh
+
+set -Cue
+
+ROOT=/usr/local/src
+VIM_ROOT=$ROOT/vim
+REPO=https://github.com/vim/vim
+
+if [ -d "$VIM_ROOT" ]; then
+  echo "Deleting all the files at $VIM_ROOT..."
+  rm -rf $VIM_ROOT
+fi
+
+git clone --depth=1 $REPO "$VIM_ROOT"
+
+cd "$VIM_ROOT"
+
+#make distclean
+#make clean
+
+./configure \
+  --with-features=huge \
+  --enable-perlinterp \
+  --enable-pythoninterp \
+  --enable-python3interp \
+  --enable-rubyinterp \
+  --enable-cscope \
+  --enable-luainterp \
+  --with-luajit \
+  --enable-fail-if-missing \
+  --disable-darwin \
+  --enable-multibyte \
+  --enable-terminal \
+  --enable-autoservername \
+  --enable-fontset \
+  --enable-xim \
+  --with-x
+
+make -j 4 && make -j 4 install
+
