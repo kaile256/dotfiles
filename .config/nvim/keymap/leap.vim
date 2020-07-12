@@ -19,11 +19,6 @@ endfunction
 "nnoremap <c-p> <Cmd>bprev<cr>
 "nnoremap <c-n> <Cmd>bnext<cr>
 
-"" n/N for Search {{{1
-" researched word will come up at middle of current window.
-"nnoremap n nzz
-"nnoremap N Nzz
-
 " between Folds {{{1
 nnoremap zJ zjzv
 nnoremap zK zkzv
