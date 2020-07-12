@@ -31,7 +31,21 @@ function! s:is_hash() abort
 endfunction
 
 function! s:Gopen(open) abort
+  let filetypes_to_preview = 'gitrebase'
+  let is_to_preview = &ft ==# filetypes_to_preview
+  if is_to_preview
+    for bufnr in tabpagebuflist()
+      if !getbufvar(bufnr, '&filetype', filetypes_to_preview) | return | endif
+      pclose
+    endfor
+  endif
+
   exe 'G'. a:open expand('<cword>')
+
+  if is_to_preview
+    setlocal previewwindow
+    keepjumps wincmd p
+  endif
 endfunction
 
 " Define mappings {{{2
