@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+# -E: use $EDITOR for internal undetached edits
+# -e: open text files in $VISUAL (or $EDITOR, fallback vi)
+# -H: show hidden files
+# -r: show cp/mv progress
+# -R: disable rollover at edges
+export NNN_OPTS="eEHrR"
+
+export NNN_TRASH=1 # trash instead of delete
