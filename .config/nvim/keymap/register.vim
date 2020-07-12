@@ -42,16 +42,6 @@ xnoremap <s-space>p "0]p
 xnoremap <s-space>P "0]P
 
 " Black-Hole Register {{{1
-nnoremap <expr> s 'x'. v:count1 .(col('.') == col('$') - 1 ? 'a' : 'i')
-nnoremap <expr> S 'X'. v:count1 .'i'
-
-" Note: Not so often you want to delete words into clipboard.
-nmap     <space>d "_d
-nnoremap <space>D "_D
-nnoremap <space>c "_c
-nnoremap <space>C "_C
-
-" Tips: Keep <space>d in noremap
 omap <silent><expr> k
       \ (v:operator ==# 'd')
       \     ? 'd'. (line('.') == line('$') ? 'k' : 'kk')
