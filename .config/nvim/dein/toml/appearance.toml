@@ -23,6 +23,7 @@ on_event = 'BufAdd'
 #hook_add = 'let g:cursorword_highlight = 0'
 hook_post_source = 'runtime add/cursorword.vim'
 
+#[ Emphasize ]
 #[[plugins]]
 #repo = 't9md/vim-quickhl'
 #on_map = {
