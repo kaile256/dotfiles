@@ -38,10 +38,12 @@ hook_post_source = 'runtime add/cursorword.vim'
 ## Note: too slow
 #on_event = ['BufWinEnter']
 #hook_source = 'runtime source/context.vim'
-#[[plugins]]
-#repo = 'junegunn/limelight.vim'
-#on_cmd = 'Limelight'
-#hook_add = 'runtime add/limelight.vim'
+[[plugins]]
+repo = 'junegunn/limelight.vim'
+on_map = {nx = '<Plug>(Limelight'}
+on_cmd = 'Limelight'
+hook_add = 'runtime add/limelight.vim'
+hook_source = 'runtime source/limelight.vim'
 
 [[plugins]]
 repo = 'machakann/vim-highlightedyank'
