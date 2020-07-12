@@ -5,10 +5,10 @@
 
 " $VAR; for shell {{{1
 if has('nvim')
-  let $EDITOR     = 'nvr --remote-wait-silent'
-  let $VISUAL     = 'nvr --remote-wait-silent'
-  let $GIT_EDITOR = 'nvr --remote-wait-silent'
-  let $VMAIL_VIM  = 'nvr --remote-wait-silent'
+  let $EDITOR     = 'nvr'
+  let $VISUAL     = 'nvr'
+  let $GIT_EDITOR = 'nvr'
+  let $VMAIL_VIM  = 'nvr'
 elseif has('gui_running')
   let $EDITOR     = 'gvim --remote-wait-silent'
   let $VISUAL     = 'gvim --remote-wait-silent'
