@@ -32,20 +32,15 @@ hook_post_source = 'runtime add/cursorword.vim'
 #}
 #hook_add = 'runtime add/quickhl.vim'
 #hook_post_source = 'runtime post/quickhl.vim'
-
-#[[plugins]]
-#repo = 'wellle/context.vim'
-## shows function/if/while and so on in a preview
-## Note: too slow
-#on_event = ['BufWinEnter']
-#hook_source = 'runtime source/context.vim'
+[[plugins]]
+repo = 'junegunn/goyo.vim'
+on_cmd = 'Goyo'
 [[plugins]]
 repo = 'junegunn/limelight.vim'
 on_map = {nx = '<Plug>(Limelight'}
 on_cmd = 'Limelight'
 hook_add = 'runtime add/limelight.vim'
 hook_source = 'runtime source/limelight.vim'
-
 [[plugins]]
 repo = 'machakann/vim-highlightedyank'
 # coc's highlight on yank sometimes leaves the highlight after the role.
