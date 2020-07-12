@@ -25,7 +25,7 @@ let g:tagbar_foldlevel = 2
 
 "let g:tagbar_show_linenumbers = 0
 "let g:tagbar_vertical = 0
-let g:tagbar_width = 30
+let g:tagbar_width = 40
 
 "let g:tagbar_map_previewwin =
 
