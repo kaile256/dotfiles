@@ -41,6 +41,10 @@ let g:switch_custom_definitions += [
       \ ]
 
 let g:switch_custom_definitions += [
+      \ ['yes', 'no'],
+      \ ['Yes', 'No'],
+      \ ['YES', 'NO'],
+      \
       \ ['left', 'right'],
       \ ['Left', 'Right'],
       \
