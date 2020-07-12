@@ -9,7 +9,8 @@ let g:vista_highlight_whole_line = 1
 "let g:vista_fzf_preview = ['right:50%']
 
 let g:vista_echo_cursor = 0
-let g:vista_cursor_delay = 500
+let g:vista_cursor_delay = 1000
+let g:vista_update_on_text_changed_delay = 1000
 let g:vista_floating_delay = 0
 
 let g:vista_fold_toggle_icons = ['-', '*']
