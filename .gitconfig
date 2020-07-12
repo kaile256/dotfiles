@@ -20,7 +20,7 @@
 [ghq]
 	root = $GHQ_ROOT
 [diff]
-	tool = nvr -s
+	tool = nvr
 [difftool "nvr"]
 	cmd = nvr -s -d $LOCAL $REMOTE
 [merge]
