@@ -15,9 +15,9 @@ function! s:xdg_open() abort "{{{1
   silent exe '!xdg-open' fname '&'
 endfunction
 
-"" Buffers; {{{1
-"nnoremap <c-p> <Cmd>bprev<cr>
-"nnoremap <c-n> <Cmd>bnext<cr>
+" Buffers; {{{1
+nnoremap <silent> <C-p> :<C-u>bprev <bar> echo '<C-r>= bufnr("#") ." to ". bufnr("%")<CR>' <CR>
+nnoremap <silent> <C-n> :<C-u>bnext <bar> echo '<C-r>= bufnr("#") ." to ". bufnr("%")<CR>' <CR>
 
 " between Folds {{{1
 nnoremap zJ zjzv
