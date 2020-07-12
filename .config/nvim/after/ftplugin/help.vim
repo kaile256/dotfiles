@@ -8,6 +8,11 @@ else
   setl signcolumn= nolist foldlevel=0
   nnoremap <buffer> d <c-d>
   nnoremap <buffer> u <c-u>
+
+  nnoremap <silent><buffer> <C-p> :silent! <C-r>=v:count1<CR> pop<CR>
+  nnoremap <silent><buffer> <C-n> :silent! <C-r>=v:count1<CR> tag<CR>
+  nnoremap <silent><buffer> <C-S-p> :silent! $ tag<CR>
+  nnoremap <silent><buffer> <C-S-n> :silent! 0 tag<CR>
 endif
 
 finish "{{{1
