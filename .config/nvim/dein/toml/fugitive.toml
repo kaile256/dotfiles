@@ -9,14 +9,7 @@ repo = 'tpope/vim-fugitive'
 on_event = ['VimEnter']
 hook_add = 'runtime add/fugitive.vim'
 hook_source = 'runtime source/fugitive.vim'
-hook_post_source = '''
-command! -bar Glog  :Agit
-command! -bar Gllog :AgitFile
-" Gbrowse depends on other handlers; coc's surely work.
-command! Gbrowse :CocCommand git.browserOpen
-command! GBrowse :CocCommand git.browserOpen
-runtime post/fugitive.vim
-'''
+hook_post_source = 'runtime post/fugitive.vim'
 hook_done_update = '''
 e $DEIN_GITHUB_DIR/tpope/vim-fugitive/autoload/fugitive.vim
 g;P for :Git add/reset --patch, 1p for :pedit;s/v:count/1
