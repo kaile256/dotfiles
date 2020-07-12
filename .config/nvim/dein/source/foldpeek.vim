@@ -6,8 +6,8 @@ scriptencoding utf-8
 " Ref: vimwiki_dev/ftplugin/vimwiki.vim @195
 " Another: post/foldpeek.vim
 
-let g:foldpeek#maxwidth = &colorcolumn > 0 ? &colorcolumn - 1
-      \                   : (&tw > 0 ? &tw : 79)
+let g:foldpeek#maxwidth = '&colorcolumn > 0 ? &colorcolumn - 1
+      \                   : (&tw > 0 ? &tw : 79)'
 
 " let g:foldpeek#whiteout#patterns = {
 "      \ 'substitute': [
