@@ -15,12 +15,6 @@ hook_add = 'source $DEIN_ADD_HOME/SandJoin.vim'
 hook_source = 'source $DEIN_SOURCE_HOME/SandJoin.vim'
 
 #[[plugins]]
-#repo = 'kaile256/vim-sensible_K'
-## Note: the plugin defines no map/cmd, only using augroup.
-#on_event = 'VimEnter'
-#hook_add = 'source $DEIN_ADD_HOME/sensible_K.vim'
-#
-#[[plugins]]
 #repo = 'kaile256/vim-window-picker'
 #on_cmd = ['WindowPKreduce', 'WindowPKpick', 'WindowPKoly', 'WindowPKfloating', 'WindowPKcopy', 'WindowPKtabGive']
 #hook_add = 'source $DEIN_ADD_HOME/window-picker.vim'
