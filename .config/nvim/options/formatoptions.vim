@@ -22,7 +22,7 @@ set fo+=2 " Ignore indent of the first line of paragraph; requires &autoindent
 set fo+=q " Enable 'gq' in Normal mode
 " set fo+=a " Enable 'autoformat', which, with 'c' flag, only happens for comments; 'a' without 'c' should not for usual program codes
 
-set fo+=t " Auto-wrap as &textwidth
+" set fo+=t " Auto-wrap as &textwidth
 set fo+=c " Auto-wrap comments as &textwidth with comment leader
 " set fo+=w " Paragraph continues with trailing whitespace (affects 'a'); ends with non-space
 
