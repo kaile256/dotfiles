@@ -144,7 +144,7 @@ settings:
         <Ctrl+Alt+v>: fake-key <shift-ctrl-left>
         <Ctrl+Shift+n>: <Alt-down>
         <Ctrl+Shift+p>: fake-key <alt-up>
-        <Ctrl+a>: fake-key <Home><Ctrl+a>
+        <Ctrl+a>: fake-key <Home>
         <Ctrl+b>: fake-key <Left><Ctrl+b>
         <Ctrl+d>: fake-key <Delete><Ctrl+d>
         <Ctrl+e>: fake-key <End><Ctrl+e>
