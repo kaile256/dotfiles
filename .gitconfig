@@ -24,7 +24,7 @@
 [difftool "nvr"]
 	cmd = nvr -s -d $LOCAL $REMOTE
 [merge]
-	tool = nvr -s
+	tool = nvr
 	ff = false
 	conflictStyle = diff3
 [mergetool]
