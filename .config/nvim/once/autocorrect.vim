@@ -4,6 +4,9 @@
 inoremap <expr> ?
       \ search('[=!]\@<!\~\%#', 'nbcW')
       \ ? '/' : '?'
+cnoremap <expr> ?
+      \ matchstr(getcmdline(), '[=!]\@<!\~\%'. getcmdpos() .'c') ==# '~'
+      \ ? '/' : '?'
 
 let s:auto_corrects = [
       \ ['disabel', 'disable'],
