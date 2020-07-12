@@ -43,12 +43,4 @@ set fo+=m " Also break at multi-byte(MB) char
 " set fo+=M " Join without spaces around for MB char; overrules 'B'
 set fo+=B " Join without a space between two MB char; overrules 'M'
 
-augroup myForceFormatOptions
-  if exists('#myForceFormatOptions') | au! myForceFormatOptions
-  endif
-  au InsertEnter * ++nested silent! set fo-=r fo-=o
-  " au InsertEnter * if &conceallevel != 0 && &tw =~# '' | set textwidth=0 | endif
-  "au FileType * if getline(1, '$') ==# [] | startinsert | endif
-augroup END
-
 " vim: fo-=a
