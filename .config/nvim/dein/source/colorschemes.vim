@@ -5,18 +5,22 @@
 augroup myColorschemesSo
   if exists('#myColorschemesSo') | au! myColorschemesSo
   endif
-  au Colorscheme * ++nested call s:my_commons()
+  au Colorscheme * ++nested call s:common()
+  au Colorscheme * ++nested call s:common_dark()
   " au Colorscheme * ++nested call s:up_to_environment()
 augroup END
 
-function! s:my_commons() abort
+function! s:common_dark() abort
+  if &background !=# 'dark' | return | endif
+
+  " NormalFloat: color for winblend, or floating windows
+  hi! NormalFloat ctermfg=236 ctermbg=180 guibg=#3a192c guifg=#9f994a
+  hi! DoppelgangerVirtualText ctermfg=64 guifg=#5f8700 cterm=italic gui=italic
+endfunction
+
+function! s:common() abort
   hi! HighlightedyankRegion ctermfg=232 ctermbg=66 guifg=#000000 guibg=#df5f29
   hi! CocErrorHighlight     ctermfg=red guifg=#ff0000
-
-  if &background ==# 'dark'
-    " NormalFloat: color for winblend, or floating windows
-    hi! NormalFloat ctermfg=236 ctermbg=180 guibg=#3a192c guifg=#9f994a
-  endif
 
   hi! Comment guifg=#71716e
 
