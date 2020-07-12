@@ -191,7 +191,7 @@ nnoremap <silent> <space>gS :<c-u>tab Gstatus<cr>
 
 " Staging {{{1
 nnoremap <silent> <space>gu :<C-u>Gunstage % <CR>
-nnoremap <silent> <space>gU :<C-u>Gunstage <CR>
+nnoremap <silent> <space>gU :<C-u>Gunstage <bar> echo 'Reset all'<CR>
 xnoremap <silent> <space>gu :<C-u>Gunstage % <CR>
 xnoremap <silent> <space>gU :<C-u>Gunstage <CR>
 
