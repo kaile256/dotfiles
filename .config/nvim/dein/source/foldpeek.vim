@@ -143,9 +143,7 @@ augroup myFoldPeekSource "{{{1
   if exists('#myFoldPeekSource') | au! myFoldPeekSource
   endif
 
-  au BufWinEnter * if &fdt !=# 'foldpeek#text()' |
-        \   setl fdt=foldpeek#text()
-        \ | endif
+  au OptionSet foldtext if &fdt !=# 'foldpeek#text()' | set fdt< | endif
   au FileType * call s:set_patterns()
 augroup END
 
