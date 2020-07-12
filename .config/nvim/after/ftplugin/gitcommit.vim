@@ -4,5 +4,5 @@ setlocal nonumber
 setlocal signcolumn=
 setlocal bufhidden=wipe
 
-setlocal formatoptions+=c
+setlocal formatoptions+=t " Auto-wrap as &textwidth
 
