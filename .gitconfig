@@ -5,6 +5,12 @@
 [core]
 	editor = nvr -s --remote-wait-silent
 	excludesfile = .mypy_cache/
+	ignoreCase = false
+
+	quotePath = false # false: show Japanese file without corruption.
+
+	safeCrlf = true # true: no conversion of CR-LF to LF at EOL if mixed.
+	autoCrlf = input # input: keep LF as in repository anyway.
 [color]
 	status = auto
 	branch = auto
