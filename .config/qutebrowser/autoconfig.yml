@@ -144,27 +144,27 @@ settings:
         <Ctrl+Alt+v>: fake-key <shift-ctrl-left>
         <Ctrl+Shift+n>: <Alt-down>
         <Ctrl+Shift+p>: fake-key <alt-up>
-        <Ctrl+a>: fake-key <Home>
-        <Ctrl+b>: fake-key <Left>
-        <Ctrl+d>: fake-key <Delete>
-        <Ctrl+e>: fake-key <End>
-        <Ctrl+f>: fake-key <Right>
-        <Ctrl+g>: fake-key <Esc>
-        <Ctrl+h>: fake-key <backspace>
-        <Ctrl+i>: fake-key <tab>
-        <Ctrl+j>: fake-key <Enter>
-        <Ctrl+k>: fake-key <Shift-end><Delete>
-        <Ctrl+m>: fake-key <Enter>
-        <Ctrl+n>: fake-key <Down>
+        <Ctrl+a>: fake-key <Home><Ctrl+a>
+        <Ctrl+b>: fake-key <Left><Ctrl+b>
+        <Ctrl+d>: fake-key <Delete><Ctrl+d>
+        <Ctrl+e>: fake-key <End><Ctrl+e>
+        <Ctrl+f>: fake-key <Right><Ctrl+f>
+        <Ctrl+g>: fake-key <Esc><Ctrl+g>
+        <Ctrl+h>: fake-key <backspace><Ctrl+h>
+        <Ctrl+i>: fake-key <tab><Ctrl+i>
+        <Ctrl+j>: fake-key <Enter><Ctrl+j>
+        <Ctrl+k>: fake-key <Shift-end><Delete><Ctrl+k>
+        <Ctrl+m>: fake-key <Enter><Ctrl+m>
+        <Ctrl+n>: fake-key <Down><Ctrl+n>
         <Ctrl+o>u: fake-key <ctrl-z>
-        <Ctrl+p>: fake-key <Up>
+        <Ctrl+p>: fake-key <Up><Ctrl+p>
         <Ctrl+q>: open-editor
         <Ctrl+r>0: insert-text {primary}
         <Ctrl+r><Ctrl+0>: insert-text {primary}
         <Ctrl+r><Ctrl+Space>: fake-key <ctrl-v>
         <Ctrl+r><Space>: fake-key <ctrl-v>
-        <Ctrl+u>: fake-key <shift-home><backspace>
-        <Ctrl+w>: fake-key <ctrl-backspace>
+        <Ctrl+u>: fake-key <Shift-Home><Backspace><Ctrl-u>
+        <Ctrl+w>: fake-key <ctrl-backspace><Ctrl+w>
         <Ctrl+y>: insert-text {primary}
       normal:
         '2': save
