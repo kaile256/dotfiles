@@ -55,6 +55,7 @@
 [rerere]
 	enabled = true
 [alias]
+	co = checkout
 	# Note: pr and pull-request is a different commands provided by `hub`
 	#   `pr`: List or checkout GitHub pull requests
 	#   `pull-request`: Open a pull request on GitHub
