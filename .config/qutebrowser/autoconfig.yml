@@ -328,11 +328,11 @@ settings:
         zl: scroll right
       passthrough:
         <Alt+x>: 'set-cmd-text :'
-        <Ctrl+b>: <left>
-        <Ctrl+f>: <right>
+        <Ctrl+b>: fake-key <left><Ctrl+b>
+        <Ctrl+f>: fake-key <right><Ctrl+f>
         <Ctrl+g>: leave-mode
-        <Ctrl+n>: fake-key <down>
-        <Ctrl+p>: fake-key <up>
+        <Ctrl+n>: fake-key <down><Ctrl+n>
+        <Ctrl+p>: fake-key <up><Ctrl+p>
       prompt:
         <Alt+o>: fake-key <S-TAB>
         <Ctrl+c>: leave-mode
