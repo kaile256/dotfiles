@@ -1,5 +1,7 @@
 " From: filetype.vim
 
+if &ft !=# 'help' | finish | endif
+
 if &modifiable || !&readonly || @% =~# 'fugitive:\/\/\/'
   " setl conceallevel=2
 else
