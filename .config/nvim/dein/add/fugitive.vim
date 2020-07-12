@@ -22,13 +22,6 @@ command! -bang -nargs=? -range=-1 -addr=tabs
       \ Gull
       \ :<mods> Git pull <args>
 
-command! -bar -bang -nargs=* -complete=customlist,fugitive#EditComplete
-      \ Ghdiffsplit
-      \ :exe fugitive#Diffsplit(0, <bang>0, "<mods>", <q-args>, ['--function-context', <f-args>])
-command! -bar -bang -nargs=* -complete=customlist,fugitive#EditComplete
-      \ Gvdiffsplit
-      \ :exe fugitive#Diffsplit(0, <bang>0, "vert <mods>", <q-args>, ['--function-context', <f-args>])
-
 " FIXME
 command! -bang -nargs=? -range=-1 -addr=tabs
       \ -complete=customlist,fugitive#GrepComplete
