@@ -113,10 +113,10 @@ nnoremap Zq ZQ
 " nnoremap <silent> <c-w>E :<c-u>windo norm! ZQ<cr>
 
 " Mnemonic: $ yes
-nnoremap <silent> Zy :<c-u>qa  <cr>
-nnoremap <silent> ZY :<c-u>qa  <cr>
-nnoremap <silent> Zn :<c-u>wqa <cr>
-nnoremap <silent> ZN :<c-u>wqa <cr>
+nnoremap <silent> Zy :<c-u>qa <cr>
+nnoremap <silent> ZY :<c-u>qa <cr>
+nnoremap <silent> Zn :<c-u>xa <cr>
+nnoremap <silent> ZN :<c-u>xa <cr>
 
 command! -bar HelpCloseAll :call s:helpclose_all() "{{{2
 function! s:helpclose_all() abort
