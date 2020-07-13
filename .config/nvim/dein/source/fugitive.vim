@@ -61,8 +61,11 @@ function! s:fugitive_keymap() abort "{{{3
   nnoremap <silent><buffer> R :<C-u>call <SID>git_reset()<CR>
   " Mnemonic: Commit Everything (cA is predefined to squash! and edit the msg)
   nnoremap <silent><buffer> cE :<C-u>call <SID>commit_all()<CR>
-  " Mnemonic: Commit Interactive
+
   nnoremap <silent><buffer> ri :<C-u>call <SID>git_rebase('i')<CR>
+  nnoremap <silent><buffer> rd :<C-u>call <SID>git_rebase('d')<CR>
+  nnoremap <silent><buffer> re :<C-u>call <SID>git_rebase('e')<CR>
+  nnoremap <silent><buffer> rw :<C-u>call <SID>git_rebase('w')<CR>
 endfunction
 
 function! s:gitcommit_keymap() abort "{{{3
