@@ -96,9 +96,9 @@ function! s:commit_all(...) abort "{{{3
   " " TBC: Without reset to HEAD, it may fail to restore?
   " Git reset HEAD
   Git add --all
+
   let has_uncommitted = search('^Staged (\d\+)$', 'wn') > 0
   if has_uncommitted
-
     let branch = FugitiveHead()
     let is_confirmed = input('Commit all the files at "'. branch .'"? y[es]/n[o]: ')
     if is_confirmed !~# 'y\%[es]'
