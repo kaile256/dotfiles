@@ -329,10 +329,14 @@ settings:
       passthrough:
         <Alt+x>: 'set-cmd-text :'
         <Ctrl+b>: fake-key <left><Ctrl+b>
+        <Ctrl+d>: fake-key <Del>
         <Ctrl+f>: fake-key <right><Ctrl+f>
         <Ctrl+g>: leave-mode
+        <Ctrl+h>: fake-key <Backspace>
         <Ctrl+n>: fake-key <down><Ctrl+n>
         <Ctrl+p>: fake-key <up><Ctrl+p>
+        <Ctrl+u>: fake-key <Shift-Home><Backspace>
+        <Ctrl+w>: fake-key <ctrl-backspace><Ctrl+w>
       prompt:
         <Alt+o>: fake-key <S-TAB>
         <Ctrl+c>: leave-mode
