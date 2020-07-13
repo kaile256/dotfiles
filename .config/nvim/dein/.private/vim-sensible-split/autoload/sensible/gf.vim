@@ -3,6 +3,9 @@ let s:save_cpo = &cpo
 set cpo&vim
 "}}}
 
+let g:sensible_split#gf#preview_winwidth_vertical   = '&tw > 0 ? &tw + 2 : 80'
+let g:sensible_split#gf#preview_winheight_horizontal = '&lines / 2'
+
 " Ref: $GHQ_ROOT/github.com/neovim/neovim/src/nvim/normal.c @6906 nv_gotofile
 " if a number follows filename/path, jump to the linenumber on the buffer:
 "     init.vim:10
@@ -33,9 +36,9 @@ function! s:preview(open) abort
   exe mods 'G'. a:open expand('<cword>')
 
   if a:open =~# 'vsplit'
-    exe 'vertical resize' (&tw > 0 ? &tw + 2 : 80)
+    exe 'vertical resize' (g:sensible_split#gf#preview_winwidth_vertical)
   elseif a:open =~# 'split'
-      exe 'resize' (&lines / 2)
+    exe 'resize' (g:sensible_split#gf#preview_winheight_horizontal)
   endif
 
   setlocal previewwindow
