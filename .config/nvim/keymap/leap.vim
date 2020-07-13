@@ -16,8 +16,19 @@ function! s:xdg_open() abort "{{{1
 endfunction
 
 " Buffers; {{{1
-nnoremap <silent> <C-p> :<C-u>bprev <bar> echo '<C-r>= bufnr("#") ." to ". bufnr("%")<CR>' <CR>
-nnoremap <silent> <C-n> :<C-u>bnext <bar> echo '<C-r>= bufnr("#") ." to ". bufnr("%")<CR>' <CR>
+function! s:buf_rotate(order) abort
+  if len(getloclist(winnr())) > 1
+    exe 'l'. a:order
+    ll
+  elseif len(getqflist()) > 1
+    exe 'c'. a:order
+    cc
+  else
+    exe 'b'. a:order
+  endif
+endfunction
+nnoremap <silent> <C-p> :<C-u> call <SID>buf_rotate('prev') <CR>
+nnoremap <silent> <C-n> :<C-u> call <SID>buf_rotate('next') <CR>
 
 " between Folds {{{1
 nnoremap zJ zjzv
