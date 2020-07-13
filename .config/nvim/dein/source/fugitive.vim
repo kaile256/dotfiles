@@ -101,7 +101,7 @@ function! s:commit_all(...) abort "{{{3
   if has_uncommitted
     let branch = FugitiveHead()
     let is_confirmed = input('Commit all the files at "'. branch .'"? y[es]/n[o]: ')
-    if is_confirmed !~# 'y\%[es]'
+    if is_confirmed !~? 'y\%[es]'
       echon "\nAbort git-commit"
       call search('^Staged (\d\+)$', 'w')
       norm u
@@ -126,7 +126,7 @@ function! s:git_reset() abort "{{{3
   if empty(hash) | return | endif
 
   let is_confirmed = input('Git Reset to '. hash .'? y[es]/n[o]: ')
-  if is_confirmed !~# 'y\%[es]'
+  if is_confirmed !~? 'y\%[es]'
     echo 'Abort git-reset at' hash
     return
   endif
