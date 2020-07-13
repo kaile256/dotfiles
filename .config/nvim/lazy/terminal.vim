@@ -9,7 +9,13 @@ function! s:start_insert(type) abort
   if a:type ==# 'a'
     let len -= 1
   endif
-  return "i\<End>". repeat("\<Left>", len)
+
+  let startinsert = "i\<End>". repeat("\<Left>", len)
+
+  if a:type =~# '[ia]'
+    return startinsert
+  endif
+  return startinsert .. a:type
 endfunction
 
 nnoremap <buffer> o i
