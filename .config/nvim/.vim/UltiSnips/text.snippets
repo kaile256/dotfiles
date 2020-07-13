@@ -2,8 +2,7 @@ snippet = "separator for Vim help" b
 ==============================================================================
 endsnippet
 
-snippet HEAD
-alias hea head
+snippet 'vim|help' "Initialize vim's documentation" br
   *`!v expand('%:p') =~# 'doc' ? substitute(matchstr(expand('%:p'),'doc/\zs.*\ze.txt'),'[/\\]','#','g') : ''`.txt*
   `!v expand('%:p') =~# 'doc' && expand('%:p') =~# '_' ? '*'. substitute(substitute(matchstr(expand('%:p'),'doc/\zs.*\ze.txt'),'[/\\]','#','g'), '_', '\-', 'g') .'* *'. substitute(substitute(matchstr(expand('%:p'),'doc/\zs.*\ze.txt'),'[/\\]','#','g'), '_', '', 'g') .'*' : 'no-underbar; delete this line'`
 
