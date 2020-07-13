@@ -46,6 +46,12 @@ function! s:Gopen(open) abort
   let mods = 'bot'
   exe mods 'G'. a:open expand('<cword>')
 
+  if a:open =~# 'split'
+    exe 'vertical resize' (&tw > 0 ? &tw + 2 : 80)
+  elseif a:open =~# 'vsplit'
+    exe 'resize' (&lines / 2)
+  endif
+
   setlocal previewwindow
   keepjumps wincmd p
 endfunction
