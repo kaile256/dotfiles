@@ -7,6 +7,12 @@ let g:lexima#default_rules += [
       \ {'char': '<S-Space>', 'at': '^\s*"\%#"', 'input': '<C-g>U<Del><space>'},
       \ ]
 
+" Add comma to add either List or Dict nested.
+let g:lexima#default_rules += [
+      \ {'char': '{', 'at': '^\s*\\\s*\%#', 'input_after': '},'},
+      \ {'char': '[', 'at': '^\s*\\\s*\%#', 'input_after': '],'},
+      \ ]
+
 let s:key2rules = {}
 
 " Insert backslashes when filetype is vim
