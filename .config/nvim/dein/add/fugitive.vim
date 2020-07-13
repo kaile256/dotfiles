@@ -2,8 +2,6 @@
 " Repo: tpope/vim-fugitive
 " Another: source/fugitive.vim
 
-runtime add/fugitive.gf.vim
-
 " auto substitute url for ssh to github
 command! -bar -nargs=1
       \ GsetUrlToOrigin
