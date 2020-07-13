@@ -63,6 +63,18 @@ if &g:keywordprg ==# ':Man'
   let &g:keywordprg = ':SensibleMods Man'
 endif
 
+nnoremap <silent><expr> <Plug>(sensible-gf)       sensible#gf#edit()
+xnoremap <silent><expr> <Plug>(sensible-gf)       sensible#gf#edit()
+nnoremap <silent><expr> <Plug>(sensible-ctrl-w_f) sensible#gf#split()
+xnoremap <silent><expr> <Plug>(sensible-ctrl-w_f) sensible#gf#split()
+
+if !get(g:, 'sensible#gf#no_default_mappings', 0)
+  nmap gf <Plug>(sensible-gf)
+  xmap gf <Plug>(sensible-gf)
+  nmap <C-w>f <Plug>(sensible-ctrl-w_f)
+  xmap <C-w>f <Plug>(sensible-ctrl-w_f)
+endif
+
 " restore 'cpoptions' {{{1
 let &cpo = s:save_cpo
 unlet s:save_cpo
