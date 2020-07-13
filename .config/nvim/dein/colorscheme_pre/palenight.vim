@@ -10,8 +10,6 @@ augroup myPalenight
 augroup END
 
 function! s:my_palenight() abort
-  hi! TODO ctermfg=White guifg=White ctermbg=15 guibg=#42325f cterm=bold,underline gui=bold,underline guisp=Red
-
   hi! link Whitespace Comment
   " hi! link lineNr Comment
   hi! SpecialKey ctermfg=245 guifg=#8a8a8a

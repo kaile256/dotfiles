@@ -12,6 +12,7 @@ augroup END
 
 function! s:common_dark() abort
   if &background !=# 'dark' | return | endif
+  hi! TODO ctermfg=15 guifg=#ffffff cterm=bold gui=bold
 
   " NormalFloat: color for winblend, or floating windows
   hi! NormalFloat ctermfg=236 ctermbg=180 guibg=#3a192c guifg=#9f994a

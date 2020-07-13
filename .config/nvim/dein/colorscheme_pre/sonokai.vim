@@ -10,7 +10,6 @@ augroup END
 
 function! s:my_sonokai() abort
   hi! Visual guibg=#5d6118
-  hi! TODO ctermfg=15 guifg=#ffffff cterm=bold gui=bold
 
   hi! ColorColumn ctermbg=1 guibg=#5b6369
 
