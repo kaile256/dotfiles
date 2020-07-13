@@ -1,4 +1,4 @@
-" From: appearance.toml
+" TOML: appearance.toml
 " Repo: junegunn/limelight.vim
 " Another: source/limelight.vim
 
