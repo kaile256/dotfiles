@@ -43,7 +43,8 @@ function! s:Gopen(open) abort
     pclose
   endfor
 
-  exe 'G'. a:open expand('<cword>')
+  let mods = 'bot'
+  exe mods 'G'. a:open expand('<cword>')
 
   setlocal previewwindow
   keepjumps wincmd p
