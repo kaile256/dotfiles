@@ -2,6 +2,8 @@ nnoremap <silent> <a-TAB> :<C-u>call <SID>source_buffer()<CR>
 
 if !exists('*s:source_buffer')
   function! s:source_buffer() abort
+    if &ft ==# 'vim' && expand('%:p') =~# '/ftplugin/' | return | endif
+
     let s:msg = 'no write but'
     if filewritable(expand('%:p'))
       silent! exe &modified ? 'up' : 'checktime'
