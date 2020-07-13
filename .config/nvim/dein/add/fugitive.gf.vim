@@ -30,18 +30,8 @@ function! s:is_hash() abort
   return expand('<cword>') =~# '^\x\{6,}$'
 endfunction
 
-function! s:Gopen(open) abort
-  let filetypes_to_preview = 'gitrebase'
-  let is_to_preview = &ft ==# filetypes_to_preview
-  if !is_to_preview
-    exe 'G'. a:open expand('<cword>')
-    return
-  endif
-
-  for bufnr in tabpagebuflist()
-    if !getbufvar(bufnr, '&filetype', filetypes_to_preview) | return | endif
-    pclose
-  endfor
+function! s:preview(open) abort
+  pclose
 
   let mods = 'bot'
   exe mods 'G'. a:open expand('<cword>')
@@ -54,6 +44,17 @@ function! s:Gopen(open) abort
 
   setlocal previewwindow
   keepjumps wincmd p
+endfunction
+
+function! s:Gopen(open) abort
+  let filetypes_to_preview = 'gitrebase'
+  let is_to_preview = &ft ==# filetypes_to_preview
+
+  if is_to_preview
+    call s:preview(a:open)
+  else
+    exe 'G'. a:open expand('<cword>')
+  endif
 endfunction
 
 " Define mappings {{{2
