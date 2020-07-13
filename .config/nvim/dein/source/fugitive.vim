@@ -82,8 +82,8 @@ endfunction
 
 function! s:git_rebase() abort "{{{3
   if s:commit_all()
-    " Rebase interactively
-    norm ri
+    let Rebase_interactive = 'norm ri'
+    exe Rebase_interactive
     return
   endif
 
@@ -104,7 +104,8 @@ function! s:commit_all(...) abort "{{{3
     if is_confirmed !~? 'y\%[es]'
       echon "\nAbort git-commit"
       call search('^Staged (\d\+)$', 'w')
-      norm u
+      let Unstage_all = 'norm U'
+      exe Unstage_all
       call winrestview(save_view)
       return 0
     endif
@@ -113,8 +114,8 @@ function! s:commit_all(...) abort "{{{3
   let msg = a:0 > 0 ? a:1 : '[TMP] RESET to the HEAD after all'
   exe 'Git commit -m "' msg '"'
 
-  " Go to Unpushed section
-  norm gp
+  let Go_to_Unpushed_section = 'norm gp'
+  exe Go_to_Unpushed_section
 
   " Note: winrestview() here is meaningless because lines made of lists of
   " uncommited files/directories will disappear after committing.
