@@ -3,6 +3,9 @@ let s:save_cpo = &cpo
 set cpo&vim
 "}}}
 
+let g:sensible_split#gf#preview_mods_vertical   = 'bot'
+let g:sensible_split#gf#preview_mods_horizontal = 'bot'
+
 let g:sensible_split#gf#preview_winwidth_vertical   = '&tw > 0 ? &tw + 2 : 80'
 let g:sensible_split#gf#preview_winheight_horizontal = '&lines / 2'
 
@@ -32,7 +35,9 @@ endfunction
 function! s:preview(open) abort
   pclose
 
-  let mods = 'bot'
+  let mods = a:open ==# 'vsplit'
+        \ ? g:sensible_split#gf#preview_mods_vertical
+        \ : g:sensible_split#gf#preview_mods_horizontal
   exe mods 'G'. a:open expand('<cword>')
 
   if a:open =~# 'vsplit'
