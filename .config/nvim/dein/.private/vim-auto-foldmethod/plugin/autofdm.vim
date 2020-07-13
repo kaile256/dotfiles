@@ -1,4 +1,7 @@
-au BufWinEnter * call s:update_foldmethod()
+augroup autofdm
+  au!
+  au BufWinEnter * call s:update_foldmethod()
+augroup END
 
 function! s:update_foldmethod()
   if !&foldenable | return | endif
