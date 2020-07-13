@@ -41,6 +41,7 @@ on_map = {nx = '<Plug>(Limelight'}
 on_cmd = 'Limelight'
 hook_add = 'runtime add/limelight.vim'
 hook_source = 'runtime source/limelight.vim'
+hook_post_source = 'runtime post/limelight.vim'
 [[plugins]]
 repo = 'machakann/vim-highlightedyank'
 # coc's highlight on yank sometimes leaves the highlight after the role.

@@ -1,6 +1,7 @@
 " TOML: appearance.toml
 " Repo: junegunn/limelight.vim
 " Another: source/limelight.vim
+" Another: post/limelight.vim
 
 " Note:
 " Bang to disable; ':Limelight!!' to toggle.
