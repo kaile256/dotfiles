@@ -16,6 +16,7 @@ tnoremap <script> <c-space><c-space> <SID>(highlight-off)
 " Produce no terminfo-sequences
 tnoremap <C--> -
 tnoremap <c-cr> <cr>
+tnoremap <S-Space> <space>
 
 " Register {{{1
 " Note: Put as in Insert Mode
