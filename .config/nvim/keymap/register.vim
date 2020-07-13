@@ -1,5 +1,8 @@
 " From: init.vim
 
+nmap <space> "_
+xmap <space> "_
+
 nmap <CR> "
 xmap <CR> "
 
@@ -47,20 +50,6 @@ omap <silent><expr> k
       \     ? 'd'. (line('.') == line('$') ? 'k' : 'kk')
       \         .':silent! call repeat#set("dk")<CR>'
       \     : 'k'
-
-" Note: Not so often you want to delete words into clipboard.
-nnoremap <space>x "_x
-nnoremap <space>X "_X
-
-nnoremap <space>d "_d
-nnoremap <space>D "_D
-nnoremap <space>c "_c
-nnoremap <space>C "_C
-
-xnoremap <space>d "_d
-xnoremap <space>D "_D
-xnoremap <space>c "_c
-xnoremap <space>C "_C
 
 " nnoremap <expr> d (v:register ==# '"') ? '"_d' : 'd'
 " nnoremap <expr> D (v:register ==# '"') ? '"_D' : 'D'
