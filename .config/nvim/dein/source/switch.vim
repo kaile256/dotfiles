@@ -22,6 +22,10 @@ let g:switch_custom_definitions += [
       \ ]
 
 let g:switch_custom_definitions += [
+      \ ['horizontal', 'vertical'],
+      \ ]
+
+let g:switch_custom_definitions += [
       \ [
       \   'foo',   'bar',    'baz',    'qux', 'quux',
       \   'corge', 'grault', 'garply', 'waldo',
