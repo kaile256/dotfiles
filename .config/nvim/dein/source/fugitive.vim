@@ -103,7 +103,6 @@ function! s:commit_all(...) abort "{{{3
     let is_confirmed = input('Commit all the files at "'. branch .'"? y[es]/n[o]: ')
     if is_confirmed !~? 'y\%[es]'
       echon "\nAbort git-commit"
-      call search('^Staged (\d\+)$', 'w')
       let Unstage_all = 'norm U'
       exe Unstage_all
       call winrestview(save_view)
