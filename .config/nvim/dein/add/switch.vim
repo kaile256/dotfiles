@@ -30,8 +30,8 @@ let s:definitions['vim'] = [
       \ },
       \
       \ {
-      \   'substitute(\(.*\))': 'matchstr(\1)',
-      \   'matchstr(\(.*\))': 'substitute(\1)',
+      \   '\vsubstitute\((.*), .{-}, .{-}\)': 'matchstr(\1)',
+      \   '\vmatchstr\((.{-}, .{-})\)': "substitute(\\1, '', '')",
       \ },
       \
       \ ['==', '!='],
