@@ -36,6 +36,7 @@ let s:definitions['vim'] = [
       \ ['nnoremap', 'xnoremap', 'onoremap'],
       \ ['inoremap', 'cnoremap', 'tnoremap'],
       \
+      \ ['if', 'elseif'],
       \ ['finish', 'return'],
       \
       \ ['<silent>', '<script>'],
