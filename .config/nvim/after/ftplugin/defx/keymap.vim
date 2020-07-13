@@ -3,6 +3,8 @@
 " Another: add/defx.vim
 " Another: post/defx.vim
 
+nnoremap <silent> U :<C-u> call defx#redraw() <CR>
+
 " Explore {{{1
 " Explore; hjkl {{{2
 nnoremap <silent><nowait><buffer> gg :2<cr>
