@@ -6,6 +6,9 @@ augroup myAugroups
   " AutoWinResize "{{{1
   au VimResized * wincmd =
 
+  au BufEnter */dotfiles/*vifm/* set modelineexpr
+  au BufLeave */dotfiles/*vifm/* set nomodelineexpr
+
   " Open QuickFix on some commands {{{1
   " FIXME: Close the window where cursor has gone.
   au QuickFixCmdPost cexpr :bot copen | au WinLeave <buffer> :cclose
