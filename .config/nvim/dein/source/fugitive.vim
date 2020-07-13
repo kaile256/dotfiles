@@ -84,11 +84,9 @@ function! s:git_rebase() abort "{{{3
   if s:commit_all()
     let Rebase_interactive = 'norm ri'
     exe Rebase_interactive
-    return
+  else
+    echo 'Abort git-rebase'
   endif
-
-  echo 'Abort git-rebase'
-  return
 endfunction
 
 function! s:commit_all(...) abort "{{{3
