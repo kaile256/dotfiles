@@ -93,6 +93,7 @@ endfunction
 
 function! s:commit_all(...) abort "{{{3
   let save_view = winsaveview()
+  let hash_on_cursor = matchstr(getline('.'), '^\x\{6,}\ze ')
   " " TBC: Without reset to HEAD, it may fail to restore?
   " Git reset HEAD
   Git add --all
@@ -115,6 +116,10 @@ function! s:commit_all(...) abort "{{{3
 
   let Go_to_Unpushed_section = 'norm gp'
   exe Go_to_Unpushed_section
+
+  if hash_on_cursor !=# ''
+    call search(hash_on_cursor, 'Wc')
+  endif
 
   " Note: winrestview() here is meaningless because lines made of lists of
   " uncommited files/directories will disappear after committing.
