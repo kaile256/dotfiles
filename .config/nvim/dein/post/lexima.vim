@@ -129,6 +129,12 @@ let g:lexima#default_rules += [
       \ {'char': '<BS>', 'at': '`\%#`',  'delete': 1},
       \ ]
 
+let g:lexima#default_rules += [
+      \ {'char': '<BS>', 'at': '(\%#),',  'input': '<BS><C-g>U<Del><C-g>U<Del>'},
+      \ {'char': '<BS>', 'at': '{\%#},',  'input': '<BS><C-g>U<Del><C-g>U<Del>'},
+      \ {'char': '<BS>', 'at': '\[\%#],', 'input': '<BS><C-g>U<Del><C-g>U<Del>'},
+      \ ]
+
 " Note: The '.' in `:s/pattern/` is required for <C-u>.
 " Note: s:remove_close . '<C-w>' fails to insert again to <C-w>.
 let s:following_ends = '\%#[a-zA-Z \t_]*\zs\s\{-}[\]})>''"`,]*'
