@@ -22,6 +22,11 @@ let s:definitions['sh'] = [
       \ ]
 
 let s:definitions['vim'] = [
+      \ {
+      \   's:\(\h\w\+\)': '<SID>\1',
+      \   '<SID>\(\h\w\+\)': 's:\1',
+      \ },
+      \
       \ ['==', '!='],
       \ ['\\zs', '\\ze'],
       \
