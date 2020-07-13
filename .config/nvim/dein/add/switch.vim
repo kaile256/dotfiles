@@ -37,6 +37,12 @@ let s:definitions['vim'] = [
       \
       \ ['plugin/', 'autoload/'],
       \ ['add/', 'source/', 'post/'],
+      \
+      \ {
+      \   '\(\a\+\)enter\c': '\1Leave',
+      \   '\(\a\+\)leave\c': '\1Enter',
+      \ },
+      \
       \ ]
 
 let s:definitions['gitcommit'] = [
