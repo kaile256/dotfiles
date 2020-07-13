@@ -62,7 +62,7 @@ function! s:fugitive_keymap() abort "{{{3
   " Mnemonic: Commit Everything (cA is predefined to squash! and edit the msg)
   nnoremap <silent><buffer> cE :<C-u>call <SID>commit_all()<CR>
   " Mnemonic: Commit Interactive
-  nnoremap <silent><buffer> rI :<C-u>call <SID>git_rebase()<CR>
+  nnoremap <silent><buffer> ri :<C-u>call <SID>git_rebase('i')<CR>
 endfunction
 
 function! s:gitcommit_keymap() abort "{{{3
@@ -80,10 +80,10 @@ function! s:gitcommit_keymap() abort "{{{3
   nnoremap <script> <c-w><c-o> <SID>(winonly-careful)
 endfunction
 
-function! s:git_rebase() abort "{{{3
+function! s:git_rebase(key) abort "{{{3
   if s:commit_all()
-    let Rebase_interactive = 'norm ri'
-    exe Rebase_interactive
+    let Rebase = 'norm r'. a:key
+    exe Rebase
   else
     echo 'Abort git-rebase'
   endif
