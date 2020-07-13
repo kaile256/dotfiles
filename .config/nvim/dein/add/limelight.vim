@@ -20,6 +20,6 @@ augroup myLimelightAdd-autoToggle
   au BufEnter *.txt if &ft =~# 'help' && &readonly | Limelight  | endif
   au BufLeave *.txt if &ft =~# 'help' && &readonly | Limelight! | endif
 
-  au BufEnter .git/index :Limelight
-  au BufLeave .git/index :Limelight!
+  au BufEnter *.git/index :Limelight
+  au BufLeave *.git/index :Limelight!
 augroup END
