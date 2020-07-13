@@ -23,6 +23,9 @@ nnoremap <buffer> o i
 nnoremap <expr><buffer> i <SID>start_insert('i')
 nnoremap <expr><buffer> a <SID>start_insert('a')
 
+nnoremap <expr><buffer> s <SID>start_insert("\<Del>")
+nnoremap <expr><buffer> S <SID>start_insert("\<BS>")
+
 nnoremap <buffer> I i<Home>
 " Note: <End> could complete cmdline on fish.
 nnoremap <buffer> A i<End>
