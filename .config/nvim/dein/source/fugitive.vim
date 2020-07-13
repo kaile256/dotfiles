@@ -94,8 +94,6 @@ endfunction
 function! s:commit_all(...) abort "{{{3
   let save_view = winsaveview()
   let hash_on_cursor = matchstr(getline('.'), '^\x\{6,}\ze ')
-  " " TBC: Without reset to HEAD, it may fail to restore?
-  " Git reset HEAD
   Git add --all
 
   let has_uncommitted = search('^Staged (\d\+)$', 'wn') > 0
