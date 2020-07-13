@@ -17,7 +17,9 @@ let s:definitions['sh'] = [
       \ },
       \
       \ {
-      \   'fi\n\s*if':  'elif',
+      \   '\<if\>':    'elif',
+      \   '\<elif\>':  'if',
+      \   'fi\n\s*if': 'elif',
       \ },
       \ ]
 
