@@ -29,6 +29,11 @@ let s:definitions['vim'] = [
       \   '<SID>\(\h\w\+\)': 's:\1',
       \ },
       \
+      \ {
+      \   'substitute(\(.*\))': 'matchstr(\1)',
+      \   'matchstr(\(.*\))': 'substitute(\1)',
+      \ },
+      \
       \ ['==', '!='],
       \ ['\\zs', '\\ze'],
       \
