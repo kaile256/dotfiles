@@ -103,9 +103,8 @@ settings:
         <Alt+k>: leave-mode
         <Alt+u>: rl-yank
         <Ctrl+d>: rl-delete-char
-        <Ctrl+j>: completion-item-focus next
-        <Ctrl+k>: completion-item-focus prev
         <Ctrl+n>: command-history-next
+        <Ctrl+o>: completion-item-focus prev
         <Ctrl+p>: command-history-prev
         <Ctrl+r>: fake-key <ctrl-v>
         <Ctrl+r><Ctrl+Space>: fake-key <ctrl-v>
