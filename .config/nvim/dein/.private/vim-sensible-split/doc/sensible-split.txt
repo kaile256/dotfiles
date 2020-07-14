@@ -1,0 +1,30 @@
+*sensible-split.txt*
+
+Version: 1.0.0
+Author: kaile256 <kaile256acc at gmail.com>
+License: MIT license
+
+==============================================================================
+CONTENTS					       *sensible-split-contents*
+
+Introduction		|sensible-split-introduction|
+Interface		|sensible-split-interface|
+	variable		|sensible-split-variable|
+	function		|sensible-split-function|
+	command			|sensible-split-command|
+
+==============================================================================
+VARIABLE					       *sensible-split-variable*
+
+				 *g:sensible_split#gf#preview_winwidth_vertical*
+g:sensible_split#gf#preview_winwidth_vertical
+	(default: '&tw > 0 ? &tw + 2 : 80')
+	Set |Number| or {expr} in |String|.
+
+			      *g:sensible_split#gf#preview_winheight_horizontal*
+g:sensible_split#gf#preview_winheight_horizontal
+	(default: '&lines / 2')
+	Set |Number| or {expr} in |String|.
+
+==============================================================================
+vim:ft=help:tw=78:ts=8:sts=8:sw=8:norl:noet:fen
