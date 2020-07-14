@@ -123,6 +123,17 @@ call denite#custom#source('file/rec',
 " Default Actions {{{1
 "call denite#custom#kind('file', 'default_action', 'split')
 
+" augroup myDenite-ManageTabline "{{{1
+"   au!
+"   au BufWinEnter          denite-filter let s:save_tabline = &l:tabline
+"   au BufLeave,BufWinLeave denite-filter let &l:tabline = s:save_tabline
+"   au BufEnter,BufWinEnter denite-filter call s:denite_filter_options()
+"   function! s:denite_filter_options() abort
+"     " FIXME: without [ERROR]
+"     setlocal tabline=%{denite#get_status('input')}
+"   endfunction
+" augroup END
+
 augroup myDenitePost "{{{1
   if exists('#myDenitePost') | au! myDenitePost
   endif

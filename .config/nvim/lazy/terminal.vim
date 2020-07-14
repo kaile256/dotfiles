@@ -11,7 +11,7 @@ function! s:start_insert(type) abort
   let is_in_promptline = line('.') == search('\%#.*\n*\%$', 'bcnW', line('w0'))
   let pat_prompts = [
         \ 'y\%[es]/n\%[o]',
-        \ '==> [N]one [A]ll [Ab]ort [I]nstalled [No]tInstalled',
+        \ '==> \[N]one \[A]ll \[Ab]ort \[I]nstalled \[No]tInstalled.*\(\n==>\)\?',
         \ '^Enter .*:',
         \ ]
   let pat_prompts_str = '\('. join(pat_prompts, '\|') .'\)'
