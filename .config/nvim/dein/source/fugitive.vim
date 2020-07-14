@@ -111,7 +111,7 @@ function! s:commit_all(...) abort "{{{3
     endif
   endif
 
-  let msg = a:0 > 0 ? a:1 : '[TMP] RESET to the HEAD after all'
+  let msg = a:0 > 0 ? a:1 : '[TMP] RESET to HEAD^ after all'
   exe 'Git commit -m "' msg '"'
 
   let Go_to_Unpushed_section = 'norm gp'
