@@ -161,7 +161,6 @@ PACKAGEs=(
   gufw  # a simple firewall
   ccls # Language-Server for C, C++, Object-C
   clamav  # a security service of anti-virus, works on systemctl. update the virus-definetions by `freshclam`, which can also run on systemctl
-  clang
   clipgrab # a video downloader
   cmake
   #cquery-git # LSP for C/C++/Obj-C, available on coc.nvim
@@ -179,7 +178,7 @@ PACKAGEs=(
   multibootusb # to create live usb
   neovim-nightly
   neovim-qt-git # non-git ver. has a bug, missing its depending lib.
-  nerd-fonts-complete
+  # nerd-fonts-complete
   #nerd-fonts-ricty # unavailable
   #brew-git # a pkgm for macOS (or Linux)
   ninja # a build system for clang
