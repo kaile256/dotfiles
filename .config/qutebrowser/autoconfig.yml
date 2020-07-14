@@ -142,6 +142,7 @@ settings:
         <Alt+y>: yank selection
         <Ctrl+Alt+,>: fake-key <Ctrl+alt+,>
         <Ctrl+Alt+v>: fake-key <shift-ctrl-left>
+        <Ctrl+Shift+[>: fake-key <Escape>
         <Ctrl+Shift+n>: <Alt-down>
         <Ctrl+Shift+p>: fake-key <alt-up>
         <Ctrl+a>: fake-key <Home>
