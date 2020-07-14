@@ -157,7 +157,7 @@ PACKAGEs=(
   atool # compress/extract files detecting automaticcaly
   bash-completion
   blacklist_pcspkr # make sure to disable beep
-  cargo  # select rustup
+  rustup
   gufw  # a simple firewall
   ccls # Language-Server for C, C++, Object-C
   clamav  # a security service of anti-virus, works on systemctl. update the virus-definetions by `freshclam`, which can also run on systemctl
