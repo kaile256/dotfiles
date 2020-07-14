@@ -115,6 +115,7 @@ create_symlink() {
     if ! readlink "$dest" >/dev/null 2>&1 && ! rmdir "$dest"; then
       notify_msg "Abort -- \"$dest\" existed; the path is in clipboard"
       echo -n "$dest" | xclip -selection clipboard
+      cd "$dest" && ls -a "$dest"
       exit 1
     fi
   fi
