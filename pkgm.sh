@@ -194,7 +194,7 @@ PACKAGEs=(
   qtqr # generate/decode QR codes
   rclone  # sync lib for cloud-service like dropbox, Gdrive.
   ripgrep
-  rvm # Ruby version manager; install it instead of ruby directly
+  ruby # rvm (Ruby version manager) is out of $PATH.
   #rxvt-unicode-truecolor # broken; instead, use https://github.com/illef/rxvt-unicode-truecolor-illef: installed in THE OTHERS
   screenkey-git # display typed-key; useful w/ peek
   shellcheck  # a linter for shell
