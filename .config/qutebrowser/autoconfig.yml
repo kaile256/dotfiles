@@ -387,7 +387,9 @@ settings:
   content.mute:
     global: false
   content.notifications:
-    https://www.reddit.com: false
+    https://app.clickup.com: true
+    https://calendar.google.com: true
+    https://www.reddit.com: true
   content.pdfjs:
     global: true
   content.plugins:
