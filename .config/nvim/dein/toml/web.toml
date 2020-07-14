@@ -39,6 +39,7 @@ repo = 'glacambre/firenvim'
 on_func = 'firenvim#'
 build = '''
 npm install
+npm audit fix
 npm run build
 npm run install_manifests # do firenvim#install(0) inside.
 '''
