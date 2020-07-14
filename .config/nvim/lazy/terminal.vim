@@ -39,6 +39,7 @@ function! s:start_insert(type) abort
   return Startinsert .. a:type
 endfunction
 
+nnoremap <buffer> gi i
 nnoremap <buffer> o i
 
 nnoremap <expr><buffer> i <SID>start_insert('i')
