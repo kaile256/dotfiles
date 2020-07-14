@@ -7,7 +7,7 @@ if &bt !=# 'terminal' | finish | endif
 syn match yayInstalling 'Installing \zs.*\ze\.\.\.'
 hi! link yayInstalling Title
 
-function! s:start_insert(type) abort
+function! s:start_insert(key_seq) abort
   let prompt_marker = '⟩'
   let pat_prompt_line = prompt_marker .'.*\%#.*\n*\%$'
   let is_in_promptline = line('.') == search(pat_prompt_line, 'bcnW', line('w0'))
@@ -28,15 +28,15 @@ function! s:start_insert(type) abort
   endif
 
   let len = col('$') - col('.')
-  if a:type ==# 'a'
+  if a:key_seq ==# 'a'
     let len -= 1
   endif
   let Startinsert = "i\<End>". repeat("\<Left>", len)
 
-  if a:type =~# '[ia]'
+  if a:key_seq =~# '[ia]'
     return Startinsert
   endif
-  return Startinsert .. a:type
+  return Startinsert .. a:key_seq
 endfunction
 
 nnoremap <buffer> gi i
