@@ -8,7 +8,9 @@ syn match yayInstalling 'Installing \zs.*\ze\.\.\.'
 hi! link yayInstalling Title
 
 function! s:start_insert(type) abort
-  let is_in_promptline = line('.') == search('\%#.*\n*\%$', 'bcnW', line('w0'))
+  let prompt_marker = '⟩'
+  let pat_prompt_line = prompt_marker .'.*\%#.*\n*\%$'
+  let is_in_promptline = line('.') == search(pat_prompt_line, 'bcnW', line('w0'))
   let pat_prompts = [
         \ 'y\%[es]/n\%[o]',
         \ '==> \[N]one \[A]ll \[Ab]ort \[I]nstalled \[No]tInstalled.*\(\n==>\)\?',
