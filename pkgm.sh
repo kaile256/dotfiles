@@ -23,7 +23,7 @@ PACKAGEs=(
   # neovide-git # Neovim GUI written in Rust; cursor moves too slow.
   #otf-hasklig # low-heigh fonts
   #otf-operator-mono-nerd # too bold to read on Neovim-qt
-  nerd-fonts-jetbrains-mono #
+  nerd-fonts-jetbrains-mono
   #nerd-fonts-victor-mono # too thin to read on Neovim-qt
   cling # cpp's interpretor; required for REPL. Install the default.
   st # a terminal emulater lighter than urxvt/xterm
