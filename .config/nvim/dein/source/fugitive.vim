@@ -62,10 +62,11 @@ function! s:fugitive_keymap() abort "{{{3
   " Mnemonic: Commit Everything (cA is predefined to squash! and edit the msg)
   nnoremap <silent><buffer> cE :<C-u>call <SID>commit_all()<CR>
 
-  nnoremap <silent><buffer> ri :<C-u>call <SID>git_rebase('i')<CR>
-  nnoremap <silent><buffer> rd :<C-u>call <SID>git_rebase('d')<CR>
-  nnoremap <silent><buffer> re :<C-u>call <SID>git_rebase('e')<CR>
-  nnoremap <silent><buffer> rw :<C-u>call <SID>git_rebase('w')<CR>
+  " raw mappings without <space> would be recursive mappings inside the func.
+  nnoremap <silent><buffer> <space>ri :<C-u>call <SID>git_rebase('i')<CR>
+  nnoremap <silent><buffer> <space>rd :<C-u>call <SID>git_rebase('d')<CR>
+  nnoremap <silent><buffer> <space>re :<C-u>call <SID>git_rebase('e')<CR>
+  nnoremap <silent><buffer> <space>rw :<C-u>call <SID>git_rebase('w')<CR>
 endfunction
 
 function! s:gitcommit_keymap() abort "{{{3
