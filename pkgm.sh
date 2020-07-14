@@ -16,6 +16,8 @@ set -Cue #{{{
 # Preferences:
 #   ntp: sync time
 PACKAGEs=(
+  google-chrome
+  fcitx-mozc-ut-unified # Input Method in Japanese.
   ttf-migu # font for Japanese, used in Nerd font, too.
   ttf-junicode # font of runic alphabet, esp. for bluetooth's detection on polybar.
   pulseaudio-modules-bt-git # pulseaudio with bluetooth support
