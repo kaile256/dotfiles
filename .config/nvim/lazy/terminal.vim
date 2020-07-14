@@ -8,11 +8,25 @@ syn match yayInstalling 'Installing \zs.*\ze\.\.\.'
 hi! link yayInstalling Title
 
 function! s:start_insert(type) abort
+  let pat_prompts = [
+        \ 'y\%[es]/n\%[o]',
+        \ '==> [N]one [A]ll [Ab]ort [I]nstalled [No]tInstalled',
+        \ '^Enter .*:',
+        \ ]
+  let pat_prompts_str = join(pat_prompts, '\|')
+  if getline('.') !=# ''
+    let pat_prompts_str .= '.*\n*\%$'
+  endif
+
+  let startinsert = 'i'
+  if search(pat_prompts_str, 'nW')
+    return startinsert
+  endif
+
   let len = col('$') - col('.')
   if a:type ==# 'a'
     let len -= 1
   endif
-
   let startinsert = "i\<End>". repeat("\<Left>", len)
 
   if a:type =~# '[ia]'
