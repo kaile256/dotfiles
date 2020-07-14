@@ -229,7 +229,7 @@ nnoremap <silent> <space>gC :<c-u>GcommitBottom<cr>
 " Note: <space>cc/ca would be used to distinguish whether register should be
 " '_' or 'unnamed'.
 function! s:is_nothing_staged() abort
-  let git_root = shellescape(FindRootDirectory()) .'/.git'
+  let git_root = shellescape(FindRootDirectory() .'/.git')
   let git_diff_cached = system('git --git-dir='. git_root .' diff --cached')
   let is_nothing_staged = len(git_diff_cached) == 0
   return is_nothing_staged
