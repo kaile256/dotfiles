@@ -16,7 +16,10 @@ set -Cue #{{{
 # Preferences:
 #   ntp: sync time
 PACKAGEs=(
-  openshot-git # video editor; cross-platform for Linux, Mac and Windows
+  ttf-migu # font for Japanese, used in Nerd font, too.
+  ttf-junicode # font of runic alphabet, esp. for bluetooth's detection on polybar.
+  pulseaudio-modules-bt-git # pulseaudio with bluetooth support
+  # openshot-git # video editor; cross-platform for Linux, Mac and Windows
   #gifcurry # GIF editor; depends on gtk
   supercollider # Programming Language to create sounds
   boost # Cpp source libraries - development headers
@@ -259,6 +262,9 @@ GEMs=(
 )
 
 YARNs=(
+  ttf-migu # font for Japanese, used in Nerd font, too.
+  ttf-junicode # font of runic alphabet, esp. for bluetooth's detection on polybar.
+  prettier # formatter for Javascript, Markdown, etc.
   typescript
   ts-node
   intelephense # a LSP server for php
