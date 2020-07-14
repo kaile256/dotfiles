@@ -348,7 +348,7 @@ export install="${Install[$INSTALLER]}"
 echo "$INSTALLER will install package via '$install'"
 
 for p in "${PACKAGEs[@]}"; do
-  yay -Q "$p" >/dev/null 2>&1 || break
+  yay -Q "$p" >/dev/null 2>&1 && break
   echo "Installing $p..."
   $install "$p"
 done
