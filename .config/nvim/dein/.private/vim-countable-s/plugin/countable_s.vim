@@ -35,13 +35,20 @@ set cpo&vim
 " - default s/S isn't countable
 " - cl/ch only count range of motion
 " - xi/Xi isn't repeatable (only repeat 'i');
+" FIXME: repeat by '.' should start from 'x/X' but even with
+" repeat#set("\<Plug>(the-mapping)") fails to include 'x/X' and only repeat
+" inserted words.
 nnoremap <silent><expr> <Plug>(countable-s)
-      \ '<Esc>x'
+      \ ':<C-u>call repeat#set("\<Plug>(countable-s)")'
+      \ .'<Esc>x'
       \ .':<C-u> undojoin<CR>'. v:count1
       \ . (col('.') == col('$') - 1 ? 'a' : 'i')
+      \ ."\<C-g>U"
 nnoremap <silent><expr> <Plug>(countable-S)
-      \ '<Esc>X'
+      \ ':<C-u>call repeat#set("\<Plug>(countable-S)")'
+      \ .'<Esc>X'
       \ .':<C-u> undojoin<CR>'. v:count1 . 'i'
+      \ ."\<C-g>U"
 
 silent! nmap <unique> s <Plug>(countable-s)
 silent! nmap <unique> S <Plug>(countable-S)
