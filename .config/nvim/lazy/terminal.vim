@@ -20,21 +20,21 @@ function! s:start_insert(type) abort
   endif
   let is_answer_required = search(pat_prompts_str, 'bcnW')
 
-  let startinsert = 'i'
+  let Startinsert = 'i'
   if !is_in_promptline || is_answer_required
-    return startinsert
+    return Startinsert
   endif
 
   let len = col('$') - col('.')
   if a:type ==# 'a'
     let len -= 1
   endif
-  let startinsert = "i\<End>". repeat("\<Left>", len)
+  let Startinsert = "i\<End>". repeat("\<Left>", len)
 
   if a:type =~# '[ia]'
-    return startinsert
+    return Startinsert
   endif
-  return startinsert .. a:type
+  return Startinsert .. a:type
 endfunction
 
 nnoremap <buffer> o i
