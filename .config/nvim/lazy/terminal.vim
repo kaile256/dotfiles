@@ -4,6 +4,9 @@
 
 if &bt !=# 'terminal' | finish | endif
 
+syn match yayInstalling 'Installing \zs.*\ze\.\.\.'
+hi! link yayInstalling Title
+
 function! s:start_insert(type) abort
   let len = col('$') - col('.')
   if a:type ==# 'a'
