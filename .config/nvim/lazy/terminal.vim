@@ -14,7 +14,7 @@ function! s:start_insert(type) abort
         \ '==> [N]one [A]ll [Ab]ort [I]nstalled [No]tInstalled',
         \ '^Enter .*:',
         \ ]
-  let pat_prompts_str = join(pat_prompts, '\|')
+  let pat_prompts_str = '\('. join(pat_prompts, '\|') .'\)'
   if getline('.') !=# ''
     let pat_prompts_str .= '.*\n*\%$'
   endif
