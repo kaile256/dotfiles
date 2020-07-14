@@ -18,9 +18,10 @@ function! s:start_insert(type) abort
   if getline('.') !=# ''
     let pat_prompts_str .= '.*\n*\%$'
   endif
+  let is_answer_required = search(pat_prompts_str, 'bcnW')
 
   let startinsert = 'i'
-  if !is_in_promptline || search(pat_prompts_str, 'bcnW')
+  if !is_in_promptline || is_answer_required
     return startinsert
   endif
 
