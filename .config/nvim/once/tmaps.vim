@@ -6,6 +6,10 @@
 "" Note: currently no use, why?
 "tnoremap <expr> : (getline('.')[col('.')] ==# ' ' && getline('.')[col('.') - 2] ==# ' ')? '<c-\><c-n>:' : ':'
 
+" Most of prompts which ask passwords, yes/no and so on doesn't interpret <C-h>
+" as <BS> but `^H` would be inserted instead.
+tnoremap <C-h> <BS>
+
 " col is different than in Normal mode (it may depend on the prompt width)
 tnoremap <expr> ? (getline('.')[col('.')] ==# '~') ? '/' : '?'
 
