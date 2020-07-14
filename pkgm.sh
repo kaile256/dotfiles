@@ -161,7 +161,6 @@ PACKAGEs=(
   ccls # Language-Server for C, C++, Object-C
   clamav  # a security service of anti-virus, works on systemctl. update the virus-definetions by `freshclam`, which can also run on systemctl
   clipgrab # a video downloader
-  cmake
   #cquery-git # LSP for C/C++/Obj-C, available on coc.nvim
   dasht  # help?
   debtap # .deb even in arch!
