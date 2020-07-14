@@ -136,8 +136,6 @@ PACKAGEs=(
   #conky-lua-archers
   #android-studio # the official IDE for Android
   #crazydiskinfo # no use for NVMe. detects HDD/SSD through S.M.A.R.T; you know TBW(Tera Byte Written)?
-  #fcitx-qt5
-  #fcitx5-qt5-git  # Libraries for fcitx-qt5, too long to install
   #gendesk # what?
   #jinja2 # for neovim-qt
   #jre # Java Runtime Environment, required by vim-gramarous; choose default
@@ -194,7 +192,6 @@ PACKAGEs=(
   pyenv
   qemu # for multibootusb
   qtqr # generate/decode QR codes
-  ranger # a vim-binding file explorer
   rclone  # sync lib for cloud-service like dropbox, Gdrive.
   ripgrep
   rvm # Ruby version manager; install it instead of ruby directly
@@ -262,8 +259,6 @@ GEMs=(
 )
 
 YARNs=(
-  ttf-migu # font for Japanese, used in Nerd font, too.
-  ttf-junicode # font of runic alphabet, esp. for bluetooth's detection on polybar.
   prettier # formatter for Javascript, Markdown, etc.
   typescript
   ts-node
