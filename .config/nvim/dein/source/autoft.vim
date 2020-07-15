@@ -20,11 +20,11 @@ delfunction s:convert_config
 
 let g:loaded_autoft = 1
 augroup autoft
-  au!
   au TextChanged,InsertLeave * call s:autoft()
 augroup END
 
 function! s:autoft() abort
+  if &bt !=# '' | return | endif
   if &ft !=# '' | return | endif
   silent! call autoft#set()
 endfunction
