@@ -452,7 +452,9 @@ settings:
     global: 11pt JetBrainsMonoMedium Nerd Font, icons
   fonts.statusbar:
     global: 11pt JetBrainsMonoMedium Nerd Font, icons
-  fonts.tabs:
+  fonts.tabs.selected:
+    global: bold 11pt JetBrainsMonoMedium Nerd Font, icons
+  fonts.tabs.unselected:
     global: bold 11pt JetBrainsMonoMedium Nerd Font, icons
   fonts.web.family.cursive:
     global: JetBrainsMonoMedium Nerd Font, icons
