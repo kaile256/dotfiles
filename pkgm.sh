@@ -370,12 +370,14 @@ for p in "${PACKAGEs[@]}"; do
 
   echo
   echo -ne "Install ${green}$p${white} [y/n]? "
-  read answer
+  read -r answer
 
-  if echo $answer -eq | $grep -i --quiet "^y"; then
-    $install "$p" \
-      && notify "$p was installed!" \
-      || notify "Abort installing $p"
+  if echo "$answer" -eq | $grep -i --quiet "^y"; then
+    if $install "$p"; then
+      notify "$p was installed!"
+    else
+      notify "Abort installing $p"
+    fi
   fi
 done
 
