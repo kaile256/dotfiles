@@ -36,7 +36,6 @@
   "suggest.detailMaxLength": 20,
   "suggest.floatEnable": true,
   // "suggest.minTriggerInputLength": 1,
-  // "suggest.triggerAfterInsertEnter": true,
   "suggest.autoTrigger": "always",
   "suggest.acceptSuggestionOnCommitCharacter": true,
   "suggest.noselect": true,
