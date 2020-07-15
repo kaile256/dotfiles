@@ -54,6 +54,20 @@ nnoremap <buffer> I i<Home>
 " Note: <End> could complete cmdline on fish.
 nnoremap <buffer> A i<End>
 
+function! s:truncate_register() abort
+  return substitute(getreg(v:register), '^\s*', '', '')
+endfunction
+nnoremap <buffer><expr> p
+      \ <SID>is_modifeir_key_disallowed() ? 'p' :
+      \ <SID>is_in_promptline()
+      \ ? <SID>start_insert("\<Right>". getreg(v:register) ."\<C-\>\<C-n>")
+      \ : "i". <SID>truncate_register() ." \<C-\>\<C-n>"
+nnoremap <buffer><expr> P
+      \ <SID>is_modifeir_key_disallowed() ? 'P' :
+      \ <SID>is_in_promptline()
+      \ ? <SID>start_insert(getreg(v:register) ."\<C-\>\<C-n>")
+      \ : "i". <SID>truncate_register() ."\<C-\>\<C-n>"
+
 nnoremap <buffer> d <c-d>
 nnoremap <buffer> u <c-u>
 
