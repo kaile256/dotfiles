@@ -76,9 +76,8 @@ hook_post_source = 'runtime post/textobj-entire.vim'
 [[plugins]]
 repo = 'saaguero/vim-textobj-pastedtext'
 # Note: no use because it is mapped after the plugin is loaded.
-#on_map = '<Plug>(textobj-pastedtext'
-on_event = 'TextChanged'
-hook_source = 'runtime source/textobj-pastedtext.vim'
+on_map = {ox = '<Plug>(textobj-pastedtext-text)'}
+hook_add = 'runtime add/textobj-pastedtext.vim'
 [[plugins]]
 repo = 'amerlyq/vim-textobj-keyvalue'
 on_map = {ox = ['<Plug>(textobj-key-', '<Plug>(textobj-value-']}
