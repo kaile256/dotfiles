@@ -52,8 +52,6 @@ nmap cP <Plug>(move-line-forward)
 nmap yp <Plug>(copy-line-backward)
 nmap yP <Plug>(copy-line-forward)
 
-if exists('#myAfterYank') | au! myAfterYank
-endif
 augroup myAfterYank
   au TextYankPost * call s:echo_operated()
   " TODO: keep cursor after yank

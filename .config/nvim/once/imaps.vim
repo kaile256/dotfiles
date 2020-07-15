@@ -248,9 +248,6 @@ inoremap <c-w> <c-g>u<c-w>
 "inoremap <c-q> <c-g>u<c-q>
 "inoremap <c-v> <c-g>u<c-v>
 
-
-if exists('#myImapsOnce') | au! myImapsOnce
-endif
 augroup myImapsOnce
   au FileType html,markdown inoremap <buffer> , ,<c-g>u
   au FileType html,markdown inoremap <buffer> . .<c-g>u

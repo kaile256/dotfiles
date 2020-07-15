@@ -2,8 +2,6 @@
 " Repo: flazz/vim-colorschemes
 " Another: source/colorschemes.vim
 
-if exists('#myColorschemesPost') | au! myColorschemesPost
-endif
 augroup myColorschemesPost
   au VimEnter * ++nested call s:set_colorscheme()
   " set variables on the colorscheme

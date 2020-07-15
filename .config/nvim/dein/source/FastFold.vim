@@ -4,8 +4,6 @@
 
 let g:fastfold_fold_command_suffixes = ['v','r','R','x','X','a','A','o','O','c','C']
 
-if exists('#myFastFoldSource') | au! myFastFoldSource
-endif
 augroup myFastFoldSource
   " TODO: make the fold treatment work
   "au BufNew * call s:tidy_buffer() "{{{1

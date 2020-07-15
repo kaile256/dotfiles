@@ -1,5 +1,3 @@
-if exists('#myFtdetect') | au! myFtDetect
-endif
 augroup myFtDetect
   au BufNewFile,BufRead {.Xresources.d,X11}**/* setlocal ft=xdefaults
 

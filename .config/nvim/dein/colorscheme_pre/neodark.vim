@@ -4,8 +4,6 @@
 " Ref: source/colorschemes.vim
 " Another: source/neodark.vim
 
-if exists('#myNeodark') | au! myNeodark
-endif
 augroup myNeodark
   au Colorscheme neodark ++nested call s:my_neodark()
 augroup END

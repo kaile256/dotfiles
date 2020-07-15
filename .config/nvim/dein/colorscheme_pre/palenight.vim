@@ -3,8 +3,6 @@
 " Ref: post/coloschemes.vim
 " Ref: source/coloschemes.vim
 "
-if exists('#myPalenight') | au! myPalenight
-endif
 augroup myPalenight
   au Colorscheme palenight ++nested call s:my_palenight()
 augroup END

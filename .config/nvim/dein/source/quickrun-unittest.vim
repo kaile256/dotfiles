@@ -34,8 +34,6 @@ let g:quickrun_config['javascript.mocha'] = {
 let g:quickrun_config['javascript.jest'] = {
       \ 'command': 'jest'  }
 
-if exists('#QuickRunUnitTest') | au! myQuickrunUnitTestSource
-endif
 augroup myQuickrunUnitTestSource "{{{1
   au BufWinEnter,BufNewFile *test.php setl filetype=php.unit
   " Note: need to choose UnitTest, py.test or Django.

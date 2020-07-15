@@ -11,8 +11,6 @@ set path=./**,/etc
 set isfname-=,
 set isfname-==
 
-if exists('#myFindPathRc') | au! myFindPathRc
-endif
 augroup myFindPathRc
   au FileType sh setl path^=/usr/bin/
   "au FileType java   setl path^=/usr/lib/jvm/

@@ -59,9 +59,6 @@ if has('nvim')
   set shada='1000,<50,h,s10,
 
   augroup myAutoWriteShada
-    if exists('#myAutoWriteShada')
-      au! myAutoWriteShada
-    endif
     " Note: shada only saves the data on VimLeave so that
     "       nothing won't be saved, when you start another process of neovim,
     "       i.e., no data won't share with the running neovim process then.
@@ -154,8 +151,6 @@ set updatetime=300
 " Line {{{2
 set cursorline
 " CAUTION: cursorline-highlight causes drawing corruption.
-if exists('#myAutoToggleCursorLine') | au! myAutoToggleCursorLine
-endif
 augroup myAutoToggleCursorLine
   " Note: InsertEnter & WinLeave used to be useless.
   au WinEnter,InsertLeave * setl cursorline

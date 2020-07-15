@@ -10,8 +10,6 @@ endif
 
 setlocal conceallevel=0
 
-if exists('#myJsonFtplugin') | au! myJsonFtplugin
-endif
 augroup myJsonFtplugin
   au InsertLeave json call s:json_format()
 augroup END

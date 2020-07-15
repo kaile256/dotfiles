@@ -84,8 +84,6 @@ let g:quickrun_config['vimspec'] = {
       \ 'outputter/error/error': 'quickfix',
       \ }
 
-if exists('#myQuickrunSource') | au! myQuickrunSource
-endif
 augroup myQuickrunSource
   au FileType quickrun setlocal nonumber nofoldenable
 augroup END

@@ -48,8 +48,6 @@ function! s:defx_commands() abort "{{{1
   endif
 endfunction
 
-if exists('#myDefxPost') | au! myDefxPost
-endif
 augroup myDefxPost "{{{1
   au FileType defx call s:defx_commands()
 

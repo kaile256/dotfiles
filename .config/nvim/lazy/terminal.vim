@@ -130,8 +130,6 @@ else
         \ ]
 endif
 
-if exists('#myTerminalLazy') | au! myTerminalLazy
-endif
 augroup myTerminalLazy
   " Open Terminal as Startpage
   "if @% == '' && &ft ==# '' && &bt ==# ''

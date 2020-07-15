@@ -45,8 +45,6 @@ let g:airline#extensions#bufferline#enabled = 0
 "    \ 'S'  : 'S',
 "    \ }
 
-if exists('#myAirlineSo') | au! myAirlineSo
-endif
 augroup myAirlineSo "{{{1
   au ColorScheme * ++nested call s:set_airline_theme("<amatch>")
 augroup END

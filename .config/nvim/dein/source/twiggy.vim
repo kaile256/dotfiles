@@ -19,8 +19,6 @@ let g:twiggy_local_branch_sort = 'mru'
 " Values can be either 'alpha'or 'date'.
 let g:twiggy_remote_branch_sort = 'date'
 
-if exists('#myTwiggySource') | au! myTwiggySource
-endif
 augroup myTwiggySource
   au FileType twiggy setl winfixwidth
 augroup END

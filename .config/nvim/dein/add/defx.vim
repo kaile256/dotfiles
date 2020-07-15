@@ -139,8 +139,6 @@ nnoremap <silent> <SID>(defx-memo)
 nnoremap <script> <a-x>m     <SID>(defx-memo)
 nnoremap <script> <a-x><a-m> <SID>(defx-memo)
 
-if exists('#myDefxAddInsteadOfNetrw') | au! myDefxAddInsteadOfNetrw
-endif
 augroup myDefxAddInsteadOfNetrw "{{{1
   " Ref: https://github.com/Shougo/defx.nvim/issues/121
   " Ref: /usr/share/nvim/runtime/plugin/netrwPlugin.vim

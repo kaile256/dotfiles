@@ -5,8 +5,6 @@
 
 runtime once/smaps.vim
 
-if exists('#myNeoSnippetSource') | au! myNeoSnippetSource
-endif
 augroup myNeoSnippetSource
   " Note: 'modelines' is always set global.
   au FileType neosnippet setlocal modelines=1

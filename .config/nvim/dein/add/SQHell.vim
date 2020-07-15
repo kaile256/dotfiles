@@ -3,8 +3,6 @@
 " Another: source/SQHell.vim
 " Another: post/SQHell.vim
 
-if exists('#mySQHellAdd') | au! mySQHellAdd
-endif
 augroup mySQHellAdd
   au BufRead *
         \ if getline(1) =~# '^SQLite format '

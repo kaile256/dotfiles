@@ -2,8 +2,6 @@
 " Repo: iamcco/markdown-preview.nvim
 " Ref: source/markdown-composer.vim
 
-if exists('#myMarkdowndPreviewSource') | au! myMarkdowndPreviewSource
-endif
 augroup myMarkdowndPreviewSource
   " Note: why? ':au FileType markdown' is no use
   au BufEnter *.{md,mkd,markdown,mdown,mkdn,mdwn} command! -buffer MdPreview     :MarkdownPreview

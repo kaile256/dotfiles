@@ -1,8 +1,6 @@
 " TOML: fugitive.toml
 " Repo: rbong/vim-flog
 
-if exists('#myFlogSo') | au! myFlogSo
-endif
 augroup myFlogSo
   au FileType floggraph call s:flog_mappings()
 augroup END

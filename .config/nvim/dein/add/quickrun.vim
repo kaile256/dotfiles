@@ -8,8 +8,6 @@ nmap <space>q <Plug>(quickrun-op)
 nnoremap <silent> <space>qq :QuickRun -mode n -input =@+<CR>
 xnoremap <silent> <space>qq :QuickRun -mode v -input =@+<CR>
 
-if exists('#myQuickrunAdd') | au! myQuickrunAdd
-endif
 augroup myQuickrunAdd
   au FileType quickrun call s:quickrun_keymaps()
 augroup END

@@ -29,8 +29,6 @@ let g:tagbar_width = 40
 
 "let g:tagbar_map_previewwin =
 
-if exists('#myTagbarSo') | au! myTagbarSo
-endif
 augroup myTagbarSo "{{{1
   au FileType * call s:keymaps_if_no_tags()
 augroup END

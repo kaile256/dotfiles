@@ -85,8 +85,6 @@ let g:fzf_colors = {
       \ 'header':  ['fg', 'Comment']
       \ }
 
-if exists('#myFzfSource') | au! myFzfSource
-endif
 augroup myFzfSource "{{{1
   function! s:fzf_buffer_statusline() "{{{
     " Override statusline as you like

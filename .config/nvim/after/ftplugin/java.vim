@@ -2,8 +2,6 @@
 
 compiler javac
 
-if exists('#myJavaFtplugin') | au! myJavaFtplugin
-endif
 augroup myJavaFtplugin
   " au BufWritePre *.java call s:class_automation()
   " FIXME: make it work

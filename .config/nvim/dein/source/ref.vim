@@ -3,8 +3,6 @@
 
 let g:ref_no_default_key_mappings = 1
 
-if exists('#myRefSource') | au! myRefSource
-endif
 augroup myRefSource
   au FileType * if &keywordprg ==# 'Man' |
         \   nmap <silent><buffer> gK <Plug>(ref-keyword)

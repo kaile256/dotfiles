@@ -2,8 +2,6 @@
 " Repo: flazz/vim-colorschemes
 " Another: post/colorschemes.vim
 
-if exists('#myColorschemesSo') | au! myColorschemesSo
-endif
 augroup myColorschemesSo
   au Colorscheme * ++nested call s:common()
   au Colorscheme * ++nested call s:common_dark()

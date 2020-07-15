@@ -2,8 +2,6 @@
 " Repo: mzlogin/vim-markdown-toc
 " Another: source/markdown-toc.vim
 
-if exists('#myMarkdownTocAdd') | au! myMarkdownTocAdd
-endif
 augroup myMarkdownTocAdd
   au FileType markdown command -bar -buffer TocGenGFM       :GenTocGFM
   au FileType markdown command -bar -buffer TocGenGitlab    :GenTocGitlab

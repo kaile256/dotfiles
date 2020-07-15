@@ -1,7 +1,5 @@
 " From: init.vim
 
-if exists('#myStartpage') | au! myStartpage
-endif
 augroup myStartpage
   " FIXME: currently, no syntax/keymaps on defx
   if has('nvim')

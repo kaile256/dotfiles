@@ -176,8 +176,6 @@ if !exists('s:is_loaded')
   let s:is_loaded = 1
 endif
 
-if exists('#myDeinRc') | au! myDeinRc
-endif
 augroup myDeinRc "{{{1
   au BufWinEnter *vim**/*.toml call s:find_the_plugin()
   function! s:find_the_plugin() abort "{{{2

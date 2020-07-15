@@ -6,8 +6,6 @@ let g:calendar_google_calendar = 1
 
 let g:calendar_updatetime = 1000 " (ms)
 
-if exists('#myCalendarPost') | au! myCalendarPost
-endif
 augroup myCalendarPost
   au FileType calendar call s:calendar_keymap()
 augroup END

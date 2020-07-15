@@ -15,8 +15,6 @@ function! s:transparent() abort
   "hi NormalFloat ctermbg=none guibg=none
 endfunction
 
-if exists('#myTransparent') | au! myTransparent
-endif
 augroup myTransparent
   au Colorscheme * call s:transparent()
 augroup END

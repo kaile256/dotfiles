@@ -139,8 +139,6 @@ let s:foldlevel_dict = {
 "   return g:foldpeek#default#tail_padding . ret
 " endfunction
 
-if exists('#myFoldPeekSource') | au! myFoldPeekSource
-endif
 augroup myFoldPeekSource "{{{1
   au OptionSet foldtext if &fdt !=# 'foldpeek#text()' | set fdt< | endif
   au FileType * call s:set_patterns()

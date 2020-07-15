@@ -16,8 +16,6 @@ let g:loaded_fzf = 1
 let g:loaded_gtags = 1
 let g:loaded_gtags_cscope = 1
 
-if exists('#myLoadedRc') | au! myLoadedRc
-endif
 augroup myLoadedRc
   au FileType netrw ++once runtime source/netrw.vim
   " FIXME: work all below

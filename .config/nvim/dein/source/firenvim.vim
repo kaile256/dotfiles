@@ -28,8 +28,6 @@ let g:firenvim_config.localSettings = {
 "      \   },
 "      \ }
 
-if exists('#myFireNvimSourceModFileTypes') | au! myFireNvimSourceModFileTypes
-endif
 augroup myFireNvimSourceModFileTypes
   au BufEnter github.com_*.txt         setlocal filetype=markdown
   au BufEnter play.golang.org_*.txt    setlocal filetype=go
