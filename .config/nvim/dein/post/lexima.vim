@@ -42,6 +42,10 @@ let g:lexima#newline_rules += [
       \ {'char': '<CR>', 'at': '{\%#}',  'input_after': '<CR>'},
       \ {'char': '<CR>', 'at': '\[\%#]', 'input_after': '<CR>'},
       \ {'char': '<CR>', 'at': '/\*\%#\*/', 'input_after': '<CR><space>'},
+      \
+      \ {'char': '<CR>', 'at': "'''\\%#'''", 'input_after': '<CR>'},
+      \ {'char': '<CR>', 'at': '"""\%#"""',  'input_after': '<CR>'},
+      \ {'char': '<CR>', 'at': '```\%#```',  'input_after': '<CR>'},
       \ ]
 
 " Spilt <tag><\tag> on <CR>
