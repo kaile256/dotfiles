@@ -118,6 +118,8 @@ settings:
       insert:
         <Alt+Backspace>: fake-key <Ctrl-Backspace>
         <Alt+Shift+a>: fake-key <end>
+        <Alt+Shift+b>: fake-key <shift-ctrl-left>
+        <Alt+Shift+f>: fake-key <Shift-ctrl-right>
         <Alt+Shift+i>: fake-key <home>
         <Alt+Shift+o>: fake-key <shift-tab>
         <Alt+Shift+v>: fake-key <home><shift-end>
@@ -142,8 +144,12 @@ settings:
         <Ctrl+Alt+,>: fake-key <Ctrl+alt+,>
         <Ctrl+Alt+v>: fake-key <shift-ctrl-left>
         <Ctrl+Shift+[>: fake-key <Escape>
-        <Ctrl+Shift+n>: <Alt-down>
-        <Ctrl+Shift+p>: fake-key <alt-up>
+        <Ctrl+Shift+a>: fake-key <Shift-home>
+        <Ctrl+Shift+b>: fake-key <shift-left>
+        <Ctrl+Shift+e>: fake-key <Shift-end>
+        <Ctrl+Shift+f>: fake-key <Shift-right>
+        <Ctrl+Shift+n>: fake-key <Shift-down>
+        <Ctrl+Shift+p>: fake-key <Shift-Up>
         <Ctrl+a>: fake-key <Home>
         <Ctrl+b>: fake-key <Left><Ctrl+b>
         <Ctrl+d>: fake-key <Delete><Ctrl+d>
