@@ -1,9 +1,9 @@
 " TOML: default.toml
 " Repo: will133/vim-dirdiff
 
+if exists('#myDirdiffAdd') | au! myDirdiffAdd
+endif
 augroup myDirdiffAdd
-  if exists('#myDirdiffAdd') | au! myDirdiffAdd
-  endif
   au FileType defx call s:dirdiff_on_defx()
 augroup END
 

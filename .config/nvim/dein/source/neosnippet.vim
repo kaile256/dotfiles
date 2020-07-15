@@ -5,9 +5,9 @@
 
 runtime once/smaps.vim
 
+if exists('#myNeoSnippetSource') | au! myNeoSnippetSource
+endif
 augroup myNeoSnippetSource
-  if exists('#myNeoSnippetSource') | au! myNeoSnippetSource
-  endif
   " Note: 'modelines' is always set global.
   au FileType neosnippet setlocal modelines=1
   au FileType neosnippet setlocal keywordprg=:help

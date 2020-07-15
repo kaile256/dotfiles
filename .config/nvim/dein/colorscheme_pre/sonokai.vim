@@ -2,9 +2,9 @@
 " Repo: sainnhe/sonokai
 " Another: source/sonokai.vim
 
+if exists('#mySonokaiSo') | au! mySonokaiSo
+endif
 augroup mySonokaiSo
-  if exists('#mySonokaiSo') | au! mySonokaiSo
-  endif
   au ColorScheme sonokai ++nested call s:my_sonokai()
 augroup END
 

@@ -249,15 +249,14 @@ inoremap <c-w> <c-g>u<c-w>
 "inoremap <c-v> <c-g>u<c-v>
 
 
-augroup myImapsOnce "{{{
-  if exists('#myImapsOnce')
-    au! myImapsOnce
-  endif
+if exists('#myImapsOnce') | au! myImapsOnce
+endif
+augroup myImapsOnce
   au FileType html,markdown inoremap <buffer> , ,<c-g>u
   au FileType html,markdown inoremap <buffer> . .<c-g>u
   au FileType html,markdown inoremap <buffer> ! !<c-g>u
   au FileType html,markdown inoremap <buffer> ? ?<c-g>u
-augroup END "}}}
+augroup END
 
 " Time Stamp {{{1
 " Ref: https://qiita.com/annyamonnya/items/97c5cb0cfa414b3592d7

@@ -10,9 +10,9 @@ endif
 
 setlocal conceallevel=0
 
+if exists('#myJsonFtplugin') | au! myJsonFtplugin
+endif
 augroup myJsonFtplugin
-  if exists('#myJsonFtplugin') | au! myJsonFtplugin
-  endif
   au InsertLeave json call s:json_format()
 augroup END
 

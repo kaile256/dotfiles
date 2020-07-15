@@ -134,9 +134,9 @@ call denite#custom#source('file/rec',
 "   endfunction
 " augroup END
 
+if exists('#myDenitePost') | au! myDenitePost
+endif
 augroup myDenitePost "{{{1
-  if exists('#myDenitePost') | au! myDenitePost
-  endif
   "au WinLeave,BufLeave \[denite\]* call denite#do_map('quit')
   au User denite-preview call s:denite_preview_options() "{{{2
   function! s:denite_preview_options() abort

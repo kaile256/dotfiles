@@ -48,10 +48,9 @@ function! s:defx_commands() abort "{{{1
   endif
 endfunction
 
+if exists('#myDefxPost') | au! myDefxPost
+endif
 augroup myDefxPost "{{{1
-  if exists('#myDefxPost') | au! myDefxPost
-  endif
-
   au FileType defx call s:defx_commands()
 
   au BufEnter \[defx]* call defx#redraw()

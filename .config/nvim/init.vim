@@ -25,10 +25,9 @@ runtime rc/loaded.vim " disturbs to :source vimscripts under $VIMRUNTIME
 runtime! keymap/*.vim
 runtime rc/startpage.vim
 
+if exists('#myRuntimesSelection') | au! myRuntimesSelection
+endif
 augroup myRuntimesSelection
-  if exists('#myRuntimesSelection') | au! myRuntimesSelection
-  endif
-
   au InsertEnter,CmdLineEnter,CmdWinEnter * ++once runtime once/autocorrect.vim
   " au CmdLineEnter,CmdWinEnter * ++once runtime once/cabbrs.vim
   au CmdLineEnter,CmdWinEnter * ++once runtime once/commands.vim

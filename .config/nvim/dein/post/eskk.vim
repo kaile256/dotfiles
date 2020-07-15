@@ -4,9 +4,9 @@ scriptencoding utf-8
 " Another: add/eskk.vim
 " Another: source/eskk.vim
 
+if exists('#myEskkSource') | au! myEskkSource
+endif
 augroup myEskkSource
-  if exists('#myEskkSource') | au! myEskkSource
-  endif
   au User eskk-initialize-pre call s:eskk_kemaps_initialize_pre()
   function! s:eskk_kemaps_initialize_pre() "{{{
     " A user can do something heavy process here.

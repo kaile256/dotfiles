@@ -3,10 +3,9 @@
 " Another: source/sonictemplate.vim
 " Else: data/sonictemplate
 
+if exists('#mySonicTemplate-autoStart') | au! mySonicTemplate-autoStart
+endif
 augroup mySonicTemplate-autoStart
-  if exists('#mySonicTemplate-autoStart') | au! mySonicTemplate-autoStart
-  endif
-
   au BufWinEnter *tmp* :call s:expand_template('')
 
   au BufWinEnter */atcoder**/*.cpp :call s:expand_template('atcoder')

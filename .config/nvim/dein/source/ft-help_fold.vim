@@ -1,10 +1,9 @@
 " From: ftplugin.toml
 " Repo: thinca/vim-ft-help_fold
 
+if exists('#myHelpFoldSource') | au! myHelpFoldSource
+endif
 augroup myHelpFoldSource
-  if exists('#myHelpFoldSource')
-    au! myHelpFoldSource
-  endif
   au OptionSet text,help * call s:helpfold()
 augroup END
 

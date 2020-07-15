@@ -154,10 +154,9 @@ set updatetime=300
 " Line {{{2
 set cursorline
 " CAUTION: cursorline-highlight causes drawing corruption.
+if exists('#myAutoToggleCursorLine') | au! myAutoToggleCursorLine
+endif
 augroup myAutoToggleCursorLine
-  if exists('#myAutoToggleCursorLine')
-    au! myAutoToggleCursorLine
-  endif
   " Note: InsertEnter & WinLeave used to be useless.
   au WinEnter,InsertLeave * setl cursorline
   au WinLeave,InsertEnter * setl nocursorline

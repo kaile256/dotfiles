@@ -3,9 +3,9 @@
 " Ref: post/coloschemes.vim
 " Ref: source/coloschemes.vim
 
+if exists('#myDracula') | au! myDracula
+endif
 augroup myDracula
-  if exists('#myDracula') | au! myDracula
-  endif
   au Colorscheme dracula ++nested call s:my_dracula()
 augroup END
 

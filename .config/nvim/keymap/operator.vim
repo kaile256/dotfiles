@@ -52,10 +52,9 @@ nmap cP <Plug>(move-line-forward)
 nmap yp <Plug>(copy-line-backward)
 nmap yP <Plug>(copy-line-forward)
 
+if exists('#myAfterYank') | au! myAfterYank
+endif
 augroup myAfterYank
-  if exists('#myAfterYank')
-    au! myAfterYank
-  endif
   au TextYankPost * call s:echo_operated()
   " TODO: keep cursor after yank
   " gv<esc> move cursor to the end of yanked character

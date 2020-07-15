@@ -138,10 +138,9 @@ function! s:has_provider()
   echon "\n"
 endfunction
 
+if exists('#myCocSource') | au! myCocSource
+endif
 augroup myCocSource "{{{1
-  if exists('#myCocSource') | au! myCocSource
-  endif
-
   au FileType list nnoremap <buffer> <CR> <TAB>
   " " CocNvimInit triggered after coc services have started.
   " au User CocNvimInit call CocAction('runCommand', 'tsserver.watchBuild')
@@ -172,9 +171,9 @@ augroup myCocSource "{{{1
       call system('java -Xdebug -Xrunjdwp:server=y,transport=dt_socket,suspend=y,address='. port .' '. java_class)
     endif
 
+    if exists('#myCocSource_StopDebugJava') | au! myCocSource_StopDebugJava
+    endif
     augroup myCocSource_StopDebugJava
-      if exists('#myCocSource_StopDebugJava') | au! myCocSource_StopDebugJava
-      endif
       au VimLeavePre *        call s:kill_java_remote_debugger()
       au BufWinLeave <buffer> call s:kill_java_remote_debugger()
       function! s:kill_java_remote_debugger() closure "{{{4

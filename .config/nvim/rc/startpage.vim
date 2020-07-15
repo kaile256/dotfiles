@@ -1,8 +1,8 @@
 " From: init.vim
 
+if exists('#myStartpage') | au! myStartpage
+endif
 augroup myStartpage
-  if exists('#myStartpage') | au! myStartpage
-  endif
   " FIXME: currently, no syntax/keymaps on defx
   if has('nvim')
     au VimEnter * ++nested silent! call s:startpage('fish')

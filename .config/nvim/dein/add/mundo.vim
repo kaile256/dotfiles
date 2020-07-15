@@ -25,9 +25,9 @@ function! s:mundo_toggle() abort
   MundoShow
 endfunction
 
+if exists('#myMundoAdd') | au! myMundoAdd
+endif
 augroup myMundoAdd
-  if exists('#myMundoAdd') | au! myMundoAdd
-  endif
   " also available on git-diff
   au TextYankPost *Mundo* call s:trim_head()
 augroup END

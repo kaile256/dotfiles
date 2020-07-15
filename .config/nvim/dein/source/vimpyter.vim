@@ -7,8 +7,7 @@ let g:vimpyter_view_directory = $XDG_DATA_HOME .'/vimpyter/views'
 command! -bar JupyterNotebookStart :VimpyterStartJupyter
 command! -bar JupyterNteractStart  :VimpyterStartNteract
 
-if exists('#myVimpyterSource')
-  au! myVimpyterSource
+if exists('#myVimpyterSource') | au! myVimpyterSource
 endif
 augroup myVimpyterSource
   au FileType ipynb call s:ipynb_keymap()

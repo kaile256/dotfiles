@@ -130,9 +130,9 @@ else
         \ ]
 endif
 
+if exists('#myTerminalLazy') | au! myTerminalLazy
+endif
 augroup myTerminalLazy
-  if exists('#myTerminalLazy') | au! myTerminalLazy
-  endif
   " Open Terminal as Startpage
   "if @% == '' && &ft ==# '' && &bt ==# ''
   "  au VimEnter * nested call termopen(&shell)

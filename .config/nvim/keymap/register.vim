@@ -3,8 +3,8 @@
 nmap <space> "_
 xmap <space> "_
 
-nmap <CR> "
-xmap <CR> "
+nmap <expr> <CR> &bt ==# '' ? '"' : '<CR>'
+xmap <expr> <CR> &bt ==# '' ? ' " : '<CR>'
 
 " nnoremap p p`]
 " nnoremap p ]p`]

@@ -58,10 +58,9 @@ function! s:killall(...) abort "{{{2
   endif
 endfunction
 
+if exists('#myAutoChdirOnWrite') | au! myAutoChdirOnWrite
+endif
 augroup myAutoChdirOnWrite "{{{1
-  if exists('#myAutoChdirOnWrite')
-    au! myAutoChdirOnWrite
-  endif
   au BufWritePre * silent! cd %:p:h
 augroup END
 

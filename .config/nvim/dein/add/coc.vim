@@ -5,9 +5,9 @@
 " Json: coc-settings.json
 " Another: source/coc.vim
 
+if exists('#myCoc-Keywordprg') | au! myCoc-Keywordprg
+endif
 augroup myCoc-Keywordprg
-  if exists('#myCoc-Keywordprg') | au! myCoc-Keywordprg
-  endif
   let &g:keywordprg = ':silent! call CocActionAsync("showSignatureHelp") | silent! call CocActionAsync("doHover")'
   au BufWinEnter coc-settings.json setlocal keywordprg=:help
 augroup END
@@ -90,8 +90,7 @@ command! -bar QuickFormat :call s:quick_format()
 nmap c= <Plug>(coc-rename)
 nmap <silent> == :<c-u>QuickFormat<cr>
 
-if exists('#myCocPrettier')
-  au! myCocPrettier
+if exists('#myCocPrettier') | au! myCocPrettier
 endif
 augroup myCocPrettier
   au FileType javascript,typescript,css,json call s:prettier()
@@ -130,9 +129,9 @@ omap aM <Plug>(coc-classobj-a)
 " Help: $COC_DATA_HOME/extensions/node_modules/coc-snippets
 " Note: it works without ultisnips itself.
 
+if exists('#myCocSnippets') | au! myCocSnippets
+endif
 augroup myCocSnippets
-  if exists('#myCocSnippets') | au! myCocSnippets
-  endif
   au BufWritePost *.snippets call coc#refresh()
 augroup END
 

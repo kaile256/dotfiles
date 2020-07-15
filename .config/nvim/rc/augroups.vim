@@ -1,8 +1,8 @@
 " From: init.vim
 
+if exists('#myAugroups') | au! myAugroups
+endif
 augroup myAugroups
-  if exists('#myAugroups') | au! myAugroups
-  endif
   " AutoWinResize "{{{1
   au VimResized * wincmd =
 

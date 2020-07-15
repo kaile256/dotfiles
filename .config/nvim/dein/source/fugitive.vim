@@ -2,19 +2,18 @@
 " Repo: tpope/vim-fugitive
 " Another: add/fugitive.vim
 
+if exists('#myFugitiveRememberTheLastBuffer') | au! myFugitiveRememberTheLastBuffer
+endif
 augroup myFugitiveRememberTheLastBuffer
-  if exists('#myFugitiveRememberTheLastBuffer')
-    au! myFugitiveRememberTheLastBuffer
-  endif
   au FileType fugitive,gitcommit
         \ if getwinvar(winnr('#'), '&ft') !~# 'fugitive\|gitcommit'
         \ | let s:save_winid = win_getid(winnr('#')) | endif
   au BufWinLeave .git/{index,COMMIT_EDITMSG} call win_gotoid(s:save_winid)
 augroup END
 
+if exists('#myFugitiveSo') | au! myFugitiveSo
+endif
 augroup myFugitiveSo
-  if exists('#myFugitiveSo') | au! myFugitiveSo
-  endif
   au FileTYpe git,fugitive call s:unmap()
   au FileType fugitive  call s:fugitive_keymap()
   au FileType gitcommit call s:gitcommit_keymap()

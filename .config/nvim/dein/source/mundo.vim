@@ -50,12 +50,9 @@ let g:mundo_mappings = {
       \ '?': 'toggle_help',
       \ }
 
-if exists('#myMundoSource')
-  au! myMundoSource
+if exists('#myMundoSource') | au! myMundoSource
 endif
 augroup myMundoSource
-  if exists('#myMundoSource') | au! myMundoSource
-  endif
   au FileType Mundo,MundoDiff setl signcolumn=
   au FileType Mundo setl winfixwidth
 augroup END

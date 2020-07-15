@@ -1,9 +1,9 @@
 " From: myplug.toml
 " Repo: kaile256/vim-help-toc
 
+if exists('#myHelpTocSource') | au! myHelpTocSource
+endif
 augroup myHelpTocSource
-  if exists('#myHelpTocSource') | au! myHelpTocSource
-  endif
   au FileType help,man call s:help_keymaps()
 augroup END
 

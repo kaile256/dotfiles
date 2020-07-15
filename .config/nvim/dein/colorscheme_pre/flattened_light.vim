@@ -4,9 +4,9 @@
 " Ref: source/colorschemes.vim
 " Another: source/flattened_light.vim
 
+if exists('#myFlattenedLight') | au! myFlattenedLight
+endif
 augroup myFlattenedLight
-  if exists('#myFlattenedLight') | au! myFlattenedLight
-  endif
   au Colorscheme flattened_light ++nested call s:my_flattened()
 augroup END
 

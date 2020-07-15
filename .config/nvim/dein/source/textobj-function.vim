@@ -10,9 +10,9 @@ let g:textobj_function_no_default_key_mappings = 1
 " nnoremap [f
 " xnoremap [f
 
+if exists('#myTextObjFunctionSo') | au! myTextObjFunctionSo
+endif
 augroup myTextObjFunctionSo
-  if exists('#myTextObjFunctionSo') | au! myTextObjFunctionSo
-  endif
   " Mnemonic: Respect default [m/]m
   au FileType vim omap <buffer> im <Plug>(textobj-function-i)
   au FileType vim omap <buffer> am <Plug>(textobj-function-A)

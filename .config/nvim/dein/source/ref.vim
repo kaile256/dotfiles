@@ -3,8 +3,7 @@
 
 let g:ref_no_default_key_mappings = 1
 
-if exists('#myRefSource')
-  au! myRefSource
+if exists('#myRefSource') | au! myRefSource
 endif
 augroup myRefSource
   au FileType * if &keywordprg ==# 'Man' |

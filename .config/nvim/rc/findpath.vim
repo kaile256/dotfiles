@@ -11,10 +11,9 @@ set path=./**,/etc
 set isfname-=,
 set isfname-==
 
+if exists('#myFindPathRc') | au! myFindPathRc
+endif
 augroup myFindPathRc
-  if exists('#myFindPathRc') | au! myFindPathRc
-  endif
-
   au FileType sh setl path^=/usr/bin/
   "au FileType java   setl path^=/usr/lib/jvm/
   au FileType go      exe 'setl path^='. $GOPATH .'/src/**,/usr/lib/go/src/**'

@@ -395,9 +395,9 @@ function! LL_git_diff() abort "{{{3
   return join(ret)
 endfunction
 
-augroup myLightlineSo "{{{1
-  if exists('#myLightlineSo') | au! myLightlineSo
-  endif
+if exists('#myLightlineSo') | au! myLightlineSo
+endif
+augroup myLightlineSo
   au CmdlineLeave * call lightline#update()
 
   au User UltiSnipsExitLastSnippet   call lightline#update()

@@ -2,9 +2,9 @@
 " Repo: flazz/vim-colorschemes
 " Another: source/colorschemes.vim
 
+if exists('#myColorschemesPost') | au! myColorschemesPost
+endif
 augroup myColorschemesPost
-  if exists('#myColorschemesPost') | au! myColorschemesPost
-  endif
   au VimEnter * ++nested call s:set_colorscheme()
   " set variables on the colorscheme
   au ColorScheme * ++nested exe 'runtime source/<amatch>.vim'

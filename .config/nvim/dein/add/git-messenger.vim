@@ -71,8 +71,7 @@ function! s:gitmessenger_with_hunks()
   endif
 endfunction
 
-if exists('#myGitMessengerAdd')
-  au! myGitMessengerAdd
+if exists('#myGitMessengerAdd') | au! myGitMessengerAdd
 endif
 augroup myGitMessengerAdd
   au FileType gitmessengerpopup call s:keymap_on_gitmessenger_popup()

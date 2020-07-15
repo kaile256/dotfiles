@@ -2,10 +2,9 @@
 
 compiler javac
 
+if exists('#myJavaFtplugin') | au! myJavaFtplugin
+endif
 augroup myJavaFtplugin
-  if exists('#myJavaFtplugin')
-    au! myJavaFtplugin
-  endif
   " au BufWritePre *.java call s:class_automation()
   " FIXME: make it work
   au InsertLeave *.java call s:complete_semicolon()

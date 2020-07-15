@@ -84,12 +84,11 @@ let s:definitions['python'] = [
       \ ['spam', 'ham', 'eggs'],
       \ ]
 
+if exists('#mySwitchAdd-set_local_definitions') | au! mySwitchAdd-set_local_definitions
+endif
 augroup mySwitchAdd-set_local_definitions "{{{1
   " Note: b:switch_custom_definitions should be defined in advance of the
   " plugin loaded.
-  if exists('#mySwitchAdd-set_local_definitions')
-    au! mySwitchAdd-set_local_definitions
-  endif
   au BufWinEnter * call s:set_local_definitions()
 augroup END
 
