@@ -341,17 +341,20 @@ done
 # INSTALL PACKAGES {{{1
 declare -A Install
 Install=(
-  ['yay']='yay -S'
+  ['yay']='yay -Sy'
   ['apt']='sudo apt install'
 )
 
 export install="${Install[$INSTALLER]}"
-echo "$INSTALLER will install package via '$install'"
+echo "$INSTALLER will install package via \"$install\""
 
 for p in "${PACKAGEs[@]}"; do
-  yay -Q "$p" >/dev/null 2>&1 && break
-  echo "Installing $p..."
-  $install "$p"
+  yay -Q "$p" >/dev/null 2>&1 && continue
+
+  echo -n "Install $p [y/n]? "
+  read answer
+
+  echo $answer -eq | grep -i --quiet "^y" && $install "$p"
 done
 
 # INSTALL OTHER PACKAGES {{{1
