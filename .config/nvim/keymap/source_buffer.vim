@@ -4,6 +4,15 @@ if !exists('*s:source_buffer')
   function! s:source_buffer() abort
     if &ft ==# 'vim' && expand('%:p') =~# '/ftplugin/' | return | endif
 
+    if &ft ==# 'vim'
+      " Refresh augroups before source the target buffer.
+      let lines_augroup = split(execute('g/aug\%[roup] .\+/v/end\c'), '\n')
+      for line in lines_augroup
+        let aug_name = matchstr(line, 'aug\%[roup] \zs\S\+')
+        exe 'au!' aug_name
+      endfor
+    endif
+
     let s:msg = 'no write but'
     if filewritable(expand('%:p'))
       silent! exe &modified ? 'up' : 'checktime'
