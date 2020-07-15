@@ -317,6 +317,7 @@ REMOVEs=(
   i3blocks-contrib
 )
 
+export grep=$(type rg >/dev/null 2>&1 && echo rg || echo grep)
 export green="\e[0;32m"
 export purple="\e[0;35m"
 export white="\e[0;37m"
@@ -371,7 +372,7 @@ for p in "${PACKAGEs[@]}"; do
   echo -ne "Install ${green}$p${white} [y/n]? "
   read answer
 
-  if echo $answer -eq | grep -i --quiet "^y"; then
+  if echo $answer -eq | $grep -i --quiet "^y"; then
     $install "$p" \
       && notify "$p was installed!" \
       || notify "Abort installing $p"
