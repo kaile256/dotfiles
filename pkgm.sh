@@ -322,6 +322,15 @@ export white="\e[0;37m"
 CWD=$(pwd)
 cd "$HOME"
 
+notify() {
+  msg=$1
+  [ -z "$msg" ] && return
+  if type notify-send >/dev/null 2>&1; then
+    notify-send --expire-time 3500 --urgency=critical "$msg"
+  fi
+  echo "$msg"
+}
+
 # DETECT PACKAGE MANAGER {{{1
 INSTALLERs=(
   yay
@@ -360,7 +369,11 @@ for p in "${PACKAGEs[@]}"; do
   echo -ne "Install ${green}$p${white} [y/n]? "
   read answer
 
-  echo $answer -eq | grep -i --quiet "^y" && $install "$p"
+  if echo $answer -eq | grep -i --quiet "^y"; then
+    $install "$p" \
+      && notify "$p was installed!" \
+      || notify "Abort installing $p"
+  fi
 done
 
 # INSTALL OTHER PACKAGES {{{1
