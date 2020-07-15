@@ -32,6 +32,7 @@ augroup myFindPathRc
 
   exe 'au' TermOpen '* call s:path.vim()'
   au BufNewFile,BufRead *{*vim,dein}**/* call s:path.vim()
+  au FileType startuptime call s:path.vim()
 
   au BufNewFile,BufRead $MY_MEMO**/*   call s:path.memo()
   au BufNewFile,BufRead $GHQ_ROOT**/* call s:path.ghq()
