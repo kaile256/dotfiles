@@ -65,7 +65,7 @@ nnoremap <a-x> <Nop>
 nmap <A-x><A-space> <A-x><space>
 nnoremap <silent> <A-x><space> :<c-u>call <SID>defx({
       \ 'direction': 'top',
-      \ 'winwidth': expand(g:defx_sidebar_width),
+      \ 'winwidth': g:defx_sidebar_width,
       \ 'columns': g:defx_format_delimited,
       \ 'split': 'vertical',
       \ 'new': 1,
