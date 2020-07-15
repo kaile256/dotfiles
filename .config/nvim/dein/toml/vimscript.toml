@@ -66,7 +66,7 @@ on_cmd = 'BenchVimrc'
 hook_add = 'runtime add/benchvimrc.vim'
 hook_done_update = '''
 e $DEIN_GITHUB_DIR/mattn/benchvimrc-vim/plugin/benchvimrc.vim
-g/writefile/s/1)$/'s')
+g/writefile/s/1\zs)$
 write
 '''
 [[plugins]]
