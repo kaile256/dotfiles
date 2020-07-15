@@ -3,11 +3,27 @@
 " Another: source/fugitive.vim
 
 " auto substitute url for ssh to github
-command! -bar -nargs=1
+command! -bar -nargs=*
       \ GsetUrlToOrigin
-      \ :exe 'Git remote set-url origin' substitute(<q-args>,
-      \   '\(^\|https://github.com/\)\([^/]\+/[^/]\+\).*',
-      \   'github:\2.git', '')
+      \ :call s:remote_set_url_to_origin(<f-args>)
+
+function! s:remote_set_url_to_origin(...) abort
+  if a:0 == 0
+    echo "[Git] URL or your repo's name is required"
+    return
+  endif
+
+  let remote_alias = a:0 == 2 ? a:1 : 'origin'
+  let arg = a:0 == 2 ? a:2 : a:1
+  let url = substitute(arg,
+        \ '\(https://\)\?\(github.com/\)\?\([^/]\+/[^/]\+\)\(/blob/.*\)\?',
+        \ '\3', '')
+  exe 'G remote set-url' remote_alias url
+
+  " You cannot push to the repository when you only have cloned in shollow
+  " depth.
+  G clone --unshallow
+endfunction
 
 " Note: :Gpush works asynchronous with 'tpope/vim-dispatch'
 command! -bang -nargs=? -range=-1 -addr=tabs
