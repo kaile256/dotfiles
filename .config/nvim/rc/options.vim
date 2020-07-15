@@ -18,6 +18,11 @@ set synmaxcol=320
 " 'autochdir': with it on, some plugins may not work, like vim-findroot
 "set autochdir
 
+" Plugin author should care about bell
+set belloff=
+" set errorbells
+set visualbell
+
 " Shell {{{1
 " CAUTION: some plugins depends on bash, such as twiggy.vim.
 "if executable('fish')
