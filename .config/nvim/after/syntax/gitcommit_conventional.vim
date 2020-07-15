@@ -2,6 +2,7 @@
 " Ref: https://www.conventionalcommits.org/en/v1.0.0/
 
 syn match gitcommitType '^\l\+\ze\(:\|(\)'
+syn match gitcommitScope '^\l\+(\zs.\{-})'
 syn match gitcommitBang '!\zs.\{-}:'
 syn match gitcommitBreakingChange 'BREAKING CHAHGE'
 
