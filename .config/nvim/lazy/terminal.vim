@@ -7,7 +7,7 @@ if &bt !=# 'terminal' | finish | endif
 syn match yayInstalling 'Installing \zs.*\ze\.\.\.'
 hi! link yayInstalling Title
 
-function! s:start_insert(key_seq) abort
+function! s:is_modifeir_key_disallowed() abort
   let prompt_marker = '⟩'
   let pat_prompt_line = prompt_marker .'.*\%#.*\n*\%$'
   let is_in_promptline = line('.') == search(pat_prompt_line, 'bcnW', line('w0'))
@@ -22,8 +22,12 @@ function! s:start_insert(key_seq) abort
   endif
   let is_answer_required = search(pat_prompts_str, 'bcnW')
 
+  return !is_in_promptline || is_answer_required
+endfunction
+
+function! s:start_insert(key_seq) abort
   let Startinsert = 'i'
-  if !is_in_promptline || is_answer_required
+  if s:is_modifeir_key_disallowed()
     return Startinsert
   endif
 
