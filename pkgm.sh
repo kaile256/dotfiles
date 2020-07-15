@@ -16,11 +16,16 @@ set -Cue #{{{
 # Preferences:
 #   ntp: sync time
 PACKAGEs=(
-  google-chrome
-  fcitx-mozc-ut-unified # Input Method in Japanese.
+  dunst # a notification-tool, notify-send
+  qutebrowser-git
   ttf-migu # font for Japanese, used in Nerd font, too.
   ttf-junicode # font of runic alphabet, esp. for bluetooth's detection on polybar.
+  fcitx-mozc-ut-unified # Input Method in Japanese.
   pulseaudio-modules-bt-git # pulseaudio with bluetooth support
+  nerd-fonts-jetbrains-mono
+  ttf-octicons # the alternative choice, ttf-all-the-icons, is for emacs.
+
+  google-chrome
   # openshot-git # video editor; cross-platform for Linux, Mac and Windows
   #gifcurry # GIF editor; depends on gtk
   supercollider # Programming Language to create sounds
@@ -28,7 +33,6 @@ PACKAGEs=(
   # neovide-git # Neovim GUI written in Rust; cursor moves too slow.
   #otf-hasklig # low-heigh fonts
   #otf-operator-mono-nerd # too bold to read on Neovim-qt
-  nerd-fonts-jetbrains-mono
   #nerd-fonts-victor-mono # too thin to read on Neovim-qt
   cling # cpp's interpretor; required for REPL. Install the default.
   st # a terminal emulater lighter than urxvt/xterm
@@ -37,19 +41,18 @@ PACKAGEs=(
   deno-bin # a better runtime than node.js which include TypeScript compiler
   sshfs # mount another filesystem via ssh
   php-fpm # required by nginx to run php
-  nginx-unit-php
+  # nginx-unit-php
   nginx
   android-emulator
   android-bash-completion
-  bluez-hid2hci
-  composer # php dependency manager on PHPStorm?
+  # bluez-hid2hci
+  # composer # php dependency manager on PHPStorm?
   rxvt-unicode-improve-font-rendering
   xcape # Config modifier keys to act as other keys with/without another key
   skypeforlinux-stable-bin
   virtualbox
   llvm
   podman # a substitute for docker
-  ttf-octicons
   #haskell-language-server-git # returns 404
   #haskell-ide-engine # install as the language server; returns 404
   maven # Java's build tool
@@ -107,7 +110,6 @@ PACKAGEs=(
   papirus-maia-icon-theme
   nitrogen # a browser of wallpaper
   picom-ibhagwan-git # an X compositor, an enhanced fork of compton
-  dunst # a notification-tool, notify-send
   #i3-wm-iconpatch # crashes too often
   #i3-scrot # screenshot on i3wm
   i3lock
