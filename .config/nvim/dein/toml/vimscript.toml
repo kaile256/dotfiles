@@ -64,6 +64,10 @@ lazy = 0
 repo = 'mattn/benchvimrc-vim'
 if = "!has('nvim')"
 on_cmd = ['BenchVimrc']
+[[plugins]]
+repo = 'dstein64/vim-startuptime'
+# Show benchmark in graph to load each files.
+on_cmd = 'StartupTime'
 
 #[ Test Framework ]
 [[plugins]]
