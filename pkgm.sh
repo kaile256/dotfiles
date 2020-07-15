@@ -48,10 +48,10 @@ PACKAGEs=(
   # bluez-hid2hci
   # composer # php dependency manager on PHPStorm?
   rxvt-unicode-improve-font-rendering
-  xcape # Config modifier keys to act as other keys with/without another key
-  skypeforlinux-stable-bin
-  virtualbox
-  llvm
+  # xcape # Config modifier keys to act as other keys with/without another key
+  # skypeforlinux-stable-bin
+  virtualbox # check kernel version by `uname -r`
+  # llvm
   podman # a substitute for docker
   #haskell-language-server-git # returns 404
   #haskell-ide-engine # install as the language server; returns 404
@@ -59,24 +59,22 @@ PACKAGEs=(
   languagetool # OSS server for spell check
   jdk8-openjdk
   jad # Java Decompiler
-  openjdk11-src # source files
-  jdk11-openjdk # Java Development Kit; set default java by `archlinux-java`
-  jre11-openjdk # Java Runtime Environment; set default java by `archlinux-java`
+  openjdk11-src # includes both jdk11-openjdk and jre11-openjdk
   # powerline-fonts
   starship # a prompt set for any shell
   apache
   wireshark-qt # a packet capture
   ifplugd # for netctl to Ethernet
-  wpa_actiond # for netctl to Wifi
+  # wpa_actiond # for netctl to Wifi
   phpunit # unit test for php
-  xampp # a distro of Apache including MySQL, SQLite PHP, Perl etc.
+  # xampp # a distro of Apache including MySQL, SQLite PHP, Perl etc.
   shutter # make a screenshot!
   #ksnip # make a screenshot!; use shutter instead
   #wpa_supplicant_gui # wpa_supplicant on GUI, Qt; useless?
   #adb-screen-tools
   android-tools # includes `adb`
   #android-sdk-platform-tools # Platform-toools for Google Android SDK; conflict to android-tools
-  adbcontrol # Remote control Android through `adb`
+  # adbcontrol # Remote control Android through `adb`
   #intellij-idea-ultimate-edition-jre
   # eclipse-vrapper # provides vim-bind for eclipse
   # eclipse-java # an IDE for java
@@ -88,7 +86,7 @@ PACKAGEs=(
   bashdb # a bash's debugger
   #upx # returns 404; the Ultimate Packer for eXcutables
   #clojure-lsp-bin # returns 404
-  tk # necessary to push the first commit of cloned repo to remote fork?
+  # tk # necessary to push the first commit of cloned repo to remote fork?
   net-tools # includes `route`
   traceroute
   #gdrive # A Google Drive CLI Client; failed to get access token
@@ -97,13 +95,13 @@ PACKAGEs=(
   #fprintd # no device found on thinkpad.
   #fingerprint-gui # No device found on thinkpad
   aide # Advanced Intrusion Detection Environment; checks file-integrity and detects intrusion
-  nerd-fonts-meslo # slightly thicker than dejavu. LG in the font-family name means Line-Gaps. DZ means Dotted-Zero(a dot in 0); without it, Slashed-Zero(a slash in 0)
+  # nerd-fonts-meslo # slightly thicker than dejavu. LG in the font-family name means Line-Gaps. DZ means Dotted-Zero(a dot in 0); without it, Slashed-Zero(a slash in 0)
   #nerd-fonts-dejavu-complete
   apvlv # a pdf view of vi-binding
   #inkscape # an image editor, like gimp and pinta
   nethogs # show network processes like `top` for cpu usage
   mosh # Mobile Shell, an alternative of ssh; survive disconnects
-  lxappearance-gtk3 # GTK+ theme switcher of LXDE (GTK+ 3 version)
+  # lxappearance-gtk3 # GTK+ theme switcher of LXDE (GTK+ 3 version)
   bibata-cursor-theme
   adapta-maia-theme
   papirus-icon-theme
@@ -116,21 +114,21 @@ PACKAGEs=(
   udiskie # a wrapper of udisk2 to mount automatically
   #uzbl # a browser w/ vim-like keybinds. The development ends.
   #doas # an alternative to sudo(1); a port of OpenBSD or try opendoas from 'community'
-  light-locker # use instead of i3lock, which doesn't work well with multiple monitors
+  # light-locker # use instead of i3lock, which doesn't work well with multiple monitors
   #lightdm-webkit2-greeter # set a theme for lightdm at login-window
   #lightdm-webkit-theme-litarvan # a theme for lightdm-webkit2-greeter. Cool.
   #jdk-openjdk # toggl-cli needs javac; or use java-environment-common. The symlink from /usr/bin/javac and so on may be broken; update it yourself.
   #toggl-cli # use python's one instead from github
   #jot # a cli tool to take a note
   #notes-cli-bin # a cli tool to take a note on markdown
-  dialog # used in `wifi-menu` at least
-  ripgrep-all # ripgrep in PDFs, E-Books, Office documents, zip, tar.gz, etc.
+  # dialog # used in `wifi-menu` at least
+  ripgrep-all-bin # ripgrep in PDFs, E-Books, Office documents, zip, tar.gz, etc.
   tor-browser
   mmv # mv multiple files in your editor, for debian user
   #otf-sans-forgetica # a font scientifically designed for study notes. fails to work on qutebrowser
-  wine # a layer to run programs for Windows
   transset-df # for transparency on xterm
   q4wine # gui for `wine`
+  wine # a layer to run programs for Windows
   preload # preload apps on RAM; maybe requires to `systemctl disable preload` before remove the package
   trello-cli
   git-crypt
@@ -165,15 +163,15 @@ PACKAGEs=(
   gufw  # a simple firewall
   ccls # Language-Server for C, C++, Object-C
   clamav  # a security service of anti-virus, works on systemctl. update the virus-definetions by `freshclam`, which can also run on systemctl
-  clipgrab # a video downloader
+  # clipgrab # a video downloader
   #cquery-git # LSP for C/C++/Obj-C, available on coc.nvim
-  dasht  # help?
+  # dasht  # help?
   debtap # .deb even in arch!
   fzf
   ghc # a compiler for haskell
   global # GTAGS
   go
-  googlecl  # google api for cli
+  # googlecl  # google api for cli; dependency is broken.
   hub  # an official wrapper of git
   i3-battery-popup-git # alert when battery is running out
   i3-volume
@@ -187,14 +185,14 @@ PACKAGEs=(
   ninja # a build system for clang
   npm # necessary for coc's command at all even w/ yarn
   nvme-cli # a NVMe manager, can be a secure eraser
-  pavucontrol # Sound: GUI?
+  # pavucontrol # Sound: GUI?
   #pdfarranger # a pdf editor
   pdfjs  # PDF viewer in browser
   peek # a screen recorder
   polybar # a substitute of i3-bar
-  pyenv
+  # pyenv
   qemu # for multibootusb
-  qtqr # generate/decode QR codes
+  qtqr-py3 # generate/decode QR codes
   rclone  # sync lib for cloud-service like dropbox, Gdrive.
   ripgrep
   ruby # rvm (Ruby version manager) is out of $PATH.
