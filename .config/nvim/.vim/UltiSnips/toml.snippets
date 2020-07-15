@@ -1,6 +1,6 @@
 snippet vim "[dein] init a table of repo" b
 [[plugins]]
-repo = '`!v substitute(@+, 'https://github.com/\(.\{-}/.\{-}\)/blob/.*', '\1', '')`'
+repo = '`!v substitute(@+, 'https://github.com/\(.\{-}/.\{-}\)\(/blob/.*\)\?', '\1', '')`'
 $0
 endsnippet
 
