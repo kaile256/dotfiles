@@ -26,12 +26,12 @@ function! s:is_modifeir_key_disallowed() abort
   endif
   let is_answer_required = search(pat_prompts_str, 'bcnW')
 
-  return !s:is_in_promptline() || is_answer_required
+  return is_answer_required
 endfunction
 
 function! s:start_insert(key_seq) abort
   let Startinsert = 'i'
-  if s:is_modifeir_key_disallowed()
+  if !s:is_in_promptline() || s:is_modifeir_key_disallowed()
     return Startinsert
   endif
 
