@@ -315,6 +315,10 @@ REMOVEs=(
   i3blocks-contrib
 )
 
+export green="\e[0;32m"
+export purple="\e[0;35m"
+export white="\e[0;37m"
+
 CWD=$(pwd)
 cd "$HOME"
 
@@ -341,17 +345,19 @@ done
 # INSTALL PACKAGES {{{1
 declare -A Install
 Install=(
-  ['yay']='yay -Sy'
+  ['yay']='yay -S'
   ['apt']='sudo apt install'
 )
 
 export install="${Install[$INSTALLER]}"
-echo "$INSTALLER will install package via \"$install\""
+echo
+echo -e "[${purple}pkgm${white}] Authentication of \"root\" is required to proceed..."
 
 for p in "${PACKAGEs[@]}"; do
   yay -Q "$p" >/dev/null 2>&1 && continue
 
-  echo -n "Install $p [y/n]? "
+  echo
+  echo -ne "Install ${green}$p${white} [y/n]? "
   read answer
 
   echo $answer -eq | grep -i --quiet "^y" && $install "$p"
