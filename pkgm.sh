@@ -390,7 +390,8 @@ else
   curl --compressed -o- -L https://yarnpkg.com/install.sh | bash
 fi
 for p in "${YARNs[@]}"; do
-  yarn global add "$p"
+  # TODO: filter YARNs `yarn global list` is too slow to execute often
+  yarn global list | $grep "$p" >/dev/null 2>&1 || yarn global add "$p"
 done
 
 if type pip3 && pip="pip3" || type pip && pip="pip" ; then
