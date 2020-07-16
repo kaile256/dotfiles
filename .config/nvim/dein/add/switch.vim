@@ -58,6 +58,12 @@ let s:definitions['vim'] = [
       \
       \ ]
 
+let s:definitions['toml'] = [
+      \ ['hook_add', 'hook_source', 'hook_post_source', 'hook_done_update'],
+      \ ['on_map', 'on_cmd', 'on_func'],
+      \ ['add/', 'source/', 'post/'],
+      \ ]
+
 let s:definitions['gitcommit'] = [
       \ ['feat', 'fix', 'refactor'],
       \ ['style', 'docs'],
