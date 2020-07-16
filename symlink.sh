@@ -27,15 +27,15 @@ HOMEs=(
   .editorconfig
   .gitconfig
   .gitignore
+  .goneovim
   .gonvim
   .gvimrc
   .markdownlint.yaml
   .myscripts
   .profile
   .taskrc
-  .goneovim
-  .vimrc
   .vim
+  .vimrc
   .vimspector.json
   .zshenv
   bin
