@@ -389,6 +389,8 @@ else
   echo 'Installing yarn...'
   curl --compressed -o- -L https://yarnpkg.com/install.sh | bash
 fi
+
+echo 'Checking packages if installed already.  Please wait a second...'
 for p in "${YARNs[@]}"; do
   # TODO: filter YARNs `yarn global list` is too slow to execute often
   yarn global list | $grep "$p" >/dev/null 2>&1 || yarn global add "$p"
