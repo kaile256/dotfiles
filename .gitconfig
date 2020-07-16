@@ -56,6 +56,8 @@
 	enabled = true
 [alias]
 	co = checkout
+	url-update = !"~/dotfiles/.myscripts/git-set-remote-url.sh"
+	update-url = !"~/dotfiles/.myscripts/git-set-remote-url.sh"
 	# Note: pr and pull-request is a different commands provided by `hub`
 	#   `pr`: List or checkout GitHub pull requests
 	#   `pull-request`: Open a pull request on GitHub
