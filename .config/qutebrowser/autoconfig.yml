@@ -157,7 +157,7 @@ settings:
         <Ctrl+e>: fake-key <End><Ctrl+e>
         <Ctrl+f>: fake-key <Right><Ctrl+f>
         <Ctrl+g>: fake-key <Esc><Ctrl+g>
-        <Ctrl+h>: fake-key <backspace><Ctrl+h>
+        <Ctrl+h>: fake-key <Backspace>
         <Ctrl+i>: fake-key <tab><Ctrl+i>
         <Ctrl+j>: fake-key <Enter><Ctrl+j>
         <Ctrl+k>: fake-key <Shift-end><Delete><Ctrl+k>
