@@ -66,6 +66,15 @@ repo = 'wakatime/vim-wakatime'
 # Note: visit https://wakatime.com/settings/api-key before using this plugin.
 #on_cmd = 'WakaTime' # has to start in background
 on_event = ['VimEnter']
+[[plugins]]
+repo = 'romgrk/todoist.nvim'
+# Note: exact `on_cmd = 'Todoist'` will delete ':Todoist' after once it
+# executed.
+on_cmd = 'Todois'
+# Note: `hook_source` won't set g:todoist['key'] on time.
+hook_add = 'runtime add/todoist.vim'
+hook_post_source = 'runtime post/todoist.vim'
+hook_done_update = 'TodoistInstal'
 
 #[ Google ]
 [[plugins]]
