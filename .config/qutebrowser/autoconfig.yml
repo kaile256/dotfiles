@@ -343,6 +343,7 @@ settings:
         <Ctrl+p>: fake-key <up><Ctrl+p>
         <Ctrl+u>: fake-key <Shift-Home><Backspace>
         <Ctrl+w>: fake-key <ctrl-backspace><Ctrl+w>
+        <Shift+Escape>: null
       prompt:
         <Alt+o>: fake-key <S-TAB>
         <Ctrl+c>: leave-mode
