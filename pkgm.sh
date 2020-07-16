@@ -347,7 +347,7 @@ done
 # REMOVE UNNECESSARY {{{1
 
 for p in "${REMOVEs[@]}"; do
-  yay -Q "$p" >/dev/null 2>&1 || break
+  yay -Q "$p" >/dev/null 2>&1 || continue
   echo "Remove an unnecessary package, \"$p\""
   yay -Rs "$p"
 done
