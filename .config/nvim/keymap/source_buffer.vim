@@ -9,7 +9,7 @@ if !exists('*s:source_buffer')
       let lines_augroup = split(execute('keepj keepp g/aug\%[roup] .\+/keepj keepp v/end\c'), '\n')
       for line in lines_augroup
         let aug_name = matchstr(line, 'aug\%[roup] \zs\S\+')
-        exe 'au!' aug_name
+        exe 'silent! au!' aug_name
       endfor
     endif
 
