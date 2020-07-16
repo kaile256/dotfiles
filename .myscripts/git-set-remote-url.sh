@@ -16,7 +16,7 @@ elif [ $# == 2 ]; then
   ALIAS=$1
   URL=$2
 else
-  echo "This script requires an argument at least."
+  echo "Invalid arguments: this script accepts 2 args at most."
   exit
 fi
 
