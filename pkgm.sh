@@ -24,6 +24,9 @@ PACKAGEs=(
   pulseaudio-modules-bt-git # pulseaudio with bluetooth support
   nerd-fonts-jetbrains-mono
   ttf-octicons # the alternative choice, ttf-all-the-icons, is for emacs.
+  i3-wm
+  conky-i3
+  xsel
 
   google-chrome
   # openshot-git # video editor; cross-platform for Linux, Mac and Windows
@@ -310,9 +313,11 @@ GHQs=(
 )
 
 REMOVEs=(
-  manjaro-hello
   i3blocks
   i3blocks-contrib
+  manjaro-hello
+  manjaro-i3-settings
+  manjaro-ranger-settings
 )
 
 export grep=$(type rg >/dev/null 2>&1 && echo rg || echo grep)
