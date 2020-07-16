@@ -22,7 +22,7 @@ function! s:remote_set_url_to_origin(...) abort
 
   " You cannot push to the repository when you only have cloned in shollow
   " depth.
-  G clone --unshallow
+  G fetch --unshallow
 endfunction
 
 " Note: :Gpush works asynchronous with 'tpope/vim-dispatch'
