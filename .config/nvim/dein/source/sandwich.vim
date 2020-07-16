@@ -31,7 +31,6 @@ augroup END
 
 " Let; Recipes of sandwich {{{1
 " Note: b:sandwich_recipes is also available
-let g:sandwich#default_recipes = get(g:, 'sandwich#default_recipes', [])
 let g:sandwich#recipes = deepcopy(g:sandwich#default_recipes)
 
 let g:sandwich#recipes += [{
