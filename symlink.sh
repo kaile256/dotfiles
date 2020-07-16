@@ -31,6 +31,7 @@ HOMEs=(
   .gonvim
   .gvimrc
   .markdownlint.yaml
+  .myapi
   .myscripts
   .profile
   .taskrc
