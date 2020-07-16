@@ -170,6 +170,7 @@ augroup myCocSource "{{{1
     endif
 
     augroup myCocSource_StopDebugJava
+      au!
       au VimLeavePre *        call s:kill_java_remote_debugger()
       au BufWinLeave <buffer> call s:kill_java_remote_debugger()
       function! s:kill_java_remote_debugger() closure "{{{4
