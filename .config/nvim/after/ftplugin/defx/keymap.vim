@@ -146,8 +146,8 @@ nnoremap <silent><nowait><buffer><expr> I
 " FIXME: keep cursor on defx after :pedit ANYWHERE
 nnoremap <silent><nowait><buffer><expr> i
       \ <SID>defx_is_wide()
-      \ ? defx#do_action('open', 'pclose <bar> pedit')
-      \ : defx#do_action('drop', 'pclose <bar> pedit') .'<C-w>h'
+      \ ? defx#do_action('open', 'pclose <bar> bot pedit')
+      \ : defx#do_action('drop', 'pclose <bar> bot pedit') .'<C-w>h'
 " Mnemonic: Zip Preview
 nnoremap <silent><nowait><buffer> zp <c-w>z
 " in Tree {{{2
