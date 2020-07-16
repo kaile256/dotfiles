@@ -34,17 +34,6 @@ nnoremap <silent> <C-n> :<C-u> call <SID>buf_rotate('next') <CR>
 nnoremap zJ zjzv
 nnoremap zK zkzv
 
-" Jump; via Tags {{{1
-" Note: g<c-]> jumps via ctags,
-"       or if <cword> links more than two tags, shows a list of tags.
-noremap <c-]> g<c-]>zz
-" Note: stjump means split-tag-jump.
-noremap <silent> g<c-]> :<c-u>vert stjump <c-r><c-w><CR>zz
-
-" Tags; to Newest
-" :silent! to supress 'E556: at top of tag stack'
-nnoremap <silent> <c-q> :silent! $tag<cr>
-
 " " gf -- in &path {{{1
 " " Ref: /home/kaile256/.go/src/github.com/neovim/neovim/src/nvim/normal.c @6906 nv_gotofile
 " " if a number follows filename/path, jump to the linenumber on the buffer:
