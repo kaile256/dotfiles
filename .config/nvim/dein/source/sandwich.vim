@@ -54,31 +54,37 @@ let g:sandwich#recipes += [{
 let g:sandwich#recipes += [{
       \ 'input': ['>'],
       \ 'buns': ['>', '<'],
+      \ 'nesting': 1,
       \ 'kind': ['replace', 'textobj'],
       \ }, {
       \ 'input':  [')'],
-      \ 'buns': [')*', '('],
+      \ 'buns': [')', '('],
+      \ 'nesting': 1,
       \ 'kind': ['replace', 'textobj'],
       \ }, {
       \ 'input':  ['}'],
-      \ 'buns': ['}*', '{'],
+      \ 'buns': ['}', '{'],
+      \ 'nesting': 1,
       \ 'kind': ['replace', 'textobj'],
       \ }]
 
 let g:sandwich#recipes += [{
       \ 'input': ['>'],
-      \ 'buns': ['>[,; \t]', '<'],
+      \ 'buns': ['>[,; \t]*', '<'],
       \ 'regex': 1,
+      \ 'nesting': 1,
       \ 'kind': ['delete'],
       \ }, {
       \ 'input':  [')'],
       \ 'buns': [')[,; \t]*', '('],
       \ 'regex': 1,
+      \ 'nesting': 1,
       \ 'kind': ['delete'],
       \ }, {
       \ 'input':  ['}'],
       \ 'buns': ['}[,; \t]*', '{'],
       \ 'regex': 1,
+      \ 'nesting': 1,
       \ 'kind': ['delete'],
       \ }]
 
