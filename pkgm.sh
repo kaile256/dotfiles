@@ -408,12 +408,11 @@ for p in "${GEMs[@]}"; do
   gem install "$p"
 done
 
-if type rustup ; then
-  # Ref: https://www.rust-lang.org/tools/install
-  curl https://sh.rustup.rs -sSf | sh
-  rustup install nightly
-  rustup default nightly
-fi
+# Ref: https://www.rust-lang.org/tools/install
+type rustup >/dev/null 2>&1 || curl https://sh.rustup.rs -sSf | sh
+rustup install nightly
+rustup default nightly
+
 for p in "${RUSTUPs[@]}"; do
   rustup component add "$p"
 done
