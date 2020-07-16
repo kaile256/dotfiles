@@ -54,6 +54,13 @@ function! s:start_insert(key_seq) abort
   return Startinsert .. a:key_seq
 endfunction
 
+function! s:attach(key_seq, ...) abort
+  let offset = a:0 > 0 ? a:1 : 0
+  let [_, save_lnum, save_col, _, _] = getcurpos()
+  return s:start_insert(a:key_seq) ."\<C-\>\<C-n>"
+        \ .":\<C-u>call cursor(". save_lnum .','. (save_col + offset) .")\<CR>"
+endfunction
+
 nnoremap <buffer> gi i
 nnoremap <buffer> o i
 
@@ -62,6 +69,8 @@ nnoremap <expr><buffer> a <SID>start_insert('a')
 
 nnoremap <expr><buffer> s <SID>start_insert("\<Del>")
 nnoremap <expr><buffer> S <SID>start_insert("\<BS>")
+nnoremap <expr><buffer> x <SID>attach("\<Del>")
+nnoremap <expr><buffer> X <SID>attach("\<BS>", -1)
 
 nnoremap <expr><buffer> C <SID>start_insert("\<C-k>")
 
