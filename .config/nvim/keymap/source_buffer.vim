@@ -6,7 +6,7 @@ if !exists('*s:source_buffer')
 
     if &ft ==# 'vim'
       " Refresh augroups before source the target buffer.
-      let lines_augroup = split(execute('g/aug\%[roup] .\+/v/end\c'), '\n')
+      let lines_augroup = split(execute('keepj keepp g/aug\%[roup] .\+/keepj keepp v/end\c'), '\n')
       for line in lines_augroup
         let aug_name = matchstr(line, 'aug\%[roup] \zs\S\+')
         exe 'au!' aug_name
