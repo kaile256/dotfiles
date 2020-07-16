@@ -18,6 +18,9 @@ alias ech='echo'
 # App; Shell
 alias f=fish
 
+# Git
+alias g=git
+
 # App; Neovim
 # `-s`: outputs no error even if no nvim server running.
 alias nvr="nvr -s --remote-wait-silent"

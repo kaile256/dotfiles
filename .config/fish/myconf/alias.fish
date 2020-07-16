@@ -60,3 +60,6 @@ alias e   '$EDITOR'
 alias sp  '$EDITOR -o'
 alias vs  '$EDITOR -O'
 alias tabe '$EDITOR -p'
+
+# Git
+alias g git
