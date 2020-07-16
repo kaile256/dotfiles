@@ -27,6 +27,7 @@ let g:UltiSnipsListSnippets = ''
 let g:UltiSnipsExpandTrigger = ''
 " Note: The Jump-mppings only override keys while UltiSnips working.
 let g:UltiSnipsJumpForwardTrigger = '<C-]>'
+nnoremap <C-]> <Nop>
 " Note: <Esc> stops working snippets, which often happens inconsiderately.
 let g:UltiSnipsJumpBackwardTrigger = '<C-[>'
 
