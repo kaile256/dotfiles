@@ -272,3 +272,6 @@ let g:lexima#default_rules += [
 " call lexima#insmode#map_hook('after', '<CR>',    "\<CR>:-1s/\s\+$<CR>")
 
 call lexima#set_default_rules()
+
+" g:lexima_nvim_accept_pum_with_enter is meaningless.
+inoremap <expr><silent> <CR> lexima#expand("<CR>", 'i')
