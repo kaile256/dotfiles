@@ -33,6 +33,24 @@ augroup END
 " Note: b:sandwich_recipes is also available
 let g:sandwich#default_recipes = get(g:, 'sandwich#default_recipes', [])
 let g:sandwich#recipes = deepcopy(g:sandwich#default_recipes)
+
+let g:sandwich#recipes += [{
+      \ 'input': ['\"'],
+      \ 'buns': ['\"', '\"'],
+      \ 'nesting': 1,
+      \ 'kind': ['add', 'delete', 'replace', 'textobj'],
+      \ }, {
+      \ 'input': ['\(', '\)'],
+      \ 'buns': ['\(', '\)'],
+      \ 'nesting': 1,
+      \ 'kind': ['add', 'delete', 'replace', 'textobj'],
+      \ }, {
+      \ 'input': ['\[', '\]'],
+      \ 'buns': ['\[', '\]'],
+      \ 'nesting': 1,
+      \ 'kind': ['add', 'delete', 'replace', 'textobj'],
+      \ }]
+
 let g:sandwich#recipes += [{
       \ 'input': ['>'],
       \ 'buns': ['>', '<'],
