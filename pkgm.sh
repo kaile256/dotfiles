@@ -114,7 +114,7 @@ PACKAGEs=(
   picom-ibhagwan-git # an X compositor, an enhanced fork of compton
   #i3-wm-iconpatch # crashes too often
   #i3-scrot # screenshot on i3wm
-  i3lock
+  i3lock-fancy-git
   udiskie # a wrapper of udisk2 to mount automatically
   #uzbl # a browser w/ vim-like keybinds. The development ends.
   #doas # an alternative to sudo(1); a port of OpenBSD or try opendoas from 'community'
