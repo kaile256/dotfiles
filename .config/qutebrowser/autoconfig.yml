@@ -516,7 +516,7 @@ settings:
   tabs.undo_stack_size:
     global: 100
   tabs.wrap:
-    global: true
+    global: false
   url.incdec_segments:
     global:
     - path
