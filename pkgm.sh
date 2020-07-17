@@ -182,7 +182,7 @@ PACKAGEs=(
   luarocks
   multibootusb # to create live usb
   neovim-nightly
-  neovim-qt-git # non-git ver. has a bug, missing its depending lib.
+  neovim-qt
   # nerd-fonts-complete
   #nerd-fonts-ricty # unavailable
   #brew-git # a pkgm for macOS (or Linux)
