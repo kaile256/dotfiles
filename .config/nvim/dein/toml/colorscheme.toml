@@ -20,6 +20,10 @@ lazy = 0
 [[plugins]]
 repo = 'raphamorim/lucario'
 lazy = 0
+[[plugins]]
+repo = 'sonph/onehalf'
+rtp = 'vim'
+lazy = 0
 #[ Colorscheme.monokai ]
 [[plugins]]
 repo = 'tomasr/molokai'
