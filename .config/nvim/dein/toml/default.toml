@@ -23,7 +23,7 @@ hook_post_source = 'runtime post/repmo.vim'
 #[ Paste ]
 [[plugins]]
 repo = 'inkarkat/vim-UnconditionalPaste'
-on_map = {nox = ['<Plug>UnconditionalPaste']}
+on_map = {nx = ['<Plug>UnconditionalPaste']}
 hook_add = 'runtime add/UnconditionalPaste.vim'
 hook_source = 'runtime source/UnconditionalPaste.vim'
 
