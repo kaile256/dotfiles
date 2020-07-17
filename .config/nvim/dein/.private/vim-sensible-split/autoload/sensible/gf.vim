@@ -41,9 +41,9 @@ function! s:preview(open) abort
   exe mods 'G'. a:open expand('<cword>')
 
   if a:open =~# 'vsplit'
-    exe 'vertical resize' (g:sensible_split#gf#preview_winwidth_vertical)
+    exe 'vertical resize' eval(g:sensible_split#gf#preview_winwidth_vertical)
   elseif a:open =~# 'split'
-    exe 'resize' (g:sensible_split#gf#preview_winheight_horizontal)
+    exe 'resize' eval(g:sensible_split#gf#preview_winheight_horizontal)
   endif
 
   setlocal previewwindow
