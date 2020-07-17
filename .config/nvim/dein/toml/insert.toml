@@ -185,11 +185,11 @@ hook_add = 'runtime add/thesaurus_query.vim'
 ## Note: Too heavy to download pre-requested files
 #on_cmd = 'GrammarousCheck'
 #hook_add = 'runtime add/grammarous.vim'
-[[plugins]]
-repo = 'shinglyu/vim-codespell'
-# only supports python?
-on_cmd = 'Codespell'
-hook_add = 'runtime add/codespell.vim'
+# [[plugins]]
+# repo = 'shinglyu/vim-codespell'
+# # # only supports python?
+# # on_cmd = 'Codespell'
+# hook_add = 'runtime add/codespell.vim'
 #[[plugins]]
 #repo = 'tweekmonster/dyslexic.vim'
 ## Spell checker according to <cword>.
