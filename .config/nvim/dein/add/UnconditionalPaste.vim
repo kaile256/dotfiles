@@ -33,6 +33,9 @@
 " imap i_CTRL-R_CTRL-H        CombinatorialI
 " imap i_CTRL-R_CTRL-H_CTRL-H RecallCombinatorialI
 
+xmap <expr> p asterisk#gn#paste('n', v:register, "\<Plug>UnconditionalPasteCharI")
+xmap <expr> P asterisk#gn#paste('N', v:register, "\<Plug>UnconditionalPasteCharI")
+
 " Excerpt: nmap
 "     After/Before
 
