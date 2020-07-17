@@ -20,6 +20,7 @@ set diffopt+=internal,indent-heuristic
 set diffopt+=algorithm:histogram
 
 augroup myDiffLazy
+  au!
   "au OptionSet * if &diff | setl wrap | endif " diffchar could cause error
   "au WinEnter,OptionSet *
   "      \ if &l:fdm !=# 'diff'

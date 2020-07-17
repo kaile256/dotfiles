@@ -150,6 +150,7 @@ else
 endif
 
 augroup myTerminalLazy
+  au!
   " Open Terminal as Startpage
   "if @% == '' && &ft ==# '' && &bt ==# ''
   "  au VimEnter * nested call termopen(&shell)

@@ -1,6 +1,7 @@
 " From: init.vim
 
 augroup myCmdWinLazy
+  au!
   " Ref: https://qiita.com/monaqa/items/e22e6f72308652fc81e2
   "   Reduce the histroy
   au CmdWinEnter : g/^qa\?!\?$/d _
