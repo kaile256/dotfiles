@@ -46,18 +46,18 @@ xmap gz# <Plug>(asterisk-#)
 
 " Substitute mappings "{{{1
 
-xnoremap <silent><expr> x asterisk#gn#x('n', v:register)
-xnoremap <silent><expr> X asterisk#gn#x('N', v:register)
-xnoremap <silent><expr> s asterisk#gn#s('n', v:register)
-xnoremap <silent><expr> S asterisk#gn#s('N', v:register)
+xnoremap <silent><expr> x asterisk#gn#delete('n', v:register)
+xnoremap <silent><expr> X asterisk#gn#delete('N', v:register)
+xnoremap <silent><expr> s asterisk#gn#change('n', v:register)
+xnoremap <silent><expr> S asterisk#gn#change('N', v:register)
 
-xnoremap <silent><expr> <space>x asterisk#gn#x('n', '_')
-xnoremap <silent><expr> <space>X asterisk#gn#x('N', '_')
-xnoremap <silent><expr> <space>s asterisk#gn#s('n', '_')
-xnoremap <silent><expr> <space>S asterisk#gn#s('N', '_')
+xnoremap <silent><expr> <space>x asterisk#gn#delete('n', '_')
+xnoremap <silent><expr> <space>X asterisk#gn#delete('N', '_')
+xnoremap <silent><expr> <space>s asterisk#gn#change('n', '_')
+xnoremap <silent><expr> <space>S asterisk#gn#change('N', '_')
 
-xnoremap <silent><expr> p asterisk#gn#p('n', v:register)
-xnoremap <silent><expr> P asterisk#gn#p('N', v:register)
+xnoremap <silent><expr> p asterisk#gn#paste('n', v:register)
+xnoremap <silent><expr> P asterisk#gn#paste('N', v:register)
 
 " " TODO: dot-Repeatable
 " onoremap <expr> r <SID>asterisk_omap('n', v:register)
