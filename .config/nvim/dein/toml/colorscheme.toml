@@ -24,6 +24,9 @@ lazy = 0
 repo = 'sonph/onehalf'
 rtp = 'vim'
 lazy = 0
+[[plugins]]
+repo = 'haishanh/night-owl.vim'
+lazy = 0
 #[ Colorscheme.monokai ]
 [[plugins]]
 repo = 'tomasr/molokai'
