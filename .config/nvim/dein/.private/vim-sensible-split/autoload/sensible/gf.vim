@@ -25,11 +25,11 @@ function! s:is_fugitive_available() abort
   return exists(':G') != 0
 endfunction
 
-function! s:is_hash() abort
+function! s:is_hash(word) abort
   if !s:is_fugitive_available()
     return 0
   endif
-  return expand('<cword>') =~# '^\x\{6,}$'
+  return a:word =~# '^\x\{6,}$'
 endfunction
 
 function! s:preview() abort
@@ -65,14 +65,14 @@ endfunction
 
 function! sensible#gf#edit() abort
   " This function is only for parity to default Vim.
-  if s:is_hash()
+  if s:is_hash(expand('<cword>'))
     return ":call sensible#gf#_Gopen('edit')\<CR>"
   endif
   return 'gF'
 endfunction
 
 function! sensible#gf#split() abort
-  if s:is_hash()
+  if s:is_hash(expand('<cword>'))
     return ":call sensible#gf#_Gopen() \<CR>"
   endif
 
