@@ -60,7 +60,9 @@ function! sensible#gf#_Gopen(...) abort
     call s:preview()
   else
     let open = a:0 > 0 ? a:1 : sensible#split()
-    exe 'G'. sensible#split() expand('<cword>')
+    let word = expand('<cword>')
+    let hash = s:is_hash(word) ? word : matchstr(getline('.'), pat_hash)
+    exe 'G'. sensible#split() hash
   endif
 endfunction
 
