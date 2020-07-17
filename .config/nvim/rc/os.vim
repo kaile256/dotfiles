@@ -7,6 +7,7 @@ if has('win32') || has('win64')
   " unix:   with Unix end-of-line format, <NL>, even on Windows or DOS
   set viewoptions+=slash,unix
   set shellslash
+  set winaltkeys=no " Either yes/menu disables alt-mappings only on Win32
 endif
 
 "if execute('!uname -r') =~ ''
