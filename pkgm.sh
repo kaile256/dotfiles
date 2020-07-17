@@ -158,8 +158,8 @@ PACKAGEs=(
   alacritty
   anyenv
   arandr  # Gui config for xrandr
-  aspell # for vim-codespell
-  aspell-en # for vim-codespell
+  # aspell # for vim-codespell
+  # aspell-en # for vim-codespell
   atool # compress/extract files detecting automaticcaly
   bash-completion
   blacklist_pcspkr # make sure to disable beep
