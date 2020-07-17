@@ -53,8 +53,7 @@ function! s:preview() abort
 endfunction
 
 function! sensible#gf#_Gopen(...) abort
-  let filetypes_to_preview = ['gitrebase', 'gitblame', 'fugitive']
-  let is_to_preview = &ft =~# join(filetypes_to_preview, '\|')
+  let is_to_preview = &ft =~# join(g:sensible#gf#preview_filetypes, '\|')
 
   if is_to_preview
     call s:preview()

@@ -29,6 +29,12 @@ let s:save_cpo = &cpo
 set cpo&vim
 "}}}
 
+let g:sensible#gf#preview_filetypes = get(g:, 'sensible#gf#preview_filetypes', [
+      \ 'fugitive',
+      \ 'gitblame',
+      \ 'gitrebase',
+      \ ])
+
 command! -bar -bang -nargs=*
       \ SensibleSplit
       \ :exe <q-mods> sensible#_split('<bang>0') <q-args>
@@ -57,6 +63,9 @@ endif
 augroup sensibleSplit
   au!
   au BufWinEnter *vim**/* let &l:keywordprg = ':SensibleMods help'
+  exe 'au FileType' join(g:sensible#gf#preview_filetypes, ',')
+        \ 'nnoremap <silent><buffer><nowait> p'
+        \ ':<C-u>call sensible#gf#_Gopen()<CR>'
 augroup END
 
 if &g:keywordprg ==# ':Man'
