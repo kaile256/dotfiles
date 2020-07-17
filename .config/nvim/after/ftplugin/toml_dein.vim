@@ -1,6 +1,7 @@
 if fnamemodify(@%, ':p') !~# 'vim' | finish | endif
 
 augroup myTomlFtplugin
+  au!
   " Remove Unnecessary part of URL
   au FocusGained *vim**/*.toml call s:get_repo()
 augroup END

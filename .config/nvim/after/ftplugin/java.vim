@@ -3,6 +3,7 @@
 compiler javac
 
 augroup myJavaFtplugin
+  au!
   " au BufWritePre *.java call s:class_automation()
   " FIXME: make it work
   au InsertLeave *.java call s:complete_semicolon()

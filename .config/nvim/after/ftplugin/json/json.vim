@@ -11,6 +11,7 @@ endif
 setlocal conceallevel=0
 
 augroup myJsonFtplugin
+  au!
   au InsertLeave json call s:json_format()
 augroup END
 
