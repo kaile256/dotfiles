@@ -27,6 +27,16 @@ lazy = 0
 [[plugins]]
 repo = 'haishanh/night-owl.vim'
 lazy = 0
+[[plugins]]
+repo = 'connorholyday/vim-snazzy'
+lazy = 0
+[[plugins]]
+repo = 'Rigellute/rigel'
+lazy = 0
+[[plugins]]
+repo = 'wadackel/vim-dogrun'
+lazy = 0
+
 #[ Colorscheme.monokai ]
 [[plugins]]
 repo = 'tomasr/molokai'
