@@ -375,6 +375,7 @@ settings:
     - quickmarks
     - bookmarks
     - history
+    - searchengines
   completion.scrollbar.width:
     global: 2
   completion.use_best_match:
