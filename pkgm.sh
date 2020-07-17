@@ -28,6 +28,7 @@ PACKAGEs=(
   conky-i3
   xsel
 
+  j4-dmenu-desktop # search desktop applications
   google-chrome
   # openshot-git # video editor; cross-platform for Linux, Mac and Windows
   #gifcurry # GIF editor; depends on gtk
