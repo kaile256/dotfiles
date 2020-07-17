@@ -32,17 +32,18 @@ function! s:is_hash() abort
   return expand('<cword>') =~# '^\x\{6,}$'
 endfunction
 
-function! s:preview(open) abort
+function! s:preview() abort
   pclose
 
-  let mods = a:open ==# 'vsplit'
+  let open = sensible#split()
+  let mods = open ==# 'vsplit'
         \ ? g:sensible_split#gf#preview_mods_vertical
         \ : g:sensible_split#gf#preview_mods_horizontal
-  exe mods 'G'. a:open expand('<cword>')
+  exe mods 'G'. open expand('<cword>')
 
-  if a:open =~# 'vsplit'
+  if open =~# 'vsplit'
     exe 'vertical resize' eval(g:sensible_split#gf#preview_winwidth_vertical)
-  elseif a:open =~# 'split'
+  elseif open =~# 'split'
     exe 'resize' eval(g:sensible_split#gf#preview_winheight_horizontal)
   endif
 
@@ -50,14 +51,15 @@ function! s:preview(open) abort
   keepjumps wincmd p
 endfunction
 
-function! sensible#gf#_Gopen(open) abort
+function! sensible#gf#_Gopen(...) abort
   let filetypes_to_preview = ['gitrebase', 'gitblame', 'fugitive']
   let is_to_preview = &ft =~# join(filetypes_to_preview, '\|')
 
   if is_to_preview
-    call s:preview(a:open)
+    call s:preview()
   else
-    exe 'G'. a:open expand('<cword>')
+    let open = a:0 > 0 ? a:1 : sensible#split()
+    exe 'G'. sensible#split() expand('<cword>')
   endif
 endfunction
 
@@ -71,7 +73,7 @@ endfunction
 
 function! sensible#gf#split() abort
   if s:is_hash()
-    return ":call sensible#gf#_Gopen(sensible#split()) \<CR>"
+    return ":call sensible#gf#_Gopen() \<CR>"
   endif
 
   let style = sensible#style()
