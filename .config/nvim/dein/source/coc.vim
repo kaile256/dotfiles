@@ -53,6 +53,7 @@ let g:coc_global_extensions = [
       \ 'coc-homeassistant',
       \ 'coc-html',
       \ 'coc-java',
+      \ 'coc-java-debug',
       \ 'coc-json',
       \ 'coc-julia',
       \ 'coc-lists',
@@ -81,7 +82,6 @@ let g:coc_global_extensions = [
       \ 'coc-xml',
       \ 'coc-yaml',
       \ 'coc-yank',
-      \ 'https://github.com/dansomething/coc-java-debug',
       \ ]
 
 " CocCheckProvider {{{1
