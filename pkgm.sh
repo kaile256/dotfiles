@@ -26,6 +26,7 @@ PACKAGEs=(
   conky-i3
   xsel
 
+  nerd-fonts-ricty
   chrony # an alternative to ntp client/server
   j4-dmenu-desktop # search desktop applications
   google-chrome
