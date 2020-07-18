@@ -33,21 +33,32 @@ function! s:is_hash(word) abort
   return a:word =~# s:pat_hash
 endfunction
 
+function! s:set_git_path() abort
+  let word = expand('<cword>')
+  let hash = s:is_hash(word) ? word : matchstr(getline('.'), s:pat_hash)
+
+  let keywords = ['\<\a\>', '\<\l\+\>'] " expects 'M', 'reword', etc.
+  return hash ==# '' || hash =~# join(keywords, '\|')
+        \ ? matchstr(getline('.'), '^\S\+\s\+\zs\f\+')
+        \ : hash
+endfunction
+
 function! s:preview() abort
   pclose
 
+  let path = s:set_git_path()
   let open = sensible#split()
   if open ==# 'tabe'
     let open = 'vsplit' " overwritten for resize
     split
     wincmd T
     let mods = g:sensible_split#gf#preview_mods_vertical
-    exe mods 'Gvsplit' expand('<cword>')
+    exe mods 'Gvsplit' path
   else
     let mods = open ==# 'vsplit'
           \ ? g:sensible_split#gf#preview_mods_vertical
           \ : g:sensible_split#gf#preview_mods_horizontal
-    exe mods 'G'. open expand('<cword>')
+    exe mods 'G'. open path
   endif
 
   if open =~# 'vsplit'
@@ -67,9 +78,8 @@ function! sensible#gf#_Gopen(...) abort
     call s:preview()
   else
     let open = a:0 > 0 ? a:1 : sensible#split()
-    let word = expand('<cword>')
-    let hash = s:is_hash(word) ? word : matchstr(getline('.'), pat_hash)
-    exe 'G'. open hash
+    let path = s:set_git_path()
+    exe 'G'. open path
   endif
 endfunction
 
