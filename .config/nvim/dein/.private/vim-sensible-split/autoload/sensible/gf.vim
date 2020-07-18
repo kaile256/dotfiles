@@ -46,20 +46,18 @@ endfunction
 function! s:preview() abort
   pclose
 
-  let path = s:set_git_path()
   let open = sensible#split()
   if open ==# 'tabe'
     let open = 'vsplit' " overwritten for resize
     split
     wincmd T
-    let mods = g:sensible_split#gf#preview_mods_vertical
-    exe mods 'Gvsplit' path
-  else
-    let mods = open ==# 'vsplit'
-          \ ? g:sensible_split#gf#preview_mods_vertical
-          \ : g:sensible_split#gf#preview_mods_horizontal
-    exe mods 'G'. open path
   endif
+
+  let path = s:set_git_path()
+  let mods = open ==# 'vsplit'
+        \ ? g:sensible_split#gf#preview_mods_vertical
+        \ : g:sensible_split#gf#preview_mods_horizontal
+  exe mods 'G'. open path
 
   if open =~# 'vsplit'
     exe 'vertical resize' eval(g:sensible_split#gf#preview_winwidth_vertical)
