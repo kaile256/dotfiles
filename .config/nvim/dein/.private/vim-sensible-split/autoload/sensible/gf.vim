@@ -25,7 +25,7 @@ function! s:is_fugitive_available() abort
   return exists(':G') != 0
 endfunction
 
-let s:pat_hash = '^\x\{6,}$'
+let s:pat_hash = '\<\x\{6,}\>'
 function! s:is_hash(word) abort
   if !s:is_fugitive_available()
     return 0
