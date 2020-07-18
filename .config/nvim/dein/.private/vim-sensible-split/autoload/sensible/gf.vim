@@ -37,10 +37,18 @@ function! s:preview() abort
   pclose
 
   let open = sensible#split()
-  let mods = open ==# 'vsplit'
-        \ ? g:sensible_split#gf#preview_mods_vertical
-        \ : g:sensible_split#gf#preview_mods_horizontal
-  exe mods 'G'. open expand('<cword>')
+  if open ==# 'tabe'
+    let open = 'vsplit' " overwritten for resize
+    split
+    wincmd T
+    let mods = g:sensible_split#gf#preview_mods_vertical
+    exe mods 'Gvsplit' expand('<cword>')
+  else
+    let mods = open ==# 'vsplit'
+          \ ? g:sensible_split#gf#preview_mods_vertical
+          \ : g:sensible_split#gf#preview_mods_horizontal
+    exe mods 'G'. open expand('<cword>')
+  endif
 
   if open =~# 'vsplit'
     exe 'vertical resize' eval(g:sensible_split#gf#preview_winwidth_vertical)
