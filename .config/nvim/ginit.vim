@@ -4,7 +4,8 @@ if exists('g:GuiLoaded') " if nvim-qt
   GuiPopupmenu 0
 
   " <bang> for Japanese and other ambiwidth fonts
-  GuiFont! JetBrainsMono Nerd Font:h10.9
+  " GuiFont! JetBrainsMono Nerd Font:h10.9
+  GuiFont! JetBrainsMonoMedium Nerd Font:h10.8
   GuiLinespace -1
 
 elseif exists('gonvim_running')
