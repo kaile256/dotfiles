@@ -23,7 +23,7 @@ function! s:common() abort
   hi! HighlightedyankRegion ctermfg=232 ctermbg=66 guifg=#000000 guibg=#df5f29
   hi! CocErrorHighlight     ctermfg=red guifg=#ff0000
 
-  hi! Comment guifg=#71716e
+  " hi! Comment guifg=#71716e
 
   hi! CursorIM guibg=#fabd1f
   hi! MatchParen ctermfg=magenta guifg=#e6c50f ctermbg=yellow guibg=#8924ff cterm=bold gui=bold
