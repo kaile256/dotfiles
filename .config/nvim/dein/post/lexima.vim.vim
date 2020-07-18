@@ -19,9 +19,9 @@ let s:key2rules = {}
 let s:key2rules['<CR>'] = [
       \ {'at': '^\s*\\.*\%#', 'input': '<CR>\ ', 'except': '[]})]\s*$'},
       \
-      \ {'at': '(\%#)',  'input': '<CR>\ ', 'input_after': '<CR>\ '},
-      \ {'at': '{\%#}',  'input': '<CR>\ ', 'input_after': '<CR>\ '},
-      \ {'at': '\[\%#]', 'input': '<CR>\ ', 'input_after': '<CR>\ '},
+      \ {'at': '\(=\|\\\)\s*(\%#)',  'input': '<CR>\ ', 'input_after': '<CR>\ '},
+      \ {'at': '\(=\|\\\)\s*{\%#}',  'input': '<CR>\ ', 'input_after': '<CR>\ '},
+      \ {'at': '\(=\|\\\)\s*\[\%#]', 'input': '<CR>\ ', 'input_after': '<CR>\ '},
       \ ]
 
 function! s:parse_list(dict) abort
