@@ -2,10 +2,6 @@
 " Repo: flazz/vim-colorschemes
 " Ref: post/coloschemes.vim
 " Ref: source/coloschemes.vim
-"
-augroup myPalenight
-  au Colorscheme palenight ++nested call s:my_palenight()
-augroup END
 
 function! s:my_palenight() abort
   hi! link Whitespace Comment
@@ -42,3 +38,7 @@ function! s:my_palenight() abort
   hi! DoppelgangerVirtualText ctermfg=64 guifg=#5f8700 cterm=italic gui=italic
 endfunction
 
+if exists('#myPalenightPre') | finish | endif
+augroup myPalenightPre
+  au Colorscheme palenight ++nested call s:my_palenight()
+augroup END

@@ -2,10 +2,6 @@
 " Repo: sainnhe/sonokai
 " Another: source/sonokai.vim
 
-augroup mySonokaiSo
-  au ColorScheme sonokai ++nested call s:my_sonokai()
-augroup END
-
 function! s:my_sonokai() abort
   hi! Visual guibg=#5d6118
 
@@ -19,3 +15,8 @@ function! s:my_sonokai() abort
 
   hi! DoppelgangerVirtualText ctermfg=64 guifg=#5f8700 cterm=italic gui=italic
 endfunction
+
+if exists('#mySonokaiPre') | finish | endif
+augroup mySonokaiPre
+  au ColorScheme sonokai ++nested call s:my_sonokai()
+augroup END

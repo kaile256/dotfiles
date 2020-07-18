@@ -4,9 +4,6 @@
 " Ref: source/colorschemes.vim
 " Another: source/neodark.vim
 
-augroup myNeodark
-  au Colorscheme neodark ++nested call s:my_neodark()
-augroup END
 function! s:my_neodark() abort "{{{1
   call s:modified_diff()
   hi! Search ctermfg=236 guifg=#3e120a ctermbg=180 guibg=#ebb556
@@ -65,3 +62,8 @@ function! s:gruvbox_diff(...) abort "{{{2
   "hi diffLine    cterm=bold gui=bold ctermfg=109 guifg=#83a598
   hi! diffLine    cterm=bold gui=bold ctermfg=109 guifg=#36b383
 endfunction
+
+if exists('#myNeodarkPre') | finish | endif
+augroup myNeodarkPre
+  au Colorscheme neodark ++nested call s:my_neodark()
+augroup END

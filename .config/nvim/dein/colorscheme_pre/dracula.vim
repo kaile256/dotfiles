@@ -3,10 +3,6 @@
 " Ref: post/coloschemes.vim
 " Ref: source/coloschemes.vim
 
-augroup myDracula
-  au Colorscheme dracula ++nested call s:my_dracula()
-augroup END
-
 function! s:my_dracula() abort
   hi! ErrorMsg ctermfg=231 ctermbg=212 guifg=#7411a8 guibg=#ff79c6 cterm=bold gui=bold
   hi! WarningMsg ctermfg=231 ctermbg=212 guifg=#7411a8 guibg=#ff79c6 cterm=bold gui=bold
@@ -40,3 +36,8 @@ function! s:my_dracula() abort
   endif
   hi! NormalFloat ctermfg=190 guifg=#cfbd2f ctermbg=22 guibg=#0b4100 cterm=bold gui=bold
 endfunction
+
+if exists('#myDraculaPre') | finish | endif
+augroup myDraculaPre
+  au Colorscheme dracula ++nested call s:my_dracula()
+augroup END
