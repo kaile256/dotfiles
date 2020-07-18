@@ -1,7 +1,7 @@
-" TOML: appearance.toml
+" TOML: colorscheme.toml
 " Repo: flazz/vim-colorschemes
-" Ref: post/coloschemes.vim
-" Ref: source/coloschemes.vim
+" Ref: post/colorschemes.vim
+" Ref: source/colorschemes.vim
 
 function! s:my_dracula() abort
   hi! ErrorMsg ctermfg=231 ctermbg=212 guifg=#7411a8 guibg=#ff79c6 cterm=bold gui=bold

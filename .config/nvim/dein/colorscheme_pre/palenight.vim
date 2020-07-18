@@ -1,7 +1,7 @@
 " TOML: colorscheme.toml
 " Repo: flazz/vim-colorschemes
-" Ref: post/coloschemes.vim
-" Ref: source/coloschemes.vim
+" Ref: post/colorschemes.vim
+" Ref: source/colorschemes.vim
 
 function! s:my_palenight() abort
   hi! link Whitespace Comment

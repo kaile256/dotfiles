@@ -1,4 +1,4 @@
-" TOML: appearance.toml
+" TOML: colorscheme.toml
 " Repo: sainnhe/sonokai
 " Another: source/sonokai.vim
 

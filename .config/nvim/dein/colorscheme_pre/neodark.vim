@@ -1,4 +1,4 @@
-" TOML: appearance.toml
+" TOML: colorscheme.toml
 " Repo: flazz/vim-colorschemes
 " Ref: post/colorschemes.vim
 " Ref: source/colorschemes.vim
