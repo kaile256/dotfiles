@@ -4,7 +4,7 @@
 " Another: source/spring-night.vim
 
 function! s:my_spring_night() abort
-  hi! Visual ctermbg=3 guibg=#808000
+  hi! Visual ctermbg=58 guibg=#505014
 endfunction
 
 if exists('#mySpringNightPre') | finish | endif
