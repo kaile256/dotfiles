@@ -183,6 +183,7 @@ PACKAGEs=(
   multibootusb # to create live usb
   neovim-nightly
   neovim-qt
+  gvim-gtk2
   # nerd-fonts-complete
   #nerd-fonts-ricty # unavailable
   #brew-git # a pkgm for macOS (or Linux)
