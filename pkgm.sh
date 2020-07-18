@@ -318,6 +318,7 @@ REMOVEs=(
   manjaro-hello
   manjaro-i3-settings
   manjaro-ranger-settings
+  morc_menu # dmenu on bash
 )
 
 export grep=$(type rg >/dev/null 2>&1 && echo rg || echo grep)
