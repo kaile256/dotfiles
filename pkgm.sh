@@ -390,19 +390,6 @@ done
 #echo "Updating npm..."
 #sudo npm install -g npm
 
-if type yarn; then
-  yarn global add yarn
-else
-  echo 'Installing yarn...'
-  curl --compressed -o- -L https://yarnpkg.com/install.sh | bash
-fi
-
-echo 'Checking packages if installed already.  Please wait a second...'
-for p in "${YARNs[@]}"; do
-  # TODO: filter YARNs `yarn global list` is too slow to execute often
-  yarn global list | $grep "$p" >/dev/null 2>&1 || yarn global add "$p"
-done
-
 if type pip3 && pip="pip3" || type pip && pip="pip" ; then
   $pip install $pip
   for p in "${PIP3s[@]}"; do
