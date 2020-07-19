@@ -224,6 +224,7 @@ settings:
         <Ctrl+x>: null
         <Ctrl+y>: scroll-px 0 -50
         <Enter>: enter-mode insert;; fake-key <enter> ;; leave-mode
+        <Escape>: clear-keychain ;; search ;; fullscreen --leave;; download-clear
         <Space>1: tab-close
         <Space>2: save
         <Space>F: hint links tab-bg
