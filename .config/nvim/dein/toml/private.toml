@@ -119,9 +119,9 @@ on_cmd = 'HlInfo'
 # on_event = 'BufRead'
 
 #[ Register ]
-[[plugins]]
-repo = '$DEIN_PRIVATE_HOME/vim-oneline-convertor'
-on_event = 'CmdLineEnter'
+# [[plugins]]
+# # repo = '$DEIN_PRIVATE_HOME/vim-oneline-convertor'
+# on_event = 'CmdLineEnter'
 
 [[plugins]]
 repo = '$DEIN_PRIVATE_HOME/vim-countable-s'
