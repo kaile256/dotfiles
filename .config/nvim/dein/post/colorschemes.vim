@@ -18,7 +18,7 @@ function! s:set_colorscheme() abort
       if expand($TERM) =~# 'rxvt'
         colorscheme gruvbox
       elseif system('xrandr --query | grep " connected"') =~# 'HDMI'
-        colorscheme dracula
+        colorscheme spring-night
       else
         " colorscheme palenight
         colorscheme onedark
