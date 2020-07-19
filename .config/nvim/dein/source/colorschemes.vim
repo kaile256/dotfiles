@@ -18,6 +18,7 @@ function! s:common_dark() abort
 endfunction
 
 function! s:common() abort
+  hi! TermCursor cterm=reverse,underline gui=reverse,underline
   hi! TermCursorNC ctermfg=Red guifg=Red ctermbg=NONE guibg=NONE cterm=bold gui=bold
 
   hi! HighlightedyankRegion ctermfg=232 ctermbg=66 guifg=#000000 guibg=#df5f29
