@@ -397,7 +397,9 @@ settings:
     global: false
   content.notifications:
     https://app.clickup.com: true
+    https://app.slack.com: true
     https://calendar.google.com: true
+    https://web.skype.com: true
     https://www.pcmag.com: false
     https://www.reddit.com: true
   content.pdfjs:
