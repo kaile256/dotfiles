@@ -187,7 +187,7 @@ settings:
         <Ctrl+Enter>: enter-mode insert;; fake-key <ctrl-enter> ;; leave-mode
         <Ctrl+a>: enter-mode insert ;; fake-key <home>
         <Ctrl+b>: fake-key <PgUp>
-        <Ctrl+c>: stop;; clear-keychain
+        <Ctrl+c>: stop;; clear-keychain;; download-clear
         <Ctrl+d>: scroll-page 0 0.5
         <Ctrl+e>: scroll-px 0 +50
         <Ctrl+f>: fake-key <PgDown>
