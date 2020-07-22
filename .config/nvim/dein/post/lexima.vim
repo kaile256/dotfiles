@@ -209,9 +209,9 @@ let g:lexima#default_rules += [
       \ ]
 
 let g:lexima#default_rules += [
-      \ {'char': '<C-&>', 'input': '&'},
-      \ {'char': '<C-&>', 'at': '\%#\S', 'input': '<space><C-g>U<Left><space>'},
-      \ {'char': '<C-&>', 'at': '\s\%#\S', 'input': '<C-g>U<Left><space>'},
+      \ {'char': '<C-S-Space>', 'input': ' '},
+      \ {'char': '<C-S-Space>', 'at': '\%#\S', 'input': ' ', 'input_after': ' '},
+      \ {'char': '<C-S-Space>', 'at': '\s\%#\S', 'input': '', 'input_after': ' '},
       \ ]
 
 let s:close = '[\])}`''",.]'
