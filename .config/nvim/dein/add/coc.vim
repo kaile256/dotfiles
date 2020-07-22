@@ -141,13 +141,13 @@ augroup END
 " nnoremap <silent> <a-s><a-p><a-v> :<C-u>vs <bar> CocCommand snippets.editSnippets<CR>
 " nnoremap <silent> <a-s><a-p><a-t> :<C-u>tabe <bar> CocCommand snippets.editSnippets<CR>
 
-" CocCodeAction {{{1
-"set equalprg=CocActionAsync('formatSelected')
-"set equalprg=CocActionAsync('codeLensAction')
-nnoremap \A :call CocActionAsync('codeLensAction')<cr>
-nmap \aa <Plug>(coc-codeaction)
-nmap \a  <Plug>(coc-codeaction-selected)
-xmap \a  <Plug>(coc-codeaction-selected)
+" " CocCodeAction {{{1
+" "set equalprg=CocActionAsync('formatSelected')
+" "set equalprg=CocActionAsync('codeLensAction')
+" nnoremap \A :call CocActionAsync('codeLensAction')<cr>
+" nmap \aa <Plug>(coc-codeaction)
+" nmap \a  <Plug>(coc-codeaction-selected)
+" xmap \a  <Plug>(coc-codeaction-selected)
 
 " CocWorkspace {{{1
 command! -bar Rename :CocCommand workspace.renameCurrentFile
