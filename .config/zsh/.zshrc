@@ -15,17 +15,10 @@ done
 
 bindkey -e
 
-# share with the other terminals
-setopt share_history
-
-# no duplicated history
-setopt histignorealldups
-
-# cd only with dir name
-setopt auto_cd
-
-# fix command failure
-setopt correct
-
-# disable <C-s> and <C-q>
-setopt no_flow_control
+setopt appendhistory # instead of overwriting
+setopt share_history # share with the other terminals
+setopt histignorealldups # no duplicated cmd history (remove older)
+setopt auto_cd # cd just with a dir path
+setopt correct # Auto correct command failure
+setopt no_flow_control # disable <C-s> and <C-q>
+setopt nobeep
