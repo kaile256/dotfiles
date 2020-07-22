@@ -29,13 +29,17 @@ function! s:is_modifeir_key_disallowed() abort
         \ '==> \[N]one \[A]ll \[Ab]ort \[I]nstalled \[No]tInstalled.*\(\n==>\)\?',
         \ '^Enter .*:',
         \ ]
-  let pat_prompts_str = '\('. join(pat_prompts, '\|') .'\)'
+  let pat_installing = [
+        \ '\d\+%$',
+        \ ]
+  let pattern = pat_prompts + pat_installing
+  let pat_not_to_insert = '\('. join(pattern, '\|') .'\)'
   if getline('.') !=# ''
-    let pat_prompts_str .= '.*\n*\%$'
+    let pat_not_to_insert .= '.*\n*\%$'
   endif
-  let is_answer_required = search(pat_prompts_str, 'bcnW')
+  let must_not_insert = search(pat_not_to_insert, 'bcnW')
 
-  return is_answer_required
+  return must_not_insert
 endfunction
 
 function! s:start_insert(key_seq) abort
