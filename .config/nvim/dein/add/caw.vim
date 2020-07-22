@@ -2,7 +2,8 @@
 " Repo: tyru/caw.vim
 " Another: source/caw.vim
 
-xmap \z  <Plug>(caw:hatpos:toggle)
-nmap \z  <Plug>(caw:hatpos:toggle:operator)
-nmap \zz <Plug>(caw:hatpos:toggle)
+" Mnemonic: Annotate
+xmap \a  <Plug>(caw:hatpos:toggle)
+nmap \a  <Plug>(caw:hatpos:toggle:operator)
+nmap \aa <Plug>(caw:hatpos:toggle)
 
