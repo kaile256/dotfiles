@@ -39,6 +39,7 @@ HOMEs=(
   .vimrc
   .vimspector.json
   .zshenv
+  .zshrc
   bin
 )
 
