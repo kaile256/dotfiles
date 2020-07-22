@@ -21,23 +21,33 @@ autoload -Uz _zinit
 
 zinit light mafredri/zsh-async
 
-zinit ice lucid as"command" from"gh-r" pick"starship" atload"!eval \$(starship init zsh)"
+zinit ice lucid from"gh-r" \
+  as"command" pick"starship" \
+  atload"!eval \$(starship init zsh)"
 zinit light starship/starship
 
-zinit ice lucid wait"!0" atload"_zsh_autosuggest_start"
+zinit ice lucid wait"!0" \
+  atload"_zsh_autosuggest_start"
 zinit light zsh-users/zsh-autosuggestions
 
+zinit ice lucid wait \
+  atpull"zinit creinstall -q ."
 zinit light zsh-users/zsh-completions
 
-zinit ice lucid wait"0" atinit"zpcompinit; zpcdreplay"
+zinit ice lucid wait"!1" \
+  atinit"zpcompinit; zpcdreplay"
 zinit light zdharma/fast-syntax-highlighting
 
 # LS COLOR
-zinit ice lucid atclone"dircolors -b LS_COLORS > c.zsh" atpull'%atclone' pick"c.zsh" nocompile'!'
+zinit ice lucid wait"!1" \
+  pick"c.zsh" nocompile'!' \
+  atclone"dircolors -b LS_COLORS > c.zsh" \
+  atpull'%atclone'
 zinit light trapd00r/LS_COLORS
 
 zinit ice lucid wait'!0'; zinit light vintersnow/anyframe
 zinit ice lucid wait'!0'; zinit light b4b4r07/enhancd
 
-zinit ice lucid wait"0" as"command" pick"bin/git-fuzzy"
+zinit ice lucid wait"0" \
+  as"command" pick"bin/git-fuzzy"
 zinit light bigH/git-fuzzy
