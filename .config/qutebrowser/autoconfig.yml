@@ -247,6 +247,7 @@ settings:
         <Space>zo: history
         <Space>zt: set-cmd-text -s :open -t
         <Space>zv: set-cmd-text -s :open
+        <Tab>: enter-mode insert;; fake-key <TAB>
         <い>: enter-mode insert
         '>': tab-move +
         D: scroll-page 0 +1.0
