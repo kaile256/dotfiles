@@ -48,7 +48,14 @@ function! s:start_insert(key_seq) abort
     return Startinsert
   endif
 
-  let len = col('$') - col('.')
+  " FIXME: Hopefully check if spaces are actually inserted or not, between pair
+  " of prompts.
+  let pat_end_of_prompt = '\s\+\S\+\_$'
+  let col_end_insertable = searchpos(pat_end_of_prompt, 'ncW')[1]
+  if col_end_insertable == 0
+    let col_end_insertable = col('$')
+  endif
+  let len = col_end_insertable - col('.')
   if a:key_seq ==# 'a'
     let len -= 1
   endif
