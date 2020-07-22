@@ -10,6 +10,13 @@ source $HOME/.zinit/bin/zinit.zsh
 autoload -Uz _zinit
 (( ${+_comps} )) && _comps[zinit]=_zinit
 
+# Excerpt: (zdharma/zinit)
+# 'lucid': Skip `Loaded ...` msg for `wait`, etc.
+# 'silent': Addition to 'lucid', mute `stderr` & `stdout` of plugins/snippets.
+#
+# 'as': `as`"program" (or `as"command` as the alias) will add the
+#       scripts/programs to `$PATH`, instead of sourcing the programs.
+
 zinit light mafredri/zsh-async
 # Prompt Theme; use starship instead in .zshenv
 # good on vim-term to two-row prompt to yank.
