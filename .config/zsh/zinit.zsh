@@ -18,11 +18,6 @@ autoload -Uz _zinit
 #       scripts/programs to `$PATH`, instead of sourcing the programs.
 
 zinit light mafredri/zsh-async
-# Prompt Theme; use starship instead in .zshenv
-# good on vim-term to two-row prompt to yank.
-#zinit ice pick"async.zsh" src"pure.zsh"; zinit light sindresorhus/pure
-#zinit ice src"spaceship.zsh"; zinit light denysdovhan/spaceship-prompt
-#zinit ice rc"polyglot.plugin.zsh"; zinit light "agkozak/polyglot"
 
 zinit ice wait"!0" atload"_zsh_autosuggest_start"
 zinit light zsh-users/zsh-autosuggestions
