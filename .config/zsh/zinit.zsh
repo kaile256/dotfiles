@@ -30,8 +30,6 @@ zinit light zsh-users/zsh-autosuggestions
 # zinit light zsh-users/zsh-completions
 zinit light zdharma/fast-syntax-highlighting
 
-# FZF
-zinit ice from"gh-r" as"program"; zinit load junegunn/fzf-bin
 # LS COLOR
 zinit ice atclone"dircolors -b LS_COLORS > c.zsh" atpull'%atclone' pick"c.zsh" nocompile'!'
 zinit light trapd00r/LS_COLORS
