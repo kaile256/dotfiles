@@ -52,3 +52,10 @@ zinit ice lucid wait'!0'; zinit light b4b4r07/enhancd
 zinit ice lucid wait"0" \
   as"command" pick"bin/git-fuzzy"
 zinit light bigH/git-fuzzy
+
+zinit ice lucid wait"5"; zinit light zsh-users/zsh-syntax-highlighting
+
+zinit ice lucid has"nvr" wait"!1" \
+  pick"contrib/completion.bash" \
+zinit light mhinz/neovim-remote
+
