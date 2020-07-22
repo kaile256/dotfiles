@@ -18,11 +18,6 @@ zinit light mafredri/zsh-async
 #zinit ice rc"polyglot.plugin.zsh"; zinit light "agkozak/polyglot"
 
 # zinit-zsh/zinit-console depends on zsh/curses
-zinit ice id-as"zsh" atclone"./.preconfig
-CFLAGS='-I/usr/include -I/usr/local/include -g -O2 -Wall' \
-LDFLAGS='-L/usr/lib -L/usr/local/lib' ./configure --prefix='$ZPFX'" \
-atpull"%atclone" run-atpull make"install" pick"/dev/null"
-zinit load zsh-users/zsh
 zinit wait lucid for zinit-zsh/zinit-console
 
 zinit ice wait"!0" atload"_zsh_autosuggest_start"
