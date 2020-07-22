@@ -4,11 +4,12 @@
 # Repo: zdharma/zinit
 # Ref: $HOME/.zinit
 
+source $HOME/.zinit/bin/zinit.zsh # install `zinit`
+
 # Install zinit if have not
 type zinit >/dev/null 2>&1 || \
   sh -c "$(curl -fsSL https://raw.githubusercontent.com/zdharma/zinit/master/doc/install.sh)"
 
-source $HOME/.zinit/bin/zinit.zsh
 autoload -Uz _zinit
 (( ${+_comps} )) && _comps[zinit]=_zinit
 
