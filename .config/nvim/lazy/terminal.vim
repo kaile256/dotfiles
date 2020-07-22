@@ -18,8 +18,7 @@ syn match yayInstalling 'Installing \zs.*\ze\.\.\.'
 hi! link yayInstalling Title
 
 function! s:is_in_promptline() abort
-  let prompt_marker = '⟩'
-  let pat_prompt_line = prompt_marker .'.*\%#.*\n*\%$'
+  let pat_prompt_line = '.*\%#.*\n*\%$'
   let is_in_promptline = line('.') == search(pat_prompt_line, 'bcnW', line('w0'))
   return is_in_promptline
 endfunction
