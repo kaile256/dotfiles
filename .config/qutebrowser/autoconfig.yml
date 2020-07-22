@@ -399,6 +399,7 @@ settings:
     https://app.clickup.com: true
     https://app.slack.com: true
     https://calendar.google.com: true
+    https://ticktick.com: true
     https://web.skype.com: true
     https://www.pcmag.com: false
     https://www.reddit.com: true
