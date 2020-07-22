@@ -8,6 +8,7 @@ lazy = 0
 
 [[plugins]]
 repo = 'glts/vim-textobj-comment'
+# TODO: `gq` on Comment.
 on_event = 'BufRead'
 hook_done_update = '''
 e $DEIN_GITHUB_DIRglts/vim-textobj-comment/plugin/textobj/comment.vim
