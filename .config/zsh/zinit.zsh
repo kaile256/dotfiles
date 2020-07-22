@@ -1,7 +1,8 @@
-# Install zinit if have not
-# Ref: https://github.com/zdharma/zinit#installation
-# $HOME/.zinit
+# From: .zshrc
+# Repo: zdharma/zinit
+# Ref: $HOME/.zinit
 
+# Install zinit if have not
 type zinit >/dev/null 2>&1 || \
   sh -c "$(curl -fsSL https://raw.githubusercontent.com/zdharma/zinit/master/doc/install.sh)"
 
@@ -26,7 +27,7 @@ zinit wait lucid for zinit-zsh/zinit-console
 
 zinit ice wait"!0" atload"_zsh_autosuggest_start"
 zinit light zsh-users/zsh-autosuggestions
-zinit light zsh-users/zsh-completions
+# zinit light zsh-users/zsh-completions
 zinit light zdharma/fast-syntax-highlighting
 
 # FZF
@@ -37,8 +38,8 @@ zinit light trapd00r/LS_COLORS
 
 zinit ice wait'!0'; zinit light vintersnow/anyframe
 zinit ice wait'!0'; zinit light b4b4r07/enhancd
-zinit ice wait'!0'; zinit light lukechilds/zsh-nvm
+# zinit ice wait'!0'; zinit light lukechilds/zsh-nvm
 ##zinit ice wait'!0'; zinit light greymd/tmux-xpanes
-#
+
 zinit ice wait"!0" atinit"zpcompinit; zpcdreplay"
-zinit light zsh-users/zsh-syntax-highlighting
+# zinit light zsh-users/zsh-syntax-highlighting
