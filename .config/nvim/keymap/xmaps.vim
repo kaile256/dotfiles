@@ -13,8 +13,8 @@ xnoremap <silent> <a-j> <esc>:call feedkeys('j')<cr>
 xnoremap <silent> <a-k> <esc>:call feedkeys('k')<cr>
 xnoremap <silent> <a-l> <esc>:call feedkeys('l')<cr>
 
-xnoremap ia <ESC>vi
-xnoremap ai <ESC>vi
+" xnoremap ia <ESC>vi
+" xnoremap ai <ESC>vi
 
 xnoremap zo zogv
 xnoremap zO zOgv
