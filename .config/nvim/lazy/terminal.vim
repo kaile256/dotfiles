@@ -54,7 +54,7 @@ function! s:start_insert(key_seq) abort
   endif
   let Startinsert = "i\<End>". repeat("\<Left>", len)
 
-  if a:key_seq =~# '[ia]'
+  if a:key_seq ==# 'a'
     return Startinsert
   endif
   return Startinsert .. a:key_seq
@@ -70,7 +70,7 @@ endfunction
 nnoremap <buffer> gi i
 nnoremap <buffer> o i
 
-nnoremap <expr><buffer> i <SID>start_insert('i')
+nnoremap <expr><buffer> i <SID>start_insert('')
 nnoremap <expr><buffer> a <SID>start_insert('a')
 
 nnoremap <expr><buffer> s <SID>start_insert("\<Del>")
