@@ -1,3 +1,5 @@
+#!/usr/bin/env zsh
+
 # From: .zshrc
 # Repo: zdharma/zinit
 # Ref: $HOME/.zinit
@@ -19,16 +21,23 @@ autoload -Uz _zinit
 
 zinit light mafredri/zsh-async
 
-zinit ice wait"!0" atload"_zsh_autosuggest_start"
+zinit ice lucid as"command" from"gh-r" pick"starship" atload"!eval \$(starship init zsh)"
+zinit light starship/starship
+
+zinit ice lucid wait"!0" atload"_zsh_autosuggest_start"
 zinit light zsh-users/zsh-autosuggestions
-# zinit light zsh-users/zsh-completions
+
+zinit light zsh-users/zsh-completions
+
+zinit ice lucid wait"0" atinit"zpcompinit; zpcdreplay"
 zinit light zdharma/fast-syntax-highlighting
 
 # LS COLOR
-zinit ice atclone"dircolors -b LS_COLORS > c.zsh" atpull'%atclone' pick"c.zsh" nocompile'!'
+zinit ice lucid atclone"dircolors -b LS_COLORS > c.zsh" atpull'%atclone' pick"c.zsh" nocompile'!'
 zinit light trapd00r/LS_COLORS
 
-zinit ice wait'!0'; zinit light vintersnow/anyframe
-zinit ice wait'!0'; zinit light b4b4r07/enhancd
-# zinit ice wait'!0'; zinit light lukechilds/zsh-nvm
-##zinit ice wait'!0'; zinit light greymd/tmux-xpanes
+zinit ice lucid wait'!0'; zinit light vintersnow/anyframe
+zinit ice lucid wait'!0'; zinit light b4b4r07/enhancd
+
+zinit ice lucid wait"0" as"command" pick"bin/git-fuzzy"
+zinit light bigH/git-fuzzy
