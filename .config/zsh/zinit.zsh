@@ -24,9 +24,6 @@ zinit light mafredri/zsh-async
 #zinit ice src"spaceship.zsh"; zinit light denysdovhan/spaceship-prompt
 #zinit ice rc"polyglot.plugin.zsh"; zinit light "agkozak/polyglot"
 
-# zinit-zsh/zinit-console depends on zsh/curses
-zinit wait lucid for zinit-zsh/zinit-console
-
 zinit ice wait"!0" atload"_zsh_autosuggest_start"
 zinit light zsh-users/zsh-autosuggestions
 # zinit light zsh-users/zsh-completions
@@ -40,6 +37,3 @@ zinit ice wait'!0'; zinit light vintersnow/anyframe
 zinit ice wait'!0'; zinit light b4b4r07/enhancd
 # zinit ice wait'!0'; zinit light lukechilds/zsh-nvm
 ##zinit ice wait'!0'; zinit light greymd/tmux-xpanes
-
-zinit ice wait"!0" atinit"zpcompinit; zpcdreplay"
-# zinit light zsh-users/zsh-syntax-highlighting
