@@ -201,14 +201,6 @@ let g:lexima#default_rules += [
       \ ]
 
 let g:lexima#default_rules += [
-      \ {'char': '<C-=>',     'at': '\s\%#', 'input': '= '},
-      \
-      \ {'char': '<C-,>', 'at': '\s\%#', 'input': '<BS>, '},
-      \ {'char': '<C-.>', 'at': '\s\%#', 'input': '<BS>. '},
-      \ {'char': '<C-:>', 'at': '\s\%#', 'input': '<BS>: '},
-      \ ]
-
-let g:lexima#default_rules += [
       \ {'char': '<C-S-Space>', 'input': ' '},
       \ {'char': '<C-S-Space>', 'at': '\%#\S', 'input': ' ', 'input_after': ' '},
       \ {'char': '<C-S-Space>', 'at': '\s\%#\S', 'input': '', 'input_after': ' '},
