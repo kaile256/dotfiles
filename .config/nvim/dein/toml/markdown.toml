@@ -93,11 +93,11 @@ hook_source = 'runtime source/gofmtmd.vim'
 #'''
 #hook_source = 'runtime source/markdown-gabrielelana.vim'
 #
-[[plugins]]
-repo = 'plasticboy/vim-markdown'
-# includes independent synax in fenced block
-on_ft = 'markdown'
-hook_source = 'runtime source/markdown-plasticboy.vim'
+# [[plugins]]
+# repo = 'plasticboy/vim-markdown'
+# # includes independent synax in fenced block
+# on_ft = 'markdown'
+# hook_source = 'runtime source/markdown-plasticboy.vim'
 
 #[[plugins]]
 #repo = 'joker1007/vim-markdown-quote-syntax'
