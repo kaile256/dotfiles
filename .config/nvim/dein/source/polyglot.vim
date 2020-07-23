@@ -3,6 +3,7 @@
 
 let g:polyglot_disabled = [
       \ 'c++11',
+      \ 'c/c++',
       \ 'haskell',
       \ 'i3',
       \ 'javascript',
