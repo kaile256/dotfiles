@@ -8,10 +8,10 @@
 nnoremap <silent> - :<C-u>SidewaysLeft<CR>
 nnoremap <silent> + :<C-u>SidewaysRight<CR>
 
-omap a, <Plug>SidewaysArgumentTextobjA
-xmap a, <Plug>SidewaysArgumentTextobjA
-omap i, <Plug>SidewaysArgumentTextobjI
-xmap i, <Plug>SidewaysArgumentTextobjI
+omap <silent> a, <Plug>SidewaysArgumentTextobjA
+xmap <silent> a, <Plug>SidewaysArgumentTextobjA
+omap <silent> i, <Plug>SidewaysArgumentTextobjI
+xmap <silent> i, <Plug>SidewaysArgumentTextobjI
 
 " let g:sideways_definitions = []
 " let b:sideways_definitions = []
