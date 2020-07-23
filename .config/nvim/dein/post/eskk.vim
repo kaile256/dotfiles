@@ -5,6 +5,9 @@ scriptencoding utf-8
 " Another: source/eskk.vim
 
 augroup myEskkSource
+  " Note: `l` to disable esp. for lexima.
+  au User eskk-enable-post lnoremap <expr><buffer> l eskk#disable()
+
   au User eskk-initialize-pre call s:eskk_kemaps_initialize_pre()
   function! s:eskk_kemaps_initialize_pre() "{{{
     " A user can do something heavy process here.
