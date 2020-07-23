@@ -57,9 +57,8 @@ augroup myEskkSource
     au User eskk-disable-post call system("notify-send --expire-time 1100 'Vim: eskk is OFF'")
   endif
 
-  " Note: eskk with &tw > 0 splits the input and force users delete previous words
-  "   to type again.
-  au User eskk-enable-post  let s:tw = &tw | setlocal tw=0
-  au User eskk-disable-post let &tw = s:tw
+  " Note: eskk with &tw > 0 disturbs `henkan` state.
+  au User eskk-enable-post  let s:save_textwidth = &tw | setlocal tw=0
+  au User eskk-disable-post let &tw = s:save_textwidth
 augroup END/eskk.vim
 
