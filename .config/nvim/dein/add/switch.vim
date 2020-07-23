@@ -19,6 +19,13 @@ let s:definitions['cpp'] = [
       \   '\<\(\a*\)set\>': 'unordered_\1set',
       \   '\<unordered_\(\a*\)set\>': '\1set',
       \ },
+      \ {
+      \   '\(\h\w*\)++': '++\1',
+      \   '\(\h\w*\)--': '--\1',
+      \
+      \   '++\(\h\w*\)': '--\1',
+      \   '--\(\h\w*\)': '++\1',
+      \ },
       \ ]
 
 let s:definitions['sh'] = [
