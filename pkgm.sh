@@ -25,6 +25,9 @@ PACKAGEs=(
   conky-i3
   xsel
 
+  pulseaudio-alsa # alsa config for pulseaudio
+  pacmixer # alsamixer alternative with pulseaudio
+  pulseaudio-ctl # pulseaudio from shell
   bluez-alsa-git # alsa backend with bluetooth
   pulseaudio-modules-bt-git # pulseaudio with bluetooth support
   nerd-fonts-ricty
