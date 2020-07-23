@@ -209,7 +209,13 @@ set history=100 " default: 10000, history of ':' commands
 " Cmdline; Completion
 set wildmenu wildmode=list:longest
 "set wildmenu wildmode=longest:full
-set completeopt=menu,preview,longest
+
+set completeopt=
+set cot+=menu " Enable popup menu for candidates if more than one match.
+" set cot+=menuone " Enable popup menu even when there's only one match.
+set cot+=preview " Only works with 'menu' or 'menuone'.
+set cot+=longest
+
 " 'wildcharm' works exactly like 'wildchar', which is <TAB> in vim as default,
 " but it keeps to work in cnoremap.
 set wildcharm=<c-y>
