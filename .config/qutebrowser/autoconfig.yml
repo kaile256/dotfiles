@@ -186,6 +186,8 @@ settings:
         <Ctrl+->: zoom-out
         <Ctrl+2>: save
         <Ctrl+Enter>: enter-mode insert;; fake-key <ctrl-enter> ;; leave-mode
+        <Ctrl+Shift+h>: tab-move -
+        <Ctrl+Shift+l>: tab-move +
         <Ctrl+a>: enter-mode insert ;; fake-key <home>
         <Ctrl+b>: fake-key <PgUp>
         <Ctrl+c>: stop;; clear-keychain;; download-clear
