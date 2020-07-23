@@ -150,6 +150,37 @@ let g:lexima#default_rules += [
       \ ]
 unlet s:remove_close s:following_ends
 
+let s:Joinspaces = '<Esc>:<C-u>norm! kgJgJ<CR>gi'
+
+let g:lexima#default_rules += [
+      \ {'char': '<BS>', 'at': '''\n\s*\%#\n\s*''', 'input': s:Joinspaces},
+      \ {'char': '<BS>', 'at': '`\n\s*\%#\n\s*`',   'input': s:Joinspaces},
+      \ {'char': '<BS>', 'at': '"\n\s*\%#\n\s*"',   'input': s:Joinspaces},
+      \ {'char': '<BS>', 'at': '(\n\s*\%#\n\s*)',   'input': s:Joinspaces},
+      \ {'char': '<BS>', 'at': '{\n\s*\%#\n\s*}',   'input': s:Joinspaces},
+      \ {'char': '<BS>', 'at': '\[\n\s*\%#\n\s*]',  'input': s:Joinspaces},
+      \ ]
+
+let g:lexima#default_rules += [
+      \ {'char': '<C-w>', 'at': '''\n\s*\%#\n\s*''', 'input': s:Joinspaces},
+      \ {'char': '<C-w>', 'at': '`\n\s*\%#\n\s*`',   'input': s:Joinspaces},
+      \ {'char': '<C-w>', 'at': '"\n\s*\%#\n\s*"',   'input': s:Joinspaces},
+      \ {'char': '<C-w>', 'at': '(\n\s*\%#\n\s*)',   'input': s:Joinspaces},
+      \ {'char': '<C-w>', 'at': '{\n\s*\%#\n\s*}',   'input': s:Joinspaces},
+      \ {'char': '<C-w>', 'at': '\[\n\s*\%#\n\s*]',  'input': s:Joinspaces},
+      \ ]
+
+let g:lexima#default_rules += [
+      \ {'char': '<C-u>', 'at': '''\n\s*\%#\n\s*''', 'input': s:Joinspaces},
+      \ {'char': '<C-u>', 'at': '`\n\s*\%#\n\s*`',   'input': s:Joinspaces},
+      \ {'char': '<C-u>', 'at': '"\n\s*\%#\n\s*"',   'input': s:Joinspaces},
+      \ {'char': '<C-u>', 'at': '(\n\s*\%#\n\s*)',   'input': s:Joinspaces},
+      \ {'char': '<C-u>', 'at': '{\n\s*\%#\n\s*}',   'input': s:Joinspaces},
+      \ {'char': '<C-u>', 'at': '\[\n\s*\%#\n\s*]',  'input': s:Joinspaces},
+      \ ]
+
+unlet s:Joinspaces
+
 " " Overwrite Triple quotes {{{1
 " " Produce triple quoted block
 " let g:lexima#default_rules += [
