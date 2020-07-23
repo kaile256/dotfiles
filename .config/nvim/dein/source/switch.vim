@@ -46,6 +46,16 @@ let g:switch_custom_definitions += [
 
 let g:switch_custom_definitions += [
       \ {
+      \   '++\(\h\w*\)': '\1++',
+      \   '--\(\h\w*\)': '\1--',
+      \
+      \   '\(\h\w*\)++': '\1--',
+      \   '\(\h\w*\)--': '\1++',
+      \ },
+      \ ]
+
+let g:switch_custom_definitions += [
+      \ {
       \   '\<yes\>': 'no',
       \   '\<no\>': 'yes',
       \ },
