@@ -2,6 +2,7 @@
 #include <cstdio>
 #include <iostream>
 #include <string>
+#include <unordered_map>
 #include <vector>
 
 #define REP(i, A, Z) for (auto i = (A); i < (Z); ++i)
