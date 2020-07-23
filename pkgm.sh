@@ -25,8 +25,10 @@ PACKAGEs=(
   conky-i3
   xsel
 
+  lib32-libpulse # for 32 bit programs like Wine
+  lib32-apulse # for 32 bit programs like Wine
   pulseaudio-alsa # alsa config for pulseaudio
-  pacmixer # alsamixer alternative with pulseaudio
+  # pacmixer # alsamixer alternative with pulseaudio (GUI)
   pulseaudio-ctl # pulseaudio from shell
   bluez-alsa-git # alsa backend with bluetooth
   pulseaudio-modules-bt-git # pulseaudio with bluetooth support
