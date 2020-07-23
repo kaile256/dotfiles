@@ -58,7 +58,6 @@ let g:lexima#newline_rules += [
 " parentheses to open
 let g:lexima#default_rules += [
       \ {'char': '<', 'input': '<'},
-      \ {'char': '<', 'at': '\a\%#', 'input_after': '>', 'filetype': 'cpp'},
       \ ]
 
 let g:lexima#default_rules += [

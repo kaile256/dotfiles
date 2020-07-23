@@ -2,6 +2,11 @@
 
 let s:key2rules = {}
 
+let s:key2rules['<'] = [
+      \ {'at': '\a\%#', 'input_after': '>'},
+      \ {'at': '^#include \%#', 'input_after': '>'},
+      \ ]
+
 let s:key2rules['<C-:>'] = [
       \ {'at': '\%#>', 'input': '<C-g>U<Right>:'},
       \ ]
