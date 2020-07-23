@@ -19,14 +19,14 @@ PACKAGEs=(
   ttf-migu # font for Japanese, used in Nerd font, too.
   ttf-junicode # font of runic alphabet, esp. for bluetooth's detection on polybar.
   fcitx-mozc-ut-unified # Input Method in Japanese.
-  bluez-alsa-git # alsa backend with bluetooth
-  pulseaudio-modules-bt-git # pulseaudio with bluetooth support
   nerd-fonts-jetbrains-mono
   ttf-octicons # the alternative choice, ttf-all-the-icons, is for emacs.
   i3-wm
   conky-i3
   xsel
 
+  bluez-alsa-git # alsa backend with bluetooth
+  pulseaudio-modules-bt-git # pulseaudio with bluetooth support
   nerd-fonts-ricty
   chrony # an alternative to ntp client/server
   j4-dmenu-desktop # search desktop applications
