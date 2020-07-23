@@ -4,7 +4,7 @@
 
 let g:loaded_autoft = 1
 augroup autoft
-  au TextChanged,InsertLeave,CursorHold * call s:autoft()
+  au TextChanged,InsertLeave,FocusGained * call s:autoft()
 augroup END
 
 function! s:autoft() abort
