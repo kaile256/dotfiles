@@ -413,6 +413,9 @@ settings:
     global: true
   content.private_browsing:
     global: false
+  content.register_protocol_handler:
+    https://calendar.google.com?cid=%25s: true
+    https://mail.google.com?extsrc=mailto&url=%25s: true
   content.user_stylesheets:
     global: null
   downloads.location.directory:
@@ -547,8 +550,10 @@ settings:
       gh: https://github.com/search?o=desc&q={}&s=updated&type=Repositories
       gir: https://git-scm.com/search/results?search={}
       gl: https://golang.org/search?q={}
-      gm: https://www.google.co.jp/maps/place/{}
+      gm: https://www.google.co.jp/maps/search/{}
+      gma: https://www.google.co.jp/maps/search/{}
       gt: https://translate.google.co.jp/#view=home&op=translate&sl=auto&tl=ja&text={}
+      map: https://www.google.co.jp/maps/search/{}
       mf: https://github.com/search?o=desc&q={}&s=forks&type=Repositories
       ms: https://github.com/search?o=desc&q={}&s=stars&type=Repositories
       note: https://note.com/search?context=note&mode=search&q={}
