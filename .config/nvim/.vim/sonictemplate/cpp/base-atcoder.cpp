@@ -27,6 +27,7 @@ using ll = long long;
 using std::cin;
 using std::cout;
 using std::iterator;
+using std::string;
 using std::vector;
 
 template <typename T> inline void cout_vector(vector<T> &v) {
