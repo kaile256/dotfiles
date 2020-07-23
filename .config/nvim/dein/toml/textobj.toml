@@ -13,9 +13,9 @@ on_map = {ox = '<Plug>(textobj-comment'}
 hook_add = 'runtime add/textobj-comment.vim'
 hook_done_update = '''
 e $DEIN_GITHUB_DIRglts/vim-textobj-comment/plugin/textobj/comment.vim
-" Mnemonic: Annotate
-g;'select-;s;c\ze',;a
-g;'select-;s;C\ze',;A
+" Mnemonic: Note
+g;'select-;s;c\ze',;n
+g;'select-;s;C\ze',;N
 write
 '''
 [[plugins]]

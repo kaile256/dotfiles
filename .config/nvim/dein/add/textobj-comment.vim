@@ -1,9 +1,9 @@
 " TOML: textobj.toml
 " Repo: glts/vim-textobj-comment
 
-" Mnemonic: Annotate
-omap ia <Plug>(textobj-comment-i)
-xmap ia <Plug>(textobj-comment-i)
+" Mnemonic: Note
+omap in <Plug>(textobj-comment-i)
+xmap in <Plug>(textobj-comment-i)
 
-omap aa <Plug>(textobj-comment-a)
-xmap aa <Plug>(textobj-comment-a)
+omap an <Plug>(textobj-comment-a)
+xmap an <Plug>(textobj-comment-a)
