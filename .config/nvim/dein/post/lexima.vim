@@ -113,16 +113,18 @@ let g:lexima#default_rules += [
 unlet s:Let_it_double
 
 " Overwrite Rules for Backspaces {{{1
+" Note: {'delete': 1} sometimes fails to work; 'input_after': '<C-g>U<Del>'
+" crashes Vim.
 let g:lexima#default_rules += [
-      \ {'char': '<BS>', 'at': '(\%#)',   'delete': 1},
-      \ {'char': '<BS>', 'at': '{\%#}',   'delete': 1},
-      \ {'char': '<BS>', 'at': '\[\%#\]', 'delete': 1},
-      \ {'char': '<BS>', 'at': '<\%#>',   'delete': 1},
-      \ {'char': '<BS>', 'at': '\s\%#\s', 'delete': 1},
+      \ {'char': '<BS>', 'at': '(\%#)',   'input': '<BS><C-g>U<Del>'},
+      \ {'char': '<BS>', 'at': '{\%#}',   'input': '<BS><C-g>U<Del>'},
+      \ {'char': '<BS>', 'at': '\[\%#\]', 'input': '<BS><C-g>U<Del>'},
+      \ {'char': '<BS>', 'at': '<\%#>',   'input': '<BS><C-g>U<Del>'},
+      \ {'char': '<BS>', 'at': '\s\%#\s', 'input': '<BS><C-g>U<Del>'},
       \
-      \ {'char': '<BS>', 'at': "'\\%#'", 'delete': 1},
-      \ {'char': '<BS>', 'at': '"\%#"',  'delete': 1},
-      \ {'char': '<BS>', 'at': '`\%#`',  'delete': 1},
+      \ {'char': '<BS>', 'at': "'\\%#'", 'input': '<BS><C-g>U<Del>'},
+      \ {'char': '<BS>', 'at': '"\%#"',  'input': '<BS><C-g>U<Del>'},
+      \ {'char': '<BS>', 'at': '`\%#`',  'input': '<BS><C-g>U<Del>'},
       \ ]
 
 let g:lexima#default_rules += [
