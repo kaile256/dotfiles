@@ -546,7 +546,6 @@ bindsym Ctrl+bracketleft mode default
 # `pacmd list-sinks` to get list to control
 ## Depends: pulseaudio & pavucontrol
 # Depends: pulseaudio-ctl
-# Recommend: pacmixer (a frontend of ALSA for pulseaudio)
 # Recommend: pulseaudio-alsa (for flash)
 set $Sound " Sound Volume: (Q)uiet or (S)ilence to mute "
 $release $Super+S mode $Sound; $shortmsg 'Sound mode'
