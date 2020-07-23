@@ -48,8 +48,8 @@ let s:key2rules['<C-space>'] = [
       \ ]
 
 let s:key2rules[','] = [
-      \ {'at': 'cin.*\%#',  'except': '(.*\%#.*)', 'input': ' >>'},
-      \ {'at': 'cout.*\%#', 'except': '(.*\%#.*)', 'input': ' <<'},
+      \ {'at': 'cin .*\h\w*\%#', 'input': ' >> '},
+      \ {'at': 'cout .*\h\w*\%#', 'input': ' << '},
       \ ]
 
 function! s:parse_list(dict) abort
