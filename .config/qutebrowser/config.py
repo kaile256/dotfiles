@@ -4,12 +4,27 @@
 #   qute://help/settings.html
 
 # Uncomment this to still load settings configured via autoconfig.yml
+from qutebrowser.api import interceptor
+
 config.load_autoconfig()
+
+
+# Youtube adblock (Interrupt the request)
+# https://www.reddit.com/r/qutebrowser/comments/hcn2e5/what_are_your_favorite_custom_qutebrowser/
+def filter_youtube(info: interceptor.Request):
+    """Block request to get Advt."""
+    url = info.request_url
+    if (url.host() == 'www.youtube.com' and url.path() == '/get_video_info'
+            and '&adformat=' in url.query()):
+        info.block()
+
+
+interceptor.register(filter_youtube)
 
 # Hint to yank codes in xml
 # https://github.com/LaurenceWarne/qute-code-hint
 c.hints.selectors["code"] = [
-  # Select all code tags whose direct parent is not a <pre> tag.
-  ":not(pre) > code",
-  "pre"
+    # Select all code tags whose direct parent is not a <pre> tag.
+    ":not(pre) > code",
+    "pre"
 ]
