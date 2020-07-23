@@ -33,7 +33,6 @@ let g:coc_global_extensions = [
       \ 'coc-bookmark',
       \ 'coc-cmake',
       \ 'coc-conjure',
-      \ 'coc-conventional',
       \ 'coc-cspell-dicts',
       \ 'coc-css',
       \ 'coc-deno',
