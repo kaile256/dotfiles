@@ -18,13 +18,29 @@ nnoremap <Plug>SpeedDatingFallbackDown <C-x>
 nmap <C-a> <Plug>(switch-or-dating)
 nmap <C-x> <Plug>(switch-or-dating-reverse)
 
-nmap <silent> <Plug>(switch-or-dating)
-      \ :<C-u>silent! if !switch#Switch()
-      \ <bar> silent! call speeddating#increment(v:count1)
-      \ <bar> endif
-      \ <bar> silent! call repeat#set("\<lt>Plug>(switch-or-dating)")<CR>
-nmap <silent> <Plug>(switch-or-dating-reverse)
-      \ :<C-u>silent! if !switch#Switch({'reverse': 1})
-      \ <bar> silent! call speeddating#increment(- v:count1)
-      \ <bar> endif
-      \ <bar> silent! call repeat#set("\<lt>Plug>(switch-or-dating-reverse)")<CR>
+function! s:increment() abort
+  silent! call repeat#set("\<Plug>(switch-or-dating)")
+  let save_line = getline('.')
+
+  let is_switched = switch#Switch()
+  if is_switched | return | endif
+  call speeddating#increment(v:count1)
+
+  if  getline('.') !=# save_line | return | endif
+  exe "norm \<Plug>(symbolicInc-increment-sync)"
+endfunction
+
+function! s:decrement() abort
+  silent! call repeat#set("\<Plug>(switch-or-dating-reverse)")
+  let save_line = getline('.')
+
+  let is_switched = switch#Switch({'reverse': 1})
+  if is_switched | return | endif
+  call speeddating#increment(- v:count1)
+
+  if getline('.') !=# save_line | return | endif
+  exe "norm \<Plug>(symbolicInc-decrement-sync)"
+endfunction
+
+nmap <silent> <Plug>(switch-or-dating)         :<C-u>call <SID>increment()<CR>
+nmap <silent> <Plug>(switch-or-dating-reverse) :<C-u>call <SID>decrement()<CR>
