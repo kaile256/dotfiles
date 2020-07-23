@@ -82,8 +82,8 @@ nnoremap <expr><buffer> a <SID>start_insert('a')
 
 nnoremap <expr><buffer> s <SID>start_insert("\<Del>")
 nnoremap <expr><buffer> S <SID>start_insert("\<BS>")
-nnoremap <expr><buffer> x <SID>attach("\<Del>")
-nnoremap <expr><buffer> X <SID>attach("\<BS>", -1)
+nnoremap <expr><buffer><silent> x <SID>attach("\<Del>")
+nnoremap <expr><buffer><silent> X <SID>attach("\<BS>", -1)
 
 nnoremap <expr><buffer> C <SID>start_insert("\<C-k>")
 
