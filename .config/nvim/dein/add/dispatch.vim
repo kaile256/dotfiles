@@ -6,7 +6,7 @@
 nnoremap <silent> `\ :<C-u>call <SID>dispatch()<CR>
 
 function! s:dispatch() abort
-  if &modifed
+  if &modified
     update
   else
     checktime
