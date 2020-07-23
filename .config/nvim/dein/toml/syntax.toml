@@ -5,7 +5,8 @@
 [[plugins]]
 repo = 'itchyny/vim-autoft'
 # Fill &ft as predefined patterns when &ft is undefined.
-on_event = ['TextChanged', 'InsertLeave']
+on_func = 'autoft#'
+hook_add = 'runtime add/autoft.vim'
 hook_source = 'runtime source/autoft.vim'
 
 #[ Append Highlight ]

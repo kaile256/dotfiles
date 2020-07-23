@@ -1,5 +1,6 @@
 " TOML: syntax.toml
 " Repo: itchyny/vim-autoft
+" Another: add/autoft.vim
 
 let s:config = {
       \ 'c':    '^\s*#\s*\%(include\|define\)\>',
@@ -17,15 +18,4 @@ function! s:convert_config(config) abort
 endfunction
 let g:autoft_config = s:convert_config(s:config)
 delfunction s:convert_config
-
-let g:loaded_autoft = 1
-augroup autoft
-  au TextChanged,InsertLeave * call s:autoft()
-augroup END
-
-function! s:autoft() abort
-  if &bt !=# '' | return | endif
-  if &ft !=# '' | return | endif
-  silent! call autoft#set()
-endfunction
 
