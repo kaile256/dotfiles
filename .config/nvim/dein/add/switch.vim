@@ -10,6 +10,17 @@
 
 let s:definitions = {}
 
+let s:definitions['cpp'] = [
+      \ {
+      \   '\<\(\a*\)map\>': 'unordered_\1map',
+      \   '\<unordered_\(\a*\)map\>': '\1map',
+      \ },
+      \ {
+      \   '\<\(\a*\)set\>': 'unordered_\1set',
+      \   '\<unordered_\(\a*\)set\>': '\1set',
+      \ },
+      \ ]
+
 let s:definitions['sh'] = [
       \ {
       \   '\[ \(\S.\{-}\) ];': 'test \1;',
