@@ -241,14 +241,19 @@ let g:lexima#default_rules += [
       \
       \ {'char': '<C-=>', 'at': '\%#.', 'input': '<C-g>U<Right> = '},
       \
-      \ {'char': '<C-,>', 'at': '\%#.', 'input': '<C-g>U<Right>, '},
-      \ {'char': '<C-:>', 'at': '\%#.', 'input': '<C-g>U<Right>: '},
+      \ {'char': '<C-,>', 'at': s:before_close, 'input': '<C-g>U<Right>, '},
+      \ {'char': '<C-:>', 'at': s:before_close, 'input': '<C-g>U<Right>: '},
       \ {'char': '<C-.>', 'at': s:before_paren, 'input': '<C-g>U<Right>.'},
       \ {'char': '<C-.>', 'at': s:before_quote, 'input': '<C-g>U<Right>. '},
       \
       \ {'char': '<C-;>', 'at': '\%#.',       'input': '<C-g>U<Right>; ', 'mode': 'c'},
       \ {'char': '<C-;>', 'at': '\%#.*;\s*$', 'input': '<C-g>U<Right>; '},
       \ {'char': '<C-;>', 'at': '\%#.', 'input': '<Esc>A;'},
+      \ ]
+
+let g:lexima#default_rules += [
+      \ {'char': '<C-,>', 'at': '\a\%#\a', 'input': ', '},
+      \ {'char': '<C-,>', 'at': '\<\%#\a', 'input': ', '},
       \ ]
 
 unlet s:before_close s:before_paren s:before_quote
