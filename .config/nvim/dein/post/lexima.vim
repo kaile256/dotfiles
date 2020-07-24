@@ -260,7 +260,8 @@ unlet s:before_close s:before_paren s:before_quote
 
 " Addtional Rules for Polymorphic Use {{{1
 let g:lexima#default_rules += [
-      \ {'char': '<C-d>', 'at': '\%#[\])}>''"`]', 'input': '', 'delete': 1}
+      \ {'char': '<C-d>', 'at': '\%#[])}>''"`]', 'input': '', 'delete': 1},
+      \ {'char': '<C-d>', 'at': '\%#\\[])}>''"`]', 'input': '<C-g>U<Del><C-g>U<Del>'},
       \ ]
 
 " <TAB> to create marker
