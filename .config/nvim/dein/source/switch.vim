@@ -54,6 +54,17 @@ let g:switch_custom_definitions += [
       \ },
       \ ]
 
+" FIXME: get correct match pair to move `while (cond)`.
+let s:pat_while = '\(while (.*)\) \({\(.*\n\)\{-}\s*}\)'
+let s:pat_do_while = 'do \({\(.*\n\)\{-}\s*}\) \(while (.*)\);'
+let g:switch_custom_definitions += [
+      \ {
+      \   s:pat_while : 'do \2 \1;',
+      \   s:pat_do_while : '\3 \1',
+      \ },
+      \ ]
+unlet s:pat_while s:pat_do_while
+
 let g:switch_custom_definitions += [
       \ {
       \   '\<yes\>': 'no',
