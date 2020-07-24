@@ -231,13 +231,9 @@ let g:lexima#default_rules += [
       \ {'char': '<C-S-Space>', 'at': '\s\%#\S', 'input': '', 'input_after': ' '},
       \ ]
 
-let s:close = '[\])}`''",.]'
-let s:paren = '[\])}]'
-let s:quote = '[`''"]'
-
-let s:before_close = '\%#'. s:close
-let s:before_paren = '\%#'. s:paren
-let s:before_quote = '\%#'. s:quote
+let s:before_close = '\%#[])}`''"]'
+let s:before_paren = '\%#[])}]'
+let s:before_quote = '\%#[''"`]'
 
 let g:lexima#default_rules += [
       \
