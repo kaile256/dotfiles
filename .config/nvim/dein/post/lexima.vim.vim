@@ -18,6 +18,10 @@ let g:lexima#default_rules += [
       \ {'char': '[', 'at': '^\s*\\\s*\%#', 'input_after': '],'},
       \ ]
 
+let g:lexima#default_rules += [
+      \ {'char': '(', 'at': '\\\%#', 'input_after': '\)'},
+      \ ]
+
 let s:key2rules = {}
 
 " Insert backslashes when filetype is vim
