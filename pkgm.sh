@@ -25,6 +25,7 @@ PACKAGEs=(
   conky-i3
   xsel
 
+  lazygit
   lib32-libpulse # for 32 bit programs like Wine
   lib32-apulse # for 32 bit programs like Wine
   pulseaudio-alsa # alsa config for pulseaudio

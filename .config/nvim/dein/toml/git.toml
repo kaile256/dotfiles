@@ -11,6 +11,9 @@ on_cmd = ['GHInteractive', 'GBInteractive']
 #on_event = 'Colorscheme'
 #[ Workflow ]
 [[plugins]]
+repo = 'kdheepak/lazygit.nvim'
+on_cmd = 'LazyGit'
+[[plugins]]
 repo = 'iberianpig/tig-explorer.vim'
 # Neovim seems to have no problems with nvr.
 if = '!has("nvim")'
