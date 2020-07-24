@@ -26,6 +26,14 @@ let s:definitions['cpp'] = [
       \   '++\(\h\w*\)': '--\1',
       \   '--\(\h\w*\)': '++\1',
       \ },
+      \
+      \ {
+      \   '\<constexpr \(\h\w* =\)': 'const \1',
+      \   '\<const \(\h\w* =\)':     'constexpr \1',
+      \ },
+      \
+      \ ['auto &&', 'const auto &'],
+      \ ['.push', '.emplace'],
       \ ]
 
 let s:definitions['sh'] = [
