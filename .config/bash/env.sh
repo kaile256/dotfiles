@@ -68,7 +68,7 @@ export FZF_DEFAULT_OPTS='
   --no-mouse
   --multi
   --preview-window=noborder:100
-  --bind=ctrl-o:up+toggle,ctrl-]:toggle-preview
+  --bind=ctrl-i:down,ctrl-o:up,ctrl-]:toggle-preview,alt-i:toggle+down,alt-o:up+toggle
   '
 #--preview="bat  --color=always --style=header,grid --line-range :100 {}"
 
