@@ -296,7 +296,7 @@ settings:
         gO: hint inputs
         gP: open -t https://app.getpocket.com/
         gS: view-source --pygments
-        gT: hint links tab-bg --rapid
+        gT: open -t https://ticktick.com/webapp/#q/all/today
         ga: hint inputs
         gc: open https://calendar.google.com/calendar/r/month?pli=1
         gd: hint links current
@@ -309,6 +309,7 @@ settings:
         go: scroll-to-perc 0;; hint inputs --first
         gp: open https://app.getpocket.com/
         gs: view-source
+        gt: open https://ticktick.com/webapp/#q/all/today
         gu: spawn nvim-qt {url}
         gv: fake-key <ctrl-a>;; enter-mode caret
         gw: fake-key gw
