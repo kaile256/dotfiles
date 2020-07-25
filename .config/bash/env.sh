@@ -61,7 +61,15 @@ export VMAIL_VIM=$VISUAL
 export FZF_DEFAULT_COMMAND='rg --no-line-number --files --hidden --follow --glob "!{.git,node_modules}/*"'
 # Note: Neither 'shift-ctrl-' nore 'ctrl-shift-' is unsupported.
 # Note: Binding to <C-\> in Vim's terminal awaits <C-\><C-n>.
-export FZF_DEFAULT_OPTS='--reverse --height=80% --min-height=20 --no-mouse --multi --preview-window=noborder:100 --bind=ctrl-o:up+toggle,ctrl-]:toggle-preview'
+export FZF_DEFAULT_OPTS='
+  --reverse
+  --height=80%
+  --min-height=20
+  --no-mouse
+  --multi
+  --preview-window=noborder:100
+  --bind=ctrl-o:up+toggle,ctrl-]:toggle-preview
+  '
 #--preview="bat  --color=always --style=header,grid --line-range :100 {}"
 
 export FZF_LEGACY_KEYBINDINGS=0
