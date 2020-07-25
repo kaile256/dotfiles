@@ -3,6 +3,9 @@ scriptencoding utf-8
 
 runtime! options/*.vim
 
+" Over the time, `:syntax off` will run.
+set redrawtime=100000
+
 "set verbosefile=/tmp/nvim-log
 
 " Note: EndOfBuffer is set of trailing '~' at end of buffer.
