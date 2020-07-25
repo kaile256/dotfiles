@@ -318,7 +318,7 @@ settings:
         k: fake-key <up>
         l: fake-key <right>
         mode: drop-selection
-        p: open {clipboard}
+        p: fake-key <Ctrl-v>
         q: null
         r: fake-key r
         sP: spawn --userscript qutepocket;; open -t https://app.getpocket.com/
