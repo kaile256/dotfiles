@@ -160,7 +160,7 @@ settings:
         <Ctrl+k>: fake-key <Shift-end><Delete>
         <Ctrl+m>: fake-key <Enter>
         <Ctrl+n>: fake-key <Down>
-        <Ctrl+o>u: fake-key <ctrl-z>
+        <Ctrl+o>: <Shift-Ctrl-Tab>
         <Ctrl+p>: fake-key <Up>
         <Ctrl+q>: open-editor
         <Ctrl+r>0: insert-text {primary}
