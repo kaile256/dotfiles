@@ -58,7 +58,7 @@ PACKAGEs=(
   android-bash-completion
   # bluez-hid2hci
   # composer # php dependency manager on PHPStorm?
-  rxvt-unicode-improve-font-rendering
+  rxvt-unicode-patched-with-truecolor
   # xcape # Config modifier keys to act as other keys with/without another key
   # skypeforlinux-stable-bin
   virtualbox # check kernel version by `uname -r`
