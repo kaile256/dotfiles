@@ -13,7 +13,8 @@ tnoremap <C-h> <BS>
 " col is different than in Normal mode (it may depend on the prompt width)
 tnoremap <expr> ? (getline('.')[col('.')] ==# '~') ? '/' : '?'
 
-tnoremap <silent> <SID>(highlight-off) <c-\><c-n>:<c-u>noh <bar> redraw!<cr>i
+tnoremap <silent> <SID>(highlight-off) <C-\><C-n>:<C-u>noh <bar> redraw!<CR>i<C-l>
+tnoremap <script> <c-l> <SID>(highlight-off)
 
 " Produce no terminfo-sequences
 tnoremap <C--> -

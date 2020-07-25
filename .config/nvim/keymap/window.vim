@@ -29,14 +29,12 @@ endfunction
 " TODO: causes some event to append another process easier
 nnoremap <silent> <SID>(highlight-off)
       \ :<C-u>noh <bar> redraw! <C-r>=(&diff ? '<bar>diffupdate' : '')<CR><CR>
-tnoremap <silent> <SID>(highlight-off) <Cmd>noh  <bar> redraw!<cr><c-l>
 " :mode once makes screen dirty
 inoremap <silent> <SID>(highlight-off) <Cmd>noh  <bar> mode <bar> mode<cr>
 "inoremap <silent> <SID>(highlight-off) <Cmd>noh  <bar> redraw!<cr>
 
 nnoremap <script> <c-space><space>   <SID>(highlight-off)
 nnoremap <script> <c-space><c-space> <SID>(highlight-off)
-tnoremap <script> <c-l> <SID>(highlight-off)
 inoremap <script> <c-l> <SID>(highlight-off)
 
 " New window "{{{1
