@@ -29,12 +29,12 @@ hook_add = 'runtime add/UnconditionalPaste.vim'
 hook_source = 'runtime source/UnconditionalPaste.vim'
 
 #[ Mapping ]
-[[plugins]]
-repo = 'hecal3/vim-leader-guide'
-# if = '!has("nvim")'
-on_cmd = 'LeaderGuide'
-# Inspired by emacs's kai2nenobu/guide-key.
-hook_add = 'runtime add/leader-guide.vim'
+# [[plugins]]
+# repo = 'hecal3/vim-leader-guide'
+# # Inspired by emacs's kai2nenobu/guide-key.
+# # if = '!has("nvim")'
+# on_cmd = 'LeaderGuide'
+# hook_add = 'runtime add/leader-guide.vim'
 # [[plugins]]
 # # repo = 'spinks/vim-leader-guide'
 # Note: It seems to have no reason to view it on floating window.
