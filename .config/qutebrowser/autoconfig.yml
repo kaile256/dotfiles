@@ -200,6 +200,7 @@ settings:
         <Ctrl+o>: back
         <Ctrl+p>: fake-key <up>
         <Ctrl+q>: null
+        <Ctrl+r>: fake-key <Ctrl-Shift-z>
         <Ctrl+t>: null
         <Ctrl+v>: null
         <Ctrl+w>: null
