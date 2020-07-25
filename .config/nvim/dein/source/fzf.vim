@@ -50,7 +50,6 @@ endfunction
 let g:fzf_action = {
       \ 'alt-a': 'argadd',
       \ 'alt-l': 'source',
-      \ 'alt-o': 'bel split',
       \ 'alt-p': 'vert bot pedit',
       \ 'alt-q': function('s:list_in_quickfix'),
       \ 'alt-s': 'bel split',
