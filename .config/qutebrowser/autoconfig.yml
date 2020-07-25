@@ -547,7 +547,11 @@ settings:
       bhw: https://wiki.bash-hackers.org/start?do=search&id=start&sf=1&q={}
       bw: https://wiki.bash-hackers.org/start?do=search&id=start&sf=1&q={}
       dh: https://hub.docker.com/search?q={}
-      dl: https://www.deepl.com/ja/translator/ja/{}
+      dl: https://www.linguee.com/english-japanese/search?query={}
+      dlej: https://www.linguee.com/english-japanese/search?query={}
+      dlje: https://www.linguee.com/japanese-english/search?query={}
+      dlse: https://www.linguee.com/spanish-english/translation/{}
+      dlsp: https://www.linguee.com/spanish-english/translation/{}
       gh: https://github.com/search?o=desc&q={}&s=updated&type=Repositories
       gir: https://git-scm.com/search/results?search={}
       gl: https://golang.org/search?q={}
