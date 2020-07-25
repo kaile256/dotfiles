@@ -89,7 +89,7 @@ workspace $ws9 output HDMI2
 floating_modifier $Super
 floating_maximum_size 1200 x 900
 
-focus_wrapping no
+# focus_wrapping no
 focus_follows_mouse no
 # mouse_warping: output|none
 mouse_warping none
