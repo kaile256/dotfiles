@@ -232,11 +232,11 @@ settings:
         <Space>1: tab-close
         <Space>2: save
         <Space>F: hint links tab-bg
-        <Space>P: open -t {primary}
+        <Space>P: open -t {clipboard}
         <Space>T: hint all tab-bg
         <Space>\: record-macro
         <Space>f: hint links current
-        <Space>p: open {primary}
+        <Space>p: open {clipboard}
         <Space>q: save
         <Space>t: hint all current
         <Space>w: save
