@@ -9,13 +9,9 @@ settings:
   aliases:
     global:
       H: help -t
-      L: session-load
       O: open -t
       Pocket: open -t https://app.getpocket.com/
       R: session-load
-      S: session-save -o
-      Save: session-save o
-      W: session-save -o
       abbr: config-dict-add aliases
       alias: config-dict-add aliases
       cabbr: config-dict-add aliases
