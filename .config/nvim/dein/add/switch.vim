@@ -84,6 +84,11 @@ let s:definitions['vim'] = [
       \   '\(\a\+\)leave\c': '\1Enter',
       \ },
       \
+      \ {
+      \   '\(syn\%[tax]\) keyword': '\1 match',
+      \   '\(syn\%[tax]\) match':   '\1 region',
+      \   '\(syn\%[tax]\) region':  '\1 keyword',
+      \ },
       \ ]
 
 let s:definitions['toml'] = [
