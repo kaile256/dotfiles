@@ -236,7 +236,7 @@ settings:
         <Space>p: open {clipboard}
         <Space>q: save
         <Space>t: hint all current
-        <Space>w: save
+        <Space>w: fake-key <Ctrl-s>
         <Space>y: yank selection
         <Space>yy: enter-mode caret;; yank;; leave-mode
         <Space>zB: set-cmd-text -s :buffer -t
