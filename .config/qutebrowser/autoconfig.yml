@@ -175,6 +175,7 @@ settings:
         <Ctrl+w>: fake-key <ctrl-backspace>
         <Ctrl+y>: insert-text {primary}
       normal:
+        '0': fake-key <Home>
         '2': save
         <: tab-move -
         <Alt+[>: tab-prev
