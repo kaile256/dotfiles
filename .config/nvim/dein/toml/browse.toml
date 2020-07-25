@@ -69,15 +69,15 @@ hook_add = 'runtime add/netranger.vim'
 [[plugins]]
 repo = 'zgpio/tree.nvim'
 # Note: written in cpp!
-rtp = 'src/app/viml'
+rtp = 'runtime'
 build = '''
   cmake \
       -DBoost_USE_STATIC_LIBS=ON \
       -DCMAKE_BUILD_TYPE=Release \
       -S . \
-      -B ./src/app/viml/bin
+      -B ./runtime/bin
 
-  make -C ./src/app/viml/bin
+  make -C ./runtime/bin install
 '''
 on_cmd = 'Tree'
 hook_add = 'runtime add/tree.vim'
