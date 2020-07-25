@@ -402,6 +402,7 @@ settings:
     https://app.clickup.com: true
     https://app.jooto.com: true
     https://app.slack.com: true
+    https://boxil.jp: false
     https://calendar.google.com: true
     https://ticktick.com: true
     https://web.skype.com: true
