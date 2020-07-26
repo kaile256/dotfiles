@@ -23,3 +23,5 @@ unsetopt correct_all # Auto correct all the words in current line.
 setopt no_flow_control # disable <C-s> and <C-q>
 setopt nobeep
 setopt magic_equal_subst # Complete path after '~' or '=', too.
+
+bindkey '^I' expand-or-complete-prefix # Respect current cursor pos to complete
