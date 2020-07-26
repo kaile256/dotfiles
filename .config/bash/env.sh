@@ -84,6 +84,9 @@ export FZF_DEFAULT_OPTS="
   --bind=esc:clear-selection
 
   --bind=ctrl-]:toggle-preview
+
+  --bind=shift-tab:jump
+  --jump-labels=hjklgfdsayuiotrewnmvcx
   "
 
 export FZF_LEGACY_KEYBINDINGS=0
