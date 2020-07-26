@@ -6,14 +6,10 @@ cnoremap <expr> <c-r>0         onelineConv#vimscript('0', ' ')
 cnoremap <expr> <c-r><c-0>     onelineConv#vimscript('0', ' ')
 
 cnoremap <expr> <c-r>;<space>   onelineConv#vimscript('+', '; ')
-cnoremap <expr> <c-r>;<c-space> onelineConv#vimscript('+', '; ')
 cnoremap <expr> <c-r>;0         onelineConv#vimscript('0', '; ')
-cnoremap <expr> <c-r>;<c-0>     onelineConv#vimscript('0', '; ')
 
 cnoremap <expr> <c-r><bslash><space>   onelineConv#vimscript('+', ' \| ')
-cnoremap <expr> <c-r><bslash><c-space> onelineConv#vimscript('+', ' \| ')
 cnoremap <expr> <c-r><bslash>0         onelineConv#vimscript('0', ' \| ')
-cnoremap <expr> <c-r><bslash><c-0>     onelineConv#vimscript('0', ' \| ')
 
 tnoremap <expr> <c-r><space>   onelineConv#shscript('+', ' ')
 tnoremap <expr> <c-r><c-space> onelineConv#shscript('+', ' ')
@@ -21,14 +17,10 @@ tnoremap <expr> <c-r>0         onelineConv#shscript('0', ' ')
 tnoremap <expr> <c-r><c-0>     onelineConv#shscript('0', ' ')
 
 tnoremap <expr> <c-r>;<space>   onelineConv#shscript('+', '; ')
-tnoremap <expr> <c-r>;<c-space> onelineConv#shscript('+', '; ')
 tnoremap <expr> <c-r>;0         onelineConv#shscript('0', '; ')
-tnoremap <expr> <c-r>;<c-0>     onelineConv#shscript('0', '; ')
 
-tnoremap <expr> <c-r><bslash><space>   onelineConv#shscript('+', ' \ ')
-tnoremap <expr> <c-r><bslash><c-space> onelineConv#shscript('+', ' \ ')
-tnoremap <expr> <c-r><bslash>0         onelineConv#shscript('0', ' \ ')
-tnoremap <expr> <c-r><bslash><c-0>     onelineConv#shscript('0', ' \ ')
+tnoremap <expr> <c-r><bslash><space>   onelineConv#shscript('+', " \\\<CR> ")
+tnoremap <expr> <c-r><bslash>0         onelineConv#shscript('0', " \\\<CR> ")
 
 cnoremap <c-r><CR><space>   <C-r>+
 cnoremap <c-r><CR><c-space> <C-r>+
