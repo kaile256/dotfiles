@@ -208,6 +208,7 @@ settings:
         <Ctrl+w><Ctrl+o>: window-only
         <Ctrl+w><Ctrl+p>: tab-pin
         <Ctrl+w><Ctrl+t>: tab-give
+        <Ctrl+w><Ctrl+u>: undo
         <Ctrl+w><Ctrl+v>: tab-clone
         <Ctrl+w>N: open -p
         <Ctrl+w>Q: close
