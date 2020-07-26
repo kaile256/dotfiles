@@ -19,5 +19,7 @@ setopt share_history # share with the other terminals
 setopt histignorealldups # no duplicated cmd history (remove older)
 setopt auto_cd # cd just with a dir path
 setopt correct # Auto correct command failure
+unsetopt correct_all # Auto correct all the words in current line.
 setopt no_flow_control # disable <C-s> and <C-q>
 setopt nobeep
+setopt magic_equal_subst # Complete path after '~' or '=', too.
