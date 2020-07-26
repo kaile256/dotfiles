@@ -270,6 +270,11 @@ let g:lexima#default_rules += [
       \ {'char': '<TAB>', 'at': '\([^{]\){\%#}\1', 'input': '<C-g>U<Del><C-g>U<Del>{{'},
       \ ]
 
+let g:lexima#default_rules += [
+      \ {'char': ',', 'at': '[^,]\%#\a',   'input': ', '},
+      \ {'char': ',', 'at': '[^,]\s\%#\S', 'input': '<BS>, '},
+      \ ]
+
 " Addtional Rules on FileType {{{1
 source $DEIN_POST_HOME/lexima.cpp.vim
 source $DEIN_POST_HOME/lexima.vim.vim
