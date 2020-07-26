@@ -490,6 +490,8 @@ settings:
     global: 14
   fonts.web.size.minimum:
     global: 9
+  hints.auto_follow:
+    global: always
   hints.uppercase:
     global: true
   input.insert_mode.auto_load:
