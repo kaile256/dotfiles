@@ -1,7 +1,7 @@
 " TOML: vimscript.toml
 " Repo: mattn/benchvimrc-vim
 
-comman! -nargs=? -complete=file Benchmark :call s:benchvimrc(<q-args>)
+comman! -nargs=? -complete=file BenchVimrcWrap :call s:benchvimrc(<q-args>)
 
 function! s:benchvimrc(target) abort
   let bufnr = bufnr('__BENCHVIMRC__')
