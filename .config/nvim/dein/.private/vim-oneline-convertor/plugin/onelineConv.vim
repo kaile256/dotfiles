@@ -1,9 +1,19 @@
 if get(g:, 'onelineConv#no_default_mappings') | finish | endif
 
-cnoremap <expr> <c-r><space>   onelineConv#vimscript('+', ' \| ')
-cnoremap <expr> <c-r><c-space> onelineConv#vimscript('+', ' \| ')
-cnoremap <expr> <c-r>0     onelineConv#vimscript('0', ' \| ')
-cnoremap <expr> <c-r><c-0> onelineConv#vimscript('0', ' \| ')
+cnoremap <expr> <c-r><space>   onelineConv#vimscript('+', ' ')
+cnoremap <expr> <c-r><c-space> onelineConv#vimscript('+', ' ')
+cnoremap <expr> <c-r>0         onelineConv#vimscript('0', ' ')
+cnoremap <expr> <c-r><c-0>     onelineConv#vimscript('0', ' ')
+
+cnoremap <expr> <c-r>;<space>   onelineConv#vimscript('+', '; ')
+cnoremap <expr> <c-r>;<c-space> onelineConv#vimscript('+', '; ')
+cnoremap <expr> <c-r>;0         onelineConv#vimscript('0', '; ')
+cnoremap <expr> <c-r>;<c-0>     onelineConv#vimscript('0', '; ')
+
+cnoremap <expr> <c-r><bslash><space>   onelineConv#vimscript('+', ' \| ')
+cnoremap <expr> <c-r><bslash><c-space> onelineConv#vimscript('+', ' \| ')
+cnoremap <expr> <c-r><bslash>0         onelineConv#vimscript('0', ' \| ')
+cnoremap <expr> <c-r><bslash><c-0>     onelineConv#vimscript('0', ' \| ')
 
 tnoremap <expr> <c-r><space>   onelineConv#shscript('+')
 tnoremap <expr> <c-r><c-space> onelineConv#shscript('+')
