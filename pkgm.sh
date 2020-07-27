@@ -25,6 +25,7 @@ PACKAGEs=(
   conky-i3
   xsel
 
+  nodejs-google-clasp # develop Apps Script in cmdline; type `gclasp`
   lazygit
   lib32-libpulse # for 32 bit programs like Wine
   lib32-apulse # for 32 bit programs like Wine
