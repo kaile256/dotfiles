@@ -18,14 +18,14 @@ function! s:expand_template(label) abort
   let prefix = 'SonicTemplate:'
   if @% =~# 'tmp' && len(@+) > 800
     put! =@+
-    echo prefix 'Expanded from clipboard!'
+    echo prefix 'generated from clipboard!'
     return
   endif
 
   if len(a:label) == 0 | return | endif
 
   exe 'Template' a:label
-  echo prefix 'Expanded "'. a:label .'"'
+  echo prefix 'generated "'. a:label .'"'
 endfunction
 
 nnoremap <silent> <A-s>t :<C-u>call <SID>sonictemplate_edit()<CR>
