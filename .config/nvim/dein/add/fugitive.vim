@@ -236,3 +236,14 @@ nnoremap <silent><expr> <space>gce
       \ input('Amend the staged changes? y[es]/n[o] ') =~# 'y\%[es]'
       \ ? ':<C-u> GcommitBottom --amend --no-edit<CR>'
       \ : ':<C-u> echo "abort commit"<CR>'
+
+augroup myFugitiveAdd-OverrideGitCommands "{{{1
+  au BufWinEnter */gclasp**/* call s:gclasp_mappings()
+augroup END
+function! s:gclasp_mappings() abort
+  command! -buffer -bar -nargs=* G   :!gclasp <args>
+  command! -buffer -bar -nargs=* Git :!gclasp <args>
+
+  command! -buffer -bar -nargs=* Gull :!gclasp pull <args>
+  command! -buffer -bar -nargs=* Gush :!gclasp push <args>
+endfunction
