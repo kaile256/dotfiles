@@ -326,6 +326,8 @@
 
   "prettier.trailingComma": "es5",
 
+  "tsserver.enableJavascript": false,
+
   "json.format.enable": false,
 
   "html.format.enable": false,
