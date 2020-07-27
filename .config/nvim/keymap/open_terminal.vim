@@ -5,25 +5,17 @@
 command! -bar -nargs=* TermOpen :call s:term_open(<q-mods>, <f-args>)
 
 " Note: <Space>t would be mapped by some easymotion like plugins.
-if has('nvim')
-  nnoremap <silent> <A-t>e :<C-u>TermOpen<CR>
-  nnoremap <silent> <A-t>v :<C-u>vs   <bar>   TermOpen<CR>
-  nnoremap <silent> <A-t>s :<C-u>sp   <bar>   TermOpen<CR>
-  nnoremap <silent> <A-t>t :<C-u>tabe <bar>   TermOpen<CR>
-  nnoremap <silent> <A-t>b :<C-u>bot  sp<bar> TermOpen<CR>
+nnoremap <silent> <A-t>e :<C-u>TermOpen fish ++curwin<CR>
+nnoremap <silent> <A-t>v :<C-u>vert TermOpen<CR>
+nnoremap <silent> <A-t>s :<C-u>bel  TermOpen<CR>
+nnoremap <silent> <A-t>t :<C-u>tab  TermOpen<CR>
+nnoremap <silent> <A-t>b :<C-u>bot  TermOpen<CR>
 
-  nnoremap <silent> <A-t>E :<C-u>TermOpen $HOME<CR>
-  nnoremap <silent> <A-t>V :<C-u>vs   <bar>   TermOpen $HOME<CR>
-  nnoremap <silent> <A-t>S :<C-u>sp   <bar>   TermOpen $HOME<CR>
-  nnoremap <silent> <A-t>T :<C-u>tabe <bar>   TermOpen $HOME<CR>
-  nnoremap <silent> <A-t>B :<C-u>bot  sp<bar> TermOpen $HOME<CR>
-else
-  nnoremap <silent> <A-t>e :<C-u>TermOpen fish ++curwin<CR>
-  nnoremap <silent> <A-t>v :<C-u>vert TermOpen<CR>
-  nnoremap <silent> <A-t>s :<C-u>bel  TermOpen<CR>
-  nnoremap <silent> <A-t>t :<C-u>tab  TermOpen<CR>
-  nnoremap <silent> <A-t>b :<C-u>bot  TermOpen<CR>
-endif
+nnoremap <silent> <A-t>E :<C-u>     TermOpen $HOME<CR>
+nnoremap <silent> <A-t>V :<C-u>vert TermOpen $HOME<CR>
+nnoremap <silent> <A-t>S :<C-u>bel  TermOpen $HOME<CR>
+nnoremap <silent> <A-t>T :<C-u>tab  TermOpen $HOME<CR>
+nnoremap <silent> <A-t>B :<C-u>bot  TermOpen $HOME<CR>
 
 nmap <A-t><A-t> <A-t>t
 nmap <A-t><A-e> <A-t>e
@@ -47,8 +39,24 @@ function! s:term_open(mods, ...) abort
 
   let shell = 'fish -C "cd '. path .'"'
 
+  let mods = a:mods
   if has('nvim')
+    if mods !=# ''
+      let mods_dict = {
+            \ 'bel\%[owright]': 'bel sp',
+            \ 'bot\%[right]': 'bot sp',
+            \ 'vert\%[ical]': 'vs',
+            \ 'tab': 'tabe',
+            \ }
+
+      for l:key in keys(mods_dict)
+        let mods = substitute(mods, l:key, mods_dict[l:key], '')
+      endfor
+      let mods .= ' | '
+    endif
+
     let term_open = 'term '. shell
+    let term_open = mods .' term '. shell
   else
     let opt = ''
     let opt .= ' ++close'
@@ -60,8 +68,7 @@ function! s:term_open(mods, ...) abort
         endif
       endfor
     endif
-    let term_open = a:mods .' term '. opt .' '. shell
-    let g:foo = term_open
+    let term_open = mods .' term '. opt .' '. shell
   endif
 
   exe term_open
