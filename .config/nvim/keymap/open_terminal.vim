@@ -23,6 +23,27 @@ nmap <A-t><A-v> <A-t>v
 nmap <A-t><A-s> <A-t>s
 nmap <A-t><A-b> <A-t>b
 
+if has('nvim')
+  function! s:set_mods(mods) abort
+    if a:mods ==# '' | return '' | endif
+
+    let mods_dict = {
+          \ 'bel\%[owright]': 'bel sp',
+          \ 'bot\%[right]': 'bot sp',
+          \ 'vert\%[ical]': 'vs',
+          \ 'tab': 'tabe',
+          \ }
+
+    let mods = a:mods
+    for l:key in keys(mods_dict)
+      let mods = substitute(mods, l:key, mods_dict[l:key], '')
+    endfor
+    let mods .= ' | '
+
+    return mods
+  endfunction
+endif
+
 function! s:term_open(mods, ...) abort
   let path = ''
   if a:0 > 0
@@ -39,21 +60,8 @@ function! s:term_open(mods, ...) abort
 
   let shell = 'fish -C "cd '. path .'"'
 
-  let mods = a:mods
   if has('nvim')
-    if mods !=# ''
-      let mods_dict = {
-            \ 'bel\%[owright]': 'bel sp',
-            \ 'bot\%[right]': 'bot sp',
-            \ 'vert\%[ical]': 'vs',
-            \ 'tab': 'tabe',
-            \ }
-
-      for l:key in keys(mods_dict)
-        let mods = substitute(mods, l:key, mods_dict[l:key], '')
-      endfor
-      let mods .= ' | '
-    endif
+    let mods = s:set_mods(a:mods)
 
     let term_open = 'term '. shell
     let term_open = mods .' term '. shell
@@ -68,7 +76,7 @@ function! s:term_open(mods, ...) abort
         endif
       endfor
     endif
-    let term_open = mods .' term '. opt .' '. shell
+    let term_open = a:mods .' term '. opt .' '. shell
   endif
 
   exe term_open
