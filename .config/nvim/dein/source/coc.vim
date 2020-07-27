@@ -43,6 +43,7 @@ let g:coc_global_extensions = [
       \ 'coc-elixir',
       \ 'coc-emmet',
       \ 'coc-emoji',
+      \ 'coc-eslint',
       \ 'coc-fish',
       \ 'coc-flow',
       \ 'coc-flutter',
