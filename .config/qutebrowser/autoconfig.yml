@@ -148,6 +148,7 @@ settings:
         <Ctrl+Shift+j>: fake-key <Ctrl-Enter>
         <Ctrl+Shift+n>: fake-key <Shift-down>
         <Ctrl+Shift+p>: fake-key <Shift-Up>
+        <Ctrl+Shift+x>: fake-key <Ctrl-a><Ctrl-x>
         <Ctrl+a>: fake-key <Home>
         <Ctrl+b>: fake-key <Left>
         <Ctrl+d>: fake-key <Delete>
