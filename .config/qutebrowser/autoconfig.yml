@@ -20,7 +20,7 @@ settings:
       command!: config-dict-add --replace aliases
       cunabbr: config-dict-remove aliases
       cunmap: unbind -m command
-      e: session-load
+      e: reload
       e!: reload -f
       e%: reload
       emacs: enter-mode passthrough
