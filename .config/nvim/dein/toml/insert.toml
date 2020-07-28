@@ -132,11 +132,11 @@ on_ft = [
   'typescriptreact',
 ]
 hook_source = 'runtime source/tagalong.vim'
-[[plugins]]
-repo = 'alvan/vim-closetag'
-# Html; Auto Close for html-tags
-hook_add = 'runtime source/closetag.vim'
-on_ft = ['html', 'xml', 'jsx']
+# [[plugins]]
+# # repo = 'alvan/vim-closetag'
+# # Html; Auto Close for html-tags
+# hook_add = 'runtime source/closetag.vim'
+# on_ft = ['html', 'xml', 'jsx']
 #[[plugins]]
 #repo = 'jiangmiao/auto-pairs'
 #on_event = ['InsertEnter']
