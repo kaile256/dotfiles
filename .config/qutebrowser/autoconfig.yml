@@ -32,7 +32,7 @@ settings:
       hmap: bind -m hint
       hunmap: unbind -m hint
       imap: bind -m insert
-      iunmap: bind -m insert
+      iunmap: unbind -m insert
       lds: session-load
       list: open https://app.getpocket.com/
       map: bind
