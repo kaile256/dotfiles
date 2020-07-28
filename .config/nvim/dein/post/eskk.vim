@@ -61,5 +61,5 @@ augroup myEskkSource
   " Note: eskk with &tw > 0 disturbs `henkan` state.
   au User eskk-enable-post  let s:save_textwidth = &tw | setlocal tw=0
   au User eskk-disable-post let &tw = s:save_textwidth
-augroup END/eskk.vim
+augroup END
 
