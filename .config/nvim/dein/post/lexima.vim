@@ -19,6 +19,21 @@ function! s:map_rules(rules, dict) abort
   return rules
 endfunction
 
+function! s:parse_rules_on_key(key2rules, dict) abort
+  let dict = a:dict
+  let additional_rules = values(map(deepcopy(a:key2rules), {key, list
+        \ -> map(list, {_, rule
+        \     -> extend(rule, extend(dict, {'char': key}), 'keep')
+        \     })
+        \ }))
+
+  let rules = []
+  for r in additional_rules
+    call extend(rules, r)
+  endfor
+  return rules
+endfunction
+
 " Note: '\%#' represents the cursor position; see the help.
 " Notice: single quote in double quotes sometimes fails to apply the rule.
 " Notice: in double quotes, backslash requires double to escape
