@@ -10,7 +10,6 @@ settings:
     global:
       H: help -t
       O: open -t
-      Pocket: open -t https://app.getpocket.com/
       R: session-load
       abbr: config-dict-add aliases
       alias: config-dict-add aliases
@@ -34,7 +33,6 @@ settings:
       imap: bind -m insert
       iunmap: unbind -m insert
       lds: session-load
-      list: open https://app.getpocket.com/
       mess: messages
       mk: config-dict-add url.searchengines
       mks: session-save -o
@@ -45,7 +43,6 @@ settings:
       nvim: spawn nvim-qt
       o: open
       pmap: bind -m prompt
-      pocket-open: open https://app.getpocket.com/
       pocket-save: spawn --userscript qutepocket
       punmap: unbind -m prompt
       q: tab-close
