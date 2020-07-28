@@ -8,6 +8,7 @@ hi! link snipLeadingSpaces NonText
 
 augroup myUltisnipsSo
   au FileType snippets setlocal keywordprg=:help
+  au FileType snippets setlocal suffixesadd=.snippets
   " Note: neosnippet could override default ft.
   au Syntax neosnippet if expand('%:e') ==# 'snippets' |
         \ setlocal ft=snippets
