@@ -433,3 +433,6 @@ unlet s:rules_for_cpp s:key2rules_for_cpp
 " call lexima#insmode#map_hook('after', '<CR>',    "\<CR>:-1s/\s\+$<CR>")
 
 call lexima#set_default_rules()
+
+delfunction s:map_rules
+delfunction s:parse_rules_on_key
