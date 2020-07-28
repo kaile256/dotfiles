@@ -19,24 +19,26 @@ nmap <C-a> <Plug>(switch-or-dating)
 nmap <C-x> <Plug>(switch-or-dating-reverse)
 
 function! s:increment() abort
+  let cnt = v:count1
   silent! call repeat#set("\<Plug>(switch-or-dating)")
   let save_line = getline('.')
 
   let is_switched = switch#Switch()
   if is_switched | return | endif
-  call speeddating#increment(v:count1)
+  call speeddating#increment(cnt)
 
   if  getline('.') !=# save_line | return | endif
   exe "norm \<Plug>(symbolicInc-increment-sync)"
 endfunction
 
 function! s:decrement() abort
+  let cnt = v:count1
   silent! call repeat#set("\<Plug>(switch-or-dating-reverse)")
   let save_line = getline('.')
 
   let is_switched = switch#Switch({'reverse': 1})
   if is_switched | return | endif
-  call speeddating#increment(- v:count1)
+  call speeddating#increment(- cnt)
 
   if getline('.') !=# save_line | return | endif
   exe "norm \<Plug>(symbolicInc-decrement-sync)"
