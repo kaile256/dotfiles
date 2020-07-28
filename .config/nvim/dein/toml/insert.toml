@@ -89,6 +89,15 @@ on_ft = 'tex'
 [[plugins]]
 repo = 'epilande/vim-react-snippets'
 on_ft = ['javascript']
+# [[plugins]]
+# repo = 'jceb/emmet.snippets'
+# # How does it work?
+# on_ft = [
+#   'html',
+#   'javascriptreact',
+#   'typescriptreact',
+#   'xml'
+# ]
 
 #[ Completion ]
 #[[plugins]]
