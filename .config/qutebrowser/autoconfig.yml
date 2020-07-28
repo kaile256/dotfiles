@@ -531,7 +531,7 @@ settings:
   scrolling.smooth:
     global: false
   session.default_name:
-    global: last
+    global: default
   session.lazy_restore:
     global: false
   spellcheck.languages:
