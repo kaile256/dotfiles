@@ -11,8 +11,6 @@ map! <C-j> <CR>
 
 let g:lexima#default_rules = []
 
-source $DEIN_POST_HOME/lexima.vim.vim
-
 function! s:map_rules(rules, dict) abort
   let rules = map(deepcopy(a:rules), 'extend(v:val, a:dict, "keep")')
   return rules
@@ -330,6 +328,43 @@ let g:lexima#default_rules += [
       \ {'char': "'", 'filetype': ['haskell', 'lisp', 'clojure', 'ocaml', 'reason', 'scala', 'rust']},
       \ {'char': '`', 'filetype': ['ocaml', 'reason']},
       \ ]
+
+" Rules for Vim {{{2
+let s:rules_for_vim = []
+let s:key2rules_for_vim = {}
+
+" Delete duplicated '"' to comment in Vimscript.
+let s:rules_for_vim += [
+      \ {'char': '<TAB>', 'at': '^\s*"\%#"', 'input': '<C-g>U<Del><TAB>'},
+      \ {'char': '<Space>', 'at': '^\s*"\%#"', 'input': '<C-g>U<Del><space>'},
+      \ {'char': '<S-Space>', 'at': '^\s*"\%#"', 'input': '<C-g>U<Del><space>'},
+      \ ]
+
+let s:rules_for_vim += [
+      \ {'char': '<', 'at': 'map .*\%#', 'input_after': '>'},
+      \ {'char': '<', 'at': 'exe [''"]norm .*\\\%#', 'input_after': '>'},
+      \ ]
+
+" Add comma to add either List or Dict nested.
+let s:rules_for_vim += [
+      \ {'char': '{', 'at': '^\s*\\\s*\%#', 'input_after': '},'},
+      \ {'char': '[', 'at': '^\s*\\\s*\%#', 'input_after': '],'},
+      \ ]
+
+let s:rules_for_vim += [
+      \ {'char': '(', 'at': '\\\%#', 'input_after': '\)'},
+      \ ]
+
+" Insert backslashes when filetype is vim
+let s:key2rules_for_vim['<CR>'] = [
+      \ {'at': '^\s*\\.*\%#', 'input': '<CR>\ ', 'except': '[]})]\s*$'},
+      \
+      \ {'at': '\(=\|\\\)\s*(\%#)',  'input': '<CR>\ ', 'input_after': '<CR>\ '},
+      \ {'at': '\(=\|\\\)\s*{\%#}',  'input': '<CR>\ ', 'input_after': '<CR>\ '},
+      \ {'at': '\(=\|\\\)\s*\[\%#]', 'input': '<CR>\ ', 'input_after': '<CR>\ '},
+      \ ]
+
+unlet s:rules_for_vim s:key2rules_for_vim
 
 " Rules for Cpp {{{2
 let s:rules_for_cpp = []
