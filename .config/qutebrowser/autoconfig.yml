@@ -492,7 +492,7 @@ settings:
   hints.auto_follow:
     global: always
   hints.chars:
-    global: hjklgfdsayuitrewnmvcx
+    global: hjklgfdsayuitrewnmcx
   hints.uppercase:
     global: true
   input.insert_mode.auto_load:
