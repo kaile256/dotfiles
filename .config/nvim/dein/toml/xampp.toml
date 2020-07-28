@@ -13,10 +13,10 @@
 #on_cmd = ['Bracey']
 #hook_add = 'runtime add/bracey.vim'
 #hook_source = 'runtime source/bracey.vim'
-[[plugins]]
-repo = 'mattn/emmet-vim'
-on_ft = ['html', 'xml', 'xsl', 'php']
-hook_source = 'runtime source/emmet.vim'
+# [[plugins]]
+# repo = 'mattn/emmet-vim'
+# on_ft = ['html', 'xml', 'xsl', 'php']
+# hook_source = 'runtime source/emmet.vim'
 
 #[[plugins]]
 #repo = 'lyokha/vim-publish-helper'
