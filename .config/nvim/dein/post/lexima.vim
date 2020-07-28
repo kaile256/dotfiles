@@ -14,6 +14,11 @@ let g:lexima#default_rules = []
 source $DEIN_POST_HOME/lexima.cpp.vim
 source $DEIN_POST_HOME/lexima.vim.vim
 
+function! s:map_rules(rules, dict) abort
+  let rules = map(deepcopy(a:rules), 'extend(v:val, a:dict, "keep")')
+  return rules
+endfunction
+
 " Note: '\%#' represents the cursor position; see the help.
 " Notice: single quote in double quotes sometimes fails to apply the rule.
 " Notice: in double quotes, backslash requires double to escape
