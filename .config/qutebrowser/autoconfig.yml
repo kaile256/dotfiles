@@ -205,9 +205,11 @@ settings:
         <Ctrl+w><Ctrl+c>: session-save --quiet last;; tab-close
         <Ctrl+w><Ctrl+o>: window-only
         <Ctrl+w><Ctrl+p>: tab-pin
+        <Ctrl+w><Ctrl+r>: devtools
         <Ctrl+w><Ctrl+t>: tab-give
         <Ctrl+w><Ctrl+u>: undo
         <Ctrl+w><Ctrl+v>: tab-clone
+        <Ctrl+w><Ctrl+w>: devtools-focus
         <Ctrl+w>N: open -p
         <Ctrl+w>Q: close
         <Ctrl+w>T: tab-give
@@ -218,9 +220,11 @@ settings:
         <Ctrl+w>n: open -w
         <Ctrl+w>o: tab-only
         <Ctrl+w>p: tab-pin
+        <Ctrl+w>r: devtools
         <Ctrl+w>s: tab-clone
         <Ctrl+w>u: undo
         <Ctrl+w>v: tab-clone
+        <Ctrl+w>w: devtools-focus
         <Ctrl+x>: null
         <Ctrl+y>: scroll-px 0 -50
         <Enter>: enter-mode insert;; fake-key <enter> ;; leave-mode
@@ -291,6 +295,7 @@ settings:
         gM: open -t https://www.google.co.jp/maps/@34.8244519,135.4776576,15z
         gO: hint inputs
         gP: open -t https://app.getpocket.com/
+        gR: devtools bottom
         gS: view-source --pygments
         gT: open -t https://ticktick.com/webapp/#q/all/today
         ga: hint inputs
@@ -304,6 +309,7 @@ settings:
         gm: open https://www.google.co.jp/maps/@34.8244519,135.4776576,15z
         go: scroll-to-perc 0;; hint inputs --first
         gp: open https://app.getpocket.com/
+        gr: devtools right
         gs: view-source
         gt: open https://ticktick.com/webapp/#q/all/today
         gu: spawn nvim-qt {url}
