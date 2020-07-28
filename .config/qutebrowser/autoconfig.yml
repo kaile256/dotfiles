@@ -403,6 +403,14 @@ settings:
   content.host_blocking.lists:
     global:
     - www.sejuku.net
+  content.javascript.alert:
+    global: true
+  content.javascript.can_access_clipboard:
+    global: true
+  content.javascript.can_open_tabs_automatically:
+    global: true
+  content.javascript.modal_dialog:
+    global: true
   content.mute:
     global: false
   content.notifications:
