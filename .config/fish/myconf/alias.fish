@@ -6,6 +6,8 @@ alias make 'make --jobs 8'
 alias tmux 'tmux -2'
 
 balias b 'bash'
+balias d 'docker'
+balias dcm 'docker-compose'
 
 balias l 'ls -Alh'
 balias la 'ls -A'
