@@ -11,7 +11,6 @@ map! <C-j> <CR>
 
 let g:lexima#default_rules = []
 
-source $DEIN_POST_HOME/lexima.cpp.vim
 source $DEIN_POST_HOME/lexima.vim.vim
 
 function! s:map_rules(rules, dict) abort
@@ -331,6 +330,62 @@ let g:lexima#default_rules += [
       \ {'char': "'", 'filetype': ['haskell', 'lisp', 'clojure', 'ocaml', 'reason', 'scala', 'rust']},
       \ {'char': '`', 'filetype': ['ocaml', 'reason']},
       \ ]
+
+" Rules for Cpp {{{2
+let s:rules_for_cpp = []
+let s:key2rules_for_cpp = {}
+
+let s:rules_for_cpp += [
+      \ {'char': '{', 'input_after': '};',
+      \     'at': '\v<(struct|return|class)> .*%#',
+      \     'except': '\v(template <.*%#|%#.*;)',
+      \ },
+      \ ]
+
+let s:key2rules_for_cpp['<'] = [
+      \ {'at': '\a\%#', 'input_after': '>'},
+      \ {'at': '^#include \%#', 'input_after': '>'},
+      \ ]
+let s:key2rules_for_cpp['<C-:>'] = [
+      \ {'at': '\%#>', 'input': '<C-g>U<Right>:'},
+      \ ]
+let s:key2rules_for_cpp['='] = [
+      \ {'input': '=', 'input_after': ';', 'except': '\%#.'},
+      \ ]
+
+let s:key2rules_for_cpp['<Space>'] = [
+      \ {'at': '(.*\%#.*)',  'priority': 90},
+      \ {'at': '{.*\%#.*}',  'priority': 90},
+      \ {'at': '\[.*\%#.*]', 'priority': 90},
+      \
+      \ {'input': ' >> ',  'at': 'cin\%#'},
+      \ {'input': ' << ', 'at': 'cout\%#'},
+      \
+      \ {'input': ' >> ',  'at': 'cin.*[^> ]\+\%#', 'except': '\v(;.*%#|%#.*[^;\]\)])'},
+      \ {'input': ' << ', 'at': 'cout.*[^< ]\+\%#', 'except': '\v(;.*%#|%#.*[^;\]\)])'},
+      \
+      \ {'input': ' (', 'input_after': ')',
+      \     'at': '\(if\|for\|while\)\%#',
+      \     'syntax': ['cConditional', 'cRepeat']},
+      \ ]
+
+let s:key2rules_for_cpp['<C-space>'] = [
+      \ {'at': 'cin  >> .\{-}\%#[''"]', 'input': '<C-g>U<Right> >> '},
+      \ {'at': 'cout << .\{-}\%#[''"]', 'input': '<C-g>U<Right> << '},
+      \ ]
+
+let s:key2rules_for_cpp[','] = [
+      \ {'at': 'cin .*\h\w*\%#', 'input': ' >> '},
+      \ {'at': 'cout .*\h\w*\%#', 'input': ' << '},
+      \ ]
+
+let g:lexima#default_rules += s:map_rules(s:rules_for_cpp, {
+      \ 'filetype': 'cpp'
+      \ })
+let g:lexima#default_rules += s:parse_rules_on_key(s:key2rules_for_cpp, {
+      \ 'filetype': 'cpp'
+      \ })
+unlet s:rules_for_cpp s:key2rules_for_cpp
 
 " Finally: Override the rules though lexima#add_rule() "{{{1
 " Apply all the maps to both Insert and Command mode when unspecified
