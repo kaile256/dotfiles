@@ -35,7 +35,6 @@ settings:
       iunmap: unbind -m insert
       lds: session-load
       list: open https://app.getpocket.com/
-      map: bind
       mess: messages
       mk: config-dict-add url.searchengines
       mks: session-save -o
