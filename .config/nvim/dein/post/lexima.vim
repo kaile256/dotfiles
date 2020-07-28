@@ -51,7 +51,10 @@ let g:lexima#newline_rules += [
 " Spilt <tag><\tag> on <CR>
 let g:lexima#newline_rules += [
       \ {'char': '<CR>', 'at': '<.\{-}>\%#<.\{-}>', 'input_after': '<CR>',
-      \     'filetype': ['htm', 'html', 'xml', 'php']},
+      \     'filetype': [
+      \         'htm', 'html', 'xml', 'php',
+      \         'javascriptreact', 'typescriptreact',
+      \ ]},
       \ ]
 
 " Overwrite Rules for Parentheses {{{1
