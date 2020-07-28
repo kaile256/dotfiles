@@ -32,6 +32,7 @@ nnoremap <C-]> <Nop>
 let g:UltiSnipsJumpBackwardTrigger = '<C-[>'
 
 let g:UltiSnipsSnippetDirectories = [
+      \ 'UltiSnips',
       \ expand('$DEIN_GITHUB_DIR/honza/vim-snippets/UltiSnips'),
       \ expand('$VIM_ANOTHER_HOME/UltiSnips'),
       \ ]
