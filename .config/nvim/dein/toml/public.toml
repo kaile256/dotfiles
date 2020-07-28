@@ -66,3 +66,8 @@ on_source = ['vim-speeddating', 'switch.vim']
 on_map = {nx = '<Plug>(symbolicInc-'}
 on_func = 'symbolicInc#'
 hook_add = 'runtime add/symbolic-incrementor.vim'
+
+#[ Git ]
+[[plugins]]
+repo = 'kaile256/vim-gitrebase-commander'
+lazy = 0
