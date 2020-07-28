@@ -11,19 +11,6 @@ function! s:choose(word) abort
   call winrestview(save_view)
 endfunction
 
-" Note: prefix-z is used for fold, but it has to be unnecessary on gitrebase.
-nnoremap <silent><buffer><nowait> zp :<C-u>call <SID>choose('pick')<CR>
-nnoremap <silent><buffer><nowait> zr :<C-u>call <SID>choose('reword')<CR>
-nnoremap <silent><buffer><nowait> ze :<C-u>call <SID>choose('edit')<CR>
-nnoremap <silent><buffer><nowait> zs :<C-u>call <SID>choose('squash')<CR>
-nnoremap <silent><buffer><nowait> zf :<C-u>call <SID>choose('fixup')<CR>
-nnoremap <silent><buffer><nowait> zx :<C-u>call <SID>choose('exec')<CR>
-nnoremap <silent><buffer><nowait> zb :<C-u>call <SID>choose('break')<CR>
-nnoremap <silent><buffer><nowait> zd :<C-u>call <SID>choose('drop')<CR>
-nnoremap <silent><buffer><nowait> zb :<C-u>call <SID>choose('label')<CR>
-nnoremap <silent><buffer><nowait> zt :<C-u>call <SID>choose('reset')<CR>
-nnoremap <silent><buffer><nowait> zm :<C-u>call <SID>choose('merge')<CR>
-
 " Excerpt: from a gitrebase file
 " p, pick <commit> = use commit
 " r, reword <commit> = use commit, but edit the commit message
@@ -39,3 +26,31 @@ nnoremap <silent><buffer><nowait> zm :<C-u>call <SID>choose('merge')<CR>
 " .       create a merge commit using the original merge commit's
 " .       message (or the oneline, if no original merge commit was
 " .       specified). Use -c <commit> to reword the commit message.
+
+" Note: prefix-z is used for fold, but it has to be unnecessary on gitrebase.
+let g:gitrebase_commander#prefix = get(g:, 'gitrebase_commander#prefix', 'z')
+let g:gitrebase_commander#suffixes = get(g:, 'gitrebase_commander#suffixes', {
+      \ 'p': 'pick',
+      \ 'r': 'reword',
+      \ 'e': 'edit',
+      \ 's': 'squash',
+      \ 'f': 'fixup',
+      \ 'x': 'exec',
+      \ 'b': 'break',
+      \ 'd': 'drop',
+      \ 'l': 'label',
+      \ 't': 'reset',
+      \ 'm': 'merge',
+      \ })
+
+function! s:mapping() abort
+  let prefix = g:gitrebase_commander#prefix
+  let commands = g:gitrebase_commander#suffixes
+  for sfx in keys(commands)
+    exe 'nnoremap <silent><buffer><nowait>' prefix . sfx
+        \ ':<C-u>call <SID>choose(' string(commands[sfx]) ')<CR>'
+  endfor
+endfunction
+
+call s:mapping()
+delfunction s:mapping
