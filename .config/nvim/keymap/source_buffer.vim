@@ -4,6 +4,7 @@ if !exists('*s:source_buffer')
   function! s:source_buffer() abort
     if &ft ==# 'vim' && expand('%:p') =~# '/ftplugin/' | return | endif
 
+    let save_view = winsaveview()
     if &ft ==# 'vim'
       " Refresh augroups before source the target buffer.
       let lines_augroup = split(execute('keepj keepp g/aug\%[roup] .\+/keepj keepp v/end\c'), '\n')
@@ -23,18 +24,13 @@ if !exists('*s:source_buffer')
 
     if getline(1) =~# '^#!'
       call s:do_as_shebang()
-      return
-    endif
-
-    if has_key(s:ft2cmd, &ft)
+    elseif has_key(s:ft2cmd, &ft)
       call s:do_as_dict(s:ft2cmd, &ft)
-      return
     else
       call s:do_as_dict(s:fname2cmd, expand('%:p'))
-      return
     endif
 
-    echoerr s:msg '& all'
+    call winrestview(save_view)
   endfunction
 
   function! s:do_as_shebang() abort "{{{2
