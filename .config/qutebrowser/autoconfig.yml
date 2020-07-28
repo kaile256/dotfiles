@@ -157,12 +157,12 @@ settings:
         <Ctrl+f>: fake-key <Right>
         <Ctrl+g>: fake-key <Esc>
         <Ctrl+h>: fake-key <Backspace>
-        <Ctrl+i>: fake-key <tab>
+        <Ctrl+i>: fake-key <Tab><End>
         <Ctrl+j>: fake-key <Enter>
         <Ctrl+k>: fake-key <Shift-end><Delete>
         <Ctrl+m>: fake-key <Enter>
         <Ctrl+n>: fake-key <Down>
-        <Ctrl+o>: fake-key <Ctrl-Shift-TAB>
+        <Ctrl+o>: fake-key <Shift-Tab><End>
         <Ctrl+p>: fake-key <Up>
         <Ctrl+q>: open-editor
         <Ctrl+r>0: insert-text {primary}
