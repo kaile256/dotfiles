@@ -143,6 +143,7 @@ settings:
         <Ctrl+Shift+[>: fake-key <Escape>
         <Ctrl+Shift+a>: fake-key <Shift-home>
         <Ctrl+Shift+b>: fake-key <shift-left>
+        <Ctrl+Shift+c>: fake-key <Ctrl-a><Ctrl-c>
         <Ctrl+Shift+e>: fake-key <Shift-end>
         <Ctrl+Shift+f>: fake-key <Shift-right>
         <Ctrl+Shift+j>: fake-key <Ctrl-Enter>
