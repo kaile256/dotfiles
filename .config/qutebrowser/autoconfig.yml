@@ -389,6 +389,8 @@ settings:
     global: no-3rdparty
   content.default_encoding:
     global: utf-8
+  content.geolocation:
+    https://ora.pm: true
   content.headers.user_agent:
     global: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko)
       Chrome/79.0.3945.88 Safari/537.36
@@ -403,10 +405,12 @@ settings:
     https://app.slack.com: true
     https://boxil.jp: false
     https://calendar.google.com: true
+    https://ora.pm: true
     https://ticktick.com: true
     https://web.skype.com: true
     https://www.pcmag.com: false
     https://www.reddit.com: true
+    https://www.ticktick.com: true
   content.pdfjs:
     global: true
   content.plugins:
