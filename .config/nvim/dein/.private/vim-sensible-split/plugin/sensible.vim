@@ -64,9 +64,13 @@ augroup sensibleSplit
   au!
   au BufWinEnter *vim**/* let &l:keywordprg = ':SensibleMods help'
   exe 'au FileType' join(g:sensible#gf#preview_filetypes, ',')
-        \ 'nnoremap <silent><buffer><nowait> p'
-        \ ':<C-u>call sensible#gf#_Gopen()<CR>'
+        \ ':call s:overwrite_p()'
 augroup END
+function! s:overwrite_p() abort
+  if &modifiable && !&readonly | return | endif
+  " esp. for fugitive
+  nnoremap <silent><buffer><nowait> p :<C-u>call sensible#gf#_Gopen()<CR>
+endfunction
 
 if &g:keywordprg ==# ':Man'
   let &g:keywordprg = ':SensibleMods Man'
