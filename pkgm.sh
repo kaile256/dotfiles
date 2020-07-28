@@ -26,6 +26,9 @@ PACKAGEs=(
   xsel
   eslint
 
+  docker-rootless
+  docker-compose-bin # includes `docker`
+  lazydocker
   eslint-plugin-snakecasejs
   eslint-plugin-node
   eslint-plugin-import
