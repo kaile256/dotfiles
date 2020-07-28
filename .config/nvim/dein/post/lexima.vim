@@ -11,6 +11,9 @@ map! <C-j> <CR>
 
 let g:lexima#default_rules = []
 
+source $DEIN_POST_HOME/lexima.cpp.vim
+source $DEIN_POST_HOME/lexima.vim.vim
+
 " Note: '\%#' represents the cursor position; see the help.
 " Notice: single quote in double quotes sometimes fails to apply the rule.
 " Notice: in double quotes, backslash requires double to escape
@@ -281,9 +284,6 @@ let g:lexima#default_rules += [
       \ ]
 
 " Addtional Rules on FileType {{{1
-source $DEIN_POST_HOME/lexima.cpp.vim
-source $DEIN_POST_HOME/lexima.vim.vim
-
 " Suppress some rules up to filetype.
 let g:lexima#default_rules += [
       \ {'char': "'", 'filetype': ['haskell', 'lisp', 'clojure', 'ocaml', 'reason', 'scala', 'rust']},
