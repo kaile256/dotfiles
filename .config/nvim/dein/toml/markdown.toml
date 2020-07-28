@@ -61,11 +61,11 @@ hook_source = 'runtime source/markdown-preview.vim'
 #on_ft = 'markdown'
 #hook_source = 'runtime add/instant-markdown.vim'
 
-[[plugins]]
-repo = 'skanehira/preview-markdown.vim'
-# preview inside vim!
-on_cmd =  ['PreviewMarkdown']
-hook_add = 'runtime add/preview-markdown.vim'
+# [[plugins]]
+# repo = 'skanehira/preview-markdown.vim'
+# # preview inside vim!
+# # on_cmd =  ['PreviewMarkdown']
+# hook_add = 'runtime add/preview-markdown.vim'
 
 #[ Fenced Filetype ]
 [[plugins]]
