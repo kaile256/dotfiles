@@ -69,7 +69,7 @@ let s:filetypes_for_semicolon_rules = [
       \ 'typescriptreact',
       \ ]
 let g:lexima#default_rules += s:map_rules(s:rules_for_semicolon,
-      \ {'filetypes': s:filetypes_for_semicolon_rules})
+      \ {'filetype': s:filetypes_for_semicolon_rules})
 unlet s:filetypes_for_semicolon_rules s:rules_for_semicolon
 
 " Overwrite Rules for Newline {{{1
@@ -320,7 +320,7 @@ let g:lexima#default_rules += [
 let s:rules_for_type_declare_with_colon = [
       \ {'char': '<space>', 'input_after': ',',
       \     'at': '\a:\%#', 'except': '\%#.\+',
-      \     'filetypes': ['typescript', 'typescriptreact'],
+      \     'filetype': ['typescript', 'typescriptreact'],
       \ },
       \ ]
 let g:lexima#default_rules += s:rules_for_type_declare_with_colon
