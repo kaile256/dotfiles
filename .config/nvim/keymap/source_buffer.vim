@@ -2,7 +2,10 @@ nnoremap <silent> <a-TAB> :<C-u>call <SID>source_buffer()<CR>
 
 if !exists('*s:source_buffer')
   function! s:source_buffer() abort
-    if &ft ==# 'vim' && expand('%:p') =~# '/ftplugin/' | return | endif
+    if &ft ==# 'vim' && expand('%:p') =~# '/ftplugin/'
+      echo 'Abort. This file is located under ftplugin/'
+      return
+    endif
 
     let save_view = winsaveview()
     if &ft ==# 'vim'
