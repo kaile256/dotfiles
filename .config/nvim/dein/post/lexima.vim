@@ -63,9 +63,6 @@ let g:lexima#newline_rules += [
 
 " Overwrite Rules for Parentheses {{{1
 " parentheses to open
-let g:lexima#default_rules += [
-      \ {'char': '<', 'input': '<'},
-      \ ]
 
 let g:lexima#default_rules += [
       \ {'char': '(', 'at': '\\\%#'},
