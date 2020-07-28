@@ -13,9 +13,6 @@ let s:key2rules['<C-:>'] = [
 let s:key2rules['='] = [
       \ {'input': '=', 'input_after': ';', 'except': '\%#.'},
       \ ]
-let s:key2rules[';'] = [
-      \ {'input': '; ', 'at': 'if (.*\%#.*)'},
-      \ ]
 
 let s:key2rules['<Space>'] = [
       \ {'at': '(.*\%#.*)',  'priority': 90},
