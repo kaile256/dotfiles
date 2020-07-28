@@ -24,7 +24,13 @@ PACKAGEs=(
   i3-wm
   conky-i3
   xsel
+  eslint
 
+  eslint-plugin-snakecasejs
+  eslint-plugin-node
+  eslint-plugin-import
+  eslint-plugin-vue
+  eslint-plugin-promise
   nodejs-google-clasp # develop Apps Script in cmdline; type `gclasp`
   lazygit
   lib32-libpulse # for 32 bit programs like Wine
