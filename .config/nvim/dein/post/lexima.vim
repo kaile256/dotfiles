@@ -41,6 +41,22 @@ endfunction
 "   syntax: like vimString, Constant, NonText
 "   priority: the bigger, the higher priority; default as 0.
 
+" Rules for Semicolon {{{1
+
+let s:rules_for_semicolon = [
+      \ {'char': '(', 'input_after': ');', 'at': 'return \%#'},
+      \ {'char': '{', 'input_after': '};', 'at': ' = \%#', 'except': '\%#.\+'},
+      \ ]
+
+let s:filetypes_for_semicolon_rules = [
+      \ 'cpp',
+      \ 'javascriptreact',
+      \ 'typescriptreact',
+      \ ]
+let g:lexima#default_rules += s:map_rules(s:rules_for_semicolon,
+      \ {'filetypes': s:filetypes_for_semicolon_rules})
+unlet s:filetypes_for_semicolon_rules s:rules_for_semicolon
+
 " Overwrite Rules for Newline {{{1
 " Copied from cohama/lexima.vim/autoload/lexima.vim @75
 let g:lexima#newline_rules = []
