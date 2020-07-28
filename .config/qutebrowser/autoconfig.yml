@@ -223,6 +223,7 @@ settings:
         <Ctrl+w>s: tab-clone
         <Ctrl+w>u: undo
         <Ctrl+w>v: tab-clone
+        <Ctrl+x>: null
         <Ctrl+y>: scroll-px 0 -50
         <Enter>: enter-mode insert;; fake-key <enter> ;; leave-mode
         <Escape>: clear-keychain ;; search ;; fullscreen --leave;; download-clear
