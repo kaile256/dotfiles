@@ -80,6 +80,7 @@ let g:lexima#default_rules += [
       \ {'char': ')', 'at': '\%#)', 'input': '<C-g>U<Right>'},
       \ {'char': ']', 'at': '\%#]', 'leave': 1},
       \ {'char': '}', 'at': '\%#}', 'leave': 1},
+      \ {'char': '>', 'at': '\%#>', 'leave': 1},
       \ ]
 
 let s:block_start = '\s*\(if\|while\|for\)\s\+\([^(]*\%#.*\)\s*'
