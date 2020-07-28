@@ -17,14 +17,6 @@ let s:key2rules[';'] = [
       \ {'input': '; ', 'at': 'if (.*\%#.*)'},
       \ ]
 
-let s:key2rules['{'] = [
-      \ {'input_after': '};', 'at': ' = .*\%#', 'except': '\v(;.*%#|%#.*;$)'},
-      \ {'input_after': '};',
-      \     'at': '\v<(struct|return|class)> .*\%#',
-      \     'except': '\v(template <|;).*%#',
-      \ },
-      \ ]
-
 let s:key2rules['<Space>'] = [
       \ {'at': '(.*\%#.*)',  'priority': 90},
       \ {'at': '{.*\%#.*}',  'priority': 90},
