@@ -98,6 +98,14 @@ on_ft = ['javascript']
 #   'typescriptreact',
 #   'xml'
 # ]
+# [[plugins]]
+# repo = 'adriaanzon/vim-emmet-ultisnips'
+# on_ft = [
+#   'html',
+#   'javascriptreact',
+#   'typescriptreact',
+#   'xml'
+# ]
 
 #[ Completion ]
 #[[plugins]]
