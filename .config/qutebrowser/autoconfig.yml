@@ -204,7 +204,7 @@ settings:
         <Ctrl+t>: null
         <Ctrl+v>: null
         <Ctrl+w>: null
-        <Ctrl+w><Ctrl+c>: tab-close
+        <Ctrl+w><Ctrl+c>: session-save --quiet last;; tab-close
         <Ctrl+w><Ctrl+o>: window-only
         <Ctrl+w><Ctrl+p>: tab-pin
         <Ctrl+w><Ctrl+t>: tab-give
@@ -214,7 +214,7 @@ settings:
         <Ctrl+w>Q: close
         <Ctrl+w>T: tab-give
         <Ctrl+w>Z: close
-        <Ctrl+w>c: tab-close
+        <Ctrl+w>c: session-save --quiet last;; tab-close
         <Ctrl+w>h: tab-move -
         <Ctrl+w>l: tab-move +
         <Ctrl+w>n: open -w
@@ -223,7 +223,6 @@ settings:
         <Ctrl+w>s: tab-clone
         <Ctrl+w>u: undo
         <Ctrl+w>v: tab-clone
-        <Ctrl+x>: null
         <Ctrl+y>: scroll-px 0 -50
         <Enter>: enter-mode insert;; fake-key <enter> ;; leave-mode
         <Escape>: clear-keychain ;; search ;; fullscreen --leave;; download-clear
@@ -264,16 +263,16 @@ settings:
         T: hint links tab-bg
         U: fake-key <alt+Up>
         V: enter-mode caret;; toggle-selection
-        ZC: close
-        ZE: close
-        ZQ: tab-close
+        ZC: session-save --quiet last;; close
+        ZE: session-save --quiet last;; close
+        ZQ: session-save --quiet last;; tab-close
         ZY: quit
-        ZZ: tab-close
-        Zc: close
-        Ze: close
-        Zq: tab-close
+        ZZ: session-save --quiet last;; tab-close
+        Zc: session-save --quiet last;; close
+        Ze: session-save --quiet last;; close
+        Zq: session-save --quiet last;; tab-close
         Zy: quit
-        Zz: tab-close
+        Zz: session-save --quiet last;; tab-close
         '[': tab-prev
         \<Space>: record-macro
         ']': tab-next
