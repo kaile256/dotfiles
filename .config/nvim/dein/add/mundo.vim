@@ -27,7 +27,7 @@ endfunction
 
 augroup myMundoAdd
   " also available on git-diff
-  au TextYankPost *Mundo* call s:trim_head()
+  au TextYankPost git,*Mundo* call s:trim_head()
 augroup END
 
 function! s:trim_head() abort
