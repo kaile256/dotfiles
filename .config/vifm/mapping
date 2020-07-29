@@ -54,7 +54,8 @@ elseif executable('xsel')
         \ echo -n %c:p | xsel --clipboard --input %i<cr>
 endif
 
-" Mappings for faster renaming
+" Rename
+" Note: `cw` is rename files as default.
 nnoremap I cw<c-a>
 nnoremap cc cw<c-u>
 nnoremap A cw
