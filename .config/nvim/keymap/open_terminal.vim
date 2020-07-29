@@ -3,6 +3,7 @@
 " Another: lazy/terminal.vim
 
 command! -bar -nargs=* TermOpen :call s:term_open(<q-mods>, <f-args>)
+command! -bar -nargs=* TermCmd :call s:term_cmd(<q-mods>, <f-args>)
 
 " Note: <Space>t would be mapped by some easymotion like plugins.
 nnoremap <silent> <A-t>e :<C-u>TermOpen fish ++curwin<CR>
@@ -44,27 +45,12 @@ if has('nvim')
   endfunction
 endif
 
-function! s:term_open(mods, ...) abort
-  let path = ''
-  if a:0 > 0
-    let path = a:1 =~# '^++' ? a:000[len(a:000) - 1] : a:1
-  endif
-  if path ==# ''
-    let path = substitute(expand('%:p:h'), '\S\+://', '', '')
-  elseif &ft ==# 'defx'
-    let path = matchstr(getline(1), ':\zs\f\+')
-  endif
-  if !isdirectory(path)
-    let path = $HOME
-  endif
-
-  let shell = 'fish -C "cd '. path .'"'
-
+function! s:term_cmd(mods, ...) abort
+  let shell = a:0 > 0 ? join(a:000) : ''
   if has('nvim')
     let mods = s:set_mods(a:mods)
+    let command = mods .' term '. shell
 
-    let term_open = 'term '. shell
-    let term_open = mods .' term '. shell
   else
     let opt = ''
     let opt .= ' ++close'
@@ -76,10 +62,35 @@ function! s:term_open(mods, ...) abort
         endif
       endfor
     endif
-    let term_open = a:mods .' term '. opt .' '. shell
+    let command = a:mods .' term '. opt .' '. shell
   endif
 
-  exe term_open
+  exe command
+endfunction
+
+function! s:set_path(path) abort
+  let path = a:path
+  if path ==# ''
+    let path = substitute(expand('%:p:h'), '\S\+://', '', '')
+  elseif &ft ==# 'defx'
+    let path = matchstr(getline(1), ':\zs\f\+')
+  endif
+  if !isdirectory(path)
+    let path = $HOME
+  endif
+
+  return path
+endfunction
+
+function! s:term_open(mods, ...) abort
+  let path = ''
+  if a:0 > 0
+    let path = a:1 =~# '^++' ? a:000[len(a:000) - 1] : a:1
+  endif
+  let path = s:set_path(path)
+  let shell = 'fish -C "cd '. path .'"'
+
+  exe s:term_cmd(a:mods, shell)
   startinsert
 endfunction
 
