@@ -1,3 +1,7 @@
+function! s:contains_foldmarker() abort
+  return search('{{{\%[\d]', 'cwn')
+endfunction
+
 function! autofdm#update()
   " Note: add any guards in plugin/autofdm.vim for the advantage of autoload.
 
@@ -12,11 +16,11 @@ function! autofdm#update()
     "   &foldexpr =~# '#\|\(^\u\).*)$' sets foldmethod=expr
     setlocal foldmethod=expr
 
-  elseif &foldmethod !=# 'marker' && search('{{{\%[\d]$', 'cwn')
+  elseif &foldmethod !=# 'marker' && s:contains_foldmarker()
     setlocal foldmethod=marker
 
   elseif &foldmethod !=# &g:fdm && &foldmethod ==# 'marker'
-        \ && !search('{{{\%[\d]', 'cwn')
+        \ && !s:contains_foldmarker()
     set fdm<
   endif
 
