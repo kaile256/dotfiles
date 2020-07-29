@@ -93,3 +93,7 @@ nnoremap <space>/ q/
 
 nnoremap Zq ZQ
 nnoremap Zz ZZ
+
+" Git
+nnoremap >> :!git add %f<CR>
+nnoremap << :!git reset -- %f<CR>
