@@ -1,5 +1,6 @@
 function! s:contains_foldmarker() abort
-  return search('{{{\%[\d]', 'cwn')
+  let marker = matchstr(&foldmarker, '.*\zs,')
+  return search(marker, 'nw')
 endfunction
 
 function! autofdm#update()
