@@ -5,6 +5,12 @@
 command! -bar -nargs=* -range TermCmd  :call s:term_cmd(<q-range>,  <q-mods>, <f-args>)
 command! -bar -nargs=* -range TermOpen :call s:term_open(<q-range>, <q-mods>, <f-args>)
 
+command! -bar -nargs=* -range Vifm
+      \ :exe '<mods> <range> TermCmd vifm' (empty(<q-args>)
+      \   ? '--select '. s:set_path('%:p:h')
+      \   : <q-args>)
+      \ '| startinsert'
+
 " Note: <Space>t would be mapped by some easymotion like plugins.
 nnoremap <silent> <A-t>e :<C-u>TermOpen fish ++curwin<CR>
 nnoremap <silent> <A-t>v :<C-u>vert TermOpen<CR>
