@@ -204,16 +204,18 @@ settings:
         <Ctrl+t>: null
         <Ctrl+v>: null
         <Ctrl+w>: null
+        <Ctrl+w><Ctrl+Shift+r>: devtools right
         <Ctrl+w><Ctrl+c>: session-save --quiet last;; tab-close
         <Ctrl+w><Ctrl+o>: window-only
         <Ctrl+w><Ctrl+p>: tab-pin
-        <Ctrl+w><Ctrl+r>: devtools
+        <Ctrl+w><Ctrl+r>: devtools bottom
         <Ctrl+w><Ctrl+t>: tab-give
         <Ctrl+w><Ctrl+u>: undo
         <Ctrl+w><Ctrl+v>: tab-clone
         <Ctrl+w><Ctrl+w>: devtools-focus
         <Ctrl+w>N: open -p
         <Ctrl+w>Q: close
+        <Ctrl+w>R: devtools right
         <Ctrl+w>T: tab-give
         <Ctrl+w>Z: close
         <Ctrl+w>c: session-save --quiet last;; tab-close
@@ -222,7 +224,7 @@ settings:
         <Ctrl+w>n: open -w
         <Ctrl+w>o: tab-only
         <Ctrl+w>p: tab-pin
-        <Ctrl+w>r: devtools
+        <Ctrl+w>r: devtools bottom
         <Ctrl+w>s: tab-clone
         <Ctrl+w>u: undo
         <Ctrl+w>v: tab-clone
