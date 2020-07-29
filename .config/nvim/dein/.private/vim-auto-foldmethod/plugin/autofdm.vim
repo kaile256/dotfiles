@@ -6,6 +6,9 @@ augroup autofdm
 augroup END
 
 function! s:update_foldmethod()
+  if &buftype =~# 'terminal\|help\|prompt\|quickfix'
+    return
+  endif
   if !&modifiable | return | endif
   if &foldmethod =~# 'diff\|expr' | return | endif
 
