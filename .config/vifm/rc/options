@@ -34,7 +34,8 @@ set trash
 
 set history=100
 
-set nofollowlinks " resolve symbolic links on l or Enter.
+set chaselinks " resolve symbolic links to view.
+set followlinks " resolve symbolic links on l or Enter.
 
 set fastrun " run partial, unambiguous cmd using :! (e.g. :!Te instead of :!Terminal or :!Te<tab>).
 
