@@ -10,18 +10,18 @@ function! autofdm#update()
   if &diff && &foldmethod !=# 'diff'
     setlocal foldmethod=diff
 
-  elseif &foldexpr =~# '\(#\)\|\(^\u\).*)$' && &foldmethod !=# 'expr'
-    " FIXME: set foldmethod=expr reasonably
-    "   !&foldexpr sets foldmethod=expr
-    "   &foldexpr =~# '#\|\(^\u\).*)$' sets foldmethod=expr
-    setlocal foldmethod=expr
-
   elseif &foldmethod !=# 'marker' && s:contains_foldmarker()
     setlocal foldmethod=marker
 
   elseif &foldmethod !=# &g:fdm && &foldmethod ==# 'marker'
         \ && !s:contains_foldmarker()
     set fdm<
+
+  elseif !empty(&foldexpr) && &foldmethod !=# 'expr'
+    " FIXME: set foldmethod=expr reasonably
+    "   !&foldexpr sets foldmethod=expr
+    "   &foldexpr =~# '#\|\(^\u\).*)$' sets foldmethod=expr
+    setlocal foldmethod=expr
   endif
 
   if last_foldmethod ==# &foldmethod | return | endif
