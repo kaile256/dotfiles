@@ -21,8 +21,10 @@ nnoremap s :shell<cr>
 nnoremap S :sort<cr>
 
 " Toggle visibility of preview window
-nnoremap w :view<cr>
-vnoremap w :view<cr>gv
+nnoremap w :split  | view<CR>
+nnoremap W :vsplit | view<CR>
+vnoremap w :split  | view<cr>gv
+vnoremap W :vsplit | view<cr>gv
 
 " TODO: quit vifm after open file
 " split file
