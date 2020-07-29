@@ -14,8 +14,6 @@
 
 " ------------------------------------------------------------------------------
 
-" Sample mappings
-
 " Start shell in current directory
 nnoremap s :shell<cr>
 
