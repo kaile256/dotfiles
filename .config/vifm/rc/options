@@ -6,6 +6,8 @@ colorscheme dracula
 " Command used to edit files in various contexts.
 set vicmd=$EDITOR
 
+set dotfiles " show hidden files
+
 " This makes vifm perform file operations on its own instead of relying on
 " standard utilities like `cp`.  While using `cp` and alike is a more universal
 " solution, it's also much slower when processing large amounts of files and
