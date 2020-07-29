@@ -8,7 +8,11 @@
 " Note: g:sandwich#recipes must be defined after g:sandwich#default_recipes has
 " been defined in the plugin; otherwise, the recipes on this file would be only
 " available.
-let g:sandwich#recipes = get(g:, 'sandwich#default_recipes', [])
+
+" Notice: let g:sandwich#recipes = get(g:, 'sandwich#default_recipes', [])
+" fails to get g:sandwich#default_recipes. The cause is unclear.
+if !exists('g:sandwich#default_recipes') | finish | endif
+let g:sandwich#recipes = deepcopy(g:sandwich#default_recipes)
 
 let g:sandwich#recipes += [{
       \ 'input': ['\"'],
