@@ -1,7 +1,7 @@
 " vim: ft=vim
 
 " Selected color scheme
-colorscheme onedark
+colorscheme dracula
 
 " Command used to edit files in various contexts.
 set vicmd=$EDITOR
