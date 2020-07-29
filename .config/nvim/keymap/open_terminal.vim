@@ -2,11 +2,11 @@
 " Another: tmaps.vim
 " Another: lazy/terminal.vim
 
-command! -bar -nargs=* -range TermCmd  :call s:term_cmd(<q-range>,  <q-mods>, <f-args>)
-command! -bar -nargs=* -range TermOpen :call s:term_open(<q-range>, <q-mods>, <f-args>)
+command! -bar -nargs=* -count TermCmd  :call s:term_cmd('<count>',  <q-mods>, <f-args>)
+command! -bar -nargs=* -count TermOpen :call s:term_open('<count>', <q-mods>, <f-args>)
 
-command! -bar -nargs=* -range Vifm
-      \ :exe '<mods> <range> TermCmd vifm' (empty(<q-args>)
+command! -bar -nargs=* -count Vifm
+      \ :exe '<mods> <count> TermCmd vifm' (empty(<q-args>)
       \   ? '--select '. s:set_path('%:p:h')
       \   : <q-args>)
       \ '| startinsert'
@@ -52,10 +52,34 @@ if has('nvim')
   endfunction
 endif
 
-function! s:term_cmd(range, mods, ...) abort
+function! s:insert_count(mods, count) abort
+  if a:count == 0
+    return a:mods
+  endif
+
+  let cnt = a:count .' '
+  if empty(a:mods)
+    return ''
+  endif
+
+  let patterns = [' \zs\ze\(vs\|sp\)', 'top\|bot\zs ']
+  let mods = a:mods
+  for pat in patterns
+    let mods = substitute(mods, pat, cnt, '')
+    if mods !=# mods
+      return mods
+    endif
+  endfor
+  let g:foo = mods
+
+  return mods
+endfunction
+
+function! s:term_cmd(count, mods, ...) abort
   let shell = a:0 > 0 ? join(a:000) : ''
   if has('nvim')
     let mods = s:set_mods(a:mods)
+    let mods = s:insert_count(mods, a:count)
     let command = mods .' term '. shell
 
   else
@@ -89,7 +113,7 @@ function! s:set_path(path) abort
   return path
 endfunction
 
-function! s:term_open(range, mods, ...) abort
+function! s:term_open(count, mods, ...) abort
   let path = ''
   if a:0 > 0
     let path = a:1 =~# '^++' ? a:000[len(a:000) - 1] : a:1
@@ -97,7 +121,7 @@ function! s:term_open(range, mods, ...) abort
   let path = s:set_path(path)
   let shell = 'fish -C "cd '. path .'"'
 
-  exe s:term_cmd(a:range, a:mods, shell)
+  exe s:term_cmd(a:count, a:mods, shell)
   startinsert
 endfunction
 
