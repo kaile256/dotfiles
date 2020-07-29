@@ -150,7 +150,7 @@ settings:
         <Ctrl+Shift+x>: fake-key <Ctrl-a><Ctrl-x>
         <Ctrl+a>: fake-key <Home>
         <Ctrl+b>: fake-key <Left>
-        <Ctrl+d>: fake-key <Delete>
+        <Ctrl+d>: fake-key <Shift-Tab>
         <Ctrl+e>: fake-key <End>
         <Ctrl+f>: fake-key <Right>
         <Ctrl+g>: fake-key <Esc>
@@ -167,6 +167,7 @@ settings:
         <Ctrl+r><Ctrl+0>: insert-text {primary}
         <Ctrl+r><Ctrl+Space>: fake-key <ctrl-v>
         <Ctrl+r><Space>: fake-key <ctrl-v>
+        <Ctrl+t>: fake-key <Tab>
         <Ctrl+u>: fake-key <Shift-Home><Backspace>
         <Ctrl+w>: fake-key <ctrl-backspace>
         <Ctrl+y>: insert-text {primary}
