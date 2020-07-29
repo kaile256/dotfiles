@@ -34,11 +34,12 @@ if has('nvim')
   function! s:set_mods(mods) abort
     if a:mods ==# '' | return '' | endif
 
+    " Note: mods in func expands even if they're typed in short externally.
     let mods_dict = {
-          \ 'bel\%[owright]': 'bel sp',
-          \ 'bot\%[right]': 'bot sp',
-          \ 'vert\%[ical]': 'vs',
+          \ 'belowright': 'bel sp',
+          \ 'botright': 'bot sp',
           \ 'tab': 'tabe',
+          \ 'vertical': 'vs',
           \ }
 
     let mods = a:mods
