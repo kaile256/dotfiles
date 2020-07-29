@@ -6,7 +6,6 @@ augroup autofdm
 augroup END
 
 function! s:update_foldmethod()
-  if !&foldenable | return | endif
   if !&modifiable | return | endif
   if &foldmethod =~# 'diff\|expr' | return | endif
 
