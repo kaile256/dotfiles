@@ -7,7 +7,7 @@ command! -bar -nargs=* -count TermOpen :call s:term_open('<count>', <q-mods>, <f
 
 command! -bar -nargs=* -count Vifm
       \ :exe '<mods> <count> TermCmd vifm' (empty(<q-args>)
-      \   ? '--select '. s:set_path('%:p:h')
+      \   ? '--select '. s:set_path(expand('%:p:h'))
       \   : <q-args>)
       \ '| startinsert'
 
