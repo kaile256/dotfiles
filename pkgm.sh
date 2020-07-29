@@ -282,6 +282,8 @@ GEMs=(
 )
 
 YARNs=(
+  react
+  react-dom
   prettier # formatter for Javascript, Markdown, etc.
   typescript
   ts-node
