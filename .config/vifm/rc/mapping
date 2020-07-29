@@ -90,3 +90,6 @@ nnoremap <space>: q:
 nnoremap <space>= q=
 nnoremap <space>? q?
 nnoremap <space>/ q/
+
+nnoremap Zq ZQ
+nnoremap Zz ZZ
