@@ -62,7 +62,7 @@ function! s:insert_count(mods, count) abort
     return ''
   endif
 
-  let patterns = [' \zs\ze\(vs\|sp\)', 'top\|bot\zs ']
+  let patterns = [' \zs\ze\(vs\|sp\)', '\v(topleft|botright)\zs ']
   let mods = a:mods
   for pat in patterns
     let mods = substitute(mods, pat, cnt, '')
