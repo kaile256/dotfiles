@@ -95,7 +95,7 @@ hook_source = 'runtime source/tree.vim'
 repo = 'vifm/vifm.vim'
 # An interface for vifm
 if = 'executable("vifm")'
-on_cmd = 'Vifm'
+on_cmd = ['Vifm', 'EditVifm', 'SplitVifm', 'VsplitVifm', 'TabVifm']
 hook_add = 'runtime add/vifm.vim'
 [[plugins]]
 repo = 'mcchrish/nnn.vim'
