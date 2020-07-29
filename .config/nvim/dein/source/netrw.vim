@@ -1,6 +1,7 @@
 " From: once/loaded.vim
 " autoload: /usr/share/nvim/runtime/autoload/netrw.vim
 
+let g:netrw_quickhelp = 0
 " where .netrwhist is located.
 let g:netrw_home = $XDG_DATA_HOME .'/nvim/netrw'
 " 0:show all, including hidden files.
