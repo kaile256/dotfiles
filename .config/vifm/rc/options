@@ -8,6 +8,12 @@ set vicmd=$EDITOR
 
 set dotfiles " show hidden files
 
+" dotdirs: (default: 'nonrootparent')
+" - Let it empty not to show '../' at the top anyway.
+" - 'rootparent': show '../' in root directory; otherwise, show none.
+" - 'nonrootparent': show '../' in non-root directory; show none on root one.
+set dotdirs=
+
 " This makes vifm perform file operations on its own instead of relying on
 " standard utilities like `cp`.  While using `cp` and alike is a more universal
 " solution, it's also much slower when processing large amounts of files and
