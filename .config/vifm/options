@@ -41,7 +41,7 @@ set sortnumbers
 
 set undolevels=100
 
-set novimhelp " Use Vim's format of help file (has highlighting and "hyperlinks").
+set vimhelp " Use Vim's format of help file (has highlighting and hyperlinks).
 
 " If you would like to run an executable file when you
 " press return on the file name set this.
