@@ -17,10 +17,7 @@ function! autofdm#update()
         \ && !s:contains_foldmarker()
     set fdm<
 
-  elseif !empty(&foldexpr) && &foldmethod !=# 'expr'
-    " FIXME: set foldmethod=expr reasonably
-    "   !&foldexpr sets foldmethod=expr
-    "   &foldexpr =~# '#\|\(^\u\).*)$' sets foldmethod=expr
+  elseif &foldexpr != 0 && &foldmethod !=# 'expr'
     setlocal foldmethod=expr
   endif
 
