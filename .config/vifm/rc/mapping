@@ -24,12 +24,13 @@ nnoremap S :sort<cr>
 nnoremap w :view<cr>
 vnoremap w :view<cr>gv
 
-" split the file
-nnoremap o :!$EDITOR -o %f<cr>
-" vsplit the file
-nnoremap O :!$EDITOR -O %f<cr>
-" tabe the file
-nnoremap gO :!$EDITOR -p %f<cr>
+" TODO: quit vifm after open file
+" split file
+nnoremap o :!$EDITOR -o %f <CR>
+" vsplit file
+nnoremap O :!$EDITOR -O %f <CR>
+" tabe file
+nnoremap gO :!$EDITOR -p %f <CR>
 
 " Open file in the background using its default program
 nnoremap gb :file &<cr>l
