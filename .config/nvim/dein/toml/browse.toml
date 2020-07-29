@@ -119,23 +119,23 @@ on_source = 'fern.vim'
 hook_source = 'let g:fern#renderer = "devicons"'
 
 #[ Filer.Defx ]
-[[plugins]]
-repo = 'Shougo/defx.nvim'
-# Error: After the second opening a buffer from defx-buffer, Vim comes to open
-# an empty buffer missing expected path.
-rev = 'c5d8afe'
-on_cmd = 'Defx'
-# Ref: ftplugin/defx
-hook_add = 'runtime add/defx.vim'
-hook_post_source = 'runtime post/defx.vim'
-[[plugins]]
-repo = 'kristijanhusak/defx-git'
-on_source = 'defx.nvim'
-hook_post_source = 'runtime post/defx-git.vim'
-[[plugins]]
-repo = 'kristijanhusak/defx-icons'
-on_source = 'defx.nvim'
-hook_source = 'runtime source/defx-icons.vim'
+# [[plugins]]
+# # repo = 'Shougo/defx.nvim'
+# # Error: After the second opening a buffer from defx-buffer, Vim comes to open
+# # an empty buffer missing expected path.
+# # rev = 'c06d2dd685e29493e3df9b97db62c8439f2276a'
+# on_cmd = 'Defx'
+# # Ref: ftplugin/defx
+# hook_add = 'runtime add/defx.vim'
+# hook_post_source = 'runtime post/defx.vim'
+# [[plugins]]
+# repo = 'kristijanhusak/defx-git'
+# on_source = 'defx.nvim'
+# hook_post_source = 'runtime post/defx-git.vim'
+# [[plugins]]
+# repo = 'kristijanhusak/defx-icons'
+# on_source = 'defx.nvim'
+# hook_source = 'runtime source/defx-icons.vim'
 
 # #[ Filer.Dirvish ]
 # [[plugins]]
