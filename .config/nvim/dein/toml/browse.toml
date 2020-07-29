@@ -91,12 +91,12 @@ hook_source = 'runtime source/tree.vim'
 #on_if = 'has("python3")'
 #hook_post_source = 'runtime add/vaffle.vim'
 
-[[plugins]]
-repo = 'vifm/vifm.vim'
-# An interface for vifm
-if = 'executable("vifm")'
-on_cmd = ['Vifm', 'EditVifm', 'SplitVifm', 'VsplitVifm', 'TabVifm']
-hook_add = 'runtime add/vifm.vim'
+# [[plugins]]
+# repo = 'vifm/vifm.vim'
+# # An interface for vifm
+# if = 'executable("vifm")'
+# on_cmd = ['Vifm', 'EditVifm', 'SplitVifm', 'VsplitVifm', 'TabVifm']
+# hook_add = 'runtime add/vifm.vim'
 [[plugins]]
 repo = 'mcchrish/nnn.vim'
 # An interface for nnn
