@@ -119,13 +119,22 @@ set statusline="  Hint: %z%= %A %10u:%-7g %15s %20d  "
 " For Windows:
 " filetype * start, explorer
 
-" ------------------------------------------------------------------------------
-
 " What should be saved automatically between vifm sessions.  Drop "savedirs"
 " value if you don't want vifm to remember last visited directories for you.
-set vifminfo=dhistory,savedirs,chistory,state,tui,shistory,
-      \ phistory,fhistory,dirstack,registers,bookmarks,bmarks
-" ------------------------------------------------------------------------------
+set vifminfo=
+set vifminfo+=bmarks
+set vifminfo+=bookmarks
+set vifminfo+=chistory " commands history
+set vifminfo+=cs " primary color scheme
+set vifminfo+=dhistory " directory history
+set vifminfo+=dirstack
+set vifminfo+=fhistory
+set vifminfo+=phistory " prompt history
+set vifminfo+=registers
+" set vifminfo+=savedirs " save last visited dir (requires dhistory)
+set vifminfo+=shistory " search history (/ and ?)
+set vifminfo+=state
+set vifminfo+=tui
 
 " Various customization examples
 
