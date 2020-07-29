@@ -32,7 +32,7 @@ function! s:simple_swap() abort
 endfunction
 
 function! s:set_mappings_to_clear() abort
-  let keys = ['<Esc>', '<C-c>']
+  let keys = ['<C-c>']
   let cmd = ''
   for k in keys
     let k = substitute(k, '<', '<lt>', 'g')
