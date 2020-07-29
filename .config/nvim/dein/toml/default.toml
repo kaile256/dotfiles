@@ -5,7 +5,8 @@
 repo = 'tpope/vim-repeat'
 # Note: has no doc/
 lazy = 0
-hook_add = 'runtime add/repeat.vim'
+# Notice: mapping under add/ fails to find the autoload/ of vim-repeat
+hook_post_source = 'runtime post/repeat.vim'
 [[plugins]]
 repo = 'Houl/repmo-vim'
 on_func = 'repmo#'
