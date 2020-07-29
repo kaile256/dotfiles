@@ -26,6 +26,7 @@ PACKAGEs=(
   xsel
   eslint
 
+  otf-nerd-fonts-fira-code
   docker-rootless
   docker-compose-bin # includes `docker`
   lazydocker
