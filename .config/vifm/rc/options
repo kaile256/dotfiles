@@ -54,6 +54,8 @@ set vimhelp " Use Vim's format of help file (has highlighting and hyperlinks).
 
 set norunexec
 
+set iec " Show size in KiB, MiB, ... instead of K, M, ...
+
 " Format for displaying time in file list. For example:
 " TIME_STAMP_FORMAT=%m/%d-%H:%M
 " See man date or man strftime for details.
