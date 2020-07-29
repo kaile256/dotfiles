@@ -364,6 +364,9 @@ let s:key2rules_for_vim['<CR>'] = [
       \ {'at': '\(=\|\\\)\s*\[\%#]', 'input': '<CR>\ ', 'input_after': '<CR>\ '},
       \ ]
 
+let g:lexima#default_rules += s:map_rules(s:rules_for_vim, {'filetype': 'vim'})
+let g:lexima#default_rules += s:parse_rules_on_key(s:key2rules_for_vim, {'filetype': 'vim'})
+
 unlet s:rules_for_vim s:key2rules_for_vim
 
 " Rules for Cpp {{{2
