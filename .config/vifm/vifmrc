@@ -1,0 +1,7 @@
+source $XDG_CONFIG_HOME/vifm/options
+
+source $XDG_CONFIG_HOME/vifm/command
+source $XDG_CONFIG_HOME/vifm/mapping
+
+source $XDG_CONFIG_HOME/vifm/filetype
+source $XDG_CONFIG_HOME/vifm/bookmark
