@@ -8,6 +8,11 @@ hi! link snipLeadingSpaces NonText
 
 augroup myUltisnipsSo
   au FileType snippets setlocal keywordprg=:help
+  au FileType snippets let &l:path = join([
+        \ $VIM_ANOTHER_HOME,
+        \ $NVIM_CONFIG_HOME,
+        \ $DEIN_GITHUB_DIR,
+        \ ], '**,') .'**'
   au FileType snippets setlocal suffixesadd=.snippets
   " Note: neosnippet could override default ft.
   au Syntax neosnippet if expand('%:e') ==# 'snippets' |
