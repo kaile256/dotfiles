@@ -16,7 +16,7 @@ function! s:map_rules(rules, dict) abort
   return rules
 endfunction
 
-function! s:parse_rules_on_key(key2rules, dict) abort
+function! s:map_rules_on_key(key2rules, dict) abort
   let dict = a:dict
   let additional_rules = values(map(deepcopy(a:key2rules), {key, list
         \ -> map(list, {_, rule
@@ -365,7 +365,7 @@ let s:key2rules_for_vim['<CR>'] = [
       \ ]
 
 let g:lexima#default_rules += s:map_rules(s:rules_for_vim, {'filetype': 'vim'})
-let g:lexima#default_rules += s:parse_rules_on_key(s:key2rules_for_vim, {'filetype': 'vim'})
+let g:lexima#default_rules += s:map_rules_on_key(s:key2rules_for_vim, {'filetype': 'vim'})
 
 unlet s:rules_for_vim s:key2rules_for_vim
 
@@ -420,7 +420,7 @@ let s:key2rules_for_cpp[','] = [
 let g:lexima#default_rules += s:map_rules(s:rules_for_cpp, {
       \ 'filetype': 'cpp'
       \ })
-let g:lexima#default_rules += s:parse_rules_on_key(s:key2rules_for_cpp, {
+let g:lexima#default_rules += s:map_rules_on_key(s:key2rules_for_cpp, {
       \ 'filetype': 'cpp'
       \ })
 unlet s:rules_for_cpp s:key2rules_for_cpp
@@ -438,4 +438,4 @@ unlet s:rules_for_cpp s:key2rules_for_cpp
 call lexima#set_default_rules()
 
 delfunction s:map_rules
-delfunction s:parse_rules_on_key
+delfunction s:map_rules_on_key
