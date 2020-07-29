@@ -54,7 +54,7 @@ hook_add = 'runtime add/dein-ui.vim'
 repo = 'haya14busa/dein-command.vim'
 # For `Dein list`
 on_cmd = 'Dein'
-hook_add = 'runtime add/dein-command.vim'
+# hook_add = 'runtime add/dein-command.vim'
 #[[plugins]]
 #repo = 'fszymanski/fzf-gitignore'
 #type = 'git'
