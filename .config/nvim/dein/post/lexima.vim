@@ -9,7 +9,7 @@ map! <C-j> <CR>
 " TODO: extend g:lexima#newline_rules for <C-j> to work like <CR>, too
 " g:lexima#newline_rules is a list of dict
 
-let g:lexima#default_rules = []
+let s:user_rules = []
 
 function! s:map_rules(rules, dict) abort
   let rules = map(deepcopy(a:rules), 'extend(v:val, a:dict, "keep")')
@@ -65,7 +65,7 @@ let s:filetypes_for_semicolon_rules = [
       \ 'javascriptreact',
       \ 'typescriptreact',
       \ ]
-let g:lexima#default_rules += s:map_rules(s:rules_for_semicolon,
+let s:user_rules += s:map_rules(s:rules_for_semicolon,
       \ {'filetype': s:filetypes_for_semicolon_rules})
 unlet s:filetypes_for_semicolon_rules s:rules_for_semicolon
 
@@ -97,7 +97,7 @@ let g:lexima#newline_rules += [
 " Overwrite Rules for Parentheses {{{1
 " parentheses to open
 
-let g:lexima#default_rules += [
+let s:user_rules += [
       \ {'char': '(', 'at': '\\\%#'},
       \ {'char': '[', 'at': '\\\%#'},
       \ {'char': '{', 'at': '\\\%#'},
@@ -113,7 +113,7 @@ let g:lexima#default_rules += [
 
 " parentheses to close
 " FIXME: ')' in command line works as {'leave': 1} wherever cursor is before ')'
-let g:lexima#default_rules += [
+let s:user_rules += [
       \ {'char': ')', 'at': '\%#)', 'input': '<C-g>U<Right>'},
       \ {'char': ']', 'at': '\%#]', 'leave': 1},
       \ {'char': '}', 'at': '\%#}', 'leave': 1},
@@ -122,7 +122,7 @@ let g:lexima#default_rules += [
 
 let s:block_start = '\s*\(if\|while\|for\)\s\+\([^(]*\%#.*\)\s*'
 let s:Insert_paren = '<ESC>:keepjumps keeppatterns s/'. s:block_start .'/\1 (\2)/e<CR>gi<Right><Right>'
-let g:lexima#default_rules += [
+let s:user_rules += [
       \ {'char': ')', 'at': s:block_start, 'except': s:block_start .'(',
       \     'input': s:Insert_paren, 'filetype': ['c', 'cpp', 'php']}
       \ ]
@@ -131,7 +131,7 @@ unlet s:block_start s:Insert_paren
 " Overwrite Rules for Quote {{{1
 let s:Let_it_double = '\w\%#\|\%#\w'
 
-let g:lexima#default_rules += [
+let s:user_rules += [
       \ {'char': "'", 'except': s:Let_it_double, 'input_after': "'"},
       \ {'char': '"', 'except': s:Let_it_double, 'input_after': '"'},
       \ {'char': '`', 'except': s:Let_it_double, 'input_after': '`'},
@@ -153,7 +153,7 @@ unlet s:Let_it_double
 " Overwrite Rules for Backspaces {{{1
 " Note: {'delete': 1} sometimes fails to work; 'input_after': '<C-g>U<Del>'
 " crashes Vim.
-let g:lexima#default_rules += [
+let s:user_rules += [
       \ {'char': '<BS>', 'at': '(\%#)',   'input': '<BS><C-g>U<Del>'},
       \ {'char': '<BS>', 'at': '{\%#}',   'input': '<BS><C-g>U<Del>'},
       \ {'char': '<BS>', 'at': '\[\%#\]', 'input': '<BS><C-g>U<Del>'},
@@ -165,7 +165,7 @@ let g:lexima#default_rules += [
       \ {'char': '<BS>', 'at': '`\%#`',  'input': '<BS><C-g>U<Del>'},
       \ ]
 
-let g:lexima#default_rules += [
+let s:user_rules += [
       \ {'char': '<BS>', 'at': '(\%#),',  'input': '<BS><C-g>U<Del><C-g>U<Del>'},
       \ {'char': '<BS>', 'at': '{\%#},',  'input': '<BS><C-g>U<Del><C-g>U<Del>'},
       \ {'char': '<BS>', 'at': '\[\%#],', 'input': '<BS><C-g>U<Del><C-g>U<Del>'},
@@ -175,7 +175,7 @@ let g:lexima#default_rules += [
 " Note: s:remove_close . '<C-w>' fails to insert again to <C-w>.
 let s:following_ends = '\%#[a-zA-Z \t_]*\zs\s\{-}[\]})>''"`,]*'
 let s:remove_close = ':silent! keepjumps keeppatterns s/'. s:following_ends .'//e<CR>gi'
-let g:lexima#default_rules += [
+let s:user_rules += [
       \ {'char': '<C-w>', 'at': '[\[({]\s*\%#',
       \   'input': '<C-w><Esc>'. s:remove_close},
       \ {'char': '<C-u>', 'input': '<C-u><Esc>'. s:remove_close},
@@ -184,7 +184,7 @@ unlet s:remove_close s:following_ends
 
 let s:Joinspaces = '<Esc>:<C-u>norm! kgJgJ<CR>gi'
 
-let g:lexima#default_rules += [
+let s:user_rules += [
       \ {'char': '<BS>', 'at': '''\n\s*\%#\n\s*''', 'input': s:Joinspaces},
       \ {'char': '<BS>', 'at': '`\n\s*\%#\n\s*`',   'input': s:Joinspaces},
       \ {'char': '<BS>', 'at': '"\n\s*\%#\n\s*"',   'input': s:Joinspaces},
@@ -193,7 +193,7 @@ let g:lexima#default_rules += [
       \ {'char': '<BS>', 'at': '\[\n\s*\%#\n\s*]',  'input': s:Joinspaces},
       \ ]
 
-let g:lexima#default_rules += [
+let s:user_rules += [
       \ {'char': '<C-w>', 'at': '''\n\s*\%#\n\s*''', 'input': s:Joinspaces},
       \ {'char': '<C-w>', 'at': '`\n\s*\%#\n\s*`',   'input': s:Joinspaces},
       \ {'char': '<C-w>', 'at': '"\n\s*\%#\n\s*"',   'input': s:Joinspaces},
@@ -202,7 +202,7 @@ let g:lexima#default_rules += [
       \ {'char': '<C-w>', 'at': '\[\n\s*\%#\n\s*]',  'input': s:Joinspaces},
       \ ]
 
-let g:lexima#default_rules += [
+let s:user_rules += [
       \ {'char': '<C-u>', 'at': '''\n\s*\%#\n\s*''', 'input': s:Joinspaces},
       \ {'char': '<C-u>', 'at': '`\n\s*\%#\n\s*`',   'input': s:Joinspaces},
       \ {'char': '<C-u>', 'at': '"\n\s*\%#\n\s*"',   'input': s:Joinspaces},
@@ -215,19 +215,19 @@ unlet s:Joinspaces
 
 " " Overwrite Triple quotes {{{1
 " " Produce triple quoted block
-" let g:lexima#default_rules += [
+" let s:user_rules += [
 "      \ {'char': "'", 'at': "''\\%#", 'except': '\%#\S', 'input': "'<CR>", 'input_after': "<CR>'''"},
 "      \ {'char': '"', 'at': '""\%#',  'except': '\%#\S', 'input': '"<CR>', 'input_after': '<CR>"""'},
 "      \ {'char': '`', 'at': '``\%#',  'except': '\%#\S', 'input': '`<CR>', 'input_after': '<CR>```'},
 "      \ ]
 
-let g:lexima#default_rules += [
+let s:user_rules += [
       \ {'char': "'", 'at': "''\\%#", 'except': '\%#\S', 'input': "'"},
       \ {'char': '"', 'at': '""\%#',  'except': '\%#\S', 'input': '"'},
       \ {'char': '`', 'at': '``\%#',  'except': '\%#\S', 'input': '`'},
       \ ]
 
-let g:lexima#default_rules += [
+let s:user_rules += [
       \ {'char': "'", 'at': "'''\\%#", 'except': '\%#\S', 'input': '', 'input_after': "'''"},
       \ {'char': '"', 'at': '"""\%#',  'except': '\%#\S', 'input': '', 'input_after': '"""'},
       \ {'char': '`', 'at': '```\%#',  'except': '\%#\S', 'input': '', 'input_after': '```'},
@@ -237,7 +237,7 @@ let g:lexima#default_rules += [
 " cohama/lexima.vim/autoload/lexima.vim @ 84
 " modify g:lexima#space_rules into default_rule because of
 " g:lexima_enable_space_rules
-let g:lexima#default_rules += [
+let s:user_rules += [
       \ {'char': '<Space>', 'at': '(\%#)',     'input_after': '<Space>'},
       \ {'char': '<Space>', 'at': '{\%#}',     'input_after': '<Space>'},
       \ {'char': '<Space>', 'at': '\[\%#]',    'input_after': '<Space>'},
@@ -252,7 +252,7 @@ let g:lexima#default_rules += [
 "      \ {'char': '<TAB>', 'at': '\%#[\])}`"'']', 'leave': 1},
 "      \ ]
 
-let g:lexima#default_rules += [
+let s:user_rules += [
       \ {'char': '<S-Space>', 'input': '<space>'},
       \ {'char': '<C-space>', 'input': '<space>'},
       \ {'char': '<C-=>',     'input': ' = '},
@@ -263,7 +263,7 @@ let g:lexima#default_rules += [
       \ {'char': '<C-;>', 'input': '; '},
       \ ]
 
-let g:lexima#default_rules += [
+let s:user_rules += [
       \ {'char': '<C-S-Space>', 'input': ' '},
       \ {'char': '<C-S-Space>', 'at': '\%#\S', 'input': ' ', 'input_after': ' '},
       \ {'char': '<C-S-Space>', 'at': '\s\%#\S', 'input': '', 'input_after': ' '},
@@ -273,7 +273,7 @@ let s:before_close = '\%#[])}`''"]'
 let s:before_paren = '\%#[])}]'
 let s:before_quote = '\%#[''"`]'
 
-let g:lexima#default_rules += [
+let s:user_rules += [
       \
       \ {'char': '<C-space>', 'at': '\%#.', 'input': '<C-g>U<Right><space>'},
       \
@@ -289,7 +289,7 @@ let g:lexima#default_rules += [
       \ {'char': '<C-;>', 'at': '\%#.', 'input': '<Esc>A;'},
       \ ]
 
-let g:lexima#default_rules += [
+let s:user_rules += [
       \ {'char': '<C-,>', 'at': '\a\%#\a', 'input': ', '},
       \ {'char': '<C-,>', 'at': '\<\%#\a', 'input': ', '},
       \ ]
@@ -297,18 +297,18 @@ let g:lexima#default_rules += [
 unlet s:before_close s:before_paren s:before_quote
 
 " Addtional Rules for Polymorphic Use {{{1
-let g:lexima#default_rules += [
+let s:user_rules += [
       \ {'char': '<C-d>', 'at': '\%#[])}>''"`]', 'input': '', 'delete': 1},
       \ {'char': '<C-d>', 'at': '\%#\\[])}>''"`]', 'input': '<C-g>U<Del><C-g>U<Del>'},
       \ ]
 
 " <TAB> to create marker
-let g:lexima#default_rules += [
+let s:user_rules += [
       \ {'char': '<TAB>', 'at': '{\%#}', 'input': '<C-g>U<Del>{{'},
       \ {'char': '<TAB>', 'at': '\([^{]\){\%#}\1', 'input': '<C-g>U<Del><C-g>U<Del>{{'},
       \ ]
 
-let g:lexima#default_rules += [
+let s:user_rules += [
       \ {'char': ',', 'at': '[^,]\%#\a',   'input': ', '},
       \ {'char': ',', 'at': '[^,]\s\%#\S', 'input': '<BS>, '},
       \ ]
@@ -320,11 +320,11 @@ let s:rules_for_type_declare_with_colon = [
       \     'filetype': ['typescript', 'typescriptreact'],
       \ },
       \ ]
-let g:lexima#default_rules += s:rules_for_type_declare_with_colon
+let s:user_rules += s:rules_for_type_declare_with_colon
 unlet s:rules_for_type_declare_with_colon
 
 " Suppress some rules up to filetype.
-let g:lexima#default_rules += [
+let s:user_rules += [
       \ {'char': "'", 'filetype': ['haskell', 'lisp', 'clojure', 'ocaml', 'reason', 'scala', 'rust']},
       \ {'char': '`', 'filetype': ['ocaml', 'reason']},
       \ ]
@@ -364,8 +364,8 @@ let s:key2rules_for_vim['<CR>'] = [
       \ {'at': '\(=\|\\\)\s*\[\%#]', 'input': '<CR>\ ', 'input_after': '<CR>\ '},
       \ ]
 
-let g:lexima#default_rules += s:map_rules(s:rules_for_vim, {'filetype': 'vim'})
-let g:lexima#default_rules += s:map_rules_on_key(s:key2rules_for_vim, {'filetype': 'vim'})
+let s:user_rules += s:map_rules(s:rules_for_vim, {'filetype': 'vim'})
+let s:user_rules += s:map_rules_on_key(s:key2rules_for_vim, {'filetype': 'vim'})
 
 unlet s:rules_for_vim s:key2rules_for_vim
 
@@ -417,10 +417,10 @@ let s:key2rules_for_cpp[','] = [
       \ {'at': 'cout .*\h\w*\%#', 'input': ' << '},
       \ ]
 
-let g:lexima#default_rules += s:map_rules(s:rules_for_cpp, {
+let s:user_rules += s:map_rules(s:rules_for_cpp, {
       \ 'filetype': 'cpp'
       \ })
-let g:lexima#default_rules += s:map_rules_on_key(s:key2rules_for_cpp, {
+let s:user_rules += s:map_rules_on_key(s:key2rules_for_cpp, {
       \ 'filetype': 'cpp'
       \ })
 unlet s:rules_for_cpp s:key2rules_for_cpp
@@ -435,7 +435,10 @@ unlet s:rules_for_cpp s:key2rules_for_cpp
 " call lexima#insmode#map_hook('before', '<C-j>',   "\<ESC>")
 " call lexima#insmode#map_hook('after', '<CR>',    "\<CR>:-1s/\s\+$<CR>")
 
-call lexima#set_default_rules()
+for rule in s:user_rules
+  call lexima#add_rule(rule)
+endfor
+unlet s:user_rules
 
 delfunction s:map_rules
 delfunction s:map_rules_on_key
