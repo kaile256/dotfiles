@@ -2,8 +2,8 @@
 " Another: tmaps.vim
 " Another: lazy/terminal.vim
 
-command! -bar -nargs=* TermOpen :call s:term_open(<q-mods>, <f-args>)
-command! -bar -nargs=* TermCmd :call s:term_cmd(<q-mods>, <f-args>)
+command! -bar -nargs=* -range TermCmd  :call s:term_cmd(<q-range>,  <q-mods>, <f-args>)
+command! -bar -nargs=* -range TermOpen :call s:term_open(<q-range>, <q-mods>, <f-args>)
 
 " Note: <Space>t would be mapped by some easymotion like plugins.
 nnoremap <silent> <A-t>e :<C-u>TermOpen fish ++curwin<CR>
@@ -45,7 +45,7 @@ if has('nvim')
   endfunction
 endif
 
-function! s:term_cmd(mods, ...) abort
+function! s:term_cmd(range, mods, ...) abort
   let shell = a:0 > 0 ? join(a:000) : ''
   if has('nvim')
     let mods = s:set_mods(a:mods)
@@ -82,7 +82,7 @@ function! s:set_path(path) abort
   return path
 endfunction
 
-function! s:term_open(mods, ...) abort
+function! s:term_open(range, mods, ...) abort
   let path = ''
   if a:0 > 0
     let path = a:1 =~# '^++' ? a:000[len(a:000) - 1] : a:1
@@ -90,7 +90,7 @@ function! s:term_open(mods, ...) abort
   let path = s:set_path(path)
   let shell = 'fish -C "cd '. path .'"'
 
-  exe s:term_cmd(a:mods, shell)
+  exe s:term_cmd(a:range, a:mods, shell)
   startinsert
 endfunction
 
