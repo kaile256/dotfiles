@@ -1,3 +1,7 @@
+" vim:ft=vim
+
+" Man: https://vifm.info/manual.shtml
+
 source $XDG_CONFIG_HOME/vifm/options
 
 source $XDG_CONFIG_HOME/vifm/command
