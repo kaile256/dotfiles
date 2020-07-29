@@ -2,13 +2,13 @@
 
 " Man: https://vifm.info/manual.shtml
 
-source $XDG_CONFIG_HOME/vifm/options
+source $XDG_CONFIG_HOME/vifm/rc/options
 
-source $XDG_CONFIG_HOME/vifm/command
-source $XDG_CONFIG_HOME/vifm/mapping
+source $XDG_CONFIG_HOME/vifm/rc/command
+source $XDG_CONFIG_HOME/vifm/rc/mapping
 
-source $XDG_CONFIG_HOME/vifm/autocmd
-source $XDG_CONFIG_HOME/vifm/filetype
-source $XDG_CONFIG_HOME/vifm/bookmark
+source $XDG_CONFIG_HOME/vifm/rc/autocmd
+source $XDG_CONFIG_HOME/vifm/rc/filetype
+source $XDG_CONFIG_HOME/vifm/rc/bookmark
 
-source $XDG_CONFIG_HOME/vifm/devicons
+source $XDG_CONFIG_HOME/vifm/rc/devicons
