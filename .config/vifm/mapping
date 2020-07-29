@@ -83,3 +83,10 @@ nnoremap <f8> :delete<cr>
 nnoremap cf :touch<space>
 " Create Directory
 nnoremap cd :mkdir<space>
+
+nnoremap <silent> q :quit<CR>
+" see history
+nnoremap <space>: q:
+nnoremap <space>= q=
+nnoremap <space>? q?
+nnoremap <space>/ q/
