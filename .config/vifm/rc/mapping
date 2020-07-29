@@ -20,6 +20,9 @@ nnoremap s :shell<cr>
 " Display sorting dialog
 nnoremap S :sort<cr>
 
+" Mnemonic: `e` to preview in current window; `E` to finish preview esp. after
+" 'w/W' to preview in another window.
+nnoremap E :view | only<CR>
 " Toggle visibility of preview window
 nnoremap w :split  | view<CR>
 nnoremap W :vsplit | view<CR>
