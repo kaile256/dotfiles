@@ -16,4 +16,21 @@ let w:syntax_zenkaku = matchadd('Zenkaku', '[　０１２３４５６７８９]'
 hi! operatorNot ctermfg=15 guifg=#ffffff cterm=bold gui=bold
 let w:syntax_operator_not = matchadd('OperatorNot', '\s\zs!\ze\s\=\h')
 
-let w:syntax_annotation = matchadd('TODO', '\v(TODO|FIXME|XXX|WARNING|NOTE|Note|Tips)\ze: ')
+let s:annotations = [
+      \ 'CAUTION',
+      \ 'DEBUG',
+      \ 'FIXME',
+      \ 'HACK',
+      \ 'NOTE',
+      \ 'NOTICE',
+      \ 'OPTIMIZE',
+      \ 'REVIEW',
+      \ 'TODO',
+      \ 'Tips',
+      \ 'WARNING',
+      \ 'XXX',
+      \ ]
+
+let s:annotations = '\c\('. join(s:annotations, '\|') .'\)\ze: '
+let w:syntax_annotation = matchadd('TODO', s:annotations)
+unlet s:annotations
