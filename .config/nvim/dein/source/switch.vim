@@ -94,3 +94,7 @@ let g:switch_custom_definitions += [
       \ ['inc', 'dec'],
       \ ['decrement', 'increment'],
       \ ]
+
+let g:switch_custom_definitions += [
+      \ ['javascript', 'typescript']
+      \ ]
