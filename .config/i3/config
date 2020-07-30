@@ -419,7 +419,6 @@ bindsym Shift+D resize grow   height 50 px or 50 ppt
 bindsym Shift+U resize shrink height 50 px or 50 ppt
 
 bindsym Ctrl+C           mode default
-bindsym bracketleft      mode default
 bindsym Ctrl+bracketleft mode default
 }
 
@@ -478,7 +477,6 @@ bindsym O        focus mode_toggle; mode default; $alert 'Focus: Toggle'
 bindsym Ctrl+D           mode default; $alert 'Out of Fucus mode'
 
 bindsym Ctrl+C           mode default
-bindsym bracketleft      mode default
 bindsym Ctrl+bracketleft mode default
 }
 
@@ -506,7 +504,6 @@ $release y $noid systemctl poweroff, mode default
 $release u $noid systemctl poweroff, mode default
 
 bindsym Ctrl+C           mode default
-bindsym bracketleft      mode default
 bindsym Ctrl+bracketleft mode default
 }
 
@@ -536,7 +533,6 @@ bindsym B $notify 'Brightness: +10'; $noid xbacklight -inc 10
 bindsym F $notify 'Brightness: -10'; $noid xbacklight -dec 10
 
 bindsym Ctrl+C           mode default
-bindsym bracketleft      mode default
 bindsym Ctrl+bracketleft mode default
 }
 
@@ -582,7 +578,6 @@ bindsym B $volume +10%; $notify 'Sound: +10%'
 bindsym F $volume -10%; $notify 'Sound: -10%'
 
 bindsym Ctrl+C           mode default
-bindsym bracketleft      mode default
 bindsym Ctrl+bracketleft mode default
 }
 
@@ -638,7 +633,6 @@ $release s $noid servo;       mode default; $noid xinput enable Elan\ Touchpad; 
 $release v $noid $vivaldi;    mode default; $noid xinput enable Elan\ Touchpad; $noid xinput enable Elan\ TrackPoint
 
 bindsym Ctrl+C           mode default
-bindsym bracketleft      mode default
 bindsym Ctrl+bracketleft mode default
 }
 
@@ -663,7 +657,6 @@ $release 8 $noid i3-msg 'workspace 8; exec qutebrowser'; mode default
 $release 9 $noid i3-msg 'workspace 9; exec qutebrowser'; mode default
 
 bindsym Ctrl+C           mode default
-bindsym bracketleft      mode default
 bindsym Ctrl+bracketleft mode default
 }
 
@@ -682,7 +675,6 @@ bindsym X $noid xterm -e vim; mode default
 bindsym A $noid alacritty -e vim; mode default
 
 bindsym Ctrl+C           mode default
-bindsym bracketleft      mode default
 bindsym Ctrl+bracketleft mode default
 }
 
@@ -702,7 +694,6 @@ bindsym L $noid glrnvim; mode default
 bindsym A $noid alacritty -e nvim; mode default
 
 bindsym Ctrl+C           mode default
-bindsym bracketleft      mode default
 bindsym Ctrl+bracketleft mode default
 }
 
@@ -721,7 +712,6 @@ bindsym G $noid gimp;  mode default; $notify 'Editor: gimp'
 bindsym P $noid pinta; mode default; $notify 'Editor: pinta'
 
 bindsym Ctrl+C           mode default
-bindsym bracketleft      mode default
 bindsym Ctrl+bracketleft mode default
 }
 
@@ -742,7 +732,6 @@ $release H exec alacritty -e hunter; mode default
 $release G exec google-photo; mode default
 
 bindsym Ctrl+C           mode default
-bindsym bracketleft      mode default
 bindsym Ctrl+bracketleft mode default
 }
 
@@ -779,7 +768,6 @@ bindsym $Super+bracketright $noid fcitx-remote -c; mode default; $alert 'Mozc: O
 
 bindsym $Super+M         $noid fcitx-remote -c; mode default; $alert 'Mozc: OFF'
 bindsym Ctrl+C           $noid fcitx-remote -c; mode default; $alert 'Mozc: OFF'
-bindsym bracketleft      $noid fcitx-remote -c; mode default; $alert 'Mozc: OFF'
 bindsym Ctrl+bracketleft $noid fcitx-remote -c; mode default; $alert 'Mozc: OFF'
 }
 
@@ -820,7 +808,6 @@ bindsym Shift+L  $noid fcitx-remote -c; mode default; $alert 'Skk: OFF'
 bindsym $Super+I $noid fcitx-remote -c; mode default; $alert 'Skk: OFF'
 
 bindsym Ctrl+C           $noid fcitx-remote -c; mode default; $alert 'Skk: OFF'
-bindsym bracketleft      $noid fcitx-remote -c; mode default; $alert 'Skk: OFF'
 bindsym Ctrl+bracketleft $noid fcitx-remote -c; mode default; $alert 'Skk: OFF'
 }
 
@@ -874,7 +861,6 @@ bindsym $Super+Print $noid $MY_SCRIPTS/recording-toggle.sh
 #bindsym $Super+Print mode default; $noid exec $MY_SCRIPTS/recording-toggle.sh
 #
 #bindsym Ctrl+C           mode default
-#bindsym bracketleft      mode default
 #bindsym Ctrl+bracketleft mode default
 #}
 
