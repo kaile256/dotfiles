@@ -116,6 +116,7 @@ argdelete *
 #[ Swap ]
 #[[plugins]]
 #repo = 'tommcdo/vim-exchange'
+# # Note: sometimes fails to clear highlight
 #on_map = {nx = ['<Plug>(Exchange']}
 #hook_add = 'runtime add/exchange.vim'
 #hook_source = 'runtime source/exchange.vim'
