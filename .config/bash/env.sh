@@ -74,11 +74,11 @@ export FZF_DEFAULT_OPTS="
   --bind=ctrl-j:accept
   --bind=ctrl-k:kill-line
 
-  --bind=ctrl-i:down
-  --bind=ctrl-o:up
+  --bind=ctrl-i:toggle+down
+  --bind=ctrl-o:up+toggle
 
-  --bind=ctrl-g:toggle+down
-  --bind=ctrl-t:up+toggle
+  --bind=ctrl-g:down
+  --bind=ctrl-t:up
   --bind=ctrl-space:toggle
 
   --bind=esc:clear-selection
