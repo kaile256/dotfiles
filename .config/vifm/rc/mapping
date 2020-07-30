@@ -101,5 +101,8 @@ nnoremap Zq ZQ
 nnoremap Zz ZZ
 
 " Git
+" Create git repo
+nnoremap cg :!git init<CR>
+
 nnoremap >> :!git add %f<CR>
 nnoremap << :!git reset -- %f<CR>
