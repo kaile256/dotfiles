@@ -1,4 +1,5 @@
 " From: init.vim
+" Another: keymap/vifm.vim
 
 augroup myVifmRc-InsteadOfNetrw
   " Ref: https://github.com/Shougo/defx.nvim/issues/121
