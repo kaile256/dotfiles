@@ -11,6 +11,11 @@ nmap <buffer><expr> ]c repmo#Key('<Plug>(gitcommitmsg-next)', '<Plug>(gitcommitm
 xmap <buffer><expr> [c repmo#Key('<Plug>(gitcommitmsg-prev)', '<Plug>(gitcommitmsg-next)')
 xmap <buffer><expr> ]c repmo#Key('<Plug>(gitcommitmsg-next)', '<Plug>(gitcommitmsg-prev)')
 
+nmap <buffer><expr> [m repmo#Key('<Plug>(gitcommitmsg-prev)', '<Plug>(gitcommitmsg-next)')
+nmap <buffer><expr> ]m repmo#Key('<Plug>(gitcommitmsg-next)', '<Plug>(gitcommitmsg-prev)')
+xmap <buffer><expr> [m repmo#Key('<Plug>(gitcommitmsg-prev)', '<Plug>(gitcommitmsg-next)')
+xmap <buffer><expr> ]m repmo#Key('<Plug>(gitcommitmsg-next)', '<Plug>(gitcommitmsg-prev)')
+
 nnoremap <silent> <Plug>(gitcommitmsg-next) :<C-u>call <SID>search_msg('')<CR>
 nnoremap <silent> <Plug>(gitcommitmsg-prev) :<C-u>call <SID>search_msg('b')<CR>
 

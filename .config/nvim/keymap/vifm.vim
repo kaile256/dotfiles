@@ -2,7 +2,7 @@
 " Ref: open_terminal.vim
 " Another: rc/vifm.vim
 
-" Note: keep Vifm in rc/vifm.vim because it uses local function.
+" Note: keep :Vifm (the command) in rc/vifm.vim because it uses local function.
 nnoremap <silent> <A-x><space> :<C-u>vert top 35 Vifm<CR>
 
 nnoremap <silent> <A-x><A-e> :<C-u>     Vifm<CR>
