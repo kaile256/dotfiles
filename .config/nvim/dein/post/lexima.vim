@@ -69,6 +69,28 @@ let s:user_rules += s:map_rules(s:rules_for_semicolon,
       \ {'filetype': s:filetypes_for_semicolon_rules})
 unlet s:filetypes_for_semicolon_rules s:rules_for_semicolon
 
+" Rules for Tag {{{1
+
+let s:filetypes_for_tag_rules = [
+      \ 'htm',
+      \ 'html',
+      \ 'javascriptreact',
+      \ 'php',
+      \ 'typescriptreact',
+      \ 'xml',
+      \ ]
+
+let s:rules_for_tag = []
+
+" Spilt <tag><\tag> on <CR>
+let s:user_rules += [
+      \ {'char': '<CR>', 'at': '<.\{-}>\%#<.\{-}>',
+      \   'input': '<CR><TAB>', 'input_after': '<CR>'},
+      \ ]
+
+let s:user_rules += s:map_rules(s:rules_for_tag,
+      \ {'filetypes': s:filetypes_for_tag_rules})
+
 " Overwrite Rules for Newline {{{1
 " Copied from cohama/lexima.vim/autoload/lexima.vim @75
 
