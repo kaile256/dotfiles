@@ -83,7 +83,7 @@ hook_source = 'runtime source/vdebug.vim'
 # hook_source = 'runtime source/nvim-gdb.vim'
 # hook_post_source = 'runtime post/nvim-gdb.vim'
 [[plugins]]
-repo = '$VIMRUNTIME/pack/dist/opt/termdebug'
+repo = '$VIM_PACK_HOME/termdebug'
 on_cmd = ['Termdebug', 'TermdebugCommand']
 [[plugins]]
 repo = 'cpiger/NeoDebug'
