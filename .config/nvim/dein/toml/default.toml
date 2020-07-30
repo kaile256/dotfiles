@@ -180,6 +180,13 @@ hook_add = 'runtime add/linediff.vim'
 ## has some errors; unintended deletion of words around the target numbers
 #on_map = '<Plug>nextval'
 #hook_add = 'runtime add/nextval.vim'
+
+#[ Quickfix ]
+[[plugins]]
+repo = '$VIMRUNTIME/pack/dist/opt/cfilter'
+# Get matched named files from quickfix list by ':Cfilter /pat/'.
+on_cmd = ['Cfilter', 'Lfilter']
+
 #[ Help ]
 [[plugins]]
 repo = 'thinca/vim-ref'
