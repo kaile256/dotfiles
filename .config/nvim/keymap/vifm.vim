@@ -17,3 +17,8 @@ nmap <A-x>b <A-x><A-b>
 nmap <A-x>v <A-x><A-v>
 nmap <A-x>t <A-x><A-t>
 
+nnoremap <silent> <A-x><A-d> :<C-u>Vifm --select <C-r>=$MY_DEV<CR><CR>
+nmap <A-x>d <A-x><A-d>
+
+nnoremap <silent> <A-x><A-m> :<C-u>vert Vifm --select <C-r>=$MY_MEMO<CR><CR>
+nmap <A-x>m <A-x><A-m>
