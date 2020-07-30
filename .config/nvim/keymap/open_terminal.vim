@@ -36,8 +36,8 @@ if has('nvim')
 
     " Note: mods in func expands even if they're typed in short externally.
     let mods_dict = {
-          \ 'belowright': 'bel sp',
-          \ 'botright': 'bot sp',
+          \ 'belowright': 'bel',
+          \ 'botright': 'bot',
           \ 'tab': 'tabe',
           \ 'vertical': 'vs',
           \ }
@@ -46,6 +46,10 @@ if has('nvim')
     for l:key in keys(mods_dict)
       let mods = substitute(mods, l:key, mods_dict[l:key], '')
     endfor
+
+    if mods !~# '\vvs%[plit]|tabe%[dit]|tabnew'
+      let mods .= ' sp'
+    endif
     let mods .= ' | '
 
     return mods
