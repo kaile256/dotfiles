@@ -10,24 +10,24 @@ let g:lexima_no_default_rules     = 1
 let g:lexima_enable_space_rules   = 0
 let g:lexima_enable_endwise_rules = 0
 
-augroup myLeximaSource
-  au InsertLeave * call s:remove_end_of_pairs()
-augroup END
+" augroup myLeximaSource
+"   au InsertLeave * call s:remove_end_of_pairs()
+" augroup END
 
-function! s:remove_end_of_pairs() abort "{{{1
-  if !&modifiable | return | endif
+" function! s:remove_end_of_pairs() abort "{{{1
+"   if !&modifiable | return | endif
 
-  let pairs = ['\[]', '{}', '()']
-  let pairs += ['``', '""', "''"]
+"   let pairs = ['\[]', '{}', '()']
+"   let pairs += ['``', '""', "''"]
 
-  let before = '\v(.)(.)$'
-  let after = '\1\\zs\2'
-  call map(pairs, 'substitute(v:val, before, after, "e")')
-  call map(pairs, '"\\%#". v:val')
+"   let before = '\v(.)(.)$'
+"   let after = '\1\\zs\2'
+"   call map(pairs, 'substitute(v:val, before, after, "e")')
+"   call map(pairs, '"\\%#". v:val')
 
-  let pat = join(pairs, '\|')
+"   let pat = join(pairs, '\|')
 
-  let save_view = winsaveview()
-  exe 'keeppattern keepjump s/'. pat .'//e'
-  call winrestview(save_view)
-endfunction
+"   let save_view = winsaveview()
+"   exe 'keeppattern keepjump s/'. pat .'//e'
+"   call winrestview(save_view)
+" endfunction
