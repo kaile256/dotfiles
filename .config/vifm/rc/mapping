@@ -25,6 +25,9 @@ nnoremap s :shell<cr>
 " Display sorting dialog
 nnoremap S :sort<cr>
 
+" don't open file by 'l'.
+nnoremap l :if filetype('.') == 'dir' | cd %c | endif<CR>
+
 " Mnemonic: `e` to preview in current window; `E` to finish preview esp. after
 " 'w/W' to preview in another window.
 nnoremap E :view | only<CR>
