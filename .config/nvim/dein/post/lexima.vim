@@ -82,6 +82,12 @@ let s:filetypes_for_tag_rules = [
 
 let s:rules_for_tag = []
 
+let s:rules_for_tag += [
+      \ {'char': '<CR>', 'at': '\%#\s*/>',
+      \   'input_after': '<CR>', 'input': '<CR><TAB><TAB>'
+      \ },
+      \ ]
+
 " Spilt <tag><\tag> on <CR>
 let s:user_rules += [
       \ {'char': '<CR>', 'at': '<.\{-}>\%#<.\{-}>',
