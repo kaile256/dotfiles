@@ -71,7 +71,6 @@ unlet s:filetypes_for_semicolon_rules s:rules_for_semicolon
 
 " Overwrite Rules for Newline {{{1
 " Copied from cohama/lexima.vim/autoload/lexima.vim @75
-let s:user_rules = []
 
 let s:user_rules += [
       \ {'char': '<CR>', 'at': '(\%#)',  'input_after': '<CR>'},
