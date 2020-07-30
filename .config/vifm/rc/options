@@ -43,6 +43,9 @@ set fastrun " run partial, unambiguous cmd using :! (e.g. :!Te instead of :!Term
 
 set sortnumbers
 
+" Customize view columns a bit (enable ellipsis for truncated file names)
+" set viewcolumns=-{name}..,6{}.
+
 " Maximum number of changes that can be undone.
 
 set undolevels=100
