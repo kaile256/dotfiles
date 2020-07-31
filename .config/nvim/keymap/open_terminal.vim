@@ -30,6 +30,37 @@ nmap <A-t><A-v> <A-t>v
 nmap <A-t><A-s> <A-t>s
 nmap <A-t><A-b> <A-t>b
 
+if has('nvim')
+  function! s:_term_cmd(count, mods, shell) abort
+    if empty(a:mods)
+      let command = 'term '. a:shell
+      return command
+    endif
+
+    let mods = a:mods
+    if a:count
+      let mods .= ' '. a:count
+    endif
+    let command = mods .' sp term://'. a:shell
+    return command
+  endfunction
+else
+  function! s:_term_cmd(count, mods, shell) abort
+    let opt = ''
+    let opt .= ' ++close'
+    let opt .= ' ++kill=term'
+    if a:0 > 0
+      for arg in a:000
+        if arg =~# '^++'
+          let opt .= ' '. arg
+        endif
+      endfor
+    endif
+    let command = a:mods .' term '. opt .' '. a:shell
+    return command
+  endfunction
+endif
+
 function! s:term_cmd(count, mods, ...) abort
   let shell = a:0 > 0 ? join(a:000) : ''
   if shell =~# '^\s*fish'
@@ -38,32 +69,7 @@ function! s:term_cmd(count, mods, ...) abort
     let shell = substitute(shell, '"', "'", 'g')
   endif
 
-  if has('nvim')
-    if empty(a:mods)
-      let command = 'term '. shell
-      return command
-    endif
-
-    let mods = a:mods
-    if a:count
-      let mods .= ' '. a:count
-    endif
-    let command = mods .' sp term://'. shell
-    return command
-  endif
-
-  let opt = ''
-  let opt .= ' ++close'
-  let opt .= ' ++kill=term'
-  if a:0 > 0
-    for arg in a:000
-      if arg =~# '^++'
-        let opt .= ' '. arg
-      endif
-    endfor
-  endif
-  let command = a:mods .' term '. opt .' '. shell
-  return command
+  return s:_term_cmd(a:count, a:mods, shell)
 endfunction
 
 function! s:set_path(path) abort
