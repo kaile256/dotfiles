@@ -33,9 +33,11 @@ function! s:remove_end_of_pairs() abort "{{{1
     let pairs = map(pairs, '"\\%#". v:val')
   endfor
 
+  " Note: without double backslashes each, it doesn't work as expected.
+  let pat_line_continue = '\\ze\\n\\s*\\S'
   let pairs_removeable_at_the_end_of_the_line =
         \ map(pairs_removeable_at_the_end_of_the_line,
-        \ 'substitute(v:val, ".\\zs$", "$", "")')
+        \ 'substitute(v:val, ".\\zs$", pat_line_continue, "")')
 
   let symbols = '[][=+-_|(){}\:;?/>.~`!@#$%^&*"'']'
   let pairs_removeable_next_to_symbols =
