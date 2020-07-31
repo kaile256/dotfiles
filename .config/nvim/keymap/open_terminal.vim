@@ -30,61 +30,23 @@ nmap <A-t><A-v> <A-t>v
 nmap <A-t><A-s> <A-t>s
 nmap <A-t><A-b> <A-t>b
 
-if has('nvim')
-  function! s:set_mods(mods) abort
-    if a:mods ==# '' | return '' | endif
-
-    " Note: mods in func expands even if they're typed in short externally.
-    let mods_dict = {
-          \ 'belowright': 'bel',
-          \ 'botright': 'bot',
-          \ 'tab': 'tabe',
-          \ 'vertical': 'vs',
-          \ }
-
-    let mods = a:mods
-    for l:key in keys(mods_dict)
-      let mods = substitute(mods, l:key, mods_dict[l:key], '')
-    endfor
-
-    if mods !~# '\vvs%[plit]|tabe%[dit]|tabnew'
-      let mods .= ' sp'
-    endif
-    let mods .= ' | '
-
-    return mods
-  endfunction
-endif
-
-function! s:insert_count(mods, count) abort
-  if a:count == 0
-    return a:mods
-  endif
-
-  let cnt = a:count .' '
-  if empty(a:mods)
-    return ''
-  endif
-
-  let patterns = [' \zs\ze\(vs\|sp\)', '\v(topleft|botright)\zs ']
-  let mods = a:mods
-  for pat in patterns
-    let mods = substitute(mods, pat, cnt, '')
-    if mods !=# mods
-      return mods
-    endif
-  endfor
-  let g:foo = mods
-
-  return mods
-endfunction
-
 function! s:term_cmd(count, mods, ...) abort
   let shell = a:0 > 0 ? join(a:000) : ''
+  if shell =~# '^\s*fish'
+    " HACK: Double quotes for fish fails to open terminal with status 1, such
+    " as `sp term://fish -C "cd /"`.
+    let shell = substitute(shell, '"', "'", 'g')
+  endif
   if has('nvim')
-    let mods = s:set_mods(a:mods)
-    let mods = s:insert_count(mods, a:count)
-    let command = mods .' term '. shell
+    if empty(a:mods)
+      let command = 'term '. shell
+    else
+      let mods = a:mods
+      if a:count
+        let mods .= ' '. a:count
+      endif
+      let command = mods .' sp term://'. shell
+    endif
 
   else
     let opt = ''
