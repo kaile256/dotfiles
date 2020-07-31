@@ -18,5 +18,5 @@ elseif exists('gonvim_running')
   let g:gonvim_draw_split = 1
 
 elseif exists('g:GtkGuiLoaded')
-  call rpcnotify(1, 'Gui', 'Font', 'SF Mono 12')
+  call rpcnotify(1, 'Gui', 'Font', 'JetBrainsMonoMedium Nerd Font 12')
 endif
