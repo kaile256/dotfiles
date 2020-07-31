@@ -17,14 +17,33 @@ augroup END
 function! s:remove_end_of_pairs() abort "{{{1
   if !&modifiable | return | endif
 
-  let pairs = ['\[]', '{}', '()']
-  let pairs += ['``', '""', "''"]
+  let pairs_removeable_at_the_end_of_the_line = ['\[]', '{}']
+  let pairs_removeable_next_to_symbols = ['()', '``', '""', "''"]
+
+  let pairs_set = [
+        \ pairs_removeable_at_the_end_of_the_line,
+        \ pairs_removeable_next_to_symbols,
+        \ ]
 
   let before = '\v(.)(.)$'
   let after = '\1\\zs\2'
-  call map(pairs, 'substitute(v:val, before, after, "e")')
-  call map(pairs, '"\\%#". v:val')
+  for pairs in pairs_set
+    " set patterns which represents cursor between cohesive pairs.
+    let pairs = map(pairs, 'substitute(v:val, before, after, "")')
+    let pairs = map(pairs, '"\\%#". v:val')
+  endfor
 
+  let pairs_removeable_at_the_end_of_the_line =
+        \ map(pairs_removeable_at_the_end_of_the_line,
+        \ 'substitute(v:val, ".\\zs$", "$", "")')
+
+  let symbols = '[][=+-_|(){}\:;?/>.~`!@#$%^&*"'']'
+  let pairs_removeable_next_to_symbols =
+        \ map(pairs_removeable_next_to_symbols,
+        \ 'substitute(v:val, ".\\zs$", symbols, "")')
+
+  let pairs = pairs_removeable_at_the_end_of_the_line
+        \ + pairs_removeable_next_to_symbols
   let pat = join(pairs, '\|')
 
   let save_view = winsaveview()
