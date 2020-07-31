@@ -56,6 +56,7 @@ hook_source = 'runtime source/help-toc.vim'
 repo = '$DEIN_PRIVATE_HOME/vim-sensible-split'
 on_ft = ['fugitive', 'git*']
 on_cmd = 'Sensible'
+on_func = ['sensible#split', 'sensible#gf#']
 on_map = '<Plug>(sensible'
 hook_add = 'source $DEIN_ADD_HOME/sensible-split.vim'
 
