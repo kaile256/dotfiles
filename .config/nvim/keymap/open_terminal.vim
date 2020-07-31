@@ -2,7 +2,7 @@
 " Another: tmaps.vim
 " Another: lazy/terminal.vim
 
-command! -bar -nargs=* -count TermCmd  :call s:term_cmd('<count>',  <q-mods>, <f-args>)
+command! -bar -nargs=* -count TermCmd  :exe  s:term_cmd('<count>',  <q-mods>, <f-args>)
 command! -bar -nargs=* -count TermOpen :call s:term_open('<count>', <q-mods>, <f-args>)
 
 command! -bar -nargs=* -count Vifm
@@ -37,32 +37,33 @@ function! s:term_cmd(count, mods, ...) abort
     " as `sp term://fish -C "cd /"`.
     let shell = substitute(shell, '"', "'", 'g')
   endif
+
   if has('nvim')
     if empty(a:mods)
       let command = 'term '. shell
-    else
-      let mods = a:mods
-      if a:count
-        let mods .= ' '. a:count
-      endif
-      let command = mods .' sp term://'. shell
+      return command
     endif
 
-  else
-    let opt = ''
-    let opt .= ' ++close'
-    let opt .= ' ++kill=term'
-    if a:0 > 0
-      for arg in a:000
-        if arg =~# '^++'
-          let opt .= ' '. arg
-        endif
-      endfor
+    let mods = a:mods
+    if a:count
+      let mods .= ' '. a:count
     endif
-    let command = a:mods .' term '. opt .' '. shell
+    let command = mods .' sp term://'. shell
+    return command
   endif
 
-  exe command
+  let opt = ''
+  let opt .= ' ++close'
+  let opt .= ' ++kill=term'
+  if a:0 > 0
+    for arg in a:000
+      if arg =~# '^++'
+        let opt .= ' '. arg
+      endif
+    endfor
+  endif
+  let command = a:mods .' term '. opt .' '. shell
+  return command
 endfunction
 
 function! s:set_path(path) abort
