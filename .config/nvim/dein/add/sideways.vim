@@ -1,6 +1,7 @@
 " TOML: operator.toml
 " Repo: AndrewRadev/sideways.vim
 " Another: source/sideways.vim
+" Also: after/ftplugin/
 
 " let g:sideways_search_timeout = 0
 " let g:sideways_skip_strings_and_comments = 0
