@@ -69,13 +69,15 @@ function! s:preview() abort
   keepjumps wincmd p
 endfunction
 
-function! sensible#gf#_Gopen(...) abort
+function! sensible#gf#_Gopen(cond) abort
   let is_to_preview = &ft =~# join(g:sensible#gf#preview_filetypes, '\|')
 
   if is_to_preview
     call s:preview()
   else
-    let open = a:0 > 0 ? a:1 : sensible#split()
+    let open = a:cond =~# 'e\%[dit]'
+          \ ? 'edit'
+          \ : sensible#split(a:cond)
     let path = s:set_git_path()
     exe 'G'. open path
   endif
@@ -89,12 +91,13 @@ function! sensible#gf#edit() abort
   return 'gF'
 endfunction
 
-function! sensible#gf#split() abort
+function! sensible#gf#split(...) abort
+  let cond = a:0 > 0 ? a:1 : {}
   if s:is_hash(expand('<cword>'))
-    return ":call sensible#gf#_Gopen() \<CR>"
+    return ":call sensible#gf#_Gopen(". cond .") \<CR>"
   endif
 
-  let style = sensible#style()
+  let style = sensible#style(cond)
   if style ==? 'tab'
     return "\<C-w>gF"
   elseif style ==? 'horizontal'
