@@ -36,18 +36,21 @@ let g:sensible_split#horizontal_condition =
       \ get(g:, 'sensible_split#horizontal_condition',
       \     'winwidth(0) >= (&tw ? &tw : 80) && winheight(0) > (&equalalways ? 20 : 30)')
 
-function! s:wants_vertical()
-  return eval(g:sensible_split#vertical_condition)
+function! s:wants_vertical(cond)
+  let cond = get(a:cond, 'vertical', g:sensible_split#vertical_condition)
+  return eval(cond)
 endfunction
 
-function! s:wants_horizontal()
-  return eval(g:sensible_split#horizontal_condition)
+function! s:wants_horizontal(cond)
+  let cond = get(a:cond, 'horizontal', g:sensible_split#horizontal_condition)
+  return eval(cond)
 endfunction
 
-function! sensible#style()
-  if s:wants_vertical()
+function! sensible#style(...)
+  let cond = a:0 > 0 ? a:1 : {}
+  if s:wants_vertical(cond)
     return 'vertical'
-  elseif s:wants_horizontal()
+  elseif s:wants_horizontal(cond)
     return 'horizontal'
   endif
 
@@ -74,8 +77,9 @@ function! sensible#_new(bang)
   return new
 endfunction
 
-function! sensible#split()
-  let style = sensible#style()
+function! sensible#split(...)
+  let cond = a:0 > 0 ? a:1 : {}
+  let style = sensible#style(cond)
   if style ==? 'vertical'
     return 'vsplit'
   elseif style ==? 'horizontal'
@@ -85,8 +89,9 @@ function! sensible#split()
   return 'tabe'
 endfunction
 
-function! sensible#new()
-  let style = sensible#style()
+function! sensible#new(...)
+  let cond = a:0 > 0 ? a:1 : {}
+  let style = sensible#style(cond)
   if style ==? 'vertical'
     return 'vnew'
   elseif style ==? 'horizontal'
@@ -108,8 +113,9 @@ function! sensible#_mods(bang, cmd)
   return mods .' '. a:cmd
 endfunction
 
-function! sensible#mods()
-  let style = sensible#style()
+function! sensible#mods(...)
+  let cond = a:0 > 0 ? a:1 : {}
+  let style = sensible#style(cond)
   if style ==? 'vertical'
     return 'vertical'
   elseif style ==? 'horizontal'
