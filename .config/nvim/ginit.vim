@@ -4,8 +4,11 @@ if exists('g:GuiLoaded') " if nvim-qt
   GuiPopupmenu 0
 
   " <bang> for Japanese and other ambiwidth fonts
-  " GuiFont! JetBrainsMono Nerd Font:h10.9
-  GuiFont! JetBrainsMonoMedium Nerd Font:h10.8
+  if system('xrandr | grep " connected"') =~# 'HDMI1'
+    GuiFont! JetBrainsMonoMedium Nerd Font:h9.2
+  else
+    GuiFont! JetBrainsMonoMedium Nerd Font:h10.8
+  endif
   GuiLinespace -1
 
 elseif exists('gonvim_running')
