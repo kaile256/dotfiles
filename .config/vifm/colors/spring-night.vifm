@@ -1,0 +1,72 @@
+" From: rc/options
+" spring-night
+
+" Available style values (some of them can be combined):
+" - bold
+" - underline
+" - reverse or inverse
+" - standout
+" - italic (on unsupported systems becomes reverse)
+" - none
+
+hi clear
+
+" fg=230 (or 231 for high_contrast)
+" bg=233
+
+" Win: includes default color for the contents of views, dialogs,
+" menus. (e.g. regular files)
+hi Win      cterm=none ctermfg=default ctermbg=none
+" AuxWin: auxiliary areas of windows.
+hi AuxWin   cterm=none ctermfg=default ctermbg=none
+" OtherWin: inactive pane.
+hi OtherWin cterm=none ctermfg=default ctermbg=none
+
+" Border: vertical parts of the boarder.
+hi Border  cterm=none ctermfg=blue ctermbg=none
+
+hi TabLine    cterm=none ctermfg=blue    ctermbg=none
+" TabLineSel: the tip of _selected_ tab.
+hi TabLineSel cterm=none ctermfg=magenta ctermbg=none
+
+" TopLineSel: top line of the _current_ pane.
+hi TopLineSel cterm=none ctermfg=magenta ctermbg=none
+" TopLine: top line of the _other_ pane.
+hi TopLine    cterm=none ctermfg=blue    ctermbg=none
+
+" CmdLine: includes the command _status_ bar.
+hi CmdLine cterm=none ctermfg=255  ctermbg=236
+
+" StatusLine: the line _above_ the status bar.
+hi StatusLine cterm=none ctermfg=blue ctermbg=none
+" JobLine: the job line that _appears_ above the status bar.
+hi JobLine    cterm=bold ctermfg=116  ctermbg=238
+
+" CurrLine: cursor position in active view.
+hi CurrLine  cterm=bold ctermfg=236 ctermbg=blue
+" OtherLine: cursor position in inactive view.
+hi OtherLine cterm=none ctermfg=247 ctermbg=237
+
+" Selected: selected _files_.
+hi Selected  cterm=bold ctermfg=magenta ctermbg=default
+
+" WildMenu: _items_ in wild-menu.
+hi WildMenu cterm=none,reverse ctermfg=blue ctermbg=236
+" SuggestBox: key-suggestion box.
+hi SuggestBox cterm=none,reverse ctermfg=blue ctermbg=236
+
+hi ErrorMsg cterm=none         ctermfg=red  ctermbg=black
+
+hi Directory  cterm=none ctermfg=blue    ctermbg=default
+" Link: symbolic links.
+hi Link       cterm=none ctermfg=cyan    ctermbg=default
+hi BrokenLink cterm=none ctermfg=red     ctermbg=default
+
+hi Socket     cterm=none ctermfg=magenta ctermbg=black
+hi Device     cterm=none ctermfg=red     ctermbg=default
+hi Fifo       cterm=none ctermfg=yellow  ctermbg=black
+hi Executable cterm=none ctermfg=green   ctermbg=default
+
+" CmpMismatch: mismatched files in side-by-side comparison by path in _Compare
+" views_ which starts with `:compare [args]`
+hi CmpMismatch cterm=none ctermfg=green ctermbg=default
