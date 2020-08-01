@@ -19,6 +19,9 @@
 
 " ------------------------------------------------------------------------------
 
+cnoremap <C-o> <S-Tab>
+
+
 " Start shell in current directory
 nnoremap s :shell<cr>
 
