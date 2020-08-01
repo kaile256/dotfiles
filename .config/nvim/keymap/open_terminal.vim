@@ -75,7 +75,12 @@ endfunction
 function! s:set_path(path) abort
   let path = a:path
   if path ==# ''
-    let path = substitute(expand('%:p:h'), '\S\+://', '', '')
+    if &bt ==# 'terminal'
+      let path = substitute(getline(1), '^\s*\~', $HOME, '') " esp. for Vifm on terminalw.
+      if !isdirectory(path)
+        let path = execute('pwd')
+      endif
+    endif
   elseif &ft ==# 'defx'
     let path = matchstr(getline(1), ':\zs\f\+')
   endif
