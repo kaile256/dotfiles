@@ -561,12 +561,11 @@ bindsym S $mute; $alert 'Sound: Mute'
 # Mnemonic: Quiet
 bindsym Q $mute; $alert 'Sound: Mute'
 
-# Note: it is weird thatset to 50% will set to 72%
-bindsym Shift+H $volume 100%; $notify 'Sound: 100'
-bindsym Shift+K $volume 75%;  $notify 'Sound: 75%'
-bindsym Shift+M $volume 50%;  $notify 'Sound: 50'
-bindsym Shift+J $volume 25%;  $notify 'Sound: 25%'
-bindsym Shift+L $volume 0%;   $notify 'Sound: 0'
+bindsym Shift+H $volume 85%; $notify 'Sound: 85%'
+bindsym Shift+K $volume 75%; $notify 'Sound: 75%'
+bindsym Shift+M $volume 50%; $notify 'Sound: 50%'
+bindsym Shift+J $volume 25%; $notify 'Sound: 25%'
+bindsym Shift+L $volume 15%; $notify 'Sound: 15%'
 
 bindsym K $volume +1%;  $notify 'Sound: +1%'
 bindsym M $volume 50%;  $notify 'Sound: 50'
