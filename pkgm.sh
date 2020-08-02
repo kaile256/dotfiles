@@ -334,6 +334,7 @@ GHQs=(
 )
 
 REMOVEs=(
+  bmenu # desktop menu in TUI
   i3blocks
   i3blocks-contrib
   manjaro-hello
