@@ -25,6 +25,8 @@ PACKAGEs=(
   conky-i3
   xsel
   eslint
+  xorg-xinput # removed with `bmenu`
+  lshw # removed with `bmenu`
 
   xbindkeys # to disable middle to paste, but enable scroll.
   otf-nerd-fonts-fira-code
