@@ -34,3 +34,7 @@ let s:annotations = [
 let s:annotations = '\c\('. join(s:annotations, '\|') .'\)\ze: '
 let w:syntax_annotation = matchadd('TODO', s:annotations)
 unlet s:annotations
+
+hi! link OperatorTernary Identifier
+let w:syntax_ternary_operator_first  = matchadd('OperatorTernary', ' \zs?\ze .* : ')
+let w:syntax_ternary_operator_second = matchadd('OperatorTernary', ' ? .* \zs:\ze ')
