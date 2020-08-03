@@ -16,6 +16,15 @@ let g:tagalong_mappings = [
       \ 'a',
       \ ]
 
-let g:tagalong_additional_filetypes = [
-      \ 'custon'
+let g:tagalong_filetypes = [
+      \ 'eco',
+      \ 'ejs',
+      \ 'eruby',
+      \ 'html',
+      \ 'htmldjango',
+      \ 'javascriptreact',
+      \ 'jsx',
+      \ 'php',
+      \ 'typescriptreact',
+      \ 'xml',
       \ ]
