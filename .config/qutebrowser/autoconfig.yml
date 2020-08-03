@@ -232,6 +232,7 @@ settings:
         <Ctrl+w>w: devtools-focus
         <Ctrl+x>: null
         <Ctrl+y>: scroll-px 0 -50
+        <Del>: fake-key <Delete>
         <Enter>: enter-mode insert;; fake-key <enter> ;; leave-mode
         <Escape>: clear-keychain ;; search ;; fullscreen --leave;; download-clear
         <Space>1: tab-close
