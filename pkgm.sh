@@ -26,6 +26,7 @@ PACKAGEs=(
   xsel
   eslint
 
+  xbindkeys # to disable middle to paste, but enable scroll.
   otf-nerd-fonts-fira-code
   docker-rootless
   docker-compose-bin # includes `docker`

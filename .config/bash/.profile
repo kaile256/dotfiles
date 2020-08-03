@@ -29,3 +29,5 @@ done
 #eval "$(pyenv init -)"
 #eval "$(pyenv virtualenv-init -)"
 
+# Configure at ~/.xbindkeysrc
+type xbindkeys >/dev/null 2>&1 && xbindkeys -p

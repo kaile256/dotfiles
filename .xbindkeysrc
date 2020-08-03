@@ -1,0 +1,8 @@
+#!/usr/bin/env xbindkeys
+
+# Ref: disable paste on middle click
+# https://gist.github.com/sam0x17/f1d89df55778e4317d8974623a62e8c6
+
+"echo -n | xsel --nodetach --input; pkill xbindkeys; xdotool click 2; xbindkeys"
+b:2
+
