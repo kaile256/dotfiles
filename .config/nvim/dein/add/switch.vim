@@ -126,15 +126,6 @@ let s:definitions['python'] = [
       \ ['spam', 'ham', 'eggs'],
       \ ]
 
-let s:definitions['javascriptreact'] = get(s:definitions, 'javascript', [])
-let s:definitions['javascriptreact'] += [
-      \ ['serviceWorker.register();', 'serviceWorker.unregister();'],
-      \ ]
-let s:definitions['typescriptreact'] = get(s:definitions, 'typescript', [])
-let s:definitions['typescriptreact'] += get(s:definitions, 'javascriptreact', [])
-let s:definitions['typescriptreact'] += [
-      \ ]
-
 augroup mySwitchAdd-set_local_definitions "{{{1
   " Note: b:switch_custom_definitions should be defined in advance of the
   " plugin loaded.
