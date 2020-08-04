@@ -336,7 +336,6 @@ let s:user_rules += [
       \ ]
 
 let s:user_rules += [
-      \ {'char': ',', 'at': '[^,]\%#\a',   'input': ', '},
       \ {'char': ',', 'at': '[^,]\s\%#\S', 'input': '<BS>, '},
       \ ]
 
