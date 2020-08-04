@@ -201,14 +201,22 @@ let s:user_rules += [
 
 " Note: The '.' in `:s/pattern/` is required for <C-u>.
 " Note: s:remove_close . '<C-w>' fails to insert again to <C-w>.
-let s:following_ends = '\%#[a-zA-Z \t_]*\zs\s\{-}[\]})>''"`,]*'
-let s:remove_close = ':silent! keepjumps keeppatterns s/'. s:following_ends .'//e<CR>gi'
+let s:following_ends = '\%#[a-zA-Z \t_]*\zs\s\{-}[\]})>''"`]*'
+let s:end_with_separator = '[,;:]\?'
+let s:following_ends_with_separator = s:following_ends . s:end_with_separator
+let s:Remove_close =
+      \ {pat -> ':silent! keepjumps keeppatterns s/'. pat .'//e<CR>gi'}
+
 let s:user_rules += [
       \ {'char': '<C-w>', 'at': '[\[({]\s*\%#',
-      \   'input': '<C-w><Esc>'. s:remove_close},
-      \ {'char': '<C-u>', 'input': '<C-u><Esc>'. s:remove_close},
+      \   'input': '<C-w><Esc>'. s:Remove_close(s:following_ends)},
+      \ {'char': '<C-w>', 'at': '\(^\s*\w*\|=\)\%#',
+      \   'input': '<C-w><Esc>'. s:Remove_close(s:end_with_separator)},
+      \ {'char': '<C-u>', 'input': '<C-u><Esc>'.
+      \   s:Remove_close(s:following_ends_with_separator)},
       \ ]
-unlet s:remove_close s:following_ends
+unlet s:following_ends s:end_with_separator s:following_ends_with_separator
+unlet s:Remove_close
 
 let s:Joinspaces = '<Esc>:<C-u>norm! kgJgJ<CR>gi'
 
