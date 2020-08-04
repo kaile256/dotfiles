@@ -74,7 +74,7 @@ endfunction
 
 function! s:set_path(path) abort
   let path = a:path
-  if path ==# ''
+  if empty(path)
     if &bt ==# 'terminal'
       let path = substitute(getline(1), '^\s*\~', $HOME, '') " esp. for Vifm on terminalw.
       let path = matchstr(path, '\f\+') " for vertically split view.
