@@ -53,6 +53,25 @@ endfunction
 "   syntax: like vimString, Constant, NonText
 "   priority: the bigger, the higher priority; default as 0.
 
+" Rules for framework/library {{{1
+function! s:define_rules_for_react() abort
+  let rules = [
+        \ {'char': '<space>', 'input_after': ',',
+        \     'at': ':\%#', 'except': '\%#.\+'},
+        \ {'char': '<space>', 'input_after': ';',
+        \     'at': 'let\%#', 'except': '\%#.\+'},
+        \ ]
+
+  let filetypes = [
+        \ 'javascriptreact',
+        \ 'typescriptreact',
+        \ ]
+
+  let s:user_rules += s:map_rules(rules, {'filetype': filetypes})
+endfunction
+call s:define_rules_for_react()
+delfunction s:define_rules_for_react
+
 " Rules for Semicolon {{{1
 function! s:define_rules_for_semicolon() abort
   let rules_for_semicolon = [
