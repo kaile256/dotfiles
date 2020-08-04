@@ -58,6 +58,7 @@ endfunction
 let s:rules_for_semicolon = [
       \ {'char': '(', 'input_after': ');', 'at': 'return \%#'},
       \ {'char': '{', 'input_after': '};', 'at': ' = \%#', 'except': '\%#.\+'},
+      \ {'char': '[', 'input_after': '];', 'at': ' = \%#', 'except': '\%#.\+'},
       \ ]
 
 let s:filetypes_for_semicolon_rules = [
