@@ -54,22 +54,25 @@ endfunction
 "   priority: the bigger, the higher priority; default as 0.
 
 " Rules for Semicolon {{{1
+function! s:define_rules_for_semicolon() abort
+  let rules_for_semicolon = [
+        \ {'char': '(', 'input_after': ');', 'at': 'return \%#'},
+        \ {'char': '=',  'input_after': ';',
+        \     'at': '\v(\h(\w|[.])* ){1,2}\%#', 'except': '\%#.\+'},
+        \ {'char': '<BS>', 'input': '<C-g>U<Del><BS>', 'at': '=\%#;'},
+        \ ]
 
-let s:rules_for_semicolon = [
-      \ {'char': '(', 'input_after': ');', 'at': 'return \%#'},
-      \ {'char': '=',  'input_after': ';',
-      \     'at': '\v(\h(\w|[.])* ){1,2}\%#', 'except': '\%#.\+'},
-      \ {'char': '<BS>', 'input': '<C-g>U<Del><BS>', 'at': '=\%#;'},
-      \ ]
+  let filetypes_for_semicolon_rules = [
+        \ 'cpp',
+        \ 'javascriptreact',
+        \ 'typescriptreact',
+        \ ]
 
-let s:filetypes_for_semicolon_rules = [
-      \ 'cpp',
-      \ 'javascriptreact',
-      \ 'typescriptreact',
-      \ ]
-let s:user_rules += s:map_rules(s:rules_for_semicolon,
-      \ {'filetype': s:filetypes_for_semicolon_rules})
-unlet s:filetypes_for_semicolon_rules s:rules_for_semicolon
+  let s:user_rules += s:map_rules(rules_for_semicolon,
+        \ {'filetype': filetypes_for_semicolon_rules})
+endfunction
+call s:define_rules_for_semicolon()
+delfunction s:define_rules_for_semicolon
 
 " Rules for Tag {{{1
 
