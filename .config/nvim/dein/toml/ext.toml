@@ -48,7 +48,7 @@ on_cmd =  ['Hexedit']
 #[ Plugin's ]
 [[plugins]]
 repo = 'wsdjeg/dein-ui.vim'
-on_cmd = 'Dein'
+on_cmd = 'DeinUpdate'
 hook_add = 'runtime add/dein-ui.vim'
 [[plugins]]
 repo = 'haya14busa/dein-command.vim'
