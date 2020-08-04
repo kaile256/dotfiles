@@ -4,7 +4,7 @@
 [[plugins]]
 repo = 'tpope/vim-repeat'
 # Note: has no doc/
-lazy = 0
+on_func = 'repeat#'
 # Notice: mapping under add/ fails to find the autoload/ of vim-repeat
 hook_post_source = 'runtime post/repeat.vim'
 [[plugins]]
