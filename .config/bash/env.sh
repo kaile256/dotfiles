@@ -98,7 +98,7 @@ export FZF_PREVIEW_DIR_CMD="ls"
 #export FZF_DEFAULT_OPTS="--height $FZF_TMUX_HEIGHT"
 
 ## Vim
-export THEMIS_HOME=$XDG_CONFIG_HOME/nvim/data/bin/themis
+export THEMIS_HOME="$XDG_CACHE_HOME/dein/repos/github.com/thinca/vim-themis"
 
 # GTag
 export GTAGSCONF=/usr/share/gtags/gtags.conf
