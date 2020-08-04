@@ -1,4 +1,4 @@
-" From: tool.toml
+" From: ext.toml
 " Repo: wsdjeg/dein-ui.vim
 
 cnoreabbrev <expr> du (getcmdtype() == ':' && getcmdline() =~ '^du$')? 'DeinUpdate' : 'du'
