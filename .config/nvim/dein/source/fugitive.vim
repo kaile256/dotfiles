@@ -13,19 +13,12 @@ augroup myFugitiveSo
   au FileTYpe git,fugitive call s:unmap()
   au FileType fugitive  call s:fugitive_keymap()
   au FileType gitcommit call s:gitcommit_keymap()
-  au FileType gitcommit call s:gitcommit_startinsert()
 
   au FileType fugitive,fugitiveblame setl nonumber signcolumn= bufhidden=wipe
   au BufRead fugitive:///* setl buftype=nofile
 augroup END
 
 " Define Functions for autocmds {{{1
-function! s:gitcommit_startinsert() "{{{2
-  if getline(1, search('# Please enter the commit message', 'n') - 1) ==# ['']
-    startinsert
-  endif
-endfunction
-
 " Define Keymaps on Buffer {{{2
 function! s:unmap() abort
   silent! unmap <buffer> J

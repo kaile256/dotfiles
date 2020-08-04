@@ -40,3 +40,14 @@ endfunction
 
 norm! gg
 call s:search_msg('W')
+
+function! s:is_editing_new_commit() abort
+  return join(getline(1, search('\S', 'n')))
+        \ !~# '^\s*# Please enter the commit message'
+endfunction
+if s:is_editing_new_commit()
+  finish
+endif
+delfunction s:is_editing_new_commit
+
+startinsert
