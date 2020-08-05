@@ -21,6 +21,11 @@
 
 cnoremap <C-o> <S-Tab>
 
+nmap <C-j> <CR>
+cmap <C-j> <CR>
+dmap <C-j> <CR>
+mmap <C-j> <CR>
+qmap <C-j> <CR>
 
 " Start shell in current directory
 nnoremap s :shell<cr>
