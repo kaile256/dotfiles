@@ -207,7 +207,7 @@ settings:
         <Ctrl+w>: null
         <Ctrl+w><Ctrl+Shift+r>: devtools right
         <Ctrl+w><Ctrl+c>: session-save --quiet last;; tab-close
-        <Ctrl+w><Ctrl+o>: window-only
+        <Ctrl+w><Ctrl+o>: tab-only
         <Ctrl+w><Ctrl+p>: tab-pin
         <Ctrl+w><Ctrl+r>: devtools bottom
         <Ctrl+w><Ctrl+t>: tab-give
