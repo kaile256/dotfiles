@@ -89,10 +89,21 @@ hook_add = 'runtime add/textobj-keyvalue.vim'
 ## Possibly better on Vimscript, but the name is duplicated to that of amerlyq.
 #hook_add = 'runtime add/textobj-keyvalue.vim'
 #[ on FileType ]
-#[[plugins]]
-#repo = 'bps/vim-textobj-python'
-#on_ft = 'python'
-#hook_post_source = ':TextobjPythonDefaultKeyMappings!'
+[[plugins]]
+repo = 'bps/vim-textobj-python'
+on_ft = 'python'
+hook_done_update = '''
+e $DEIN_GITHUB_DIR/bps/vim-textobj-python/after/ftplugin/python/textobj-python.vim
+g/move-/s;pc;M
+g/move-/s;pf;m
+
+g/select-/s;ac;aM
+g/select-/s;ic;iM
+
+g/select-/s;af;am
+g/select-/s;if;im
+write
+'''
 
 #[[plugins]]
 #repo = 'coachshea/vim-textobj-markdown'
