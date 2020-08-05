@@ -186,7 +186,7 @@ $noid udiskie --automount --notify &
 $noid systemctl --user start docker
 
 # nm-applet: WiFi Network Manager; use nmcli instead
-#$noid nm-applet
+$noid nm-applet
 
 $noid fcitx
 
