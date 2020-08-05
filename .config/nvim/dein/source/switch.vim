@@ -39,6 +39,21 @@ let g:switch_custom_definitions += [
       \ ['==', '!='],
       \ ['first', 'second', 'third', 'last'],
       \
+      \ ['before', 'after'],
+      \
+      \ ['collapse', 'expand'],
+      \
+      \ ['allow', 'deny'],
+      \ ['accept', 'refuse'],
+      \
+      \ ['host', 'guest'],
+      \
+      \ ['begin', 'end'],
+      \ ['start', 'stop'],
+      \ ['forward', 'backward'],
+      \
+      \ ['enqueue', 'dequeue'],
+      \
       \ ['private', 'public'],
       \
       \ ['path', 'dir', 'file'],
