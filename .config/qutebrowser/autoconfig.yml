@@ -345,8 +345,12 @@ settings:
         yy: yank
         zH: scroll-to-perc -x 0
         zL: scroll-to-perc -x
+        zc: set-cmd-text -s :session-save
         zh: scroll left
         zl: scroll right
+        zm: set-cmd-text -s :session-save
+        zo: set-cmd-text -s :session-load
+        zr: set-cmd-text -s :session-load
       passthrough:
         <Alt+x>: 'set-cmd-text :'
         <Ctrl+b>: fake-key <left><Ctrl+b>
