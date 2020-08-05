@@ -68,21 +68,6 @@ nnoremap <silent><expr> <c-w><space>^ ':<c-u>vs#'.   v:count .'<cr>'
 nnoremap <silent><expr> <c-w>g^       ':<c-u>tabe#'. v:count .'<cr>'
 nnoremap <silent><expr> <c-w>g^       ':<c-u>tabe#'. v:count .'<cr>'
 
-function! s:scratch(edit) abort "{{{2
-  "let prefix = '/tmp/foo.'
-  let prefix = tempname()
-  let ext = expand('%:e')
-  if empty(ext) | let ext = 'md' | endif
-
-  let path = prefix .'.'. ext
-  exe a:edit path
-endfunction
-
-nnoremap <silent> <c-w>N        :<c-u>call <SID>scratch('e')<cr>
-nnoremap <silent> <c-w>n        :<c-u>call <SID>scratch('sp')<cr>
-nnoremap <silent> <c-w><space>n :<c-u>call <SID>scratch('vs')<cr>
-nnoremap <silent> <c-w>gn       :<c-u>call <SID>scratch('tabe')<cr>
-
 " Close window {{{1
 if mapcheck('<c-w>q', 'n') ==# ''
   nnoremap <c-w>q <Nop>
