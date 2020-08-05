@@ -9,7 +9,9 @@
 "         \ ' :<c-u>call tagalong#Trigger("' . escape(native_key, '"') . '", v:count)<cr>'
 "   endfor
 let g:tagalong_mappings = [
+      \ {'"_s': '<space>s'},
       \ {'"_c': '<space>c'},
+      \ 's',
       \ 'c',
       \ 'C',
       \ 'i',
