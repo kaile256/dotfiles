@@ -37,7 +37,7 @@ let g:switch_custom_definitions += [
       \ [' + ', ' - '],
       \
       \ ['==', '!='],
-      \ ['first', 'second', 'third'],
+      \ ['first', 'second', 'third', 'last'],
       \
       \ ['private', 'public'],
       \
