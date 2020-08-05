@@ -3,6 +3,8 @@
 
 nnoremap <silent> <C-w>s :<C-u> SensibleSplit <CR>
 nnoremap <silent> <C-w>v :<C-u> SensibleSplit <CR>
+nnoremap <silent> <C-w>S :<C-u> abo SensibleSplit <CR>
+nnoremap <silent> <C-w>V :<C-u> abo SensibleSplit <CR>
 
 nmap gf <Plug>(sensible-gf)
 xmap gf <Plug>(sensible-gf)
