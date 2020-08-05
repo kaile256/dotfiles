@@ -18,11 +18,7 @@ function! s:scratch(open) abort
   "let prefix = '/tmp/foo.'
   let prefix = tempname()
   let ext = expand('%:e')
-  if empty(ext)
-    let ext = 'md'
-  endif
-
-  let path = prefix .'.'. ext
+  let path = prefix .'.'. (empty(ext) ? 'md' : ext)
   exe a:open path
 endfunction
 
