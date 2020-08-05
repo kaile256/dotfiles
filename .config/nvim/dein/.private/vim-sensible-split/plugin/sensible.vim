@@ -69,7 +69,7 @@ augroup END
 function! s:overwrite_p() abort
   if &modifiable && !&readonly | return | endif
   " esp. for fugitive
-  nnoremap <silent><buffer><nowait> p :<C-u>call sensible#gf#_Gopen()<CR>
+  nnoremap <silent><buffer><nowait> p :<C-u>call sensible#gf#_Gopen({})<CR>
 endfunction
 
 if &g:keywordprg ==# ':Man'
