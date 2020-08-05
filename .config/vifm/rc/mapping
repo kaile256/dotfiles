@@ -1,5 +1,10 @@
 " vim: ft=vifm:syn=vim
 
+" Note: modes for mapping
+" dmap: 'dialog' mode
+" mmap: 'menu' mode
+" qmap: 'view' mode
+
 " File Format:
 " :com[mand][!] command_name action
 " " The following macros can be used in a command
