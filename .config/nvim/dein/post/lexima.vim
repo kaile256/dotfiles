@@ -54,8 +54,9 @@ endfunction
 "   priority: the bigger, the higher priority; default as 0.
 
 " Rules for framework/library {{{1
-function! s:define_rules_for_react() abort
+function! s:define_rules_for_javascript() abort
   let rules = [
+        \ {'char': '<space>', 'input_after': ';', 'at': 'import\%#'},
         \ {'char': '<space>', 'input_after': ',',
         \     'at': ':\%#', 'except': '\%#.\+'},
         \ {'char': '<space>', 'input_after': ';',
@@ -71,8 +72,8 @@ function! s:define_rules_for_react() abort
 
   let s:user_rules += s:map_rules(rules, {'filetype': filetypes})
 endfunction
-call s:define_rules_for_react()
-delfunction s:define_rules_for_react
+call s:define_rules_for_javascript()
+delfunction s:define_rules_for_javascript
 
 " Rules for Semicolon {{{1
 function! s:define_rules_for_semicolon() abort
