@@ -4,6 +4,27 @@ scriptencoding utf-8
 inoremap <C-f> <C-g>U<Right>
 inoremap <C-b> <C-g>U<Left>
 
+function! s:copy_line(key) abort
+  let cur_lnum = line('.')
+  let lnum = cur_lnum + 1
+
+  if a:key ==# "\<C-y>"
+    let lnum = cur_lnum - 1
+  endif
+  let line = getline(lnum)
+
+  let cur_col = col('.')
+
+  let cnt = matchstrpos(line[cur_col :], '\s*\S\+')[2] + 1
+
+  let seq = repeat(a:key, cnt)
+
+  return seq
+endfunction
+
+inoremap <expr> <C-r><C-y> <SID>copy_line("\<lt>C-y>")
+inoremap <expr> <C-r><C-e> <SID>copy_line("\<lt>C-e>")
+
 function! s:jump_back(char) abort
   if search(a:char, 'bW')
     call feedkeys('i', 'n')
