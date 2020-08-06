@@ -28,6 +28,7 @@ PACKAGEs=(
   xorg-xinput # removed with `bmenu`
   lshw # removed with `bmenu`
 
+  python-pyperclip # code_select.py on qutebrowser
   xbindkeys # to disable middle to paste, but enable scroll.
   otf-nerd-fonts-fira-code
   docker-rootless
