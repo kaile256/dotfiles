@@ -63,7 +63,9 @@ function! s:define_rules_for_react() abort
         \ ]
 
   let filetypes = [
+        \ 'javascript',
         \ 'javascriptreact',
+        \ 'typescript',
         \ 'typescriptreact',
         \ ]
 
@@ -83,7 +85,9 @@ function! s:define_rules_for_semicolon() abort
 
   let filetypes_for_semicolon_rules = [
         \ 'cpp',
+        \ 'javascript',
         \ 'javascriptreact',
+        \ 'typescript',
         \ 'typescriptreact',
         \ ]
 
