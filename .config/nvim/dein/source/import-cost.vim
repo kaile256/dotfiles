@@ -3,6 +3,7 @@
 
 augroup myImportCostSo
   au BufWrite *.{js,jsx,ts,tsx} ImportCost
+  au BufWinEnter *.{js,jsx,ts,tsx} ImportCost
   au BufWinLeave *.{js,jsx,ts,tsx} silent! ImportCostClear
 augroup END
 
