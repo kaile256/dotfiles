@@ -59,3 +59,11 @@ if = 'has("nvim")'
 hook_done_update = 'call scnvim#install()'
 on_path = '\.scd\?$'
 
+#[ Web ]
+[[plugins]]
+repo = 'yardnsm/vim-import-cost'
+# shows how large files will be imported each lines in virtualtext; without
+# virtualtext-feature, it will open a window to show the info.
+build = 'npm install'
+on_path = ['*.js', '*.jsx','*.ts','*.tsx']
+hook_source = 'runtime source/import-cost.vim'
