@@ -93,10 +93,12 @@ lazy = 0
 [[plugins]]
 repo = 'billyvg/tigris.nvim'
 build = './install.sh'
-#depend = 'node-host'
-# Note: node-host, previously depended on, has been merged into neovim!
-#       Ref: neovim/neovim/pull/7458
-on_ft = ['javascript', 'javascript.jsx']
+on_ft = [
+  'javascript',
+  'javascriptreact',
+  'typescript',
+  'typescriptreact',
+]
 hook_source = 'runtime source/tigris.vim'
 
 #[[plugins]]
