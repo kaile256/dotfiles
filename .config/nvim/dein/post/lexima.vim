@@ -75,7 +75,7 @@ delfunction s:define_rules_for_react
 " Rules for Semicolon {{{1
 function! s:define_rules_for_semicolon() abort
   let rules_for_semicolon = [
-        \ {'char': '(', 'input_after': ');', 'at': 'return \%#'},
+        \ {'char': '<space>', 'input_after': ';', 'at': 'return\%#'},
         \ {'char': '<space>', 'input_after': ';',
         \     'at': '=\%#', 'except': '\%#.\+'},
         \ {'char': '<BS>', 'input': '<C-g>U<Del><BS>', 'at': '=\%#;'},
