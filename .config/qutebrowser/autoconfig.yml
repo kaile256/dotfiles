@@ -543,7 +543,7 @@ settings:
   session.default_name:
     global: default
   session.lazy_restore:
-    global: false
+    global: true
   spellcheck.languages:
     global:
     - en-US
