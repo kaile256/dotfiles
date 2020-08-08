@@ -215,6 +215,7 @@ settings:
         <Ctrl+w><Ctrl+v>: tab-clone
         <Ctrl+w><Ctrl+w>: devtools-focus
         <Ctrl+w>N: open -p
+        <Ctrl+w>O: session-save last;; window-only
         <Ctrl+w>Q: close
         <Ctrl+w>R: devtools right
         <Ctrl+w>T: tab-give
