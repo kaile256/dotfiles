@@ -90,6 +90,23 @@ repo = 'stevearc/vim-arduino'
 # includes syntax/ Ultisnips/(only extends cpp's)
 lazy = 0
 #[ Interpreter ]
+# [[plugins]]
+# repo = 'neoclide/vim-jsx-improve'
+# # includes motion mappings for '[[', '[]' and so on.
+# on_ft = [
+#   'javascript',
+#   'javascriptreact',
+#   'typescript',
+#   'typescriptreact',
+# ]
+# [[plugins]]
+# repo = 'othree/yajs.vim'
+# on_ft = [
+#   'javascript',
+#   'javascriptreact',
+#   'typescript',
+#   'typescriptreact',
+# ]
 [[plugins]]
 repo = 'billyvg/tigris.nvim'
 build = './install.sh'
