@@ -6,6 +6,8 @@ runtime once/smaps.vim
 
 hi! link snipLeadingSpaces NonText
 
+let s:snippets_dir = expand('$VIM_ANOTHER_HOME/UltiSnips/')
+
 augroup myUltisnipsSo
   au FileType snippets setlocal keywordprg=:help
   au FileType snippets let &l:path = join([
@@ -38,9 +40,9 @@ nnoremap <C-]> <Nop>
 let g:UltiSnipsJumpBackwardTrigger = '<C-[>'
 
 let g:UltiSnipsSnippetDirectories = [
+      \ s:snippets_dir,
       \ 'UltiSnips',
       \ expand('$DEIN_GITHUB_DIR/honza/vim-snippets/UltiSnips'),
-      \ expand('$VIM_ANOTHER_HOME/UltiSnips'),
       \ ]
 
 let g:UltiSnipsRemoveSelectModeMappings = 0
