@@ -35,8 +35,9 @@ function! s:set_color() abort
         \ 'white',
         \ 'magenta',
         \ 'orange',
-        \ 'green',
+        \ 'blue',
         \ 'brown',
+        \ 'green',
         \ 'yellow',
         \ ]
 
@@ -46,6 +47,8 @@ function! s:set_color() abort
   let cterm2gui = {
         \ 'white': 233,
         \ 'magenta': 'Magenta3 gui=bold',
+        \ 'blue': ['blue', 'DeepSkyBlue1 gui=bold'],
+        \ 'turquoise': ['Cyan', 'Turquoise gui=bold'],
         \ 'orange': ['Red', 'DarkOrange'],
         \ 'green': ['Green cterm=bold', 'SeaGreen3 gui=bold'],
         \ 'brown': 'Brown3 gui=bold',
