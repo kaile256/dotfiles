@@ -340,6 +340,7 @@ let s:user_rules += [
 let s:before_close = '\%#[])}`''"]'
 let s:before_paren = '\%#[])}]'
 let s:before_quote = '\%#[''"`]'
+let s:before_close_within_paren = s:before_close .'.*\v([[({])@<!.*[])}]'
 
 let s:user_rules += [
       \
@@ -347,7 +348,8 @@ let s:user_rules += [
       \
       \ {'char': '<C-=>', 'at': '\%#.', 'input': '<C-g>U<Right> = '},
       \
-      \ {'char': '<C-,>', 'at': s:before_close, 'input': '<C-g>U<Right>, '},
+      \ {'char': '<C-,>', 'at': s:before_close, 'input': '<C-g>U<Right>,'},
+      \ {'char': '<C-,>', 'at': s:before_close_within_paren, 'input': '<C-g>U<Right>, '},
       \ {'char': '<C-:>', 'at': s:before_close, 'input': '<C-g>U<Right>: '},
       \ {'char': '<C-.>', 'at': s:before_paren, 'input': '<C-g>U<Right>.'},
       \ {'char': '<C-.>', 'at': s:before_quote, 'input': '<C-g>U<Right>. '},
