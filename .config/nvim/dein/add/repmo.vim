@@ -25,3 +25,7 @@ sunmap F
 sunmap t
 sunmap T
 
+nnoremap <silent> <Plug>(next-TODO) :<C-u>call search('TODO:', '')<CR>
+nnoremap <silent> <Plug>(prev-TODO) :<C-u>call search('TODO:', 'b')<CR>
+nmap <expr> [T repmo#Key('<Plug>(prev-TODO)', '<Plug>(next-TODO)')
+nmap <expr> ]T repmo#Key('<Plug>(next-TODO)', '<Plug>(prev-TODO)')
