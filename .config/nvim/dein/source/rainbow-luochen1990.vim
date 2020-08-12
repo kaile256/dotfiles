@@ -2,8 +2,6 @@
 " Repo: luochen1990/rainbow
 " Another: add/rainbow-luochen1990.vim
 
-let g:rainbow_active = 1
-
 " Ref: luochen1990/rainbow/autoload/rainbow_main.vim #3
 let g:rainbow_conf = {}
 
