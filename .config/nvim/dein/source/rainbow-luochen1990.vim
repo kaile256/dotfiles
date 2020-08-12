@@ -54,9 +54,15 @@ function! s:set_color() abort
   let g:rainbow_conf.guifgs   = []
   for color_name in colors_order
     let color = cterm2gui[color_name]
-    let idx4gui = len(color) == 1 ? 0 : 1
-    let [ctermfg, guifg] = [color[0], color[idx4gui]]
+    if type(color) == type([])
+      let idx4gui = len(color) == 1 ? 0 : 1
+      let [ctermfg, guifg] = [color[0], color[idx4gui]]
+    else
+      " Set identical values here if not a list; modify them later.
+      let [ctermfg, guifg] = [color, color]
+    endif
 
+    let ctermfg = substitute(ctermfg, '\a\zs\d\+', '', 'g')
     let ctermfg = substitute(ctermfg, 'gui=', 'cterm=', 'g')
     let guifg   = substitute(guifg, 'cterm=', 'gui=', 'g')
 
