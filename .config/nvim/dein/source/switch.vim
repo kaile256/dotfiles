@@ -23,6 +23,7 @@ let g:switch_custom_definitions += [
 
 let g:switch_custom_definitions += [
       \ ['horizontal', 'vertical'],
+      \ ['Enter', 'Leave'],
       \ ]
 
 let g:switch_custom_definitions += [
