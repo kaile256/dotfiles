@@ -1,5 +1,13 @@
 " From: init.vim
 
+augroup myRestoreCursor
+  " Note: `:normal` regards following `| endif` as its argument.
+  au BufReadPost * if &ft !~# 'commit'
+       \ && line("'\"") >= 1 && line("'\"") <= line('$') |
+       \ exe 'norm! g`"'
+       \ | endif
+augroup END
+
 augroup myAugroups
   " AutoWinResize "{{{1
   au VimResized * wincmd =
