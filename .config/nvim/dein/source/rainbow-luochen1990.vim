@@ -41,12 +41,14 @@ function! s:set_color() abort
         \ ]
 
   " Ref: $VIMRUNTIME/rgb.txt
+  " Note: Value can be a list with two different values like
+  " `'yellow': ['Yellow', 'FireBrick3 gui=bold']`.
   let cterm2gui = {
-        \ 'white': [233, 233],
-        \ 'magenta': ['Magenta cterm=bold', 'Magenta3 gui=bold'],
+        \ 'white': 233,
+        \ 'magenta': 'Magenta3 gui=bold',
         \ 'orange': ['Red', 'DarkOrange'],
         \ 'green': ['Green cterm=bold', 'SeaGreen3 gui=bold'],
-        \ 'brown': ['Brown cterm=bold', 'Brown3 gui=bold'],
+        \ 'brown': 'Brown3 gui=bold',
         \ 'yellow': ['Yellow', 'FireBrick3 gui=bold'],
         \ }
 
