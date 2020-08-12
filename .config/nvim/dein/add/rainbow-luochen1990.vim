@@ -3,7 +3,7 @@
 " Another: source/rainbow-luochen1990.vim
 
 augroup myRainbowLuochen1990Source
-  au!
-  " use g:rainbow_active instead
+  " disable autocmds in the plugin which belongs to no augroup.
+  let g:rainbow_active = 1
   au Syntax,ColorScheme * ++nested call rainbow_main#load()
 augroup END
