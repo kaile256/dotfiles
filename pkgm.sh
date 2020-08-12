@@ -346,6 +346,7 @@ REMOVEs=(
   manjaro-ranger-settings
   morc_menu # dmenu on bash
   mousepad # default editor for Xfce
+  volumeicon # icon for tray
 )
 
 export grep=$(type rg >/dev/null 2>&1 && echo rg || echo grep)
