@@ -7,7 +7,7 @@
 " default: .,/usr/include,,
 " '.': relative to the directory of the current file
 " '':  current directory; keep empty between two commas (i.e., set path+=,,)
-set path=./**,/etc
+set path=/etc
 set isfname-=,
 set isfname-==
 
