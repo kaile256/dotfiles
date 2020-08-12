@@ -64,5 +64,6 @@ function! s:set_color() abort
     call add(g:rainbow_conf.guifgs,   guifg)
   endfor
 endfunction
+" Some cterm color could cause error E421.
 call s:set_color()
 delfunction s:set_color
