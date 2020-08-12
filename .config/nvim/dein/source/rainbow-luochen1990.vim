@@ -54,8 +54,14 @@ function! s:set_color() abort
   let g:rainbow_conf.guifgs   = []
   for color_name in colors_order
     let color = cterm2gui[color_name]
-    call add(g:rainbow_conf.ctermfgs, color[0])
-    call add(g:rainbow_conf.guifgs,   color[1])
+    let idx4gui = len(color) == 1 ? 0 : 1
+    let [ctermfg, guifg] = [color[0], color[idx4gui]]
+
+    let ctermfg = substitute(ctermfg, 'gui=', 'cterm=', 'g')
+    let guifg   = substitute(guifg, 'cterm=', 'gui=', 'g')
+
+    call add(g:rainbow_conf.ctermfgs, ctermfg)
+    call add(g:rainbow_conf.guifgs,   guifg)
   endfor
 endfunction
 call s:set_color()
