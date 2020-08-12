@@ -39,6 +39,7 @@ let s:colors_order = [
       \ 'yellow',
       \ ]
 
+" Ref: $VIMRUNTIME/rgb.txt
 let s:cterm2gui = {
       \ 'white': [233, 233],
       \ 'magenta': ['Magenta cterm=bold', 'Magenta3 gui=bold'],
