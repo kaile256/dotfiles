@@ -11,8 +11,9 @@ let s:snippets_dir = expand('$VIM_ANOTHER_HOME/UltiSnips/')
 augroup myUltisnipsSo
   au FileType snippets setlocal keywordprg=:help
   au FileType snippets let &l:path = join([
-        \ $VIM_ANOTHER_HOME,
+        \ s:snippets_dir,
         \ $NVIM_CONFIG_HOME,
+        \ $VIM_ANOTHER_HOME,
         \ $DEIN_GITHUB_DIR,
         \ ], '**,') .'**'
   au FileType snippets setlocal suffixesadd=.snippets
