@@ -30,29 +30,32 @@ let g:rainbow_conf.separately = {
 
 " Set colors {{{1
 
-let s:colors_order = [
-      \ 'white',
-      \ 'magenta',
-      \ 'orange',
-      \ 'green',
-      \ 'brown',
-      \ 'yellow',
-      \ ]
+function! s:set_color() abort
+  let colors_order = [
+        \ 'white',
+        \ 'magenta',
+        \ 'orange',
+        \ 'green',
+        \ 'brown',
+        \ 'yellow',
+        \ ]
 
-" Ref: $VIMRUNTIME/rgb.txt
-let s:cterm2gui = {
-      \ 'white': [233, 233],
-      \ 'magenta': ['Magenta cterm=bold', 'Magenta3 gui=bold'],
-      \ 'orange': ['Red', 'DarkOrange'],
-      \ 'green': ['Green cterm=bold', 'SeaGreen3 gui=bold'],
-      \ 'brown': ['Brown cterm=bold', 'Brown3 gui=bold'],
-      \ 'yellow': ['Yellow', 'FireBrick3 gui=bold'],
-      \ }
+  " Ref: $VIMRUNTIME/rgb.txt
+  let cterm2gui = {
+        \ 'white': [233, 233],
+        \ 'magenta': ['Magenta cterm=bold', 'Magenta3 gui=bold'],
+        \ 'orange': ['Red', 'DarkOrange'],
+        \ 'green': ['Green cterm=bold', 'SeaGreen3 gui=bold'],
+        \ 'brown': ['Brown cterm=bold', 'Brown3 gui=bold'],
+        \ 'yellow': ['Yellow', 'FireBrick3 gui=bold'],
+        \ }
 
-let g:rainbow_conf.ctermfgs = []
-let g:rainbow_conf.guifgs   = []
-for s:color in s:colors_order
-  call add(g:rainbow_conf.ctermfgs, s:cterm2gui[s:color][0])
-  call add(g:rainbow_conf.guifgs,   s:cterm2gui[s:color][1])
-endfor
-unlet s:cterm2gui s:colors_order s:color
+  let g:rainbow_conf.ctermfgs = []
+  let g:rainbow_conf.guifgs   = []
+  for color_name in colors_order
+    call add(g:rainbow_conf.ctermfgs, cterm2gui[color_name][0])
+    call add(g:rainbow_conf.guifgs,   cterm2gui[color_name][1])
+  endfor
+endfunction
+call s:set_color()
+delfunction s:set_color
