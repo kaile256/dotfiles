@@ -55,7 +55,7 @@ let g:lightline.active = {
       \ 'right': [
       \   ['percent'],
       \   ['lineinfo'],
-      \   ['fileformat', 'fileencoding', 'filetype'],
+      \   ['indent', 'fileformat', 'fileencoding', 'filetype'],
       \   ['notification'],
       \ ],
       \ }
@@ -152,6 +152,7 @@ let g:lightline.component_function = {
       \ 'notification': 'LL_notification',
       \
       \ 'filetype': 'LL_filetype',
+      \ 'indent': 'LL_indent',
       \
       \ 'cwd': 'LL_getcwd',
       \
@@ -187,6 +188,29 @@ let LL_tab_indicator = {-> tabpagenr('$') == 1 ? 'tab' : '['. tabpagenr() .'/'. 
 
 let LL_vista = {-> get(b:, 'vista_nearest_method_or_function', '')}
 
+function! LL_indent() abort
+  " Both &l:sw and &l:sts is possibly always different from their global value.
+  let options = ['tw', 'et', 'ts']
+  let cur_options = ''
+
+  for opt in options
+    exe 'let lval = &l:'. opt
+    exe 'let gval = &g:'. opt
+    if lval == gval | continue | endif
+
+    let cur_options .= opt .'='. lval .' '
+  endfor
+
+  if &g:sw == 0 && &ts != &sw
+    let cur_options .= 'sw='. &sw .' '
+  endif
+
+  if &g:sts < 0 && &sts != &sw
+    let cur_options .= 'sts='. &sts .' '
+  endif
+
+  return cur_options
+endfunction
 function! LL_readonly() abort "{{{3
   if &bt !=# ''
     return ''
