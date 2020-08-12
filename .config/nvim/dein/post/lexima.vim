@@ -218,7 +218,7 @@ let s:user_rules += [
       \ {'char': '<BS>', 'at': '{\%#}',   'input': '<BS><C-g>U<Del>'},
       \ {'char': '<BS>', 'at': '\[\%#\]', 'input': '<BS><C-g>U<Del>'},
       \ {'char': '<BS>', 'at': '<\%#>',   'input': '<BS><C-g>U<Del>'},
-      \ {'char': '<BS>', 'at': '\s\%#\s', 'input': '<BS><C-g>U<Del>'},
+      \ {'char': '<BS>', 'at': '\W\s\%#\s\W', 'input': '<BS><C-g>U<Del>'},
       \
       \ {'char': '<BS>', 'at': "'\\%#'", 'input': '<BS><C-g>U<Del>'},
       \ {'char': '<BS>', 'at': '"\%#"',  'input': '<BS><C-g>U<Del>'},
@@ -311,6 +311,22 @@ let s:user_rules += [
       \ {'char': '<Space>', 'at': '\[\%#]',    'input_after': '<Space>'},
       \ {'char': '<Space>', 'at': '/\*\%#\*/', 'input_after': '<Space>'},
       \ ]
+
+let s:user_rules += [{
+      \ 'char': '<Space>',
+      \ 'input': ' (', 'input_after': ')',
+      \ 'at': '\(if\|for\|while\)\%#',
+      \ 'syntax': ['Conditional', 'Repeat'],
+      \ 'filetype': [
+      \   'cpp',
+      \   'c',
+      \   'javascript',
+      \   'javascriptreact',
+      \   'typescript',
+      \   'typescriptreact',
+      \   'php'
+      \ ],
+      \ }]
 
 " Addtional Rules to Skip Out; break repeat {{{1
 " Note: 'leave' seems to make 'input' and 'input_after' fail
@@ -470,10 +486,6 @@ let s:key2rules_for_cpp['<Space>'] = [
       \
       \ {'input': ' >> ',  'at': 'cin.*[^> ]\+\%#', 'except': '\v(;.*%#|%#.*[^;\]\)])'},
       \ {'input': ' << ', 'at': 'cout.*[^< ]\+\%#', 'except': '\v(;.*%#|%#.*[^;\]\)])'},
-      \
-      \ {'input': ' (', 'input_after': ')',
-      \     'at': '\(if\|for\|while\)\%#',
-      \     'syntax': ['cConditional', 'cRepeat']},
       \ ]
 
 let s:key2rules_for_cpp['<C-space>'] = [
