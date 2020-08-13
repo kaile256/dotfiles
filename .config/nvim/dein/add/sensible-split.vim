@@ -25,3 +25,48 @@ endfunction
 nnoremap <silent> <c-w>n :<c-u>call <SID>scratch(sensible#split())<cr>
 nmap <c-w><C-n> <c-w>n
 
+augroup mySensibleSplitAdd
+  au BufNewFile,BufRead *.{j,t}s{,x} call s:mappings_nextjs()
+  function! s:mappings_nextjs() abort
+    " Motivation: `gf` will resolve most of relative path via &includeexpr;
+    " however, `gf` on '/' brings me to the root of filesystem without this
+    " wrapper.
+
+    let mappings = {
+          \ 'gf': 'find',
+          \ '<C-w>f':     'SensibleMods sfind',
+          \ '<C-w><C-f>': 'SensibleMods sfind',
+          \ }
+
+    let root_dir = FindRootDirectory()
+    let index = root_dir .'/pages/index'
+    let map_args = '<buffer><silent><nowait><expr>'
+
+    for lhs in keys(mappings)
+      let map = 'nnoremap'
+      let map_info = maparg(lhs, 'n', 0, 1)
+
+      if empty(map_info)
+        let rhs = lhs
+      elseif map_info['buffer'] == 1
+        " Stop recursive mappings.
+        continue
+      else
+        if map_info['noremap'] == 0
+          let map = 'nmap'
+        endif
+        let rhs = map_info['rhs']
+      endif
+
+      let map .= ' '. map_args
+      let rhs_for_index = ':<C-u>'. mappings[lhs] .' '. index .'<CR>'
+      let is_cfile_root = 'expand("<cfile>") ==# "/"'
+
+      let rhs = is_cfile_root
+            \ .' ? '. string(rhs_for_index)
+            \ .' : '. string(rhs)
+
+      exe map lhs rhs
+    endfor
+  endfunction
+augroup END
