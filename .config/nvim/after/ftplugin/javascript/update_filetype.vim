@@ -14,3 +14,5 @@ function! s:detect_react() abort
     exe 'set ft='. &ft .'react'
   endif
 endfunction
+
+call s:detect_react()
