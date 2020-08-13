@@ -595,6 +595,7 @@ settings:
       mf: https://github.com/search?o=desc&q={}&s=forks&type=Repositories
       ms: https://github.com/search?o=desc&q={}&s=stars&type=Repositories
       note: https://note.com/search?context=note&mode=search&q={}
+      nxt: https://nextjs.org/docs/api-reference/next/{}
       pk: https://app.getpocket.com/search/{}
       pyd: https://docs.python.org/3/search.html?q={}&check_keywords=yes&area=default
       pyr: https://docs.python.org/3/search.html?q={}
