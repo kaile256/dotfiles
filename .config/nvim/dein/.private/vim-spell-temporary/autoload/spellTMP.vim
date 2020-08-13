@@ -56,8 +56,12 @@ function! spellTMP#spell_suggestion(mode) "{{{1
   let Start_spell_suggestion = 'call feedkeys("\<C-x>s", "n")'
   exe Start_spell_suggestion
 
-  " Note: <C-x>s once remove current word
-  call feedkeys("\<C-n>\<C-p>", 'n')
+  if winsaveview() == save_view
+    " Note: <C-x>s once remove current word
+    let Restore_words = 'call feedkeys("\<C-n>\<C-p>", "n")'
+    exe Restore_words
+    return
+  endif
 endfunction
 
 function! s:overwrite_the_augroup() abort "{{{1
