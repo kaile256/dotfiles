@@ -70,7 +70,9 @@ endfunction
 
 function! s:get_end_of_word(mode) "{{{1
   " signs which can be inserted between chars
-  let word_boundary = '\w\+'
+
+  let pats_word_boundary = ['\l\+', '\u\{3,}']
+  let word_boundary = join(pats_word_boundary, '\|')
   call search(word_boundary, 'ce')
   if a:mode =~# '[nx]'
     " startinsert will start at the left of the cursor position
