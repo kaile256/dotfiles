@@ -145,9 +145,9 @@ augroup END
 " "set equalprg=CocActionAsync('formatSelected')
 " "set equalprg=CocActionAsync('codeLensAction')
 " nnoremap \A :call CocActionAsync('codeLensAction')<cr>
-" nmap \aa <Plug>(coc-codeaction)
-" nmap \a  <Plug>(coc-codeaction-selected)
-" xmap \a  <Plug>(coc-codeaction-selected)
+nmap \aa <Plug>(coc-codeaction)
+nmap \a  <Plug>(coc-codeaction-selected)
+xmap \a  <Plug>(coc-codeaction-selected)
 
 " CocWorkspace {{{1
 command! -bar Rename :CocCommand workspace.renameCurrentFile
