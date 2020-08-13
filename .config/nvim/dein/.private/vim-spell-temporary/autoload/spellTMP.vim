@@ -62,6 +62,9 @@ function! spellTMP#spell_suggestion(mode) "{{{1
     exe Restore_words
     return
   endif
+
+  " FIXME: Restore cursor position esp. when `<C-x>s` moves cursor in Comment.
+  call winrestview(save_view)
 endfunction
 
 function! s:overwrite_the_augroup() abort "{{{1
