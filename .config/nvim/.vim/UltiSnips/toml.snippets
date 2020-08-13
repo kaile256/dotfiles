@@ -41,7 +41,7 @@ on_cmd = '${1:`!v snip#vim#name_of_plugin()`}'
 endsnippet
 
 snippet on_path "on_path" b
-on_path = '${0:#:\.ext (conpared in "=~#"}'
+on_path = [${1:'\.js$', '\.jsx$', '\.ts$', '\.tsx$'}]
 endsnippet
 
 snippet on_source "[dein] load the plugin before the listed plugins're loaded" b
