@@ -13,18 +13,18 @@ on_cmd = ['GHInteractive', 'GBInteractive']
 [[plugins]]
 repo = 'kdheepak/lazygit.nvim'
 on_cmd = 'LazyGit'
-[[plugins]]
-repo = 'iberianpig/tig-explorer.vim'
-# Neovim seems to have no problems with nvr.
-if = '!has("nvim")'
-# no nest of vim-tig-vim-tig-... using host vim process
-on_cmd = [
-  'TigOpenCurrentFile',
-  'TigOpenProjectRootDir',
-  'TigGrep',
-  'TigBlame',
-]
-hook_source = 'runtime source/tig-explorer.vim'
+# [[plugins]]
+# repo = 'iberianpig/tig-explorer.vim'
+# # Neovim seems to have no problems with nvr.
+# if = '!has("nvim")'
+# # no nest of vim-tig-vim-tig-... using host vim process
+# on_cmd = [
+#   'TigOpenCurrentFile',
+#   'TigOpenProjectRootDir',
+#   'TigGrep',
+#   'TigBlame',
+# ]
+# hook_source = 'runtime source/tig-explorer.vim'
 # [[plugins]]
 # repo = 'rbgrouleff/bclose.vim'
 # if = 'has("nvim")'
