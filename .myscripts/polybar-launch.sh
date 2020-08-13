@@ -5,6 +5,8 @@
 
 set -Cue
 
+LOG_ROOT="/var/tmp"
+
 BARNAME=(
   main   # /tmp/polybar-main.log
   #top    # /tmp/polybar-top.log
@@ -32,7 +34,7 @@ __launch_with_log() {
   local DATE
 
   for b in "${BARNAME[@]}"; do
-    LOG="/tmp/polybar-${b}.log"
+    LOG="$LOG_ROOT/polybar-${b}.log"
     DATE=$(date '+%T')
 
     echo "                          at $DATE Polybar Launching..." >> "$LOG" 2>&1
