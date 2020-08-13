@@ -1,7 +1,7 @@
 setlocal include=from
 
 " '@' represents  [a-zA-Z] and some others with which isalpha() returns true.
-" setlocal isfname+=@-@
+setlocal isfname+=@-@
 
 setlocal suffixesadd+=.js
 setlocal suffixesadd+=.jsx
