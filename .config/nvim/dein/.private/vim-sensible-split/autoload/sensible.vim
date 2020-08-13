@@ -62,7 +62,7 @@ function! sensible#_split(bang)
 
   let split = sensible#split()
   if split =~? 'tabnew\|tabe\%[dit]'
-    return a:bang ? 'split | wincmd T | vsplit' : 'tabe'
+    return a:bang ? 'split | wincmd T | vsplit' : 'tabe %'
   endif
 
   return split
