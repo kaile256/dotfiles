@@ -8,7 +8,7 @@ augroup myRooterAdd-updatePathToFind
     let root_dir = FindRootDirectory()
     if &l:path =~# root_dir | return | endif
     if root_dir ==# $HOME || root_dir ==# '/' | return | endif
-    let &l:path = root_dir .'/**,'. &path
+    exe 'setlocal path^='. root_dir .'/**'
   endfunction
 augroup END
 
