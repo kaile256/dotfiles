@@ -232,24 +232,28 @@ let s:user_rules += [
       \ {'char': '<BS>', 'at': '\[\%#],', 'input': '<BS><C-g>U<Del><C-g>U<Del>'},
       \ ]
 
-" Note: The '.' in `:s/pattern/` is required for <C-u>.
-" Note: s:remove_close . '<C-w>' fails to insert again to <C-w>.
-let s:following_ends = '\%#[a-zA-Z \t_]*\zs\s\{-}[\]})>''"`]*'
-let s:end_with_separator = '[,;:]\?'
-let s:following_ends_with_separator = s:following_ends . s:end_with_separator
-let s:Remove_close =
-      \ {pat -> ':silent! keepjumps keeppatterns s/'. pat .'//e<CR>gi'}
+function! s:define_rules_to_kill_words() abort
+  " Note: The '.' in `:s/pattern/` is required for <C-u>.
+  " Note: s:remove_close . '<C-w>' fails to insert again to <C-w>.
+  let following_ends = '\%#[a-zA-Z \t_]*\zs\s\{-}[\]})>''"`]*'
+  let end_with_separator = '[,;:]\?'
+  let following_ends_with_separator = following_ends . end_with_separator
+  let s:Remove_close =
+        \ {pat -> ':silent! keepjumps keeppatterns s/'. pat .'//e<CR>gi'}
 
-let s:user_rules += [
-      \ {'char': '<C-w>', 'at': '[\[({]\s*\%#',
-      \   'input': '<C-w><Esc>'. s:Remove_close(s:following_ends)},
-      \ {'char': '<C-w>', 'at': '\(^\s*\w*\|=\)\%#',
-      \   'input': '<C-w><Esc>'. s:Remove_close(s:end_with_separator)},
-      \ {'char': '<C-u>', 'input': '<C-u><Esc>'.
-      \   s:Remove_close(s:following_ends_with_separator)},
-      \ ]
-unlet s:following_ends s:end_with_separator s:following_ends_with_separator
-unlet s:Remove_close
+  let s:user_rules += [
+        \ {'char': '<C-w>', 'at': '[\[({]\s*\%#',
+        \   'input': '<C-w><Esc>'. s:Remove_close(following_ends)},
+        \ {'char': '<C-w>', 'at': '\(^\s*\w*\|=\)\%#',
+        \   'input': '<C-w><Esc>'. s:Remove_close(end_with_separator)},
+        \ {'char': '<C-u>', 'input': '<C-u><Esc>'.
+        \   s:Remove_close(following_ends_with_separator)},
+        \ ]
+
+  unlet s:Remove_close
+endfunction
+call s:define_rules_to_kill_words()
+delfunction s:define_rules_to_kill_words
 
 let s:Joinspaces = '<Esc>:<C-u>norm! kgJgJ<CR>gi'
 
