@@ -6,3 +6,20 @@ constructor(${1:args}) {
   $2;
 }
 endsnippet
+
+snippet () "arrow function" w
+(${1:args}) => {${2:expr}}
+endsnippet
+
+snippet else "} else {" b
+} else {
+endsnippet
+
+snippet import "import $1 from $2" b
+import ${1:Components} from '${2:path}'
+endsnippet
+
+snippet function "function $1($2) {}" b
+function ${1:Funcname}(${2:args}) {$0
+}
+endsnippet
