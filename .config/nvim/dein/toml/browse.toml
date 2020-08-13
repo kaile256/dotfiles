@@ -167,11 +167,11 @@ hook_source = 'runtime source/tree.vim'
 #on_event = 'BufRead'
 #hook_post_source = 'runtime add/ranger.vim'
 
-#[[plugins]]
-#repo = 'francoiscabrol/ranger.vim'
-## semms only call the external ranger.
-#on_event = 'BufRead'
-#hook_post_source = 'runtime add/ranger.vim'
+[[plugins]]
+repo = 'francoiscabrol/ranger.vim'
+# semms only call the external ranger.
+on_event = 'Ranger'
+hook_add = 'runtime add/ranger.vim'
 
 #[ CTags/global ]
 #[[plugins]]
