@@ -152,6 +152,7 @@ on_ft = [
   'javascriptreact',
   'typescriptreact',
 ]
+on_path = ['\.js$', '\.jsx$', '\.ts$', '\.tsx$']
 hook_source = 'runtime source/tagalong.vim'
 # [[plugins]]
 # # repo = 'alvan/vim-closetag'
