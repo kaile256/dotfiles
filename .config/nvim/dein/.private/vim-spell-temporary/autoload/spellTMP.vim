@@ -47,7 +47,8 @@ function! spellTMP#spell_suggestion(mode) "{{{1
   endif
 
   " Note: '<C-x>s' forces to take cursor back to the last misspelled word.
-  call feedkeys("\<C-x>s", 'n') " start spell-completion
+  let Start_spell_suggestion = 'call feedkeys("\<C-x>s", "n")'
+  exe Start_spell_suggestion
 
   " Note: <C-x>s once remove current word
   call feedkeys("\<C-n>\<C-p>", 'n')
