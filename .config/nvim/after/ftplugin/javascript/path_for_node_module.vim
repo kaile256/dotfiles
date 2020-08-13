@@ -20,5 +20,8 @@ function! NodeInclude(fname) abort
           \ '^\~sass/\\(.*\\)/\\(.*\\)$', 'resources/assets/sass/\\1/_\\2','')
   endif
 
-  return substitute(a:fname, '^\/', '', '')
+  let fname = a:fname
+  let fname = substitute(fname, '@$',  '', '')
+  let fname = substitute(fname, '^\/', '', '')
+  return fname
 endfunction
