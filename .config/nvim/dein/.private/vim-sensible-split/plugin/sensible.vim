@@ -37,13 +37,13 @@ let g:sensible#gf#preview_filetypes = get(g:, 'sensible#gf#preview_filetypes', [
 
 command! -bar -bang -nargs=*
       \ SensibleSplit
-      \ :exe <q-mods> sensible#_split('<bang>0') <q-args>
+      \ :exe <q-mods> sensible#_split(<bang>0) <q-args>
 command! -bar -bang -nargs=*
       \ SensibleNew
-      \ :exe <q-mods> sensible#_new('<bang>0') <q-args>
+      \ :exe <q-mods> sensible#_new(<bang>0) <q-args>
 command! -bar -bang -nargs=+ -complete=command
       \ SensibleMods
-      \ :exe <q-mods> sensible#_mods('<bang>0', <q-args>)
+      \ :exe <q-mods> sensible#_mods(<bang>0, <q-args>)
 
 command! -bar -bang -nargs=? -complete=help
       \ SensibleHelp
