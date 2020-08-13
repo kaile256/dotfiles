@@ -40,7 +40,7 @@ lazy = 0
 #[ Colorscheme.monokai ]
 [[plugins]]
 repo = 'tomasr/molokai'
-on_event = 'VimEnter'
+lazy = 0
 #[[plugins]]
 #repo = 'phanviet/vim-monokai-pro'
 ## purple-base monokai.
@@ -57,7 +57,7 @@ on_event = 'VimEnter'
 #on_event = ['VimEnter']
 [[plugins]]
 repo = 'sainnhe/sonokai'
-on_event = ['VimEnter']
+lazy = 0
 hook_source = 'runtime source/sonokai.vim'
 #hook_post_source = 'runtime post/sonokai.vim'
 
