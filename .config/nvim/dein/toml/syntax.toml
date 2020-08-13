@@ -96,7 +96,7 @@ repo = 'neoclide/vim-jsx-improve'
 on_path = ['\.js$', '\.jsx$']
 on_ft = [
   'javascript',
-  'javascript.tsx',
+  'javascript.jsx',
   'javascriptreact',
 ]
 # [[plugins]]
