@@ -8,6 +8,11 @@ augroup myRestoreCursor
        \ | endif
 augroup END
 
+augroup mySetReadonly
+  au BufWinEnter *.{ico,icns} setlocal readonly nomodifiable
+  au BufWinEnter *.{jpg,jpeg,png,gif} setlocal readonly nomodifiable
+augroup END
+
 augroup myAugroups
   " AutoWinResize "{{{1
   au VimResized * wincmd =
