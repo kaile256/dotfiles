@@ -10,6 +10,9 @@
 set path=/etc
 set isfname-=,
 set isfname-==
+set isfname+=@-@
+
+let &g:includeexpr = 'substitute(v:fname, "@$", "", "")'
 
 augroup myFindPathRc
   au FileType sh setl path^=/usr/bin/
