@@ -91,6 +91,9 @@ repo = 'stevearc/vim-arduino'
 lazy = 0
 #[ Interpreter ]
 [[plugins]]
+repo = 'alampros/vim-styled-jsx'
+on_path = ['\.js$', '\.jsx$', '\.ts$', '\.tsx$']
+[[plugins]]
 repo = 'neoclide/vim-jsx-improve'
 # includes motion mappings for '[[', '[]' and so on.
 on_path = ['\.js$', '\.jsx$']
