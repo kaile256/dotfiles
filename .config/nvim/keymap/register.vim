@@ -45,11 +45,10 @@ xnoremap <s-space>p "0]p
 xnoremap <s-space>P "0]P
 
 " Black-Hole Register {{{1
-omap <silent><expr> k
-      \ (v:operator ==# 'd')
-      \     ? 'd'. (line('.') == line('$') ? 'k' : 'kk')
-      \         .':silent! call repeat#set("dk")<CR>'
-      \     : 'k'
+nnoremap <silent><expr> dk
+      \ 'd'.
+      \ (line('.') == line('$') ? 'k' : 'kk')
+      \ .':silent! call repeat#set("dk")<CR>'
 
 " nnoremap <expr> d (v:register ==# '"') ? '"_d' : 'd'
 " nnoremap <expr> D (v:register ==# '"') ? '"_D' : 'D'
