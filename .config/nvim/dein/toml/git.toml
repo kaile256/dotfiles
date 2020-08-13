@@ -25,10 +25,10 @@ on_cmd = 'LazyGit'
 #   'TigBlame',
 # ]
 # hook_source = 'runtime source/tig-explorer.vim'
-# [[plugins]]
-# repo = 'rbgrouleff/bclose.vim'
-# if = 'has("nvim")'
-# on_source = 'tig-explorer.vim'
+[[plugins]]
+repo = 'rbgrouleff/bclose.vim'
+if = 'has("nvim")'
+on_source = ['tig-explorer.vim', 'ranger.vim']
 # [[plugins]]
 # repo = 'jreybert/vimagit'
 # on_cmd =  'Magit'
