@@ -63,10 +63,6 @@ hook_source = 'runtime source/clap.vim'
 
 #[ Filer ]
 [[plugins]]
-repo = 'ipod825/vim-netranger'
-on_cmd = ['NETRemoteList', 'NETRemotePush', 'NETRemotePull']
-hook_add = 'runtime add/netranger.vim'
-[[plugins]]
 repo = 'zgpio/tree.nvim'
 # Note: written in cpp!
 rtp = 'runtime'
@@ -160,10 +156,10 @@ hook_source = 'runtime source/tree.vim'
 #hook_add = 'runtime add/neoranger.vim'
 
 #[[plugins]]
-#repo = 'ipod825/vim-netranger'
-## Browser for system/cloud storage
-#on_event = 'BufRead'
-#hook_post_source = 'runtime add/netranger.vim'
+# repo = 'ipod825/vim-netranger'
+# # Browser for system/cloud storage
+# on_cmd = ['NETRemoteList', 'NETRemotePush', 'NETRemotePull']
+# hook_add = 'runtime add/netranger.vim'
 
 #[[plugins]]
 #repo = 'rafaqz/ranger.vim'
