@@ -6,6 +6,16 @@ lazy = 0
 [[plugins]]
 repo = 'thinca/vim-operator-sequence'
 lazy = 0
+[[plugins]]
+repo = 'osyo-manga/vim-operator-exec_command'
+# Ref: https://bit.ly/3fOqC1L
+# -- Blog: operator-gn to dot-repeat
+# Note: `lazy = 0` fails to work.
+on_func = [
+ 'operator#exec_command#mapexpr_gn',
+ 'operator#exec_command#mapexpr_gN',
+]
+hook_add = 'runtime add/operator-exec_command.vim'
 
 #[ Comment out ]
 # [[plugins]]
