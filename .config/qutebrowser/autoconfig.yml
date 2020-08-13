@@ -571,7 +571,7 @@ settings:
   url.searchengines:
     global:
       DEFAULT: https://duckduckgo.com/?q={}
-      K: https://www.thefreedictionary.com/{}
+      K: https://www.dictionary.com/browse/{}
       am: https://www.amazon.co.jp/s?k={}
       ar: https://wiki.archlinux.org/?search={}
       aw: https://wiki.archlinux.org/?search={}
