@@ -45,6 +45,7 @@ xnoremap <s-space>p "0]p
 xnoremap <s-space>P "0]P
 
 " Black-Hole Register {{{1
+nnoremap dD 0d$
 nnoremap <silent><expr> dk
       \ 'd'.
       \ (line('.') == line('$') ? 'k' : 'kk')
