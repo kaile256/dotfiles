@@ -235,18 +235,20 @@ let s:user_rules += [
 function! s:define_rules_to_kill_words() abort
   " Note: The '.' in `:s/pattern/` is required for <C-u>.
   " Note: s:remove_close . '<C-w>' fails to insert again to <C-w>.
-  let following_ends = '\%#[a-zA-Z \t_]*\zs\s\{-}[\]})>''"`]*'
+  let pat_end = '[a-zA-Z \t_]*\zs\s\{-}[\]})>''"`]*'
+  let following_ends = '\%#'. pat_end
   let end_with_separator = '[,;:]\?'
   let following_ends_with_separator = following_ends . end_with_separator
   let s:Remove_close =
         \ {pat -> ':silent! keepjumps keeppatterns s/'. pat .'//e<CR>gi'}
 
   let s:user_rules += [
-        \ {'char': '<C-w>', 'at': '[\[({]\s*\%#',
+        \ {'char': '<C-w>', 'at': '[\[({]\s*\%#'. pat_end,
         \   'input': '<C-w><Esc>'. s:Remove_close(following_ends)},
-        \ {'char': '<C-w>', 'at': '\(^\s*\w*\|=\)\%#',
+        \ {'char': '<C-w>', 'at': '\(^\s*\w*\|=\)\%#'. pat_end,
         \   'input': '<C-w><Esc>'. s:Remove_close(end_with_separator)},
-        \ {'char': '<C-u>', 'input': '<C-u><Esc>'.
+        \ {'char': '<C-u>', 'at': following_ends,
+        \   'input': '<C-u><Esc>'.
         \   s:Remove_close(following_ends_with_separator)},
         \ ]
 
