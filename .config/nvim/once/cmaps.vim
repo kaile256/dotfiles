@@ -157,7 +157,7 @@ function! s:assign_window(mods) abort
   return ret
 endfunction
 
-cnoremap <expr> <A-u> <SID>toggle_case()
+cnoremap <expr> <A-u> <SID>toggle_case() .'<CR>'
 
 function! s:toggle_case() abort
   let line = getcmdline()
