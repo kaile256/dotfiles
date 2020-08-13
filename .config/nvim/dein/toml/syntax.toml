@@ -90,33 +90,38 @@ repo = 'stevearc/vim-arduino'
 # includes syntax/ Ultisnips/(only extends cpp's)
 lazy = 0
 #[ Interpreter ]
+[[plugins]]
+repo = 'neoclide/vim-jsx-improve'
+# includes motion mappings for '[[', '[]' and so on.
+on_path = ['\.js$', '\.jsx$']
+on_ft = [
+  'javascript',
+  'javascript.tsx',
+  'javascriptreact',
+]
 # [[plugins]]
-# repo = 'neoclide/vim-jsx-improve'
-# # includes motion mappings for '[[', '[]' and so on.
+# repo = 'leafgarland/typescript-vim'
+# on_path = ['\.ts$', '\.tsx$']
 # on_ft = [
-#   'javascript',
-#   'javascriptreact',
 #   'typescript',
+#   'typescript.tsx',
 #   'typescriptreact',
+# ]
+# [[plugins]]
+# repo = 'peitalin/vim-jsx-typescript'
+# on_path = ['\.tsx$']
+# on_ft = [
+#   'typescriptreact'
+#   'typescript.tsx'
 # ]
 # [[plugins]]
 # repo = 'othree/yajs.vim'
-# on_ft = [
-#   'javascript',
-#   'javascriptreact',
-#   'typescript',
-#   'typescriptreact',
-# ]
-[[plugins]]
-repo = 'billyvg/tigris.nvim'
-build = './install.sh'
-on_ft = [
-  'javascript',
-  'javascriptreact',
-  'typescript',
-  'typescriptreact',
-]
-hook_source = 'runtime source/tigris.vim'
+# on_path = ['\.js$', '\.jsx$', '\.ts$', '\.tsx$']
+# [[plugins]]
+# repo = 'billyvg/tigris.nvim'
+# build = './install.sh'
+# on_path = ['\.js$', '\.jsx$', '\.ts$', '\.tsx$']
+# hook_source = 'runtime source/tigris.vim'
 
 #[[plugins]]
 #repo = 'tbastos/vim-lua'
