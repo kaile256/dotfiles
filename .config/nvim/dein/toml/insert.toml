@@ -145,6 +145,10 @@ on_ft = [
   'eco',
   'php',
   'htmldjango',
+  'javascript',
+  'typescript',
+  'javascript.jsx',
+  'typescript.tsx',
   'javascriptreact',
   'typescriptreact',
 ]
