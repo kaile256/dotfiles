@@ -46,6 +46,10 @@ function! spellTMP#spell_suggestion(mode) "{{{1
     setl spell
   endif
 
+  let s:save_completeopt = &completeopt
+  setl completeopt+=menuone
+  setl completeopt+=noselect
+
   " Note: '<C-x>s' forces to take cursor back to the last misspelled word.
   let Start_spell_suggestion = 'call feedkeys("\<C-x>s", "n")'
   exe Start_spell_suggestion
@@ -66,6 +70,7 @@ endfunction
 function! s:detach_spell() abort "{{{1
   if pumvisible() | return | endif
   setl nospell
+  let &completeopt = s:save_completeopt
   au! SpelltmpDetach
 endfunction
 
