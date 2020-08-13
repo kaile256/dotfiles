@@ -22,8 +22,12 @@ nnoremap <silent> <Plug>(gitcommitmsg-prev) :<C-u>call <SID>search_msg('b')<CR>
 function! s:search_msg(flags) abort
   " Find the next/prev candidate to be left.
 
-  let pat_msg = '# This is the 1st commit message:'
-        \ .'\|# This is the commit message #\d\+:'
+  let pats_msg = [
+        \ '# This is the 1st commit message:',
+        \ '# This is the commit message #\d\+:',
+        \ ]
+
+  let pat_msg = join(pats_msg, '\|')
 
   if !search(pat_msg, a:flags)
     return
