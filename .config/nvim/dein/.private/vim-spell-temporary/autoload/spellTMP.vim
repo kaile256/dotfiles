@@ -33,7 +33,9 @@ set cpo&vim
 "}}}
 
 function! spellTMP#spell_suggestion(mode) "{{{1
-  call s:get_end_of_word(a:mode)
+  if !s:get_end_of_word(a:mode) | return | endif
+
+  let save_view = winsaveview()
 
   if &spell == 0
     augroup SpelltmpDetach
@@ -79,11 +81,23 @@ function! s:get_end_of_word(mode) "{{{1
 
   let pats_word_boundary = ['\l\+', '\u\{3,}']
   let word_boundary = join(pats_word_boundary, '\|')
-  call search(word_boundary, 'ce')
+
+  let save_view = winsaveview()
+  let save_lnum = line('.')
+  if search(word_boundary, 'ce') != save_lnum
+    echohl ErrorMsg
+    echo '[SpellTmp] cannot find a word for spell check'
+    echohl None
+    call winrestview(save_view)
+    return 0
+  endif
+
   if a:mode =~# '[nx]'
     " startinsert will start at the left of the cursor position
     call feedkeys('a', 'n')
   endif
+
+  return 1
 endfunction
 
 " restore 'cpoptions' {{{1
