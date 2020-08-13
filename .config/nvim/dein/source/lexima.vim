@@ -37,12 +37,12 @@ function! s:remove_end_of_pairs() abort "{{{1
   let pat_line_continue = '\\ze\\n\\s*\\S'
   let pairs_removeable_at_the_end_of_the_line =
         \ map(pairs_removeable_at_the_end_of_the_line,
-        \ 'substitute(v:val, ".\\zs$", pat_line_continue, "")')
+        \ 'substitute(v:val, "$", pat_line_continue, "")')
 
   let symbols = '\\ze[][=+-_|(){}\:;?/>.~`!@#$%^&*"'']'
   let pairs_removeable_next_to_symbols =
         \ map(pairs_removeable_next_to_symbols,
-        \ 'substitute(v:val, ".\\zs$", symbols, "")')
+        \ 'substitute(v:val, "$", symbols, "")')
 
   let pairs = pairs_removeable_at_the_end_of_the_line
         \ + pairs_removeable_next_to_symbols
