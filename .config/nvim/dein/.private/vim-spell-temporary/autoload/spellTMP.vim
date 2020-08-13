@@ -40,7 +40,7 @@ function! spellTMP#spell_suggestion(mode) "{{{1
       au!
       " Note: <C-c> causes neither CompleteDone nor InsertLeave.
       " Note: CursorMoved will set nospell before the completion starts.
-      au CompleteChanged * call s:overwrite_the_augroup()
+      au InsertLeave,CompleteChanged * call s:overwrite_the_augroup()
     augroup END
 
     setl spell
