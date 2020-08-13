@@ -34,9 +34,9 @@ function! s:set_color() abort
         \ 'magenta',
         \ 'orange',
         \ 'blue',
-        \ 'brown',
-        \ 'green',
         \ 'yellow',
+        \ 'green',
+        \ 'brown',
         \ ]
 
   " Ref: $VIMRUNTIME/rgb.txt
