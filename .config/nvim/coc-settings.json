@@ -325,6 +325,7 @@
   "git.semanticCommit.filetypes": ["gitcommit"],
   "git.showCommitInFloating": true, // or in popup
 
+  // "prettier.semi": false, // semicolon after return, etc.
   "prettier.trailingComma": "es5",
   "prettier.singleQuote": true, // quotes other than jsx
   // "prettier.jsxSingleQuote": true,
