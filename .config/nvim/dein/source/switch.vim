@@ -102,6 +102,9 @@ let g:switch_custom_definitions += [
       \ ['new', 'old'],
       \ ['New', 'Old'],
       \
+      \ ['above', 'below'],
+      \ ['Above', 'Below'],
+      \
       \ ['up', 'down'],
       \ ['Up', 'Down'],
       \
