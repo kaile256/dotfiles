@@ -76,19 +76,19 @@ function! s:set_path(path) abort
   let path = a:path
   if empty(path)
     if &bt ==# 'terminal'
-      let path = substitute(getline(1), '^\s*\~', $HOME, '') " esp. for Vifm on terminalw.
+      let path = getline(1)
       let path = matchstr(path, '\f\+') " for vertically split view.
+    elseif &ft ==# 'defx'
+      let path = matchstr(getline(1), ':\zs\f\+')
     endif
-    for p in [expand('%:p:h'), execute('pwd')]
-      if isdirectory(path) | break | endif
-      let path = p
-    endfor
-  elseif &ft ==# 'defx'
-    let path = matchstr(getline(1), ':\zs\f\+')
   endif
-  if !isdirectory(path)
-    let path = $HOME
-  endif
+
+  let path = substitute(path, '^\s*\~', $HOME, '') " esp. for Vifm or Defx.
+
+  for p in [expand('%:p:h'), $HOME]
+    if isdirectory(path) | break | endif
+    let path = p
+  endfor
 
   return path
 endfunction
