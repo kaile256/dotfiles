@@ -117,6 +117,10 @@ argdelete *
 #hook_post_source = 'runtime add/express.vim'
 
 #[ Substitute ]
+[[plugins]]
+repo = 'hauleth/sad.vim'
+# asterisk-like operator
+hook_add = 'runtime add/sad.vim'
 #[[plugins]]
 #repo = 'svermeulen/vim-subversive'
 ## just puts selected area into :s.
