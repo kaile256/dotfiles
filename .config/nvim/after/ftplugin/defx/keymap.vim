@@ -148,19 +148,35 @@ xnoremap <silent><nowait><buffer><expr> a
       \ ['clear_select_all', 'toggle_select_visual', ['drop', 'bel split']])
       \ .'<c-w>h'
 " Preview {{{3
+function! s:defx_preview(mods) abort
+  if a:mods =~# 'vert'
+    let pedit = a:mods .' pedit'
+    return "\<C-w>z".
+          \ defx#do_action('open', pedit)
+          \ ."\<c-w>="
+  endif
+
+  let save_previewheight = &pvh
+  let &pvh = &lines * 2 / 3
+  let Restore_previewheight = ':let &pvh = '. save_previewheight ."\<CR>"
+
+  let pedit = "pclose \<bar> bot pedit"
+  let open = s:defx_is_wide() ? 'open' : 'drop'
+  let defx_action = defx#do_action(open, pedit)
+
+  return defx_action . Restore_previewheight
+endfunction
+
 " Mnemonic: Insert a preview in actual windows
 " Note: :pclose to change location between vertical/horizontal
 nnoremap <silent><nowait><buffer><expr> <SID>(defx-preview-vertical)
-      \ '<C-w>z'.
-      \ defx#do_action('open', 'vert bot pedit')
-      \ .'<c-w>='
+      \ <SID>defx_preview('vert bot')
 " FIXME: keep cursor on defx after :pedit ANYWHERE
 nnoremap <silent><nowait><buffer><expr> <SID>(defx-preview-horizontal)
-      \ <SID>defx_is_wide()
-      \ ? defx#do_action('open', 'pclose <bar> bot pedit')
-      \ : defx#do_action('drop', 'pclose <bar> bot pedit') .'<C-w>h'
-nmap I <SID>(defx-preview-vertical)
-nmap i <SID>(defx-preview-horizontal)
+      \ <SID>defx_preview('bot')
+
+nmap <buffer> I <SID>(defx-preview-vertical)
+nmap <buffer> i <SID>(defx-preview-horizontal)
 
 " Mnemonic: Zip Preview
 nnoremap <silent><nowait><buffer> zp <c-w>z
