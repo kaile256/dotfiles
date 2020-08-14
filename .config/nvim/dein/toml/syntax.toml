@@ -157,6 +157,14 @@ on_path = ['\.js$', '\.jsx$', '\.ts$', '\.tsx$']
 # # only contains syntax/jsx.vim
 # # on_path = ['\.js$', '\.jsx$', '\.ts$', '\.tsx$']
 
+#[ CSS ]
+[[plugins]]
+repo = 'hail2u/vim-css3-syntax'
+on_path = ['\.js$', '\.jsx$', '\.ts$', '\.tsx$', '\.css$']
+# [[plugins]]
+# # repo = 'amadeus/vim-css'
+# on_path = ['\.js$', '\.jsx$', '\.ts$', '\.tsx$', '\.css$']
+
 #[ Shell ]
 #[[plugins]]
 #repo = 'dag/vim-fish'
