@@ -6,6 +6,12 @@ xmap <space> "_
 nmap <expr> <CR> &bt ==# '' ? '"' : '<CR>'
 xmap <expr> <CR> &bt ==# '' ? ' " : '<CR>'
 
+nnoremap <silent> <SID>(yank-path)
+      \ :<C-u>call setreg(v:register, expand('%:p'))<CR>
+cnoremap <silent><expr> <SID>(paste-path) expand('%:p')
+nmap y<C-g> <SID>(yank-path)
+cmap <C-r><C-g> <SID>(paste-path)
+
 " nnoremap p p`]
 " nnoremap p ]p`]
 nnoremap P ]P
