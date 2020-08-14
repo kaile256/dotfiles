@@ -29,6 +29,17 @@ nnoremap <silent><nowait><buffer><expr> <space>ww
       \ defx#do_action('change_vim_cwd')
       \ .':echo "cd" expand("<cfile>:p:h")<CR>'
       "\ . `:echo 'cd' ` . getcwd()
+" Explore; Manipulate File/Directory {{{2
+" Mnemonic: Create File/Directory
+nnoremap <silent><nowait><buffer><expr> cf
+      \ defx#do_action('new_file')
+nnoremap <silent><nowait><buffer><expr> cd
+      \ defx#do_action('new_directory')
+nnoremap <silent><nowait><buffer><expr> cF
+      \ defx#do_action('new_multiple_files')
+nnoremap <silent><nowait><buffer><expr> cD
+      \ defx#do_action('new_multiple_files')
+
 " Explore; netrw-like {{{2
 " nnoremap <silent><nowait><buffer><expr> -
 "       \ defx#do_action('cd', ['..'])
