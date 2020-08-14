@@ -105,7 +105,7 @@ lazy = 0
 
 #[ Javascript ]
 [[plugins]]
-repo = 'alampros/vim-styled-jsx'
+repo = 'MaxMEllon/vim-jsx-pretty'
 on_path = ['\.js$', '\.jsx$', '\.ts$', '\.tsx$']
 [[plugins]]
 repo = 'neoclide/vim-jsx-improve'
@@ -146,6 +146,16 @@ on_ft = [
 # build = './install.sh'
 # on_path = ['\.js$', '\.jsx$', '\.ts$', '\.tsx$']
 # hook_source = 'runtime source/tigris.vim'
+
+#[ Javascript.styled-jsx ]
+[[plugins]]
+repo = 'styled-components/vim-styled-components'
+on_path = ['\.js$', '\.jsx$', '\.ts$', '\.tsx$']
+
+# [[plugins]]
+# repo = 'alampros/vim-styled-jsx'
+# # only contains syntax/jsx.vim
+# # on_path = ['\.js$', '\.jsx$', '\.ts$', '\.tsx$']
 
 #[ Shell ]
 #[[plugins]]
