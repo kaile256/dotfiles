@@ -1,1 +1,1 @@
-../../../../../../.local/share/vifm/Trash/001_yats.vim
+../typescriptreact/yats.vim
