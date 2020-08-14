@@ -12,7 +12,14 @@ set isfname-=,
 set isfname-==
 set isfname+=@-@
 
-let &g:includeexpr = 'substitute(v:fname, "@$", "", "")'
+function! MyIncludeExpr(fname) abort
+  let fname = a:fname
+  let fname = substitute(fname, '\$.\{-}/', '', 'g')
+  let fname = substitute(fname, '@$', '', '')
+  let fname = substitute(fname, '^\/', '', '')
+  return fname
+endfunction
+let &g:includeexpr = MyIncludeExpr(v:fname)
 
 augroup myFindPathRc
   au FileType sh setl path^=/usr/bin/
