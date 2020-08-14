@@ -2,6 +2,8 @@
 " Repo: tpope/vim-fugitive
 " Another: add/fugitive.vim
 
+let g:fugitive_no_maps = 1 " true: disable mappings to `y<C-g>` and `<C-r><C-g>`
+
 augroup myFugitiveRememberTheLastBuffer
   au FileType fugitive,gitcommit
         \ if getwinvar(winnr('#'), '&ft') !~# 'fugitive\|gitcommit'
