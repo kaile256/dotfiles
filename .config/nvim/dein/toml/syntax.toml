@@ -104,9 +104,9 @@ lazy = 0
 #on_ft = 'lua'
 
 #[ Javascript ]
-[[plugins]]
-repo = 'MaxMEllon/vim-jsx-pretty'
-on_path = ['\.js$', '\.jsx$', '\.ts$', '\.tsx$']
+# [[plugins]]
+# repo = 'MaxMEllon/vim-jsx-pretty'
+# on_path = ['\.js$', '\.jsx$', '\.ts$', '\.tsx$']
 [[plugins]]
 repo = 'neoclide/vim-jsx-improve'
 # includes motion mappings for '[[', '[]' and so on.
