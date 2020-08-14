@@ -24,6 +24,10 @@ let g:switch_custom_definitions += [
 let g:switch_custom_definitions += [
       \ ['horizontal', 'vertical'],
       \ ['Enter', 'Leave'],
+      \ {
+      \   '\<on\>': 'off',
+      \   '\<off\>': 'on',
+      \ },
       \ ]
 
 let g:switch_custom_definitions += [
