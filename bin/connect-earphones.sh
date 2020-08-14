@@ -21,9 +21,10 @@ connect_earphones() {
   MAC_EARPHONES=$(bluetoothctl paired-devices \
     | grep -i "$EARPHONES_NAME" \
     | awk '{print $2}')
-      has_disconnected=$(bluetoothctl info "$MAC_EARPHONES" \
-        | grep 'Connected: no' \
-        && echo -n 'true')
+
+  has_disconnected=$(bluetoothctl info "$MAC_EARPHONES" \
+    | grep 'Connected: no' \
+    && echo -n 'true')
 
   bluetoothctl connect "$MAC_EARPHONES"
 
