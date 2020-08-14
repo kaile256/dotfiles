@@ -70,6 +70,7 @@ let g:coc_global_extensions = [
       \ 'coc-solargraph',
       \ 'coc-spell-checker',
       \ 'coc-sql',
+      \ 'coc-stylelint',
       \ 'coc-stylelintplus',
       \ 'coc-tag',
       \ 'coc-texlab',
