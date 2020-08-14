@@ -9,7 +9,12 @@ function! s:detect_react() abort
   " FileType-event yet.
   let fileread = 'cat'
   let lines_to_import = system(fileread .' '. expand('%:p') .'| head -n 50')
-  let is_react = lines_to_import =~# '^import React'
+  let pats_to_be_react = [
+        \ '^import React',
+        \ '^import .* from .*next.*',
+        \ ]
+  let pat_to_be_react = join(pats_to_be_react, '\|')
+  let is_react = lines_to_import =~# pat_to_be_react
   if is_react
     exe 'set ft='. &ft .'react'
   endif
