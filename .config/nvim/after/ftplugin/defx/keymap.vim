@@ -175,6 +175,7 @@ function! s:defx_preview(mods) abort
     exe 'au WinEnter    * ++once' Go_back_to_defx
   augroup END
 
+  " TODO: set mods to 'bel' if winwidth(winnr('l')) is narrow.
   let pedit = "pclose \<bar> bot pedit"
   let open = s:defx_is_wide() ? 'open' : 'drop'
   let defx_action = defx#do_action(open, pedit)
