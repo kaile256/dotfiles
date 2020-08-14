@@ -165,9 +165,10 @@ augroup myCocSource "{{{1
   " Note: Coc's highlight only activate on symbols while itchyny/vim-cursorword
   " sets underlines to all the same words as <cword>.
   au CursorHold,CursorHoldI * silent call CocActionAsync('highlight')
-  hi! CocHighlightText cterm=reverse
-  hi! CocHighlightRead gui=bold
-  hi! link CocHighlightWrite SignColumn
+  hi! CocHighlightText cterm=undercurl gui=undercurl
+  hi! CocHighlightRead cterm=reverse gui=reverse
+  hi! CocHighlightWrite cterm=bold,italic gui=bold,italic
+  " hi! CocHighlightWrite cterm=undercurl gui=underline guisp=Red
 
   " Vimspector on Coc {{{2
   " Ref: Override DebugStart of Vimspector @add/vimspector.vim
