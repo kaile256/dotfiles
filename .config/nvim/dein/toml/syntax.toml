@@ -105,6 +105,9 @@ lazy = 0
 
 #[ Javascript ]
 # [[plugins]]
+# repo = 'pangloss/vim-javascript'
+# on_path = ['\.js$', '\.jsx$', '\.ts$', '\.tsx$']
+# [[plugins]]
 # repo = 'MaxMEllon/vim-jsx-pretty'
 # on_path = ['\.js$', '\.jsx$', '\.ts$', '\.tsx$']
 [[plugins]]
