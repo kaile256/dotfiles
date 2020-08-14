@@ -155,10 +155,11 @@ on_ft = [
 repo = 'styled-components/vim-styled-components'
 on_path = ['\.js$', '\.jsx$', '\.ts$', '\.tsx$']
 
-# [[plugins]]
-# repo = 'alampros/vim-styled-jsx'
-# # only contains syntax/jsx.vim
-# # on_path = ['\.js$', '\.jsx$', '\.ts$', '\.tsx$']
+[[plugins]]
+repo = 'alampros/vim-styled-jsx'
+# Recommended by [vercel/styled-jsx](https://github.com/vercel/styled-jsx)
+# Note: only contains syntax/jsx.vim; you should set `runtime syntax/jsx.vim`.
+on_path = ['\.js$', '\.jsx$', '\.ts$', '\.tsx$', '\.css$']
 
 #[ CSS ]
 [[plugins]]
