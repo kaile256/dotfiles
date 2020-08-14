@@ -28,6 +28,7 @@ PACKAGEs=(
   xorg-xinput # removed with `bmenu`
   lshw # removed with `bmenu`
 
+  ueberzug # previewer for some tools
   universal-ctags-git # esp. for Vista on Vim
   python-pyperclip # code_select.py on qutebrowser
   xbindkeys # to disable middle to paste, but enable scroll.
