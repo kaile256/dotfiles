@@ -230,6 +230,9 @@ $noid alsactl daemon
 # With `exec_always` disconnect devices every time.
 $noid pulseaudio --kill; sleep 5; pulseaudio --start &
 
+# Only once try to connect earphones.
+$noid $HOME/bin/connect-earphones.sh --simple >/dev/null 2>&1
+
 $always $MY_SCRIPTS/connect-keyboard.sh >/dev/null 2>&1
 
 # AutoStart Applications {{{1
