@@ -332,6 +332,11 @@
 
   "tsserver.enableJavascript": true,
 
+  // Note: `coc-stylelintplus` uses `stylelint-lsp` as the LSP.
+  "stylelintplus.cssInJs": true, // Run stylelint on js/ts (css-in-JS)
+  // "stylelintplus.validateOnSave": true,
+  // "stylelintplus.validateOnType": false,
+
   "json.format.enable": false,
 
   "html.format.enable": false,
