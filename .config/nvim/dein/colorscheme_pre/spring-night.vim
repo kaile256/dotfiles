@@ -11,3 +11,7 @@ if exists('#mySpringNightPre') | finish | endif
 augroup mySpringNightPre
   au ColorScheme spring-night ++nested call s:my_spring_night()
 augroup END
+
+function! s:my_spring_night() abort
+  hi! link NvimInternalError Error
+endfunction
