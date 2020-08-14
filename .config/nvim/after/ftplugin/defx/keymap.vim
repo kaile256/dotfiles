@@ -158,7 +158,7 @@ function! s:defx_preview(mods) abort
           \ defx#do_action('open', pedit)
           \ ."\<c-w>="
   endif
-  let s:defx_save_view = win_getid()
+  let s:defx_save_winid = win_getid()
 
   augroup defx-restore_previewheight
     au!
@@ -168,7 +168,7 @@ function! s:defx_preview(mods) abort
     let preview_height = &lines * 2 / 3
     let Set_preview_height = 'resize '. preview_height
 
-    let Go_back_to_defx = 'call win_gotoid(s:defx_save_view)'
+    let Go_back_to_defx = 'call win_gotoid(s:defx_save_winid)'
 
     exe 'au BufWinEnter * ++once' Go_to_preview
     exe 'au BufWinEnter * ++once' Set_preview_height
