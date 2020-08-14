@@ -150,15 +150,18 @@ xnoremap <silent><nowait><buffer><expr> a
 " Preview {{{3
 " Mnemonic: Insert a preview in actual windows
 " Note: :pclose to change location between vertical/horizontal
-nnoremap <silent><nowait><buffer><expr> I
+nnoremap <silent><nowait><buffer><expr> <SID>(defx-preview-vertical)
       \ '<C-w>z'.
       \ defx#do_action('open', 'vert bot pedit')
       \ .'<c-w>='
 " FIXME: keep cursor on defx after :pedit ANYWHERE
-nnoremap <silent><nowait><buffer><expr> i
+nnoremap <silent><nowait><buffer><expr> <SID>(defx-preview-horizontal)
       \ <SID>defx_is_wide()
       \ ? defx#do_action('open', 'pclose <bar> bot pedit')
       \ : defx#do_action('drop', 'pclose <bar> bot pedit') .'<C-w>h'
+nmap I <SID>(defx-preview-vertical)
+nmap i <SID>(defx-preview-horizontal)
+
 " Mnemonic: Zip Preview
 nnoremap <silent><nowait><buffer> zp <c-w>z
 " in Tree {{{2
