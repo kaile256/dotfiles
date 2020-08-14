@@ -117,6 +117,13 @@ on_ft = [
 #   'typescriptreact'
 #   'typescript.tsx'
 # ]
+[[plugins]]
+repo = 'HerringtonDarkholme/yats.vim'
+on_path = ['\.ts$', '\.tsx$']
+on_ft = [
+  'typescript',
+  'typescriptreact',
+]
 # [[plugins]]
 # repo = 'othree/yajs.vim'
 # on_path = ['\.js$', '\.jsx$', '\.ts$', '\.tsx$']
