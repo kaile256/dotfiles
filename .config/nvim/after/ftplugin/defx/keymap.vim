@@ -149,6 +149,9 @@ xnoremap <silent><nowait><buffer><expr> a
       \ .'<c-w>h'
 " Preview {{{3
 function! s:defx_preview(mods) abort
+  " Note: Most of `norm! [foo]` here is _not_ allowed in <expr>-mappings; use
+  " autocmd instead.
+
   if a:mods =~# 'vert'
     let pedit = a:mods .' pedit'
     return "\<C-w>z".
