@@ -146,6 +146,9 @@ on_ft = [
 # build = './install.sh'
 # on_path = ['\.js$', '\.jsx$', '\.ts$', '\.tsx$']
 # hook_source = 'runtime source/tigris.vim'
+# [[plugins]]
+# repo = 'bigfish/vim-js-context-coloring'
+# # on_path = ['\.js$', '\.jsx$', '\.ts$', '\.tsx$']
 
 #[ Javascript.styled-jsx ]
 [[plugins]]
