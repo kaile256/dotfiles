@@ -153,3 +153,9 @@ hook_add = 'runtime add/columnskip.vim'
 #on_cmd = ['GestureDraw']
 #hook_add = 'runtime add/gesture.vim'
 #hook_post_source = 'runtime post/gesture.vim'
+
+#[ Misc ]
+[[plugins]]
+repo = 'tpope/vim-unimpaired'
+on_map = {nox = '<Plug>unimpaired'}
+hook_add = 'runtime add/unimpaired.vim'
