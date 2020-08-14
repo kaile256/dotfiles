@@ -86,6 +86,8 @@ if !get(g:, 'sensible#gf#no_default_mappings', 0)
   xmap gf <Plug>(sensible-gf)
   nmap <C-w>f <Plug>(sensible-ctrl-w_f)
   xmap <C-w>f <Plug>(sensible-ctrl-w_f)
+  nmap <C-w><C-f> <Plug>(sensible-ctrl-w_f)
+  xmap <C-w><C-f> <Plug>(sensible-ctrl-w_f)
 endif
 
 " restore 'cpoptions' {{{1
