@@ -44,9 +44,9 @@ function! s:remove_end_of_pairs() abort "{{{1
         \ map(deepcopy(pairs_removeable_next_to_symbols),
         \ 'substitute(v:val, "$", symbols, "")')
 
-  let pairs = pairs_removeable_at_the_end_of_the_line
+  let pairs_removeable = pairs_removeable_at_the_end_of_the_line
         \ + pairs_removeable_next_to_symbols
-  let pat = join(pairs, '\|')
+  let pat = join(pairs_removeable, '\|')
 
   let save_view = winsaveview()
   exe 'keeppattern keepjump s/'. pat .'//e'
