@@ -1,5 +1,7 @@
 " Repo: HerringtonDarkholme/yats.vim
 
+runtime! syntax/jsx.vim
+
 " Sample:
 " `<` is set by jsxTag.
 "
