@@ -9,10 +9,19 @@
 nnoremap <silent> - :<C-u>SidewaysLeft<CR>
 nnoremap <silent> + :<C-u>SidewaysRight<CR>
 
-omap <silent> a, <Plug>SidewaysArgumentTextobjA
-xmap <silent> a, <Plug>SidewaysArgumentTextobjA
-omap <silent> i, <Plug>SidewaysArgumentTextobjI
-xmap <silent> i, <Plug>SidewaysArgumentTextobjI
+function! s:textobj_comma(key) abort
+  let s:is_comment =
+        \ {-> synIDattr(synIDtrans(synID(line('.'), col('.') - 1, 0)), 'name')}
+  if s:is_comment() =~# 'Comment'
+    return "\<Plug>(textobj-sandwich-query-". tolower(a:key) .'),'
+  endif
+  return "\<Plug>SidewaysArgumentTextobj".  toupper(a:key)
+endfunction
+
+omap <expr><silent> a, <SID>textobj_comma('a')
+xmap <expr><silent> a, <SID>textobj_comma('a')
+omap <expr><silent> i, <SID>textobj_comma('i')
+xmap <expr><silent> i, <SID>textobj_comma('i')
 
 " let g:sideways_definitions = []
 " let b:sideways_definitions = []
