@@ -1,6 +1,6 @@
 " TOML: appearance.toml
 " Repo: luochen1990/rainbow
-" Another: source/rainbow-luochen1990.vim
+" Another: source/rainbow.vim
 
 augroup myRainbowLuochen1990Source
   " disable autocmds in the plugin which belongs to no augroup.

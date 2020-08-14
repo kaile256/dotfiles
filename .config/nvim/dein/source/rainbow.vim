@@ -1,6 +1,6 @@
 " TOML: appearance.toml
 " Repo: luochen1990/rainbow
-" Another: add/rainbow-luochen1990.vim
+" Another: add/rainbow.vim
 
 " Ref: luochen1990/rainbow/autoload/rainbow_main.vim #3
 let g:rainbow_conf = {}
