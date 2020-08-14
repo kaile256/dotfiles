@@ -53,7 +53,7 @@ let g:lightline.active = {
       \ ],
       \
       \ 'right': [
-      \   ['percent'],
+      \   ['virtual_pos'],
       \   ['lineinfo'],
       \   ['indent', 'fileformat', 'fileencoding', 'filetype'],
       \   ['notification'],
@@ -142,6 +142,8 @@ let g:lightline.component = {
       \ }
 
 let g:lightline.component_function = {
+      \ 'virtual_pos': 'LL_virtual_pos',
+      \
       \ 'mode': 'LL_mode',
       \ 'percent': 'LL_percent',
       \ 'lineinfo': 'LL_lineinfo',
@@ -179,6 +181,13 @@ let g:lightline.component_expand = {
 let s:hold_length = {text, max -> repeat(' ', max - len(text)) . text}
 " let s:hold_length_inverse = {text, max -> text . repeat(' ', max - len(text))}
 let LL_percent = {-> line('$') > 100 ? s:hold_length(line('.') * 100 / line('$'), 2) .'%' : ''}
+" Ref: https://raw.githubusercontent.com/gcavallanti/dotfiles/master/.vimrc
+" -- GitHub: Sample of args for noscrollbar#statusline
+" Excerpt: unicode chars
+" box: '□', '■', '▭',
+" hyphen: '―', '⁃', '╍',
+" vertical: '┇',
+let LL_virtual_pos = {-> noscrollbar#statusline(20, '―', '■')}
 
 let s:cur_col = {-> s:hold_length(col('.'), 2) . (&colorcolumn > 0 ? '.'. (&cc - 1) : '')}
 let s:cur_line = {-> s:hold_length(line('.'), 2) .'.'. line('$')}
