@@ -155,16 +155,28 @@ function! s:defx_preview(mods) abort
           \ defx#do_action('open', pedit)
           \ ."\<c-w>="
   endif
+  let s:defx_save_view = win_getid()
 
-  let save_previewheight = &pvh
-  let &pvh = &lines * 2 / 3
-  let Restore_previewheight = ':let &pvh = '. save_previewheight ."\<CR>"
+  augroup defx-restore_previewheight
+    au!
+
+    let Go_to_preview = ":norm! \<lt>C-w>P"
+
+    let preview_height = &lines * 2 / 3
+    let Set_preview_height = 'resize '. preview_height
+
+    let Go_back_to_defx = 'call win_gotoid(s:defx_save_view)'
+
+    exe 'au BufWinEnter * ++once' Go_to_preview
+    exe 'au BufWinEnter * ++once' Set_preview_height
+    exe 'au WinEnter    * ++once' Go_back_to_defx
+  augroup END
 
   let pedit = "pclose \<bar> bot pedit"
   let open = s:defx_is_wide() ? 'open' : 'drop'
-  let defx_action = defx#do_action(open, pedit)
+  let defx_action = substitute(defx#do_action(open, pedit), "\n", '', 'g')
 
-  return defx_action . Restore_previewheight
+  return defx_action
 endfunction
 
 " Mnemonic: Insert a preview in actual windows
