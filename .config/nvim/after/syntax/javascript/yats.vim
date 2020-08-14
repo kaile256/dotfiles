@@ -1,0 +1,1 @@
+../typescriptreact/yats.vim
