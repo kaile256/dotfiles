@@ -142,3 +142,8 @@ on_source = 'lightline.vim'
 ## Note: this plugin is for shell
 ## TODO: necessary to config for bash/zsh/fish to use this plugin
 #hook_post_source = 'runtime post/promptline.vim'
+[[plugins]]
+repo = 'gcavallanti/vim-noscrollbar'
+# Visualize relational cursor position in statusline/tabline.
+# You can use it in lightline.
+on_func = 'noscrollbar#statusline'
