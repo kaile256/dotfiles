@@ -177,7 +177,7 @@ function! s:defx_preview(mods) abort
 
   let pedit = "pclose \<bar> bot pedit"
   let open = s:defx_is_wide() ? 'open' : 'drop'
-  let defx_action = substitute(defx#do_action(open, pedit), "\n", '', 'g')
+  let defx_action = defx#do_action(open, pedit)
 
   return defx_action
 endfunction
