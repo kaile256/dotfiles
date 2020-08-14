@@ -153,6 +153,7 @@ on_ft = [
 #[ Javascript.styled-jsx ]
 [[plugins]]
 repo = 'styled-components/vim-styled-components'
+# FIXME: how to activate it?
 on_path = ['\.js$', '\.jsx$', '\.ts$', '\.tsx$']
 
 [[plugins]]
