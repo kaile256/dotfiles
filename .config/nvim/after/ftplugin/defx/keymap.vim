@@ -172,7 +172,11 @@ function! s:defx_preview(mods) abort
 
     exe 'au BufWinEnter * ++once' Go_to_preview
     exe 'au BufWinEnter * ++once' Set_preview_height
-    exe 'au WinEnter    * ++once' Go_back_to_defx
+
+    " FIXME: `winid` seems to change when Defx invokes the action to preview
+    " after VimResized; the fact causes layout collapse and the winid for Defx
+    " will be pushed out to be new one by a new preview buffer.
+    exe 'au WinEnter * ++once' Go_back_to_defx
   augroup END
 
   " TODO: set mods to 'bel' if winwidth(winnr('l')) is narrow.
