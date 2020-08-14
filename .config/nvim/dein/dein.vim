@@ -108,7 +108,6 @@ let s:toml_lazy = [
       \ 'compiler.toml',
       \ 'debug.toml',
       \ 'default.toml',
-      \ 'denite.toml',
       \ 'ext.toml',
       \ 'external.toml',
       \ 'fold.toml',
