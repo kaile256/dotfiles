@@ -28,6 +28,7 @@ PACKAGEs=(
   xorg-xinput # removed with `bmenu`
   lshw # removed with `bmenu`
 
+  stylelint # a linter for CSS
   ueberzug # previewer for some tools
   universal-ctags-git # esp. for Vista on Vim
   python-pyperclip # code_select.py on qutebrowser
