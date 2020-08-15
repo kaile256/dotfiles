@@ -28,6 +28,7 @@ PACKAGEs=(
   xorg-xinput # removed with `bmenu`
   lshw # removed with `bmenu`
 
+  noto-fonts-cjk # fonts for Chinese, Japanese and Korean
   stylelint # a linter for CSS
   ueberzug # previewer for some tools
   universal-ctags-git # esp. for Vista on Vim
