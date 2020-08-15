@@ -12,13 +12,17 @@ let g:Gitv_CustomMappings = {
       \ 'update': 'U',
       \ 'toggleAll': 'a',
       \
-      \ 'nextBranch': 'x',
-      \ 'prevBranch': 'X',
-      \ 'nextRef': 'r',
-      \ 'prevRef': 'R',
+      \ 'nextBranch': '<C-y>',
+      \ 'prevBranch': '<C-e>',
+      \
+      \ 'nextRef': '<C-n>',
+      \ 'prevRef': '<C-p>',
       \
       \ 'editCommit': [
-      \ '<cr>', { 'keys': '<LeftMouse>', 'prefix': '<LeftMouse>' }
+      \   '<cr>', {
+      \     'keys': '<LeftMouse>',
+      \     'prefix': '<LeftMouse>'
+      \   },
       \ ],
       \
       \ 'prevCommit': '<c-j>',
@@ -33,47 +37,48 @@ let g:Gitv_CustomMappings = {
       \ 'stat': 'S',
       \ 'vstat': 'S',
       \ 'checkout': 'co',
-      \ 'merge': '<leader>m',
-      \ 'vmerge': 'm',
+      \
+      \ 'merge': 'M',
+      \ 'vmerge': 'M',
       \
       \ 'cherryPick': 'cp',
       \ 'vcherryPick': 'cp',
       \
-      \ 'reset': 'rb',
-      \ 'vreset': 'rb',
-      \ 'resetSoft': 'rbs',
-      \ 'vresetSoft': 'rbs',
-      \ 'resetHard': 'rbh',
-      \ 'vresetHard': 'rbh',
+      \ 'reset': 'R',
+      \ 'vreset': 'R',
+      \ 'resetSoft': 'rS',
+      \ 'vresetSoft': 'rS',
+      \ 'resetHard': 'rH',
+      \ 'vresetHard': 'rH',
       \
-      \ 'revert': 'rev',
-      \ 'vrevert': 'rev',
+      \ 'revert': 'rv',
+      \ 'vrevert': 'rv',
       \
       \ 'delete': 'd',
       \ 'vdelete': 'd',
       \
-      \ 'rebase': 'grr',
-      \ 'vrebase': 'grr',
-      \ 'rebasePick': 'grP',
-      \ 'vrebasePick': 'grP',
-      \ 'rebaseReword': 'grR',
-      \ 'vrebaseReword': 'grR',
-      \ 'rebaseMarkEdit': 'grF',
-      \ 'vrebaseMarkEdit': 'grF',
-      \ 'rebaseSquash': 'grF',
-      \ 'vrebaseSquash': 'grF',
-      \ 'rebaseFixup': 'grF',
-      \ 'vrebaseFixup': 'grF',
-      \ 'rebaseExec': 'grF',
-      \ 'vrebaseExec': 'grF',
-      \ 'rebaseDrop': 'grF',
-      \ 'vrebaseDrop': 'grF',
-      \ 'rebaseAbort': 'gra',
-      \ 'rebaseToggle': 'grs',
-      \ 'vrebaseToggle': 'grs',
-      \ 'rebaseSkip': 'grn',
-      \ 'rebaseContinue': 'grc',
-      \ 'rebaseEdit': 'gre',
+      \ 'rebase': 'ri',
+      \ 'vrebase': 'ri',
+      \ 'rebasePick': 'rp',
+      \ 'vrebasePick': 'rp',
+      \ 'rebaseReword': 'rw',
+      \ 'vrebaseReword': 'rw',
+      \ 'rebaseMarkEdit': 'rF',
+      \ 'vrebaseMarkEdit': 'rF',
+      \ 'rebaseSquash': 'rs',
+      \ 'vrebaseSquash': 'rs',
+      \ 'rebaseFixup': 'rF',
+      \ 'vrebaseFixup': 'rF',
+      \ 'rebaseExec': 'rF',
+      \ 'vrebaseExec': 'rF',
+      \ 'rebaseDrop': 'rd',
+      \ 'vrebaseDrop': 'rd',
+      \ 'rebaseAbort': 'ra',
+      \ 'rebaseToggle': 'rt',
+      \ 'vrebaseToggle': 'rt',
+      \ 'rebaseSkip': 'rs',
+      \ 'rebaseContinue': 'rr',
+      \ 'rebaseEdit': 're',
       \
       \ 'bisectStart': 'gbs',
       \ 'vbisectStart': 'gbs',
@@ -89,7 +94,7 @@ let g:Gitv_CustomMappings = {
       \
       \ 'head': 'P',
       \ 'parent': 'p',
-      \ 'toggleWindow': 'gw',
+      \ 'toggleWindow': '<C-w>p',
       \ 'git': 'git',
-      \ 'yank': 'yc'
+      \ 'yank': 'y#'
       \ }
