@@ -21,6 +21,31 @@ hook_post_source = 'runtime post/repmo.vim'
 # on_cmd = 'Clever'
 # hook_add = 'runtime add/clever-split.vim'
 
+#[ Relative to Current File ]
+[[plugins]]
+repo = 'tpope/vim-eunuch'
+on_cmd = [
+  'Delete',         # Delete a buffer and the file on disk simultaneously.
+  'Unlink',         # Like :Delete, but keeps the now empty buffer.
+
+  'Move',           # Rename a buffer and the file on disk simultaneously.
+  'Rename',         # Like :Move, but relative to parent directory of current file.
+  'Mkdir',          # Create a directory, defaulting to the parent of current file.
+
+  'Chmod',          # Change the permissions of current file.
+
+  'Cfind',          # Run find and load the results into the quickfix list.
+  'Clocate',        # Run locate and load the results into the quickfix list.
+
+  'Lfind',
+  'Llocate:',
+
+  'Wall',           # Write every open window. Handy for kicking off tools like `guard`.
+
+  'SudoWrite',
+  'SudoEdit',
+]
+
 #[ Paste ]
 [[plugins]]
 repo = 'inkarkat/vim-UnconditionalPaste'
