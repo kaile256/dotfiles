@@ -27,6 +27,9 @@ let g:coc_channel_timeout = 50
 " Note: coc-highlight made CPU overwork
 " Note: coc-clangd only provides completion support; use ccls instead.
 " Note: coc-conventional provides completion support for gitcommit.
+" Note: coc-stylelintplus requires stylelint-lsp via npm/yarn
+" Note: coc-stylelint only works on css-kind files, i.e., it doesn't work on
+" CSS-in-JS.
 let g:coc_global_extensions = [
       \ 'coc-actions',
       \ 'coc-angular',
