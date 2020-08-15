@@ -69,6 +69,7 @@ on_cmd = 'Rooter'
 on_func = 'FindRootDirectory'
 hook_add = 'runtime add/rooter.vim'
 hook_source = 'runtime source/rooter.vim'
+hook_post_source = 'runtime post/rooter.vim'
 # [[plugins]]
 # repo = 'mattn/vim-findroot'
 # on_cmd = 'FindRoot'
