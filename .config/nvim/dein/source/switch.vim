@@ -124,3 +124,7 @@ let g:switch_custom_definitions += [
 let g:switch_custom_definitions += [
       \ ['javascript', 'typescript']
       \ ]
+
+let g:switch_custom_definitions += [
+      \ ['右', '左'],
+      \ ]
