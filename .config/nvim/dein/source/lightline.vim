@@ -181,13 +181,6 @@ let g:lightline.component_expand = {
 let s:hold_length = {text, max -> repeat(' ', max - len(text)) . text}
 " let s:hold_length_inverse = {text, max -> text . repeat(' ', max - len(text))}
 let LL_percent = {-> line('$') > 100 ? s:hold_length(line('.') * 100 / line('$'), 2) .'%' : ''}
-" Ref: https://raw.githubusercontent.com/gcavallanti/dotfiles/master/.vimrc
-" -- GitHub: Sample of args for noscrollbar#statusline
-" Excerpt: unicode chars
-" box: '□', '■', '▭',
-" hyphen: '―', '⁃', '╍',
-" vertical: '┇',
-let LL_virtual_pos = {-> noscrollbar#statusline(20, '―', '■')}
 
 let s:cur_col = {-> s:hold_length(col('.'), 2) . (&colorcolumn > 0 ? '.'. (&cc - 1) : '')}
 let s:cur_line = {-> s:hold_length(line('.'), 2) .'.'. line('$')}
@@ -196,6 +189,20 @@ let LL_lineinfo = {-> s:cur_col() .':'. s:cur_line()}
 let LL_tab_indicator = {-> tabpagenr('$') == 1 ? 'tab' : '['. tabpagenr() .'/'. tabpagenr('$') .']'} " it doesn't work on 'component_expand'
 
 let LL_vista = {-> get(b:, 'vista_nearest_method_or_function', '')}
+
+function! LL_virtual_pos() abort
+  " Ref: https://raw.githubusercontent.com/gcavallanti/dotfiles/master/.vimrc
+  " -- GitHub: Sample of args for noscrollbar#statusline
+  " Excerpt: unicode chars
+  " box: '□', '■', '▭',
+  " hyphen: '―', '⁃', '╍',
+  " vertical: '┇',
+
+  let track_symbol = '―'
+  let gripper_symbol = '■'
+  let bar = noscrollbar#statusline(20, track_symbol, gripper_symbol)
+  return bar =~# '^'. gripper_symbol .'\+$' ? '' : bar
+endfunction
 
 function! LL_indent() abort
   " Both &l:sw and &l:sts is possibly always different from their global value.
