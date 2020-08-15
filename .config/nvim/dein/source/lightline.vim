@@ -145,6 +145,7 @@ let g:lightline.component_function = {
       \ 'mode': 'LL_mode',
       \ 'percent': 'LL_percent',
       \ 'lineinfo': 'LL_lineinfo',
+      \ 'cur_col': 'LL_cur_col',
       \
       \ 'pos_bar': 'LL_pos_bar',
       \ 'pos_bar_with_lineinfo': 'LL_pos_bar_with_lineinfo',
@@ -191,6 +192,10 @@ let LL_lineinfo = {-> s:cur_col() .':'. s:cur_lnum()}
 let LL_tab_indicator = {-> tabpagenr('$') == 1 ? 'tab' : '['. tabpagenr() .'/'. tabpagenr('$') .']'} " it doesn't work on 'component_expand'
 
 let LL_vista = {-> get(b:, 'vista_nearest_method_or_function', '')}
+
+function! LL_cur_col() abort
+  return s:cur_col() .'c'
+endfunction
 
 function! LL_pos_bar() abort
   " Ref: https://raw.githubusercontent.com/gcavallanti/dotfiles/master/.vimrc
