@@ -216,6 +216,16 @@ lazy = 0
 #
 #[ Network ]
 [[plugins]]
+repo = 'jparise/vim-graphql'
+on_ft = [
+  'graphql',
+  'javascript',
+  'javascriptreact',
+  'typescript',
+  'typescriptreact',
+  'vue',
+]
+[[plugins]]
 repo = 'momota/cisco.vim'
 lazy = 0
 [[plugins]]
