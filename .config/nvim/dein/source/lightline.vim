@@ -54,7 +54,7 @@ let g:lightline.active = {
       \
       \ 'right': [
       \   ['lineinfo'],
-      \   ['pos_bar'],
+      \   ['pos_bar_with_lineinfo'],
       \   ['indent', 'fileformat', 'fileencoding', 'filetype'],
       \   ['notification'],
       \ ],
@@ -142,11 +142,12 @@ let g:lightline.component = {
       \ }
 
 let g:lightline.component_function = {
-      \ 'pos_bar': 'LL_pos_bar',
-      \
       \ 'mode': 'LL_mode',
       \ 'percent': 'LL_percent',
       \ 'lineinfo': 'LL_lineinfo',
+      \
+      \ 'pos_bar': 'LL_pos_bar',
+      \ 'pos_bar_with_lineinfo': 'LL_pos_bar_with_lineinfo',
       \
       \ 'specific_buffer': 'LL_specific_buffer',
       \ 'git_branch': 'LL_git_branch',
@@ -183,8 +184,9 @@ let s:hold_length = {text, max -> repeat(' ', max - len(text)) . text}
 let LL_percent = {-> line('$') > 100 ? s:hold_length(line('.') * 100 / line('$'), 2) .'%' : ''}
 
 let s:cur_col = {-> s:hold_length(col('.'), 2) . (&colorcolumn > 0 ? '.'. (&cc - 1) : '')}
-let s:cur_line = {-> s:hold_length(line('.'), 2) .'.'. line('$')}
-let LL_lineinfo = {-> s:cur_col() .':'. s:cur_line()}
+let s:cur_lnum = {-> s:hold_length(line('.'), 2) .'.'. line('$')}
+
+let LL_lineinfo = {-> s:cur_col() .':'. s:cur_lnum()}
 
 let LL_tab_indicator = {-> tabpagenr('$') == 1 ? 'tab' : '['. tabpagenr() .'/'. tabpagenr('$') .']'} " it doesn't work on 'component_expand'
 
@@ -202,6 +204,12 @@ function! LL_pos_bar() abort
   let gripper_symbol = '■'
   let bar = noscrollbar#statusline(20, track_symbol, gripper_symbol)
   return bar =~# '^'. gripper_symbol .'\+$' ? '' : bar
+endfunction
+
+function! LL_pos_bar_with_lineinfo() abort
+  let bar = LL_pos_bar()
+
+  return s:cur_lnum() .'L' . (empty(bar) ? '' : ' '. bar )
 endfunction
 
 function! LL_indent() abort
