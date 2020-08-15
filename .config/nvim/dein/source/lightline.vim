@@ -53,8 +53,8 @@ let g:lightline.active = {
       \ ],
       \
       \ 'right': [
-      \   ['virtual_pos'],
       \   ['lineinfo'],
+      \   ['virtual_pos'],
       \   ['indent', 'fileformat', 'fileencoding', 'filetype'],
       \   ['notification'],
       \ ],
