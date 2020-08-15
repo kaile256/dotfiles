@@ -5,7 +5,9 @@
 
 function! s:my_spring_night() abort
   hi! link NvimInternalError Error
+
   hi! Visual ctermbg=58 guibg=#505014
+  hi! Folded ctermfg=189 ctermbg=235 guifg=#e7d5ff guibg=#3a4b5c
 endfunction
 
 if exists('#mySpringNightPre') | finish | endif
