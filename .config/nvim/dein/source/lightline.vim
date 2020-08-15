@@ -54,7 +54,7 @@ let g:lightline.active = {
       \
       \ 'right': [
       \   ['lineinfo'],
-      \   ['virtual_pos'],
+      \   ['pos_bar'],
       \   ['indent', 'fileformat', 'fileencoding', 'filetype'],
       \   ['notification'],
       \ ],
@@ -142,7 +142,7 @@ let g:lightline.component = {
       \ }
 
 let g:lightline.component_function = {
-      \ 'virtual_pos': 'LL_virtual_pos',
+      \ 'pos_bar': 'LL_pos_bar',
       \
       \ 'mode': 'LL_mode',
       \ 'percent': 'LL_percent',
@@ -190,7 +190,7 @@ let LL_tab_indicator = {-> tabpagenr('$') == 1 ? 'tab' : '['. tabpagenr() .'/'. 
 
 let LL_vista = {-> get(b:, 'vista_nearest_method_or_function', '')}
 
-function! LL_virtual_pos() abort
+function! LL_pos_bar() abort
   " Ref: https://raw.githubusercontent.com/gcavallanti/dotfiles/master/.vimrc
   " -- GitHub: Sample of args for noscrollbar#statusline
   " Excerpt: unicode chars
