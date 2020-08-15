@@ -93,6 +93,9 @@ let g:switch_custom_definitions += [
       \ ['Yes', 'No'],
       \ ['YES', 'NO'],
       \
+      \ ['disable', 'enable'],
+      \ ['Disable', 'Enable'],
+      \
       \ ['left', 'right'],
       \ ['Left', 'Right'],
       \
