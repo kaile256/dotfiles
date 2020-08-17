@@ -1,6 +1,7 @@
 " From: init.vim
 
 " &path; for `:find`
+" Help: *file-searching*
 " Note: ';' for upward search.
 "       e.g., /usr/share/nvim;/usr will search
 "       in /usr, /usr/share, /usr/share/nvim.
