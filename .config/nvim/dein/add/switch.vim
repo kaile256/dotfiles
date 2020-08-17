@@ -92,6 +92,16 @@ let s:definitions['vim'] = [
       \ {
       \   '\(set\l*\) no\(\l+\)': '\1 \2',
       \ },
+      \ {
+      \   'cterm=': 'gui=',
+      \   'gui=': 'cterm=',
+      \
+      \   'ctermfg=': 'guifg=',
+      \   'guifg=': 'ctermfg=',
+      \
+      \   'ctermbg=': 'guibg=',
+      \   'guibg=': 'ctermbg=',
+      \ },
       \ ]
 
 let s:definitions['toml'] = [
