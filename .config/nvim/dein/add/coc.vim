@@ -150,12 +150,7 @@ nmap \a  <Plug>(coc-codeaction-selected)
 xmap \a  <Plug>(coc-codeaction-selected)
 
 " CocWorkspace {{{1
-command! -bar Rename :CocCommand workspace.renameCurrentFile
-command! -bar Re     :CocCommand workspace.renameCurrentFile
-command! -bar Mv     :CocCommand workspace.renameCurrentFile
-command! -bar MV     :CocCommand workspace.renameCurrentFile
-
-nnoremap <silent> <space>cr :<C-u>CocCommand workspace.renameCurrentFile<CR>
+" nnoremap <silent> <space>cr :<C-u>CocCommand workspace.renameCurrentFile<CR>
 
 command! -bar -nargs=? CocDebug :CocCommand workspace.showOutput <args>
 
