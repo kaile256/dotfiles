@@ -75,6 +75,7 @@ let g:coc_global_extensions = [
       \ 'coc-sql',
       \ 'coc-stylelintplus',
       \ 'coc-tag',
+      \ 'coc-tailwindcss',
       \ 'coc-texlab',
       \ 'coc-todolist',
       \ 'coc-translator',
