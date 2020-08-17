@@ -12,6 +12,12 @@ cnoremap <silent><expr> <SID>(paste-path) expand('%:p')
 nmap y<C-g> <SID>(yank-path)
 cmap <C-r><C-g> <SID>(paste-path)
 
+nnoremap <silent> <SID>(yank-bufnr)
+      \ :<C-u>call setreg(v:register, bufnr('%'))<CR>
+cnoremap <silent><expr> <SID>(paste-bufnr) bufnr('%')
+nmap y<C-b> <SID>(yank-bufnr)
+cmap <C-r><C-b> <SID>(paste-bufnr)
+
 " nnoremap p p`]
 " nnoremap p ]p`]
 nnoremap P ]P
