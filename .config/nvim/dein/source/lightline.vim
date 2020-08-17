@@ -53,7 +53,7 @@ let g:lightline.active = {
       \ ],
       \
       \ 'right': [
-      \   ['lineinfo'],
+      \   ['cur_col'],
       \   ['pos_bar_with_lineinfo'],
       \   ['indent', 'fileformat', 'fileencoding', 'filetype'],
       \   ['notification'],
