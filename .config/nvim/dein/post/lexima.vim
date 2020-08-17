@@ -76,14 +76,22 @@ call s:define_rules_for_javascript()
 delfunction s:define_rules_for_javascript
 
 " Rules for Semicolon {{{1
-let s:user_rules += [
-      \ {'char': '<space>', 'input': ': ', 'input_after': ';',
-      \     'at': '^\s\+[a-zA-Z-]\+\%#', 'except': '\%#.\+',
-      \     'filetype': 'css'},
-      \ {'char': '<space>', 'input_after': ';',
-      \     'at': '^\s\+[a-zA-Z-]\+:\%#', 'except': '\%#.\+',
-      \     'filetype': 'css'},
-      \ ]
+function! s:define_rules_for_css() abort
+  let rules = [
+        \ {'char': '<space>', 'input': ': ', 'input_after': ';',
+        \     'at': '^\s\+[a-zA-Z-]\+\%#', 'except': '\%#.\+',},
+        \ {'char': '<space>', 'input_after': ';',
+        \     'at': '^\s\+[a-zA-Z-]\+:\%#', 'except': '\%#.\+'},
+        \ ]
+
+  let filetypes = [
+        \ 'css',
+        \ ]
+
+  let s:user_rules += s:map_rules(rules, {'filetype': filetypes})
+endfunction
+call s:define_rules_for_css()
+delfunction s:define_rules_for_css
 
 function! s:define_rules_for_semicolon() abort
   let rules_for_semicolon = [
