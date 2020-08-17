@@ -180,13 +180,15 @@ let s:user_rules += [
       \ {'char': '[', 'at': '\\\%#'},
       \ {'char': '{', 'at': '\\\%#'},
       \
-      \ {'char': '(', 'input_after': ')', 'except': '\%#[^\]})>''"` \t]'},
-      \ {'char': '[', 'input_after': ']', 'except': '\%#[^\]})>''"` \t]'},
-      \ {'char': '{', 'input_after': '}', 'except': '\%#[^\]})>''"` \t]'},
+      \ {'char': '(', 'input_after': ')'},
+      \ {'char': '[', 'input_after': ']'},
+      \ {'char': '{', 'input_after': '}'},
+      \ {'char': '<', 'input_after': '>', 'at': '\w\%#'},
       \
-      \ {'char': '(', 'at': '\%#[,.;:]', 'input_after': ')'},
-      \ {'char': '[', 'at': '\%#[,.;:]', 'input_after': ']'},
-      \ {'char': '{', 'at': '\%#[,.;:]', 'input_after': '}'},
+      \ {'char': '(', 'at': '\%#[[<({]'},
+      \ {'char': '[', 'at': '\%#[[<({]'},
+      \ {'char': '{', 'at': '\%#[[<({]'},
+      \ {'char': '<', 'at': '\%#[[<({]'},
       \ ]
 
 " parentheses to close
