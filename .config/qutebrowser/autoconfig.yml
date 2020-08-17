@@ -615,6 +615,7 @@ settings:
       th: https://www.thesaurus.com/browse/{}?s=t
       tt: https://teratail.com/search?q={}
       tw: http://twitter.com/search/{}
+      uni: https://unicode-table.com/en/search/?q={}
       wk: https://en.wikipedia.org/w/index.php?search={}
       wl: https://ejje.weblio.jp/content/{}?erl=true
       yt: https://www.youtube.com/results?search_query={}
