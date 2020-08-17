@@ -78,7 +78,7 @@ delfunction s:define_rules_for_javascript
 " Rules for Semicolon {{{1
 let s:user_rules += [
       \ {'char': '<space>', 'input_after': ';',
-      \     'at': '^\s*\w\+:\%#', 'except': '\%#.\+',
+      \     'at': '^\s*[a-zA-Z-]\+:\%#', 'except': '\%#.\+',
       \     'filetype': 'css'},
       \ ]
 
