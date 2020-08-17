@@ -7,15 +7,15 @@ repo = 'chaoren/vim-wordmotion'
 on_map = {nox = '<Plug>WordMotion_'}
 hook_add = 'runtime add/wordmotion.vim'
 hook_source = 'runtime source/wordmotion.vim'
-[[plugins]]
-repo = 'bkad/CamelCaseMotion'
-# PR-Merged: bkad/CamelCaseMotion/pull/41
-on_map = {nxo = '<Plug>CamelCaseMotion_'}
-#on_event = 'BufRead'
-hook_add = 'runtime add/CamelCaseMotion.vim'
-#hook_post_source = '''
-#call add(g:camelcasemotion#forward_to_end_list, "%(\a|\d)+\ze#")
-#'''
+# [[plugins]]
+# # repo = 'bkad/CamelCaseMotion'
+# # PR-Merged: bkad/CamelCaseMotion/pull/41
+# on_map = {nxo = '<Plug>CamelCaseMotion_'}
+# #on_event = 'BufRead'
+# hook_add = 'runtime add/CamelCaseMotion.vim'
+# #hook_post_source = '''
+# #call add(g:camelcasemotion#forward_to_end_list, "%(\a|\d)+\ze#")
+# #'''
 [[plugins]]
 repo = 'arthurxavierx/vim-caser'
 on_map = {nx = '<Plug>Caser'}
