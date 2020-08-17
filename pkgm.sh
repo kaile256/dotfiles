@@ -154,7 +154,6 @@ PACKAGEs=(
   # dialog # used in `wifi-menu` at least
   ripgrep-all-bin # ripgrep in PDFs, E-Books, Office documents, zip, tar.gz, etc.
   tor-browser
-  mmv # mv multiple files in your editor, for debian user
   #otf-sans-forgetica # a font scientifically designed for study notes. fails to work on qutebrowser
   transset-df # for transparency on xterm
   q4wine # gui for `wine`
