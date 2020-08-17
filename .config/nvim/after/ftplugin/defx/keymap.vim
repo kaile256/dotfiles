@@ -78,6 +78,18 @@ nnoremap <silent><nowait><buffer><expr> sn
 "nnoremap <silent><nowait><buffer><expr> C
 "      \ defx#do_action('toggle_columns',
 "      \                'mark:indent:icon:filename:type:size:time')
+
+" Explore; Split Window {{{1
+function! s:get_cwd() abort
+  return matchstr(getline(1), ':\zs\f\+')
+endfunction
+nnoremap <silent><nowait><buffer><expr> <C-w>v
+      \ ":\<C-u>vs ". <SID>get_cwd() ."\<CR>"
+nnoremap <silent><nowait><buffer><expr> <C-w>s
+      \ ":\<C-u>sp ". <SID>get_cwd() ."\<CR>"
+nmap <nowait><buffer> <C-w><C-v> <C-w>v
+nmap <nowait><buffer> <C-w><C-s> <C-w>s
+
 " Open File {{{1
 " Edit {{{2
 nnoremap <silent><nowait><buffer><expr> <C-j>
