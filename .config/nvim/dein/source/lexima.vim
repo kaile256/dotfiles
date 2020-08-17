@@ -3,6 +3,7 @@
 " Another: add/lexima.vim
 " Another: post/lexima.vim
 
+" let g:lexima_map_escape = '<Plug>(nop)'
 let g:lexima_accept_pum_with_enter = 0
 " call lexima#set_default_rules() manually after the plugin loaded, which
 " should be done in post/ to update by ':source %'
