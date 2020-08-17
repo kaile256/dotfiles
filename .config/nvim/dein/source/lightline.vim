@@ -202,6 +202,7 @@ function! LL_pos_bar() abort
   " -- GitHub: Sample of args for noscrollbar#statusline
   " Excerpt: unicode chars
   " box: '□', '■', '▭',
+  " rectangle: '▬'
   " hyphen: '―', '⁃', '╍',
   " vertical: '┇',
 
