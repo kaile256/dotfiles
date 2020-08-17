@@ -76,6 +76,12 @@ call s:define_rules_for_javascript()
 delfunction s:define_rules_for_javascript
 
 " Rules for Semicolon {{{1
+let s:user_rules += [
+      \ {'char': '<space>', 'input_after': ';',
+      \     'at': '^\s*\w\+:\%#', 'except': '\%#.\+',
+      \     'filetype': 'css'},
+      \ ]
+
 function! s:define_rules_for_semicolon() abort
   let rules_for_semicolon = [
         \ {'char': '<space>', 'input_after': ';', 'at': 'return\%#'},
