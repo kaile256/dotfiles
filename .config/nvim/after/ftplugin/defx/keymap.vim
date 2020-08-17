@@ -39,6 +39,11 @@ nnoremap <silent><nowait><buffer><expr> cF
       \ defx#do_action('new_multiple_files')
 nnoremap <silent><nowait><buffer><expr> cD
       \ defx#do_action('new_multiple_files')
+nnoremap <silent><nowait><buffer><expr> cw
+      \ defx#do_action('rename')
+xnoremap <silent><nowait><buffer><expr> cw
+      \ defx#do_action('multi',
+      \     ['clear_select_all', 'toggle_select_visual', 'rename'])
 
 " Explore; netrw-like {{{2
 " nnoremap <silent><nowait><buffer><expr> -
