@@ -205,6 +205,7 @@ settings:
         <Ctrl+t>: null
         <Ctrl+v>: null
         <Ctrl+w>: null
+        <Ctrl+w><Ctrl+Shift+o>: session-save --quiet last;; window-only
         <Ctrl+w><Ctrl+Shift+r>: devtools right
         <Ctrl+w><Ctrl+c>: session-save --quiet last;; tab-close
         <Ctrl+w><Ctrl+o>: tab-only
