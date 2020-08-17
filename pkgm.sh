@@ -223,7 +223,7 @@ PACKAGEs=(
   polybar # a substitute of i3-bar
   # pyenv
   qemu # for multibootusb
-  qtqr-py3 # generate/decode QR codes
+  qtqr # generate/decode QR codes
   rclone  # sync lib for cloud-service like dropbox, Gdrive.
   ripgrep
   ruby # rvm (Ruby version manager) is out of $PATH.
