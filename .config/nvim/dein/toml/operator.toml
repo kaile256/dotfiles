@@ -120,6 +120,7 @@ argdelete *
 [[plugins]]
 repo = 'hauleth/sad.vim'
 # asterisk-like operator
+on_map = {nox = '<Plug>(sad'}
 hook_add = 'runtime add/sad.vim'
 #[[plugins]]
 #repo = 'svermeulen/vim-subversive'
