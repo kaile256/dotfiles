@@ -529,6 +529,7 @@ unlet s:rules_for_cpp s:key2rules_for_cpp
 " call lexima#insmode#map_hook('before', '<C-j>',   "\<ESC>")
 " call lexima#insmode#map_hook('after', '<CR>',    "\<CR>:-1s/\s\+$<CR>")
 
+call lexima#clear_rules()
 for rule in s:user_rules
   call lexima#add_rule(rule)
 endfor
