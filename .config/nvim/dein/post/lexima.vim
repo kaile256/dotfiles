@@ -101,7 +101,7 @@ delfunction s:define_rules_for_semicolon
 " Rules for Tag {{{1
 
 let s:user_rules += [
-      \ {'char': '<', 'at': '^\s*\%#', 'input_after': '>'},
+      \ {'char': '<', 'at': '^\s*\(return\)\?\s*\%#[;,]', 'input_after': '>'},
       \ ]
 
 let s:filetypes_for_tag_rules = [
