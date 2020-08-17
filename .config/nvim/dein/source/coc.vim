@@ -213,7 +213,7 @@ augroup myCocSource "{{{1
   " au BufWritePre *.java silent call CocActionAsync('runCommand', 'java.action.organizeImports')
   " Note: Keep it BufWrite (not BufWritePre); format could be different from
   " that by <Plug>(coc-format-selected)
-  au BufWrite *.go,*.ts call CocActionAsync('runCommand', 'editor.action.organizeImport')
+  au BufWritePost *.go call CocActionAsync('runCommand', 'editor.action.organizeImport')
   "" CocPairs {{{2
   "  au FileType vim let b:coc_pairs_disabled = ['"']
 augroup END
