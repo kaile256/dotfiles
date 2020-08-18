@@ -18,6 +18,8 @@ function! s:detect_react() abort
   if is_react
     exe 'set ft='. &ft .'react'
   endif
+
+  let &l:commentstring = '{/* %s */}'
 endfunction
 
 call s:detect_react()
