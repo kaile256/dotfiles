@@ -589,9 +589,9 @@ $release $Super+T $noid xterm; $notify " XTerm "
 $release $Super+C $noid kitty; $notify " Kitty "
 
 for_window [title=^termporal$] floating enable
-set $alacritty_center alacritty --dimensions 170 35
+set $alacritty_center alacritty --dimensions 170 45
 set $termporal alacritty \
-    --dimensions 170 35 \
+    --dimensions 170 45 \
     --title termporal \
     -e fish
 bindsym $Super+Return $noid $termporal
