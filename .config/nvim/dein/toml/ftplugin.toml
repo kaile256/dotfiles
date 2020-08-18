@@ -11,11 +11,12 @@ repo = 'editorconfig/editorconfig-vim'
 # Note: vim-prettier is unnecessary, though it also covers editorconfig.
 on_event = 'BufWinEnter'
 hook_source = 'runtime source/editorconfig.vim'
-#[[plugins]]
-#repo = 'prettier/vim-prettier'
-## Note: also read .editorconfig
-#on_event = 'BufWinEnter'
-#hook_add = 'runtime add/prettier.vim'
+# [[plugins]]
+# repo = 'prettier/vim-prettier'
+# # Note: also read .editorconfig
+# build = 'yarn install'
+# on_map = {nx = '<Plug>(Prettier'}
+# on_cmd = 'Prettier'
 #[[plugins]]
 #repo = 'tpope/vim-sleuth'
 ## Note: Sleuth means a detective.
