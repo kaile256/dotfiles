@@ -149,6 +149,14 @@ hook_source = 'runtime source/defx-icons.vim'
 # on_source = 'vim-dirvish'
 #
 ##[ Ranger ]
+[[plugins]]
+repo = 'kevinhwang91/rnvimr'
+# Ranger in a floating window.
+if = 'has("nvim") && executable("ranger") && executable("ueberzug")'
+on_func = 'rnvimr#'
+on_cmd = 'RnvimrToggle'
+hook_add = 'runtime add/rnvimr.vim'
+hook_source = 'runtime source/rnvimr.vim'
 #[[plugins]]
 #repo = 'Lokaltog/neoranger'
 ## Note: only one pane is in use; can't call it a ranger.
