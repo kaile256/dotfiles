@@ -337,6 +337,8 @@
   // "stylelintplus.validateOnSave": true,
   // "stylelintplus.validateOnType": false,
 
+  "tailwindCSS.emmetCompletions": true,
+
   "json.format.enable": false,
 
   "html.format.enable": false,
