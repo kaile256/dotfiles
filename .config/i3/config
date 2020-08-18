@@ -589,9 +589,10 @@ $release $Super+T $noid xterm; $notify " XTerm "
 $release $Super+C $noid kitty; $notify " Kitty "
 
 for_window [title=^termporal$] floating enable
+set $alacritty_center alacritty --dimensions 170 35
 set $termporal alacritty \
+    --dimensions 170 35 \
     --title termporal \
-    --config-file $XDG_CONFIG_HOME/alacritty/center.yml \
     -e fish
 bindsym $Super+Return $noid $termporal
 
@@ -821,7 +822,7 @@ bindsym Ctrl+bracketleft $noid fcitx-remote -c; mode default; $alert 'Skk: OFF'
 for_window [title=^fzf-menu$] floating enable border normal
 set $menu alacritty \
     --title fzf-menu \
-    --config-file $XDG_CONFIG_HOME/alacritty/dmenu.yml \
+    --dimensions 70 30 \
     -e i3-dmenu-desktop --dmenu=fzf
 bindsym $Super+backslash $noid $menu
 
