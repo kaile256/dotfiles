@@ -4,6 +4,7 @@
 
 let g:wordmotion_disable_default_mappings = 1
 
-let g:wordmotion_spaces = '-_.#/<>{}()\:'
+" TODO: those chars should be ignored in sequence of chars
+let g:wordmotion_spaces = '-_.#/\:'
 
 let g:wordmotion_prefix = ''
