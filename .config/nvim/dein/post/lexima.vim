@@ -57,7 +57,7 @@ endfunction
 function! s:define_rules_for_javascript() abort
   let Append_comma = {
         \ 'char': '<space>', 'input_after': ',',
-        \ 'at': '\a:\%#', 'except': '\%#.\+',
+        \ 'at': '^\s*\a\+:\%#', 'except': '\%#.\+',
         \ 'syntax': [
         \   'typescriptObjectLabel',
         \   'typescriptObjectColon',
@@ -66,7 +66,7 @@ function! s:define_rules_for_javascript() abort
 
   let Append_semicolon = {
         \ 'char': '<space>', 'input_after': ';',
-        \ 'at': '\a:\%#', 'except': '\%#.\+',
+        \ 'at': '^\s*\a\+:\%#', 'except': '\%#.\+',
         \ 'syntax': [
         \   'typescriptTypeAnnotation',
         \ ],
