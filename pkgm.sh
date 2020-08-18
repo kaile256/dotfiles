@@ -359,6 +359,7 @@ export purple="\e[0;35m"
 export white="\e[0;37m"
 
 CWD=$(pwd)
+SCRIPT_DIR=$(readlink -f "$0" | xargs dirname)
 cd "$HOME"
 
 notify() {
