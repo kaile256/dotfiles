@@ -46,6 +46,15 @@ on_cmd = [
   'SudoEdit',
 ]
 
+# [ Comment ]
+[[plugins]]
+repo = 'suy/vim-context-commentstring'
+# modify &commentstring on CursorMoved as g:context#commentstring#table[&ft]
+on_ft = [
+  'php',
+]
+hook_source = 'runtime source/context-commentstring.vim'
+
 #[ Paste ]
 [[plugins]]
 repo = 'inkarkat/vim-UnconditionalPaste'
