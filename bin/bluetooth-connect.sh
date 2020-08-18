@@ -2,7 +2,7 @@
 
 set -Ceu
 
-EARPHONES_NAME='bluetooth mouse4.0'
+DEVICE=${DEVICE:-'Ponsinc-S4'}
 
 notify_msg() {
   msg=$1
@@ -18,19 +18,21 @@ notify_msg() {
 connect_earphones() {
   bluetoothctl power on
 
-  MAC_EARPHONES=$(bluetoothctl paired-devices \
-    | grep -i "$EARPHONES_NAME" \
+  MAC_DEVICE=$(bluetoothctl paired-devices \
+    | grep -i "$DEVICE" \
     | awk '{print $2}')
 
-  has_disconnected=$(bluetoothctl info "$MAC_EARPHONES" \
+  # TODO: when "Missing device address argument" returns,
+  # scan on, pair on, etc. and get a MAC address to connect.
+  has_disconnected=$(bluetoothctl info "$MAC_DEVICE" \
     | (grep 'Connected: no' && echo -n 'true') || echo -n 'false')
 
-  bluetoothctl disconnect "$MAC_EARPHONES"
-  bluetoothctl connect "$MAC_EARPHONES"
+  bluetoothctl disconnect "$MAC_DEVICE"
+  bluetoothctl connect "$MAC_DEVICE"
 
   if $has_disconnected ; then
-  bluetoothctl info "$MAC_EARPHONES" \
-    && notify_msg "$EARPHONES_NAME is connected"
+  bluetoothctl info "$MAC_DEVICE" \
+    && notify_msg "$DEVICE is connected"
   fi
 }
 
@@ -45,3 +47,4 @@ case "$1" in
     connect_earphones
     ;;
 esac
+
