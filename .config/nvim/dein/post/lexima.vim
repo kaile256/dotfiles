@@ -55,12 +55,29 @@ endfunction
 
 " Rules for framework/library {{{1
 function! s:define_rules_for_javascript() abort
+  let Append_comma = {
+        \ 'char': '<space>', 'input_after': ',',
+        \ 'at': '\a:\%#', 'except': '\%#.\+',
+        \ 'syntax': [
+        \   'typescriptObjectLabel',
+        \   'typescriptObjectColon',
+        \ ],
+        \ }
+
+  let Append_semicolon = {
+        \ 'char': '<space>', 'input_after': ';',
+        \ 'at': '\a:\%#', 'except': '\%#.\+',
+        \ 'syntax': [
+        \   'typescriptTypeAnnotation',
+        \ ],
+        \ }
+
   let rules = [
         \ {'char': '<space>', 'input_after': ';', 'at': 'import\%#'},
-        \ {'char': '<space>', 'input_after': ',',
-        \     'at': ':\%#', 'except': '\%#.\+'},
         \ {'char': '<space>', 'input_after': ';',
         \     'at': 'let\%#', 'except': '\%#.\+'},
+        \ Append_comma,
+        \ Append_semicolon,
         \ ]
 
   let filetypes = [
