@@ -72,12 +72,18 @@ function! s:define_rules_for_javascript() abort
         \ ],
         \ }
 
+  let Append_colon_after_case = {
+        \ 'char': '<space>', 'input': ' ', 'input_after': ':',
+        \ 'at': '^\s*case\%#', 'except': '\%#.\+',
+        \ }
+
   let rules = [
         \ {'char': '<space>', 'input_after': ';', 'at': 'import\%#'},
         \ {'char': '<space>', 'input_after': ';',
         \     'at': 'let\%#', 'except': '\%#.\+'},
         \ Append_comma,
         \ Append_semicolon,
+        \ Append_colon_after_case,
         \ ]
 
   let filetypes = [
