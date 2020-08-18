@@ -8,13 +8,13 @@ xmap <expr> <CR> &bt ==# '' ? ' " : '<CR>'
 
 nnoremap <silent> <SID>(yank-path)
       \ :<C-u>call setreg(v:register, expand('%:p'))<CR>
-cnoremap <silent><expr> <SID>(paste-path) expand('%:p')
+cnoremap <expr> <SID>(paste-path) expand('%:p')
 nmap y<C-g> <SID>(yank-path)
 cmap <C-r><C-g> <SID>(paste-path)
 
 nnoremap <silent> <SID>(yank-bufnr)
       \ :<C-u>call setreg(v:register, bufnr('%'))<CR>
-cnoremap <silent><expr> <SID>(paste-bufnr) bufnr('%')
+cnoremap <expr> <SID>(paste-bufnr) bufnr('%')
 nmap y<C-b> <SID>(yank-bufnr)
 cmap <C-r><C-b> <SID>(paste-bufnr)
 
