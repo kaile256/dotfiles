@@ -330,6 +330,9 @@
   "prettier.singleQuote": true, // quotes other than jsx
   // "prettier.jsxSingleQuote": true,
 
+  "eslint.packageManager": "yarn",
+  "eslint.run": "onSave",
+
   "tsserver.enableJavascript": true,
 
   // Note: `coc-stylelintplus` uses `stylelint-lsp` as the LSP.
