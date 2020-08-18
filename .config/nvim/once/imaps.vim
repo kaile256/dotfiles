@@ -15,7 +15,8 @@ function! s:copy_line(key) abort
 
   let cur_col = col('.')
 
-  let cnt = matchstrpos(line[cur_col :], '\s*\S\+')[2] + 1
+  let pat_to_stop = '\W*\v(\l+|\u+\l*|\d+)*\W?'
+  let cnt = matchstrpos(line[cur_col :], pat_to_stop)[2] + 1
 
   let seq = repeat(a:key, cnt)
 
