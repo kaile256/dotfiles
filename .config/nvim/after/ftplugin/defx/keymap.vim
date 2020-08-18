@@ -245,12 +245,12 @@ nnoremap <silent><nowait><buffer><expr> zc
 " Register {{{1
 " yank_path: yank in plus register
 nnoremap <nowait><buffer><expr> y<C-g>
-      \ defx#async_action('yank_path')
+      \ defx#do_action('yank_path')
 " copy: yank in defx's register
 nnoremap <nowait><buffer><expr> yy
       \ defx#do_action('copy')
 xnoremap <nowait><buffer><expr> y
-      \ defx#async_action('multi',
+      \ defx#do_action('multi',
       \ ['clear_select_all', 'toggle_select_visual', 'copy'])
 " TODO: send 'r' to select rename at the prompt
 "   Note:
@@ -258,7 +258,7 @@ xnoremap <nowait><buffer><expr> y
 nnoremap <nowait><buffer><expr> cc
       \ defx#do_action('move')
 xnoremap <nowait><buffer><expr> c
-      \ defx#async_action('multi',
+      \ defx#do_action('multi',
       \ ['clear_select_all', 'toggle_select_visual', 'move'])
 nnoremap <nowait><buffer><expr> p
       \ defx#do_action('paste')
