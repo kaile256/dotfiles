@@ -23,6 +23,7 @@ interceptor.register(filter_youtube)
 
 # Hint to yank codes in xml
 # https://github.com/LaurenceWarne/qute-code-hint
+# Script: $GHQ_ROOT/github.com/LaurenceWarne/qute-code-hint/code_select.py
 c.hints.selectors["code"] = [
     # Select all code tags whose direct parent is not a <pre> tag.
     ":not(pre) > code",
