@@ -29,3 +29,9 @@ nnoremap <silent> <Plug>(next-TODO) :<C-u>call search('TODO:', '')<CR>
 nnoremap <silent> <Plug>(prev-TODO) :<C-u>call search('TODO:', 'b')<CR>
 nmap <expr> [T repmo#Key('<Plug>(prev-TODO)', '<Plug>(next-TODO)')
 nmap <expr> ]T repmo#Key('<Plug>(next-TODO)', '<Plug>(prev-TODO)')
+
+nnoremap <expr> g; repmo#Key('g;', 'g,')
+nnoremap <expr> g, repmo#Key('g,', 'g;')
+xnoremap <expr> g; repmo#Key('g;', 'g,')
+xnoremap <expr> g, repmo#Key('g,', 'g;')
+
