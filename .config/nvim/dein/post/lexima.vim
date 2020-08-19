@@ -54,6 +54,27 @@ endfunction
 "   priority: the bigger, the higher priority; default as 0.
 
 " Rules for framework/library {{{1
+function! s:define_rules_for_react() abort
+  let pat_revising = '\%#[^,;]\+'
+  let Complete_backtick_for_CSS_in_JS = {
+        \ 'char': '`', 'input_after': '`', 'except': pat_revising,
+        \ 'at': '\<styled\>\S*\%#',
+        \ }
+
+  let rules = [
+        \ Complete_backtick_for_CSS_in_JS,
+        \ ]
+
+  let filetypes = [
+        \ 'javascriptreact',
+        \ 'typescriptreact',
+        \ ]
+
+  let s:user_rules += s:map_rules(rules, {'filetype': filetypes})
+endfunction
+call s:define_rules_for_react()
+delfunction s:define_rules_for_react
+
 function! s:define_rules_for_javascript() abort
   let pat_revising = '\%#[^,;]\+'
   let Append_comma = {
