@@ -181,14 +181,13 @@ let s:rules_for_tag = []
 
 let s:rules_for_tag += [
       \ {'char': '<CR>', 'at': '\%#\s*/>',
-      \   'input_after': '<CR>', 'input': '<CR><TAB><TAB>'
-      \ },
+      \   'input_after': '<CR>', 'input': '<CR>'},
       \ ]
 
 " Spilt <tag><\tag> on <CR>
 let s:user_rules += [
       \ {'char': '<CR>', 'at': '<.\{-}>\%#<.\{-}>',
-      \   'input': '<CR><TAB>', 'input_after': '<CR>'},
+      \   'input': '<CR>', 'input_after': '<CR>'},
       \ ]
 
 let s:user_rules += s:map_rules(s:rules_for_tag,
@@ -212,7 +211,7 @@ let s:user_rules += [
 " Spilt <tag><\tag> on <CR>
 let s:user_rules += [
       \ {'char': '<CR>', 'at': '<.\{-}>\%#<.\{-}>',
-      \   'input': '<CR><TAB>', 'input_after': '<CR>',
+      \   'input': '<CR>', 'input_after': '<CR>',
       \     'filetype': [
       \         'htm', 'html', 'xml', 'php',
       \         'javascriptreact', 'typescriptreact',
