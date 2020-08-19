@@ -108,7 +108,7 @@ export GTAGSLABEL=pygments
 # Go
 export GOPATH="$HOME/.go"
 ## Ghq
-export GHQ_ROOT="$XDG_DATA_HOME/ghq"
+export GHQ_ROOT="$HOME/.ghq"
 
 # Rust
 export CARGO_HOME="$HOME/.cargo"
