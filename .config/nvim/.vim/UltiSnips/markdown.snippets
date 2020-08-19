@@ -31,15 +31,16 @@ repo = 'kaile256/`!v snip#vim#name_of_repo()`'
 
 endsnippet
 
-snippet qiita
+snippet metadata "Yaml Metadata" b
 ---
-title: ${1:Qiita # title}
-tags: ${2:# tags}
+title: ${1:Title}
+date: "`!v strftime("%Y-%m-%d")`"
+tags: ${2:Tags}
 author: kaile256
 slide: false
 ---
 
-${3:# contents}
+## ${3:Subtitle}
 endsnippet
 
 snippet component "graph" b
