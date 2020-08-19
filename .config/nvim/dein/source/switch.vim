@@ -22,6 +22,13 @@ let g:switch_custom_definitions += [
       \ ]
 
 let g:switch_custom_definitions += [
+      \ {
+      \   '^\s*let ': 'const ',
+      \   '^\s*const ': 'let ',
+      \ },
+      \ ]
+
+let g:switch_custom_definitions += [
       \ ['horizontal', 'vertical'],
       \ ['Enter', 'Leave'],
       \ {
