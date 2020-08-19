@@ -380,7 +380,7 @@ function! LL_getcwd() abort "{{{3
 endfunction
 
 function! LL_filetype() abort "{{{3
-  if !empty(&bt) || &ft ==# expand('%:e')
+  if &bt =~# 'terminal\|quickfix'
     return ''
   elseif empty(&ft)
     return '[no ft]'
