@@ -31,7 +31,7 @@ let s:annotations = [
       \ 'XXX',
       \ ]
 
-let s:annotations = '\c\('. join(s:annotations, '\|') .'\)\ze: '
+let s:annotations = '\c \zs\('. join(s:annotations, '\|') .'\)\ze: '
 let w:syntax_annotation = matchadd('TODO', s:annotations)
 unlet s:annotations
 
