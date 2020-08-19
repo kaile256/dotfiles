@@ -99,6 +99,11 @@ let g:switch_custom_definitions += [
       \ ['left', 'right'],
       \ ['Left', 'Right'],
       \
+      \ {
+      \   '\<row\>': 'col',
+      \   '\<col\>': 'row',
+      \ }
+      \
       \ ['height', 'width'],
       \ ['Height', 'Width'],
       \
