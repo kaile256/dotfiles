@@ -74,10 +74,19 @@ on_cmd = [
 hook_add = 'runtime add/SQHell.vim'
 hook_source = 'runtime source/SQHell.vim'
 
-#[[plugins]]
-#repo = 'tpope/vim-dadbod'
-#on_cmd = ['DB']
-#
+[[plugins]]
+repo = 'tpope/vim-dadbod'
+on_cmd = ['DB']
+[[plugins]]
+repo = 'kristijanhusak/vim-dadbod-ui'
+depends = 'vim-dadbod'
+on_cmd = 'DBUI'
+hook_source = 'runtime source/dadbod-ui.vim'
+[[plugins]]
+repo = 'kristijanhusak/vim-dadbod-completion'
+# For coc.nvim, `CocInstall coc-db` is required.
+on_ft = ['sql']
+
 #[[plugins]]
 #repo = 'vim-scripts/dbext.vim'
 #on_cmd = [
