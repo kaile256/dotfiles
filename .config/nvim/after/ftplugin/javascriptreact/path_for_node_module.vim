@@ -1,0 +1,1 @@
+../javascript/path_for_node_module.vim

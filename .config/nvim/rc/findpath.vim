@@ -10,7 +10,6 @@
 " '':  current directory; keep empty between two commas (i.e., set path+=,,)
 set path=/etc
 set isfname-=,
-set isfname-==
 set isfname+=@-@
 
 function! MyIncludeExpr(fname) abort
