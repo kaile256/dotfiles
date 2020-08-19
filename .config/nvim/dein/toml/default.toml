@@ -8,6 +8,10 @@ on_func = 'repeat#'
 # Notice: mapping under add/ fails to find the autoload/ of vim-repeat
 hook_post_source = 'runtime post/repeat.vim'
 [[plugins]]
+repo = 'inkarkat/vim-visualrepeat'
+# used by easy-align on Visual mode.
+on_func = 'visualrepeat#'
+[[plugins]]
 repo = 'Houl/repmo-vim'
 on_func = 'repmo#'
 hook_add = 'runtime add/repmo.vim'
