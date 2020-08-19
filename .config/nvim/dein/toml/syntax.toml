@@ -109,10 +109,12 @@ lazy = 0
 # on_path = ['\.js$', '\.jsx$', '\.ts$', '\.tsx$']
 # [[plugins]]
 # repo = 'MaxMEllon/vim-jsx-pretty'
+# merged = 0
 # on_path = ['\.js$', '\.jsx$', '\.ts$', '\.tsx$']
 [[plugins]]
 repo = 'neoclide/vim-jsx-improve'
 # includes motion mappings for '[[', '[]' and so on.
+merged = 0
 on_path = ['\.js$', '\.jsx$']
 on_ft = [
   'javascript',
@@ -136,6 +138,7 @@ on_ft = [
 # ]
 [[plugins]]
 repo = 'HerringtonDarkholme/yats.vim'
+merged = 0
 on_path = ['\.ts$', '\.tsx$']
 on_ft = [
   'typescript',
@@ -156,19 +159,21 @@ on_ft = [
 #[ Javascript.styled-jsx ]
 [[plugins]]
 repo = 'styled-components/vim-styled-components'
-# FIXME: how to activate it?
+# the indentexpr works wrong.
+merged = 0
 on_path = ['\.js$', '\.jsx$', '\.ts$', '\.tsx$']
-
-[[plugins]]
-repo = 'alampros/vim-styled-jsx'
-# Recommended by [vercel/styled-jsx](https://github.com/vercel/styled-jsx)
-# Note: only contains syntax/jsx.vim; you should set `runtime syntax/jsx.vim`.
-on_path = ['\.js$', '\.jsx$', '\.ts$', '\.tsx$', '\.css$']
-
+# [[plugins]]
+# repo = 'alampros/vim-styled-jsx'
+# # Recommended by [vercel/styled-jsx](https://github.com/vercel/styled-jsx)
+# # Note: only contains syntax/jsx.vim; you should set `runtime syntax/jsx.vim`.
+# merged = 0
+# on_path = ['\.js$', '\.jsx$', '\.ts$', '\.tsx$', '\.css$']
 #[ CSS ]
-[[plugins]]
-repo = 'hail2u/vim-css3-syntax'
-on_path = ['\.js$', '\.jsx$', '\.ts$', '\.tsx$', '\.css$']
+# [[plugins]]
+# repo = 'kaile256/vim-css3-syntax'
+# # repo = 'hail2u/vim-css3-syntax'
+# merged = 0
+# on_path = ['\.js$', '\.jsx$', '\.ts$', '\.tsx$', '\.css$']
 # [[plugins]]
 # # repo = 'amadeus/vim-css'
 # on_path = ['\.js$', '\.jsx$', '\.ts$', '\.tsx$', '\.css$']
