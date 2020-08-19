@@ -231,7 +231,7 @@ $noid alsactl daemon
 $noid pulseaudio --kill; sleep 5; pulseaudio --start &
 
 # Only once try to connect earphones.
-$noid $HOME/bin/connect-earphones.sh --simple >/dev/null 2>&1
+$noid $HOME/bin/earphones-connect.sh --simple >/dev/null 2>&1
 
 $always $MY_SCRIPTS/connect-keyboard.sh >/dev/null 2>&1
 
