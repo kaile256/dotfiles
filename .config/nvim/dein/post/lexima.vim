@@ -55,9 +55,10 @@ endfunction
 
 " Rules for framework/library {{{1
 function! s:define_rules_for_javascript() abort
+  let pat_revising = '\%#[^,;]\+'
   let Append_comma = {
         \ 'char': '<space>', 'input_after': ',',
-        \ 'at': '^\s*\a\+:\%#', 'except': '\%#.\+',
+        \ 'at': '^\s*\a\+:\%#', 'except': pat_revising,
         \ 'syntax': [
         \   'typescriptObjectLabel',
         \   'typescriptObjectColon',
@@ -66,21 +67,22 @@ function! s:define_rules_for_javascript() abort
 
   let Append_semicolon = {
         \ 'char': '<space>', 'input_after': ';',
-        \ 'at': '^\s*\a\+:\%#', 'except': '\%#.\+',
+        \ 'at': '^\s*\a\+:\%#', 'except': pat_revising,
         \ 'syntax': [
         \   'typescriptTypeAnnotation',
+        \   'cssNoise',
         \ ],
         \ }
 
   let Append_colon_after_case = {
         \ 'char': '<space>', 'input': ' ', 'input_after': ':',
-        \ 'at': '^\s*case\%#', 'except': '\%#.\+',
+        \ 'at': '^\s*case\%#', 'except': pat_revising,
         \ }
 
   let rules = [
         \ {'char': '<space>', 'input_after': ';', 'at': 'import\%#'},
         \ {'char': '<space>', 'input_after': ';',
-        \     'at': 'let\%#', 'except': '\%#.\+'},
+        \     'at': 'let\%#', 'except': pat_revising},
         \ Append_comma,
         \ Append_semicolon,
         \ Append_colon_after_case,
