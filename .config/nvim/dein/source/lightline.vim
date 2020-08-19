@@ -386,7 +386,7 @@ function! LL_filetype() abort "{{{3
     return '[no ft]'
   endif
 
-  return &ft
+  return 'ft='. &ft
 endfunction
 
 function! LL_specific_buffer() abort "{{{3
