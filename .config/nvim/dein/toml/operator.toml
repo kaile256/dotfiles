@@ -147,3 +147,9 @@ repo = 'SausageCats/vim-operator-swap'
 on_map = {nx = ['<Plug>(operator-swap-']}
 hook_add = 'runtime add/operator-swap-SausageCats.vim'
 hook_source = 'runtime source/operator-swap-SausageCats.vim'
+
+#[ Copy ]
+# [[plugins]]
+# repo = 'emugel/vim-ictrlye'
+# i_<C-e>/<C-y> to start operator.
+# on_event = 'InsertEnter'
