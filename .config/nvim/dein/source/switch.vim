@@ -44,6 +44,9 @@ let g:switch_custom_definitions += [
       \ ['==', '!='],
       \ ['first', 'second', 'third', 'last'],
       \
+      \ ['primary', 'secondary'],
+      \ ['PRIMARY', 'SECONDARY'],
+      \
       \ ['before', 'after'],
       \
       \ ['collapse', 'expand'],
