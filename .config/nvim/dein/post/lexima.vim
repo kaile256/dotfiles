@@ -77,9 +77,10 @@ delfunction s:define_rules_for_react
 
 function! s:define_rules_for_javascript() abort
   let pat_revising = '\%#[^,;]\+'
+  let pat_preceding = '^\s*[a-zA-Z_-]\{-}:\%#'
   let Append_comma = {
         \ 'char': '<space>', 'input_after': ',',
-        \ 'at': '^\s*\a\+:\%#', 'except': pat_revising,
+        \ 'at': pat_preceding, 'except': pat_revising,
         \ 'syntax': [
         \   'typescriptObjectLabel',
         \   'typescriptObjectColon',
@@ -88,7 +89,7 @@ function! s:define_rules_for_javascript() abort
 
   let Append_semicolon = {
         \ 'char': '<space>', 'input_after': ';',
-        \ 'at': '^\s*\a\+:\%#', 'except': pat_revising,
+        \ 'at': pat_preceding, 'except': pat_revising,
         \ 'syntax': [
         \   'typescriptTypeAnnotation',
         \   'cssNoise',
