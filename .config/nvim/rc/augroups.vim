@@ -13,6 +13,10 @@ augroup mySetReadonly
   au BufWinEnter *.{jpg,jpeg,png,gif} setlocal readonly nomodifiable
 augroup END
 
+augroup myAutoUpdateColorColumn
+  au OptionSet textwidth if &cc != &tw + 1 | let &l:colorcolumn = &tw + 1 | endif
+augroup END
+
 augroup myAugroups
   " AutoWinResize "{{{1
   au VimResized * wincmd =
