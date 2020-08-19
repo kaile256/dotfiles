@@ -56,7 +56,6 @@ let g:lightline.active = {
       \   ['cur_col'],
       \   ['pos_bar_with_lineinfo'],
       \   ['indent', 'fileformat', 'fileencoding', 'filetype'],
-      \   ['notification'],
       \ ],
       \ }
 
@@ -152,8 +151,6 @@ let g:lightline.component_function = {
       \
       \ 'specific_buffer': 'LL_specific_buffer',
       \ 'git_branch': 'LL_git_branch',
-      \
-      \ 'notification': 'LL_notification',
       \
       \ 'filetype': 'LL_filetype',
       \ 'indent': 'LL_indent',
@@ -255,32 +252,32 @@ function! LL_readonly() abort "{{{3
   return ''
 endfunction
 
-function! LL_notification() abort "{{{3
-  let msg = ''
-  for msg in ['gutentags#statusline()', 'LL_coc_notice()']
-    if exists('*'. msg)
-      let msg = eval(msg)
-    else
-      let msg = ''
-    endif
+" function! LL_notification() abort "{{{3
+"   let msg = ''
+"   for msg in ['gutentags#statusline()', 'LL_coc_notice()']
+"     if exists('*'. msg)
+"       let msg = eval(msg)
+"     else
+"       let msg = ''
+"     endif
 
-    if !empty(msg)
-      return msg
-    endif
-  endfor
+"     if !empty(msg)
+"       return msg
+"     endif
+"   endfor
 
-  if empty(msg)
-    let msg =  LL_errmsg()
-  endif
+"   if empty(msg)
+"     let msg =  LL_errmsg()
+"   endif
 
-  if winwidth(0) < 50 | return '' | endif
+"   if winwidth(0) < 50 | return '' | endif
 
-  while len(msg) > (winwidth(0) * 4 / 10)
-    let msg = matchstr(msg, '^.\{'. (len(msg) * 2 / 3) .'}')
-  endwhile
+"   while len(msg) > (winwidth(0) * 4 / 10)
+"     let msg = matchstr(msg, '^.\{'. (len(msg) * 2 / 3) .'}')
+"   endwhile
 
-  return msg
-endfunction
+"   return msg
+" endfunction
 
 function! LL_errmsg() abort "{{{3
   let msg = get(v:, 'errmsg', '')
