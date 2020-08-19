@@ -179,9 +179,9 @@ on_path = ['\.js$', '\.jsx$', '\.ts$', '\.tsx$']
 # on_path = ['\.js$', '\.jsx$', '\.ts$', '\.tsx$', '\.css$']
 
 #[ Shell ]
-#[[plugins]]
-#repo = 'dag/vim-fish'
-#on_ft = 'fish'
+[[plugins]]
+repo = 'dag/vim-fish'
+lazy = 0
 
 #[[plugins]]
 #repo = 'chrisbra/vim-zsh'
