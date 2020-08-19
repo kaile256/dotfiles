@@ -3,7 +3,7 @@
 #[ Charater's Case ]
 [[plugins]]
 repo = 'chaoren/vim-wordmotion'
-# easier to customize than camelcasemotion
+# Treat preset chars as spaces
 on_map = {nox = '<Plug>WordMotion_'}
 hook_add = 'runtime add/wordmotion.vim'
 hook_source = 'runtime source/wordmotion.vim'
