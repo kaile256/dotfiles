@@ -472,15 +472,6 @@ let s:user_rules += [
       \ ]
 
 " Addtional Rules on FileType {{{1
-let s:rules_for_type_declare_with_colon = [
-      \ {'char': '<space>', 'input_after': ',',
-      \     'at': '\a:\%#', 'except': '\%#.\+',
-      \     'filetype': ['typescript', 'typescriptreact'],
-      \ },
-      \ ]
-let s:user_rules += s:rules_for_type_declare_with_colon
-unlet s:rules_for_type_declare_with_colon
-
 " Suppress some rules up to filetype.
 let s:user_rules += [
       \ {'char': "'", 'filetype': ['haskell', 'lisp', 'clojure', 'ocaml', 'reason', 'scala', 'rust']},
