@@ -102,7 +102,12 @@ let g:switch_custom_definitions += [
       \ {
       \   '\<row\>': 'col',
       \   '\<col\>': 'row',
-      \ }
+      \ },
+      \
+      \ {
+      \   '\<top\>': 'bottom',
+      \   '\<bottom\>': 'top',
+      \ },
       \
       \ ['height', 'width'],
       \ ['Height', 'Width'],
