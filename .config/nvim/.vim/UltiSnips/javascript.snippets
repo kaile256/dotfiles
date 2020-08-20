@@ -19,6 +19,11 @@ snippet import "import $1 from $2" b
 import ${1:Components} from '${2:path}';
 endsnippet
 
+snippet interface "interface $1 extends $2 {}" b
+interface ${1:Interface} extends ${3:Super} {$0
+}
+endsnippet
+
 snippet function "function $1($2) {}" b
 function ${1:Funcname}(${2:args}) {$0
 }
