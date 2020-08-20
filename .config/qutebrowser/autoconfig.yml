@@ -594,6 +594,7 @@ settings:
       gma: https://www.google.co.jp/maps/search/{}
       gt: https://translate.google.co.jp/#view=home&op=translate&sl=auto&tl=ja&text={}
       map: https://www.google.co.jp/maps/search/{}
+      mdn: https://developer.mozilla.org/en-US/search?q={}
       mf: https://github.com/search?o=desc&q={}&s=forks&type=Repositories
       ms: https://github.com/search?o=desc&q={}&s=stars&type=Repositories
       note: https://note.com/search?context=note&mode=search&q={}
