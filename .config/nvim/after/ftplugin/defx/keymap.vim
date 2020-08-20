@@ -32,13 +32,9 @@ nnoremap <silent><nowait><buffer><expr> <space>ww
 " Explore; Manipulate File/Directory {{{2
 " Mnemonic: Create File/Directory
 nnoremap <silent><nowait><buffer><expr> cf
-      \ defx#do_action('new_file')
+      \ defx#do_action('new_multiple_files')
 nnoremap <silent><nowait><buffer><expr> cd
       \ defx#do_action('new_directory')
-nnoremap <silent><nowait><buffer><expr> cF
-      \ defx#do_action('new_multiple_files')
-nnoremap <silent><nowait><buffer><expr> cD
-      \ defx#do_action('new_multiple_files')
 nnoremap <silent><nowait><buffer><expr> cw
       \ defx#do_action('rename')
 xnoremap <silent><nowait><buffer><expr> cw
