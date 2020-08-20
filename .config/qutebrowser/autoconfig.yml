@@ -355,6 +355,7 @@ settings:
         zr: set-cmd-text -s :session-load
       passthrough:
         <Alt+x>: 'set-cmd-text :'
+        <Ctrl+[>: fake-key <Esc>
         <Ctrl+b>: fake-key <left><Ctrl+b>
         <Ctrl+d>: fake-key <Del>
         <Ctrl+f>: fake-key <right><Ctrl+f>
