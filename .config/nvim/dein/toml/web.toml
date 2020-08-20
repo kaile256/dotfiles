@@ -172,6 +172,9 @@ hook_source = 'runtime source/at-vim-coder.vim'
 repo = 'cannot-fly-pig/vim-atcoder'
 if = '!has("nvim")'
 on_cmd = 'Atcoder'
+[[plugins]]
+repo = 'ianding1/leetcode.vim'
+on_cmd = 'LeetCode'
 
 #[ Client ]
 [[plugins]]
