@@ -24,3 +24,4 @@ hi! link jsxEndTag jsxTag
 hi! link jsxEndString jsxTagName
 hi! link jsxEndComponentName jsxComponentName
 
+hi! jsxRegion ctermfg=252 guifg=#d0d0d0
