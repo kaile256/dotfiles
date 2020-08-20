@@ -36,7 +36,7 @@ SwitchKey=Disabled
 # Activate input method
 #ActivateKey=CTRL_M
 # Inactivate Input Method
-InactivateKey=Disabled
+InactivateKey=l
 # Enable Hotkey to scroll Between Input Method
 # Available Value:
 # True False
