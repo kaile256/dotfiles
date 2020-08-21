@@ -382,14 +382,16 @@ let s:user_rules += [
 
 " Overwrite Rules for Spaces {{{1
 function! s:define_rules_for_space() abort
-  let rules += [
+  let rules = []
+
+  let Spread_brackets = [
         \ {'at': '(\%#)',     'input_after': '<Space>'},
         \ {'at': '{\%#}',     'input_after': '<Space>'},
         \ {'at': '\[\%#]',    'input_after': '<Space>'},
         \ {'at': '/\*\%#\*/', 'input_after': '<Space>'},
         \ ]
 
-  let rules += [{
+  let Prepare_brackets_at_cond = {
         \ 'input': ' (', 'input_after': ')',
         \ 'at': '\(if\|for\|while\)\%#',
         \ 'syntax': ['Conditional', 'Repeat'],
@@ -402,7 +404,12 @@ function! s:define_rules_for_space() abort
         \   'typescriptreact',
         \   'php'
         \ ],
-        \ }]
+        \ }
+
+  let rules += Spread_brackets
+  let rules += [
+        \ Prepare_brackets_at_cond,
+        \ ]
 
   let s:user_rules += s:map_rules(rules, {'char': '<space>'})
 endfunction
