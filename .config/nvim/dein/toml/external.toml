@@ -93,3 +93,10 @@ hook_source = 'runtime add/dasht.vim'
 #on_if = 'isdirectory("~/go/sadd/github.com/termhn/i3-vim-nav")'
 #hook_post_source = 'runtime add/i3-vim-nav.vim'
 
+#[ Image ]
+[[plugins]]
+repo = 'segeljakt/vim-silicon'
+# Generate image of codes as range of current buffer.
+# Install the binary via `cargo install silicon` or `yay -S silicon`
+if = 'executable("silicon")'
+on_cmd = 'Silicon'
