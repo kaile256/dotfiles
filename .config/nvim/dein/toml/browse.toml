@@ -63,6 +63,12 @@ hook_source = 'runtime source/clap.vim'
 
 #[ Filer ]
 [[plugins]]
+repo = 'ms-jpq/chadtree'
+if = 'has("nvim")'
+on_cmd = 'CHADopen'
+hook_source = 'runtime source/chadtree.vim'
+hook_done_update = 'call remote#host#UpdateRemotePlugins()'
+[[plugins]]
 repo = 'zgpio/tree.nvim'
 # Note: written in cpp!
 rtp = 'runtime'
