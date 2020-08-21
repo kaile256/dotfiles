@@ -8,7 +8,7 @@
 # hook_source = 'runtime source/indent-guides.vim'
 [[plugins]]
 repo = 'Yggdroot/indentLine'
-on_ft = ['python', 'json']
+on_event = 'BufRead'
 hook_source = 'runtime source/indentLine.vim'
 #[[plugins]]
 #repo = 'thaerkh/vim-indentguides'
