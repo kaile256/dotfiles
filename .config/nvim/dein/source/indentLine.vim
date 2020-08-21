@@ -3,9 +3,12 @@ scriptencoding utf-8
 " Repo: Yggdroot/indentLine
 
 let g:indentLine_faster = 1
-" let g:indentLine_conceallevel = 0
-" let g:indentLine_setConceal = 0 " false: it fails to set indentLine
 
+" Note: remove 'concealends' manually from $VIMRUNTIME/syntax/json.vim
+" sp $VIMRUNTIME/syntax/json.vim | %s/ concealends//e
+let g:indentLine_conceallevel = 1 " 0: disable indentLine
+" let g:indentLine_concealcursor = '' " [empty]: disable indentLine
+" let g:indentLine_setConceal = 0 " false: disable indentLine
 " let g:indentLine_showFirstIndentLevel = 1
 
 let g:indentline_color_term = 239
