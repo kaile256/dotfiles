@@ -145,6 +145,7 @@ settings:
         <Ctrl+Shift+e>: fake-key <Shift-end>
         <Ctrl+Shift+f>: fake-key <Shift-right>
         <Ctrl+Shift+j>: fake-key <Ctrl-Enter>
+        <Ctrl+Shift+m>: fake-key <Ctrl-enter>
         <Ctrl+Shift+n>: fake-key <Shift-down>
         <Ctrl+Shift+p>: fake-key <Shift-Up>
         <Ctrl+Shift+x>: fake-key <Ctrl-a><Ctrl-x>
