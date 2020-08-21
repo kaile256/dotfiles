@@ -124,12 +124,19 @@ delfunction s:define_rules_for_javascript
 
 " Rules for Semicolon {{{1
 function! s:define_rules_for_css() abort
+  let Format_css_element = [
+        \ {'char': '<space>', 'at': '^\w\+\%#', 'filetype': 'css', 'syntax': '',
+        \   'input': '<Esc>:<C-u>keepjumps keeppatterns s/^\ze\w/./e<CR>gi<C-g>U<Right><space>'},
+        \ {'char': '<C-space>', 'at': '^\w\+\%#', 'filetype': 'css', 'syntax': '',
+        \   'input': '<Esc>:<C-u>keepjumps keeppatterns s/^\ze\w/./e<CR>gi<C-g>U<Right><space>'},
+        \ ]
   let rules = [
         \ {'char': '<space>', 'input': ': ', 'input_after': ';',
         \     'at': '^\s\+[a-zA-Z-]\+\%#', 'except': '\%#.\+',},
         \ {'char': '<space>', 'input_after': ';',
         \     'at': '^\s\+[a-zA-Z-]\+:\%#', 'except': '\%#.\+'},
         \ ]
+  let rules += Format_css_element
 
   let filetypes = [
         \ 'css',
