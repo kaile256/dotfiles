@@ -381,31 +381,33 @@ let s:user_rules += [
       \ ]
 
 " Overwrite Rules for Spaces {{{1
-" cohama/lexima.vim/autoload/lexima.vim @ 84
-" modify g:lexima#space_rules into default_rule because of
-" g:lexima_enable_space_rules
-let s:user_rules += [
-      \ {'char': '<Space>', 'at': '(\%#)',     'input_after': '<Space>'},
-      \ {'char': '<Space>', 'at': '{\%#}',     'input_after': '<Space>'},
-      \ {'char': '<Space>', 'at': '\[\%#]',    'input_after': '<Space>'},
-      \ {'char': '<Space>', 'at': '/\*\%#\*/', 'input_after': '<Space>'},
-      \ ]
+function! s:define_rules_for_space() abort
+  let rules += [
+        \ {'at': '(\%#)',     'input_after': '<Space>'},
+        \ {'at': '{\%#}',     'input_after': '<Space>'},
+        \ {'at': '\[\%#]',    'input_after': '<Space>'},
+        \ {'at': '/\*\%#\*/', 'input_after': '<Space>'},
+        \ ]
 
-let s:user_rules += [{
-      \ 'char': '<Space>',
-      \ 'input': ' (', 'input_after': ')',
-      \ 'at': '\(if\|for\|while\)\%#',
-      \ 'syntax': ['Conditional', 'Repeat'],
-      \ 'filetype': [
-      \   'cpp',
-      \   'c',
-      \   'javascript',
-      \   'javascriptreact',
-      \   'typescript',
-      \   'typescriptreact',
-      \   'php'
-      \ ],
-      \ }]
+  let rules += [{
+        \ 'input': ' (', 'input_after': ')',
+        \ 'at': '\(if\|for\|while\)\%#',
+        \ 'syntax': ['Conditional', 'Repeat'],
+        \ 'filetype': [
+        \   'cpp',
+        \   'c',
+        \   'javascript',
+        \   'javascriptreact',
+        \   'typescript',
+        \   'typescriptreact',
+        \   'php'
+        \ ],
+        \ }]
+
+  let s:user_rules += s:map_rules(rules, {'char': '<space>'})
+endfunction
+call s:define_rules_for_space()
+delfunction s:define_rules_for_space
 
 " Addtional Rules to Skip Out; break repeat {{{1
 " Note: 'leave' seems to make 'input' and 'input_after' fail
