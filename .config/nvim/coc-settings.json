@@ -358,8 +358,6 @@
   "vimlsp.suggest.fromRuntimepath": false,
   "vimlsp.trace.server": "verbose",
 
-  "rust-analyzer.enableCargoWatchOnStartup": "enabled",
-  "rust-analyzer.trace.cargo-watch": "verbose",
   "rust-analyzer.trace.server": "verbose",
 
   "python.formatting.provider": "yapf",
