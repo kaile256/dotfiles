@@ -3,17 +3,46 @@ scriptencoding utf-8
 " Repo: Yggdroot/indentLine
 
 let g:indentLine_faster = 1
-let g:indentLine_conceallevel = 0
+" let g:indentLine_conceallevel = 0
+" let g:indentLine_setConceal = 0 " false: it fails to set indentLine
 
-let g:indentLine_showFirstIndentLevel = 1
+" let g:indentLine_showFirstIndentLevel = 1
 
-let g:indentLine_char_list = ['|', '¦', '┆', '┊']
-" let g:indentline_color_term = 239
-" let g:indentLine_color_gui
+let g:indentline_color_term = 239
+let g:indentLine_color_gui = '#5c754e'
 
-let g:indentLine_fileType = ['python', 'json']
+" let g:indentLine_fileType = ['python', 'json']
 
 " Note: the options to exclude causes a bulk of problems,
 "   for example, defx cannot conceal its marker '**'.
-" let g:indentLine_fileTypeExclude = ['vimwiki']
-" let g:indentLine_bufTypeExclude = ['quickfix', 'terminal', 'nofile', 'help']
+let g:indentLine_fileTypeExclude = ['defx']
+let g:indentLine_bufTypeExclude = ['quickfix', 'terminal', 'help']
+
+let s:indentLine_chars = ['|', '¦']
+let g:indentLine_char_list = s:indentLine_chars
+
+augroup myIndentLineSo-toggleIndentChars
+  au BufEnter * call s:set_min_indent_to_show()
+augroup END
+
+function! s:set_min_indent_to_show() abort
+  if &et == 0 | return | endif
+
+  if &tabstop > 3
+    let g:indentLine_char_list = s:indentLine_chars
+  else
+    if !exists('s:chars_by_two')
+      let separator = ' '
+      let size = len(s:indentLine_chars)
+      let chars = []
+      let idx = 0
+      while idx < size
+        let chars += [separator, s:indentLine_chars[idx]]
+        let idx += 1
+      endwhile
+      let s:chars_by_two = chars
+    endif
+
+    let g:indentLine_char_list = s:chars_by_two
+  endif
+endfunction
