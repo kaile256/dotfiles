@@ -391,6 +391,19 @@ function! s:define_rules_for_space() abort
         \ {'at': '/\*\%#\*/', 'input_after': '<Space>'},
         \ ]
 
+  let after_abbr = '\v(\u\a|\u\.\u)\.%#' " like U.S.A. or Mr.
+  let Double_spaces_at_end_OfSentence = {
+        \ 'input': ' ', 'at': '[.?!]\%#', 'except': after_abbr,
+        \ }
+  let Double_spaces_at_endOfSentence_in_Comment = extend(
+        \ deepcopy(Double_spaces_at_end_OfSentence),
+        \ {'syntax': ['Comment', 'String']}
+        \ )
+  let Double_spaces_at_endOfSentence_as_FileType = extend(
+        \ deepcopy(Double_spaces_at_end_OfSentence),
+        \ {'filetype': ['help', 'txt']}
+        \ )
+
   let Prepare_brackets_at_cond = {
         \ 'input': ' (', 'input_after': ')',
         \ 'at': '\(if\|for\|while\)\%#',
@@ -408,6 +421,8 @@ function! s:define_rules_for_space() abort
 
   let rules += Spread_brackets
   let rules += [
+        \ Double_spaces_at_endOfSentence_in_Comment,
+        \ Double_spaces_at_endOfSentence_as_FileType,
         \ Prepare_brackets_at_cond,
         \ ]
 
