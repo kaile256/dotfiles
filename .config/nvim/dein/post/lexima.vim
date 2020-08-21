@@ -402,7 +402,7 @@ function! s:define_rules_for_space() abort
         \ '(\%#)',
         \ '{\%#}',
         \ '\[\%#]',
-        \ '/*\%#*/',
+        \ '/\*\%#\*/',
         \ ]
 
   for char in ['<space>', '<S-space>']
