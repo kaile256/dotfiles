@@ -28,6 +28,7 @@ PACKAGEs=(
   xorg-xinput # removed with `bmenu`
   lshw # removed with `bmenu`
 
+  visual-studio-code-bin # vscode
   noto-fonts-cjk # fonts for Chinese, Japanese and Korean
   stylelint # a linter for CSS
   ueberzug # previewer for some tools
