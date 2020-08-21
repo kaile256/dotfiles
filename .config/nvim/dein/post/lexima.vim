@@ -384,6 +384,19 @@ let s:user_rules += [
 function! s:define_rules_for_space() abort
   let rules = []
 
+  let rules += [
+        \ {'char': '<S-Space>',   'input': '<space>'},
+        \ {'char': '<C-space>',   'input': '<space>'},
+        \ {'char': '<C-S-Space>', 'input': '<space>'},
+        \ ]
+
+  let Insert_a_space_before_cursor = [
+        \ {'char': '<C-S-Space>', 'at': '\%#\S', 'input': '<space>',
+        \     'input_after': '<space>'},
+        \ {'char': '<C-S-Space>', 'at': '\s\%#\S', 'input': '',
+        \     'input_after': '<space>'},
+        \ ]
+
   let Spread_brackets = []
   let in_brackets_to_spread = [
         \ '(\%#)',
@@ -432,6 +445,7 @@ function! s:define_rules_for_space() abort
           \ }
 
     let rules += Spread_brackets
+    let rules += Insert_a_space_before_cursor
     let rules += [
           \ Prepare_brackets_at_cond,
           \ Double_spaces_at_endOfSentence_in_Comment,
@@ -453,20 +467,12 @@ delfunction s:define_rules_for_space
 "      \ ]
 
 let s:user_rules += [
-      \ {'char': '<S-Space>', 'input': '<space>'},
-      \ {'char': '<C-space>', 'input': '<space>'},
       \ {'char': '<C-=>',     'input': ' = '},
       \
       \ {'char': '<C-,>', 'input': ', '},
       \ {'char': '<C-.>', 'input': '. '},
       \ {'char': '<C-:>', 'input': ': '},
       \ {'char': '<C-;>', 'input': '; '},
-      \ ]
-
-let s:user_rules += [
-      \ {'char': '<C-S-Space>', 'input': ' '},
-      \ {'char': '<C-S-Space>', 'at': '\%#\S', 'input': ' ', 'input_after': ' '},
-      \ {'char': '<C-S-Space>', 'at': '\s\%#\S', 'input': '', 'input_after': ' '},
       \ ]
 
 let s:before_close = '\%#[])}`''"]'
