@@ -2,9 +2,13 @@
 
 set -Ceu
 
-TRACKPOINT_ID=$(xinput --list --short \
-  | grep Keyboard | grep Mouse \
-  | cut -d= -f2 | awk '{print $1}')
+TRACKPOINTS=$(xinput --list --short \
+  | grep TrackPoint)
+COUNT_CANDIDATES=$(echo "$TRACKPOINTS" | wc --lines)
+if [ "$COUNT_CANDIDATES" -gt 1 ]; then
+  TRACKPOINTS=$(echo "$TRACKPOINTS" | grep Mouse)
+fi
+TRACKPOINT_ID=$(echo "$TRACKPOINTS" | cut -d= -f2 | awk '{print $1}')
 
 SENSIBILITY=${1:-0}
 
