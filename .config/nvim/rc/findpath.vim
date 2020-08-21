@@ -50,7 +50,9 @@ let s:path = {} "{{{1
 function! s:path.dotfiles() abort
   if expand('%:p') =~# '/*vim/' | return | endif
 
-  exe 'setl path+='. $DOTFILES_HOME .'/.config**'
+  if &path !~# $DOTFILES_HOME
+    exe 'setl path+='. $DOTFILES_HOME .'/.config**'
+  endif
   " exe 'setl path+='. $GHQ_ROOT       .'/github.com/neovim/neovim**'
   " exe 'setl path+='. '/etc'
   exe 'setl path+='. $XDG_DATA_HOME  .'**'
@@ -61,7 +63,9 @@ endfunction
 function! s:path.vim() abort
   if expand('%:p') =~# $GHQ_ROOT | return | endif
 
-  exe 'setl path+='. $DOTFILES_HOME   .'/.config/nvim**'
+  if &path !~# $DOTFILES_HOME
+    exe 'setl path+='. $DOTFILES_HOME   .'/.config/nvim**'
+  endif
   exe 'setl path+='. $DEIN_GITHUB_DIR .'**'
   exe 'setl path+='. $GHQ_ROOT         .'/github.com/neovim/neovim**'
   exe 'setl path+='. $XDG_DATA_HOME    .'/nvim**'
@@ -77,7 +81,9 @@ endfunction
 function! s:path.ghq() abort
   if expand('%:p') !~# '/*vim/' | return | endif
 
-  exe 'setl path+='. s:project_root($GHQ_ROOT)
+  if &path !~# $GHQ_ROOT
+    exe 'setl path+='. s:project_root($GHQ_ROOT)
+  endif
 
   exe 'setl path-='. &g:path
   exe 'setl path+='. '/etc'
