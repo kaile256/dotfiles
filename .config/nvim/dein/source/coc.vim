@@ -74,6 +74,7 @@ let g:coc_global_extensions = [
       \ 'coc-spell-checker',
       \ 'coc-sql',
       \ 'coc-stylelintplus',
+      \ 'coc-svg',
       \ 'coc-tag',
       \ 'coc-tailwindcss',
       \ 'coc-texlab',
