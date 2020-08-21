@@ -384,47 +384,60 @@ let s:user_rules += [
 function! s:define_rules_for_space() abort
   let rules = []
 
-  let Spread_brackets = [
-        \ {'at': '(\%#)',     'input_after': '<Space>'},
-        \ {'at': '{\%#}',     'input_after': '<Space>'},
-        \ {'at': '\[\%#]',    'input_after': '<Space>'},
-        \ {'at': '/\*\%#\*/', 'input_after': '<Space>'},
+  let Spread_brackets = []
+  let in_brackets_to_spread = [
+        \ '(\%#)',
+        \ '{\%#}',
+        \ '\[\%#]',
+        \ '/*\%#*/',
         \ ]
 
-  let after_abbr = '\v(\u\a|\u\.\u)\.%#' " like U.S.A. or Mr.
-  let Double_spaces_at_end_OfSentence = {
-        \ 'input': ' ', 'at': '[.?!]\%#', 'except': after_abbr,
-        \ }
-  let Double_spaces_at_endOfSentence_in_Comment = extend(
-        \ deepcopy(Double_spaces_at_end_OfSentence),
-        \ {'syntax': ['Comment', 'String']}
-        \ )
-  let Double_spaces_at_endOfSentence_as_FileType = extend(
-        \ deepcopy(Double_spaces_at_end_OfSentence),
-        \ {'filetype': ['help', 'txt']}
-        \ )
+  for char in ['<space>', '<S-space>']
+    for in_brackets in in_brackets_to_spread
+      let Spread_brackets += [
+            \ {'char': char, 'at': in_brackets,
+            \ 'input': '<space>', 'input_after': '<Space>'},
+            \ ]
+    endfor
 
-  let Prepare_brackets_at_cond = {
-        \ 'input': ' (', 'input_after': ')',
-        \ 'at': '\(if\|for\|while\)\%#',
-        \ 'syntax': ['Conditional', 'Repeat'],
-        \ 'filetype': [
-        \   'cpp',
-        \   'c',
-        \   'javascript',
-        \   'javascriptreact',
-        \   'typescript',
-        \   'typescriptreact',
-        \   'php'
-        \ ],
-        \ }
+    let after_abbr = '\v(\u\a|\u\.\u)\.%#' " like U.S.A. or Mr.
+    let Double_spaces_at_end_OfSentence = {
+          \ 'char': char,
+          \ 'input': '  ',
+          \ 'at': '[.?!]\%#', 'except': after_abbr,
+          \ }
+    let Double_spaces_at_endOfSentence_in_Comment = extend(
+          \ deepcopy(Double_spaces_at_end_OfSentence),
+          \ {'syntax': ['Comment', 'String']}
+          \ )
+    let Double_spaces_at_endOfSentence_as_FileType = extend(
+          \ deepcopy(Double_spaces_at_end_OfSentence),
+          \ {'filetype': ['help', 'txt']}
+          \ )
 
-  let rules += Spread_brackets
-  let rules += [
-        \ Double_spaces_at_endOfSentence_in_Comment,
-        \ Double_spaces_at_endOfSentence_as_FileType,
-        \ Prepare_brackets_at_cond,
-        \ ]
+    let Prepare_brackets_at_cond = {
+          \ 'char': char,
+          \ 'input': ' (', 'input_after': ')',
+          \ 'at': '\(if\|for\|while\)\%#',
+          \ 'syntax': ['Conditional', 'Repeat'],
+          \ 'filetype': [
+          \   'cpp',
+          \   'c',
+          \   'javascript',
+          \   'javascriptreact',
+          \   'typescript',
+          \   'typescriptreact',
+          \   'php'
+          \ ],
+          \ }
+
+    let rules += Spread_brackets
+    let rules += [
+          \ Prepare_brackets_at_cond,
+          \ Double_spaces_at_endOfSentence_in_Comment,
+          \ Double_spaces_at_endOfSentence_as_FileType,
+          \ ]
+  endfor
 
   let s:user_rules += s:map_rules(rules, {'char': '<space>'})
 endfunction
