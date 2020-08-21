@@ -416,7 +416,7 @@ function! s:define_rules_for_space() abort
     let after_abbr = '\v(\u\a|\u\.\u)\.%#' " like U.S.A. or Mr.
     let Double_spaces_at_end_OfSentence = {
           \ 'char': char,
-          \ 'input': '  ',
+          \ 'input': '<space><space>',
           \ 'at': '[.?!]\%#', 'except': after_abbr,
           \ }
     let Double_spaces_at_endOfSentence_in_Comment = extend(
