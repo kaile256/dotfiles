@@ -5,6 +5,7 @@
 
 if fnamemodify(@%, ':p') =~# 'vimspector' && &ft ==# 'json'
   hi! link jsonCommentError Comment
+  setlocal commentstring=//%s
   setlocal ft=jsonc
 endif
 
