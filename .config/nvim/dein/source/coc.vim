@@ -90,7 +90,7 @@ let g:coc_global_extensions = [
       \ ]
 
 " CocCheckProvider {{{1
-command! CocHasProvider   :call s:has_provider()
+command! CocHasProvider :call s:has_provider()
 function! s:has_provider()
   let coc_providers = [
         \ 'hover',
