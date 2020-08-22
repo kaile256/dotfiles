@@ -3,5 +3,6 @@
 
 " let g:doppelganger#prefix = '▸ '
 
-let g:doppelganger#ego#max_offset = 5
+let g:doppelganger#ego#max_offset = 10
+let g:doppelganger#ego#min_range_of_pairs = 2
 
