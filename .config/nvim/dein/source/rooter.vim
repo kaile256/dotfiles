@@ -31,7 +31,7 @@ let g:rooter_patterns += [
       \ ]
 
 let g:rooter_patterns += [
+      \ $XDG_CONFIG_HOME,
       \ '.cache/',
-      \ '.config/',
       \ '.local/',
       \ ]
