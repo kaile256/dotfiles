@@ -27,8 +27,6 @@ let g:rooter_patterns += [
       \ $GHQ_ROOT,
       \ $MY_DEV .'/',
       \ $MY_DEV .'/atcoder',
-      \ 'dein/',
-      \ 'dotfiles/',
       \ 'github.com/',
       \ ]
 
