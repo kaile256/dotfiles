@@ -15,5 +15,5 @@ CAlterCommand we exe (&modified ? 'up' : 'checktime') '<bar> e'
 CAlterCommand g keeppatterns g
 CAlterCommand v keeppatterns v
 
-CAlterCommand mv CocCommand workspace.renameCurrentFile
+CAlterCommand mv Rename
 
