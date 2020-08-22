@@ -1,4 +1,4 @@
-let s:clang_version = '10.0.0'
+let s:clang_version = '10.0.1'
 let s:cpp_version   = '10.1.0'
 
 let s:include_clang = '/usr/lib/clang/'. s:clang_version .'/include'
