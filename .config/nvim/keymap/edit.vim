@@ -18,10 +18,10 @@ nnoremap \<space> q
 nnoremap <space>\ q
 
 " Write&Quit {{{1
-if mapcheck('q', 'n') == ''
+if mapcheck('q', 'n') ==# ''
   nnoremap q <Nop>
 endif
-if mapcheck('Q', 'n') == ''
+if mapcheck('Q', 'n') ==# ''
   nnoremap Q <Nop>
 endif
 " Write&Quit; wq
