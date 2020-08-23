@@ -66,8 +66,7 @@ let g:switch_custom_definitions += [
       \ ['begin', 'end'],
       \ ['start', 'stop'],
       \ ['forward', 'backward'],
-      \
-      \ ['foreground', 'background'],
+      \ ['upward', 'downward'],
       \
       \ ['enqueue', 'dequeue'],
       \
