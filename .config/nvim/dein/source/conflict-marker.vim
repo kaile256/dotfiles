@@ -41,11 +41,24 @@ function! s:mappings_to_resolve() abort
 endfunction
 
 function! s:overwrite_foldmethod() abort
-  if !conflict_marker#detect#markers() | return | endif
+  if conflict_marker#detect#markers()
+    if &fde != 0
+      let b:save_foldexpr = &fde
+    endif
+    let b:save_foldmethod = &fdm
+    setlocal fde=ConflictMarkerFoldexpr(v:lnum) fdm=expr
+    return
+  endif
 
-  let save_foldmethod = &fdm
-  let save_foldexpr = &fde
-  setlocal fde=ConflictMarkerFoldexpr(v:lnum) fdm=expr
+  if exists('b:save_foldmethod')
+    let &fdm = b:save_foldmethod
+    unlet b:save_foldmethod
+  endif
+
+  if exists('b:save_foldexpr')
+    let &fde = b:save_foldexpr
+    unlet b:save_foldexpr
+  endif
 endfunction
 
 function! ConflictMarkerFoldexpr(lnum) abort
