@@ -17,15 +17,21 @@ endfunction
 
 " Buffers; {{{1
 function! s:buf_rotate(order) abort
-  if len(getloclist(winnr())) > 1
-    exe 'l'. a:order
-    ll
-  elseif len(getqflist()) > 1
-    exe 'c'. a:order
-    cc
-  else
-    exe 'b'. a:order
-  endif
+  try
+    if len(getloclist(winnr())) > 1
+      exe 'l'. a:order
+      ll
+    elseif len(getqflist()) > 1
+      exe 'c'. a:order
+      cc
+    else
+      exe 'b'. a:order
+    endif
+  catch /E553/
+    echohl WarningMsg
+    echo 'No more items'
+    echohl Normal
+  endtry
 endfunction
 nnoremap <silent> <C-p> :<C-u> call <SID>buf_rotate('prev') <CR>
 nnoremap <silent> <C-n> :<C-u> call <SID>buf_rotate('next') <CR>
