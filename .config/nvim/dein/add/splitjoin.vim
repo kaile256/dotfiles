@@ -8,7 +8,9 @@ function! s:try_splitjoin() abort
   silent SplitjoinJoin
 
   if getline('.') ==# prev_line
-    exe "norm \<Plug>(SandJoin-J)"
+    exe &ft ==# 'vim'
+          \ ? "norm \<Plug>(SandJoin-J)"
+          \ : 'norm! J'
   endif
 endfunction
 
