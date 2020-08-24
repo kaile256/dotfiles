@@ -3,10 +3,12 @@
 
 augroup myConflictMarkerPost-overrideConfig
   let g:conflict_marker_enable_mappings = 0
-  au BufReadPost,BufEnter,FocusGained,ColorScheme call s:mappings_to_resolve()
+  au BufReadPost,BufEnter,FocusGained,ColorScheme * call s:mappings_to_resolve()
 augroup END
 
 function! s:mappings_to_resolve() abort
+  if !conflict_marker#detect#markers() | return | endif
+
   nmap <buffer> ]c <Plug>(conflict-marker-next-hunk)
   nmap <buffer> [c <Plug>(conflict-marker-prev-hunk)
 
