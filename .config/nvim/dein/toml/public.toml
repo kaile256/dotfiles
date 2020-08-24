@@ -11,7 +11,6 @@ repo = 'kaile256/vim-SandJoin'
 on_map = {nx = '<Plug>(SandJoin-'}
 on_cmd = ['SandJoin']
 on_func = ['SandJoin#']
-hook_add = 'source $DEIN_ADD_HOME/SandJoin.vim'
 hook_source = 'source $DEIN_SOURCE_HOME/SandJoin.vim'
 
 #[[plugins]]
