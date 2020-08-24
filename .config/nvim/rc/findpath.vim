@@ -63,9 +63,13 @@ endfunction
 function! s:path.vim() abort
   if expand('%:p') =~# $GHQ_ROOT | return | endif
 
-  if &path !~# $DOTFILES_HOME
+  if &path =~# $DOTFILES_HOME
+    " Note: It's required even with dotfiles root path.
+    exe 'setl path^='. $DOTFILES_HOME .'/.config/nvim/dein**'
+  else
     exe 'setl path+='. $DOTFILES_HOME   .'/.config/nvim**'
   endif
+
   exe 'setl path+='. $DEIN_GITHUB_DIR .'**'
   exe 'setl path+='. $GHQ_ROOT         .'/github.com/neovim/neovim**'
   exe 'setl path+='. $XDG_DATA_HOME    .'/nvim**'
