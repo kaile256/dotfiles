@@ -71,23 +71,29 @@ function! s:discard_current() abort
 endfunction
 
 function! s:overwrite_foldmethod() abort
+  let foldexpr = 'ConflictMarkerFoldexpr(v:lnum)'
+
   if conflict_marker#detect#markers()
-    if &fde != 0
-      let b:save_foldexpr = &fde
+    if !exists('b:conflict_marker_overwriting_foldmethod')
+      if &fde != 0
+        let b:conflict_marker_save_foldexpr = &fde
+      endif
+      let b:conflict_marker_save_foldmethod = &fdm
     endif
-    let b:save_foldmethod = &fdm
-    setlocal fde=ConflictMarkerFoldexpr(v:lnum) fdm=expr
+    setlocal fdm=expr
+    let &l:foldexpr = foldexpr
+    let b:conflict_marker_overwriting_foldmethod = 1
     return
   endif
 
-  if exists('b:save_foldmethod')
-    let &fdm = b:save_foldmethod
-    unlet b:save_foldmethod
+  if exists('b:conflict_marker_save_foldmethod')
+    let &fdm = b:conflict_marker_save_foldmethod
+    unlet b:conflict_marker_save_foldmethod
   endif
 
-  if exists('b:save_foldexpr')
-    let &fde = b:save_foldexpr
-    unlet b:save_foldexpr
+  if exists('b:conflict_marker_save_foldexpr')
+    let &fde = b:conflict_marker_save_foldexpr
+    unlet b:conflict_marker_save_foldexpr
   endif
 endfunction
 
