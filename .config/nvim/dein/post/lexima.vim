@@ -557,9 +557,9 @@ let s:rules_for_vim += [
 let s:key2rules_for_vim['<CR>'] = [
       \ {'at': '^\s*\\.*\%#', 'input': '<CR>\ ', 'except': '[]})]\s*$'},
       \
-      \ {'at': '\(=\|\\\)\s*(\%#)',  'input': '<CR>\ ', 'input_after': '<CR>\ '},
-      \ {'at': '\(=\|\\\)\s*{\%#}',  'input': '<CR>\ ', 'input_after': '<CR>\ '},
-      \ {'at': '\(=\|\\\)\s*\[\%#]', 'input': '<CR>\ ', 'input_after': '<CR>\ '},
+      \ {'at': '\v(\=.*|\\)\s*\(%#\)', 'input': '<CR>\ ', 'input_after': '<CR>\ '},
+      \ {'at': '\v(\=.*|\\)\s*\{%#}',  'input': '<CR>\ ', 'input_after': '<CR>\ '},
+      \ {'at': '\v(\=.*|\\)\s*\[%#]',  'input': '<CR>\ ', 'input_after': '<CR>\ '},
       \ ]
 
 let s:user_rules += s:map_rules(s:rules_for_vim, {'filetype': 'vim'})
