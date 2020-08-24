@@ -75,7 +75,7 @@ function! sensible#gf#_Gopen(cond) abort
   if is_to_preview
     call s:preview()
   else
-    let open = a:cond =~# 'e\%[dit]'
+    let open = a:cond is# 'e\%[dit]'
           \ ? 'edit'
           \ : sensible#split(a:cond)
     let path = s:set_git_path()
@@ -94,7 +94,7 @@ endfunction
 function! sensible#gf#split(...) abort
   let cond = a:0 > 0 ? a:1 : {}
   if s:is_hash(expand('<cword>'))
-    return ":call sensible#gf#_Gopen(". cond .") \<CR>"
+    return ":call sensible#gf#_Gopen(". string(cond) .") \<CR>"
   endif
 
   let style = sensible#style(cond)
