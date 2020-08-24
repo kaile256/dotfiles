@@ -49,11 +49,11 @@ nnoremap <expr><silent> <Plug>(clever-newline-O)
       \ : 'O'
 
 if !g:clever_newline#no_default_mappings
-  imap <c-j> <Plug>(clever-newline)
-  imap <CR>  <Plug>(clever-newline)
+  silent! imap <unique> <c-j> <Plug>(clever-newline)
+  silent! imap <unique> <CR>  <Plug>(clever-newline)
 
-  nmap o <Plug>(clever-newline-o)
-  nmap O <Plug>(clever-newline-O)
+  silent! nmap <unique> o <Plug>(clever-newline-o)
+  silent! nmap <unique> O <Plug>(clever-newline-O)
 endif
 
 function! s:is_in_commentblock(diff) abort "{{{1
