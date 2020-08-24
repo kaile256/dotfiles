@@ -142,3 +142,8 @@ repo = 'samoshkin/vim-mergetool'
 on_cmd = 'MergetoolStart'
 hook_add = 'runtime add/mergetool.vim'
 hook_source = 'runtime source/mergetool.vim'
+[[plugins]]
+repo = 'christoomey/vim-conflicted'
+depends = 'vim-fugitive'
+on_cmd = 'Conflicted'
+hook_source = 'runtime source/conflicted.vim'
