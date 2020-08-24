@@ -1,6 +1,9 @@
 " TOML: git.toml
 " Repo: rhysd/conflict-marker.vim
 
+hi! link ConflictMarkerOurs Type
+hi! link ConflictMarkerTheirs Operator
+
 augroup myConflictMarkerPost-overrideConfig
   let g:conflict_marker_enable_mappings = 0
   au BufReadPost,BufEnter,FocusGained,ColorScheme * call s:mappings_to_resolve()
