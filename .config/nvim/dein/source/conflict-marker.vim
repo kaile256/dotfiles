@@ -100,12 +100,28 @@ function! ConflictMarkerFoldexpr(lnum) abort
   let prev = getline(a:lnum - 1)
   let next = getline(a:lnum + 1)
 
-  if next =~# g:conflict_marker_begin
-    return '<1'
-  elseif line =~# g:conflict_marker_separator
-    return 0
-  elseif prev =~# g:conflict_marker_end
-    return '>1'
+  if get(g:, 'conflict_marker_fold_unfold_conflicted', 1)
+    if next =~# g:conflict_marker_begin
+      return '<1'
+    elseif line =~# g:conflict_marker_separator
+      return 0
+    elseif prev =~# g:conflict_marker_end
+      return '>1'
+    endif
+  else
+    if next =~# g:conflict_marker_begin
+      return '<1'
+    elseif prev =~# g:conflict_marker_begin
+      return '>1'
+    elseif prev =~# g:conflict_marker_separator
+      return '>1'
+    elseif next =~# g:conflict_marker_separator
+      return '<1'
+    elseif next =~# g:conflict_marker_end
+      return '<1'
+    elseif prev =~# g:conflict_marker_end
+      return '>1'
+    endif
   endif
 
   return '='
