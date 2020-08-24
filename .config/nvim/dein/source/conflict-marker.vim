@@ -13,12 +13,14 @@ augroup END
 function! s:mappings_to_resolve() abort
   " TODO: restore all the previous mappings
   if !conflict_marker#detect#markers()
-    silent! nunmap <buffer> [c
-    silent! nunmap <buffer> ]c
-    silent! xunmap <buffer> [c
-    silent! xunmap <buffer> ]c
+    call s:restore_mappings()
     return
   endif
+
+  call s:save_mappings('[c', 'nx')
+  call s:save_mappings(']c', 'nx')
+  call s:save_mappings('[c', 'nx')
+  call s:save_mappings(']c', 'nx')
 
   " nmap <buffer> ]c <Plug>(conflict-marker-next-hunk)
   " nmap <buffer> [c <Plug>(conflict-marker-prev-hunk)
@@ -81,6 +83,48 @@ function! s:adopt_ourselves_or_themselves(reverse) abort
   endfor
 
   echoerr 'Abort. This command only available within conflicted lines'
+endfunction
+
+function! s:save_mappings(lhs, modes) abort
+  let b:conflict_marker_save_mappings =
+        \ get(b:, 'conflict_marker_save_mappings', {})
+
+  let modes = split(a:modes, '\zs')
+  for mode in modes
+    let maparg = maparg(a:lhs, mode, 0, 1)
+    if empty(maparg) | continue | endif
+    call extend(b:conflict_marker_save_mappings, {mode : {}}, 'keep')
+    call extend(b:conflict_marker_save_mappings[mode],
+          \ {a:lhs : mapargs}, 'keep')
+  endfor
+endfunction
+
+function! s:restore_mappings() abort
+  let mappings = get(b:, 'conflict_marker_save_mappings', {})
+  if empty(mappings) | return | endif
+
+  for mode in keys(mappings)
+    for lhs in keys(mappings[mode])
+      let data = mappings['lhs']
+      if data['buffer'] == 0
+        mode .'unmap <buffer>' les
+        return
+      endif
+
+      let map = data['noremap'] ? 'noremap' : 'map'
+
+      let mapargs = ''
+      for arg in ['buffer', 'silent', 'script', 'expr', 'nowait']
+        let mapargs .= '<'. data[arg] .'>'
+      endfor
+
+      let rhs_raw = data['rhs']
+      let SNR = '<SNR>'. data['sid'] .'_'
+      let rhs = substitute(rhs_raw, '<SID>', SNR, 'g')
+
+      exe mode map mapargs lhs rhs
+    endfor
+  endfor
 endfunction
 
 function! s:overwrite_foldmethod() abort
