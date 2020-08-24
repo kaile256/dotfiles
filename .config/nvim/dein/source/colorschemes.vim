@@ -15,6 +15,7 @@ function! s:common_dark() abort
   " NormalFloat: color for winblend, or floating windows
   hi! NormalFloat ctermfg=236 ctermbg=180 guibg=#3a192c guifg=#9f994a
   hi! DoppelgangerVirtualText ctermfg=64 guifg=#5f8700 cterm=italic gui=italic
+  hi! DoppelgangerVirtualTextPairReverse ctermfg=130 guifg=#df5f29 cterm=italic gui=italic
 endfunction
 
 function! s:common() abort
