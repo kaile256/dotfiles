@@ -137,11 +137,11 @@ repo = 'rhysd/conflict-marker.vim'
 # Extend matchit.vim
 on_event = 'BufRead'
 hook_source = 'runtime source/conflict-marker.vim'
-[[plugins]]
-repo = 'samoshkin/vim-mergetool'
-on_cmd = 'MergetoolStart'
-hook_add = 'runtime add/mergetool.vim'
-hook_source = 'runtime source/mergetool.vim'
+# # [[plugins]]
+# # repo = 'samoshkin/vim-mergetool'
+# on_cmd = 'MergetoolStart'
+# hook_add = 'runtime add/mergetool.vim'
+# hook_source = 'runtime source/mergetool.vim'
 [[plugins]]
 repo = 'christoomey/vim-conflicted'
 depends = 'vim-fugitive'
