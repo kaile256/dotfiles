@@ -9,8 +9,13 @@ augroup END
 function! s:mappings_to_resolve() abort
   if !conflict_marker#detect#markers() | return | endif
 
-  nmap <buffer> ]c <Plug>(conflict-marker-next-hunk)
-  nmap <buffer> [c <Plug>(conflict-marker-prev-hunk)
+  " nmap <buffer> ]c <Plug>(conflict-marker-next-hunk)
+  " nmap <buffer> [c <Plug>(conflict-marker-prev-hunk)
+
+  nmap <buffer><expr> [c repmo#Key('<Plug>(conflict-marker-prev-hunk)', '<Plug>(conflict-marker-next-hunk)')
+  nmap <buffer><expr> ]c repmo#Key('<Plug>(conflict-marker-next-hunk)', '<Plug>(conflict-marker-prev-hunk)')
+  xmap <buffer><expr> [c repmo#Key('<Plug>(conflict-marker-prev-hunk)', '<Plug>(conflict-marker-next-hunk)')
+  xmap <buffer><expr> ]c repmo#Key('<Plug>(conflict-marker-next-hunk)', '<Plug>(conflict-marker-prev-hunk)')
 
   " Excerpt: strategies to resolve a conflict
   " <<<<<<< HEAD
