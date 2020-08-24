@@ -124,6 +124,8 @@ on_cmd = 'HlInfo'
 repo = '$DEIN_PRIVATE_HOME/vim-oneline-convertor'
 on_event = 'CmdLineEnter'
 
-[[plugins]]
-repo = '$DEIN_PRIVATE_HOME/vim-countable-s'
-on_event = 'BufWinEnter'
+# [[plugins]]
+# repo = '$DEIN_PRIVATE_HOME/vim-countable-s'
+# # FIXME: no ideas to manage both count for inserted texts and repeat the
+# # last editing.
+# on_event = 'BufWinEnter'
