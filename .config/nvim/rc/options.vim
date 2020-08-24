@@ -11,6 +11,9 @@ set redrawtime=100000
 " Note: EndOfBuffer is set of trailing '~' at end of buffer.
 hi! link EndOfBuffer Ignore
 
+" Vim sometimes unexpectedly detects options as modelines such as in snippets.
+set modelines=1
+
 " Time in ms to wait for a mapped sequence to complete.
 " For: made me notice if any mappings are in Caleene's way.
 set timeoutlen=3000
