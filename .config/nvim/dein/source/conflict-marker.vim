@@ -11,7 +11,14 @@ augroup myConflictMarkerPost-overrideConfig
 augroup END
 
 function! s:mappings_to_resolve() abort
-  if !conflict_marker#detect#markers() | return | endif
+  " TODO: restore all the previous mappings
+  if !conflict_marker#detect#markers()
+    silent! nunmap <buffer> [c
+    silent! nunmap <buffer> ]c
+    silent! xunmap <buffer> [c
+    silent! xunmap <buffer> ]c
+    return
+  endif
 
   " nmap <buffer> ]c <Plug>(conflict-marker-next-hunk)
   " nmap <buffer> [c <Plug>(conflict-marker-prev-hunk)
