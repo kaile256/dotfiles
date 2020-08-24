@@ -123,12 +123,6 @@ hook_post_source = 'runtime post/gitgutter.vim'
 #repo = 'tweekmonster/gitbusy.vim'
 ## automatic stash on checkout, via :GitBusy
 #on_cmd =  ['GitBusy']
-#[ Merge ]
-[[plugins]]
-repo = 'samoshkin/vim-mergetool'
-on_cmd = 'MergetoolStart'
-hook_add = 'runtime add/mergetool.vim'
-hook_source = 'runtime source/mergetool.vim'
 
 #[ Git Ignore ]
 # [[plugins]]
@@ -143,3 +137,8 @@ repo = 'rhysd/conflict-marker.vim'
 # Extend matchit.vim
 on_event = 'BufRead'
 hook_post_source = 'runtime post/conflict-marker.vim'
+[[plugins]]
+repo = 'samoshkin/vim-mergetool'
+on_cmd = 'MergetoolStart'
+hook_add = 'runtime add/mergetool.vim'
+hook_source = 'runtime source/mergetool.vim'
