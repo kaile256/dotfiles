@@ -136,7 +136,7 @@ repo = 'rhysd/conflict-marker.vim'
 # Provide mappings to jump among Conflict markers.
 # Extend matchit.vim
 on_event = 'BufRead'
-hook_post_source = 'runtime post/conflict-marker.vim'
+hook_source = 'runtime source/conflict-marker.vim'
 [[plugins]]
 repo = 'samoshkin/vim-mergetool'
 on_cmd = 'MergetoolStart'
