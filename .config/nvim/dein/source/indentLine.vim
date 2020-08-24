@@ -26,6 +26,7 @@ let g:indentLine_char_list = s:indentLine_chars
 
 augroup myIndentLineSo-toggleIndentChars
   au BufEnter * call s:set_min_indent_to_show()
+  au OptionSet tabstop,shiftwidth,softtabstop call s:set_min_indent_to_show()
 augroup END
 
 function! s:set_min_indent_to_show() abort
