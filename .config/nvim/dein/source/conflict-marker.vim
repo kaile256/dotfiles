@@ -38,36 +38,42 @@ function! s:mappings_to_resolve() abort
   " Mnemonic: Get them Abolished
   " none: remove both of 'ourselves' and 'themselves'
   nmap <buffer> gA <Plug>(conflict-marker-none)
+
+  nmap <buffer> ga <Plug>(conflict-marker-ourselves)
+  " Mnemonic: Get Below one
+  nmap <buffer> gb <Plug>(conflict-marker-themselves)
+
+  nnoremap <silent> <Plug>(conflict-marker-put-current)
+        \ :<C-u>call <SID>adopt_ourselves_or_themselves(0)<CR>
+  nnoremap <silent> <Plug>(conflict-marker-obtain-the-other)
+        \ :<C-u>call <SID>adopt_ourselves_or_themselves(1)<CR>
+  nmap <buffer> do <Plug>(conflict-marker-obtain-the-other)
+  nmap <buffer> dp <Plug>(conflict-marker-put-current)
 endfunction
 
-function! s:adopt_current() abort
-  let col = search('\S', 'n') - 1
-  let syn = synIDattr(synID(line('.'), col, 0), 'name')
+function! s:adopt_ourselves_or_themselves(reverse) abort
+  let col_forward  = searchpos('\S', 'n')[1] - 1
+  let col_backward = searchpos('\S', 'bn')[1] - 1
 
-  if syn =~# 'ConflictMarker\(Ours\|Begin\)'
-    ConflictMarkerOurselves
-  elseif syn =~# 'ConflictMarker\(Theirs\|End\)'
-    ConflictMarkerThemselves
-  elseif syn ==# 'ConflictMarkerSeparator'
-    ConflictMarkerBoth
-  else
-    echoerr 'Abort. This command only available within conflicted lines'
-  endif
-endfunction
+  for col in [col_forward, col_backward]
+    let syn = synIDattr(synID(line('.'), col, 0), 'name')
 
-function! s:discard_current() abort
-  let col = search('\S', 'n') - 1
-  let syn = synIDattr(synID(line('.'), col, 0), 'name')
+    if syn =~# 'ConflictMarker\(Ours\|Begin\)'
+      exe a:reverse
+            \ ? 'ConflictMarkerThemselves'
+            \ : 'ConflictMarkerOurselves'
+    elseif syn =~# 'ConflictMarker\(Theirs\|End\)'
+      exe a:reverse
+            \ ? 'ConflictMarkerOurselves'
+            \ : 'ConflictMarkerThemselves'
+    elseif syn ==# 'ConflictMarkerSeparator'
+      exe a:reverse
+            \ ? 'ConflictMarkerNone'
+            \ : 'ConflictMarkerBoth'
+    endif
+  endfor
 
-  if syn =~# 'ConflictMarker\(Ours\|Begin\)'
-    ConflictMarkerThemselves
-  elseif syn =~# 'ConflictMarker\(Theirs\|End\)'
-    ConflictMarkerOurselves
-  elseif syn ==# 'ConflictMarkerSeparator'
-    ConflictMarkerNone
-  else
-    echoerr 'Abort. This command only available within conflicted lines'
-  endif
+  echoerr 'Abort. This command only available within conflicted lines'
 endfunction
 
 function! s:overwrite_foldmethod() abort
