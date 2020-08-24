@@ -590,7 +590,9 @@ settings:
       dlje: https://www.linguee.com/japanese-english/search?query={}
       dlse: https://www.linguee.com/spanish-english/translation/{}
       dlsp: https://www.linguee.com/spanish-english/translation/{}
-      gh: https://github.com/search?o=desc&q={}&s=updated&type=Repositories
+      ga: https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions?query={}
+      gh: https://github.com/{}
+      ghc: https://github.com/search?q={}&type=Code
       gir: https://git-scm.com/search/results?search={}
       gl: https://golang.org/search?q={}
       gm: https://www.google.co.jp/maps/search/{}
@@ -607,6 +609,7 @@ settings:
       pyr: https://docs.python.org/3/search.html?q={}
       qb: https://www.reddit.com/r/qutebrowser/search/?q={}
       qi: https://qiita.com/search?q={}&sort=stock
+      qs: https://qiita.com/search?stocked=1&q={}
       ra: https://search.rakuten.co.jp/search/mall/{}
       rd: https://www.reddit.com/search/?q={}
       rgi: https://git-scm.com/search/results?search={}
