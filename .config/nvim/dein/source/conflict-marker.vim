@@ -40,6 +40,36 @@ function! s:mappings_to_resolve() abort
   nmap <buffer> gA <Plug>(conflict-marker-none)
 endfunction
 
+function! s:adopt_current() abort
+  let col = search('\S', 'n') - 1
+  let syn = synIDattr(synID(line('.'), col, 0), 'name')
+
+  if syn =~# 'ConflictMarker\(Ours\|Begin\)'
+    ConflictMarkerOurselves
+  elseif syn =~# 'ConflictMarker\(Theirs\|End\)'
+    ConflictMarkerThemselves
+  elseif syn ==# 'ConflictMarkerSeparator'
+    ConflictMarkerBoth
+  else
+    echoerr 'Abort. This command only available within conflicted lines'
+  endif
+endfunction
+
+function! s:discard_current() abort
+  let col = search('\S', 'n') - 1
+  let syn = synIDattr(synID(line('.'), col, 0), 'name')
+
+  if syn =~# 'ConflictMarker\(Ours\|Begin\)'
+    ConflictMarkerThemselves
+  elseif syn =~# 'ConflictMarker\(Theirs\|End\)'
+    ConflictMarkerOurselves
+  elseif syn ==# 'ConflictMarkerSeparator'
+    ConflictMarkerNone
+  else
+    echoerr 'Abort. This command only available within conflicted lines'
+  endif
+endfunction
+
 function! s:overwrite_foldmethod() abort
   if conflict_marker#detect#markers()
     if &fde != 0
