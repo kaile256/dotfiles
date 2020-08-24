@@ -65,7 +65,4 @@ augroup myAugroups
     "au FocusLost   * call system('fcitx-remote -o')
     au FocusGained * call system('fcitx-remote -c')
   endif
-
-  " RegisterModify "{{{1
-  au FocusGained *.toml if @+ !~# '^https://' && @+ !~# "\<NL>$" | let @+ .= "\<NL>" | endif
 augroup END
