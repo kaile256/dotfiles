@@ -4,4 +4,6 @@ augroup myFtDetect
   au BufNewFile,BufRead .vmailrc setlocal ft=yaml
 
   au BufNewFile,BufRead *.jad setlocal ft=java
+
+  au BufNewFile,BufRead .babelrc setlocal ft=json
 augroup END
