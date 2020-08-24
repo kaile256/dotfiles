@@ -129,7 +129,7 @@ hook_post_source = 'runtime post/gitgutter.vim'
 # repo = 'iwataka/gitignore.vim'
 # on_cmd = 'Gitignore'
 
-#[ Conflict ]
+#[ Resolve Conflict ]
 [[plugins]]
 repo = 'rhysd/conflict-marker.vim'
 # Highlight conflict markers like '<<<<<<<'.
