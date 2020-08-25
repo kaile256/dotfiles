@@ -160,6 +160,13 @@ hook_add = 'runtime add/columnskip.vim'
 #hook_add = 'runtime add/gesture.vim'
 #hook_post_source = 'runtime post/gesture.vim'
 
+#[ Command Line ]
+# [[plugins]]
+# repo = 'ryvnf/readline.vim'
+# # UNIX traditional navigation in commandline.
+# # <C-w> rubouts entire path.
+# on_cmd = 'CmdlineEnter'
+
 #[ Misc ]
 [[plugins]]
 repo = 'tpope/vim-unimpaired'
