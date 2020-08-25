@@ -223,6 +223,7 @@ settings:
         <Ctrl+w>T: tab-give
         <Ctrl+w>Z: close
         <Ctrl+w>c: session-save --quiet last;; tab-close
+        <Ctrl+w>gc: spawn -d google-chrome-stable {url}
         <Ctrl+w>h: tab-move -
         <Ctrl+w>l: tab-move +
         <Ctrl+w>n: open -w
