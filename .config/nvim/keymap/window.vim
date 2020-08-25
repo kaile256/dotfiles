@@ -76,10 +76,21 @@ if mapcheck('<c-w><c-q>', 'n') ==# ''
   nnoremap <c-w><c-q> <Nop>
 endif
 
-nnoremap <c-w>Z ZZ
-nnoremap <c-w>Q ZQ
-nnoremap Zz ZZ
-nnoremap Zq ZQ
+function! s:ignore_floating_windows(ZZ) abort
+  try
+    exe 'norm!'. a:ZZ
+  catch /E5601/ " We cannot leave a floating window in a tab.
+    only
+    exe 'norm!' a:ZZ
+  endtry
+endfunction
+
+nnoremap <silent> ZZ :<C-u>call <SID>ignore_floating_windows('ZZ')<CR>
+nnoremap <silent> ZZ :<C-u>call <SID>ignore_floating_windows('ZZ')<CR>
+nmap <c-w>Z ZZ
+nmap <c-w>Q ZQ
+nmap Zz ZZ
+nmap Zq ZQ
 
 " Use AndrewRadev/undoquit.vim instead
 " " Note: look after that ZQ, as :q!, locates higher than ZZ, as :wq
