@@ -1,27 +1,27 @@
 " Repo: HerringtonDarkholme/yats.vim
 
-runtime! syntax/jsx.vim
+runtime! syntax/tsx.vim
 
 " Sample:
-" `<` is set by jsxTag.
+" `<` is set by tsxTag.
 "
-" <Head> <- jsxComponentName
-"     <title> <- jsxTagName
+" <Head> <- tsxComponentName
+"     <title> <- tsxTagName
 "       Create Next App
 "     </title>
 "   <link rel="icon" href="/favicon.ico" />
 " </Head>
 "
 
-hi! link jsxTag NonText
-hi! link jsxEqual Normal
+hi! link tsxTag NonText
+hi! link tsxEqual Normal
 
-" hi! link jsxTagName Identifier
-hi! link jsxComponentName Function
+" hi! link tsxTagName Identifier
+hi! link tsxComponentName Function
 
 " Link syntax of pairs
-hi! link jsxEndTag jsxTag
-hi! link jsxEndString jsxTagName
-hi! link jsxEndComponentName jsxComponentName
+hi! link tsxCloseTag tsxTag
+hi! link tsxCloseString tsxTagName
+hi! link tsxCloseComponentName tsxComponentName
 
-hi! jsxRegion ctermfg=252 guifg=#d0d0d0
+hi! tsxRegion ctermfg=252 guifg=#d0d0d0
