@@ -1,6 +1,9 @@
 " From: motion.toml
 " Repo: AndrewRadev/splitjoin.vim
 
+let g:splitjoin_join_mapping = ''
+let g:splitjoin_split_mapping = ''
+
 " nnoremap <silent> <space>J :call <SID>try_splitjoin()<cr>
 nnoremap <silent> <SID>(operator-join) :set operatorfunc=<SID>operator_join<CR>g@
 nmap <space>J <SID>(operator-join)
