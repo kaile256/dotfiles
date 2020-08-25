@@ -1,4 +1,4 @@
-" From: ftplugin.toml
+" TOML: vimscript.toml
 " Repo: mhinz/vim-lookup
 
 augroup myLookupSource
