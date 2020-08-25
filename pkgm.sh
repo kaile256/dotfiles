@@ -229,7 +229,7 @@ PACKAGEs=(
   ripgrep
   ruby # rvm (Ruby version manager) is out of $PATH.
   #rxvt-unicode-truecolor # broken; instead, use https://github.com/illef/rxvt-unicode-truecolor-illef: installed in THE OTHERS
-  screenkey-git # display typed-key; useful w/ peek
+  screenkey # display typed-key; useful w/ peek
   shellcheck  # a linter for shell
   #task # taskwarrior
   #vit # taskwarrior on TUI w/ vi-key bindings
