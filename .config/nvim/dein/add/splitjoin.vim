@@ -5,6 +5,9 @@
 nnoremap <silent> <SID>(operator-join) :set operatorfunc=<SID>operator_join<CR>g@
 nmap <space>J <SID>(operator-join)
 
+nmap <SID>(try-splitjoin) <SID>(operator-join)l
+nmap <space>JJ <SID>(try-splitjoin)
+
 function! s:operator_join(...) abort
   if line("'[") != line("']")
     " Return as operator
