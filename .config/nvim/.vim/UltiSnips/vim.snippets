@@ -17,8 +17,7 @@ endfunction
 endsnippet
 
 snippet 'au((g)?roup)?' "augroup foo ... augroup END" br
-augroup my${1:name}
-  au!
+augroup my${1:Name}
   au ${2:FileType} ${3:*}
 augroup END
 endsnippet
