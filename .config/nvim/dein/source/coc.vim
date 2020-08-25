@@ -42,6 +42,7 @@ let g:coc_global_extensions = [
       \ 'coc-diagnostic',
       \ 'coc-dictionary',
       \ 'coc-docker',
+      \ 'coc-docthis',
       \ 'coc-elixir',
       \ 'coc-emmet',
       \ 'coc-emoji',
