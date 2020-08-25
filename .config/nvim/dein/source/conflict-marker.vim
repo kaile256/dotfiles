@@ -104,8 +104,8 @@ function! s:restore_mappings() abort
   if empty(mappings) | return | endif
 
   for mode in keys(mappings)
-    for lhs in keys(mappings[mode])
-      let data = mappings['lhs']
+    for lhs in keys(lhs2maparg[mode])
+      let data = lhs2maparg['lhs']
       if data['buffer'] == 0
         mode .'unmap <buffer>' lhs
         return
