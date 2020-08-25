@@ -19,6 +19,17 @@ hook_post_source = 'runtime post/repmo.vim'
 #[[plugins]]
 #repo = 'vim-scripts/repeatable-motions.vim'
 
+#[ Join ]
+# [[plugins]]
+# # repo = 'sk1418/Join'
+# # Join with input arguments as separator.
+# on_cmd = ['J', 'Join']
+# hook_add = 'runtime add/Join.vim'
+# [[plugins]]
+# repo = 'jeetsukumaran/vim-linearly'
+# on_func = 'linearly#'
+# hook_add = 'runtime add/linearly.vim'
+
 #[ Split ]
 # [[plugins]]
 # repo = 'rhysd/clever-split.vim'
