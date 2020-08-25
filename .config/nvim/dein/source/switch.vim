@@ -79,8 +79,8 @@ function! s:set_definitions() abort
         \ ['1st', '2nd', '3rd', '4th'],
         \ ['first', 'second', 'third', 'last'],
         \
-        \ ['primary', 'secondary'],
-        \ ['PRIMARY', 'SECONDARY'],
+        \ ['primary', 'secondary', 'ternary'],
+        \ ['PRIMARY', 'SECONDARY', 'TERNARY'],
         \
         \ ['collapse', 'expand'],
         \
