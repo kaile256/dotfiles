@@ -6,9 +6,6 @@
 ContextEnable
 
 augroup myContextPost
-  " Note: It sometimes brings floating context from the previous buffer,
-  " copied.  Because it doesn't happen without wrapper command, keep this
-  " config private.
   au BufEnter * call s:disable_context_on_buffer()
 augroup END
 
