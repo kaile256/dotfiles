@@ -58,6 +58,7 @@ let g:coc_global_extensions = [
       \ 'coc-java-debug',
       \ 'coc-json',
       \ 'coc-julia',
+      \ 'coc-lines',
       \ 'coc-lists',
       \ 'coc-lua',
       \ 'coc-markdownlint',
