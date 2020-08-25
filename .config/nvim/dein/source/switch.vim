@@ -145,11 +145,11 @@ function! s:set_definitions() abort
   for label in keys(rules)
     let definitions += rules[label]
   endfor
-  let definitions = map(deepcopy(definitions), 's:normalize_case(v:val)')
+  let definitions = map(deepcopy(definitions), 's:normalized_case(v:val)')
   return definitions
 endfunction
 
-function! s:normalize_case(rule) abort
+function! s:normalized_case(rule) abort
   return get(a:rule, 0, '') =~# '^\l'
         \ ? switch#NormalizedCase(a:rule)
         \ : s:sensitive_case(a:rule)
@@ -172,5 +172,5 @@ endfunction
 
 let g:switch_custom_definitions = s:set_definitions()
 delfunction s:set_definitions
-delfunction s:normalize_case
+delfunction s:normalized_case
 delfunction s:sensitive_case
