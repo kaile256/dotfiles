@@ -4,6 +4,8 @@
 let g:splitjoin_join_mapping = ''
 let g:splitjoin_split_mapping = ''
 
+nnoremap <silent> gS :<c-u>SplitjoinSplit<cr>
+
 " nnoremap <silent> <space>J :call <SID>try_splitjoin()<cr>
 nnoremap <silent> <SID>(operator-join) :set operatorfunc=<SID>operator_join<CR>g@
 nmap <space>J <SID>(operator-join)
@@ -26,5 +28,3 @@ function! s:operator_join(...) abort
         \ ? "norm \<Plug>(SandJoin-J)"
         \ : 'norm! J'
 endfunction
-
-nnoremap <silent> gS :<c-u>SplitjoinSplit<cr>
