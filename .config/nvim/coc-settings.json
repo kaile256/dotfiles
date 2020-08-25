@@ -357,6 +357,7 @@
   "vimlsp.suggest.fromVimruntime": true,
   "vimlsp.suggest.fromRuntimepath": false,
   "vimlsp.trace.server": "verbose",
+  "vimlsp.filetypes": ["vim", "vimspec"],
 
   "rust-analyzer.trace.server": "verbose",
 
