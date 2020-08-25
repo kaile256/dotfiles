@@ -178,6 +178,7 @@ endif
 augroup myDeinRc "{{{1
   au BufWinEnter *vim**/*.toml call s:find_the_plugin()
   function! s:find_the_plugin() abort "{{{2
+    " Note: it's useless under ftplugin/.
     let alt_path = fnamemodify(@#, ':p')
     if alt_path !~# '\v/(add|source|post)/.*\.vim$'
       return
