@@ -17,3 +17,9 @@ let g:SandJoin#no_default_mappings = 1
 "     \   ['^[ \t\\]*', '', '^top'],
 "     \ ],
 "     \ }
+
+nnoremap <silent> \J :set operatorfunc=<SID>operator_join<CR>g@
+
+function! s:operator_join(_wise) abort
+  exe "'[,']" (&ft ==# 'vim' ? 'SandJoin' : 'join')
+endfunction
