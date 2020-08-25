@@ -3,7 +3,8 @@
 if &ft !=# 'help' | finish | endif
 
 if &modifiable || !&readonly || @% =~# 'fugitive:\/\/\/'
-  " setl conceallevel=2
+  setlocal concealcursor=n
+  setlocal conceallevel=2
 else
   setl signcolumn= nolist foldlevel=0
   nnoremap <buffer> d <c-d>
