@@ -18,6 +18,12 @@ augroup END
 function! s:remove_end_of_pairs() abort "{{{1
   if !&modifiable | return | endif
 
+  let save_view = winsaveview()
+
+  let pairs_removeable_always = ['\\\%#(\zs\\)']
+  let pat_to_remove_always = join(pairs_removeable_always, '\|')
+  exe 'keeppattern keepjump s/'. pat_to_remove_always .'//e'
+
   let pairs_removeable_at_the_end_of_the_line = ['\[]', '{}']
   let pairs_removeable_next_to_symbols = ['()', '``', '""', "''"]
 
@@ -49,7 +55,6 @@ function! s:remove_end_of_pairs() abort "{{{1
         \ + pairs_removeable_next_to_symbols
   let pat = join(pairs_removeable, '\|')
 
-  let save_view = winsaveview()
   exe 'keeppattern keepjump s/'. pat .'//e'
   call winrestview(save_view)
 endfunction
