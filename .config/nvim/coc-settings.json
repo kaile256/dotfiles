@@ -73,8 +73,11 @@
 
   //"codeLens.enable": true,
 
-  //"diagnostic.refreshAfterSave": true,
-  //"diagnostic.checkCurrentLine": true,
+  // The properties "diagnostic.foo" is for general config not only for
+  // diagnostic-languageserver.
+  "diagnostic.refreshAfterSave": true,
+  "diagnostic.refreshOnInsertMode": true,
+  "diagnostic.checkCurrentLine": true, // show all the errors in current line
   "diagnostic.virtualText": false,
   //"diagnostic.messageTarget": "float",
   "diagnostic.highlightOffset": 500,
