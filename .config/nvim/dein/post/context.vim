@@ -6,6 +6,7 @@
 ContextEnable
 
 augroup myContextPost
+  " FIXME: suppress floating context window on opening gitcommit.
   au BufEnter * call s:disable_context_on_buffer()
 augroup END
 
