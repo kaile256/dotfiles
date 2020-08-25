@@ -3,7 +3,6 @@
 " Another: add/context.vim
 " Another: post/context.vim
 
-let g:context_add_mappings = 0
 " default: 21
 " omit excessive lines by ellipsis, '...'.
 let g:context_max_height = 4
