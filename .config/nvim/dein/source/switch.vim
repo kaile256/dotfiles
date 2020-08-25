@@ -150,8 +150,16 @@ function! s:set_definitions() abort
 endfunction
 
 function! s:normalize_case(list) abort
-  if type(a:list) != type([])
+  if type(a:list) == type({})
+    let dict = {}
+    for key in keys(a:list)
+      call extend(dict, {'\C'. key : a:list[key]})
+    endfor
+    return dict
+
+  elseif type(a:list) != type([])
     return a:list
+
   elseif a:list[0] =~# '^\L'
     return map(deepcopy(a:list), '"\\C". v:val')
   endif
