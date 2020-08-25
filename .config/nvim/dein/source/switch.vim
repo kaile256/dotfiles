@@ -157,8 +157,19 @@ function! s:set_definitions() abort
   for label in keys(rules)
     let definitions += rules[label]
   endfor
+  let definitions = map(deepcopy(definitions), 's:normalize_case(v:val)')
   return definitions
+endfunction
+
+function! s:normalize_case(list) abort
+  if type(a:list) != type([])
+        \ || a:list[0] !~# '^\l'
+    return a:list
+  endif
+
+  return switch#NormalizedCase(a:list)
 endfunction
 
 let g:switch_custom_definitions = s:set_definitions()
 delfunction s:set_definitions
+delfunction s:normalize_case
