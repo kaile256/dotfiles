@@ -1,8 +1,7 @@
 " From: appearance.toml
 " Repo: wellle/context.vim
+" Another: source/context.vim
 " Another: post/context.vim
-
-let g:context_add_mappings = 0
 
 nnoremap <silent><expr> H context#util#map_H()
 
