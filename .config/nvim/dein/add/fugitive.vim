@@ -50,9 +50,7 @@ function! s:Gvstatus(...) abort "{{{1
   exe 'vert bot 45 Gstatus' args
   if bufwinnr('\.git/index') == -1 | return | endif
 
-  if has('nvim')
-    call nvim_win_set_width(0, 45)
-  endif
+  vert resize 45
   setl winfixwidth
   wincmd =
   " go to Staged section
