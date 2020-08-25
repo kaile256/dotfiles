@@ -12,6 +12,4 @@ nnoremap <silent><expr> zt context#util#map_zt()
 
 nnoremap <silent><expr> <c-e> context#util#map('<C-e>')
 nnoremap <silent><expr> <c-y> context#util#map('<C-y>')
-nnoremap <silent><expr> <c-u> context#util#map('<C-u>')
-nnoremap <silent><expr> <c-d> context#util#map('<C-d>')
 
