@@ -78,12 +78,6 @@ on_map = ['<Plug>(EasyAlign)', '<Plug>(LiveEasyAlign)']
 on_cmd = 'EasyAlign'
 hook_add = 'runtime add/easy-align.vim'
 [[plugins]]
-repo = 'AndrewRadev/splitjoin.vim'
-on_cmd = ['SplitjoinJoin', 'SplitjoinSplit']
-on_map = ['<Plug>SplitjoinJoin', '<Plug>SplitjoinSplit']
-hook_add = 'runtime add/splitjoin.vim'
-
-[[plugins]]
 repo = 'emonkak/vim-operator-sort'
 on_map = {nx = ['<Plug>(operator-sort']}
 hook_add = 'runtime add/operator-sort.vim'
