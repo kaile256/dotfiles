@@ -127,7 +127,7 @@ function! s:set_definitions() abort
         \ },
         \ ['height', 'width'],
         \
-        \ ['upper', 'upper'],
+        \ ['upper', 'lower'],
         \
         \ ['new', 'old'],
         \ ['earlier', 'later'],
