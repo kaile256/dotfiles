@@ -13,10 +13,15 @@ augroup myContextPost
 augroup END
 
 function! s:disable_context_on_buffer() abort
-  if &bt !=# 'terminal' | return | endif
-
+  if index(g:context_filetype_blacklist, &ft) == -1
+        \ && &bt !=# 'terminal'
+    return
+  endif
   ContextDisableWindow
+
   augroup myContextPost-tmp
-    au BufWinLeave <buffer> ContextEnableWindow
+    au! BufWinLeave <buffer> ContextEnableWindow
   augroup END
 endfunction
+
+
