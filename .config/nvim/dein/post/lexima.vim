@@ -421,7 +421,7 @@ function! s:define_rules_for_space() abort
           \ }
     let Double_spaces_at_endOfSentence_in_Comment = extend(
           \ deepcopy(Double_spaces_at_end_OfSentence),
-          \ {'syntax': ['Comment', 'String']}
+          \ {'syntax': ['Comment']}
           \ )
     let Double_spaces_at_endOfSentence_as_FileType = extend(
           \ deepcopy(Double_spaces_at_end_OfSentence),
