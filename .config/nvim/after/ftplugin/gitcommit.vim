@@ -6,15 +6,15 @@ setlocal bufhidden=wipe
 
 setlocal formatoptions+=t " Auto-wrap as &textwidth
 
-nmap <buffer><expr> [c repmo#Key('<Plug>(gitcommitmsg-prev)', '<Plug>(gitcommitmsg-next)')
-nmap <buffer><expr> ]c repmo#Key('<Plug>(gitcommitmsg-next)', '<Plug>(gitcommitmsg-prev)')
-xmap <buffer><expr> [c repmo#Key('<Plug>(gitcommitmsg-prev)', '<Plug>(gitcommitmsg-next)')
-xmap <buffer><expr> ]c repmo#Key('<Plug>(gitcommitmsg-next)', '<Plug>(gitcommitmsg-prev)')
+map <buffer><expr> [c repmo#Key('<Plug>(gitcommitmsg-prev)', '<Plug>(gitcommitmsg-next)')
+map <buffer><expr> ]c repmo#Key('<Plug>(gitcommitmsg-next)', '<Plug>(gitcommitmsg-prev)')
+sunmap <buffer> [c
+sunmap <buffer> ]c
 
-nmap <buffer><expr> [m repmo#Key('<Plug>(gitcommitmsg-prev)', '<Plug>(gitcommitmsg-next)')
-nmap <buffer><expr> ]m repmo#Key('<Plug>(gitcommitmsg-next)', '<Plug>(gitcommitmsg-prev)')
-xmap <buffer><expr> [m repmo#Key('<Plug>(gitcommitmsg-prev)', '<Plug>(gitcommitmsg-next)')
-xmap <buffer><expr> ]m repmo#Key('<Plug>(gitcommitmsg-next)', '<Plug>(gitcommitmsg-prev)')
+map <buffer><expr> [m repmo#Key('<Plug>(gitcommitmsg-prev)', '<Plug>(gitcommitmsg-next)')
+map <buffer><expr> ]m repmo#Key('<Plug>(gitcommitmsg-next)', '<Plug>(gitcommitmsg-prev)')
+sunmap <buffer> [m
+sunmap <buffer> ]m
 
 nnoremap <silent> <Plug>(gitcommitmsg-next) :<C-u>call <SID>search_msg('')<CR>
 nnoremap <silent> <Plug>(gitcommitmsg-prev) :<C-u>call <SID>search_msg('b')<CR>
