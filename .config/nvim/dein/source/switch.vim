@@ -151,8 +151,9 @@ endfunction
 
 function! s:normalize_case(list) abort
   if type(a:list) != type([])
-        \ || a:list[0] !~# '^\l'
     return a:list
+  elseif a:list[0] =~# '^\L'
+    return map(deepcopy(a:list), '"\\C". v:val')
   endif
 
   return switch#NormalizedCase(a:list)
