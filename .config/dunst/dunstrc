@@ -159,7 +159,7 @@ background = "#272727"
 foreground = "#CACACA"
 # background = "#263238"
 # foreground = "#556064"
-timeout = 10
+timeout = 3
 #icon = /path/to/icon
 
 [urgency_normal]
@@ -168,7 +168,7 @@ foreground = "#F9FAF9"
 #background = "#272727"
 #foreground = "#CACACA"
 frame_color = "#FAFAFA"
-timeout = 10
+timeout = 5
 #icon = /path/to/icon
 
 [urgency_critical]
@@ -176,7 +176,7 @@ timeout = 10
 background = "#eeff00"
 foreground = ""#000F1F
 frame_color = ""#0023E5
-timeout = 30
+timeout = 8
 #icon = /path/to/icon
 
 # Every section that isn't one of the above is interpreted as a rules to
