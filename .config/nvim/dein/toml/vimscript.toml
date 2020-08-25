@@ -1,6 +1,6 @@
 # From: rc/dein.vim
 
-#[ Vim ]
+#[ Browse ]
 [[plugins]]
 repo = 'mhinz/vim-lookup'
 # Enable to jump to definition as &runtimepath.
