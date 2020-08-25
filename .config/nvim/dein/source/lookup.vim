@@ -16,3 +16,16 @@ augroup myLookupSource
     nnoremap <silent><buffer> <c-t> :<c-u>call lookup#pop()<cr>zvzt
   endfunction
 augroup END
+
+function! s:split_lookup() abort
+  try
+    SensibleSplit
+  catch /E492/
+    split
+  endtry
+
+  let is_moved = lookup#lookup()
+
+  if is_moved | return | endif
+  quit
+endfunction
