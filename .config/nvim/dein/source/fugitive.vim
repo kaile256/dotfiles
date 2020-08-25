@@ -5,6 +5,7 @@
 let g:fugitive_no_maps = 1 " true: disable mappings to `y<C-g>` and `<C-r><C-g>`
 
 augroup myFugitiveRememberTheLastBuffer
+  let s:save_winid = -1
   au FileType fugitive,gitcommit
         \ if getwinvar(winnr('#'), '&ft') !~# 'fugitive\|gitcommit'
         \ | let s:save_winid = win_getid(winnr('#')) | endif
