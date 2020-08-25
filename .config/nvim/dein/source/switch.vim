@@ -149,24 +149,28 @@ function! s:set_definitions() abort
   return definitions
 endfunction
 
-function! s:normalize_case(list) abort
-  if type(a:list) == type({})
+function! s:normalize_case(rule) abort
+  return get(a:rule, 0, '') =~# '^\l'
+        \ ? switch#NormalizedCase(a:rule)
+        \ : s:sensitive_case(a:rule)
+endfunction
+
+function! s:sensitive_case(rule) abort
+  if type(a:rule) == type({})
     let dict = {}
-    for key in keys(a:list)
-      call extend(dict, {'\C'. key : a:list[key]})
+    for key in keys(a:rule)
+      call extend(dict, {'\C'. key : a:rule[key]})
     endfor
     return dict
 
-  elseif type(a:list) != type([])
-    return a:list
-
-  elseif a:list[0] =~# '^\L'
-    return map(deepcopy(a:list), '"\\C". v:val')
+  elseif type(a:rule) != type([])
+    return a:rule
   endif
 
-  return switch#NormalizedCase(a:list)
+  return map(deepcopy(a:rule), '"\\C". v:val')
 endfunction
 
 let g:switch_custom_definitions = s:set_definitions()
 delfunction s:set_definitions
 delfunction s:normalize_case
+delfunction s:sensitive_case
