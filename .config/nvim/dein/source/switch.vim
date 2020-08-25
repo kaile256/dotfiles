@@ -63,7 +63,6 @@ function! s:set_definitions() abort
         \ ['YES', 'NO'],
         \
         \ ['disable', 'enable'],
-        \ ['Disable', 'Enable'],
         \
         \ ['inc', 'dec'],
         \ ['increment', 'decrement'],
@@ -80,7 +79,6 @@ function! s:set_definitions() abort
         \ ['first', 'second', 'third', 'last'],
         \
         \ ['primary', 'secondary', 'ternary'],
-        \ ['PRIMARY', 'SECONDARY', 'TERNARY'],
         \
         \ ['collapse', 'expand'],
         \
@@ -113,16 +111,9 @@ function! s:set_definitions() abort
 
   let rules.direction = [
         \ ['left', 'right'],
-        \ ['Left', 'Right'],
-        \
         \ ['above', 'below'],
-        \ ['Above', 'Below'],
-        \
         \ ['up', 'down'],
-        \ ['Up', 'Down'],
-        \
         \ ['next', 'prev'],
-        \ ['Next', 'Prev'],
         \ ]
 
   let rules.possession = [
@@ -135,14 +126,11 @@ function! s:set_definitions() abort
         \   '\<bottom\>': 'top',
         \ },
         \ ['height', 'width'],
-        \ ['Height', 'Width'],
         \
-        \ ['lower', 'upper'],
-        \
-        \ ['earlier', 'later'],
+        \ ['upper', 'upper'],
         \
         \ ['new', 'old'],
-        \ ['New', 'Old'],
+        \ ['earlier', 'later'],
         \ ]
 
   let rules.language = [
