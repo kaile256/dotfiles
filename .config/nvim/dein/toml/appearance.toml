@@ -3,8 +3,7 @@
 [[plugins]]
 repo = 'wellle/context.vim'
 # Show the begining line of block where cursor is, when hidden over window.
-on_func = 'context#util#map'
-hook_add = 'runtime add/context.vim'
+on_event = 'BufWinEnter'
 hook_source = 'runtime source/context.vim'
 hook_post_source = 'runtime post/context.vim'
 
