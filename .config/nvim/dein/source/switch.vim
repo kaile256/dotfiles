@@ -112,8 +112,15 @@ function! s:set_definitions() abort
   let rules.direction = [
         \ ['left', 'right'],
         \ ['above', 'below'],
-        \ ['up', 'down'],
         \ ['next', 'prev'],
+        \ {
+        \   '\<up\(\A\)': 'down\1',
+        \   '\<down\(\A\)': 'up\1',
+        \   '\<Up\(\A\)': 'Down\1',
+        \   '\<Down\(\A\)': 'Up\1',
+        \   '\<UP\(\A\)': 'DOWN\1',
+        \   '\<DOWN\(\A\)': 'UP\1',
+        \ },
         \ ]
 
   let rules.possession = [
