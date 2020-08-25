@@ -11,6 +11,7 @@ let g:context_max_height = 4
 let g:context_highlight_border = '<hide>' " Or set highlight name to link.
 
 let g:context_filetype_blacklist = [
+      \ 'defx',
       \ 'fugitive',
       \ 'git',
       \ 'gitcommit',
