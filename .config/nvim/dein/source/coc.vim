@@ -69,6 +69,7 @@ let g:coc_global_extensions = [
       \ 'coc-project',
       \ 'coc-pyright',
       \ 'coc-python',
+      \ 'coc-rome',
       \ 'coc-rust-analyzer',
       \ 'coc-solargraph',
       \ 'coc-spell-checker',
