@@ -2,7 +2,8 @@
 " Repo: AndrewRadev/splitjoin.vim
 
 " nnoremap <silent> <space>J :call <SID>try_splitjoin()<cr>
-nnoremap <silent> <space>J :set operatorfunc=<SID>operator_join<CR>g@
+nnoremap <silent> <SID>(operator-join) :set operatorfunc=<SID>operator_join<CR>g@
+nmap <space>J <SID>(operator-join)
 
 function! s:operator_join(...) abort
   if line("'[") != line("']")
