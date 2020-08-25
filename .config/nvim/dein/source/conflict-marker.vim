@@ -95,7 +95,7 @@ function! s:save_mappings(lhs, modes) abort
     if empty(maparg) | continue | endif
     call extend(b:conflict_marker_save_mappings, {mode : {}}, 'keep')
     call extend(b:conflict_marker_save_mappings[mode],
-          \ {a:lhs : mapargs}, 'keep')
+          \ {a:lhs : maparg}, 'keep')
   endfor
 endfunction
 
