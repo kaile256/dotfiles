@@ -15,30 +15,61 @@ let g:switch_mapping = ''
 "     \ }]
 
 function! s:set_definitions() abort
-  let definitions = []
+  let rules = {}
 
-  let definitions += [
+  " FIXME: get correct match pair to move `while (cond)`.
+  let pat_while = '\(while (.*)\) \({\(.*\n\)\{-}\s*}\)'
+  let pat_do_while = 'do \({\(.*\n\)\{-}\s*}\) \(while (.*)\);'
+  let rules.while_loop = [
+        \ {
+        \   pat_while : 'do \2 \1;',
+        \   pat_do_while : '\3 \1',
+        \ },
+        \ ]
+
+  let rules.auxiliary_verb = [
         \ ['should', 'must'],
         \ ['could', 'would'],
         \ ]
 
-  let definitions += [
+  let rules.command = [
         \ {
         \   '^\s*let ': 'const ',
         \   '^\s*const ': 'let ',
         \ },
         \ ]
 
-  let definitions += [
+  let rules.anitinomy = [
         \ ['horizontal', 'vertical'],
+        \ ]
+
+  let rules.opposite = [
         \ ['Enter', 'Leave'],
+        \ ['before', 'after'],
         \ {
         \   '\<on\>': 'off',
         \   '\<off\>': 'on',
         \ },
+        \
+        \ [' + ', ' - '],
+        \
+        \ ['==', '!='],
+        \
+        \ {
+        \   '\<yes\>': 'no',
+        \   '\<no\>': 'yes',
+        \ },
+        \ ['Yes', 'No'],
+        \ ['YES', 'NO'],
+        \
+        \ ['disable', 'enable'],
+        \ ['Disable', 'Enable'],
+        \
+        \ ['inc', 'dec'],
+        \ ['increment', 'decrement'],
         \ ]
 
-  let definitions += [
+  let rules.order = [
         \ [
         \   'foo',   'bar',    'baz',    'qux', 'quux',
         \   'corge', 'grault', 'garply', 'waldo',
@@ -46,16 +77,10 @@ function! s:set_definitions() abort
         \ ],
         \
         \ ['1st', '2nd', '3rd', '4th'],
-        \
-        \ [' + ', ' - '],
-        \
-        \ ['==', '!='],
         \ ['first', 'second', 'third', 'last'],
         \
         \ ['primary', 'secondary'],
         \ ['PRIMARY', 'SECONDARY'],
-        \
-        \ ['before', 'after'],
         \
         \ ['collapse', 'expand'],
         \
@@ -76,7 +101,7 @@ function! s:set_definitions() abort
         \ ['path', 'dir', 'file'],
         \ ]
 
-  let definitions += [
+  let rules.increment = [
         \ {
         \   '++\(\h\w*\)': '\1++',
         \   '--\(\h\w*\)': '\1--',
@@ -86,46 +111,9 @@ function! s:set_definitions() abort
         \ },
         \ ]
 
-  " FIXME: get correct match pair to move `while (cond)`.
-  let s:pat_while = '\(while (.*)\) \({\(.*\n\)\{-}\s*}\)'
-  let s:pat_do_while = 'do \({\(.*\n\)\{-}\s*}\) \(while (.*)\);'
-  let definitions += [
-        \ {
-        \   s:pat_while : 'do \2 \1;',
-        \   s:pat_do_while : '\3 \1',
-        \ },
-        \ ]
-  unlet s:pat_while s:pat_do_while
-
-  let definitions += [
-        \ {
-        \   '\<yes\>': 'no',
-        \   '\<no\>': 'yes',
-        \ },
-        \ ['Yes', 'No'],
-        \ ['YES', 'NO'],
-        \
-        \ ['disable', 'enable'],
-        \ ['Disable', 'Enable'],
-        \
+  let rules.direction = [
         \ ['left', 'right'],
         \ ['Left', 'Right'],
-        \
-        \ {
-        \   '\<row\>': 'col',
-        \   '\<col\>': 'row',
-        \ },
-        \
-        \ {
-        \   '\<top\>': 'bottom',
-        \   '\<bottom\>': 'top',
-        \ },
-        \
-        \ ['height', 'width'],
-        \ ['Height', 'Width'],
-        \
-        \ ['new', 'old'],
-        \ ['New', 'Old'],
         \
         \ ['above', 'below'],
         \ ['Above', 'Below'],
@@ -135,22 +123,40 @@ function! s:set_definitions() abort
         \
         \ ['next', 'prev'],
         \ ['Next', 'Prev'],
-        \
-        \ ['lower', 'upper'],
-        \ ['earlier', 'later'],
-        \
-        \ ['inc', 'dec'],
-        \ ['decrement', 'increment'],
         \ ]
 
-  let definitions += [
+  let rules.possession = [
+        \ {
+        \   '\<row\>': 'col',
+        \   '\<col\>': 'row',
+        \ },
+        \ {
+        \   '\<top\>': 'bottom',
+        \   '\<bottom\>': 'top',
+        \ },
+        \ ['height', 'width'],
+        \ ['Height', 'Width'],
+        \
+        \ ['lower', 'upper'],
+        \
+        \ ['earlier', 'later'],
+        \
+        \ ['new', 'old'],
+        \ ['New', 'Old'],
+        \ ]
+
+  let rules.language = [
         \ ['javascript', 'typescript']
         \ ]
 
-  let definitions += [
+  let rules.japanese = [
         \ ['右', '左'],
         \ ]
 
+  let definitions = []
+  for label in keys(rules)
+    let definitions += rules[label]
+  endfor
   return definitions
 endfunction
 
