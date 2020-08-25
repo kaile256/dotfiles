@@ -1,6 +1,7 @@
 " TOML: insert.toml
 " Repo: SirVer/ultisnips
 " Another: add/ultisnips.vim
+" Another: post/ultisnips.vim
 
 runtime once/smaps.vim
 
