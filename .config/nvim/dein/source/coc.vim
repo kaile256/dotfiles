@@ -73,6 +73,7 @@ let g:coc_global_extensions = [
       \ 'coc-solargraph',
       \ 'coc-spell-checker',
       \ 'coc-sql',
+      \ 'coc-styled-components',
       \ 'coc-stylelintplus',
       \ 'coc-svg',
       \ 'coc-tag',
