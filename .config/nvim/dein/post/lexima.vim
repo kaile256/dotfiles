@@ -309,7 +309,7 @@ function! s:define_rules_to_kill_words() abort
   " Note: s:remove_close . '<C-w>' fails to insert again to <C-w>.
   let pat_end = '[a-zA-Z \t_]*\zs\s\{-}[\]})>''"`]*'
   let following_ends = '\%#'. pat_end
-  let end_with_separator = '[,;:]\?'
+  let end_with_separator = '[,;:]\?$'
   let following_ends_with_separator = following_ends . end_with_separator
   let s:Remove_close =
         \ {pat -> ':silent! keepjumps keeppatterns s/'. pat .'//e<CR>gi'}
