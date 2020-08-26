@@ -6,13 +6,13 @@ repo = 'kaile256/vim-among_HML'
 on_func = ['among_HML#', 'among_HML#fork#']
 hook_add = 'source $DEIN_ADD_HOME/among_HML.vim'
 
-[[plugins]]
-repo = 'kaile256/vim-SandJoin'
-on_map = {nx = '<Plug>(SandJoin-'}
-on_cmd = ['SandJoin']
-on_func = ['SandJoin#']
-hook_add = 'source $DEIN_ADD_HOME/SandJoin.vim'
-hook_source = 'source $DEIN_SOURCE_HOME/SandJoin.vim'
+# [[plugins]]
+# # repo = 'kaile256/vim-SandJoin'
+# # on_map = {nx = '<Plug>(SandJoin-'}
+# on_cmd = ['SandJoin']
+# on_func = ['SandJoin#']
+# hook_add = 'source $DEIN_ADD_HOME/SandJoin.vim'
+# hook_source = 'source $DEIN_SOURCE_HOME/SandJoin.vim'
 
 #[[plugins]]
 #repo = 'kaile256/vim-window-picker'
