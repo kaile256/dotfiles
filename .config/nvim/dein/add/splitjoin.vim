@@ -11,7 +11,18 @@ nnoremap <silent> <SID>(operator-join) :set operatorfunc=<SID>operator_join<CR>g
 nmap <space>J <SID>(operator-join)
 
 nmap <SID>(try-splitjoin) <SID>(operator-join)l
-nmap <space>JJ <SID>(try-splitjoin)
+nnoremap <silent> <space>JJ :<C-u>call <SID>splitjoin()<CR>
+
+function! s:splitjoin() abort
+  let save_line = getline('.')
+  SplitjoinJoin
+
+  if getline('.') != save_line | return | endif
+
+  echohl ErrorMsg
+  echo '[SplitJoin] no patterns matched'
+  echohl Normal
+endfunction
 
 function! s:operator_join(...) abort
   if line("'[") != line("']")
