@@ -24,8 +24,9 @@ function! s:operator_join(_wise) abort
   exe "'[,']" (&ft ==# 'vim' ? 'SandJoin' : 'join')
 endfunction
 
-nnoremap <silent> <SID>(operator-join) :set operatorfunc=<SID>operator_join<CR>g@
-nmap <space>J <SID>(operator-join)
+nnoremap <silent> <SID>(SandJoin-operator)
+      \ :set operatorfunc=<SID>operator_join<CR>g@
+nmap <space>J <SID>(SandJoin-operator)
 
 function! s:operator_join(...) abort
   if line("'[") != line("']")
