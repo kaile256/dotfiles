@@ -169,12 +169,12 @@ function! s:sensitive_case(rule) abort
       call extend(dict, {'\C'. key : a:rule[key]})
     endfor
     return dict
-
-  elseif type(a:rule) != type([])
-    return a:rule
   endif
 
-  return map(deepcopy(a:rule), '"\\C". v:val')
+  " Return rule as it is; to make rule case-sensitive in list with '\C' will
+  " switch with 'C'.  For example, switching 'foo' as the definition,
+  " ['\Cfoo', '\Cbar'], will convert to 'Cbar'.
+  return a:rule
 endfunction
 
 let g:switch_custom_definitions = s:set_definitions()
