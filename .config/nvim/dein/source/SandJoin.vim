@@ -26,16 +26,13 @@ endfunction
 
 nnoremap <silent> <SID>(operator-join) :set operatorfunc=<SID>operator_join<CR>g@
 nmap <space>J <SID>(operator-join)
-nmap <SID>(try-splitjoin) <SID>(operator-join)l
 
 function! s:operator_join(...) abort
   if line("'[") != line("']")
     " Return as operator
-    exe "'[,']" (&ft ==# 'vim' ? 'SandJoin' : 'join')
+    exe "'[,'] norm \<Plug>(SandJoin-J)"
     return
   endif
 
-  exe &ft ==# 'vim'
-        \ ? "norm \<Plug>(SandJoin-J)"
-        \ : 'norm! J'
+  exe "norm \<Plug>(SandJoin-J)"
 endfunction
