@@ -31,10 +31,6 @@ function! s:operator_join(...) abort
     return
   endif
 
-  let save_line = getline('.')
-  silent SplitjoinJoin
-  if getline('.') !=# save_line | return | endif
-
   exe &ft ==# 'vim'
         \ ? "norm \<Plug>(SandJoin-J)"
         \ : 'norm! J'
