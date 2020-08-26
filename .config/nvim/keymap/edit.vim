@@ -47,3 +47,52 @@ onoremap <silent> <a-l> <ESC>:call feedkeys('l')<cr>
 " Fold; Uniquely Open Fold {{{1
 " i.e., close all the others
 noremap zU zMzv
+
+" Join without line-continuation symbols {{{1
+
+nnoremap <silent> <SID>(operator-J)  :<C-u>set  operatorfunc=<SID>operator_J<CR>g@
+nnoremap <silent> <SID>(operator-gJ) :<C-u>set  operatorfunc=<SID>operator_gJ<CR>g@
+xnoremap <silent> <SID>(modified-J)  :<C-u>call <SID>operator_J('visual')<CR>
+xnoremap <silent> <SID>(modified-gJ) :<C-u>call <SID>operator_gJ('visual')<CR>
+
+nmap <space>J <SID>(operator-J)
+nmap gJ <SID>(operator-gJ)
+xmap <space>J <SID>(modified-J)
+xmap gJ <SID>(modified-gJ)
+
+function! s:operator_J(wise) abort
+  let range = s:set_range(a:wise)
+  call s:_operator_join('join', range)
+endfunction
+
+function! s:operator_gJ(wise) abort
+  let range = s:set_range(a:wise)
+  let [line1, line2] = range
+  let line = min([line1 + 1, line2])
+  exe 'keeppatterns keepjumps' line ',' line2 's/^\s*//ge'
+  call s:_operator_join('join!', range)
+endfunction
+
+function! s:set_range(mode) abort
+  return sort(
+        \ a:mode =~? "[v\<C-v>]"
+        \ ? [line("'<"), line("'>")]
+        \ : [line("'["), line("']")]
+        \ )
+endfunction
+
+function! s:_operator_join(join, range) abort
+  let [line1, line2] = a:range
+  let sh_like = ['sh', 'zsh', 'fish', 'dockerfile']
+  const keep = 'keeppatterns keepjumps'
+
+  if &ft ==# 'vim'
+    let line = min([line1 + 1, line2])
+    exe keep line ',' line2 's/^\s*\\\s*//ge'
+  elseif &ft =~# join(sh_like, '\|')
+    let line = max([line2 - 1, line1])
+    exe keep line1 ',' line 's/\s*\\\s*$//ge'
+  endif
+
+  exe line1 ',' line2 a:join
+endfunction
