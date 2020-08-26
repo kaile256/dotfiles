@@ -165,7 +165,11 @@ function! s:modified_case(rule) abort
 endfunction
 
 function! s:normalized_case(rule) abort
-  let rule = switch#NormalizedCase(a:rule)
+  let rule = a:rule
+  if len(a:rule) == 2
+    " Normalization makes backward switch unavailable.
+    let rule = switch#NormalizedCase(a:rule)
+  endif
   return rule
 endfunction
 
