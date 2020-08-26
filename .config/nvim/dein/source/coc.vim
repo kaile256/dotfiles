@@ -152,16 +152,16 @@ augroup myCocSource "{{{1
   " " CocNvimInit triggered after coc services have started.
   " au User CocNvimInit call CocAction('runCommand', 'tsserver.watchBuild')
 
-  au CursorHoldI * call s:show_help()
-  function! s:show_help() abort
-    if synIDattr(synIDtrans(synID(line('.'), col('.') - 1, 0)), 'name')
-          \ =~? 'Comment\|String'
-      return
-    endif
-
-    call CocActionAsync('doHover')
-    call CocActionAsync('showSignatureHelp')
-  endfunction
+  " au CursorHoldI * call s:show_help()
+  " function! s:show_help() abort
+  "   if synIDattr(synIDtrans(synID(line('.'), col('.') - 1, 0)), 'name')
+  "        \ =~? 'Comment\|String'
+  "     return
+  "   endif
+  "
+  "   " call CocActionAsync('doHover')
+  "   call CocActionAsync('showSignatureHelp')
+  " endfunction
 
   au BufRead coc-settings.json setl commentstring=//%s
   " " No Status Line on coc's buffer; useless {{{2
