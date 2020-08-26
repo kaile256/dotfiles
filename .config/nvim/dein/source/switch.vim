@@ -66,6 +66,8 @@ function! s:set_definitions() abort
         \
         \ ['inc', 'dec'],
         \ ['increment', 'decrement'],
+        \
+        \ ['min', 'max'],
         \ ]
 
   let rules.order = [
