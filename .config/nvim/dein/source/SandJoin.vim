@@ -26,9 +26,9 @@ xmap <space>J <Plug>(SandJoin-J)
 function! s:operator_join(...) abort
   if line("'[") != line("']")
     " Return as operator
-    exe "'[,'] norm \<Plug>(SandJoin-J)"
+    '[,'] SandJoin norm! J
     return
   endif
 
-  exe "norm \<Plug>(SandJoin-J)"
+  '[,'] SandJoin norm! J
 endfunction
