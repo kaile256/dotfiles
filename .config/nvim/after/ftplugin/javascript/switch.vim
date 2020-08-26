@@ -10,5 +10,8 @@ let b:switch_custom_definitions = [
       \ {
       \   '\<props\>': 'state',
       \   '\<state\>': 'props',
-      \ }
+      \ },
+      \ ['margin-block-start', 'margin-block-end'],
+      \ ['margin-inline-start', 'margin-inline-end'],
       \ ]
+
