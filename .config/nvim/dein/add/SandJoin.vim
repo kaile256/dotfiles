@@ -1,4 +1,4 @@
-" From: myplug.toml
+" From: public.toml
 " Repo: kaile256/vim-SandJoin
 " Another: add/SandJoin.vim
 
