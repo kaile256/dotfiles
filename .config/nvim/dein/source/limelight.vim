@@ -5,5 +5,6 @@
 
 " Help: junegunn/limelight.vim/README.md
 
+set termguicolors " required
 let g:limelight_conceal_ctermfg = 'gray'
 
