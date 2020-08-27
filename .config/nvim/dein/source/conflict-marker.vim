@@ -104,6 +104,7 @@ function! s:restore_mappings() abort
   if empty(mappings) | return | endif
 
   for mode in keys(mappings)
+    let lhs2maparg = mappings[mode]
     for lhs in keys(lhs2maparg[mode])
       let data = lhs2maparg['lhs']
       if data['buffer'] == 0
