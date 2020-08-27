@@ -15,7 +15,7 @@ augroup myLookupSource
 augroup END
 
 function! s:lookup() abort
-  let is_moved = lookup#lookup()
+  silent let is_moved = lookup#lookup()
 
   if is_moved | return | endif
 
@@ -29,7 +29,7 @@ function! s:split_lookup() abort
     split
   endtry
 
-  let is_moved = lookup#lookup()
+  silent let is_moved = lookup#lookup()
 
   if is_moved | return | endif
   quit
