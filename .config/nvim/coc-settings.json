@@ -176,6 +176,7 @@
     "cmake",
     "lsof",
     "phpcs",
+    "xrandr",
 
     // abbreviation
     "isdir",
