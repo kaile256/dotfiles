@@ -1,6 +1,10 @@
 # From: dein/dein.vim
 
 #[ Colorscheme ]
+# [[plugins]]
+# repo = 'embark-theme/vim'
+# name = 'embark'
+# # lazy = 0
 [[plugins]]
 repo = 'dracula/vim'
 lazy = 0
