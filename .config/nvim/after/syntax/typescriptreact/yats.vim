@@ -21,7 +21,7 @@ hi! link tsxComponentName Function
 
 " Link syntax of pairs
 hi! link tsxCloseTag tsxTag
-hi! link tsxCloseString tsxTagName
+hi! link tsxCloseString tsxTag
 hi! link tsxCloseComponentName tsxComponentName
 
 hi! tsxRegion ctermfg=252 guifg=#d0d0d0
