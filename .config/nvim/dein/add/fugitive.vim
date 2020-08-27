@@ -47,7 +47,7 @@ endfunction
 function! s:Gvstatus(...) abort "{{{1
   let args = a:0 > 0 ? join(a:000) : ''
   " Note: cannot use :Gvstatus itself, of course
-  exe 'vert bot 45 Gstatus' args
+  exe 'vert bot Gstatus' args
   if bufwinnr('\.git/index') == -1 | return | endif
 
   vert resize 45
