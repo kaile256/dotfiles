@@ -7,12 +7,20 @@ augroup myLookupSource
     " " Jump back
     " nnoremap <silent><buffer> <c-t> :<c-u>call lookup#pop()<cr>zvzt
 
-    nnoremap <silent><buffer> gd :<C-u>call lookup#lookup()<cr>zvzt
-    xnoremap <silent><buffer> gd :call      lookup#lookup()<cr>zvzt
+    nnoremap <silent><buffer> gd :<C-u>call <SID>lookup()<cr>zvzt
+    xnoremap <silent><buffer> gd :call      <SID>lookup()<cr>zvzt
     nnoremap <silent><buffer> <C-w>d :<c-u>call <SID>split_lookup()<CR>
     xnoremap <silent><buffer> <C-w>d :call <SID>split_lookup()<CR>
   endfunction
 augroup END
+
+function! s:lookup() abort
+  let is_moved = lookup#lookup()
+
+  if is_moved | return | endif
+
+  call CocAction('jumpDefinition')
+endfunction
 
 function! s:split_lookup() abort
   try
@@ -25,4 +33,6 @@ function! s:split_lookup() abort
 
   if is_moved | return | endif
   quit
+
+  call CocAction('jumpDefinition', sensible#split())
 endfunction
