@@ -7,10 +7,10 @@ augroup myLookupSource
     " " Jump back
     " nnoremap <silent><buffer> <c-t> :<c-u>call lookup#pop()<cr>zvzt
 
-    nnoremap <silent><buffer> gd :<C-u>call <SID>lookup()<cr>zvzt
-    xnoremap <silent><buffer> gd :call      <SID>lookup()<cr>zvzt
-    nnoremap <silent><buffer> <C-w>d :<c-u>call <SID>split_lookup()<CR>
-    xnoremap <silent><buffer> <C-w>d :call <SID>split_lookup()<CR>
+    nnoremap <silent><buffer> gd :<C-u>call <SID>lookup()<cr>zvzz
+    xnoremap <silent><buffer> gd :call      <SID>lookup()<cr>zvzz
+    nnoremap <silent><buffer> <C-w>d :<c-u>call <SID>split_lookup()<CR>zvzz
+    xnoremap <silent><buffer> <C-w>d :call <SID>split_lookup()<CR>zvzz
   endfunction
 augroup END
 
