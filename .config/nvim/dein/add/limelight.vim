@@ -13,7 +13,6 @@ nnoremap <silent> <space>v :<C-u>Limelight!!<CR>
 " xmap \v <Plug>(Limelight)
 
 augroup myLimelightAdd-autoToggle
-  au!
   " au BufEnter *.gz if &ft =~# 'man' && &readonly | Limelight  | endif
   " au BufLeave *.gz if &ft =~# 'man' && &readonly | Limelight! | endif
 
