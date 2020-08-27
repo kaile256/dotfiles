@@ -56,8 +56,6 @@ function! s:Gvstatus(...) abort "{{{1
   let Go_to_Staged_section = 'norm gs'
   exe Go_to_Staged_section
   norm! zz
-  wincmd p
-  wincmd p
 endfunction
 
 " Functions: Pretreatment for Windows in Tab {{{1
