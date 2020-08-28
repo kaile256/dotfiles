@@ -66,11 +66,10 @@ function! s:operator_J(wise) abort
 endfunction
 
 function! s:operator_gJ(wise) abort
-  let range = s:set_range(a:wise)
-  let [line1, line2] = range
-  let line = min([line1 + 1, line2])
-  exe 'keeppatterns keepjumps' line ',' line2 's/^\s*//ge'
-  call s:_operator_join('join!', range)
+  let [line1, line2] = s:set_range(a:wise)
+  let range = line1 < line2 ? line1 .','. line2 : line2 .','. line1
+  exe 'keeppatterns keepjumps' range 's/^\s*//ge'
+  call s:_operator_join('join!', [line1, line2])
 endfunction
 
 function! s:set_range(mode) abort
