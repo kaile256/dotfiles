@@ -15,6 +15,8 @@ call defx#custom#option('_', 'drives', [
       \ ])
 
 " TODO: Get defx's cwd with neither auto_cd nor getline(1).
+" Ref: Default values
+"   => Shougo/defx.nvim/autoload/defx/init.vim @94
 call defx#custom#option('_', {
       \ 'columns': g:defx_format_full,
       \ 'split': 'no',
