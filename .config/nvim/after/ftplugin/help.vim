@@ -10,10 +10,8 @@ else
   nnoremap <buffer> d <c-d>
   nnoremap <buffer> u <c-u>
 
-  nnoremap <silent><buffer> <C-p> :silent! <C-r>=v:count1<CR> pop<CR>
-  nnoremap <silent><buffer> <C-n> :silent! <C-r>=v:count1<CR> tag<CR>
-  nnoremap <silent><buffer> <C-S-p> :silent! $ tag<CR>
-  nnoremap <silent><buffer> <C-S-n> :silent! 0 tag<CR>
+  nnoremap <silent><buffer> <C-p> :silent! pop<CR>
+  nnoremap <silent><buffer> <C-n> :silent! tag<CR>
 
   noremap <buffer><silent> <C-]> <C-]>zz
   " Note: g<c-]> jumps via ctags,
