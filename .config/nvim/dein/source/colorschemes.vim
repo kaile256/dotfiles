@@ -3,6 +3,7 @@
 " Another: post/colorschemes.vim
 
 augroup myColorschemesSo
+  au Colorscheme * set ambiwidth=single
   au Colorscheme * ++nested call s:common()
   au Colorscheme * ++nested call s:common_dark()
   " au Colorscheme * ++nested call s:up_to_environment()
