@@ -190,11 +190,10 @@ nnoremap <silent> <space>cl :CocList<cr>
 nnoremap <silent> <space>cx :CocList extensions<cr>
 
 " CocBookmark; {{{1
-nmap mA <Plug>(coc-bookmark-annotate)
-" nmap mj <Plug>(coc-bookmark-next)
-" nmap mk <Plug>(coc-bookmark-prev)
-nmap md <Plug>(coc-bookmark-toggle)
-" nmap mt <Plug>(coc-bookmark-toggle)
+nmap ma <Plug>(coc-bookmark-annotate)
+nmap mm <Plug>(coc-bookmark-toggle)
+nmap ]b <Plug>(coc-bookmark-next)
+nmap [b <Plug>(coc-bookmark-prev)
 
 command! -bar Bookmarks :Coclist bookmark
 nnoremap <silent> <space>cb :Coclist bookmark<cr>
