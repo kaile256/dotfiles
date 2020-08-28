@@ -86,7 +86,7 @@ function! s:_operator_join(join, range) abort
   const keep = 'keeppatterns keepjumps'
 
   if &ft ==# 'vim'
-    let line = min([line1 + 1, line2])
+    let line = max([line1 + 1, line2])
     let range = line < line2 ? line .','. line2 : line2 .','. line
     exe keep range 's/^\s*\\\s*//ge'
   elseif &ft =~# join(sh_like, '\|')
