@@ -167,8 +167,8 @@ hook_add = 'runtime add/columnskip.vim'
 # # <C-w> rubouts entire path.
 # on_cmd = 'CmdlineEnter'
 
-#[ Misc ]
-[[plugins]]
-repo = 'tpope/vim-unimpaired'
-on_map = {nox = '<Plug>unimpaired'}
-hook_add = 'runtime add/unimpaired.vim'
+# #[ Misc ]
+# [[plugins]]
+# repo = 'tpope/vim-unimpaired'
+# on_map = {nox = '<Plug>unimpaired'}
+# hook_add = 'runtime add/unimpaired.vim'
