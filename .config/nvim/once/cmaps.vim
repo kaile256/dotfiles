@@ -3,6 +3,8 @@
 " Ref: commands.vim
 
 " <Up>/<Down> completes as the history.
+cnoremap <A-p> <Up>
+cnoremap <A-n> <Down>
 if &wildmode =~# 'longest'
   " TODO Find a way <Up>/<Down> be compatible with 'wildchar' and replace with
   " <C-n>/<C-p> respectively.
