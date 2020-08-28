@@ -45,6 +45,7 @@ repo = 'junegunn/goyo.vim'
 on_cmd = 'Goyo'
 [[plugins]]
 repo = 'junegunn/limelight.vim'
+# Note: requires &termguicolors = 1
 on_map = {nx = '<Plug>(Limelight'}
 on_cmd = 'Limelight'
 hook_add = 'runtime add/limelight.vim'
