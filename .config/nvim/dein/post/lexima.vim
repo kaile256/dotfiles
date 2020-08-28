@@ -414,7 +414,15 @@ function! s:define_rules_for_space() abort
             \ ]
     endfor
 
-    let after_abbr = '\v(\u\a|\u\.\u)\.%#' " like U.S.A. or Mr.
+    let abbrs_without_trailing_period = []
+    let abbrs_without_trailing_period += [
+         \ 'abbr',
+         \ 'esp',
+         \ ]
+    let abbrs_without_trailing_period += ['\u\a'] " like Mr.
+    let abbrs_without_trailing_period += ['\u\.\u'] " like U.S.A.
+    let after_abbr = '\v('. join(abbrs_without_trailing_period, '|') .')\.%#'
+
     let Double_spaces_at_end_OfSentence = {
           \ 'char': char,
           \ 'input': '<space><space>',
