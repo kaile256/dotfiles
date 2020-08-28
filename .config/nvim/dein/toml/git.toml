@@ -38,6 +38,11 @@ on_source = ['tig-explorer.vim', 'ranger.vim']
 ## Note: Dominant behavior on a tab
 #on_cmd =  'GHPRBlame'
 #hook_source = 'runtime source/ghpr-blame.vim'
+[[plugins]]
+repo = 'APZelos/blamer.nvim'
+# On Visual mode, show blames on every lines at once.
+# Without virtualtext, it will show in popup.
+on_cmd = 'BlamerShow'
 #[[plugins]]
 #repo = 'tveskag/nvim-blame-line'
 # Note: seems to have some bugs
