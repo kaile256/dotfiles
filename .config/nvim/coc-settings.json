@@ -152,6 +152,9 @@
 
   "project.dbpath": "~/.local/share/.coc-project",
 
+  "bookmark.sign": "*",
+  "bookmark.signHl": "Title",
+
   "yank.highlight.enable": false,
   "yank.enableCompletion": false,
   "yank.list.maxsize": 150,
