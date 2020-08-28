@@ -1,7 +1,7 @@
 " From: init.vim
 
-" Select current line without <NL>
-xnoremap <expr> v (mode() ==# 'v') ? '<Esc>$v0' : 'v'
+" " Select current line without <NL>
+" xnoremap <expr> v (mode() ==# 'v') ? '<Esc>$v0' : 'v'
 
 xmap <a-space> <Esc><Space>
 
