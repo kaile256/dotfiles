@@ -116,11 +116,18 @@ nnoremap <silent> <A-x>t :<c-u>call <SID>defx({
 
 " Open at the End side {{{1
 function! s:defx_endbar(path) abort
-  exe 'Defx' expand(a:path)
-        \ '-direction=botright'
-        \ '-winwidth='. g:defx_sidebar_width
-        \ '-split=vertical'
-        \ '-new'
+  if &bt ==# 'terminal'
+    exe 'Defx' expand(a:path)
+          \ '-split=no'
+          \ '-new'
+  else
+    exe 'Defx' expand(a:path)
+          \ '-direction=botright'
+          \ '-winwidth='. g:defx_sidebar_width
+          \ '-split=vertical'
+          \ '-new'
+  endif
+
   setlocal wfw
 endfunction
 
