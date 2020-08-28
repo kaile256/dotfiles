@@ -43,6 +43,7 @@ repo = 'APZelos/blamer.nvim'
 # On Visual mode, show blames on every lines at once.
 # Without virtualtext, it will show in popup.
 on_cmd = 'BlamerShow'
+hook_source = 'runtime source/blamer.vim'
 #[[plugins]]
 #repo = 'tveskag/nvim-blame-line'
 # Note: seems to have some bugs
