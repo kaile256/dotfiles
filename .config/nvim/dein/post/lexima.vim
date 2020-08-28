@@ -211,9 +211,9 @@ let s:user_rules += [
       \ {'char': '<CR>', 'at': '/\*\%#\*/', 'input_after': '<CR><space>'},
       \ {'char': '<CR>', 'at': '<\a.*\%#>', 'input_after': '<CR>'},
       \
-      \ {'char': '<CR>', 'at': "'''\\%#'''", 'input_after': '<CR>'},
-      \ {'char': '<CR>', 'at': '"""\%#"""',  'input_after': '<CR>'},
-      \ {'char': '<CR>', 'at': '```\%#```',  'input_after': '<CR>'},
+      \ {'char': '<CR>', 'at': "'\\%#'", 'input_after': '<CR>'},
+      \ {'char': '<CR>', 'at': '"\%#"',  'input_after': '<CR>'},
+      \ {'char': '<CR>', 'at': '`\%#`',  'input_after': '<CR>'},
       \ ]
 
 " Spilt <tag><\tag> on <CR>
