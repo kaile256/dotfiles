@@ -87,11 +87,14 @@ function! s:_operator_join(join, range) abort
 
   if &ft ==# 'vim'
     let line = min([line1 + 1, line2])
-    exe keep line ',' line2 's/^\s*\\\s*//ge'
+    let range = line < line2 ? line .','. line2 : line2 .','. line
+    exe keep range 's/^\s*\\\s*//ge'
   elseif &ft =~# join(sh_like, '\|')
     let line = max([line2 - 1, line1])
-    exe keep line1 ',' line 's/\s*\\\s*$//ge'
+    let range = line < line2 ? line .','. line2 : line2 .','. line
+    exe keep range 's/\s*\\\s*$//ge'
   endif
 
-  exe line1 ',' line2 a:join
+  let range = line1 < line2 ? line1 .','. line2 : line2 .','. line1
+  exe range a:join
 endfunction
