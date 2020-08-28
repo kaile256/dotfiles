@@ -1,7 +1,8 @@
 " prevents coc-snippets overwrite fdm.
 let b:did_ftplugin = 1
 
-setl fdm=expr fde=SnippetsFoldExpr()
+setlocal expandtab
+setlocal fdm=expr fde=SnippetsFoldExpr()
 if exists('b:undo_ftplugin')
   let b:undo_ftplugin .= ' | '
 else
