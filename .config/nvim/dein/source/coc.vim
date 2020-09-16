@@ -5,7 +5,7 @@
 " Json: coc-settings.json
 " Another: add/coc.vim
 
-nnoremap <space>cr :<C-u>silent CocRestart<CR>
+nnoremap <space>cR :<C-u>silent CocRestart<CR>
 
 function! s:CodeLensToggle() abort
   const on  = 'ctermfg=226 guifg=#ffff00'
