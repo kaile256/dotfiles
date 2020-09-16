@@ -5,6 +5,8 @@
 " Json: coc-settings.json
 " Another: add/coc.vim
 
+let g:coc_channel_timeout = 50
+
 nnoremap <space>cR :<C-u>silent CocRestart<CR>
 
 function! s:CodeLensToggle() abort
@@ -19,8 +21,6 @@ function! s:CodeLensToggle() abort
 endfunction
 command! -bar CodeLensToggle :call s:CodeLensToggle()
 hi! CocCodeLens ctermfg=240 guifg=#585858
-
-let g:coc_channel_timeout = 50
 
 " the List of CocExtentions; "{{{1
 " Note: have to install LSPs independently.
