@@ -9,6 +9,13 @@ let g:coc_channel_timeout = 50
 
 nnoremap <space>cR :<C-u>silent CocRestart<CR>
 
+" Commands for coc-jest; coc-inline-jest runs independently.
+command! JestOnProject   :call CocAction('runCommand', 'jest.projectTest')
+command! JestCurrentFile :call CocAction('runCommand', 'jest.fileTest', ['%'])
+command! JestSingleTest  :call CocAction('runCommand', 'jest.singleTest')
+" Init jest in current cwd, require global jest command exists
+command! JestInit :call CocAction('runCommand', 'jest.init')
+
 function! s:CodeLensToggle() abort
   const on  = 'ctermfg=226 guifg=#ffff00'
   const off = 'ctermfg=240 guifg=#585858'
