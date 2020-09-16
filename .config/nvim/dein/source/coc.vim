@@ -57,6 +57,7 @@ let g:coc_global_extensions = [
       \ 'coc-html',
       \ 'coc-java',
       \ 'coc-java-debug',
+      \ 'coc-jest',
       \ 'coc-json',
       \ 'coc-julia',
       \ 'coc-lines',
