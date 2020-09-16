@@ -55,6 +55,7 @@ let g:coc_global_extensions = [
       \ 'coc-godot',
       \ 'coc-homeassistant',
       \ 'coc-html',
+      \ 'coc-inline-jest',
       \ 'coc-java',
       \ 'coc-java-debug',
       \ 'coc-jest',
