@@ -9,11 +9,11 @@
 map w  <Plug>CamelCaseMotion_w
 map b  <Plug>CamelCaseMotion_b
 map e  <Plug>CamelCaseMotion_e
-map ge <Plug>CamelCaseMotion_ge
+" map ge <Plug>CamelCaseMotion_ge
 sunmap w
 sunmap b
 sunmap e
-sunmap ge
+" sunmap ge
 " TODO: no delay on 'e' in operator
 "omap <expr> <Plug>CamelCaseMotion_e_modified (getline('.')[col('.')] ==# ' ') ? 'l' : '<Plug>CamelCaseMotion_e'
 "omap e <Plug>CamelCaseMotion_e_modified
