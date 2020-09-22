@@ -8,6 +8,7 @@ let g:polyglot_disabled = [
       \ 'haskell',
       \ 'i3',
       \ 'javascript',
+      \ 'markdown',
       \ 'php',
       \ 'zsh',
       \ ]
