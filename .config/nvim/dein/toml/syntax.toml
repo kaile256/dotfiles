@@ -18,7 +18,7 @@ on_event = 'Colorscheme'
 [[plugins]]
 repo = 'sheerun/vim-polyglot'
 # Note: it often fails on guard.
-merged = 0
+# merged = 0 # without merged, `g:polyglot_disabled` won't work.
 lazy = 0
 hook_source = 'runtime source/polyglot.vim'
 
