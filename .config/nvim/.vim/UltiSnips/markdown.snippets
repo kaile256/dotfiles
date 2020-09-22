@@ -5,24 +5,15 @@ snippet vim "README for Vim plugin" b
 
 ## Installation
 
-Install the plugin using your favorite package manager
+Install the plugin using your favorite package manager.
 
-### For dein.vim
-
-\`\`\`vim
-call dein#add('kaile256/`!v snip#vim#name_of_repo()`')
-\`\`\`
+This is a sample configuration in TOML format
+for [Dein](https://github.com/Shougo/dein.vim) users:
 
 \`\`\`toml
 [[plugin]]
 repo = 'kaile256/`!v snip#vim#name_of_repo()`'
-\`\`\`
-
-This is recommended in lazy load:
-
-\`\`\`toml
-[[plugin]]
-repo = 'kaile256/`!v snip#vim#name_of_repo()`'
+lazy = 1
 \`\`\`
 
 ## Usage
