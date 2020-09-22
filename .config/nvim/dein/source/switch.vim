@@ -34,8 +34,8 @@ function! s:set_definitions() abort
 
   let rules.command = [
         \ {
-        \   '^\s*let ': 'const ',
-        \   '^\s*const ': 'let ',
+        \   '^\(\s*\)let ': '\1const ',
+        \   '^\(\s*\)const ': '\1let ',
         \ },
         \ ]
 
