@@ -3,10 +3,9 @@
 #   qute://help/configuring.html
 #   qute://help/settings.html
 
-# Uncomment this to still load settings configured via autoconfig.yml
 from qutebrowser.api import interceptor
 
-config.load_autoconfig()
+config.load_autoconfig()  # load ./autoconfig.yml
 
 
 # Youtube adblock (Interrupt the request)
