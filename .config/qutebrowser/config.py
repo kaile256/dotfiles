@@ -3,6 +3,9 @@
 #   qute://help/configuring.html
 #   qute://help/settings.html
 
+import re
+import subprocess
+
 from qutebrowser.api import interceptor
 
 config.load_autoconfig()  # load ./autoconfig.yml
@@ -28,3 +31,24 @@ c.hints.selectors["code"] = [
     ":not(pre) > code",
     "pre"
 ]
+
+
+def should_be_darkmode():
+    monitor_sizes_to_darkmode = ['1040mm x 590mm']
+
+    possible_monitors = subprocess.check_output(['xrandr'], text=True)
+    pat_monitor_size = '\\d+mm x \\d+mm'
+
+    connected_monitors_sizes = re.findall(pat_monitor_size, possible_monitors)
+    for m in connected_monitors_sizes:
+        for s in monitor_sizes_to_darkmode:
+            is_monitor_size_to_darkmode = re.fullmatch(s, m)
+            if is_monitor_size_to_darkmode:
+                return True
+    return False
+
+
+SHOULD_BE_DARKMODE = should_be_darkmode()
+c.colors.webpage.darkmode.enabled = SHOULD_BE_DARKMODE
+# c.colors.webpage.darkmode.grayscale.all = SHOULD_BE_DARKMODE
+# c.colors.webpage.prefers_color_scheme_dark = SHOULD_BE_DARKMODE
