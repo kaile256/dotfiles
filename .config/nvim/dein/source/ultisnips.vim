@@ -36,10 +36,9 @@ let g:UltiSnipsListSnippets = ''
 " works as expand-or-jump mapping.
 let g:UltiSnipsExpandTrigger = '<Plug>(nop)'
 " Note: The Jump-mppings only override keys while UltiSnips working.
-let g:UltiSnipsJumpForwardTrigger = '<C-]>'
-nnoremap <C-]> <Nop>
+let g:UltiSnipsJumpForwardTrigger = '<C-g>'
 " Note: <Esc> stops working snippets, which often happens inconsiderately.
-let g:UltiSnipsJumpBackwardTrigger = '<C-[>'
+let g:UltiSnipsJumpBackwardTrigger = '<C-t>'
 
 let g:UltiSnipsSnippetDirectories = [
       \ s:snippets_dir,
