@@ -7,7 +7,7 @@ set fileencodings=ucs-bom,utf-8,euc-jp,sjis,cp932,default,latin1
 " or strftime() returns in Japanese like 1月 23
 language time en_US.UTF-8
 
-let mapleader = '<Nop>'
+let mapleader = '<Plug>(nop)'
 noremap <space> <Nop>
 
 let g:TermOpen = has('nvim') ? 'TermOpen' :
