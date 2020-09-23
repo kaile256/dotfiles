@@ -91,11 +91,11 @@ nmap <nowait><buffer> <C-w><C-s> <C-w>s
 " Open File {{{1
 " Edit {{{2
 nnoremap <silent><nowait><buffer><expr> <C-j>
-      \ <SID>defx_is_wide()
+      \ <SID>is_in_wide_window()
       \ ? defx#do_action('open', 'edit')
       \ : defx#do_action('multi', ['drop', 'quit'])
 nnoremap <silent><nowait><buffer><expr> <CR>
-      \ <SID>defx_is_wide()
+      \ <SID>is_in_wide_window()
       \ ? defx#do_action('open', 'edit')
       \ : defx#do_action('multi', ['drop', 'quit'])
 xnoremap <silent><nowait><buffer><expr> <c-j>
@@ -148,7 +148,7 @@ xnoremap <silent><nowait><buffer><expr> A
       \ .'<c-w>p'
 " FIXME: always keep cursor on defx after drop to :split ANYWHERE
 nnoremap <silent><nowait><buffer><expr> a
-      \ <SID>defx_is_wide()?
+      \ <SID>is_in_wide_window() ?
       \ defx#do_action('open', 'bel split')
       \ .'<c-w>k':
       \ defx#do_action('drop', 'bel split')
@@ -288,15 +288,15 @@ if exists('s:is_loaded') | finish | endif
 let s:is_loaded = 1
 
 " Boolean: {{{1
-function! s:defx_is_wide() abort
+function! s:is_in_wide_window() abort
   if @% =~# '\[defx]'
     return winwidth('.') > g:defx_sidebar_width
   endif
   return winwidth(bufwinnr('\[defx]')) > g:defx_sidebar_width
 endfunction
 
-function! s:defx_is_narrow() abort
-  return ! s:defx_is_wide()
+function! s:is_in_narrow_window() abort
+  return ! s:is_in_wide_window()
 endfunction
 
 function! s:single_window_with_defx() abort
@@ -349,7 +349,7 @@ function! s:defx_preview(mods) abort
 
   " TODO: set mods to 'bel' if winwidth(winnr('l')) is narrow.
   let pedit = "pclose \<bar> bot pedit"
-  let open = s:defx_is_wide() ? 'open' : 'drop'
+  let open = s:is_in_wide_window() ? 'open' : 'drop'
   let defx_action = defx#do_action(open, pedit)
 
   return defx_action
