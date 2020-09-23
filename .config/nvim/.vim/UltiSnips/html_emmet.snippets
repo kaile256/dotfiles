@@ -14,6 +14,11 @@ snippet ! "Skeleton" b
 </html>
 endsnippet
 
+# append '>' without lexima-like plugin
+snippet < "<${1:foo bar=baz}>$2</foo>" i
+<${1:tagName}>$2</`!v matchstr(getline(search('<\w*\%(.*\n\)\{-}.*\%#', 'bnW')), '<\zs\w\+')`
+endsnippet
+
 snippet > "<foo>$0</foo>" i
 >$0</`!v matchstr(getline(search('<\w*\%(.*\n\)\{-}.*\%#', 'bnW')), '<\zs\w\+')`>
 endsnippet
