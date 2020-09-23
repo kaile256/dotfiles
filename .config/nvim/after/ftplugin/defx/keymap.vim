@@ -326,6 +326,9 @@ xmap <silent><nowait><buffer> >>
 " nmap <silent><nowait><buffer> << <Plug>(defx-git-discard)
 "}}}
 
+if exists('s:is_loaded') | finish | endif
+let s:is_loaded = 1
+
 function! s:defx_do_action_visual(action, ...) abort
   " Note: it fails in multi sequence at once.
   return defx#do_action('multi', ['clear_select_all', 'toggle_select_visual'])
