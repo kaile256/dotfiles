@@ -148,11 +148,9 @@ xnoremap <silent><nowait><buffer><expr> A
       \ .'<c-w>p'
 " FIXME: always keep cursor on defx after drop to :split ANYWHERE
 nnoremap <silent><nowait><buffer><expr> a
-      \ <SID>is_in_wide_window() ?
-      \ defx#do_action('open', 'bel split')
-      \ .'<c-w>k':
-      \ defx#do_action('drop', 'bel split')
-      \ .'<c-w>h'
+      \ <SID>is_in_wide_window()
+      \ ? defx#do_action('open', 'bel split') .'<c-w>k'
+      \ : defx#do_action('drop', 'bel split') .'<c-w>h'
 xnoremap <silent><nowait><buffer><expr> a
       \ defx#async_action('multi',
       \ ['clear_select_all', 'toggle_select_visual', ['drop', 'bel split']])
