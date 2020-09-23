@@ -58,8 +58,9 @@ function! s:killall(...) abort "{{{2
   endif
 endfunction
 
-augroup myAutoChdirOnWrite "{{{1
-  au BufWritePre * silent! cd %:p:h
+augroup myAutoChdir "{{{1
+  " esp. for `e./<TAB>`; &autochdir could be incompatible with some plugins.
+  au CmdLineEnter,CmdWinEnter * silent! cd %:p:h
 augroup END
 
 "augroup mySwitchToWrittenBuffer "{{{1
