@@ -81,9 +81,6 @@ nnoremap <silent><nowait><buffer><expr> sn
 "      \                'mark:indent:icon:filename:type:size:time')
 
 " Explore; Split Window {{{1
-function! s:get_cwd() abort
-  return matchstr(getline(1), ':\zs\f\+')
-endfunction
 nnoremap <silent><nowait><buffer><expr> <C-w>v
       \ ":\<C-u>vs ". <SID>get_cwd() ."\<CR>"
 nnoremap <silent><nowait><buffer><expr> <C-w>s
@@ -161,45 +158,6 @@ xnoremap <silent><nowait><buffer><expr> a
       \ ['clear_select_all', 'toggle_select_visual', ['drop', 'bel split']])
       \ .'<c-w>h'
 " Preview {{{3
-function! s:defx_preview(mods) abort
-  " Note: Most of `norm! [foo]` here is _not_ allowed in <expr>-mappings; use
-  " autocmd instead.
-
-  if a:mods =~# 'vert'
-    let pedit = a:mods .' pedit'
-    return "\<C-w>z".
-          \ defx#do_action('open', pedit)
-          \ ."\<c-w>="
-  endif
-  let s:defx_save_winid = win_getid()
-
-  augroup defx-restore_previewheight
-    au!
-
-    let Go_to_preview = ":norm! \<lt>C-w>P"
-
-    let preview_height = &lines * 2 / 3
-    let Set_preview_height = 'resize '. preview_height
-
-    let Go_back_to_defx = 'call win_gotoid(s:defx_save_winid)'
-
-    exe 'au BufWinEnter * ++once' Go_to_preview
-    exe 'au BufWinEnter * ++once' Set_preview_height
-
-    " FIXME: `winid` seems to change when Defx invokes the action to preview
-    " after VimResized; the fact causes layout collapse and the winid for Defx
-    " will be pushed out to be new one by a new preview buffer.
-    exe 'au WinEnter * ++once' Go_back_to_defx
-  augroup END
-
-  " TODO: set mods to 'bel' if winwidth(winnr('l')) is narrow.
-  let pedit = "pclose \<bar> bot pedit"
-  let open = s:defx_is_wide() ? 'open' : 'drop'
-  let defx_action = defx#do_action(open, pedit)
-
-  return defx_action
-endfunction
-
 " Mnemonic: Insert a preview in actual windows
 " Note: :pclose to change location between vertical/horizontal
 nnoremap <silent><nowait><buffer><expr> <SID>(defx-preview-vertical)
@@ -335,6 +293,10 @@ function! s:defx_do_action_visual(action, ...) abort
         \ . defx#do_action('multi', [a:action, join(a:000, ',')])
 endfunction
 
+function! s:get_cwd() abort
+  return matchstr(getline(1), ':\zs\f\+')
+endfunction
+
 function! s:defx_is_wide() abort
   if @% =~# '\[defx]'
     return winwidth('.') > g:defx_sidebar_width
@@ -347,5 +309,44 @@ endfunction
 function! s:single_window_with_defx() abort
   " Return if no other windows but two window (defx and the other).
   return len(tabpagebuflist()) <= 2
+endfunction
+
+function! s:defx_preview(mods) abort
+  " Note: Most of `norm! [foo]` here is _not_ allowed in <expr>-mappings; use
+  " autocmd instead.
+
+  if a:mods =~# 'vert'
+    let pedit = a:mods .' pedit'
+    return "\<C-w>z".
+          \ defx#do_action('open', pedit)
+          \ ."\<c-w>="
+  endif
+  let s:defx_save_winid = win_getid()
+
+  augroup defx-restore_previewheight
+    au!
+
+    let Go_to_preview = ":norm! \<lt>C-w>P"
+
+    let preview_height = &lines * 2 / 3
+    let Set_preview_height = 'resize '. preview_height
+
+    let Go_back_to_defx = 'call win_gotoid(s:defx_save_winid)'
+
+    exe 'au BufWinEnter * ++once' Go_to_preview
+    exe 'au BufWinEnter * ++once' Set_preview_height
+
+    " FIXME: `winid` seems to change when Defx invokes the action to preview
+    " after VimResized; the fact causes layout collapse and the winid for Defx
+    " will be pushed out to be new one by a new preview buffer.
+    exe 'au WinEnter * ++once' Go_back_to_defx
+  augroup END
+
+  " TODO: set mods to 'bel' if winwidth(winnr('l')) is narrow.
+  let pedit = "pclose \<bar> bot pedit"
+  let open = s:defx_is_wide() ? 'open' : 'drop'
+  let defx_action = defx#do_action(open, pedit)
+
+  return defx_action
 endfunction
 
