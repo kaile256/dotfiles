@@ -16,7 +16,8 @@ hook_source = 'runtime source/editorconfig.vim'
 # # Note: also read .editorconfig
 # build = 'yarn install'
 # on_map = {nx = '<Plug>(Prettier'}
-# on_cmd = 'Prettier'
+# on_cmd = ['Prettier', 'PrettierAsync', 'PrettierCli']
+# hook_source = 'runtime source/prettier.vim'
 #[[plugins]]
 #repo = 'tpope/vim-sleuth'
 ## Note: Sleuth means a detective.
