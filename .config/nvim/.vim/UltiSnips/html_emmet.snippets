@@ -15,5 +15,5 @@ snippet ! "Skeleton" b
 endsnippet
 
 snippet > "<foo>$0</foo>" i
->$0</`!v matchstr(getline(search('<\h\w*\%(.*\n\)\{-}.*>\%#', 'bnW')), '<\zs\h\w\+')`>
+>$0</`!v matchstr(getline(search('<\w*\%(.*\n\)\{-}.*\%#', 'bnW')), '<\zs\w\+')`>
 endsnippet
