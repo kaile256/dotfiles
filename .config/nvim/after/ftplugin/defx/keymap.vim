@@ -174,9 +174,13 @@ nnoremap <silent><nowait><buffer> zp <c-w>z
 nnoremap <silent><nowait><buffer><expr> za
       \ defx#do_action('open_or_close_tree')
 nnoremap <silent><nowait><buffer><expr> zo
-      \ defx#do_action('open_tree')
+      \ defx#is_opened_tree()
+      \ ? ''
+      \ : defx#do_action('open_tree')
 nnoremap <silent><nowait><buffer><expr> zO
-      \ defx#do_action('open_tree_recursive')
+      \ defx#is_opened_tree()
+      \ ? ''
+      \ : defx#do_action('open_tree_recursive')
 nnoremap <silent><nowait><buffer><expr> zu
       \ defx#do_action('open_tree')
 nnoremap <silent><nowait><buffer><expr> zc
