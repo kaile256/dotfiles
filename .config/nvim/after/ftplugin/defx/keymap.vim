@@ -287,28 +287,33 @@ xmap <silent><nowait><buffer> >>
 if exists('s:is_loaded') | finish | endif
 let s:is_loaded = 1
 
-function! s:defx_do_action_visual(action, ...) abort
-  " Note: it fails in multi sequence at once.
-  return defx#do_action('multi', ['clear_select_all', 'toggle_select_visual'])
-        \ . defx#do_action('multi', [a:action, join(a:000, ',')])
-endfunction
-
-function! s:get_cwd() abort
-  return matchstr(getline(1), ':\zs\f\+')
-endfunction
-
+" Boolean: {{{1
 function! s:defx_is_wide() abort
   if @% =~# '\[defx]'
     return winwidth('.') > g:defx_sidebar_width
   endif
   return winwidth(bufwinnr('\[defx]')) > g:defx_sidebar_width
 endfunction
+
 function! s:defx_is_narrow() abort
   return ! s:defx_is_wide()
 endfunction
+
 function! s:single_window_with_defx() abort
   " Return if no other windows but two window (defx and the other).
   return len(tabpagebuflist()) <= 2
+endfunction
+
+" String: {{{1
+function! s:get_cwd() abort
+  return matchstr(getline(1), ':\zs\f\+')
+endfunction
+
+" Actions: {{{1
+function! s:defx_do_action_visual(action, ...) abort
+  " Note: it fails in multi sequence at once.
+  return defx#do_action('multi', ['clear_select_all', 'toggle_select_visual'])
+        \ . defx#do_action('multi', [a:action, join(a:000, ',')])
 endfunction
 
 function! s:defx_preview(mods) abort
