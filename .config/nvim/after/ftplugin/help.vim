@@ -7,8 +7,8 @@ if &modifiable || !&readonly || @% =~# 'fugitive:\/\/\/'
   setlocal conceallevel=2
 else
   setl signcolumn= nolist foldlevel=0
-  nnoremap <buffer> d <c-d>
-  nnoremap <buffer> u <c-u>
+  nnoremap <buffer><nowait> d <c-d>
+  nnoremap <buffer><nowait> u <c-u>
   nnoremap <buffer> D <c-f>
   nnoremap <buffer> U <c-b>
 
