@@ -12,7 +12,7 @@ function! s:mundo_toggle() abort
     return
   endif
 
-  if len(tabpagebuflist()) > 2
+  if len(tabpagebuflist()) > 1
     wincmd v
     wincmd T
     echo 'Mundo: the buffer is copied into a new tab'
