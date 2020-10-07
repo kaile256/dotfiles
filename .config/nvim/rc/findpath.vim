@@ -65,9 +65,7 @@ function! s:path.vim() abort
 
   if &path =~# $DOTFILES_HOME
     " Note: It's required even with dotfiles root path.
-    exe 'setl path^='. $DOTFILES_HOME .'/.config/nvim/dein**'
-  else
-    exe 'setl path+='. $DOTFILES_HOME   .'/.config/nvim**'
+    exe 'setl path^='. $DOTFILES_HOME .'/.config/nvim**'
   endif
 
   exe 'setl path+='. $DEIN_GITHUB_DIR .'**'
