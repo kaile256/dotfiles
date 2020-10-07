@@ -6,8 +6,8 @@
 " Another: add/coc.vim
 
 let g:coc_channel_timeout = 50
-let g:coc_snippet_next = '<Plug>(nop)'
-let g:coc_snippet_prev = '<Plug>(nop)'
+let g:coc_snippet_next = '<C-g>'
+let g:coc_snippet_prev = '<C-t>'
 
 nnoremap <space>cR :<C-u>silent CocRestart<CR>
 
