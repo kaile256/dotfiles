@@ -12,13 +12,14 @@ catch /^Vim\v%((\a+))?:E${1:123}/
 endsnippet
 
 snippet function "function! foo() ... endfunction" b
-function! ${1:`!v snip#vim#prefix_for_function()`}${2:#:do}(${3:#:args}) abort$4
+function! ${1:`!v snip#vim#prefix_for_function()`}${2:#:do}(${3:#:args}) abort
+${VISUAL:command}
 endfunction
 endsnippet
 
 snippet augroup "augroup foo ... augroup END" b
 augroup my${1:Name}
-  au ${2:FileType} ${3:*} ${4:command}
+  au ${2:FileType} ${3:*} ${4:${VISUAL:command}}
 augroup END
 endsnippet
 
