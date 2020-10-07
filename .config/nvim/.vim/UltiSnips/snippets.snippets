@@ -1,4 +1,4 @@
-snippet 'sn(i(ppet)?)?' "initialize ultisnips" rb
+snippet snippet "initialize ultisnips" b
 `!p snip.rv = "snippet"` ${1:trigger} "${2:Description}" ${3:b}
 ${0:${VISUAL}}
 `!p snip.rv = "endsnippet"`
@@ -8,10 +8,10 @@ snippet endsnippet "no need to expand" b
 `!p snip.rv = "endsnippet"`
 endsnippet
 
-snippet '#!|exp(r)?' "expr with shebang" r
+snippet #! "expr with shebang"
 \`${0:#!}/usr/bin/env ${1:bash} ${2:#:expr}\`
 endsnippet
 
-snippet 'vi(m)?' "expr for vim" r
+snippet !v "expr for vim"
 \`!v ${1:#:expr}\`
 endsnippet
