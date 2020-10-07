@@ -12,10 +12,11 @@ function! s:mundo_toggle() abort
     return
   endif
 
+  echo 'Mundo: loading...'
+
   if len(tabpagebuflist()) > 1
     wincmd v
     wincmd T
-    echo 'Mundo: the buffer is copied into a new tab'
   endif
 
   " Set mundo-windows' size dyntamically as Vim's resized.
