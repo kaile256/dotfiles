@@ -20,3 +20,7 @@ snippet ${VISUAL} "${VISUAL:(selected text)}" i
 \${VISUAL:${VISUAL:default}}
 endsnippet
 
+snippet '\$(\d)' "placeholder" ir
+${`!p snip.rv = match.group(1)`:${1:${VISUAL:default}}}
+endsnippet
+
