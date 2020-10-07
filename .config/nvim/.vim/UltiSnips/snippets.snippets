@@ -15,3 +15,8 @@ endsnippet
 snippet !v "expr for vim"
 \`!v ${1:#:expr}\`
 endsnippet
+
+snippet ${VISUAL} "${VISUAL:(selected text)}" i
+\${VISUAL:${VISUAL:default}}
+endsnippet
+
