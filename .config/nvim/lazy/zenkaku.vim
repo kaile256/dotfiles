@@ -38,3 +38,24 @@ unlet s:annotations
 hi! link OperatorTernary Identifier
 let w:syntax_ternary_operator_first  = matchadd('OperatorTernary', ' \zs?\ze .* : ')
 let w:syntax_ternary_operator_second = matchadd('OperatorTernary', ' ? .* \zs:\ze ')
+
+hi! FooBar cterm=bold,undercurl gui=bold,undercurl
+let s:foobar = [
+      \ 'foobar',
+      \ 'foo',
+      \ 'bar',
+      \ 'baz',
+      \ 'qux',
+      \ 'quux',
+      \ 'corge',
+      \ 'grault',
+      \ 'garply',
+      \ 'waldo',
+      \ 'fred',
+      \ 'plugh',
+      \ 'xyzzy',
+      \ 'thud',
+      \ ]
+let s:foobar = '\c\<\('. join(s:foobar, '\|') .'\)\>'
+let w:syntax_foobar = matchadd('FooBar', s:foobar)
+unlet s:foobar
