@@ -28,6 +28,9 @@ PACKAGEs=(
   xorg-xinput # removed with `bmenu`
   lshw # removed with `bmenu`
 
+  lua-lcf # formatter for lua
+  luacheck # linter for lua, integrating with lua-lsp
+  lua-lsp-git # rarely updated
   visual-studio-code-bin # vscode
   noto-fonts-cjk # fonts for Chinese, Japanese and Korean
   stylelint # a linter for CSS
@@ -317,12 +320,12 @@ RUSTUPs=(
   rustfmt
 )
 
-LUAROCKs=(
-  '--server=http://luarocks.org/dev lua-lsp'
-  luacheck
-  lcf # a formatter for Lua 5.3
-  #Formatter # a formatter for lua 5.1
-)
+# LUAROCKs=(
+#   '--server=http://luarocks.org/dev lua-lsp'
+#   luacheck
+#   lcf # a formatter for Lua 5.3
+#   #Formatter # a formatter for lua 5.1
+# )
 
 DASHTs=(
   bash
@@ -444,9 +447,9 @@ for p in "${RUSTUPs[@]}"; do
   rustup component add "$p"
 done
 
-for p in "${LUAROCKs[@]}"; do
-  luarocks install --local "$p"
-done
+# for p in "${LUAROCKs[@]}"; do
+#   luarocks install --local "$p"
+# done
 
 for doc in "${DASHTs[@]}"; do
   dasht-docsets-install "$doc"
