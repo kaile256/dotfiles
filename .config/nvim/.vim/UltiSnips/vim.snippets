@@ -30,6 +30,16 @@ snippet '(?<!nore)map' "map [rhs] [lhs]" ir
 map `!v expand('%:p') =~# '/ftplugin/' ? '<buffer><nowait>' : ''`${1:<silent>}${2:<expr>} ${5:<Plug>}${6:(rhs)}
 endsnippet
 
+snippet try "try ... endtry" b
+try
+  ${1:${VISUAL}}
+endtry
+endsnippet
+
+snippet substitute "substitute({expr}, {pat}, {sub}, {flags})" b
+substitute(${1:expr}, ${2:pat}, ${3:sub}, ${4:'g'})
+endsnippet
+
 snippet fold "fold with b:undo_ftplugin" b
 setl fdm=expr fde=${1:`!v substitute(toupper(expand('%:t:r')[0]) . expand('%:t:r')[1:], 'fold\|\W\|_', '', 'g')`FoldExpr()}
 
