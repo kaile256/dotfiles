@@ -349,6 +349,7 @@ settings:
         wqa: bookmark-del;; bookmark-add;; quit
         yc: hint code userscript code_select.py
         yf: hint links yank
+        ygc: spawn --detach google-chrome-stable {url}
         yv: yank selection
         yy: yank
         zH: scroll-to-perc -x 0
