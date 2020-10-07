@@ -330,7 +330,7 @@ endfunction
 call s:define_rules_to_kill_words()
 delfunction s:define_rules_to_kill_words
 
-let s:Joinspaces = '<Esc>:<C-u>norm! kgJgJ<CR>gi'
+let s:Joinspaces = '<Esc>:<C-u>keeppatterns keepjumps s/\%(\s*\n*\)*\%#//e<CR>kgJgJgi'
 
 let s:user_rules += [
       \ {'char': '<BS>', 'at': '''\n\s*\%#\n\s*''', 'input': s:Joinspaces},
