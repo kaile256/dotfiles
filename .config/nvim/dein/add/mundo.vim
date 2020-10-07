@@ -18,9 +18,9 @@ function! s:mundo_toggle() abort
     echo 'Mundo: the buffer is copied into a new tab'
   endif
 
-  " Set mundo-windows' size dyntamically.
+  " Set mundo-windows' size dyntamically as Vim's resized.
   let g:mundo_width          = (&columns / 2)
-  let g:mundo_preview_height = (&lines /2)
+  let g:mundo_preview_height = (&lines / 2)
 
   MundoShow
 endfunction
