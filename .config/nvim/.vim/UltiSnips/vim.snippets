@@ -11,12 +11,12 @@ snippet catch "catch error E$1" b
 catch /^Vim\v%((\a+))?:E${1:123}/
 endsnippet
 
-snippet 'f(u)?n(c(tion)?)?' "function! foo() ... endfunction" wr
+snippet function "function! foo() ... endfunction" b
 function! ${1:`!v snip#vim#prefix_for_function()`}${2:#:do}(${3:#:args}) abort$4
 endfunction
 endsnippet
 
-snippet 'au((g)?roup)?' "augroup foo ... augroup END" br
+snippet augroup "augroup foo ... augroup END" b
 augroup my${1:Name}
   au ${2:FileType} ${3:*} ${4:command}
 augroup END
