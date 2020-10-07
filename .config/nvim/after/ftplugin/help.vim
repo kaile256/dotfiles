@@ -9,6 +9,8 @@ else
   setl signcolumn= nolist foldlevel=0
   nnoremap <buffer> d <c-d>
   nnoremap <buffer> u <c-u>
+  nnoremap <buffer> D <c-f>
+  nnoremap <buffer> U <c-b>
 
   nnoremap <silent><buffer> <C-p> :silent! pop<CR>
   nnoremap <silent><buffer> <C-n> :silent! tag<CR>
