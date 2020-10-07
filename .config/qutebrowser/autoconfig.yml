@@ -292,6 +292,8 @@ settings:
         Zz: session-save --quiet last;; tab-close
         '[': tab-prev
         \<Space>: record-macro
+        \f: hint links right-click
+        \t: hint all right-click
         ']': tab-next
         a: hint inputs
         b: fake-key <alt+Up>
