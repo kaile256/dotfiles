@@ -32,7 +32,6 @@ function! s:set_count(prefix_count, suffix_count) abort
     let count = ''
   endif
 
-  let g:foo = [count, a:prefix_count, a:suffix_count]
   return count
 endfunction
 
