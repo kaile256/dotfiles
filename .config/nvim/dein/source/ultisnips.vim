@@ -22,7 +22,7 @@ augroup myUltisnipsSo
   au Syntax neosnippet if expand('%:e') ==# 'snippets' |
         \ setlocal ft=snippets
         \ | endif
-  "au BufWrite *.snippets call UltiSnips#RefreshSnippets()
+  au BufWritePost *.snippets call UltiSnips#RefreshSnippets()
 augroup END
 
 let g:UltiSnipsEditSplit = 'context'
