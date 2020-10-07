@@ -40,20 +40,13 @@ snippet substitute "substitute({expr}, {pat}, {sub}, {flags})" b
 substitute(${1:expr}, ${2:pat}, ${3:sub}, ${4:'g'})
 endsnippet
 
-snippet fold "fold with b:undo_ftplugin" b
-setl fdm=expr fde=${1:`!v substitute(toupper(expand('%:t:r')[0]) . expand('%:t:r')[1:], 'fold\|\W\|_', '', 'g')`FoldExpr()}
-
+snippet undo_ftplugin "template for b:undo_ftplugin" b
 if exists('b:undo_ftplugin')
   let b:undo_ftplugin .= ' | '
 else
   let b:undo_ftplugin = ''
 endif
-let b:undo_ftplugin .= 'setl fdm< fde<'
-
-function! $1 abort
-  ${2:let line = getline(v:lnum)}
-  return '='
-endfunction
+let b:undo_ftplugin .= 'setl ${1:fdm< fde<}'
 endsnippet
 
 snippet scriptencoding "" b
