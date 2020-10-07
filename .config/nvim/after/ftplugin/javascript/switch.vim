@@ -13,5 +13,14 @@ let b:switch_custom_definitions = [
       \ },
       \ ['margin-block-start', 'margin-block-end'],
       \ ['margin-inline-start', 'margin-inline-end'],
+      \
+      \ [
+      \   '/types/',
+      \   '/atoms/',
+      \   '/molecules/',
+      \   '/organisms/',
+      \   '/templates/',
+      \   '/pages/',
+      \ ],
       \ ]
 
