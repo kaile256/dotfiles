@@ -257,6 +257,19 @@ on_cmd = ['Helpeek']
 
 #[ Window ]
 [[plugins]]
+repo = 'yaronkh/vim-winmanip'
+on_map = {n = [
+  '<Plug>(MoveBuf',
+  '<Plug>(MoveJumpBuf',
+  '<Plug>(MoveWinTo',
+  '<Plug>(CopyBuf',
+  '<Plug>(CopyJump',
+  '<Plug>(MaximizeWin)',
+  '<Plug>(ClearAllWindows)',
+  '<Plug>(ClearBufferList)',
+]}
+hook_add = 'runtime add/winmanip.vim'
+[[plugins]]
 repo = 'AndrewRadev/undoquit.vim'
 on_func = ['undoquit#SaveWindowQuitHistory']
 on_cmd = ['Undoquit', 'UndoquitTab', 'UndoableTabclose']
