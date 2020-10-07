@@ -55,6 +55,7 @@ if !exists('*s:source_buffer')
 
   let s:ft2cmd = {
         \ 'vim': ['so %:p', 'sourced'],
+        \ 'lua': ['luafile %:p', 'sourced'],
         \ 'vader': ['Vader', 'vader running...'],
         \ 'html': ['silent OpenBrowser %:p', 'open in browser'],
         \ 'xmodmap': ['!xmodmap %:p', 'xmodmap is updated'],
