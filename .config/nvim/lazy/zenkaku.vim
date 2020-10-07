@@ -56,6 +56,6 @@ let s:foobar = [
       \ 'xyzzy',
       \ 'thud',
       \ ]
-let s:foobar = '\c\<\('. join(s:foobar, '\|') .'\)\>'
+let s:foobar = '\c\<\('. join(s:foobar, '\|') .'\)\>\ze\s*='
 let w:syntax_foobar = matchadd('FooBar', s:foobar)
 unlet s:foobar
