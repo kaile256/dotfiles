@@ -22,6 +22,14 @@ augroup my${1:Name}
 augroup END
 endsnippet
 
+snippet noremap "noremap [rhs] [lhs]" i
+noremap `!v expand('%:p') =~# '/ftplugin/' ? '<buffer><nowait>' : ''`${1:<silent>}${2:<expr>} ${5:rhs}
+endsnippet
+
+snippet '(?<!nore)map' "map [rhs] [lhs]" ir
+map `!v expand('%:p') =~# '/ftplugin/' ? '<buffer><nowait>' : ''`${1:<silent>}${2:<expr>} ${5:<Plug>}${6:(rhs)}
+endsnippet
+
 snippet fold "fold with b:undo_ftplugin" b
 setl fdm=expr fde=${1:`!v substitute(toupper(expand('%:t:r')[0]) . expand('%:t:r')[1:], 'fold\|\W\|_', '', 'g')`FoldExpr()}
 
