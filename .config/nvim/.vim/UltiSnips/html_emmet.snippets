@@ -18,7 +18,7 @@ endsnippet
 snippet < "<${1:foo bar=baz}>$2</foo>" i
 <${1:tagName}>
   ${2:${VISUAL:content}}
-</`!v matchstr(getline(search('<\w*\%(.*\n\)\{-}.*\%#', 'bnW')), '<\zs\w\+')`>
+</${1/\s+.*//g}>
 endsnippet
 
 snippet > "<foo>$0</foo>" i
