@@ -6,7 +6,11 @@
 --      https://github.com/luochen1990/rainbow/issues/151
 require'nvim-treesitter.highlight'
 local hlmap = vim.treesitter.highlighter.hl_map
+
+hlmap.error = nil
 hlmap["punctuation.bracket"] = nil
+hlmap["punctuation.delimiter"] = "Delimiter"
+
 
 require'nvim-treesitter.configs'.setup {
   ensure_installed = "all",
