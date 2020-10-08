@@ -21,6 +21,10 @@ if = 'has("nvim")'
 on_event = 'BufRead'
 hook_source = 'runtime source/treesitter.vim'
 [[plugins]]
+repo = 'nvim-treesitter/nvim-treesitter-textobjects'
+depends = 'nvim-treesitter'
+on_event = 'BufRead'
+[[plugins]]
 repo = 'sheerun/vim-polyglot'
 # Note: it often fails on guard.
 # merged = 0 # without merged, `g:polyglot_disabled` won't work.

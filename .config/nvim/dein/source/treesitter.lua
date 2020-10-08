@@ -24,5 +24,47 @@ require'nvim-treesitter.configs'.setup {
       node_decremental = "<C-x>",
       node_incremental = "<C-a>",
     }
-  }
+  },
+
+  textobjects = {
+    select = {
+      enable = true,
+      keymaps = {
+        ["am"] = "@function.outer",
+        ["im"] = "@function.inner",
+        ["aM"] = "@class.outer",
+        ["iM"] = "@class.inner",
+      },
+    },
+
+    swap = {
+      enable = true,
+      swap_next = {
+        ["+"] = "@parameter.inner",
+      },
+      swap_previous = {
+        ["-"] = "@parameter.inner",
+      },
+    },
+
+    move = {
+      enable = true,
+      goto_next_start = {
+        ["]m"] = "@function.outer",
+        ["]]"] = "@class.outer",
+      },
+      goto_next_end = {
+        ["]M"] = "@function.outer",
+        ["]["] = "@class.outer",
+      },
+      goto_previous_start = {
+        ["[m"] = "@function.outer",
+        ["[["] = "@class.outer",
+      },
+      goto_previous_end = {
+        ["[M"] = "@function.outer",
+        ["[]"] = "@class.outer",
+      },
+    },
+  },
 }
