@@ -1,6 +1,5 @@
 -- TOML: syntax.toml
 -- Repo: nvim-treesitter/nvim-treesitter
--- Repo: nvim-treesitter/nvim-treesitter-refactor
 -- Repo: nvim-treesitter/nvim-treesitter-textobjects
 -- From: source/treesitter.vim
 -- Another: post/treesitter.lua
@@ -66,23 +65,6 @@ require'nvim-treesitter.configs'.setup {
       goto_previous_end = {
         ["[M"] = "@function.outer",
         ["[]"] = "@class.outer",
-      },
-    },
-  },
-
-  refactor = {
-    highlight_current_scope = {
-      enable = true,
-    },
-
-    navigation = {
-      enable = true,
-      keymaps = {
-        goto_definition = "gnd",
-        list_definitions = "gnD",
-        list_definitions_toc = "gO",
-        goto_next_usage = ']u',
-        goto_previous_usage = "[u",
       },
     },
   },
