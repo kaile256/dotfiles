@@ -4,6 +4,10 @@ repo = '`!v substitute(@+, 'https://github.com/\([^/]*/[^/]*\).*', '\1', '')`'
 $0
 endsnippet
 
+snippet if "if = '$1'" b
+if = '${1:has("nvim")}'
+endsnippet
+
 snippet 'h(ook_)?a(dd)?' "hook_add = 'runtime add/foo.vim'" br
 hook_add = 'runtime add/${1:`!v snip#vim#name_of_plugin()`}.vim'
 endsnippet
