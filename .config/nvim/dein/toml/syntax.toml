@@ -264,8 +264,8 @@ on_path = ['json', 'cjsn$', 'jshintrc$']
 #on_ft = 'toml'
 [[plugins]]
 repo = 'cespare/vim-toml'
-# fails when lazy=0
-on_ft = ['toml', 'markdown']
+lazy = 0
+merged = 0
 #[[plugins]]
 #repo = 'maralla/vim-toml-enhance'
 #depends = 'cespare/vim-toml'
@@ -273,8 +273,8 @@ on_ft = ['toml', 'markdown']
 [[plugins]]
 repo = 'delphinus/vim-toml-dein'
 # syntax highlight for 'hook_add'
-depends = 'cespare/vim-toml'
-on_ft = ['toml', 'markdown']
+lazy = 0
+merged = 0
 
 [[plugins]]
 repo = 'PotatoesMaster/i3-vim-syntax'
