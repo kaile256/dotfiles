@@ -153,3 +153,10 @@ repo = 'christoomey/vim-conflicted'
 depends = 'vim-fugitive'
 on_cmd = 'Conflicted'
 hook_source = 'runtime source/conflicted.vim'
+
+#[ GitHub ]
+[[plugins]]
+repo = 'skanehira/gh.vim'
+if = '!has("nvim")'
+on_path = '^gh://'
+hook_source = 'runtime source/gh.vim'
