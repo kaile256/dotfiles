@@ -180,9 +180,8 @@ augroup myDeinRc "{{{1
   function! s:find_the_plugin() abort "{{{2
     " Note: it's useless under ftplugin/.
     let alt_path = fnamemodify(@#, ':p')
-    if alt_path !~# '\v/(add|source|post)/'
-      return
-    endif
+    if alt_path !~# '\v/(add|source|post)/' | return | endif
+
     let config_fname = fnamemodify(alt_path, ':t:r')
     let pat = substitute(config_fname, '[-_]', '.', 'ge')
     let pat = 'repo = .*\zs'. pat
