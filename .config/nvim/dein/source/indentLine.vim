@@ -18,8 +18,18 @@ let g:indentLine_color_gui = '#5c754e'
 
 " Note: the options to exclude causes a bulk of problems,
 "   for example, defx cannot conceal its marker '**'.
-let g:indentLine_fileTypeExclude = ['defx', 'help', 'Mundo', 'markdown']
-let g:indentLine_bufTypeExclude = ['quickfix', 'terminal', 'help']
+let g:indentLine_fileTypeExclude = [
+      \ 'Mundo',
+      \ 'defx',
+      \ 'help',
+      \ 'markdown',
+      \ ]
+
+let g:indentLine_bufTypeExclude = [
+      \ 'help',
+      \ 'quickfix',
+      \ 'terminal',
+      \ ]
 
 let s:indentLine_chars = ['|', '¦']
 let g:indentLine_char_list = s:indentLine_chars
