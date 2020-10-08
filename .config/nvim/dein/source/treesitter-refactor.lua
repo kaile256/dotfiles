@@ -7,6 +7,13 @@ require'nvim-treesitter.configs'.setup {
       enable = true,
     },
 
+    smart_rename = {
+      enable = { "lua" },
+      keymaps = {
+        smart_rename = "c=",
+      }
+    },
+
     navigation = {
       enable = true,
       keymaps = {
