@@ -29,6 +29,7 @@ hook_source = 'luafile $DEIN_SOURCE_HOME/treesitter-refactor.lua'
 repo = 'nvim-treesitter/nvim-treesitter-textobjects'
 depends = 'nvim-treesitter'
 on_event = 'BufRead'
+hook_source = 'luafile $DEIN_SOURCE_HOME/treesitter-textobjects.lua'
 [[plugins]]
 repo = 'sheerun/vim-polyglot'
 # Note: it often fails on guard.
