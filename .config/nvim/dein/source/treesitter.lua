@@ -1,7 +1,6 @@
 -- TOML: syntax.toml
 -- Repo: nvim-treesitter/nvim-treesitter
 -- From: source/treesitter.vim
--- Another: post/treesitter.lua
 
 -- Ref: Use rainbow bracket together with treesitter
 --      https://github.com/luochen1990/rainbow/issues/151
