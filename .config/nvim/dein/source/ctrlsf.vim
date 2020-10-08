@@ -3,6 +3,12 @@
 " Another: add/ctrlsf.vim
 " Another: post/ctrlsf.vim
 
+" g:ctrlsf_context: set the shown range in the format as Ag/Ack.
+" -A: --after-context {num}
+" -B: --before-context {num}
+" -C: --context {num}
+let g:ctrlsf_context = '-B 3 -A 10'
+
 if executable('rg')
   let g:ctrlsf_ackprg = 'rg'
 endif
