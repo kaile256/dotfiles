@@ -1,6 +1,13 @@
 -- TOML: syntax.toml
 -- Repo: nvim-treesitter/nvim-treesitter
 -- From: source/treesitter.vim
+-- Another: post/treesitter.lua
+
+-- Ref: Use rainbow bracket together with treesitter
+--      https://github.com/luochen1990/rainbow/issues/151
+require'nvim-treesitter.highlight'
+local hlmap = vim.treesitter.highlighter.hl_map
+hlmap["punctuation.bracket"] = nil
 
 require'nvim-treesitter.configs'.setup {
   ensure_installed = "all",
