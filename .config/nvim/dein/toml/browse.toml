@@ -5,7 +5,8 @@ repo = 'dyng/ctrlsf.vim'
 # Get grep-results under project-root, or current directory, into a buffer to
 # edit. Async.
 on_map = {nx = ['<Plug>CtrlSF']}
-on_cmd = ['CtrlSFOpen', 'CtrlSFToggle']
+on_cmd = ['CtrlSF']
+on_func = ['ctrlsf#comp#Completion']
 hook_add = 'runtime add/ctrlsf.vim'
 hook_source = 'runtime source/ctrlsf.vim'
 hook_post_source = 'runtime post/ctrlsf.vim'
