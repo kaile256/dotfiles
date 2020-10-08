@@ -11,7 +11,7 @@ function! s:my_spring_night() abort
   hi! Folded ctermfg=189 ctermbg=235 guifg=#e7d5ff guibg=#3a4b5c
 
   " TSCurrentScope: used with nvim-treesitter-refactor's highlight_current_scope
-  hi! TSCurrentScope guibg=#0b3d4d ctermbg=23
+  hi! TSCurrentScope guibg=#022631
 endfunction
 
 if exists('#mySpringNightPre') | finish | endif
