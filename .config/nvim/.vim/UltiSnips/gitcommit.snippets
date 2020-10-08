@@ -1,0 +1,6 @@
+
+priority -20
+
+snippet '([a-z]+)' "conventional commits" br
+`!p snip.rv = match.group(1)`(${1:scope}): ${2:description}
+endsnippet
