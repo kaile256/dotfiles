@@ -23,10 +23,6 @@
 " }}}
 " ============================================================================
 
-if v:version < 700 | finish | endif
-if exists('g:loaded_spellTMP') | finish | endif
-let g:loaded_spellTMP = 1
-
 " save 'cpoptions' {{{
 let s:save_cpo = &cpo
 set cpo&vim

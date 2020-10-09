@@ -24,6 +24,10 @@
 " }}}
 " ============================================================================
 
+if v:version < 700 | finish | endif
+if exists('g:loaded_spellTMP') | finish | endif
+let g:loaded_spellTMP = 1
+
 nnoremap <silent> <Plug>(spellTMP-suggestion) :<c-u>call      spellTMP#spell_suggestion('n')<cr>
 xnoremap <silent> <Plug>(spellTMP-suggestion) `>:<c-u>call    spellTMP#spell_suggestion('x')<cr>
 inoremap <silent> <Plug>(spellTMP-suggestion) <c-o>:<c-u>call spellTMP#spell_suggestion('i')<cr>
