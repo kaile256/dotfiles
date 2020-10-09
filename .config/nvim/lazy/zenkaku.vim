@@ -12,7 +12,7 @@ let w:syntax_zenkaku = matchadd('Zenkaku', '[ＡＢＣＤＥＦＧＨＩＪＫ�
 let w:syntax_zenkaku = matchadd('Zenkaku', '[ａｂｃｄｅｆｇｈｉｊｋｌｍｎｏｐｑｒｓｔｕｖｗｘｙｚ]')
 let w:syntax_zenkaku = matchadd('Zenkaku', '[　０１２３４５６７８９]')
 
-" syn match operatorNot '\S\@<!!'
+
 hi! operatorNot ctermfg=15 guifg=#ffffff cterm=bold gui=bold
 let w:syntax_operator_not = matchadd('OperatorNot', '\s\zs!\ze\s\=\h')
 
@@ -35,9 +35,11 @@ let s:annotations = '\c \zs\('. join(s:annotations, '\|') .'\)\ze: '
 let w:syntax_annotation = matchadd('TODO', s:annotations)
 unlet s:annotations
 
+
 hi! link OperatorTernary Identifier
 let w:syntax_ternary_operator_first  = matchadd('OperatorTernary', ' \zs?\ze .* : ')
 let w:syntax_ternary_operator_second = matchadd('OperatorTernary', ' ? .* \zs:\ze ')
+
 
 hi! FooBar cterm=bold,undercurl gui=bold,undercurl
 let s:foobar = [
