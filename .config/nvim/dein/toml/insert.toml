@@ -38,15 +38,10 @@ repo = 'SirVer/ultisnips'
 # Note: coc-snippets independently shows preview in completion.
 # Note: too lazy because of lazy-controlled CursorMoved or else.
 # Note: Once interrupted, no longer do the keymaps work.
-on_func = [
-  'UltiSnips#ExpandSnippet',
-  'UltiSnips#ExpandSnippetOrJump',
-  'UltiSnips#SnippetsInCurrentScope',
-]
 # # defined in g:UltiSnipsExpandTrigger
 # on_map = {nvi = ['<Plug>(ultisnips-']}
-on_cmd = 'UltiSnipsEdit'
 on_path = ['\.snip$', '\.snippets$']
+on_event = 'InsertCharPre'
 hook_add = 'runtime add/ultisnips.vim'
 hook_source = 'runtime source/ultisnips.vim'
 hook_post_source = 'runtime post/ultisnips.vim'

@@ -96,6 +96,8 @@
   },
   "snippets.userSnippetsDirectory": "~/.vim/UltiSnips",
   "snippets.priority": 100,
+  "snippets.autoTrigger": false,
+  // "snippets.ultisnips.enable": false,
 
   "emmet.includeLanguages": {
     "vue-html": "html",
