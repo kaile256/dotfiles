@@ -33,13 +33,14 @@ noremap Q gE
 sunmap q
 sunmap Q
 
-" Overwrite; Text Object
-omap iw <Plug>CamelCaseMotion_ie
-xmap iw <Plug>CamelCaseMotion_ie
+" Text Object
+" Mnemonic: Restricted range
+omap ir <Plug>CamelCaseMotion_ie
+xmap ir <Plug>CamelCaseMotion_ie
 
-omap <expr> aw search('\%#\a\+$', 'cnW')
+omap <expr> ar search('\%#\a\+$', 'cnW')
       \ ? '<Plug>CamelCaseMotion_ie'
       \ : '<Plug>CamelCaseMotion_iw'
-xmap <expr> aw search('\%#\a\+$', 'cnW')
+xmap <expr> ar search('\%#\a\+$', 'cnW')
       \ ? '<Plug>CamelCaseMotion_ie'
       \ : '<Plug>CamelCaseMotion_iw'
