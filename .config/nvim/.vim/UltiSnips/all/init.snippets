@@ -1,4 +1,21 @@
-snippet #! "shebang" bA
-#!/usr/bin/env ${1:bash}
-endsnippet
+global !p
+def bash_in_strict_mode():
+  bash_options = 'set -Ceuo pipefail'
+  internal_field_separators = "IFS=$'\\n\\t'"
 
+  options = (
+    bash_options,
+    internal_field_separators,
+    )
+
+  return '\n'.join(options)
+endglobal
+
+snippet '\s*#!' "shebang" br
+#!/usr/bin/env ${1:python}
+`!p
+if t[1] == 'bash':
+  snip.rv = '\n' + bash_in_strict_mode() + '\n'
+`
+${2:content}
+endsnippet
