@@ -2,11 +2,15 @@ global !p
 def plugin_filepath():
   fullpath = vim.eval('expand("%:p")')
   filepath = re.sub(r'.*/vim-[^/]+?/(.*)', r'\1', fullpath)
+  if re.search('$HOME', filepath):
+    return ''
   return filepath
 
 def plugin_name_raw():
   fullpath = vim.eval('expand("%:p")')
   plugin_name = re.sub(r'.*/(vim-[^/]+?)/.*', r'\1', fullpath)
+  if re.search('/', plugin_name):
+    return ''
   return plugin_name
 
 def plugin_name_trimmed():
