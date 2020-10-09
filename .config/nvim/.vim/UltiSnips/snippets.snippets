@@ -2,6 +2,10 @@ global !p
 def is_in_python_code():
   syntax_name = vim.eval('synIDattr(synID(line("."), col(".") - 1, 1), "name")')
   return re.search('python', syntax_name, flags=re.IGNORECASE)
+
+def is_flag_for_snippets():
+  line = snip.buffer[snip.line]
+  return re.search(r'^snippet ', line)
 endglobal
 
 snippet snippet "initialize ultisnips" b
@@ -24,6 +28,15 @@ endsnippet
 
 snippet ${VISUAL} "${VISUAL:(selected text)}" i
 \${VISUAL:${VISUAL:default}}
+endsnippet
+
+context "is_flag_for_snippets()"
+snippet ' ([biwrtsmA]*e[biwrtsmA]*)' "'e' flag for top of file " ir
+ "snip.line == 0" `!p snip.rv = match.group(1)`
+endsnippet
+
+snippet rv "snip.rv = $1" i
+snip.rv = ${1}
 endsnippet
 
 snippet '\$(\d)' "placeholder" ir
