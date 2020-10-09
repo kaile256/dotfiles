@@ -22,10 +22,10 @@ let g:winmanip_disable_key_mapping = 1
 " nmap 3<Up>    <Plug>(MoveJumpBufUp)
 
 " <Plug>(MoveWinToQuuxTab) moves window to another tab.
-nmap <C-w>l <Plug>(MoveWinToNextTab)
 nmap <C-w>h <Plug>(MoveWinToPrevTab)
-nmap <C-w><C-w> <C-w>l
-nmap <C-w><C-w> <C-w>h
+nmap <C-w>l <Plug>(MoveWinToNextTab)
+nmap <C-w><C-h> <C-w>h
+nmap <C-w><C-l> <C-w>l
 
 " " <Plug>(CopyBufCorge) copy buf to next existing window.
 " nmap 5<Right> <Plug>(CopyBufRight)
