@@ -34,11 +34,11 @@ endsnippet
 priority -50
 
 context "is_in_python_code()"
-snippet '([1-9]+)' "match.group($1)" ir
+snippet '([1-9]\d*)' "match.group($1)" ir
 match.group(`!p snip.rv = match.group(1)`)
 endsnippet
 
 context "not is_in_python_code()"
-snippet '([1-9]+)' "match.group($1)" ir
+snippet '([1-9]\d*)' "match.group($1)" ir
 \`!p snip.rv = match.group(`!p snip.rv = match.group(1)`)\`
 endsnippet
