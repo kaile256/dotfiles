@@ -51,6 +51,18 @@ def MIT_license():
 "     SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 " }}}'''
 
+def plugin_loaded():
+  underscored = plugin_name_underscored()
+
+  if not underscored:
+    return ''
+
+  rv = (
+f"if exists('g:loaded_{underscored}) | finish | endif",
+f'let g:loaded_{underscored} = 1'
+  )
+  return '\n'.join(rv)
+
 def plugin_header():
   plugin_name = plugin_name_raw()
 
@@ -148,10 +160,7 @@ snippet mit "MIT License" b
 endsnippet
 
 snippet loaded "if exists(g:loaded_$1) | finish | endif" b
-if exists('g:loaded_`!v substitute(matchstr(@%, 'vim-\zs.\{-}\ze/'), '-', '_', 'g')`') | finish | endif "{{{
-let g:loaded_`!v substitute(matchstr(@%, 'vim-\zs.\{-}\ze/'), '-', '_', 'g')` = 1
-
-`!v nextnonblank(line('.') + 1) == line('.') + 1 ? '' : "\n"`
+`!p snip.rv = plugin_loaded()`
 endsnippet
 
 snippet cpoptions "Save cpoptions" b
