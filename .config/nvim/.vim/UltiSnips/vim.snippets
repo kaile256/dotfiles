@@ -121,9 +121,15 @@ unlet s:save_cpo
 endsnippet
 
 snippet header "Header for Plugin" b
-" ============================================================================
-" Repo: kaile256/`!v snip#vim#name_of_repo()`
-" File: `!v snip#vim#path_root_to_file()`
+`!p
+plugin_name = plugin_name_raw()
+
+if plugin_name:
+  rv = ''
+  rv += '" ============================================================================\n'
+  rv += f'" Repo: kaile256/{plugin_name_raw()}\n'
+  rv += f'" File: {plugin_filepath()}'
+  rv += '''
 " Author: kaile256
 " License: MIT license {{{
 "     Permission is hereby granted, free of charge, to any person obtaining
@@ -145,7 +151,10 @@ snippet header "Header for Plugin" b
 "     TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
 "     SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 " }}}
-" ============================================================================`!v nextnonblank(line('.') + 1) == line('.') + 1 ? '' : "\n"`
+" ============================================================================
+'''
+  snip.rv = rv
+`
 endsnippet
 
 snippet mit "MIT License" b
