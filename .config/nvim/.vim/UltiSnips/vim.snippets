@@ -8,7 +8,7 @@ def plugin_filepath():
   return filepath
 
 
-def plugin_name_raw():
+def plugin_name_with_prefix():
   fullpath = vim.eval('expand("%:p")')
   plugin_name = re.sub(r'.*/(vim-[^/]+?)/.*', r'\1', fullpath)
 
@@ -17,14 +17,14 @@ def plugin_name_raw():
   return plugin_name
 
 
-def plugin_name_trimmed():
-  raw = plugin_name_raw()
+def plugin_name_without_prefix():
+  raw = plugin_name_with_prefix()
   plugin_name = re.sub(r'vim-([^/]+?)', r'\1', raw)
   return plugin_name
 
 
 def plugin_name_underscored():
-  raw = plugin_name_trimmed()
+  raw = plugin_name_without_prefix()
   underscored = raw.replace('-', '_')
   return underscored
 
@@ -75,7 +75,7 @@ f'let g:loaded_{underscored} = 1'
 
 
 def plugin_header():
-  plugin_name = plugin_name_raw()
+  plugin_name = plugin_name_with_prefix()
 
   if not plugin_name: return ''
 
