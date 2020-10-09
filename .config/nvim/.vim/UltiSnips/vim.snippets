@@ -63,6 +63,10 @@ def plugin_loaded():
 
   if not underscored: return ''
 
+  filepath = plugin_filepath()
+  dir = r'\bplugin/'
+  if not re.search(dir, filepath): return ''
+
   rv = (
 f"if exists('g:loaded_{underscored}) | finish | endif",
 f'let g:loaded_{underscored} = 1'
