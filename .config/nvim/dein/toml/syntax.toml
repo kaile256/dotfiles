@@ -34,10 +34,8 @@ on_event = 'BufRead'
 hook_source = 'luafile $DEIN_SOURCE_HOME/treesitter-textobjects.lua'
 [[plugins]]
 repo = 'sheerun/vim-polyglot'
-# Note: it often fails on guard.
-# merged = 0 # without merged, `g:polyglot_disabled` won't work.
 lazy = 0
-hook_source = 'runtime source/polyglot.vim'
+hook_add = 'runtime source/polyglot.vim'
 
 #[[plugins]]
 #repo = 'maralla/validator.vim'
