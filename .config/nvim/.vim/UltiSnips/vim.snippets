@@ -148,6 +148,10 @@ endsnippet
 
 snippet init "Let's create a plugin!" "snip.line == 0" be
 `!p snip.rv = plugin_header()`
+`!p
+loaded = plugin_loaded()
+snip.rv = '\n' + loaded if loaded else ''
+`
 
 " save 'cpoptions' {{{
 let s:save_cpo = &cpo
