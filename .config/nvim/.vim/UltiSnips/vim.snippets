@@ -93,6 +93,23 @@ f'{MIT_license()}',
   return '\n'.join(rv)
 
 
+def plugin_modeline():
+  options = (
+  'et',
+  'ts=2',
+  'sts=2',
+  'sw=2',
+
+  'fdm=marker',
+
+  'tw=79',
+  )
+
+  return '" modeline {{{1\n' \
+      + '" vim:' \
+      + ' '.join(options)
+
+
 endglobal
 
 snippet catch "catch error E$1" b
@@ -168,8 +185,7 @@ ${1:${VISUAL}}
 let &cpo = s:save_cpo
 unlet s:save_cpo
 
-" modeline {{{1
-" vim: et ts=2 sts=2 sw=2 fdm=marker tw=79
+`!p snip.rv = plugin_modeline()`
 endsnippet
 
 snippet header "Header for Plugin" b
@@ -198,12 +214,22 @@ unlet s:save_cpo
 endsnippet
 
 snippet footer "Boilerplate for end of plugin" b
-modeline${1}
+" save 'cpoptions' {{{
+let s:save_cpo = &cpo
+set cpo&vim
+"}}}
+
+${1:${VISUAL}}
+
+" restore 'cpoptions' {{{1
+let &cpo = s:save_cpo
+unlet s:save_cpo
+
+`!p snip.rv = plugin_modeline()`
 endsnippet
 
-snippet modeline "" b
-" modeline {{{1
-" vim: et ts=2 sts=2 sw=2 fdm=marker tw=79
+snippet modeline "modeline for plugin" b
+`!p snip.rv = plugin_modeline()`
 endsnippet
 
 snippet symbols "represents symbols on standard keyboard" b
