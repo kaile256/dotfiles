@@ -188,14 +188,16 @@ snippet cpoptions "Save cpoptions" b
 " save 'cpoptions' {{{
 let s:save_cpo = &cpo
 set cpo&vim
-"}}}`!v nextnonblank(line('.') + 1) == line('.') + 1 ? '' : "\n"`
-endsnippet
+"}}}
 
-snippet footer "Boilerplate for end of plugin" b
+${1:${VISUAL}}
+
 " restore 'cpoptions' {{{1
 let &cpo = s:save_cpo
 unlet s:save_cpo
+endsnippet
 
+snippet footer "Boilerplate for end of plugin" b
 modeline${1}
 endsnippet
 
