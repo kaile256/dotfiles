@@ -125,12 +125,13 @@ snippet header "Header for Plugin" b
 plugin_name = plugin_name_raw()
 
 if plugin_name:
-  rv = ''
-  rv += '" ============================================================================\n'
-  rv += f'" Repo: kaile256/{plugin_name_raw()}\n'
-  rv += f'" File: {plugin_filepath()}'
-  rv += '''
-" Author: kaile256
+  rv = (
+'" ============================================================================',
+
+f'" Repo: kaile256/{plugin_name_raw()}',
+f'" File: {plugin_filepath()}',
+
+'''" Author: kaile256
 " License: MIT license {{{
 "     Permission is hereby granted, free of charge, to any person obtaining
 "     a copy of this software and associated documentation files (the
@@ -153,7 +154,8 @@ if plugin_name:
 " }}}
 " ============================================================================
 '''
-  snip.rv = rv
+  )
+  snip.rv = '\n'.join(rv)
 `
 endsnippet
 
