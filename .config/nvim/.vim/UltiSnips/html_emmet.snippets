@@ -16,7 +16,7 @@ endsnippet
 
 # append '>' without lexima-like plugin
 snippet < "<${1:foo bar=baz}>$2</foo>" i
-<${1:tagName}>
+<${1:tagName}${2: attr}>
   ${2:${VISUAL:content}}
 </${1/\s+.*//g}>
 endsnippet
