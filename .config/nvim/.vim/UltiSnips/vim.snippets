@@ -1,4 +1,68 @@
 global !p
+def autoload_prefix():
+  underscored = plugin_name_underscored()
+  prefix = underscored + '#' if underscored else 's:'
+  return prefix
+
+
+endglobal
+
+snippet function "function! foo() ... endfunction" b
+function! `!p snip.rv = autoload_prefix()`${2:do}(${3:#:args}) abort
+${VISUAL:command}
+endfunction
+endsnippet
+
+snippet augroup "augroup foo ... augroup END" b
+augroup my${1:Name}
+  au ${2:FileType} ${3:*} ${4:${VISUAL:command}}
+augroup END
+endsnippet
+
+snippet noremap "noremap [rhs] [lhs]" i
+noremap `!v expand('%:p') =~# '/ftplugin/' ? '<buffer><nowait>' : ''
+`${1:<silent> }${2:lhs} ${5:${VISUAL:rhs}}
+endsnippet
+
+snippet '(?<!nore)map' "map [rhs] [lhs]" ir
+map `!v expand('%:p') =~# '/ftplugin/' ? '<buffer><nowait>' : ''
+`${1:<silent> }${2:lhs} ${5:<Plug>}${6:${VISUAL:(rhs)}}
+endsnippet
+
+snippet try "try ... endtry" b
+try
+  ${1:${VISUAL}}
+endtry
+endsnippet
+
+snippet catch "catch error E$1" b
+catch /^Vim\v%((\a+))?:E${1:123}/
+endsnippet
+
+snippet substitute "substitute({expr}, {pat}, {sub}, {flags})" b
+substitute(${1:expr}, ${2:pat}, ${3:sub}, ${4:'g'})
+endsnippet
+
+snippet undo_ftplugin "template for b:undo_ftplugin" b
+if exists('b:undo_ftplugin')
+  let b:undo_ftplugin .= ' | '
+else
+  let b:undo_ftplugin = ''
+endif
+let b:undo_ftplugin .= 'setl ${1:fdm< fde<}'
+endsnippet
+
+snippet scriptencoding "" b
+scriptencoding utf-8
+endsnippet
+
+snippet '#(\d)' "fold up commands with foldmarkers" br
+${VISUAL:/\n(.*)//} "{{{`!p snip.rv = match.group(1)`
+${VISUAL:/(.+?)\n//m}
+"}}}`!p snip.rv = match.group(1)`
+endsnippet
+
+global !p
 def plugin_filepath():
   fullpath = vim.eval('expand("%:p")')
   filepath = re.sub(r'.*/vim-[^/]+?/(.*)', r'\1', fullpath)
@@ -27,12 +91,6 @@ def plugin_name_underscored():
   raw = plugin_name_without_prefix()
   underscored = raw.replace('-', '_')
   return underscored
-
-
-def autoload_prefix():
-  underscored = plugin_name_underscored()
-  prefix = underscored + '#' if underscored else 's:'
-  return prefix
 
 
 def plugin_loaded():
@@ -132,61 +190,6 @@ def plugin_footer():
 
 
 endglobal
-
-snippet function "function! foo() ... endfunction" b
-function! `!p snip.rv = autoload_prefix()`${2:do}(${3:#:args}) abort
-${VISUAL:command}
-endfunction
-endsnippet
-
-snippet augroup "augroup foo ... augroup END" b
-augroup my${1:Name}
-  au ${2:FileType} ${3:*} ${4:${VISUAL:command}}
-augroup END
-endsnippet
-
-snippet noremap "noremap [rhs] [lhs]" i
-noremap `!v expand('%:p') =~# '/ftplugin/' ? '<buffer><nowait>' : ''
-`${1:<silent> }${2:lhs} ${5:${VISUAL:rhs}}
-endsnippet
-
-snippet '(?<!nore)map' "map [rhs] [lhs]" ir
-map `!v expand('%:p') =~# '/ftplugin/' ? '<buffer><nowait>' : ''
-`${1:<silent> }${2:lhs} ${5:<Plug>}${6:${VISUAL:(rhs)}}
-endsnippet
-
-snippet try "try ... endtry" b
-try
-  ${1:${VISUAL}}
-endtry
-endsnippet
-
-snippet catch "catch error E$1" b
-catch /^Vim\v%((\a+))?:E${1:123}/
-endsnippet
-
-snippet substitute "substitute({expr}, {pat}, {sub}, {flags})" b
-substitute(${1:expr}, ${2:pat}, ${3:sub}, ${4:'g'})
-endsnippet
-
-snippet undo_ftplugin "template for b:undo_ftplugin" b
-if exists('b:undo_ftplugin')
-  let b:undo_ftplugin .= ' | '
-else
-  let b:undo_ftplugin = ''
-endif
-let b:undo_ftplugin .= 'setl ${1:fdm< fde<}'
-endsnippet
-
-snippet scriptencoding "" b
-scriptencoding utf-8
-endsnippet
-
-snippet '#(\d)' "fold up commands with foldmarkers" br
-${VISUAL:/\n(.*)//} "{{{`!p snip.rv = match.group(1)`
-${VISUAL:/(.+?)\n//m}
-"}}}`!p snip.rv = match.group(1)`
-endsnippet
 
 snippet init "Let's create a plugin!" "snip.line == 0" be
 `!p snip.rv = plugin_header()`
