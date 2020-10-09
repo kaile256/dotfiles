@@ -1,4 +1,4 @@
-" From: motion.toml
+" From: default.toml
 " Repo: AndrewRadev/splitjoin.vim
 
 let g:splitjoin_join_mapping = ''
