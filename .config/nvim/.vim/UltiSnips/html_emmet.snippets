@@ -24,3 +24,13 @@ endsnippet
 snippet > "<foo>$0</foo>" i
 >$0</`!v matchstr(getline(search('<\w*\%(.*\n\)\{-}.*\%#', 'bnW')), '<\zs\w\+')`>
 endsnippet
+
+
+priority -10
+
+snippet '([A-Z]\S*)' "emmet-like Component expansion" rb
+<`!p snip.rv = match.group(1)`${2: attr}>
+  ${3:${VISUAL:content}}
+</`!p snip.rv = match.group(1)`>
+endsnippet
+
