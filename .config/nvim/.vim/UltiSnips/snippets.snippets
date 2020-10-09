@@ -1,6 +1,6 @@
 global !p
 def is_in_python_code():
-  syntax_name = vim.eval('synIDattr(synID(line("."), col("."), 1), "name")')
+  syntax_name = vim.eval('synIDattr(synID(line("."), col(".") - 1, 1), "name")')
   return re.search('python', syntax_name, flags=re.IGNORECASE)
 endglobal
 
