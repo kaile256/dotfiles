@@ -87,7 +87,6 @@
 
   "tabnine.triggers": ["<C-y>"],
 
-  // "snippets.autoTrigger": false,
   // "suggest.snippetIndicator": "...",
   "snippets.extends": {
     "cpp": ["c"],
