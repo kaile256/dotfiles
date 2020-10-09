@@ -133,10 +133,6 @@ def plugin_footer():
 
 endglobal
 
-snippet catch "catch error E$1" b
-catch /^Vim\v%((\a+))?:E${1:123}/
-endsnippet
-
 snippet function "function! foo() ... endfunction" b
 function! `!p snip.rv = autoload_prefix()`${2:do}(${3:#:args}) abort
 ${VISUAL:command}
@@ -163,6 +159,10 @@ snippet try "try ... endtry" b
 try
   ${1:${VISUAL}}
 endtry
+endsnippet
+
+snippet catch "catch error E$1" b
+catch /^Vim\v%((\a+))?:E${1:123}/
 endsnippet
 
 snippet substitute "substitute({expr}, {pat}, {sub}, {flags})" b
