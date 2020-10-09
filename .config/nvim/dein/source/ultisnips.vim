@@ -13,9 +13,7 @@ augroup myUltisnipsSo
   au FileType snippets setlocal keywordprg=:help
   au FileType snippets let &l:path = join([
         \ s:snippets_dir,
-        \ $NVIM_CONFIG_HOME,
-        \ $VIM_ANOTHER_HOME,
-        \ $DEIN_GITHUB_DIR,
+        \ $DEIN_GITHUB_DIR .'/**/UltiSnips/',
         \ ], '**,') .'**'
   au FileType snippets setlocal suffixesadd=.snippets
   " Note: neosnippet could override default ft.
