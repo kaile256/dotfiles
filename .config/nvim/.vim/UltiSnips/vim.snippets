@@ -2,16 +2,18 @@ global !p
 def plugin_filepath():
   fullpath = vim.eval('expand("%:p")')
   filepath = re.sub(r'.*/vim-[^/]+?/(.*)', r'\1', fullpath)
-  if re.search('$HOME', filepath):
-    return ''
+
+  if re.search('$HOME', filepath): return ''
+
   return filepath
 
 
 def plugin_name_raw():
   fullpath = vim.eval('expand("%:p")')
   plugin_name = re.sub(r'.*/(vim-[^/]+?)/.*', r'\1', fullpath)
-  if re.search('/', plugin_name):
-    return ''
+
+  if re.search('/', plugin_name): return ''
+
   return plugin_name
 
 
@@ -59,8 +61,7 @@ def MIT_license():
 def plugin_loaded():
   underscored = plugin_name_underscored()
 
-  if not underscored:
-    return ''
+  if not underscored: return ''
 
   rv = (
 f"if exists('g:loaded_{underscored}) | finish | endif",
@@ -72,8 +73,7 @@ f'let g:loaded_{underscored} = 1'
 def plugin_header():
   plugin_name = plugin_name_raw()
 
-  if not plugin_name:
-    return ''
+  if not plugin_name: return ''
 
   rv = (
 '" ============================================================================',
