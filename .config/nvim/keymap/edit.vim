@@ -6,7 +6,6 @@
 
 nnoremap j gj
 nnoremap k gk
-" switch mapping.
 nnoremap gj j
 nnoremap gk k
 
