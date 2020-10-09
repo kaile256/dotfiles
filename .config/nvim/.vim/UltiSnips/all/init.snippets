@@ -11,7 +11,7 @@ def bash_in_strict_mode():
   return '\n'.join(options)
 endglobal
 
-snippet '\s*#!' "shebang" br
+snippet '\s*#!' "shebang" "snip.line == 0" bre
 #!/usr/bin/env ${1:python}
 `!p
 if t[1] == 'bash':
