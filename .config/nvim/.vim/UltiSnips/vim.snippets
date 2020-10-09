@@ -1,10 +1,18 @@
 global !p
-# WIP
-def plugin_name_underscored():
-  # TODO: make it work.
-  plugin_path = vim.eval('expand(@%)')
-  plugin_name = plugin_path.replace('.*vim-', '')
+def plugin_name_raw():
+  fullpath = vim.eval('expand("%:p")')
+  plugin_name = re.sub(r'.*/vim-([^/]+?)/.*', r'\1', fullpath)
   return plugin_name
+
+def plugin_name_underscored():
+  raw = plugin_name_raw()
+  underscored = raw.replace('-', '_')
+  return underscored
+
+def autoload_prefix():
+  underscored = plugin_name_underscored()
+  prefix = underscored + '#' if underscored else 's:'
+  return prefix
 endglobal
 
 snippet catch "catch error E$1" b
@@ -12,7 +20,7 @@ catch /^Vim\v%((\a+))?:E${1:123}/
 endsnippet
 
 snippet function "function! foo() ... endfunction" b
-function! ${1:`!v snip#vim#prefix_for_function()`}${2:#:do}(${3:#:args}) abort
+function! `!p snip.rv = autoload_prefix()`${2:do}(${3:#:args}) abort
 ${VISUAL:command}
 endfunction
 endsnippet
