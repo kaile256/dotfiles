@@ -1,3 +1,5 @@
+extends python
+
 global !p
 def is_in_python_code():
   syntax_name = vim.eval('synIDattr(synID(line("."), col(".") - 1, 1), "name")')
