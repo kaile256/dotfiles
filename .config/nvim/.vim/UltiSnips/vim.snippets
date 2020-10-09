@@ -1,11 +1,21 @@
 global !p
+def plugin_filepath():
+  fullpath = vim.eval('expand("%:p")')
+  filepath = re.sub(r'.*/vim-[^/]+?/(.*)', r'\1', fullpath)
+  return filepath
+
 def plugin_name_raw():
   fullpath = vim.eval('expand("%:p")')
-  plugin_name = re.sub(r'.*/vim-([^/]+?)/.*', r'\1', fullpath)
+  plugin_name = re.sub(r'.*/(vim-[^/]+?)/.*', r'\1', fullpath)
+  return plugin_name
+
+def plugin_name_trimmed():
+  raw = plugin_name_raw()
+  plugin_name = re.sub(r'vim-([^/]+?)', r'\1', raw)
   return plugin_name
 
 def plugin_name_underscored():
-  raw = plugin_name_raw()
+  raw = plugin_name_trimmed()
   underscored = raw.replace('-', '_')
   return underscored
 
