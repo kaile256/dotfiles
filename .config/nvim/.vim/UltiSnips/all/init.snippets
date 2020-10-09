@@ -1,33 +1,32 @@
 global !p
-def bash_in_strict_mode():
-  bash_options = 'set -Ceuo pipefail'
-  internal_field_separators = "IFS=$'\\n\\t'"
-
-  options = (
-    bash_options,
-    internal_field_separators,
+def expand_options(program):
+  options = {
+    'bash': (
+      'set -Ceuo pipefail',
+      'IFS=$"\\n\\t"',
     )
+  }
 
-  return '\n'.join(options)
+  if program in options:
+    return '\n' + '\n'.join(options[program]) + '\n'
+
+  return ''
 endglobal
 
 snippet '\s*#!' "shebang" "snip.line == 0" bre
 #!/usr/bin/env ${1:python}
-`!p
-if t[1] == 'bash':
-  snip.rv = '\n' + bash_in_strict_mode() + '\n'
-`
+`!p snip.rv = expand_options(t[1])`
 ${2:content}
 endsnippet
 
 
-priority -20
+priority -100
 
 snippet '\s*([a-z]{2,})' "#! for the program" "snip.line == 0" bre
-#!/usr/bin/env `!p snip.rv = match.group(1)`${1}
-`!p
-if match.group(1) == 'bash':
-  snip.rv = '\n' + bash_in_strict_mode() + '\n'
-`
+#!/usr/bin/env `!p
+  program = match.group(1)
+  snip.rv = program
+`${1}
+`!p snip.rv = expand_options(program)`
 ${2:content}
 endsnippet
