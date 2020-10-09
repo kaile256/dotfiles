@@ -79,13 +79,17 @@ def plugin_header():
 
   if not plugin_name: return ''
 
+  author = 'kaile256'
+
   rv = (
 '" ============================================================================',
-f'" Repo: kaile256/{plugin_name}',
+f'" Repo: {author}/{plugin_name}',
 f'" File: {plugin_filepath()}',
+f'" Author: {author}',
 f'{MIT_license()}',
 '" ============================================================================',
   )
+
   return '\n'.join(rv)
 
 
