@@ -24,8 +24,8 @@ priority -100
 
 snippet '\s*([a-z]{2,})' "#! for the program" "snip.line == 0" bre
 #!/usr/bin/env `!p
-  program = match.group(1)
-  snip.rv = program
+program = match.group(1)
+snip.rv = program
 `${1}
 `!p snip.rv = expand_options(program)`
 ${2:content}
