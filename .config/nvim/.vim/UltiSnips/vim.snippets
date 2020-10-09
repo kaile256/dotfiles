@@ -6,6 +6,7 @@ def plugin_filepath():
     return ''
   return filepath
 
+
 def plugin_name_raw():
   fullpath = vim.eval('expand("%:p")')
   plugin_name = re.sub(r'.*/(vim-[^/]+?)/.*', r'\1', fullpath)
@@ -13,15 +14,18 @@ def plugin_name_raw():
     return ''
   return plugin_name
 
+
 def plugin_name_trimmed():
   raw = plugin_name_raw()
   plugin_name = re.sub(r'vim-([^/]+?)', r'\1', raw)
   return plugin_name
 
+
 def plugin_name_underscored():
   raw = plugin_name_trimmed()
   underscored = raw.replace('-', '_')
   return underscored
+
 
 def autoload_prefix():
   underscored = plugin_name_underscored()
@@ -51,6 +55,7 @@ def MIT_license():
 "     SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 " }}}'''
 
+
 def plugin_loaded():
   underscored = plugin_name_underscored()
 
@@ -63,11 +68,13 @@ f'let g:loaded_{underscored} = 1'
   )
   return '\n'.join(rv)
 
+
 def plugin_header():
   plugin_name = plugin_name_raw()
 
   if not plugin_name:
     return ''
+
   rv = (
 '" ============================================================================',
 f'" Repo: kaile256/{plugin_name}',
@@ -76,6 +83,8 @@ f'{MIT_license()}',
 '" ============================================================================',
   )
   return '\n'.join(rv)
+
+
 endglobal
 
 snippet catch "catch error E$1" b
