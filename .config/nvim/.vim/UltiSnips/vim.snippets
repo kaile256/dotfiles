@@ -127,6 +127,10 @@ def plugin_modeline():
       + ' '.join(options)
 
 
+def plugin_footer():
+  return plugin_cpoptions() + '\n\n' + plugin_modeline()
+
+
 endglobal
 
 snippet catch "catch error E$1" b
@@ -191,18 +195,7 @@ loaded = plugin_loaded()
 snip.rv = '\n' + loaded if loaded else ''
 `
 
-" save 'cpoptions' {{{
-let s:save_cpo = &cpo
-set cpo&vim
-"}}}
-
-${1:${VISUAL}}
-
-" restore 'cpoptions' {{{1
-let &cpo = s:save_cpo
-unlet s:save_cpo
-
-`!p snip.rv = plugin_modeline()`
+`!p snip.rv = plugin_footer()`
 endsnippet
 
 snippet header "Header for Plugin" b
@@ -222,18 +215,7 @@ snippet cpoptions "Save cpoptions" b
 endsnippet
 
 snippet footer "Boilerplate for end of plugin" b
-" save 'cpoptions' {{{
-let s:save_cpo = &cpo
-set cpo&vim
-"}}}
-
-${1:${VISUAL}}
-
-" restore 'cpoptions' {{{1
-let &cpo = s:save_cpo
-unlet s:save_cpo
-
-`!p snip.rv = plugin_modeline()`
+`!p snip.rv = plugin_footer()`
 endsnippet
 
 snippet modeline "modeline for plugin" b
