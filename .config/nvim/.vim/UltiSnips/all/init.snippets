@@ -19,3 +19,15 @@ if t[1] == 'bash':
 `
 ${2:content}
 endsnippet
+
+
+priority -20
+
+snippet '\s*([a-z]{2,})' "#! for the program" "snip.line == 0" bre
+#!/usr/bin/env `!p snip.rv = match.group(1)`${1}
+`!p
+if match.group(1) == 'bash':
+  snip.rv = '\n' + bash_in_strict_mode() + '\n'
+`
+${2:content}
+endsnippet
