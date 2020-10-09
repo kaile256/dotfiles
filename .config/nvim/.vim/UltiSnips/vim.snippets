@@ -46,11 +46,13 @@ augroup END
 endsnippet
 
 snippet noremap "noremap [rhs] [lhs]" i
-noremap `!v expand('%:p') =~# '/ftplugin/' ? '<buffer><nowait>' : ''`${1:<silent> }${2:lhs} ${5:${VISUAL:rhs}}
+noremap `!v expand('%:p') =~# '/ftplugin/' ? '<buffer><nowait>' : ''
+`${1:<silent> }${2:lhs} ${5:${VISUAL:rhs}}
 endsnippet
 
 snippet '(?<!nore)map' "map [rhs] [lhs]" ir
-map `!v expand('%:p') =~# '/ftplugin/' ? '<buffer><nowait>' : ''`${1:<silent> }${2:lhs} ${5:<Plug>}${6:${VISUAL:(rhs)}}
+map `!v expand('%:p') =~# '/ftplugin/' ? '<buffer><nowait>' : ''
+`${1:<silent> }${2:lhs} ${5:<Plug>}${6:${VISUAL:(rhs)}}
 endsnippet
 
 snippet try "try ... endtry" b
