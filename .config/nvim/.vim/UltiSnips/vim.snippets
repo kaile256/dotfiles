@@ -93,6 +93,23 @@ f'{MIT_license()}',
   return '\n'.join(rv)
 
 
+def plugin_cpoptions():
+  rv = (
+  '" save \'cpoptions\' {{{',
+  'let s:save_cpo = &cpo',
+  'set cpo&vim',
+  '"}}}\n',
+
+  f"{snip.v.text}",
+
+  '" restore \'cpoptions\' {{{1',
+  'let &cpo = s:save_cpo',
+  'unlet s:save_cpo',
+  )
+
+  return '\n'.join(rv)
+
+
 def plugin_modeline():
   options = (
   'et',
@@ -201,16 +218,7 @@ snippet loaded "if exists(g:loaded_$1) | finish | endif" b
 endsnippet
 
 snippet cpoptions "Save cpoptions" b
-" save 'cpoptions' {{{
-let s:save_cpo = &cpo
-set cpo&vim
-"}}}
-
-${1:${VISUAL}}
-
-" restore 'cpoptions' {{{1
-let &cpo = s:save_cpo
-unlet s:save_cpo
+`!p snip.rv = plugin_cpoptions()`
 endsnippet
 
 snippet footer "Boilerplate for end of plugin" b
