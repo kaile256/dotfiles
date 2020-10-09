@@ -28,8 +28,8 @@ snippet !v "expr for vim"
 \`!v ${1:#:expr}\`
 endsnippet
 
-snippet ${VISUAL} "${VISUAL:(selected text)}" i
-\${VISUAL:${VISUAL:default}}
+snippet VISUAL "${VISUAL:(selected text)}" i
+\${VISUAL${VISUAL}${1::default}}}
 endsnippet
 
 context "is_flag_for_snippets()"
