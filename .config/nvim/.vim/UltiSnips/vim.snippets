@@ -128,7 +128,7 @@ let s:save_cpo = &cpo
 set cpo&vim
 "}}}
 
-${0}
+${1:${VISUAL}}
 
 " restore 'cpoptions' {{{1
 let &cpo = s:save_cpo
