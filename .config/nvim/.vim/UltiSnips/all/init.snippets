@@ -16,7 +16,7 @@ endglobal
 snippet '\s*#!' "shebang" "snip.line == 0" bre
 #!/usr/bin/env ${1:python}
 `!p snip.rv = expand_options(t[1])`
-${2:content}
+${2:${VISUAL:content}}
 endsnippet
 
 
@@ -28,5 +28,5 @@ program = match.group(1)
 snip.rv = program
 `${1}
 `!p snip.rv = expand_options(program)`
-${2:content}
+${2:${VISUAL:content}}
 endsnippet
