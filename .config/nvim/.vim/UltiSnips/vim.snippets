@@ -7,19 +7,19 @@ def autoload_prefix():
 
 endglobal
 
-snippet function "function! foo() ... endfunction" b
+snippet 'fun(c(tion)?)?' "function! foo() ... endfunction" br
 function! `!p snip.rv = autoload_prefix()`${2:do}(${3:#:args}) abort${4: closure}
   ${8:VISUAL:command}
 endfunction
 endsnippet
 
-snippet augroup "augroup foo ... augroup END" b
+snippet 'aug(roup)?' "augroup foo ... augroup END" br
 augroup my${1:Name}
   au ${2:FileType} ${3:*} ${4:${VISUAL:command}}
 augroup END
 endsnippet
 
-snippet noremap "noremap [rhs] [lhs]" i
+snippet 'nore(map)?' "noremap [rhs] [lhs]" ir
 noremap `!v expand('%:p') =~# '/ftplugin/' ? '<buffer><nowait>' : ''
 `${1:<silent> }${2:lhs} ${5:${VISUAL:rhs}}
 endsnippet
