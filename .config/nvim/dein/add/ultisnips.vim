@@ -58,7 +58,8 @@ function! s:edit_snippets() abort
     endif
   endif
 
-  echo '[UltiSnip]: you are in "'. fname .'"'
+  const short_path = matchstr(path, '.*/UltiSnips/\zs.*')
+  echo '[UltiSnip]: you are in "'. short_path .'"'
 
   exe open path
 endfunction
