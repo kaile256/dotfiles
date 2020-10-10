@@ -1,1 +1,6 @@
-text.snippets
+snippet '\s*([-=]){2,}' "border in 78" br
+`!p
+atom = match.group(1)
+snip.rv = atom * 78
+`
+endsnippet
