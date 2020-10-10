@@ -6,6 +6,7 @@
 augroup mySonicTemplate-autoStart
   au BufWinEnter *tmp* :call s:expand_template('')
 
+  au BufWinEnter */doc/*.txt :call s:expand_template('help')
   au BufWinEnter */atcoder**/*.cpp :call s:expand_template('atcoder')
   au BufWinEnter LICENSE :call s:expand_template('LICENSE-mit')
 augroup END
