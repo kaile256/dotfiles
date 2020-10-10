@@ -20,13 +20,3 @@ let g:textobj_sandwich_no_default_key_mappings  = 1
 " Note: magicchar-t works only on header, not on footer
 " Note: b:sandwich_magicchar_f_patterns is also available
 
-augroup mySandwich-FPatternsOnFiletype
-  au!
-  au FileType vim let b:sandwich_magicchar_f_patterns = [{
-        \ 'header' : '\<\h[a-zA-Z0-9_:]*',
-        \ 'bra'    : '(',
-        \ 'ket'    : ')',
-        \ 'footer' : '',
-        \ }]
-augroup END
-
