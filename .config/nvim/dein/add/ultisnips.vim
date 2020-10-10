@@ -36,7 +36,7 @@ nmap <A-s><A-p> <A-s>p
 
 function! s:edit_snippets() abort
   const ft = &ft
-  if ft ==# 'snippets'
+  if ft ==# 'snippets' && expand('%:p') =~# '/UltiSnips/snippets'
     echohl ErrorMsg
     echo '[UltiSnips]: you are editing snippets for "&ft = snippets"'
     echohl None
