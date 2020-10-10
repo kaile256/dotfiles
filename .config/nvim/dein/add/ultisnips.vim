@@ -50,8 +50,8 @@ function! s:edit_snippets() abort
   let fname = &ft .'.snippets'
   let path = dir .'/'. fname
 
+  const ls = readdir(dir)
   if !filereadable(path)
-    const ls = readdir(dir)
     if len(ls)
       let fname = ls[0]
       let path = dir .'/'. fname
@@ -59,7 +59,10 @@ function! s:edit_snippets() abort
   endif
 
   const short_path = matchstr(path, '.*/UltiSnips/\zs.*')
-  echo '[UltiSnip]: you are in "'. short_path .'"'
+  const candidates = len(ls) == 0 ? '[new]'
+        \ : len(ls) == 1 ? '[only]'
+        \ : '(in '. len(ls) .' candidates)'
+  echo '[UltiSnip]: you are in "'. short_path .'"' candidates
 
   exe open path
 endfunction
