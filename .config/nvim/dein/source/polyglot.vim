@@ -4,6 +4,7 @@
 let g:polyglot_disabled = [
       \ 'c++11',
       \ 'c/c++',
+      \ 'dockerfile',
       \ 'git',
       \ 'haskell',
       \ 'i3',
