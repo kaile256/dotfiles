@@ -35,6 +35,14 @@ nnoremap <silent> <A-s>p :<C-u>call <SID>edit_snippets()<CR>
 nmap <A-s><A-p> <A-s>p
 
 function! s:edit_snippets() abort
+  const ft = &ft
+  if ft ==# 'snippets'
+    echohl ErrorMsg
+    echo '[UltiSnips]: you are editing snippets for "&ft = snippets"'
+    echohl None
+    return
+  endif
+
   let open = 'sp | wincmd T | vs'
   if winwidth(0) > 2 * (&tw ? &tw : 80)
     let open = 'bot vs'
@@ -42,12 +50,12 @@ function! s:edit_snippets() abort
     let open = 'bel sp'
   endif
 
-  const dir = $VIM_ANOTHER_HOME .'/UltiSnips/'. &ft
+  const dir = $VIM_ANOTHER_HOME .'/UltiSnips/'. ft
   if !isdirectory(dir)
     call mkdir(dir, 'p')
   endif
 
-  let fname = &ft .'.snippets'
+  let fname = ft .'.snippets'
   let path = dir .'/'. fname
 
   const ls = readdir(dir)
