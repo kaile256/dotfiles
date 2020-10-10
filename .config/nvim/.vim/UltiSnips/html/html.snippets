@@ -23,7 +23,25 @@ def set_emmet_config():
   #     'markup': ['html'(default), 'xml', 'xsl', 'jsx', 'js', 'pug', 'slim', 'haml'],
   #     'stylesheet': ['css'(default), 'sass', 'scss', 'less', 'sss', 'stylus']
   #
-  config = {
+  config = {}
+
+  buf = vim.current.buffer
+  opt = buf.options
+
+  def get_indent():
+    sw = opt['shiftwidth']
+    if opt['expandtab'] == 1:
+      return ' ' * sw
+    return '\t'
+
+
+  options = {
+    "output.indent": get_indent(),
+  }
+
+  config.update({"options": options})
+
+  syntax = {
     "css": {
       "type": "stylesheet",
     },
@@ -33,12 +51,12 @@ def set_emmet_config():
     },
   }
 
-  ft = vim.current.buffer.options['filetype']
+  ft = opt['filetype']
 
-  if ft in config:
-    return config[ft]
+  if ft in syntax:
+    return config.update(syntax[ft])
 
-  return {}
+  return config
 
 
 endglobal
