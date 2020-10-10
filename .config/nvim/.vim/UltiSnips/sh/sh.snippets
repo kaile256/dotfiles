@@ -3,5 +3,5 @@ snippet '>/(dev(/(null)?)?)?' "discard both stdout & stderr" wr
 endsnippet
 
 snippet SCRIPT_DIR "Get current dir the script running" b
-SCRIPT_DIR=$(readlink -f "$0" | xargs dirname)
+SCRIPT_DIR=$(readlink -f "\$0" | xargs dirname)
 endsnippet
