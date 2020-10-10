@@ -15,6 +15,7 @@ let g:rainbow_conf.parentheses = [
 
 " to disable, apply 0.
 let g:rainbow_conf.separately = {
+      \ 'dockerfile': 0,
       \ 'fzf': 0,
       \ 'help': 0,
       \ 'ranger': 0,
