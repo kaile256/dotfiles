@@ -639,5 +639,6 @@ settings:
       wl: https://ejje.weblio.jp/content/{}?erl=true
       yt: https://www.youtube.com/results?search_query={}
       yu: https://www.youtube.com/results?search_query={}
+      zn: https://zenn.dev/search?q={}
   url.start_pages:
     global: https://ja.wikipedia.org/wiki/
