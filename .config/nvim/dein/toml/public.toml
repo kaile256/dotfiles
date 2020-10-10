@@ -71,3 +71,8 @@ hook_add = 'runtime add/symbolic-incrementor.vim'
 [[plugins]]
 repo = 'kaile256/vim-gitrebase-commander'
 lazy = 0
+
+#[ Indent ]
+[[plugins]]
+repo = 'kaile256/vim-keep-indent-cont'
+on_ft = 'vim'
