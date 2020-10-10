@@ -2,18 +2,6 @@
 " Repo: bkad/CamelCaseMotion
 " PR-Merged: bkad/CamelCaseMotion/pull/41
 
-" Convenience
-"noremap ie iw
-
-map gw w
-map gb b
-map ge e
-map gq ge
-sunmap gw
-sunmap gb
-sunmap ge
-sunmap gq
-
 " Overwite; webge
 map w <Plug>CamelCaseMotion_w
 map b <Plug>CamelCaseMotion_b
