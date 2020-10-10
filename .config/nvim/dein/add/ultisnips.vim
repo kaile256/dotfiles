@@ -42,13 +42,23 @@ function! s:edit_snippets() abort
     let open = 'bel sp'
   endif
 
-  const dir = $VIM_ANOTHER_HOME .'/UltiSnips/'. &ft .'/'
+  const dir = $VIM_ANOTHER_HOME .'/UltiSnips/'. &ft
   if !isdirectory(dir)
     call mkdir(dir, 'p')
   endif
 
-  const fname = &ft .'.snippets'
+  let fname = &ft .'.snippets'
+  let path = dir .'/'. fname
 
-  const path = dir . fname
+  if !filereadable(path)
+    const ls = readdir(dir)
+    if len(ls)
+      let fname = ls[0]
+      let path = dir .'/'. fname
+    endif
+  endif
+
+  echo '[UltiSnip]: you are in "'. fname .'"'
+
   exe open path
 endfunction
