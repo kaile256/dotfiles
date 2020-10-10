@@ -14,9 +14,13 @@ endsnippet
 
 priority -10
 
-snippet '([A-Z]\S*)' "emmet-like Component expansion" rb
-<`!p snip.rv = match.group(1)`${2: attr}>
-  ${3:${VISUAL:content}}
-</`!p snip.rv = match.group(1)`>
+snippet '([a-zA-Z.!@#[]\S*)' "emmet" br
+`!p
+import emmet
+
+m = match.group(1)
+data = emmet.extract(m)
+snip.rv = emmet.expand(data.abbreviation)
+`
 endsnippet
 
