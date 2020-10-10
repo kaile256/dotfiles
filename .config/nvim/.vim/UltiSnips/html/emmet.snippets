@@ -1,0 +1,74 @@
+# Orig: adriaanzon/vim-emmet-ultisnips
+
+snippet < "<${1:foo bar=baz}>$2</foo>" i
+<${1:tagName}${2: attr}>
+  ${2:${VISUAL:content}}
+</${1/\s+.*//g}>
+endsnippet
+
+snippet > "<foo>$0</foo>" i
+>$0</`!v matchstr(getline(search('<\w*\%(.*\n\)\{-}.*\%#', 'bnW')), '<\zs\w\+')`>
+endsnippet
+
+
+priority -10
+
+global !p
+def set_emmet_config():
+  # Ref: config for emmet.expand()
+  # -- https://github.com/emmetio/py-emmet/blob/master/emmet/config.py
+  # Available:
+  #   - type: [markup (default), stylesheet]
+  #   - syntax:
+  #     'markup': ['html'(default), 'xml', 'xsl', 'jsx', 'js', 'pug', 'slim', 'haml'],
+  #     'stylesheet': ['css'(default), 'sass', 'scss', 'less', 'sss', 'stylus']
+  #
+  config = {}
+
+  buf = vim.current.buffer
+  opt = buf.options
+
+  def get_indent():
+    sw = opt['shiftwidth']
+    if opt['expandtab'] == 1:
+      return ' ' * sw
+    return '\t'
+
+
+  options = {
+    "output.indent": get_indent(),
+  }
+
+  config.update({"options": options})
+
+  syntax = {
+    "css": {
+      "type": "stylesheet",
+    },
+    "stylus": {
+      "type": "stylesheet",
+      "syntax": "stylus",
+    },
+  }
+
+  ft = opt['filetype']
+
+  if ft in syntax:
+    return config.update(syntax[ft])
+
+  return config
+
+
+endglobal
+
+# append '>' without lexima-like plugin
+snippet '([a-zA-Z.!@#[]\S*)' "emmet" br
+`!p
+import emmet # depends 'emmetio/py-emmet'
+
+m = match.group(1)
+data = emmet.extract(m)
+snip.rv = emmet.expand(data.abbreviation, set_emmet_config())
+`
+endsnippet
+
