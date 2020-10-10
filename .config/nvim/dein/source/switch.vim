@@ -27,6 +27,14 @@ function! s:set_definitions() abort
         \ },
         \ ]
 
+  let rules.access2entry = [
+        \ {
+        \   '\v(\h\k*)\.(\h\k*)': '\1["\2"]',
+        \   '\v(\h\k*)\["(\h\k*)"]': '\1[''\2'']',
+        \   '\v(\h\k*)\[''(\h\k*)'']': '\1.\2',
+        \ },
+        \ ]
+
   let rules.auxiliary_verb = [
         \ ['should', 'must'],
         \ ['could', 'would'],
