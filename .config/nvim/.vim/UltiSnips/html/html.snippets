@@ -14,14 +14,32 @@ endsnippet
 priority -10
 
 global !p
-def set_format():
+def set_emmet_config():
+  # Ref: config for emmet.expand()
+  # -- https://github.com/emmetio/py-emmet/blob/master/emmet/config.py
+  # Available:
+  #   - type: [markup (default), stylesheet]
+  #   - syntax:
+  #     'markup': ['html'(default), 'xml', 'xsl', 'jsx', 'js', 'pug', 'slim', 'haml'],
+  #     'stylesheet': ['css'(default), 'sass', 'scss', 'less', 'sss', 'stylus']
+  #
   config = {
-    "css"
+    "css": {
+      "type": "stylesheet",
+    },
+    "stylus": {
+      "type": "stylesheet",
+      "syntax": "stylus",
+    },
   }
-  buf = vim.current.buffer
-  if buf.options['filetype'] == 'css':
-    return 1
-  return 0
+
+  ft = vim.current.buffer.options['filetype']
+
+  if ft in config:
+    return config[ft]
+
+  return {}
+
 
 endglobal
 
@@ -32,7 +50,7 @@ import emmet # depends 'emmetio/py-emmet'
 
 m = match.group(1)
 data = emmet.extract(m)
-snip.rv = emmet.expand(data.abbreviation)
+snip.rv = emmet.expand(data.abbreviation, set_emmet_config())
 `
 endsnippet
 
