@@ -9,7 +9,7 @@ endglobal
 
 snippet function "function! foo() ... endfunction" b
 function! `!p snip.rv = autoload_prefix()`${2:do}(${3:#:args}) abort
-${VISUAL:command}
+  ${VISUAL:command}
 endfunction
 endsnippet
 
