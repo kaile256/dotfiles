@@ -35,7 +35,7 @@ nnoremap <silent> <A-s>p :<C-u>call <SID>edit_snippets()<CR>
 nmap <A-s><A-p> <A-s>p
 
 function! s:edit_snippets() abort
-  const ft = &ft
+  let ft = &ft
   if ft ==# 'snippets' && expand('%:p') =~# '/UltiSnips/snippets'
     echohl ErrorMsg
     echo '[UltiSnips]: you are editing snippets for "&ft = snippets"'
@@ -48,6 +48,10 @@ function! s:edit_snippets() abort
     let open = 'bot vs'
   elseif winheight(0) > 20
     let open = 'bel sp'
+  endif
+
+  if empty(ft)
+    let ft = 'all'
   endif
 
   const dir = $VIM_ANOTHER_HOME .'/UltiSnips/'. ft
