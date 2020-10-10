@@ -8,8 +8,8 @@ def autoload_prefix():
 endglobal
 
 snippet function "function! foo() ... endfunction" b
-function! `!p snip.rv = autoload_prefix()`${2:do}(${3:#:args}) abort
-  ${VISUAL:command}
+function! `!p snip.rv = autoload_prefix()`${2:do}(${3:#:args}) abort${4: closure}
+  ${8:VISUAL:command}
 endfunction
 endsnippet
 
