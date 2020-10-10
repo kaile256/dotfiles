@@ -9,7 +9,7 @@ endglobal
 
 snippet 'fun(c(tion)?)?' "function! foo() ... endfunction" br
 function! `!p snip.rv = autoload_prefix()`${2:do}(${3:#:args}) abort${4: closure}
-  ${8:VISUAL:command}
+  ${8:${VISUAL:command}}
 endfunction
 endsnippet
 
