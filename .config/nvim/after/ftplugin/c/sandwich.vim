@@ -7,7 +7,7 @@ let b:sandwich_magicchar_f_patterns =
       \ get(g:, 'sandwich_magicchar_f_patterns', [])
 
 let b:sandwich_magicchar_f_patterns += [{
-      \ 'header' : '\<\%(\h\k*\:\)*\h\k*',
+      \ 'header' : '\<\%(\h\k*:\)*\h\k*',
       \ 'bra'    : '<',
       \ 'ket'    : '>',
       \ 'footer' : '',
