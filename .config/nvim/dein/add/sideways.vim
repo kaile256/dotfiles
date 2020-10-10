@@ -11,7 +11,7 @@ nnoremap <silent> + :<C-u>SidewaysRight<CR>
 
 function! s:textobj_comma(key) abort
   let s:is_comment =
-        \ {-> synIDattr(synIDtrans(synID(line('.'), col('.') - 1, 0)), 'name')}
+        \ {-> synIDattr(synID(line('.'), col('.') - 1, 0), 'name')}
   if s:is_comment() =~# 'Comment'
     return "\<Plug>(textobj-sandwich-query-". tolower(a:key) .'),'
   endif
