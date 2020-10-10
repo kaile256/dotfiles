@@ -15,7 +15,10 @@ function! s:copy_line(key) abort
 
   let cur_col = col('.')
 
-  let pat_to_stop = '\v[^a-zA-Z0-9,]*\s*(\l+|\u+\l*|\d+)*[^a-zA-Z0-9 ]?\ze,?'
+  let pat_boundaries = '[^a-zA-Z0-9, ]*\s*'
+  let pat_words = '\v(\d+|\l+|\u\l*|\u+\u@!\u|\W\s*)'
+  let pat_to_stop = pat_boundaries . pat_words .'\ze'. pat_boundaries
+
   let cnt = matchstrpos(line[cur_col :], pat_to_stop)[2] + 1
 
   let seq = repeat(a:key, cnt)
