@@ -1,6 +1,12 @@
 
 priority -20
 
-snippet '([a-z]+)' "conventional commits" "snip.line == 0" bre
-`!p snip.rv = match.group(1)`(${1:scope}): ${2:description}
+snippet '^(WIP: )?([a-z]+)' "conventional commits" "snip.line == 0" bre
+`!p
+WIP = match.group(1) or ''
+COMMIT_TYPE = match.group(2)
+
+snip.rv = WIP + COMMIT_TYPE
+
+`(${1:scope}): ${2:description}
 endsnippet
