@@ -15,7 +15,7 @@ priority -10
 
 snippet '([a-zA-Z.!@#[]\S*)' "emmet" br
 `!p
-import emmet
+import emmet # depends 'emmetio/py-emmet'
 
 m = match.group(1)
 data = emmet.extract(m)
