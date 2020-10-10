@@ -13,6 +13,19 @@ endsnippet
 
 priority -10
 
+global !p
+def set_format():
+  config = {
+    "css"
+  }
+  buf = vim.current.buffer
+  if buf.options['filetype'] == 'css':
+    return 1
+  return 0
+
+endglobal
+
+# append '>' without lexima-like plugin
 snippet '([a-zA-Z.!@#[]\S*)' "emmet" br
 `!p
 import emmet # depends 'emmetio/py-emmet'
