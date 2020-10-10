@@ -40,6 +40,7 @@ function! s:set_definitions() abort
         \ ]
 
   let rules.anitinomy = [
+        \ ['global', 'local'],
         \ ['horizontal', 'vertical'],
         \ ]
 
