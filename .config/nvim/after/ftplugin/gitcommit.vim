@@ -4,7 +4,8 @@ setlocal nonumber
 setlocal signcolumn=
 setlocal bufhidden=wipe
 
-setlocal formatoptions+=t " Auto-wrap as &textwidth
+setlocal formatoptions<
+setlocal fo+=t " Auto-wrap as &textwidth
 
 map <buffer><expr> [c repmo#Key('<Plug>(gitcommitmsg-prev)', '<Plug>(gitcommitmsg-next)')
 map <buffer><expr> ]c repmo#Key('<Plug>(gitcommitmsg-next)', '<Plug>(gitcommitmsg-prev)')
