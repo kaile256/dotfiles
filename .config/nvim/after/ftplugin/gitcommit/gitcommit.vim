@@ -30,17 +30,16 @@ function! s:search_msg(flags) abort
 
   let pat_msg = join(pats_msg, '\|')
 
-  if !search(pat_msg, a:flags)
+  let blankline_after_msg = '\('. pat_msg ."\\)\n\zs"
+
+  if !search(blankline_after_msg, a:flags)
     return
   endif
 
   if a:flags =~# 'b'
     " searching backward twice
-    call search(pat_msg, a:flags)
+    call search(blankline_after_msg, a:flags)
   endif
-
-  norm! j
-  call search('\S')
 endfunction
 
 norm! gg
