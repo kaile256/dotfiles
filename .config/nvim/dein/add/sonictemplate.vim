@@ -4,11 +4,11 @@
 " Else: data/sonictemplate
 
 augroup mySonicTemplate-autoStart
-  au BufWinEnter *tmp* :call s:expand_template('')
+  au BufRead *tmp* :call s:expand_template('')
 
-  au BufWinEnter */doc/*.txt :call s:expand_template('help')
-  au BufWinEnter */atcoder**/*.cpp :call s:expand_template('atcoder')
-  au BufWinEnter LICENSE :call s:expand_template('LICENSE-mit')
+  au BufRead */doc/*.txt :call s:expand_template('help')
+  au BufRead */atcoder**/*.cpp :call s:expand_template('atcoder')
+  au BufRead LICENSE :call s:expand_template('LICENSE-mit')
 augroup END
 
 function! s:expand_template(label) abort
