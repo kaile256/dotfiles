@@ -24,12 +24,14 @@ function! s:override_extra_syntax() abort
     return
   endif
 
+  let default_group = '@Extra'
+
   let Extra = ft =~# 'sh\|all' ? '@Shell'
         \ : ft ==# 'python' ? '@Python'
         \ : ft ==# 'vim' ? '@Viml'
-        \ : '@Extra'
+        \ : default_group
 
-  if Extra ==# '@Extra'
+  if Extra ==# default_group
     try
       exe 'syntax include' Extra 'syntax/'. ft .'.vim'
       unlet b:current_syntax
