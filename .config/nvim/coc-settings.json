@@ -1,7 +1,6 @@
 {
   // Ref: $COC_DATA_HOME/extensions/node_modules
 
-  // "suggest.enablePreview" should be true to use preview
   // "coc.preferences.hoverTarget": "preview",
   "coc.preferences.extensionUpdateCheck": "weekly",
   "coc.preferences.formatOnType": true,
