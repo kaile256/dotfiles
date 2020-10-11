@@ -14,16 +14,25 @@ xmap gf <Plug>(sensible-gf)
 nmap <C-w>f <Plug>(sensible-ctrl-w_f)
 xmap <C-w>f <Plug>(sensible-ctrl-w_f)
 
+function! s:stdin(open) abort
+  let path = expand('%:p:h') .'/stdin'
+  exe a:open path
+  setlocal ft=zsh
+  augroup myStdin
+    au! BufWriteCmd <buffer> :w !$SHELL
+  augroup END
+endfunction
+
 function! s:scratch(open) abort
-  "let prefix = '/tmp/foo.'
   let prefix = tempname()
   let ext = expand('%:e')
   let path = prefix .'.'. (empty(ext) ? 'md' : ext)
   exe a:open path
 endfunction
 
-nnoremap <silent> <c-w>n :<c-u>call <SID>scratch(sensible#split())<cr>
+nnoremap <silent> <C-w>n :<C-u>call <SID>stdin(sensible#split())<cr>
 nmap <c-w><C-n> <c-w>n
+nnoremap <silent> <C-w>N :<C-u>call <SID>scratch(sensible#split())<cr>
 
 augroup mySensibleSplitAdd
   au BufNewFile,BufRead *.{j,t}s{,x} call s:mappings_nextjs()
