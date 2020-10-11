@@ -31,6 +31,8 @@ function! s:stdin(open) abort
     au ShellFilterPost <buffer> :call winrestview(s:save_view)
     au ShellFilterPost <buffer> :keeppatterns 1 g/^\s*$/d_
   augroup END
+
+  nnoremap <buffer> <space>w <Nop>
 endfunction
 
 function! s:scratch(open) abort
