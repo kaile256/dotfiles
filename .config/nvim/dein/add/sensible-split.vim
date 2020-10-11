@@ -24,8 +24,12 @@ function! s:stdin(open) abort
   let path = expand('%:p:h') .'/stdin_'. s:cnt
   exe a:open path
   setlocal ft=zsh
-  augroup myStdin
-    au! BufWriteCmd <buffer> :w !$SHELL
+  augroup myStdin-ExecuteOnWritten
+    au!
+    au BufWriteCmd <buffer> :w !$SHELL
+    au ShellFilterPost <buffer> :let s:save_view = winsaveview()
+    au ShellFilterPost <buffer> :call winrestview(s:save_view)
+    au ShellFilterPost <buffer> :keeppatterns 1 g/^\s*$/d_
   augroup END
 endfunction
 
