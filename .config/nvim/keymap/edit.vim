@@ -31,8 +31,6 @@ endif
 " Write&Quit; wq
 nnoremap <silent><expr> <space>w
       \ ':<C-u>'. (&modified ? 'up' : 'checktime') .'<CR>'
-nnoremap <silent><expr> <space>W
-      \ ':<C-u>'. (&modified ? 'up!' : 'checktime') .'<CR>'
 
 " Improve; i_<c-o> {{{1
 " TODO: make <c-o>yi work, as <c-o>di, <c-o>ci.
