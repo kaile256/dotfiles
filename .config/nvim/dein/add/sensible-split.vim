@@ -15,7 +15,13 @@ nmap <C-w>f <Plug>(sensible-ctrl-w_f)
 xmap <C-w>f <Plug>(sensible-ctrl-w_f)
 
 function! s:stdin(open) abort
-  let path = expand('%:p:h') .'/stdin'
+  if exists('s:cnt')
+    let s:cnt += 1
+  else
+    let s:cnt = 0
+  endif
+
+  let path = expand('%:p:h') .'/stdin_'. s:cnt
   exe a:open path
   setlocal ft=zsh
   augroup myStdin
