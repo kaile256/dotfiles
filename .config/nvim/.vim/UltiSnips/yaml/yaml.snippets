@@ -1,6 +1,6 @@
-snippet github_action_neovim "[GitHub Actions] for Neovim" b
-name: neovim
-
+global !p
+def GitHubActionDefault_on():
+  return '''
 on:
   push:
     branches:
@@ -9,6 +9,13 @@ on:
   pull_request:
     branches:
       - master
+  '''
+endglobal
+
+snippet gh_test_vint "[GitHub Actions] lint for VimScript" b
+name: vint
+
+`!p snip.rv = GitHubActionDefault_on()`
 
 jobs:
   vint:
@@ -22,6 +29,11 @@ jobs:
           github_token: ${{ secrets.github_token }}
           level: error
           reporter: github-pr-review
+endsnippet
+
+snippet gh_test_themis "[GitHub Actions] run test on themis for VimScript" b
+name: themis
+`!p snip.rv = GitHubActionDefault_on()`
 
   vim-themis:
     name: Run themis tests
@@ -49,7 +61,7 @@ jobs:
         uses: rhysd/action-setup-vim@v1
         id: vim
         with:
-          neovim: true
+          neovim: ${1:true}
           version: ${{ matrix.nvim_version }}
 
       - name: Run themis tests
