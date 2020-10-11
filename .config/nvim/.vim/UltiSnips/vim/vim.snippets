@@ -39,8 +39,8 @@ snippet catch "catch error E$1" b
 catch /^Vim\v%((\a+))?:E${1:123}/
 endsnippet
 
-snippet 'sub(stitute)?' "substitute({expr}, {pat}, {sub}, {flags})" br
-substitute(${1:expr}, ${2:pat}, ${3:sub}, ${4:'g'})
+snippet 'sub(stitute)?' "substitute($1, $2, $3, $4)" r
+substitute(${1:${VISUAL:expr}}, ${2:pat}, ${3:sub}, ${4:'g'})
 endsnippet
 
 snippet undo_ftplugin "template for b:undo_ftplugin" b
