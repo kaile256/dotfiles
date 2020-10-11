@@ -136,10 +136,42 @@ let s:definitions['python'] = [
       \ ['spam', 'ham', 'eggs'],
       \ ]
 
+function! s:extend_definitions_for_snippets() abort
+  let definitions = get(b:, 'switch_custom_definitions', [])
+
+  call extend(definitions, get(s:definitions, 'vim', []))
+  call extend(definitions, get(s:definitions, 'python', []))
+
+  function! s:detect_extra_filetype() abort closure
+    let full_path = expand('%:p')
+
+    let roots = get(g:, 'UltiSnipsSnippetDirectories')
+    let roots = map(roots, 'substitute(v:val, "/*$", "", "")')
+
+    for r in sort(roots)
+      let rel_path = matchstr(full_path, r .'/\zs\f\+')
+      if !empty(rel_path) && rel_path !=# full_path
+        let ft = matchstr(rel_path, '\v\f{-}\ze(/|\.)')
+        return ft
+      endif
+    endfor
+
+    return ''
+  endfunction
+
+  let ft = s:detect_extra_filetype()
+  if index(['snippets', 'python', 'vim', ''], ft) == -1
+    call extend(definitions, get(s:definitions, ft, []))
+  endif
+
+  let b:switch_custom_definitions = definitions
+endfunction
+
 augroup mySwitchAdd-set_local_definitions "{{{1
   " Note: b:switch_custom_definitions should be defined in advance of the
   " plugin loaded.
   au BufWinEnter * call s:set_local_definitions()
+  au BufWinEnter *.snippets call s:extend_definitions_for_snippets()
 augroup END
 
 function! s:set_local_definitions() abort
