@@ -109,7 +109,7 @@ function! sensible#gf#split(...) abort
     return "\<Cmd> vertical wincmd F \<CR>"
   endif
 
-  if mode(0) =~# '[vV\<C-v>]'
+  if get(cond, 'visual')
     let path = getline('.')[col("'<") - 1 : col("'>") - 1]
     return ":\<C-u> vertical sfind ". path ."\<CR>"
   endif
