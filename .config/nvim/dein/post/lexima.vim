@@ -28,7 +28,7 @@ function! s:set_rules() abort
         \
         \   'ft2char': {},
         \
-        \   'label': {
+        \   'group': {
         \     'config': {},
         \     'filetypes': {},
         \   }
@@ -38,8 +38,8 @@ function! s:set_rules() abort
 
   let ft2char = rules.ft2char
 
-  let label2conf = rules.label.config
-  let label2ft   = rules.label.filetypes
+  let group2conf = rules.group.config
+  let group2ft   = rules.group.filetypes
 
   " Note: '\%#' represents the cursor position; see the help.
   " Notice: single quote in double quotes sometimes fails to apply the rule.
@@ -70,7 +70,7 @@ function! s:set_rules() abort
         \ 'at': '\<styled\>\S*\%#',
         \ }
 
-  let label2conf.react = [
+  let group2conf.react = [
         \ Complete_backtick_for_CSS_in_JS,
         \ ]
 
@@ -99,7 +99,7 @@ function! s:set_rules() abort
         \ 'at': '^\s*case\%#', 'except': pat_revising,
         \ }
 
-  let label2conf.javascript = [
+  let group2conf.javascript = [
         \ {'char': '<space>', 'input_after': ';', 'at': 'import\%#'},
         \ {'char': '<space>', 'input_after': ';',
         \     'at': 'let\%#', 'except': pat_revising},
@@ -116,16 +116,16 @@ function! s:set_rules() abort
         \   'input': '<Esc>:<C-u>keepjumps keeppatterns s/^\ze\w/./e<CR>gi<C-g>U<Right><space>'},
         \ ]
 
-  let label2conf.css = []
-  let label2conf.css += [
+  let group2conf.css = []
+  let group2conf.css += [
         \ {'char': '<space>', 'input': ': ', 'input_after': ';',
         \     'at': '^\s\+[a-zA-Z-]\+\%#', 'except': '\%#.\+',},
         \ {'char': '<space>', 'input_after': ';',
         \     'at': '^\s\+[a-zA-Z-]\+:\%#', 'except': '\%#.\+'},
         \ ]
-  let label2conf.css += Format_css_element
+  let group2conf.css += Format_css_element
 
-  let label2conf.semicolon = [
+  let group2conf.semicolon = [
         \ {'char': '<space>', 'input_after': ';',
         \     'at': 'return\%#', 'except': '\%#.\+'},
         \ {'char': '<space>', 'input_after': ';',
@@ -134,9 +134,9 @@ function! s:set_rules() abort
         \ ]
 
   " Rules for Tag {{{1
-  let label2conf.tag = []
+  let group2conf.tag = []
 
-  let label2conf.tag += [
+  let group2conf.tag += [
         \ {'char': '<CR>', 'at': '\%#\s*/>',
         \   'input_after': '<CR>', 'input': '<CR>'},
         \ ]
@@ -322,9 +322,9 @@ function! s:set_rules() abort
         \ ]
 
   function! s:define_rules_for_space() abort closure "{{{1
-    let label2conf.whitespace = []
+    let group2conf.whitespace = []
 
-    let label2conf.whitespace += [
+    let group2conf.whitespace += [
           \ {'char': '<S-Space>',   'input': '<space>'},
           \ {'char': '<C-space>',   'input': '<space>'},
           \ {'char': '<C-S-Space>', 'input': '<space>'},
@@ -394,9 +394,9 @@ function! s:set_rules() abort
             \ ],
             \ }
 
-      let label2conf.whitespace += Spread_brackets
-      let label2conf.whitespace += Insert_a_space_before_cursor
-      let label2conf.whitespace += [
+      let group2conf.whitespace += Spread_brackets
+      let group2conf.whitespace += Insert_a_space_before_cursor
+      let group2conf.whitespace += [
             \ Prepare_brackets_at_cond,
             \ Double_spaces_at_endOfSentence_in_Comment,
             \ Double_spaces_at_endOfSentence_as_FileType,
@@ -476,30 +476,30 @@ function! s:set_rules() abort
 
   " Rules for Vim {{{1
   let ft2char.vim = {}
-  let label2conf.vim = []
-  let label2ft.vim = [
+  let group2conf.vim = []
+  let group2ft.vim = [
         \ 'vim',
         \ ]
 
   " Delete duplicated '"' to comment in Vimscript.
-  let label2conf.vim += [
+  let group2conf.vim += [
         \ {'char': '<TAB>', 'at': '^\s*"\%#"', 'input': '<C-g>U<Del><TAB>'},
         \ {'char': '<Space>', 'at': '^\s*"\%#"', 'input': '<C-g>U<Del><space>'},
         \ {'char': '<S-Space>', 'at': '^\s*"\%#"', 'input': '<C-g>U<Del><space>'},
         \ ]
 
-  let label2conf.vim += [
+  let group2conf.vim += [
         \ {'char': '<', 'at': 'map .*\%#', 'input_after': '>'},
         \ {'char': '<', 'at': 'exe [''"]norm .*\\\%#', 'input_after': '>'},
         \ ]
 
   " Add comma to add either List or Dict nested.
-  let label2conf.vim += [
+  let group2conf.vim += [
         \ {'char': '{', 'at': '^\s*\\\s*\%#', 'input_after': '},'},
         \ {'char': '[', 'at': '^\s*\\\s*\%#', 'input_after': '],'},
         \ ]
 
-  let label2conf.vim += [
+  let group2conf.vim += [
         \ {'char': '(', 'at': '\\\%#', 'input_after': '\)'},
         \ ]
 
@@ -513,8 +513,8 @@ function! s:set_rules() abort
         \ ]
 
   " Rules for Cpp {{{2
-  let label2conf.cpp = []
-  let label2conf.cpp += [
+  let group2conf.cpp = []
+  let group2conf.cpp += [
         \ {'char': '{', 'input_after': '};',
         \     'at': '\v<(struct|return|class)> .*%#',
         \     'except': '\v(template <.*%#|%#.*;)',
@@ -568,23 +568,23 @@ function! s:set_rules() abort
   let rules.formal = []
 
   " Declare conditions for each local rules {{{1
-  let label2ft.react = [
+  let group2ft.react = [
         \ 'javascriptreact',
         \ 'typescriptreact',
         \ ]
 
-  let label2ft.javascript = [
+  let group2ft.javascript = [
         \ 'javascript',
         \ 'javascriptreact',
         \ 'typescript',
         \ 'typescriptreact',
         \ ]
 
-  let label2ft.css = [
+  let group2ft.css = [
         \ 'css',
         \ ]
 
-  let label2ft.semicolon = [
+  let group2ft.semicolon = [
         \ 'cpp',
         \ 'javascript',
         \ 'javascriptreact',
@@ -592,7 +592,7 @@ function! s:set_rules() abort
         \ 'typescriptreact',
         \ ]
 
-  let label2ft.tag = [
+  let group2ft.tag = [
         \ 'htm',
         \ 'html',
         \ 'javascriptreact',
@@ -604,7 +604,7 @@ function! s:set_rules() abort
   " Convert rules {{{1
   let formal = rules.formal
 
-  function! s:_convert_ft2char_into_label2fts() abort closure
+  function! s:_convert_ft2char_into_group2fts() abort closure
     let ret = []
     for ft in keys(ft2char)
       let char2conf = ft2char[ft]
@@ -623,11 +623,11 @@ function! s:set_rules() abort
 
   function! s:convert_local_rules() abort closure
     let ret = []
-    let ret += s:_convert_ft2char_into_label2fts()
+    let ret += s:_convert_ft2char_into_group2fts()
 
-    for label in keys(label2ft)
-      let conf = label2conf[label]
-      let ret += s:insert_rule2rules(conf, {'filetype': label2ft[label]})
+    for group in keys(group2ft)
+      let conf = group2conf[group]
+      let ret += s:insert_rule2rules(conf, {'filetype': group2ft[group]})
     endfor
 
     return ret
