@@ -228,11 +228,11 @@ function! LL_indent() abort
     let cur_options .= opt .'='. lval .' '
   endfor
 
-  if &g:sw == 0 && &ts != &sw
+  if &g:sw != 0 && &ts != &sw
     let cur_options .= 'sw='. &sw .' '
   endif
 
-  if &g:sts < 0 && &sts != &sw
+  if &g:sts > 0 && &sts != &sw
     let cur_options .= 'sts='. &sts .' '
   endif
 
