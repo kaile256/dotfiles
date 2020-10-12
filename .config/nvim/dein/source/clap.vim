@@ -1,3 +1,6 @@
+" TOML: browse.toml
+" Repo: liuchengxu/vim-clap
+
 hi! link ClapPreview NormalFloat
 
 " only supports 'ctrl-*'
