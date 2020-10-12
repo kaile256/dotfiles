@@ -279,6 +279,26 @@ let s:user_rules += [
       \ ]
 unlet s:Let_it_double
 
+" " Overwrite Triple quotes {{{1
+" " Produce triple quoted block
+" let s:user_rules += [
+"      \ {'char': "'", 'at': "''\\%#", 'except': '\%#\S', 'input': "'<CR>", 'input_after': "<CR>'''"},
+"      \ {'char': '"', 'at': '""\%#',  'except': '\%#\S', 'input': '"<CR>', 'input_after': '<CR>"""'},
+"      \ {'char': '`', 'at': '``\%#',  'except': '\%#\S', 'input': '`<CR>', 'input_after': '<CR>```'},
+"      \ ]
+
+let s:user_rules += [
+      \ {'char': "'", 'at': "''\\%#", 'except': '\%#\S', 'input': "'"},
+      \ {'char': '"', 'at': '""\%#',  'except': '\%#\S', 'input': '"'},
+      \ {'char': '`', 'at': '``\%#',  'except': '\%#\S', 'input': '`'},
+      \ ]
+
+let s:user_rules += [
+      \ {'char': "'", 'at': "'''\\%#", 'except': '\%#\S', 'input': '', 'input_after': "'''"},
+      \ {'char': '"', 'at': '"""\%#',  'except': '\%#\S', 'input': '', 'input_after': '"""'},
+      \ {'char': '`', 'at': '```\%#',  'except': '\%#\S', 'input': '', 'input_after': '```'},
+      \ ]
+
 " Overwrite Rules for Backspaces {{{1
 " Note: {'delete': 1} sometimes fails to work; 'input_after': '<C-g>U<Del>'
 " crashes Vim.
@@ -355,26 +375,6 @@ let s:user_rules += [
       \ ]
 
 unlet s:Joinspaces
-
-" " Overwrite Triple quotes {{{1
-" " Produce triple quoted block
-" let s:user_rules += [
-"      \ {'char': "'", 'at': "''\\%#", 'except': '\%#\S', 'input': "'<CR>", 'input_after': "<CR>'''"},
-"      \ {'char': '"', 'at': '""\%#',  'except': '\%#\S', 'input': '"<CR>', 'input_after': '<CR>"""'},
-"      \ {'char': '`', 'at': '``\%#',  'except': '\%#\S', 'input': '`<CR>', 'input_after': '<CR>```'},
-"      \ ]
-
-let s:user_rules += [
-      \ {'char': "'", 'at': "''\\%#", 'except': '\%#\S', 'input': "'"},
-      \ {'char': '"', 'at': '""\%#',  'except': '\%#\S', 'input': '"'},
-      \ {'char': '`', 'at': '``\%#',  'except': '\%#\S', 'input': '`'},
-      \ ]
-
-let s:user_rules += [
-      \ {'char': "'", 'at': "'''\\%#", 'except': '\%#\S', 'input': '', 'input_after': "'''"},
-      \ {'char': '"', 'at': '"""\%#',  'except': '\%#\S', 'input': '', 'input_after': '"""'},
-      \ {'char': '`', 'at': '```\%#',  'except': '\%#\S', 'input': '', 'input_after': '```'},
-      \ ]
 
 " Overwrite Rules for Spaces {{{1
 function! s:define_rules_for_space() abort
