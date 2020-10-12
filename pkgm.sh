@@ -28,6 +28,7 @@ PACKAGEs=(
   xorg-xinput # removed with `bmenu`
   lshw # removed with `bmenu`
 
+  fvim # Neovim front-end UI built with F# & Avalonia
   lua-lcf # formatter for lua
   luacheck # linter for lua, integrating with lua-lsp
   lua-lsp-git # rarely updated
