@@ -2,6 +2,9 @@
 " Repo: cohama/lexima.vim
 " Another: source/lexima.vim
 
+imap <C-h> <BS>
+imap <C-j> <CR>
+
 function! s:insert_rule2rules(rules, dict) abort
   " a:rules: [{}] in LeximaRules
   " a:dict: {} in Rule
