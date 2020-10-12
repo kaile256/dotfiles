@@ -1,0 +1,45 @@
+global !p
+def autoload_prefix():
+  underscored = plugin_name_underscored()
+  prefix = underscored + '#' if underscored else 's:'
+  return prefix
+
+
+endglobal
+
+snippet scriptencoding "" b
+scriptencoding utf-8
+endsnippet
+
+snippet 'fun(c(tion)?)?' "function! foo() ... endfunction" br
+function! `!p snip.rv = autoload_prefix()`${2:do}(${3:#:args}) abort${4: closure}
+  ${8:${VISUAL:command}}
+endfunction
+endsnippet
+
+snippet 'aug(roup)?' "augroup foo ... augroup END" br
+augroup my${1:Name}
+  au ${2:FileType} ${3:*} ${4:${VISUAL:command}}
+augroup END
+endsnippet
+
+snippet 'nore(map)?' "noremap [rhs] [lhs]" ir
+noremap `!v expand('%:p') =~# '/ftplugin/' ? '<buffer><nowait>' : ''
+`${1:<silent> }${2:lhs} ${5:${VISUAL:rhs}}
+endsnippet
+
+snippet '(?<!nore)map' "map [rhs] [lhs]" ir
+map `!v expand('%:p') =~# '/ftplugin/' ? '<buffer><nowait>' : ''
+`${1:<silent> }${2:lhs} ${5:<Plug>}${6:${VISUAL:(rhs)}}
+endsnippet
+
+snippet try "try ... endtry" b
+try
+  ${1:${VISUAL}}
+endtry
+endsnippet
+
+snippet catch "catch error E$1" b
+catch /^Vim\v%((\a+))?:E${1:123}/
+endsnippet
+
