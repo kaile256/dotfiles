@@ -20,6 +20,16 @@ snippet '\$(\d)' "placeholder" ir
 ${`!p snip.rv = match.group(1)`:${1:${VISUAL:default}}}
 endsnippet
 
+context "is_in_python_code()"
+snippet buf "buf = vim.current.buffer"
+vim.current.buffer
+endsnippet
+
+context "is_in_python_code()"
+snippet opt "buf = vim.current.buffer"
+vim.current.buffer.options
+endsnippet
+
 priority -50
 
 context "is_in_python_code()"
