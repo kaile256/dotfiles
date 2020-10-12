@@ -16,8 +16,9 @@ nmap [C <Plug>(GitGutterPrevHunk)<SID>(gitgutter-stage-hunks)
 nmap ]C <Plug>(GitGutterNextHunk)<SID>(gitgutter-stage-hunks)
 
 " Staging Hunks {{{1
-nmap <silent> U <Plug>(GitGutterUndoHunk)
-      \ :<C-u>silent! call repeat#set("\<lt>Plug>(GitGutterUndoHunk)")<CR>
+nmap <silent> U
+      \ <Plug>(GitGutterUndoHunk):<C-u>silent!
+      \ call repeat#set("\<lt>Plug>(GitGutterUndoHunk)")<CR>
 
 nnoremap <expr><silent> <SID>(gitgutter-stage-current-hunk)
       \ (foldclosed(line('.')) == -1 ? ':<C-u>' : 'V')
