@@ -682,7 +682,7 @@ bindsym Ctrl+bracketleft mode default
 }
 
 # Neovim {{{2
-set $Neovim " Neovim: (Q)t (E)ovim (G)o (R)ust g(L)rnvim | (A)lacritty "
+set $Neovim " Neovim: (Q)t (F)vim | (A)lacritty "
 $release $Super+N mode $Neovim; $shortmsg 'Neovim: backends'
 
 mode $Neovim {
@@ -695,6 +695,7 @@ bindsym R $noid gnvim;   mode default
 #bindsym T $noid nyaovim; mode default
 bindsym L $noid glrnvim; mode default
 bindsym A $noid alacritty -e nvim; mode default
+bindsym F $noid fvim; mode default
 
 bindsym Ctrl+C           mode default
 bindsym Ctrl+bracketleft mode default
