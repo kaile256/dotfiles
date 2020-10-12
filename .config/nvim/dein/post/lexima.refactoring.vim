@@ -475,8 +475,11 @@ function! s:set_rules() abort
         \ ]
 
   " Rules for Vim {{{1
-  let label2conf.vim = []
   let ft2char.vim = {}
+  let label2conf.vim = []
+  let label2ft.vim = [
+        \ 'vim',
+        \ ]
 
   " Delete duplicated '"' to comment in Vimscript.
   let label2conf.vim += [
