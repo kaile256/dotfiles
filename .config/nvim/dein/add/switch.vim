@@ -134,6 +134,10 @@ let s:definitions['markdown'] = [
 
 let s:definitions['python'] = [
       \ ['spam', 'ham', 'eggs'],
+      \ {
+      \   'elseif': 'elif',
+      \   'else if': 'elif',
+      \ },
       \ ]
 
 function! s:extend_definitions_for_snippets() abort
