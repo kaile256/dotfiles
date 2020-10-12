@@ -4,13 +4,17 @@ endsnippet
 
 global !p
 def get_preceeding_var_definition():
-  pat_var       = '[gbwta]:\k\+\ze\s*='
+  pat_var = '[gbwta]:\k\+\ze\s*='
+  lnum = vim.eval(f'search(\'{pat_var}\', "nbW")')
+  var  = vim.eval(f'matchstr(getline({lnum}), \'{pat_var}\')')
+  return var
+
+
+def set_get_args():
+  var = get_preceeding_var_definition()
   pat_prefix    = '[gbwta]:\ze\k\+'
   pat_following = '[gbwta]:\zs\k\+'
 
-  lnum = vim.eval(f'search(\'{pat_var}\', "nbW")')
-
-  var       = vim.eval(f'matchstr(getline({lnum}), \'{pat_var}\')')
   prefix    = vim.eval(f'matchstr(\'{var}\', \'{pat_prefix}\')')
   following = vim.eval(f'matchstr(\'{var}\', \'{pat_following}\')')
 
@@ -20,5 +24,5 @@ def get_preceeding_var_definition():
 endglobal
 
 snippet '\s*=\s*get' "get(g:, 'foo', $2)" r
- =${1} get(`!p snip.rv = get_preceeding_var_definition()`${3:, []})
+ =${1} get(`!p snip.rv = set_get_args()`${3:, []})
 endsnippet
