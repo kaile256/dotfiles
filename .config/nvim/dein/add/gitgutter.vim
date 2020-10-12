@@ -20,18 +20,27 @@ nmap <silent> U <Plug>(GitGutterUndoHunk):<C-u>silent! call repeat#set("\<lt>Plu
 
 nnoremap <expr><silent> <SID>(gitgutter-stage-hunks)
       \ (foldclosed(line('.')) == -1 ? ':<C-u>' : 'V') . ':GitGutterStageHunk<CR>'
+nnoremap <silent> <SID>(gitgutter-stage-hunks)
+      \ :<C-u>set operatorfunc=<SID>stage_hunks_op<CR>g@
 
 nmap <space>gp <SID>(gitgutter-stage-hunks)
 nmap <silent> <space>gP <SID>(gitgutter-stage-hunks):<C-u>GcommitBottom<CR>
 
-xmap <silent> <space>gp :<C-u>call <SID>stage_hunks_in_range()<CR>
-xmap <silent> <space>gP :<C-u>call <SID>stage_hunks_in_range()<bar>
+xmap <silent> <space>gp :<C-u>call <SID>stage_hunks_in_range("'<", "'>")<CR>
+xmap <silent> <space>gP :<C-u>call <SID>stage_hunks_in_range("'<'"","'>")<bar>
       \ GcommitBottom<CR>
 
-function! s:stage_hunks_in_range() abort "{{{2
+function! s:stage_hunks_op(wise) abort
+  call s:stage_hunks_in_range("'[", "']")
+endfunction
+
+function! s:stage_hunks_in_range(start, end) abort "{{{2
+  " a:start: lnum
+  " a:end: lnum
+
   let save_view = winsaveview()
-  norm! '<
-  while line('.') <= line("'>")
+  exe 'norm!' a:start
+  while line('.') <= line(a:end)
     let lnum = line('.')
     silent! GitGutterStageHunk
     silent! GitGutterNextHunk
