@@ -16,14 +16,17 @@ nmap [C <Plug>(GitGutterPrevHunk)<SID>(gitgutter-stage-hunks)
 nmap ]C <Plug>(GitGutterNextHunk)<SID>(gitgutter-stage-hunks)
 
 " Staging Hunks {{{1
-nmap <silent> U <Plug>(GitGutterUndoHunk):<C-u>silent! call repeat#set("\<lt>Plug>(GitGutterUndoHunk)")<CR>
+nmap <silent> U <Plug>(GitGutterUndoHunk)
+      \ :<C-u>silent! call repeat#set("\<lt>Plug>(GitGutterUndoHunk)")<CR>
 
-nnoremap <expr><silent> <SID>(gitgutter-stage-hunks)
-      \ (foldclosed(line('.')) == -1 ? ':<C-u>' : 'V') . ':GitGutterStageHunk<CR>'
-nnoremap <silent> <SID>(gitgutter-stage-hunks)
+nnoremap <expr><silent> <SID>(gitgutter-stage-current-hunk)
+      \ (foldclosed(line('.')) == -1 ? ':<C-u>' : 'V')
+      \ .':GitGutterStageHunk<CR>'
+nnoremap <silent> <SID>(gitgutter-stage-hunks-op)
       \ :<C-u>set operatorfunc=<SID>stage_hunks_op<CR>g@
 
-nmap <space>gp <SID>(gitgutter-stage-hunks)
+nmap <space>gpp <SID>(gitgutter-stage-current-hunk)
+nmap <space>gp <SID>(gitgutter-stage-hunks-op)
 nmap <silent> <space>gP <SID>(gitgutter-stage-hunks):<C-u>GcommitBottom<CR>
 
 xmap <silent> <space>gp :<C-u>call <SID>stage_hunks_in_range("'<", "'>")<CR>
