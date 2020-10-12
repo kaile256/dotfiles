@@ -21,25 +21,23 @@ function! s:insert_rule2rules(rules, dict) abort
 endfunction
 
 function! s:set_rules() abort
-  let rules = {
+  let config = {
         \   'formal': [],
         \
         \   'global': [],
         \
-        \   'ft2char': {},
-        \
         \   'group': {
-        \     'config': {},
+        \     'rules': {},
         \     'filetypes': {},
         \   }
         \ }
 
-  let global = rules.global
+  let global = config.global
 
-  let ft2char = rules.ft2char
-
-  let group2conf = rules.group.config
-  let group2ft   = rules.group.filetypes
+  " If the key of group2conf has no corresponding key in group2ft, regard the
+  " key as the target filetype
+  let group2rules = config.group.rules
+  let group2ft   = config.group.filetypes
 
   " Note: '\%#' represents the cursor position; see the help.
   " Notice: single quote in double quotes sometimes fails to apply the rule.
@@ -70,7 +68,7 @@ function! s:set_rules() abort
         \ 'at': '\<styled\>\S*\%#',
         \ }
 
-  let group2conf.react = [
+  let group2rules.react = [
         \ Complete_backtick_for_CSS_in_JS,
         \ ]
 
@@ -99,7 +97,7 @@ function! s:set_rules() abort
         \ 'at': '^\s*case\%#', 'except': pat_revising,
         \ }
 
-  let group2conf.javascript = [
+  let group2rules.javascript = [
         \ {'char': '<space>', 'input_after': ';', 'at': 'import\%#'},
         \ {'char': '<space>', 'input_after': ';',
         \     'at': 'let\%#', 'except': pat_revising},
@@ -116,16 +114,16 @@ function! s:set_rules() abort
         \   'input': '<Esc>:<C-u>keepjumps keeppatterns s/^\ze\w/./e<CR>gi<C-g>U<Right><space>'},
         \ ]
 
-  let group2conf.css = []
-  let group2conf.css += [
+  let group2rules.css = []
+  let group2rules.css += [
         \ {'char': '<space>', 'input': ': ', 'input_after': ';',
         \     'at': '^\s\+[a-zA-Z-]\+\%#', 'except': '\%#.\+',},
         \ {'char': '<space>', 'input_after': ';',
         \     'at': '^\s\+[a-zA-Z-]\+:\%#', 'except': '\%#.\+'},
         \ ]
-  let group2conf.css += Format_css_element
+  let group2rules.css += Format_css_element
 
-  let group2conf.semicolon = [
+  let group2rules.semicolon = [
         \ {'char': '<space>', 'input_after': ';',
         \     'at': 'return\%#', 'except': '\%#.\+'},
         \ {'char': '<space>', 'input_after': ';',
@@ -134,9 +132,9 @@ function! s:set_rules() abort
         \ ]
 
   " Rules for Tag {{{1
-  let group2conf.tag = []
+  let group2rules.tag = []
 
-  let group2conf.tag += [
+  let group2rules.tag += [
         \ {'char': '<CR>', 'at': '\%#\s*/>',
         \   'input_after': '<CR>', 'input': '<CR>'},
         \ ]
@@ -322,9 +320,9 @@ function! s:set_rules() abort
         \ ]
 
   function! s:define_rules_for_space() abort closure "{{{1
-    let group2conf.whitespace = []
+    let group2rules.whitespace = []
 
-    let group2conf.whitespace += [
+    let group2rules.whitespace += [
           \ {'char': '<S-Space>',   'input': '<space>'},
           \ {'char': '<C-space>',   'input': '<space>'},
           \ {'char': '<C-S-Space>', 'input': '<space>'},
@@ -394,9 +392,9 @@ function! s:set_rules() abort
             \ ],
             \ }
 
-      let group2conf.whitespace += Spread_brackets
-      let group2conf.whitespace += Insert_a_space_before_cursor
-      let group2conf.whitespace += [
+      let group2rules.whitespace += Spread_brackets
+      let group2rules.whitespace += Insert_a_space_before_cursor
+      let group2rules.whitespace += [
             \ Prepare_brackets_at_cond,
             \ Double_spaces_at_endOfSentence_in_Comment,
             \ Double_spaces_at_endOfSentence_as_FileType,
@@ -475,84 +473,80 @@ function! s:set_rules() abort
         \ ]
 
   " Rules for Vim {{{1
-  let ft2char.vim = {}
-  let group2conf.vim = []
-  let group2ft.vim = [
-        \ 'vim',
-        \ ]
+  let group2rules.vim = []
 
   " Delete duplicated '"' to comment in Vimscript.
-  let group2conf.vim += [
+  let group2rules.vim += [
         \ {'char': '<TAB>', 'at': '^\s*"\%#"', 'input': '<C-g>U<Del><TAB>'},
         \ {'char': '<Space>', 'at': '^\s*"\%#"', 'input': '<C-g>U<Del><space>'},
         \ {'char': '<S-Space>', 'at': '^\s*"\%#"', 'input': '<C-g>U<Del><space>'},
         \ ]
 
-  let group2conf.vim += [
+  let group2rules.vim += [
         \ {'char': '<', 'at': 'map .*\%#', 'input_after': '>'},
         \ {'char': '<', 'at': 'exe [''"]norm .*\\\%#', 'input_after': '>'},
         \ ]
 
   " Add comma to add either List or Dict nested.
-  let group2conf.vim += [
+  let group2rules.vim += [
         \ {'char': '{', 'at': '^\s*\\\s*\%#', 'input_after': '},'},
         \ {'char': '[', 'at': '^\s*\\\s*\%#', 'input_after': '],'},
         \ ]
 
-  let group2conf.vim += [
+  let group2rules.vim += [
         \ {'char': '(', 'at': '\\\%#', 'input_after': '\)'},
         \ ]
 
   " Insert backslashes when filetype is vim
-  let ft2char.vim['<CR>'] = [
-        \ {'at': '^\s*\\.*\%#', 'input': '<CR>\ ', 'except': '[]})]\s*$'},
+  let group2rules.vim += [
+        \ {'char': '<CR>', 'at': '^\s*\\.*\%#', 'input': '<CR>\ ', 'except': '[]})]\s*$'},
         \
-        \ {'at': '\v(\=.*|\\)\s*\(%#\)', 'input': '<CR>\ ', 'input_after': '<CR>\ '},
-        \ {'at': '\v(\=.*|\\)\s*\{%#}',  'input': '<CR>\ ', 'input_after': '<CR>\ '},
-        \ {'at': '\v(\=.*|\\)\s*\[%#]',  'input': '<CR>\ ', 'input_after': '<CR>\ '},
+        \ {'char': '<CR>', 'at': '\v(\=.*|\\)\s*\(%#\)', 'input': '<CR>\ ', 'input_after': '<CR>\ '},
+        \ {'char': '<CR>', 'at': '\v(\=.*|\\)\s*\{%#}',  'input': '<CR>\ ', 'input_after': '<CR>\ '},
+        \ {'char': '<CR>', 'at': '\v(\=.*|\\)\s*\[%#]',  'input': '<CR>\ ', 'input_after': '<CR>\ '},
         \ ]
 
   " Rules for Cpp {{{2
-  let group2conf.cpp = []
-  let group2conf.cpp += [
+  let group2rules.cpp = []
+
+  let group2rules.cpp += [
         \ {'char': '{', 'input_after': '};',
         \     'at': '\v<(struct|return|class)> .*%#',
         \     'except': '\v(template <.*%#|%#.*;)',
         \ },
         \ ]
 
-  let ft2char.cpp = {}
-  let ft2char.cpp['<'] = [
-        \ {'at': '\a\%#', 'input_after': '>'},
-        \ {'at': '^#include \%#', 'input_after': '>'},
+  let group2rules.cpp += [
+        \ {'char': '<', 'at': '\a\%#', 'input_after': '>'},
+        \ {'char': '<', 'at': '^#include \%#', 'input_after': '>'},
         \ ]
-  let ft2char.cpp['<C-:>'] = [
-        \ {'at': '\%#>', 'input': '<C-g>U<Right>:'},
+  let group2rules.cpp += [
+        \ {'char': '<C-:>', 'at': '\%#>', 'input': '<C-g>U<Right>:'},
         \ ]
-  let ft2char.cpp['='] = [
-        \ {'input': '=', 'input_after': ';', 'except': '\%#.'},
+  let group2rules.cpp += [
+        \ {'char': '=', 'input': '=', 'input_after': ';', 'except': '\%#.'},
         \ ]
 
-  let ft2char.cpp['<Space>'] = [
-        \ {'at': '(.*\%#.*)',  'priority': 90},
-        \ {'at': '{.*\%#.*}',  'priority': 90},
-        \ {'at': '\[.*\%#.*]', 'priority': 90},
+  let group2rules.cpp += [
+        \ {'char': '<space>', 'at': '(.*\%#.*)',  'priority': 90},
+        \ {'char': '<space>', 'at': '{.*\%#.*}',  'priority': 90},
+        \ {'char': '<space>', 'at': '\[.*\%#.*]', 'priority': 90},
         \
-        \ {'input': ' >> ',  'at': 'cin\%#'},
-        \ {'input': ' << ', 'at': 'cout\%#'},
+        \ {'char' : '<space>', 'input': ' >> ',  'at': 'cin\%#'},
+        \ {'char' : '<space>', 'input': ' << ', 'at': 'cout\%#'},
         \
-        \ {'input': ' >> ',  'at': 'cin.*[^> ]\+\%#', 'except': '\v(;.*%#|%#.*[^;\]\)])'},
-        \ {'input': ' << ', 'at': 'cout.*[^< ]\+\%#', 'except': '\v(;.*%#|%#.*[^;\]\)])'},
+        \ {'char': '<space>', 'input': ' >> ',  'at': 'cin.*[^> ]\+\%#', 'except': '\v(;.*%#|%#.*[^;\]\)])'},
+        \ {'char': '<space>', 'input': ' << ', 'at': 'cout.*[^< ]\+\%#', 'except': '\v(;.*%#|%#.*[^;\]\)])'},
         \ ]
 
-  let ft2char.cpp['<C-space>'] = [
-        \ {'at': 'cin  >> .\{-}\%#[''"]', 'input': '<C-g>U<Right> >> '},
-        \ {'at': 'cout << .\{-}\%#[''"]', 'input': '<C-g>U<Right> << '},
+  let group2rules.cpp += [
+        \ {'char': '<C-space>', 'at': 'cin  >> .\{-}\%#[''"]', 'input': '<C-g>U<Right> >> '},
+        \ {'char': '<C-space>', 'at': 'cout << .\{-}\%#[''"]', 'input': '<C-g>U<Right> << '},
         \ ]
 
-  let ft2char.cpp[','] = [
-        \ {'at': 'cin .*\h\w*\%#', 'input': ' >> '},
-        \ {'at': 'cout .*\h\w*\%#', 'input': ' << '},
+  let group2rules.cpp += [
+        \ {'char': ',', 'at': 'cin .*\h\w*\%#', 'input': ' >> '},
+        \ {'char': ',', 'at': 'cout .*\h\w*\%#', 'input': ' << '},
         \ ]
 
   " Finally: Override the rules though lexima#add_rule() "{{{1
@@ -565,26 +559,22 @@ function! s:set_rules() abort
   " call lexima#insmode#map_hook('before', '<C-j>',   "\<ESC>")
   " call lexima#insmode#map_hook('after', '<CR>',    "\<CR>:-1s/\s\+$<CR>")
 
-  let rules.formal = []
+  let config.formal = []
 
   " Declare conditions for each local rules {{{1
-  let group2ft.react = [
+  let group2ft.React = [
         \ 'javascriptreact',
         \ 'typescriptreact',
         \ ]
 
-  let group2ft.javascript = [
+  let group2ft.Javascript = [
         \ 'javascript',
         \ 'javascriptreact',
         \ 'typescript',
         \ 'typescriptreact',
         \ ]
 
-  let group2ft.css = [
-        \ 'css',
-        \ ]
-
-  let group2ft.semicolon = [
+  let group2ft.Semicolon = [
         \ 'cpp',
         \ 'javascript',
         \ 'javascriptreact',
@@ -592,7 +582,7 @@ function! s:set_rules() abort
         \ 'typescriptreact',
         \ ]
 
-  let group2ft.tag = [
+  let group2ft.Tag = [
         \ 'htm',
         \ 'html',
         \ 'javascriptreact',
@@ -602,32 +592,19 @@ function! s:set_rules() abort
         \ ]
 
   " Convert rules {{{1
-  let formal = rules.formal
-
-  function! s:_convert_ft2char_into_group2fts() abort closure
-    let ret = []
-    for ft in keys(ft2char)
-      let char2conf = ft2char[ft]
-
-      for char in keys(char2conf)
-        let conf = char2conf[char]
-        let ret += s:insert_rule2rules(conf, {
-              \ 'char': char,
-              \ 'filetype': ft,
-              \ })
-      endfor
-    endfor
-
-    return ret
-  endfunction
+  let formal = config.formal
 
   function! s:convert_local_rules() abort closure
     let ret = []
-    let ret += s:_convert_ft2char_into_group2fts()
 
-    for group in keys(group2ft)
-      let conf = group2conf[group]
-      let ret += s:insert_rule2rules(conf, {'filetype': group2ft[group]})
+    for group in keys(group2rules)
+      let rules = group2rules[group]
+      if has_key(group2ft, group)
+        let ret += s:insert_rule2rules(rules, {'filetype': group2ft[group]})
+      else
+        let ft = group
+        let ret += s:insert_rule2rules(rules, {'filetype': ft})
+      endif
     endfor
 
     return ret
@@ -648,3 +625,4 @@ call s:set_rules()
 
 delfunction s:set_rules
 delfunction s:insert_rule2rules
+
