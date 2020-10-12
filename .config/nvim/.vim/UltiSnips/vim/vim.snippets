@@ -62,8 +62,3 @@ ${VISUAL:/(.+?)\n//m}
 "}}}`!p snip.rv = match.group(1)`
 endsnippet
 
-snippet tap "Dein: guard for plugin config under ftplugin/" b
-if !dein#tap('${1:${VISUAL:vim-plugin}}') | finish | endif
-
-endsnippet
-
