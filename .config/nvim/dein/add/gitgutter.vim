@@ -47,9 +47,8 @@ function! s:stage_hunks_in_range(start, end) abort "{{{2
     let lnum = line('.')
     silent! GitGutterStageHunk
     silent! GitGutterNextHunk
-    if lnum == line('.')
-      break
-    endif
+
+    if lnum == line('.') | break | endif
   endwhile
   call winrestview(save_view)
 endfunction
