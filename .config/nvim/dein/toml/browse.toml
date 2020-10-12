@@ -16,31 +16,26 @@ hook_post_source = 'runtime post/ctrlsf.vim'
 repo = 'junegunn/fzf'
 #[ Note: :Files in fzf.vim is the same as :FZF.
 on_event = 'CmdLineEnter'
-
 [[plugins]]
 repo = 'junegunn/fzf.vim'
 on_event = ['CmdLineEnter']
 hook_add = 'runtime add/fzf.vim'
 hook_source = 'runtime source/fzf.vim'
 hook_post_source = 'runtime post/fzf.vim'
-
 [[plugins]]
 repo = 'fszymanski/fzf-quickfix'
 depend = 'fzf.vim'
 on_cmd = ['Quickfix']
-
 #[[plugins]]
 #repo = 'dominickng/fzf-session.vim'
 #on_cmd = ['Session', 'Sessions']
 #hook_source = 'runtime source/fzf-session.vim'
-#
 #[[plugins]]
 #repo = 'yuki-ycino/fzf-preview.vim'
 ## too many settings to imitate the config of fzf.vim
 #on_cmd = 'FzfPreview.*'
 #hook_add = 'runtime add/fzf-preview.vim'
 #hook_source = 'runtime source/fzf-preview.vim'
-
 [[plugins]]
 repo = 'krzbe/fzf-git-submodules'
 on_func = ['fzf#submodules#']
@@ -55,7 +50,6 @@ hook_add = 'runtime add/fzf-gitswitch..vim'
 #repo = 'srstevenson/vim-picker'
 # fzy's wrapper for vim
 #on_event = ['BufRead']
-
 [[plugins]]
 repo = 'liuchengxu/vim-clap'
 build = 'bash install.sh'
