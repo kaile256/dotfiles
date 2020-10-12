@@ -15,23 +15,6 @@ if !exists('g:sandwich#default_recipes') | finish | endif
 let g:sandwich#recipes = deepcopy(g:sandwich#default_recipes)
 
 let g:sandwich#recipes += [{
-      \ 'input': ['\"'],
-      \ 'buns': ['\"', '\"'],
-      \ 'nesting': 1,
-      \ 'kind': ['add', 'delete', 'replace', 'textobj'],
-      \ }, {
-      \ 'input': ['\(', '\)'],
-      \ 'buns': ['\(', '\)'],
-      \ 'nesting': 1,
-      \ 'kind': ['add', 'delete', 'replace', 'textobj'],
-      \ }, {
-      \ 'input': ['\[', '\]'],
-      \ 'buns': ['\[', '\]'],
-      \ 'nesting': 1,
-      \ 'kind': ['add', 'delete', 'replace', 'textobj'],
-      \ }]
-
-let g:sandwich#recipes += [{
       \ 'input': ['>'],
       \ 'buns': ['>', '<'],
       \ 'nesting': 1,
