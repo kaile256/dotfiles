@@ -26,8 +26,6 @@ function! s:set_rules() abort
         \
         \   'global': [],
         \
-        \   'ft2char': {},
-        \
         \   'group': {
         \     'rules': {},
         \     'filetypes': {},
@@ -35,8 +33,6 @@ function! s:set_rules() abort
         \ }
 
   let global = config.global
-
-  let ft2char = config.ft2char
 
   " If the key of group2conf has no corresponding key in group2ft, regard the
   " key as the target filetype
@@ -477,11 +473,7 @@ function! s:set_rules() abort
         \ ]
 
   " Rules for Vim {{{1
-  let ft2char.vim = {}
   let group2rules.vim = []
-  let group2ft.vim = [
-        \ 'vim',
-        \ ]
 
   " Delete duplicated '"' to comment in Vimscript.
   let group2rules.vim += [
@@ -506,16 +498,17 @@ function! s:set_rules() abort
         \ ]
 
   " Insert backslashes when filetype is vim
-  let ft2char.vim['<CR>'] = [
-        \ {'at': '^\s*\\.*\%#', 'input': '<CR>\ ', 'except': '[]})]\s*$'},
+  let group2rules.vim += [
+        \ {'char': '<CR>', 'at': '^\s*\\.*\%#', 'input': '<CR>\ ', 'except': '[]})]\s*$'},
         \
-        \ {'at': '\v(\=.*|\\)\s*\(%#\)', 'input': '<CR>\ ', 'input_after': '<CR>\ '},
-        \ {'at': '\v(\=.*|\\)\s*\{%#}',  'input': '<CR>\ ', 'input_after': '<CR>\ '},
-        \ {'at': '\v(\=.*|\\)\s*\[%#]',  'input': '<CR>\ ', 'input_after': '<CR>\ '},
+        \ {'char': '<CR>', 'at': '\v(\=.*|\\)\s*\(%#\)', 'input': '<CR>\ ', 'input_after': '<CR>\ '},
+        \ {'char': '<CR>', 'at': '\v(\=.*|\\)\s*\{%#}',  'input': '<CR>\ ', 'input_after': '<CR>\ '},
+        \ {'char': '<CR>', 'at': '\v(\=.*|\\)\s*\[%#]',  'input': '<CR>\ ', 'input_after': '<CR>\ '},
         \ ]
 
   " Rules for Cpp {{{2
   let group2rules.cpp = []
+
   let group2rules.cpp += [
         \ {'char': '{', 'input_after': '};',
         \     'at': '\v<(struct|return|class)> .*%#',
@@ -523,38 +516,37 @@ function! s:set_rules() abort
         \ },
         \ ]
 
-  let ft2char.cpp = {}
-  let ft2char.cpp['<'] = [
-        \ {'at': '\a\%#', 'input_after': '>'},
-        \ {'at': '^#include \%#', 'input_after': '>'},
+  let group2rules.cpp += [
+        \ {'char': '<', 'at': '\a\%#', 'input_after': '>'},
+        \ {'char': '<', 'at': '^#include \%#', 'input_after': '>'},
         \ ]
-  let ft2char.cpp['<C-:>'] = [
-        \ {'at': '\%#>', 'input': '<C-g>U<Right>:'},
+  let group2rules.cpp += [
+        \ {'char': '<C-:>', 'at': '\%#>', 'input': '<C-g>U<Right>:'},
         \ ]
-  let ft2char.cpp['='] = [
-        \ {'input': '=', 'input_after': ';', 'except': '\%#.'},
+  let group2rules.cpp += [
+        \ {'char': '=', 'input': '=', 'input_after': ';', 'except': '\%#.'},
         \ ]
 
-  let ft2char.cpp['<Space>'] = [
-        \ {'at': '(.*\%#.*)',  'priority': 90},
-        \ {'at': '{.*\%#.*}',  'priority': 90},
-        \ {'at': '\[.*\%#.*]', 'priority': 90},
+  let group2rules.cpp += [
+        \ {'char': '<space>', 'at': '(.*\%#.*)',  'priority': 90},
+        \ {'char': '<space>', 'at': '{.*\%#.*}',  'priority': 90},
+        \ {'char': '<space>', 'at': '\[.*\%#.*]', 'priority': 90},
         \
-        \ {'input': ' >> ',  'at': 'cin\%#'},
-        \ {'input': ' << ', 'at': 'cout\%#'},
+        \ {'char' : '<space>', 'input': ' >> ',  'at': 'cin\%#'},
+        \ {'char' : '<space>', 'input': ' << ', 'at': 'cout\%#'},
         \
-        \ {'input': ' >> ',  'at': 'cin.*[^> ]\+\%#', 'except': '\v(;.*%#|%#.*[^;\]\)])'},
-        \ {'input': ' << ', 'at': 'cout.*[^< ]\+\%#', 'except': '\v(;.*%#|%#.*[^;\]\)])'},
+        \ {'char': '<space>', 'input': ' >> ',  'at': 'cin.*[^> ]\+\%#', 'except': '\v(;.*%#|%#.*[^;\]\)])'},
+        \ {'char': '<space>', 'input': ' << ', 'at': 'cout.*[^< ]\+\%#', 'except': '\v(;.*%#|%#.*[^;\]\)])'},
         \ ]
 
-  let ft2char.cpp['<C-space>'] = [
-        \ {'at': 'cin  >> .\{-}\%#[''"]', 'input': '<C-g>U<Right> >> '},
-        \ {'at': 'cout << .\{-}\%#[''"]', 'input': '<C-g>U<Right> << '},
+  let group2rules.cpp += [
+        \ {'char': '<C-space>', 'at': 'cin  >> .\{-}\%#[''"]', 'input': '<C-g>U<Right> >> '},
+        \ {'char': '<C-space>', 'at': 'cout << .\{-}\%#[''"]', 'input': '<C-g>U<Right> << '},
         \ ]
 
-  let ft2char.cpp[','] = [
-        \ {'at': 'cin .*\h\w*\%#', 'input': ' >> '},
-        \ {'at': 'cout .*\h\w*\%#', 'input': ' << '},
+  let group2rules.cpp += [
+        \ {'char': ',', 'at': 'cin .*\h\w*\%#', 'input': ' >> '},
+        \ {'char': ',', 'at': 'cout .*\h\w*\%#', 'input': ' << '},
         \ ]
 
   " Finally: Override the rules though lexima#add_rule() "{{{1
@@ -570,23 +562,19 @@ function! s:set_rules() abort
   let config.formal = []
 
   " Declare conditions for each local rules {{{1
-  let group2ft.react = [
+  let group2ft.React = [
         \ 'javascriptreact',
         \ 'typescriptreact',
         \ ]
 
-  let group2ft.javascript = [
+  let group2ft.Javascript = [
         \ 'javascript',
         \ 'javascriptreact',
         \ 'typescript',
         \ 'typescriptreact',
         \ ]
 
-  let group2ft.css = [
-        \ 'css',
-        \ ]
-
-  let group2ft.semicolon = [
+  let group2ft.Semicolon = [
         \ 'cpp',
         \ 'javascript',
         \ 'javascriptreact',
@@ -594,7 +582,7 @@ function! s:set_rules() abort
         \ 'typescriptreact',
         \ ]
 
-  let group2ft.tag = [
+  let group2ft.Tag = [
         \ 'htm',
         \ 'html',
         \ 'javascriptreact',
@@ -606,30 +594,17 @@ function! s:set_rules() abort
   " Convert rules {{{1
   let formal = config.formal
 
-  function! s:_convert_ft2char_into_group2fts() abort closure
-    let ret = []
-    for ft in keys(ft2char)
-      let char2rules = ft2char[ft]
-
-      for char in keys(char2rules)
-        let rules = char2rules[char]
-        let ret += s:insert_rule2rules(rules, {
-              \ 'char': char,
-              \ 'filetype': ft,
-              \ })
-      endfor
-    endfor
-
-    return ret
-  endfunction
-
   function! s:convert_local_rules() abort closure
     let ret = []
-    let ret += s:_convert_ft2char_into_group2fts()
 
-    for group in keys(group2ft)
+    for group in keys(group2rules)
       let rules = group2rules[group]
-      let ret += s:insert_rule2rules(rules, {'filetype': group2ft[group]})
+      if has_key(group2ft, group)
+        let ret += s:insert_rule2rules(rules, {'filetype': group2ft[group]})
+      else
+        let ft = group
+        let ret += s:insert_rule2rules(rules, {'filetype': ft})
+      endif
     endfor
 
     return ret
