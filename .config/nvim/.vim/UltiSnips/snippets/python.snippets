@@ -1,0 +1,35 @@
+# Snippets within snipPythonCommand
+
+global !p
+def is_in_python_code():
+  syntax_name = vim.eval('synIDattr(synID(line("."), col(".") - 1, 1), "name")')
+  return re.search('python', syntax_name, flags=re.IGNORECASE)
+
+
+endglobal
+
+snippet !p "expr for Python" i
+\`!p${1} ${2:snip.rv =} ${3:${VISUAL}}\`
+endsnippet
+
+snippet 'rv\s*' "snip.rv = $1" r
+snip.rv = ${1}` `
+endsnippet
+
+snippet '\$(\d)' "placeholder" ir
+${`!p snip.rv = match.group(1)`:${1:${VISUAL:default}}}
+endsnippet
+
+priority -50
+
+context "is_in_python_code()"
+snippet '([1-9]\d*)' "match.group($1)" ir
+match.group(`!p snip.rv = match.group(1)`)
+endsnippet
+
+context "not is_in_python_code()"
+snippet '([1-9]\d*)' "`!p snip.rv = match.group($1)`" ir
+\`!p snip.rv = match.group(`!p snip.rv = match.group(1)`)\`
+endsnippet
+
+# vim:ft=snippets
