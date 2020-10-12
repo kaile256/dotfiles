@@ -24,12 +24,12 @@ snippet #! "expr with shebang"
 \`${0:#!}/usr/bin/env ${1:bash} ${2:#:expr}\`
 endsnippet
 
-snippet !p "expr for Python"
-\`!p${1} ${2:snip.rv =} ${3}\`
+snippet !p "expr for Python" i
+\`!p${1} ${2:snip.rv =} ${3:${VISUAL}}\`
 endsnippet
 
-snippet !v "expr for vim"
-\`!v ${1}\`
+snippet !v "expr for vim" i
+\`!v ${1:${VISUAL}}\`
 endsnippet
 
 snippet VISUAL "${VISUAL:(selected text)}" i
