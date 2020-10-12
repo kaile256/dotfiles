@@ -71,3 +71,20 @@ name: themis
         run: |
           ./vim-themis/bin/themis ./test
 endsnippet
+
+snippet strategy_os "[GitHub Actions] strategy for os" b
+strategy:
+  matrix:
+    os:
+      - ubuntu-latest
+      - macos-latest
+      - windows-latest
+endsnippet
+
+snippet steps "[GitHub Actions] steps with actions/checkout@2" b
+steps:
+  - uses: actions/checkout@v2
+
+  - name: ${1}
+    ${2:run/uses}: ${3}
+endsnippet
