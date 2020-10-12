@@ -23,11 +23,12 @@ nmap <silent> U
 nnoremap <expr><silent> <SID>(gitgutter-stage-current-hunk)
       \ (foldclosed(line('.')) == -1 ? ':<C-u>' : 'V')
       \ .':GitGutterStageHunk<CR>'
-nnoremap <silent> <SID>(gitgutter-stage-hunks-op)
+
+nnoremap <silent> <Plug>(GitGutterOpStageHunks)
       \ :<C-u>set operatorfunc=<SID>stage_hunks_op<CR>g@
 
 nmap <space>gpp <SID>(gitgutter-stage-current-hunk)
-nmap <space>gp <SID>(gitgutter-stage-hunks-op)
+nmap <space>gp <Plug>(GitGutterOpStageHunks)
 nmap <silent> <space>gP <SID>(gitgutter-stage-hunks):<C-u>GcommitBottom<CR>
 
 xmap <silent> <space>gp :<C-u>call <SID>stage_hunks_in_range("'<", "'>")<CR>
@@ -36,6 +37,7 @@ xmap <silent> <space>gP :<C-u>call <SID>stage_hunks_in_range("'<'"","'>")<bar>
 
 function! s:stage_hunks_op(wise) abort
   call s:stage_hunks_in_range("'[", "']")
+  silent! call repeat#set("\<Plug>(GitgutterOpStageHunks)")
 endfunction
 
 function! s:stage_hunks_in_range(start, end) abort "{{{2
