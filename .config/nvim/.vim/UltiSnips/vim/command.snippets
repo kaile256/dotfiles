@@ -1,4 +1,13 @@
 global !p
+def plugin_name_underscored():
+  fullpath = vim.eval('expand("%:p")')
+  plugin_name = re.sub(r'.*/vim-([^/]*?)/.*', r'\1', fullpath)
+  if plugin_name == fullpath:
+    return ''
+  underscored = plugin_name.replace('-', '_')
+  return underscored
+
+
 def autoload_prefix():
   underscored = plugin_name_underscored()
   prefix = underscored + '#' if underscored else 's:'
