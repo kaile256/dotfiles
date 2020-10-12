@@ -4,6 +4,9 @@ if !dein#tap('${1:${VISUAL:vim-plugin}}') | finish | endif
 endsnippet
 
 snippet sandwich "b:sandwich_magicchar_f_patterns" w
+let b:sandwich_magicchar_f_patterns =
+      \ get(g:, 'sandwich#magicchar#f_patterns', [])
+
 let b:sandwich_magicchar_f_patterns += [{
       \ 'bra'    : '${1}',
       \ 'ket'    : '${2}',
