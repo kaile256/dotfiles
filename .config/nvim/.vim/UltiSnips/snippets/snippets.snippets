@@ -20,8 +20,8 @@ snippet endsnippet "no need to expand" b
 `!p snip.rv = "endsnippet"`
 endsnippet
 
-snippet #! "expr with shebang"
-\`${0:#!}/usr/bin/env ${1:bash} ${2:#:expr}\`
+snippet #! "expr with shebang" i
+\``!v '#!'`/usr/bin/env ${1:bash}${2: -args}\`
 endsnippet
 
 snippet !p "expr for Python" i
