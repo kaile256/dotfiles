@@ -22,10 +22,10 @@ elseif exists('g:fvim_loaded')
 
   " Font tweaks
   FVimFontAntialias v:true
-  FVimFontAutohint v:true
+  FVimFontAutohint  v:true
   FVimFontHintLevel 'full'
-  FVimFontLigature v:true
-  FVimFontSubpixel v:true
+  FVimFontLigature  v:true
+  FVimFontSubpixel  v:true
 
   " FVimCursorSmoothMove v:true
   " FVimCursorSmoothBlink v:true
