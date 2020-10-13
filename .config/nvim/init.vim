@@ -10,6 +10,7 @@ language time en_US.UTF-8
 let mapleader = '<Plug>(nop)'
 noremap <space> <Nop>
 
+let g:isWin = has('win32') || has('win64')
 let g:TermOpen = has('nvim') ? 'TermOpen' :
       \ (exists('##TerminalWinOpen') ? 'TerminalWinOpen' : 'TerminalOpen')
 
