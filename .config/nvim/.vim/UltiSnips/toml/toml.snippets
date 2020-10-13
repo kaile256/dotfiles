@@ -8,9 +8,10 @@ def get_repo():
   pkgm_Plug = "Plug "
 
   if re.search(url_github, clipboard):
-    m = re.search(r'{url_github}/([^/]*?/[^/]*?)/?', clipboard)
-    repos = [m.group(0)]
-    repos = map(lambda repo: f"'{repo}'")
+    m = re.search(r'^{url_github}/([^/]*?/[^/]*?)/?$' \
+                  .format(url_github = url_github), clipboard)
+    repos = [m.group(1)]
+    repos = map(lambda repo: f"'{repo}'", repos)
 
   elif re.search(pkgm_Plug, clipboard):
     # Plug 'foo/bar'
@@ -26,6 +27,16 @@ def get_repo():
       m = re.search(r"'(.*)", f'{s}')
       repos.append(m.group(0))
 
+  elif re.match(r'^[^/]*/[^/]*$', clipboard):
+    # foo/bar
+    repo = clipboard.replace('[\'"]', '')
+    repos = [clipboard]
+
+  else :
+    vim.command('echohl ErrorMsg')
+    vim.command(f'echo "[Invalid Format]: @+ is {clipboard}"')
+    vim.command('echohl None')
+    return ''
 
   tables_dein = map(lambda repo: f'{format_dein} = {repo}', repos)
 
