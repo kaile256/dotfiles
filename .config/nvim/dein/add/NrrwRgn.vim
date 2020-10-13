@@ -1,5 +1,9 @@
-" From: tool.toml
+" TOML: ext.toml
+" Repo: chrisbra/NrrwRgn
 
 let g:nrrw_topbot_leftright = 'botright'
 
-noremap <a-g> :NarrowWindow!<cr>
+" Mnemonic: Get Selected
+nmap \S <Plug>NrrwrgnDo
+xmap \S <Plug>NrrwrgnDo
+

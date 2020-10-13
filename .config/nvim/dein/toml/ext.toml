@@ -31,10 +31,10 @@ on_cmd =  ['Hexedit']
 #write
 #'''
 #
-#[[plugins]]
-#repo = 'chrisbra/NrrwRgn'
-#on_event = 'VimEnter'
-#hook_post_source = 'runtime add/NrrwRgn.vim'
+[[plugins]]
+repo = 'chrisbra/NrrwRgn'
+on_map = '<Plug>NrrwrgnDo'
+hook_add = 'runtime add/NrrwRgn.vim'
 
 #[[plugins]]
 #repo = 'mtth/scratch.vim'
