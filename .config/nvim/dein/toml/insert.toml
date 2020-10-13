@@ -41,8 +41,10 @@ repo = 'SirVer/ultisnips'
 # # defined in g:UltiSnipsExpandTrigger
 # on_map = {nvi = ['<Plug>(ultisnips-']}
 on_path = ['\.snip$', '\.snippets$']
-on_func = ['UltiSnips#SaveLastVisualSelection']
-on_event = 'InsertCharPre'
+on_func = [
+  'UltiSnips#ExpandSnippet',
+  'UltiSnips#SaveLastVisualSelection',
+]
 hook_add = 'runtime add/ultisnips.vim'
 hook_source = 'runtime source/ultisnips.vim'
 hook_post_source = 'runtime post/ultisnips.vim'
