@@ -26,7 +26,14 @@ on_cmd = 'HelpfulVersion'
 hook_add = 'runtime add/helpful.vim'
 [[plugins]]
 repo = 'tpope/vim-scriptease'
-on_cmd = 'scriptease#'
+on_cmd = [
+  'Time', # show how long time a {command} takes.
+
+  # Load commands into the quickfix list
+  'Messages',
+  'Scriptnames',
+  'Verbose',
+]
 hook_add = 'runtime add/scriptease.vim'
 
 [[plugins]]
