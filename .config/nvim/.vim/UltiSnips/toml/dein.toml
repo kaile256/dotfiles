@@ -48,7 +48,7 @@ def get_repo():
 
 endglobal
 
-snippet vim "[dein] init a table of repo" bA
+snippet dein "[dein] init a table of repo" bA
 `!p snip.rv = get_repo()`
 endsnippet
 
