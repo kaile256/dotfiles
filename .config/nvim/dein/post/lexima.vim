@@ -323,8 +323,6 @@ function! s:set_rules() abort
         \ ]
 
   function! s:define_rules_for_space() abort closure "{{{1
-    let group2rules.whitespace = []
-
     let global += [
           \ {'char': '<S-Space>',   'input': '<space>'},
           \ {'char': '<C-space>',   'input': '<space>'},
@@ -395,9 +393,9 @@ function! s:set_rules() abort
             \ ],
             \ }
 
-      let group2rules.whitespace += Spread_brackets
-      let group2rules.whitespace += Insert_a_space_before_cursor
-      let group2rules.whitespace += [
+      let global += Spread_brackets
+      let global += Insert_a_space_before_cursor
+      let global += [
             \ Prepare_brackets_at_cond,
             \ Double_spaces_at_endOfSentence_in_Comment,
             \ Double_spaces_at_endOfSentence_as_FileType,
