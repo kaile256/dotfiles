@@ -32,7 +32,6 @@ def get_repo():
     #     to
     # [[plugins]]
     # repo = 'foo/bar'
-    repo = clipboard.replace('[\'"]', '')
     repos = [clipboard]
 
   else :
