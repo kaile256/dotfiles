@@ -40,6 +40,7 @@ def get_repo():
     vim.command('echohl None')
     return ''
 
+  repos = map(lambda r: r if re.match("'", r) else "'" + r + "'", repos)
   tables_dein = map(lambda repo: f'{format_dein} = {repo}', repos)
 
   return "\n".join(tables_dein)
