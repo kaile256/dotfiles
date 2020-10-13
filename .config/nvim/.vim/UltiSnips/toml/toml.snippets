@@ -1,7 +1,41 @@
-snippet vim "[dein] init a table of repo" b
-[[plugins]]
-repo = '`!v substitute(@+, 'https://github.com/\([^/]*/[^/]*\).*', '\1', '')`'
-$0
+global !p
+def get_repo():
+  clipboard = vim.eval('@+')
+
+  format_dein = "[[plugin]]\nrepo"
+
+  url_github = 'https://github.com'
+  pkgm_Plug = "Plug "
+
+  if re.search(url_github, clipboard):
+    m = re.search(r'{url_github}/([^/]*?/[^/]*?)/?', clipboard)
+    repos = [m.group(0)]
+    repos = map(lambda repo: f"'{repo}'")
+
+  elif re.search(pkgm_Plug, clipboard):
+    # Plug 'foo/bar'
+    # Plug 'baz/qux'
+    #     will be converted to
+    # [[plugin]]
+    # repo = 'foo/bar'
+    # [[plugin]]
+    # repo = 'baz/qux'
+    repos = []
+    stmts = clipboard.split("\n")
+    for s in stmts:
+      m = re.search(r"'(.*)", f'{s}')
+      repos.append(m.group(0))
+
+
+  tables_dein = map(lambda repo: f'{format_dein} = {repo}', repos)
+
+  return "\n".join(tables_dein)
+
+
+endglobal
+
+snippet vim "[dein] init a table of repo" bA
+`!p snip.rv = get_repo()`
 endsnippet
 
 snippet if "if = '$1'" b
