@@ -152,6 +152,12 @@ if [ "$(uname -o)" != "Android" ]; then
   done
 fi
 
+SHORTCUT_I3="$HOME/.i3"
+if [ -d "$SHORTCUT_I3" ]; then
+  rm -rf "$SHORTCUT_I3"
+fi
+ln -s "$XDG_CONFIG_HOME/i3/config" "$SHORTCUT_I3"
+
 if type notify-send >/dev/null 2>&1 ; then
   notify-send --expire-time 1800 'Symbol links are created correctly'
   cat << END
