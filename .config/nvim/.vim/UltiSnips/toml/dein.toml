@@ -17,9 +17,9 @@ def get_repo():
     # Plug 'foo/bar'
     # Plug 'baz/qux'
     #     will be converted to
-    # [[plugin]]
+    # [[plugins]]
     # repo = 'foo/bar'
-    # [[plugin]]
+    # [[plugins]]
     # repo = 'baz/qux'
     repos = []
     stmts = clipboard.split("\n")
@@ -29,6 +29,9 @@ def get_repo():
 
   elif re.match(r'^[^/]*/[^/]*$', clipboard):
     # foo/bar
+    #     to
+    # [[plugins]]
+    # repo = 'foo/bar'
     repo = clipboard.replace('[\'"]', '')
     repos = [clipboard]
 
