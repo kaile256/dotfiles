@@ -400,8 +400,6 @@ function! s:set_rules() abort
             \ Double_spaces_at_endOfSentence_in_Comment,
             \ Double_spaces_at_endOfSentence_as_FileType,
             \ ]
-
-      " call extend(label, s:map_rules(label[c], {'char': char}))
     endfor
   endfunction
   call s:define_rules_for_space()
