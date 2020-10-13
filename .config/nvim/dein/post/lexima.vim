@@ -325,7 +325,7 @@ function! s:set_rules() abort
   function! s:define_rules_for_space() abort closure "{{{1
     let group2rules.whitespace = []
 
-    let group2rules.whitespace += [
+    let global += [
           \ {'char': '<S-Space>',   'input': '<space>'},
           \ {'char': '<C-space>',   'input': '<space>'},
           \ {'char': '<C-S-Space>', 'input': '<space>'},
