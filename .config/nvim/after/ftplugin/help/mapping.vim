@@ -1,5 +1,5 @@
 
-if &modifiable || &readonly || @% =~# 'fugitive:\/\/\/' | finish | endif
+if &modifiable || !&readonly || @% =~# 'fugitive:\/\/\/' | finish | endif
 
 nnoremap <buffer><nowait> d <c-d>
 nnoremap <buffer><nowait> u <c-u>
