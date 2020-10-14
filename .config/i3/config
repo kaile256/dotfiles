@@ -373,12 +373,6 @@ $release $Super+$ClickMiddle $noid $MY_SCRIPTS/touchpad-toggle.sh
 # 66: CapsLock
 bindcode 66 $alert 'CapsLock: Toggle'
 
-# Keybind; xdotool {{{1
-# bind <tab> via xdotool seems no use in Qutebrowser
-# `bindsym` w/o `--release` causes nothing; even with it, lazy response
-#$release Ctrl+I $noid xdotool key Tab
-#$release Ctrl+bracketleft $noid xdotool key Escape
-
 # Keybind; Mode on i3 {{{1
 # WARNING: use double quotes for either in `set` or `mode`
 # Mode; Layout {{{2
