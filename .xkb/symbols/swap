@@ -1,0 +1,20 @@
+// Update from $HOME/.xkb/keymap/mymap
+
+xkb_symbols "caps_backslash" {
+	replace key <CAPS> { [ backslash, bar ]	};
+	replace key <BKSL> { [ Caps_Lock ]	};
+};
+
+xkb_symbols "esc_caps" {
+	replace key <ESC> { [ Caps_Lock ]	};
+	replace key <CAPS> { [ Escape ]	};
+};
+
+xkb_symbols "ctrl-h_bs" {
+	// WIP: make sure this script let ctrl-h work as <BS> to load.
+	key <LatH> {
+		type="PC_LCONTROL_LEVEL2",
+		symbols[Group1] = [ h, H, BackSpace	],
+	}
+}
+
