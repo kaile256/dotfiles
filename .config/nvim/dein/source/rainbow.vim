@@ -17,6 +17,7 @@ let g:rainbow_conf.parentheses = [
 let g:rainbow_conf.separately = {
       \ 'dockerfile': 0,
       \ 'fzf': 0,
+      \ 'gitcommit': 0,
       \ 'help': 0,
       \ 'man': 0,
       \ 'ranger': 0,
