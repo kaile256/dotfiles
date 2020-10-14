@@ -5,6 +5,10 @@ IFS=$'\n\t'
 
 # Ref: SandS with xcape
 #   https://qiita.com/ychubachi@github/items/95830219f1bdf912280b
+#
+# Known Issue:
+# - Roll-over cannot be considered with `xcape`; <space> is often used as
+#   prefix like on Vim, qutebrowser, etc.
 
 UNUSED_KEYCODE=252
 xmodmap -e "keycode $UNUSED_KEYCODE = space" # Keep 'space' defined in keycode.
