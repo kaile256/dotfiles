@@ -366,7 +366,7 @@ function! s:set_rules() abort
       let Double_spaces_at_end_OfSentence = {
             \ 'char': space,
             \ 'input': '<space><space>',
-            \ 'at': '[.?!]\%#', 'except': pat_after_abbr,
+            \ 'at': '[a-zA-Z0-9][.?!]\%#', 'except': pat_after_abbr,
             \ }
       let Double_spaces_at_endOfSentence_in_Comment = extend(
             \ deepcopy(Double_spaces_at_end_OfSentence),
