@@ -1,15 +1,39 @@
+finish
 " The syntax configurations are based on conventional-commit
 " Ref: https://www.conventionalcommits.org/en/v1.0.0/
 
-" FIXME: make Type/Scope highlighted
-syn match gitcommitType '^\l\+\ze\(:\|(\)' containedin=gitcommitSummary
-syn match gitcommitScope '^\l\+(\zs.\{-}\ze)' containedin=gitcommitSummary
+let s:conventional_types = '\('. join([
+      \ 'chore',
+      \ 'docs',
+      \ 'feat',
+      \ 'fix',
+      \ 'perf',
+      \ 'refactor',
+      \ 'style',
+      \ 'test',
+      \ ], '\|') .'\)'
 
-syn match gitcommitBang '!\zs.\{-}:'
-syn match gitcommitBreakingChange 'BREAKING CHAHGE'
+exe 'syn region gitcommitConventional'
+      \ 'start=+^'. s:conventional_types .'+'
+      \ 'end=+:+'
+      \ 'oneline'
+      \ 'contained'
+      \ 'containedin=gitcommitFirstline'
+      \ 'contains=gitcommitConventionalColon,gitcommitConventionalBang,gitcommitConventionalType,gitcommitConventionalScope'
 
-hi! link gitcommitType Function
-hi! gitcommitScope ctermfg=15 guifg=#ffffff cterm=bold gui=bold
+syn match gitcommitConventionalColon ':' contained containedin=gitcommitConventional skipwhite
+syn match gitcommitConventionalBang '!\zs.\{-}:' contained containedin=gitcommitConventional skipwhite
+exe 'syn match gitcommitConventionalType'
+      \ '+^'. s:conventional_types .'\ze\(:\|(\)+'
+      \ 'contained containedin=gitcommitConventional skipempty'
+exe 'syn match gitcommitConventionalScope'
+      \ '+^'. s:conventional_types .'(\zs.\{-}\ze)+'
+      \ 'contained containedin=gitcommitConventional skipempty'
 
-hi! gitcommitBang ctermfg=15 guifg=#ffffff cterm=bold gui=bold
-hi! link gitcommitBreakingChange Error
+syn match gitcommitConventionalBreakingChange 'BREAKING CHAHGE'
+
+hi! link gitcommitConventionalType Function
+hi! gitcommitConventionalScope ctermfg=15 guifg=#ffffff cterm=bold gui=bold
+
+hi! gitcommitConventionalBang ctermfg=15 guifg=#ffffff cterm=bold gui=bold
+hi! link gitcommitConventionalBreakingChange Error
