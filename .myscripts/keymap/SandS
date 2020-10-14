@@ -6,7 +6,8 @@ IFS=$'\n\t'
 # Ref: SandS with xcape
 #   https://qiita.com/ychubachi@github/items/95830219f1bdf912280b
 
-xmodmap -e 'keycode 252 = space' # Keep 'space' defined in keycode.
+UNUSED_KEYCODE=252
+xmodmap -e "keycode $UNUSED_KEYCODE = space" # Keep 'space' defined in keycode.
 xmodmap -e 'keycode 65 = Shift_L' # 'space key' will send Shift_L
 xcape -e '#65=space' # No spaces around '='; send space as released.
 
