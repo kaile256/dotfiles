@@ -1,5 +1,6 @@
 augroup myFtDetect
   au BufNewFile,BufRead */{.Xresources.d,X11}**/* setlocal ft=xdefaults
+  au BufNewFile,BufRead */xkb/* setlocal ft=xkb
 
   au BufNewFile,BufRead .vmailrc setlocal ft=yaml
 
