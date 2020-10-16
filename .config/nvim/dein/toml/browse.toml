@@ -57,29 +57,29 @@ on_cmd = 'Clap'
 hook_source = 'runtime source/clap.vim'
 
 #[ Filer ]
-[[plugins]]
-repo = 'ms-jpq/chadtree'
-if = 'has("nvim")'
-on_cmd = 'CHADopen'
-# Note: hook_source is useless because of lua plugin.
-hook_add = 'runtime add/chadtree.vim'
-hook_done_update = 'call remote#host#UpdateRemotePlugins()'
-[[plugins]]
-repo = 'zgpio/tree.nvim'
-# Note: written in cpp!
-rtp = 'runtime'
-build = '''
-  cmake \
-      -DBoost_USE_STATIC_LIBS=ON \
-      -DCMAKE_BUILD_TYPE=Release \
-      -S . \
-      -B ./runtime/bin
-
-  make -C ./runtime/bin install
-'''
-on_cmd = 'Tree'
-hook_add = 'runtime add/tree.vim'
-hook_source = 'runtime source/tree.vim'
+# [[plugins]]
+# repo = 'ms-jpq/chadtree'
+# if = 'has("nvim")'
+# # on_cmd = 'CHADopen'
+# # Note: hook_source is useless because of lua plugin.
+# hook_add = 'runtime add/chadtree.vim'
+# hook_done_update = 'call remote#host#UpdateRemotePlugins()'
+# [[plugins]]
+# repo = 'zgpio/tree.nvim'
+# # Note: written in cpp!
+# rtp = 'runtime'
+# build = '''
+#   cmake \
+#       -DBoost_USE_STATIC_LIBS=ON \
+#       -DCMAKE_BUILD_TYPE=Release \
+#       -S . \
+#       -B ./runtime/bin
+#
+#   make -C ./runtime/bin install
+# '''
+# on_cmd = 'Tree'
+# hook_add = 'runtime add/tree.vim'
+# hook_source = 'runtime source/tree.vim'
 #[[plugins]]
 #repo = 'skanehira/popupfiles.vim'
 ## Ref: https://qiita.com/gorilla0513/items/fa4b401e7264a31868b9
