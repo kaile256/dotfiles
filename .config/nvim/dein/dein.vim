@@ -14,20 +14,6 @@ let $DEIN_ADD_HOME = $DEIN_CONFIG_HOME .'/add'
 let $DEIN_SOURCE_HOME = $DEIN_CONFIG_HOME .'/source'
 let $DEIN_POST_HOME = $DEIN_CONFIG_HOME .'/post'
 
-" CmdAbbr; Call Function {{{1
-cnoreabbr <expr> du (getcmdtype() == ':' && getcmdline() =~ '^du$')? 'call dein#update()' : 'du'
-" direct-install      [dein#direct_install] install a plugin directly
-cnoreabbr <expr> din (getcmdtype() == ':' && getcmdline() =~ '^di$')? 'Dein direct-install' : 'din'
-cnoreabbr <expr> drb (getcmdtype() == ':' && getcmdline() =~ '^drb$')? 'call dein#rollback()' : 'drb'
-cnoreabbr <expr> drc (getcmdtype() == ':' && getcmdline() =~ '^drc$')? 'call dein#recache_runtimepath()' : 'drc'
-
-cnoreabbr <expr> dlz (getcmdtype() == ':' && getcmdline() =~ '^dlz$')? 'call dein#check_lazy_plugins()' : 'dlz'
-
-cnoreabbr <expr> dlg (getcmdtype() == ':' && getcmdline() =~ '^dlog$')? 'call dein#get_log' : 'dlg'
-" TODO: make `:drm` work w/ s:var.
-"cnoreabbr <expr> drm (getcmdtype() == ':' && getcmdline() =~ '^drm$')? 'exe "!rm -rf" shellescape(expand(g:dein_cache_dir))' : 'drm'
-cnoreabbr <expr> drm (getcmdtype() == ':' && getcmdline() =~ '^drm$')? '!rm -rf ~/.cache/dein' : 'drm'
-
 " set nocompatible for dein {{{1
 if !has('nvim')
   " Neovim is always nocompatible.
