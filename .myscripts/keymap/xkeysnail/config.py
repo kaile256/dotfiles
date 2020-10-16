@@ -25,6 +25,13 @@ from xkeysnail.transform import (
 #     Key.SPACE: [Key.SPACE, Key.LEFT_SHIFT],
 # })
 
+define_keymap(None, {
+    K('LC-left_brace'): K('esc'),
+
+    K('esc'): K('grave'),
+    K('LShift-esc'): K('LShift-grave'),
+}, "<Esc> for grave")
+
 define_keymap(
     None, {
         K('capslock'): K('backslash'),
