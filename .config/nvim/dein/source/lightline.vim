@@ -447,8 +447,6 @@ function! LL_git_diff() abort "{{{3
 endfunction
 
 augroup myLightlineSo
-  au CmdlineLeave * call lightline#update()
-
   au User UltiSnipsExitLastSnippet   call lightline#update()
   au User UltiSnipsEnterFirstSnippet call lightline#update()
 augroup END
