@@ -325,7 +325,9 @@ function! LL_mode() abort "{{{3
     endif
   endif
 
-  return mode
+  return get(s:, 'in_snippets')
+        \ ? '>'. mode .'<'
+        \ : mode
 endfunction
 
 let g:lightline.mode_map = {
@@ -447,6 +449,6 @@ function! LL_git_diff() abort "{{{3
 endfunction
 
 augroup myLightlineSo
-  au User UltiSnipsExitLastSnippet   call lightline#update()
-  au User UltiSnipsEnterFirstSnippet call lightline#update()
+  au User UltiSnipsExitLastSnippet   let s:in_snippets = 0 | call lightline#update()
+  au User UltiSnipsEnterFirstSnippet let s:in_snippets = 1 | call lightline#update()
 augroup END
