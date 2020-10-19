@@ -33,12 +33,16 @@ define_keymap(
     }, "<Esc> for grave")
 
 define_keymap(
-    None, {
+    None,
+    {
         K('capslock'): K('backslash'),
         K('LShift-capslock'): K('LShift-backslash'),
-        K('backslash'): K('capslock'),
-        K('LShift-backslash'): K('capslock'),
-    }, "CapsLock <-> Backslash")
+
+        # # Send CapsLock
+        # K('backslash'): K('capslock'),
+        # K('LShift-backslash'): K('capslock'),
+    },
+    "CapsLock <-> Backslash")
 
 define_keymap(
     not re.compile(r'nvim|qutebrowser'),
