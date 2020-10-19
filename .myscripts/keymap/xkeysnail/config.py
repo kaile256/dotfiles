@@ -25,12 +25,12 @@ from xkeysnail.transform import (
 #     Key.SPACE: [Key.SPACE, Key.LEFT_SHIFT],
 # })
 
-define_keymap(None, {
-    K('LC-left_brace'): K('esc'),
-
-    K('esc'): K('grave'),
-    K('LShift-esc'): K('LShift-grave'),
-}, "<Esc> for grave")
+define_keymap(
+    None, {
+        K('LC-left_brace'): K('esc'),
+        K('esc'): K('grave'),
+        K('LShift-esc'): K('LShift-grave'),
+    }, "<Esc> for grave")
 
 define_keymap(
     None, {
@@ -41,7 +41,7 @@ define_keymap(
     }, "CapsLock <-> Backslash")
 
 define_keymap(
-    not re.compile(r'nvim'),
+    not re.compile(r'nvim|qutebrowser'),
     {
         K("C-m"): K("enter"),
         K("C-j"): K("enter"),
