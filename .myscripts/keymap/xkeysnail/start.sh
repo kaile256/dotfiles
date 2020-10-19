@@ -14,6 +14,7 @@ RK61=$(grep -A 5 SONiX < /proc/bus/input/devices \
 # To activate xkeysnail without password,
 # 1. sudo visudo
 # 2. append `useradd ALL=(ALL) NOPASSWD: $(which xkeysnail)` in /etc/sudoer`
-sudo xkeysnail --devices "/dev/input/$RK61" "$SCRIPT_DIR/RK61/config.py" &
+[ -n "$RK61" ] && \
+  sudo xkeysnail --devices "/dev/input/$RK61" "$SCRIPT_DIR/RK61/config.py" &
 
 sudo xkeysnail "$SCRIPT_DIR/config.py" &
