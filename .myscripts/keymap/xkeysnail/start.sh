@@ -14,6 +14,6 @@ RK61=$(grep -A 5 SONiX < /proc/bus/input/devices \
 cd "$SCRIPT_DIR" && sudo xkeysnail config.py &
 
 [ -n "$RK61" ] && \
-  cd "$SCRIPT_DIR/RK61" && \
-  sudo xkeysnail --devices "/dev/input/$RK61" config.py &
+  sudo xkeysnail "$SCRIPT_DIR/RK61/config.py" \
+  --devices "/dev/input/$RK61" &
 
