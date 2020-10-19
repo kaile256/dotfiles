@@ -24,3 +24,10 @@ define_keymap(None, {
     K('up'): K('slash'),
     K('Shift-up'): K('question'),
 }, "Slash<->Up for RK61")
+
+define_keymap(
+    None, {
+        K('LC-left_brace'): K('esc'),
+        K('esc'): K('grave'),
+        K('LShift-esc'): K('LShift-grave'),
+    }, "<Esc> for grave")
