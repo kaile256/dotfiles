@@ -248,6 +248,8 @@
     " .+#"
   ],
 
+  "explorer.previewAction.onHover": false, // show file info
+
   "explorer.keyMappings": {
     "k": "nodePrev",
     "j": "nodeNext",
