@@ -20,10 +20,12 @@ define_modmap({
     Key.RIGHT: Key.RIGHT_CTRL,
 })
 
-define_keymap(None, {
-    K('up'): K('slash'),
-    K('Shift-up'): K('question'),
-}, "Slash<->Up for RK61")
+define_keymap(
+    None, {
+        K('up'): K('slash'),
+        K('LShift-up'): K('LShift-slash'),
+        K('RShift-up'): K('LShift-slash'),
+    }, "Slash<->Up for RK61")
 
 define_keymap(
     None, {
