@@ -71,7 +71,7 @@ function! s:set_rules() abort
         \ 'at': '\<styled\>\S*\%#',
         \ }
 
-  let group2rules.react = [
+  let group2rules.React = [
         \ Complete_backtick_for_CSS_in_JS,
         \ ]
 
@@ -100,7 +100,7 @@ function! s:set_rules() abort
         \ 'at': '^\s*case\%#', 'except': pat_revising,
         \ }
 
-  let group2rules.javascript = [
+  let group2rules.Javascript = [
         \ {'char': '<space>', 'input_after': ';', 'at': 'import\%#'},
         \ {'char': '<space>', 'input_after': ';',
         \     'at': 'let\%#', 'except': pat_revising},
@@ -126,7 +126,7 @@ function! s:set_rules() abort
         \ ]
   let group2rules.css += Format_css_element
 
-  let group2rules.semicolon = [
+  let group2rules.Semicolon = [
         \ {'char': '<space>', 'input_after': ';',
         \     'at': 'return\%#', 'except': '\%#.\+'},
         \ {'char': '<space>', 'input_after': ';',
@@ -135,9 +135,9 @@ function! s:set_rules() abort
         \ ]
 
   " Rules for Tag {{{1
-  let group2rules.tag = []
+  let group2rules.Tag = []
 
-  let group2rules.tag += [
+  let group2rules.Tag += [
         \ {'char': '<CR>', 'at': '\%#\s*/>',
         \   'input_after': '<CR>', 'input': '<CR>'},
         \ ]
