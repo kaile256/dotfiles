@@ -50,7 +50,7 @@ PACKAGEs=(
   eslint-plugin-vue
   eslint-plugin-promise
   nodejs-google-clasp # develop Apps Script in cmdline; type `gclasp`
-  lazygit
+  # lazygit
   lib32-libpulse # for 32 bit programs like Wine
   lib32-apulse # for 32 bit programs like Wine
   pulseaudio-alsa # alsa config for pulseaudio
