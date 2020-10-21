@@ -2,6 +2,7 @@
 # Documentation:
 #   qute://help/configuring.html
 #   qute://help/settings.html
+#   /usr/share/qutebrowser/userscripts/README.md
 
 import re
 import subprocess
