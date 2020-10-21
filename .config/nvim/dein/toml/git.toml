@@ -157,6 +157,7 @@ hook_source = 'runtime source/conflicted.vim'
 #[ GitHub ]
 [[plugins]]
 repo = 'skanehira/gh.vim'
+# browse repositories in Vim
 if = '!has("nvim")'
 on_path = '^gh://'
 hook_source = 'runtime source/gh.vim'
