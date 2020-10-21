@@ -87,11 +87,11 @@ hook_source = 'runtime add/wakatime.vim'
 # repo = 'mattn/googletasks-vim'
 # # Only interactive at once in echo style.
 # on_cmd = 'GoogleTasks'
-[[plugins]]
-repo = 'mbsperry/done.vim'
-# Interact with GoogleTasks asynchronously.
-on_cmd = ['Tasks', 'AddTask']
-
+# [[plugins]]
+# # repo = 'mbsperry/done.vim'
+# # Interact with GoogleTasks asynchronously.
+# on_cmd = ['Tasks', 'AddTask']
+#
 #[ Collaborative Editing ]
 # [[plugins]]
 # repo = 'Floobits/floobits-neovim'
