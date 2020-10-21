@@ -6,3 +6,7 @@
 " Note: Too heavy; use coc's one instead.
 silent! augroup! UltiSnips_AutoTrigger
 
+augroup myUltisnipsPost
+  au BufWritePre * silent!
+        \ doautocmd <nomodeline> User UltiSnipsExitLastSnippet
+augroup END
