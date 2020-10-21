@@ -148,6 +148,21 @@ function! s:set_rules() abort
         \   'input': '<CR>', 'input_after': '<CR>'},
         \ ]
 
+  " Rules for Writinng {{{1
+  let group2rules.Writing = []
+
+  let group2rules.Writing += [
+        \ {'char': '<CR>', 'input': '<CR><C-g>u'},
+        \ ]
+  let group2rules.Writing += [
+        \ {'char': ',', 'input': ',<C-g>u'},
+        \ {'char': '.', 'input': '.<C-g>u'},
+        \ {'char': '?', 'input': '?<C-g>u'},
+        \ {'char': '!', 'input': '!<C-g>u'},
+        \ {'char': ';', 'input': ';<C-g>u'},
+        \ {'char': ':', 'input': ':<C-g>u'},
+        \ ]
+
   " Overwrite Rules for Newline {{{1
   " Copied from cohama/lexima.vim/autoload/lexima.vim @75
 
@@ -588,6 +603,13 @@ function! s:set_rules() abort
         \ 'php',
         \ 'typescriptreact',
         \ 'xml',
+        \ ]
+
+  let group2ft.Writing = [
+        \ 'help',
+        \ 'markdown',
+        \ 'text',
+        \ 'vimwiki',
         \ ]
 
   " Convert rules {{{1
