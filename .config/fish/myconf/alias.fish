@@ -6,18 +6,6 @@ alias make 'make --jobs 8'
 alias tmux 'tmux -2'
 
 balias b 'bash'
-balias d 'docker'
-
-balias dcm 'docker-compose'
-
-balias dps 'docker ps'
-balias drm 'docker rm'
-
-balias di   'docker image'
-balias dim  'docker image'
-balias dis  'docker images'
-balias dims 'docker images'
-balias drmi 'docker rmi'
 
 balias l 'ls -Alh'
 balias la 'ls -A'
@@ -73,5 +61,20 @@ alias sp  '$EDITOR -o'
 alias vs  '$EDITOR -O'
 alias tabe '$EDITOR -p'
 
-# Git
+# Docker {{{1
+balias d 'docker'
+
+balias dcm 'docker-compose'
+
+balias dps 'docker ps'
+balias drm 'docker rm'
+
+balias di   'docker image'
+balias dim  'docker image'
+balias dis  'docker images'
+balias dims 'docker images'
+balias drmi 'docker rmi'
+
+# Git #{{{1
 alias g git
+
