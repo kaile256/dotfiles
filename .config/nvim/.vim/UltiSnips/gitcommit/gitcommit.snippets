@@ -1,10 +1,11 @@
 
 priority -20
 
-snippet '^([a-z]+)(W?)' "conventional commits" "snip.line == 0" bre
+snippet '^([a-z?]+)' "conventional commits" "snip.line == 0" bre
 `!p
-WIP = 'WIP: ' if match.group(2) else ''
-COMMIT_TYPE = match.group(1)
+m = match.group(1)
+WIP = 'WIP: ' if '?' in m else ''
+COMMIT_TYPE = re.sub('\?', '', m)
 
 snip.rv = WIP + COMMIT_TYPE
 
