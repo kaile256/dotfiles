@@ -9,3 +9,9 @@ endsnippet
 snippet SCRIPT_DIR "Get current dir the script running" b
 SCRIPT_DIR=$(readlink -f "\$0" | xargs dirname)
 endsnippet
+
+snippet () "function() {$1}" i
+() {
+  ${1:${VISUAL}}
+}
+endsnippet
