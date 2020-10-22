@@ -32,7 +32,7 @@ snippet '\$(\d)[vV]' "placeholder with ${VISUAL}" ir
 ${`!p snip.rv = match.group(1)`:$\{VISUAL:${1:${VISUAL:default}}}}
 endsnippet
 
-snippet VISUAL "${VISUAL:(selected text)}" i
+snippet '\$[vV]' "${VISUAL:(selected text)}" ir
 \${VISUAL:${1:${VISUAL:default}}}
 endsnippet
 
