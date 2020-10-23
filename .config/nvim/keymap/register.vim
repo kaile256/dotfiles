@@ -14,21 +14,21 @@ endfunction
 
 nnoremap <silent> <SID>(yank-path)
       \ :<C-u>call <SID>set_in_reg(expand('%:p'))<CR>
-cnoremap <expr> <SID>(paste-path) expand('%:p')
+noremap! <expr> <SID>(paste-path) expand('%:p')
 nmap y<C-g><C-p> <SID>(yank-path)
-cmap <C-r><C-g><C-p> <SID>(paste-path)
+map! <C-r><C-g><C-p> <SID>(paste-path)
 
 nnoremap <silent> <SID>(yank-fname)
       \ :<C-u>call <SID>set_in_reg(expand('%:t'))<CR>
-cnoremap <expr> <SID>(paste-fname) expand('%:t')
+noremap! <expr> <SID>(paste-fname) expand('%:t')
 nmap y<C-g><C-f> <SID>(yank-fname)
-cmap <C-r><C-g><C-f> <SID>(paste-fname)
+map! <C-r><C-g><C-f> <SID>(paste-fname)
 
 nnoremap <silent> <SID>(yank-bufnr)
       \ :<C-u>call <SID>set_in_reg(bufnr())<CR>
-cnoremap <expr> <SID>(paste-bufnr) bufnr('%')
+noremap! <expr> <SID>(paste-bufnr) bufnr('%')
 nmap y<C-g><C-b> <SID>(yank-bufnr)
-cmap <C-r><C-g><C-b> <SID>(paste-bufnr)
+map! <C-r><C-g><C-b> <SID>(paste-bufnr)
 
 " nnoremap p p`]
 " nnoremap p ]p`]
