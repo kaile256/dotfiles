@@ -6,16 +6,20 @@ xmap <space> "_
 nmap <expr> <CR> &bt ==# '' ? '"' : '<CR>'
 xmap <expr> <CR> &bt ==# '' ? ' " : '<CR>'
 
+function! s:set_in_reg(target) abort
+  const reg = v:register ==# '"' ? '+' : v:register
+  call setreg(reg, a:target)
+  echo a:target 'in @'. reg
+endfunction
+
 nnoremap <silent> <SID>(yank-path)
-      \ :<C-u>call setreg(v:register ==# '"' ? '+' : v:register, expand('%:p'))
-      \ <bar> echo '"%:p" is '. expand('%:p')<CR>
+      \ :<C-u>call <SID>set_in_reg(expand('%:p'))<CR>
 cnoremap <expr> <SID>(paste-path) expand('%:p')
 nmap y<C-g> <SID>(yank-path)
 cmap <C-r><C-g> <SID>(paste-path)
 
 nnoremap <silent> <SID>(yank-bufnr)
-      \ :<C-u>call setreg(v:register ==# '"' ? '+' : v:register, bufnr('%'))
-      \ <bar> echo 'bufnr("%") is '. bufnr("%")<CR>
+      \ :<C-u>call <SID>set_in_reg(bufnr())<CR>
 cnoremap <expr> <SID>(paste-bufnr) bufnr('%')
 nmap y<C-b> <SID>(yank-bufnr)
 cmap <C-r><C-b> <SID>(paste-bufnr)
