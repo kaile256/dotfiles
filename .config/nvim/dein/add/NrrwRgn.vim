@@ -3,5 +3,5 @@
 " Another: source/NrrwRgn.vim
 
 " Mnemonic: Get Selected
-nmap \S <Plug>NrrwrgnDo
-xmap \S <Plug>NrrwrgnDo
+nmap <silent> \S <Plug>NrrwrgnDo
+xmap <silent> \S <Plug>NrrwrgnDo
