@@ -28,7 +28,7 @@ endsnippet
 
 snippet 'aug(roup)?' "augroup foo ... augroup END" br
 augroup my${1:Name}
-  au ${2:FileType} ${3:*} ${4:${VISUAL:command}}
+  au ${2|FileType,BufRead|} ${3:*} ${4:${VISUAL:command}}
 augroup END
 endsnippet
 
