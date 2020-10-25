@@ -1,3 +1,8 @@
+snippet %) "Regex: %($1) not to count it as a sub-expr " i
+`# only expand '%($1)'; for '\%($1)', escaped one, insert a backslash at first.
+`%(${1:${VISUAL}})
+endsnippet
+
 snippet undo_ftplugin "template for b:undo_ftplugin" b
 if exists('b:undo_ftplugin')
   let b:undo_ftplugin .= ' | '
