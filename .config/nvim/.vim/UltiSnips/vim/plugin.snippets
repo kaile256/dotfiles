@@ -1,5 +1,12 @@
 snippet '(if\s*)?tap' "Dein: guard for plugin config under ftplugin/" br
-if !dein#tap('${1:${VISUAL:vim-plugin}}') | finish | endif
+if !dein#tap('${1:vim-plugin}')`!p
+
+path = vim.eval('expand("%:p")')
+if re.search(r'/ftplugin/', path):
+  snip.rv = ' | finish | endif'
+else:
+  snip.rv = "\n" + snip.v.text + "\nendif"
+`
 endsnippet
 
 snippet sandwich "b:sandwich_magicchar_f_patterns" w
