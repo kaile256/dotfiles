@@ -2,6 +2,8 @@
 " Repo: bkad/CamelCaseMotion
 " PR-Merged: bkad/CamelCaseMotion/pull/41
 
+onoremap ge e
+
 " Overwite; webge
 map w <Plug>CamelCaseMotion_w
 map b <Plug>CamelCaseMotion_b
