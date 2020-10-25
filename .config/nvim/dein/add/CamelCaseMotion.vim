@@ -11,9 +11,6 @@ sunmap w
 sunmap b
 sunmap e
 " sunmap ge
-" TODO: no delay on 'e' in operator
-"omap <expr> <Plug>CamelCaseMotion_e_modified (getline('.')[col('.')] ==# ' ') ? 'l' : '<Plug>CamelCaseMotion_e'
-"omap e <Plug>CamelCaseMotion_e_modified
 
 " Mnemonic: Quickback
 map q <Plug>CamelCaseMotion_ge
