@@ -3,12 +3,13 @@
 " Ref: cabbrs.vim
 
 if executable('hub')
+  " Note: !hub with `nvr` often fails to work.
   command! -nargs=* Hub
         \ :!git branch --show-current
-        \ && hub -C %:p:h <args>
+        \ && GIT_EDITOR='nvim-qt' hub -C %:p:h <args>
   command! -nargs=* PR
         \ :!git branch --show-current
-        \ && hub -C %:p:h pull-request <args>
+        \ && GIT_EDITOR='nvim-qt' hub -C %:p:h pull-request <args>
 endif
 
 command! -bar DiffOrig
