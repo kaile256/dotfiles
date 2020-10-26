@@ -7,6 +7,7 @@
 silent! augroup! UltiSnips_AutoTrigger
 
 augroup myUltisnipsPost
-  au BufWinLeave * silent!
+  " Note: BufWinLeave sometimes invokes too late.
+  au BufWritePre * silent!
         \ doautocmd <nomodeline> User UltiSnipsExitLastSnippet
 augroup END
