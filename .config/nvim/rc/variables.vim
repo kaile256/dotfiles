@@ -7,7 +7,7 @@
 if has('nvim')
   let $EDITOR     = 'nvr'
   let $VISUAL     = 'nvr'
-  let $GIT_EDITOR = 'nvr'
+  let $GIT_EDITOR = 'nvr --remote-wait-silent'
   let $VMAIL_VIM  = 'nvr'
 elseif has('gui_running')
   let $EDITOR     = 'gvim --remote-wait-silent'
