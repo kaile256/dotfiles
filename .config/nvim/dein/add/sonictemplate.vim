@@ -6,9 +6,11 @@
 augroup mySonicTemplate-autoStart
   au BufRead *tmp* call s:expand_template('')
 
-  au BufRead */doc/*.txt call s:expand_template('help')
   au BufRead *{D,d}ockerfile call s:expand_template('alpine')
-  au BufRead */atcoder**/*.cpp call s:expand_template('atcoder')
+
+  au BufRead */doc/*.txt call s:expand_template('help')
+  au BufRead */atcoder**/* call s:expand_template('atcoder')
+
   au BufRead LICENSE call s:expand_template('LICENSE-mit')
 augroup END
 
