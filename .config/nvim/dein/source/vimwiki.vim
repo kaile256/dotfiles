@@ -28,7 +28,6 @@ let g:vimwiki_CJK_length = 1
 "" List; Script Variables {{{2
 " CAUTION: Allowed values are ['default', 'markdown', 'media', 'mediawiki']
 let s:wiki_index = {
-      \ 'path': '~/vimwiki/',
       \ 'auto_tags': 1,
       \ 'auto_diary_index': 1,
       \ 'list_margin': 4,
