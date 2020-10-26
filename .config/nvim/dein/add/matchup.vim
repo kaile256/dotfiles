@@ -1,6 +1,7 @@
 " From: motion.toml
 " Repo: andymass/vim-matchup
 " Another: source/matchup.vim
+" Ref: $VIMRUNTIME/pack/dist/opt/matchit/plugin/matchit.vim
 
 " Without them, sometimes fails to set up for matchup.vim
 let g:loaded_matchit    = 1
