@@ -1,11 +1,13 @@
-snippet %) "Regex: %($1) not to count it as a sub-expr" i
+snippet '(\\)?%\)?' "Regex: \%($1\) not to count it as a sub-expr" ir
 `# only expand '%($1)'; for '\%($1)', escaped one, insert a backslash at first.
-`%(${1:${VISUAL}})
-endsnippet
+``!p
+backslash = match.group(1)
+snip.rv = backslash or ''
 
-snippet '\%(\))?' "Regex: \%($1\) not to count it as a sub-expr" ir
-`# only expand '%($1)'; for '\%($1)', escaped one, insert a backslash at first.
-`\%(${1:${VISUAL}}\)
+`%(${1:${VISUAL}}`!p
+snip.rv = backslash or ''
+
+`)
 endsnippet
 
 snippet undo_ftplugin "template for b:undo_ftplugin" b
