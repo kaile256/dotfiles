@@ -54,7 +54,7 @@ command! Import :call CocActionAsync('runCommand', 'editor.action.organizeImport
 "command! FormatOnC :call CocAction('format')
 "command! -nargs=? FoldOnC :call CocAction('fold', <f-args>)
 " Mnemonic: Change the Structure.
-nmap <silent> cS <Plug>(coc-refactor)
+nmap cS <Plug>(coc-refactor)
 
 " Mnemonic: Change the lhs of Equal Sign
 function! s:quick_format() abort
@@ -86,7 +86,7 @@ command! -bar QuickFormat :call s:quick_format()
 "      \   '='
 
 " Mnemonic: Change the name in Sync
-nmap <silent> cs <Plug>(coc-rename)
+nmap cs <Plug>(coc-rename)
 nmap <silent> == :<c-u>QuickFormat<cr>
 
 augroup myCocPrettier
