@@ -68,6 +68,8 @@ let s:wiki_markdown.nested_syntaxes = {
       \ 'vim': 'vim'
       \ }
 "}}}
+
+let g:vimwiki_global_ext = 0 " 0: regard files as vimwiki as in g:vimwiki_list
 let g:vimwiki_list = [
       \ {},
       \ s:wiki_index,
