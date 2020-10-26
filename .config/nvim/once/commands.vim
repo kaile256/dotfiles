@@ -2,6 +2,15 @@
 " Ref: cmaps.vim
 " Ref: cabbrs.vim
 
+if executable('hub')
+  command! -nargs=* Hub
+        \ :!git branch --show-current
+        \ && hub -C %:p:h <args>
+  command! -nargs=* PR
+        \ :!git branch --show-current
+        \ && hub -C %:p:h pull-request <args>
+endif
+
 command! -bar DiffOrig
       \ :vert above new | setl bt=nofile
       \ | r # | 0d_
