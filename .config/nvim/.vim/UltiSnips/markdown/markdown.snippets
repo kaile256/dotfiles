@@ -1,3 +1,16 @@
+snippet _``?`?(\S*)_ "```$1 ... ````" br
+`!p
+# FIXME: delete any indent
+snip.reset_indent()
+
+`\`\`\`${1:`!p snip.rv = match.group(1) or 'sh'`}
+`!p
+snip.reset_indent()
+
+`${2:${VISUAL}}
+\`\`\`
+endsnippet
+
 snippet vim "README for Vim plugin" b
 # `!v substitute(expand('%:p:h'), '.*\/', '', 'e')`
 
