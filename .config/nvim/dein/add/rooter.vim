@@ -5,6 +5,9 @@
 augroup myRooterAdd-updatePathToFind
   au BufNewFile,BufRead * call s:update_path()
   function! s:update_path() abort
+    " Block upper-cased fnames for commit/pullreq etc.
+    if expand('%:t') =~# '^\u\+' | return | endif
+
     let root_dir = FindRootDirectory()
     if &l:path =~# root_dir | return | endif
     if root_dir ==# $HOME || root_dir ==# '/' | return | endif
