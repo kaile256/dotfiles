@@ -159,7 +159,7 @@ PACKAGEs=(
   #notes-cli-bin # a cli tool to take a note on markdown
   # dialog # used in `wifi-menu` at least
   ripgrep-all-bin # ripgrep in PDFs, E-Books, Office documents, zip, tar.gz, etc.
-  tor-browser
+  # tor-browser
   #otf-sans-forgetica # a font scientifically designed for study notes. fails to work on qutebrowser
   transset-df # for transparency on xterm
   q4wine # gui for `wine`
