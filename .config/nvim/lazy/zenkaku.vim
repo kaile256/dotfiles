@@ -63,5 +63,5 @@ let w:syntax_foobar = matchadd('FooBar', s:foobar)
 unlet s:foobar
 
 
-hi! link Semicolon NonText
-let w:syntax_semicolon = matchadd('Semicolon', ';$')
+" hi! link Semicolon NonText
+" let w:syntax_semicolon = matchadd('Semicolon', ';$')
