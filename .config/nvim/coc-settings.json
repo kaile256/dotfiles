@@ -250,7 +250,7 @@
 
   "explorer.previewAction.onHover": false, // show file info
 
-  "explorer.keyMappings": {
+  "explorer.keyMappings.global": {
     "k": "nodePrev",
     "j": "nodeNext",
 
