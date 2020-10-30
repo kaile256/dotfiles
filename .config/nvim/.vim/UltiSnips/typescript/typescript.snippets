@@ -3,3 +3,10 @@ extends javascript
 snippet class "Define a class" b
 class ${1:`!v expand('%:t:r')`} {${2}}
 endsnippet
+
+snippet enum "replace enum with union-type" b
+const ${1} = {
+  ${2}
+} as const;
+type $1 = typeof $1[keyof typeof $1];
+endsnippet
