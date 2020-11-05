@@ -17,21 +17,6 @@ let g:switch_mapping = ''
 function! s:set_extra_definitions() abort
   let rules = {}
 
-  let rules.access2entry = [
-       \ {
-       \   '\v(\h\k*)\.(\h\k*)': '\1["\2"]',
-       \   '\v(\h\k*)\["(\h\k*)"]': '\1[''\2'']',
-       \   '\v(\h\k*)\[''(\h\k*)'']': '\1.\2',
-       \ },
-       \ ]
-
-  const definitions = s:_convert_rules_to_definitions(rules)
-  return definitions
-endfunction
-
-function! s:set_definitions() abort
-  let rules = {}
-
   " FIXME: get correct match pair to move `while (cond)`.
   let pat_while = '\(while (.*)\) \({\(.*\n\)\{-}\s*}\);'
   let pat_do_while = 'do \({\%(.*\n\)\{-}\s*}\) \(while (.*)\);'
@@ -41,6 +26,21 @@ function! s:set_definitions() abort
         \   pat_do_while : '\2 \1;',
         \ },
         \ ]
+
+  let rules.access2entry = [
+        \ {
+        \   '\v(\h\k*)\.(\h\k*)': '\1["\2"]',
+        \   '\v(\h\k*)\["(\h\k*)"]': '\1[''\2'']',
+        \   '\v(\h\k*)\[''(\h\k*)'']': '\1.\2',
+        \ },
+        \ ]
+
+  const definitions = s:_convert_rules_to_definitions(rules)
+  return definitions
+endfunction
+
+function! s:set_definitions() abort
+  let rules = {}
 
   let rules.auxiliary_verb = [
         \ ['should', 'must'],
