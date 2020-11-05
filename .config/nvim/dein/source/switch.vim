@@ -25,13 +25,7 @@ function! s:set_extra_definitions() abort
        \ },
        \ ]
 
-  let definitions = []
-  for label in keys(rules)
-    let definitions += rules[label]
-  endfor
-
-  let definitions = map(deepcopy(definitions), 's:modified_case(v:val)')
-
+  const definitions = s:_convert_rules_to_definitions(rules)
   return definitions
 endfunction
 
@@ -157,9 +151,14 @@ function! s:set_definitions() abort
         \ ['右', '左'],
         \ ]
 
+  const definitions = s:_convert_rules_to_definitions(rules)
+  return definitions
+endfunction
+
+function! s:_convert_rules_to_definitions(rules) abort
   let definitions = []
-  for label in keys(rules)
-    let definitions += rules[label]
+  for label in keys(a:rules)
+    let definitions += a:rules[label]
   endfor
 
   let definitions = map(deepcopy(definitions), 's:modified_case(v:val)')
