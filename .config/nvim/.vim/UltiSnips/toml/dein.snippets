@@ -139,7 +139,7 @@ snippet 'o(n_)?ft' "on_ft" br
 on_ft = '${1:vim}'
 endsnippet
 
-snippet 'o(n_)?map' "on_map" br
+snippet 'o(n_)?m(ap)?' "on_map" br
 on_map = {${1:nox} = '<Plug>(${2:`!p snip.rv = Plugin._trimmed()`}-${3:foo}'}
 endsnippet
 
@@ -147,15 +147,15 @@ snippet 'o(n_)?func' "on_func" br
 on_func = '${1:`!p snip.rv = Plugin.underscored()`}#$2'
 endsnippet
 
-snippet 'o(n_)?cmd' "on_cmd" br
+snippet 'o(n_)?c(md)?' "on_cmd" br
 on_cmd = '${1:`!p snip.rv = Plugin.PascalCased()`}'
 endsnippet
 
-snippet 'o(n_)?path' "on_path" br
+snippet 'o(n_)?p(ath)?' "on_path" br
 on_path = [${1:'\.js$', '\.jsx$', '\.ts$', '\.tsx$'}]
 endsnippet
 
-snippet 'o(n_)?source' "[dein] load the plugin before the listed plugins're loaded" br
+snippet 'o(n_)?s(ource)?' "[dein] load the plugin before the listed plugins're loaded" br
 on_source = '${1:vim-fugitive}'
 endsnippet
 
