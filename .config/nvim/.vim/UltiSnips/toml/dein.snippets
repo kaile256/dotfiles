@@ -131,20 +131,20 @@ snippet '(h(ook_)?)?d(one_)?u(pdate)?' "hook_done_update = 'UpdateRemotePlugins'
 hook_done_update = '${1:call remote#host#UpdateRemotePlugins()}'
 endsnippet
 
-snippet 'o(n_)?event' "on_event" br
-on_event = '${1:BufRead}'
-endsnippet
-
 snippet 'o(n_)?ft' "on_ft" br
 on_ft = '${1:vim}'
 endsnippet
 
-snippet 'o(n_)?m(ap)?' "on_map" br
-on_map = {${1:nox} = '<Plug>(${2:`!p snip.rv = Plugin._trimmed()`}-${3:foo}'}
-endsnippet
-
 snippet 'o(n_)?func' "on_func" br
 on_func = '${1:`!p snip.rv = Plugin.underscored()`}#$2'
+endsnippet
+
+snippet 'o(n_)?event' "on_event" br
+on_event = '${1:BufRead}'
+endsnippet
+
+snippet 'o(n_)?m(ap)?' "on_map" br
+on_map = {${1:nox} = '<Plug>(${2:`!p snip.rv = Plugin._trimmed()`}-${3:foo}'}
 endsnippet
 
 snippet 'o(n_)?c(md)?' "on_cmd" br
