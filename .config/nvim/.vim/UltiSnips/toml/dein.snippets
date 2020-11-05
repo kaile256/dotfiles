@@ -83,6 +83,13 @@ def expand_hook(index):
   return hook + " = '" + source + path + "'"
 
 
+def plugin_underscored():
+  plugin = _trim_plugin_name()
+  underscored = plugin.replace('-', '_')
+
+  return underscored
+
+
 endglobal
 
 snippet dein "[dein] init a table of repo" bA
