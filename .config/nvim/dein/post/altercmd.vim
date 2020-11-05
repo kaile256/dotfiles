@@ -15,5 +15,11 @@ CAlterCommand we exe (&modified ? 'up' : 'checktime') '<bar> e'
 CAlterCommand g keeppatterns g
 CAlterCommand v keeppatterns v
 
-CAlterCommand mv Rename
+if dein#tap('vim-eunuch')
+  CAlterCommand mv Rename
+endif
+
+if dein#tap('vim-scriptease')
+  CAlterCommand scriptnames Scriptnames
+endif
 
