@@ -129,7 +129,7 @@ on_map = {${1:nox} = '<Plug>(${2:`!v snip#vim#name_of_plugin()`}'}
 endsnippet
 
 snippet on_func "on_func" b
-on_func = '${1:`!v snip#vim#prefix_for_function()`}'
+on_func = '${1:`!p snip.rv = plugin_underscored()`}#$2'
 endsnippet
 
 snippet on_cmd "on_cmd" b
