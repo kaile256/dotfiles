@@ -71,6 +71,16 @@ def _trim_plugin_name():
   return plugin
 
 
+def expand_hook(index):
+  plugin = _trim_plugin_name()
+
+  hook = 'hook_' + index
+  source = 'runtime '
+  path = index + '/' + plugin + '.vim'
+
+  return hook + " = '" + source + path + "'"
+
+
 endglobal
 
 snippet dein "[dein] init a table of repo" bA
