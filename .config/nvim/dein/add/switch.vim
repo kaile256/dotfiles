@@ -140,6 +140,13 @@ let s:definitions['python'] = [
       \ },
       \ ]
 
+let s:definitions['snippets'] = [
+      \ {
+      \   '`!v \(.*\)`': '`!p snip.rv = \1`',
+      \   '`!p snip.rv = \(.*\)`': '`!v \1`',
+      \ },
+      \ ]
+
 function! s:extend_definitions_for_snippets() abort
   let definitions = get(b:, 'switch_custom_definitions', [])
 
