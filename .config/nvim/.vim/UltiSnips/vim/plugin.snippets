@@ -4,8 +4,9 @@ if !dein#tap('${1:vim-plugin}')`!p
 path = vim.eval('expand("%:p")')
 if re.search(r'/ftplugin/', path):
   snip.rv = ' | finish | endif'
-else:
-  snip.rv = "\n" + snip.v.text + "\nendif"
+else :
+  indent = vim.eval('repeat(" ", &sw)')
+  snip.rv = "\n" + indent + snip.v.text + "endif"
 `
 endsnippet
 
