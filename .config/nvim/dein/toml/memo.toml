@@ -42,15 +42,14 @@ hook_source = 'runtime source/table-mode.vim'
 #on_ft = ['vimwiki','org','markdown','tex','toml']
 #hook_post_source = 'runtime add/voom.vim'
 
-#[ Vimwiki ]
+##[ Vimwiki ]
 #[[plugins]]
 #repo = 'vimwiki/vimwiki'
 ## causes an error of too recursive syntax in fenced block of markdown
 #rev = 'dev'
 #on_ft = ['vimwiki', 'markdown']
-##on_event = 'VimEnter'
 ##hook_add = 'runtime add/vimwiki.vim'
-##hook_source = 'runtime source/vimwiki.vim'
+#hook_source = 'runtime source/vimwiki.vim'
 #[[plugins]]
 #repo = 'tbabej/taskwiki'
 #if = 'executable("task")'
