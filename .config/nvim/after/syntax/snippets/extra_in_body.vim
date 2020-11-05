@@ -4,6 +4,9 @@
 "  - $VIMRUNTIME/syntax/vim.vim
 "  - SirVer/ultisnips/syntax/snippets.vim
 
+" FIXME: do not overwrite snippets' default syntax
+finish
+
 let b:loaded_syntax_extra = 1
 
 function! s:detect_extra_filetype() abort
