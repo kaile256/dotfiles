@@ -14,6 +14,27 @@ let g:switch_mapping = ''
 "     \ '<span\(.\{-}\)>\(.\{-}\)</span>': '<div\1>\2</div>',
 "     \ }]
 
+function! s:set_extra_definitions() abort
+  let rules = {}
+
+  let rules.access2entry = [
+       \ {
+       \   '\v(\h\k*)\.(\h\k*)': '\1["\2"]',
+       \   '\v(\h\k*)\["(\h\k*)"]': '\1[''\2'']',
+       \   '\v(\h\k*)\[''(\h\k*)'']': '\1.\2',
+       \ },
+       \ ]
+
+  let definitions = []
+  for label in keys(rules)
+    let definitions += rules[label]
+  endfor
+
+  let definitions = map(deepcopy(definitions), 's:modified_case(v:val)')
+
+  return definitions
+endfunction
+
 function! s:set_definitions() abort
   let rules = {}
 
@@ -24,14 +45,6 @@ function! s:set_definitions() abort
         \ {
         \   pat_while : 'do \2 \1;',
         \   pat_do_while : '\2 \1;',
-        \ },
-        \ ]
-
-  let rules.access2entry = [
-        \ {
-        \   '\v(\h\k*)\.(\h\k*)': '\1["\2"]',
-        \   '\v(\h\k*)\["(\h\k*)"]': '\1[''\2'']',
-        \   '\v(\h\k*)\[''(\h\k*)'']': '\1.\2',
         \ },
         \ ]
 
@@ -220,7 +233,10 @@ function! s:sensitive_case(rule) abort
   return a:rule
 endfunction
 
+let g:switch_extra_definitions  = s:set_extra_definitions()
 let g:switch_custom_definitions = s:set_definitions()
+
+delfunction s:set_extra_definitions
 delfunction s:set_definitions
 delfunction s:modified_case
 delfunction s:normalized_case
