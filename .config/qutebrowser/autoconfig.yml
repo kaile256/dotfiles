@@ -445,6 +445,7 @@ settings:
     https://calendar.google.com: true
     https://drive.google.com: true
     https://japan.zdnet.com: false
+    https://japanese.engadget.com: false
     https://ora.pm: true
     https://ticktick.com: true
     https://web.skype.com: true
