@@ -131,31 +131,31 @@ snippet '(h(ook_)?)?d(one_)?u(pdate)?' "hook_done_update = 'UpdateRemotePlugins'
 hook_done_update = '${1:call remote#host#UpdateRemotePlugins()}'
 endsnippet
 
-snippet on_event "on_event" b
+snippet 'o(n_)?event' "on_event" br
 on_event = '${1:BufRead}'
 endsnippet
 
-snippet on_ft "on_ft" b
+snippet 'o(n_)?ft' "on_ft" br
 on_ft = '${1:vim}'
 endsnippet
 
-snippet on_map "on_map" b
+snippet 'o(n_)?map' "on_map" br
 on_map = {${1:nox} = '<Plug>(${2:`!p snip.rv = Plugin._trimmed()`}-${3:foo}'}
 endsnippet
 
-snippet on_func "on_func" b
+snippet 'o(n_)?func' "on_func" br
 on_func = '${1:`!p snip.rv = Plugin.underscored()`}#$2'
 endsnippet
 
-snippet on_cmd "on_cmd" b
+snippet 'o(n_)?cmd' "on_cmd" br
 on_cmd = '${1:`!p snip.rv = Plugin.PascalCased()`}'
 endsnippet
 
-snippet on_path "on_path" b
+snippet 'o(n_)?path' "on_path" br
 on_path = [${1:'\.js$', '\.jsx$', '\.ts$', '\.tsx$'}]
 endsnippet
 
-snippet on_source "[dein] load the plugin before the listed plugins're loaded" b
+snippet 'o(n_)?source' "[dein] load the plugin before the listed plugins're loaded" br
 on_source = '${1:vim-fugitive}'
 endsnippet
 
