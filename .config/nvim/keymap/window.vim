@@ -80,10 +80,10 @@ endif
 
 function! s:ignore_floating_windows(ZZ) abort
   try
-    exe 'norm!'. a:ZZ
+    call feedkeys(a:ZZ, 'n')
   catch /E5601/ " We cannot leave a floating window in a tab.
     only
-    exe 'norm!' a:ZZ
+    call feedkeys(a:ZZ, 'n')
   endtry
 endfunction
 
