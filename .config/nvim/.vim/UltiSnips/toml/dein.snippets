@@ -8,7 +8,7 @@ def _get_repos():
   if re.search(url_github, clipboard):
     m = re.search(r'^{url_github}/([^/]*?/[^/]*?)/?$' \
                   .format(url_github = url_github), clipboard)
-    repos = [m.group(1)]
+    repos = [ m.group(1) ]
     repos = map(lambda repo: f"'{repo}'", repos)
 
   elif re.search(pkgm_Plug, clipboard):
