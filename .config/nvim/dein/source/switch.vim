@@ -18,12 +18,12 @@ function! s:set_definitions() abort
   let rules = {}
 
   " FIXME: get correct match pair to move `while (cond)`.
-  let pat_while = '\(while (.*)\) \({\(.*\n\)\{-}\s*}\)'
-  let pat_do_while = 'do \({\(.*\n\)\{-}\s*}\) \(while (.*)\);'
+  let pat_while = '\(while (.*)\) \({\(.*\n\)\{-}\s*}\);'
+  let pat_do_while = 'do \({\%(.*\n\)\{-}\s*}\) \(while (.*)\);'
   let rules.while_loop = [
         \ {
         \   pat_while : 'do \2 \1;',
-        \   pat_do_while : '\3 \1',
+        \   pat_do_while : '\2 \1;',
         \ },
         \ ]
 
