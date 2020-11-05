@@ -181,6 +181,7 @@ function! s:convert_list2dict(expr, results) abort
   endif
 
   let pats = map(deepcopy(a:results), a:expr)
+  let pats = map(deepcopy(pats), 'substitute(v:val, ''\\\d'', "", "g")')
 
   let dict = {}
   let dict = extend(deepcopy(dict), {pats[0] : a:results[1]})
