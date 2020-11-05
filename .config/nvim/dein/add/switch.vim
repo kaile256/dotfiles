@@ -8,6 +8,13 @@
 "     \ '<span\(.\{-}\)>\(.\{-}\)</span>': '<div\1>\2</div>',
 "     \ }]
 
+nnoremap <silent> z<C-x>
+      \ :<C-u>call switch#Switch(
+      \     {'definitions': g:switch_extra_definitions})<CR>
+nnoremap <silent> z<C-a>
+      \ :<C-u>call switch#Switch(
+      \     {'definitions': g:switch_extra_definitions, 'reverse': 1})<CR>
+
 let s:definitions = {}
 
 let s:definitions['cpp'] = [
