@@ -3,25 +3,27 @@
 
 let b:loaded_syntax_extra = 1
 
+function! s:detect_extra_filetype() abort
+  let full_path = expand('%:p')
+
+  let roots = get(g:, 'UltiSnipsSnippetDirectories')
+  let roots = map(roots, 'substitute(v:val, "/*$", "", "")')
+
+  for r in sort(roots)
+    let rel_path = matchstr(full_path, r .'/\zs\f\+')
+    if !empty(rel_path) && rel_path !=# full_path
+      let ft = matchstr(rel_path, '\v\f{-}\ze(/|\.)')
+      return ft
+    endif
+  endfor
+
+  return ''
+endfunction
+let s:ft = s:detect_extra_filetype()
+delfunction s:detect_extra_filetype
+
 function! s:override_extra_syntax() abort
-  function! s:detect_extra_filetype() abort closure
-    let full_path = expand('%:p')
-
-    let roots = get(g:, 'UltiSnipsSnippetDirectories')
-    let roots = map(roots, 'substitute(v:val, "/*$", "", "")')
-
-    for r in sort(roots)
-      let rel_path = matchstr(full_path, r .'/\zs\f\+')
-      if !empty(rel_path) && rel_path !=# full_path
-        let ft = matchstr(rel_path, '\v\f{-}\ze(/|\.)')
-        return ft
-      endif
-    endfor
-
-    return ''
-  endfunction
-
-  let ft = s:detect_extra_filetype()
+  let ft = s:ft
   if empty(ft) || ft ==# 'snippets'
     return
   endif
