@@ -1,58 +1,50 @@
 global !p
-def _get_repos():
-  clipboard = vim.eval('@+')
+class Repo:
+  def _get_repos():
+    """Return a List of repositories gotten from clipboard"""
 
-  url_github = 'https://github.com'
-  pkgm_Plug = "Plug "
+    clipboard = vim.eval('@+')
 
-  if re.search(url_github, clipboard):
-    m = re.search(r'^{url_github}/([^/]*?/[^/]*?)/?$' \
-                  .format(url_github = url_github), clipboard)
-    repos = [ m.group(1) ]
-    repos = map(lambda repo: f"'{repo}'", repos)
+    url_github = 'https://github.com'
+    pkgm_Plug = "Plug "
 
-  elif re.search(pkgm_Plug, clipboard):
-    # Plug 'foo/bar'
-    # Plug 'baz/qux'
-    #     will be converted to
-    # [[plugins]]
-    # repo = 'foo/bar'
-    # [[plugins]]
-    # repo = 'baz/qux'
-    repos = []
-    stmts = clipboard.split("\n")
-    for s in stmts:
-      m = re.search(r"'(.*)", f'{s}')
-      repos.append(m.group(0))
+    if re.search(url_github, clipboard):
+      m = re.search(r'^{url_github}/([^/]*?/[^/]*?)/?$' \
+                    .format(url_github = url_github), clipboard)
+      repos = [ m.group(1) ]
+      repos = map(lambda repo: f"'{repo}'", repos)
 
-  elif re.match(r'^[^/]*/[^/]*$', clipboard):
-    # foo/bar
-    #     to
-    # [[plugins]]
-    # repo = 'foo/bar'
-    repos = [ clipboard ]
+    elif re.search(pkgm_Plug, clipboard):
+      # Plug 'foo/bar'
+      # Plug 'baz/qux'
+      #     will be converted to
+      # [[plugins]]
+      # repo = 'foo/bar'
+      # [[plugins]]
+      # repo = 'baz/qux'
+      repos = []
+      stmts = clipboard.split("\n")
+      for s in stmts:
+        m = re.search(r"'(.*)", f'{s}')
+        repos.append(m.group(0))
 
-  else :
-    vim.command('echohl ErrorMsg')
-    vim.command(f'echo "[Invalid Format]: @+ is {clipboard}"')
-    vim.command('echohl None')
-    return ''
+    elif re.match(r'^[^/]*/[^/]*$', clipboard):
+      # foo/bar
+      #     to
+      # [[plugins]]
+      # repo = 'foo/bar'
+      repos = [ clipboard ]
 
-  return repos
+    else :
+      vim.command('echohl ErrorMsg')
+      vim.command(f'echo "[Invalid Format]: @+ is {clipboard}"')
+      vim.command('echohl None')
+      return ''
 
-
-def expand_dein_table():
-  format_dein = "[[plugins]]\nrepo"
-
-  repos = _get_repos()
-
-  repos = map(lambda r: r if re.match("'", r) else "'" + r + "'", repos)
-  tables_dein = map(lambda repo: f'{format_dein} = {repo}', repos)
-
-  return "\n".join(tables_dein)
+    return repos
 
 
-class Plugin:
+class Plugin(Repo):
   def _get_plugin_name_raw():
     pat_repo = '^repo = '
     line_repo = vim.eval(f"getline(search('{pat_repo}', 'bnW'))")
@@ -90,22 +82,34 @@ class Plugin:
     return PascalCased
 
 
-def expand_hook(index):
-  plugin = Plugin._trimmed()
+class Dein(Plugin):
+  def expand_table():
+    format_dein = "[[plugins]]\nrepo"
 
-  hook = 'hook_' + index
-  source = 'runtime '
+    repos = _get_repos()
 
-  directory = re.sub(r'_.*', '', index)
-  path = directory + '/' + plugin + '.vim'
+    repos = map(lambda r: r if re.match("'", r) else "'" + r + "'", repos)
+    tables_dein = map(lambda repo: f'{format_dein} = {repo}', repos)
 
-  return hook + " = '" + source + path + "'"
+    return "\n".join(tables_dein)
+
+
+  def expand_hook(index):
+    plugin = Dein._trimmed()
+
+    hook = 'hook_' + index
+    source = 'runtime '
+
+    directory = re.sub(r'_.*', '', index)
+    path = directory + '/' + plugin + '.vim'
+
+    return hook + " = '" + source + path + "'"
 
 
 endglobal
 
 snippet dein "[dein] init a table of repo" bA
-`!p snip.rv = expand_dein_table()`
+`!p snip.rv = Dein.expand_table()`
 endsnippet
 
 snippet if "if = '$1'" b
@@ -113,15 +117,15 @@ if = '${1:has("nvim")}'
 endsnippet
 
 snippet 'h(ook_)?a(dd)?' "hook_add = 'runtime add/foo.vim'" br
-`!p snip.rv = expand_hook('add')`
+`!p snip.rv = Dein.expand_hook('add')`
 endsnippet
 
 snippet 'h(ook_)?s(ource)?' "hook_source = 'runtime source/foo.vim" br
-`!p snip.rv = expand_hook('source')`
+`!p snip.rv = Dein.expand_hook('source')`
 endsnippet
 
 snippet 'h(ook_)?p(ost_)?(s(ource)?)?' "hook_post_source = 'runtime post/foo.vim'" br
-`!p snip.rv = expand_hook('post_souce')`
+`!p snip.rv = Dein.expand_hook('post_souce')`
 endsnippet
 
 snippet '(h(ook_)?)?d(one_)?u(pdate)?' "hook_done_update = 'UpdateRemotePlugins'" br
