@@ -1,6 +1,8 @@
 " TOML: insert.toml
 " Repo: SirVer/ultisnips
 
+let b:loaded_syntax_extra = 1
+
 function! s:override_extra_syntax() abort
   function! s:detect_extra_filetype() abort closure
     let full_path = expand('%:p')
