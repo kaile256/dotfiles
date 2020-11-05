@@ -3,11 +3,11 @@ if !dein#tap('${1:vim-plugin}')`!p
 
 path = vim.eval('expand("%:p")')
 if re.search(r'/ftplugin/', path):
-  snip.rv = ' | finish | endif'
+  snip.rv = ' | finish | '
 else :
   indent = vim.eval('repeat(" ", &sw)')
-  snip.rv = "\n" + indent + snip.v.text + "endif"
-`
+  snip.rv = "\n" + indent + snip.v.text
+`endif
 endsnippet
 
 snippet sandwich "b:sandwich_magicchar_f_patterns" w
