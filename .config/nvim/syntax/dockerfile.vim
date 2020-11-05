@@ -43,7 +43,7 @@ syn case ignore
 syn region dockerfileString start=/\z(['"]\)/ skip=/\\\z1|\\\\/ end=/\z1/
 syn match dockerfileKeyword / AS / skipwhite containedin=dockerfileCommands
 exe 'syn match dockerfileKeyword'
-      \ '/\v\s*('. join(s:docker_keywords, '|') .')\s+/'
+      \ '/\v^\s*('. join(s:docker_keywords, '|') .')\s+/'
       \ 'containedin=dockerfileCommands'
       \ 'skipwhite'
 exe 'syn region dockerfileCommands'
