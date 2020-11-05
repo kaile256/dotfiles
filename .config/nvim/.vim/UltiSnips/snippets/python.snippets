@@ -12,8 +12,14 @@ snippet !p "expr for Python" i
 \`!p${1} ${2:snip.rv =} ${3:${VISUAL}}\`
 endsnippet
 
-snippet 'rv\s*' "snip.rv = $1" r
+context "is_in_python_code()"
+snippet 'rv\s*' "snip.rv = $1" ri
 snip.rv = ${1}` `
+endsnippet
+
+context "not is_in_python_code()"
+snippet 'rv\s*' "snip.rv = $1" ri
+\`!p snip.rv = ${1}\`
 endsnippet
 
 context "is_in_python_code()"
