@@ -614,11 +614,13 @@ settings:
       map: https://www.google.co.jp/maps/search/{}
       mdn: https://developer.mozilla.org/en-US/search?q={}
       mf: https://github.com/search?o=desc&q={}&s=forks&type=Repositories
+      mrcr: https://www.mercari.com/jp/search/?keyword={}
       ms: https://github.com/search?o=desc&q={}&s=stars&type=Repositories
       note: https://note.com/search?context=note&mode=search&q={}
       nxt: https://nextjs.org/docs/api-reference/next/{}
       pk: https://app.getpocket.com/search/{}
-      pyd: https://docs.python.org/3/search.html?q={}&check_keywords=yes&area=default
+      pyD: https://docs.python.org/3/search.html?q={}
+      pyd: https://docs.python.org/3/library/{}.html
       pyr: https://docs.python.org/3/search.html?q={}
       qb: https://www.reddit.com/r/qutebrowser/search/?q={}
       qi: https://qiita.com/search?q={}&sort=stock
