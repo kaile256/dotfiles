@@ -83,22 +83,23 @@ def expand_hook(index):
   return hook + " = '" + source + path + "'"
 
 
-def plugin_underscored():
-  plugin = _trim_plugin_name()
-  underscored = plugin.replace('-', '_')
+class plugin:
+  def underscored():
+    plugin = _trim_plugin_name()
+    underscored = plugin.replace('-', '_')
 
-  return underscored
+    return underscored
 
 
-def plugin_PascalCased():
-  plugin = _trim_plugin_name()
-  separator = r'[-_.]'
-  words = re.split(separator, plugin)
+  def PascalCased():
+    plugin = _trim_plugin_name()
+    separator = r'[-_.]'
+    words = re.split(separator, plugin)
 
-  WordsCapitalized = map(lambda w: w[0].capitalize() + w[1:], words)
-  PascalCased = ''.join(WordsCapitalized)
+    WordsCapitalized = map(lambda w: w[0].capitalize() + w[1:], words)
+    PascalCased = ''.join(WordsCapitalized)
 
-  return PascalCased
+    return PascalCased
 
 
 endglobal
@@ -140,11 +141,11 @@ on_map = {${1:nox} = '<Plug>(${2:`!v snip#vim#name_of_plugin()`}'}
 endsnippet
 
 snippet on_func "on_func" b
-on_func = '${1:`!p snip.rv = plugin_underscored()`}#$2'
+on_func = '${1:`!p snip.rv = plugin.underscored()`}#$2'
 endsnippet
 
 snippet on_cmd "on_cmd" b
-on_cmd = '${1:`!p snip.rv = plugin_PascalCased()`}'
+on_cmd = '${1:`!p snip.rv = plugin.PascalCased()`}'
 endsnippet
 
 snippet on_path "on_path" b
