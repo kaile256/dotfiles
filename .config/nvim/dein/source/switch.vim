@@ -41,15 +41,13 @@ function! s:set_definitions() abort
         \ ]
 
   let rules.command = [
-        \ {
-        \   '^\(\s*\)let ': '\1const ',
-        \   '^\(\s*\)const ': '\1let ',
-        \ },
+        \ ['let', 'const'],
         \ ]
 
   let rules.anitinomy = [
         \ ['global', 'local'],
         \ ['horizontal', 'vertical'],
+        \ ['prefix', 'suffix'],
         \ ]
 
   let rules.opposite = [
