@@ -163,7 +163,9 @@ function! s:set_definitions() abort
   for label in keys(rules)
     let definitions += rules[label]
   endfor
+
   let definitions = map(deepcopy(definitions), 's:modified_case(v:val)')
+
   return definitions
 endfunction
 
@@ -173,13 +175,45 @@ function! s:modified_case(rule) abort
         \ : s:sensitive_case(a:rule)
 endfunction
 
-function! s:normalized_case(rule) abort
-  let rule = a:rule
-  if len(a:rule) == 2
-    " Normalization makes backward switch unavailable.
-    let rule = switch#NormalizedCase(a:rule)
+function! s:convert_list2dict(expr, results) abort
+  if len(a:results) != 2
+    throw 'Invalid format results'
   endif
-  return rule
+
+  let pats = map(deepcopy(a:results), a:expr)
+
+  let dict = {}
+  let dict = extend(deepcopy(dict), {pats[0] : a:results[1]})
+  let dict = extend(deepcopy(dict), {pats[1] : a:results[0]})
+  return dict
+endfunction
+
+function! s:normalized_case(rule) abort
+  " Convert ['foo', 'bar'] into a Dict as below:
+  "   {
+  "     '\v(_|<)foo(_|>)': 'bar',
+  "     '\v(_|<)bar(_|>)': 'foo',
+  "   }
+
+  if len(a:rule) != 2
+    return a:rule
+  endif
+
+  let dicts = {}
+
+  let r = a:rule
+  let dicts.isolated = s:convert_list2dict('''\v(_|<)''. v:val ."(_|>)"', r)
+  let dicts.Initialized = s:convert_list2dict('''\v(_|<)''. toupper(v:val[0]) . v:val[1:] ."(_|>)"',
+        \ map(deepcopy(r), 'toupper(v:val[0]) . v:val[1:]'))
+  let dicts.UPPERCASED = s:convert_list2dict('''\v(_|<)''. toupper(v:val) ."(_|>)"',
+        \ map(deepcopy(r), 'toupper(v:val)'))
+
+  let rules = {}
+  for d in keys(dicts)
+    let rules = extend(deepcopy(rules), dicts[d])
+  endfor
+
+  return rules
 endfunction
 
 function! s:sensitive_case(rule) abort
