@@ -148,6 +148,6 @@ augroup AutoFormatVimwiki
   "au FileType vimwiki if expand('%:t') ==# 'md\|markdown' | setl ft=markdown | endif
   au BufWritePre vimwiki/** if &ft  ==# 'vimwiki' | VimwikiTOC
   au BufWritePre index.* if &ft  ==# 'vimwiki' | VimwikiGenerateLinks
-  au FileType vimwiki,markdown call s:vimwiki_keymaps()
-  au FileType vimwiki,markdown call s:vimwiki_abbrs()
+  au FileType vimwiki call s:vimwiki_keymaps()
+  au FileType vimwiki call s:vimwiki_abbrs()
 augroup END
