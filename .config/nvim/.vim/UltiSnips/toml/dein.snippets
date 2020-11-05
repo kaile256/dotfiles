@@ -85,7 +85,7 @@ class Dein(Plugin):
   def expand_table():
     format_dein = "[[plugins]]\nrepo"
 
-    repos = _get_repos()
+    repos = Dein._get_repos()
 
     repos = map(lambda r: r if re.match("'", r) else "'" + r + "'", repos)
     tables_dein = map(lambda repo: f'{format_dein} = {repo}', repos)
