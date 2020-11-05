@@ -1,8 +1,19 @@
 snippet '(if\s*)?tap' "Dein: guard for plugin config under ftplugin/" br
-if !dein#tap('${1:vim-plugin}')`!p
-
+`!p
 path = vim.eval('expand("%:p")')
-if re.search(r'/ftplugin/', path):
+is_in_ftplugin = re.search(r'/ftplugin/', path)
+should_guard = is_in_ftplugin
+
+`if `!p
+
+if should_guard:
+  snip.rv = '!'
+else :
+  snip.rv = ''
+
+`dein#tap('${1:vim-plugin}')`!p
+
+if should_guard:
   snip.rv = ' | finish | '
 else :
   indent = vim.eval('repeat(" ", &sw)')
