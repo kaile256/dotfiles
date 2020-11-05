@@ -203,10 +203,13 @@ function! s:normalized_case(rule) abort
   let dicts = {}
 
   let r = a:rule
-  let dicts.isolated = s:convert_list2dict('''\v(_|<)''. v:val ."(_|>)"', r)
-  let dicts.Initialized = s:convert_list2dict('''\v(_|<|\l)''. toupper(v:val[0]) . v:val[1:]',
-        \ map(deepcopy(r), '"\\1". toupper(v:val[0]) . v:val[1:]'))
-  let dicts.UPPERCASED = s:convert_list2dict('''\v(_|<)''. toupper(v:val) ."(_|>)"',
+
+  let dicts.isolated = s:convert_list2dict('''\v%(_|<)''. v:val ."%(_|>)"', r)
+  let dicts.Initialized = s:convert_list2dict(
+        \ '''\v(_|<|\l)''. toupper(v:val[0]) . v:val[1:] .''(_|>|\u)''',
+        \ map(deepcopy(r), '"\\1". toupper(v:val[0]) . v:val[1:] ."\\2"'))
+  let dicts.UPPER_CASED = s:convert_list2dict(
+        \ '''\v%(_|<)''. toupper(v:val) ."%(_|>)"',
         \ map(deepcopy(r), 'toupper(v:val)'))
 
   let rules = {}
