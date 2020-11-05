@@ -76,7 +76,9 @@ def expand_hook(index):
 
   hook = 'hook_' + index
   source = 'runtime '
-  path = index + '/' + plugin + '.vim'
+
+  directory = re.sub(r'_.*', '', index)
+  path = directory + '/' + plugin + '.vim'
 
   return hook + " = '" + source + path + "'"
 
