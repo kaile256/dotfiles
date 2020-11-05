@@ -1,5 +1,8 @@
 " TOML: insert.toml
 " Repo: SirVer/ultisnips
+" Ref: Related Syntax
+"  - $VIMRUNTIME/syntax/vim.vim
+"  - SirVer/ultisnips/syntax/snippets.vim
 
 let b:loaded_syntax_extra = 1
 
