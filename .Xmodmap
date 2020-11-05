@@ -1,24 +1,28 @@
 ! From: .xinitrc
 !  Ref: .Xresources
 
+! `xmodmap %:p` to test this file.
+!
 ! Note: check keycodes by `xmodmap -pke` or `xcape -d`
-!   or you'll get in /usr/include/X11/keysymdef.h (without XK_prefix)
-! Ref: SandS with xcape
-!   https://qiita.com/ychubachi@github/items/95830219f1bdf912280b
-!keycode 255=space
-!! 65 is 'space' as default.
-!keycode 65=Shift_L
+! or you will get in /usr/include/X11/keysymdef.h (without XK_prefix)
 
-! Switch Caps_Lock & Control_L
-!remove Lock    = Caps_Lock
-!remove Control = Control_L
-!
-!keysym Caps_Lock = Control_L
-!keysym Control_L = Caps_Lock
-!
-!add Lock    = Caps_Lock
-!add Lock    = Control_L
-!add Control = Control_L
+! How to modify [modifier key]:
+!   rmove Lock = Caps_Lock <- make "Caps_Lock (keysym)" modifiable
+!   keysym = Caps_Lock = Escape Caps_Lock <-
+!   add Lock = Caps_Lock <- set modified "Caps_Lock"
+
+! Format:
+! keycode {num (xmodmap -pke)} = {keysym}
+! remove {modkey (xmodmap -pm)} = {keysym}
+! add {modkey (xmodmap -pm)} = {keysym}
+
+! Swap `keycode 51 = backslash bar backslash bar` with `keycode 29 = Caps_Lock`
+! (gotten from /usr/share/kbd/keymaps/1386/include/ctrl.map.gz)
+
+! keycode 51 = Caps_Lock
+! clear lock
+! add lock = Escape
+! keycode 66 = Caps_Lock
 
 ! Physical Ctrl-key is keycode (number) 37 ; KEYSYMNAME (default Logical code role) is Ctrl_L
 ! Physical Fn-key is keycode 151 ; default logical code role is XF86WakeUp
