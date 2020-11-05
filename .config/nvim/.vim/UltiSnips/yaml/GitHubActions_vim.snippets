@@ -1,0 +1,93 @@
+global !p
+def GitHubActionDefault_on():
+  return '''
+on:
+  push:
+    branches:
+      - '**'
+
+  pull_request:
+    branches:
+      - '*'
+  '''
+endglobal
+
+snippet name_gh_test_vint "[GitHub Actions] lint for VimScript" b
+name: vint
+
+`!p snip.rv = GitHubActionDefault_on()`
+
+jobs:
+  vint:
+    name: Run vint as a linter
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: vint
+        uses: reviewdog/action-vint@v1
+        with:
+          github_token: ${{ secrets.github_token }}
+          level: error
+          reporter: github-pr-review
+endsnippet
+
+snippet name_gh_test_themis "[GitHub Actions] run test on themis for VimScript" b
+name: themis
+
+`!p snip.rv = GitHubActionDefault_on()`
+
+  vim-themis:
+    name: Run themis tests
+
+    strategy:
+      matrix:
+        nvim_version:
+          - nightly
+        os:
+          - ubuntu-latest
+          - macos-latest
+          - windows-latest
+
+    runs-on: ${{ matrix.os }}
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install vim-themis
+        uses: actions/checkout@v2
+        with:
+          repository: thinca/vim-themis
+          path: vim-themis
+
+      - name: Install neovim
+        uses: rhysd/action-setup-vim@v1
+        id: vim
+        with:
+          neovim: ${1:true}
+          version: ${{ matrix.nvim_version }}
+
+      - name: Run themis tests
+        env:
+          THEMIS_VIM: ${{ steps.vim.outputs.executable }}
+        run: |
+          ./vim-themis/bin/themis ./test
+endsnippet
+
+snippet strategy_os "[GitHub Actions] strategy for os" b
+strategy:
+  matrix:
+    os:
+      - ubuntu-latest
+      - macos-latest
+      - windows-latest
+endsnippet
+
+snippet steps "[GitHub Actions] steps with actions/checkout@2" b
+steps:
+  - uses: actions/checkout@v2
+
+  - name: ${1}
+    ${2:run/uses}: ${3}
+endsnippet
+
+snippet trigger "description"
+
