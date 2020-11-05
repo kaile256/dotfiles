@@ -87,8 +87,9 @@ class Dein(Plugin):
 
     repos = Dein._get_repos()
 
-    repos = map(lambda r: r if re.match("'", r) else "'" + r + "'", repos)
-    tables_dein = map(lambda repo: f'{format_dein} = {repo}', repos)
+    without_quotes = map(lambda r: re.sub(r'[\'"]', '', r), repos)
+    tables_dein = map(lambda repo: f'{format_dein} = \'{repo}\'',
+                      without_quotes)
 
     return "\n".join(tables_dein)
 
