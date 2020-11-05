@@ -90,6 +90,17 @@ def plugin_underscored():
   return underscored
 
 
+def plugin_PascalCased():
+  plugin = _trim_plugin_name()
+  separator = r'[-_.]'
+  words = re.split(separator, plugin)
+
+  WordsCapitalized = map(lambda w: w[0].capitalize() + w[1:], words)
+  PascalCased = ''.join(WordsCapitalized)
+
+  return PascalCased
+
+
 endglobal
 
 snippet dein "[dein] init a table of repo" bA
