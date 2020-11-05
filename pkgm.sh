@@ -24,6 +24,7 @@ PACKAGEs=(
   i3-wm
   conky-i3
   xsel
+  xclip
   eslint
   xorg-xinput # removed with `bmenu`
   lshw # removed with `bmenu`
