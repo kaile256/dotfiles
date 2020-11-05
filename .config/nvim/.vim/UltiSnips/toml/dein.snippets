@@ -1,6 +1,6 @@
 global !p
 class Plugin:
-  def _get_raw_name():
+  def _raw():
     pat_repo = '^repo = '
     line_repo = vim.eval(f"getline(search('{pat_repo}', 'bnW'))")
     plugin_name_raw = re.sub(r'^.*/(.*)[\'"]', r'\1', line_repo)
@@ -12,7 +12,7 @@ class Plugin:
     prefix = r'^n?vim[-_.]'
     suffix = r'[-_.]n?vim$'
 
-    plugin = Plugin._get_raw_name()
+    plugin = Plugin._raw()
     plugin = re.sub(prefix, '', plugin)
     plugin = re.sub(suffix, '', plugin)
 
