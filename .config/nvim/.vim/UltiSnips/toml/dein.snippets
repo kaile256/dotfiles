@@ -75,7 +75,7 @@ class Dein(Plugin):
 
     else :
       vim.command('echohl ErrorMsg')
-      vim.command(f'echo "[Invalid Format]: @+ is {clipboard}"')
+      vim.command('echo "[Invalid Format]: @+ contains no URLs"')
       vim.command('echohl None')
       return ''
 
