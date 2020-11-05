@@ -1,8 +1,6 @@
 global !p
-def expand_dein_table():
+def _get_repos():
   clipboard = vim.eval('@+')
-
-  format_dein = "[[plugins]]\nrepo"
 
   url_github = 'https://github.com'
   pkgm_Plug = "Plug "
@@ -39,6 +37,14 @@ def expand_dein_table():
     vim.command(f'echo "[Invalid Format]: @+ is {clipboard}"')
     vim.command('echohl None')
     return ''
+
+  return repos
+
+
+def expand_dein_table():
+  format_dein = "[[plugins]]\nrepo"
+
+  repos = _get_repos()
 
   repos = map(lambda r: r if re.match("'", r) else "'" + r + "'", repos)
   tables_dein = map(lambda repo: f'{format_dein} = {repo}', repos)
