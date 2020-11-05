@@ -139,7 +139,8 @@ function! s:set_definitions() abort
         \ ]
 
   let rules.language = [
-        \ ['javascript', 'typescript']
+        \ ['javascript', 'typescript'],
+        \ ['javascriptreact', 'typescriptreact'],
         \ ]
 
   let rules.japanese = [
