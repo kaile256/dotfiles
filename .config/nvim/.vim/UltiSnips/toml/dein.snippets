@@ -1,5 +1,43 @@
 global !p
-class Repo:
+class Plugin:
+  def _get_raw_name():
+    pat_repo = '^repo = '
+    line_repo = vim.eval(f"getline(search('{pat_repo}', 'bnW'))")
+    plugin_name_raw = re.sub(r'^.*/(.*)[\'"]', r'\1', line_repo)
+
+    return plugin_name_raw
+
+
+  def _trimmed():
+    prefix = r'^n?vim[-_.]'
+    suffix = r'[-_.]n?vim$'
+
+    plugin = Plugin._get_raw_name()
+    plugin = re.sub(prefix, '', plugin)
+    plugin = re.sub(suffix, '', plugin)
+
+    return plugin
+
+
+  def underscored():
+    plugin = Plugin._trimmed()
+    underscored = plugin.replace('-', '_')
+
+    return underscored
+
+
+  def PascalCased():
+    plugin = Plugin._trimmed()
+    separator = r'[-_.]'
+    words = re.split(separator, plugin)
+
+    WordsCapitalized = map(lambda w: w[0].capitalize() + w[1:], words)
+    PascalCased = ''.join(WordsCapitalized)
+
+    return PascalCased
+
+
+class Dein(Plugin):
   def _get_repos():
     """Return a List of repositories gotten from clipboard"""
 
@@ -44,45 +82,6 @@ class Repo:
     return repos
 
 
-class Plugin(Repo):
-  def _get_raw_name():
-    pat_repo = '^repo = '
-    line_repo = vim.eval(f"getline(search('{pat_repo}', 'bnW'))")
-    plugin_name_raw = re.sub(r'^.*/(.*)[\'"]', r'\1', line_repo)
-
-    return plugin_name_raw
-
-
-  def _trimmed():
-    prefix = r'^n?vim[-_.]'
-    suffix = r'[-_.]n?vim$'
-
-    plugin = Plugin._get_raw_name()
-    plugin = re.sub(prefix, '', plugin)
-    plugin = re.sub(suffix, '', plugin)
-
-    return plugin
-
-
-  def underscored():
-    plugin = Plugin._trimmed()
-    underscored = plugin.replace('-', '_')
-
-    return underscored
-
-
-  def PascalCased():
-    plugin = Plugin._trimmed()
-    separator = r'[-_.]'
-    words = re.split(separator, plugin)
-
-    WordsCapitalized = map(lambda w: w[0].capitalize() + w[1:], words)
-    PascalCased = ''.join(WordsCapitalized)
-
-    return PascalCased
-
-
-class Dein(Plugin):
   def expand_table():
     format_dein = "[[plugins]]\nrepo"
 
