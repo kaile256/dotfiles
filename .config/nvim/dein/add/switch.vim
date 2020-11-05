@@ -138,6 +138,8 @@ let s:definitions['python'] = [
       \   'elseif': 'elif',
       \   'else if': 'elif',
       \ },
+      \
+      \ ['vim.command(,', 'vim.eval('],
       \ ]
 
 let s:definitions['snippets'] = [
