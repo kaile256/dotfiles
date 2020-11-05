@@ -60,6 +60,17 @@ def _get_plugin_name_raw():
   return plugin_name_raw
 
 
+def _trim_plugin_name():
+  prefix = r'^n?vim[-_.]'
+  suffix = r'[-_.]n?vim$'
+
+  plugin = _get_plugin_name_raw()
+  plugin = re.sub(prefix, '', plugin)
+  plugin = re.sub(suffix, '', plugin)
+
+  return plugin
+
+
 endglobal
 
 snippet dein "[dein] init a table of repo" bA
