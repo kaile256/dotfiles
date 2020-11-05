@@ -52,6 +52,14 @@ def expand_dein_table():
   return "\n".join(tables_dein)
 
 
+def _get_plugin_name_raw():
+  pat_repo = '^repo = '
+  line_repo = vim.eval(f'getline(search("^repo =", "bnW"))')
+  plugin_name_raw = re.sub(r'^.*/(.*)[\'"]', r'\1', line_repo)
+
+  return plugin_name_raw
+
+
 endglobal
 
 snippet dein "[dein] init a table of repo" bA
