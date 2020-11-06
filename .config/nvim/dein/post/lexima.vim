@@ -486,6 +486,14 @@ function! s:set_rules() abort
         \ {'char': '`', 'filetype': ['ocaml', 'reason']},
         \ ]
 
+  let group2rules.python = []
+
+  const Double_quotes_at_special_string = [
+        \ {'char': "'", 'input_after': "'", 'at': '\<[rf]\%#'},
+        \ {'char': '"', 'input_after': '"', 'at': '\<[rf]\%#'},
+        \ ]
+  let group2rules.python += Double_quotes_at_special_string
+
   " Rules for Vim {{{1
   let group2rules.vim = []
 
