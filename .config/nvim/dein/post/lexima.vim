@@ -151,7 +151,7 @@ function! s:set_rules() abort
   " Overwrite Rules for Newline {{{1
   " Copied from cohama/lexima.vim/autoload/lexima.vim @75
 
-  let global += [
+  const Split_brackets = [
         \ {'char': '<CR>', 'at': '(\%#)',  'input_after': '<CR>'},
         \ {'char': '<CR>', 'at': '{\%#}',  'input_after': '<CR>'},
         \ {'char': '<CR>', 'at': '\[\%#]', 'input_after': '<CR>'},
@@ -162,6 +162,7 @@ function! s:set_rules() abort
         \ {'char': '<CR>', 'at': '"\%#"',  'input_after': '<CR>'},
         \ {'char': '<CR>', 'at': '`\%#`',  'input_after': '<CR>'},
         \ ]
+  let global += Split_brackets
 
   " Spilt <tag><\tag> on <CR>
   let global += [
