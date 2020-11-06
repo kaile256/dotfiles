@@ -624,11 +624,12 @@ function! s:set_rules() abort
         if !has_key(group2ft, group)
           echoerr group .' has no corresponding group2ft'
         endif
-        let ret += s:insert_rule2rules(rules, {'filetype': group2ft[group]})
+        let fts = group2ft[group]
       else
-        let ft = group
-        let ret += s:insert_rule2rules(rules, {'filetype': ft})
+        let fts = group
       endif
+
+      let ret += s:insert_rule2rules(rules, {'filetype': fts})
     endfor
 
     return ret
