@@ -184,10 +184,10 @@ hook_source = 'runtime source/comfortable-motion.vim'
 repo = 'psliwka/vim-smoothie'
 on_map = {n = '<Plug>(Smoothie'}
 hook_add = 'runtime add/smoothie.vim'
-[[plugins]]
-repo = 'joeytwiddle/sexy_scroller.vim'
-# Using autocmd-CursorMoved etc., sexy_scroll works even with n/N;
-# instead, it irritatingly works with among_HML, too.
-# Neither mappings nor functions are public.
-on_event = 'BufRead'
-hook_source = 'runtime source/sexy_scroller.vim'
+# [[plugins]]
+# repo = 'joeytwiddle/sexy_scroller.vim'
+# # Using autocmd-CursorMoved etc., sexy_scroll works even with n/N;
+# # instead, it irritatingly works with among_HML, too.
+# # Neither mappings nor functions are public.
+# on_event = 'BufRead'
+# hook_source = 'runtime source/sexy_scroller.vim'
