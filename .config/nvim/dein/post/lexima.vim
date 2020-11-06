@@ -478,12 +478,12 @@ function! s:set_rules() abort
   let group2rules.vim = [] "{{{1
 
   " Delete duplicated double-quotes to comment in Vimscript.
-  const Start_comment = [
+  const Start_commentline = [
         \ {'char': '<TAB>',     'at': '^\s*"\%#"', 'input': '<C-g>U<Del><TAB>'},
         \ {'char': '<Space>',   'at': '^\s*"\%#"', 'input': '<C-g>U<Del><space>'},
         \ {'char': '<S-Space>', 'at': '^\s*"\%#"', 'input': '<C-g>U<Del><space>'},
         \ ]
-  let group2rules.vim += Start_comment
+  let group2rules.vim += Start_commentline
 
   const Complete_map_args = [
         \ {'char': '<', 'at': 'map .*\%#', 'input_after': '>'},
