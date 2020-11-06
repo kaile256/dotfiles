@@ -6,5 +6,6 @@ if s:is_editing
   setlocal conceallevel=2
 else
   setlocal signcolumn= nolist foldlevel=0
+  setlocal bufhidden=wipe
 endif
 
