@@ -14,7 +14,7 @@ augroup mySetReadonly
 augroup END
 
 augroup myAutoUpdateColorColumn
-  au OptionSet textwidth if &cc != &tw + 1 | let &l:colorcolumn = &tw + 1 | endif
+  au OptionSet textwidth let &colorcolumn = (&tw > 50 ? &tw : &g:tw) + 1
 augroup END
 
 augroup myAugroups
