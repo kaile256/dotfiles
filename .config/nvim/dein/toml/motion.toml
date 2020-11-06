@@ -186,3 +186,6 @@ on_map = {n = '<Plug>(Smoothie'}
 hook_add = 'runtime add/smoothie.vim'
 [[plugins]]
 repo = 'joeytwiddle/sexy_scroller.vim'
+# the most complex configurations
+on_event = 'BufRead'
+hook_source = 'runtime source/sexy_scroller.vim'
