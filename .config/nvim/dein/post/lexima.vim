@@ -64,18 +64,20 @@ function! s:set_rules() abort
   "   syntax: like vimString, Constant, NonText
   "   priority: the bigger, the higher priority; default as 0.
 
-  " Rules for framework/library {{{1
+  let group2rules.React = [] "{{{1
+
   const pat_revising = '\%#[^,;]\+'
   const Complete_backtick_for_CSS_in_JS = {
         \ 'char': '`', 'input_after': '`', 'except': pat_revising,
         \ 'at': '\<styled\>\S*\%#',
         \ }
 
-  let group2rules.React = [
+  let group2rules.React += [
         \ Complete_backtick_for_CSS_in_JS,
         \ ]
 
-  " Rules for JavaScript {{{1
+  let group2rules.Javascript = [] "{{{1
+
   const pat_preceding = '^\s*[a-zA-Z_-]\{-}:\%#'
   const Append_comma = {
         \ 'char': '<space>', 'input_after': ',',
@@ -100,7 +102,7 @@ function! s:set_rules() abort
         \ 'at': '^\s*case\%#', 'except': pat_revising,
         \ }
 
-  let group2rules.Javascript = [
+  let group2rules.Javascript += [
         \ {'char': '<space>', 'input_after': ';', 'at': 'import\%#'},
         \ {'char': '<space>', 'input_after': ';',
         \     'at': 'let\%#', 'except': pat_revising},
@@ -109,8 +111,9 @@ function! s:set_rules() abort
         \ Append_colon_after_case,
         \ ]
 
-  " Rules for Semicolon {{{1
-  let group2rules.Semicolon = [
+  let group2rules.Semicolon = [] "{{{1
+
+  let group2rules.Semicolon += [
         \ {'char': '<space>', 'input_after': ';',
         \     'at': 'return\%#', 'except': '\%#.\+'},
         \ {'char': '<space>', 'input_after': ';',
@@ -118,8 +121,7 @@ function! s:set_rules() abort
         \ {'char': '<BS>', 'input': '<C-g>U<Del><BS>', 'at': '=\%#;'},
         \ ]
 
-  " Rules for Tag {{{1
-  let group2rules.Tag = []
+  let group2rules.Tag = [] "{{{1
 
   let group2rules.Tag += [
         \ {'char': '<CR>', 'at': '\%#\s*/>',
@@ -132,8 +134,7 @@ function! s:set_rules() abort
         \   'input': '<CR>', 'input_after': '<CR>'},
         \ ]
 
-  " Rules for Writinng {{{1
-  let group2rules.Writing = []
+  let group2rules.Writing = [] "{{{1
 
   let group2rules.Writing += [
         \ {'char': '<CR>', 'input': '<CR><C-g>u'},
