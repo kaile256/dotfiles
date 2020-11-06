@@ -1,6 +1,7 @@
 " From: filetype.vim
 
-if &modifiable || !&readonly || @% =~# 'fugitive:\/\/\/'
+let s:is_editing = &modifiable || !&readonly || @% =~# 'fugitive:\/\/\/'
+if s:is_editing
   setlocal concealcursor=n
   setlocal conceallevel=2
 else
