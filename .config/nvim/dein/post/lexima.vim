@@ -428,7 +428,7 @@ function! s:set_rules() abort
   "      \ ]
 
   let global += [
-        \ {'char': '<C-=>',     'input': ' = '},
+        \ {'char': '<C-=>', 'input': ' = '},
         \
         \ {'char': '<C-,>', 'input': ', '},
         \ {'char': '<C-.>', 'input': '. '},
