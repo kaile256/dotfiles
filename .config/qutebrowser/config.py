@@ -37,7 +37,7 @@ c.hints.selectors["code"] = [
 def should_be_darkmode():
     monitor_sizes_to_darkmode = [
         '1040mm x 590mm',
-        '530mm x 300mm',
+        # '530mm x 300mm',
     ]
 
     possible_monitors = subprocess.check_output(['xrandr'], text=True)
