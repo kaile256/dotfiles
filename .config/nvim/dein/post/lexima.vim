@@ -110,22 +110,6 @@ function! s:set_rules() abort
         \ ]
 
   " Rules for Semicolon {{{1
-  const Format_css_element = [
-        \ {'char': '<space>', 'at': '^\w\+\%#', 'filetype': 'css', 'syntax': '',
-        \   'input': '<Esc>:<C-u>keepjumps keeppatterns s/^\ze\w/./e<CR>gi<C-g>U<Right><space>'},
-        \ {'char': '<C-space>', 'at': '^\w\+\%#', 'filetype': 'css', 'syntax': '',
-        \   'input': '<Esc>:<C-u>keepjumps keeppatterns s/^\ze\w/./e<CR>gi<C-g>U<Right><space>'},
-        \ ]
-
-  let group2rules.css = []
-  let group2rules.css += [
-        \ {'char': '<space>', 'input': ': ', 'input_after': ';',
-        \     'at': '^\s\+[a-zA-Z-]\+\%#', 'except': '\%#.\+',},
-        \ {'char': '<space>', 'input_after': ';',
-        \     'at': '^\s\+[a-zA-Z-]\+:\%#', 'except': '\%#.\+'},
-        \ ]
-  let group2rules.css += Format_css_element
-
   let group2rules.Semicolon = [
         \ {'char': '<space>', 'input_after': ';',
         \     'at': 'return\%#', 'except': '\%#.\+'},
@@ -572,6 +556,22 @@ function! s:set_rules() abort
         \ {'char': ',', 'at': 'cin .*\h\w*\%#', 'input': ' >> '},
         \ {'char': ',', 'at': 'cout .*\h\w*\%#', 'input': ' << '},
         \ ]
+
+  let group2rules.css = [] "{{{1
+  let group2rules.css += [
+        \ {'char': '<space>', 'input': ': ', 'input_after': ';',
+        \     'at': '^\s\+[a-zA-Z-]\+\%#', 'except': '\%#.\+',},
+        \ {'char': '<space>', 'input_after': ';',
+        \     'at': '^\s\+[a-zA-Z-]\+:\%#', 'except': '\%#.\+'},
+        \ ]
+
+  const Format_css_element = [
+        \ {'char': '<space>', 'at': '^\w\+\%#', 'filetype': 'css', 'syntax': '',
+        \   'input': '<Esc>:<C-u>keepjumps keeppatterns s/^\ze\w/./e<CR>gi<C-g>U<Right><space>'},
+        \ {'char': '<C-space>', 'at': '^\w\+\%#', 'filetype': 'css', 'syntax': '',
+        \   'input': '<Esc>:<C-u>keepjumps keeppatterns s/^\ze\w/./e<CR>gi<C-g>U<Right><space>'},
+        \ ]
+  let group2rules.css += Format_css_element
 
   " Finally: Override the rules though lexima#add_rule() "{{{1
   " Apply all the maps to both Insert and Command mode when unspecified
