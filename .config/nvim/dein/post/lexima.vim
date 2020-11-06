@@ -183,14 +183,14 @@ function! s:set_rules() abort
         \ {'char': '<', 'at': '\%#[[<({]'},
         \ ]
 
-  " parentheses to close
   " FIXME: ')' in command line works as {'leave': 1} wherever cursor is before ')'
-  let global += [
+  const Ignore_duplicated = [
         \ {'char': ')', 'at': '\%#)', 'input': '<C-g>U<Right>'},
         \ {'char': ']', 'at': '\%#]', 'leave': 1},
         \ {'char': '}', 'at': '\%#}', 'leave': 1},
         \ {'char': '>', 'at': '\%#>', 'leave': 1},
         \ ]
+  let global += Ignore_duplicated
 
   let pat_block_start = '\s*\(if\|while\|for\)\s\+\([^(]*\%#.*\)\s*'
   const Insert_paren =
