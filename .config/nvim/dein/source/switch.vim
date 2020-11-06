@@ -35,6 +35,19 @@ function! s:set_extra_definitions() abort
         \ },
         \ ]
 
+  " The patterns would hardly match outside of &ft=vim.
+  let rules.vimscript = [
+        \ {
+        \   's:\(\h\w\+\)': '<SID>\1',
+        \   '<SID>\(\h\w\+\)': 's:\1',
+        \ },
+        \
+        \ {
+        \   '\vsubstitute\((.*), .{-}, .{-}\)': 'matchstr(\1)',
+        \   '\vmatchstr\((.{-}, .{-})\)': "substitute(\\1, '', '')",
+        \ },
+        \ ]
+
   const definitions = s:_convert_rules_to_definitions(rules)
   return definitions
 endfunction
