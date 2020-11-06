@@ -481,10 +481,14 @@ function! s:set_rules() abort
 
   " Addtional Rules on FileType {{{1
   " Suppress some rules up to filetype.
-  let global += [
-        \ {'char': "'", 'filetype': ['haskell', 'lisp', 'clojure', 'ocaml', 'reason', 'scala', 'rust']},
+  const Always_single_quots_on_some_filetypes = [
         \ {'char': '`', 'filetype': ['ocaml', 'reason']},
+        \ {
+        \   'char': "'",
+        \   'filetype': ['haskell', 'lisp', 'clojure', 'ocaml', 'reason', 'scala', 'rust']
+        \ },
         \ ]
+  let global += Always_single_quots_on_some_filetypes
 
   let group2rules.python = []
 
