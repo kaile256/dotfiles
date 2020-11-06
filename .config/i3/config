@@ -739,10 +739,10 @@ bindsym $Super+M $noid fcitx-remote -s mozc; mode $Mozc; $notify 'Mozc: Activate
 
 # TODO: deprecate mode for IME, but use script in while-loop
 mode $Mozc {
+bindsym L $noid fcitx-remote -c; mode default; $alert 'Mozc: OFF'
 # TODO: send-key Ctrl+U and back to the fcitx-state
-bindsym Ctrl+U $noid fcitx-remote -c; mode default; $notify 'Mozc: OFF'
-bindsym Ctrl+W $noid fcitx-remote -c; mode default; $notify 'Mozc: OFF'
-bindsym L      $noid fcitx-remote -c; mode default; $alert 'Mozc: OFF'
+# bindsym Ctrl+U $noid fcitx-remote -c; mode default; $notify 'Mozc: OFF'
+# bindsym Ctrl+W $noid fcitx-remote -c; mode default; $notify 'Mozc: OFF'
 
 bindsym $Super+I $noid fcitx-remote -s skk; mode $Skk; $alert 'Skk: Activated'
 
