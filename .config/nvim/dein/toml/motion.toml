@@ -172,3 +172,10 @@ hook_add = 'runtime add/columnskip.vim'
 # repo = 'tpope/vim-unimpaired'
 # on_map = {nox = '<Plug>unimpaired'}
 # hook_add = 'runtime add/unimpaired.vim'
+
+#[ Scroll ]
+[[plugins]]
+repo = 'yuttie/comfortable-motion.vim'
+on_func = 'comfortable_motion#flick'
+hook_add = 'runtime add/comfortable-motion.vim'
+hook_source = 'runtime source/comfortable-motion.vim'
