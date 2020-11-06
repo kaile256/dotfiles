@@ -174,12 +174,12 @@ hook_add = 'runtime add/columnskip.vim'
 # hook_add = 'runtime add/unimpaired.vim'
 
 #[ Scroll ]
-[[plugins]]
-repo = 'yuttie/comfortable-motion.vim'
-# cause error on opening a terminal while the internal timer is ticking.
-on_func = 'comfortable_motion#flick'
-hook_add = 'runtime add/comfortable-motion.vim'
-hook_source = 'runtime source/comfortable-motion.vim'
+# [[plugins]]
+# repo = 'yuttie/comfortable-motion.vim'
+# # cause error on opening a terminal while the internal timer is ticking.
+# on_func = 'comfortable_motion#flick'
+# hook_add = 'runtime add/comfortable-motion.vim'
+# hook_source = 'runtime source/comfortable-motion.vim'
 [[plugins]]
 repo = 'psliwka/vim-smoothie'
 on_map = {n = '<Plug>(Smoothie'}
