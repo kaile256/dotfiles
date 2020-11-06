@@ -133,7 +133,7 @@ function! s:set_rules() abort
         \ {'char': '<CR>', 'at': '<.\{-}>\%#<.\{-}>',
         \   'input': '<CR>', 'input_after': '<CR>'},
         \ ]
-  let global += Split_tag
+  let group2rules.Tag += Split_tag
 
   let group2rules.Writing = [] "{{{1
 
