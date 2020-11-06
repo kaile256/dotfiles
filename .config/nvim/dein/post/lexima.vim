@@ -164,16 +164,6 @@ function! s:set_rules() abort
         \ ]
   let global += Split_brackets
 
-  " Spilt <tag><\tag> on <CR>
-  let global += [
-        \ {'char': '<CR>', 'at': '<.\{-}>\%#<.\{-}>',
-        \   'input': '<CR>', 'input_after': '<CR>',
-        \     'filetype': [
-        \         'htm', 'html', 'xml', 'php',
-        \         'javascriptreact', 'typescriptreact',
-        \ ]},
-        \ ]
-
   " Overwrite Rules for Parentheses {{{1
   " parentheses to open
 
