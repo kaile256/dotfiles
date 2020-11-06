@@ -9,3 +9,5 @@ inoremap <c-o><c-r> <c-o><c-r>
 nmap <silent> .     <Plug>(RepeatDot)
 nmap <silent> u     <Plug>(RepeatUndo)
 nmap <silent> <C-R> <Plug>(RepeatRedo)
+
+nnoremap <silent> @@ @@:<C-u>call repeat#set('@@')<CR>
