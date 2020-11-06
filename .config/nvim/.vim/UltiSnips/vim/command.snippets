@@ -32,7 +32,7 @@ endif
 endsnippet
 
 post_jump "if snip.tabstop == 0 : Insert.function_call(snip.tabstops[1].current_text + snip.tabstops[2].current_text)"
-snippet 'fun(c(tion)?)?' "function! foo() ... endfunction" br
+snippet 'fu?n?(c(tion)?)?' "function! foo() ... endfunction" br
 function! ${1:`!p snip.rv = autoload_prefix()`}${2:do}(${3:#:args}) abort${4}
   ${8:${VISUAL:command}}
 endfunction
