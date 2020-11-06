@@ -633,6 +633,10 @@ function! s:set_rules() abort
         let fts += group2ft[group]
       endif
 
+      " All the rules also work on snippets files.
+      let fts += dein#tap('ultisnips') ? ['snippets'] : []
+      let fts += dein#tap('neosnippet.vim') ? ['neosnippet'] : []
+
       let ret += s:insert_rule2rules(rules, {'filetype': fts})
     endfor
 
