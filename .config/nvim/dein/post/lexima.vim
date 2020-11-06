@@ -129,10 +129,11 @@ function! s:set_rules() abort
         \ ]
 
   " Spilt <tag><\tag> on <CR>
-  let global += [
+  const Split_tag = [
         \ {'char': '<CR>', 'at': '<.\{-}>\%#<.\{-}>',
         \   'input': '<CR>', 'input_after': '<CR>'},
         \ ]
+  let global += Split_tag
 
   let group2rules.Writing = [] "{{{1
 
