@@ -63,6 +63,8 @@ let s:definitions['sh'] = [
       \ ]
 
 let s:definitions['vim'] = [
+      \ ["'\"'", '"''"'],
+      \
       \ ['*', '\\{-}', '\\+'],
       \
       \ {
