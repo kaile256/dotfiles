@@ -490,7 +490,7 @@ function! s:set_rules() abort
         \ ]
   let global += Always_single_quots_on_some_filetypes
 
-  let group2rules.python = []
+  let group2rules.python = [] "{{{1
 
   const Double_quotes_at_special_string = [
         \ {'char': "'", 'input_after': "'", 'at': '\<[rf]\%#'},
@@ -498,8 +498,7 @@ function! s:set_rules() abort
         \ ]
   let group2rules.python += Double_quotes_at_special_string
 
-  " Rules for Vim {{{1
-  let group2rules.vim = []
+  let group2rules.vim = [] "{{{1
 
   " Delete duplicated '"' to comment in Vimscript.
   let group2rules.vim += [
@@ -532,8 +531,7 @@ function! s:set_rules() abort
         \ {'char': '<CR>', 'at': '\v(\=.*|\\)\s*\[%#]',  'input': '<CR>\ ', 'input_after': '<CR>\ '},
         \ ]
 
-  " Rules for Cpp {{{2
-  let group2rules.cpp = []
+  let group2rules.cpp = [] "{{{1
 
   let group2rules.cpp += [
         \ {'char': '{', 'input_after': '};',
