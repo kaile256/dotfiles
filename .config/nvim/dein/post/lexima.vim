@@ -479,8 +479,8 @@ function! s:set_rules() abort
 
   " Delete duplicated double-quotes to comment in Vimscript.
   const Start_comment = [
-        \ {'char': '<TAB>', 'at': '^\s*"\%#"', 'input': '<C-g>U<Del><TAB>'},
-        \ {'char': '<Space>', 'at': '^\s*"\%#"', 'input': '<C-g>U<Del><space>'},
+        \ {'char': '<TAB>',     'at': '^\s*"\%#"', 'input': '<C-g>U<Del><TAB>'},
+        \ {'char': '<Space>',   'at': '^\s*"\%#"', 'input': '<C-g>U<Del><space>'},
         \ {'char': '<S-Space>', 'at': '^\s*"\%#"', 'input': '<C-g>U<Del><space>'},
         \ ]
   let group2rules.vim += Start_comment
