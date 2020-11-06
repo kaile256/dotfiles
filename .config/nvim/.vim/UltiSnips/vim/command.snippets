@@ -13,6 +13,11 @@ def autoload_prefix():
   prefix = underscored + '#' if underscored else 's:'
   return prefix
 
+class Insert:
+  def function_call(func_name):
+    vim.eval('search("^\s*endfunction", "W")')
+    snip.expand_anon('\ncall ' + func_name + '($1)\n')
+
 
 endglobal
 
@@ -26,8 +31,9 @@ if ${1}
 endif
 endsnippet
 
+post_jump "if snip.tabstop == 0 : Insert.function_call(snip.tabstops[1].current_text + snip.tabstops[2].current_text)"
 snippet 'fun(c(tion)?)?' "function! foo() ... endfunction" br
-function! `!p snip.rv = autoload_prefix()`${2:do}(${3:#:args}) abort${4}
+function! ${1:`!p snip.rv = autoload_prefix()`}${2:do}(${3:#:args}) abort${4}
   ${8:${VISUAL:command}}
 endfunction
 endsnippet
