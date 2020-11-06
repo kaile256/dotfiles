@@ -2,7 +2,7 @@ extends markdown
 
 priority -20
 
-snippet '^([a-z?]+)' "conventional commits" "snip.line == 0" bre
+snippet '^([a-z!?]+)' "conventional commits" "snip.line == 0" bre
 `!p
 m = match.group(1)
 WIP = 'WIP: ' if '?' in m else ''
