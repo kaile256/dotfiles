@@ -477,17 +477,19 @@ function! s:set_rules() abort
 
   let group2rules.vim = [] "{{{1
 
-  " Delete duplicated '"' to comment in Vimscript.
-  let group2rules.vim += [
+  " Delete duplicated double-quotes to comment in Vimscript.
+  const Start_comment = [
         \ {'char': '<TAB>', 'at': '^\s*"\%#"', 'input': '<C-g>U<Del><TAB>'},
         \ {'char': '<Space>', 'at': '^\s*"\%#"', 'input': '<C-g>U<Del><space>'},
         \ {'char': '<S-Space>', 'at': '^\s*"\%#"', 'input': '<C-g>U<Del><space>'},
         \ ]
+  let group2rules.vim += Start_comment
 
-  let group2rules.vim += [
+  const Complete_map_args = [
         \ {'char': '<', 'at': 'map .*\%#', 'input_after': '>'},
         \ {'char': '<', 'at': 'exe [''"]norm .*\\\%#', 'input_after': '>'},
         \ ]
+  let group2rules.vim += Complete_map_args
 
   " Add comma to add either List or Dict nested.
   let group2rules.vim += [
