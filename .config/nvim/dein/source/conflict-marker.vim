@@ -90,11 +90,11 @@ function! s:save_mappings(lhs, modes) abort
         \ get(b:, 'conflict_marker_save_mappings', {})
 
   let modes = split(a:modes, '\zs')
-  for mode in modes
-    let maparg = maparg(a:lhs, mode, 0, 1)
+  for m in modes
+    let maparg = maparg(a:lhs, m, 0, 1)
     if empty(maparg) | continue | endif
-    call extend(b:conflict_marker_save_mappings, {mode : {}}, 'keep')
-    call extend(b:conflict_marker_save_mappings[mode],
+    call extend(b:conflict_marker_save_mappings, {m : {}}, 'keep')
+    call extend(b:conflict_marker_save_mappings[m],
           \ {a:lhs : maparg}, 'keep')
   endfor
 endfunction
