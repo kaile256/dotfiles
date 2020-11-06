@@ -620,13 +620,15 @@ function! s:set_rules() abort
 
     for group in keys(group2rules)
       let rules = group2rules[group]
-      if group =~# '^\u'
+      if group =~# '^\l'
+        let fts = group
+
+      else
         if !has_key(group2ft, group)
           echoerr group .' has no corresponding group2ft'
         endif
+
         let fts = group2ft[group]
-      else
-        let fts = group
       endif
 
       let ret += s:insert_rule2rules(rules, {'filetype': fts})
