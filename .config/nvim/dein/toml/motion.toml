@@ -180,3 +180,9 @@ repo = 'yuttie/comfortable-motion.vim'
 on_func = 'comfortable_motion#flick'
 hook_add = 'runtime add/comfortable-motion.vim'
 hook_source = 'runtime source/comfortable-motion.vim'
+[[plugins]]
+repo = 'psliwka/vim-smoothie'
+on_map = {n = '<Plug>(Smoothie'}
+hook_add = 'runtime add/smoothie.vim'
+[[plugins]]
+repo = 'joeytwiddle/sexy_scroller.vim'
