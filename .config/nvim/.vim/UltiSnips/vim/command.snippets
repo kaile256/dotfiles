@@ -17,6 +17,7 @@ class Insert:
   def function_call(func_name):
     vim.eval('search("^\s*endfunction", "W")')
     snip.expand_anon('\ncall ' + func_name + '($1)\n')
+    pass
 
 
 endglobal
