@@ -247,6 +247,7 @@ settings:
         <Space>\: record-macro
         <Space>f: hint links current
         <Space>gF: hint links tab-bg --rapid
+        <Space>gR: restart
         <Space>gT: hint all tab-bg --rapid
         <Space>gf: hint links current --rapid
         <Space>gt: hint all current --rapid
