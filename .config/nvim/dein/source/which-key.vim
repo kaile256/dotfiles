@@ -3,10 +3,10 @@
 " Another: add/which-key.vim
 
 function! s:register_keys() abort
-  let l:map = {}
+  let l:nmaps = {}
 
   if dein#tap('vim-caser')
-    let l:map['\u'] = {
+    let l:nmaps['\u'] = {
           \ 'name': '[arthurxavierx/vim-caser]',
           \
           \ 't': ['<Plug>CaserTitleCase',    'Title Case'],
@@ -24,8 +24,8 @@ function! s:register_keys() abort
           \ }
   endif
 
-  for key in keys(l:map)
-    call which_key#register(key, l:map[key])
+  for key in keys(l:nmaps)
+    call which_key#register(key, l:nmaps[key])
   endfor
 endfunction
 call s:register_keys()
