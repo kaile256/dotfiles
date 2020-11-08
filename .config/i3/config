@@ -588,7 +588,7 @@ for_window [title=^termporal$] floating enable
 set $alacritty_center alacritty --dimensions 170 45
 set $termporal alacritty \
     --dimensions 170 45 \
-    --title termporal \
+    --title TMP_alacritty \
     -e fish
 bindsym $Super+Return $noid $termporal
 
