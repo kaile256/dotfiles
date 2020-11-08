@@ -3,9 +3,7 @@
 " Another: add/which-key.vim
 
 function! s:register_keys() abort
-  let l:map = {
-        \ '<space>': [],
-        \ }
+  let l:map = {}
 
   if dein#tap('vim-caser')
     let l:map['\u'] = {
