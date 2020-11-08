@@ -6,9 +6,6 @@
 
 let g:caser_no_mappings = 1
 
-nmap \u <Nop>
-xmap \u <Nop>
-
 nmap \( <Plug>CaserSentenceCase
 xmap \( <Plug>CaserVSentenceCase
 nmap \) <Plug>CaserSpaceCase
@@ -20,6 +17,9 @@ nmap \- <Plug>CaserKebabCase
 xmap \- <Plug>CaserVKebabCase
 nmap \. <Plug>CaserDotCase
 xmap \. <Plug>CaserVDotCase
+
+nmap \u <Nop>
+xmap \u <Nop>
 
 " Start a sentence
 nmap \u( <Plug>CaserSentenceCase
