@@ -88,6 +88,7 @@ hook_source = 'runtime source/UnconditionalPaste.vim'
 repo = 'liuchengxu/vim-which-key'
 on_cmd = 'WhichKey'
 hook_add = 'runtime add/which-key.vim'
+hook_source = 'runtime source/which-key.vim'
 # [[plugins]]
 # repo = 'hecal3/vim-leader-guide'
 # # Inspired by emacs's kai2nenobu/guide-key.
