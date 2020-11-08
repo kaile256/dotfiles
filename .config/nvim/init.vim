@@ -8,7 +8,11 @@ set fileencodings=ucs-bom,utf-8,euc-jp,sjis,cp932,default,latin1
 language time en_US.UTF-8
 
 let mapleader = '<Plug>(nop)'
-noremap <space> <Nop>
+nmap <space> "_
+xmap <space> "_
+
+nmap <expr> <CR> &bt ==# '' ? '\' : '<CR>'
+xmap <expr> <CR> &bt ==# '' ? '\' : '<CR>'
 
 let g:isWin = has('win32') || has('win64')
 let g:TermOpen = has('nvim') ? 'TermOpen' :
