@@ -3,6 +3,8 @@
 " Another: add/which-key.vim
 
 function! s:register_keys() abort
+  " Add prefix 'v_' to xmaps
+
   let l:nmaps = {}
 
   if dein#tap('vim-caser')
@@ -21,6 +23,23 @@ function! s:register_keys() abort
           \
           \ '-': ['<Plug>CaserKebabCase', 'kebab-case'],
           \ '.': ['<Plug>CaserDotCase',   'dot.separated'],
+          \ }
+
+    let l:nmaps['v_\u'] = {
+          \ 'name': '[arthurxavierx/vim-caser]',
+          \
+          \ 't': ['<Plug>CaserVTitleCase',    'Title Case'],
+          \ '(': ['<Plug>CaserVSentenceCase', 'Start a sentence'],
+          \ ')': ['<Plug>CaserVSpaceCase',    'continue a sentence'],
+          \
+          \ 'p': ['<Plug>CaserVMixedCase', 'PascalCase'],
+          \ 'c': ['<Plug>CaserVCamelCase', 'camelCase'],
+          \
+          \ '_': ['<Plug>CaserVSnakeCase', 'snake_case'],
+          \ 'U': ['<Plug>CaserVUpperCase', 'UPPER_CASE'],
+          \
+          \ '-': ['<Plug>CaserVKebabCase', 'kebab-case'],
+          \ '.': ['<Plug>CaserVDotCase',   'dot.separated'],
           \ }
   endif
 
