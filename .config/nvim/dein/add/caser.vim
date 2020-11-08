@@ -9,6 +9,11 @@ let g:caser_no_mappings = 1
 nmap \u <Nop>
 xmap \u <Nop>
 
+nmap \( <Plug>CaserSentenceCase
+xmap \( <Plug>CaserVSentenceCase
+nmap \) <Plug>CaserSpaceCase
+xmap \) <Plug>CaserVSpaceCase
+
 nmap \_ <Plug>CaserSnakeCase
 xmap \_ <Plug>CaserVSnakeCase
 nmap \- <Plug>CaserKebabCase
