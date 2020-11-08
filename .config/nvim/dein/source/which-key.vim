@@ -2,7 +2,7 @@
 " Repo: liuchengxu/vim-which-key
 " Another: add/which-key.vim
 
-function! s:register() abort
+function! s:register_keys() abort
   let l:map = {
         \ '<space>': [],
         \ }
@@ -30,5 +30,5 @@ function! s:register() abort
     call which_key#register(key, l:map[key])
   endfor
 endfunction
-call s:register()
-delfunction s:register
+call s:register_keys()
+delfunction s:register_keys
