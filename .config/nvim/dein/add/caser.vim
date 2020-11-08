@@ -16,15 +16,12 @@ xmap \- <Plug>CaserVKebabCase
 nmap \. <Plug>CaserDotCase
 xmap \. <Plug>CaserVDotCase
 
-" reset sentence normally
-nmap \u<space> <Plug>CaserSpaceCase
-xmap \u<space> <Plug>CaserVSpaceCase
-
-" Start at capitalized and the rest in lower case.
+" Start a sentence
 nmap \u( <Plug>CaserSentenceCase
-nmap \u) <Plug>CaserSentenceCase
 xmap \u( <Plug>CaserVSentenceCase
-xmap \u) <Plug>CaserVSentenceCase
+" continue a sentence
+nmap \u) <Plug>CaserSpaceCase
+xmap \u) <Plug>CaserVSpaceCase
 
 " Title Case
 nmap \ut <Plug>CaserTitleCase
