@@ -3,8 +3,8 @@
 nmap <space> "_
 xmap <space> "_
 
-nmap <expr> <CR> &bt ==# '' ? '"' : '<CR>'
-xmap <expr> <CR> &bt ==# '' ? ' " : '<CR>'
+nmap <expr> <CR> &bt ==# '' ? '\' : '<CR>'
+xmap <expr> <CR> &bt ==# '' ? '\' : '<CR>'
 
 function! s:set_in_reg(target) abort
   const reg = v:register ==# '"' ? '+' : v:register
