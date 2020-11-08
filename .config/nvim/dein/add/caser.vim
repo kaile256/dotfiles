@@ -18,6 +18,9 @@ xmap \- <Plug>CaserVKebabCase
 nmap \. <Plug>CaserDotCase
 xmap \. <Plug>CaserVDotCase
 
+
+if dein#tap('vim-which-key') | finish | endif
+
 nmap \u <Nop>
 xmap \u <Nop>
 
