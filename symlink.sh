@@ -24,7 +24,6 @@ HOMEs=(
   .bashrc
   .ctags
   .doom.d
-  .prettierrc.yaml
   .editorconfig
   .gitconfig
   .gitignore
