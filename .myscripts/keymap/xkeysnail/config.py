@@ -29,17 +29,17 @@ from xkeysnail.transform import (
 #     Key.SPACE: [Key.SPACE, Key.LEFT_SHIFT],
 # })
 
-define_keymap(
-    None,
-    {
-        K('capslock'): K('backslash'),
-        K('LShift-capslock'): K('LShift-backslash'),
-
-        # # Send CapsLock
-        # K('backslash'): K('capslock'),
-        # K('LShift-backslash'): K('capslock'),
-    },
-    "CapsLock <-> Backslash")
+# define_keymap(
+#     None,
+#     {
+#         K('capslock'): K('backslash'),
+#         K('LShift-capslock'): K('LShift-backslash'),
+#
+#         # # Send CapsLock
+#         # K('backslash'): K('capslock'),
+#         # K('LShift-backslash'): K('capslock'),
+#     },
+#     "CapsLock <-> Backslash")
 
 define_keymap(
     not re.compile(r'nvim|qutebrowser'),
