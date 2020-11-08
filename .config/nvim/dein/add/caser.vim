@@ -9,6 +9,13 @@ let g:caser_no_mappings = 1
 nmap \u <Nop>
 xmap \u <Nop>
 
+nmap \_ <Plug>CaserSnakeCase
+xmap \_ <Plug>CaserVSnakeCase
+nmap \- <Plug>CaserKebabCase
+xmap \- <Plug>CaserVKebabCase
+nmap \. <Plug>CaserDotCase
+xmap \. <Plug>CaserVDotCase
+
 " reset sentence normally
 nmap \u<space> <Plug>CaserSpaceCase
 xmap \u<space> <Plug>CaserVSpaceCase
@@ -36,8 +43,6 @@ xmap \uc <Plug>CaserVCamelCase
 " snake_case
 nmap \u_ <Plug>CaserSnakeCase
 xmap \u_ <Plug>CaserVSnakeCase
-nmap \_ <Plug>CaserSnakeCase
-xmap \_ <Plug>CaserVSnakeCase
 
 " SNAKE_CASE_IN_UPPER
 nmap \U <Plug>CaserUpperCase
@@ -46,11 +51,7 @@ xmap \U <Plug>CaserVUpperCase
 " hyphen-in-lower-case
 nmap \u- <Plug>CaserKebabCase
 xmap \u- <Plug>CaserVKebabCase
-nmap \- <Plug>CaserKebabCase
-xmap \- <Plug>CaserVKebabCase
 
 " dot.in.lower.case
 nmap \u. <Plug>CaserDotCase
 xmap \u. <Plug>CaserVDotCase
-nmap \. <Plug>CaserDotCase
-xmap \. <Plug>CaserVDotCase
