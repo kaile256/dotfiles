@@ -2,6 +2,8 @@
 " Repo: liuchengxu/vim-which-key
 " Another: add/which-key.vim
 
+let g:which_key_vertical = 1
+
 function! s:register_keys() abort
   " Add prefix 'v_' to xmaps
 
