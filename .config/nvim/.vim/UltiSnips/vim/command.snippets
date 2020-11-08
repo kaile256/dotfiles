@@ -52,6 +52,20 @@ function! ${1:`!p snip.rv = autoload_prefix()`}${2:do}(${3:#:args}) abort${4}
 endfunction
 endsnippet
 
+snippet '\bcall? (.*)' "append `delfunction $1`" r
+`!p
+'''Expand
+call foo(bar)
+delfunction foo
+'''
+
+func = match.group(1)
+m = re.match(r'([^(]*)', func)
+func_name = m.group(1)
+`call `!p snip.rv = func`
+delfunction `!p snip.rv = func_name`
+endsnippet
+
 snippet 'aug(roup)?' "augroup foo ... augroup END" br
 augroup my${1:Name}
   au ${2|FileType,BufRead|} ${3:*} ${4:${VISUAL:command}}
