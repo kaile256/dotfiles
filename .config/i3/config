@@ -584,13 +584,16 @@ bindsym Ctrl+bracketleft mode default
 $release $Super+T $noid xterm; $notify " XTerm "
 $release $Super+C $noid kitty; $notify " Kitty "
 
-for_window [title=^termporal$] floating enable
-set $alacritty_center alacritty --dimensions 170 45
 set $termporal alacritty \
     --dimensions 170 45 \
     --title TMP_alacritty \
     -e fish
 bindsym $Super+Return $noid $termporal
+
+set $alacritty_center alacritty \
+    --dimensions 170 45 \
+    --title TMP_alacritty_center
+$release $Super+P $noid $alacritty_center -e python
 
 #set $Console " Console: (A)lacritty (U)rxvt (X)term | (G)otop "
 #bindsym $Super+C mode $Console; $shortmsg 'Consoles'
