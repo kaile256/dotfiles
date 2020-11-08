@@ -113,8 +113,10 @@ no_focus [title="Vivaldi$"]
 #assign [class="^URxvt$"] → 2
 #assign [class="^URxvt$"] → output primary
 
-for_window [title="^TMPi3"]   floating enable border normal
+for_window [title=^TMP] floating enable
+for_window [title="^TMP_Bordered"] floating enable border normal
 for_window [title="^Toggle"]  floating enable border normal
+
 #for_window [class="calamares"] floating enable border normal
 #for_window [class="Clipgrab"] floating enable
 #for_window [title="File Transfer*"] floating enable
