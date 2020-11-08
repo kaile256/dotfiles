@@ -7,14 +7,18 @@
 
 import re
 from xkeysnail.transform import (
-    # define_timeout,  # timeout for multipurpose (seconds=1)
-    # Key, # for modmaps
-    # define_modmap,
-    # define_multipurpose_modmap,
-    # define_conditional_modmap,
-    # define_conditional_multipurpose_modmap,
-    K,  # for ordinary keymaps
+    define_timeout,  # Timeout for multipurpose (seconds=1)
+
+    # For any keys
+    K,  # For ordinary keymaps
     define_keymap,
+
+    # Only for modmaps
+    Key,  # For modkeys like CapsLock, Ctrl, etc.
+    define_modmap,
+    define_multipurpose_modmap,  # The first value in List for solo; second for comibination.
+    define_conditional_modmap,  # Set condition for each class or something else.
+    define_conditional_multipurpose_modmap,
 )
 
 # define_multipurpose_modmap({
