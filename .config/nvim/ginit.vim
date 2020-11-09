@@ -50,6 +50,11 @@ elseif exists('g:GuiLoaded') " if nvim-qt
     GuiFont! JetBrainsMonoMedium Nerd Font:h10.8
   endif
   GuiLinespace -1
+
+  if exists(':GuiWindowOpacity')
+    GuiWindowOpacity .98
+  endif
+
 elseif exists('gonvim_running')
   let g:gonvim_draw_statusline = 0
   let g:gonvim_draw_tabline = 0
