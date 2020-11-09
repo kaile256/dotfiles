@@ -6,7 +6,9 @@ if exists('g:fvim_loaded')
 
   nnoremap <silent> <C-PageUp>   :<C-u>set guifont+=<CR>
   nnoremap <silent> <C-PageDown> :<C-u>set guifont-=<CR>
-  set guifont=FiraCode\ Nerd\ Font:h13
+
+  set guifont=JetBrainsMonoMedium\ Nerd\ Font:h11.3
+
   FVimFontNormalWeight 450
   FVimFontBoldWeight 800
   " Font tweaks
