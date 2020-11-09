@@ -1,4 +1,9 @@
-if exists('g:fvim_loaded') " fvim also set g:GuiLoaded=1
+if exists('g:fvim_loaded')
+  " Neovim-qt-git will set `g:GuiLoaded = 1` with any gui.  To detect gui
+  " currently running on, use GuiName() which neovim-qt-git has added.  It's
+  " meaningless to `let g:GuiLoaded = 1` in ginit.vim, which's loaded *after*
+  " the neovim-qt's config file is loaded.
+
   nnoremap <silent> <C-PageUp>   :<C-u>set guifont+=<CR>
   nnoremap <silent> <C-PageDown> :<C-u>set guifont-=<CR>
   set guifont=FiraCode\ Nerd\ Font:h13
