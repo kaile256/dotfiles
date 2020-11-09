@@ -214,7 +214,7 @@ PACKAGEs=(
   luarocks
   multibootusb # to create live usb
   neovim-nightly
-  neovim-qt
+  neovim-qt-git
   gvim-gtk2
   # nerd-fonts-complete
   #nerd-fonts-ricty # unavailable
