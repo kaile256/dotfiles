@@ -158,22 +158,19 @@ augroup myDefxAddInsteadOfNetrw "{{{1
   au VimEnter * silent! au! FileExplorer *
   au BufEnter * call s:defx_or_netrw(expand('<amatch>'))
 
-  au FileReadCmd file://* call s:netrw_cmd('Nread')
-
-  au BufReadCmd,FileReadCmd {http,https,rsync,sftp}://* call s:netrw_cmd('Nread')
-  au BufReadCmd,FileReadCmd {ftp,rcp,scp,dav,davs}://*  call s:netrw_cmd('Nread')
-
-  au SourcePre,SourceCmd {file,http,https,rsync,sftp}://* call s:netrw_cmd('Nsource')
-  au SourcePre,SourceCmd {ftp,rcp,scp,dav,davs}://*       call s:netrw_cmd('Nsource')
+  au BufWriteCmd  {file,ftp,rcp,scp,dav,davs,rsync,sftp,http}://*       call s:reload_netrw('BufWriteCmd')
+  au FileWriteCmd {file,ftp,rcp,scp,dav,davs,rsync,sftp,http}://*       call s:reload_netrw('FileWriteCmd')
+  au BufReadCmd   {file,ftp,rcp,scp,dav,davs,rsync,sftp,http,https}://* call s:reload_netrw('BufReadCmd')
+  au FileReadCmd  {file,ftp,rcp,scp,dav,davs,rsync,sftp,http,https}://* call s:reload_netrw('FileReadCmd')
+  " might be caught to SourcePre at /usr/share/nvim/runtime/plugin/netrwPlugin.vim @53
+  au SourceCmd    {file,ftp,rcp,scp,dav,davs,rsync,sftp,http,https}://* call s:reload_netrw('SourceCmd')
 augroup END
 
-function! s:netrw_cmd(cmd) abort
-  if !exists(':Nread')
-    unlet g:loaded_netrwPlugin
-    source $VIMRUNTIME/plugin/netrwPlugin.vim
-  endif
-
-  exe a:cmd expand('<amatch>')
+function! s:reload_netrw(event) abort
+  if exists(':Nread') | return | endif
+  unlet g:loaded_netrwPlugin
+  source $VIMRUNTIME/plugin/netrwPlugin.vim
+  exe 'silent doau Network' a:event expand('<amatch>')
 endfunction
 
 function! s:defx_or_netrw(dirname) abort
