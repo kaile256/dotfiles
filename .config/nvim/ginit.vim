@@ -54,7 +54,6 @@ elseif exists('g:GuiLoaded') " if nvim-qt
   else
     GuiFont! JetBrainsMonoMedium Nerd Font:h10.8
   endif
-  GuiLinespace -1
 
   if exists(':GuiWindowOpacity')
     GuiWindowOpacity .98
