@@ -38,6 +38,7 @@ if exists('g:fvim_loaded') " fvim also set g:GuiLoaded=1
   endif
 
 elseif exists('g:GuiLoaded') " if nvim-qt
+  " Repo: equalsraf/neovim-qt
   " /usr/share/nvim-qt/runtime/plugin/nvim_gui_shim.vim
   GuiTabline   0
   GuiPopupmenu 0
