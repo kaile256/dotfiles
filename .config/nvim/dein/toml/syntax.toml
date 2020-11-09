@@ -10,10 +10,10 @@ hook_add = 'runtime add/autoft.vim'
 hook_source = 'runtime source/autoft.vim'
 
 #[ Append Highlight ]
-[[plugins]]
-repo = 'itchyny/vim-highlighturl'
-on_event = 'Colorscheme'
-
+# # [[plugins]]
+# # repo = 'itchyny/vim-highlighturl'
+# on_event = 'Colorscheme'
+#
 # [ Multi Filetypes ]
 [[plugins]]
 repo = 'nvim-treesitter/nvim-treesitter'
