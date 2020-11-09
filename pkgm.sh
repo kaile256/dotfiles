@@ -359,7 +359,6 @@ REMOVEs=(
   volumeicon # icon for tray
 )
 
-export grep=$(type rg >/dev/null 2>&1 && echo rg || echo grep)
 export green="\e[0;32m"
 export purple="\e[0;35m"
 export white="\e[0;37m"
@@ -415,7 +414,7 @@ for p in "${PACKAGEs[@]}"; do
   echo -ne "Install ${green}$p${white} [y/n]? "
   read -r answer
 
-  if echo "$answer" -eq | $grep -i --quiet "^y"; then
+  if echo "$answer" -eq | grep -i --quiet "^y"; then
     if $install "$p"; then
       notify "$p was installed!"
     else
@@ -476,7 +475,7 @@ fi
 echo 'Checking packages if installed already.  Please wait a second...'
 for p in "${YARNs[@]}"; do
   # TODO: filter YARNs `yarn global list` is too slow to execute often
-  yarn global list | $grep "$p" >/dev/null 2>&1 || yarn global add "$p"
+  yarn global list | grep "$p" >/dev/null 2>&1 || yarn global add "$p"
 done
 
 # doom-emacs: one of emacsen's config files for vimmer.
