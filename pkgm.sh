@@ -33,7 +33,7 @@ PACKAGEs=(
   lua-lcf # formatter for lua
   luacheck # linter for lua, integrating with lua-lsp
   lua-lsp-git # rarely updated
-  visual-studio-code-bin # vscode
+  code # vscode
   noto-fonts-cjk # fonts for Chinese, Japanese and Korean
   stylelint # a linter for CSS
   ueberzug # previewer for some tools
