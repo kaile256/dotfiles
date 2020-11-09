@@ -37,7 +37,7 @@ PACKAGEs=(
   noto-fonts-cjk # fonts for Chinese, Japanese and Korean
   stylelint # a linter for CSS
   ueberzug # previewer for some tools
-  universal-ctags-git # esp. for Vista on Vim
+  ctags # esp. for Vista on Vim
   python-pyperclip # code_select.py on qutebrowser
   ttf-twemoji-color # SVG-in-OpenType emoji fonts by Twitter
   xbindkeys # to disable middle to paste, but enable scroll.
