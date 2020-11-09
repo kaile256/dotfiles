@@ -1,25 +1,9 @@
-if exists('g:GuiLoaded') " if nvim-qt
-  " /usr/share/nvim-qt/runtime/plugin/nvim_gui_shim.vim
-  GuiTabline   0
-  GuiPopupmenu 0
-
-  " <bang> for Japanese and other ambiwidth fonts
-  if system('xrandr | grep " connected"') =~# 'HDMI1'
-    GuiFont! JetBrainsMonoMedium Nerd Font:h9.2
-  else
-    GuiFont! JetBrainsMonoMedium Nerd Font:h10.8
-  endif
-  GuiLinespace -1
-
-elseif exists('g:fvim_loaded')
+if exists('g:fvim_loaded') " fvim also set g:GuiLoaded=1
   nnoremap <silent> <C-PageUp>   :<C-u>set guifont+=<CR>
   nnoremap <silent> <C-PageDown> :<C-u>set guifont-=<CR>
-
   set guifont=FiraCode\ Nerd\ Font:h13
-
   FVimFontNormalWeight 450
   FVimFontBoldWeight 800
-
   " Font tweaks
   FVimFontAntialias v:true
   FVimFontAutohint  v:true
@@ -53,6 +37,17 @@ elseif exists('g:fvim_loaded')
     FVimBackgroundImage 'C:/foobar.png'
   endif
 
+elseif exists('g:GuiLoaded') " if nvim-qt
+  " /usr/share/nvim-qt/runtime/plugin/nvim_gui_shim.vim
+  GuiTabline   0
+  GuiPopupmenu 0
+  " <bang> for Japanese and other ambiwidth fonts
+  if system('xrandr | grep " connected"') =~# 'HDMI1'
+    GuiFont! JetBrainsMonoMedium Nerd Font:h9.3
+  else
+    GuiFont! JetBrainsMonoMedium Nerd Font:h10.8
+  endif
+  GuiLinespace -1
 elseif exists('gonvim_running')
   let g:gonvim_draw_statusline = 0
   let g:gonvim_draw_tabline = 0
