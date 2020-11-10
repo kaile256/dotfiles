@@ -8,10 +8,8 @@ augroup myMarkdownFtplugin-modify_trailing_spaces
   au BufWritePre <buffer> %s/\s\@<!\s$//e
 augroup END
 
-" setl spell spl=en_us,cjk
-setl fdl=1
-"setl nowrap conceallevel=2 concealcursor=nc
-setl tabstop=4 softtabstop=4 shiftwidth=4
+setlocal foldlevel=1
+setlocal tabstop=4 softtabstop=4 shiftwidth=4
 
 " see /usr/share/nvim/runtime/syntax/markdown.vim
 " Ref: https://github.com/tpope/vim-markdown (dev ver)
