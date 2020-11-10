@@ -184,9 +184,9 @@ if THEME == 'nord':
     c.colors.tabs.pinned.selected.odd.fg = WHITE_1
     c.colors.tabs.pinned.selected.even.fg = WHITE_1
 
-    c.colors.tabs.odd.bg = WHITE_2
+    c.colors.tabs.odd.bg = WHITE_0
     c.colors.tabs.even.bg = WHITE_2
-    c.colors.tabs.pinned.odd.bg = WHITE_2
+    c.colors.tabs.pinned.odd.bg = WHITE_0
     c.colors.tabs.pinned.even.bg = WHITE_2
 
     c.colors.tabs.selected.odd.bg = BLACK_2
