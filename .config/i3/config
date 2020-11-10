@@ -511,6 +511,9 @@ set $Brightness " Brightness "
 $release $Super+Ctrl+B mode $Brightness; $shortmsg 'Brightness mode'
 
 mode $Brightness {
+bindsym G $alert 'Brightness: 100'; $noid xbacklight -set 100
+bindsym Shift+G $alert 'Brightness: 0'; $noid xbacklight -set 0
+
 bindsym Shift+H $alert 'Brightness: 90'; $noid xbacklight -set 90
 bindsym Shift+K $alert 'Brightness: 80'; $noid xbacklight -set 80
 bindsym Shift+M $alert 'Brightness: 70'; $noid xbacklight -set 70
@@ -559,6 +562,9 @@ bindsym $Super+S $mute_toggle; $alert 'Sound: Mute Toggle'
 bindsym S $mute; $alert 'Sound: Mute'
 # Mnemonic: Quiet
 bindsym Q $mute; $alert 'Sound: Mute'
+
+bindsym G $volume 100%; $notify 'Sound: 100%'
+bindsym Shift+G $volume 0%; $notify 'Sound: 0%'
 
 bindsym Shift+H $volume 85%; $notify 'Sound: 85%'
 bindsym Shift+K $volume 75%; $notify 'Sound: 75%'
