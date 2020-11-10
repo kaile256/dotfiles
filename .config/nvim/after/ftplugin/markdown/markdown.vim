@@ -16,21 +16,6 @@ setl tabstop=4 softtabstop=4 shiftwidth=4
 if get(s:, 'loaded', 0) | finish | endif "{{{1
 let s:loaded = 1
 
-"augroup myMarkdownFormat
-"  au!
-"" TODO: auto order numbers ahead of list
-"  au BufWritePre markdown call s:auto_listnum()
-"augroup END
-
-function! s:auto_listnum() abort "{{{1
-  let index = '\d\+\.'
-  if !search(index, 'cnw') | return | endif
-
-  let startline = getline(search(index, 'cw'))
-  let col       = matchstrpos(startline, index)[1]
-
-endfunction
-
 " see /usr/share/nvim/runtime/syntax/markdown.vim
 " Ref: https://github.com/tpope/vim-markdown (dev ver)
 let g:markdown_fenced_languages = [
