@@ -105,7 +105,7 @@ PACKAGEs=(
   # wpa_actiond # for netctl to Wifi
   phpunit # unit test for php
   # xampp # a distro of Apache including MySQL, SQLite PHP, Perl etc.
-  shutter # make a screenshot!
+  # shutter # make a screenshot; broken dependency on perl version.
   #ksnip # make a screenshot!; use shutter instead
   #wpa_supplicant_gui # wpa_supplicant on GUI, Qt; useless?
   #adb-screen-tools
