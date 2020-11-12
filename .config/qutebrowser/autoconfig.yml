@@ -329,7 +329,6 @@ settings:
         gr: devtools right
         gs: view-source
         gt: open https://ticktick.com/webapp/#q/all/today
-        gu: spawn nvim-qt {url}
         gv: fake-key <ctrl-a>;; enter-mode caret
         gw: fake-key gw
         h: fake-key <left>
