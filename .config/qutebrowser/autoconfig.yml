@@ -310,7 +310,7 @@ settings:
         gH: open -t qute://history/
         gI: hint inputs
         gM: open -t https://www.google.co.jp/maps/@34.8244519,135.4776576,15z
-        gO: hint inputs
+        gO: set-cmd-text -s :open -p
         gP: open -t https://app.getpocket.com/
         gR: devtools bottom
         gS: view-source --pygments
@@ -324,7 +324,7 @@ settings:
         gh: open qute://history/
         gi: hint inputs --first
         gm: open https://www.google.co.jp/maps/@34.8244519,135.4776576,15z
-        go: scroll-to-perc 0;; hint inputs --first
+        go: set-cmd-text -s :open -w
         gp: open https://app.getpocket.com/
         gr: devtools right
         gs: view-source
