@@ -350,11 +350,11 @@ settings:
         wc: tab-close
         wq: bookmark-del;; bookmark-add;; tab-close
         wqa: bookmark-del;; bookmark-add;; quit
-        yO: set-cmd-text :open -t {url}
+        yO: set-cmd-text :open -t -r {url:pretty}
         yc: hint code userscript code_select.py
         yf: hint links yank
-        ygc: spawn --detach google-chrome-stable {url}
-        yo: set-cmd-text :open {url}
+        ygc: spawn --detach google-chrome-stable {url:pretty}
+        yo: set-cmd-text :open {url:pretty}
         yv: yank selection
         yy: yank
         zH: scroll-to-perc -x 0
