@@ -29,6 +29,14 @@ PACKAGEs=(
   xorg-xinput # removed with `bmenu`
   lshw # removed with `bmenu`
 
+  # Screenshot: mouse to select range
+  # shutter # has broken dependency on perl version.
+  # ksnip # --rectarea to select by mouse.
+  # i3-scrot # screenshot on i3wm
+  # fbgrab # only select range by decimal arguments.
+  # simplescreenrecorder # GUI to select range by mouse; also recordable
+  flameshot # option-gui to select by mouse
+
   fvim # Neovim front-end UI built with F# & Avalonia
   lua-lcf # formatter for lua
   luacheck # linter for lua, integrating with lua-lsp
