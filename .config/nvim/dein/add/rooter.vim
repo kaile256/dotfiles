@@ -8,7 +8,14 @@ augroup myRooterAdd-updatePathToFind
     " Block upper-cased fnames for commit/pullreq etc.
     if expand('%:t') =~# '^\u\+' | return | endif
 
-    let root_dir = FindRootDirectory()
+    try
+      " Executed as an external program, nvim-qt sometimes throws `E117:
+      " Unknown function` when Dein loads this plugin via `on_func`.
+      let root_dir = FindRootDirectory()
+    catch /E117/
+      return
+    endtry
+
     if &l:path =~# root_dir | return | endif
     if root_dir ==# $HOME || root_dir ==# '/' | return | endif
     exe 'setlocal path^='. root_dir .'/**'
