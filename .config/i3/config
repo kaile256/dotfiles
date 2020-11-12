@@ -857,9 +857,8 @@ $release $SuperS+M exec terminal -e 'mocp'
 #bindsym XF86AudioMute        $noid pactl set-sink-mute 0 toggle; $notify 'Volume: Mute Toggle'
 
 # Fn; Screen Shot {{{2
-# depend: imagemagick
-#bindsym $Super+Print $noid import -window root ~/Pictures/screenshot
-bindsym Shift+Print  $noid shutter --select --remove_cursor
+bindsym Ctrl+Print $noid killall flameshot && sleep 1 && flameshot gui
+
 bindsym $Super+Print $noid $MY_SCRIPTS/recording-toggle.sh
 
 #set $Print " Print: (Shift+) screenshot | (Super+) record in GIF "
