@@ -596,10 +596,11 @@ set $termporal alacritty \
     -e fish
 bindsym $Super+Return $noid $termporal
 
-set $alacritty_center alacritty \
-    --dimensions 170 45 \
-    --title TMP_alacritty_center
-$release $Super+P $noid $alacritty_center -e python
+$release $Super+P $noid alacritty \
+    --title TMP_python_on_alacritty \
+    --dimensions 85 25 \
+    --config-file $XDG_CONFIG_HOME/alacritty/temporary.yml \
+    -e python
 
 #set $Console " Console: (A)lacritty (U)rxvt (X)term | (G)otop "
 #bindsym $Super+C mode $Console; $shortmsg 'Consoles'
