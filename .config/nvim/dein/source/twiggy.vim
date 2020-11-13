@@ -20,7 +20,7 @@ let g:twiggy_local_branch_sort = 'mru'
 let g:twiggy_remote_branch_sort = 'date'
 
 augroup myTwiggySource
-  au FileType twiggy setl winfixwidth
+  au FileType twiggy setlocal winfixwidth
 augroup END
 
 let g:twiggy_keymaps_on_branch = {
