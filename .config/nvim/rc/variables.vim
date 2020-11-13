@@ -7,7 +7,8 @@
 if has('nvim')
   let $EDITOR     = 'nvr'
   let $VISUAL     = 'nvr'
-  let $GIT_EDITOR = 'nvr --remote-wait-silent'
+  " Without split, nvr doesn't work for git-editor.
+  let $GIT_EDITOR = 'nvr --remote-wait-silent -o'
   let $VMAIL_VIM  = 'nvr'
 elseif has('gui_running')
   let $EDITOR     = 'gvim --remote-wait-silent'
