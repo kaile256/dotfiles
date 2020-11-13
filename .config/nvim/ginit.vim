@@ -1,3 +1,11 @@
+if system('xrandr | grep " connected"') =~# 'HDMI1'
+  set guifont=JetBrainsMonoMedium\ Nerd\ Font:h9.3
+  set guifontwide=Migu\ 1M:h10.3
+else
+  set guifont=JetBrainsMonoMedium\ Nerd\ Font:h10.0
+  set guifontwide=Migu\ 1M:h10.3
+endif
+
 if exists('g:fvim_loaded')
   " Neovim-qt-git will set `g:GuiLoaded = 1` with any gui.  To detect gui
   " currently running on, use GuiName() which neovim-qt-git has added.  It's
@@ -6,8 +14,6 @@ if exists('g:fvim_loaded')
 
   nnoremap <silent> <C-PageUp>   :<C-u>set guifont+=<CR>
   nnoremap <silent> <C-PageDown> :<C-u>set guifont-=<CR>
-
-  set guifont=JetBrainsMonoMedium\ Nerd\ Font:h11.3
 
   FVimFontNormalWeight 450
   FVimFontBoldWeight 800
@@ -50,15 +56,6 @@ elseif exists('g:GuiLoaded') " if nvim-qt
   " /usr/share/nvim-qt/runtime/plugin/nvim_gui_shim.vim
   GuiTabline   0
   GuiPopupmenu 0
-
-  if system('xrandr | grep " connected"') =~# 'HDMI1'
-    set guifont=JetBrainsMonoMedium\ Nerd\ Font:h9.3
-    set guifontwide=Migu\ 1M:h10.3
-
-  else
-    set guifont=JetBrainsMonoMedium\ Nerd\ Font:h10.0
-    set guifontwide=Migu\ 1M:h10.3
-  endif
 
   if exists(':GuiWindowOpacity')
     GuiWindowOpacity .98
