@@ -1,22 +1,5 @@
 extends markdown
 
-priority -20
-
-snippet '^([a-z!?]+)' "conventional commits" "snip.line == 0" bre
-`!p
-m = match.group(1)
-WIP = 'WIP: ' if '?' in m else ''
-COMMIT_TYPE = re.sub('\?', '', m)
-
-snip.rv = WIP + COMMIT_TYPE
-
-`(${1:scope}): ${2:description}
-
-${3}
-
-${4}
-endsnippet
-
 snippet makeshift "Easy changes to suppress some errors typically" "snip.line == 0" be
 `# A personal commit-type with conventional commits
 
@@ -34,3 +17,21 @@ The error messages:
 Where should be fundamentally fixed the error:
 - ${6}
 endsnippet
+
+priority -20
+
+snippet '^([a-z!?]+)' "conventional commits" "snip.line == 0" bre
+`!p
+m = match.group(1)
+WIP = 'WIP: ' if '?' in m else ''
+COMMIT_TYPE = re.sub('\?', '', m)
+
+snip.rv = WIP + COMMIT_TYPE
+
+`(${1:scope}): ${2:description}
+
+${3}
+
+${4}
+endsnippet
+
