@@ -50,7 +50,7 @@ elseif exists('g:GuiLoaded') " if nvim-qt
   " /usr/share/nvim-qt/runtime/plugin/nvim_gui_shim.vim
   GuiTabline   0
   GuiPopupmenu 0
-  " <bang> for Japanese and other ambiwidth fonts
+
   if system('xrandr | grep " connected"') =~# 'HDMI1'
     set guifont=JetBrainsMonoMedium\ Nerd\ Font:h9.3
     set guifontwide=Migu\ 1M:h10.3
