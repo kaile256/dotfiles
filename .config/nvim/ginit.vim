@@ -52,9 +52,12 @@ elseif exists('g:GuiLoaded') " if nvim-qt
   GuiPopupmenu 0
   " <bang> for Japanese and other ambiwidth fonts
   if system('xrandr | grep " connected"') =~# 'HDMI1'
-    GuiFont! JetBrainsMonoMedium Nerd Font:h9.3
+    set guifont=JetBrainsMonoMedium\ Nerd\ Font:h9.3
+    set guifontwide=Migu\ 1M:h10.3
+
   else
-    GuiFont! JetBrainsMonoMedium Nerd Font:h10.8
+    set guifont=JetBrainsMonoMedium\ Nerd\ Font:h10.0
+    set guifontwide=Migu\ 1M:h10.3
   endif
 
   if exists(':GuiWindowOpacity')
