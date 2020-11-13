@@ -4,6 +4,12 @@ scriptencoding utf-8
 " Another: add/eskk.vim
 " Another: source/eskk.vim
 
+augroup myEskkSo-ToggleCocConfig
+  " Makeshift for `[coc.nvim] error: Some plugin change completeopt on insert mode`
+  au User eskk-enable-pre  call coc#config('suggest', {'autoTrigger': "trigger"})
+  au User eskk-disable-pre call coc#config('suggest', {'autoTrigger': "always"})
+augroup END
+
 augroup myEskkSource
   " Note: `l` to disable esp. for lexima.
   " FIXME: work in eskk's sequences like 'zl' to insert an arrow.
