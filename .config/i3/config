@@ -636,11 +636,12 @@ set $Browser " Browser: (S)ervo (V)ivaldi (F)irefox (C)hrome (Q)utebrowser "
 $release $Super+B mode $Browser; $shortmsg 'Browsers'
 
 mode $Browser {
-$release q $noid qutebrowser; mode default; $noid xinput enable Elan\ Touchpad; $noid xinput enable Elan\ TrackPoint
-$release c $noid $chrome;     mode default; $noid xinput enable Elan\ Touchpad; $noid xinput enable Elan\ TrackPoint
-$release f $noid firefox;     mode default; $noid xinput enable Elan\ Touchpad; $noid xinput enable Elan\ TrackPoint
-$release s $noid servo;       mode default; $noid xinput enable Elan\ Touchpad; $noid xinput enable Elan\ TrackPoint
-$release v $noid $vivaldi;    mode default; $noid xinput enable Elan\ Touchpad; $noid xinput enable Elan\ TrackPoint
+$release c $noid pgrep chrome || $chrome; mode default; $noid xinput enable Elan\ Touchpad; $noid xinput enable Elan\ TrackPoint
+
+$release q $once qutebrowser; mode default; $noid xinput enable Elan\ Touchpad; $noid xinput enable Elan\ TrackPoint
+$release f $once firefox;     mode default; $noid xinput enable Elan\ Touchpad; $noid xinput enable Elan\ TrackPoint
+$release s $once servo;       mode default; $noid xinput enable Elan\ Touchpad; $noid xinput enable Elan\ TrackPoint
+$release v $once $vivaldi;    mode default; $noid xinput enable Elan\ Touchpad; $noid xinput enable Elan\ TrackPoint
 
 bindsym Ctrl+C           mode default
 bindsym Ctrl+bracketleft mode default
