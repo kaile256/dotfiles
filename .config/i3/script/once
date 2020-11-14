@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+set -Ceuo pipefail
+IFS=$'\n\t'
+
+CAN_NOTIFY=$(type notify-send >/dev/null 2>&1)
+
+type "$1" >/dev/null 2>&1 \
+  || ($CAN_NOTIFY && notify-send "Abort. You have not installed $1 yet!")
+
+if pgrep "$1" >/dev/null 2>&1; then
+  $CAN_NOTIFY && notify-send "Abort. You have already running $1."
+else
+  $1
+fi
