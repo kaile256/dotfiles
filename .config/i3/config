@@ -38,6 +38,7 @@ set $ScrollDown  button5
 set $release bindsym --release
 
 set $noid   exec --no-startup-id
+set $once   exec --no-startup-id ~/.config/i3/script/once
 set $always exec_always --no-startup-id
 set $restart exec_always
 
