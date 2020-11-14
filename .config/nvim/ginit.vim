@@ -1,9 +1,10 @@
 if system('xrandr | grep " connected"') =~# 'HDMI1'
-  set guifont=JetBrainsMonoMedium\ Nerd\ Font:h9.3
-  set guifontwide=Migu\ 1M:h10.3
+  set guifont=SFMono\ Nerd\ Font\ Mono:h9.3
+  " set guifont=JetBrainsMonoMedium\ Nerd\ Font:h9.3
+  set guifontwide=Noto\ Sans\ Mono\ CJK\ JP:h10.0
 else
   set guifont=JetBrainsMonoMedium\ Nerd\ Font:h10.0
-  set guifontwide=Migu\ 1M:h10.3
+  set guifontwide=Noto\ Sans\ Mono\ CJK\ JP:h10.0
 endif
 
 if exists('g:fvim_loaded')
