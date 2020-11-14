@@ -16,9 +16,9 @@ hi! link markdownItemLineDone Comment
 syn region markdownItemLineDone start='^=\s*\[x]\c' end='^\s*\[' contains=markdownItemDelimiter
 
 " for trailingSpaces "{{{1
-hi! link TrailingSpacesOnce  DiffText
 hi! link TrailingSpacesTwice PmenuThumb
-hi! link TrailingSpacesMore  DiffText
+hi! TrailingSpacesOnce ctermbg=red guibg=red
+hi! TrailingSpacesMore ctermbg=red guibg=red
 
 let b:trailingSpaces = matchadd('TrailingSpacesOnce',  '\S\zs $')
 let b:trailingSpaces = matchadd('TrailingSpacesTwice', '\S\zs  $')
