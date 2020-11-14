@@ -10,6 +10,13 @@ augroup myEskkSo-ToggleCocConfig
   au User eskk-disable-pre call coc#config('suggest', {'autoTrigger': "always"})
 augroup END
 
+if executable('notify-send')
+  augroup myEskkSo-NotifyState
+    au User eskk-enable-post  call system("notify-send --expire-time 1100 --urgency critical 'Vim: eskk is Activated'")
+    au User eskk-disable-post call system("notify-send --expire-time 1100 'Vim: eskk is OFF'")
+  augroup END
+endif
+
 augroup myEskkSource
   " Note: `l` to disable esp. for lexima.
   " FIXME: work in eskk's sequences like 'zl' to insert an arrow.
@@ -58,11 +65,6 @@ augroup myEskkSource
     "EskkMap -type=mode:hankata:toggle-kata q
     "EskkMap -type=mode:hankata:q-key q
   endfunction "}}}
-
-  if executable('notify-send')
-    au User eskk-enable-post  call system("notify-send --expire-time 1100 --urgency critical 'Vim: eskk is Activated'")
-    au User eskk-disable-post call system("notify-send --expire-time 1100 'Vim: eskk is OFF'")
-  endif
 
   " Note: eskk with &tw > 0 disturbs `henkan` state.
   au User eskk-enable-post  let s:save_textwidth = &tw | setlocal tw=0
