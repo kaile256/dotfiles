@@ -128,7 +128,6 @@ nmap <silent> <space>zb :<c-u> Buffers<cr>
 
 " Mnemonic: Search in Current File
 nmap <silent> <space>z/ :<c-u> BLines<cr>
-nmap <silent> <space>z<CR> :<c-u> BLines<cr>
 
 " Mnemonic: 'Old' Buffer
 nmap <silent> <space>zo :<c-u> History<cr>
