@@ -23,7 +23,7 @@ if executable('notify-send')
   augroup END
 endif
 
-augroup myEskkSource
+augroup myEskkSo-SetMappings
   " Note: `l` to disable esp. for lexima.
   " FIXME: work in eskk's sequences like 'zl' to insert an arrow.
   au User eskk-enable-post lnoremap <expr><buffer> l eskk#disable()
