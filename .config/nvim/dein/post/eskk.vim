@@ -10,6 +10,12 @@ augroup myEskkSo-ToggleCocConfig
   au User eskk-disable-pre call coc#config('suggest', {'autoTrigger': "always"})
 augroup END
 
+augroup myEskkSo-ToggleTextwidth
+  " Note: eskk with &tw > 0 disturbs `henkan` state.
+  au User eskk-enable-post  let s:save_textwidth = &tw | setlocal tw=0
+  au User eskk-disable-post let &tw = s:save_textwidth
+augroup END
+
 if executable('notify-send')
   augroup myEskkSo-NotifyState
     au User eskk-enable-post  call system("notify-send --expire-time 1100 --urgency critical 'Vim: eskk is Activated'")
@@ -65,9 +71,5 @@ augroup myEskkSource
     "EskkMap -type=mode:hankata:toggle-kata q
     "EskkMap -type=mode:hankata:q-key q
   endfunction "}}}
-
-  " Note: eskk with &tw > 0 disturbs `henkan` state.
-  au User eskk-enable-post  let s:save_textwidth = &tw | setlocal tw=0
-  au User eskk-disable-post let &tw = s:save_textwidth
 augroup END
 
