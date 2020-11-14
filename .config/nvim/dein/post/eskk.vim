@@ -32,26 +32,28 @@ augroup myEskkSo-SetMappings
 augroup END
 
 function! s:eskk_kemaps_initialize_pre()
-  " A user can do something heavy process here.
-  let t = eskk#table#new('rom_to_hira*', 'rom_to_hira')
-  call t.add_map('z~', '～')
-  call t.add_map('zc', '©')
-  call t.add_map('zr', '®')
-  call t.add_map('tm', '™')
-  call t.add_map('z ', '　')
-  call t.add_map('z.', '.')
-  """ Input the dot after a number as-is (e.g. "1.")
-  " NOTICE: in the eskk's maps, cannot type sequence of numbers
-  " for n in range(10)
-  "  call t.add_map(n . '.', n . '.')
-  " endfor
-  call eskk#register_mode_table('hira', t)
-  " http://subtech.g.hatena.ne.jp/motemen/20110527/1306485690
   " NOTE: This config below leaves the last character "z"
   " \ if g:eskk#rom_input_style is not "skk".
   for [orgtable, mode] in [['rom_to_hira', 'hira'], ['rom_to_kata', 'kata']]
-    let t = eskk#table#new(orgtable.'*', orgtable)
-    call t.add_map('zw', 'w', 'z')
+    let t = eskk#table#new(orgtable .'*', orgtable)
+    call t.add_map('z~', '～')
+    call t.add_map('zc', '©')
+    call t.add_map('zr', '®')
+    call t.add_map('tm', '™')
+    call t.add_map('z ', '　')
+
+    call t.add_map('x-', '-')
+    call t.add_map('x,', ',')
+    call t.add_map('x.', '.')
+    call t.add_map('x;', ';')
+    call t.add_map('x:', ':')
+
+    " Input the dot after a number as-is (e.g. `1.`)
+    for n in range(10)
+      call t.add_map(n, n)
+      call t.add_map(n .'.', n .'.')
+    endfor
+
     call eskk#register_mode_table(mode, t)
   endfor
 endfunction
