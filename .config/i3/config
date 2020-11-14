@@ -41,7 +41,7 @@ set $noid   exec --no-startup-id
 set $always exec_always --no-startup-id
 set $restart exec_always
 
-set $locker ~/.config/i3/lock.sh
+set $locker ~/.config/i3/script/lock.sh
 
 set $shortmsg exec --no-startup-id notify-send --expire-time 750
 set $notify   exec --no-startup-id notify-send --expire-time 1100
