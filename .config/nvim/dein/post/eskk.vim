@@ -36,10 +36,12 @@ function! s:eskk_keymaps_initialize_pre()
   " \ if g:eskk#rom_input_style is not "skk".
   for [orgtable, mode] in [['rom_to_hira', 'hira'], ['rom_to_kata', 'kata']]
     let t = eskk#table#new(orgtable .'*', orgtable)
-    call t.add_map('z~', '～')
+    " Marks
+    call t.add_map('tm', '™')
     call t.add_map('zc', '©')
     call t.add_map('zr', '®')
-    call t.add_map('tm', '™')
+
+    call t.add_map('z~', '～')
     call t.add_map('z ', '　')
 
     call t.add_map('- ', '- ') " esp for markdown's list item.
