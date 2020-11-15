@@ -6,8 +6,8 @@ scriptencoding utf-8
 
 augroup myEskkSo-ToggleCocConfig
   " Makeshift for `[coc.nvim] error: Some plugin change completeopt on insert mode`
-  au User eskk-enable-pre  call coc#config('suggest', {'autoTrigger': "trigger"})
-  au User eskk-disable-pre call coc#config('suggest', {'autoTrigger': "always"})
+  au User eskk-enable-pre  call coc#config('suggest', {'autoTrigger': 'trigger'})
+  au User eskk-disable-pre call coc#config('suggest', {'autoTrigger': 'always'})
 augroup END
 
 augroup myEskkSo-ToggleTextwidth
