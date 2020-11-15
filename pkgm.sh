@@ -173,6 +173,7 @@ PACKAGEs=(
   transset-df # for transparency on xterm
   q4wine # gui for `wine`
   wine # a layer to run programs for Windows
+  wine-mono-bin # Replacement for Microsoft's .NET Framework for Wine.
   preload # preload apps on RAM; maybe requires to `systemctl disable preload` before remove the package
   trello-cli
   git-crypt
