@@ -13,6 +13,9 @@ if exists('g:fvim_loaded')
   " meaningless to `let g:GuiLoaded = 1` in ginit.vim, which's loaded *after*
   " the neovim-qt's config file is loaded.
 
+  " set guifontwide=Noto\ Sans\ Mono\ CJK\ JP:h13.0
+  set guifont=SFMono\ Nerd\ Font\ Mono:h12.3
+
   nnoremap <silent> <C-PageUp>   :<C-u>set guifont+=<CR>
   nnoremap <silent> <C-PageDown> :<C-u>set guifont-=<CR>
 
