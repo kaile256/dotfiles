@@ -54,3 +54,11 @@ define_keymap(
         K("C-u"): [K("Shift-home"), K("backspace")],
     },
     "Equivalent keys (Overwritten on Fcitx)")
+
+define_keymap(
+    None, {
+        K("Esc"): K("Grave"),
+        K("Shift-Esc"): K("Shift-Grave"),
+        K("C-Left_Brace"): K("Esc"),
+    }, "Esc to Grave/Tilde for compact keyboards")
+
