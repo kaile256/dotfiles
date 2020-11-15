@@ -73,3 +73,14 @@ define_keymap(
         K("C-Left_Brace"): K("Esc"),
     }, "Esc to Grave/Tilde for compact keyboards")
 
+# RK61 {{{1
+define_modmap({
+    Key.DOWN: Key.RIGHT_ALT,
+    Key.LEFT: Key.RIGHT_ALT,
+    Key.RIGHT: Key.RIGHT_CTRL,
+})
+
+define_keymap(None, {
+    K('Up'): K('Slash'),
+    K('Shift-Up'): K('Shift-Slash'),
+}, "Slash<->Up for RK61")
