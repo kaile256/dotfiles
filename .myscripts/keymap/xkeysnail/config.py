@@ -56,6 +56,17 @@ define_keymap(
     "Equivalent keys (Overwritten on Fcitx)")
 
 define_keymap(
+    None,
+    {
+        K("Backspace"): K("Backslash"),
+        K("Delete"): K("Backslash"),
+        # "|" as Shift-Backslash
+        K("Shift-Backspace"): K("Shift-Backslash"),
+        K("Shift-Delete"): K("Shift-Backslash"),
+    },
+    "BS/Del to Backslash/Bar for compact keyboards")
+
+define_keymap(
     None, {
         K("Esc"): K("Grave"),
         K("Shift-Esc"): K("Shift-Grave"),
