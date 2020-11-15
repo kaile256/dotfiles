@@ -113,8 +113,6 @@ PACKAGEs=(
   # wpa_actiond # for netctl to Wifi
   phpunit # unit test for php
   # xampp # a distro of Apache including MySQL, SQLite PHP, Perl etc.
-  # shutter # make a screenshot; broken dependency on perl version.
-  #ksnip # make a screenshot!; use shutter instead
   #wpa_supplicant_gui # wpa_supplicant on GUI, Qt; useless?
   #adb-screen-tools
   android-tools # includes `adb`
@@ -154,7 +152,6 @@ PACKAGEs=(
   nitrogen # a browser of wallpaper
   picom-ibhagwan-git # an X compositor, an enhanced fork of compton
   #i3-wm-iconpatch # crashes too often
-  #i3-scrot # screenshot on i3wm
   i3lock-fancy-git
   udiskie # a wrapper of udisk2 to mount automatically
   #uzbl # a browser w/ vim-like keybinds. The development ends.
