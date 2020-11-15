@@ -46,8 +46,6 @@ function! s:eskk_keymaps_initialize_pre()
 
     call t.add_map('- ', '- ') " esp for markdown's list item.
 
-    call t.add_map('x.', '.')
-
     " Hankaku (:/;) as usual; zenkaku with prefix
     call t.add_map(':', ':')
     call t.add_map('x:', ':')
