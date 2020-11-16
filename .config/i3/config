@@ -654,21 +654,21 @@ set $Qutebrowser " Qutebrowser: Type a Number for workspace to launch "
 #$release $Super+Q mode $Qutebrowser; $shortmsg 'Qutebrowser'
 
 mode $Qutebrowser {
-# FIXME: make the mode work. If possible, start in background.
-# Note: cannot include --no-startup-id
-$release 0 $noid i3-msg 'workspace 0; exec qutebrowser'; mode default
-$release 1 $noid i3-msg 'workspace 1; exec qutebrowser'; mode default
-$release 2 $noid i3-msg 'workspace 2; exec qutebrowser'; mode default
-$release 3 $noid i3-msg 'workspace 3; exec qutebrowser'; mode default
-$release 4 $noid i3-msg 'workspace 4; exec qutebrowser'; mode default
-$release 5 $noid i3-msg 'workspace 5; exec qutebrowser'; mode default
-$release 6 $noid i3-msg 'workspace 6; exec qutebrowser'; mode default
-$release 7 $noid i3-msg 'workspace 7; exec qutebrowser'; mode default
-$release 8 $noid i3-msg 'workspace 8; exec qutebrowser'; mode default
-$release 9 $noid i3-msg 'workspace 9; exec qutebrowser'; mode default
+    # FIXME: make the mode work. If possible, start in background.
+    # Note: cannot include --no-startup-id
+    $release 0 $noid i3-msg 'workspace 0; exec qutebrowser'; mode default
+    $release 1 $noid i3-msg 'workspace 1; exec qutebrowser'; mode default
+    $release 2 $noid i3-msg 'workspace 2; exec qutebrowser'; mode default
+    $release 3 $noid i3-msg 'workspace 3; exec qutebrowser'; mode default
+    $release 4 $noid i3-msg 'workspace 4; exec qutebrowser'; mode default
+    $release 5 $noid i3-msg 'workspace 5; exec qutebrowser'; mode default
+    $release 6 $noid i3-msg 'workspace 6; exec qutebrowser'; mode default
+    $release 7 $noid i3-msg 'workspace 7; exec qutebrowser'; mode default
+    $release 8 $noid i3-msg 'workspace 8; exec qutebrowser'; mode default
+    $release 9 $noid i3-msg 'workspace 9; exec qutebrowser'; mode default
 
-bindsym Ctrl+C           mode default
-bindsym Ctrl+bracketleft mode default
+    bindsym Ctrl+C           mode default
+    bindsym Ctrl+bracketleft mode default
 }
 
 # Vim {{{2
@@ -677,16 +677,13 @@ $release $Super+V mode $Vim; $shortmsg 'Vim: backends'
 $release $Super+g $noid gvim
 
 mode $Vim {
-# Vim
-# Note: <a-h> and so kind does NOT seem to work on vim
-# TODO: nvim-qt with 'nvim -c'-like startup in i3 instead, not in vimscript
-bindsym U $noid urxvt -e vim; mode default
-# Note: some shortcut like '<c-u>' to delete does NOT work on vim's terminal (vim-fzf at least) on xterm
-bindsym X $noid xterm -e vim; mode default
-bindsym A $noid alacritty -e vim; mode default
+    bindsym U $noid urxvt -e vim; mode default
+    # Note: some shortcut like '<c-u>' to delete does NOT work on vim's terminal (vim-fzf at least) on xterm
+    bindsym X $noid xterm -e vim; mode default
+    bindsym A $noid alacritty -e vim; mode default
 
-bindsym Ctrl+C           mode default
-bindsym Ctrl+bracketleft mode default
+    bindsym Ctrl+C           mode default
+    bindsym Ctrl+bracketleft mode default
 }
 
 # Neovim {{{2
@@ -694,19 +691,17 @@ set $Neovim " Neovim: (Q)t (F)vim | (A)lacritty "
 $release $Super+N mode $Neovim; $shortmsg 'Neovim: backends'
 
 mode $Neovim {
-# Vim
-# TODO: nvim-qt with 'nvim -c'-like startup in i3 instead, not in vimscript
-bindsym E $noid eovim;   mode default
-bindsym Q $noid nvim-qt; mode default
-bindsym G $noid gonvim;  mode default
-bindsym R $noid gnvim;   mode default
-#bindsym T $noid nyaovim; mode default
-bindsym L $noid glrnvim; mode default
-bindsym A $noid alacritty -e nvim; mode default
-bindsym F $noid fvim; mode default
+    bindsym E $noid eovim;   mode default
+    bindsym Q $noid nvim-qt; mode default
+    bindsym G $noid gonvim;  mode default
+    bindsym R $noid gnvim;   mode default
+    # bindsym T $noid nyaovim; mode default
+    bindsym L $noid glrnvim; mode default
+    bindsym A $noid alacritty -e nvim; mode default
+    bindsym F $noid fvim; mode default
 
-bindsym Ctrl+C           mode default
-bindsym Ctrl+bracketleft mode default
+    bindsym Ctrl+C           mode default
+    bindsym Ctrl+bracketleft mode default
 }
 
 # Editor {{{2
@@ -715,16 +710,16 @@ set $Editor " Editor: (C)ode (E)macs (V)im (N)eovim | (G)imp (P)inta "
 $release $Super+E mode $Editor; $shortmsg 'Editors'
 
 mode $Editor {
-bindsym C $noid code;  mode default; $notify 'Editor: vscode'
-bindsym E $noid emacs; mode default; $notify 'Editor: emacs'
-bindsym V $noid $vim;  mode default; $notify 'Editor: vim'
-bindsym N $noid $nvim; mode default; $notify 'Editor: neovim'
+    bindsym C $noid code;  mode default; $notify 'Editor: vscode'
+    bindsym E $noid emacs; mode default; $notify 'Editor: emacs'
+    bindsym V $noid $vim;  mode default; $notify 'Editor: vim'
+    bindsym N $noid $nvim; mode default; $notify 'Editor: neovim'
 
-bindsym G $noid gimp;  mode default; $notify 'Editor: gimp'
-bindsym P $noid pinta; mode default; $notify 'Editor: pinta'
+    bindsym G $noid gimp;  mode default; $notify 'Editor: gimp'
+    bindsym P $noid pinta; mode default; $notify 'Editor: pinta'
 
-bindsym Ctrl+C           mode default
-bindsym Ctrl+bracketleft mode default
+    bindsym Ctrl+C           mode default
+    bindsym Ctrl+bracketleft mode default
 }
 
 # Finder {{{2
@@ -733,18 +728,18 @@ set $Finder " Finder: [N]nn [R]anger [H]unter [P]CManFM(lxde) PCManFM-[Q]t(lxqt)
 $release $Super+F  mode $Finder; $shortmsg 'Finders'
 
 mode $Finder {
-$release P exec pcmanfm; mode default
-$release Q exec pcmanfm-qt; mode default
-$release T exec thunar; mode default
+    $release P exec pcmanfm; mode default
+    $release Q exec pcmanfm-qt; mode default
+    $release T exec thunar; mode default
 
-$release N exec terminal -e nnn; mode default
-$release R exec alacritty -e ranger; mode default
-$release H exec alacritty -e hunter; mode default
+    $release N exec terminal -e nnn; mode default
+    $release R exec alacritty -e ranger; mode default
+    $release H exec alacritty -e hunter; mode default
 
-$release G exec google-photo; mode default
+    $release G exec google-photo; mode default
 
-bindsym Ctrl+C           mode default
-bindsym Ctrl+bracketleft mode default
+    bindsym Ctrl+C           mode default
+    bindsym Ctrl+bracketleft mode default
 }
 
 # Mode; Mozc {{{2
@@ -753,34 +748,34 @@ bindsym $Super+M $noid fcitx-remote -s mozc; mode $Mozc; $notify 'Mozc: Activate
 
 # TODO: deprecate mode for IME, but use script in while-loop
 mode $Mozc {
-bindsym L $noid fcitx-remote -c; mode default; $alert 'Mozc: OFF'
-# TODO: send-key Ctrl+U and back to the fcitx-state
-# bindsym Ctrl+U $noid fcitx-remote -c; mode default; $notify 'Mozc: OFF'
-# bindsym Ctrl+W $noid fcitx-remote -c; mode default; $notify 'Mozc: OFF'
+    bindsym L $noid fcitx-remote -c; mode default; $alert 'Mozc: OFF'
+    # TODO: send-key Ctrl+U and back to the fcitx-state
+    # bindsym Ctrl+U $noid fcitx-remote -c; mode default; $notify 'Mozc: OFF'
+    # bindsym Ctrl+W $noid fcitx-remote -c; mode default; $notify 'Mozc: OFF'
 
-bindsym $Super+I $noid fcitx-remote -s skk; mode $Skk; $alert 'Skk: Activated'
+    bindsym $Super+I $noid fcitx-remote -s skk; mode $Skk; $alert 'Skk: Activated'
 
-bindsym $Super+1 $noid fcitx-remote -c; mode default; $alert 'Mozc: OFF'; workspace $ws1
-bindsym $Super+2 $noid fcitx-remote -c; mode default; $alert 'Mozc: OFF'; workspace $ws2
-bindsym $Super+3 $noid fcitx-remote -c; mode default; $alert 'Mozc: OFF'; workspace $ws3
-bindsym $Super+4 $noid fcitx-remote -c; mode default; $alert 'Mozc: OFF'; workspace $ws4
-bindsym $Super+5 $noid fcitx-remote -c; mode default; $alert 'Mozc: OFF'; workspace $ws5
-bindsym $Super+6 $noid fcitx-remote -c; mode default; $alert 'Mozc: OFF'; workspace $ws6
-bindsym $Super+7 $noid fcitx-remote -c; mode default; $alert 'Mozc: OFF'; workspace $ws7
-bindsym $Super+8 $noid fcitx-remote -c; mode default; $alert 'Mozc: OFF'; workspace $ws8
-bindsym $Super+9 $noid fcitx-remote -c; mode default; $alert 'Mozc: OFF'; workspace $ws9
-bindsym $Super+0 $noid fcitx-remote -c; mode default; $alert 'Mozc: OFF'; workspace $ws0
-bindsym $Super+H $noid fcitx-remote -c; mode default; $alert 'Mozc: OFF'; focus left
-bindsym $Super+J $noid fcitx-remote -c; mode default; $alert 'Mozc: OFF'; focus down
-bindsym $Super+K $noid fcitx-remote -c; mode default; $alert 'Mozc: OFF'; focus up
-bindsym $Super+L $noid fcitx-remote -c; mode default; $alert 'Mozc: OFF'; focus right
-bindsym $Super+O $noid fcitx-remote -c; mode default; $alert 'Mozc: OFF'; focus mode_toggle; $alert 'Focus: Toggle'
-bindsym $Super+bracketleft  $noid fcitx-remote -c; mode default; $alert 'Mozc: OFF'; workspace prev
-bindsym $Super+bracketright $noid fcitx-remote -c; mode default; $alert 'Mozc: OFF'; workspace next
+    bindsym $Super+1 $noid fcitx-remote -c; mode default; $alert 'Mozc: OFF'; workspace $ws1
+    bindsym $Super+2 $noid fcitx-remote -c; mode default; $alert 'Mozc: OFF'; workspace $ws2
+    bindsym $Super+3 $noid fcitx-remote -c; mode default; $alert 'Mozc: OFF'; workspace $ws3
+    bindsym $Super+4 $noid fcitx-remote -c; mode default; $alert 'Mozc: OFF'; workspace $ws4
+    bindsym $Super+5 $noid fcitx-remote -c; mode default; $alert 'Mozc: OFF'; workspace $ws5
+    bindsym $Super+6 $noid fcitx-remote -c; mode default; $alert 'Mozc: OFF'; workspace $ws6
+    bindsym $Super+7 $noid fcitx-remote -c; mode default; $alert 'Mozc: OFF'; workspace $ws7
+    bindsym $Super+8 $noid fcitx-remote -c; mode default; $alert 'Mozc: OFF'; workspace $ws8
+    bindsym $Super+9 $noid fcitx-remote -c; mode default; $alert 'Mozc: OFF'; workspace $ws9
+    bindsym $Super+0 $noid fcitx-remote -c; mode default; $alert 'Mozc: OFF'; workspace $ws0
+    bindsym $Super+H $noid fcitx-remote -c; mode default; $alert 'Mozc: OFF'; focus left
+    bindsym $Super+J $noid fcitx-remote -c; mode default; $alert 'Mozc: OFF'; focus down
+    bindsym $Super+K $noid fcitx-remote -c; mode default; $alert 'Mozc: OFF'; focus up
+    bindsym $Super+L $noid fcitx-remote -c; mode default; $alert 'Mozc: OFF'; focus right
+    bindsym $Super+O $noid fcitx-remote -c; mode default; $alert 'Mozc: OFF'; focus mode_toggle; $alert 'Focus: Toggle'
+    bindsym $Super+bracketleft  $noid fcitx-remote -c; mode default; $alert 'Mozc: OFF'; workspace prev
+    bindsym $Super+bracketright $noid fcitx-remote -c; mode default; $alert 'Mozc: OFF'; workspace next
 
-bindsym $Super+M         $noid fcitx-remote -c; mode default; $alert 'Mozc: OFF'
-bindsym Ctrl+C           $noid fcitx-remote -c; mode default; $alert 'Mozc: OFF'
-bindsym Ctrl+bracketleft $noid fcitx-remote -c; mode default; $alert 'Mozc: OFF'
+    bindsym $Super+M         $noid fcitx-remote -c; mode default; $alert 'Mozc: OFF'
+    bindsym Ctrl+C           $noid fcitx-remote -c; mode default; $alert 'Mozc: OFF'
+    bindsym Ctrl+bracketleft $noid fcitx-remote -c; mode default; $alert 'Mozc: OFF'
 }
 
 # Mode; Skk {{{2
@@ -788,39 +783,39 @@ set $Skk " Skk: (q) kata/hira (l) ASCII "
 bindsym $Super+I $noid fcitx-remote -s skk; mode $Skk; $notify 'Skk: Activated'
 
 mode $Skk {
-# TODO: send-key Ctrl+U and back to the fcitx-state
-bindsym Ctrl+U  $noid fcitx-remote -c; mode default; $alert 'Skk: OFF'
-bindsym Ctrl+W  $noid fcitx-remote -c; mode default; $alert 'Skk: OFF'
-bindsym Shift+L $noid fcitx-remote -c; mode default; $alert 'Skk: OFF'
+    # TODO: send-key Ctrl+U and back to the fcitx-state
+    bindsym Ctrl+U  $noid fcitx-remote -c; mode default; $alert 'Skk: OFF'
+    bindsym Ctrl+W  $noid fcitx-remote -c; mode default; $alert 'Skk: OFF'
+    bindsym Shift+L $noid fcitx-remote -c; mode default; $alert 'Skk: OFF'
 
-bindsym $Super+M $noid fcitx-remote -s mozc; mode $Mozc; $alert 'Mozc: Activated'
+    bindsym $Super+M $noid fcitx-remote -s mozc; mode $Mozc; $alert 'Mozc: Activated'
 
-bindsym $Super+1 $noid fcitx-remote -c; mode default; $alert 'Skk: OFF'; workspace $ws1
-bindsym $Super+2 $noid fcitx-remote -c; mode default; $alert 'Skk: OFF'; workspace $ws2
-bindsym $Super+3 $noid fcitx-remote -c; mode default; $alert 'Skk: OFF'; workspace $ws3
-bindsym $Super+4 $noid fcitx-remote -c; mode default; $alert 'Skk: OFF'; workspace $ws4
-bindsym $Super+5 $noid fcitx-remote -c; mode default; $alert 'Skk: OFF'; workspace $ws5
-bindsym $Super+6 $noid fcitx-remote -c; mode default; $alert 'Skk: OFF'; workspace $ws6
-bindsym $Super+7 $noid fcitx-remote -c; mode default; $alert 'Skk: OFF'; workspace $ws7
-bindsym $Super+8 $noid fcitx-remote -c; mode default; $alert 'Skk: OFF'; workspace $ws8
-bindsym $Super+9 $noid fcitx-remote -c; mode default; $alert 'Skk: OFF'; workspace $ws9
-bindsym $Super+0 $noid fcitx-remote -c; mode default; $alert 'Skk: OFF'; workspace $ws0
+    bindsym $Super+1 $noid fcitx-remote -c; mode default; $alert 'Skk: OFF'; workspace $ws1
+    bindsym $Super+2 $noid fcitx-remote -c; mode default; $alert 'Skk: OFF'; workspace $ws2
+    bindsym $Super+3 $noid fcitx-remote -c; mode default; $alert 'Skk: OFF'; workspace $ws3
+    bindsym $Super+4 $noid fcitx-remote -c; mode default; $alert 'Skk: OFF'; workspace $ws4
+    bindsym $Super+5 $noid fcitx-remote -c; mode default; $alert 'Skk: OFF'; workspace $ws5
+    bindsym $Super+6 $noid fcitx-remote -c; mode default; $alert 'Skk: OFF'; workspace $ws6
+    bindsym $Super+7 $noid fcitx-remote -c; mode default; $alert 'Skk: OFF'; workspace $ws7
+    bindsym $Super+8 $noid fcitx-remote -c; mode default; $alert 'Skk: OFF'; workspace $ws8
+    bindsym $Super+9 $noid fcitx-remote -c; mode default; $alert 'Skk: OFF'; workspace $ws9
+    bindsym $Super+0 $noid fcitx-remote -c; mode default; $alert 'Skk: OFF'; workspace $ws0
 
-bindsym $Super+H $noid fcitx-remote -c; mode default; $alert 'Skk: OFF'; focus left
-bindsym $Super+J $noid fcitx-remote -c; mode default; $alert 'Skk: OFF'; focus down
-bindsym $Super+K $noid fcitx-remote -c; mode default; $alert 'Skk: OFF'; focus up
-bindsym $Super+L $noid fcitx-remote -c; mode default; $alert 'Skk: OFF'; focus right
-bindsym $Super+O $noid fcitx-remote -c; mode default; $alert 'Skk: OFF'; focus mode_toggle; $alert 'Focus: Toggle'
-bindsym $Super+bracketleft  $noid fcitx-remote -c; mode default; $alert 'Skk: OFF'; workspace prev
-bindsym $Super+bracketright $noid fcitx-remote -c; mode default; $alert 'Skk: OFF'; workspace next
+    bindsym $Super+H $noid fcitx-remote -c; mode default; $alert 'Skk: OFF'; focus left
+    bindsym $Super+J $noid fcitx-remote -c; mode default; $alert 'Skk: OFF'; focus down
+    bindsym $Super+K $noid fcitx-remote -c; mode default; $alert 'Skk: OFF'; focus up
+    bindsym $Super+L $noid fcitx-remote -c; mode default; $alert 'Skk: OFF'; focus right
+    bindsym $Super+O $noid fcitx-remote -c; mode default; $alert 'Skk: OFF'; focus mode_toggle; $alert 'Focus: Toggle'
+    bindsym $Super+bracketleft  $noid fcitx-remote -c; mode default; $alert 'Skk: OFF'; workspace prev
+    bindsym $Super+bracketright $noid fcitx-remote -c; mode default; $alert 'Skk: OFF'; workspace next
 
-# TODO: return to skk's japanese input by <c-space>
-bindsym L        $noid fcitx-remote -c; mode default; $alert 'Skk: OFF'
-bindsym Shift+L  $noid fcitx-remote -c; mode default; $alert 'Skk: OFF'
-bindsym $Super+I $noid fcitx-remote -c; mode default; $alert 'Skk: OFF'
+    # TODO: return to skk's japanese input by <c-space>
+    bindsym L        $noid fcitx-remote -c; mode default; $alert 'Skk: OFF'
+    bindsym Shift+L  $noid fcitx-remote -c; mode default; $alert 'Skk: OFF'
+    bindsym $Super+I $noid fcitx-remote -c; mode default; $alert 'Skk: OFF'
 
-bindsym Ctrl+C           $noid fcitx-remote -c; mode default; $alert 'Skk: OFF'
-bindsym Ctrl+bracketleft $noid fcitx-remote -c; mode default; $alert 'Skk: OFF'
+    bindsym Ctrl+C           $noid fcitx-remote -c; mode default; $alert 'Skk: OFF'
+    bindsym Ctrl+bracketleft $noid fcitx-remote -c; mode default; $alert 'Skk: OFF'
 }
 
 # Keybind for Apps {{{1
