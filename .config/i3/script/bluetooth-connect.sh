@@ -41,10 +41,6 @@ reconnect_device() {
 
 set +u
 case "$1" in
-  --simple)
-    pgrep bluetoothd >/dev/null 2>&1 || exit
-    reconnect_device
-    ;;
   --disconnect)
     disconnect_device
     notify_msg "$DEVICE is disconnected"
