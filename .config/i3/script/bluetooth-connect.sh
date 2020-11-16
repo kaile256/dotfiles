@@ -15,7 +15,7 @@ notify_msg() {
     "$msg"
 }
 
-connect_earphones() {
+reconnect_device() {
   bluetoothctl power on
 
   MAC_DEVICE=$(bluetoothctl paired-devices \
@@ -40,11 +40,11 @@ set +u
 case "$1" in
   --simple)
     pgrep bluetoothd >/dev/null 2>&1 || exit
-    connect_earphones
+    reconnect_device
     ;;
   *)
     pgrep bluetoothd >/dev/null 2>&1 || sudo bluetooth on
-    connect_earphones
+    reconnect_device
     ;;
 esac
 
