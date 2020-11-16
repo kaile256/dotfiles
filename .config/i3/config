@@ -38,11 +38,11 @@ set $ScrollDown  button5
 set $release bindsym --release
 
 set $noid   exec --no-startup-id
-set $once   exec --no-startup-id ~/.config/i3/script/once
+set $once   exec --no-startup-id $MY_I3_SCRIPTS/once
 set $always exec_always --no-startup-id
 set $restart exec_always
 
-set $locker ~/.config/i3/script/lock.sh
+set $locker $MY_I3_SCRIPTS/lock.sh
 
 set $shortmsg exec --no-startup-id notify-send --expire-time 750
 set $notify   exec --no-startup-id notify-send --expire-time 1100
