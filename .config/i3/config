@@ -383,43 +383,43 @@ set $Layout " Layout: (T)abbed fl(O)ating | Resize: HJKL | (W) for Window mode"
 $release $SuperS+W mode $Layout; $alert 'Layout mode'
 
 mode $Layout {
-$release W       mode $Window; $notify 'Window mode'
-$release Shift+W mode $Window; $notify 'Window mode'
+    $release W       mode $Window; $notify 'Window mode'
+    $release Shift+W mode $Window; $notify 'Window mode'
 
-#bindsym H split h; mode default; $alert 'Layout: horizontal'
-#bindsym V split v; mode default; $alert 'Layout: vertical'
+    # bindsym H split h; mode default; $alert 'Layout: horizontal'
+    # bindsym V split v; mode default; $alert 'Layout: vertical'
 
-bindsym T layout tabbed;   mode default; $alert 'Layout: tabbed'
-#bindsym K layout stacking; mode default; $alert 'Layout: stacking'
+    bindsym T layout tabbed;   mode default; $alert 'Layout: tabbed'
+    # bindsym K layout stacking; mode default; $alert 'Layout: stacking'
 
-# Note: Fullscreen/Floating could be irritative;
-#       window sometimes hides on the status-bar
-bindsym O floating   toggle; mode default; $alert 'Layout: floating toggle'
-#bindsym U fullscreen toggle; mode default; $alert 'Layout: fullscreen toggle'
-bindsym $Super+O focus mode_toggle; mode default; $alert 'Focus: Toggle'
+    # Note: Fullscreen/Floating could be irritative;
+    #       window sometimes hides on the status-bar
+    bindsym O floating   toggle; mode default; $alert 'Layout: floating toggle'
+    # bindsym U fullscreen toggle; mode default; $alert 'Layout: fullscreen toggle'
+    bindsym $Super+O focus mode_toggle; mode default; $alert 'Focus: Toggle'
 
-bindsym H resize shrink width  1 px or 1 ppt
-bindsym K resize shrink height 1 px or 1 ppt
-bindsym J resize grow   height 1 px or 1 ppt
-bindsym L resize grow   width  1 px or 1 ppt
+    bindsym H resize shrink width  1 px or 1 ppt
+    bindsym K resize shrink height 1 px or 1 ppt
+    bindsym J resize grow   height 1 px or 1 ppt
+    bindsym L resize grow   width  1 px or 1 ppt
 
-bindsym F resize grow   width  10 px or 10 ppt
-bindsym B resize shrink width  10 px or 10 ppt
-bindsym D resize grow   height 10 px or 10 ppt
-bindsym U resize shrink height 10 px or 10 ppt
+    bindsym F resize grow   width  10 px or 10 ppt
+    bindsym B resize shrink width  10 px or 10 ppt
+    bindsym D resize grow   height 10 px or 10 ppt
+    bindsym U resize shrink height 10 px or 10 ppt
 
-bindsym Shift+H resize shrink width  25 px or 25 ppt
-bindsym Shift+K resize shrink height 25 px or 25 ppt
-bindsym Shift+J resize grow   height 25 px or 25 ppt
-bindsym Shift+L resize grow   width  25 px or 25 ppt
+    bindsym Shift+H resize shrink width  25 px or 25 ppt
+    bindsym Shift+K resize shrink height 25 px or 25 ppt
+    bindsym Shift+J resize grow   height 25 px or 25 ppt
+    bindsym Shift+L resize grow   width  25 px or 25 ppt
 
-bindsym Shift+F resize grow   width  50 px or 50 ppt
-bindsym Shift+B resize shrink width  50 px or 50 ppt
-bindsym Shift+D resize grow   height 50 px or 50 ppt
-bindsym Shift+U resize shrink height 50 px or 50 ppt
+    bindsym Shift+F resize grow   width  50 px or 50 ppt
+    bindsym Shift+B resize shrink width  50 px or 50 ppt
+    bindsym Shift+D resize grow   height 50 px or 50 ppt
+    bindsym Shift+U resize shrink height 50 px or 50 ppt
 
-bindsym Ctrl+C           mode default
-bindsym Ctrl+bracketleft mode default
+    bindsym Ctrl+C           mode default
+    bindsym Ctrl+bracketleft mode default
 }
 
 # Mode; Window {{{2
