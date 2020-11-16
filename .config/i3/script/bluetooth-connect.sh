@@ -20,13 +20,17 @@ notify_msg() {
     "$msg"
 }
 
+disconnect_device() {
+  bluetoothctl disconnect "$MAC_DEVICE"
+}
+
 reconnect_device() {
   # TODO: when "Missing device address argument" returns,
   # scan on, pair on, etc. and get a MAC address to connect.
   has_disconnected=$(bluetoothctl info "$MAC_DEVICE" \
     | (grep 'Connected: no' && echo -n 'true') || echo -n 'false')
 
-  bluetoothctl disconnect "$MAC_DEVICE"
+  disconnect_device
   bluetoothctl connect "$MAC_DEVICE"
 
   if $has_disconnected ; then
