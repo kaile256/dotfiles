@@ -7,12 +7,12 @@ runtime once/smaps.vim
 
 hi! link snipLeadingSpaces NonText
 
-let s:snippets_dir = expand('$VIM_ANOTHER_HOME/UltiSnips/')
+let $SNIPPETS_HOME = expand('$VIM_ANOTHER_HOME/UltiSnips/')
 
 augroup myUltisnipsSo
   au FileType snippets setlocal keywordprg=:help
   au FileType snippets let &l:path = join([
-        \ s:snippets_dir,
+        \ $SNIPPETS_HOME,
         \ $DEIN_GITHUB_DIR .'/**/UltiSnips/',
         \ ], '**,') .'**'
   au FileType snippets setlocal suffixesadd=.snippets
@@ -39,7 +39,7 @@ let g:UltiSnipsJumpForwardTrigger = '<C-g>'
 let g:UltiSnipsJumpBackwardTrigger = '<C-t>'
 
 let g:UltiSnipsSnippetDirectories = [
-      \ s:snippets_dir,
+      \ $SNIPPETS_HOME,
       \ 'UltiSnips',
       \ expand('$DEIN_GITHUB_DIR/honza/vim-snippets/UltiSnips'),
       \ ]
