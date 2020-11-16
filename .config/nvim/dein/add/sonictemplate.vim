@@ -6,6 +6,9 @@
 augroup mySonicTemplate-autoStart
   au BufRead *tmp* call s:expand_template('')
 
+  au BufRead *.sh call s:expand_template('shebang')
+  au BufRead *.py call s:expand_template('shebang')
+
   au BufRead *{D,d}ockerfile call s:expand_template('alpine')
 
   au BufRead */doc/*.txt call s:expand_template('help')
