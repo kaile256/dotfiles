@@ -41,6 +41,10 @@ snippet ' ([biwrtsmA]*e[biwrtsmA]*)' "'e' flag for top of file " ir
  "snip.line == 0" `!p snip.rv = match.group(1)`
 endsnippet
 
+snippet 'ech?o?' "Debug: vim.command(f'echo \'{$1}\'')" br
+vim.command(f"echo \"{${1}}\"")
+endsnippet
+
 snippet '(foo|bar|baz|qux|quux)' "Debug: vim.command(f'let g:foo = {$1}')" br
 vim.command(f"let g:`!p snip.rv = match.group(1)` = '{${1}}'")
 endsnippet
