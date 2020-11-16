@@ -589,11 +589,10 @@ mode $Sound {
 set $Connect " Connect Device: (E)arphones (R)K61 (H)HKB "
 bindsym $Super+Q mode $Connect
 mode $Connect {
-    bindsym E $noid $MY_I3_SCRIPTS/connect-Earphones; $notify 'Connect: Earphones'
-
-    bindsym R $noid $MY_I3_SCRIPTS/connect-keyboard-RK61; $notify 'Connect: RK61'
-    bindsym H $noid $MY_I3_SCRIPTS/connect-keyboard-HHKB; $notify 'Connect: HHKB'
-    bindsym T $noid $MY_I3_SCRIPTS/connect-keyboard-TrackPoint; $notify 'Connect: TrackPoint'
+    bindsym R $noid $MY_I3_SCRIPTS/connect-keyboard-RK61;       $notify 'Connect: RK61';       mode default
+    bindsym H $noid $MY_I3_SCRIPTS/connect-keyboard-HHKB;       $notify 'Connect: HHKB';       mode default
+    bindsym T $noid $MY_I3_SCRIPTS/connect-keyboard-TrackPoint; $notify 'Connect: TrackPoint'; mode default
+    bindsym E $noid $MY_I3_SCRIPTS/connect-Earphones;           $notify 'Connect: Earphones';  mode default
 
     bindsym Ctrl+C           mode default
     bindsym Ctrl+bracketleft mode default
