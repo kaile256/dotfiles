@@ -2,6 +2,17 @@
 
 set -Ceu
 
+notify_msg() {
+  msg=$1
+  echo "$msg"
+  type notify-send >/dev/null 2>&1 || exit
+
+  notify-send \
+    --expire-time 2000 \
+    --urgency=critical \
+    "$msg"
+}
+
 pgrep bluetoothd >/dev/null 2>&1 || sudo bluetooth on
 
 bluetoothctl power on
@@ -31,17 +42,6 @@ set -u
 MAC_DEVICE=$(bluetoothctl paired-devices \
   | grep -i "$DEVICE" \
   | awk '{print $2}')
-
-notify_msg() {
-  msg=$1
-  echo "$msg"
-  type notify-send >/dev/null 2>&1 || exit
-
-  notify-send \
-    --expire-time 2000 \
-    --urgency=critical \
-    "$msg"
-}
 
 disconnect_device() {
   bluetoothctl disconnect "$MAC_DEVICE"
