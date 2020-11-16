@@ -108,10 +108,10 @@ function! s:fzf_maps(prefix, command, ...) abort
     let modes = split(modes, '\ze')
 
     for mode in modes
-    exe mode .'map ' lhs rhs
-  endfor
+      exe mode .'map ' lhs rhs
+    endfor
 
-endfor
+  endfor
 endfunction
 
 call s:fzf_maps('<space>z', 'Fzf')
