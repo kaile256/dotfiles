@@ -427,57 +427,57 @@ set $Window " Window: (C)lose or (Q)uit to kill current window | fl(O)ating togg
 $release $Super+W mode $Window; $shortmsg 'Window mode'
 
 mode $Window {
-$release W       mode $Layout; $alert 'Layout mode'
-$release Shift+W mode $Layout; $alert 'Layout mode'
+    $release W       mode $Layout; $alert 'Layout mode'
+    $release Shift+W mode $Layout; $alert 'Layout mode'
 
-bindsym F11 fullscreen
+    bindsym F11 fullscreen
 
-bindsym T layout tabbed;   mode default; $alert 'Layout: tabbed'
+    bindsym T layout tabbed;   mode default; $alert 'Layout: tabbed'
 
-$release C kill; mode default
-$release Q kill; mode default
+    $release C kill; mode default
+    $release Q kill; mode default
 
-bindsym minus $noid picom -cbm 0.75
-bindsym plus  $noid picom -cbm 0.75
+    bindsym minus $noid picom -cbm 0.75
+    bindsym plus  $noid picom -cbm 0.75
 
-#bindsym Shift+H move left
-#bindsym Shift+L resize grow   width  25 px or 25 ppt
+    # bindsym Shift+H move left
+    # bindsym Shift+L resize grow   width  25 px or 25 ppt
 
-bindsym Shift+B move left  100 px
-bindsym Shift+F move right 100 px
-bindsym Shift+D move down  100 px
-bindsym Shift+U move up    100 px
+    bindsym Shift+B move left  100 px
+    bindsym Shift+F move right 100 px
+    bindsym Shift+D move down  100 px
+    bindsym Shift+U move up    100 px
 
-# especially for floating window
-bindsym H move left  1 px
-bindsym J move down  1 px
-bindsym K move up    1 px
-bindsym L move right 1 px
+    # especially for floating window
+    bindsym H move left  1 px
+    bindsym J move down  1 px
+    bindsym K move up    1 px
+    bindsym L move right 1 px
 
-# especially for floating window
-bindsym Shift+H move left  25 px
-bindsym Shift+J move down  25 px
-bindsym Shift+K move up    25 px
-bindsym Shift+L move right 25 px
+    # especially for floating window
+    bindsym Shift+H move left  25 px
+    bindsym Shift+J move down  25 px
+    bindsym Shift+K move up    25 px
+    bindsym Shift+L move right 25 px
 
-bindsym B move left  50 px
-bindsym F move right 50 px
-bindsym D move down  50 px
-bindsym U move up    50 px
+    bindsym B move left  50 px
+    bindsym F move right 50 px
+    bindsym D move down  50 px
+    bindsym U move up    50 px
 
-## Mnemonic: parent is older, <c-o>; child is newer, <c-i> in vim
-bindsym Ctrl+O focus parent; mode default
-bindsym Ctrl+I focus child;  mode default
+    ## Mnemonic: parent is older, <c-o>; child is newer, <c-i> in vim
+    bindsym Ctrl+O focus parent; mode default
+    bindsym Ctrl+I focus child;  mode default
 
-# mode_toggle: toggle between floating and tiling
-bindsym $Super+O focus mode_toggle; mode default; $alert 'Focus: Toggle'
-bindsym O        focus mode_toggle; mode default; $alert 'Focus: Toggle'
+    # mode_toggle: toggle between floating and tiling
+    bindsym $Super+O focus mode_toggle; mode default; $alert 'Focus: Toggle'
+    bindsym O        focus mode_toggle; mode default; $alert 'Focus: Toggle'
 
-# TODO: send ^d, too, to kill terminal
-bindsym Ctrl+D           mode default; $alert 'Out of Fucus mode'
+    # TODO: send ^d, too, to kill terminal
+    bindsym Ctrl+D           mode default; $alert 'Out of Fucus mode'
 
-bindsym Ctrl+C           mode default
-bindsym Ctrl+bracketleft mode default
+    bindsym Ctrl+C           mode default
+    bindsym Ctrl+bracketleft mode default
 }
 
 # Mode; Systemctl {{{2
