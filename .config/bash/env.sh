@@ -1,5 +1,10 @@
 #!/usr/bin/env bash
 
+# Global {{{1
+export XDG_CONFIG_HOME="$HOME/.config"
+export XDG_CACHE_HOME="$HOME/.cache"
+export XDG_DATA_HOME="$HOME/.local/share"
+
 # Original {{{1
 export MY_SCRIPTS="$HOME/.myscripts"
 export MY_API_TOKEN="$HOME/.myapi"
@@ -8,11 +13,6 @@ export DOTFILES_HOME="$HOME/dotfiles"
 export MY_DEV="$HOME/dev"
 export MY_MEMO="$HOME/Memo"
 export MY_SUMMURY="$MY_MEMO/summary"
-
-# Global {{{1
-export XDG_CONFIG_HOME="$HOME/.config"
-export XDG_CACHE_HOME="$HOME/.cache"
-export XDG_DATA_HOME="$HOME/.local/share"
 
 # Locale
 export LC_TIME=en_US.UTF-8
