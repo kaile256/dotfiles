@@ -160,7 +160,7 @@ $always xset -dpms
 $always xset s off
 
 # xrandr: control monitor
-$always $MY_SCRIPTS/monitor-try.sh
+$always $MY_I3_SCRIPTS/monitor-try
 # xautolock: a timer to lock screen of PC
 # use xss instead of xautolock
 # Note: xss-lock subscribes the systemd-events
