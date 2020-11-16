@@ -585,6 +585,19 @@ mode $Sound {
     bindsym Ctrl+bracketleft mode default
 }
 
+# Mode; Connect Device {{{2
+set $Connect " Connect Device: (E)arphones (R)K61 (H)HKB "
+bindsym $Super+Q mode $Connect
+mode $Connect {
+    bindsym E $noid $MY_I3_SCRIPTS/connect-earphones; $notify 'Connect: Earphones'
+
+    bindsym R $noid $MY_I3_SCRIPTS/connect-keyboard-RK61; $notify 'Connect: RK61'
+    bindsym H $noid $MY_I3_SCRIPTS/connect-keyboard-HHKB; $notify 'Connect: HHKB'
+    bindsym T $noid $MY_I3_SCRIPTS/connect-keyboard-TrackPoint; $notify 'Connect: TrackPoint'
+
+    bindsym Ctrl+C           mode default
+    bindsym Ctrl+bracketleft mode default
+}
 # Keybind: Apps {{{1
 # Terminal {{{2
 $release $Super+T $noid xterm; $notify " XTerm "
