@@ -13,7 +13,8 @@ notify_msg() {
     "$msg"
 }
 
-pgrep bluetoothd >/dev/null 2>&1 || sudo bluetooth on
+pgrep bluetoothd >/dev/null 2>&1 || \
+  (notify_msg "bluetoothd is not running" && sudo bluetooth on)
 
 bluetoothctl power on
 set +u
