@@ -37,6 +37,9 @@ PACKAGEs=(
   # simplescreenrecorder # GUI to select range by mouse; also recordable
   flameshot # option-gui to select by mouse
 
+  polar-bookshelf-bin
+  odrive-bin # (Open Drive) Google Drive GUI
+  xkeysnail # remapping tool for X written in Python
   fvim # Neovim front-end UI built with F# & Avalonia
   lua-lcf # formatter for lua
   luacheck # linter for lua, integrating with lua-lsp
