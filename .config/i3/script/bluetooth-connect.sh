@@ -2,7 +2,12 @@
 
 set -Ceu
 
+bluetoothctl power on
+
 DEVICE=${DEVICE:-'Ponsinc-S4'}
+MAC_DEVICE=$(bluetoothctl paired-devices \
+  | grep -i "$DEVICE" \
+  | awk '{print $2}')
 
 notify_msg() {
   msg=$1
@@ -16,12 +21,6 @@ notify_msg() {
 }
 
 reconnect_device() {
-  bluetoothctl power on
-
-  MAC_DEVICE=$(bluetoothctl paired-devices \
-    | grep -i "$DEVICE" \
-    | awk '{print $2}')
-
   # TODO: when "Missing device address argument" returns,
   # scan on, pair on, etc. and get a MAC address to connect.
   has_disconnected=$(bluetoothctl info "$MAC_DEVICE" \
