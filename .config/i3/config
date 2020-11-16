@@ -368,9 +368,9 @@ bindsym $SuperS+I focus tiling;   mode default; $alert 'Focus: Tiling'
 # Keybind; Device Toggle {{{2
 # Ref: https://qiita.com/iberianpig/items/08784c9b2f53b3e41409
 #   Control Trackpad by Fusuma
-$release $Super+comma  $noid $MY_SCRIPTS/touchpad-toggle.sh
-$release $Super+period $noid $MY_SCRIPTS/touchpad-toggle.sh
-$release $Super+$ClickMiddle $noid $MY_SCRIPTS/touchpad-toggle.sh
+$release $Super+comma  $noid $MY_I3_SCRIPTS/toggle-TouchPad
+$release $Super+period $noid $MY_I3_SCRIPTS/toggle-TouchPad
+$release $Super+$ClickMiddle $noid $MY_I3_SCRIPTS/toggle-TouchPad
 
 # 66: CapsLock
 bindcode 66 $alert 'CapsLock: Toggle'
