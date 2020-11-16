@@ -6,6 +6,8 @@ export XDG_CACHE_HOME="$HOME/.cache"
 export XDG_DATA_HOME="$HOME/.local/share"
 
 # Original {{{1
+export MY_I3_SCRIPTS="$XDG_CONFIG_HOME/i3/script"
+
 export MY_SCRIPTS="$HOME/.myscripts"
 export MY_API_TOKEN="$HOME/.myapi"
 export DOTFILES_HOME="$HOME/dotfiles"
