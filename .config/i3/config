@@ -636,15 +636,15 @@ set $Browser " Browser: (S)ervo (V)ivaldi (F)irefox (C)hrome (Q)utebrowser "
 $release $Super+B mode $Browser; $shortmsg 'Browsers'
 
 mode $Browser {
-$release c $noid pgrep chrome || $chrome; mode default
+    $release c $noid pgrep chrome || $chrome; mode default
 
-$release q $once qutebrowser; mode default
-$release f $once firefox;     mode default
-$release s $once servo;       mode default
-$release v $once $vivaldi;    mode default
+    $release q $once qutebrowser; mode default
+    $release f $once firefox;     mode default
+    $release s $once servo;       mode default
+    $release v $once $vivaldi;    mode default
 
-bindsym Ctrl+C           mode default
-bindsym Ctrl+bracketleft mode default
+    bindsym Ctrl+C           mode default
+    bindsym Ctrl+bracketleft mode default
 }
 
 # Keybind; open Browser {{{2
