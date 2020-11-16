@@ -37,6 +37,12 @@ PACKAGEs=(
   # simplescreenrecorder # GUI to select range by mouse; also recordable
   flameshot # option-gui to select by mouse
 
+  # Login Manager:
+  #lightdm-webkit2-greeter # Set theme on lightdm with Greeter; cannot <C-u>
+  #lightdm-webkit-theme-litarvan # a theme on lightdm-webkit2-greeter. Cool.
+  lightdm-slick-greeter # <C-u> to reset password input
+  # light-locker # use instead of i3lock, which doesn't work well with multiple monitors
+
   polar-bookshelf-bin
   odrive-bin # (Open Drive) Google Drive GUI
   xkeysnail # remapping tool for X written in Python
@@ -159,9 +165,6 @@ PACKAGEs=(
   udiskie # a wrapper of udisk2 to mount automatically
   #uzbl # a browser w/ vim-like keybinds. The development ends.
   #doas # an alternative to sudo(1); a port of OpenBSD or try opendoas from 'community'
-  # light-locker # use instead of i3lock, which doesn't work well with multiple monitors
-  #lightdm-webkit2-greeter # set a theme for lightdm at login-window
-  #lightdm-webkit-theme-litarvan # a theme for lightdm-webkit2-greeter. Cool.
   #jdk-openjdk # toggl-cli needs javac; or use java-environment-common. The symlink from /usr/bin/javac and so on may be broken; update it yourself.
   #toggl-cli # use python's one instead from github
   #jot # a cli tool to take a note
