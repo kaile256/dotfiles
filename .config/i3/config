@@ -147,7 +147,7 @@ for_window [title="^Toggle"]  floating enable border normal
 
 # AutoStart Background {{{1
 # Note: exec_always to reload on a restart i3 itself
-$always $MY_SCRIPTS/polybar-launch.sh
+$always $MY_I3_SCRIPTS/polybar-launch
 #exec_always --no-startup-id xfce4-panel --disable-wm-check
 
 # Note: see the config by `xset q`
