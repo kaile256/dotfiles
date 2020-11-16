@@ -45,6 +45,9 @@ case "$1" in
     pgrep bluetoothd >/dev/null 2>&1 || exit
     reconnect_device
     ;;
+  --disconnect)
+    disconnect_device
+    ;;
   *)
     pgrep bluetoothd >/dev/null 2>&1 || sudo bluetooth on
     reconnect_device
