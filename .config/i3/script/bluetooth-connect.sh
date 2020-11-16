@@ -5,8 +5,29 @@ set -Ceu
 pgrep bluetoothd >/dev/null 2>&1 || sudo bluetooth on
 
 bluetoothctl power on
+set +u
+case "$DEVICE" in
+  HHKB)
+    DEVICE='RK-Bluetooth keyboard'
+    ;;
+  RK61)
+    DEVICE='RK-Bluetooth keyboard'
+    ;;
+  TrackPoint)
+    DEVICE='TrackPoint Keyboard II'
+    ;;
+  Mouse)
+    DEVICE='bluetooth mouse4.0'
+    ;;
+  Earphones)
+    DEVICE='Ponsinc-S4'
+    ;;
+  *)
+    DEVICE=${DEVICE:-'Ponsinc-S4'}
+    ;;
+esac
+set -u
 
-DEVICE=${DEVICE:-'Ponsinc-S4'}
 MAC_DEVICE=$(bluetoothctl paired-devices \
   | grep -i "$DEVICE" \
   | awk '{print $2}')
