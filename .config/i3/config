@@ -485,26 +485,26 @@ set $Systemctl " Systemctl: [P]oweroff [R]eboot [L]ock [S]uspend(to RAM) [H]yber
 $release $Super+X mode $Systemctl; $alert 'Systemctl mode'
 
 mode $Systemctl {
-#bindsym S $noid $locker && systemctl suspend, mode default
-#bindsym L $noid i3-msg exit, mode default
-#bindsym K $noid i3-msg exit, mode default
-$release l $noid $locker, mode default
-$release k $noid $locker, mode default
+    # bindsym S $noid $locker && systemctl suspend, mode default
+    # bindsym L $noid i3-msg exit, mode default
+    # bindsym K $noid i3-msg exit, mode default
+    $release l $noid $locker, mode default
+    $release k $noid $locker, mode default
 
-$release s $noid systemctl suspend && $locker,      mode default
-# TODO: make swap
-$release h $noid $locker && systemctl hibernate,    mode default
-# hybrid-sleep: the battery depleted left disk
-$release b $noid $locker && systemctl hibrid-sleep, mode default
+    $release s $noid systemctl suspend && $locker,      mode default
+    # TODO: make swap
+    $release h $noid $locker && systemctl hibernate,    mode default
+    # hybrid-sleep: the battery depleted left disk
+    $release b $noid $locker && systemctl hibrid-sleep, mode default
 
-$release r $noid systemctl reboot,   mode default
-$release p $noid systemctl poweroff, mode default
-$release q $noid systemctl poweroff, mode default
-$release y $noid systemctl poweroff, mode default
-$release u $noid systemctl poweroff, mode default
+    $release r $noid systemctl reboot,   mode default
+    $release p $noid systemctl poweroff, mode default
+    $release q $noid systemctl poweroff, mode default
+    $release y $noid systemctl poweroff, mode default
+    $release u $noid systemctl poweroff, mode default
 
-bindsym Ctrl+C           mode default
-bindsym Ctrl+bracketleft mode default
+    bindsym Ctrl+C           mode default
+    bindsym Ctrl+bracketleft mode default
 }
 
 # Mode; Brightness {{{2
