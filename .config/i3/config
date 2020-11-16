@@ -585,14 +585,14 @@ mode $Sound {
     bindsym Ctrl+bracketleft mode default
 }
 
-# Mode; Connect Device {{{2
-set $Connect " Connect Device: (E)arphones (R)K61 (H)HKB "
-bindsym $Super+Q mode $Connect
-mode $Connect {
-    bindsym R $noid $MY_I3_SCRIPTS/connect-keyboard-RK61;       $notify 'Connect: RK61';       mode default
-    bindsym H $noid $MY_I3_SCRIPTS/connect-keyboard-HHKB;       $notify 'Connect: HHKB';       mode default
-    bindsym T $noid $MY_I3_SCRIPTS/connect-keyboard-TrackPoint; $notify 'Connect: TrackPoint'; mode default
-    bindsym E $noid $MY_I3_SCRIPTS/connect-Earphones;           $notify 'Connect: Earphones';  mode default
+# Mode; Device {{{2
+set $Device " Device: (E)arphones (R)K61 (H)HKB (T)rackPoint "
+bindsym $Super+D mode $Device
+mode $Device {
+    bindsym R $noid DEVICE="RK61"       $MY_I3_SCRIPTS/bluetooth-connect.sh --reconnect; mode default
+    bindsym H $noid DEVICE="HHKB"       $MY_I3_SCRIPTS/bluetooth-connect.sh --reconnect; mode default
+    bindsym T $noid DEVICE="TrackPoint" $MY_I3_SCRIPTS/bluetooth-connect.sh --reconnect; mode default
+    bindsym E $noid DEVICE="Earphones"  $MY_I3_SCRIPTS/bluetooth-connect.sh --reconnect; mode default
 
     bindsym Ctrl+C           mode default
     bindsym Ctrl+bracketleft mode default
