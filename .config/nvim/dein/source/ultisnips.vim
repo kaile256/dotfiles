@@ -7,8 +7,6 @@ runtime once/smaps.vim
 
 hi! link snipLeadingSpaces NonText
 
-let $SNIPPETS_HOME = expand('$VIM_ANOTHER_HOME/UltiSnips/')
-
 augroup myUltisnipsSo
   au FileType snippets setlocal keywordprg=:help
   au FileType snippets let &l:path = join([

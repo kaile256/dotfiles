@@ -3,6 +3,9 @@
 " Another: source/ultisnips.vim
 " Another: post/ultisnips.vim
 
+" Keep the var in add/ to use in the other plugins' config.
+let $SNIPPETS_HOME = expand('$VIM_ANOTHER_HOME/UltiSnips/')
+
 " Note: mappings of coc-snippets won't support some flags, regex and other features.
 
 " Note: <expr>-UltiSnips#ExpandSnippet() throws `E533: Not allowed here`.
