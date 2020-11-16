@@ -2,6 +2,8 @@
 
 set -Ceu
 
+pgrep bluetoothd >/dev/null 2>&1 || sudo bluetooth on
+
 bluetoothctl power on
 
 DEVICE=${DEVICE:-'Ponsinc-S4'}
@@ -46,11 +48,9 @@ case "$1" in
     notify_msg "$DEVICE is disconnected"
     ;;
   --reconnect)
-    pgrep bluetoothd >/dev/null 2>&1 || sudo bluetooth on
     reconnect_device
     ;;
   *)
-    pgrep bluetoothd >/dev/null 2>&1 || sudo bluetooth on
     reconnect_device
     ;;
 esac
