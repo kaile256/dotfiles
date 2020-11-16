@@ -595,7 +595,7 @@ set $termporal alacritty \
     --dimensions 170 45 \
     --title TMP_alacritty \
     -e fish
-bindsym $Super+Return $noid $termporal
+bindsym $Super+Return $once $termporal
 
 $release $Super+P $noid alacritty \
     --title TMP_python_on_alacritty \
