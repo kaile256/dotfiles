@@ -417,8 +417,9 @@ mode $Layout {
     bindsym Shift+D resize grow   height 50 px or 50 ppt
     bindsym Shift+U resize shrink height 50 px or 50 ppt
 
-    bindsym Ctrl+C           mode default
-    bindsym Ctrl+bracketleft mode default
+    bindsym Ctrl+C             mode default
+    bindsym Ctrl+bracketleft   mode default
+    bindsym $Super+bracketleft mode default
 }
 
 # Mode; Window {{{2
@@ -475,8 +476,9 @@ mode $Window {
     # TODO: send ^d, too, to kill terminal
     bindsym Ctrl+D           mode default; $alert 'Out of Fucus mode'
 
-    bindsym Ctrl+C           mode default
-    bindsym Ctrl+bracketleft mode default
+    bindsym Ctrl+C             mode default
+    bindsym Ctrl+bracketleft   mode default
+    bindsym $Super+bracketleft mode default
 }
 
 # Mode; Systemctl {{{2
@@ -502,8 +504,9 @@ mode $Systemctl {
     $release y $noid systemctl poweroff, mode default
     $release u $noid systemctl poweroff, mode default
 
-    bindsym Ctrl+C           mode default
-    bindsym Ctrl+bracketleft mode default
+    bindsym Ctrl+C             mode default
+    bindsym Ctrl+bracketleft   mode default
+    bindsym $Super+bracketleft mode default
 }
 
 # Mode; Brightness {{{2
@@ -534,8 +537,9 @@ mode $Brightness {
     bindsym B $notify 'Brightness: +10'; $noid xbacklight -inc 10
     bindsym F $notify 'Brightness: -10'; $noid xbacklight -dec 10
 
-    bindsym Ctrl+C           mode default
-    bindsym Ctrl+bracketleft mode default
+    bindsym Ctrl+C             mode default
+    bindsym Ctrl+bracketleft   mode default
+    bindsym $Super+bracketleft mode default
 }
 
 # Mode; Sound Volume {{{2
@@ -581,8 +585,9 @@ mode $Sound {
     bindsym B $volume +10%; $notify 'Sound: +10%'
     bindsym F $volume -10%; $notify 'Sound: -10%'
 
-    bindsym Ctrl+C           mode default
-    bindsym Ctrl+bracketleft mode default
+    bindsym Ctrl+C             mode default
+    bindsym Ctrl+bracketleft   mode default
+    bindsym $Super+bracketleft mode default
 }
 
 # Mode; Device {{{2
@@ -599,8 +604,9 @@ mode $Device {
     bindsym Shift+T $noid DEVICE="TrackPoint" $MY_I3_SCRIPTS/bluetooth.sh --disconnect; mode default
     bindsym Shift+E $noid DEVICE="Earphones"  $MY_I3_SCRIPTS/bluetooth.sh --disconnect; mode default
 
-    bindsym Ctrl+C           mode default
-    bindsym Ctrl+bracketleft mode default
+    bindsym Ctrl+C             mode default
+    bindsym Ctrl+bracketleft   mode default
+    bindsym $Super+bracketleft mode default
 }
 # Keybind: Apps {{{1
 # Terminal {{{2
@@ -659,8 +665,9 @@ mode $Browser {
     $release s $once servo;       mode default
     $release v $once $vivaldi;    mode default
 
-    bindsym Ctrl+C           mode default
-    bindsym Ctrl+bracketleft mode default
+    bindsym Ctrl+C             mode default
+    bindsym Ctrl+bracketleft   mode default
+    bindsym $Super+bracketleft mode default
 }
 
 # Keybind; open Browser {{{2
@@ -683,8 +690,9 @@ mode $Qutebrowser {
     $release 8 $noid i3-msg 'workspace 8; exec qutebrowser'; mode default
     $release 9 $noid i3-msg 'workspace 9; exec qutebrowser'; mode default
 
-    bindsym Ctrl+C           mode default
-    bindsym Ctrl+bracketleft mode default
+    bindsym Ctrl+C             mode default
+    bindsym Ctrl+bracketleft   mode default
+    bindsym $Super+bracketleft mode default
 }
 
 # Vim {{{2
@@ -698,8 +706,9 @@ mode $Vim {
     bindsym X $noid xterm -e vim; mode default
     bindsym A $noid alacritty -e vim; mode default
 
-    bindsym Ctrl+C           mode default
-    bindsym Ctrl+bracketleft mode default
+    bindsym Ctrl+C             mode default
+    bindsym Ctrl+bracketleft   mode default
+    bindsym $Super+bracketleft mode default
 }
 
 # Neovim {{{2
@@ -716,8 +725,9 @@ mode $Neovim {
     bindsym A $noid alacritty -e nvim; mode default
     bindsym F $noid fvim; mode default
 
-    bindsym Ctrl+C           mode default
-    bindsym Ctrl+bracketleft mode default
+    bindsym Ctrl+C             mode default
+    bindsym Ctrl+bracketleft   mode default
+    bindsym $Super+bracketleft mode default
 }
 
 # Editor {{{2
@@ -734,8 +744,9 @@ mode $Editor {
     bindsym G $noid gimp;  mode default; $notify 'Editor: gimp'
     bindsym P $noid pinta; mode default; $notify 'Editor: pinta'
 
-    bindsym Ctrl+C           mode default
-    bindsym Ctrl+bracketleft mode default
+    bindsym Ctrl+C             mode default
+    bindsym Ctrl+bracketleft   mode default
+    bindsym $Super+bracketleft mode default
 }
 
 # Finder {{{2
@@ -754,8 +765,9 @@ mode $Finder {
 
     $release G exec google-photo; mode default
 
-    bindsym Ctrl+C           mode default
-    bindsym Ctrl+bracketleft mode default
+    bindsym Ctrl+C             mode default
+    bindsym Ctrl+bracketleft   mode default
+    bindsym $Super+bracketleft mode default
 }
 
 # Mode; Mozc {{{2
