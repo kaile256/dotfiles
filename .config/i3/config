@@ -594,6 +594,11 @@ mode $Device {
     bindsym T $noid DEVICE="TrackPoint" $MY_I3_SCRIPTS/bluetooth-connect.sh --reconnect; mode default
     bindsym E $noid DEVICE="Earphones"  $MY_I3_SCRIPTS/bluetooth-connect.sh --reconnect; mode default
 
+    bindsym Shift+R $noid DEVICE="RK61"       $MY_I3_SCRIPTS/bluetooth-connect.sh --disconnect; mode default
+    bindsym Shift+H $noid DEVICE="HHKB"       $MY_I3_SCRIPTS/bluetooth-connect.sh --disconnect; mode default
+    bindsym Shift+T $noid DEVICE="TrackPoint" $MY_I3_SCRIPTS/bluetooth-connect.sh --disconnect; mode default
+    bindsym Shift+E $noid DEVICE="Earphones"  $MY_I3_SCRIPTS/bluetooth-connect.sh --disconnect; mode default
+
     bindsym Ctrl+C           mode default
     bindsym Ctrl+bracketleft mode default
 }
