@@ -234,9 +234,8 @@ $noid alsactl daemon
 $noid pulseaudio --kill; sleep 5; pulseaudio --start &
 
 # Only once try to connect earphones.
-$noid $HOME/bin/earphones-connect.sh --simple >/dev/null 2>&1
-
-$always $MY_SCRIPTS/connect-keyboard.sh >/dev/null 2>&1
+$noid $MY_I3_SCRIPTS/connect-earphones --simple >/dev/null 2>&1
+$always $MY_I3_SCRIPTS/connect-keyboard >/dev/null 2>&1
 
 # AutoStart Applications {{{1
 # Ref: specifiy workspace to start in
