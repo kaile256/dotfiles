@@ -870,8 +870,8 @@ $release $SuperS+M exec terminal -e 'mocp'
 bindsym $SuperS+P  $noid killall -q flameshot; exec sleep 1; exec flameshot gui &
 bindsym Ctrl+Print $noid killall -q flameshot; exec sleep 1; exec flameshot gui &
 
-bindsym $SuperA+P    $noid $MY_SCRIPTS/recording-toggle.sh
-bindsym $Super+Print $noid $MY_SCRIPTS/recording-toggle.sh
+bindsym $SuperA+P    $noid $MY_I3_SCRIPTS/toggle-Recording
+bindsym $Super+Print $noid $MY_I3_SCRIPTS/toggle-Recording
 
 #set $Print " Print: (Shift+) screenshot | (Super+) record in GIF "
 #bindsym Print mode $Print; $notify 'Print: entered'
