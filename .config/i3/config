@@ -855,8 +855,10 @@ $release $SuperS+M exec terminal -e 'mocp'
 #bindsym XF86AudioMute        $noid pactl set-sink-mute 0 toggle; $notify 'Volume: Mute Toggle'
 
 # Fn; Screen Shot {{{2
+bindsym $SuperS+P  $noid killall -q flameshot; exec sleep 1; exec flameshot gui &
 bindsym Ctrl+Print $noid killall -q flameshot; exec sleep 1; exec flameshot gui &
 
+bindsym $SuperA+P    $noid $MY_SCRIPTS/recording-toggle.sh
 bindsym $Super+Print $noid $MY_SCRIPTS/recording-toggle.sh
 
 #set $Print " Print: (Shift+) screenshot | (Super+) record in GIF "
