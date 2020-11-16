@@ -855,7 +855,7 @@ $release $SuperS+M exec terminal -e 'mocp'
 #bindsym XF86AudioMute        $noid pactl set-sink-mute 0 toggle; $notify 'Volume: Mute Toggle'
 
 # Fn; Screen Shot {{{2
-bindsym Ctrl+Print $noid killall -q flameshot && sleep 1 && flameshot gui
+bindsym Ctrl+Print $noid killall -q flameshot; exec sleep 1; exec flameshot gui &
 
 bindsym $Super+Print $noid $MY_SCRIPTS/recording-toggle.sh
 
