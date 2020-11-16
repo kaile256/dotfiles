@@ -591,7 +591,7 @@ mode $Sound {
 }
 
 # Mode; Device {{{2
-set $Device " Device: (E)arphones (R)K61 (H)HKB (T)rackPoint "
+set $Device " Device: (E)arphones (R)K61 (H)HKB (T)rackPoint | Disconnection in Upper Case "
 bindsym $Super+D mode $Device
 mode $Device {
     bindsym R $noid DEVICE="RK61"       $MY_I3_SCRIPTS/bluetooth.sh --reconnect; mode default
