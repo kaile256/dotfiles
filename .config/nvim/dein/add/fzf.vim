@@ -76,6 +76,7 @@ let s:path_dict = {
       \ 'n': '%:p:h',
       \ 'q': $GHQ_ROOT,
       \ 'r': $VIMRUNTIME,
+      \ 's': '$SNIPPETS_HOME',
       \ 't': g:my_trash_root,
       \ 'v': $DOTFILES_HOME .'/.config/nvim',
       \ 'w': '%:p:h',
