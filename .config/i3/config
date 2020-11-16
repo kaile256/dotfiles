@@ -558,32 +558,32 @@ set $mute_toggle exec --no-startup-id pacmd set-sink-mute @DEFAULT_SINK@ toggle
 set $volume exec --no-startup-id pacmd set-sink-mute @DEFAULT_SINK@ false && pactl set-sink-volume @DEFAULT_SINK@
 
 mode $Sound {
-bindsym $Super+S $mute_toggle; $alert 'Sound: Mute Toggle'
-# Mnemonic: Silence
-bindsym S $mute; $alert 'Sound: Mute'
-# Mnemonic: Quiet
-bindsym Q $mute; $alert 'Sound: Mute'
+    bindsym $Super+S $mute_toggle; $alert 'Sound: Mute Toggle'
+    # Mnemonic: Silence
+    bindsym S $mute; $alert 'Sound: Mute'
+    # Mnemonic: Quiet
+    bindsym Q $mute; $alert 'Sound: Mute'
 
-bindsym G $volume 100%; $notify 'Sound: 100%'
-bindsym Shift+G $volume 0%; $notify 'Sound: 0%'
+    bindsym G $volume 100%; $notify 'Sound: 100%'
+    bindsym Shift+G $volume 0%; $notify 'Sound: 0%'
 
-bindsym Shift+H $volume 85%; $notify 'Sound: 85%'
-bindsym Shift+K $volume 75%; $notify 'Sound: 75%'
-bindsym Shift+M $volume 50%; $notify 'Sound: 50%'
-bindsym Shift+J $volume 25%; $notify 'Sound: 25%'
-bindsym Shift+L $volume 15%; $notify 'Sound: 15%'
+    bindsym Shift+H $volume 85%; $notify 'Sound: 85%'
+    bindsym Shift+K $volume 75%; $notify 'Sound: 75%'
+    bindsym Shift+M $volume 50%; $notify 'Sound: 50%'
+    bindsym Shift+J $volume 25%; $notify 'Sound: 25%'
+    bindsym Shift+L $volume 15%; $notify 'Sound: 15%'
 
-bindsym K $volume +1%;  $notify 'Sound: +1%'
-bindsym M $volume 50%;  $notify 'Sound: 50%'
-bindsym J $volume -1%;  $notify 'Sound: -1%'
+    bindsym K $volume +1%;  $notify 'Sound: +1%'
+    bindsym M $volume 50%;  $notify 'Sound: 50%'
+    bindsym J $volume -1%;  $notify 'Sound: -1%'
 
-bindsym U $volume +5%;  $notify 'Sound: +5%'
-bindsym D $volume -5%;  $notify 'Sound: -5%'
-bindsym B $volume +10%; $notify 'Sound: +10%'
-bindsym F $volume -10%; $notify 'Sound: -10%'
+    bindsym U $volume +5%;  $notify 'Sound: +5%'
+    bindsym D $volume -5%;  $notify 'Sound: -5%'
+    bindsym B $volume +10%; $notify 'Sound: +10%'
+    bindsym F $volume -10%; $notify 'Sound: -10%'
 
-bindsym Ctrl+C           mode default
-bindsym Ctrl+bracketleft mode default
+    bindsym Ctrl+C           mode default
+    bindsym Ctrl+bracketleft mode default
 }
 
 # Keybind: Apps {{{1
