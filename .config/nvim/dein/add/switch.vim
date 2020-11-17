@@ -14,12 +14,42 @@ nnoremap <silent> <Plug>(switch-extra)
 nnoremap <silent> <Plug>(switch-extra-reverse)
       \ :<C-u>call switch#Switch(
       \     {'definitions': g:switch_extra_definitions, 'reverse': 1})<CR>
+
+function! s:increment() abort
+  let cnt = v:count1
+  silent! call repeat#set("\<Plug>(switch-or-dating)")
+  let save_line = getline('.')
+
+  let is_switched = switch#Switch()
+  if is_switched | return | endif
+  call speeddating#increment(cnt)
+
+  if  getline('.') !=# save_line | return | endif
+  exe "norm \<Plug>(switch-extra)"
+endfunction
+
+function! s:decrement() abort
+  let cnt = v:count1
+  silent! call repeat#set("\<Plug>(switch-or-dating-reverse)")
+  let save_line = getline('.')
+
+  let is_switched = switch#Switch({'reverse': 1})
+  if is_switched | return | endif
+  call speeddating#increment(- cnt)
+
+  if getline('.') !=# save_line | return | endif
+  exe "norm \<Plug>(switch-extra-reverse)"
+endfunction
+
+nmap <silent> <Plug>(switch-or-dating)         :<C-u>call <SID>increment()<CR>
+nmap <silent> <Plug>(switch-or-dating-reverse) :<C-u>call <SID>decrement()<CR>
+
 nmap <silent> z<C-x>
-      \ <Plug>(switch-extra):<C-u>silent!
-      \ call repeat#set("\<lt>Plug>(switch-extra)")<CR>
+      \ <Plug>(switch-or-dating):<C-u>silent!
+      \ call repeat#set("\<lt>Plug>(switch-or-dating)")<CR>
 nmap <silent> z<C-a>
-      \ <Plug>(switch-extra-reverse):<C-u>silent!
-      \ call repeat#set("\<lt>Plug>(switch-extra-reverse)")<CR>
+      \ <Plug>(switch-or-dating-reverse):<C-u>silent!
+      \ call repeat#set("\<lt>Plug>(switch-or-dating-reverse)")<CR>
 
 let s:definitions = {}
 
