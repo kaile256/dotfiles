@@ -72,7 +72,10 @@ endfunction
 
 function! s:operator_gJ(wise) abort
   let [line1, line2] = s:set_range(a:wise)
-  let range = line1 < line2 ? line1 .','. line2 : line2 .','. line1
+  let lnum_to_trim = line1 + 1
+  let range = lnum_to_trim < line2
+        \ ? lnum_to_trim .','. line2
+        \ : line2 .','. lnum_to_trim
   exe 'keeppatterns keepjumps' range 's/^\s*//ge'
   call s:_operator_join('join!', [line1, line2])
 endfunction
