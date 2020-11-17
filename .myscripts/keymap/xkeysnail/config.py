@@ -65,7 +65,6 @@ define_keymap(
         K("Shift-Delete"): K("Shift-Backslash"),
     },
     "BS/Del to Backslash/Bar on default HHKB")
-
 define_keymap(
     None, {
         K("Esc"): K("Grave"),
