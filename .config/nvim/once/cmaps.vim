@@ -69,7 +69,7 @@ function! s:remove_to_wordend() abort
   let line = getcmdline()
   let col  = getcmdpos() - 1
 
-  let to_wordend = matchstr(line[col:], '.\{-}\ze\v(\W|$)')
+  let to_wordend = matchstr(line[col:], '\v\W?\s*\w{-}\ze\W?')
   let len = len(to_wordend)
   return repeat("\<Del>", len)
 endfunction
