@@ -2,6 +2,9 @@
 " Ref: cabbrs.vim
 " Ref: commands.vim
 
+cnoremap <C-v><Space> <lt>space>
+cnoremap <C-v><C-Space> <lt>space>
+
 " Use <C-f>/<C-b> mapped to <Right>/<Left> to select candidate.
 cnoremap <C-p> <Up>
 cnoremap <C-n> <Down>
