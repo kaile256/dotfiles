@@ -2,21 +2,9 @@
 " Ref: cabbrs.vim
 " Ref: commands.vim
 
-" <Up>/<Down> completes as the history.
-cnoremap <A-p> <Up>
-cnoremap <A-n> <Down>
-if &wildmode =~# 'longest'
-  " TODO Find a way <Up>/<Down> be compatible with 'wildchar' and replace with
-  " <C-n>/<C-p> respectively.
-  cnoremap <C-x>p <Up>
-  cnoremap <C-x>n <Down>
-  cmap <C-x><C-p> <C-x>p
-  cmap <C-x><C-n> <C-x>n
-else
-  cnoremap <C-p> <Up>
-  cnoremap <C-n> <Down>
-  cnoremap <C-o> <S-Tab>
-endif
+" Use <C-f>/<C-b> mapped to <Right>/<Left> to select candidate.
+cnoremap <C-p> <Up>
+cnoremap <C-n> <Down>
 
 cnoremap <silent> <a-space> <esc>:call feedkeys("\<space>")<cr>
 
