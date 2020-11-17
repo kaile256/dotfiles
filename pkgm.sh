@@ -43,6 +43,9 @@ PACKAGEs=(
   lightdm-slick-greeter # <C-u> to reset password input
   # light-locker # use instead of i3lock, which doesn't work well with multiple monitors
 
+  # LSP
+  gopls # for go
+
   polar-bookshelf-bin
   odrive-bin # (Open Drive) Google Drive GUI
   xkeysnail # remapping tool for X written in Python
@@ -322,7 +325,6 @@ YARNs=(
   bash-language-server
   diagnostic-languageserver
   dockerfile-language-server-nodejs
-  #go-language-server # no longer maintained; use gopls instead
   mermaid # generetes diagram, flowchart and ganttchart in markdown
   neovim
   parcel-bundler # a web-app bundler w/o config
@@ -502,11 +504,6 @@ git clone https://github.com/hlissner/doom-emacs ~/.emacs.d
 #(create-fontset-from-ascii-font "SF Mono-12:weight=normal:slant=normal" nill "Cica-12")
 
 #source /home/kaile256/.local/share/cargo/env
-
-# for executable lsp
-#sudo npm i -g bash-language-server
-# for go-lsp, gopls
-GO111MODULE=on go get golang.org/x/tools/gopls@latest
 
 # THE OTHERS in GITHUB {{{1
 # Font: SFMonoSquare
