@@ -55,22 +55,22 @@ define_keymap(
     },
     "Equivalent keys (Overwritten on Fcitx)")
 
-define_keymap(
-    None,
-    {
-        K("Backspace"): K("Backslash"),
-        K("Delete"): K("Backslash"),
-        # "|" as Shift-Backslash
-        K("Shift-Backspace"): K("Shift-Backslash"),
-        K("Shift-Delete"): K("Shift-Backslash"),
-    },
-    "BS/Del to Backslash/Bar on default HHKB")
-define_keymap(
-    None, {
-        K("Esc"): K("Grave"),
-        K("Shift-Esc"): K("Shift-Grave"),
-        K("C-Left_Brace"): K("Esc"),
-    }, "Esc to Grave/Tilde for default HHKB")
+# define_keymap(
+#     None,
+#     {
+#         K("Backspace"): K("Backslash"),
+#         K("Delete"): K("Backslash"),
+#         # "|" as Shift-Backslash
+#         K("Shift-Backspace"): K("Shift-Backslash"),
+#         K("Shift-Delete"): K("Shift-Backslash"),
+#     },
+#     "BS/Del to Backslash/Bar on default HHKB")
+# define_keymap(
+#     None, {
+#         K("Esc"): K("Grave"),
+#         K("Shift-Esc"): K("Shift-Grave"),
+#         K("C-Left_Brace"): K("Esc"),
+#     }, "Esc to Grave/Tilde for default HHKB")
 
 # RK61 {{{1
 define_modmap({
