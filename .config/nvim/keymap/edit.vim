@@ -72,11 +72,16 @@ endfunction
 
 function! s:operator_gJ(wise) abort
   let [line1, line2] = s:set_range(a:wise)
-  let lnum_to_trim = line1 + 1
-  let range = lnum_to_trim < line2
-        \ ? lnum_to_trim .','. line2
-        \ : line2 .','. lnum_to_trim
-  exe 'keeppatterns keepjumps' range 's/^\s*//ge'
+
+  function! s:trim_indents() abort closure
+    let lnum_to_trim = line1 + 1
+    let range = lnum_to_trim < line2
+          \ ? lnum_to_trim .','. line2
+          \ : line2 .','. lnum_to_trim
+    exe 'keeppatterns keepjumps' range 's/^\s*//ge'
+  endfunction
+  call s:trim_indents()
+
   call s:_operator_join('join!', [line1, line2])
 endfunction
 
