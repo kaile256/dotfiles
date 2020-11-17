@@ -64,14 +64,14 @@ define_keymap(
         K("Shift-Backspace"): K("Shift-Backslash"),
         K("Shift-Delete"): K("Shift-Backslash"),
     },
-    "BS/Del to Backslash/Bar for compact keyboards")
+    "BS/Del to Backslash/Bar on default HHKB")
 
 define_keymap(
     None, {
         K("Esc"): K("Grave"),
         K("Shift-Esc"): K("Shift-Grave"),
         K("C-Left_Brace"): K("Esc"),
-    }, "Esc to Grave/Tilde for compact keyboards")
+    }, "Esc to Grave/Tilde for default HHKB")
 
 # RK61 {{{1
 define_modmap({
