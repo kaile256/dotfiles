@@ -95,7 +95,7 @@ endfunction
 
 function! s:_operator_join(join, range) abort
   let [line1, line2] = a:range
-  let sh_like = ['sh', 'zsh', 'fish', 'dockerfile']
+  let sh_like = ['sh', 'zsh', 'fish', 'dockerfile', 'python']
   const keep = 'keeppatterns keepjumps'
 
   if &ft ==# 'vim'
