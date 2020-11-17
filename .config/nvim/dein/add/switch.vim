@@ -11,15 +11,15 @@
 nnoremap <silent> <Plug>(switch-extra)
       \ :<C-u>call switch#Switch(
       \     {'definitions': g:switch_extra_definitions})<CR>
-nnoremap <silent> <Plug>(switch-reverse-extra)
+nnoremap <silent> <Plug>(switch-extra-reverse)
       \ :<C-u>call switch#Switch(
       \     {'definitions': g:switch_extra_definitions, 'reverse': 1})<CR>
 nmap <silent> z<C-x>
       \ <Plug>(switch-extra):<C-u>silent!
       \ call repeat#set("\<lt>Plug>(switch-extra)")<CR>
 nmap <silent> z<C-a>
-      \ <Plug>(switch-reverse-extra):<C-u>silent!
-      \ call repeat#set("\<lt>Plug>(switch-reverse-extra)")<CR>
+      \ <Plug>(switch-extra-reverse):<C-u>silent!
+      \ call repeat#set("\<lt>Plug>(switch-extra-reverse)")<CR>
 
 let s:definitions = {}
 
