@@ -26,6 +26,7 @@ on_cmd = 'HelpfulVersion'
 hook_add = 'runtime add/helpful.vim'
 [[plugins]]
 repo = 'tpope/vim-scriptease'
+on_map = {n = '<Plug>ScripteaseSynnames'}
 on_cmd = [
   'Time', # show how long time a {command} takes.
 
