@@ -131,6 +131,7 @@
     // Mapping to <Esc> is useless.
     "<A-k>": "do:toggleMode"
   },
+
   "list.normalMappings": {
     "e": "action:drop",
     "O": "action:vsplit",
