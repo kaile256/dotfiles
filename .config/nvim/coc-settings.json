@@ -143,7 +143,7 @@
     "o": "action:split",
 
     "X": "action:delete",
-    "<Del>": "action:delete",
+    // "<Del>": "action:delete", // Coc-list doesn't understand <Del>/<Delete>.
 
     // Scroll
     "d": "feedkeys:\\<C-d>",
