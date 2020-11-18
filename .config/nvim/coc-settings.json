@@ -110,11 +110,12 @@
   "list.source.mru.ignoreGitIgnore": false,
   "list.source.grep.defaultArgs": ["--regex"],
 
-  //"list.nextKeymap": "<C-,>",
-  //"list.previousKeymap": "<C-.>",
+  "list.nextKeymap": "<C-g>",
+  "list.previousKeymap": "<C-t>",
+
   "list.insertMappings": {
-    // "<C-,>": "normal:j",
-    // "<C-.>": "normal:k",
+    "<C-g>": "normal:j",
+    "<C-t>": "normal:k",
 
     "<A-t>": "action:tabe",
     "<A-s>": "action:split",
