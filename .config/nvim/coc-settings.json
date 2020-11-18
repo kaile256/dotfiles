@@ -135,6 +135,8 @@
   },
 
   "list.normalMappings": {
+    "R": "do:refresh",
+
     "e": "action:drop",
     "O": "action:vsplit",
     "<A-t>": "action:tab",
