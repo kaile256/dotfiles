@@ -269,7 +269,7 @@ settings:
         <Tab>: enter-mode insert;; fake-key <TAB>
         <い>: enter-mode insert
         '>': tab-move +
-        D: scroll-page 0 +1.0
+        D: scroll-page 0 +0.75
         F: hint links tab-bg
         G: fake-key <End>
         H: null
@@ -279,7 +279,7 @@ settings:
         L: null
         P: open -t {clipboard}
         T: hint links tab-bg
-        U: fake-key <alt+Up>
+        U: scroll-page 0 -0.75
         V: enter-mode caret;; toggle-selection
         ZC: session-save --quiet last;; close
         ZE: session-save --quiet last;; close
