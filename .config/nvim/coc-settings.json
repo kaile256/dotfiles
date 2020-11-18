@@ -128,6 +128,7 @@
     "<A-j>": "do:exit",
     "<A-l>": "do:exit",
 
+    // Stop insert mode:
     // Mapping to <Esc> is useless.
     "<A-k>": "do:toggleMode"
   },
@@ -144,6 +145,7 @@
     "<A-k>": "do:exit",
     "<A-l>": "do:exit",
 
+    // Start insert mode:
     "<A-j>": "do:toggleMode",
     "i": "do:toggleMode"
   },
