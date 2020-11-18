@@ -140,6 +140,7 @@
     "<A-t>": "action:tab",
     "o": "action:split",
 
+    "X": "action:delete",
     "<Del>": "action:delete",
 
     // Scroll
