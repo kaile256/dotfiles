@@ -144,7 +144,7 @@
     "<A-k>": "do:exit",
     "<A-l>": "do:exit",
     "<A-j>": "do:toggleMode",
-    "i": "do.toggleMode"
+    "i": "do:toggleMode"
   },
 
   "project.dbpath": "~/.local/share/.coc-project",
