@@ -7,6 +7,8 @@ if exists('g:loaded_fzf')
   unlet g:loaded_fzf
 endif
 
+let g:fzf_preview_window = ['right:60%:hidden', 'ctrl-]']
+
 " Note: :FZF! starts fzf on full-window.
 if has('nvim')
   let g:fzf_layout = {'window': 'call my#floating_window()'}
