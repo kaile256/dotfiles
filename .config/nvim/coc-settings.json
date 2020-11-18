@@ -143,6 +143,7 @@
     "<A-h>": "do:exit",
     "<A-k>": "do:exit",
     "<A-l>": "do:exit",
+
     "<A-j>": "do:toggleMode",
     "i": "do:toggleMode"
   },
