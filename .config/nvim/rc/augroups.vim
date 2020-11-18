@@ -17,6 +17,10 @@ augroup myAutoUpdateColorColumn
   au OptionSet textwidth let &colorcolumn = (&tw > 50 ? &tw : &g:tw) + 1
 augroup END
 
+augroup myWriteImmidiatelyOnRead
+  au FileReadPost * if filewritable(expand('%:p')) | w | endif
+augroup END
+
 augroup myAugroups
   " AutoWinResize "{{{1
   au VimResized * wincmd =
