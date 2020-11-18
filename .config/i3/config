@@ -696,11 +696,12 @@ mode $Qutebrowser {
 }
 
 # Vim {{{2
-set $Vim " Vim: (X)term (U)rxvt (A)lacritty "
+set $Vim " Vim: (X)term (U)rxvt (A)lacritty (G)vim "
 $release $Super+V mode $Vim; $shortmsg 'Vim: backends'
-$release $Super+g $noid gvim
 
 mode $Vim {
+    bindsym G $noid gvim; mode default
+
     bindsym U $noid urxvt -e vim; mode default
     # Note: some shortcut like '<c-u>' to delete does NOT work on vim's terminal (vim-fzf at least) on xterm
     bindsym X $noid xterm -e vim; mode default
