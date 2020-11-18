@@ -137,9 +137,10 @@
   "list.normalMappings": {
     "e": "action:drop",
     "O": "action:vsplit",
-    // "d": "action:delete",
     "<A-t>": "action:tab",
     "o": "action:split",
+
+    "<Del>": "action:delete",
 
     // Scroll
     "d": "feedkeys:\\<C-d>",
