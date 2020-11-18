@@ -127,7 +127,8 @@
     "<A-h>": "do:exit",
     "<A-j>": "do:exit",
     "<A-l>": "do:exit",
-    "<Esc>": "do:toggleMode", // between Insert and Normal mode of CocList.
+
+    // Mapping to <Esc> is useless.
     "<A-k>": "do:toggleMode"
   },
   "list.normalMappings": {
