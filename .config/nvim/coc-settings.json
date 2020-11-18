@@ -128,14 +128,7 @@
     "<A-j>": "do:exit",
     "<A-l>": "do:exit",
     "<Esc>": "do:toggleMode", // between Insert and Normal mode of CocList.
-    "<A-k>": "do:toggleMode",
-
-    "<C-r>": "prompt.insertregister",
-    "<C-a>": "prompt.start",
-    "<C-e>": "prompt.end",
-    "<C-f>": "prompt.right",
-    "<C-b>": "prompt.left",
-    "<C-d>": "prompt.deletebackward"
+    "<A-k>": "do:toggleMode"
   },
   "list.normalMappings": {
     "e": "action:drop",
