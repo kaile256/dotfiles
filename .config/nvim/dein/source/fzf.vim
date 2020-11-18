@@ -24,12 +24,6 @@ endif
 " Note: write in a string w/ no spaces, not in a list.
 let g:fzf_commands_expect = 'ctrl-x,alt-x'
 
-" Original
-" TODO: implement g:vars below:
-"let g:fzf_preview_excluded = ['history']
-let g:fzf_default_options = '--multi --reverse --keep-right'
-let g:fzf_preview_default_style = 'right:60%:wrap'
-
 " on Fzf Buffer; Action-Command {{{1
 function! s:list_in_quickfix(lines) "{{{2
   call setqflist(map(copy(a:lines), '{ "filename": v:val }'))
