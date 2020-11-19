@@ -29,6 +29,9 @@ PACKAGEs=(
   xorg-xinput # removed with `bmenu`
   lshw # removed with `bmenu`
 
+  # Compatible Layer: run applications which're not for Linux:
+  darling-git # Run MacOS Apps on Linux; `darling shell` to `installer -pkg foo.pkg` to install .pkg file
+
   # Screenshot: mouse to select range
   # shutter # has broken dependency on perl version.
   # ksnip # --rectarea to select by mouse.
