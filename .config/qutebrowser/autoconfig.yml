@@ -609,6 +609,7 @@ settings:
       dlsp: https://www.linguee.com/spanish-english/translation/{}
       ga: https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions?query={}
       gc: https://github.com/search?q={}&type=code
+      gcal: https://calendar.google.com/calendar/u/0/r/{}
       gh: https://github.com/{}
       ghc: https://github.com/search?q={}&type=Code
       gir: https://git-scm.com/search/results?search={}
