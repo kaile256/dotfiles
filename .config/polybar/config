@@ -13,7 +13,7 @@ include-file = ~/.config/polybar/bar/main.ini
 ;include-file = ~/.config/polybar/bar/bottom.ini
 
 modules-center = github i3-workspaces
-modules-left   = calendar battery bluetooth-stat xkeyboard i3-mode
+modules-left   = i3-restart calendar battery bluetooth-stat xkeyboard i3-mode
 modules-right  = volume-alsa cpu-graph ram-percent wlan xbacklight
 
 ;[ Common ]
