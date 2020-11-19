@@ -214,6 +214,7 @@ settings:
         <Ctrl+w><Ctrl+Shift+o>: session-save --quiet last;; window-only
         <Ctrl+w><Ctrl+Shift+r>: devtools right
         <Ctrl+w><Ctrl+c>: session-save --quiet last;; tab-close
+        <Ctrl+w><Ctrl+f>: hint links window
         <Ctrl+w><Ctrl+o>: tab-only
         <Ctrl+w><Ctrl+p>: tab-pin
         <Ctrl+w><Ctrl+r>: devtools bottom
@@ -228,6 +229,7 @@ settings:
         <Ctrl+w>T: tab-give
         <Ctrl+w>Z: close
         <Ctrl+w>c: session-save --quiet last;; tab-close
+        <Ctrl+w>f: hint links window
         <Ctrl+w>gc: spawn -d google-chrome-stable {url}
         <Ctrl+w>h: tab-move -
         <Ctrl+w>l: tab-move +
