@@ -101,8 +101,8 @@ nnoremap <buffer><expr> P
       \ ? <SID>start_insert(getreg(v:register) ."\<C-\>\<C-n>")
       \ : "i". <SID>truncate_register() ."\<C-\>\<C-n>"
 
-nnoremap <buffer> d <c-d>
-nnoremap <buffer> u <c-u>
+nnoremap <buffer><nowait> d <c-d>
+nnoremap <buffer><nowait> u <c-u>
 
 nnoremap <buffer> D <c-f>
 nnoremap <buffer> U <c-b>
