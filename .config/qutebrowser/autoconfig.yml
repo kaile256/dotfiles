@@ -341,7 +341,7 @@ settings:
         k: scroll-page 0 -0.05
         mode: drop-selection
         p: fake-key <Ctrl-v>
-        q: fake-key q
+        q: fake-key <Esc>
         r: fake-key r
         sP: spawn --userscript qutepocket;; open -t https://app.getpocket.com/
         sk: null
