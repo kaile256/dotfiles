@@ -179,6 +179,8 @@ settings:
         <Alt+[>: tab-prev
         <Alt+]>: tab-next
         <Alt+f>: tab-next
+        <Alt+h>: tab-prev
+        <Alt+l>: tab-next
         <Alt+q><Alt+b>: set-cmd-text -s :buffer
         <Alt+q><Alt+v>: set-cmd-text -s :open
         <Ctrl++>: zoom-in
