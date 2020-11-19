@@ -31,6 +31,11 @@ PACKAGEs=(
 
   # Compatible Layer: run applications which're not for Linux:
   darling-git # Run MacOS Apps on Linux; `darling shell` to `installer -pkg foo.pkg` to install .pkg file
+  q4wine # gui for `wine`
+  wine # a layer to run programs for Windows
+  wine-mono-bin # Replacement for Microsoft's .NET Framework in Wine.
+  wine-gecko-bin # Replacement for Microsoft's Internet Explorer in Wine.
+  winetricks # REdistributable runtime libraries in Wine.
 
   # Screenshot: mouse to select range
   # shutter # has broken dependency on perl version.
@@ -180,11 +185,6 @@ PACKAGEs=(
   # tor-browser
   #otf-sans-forgetica # a font scientifically designed for study notes. fails to work on qutebrowser
   transset-df # for transparency on xterm
-  q4wine # gui for `wine`
-  wine # a layer to run programs for Windows
-  wine-mono-bin # Replacement for Microsoft's .NET Framework in Wine.
-  wine-gecko-bin # Replacement for Microsoft's Internet Explorer in Wine.
-  winetricks # REdistributable runtime libraries in Wine.
   preload # preload apps on RAM; maybe requires to `systemctl disable preload` before remove the package
   trello-cli
   git-crypt
