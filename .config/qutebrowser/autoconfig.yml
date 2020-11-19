@@ -335,8 +335,8 @@ settings:
         gv: fake-key <ctrl-a>;; enter-mode caret
         gw: fake-key gw
         i: enter-mode insert
-        j: scroll-page 0 +0.1
-        k: scroll-page 0 -0.1
+        j: scroll-page 0 +0.05
+        k: scroll-page 0 -0.05
         mode: drop-selection
         p: fake-key <Ctrl-v>
         q: fake-key q
