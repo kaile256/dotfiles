@@ -185,18 +185,20 @@ settings:
         <Ctrl+->: zoom-out
         <Ctrl+2>: save
         <Ctrl+Enter>: enter-mode insert;; fake-key <ctrl-enter> ;; leave-mode
+        <Ctrl+Shift+g>: fake-key <End>
         <Ctrl+Shift+h>: tab-move -
         <Ctrl+Shift+l>: tab-move +
         <Ctrl+a>: enter-mode insert ;; fake-key <home>
         <Ctrl+b>: fake-key <PgUp>
         <Ctrl+c>: stop;; clear-keychain;; download-clear
-        <Ctrl+d>: scroll-page 0 0.5
+        <Ctrl+d>: fake-key <Alt-down>
         <Ctrl+e>: scroll-px 0 +50
         <Ctrl+f>: fake-key <PgDown>
+        <Ctrl+g>: fake-key <Home>
         <Ctrl+h>: tab-prev
         <Ctrl+i>: forward
-        <Ctrl+j>: fake-key <alt-down>
-        <Ctrl+k>: fake-key <alt-up>
+        <Ctrl+j>: fake-key <down>
+        <Ctrl+k>: fake-key <up>
         <Ctrl+l>: tab-next
         <Ctrl+n>: fake-key <down>
         <Ctrl+o>: back
@@ -204,6 +206,7 @@ settings:
         <Ctrl+q>: null
         <Ctrl+r>: fake-key <Ctrl-Shift-z>
         <Ctrl+t>: null
+        <Ctrl+u>: fake-key <Alt-up>
         <Ctrl+v>: null
         <Ctrl+w>: null
         <Ctrl+w><Ctrl+Shift+o>: session-save --quiet last;; window-only
@@ -271,12 +274,11 @@ settings:
         '>': tab-move +
         D: scroll-page 0 +0.75
         F: hint links tab-bg
-        G: fake-key <End>
-        H: null
+        H: fake-key <Left>
         I: hint inputs --first
-        J: fake-key <alt-down>
-        K: fake-key <alt-up>
-        L: null
+        J: fake-key <down>
+        K: fake-key <Up>
+        L: fake-key <Right>
         P: open -t {clipboard}
         T: hint links tab-bg
         U: scroll-page 0 -0.75
@@ -320,7 +322,6 @@ settings:
         gd: hint links current
         ge: enter-mode passthrough
         gf: hint all current
-        gg: fake-key <Home>
         gh: open qute://history/
         gi: hint inputs --first
         gm: open https://www.google.co.jp/maps/@34.8244519,135.4776576,15z
@@ -331,11 +332,9 @@ settings:
         gt: open https://ticktick.com/webapp/#q/all/today
         gv: fake-key <ctrl-a>;; enter-mode caret
         gw: fake-key gw
-        h: fake-key <left>
         i: enter-mode insert
-        j: fake-key <down>
-        k: fake-key <up>
-        l: fake-key <right>
+        j: scroll-page 0 +0.1
+        k: scroll-page 0 -0.1
         mode: drop-selection
         p: fake-key <Ctrl-v>
         q: fake-key q
