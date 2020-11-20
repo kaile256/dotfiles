@@ -3,15 +3,6 @@
 " Another: source/fzf.vim
 " Another: post/fzf.vim
 
-function! s:p(bang, ...) abort
-  " junegunn/fzf.vim/plugin/fzf.vim @ 42
-  let preview_window = get(g:, 'fzf_preview_window', a:bang && &columns >= 80 || &columns >= 120 ? 'right': '')
-  if len(preview_window)
-    return call('fzf#vim#with_preview', add(copy(a:000), preview_window))
-  endif
-  return {}
-endfunction
-
 command! -bar -bang -nargs=* Fzf :Files <args>
 
 command! -bar -bang Functions
