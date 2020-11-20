@@ -281,6 +281,8 @@ $always $MY_I3_SCRIPTS/connect-keyboard >/dev/null 2>&1
 $release $Super+space reload
 # restart i3
 $release $SuperS+space restart
+# Restart polybar
+$release $SuperA+space $noid $restart_polybar
 
 # Keybind; i3 Workspace {{{1
 bindsym $SuperS+T layout tabbed; $alert 'Layout: tabbed'
