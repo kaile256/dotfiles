@@ -625,10 +625,9 @@ $release $Super+P $noid alacritty \
     --config-file $XDG_CONFIG_HOME/alacritty/temporary.yml \
     -e python
 
-for_window [title=^Qutebrowser_bookmarks$] floating enable border normal
 set $Qutebrowser_bookmarks alacritty \
-    --title Qutebrowser_bookmarks \
-    --config-file $XDG_CONFIG_HOME/alacritty/center.yml \
+    --title TMP_border_Qutebrowser_bookmarks \
+    --dimensions 200 40 \
     -e fzf-qutebrowser-bookmarks qutebrowser
 bindsym $Super+apostrophe $noid $Qutebrowser_bookmarks
 bindsym $Super+grave $noid $Qutebrowser_bookmarks
