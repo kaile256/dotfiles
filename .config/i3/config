@@ -64,6 +64,8 @@ set $urxvt urxvt
 # urxvtc; add `-k` to kill daemon, too.
 #set $urxvt urxvtc
 
+set $restart_polybar $MY_I3_SCRIPTS/polybar-launch
+
 # Workspaces {{{1
 # Var; i3 Workspace {{{2
 workspace_layout tabbed
@@ -147,7 +149,7 @@ for_window [title="^Toggle"]  floating enable border normal
 
 # AutoStart Background {{{1
 # Note: exec_always to reload on a restart i3 itself
-$always $MY_I3_SCRIPTS/polybar-launch
+$always $restart_polybar
 #exec_always --no-startup-id xfce4-panel --disable-wm-check
 
 # Note: see the config by `xset q`
