@@ -54,6 +54,9 @@ PACKAGEs=(
   # LSP
   gopls # for go
 
+  # Qutebrowser:
+  hunspell-en_US # Spell checker for Qutebrowser, LibreOffice, Firefox, Chrome, etc.
+
   polar-bookshelf-bin
   odrive-bin # (Open Drive) Google Drive GUI
   xkeysnail # remapping tool for X written in Python
