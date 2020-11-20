@@ -660,7 +660,7 @@ $release $Super+B mode $Browser; $shortmsg 'Browsers'
 mode $Browser {
     $release c $noid $chrome; mode default
 
-    $release q $once qutebrowser; mode default
+    $release q $noid qutebrowser; mode default
     $release f $once firefox;     mode default
     $release s $once servo;       mode default
     $release v $once $vivaldi;    mode default
