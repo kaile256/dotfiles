@@ -350,10 +350,10 @@ function! s:set_rules() abort
             \ 'esp',
             \ ]
       let abbrs_without_trailing_period += ['\u\a'] " like Mr.
-      let abbrs_without_trailing_period += ['\u\.\u'] " like U.S.A.
-      let abbrs_without_trailing_period += ['\d\+'] " indices of orderd list
+      let abbrs_without_trailing_period += ['\u.\u'] " like U.S.A.
+      let abbrs_without_trailing_period += ['\d+'] " indices of orderd list
       let pat_after_abbr =
-            \ '\%('. join(abbrs_without_trailing_period, '|') .'\)\.\%#'
+            \ '\v%('. join(abbrs_without_trailing_period, '|') .').%#'
 
       let Double_spaces_at_end_OfSentence = {
             \ 'char': space,
