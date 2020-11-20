@@ -625,6 +625,14 @@ $release $Super+P $noid alacritty \
     --config-file $XDG_CONFIG_HOME/alacritty/temporary.yml \
     -e python
 
+for_window [title=^Qutebrowser_bookmarks$] floating enable border normal
+set $Qutebrowser_bookmarks alacritty \
+    --title Qutebrowser_bookmarks \
+    --config-file $XDG_CONFIG_HOME/alacritty/center.yml \
+    -e fzf-qutebrowser-bookmarks qutebrowser
+bindsym $Super+apostrophe $noid $Qutebrowser_bookmarks
+bindsym $Super+grave $noid $Qutebrowser_bookmarks
+
 #set $Console " Console: (A)lacritty (U)rxvt (X)term | (G)otop "
 #bindsym $Super+C mode $Console; $shortmsg 'Consoles'
 
@@ -645,14 +653,6 @@ $release $Super+P $noid alacritty \
 #}
 
 # Browser {{{2
-for_window [title=^Qutebrowser_bookmarks$] floating enable border normal
-set $Qutebrowser_bookmarks alacritty \
-    --title Qutebrowser_bookmarks \
-    --config-file $XDG_CONFIG_HOME/alacritty/center.yml \
-    -e fzf-qutebrowser-bookmarks qutebrowser
-bindsym $Super+apostrophe $noid $Qutebrowser_bookmarks
-bindsym $Super+grave $noid $Qutebrowser_bookmarks
-
 set $Browser " Browser: (S)ervo (V)ivaldi (F)irefox (C)hrome (Q)utebrowser "
 
 $release $Super+B mode $Browser; $shortmsg 'Browsers'
