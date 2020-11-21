@@ -195,6 +195,9 @@ $noid nm-applet
 
 $noid fcitx
 
+# Modify bluelight of monitors as time period in a day.
+$noid blugon &
+
 # bind for SandS on skk
 # FIXME: faster response
 #$noid xmodmap -e 'keycode 255=space'; xmodmap -e 'keycode 65=Shift_L'; xcape -e '#65=space'
