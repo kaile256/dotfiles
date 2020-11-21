@@ -267,6 +267,7 @@ PACKAGEs=(
   vimiv-qt # an image-viewer. Use qt ver.; gtk won't update
   vmail
   xorg-xbacklight  # backlight
+  xorg-xev # Get button/key name
   yarn
   zotero # organize research sources, essays.
   zsh
