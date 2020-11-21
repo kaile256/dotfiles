@@ -337,9 +337,11 @@ settings:
         gt: open https://ticktick.com/webapp/#q/all/today
         gv: fake-key <ctrl-a>;; enter-mode caret
         gw: fake-key gw
+        h: scroll-page -0.05 0
         i: enter-mode insert
         j: scroll-page 0 +0.05
         k: scroll-page 0 -0.05
+        l: scroll-page +0.05 0
         mode: drop-selection
         p: fake-key <Ctrl-v>
         q: fake-key <Esc>
