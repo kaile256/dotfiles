@@ -253,11 +253,11 @@ settings:
         <Space>T: hint all tab-bg
         <Space>\: record-macro
         <Space>f: hint links current
-        <Space>gF: hint links tab-bg --rapid
+        <Space>gF: hint links window --rapid
         <Space>gR: restart
-        <Space>gT: hint all tab-bg --rapid
-        <Space>gf: hint links current --rapid
-        <Space>gt: hint all current --rapid
+        <Space>gT: hint all window --rapid
+        <Space>gf: hint links tab-bg --rapid
+        <Space>gt: hint all tab-bg --rapid
         <Space>p: open {clipboard}
         <Space>q: save
         <Space>t: hint all current
