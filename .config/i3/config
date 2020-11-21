@@ -161,8 +161,6 @@ $always xset -dpms
 # xset -s(Screen saver)
 $always xset s off
 
-$noid $MY_I3_SCRIPTS/map-TrackBall
-
 # xrandr: control monitor
 $always $MY_I3_SCRIPTS/monitor-try
 # xautolock: a timer to lock screen of PC
