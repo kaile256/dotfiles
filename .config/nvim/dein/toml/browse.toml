@@ -16,6 +16,13 @@ hook_post_source = 'runtime post/ctrlsf.vim'
 repo = 'junegunn/fzf'
 #[ Note: :Files in fzf.vim is the same as :FZF.
 on_event = 'CmdLineEnter'
+hook_done_update = '''
+e $DEIN_GITHUB_DIR/junegunn/fzf.vim/plugin/fzf.vim
+" Append `--hidden` to ag/rg respectively.
+keeppatterns keepjumps s/command!.*Ag/<q-args>\zs/ ."--hidden"/e
+keeppatterns keepjumps s/command!.*Rg/rg/ --hidden/e
+w
+'''
 [[plugins]]
 repo = 'junegunn/fzf.vim'
 on_event = ['CmdLineEnter']
