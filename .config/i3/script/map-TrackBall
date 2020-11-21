@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+set -Ceuo pipefail
+IFS=$'\n\t'
+
+ID=$(xinput list | grep "Kensington Slimblade Trackball" | sed 's/\s\+/\n/g' | grep id | sed 's/id=//')
+
+# Map left-top button to LeftClick
+xinput set-button-map "$ID" 1 1 3 4 5 6 7 8
