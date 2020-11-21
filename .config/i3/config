@@ -962,4 +962,4 @@ bindsym $Super+Print $noid $MY_I3_SCRIPTS/toggle-Recording
 #        bindsym Shift+0     gaps outer all set 0
 #}
 
-# vim:fdm=marker
+# vim:fdm=marker:ts=4:sw=4:sts=4
