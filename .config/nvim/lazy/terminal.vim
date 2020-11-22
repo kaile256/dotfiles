@@ -4,19 +4,6 @@
 
 if &bt !=# 'terminal' | finish | endif
 
-syn match yayPkgAur 'aur/\zs\S*'
-syn match yayPkgCommunity 'community/\zs\S*'
-syn match yayPkgExtra 'extra/\zs\S*'
-syn match yayPkgInstalled '(\zsInstalled\ze.*)'
-
-hi! link yayPkgAur Identifier
-hi! link yayPkgCommunity Title
-hi! link yayPkgExtra     Statement
-hi! link yayPkgInstalled Statement
-
-syn match yayInstalling 'Installing \zs.*\ze\.\.\.'
-hi! link yayInstalling Title
-
 function! s:is_in_promptline() abort
   let pat_prompt_line = '.*\%#.*\n*\%$'
   let is_in_promptline = line('.') == search(pat_prompt_line, 'bcnW', line('w0'))
