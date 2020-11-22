@@ -1,3 +1,5 @@
+if &bt !=# 'terminal' | finish | endif
+
 function! s:is_in_promptline() abort
   let pat_prompt_line = '.*\%#.*\n*\%$'
   let is_in_promptline = line('.') == search(pat_prompt_line, 'bcnW', line('w0'))

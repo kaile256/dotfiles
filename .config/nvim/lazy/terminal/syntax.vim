@@ -1,3 +1,5 @@
+if &bt !=# 'terminal' | finish | endif
+
 syn match yayPkgAur 'aur/\zs\S*'
 syn match yayPkgCommunity 'community/\zs\S*'
 syn match yayPkgExtra 'extra/\zs\S*'
