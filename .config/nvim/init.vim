@@ -42,6 +42,7 @@ augroup myRuntimesSelection
   exe 'au' TermOpen '* ++once runtime once/tmaps.vim'
 
   exe 'au' TermOpen '* runtime lazy/terminal.vim'
+  exe 'au' TermOpen '* runtime lazy/terminal/*.vim'
   au CmdwinEnter * runtime lazy/cmdwin.vim
   " FIXME: source zenkaku.vim from external terminal, too.
   au BufNew * ++once runtime lazy/zenkaku.vim
