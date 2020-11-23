@@ -55,6 +55,7 @@ function! s:eskk_keymaps_initialize_pre()
     call t.add_map('x-', '-')
     call t.add_map('x,', ',')
     call t.add_map('x.', '.')
+    call t.add_map('x/', '/') " Raw '/' will input '@'.
 
     " Input the dot after a number as-is (e.g. `1.`)
     for n in range(10)
