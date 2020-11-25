@@ -6,7 +6,7 @@ repo = 'dyng/ctrlsf.vim'
 # edit. Async.
 on_map = {nx = ['<Plug>CtrlSF']}
 on_cmd = ['CtrlSF']
-on_func = ['ctrlsf#comp#Completion']
+on_func = ['ctrlsf#comp#Completion', 'CtrlSFGetVisualSelection']
 hook_add = 'runtime add/ctrlsf.vim'
 hook_source = 'runtime source/ctrlsf.vim'
 hook_post_source = 'runtime post/ctrlsf.vim'
