@@ -16,12 +16,12 @@ augroup myEskkSo-ToggleTextwidth
   au User eskk-disable-post let &tw = s:save_textwidth
 augroup END
 
-if executable('notify-send')
-  augroup myEskkSo-NotifyState
-    au User eskk-enable-post  call system("notify-send --expire-time 1100 --urgency critical 'Vim: eskk is Activated'")
-    au User eskk-disable-post call system("notify-send --expire-time 1100 'Vim: eskk is OFF'")
-  augroup END
-endif
+" if executable('notify-send')
+"   augroup myEskkSo-NotifyState
+"     au User eskk-enable-post  call system("notify-send --expire-time 1100 --urgency critical 'Vim: eskk is Activated'")
+"     au User eskk-disable-post call system("notify-send --expire-time 1100 'Vim: eskk is OFF'")
+"   augroup END
+" endif
 
 augroup myEskkSo-SetMappings
   " Note: `l` to disable esp. for lexima.
