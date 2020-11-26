@@ -41,7 +41,6 @@ augroup myFindPathRc
   au BufNewFile,BufRead *{*vim,dein}**/* call s:path.vim()
   au FileType startuptime call s:path.vim()
 
-  au BufNewFile,BufRead $MY_MEMO**/*   call s:path.memo()
   au BufNewFile,BufRead $GHQ_ROOT**/* call s:path.ghq()
 augroup END
 
@@ -73,11 +72,6 @@ function! s:path.vim() abort
   exe 'setl path+='. $XDG_DATA_HOME    .'/nvim**'
 
   exe 'setl path-='. &g:path
-endfunction
-
-function! s:path.memo() abort
-  exe 'setl path+='. $MY_MEMO
-  "call s:path.dotfiles()
 endfunction
 
 function! s:path.ghq() abort
