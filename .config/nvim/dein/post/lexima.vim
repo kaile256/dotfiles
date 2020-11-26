@@ -456,6 +456,12 @@ function! s:set_rules() abort
         \ {'char': ',', 'at': '[^,]\s\%#\S', 'input': '<BS>, '},
         \ ]
 
+  " Typo Correction {{{1
+  " <C-, <A-, etc., not to insert <C_, <A_
+  let global += [
+        \ {'char': '_', 'at': '<[ACDSM]\%#', 'input': '-'},
+        \ ]
+
   " Addtional Rules on FileType {{{1
   " Suppress some rules up to filetype.
   const Always_single_quots_on_some_filetypes = [
