@@ -18,7 +18,7 @@ PACKAGEs=(
   qutebrowser-git
   ttf-migu # font for Japanese, used in Nerd font, too.
   ttf-junicode # font of runic alphabet, esp. for bluetooth's detection on polybar.
-  fcitx-mozc-ut-unified # Input Method in Japanese.
+  # fcitx-mozc-ut-unified # Input Method in Japanese.
   nerd-fonts-jetbrains-mono
   ttf-octicons # the alternative choice, ttf-all-the-icons, is for emacs.
   i3-wm
@@ -28,6 +28,11 @@ PACKAGEs=(
   eslint
   xorg-xinput # removed with `bmenu`
   lshw # removed with `bmenu`
+
+  # Fcitx
+  fcitx5-configtool
+  fcitx5-mozc
+  fcitx5-skk # fcitx5 is written in CPP while fcitx is in C and under maintenance.
 
   # Compatible Layer: run applications which're not for Linux:
   darling-git # Run MacOS Apps on Linux; `darling shell` to `installer -pkg foo.pkg` to install .pkg file
@@ -279,7 +284,7 @@ PACKAGEs=(
   #bluez-utils
   skk-jisyo
   libskk
-  fcitx-skk
+  # fcitx-skk
   skk-emoji-jisyo
   skktools
 )
