@@ -37,4 +37,4 @@ include-file = ~/.config/polybar/module/pc/network.ini
 include-file = ~/.config/polybar/module/pc/xbacklight.ini
 include-file = ~/.config/polybar/module/pc/xkeyboard.ini
 
-; vim: ft=dosini
+; vim:ft=dosini:path^=./**:suffixesadd=.ini,.conf
