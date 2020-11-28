@@ -63,13 +63,18 @@ PACKAGEs=(
   hunspell-en_US # Spell checker for Qutebrowser, LibreOffice, Firefox, Chrome, etc.
 
   # For Vim:
+  neovim-nightly
+  neovim-qt-git
+  gvim-gtk2
+  fvim # Neovim front-end UI built with F# & Avalonia
+  # neovide-git # Neovim GUI written in Rust; cursor moves too slow.
+  ctags # esp. for Vista on Vim
   sc-im # Spread sheet.  Used by vim-scimark.
 
   gparted # Format SSD/HDD.
   polar-bookshelf-bin
   odrive-bin # (Open Drive) Google Drive GUI
   xkeysnail # remapping tool for X written in Python
-  fvim # Neovim front-end UI built with F# & Avalonia
   lua-lcf # formatter for lua
   luacheck # linter for lua, integrating with lua-lsp
   lua-lsp-git # rarely updated
@@ -77,7 +82,6 @@ PACKAGEs=(
   noto-fonts-cjk # fonts for Chinese, Japanese and Korean
   stylelint # a linter for CSS
   ueberzug # previewer for some tools
-  ctags # esp. for Vista on Vim
   python-pyperclip # code_select.py on qutebrowser
   ttf-twemoji-color # SVG-in-OpenType emoji fonts by Twitter
   xbindkeys # to disable middle to paste, but enable scroll.
@@ -107,7 +111,6 @@ PACKAGEs=(
   #gifcurry # GIF editor; depends on gtk
   supercollider # Programming Language to create sounds
   boost # Cpp source libraries - development headers
-  # neovide-git # Neovim GUI written in Rust; cursor moves too slow.
   #otf-hasklig # low-heigh fonts
   #otf-operator-mono-nerd # too bold to read on Neovim-qt
   #nerd-fonts-victor-mono # too thin to read on Neovim-qt
@@ -245,9 +248,6 @@ PACKAGEs=(
   i3-volume
   luarocks
   multibootusb # to create live usb
-  neovim-nightly
-  neovim-qt-git
-  gvim-gtk2
   # nerd-fonts-complete
   #nerd-fonts-ricty # unavailable
   #brew-git # a pkgm for macOS (or Linux)
