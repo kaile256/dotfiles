@@ -66,6 +66,7 @@ NON_ANDROIDs=(
   blugon # blue light modifier
   dunst # for `notify-send`
   fcitx
+  fcitx5
   glrnvim.yml
   i3
   mimeapps.list # for qutebrowser should be the default browser
