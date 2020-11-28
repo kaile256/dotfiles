@@ -62,6 +62,9 @@ PACKAGEs=(
   # Qutebrowser:
   hunspell-en_US # Spell checker for Qutebrowser, LibreOffice, Firefox, Chrome, etc.
 
+  # For Vim:
+  sc-im # Spread sheet.  Used by vim-scimark.
+
   gparted # Format SSD/HDD.
   polar-bookshelf-bin
   odrive-bin # (Open Drive) Google Drive GUI
