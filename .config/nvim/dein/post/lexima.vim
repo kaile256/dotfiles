@@ -420,21 +420,15 @@ function! s:set_rules() abort
         \ ]
 
   const pat_before_close = '\%#[])}`''"]'
-  const pat_before_paren = '\%#[])}]'
-  const pat_before_quote = '\%#[''"`]'
-  const pat_before_close_within_paren = pat_before_close .'.*\v([[({])@<!.*[])}]'
-
   let global += [
         \
         \ {'char': '<C-space>', 'at': '\%#.', 'input': '<C-g>U<Right><space>'},
         \
         \ {'char': '<C-=>', 'at': '\%#.', 'input': '<C-g>U<Right> = '},
         \
-        \ {'char': '<C-,>', 'at': pat_before_close, 'input': '<C-g>U<Right>,'},
-        \ {'char': '<C-,>', 'at': pat_before_close_within_paren, 'input': '<C-g>U<Right>, '},
+        \ {'char': '<C-,>', 'at': pat_before_close, 'input': '<C-g>U<Right>, '},
         \ {'char': '<C-:>', 'at': pat_before_close, 'input': '<C-g>U<Right>: '},
-        \ {'char': '<C-.>', 'at': pat_before_paren, 'input': '<C-g>U<Right>.'},
-        \ {'char': '<C-.>', 'at': pat_before_quote, 'input': '<C-g>U<Right>. '},
+        \ {'char': '<C-.>', 'at': pat_before_close, 'input': '<C-g>U<Right>. '},
         \
         \ {'char': '<C-;>', 'at': '\%#.',       'input': '<C-g>U<Right>; ', 'mode': 'c'},
         \ {'char': '<C-;>', 'at': '\%#.*;\s*$', 'input': '<C-g>U<Right>; '},
