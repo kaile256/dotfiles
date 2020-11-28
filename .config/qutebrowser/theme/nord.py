@@ -27,11 +27,11 @@ c.colors.completion.category.bg = BLACK_2
 c.colors.completion.category.border.top = BLACK_2
 c.colors.completion.category.border.bottom = BLACK_2
 
-c.colors.completion.item.selected.fg = WHITE_1
-c.colors.completion.item.selected.bg = BLACK_0
+c.colors.completion.item.selected.fg = BLACK_1
+c.colors.completion.item.selected.bg = WHITE_2
 c.colors.completion.item.selected.border.top = BLACK_0
 c.colors.completion.item.selected.border.bottom = BLACK_0
-c.colors.completion.item.selected.match.fg = GREEN
+c.colors.completion.item.selected.match.fg = RED
 c.colors.completion.match.fg = GREEN
 c.colors.completion.scrollbar.fg = WHITE_1
 c.colors.completion.scrollbar.bg = BLACK_2
