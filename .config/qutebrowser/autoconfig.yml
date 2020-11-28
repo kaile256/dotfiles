@@ -97,6 +97,7 @@ settings:
         <Alt+u>: rl-yank
         <Ctrl+d>: rl-delete-char
         <Ctrl+g>: completion-item-focus next
+        <Ctrl+j>: spawn fcitx5-remote -s skk
         <Ctrl+n>: command-history-next
         <Ctrl+o>: completion-item-focus prev
         <Ctrl+p>: command-history-prev
@@ -105,6 +106,7 @@ settings:
         <Ctrl+r><Space>: fake-key <ctrl-v>
         <Ctrl+t>: completion-item-focus prev
         <Ctrl+x>: completion-item-del
+        l: set-cmd-text -a l;; spawn fcitx5-remote -e
       hint:
         <Alt+h>: leave-mode
         <Alt+j>: leave-mode
@@ -151,6 +153,7 @@ settings:
         <Ctrl+Shift+n>: fake-key <Shift-down>
         <Ctrl+Shift+p>: fake-key <Shift-Up>
         <Ctrl+Shift+x>: fake-key <Ctrl-a><Ctrl-x>
+        <Ctrl+[>: leave-mode;; spawn fcitx5-remote -e
         <Ctrl+a>: fake-key <Home>
         <Ctrl+b>: fake-key <Left>
         <Ctrl+d>: fake-key <Delete>
@@ -159,7 +162,7 @@ settings:
         <Ctrl+g>: fake-key <Esc>
         <Ctrl+h>: fake-key <Backspace>
         <Ctrl+i>: fake-key <TAB>
-        <Ctrl+j>: fake-key <Enter>
+        <Ctrl+j>: spawn fcitx5-remote -s skk
         <Ctrl+k>: fake-key <Shift-end><Delete>
         <Ctrl+m>: fake-key <Enter>
         <Ctrl+n>: fake-key <Down>
@@ -174,6 +177,7 @@ settings:
         <Ctrl+u>: fake-key <Shift-Home><Backspace>
         <Ctrl+w>: fake-key <ctrl-backspace>
         <Ctrl+y>: insert-text {primary}
+        l: fake-key l;; spawn fcitx5-remote -e
       normal:
         '0': fake-key <Home>
         '2': save
