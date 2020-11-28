@@ -150,8 +150,14 @@ function! s:set_rules() abort
         \ ]
 
   " Overwrite Rules for Newline {{{1
-  " Copied from cohama/lexima.vim/autoload/lexima.vim @75
+  const Delete_trailing_spaces = '<Esc>:noau keeppatterns -1 s/\s\+$//e<CR>gi<C-f>'
+  let global += [{
+       \ 'char': '<CR>',
+       \ 'at': '\W\s\+\%#',
+       \ 'input': '<CR>'. Delete_trailing_spaces,
+       \ }]
 
+  " Copied from cohama/lexima.vim/autoload/lexima.vim @75
   const Split_brackets = [
         \ {'char': '<CR>', 'at': '(\%#)',  'input_after': '<CR>'},
         \ {'char': '<CR>', 'at': '{\%#}',  'input_after': '<CR>'},
