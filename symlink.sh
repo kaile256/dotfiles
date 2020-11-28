@@ -23,6 +23,7 @@ HOMEs=(
   .Xresources.d
   .bashrc
   .ctags
+  .docker
   .doom.d
   .editorconfig
   .gitconfig
