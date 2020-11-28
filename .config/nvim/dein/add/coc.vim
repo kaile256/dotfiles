@@ -38,12 +38,8 @@ noremap <SID>(zv) :<C-u>sleep 5m<CR>zv
 nmap \x         <Plug>(coc-fix-current)
 imap <C-x>x     <C-o><Plug>(coc-fix-current)
 imap <C-x><C-x> <C-o><Plug>(coc-fix-current)
-silent! map <unique><silent> [x <Plug>(coc-diagnostic-prev)<SID>(zv)
-silent! map <unique><silent> ]x <Plug>(coc-diagnostic-next)<SID>(zv)
 map <silent> [X <Plug>(coc-diagnostic-prev)<SID>(zv)<Plug>(coc-fix-current)
 map <silent> ]X <Plug>(coc-diagnostic-next)<SID>(zv)<Plug>(coc-fix-current)
-silent! sunmap [x
-silent! sunmap ]x
 sunmap [X
 sunmap ]X
 
