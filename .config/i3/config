@@ -359,10 +359,15 @@ bindsym $Super+K focus up
 bindsym $Super+L focus right
 
 # Note: $SuperC+H fails without error-msg
-bindsym $SuperS+H move left
-bindsym $SuperS+J move down
-bindsym $SuperS+K move up
-bindsym $SuperS+L move right
+bindsym $SuperS+H layout tabbed; move left
+bindsym $SuperS+J layout tabbed; move down
+bindsym $SuperS+K layout tabbed; move up
+bindsym $SuperS+L layout tabbed; move right
+
+bindsym $SuperA+H layout splith; move left
+bindsym $SuperA+J layout splitv; move down
+bindsym $SuperA+K layout splitv; move up
+bindsym $SuperA+L layout splith; move right
 
 # Mnemonic: `o` on visual-mode to the other end of the area
 bindsym $Super+O focus mode_toggle; $alert 'Focus: Toggle'
