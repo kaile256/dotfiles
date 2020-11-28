@@ -9,6 +9,7 @@ let g:loaded_matchparen = 1
 
 " Note: the matchup-detected signs sometimes work like a fold sign
 nnoremap <silent> z<c-g> :<c-u>MatchupWhereAmI??<cr>
+imap <C-o>g% <plug>(matchup-c_g%)
 
 "omap <silent><expr> a%
 "      \ (v:operator ==# 'd')? '<esc><Plug>(matchup-ds%)':
