@@ -1,6 +1,7 @@
 snippet '(\\)?%\)?' "Regex: \%($1\) not to count it as a sub-expr" ir
-`# only expand '%($1)'; for '\%($1)', escaped one, insert a backslash at first.
-``!p
+`!p
+# expand '%($1)', or expand '\%($1\)' with a backslash.
+
 backslash = match.group(1)
 snip.rv = backslash or ''
 
