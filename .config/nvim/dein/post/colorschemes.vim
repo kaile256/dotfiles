@@ -14,20 +14,7 @@ augroup END
 
 function! s:set_colorscheme() abort
   try
-    if executable('xinput')
-      if expand($TERM) =~# 'rxvt'
-        colorscheme gruvbox
-      elseif system('xrandr --query | grep " connected"') =~# 'HDMI'
-        colorscheme spring-night
-      else
-        " colorscheme palenight
-        colorscheme onedark
-      endif
-
-    else
-      colorscheme sonokai
-    endif
-
+    colorscheme spring-night
   catch /E185/
     colorscheme slate
   endtry
