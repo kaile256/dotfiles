@@ -20,6 +20,10 @@ command! -nargs=* -complete=custom,s:CommandList -range Coc :CocCommand
 nmap <silent><expr> <C-w>w     coc#float#has_float() ? "\<Plug>(coc-float-jump)" : '<C-w>w'
 nmap <silent><expr> <C-w><C-w> coc#float#has_float() ? "\<Plug>(coc-float-jump)" : '<C-w><C-w>'
 
+" Mnemonic: Eliminate floating/popup windows
+nnoremap <expr> <C-w>e     coc#float#close_all()
+nnoremap <expr> <C-w><C-e> coc#float#close_all()
+
 nnoremap <silent> <space>cx :<C-u>CocList extensions<cr>
 "command! -nargs=+ Csearch :CocSearch <f-args>
 "command! -nargs=+ Cgrep :CocList grep -regex <f-args>
