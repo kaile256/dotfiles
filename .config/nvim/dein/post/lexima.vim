@@ -154,8 +154,23 @@ function! s:set_rules() abort
   let global += [{
        \ 'char': '<CR>',
        \ 'input': '<CR>'. Delete_trailing_spaces,
+       \ 'at': '^\s*\n\s*\%#$',
+       \ }, {
+       \ 'char': '<CR>',
+       \ 'input': '<CR>'. Delete_trailing_spaces,
        \ 'at': '\W\s\+\%#',
        \ 'if': '&ft !=# "markdown"',
+       \ }, {
+       \ 'char': '<CR>',
+       \ 'input': '<CR>'. Delete_trailing_spaces,
+       \ 'filetype': ['markdown'],
+       \ 'at': '\s\+\%#',
+       \ 'except': '  \%#',
+       \ }, {
+       \ 'char': '<CR>',
+       \ 'input': '<CR>'. Delete_trailing_spaces .'\ ',
+       \ 'filetype': ['vim'],
+       \ 'at': '^\s*\\.*\%#',
        \ }]
 
   " Copied from cohama/lexima.vim/autoload/lexima.vim @75
