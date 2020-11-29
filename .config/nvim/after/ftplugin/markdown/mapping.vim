@@ -13,18 +13,6 @@ lnoremap <expr><buffer> *
       \ ? '- [ ] '
       \ : '*'
 
-" FIXME: if matched, return true
-inoremap <expr><buffer> #
-     \ (getline('.') =~? '^\s*- \[\( \|x\)\]')
-     \ && (getline('.')[col('.') - 4 : col('.')] !=# '()\[]')
-     \ ? "[]()\<Left>"
-     \ : '#'
-lnoremap <expr><buffer> #
-     \ (getline('.') =~? '^\s*- \[\( \|x\)\]')
-     \ && (getline('.')[col('.') - 4 : col('.')] !=# '()\[]')
-     \ ? "[]()\<Left>"
-     \ : '#'
-
 nnoremap <buffer><silent><buffer> <SID>(header-increment) :<C-u>silent! undojoin<CR>I#<Esc>
 nnoremap <buffer><silent><buffer> <SID>(header-decrement) :<C-u>silent! undojoin<CR>^"_x
 nnoremap <buffer><silent><buffer> <SID>(task-done)   :<C-u>silent! undojoin <bar> keeppattern s/\[ ]/\[x]<CR>
