@@ -153,8 +153,9 @@ function! s:set_rules() abort
   const Delete_trailing_spaces = '<Esc>:noau keeppatterns -1 s/\s\+$//e<CR>gi<C-f>'
   let global += [{
        \ 'char': '<CR>',
-       \ 'at': '\W\s\+\%#',
        \ 'input': '<CR>'. Delete_trailing_spaces,
+       \ 'at': '\W\s\+\%#',
+       \ 'if': '&ft !=# "markdown"',
        \ }]
 
   " Copied from cohama/lexima.vim/autoload/lexima.vim @75
