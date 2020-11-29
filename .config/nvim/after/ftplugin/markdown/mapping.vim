@@ -31,12 +31,14 @@ inoreabbr <expr><buffer> #
 
 nnoremap <buffer><silent><buffer> <SID>(header-increment) :<C-u>silent! undojoin<CR>I#<Esc>
 nnoremap <buffer><silent><buffer> <SID>(header-decrement) :<C-u>silent! undojoin<CR>^"_x
-nnoremap <expr><silent><buffer> +
+
+" Mnemonic: Further
+nnoremap <expr><silent><buffer> zf
       \ (getline('.') =~# '^\s*#\+ \S')
       \ ? '<SID>(header-increment)'
       \ : '+'
-
-nnoremap <expr><silent><buffer> -
+" Mnemonic: Decrease
+nnoremap <expr><silent><buffer> zd
       \ (getline('.') =~# '^\s*#\+\s\S')
       \ ? '<SID>(header-decrement)'
       \ : (getline('.') =~# '- \[ ]')
