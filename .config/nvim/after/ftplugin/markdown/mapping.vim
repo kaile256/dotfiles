@@ -29,14 +29,16 @@ inoreabbr <expr><buffer> #
       \ ? "[]()\<Left>"
       \ : '#'
 
+nnoremap <buffer><silent><buffer> <SID>(header-increment) :<C-u>silent! undojoin<CR>I#<Esc>
+nnoremap <buffer><silent><buffer> <SID>(header-decrement) :<C-u>silent! undojoin<CR>^"_x
 nnoremap <expr><silent><buffer> +
       \ (getline('.') =~# '^\s*#\+ \S')
-      \ ? ':<c-u>silent! undojoin<cr>I#<esc>'
+      \ ? '<SID>(header-increment)'
       \ : '+'
 
 nnoremap <expr><silent><buffer> -
       \ (getline('.') =~# '^\s*#\+\s\S')
-      \ ? ':<c-u>silent! undojoin<cr>^"_x'
+      \ ? '<SID>(header-decrement)'
       \ : (getline('.') =~# '- \[ ]')
       \ ? ':<c-u>silent! undojoin <bar> keeppattern s/\[ ]/\[x]<cr>'
       \ : (getline('.') =~? '- \[\a]')
