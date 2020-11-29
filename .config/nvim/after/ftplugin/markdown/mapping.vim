@@ -31,20 +31,22 @@ inoreabbr <expr><buffer> #
 
 nnoremap <buffer><silent><buffer> <SID>(header-increment) :<C-u>silent! undojoin<CR>I#<Esc>
 nnoremap <buffer><silent><buffer> <SID>(header-decrement) :<C-u>silent! undojoin<CR>^"_x
+nnoremap <buffer><silent><buffer> <SID>(task-done)   :<C-u>silent! undojoin <bar> keeppattern s/\[ ]/\[x]<CR>
+nnoremap <buffer><silent><buffer> <SID>(task-undone) :<C-u>silent! undojoin <bar> keeppattern s/\[\a]\c/\[ ]<CR>
 
 " Mnemonic: Further
-nnoremap <expr><silent><buffer> zf
+nmap <expr><silent><buffer> zf
       \ (getline('.') =~# '^\s*#\+ \S')
       \ ? '<SID>(header-increment)'
       \ : '+'
 " Mnemonic: Decrease
-nnoremap <expr><silent><buffer> zd
+nmap <expr><silent><buffer> zd
       \ (getline('.') =~# '^\s*#\+\s\S')
       \ ? '<SID>(header-decrement)'
       \ : (getline('.') =~# '- \[ ]')
-      \ ? ':<c-u>silent! undojoin <bar> keeppattern s/\[ ]/\[x]<cr>'
+      \ ? '<SID>(task-done)'
       \ : (getline('.') =~? '- \[\a]')
-      \ ? ':<c-u>silent! undojoin <bar> keeppattern s/\[\a]\c/\[ ]<cr>'
+      \ ? '<SID>(task-undone)'
       \ : '-'
 
 
