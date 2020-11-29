@@ -9,9 +9,18 @@ inoremap <expr><buffer> *
      \ (getline('.')[:col('.')] !~# '[^* \t]')
      \ ? '- [ ] '
      \ : '*'
+lnoremap <expr><buffer> *
+      \ (getline('.')[:col('.')] !~# '[^* \t]')
+      \ ? '- [ ] '
+      \ : '*'
 
 " FIXME: if matched, return true
 inoremap <expr><buffer> #
+     \ (getline('.') =~? '^\s*- \[\( \|x\)\]')
+     \ && (getline('.')[col('.') - 4 : col('.')] !=# '()\[]')
+     \ ? "[]()\<Left>"
+     \ : '#'
+lnoremap <expr><buffer> #
      \ (getline('.') =~? '^\s*- \[\( \|x\)\]')
      \ && (getline('.')[col('.') - 4 : col('.')] !=# '()\[]')
      \ ? "[]()\<Left>"
