@@ -5,11 +5,11 @@
 "   Ref: markdownlint MD004 ul-style
 
 inoremap <expr><buffer> *
-     \ getline('.')[:col('.')] !~# '[^* \t]'
+     \ getline('.') =~# '\s*'
      \ ? '- [ ] '
      \ : '*'
 lnoremap <expr><buffer> *
-      \ getline('.')[:col('.')] !~# '[^* \t]'
+      \ getline('.') =~# '\s*'
       \ ? '- [ ] '
       \ : '*'
 
