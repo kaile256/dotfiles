@@ -18,19 +18,14 @@ nnoremap <buffer><silent><buffer> <SID>(header-decrement) :<C-u>silent! undojoin
 nnoremap <buffer><silent><buffer> <SID>(task-done)   :<C-u>silent! undojoin <bar> keeppattern s/\[ ]/\[x]<CR>
 nnoremap <buffer><silent><buffer> <SID>(task-undone) :<C-u>silent! undojoin <bar> keeppattern s/\[\a]\c/\[ ]<CR>
 
-" Mnemonic: Further
+" Mnemonic: Further / Fill with mark
 nmap <expr><silent><buffer> zf
       \ (getline('.') =~# '^\s*#\+ \S')
       \ ? '<SID>(header-increment)'
-      \ : '+'
-" Mnemonic: Decrease
+      \ : '<SID>(task-done)'
+" Mnemonic: Decrease / Delete the mark
 nmap <expr><silent><buffer> zd
       \ (getline('.') =~# '^\s*#\+\s\S')
       \ ? '<SID>(header-decrement)'
-      \ : (getline('.') =~# '- \[ ]')
-      \ ? '<SID>(task-done)'
-      \ : (getline('.') =~? '- \[\a]')
-      \ ? '<SID>(task-undone)'
-      \ : '-'
-
+      \ : '<SID>(task-undone)'
 
