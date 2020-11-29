@@ -5,29 +5,17 @@
 "   nothing after the replacement.
 "   Ref: markdownlint MD004 ul-style
 
-"inoremap <expr><buffer> *
-"      \ (getline('.')[:col('.')] !~# '[^* \t]')
-"      \ ? '- [ ] '
-"      \ : '*'
-"
-"" FIXME: if matched, return true
-"inoremap <expr><buffer> #
-"      \ (getline('.') =~? '^\s*- \[\( \|x\)\]')
-"      \ && (getline('.')[col('.') - 4 : col('.')] !=# '()\[]')
-"      \ ? "[]()\<Left>"
-"      \ : '#'
-
-inoreabbr <expr><buffer> *
-      \ (getline('.')[:col('.')] !~# '[^* \t]')
-      \ ? '- [ ]'
-      \ : '*'
+inoremap <expr><buffer> *
+     \ (getline('.')[:col('.')] !~# '[^* \t]')
+     \ ? '- [ ] '
+     \ : '*'
 
 " FIXME: if matched, return true
-inoreabbr <expr><buffer> #
-      \ (getline('.') =~? '^\s*- \[\( \|x\)\]')
-      \ && (getline('.')[col('.') - 4 : col('.')] !=# '()\[]')
-      \ ? "[]()\<Left>"
-      \ : '#'
+inoremap <expr><buffer> #
+     \ (getline('.') =~? '^\s*- \[\( \|x\)\]')
+     \ && (getline('.')[col('.') - 4 : col('.')] !=# '()\[]')
+     \ ? "[]()\<Left>"
+     \ : '#'
 
 nnoremap <buffer><silent><buffer> <SID>(header-increment) :<C-u>silent! undojoin<CR>I#<Esc>
 nnoremap <buffer><silent><buffer> <SID>(header-decrement) :<C-u>silent! undojoin<CR>^"_x
