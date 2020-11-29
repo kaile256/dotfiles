@@ -1,4 +1,3 @@
-
 " Note: (MAYBE WRONG)
 "   leave `*`, instead of `-`, for unorder list style at first. Though all
 "   the `*` for list shall be replaced with `-` by prettier, the lint will say
@@ -6,11 +5,11 @@
 "   Ref: markdownlint MD004 ul-style
 
 inoremap <expr><buffer> *
-     \ (getline('.')[:col('.')] !~# '[^* \t]')
+     \ getline('.')[:col('.')] !~# '[^* \t]'
      \ ? '- [ ] '
      \ : '*'
 lnoremap <expr><buffer> *
-      \ (getline('.')[:col('.')] !~# '[^* \t]')
+      \ getline('.')[:col('.')] !~# '[^* \t]'
       \ ? '- [ ] '
       \ : '*'
 
