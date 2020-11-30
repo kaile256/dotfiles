@@ -34,6 +34,22 @@ function! s:eskk_keymaps_enable_post() abort
     return eskk#filter(eskk#util#key2char(a:key))
   endfunction
 
+  function! s:eskk_with_lexima() abort
+    function! s:_eskk_with_lexima(key) abort
+      exe 'lnoremap <expr><buffer><silent>' a:key 'search(''[xz]\%#'', "nb")'
+            \ '? <SID>eskk_filter(' string(a:key) ')'
+            \ ': mode() =~# "i"'
+            \   '? lexima#insmode#_expand(' string(a:key) ')'
+            \   ': lexima#cmdmode#_expand(' string(a:key) ')'
+    endfunction
+
+    const keys = '''"(){}'
+    for l:key in split(keys, '\zs')
+      call s:_eskk_with_lexima(l:key)
+    endfor
+  endfunction
+  call s:eskk_with_lexima()
+
   " Note: `l` to disable esp. for lexima.
   lnoremap <expr><buffer> l search('[xz]\%#', 'nb') ? <SID>eskk_filter('l') : eskk#disable()
   lnoremap <expr><buffer> . search('\d\%#', 'nb') ? '.' : <SID>eskk_filter('.')
