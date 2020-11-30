@@ -47,11 +47,11 @@ function! s:eskk_keymaps_enable_post() abort
     " Note: Reserved Keys
     " Some keys are reserved and hard-coded in eskk like `<C-h>`, `<space>`.
     " That is, all the `lmaps` to the keys are meaningless.
+    " For example, { 'C': h } to '<C-h>' but <C-h> is reserved.
     const modified_keys = {
-          \ 'C': 'h',
           \ }
+    " For example, 'space' to '<space>' but <space> is reserved.
     const special_keys = [
-          \ 'space',
           \ ]
 
     for l:key in split(keys, '\zs')
