@@ -475,7 +475,7 @@ function! s:set_rules() abort
   " Typo Correction {{{1
   " <C-, <A-, etc., not to insert <C_, <A_
   let global += [
-        \ {'char': '_', 'at': '<[ACDSM]\%#', 'input': '-'},
+        \ {'char': '_', 'at': '<[ACDSM]\%#', 'input': '-', 'mode': 'ic'},
         \ ]
 
   " Addtional Rules on FileType {{{1
