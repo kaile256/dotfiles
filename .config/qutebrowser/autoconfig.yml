@@ -456,6 +456,7 @@ settings:
     https://drive.google.com: true
     https://japan.zdnet.com: false
     https://japanese.engadget.com: false
+    https://news.mynavi.jp: false
     https://ora.pm: true
     https://ostoday.org: false
     https://ticktick.com: true
