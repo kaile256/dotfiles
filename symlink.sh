@@ -47,6 +47,7 @@ HOMEs=(
 CONFIGs=(
   X11
   bash
+  deadd
   fish
   kitty
   lynx
