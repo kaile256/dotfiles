@@ -72,6 +72,7 @@ PACKAGEs=(
   ctags # esp. for Vista on Vim
   sc-im # Spread sheet.  Used by vim-scimark.
 
+  deadd-notification-center-bin # Notifier instead of dunst
   gparted # Format SSD/HDD.
   polar-bookshelf-bin
   odrive-bin # (Open Drive) Google Drive GUI
