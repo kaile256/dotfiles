@@ -106,7 +106,6 @@ settings:
         <Ctrl+r><Space>: fake-key <ctrl-v>
         <Ctrl+t>: completion-item-focus prev
         <Ctrl+x>: completion-item-del
-        l: set-cmd-text -a l;; spawn fcitx5-remote -e
       hint:
         <Alt+h>: leave-mode
         <Alt+j>: leave-mode
@@ -177,7 +176,6 @@ settings:
         <Ctrl+u>: fake-key <Shift-Home><Backspace>
         <Ctrl+w>: fake-key <ctrl-backspace>
         <Ctrl+y>: insert-text {primary}
-        l: fake-key l;; spawn fcitx5-remote -e
       normal:
         '0': fake-key <Home>
         '2': save
