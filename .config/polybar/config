@@ -40,4 +40,3 @@ include-file = ~/.config/polybar/module/network/wlan_kT490s.ini
 include-file = ~/.config/polybar/module/pc/xbacklight.ini
 include-file = ~/.config/polybar/module/pc/xkeyboard.ini
 
-; vim:ft=dosini:path^=./**:suffixesadd=.ini,.conf
