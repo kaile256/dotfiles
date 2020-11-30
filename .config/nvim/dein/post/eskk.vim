@@ -44,8 +44,31 @@ function! s:eskk_keymaps_enable_post() abort
     endfunction
 
     const keys = '''"(){}'
+    " Note: Reserved Keys
+    " Some keys are reserved and hard-coded in eskk like `<C-h>`, `<space>`.
+    " That is, all the `lmaps` to the keys are meaningless.
+    const modified_keys = {
+          \ 'C': 'h',
+          \ }
+    const special_keys = [
+          \ 'space',
+          \ ]
+
     for l:key in split(keys, '\zs')
       call s:_eskk_with_lexima(l:key)
+    endfor
+
+    for mod in keys(modified_keys)
+      let targets = modified_keys[mod]
+      for l:key in split(targets, '\zs')
+        let modified = '<'. mod .'-'. l:key .'>'
+        call s:_eskk_with_lexima(modified)
+      endfor
+    endfor
+
+    for l:key in special_keys
+      let sp_key = '<'. l:key .'>'
+      call s:_eskk_with_lexima(sp_key)
     endfor
   endfunction
   call s:eskk_with_lexima()
