@@ -78,7 +78,8 @@ PACKAGEs=(
   xkeysnail # remapping tool for X written in Python
   lua-lcf # formatter for lua
   luacheck # linter for lua, integrating with lua-lsp
-  lua-lsp-git # rarely updated
+  # lua-lsp-git # rarely updated
+  lua-language-server-git
   code # vscode
   noto-fonts-cjk # fonts for Chinese, Japanese and Korean
   stylelint # a linter for CSS
