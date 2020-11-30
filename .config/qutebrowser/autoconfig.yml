@@ -33,6 +33,7 @@ settings:
       imap: bind -m insert
       iunmap: unbind -m insert
       lds: session-load
+      ls: buffer
       mess: messages
       mk: config-dict-add url.searchengines
       mks: session-save -o
