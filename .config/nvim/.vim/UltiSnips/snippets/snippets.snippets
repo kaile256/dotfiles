@@ -6,6 +6,13 @@ def is_flag_for_snippets():
   return re.search(r'^snippet ', line)
 endglobal
 
+snippet 'g(l((ob)?al)?)?' "initialize ultisnips" br
+global !p
+${0:${VISUAL}}
+endglobal
+
+endsnippet
+
 snippet 's(nip?(pet)?)?' "initialize ultisnips" br
 `!v 'snippet'` ${1:trigger} "${2:Description}" ${3:b}
 ${0:${VISUAL}}
