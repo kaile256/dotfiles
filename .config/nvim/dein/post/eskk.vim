@@ -35,8 +35,7 @@ function! s:eskk_keymaps_enable_post() abort
   endfunction
 
   " Note: `l` to disable esp. for lexima.
-  " FIXME: work in eskk's sequences like 'zl' to insert an arrow.
-  lnoremap <expr><buffer> l eskk#disable()
+  lnoremap <expr><buffer> l search('[xz]\%#', 'nb') ? <SID>eskk_filter('l') : eskk#disable()
   lnoremap <expr><buffer> . search('\d\%#', 'nb') ? '.' : <SID>eskk_filter('.')
 endfunction
 
