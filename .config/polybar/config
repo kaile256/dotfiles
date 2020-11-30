@@ -32,7 +32,6 @@ include-file = ~/.config/polybar/module/pc/volume.ini
 include-file = ~/.config/polybar/module/pc/ram.ini
 include-file = ~/.config/polybar/module/pc/cpu.ini
 include-file = ~/.config/polybar/module/pc/battery.ini
-include-file = ~/.config/polybar/module/pc/network.ini
 
 include-file = ~/.config/polybar/module/network/wlan_kM73.ini
 include-file = ~/.config/polybar/module/network/wlan_kT490s.ini
