@@ -33,6 +33,7 @@ PACKAGEs=(
   fcitx5-configtool
   fcitx5-mozc
   fcitx5-skk # fcitx5 is written in CPP while fcitx is in C and under maintenance.
+  fcitx5-skin-arc # A theme for fcitx5.
 
   # Compatible Layer: run applications which're not for Linux:
   darling-git # Run MacOS Apps on Linux; `darling shell` to `installer -pkg foo.pkg` to install .pkg file
