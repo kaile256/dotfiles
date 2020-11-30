@@ -30,10 +30,14 @@ augroup myEskkSo-SetMappings
 augroup END
 
 function! s:eskk_keymaps_enable_post() abort
+  function! s:eskk_filter(key) abort
+    return eskk#filter(eskk#util#key2char(a:key))
+  endfunction
+
   " Note: `l` to disable esp. for lexima.
   " FIXME: work in eskk's sequences like 'zl' to insert an arrow.
   lnoremap <expr><buffer> l eskk#disable()
-  lnoremap <expr><buffer> . search('\d\%#', 'nb') ? '.' : eskk#filter(eskk#util#key2char('.'))
+  lnoremap <expr><buffer> . search('\d\%#', 'nb') ? '.' : <SID>eskk_filter('.')
 endfunction
 
 function! s:eskk_keymaps_initialize_pre()
