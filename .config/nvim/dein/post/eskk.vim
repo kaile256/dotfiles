@@ -24,12 +24,16 @@ augroup END
 " endif
 
 augroup myEskkSo-SetMappings
-  " Note: `l` to disable esp. for lexima.
-  " FIXME: work in eskk's sequences like 'zl' to insert an arrow.
-  au User eskk-enable-post lnoremap <expr><buffer> l eskk#disable()
   au User eskk-initialize-pre  call s:eskk_keymaps_initialize_pre()
   au User eskk-initialize-post call s:eskk_keymaps_initialize_post()
+  au User eskk-enable-post     call s:eskk_keymaps_enable_post()
 augroup END
+
+function! s:eskk_keymaps_enable_post() abort
+  " Note: `l` to disable esp. for lexima.
+  " FIXME: work in eskk's sequences like 'zl' to insert an arrow.
+  lnoremap <expr><buffer> l eskk#disable()
+endfunction
 
 function! s:eskk_keymaps_initialize_pre()
   " NOTE: This config below leaves the last character "z"
