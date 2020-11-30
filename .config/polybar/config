@@ -14,7 +14,7 @@ include-file = ~/.config/polybar/bar/main.ini
 
 modules-center = github i3-workspaces
 modules-left   = i3-restart calendar battery bluetooth-stat xkeyboard i3-mode
-modules-right  = volume-alsa cpu-graph ram-percent wlan_kM73 xbacklight
+modules-right  = volume-alsa cpu-graph ram-percent wlan_kT490s wlan_kM73 xbacklight
 
 ;[ Common ]
 include-file = ~/.config/polybar/commons.ini
@@ -35,6 +35,7 @@ include-file = ~/.config/polybar/module/pc/battery.ini
 include-file = ~/.config/polybar/module/pc/network.ini
 
 include-file = ~/.config/polybar/module/network/wlan_kM73.ini
+include-file = ~/.config/polybar/module/network/wlan_kT490s.ini
 
 include-file = ~/.config/polybar/module/pc/xbacklight.ini
 include-file = ~/.config/polybar/module/pc/xkeyboard.ini
