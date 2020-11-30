@@ -257,6 +257,10 @@ lazy = 0
 repo = 'kevinoid/vim-jsonc'
 on_ft = ['json', 'jsonc']
 on_path = ['json', 'cjsn$', 'jshintrc$']
+[[plugins]]
+repo = 'ron-rs/ron.vim'
+# Rusty Object Notation
+on_path = ['\.ron$']
 #[[plugins]]
 #repo = 'vmchale/tomlcheck-vim'
 #on_ft = 'toml'
