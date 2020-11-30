@@ -113,6 +113,7 @@ settings:
         <Alt+k>: leave-mode
         <Alt+l>: leave-mode
         <Ctrl+Space>: hint all tab-bg --rapid
+        <Shift+Space>: hint all tab-bg --rapid
         <Space>: hint all current
       insert:
         <Alt+Backspace>: fake-key <Ctrl-Backspace>
