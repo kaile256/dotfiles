@@ -29,7 +29,7 @@ include-file = ~/.config/polybar/module/notifications.ini
 ;include-file = ~/.config/polybar/module/url.ini
 
 include-file = ~/.config/polybar/module/pc/volume.ini
-include-file = ~/.config/polybar/module/pc/ram.ini
+include-file = ~/.config/polybar/module/pc/ram-percent.ini
 include-file = ~/.config/polybar/module/pc/cpu.ini
 include-file = ~/.config/polybar/module/pc/battery.ini
 
