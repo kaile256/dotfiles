@@ -14,14 +14,30 @@ set -Cue #{{{
 # `paccache -ruk3`
 # All themes set in `lxappearance`
 PACKAGEs=(
-  deadd-notification-center-bin # Notifier instead of dunst
-  # dunst # a notification-tool, notify-send
-  qutebrowser-git
+  # Font:
+  noto-fonts-cjk # fonts for Chinese, Japanese and Korean
   ttf-migu # font for Japanese, used in Nerd font, too.
   ttf-junicode # font of runic alphabet, esp. for bluetooth's detection on polybar.
-  # fcitx-mozc-ut-unified # Input Method in Japanese.
+  # ttf-octicons # the alternative choice, ttf-all-the-icons, is for emacs.
   nerd-fonts-jetbrains-mono
-  ttf-octicons # the alternative choice, ttf-all-the-icons, is for emacs.
+  otf-nerd-fonts-fira-code
+  # nerd-fonts-ricty
+  #otf-hasklig # low-heigh fonts
+  #otf-operator-mono-nerd # too bold to read on Neovim-qt
+  #nerd-fonts-victor-mono # too thin to read on Neovim-qt
+  # powerline-fonts
+  # nerd-fonts-meslo # slightly thicker than dejavu. LG in the font-family name means Line-Gaps. DZ means Dotted-Zero(a dot in 0); without it, Slashed-Zero(a slash in 0)
+  #nerd-fonts-dejavu-complete
+  #otf-sans-forgetica # a font scientifically designed for study notes. fails to work on qutebrowser
+  #nerd-fonts-inconsolata-go
+  # nerd-fonts-complete
+  ttf-font-icons  # Mix Icon with Awesome & Ionicons without Confliction.
+  ttf-twemoji-color # SVG-in-OpenType emoji fonts by Twitter
+
+  deadd-notification-center-bin # GTK-notifier instead of dunst
+  # dunst # a notification-tool, notify-send
+  qutebrowser-git
+  # fcitx-mozc-ut-unified # Input Method in Japanese.
   i3-wm
   conky-i3
   xsel
@@ -73,7 +89,9 @@ PACKAGEs=(
   ctags # esp. for Vista on Vim
   sc-im # Spread sheet.  Used by vim-scimark.
 
-  deadd-notification-center-bin # Notifier instead of dunst
+  virustotal # CLI client for virustotal.com
+  python-gphotos-sync # Sync google photo to local directory.
+  notes-cli-git
   gparted # Format SSD/HDD.
   polar-bookshelf-bin
   odrive-bin # (Open Drive) Google Drive GUI
@@ -83,13 +101,10 @@ PACKAGEs=(
   # lua-lsp-git # rarely updated
   lua-language-server-git
   code # vscode
-  noto-fonts-cjk # fonts for Chinese, Japanese and Korean
   stylelint # a linter for CSS
   ueberzug # previewer for some tools
   python-pyperclip # code_select.py on qutebrowser
-  ttf-twemoji-color # SVG-in-OpenType emoji fonts by Twitter
   xbindkeys # to disable middle to paste, but enable scroll.
-  otf-nerd-fonts-fira-code
   docker-rootless
   docker-compose-bin # includes `docker`
   lazydocker
@@ -107,7 +122,6 @@ PACKAGEs=(
   pulseaudio-ctl # pulseaudio from shell
   bluez-alsa-git # alsa backend with bluetooth
   pulseaudio-modules-bt-git # pulseaudio with bluetooth support
-  nerd-fonts-ricty
   chrony # an alternative to ntp client/server
   j4-dmenu-desktop # search desktop applications
   google-chrome
@@ -115,9 +129,6 @@ PACKAGEs=(
   #gifcurry # GIF editor; depends on gtk
   supercollider # Programming Language to create sounds
   boost # Cpp source libraries - development headers
-  #otf-hasklig # low-heigh fonts
-  #otf-operator-mono-nerd # too bold to read on Neovim-qt
-  #nerd-fonts-victor-mono # too thin to read on Neovim-qt
   cling # cpp's interpretor; required for REPL. Install the default.
   st # a terminal emulater lighter than urxvt/xterm
   compiledb # a generator for clang's JSON
@@ -144,7 +155,6 @@ PACKAGEs=(
   jdk8-openjdk
   jad # Java Decompiler
   openjdk11-src # includes both jdk11-openjdk and jre11-openjdk
-  # powerline-fonts
   starship # a prompt set for any shell
   apache
   wireshark-qt # a packet capture
@@ -177,8 +187,6 @@ PACKAGEs=(
   #fprintd # no device found on thinkpad.
   #fingerprint-gui # No device found on thinkpad
   aide # Advanced Intrusion Detection Environment; checks file-integrity and detects intrusion
-  # nerd-fonts-meslo # slightly thicker than dejavu. LG in the font-family name means Line-Gaps. DZ means Dotted-Zero(a dot in 0); without it, Slashed-Zero(a slash in 0)
-  #nerd-fonts-dejavu-complete
   apvlv # a pdf view of vi-binding
   #inkscape # an image editor, like gimp and pinta
   nethogs # show network processes like `top` for cpu usage
@@ -202,7 +210,6 @@ PACKAGEs=(
   # dialog # used in `wifi-menu` at least
   ripgrep-all-bin # ripgrep in PDFs, E-Books, Office documents, zip, tar.gz, etc.
   # tor-browser
-  #otf-sans-forgetica # a font scientifically designed for study notes. fails to work on qutebrowser
   transset-df # for transparency on xterm
   preload # preload apps on RAM; maybe requires to `systemctl disable preload` before remove the package
   trello-cli
@@ -216,7 +223,6 @@ PACKAGEs=(
   #gendesk # what?
   #jinja2 # for neovim-qt
   #jre # Java Runtime Environment, required by vim-gramarous; choose default
-  #nerd-fonts-inconsolata-go
   #pacmixer # a frontend of ALSA for pulseaudio on TUI; adjust sound volume
   #purple-line-git # WARNINIG: Line corp. bans people who uses 3rd party clients
   #qrab # grab QR codes from screen to copy as text into clipboard
@@ -252,8 +258,6 @@ PACKAGEs=(
   # i3-volume
   luarocks
   multibootusb # to create live usb
-  # nerd-fonts-complete
-  #nerd-fonts-ricty # unavailable
   #brew-git # a pkgm for macOS (or Linux)
   ninja # a build system for clang
   npm # necessary for coc's command at all even w/ yarn
@@ -276,7 +280,6 @@ PACKAGEs=(
   #vit # taskwarrior on TUI w/ vi-key bindings
   the_silver_searcher # ag
   tlp   # Save Battery of PC
-  ttf-font-icons  # Mix Icon with Awesome & Ionicons without Confliction.
   vimiv-qt # an image-viewer. Use qt ver.; gtk won't update
   vmail
   xorg-xbacklight  # backlight
