@@ -216,7 +216,7 @@ function! s:normalized_case(rule) abort
 
   let dicts.isolated = s:convert_list2dict('''\v%(_\zs|<)''. v:val ."%(\ze_|>)"', r)
   let dicts.Initialized = s:convert_list2dict(
-        \ '''\v(_\zs|<|\l)''. toupper(v:val[0]) . v:val[1:] .''(\ze_|>|\u)''',
+        \ '''\v(<|_\zs|\l\zs)''. toupper(v:val[0]) . v:val[1:] .''(\ze\u|\ze_|>)''',
         \ map(deepcopy(r), '"\\1". toupper(v:val[0]) . v:val[1:] ."\\2"'))
   let dicts.UPPER_CASED = s:convert_list2dict(
         \ '''\v%(_\zs|<)''. toupper(v:val) ."%(\ze_|>)"',
