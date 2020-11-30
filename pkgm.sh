@@ -14,7 +14,8 @@ set -Cue #{{{
 # `paccache -ruk3`
 # All themes set in `lxappearance`
 PACKAGEs=(
-  dunst # a notification-tool, notify-send
+  deadd-notification-center-bin # Notifier instead of dunst
+  # dunst # a notification-tool, notify-send
   qutebrowser-git
   ttf-migu # font for Japanese, used in Nerd font, too.
   ttf-junicode # font of runic alphabet, esp. for bluetooth's detection on polybar.

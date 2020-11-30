@@ -206,7 +206,7 @@ $noid blugon &
 # FAQ: https://dunst-project.org/faq/
 # Conf: dunst/dunstrc
 # dunst works on `notify-send`
-$always killall --quiet dunst; sleep 1; dunst
+$always killall --quiet deadd-notificat; sleep 1; deadd-notification-center
 
 # parcellite: Clipboard Manager
 #$noid parcellite
