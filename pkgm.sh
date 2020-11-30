@@ -248,7 +248,7 @@ PACKAGEs=(
   # googlecl  # google api for cli; dependency is broken.
   hub  # an official wrapper of git
   i3-battery-popup-git # alert when battery is running out
-  i3-volume
+  # i3-volume
   luarocks
   multibootusb # to create live usb
   # nerd-fonts-complete
