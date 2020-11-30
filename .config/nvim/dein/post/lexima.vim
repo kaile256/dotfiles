@@ -339,7 +339,7 @@ function! s:set_rules() abort
   function! s:define_rules_for_space() abort closure "{{{1
     let global += [
           \ {'char': '<S-Space>',   'input': '<space>'},
-          \ {'char': '<C-space>',   'input': '<space>'},
+          \ {'char': '<C-Space>',   'input': '<space>'},
           \ {'char': '<C-S-Space>', 'input': '<space>'},
           \ ]
 
@@ -358,7 +358,7 @@ function! s:set_rules() abort
           \ '/\*\%#\*/',
           \ ]
 
-    for space in ['<space>', '<S-space>']
+    for space in ['<space>', '<S-Space>']
       for in_brackets in in_brackets_to_spread
         let Spread_brackets += [
               \ {'char': space, 'at': in_brackets,
