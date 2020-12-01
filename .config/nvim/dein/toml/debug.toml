@@ -147,9 +147,6 @@ on_cmd = 'Neomake'
 on_func = ['neomake#configure#']
 hook_source = 'runtime source/neomake.vim'
 #hook_post_source = 'runtime post/neomake.vim'
-[[plugins]]
-repo = 'skywind3000/asynctasks.vim'
-on_cmd = ['AsyncTask']
 
 #[ Compiler ]
 [[plugins]]
