@@ -36,7 +36,7 @@ function! s:register_keys() abort
   let l:nmaps['Yank Path '] = {
         \ 'name': '[ local ]',
         \
-        \ 'p': ['<Plug>(yank-fullpath)',  'Get current full-path'],
+        \ 'F': ['<Plug>(yank-fullpath)',  'Get current full-path'],
         \ 'f': ['<Plug>(yank-fname)', 'Get current filename'],
         \
         \ 'd': ['<Plug>(yank-dirname)',  'Get name of current directory'],
@@ -48,7 +48,7 @@ function! s:register_keys() abort
   let l:nmaps['Paste Path '] = {
         \ 'name': '[ local ]',
         \
-        \ 'p': ['<Plug>(paste-fullpath)',  'Paste current full-path'],
+        \ 'F': ['<Plug>(paste-fullpath)',  'Paste current full-path'],
         \ 'f': ['<Plug>(paste-fname)', 'Paste current filename'],
         \
         \ 'd': ['<Plug>(yank-dirname)',  'Get name of current directory'],
