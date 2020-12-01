@@ -5,6 +5,12 @@
 repo = 'nora75/markdowntable'
 on_cmd =  ['TableMake', 'ToTable', 'UnTable']
 hook_source = 'runtime source/markdowntable.vim'
+[[plugins]]
+repo = 'mipmip/vim-scimark'
+# Edit markdown-table through spreadsheet.
+if = 'executable("sc-im")'
+on_cmd = 'OpenInScim'
+hook_source = 'runtime source/scimark.vim'
 
 #[ TOC ]
 [[plugins]]
