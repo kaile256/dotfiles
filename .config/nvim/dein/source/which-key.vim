@@ -19,6 +19,12 @@ nnoremap <silent> <Plug>(yank-fullpath)  :<C-u>call <SID>set_in_reg(expand('%:p'
 noremap! <expr>   <Plug>(paste-fullpath) expand('%:p')
 nnoremap <silent> <Plug>(yank-fname)  :<C-u>call <SID>set_in_reg(expand('%:t'))<CR>
 noremap! <expr>   <Plug>(paste-fname) expand('%:t')
+
+nnoremap <silent> <Plug>(yank-dirpath)  :<C-u>call <SID>set_in_reg(expand('%:p:h'))<CR>
+noremap! <expr>   <Plug>(paste-dirpath) expand('%:p:h:t')
+nnoremap <silent> <Plug>(yank-dirname)  :<C-u>call <SID>set_in_reg(expand('%:p:h'))<CR>
+noremap! <expr>   <Plug>(paste-dirname) expand('%:p:h:t')
+
 nnoremap <silent> <Plug>(yank-bufnr)  :<C-u>call <SID>set_in_reg(bufnr())<CR>
 noremap! <expr>   <Plug>(paste-bufnr) bufnr('%')
 
@@ -32,6 +38,10 @@ function! s:register_keys() abort
         \
         \ 'p': ['<Plug>(yank-fullpath)',  'Get current full-path'],
         \ 'f': ['<Plug>(yank-fname)', 'Get current filename'],
+        \
+        \ 'd': ['<Plug>(yank-dirname)',  'Get name of current directory'],
+        \ 'D': ['<Plug>(yank-dirpath)',  'Get full-path of current directory'],
+        \
         \ 'b': ['<Plug>(yank-bufnr)', 'Get current bufnr'],
         \ 'r': ['<Plug>(yank-repo)',  'Get current repo'],
         \ }
@@ -40,6 +50,10 @@ function! s:register_keys() abort
         \
         \ 'p': ['<Plug>(paste-fullpath)',  'Paste current full-path'],
         \ 'f': ['<Plug>(paste-fname)', 'Paste current filename'],
+        \
+        \ 'd': ['<Plug>(yank-dirname)',  'Get name of current directory'],
+        \ 'D': ['<Plug>(yank-dirpath)',  'Get full-path of current directory'],
+        \
         \ 'b': ['<Plug>(paste-bufnr)', 'Paste current bufnr'],
         \ 'r': ['<Plug>(paste-repo)',  'Paste current repo'],
         \ }
