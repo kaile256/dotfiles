@@ -280,10 +280,10 @@ $always $MY_I3_SCRIPTS/connect-keyboard >/dev/null 2>&1
 #}
 
 # Keybind; i3's Reload/Restart {{{1
-# reload the configuration file
-$release $Super+space reload
-# restart i3
-$release $SuperS+space restart; $noid $alert 'i3: Restart'
+# Reload the configuration file
+$release $Super+space $noid i3-msg reload && $notify 'i3: Reloaded'
+# Restart i3
+$release $SuperS+space $noid i3-msg restart && sleep 0.5 && $alert 'i3: Restart'
 # Restart polybar
 $release $SuperA+space $noid $restart_polybar && $notify 'Polybar: Restart'
 
