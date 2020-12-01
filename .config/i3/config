@@ -44,9 +44,9 @@ set $restart exec_always
 
 set $locker $MY_I3_SCRIPTS/lock.sh
 
-set $shortmsg exec --no-startup-id notify-send --expire-time 750
-set $notify   exec --no-startup-id notify-send --expire-time 1100
-set $alert    exec --no-startup-id notify-send --expire-time 1100 --urgency critical
+set $shortmsg notify-send --expire-time 750
+set $notify   notify-send --expire-time 1100
+set $alert    notify-send --expire-time 1100 --urgency critical
 
 # TODO: make $bindesc available
 #set $bindesc bindsym Escape mode default; bindsym Ctrl+bracketleft mode default; bindsym bracketleft mode default; bindsym space mode default; bindsym Return mode default; bindsym Ctrl+C mode default
@@ -283,12 +283,12 @@ $always $MY_I3_SCRIPTS/connect-keyboard >/dev/null 2>&1
 # reload the configuration file
 $release $Super+space reload
 # restart i3
-$release $SuperS+space restart
+$release $SuperS+space restart; $noid $alert 'i3: Restart'
 # Restart polybar
-$release $SuperA+space $noid $restart_polybar
+$release $SuperA+space $noid $restart_polybar; $noid $alert 'Polybar: Restart'
 
 # Keybind; i3 Workspace {{{1
-bindsym $SuperS+T layout tabbed; $alert 'Layout: tabbed'
+bindsym $SuperS+T layout tabbed; $noid $alert 'Layout: tabbed'
 # Note: check keyname, or keycode, by $ xmodmap -pke
 # Note: `--release` disturbs continuous actions while pressed
 
@@ -370,12 +370,12 @@ bindsym $SuperA+K layout splitv; move up
 bindsym $SuperA+L layout splith; move right
 
 # Mnemonic: `o` on visual-mode to the other end of the area
-bindsym $Super+O focus mode_toggle; $alert 'Focus: Toggle'
+bindsym $Super+O focus mode_toggle; $noid $alert 'Focus: Toggle'
 
 # Mnemonic: go Over the window
-bindsym $SuperS+O focus floating; mode default; $alert 'Focus: Floating'
+bindsym $SuperS+O focus floating; mode default; $noid $alert 'Focus: Floating'
 # Mnemonic: Insert from another window over the window
-bindsym $SuperS+I focus tiling;   mode default; $alert 'Focus: Tiling'
+bindsym $SuperS+I focus tiling;   mode default; $noid $alert 'Focus: Tiling'
 
 # Keybind; Device Toggle {{{2
 # Ref: https://qiita.com/iberianpig/items/08784c9b2f53b3e41409
@@ -385,29 +385,29 @@ $release $Super+period $noid $MY_I3_SCRIPTS/toggle-TouchPad
 $release $Super+$ClickMiddle $noid $MY_I3_SCRIPTS/toggle-TouchPad
 
 # 66: CapsLock
-bindcode 66 $alert 'CapsLock: Toggle'
+bindcode 66 $noid $alert 'CapsLock: Toggle'
 
 # Keybind; Mode on i3 {{{1
 # WARNING: use double quotes for either in `set` or `mode`
 # Mode; Layout {{{2
 set $Layout " Layout: (T)abbed fl(O)ating | Resize: HJKL | (W) for Window mode"
-$release $SuperS+W mode $Layout; $alert 'Layout mode'
+$release $SuperS+W mode $Layout; $noid $alert 'Layout mode'
 
 mode $Layout {
-    $release W       mode $Window; $notify 'Window mode'
-    $release Shift+W mode $Window; $notify 'Window mode'
+    $release W       mode $Window; $noid $notify 'Window mode'
+    $release Shift+W mode $Window; $noid $notify 'Window mode'
 
-    # bindsym H split h; mode default; $alert 'Layout: horizontal'
-    # bindsym V split v; mode default; $alert 'Layout: vertical'
+    # bindsym H split h; mode default; $noid $alert 'Layout: horizontal'
+    # bindsym V split v; mode default; $noid $alert 'Layout: vertical'
 
-    bindsym T layout tabbed;   mode default; $alert 'Layout: tabbed'
-    # bindsym K layout stacking; mode default; $alert 'Layout: stacking'
+    bindsym T layout tabbed; mode default; $noid $alert 'Layout: tabbed'
+    # bindsym K layout stacking; mode default; $noid $alert 'Layout: stacking'
 
     # Note: Fullscreen/Floating could be irritative;
     #       window sometimes hides on the status-bar
-    bindsym O floating   toggle; mode default; $alert 'Layout: floating toggle'
-    # bindsym U fullscreen toggle; mode default; $alert 'Layout: fullscreen toggle'
-    bindsym $Super+O focus mode_toggle; mode default; $alert 'Focus: Toggle'
+    bindsym O floating   toggle; mode default; $noid $alert 'Layout: floating toggle'
+    # bindsym U fullscreen toggle; mode default; $noid $alert 'Layout: fullscreen toggle'
+    bindsym $Super+O focus mode_toggle; mode default; $noid $alert 'Focus: Toggle'
 
     bindsym H resize shrink width  1 px or 1 ppt
     bindsym K resize shrink height 1 px or 1 ppt
@@ -436,15 +436,15 @@ mode $Layout {
 
 # Mode; Window {{{2
 set $Window " Window: (C)lose or (Q)uit to kill current window | fl(O)ating toggle | (W) for Layout mode "
-$release $Super+W mode $Window; $shortmsg 'Window mode'
+$release $Super+W mode $Window; $noid $shortmsg 'Window mode'
 
 mode $Window {
-    $release W       mode $Layout; $alert 'Layout mode'
-    $release Shift+W mode $Layout; $alert 'Layout mode'
+    $release W       mode $Layout; $noid $alert 'Layout mode'
+    $release Shift+W mode $Layout; $noid $alert 'Layout mode'
 
     bindsym F11 fullscreen
 
-    bindsym T layout tabbed;   mode default; $alert 'Layout: tabbed'
+    bindsym T layout tabbed;   mode default; $noid $alert 'Layout: tabbed'
 
     $release C kill; mode default
     $release Q kill; mode default
@@ -482,11 +482,11 @@ mode $Window {
     bindsym Ctrl+I focus child;  mode default
 
     # mode_toggle: toggle between floating and tiling
-    bindsym $Super+O focus mode_toggle; mode default; $alert 'Focus: Toggle'
-    bindsym O        focus mode_toggle; mode default; $alert 'Focus: Toggle'
+    bindsym $Super+O focus mode_toggle; mode default; $noid $alert 'Focus: Toggle'
+    bindsym O        focus mode_toggle; mode default; $noid $alert 'Focus: Toggle'
 
     # TODO: send ^d, too, to kill terminal
-    bindsym Ctrl+D           mode default; $alert 'Out of Fucus mode'
+    bindsym Ctrl+D           mode default; $noid $alert 'Out of Fucus mode'
 
     bindsym Ctrl+C             mode default
     bindsym Ctrl+bracketleft   mode default
@@ -495,7 +495,7 @@ mode $Window {
 
 # Mode; Systemctl {{{2
 set $Systemctl " Systemctl: [P]oweroff [R]eboot [L]ock [S]uspend(to RAM) [H]ybernate(to Disk) (B)oth(to RAM & Disk) "
-$release $Super+X mode $Systemctl; $alert 'Systemctl mode'
+$release $Super+X mode $Systemctl; $noid $alert 'Systemctl mode'
 
 mode $Systemctl {
     # bindsym S $noid $locker && systemctl suspend, mode default
@@ -523,31 +523,31 @@ mode $Systemctl {
 
 # Mode; Brightness {{{2
 set $Brightness " Brightness "
-$release $Super+Ctrl+B mode $Brightness; $shortmsg 'Brightness mode'
+$release $Super+Ctrl+B mode $Brightness; $noid $shortmsg 'Brightness mode'
 
 mode $Brightness {
-    bindsym G $alert 'Brightness: 100'; $noid xbacklight -set 100
-    bindsym Shift+G $alert 'Brightness: 0'; $noid xbacklight -set 0
+    bindsym G $noid $alert 'Brightness: 100'; $noid xbacklight -set 100
+    bindsym Shift+G $noid $alert 'Brightness: 0'; $noid xbacklight -set 0
 
-    bindsym Shift+H $alert 'Brightness: 90'; $noid xbacklight -set 90
-    bindsym Shift+K $alert 'Brightness: 80'; $noid xbacklight -set 80
-    bindsym Shift+M $alert 'Brightness: 70'; $noid xbacklight -set 70
-    bindsym Shift+J $alert 'Brightness: 60'; $noid xbacklight -set 60
-    bindsym Shift+L $alert 'Brightness: 50'; $noid xbacklight -set 50
+    bindsym Shift+H $noid $alert 'Brightness: 90'; $noid xbacklight -set 90
+    bindsym Shift+K $noid $alert 'Brightness: 80'; $noid xbacklight -set 80
+    bindsym Shift+M $noid $alert 'Brightness: 70'; $noid xbacklight -set 70
+    bindsym Shift+J $noid $alert 'Brightness: 60'; $noid xbacklight -set 60
+    bindsym Shift+L $noid $alert 'Brightness: 50'; $noid xbacklight -set 50
 
     # Note: it doesn't require 100% brightness in most case.
-    bindsym H $alert 'Brightness: 45'; $noid xbacklight -set 45
-    bindsym K $alert 'Brightness: 40'; $noid xbacklight -set 40
-    bindsym M $alert 'Brightness: 30'; $noid xbacklight -set 30
-    bindsym J $alert 'Brightness: 25'; $noid xbacklight -set 25
-    bindsym L $alert 'Brightness: 5';  $noid xbacklight -set 5
+    bindsym H $noid $alert 'Brightness: 45'; $noid xbacklight -set 45
+    bindsym K $noid $alert 'Brightness: 40'; $noid xbacklight -set 40
+    bindsym M $noid $alert 'Brightness: 30'; $noid xbacklight -set 30
+    bindsym J $noid $alert 'Brightness: 25'; $noid xbacklight -set 25
+    bindsym L $noid $alert 'Brightness: 5';  $noid xbacklight -set 5
 
-    bindsym P $notify 'Brightness: +1';  $noid xbacklight -inc 1
-    bindsym N $notify 'Brightness: -1';  $noid xbacklight -dec 1
-    bindsym U $notify 'Brightness: +5';  $noid xbacklight -inc 5
-    bindsym D $notify 'Brightness: -5';  $noid xbacklight -dec 5
-    bindsym B $notify 'Brightness: +10'; $noid xbacklight -inc 10
-    bindsym F $notify 'Brightness: -10'; $noid xbacklight -dec 10
+    bindsym P $noid $notify 'Brightness: +1';  $noid xbacklight -inc 1
+    bindsym N $noid $notify 'Brightness: -1';  $noid xbacklight -dec 1
+    bindsym U $noid $notify 'Brightness: +5';  $noid xbacklight -inc 5
+    bindsym D $noid $notify 'Brightness: -5';  $noid xbacklight -dec 5
+    bindsym B $noid $notify 'Brightness: +10'; $noid xbacklight -inc 10
+    bindsym F $noid $notify 'Brightness: -10'; $noid xbacklight -dec 10
 
     bindsym Ctrl+C             mode default
     bindsym Ctrl+bracketleft   mode default
@@ -562,7 +562,7 @@ mode $Brightness {
 # Depends: pulseaudio-ctl
 # Recommend: pulseaudio-alsa (for flash)
 set $Sound " Sound Volume: (Q)uiet or (S)ilence to mute "
-$release $Super+S mode $Sound; $shortmsg 'Sound mode'
+$release $Super+S mode $Sound; $noid $shortmsg 'Sound mode'
 # Ref: https://stackoverflow.com/questions/21688115/pactl-called-from-systemd-service-always-reports-pa-context-connect-failed-co
 # when you have `Connection failure: Connection refused; pa_context_connect() failed: Connection refused`
 
@@ -573,29 +573,29 @@ set $mute_toggle exec --no-startup-id pacmd set-sink-mute @DEFAULT_SINK@ toggle
 set $volume exec --no-startup-id pacmd set-sink-mute @DEFAULT_SINK@ false && pactl set-sink-volume @DEFAULT_SINK@
 
 mode $Sound {
-    bindsym $Super+S $mute_toggle; $alert 'Sound: Mute Toggle'
+    bindsym $Super+S $mute_toggle; $noid $alert 'Sound: Mute Toggle'
     # Mnemonic: Silence
-    bindsym S $mute; $alert 'Sound: Mute'
+    bindsym S $mute; $noid $alert 'Sound: Mute'
     # Mnemonic: Quiet
-    bindsym Q $mute; $alert 'Sound: Mute'
+    bindsym Q $mute; $noid $alert 'Sound: Mute'
 
-    bindsym G $volume 100%; $notify 'Sound: 100%'
-    bindsym Shift+G $volume 0%; $notify 'Sound: 0%'
+    bindsym G $volume 100%; $noid $notify 'Sound: 100%'
+    bindsym Shift+G $volume 0%; $noid $notify 'Sound: 0%'
 
-    bindsym Shift+H $volume 85%; $notify 'Sound: 85%'
-    bindsym Shift+K $volume 75%; $notify 'Sound: 75%'
-    bindsym Shift+M $volume 50%; $notify 'Sound: 50%'
-    bindsym Shift+J $volume 25%; $notify 'Sound: 25%'
-    bindsym Shift+L $volume 15%; $notify 'Sound: 15%'
+    bindsym Shift+H $volume 85%; $noid $notify 'Sound: 85%'
+    bindsym Shift+K $volume 75%; $noid $notify 'Sound: 75%'
+    bindsym Shift+M $volume 50%; $noid $notify 'Sound: 50%'
+    bindsym Shift+J $volume 25%; $noid $notify 'Sound: 25%'
+    bindsym Shift+L $volume 15%; $noid $notify 'Sound: 15%'
 
-    bindsym K $volume +1%;  $notify 'Sound: +1%'
-    bindsym M $volume 50%;  $notify 'Sound: 50%'
-    bindsym J $volume -1%;  $notify 'Sound: -1%'
+    bindsym K $volume +1%;  $noid $notify 'Sound: +1%'
+    bindsym M $volume 50%;  $noid $notify 'Sound: 50%'
+    bindsym J $volume -1%;  $noid $notify 'Sound: -1%'
 
-    bindsym U $volume +5%;  $notify 'Sound: +5%'
-    bindsym D $volume -5%;  $notify 'Sound: -5%'
-    bindsym B $volume +10%; $notify 'Sound: +10%'
-    bindsym F $volume -10%; $notify 'Sound: -10%'
+    bindsym U $volume +5%;  $noid $notify 'Sound: +5%'
+    bindsym D $volume -5%;  $noid $notify 'Sound: -5%'
+    bindsym B $volume +10%; $noid $notify 'Sound: +10%'
+    bindsym F $volume -10%; $noid $notify 'Sound: -10%'
 
     bindsym Ctrl+C             mode default
     bindsym Ctrl+bracketleft   mode default
@@ -621,9 +621,22 @@ mode $Device {
     bindsym $Super+bracketleft mode default
 }
 # Keybind: Apps {{{1
+# Tool {{{2
+set $Tool " Tool: (L)ine "
+$release $Super+T mode $Tool; $noid $shortmsg 'Tool'
+mode $Tool {
+    # Install LINE from https://line.me/en-US/download.  It may be more
+    # unstable than the version running on chrome.
+    bindsym L $noid WINEPREFIX=$HOME/.wine_LINE/ \
+    wine $HOME/.wine_LINE/drive_c/users/$USER/Local\ Settings/Application\ Data/LINE/bin/LineLauncher.exe
+
+    bindsym Ctrl+C             mode default
+    bindsym Ctrl+bracketleft   mode default
+    bindsym $Super+bracketleft mode default
+}
+
 # Terminal {{{2
-$release $Super+T $noid xterm; $notify " XTerm "
-$release $Super+C $noid kitty; $notify " Kitty "
+$release $Super+C $noid kitty; $noid $notify " Kitty "
 
 set $termporal alacritty \
     --dimensions 170 45 \
@@ -645,7 +658,7 @@ bindsym $Super+apostrophe $noid $Qutebrowser_bookmarks
 bindsym $Super+grave $noid $Qutebrowser_bookmarks
 
 #set $Console " Console: (A)lacritty (U)rxvt (X)term | (G)otop "
-#bindsym $Super+C mode $Console; $shortmsg 'Consoles'
+#bindsym $Super+C mode $Console; $noid $shortmsg 'Consoles'
 
 #mode $Console {
 #bindsym A exec alacritty -e fish;  mode default
@@ -666,7 +679,7 @@ bindsym $Super+grave $noid $Qutebrowser_bookmarks
 # Browser {{{2
 set $Browser " Browser: (S)ervo (V)ivaldi (F)irefox (C)hrome (Q)utebrowser "
 
-$release $Super+B mode $Browser; $shortmsg 'Browsers'
+$release $Super+B mode $Browser; $noid $shortmsg 'Browsers'
 
 mode $Browser {
     $release c $noid $chrome; mode default
@@ -684,8 +697,8 @@ mode $Browser {
 # Keybind; open Browser {{{2
 set $Qutebrowser " Qutebrowser: Type a Number for workspace to launch "
 
-#$release $Super+Q $noid qutebrowser; $notify 'Qutebrowser: Stand by...'
-#$release $Super+Q mode $Qutebrowser; $shortmsg 'Qutebrowser'
+#$release $Super+Q $noid qutebrowser; $noid $notify 'Qutebrowser: Stand by...'
+#$release $Super+Q mode $Qutebrowser; $noid $shortmsg 'Qutebrowser'
 
 mode $Qutebrowser {
     # FIXME: make the mode work. If possible, start in background.
@@ -708,7 +721,7 @@ mode $Qutebrowser {
 
 # Vim {{{2
 set $Vim " Vim: (X)term (U)rxvt (A)lacritty (G)vim "
-$release $Super+V mode $Vim; $shortmsg 'Vim: backends'
+$release $Super+V mode $Vim; $noid $shortmsg 'Vim: backends'
 
 mode $Vim {
     bindsym G $noid gvim; mode default
@@ -725,7 +738,7 @@ mode $Vim {
 
 # Neovim {{{2
 set $Neovim " Neovim: (Q)t (F)vim | (A)lacritty "
-$release $Super+N mode $Neovim; $shortmsg 'Neovim: backends'
+$release $Super+N mode $Neovim; $noid $shortmsg 'Neovim: backends'
 
 mode $Neovim {
     bindsym E $noid eovim;   mode default
@@ -737,6 +750,12 @@ mode $Neovim {
     bindsym A $noid alacritty -e nvim; mode default
     bindsym F $noid fvim; mode default
 
+    bindsym $Super+D $noid nvim-qt $MY_DEV; mode default
+    bindsym D        $noid nvim-qt $MY_DEV; mode default
+
+    bindsym $Super+M $noid nvim-qt $MY_MEMO/.backlog/in_progress.md; mode default
+    bindsym M        $noid nvim-qt $MY_MEMO/.backlog/todo.md;        mode default
+
     bindsym Ctrl+C             mode default
     bindsym Ctrl+bracketleft   mode default
     bindsym $Super+bracketleft mode default
@@ -745,16 +764,16 @@ mode $Neovim {
 # Editor {{{2
 set $Editor " Editor: (C)ode (E)macs (V)im (N)eovim | (G)imp (P)inta "
 
-$release $Super+E mode $Editor; $shortmsg 'Editors'
+$release $Super+E mode $Editor; $noid $shortmsg 'Editors'
 
 mode $Editor {
-    bindsym C $noid code;  mode default; $notify 'Editor: vscode'
-    bindsym E $noid emacs; mode default; $notify 'Editor: emacs'
-    bindsym V $noid $vim;  mode default; $notify 'Editor: vim'
-    bindsym N $noid $nvim; mode default; $notify 'Editor: neovim'
+    bindsym C $noid code;  mode default; $noid $notify 'Editor: vscode'
+    bindsym E $noid emacs; mode default; $noid $notify 'Editor: emacs'
+    bindsym V $noid $vim;  mode default; $noid $notify 'Editor: vim'
+    bindsym N $noid $nvim; mode default; $noid $notify 'Editor: neovim'
 
-    bindsym G $noid gimp;  mode default; $notify 'Editor: gimp'
-    bindsym P $noid pinta; mode default; $notify 'Editor: pinta'
+    bindsym G $noid gimp;  mode default; $noid $notify 'Editor: gimp'
+    bindsym P $noid pinta; mode default; $noid $notify 'Editor: pinta'
 
     bindsym Ctrl+C             mode default
     bindsym Ctrl+bracketleft   mode default
@@ -764,7 +783,7 @@ mode $Editor {
 # Finder {{{2
 # Mnemonic: Finder or File explorer
 set $Finder " Finder: [N]nn [R]anger [H]unter [P]CManFM(lxde) PCManFM-[Q]t(lxqt) [T]hunar(Xfce) (G)ooglePhoto "
-$release $Super+F  mode $Finder; $shortmsg 'Finders'
+$release $Super+F  mode $Finder; $noid $shortmsg 'Finders'
 
 mode $Finder {
     $release P exec pcmanfm; mode default
@@ -783,79 +802,79 @@ mode $Finder {
 }
 
 # Mode; Mozc {{{2
-set $Mozc " Mozc: Activated "
-bindsym $Super+M $noid fcitx5-remote -s mozc; mode $Mozc; $notify 'Mozc: Activated'
+# set $Mozc " Mozc: Activated "
+bindsym $Super+M $noid fcitx5-remote -s mozc; mode $Mozc; $noid $notify 'Mozc: Activated'
 
 # TODO: deprecate mode for IME, but use script in while-loop
 mode $Mozc {
-    bindsym L $noid fcitx5-remote -c; mode default; $alert 'Mozc: OFF'
+    bindsym L $noid fcitx5-remote -c; mode default; $noid $alert 'Mozc: OFF'
     # TODO: send-key Ctrl+U and back to the fcitx5-state
-    # bindsym Ctrl+U $noid fcitx5-remote -c; mode default; $notify 'Mozc: OFF'
-    # bindsym Ctrl+W $noid fcitx5-remote -c; mode default; $notify 'Mozc: OFF'
+    # bindsym Ctrl+U $noid fcitx5-remote -c; mode default; $noid $notify 'Mozc: OFF'
+    # bindsym Ctrl+W $noid fcitx5-remote -c; mode default; $noid $notify 'Mozc: OFF'
 
-    bindsym $Super+I $noid fcitx5-remote -s skk; mode $Skk; $alert 'Skk: Activated'
+    bindsym $Super+I $noid fcitx5-remote -s skk; mode $Skk; $noid $alert 'Skk: Activated'
 
-    bindsym $Super+1 $noid fcitx5-remote -c; mode default; $alert 'Mozc: OFF'; workspace $ws1
-    bindsym $Super+2 $noid fcitx5-remote -c; mode default; $alert 'Mozc: OFF'; workspace $ws2
-    bindsym $Super+3 $noid fcitx5-remote -c; mode default; $alert 'Mozc: OFF'; workspace $ws3
-    bindsym $Super+4 $noid fcitx5-remote -c; mode default; $alert 'Mozc: OFF'; workspace $ws4
-    bindsym $Super+5 $noid fcitx5-remote -c; mode default; $alert 'Mozc: OFF'; workspace $ws5
-    bindsym $Super+6 $noid fcitx5-remote -c; mode default; $alert 'Mozc: OFF'; workspace $ws6
-    bindsym $Super+7 $noid fcitx5-remote -c; mode default; $alert 'Mozc: OFF'; workspace $ws7
-    bindsym $Super+8 $noid fcitx5-remote -c; mode default; $alert 'Mozc: OFF'; workspace $ws8
-    bindsym $Super+9 $noid fcitx5-remote -c; mode default; $alert 'Mozc: OFF'; workspace $ws9
-    bindsym $Super+0 $noid fcitx5-remote -c; mode default; $alert 'Mozc: OFF'; workspace $ws0
-    bindsym $Super+H $noid fcitx5-remote -c; mode default; $alert 'Mozc: OFF'; focus left
-    bindsym $Super+J $noid fcitx5-remote -c; mode default; $alert 'Mozc: OFF'; focus down
-    bindsym $Super+K $noid fcitx5-remote -c; mode default; $alert 'Mozc: OFF'; focus up
-    bindsym $Super+L $noid fcitx5-remote -c; mode default; $alert 'Mozc: OFF'; focus right
-    bindsym $Super+O $noid fcitx5-remote -c; mode default; $alert 'Mozc: OFF'; focus mode_toggle; $alert 'Focus: Toggle'
-    bindsym $Super+bracketleft  $noid fcitx5-remote -c; mode default; $alert 'Mozc: OFF'; workspace prev
-    bindsym $Super+bracketright $noid fcitx5-remote -c; mode default; $alert 'Mozc: OFF'; workspace next
+    bindsym $Super+1 $noid fcitx5-remote -c; mode default; $noid $alert 'Mozc: OFF'; workspace $ws1
+    bindsym $Super+2 $noid fcitx5-remote -c; mode default; $noid $alert 'Mozc: OFF'; workspace $ws2
+    bindsym $Super+3 $noid fcitx5-remote -c; mode default; $noid $alert 'Mozc: OFF'; workspace $ws3
+    bindsym $Super+4 $noid fcitx5-remote -c; mode default; $noid $alert 'Mozc: OFF'; workspace $ws4
+    bindsym $Super+5 $noid fcitx5-remote -c; mode default; $noid $alert 'Mozc: OFF'; workspace $ws5
+    bindsym $Super+6 $noid fcitx5-remote -c; mode default; $noid $alert 'Mozc: OFF'; workspace $ws6
+    bindsym $Super+7 $noid fcitx5-remote -c; mode default; $noid $alert 'Mozc: OFF'; workspace $ws7
+    bindsym $Super+8 $noid fcitx5-remote -c; mode default; $noid $alert 'Mozc: OFF'; workspace $ws8
+    bindsym $Super+9 $noid fcitx5-remote -c; mode default; $noid $alert 'Mozc: OFF'; workspace $ws9
+    bindsym $Super+0 $noid fcitx5-remote -c; mode default; $noid $alert 'Mozc: OFF'; workspace $ws0
+    bindsym $Super+H $noid fcitx5-remote -c; mode default; $noid $alert 'Mozc: OFF'; focus left
+    bindsym $Super+J $noid fcitx5-remote -c; mode default; $noid $alert 'Mozc: OFF'; focus down
+    bindsym $Super+K $noid fcitx5-remote -c; mode default; $noid $alert 'Mozc: OFF'; focus up
+    bindsym $Super+L $noid fcitx5-remote -c; mode default; $noid $alert 'Mozc: OFF'; focus right
+    bindsym $Super+O $noid fcitx5-remote -c; mode default; $noid $alert 'Mozc: OFF'; focus mode_toggle; $noid $alert 'Focus: Toggle'
+    bindsym $Super+bracketleft  $noid fcitx5-remote -c; mode default; $noid $alert 'Mozc: OFF'; workspace prev
+    bindsym $Super+bracketright $noid fcitx5-remote -c; mode default; $noid $alert 'Mozc: OFF'; workspace next
 
-    bindsym $Super+M         $noid fcitx5-remote -c; mode default; $alert 'Mozc: OFF'
-    bindsym Ctrl+C           $noid fcitx5-remote -c; mode default; $alert 'Mozc: OFF'
-    bindsym Ctrl+bracketleft $noid fcitx5-remote -c; mode default; $alert 'Mozc: OFF'
+    bindsym $Super+M         $noid fcitx5-remote -c; mode default; $noid $alert 'Mozc: OFF'
+    bindsym Ctrl+C           $noid fcitx5-remote -c; mode default; $noid $alert 'Mozc: OFF'
+    bindsym Ctrl+bracketleft $noid fcitx5-remote -c; mode default; $noid $alert 'Mozc: OFF'
 }
 
 # Mode; Skk {{{2
 set $Skk " Skk: (q) kata/hira (l) ASCII "
-bindsym $Super+I $noid fcitx5-remote -s skk; mode $Skk; $notify 'Skk: Activated'
+bindsym $Super+I $noid fcitx5-remote -s skk; mode $Skk; $noid $notify 'Skk: Activated'
 
 mode $Skk {
     # TODO: send-key Ctrl+U and back to the fcitx5-state
-    # bindsym Ctrl+U  $noid fcitx5-remote -c; mode default; $alert 'Skk: OFF'
-    # bindsym Ctrl+W  $noid fcitx5-remote -c; mode default; $alert 'Skk: OFF'
-    # bindsym Shift+L $noid fcitx5-remote -c; mode default; $alert 'Skk: OFF'
+    # bindsym Ctrl+U  $noid fcitx5-remote -c; mode default; $noid $alert 'Skk: OFF'
+    # bindsym Ctrl+W  $noid fcitx5-remote -c; mode default; $noid $alert 'Skk: OFF'
+    # bindsym Shift+L $noid fcitx5-remote -c; mode default; $noid $alert 'Skk: OFF'
     #
-    bindsym $Super+M $noid fcitx5-remote -s mozc; mode $Mozc; $alert 'Mozc: Activated'
+    bindsym $Super+M $noid fcitx5-remote -s mozc; mode $Mozc; $noid $alert 'Mozc: Activated'
 
-    bindsym $Super+1 $noid fcitx5-remote -c; mode default; $alert 'Skk: OFF'; workspace $ws1
-    bindsym $Super+2 $noid fcitx5-remote -c; mode default; $alert 'Skk: OFF'; workspace $ws2
-    bindsym $Super+3 $noid fcitx5-remote -c; mode default; $alert 'Skk: OFF'; workspace $ws3
-    bindsym $Super+4 $noid fcitx5-remote -c; mode default; $alert 'Skk: OFF'; workspace $ws4
-    bindsym $Super+5 $noid fcitx5-remote -c; mode default; $alert 'Skk: OFF'; workspace $ws5
-    bindsym $Super+6 $noid fcitx5-remote -c; mode default; $alert 'Skk: OFF'; workspace $ws6
-    bindsym $Super+7 $noid fcitx5-remote -c; mode default; $alert 'Skk: OFF'; workspace $ws7
-    bindsym $Super+8 $noid fcitx5-remote -c; mode default; $alert 'Skk: OFF'; workspace $ws8
-    bindsym $Super+9 $noid fcitx5-remote -c; mode default; $alert 'Skk: OFF'; workspace $ws9
-    bindsym $Super+0 $noid fcitx5-remote -c; mode default; $alert 'Skk: OFF'; workspace $ws0
+    bindsym $Super+1 $noid fcitx5-remote -c; mode default; $noid $alert 'Skk: OFF'; workspace $ws1
+    bindsym $Super+2 $noid fcitx5-remote -c; mode default; $noid $alert 'Skk: OFF'; workspace $ws2
+    bindsym $Super+3 $noid fcitx5-remote -c; mode default; $noid $alert 'Skk: OFF'; workspace $ws3
+    bindsym $Super+4 $noid fcitx5-remote -c; mode default; $noid $alert 'Skk: OFF'; workspace $ws4
+    bindsym $Super+5 $noid fcitx5-remote -c; mode default; $noid $alert 'Skk: OFF'; workspace $ws5
+    bindsym $Super+6 $noid fcitx5-remote -c; mode default; $noid $alert 'Skk: OFF'; workspace $ws6
+    bindsym $Super+7 $noid fcitx5-remote -c; mode default; $noid $alert 'Skk: OFF'; workspace $ws7
+    bindsym $Super+8 $noid fcitx5-remote -c; mode default; $noid $alert 'Skk: OFF'; workspace $ws8
+    bindsym $Super+9 $noid fcitx5-remote -c; mode default; $noid $alert 'Skk: OFF'; workspace $ws9
+    bindsym $Super+0 $noid fcitx5-remote -c; mode default; $noid $alert 'Skk: OFF'; workspace $ws0
 
-    bindsym $Super+H $noid fcitx5-remote -c; mode default; $alert 'Skk: OFF'; focus left
-    bindsym $Super+J $noid fcitx5-remote -c; mode default; $alert 'Skk: OFF'; focus down
-    bindsym $Super+K $noid fcitx5-remote -c; mode default; $alert 'Skk: OFF'; focus up
-    bindsym $Super+L $noid fcitx5-remote -c; mode default; $alert 'Skk: OFF'; focus right
-    bindsym $Super+O $noid fcitx5-remote -c; mode default; $alert 'Skk: OFF'; focus mode_toggle; $alert 'Focus: Toggle'
-    bindsym $Super+bracketleft  $noid fcitx5-remote -c; mode default; $alert 'Skk: OFF'; workspace prev
-    bindsym $Super+bracketright $noid fcitx5-remote -c; mode default; $alert 'Skk: OFF'; workspace next
+    bindsym $Super+H $noid fcitx5-remote -c; mode default; $noid $alert 'Skk: OFF'; focus left
+    bindsym $Super+J $noid fcitx5-remote -c; mode default; $noid $alert 'Skk: OFF'; focus down
+    bindsym $Super+K $noid fcitx5-remote -c; mode default; $noid $alert 'Skk: OFF'; focus up
+    bindsym $Super+L $noid fcitx5-remote -c; mode default; $noid $alert 'Skk: OFF'; focus right
+    bindsym $Super+O $noid fcitx5-remote -c; mode default; $noid $alert 'Skk: OFF'; focus mode_toggle; $noid $alert 'Focus: Toggle'
+    bindsym $Super+bracketleft  $noid fcitx5-remote -c; mode default; $noid $alert 'Skk: OFF'; workspace prev
+    bindsym $Super+bracketright $noid fcitx5-remote -c; mode default; $noid $alert 'Skk: OFF'; workspace next
 
     # # TODO: return to skk's japanese input by <c-space>
-    # bindsym L        $noid fcitx5-remote -c; mode default; $alert 'Skk: OFF'
-    # bindsym Shift+L  $noid fcitx5-remote -c; mode default; $alert 'Skk: OFF'
-    # bindsym $Super+I $noid fcitx5-remote -c; mode default; $alert 'Skk: OFF'
+    # bindsym L        $noid fcitx5-remote -c; mode default; $noid $alert 'Skk: OFF'
+    # bindsym Shift+L  $noid fcitx5-remote -c; mode default; $noid $alert 'Skk: OFF'
+    # bindsym $Super+I $noid fcitx5-remote -c; mode default; $noid $alert 'Skk: OFF'
 
-    bindsym Ctrl+C           $noid fcitx5-remote -c; mode default; $alert 'Skk: OFF'
-    bindsym Ctrl+bracketleft $noid fcitx5-remote -c; mode default; $alert 'Skk: OFF'
+    bindsym Ctrl+C           $noid fcitx5-remote -c; mode default; $noid $alert 'Skk: OFF'
+    bindsym Ctrl+bracketleft $noid fcitx5-remote -c; mode default; $noid $alert 'Skk: OFF'
 }
 
 # Keybind for Apps {{{1
@@ -883,16 +902,16 @@ $release $SuperS+M exec terminal -e 'mocp'
 
 # Keybind on Fn {{{1
 ## Fn; Backlight {{{2
-#bindsym XF86MonBrightnessUp   $noid xbacklight -inc 5; $notify 'Brightness: +5'
-#bindsym XF86MonBrightnessDown $noid xbacklight -dec 5; $notify 'Brightness: -5'
+#bindsym XF86MonBrightnessUp   $noid xbacklight -inc 5; $noid $notify 'Brightness: +5'
+#bindsym XF86MonBrightnessDown $noid xbacklight -dec 5; $noid $notify 'Brightness: -5'
 
 ## Fn; Audio Volume {{{2
 ## Depends: pulseaudio & pavucontrol
 ## Recommend: pamixer (a frontend)
 ## Recommend: pulseaudio-alsa (for flash)
-#bindsym XF86AudioRaiseVolume $noid pactl set-sink-volume 0 +5%; $notify 'Volume: +5'
-#bindsym XF86AudioLowerVolume $noid pactl set-sink-volume 0 -5%; $notify 'Volume: -5'
-#bindsym XF86AudioMute        $noid pactl set-sink-mute 0 toggle; $notify 'Volume: Mute Toggle'
+#bindsym XF86AudioRaiseVolume $noid pactl set-sink-volume 0 +5%; $noid $notify 'Volume: +5'
+#bindsym XF86AudioLowerVolume $noid pactl set-sink-volume 0 -5%; $noid $notify 'Volume: -5'
+#bindsym XF86AudioMute        $noid pactl set-sink-mute 0 toggle; $noid $notify 'Volume: Mute Toggle'
 
 # Fn; Screen Shot {{{2
 bindsym $SuperS+P  $noid killall -q flameshot; exec sleep 1; exec flameshot gui &
@@ -902,7 +921,7 @@ bindsym $SuperA+P    $noid $MY_I3_SCRIPTS/toggle-Recording
 bindsym $Super+Print $noid $MY_I3_SCRIPTS/toggle-Recording
 
 #set $Print " Print: (Shift+) screenshot | (Super+) record in GIF "
-#bindsym Print mode $Print; $notify 'Print: entered'
+#bindsym Print mode $Print; $noid $notify 'Print: entered'
 #mode $Print {
 #bindsym Print        mode default; $noid exec $MY_SCRIPTS/recording-toggle.sh
 #bindsym Shift+Print  mode default; $noid i3-scrot
