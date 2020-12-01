@@ -783,7 +783,7 @@ mode $Editor {
 # Finder {{{2
 # Mnemonic: Finder or File explorer
 set $Finder " Finder: [N]nn [R]anger [H]unter [P]CManFM(lxde) PCManFM-[Q]t(lxqt) [T]hunar(Xfce) (G)ooglePhoto "
-$release $Super+F  mode $Finder; $noid $shortmsg 'Finders'
+$release $Super+F mode $Finder; $noid $shortmsg 'Finders'
 
 mode $Finder {
     $release P exec pcmanfm; mode default
