@@ -5,10 +5,44 @@
 let g:which_key_vertical = 1
 let g:which_key_floating_relative_win = 1
 
+function! s:repo() abort
+  return fnamemodify(FindRootDirectory(), ':s_.*/\ze[^/]*/[^/]*__')
+endfunction
+function! s:set_in_reg(target) abort
+  const reg = v:register ==# '"' ? '+' : v:register
+  call setreg(reg, a:target)
+  echo a:target 'in @'. reg
+endfunction
+nnoremap <silent> <Plug>(yank-repo)  :<C-u>call <SID>set_in_reg(<SID>repo())<CR>
+noremap! <expr>   <Plug>(paste-repo) <SID>repo()
+nnoremap <silent> <Plug>(yank-path)  :<C-u>call <SID>set_in_reg(expand('%:p'))<CR>
+noremap! <expr>   <Plug>(paste-path) expand('%:p')
+nnoremap <silent> <Plug>(yank-fname)  :<C-u>call <SID>set_in_reg(expand('%:t'))<CR>
+noremap! <expr>   <Plug>(paste-fname) expand('%:t')
+nnoremap <silent> <Plug>(yank-bufnr)  :<C-u>call <SID>set_in_reg(bufnr())<CR>
+noremap! <expr>   <Plug>(paste-bufnr) bufnr('%')
+
 function! s:register_keys() abort
   " Add prefix 'v_' to xmaps
 
   let l:nmaps = {}
+
+  let l:nmaps['Yank Path '] = {
+        \ 'name': '[ local ]',
+        \
+        \ 'p': ['<Plug>(yank-path)',  'Get current full-path'],
+        \ 'f': ['<Plug>(yank-fname)', 'Get current filename'],
+        \ 'b': ['<Plug>(yank-bufnr)', 'Get current bufnr'],
+        \ 'r': ['<Plug>(yank-repo)',  'Get current repo'],
+        \ }
+  let l:nmaps['Paste Path '] = {
+        \ 'name': '[ local ]',
+        \
+        \ 'p': ['<Plug>(paste-path)',  'Paste current full-path'],
+        \ 'f': ['<Plug>(paste-fname)', 'Paste current filename'],
+        \ 'b': ['<Plug>(paste-bufnr)', 'Paste current bufnr'],
+        \ 'r': ['<Plug>(paste-repo)',  'Paste current repo'],
+        \ }
 
   if dein#tap('vim-caser')
     let l:nmaps['Caser '] = {

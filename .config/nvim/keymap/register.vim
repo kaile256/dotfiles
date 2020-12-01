@@ -1,29 +1,5 @@
 " From: init.vim
 
-function! s:set_in_reg(target) abort
-  const reg = v:register ==# '"' ? '+' : v:register
-  call setreg(reg, a:target)
-  echo a:target 'in @'. reg
-endfunction
-
-nnoremap <silent> <SID>(yank-path)
-      \ :<C-u>call <SID>set_in_reg(expand('%:p'))<CR>
-noremap! <expr> <SID>(paste-path) expand('%:p')
-nmap y<C-g><C-p> <SID>(yank-path)
-map! <C-r><C-g><C-p> <SID>(paste-path)
-
-nnoremap <silent> <SID>(yank-fname)
-      \ :<C-u>call <SID>set_in_reg(expand('%:t'))<CR>
-noremap! <expr> <SID>(paste-fname) expand('%:t')
-nmap y<C-g><C-f> <SID>(yank-fname)
-map! <C-r><C-g><C-f> <SID>(paste-fname)
-
-nnoremap <silent> <SID>(yank-bufnr)
-      \ :<C-u>call <SID>set_in_reg(bufnr())<CR>
-noremap! <expr> <SID>(paste-bufnr) bufnr('%')
-nmap y<C-g><C-b> <SID>(yank-bufnr)
-map! <C-r><C-g><C-b> <SID>(paste-bufnr)
-
 " nnoremap p p`]
 " nnoremap p ]p`]
 nnoremap P ]P
