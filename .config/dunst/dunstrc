@@ -301,4 +301,3 @@ timeout = 8
 #     background = "#30AB70"
 #     foreground = "#F67245"
 
-# vim: ft=cfg
