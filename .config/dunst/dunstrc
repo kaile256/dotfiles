@@ -151,7 +151,7 @@ icon_path = /usr/share/icons/Adwaita/16x16/status/:/usr/share/icons/Adwaita/16x1
 # Limit icons size.
 max_icon_size=32
 
-#[[[Colors]]]
+#[ Colors ]
 [urgency_low]
 # IMPORTANT: colors have to be defined in quotation marks.
 # Otherwise the "#" and following would be interpreted as a comment.
@@ -214,7 +214,7 @@ timeout = 8
 ## Context Menu
 #context = "mod4+o"
 
-#[[[Filtering]]]
+#[ Filtering ]
 # summary: matches the 'title'(summary) of the notification
 # appname: DISCOURAGED; use 'desktop_entry' which won't get localized compared to appname
 #[espeak]
