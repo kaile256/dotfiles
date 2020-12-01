@@ -54,82 +54,43 @@ if has('unix')
 endif
 
 " the Function to load plugins {{{1
-function! s:load_plugins(list) abort
-  " both toml and plugin's name are loadable.
-  " Note: dict['idx'] is faster than dict.idx
-  " map() works slower because it's not so different than additional for-loop.
+function! s:load_plugins() abort
+  " Read all the tomls under specified directories.
 
-  " TODO: get plugins' normalized name to map() to override dict like 'hook_add'
-  " to 'runtime add/(normalized_name).vim'.
-  for dict in a:list
-    if get(dict['opt'], 'if', 1) == 0
+  let config = [{
+        \ 'label': 'init',
+        \ 'opt': {},
+        \ }, {
+        \ 'label': 'lazy',
+        \ 'opt': {'lazy': 1},
+        \ }, {
+        \ 'label': 'nvim_only',
+        \ 'opt': {
+        \   'lazy': 1,
+        \   'if': 'has("nvim")',
+        \   },
+        \ }, {
+        \ 'label': 'vim_only',
+        \ 'opt': {
+        \   'lazy': 1,
+        \   'if': '!has("nvim")',
+        \   },
+        \ }]
+
+  for dict in config
+    let opt = get(dict, 'opt', {})
+    if get(opt, 'if', 1) == 0
       continue
     endif
 
-    for fname in dict['fnames']
-      if fname =~# '\.toml$'
-        " format: dein#load_toml(path, opt)
-        call dein#load_toml($DEIN_TOML_HOME .'/'. fname, dict['opt'])
-        continue
-      endif
-
-      call dein#add(fname, dict['opt'])
+    let label = dict['label']
+    let toml_dir = $DEIN_TOML_HOME .'/'. label
+    for fname in readdir(toml_dir)
+      let toml_path = toml_dir .'/'. fname
+      call dein#load_toml(toml_path, opt)
     endfor
   endfor
 endfunction
-
-" the List of TOML {{{1
-" Note: path could be different on the files managed in dotfiles
-"   if g:dein_toml_dir's includes $XDG_CONFIG_HOME
-
-"let g:dein#types#git#pull_command = 'pull --ff --ff-only'
-" Note: if bugs after installation, like no command ':Ag' or ':Gush' on
-"       vim-fugitive, doubt if you really quitted vim by vim itself, i.e., had
-"       not quitted by i3wm.
-
-let s:toml_lazy = [
-      \ 'appearance.toml',
-      \ 'browse.toml',
-      \ 'colorscheme.toml',
-      \ 'compiler.toml',
-      \ 'debug.toml',
-      \ 'default.toml',
-      \ 'ext.toml',
-      \ 'external.toml',
-      \ 'fold.toml',
-      \ 'ftplugin.toml',
-      \ 'fugitive.toml',
-      \ 'git.toml',
-      \ 'insert.toml',
-      \ 'japanese.toml',
-      \ 'lsp.toml',
-      \ 'markdown.toml',
-      \ 'memo.toml',
-      \ 'motion.toml',
-      \ 'operator.toml',
-      \ 'private.toml',
-      \ 'public.toml',
-      \ 'script.toml',
-      \ 'shell.toml',
-      \ 'syntax.toml',
-      \ 'textobj.toml',
-      \ 'vimscript.toml',
-      \ 'xampp.toml',
-      \ ]
-
-if executable('xinput')
-  let s:toml_lazy += [
-        \ 'web.toml'
-        \ ]
-endif
-
-let s:tomls = [{
-      \ 'opt': {'lazy': 1},
-      \ 'fnames': s:toml_lazy,
-      \ }]
-
-let s:load_the_plugins = function('s:load_plugins', [s:tomls])
-unlet s:tomls s:toml_lazy
 
 " Load plugins by Dein {{{1
 if !exists('s:is_loaded')
@@ -141,7 +102,7 @@ if !exists('s:is_loaded')
       call dein#add('roxma/nvim-yarp')
       call dein#add('roxma/vim-hug-neovim-rpc')
     endif
-    call s:load_the_plugins()
+    call s:load_plugins()
     call dein#end()
     call dein#save_state()
   endif
