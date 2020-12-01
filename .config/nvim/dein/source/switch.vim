@@ -71,6 +71,7 @@ function! s:set_definitions() abort
         \ ]
 
   let rules.opposite = [
+        \ ['pros', 'cons'],
         \ ['Enter', 'Leave'],
         \ ['before', 'after'],
         \ ['on', 'off'],
