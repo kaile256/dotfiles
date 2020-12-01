@@ -3,9 +3,21 @@
 # Web: https://wiki.archlinux.jp/index.php/Dunst
 
 [global]
-frame_width = 1
-
-font = JetBrainsMono Nerd Font 13
+#[ Display ]
+# Which monitor should the notifications be displayed on.
+monitor = 0
+# Display notification on focused monitor.  Possible modes are:
+#   mouse: follow mouse pointer
+#   keyboard: follow window with keyboard focus
+#   none: don't follow anything
+#
+# "keyboard" needs a windowmanager that exports the
+# _NET_ACTIVE_WINDOW property.
+# This should be the case for almost all modern windowmanagers.
+#
+# If this option is set to mouse or keyboard, the monitor option
+# will be ignored.
+follow = keyboard
 
 # Allow a small subset of html markup:
 # Ref: http://developer.gnome.org/pango/stable/PangoMarkupFormat.html
@@ -81,22 +93,6 @@ transparency = 15
 # Set to 0 to disable.
 # default 120
 idle_threshold = 120
-
-# Which monitor should the notifications be displayed on.
-monitor = 0
-
-# Display notification on focused monitor.  Possible modes are:
-#   mouse: follow mouse pointer
-#   keyboard: follow window with keyboard focus
-#   none: don't follow anything
-#
-# "keyboard" needs a windowmanager that exports the
-# _NET_ACTIVE_WINDOW property.
-# This should be the case for almost all modern windowmanagers.
-#
-# If this option is set to mouse or keyboard, the monitor option
-# will be ignored.
-follow = mouse
 
 # Should a notification popped up from history be sticky or timeout
 # as if it would normally do.
