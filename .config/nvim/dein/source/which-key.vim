@@ -11,7 +11,7 @@ function! s:register_keys() abort
   let l:nmaps = {}
 
   if dein#tap('vim-caser')
-    let l:nmaps['\u'] = {
+    let l:nmaps['Caser '] = {
           \ 'name': '[arthurxavierx/vim-caser]',
           \
           \ 't': ['<Plug>CaserTitleCase',    'Title Case'],
@@ -28,7 +28,7 @@ function! s:register_keys() abort
           \ '.': ['<Plug>CaserDotCase',   'dot.separated'],
           \ }
 
-    let l:nmaps['v_\u'] = {
+    let l:nmaps['Caser in Visual '] = {
           \ 'name': '[arthurxavierx/vim-caser]',
           \
           \ 't': ['<Plug>CaserVTitleCase',    'Title Case'],
