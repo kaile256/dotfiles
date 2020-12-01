@@ -31,8 +31,11 @@
 #[ Table-Mode ]
 [[plugins]]
 repo = 'dhruvasagar/vim-table-mode'
-on_cmd = ['TableModeRealign']
-#on_ft = ['org', 'text', 'vimwiki', 'markdown']
+on_cmd = ['Tableize', 'TableAddFormula']
+on_map = {
+  ox = '<Plug>(table-mode-cell-text-object-',
+  nox = '<Plug>(table-mode-motion-'
+}
 hook_add = 'runtime add/table-mode.vim'
 hook_source = 'runtime source/table-mode.vim'
 
