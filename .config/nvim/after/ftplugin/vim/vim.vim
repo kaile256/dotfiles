@@ -3,8 +3,8 @@
 setlocal isfname-=,
 setlocal isfname-==
 
-silent! setlocal fo-=r " Insert comment leader by \<CR> in Normal mode
-silent! setlocal fo-=o " Insert comment leader by o/O in Normal mode
+setlocal fo-=r " Insert comment leader by \<CR> in Normal mode
+setlocal fo-=o " Insert comment leader by o/O in Normal mode
 
 function! s:fold_up_vimscript() abort "{{{
   if &readonly && !&modifiable | return | endif
