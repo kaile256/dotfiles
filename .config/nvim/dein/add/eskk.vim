@@ -8,7 +8,7 @@ set imdisable " no use on neovim or nvim-qt.
 " Tips: Non-digit literal would be only required in Vimscript; Japanese is
 " unnecessary in Vimscript where no one but I will read codes.
 inoremap <expr> <C-v> (&ft ==# 'vim') ? '<C-v>' : eskk#enable()
-" cnoremap <expr> <C-v> eskk#enable()
+noremap! <expr> <C-j> eskk#enable()
 
 finish
 
