@@ -22,7 +22,6 @@ follow = keyboard
 #[ Window ]
 # Sort messages by urgency.
 sort = yes
-
 # Show how many messages are currently hidden (because of geometry).
 indicate_hidden = yes
 # Show age of message if message is older than show_age_threshold # seconds.
