@@ -251,7 +251,8 @@ settings:
         <Ctrl+y>: scroll-px 0 -50
         <Del>: fake-key <Delete>
         <Enter>: enter-mode insert;; fake-key <enter> ;; leave-mode
-        <Escape>: clear-keychain ;; search ;; fullscreen --leave;; download-clear
+        <Shift+Space>P: open -t {primary}
+        <Shift+Space>p: open {primary}
         <Space>1: tab-close
         <Space>2: save
         <Space>F: hint links tab-bg
