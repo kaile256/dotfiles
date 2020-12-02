@@ -153,6 +153,13 @@ repo = 'christoomey/vim-conflicted'
 depends = 'vim-fugitive'
 on_cmd = 'Conflicted'
 hook_source = 'runtime source/conflicted.vim'
+[[plugins]]
+repo = 'whiteinge/diffconflicts'
+# Keep $LOCAL and $REMOTE as resolving conflictions, and only affects the
+# buffer that contains conflict-markers.
+# This plugin doesn't treat three-way diffs which doesn't work well with Vim's
+# syntax highlighting to diff.
+on_cmd = ['DiffConflicts', 'DiffConflictsWithHistory']
 
 #[ GitHub ]
 [[plugins]]
