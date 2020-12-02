@@ -47,7 +47,7 @@ function! s:set_color() abort
   " Note: Value can be a list with two different values like
   " `'yellow': ['Yellow', 'FireBrick3 gui=bold']`.
   let cterm2gui = {
-        \ 'white': 233,
+        \ 'white': ['253', '#dadada'],
         \ 'magenta': 'Magenta3 gui=bold',
         \ 'blue': ['blue', 'DeepSkyBlue1 gui=bold'],
         \ 'turquoise': ['Cyan', 'Turquoise gui=bold'],
