@@ -566,6 +566,8 @@ settings:
     global: true
   input.partial_timeout:
     global: 3000
+  input.spatial_navigation:
+    global: true
   new_instance_open_target:
     global: tab
   new_instance_open_target_window:
