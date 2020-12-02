@@ -34,6 +34,11 @@
 [mergetool "vim_mergetool"]
 	cmd = vim -f -c "MergetoolStart" "$MERGED" "$BASE" "$LOCAL" "$REMOTE"
 	trustExitCode = true
+[mergetool "diffconflicts"]
+	# Repo: whiteinge/diffconflicts
+	cmd = $GIT_EDITOR -c DiffConflicts "$MERGED" "BASE" "$LOCAL" "$REMOTE"
+	trustExitCode = true
+	keepBackup = false
 [url "github:"]
 	# Cargo to build is incompatible with 'InsteadOf = either https://github.com/
 	# or git@github.com:'
