@@ -1,5 +1,8 @@
 " From: ftplugin.vim
 
+setlocal isfname-=,
+setlocal isfname-==
+
 silent! setlocal fo-=r " Insert comment leader by \<CR> in Normal mode
 silent! setlocal fo-=o " Insert comment leader by o/O in Normal mode
 
