@@ -57,33 +57,24 @@ endif
 function! s:load_plugins() abort
   " Read all the tomls under specified directories.
 
-  let config = [{
-        \ 'label': 'init',
-        \ 'opt': {},
-        \ }, {
-        \ 'label': 'lazy',
-        \ 'opt': {'lazy': 1},
-        \ }, {
-        \ 'label': 'nvim_only',
-        \ 'opt': {
+  let config = {
+        \ 'init': {},
+        \ 'lazy': { 'lazy': 1 },
+        \ 'nvim_only': {
         \   'lazy': 1,
         \   'if': 'has("nvim")',
         \   },
-        \ }, {
-        \ 'label': 'vim_only',
-        \ 'opt': {
+        \ 'vim_only': {
         \   'lazy': 1,
         \   'if': '!has("nvim")',
         \   },
-        \ }]
+        \ }
 
-  for dict in config
-    let opt = get(dict, 'opt', {})
-    if get(opt, 'if', 1) == 0
-      continue
-    endif
+  for label in keys(config)
+    let opt = config[label]
+    let expr = get(opt, 'if', 1)
+    if eval(expr) == 0 | continue | endif
 
-    let label = dict['label']
     let toml_dir = $DEIN_TOML_HOME .'/'. label
     for fname in readdir(toml_dir)
       let toml_path = toml_dir .'/'. fname
