@@ -579,7 +579,7 @@ settings:
   scrolling.bar:
     global: always
   scrolling.smooth:
-    global: false
+    global: true
   session.default_name:
     global: default
   session.lazy_restore:
