@@ -315,6 +315,11 @@ settings:
         co: null
         d: scroll-page 0 +0.5
         f: scroll-page 0 +1.0
+        g<Ctrl+a>: navigate increment
+        g<Ctrl+n>: navigate next
+        g<Ctrl+o>: navigate up
+        g<Ctrl+p>: navigate prev
+        g<Ctrl+x>: navigate decrement
         gA: open -t https://www.amazon.co.jp/ref=nav_logo
         gC: open -t https://calendar.google.com/calendar/r/month?pli=1
         gD: hint links tab-bg
