@@ -38,10 +38,9 @@ function! MarkdownFoldExpr(lnum) abort "{{{1
     return '>'. s:foldlevel_header(line)
 
   elseif line =~# '^```'
-    if prev ==# ''
-      return 'a1'
-    endif
-    return 's1'
+    return line =~# '[^`]$' || prev ==# ''
+          \ ? 'a1'
+          \ : 's1'
   endif
 
   " elseif line =~# s:pat_item
