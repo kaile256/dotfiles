@@ -55,7 +55,7 @@ let g:lightline.active = {
       \ 'right': [
       \   ['cur_col'],
       \   ['pos_bar_with_lineinfo'],
-      \   ['indent', 'fileformat', 'fileencoding', 'filetype'],
+      \   ['indent', 'fileformat', 'fileencoding', 'filetype', 'opt_fold'],
       \ ],
       \ }
 
@@ -154,6 +154,7 @@ let g:lightline.component_function = {
       \
       \ 'filetype': 'LL_filetype',
       \ 'indent': 'LL_indent',
+      \ 'opt_fold': 'LL_opt_fold',
       \
       \ 'cwd': 'LL_getcwd',
       \
@@ -238,6 +239,15 @@ function! LL_indent() abort
 
   return cur_options
 endfunction
+
+function! LL_opt_fold() abort "{{{3
+  const fdm = &fdm
+
+  return fdm ==# 'expr'
+        \ ? 'fde='. &fde
+        \ : 'fdm='. fdm
+endfunction
+
 function! LL_readonly() abort "{{{3
   if &bt !=# ''
     return ''
