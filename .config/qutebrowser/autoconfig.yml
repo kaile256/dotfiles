@@ -14,24 +14,24 @@ settings:
       abbr: config-dict-add aliases
       alias: config-dict-add aliases
       cabbr: config-dict-add aliases
-      cmap: bind -m command
+      cmap: bind --mode command
       cmd: config-dict-add aliases
       command: config-dict-add aliases
       command!: config-dict-add --replace aliases
       cunabbr: config-dict-remove aliases
-      cunmap: unbind -m command
+      cunmap: unbind --mode command
       e: reload
       e!: reload -f
       e%: reload
       emacs: enter-mode passthrough
-      emap: bind -m passthrough
+      emap: bind --mode passthrough
       emode: enter-mode passthrough
-      eunmap: unbind -m passthrough
+      eunmap: unbind --mode passthrough
       h: help
-      hmap: bind -m hint
-      hunmap: unbind -m hint
-      imap: bind -m insert
-      iunmap: unbind -m insert
+      hmap: bind --mode hint
+      hunmap: unbind --mode hint
+      imap: bind --mode insert
+      iunmap: unbind --mode insert
       lds: session-load
       ls: buffer
       mess: messages
@@ -43,9 +43,9 @@ settings:
       nunmap: unbind
       nvim: spawn nvim-qt
       o: open
-      pmap: bind -m prompt
+      pmap: bind --mode prompt
       pocket-save: spawn --userscript qutepocket
-      punmap: unbind -m prompt
+      punmap: unbind --mode prompt
       q: tab-close
       qa: quit
       r: session-load
@@ -58,14 +58,14 @@ settings:
       unalias: config-dict-remove aliases
       uncmd: config-dict-remove aliases
       unmap: unbind
-      vmap: bind -m caret
-      vunmap: unbind -m caret
+      vmap: bind --mode caret
+      vunmap: unbind --mode caret
       w: save
       wl: https://ejje.weblio.jp/content/{}?erl=true
       wq: quit --save
       wqa: quit --save
-      xmap: bind -m caret
-      xunmap: unbind -m caret
+      xmap: bind --mode caret
+      xunmap: unbind --mode caret
       zotero-save: spawn --userscript qute-zotero
   auto_save.interval:
     global: 15000
