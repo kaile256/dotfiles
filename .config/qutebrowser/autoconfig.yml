@@ -284,8 +284,9 @@ settings:
         <Tab>: enter-mode insert;; fake-key <TAB>
         <い>: enter-mode insert
         '>': tab-move +
+        B: scroll-page 0 -2.0
         D: scroll-page 0 +0.75
-        F: hint links tab-bg
+        F: scroll-page 0 +2.0
         H: fake-key <Left>
         I: hint inputs --first
         J: fake-key <down>
