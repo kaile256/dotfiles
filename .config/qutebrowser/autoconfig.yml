@@ -179,6 +179,7 @@ settings:
         <Ctrl+w>: fake-key <ctrl-backspace>
         <Ctrl+y>: insert-text {primary}
       normal:
+        '!': set-cmd-text --space :spawn
         '0': fake-key <Home>
         '2': save
         <: tab-move -
