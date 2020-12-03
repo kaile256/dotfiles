@@ -8,8 +8,10 @@ cnoremap <expr> <c-r><c-0>     onelineConv#vimscript('0', ' ')
 cnoremap <expr> <c-r>;<space>   onelineConv#vimscript('+', '; ')
 cnoremap <expr> <c-r>;0         onelineConv#vimscript('0', '; ')
 
-cnoremap <expr> <c-r><bslash><space>   onelineConv#vimscript('+', ' \| ')
-cnoremap <expr> <c-r><bslash>0         onelineConv#vimscript('0', ' \| ')
+cnoremap <expr> <c-r><bar><space>    onelineConv#vimscript('+', ' \| ')
+cnoremap <expr> <c-r><bar>0          onelineConv#vimscript('0', ' \| ')
+cnoremap <expr> <c-r><bslash><space> onelineConv#vimscript('+', ' \| ')
+cnoremap <expr> <c-r><bslash>0       onelineConv#vimscript('0', ' \| ')
 
 tnoremap <expr> <c-r><space>   onelineConv#shscript('+', ' ')
 tnoremap <expr> <c-r><c-space> onelineConv#shscript('+', ' ')
