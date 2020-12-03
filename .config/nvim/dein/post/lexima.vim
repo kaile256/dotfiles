@@ -478,6 +478,23 @@ function! s:set_rules() abort
         \ {'char': '_', 'at': '<[ACDSM]\%#', 'input': '-', 'mode': 'ic'},
         \ ]
 
+  " With Other Plugins {{{1
+  " TOML: default.toml
+  " Repo: vim-scripts/sherlock.vim
+  let with_Sherlock = [
+        \ {
+        \   'char': '<C-s>',
+        \   'input': '<C-\>esherlock#completeForward()<CR>',
+        \   'mode': 'c',
+        \ },
+        \ {
+        \   'char': '<C-q>',
+        \   'input': '<C-\>esherlock#completeBackward()<CR>',
+        \   'mode': 'c',
+        \ },
+        \ ]
+  let global += with_Sherlock
+
   " Addtional Rules on FileType {{{1
   " Suppress some rules up to filetype.
   const Always_single_quots_on_some_filetypes = [

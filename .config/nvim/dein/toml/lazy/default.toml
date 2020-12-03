@@ -152,6 +152,11 @@ repo = 'markonm/traces.vim'
 if = 'has("patch-8.0.1206")'
 on_event = 'CmdLineEnter'
 hook_source = 'runtime source/traces.vim'
+[[plugins]]
+repo = 'vim-scripts/sherlock.vim'
+# Completion mappings in Cmdline.
+on_func = ['sherlock#']
+hook_source = 'runtime source/sherlock.vim'
 
 #[ Register ]
 [[plugins]]
