@@ -54,63 +54,60 @@ if has('unix')
 endif
 
 " Load plugins by Dein {{{1
-if !exists('s:is_loaded')
-  if dein#load_state($DEIN_CACHE_HOME)
-    call dein#begin($DEIN_CACHE_HOME)
-    " TODO: make faster to load tomls (it takes 1 sec. or more)
-    call dein#add('Shougo/dein.vim') " Required
-    if !has('nvim')
-      call dein#add('roxma/nvim-yarp')
-      call dein#add('roxma/vim-hug-neovim-rpc')
-    endif
-
-    function! s:load_plugins() abort
-      " Read all the tomls under specified directories.
-
-      let config = {
-            \ 'init': {},
-            \ 'lazy': { 'lazy': 1 },
-            \ 'nvim_only': {
-            \   'lazy': 1,
-            \   'if': 'has("nvim")',
-            \   },
-            \ 'vim_only': {
-            \   'lazy': 1,
-            \   'if': '!has("nvim")',
-            \   },
-            \ }
-
-      for label in keys(config)
-        let opt = config[label]
-        let expr = get(opt, 'if', 1)
-        if eval(expr) == 0 | continue | endif
-
-        let toml_dir = $DEIN_TOML_HOME .'/'. label
-        for fname in readdir(toml_dir)
-          let toml_path = toml_dir .'/'. fname
-          call dein#load_toml(toml_path, opt)
-        endfor
-      endfor
-    endfunction
-    call s:load_plugins()
-
-    call dein#end()
-    call dein#save_state()
-  endif
-
-  if dein#check_install() "{{{2
-    call dein#install()
-    if has('nvim')
-      " call remote#host#UpdateRemotePlugins()
-      call dein#remote_plugins()
-    endif
-  endif "}}}2
-
-  filetype plugin indent on
+if dein#load_state($DEIN_CACHE_HOME)
+  call dein#begin($DEIN_CACHE_HOME)
+  " TODO: make faster to load tomls (it takes 1 sec. or more)
+  call dein#add('Shougo/dein.vim') " Required
   if !has('nvim')
-    syntax on
+    call dein#add('roxma/nvim-yarp')
+    call dein#add('roxma/vim-hug-neovim-rpc')
   endif
-  let s:is_loaded = 1
+
+  function! s:load_plugins() abort
+    " Read all the tomls under specified directories.
+
+    let config = {
+          \ 'init': {},
+          \ 'lazy': { 'lazy': 1 },
+          \ 'nvim_only': {
+          \   'lazy': 1,
+          \   'if': 'has("nvim")',
+          \   },
+          \ 'vim_only': {
+          \   'lazy': 1,
+          \   'if': '!has("nvim")',
+          \   },
+          \ }
+
+    for label in keys(config)
+      let opt = config[label]
+      let expr = get(opt, 'if', 1)
+      if eval(expr) == 0 | continue | endif
+
+      let toml_dir = $DEIN_TOML_HOME .'/'. label
+      for fname in readdir(toml_dir)
+        let toml_path = toml_dir .'/'. fname
+        call dein#load_toml(toml_path, opt)
+      endfor
+    endfor
+  endfunction
+  call s:load_plugins()
+
+  call dein#end()
+  call dein#save_state()
+endif
+
+if dein#check_install() "{{{2
+  call dein#install()
+  if has('nvim')
+    " call remote#host#UpdateRemotePlugins()
+    call dein#remote_plugins()
+  endif
+endif "}}}2
+
+filetype plugin indent on
+if !has('nvim')
+  syntax on
 endif
 
 augroup myDeinRc "{{{1
