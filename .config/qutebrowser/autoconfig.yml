@@ -367,10 +367,12 @@ settings:
         wc: tab-close
         wq: bookmark-del;; bookmark-add;; tab-close
         wqa: bookmark-del;; bookmark-add;; quit
+        yM: :set-cmd-text :config-dict-add --replace url.searchengines {url:pretty}
         yO: set-cmd-text :open -t -r {url:pretty}
         yc: hint code userscript code_select.py
         yf: hint links yank
         ygc: spawn --detach google-chrome-stable {url:pretty}
+        ym: :set-cmd-text :config-dict-add url.searchengines {url:pretty}
         yo: set-cmd-text :open {url:pretty}
         yv: yank selection
         yy: yank
