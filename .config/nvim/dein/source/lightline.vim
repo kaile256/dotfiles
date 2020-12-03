@@ -55,7 +55,7 @@ let g:lightline.active = {
       \ 'right': [
       \   ['cur_col'],
       \   ['pos_bar_with_lineinfo'],
-      \   ['indent', 'fileformat', 'fileencoding', 'filetype', 'opt_fold'],
+      \   ['indent', 'fileformat', 'fileencoding', 'filetype'],
       \ ],
       \ }
 
@@ -398,7 +398,10 @@ function! LL_filetype() abort "{{{3
     return '[no ft]'
   endif
 
-  return 'ft='. &ft
+  let fdm = LL_opt_fold()
+  let fdm = substitute(fdm, '^fd[me]=', '', '')
+  let fdm = substitute(fdm, '(.*)$', '', '')
+  return 'ft='. &ft .','. fdm
 endfunction
 
 function! LL_specific_buffer() abort "{{{3
