@@ -1,5 +1,5 @@
-let s:foldlevel_header = {line -> (matchstrpos(line, '#\+')[2] - 1) }
-let s:pat_header = '^\s*#\+ [^#'"]'
+let s:pat_header1 = '^\s*\zs#\ze \S'
+let s:pat_header = '^\s*\zs#\+\ze \S'
 let s:pat_item   = '\d\\. \|[-*] '
 
 setl fdm=expr fde=MarkdownFoldExpr(v:lnum)
@@ -11,13 +11,30 @@ else
 endif
 let b:undo_ftplugin .= 'setl fdm< fde<'
 
+function! s:has_multi_header1() abort
+  let cnt = 0
+  const fname = expand('%:p')
+  const lines = readfile(fname)
+  for line in lines
+    let cnt += line =~# s:pat_header1
+  endfor
+  return cnt >= 2
+endfunction
+
+function! s:foldlevel_header(line) abort
+  const b:has_multi_header1 = s:has_multi_header1()
+
+  const header_level = matchstrpos(a:line, s:pat_header)[2]
+  const modifier = b:has_multi_header1 == 0
+  return header_level - modifier
+endfunction
+
 function! MarkdownFoldExpr(lnum) abort "{{{1
   let line = getline(a:lnum)
   let prev = getline(a:lnum - 1)
   let next = getline(a:lnum + 1)
 
   if line =~# s:pat_header
-    " no fold on the first level header
     return '>'. s:foldlevel_header(line)
 
   elseif line =~# '^```'
