@@ -311,7 +311,7 @@ settings:
         \t: hint all right-click
         ']': tab-next
         a: hint inputs
-        b: fake-key <alt+Up>
+        b: scroll-page 0 -1.0
         cd: null
         co: null
         d: scroll-page 0 +0.5
