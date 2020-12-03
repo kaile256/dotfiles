@@ -22,10 +22,10 @@ function! s:has_multi_header1() abort
 endfunction
 
 function! s:foldlevel_header(line) abort
-  const b:has_multi_header1 = s:has_multi_header1()
+  let has_multi_header1 = s:has_multi_header1()
 
   const header_level = matchstrpos(a:line, s:pat_header)[2]
-  const modifier = b:has_multi_header1 == 0
+  const modifier = has_multi_header1 == 0
   return header_level - modifier
 endfunction
 
