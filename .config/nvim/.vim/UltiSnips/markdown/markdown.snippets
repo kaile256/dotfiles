@@ -11,6 +11,18 @@ snip.reset_indent()
 \`\`\`
 endsnippet
 
+snippet '\[(.*)]' "[Title](url)" wr
+[${2:`!p snip.rv = match.group(1)`}](${1:`!p
+v_text = snip.v.text
+pat_url = r'://|^/'
+if re.match(pat_url, v_text):
+  snip.rv = v_text
+else :
+  clipboard = vim.eval('@+')
+  snip.rv = clipboard
+`})
+endsnippet
+
 snippet vim "README for Vim plugin" b
 # `!v substitute(expand('%:p:h'), '.*\/', '', 'e')`
 
