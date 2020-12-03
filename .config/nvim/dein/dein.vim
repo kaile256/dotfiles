@@ -53,36 +53,6 @@ if has('unix')
   let g:dein#enable_notification = 1
 endif
 
-" the Function to load plugins {{{1
-function! s:load_plugins() abort
-  " Read all the tomls under specified directories.
-
-  let config = {
-        \ 'init': {},
-        \ 'lazy': { 'lazy': 1 },
-        \ 'nvim_only': {
-        \   'lazy': 1,
-        \   'if': 'has("nvim")',
-        \   },
-        \ 'vim_only': {
-        \   'lazy': 1,
-        \   'if': '!has("nvim")',
-        \   },
-        \ }
-
-  for label in keys(config)
-    let opt = config[label]
-    let expr = get(opt, 'if', 1)
-    if eval(expr) == 0 | continue | endif
-
-    let toml_dir = $DEIN_TOML_HOME .'/'. label
-    for fname in readdir(toml_dir)
-      let toml_path = toml_dir .'/'. fname
-      call dein#load_toml(toml_path, opt)
-    endfor
-  endfor
-endfunction
-
 " Load plugins by Dein {{{1
 if !exists('s:is_loaded')
   if dein#load_state($DEIN_CACHE_HOME)
@@ -93,7 +63,37 @@ if !exists('s:is_loaded')
       call dein#add('roxma/nvim-yarp')
       call dein#add('roxma/vim-hug-neovim-rpc')
     endif
+
+    function! s:load_plugins() abort
+      " Read all the tomls under specified directories.
+
+      let config = {
+            \ 'init': {},
+            \ 'lazy': { 'lazy': 1 },
+            \ 'nvim_only': {
+            \   'lazy': 1,
+            \   'if': 'has("nvim")',
+            \   },
+            \ 'vim_only': {
+            \   'lazy': 1,
+            \   'if': '!has("nvim")',
+            \   },
+            \ }
+
+      for label in keys(config)
+        let opt = config[label]
+        let expr = get(opt, 'if', 1)
+        if eval(expr) == 0 | continue | endif
+
+        let toml_dir = $DEIN_TOML_HOME .'/'. label
+        for fname in readdir(toml_dir)
+          let toml_path = toml_dir .'/'. fname
+          call dein#load_toml(toml_path, opt)
+        endfor
+      endfor
+    endfunction
     call s:load_plugins()
+
     call dein#end()
     call dein#save_state()
   endif
