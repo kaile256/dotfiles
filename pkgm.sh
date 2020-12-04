@@ -89,6 +89,7 @@ PACKAGEs=(
   ctags # esp. for Vista on Vim
   sc-im # Spread sheet.  Used by vim-scimark.
 
+  sshrc # Bring .bashrc, .vimrc, etc., under ~/.sshrc.d on SSH; keep light config.
   rofi # A launcher
   virustotal # CLI client for virustotal.com
   python-gphotos-sync # Sync google photo to local directory.
