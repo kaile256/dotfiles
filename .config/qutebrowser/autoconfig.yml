@@ -277,7 +277,6 @@ settings:
         <Space>zO: '''history -t'''
         <Space>zb: set-cmd-text -s :buffer
         <Space>ze: set-cmd-text -s :open
-        <Space>zm: open https://app.clickup.com/3640947/v/b/6-7920396-2
         <Space>zo: history
         <Space>zt: set-cmd-text -s :open -t
         <Space>zv: set-cmd-text -s :open
