@@ -312,11 +312,11 @@ settings:
         \t: hint all right-click
         ']': tab-next
         a: hint inputs
-        b: scroll-page 0 -1.0
+        b: scroll-page 0 -0.9
         cd: null
         co: null
-        d: scroll-page 0 +0.5
-        f: scroll-page 0 +1.0
+        d: scroll-page 0 +0.45
+        f: scroll-page 0 +0.9
         g<Ctrl+a>: navigate increment
         g<Ctrl+n>: navigate next
         g<Ctrl+o>: navigate up
@@ -350,11 +350,11 @@ settings:
         gt: open https://ticktick.com/webapp/#q/all/today
         gv: fake-key <ctrl-a>;; enter-mode caret
         gw: fake-key gw
-        h: scroll-page -0.05 0
+        h: scroll-page -0.01 0
         i: enter-mode insert
         j: scroll-page 0 +0.05
         k: scroll-page 0 -0.05
-        l: scroll-page +0.05 0
+        l: scroll-page +0.01 0
         mode: drop-selection
         p: fake-key <Ctrl-v>
         q: fake-key <Esc>
@@ -363,7 +363,7 @@ settings:
         sk: null
         sp: pocket-save
         t: fake-key t;; enter-mode insert
-        u: scroll-page 0 -0.5
+        u: scroll-page 0 -0.45
         w: fake-key <Ctrl+right>
         wc: tab-close
         wq: bookmark-del;; bookmark-add;; tab-close
@@ -380,8 +380,8 @@ settings:
         zH: scroll-to-perc -x 0
         zL: scroll-to-perc -x
         zc: set-cmd-text -s :session-save
-        zh: scroll left
-        zl: scroll right
+        zh: scroll-page -0.05 0
+        zl: scroll-page +0.05 0
         zm: set-cmd-text -s :session-save
         zo: set-cmd-text -s :session-load
         zr: set-cmd-text -s :session-load
