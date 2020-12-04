@@ -76,6 +76,7 @@ NON_ANDROIDs=(
   polybar # a status bar
   qutebrowser
   ranger/rc.conf
+  rofi
   vimiv # an image viewer
 )
 
