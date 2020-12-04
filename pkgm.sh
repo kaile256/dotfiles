@@ -194,12 +194,13 @@ PACKAGEs=(
   nethogs # show network processes like `top` for cpu usage
   mosh # Mobile Shell, an alternative of ssh; survive disconnects
 
-  # Theme
+  # Theme: Edit $XDG_CONFIG_HOME/gtk-3.0/settings.ini
   # lxappearance-gtk3 # GTK+ theme switcher of LXDE (GTK+ 3 version)
   bibata-cursor-theme
-  adapta-maia-theme
+  # adapta-maia-theme
   papirus-icon-theme
   papirus-maia-icon-theme
+  paper-gtk-theme
 
   nitrogen # a browser of wallpaper
   picom-ibhagwan-git # an X compositor, an enhanced fork of compton
