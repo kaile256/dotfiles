@@ -801,7 +801,7 @@ mode $Finder {
 }
 
 # Mode; Mozc {{{2
-# set $Mozc " Mozc: Activated "
+set $Mozc " Mozc: Activated "
 bindsym $Super+M $noid fcitx5-remote -s mozc; mode $Mozc; $noid $notify 'Mozc: Activated'
 
 # TODO: deprecate mode for IME, but use script in while-loop
