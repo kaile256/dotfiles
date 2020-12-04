@@ -311,6 +311,7 @@ settings:
         \f: hint links right-click
         \t: hint all right-click
         ']': tab-next
+        '`': quickmark-save
         a: hint inputs
         b: scroll-page 0 -0.9
         cd: null
@@ -355,6 +356,7 @@ settings:
         j: scroll-page 0 +0.05
         k: scroll-page 0 -0.05
         l: scroll-page +0.01 0
+        m: enter-mode set_mark
         mode: drop-selection
         p: fake-key <Ctrl-v>
         q: fake-key <Esc>
@@ -385,6 +387,7 @@ settings:
         zm: set-cmd-text -s :session-save
         zo: set-cmd-text -s :session-load
         zr: set-cmd-text -s :session-load
+        '~': bookmark-add
       passthrough:
         <Alt+x>: 'set-cmd-text :'
         <Ctrl+[>: fake-key <Esc>
