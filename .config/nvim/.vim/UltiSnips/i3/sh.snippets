@@ -1,8 +1,10 @@
 extends sh
 
 snippet mode "mode $1 {$2}" b
+set \$${1:name} " \$$1: ${2:bindings} "
+$release $Super+$3 mode \$$1; $shortmsg '$1'
 mode \$$1 {
-    bindsym $2
+    bindsym $4; mode default
 
     bindsym Ctrl+C             mode default
     bindsym Ctrl+bracketleft   mode default
