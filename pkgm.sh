@@ -89,6 +89,7 @@ PACKAGEs=(
   ctags # esp. for Vista on Vim
   sc-im # Spread sheet.  Used by vim-scimark.
 
+  rofi # A launcher
   virustotal # CLI client for virustotal.com
   python-gphotos-sync # Sync google photo to local directory.
   notes-cli-git
@@ -123,7 +124,7 @@ PACKAGEs=(
   bluez-alsa-git # alsa backend with bluetooth
   pulseaudio-modules-bt-git # pulseaudio with bluetooth support
   chrony # an alternative to ntp client/server
-  j4-dmenu-desktop # search desktop applications
+  # j4-dmenu-desktop # search desktop applications
   google-chrome
   # openshot-git # video editor; cross-platform for Linux, Mac and Windows
   #gifcurry # GIF editor; depends on gtk
@@ -287,7 +288,7 @@ PACKAGEs=(
   yarn
   zotero # organize research sources, essays.
   zsh
-  dmenu-manjaro
+  # dmenu-manjaro
   #i3pystatus
   #i3-style
   #bluez   # for Bluetooth

@@ -881,13 +881,13 @@ mode $Skk {
 # Ref: dmenu with fzf https://github.com/junegunn/fzf/wiki/Examples
 # Note: j4-dmenu-desktop has a bug to regard some descriptions as an app
 #set $menu alacritty --title fzf-menu --config-file $XDG_CONFIG_HOME/alacritty/dmenu.yml -e j4-dmenu-desktop --dmenu=fzf
-for_window [title=^fzf-menu$] floating enable border normal
-set $menu alacritty \
-    --title fzf-menu \
-    --dimensions 70 30 \
-    -e i3-dmenu-desktop --dmenu=fzf
-bindsym $Super+backslash $noid $menu
-
+# for_window [title=^fzf-menu$] floating enable border normal
+# set $menu alacritty \
+#     --title fzf-menu \
+#     --dimensions 70 30 \
+#     -e i3-dmenu-desktop --dmenu=fzf
+# bindsym $Super+backslash $noid $menu
+bindsym $Super+backslash $noid rofi -modi drun -show drun
 
 # Start shell {{{2
 bindsym $Super+U $noid $urxvt -e fish
