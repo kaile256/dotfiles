@@ -193,11 +193,14 @@ PACKAGEs=(
   #inkscape # an image editor, like gimp and pinta
   nethogs # show network processes like `top` for cpu usage
   mosh # Mobile Shell, an alternative of ssh; survive disconnects
+
+  # Theme
   # lxappearance-gtk3 # GTK+ theme switcher of LXDE (GTK+ 3 version)
   bibata-cursor-theme
   adapta-maia-theme
   papirus-icon-theme
   papirus-maia-icon-theme
+
   nitrogen # a browser of wallpaper
   picom-ibhagwan-git # an X compositor, an enhanced fork of compton
   #i3-wm-iconpatch # crashes too often
