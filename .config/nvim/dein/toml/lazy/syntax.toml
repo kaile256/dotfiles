@@ -271,3 +271,7 @@ lazy = 0
 #repo = 'mboughaba/i3config.vim'
 ## Note: No enough Syntax Configured yet
 #on_ft = 'i3'
+[[plugins]]
+repo = 'CantoroMC/vim-rasi'
+# Rofi Advanced Style Information
+on_path = ['\.rasi$']
