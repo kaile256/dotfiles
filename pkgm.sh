@@ -202,6 +202,7 @@ PACKAGEs=(
   papirus-maia-icon-theme
   paper-gtk-theme
 
+  github-cli
   nitrogen # a browser of wallpaper
   picom-ibhagwan-git # an X compositor, an enhanced fork of compton
   #i3-wm-iconpatch # crashes too often
