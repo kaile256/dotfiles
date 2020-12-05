@@ -93,6 +93,8 @@ function! s:set_definitions() abort
         \ ['increment', 'decrement'],
         \
         \ ['min', 'max'],
+        \ ['minimum', 'maximum'],
+        \ ['minimize', 'maximize'],
         \
         \ ['outer', 'inner'],
         \ ]
