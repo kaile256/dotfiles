@@ -68,6 +68,7 @@ function! s:set_definitions() abort
         \ ['global', 'local'],
         \ ['horizontal', 'vertical'],
         \ ['prefix', 'suffix'],
+        \ ['black', 'white'],
         \ ]
 
   let rules.opposite = [
