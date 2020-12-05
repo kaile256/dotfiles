@@ -98,13 +98,13 @@ cnoremap <script> <a-j>  <SID>(execute-shortcut)
 
 cnoremap <silent><expr> <SID>(execute-shortcut)
       \ (getcmdtype() ==# '=')
-      \ ? <SID>quick_execute()
-      \ : <SID>verbose_in_quickfix()
+      \ ? '<C-\>e<SID>quick_execute()<CR><CR>'
+      \ : '<C-\>e<SID>verbose_in_quickfix()<CR><CR>'
 
 function! s:quick_execute() abort "{{{2
   let cmd = getcmdline()
   let cmd = substitute(cmd, '^\s*exe\%[cute](', '', 'e')
-  return "\<End>\<C-u>execute(". string(cmd) .")\<CR>"
+  return 'execute('. string(cmd) .')'
 endfunction
 
 function! s:verbose_in_quickfix() abort "{{{2
@@ -117,20 +117,20 @@ function! s:verbose_in_quickfix() abort "{{{2
 
   " if cmd !~# '^\s*:' && cmd =~# '^[a-z=]\+$'
   "   let cmd = 'set '. cmd
-  " endif
+  " endi
   if cmd !~# 'verb\%[ose] '
     let cmd = 'verbose '. cmd
   endif
-  return "\<End>\<C-u>lexpr execute(". string(cmd) .") \<bar> bot lopen \<CR>"
+  return "lexpr execute(". string(cmd) .") \<bar> bot lopen"
 endfunction
 
 cnoremap <a-q> <c-f>
 
 " Shortcut: instant window-assign {{{1
-cnoremap <silent><expr> <a-t> <SID>assign_window('tab')
-cnoremap <silent><expr> <a-v> <SID>assign_window('vert bot')
-cnoremap <silent><expr> <a-s> <SID>assign_window('bot')
-cnoremap <silent><expr> <a-e> <SID>assign_window('')
+cnoremap <silent><expr> <a-t> <C-\>e<SID>assign_window('tab')<CR>
+cnoremap <silent><expr> <a-v> <C-\>e<SID>assign_window('vert bot')<CR>
+cnoremap <silent><expr> <a-s> <C-\>e<SID>assign_window('bot')<CR>
+cnoremap <silent><expr> <a-e> <C-\>e<SID>assign_window('')<CR>
 
 function! s:assign_window(mods) abort
   let line = getcmdline()
@@ -146,11 +146,11 @@ function! s:assign_window(mods) abort
     let line = substitute(line, mods, '', 'e')
   endfor
 
-  let ret = "\<C-u>". a:mods .' '. line ."\<CR>"
+  let ret = a:mods .' '. line
   return ret
 endfunction
 
-cnoremap <expr> <A-u> <SID>toggle_case() .'<CR>'
+cnoremap <A-u> <C-\>e<SID>toggle_case()<CR><CR>
 
 function! s:toggle_case() abort
   let line = getcmdline()
@@ -187,6 +187,6 @@ function! s:toggle_case() abort
     let ret = prefix .. toupper(line[col]) .. suffix
   endif
 
-  let ret = "\<End>\<C-u>". range .. mods .. ret
+  let ret = range .. mods .. ret
   return ret
 endfunction
