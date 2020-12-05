@@ -67,6 +67,7 @@ PACKAGEs=(
   # fbgrab # only select range by decimal arguments.
   # simplescreenrecorder # GUI to select range by mouse; also recordable
   flameshot # option-gui to select by mouse
+  gyazo # Upload screenshot to gyazo.com, easy to share captures for a while
 
   # Login Manager:
   #lightdm-webkit2-greeter # Set theme on lightdm with Greeter; cannot <C-u>
