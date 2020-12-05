@@ -1,5 +1,5 @@
 " Note: Don't forget to update 'resourceDir' in coc-settings.json @500, too.
-let s:clang_version = '10.0.1'
+let s:clang_version = '11.0.0'
 let s:cpp_version   = '10.2.0'
 
 let s:include_clang = '/usr/lib/clang/'. s:clang_version .'/include'
