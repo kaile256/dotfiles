@@ -106,6 +106,8 @@ let s:definitions['vim'] = [
       \ ['nnoremap', 'xnoremap', 'onoremap'],
       \ ['inoremap', 'cnoremap', 'tnoremap'],
       \
+      \ ['bufnr', 'winnr'],
+      \
       \ ['if', 'elseif'],
       \ ['finish', 'return'],
       \
