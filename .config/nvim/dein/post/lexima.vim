@@ -481,14 +481,15 @@ function! s:set_rules() abort
   " With Other Plugins {{{1
   " TOML: default.toml
   " Repo: vim-scripts/sherlock.vim
+  " Note: <C-_> for <C-slash>
   let with_Sherlock = [
         \ {
-        \   'char': '<C-s>',
+        \   'char': '<C-_>',
         \   'input': '<C-\>esherlock#completeForward()<CR>',
         \   'mode': 'c',
         \ },
         \ {
-        \   'char': '<C-q>',
+        \   'char': '<C-?>',
         \   'input': '<C-\>esherlock#completeBackward()<CR>',
         \   'mode': 'c',
         \ },
