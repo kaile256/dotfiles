@@ -98,3 +98,10 @@ ${2:VISUAL}
 call winrestview($1)
 endsnippet
 
+snippet 'let (s:[a-zA-Z0-9_]+)\.([a-zA-Z0-9_]+) = funcref' "funcref('s:$2')" br
+`!p
+m1 = match.group(1)
+m2 = match.group(2)
+
+`let `!p snip.rv = m1`.`!p snip.rv = m2` = funcref('s:`!p snip.rv = m2`')
+endsnippet
