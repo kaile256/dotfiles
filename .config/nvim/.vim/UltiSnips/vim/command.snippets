@@ -92,3 +92,9 @@ snippet catch "catch error E$1" b
 catch /^Vim\v%((\a+))?:E${1:123}/
 endsnippet
 
+snippet '(let )?save_view' "Keep view" br
+let ${1:save_view} = winsaveview()
+${2:VISUAL}
+call winrestview($1)
+endsnippet
+
