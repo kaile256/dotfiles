@@ -626,8 +626,8 @@ $release $Super+T mode $Tool; $noid $shortmsg 'Tool'
 mode $Tool {
     # Install LINE from https://line.me/en-US/download.  It may be more
     # unstable than the version running on chrome.
-    bindsym L $noid WINEPREFIX=$HOME/.wine_LINE/ \
-    wine $HOME/.wine_LINE/drive_c/users/$USER/Local\ Settings/Application\ Data/LINE/bin/LineLauncher.exe
+    # bindsym L $noid WINEPREFIX=$HOME/.wine_LINE/ \
+    # wine $HOME/.wine_LINE/drive_c/users/$USER/Local\ Settings/Application\ Data/LINE/bin/LineLauncher.exe
 
     bindsym Ctrl+C             mode default
     bindsym Ctrl+bracketleft   mode default
