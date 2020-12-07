@@ -5,9 +5,9 @@
 "   Ref: markdownlint MD004 ul-style
 
 inoremap <expr><buffer> *
-     \ getline('.') =~# '\s*'
-     \ ? '- [ ] '
-     \ : '*'
+      \ getline('.') =~# '\s*'
+      \ ? '- [ ] '
+      \ : '*'
 lnoremap <expr><buffer> *
       \ getline('.') =~# '\s*'
       \ ? '- [ ] '
