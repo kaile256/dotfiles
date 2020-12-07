@@ -4,7 +4,7 @@
 "set suffixesadd=.vim
 
 " $VAR; for shell {{{1
-if has('nvim')
+if has('nvim') && executable('nvr')
   let $EDITOR     = 'nvr'
   let $VISUAL     = 'nvr'
   " Without split, nvr doesn't work for git-editor.
