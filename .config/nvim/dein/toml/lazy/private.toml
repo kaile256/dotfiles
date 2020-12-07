@@ -80,13 +80,13 @@ repo = '$DEIN_PRIVATE_HOME/vim-option-check'
 on_cmd = 'VimOptCheck'
 hook_add = 'source $DEIN_ADD_HOME/option-check.vim'
 #[ Memo ]
-[[plugins]]
-repo = '$DEIN_PRIVATE_HOME/vim-private-note'
-on_cmd = 'Note'
-hook_add = 'source $DEIN_ADD_HOME/private-note.vim'
-hook_source = 'source $DEIN_SOURCE_HOME/private-note.vim'
-
-#[ Snippet ]
+# [[plugins]]
+# # repo = '$DEIN_PRIVATE_HOME/vim-private-note'
+# on_cmd = 'Note'
+# hook_add = 'source $DEIN_ADD_HOME/private-note.vim'
+# hook_source = 'source $DEIN_SOURCE_HOME/private-note.vim'
+#
+# #[ Snippet ]
 [[plugins]]
 repo = '$DEIN_PRIVATE_HOME/vim-snip-functions'
 on_source = ['coc.nvim', 'neosnippet.vim', 'ultisnips']
