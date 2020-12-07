@@ -14,15 +14,15 @@ lnoremap <expr><buffer> *
       \ : '*'
 
 nnoremap <buffer><expr> <SID>(start-new-list-below)
-      \ getline('.') =~# '^- \[.]'
+      \ getline('.') =~# '^\s*- \[.]'
       \ ? 'o- [ ] '
-      \ : getline('.') =~# '^- '
+      \ : getline('.') =~# '^\s*- '
       \   ? 'o- '
       \   : 'o'
 nnoremap <buffer><expr> <SID>(start-new-list-above)
-      \ getline('.') =~# '^- \[.]'
+      \ getline('.') =~# '^\s*- \[.]'
       \ ? 'O- [ ] '
-      \ : getline('.') =~# '^- '
+      \ : getline('.') =~# '^\s*- '
       \   ? 'O- '
       \   : 'O'
 nmap <buffer> o <SID>(start-new-list-below)
