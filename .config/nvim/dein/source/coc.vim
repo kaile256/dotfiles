@@ -70,7 +70,6 @@ let g:coc_global_extensions = [
       \ 'coc-jest',
       \ 'coc-json',
       \ 'coc-julia',
-      \ 'coc-lines',
       \ 'coc-lists',
       \ 'coc-lua',
       \ 'coc-markdownlint',
