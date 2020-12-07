@@ -59,7 +59,6 @@ function! s:set_default_path() abort "{{{1
   endfor
   let path = '/'. dir .'/'. fname . ext
 
-  let g:foo = path
   return path
 endfunction
 
