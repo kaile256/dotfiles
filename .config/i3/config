@@ -434,7 +434,8 @@ mode $Layout {
 }
 
 # Mode; Window {{{2
-$release $ClickRight kill
+# Note: RightClick to drag window and LeftClick to resize window.
+$release $ClickMiddle kill
 
 set $Window " Window: (C)lose or (Q)uit to kill current window | fl(O)ating toggle | (W) for Layout mode "
 $release $Super+W mode $Window; $noid $shortmsg 'Window mode'
