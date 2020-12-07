@@ -22,6 +22,7 @@ let g:indentLine_fileTypeExclude = [
       \ 'Mundo',
       \ 'defx',
       \ 'help',
+      \ 'man',
       \ 'markdown',
       \ ]
 
