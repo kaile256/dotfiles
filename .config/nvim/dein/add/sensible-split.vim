@@ -91,3 +91,12 @@ augroup mySensibleSplitAdd
     endfor
   endfunction
 augroup END
+
+nnoremap <silent> <C-w>m :<C-u>call <SID>open_memo()<CR>
+function! s:open_memo() abort
+  let path = $MY_MEMO .'/.backlog/todo.md'
+  let open = &bt ==# 'terminal'
+        \ ? 'e'
+        \ : 'SensibleSplit'
+  exe open path
+endfunction
