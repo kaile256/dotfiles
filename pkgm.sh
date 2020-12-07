@@ -89,6 +89,7 @@ PACKAGEs=(
   # neovide-git # Neovim GUI written in Rust; cursor moves too slow.
   ctags # esp. for Vista on Vim
   sc-im # Spread sheet.  Used by vim-scimark.
+  neovim-remote # nvr
 
   sshrc # Bring .bashrc, .vimrc, etc., under ~/.sshrc.d on SSH; keep light config.
   rofi # A launcher
@@ -323,7 +324,7 @@ PIP3s=(
   jupytext # for goerz/jupytext.vim #jupyter
   lizard # detect cyclomatic complexity
   neovim
-  neovim-remote
+  # neovim-remote # Install by yay instead.
   pfp # hex editor tool, which is used by vim-pfp
   pipenv
   pocket-api  # for an userscript on qutebrowser, qute-pocket
