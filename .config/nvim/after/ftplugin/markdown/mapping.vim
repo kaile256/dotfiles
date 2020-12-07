@@ -13,20 +13,26 @@ lnoremap <expr><buffer> *
       \ ? '- [ ] '
       \ : '*'
 
-nnoremap <buffer><expr> <SID>(start-new-list-below)
-      \ getline('.') =~# '^\s*- \[.]'
-      \ ? 'o- [ ] '
-      \ : getline('.') =~# '^\s*- '
-      \   ? 'o- '
-      \   : 'o'
-nnoremap <buffer><expr> <SID>(start-new-list-above)
-      \ getline('.') =~# '^\s*- \[.]'
-      \ ? 'O- [ ] '
-      \ : getline('.') =~# '^\s*- '
-      \   ? 'O- '
-      \   : 'O'
-nmap <buffer> o <SID>(start-new-list-below)
-nmap <buffer> O <SID>(start-new-list-above)
+function! s:start_new_item(o) abort
+  const o = a:o
+  const line = getline('.')
+  const prev = getline(line('.') - 1)
+
+  const pat_list = '^\s*- '
+  const pat_task = '^\s*- \[[ x]\] '
+  const Add_list = o .'- '
+  const Add_task = o .'- [ ] '
+
+  if o ==# 'O' && prev !~# pat_list && prev !~# pat_task
+    return o
+  endif
+
+  return    line =~# pat_task ? Add_task
+        \ : line =~# pat_list ? Add_list
+        \ : o
+endfunction
+nnoremap <buffer><expr> o <SID>start_new_item('o')
+nnoremap <buffer><expr> O <SID>start_new_item('O')
 
 nnoremap <buffer><silent><buffer> <SID>(header-increment) :<C-u>silent! undojoin<CR>I#<Esc>
 nnoremap <buffer><silent><buffer> <SID>(header-decrement) :<C-u>silent! undojoin<CR>^"_x
