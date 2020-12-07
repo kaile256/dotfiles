@@ -13,6 +13,21 @@ lnoremap <expr><buffer> *
       \ ? '- [ ] '
       \ : '*'
 
+nnoremap <buffer><expr> <SID>(start-new-list-below)
+      \ getline('.') =~# '^- \[.]'
+      \ ? 'o- [ ] '
+      \ : getline('.') =~# '^- '
+      \   ? 'o- '
+      \   : 'o'
+nnoremap <buffer><expr> <SID>(start-new-list-above)
+      \ getline('.') =~# '^- \[.]'
+      \ ? 'O- [ ] '
+      \ : getline('.') =~# '^- '
+      \   ? 'O- '
+      \   : 'O'
+nmap <buffer> o <SID>(start-new-list-below)
+nmap <buffer> O <SID>(start-new-list-above)
+
 nnoremap <buffer><silent><buffer> <SID>(header-increment) :<C-u>silent! undojoin<CR>I#<Esc>
 nnoremap <buffer><silent><buffer> <SID>(header-decrement) :<C-u>silent! undojoin<CR>^"_x
 nnoremap <buffer><silent><buffer> <SID>(task-done)   :<C-u>silent! undojoin <bar> keeppattern s/\[ ]/\[x]/e<CR>
