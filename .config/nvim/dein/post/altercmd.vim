@@ -16,7 +16,8 @@ CAlterCommand g keeppatterns g
 CAlterCommand v keeppatterns v
 
 if dein#tap('vim-eunuch')
-  CAlterCommand mv Rename
+  " Move: Type `./` for relative path.
+  CAlterCommand mv Move
 endif
 
 if dein#tap('vim-scriptease')
