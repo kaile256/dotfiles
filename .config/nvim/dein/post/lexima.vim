@@ -366,6 +366,15 @@ function! s:set_rules() abort
               \ ]
       endfor
 
+      let Make_task = [
+            \ {
+            \   'char': space,
+            \   'at': '^\s*- \[\%#]',
+            \   'input': '<space><C-g>U<Right><space>',
+            \   'filetype': ['markdown'],
+            \ }
+            \ ]
+
       let abbrs_without_trailing_period = []
       let abbrs_without_trailing_period += [
             \ 'abbr',
@@ -407,6 +416,7 @@ function! s:set_rules() abort
             \ ],
             \ }
 
+      let global += Make_task
       let global += Spread_brackets
       let global += Insert_a_space_before_cursor
       let global += [
