@@ -127,26 +127,56 @@ endfunction
 cnoremap <a-q> <c-f>
 
 " Shortcut: instant window-assign {{{1
-cnoremap <silent><expr> <a-t> <C-\>e<SID>assign_window('tab')<CR>
-cnoremap <silent><expr> <a-v> <C-\>e<SID>assign_window('vert bot')<CR>
-cnoremap <silent><expr> <a-s> <C-\>e<SID>assign_window('bot')<CR>
-cnoremap <silent><expr> <a-e> <C-\>e<SID>assign_window('')<CR>
+cnoremap <silent> <a-t> <C-\>e<SID>assign_window('tab')<CR><CR>
+cnoremap <silent> <a-v> <C-\>e<SID>assign_window('vert bot')<CR><CR>
+cnoremap <silent> <a-s> <C-\>e<SID>assign_window('bot')<CR><CR>
+cnoremap <silent> <a-e> <C-\>e<SID>assign_window('')<CR><CR>
 
 function! s:assign_window(mods) abort
   let line = getcmdline()
 
   let mods_list = [
         \ 'tab',
-        \ 'vert\%[ical] bot\%[tright]',
-        \ 'bot\%[tright]'
+        \ 'vert\%[tical]',
+        \
+        \ 'rightb\%[elow]',
+        \ 'bo\%[tright]',
+        \ 'bel\%[right]',
+        \
+        \ 'to\%[pleft]',
+        \ 'lefta\%[bove]',
+        \ 'abo\%[veleft]',
         \ ]
 
-  for mods in mods_list
-    let mods .= '\s\+'
-    let line = substitute(line, mods, '', 'e')
+  let open_cmds = [
+        \ 'sp\%[lit]',
+        \ 'vs\%[plit]',
+        \ 'tabe\%[dit]',
+        \ 'tabnew',
+        \ 'e\%[dit]'
+        \ ]
+
+  if a:mods ==# ''
+    const args = split(line)
+    for a in args[0:3]
+      for o in open_cmds
+        if a =~# o
+          const cmd = 'e'
+        endif
+      endfor
+    endfor
+  endif
+
+  for m in mods_list + open_cmds
+    let pat_trimmed = '^\s*'. m .'\s*'
+    let line = substitute(line, pat_trimmed, '', 'e')
   endfor
 
-  let ret = a:mods .' '. line
+  if !exists('cmd')
+    const cmd =  a:mods .' sp'
+  endif
+
+  let ret = cmd .' '. line
   return ret
 endfunction
 
