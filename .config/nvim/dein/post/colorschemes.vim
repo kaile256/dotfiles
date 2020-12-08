@@ -4,13 +4,20 @@
 
 augroup myColorschemesPost
   au VimEnter * ++nested call s:set_colorscheme()
-  " set variables on the colorscheme
-  au ColorScheme * ++nested exe 'runtime source/<amatch>.vim'
-  " overrides original colorschemes
-  au ColorSchemePre * ++nested exe 'runtime colorscheme_pre/<amatch>.vim'
-  au ColorSchemePre * ++nested exe 'runtime colorscheme_pre/'.
-        \ matchstr('<amatch>', '\S\{-}\ze_') .'.vim'
+  au ColorSchemePre * ++nested call s:source_conf(expand('<amatch>'))
 augroup END
+
+function! s:source_conf(fname) abort
+  " set variables on the colorscheme
+  runtime 'source/'. a:fname .'.vim'
+  " overrides original colorschemes
+  runtime 'colorscheme_pre/'. a:fname .'.vim'
+
+  let trimmed = matchstr(a:fname, '\S\{-}\ze_')
+  " Also source the scripts trimmed before the first underscore.
+  runtime 'source/'. trimmed .'.vim'
+  runtime 'colorscheme_pre/'. trimmed .'.vim'
+endfunction
 
 function! s:set_colorscheme() abort
   try
