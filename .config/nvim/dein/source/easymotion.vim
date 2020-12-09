@@ -18,7 +18,7 @@ let g:EasyMotion_add_search_history = 0
 " Chars
 let g:EasyMotion_smartcase = 1
 let g:EasyMotion_use_upper = 1
-let g:EasyMotion_keys = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+let g:EasyMotion_keys = 'ABCEFGHIJKLMNPQRSTUVWYZ'
 " `g:EasyMotion_use_migemo` is independentt to 'cmigemo'.
 " because Easymotion includes basic regex patterns.
 let g:EasyMotion_use_migemo = 0
