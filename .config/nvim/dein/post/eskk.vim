@@ -4,6 +4,8 @@ scriptencoding utf-8
 " Another: add/eskk.vim
 " Another: source/eskk.vim
 
+nnoremap <expr> <C-g> eskk#is_enabled() ? eskk#disable() : '<C-g>'
+
 augroup myEskkSo-ToggleCocConfig
   " Makeshift for `[coc.nvim] error: Some plugin change completeopt on insert mode`
   au User eskk-enable-pre  call coc#config('suggest', {'autoTrigger': 'trigger'})
