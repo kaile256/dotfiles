@@ -169,7 +169,7 @@ nnoremap <silent> <space>cs :<C-u>CocList    sessions<CR>
 nnoremap <silent> <space>cS :<C-u>CocCommand session.save<CR>
 
 " CocRange, or Multiple Cursor {{{1
-hi CocCursorRange guibg=#b16286 guifg=#ebdbb2
+hi CocCursorRange guibg=#79976a guifg=#e7c56c
 " Mnemonic: Mark X
 nmap mx <Plug>(coc-cursors-position)
 xmap mx <Plug>(coc-cursors-range)
