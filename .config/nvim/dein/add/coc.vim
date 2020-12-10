@@ -170,9 +170,11 @@ nnoremap <silent> <space>cS :<C-u>CocCommand session.save<CR>
 
 " CocRange, or Multiple Cursor {{{1
 hi CocCursorRange guibg=#b16286 guifg=#ebdbb2
-"" Mnemonic: Mark
-"xmap <silent> m <Plug>(coc-cursors-range)
-"nmap <silent> m <Plug>(coc-cursors-operator)
+" Mnemonic: Mark X
+nmap mx <Plug>(coc-cursors-position)
+xmap mx <Plug>(coc-cursors-range)
+nmap \m <Plug>(coc-cursors-operator)
+
 " Mnemonic: Macro of Cursor
 "nmap <silent> qc <Plug>(coc-cursors-operator)
 "xmap <silent> qc <Plug>(coc-cursors-range)
