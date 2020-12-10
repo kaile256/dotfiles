@@ -161,6 +161,8 @@
     "i": "do:toggleMode"
   },
 
+  "cursors.cancelKey": "<C-c>",
+
   "project.dbpath": "~/.local/share/.coc-project",
 
   "bookmark.sign": "*",
