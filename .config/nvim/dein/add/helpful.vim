@@ -8,6 +8,7 @@
 nnoremap <silent> gV :<c-u>call helpful#lookup(expand('<cword>'))<cr>
 xnoremap <silent> gV :<c-u>call helpful#lookup(expand('<cword>'))<cr>
 
+command! -nargs=* -complete=help Ver     :call s:version_check(<q-args>)
 command! -nargs=* -complete=help Version :call s:version_check(<q-args>)
 
 function! s:version_check(args) abort
