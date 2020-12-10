@@ -1,5 +1,6 @@
-" TOML: syntax.toml
+" TOML: treesitter.toml
 " Repo: nvim-treesitter/nvim-treesitter
+" Another: treesitter.lua
 
 luafile $DEIN_SOURCE_HOME/treesitter.lua
 
