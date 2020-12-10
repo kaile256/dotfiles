@@ -182,6 +182,22 @@ hi CocCursorRange guibg=#b16286 guifg=#ebdbb2
 ""nmap <silent> * <Plug>(coc-cursors-word)
 ""nmap <silent> n <Plug>(coc-cursors-position)
 
+" CocSearch {{{1
+nnoremap <silent> <space>G :<C-u>CocSearch
+      \ --word-regexp
+      \ --follow
+      \ --smart-case
+      \ --fixed-strings
+      \ --hidden
+      \ <C-r>=expand('<cword>')<CR><CR>
+xnoremap <silent> <space>G :<C-u>CocSearch
+      \ --follow
+      \ --smart-case
+      \ --fixed-strings
+      \ --hidden
+      \ <C-r>=substitute(getline('.')[col("'<") - 1 : col("'>") - 1],
+      \                  '\zs\s\+', '\\1', 'g')<CR><CR>
+
 " CocColor; {{{1
 command! -bar ColorReformat    :call CocAction('colorPresentation')
 command! -bar ColorShowPalette :call CocAction('pickColor')

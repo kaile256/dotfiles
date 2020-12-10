@@ -1,15 +1,16 @@
 # From: dein/dein.vim
 
-[[plugins]]
-repo = 'dyng/ctrlsf.vim'
-# Get grep-results under project-root, or current directory, into a buffer to
-# edit. Async.
-on_map = {nx = ['<Plug>CtrlSF']}
-on_cmd = ['CtrlSF']
-on_func = ['ctrlsf#comp#Completion', 'CtrlSFGetVisualSelection']
-hook_add = 'runtime add/ctrlsf.vim'
-hook_source = 'runtime source/ctrlsf.vim'
-hook_post_source = 'runtime post/ctrlsf.vim'
+# [[plugins]]
+# repo = 'dyng/ctrlsf.vim'
+# # Get grep-results under project-root, or current directory, into a buffer to
+# # edit. Async.
+# # Use coc.nvim's `:CocSearch` instead.
+# on_map = {nx = ['<Plug>CtrlSF']}
+# on_cmd = ['CtrlSF']
+# on_func = ['ctrlsf#comp#Completion', 'CtrlSFGetVisualSelection']
+# hook_add = 'runtime add/ctrlsf.vim'
+# hook_source = 'runtime source/ctrlsf.vim'
+# hook_post_source = 'runtime post/ctrlsf.vim'
 
 #[ Fuzzy Finder ]
 [[plugins]]
