@@ -16,7 +16,7 @@ require'nvim-treesitter.configs'.setup {
   ensure_installed = "all",
   highlight = {
     enable = false,
-    disable = {},
+    disable = {''},
   },
 
   incremental_selection = {
@@ -27,5 +27,13 @@ require'nvim-treesitter.configs'.setup {
       node_decremental = "<C-x>",
       node_incremental = "<C-a>",
     }
+  },
+
+  rainbow = {
+    enable = true,
+    disable = {
+      'bash',
+      'vim',
+    },
   },
 }
