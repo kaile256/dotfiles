@@ -9,18 +9,15 @@
 "     \ }]
 
 nnoremap <silent> <Plug>(switch-extra)
-      \ :<C-u>call switch#Switch(
+      \ :<C-u>call repeat#set("\<lt>Plug>(switch-extra)")<bar>
+      \ call switch#Switch(
       \     {'definitions': g:switch_extra_definitions})<CR>
 nnoremap <silent> <Plug>(switch-extra-reverse)
-      \ :<C-u>call switch#Switch(
+      \ :<C-u>call repeat#set("\<lt>Plug>(switch-extra-reverse)")<bar>
+      \ call switch#Switch(
       \     {'definitions': g:switch_extra_definitions, 'reverse': 1})<CR>
-
-nmap <silent> z<C-x>
-      \ <Plug>(switch-extra):<C-u>silent!
-      \ call repeat#set("\<lt>Plug>(switch-extra)")<CR>
-nmap <silent> z<C-a>
-      \ <Plug>(switch-extra-reverse):<C-u>silent!
-      \ call repeat#set("\<lt>Plug>(switch-extra-reverse)")<CR>
+nmap z<C-x> <Plug>(switch-extra)
+nmap z<C-a> <Plug>(switch-extra-reverse)
 
 " function! s:increment() abort
 "   let cnt = v:count1
