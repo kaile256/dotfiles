@@ -1,4 +1,4 @@
--- TOML: syntax.toml
+-- TOML: treesitter.toml
 -- Repo: nvim-treesitter/nvim-treesitter
 -- From: source/treesitter.vim
 
@@ -11,12 +11,22 @@ hlmap.error = nil
 hlmap["punctuation.bracket"] = nil
 hlmap["punctuation.delimiter"] = "Delimiter"
 
-
 require'nvim-treesitter.configs'.setup {
   ensure_installed = "all",
+
   highlight = {
-    enable = false,
-    disable = {''},
+    enable = true,
+    disable = {
+      'toml',
+    },
+  },
+
+  rainbow = {
+    enable = true,
+    disable = {
+      'bash',
+      'toml',
+    },
   },
 
   incremental_selection = {
@@ -26,14 +36,6 @@ require'nvim-treesitter.configs'.setup {
       -- scope_incremental = "g<C-a>",
       node_decremental = "<C-x>",
       node_incremental = "<C-a>",
-    }
-  },
-
-  rainbow = {
-    enable = true,
-    disable = {
-      'bash',
-      'vim',
     },
   },
 }
