@@ -8,6 +8,9 @@
 "     \ '<span\(.\{-}\)>\(.\{-}\)</span>': '<div\1>\2</div>',
 "     \ }]
 
+nmap <C-x> :<C-u>Switch<CR>
+nmap <C-a> :<C-u>SwitchReverse<CR>
+
 nnoremap <silent> <Plug>(switch-extra)
       \ :<C-u>call repeat#set("\<lt>Plug>(switch-extra)")<bar>
       \ call switch#Switch(
