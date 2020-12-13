@@ -445,26 +445,27 @@
           //  "debounce": 200,
           //  "args": ["--warning", "--neovim-enable"]
           //},
-          "languagetool": {
-            "command": "languagetool",
-            "sourceName": "languagetool",
-            "debounce": 200,
-            "args": ["-"],
-            "offsetLine": 0,
-            "offsetColumn": 0,
-            "formatLines": 2,
-            "formatPattern": [
-              "^\\d+?\\.\\)\\s+Line\\s+(\\d+),\\s+column\\s+(\\d+),\\s+([^\\n]+)\nMessage:\\s+(.*)$",
-              {
-                "line": 1,
-                "column": 2,
-                "message": [4, 3]
-              }
-            ]
-          }
+          // "languagetool": {
+          // // Use vim-grammarous, instead
+          //   "command": "languagetool",
+          //   "sourceName": "languagetool",
+          //   "debounce": 200,
+          //   "args": ["-"],
+          //   "offsetLine": 0,
+          //   "offsetColumn": 0,
+          //   "formatLines": 2,
+          //   "formatPattern": [
+          //     "^\\d+?\\.\\)\\s+Line\\s+(\\d+),\\s+column\\s+(\\d+),\\s+([^\\n]+)\nMessage:\\s+(.*)$",
+          //     {
+          //       "line": 1,
+          //       "column": 2,
+          //       "message": [4, 3]
+          //     }
+          //   ]
+          // }
         },
         "filetypes": {
-          "email": "languagetool",
+          // "email": "languagetool",
           "markdown": ["write-good", "markdownlint"],
           "sh": "shellcheck",
           "elixir": ["mix_credo", "mix_credo_compile"]
