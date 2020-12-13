@@ -79,10 +79,6 @@ function! s:set_definitions() abort
         \ ['before', 'after'],
         \ ['on', 'off'],
         \
-        \ [' + ', ' - '],
-        \
-        \ ['==', '!='],
-        \
         \ {
         \   '\<yes\>': 'no',
         \   '\<no\>': 'yes',
