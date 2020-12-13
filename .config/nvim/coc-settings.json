@@ -565,13 +565,6 @@
       "filetypes": ["dockerfile"],
       "args": ["--stdio"]
     },
-    "lua": {
-      "command": "lua-lsp",
-      "filetypes": ["lua"],
-      "initializationOptions": {
-        "formatTool": "lcf"
-      }
-    },
     "metals": {
       "command": "metals-vim",
       "rootPatterns": ["build.sbt"],
