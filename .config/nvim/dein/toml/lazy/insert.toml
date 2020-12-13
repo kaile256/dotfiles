@@ -199,12 +199,12 @@ hook_add = 'runtime add/thesaurus_query.vim'
 #repo = 'kamykn/spelunker.vim'
 #on_map = {ni = '<Plug>(spelunker-'}
 #hook_source = 'runtime source/spelunker.vim'
-#[[plugins]]
-#repo = 'rhysd/vim-grammarous'
-## Grammer Check
-## Note: Too heavy to download pre-requested files
-#on_cmd = 'GrammarousCheck'
-#hook_add = 'runtime add/grammarous.vim'
+# [[plugins]]
+# repo = 'rhysd/vim-grammarous'
+# # Grammer Check with languagetool (without it, downloaded automatically)
+# # `coc-diagnostic` can run languagetool, too.
+# on_cmd = 'GrammarousCheck'
+# hook_source = 'runtime source/grammarous.vim'
 # [[plugins]]
 # repo = 'shinglyu/vim-codespell'
 # # # only supports python?
