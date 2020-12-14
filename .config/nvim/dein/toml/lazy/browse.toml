@@ -20,8 +20,10 @@ on_event = 'CmdLineEnter'
 hook_done_update = '''
 e $DEIN_GITHUB_DIR/junegunn/fzf.vim/plugin/fzf.vim
 " Append `--hidden` to ag/rg respectively.
-keeppatterns keepjumps s/command!.*Ag/<q-args>\zs/ ."--hidden"/e
-keeppatterns keepjumps s/command!.*Rg/rg/ --hidden/e
+keeppatterns v/--hidden/s/command!.* Rg .*rg \zs/--hidden /e
+w
+e $DEIN_GITHUB_DIR/junegunn/fzf.vim/autoload/fzf/vim.vim
+keeppatterns v/--hidden/s/return .*fzf#vim#grep.*ag \zs/--hidden /e
 w
 '''
 [[plugins]]
