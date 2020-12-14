@@ -1,4 +1,4 @@
-" TOML: myplug.toml
+" TOML: public.toml
 " Repo: kaile256/vim-doppelganger
 
 " let g:doppelganger#prefix = '▸ '
