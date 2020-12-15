@@ -84,8 +84,17 @@ set $ws0 "0"
 
 # Note: workspace 0 and $ws0 would be different when $ws0 is named another
 #   even if they are applied the same icon.
+workspace $ws1 output VGA1 HDMI2
+workspace $ws2 output VGA1 HDMI2
+workspace $ws3 output VGA1 HDMI2
+workspace $ws4 output VGA1 HDMI2
+workspace $ws5 output VGA1 HDMI2
+
+workspace $ws6 output HDMI1 eDP1
+workspace $ws7 output HDMI1 eDP1
+workspace $ws8 output HDMI1 eDP1
+workspace $ws9 output HDMI1 eDP1
 workspace $ws0 output HDMI1 eDP1
-workspace $ws9 output HDMI2
 
 # Var; i3 Window {{{2
 # Use Mouse+$Super to drag floating windows to their wanted position
