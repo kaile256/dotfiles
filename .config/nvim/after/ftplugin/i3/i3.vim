@@ -1,7 +1,4 @@
 " From: filetype.vim
 
-nnoremap <buffer><silent> == :keeppatterns %s/^\s\+//ge<cr>
+nnoremap <buffer><nowait> == <Nop>
 
-" Before Typo
-inoreabbr <buffer> "{{{ #{{{
-inoreabbr <buffer> "}}} #}}}
