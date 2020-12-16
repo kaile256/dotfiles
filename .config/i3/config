@@ -309,9 +309,7 @@ bindsym $SuperS+T layout tabbed; $noid $alert 'Layout: tabbed'
 # back to $ws2.
 workspace_auto_back_and_forth no
 # [smart|urgent|focus|none]
-focus_on_window_activation smart
-#bindsym $SuperS+6 workspace back_and_forth
-#bindsym $SuperC+6 move container to workspace back_and_forth; workspace back_and_forth
+focus_on_window_activation none
 
 bindsym $Super+grave workspace back_and_forth
 
