@@ -3,20 +3,21 @@
 " Another: source/colorschemes.vim
 
 augroup myColorschemesPost
-  au VimEnter * ++nested call s:set_colorscheme()
   au ColorSchemePre * ++nested call s:source_conf(expand('<amatch>'))
+  au VimEnter * ++nested call s:set_colorscheme()
 augroup END
 
 function! s:source_conf(fname) abort
   " set variables on the colorscheme
-  runtime 'source/'. a:fname .'.vim'
+  exe 'runtime source/'. a:fname .'.vim'
   " overrides original colorschemes
-  runtime 'colorscheme_pre/'. a:fname .'.vim'
+  exe 'runtime colorscheme_pre/'. a:fname .'.vim'
 
   let trimmed = matchstr(a:fname, '\S\{-}\ze_')
+  if trimmed ==# '' | return | endif
   " Also source the scripts trimmed before the first underscore.
-  runtime 'source/'. trimmed .'.vim'
-  runtime 'colorscheme_pre/'. trimmed .'.vim'
+  exe 'runtime source/'. trimmed .'.vim'
+  exe 'runtime colorscheme_pre/'. trimmed .'.vim'
 endfunction
 
 function! s:set_colorscheme() abort
