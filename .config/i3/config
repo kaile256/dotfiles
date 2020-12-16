@@ -80,7 +80,7 @@ set $ws6 "6"
 set $ws7 "7"
 set $ws8 "8"
 set $ws9 "9"
-set $ws0 "0"
+set $ws0 "10"
 
 # Note: workspace 0 and $ws0 would be different when $ws0 is named another
 #   even if they are applied the same icon.
