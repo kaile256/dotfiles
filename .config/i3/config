@@ -313,6 +313,8 @@ focus_on_window_activation smart
 #bindsym $SuperS+6 workspace back_and_forth
 #bindsym $SuperC+6 move container to workspace back_and_forth; workspace back_and_forth
 
+bindsym $Super+grave workspace back_and_forth
+
 bindsym $Super+bracketleft  workspace prev
 bindsym $Super+bracketright workspace next
 
@@ -668,7 +670,6 @@ set $Qutebrowser_bookmarks alacritty \
     --dimensions 200 40 \
     -e fzf-qutebrowser-bookmarks qutebrowser
 bindsym $Super+apostrophe $noid $Qutebrowser_bookmarks
-bindsym $Super+grave $noid $Qutebrowser_bookmarks
 
 #set $Console " Console: (A)lacritty (U)rxvt (X)term | (G)otop "
 #bindsym $Super+C mode $Console; $noid $shortmsg 'Consoles'
