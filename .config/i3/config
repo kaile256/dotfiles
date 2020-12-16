@@ -313,8 +313,9 @@ focus_on_window_activation none
 
 bindsym $Super+grave workspace back_and_forth
 
-bindsym $Super+bracketleft  workspace prev
-bindsym $Super+bracketright workspace next
+# next/prev_on_output switches workspaces belonging to current output.
+bindsym $Super+bracketleft  workspace prev_on_output
+bindsym $Super+bracketright workspace next_on_output
 
 bindsym $Super+1 workspace $ws1
 bindsym $Super+2 workspace $ws2
