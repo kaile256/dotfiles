@@ -1,5 +1,5 @@
 function! s:contains_foldmarker() abort
-  let marker = matchstr(&foldmarker, '.*\zs,')
+  let marker = split(&foldmarker, ',')[0]
   return search(marker, 'nw')
 endfunction
 
