@@ -996,4 +996,9 @@ bindsym $Super+Print $noid $MY_I3_SCRIPTS/toggle-Recording
 #        bindsym Shift+0     gaps outer all set 0
 #}
 
+# Finally {{{1
+
+# Take the keyboard focus to the output on startup
+$noid i3-msg "focus output primary"
+
 # vim:fdm=marker:ts=4:sw=4:sts=4
