@@ -31,3 +31,8 @@ done
 
 # Configure at ~/.xbindkeysrc
 type xbindkeys >/dev/null 2>&1 && xbindkeys -p
+
+SET_SCREEN="$HOME/.screenlayout/default.sh"
+if type xrandr >/dev/null 2>&1 && [ -x "$SET_SCREEN" ]; then
+  $SET_SCREEN
+fi
