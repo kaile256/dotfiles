@@ -191,3 +191,8 @@ hook_add = 'runtime add/smoothie.vim'
 # # Neither mappings nor functions are public.
 # on_event = 'BufRead'
 # hook_source = 'runtime source/sexy_scroller.vim'
+
+#[ J/K ]
+# [[plugins]]
+# repo = 'rhysd/accelerated-jk'
+# # hook_add = 'runtime add/accelerated-jk.vim'
