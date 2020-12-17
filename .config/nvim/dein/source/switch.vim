@@ -96,6 +96,8 @@ function! s:set_definitions() abort
         \ ['minimize', 'maximize'],
         \
         \ ['outer', 'inner'],
+        \
+        \ ['all', 'each'],
         \ ]
 
   let rules.order = [
