@@ -178,12 +178,12 @@ hook_source = 'runtime source/peekaboo.vim'
 #hook_post_source = 'runtime post/peekaboo.vim'
 
 #[ Increment ]
-[[plugins]]
-repo = 'tpope/vim-speeddating'
-# <C-a/x> for dating.
-on_func = 'speeddating#'
-on_map = {nx = '<Plug>SpeeDdating'}
-hook_add = 'runtime add/speeddating.vim'
+# [[plugins]]
+# repo = 'tpope/vim-speeddating'
+# # <C-a/x> for dating.
+# on_func = 'speeddating#'
+# on_map = {nx = '<Plug>SpeeDdating'}
+# hook_add = 'runtime add/speeddating.vim'
 # [[plugins]]
 # repo = 'triglav/vim-visual-increment'
 # on_map = {'x' = ['<Plug>VisualIncrement', '<Plug>VisualDecrement']}
