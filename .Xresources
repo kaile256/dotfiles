@@ -119,7 +119,7 @@ URxvt.color15: [90]br_white
 !URxvt.foreground:  [90]#ebdbb2
 !URxvt.background:  [90]#282828
 URxvt.foreground: [90]_white
-URxvt.background: [70]_black
+URxvt.background: [80]_black
 
 !! Italic/Bold/UnderLine
 !URxvt.colorIT:     [90]#8ec07c
