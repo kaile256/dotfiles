@@ -1,4 +1,4 @@
-" setl spell spl=en_us,cjk
+setlocal spell spl=en_us,cjk
 setlocal colorcolumn=73
 setlocal nonumber
 setlocal signcolumn=
