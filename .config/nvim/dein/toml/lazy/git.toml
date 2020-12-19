@@ -38,12 +38,13 @@ repo = 'johngrib/vim-git-msg-wheel'
 # Line Completion from recent commit messages on gitcommit.
 on_ft = ['gitcommit']
 hook_source = 'runtime source/git-msg-wheel.vim'
-#[ Commit ]
-[[plugins]]
-repo = 'rhysd/git-messenger.vim'
-# Show commit message in popup.
-on_cmd = 'GitMessenger'
-hook_add = 'runtime add/git-messenger.vim'
+# [[plugins]]
+# repo = 'rhysd/git-messenger.vim'
+# # Use coc-git instead.
+# # Show commit message in popup.
+# on_cmd = 'GitMessenger'
+# hook_add = 'runtime add/git-messenger.vim'
+#
 #[ Blame ]
 #[[plugins]]
 #repo = 'rhysd/ghpr-blame.vim'

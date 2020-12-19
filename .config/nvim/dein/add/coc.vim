@@ -229,6 +229,8 @@ nnoremap <silent> <space>cb :Coclist bookmark<cr>
 "      \ --file-columns=icon,git,selection,clip,indent,filename,size
 
 " CocGit {{{1
+nnoremap <silent> <space>gm :<C-u>CocCommand git.showCommit<CR>
+
 " Note: Use gitgutter instead which has less delay.
 " command! GchunkAdd  :CocCommand git.chunkStage
 " command! GchunkUndo :CocCommand git.chunkUndo
