@@ -80,10 +80,10 @@ function! s:agit_keymaps() abort "{{{1
   " deletes the branch under cursor
   nmap <buffer> dD <Plug>(agit-git-branch-d)
   "" checks out to the branch under cursor
-  "nmap <buffer> co <Plug>(agit-git-checkout)
+  nmap <buffer> co <Plug>(agit-git-checkout)
   " checkout -b: create a new branch to checkout
   "   the default name is the hash under cursor
-  nmap <buffer> co <Plug>(agit-git-checkout-b)
+  nmap <buffer> cn <Plug>(agit-git-checkout-b)
 
   " revert to the commit under cursor
   nmap <buffer> rv <Plug>(agit-git-revert)
@@ -106,6 +106,45 @@ function! s:agit_keymaps() abort "{{{1
   nmap <buffer> cp <Plug>(agit-git-cherry-pick)
 
   "nmap <buffer> <c-w>C <Plug>(agit-exit)
+  let maps = {
+        \ 'name': '[ Agit ]',
+        \
+        \ 'y#': ['<Plug>(agit-yank-hash)', 'Yank the commit hash'],
+        \
+        \ 'rm': ['<Plug>(agit-git-reset)',      'Reset --mixed (default)'],
+        \ 'rs': ['<Plug>(agit-git-reset-soft)', 'Reset --soft'],
+        \ 'rh': ['<Plug>(agit-git-reset-hard)', 'Reset --hard'],
+        \
+        \ 'ri': ['<Plug>(agit-git-rebase-i)',   'Rebase --interactive'],
+        \
+        \ 'rv': ['<Plug>(agit-git-revert)',  'Revert to the commit'],
+        \
+        \ '<C-g>': ['<Plug>(agit-print-commitmsg)',  'Show the commit message'],
+        \
+        \ 'd': {
+        \   'name': 'Start Diff',
+        \   'd': ['<Plug>(agit-diff)', 'Diff with current hash'],
+        \   'l': ['<Plug>(agit-diff-with-local)', 'Diff with the local file'],
+        \   },
+        \ 'D': ['<Plug>(agit-git-branch-d)', 'Delete the "branch"'],
+        \
+        \ 'c': {
+        \   'name': 'Choose the commit',
+        \   'o': ['<Plug>(agit-git-checkout)',    'Checkout to the commit'],
+        \   'n': ['<Plug>(agit-git-checkout-b)',  'Create a new branch at the commit'],
+        \   'p': ['<Plug>(agit-git-cherry-pick)', 'Cherry Pick the commit'],
+        \   },
+        \
+        \ 'b': {
+        \   'name': 'Bisect',
+        \   's': ['<Plug>(agit-git-bisect-start)', 'Bisect Start'],
+        \   'g': ['<Plug>(agit-git-bisect-good)',  'Bisect Good'],
+        \   'b': ['<Plug>(agit-git-bisect-bad)',   'Bisect Bad'],
+        \   'r': ['<Plug>(agit-git-bisect-reset)', 'Bisect Reset'],
+        \   }
+        \ }
+  call which_key#register('Agit ', maps)
+  nnoremap <silent><nowait><buffer> <space>g :<C-u>WhichKey 'Agit '<CR>
 
   " Scroll {{{2
   nnoremap <buffer> d <c-d>
