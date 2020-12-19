@@ -74,13 +74,6 @@ hook_source = 'runtime source/gitv.vim'
 #on_event = 'BufRead'
 #hook_add = 'runtime add/extradite.vim'
 
-#[ Commit Message ]
-[[plugins]]
-repo = 'rhysd/git-messenger.vim'
-type = 'git'
-on_cmd = 'GitMessenger'
-hook_add = 'runtime add/git-messenger.vim'
-
 #[ Hundlers to Gbrowse ]
 #[[plugins]]
 #repo = 'tpope/vim-rhubarb'
