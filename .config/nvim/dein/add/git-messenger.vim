@@ -1,4 +1,4 @@
-" From: tool.toml
+" From: git.toml
 " Repo: rhysd/git-messenger.vim
 
 " mili-second; for CursorHold
