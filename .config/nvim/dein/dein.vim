@@ -122,8 +122,8 @@ augroup myDeinRc "{{{1
     let pat = 'repo = .*\zs'. pat
 
     exe 0
-    call search(pat, 'w')
-    norm! zvzz
+    call search(pat, 'W')
+    norm! zzzv
   endfunction
 
   " Inititialize to source 'hook_post_source'.
