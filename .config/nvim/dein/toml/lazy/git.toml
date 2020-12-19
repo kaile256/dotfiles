@@ -44,7 +44,6 @@ repo = 'rhysd/git-messenger.vim'
 # Show commit message in popup.
 on_cmd = 'GitMessenger'
 hook_add = 'runtime add/git-messenger.vim'
-
 #[ Blame ]
 #[[plugins]]
 #repo = 'rhysd/ghpr-blame.vim'
