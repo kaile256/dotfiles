@@ -343,9 +343,7 @@ function! s:set_rules() abort
           \ ]
 
     const Insert_a_space_before_cursor = [
-          \ {'char': '<C-S-Space>', 'at': '\%#\S', 'input': '<space>',
-          \     'input_after': '<space>'},
-          \ {'char': '<C-S-Space>', 'at': '\s\%#\S', 'input': '',
+          \ {'char': '<C-Space>', 'at': '\%#\a', 'input': '',
           \     'input_after': '<space>'},
           \ ]
 
