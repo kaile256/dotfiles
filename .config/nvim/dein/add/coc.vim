@@ -231,6 +231,30 @@ nnoremap <silent> <space>cb :Coclist bookmark<cr>
 " CocGit {{{1
 nnoremap <silent> <space>gm :<C-u>CocCommand git.showCommit<CR>
 
+function! s:goto_chunk(direction) abort
+  let conflict_marker = '[=><]\{7}'
+  let is_conflicted = search(conflict_marker, 'cnW')
+  if is_conflicted
+    let next = "\<Plug>(coc-git-nextconflict)"
+    let prev = "\<Plug>(coc-git-prevconflict)"
+  else
+    let next = "\<Plug>(coc-git-nextchunk)"
+    let prev = "\<Plug>(coc-git-prevchunk)"
+  endif
+
+  let forward  = a:direction ==# 'next' ? next : prev
+  let backward = a:direction ==# 'next' ? prev : next
+
+  if dein#tap('repmo-vim')
+    return repmo#Key(forward, backward)
+  endif
+  return forward
+endfunction
+nmap <expr> [c <SID>goto_chunk('prev')
+nmap <expr> ]c <SID>goto_chunk('next')
+xmap <expr> [c <SID>goto_chunk('prev')
+xmap <expr> ]c <SID>goto_chunk('next')
+
 " Note: Use gitgutter instead which has less delay.
 " command! GchunkAdd  :CocCommand git.chunkStage
 " command! GchunkUndo :CocCommand git.chunkUndo
