@@ -32,6 +32,12 @@ on_cmd = ['GHInteractive', 'GBInteractive']
 # [[plugins]]
 # repo = 'jreybert/vimagit'
 # on_cmd =  'Magit'
+#[ Commit ]
+[[plugins]]
+repo = 'johngrib/vim-git-msg-wheel'
+# Line Completion from recent commit messages on gitcommit.
+on_ft = ['gitcommit']
+hook_source = 'runtime source/git-msg-wheel.vim'
 #[ Blame ]
 #[[plugins]]
 #repo = 'rhysd/ghpr-blame.vim'
