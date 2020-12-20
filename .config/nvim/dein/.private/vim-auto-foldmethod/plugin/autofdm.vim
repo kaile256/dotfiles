@@ -1,4 +1,7 @@
-let g:autofdm#disable_filetypes = get(g:, 'autofdm#disable_filetypes', ['gitcommit'])
+let g:autofdm#disable_filetypes = get(g:, 'autofdm#disable_filetypes', [
+      \ 'gitcommit',
+      \ 'log',
+      \ ])
 
 augroup autofdm
   au!
