@@ -60,6 +60,13 @@ function! s:set_definitions() abort
         \ ['could', 'would'],
         \ ]
 
+  let rules.abbriviations = [
+        \ [' is', "'s"],
+        \ [' are', "'re"],
+        \ [' not', "n't"],
+        \ ['cannot', "can't"],
+        \ ]
+
   let rules.command = [
         \ ['let', 'const'],
         \ ]
