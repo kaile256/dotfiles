@@ -340,18 +340,18 @@ bindsym $SuperS+8 move container to workspace $ws8; workspace $ws8
 bindsym $SuperS+9 move container to workspace $ws9; workspace $ws9
 bindsym $SuperS+0 move container to workspace $ws0; workspace $ws0
 
-# Workspace; Move in background {{{2
-bindsym $SuperC+1 move container to workspace $ws1
-bindsym $SuperC+2 move container to workspace $ws2
-bindsym $SuperC+3 move container to workspace $ws3
-bindsym $SuperC+4 move container to workspace $ws4
-bindsym $SuperC+5 move container to workspace $ws5
-bindsym $SuperC+6 move container to workspace $ws6
-bindsym $SuperC+7 move container to workspace $ws7
-bindsym $SuperC+8 move container to workspace $ws8
-bindsym $SuperC+9 move container to workspace $ws9
-bindsym $SuperC+0 move container to workspace $ws0
+bindsym $SuperC+1 move container to workspace $ws1; workspace $ws1
+bindsym $SuperC+2 move container to workspace $ws2; workspace $ws2
+bindsym $SuperC+3 move container to workspace $ws3; workspace $ws3
+bindsym $SuperC+4 move container to workspace $ws4; workspace $ws4
+bindsym $SuperC+5 move container to workspace $ws5; workspace $ws5
+bindsym $SuperC+6 move container to workspace $ws6; workspace $ws6
+bindsym $SuperC+7 move container to workspace $ws7; workspace $ws7
+bindsym $SuperC+8 move container to workspace $ws8; workspace $ws8
+bindsym $SuperC+9 move container to workspace $ws9; workspace $ws9
+bindsym $SuperC+0 move container to workspace $ws0; workspace $ws0
 
+# Workspace; Move in background {{{2
 bindsym $SuperA+1 move container to workspace $ws1
 bindsym $SuperA+2 move container to workspace $ws2
 bindsym $SuperA+3 move container to workspace $ws3
