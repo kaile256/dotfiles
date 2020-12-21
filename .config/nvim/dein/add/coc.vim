@@ -28,13 +28,13 @@ nnoremap <silent> <space>cx :<C-u>CocList extensions<cr>
 "command! -nargs=+ Csearch :CocSearch <f-args>
 "command! -nargs=+ Cgrep :CocList grep -regex <f-args>
 
-" CocCompletion; {{{1
+" Completion; {{{1
 inoremap <silent><expr> <C-n>
       \ pumvisible() ? "\<C-n>" : coc#refresh()
 inoremap <silent><expr> <C-p>
       \ pumvisible() ? "\<C-p>" : coc#refresh()
 
-" CocDiagnostic {{{1
+" Diagnostic {{{1
 " Note: Unnecessary? pop up auto.
 nmap <silent> gX <Plug>(coc-diagnostic-info)
 noremap <SID>(zv) :<C-u>sleep 5m<CR>zv
@@ -55,7 +55,7 @@ sunmap ]X
 " Mnemonic: Change the Structure.
 nmap cS <Plug>(coc-refactor)
 
-" CocFormat {{{1
+" Format {{{1
 command! Import :call CocActionAsync('runCommand', 'editor.action.organizeImport')
 
 " Note: coc-prettier's editorconfig ability seems useless
@@ -115,7 +115,7 @@ endfunction
 " `typescript`, `typescriptreact`,
 " `json` and `graphql`.
 
-" CocText-Object {{{1
+" Text-Object {{{1
 " Mnemonic: Respects ]m/[m
 xmap im <Plug>(coc-funcobj-i)
 omap im <Plug>(coc-funcobj-i)
@@ -128,7 +128,7 @@ omap iM <Plug>(coc-classobj-i)
 xmap aM <Plug>(coc-classobj-a)
 omap aM <Plug>(coc-classobj-a)
 
-" CocSnippets {{{1
+" Snippets {{{1
 " Note: Regex is interpreted by JavaScript while UltiSnips does in Python.
 " Help: $COC_DATA_HOME/extensions/node_modules/coc-snippets
 " Note: it works without ultisnips itself.
@@ -149,7 +149,7 @@ augroup END
 " nnoremap <silent> <a-s><a-p><a-v> :<C-u>vs <bar> CocCommand snippets.editSnippets<CR>
 " nnoremap <silent> <a-s><a-p><a-t> :<C-u>tabe <bar> CocCommand snippets.editSnippets<CR>
 
-" " CocCodeAction {{{1
+" " CodeAction {{{1
 " "set equalprg=CocActionAsync('formatSelected')
 " "set equalprg=CocActionAsync('codeLensAction')
 " nnoremap \A :call CocActionAsync('codeLensAction')<cr>
@@ -157,12 +157,12 @@ nmap \aa <Plug>(coc-codeaction)
 nmap \a  <Plug>(coc-codeaction-selected)
 xmap \a  <Plug>(coc-codeaction-selected)
 
-" CocWorkspace {{{1
+" Workspace {{{1
 " nnoremap <silent> <space>cr :<C-u>CocCommand workspace.renameCurrentFile<CR>
 
 command! -bar -nargs=? CocDebug :CocCommand workspace.showOutput <args>
 
-" CocSession {{{1
+" Session {{{1
 command! -bar -nargs=? LoadSession :exe (<q-args> ==# '')
       \ ? 'CocList session'
       \ : 'CocCommand session.load' <args>
@@ -171,7 +171,7 @@ command! -bar -nargs=? SaveSession :CocCommand session.save <args>
 nnoremap <silent> <space>cs :<C-u>CocList    sessions<CR>
 nnoremap <silent> <space>cS :<C-u>CocCommand session.save<CR>
 
-" CocRange, or Multiple Cursor {{{1
+" Range, or Multiple Cursor {{{1
 hi CocCursorRange guibg=#79976a guifg=#e7c56c
 " Mnemonic: Mark X
 nmap mx <Plug>(coc-cursors-position)
@@ -187,7 +187,7 @@ nmap \m <Plug>(coc-cursors-operator)
 ""nmap <silent> * <Plug>(coc-cursors-word)
 ""nmap <silent> n <Plug>(coc-cursors-position)
 
-" CocSearch {{{1
+" Search {{{1
 nnoremap <silent> <space>G :<C-u>CocSearch
       \ --word-regexp
       \ --follow
@@ -203,19 +203,19 @@ xnoremap <silent> <space>G :<C-u>CocSearch
       \ <C-r>=substitute(getline('.')[col("'<") - 1 : col("'>") - 1],
       \                  '\zs\s\+', '\\1', 'g')<CR><CR>
 
-" CocColor; {{{1
+" Color; {{{1
 command! -bar ColorReformat    :call CocAction('colorPresentation')
 command! -bar ColorShowPalette :call CocAction('pickColor')
 nnoremap <space>cp :ColorShowPalette<cr>
 
-" CocList; {{{1
+" List; {{{1
 " show commit contains current position
 nnoremap <silent> <space>cl :CocList<cr>
 " nnoremap <silent> <space>cf :CocList files<cr>
 " nnoremap <silent> <space>cb :CocList buffers<cr>
 nnoremap <silent> <space>cx :CocList extensions<cr>
 
-" CocBookmark; {{{1
+" Bookmark; {{{1
 nmap ma <Plug>(coc-bookmark-annotate)
 nmap mm <Plug>(coc-bookmark-toggle)
 nmap ]b <Plug>(coc-bookmark-next)
@@ -224,14 +224,14 @@ nmap [b <Plug>(coc-bookmark-prev)
 command! -bar Bookmarks :Coclist bookmark
 nnoremap <silent> <space>cb :Coclist bookmark<cr>
 
-"" CocExplorer {{{1
+"" Explorer {{{1
 "command! Cexplorer CocCommand explorer
 "      \ --toggle
 "      \ --width=35
 "      \ --sources=buffer+,file+
 "      \ --file-columns=icon,git,selection,clip,indent,filename,size
 
-" CocGit {{{1
+" Git {{{1
 " Slower than cohama/agit.vim
 nnoremap <silent> <space>cg :<C-u>CocList --normal --auto-preview --tab bcommits<CR>
 nnoremap <silent> <space>cG :<C-u>CocList --normal --auto-preview --tab commits<CR>
@@ -321,7 +321,7 @@ xmap <expr> ]c <SID>goto_chunk('next')
 " omap ac <Plug>(coc-text-object-outer)
 " xmap ac <Plug>(coc-text-object-outer)
 
-" " CocYank; {{{1
+" " Yank; {{{1
 " " Required?: closes mpreview vindow when completion is done.
 " "au! CompleteDone * if pumvisible() == 0 | pclose | endif
 " "inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<CR>"
@@ -335,7 +335,7 @@ xmap <expr> ]c <SID>goto_chunk('next')
 " inoremap <c-x><c-y> <c-o>:call <SID>register_hist()<cr>
 " inoremap <c-x>y     <c-o>:call <SID>register_hist()<cr>
 
-" CocNot Yet Mapped {{{1
+" Not Yet Mapped {{{1
 " repeat only coc's util.
 "nmap <silent> . <Plug>(coc-command-repeat)
 "<Plug>(coc-openlink)
