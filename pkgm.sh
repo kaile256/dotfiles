@@ -208,7 +208,7 @@ PACKAGEs=(
   nitrogen # a browser of wallpaper
   picom-ibhagwan-git # an X compositor, an enhanced fork of compton
   #i3-wm-iconpatch # crashes too often
-  i3lock-multimonitor
+  multilockscreen # configurable wrapper i3-color, more flexible than i3lock-multimonitor
   udiskie # a wrapper of udisk2 to mount automatically
   #uzbl # a browser w/ vim-like keybinds. The development ends.
   #doas # an alternative to sudo(1); a port of OpenBSD or try opendoas from 'community'

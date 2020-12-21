@@ -6,7 +6,14 @@
 
 # Note: the image must be a png format.
 IMAGE="$MY_MEMO/data/wallpaper/Zion-National-Park-Springdale-Utah-USA.png"
-# Man: i3lock(1)
-i3lock --ignore-empty-password --nofork --image "$IMAGE" && sleep 1
+
+if type multilockscreen >/dev/null 2>&1 ; then
+  # Repo: jeffmhubbard/multilockscreen
+  # Cache an image by `multilockscreen --update "$PATH_TO_IMAGE"`.
+  multilockscreen --lock --span --off 600 \
+    -- --nofork
+else
+  i3lock --ignore-empty-password --nofork --image "$IMAGE" && sleep 1
+fi
 
 #light-locker-command --lock

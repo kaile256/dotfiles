@@ -42,8 +42,7 @@ set $once   exec --no-startup-id $MY_I3_SCRIPTS/once
 set $always exec_always --no-startup-id
 set $restart exec_always
 
-set $locker (type i3lock-multimonitor >/dev/null 2>&1 && i3lock-multimonitor) \
-            || $MY_I3_SCRIPTS/lock.sh
+set $locker $MY_I3_SCRIPTS/lock.sh
 
 set $shortmsg notify-send --expire-time 750
 set $notify   notify-send --expire-time 1100
