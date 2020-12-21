@@ -148,8 +148,7 @@ function! s:register_keys() abort
           \ 'p': [':Git pull', 'Pull'],
           \ 'P': [':Git push', 'Push'],
           \
-          \ 'w': [':Gwrite',             ':w | Stage the file'],
-          \ 'o': [':Gwrite <bar> only ', ':only | w | Stage the file'],
+          \ 'w': [':Gwrite', ':w | Stage the file'],
           \
           \ 'u': [':silent G reset HEAD %', 'Unstage current buffer'],
           \ 'U': [':silent G reset HEAD',   'Unstage all'],
