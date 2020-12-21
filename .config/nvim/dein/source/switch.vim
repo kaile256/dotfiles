@@ -105,6 +105,8 @@ function! s:set_definitions() abort
         \ ['outer', 'inner'],
         \
         \ ['all', 'each'],
+        \
+        \ ['pre', 'post'],
         \ ]
 
   let rules.order = [
