@@ -50,6 +50,11 @@ sunmap ]X
 "nmap [e <Plug>(coc-diagnostic-prev-error)
 "nmap ]e <Plug>(coc-diagnostic-next-error)
 
+" Refactor {{{1
+
+" Mnemonic: Change the Structure.
+nmap cS <Plug>(coc-refactor)
+
 " CocFormat {{{1
 command! Import :call CocActionAsync('runCommand', 'editor.action.organizeImport')
 
@@ -57,8 +62,6 @@ command! Import :call CocActionAsync('runCommand', 'editor.action.organizeImport
 "       when prettier is unavailable on the filetype.
 "command! FormatOnC :call CocAction('format')
 "command! -nargs=? FoldOnC :call CocAction('fold', <f-args>)
-" Mnemonic: Change the Structure.
-nmap cS <Plug>(coc-refactor)
 
 " Mnemonic: Change the lhs of Equal Sign
 function! s:quick_format() abort
