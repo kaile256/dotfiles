@@ -158,10 +158,10 @@ function! s:register_keys() abort
           \     },
           \
           \ 'r': {
-          \   'name': 'Remote',
-          \   'p': [':Git pull', 'Pull'],
-          \   'P': [':Git push', 'Push'],
-          \ },
+          \     'name': 'Remote',
+          \     'p': [':Git pull', 'Pull'],
+          \     'P': [':Git push', 'Push'],
+          \     },
           \ })
   endif
   call which_key#register('Git:', git_maps)
