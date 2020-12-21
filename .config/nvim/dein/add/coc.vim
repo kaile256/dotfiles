@@ -229,8 +229,8 @@ nnoremap <silent> <space>cb :Coclist bookmark<cr>
 "      \ --file-columns=icon,git,selection,clip,indent,filename,size
 
 " CocGit {{{1
-nnoremap <silent> <space>cg :<C-u>CocList bcommits<CR>
-nnoremap <silent> <space>cG :<C-u>CocList commits<CR>
+nnoremap <silent> <space>cg :<C-u>CocList --normal --auto-preview --tab bcommits<CR>
+nnoremap <silent> <space>cG :<C-u>CocList --normal --auto-preview --tab commits<CR>
 
 nnoremap <silent> <space>gm :<C-u>CocCommand git.showCommit<CR>
 
