@@ -28,7 +28,7 @@ nnoremap <silent> <space>cx :<C-u>CocList extensions<cr>
 "command! -nargs=+ Csearch :CocSearch <f-args>
 "command! -nargs=+ Cgrep :CocList grep -regex <f-args>
 
-" Completion; {{{1
+" Completion {{{1
 inoremap <silent><expr> <C-n>
       \ pumvisible() ? "\<C-n>" : coc#refresh()
 inoremap <silent><expr> <C-p>
@@ -203,19 +203,19 @@ xnoremap <silent> <space>G :<C-u>CocSearch
       \ <C-r>=substitute(getline('.')[col("'<") - 1 : col("'>") - 1],
       \                  '\zs\s\+', '\\1', 'g')<CR><CR>
 
-" Color; {{{1
+" Color {{{1
 command! -bar ColorReformat    :call CocAction('colorPresentation')
 command! -bar ColorShowPalette :call CocAction('pickColor')
 nnoremap <space>cp :ColorShowPalette<cr>
 
-" List; {{{1
+" List {{{1
 " show commit contains current position
 nnoremap <silent> <space>cl :CocList<cr>
 " nnoremap <silent> <space>cf :CocList files<cr>
 " nnoremap <silent> <space>cb :CocList buffers<cr>
 nnoremap <silent> <space>cx :CocList extensions<cr>
 
-" Bookmark; {{{1
+" Bookmark {{{1
 nmap ma <Plug>(coc-bookmark-annotate)
 nmap mm <Plug>(coc-bookmark-toggle)
 nmap ]b <Plug>(coc-bookmark-next)
@@ -321,7 +321,7 @@ xmap <expr> ]c <SID>goto_chunk('next')
 " omap ac <Plug>(coc-text-object-outer)
 " xmap ac <Plug>(coc-text-object-outer)
 
-" " Yank; {{{1
+" " Yank {{{1
 " " Required?: closes mpreview vindow when completion is done.
 " "au! CompleteDone * if pumvisible() == 0 | pclose | endif
 " "inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<CR>"
