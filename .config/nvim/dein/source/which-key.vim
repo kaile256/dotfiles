@@ -164,7 +164,7 @@ function! s:register_keys() abort
           \ },
           \ })
   endif
-  call which_key#register('Git ', git_maps)
+  call which_key#register('Git:', git_maps)
 
 endfunction
 call s:register_keys()
