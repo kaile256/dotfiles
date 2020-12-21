@@ -145,8 +145,11 @@ function! s:register_keys() abort
           \ 's': [':call Fug_Gvstatus()'],
           \ 'S': [':tab Gstatus'],
           \
-          \ 'p': [':Git pull', 'Pull'],
-          \ 'P': [':Git push', 'Push'],
+          \ 'r': {
+          \   'name': 'Remote',
+          \   'p': [':Git pull', 'Pull'],
+          \   'P': [':Git push', 'Push'],
+          \ },
           \
           \ 'w': [':Gwrite', ':w | Stage the file'],
           \
