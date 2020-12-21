@@ -232,9 +232,9 @@ nnoremap <silent> <space>cb :Coclist bookmark<cr>
 "      \ --file-columns=icon,git,selection,clip,indent,filename,size
 
 " Git {{{1
-" Slower than cohama/agit.vim
-nnoremap <silent> <space>cg :<C-u>CocList --normal --auto-preview --tab bcommits<CR>
-nnoremap <silent> <space>cG :<C-u>CocList --normal --auto-preview --tab commits<CR>
+" " Slower than cohama/agit.vim
+" nnoremap <silent> <space>cg :<C-u>CocList --normal --auto-preview --tab bcommits<CR>
+" nnoremap <silent> <space>cG :<C-u>CocList --normal --auto-preview --tab commits<CR>
 
 nnoremap <silent> <space>gm :<C-u>CocCommand git.showCommit<CR>
 
