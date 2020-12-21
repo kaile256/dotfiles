@@ -145,12 +145,6 @@ function! s:register_keys() abort
           \ 's': [':call Fug_Gvstatus()'],
           \ 'S': [':tab Gstatus'],
           \
-          \ 'r': {
-          \   'name': 'Remote',
-          \   'p': [':Git pull', 'Pull'],
-          \   'P': [':Git push', 'Push'],
-          \ },
-          \
           \ 'w': [':Gwrite', ':w | Stage the file'],
           \
           \ 'u': [':silent G reset HEAD %', 'Unstage current buffer'],
@@ -162,6 +156,12 @@ function! s:register_keys() abort
           \     'c': ['<Plug>(try-to-commit)', 'Commit'],
           \     'e': ['<Plug>(amend-commit-save-message)', 'Amend witout editing commit'],
           \     },
+          \
+          \ 'r': {
+          \   'name': 'Remote',
+          \   'p': [':Git pull', 'Pull'],
+          \   'P': [':Git push', 'Push'],
+          \ },
           \ })
   endif
   call which_key#register('Git ', git_maps)
