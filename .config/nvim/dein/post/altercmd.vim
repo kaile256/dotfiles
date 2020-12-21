@@ -15,6 +15,9 @@ CAlterCommand we exe (&modified ? 'up' : 'checktime') '<bar> e'
 CAlterCommand g keeppatterns g
 CAlterCommand v keeppatterns v
 
+CAlterCommand pro profile
+CAlterCommand prof profile
+
 if dein#tap('vim-eunuch')
   " Move: Type `./` for relative path.
   CAlterCommand mv Move
