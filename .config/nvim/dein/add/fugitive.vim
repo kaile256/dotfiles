@@ -2,61 +2,11 @@
 " Repo: tpope/vim-fugitive
 " Another: source/fugitive.vim
 
-" Note: :Gpush works asynchronous with 'tpope/vim-dispatch'
-command! -bang -nargs=? -range=-1 -addr=tabs
-      \ -complete=customlist,fugitive#PushComplete
-      \ Gush
-      \ :exe <q-mods> 'Git push' (<q-args> ==# '' ? 'origin HEAD': <q-args>)
-
-command! -bang -nargs=? -range=-1 -addr=tabs
-      \ -complete=customlist,fugitive#PullComplete
-      \ Gull
-      \ :<mods> Git pull <args>
-
 " FIXME
 command! -bang -nargs=? -range=-1 -addr=tabs
       \ -complete=customlist,fugitive#GrepComplete
       \ Gfunctions
       \ :Glgrep --show-function --line-number <args>
-
-" Note: practically, no such command as git-unstage
-" TODO: make it work to unstage all the other not to commit one unitentionally
-command! -nargs=? -bar -complete=customlist,fugitive#CommitComplete
-      \ Gunstage
-      \ :silent Git reset HEAD <args>
-
-command! -bar -nargs=* GcommitBottom :bot 20 Git commit <args>
-
-" Note: `:Gw --only` just stages a file named '--only'.
-command! -nargs=? -bar -complete=customlist,fugitive#EditComplete
-      \ GwOnly
-      \ :Gunstage | Gw
-
-" Note: -range=-1 is correct; either no -complete
-" Ref: tpope/vim-fugitive/plugin/fugitive.vim @368
-command! -bang -bar -range=-1 -addr=tabs
-      \ Gvstatus
-      \ :call s:Gvstatus(<q-args>)
-
-function! s:Gdiff_keymaps() abort "{{{1
-  if !&diff | return | endif
-  " U works like coc-gitchunk-undo, by :diffget
-  nnoremap U do
-endfunction
-
-function! s:Gvstatus(...) abort "{{{1
-  let args = a:0 > 0 ? join(a:000) : ''
-  " Note: cannot use :Gvstatus itself, of course
-  exe 'vert bot Gstatus' args
-  if bufwinnr('\.git/index') == -1 | return | endif
-
-  vert resize 45
-  setl winfixwidth
-  wincmd =
-  let Go_to_Staged_section = 'norm gs'
-  exe Go_to_Staged_section
-  norm! zz
-endfunction
 
 " Functions: Pretreatment for Windows in Tab {{{1
 let s:std = {}
@@ -132,106 +82,6 @@ endfunction
 function! s:winsave() abort "{{{2
   let t:my_fugitive_save_winid = bufwinid('%')
 endfunction
-
-" Functions: Fugitive {{{1
-function! s:Gvdiffw(...) abort "{{{2
-  " Keep to show diff w/ HEAD while editting commit-message.
-  let obj = a:0 > 0 ? a:1 : ''
-
-  exe 'Gvdiffsplit!' obj
-  GwOnly
-
-  "" Note: 'wrap' causes gaps when text lengths are different each other
-  "setl wrap
-  "wincmd p
-  "setl wrap
-  "wincmd p
-
-  call s:check_scrollable()
-  call s:additional()
-endfunction
-
-function! s:check_scrollable() abort "{{{2
-  norm! G
-  if line('w0') != 1
-    let b:is_scrollable = 1
-  endif
-  " Note: 'gg' makes user notice if any other changes in the buffer.
-  norm! gg
-endfunction
-
-function! s:additional() abort "{{{2
-  if !&diff | return | endif
-  if exists('b:is_scrollable')
-    unlet b:is_scrollable
-    norm! ]c
-    return
-  endif
-endfunction
-
-" Blame {{{1
-nnoremap <silent> <space>gb :<c-u>Gblame<cr>
-
-" Status {{{1
-nnoremap <silent> <space>gs :<c-u>Gvstatus<cr>
-nnoremap <silent> <space>gS :<c-u>tab Gstatus<cr>
-
-" Staging {{{1
-nnoremap <silent> <space>gu :<C-u>Gunstage % <CR>
-nnoremap <silent> <space>gU :<C-u>Gunstage <bar> echo 'Reset all'<CR>
-
-nnoremap <silent> <space>ga :<C-u>Gw<CR>
-nnoremap <silent> <space>gA :<C-u>Gw <bar> GcommitBottom <CR>
-
-nnoremap <silent> <space>gw :<c-u>Gw <bar> GwdiffOnly HEAD<cr>
-
-command! -bar -nargs=* GwdiffOnly
-      \ :HelpCloseAll
-      \ | call s:winpick()
-      \ | call s:Gvdiffw(<q-args>)
-
-" Add to Diff {{{2
-nnoremap <silent> <space>go :<c-u>silent Gw <bar> only<cr>
-nnoremap <silent> <space>gO :<c-u>GwToDiff HEAD<cr>
-
-command! -bar -nargs=*
-      \ GwToDiff
-      \ :silent Gw
-      \ | only
-      \ | call s:Gvdiffw (<q-args>)
-
-" Diff {{{1
-" !: On a Merge Conflict, do a 3-diff; otherwise the same as without bang.
-nnoremap <silent> <space>gd :<c-u>GdiffOnly<cr>
-" Note: should be compared in current buffer
-nnoremap <silent> <space>gD :<c-u>GwdiffOnly HEAD<cr>
-
-command! -bar -bang -nargs=* -complete=customlist,fugitive#EditComplete
-      \ GdiffOnly
-      \ :HelpCloseAll
-      \ | call s:winpick()
-      \ | Gvdiffsplit! <args>
-
-" Commit {{{1
-nnoremap <silent> <space>gC :<c-u>GcommitBottom<cr>
-
-" Note: <space>cc/ca would be used to distinguish whether register should be
-" '_' or 'unnamed'.
-function! s:is_nothing_staged() abort
-  let git_root = shellescape(FindRootDirectory() .'/.git')
-  let git_diff_cached = system('git --git-dir='. git_root .' diff --cached')
-  let is_nothing_staged = len(git_diff_cached) == 0
-  return is_nothing_staged
-endfunction
-nnoremap <silent><expr> <space>gcc
-      \ <SID>is_nothing_staged()
-      \ ? ':<C-u> echo "[fugitive] nothing staged" <CR>'
-      \ : ':<C-u> GcommitBottom <CR>'
-nnoremap <silent> <space>gca :<c-u>GcommitBottom --amend<cr>
-nnoremap <silent><expr> <space>gce
-      \ input('Amend the staged changes? y[es]/n[o] ') =~# 'y\%[es]'
-      \ ? ':<C-u> GcommitBottom --amend --no-edit<CR>'
-      \ : ':<C-u> echo "abort commit"<CR>'
 
 augroup myFugitiveAdd-OverrideGitCommands "{{{1
   au BufWinEnter */gclasp**/* call s:gclasp_mappings()

@@ -97,6 +97,73 @@ function! s:register_keys() abort
   for key in keys(l:nmaps)
     call which_key#register(key, l:nmaps[key])
   endfor
+
+  " Git mappings {{{1
+  let git_maps = {
+        \ 'name': '[ Git ]',
+        \ }
+  if dein#tap('vim-fugitive')
+    function! s:is_nothing_staged() abort
+      let git_root = shellescape(FindRootDirectory() .'/.git')
+      let git_diff_cached = system('git --git-dir='. git_root .' diff --cached')
+      let is_nothing_staged = len(git_diff_cached) == 0
+      return is_nothing_staged
+    endfunction
+    function! s:commit_at_bottom(...) abort
+      let opts = join(a:000)
+      const is_amending = opts =~# '--amend\>'
+
+      if !is_amending && s:is_nothing_staged()
+        echo '[fugitive] nothing staged yet'
+        return
+      elseif is_amending && opts =~# '--no-edit\>'
+            \ && input('[fugitive] Amend the staged changes? y[es]/n[o] ')
+            \         !~# 'y\%[es]'
+        echo "\nabort"
+        return
+      endif
+
+      exe 'bot 20 Git commit' opts
+    endfunction
+    nnoremap <silent> <Plug>(try-to-commit)
+          \ :<C-u>call <SID>commit_at_bottom()<CR>
+    nnoremap <silent> <Plug>(amend-commit-save-message)
+          \ :<C-u>call <SID>commit_at_bottom("--amend --no-edit")<CR>
+
+    function! Fug_Gvstatus() abort
+      vert bot Gstatus
+      if bufwinnr('\.git/index') == -1 | return | endif
+
+      vert resize 70
+      setl winfixwidth
+      let Go_to_Staged_section = 'norm gs'
+      exe Go_to_Staged_section
+      norm! zz
+    endfunction
+
+    call extend(git_maps, {
+          \ 's': [':call Fug_Gvstatus()'],
+          \ 'S': [':tab Gstatus'],
+          \
+          \ 'p': [':Git pull', 'Pull'],
+          \ 'P': [':Git push', 'Push'],
+          \
+          \ 'w': [':Gwrite',             ':w | Stage the file'],
+          \ 'o': [':Gwrite <bar> only ', ':only | w | Stage the file'],
+          \
+          \ 'u': [':silent G reset HEAD %', 'Unstage current buffer'],
+          \ 'U': [':silent G reset HEAD',   'Unstage all'],
+          \
+          \ 'c' : {
+          \     'name': 'Commit',
+          \     'a': [':Git commit --amend', 'Amend to the last commit'],
+          \     'c': ['<Plug>(try-to-commit)', 'Commit'],
+          \     'e': ['<Plug>(amend-commit-save-message)', 'Amend witout editing commit'],
+          \     },
+          \ })
+  endif
+  call which_key#register('Git ', git_maps)
+
 endfunction
 call s:register_keys()
 delfunction s:register_keys
