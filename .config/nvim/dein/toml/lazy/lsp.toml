@@ -3,7 +3,7 @@
 #[ coc.nvim ]
 [[plugins]]
 repo = 'neoclide/coc.nvim'
-# Branch: neoclide/coc.nvim_release
+# Branch: neoclide/coc.nvim_release; no src/, but build/.
 rev = 'release'
 #hook_done_update = 'yarn install --frozen-lockfile'
 on_func  = ['CocAction', 'CocActionAsync']
