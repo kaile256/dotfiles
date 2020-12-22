@@ -76,20 +76,16 @@ nnoremap <silent> <A-x><space> :<c-u>call <SID>defx({
 
 " in vertical {{{2
 nmap <A-x><A-v> <A-x>v
-nnoremap <silent> <A-x>v :<c-u>call <SID>defx({
-      \ 'direction': 'bot',
-      \ 'winwidth': &columns / 2,
-      \ 'split': 'vertical',
+nmap <silent> <A-x>v <C-w>v:<C-u>call <SID>defx({
+      \ 'split': 'no',
       \ 'new': 1,
       \ })
       \ <CR>
 
 " in horizontal {{{2
 nmap <A-x><A-s> <A-x>s
-nnoremap <silent> <A-x>s :<c-u>call <SID>defx({
-      \ 'direction': 'bel',
-      \ 'split': 'horizontal',
-      \ 'winheight': &lines / 2,
+nmap <silent> <A-x>s <C-w>s:<C-u>call <SID>defx({
+      \ 'split': 'no',
       \ 'new': 1,
       \ })<cr>
 
