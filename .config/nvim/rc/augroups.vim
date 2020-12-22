@@ -12,6 +12,8 @@ augroup myAutoResize
   au WinNew * call s:resize_window()
 augroup END
 function! s:resize_window() abort
+  if &winfixwidth | return | endif
+
   const min_width = max([&columns / 3, 120])
   if &columns < min_width * 3 | return | endif
 
