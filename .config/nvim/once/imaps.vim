@@ -261,39 +261,6 @@ augroup myImapsOnce
   au FileType html,markdown inoremap <buffer> ? ?<c-g>u
 augroup END
 
-" Time Stamp {{{1
-" Ref: https://qiita.com/annyamonnya/items/97c5cb0cfa414b3592d7
-" %Y: Year
-" %m: Month in number
-" %b: Month, like Apr, Nov
-" %d: Date
-" %H: Hour in 00-23
-" %M: Minute in 00-59
-" %S: Second in 00-60 (60 is leap second)
-" %w: Day of the Week
-"
-" %F: %Y-%m-%d
-" %D: %m/%d/%y
-" %T: %H:%M:%S
-" %X: ???
-" %R: %M:%M
-"
-" %e: Date in  1..31 (a digit with a space)
-" %k: Hour in 0..23
-" %l: Hour in 0..12
-" %-m: Month
-" %-d: Date
-" Mnemonic: Now
-inoremap <expr> <c-r><c-n> strftime('%d %b %Y %H:%M')
-" Mnemonic: Time
-inoremap <expr> <c-r><c-t> strftime('%H:%M')
-" Mnemonic: Date
-inoremap <expr> <c-r><c-d> strftime('%d %b %Y')
-
-inoremap <expr> <c-r><c-t> expand('%:t')
-" Mnemonic: Working file
-inoremap <expr> <c-r><c-w> expand('%:r')
-
 " NewLine Adjustment "{{{1
 " too slow
 "inoremap <silent> <Plug>(adjust-newline) <esc>:<c-u>call <SID>adjust_newline()<cr>

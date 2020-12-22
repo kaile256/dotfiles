@@ -9,3 +9,32 @@ snip.rv = res
 `
 endsnippet
 
+snippet today "Stamp date"
+`!p
+# %Y: Year
+# %m: Month in number
+# %b: Month, like Apr, Nov
+# %d: Date
+# %H: Hour in 00-23
+# %M: Minute in 00-59
+# %S: Second in 00-60 (60 is leap second)
+# %w: Day of the Week
+#
+# %F: %Y-%m-%d
+# %D: %m/%d/%y
+# %T: %H:%M:%S
+# %X: ???
+# %R: %M:%M
+#
+# %e: Date in  1..31 (a digit with a space)
+# %k: Hour in 0..23
+# %l: Hour in 0..12
+# %-m: Month
+# %-d: Date
+``!v strftime('%d %b %Y')`
+endsnippet
+
+snippet now "Stamp current time" b
+`!v strftime('%H:%M')`
+endsnippet
+
