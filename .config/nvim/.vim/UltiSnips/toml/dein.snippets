@@ -94,16 +94,19 @@ class Dein(Plugin):
     return "\n".join(tables_dein)
 
 
-  def expand_hook(index):
+  def expand_hook(idx):
+    # Expand `hook_{idx} = 'source $DEIN_RC_DIR/{plugin}/{idx-ommited}.vim'`
     plugin = Dein._trimmed()
 
-    hook = 'hook_' + index
-    source = 'runtime '
+    hook = 'hook_' + idx
+    source = 'source'
 
-    directory = re.sub(r'_.*', '', index)
-    path = directory + '/' + plugin + '.vim'
+    identifier = re.sub(r'_.*', '', idx)
+    fname = re.search(r'(.{3})', identifier).group(1)
+    base_dir = '$DEIN_RC_DIR/'
+    path = base_dir + plugin + '/' + fname + '.vim'
 
-    return hook + " = '" + source + path + "'"
+    return hook + " = '" + source + ' ' + path + "'"
 
 
 endglobal
@@ -116,15 +119,15 @@ snippet if "if = '$1'" b
 if = '${1:has("nvim")}'
 endsnippet
 
-snippet 'h(ook_)?a(dd)?' "hook_add = 'runtime add/foo.vim'" br
+snippet 'h(ook_)?a(dd)?' "hook_add = 'runtime $DEIN_RC_DIR/foo/add.vim'" br
 `!p snip.rv = Dein.expand_hook('add')`
 endsnippet
 
-snippet 'h(ook_)?s(ource)?' "hook_source = 'runtime source/foo.vim" br
+snippet 'h(ook_)?s(ource)?' "hook_source = 'runtime $DEIN_RC_DIR/foo/sou.vim" br
 `!p snip.rv = Dein.expand_hook('source')`
 endsnippet
 
-snippet 'h(ook_)?p(ost_)?(s(ource)?)?' "hook_post_source = 'runtime post/foo.vim'" br
+snippet 'h(ook_)?p(ost_)?(s(ource)?)?' "hook_post_source = 'runtime $DEIN_RC_DIR/foo/pos.vim'" br
 `!p snip.rv = Dein.expand_hook('post_source')`
 endsnippet
 
