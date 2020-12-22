@@ -132,9 +132,9 @@ cnoremap <silent> <a-s> <C-\>e<SID>assign_window('bot')<CR><CR>
 cnoremap <silent> <a-e> <C-\>e<SID>assign_window('')<CR><CR>
 
 function! s:assign_window(mods) abort
-  let line = getcmdline()
+  const line = getcmdline()
 
-  let mods_list = [
+  const mods_list = [
         \ 'tab',
         \ 'vert\%[tical]',
         \
@@ -147,36 +147,44 @@ function! s:assign_window(mods) abort
         \ 'abo\%[veleft]',
         \ ]
 
-  let open_cmds = [
+  const cmds_to_trim = [
         \ 'sp\%[lit]',
         \ 'vs\%[plit]',
         \ 'tabe\%[dit]',
         \ 'tabnew',
         \ 'e\%[dit]'
         \ ]
-
-  if a:mods ==# ''
-    const args = split(line)
-    for a in args[0:3]
-      for o in open_cmds
-        if a =~# o
-          const cmd = 'e'
-        endif
-      endfor
-    endfor
-  endif
-
-  for m in mods_list + open_cmds
-    let pat_trimmed = '^\s*'. m .'\s*'
-    let line = substitute(line, pat_trimmed, '', 'e')
+  let open_cmds = [
+        \ 'Man',
+        \ 'h\%[elp]',
+        \ ]
+  for cmds in [mods_list, cmds_to_trim, open_cmds]
+    call map(cmds, '''\s*\<''. v:val .''\>\s*''')
   endfor
+
+  const args = split(line)
+  for a in args[:3]
+    if len(filter(deepcopy(open_cmds), 'a =~# "^". v:val')) > 0
+      const cmd = a:mods
+      continue
+    elseif a:mods ==# ''
+          \ && len(filter(deepcopy(cmds_to_trim), 'a =~# "^". v:val')) > 0
+      const cmd = 'e'
+      continue
+    endif
+  endfor
+
+  let containes_open_cmd = filter(deepcopy(open_cmds),
+        \ 'index(open_cmds, v:val) >= 0')
+
+  let pat_trimmed = join(mods_list + cmds_to_trim, '\|')
+  let new_line = substitute(line, pat_trimmed, '', 'e')
 
   if !exists('cmd')
     const cmd =  a:mods .' sp'
   endif
 
-  let ret = cmd .' '. line
-  return ret
+  return cmd .' '. new_line
 endfunction
 
 cnoremap <A-u> <C-\>e<SID>toggle_case()<CR><CR>
