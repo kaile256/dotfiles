@@ -97,11 +97,15 @@ function! s:register_keys() abort
   for key in keys(l:nmaps)
     call which_key#register(key, l:nmaps[key])
   endfor
+endfunction
+call s:register_keys()
+delfunction s:register_keys
 
-  " Git mappings {{{1
+function! s:register_git_keys() abort
   let git_maps = {
         \ 'name': '[ Git ]',
         \ }
+
   if dein#tap('vim-fugitive')
     function! s:is_nothing_staged() abort
       let git_root = shellescape(FindRootDirectory() .'/.git')
@@ -169,7 +173,6 @@ function! s:register_keys() abort
           \ })
   endif
   call which_key#register('Git:', git_maps)
-
 endfunction
-call s:register_keys()
-delfunction s:register_keys
+call s:register_git_keys()
+delfunction s:register_git_keys
