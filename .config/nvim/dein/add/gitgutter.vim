@@ -20,39 +20,6 @@ nmap <silent> U
       \ <Plug>(GitGutterUndoHunk):<C-u>silent!
       \ call repeat#set("\<lt>Plug>(GitGutterUndoHunk)")<CR>
 
-nnoremap <expr><silent> <SID>(gitgutter-stage-current-hunk)
-      \ (foldclosed(line('.')) == -1 ? ':<C-u>' : 'V')
-      \ .':GitGutterStageHunk<CR>'
-
-nnoremap <silent> <Plug>(GitGutterOpStageHunks)
-      \ :<C-u>set operatorfunc=<SID>stage_hunks_op<CR>g@
-
-nmap <space>gpp <SID>(gitgutter-stage-current-hunk)
-nmap <space>gp <Plug>(GitGutterOpStageHunks)
-
-xmap <silent> <space>gp :<C-u>call <SID>stage_hunks_in_range("'<", "'>")<CR>
-
-function! s:stage_hunks_op(wise) abort
-  call s:stage_hunks_in_range("'[", "']")
-  silent! call repeat#set("\<Plug>(GitgutterOpStageHunks)")
-endfunction
-
-function! s:stage_hunks_in_range(start, end) abort "{{{2
-  " a:start: lnum
-  " a:end: lnum
-
-  let save_view = winsaveview()
-  exe 'norm!' a:start
-  while line('.') <= line(a:end)
-    let lnum = line('.')
-    silent! GitGutterStageHunk
-    silent! GitGutterNextHunk
-
-    if lnum == line('.') | break | endif
-  endwhile
-  call winrestview(save_view)
-endfunction
-
 " Text-object {{{1
 omap <SID>(textobj-hunk-i) <Plug>(GitGutterTextObjectInnerPending)
 xmap <SID>(textobj-hunk-i) <Plug>(GitGutterTextObjectInnerVisual)

@@ -176,6 +176,50 @@ function! s:register_git_keys() abort
           \     },
           \ })
   endif
+
+  if dein#tap('vim-gitgutter')
+    function! s:StageHunksInRange(start, end) abort
+      " a:start: lnum
+      " a:end: lnum
+
+      let save_view = winsaveview()
+      exe 'norm!' a:start
+      while line('.') <= line(a:end)
+        let lnum = line('.')
+        silent! GitGutterStageHunk
+        silent! GitGutterNextHunk
+
+        if lnum == line('.') | break | endif
+      endwhile
+      call winrestview(save_view)
+    endfunction
+    function! s:stage_hunks_op(wise) abort
+      call s:StageHunksInRange("'[", "']")
+      silent! call repeat#set("\<Plug>(GitGutterStageHunksOperator)")
+    endfunction
+    nnoremap <silent> <Plug>(GitGutterStageHunksOperator)
+          \ :<C-u>set operatorfunc=<SID>stage_hunks_op<CR>g@
+    nnoremap <expr><silent> <Plug>(GitGutterStageHunkAtCursor)
+          \ (foldclosed(line('.')) == -1 ? ':<C-u>' : 'V')
+          \ .':GitGutterStageHunk<CR>'
+
+    map <silent> <Plug>(GitGutterUndoHunkRepeatable)
+          \ <Plug>(GitGutterUndoHunk):<C-u>silent!
+          \ call repeat#set("\<lt>Plug>(GitGutterUndoHunk)")<CR>
+
+    call extend(git_nmaps, {
+          \ 'p': ['<Plug>(GitGutterStageHunksOperator)', 'Operator to stage hunks'],
+          \ 'P': ['<Plug>(GitGutterStageHunkAtCursor)', 'Stage the hunk at cursor'],
+          \
+          \ 'U': ['<Plug>(GitGutterUndoHunkRepeatable)', 'Reset the hunk at cursor to HEAD'],
+          \ })
+
+    call extend(git_xmaps, {
+          \ 'p': [funcref('s:StageHunksInRange', ["'<", "'>"]), 'Stage hunks on the visualized area'],
+          \
+          \ 'U': ['<Plug>(GitGutterUndoHunkRepeatable)', 'Reset hunks on the visualized area to HEAD'],
+          \ })
+  endif
   call which_key#register('Git:', git_nmaps)
   call which_key#register('Git in Visual:', git_xmaps)
 endfunction
