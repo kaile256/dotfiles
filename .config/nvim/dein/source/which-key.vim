@@ -102,7 +102,11 @@ call s:register_keys()
 delfunction s:register_keys
 
 function! s:register_git_keys() abort
-  let git_maps = {
+  let git_nmaps = {
+        \ 'name': '[ Git ]',
+        \ }
+
+  let git_xmaps = {
         \ 'name': '[ Git ]',
         \ }
 
@@ -147,7 +151,7 @@ function! s:register_git_keys() abort
 
     " Tips: Append a space after `':foo bar()'`; without the trailing space,
     " the command-pattern will be regarded as a function.
-    call extend(git_maps, {
+    call extend(git_nmaps, {
           \ 's': [funcref('s:Gvstatus'), 'Show Status'],
           \ 'S': [':tab Gstatus', 'Show Status in another tab'],
           \
@@ -172,7 +176,8 @@ function! s:register_git_keys() abort
           \     },
           \ })
   endif
-  call which_key#register('Git:', git_maps)
+  call which_key#register('Git:', git_nmaps)
+  call which_key#register('Git in Visual:', git_xmaps)
 endfunction
 call s:register_git_keys()
 delfunction s:register_git_keys
