@@ -1,6 +1,5 @@
 " TOML: default.toml
 " Repo: liuchengxu/vim-which-key
-" Another: source/which-key.vim
 
 nnoremap <silent> \u :<C-u>WhichKey 'Caser '<CR>
 xnoremap <silent> \u :<C-u>WhichKeyVisual 'Caser in Visual '<CR>

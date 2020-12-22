@@ -1,6 +1,5 @@
 " TOML: default.toml
 " Repo: liuchengxu/vim-which-key
-" Another: add/which-key.vim
 
 let g:which_key_vertical = 1
 let g:which_key_floating_relative_win = 1
@@ -166,7 +165,7 @@ function! s:register_git_keys() abort
     " Tips: Append a space after `':foo bar()'`; without the trailing space,
     " the command-pattern will be regarded as a function.
     call extend(git_nmaps, {
-          \ 's': [funcref('s:Gvstatus'), 'Show Status'],
+          \ 's': [funcref('s:Gvstatus'), 'Show Status in a column'],
           \ 'S': [':tab Gstatus', 'Show Status in another tab'],
           \
           \ 'w': [':Gwrite', ':w | Stage the file'],
