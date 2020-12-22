@@ -4,6 +4,8 @@
 let g:which_key_vertical = 1
 let g:which_key_floating_relative_win = 1
 
+let g:which_key_exit = ["\<C-[>", "\<Esc>", "\<C-c>"]
+
 function! s:register_keys() abort
   " Add prefix 'v_' to xmaps
 
