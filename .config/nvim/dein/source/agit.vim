@@ -12,6 +12,8 @@ hi! link agitDiffAdd diffAdded
 hi! link agitDiffRemove diffRemoved
 
 augroup myAgitSo
+  au FileType agit,agit_* wincmd = " Because of window-resize autocmd.
+
   "au FileType agit call s:agit_commands()
   au FileType agit* call s:agit_common_keymaps()
   au FileType agit  call s:agit_keymaps()
