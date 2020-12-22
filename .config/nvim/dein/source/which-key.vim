@@ -141,6 +141,8 @@ function! s:register_keys() abort
       norm! zz
     endfunction
 
+    " Tips: Append a space after `':foo bar()'`; without the trailing space,
+    " the command-pattern will be regarded as a function.
     call extend(git_maps, {
           \ 's': [funcref('s:Gvstatus'), 'Show Status'],
           \ 'S': [':tab Gstatus', 'Show Status in another tab'],
