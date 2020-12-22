@@ -13,6 +13,7 @@ let $DEIN_PRIVATE_HOME = $DEIN_CONFIG_HOME .'/.private'
 let $DEIN_ADD_HOME = $DEIN_CONFIG_HOME .'/add'
 let $DEIN_SOURCE_HOME = $DEIN_CONFIG_HOME .'/source'
 let $DEIN_POST_HOME = $DEIN_CONFIG_HOME .'/post'
+let $DEIN_RC_DIR = $DEIN_CONFIG_HOME .'/rc'
 
 " set nocompatible for dein {{{1
 if !has('nvim')
