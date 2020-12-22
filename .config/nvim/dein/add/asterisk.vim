@@ -25,24 +25,26 @@ noremap! <script> <c-r><c-_> <SID>(paste-literal)
 tnoremap <script> <c-r><c-_> <SID>(paste-literal)
 
 " Standard mappings {{{1
-" Note: Few case to expect exclusive search
-nmap *   <Plug>(asterisk-gz*)
-nmap g*  <Plug>(asterisk-g*)
-nmap #   <Plug>(asterisk-gz#)
-nmap g#  <Plug>(asterisk-g#)
-nmap z*  <Plug>(asterisk-z*)
-nmap gz* <Plug>(asterisk-*)
-nmap z#  <Plug>(asterisk-z#)
-nmap gz# <Plug>(asterisk-#)
+if !has('nvim') || dein#tap('nvim-hlslens')
+  " Note: Few case to expect exclusive search
+  nmap *   <Plug>(asterisk-gz*)
+  nmap g*  <Plug>(asterisk-g*)
+  nmap #   <Plug>(asterisk-gz#)
+  nmap g#  <Plug>(asterisk-g#)
+  nmap z*  <Plug>(asterisk-z*)
+  nmap gz* <Plug>(asterisk-*)
+  nmap z#  <Plug>(asterisk-z#)
+  nmap gz# <Plug>(asterisk-#)
 
-xmap *   <Plug>(asterisk-gz*)
-xmap g*  <Plug>(asterisk-g*)
-xmap #   <Plug>(asterisk-gz#)
-xmap g#  <Plug>(asterisk-g#)
-xmap z*  <Plug>(asterisk-z*)
-xmap gz* <Plug>(asterisk-*)
-xmap z#  <Plug>(asterisk-z#)
-xmap gz# <Plug>(asterisk-#)
+  xmap *   <Plug>(asterisk-gz*)
+  xmap g*  <Plug>(asterisk-g*)
+  xmap #   <Plug>(asterisk-gz#)
+  xmap g#  <Plug>(asterisk-g#)
+  xmap z*  <Plug>(asterisk-z*)
+  xmap gz* <Plug>(asterisk-*)
+  xmap z#  <Plug>(asterisk-z#)
+  xmap gz# <Plug>(asterisk-#)
+endif
 
 " Substitute mappings "{{{1
 

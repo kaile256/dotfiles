@@ -30,7 +30,12 @@ on_event = 'BufAdd'
 # Error: no such Event CursorWord0
 #hook_add = 'let g:cursorword_highlight = 0'
 hook_post_source = 'runtime add/cursorword.vim'
-
+[[plugins]]
+repo = 'kevinhwang91/nvim-hlslens'
+if = 'has("nvim")'
+on_event = 'BufRead'
+hook_add = 'source $DEIN_RC_DIR/hlslens/add.vim'
+hook_source = 'lua $DEIN_RC_DIR/hlslens/sou.lua'
 #[ Emphasize ]
 #[[plugins]]
 #repo = 't9md/vim-quickhl'
