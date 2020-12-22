@@ -130,7 +130,7 @@ function! s:register_keys() abort
     nnoremap <silent> <Plug>(amend-commit-save-message)
           \ :<C-u>call <SID>commit_at_bottom("--amend --no-edit")<CR>
 
-    function! Fug_Gvstatus() abort
+    function! s:Gvstatus() abort
       vert bot Gstatus
       if bufwinnr('\.git/index') == -1 | return | endif
 
@@ -142,8 +142,8 @@ function! s:register_keys() abort
     endfunction
 
     call extend(git_maps, {
-          \ 's': [':call Fug_Gvstatus()'],
-          \ 'S': [':tab Gstatus'],
+          \ 's': [funcref('s:Gvstatus'), 'Show Status'],
+          \ 'S': [':tab Gstatus', 'Show Status in another tab'],
           \
           \ 'w': [':Gwrite', ':w | Stage the file'],
           \
