@@ -117,6 +117,13 @@ function! s:register_git_keys() abort
           \ })
   endif
 
+  if dein#tap('coc.nvim')
+    call extend(git_nmaps, {
+          \ 'm': ['<Plug>(coc-git-chunkinfo)', 'Show diff of chunk at cursor'],
+          \ 'M': ['<Plug>(coc-git-commit)', 'Show the commit that includes cursor line'],
+          \ })
+  endif
+
   if dein#tap('vim-fugitive')
     function! s:is_nothing_staged() abort
       let git_root = shellescape(FindRootDirectory() .'/.git')
