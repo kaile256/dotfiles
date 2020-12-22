@@ -8,6 +8,28 @@ augroup myRestoreCursor
        \ | endif
 augroup END
 
+augroup myAutoResize
+  au WinNew * call s:resize_window()
+augroup END
+function! s:resize_window() abort
+  const min_width = max([&columns / 3, 120])
+  if &columns < min_width * 3 | return | endif
+
+  const cur_winnr = winnr()
+
+  " Get only the other windows in left side.
+  const winnrs = range(1, cur_winnr - 1)
+  const pos = win_screenpos(0)
+  const winnrs_parallel = filter(deepcopy(winnrs), 'win_screenpos(v:val)[0] == pos[0]')
+
+  if len(winnrs_parallel) != 1 | return | endif
+
+  const col = &columns - min_width
+  if col < min_width | return | endif
+
+  exe 'vertical resize' col
+endfunction
+
 augroup mySetReadonly
   au BufWinEnter *.{ico,icns} setlocal readonly nomodifiable
   au BufWinEnter *.{jpg,jpeg,png,gif} setlocal readonly nomodifiable
