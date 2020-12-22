@@ -163,6 +163,8 @@ function! s:register_keys() abort
           \     'name': 'Remote',
           \     'p': [':Git pull', 'Pull'],
           \     'P': [':Git push', 'Push'],
+          \
+          \     'u': [':exe "Git push -u origin" FugitiveHead() ', 'Set upstream branch to `origin`'],
           \     },
           \ })
   endif
