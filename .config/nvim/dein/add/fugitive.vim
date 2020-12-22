@@ -2,6 +2,16 @@
 " Repo: tpope/vim-fugitive
 " Another: source/fugitive.vim
 
+" Note: :Gpush works asynchronous with 'tpope/vim-dispatch'
+command! -bang -nargs=? -range=-1 -addr=tabs
+      \ -complete=customlist,fugitive#PushComplete
+      \ Gush
+      \ :exe '<mods> Git push' (<q-args> ==# '' ? 'origin HEAD': <q-args>)
+command! -bang -nargs=? -range=-1 -addr=tabs
+      \ -complete=customlist,fugitive#PullComplete
+      \ Gull
+      \ :<mods> Git pull <args>
+
 " FIXME
 command! -bang -nargs=? -range=-1 -addr=tabs
       \ -complete=customlist,fugitive#GrepComplete
