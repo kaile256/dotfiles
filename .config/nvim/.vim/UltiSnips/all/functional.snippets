@@ -1,0 +1,11 @@
+priority -80
+
+snippet '([()0-9. /*+-]+)' "Caluculate mathematical expression" ri
+`!p
+expr = match.group(1)
+vim.command(f"echo 'Calculate: \"{expr}\"'")
+res = eval(expr)
+snip.rv = res
+`
+endsnippet
+
