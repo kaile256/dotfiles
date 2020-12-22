@@ -97,10 +97,10 @@ hook_source = 'runtime source/rainbow.vim'
 #on_cmd = ['RainbowLevelsOn', 'RainbowLevelsToggle']
 
 #[ Icons ]
-[[plugins]]
-repo = 'ryanoasis/vim-devicons'
-on_event = 'BufRead'
-
+# [[plugins]]
+# repo = 'ryanoasis/vim-devicons'
+# on_source = ['denite.nvim', 'vim-airline', 'lightline.vim']
+#
 #[ Statusline ]
 #[[plugins]]
 #repo = 'vim-airline/vim-airline'
