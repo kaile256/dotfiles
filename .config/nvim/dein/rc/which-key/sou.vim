@@ -5,31 +5,31 @@
 let g:which_key_vertical = 1
 let g:which_key_floating_relative_win = 1
 
-function! s:repo() abort
-  return fnamemodify(FindRootDirectory(), ':s_.*/\ze[^/]*/[^/]*__')
-endfunction
-function! s:set_in_reg(target) abort
-  const reg = v:register ==# '"' ? '+' : v:register
-  call setreg(reg, a:target)
-  echo a:target 'in @'. reg
-endfunction
-nnoremap <silent> <Plug>(yank-repo)  :<C-u>call <SID>set_in_reg(<SID>repo())<CR>
-noremap! <expr>   <Plug>(paste-repo) <SID>repo()
-nnoremap <silent> <Plug>(yank-fullpath)  :<C-u>call <SID>set_in_reg(expand('%:p'))<CR>
-noremap! <expr>   <Plug>(paste-fullpath) expand('%:p')
-nnoremap <silent> <Plug>(yank-fname)  :<C-u>call <SID>set_in_reg(expand('%:t'))<CR>
-noremap! <expr>   <Plug>(paste-fname) expand('%:t')
-
-nnoremap <silent> <Plug>(yank-dirpath)  :<C-u>call <SID>set_in_reg(expand('%:p:h'))<CR>
-noremap! <expr>   <Plug>(paste-dirpath) expand('%:p:h:t')
-nnoremap <silent> <Plug>(yank-dirname)  :<C-u>call <SID>set_in_reg(expand('%:p:h'))<CR>
-noremap! <expr>   <Plug>(paste-dirname) expand('%:p:h:t')
-
-nnoremap <silent> <Plug>(yank-bufnr)  :<C-u>call <SID>set_in_reg(bufnr())<CR>
-noremap! <expr>   <Plug>(paste-bufnr) bufnr('%')
-
 function! s:register_keys() abort
   " Add prefix 'v_' to xmaps
+
+  function! s:repo() abort
+    return fnamemodify(FindRootDirectory(), ':s_.*/\ze[^/]*/[^/]*__')
+  endfunction
+  function! s:set_in_reg(target) abort
+    const reg = v:register ==# '"' ? '+' : v:register
+    call setreg(reg, a:target)
+    echo a:target 'in @'. reg
+  endfunction
+  nnoremap <silent> <Plug>(yank-repo)  :<C-u>call <SID>set_in_reg(<SID>repo())<CR>
+  noremap! <expr>   <Plug>(paste-repo) <SID>repo()
+  nnoremap <silent> <Plug>(yank-fullpath)  :<C-u>call <SID>set_in_reg(expand('%:p'))<CR>
+  noremap! <expr>   <Plug>(paste-fullpath) expand('%:p')
+  nnoremap <silent> <Plug>(yank-fname)  :<C-u>call <SID>set_in_reg(expand('%:t'))<CR>
+  noremap! <expr>   <Plug>(paste-fname) expand('%:t')
+
+  nnoremap <silent> <Plug>(yank-dirpath)  :<C-u>call <SID>set_in_reg(expand('%:p:h'))<CR>
+  noremap! <expr>   <Plug>(paste-dirpath) expand('%:p:h:t')
+  nnoremap <silent> <Plug>(yank-dirname)  :<C-u>call <SID>set_in_reg(expand('%:p:h'))<CR>
+  noremap! <expr>   <Plug>(paste-dirname) expand('%:p:h:t')
+
+  nnoremap <silent> <Plug>(yank-bufnr)  :<C-u>call <SID>set_in_reg(bufnr())<CR>
+  noremap! <expr>   <Plug>(paste-bufnr) bufnr('%')
 
   let l:nmaps = {}
 
@@ -109,6 +109,13 @@ function! s:register_git_keys() abort
   let git_xmaps = {
         \ 'name': '[ Git ]',
         \ }
+
+  if dein#tap('agit.vim')
+    call extend(git_nmaps, {
+          \ 'l': [':AgitFile', 'View Git log of current buffer with Agit'],
+          \ 'L': [':Agit', 'View Git log with Agit'],
+          \ })
+  endif
 
   if dein#tap('vim-fugitive')
     function! s:is_nothing_staged() abort
