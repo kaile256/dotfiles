@@ -33,7 +33,7 @@ function! s:resize_window() abort
     let col = &columns - min_width * cnts_para_wins
     if col < min_width | continue | endif
 
-    exe wn 'windo vertical resize' col
+    exe 'vertical' wn 'resize' col
   endfor
 
   call winrestview(save_view)
