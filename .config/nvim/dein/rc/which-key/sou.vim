@@ -146,7 +146,8 @@ function! s:register_git_keys() abort
         return
       endif
 
-      exe 'bot 20 Git commit' opts
+      exe 'Git commit' opts
+      resize 25
     endfunction
     nnoremap <silent> <Plug>(try-to-commit)
           \ :<C-u>call <SID>commit_at_bottom()<CR>
