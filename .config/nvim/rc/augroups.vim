@@ -22,8 +22,11 @@ function! s:resize_window() abort
 
   let save_view = winsaveview()
   for wn in winnrs[1:-1]
+    let pos = win_screenpos(wn)
+    if pos[1] == 1 | continue | endif
+
     let winnrs_parallel = filter(deepcopy(winnrs),
-         \ 'v:val < wn && win_screenpos(v:val)[0] == win_screenpos(wn)[0]')
+         \ 'v:val < wn && win_screenpos(v:val)[0] == pos[0]')
     let cnts_para_wins = len(winnrs_parallel)
     if cnts_para_wins == 0 | continue | endif
 
