@@ -20,9 +20,10 @@ function! s:resize_window() abort
   const cur_winnr = winnr()
 
   " Get only the other windows in left side.
-  const winnrs = range(1, cur_winnr - 1)
+  const winnrs = range(1, winnr('$'))
   const pos = win_screenpos(0)
-  const winnrs_parallel = filter(deepcopy(winnrs), 'win_screenpos(v:val)[0] == pos[0]')
+  const winnrs_parallel = filter(deepcopy(winnrs),
+       \ 'win_screenpos(v:val)[0] == pos[0] && v:val != cur_winnr')
 
   if len(winnrs_parallel) != 1 | return | endif
 
