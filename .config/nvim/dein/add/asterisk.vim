@@ -25,7 +25,7 @@ noremap! <script> <c-r><c-_> <SID>(paste-literal)
 tnoremap <script> <c-r><c-_> <SID>(paste-literal)
 
 " Standard mappings {{{1
-if !has('nvim') || dein#tap('nvim-hlslens')
+if !has('nvim') || !dein#tap('nvim-hlslens')
   " Note: Few case to expect exclusive search
   nmap *   <Plug>(asterisk-gz*)
   nmap g*  <Plug>(asterisk-g*)
