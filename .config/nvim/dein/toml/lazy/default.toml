@@ -267,6 +267,11 @@ repo = 'notomo/helpeek.vim'
 on_cmd = ['Helpeek']
 
 #[ Window ]
+# [[plugins]]
+# repo = 'gillyb/stable-windows'
+# # Don't scroll windows above when a new window opened below.
+# # Issue: It doesn't get along with floating window.
+# on_event = 'WinNew'
 [[plugins]]
 repo = 'wesQ3/vim-windowswap'
 on_func = 'WindowSwap#EasyWindowSwap'
