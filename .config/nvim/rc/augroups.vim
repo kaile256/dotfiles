@@ -17,20 +17,23 @@ function! s:resize_window() abort
   const min_width = max([&columns / 3, 120])
   if &columns < min_width * 3 | return | endif
 
-  const cur_winnr = winnr()
-
-  " Get only the other windows in left side.
   const winnrs = range(1, winnr('$'))
-  const pos = win_screenpos(0)
-  const winnrs_parallel = filter(deepcopy(winnrs),
-       \ 'win_screenpos(v:val)[0] == pos[0] && v:val != cur_winnr')
+  if len(winnrs) == 1 | return | endif
 
-  if len(winnrs_parallel) != 1 | return | endif
+  let save_view = winsaveview()
+  for wn in winnrs[1:-1]
+    let winnrs_parallel = filter(deepcopy(winnrs),
+         \ 'v:val < wn && win_screenpos(v:val)[0] == win_screenpos(wn)[0]')
+    let cnts_para_wins = len(winnrs_parallel)
+    if cnts_para_wins == 0 | continue | endif
 
-  const col = &columns - min_width
-  if col < min_width | return | endif
+    let col = &columns - min_width * cnts_para_wins
+    if col < min_width | continue | endif
 
-  exe 'vertical resize' col
+    exe wn 'windo vertical resize' col
+  endfor
+
+  call winrestview(save_view)
 endfunction
 
 augroup mySetReadonly
