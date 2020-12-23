@@ -16,9 +16,33 @@ function! s:CommandList(...) abort
 endfunction
 command! -nargs=* -complete=custom,s:CommandList -range Coc :CocCommand
 
-" " Note: <c-o> in coc's cmdline get to normal mode of coc.nvim
-nmap <silent><expr> <C-w>w     coc#float#has_float() ? "\<Plug>(coc-float-jump)" : '<C-w>w'
-nmap <silent><expr> <C-w><C-w> coc#float#has_float() ? "\<Plug>(coc-float-jump)" : '<C-w><C-w>'
+function! s:jump_to_window()
+  function! s:should_goto_float() abort
+    const winid = win_getid()
+    const float_ids = coc#float#get_float_win_list()
+    if len(float_ids) == 0
+      return 0
+    endif
+
+    const is_in_float = index(float_ids, winid) >= 0
+    return !is_in_float
+  endfunction
+
+  if s:should_goto_float()
+    let s:save_winid = win_getid()
+    return "\<Plug>(coc-float-jump)"
+  endif
+
+  if exists('s:save_winid')
+    const GetBack = printf(":\<C-u>call win_gotoid(%s)\<CR>", s:save_winid)
+    unlet s:save_winid
+    return GetBack
+  endif
+
+  return "\<C-w>w"
+endfunction
+nmap <silent><expr> <C-w>w     <SID>jump_to_window()
+nmap <silent><expr> <C-w><C-w> <SID>jump_to_window()
 
 " Mnemonic: Eliminate floating/popup windows
 nnoremap <expr> <C-w>e     coc#float#close_all()
