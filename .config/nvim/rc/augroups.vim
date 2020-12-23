@@ -8,7 +8,7 @@ augroup myRestoreCursor
        \ | endif
 augroup END
 
-augroup myAutoResize
+augroup myWindowAutoResize
   au WinNew * call s:resize_window()
 augroup END
 function! s:resize_window() abort
