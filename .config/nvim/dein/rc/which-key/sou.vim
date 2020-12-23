@@ -132,7 +132,7 @@ function! s:register_git_keys() abort
       let is_nothing_staged = len(git_diff_cached) == 0
       return is_nothing_staged
     endfunction
-    function! s:commit_at_bottom(...) abort
+    function! s:CommitAtBottom(...) abort
       let opts = join(a:000)
       const is_amending = opts =~# '--amend\>'
 
@@ -149,10 +149,6 @@ function! s:register_git_keys() abort
       exe 'Git commit' opts
       resize 25
     endfunction
-    nnoremap <silent> <Plug>(try-to-commit)
-          \ :<C-u>call <SID>commit_at_bottom()<CR>
-    nnoremap <silent> <Plug>(amend-commit-save-message)
-          \ :<C-u>call <SID>commit_at_bottom("--amend --no-edit")<CR>
 
     function! s:Gvstatus() abort
       vert bot Gstatus
@@ -178,9 +174,9 @@ function! s:register_git_keys() abort
           \
           \ 'c' : {
           \     'name': 'Commit',
-          \     'a': [':Git commit --amend', 'Amend to the last commit'],
-          \     'c': ['<Plug>(try-to-commit)', 'Commit'],
-          \     'e': ['<Plug>(amend-commit-save-message)', 'Amend witout editing commit'],
+          \     'c': [funcref('s:CommitAtBottom'), 'Commit'],
+          \     'a': [funcref('s:CommitAtBottom', ['--amend']), 'Amend to the last commit'],
+          \     'e': [funcref('s:CommitAtBottom', ['--amend --no-edit']), 'Amend witout editing commit'],
           \     },
           \
           \ 'r': {
