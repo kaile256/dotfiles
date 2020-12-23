@@ -147,6 +147,7 @@ function! s:register_git_keys() abort
       endif
 
       exe 'Git commit' opts
+      wincmd J
       resize 25
     endfunction
 
