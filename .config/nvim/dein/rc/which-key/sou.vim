@@ -225,8 +225,6 @@ function! s:register_git_keys() abort
     call extend(git_nmaps, {
           \ 'p': ['<Plug>(GitGutterStageHunksOperator)', 'Operator to stage hunks'],
           \ 'P': ['<Plug>(GitGutterStageHunkAtCursor)', 'Stage the hunk at cursor'],
-          \
-          \ 'U': ['<Plug>(GitGutterUndoHunkRepeatable)', 'Reset the hunk at cursor to HEAD'],
           \ })
 
     call extend(git_xmaps, {
