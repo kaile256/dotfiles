@@ -13,6 +13,36 @@ function! s:devise_recipes() abort
   let g:sandwich#recipes = []
   let recipes = {}
 
+  let recipes.quote = [
+        \ {
+        \   'buns': ['^$', '^$'],
+        \   'regex': 1,
+        \   'linewise': 1,
+        \   'input': ["\<CR>"],
+        \ },
+        \ {
+        \   'buns': ['"', '"'],
+        \   'quoteescape': 1,
+        \   'expand_range': 0,
+        \   'nesting': 0,
+        \   'linewise': 0,
+        \ },
+        \ {
+        \   'buns': ["'", "'"],
+        \   'quoteescape': 1,
+        \   'expand_range': 0,
+        \   'nesting': 0,
+        \   'linewise': 0,
+        \ },
+        \ {
+        \   'buns': ["`", "`"],
+        \   'quoteescape': 1,
+        \   'expand_range': 0,
+        \   'nesting': 0,
+        \   'linewise': 0,
+        \ },
+        \ ]
+
   let recipes.bracket = [
         \ {
         \   'input': ['('],
@@ -165,33 +195,6 @@ function! s:devise_recipes() abort
         \   'motionwise': ['line'],
         \   'linewise': 1,
         \   'input': ["\<CR>"],
-        \ },
-        \ {
-        \   'buns': ['^$', '^$'],
-        \   'regex': 1,
-        \   'linewise': 1,
-        \   'input': ["\<CR>"],
-        \ },
-        \ {
-        \   'buns': ['"', '"'],
-        \   'quoteescape': 1,
-        \   'expand_range': 0,
-        \   'nesting': 0,
-        \   'linewise': 0,
-        \ },
-        \ {
-        \   'buns': ["'", "'"],
-        \   'quoteescape': 1,
-        \   'expand_range': 0,
-        \   'nesting': 0,
-        \   'linewise': 0,
-        \ },
-        \ {
-        \   'buns': ["`", "`"],
-        \   'quoteescape': 1,
-        \   'expand_range': 0,
-        \   'nesting': 0,
-        \   'linewise': 0,
         \ },
         \ {
         \   'buns': 'sandwich#magicchar#i#input("operator")',
