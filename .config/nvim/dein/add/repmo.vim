@@ -16,10 +16,18 @@ nmap <expr> ]c repmo#Key('<Plug>(GitGutterNextHunk)', '<Plug>(GitGutterPrevHunk)
 xmap <expr> [c repmo#Key('<Plug>(GitGutterPrevHunk)', '<Plug>(GitGutterNextHunk)')
 xmap <expr> ]c repmo#Key('<Plug>(GitGutterNextHunk)', '<Plug>(GitGutterPrevHunk)')
 
-map <expr> f repmo#ZapKey('<Plug>(shot-f-f)')
-map <expr> F repmo#ZapKey('<Plug>(shot-f-F)')
-map <expr> t repmo#ZapKey('<Plug>(shot-f-t)')
-map <expr> T repmo#ZapKey('<Plug>(shot-f-T)')
+function! s:shot(char) abort
+  if mode(1) =~# 'o' && v:operator =~# 'gw\|gq'
+    if dein#tap('vim-easymotion')
+      return "\<Plug>(easymotion-". a:char .')'
+    endif
+  endif
+  return repmo#ZapKey("\<Plug>(shot-f-". a:char .')')
+endfunction
+map <expr> f <SID>shot('f')
+map <expr> F <SID>shot('F')
+map <expr> t <SID>shot('t')
+map <expr> T <SID>shot('T')
 sunmap f
 sunmap F
 sunmap t
