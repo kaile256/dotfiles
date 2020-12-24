@@ -58,3 +58,12 @@ let g:sandwich#recipes += [
       \ {'buns': ['『', '』'], 'nesting': 1, 'input': ['j{', 'j}']},
       \ {'buns': ['【', '】'], 'nesting': 1, 'input': ['j<', 'j>']},
       \ ]
+
+let g:sandwich#recipes += [
+      \ {
+      \   'input': ['%'],
+      \   'buns': ['\%(', '\)'],
+      \   'nesting': 1,
+      \   'filetype': ['vim'],
+      \ },
+      \ ]
