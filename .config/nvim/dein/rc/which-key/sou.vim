@@ -3,8 +3,11 @@
 
 let g:which_key_vertical = 1
 let g:which_key_floating_relative_win = 1
-
 let g:which_key_exit = ["\<C-[>", "\<Esc>", "\<C-c>"]
+let g:which_key_timeout = 100
+
+let g:which_key_floating_opts = {
+      \ }
 
 function! s:register_keys() abort
   " Add prefix 'v_' to xmaps
@@ -94,6 +97,20 @@ function! s:register_keys() abort
           \ '.': ['<Plug>CaserVDotCase',   'dot.separated'],
           \ }
   endif
+  if dein#tap('vim-which-key')
+    function! s:SwapWindow(direction) abort
+      call WindowSwap#MarkWindowSwap()
+      exe 'wincmd' a:direction
+      call WindowSwap#DoWindowSwap()
+    endfunction
+
+    let l:nmaps['Window:'] = {
+          \ 'h': [funcref('s:SwapWindow', ['h'])],
+          \ 'j': [funcref('s:SwapWindow', ['j'])],
+          \ 'k': [funcref('s:SwapWindow', ['k'])],
+          \ 'l': [funcref('s:SwapWindow', ['l'])],
+          \ }
+  endif
 
   for key in keys(l:nmaps)
     call which_key#register(key, l:nmaps[key])
@@ -178,6 +195,10 @@ function! s:register_git_keys() abort
           \     'c': [funcref('s:CommitAtBottom'), 'Commit'],
           \     'a': [funcref('s:CommitAtBottom', ['--amend']), 'Amend to the last commit'],
           \     'e': [funcref('s:CommitAtBottom', ['--amend --no-edit']), 'Amend witout editing commit'],
+          \     'w': [
+          \       ":Gwrite \<bar> call call(". string(funcref('s:CommitAtBottom')) .', [])',
+          \       ':Stage the file and edit a commit message',
+          \     ],
           \     },
           \
           \ 'r': {
