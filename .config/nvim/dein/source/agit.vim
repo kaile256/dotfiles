@@ -113,15 +113,18 @@ function! s:agit_keymaps() abort "{{{1
         \
         \ 'y#': ['<Plug>(agit-yank-hash)', 'Yank the commit hash'],
         \
-        \ 'rm': ['<Plug>(agit-git-reset)',      'Reset --mixed (default)'],
-        \ 'rs': ['<Plug>(agit-git-reset-soft)', 'Reset --soft'],
-        \ 'rh': ['<Plug>(agit-git-reset-hard)', 'Reset --hard'],
-        \
-        \ 'ri': ['<Plug>(agit-git-rebase-i)',   'Rebase --interactive'],
-        \
-        \ 'rv': ['<Plug>(agit-git-revert)',  'Revert to the commit'],
-        \
         \ '<C-g>': ['<Plug>(agit-print-commitmsg)',  'Show the commit message'],
+        \
+        \ 'r': {
+        \   'name': 'Reset, Rebase or Revert at the commit',
+        \   'm': ['<Plug>(agit-git-reset)',      'Reset --mixed (default)'],
+        \   's': ['<Plug>(agit-git-reset-soft)', 'Reset --soft'],
+        \   'h': ['<Plug>(agit-git-reset-hard)', 'Reset --hard'],
+        \
+        \   'i': ['<Plug>(agit-git-rebase-i)',   'Rebase --interactive'],
+        \
+        \   'v': ['<Plug>(agit-git-revert)',  'Revert to the commit'],
+        \ },
         \
         \ 'd': {
         \   'name': 'Start Diff',
