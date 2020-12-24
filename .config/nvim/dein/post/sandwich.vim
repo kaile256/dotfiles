@@ -87,46 +87,7 @@ function! s:devise_recipes() abort
         \ },
         \ ]
 
-  let g:sandwich#recipes = [
-        \ {
-        \   'buns': ['\s\+', '\s\+'],
-        \   'regex': 1, 'kind': ['delete', 'replace', 'query'],
-        \   'input': [' '],
-        \ },
-        \ {
-        \   'buns': ['', ''],
-        \   'action': ['add'],
-        \   'motionwise': ['line'],
-        \   'linewise': 1,
-        \   'input': ["\<CR>"],
-        \ },
-        \ {
-        \   'buns': ['^$', '^$'],
-        \   'regex': 1,
-        \   'linewise': 1,
-        \   'input': ["\<CR>"],
-        \ },
-        \ {
-        \   'buns': ['"', '"'],
-        \   'quoteescape': 1,
-        \   'expand_range': 0,
-        \   'nesting': 0,
-        \   'linewise': 0,
-        \ },
-        \ {
-        \   'buns': ["'", "'"],
-        \   'quoteescape': 1,
-        \   'expand_range': 0,
-        \   'nesting': 0,
-        \   'linewise': 0,
-        \ },
-        \ {
-        \   'buns': ["`", "`"],
-        \   'quoteescape': 1,
-        \   'expand_range': 0,
-        \   'nesting': 0,
-        \   'linewise': 0,
-        \ },
+  let recipes.tag = [
         \ {
         \   'buns': 'sandwich#magicchar#t#tag()',
         \   'listexpr': 1,
@@ -169,6 +130,48 @@ function! s:devise_recipes() abort
         \   'kind' : ['replace', 'textobj'],
         \   'expr_filter': ['operator#sandwich#kind() ==# "replace"'],
         \   'input': ['t'],
+        \ },
+        \ ]
+
+  let g:sandwich#recipes = [
+        \ {
+        \   'buns': ['\s\+', '\s\+'],
+        \   'regex': 1, 'kind': ['delete', 'replace', 'query'],
+        \   'input': [' '],
+        \ },
+        \ {
+        \   'buns': ['', ''],
+        \   'action': ['add'],
+        \   'motionwise': ['line'],
+        \   'linewise': 1,
+        \   'input': ["\<CR>"],
+        \ },
+        \ {
+        \   'buns': ['^$', '^$'],
+        \   'regex': 1,
+        \   'linewise': 1,
+        \   'input': ["\<CR>"],
+        \ },
+        \ {
+        \   'buns': ['"', '"'],
+        \   'quoteescape': 1,
+        \   'expand_range': 0,
+        \   'nesting': 0,
+        \   'linewise': 0,
+        \ },
+        \ {
+        \   'buns': ["'", "'"],
+        \   'quoteescape': 1,
+        \   'expand_range': 0,
+        \   'nesting': 0,
+        \   'linewise': 0,
+        \ },
+        \ {
+        \   'buns': ["`", "`"],
+        \   'quoteescape': 1,
+        \   'expand_range': 0,
+        \   'nesting': 0,
+        \   'linewise': 0,
         \ },
         \ {
         \   'buns': ['sandwich#magicchar#f#fname()', '")"'],
