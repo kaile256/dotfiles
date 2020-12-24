@@ -8,6 +8,11 @@ function! s:devise_recipes() abort
   " Note:  Don't copy `g:sandwich#recipes` from `g:sandwich#default_recipes`.
   " Duplicated recipes override other recipes.
 
+  " TODO: Name eache group of recipes and reset `g:sandwich#recipes` just
+  " before the for-loop.
+  let g:sandwich#recipes = []
+  let recipes = {}
+
   let g:sandwich#recipes = [
         \ {
         \   'buns': ['\s\+', '\s\+'],
@@ -196,6 +201,10 @@ function! s:devise_recipes() abort
         \   'filetype': ['vim'],
         \ },
         \ ]
+
+  for r in keys(recipes)
+    call extend(g:sandwich#recipes, recipes[r])
+  endfor
 endfunction
 call s:devise_recipes()
 delfunction s:devise_recipes
