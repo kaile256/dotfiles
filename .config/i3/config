@@ -320,7 +320,7 @@ bindsym $SuperS+T layout tabbed; $noid $alert 'Layout: tabbed'
 # Workspace; Focus Switch {{{2
 # [yes|no]: Assume you've moved $ws1 to $ws8, `workspace $ws8` take the focus
 # back to $ws2.
-workspace_auto_back_and_forth no
+workspace_auto_back_and_forth yes
 # [smart|urgent|focus|none]
 focus_on_window_activation none
 
