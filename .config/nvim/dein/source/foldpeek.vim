@@ -147,7 +147,10 @@ augroup END
 let s:peek = {}
 function! s:set_patterns() abort
   let b:foldpeek_whiteout_patterns = {}
-  silent! call s:peek[&ft]()
+  let ft = &ft
+  if has_key(s:peek, ft)
+    call s:peek[ft]()
+  endif
   if empty(b:foldpeek_whiteout_patterns)
     unlet b:foldpeek_whiteout_patterns
   endif
