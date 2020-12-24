@@ -230,14 +230,14 @@ function! s:normalized_case(rule) abort
   " Note: `\zs` and `\ze` shouldn't be used in the patterns because of
   " sandwich.vim's internal proc.
   let dicts.isolated = s:convert_list2dict(
-        \ '''\v(_|<)''. v:val ."(_|>)"',
+        \ '''\v(#|_|<)''. v:val ."(#|_|>)"',
         \ map(deepcopy(r), '"\\1". v:val ."\\2"')
         \ )
   let dicts.Initialized = s:convert_list2dict(
-        \ '''\v(_|<|\l)''. toupper(v:val[0]) . v:val[1:] .''(_|>|\u)''',
+        \ '''\v(#|_|<|\l)''. toupper(v:val[0]) . v:val[1:] .''(#|_|>|\u)''',
         \ map(deepcopy(r), '"\\1". toupper(v:val[0]) . v:val[1:] ."\\2"'))
   let dicts.UPPER_CASED = s:convert_list2dict(
-        \ '''\v(_|<)''. toupper(v:val) ."(_|>)"',
+        \ '''\v(#|_|<)''. toupper(v:val) ."(#|_|>)"',
         \ map(deepcopy(r), '"\\1". toupper(v:val) ."\\2"'))
 
   let rules = {}
