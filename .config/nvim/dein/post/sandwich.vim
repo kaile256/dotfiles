@@ -26,10 +26,6 @@ let g:sandwich#recipes = [
       \   'input': ["\<CR>"],
       \ },
       \ {
-      \   'buns': ['<', '>'],
-      \   'expand_range': 0,
-      \ },
-      \ {
       \   'buns': ['"', '"'],
       \   'quoteescape': 1,
       \   'expand_range': 0,
@@ -51,17 +47,25 @@ let g:sandwich#recipes = [
       \   'linewise': 0,
       \ },
       \ {
+      \   'input': ['('],
+      \   'buns': ['(', ')'],
+      \   'nesting': 1,
+      \ },
+      \ {
+      \   'input': ['{'],
       \   'buns': ['{', '}'],
       \   'nesting': 1,
       \   'skip_break': 1,
       \ },
       \ {
+      \   'input': ['['],
       \   'buns': ['[', ']'],
       \   'nesting': 1,
       \ },
       \ {
-      \   'buns': ['(', ')'],
-      \   'nesting': 1,
+      \   'input': ['<'],
+      \   'buns': ['<', '>'],
+      \   'expand_range': 0,
       \ },
       \ {
       \   'buns': 'sandwich#magicchar#t#tag()',
@@ -149,22 +153,16 @@ let g:sandwich#recipes = [
 
 let g:sandwich#recipes += [{
       \ 'input': ['>'],
-      \ 'buns': ['>[,; \t]*', '<'],
-      \ 'regex': 1,
+      \ 'buns': ['\<', '\>'],
       \ 'nesting': 1,
-      \ 'kind': ['delete'],
       \ }, {
       \ 'input':  [')'],
-      \ 'buns': [')[,; \t]*', '('],
-      \ 'regex': 1,
+      \ 'buns': ['\(', '\)'],
       \ 'nesting': 1,
-      \ 'kind': ['delete'],
       \ }, {
       \ 'input':  ['}'],
-      \ 'buns': ['}[,; \t]*', '{'],
-      \ 'regex': 1,
+      \ 'buns': ['\{', '\}'],
       \ 'nesting': 1,
-      \ 'kind': ['delete'],
       \ }]
 
 " https://github.com/monaqa/dotfiles/blob/32f70b3f92d75eaab07a33f8bf28ee17927476e8/.config/nvim/plugin-settings.vim#L679-L685
