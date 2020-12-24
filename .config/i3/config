@@ -915,6 +915,19 @@ mode $Skk {
 #     -e i3-dmenu-desktop --dmenu=fzf
 # bindsym $Super+backslash $noid $menu
 bindsym $Super+backslash $noid rofi -modi drun -show drun
+bindsym $Super+slash $noid rofi -show window
+set $Rofi " Rofi: (S)SH "
+$release $SuperS+slash mode $Rofi; $shortmsg 'Rofi'
+mode $Rofi {
+    # `rofi -dmenu`: echo -e 'foo\nbar\nbaz' | rofi -dmenu to make instant menu
+
+    set $ssh ssh -ssh-client sshrc
+    bindsym S; $noid rofi -show $ssh && $notify 'Rofi: SSH'; mode default
+
+    bindsym Ctrl+C             mode default
+    bindsym Ctrl+bracketleft   mode default
+    bindsym $Super+bracketleft mode default
+}
 
 # Start shell {{{2
 bindsym $Super+U $noid $urxvt -e fish
