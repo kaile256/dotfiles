@@ -15,24 +15,18 @@ augroup myLookupSource
 augroup END
 
 function! s:lookup() abort
-  silent let is_moved = lookup#lookup()
-
-  if is_moved | return | endif
-
-  call CocAction('jumpDefinition')
+  const save_view = winsaveview()
+  const success = CocAction('jumpDefinition', 'edit')
+  if success | return | endif
+  silent call lookup#lookup()
 endfunction
 
 function! s:split_lookup() abort
-  try
-    SensibleSplit
-  catch /E492/
-    split
-  endtry
+  const success = CocAction('jumpDefinition', sensible#split())
+  if success | return | endif
 
-  silent let is_moved = lookup#lookup()
-
+  SensibleSplit
+  silent const is_moved = lookup#lookup()
   if is_moved | return | endif
   quit
-
-  call CocAction('jumpDefinition', sensible#split())
 endfunction
