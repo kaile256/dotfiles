@@ -219,6 +219,10 @@ function! s:register_git_keys() abort
           \     'F': [':Git fetch --unshallow', 'Unshallow fetching all the remote history'],
           \     },
           \ })
+
+    " Tips: Make delay to show which-key window at &timeoutlen.
+    nnoremap <space>gc<SID> <Nop>
+    nnoremap <space>gr<SID> <Nop>
   endif
 
   if dein#tap('vim-gitgutter')
