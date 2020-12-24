@@ -91,6 +91,7 @@ PACKAGEs=(
   sc-im # Spread sheet.  Used by vim-scimark.
   neovim-remote # nvr
 
+  diff-so-fancy # Better highlight for diff.
   sshrc # Bring .bashrc, .vimrc, etc., under ~/.sshrc.d on SSH; keep light config.
   rofi # A launcher
   virustotal # CLI client for virustotal.com
