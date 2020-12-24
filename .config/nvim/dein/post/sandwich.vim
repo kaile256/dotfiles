@@ -208,12 +208,15 @@ function! s:devise_recipes() abort
         \ },
         \ ]
 
-  let g:sandwich#recipes = [
+  let recipes.whitespace = [
         \ {
         \   'buns': ['\s\+', '\s\+'],
         \   'regex': 1, 'kind': ['delete', 'replace', 'query'],
         \   'input': [' '],
         \ },
+        \ ]
+
+  let g:sandwich#recipes = [
         \ {
         \   'buns': ['', ''],
         \   'action': ['add'],
