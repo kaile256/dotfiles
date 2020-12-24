@@ -183,19 +183,7 @@ function! s:devise_recipes() abort
         \ },
         \ ]
 
-  let g:sandwich#recipes = [
-        \ {
-        \   'buns': ['\s\+', '\s\+'],
-        \   'regex': 1, 'kind': ['delete', 'replace', 'query'],
-        \   'input': [' '],
-        \ },
-        \ {
-        \   'buns': ['', ''],
-        \   'action': ['add'],
-        \   'motionwise': ['line'],
-        \   'linewise': 1,
-        \   'input': ["\<CR>"],
-        \ },
+  let recipes.instant = [
         \ {
         \   'buns': 'sandwich#magicchar#i#input("operator")',
         \   'kind': ['add', 'replace'],
@@ -217,6 +205,21 @@ function! s:devise_recipes() abort
         \   'buns': 'sandwich#magicchar#i#lastinput("textobj")',
         \   'kind': ['delete', 'replace', 'query'],
         \   'listexpr': 1, 'regex': 1, 'input': ['I'],
+        \ },
+        \ ]
+
+  let g:sandwich#recipes = [
+        \ {
+        \   'buns': ['\s\+', '\s\+'],
+        \   'regex': 1, 'kind': ['delete', 'replace', 'query'],
+        \   'input': [' '],
+        \ },
+        \ {
+        \   'buns': ['', ''],
+        \   'action': ['add'],
+        \   'motionwise': ['line'],
+        \   'linewise': 1,
+        \   'input': ["\<CR>"],
         \ },
         \ ]
 
