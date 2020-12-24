@@ -133,6 +133,26 @@ function! s:devise_recipes() abort
         \ },
         \ ]
 
+  let recipes.function = [
+        \ {
+        \   'buns': ['sandwich#magicchar#f#fname()', '")"'],
+        \   'kind': ['add', 'replace'],
+        \   'action': ['add'],
+        \   'expr': 1, 'input': ['f'],
+        \ },
+        \ {
+        \   'external': ["\<Plug>(textobj-sandwich-function-ip)", "\<Plug>(textobj-sandwich-function-i)"],
+        \   'noremap': 0, 'kind': ['delete', 'replace', 'query'],
+        \   'input': ['f'],
+        \ },
+        \ {
+        \   'external': ["\<Plug>(textobj-sandwich-function-ap)", "\<Plug>(textobj-sandwich-function-a)"],
+        \   'noremap': 0,
+        \   'kind': ['delete', 'replace', 'query'],
+        \   'input': ['F'],
+        \ },
+        \ ]
+
   let g:sandwich#recipes = [
         \ {
         \   'buns': ['\s\+', '\s\+'],
@@ -172,23 +192,6 @@ function! s:devise_recipes() abort
         \   'expand_range': 0,
         \   'nesting': 0,
         \   'linewise': 0,
-        \ },
-        \ {
-        \   'buns': ['sandwich#magicchar#f#fname()', '")"'],
-        \   'kind': ['add', 'replace'],
-        \   'action': ['add'],
-        \   'expr': 1, 'input': ['f'],
-        \ },
-        \ {
-        \   'external': ["\<Plug>(textobj-sandwich-function-ip)", "\<Plug>(textobj-sandwich-function-i)"],
-        \   'noremap': 0, 'kind': ['delete', 'replace', 'query'],
-        \   'input': ['f'],
-        \ },
-        \ {
-        \   'external': ["\<Plug>(textobj-sandwich-function-ap)", "\<Plug>(textobj-sandwich-function-a)"],
-        \   'noremap': 0,
-        \   'kind': ['delete', 'replace', 'query'],
-        \   'input': ['F'],
         \ },
         \ {
         \   'buns': 'sandwich#magicchar#i#input("operator")',
