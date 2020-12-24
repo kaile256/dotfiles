@@ -13,6 +13,80 @@ function! s:devise_recipes() abort
   let g:sandwich#recipes = []
   let recipes = {}
 
+  let recipes.bracket = [
+        \ {
+        \   'input': ['('],
+        \   'buns': ['(', ')'],
+        \   'nesting': 1,
+        \ },
+        \ {
+        \   'input': ['{'],
+        \   'buns': ['{', '}'],
+        \   'nesting': 1,
+        \   'skip_break': 1,
+        \ },
+        \ {
+        \   'input': ['['],
+        \   'buns': ['[', ']'],
+        \   'nesting': 1,
+        \ },
+        \ {
+        \   'input': ['<'],
+        \   'buns': ['<', '>'],
+        \   'expand_range': 0,
+        \ },
+        \ ]
+
+  let recipes.escaped_brackets = [
+        \ {
+        \   'input': ['>'],
+        \   'buns': ['\<', '\>'],
+        \   'nesting': 1,
+        \ }, {
+        \   'input':  [')'],
+        \   'buns': ['\(', '\)'],
+        \   'nesting': 1,
+        \ },
+        \ {
+        \   'input':  ['}'],
+        \   'buns': ['\{', '\}'],
+        \   'nesting': 1,
+        \ },
+        \ ]
+
+  let recipes.special_brackets = [
+        \ {
+        \   'input': ['%'],
+        \   'buns': ['\%(', '\)'],
+        \   'nesting': 1,
+        \   'filetype': ['vim'],
+        \ },
+        \ ]
+
+  " https://github.com/monaqa/dotfiles/blob/32f70b3f92d75eaab07a33f8bf28ee17927476e8/.config/nvim/plugin-settings.vim#L679-L685
+  let recipes.japanese = [
+        \ {
+        \   'buns': ['（', '）'],
+        \   'nesting': 1,
+        \   'input': ['j(', 'j)'],
+        \ },
+        \ {
+        \   'buns': ['「', '」'],
+        \   'nesting': 1,
+        \   'input': ['j[', 'j]'],
+        \ },
+        \ {
+        \   'buns': ['『', '』'],
+        \   'nesting': 1,
+        \   'input': ['j{', 'j}'],
+        \ },
+        \ {
+        \   'buns': ['【', '】'],
+        \   'nesting': 1,
+        \   'input': ['j<', 'j>'],
+        \ },
+        \ ]
+
   let g:sandwich#recipes = [
         \ {
         \   'buns': ['\s\+', '\s\+'],
@@ -52,27 +126,6 @@ function! s:devise_recipes() abort
         \   'expand_range': 0,
         \   'nesting': 0,
         \   'linewise': 0,
-        \ },
-        \ {
-        \   'input': ['('],
-        \   'buns': ['(', ')'],
-        \   'nesting': 1,
-        \ },
-        \ {
-        \   'input': ['{'],
-        \   'buns': ['{', '}'],
-        \   'nesting': 1,
-        \   'skip_break': 1,
-        \ },
-        \ {
-        \   'input': ['['],
-        \   'buns': ['[', ']'],
-        \   'nesting': 1,
-        \ },
-        \ {
-        \   'input': ['<'],
-        \   'buns': ['<', '>'],
-        \   'expand_range': 0,
         \ },
         \ {
         \   'buns': 'sandwich#magicchar#t#tag()',
@@ -158,35 +211,7 @@ function! s:devise_recipes() abort
         \ },
         \ ]
 
-  let g:sandwich#recipes += [{
-        \ 'input': ['>'],
-        \ 'buns': ['\<', '\>'],
-        \ 'nesting': 1,
-        \ }, {
-        \ 'input':  [')'],
-        \ 'buns': ['\(', '\)'],
-        \ 'nesting': 1,
-        \ }, {
-        \ 'input':  ['}'],
-        \ 'buns': ['\{', '\}'],
-        \ 'nesting': 1,
-        \ }]
-
-  " https://github.com/monaqa/dotfiles/blob/32f70b3f92d75eaab07a33f8bf28ee17927476e8/.config/nvim/plugin-settings.vim#L679-L685
   let g:sandwich#recipes += [
-        \ {'buns': ['（', '）'], 'nesting': 1, 'input': ['j(', 'j)']},
-        \ {'buns': ['「', '」'], 'nesting': 1, 'input': ['j[', 'j]']},
-        \ {'buns': ['『', '』'], 'nesting': 1, 'input': ['j{', 'j}']},
-        \ {'buns': ['【', '】'], 'nesting': 1, 'input': ['j<', 'j>']},
-        \ ]
-
-  let g:sandwich#recipes += [
-        \ {
-        \   'input': ['%'],
-        \   'buns': ['\%(', '\)'],
-        \   'nesting': 1,
-        \   'filetype': ['vim'],
-        \ },
         \ {
         \   'input': ['O'],
         \   'buns': ['\', '\'],
