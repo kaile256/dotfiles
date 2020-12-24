@@ -182,4 +182,17 @@ let g:sandwich#recipes += [
       \   'nesting': 1,
       \   'filetype': ['vim'],
       \ },
+      \ {
+      \   'input': ['O'],
+      \   'buns': ['\', '\'],
+      \   'action': ['add'],
+      \   'filetype': ['vim'],
+      \ },
+      \ {
+      \   'input': ['O'],
+      \   'buns': ['^\s*\\\s*$', '^\s*\\\s*$'],
+      \   'regex': 1,
+      \   'linewise': 1,
+      \   'filetype': ['vim'],
+      \ },
       \ ]
