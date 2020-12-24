@@ -1,5 +1,7 @@
 " Repo: mhinz/neovim-remote
-"
+
+if !exists('b:nvr') | finish | endif
+
 " Note: This file should be shared with ../gitconfig/, ../gitrebase/, etc., in
 " symbolic links.
 
