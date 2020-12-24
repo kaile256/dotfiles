@@ -82,7 +82,7 @@ PACKAGEs=(
   hunspell-en_US # Spell checker for Qutebrowser, LibreOffice, Firefox, Chrome, etc.
 
   # For Vim:
-  neovim-nightly
+  neovim-nightly-git # Git one is truely the nightly.
   neovim-qt-git
   gvim-gtk2
   fvim # Neovim front-end UI built with F# & Avalonia
