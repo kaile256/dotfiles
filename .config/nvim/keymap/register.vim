@@ -30,6 +30,10 @@ nnoremap <space>p "+]p`]
 xnoremap <space>p "+]p
 nnoremap <space>P "+]P
 xnoremap <space>P "+]P
+nnoremap <C-Space>p "*]p`]
+xnoremap <C-Space>p "*]p
+nnoremap <C-Space>P "*]P
+xnoremap <C-Space>P "*]P
 " Yank Register {{{1
 nnoremap Y y$
 
