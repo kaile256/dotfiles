@@ -9,6 +9,7 @@ augroup myRestoreCursor
 augroup END
 
 augroup myWindowAutoResize
+  " Note: `VimResized` causes agonizing lag to redraw.
   au WinNew * call s:resize_window()
 augroup END
 function! s:resize_window() abort
