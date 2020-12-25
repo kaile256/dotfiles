@@ -134,8 +134,8 @@ repo = 'Shougo/defx.nvim'
 # rev = 'c06d2dd685e29493e3df9b97db62c8439f2276a'
 on_cmd = 'Defx'
 # Ref: ftplugin/defx
-hook_add = 'runtime add/defx.vim'
-hook_post_source = 'runtime post/defx.vim'
+hook_add = 'source $DEIN_RC_DIR/defx/add.vim'
+hook_post_source = 'source $DEIN_RC_DIR/defx/pos.vim'
 [[plugins]]
 repo = 'kristijanhusak/defx-git'
 on_source = 'defx.nvim'
