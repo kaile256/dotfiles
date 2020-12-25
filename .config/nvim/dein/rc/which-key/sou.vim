@@ -97,7 +97,7 @@ function! s:register_keys() abort
           \ '.': ['<Plug>CaserVDotCase',   'dot.separated'],
           \ }
   endif
-  if dein#tap('vim-which-key')
+  if dein#tap('vim-windowswap')
     function! s:SwapWindow(direction) abort
       call WindowSwap#MarkWindowSwap()
       exe 'wincmd' a:direction
