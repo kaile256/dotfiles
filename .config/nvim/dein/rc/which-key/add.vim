@@ -11,3 +11,4 @@ inoremap <silent> <C-r><C-g> <C-o>:<C-u>WhichKey 'Paste Path '<CR>
 nnoremap <silent> <space>g :<C-u>WhichKey 'Git:'<CR>
 xnoremap <silent> <space>g :<C-u>WhichKey 'Git in Visual:'<CR>
 
+nnoremap <silent> <space>z :<C-u>WhichKey 'FZF:'<CR>

@@ -109,6 +109,14 @@ class Dein(Plugin):
     return hook + " = '" + source + ' ' + path + "'"
 
 
+  def expand_revision():
+    rev = vim.eval('@+')
+    if re.match(r'^[0-9a-f]{8,}$', rev):
+      return rev
+
+    return 'master'
+
+
 endglobal
 
 snippet dein "[dein] init a table of repo" bA
@@ -196,5 +204,5 @@ lazy = 0
 endsnippet
 
 snippet rev "[dein] `rev = 'master'`" b
-rev = '${1:master}'
+rev = '${1:`!p snip.rv = Dein.expand_revision()`}'
 endsnippet
