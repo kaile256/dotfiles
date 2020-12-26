@@ -107,18 +107,9 @@ function! s:_operator_join(wise, shim) abort
   endif
 
   let lines = filter(lines, 'v:val !~# "^\\s*$"')
-
-  let tabs = matchstrpos(lines[0], '^\t*')[2]
-  let lines = [ matchstr(lines[0], '^\t*\zs.*') ] + lines[1:]
-  let spaces = matchstrpos(lines[0], '^ *')[2]
-
+  let indent = matchstr(lines[0], '^\s*')
   let lines = map(lines, 'matchstr(v:val, ''^\s*\zs.\{-}\ze\s*$'')')
 
-  let line = join(lines, a:shim)
-
-  pu! = [line]
-
-  let view = winsaveview()
-  norm! =k
-  call winrestview(view)
+  let line = indent . join(lines, a:shim)
+  pu! = [ line ]
 endfunction
