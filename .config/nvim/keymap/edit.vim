@@ -36,6 +36,13 @@ endif
 " Write&Quit; wq
 nnoremap <silent><expr> <space>w
       \ ':<C-u>'. (&modified ? 'up' : 'checktime') .'<CR>'
+nnoremap <silent> g<space>w :<C-u>call <SID>windo_update()<CR>
+
+function! s:windo_update() abort
+  let id = win_getid()
+  exe 'windo' (&modified ? 'up' : 'checktime')
+  call win_gotoid(id)
+endfunction
 
 " Improve; i_<c-o> {{{1
 " TODO: make <c-o>yi work, as <c-o>di, <c-o>ci.
