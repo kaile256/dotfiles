@@ -73,23 +73,13 @@ xmap <space>J <SID>(modified-J)
 xmap gJ <SID>(modified-gJ)
 
 function! s:operator_J(wise) abort
-  let range = s:set_range(a:wise)
-  call s:_operator_join('join', range)
+  let shim = ' '
+  call s:_operator_join(a:wise, shim)
 endfunction
 
 function! s:operator_gJ(wise) abort
-  let [line1, line2] = s:set_range(a:wise)
-
-  function! s:trim_indents() abort closure
-    let lnum_to_trim = line1 + 1
-    let range = lnum_to_trim < line2
-          \ ? lnum_to_trim .','. line2
-          \ : line2 .','. lnum_to_trim
-    exe 'keeppatterns keepjumps' range 's/^\s*//ge'
-  endfunction
-  call s:trim_indents()
-
-  call s:_operator_join('join!', [line1, line2])
+  let shim = ''
+  call s:_operator_join(a:wise, shim)
 endfunction
 
 function! s:set_range(mode) abort
@@ -100,23 +90,36 @@ function! s:set_range(mode) abort
         \ )
 endfunction
 
-function! s:_operator_join(join, range) abort
-  let [line1, line2] = a:range
+function! s:_operator_join(wise, shim) abort
+  let [above, below] = s:set_range(a:wise)
+  if below - above <= 0 | return | endif
+
+  let lines = getline(above, below)
+  exe above ',' below 'delete _'
+
   let sh_like = ['sh', 'zsh', 'fish', 'dockerfile', 'python']
-  const keep = 'keeppatterns keepjumps'
 
   if &ft ==# 'vim'
-    let line = max([line1 + 1, line2])
-    let range = line < line2 ? line .','. line2 : line2 .','. line
-    let line_continuation_for_vim = '^\s*\\\s*'
-    exe keep range 's/'. line_continuation_for_vim .'//ge'
+    let pat_line_continuation_for_vim = '^\s*\\\s*'
+    let lines = [ lines[0] ] + map(lines[1:], 'substitute(v:val, pat_line_continuation_for_vim, "", "")')
   elseif &ft =~# join(sh_like, '\|')
-    let line = max([line2 - 1, line1])
-    let range = line < line2 ? line .','. line2 : line2 .','. line
-    let line_continuation_for_sh = '\s*\\\s*$'
-    exe keep range 's/'. line_continuation_for_sh .'//ge'
+    let pat_line_continuation_for_sh = '\s*\\\s*$'
+    let lines = map(lines[: -2], 'substitute(v:val, pat_line_continuation_for_sh, "", "")') + [ lines[-1] ]
   endif
 
-  let range = line1 < line2 ? line1 .','. line2 : line2 .','. line1
-  exe range a:join
+  let lines = filter(lines, 'v:val !~# "^\\s*$"')
+
+  let tabs = matchstrpos(lines[0], '^\t*')[2]
+  let lines = [ matchstr(lines[0], '^\t*\zs.*') ] + lines[1:]
+  let spaces = matchstrpos(lines[0], '^ *')[2]
+
+  let lines = map(lines, 'matchstr(v:val, ''^\s*\zs.\{-}\ze\s*$'')')
+
+  let line = join(lines, a:shim)
+
+  pu! = [line]
+
+  let view = winsaveview()
+  norm! =k
+  call winrestview(view)
 endfunction
