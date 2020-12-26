@@ -83,11 +83,10 @@ function! s:operator_gJ(wise) abort
 endfunction
 
 function! s:set_range(mode) abort
-  return sort(
-        \ a:mode =~? "[v\<C-v>]"
+  let range = a:mode =~? "[v\<C-v>]"
         \ ? [line("'<"), line("'>")]
         \ : [line("'["), line("']")]
-        \ )
+  return sort(range, 'n')
 endfunction
 
 function! s:_operator_join(wise, shim) abort
