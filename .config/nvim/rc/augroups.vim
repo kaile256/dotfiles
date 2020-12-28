@@ -34,6 +34,9 @@ function! s:resize_window() abort
     let col = &columns - min_width * cnts_para_wins
     if col < min_width | continue | endif
 
+    " The window has possibly been deleted just before being resized.
+    if winbufnr(wn) == -1 | continue | endif
+
     exe 'vertical' wn 'resize' col
   endfor
 
