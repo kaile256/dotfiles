@@ -89,9 +89,9 @@ on_map = {
   nx = ['<Plug>(operator-sandwich-'],
   ox = ['<Plug>(textobj-sandwich-',],
 }
-hook_add = 'runtime add/sandwich.vim'
-hook_source = 'runtime source/sandwich.vim'
-hook_post_source = 'runtime post/sandwich.vim'
+hook_add = 'source $DEIN_RC_DIR/sandwich/add.vim'
+hook_source = 'source $DEIN_RC_DIR/sandwich/sou.vim'
+hook_post_source = 'source $DEIN_RC_DIR/sandwich/pos.vim'
 hook_done_update = '''
 exe 'argadd' $DEIN_GITHUB_DIR .'/machakann/vim-sandwich/autoload/textobj/sandwich/recipes.vim'
 exe 'argadd' $DEIN_GITHUB_DIR .'/machakann/vim-sandwich/autoload/sandwich.vim'
