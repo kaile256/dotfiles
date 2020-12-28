@@ -166,11 +166,13 @@ function! s:devise_recipes() abort
         \   'buns': ['sandwich#magicchar#f#fname()', '")"'],
         \   'kind': ['add', 'replace'],
         \   'action': ['add'],
-        \   'expr': 1, 'input': ['f'],
+        \   'expr': 1,
+        \   'input': ['f'],
         \ },
         \ {
         \   'external': ["\<Plug>(textobj-sandwich-function-ip)", "\<Plug>(textobj-sandwich-function-i)"],
-        \   'noremap': 0, 'kind': ['delete', 'replace', 'query'],
+        \   'noremap': 0,
+        \   'kind': ['delete', 'replace', 'query'],
         \   'input': ['f'],
         \ },
         \ {
