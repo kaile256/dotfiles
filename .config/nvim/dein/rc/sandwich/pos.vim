@@ -181,6 +181,41 @@ function! s:devise_recipes() abort
         \ },
         \ ]
 
+  function! s:set_for_loop() abort
+    let l:var = input('[for-loop] var for each item: ')
+    let l:list = input('[for-loop] list: ')
+
+    return 'for '. l:var .' in '. l:list
+  endfunction
+  let recipes.for_loop = [
+        \ {
+        \   'buns': ['call('. string(function('s:set_for_loop')) .', [])', '"endfor"'],
+        \   'kind': ['add'],
+        \   'action': ['add'],
+        \   'expr': 1,
+        \   'motionwise': ['line'],
+        \   'input': ['gf'],
+        \   'filetype': ['vim'],
+        \ },
+        \ {
+        \   'buns': ['"\n". call('. string(function('s:set_for_loop')) .', []) ."\n"', '"\nendfor\n"'],
+        \   'kind': ['add'],
+        \   'action': ['add'],
+        \   'expr': 1,
+        \   'motionwise': ['char', 'block'],
+        \   'input': ['gf'],
+        \   'filetype': ['vim'],
+        \ },
+        \ {
+        \   'buns': ['"for (". input("for-loop condition: ") .") {"', '"}"'],
+        \   'kind': ['add'],
+        \   'action': ['add'],
+        \   'expr': 1,
+        \   'input': ['gf'],
+        \   'filetype': ['c', 'cpp', 'java', 'go']
+        \ },
+        \ ]
+
   let recipes.instant = [
         \ {
         \   'buns': 'sandwich#magicchar#i#input("operator")',
