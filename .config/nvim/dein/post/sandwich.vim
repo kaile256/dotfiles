@@ -229,7 +229,7 @@ function! s:devise_recipes() abort
   let g:sandwich#recipes += [
         \ {
         \   'input': ['O'],
-        \   'buns': ['\', '\'],
+        \   'buns': ["\<CR>\\ ", "\<CR>\\ "],
         \   'action': ['add'],
         \   'filetype': ['vim'],
         \ },
