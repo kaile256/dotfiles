@@ -95,6 +95,9 @@ let s:definitions['sh'] = [
       \   '\<elif\>':  'if',
       \   'fi\n\s*if': 'elif',
       \ },
+      \ {
+      \   '`\(.*\)`': '${\1}',
+      \ },
       \ ]
 
 let s:definitions['vim'] = [
@@ -105,11 +108,12 @@ let s:definitions['vim'] = [
       \ ['==', '!='],
       \ ['\\zs', '\\ze'],
       \
-      \ ['nmap', 'xmap', 'omap'],
-      \ ['imap', 'cmap', 'tmap'],
-      \
-      \ ['nnoremap', 'xnoremap', 'onoremap'],
-      \ ['inoremap', 'cnoremap', 'tnoremap'],
+      \ ['nnoremap', 'nmap'],
+      \ ['xnoremap', 'xmap'],
+      \ ['onoremap', 'omap'],
+      \ ['inoremap', 'imap'],
+      \ ['tnoremap', 'tmap'],
+      \ ['cnoremap', 'cmap'],
       \
       \ ['bufnr', 'winnr'],
       \
