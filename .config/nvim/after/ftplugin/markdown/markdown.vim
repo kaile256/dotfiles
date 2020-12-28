@@ -9,7 +9,6 @@ augroup myMarkdownFtplugin-modify_trailing_spaces
 augroup END
 
 setlocal foldlevel=1
-setlocal tabstop=4 softtabstop=4 shiftwidth=4
 
 " see /usr/share/nvim/runtime/syntax/markdown.vim
 " Ref: https://github.com/tpope/vim-markdown (dev ver)
