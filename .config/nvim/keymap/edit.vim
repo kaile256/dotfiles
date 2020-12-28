@@ -98,6 +98,13 @@ function! s:_operator_join(wise, shim) abort
 
   let sh_like = ['sh', 'zsh', 'fish', 'dockerfile', 'python']
 
+  let cms = &cms
+  if cms =~# '%s'
+    let indicator = split(cms, '%s')[0]
+    let Join_comment = 'substitute(v:val, indicator ."\\s*", "", "")'
+    let lines = [ lines[0] ] + map(lines[1:], Join_comment)
+  endif
+
   if &ft ==# 'vim'
     let pat_line_continuation_for_vim = '^\s*\\\s*'
     let lines = [ lines[0] ] + map(lines[1:], 'substitute(v:val, pat_line_continuation_for_vim, "", "")')
