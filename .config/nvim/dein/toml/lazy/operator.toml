@@ -85,10 +85,10 @@ hook_add = 'runtime add/operator-sort.vim'
 #[ Simultaneous ]
 [[plugins]]
 repo = 'machakann/vim-sandwich'
-on_map = {nox = [
-  '<Plug>(textobj-sandwich-',
-  '<Plug>(operator-sandwich-',
-]}
+on_map = {
+  nx = ['<Plug>(operator-sandwich-'],
+  ox = ['<Plug>(textobj-sandwich-',],
+}
 hook_add = 'runtime add/sandwich.vim'
 hook_source = 'runtime source/sandwich.vim'
 hook_post_source = 'runtime post/sandwich.vim'
