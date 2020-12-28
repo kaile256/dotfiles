@@ -107,10 +107,12 @@ function! s:_operator_join(wise, shim) abort
 
   if &ft ==# 'vim'
     let pat_line_continuation_for_vim = '^\s*\\\s*'
-    let lines = [ lines[0] ] + map(lines[1:], 'substitute(v:val, pat_line_continuation_for_vim, "", "")')
+    let Join_continued_lines = 'substitute(v:val, pat_line_continuation_for_vim, "", "")'
+    let lines = [ lines[0] ] + map(lines[1:], Join_continued_lines)
   elseif &ft =~# join(sh_like, '\|')
     let pat_line_continuation_for_sh = '\s*\\\s*$'
-    let lines = map(lines[: -2], 'substitute(v:val, pat_line_continuation_for_sh, "", "")') + [ lines[-1] ]
+    let Join_continued_lines = 'substitute(v:val, pat_line_continuation_for_sh, "", "")'
+    let lines = map(lines[: -2], Join_continued_lines) + [ lines[-1] ]
   endif
 
   let lines = filter(lines, 'v:val !~# "^\\s*$"')
