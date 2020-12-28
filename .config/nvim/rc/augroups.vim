@@ -31,7 +31,9 @@ function! s:resize_window() abort
     let cnts_para_wins = len(winnrs_parallel)
     if cnts_para_wins == 0 | continue | endif
 
-    let col = &columns - min_width * cnts_para_wins
+    let left_occupied = eval(join(map(deepcopy(winnrs_parallel),
+         \ 'min([min_width, winwidth(v:val)])'), '+')) + 1
+    let col = &columns - left_occupied
     if col < min_width | continue | endif
 
     " The window has possibly been deleted just before being resized.
