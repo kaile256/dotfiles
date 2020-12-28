@@ -112,6 +112,19 @@ function! s:register_keys() abort
           \ }
   endif
 
+  if dein#tap('fzf.vim')
+    let l:nmaps['FZF:'] = {
+          \ 'N': [':Nmaps', 'Show Nmaps'],
+          \ 'I': [':Imaps', 'Show Imaps'],
+          \ 'X': [':Xmaps', 'Show Xmaps'],
+          \ 'S': [':Smaps', 'Show Smaps'],
+          \ 'V': [':Vmaps', 'Show Vmaps'],
+          \ 'C': [':Cmaps', 'Show Cmaps'],
+          \ 'O': [':Omaps', 'Show Omaps'],
+          \ 'T': [':Tmaps', 'Show Tmaps'],
+          \ }
+  endif
+
   for key in keys(l:nmaps)
     call which_key#register(key, l:nmaps[key])
   endfor
