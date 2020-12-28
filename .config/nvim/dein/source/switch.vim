@@ -35,6 +35,15 @@ function! s:set_extra_definitions() abort
         \ },
         \ ]
 
+  let rules.participle = [
+        \ ['being', 'been'],
+        \
+        \ {
+        \   '\(\a\+\)ing': '\1ed',
+        \   '\(\a\+\)ed': '\1ing',
+        \ },
+        \ ]
+
   " The patterns would hardly match outside of &ft=vim.
   let rules.vimscript = [
         \ {
