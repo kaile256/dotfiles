@@ -1,8 +1,6 @@
 " From: operator.toml
 " Repo: machakann/vim-sandwich
 " Fork: kaile256/vim-sandwich
-" Another: add/sandwich.vim
-" Another: source/sandwich.vim
 
 function! s:devise_recipes() abort
   " Note:  Don't copy `g:sandwich#recipes` from `g:sandwich#default_recipes`.

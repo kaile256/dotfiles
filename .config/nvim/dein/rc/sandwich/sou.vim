@@ -1,8 +1,6 @@
 " From: operator.toml
 " Repo: machakann/vim-sandwich
 " Fork: kaile256/vim-sandwich
-" Another: add/sandwich.vim
-" Another: post/sandwich.vim
 
 hi! OperatorSandwichAdd    cterm=reverse gui=reverse ctermfg=142 guifg=#b8bb26
 hi! OperatorSandwichChange cterm=reverse gui=reverse ctermfg=108 guifg=#8ec07c

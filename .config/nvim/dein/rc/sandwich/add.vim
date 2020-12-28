@@ -1,8 +1,6 @@
 " From: operator.toml
 " Repo: machakann/vim-sandwich
 " Fork: kaile256/vim-sandwich
-" Another: source/sandwich.vim
-" Another: post/sandwich.vim
 
 " TextObj "{{{1
 " a text surrounded by a pair of braket or of the same characters as user input
