@@ -216,6 +216,44 @@ function! s:devise_recipes() abort
         \ },
         \ ]
 
+  let recipes.while_loop = [
+        \ {
+        \   'buns': ['"while ". input("[while-loop] condition: ")', '"endwhile"'],
+        \   'kind': ['add'],
+        \   'action': ['add'],
+        \   'motionwise': ['line'],
+        \   'expr': 1,
+        \   'input': ['gw'],
+        \   'filetype': ['vim'],
+        \ },
+        \ {
+        \   'buns': ['"\nwhile ". input("[while-loop] condition: ") ."\n"', '"\nendwhile\n"'],
+        \   'kind': ['add'],
+        \   'action': ['add'],
+        \   'motionwise': ['char', 'block'],
+        \   'expr': 1,
+        \   'input': ['gw'],
+        \   'filetype': ['vim'],
+        \ },
+        \
+        \ {
+        \   'buns': ['"while (". input("cond: ") .") {"', '"}"'],
+        \   'kind': ['add'],
+        \   'action': ['add'],
+        \   'expr': 1,
+        \   'input': ['w'],
+        \   'filetype': [
+        \     'c',
+        \     'cpp',
+        \     'java',
+        \     'javascript',
+        \     'javascriptreact',
+        \     'typescript',
+        \     'typescriptreact',
+        \ ],
+        \ },
+        \ ]
+
   let recipes.instant = [
         \ {
         \   'buns': 'sandwich#magicchar#i#input("operator")',
