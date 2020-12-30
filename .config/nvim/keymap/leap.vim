@@ -17,21 +17,38 @@ endfunction
 
 " Buffers; {{{1
 function! s:buf_rotate(order) abort
-  try
-    if len(getloclist(winnr())) > 1
-      exe 'l'. a:order
-      ll
-    elseif len(getqflist()) > 1
+  if len(getloclist(winnr())) > 1
+    exe 'l'. a:order
+    lw
+  elseif len(getqflist()) > 1
+    try
       exe 'c'. a:order
-      cc
-    else
-      exe 'b'. a:order
+      cw
+
+    catch /E553/
+      echohl WarningMsg
+      echo 'No more items'
+      echohl Normal
+    endtry
+  else
+    let dir = expand('%:p:h')
+    let files = readdir(dir)
+    let files = filter(deepcopy(files), 'filereadable(v:val)')
+    if len(files) <= 1
+        echohl ErrorMsg
+        echo 'No other files at' dir
+        echohl
     endif
-  catch /E553/
-    echohl WarningMsg
-    echo 'No more items'
-    echohl Normal
-  endtry
+    let curr_file = expand('%:t')
+    let curr_idx = index(sort(files), curr_file)
+
+    let idx = curr_idx + (a:order ==# 'next' ? +1 : -1)
+    if idx >= len(files)
+      let idx = 0
+    endif
+    let path = files[idx]
+    exe 'e' path
+  endif
 endfunction
 nnoremap <silent> <C-p> :<C-u> call <SID>buf_rotate('prev') <CR>
 nnoremap <silent> <C-n> :<C-u> call <SID>buf_rotate('next') <CR>
