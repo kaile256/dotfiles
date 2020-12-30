@@ -284,7 +284,8 @@ function! s:devise_recipes() abort
   let recipes.whitespace = [
         \ {
         \   'buns': ['\s\+', '\s\+'],
-        \   'regex': 1, 'kind': ['delete', 'replace', 'query'],
+        \   'regex': 1,
+        \   'kind': ['delete', 'replace', 'query'],
         \   'input': [' '],
         \ },
         \ ]
