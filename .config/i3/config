@@ -207,7 +207,7 @@ $noid nitrogen --restore; sleep 1; picom -b
 $noid sudo tlp start
 
 # udiskie, a wrapper for udisk2
-$noid udiskie --automount --notify &
+$noid udiskie --automount --notify --smart-tray --menu flat --file-manager ranger &
 
 $noid systemctl --user start docker
 

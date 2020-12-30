@@ -12,6 +12,9 @@ if executable('hub')
         \ && GIT_EDITOR='nvim-qt' hub -C %:p:h pull-request <args>
 endif
 
+command! -bar Cclear :noau cexpr [] " Clear quickfix list
+command! -bar Lclear :noau lexpr [] " Clear location list
+
 command! -bar DiffOrig
       \ :vert above new | setl bt=nofile
       \ | r # | 0d_
