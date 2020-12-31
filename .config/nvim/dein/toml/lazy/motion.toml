@@ -102,7 +102,7 @@ hook_post_source = 'runtime post/easymotion.vim'
 repo = 'deris/vim-shot-f'
 # Highlight chars which you get directly.
 on_map = {nox = ['<Plug>(shot-f-']}
-hook_add = 'runtime add/shot-f.vim'
+# hook_add = 'runtime add/shot-f.vim'
 hook_source = 'runtime source/shot-f.vim'
 # [[plugins]]
 # repo = 'justinmk/vim-sneak'

@@ -104,6 +104,7 @@ function! s:set_definitions() abort
         \
         \ ['disable', 'enable'],
         \ ['detach', 'attach'],
+        \ ['decode', 'encode'],
         \
         \ ['inc', 'dec'],
         \ ['increment', 'decrement'],
