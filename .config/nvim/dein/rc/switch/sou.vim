@@ -103,6 +103,7 @@ function! s:set_definitions() abort
         \ ['YES', 'NO'],
         \
         \ ['disable', 'enable'],
+        \ ['detach', 'attach'],
         \
         \ ['inc', 'dec'],
         \ ['increment', 'decrement'],
