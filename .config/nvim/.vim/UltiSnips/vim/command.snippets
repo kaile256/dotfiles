@@ -126,7 +126,7 @@ m2 = match.group(2)
 `let `!p snip.rv = m1`.`!p snip.rv = m2` = funcref('s:`!p snip.rv = m2`')
 endsnippet
 
-snippet "(let\s*)?fun?c?r(ef)?" "let s:foo.bar = funcref('s:foo__bar')" br
+snippet ref "let s:foo.bar = funcref('s:foo__bar')" b
 `!p
 funcname = find_funcname()
 class_name = vim.eval(f"matchstr('{funcname}', '.*\ze__')")
