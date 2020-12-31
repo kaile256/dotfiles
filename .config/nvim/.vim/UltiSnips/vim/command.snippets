@@ -59,6 +59,19 @@ function! ${1:`!p snip.rv = autoload_prefix()`}${2:do}(${3:#:args}) abort${4}
 endfunction
 endsnippet
 
+snippet a "function! ...() abort" "vim.eval('search(\'\<fu\%[nction]!\?.*\%#\', \'nW\')')" e
+abort
+endsnippet
+snippet d "function! ...() dict" "vim.eval('search(\'\<fu\%[nction]!\?.*\%#\', \'nW\')')" e
+dict
+endsnippet
+snippet r "function! ...() range" "vim.eval('search(\'\<fu\%[nction]!\?.*\%#\', \'nW\')')" e
+range
+endsnippet
+snippet c "function! ...() closure" "vim.eval('search(\'\<fu\%[nction]!\?.*\%#\', \'nW\')')" e
+closure
+endsnippet
+
 snippet '\bcall? (.*)' "append `delfunction $1`" r
 `!p
 '''Expand
