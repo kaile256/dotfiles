@@ -226,7 +226,7 @@ function! s:register_git_keys() abort
           \     'p': [':Git pull', 'Pull'],
           \     'P': [':Git push', 'Push'],
           \
-          \     'u': [':exe "Git push -u origin" FugitiveHead() ', 'Set upstream branch to `origin`'],
+          \     'U': [':exe "Git push -u origin" FugitiveHead() ', 'Set upstream branch to `origin`'],
           \
           \     'f': [':Git fetch --all',       'Fetch all the remote commits'],
           \     'F': [':Git fetch --unshallow', 'Unshallow fetching all the remote history'],
