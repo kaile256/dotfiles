@@ -94,19 +94,22 @@ nmap <c-w>Q ZQ
 nmap Zz ZZ
 nmap Zq ZQ
 
-" Use AndrewRadev/undoquit.vim instead
-" " Note: look after that ZQ, as :q!, locates higher than ZZ, as :wq
-" " Mnemonic: Close all
-" nnoremap <silent> ZC     :<c-u>up <bar> windo norm! ZQ<cr>
-" nnoremap <silent> Zc     :<c-u>up <bar> windo norm! ZQ<cr>
-" nnoremap <silent> <c-w>C :<c-u>up <bar> windo norm! ZQ<cr>
+if !dein#tap('undoquit.vim')
+  " Note: look after that ZQ, as :q!, locates higher than ZZ, as :wq
+  " Mnemonic: Close all
+  nnoremap <silent> ZC     :<c-u>up <bar> windo norm! ZQ<cr>
+  nnoremap <silent> Zc     :<c-u>up <bar> windo norm! ZQ<cr>
+  nnoremap <silent> <c-w>C :<c-u>up <bar> windo norm! ZQ<cr>
 
-" " Mnemonic: Eliminate current tabpage
-" nnoremap <silent> ZE :<c-u>windo norm! ZQ<cr>
-" nnoremap <silent> Ze :<c-u>windo norm! ZQ<cr>
-" " Mnemonic: <c-w>c is for :close as default
-" nnoremap <silent> <c-w>e :<c-u>windo norm! ZQ<cr>
-" nnoremap <silent> <c-w>E :<c-u>windo norm! ZQ<cr>
+  " Mnemonic: Eliminate current tabpage
+  nnoremap <silent> ZE :<c-u>windo norm! ZQ<cr>
+  nnoremap <silent> Ze :<c-u>windo norm! ZQ<cr>
+  " Mnemonic: <c-w>c is for :close as default
+  nnoremap <silent> <c-w>e :<c-u>windo norm! ZQ<cr>
+  nnoremap <silent> <c-w>E :<c-u>windo norm! ZQ<cr>
+
+  nnoremap <silent> <C-w>O :<C-u>tabonly<CR>
+endif
 
 " Mnemonic: $ yes
 nnoremap <silent> Zy :<c-u>qa <cr>
