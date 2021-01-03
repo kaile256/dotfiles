@@ -3,6 +3,8 @@
 
 CAlterCommand ch checkhealth <bar> setlocal bt=nofile
 
+CAlterCommand cmd command
+
 CAlterCommand dof exe len(tabpagebuflist()) == 2 ? 'windo diffoff!' : 'diffoff!'
 CAlterCommand dth exe len(tabpagebuflist()) == 2 ? 'windo diffthis' : 'diffthis'
 
