@@ -17,7 +17,7 @@ hook_source = 'runtime source/autoft.vim'
 # [ Multi Filetypes ]
 [[plugins]]
 repo = 'sheerun/vim-polyglot'
-lazy = 0
+on_event = 'FileType'
 hook_source = 'runtime source/polyglot.vim'
 
 #[[plugins]]
