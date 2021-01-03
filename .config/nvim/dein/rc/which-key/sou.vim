@@ -230,6 +230,8 @@ function! s:register_git_keys() abort
           \
           \     'f': [':Git fetch --all',       'Fetch all the remote commits'],
           \     'F': [':Git fetch --unshallow', 'Unshallow fetching all the remote history'],
+          \
+          \     'B': [':Gbrowse', 'Open current file in browser'],
           \     },
           \ })
 
