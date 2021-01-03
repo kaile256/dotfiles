@@ -2,6 +2,8 @@
 " BuiltIn: $VIMRUNTIME/syntax/markdown.vim
 " Another: ftplugin/markdown.vim
 
+hi! markdownCodeDelimiter ctermfg=103 guifg=#8090a0 cterm=underline gui=underline
+
 "hi! link htmlLink Statement
 hi! link markdownLinkUrl Comment
 
