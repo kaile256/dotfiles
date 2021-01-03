@@ -3,9 +3,11 @@
 " Another: add/fugitive.vim
 " Another: source/fugitive.vim
 
-" Gbrowse depends on other handlers; coc's surely work.
-command! Gbrowse :CocCommand git.browserOpen
-command! GBrowse :CocCommand git.browserOpen
+if dein#tap('coc.nvim')
+  " Gbrowse depends on other handlers; coc's surely work.
+  command! Gbrowse :CocCommand git.browserOpen
+  command! GBrowse :CocCommand git.browserOpen
+endif
 
 " `:norm gu` to set cursor inside a block
 command! -bang -bar -range=-1
