@@ -72,21 +72,11 @@ let g:lightline.inactive = {
       \ ],
       \ }
 
-" Define Components {{{1
-
-" Define Separator {{{2
-
+" Define Separator {{{1
 let g:lightline.separator    = { 'left': '', 'right': '' }
 let g:lightline.subseparator = { 'left': '', 'right': '' }
 
-" Define Components for Tabline {{{2
-
-" Note: Use 'component_expand' instead if 'tabpagenr' involves no component.
-let g:lightline.tab_component_function = {
-      \ 'tab_filepath': 'LL_tab_path',
-      \ 'tab_modified': 'LL_tab_modified',
-      \ }
-
+" Define Functions for Tabline {{{1
 function! LL_tab_path(n) abort
   let buflist = tabpagebuflist(a:n)
   let winnr = tabpagewinnr(a:n)
@@ -127,69 +117,38 @@ function! LL_tab_modified(n) abort
         \ : (gettabwinvar(a:n, winnr, '&modifiable') ? '' : '-')
 endfunction
 
-" Define Components for Statusline {{{2
-" Note: Priority: (High)component_expand > component_function > component(Low)
+" Define Functions for Statusline {{{2
+function! s:hold_length(text, max) abort
+ return repeat(' ', a:max - len(a:text)) . a:text
+endfunction
+function! s:hold_length_inverse(text, max) abort
+  return a:text . repeat(' ', a:max - len(a:text))
+endfunction
 
-" Note: Available types are raw, or tabsel, left, middle and right and so on,
-" which g:lightline#colorscheme#one#palette[key] has.
-" let g:lightline.component_type = {
-"      \ 'git_branch': 'right',
-"      \ }
+function! LL_percent() abort
+  return line('$') > 100
+        \ ? s:hold_length(line('.') * 100 / line('$'), 2) .'%'
+        \ : ''
+endfunction
 
-let g:lightline.component = {
-      \ 'fullpath': '%F',
-      \ }
+function! s:cur_col() abort
+  return s:hold_length(col('.'), 2) . (&colorcolumn > 0 ? '.'. (&cc - 1) : '')
+endfunction
+function! s:cur_lnum() abort
+  return s:hold_length(line('.'), min([3, line('$')])) .'.'. line('$')
+endfunction
 
-let g:lightline.component_function = {
-      \ 'mode': 'LL_mode',
-      \ 'percent': 'LL_percent',
-      \ 'lineinfo': 'LL_lineinfo',
-      \ 'cur_col': 'LL_cur_col',
-      \
-      \ 'pos_bar': 'LL_pos_bar',
-      \ 'pos_bar_with_lineinfo': 'LL_pos_bar_with_lineinfo',
-      \
-      \ 'specific_buffer': 'LL_specific_buffer',
-      \ 'git_branch': 'LL_git_branch',
-      \
-      \ 'filetype': 'LL_filetype',
-      \ 'indent': 'LL_indent',
-      \ 'opt_fold': 'LL_opt_fold',
-      \
-      \ 'cwd': 'LL_getcwd',
-      \
-      \ 'filepath': 'LL_filepath',
-      \
-      \ 'git_diff': 'LL_git_diff',
-      \
-      \ 'tabpage_indicator': 'LL_tab_indicator',
-      \
-      \ 'vista': 'LL_vista',
-      \ }
+function! LL_lineinfo() abort
+  return s:cur_col() .':'. s:cur_lnum()
+endfunction
 
-" Note: Less frequently updated; 'component_expand' is only updated by
-" lightline#update().
-let g:lightline.component_expand = {
-      \ 'preview': '&previewwindow ? "= PREVIEW =" : ""',
-      \ 'readonly': 'LL_readonly',
-      \
-      \ 'fileformat': '&ff ==# "unix" ? "" : &ff',
-      \ 'fileencoding': 'empty(&fenc) ? (&enc ==# "utf-8" ? "" : &enc) : (&fenc ==# "utf-8" ? "" : &fenc)',
-      \ }
+function! LL_tab_indicator() abort
+  return tabpagenr('$') == 1 ? 'tab' : '['. tabpagenr() .'/'. tabpagenr('$') .']' " it doesn't work on 'component_expand'
+endfunction
 
-" Define Components Functions {{{2
-let s:hold_length = {text, max -> repeat(' ', max - len(text)) . text}
-" let s:hold_length_inverse = {text, max -> text . repeat(' ', max - len(text))}
-let LL_percent = {-> line('$') > 100 ? s:hold_length(line('.') * 100 / line('$'), 2) .'%' : ''}
-
-let s:cur_col = {-> s:hold_length(col('.'), 2) . (&colorcolumn > 0 ? '.'. (&cc - 1) : '')}
-let s:cur_lnum = {-> s:hold_length(line('.'), min([3, line('$')])) .'.'. line('$')}
-
-let LL_lineinfo = {-> s:cur_col() .':'. s:cur_lnum()}
-
-let LL_tab_indicator = {-> tabpagenr('$') == 1 ? 'tab' : '['. tabpagenr() .'/'. tabpagenr('$') .']'} " it doesn't work on 'component_expand'
-
-let LL_vista = {-> get(b:, 'vista_nearest_method_or_function', '')}
+function! LL_vista() abort
+  return get(b:, 'vista_nearest_method_or_function', '')
+endfunction
 
 function! LL_cur_col() abort
   return s:cur_col() .'c'
@@ -465,3 +424,60 @@ augroup myLightlineSo
   au User UltiSnipsExitLastSnippet   let s:in_snippets = 0 | call lightline#update()
   au User UltiSnipsEnterFirstSnippet let s:in_snippets = 1 | call lightline#update()
 augroup END
+
+" Define Components of Statusline/Tabline {{{1
+" Note: Priority: (High)component_expand > component_function > component(Low)
+
+" Note: Use 'component_expand' instead if 'tabpagenr' involves no component.
+let g:lightline.tab_component_function = {
+      \ 'tab_filepath': 'LL_tab_path',
+      \ 'tab_modified': 'LL_tab_modified',
+      \ }
+
+" Note: Available types are raw, or tabsel, left, middle and right and so on,
+" which g:lightline#colorscheme#one#palette[key] has.
+" let g:lightline.component_type = {
+"      \ 'git_branch': 'right',
+"      \ }
+
+let g:lightline.component = {
+      \ 'fullpath': '%F',
+      \ }
+
+let g:lightline.component_function = {
+      \ 'mode': 'LL_mode',
+      \ 'percent': 'LL_percent',
+      \ 'lineinfo': 'LL_lineinfo',
+      \ 'cur_col': 'LL_cur_col',
+      \
+      \ 'pos_bar': 'LL_pos_bar',
+      \ 'pos_bar_with_lineinfo': 'LL_pos_bar_with_lineinfo',
+      \
+      \ 'specific_buffer': 'LL_specific_buffer',
+      \ 'git_branch': 'LL_git_branch',
+      \
+      \ 'filetype': 'LL_filetype',
+      \ 'indent': 'LL_indent',
+      \ 'opt_fold': 'LL_opt_fold',
+      \
+      \ 'cwd': 'LL_getcwd',
+      \
+      \ 'filepath': 'LL_filepath',
+      \
+      \ 'git_diff': 'LL_git_diff',
+      \
+      \ 'tabpage_indicator': 'LL_tab_indicator',
+      \
+      \ 'vista': 'LL_vista',
+      \ }
+
+" Note: Less frequently updated; 'component_expand' is only updated by
+" lightline#update().
+let g:lightline.component_expand = {
+      \ 'preview': '&previewwindow ? "= PREVIEW =" : ""',
+      \ 'readonly': 'LL_readonly',
+      \
+      \ 'fileformat': '&ff ==# "unix" ? "" : &ff',
+      \ 'fileencoding': 'empty(&fenc) ? (&enc ==# "utf-8" ? "" : &enc) : (&fenc ==# "utf-8" ? "" : &fenc)',
+      \ }
+
