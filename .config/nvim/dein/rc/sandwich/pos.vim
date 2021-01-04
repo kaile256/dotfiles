@@ -2,6 +2,17 @@
 " Repo: machakann/vim-sandwich
 " Fork: kaile256/vim-sandwich
 
+" Except: Undocumented options
+"   https://github.com/machakann/vim-sandwich/issues/74
+" - The difference between `kind` and `action`
+"   - `kind` consists of two: `operator` and `textobject`.
+"     - `operator` consists of three: `add`, `delete`, `replace`.
+"     - `textobject` consists of two: `auto`, `query`.
+"   - `action` consists of two: `add` and `delete`
+"     - `kind/replace` consists both of `add` and `delete`.
+"     - `action/add` contains `add` and `replace` of `kind`.
+"     - `action/delete` contains `textobject`, `delete` and `replace` of `kind`.
+
 function! s:devise_recipes() abort
   " Note:  Don't copy `g:sandwich#recipes` from `g:sandwich#default_recipes`.
   " Duplicated recipes override other recipes.
