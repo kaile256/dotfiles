@@ -47,7 +47,7 @@ let g:lightline.tabline = {
 let g:lightline.active = {
       \ 'left': [
       \   ['mode', 'preview', 'coc_errors', 'coc_warnings'],
-      \   ['specific_buffer', 'git_branch', 'git_diff'],
+      \   ['git_branch', 'git_diff'],
       \   ['readonly', 'paste', 'spell'],
       \   ['vista'],
       \ ],
@@ -279,6 +279,11 @@ function! LL_coc_notice() abort "{{{3
 endfunction
 
 function! LL_mode() abort "{{{3
+  let mode = exists('*submode#current()') ? submode#current() : ''
+  if mode !=# ''
+    return mode
+  endif
+
   if &bt !=# '' && &bt !=# 'terminal'
     if @% =~? 'vimspector'
       return @%
@@ -286,10 +291,7 @@ function! LL_mode() abort "{{{3
     return toupper(&ft)
   endif
 
-  if exists('*submode#current()')
-    let mode = submode#current()
-  endif
-
+  let mode = LL_specific_buffer()
   if mode ==# ''
     let mode = get(g:lightline.mode_map, mode(), '')
   endif
@@ -460,7 +462,6 @@ let g:lightline.component_function = {
       \ 'pos_bar': 'LL_pos_bar',
       \ 'pos_bar_with_lineinfo': 'LL_pos_bar_with_lineinfo',
       \
-      \ 'specific_buffer': 'LL_specific_buffer',
       \ 'git_branch': 'LL_git_branch',
       \
       \ 'filetype': 'LL_filetype',
