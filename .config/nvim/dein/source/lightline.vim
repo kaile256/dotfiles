@@ -291,7 +291,7 @@ function! LL_mode() abort "{{{3
     return toupper(&ft)
   endif
 
-  let mode = LL_specific_buffer()
+  let mode = s:specific_buffer()
   if mode ==# ''
     let mode = get(g:lightline.mode_map, mode(), '')
   endif
@@ -372,7 +372,7 @@ function! LL_filetype() abort "{{{3
   return 'ft='. &ft .','. fdm
 endfunction
 
-function! LL_specific_buffer() abort "{{{3
+function! s:specific_buffer() abort "{{{3
   if &bt ==# 'terminal'
     return 'TERM'
   elseif &ft =~# 'help\|man'
