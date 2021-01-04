@@ -93,6 +93,7 @@ function! s:set_definitions() abort
 
   let rules.opposite = [
         \ ['preceding', 'following'],
+        \ ['ascending', 'descending'],
         \
         \ ['pros', 'cons'],
         \ ['enter', 'leave'],
