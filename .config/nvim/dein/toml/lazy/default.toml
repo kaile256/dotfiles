@@ -109,8 +109,7 @@ repo = 'kaile256/vim-submode'
 #repo = 'kana/vim-submode'
 # make another mode!
 on_func = 'submode#'
-hook_add = 'runtime add/submode.vim'
-#hook_post_source = 'runtime post/submode.vim'
+hook_add = 'source $DEIN_RC_DIR/submode/add.vim'
 #hook_done_update = '''
 #e $DEIN_GITHUB_DIR/kana/vim-submode/autoload/submode.vim
 #%s/submode-/sbm-/g
