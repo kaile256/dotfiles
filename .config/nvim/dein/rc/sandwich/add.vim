@@ -18,6 +18,11 @@ xmap ig <Plug>(textobj-sandwich-auto-i)
 omap ag <Plug>(textobj-sandwich-auto-a)
 xmap ag <Plug>(textobj-sandwich-auto-a)
 
+omap i<space> <Plug>(textobj-sandwich-query-i)<space>
+xmap i<space> <Plug>(textobj-sandwich-query-i)<space>
+omap a<space> <Plug>(textobj-sandwich-query-a)<space>
+xmap a<space> <Plug>(textobj-sandwich-query-a)<space>
+
 omap i* <Plug>(textobj-sandwich-query-i)*
 xmap i* <Plug>(textobj-sandwich-query-i)*
 omap a* <Plug>(textobj-sandwich-query-a)*
