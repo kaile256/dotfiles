@@ -77,9 +77,13 @@ e $DEIN_GITHUB_DIR/mattn/benchvimrc-vim/plugin/benchvimrc.vim
 g/writefile/s/1\zs)$
 write
 '''
+# [[plugins]]
+# # repo = 'dstein64/vim-startuptime'
+# # Show benchmark in bar graph to load each files.
+# # on_cmd = 'StartupTime'
 [[plugins]]
-repo = 'dstein64/vim-startuptime'
-# Show benchmark in graph to load each files.
+repo = 'tweekmonster/startuptime.vim'
+# Sort `--startuptime` result plugin by plugin.
 on_cmd = 'StartupTime'
 
 #[ Test Framework ]
