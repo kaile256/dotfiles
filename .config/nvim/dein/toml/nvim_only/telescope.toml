@@ -1,0 +1,11 @@
+[[plugins]]
+repo = 'nvim-lua/popup.nvim'
+[[plugins]]
+repo = 'nvim-lua/plenary.nvim'
+
+[[plugins]]
+repo = 'nvim-telescope/telescope.nvim'
+on_cmd = 'Telescope'
+depends = ['popup.nvim', 'plenary.nvim']
+hook_post_source = 'luafile $DEIN_RC_DIR/telescope/pos.lua'
+
