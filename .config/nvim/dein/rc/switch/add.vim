@@ -13,7 +13,7 @@ if !exists('*g:switch_extra_definitions')
 endif
 
 function! s:increment() abort
-  silent! call repeat#set('<Plug>(switch-increment)')
+  silent! call repeat#set("\<Plug>(switch-increment)")
   let line = getline('.')
   call switch#Switch({
         \ 'definitions': g:switch_extra_definitions
@@ -25,7 +25,7 @@ function! s:increment() abort
 endfunction
 
 function! s:decrement() abort
-  silent! call repeat#set('<Plug>(switch-decrement)')
+  silent! call repeat#set("\<Plug>(switch-decrement)")
   let line = getline('.')
   call switch#Switch({
         \ 'definitions': g:switch_extra_definitions,
