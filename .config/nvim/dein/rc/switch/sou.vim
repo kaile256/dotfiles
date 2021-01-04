@@ -44,6 +44,10 @@ function! s:set_extra_definitions() abort
         \ },
         \ ]
 
+  let rules.synonym = [
+        \ ['is composed', 'consists'],
+        \ ]
+
   " The patterns would hardly match outside of &ft=vim.
   let rules.vimscript = [
         \ {
