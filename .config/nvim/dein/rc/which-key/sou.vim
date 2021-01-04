@@ -125,6 +125,22 @@ function! s:register_keys() abort
           \ }
   endif
 
+  if dein#tap('telescope.nvim')
+    let l:nmaps['Telescope:'] = {
+          \ 'name': 'telescope',
+          \
+          \ 'm': [':Telescope man_pages', 'Man pages'],
+          \ 'h': [':Telescope help_tags', 'Vim Help'],
+          \
+          \ 'H': {
+          \   'name': 'GitHub',
+          \   'g': [':Telescope gh_gist', 'Gists'],
+          \   'i': [':Telescope gh_issues', 'Issues'],
+          \   'p': [':Telescope gh_pull_request', 'Pull Requests'],
+          \ },
+          \ }
+  endif
+
   for key in keys(l:nmaps)
     call which_key#register(key, l:nmaps[key])
   endfor

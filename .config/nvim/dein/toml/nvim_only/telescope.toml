@@ -7,5 +7,6 @@ repo = 'nvim-lua/plenary.nvim'
 repo = 'nvim-telescope/telescope.nvim'
 on_cmd = 'Telescope'
 depends = ['popup.nvim', 'plenary.nvim']
+hook_add = 'source $DEIN_RC_DIR/telescope/add.vim'
 hook_post_source = 'luafile $DEIN_RC_DIR/telescope/pos.lua'
 
