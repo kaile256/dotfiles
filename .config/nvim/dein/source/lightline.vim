@@ -119,7 +119,7 @@ endfunction
 
 " Define Functions for Statusline {{{2
 function! s:hold_length(text, max) abort
- return repeat(' ', a:max - len(a:text)) . a:text
+  return repeat(' ', a:max - len(a:text)) . a:text
 endfunction
 function! s:hold_length_inverse(text, max) abort
   return a:text . repeat(' ', a:max - len(a:text))
@@ -286,7 +286,14 @@ function! LL_mode() abort "{{{3
     return toupper(&ft)
   endif
 
-  let mode = get(g:lightline.mode_map, mode(), '')
+  if exists('*submode#current()')
+    let mode = submode#current()
+  endif
+
+  if mode ==# ''
+    let mode = get(g:lightline.mode_map, mode(), '')
+  endif
+
   if exists('g:loaded_eskk')
     let eskk_mode = substitute(eskk#statusline(), 'eskk:', '', '')
     if eskk_mode !=# ''
