@@ -293,7 +293,9 @@ function! LL_mode() abort "{{{3
 
   let mode = s:specific_buffer()
   if mode ==# ''
-    let mode = get(g:lightline.mode_map, mode(), '')
+    let m = mode(1)
+    let m = m =~# 'o' ? 'o' : m[0]
+    let mode = get(g:lightline.mode_map, m, '')
   endif
 
   if exists('g:loaded_eskk')
@@ -316,6 +318,7 @@ let g:lightline.mode_map = {
       \ 'V':      'V-LINE',
       \ "\<C-v>": 'V-BLOCK',
       \ 'c':      'COMMAND',
+      \ 'o':      'OPERATOR',
       \ 's':      'SELECT',
       \ 'S':      'S-LINE',
       \ "\<C-s>": 'S-BLOCK',
