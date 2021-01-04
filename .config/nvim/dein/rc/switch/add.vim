@@ -8,7 +8,9 @@
 "     \ '<span\(.\{-}\)>\(.\{-}\)</span>': '<div\1>\2</div>',
 "     \ }]
 
-let g:switch_extra_definitions = []
+if !exists('*g:switch_extra_definitions')
+  let g:switch_extra_definitions = []
+endif
 
 function! s:increment() abort
   silent! call repeat#set('<Plug>(switch-increment)')
