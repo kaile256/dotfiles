@@ -15,10 +15,10 @@ require('telescope').setup{
       '--smart-case'
     },
 
-    prompt_position = "bottom",
+    prompt_position = "top",
     prompt_prefix = ">",
-    selection_strategy = "reset",
-    sorting_strategy = "descending",
+    selection_strategy = "reset", -- reset, row, follow
+    sorting_strategy = "ascending",
     layout_strategy = "horizontal",
     layout_defaults = {
       -- TODO add builtin options.
@@ -28,8 +28,9 @@ require('telescope').setup{
     file_ignore_patterns = {},
     generic_sorter =  require'telescope.sorters'.get_generic_fuzzy_sorter,
     shorten_path = true,
-    winblend = 0,
-    width = 0.75,
+
+    winblend = 20,
+    width = 0.85,
     preview_cutoff = 120,
     results_height = 1,
     results_width = 0.8,
