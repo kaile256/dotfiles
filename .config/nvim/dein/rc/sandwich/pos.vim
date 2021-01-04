@@ -291,7 +291,7 @@ function! s:devise_recipes() abort
         \ {
         \   'buns': ['\s\+', '\s\+'],
         \   'regex': 1,
-        \   'kind': ['delete', 'replace', 'query'],
+        \   'action': ['delete'],
         \   'input': [' '],
         \ },
         \ ]
