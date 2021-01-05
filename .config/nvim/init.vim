@@ -36,7 +36,7 @@ augroup myRuntimesSelection
   " au CmdLineEnter,CmdWinEnter * ++once runtime once/cabbrs.vim
   au CmdLineEnter,CmdWinEnter * ++once runtime once/commands.vim
 
-  au VimEnter                 * ++once runtime once/omaps.vim
+  runtime once/omaps.vim
   au InsertEnter              * ++once runtime once/imaps.vim
   au CmdLineEnter,CmdWinEnter * ++once runtime once/cmaps.vim
   exe 'au' TermOpen '* ++once runtime once/tmaps.vim'
