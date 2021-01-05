@@ -264,7 +264,7 @@ nnoremap <silent> <space>gm :<C-u>CocCommand git.showCommit<CR>
 
 function! s:goto_chunk(direction) abort
   let conflict_marker = '^[=><]\{7} '
-  let is_conflicted = search(conflict_marker, 'cnW')
+  let is_conflicted = search(conflict_marker, 'cnw')
   if &diff
     let next = ']c'
     let prev = '[c'
