@@ -4,6 +4,7 @@
 	name = kaile256
 [core]
 	editor = nvr -s --remote-wait-silent
+	pager = delta
 	excludesfile = .mypy_cache/
 	ignoreCase = false
 
@@ -82,3 +83,9 @@
 # 	changeHunkIndicators = false
 # 	stripLeadingSymbols = false
 # 	useUnicodeRuler = false
+[interactive]
+	diffFilter = delta --color-only
+[delta]
+	# Repo: dandavison/delta
+	line-numbers = true
+	side-by-side = true
