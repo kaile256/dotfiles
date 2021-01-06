@@ -37,7 +37,7 @@ function! s:register_keys() abort
 
   let l:nmaps = {}
 
-  let l:nmaps['Yank Path '] = {
+  let l:nmaps['Yank Path:'] = {
         \ 'name': '[ local ]',
         \
         \ 'f': ['<Plug>(yank-fname)', 'Get current filename'],
@@ -49,7 +49,7 @@ function! s:register_keys() abort
         \ 'b': ['<Plug>(yank-bufnr)', 'Get current bufnr'],
         \ 'r': ['<Plug>(yank-repo)',  'Get current repo'],
         \ }
-  let l:nmaps['Paste Path '] = {
+  let l:nmaps['Paste Path:'] = {
         \ 'name': '[ local ]',
         \
         \ 'f': ['<Plug>(paste-fname)', 'Paste current filename'],
@@ -63,7 +63,7 @@ function! s:register_keys() abort
         \ }
 
   if dein#tap('vim-caser')
-    let l:nmaps['Caser '] = {
+    let l:nmaps['Caser:'] = {
           \ 'name': '[arthurxavierx/vim-caser]',
           \
           \ 't': ['<Plug>CaserTitleCase',    'Title Case'],
@@ -80,7 +80,7 @@ function! s:register_keys() abort
           \ '.': ['<Plug>CaserDotCase',   'dot.separated'],
           \ }
 
-    let l:nmaps['Caser in Visual '] = {
+    let l:nmaps['Caser in Visual:'] = {
           \ 'name': '[arthurxavierx/vim-caser]',
           \
           \ 't': ['<Plug>CaserVTitleCase',    'Title Case'],
