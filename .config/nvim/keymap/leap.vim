@@ -20,6 +20,7 @@ function! s:buf_rotate(order) abort
   if len(getloclist(winnr())) > 1
     exe 'l'. a:order
     lw
+    return
   elseif len(getqflist()) > 1
     try
       exe 'c'. a:order
@@ -29,26 +30,29 @@ function! s:buf_rotate(order) abort
       echohl WarningMsg
       echo 'No more items'
       echohl Normal
-    endtry
-  else
-    let dir = expand('%:p:h')
-    let files = readdir(dir)
-    let files = filter(deepcopy(files), 'filereadable(v:val)')
-    if len(files) <= 1
-        echohl ErrorMsg
-        echo 'No other files at' dir
-        echohl
-    endif
-    let curr_file = expand('%:t')
-    let curr_idx = index(sort(files), curr_file)
 
-    let idx = curr_idx + (a:order ==# 'next' ? +1 : -1)
-    if idx >= len(files)
-      let idx = 0
-    endif
-    let path = files[idx]
-    exe 'e' path
+    finally
+      return
+    endtry
   endif
+
+  let dir = expand('%:p:h')
+  let files = readdir(dir)
+  let files = filter(deepcopy(files), 'filereadable(v:val)')
+  if len(files) <= 1
+    echohl ErrorMsg
+    echo 'No other files at' dir
+    echohl
+  endif
+  let curr_file = expand('%:t')
+  let curr_idx = index(sort(files), curr_file)
+
+  let idx = curr_idx + (a:order ==# 'next' ? +1 : -1)
+  if idx >= len(files)
+    let idx = 0
+  endif
+  let path = files[idx]
+  exe 'e' path
 endfunction
 nnoremap <silent> <C-p> :<C-u> call <SID>buf_rotate('prev') <CR>
 nnoremap <silent> <C-n> :<C-u> call <SID>buf_rotate('next') <CR>
