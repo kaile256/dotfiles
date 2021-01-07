@@ -272,8 +272,15 @@ function! s:goto_chunk(direction) abort
     let next = "\<Plug>(coc-git-nextconflict)"
     let prev = "\<Plug>(coc-git-prevconflict)"
   else
-    let next = "\<Plug>(coc-git-nextchunk)"
-    let prev = "\<Plug>(coc-git-prevchunk)"
+    if dein#tap('vim-gitgutter')
+      " Coc's next/prev chunk doesn't notice indexed chunks; thus, their
+      " motions are different from those expected by signcolumn.
+      let next = "\<Plug>(GitGutterNextHunk)"
+      let prev = "\<Plug>(GitGutterPrevHunk)"
+    else
+      let next = "\<Plug>(coc-git-nextchunk)"
+      let prev = "\<Plug>(coc-git-prevchunk)"
+    endif
   endif
 
   let forward  = a:direction ==# 'next' ? next : prev
