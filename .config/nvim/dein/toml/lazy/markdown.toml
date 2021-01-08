@@ -19,7 +19,6 @@ on_cmd =  [
   'GenTocGFM', 'GenTocRedcarpet', 'GenTocGitlab', 'GenTocMarked'
   'UpdateToc', 'RemoveToc'
 ]
-hook_add = 'runtime add/markdown-toc.vim'
 hook_source = 'runtime source/markdown-toc.vim'
 
 #[ Preview ]
