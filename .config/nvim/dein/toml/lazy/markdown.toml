@@ -15,10 +15,7 @@ hook_source = 'runtime source/scimark.vim'
 #[ TOC ]
 [[plugins]]
 repo = 'mzlogin/vim-markdown-toc'
-on_cmd =  [
-  'GenTocGFM', 'GenTocRedcarpet', 'GenTocGitlab', 'GenTocMarked'
-  'UpdateToc', 'RemoveToc'
-]
+on_ft = 'markdown'
 hook_source = 'runtime source/markdown-toc.vim'
 
 #[ Preview ]
