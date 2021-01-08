@@ -16,3 +16,10 @@ on_source = 'telescope.nvim'
 [[plugins]]
 repo = 'nvim-telescope/telescope-vimspector.nvim'
 on_source = 'vimspector'
+
+[[plugins]]
+repo = 'pwntester/octo.nvim'
+# Edit issues, PRs, etc., of GitHub
+depends = ['plenary.nvim', 'telescope.nvim']
+on_cmd = 'Octo'
+
