@@ -120,5 +120,7 @@ function! s:_operator_join(wise, shim) abort
   let lines = map(lines, 'matchstr(v:val, ''^\s*\zs.\{-}\ze\s*$'')')
 
   let line = indent . join(lines, a:shim)
-  pu! = [ line ]
+
+  let put = line('.') == line('$') ? 'put' : 'put!'
+  exe put '= [ line ]'
 endfunction
