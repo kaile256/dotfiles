@@ -99,6 +99,11 @@ hook_source = 'runtime add/wakatime.vim'
 #[[plugins]]
 #repo = 'basyura/twibill.vim'
 #on_cmd = 'TweetVim'
+[[plugins]]
+repo = 'jbyuki/instant.nvim'
+if = 'has("nvim-0.4.4")'
+on_cmd = ['InstantStart', 'InstantJoin']
+hook_source = 'source $DEIN_RC_DIR/instant/sou.vim'
 
 #[ WebAPI ]
 [[plugins]]
