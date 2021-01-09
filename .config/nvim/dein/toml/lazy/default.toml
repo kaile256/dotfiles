@@ -90,6 +90,7 @@ on_func = 'which_key#register'
 on_cmd = 'WhichKey'
 hook_add = 'source $DEIN_RC_DIR/which-key/add.vim'
 hook_source = 'source $DEIN_RC_DIR/which-key/sou.vim'
+hook_post_source = 'source $DEIN_RC_DIR/which-key/pos.vim'
 # [[plugins]]
 # repo = 'hecal3/vim-leader-guide'
 # # Inspired by emacs's kai2nenobu/guide-key.
