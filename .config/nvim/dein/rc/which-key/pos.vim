@@ -255,7 +255,7 @@ function! s:register_git_keys() abort
 
       let save_view = winsaveview()
       exe 'norm!' a:start
-      while line('.') <= line(a:end)
+      while line('.') <= a:end
         let lnum = line('.')
         silent! GitGutterStageHunk
         silent! GitGutterNextHunk
@@ -265,8 +265,7 @@ function! s:register_git_keys() abort
       call winrestview(save_view)
     endfunction
     function! s:stage_hunks_op(wise) abort
-      call s:StageHunksInRange("'[", "']")
-      silent! call repeat#set("\<Plug>(GitGutterStageHunksOperator)")
+      call s:StageHunksInRange(line("'["), line("']"))
     endfunction
     nnoremap <silent> <Plug>(GitGutterStageHunksOperator)
           \ :<C-u>set operatorfunc=<SID>stage_hunks_op<CR>g@
