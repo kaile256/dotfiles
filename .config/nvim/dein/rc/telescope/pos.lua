@@ -50,10 +50,51 @@ require('telescope').setup{
     mappings = {
       -- To disable a keymap, set [map] to false.
       i = {
-        ["<C-u>"] = false,
+        ["<C-c>"] = actions.close,
 
+        ["<C-n>"] = false,
+        ["<C-p>"] = false,
+        ["<C-g>"] = actions.move_selection_next,
+        ["<C-t>"] = actions.move_selection_previous,
+
+        ["<C-x>"] = false,
+        ["<C-v>"] = false,
+        -- ["<C-t>"] = false,
         ["<A-s>"] = actions.goto_file_selection_split,
+        ["<A-v>"] = actions.goto_file_selection_vsplit,
+        ["<A-t>"] = actions.goto_file_selection_tabedit,
+
+        -- ["<Tab>"] = actions.add_selection, -- Not implemented yet.
+        -- Disable scrolling in Insert Mode.
+
+        ["<C-u>"] = false,
+        ["<C-d>"] = false,
+      },
+
+      n = {
+        ["<Esc>"] = actions.close,
+
+        ["<CR>"] = actions.goto_file_selection_edit + actions.center,
+
+        ["<C-x>"] = false,
+        ["<C-v>"] = false,
+        ["<C-t>"] = false,
+        ["o"]  = actions.goto_file_selection_split,
+        ["O"]  = actions.goto_file_selection_vsplit,
+        ["gO"] = actions.goto_file_selection_tabedit,
+
+
+        -- Note: This would be weird when we switch the ordering, currently.
+        ["j"] = actions.move_selection_next,
+        ["k"] = actions.move_selection_previous,
+
+        ["<Up>"] = false,
+        ["<Down>"] = false,
+
+        ["<C-u>"] = actions.preview_scrolling_up,
+        ["<C-d>"] = actions.preview_scrolling_down,
       },
     },
   },
 }
+
