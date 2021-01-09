@@ -255,12 +255,14 @@ function! s:register_git_keys() abort
 
       let save_view = winsaveview()
       exe 'norm!' a:start
-      while line('.') <= a:end
-        let lnum = line('.')
+      let last_lnum = line('.')
+      while last_lnum <= a:end
         silent! GitGutterStageHunk
         silent! GitGutterNextHunk
 
-        if lnum == line('.') | break | endif
+        let curr_lnum = line('.')
+        if last_lnum == curr_lnum | break | endif
+        let last_lnum = curr_lnum
       endwhile
       call winrestview(save_view)
     endfunction
