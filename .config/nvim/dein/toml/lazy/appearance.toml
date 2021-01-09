@@ -34,8 +34,8 @@ hook_post_source = 'runtime add/cursorword.vim'
 repo = 'kevinhwang91/nvim-hlslens'
 if = 'has("nvim")'
 on_event = 'BufRead'
-hook_add = 'source $DEIN_RC_DIR/hlslens/add.vim'
 hook_source = 'lua $DEIN_RC_DIR/hlslens/sou.lua'
+hook_post_source = 'source $DEIN_RC_DIR/hlslens/pos.vim'
 #[ Emphasize ]
 #[[plugins]]
 #repo = 't9md/vim-quickhl'
