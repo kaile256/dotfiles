@@ -17,8 +17,8 @@ xmap g* <Plug>(asterisk-g*)<SID>(hlslens-on)
 xmap g# <Plug>(asterisk-g#)<SID>(hlslens-on)
 
 
-nnoremap <script> n n<SID>(hlslens-on)
-nnoremap <script> N N<SID>(hlslens-on)
+nnoremap <script> n n<SID>(hlslens-on)zv
+nnoremap <script> N N<SID>(hlslens-on)zv
 
 nnoremap <script> <SID>(highlight-off)
       \ <SID>(hlslens-off)<Cmd>noh <bar> redraw! <CR>
