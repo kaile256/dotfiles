@@ -249,7 +249,7 @@ function! s:register_git_keys() abort
   endif
 
   if dein#tap('vim-gitgutter')
-    function! s:StageHunksInRange(start, end) abort
+    function! s:StageHunksOnRange(start, end) abort
       " a:start: lnum
       " a:end: lnum
 
@@ -267,7 +267,10 @@ function! s:register_git_keys() abort
       call winrestview(save_view)
     endfunction
     function! s:stage_hunks_op(wise) abort
-      call s:StageHunksInRange(line("'["), line("']"))
+      call s:StageHunksOnRange(line("'["), line("']"))
+      " Note: because gitgutter set g:repeat_sequence in their functions,
+      " `repeat#set()` must be called here.
+      silent! call repeat#set("\<Plug>(GitGutterStageHunksOperator)")
     endfunction
     nnoremap <silent> <Plug>(GitGutterStageHunksOperator)
           \ :<C-u>set operatorfunc=<SID>stage_hunks_op<CR>g@
@@ -285,7 +288,7 @@ function! s:register_git_keys() abort
           \ })
 
     call extend(git_xmaps, {
-          \ 'p': [funcref('s:StageHunksInRange', ["'<", "'>"]), 'Stage hunks on the visualized area'],
+          \ 'p': [funcref('s:StageHunksOnRange', [line("'<"), line("'>")]), 'Stage hunks on the visualized area'],
           \
           \ 'U': ['<Plug>(GitGutterUndoHunkRepeatable)', 'Reset hunks on the visualized area to HEAD'],
           \ })
