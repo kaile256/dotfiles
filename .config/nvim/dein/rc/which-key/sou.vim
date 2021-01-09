@@ -297,6 +297,23 @@ function! s:register_git_keys() abort
           \ 'U': ['<Plug>(GitGutterUndoHunkRepeatable)', 'Reset hunks on the visualized area to HEAD'],
           \ })
   endif
+
+  if dein#tap('octo.nvim')
+    call extend(git_nmaps, {
+          \ 'h': {
+          \   'name': 'Telescope for GitHub',
+          \
+          \   'p': [':Octo pr list', 'List of Pull Request'],
+          \   'g': [':Octo gist list', 'List of Gist'],
+          \
+          \   'i': {
+          \     'name': 'Issue',
+          \     'l': [':Octo issue list', 'List at the Repository'],
+          \     'c': [':Octo issue create', 'Create Issue at the Repository'],
+          \   },
+          \ },
+          \ })
+  endif
   call which_key#register('Git:', git_nmaps)
   call which_key#register('Git in Visual:', git_xmaps)
 endfunction
