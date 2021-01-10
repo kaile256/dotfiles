@@ -680,6 +680,15 @@ function! s:set_rules() abort
         \ 'input': '<Esc>:keeppatterns s/^\s*\zs#/##/e<CR>gi<C-g>U<Right>',
         \ }]
 
+  let Mkd_AddTask = [
+        \ {
+        \   'char': '<CR>',
+        \   'at': '^\s*- [.].*\%#',
+        \   'input': '<CR>- [ ] ',
+        \ },
+        \ ]
+  let group2rules.markdown += Mkd_AddTask
+
   " Finally: Override the rules though lexima#add_rule() "{{{1
   " Apply all the maps to both Insert and Command mode when unspecified
   " let foo = map(deepcopy(g:lexima#default_rules), 'substitute(get(v:val, "input"), ''\ze<\(Right\|End\)>\c'', "<C-g>U", "g"')
