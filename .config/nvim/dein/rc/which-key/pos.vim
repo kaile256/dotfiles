@@ -249,6 +249,8 @@ function! s:register_git_keys() abort
   endif
 
   if dein#tap('vim-gitgutter')
+    " TOML: git.toml
+    " Repo: airblade/vim-gitgutter
     function! s:StageHunksOnRange(above, below) abort
       let save_view = winsaveview()
       exe 'norm!' a:above
