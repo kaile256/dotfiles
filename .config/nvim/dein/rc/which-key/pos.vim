@@ -54,7 +54,7 @@ function! s:register_keys() abort
         \ 'r': ['<Plug>(paste-repo)',  'Paste current repo'],
         \ }
 
-  if dein#tap('vim-caser')
+  if dein#tap('vim-caser') "{{{1
     let l:nmaps['Caser:'] = {
           \ 'name': '[arthurxavierx/vim-caser]',
           \
@@ -89,7 +89,7 @@ function! s:register_keys() abort
           \ '.': ['<Plug>CaserVDotCase',   'dot.separated'],
           \ }
   endif
-  if dein#tap('vim-windowswap')
+  if dein#tap('vim-windowswap') "{{{1
     function! s:SwapWindow(direction) abort
       call WindowSwap#MarkWindowSwap()
       exe 'wincmd' a:direction
@@ -104,7 +104,7 @@ function! s:register_keys() abort
           \ }
   endif
 
-  if dein#tap('fzf.vim')
+  if dein#tap('fzf.vim') "{{{1
     let l:nmaps['FZF:'] = {
           \ 'N': [':Nmaps', 'Show Nmaps'],
           \ 'I': [':Imaps', 'Show Imaps'],
@@ -117,7 +117,7 @@ function! s:register_keys() abort
           \ }
   endif
 
-  if dein#tap('telescope.nvim')
+  if dein#tap('telescope.nvim') "{{{1
     let l:nmaps['Telescope:'] = {
           \ 'name': 'telescope',
           \
@@ -149,14 +149,14 @@ function! s:register_git_keys() abort
         \ 'name': '[ Git ]',
         \ }
 
-  if dein#tap('agit.vim')
+  if dein#tap('agit.vim') "{{{1
     call extend(git_nmaps, {
           \ 'l': [':AgitFile', 'View Git log of current buffer with Agit'],
           \ 'L': [':Agit', 'View Git log with Agit'],
           \ })
   endif
 
-  if dein#tap('coc.nvim')
+  if dein#tap('coc.nvim') "{{{1
     call extend(git_nmaps, {
           \ 'm': ['<Plug>(coc-git-chunkinfo)', 'Show diff of chunk at cursor'],
           \ 'M': ['<Plug>(coc-git-commit)', 'Show the commit that includes cursor line'],
@@ -170,7 +170,7 @@ function! s:register_git_keys() abort
           \ })
   endif
 
-  if dein#tap('vim-fugitive')
+  if dein#tap('vim-fugitive') "{{{1
     function! s:is_nothing_staged() abort
       let git_root = shellescape(FindRootDirectory() .'/.git')
       let git_diff_cached = system('git --git-dir='. git_root .' diff --cached')
@@ -248,7 +248,7 @@ function! s:register_git_keys() abort
     nnoremap <space>gr<SID> <Nop>
   endif
 
-  if dein#tap('vim-gitgutter')
+  if dein#tap('vim-gitgutter') "{{{1
     " TOML: git.toml
     " Repo: airblade/vim-gitgutter
     function! s:StageHunksOnRange(above, below) abort
@@ -289,7 +289,7 @@ function! s:register_git_keys() abort
           \ })
   endif
 
-  if dein#tap('octo.nvim')
+  if dein#tap('octo.nvim') "{{{1
     call extend(git_nmaps, {
           \ 'h': {
           \   'name': 'Telescope for GitHub',
