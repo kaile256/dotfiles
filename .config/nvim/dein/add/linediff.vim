@@ -1,11 +1,14 @@
 " From: default.toml
 " Repo: AndrewRadev/linediff.vim
 
-" Keymap; Get Compared
-nnoremap gC :Linediff<cr>
-xnoremap gC :Linediff<cr>
+" Mnemonic: Get Compared
+nmap <silent> gc <Plug>(linediff-operator)
+nmap <silent> gC <Plug>(linediff-add-operator)
 
-nnoremap g<C-c> :LinediffReset<cr>
+xnoremap <silent> gc :Linediff<CR>
+xnoremap <silent> gC :LinediffAdd<CR>
+
+nnoremap g<C-c> :<C-u>LinediffReset<cr>
 
 " default: tabnew
 "let g:linediff_first_buffer_command = 'new'
