@@ -274,7 +274,7 @@ function! s:register_git_keys() abort
     nnoremap <silent> <Plug>(GitGutterStageHunksOperator)
           \ :<C-u>set operatorfunc=<SID>stage_hunks_op<CR>g@
     nnoremap <expr><silent> <Plug>(GitGutterStageHunkAtCursor)
-          \ (foldclosed(line('.')) == -1 ? ':<C-u>' : 'V')
+          \ (foldclosed('.') == -1 ? ':<C-u>' : 'V')
           \ .':GitGutterStageHunk<CR>'
 
     call extend(git_nmaps, {
