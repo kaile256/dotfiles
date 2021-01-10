@@ -2,6 +2,10 @@
 " Repo: cohama/lexima.vim
 " Another: source/lexima.vim
 
+" Excerpt: Undo Break
+" <C-g>u: Break undo sequence
+" <C-g>U: Don't break undo with next cursor movement within the same line.
+
 imap <C-h> <BS>
 
 function! s:insert_rule2rules(rules, dict) abort
