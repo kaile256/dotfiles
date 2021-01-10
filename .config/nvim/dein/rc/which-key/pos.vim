@@ -249,14 +249,11 @@ function! s:register_git_keys() abort
   endif
 
   if dein#tap('vim-gitgutter')
-    function! s:StageHunksOnRange(start, end) abort
-      " a:start: lnum
-      " a:end: lnum
-
+    function! s:StageHunksOnRange(above, below) abort
       let save_view = winsaveview()
-      exe 'norm!' a:start
+      exe 'norm!' a:above
       let last_lnum = line('.')
-      while last_lnum <= a:end
+      while last_lnum <= a:below
         silent! GitGutterStageHunk
         silent! GitGutterNextHunk
 
