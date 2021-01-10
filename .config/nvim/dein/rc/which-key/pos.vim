@@ -275,10 +275,6 @@ function! s:register_git_keys() abort
           \ (foldclosed(line('.')) == -1 ? ':<C-u>' : 'V')
           \ .':GitGutterStageHunk<CR>'
 
-    map <silent> <Plug>(GitGutterUndoHunkRepeatable)
-          \ <Plug>(GitGutterUndoHunk):<C-u>silent!
-          \ call repeat#set("\<lt>Plug>(GitGutterUndoHunk)")<CR>
-
     call extend(git_nmaps, {
           \ 'p': ['<Plug>(GitGutterStageHunksOperator)', 'Operator to stage hunks'],
           \ 'P': ['<Plug>(GitGutterStageHunkAtCursor)', 'Stage the hunk at cursor'],
@@ -287,7 +283,7 @@ function! s:register_git_keys() abort
     call extend(git_xmaps, {
           \ 'p': [funcref('s:StageHunksOnRange', [line("'<"), line("'>")]), 'Stage hunks on the visualized area'],
           \
-          \ 'U': ['<Plug>(GitGutterUndoHunkRepeatable)', 'Reset hunks on the visualized area to HEAD'],
+          \ 'U': ['<Plug>(GitGutterUndoHunk)', 'Reset hunks on the visualized area to HEAD'],
           \ })
   endif
 
