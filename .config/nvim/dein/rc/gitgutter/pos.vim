@@ -4,5 +4,7 @@
 " Another: source/gitgutter.vim
 
 au! gitgutter CursorHold,CursorHoldI
+augroup myGitgutterPos-AdditionalUpdate
+  au TextChanged,InsertLeave * GitGutter
+augroup END
 
-au gitgutter BufWritePost * :GitGutter
