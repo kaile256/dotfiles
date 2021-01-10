@@ -562,6 +562,55 @@ function! s:set_rules() abort
         \ {'char': '<CR>', 'at': '\v(\=.*|\\)\s*\[%#]',  'input': '<CR>\ ', 'input_after': '<CR>\ '},
         \ ]
 
+  " Like line("'<"), col("']")
+  const Vim_DescribeMarkPos = [
+        \ {
+        \   'char': '<',
+        \   'input': '<<C-g>U<C-g>U<Right><C-g>U<Right>',
+        \   'at': '("''\%#")',
+        \ },
+        \ {
+        \   'char': '<',
+        \   'input': '<<C-g>U<Del><C-g>U<Right><C-g>U<Right>',
+        \   'at': '("''\%#''")',
+        \ },
+        \
+        \ {
+        \   'char': '>',
+        \   'input': '><C-g>U<C-g>U<Right><C-g>U<Right>',
+        \   'at': '("''\%#")',
+        \ },
+        \ {
+        \   'char': '>',
+        \   'input': '><C-g>U<Del><C-g>U<Right><C-g>U<Right>',
+        \   'at': '("''\%#''")',
+        \ },
+        \
+        \
+        \ {
+        \   'char': '[',
+        \   'input': '[<C-g>U<C-g>U<Right><C-g>U<Right>',
+        \   'at': '("''\%#")',
+        \ },
+        \ {
+        \   'char': '[',
+        \   'input': '[<C-g>U<Del><C-g>U<Right><C-g>U<Right>',
+        \   'at': '("''\%#''")',
+        \ },
+        \
+        \ {
+        \   'char': ']',
+        \   'input': ']<C-g>U<C-g>U<Right><C-g>U<Right>',
+        \   'at': '("''\%#")',
+        \ },
+        \ {
+        \   'char': ']',
+        \   'input': ']<C-g>U<Del><C-g>U<Right><C-g>U<Right>',
+        \   'at': '("''\%#''")',
+        \ },
+        \ ]
+  let group2rules.vim += Vim_DescribeMarkPos
+
   let group2rules.cpp = [] "{{{1
 
   let group2rules.cpp += [
