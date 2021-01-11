@@ -20,6 +20,13 @@ def find_funcname():
   return funcname
 
 
+def find_dictfunc():
+  pat_funcdef = '^\s*fu\%[nction]! '
+  line_funcdef = vim.eval(f"getline(search('{pat_funcdef}.*(.*) .*dict', 'nWb'))")
+  funcname = vim.eval(f"matchstr('{line_funcdef}', '{pat_funcdef}\s*\zs.*\ze(')")
+  return funcname
+
+
 class Insert:
   def function_call(func_name):
     vim.eval('search("^\s*endfunction", "W")')
@@ -128,13 +135,19 @@ endsnippet
 
 snippet ref "let s:foo.bar = funcref('s:foo__bar')" b
 `!p
-funcname = find_funcname()
-class_name = vim.eval(f"matchstr('{funcname}', '.*\ze__')")
-method = vim.eval(f"matchstr('{funcname}', '__\zs.*')")
+funcname = find_dictfunc()
+
+if funcname == '':
+  funcname = find_funcname()
+  varname = vim.eval(f"matchstr('{funcname}', '.*\ze(')")
+else :
+  class_name = vim.eval(f"matchstr('{funcname}', '.*\ze__')")
+  method = vim.eval(f"matchstr('{funcname}', '__\zs.*')")
+  varname = class_name + "." + method
 
 `let `!p
 
-snip.rv = class_name`.`!p snip.rv = method
+snip.rv = varname
 
 ` = funcref('`!p snip.rv = funcname`')
 endsnippet
