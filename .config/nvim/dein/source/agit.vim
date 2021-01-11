@@ -18,7 +18,6 @@ augroup myAgitSo
   au FileType agit* call s:agit_common_keymaps()
   au FileType agit  call s:agit_keymaps()
   au FileType agit_stat call s:agit_stat_keymaps()
-  au CursorMoved agit call s:modify_foldlevel()
 augroup END
 
 "function! s:agit_commands() abort "{{{1
@@ -173,16 +172,3 @@ function! s:agit_keymaps() abort "{{{1
   "}}}2
 endfunction
 
-function! s:modify_foldlevel() abort "{{{1
-  " FIXME: make it work
-  let save_id = win_getid()
-  let id_diff = win_getid(bufwinnr('\[Agit diff] '))
-  call win_gotoid(id_diff)
-
-  let file_compared = '^diff --git a/'
-  let lines_compared = '^@@.*@@'
-  let s:appears_once = {pat -> search(pat, 'ncw') == search(pat, 'ncwb')}
-  setl fdl=1
-
-  call win_gotoid(save_id)
-endfunction
