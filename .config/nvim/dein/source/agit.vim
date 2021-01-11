@@ -112,7 +112,7 @@ function! s:agit_keymaps() abort "{{{1
         \
         \ 'y#': ['<Plug>(agit-yank-hash)', 'Yank the commit hash'],
         \
-        \ '<C-g>': ['<Plug>(agit-print-commitmsg)',  'Show the commit message'],
+        \ "\<C-g>": ['<Plug>(agit-print-commitmsg)',  'Show the commit message'],
         \
         \ 'r': {
         \   'name': 'Reset, Rebase or Revert at the commit',
