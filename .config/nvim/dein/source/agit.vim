@@ -110,7 +110,7 @@ function! s:agit_keymaps() abort "{{{1
   let maps = {
         \ 'name': '[ Agit ]',
         \
-        \ 'y#': ['<Plug>(agit-yank-hash)', 'Yank the commit hash'],
+        \ 'y': ['<Plug>(agit-yank-hash)', 'Yank the commit hash'],
         \
         \ "\<C-g>": ['<Plug>(agit-print-commitmsg)',  'Show the commit message'],
         \
