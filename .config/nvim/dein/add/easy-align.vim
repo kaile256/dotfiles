@@ -1,4 +1,4 @@
-" From: motion.toml
+" From: operator.toml
 " Repo: junegunn/vim-easy-align
 
 " Excerpt:
