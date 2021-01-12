@@ -137,6 +137,8 @@ function! s:agit_keymaps() abort "{{{1
         \   'o': ['<Plug>(agit-git-checkout)',    'Checkout to the commit'],
         \   'n': ['<Plug>(agit-git-checkout-b)',  'Create a new branch at the commit'],
         \   'p': ['<Plug>(agit-git-cherry-pick)', 'Cherry Pick the commit'],
+        \
+        \   'd': ['<Plug>(agit-git-branch-d)',    'Delete the "branch"'],
         \   },
         \
         \ 'b': {
