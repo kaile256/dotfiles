@@ -76,7 +76,7 @@ hook_source = 'source $DEIN_RC_DIR/switch/sou.vim'
 repo = 'junegunn/vim-easy-align'
 on_map = ['<Plug>(EasyAlign)', '<Plug>(LiveEasyAlign)']
 on_cmd = 'EasyAlign'
-hook_add = 'runtime add/easy-align.vim'
+hook_add = 'source $DEIN_RC_DIR/easy-align/add.vim'
 [[plugins]]
 repo = 'emonkak/vim-operator-sort'
 on_map = {nx = ['<Plug>(operator-sort']}
