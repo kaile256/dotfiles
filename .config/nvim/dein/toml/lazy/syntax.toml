@@ -15,10 +15,10 @@ hook_source = 'runtime source/autoft.vim'
 # on_event = 'Colorscheme'
 #
 # [ Multi Filetypes ]
-[[plugins]]
-repo = 'sheerun/vim-polyglot'
-on_event = 'FileType'
-hook_source = 'runtime source/polyglot.vim'
+# [[plugins]]
+# repo = 'sheerun/vim-polyglot'
+# # Because of ftdetect/polyglot.vim from 05b8bbc938bdeac4a5ee.
+# hook_source = 'runtime source/polyglot.vim'
 
 #[[plugins]]
 #repo = 'maralla/validator.vim'

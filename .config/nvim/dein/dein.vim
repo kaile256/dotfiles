@@ -59,6 +59,9 @@ if dein#load_state($DEIN_CACHE_HOME)
   call dein#begin($DEIN_CACHE_HOME)
   " TODO: make faster to load tomls (it takes 1 sec. or more)
   call dein#add('Shougo/dein.vim') " Required
+  call dein#add('sheerun/vim-polyglot', {
+        \ 'hook_add': 'runtime source/polyglot.vim',
+        \ }) " Because of ftdetect/polyglot.vim from 05b8bbc938bdeac4a5ee.
   if !has('nvim')
     call dein#add('roxma/nvim-yarp')
     call dein#add('roxma/vim-hug-neovim-rpc')
