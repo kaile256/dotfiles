@@ -139,6 +139,10 @@ hook_post_source = 'runtime post/lightline.vim'
 [[plugins]]
 repo = 'josa42/vim-lightline-coc'
 on_source = 'lightline.vim'
+# [[plugins]]
+# repo = 'adelarsq/neoline.vim'
+# # Inspired by lightline.  Written in Lua.
+# on_event = ['Syntax']
 #[[plugins]]
 #repo = 'albertomontesg/lightline-asyncrun'
 ## provides an indicator to tell async jobs running in background.
