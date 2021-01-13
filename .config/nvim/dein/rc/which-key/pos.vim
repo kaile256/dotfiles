@@ -89,6 +89,66 @@ function! s:register_keys() abort
           \ '.': ['<Plug>CaserVDotCase',   'dot.separated'],
           \ }
   endif
+
+  " " if dein#tap('open-browser.vim') "{{{1
+  "   let l:nmaps['OpenBrowser:'] = {}
+  "
+  "   function! s:define_mappings() abort
+  "     let prefix_for_openbrowser = '\b'
+  "     let key2engine = {
+  "          \ 'a': 'archwiki@en',
+  "          \ 'b': 'duckduckgo',
+  "          \ 'd': 'duckduckgo',
+  "          \ 'h': 'github.com/',
+  "          \ 'k': 'wikipedia',
+  "          \ 'l': 'gitlab',
+  "          \ 't': 'thesaurus',
+  "          \ 'w': 'weblio',
+  "          \ }
+  "
+  "     function! s:openbrowser(engine, args) abort
+  "       if a:engine =~# '/$'
+  "         let prefix = 'https://'. a:engine
+  "         let url = prefix . a:args
+  "         echo 'OpenBrowser' url
+  "         exe  'OpenBrowser' url
+  "       else
+  "         let engine = '-'. a:engine
+  "         echo 'OpenBrowserSearch' engine a:args
+  "         exe  'OpenBrowserSearch' engine a:args
+  "       endif
+  "     endfunction
+  "
+  "     let which_keys = {}
+  "     for key in keys(key2engine)
+  "       let raw_engine = key2engine[key]
+  "       let description = 'Open in '. raw_engine
+  "       let engine = substitute(raw_engine, '[@/.]', '_', 'g')
+  "
+  "       let s:op = {}
+  "       function! s:op_browser(raw_engine, ...) abort
+  "         if a:0
+  "           let args = getline('.')[col("'[") - 1 : col("']") -1]
+  "         else
+  "           let args = getline('.')[col("'<") - 1 : col("'>") -1]
+  "         endif
+  "         call s:openbrowser(a:raw_engine, args)
+  "       endfunction
+  "       let s:op[engine] = funcref('s:op_browser', [raw_engine])
+  "       let opfunc = '<SID>op.'. engine
+  "
+  "       let Plug = '<Plug>(OpenBrowser-'. engine .')'
+  "       exe 'nnoremap <silent>' Plug ':<C-u>set opfunc='. opfunc .'<CR>g@'
+  "       exe 'xnoremap <silent>' Plug ':call' opfunc .'()<CR>'
+  "
+  "       call extend(which_keys, {key : [Plug, description]})
+  "     endfor
+  "
+  "     return which_keys
+  "   endfunction
+  "   call extend(l:nmaps['OpenBrowser:'], s:define_mappings())
+  " endif
+  "
   if dein#tap('vim-windowswap') "{{{1
     function! s:SwapWindow(direction) abort
       call WindowSwap#MarkWindowSwap()
