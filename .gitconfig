@@ -61,6 +61,8 @@
 [rerere]
 	enabled = true
 [alias]
+	pl = pull
+	ps = push
 	co = checkout
 	br = branch
 
