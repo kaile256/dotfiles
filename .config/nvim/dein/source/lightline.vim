@@ -73,8 +73,10 @@ let g:lightline.inactive = {
       \ }
 
 " Define Separator {{{1
-let g:lightline.separator    = { 'left': '', 'right': '' }
-let g:lightline.subseparator = { 'left': '', 'right': '' }
+" let g:lightline.separator    = { 'left': '', 'right': '' }
+" let g:lightline.subseparator = { 'left': '', 'right': '' }
+let g:lightline.separator    = { 'left': '', 'right': '' }
+let g:lightline.subseparator = { 'left': '', 'right': '' }
 
 " Define Functions for Tabline {{{1
 function! LL_tab_path(n) abort
