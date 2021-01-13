@@ -76,13 +76,13 @@ on_ft = [
 hook_source = 'runtime source/context-commentstring.vim'
 
 #[ Paste ]
-[[plugins]]
-repo = 'inkarkat/vim-UnconditionalPaste'
-on_source = 'asterisk'
-on_map = {nx = ['<Plug>UnconditionalPaste']}
-hook_add = 'runtime add/UnconditionalPaste.vim'
-hook_source = 'runtime source/UnconditionalPaste.vim'
-
+# [[plugins]]
+# # repo = 'inkarkat/vim-UnconditionalPaste'
+# on_source = 'asterisk'
+# on_map = {nx = ['<Plug>UnconditionalPaste']}
+# hook_add = 'runtime add/UnconditionalPaste.vim'
+# hook_source = 'runtime source/UnconditionalPaste.vim'
+#
 #[ Mapping ]
 [[plugins]]
 repo = 'liuchengxu/vim-which-key'
