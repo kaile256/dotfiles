@@ -77,4 +77,5 @@ balias drmi 'docker rmi'
 
 # Git #{{{1
 alias g git
-
+alias gull 'git pull'
+alias gush 'git push'

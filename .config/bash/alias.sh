@@ -20,6 +20,8 @@ alias f=fish
 
 # Git
 alias g=git
+alias gull='git pull'
+alias gush='git push'
 
 # App; Neovim
 # `-s`: outputs no error even if no nvim server running.
