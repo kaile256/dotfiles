@@ -76,7 +76,7 @@ hook_source = 'runtime source/asterisk.vim'
 repo = 'easymotion/vim-easymotion'
 on_map = {nox = '<Plug>(easymotion-'}
 on_func = ['EasyMotion#S', 'EasyMotion#T']
-hook_add = 'runtime add/easymotion.vim'
+# hook_add = 'runtime add/easymotion.vim'
 hook_source = 'runtime source/easymotion.vim'
 hook_post_source = 'runtime post/easymotion.vim'
 
