@@ -2,7 +2,7 @@
 " Repo: nvim-treesitter/nvim-treesitter
 " Another: treesitter.lua
 
-luafile $DEIN_SOURCE_HOME/treesitter.lua
+luafile $DEIN_RC_DIR/treesitter/sou.lua
 
 augroup myTreesittter-setFoldExpr
   au FileType * call s:overwrite_foldexpr()
