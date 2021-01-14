@@ -14,7 +14,20 @@ require'nvim-treesitter.configs'.setup {
     },
 
     select = {
-      enable = true,
+      enable = {
+        "bash",
+        "c",
+        "cpp",
+        "dart",
+        "go",
+        "javascript",
+        "php",
+        "python",
+        "rust",
+        "tsx",
+        "typescript",
+      },
+
       keymaps = {
         ["ib"] = "@block.inner",
         ["ab"] = "@block.outer",
