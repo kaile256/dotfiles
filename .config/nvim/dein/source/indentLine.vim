@@ -43,7 +43,7 @@ augroup END
 function! s:set_min_indent_to_show() abort
   if &et == 0 | return | endif
 
-  if &tabstop > 3
+  if &shiftwidth > 3
     let g:indentLine_char_list = s:indentLine_chars
   else
     if !exists('s:chars_by_two')
