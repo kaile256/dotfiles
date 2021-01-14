@@ -4,10 +4,6 @@
 
 luafile $DEIN_RC_DIR/treesitter/sou.lua
 
-augroup myTreesittter-setFoldExpr
-  au FileType * call s:overwrite_foldexpr()
-augroup END
-
 function! s:set_filetypes_to_activate() abort "{{{1
   const filetypes_exclude = [
         \ 'json',
@@ -61,3 +57,6 @@ function! s:overwrite_foldexpr() abort
   endif
 endfunction
 
+augroup myTreesittter-setFoldExpr
+  au FileType * call s:overwrite_foldexpr()
+augroup END
