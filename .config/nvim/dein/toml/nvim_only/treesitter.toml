@@ -10,12 +10,11 @@ hook_source = 'source $DEIN_RC_DIR/treesitter/sou.vim'
 repo = 'p00f/nvim-ts-rainbow'
 on_source = 'nvim-treesitter'
 on_event = 'BufRead'
-# [[plugins]]
-# repo = 'nvim-treesitter/nvim-treesitter-refactor'
-# if = 'has("nvim")'
-# depends = 'nvim-treesitter'
-# on_event = 'BufRead'
-# hook_source = 'luafile $DEIN_SOURCE_HOME/treesitter-refactor.lua'
+[[plugins]]
+repo = 'nvim-treesitter/nvim-treesitter-refactor'
+depends = 'nvim-treesitter'
+on_event = 'BufRead'
+hook_source = 'luafile $DEIN_RC_DIR/treesitter-refactor/sou.lua'
 [[plugins]]
 repo = 'nvim-treesitter/nvim-treesitter-textobjects'
 depends = 'nvim-treesitter'
