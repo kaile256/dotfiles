@@ -55,3 +55,8 @@ endsnippet
 snippet '(foo|bar|baz|qux|quux)' "Debug: vim.command(f'let g:foo = {$1}')" br
 vim.command(f"let g:`!p snip.rv = match.group(1)` = '{${1}}'")
 endsnippet
+
+snippet '(snippet \S+)fu|fn|fun(c(tion)?)?' "Regex for fu, fn, fun, etc." rb
+`!p snip.rv = match.group(1)`(fu|fn|fun(c(tion)?)?)
+endsnippet
+
