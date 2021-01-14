@@ -70,16 +70,11 @@ hook_post_source = 'runtime post/textobj-entire.vim'
 #[[plugins]]
 #repo = 'sgur/vim-textobj-parameter'
 #on_event = ['BufRead', 'TextChanged']
-#[[plugins]]
-#repo = 'kana/vim-textobj-indent'
-#on_map = '<Plug>(textobj-indent-'
-#hook_add = '''
-#let g:textobj_indent_no_default_key_mappings = 1
-#ai  <Plug>(textobj-indent-a)
-#ii  <Plug>(textobj-indent-i)
-#aI  <Plug>(textobj-indent-same-a)
-#iI  <Plug>(textobj-indent-same-i)
-#'''
+[[plugins]]
+repo = 'kana/vim-textobj-indent'
+depends = ['vim-textobj-user']
+on_map = {ox = '<Plug>(textobj-indent-'}
+hook_add = 'source $DEIN_RC_DIR/textobj-indent/add.vim'
 [[plugins]]
 repo = 'saaguero/vim-textobj-pastedtext'
 # Note: no use because it is mapped after the plugin is loaded.
