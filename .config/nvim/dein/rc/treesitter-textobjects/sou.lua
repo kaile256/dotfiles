@@ -16,10 +16,31 @@ require'nvim-treesitter.configs'.setup {
     select = {
       enable = true,
       keymaps = {
+        ["ib"] = "@block.inner",
+        ["ab"] = "@block.outer",
+
+        ["if"] = "@call.inner",
+        ["af"] = "@call.outer",
+
         ["am"] = "@function.outer",
         ["im"] = "@function.inner",
         ["aM"] = "@class.outer",
         ["iM"] = "@class.inner",
+
+        ["in"] = "@comment.outer",
+
+        -- Mnemonic: a loop makes a circle (O).
+        ["io"] = "@loop.inner",
+        ["ao"] = "@loop.outer",
+
+        -- Mnemonic: Question
+        ["iq"] = "@conditional.inner",
+        ["aq"] = "@conditional.outer",
+
+        ["i,"] = "@parameter.inner",
+        ["a,"] = "@parameter.outer",
+
+        ["as"] = "@statement.outer",
       },
     },
 
