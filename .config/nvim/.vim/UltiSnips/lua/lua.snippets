@@ -1,3 +1,9 @@
 snippet enable "enable = true" b
 enable = true,
 endsnippet
+
+snippet treesitter "Set up treesitter's config" b
+require'nvim-treesitter.configs'.setup {
+  $1,
+}
+endsnippet
