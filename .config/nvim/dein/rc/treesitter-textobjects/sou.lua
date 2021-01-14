@@ -14,18 +14,13 @@ require'nvim-treesitter.configs'.setup {
     },
 
     select = {
-      enable = {
-        "bash",
-        "c",
-        "cpp",
-        "dart",
-        "go",
-        "javascript",
-        "php",
-        "python",
-        "rust",
-        "tsx",
-        "typescript",
+      enable = true,
+
+      disable = {
+        "lua",
+        "toml",
+        "vue",
+        "yaml",
       },
 
       keymaps = {
