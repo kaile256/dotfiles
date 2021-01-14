@@ -2,6 +2,9 @@
 
 #[ Colorscheme ]
 # [[plugins]]
+# repo = 'benbusby/vim-earthbound-themes'
+# lazy = 0
+# [[plugins]]
 # repo = 'embark-theme/vim'
 # name = 'embark'
 # # lazy = 0
