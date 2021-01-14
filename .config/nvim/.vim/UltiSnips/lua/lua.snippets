@@ -2,11 +2,11 @@ snippet local "local $1 = $2" b
 local $1 = $2
 endsnippet
 
-snippet ' = function' "anonymous function" r
+snippet ' = (fu|fn|fun(c(tion)?)?)' "anonymous function" r
  = function($1) $2 end
 endsnippet
 
-snippet '(local )?function' "function()" br
+snippet '(local )?(fu|fn|fun(c(tion)?)?)' "function()" br
 `!p
 local = match.group(1) or ''
 snip.rv = local
