@@ -5,9 +5,9 @@
 # repo = 'embark-theme/vim'
 # name = 'embark'
 # # lazy = 0
-[[plugins]]
-repo = 'dracula/vim'
-lazy = 0
+ # [[plugins]]
+# # rep: = 'dracula/vim'
+# lazy = 0
 [[plugins]]
 repo = 'flrnprz/candid.vim'
 # Looks like dracula scheme.
