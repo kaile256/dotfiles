@@ -1,0 +1,17 @@
+snippet local "local $1 = $2" b
+local $1 = $2
+endsnippet
+
+snippet ' = function' "anonymous function" r
+ = function($1) $2 end
+endsnippet
+
+snippet '(local )?function' "function()" br
+`!p
+local = match.group(1) or ''
+snip.rv = local
+
+`function ${1:func}(${2:args})
+  $3
+end
+endsnippet
