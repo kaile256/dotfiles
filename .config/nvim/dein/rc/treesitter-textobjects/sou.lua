@@ -1,4 +1,4 @@
--- TOML: syntax.toml
+-- TOML: treesitter.toml
 -- Repo: nvim-treesitter/nvim-treesitter-textobjects
 
 require'nvim-treesitter.configs'.setup {
