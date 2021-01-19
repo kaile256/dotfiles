@@ -69,26 +69,6 @@ xmap i_ <Plug>(textobj-sandwich-query-i)_
 omap a_ <Plug>(textobj-sandwich-query-a)_
 xmap a_ <Plug>(textobj-sandwich-query-a)_
 
-omap if <Plug>(textobj-sandwich-query-i)f
-xmap if <Plug>(textobj-sandwich-query-i)f
-omap af <Plug>(textobj-sandwich-query-a)f
-xmap af <Plug>(textobj-sandwich-query-a)f
-
-omap iF <Plug>(textobj-sandwich-query-i)F
-xmap iF <Plug>(textobj-sandwich-query-i)F
-omap aF <Plug>(textobj-sandwich-query-a)F
-xmap aF <Plug>(textobj-sandwich-query-a)F
-
-omap it <Plug>(textobj-sandwich-query-i)t
-xmap it <Plug>(textobj-sandwich-query-i)t
-omap at <Plug>(textobj-sandwich-query-a)t
-xmap at <Plug>(textobj-sandwich-query-a)t
-
-omap iT <Plug>(textobj-sandwich-query-i)T
-xmap iT <Plug>(textobj-sandwich-query-i)T
-omap aT <Plug>(textobj-sandwich-query-a)T
-xmap aT <Plug>(textobj-sandwich-query-a)T
-
 " TextObj Literal {{{1
 "" a text surrounded by a pair of literally the same characters as user input
 "" i.e., the text-obj followed by '(' is regarded to be surrounded by '(' and '('
@@ -133,8 +113,26 @@ xmap \r <Plug>(operator-sandwich-replace)
 "   t/T (Tag): foo<cr> to <foo>arg</foo>
 "   f/F (Function): foo<cr> to foo(arg)
 "   i/I (Instant): foo<cr>end<cr>  to foo(arg)end
-"
-" <space>: all the successive spaces will be deleted as a pair of spaces
+
+omap if <Plug>(textobj-sandwich-query-i)f
+xmap if <Plug>(textobj-sandwich-query-i)f
+omap af <Plug>(textobj-sandwich-query-a)f
+xmap af <Plug>(textobj-sandwich-query-a)f
+
+omap iF <Plug>(textobj-sandwich-query-i)F
+xmap iF <Plug>(textobj-sandwich-query-i)F
+omap aF <Plug>(textobj-sandwich-query-a)F
+xmap aF <Plug>(textobj-sandwich-query-a)F
+
+omap it <Plug>(textobj-sandwich-query-i)t
+xmap it <Plug>(textobj-sandwich-query-i)t
+omap at <Plug>(textobj-sandwich-query-a)t
+xmap at <Plug>(textobj-sandwich-query-a)t
+
+omap iT <Plug>(textobj-sandwich-query-i)T
+xmap iT <Plug>(textobj-sandwich-query-i)T
+omap aT <Plug>(textobj-sandwich-query-a)T
+xmap aT <Plug>(textobj-sandwich-query-a)T
 
 " with magicchars tag/func
 xmap <Plug>(operator-sandwich-add-tag)  <Plug>(operator-sandwich-add)t
