@@ -307,7 +307,13 @@ function! s:devise_recipes() abort
         \ },
         \ ]
 
-  let g:sandwich#recipes = [
+  let recipes.newline = [
+        \ {
+        \   'buns': ['^$', '^$'],
+        \   'regex': 1,
+        \   'linewise': 1,
+        \   'input': ["\<CR>"],
+        \ },
         \ {
         \   'buns': ['', ''],
         \   'action': ['add'],
