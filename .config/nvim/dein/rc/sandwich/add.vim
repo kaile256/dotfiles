@@ -134,24 +134,3 @@ xmap iT <Plug>(textobj-sandwich-query-i)T
 omap aT <Plug>(textobj-sandwich-query-a)T
 xmap aT <Plug>(textobj-sandwich-query-a)T
 
-" with magicchars tag/func
-xmap <Plug>(operator-sandwich-add-tag)  <Plug>(operator-sandwich-add)t
-xmap <Plug>(operator-sandwich-add-func) <Plug>(operator-sandwich-add)f
-xmap \t <Plug>(operator-sandwich-add-tag)
-xmap \f <Plug>(operator-sandwich-add-func)
-
-" TODO: make a set of operator of magicchars for nmaps;
-"   Note: currently (at 02e3b6d),
-"     <Plug>(operator-sandwich-add-query1st)f works without textobj at least.
-"     <Plug>(operator-sandwich-add-query1st)t does *not* work with any motions.
-"   Ref: machakann/vim-sandwich/autoload/sandwich.vim #34
-"     you can see sandwich#magicchar#t#tag() in g:sandwich#default_recipes
-"   Note: the difference between 'tag' and 'tagname'
-"     in 'tag', the prompt is 'Input tag:'
-"     in 'tagname', the prompt is 'Input tag name:'
-nmap <SID>(operator-sandwich-add-tag)
-      \ <Plug>(operator-sandwich-add-query1st)t
-nmap <SID>(operator-sandwich-add-func)
-      \ <Plug>(operator-sandwich-add-query1st)f
-nnoremap <script> \t zv<SID>(operator-sandwich-add-tag)
-nnoremap <script> \f zv<SID>(operator-sandwich-add-func)
