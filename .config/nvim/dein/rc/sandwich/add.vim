@@ -69,11 +69,15 @@ xmap i_ <Plug>(textobj-sandwich-query-i)_
 omap a_ <Plug>(textobj-sandwich-query-a)_
 xmap a_ <Plug>(textobj-sandwich-query-a)_
 
-" Use dsf.vim instead.
-"" omap if <Plug>(textobj-sandwich-function-ip)
-" xmap if <Plug>(textobj-sandwich-function-ip)
-" omap af <Plug>(textobj-sandwich-function-a)
-" xmap af <Plug>(textobj-sandwich-function-a)
+omap if <Plug>(textobj-sandwich-query-i)f
+xmap if <Plug>(textobj-sandwich-query-i)f
+omap af <Plug>(textobj-sandwich-query-a)f
+xmap af <Plug>(textobj-sandwich-query-a)f
+
+omap iF <Plug>(textobj-sandwich-query-i)F
+xmap iF <Plug>(textobj-sandwich-query-i)F
+omap aF <Plug>(textobj-sandwich-query-a)F
+xmap aF <Plug>(textobj-sandwich-query-a)F
 
 " TextObj Literal {{{1
 "" a text surrounded by a pair of literally the same characters as user input

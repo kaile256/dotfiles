@@ -23,12 +23,12 @@ g;'select-;s;c\ze',;n
 g;'select-;s;C\ze',;N
 write
 '''
-[[plugins]]
-repo = 'AndrewRadev/dsf.vim'
-# Sandwich like textobj for foo('bar', 'baz') format.
-# It works more expectedly than sandwich's.
-on_map = {ox = '<Plug>DsfTextObject'}
-hook_add = 'runtime add/dsf.vim'
+# [[plugins]]
+# # repo = 'AndrewRadev/dsf.vim'
+# # Sandwich like textobj for foo('bar', 'baz') format.
+# # It works more expectedly than sandwich's.
+# on_map = {ox = '<Plug>DsfTextObject'}
+# hook_add = 'runtime add/dsf.vim'
 [[plugins]]
 repo = 'kana/vim-textobj-function'
 # Note: should activates where lsp doesn't provide the kind of textobjects.
