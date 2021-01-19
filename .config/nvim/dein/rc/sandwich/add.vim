@@ -108,7 +108,7 @@ xmap \r <Plug>(operator-sandwich-replace)
 
 " xmap \\| <Plug>(operator-sandwich-add)\|
 
-" Magic chars for tag/func {{{1
+" Magic characters {{{1
 " Note: *sandwich-magiccharacters*
 "   t/T (Tag): foo<cr> to <foo>arg</foo>
 "   f/F (Function): foo<cr> to foo(arg)
