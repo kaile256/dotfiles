@@ -79,6 +79,16 @@ xmap iF <Plug>(textobj-sandwich-query-i)F
 omap aF <Plug>(textobj-sandwich-query-a)F
 xmap aF <Plug>(textobj-sandwich-query-a)F
 
+omap it <Plug>(textobj-sandwich-query-i)t
+xmap it <Plug>(textobj-sandwich-query-i)t
+omap at <Plug>(textobj-sandwich-query-a)t
+xmap at <Plug>(textobj-sandwich-query-a)t
+
+omap iT <Plug>(textobj-sandwich-query-i)T
+xmap iT <Plug>(textobj-sandwich-query-i)T
+omap aT <Plug>(textobj-sandwich-query-a)T
+xmap aT <Plug>(textobj-sandwich-query-a)T
+
 " TextObj Literal {{{1
 "" a text surrounded by a pair of literally the same characters as user input
 "" i.e., the text-obj followed by '(' is regarded to be surrounded by '(' and '('
