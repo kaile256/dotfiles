@@ -2,12 +2,13 @@ snippet local "local $1 = $2" b
 local $1 = $2
 endsnippet
 
-snippet ' = (fu|fn|fun(c(tion)?)?)' "anonymous function" r
- = function($1) $2 end
+snippet '(fun(c(tion)?)?|fu|fn)' "anonymous function" "'=' in snip.buffer[snip.line]" erw
+function($1) $2 end
 endsnippet
 
-snippet '(fun(c(tion)?)?)|fu|fn' "function()" rw
+snippet '(fun(c(tion)?)?|fu|fn)' "function()" "'=' not in snip.buffer[snip.line]" erw
 function ${1:func}(${2:args})
   $3
 end
 endsnippet
+
