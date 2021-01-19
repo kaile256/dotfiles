@@ -6,12 +6,8 @@ snippet ' = (fu|fn|fun(c(tion)?)?)' "anonymous function" r
  = function($1) $2 end
 endsnippet
 
-snippet '(local )?(fu|fn|fun(c(tion)?)?)' "function()" br
-`!p
-local = match.group(1) or ''
-snip.rv = local
-
-`function ${1:func}(${2:args})
+snippet '(fun(c(tion)?)?)|fu|fn' "function()" rw
+function ${1:func}(${2:args})
   $3
 end
 endsnippet
