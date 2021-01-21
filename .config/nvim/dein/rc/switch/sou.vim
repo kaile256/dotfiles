@@ -89,6 +89,9 @@ function! s:set_definitions() abort
         \ ['horizontal', 'vertical'],
         \ ['prefix', 'suffix'],
         \ ['black', 'white'],
+        \
+        \ ['absolute', 'relative'],
+        \ ['abs', 'rel'],
         \ ]
 
   let rules.opposite = [
