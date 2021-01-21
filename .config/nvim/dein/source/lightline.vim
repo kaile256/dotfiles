@@ -280,7 +280,21 @@ function! LL_coc_notice() abort "{{{3
   return 'Coc: '. b:coc_diagnostic_info['lnums'][0] .' has "'. msg .'"'
 endfunction
 
+function! LL_mode_with_snippets() abort
+  let mode = LL_mode()
+  if get(s:, 'in_snippets')
+    return '>'. mode .'<'
+  endif
+  return mode
+endfunction
+
 function! LL_mode() abort "{{{3
+  let m = mode(1)
+  if m =~# 'o'
+    const mode = 'OPERATOR'
+    return mode
+  endif
+
   let mode = exists('*submode#current()') ? submode#current() : ''
   if mode !=# ''
     return mode
@@ -295,9 +309,7 @@ function! LL_mode() abort "{{{3
 
   let mode = s:specific_buffer()
   if mode ==# ''
-    let m = mode(1)
-    let m = m =~# 'o' ? 'o' : m[0]
-    let mode = get(g:lightline.mode_map, m, '')
+    let mode = get(g:lightline.mode_map, m[0], '')
   endif
 
   if exists('g:loaded_eskk')
@@ -307,9 +319,7 @@ function! LL_mode() abort "{{{3
     endif
   endif
 
-  return get(s:, 'in_snippets')
-        \ ? '>'. mode .'<'
-        \ : mode
+  return mode
 endfunction
 
 let g:lightline.mode_map = {
@@ -320,7 +330,6 @@ let g:lightline.mode_map = {
       \ 'V':      'V-LINE',
       \ "\<C-v>": 'V-BLOCK',
       \ 'c':      'COMMAND',
-      \ 'o':      'OPERATOR',
       \ 's':      'SELECT',
       \ 'S':      'S-LINE',
       \ "\<C-s>": 'S-BLOCK',
@@ -459,7 +468,7 @@ let g:lightline.component = {
       \ }
 
 let g:lightline.component_function = {
-      \ 'mode': 'LL_mode',
+      \ 'mode': 'LL_mode_with_snippets',
       \ 'percent': 'LL_percent',
       \ 'lineinfo': 'LL_lineinfo',
       \ 'cur_col': 'LL_cur_col',
