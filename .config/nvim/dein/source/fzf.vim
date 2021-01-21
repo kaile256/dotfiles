@@ -88,14 +88,6 @@ augroup myFzfSource "{{{1
   call s:resize_preview_window()
   au VimResized * call s:resize_preview_window()
 
-  function! s:fzf_buffer_statusline() "{{{
-    " Override statusline as you like
-    hi fzf1 ctermfg=161 ctermbg=251
-    hi fzf2 ctermfg=23  ctermbg=251
-    hi fzf3 ctermfg=237 ctermbg=251
-    setl statusline=%#fzf1#\ >\ %#fzf2#fz%#fzf3#f
-  endfunction "}}}
-  au User FzfStatusLine call s:fzf_buffer_statusline()
   function! s:fzf_buffer_keymaps() abort "{{{1
     nnoremap <buffer> <c-f> i<PageDown><c-\><c-n>
     nnoremap <buffer> <c-b> i<PageUp><c-\><c-n>
