@@ -287,11 +287,23 @@ endif
 
 nmap <silent><nowait><buffer> >> <Plug>(defx-git-stage)
 nmap <silent><nowait><buffer> << <Plug>(defx-git-reset)
-xmap <silent><nowait><buffer> >>
-      \ defx#async_action('clear_select_all')
-      \ . defx#async_action('toggle_select_visual')
-      \ . '<Plug>(defx-git-stage)'
-" nmap <silent><nowait><buffer> << <Plug>(defx-git-discard)
+
+function! s:stage_visual() abort
+  let save_cursor = getpos('.')
+  let above = line("'<")
+  let below = line("'>")
+
+  exe above
+  let last_cursor = getpos('.')
+  while last_cursor[1] < below
+    exe "norm \<Plug>(defx-git-stage)"
+    exe "norm \<Plug>(defx-git-next)"
+    if last_cursor == getpos('.') | break | endif
+    let last_cursor = getpos('.')
+  endwhile
+  call setpos('.', save_cursor)
+endfunction
+xmap <silent><nowait><buffer> > :call <SID>stage_visual()<CR>
 "}}}
 
 if exists('s:is_loaded') | finish | endif

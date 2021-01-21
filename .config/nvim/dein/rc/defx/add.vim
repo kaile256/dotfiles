@@ -10,8 +10,7 @@ let g:defx_sidebar_width = 35
 
 " `git` provided by kristijanhusak/defx-git.
 " `icons`: provided by kristijanhusak/defx-icons.
-" FIXME: find the cause of error on `git`.
-let g:defx_format_delimited = 'mark:indent:icons:filename'
+let g:defx_format_delimited = 'mark:indent:git:icons:filename'
 let g:defx_format_full      = g:defx_format_delimited .':type:size:time'
 
 " Open Defx even on terminal {{{1
