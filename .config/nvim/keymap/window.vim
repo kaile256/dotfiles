@@ -71,6 +71,8 @@ nnoremap <silent><expr> <c-w>g^       ':<c-u>tabe#'. v:count .'<cr>'
 nnoremap <silent><expr> <c-w>g^       ':<c-u>tabe#'. v:count .'<cr>'
 
 " Close window {{{1
+nnoremap <C-w><C-c> <C-c>
+
 if mapcheck('<c-w>q', 'n') ==# ''
   nnoremap <c-w>q <Nop>
 endif
