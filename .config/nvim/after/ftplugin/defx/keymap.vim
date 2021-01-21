@@ -277,6 +277,14 @@ nnoremap <silent><nowait><buffer><expr> -
 nnoremap <silent><nowait><buffer><expr> .
       \ defx#do_action('repeat')
 " Git "{{{1
+if dein#tap('repmo-vim')
+  map <buffer><silent><expr> [c repmo#Key('<Plug>(defx-git-prev)', '<Plug>(defx-git-next)')
+  map <buffer><silent><expr> ]c repmo#Key('<Plug>(defx-git-next)', '<Plug>(defx-git-prev)')
+else
+  map <buffer><silent> [c <Plug>(defx-git-prev)
+  map <buffer><silent> ]c <Plug>(defx-git-next)
+endif
+
 nmap <silent><nowait><buffer> >> <Plug>(defx-git-stage)
 nmap <silent><nowait><buffer> << <Plug>(defx-git-reset)
 xmap <silent><nowait><buffer> >>

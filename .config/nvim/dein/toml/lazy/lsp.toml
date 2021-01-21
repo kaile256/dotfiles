@@ -18,8 +18,8 @@ hook_done_update = '''
 e $DEIN_GITHUB_DIR/neoclide/coc.nvim_release/plugin/coc.vim
 " For: vim-fugitive creates invalid id buffer.
 " use expand('%:p'), not '<abuf>'
-g/BufEnter/g/call/norm! niif expand('%:p') !~# '.git/' |
-g/BufEnter/norm! A | endif
+g;BufEnter;v;\.git/;g;call;norm! niif expand('%:p') !~# '\.git/' |
+g;BufEnter;v;endif;norm! A | endif
 write
 "" For: rename :CocFoo to :Cfoo in the local-repo.
 "" CocFoo is used by the other coc-extentions; should not be replaced.
