@@ -300,13 +300,6 @@ function! LL_mode() abort "{{{3
     return mode
   endif
 
-  if &bt !=# '' && &bt !=# 'terminal'
-    if @% =~? 'vimspector'
-      return @%
-    endif
-    return toupper(&ft)
-  endif
-
   let mode = s:specific_buffer()
   if mode ==# ''
     let mode = get(g:lightline.mode_map, m[0], '')
@@ -393,8 +386,16 @@ function! s:specific_buffer() abort "{{{3
     " Return the title.
     " The substitute() only for 'help'.
     return substitute(matchstr(getline(1), '\S\+'), '\*\|\.txt', '', 'ge')
-  elseif @% =~# '^fugitive:\/\/'
-    return 'FUGITIVE'
+  endif
+
+  let fullpath = expand('%:p')
+  if fullpath =~# '^fugitive:\/\/'
+    const hash = matchstr(fullpath, '\.git/.*\zs[^/]\{8}.\{-}\ze/')
+    return hash
+  elseif fullpath =~? 'vimspector'
+    return 'VIMSPECTOR'
+  elseif &bt !=# '' && &bt !=# 'terminal'
+    return toupper(&ft)
   endif
 
   return ''
