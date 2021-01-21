@@ -382,10 +382,13 @@ endfunction
 function! s:specific_buffer() abort "{{{3
   if &bt ==# 'terminal'
     return 'TERM'
-  elseif &ft =~# 'help\|man'
+  endif
+
+  if &ft =~# 'help\|man'
     " Return the title.
     " The substitute() only for 'help'.
-    return substitute(matchstr(getline(1), '\S\+'), '\*\|\.txt', '', 'ge')
+    const fname = substitute(expand('%:r'), '.*/', '', '')
+    return toupper(&ft) .'['. fname .']'
   endif
 
   let fullpath = expand('%:p')
