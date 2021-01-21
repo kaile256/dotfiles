@@ -7,8 +7,6 @@ if exists('g:loaded_fzf')
   unlet g:loaded_fzf
 endif
 
-let g:fzf_preview_window = ['right:60%:hidden', 'ctrl-]']
-
 " Note: :FZF! starts fzf on full-window.
 if has('nvim')
   let g:fzf_layout = {'window': 'call my#floating_window()'}
@@ -81,6 +79,15 @@ let g:fzf_colors = {
       \ }
 
 augroup myFzfSource "{{{1
+  function! s:resize_preview_window() abort
+    let g:fzf_preview_window =
+          \   &columns < 170 ? ['right:85:hidden', 'ctrl-]']
+          \ : &columns < 200 ? ['right:50%', 'ctrl-]']
+          \                  : ['right:60%', 'ctrl-]']
+  endfunction
+  call s:resize_preview_window()
+  au VimResized * call s:resize_preview_window()
+
   function! s:fzf_buffer_statusline() "{{{
     " Override statusline as you like
     hi fzf1 ctermfg=161 ctermbg=251
