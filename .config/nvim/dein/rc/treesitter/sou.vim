@@ -23,7 +23,6 @@ function! s:set_filetypes_to_activate() abort "{{{1
         \ 'json',
         \ 'julia',
         \ 'lua',
-        \ 'markdown',
         \ 'nix',
         \ 'ocaml',
         \ 'php',
