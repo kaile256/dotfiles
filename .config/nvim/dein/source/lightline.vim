@@ -393,7 +393,7 @@ function! s:specific_buffer() abort "{{{3
 
   let fullpath = expand('%:p')
   if fullpath =~# '^fugitive:\/\/'
-    const hash = matchstr(fullpath, '\.git/.*\zs[^/]\{8}.\{-}\ze/')
+    const hash = matchstr(fullpath, '\.git/.\{-}\zs[^/]\{8}\ze.\{-}/')
     return hash
   elseif fullpath =~? 'vimspector'
     return 'VIMSPECTOR'
