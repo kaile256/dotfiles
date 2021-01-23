@@ -109,7 +109,10 @@
 
   "list.alignColumns": true,
   "list.limitLines": 200,
+
+  "list.previewSplitRight": false,
   "list.maxPreviewHeight": 25,
+
   "list.source.mru.maxLength": 50,
   "list.source.mru.ignoreGitIgnore": false,
   "list.source.grep.defaultArgs": ["--regex"],
