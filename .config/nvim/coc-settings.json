@@ -385,7 +385,8 @@
 
   "rust-analyzer.trace.server": "verbose",
 
-  "lua.useSumnekoLs": true, // use sumneko/lua-language-server instead of Alloyed/coc-lua
+  "Lua.diagnostics.workspaceDelay": -1,
+  "Lua.diagnostics.workspaceRate": 20, // available: 0-100 (%)
 
   "python.formatting.provider": "yapf",
   //"python.formatting.yapfArgs": ["--style google"],
