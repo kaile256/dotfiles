@@ -17,25 +17,6 @@ endfunction
 
 " Buffers; {{{1
 function! s:buf_rotate(order) abort
-  if len(getloclist(winnr())) > 1
-    exe 'l'. a:order
-    lw
-    return
-  elseif len(getqflist()) > 1
-    try
-      exe 'c'. a:order
-      cw
-
-    catch /E553/
-      echohl WarningMsg
-      echo 'No more items'
-      echohl Normal
-
-    finally
-      return
-    endtry
-  endif
-
   let dir = expand('%:p:h')
   let files = readdir(dir)
   let files = filter(deepcopy(files), 'filereadable(v:val)')
@@ -56,6 +37,11 @@ function! s:buf_rotate(order) abort
 endfunction
 nnoremap <silent> <C-p> :<C-u> call <SID>buf_rotate('prev') <CR>
 nnoremap <silent> <C-n> :<C-u> call <SID>buf_rotate('next') <CR>
+
+nnoremap <silent> ]q :cnext <bar> cwindow<CR>
+nnoremap <silent> [q :cprev <bar> cwindow<CR>
+nnoremap <silent> ]l :lnext <bar> lwindow<CR>
+nnoremap <silent> [l :lprev <bar> lwindow<CR>
 
 " between Folds {{{1
 nnoremap zJ zjzv
