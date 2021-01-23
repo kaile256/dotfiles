@@ -105,7 +105,6 @@
   },
 
   "list.alignColumns": true,
-  "list.autoResize": false,
   "list.limitLines": 200,
   "list.maxPreviewHeight": 25,
   "list.source.mru.maxLength": 50,
