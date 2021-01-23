@@ -16,6 +16,7 @@
   ],
   "coc.preferences.promptInput": false, // true: use popup; false: use cmdline.
   // "coc.preferences.floatActions": false,
+  "coc.preferences.listOfWorkspaceEdit": "location",
 
   // see 'source' in coc-list
   "coc.source.tag.enable": false,
