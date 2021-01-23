@@ -212,9 +212,9 @@ xnoremap <nowait><buffer><expr> y
 " TODO: send 'r' to select rename at the prompt
 "   Note:
 "     ':call feedkeys("r", "nt")<cr>' only append the text itself to fname.
-nnoremap <nowait><buffer><expr> cc
+nnoremap <nowait><buffer><expr> x
       \ defx#do_action('move')
-xnoremap <nowait><buffer><expr> c
+xnoremap <nowait><buffer><expr> x
       \ defx#do_action('multi',
       \ ['clear_select_all', 'toggle_select_visual', 'move'])
 nnoremap <nowait><buffer><expr> p
