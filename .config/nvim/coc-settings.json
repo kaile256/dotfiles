@@ -550,6 +550,19 @@
       "filetypes": ["dockerfile"],
       "args": ["--stdio"]
     },
+    "codeql": {
+      "command": "codeql",
+      "args": [
+        "execute",
+        "language-server",
+        "--check-errors=ON_CHANGE",
+        "--search-path=./",
+        "--quiet"
+      ],
+      "filetypes": ["ql"],
+      "rootPatterns": ["qlpack.yml"],
+      "requireRootPattern": true
+    },
     "metals": {
       "command": "metals-vim",
       "rootPatterns": ["build.sbt"],
