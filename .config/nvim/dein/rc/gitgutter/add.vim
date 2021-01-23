@@ -4,16 +4,14 @@
 
 command! -bar PreviewHunk :GitGutterPreviewHunk
 
-" default: [c and ]c without g:gitgutter_map_keys
-silent! nmap <unique> [c <Plug>(GitGutterPrevHunk)
-silent! nmap <unique> ]c <Plug>(GitGutterNextHunk)
-
-" TODO: Make prev/next hunk work on Visual mode.
-silent! xmap <unique> [c <Plug>(GitGutterPrevHunk)
-silent! xmap <unique> ]c <Plug>(GitGutterNextHunk)
-
-nmap [C <Plug>(GitGutterPrevHunk)<SID>(gitgutter-stage-hunks)
-nmap ]C <Plug>(GitGutterNextHunk)<SID>(gitgutter-stage-hunks)
+" default: [c and ]c with g:gitgutter_map_keys=1.
+if dein#tap('repmo-vim')
+  map <expr> [c repmo#Key('<Plug>(GitGutterPrevHunk)', '<Plug>(GitGutterNextHunk)')
+  map <expr> ]c repmo#Key('<Plug>(GitGutterNextHunk)', '<Plug>(GitGutterPrevHunk)')
+else
+  map [c <Plug>(GitGutterPrevHunk)
+  map ]c <Plug>(GitGutterNextHunk)
+endif
 
 " Staging Hunks {{{1
 nmap <silent> U
