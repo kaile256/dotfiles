@@ -11,11 +11,6 @@ nmap <expr><silent> ]x repmo#Key('<Plug>(coc-diagnostic-next)', '<Plug>(coc-diag
 xmap <expr><silent> [x repmo#Key('<Plug>(coc-diagnostic-prev)', '<Plug>(coc-diagnostic-next)') .'<SID>(zv)'
 xmap <expr><silent> ]x repmo#Key('<Plug>(coc-diagnostic-next)', '<Plug>(coc-diagnostic-prev)') .'<SID>(zv)'
 
-nmap <expr> [c repmo#Key('<Plug>(GitGutterPrevHunk)', '<Plug>(GitGutterNextHunk)')
-nmap <expr> ]c repmo#Key('<Plug>(GitGutterNextHunk)', '<Plug>(GitGutterPrevHunk)')
-xmap <expr> [c repmo#Key('<Plug>(GitGutterPrevHunk)', '<Plug>(GitGutterNextHunk)')
-xmap <expr> ]c repmo#Key('<Plug>(GitGutterNextHunk)', '<Plug>(GitGutterPrevHunk)')
-
 function! s:shot(char) abort
   if dein#tap('vim-easymotion')
     const n = "\<Plug>(easymotion-next)"
