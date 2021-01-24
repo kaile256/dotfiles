@@ -11,6 +11,9 @@ nmap <expr><silent> ]x repmo#Key('<Plug>(coc-diagnostic-next)', '<Plug>(coc-diag
 xmap <expr><silent> [x repmo#Key('<Plug>(coc-diagnostic-prev)', '<Plug>(coc-diagnostic-next)') .'<SID>(zv)'
 xmap <expr><silent> ]x repmo#Key('<Plug>(coc-diagnostic-next)', '<Plug>(coc-diagnostic-prev)') .'<SID>(zv)'
 
+noremap <expr> ]s repmo#Key(']s', '[s')
+noremap <expr> [s repmo#Key('[s', ']s')
+
 function! s:shot(char) abort
   if dein#tap('vim-easymotion')
     const n = "\<Plug>(easymotion-next)"
