@@ -16,3 +16,9 @@ else
   map [x <Plug>(ale_previous)
 endif
 
+hi! link ALEErrorSign Identifier
+hi! ALEError cterm=bold,reverse gui=bold,reverse
+
+hi! link ALEWarningSign WarningMsg
+hi! ALEWarning cterm=bold,reverse,undercurl gui=bold,reverse,undercurl
+
