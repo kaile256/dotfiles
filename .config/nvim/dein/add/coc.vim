@@ -61,7 +61,9 @@ inoremap <silent><expr> <C-p>
 " Diagnostic {{{1
 " Note: Unnecessary? pop up auto.
 nmap <silent> gX <Plug>(coc-diagnostic-info)
-noremap <SID>(zv) :<C-u>sleep 5m<CR>zv
+noremap <silent> <SID>(zv) :<C-u>sleep 5m<CR>zv
+map <expr> [x repmo#Key('<Plug>(coc-diagnostic-prev)', '<Plug>(coc-diagnostic-next)') .'<SID>(zv)'
+map <expr> ]x repmo#Key('<Plug>(coc-diagnostic-next)', '<Plug>(coc-diagnostic-prev)') .'<SID>(zv)'
 
 nmap \x         <Plug>(coc-fix-current)
 imap <C-x>x     <C-o><Plug>(coc-fix-current)

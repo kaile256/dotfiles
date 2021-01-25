@@ -5,12 +5,6 @@
 " Note:
 " #SelfKey() for non-recursive mappings like <C-y> to <C-y>/<C-e>.
 
-noremap <SID>(zv) :<C-u>sleep 5m<CR>zv
-nmap <expr><silent> [x repmo#Key('<Plug>(coc-diagnostic-prev)', '<Plug>(coc-diagnostic-next)') .'<SID>(zv)'
-nmap <expr><silent> ]x repmo#Key('<Plug>(coc-diagnostic-next)', '<Plug>(coc-diagnostic-prev)') .'<SID>(zv)'
-xmap <expr><silent> [x repmo#Key('<Plug>(coc-diagnostic-prev)', '<Plug>(coc-diagnostic-next)') .'<SID>(zv)'
-xmap <expr><silent> ]x repmo#Key('<Plug>(coc-diagnostic-next)', '<Plug>(coc-diagnostic-prev)') .'<SID>(zv)'
-
 noremap <expr> ]s repmo#Key(']s', '[s')
 noremap <expr> [s repmo#Key('[s', ']s')
 
