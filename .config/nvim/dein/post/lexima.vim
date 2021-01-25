@@ -526,7 +526,7 @@ function! s:set_rules() abort
         \ ]
   let group2rules.python += Double_quotes_at_special_string
 
-  let group2rules.vim = [] "{{{1
+  let group2rules.Vim = [] "{{{1
 
   " Delete duplicated double-quotes to comment in Vimscript.
   const Start_vimLineComment = [
@@ -534,31 +534,31 @@ function! s:set_rules() abort
         \ {'char': '<Space>',   'at': '^\s*"\%#"', 'input': '<C-g>U<Del><space>'},
         \ {'char': '<S-Space>', 'at': '^\s*"\%#"', 'input': '<C-g>U<Del><space>'},
         \ ]
-  let group2rules.vim += Start_vimLineComment
+  let group2rules.Vim += Start_vimLineComment
 
   const Ignore_duplicated_line_continuation = [
         \ {'char': '<bslash>', 'at': '^\s*\\\s*\%#', 'input': '<C-g>U<Right>'},
         \ ]
-  let group2rules.vim += Ignore_duplicated_line_continuation
+  let group2rules.Vim += Ignore_duplicated_line_continuation
 
   const Complete_map_args = [
         \ {'char': '<', 'at': 'map .*\%#', 'input_after': '>'},
         \ {'char': '<', 'at': 'exe [''"]norm .*\\\%#', 'input_after': '>'},
         \ ]
-  let group2rules.vim += Complete_map_args
+  let group2rules.Vim += Complete_map_args
 
   " Add comma to add either List or Dict nested.
-  let group2rules.vim += [
+  let group2rules.Vim += [
         \ {'char': '{', 'at': '^\s*\\\s*\%#', 'input_after': '},'},
         \ {'char': '[', 'at': '^\s*\\\s*\%#', 'input_after': '],'},
         \ ]
 
-  let group2rules.vim += [
+  let group2rules.Vim += [
         \ {'char': '(', 'at': '\\\%#', 'input_after': '\)'},
         \ ]
 
   " Insert backslashes when filetype is vim
-  let group2rules.vim += [
+  let group2rules.Vim += [
         \ {'char': '<CR>', 'at': '^\s*\\.*\%#', 'input': '<CR>\ ', 'except': '[]})]\s*$'},
         \
         \ {'char': '<CR>', 'at': '\v(\=.*|\\)\s*\(%#\)', 'input': '<CR>\ ', 'input_after': '<CR>\ '},
@@ -613,7 +613,7 @@ function! s:set_rules() abort
         \   'at': '("''\%#''")',
         \ },
         \ ]
-  let group2rules.vim += Vim_DescribeMarkPos
+  let group2rules.Vim += Vim_DescribeMarkPos
 
   let group2rules.cpp = [] "{{{1
 
@@ -709,6 +709,11 @@ function! s:set_rules() abort
   let group2ft.React = [
         \ 'javascriptreact',
         \ 'typescriptreact',
+        \ ]
+
+  let group2ft.Vim = [
+        \ 'vim',
+        \ 'vimspec',
         \ ]
 
   let group2ft.Javascript = [
