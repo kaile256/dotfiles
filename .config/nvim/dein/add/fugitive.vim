@@ -2,6 +2,11 @@
 " Repo: tpope/vim-fugitive
 " Another: source/fugitive.vim
 
+command! -bar -bang -nargs=* -range=-1 -addr=other
+      \ -complete=customlist,fugitive#ReadComplete
+      \ Gv
+      \ exe <count> <mods> 'Gvsplit<bang>' <q-args>
+
 " Note: :Gpush works asynchronous with 'tpope/vim-dispatch'
 command! -bang -nargs=? -range=-1 -addr=tabs
       \ -complete=customlist,fugitive#PushComplete
