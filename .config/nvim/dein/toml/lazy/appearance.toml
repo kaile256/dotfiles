@@ -1,5 +1,12 @@
 # From: dein/dein.vim
 
+[[plugins]]
+repo = 'dense-analysis/ale'
+# Support more linters than LSP as an interface.  Though ale also supports LSP,
+# coc.nvim deals with LSP better than ale.
+on_event = ['BufRead']
+hook_source = 'source $DEIN_RC_DIR/ale/sou.vim'
+
 # [[plugins]]
 # repo = 'wellle/context.vim'
 # # Note: irritative, though very useful plugin.
