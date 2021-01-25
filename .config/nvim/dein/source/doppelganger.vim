@@ -1,3 +1,4 @@
+scriptencoding utf-8
 " TOML: public.toml
 " Repo: kaile256/vim-doppelganger
 
