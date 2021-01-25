@@ -103,6 +103,10 @@ hook_source = 'runtime source/rainbow.vim'
 ## changes highlight as the indent, *not* up to parentheses
 #on_cmd = ['RainbowLevelsOn', 'RainbowLevelsToggle']
 
+[[plugins]]
+repo = 'kshenoy/vim-signature'
+# Show marks in signcolumn.
+on_event = ['BufRead']
 #[ Icons ]
 # [[plugins]]
 # repo = 'ryanoasis/vim-devicons'
