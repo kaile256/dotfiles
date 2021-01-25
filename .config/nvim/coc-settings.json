@@ -449,7 +449,7 @@
               "warning": "warning",
               "note": "info"
             }
-          },
+          // },
           //"vint": {
           //  "command": "vint",
           //  "sourceName": "vint",
@@ -473,7 +473,7 @@
           //       "message": [4, 3]
           //     }
           //   ]
-          // }
+          }
         },
         "filetypes": {
           // "email": "languagetool",
