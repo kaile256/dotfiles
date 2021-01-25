@@ -1,5 +1,4 @@
 scriptencoding utf-8
-
 " TOML: appearance.toml
 " Repo: dense-analysis/ale
 
