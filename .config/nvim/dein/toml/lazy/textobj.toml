@@ -112,6 +112,6 @@ write
 #[ Git ]
 [[plugins]]
 repo = 'rhysd/vim-textobj-conflict'
-# map to '='
-on_if = '&diff'
-on_event = 'BufRead'
+depends = ['vim-textobj-user']
+on_map = {ox = '<Plug>(textobj-conflict-'}
+hook_source = 'source $DEIN_RC_DIR/textobj/conflict/sou.vim'
