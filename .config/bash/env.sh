@@ -61,7 +61,10 @@ export DOCKER_HOST=unix://$XDG_RUNTIME_DIR/docker.sock
 export VMAIL_VIM=$VISUAL
 
 # FZF
-export FZF_DEFAULT_COMMAND='rg --no-line-number --files --hidden --follow --glob "!{.git,node_modules}/*"'
+if type rg >/dev/null 2>&1; then
+  export FZF_DEFAULT_COMMAND='rg --no-line-number --files --hidden --follow --glob "!{.git,node_modules}/*"'
+fi
+
 # Note: Neither 'shift-ctrl-' nore 'ctrl-shift-' is unsupported.
 # Note: ctrl-\ throws `unsupported key: ctrl-`; moreover, <C-\> in Vim's
 # terminal awaits <C-\><C-n>.
