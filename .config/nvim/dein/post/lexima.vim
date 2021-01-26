@@ -6,7 +6,7 @@
 " <C-g>u: Break undo sequence
 " <C-g>U: Don't break undo with next cursor movement within the same line.
 
-imap <C-h> <BS>
+imap <BS> <C-h>
 
 function! s:insert_rule2rules(rules, dict) abort
   " a:rules: [{}] in LeximaRules
@@ -121,7 +121,7 @@ function! s:set_rules() abort
         \     'at': 'return\%#', 'except': '\%#.\+'},
         \ {'char': '<space>', 'input_after': ';',
         \     'at': '=\%#', 'except': '\%#.\+'},
-        \ {'char': '<BS>', 'input': '<C-g>U<Del><BS>', 'at': '=\%#;'},
+        \ {'char': '<C-h>', 'input': '<C-g>U<Del><BS>', 'at': '=\%#;'},
         \ ]
 
   let group2rules.Tag = [] "{{{1
@@ -252,21 +252,21 @@ function! s:set_rules() abort
   " Note: {'delete': 1} sometimes fails to work; 'input_after': '<C-g>U<Del>'
   " crashes Vim.
   let global += [
-        \ {'char': '<BS>', 'at': '(\%#)',   'input': '<BS><C-g>U<Del>'},
-        \ {'char': '<BS>', 'at': '{\%#}',   'input': '<BS><C-g>U<Del>'},
-        \ {'char': '<BS>', 'at': '\[\%#\]', 'input': '<BS><C-g>U<Del>'},
-        \ {'char': '<BS>', 'at': '<\%#>',   'input': '<BS><C-g>U<Del>'},
-        \ {'char': '<BS>', 'at': '\W\s\%#\s\W', 'input': '<BS><C-g>U<Del>'},
+        \ {'char': '<C-h>', 'at': '(\%#)',   'input': '<BS><C-g>U<Del>'},
+        \ {'char': '<C-h>', 'at': '{\%#}',   'input': '<BS><C-g>U<Del>'},
+        \ {'char': '<C-h>', 'at': '\[\%#\]', 'input': '<BS><C-g>U<Del>'},
+        \ {'char': '<C-h>', 'at': '<\%#>',   'input': '<BS><C-g>U<Del>'},
+        \ {'char': '<C-h>', 'at': '\W\s\%#\s\W', 'input': '<BS><C-g>U<Del>'},
         \
-        \ {'char': '<BS>', 'at': "'\\%#'", 'input': '<BS><C-g>U<Del>'},
-        \ {'char': '<BS>', 'at': '"\%#"',  'input': '<BS><C-g>U<Del>'},
-        \ {'char': '<BS>', 'at': '`\%#`',  'input': '<BS><C-g>U<Del>'},
+        \ {'char': '<C-h>', 'at': "'\\%#'", 'input': '<BS><C-g>U<Del>'},
+        \ {'char': '<C-h>', 'at': '"\%#"',  'input': '<BS><C-g>U<Del>'},
+        \ {'char': '<C-h>', 'at': '`\%#`',  'input': '<BS><C-g>U<Del>'},
         \ ]
 
   let global += [
-        \ {'char': '<BS>', 'at': '(\%#),',  'input': '<BS><C-g>U<Del><C-g>U<Del>'},
-        \ {'char': '<BS>', 'at': '{\%#},',  'input': '<BS><C-g>U<Del><C-g>U<Del>'},
-        \ {'char': '<BS>', 'at': '\[\%#],', 'input': '<BS><C-g>U<Del><C-g>U<Del>'},
+        \ {'char': '<C-h>', 'at': '(\%#),',  'input': '<BS><C-g>U<Del><C-g>U<Del>'},
+        \ {'char': '<C-h>', 'at': '{\%#},',  'input': '<BS><C-g>U<Del><C-g>U<Del>'},
+        \ {'char': '<C-h>', 'at': '\[\%#],', 'input': '<BS><C-g>U<Del><C-g>U<Del>'},
         \ ]
 
   " Rules to kill words {{{1
@@ -293,12 +293,12 @@ function! s:set_rules() abort
         \ '<Esc>:<C-u>keeppatterns keepjumps s/\%(\s*\n*\)*\%#//e<CR>kgJgJgi'
 
   let global += [
-        \ {'char': '<BS>', 'at': '''\n\s*\%#\n\s*''', 'input': Joinspaces},
-        \ {'char': '<BS>', 'at': '`\n\s*\%#\n\s*`',   'input': Joinspaces},
-        \ {'char': '<BS>', 'at': '"\n\s*\%#\n\s*"',   'input': Joinspaces},
-        \ {'char': '<BS>', 'at': '(\n\s*\%#\n\s*)',   'input': Joinspaces},
-        \ {'char': '<BS>', 'at': '{\n\s*\%#\n\s*}',   'input': Joinspaces},
-        \ {'char': '<BS>', 'at': '\[\n\s*\%#\n\s*]',  'input': Joinspaces},
+        \ {'char': '<C-h>', 'at': '''\n\s*\%#\n\s*''', 'input': Joinspaces},
+        \ {'char': '<C-h>', 'at': '`\n\s*\%#\n\s*`',   'input': Joinspaces},
+        \ {'char': '<C-h>', 'at': '"\n\s*\%#\n\s*"',   'input': Joinspaces},
+        \ {'char': '<C-h>', 'at': '(\n\s*\%#\n\s*)',   'input': Joinspaces},
+        \ {'char': '<C-h>', 'at': '{\n\s*\%#\n\s*}',   'input': Joinspaces},
+        \ {'char': '<C-h>', 'at': '\[\n\s*\%#\n\s*]',  'input': Joinspaces},
         \ ]
 
   let global += [
