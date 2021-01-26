@@ -1,4 +1,4 @@
-" From: external.toml
+" TOML: lsp.toml
 " Repo: voldikss/actionmenu.nvim
 
 let s:code_actions = []
