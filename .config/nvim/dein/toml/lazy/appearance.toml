@@ -52,9 +52,9 @@ hook_post_source = 'source $DEIN_RC_DIR/hlslens/pos.vim'
 #}
 #hook_add = 'runtime add/quickhl.vim'
 #hook_post_source = 'runtime post/quickhl.vim'
-[[plugins]]
-repo = 'junegunn/goyo.vim'
-on_cmd = 'Goyo'
+# [[plugins]]
+# # repo = 'junegunn/goyo.vim'
+# on_cmd = 'Goyo'
 [[plugins]]
 repo = 'junegunn/limelight.vim'
 # Note: requires &termguicolors = 1
