@@ -1,0 +1,26 @@
+# From: dein/dein.vim
+
+# Note: Keep this file clean and tidy, easier to debug.
+
+[[plugins]]
+repo = 'junegunn/fzf'
+lazy = 1
+#[ Note: :Files in fzf.vim is the same as :FZF.
+hook_done_update = '''
+e $DEIN_GITHUB_DIR/junegunn/fzf.vim/plugin/fzf.vim
+" Append `--hidden` to ag/rg respectively.
+keeppatterns v/--hidden/s/command!.* Rg .*rg \zs/--hidden /e
+w
+e $DEIN_GITHUB_DIR/junegunn/fzf.vim/autoload/fzf/vim.vim
+keeppatterns v/--hidden/s/return .*fzf#vim#grep.*ag \zs/--hidden /e
+w
+'''
+[[plugins]]
+repo = 'junegunn/fzf.vim'
+lazy = 1
+depends = ['fzf']
+on_event = ['CmdLineEnter']
+hook_add = 'runtime add/fzf.vim'
+hook_source = 'runtime source/fzf.vim'
+hook_post_source = 'runtime post/fzf.vim'
+
