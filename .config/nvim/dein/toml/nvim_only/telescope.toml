@@ -23,8 +23,8 @@ hook_post_source = 'luafile $DEIN_RC_DIR/telescope/vimspector/pos.lua'
 # Insert symbols like Emoji which is listed in `data/telescope-sources/*.json`
 # # at &ftp.
 # on_source = ['telescope.nvim']
-# hook_add = 'source $DEIN_RC_DIR/telescope-symbols/add.vim'
-# 
+# hook_add = 'source $DEIN_RC_DIR/telescope/symbols/add.vim'
+
 [[plugins]]
 repo = 'pwntester/octo.nvim'
 # Edit issues, PRs, etc., of GitHub
