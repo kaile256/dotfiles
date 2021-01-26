@@ -12,8 +12,12 @@ function! s:register_keys() abort
     call setreg(reg, a:target)
     echo a:target 'in @'. reg
   endfunction
+
   nnoremap <silent> <Plug>(yank-repo)  :<C-u>call <SID>set_in_reg(<SID>repo())<CR>
-  noremap! <expr>   <Plug>(paste-repo) <SID>repo()
+  noremap! <expr>   <Plug>(paste-repo)
+  nnoremap <silent> <Plug>(yank-repo-rootpath)  :<C-u>call <SID>set_in_reg(FindRootDirectory())<CR>
+  noremap! <expr>   <Plug>(paste-repo-rootpath) FindRootDirectory()
+
   nnoremap <silent> <Plug>(yank-fullpath)  :<C-u>call <SID>set_in_reg(expand('%:p'))<CR>
   noremap! <expr>   <Plug>(paste-fullpath) expand('%:p')
   nnoremap <silent> <Plug>(yank-fname)  :<C-u>call <SID>set_in_reg(expand('%:t'))<CR>
@@ -40,6 +44,7 @@ function! s:register_keys() abort
         \
         \ 'b': ['<Plug>(yank-bufnr)', 'Get current bufnr'],
         \ 'r': ['<Plug>(yank-repo)',  'Get current repo'],
+        \ 'R': ['<Plug>(yank-repo-rootpath)', "Get current repo's root path"],
         \ }
   let l:nmaps['Paste Path:'] = {
         \ 'name': '[ local ]',
@@ -52,6 +57,7 @@ function! s:register_keys() abort
         \
         \ 'b': ['<Plug>(paste-bufnr)', 'Paste current bufnr'],
         \ 'r': ['<Plug>(paste-repo)',  'Paste current repo'],
+        \ 'R': ['<Plug>(paste-repo-rootpath)', "Paste current repo's root path"],
         \ }
 
   if dein#tap('vim-caser') "{{{1
