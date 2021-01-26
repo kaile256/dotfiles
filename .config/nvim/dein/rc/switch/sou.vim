@@ -153,8 +153,11 @@ function! s:set_definitions() abort
         \
         \ ['begin', 'end'],
         \ ['start', 'stop'],
-        \ ['forward', 'backward'],
-        \ ['upward', 'downward'],
+        \
+        \ ['forward',  'backward'],
+        \ ['forwards', 'backwards'],
+        \ ['upward',   'downward'],
+        \ ['upwards',  'downwards'],
         \
         \ ['enqueue', 'dequeue'],
         \
