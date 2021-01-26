@@ -84,11 +84,17 @@ nnoremap <buffer><expr> P
       \ ? <SID>start_insert(getreg(v:register) ."\<C-\>\<C-n>")
       \ : "i". <SID>truncate_register() ."\<C-\>\<C-n>"
 
-nnoremap <buffer><nowait> d <c-d>
-nnoremap <buffer><nowait> u <c-u>
-
-nnoremap <buffer> D <c-f>
-nnoremap <buffer> U <c-b>
+if dein#tap('vim-smoothie')
+  nmap <buffer><nowait> d <Plug>(SmoothieDownwards)
+  nmap <buffer><nowait> u <Plug>(SmoothieUpwards)
+  nmap <buffer><nowait> D <Plug>(SmoothieForwards)
+  nmap <buffer><nowait> U <Plug>(SmoothieBackwards)
+else
+  nnoremap <buffer><nowait> d <c-d>
+  nnoremap <buffer><nowait> u <c-u>
+  nnoremap <buffer><nowait> D <c-f>
+  nnoremap <buffer><nowait> U <c-b>
+endif
 
 if !has('nvim')
   " <C-w> works as a prefix in Vim.
