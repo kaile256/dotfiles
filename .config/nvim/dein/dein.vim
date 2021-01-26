@@ -114,16 +114,32 @@ endif
 augroup myDeinRc "{{{1
   au BufWinEnter *vim**/*.toml call s:find_the_plugin()
   function! s:find_the_plugin() abort "{{{2
-    " Note: it's useless under ftplugin/.
-    let alt_path = fnamemodify(@#, ':p')
-    if alt_path !~# '\v/(add|source|post|ftplugin)/' | return | endif
+    const alt_path = fnamemodify(@#, ':p')
+    const pat_config_file = '\v/dein/(rc|add|source|post|ftplugin)/'
+    if alt_path !~# pat_config_file | return | endif
 
-    let config_fname = fnamemodify(alt_path, ':t:r')
-    let pat = substitute(config_fname, '[-_]', '.', 'ge')
-    let pat = 'repo = .*\zs'. pat
+    const alt_lines = readfile(alt_path)
+    const repo_lines = filter(deepcopy(alt_lines), 'v:val =~? " repo: "')
+    const repo_line = repo_lines[0]
+
+    const pat_repo = '\S\+/\S\+'
+    const repo = matchstr(repo_line, pat_repo)
+
+    const pat = '^[# ]*repo = .*\zs'. repo
+
+    if repo ==# ''
+      echohl ErrorMsg
+      echom '[dein.rc] detected lines were'    string(alt_lines)
+      echom
+      echom '[dein.rc] detected repo_line was' string(repo_line)
+      echom '[dein.rc] searching pattern was'  string(pat)
+      echom '[dein.rc] cannot find repository, `:message` for detail'
+      echohl Normal
+    endif
 
     exe 0
     call search(pat, 'W')
+    setlocal foldenable foldlevel=0
     norm! zzzv
   endfunction
 
