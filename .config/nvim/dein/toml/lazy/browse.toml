@@ -46,6 +46,11 @@ on_cmd = ['Quickfix']
 #on_cmd = 'FzfPreview.*'
 #hook_add = 'runtime add/fzf-preview.vim'
 #hook_source = 'runtime source/fzf-preview.vim'
+# [[plugins]]
+# # repo = 'stsewd/fzf-checkout.vim'
+# # Fzf to checkout a branch/tag, delete, merge, rebase, etc.
+# on_cmd = ['GBranches', 'GTags']
+# hook_source = 'source $DEIN_RC_DIR/fzf-checkout/sou.vim'
 [[plugins]]
 repo = 'krzbe/fzf-git-submodules'
 on_func = ['fzf#submodules#']
