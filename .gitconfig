@@ -93,3 +93,5 @@
 	# Repo: dandavison/delta
 	line-numbers = true
 	side-by-side = true
+	# Get themes by `bat --list-themes`
+	syntax-theme = zenburn
