@@ -115,17 +115,29 @@ augroup myDeinRc "{{{1
   au BufWinEnter *vim**/*.toml call s:find_the_plugin()
   function! s:find_the_plugin() abort "{{{2
     const alt_path = fnamemodify(@#, ':p')
-    const pat_config_file = '\v/dein/(rc|add|source|post|ftplugin)/'
+    const dir_list = [
+          \ 'add',
+          \ 'ftplugin',
+          \ 'post',
+          \ 'rc',
+          \ 'source',
+          \ ]
+    const dirs = '\('. join(dir_list, '\|') .'\)'
+    const pat_config_file = '/dein/'. dirs .'/'
     if alt_path !~# pat_config_file | return | endif
 
     const alt_lines = readfile(alt_path)
     const repo_lines = filter(deepcopy(alt_lines), 'v:val =~? " repo: "')
-    const repo_line = repo_lines[0]
 
-    const pat_repo = '\S\+/\S\+'
-    const repo = matchstr(repo_line, pat_repo)
-
-    const pat = '^[# ]*repo = .*\zs'. repo
+    try
+      const repo_line = repo_lines[0]
+      const pat_repo = '\S\+/\S\+'
+      const repo = matchstr(repo_line, pat_repo)
+    catch /E684/
+      const repo = '/'. matchstr(alt_path, dirs .'/\zs[^./]\+')
+    finally
+      const pat = '^[# ]*repo = .*\zs'. repo
+    endtry
 
     if repo ==# ''
       echohl ErrorMsg
