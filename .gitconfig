@@ -61,6 +61,8 @@
 [rerere]
 	enabled = true
 [alias]
+	bi = bisect
+
 	pl = pull
 	ps = push
 	co = checkout
