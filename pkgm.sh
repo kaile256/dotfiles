@@ -91,7 +91,13 @@ PACKAGEs=(
   sc-im # Spread sheet.  Used by vim-scimark.
   neovim-remote # nvr
 
+  # Git
+  git-crypt
+  git-brws
   git-delta-bin # Syntax highlight for git-diff
+  git-secrets # type git secrets --install on a repo
+  git-revise
+
   # diff-so-fancy # Better highlight for diff.
   sshrc # Bring .bashrc, .vimrc, etc., under ~/.sshrc.d on SSH; keep light config.
   rofi # A launcher
@@ -138,7 +144,6 @@ PACKAGEs=(
   cling # cpp's interpretor; required for REPL. Install the default.
   st # a terminal emulater lighter than urxvt/xterm
   compiledb # a generator for clang's JSON
-  git-secrets # type git secrets --install on a repo
   deno-bin # a better runtime than node.js which include TypeScript compiler
   sshfs # mount another filesystem via ssh
   php-fpm # required by nginx to run php
@@ -224,7 +229,6 @@ PACKAGEs=(
   transset-df # for transparency on xterm
   preload # preload apps on RAM; maybe requires to `systemctl disable preload` before remove the package
   trello-cli
-  git-crypt
   fwupd # a daemon for firmware update
   dmidecode # installed w/ fwupd? anyway, necessary
   #cadaver  # WebDAV client, of which netrw makes use.
