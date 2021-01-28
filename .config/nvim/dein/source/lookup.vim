@@ -15,18 +15,35 @@ augroup myLookupSource
 augroup END
 
 function! s:lookup() abort
-  const save_view = winsaveview()
-  const success = CocAction('jumpDefinition', 'edit')
+  echo '[coc] searching the definition'
+  silent let success = CocAction('jumpDefinition', 'edit')
+  echo ''
   if success | return | endif
-  silent call lookup#lookup()
+
+  echo '[lookup] searching the definition'
+  silent let is_found = lookup#lookup()
+  echo ''
+  if is_found | return | endif
+
+  echohl ErrorMsg
+  echo '[lookup] definition not found'
+  echohl Normal
 endfunction
 
 function! s:split_lookup() abort
-  const success = CocAction('jumpDefinition', sensible#split())
+  echo '[coc] searching the definition'
+  silent let success = CocAction('jumpDefinition', sensible#split())
+  echo ''
   if success | return | endif
 
   SensibleSplit
-  silent const is_moved = lookup#lookup()
-  if is_moved | return | endif
+  echo '[lookup] searching the definition'
+  silent let is_found = lookup#lookup()
+  echo ''
+  if is_found | return | endif
+
   quit
+  echohl ErrorMsg
+  echo '[lookup] definition not found'
+  echohl Normal
 endfunction
