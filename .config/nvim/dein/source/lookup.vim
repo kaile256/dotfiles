@@ -2,7 +2,7 @@
 " Repo: mhinz/vim-lookup
 
 augroup myLookupSource
-  au FileType vim call s:lookup_keymaps()
+  au FileType vim,vimspec call s:lookup_keymaps()
   function! s:lookup_keymaps() abort
     " " Jump back
     " nnoremap <silent><buffer> <c-t> :<c-u>call lookup#pop()<cr>zvzt
