@@ -85,6 +85,8 @@ function! s:set_definitions() abort
         \ ]
 
   let rules.anitinomy = [
+        \ ['actual', 'expected'],
+        \
         \ ['global', 'local'],
         \ ['horizontal', 'vertical'],
         \ ['prefix', 'suffix'],
