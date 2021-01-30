@@ -68,6 +68,8 @@
 	co = checkout
 	br = branch
 
+	wt = worktree
+
 	url-update = !"~/dotfiles/.myscripts/git-set-remote-url.sh"
 	update-url = !"~/dotfiles/.myscripts/git-set-remote-url.sh"
 	# Note: pr and pull-request is a different commands provided by `hub`
