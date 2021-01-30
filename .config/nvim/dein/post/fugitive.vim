@@ -18,3 +18,12 @@ command! -bang -bar -range=-1
 command! -bar -bang -nargs=* -complete=customlist,fugitive#EditComplete
       \ Gdiffsplit
       \ :exe fugitive#Diffsplit(0, <bang>0, "<mods>", <q-args>, ['--function-context', <f-args>])
+
+
+" `:Gclog` runs extremely slow on large repository.  (#1551, #1662)
+silent! delcommand Glog
+silent! delcommand Gclog
+silent! delcommand Gllog
+silent! delcommand GcLog
+silent! delcommand GlLog
+
