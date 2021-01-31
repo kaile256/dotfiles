@@ -1,5 +1,5 @@
 
-if &modifiable || !&readonly || @% =~# 'fugitive:\/\/\/' | finish | endif
+if !b:help_readonly | finish | endif
 
 nnoremap <silent><buffer> <C-p> :silent! pop<CR>
 nnoremap <silent><buffer> <C-n> :silent! tag<CR>
