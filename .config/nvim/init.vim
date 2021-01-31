@@ -47,6 +47,8 @@ augroup myRuntimesSelection
   au BufNew * ++once runtime lazy/zenkaku.vim
   au WinNew * runtime lazy/zenkaku.vim
 
+  au BufWinEnter *      if &diff | runtime lazy/diff.vim     | endif
   au OptionSet diff     if &diff | runtime lazy/diff.vim     | endif
+  au BufWinEnter *      if &ro   | runtime lazy/readonly.vim | endif
   au OptionSet readonly if &ro   | runtime lazy/readonly.vim | endif
 augroup END
