@@ -48,6 +48,11 @@ function! s:set_extra_definitions() abort
         \ ['is composed', 'consists'],
         \ ]
 
+  let rules.reword = [
+        \ ['upward', 'backward'],
+        \ ['downward', 'forward'],
+        \ ]
+
   " The patterns would hardly match outside of &ft=vim.
   let rules.vimscript = [
         \ {
