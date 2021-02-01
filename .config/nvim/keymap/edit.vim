@@ -9,16 +9,6 @@ nnoremap k gk
 nnoremap gj j
 nnoremap gk k
 
-nnoremap 0 g0
-nnoremap $ g$
-nnoremap g0 0
-nnoremap g$ $
-
-onoremap 0 g0
-onoremap $ g$
-onoremap g0 0
-onoremap g$ $
-
 " TODO: make it work
 "xnoremap <silent> gJ :*g/^\( \\|\t\)/norm! 0"_dwgJ<cr>
 
