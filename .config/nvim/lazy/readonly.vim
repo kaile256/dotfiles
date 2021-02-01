@@ -1,6 +1,6 @@
 " From: init.vim
 
-if expand('%:p') =~# '/\.git/' || &diff
+if expand('%:p') =~# '/\.git/\|^\S\+://' || &diff
   finish
 endif
 
