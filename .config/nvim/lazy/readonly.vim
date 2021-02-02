@@ -1,16 +1,31 @@
 " From: init.vim
 
-if expand('%:p') =~# '/\.git/\|^\S\+://' || &diff
+if expand('%:p') =~# '/\.git/' || &diff
   finish
 endif
 
-setlocal nomodifiable
+if filereadable(expand('%:p'))
+  setlocal nomodifiable
+endif
 
 let s:mapped_bufnrs = []
 function! s:map_toggle() abort
   const bufnr = bufnr()
 
   if !&modifiable
+    redir => out
+    silent nmap d
+    silent nmap u
+    silent nmap D
+    silent nmap U
+    redir END
+
+    const mappings = split(out, "\n")
+    const pat_buf_local_mapping = '^n\l*\s*d\S*\s*@'
+    const is_buf_local_mapping = 'v:val =~# pat_buf_local_mapping'
+    const buf_local_mappings = filter(deepcopy(mappings), is_buf_local_mapping)
+    if len(buf_local_mappings) > 0 | return | endif
+
     call add(s:mapped_bufnrs, bufnr)
 
     if dein#tap('vim-smoothie')
