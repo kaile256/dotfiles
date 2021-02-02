@@ -12,13 +12,16 @@ command! -nargs=* -complete=help Ver     :call s:version_check(<q-args>)
 command! -nargs=* -complete=help Version :call s:version_check(<q-args>)
 
 function! s:version_check(args) abort
-  if a:args ==# ''
-    let save_eventignore = &eventignore
-    set eventignore+=TextYankPost
-    " WARNING: helpful#buffer_version() seems no use at present
-    call helpful#buffer_version()
-    let &eventignore = save_eventignore
-  else
-    call helpful#lookup(a:args)
+  const args = substitute(a:args, '@\l\l', '', '')
+
+  if args !=# ''
+    call helpful#lookup(args)
+    return
   endif
+
+  let save_eventignore = &eventignore
+  set eventignore+=TextYankPost
+  " WARNING: helpful#buffer_version() seems no use at present
+  call helpful#buffer_version()
+  let &eventignore = save_eventignore
 endfunction
