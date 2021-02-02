@@ -58,19 +58,6 @@ function! s:lint_buffer(...) abort range
   endfor
 endfunction
 
-" Shell Scripts; Out of Vim "{{{1
-" enable copletion
-command! -bar -nargs=* -complete=shellcmd Kill
-      \ :call s:killall(<q-args>)
-function! s:killall(...) abort "{{{2
-  let args = join(get(a:, '000'))
-  if empty(args)
-    !killall vim nvim nvim-qt
-  else
-    exe '!killall' args
-  endif
-endfunction
-
 augroup myAutoChdir "{{{1
   " esp. for `e./<TAB>`; &autochdir could be incompatible with some plugins.
   au CmdLineEnter,CmdWinEnter * silent! cd %:p:h
