@@ -4,6 +4,15 @@ scriptencoding utf-8
 inoremap <C-f> <C-g>U<Right>
 inoremap <C-b> <C-g>U<Left>
 
+
+inoremap <C-d> <C-g>U<Del>
+inoremap <C-g><C-d> <C-d>
+inoremap <C-o><C-d> <C-d>
+
+inoremap <C-g>D ^<C-d>
+inoremap <C-o>D ^<C-d>
+
+
 function! s:copy_line(key) abort
   let cur_lnum = line('.')
   let lnum = cur_lnum + 1
