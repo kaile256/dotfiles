@@ -12,3 +12,7 @@ nnoremap <silent> <space>g :<C-u>WhichKey 'Git:'<CR>
 xnoremap <silent> <space>g :<C-u>WhichKey 'Git in Visual:'<CR>
 
 nnoremap <silent> <space>z :<C-u>WhichKey 'FZF:'<CR>
+
+nnoremap <silent> <space>h :<C-u>WhichKey 'GitHub:'<CR>
+xnoremap <silent> <space>h :<C-u>WhichKey 'GitHub:'<CR>
+

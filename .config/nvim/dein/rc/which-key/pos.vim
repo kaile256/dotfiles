@@ -219,6 +219,10 @@ function! s:register_git_keys() abort
         \ 'name': '[ Git ]',
         \ }
 
+  let github_nmaps = {
+        \ 'name': '[ GitHub ]',
+        \ }
+
   if dein#tap('agit.vim') "{{{1
     call extend(git_nmaps, {
           \ 'l': [':AgitFile', 'View Git log of current buffer with Agit'],
@@ -376,8 +380,105 @@ function! s:register_git_keys() abort
           \ },
           \ })
   endif
+
+  if dein#tap('gh.vim') "{{{1
+    function! s:gh_get_repo() abort
+      if !exists('b:git_dir')
+        throw expand('%:p') .' is not a git repository'
+      endif
+
+      const git_dir = b:git_dir
+      const Get_repo = 'GIT_DIR='. git_dir .' git remote get-url origin'
+      const url = systemlist(Get_repo)[0]
+      const repo = substitute(url, '^https://github.com/', '', '')
+      return repo
+    endfunction
+
+    function! s:gh_prefix_repo() abort
+      const gh_prefix = 'gh://'
+      const repo = s:gh_get_repo()
+      const gh_path = gh_prefix . repo
+      return gh_path
+    endfunction
+
+    function! s:gh_prefix_author() abort
+      const gh_prefix = 'gh://'
+      const repo = s:gh_get_repo()
+      const author = substitute(repo, '/[^/]\+/\?$', '', '')
+      const gh_author = gh_prefix . author
+      return gh_author
+    endfunction
+
+    function! s:gh_open_at_repo(open, path) abort
+      const prefix = s:gh_prefix_repo() .'/'
+      const gh_path = prefix . a:path
+      exe a:open gh_path
+    endfunction
+
+    function! s:gh_open_at_author(open, path) abort
+      const prefix = s:gh_prefix_author() .'/'
+      const gh_path = prefix . a:path
+      exe a:open gh_path
+    endfunction
+
+    call extend(github_nmaps, {
+          \ 'b': {
+          \   'name': 'Bookmark',
+          \
+          \   'e': [':e    gh://bookmarks', ':edit'],
+          \   's': [':sp   gh://bookmarks', ':split'],
+          \   'v': [':vs   gh://bookmarks', ':vsplit'],
+          \   't': [':tabe gh://bookmarks', ':tabe'],
+          \   },
+          \
+          \ 'R': {
+          \   'name': 'Your Repoitory List',
+          \
+          \   'e': [':e    gh://user/repos', ':edit'],
+          \   's': [':sp   gh://user/repos', ':split'],
+          \   'v': [':vs   gh://user/repos', ':vsplit'],
+          \   't': [':tabe gh://user/repos', ':tabe'],
+          \   },
+          \
+          \ 'r': {
+          \   'name': 'Current Repository',
+          \
+          \
+          \   'm': {
+          \     'name': 'README',
+          \
+          \     'e': [function('s:gh_open_at_repo', ['e',    'readme']), ':edit'],
+          \     's': [function('s:gh_open_at_repo', ['sp',   'readme']), ':split'],
+          \     'v': [function('s:gh_open_at_repo', ['vs',   'readme']), ':vsplit'],
+          \     't': [function('s:gh_open_at_repo', ['tabe', 'readme']), ':tabe'],
+          \     },
+          \
+          \   'i': {
+          \     'name': 'Issue',
+          \
+          \     'e': [function('s:gh_open_at_repo', ['e',    'issues']), ':edit'],
+          \     's': [function('s:gh_open_at_repo', ['sp',   'issues']), ':split'],
+          \     'v': [function('s:gh_open_at_repo', ['vs',   'issues']), ':vsplit'],
+          \     't': [function('s:gh_open_at_repo', ['tabe', 'issues']), ':tabe'],
+          \     },
+          \
+          \   'p': {
+          \     'name': 'Pull-Request',
+          \
+          \     'e': [function('s:gh_open_at_repo', ['e',    'pulls']), ':edit'],
+          \     's': [function('s:gh_open_at_repo', ['sp',   'pulls']), ':split'],
+          \     'v': [function('s:gh_open_at_repo', ['vs',   'pulls']), ':vsplit'],
+          \     't': [function('s:gh_open_at_repo', ['tabe', 'pulls']), ':tabe'],
+          \     },
+          \
+          \   },
+          \
+          \ })
+  endif
+
   call which_key#register('Git:', git_nmaps)
   call which_key#register('Git in Visual:', git_xmaps)
+  call which_key#register('GitHub:', github_nmaps)
 endfunction
 call s:register_git_keys()
 delfunction s:register_git_keys
