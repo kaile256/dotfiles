@@ -236,6 +236,7 @@ hook_add = 'runtime add/dirdiff.vim'
 #hook_source = 'runtime add/diffchar.vim'
 [[plugins]]
 repo = 'AndrewRadev/linediff.vim'
+on_map = {n = '<Plug>(linediff-'}
 on_cmd = 'Linediff'
 hook_add = 'runtime add/linediff.vim'
 #[[plugins]]
