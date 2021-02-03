@@ -4,8 +4,8 @@ scriptencoding utf-8
 
 let g:ale_disable_lsp = 1
 
-let g:ale_sign_error = ''
-let g:ale_sign_warning = ''
+let g:ale_sign_warning = ''
+let g:ale_sign_error = ''
 
 let g:ale_echo_msg_format = '[%linter%] %code: %%s'
 
@@ -23,9 +23,9 @@ else
   map [x <Plug>(ale_previous)
 endif
 
-hi! link ALEErrorSign Identifier
-hi! ALEError cterm=bold,reverse gui=bold,reverse
+hi! link ALEWarningSign Identifier
+hi! ALEWarning cterm=bold,reverse gui=bold,reverse
 
-hi! link ALEWarningSign WarningMsg
-hi! ALEWarning cterm=bold,reverse,undercurl gui=bold,reverse,undercurl
+hi! link ALEErrorSign WarningMsg
+hi! ALEError cterm=bold,reverse,undercurl gui=bold,reverse,undercurl
 
