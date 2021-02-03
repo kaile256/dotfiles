@@ -161,11 +161,12 @@ hook_source = 'runtime source/conflict-marker.vim'
 # on_cmd = 'MergetoolStart'
 # hook_add = 'runtime add/mergetool.vim'
 # hook_source = 'runtime source/mergetool.vim'
-[[plugins]]
-repo = 'christoomey/vim-conflicted'
-depends = 'vim-fugitive'
-on_cmd = 'Conflicted'
-hook_source = 'runtime source/conflicted.vim'
+# [[plugins]]
+# # repo = 'christoomey/vim-conflicted'
+# # Doesn't work.
+# depends = 'vim-fugitive'
+# on_cmd = 'Conflicted'
+# hook_source = 'runtime source/conflicted.vim'
 [[plugins]]
 repo = 'whiteinge/diffconflicts'
 # Keep $LOCAL and $REMOTE as resolving conflictions, and only affects the
