@@ -9,6 +9,12 @@ let g:ale_sign_warning = ''
 
 let g:ale_echo_msg_format = '[%linter%] %code: %%s'
 
+let g:ale_linters_ignore = {
+      \ 'markdown': [
+      \   'languagetool',
+      \ ],
+      \ }
+
 if dein#tap('repmo-vim')
   map <expr> ]x repmo#Key('<Plug>(ale_next)', '<Plug>(ale_previous)')
   map <expr> [x repmo#Key('<Plug>(ale_previous)', '<Plug>(ale_next)')
