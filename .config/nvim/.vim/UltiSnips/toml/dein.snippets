@@ -151,6 +151,10 @@ snippet 'o(n_)?fu?n?c?' "on_func" br
 on_func = ['${1:`!p snip.rv = Plugin.underscored()`}#$2']
 endsnippet
 
+snippet 'o(n_)?l(ua)?' "on_lua" br
+on_lua = ['${1:`!p snip.rv = Plugin._raw()`}']
+endsnippet
+
 snippet 'ov|o(n_)?ev?(ent)?' "on_event" br
 on_event = ['${1:BufRead}']
 endsnippet
