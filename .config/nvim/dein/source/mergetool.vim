@@ -24,6 +24,8 @@
 " Default: 'mr'
 "let g:mergetool_layout = 'mr'
 
+if !dein#tap('vim-airline') | finish | endif
+
 function! AirlineMergetool() abort
   if get(g:, 'mergetool_in_merge_mode', 0)
     return '↸'
