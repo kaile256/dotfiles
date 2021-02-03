@@ -160,6 +160,7 @@ hook_source = 'runtime source/conflict-marker.vim'
 repo = 'samoshkin/vim-mergetool'
 # 2-way diff to resolve conflicts.
 on_cmd = 'MergetoolStart'
+hook_add = 'source $DEIN_RC_DIR/mergetool/add.vim'
 hook_source = 'runtime source/mergetool.vim'
 # [[plugins]]
 # # repo = 'christoomey/vim-conflicted'
