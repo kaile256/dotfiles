@@ -13,6 +13,8 @@ function! s:register_keys() abort
     echo a:target 'in @'. reg
   endfunction
 
+  nnoremap <silent> <Plug>(yank-zero)  :<C-u>call <SID>set_in_reg(@0)<CR>
+
   nnoremap <silent> <Plug>(yank-repo)  :<C-u>call <SID>set_in_reg(<SID>repo())<CR>
   noremap! <expr>   <Plug>(paste-repo)
   nnoremap <silent> <Plug>(yank-repo-rootpath)  :<C-u>call <SID>set_in_reg(FindRootDirectory())<CR>
@@ -35,6 +37,8 @@ function! s:register_keys() abort
 
   let l:nmaps['Yank Path:'] = {
         \ 'name': '[ local ]',
+        \
+        \ '0': ['<Plug>(yank-zero)', 'Get current @0'],
         \
         \ 'f': ['<Plug>(yank-fname)', 'Get current filename'],
         \ 'F': ['<Plug>(yank-fullpath)',  'Get current full-path'],
