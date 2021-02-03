@@ -21,6 +21,7 @@ let g:indentLine_color_gui = '#5c754e'
 let g:indentLine_fileTypeExclude = [
       \ 'Mundo',
       \ 'defx',
+      \ 'gina-log',
       \ 'help',
       \ 'man',
       \ 'markdown',
