@@ -167,13 +167,16 @@ hook_source = 'runtime source/conflict-marker.vim'
 # depends = 'vim-fugitive'
 # on_cmd = 'Conflicted'
 # hook_source = 'runtime source/conflicted.vim'
-[[plugins]]
-repo = 'whiteinge/diffconflicts'
-# Keep $LOCAL and $REMOTE as resolving conflictions, and only affects the
-# buffer that contains conflict-markers.
-# This plugin doesn't treat three-way diffs which doesn't work well with Vim's
-# syntax highlighting to diff.
-on_cmd = ['DiffConflicts', 'DiffConflictsWithHistory']
+# [[plugins]]
+# repo = 'whiteinge/diffconflicts'
+# # It's dangerous to use in vim/neovim because this plugin overwrites the
+# # conflicted file before resolving.
+# # 2-way diff.
+# # Keep $LOCAL and $REMOTE as resolving conflictions, and only affects the
+# # buffer that contains conflict-markers.
+# # This plugin doesn't treat three-way diffs which doesn't work well with Vim's
+# # syntax highlighting to diff.
+# on_cmd = ['DiffConflicts', 'DiffConflictsWithHistory']
 
 #[ GitHub ]
 [[plugins]]
