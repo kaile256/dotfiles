@@ -226,14 +226,13 @@ repo = 'will133/vim-dirdiff'
 on_cmd = 'DirDiff'
 hook_add = 'runtime add/dirdiff.vim'
 
-#[[plugins]]
-#repo = 'rickhowe/diffchar.vim'
-#on_if = '&diff'
-## DiffUpdated for Internal diff
-## FilterWritePost for External diff
-#on_event = ['DiffUpdated', 'FilterWritePost']
-#on_func = ['diffchar#']
-#hook_source = 'runtime add/diffchar.vim'
+[[plugins]]
+repo = 'rickhowe/diffchar.vim'
+on_if = '&diff'
+# DiffUpdated for Internal diff
+# FilterWritePost for External diff
+on_event = ['DiffUpdated', 'FilterWritePost']
+hook_source = 'runtime add/diffchar.vim'
 [[plugins]]
 repo = 'AndrewRadev/linediff.vim'
 on_map = {n = '<Plug>(linediff-'}
