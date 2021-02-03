@@ -109,6 +109,7 @@ hook_post_source = 'source $DEIN_RC_DIR/which-key/pos.vim'
 repo = 'kaile256/vim-submode'
 #repo = 'kana/vim-submode'
 # make another mode!
+on_map = {covntl = '<Plug>(submode-'}
 on_func = 'submode#'
 hook_source = 'source $DEIN_RC_DIR/submode/sou.vim'
 #hook_done_update = '''
