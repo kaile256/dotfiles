@@ -177,7 +177,6 @@ on_cmd = ['DiffConflicts', 'DiffConflictsWithHistory']
 #[ GitHub ]
 [[plugins]]
 repo = 'skanehira/gh.vim'
-# browse repositories in Vim
-if = '!has("nvim")'
+# Browse repository on Vim/Neovim.
 on_path = '^gh://'
 hook_source = 'runtime source/gh.vim'
