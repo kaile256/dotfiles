@@ -51,13 +51,10 @@ function! s:path.dotfiles() abort
   if path =~# '/[n.]\?vim/' | return | endif
 
   if path !~# $DOTFILES_HOME
-    exe 'setl path+='. $DOTFILES_HOME .'/.config/**'
+    exe 'setlocal path+='. $DOTFILES_HOME .'/.config/*'
   endif
-  " exe 'setl path+='. $GHQ_ROOT       .'/github.com/neovim/neovim**'
-  " exe 'setl path+='. '/etc'
-  exe 'setl path+='. $XDG_DATA_HOME  .'/**'
 
-  exe 'setl path-='. &g:path
+  exe 'setlocal path-='. &g:path
 endfunction
 
 function! s:path.vim() abort
@@ -66,12 +63,12 @@ function! s:path.vim() abort
 
   if path =~# $DOTFILES_HOME
     " Note: It's required even with dotfiles root path.
-    exe 'setl path^='. $DOTFILES_HOME .'/.config/nvim/**'
+    exe 'setlocal path^='. $DOTFILES_HOME .'/.config/nvim/**'
   endif
 
-  exe 'setl path+='. $DEIN_GITHUB_DIR .'/**'
-  exe 'setl path+='. $GHQ_ROOT         .'/github.com/neovim/neovim/**'
-  " exe 'setl path+='. $XDG_DATA_HOME    .'/nvim/**'
+  setlocal suffixesadd=_release
+  exe 'setlocal path+='. $DEIN_GITHUB_DIR
+  exe 'setlocal path+='. $GHQ_ROOT .'/github.com/neovim/neovim'
 
   exe 'setl path-='. &g:path
 endfunction
