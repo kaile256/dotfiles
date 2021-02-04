@@ -23,9 +23,9 @@ settings:
       e: reload
       e!: reload -f
       e%: reload
-      emacs: enter-mode passthrough
+      emacs: mode-enter passthrough
       emap: bind --mode passthrough
-      emode: enter-mode passthrough
+      emode: mode-enter passthrough
       eunmap: unbind --mode passthrough
       h: help
       hmap: bind --mode hint
@@ -77,13 +77,13 @@ settings:
     global:
       caret:
         ':': 'set-cmd-text :'
-        <Alt+v>: enter-mode insert
+        <Alt+v>: mode-enter insert
         <Ctrl+b>: scroll-page 0 -1
         <Ctrl+d>: scroll-page 0 0.5
         <Ctrl+f>: scroll-page 0 1
         <Ctrl+u>: scroll-page 0 -0.5
-        A: enter-mode insert;; fake-key <end>
-        I: enter-mode insert;; fake-key <home>
+        A: mode-enter insert;; fake-key <end>
+        I: mode-enter insert;; fake-key <home>
         V: move-to-start-of-line;; reverse-selection;; move-to-end-of-line
         W: move-to-next-char
         b: move-to-prev-word
@@ -94,8 +94,9 @@ settings:
       command:
         <Alt+a>: fake-key <right>
         <Alt+i>: fake-key <left>
-        <Alt+k>: leave-mode
+        <Alt+k>: mode-leave
         <Alt+u>: rl-yank
+        <Ctrl+c>: mode-leave;; spawn --detach fcitx5-remote -e
         <Ctrl+d>: rl-delete-char
         <Ctrl+g>: completion-item-focus next
         <Ctrl+j>: spawn fcitx5-remote -s skk
@@ -107,11 +108,12 @@ settings:
         <Ctrl+t>: completion-item-focus prev
         <Ctrl+x>: completion-item-del
       hint:
-        <Alt+h>: leave-mode
-        <Alt+j>: leave-mode
-        <Alt+k>: leave-mode
-        <Alt+l>: leave-mode
+        <Alt+h>: mode-leave
+        <Alt+j>: mode-leave
+        <Alt+k>: mode-leave
+        <Alt+l>: mode-leave
         <Ctrl+Space>: hint all tab-bg --rapid
+        <Ctrl+c>: mode-leave
         <Shift+Space>: hint all tab-bg --rapid
         <Space>: hint all current
       insert:
@@ -128,17 +130,17 @@ settings:
         <Alt+b>: fake-key <ctrl-left>
         <Alt+d>: fake-key <Ctrl-Delete>
         <Alt+f>: fake-key <Ctrl-Right>
-        <Alt+g><Alt+g>: leave-mode;; scroll-to-perc 0
-        <Alt+g><Alt+o>: leave-mode;; hint inputs --first
+        <Alt+g><Alt+g>: mode-leave;; scroll-to-perc 0
+        <Alt+g><Alt+o>: mode-leave;; hint inputs --first
         <Alt+g>o: hint inputs --first
-        <Alt+h>: enter-mode normal
-        <Alt+i>: fake-key <left>
-        <Alt+j>: enter-mode normal
-        <Alt+k>: enter-mode normal
-        <Alt+l>: enter-mode normal
+        <Alt+h>: mode-enter normal
+        <Alt+i>: mode-enter insert
+        <Alt+j>: mode-enter normal
+        <Alt+k>: mode-enter normal
+        <Alt+l>: mode-enter normal
         <Alt+o>: fake-key <tab>
         <Alt+u>: fake-key <ctrl-z>
-        <Alt+v>: fake-key <Shift-left>;; enter-mode caret
+        <Alt+v>: fake-key <Shift-left>;; mode-enter caret
         <Alt+y>: yank selection
         <Ctrl+Alt+,>: fake-key <Ctrl+alt+,>
         <Ctrl+Alt+v>: fake-key <shift-ctrl-left>
@@ -153,7 +155,7 @@ settings:
         <Ctrl+Shift+n>: fake-key <Shift-down>
         <Ctrl+Shift+p>: fake-key <Shift-Up>
         <Ctrl+Shift+x>: fake-key <Ctrl-a><Ctrl-x>
-        <Ctrl+[>: leave-mode;; spawn fcitx5-remote -e
+        <Ctrl+[>: mode-leave;; spawn --detach fcitx5-remote -e
         <Ctrl+a>: fake-key <Home>
         <Ctrl+b>: fake-key <Left>
         <Ctrl+d>: fake-key <Delete>
@@ -186,17 +188,20 @@ settings:
         <Alt+]>: tab-next
         <Alt+f>: tab-next
         <Alt+h>: tab-prev
+        <Alt+i>: mode-enter insert
         <Alt+l>: tab-next
         <Alt+q><Alt+b>: set-cmd-text -s :buffer
         <Alt+q><Alt+v>: set-cmd-text -s :open
         <Ctrl++>: zoom-in
         <Ctrl+->: zoom-out
         <Ctrl+2>: save
-        <Ctrl+Enter>: enter-mode insert;; fake-key <ctrl-enter> ;; leave-mode
+        <Ctrl+Enter>: mode-enter insert;; fake-key <ctrl-enter> ;; mode-leave
         <Ctrl+Shift+g>: fake-key <End>
         <Ctrl+Shift+h>: tab-move -
         <Ctrl+Shift+l>: tab-move +
-        <Ctrl+a>: enter-mode insert ;; fake-key <home>
+        <Ctrl+[>: mode-enter insert ;; clear-keychain ;; search ;; fullscreen --leave;;
+          mode-leave
+        <Ctrl+a>: forward
         <Ctrl+b>: fake-key <PgUp>
         <Ctrl+c>: stop;; clear-keychain;; download-clear
         <Ctrl+d>: fake-key <Alt-down>
@@ -251,7 +256,7 @@ settings:
         <Ctrl+x>: null
         <Ctrl+y>: scroll-px 0 -50
         <Del>: fake-key <Delete>
-        <Enter>: enter-mode insert;; fake-key <enter> ;; leave-mode
+        <Enter>: mode-enter insert;; fake-key <enter> ;; mode-leave
         <Shift+Space>P: open -t {primary}
         <Shift+Space>p: open {primary}
         <Space>1: tab-close
@@ -271,7 +276,7 @@ settings:
         <Space>t: hint all current
         <Space>w: fake-key <Ctrl-s>
         <Space>y: yank selection
-        <Space>yy: enter-mode caret;; yank;; leave-mode
+        <Space>yy: mode-enter caret;; yank;; mode-leave
         <Space>zB: set-cmd-text -s :buffer -t
         <Space>zM: open -t https://app.clickup.com/3640947/v/b/6-7920396-2
         <Space>zO: '''history -t'''
@@ -280,8 +285,8 @@ settings:
         <Space>zo: history
         <Space>zt: set-cmd-text -s :open -t
         <Space>zv: set-cmd-text -s :open
-        <Tab>: enter-mode insert;; fake-key <TAB>
-        <い>: enter-mode insert
+        <Tab>: mode-enter insert;; fake-key <TAB>
+        <い>: mode-enter insert
         '>': tab-move +
         B: scroll-page 0 -2.0
         D: scroll-page 0 +0.75
@@ -294,7 +299,7 @@ settings:
         P: open -t {clipboard}
         T: hint links tab-bg
         U: scroll-page 0 -0.75
-        V: enter-mode caret;; toggle-selection
+        V: mode-enter caret;; toggle-selection
         ZC: session-save --quiet last;; close
         ZE: session-save --quiet last;; close
         ZQ: session-save --quiet last;; tab-close
@@ -338,8 +343,8 @@ settings:
         ga: hint inputs
         gc: open https://calendar.google.com/calendar/r/month?pli=1
         gd: hint links current
-        ge: enter-mode passthrough
-        gf: hint all current
+        ge: mode-enter passthrough
+        gf: hint links tab-bg
         gh: open qute://history/
         gi: hint inputs --first
         gm: open https://www.google.co.jp/maps/@34.8244519,135.4776576,15z
@@ -348,14 +353,14 @@ settings:
         gr: devtools right
         gs: view-source
         gt: open https://ticktick.com/webapp/#q/all/today
-        gv: fake-key <ctrl-a>;; enter-mode caret
+        gv: fake-key <ctrl-a>;; mode-enter caret
         gw: fake-key gw
         h: scroll-page -0.01 0
-        i: enter-mode insert
+        i: mode-enter insert
         j: scroll-page 0 +0.05
         k: scroll-page 0 -0.05
         l: scroll-page +0.01 0
-        m: enter-mode set_mark
+        m: mode-enter set_mark
         mode: drop-selection
         p: fake-key <Ctrl-v>
         q: fake-key <Esc>
@@ -363,7 +368,7 @@ settings:
         sP: spawn --userscript qutepocket;; open -t https://app.getpocket.com/
         sk: null
         sp: pocket-save
-        t: fake-key t;; enter-mode insert
+        t: fake-key t;; mode-enter insert
         u: scroll-page 0 -0.45
         w: fake-key <Ctrl+right>
         wc: tab-close
@@ -393,7 +398,7 @@ settings:
         <Ctrl+b>: fake-key <left><Ctrl+b>
         <Ctrl+d>: fake-key <Del>
         <Ctrl+f>: fake-key <right><Ctrl+f>
-        <Ctrl+g>: leave-mode
+        <Ctrl+g>: mode-leave
         <Ctrl+h>: fake-key <Backspace>
         <Ctrl+n>: fake-key <down><Ctrl+n>
         <Ctrl+p>: fake-key <up><Ctrl+p>
@@ -402,7 +407,7 @@ settings:
         <Shift+Escape>: null
       prompt:
         <Alt+o>: fake-key <S-TAB>
-        <Ctrl+c>: leave-mode
+        <Ctrl+c>: mode-leave
         <Ctrl+i>: fake-key <TAB>
         <Ctrl+n>: prompt-item-focus next
         <Ctrl+p>: prompt-item-focus prev
