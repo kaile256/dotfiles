@@ -29,6 +29,13 @@ on_cmd = ['GHInteractive', 'GBInteractive']
 # repo = 'rbgrouleff/bclose.vim'
 # if = 'has("nvim")'
 # on_source = ['tig-explorer.vim', 'ranger.vim']
+
+#[[ Magit ]]
+# [[plugins]]
+# repo = 'TimUntersberger/neogit'
+# Under development.
+# if = 'has("nvim")'
+# on_cmd = ['Neogit']
 # [[plugins]]
 # repo = 'jreybert/vimagit'
 # on_cmd =  'Magit'
