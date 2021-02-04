@@ -4,14 +4,19 @@
 
 command! -bar PreviewHunk :GitGutterPreviewHunk
 
-" default: [c and ]c with g:gitgutter_map_keys=1.
+noremap <SID>[c [c
+noremap <SID>]c ]c
+map <expr> <Plug>(gitgutter-hunk-raw-next) &diff ? '<SID>]c' : '<Plug>(GitGutterNextHunk)'
+map <expr> <Plug>(gitgutter-hunk-raw-prev) &diff ? '<SID>[c' : '<Plug>(GitGutterPrevHunk)'
 if dein#tap('repmo-vim')
-  map <expr> [c repmo#Key('<Plug>(GitGutterPrevHunk)', '<Plug>(GitGutterNextHunk)')
-  map <expr> ]c repmo#Key('<Plug>(GitGutterNextHunk)', '<Plug>(GitGutterPrevHunk)')
+  map <expr> <Plug>(gitgutter-hunk-next) repmo#Key('<Plug>(gitgutter-hunk-raw-prev)', '<Plug>(gitgutter-hunk-raw-next)')
+  map <expr> <Plug>(gitgutter-hunk-prev) repmo#Key('<Plug>(gitgutter-hunk-raw-next)', '<Plug>(gitgutter-hunk-raw-prev)')
 else
-  map [c <Plug>(GitGutterPrevHunk)
-  map ]c <Plug>(GitGutterNextHunk)
+  map <expr> <Plug>(gitgutter-hunk-next) <Plug>(gitgutter-hunk-raw-next)
+  map <expr> <Plug>(gitgutter-hunk-prev) <Plug>(gitgutter-hunk-raw-prev)
 endif
+map [c <Plug>(gitgutter-hunk-next)
+map ]c <Plug>(gitgutter-hunk-prev)
 
 " Staging Hunks {{{1
 nmap <silent> U
