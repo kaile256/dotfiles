@@ -163,9 +163,8 @@ set updatetime=300
 set cursorline
 " CAUTION: cursorline-highlight causes drawing corruption.
 augroup myAutoToggleCursorLine
-  " Note: InsertEnter & WinLeave used to be useless.
-  au WinEnter,InsertLeave * setl cursorline
-  au WinLeave,InsertEnter * setl nocursorline
+  au WinEnter,InsertLeave * setlocal cursorline
+  au WinLeave,InsertEnter * setlocal nocursorline
 augroup END
 "" to highlight only CursorLineNr if not linked.
 "hi CursorLine NONE
