@@ -96,7 +96,7 @@ nmap <c-w>Q ZQ
 nmap Zz ZZ
 nmap Zq ZQ
 
-if !dein#tap('undoquit.vim')
+if 1 || !dein#tap('undoquit.vim')
   " Note: look after that ZQ, as :q!, locates higher than ZZ, as :wq
   " Mnemonic: Close all
   nnoremap <silent> ZC     :<c-u>up <bar> windo norm! ZQ<cr>
