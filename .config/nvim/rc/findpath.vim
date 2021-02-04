@@ -47,37 +47,40 @@ augroup END
 let s:path = {} "{{{1
 
 function! s:path.dotfiles() abort
-  if expand('%:p') =~# '/*vim/' | return | endif
+  const path = expand('%:p')
+  if path =~# '/[n.]\?vim/' | return | endif
 
-  if &path !~# $DOTFILES_HOME
-    exe 'setl path+='. $DOTFILES_HOME .'/.config**'
+  if path !~# $DOTFILES_HOME
+    exe 'setl path+='. $DOTFILES_HOME .'/.config/**'
   endif
   " exe 'setl path+='. $GHQ_ROOT       .'/github.com/neovim/neovim**'
   " exe 'setl path+='. '/etc'
-  exe 'setl path+='. $XDG_DATA_HOME  .'**'
+  exe 'setl path+='. $XDG_DATA_HOME  .'/**'
 
   exe 'setl path-='. &g:path
 endfunction
 
 function! s:path.vim() abort
-  if expand('%:p') =~# $GHQ_ROOT | return | endif
+  const path = expand('%:p')
+  if path =~# $GHQ_ROOT | return | endif
 
-  if &path =~# $DOTFILES_HOME
+  if path =~# $DOTFILES_HOME
     " Note: It's required even with dotfiles root path.
-    exe 'setl path^='. $DOTFILES_HOME .'/.config/nvim**'
+    exe 'setl path^='. $DOTFILES_HOME .'/.config/nvim/**'
   endif
 
-  exe 'setl path+='. $DEIN_GITHUB_DIR .'**'
-  exe 'setl path+='. $GHQ_ROOT         .'/github.com/neovim/neovim**'
-  exe 'setl path+='. $XDG_DATA_HOME    .'/nvim**'
+  exe 'setl path+='. $DEIN_GITHUB_DIR .'/**'
+  exe 'setl path+='. $GHQ_ROOT         .'/github.com/neovim/neovim/**'
+  " exe 'setl path+='. $XDG_DATA_HOME    .'/nvim/**'
 
   exe 'setl path-='. &g:path
 endfunction
 
 function! s:path.ghq() abort
-  if expand('%:p') !~# '/*vim/' | return | endif
+  const path = expand('%:p')
+  if path !~# '/[n.]\?vim/' | return | endif
 
-  if &path !~# $GHQ_ROOT
+  if path !~# $GHQ_ROOT
     exe 'setl path+='. s:project_root($GHQ_ROOT)
   endif
 
