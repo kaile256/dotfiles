@@ -243,15 +243,15 @@ nnoremap <silent> <space>cl :CocList<cr>
 " nnoremap <silent> <space>cb :CocList buffers<cr>
 nnoremap <silent> <space>cx :CocList extensions<cr>
 
-" Bookmark {{{1
-nmap ma <Plug>(coc-bookmark-annotate)
-nmap mm <Plug>(coc-bookmark-toggle)
-nmap ]b <Plug>(coc-bookmark-next)
-nmap [b <Plug>(coc-bookmark-prev)
-
-command! -bar Bookmarks :Coclist bookmark
-nnoremap <silent> <space>cb :Coclist bookmark<cr>
-
+" " Bookmark {{{1
+" " nmap ma <Plug>(coc-bookmark-annotate)
+" nmap mm <Plug>(coc-bookmark-toggle)
+" nmap ]b <Plug>(coc-bookmark-next)
+" nmap [b <Plug>(coc-bookmark-prev)
+"
+" command! -bar Bookmarks :Coclist bookmark
+" nnoremap <silent> <space>cb :Coclist bookmark<cr>
+"
 "" Explorer {{{1
 "command! Cexplorer CocCommand explorer
 "      \ --toggle
