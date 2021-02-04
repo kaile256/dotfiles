@@ -16,6 +16,7 @@ augroup myRooterAdd-updatePathToFind
       return
     endtry
 
+    if &l:path !=# &g:path | return | endif
     if &l:path =~# root_dir | return | endif
     if root_dir ==# $HOME || root_dir ==# '/' | return | endif
     exe 'setlocal path^='. root_dir .'/**'
