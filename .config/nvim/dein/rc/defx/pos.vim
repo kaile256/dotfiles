@@ -1,7 +1,6 @@
 scriptencoding utf-8
 " From: browse.toml
 " Repo: Shougo/defx.nvim
-" Another: add/defx.vim
 " Another: ftplugin/defx
 
 " Ref: /usr/share/nvim/runtime/autoload/netrw.vim
