@@ -15,12 +15,12 @@ augroup myLookupSource
 augroup END
 
 function! s:lookup() abort
-  echo '[coc] searching the definition'
+  echo '[coc] searching the definition...'
   silent let success = CocAction('jumpDefinition', 'edit')
   echo ''
   if success | return | endif
 
-  echo '[lookup] searching the definition'
+  echo '[lookup] searching the definition...'
   silent let is_found = lookup#lookup()
   echo ''
   if is_found | return | endif
@@ -31,13 +31,13 @@ function! s:lookup() abort
 endfunction
 
 function! s:split_lookup() abort
-  echo '[coc] searching the definition'
+  echo '[coc] searching the definition...'
   silent let success = CocAction('jumpDefinition', sensible#split())
   echo ''
   if success | return | endif
 
   SensibleSplit
-  echo '[lookup] searching the definition'
+  echo '[lookup] searching the definition...'
   silent let is_found = lookup#lookup()
   echo ''
   if is_found | return | endif
