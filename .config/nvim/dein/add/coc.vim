@@ -223,13 +223,11 @@ nnoremap <silent> <space>G :<C-u>CocSearch
       \ --follow
       \ --smart-case
       \ --fixed-strings
-      \ --hidden
       \ <C-r>=expand('<cword>')<CR><CR>
 xnoremap <silent> <space>G :<C-u>CocSearch
       \ --follow
       \ --smart-case
       \ --fixed-strings
-      \ --hidden
       \ <C-r>=substitute(getline('.')[col("'<") - 1 : col("'>") - 1],
       \                  '\zs\s\+', '\\1', 'g')<CR><CR>
 
