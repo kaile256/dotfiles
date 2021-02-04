@@ -449,30 +449,30 @@
               "warning": "warning",
               "note": "info"
             }
-          // },
-          //"vint": {
-          //  "command": "vint",
-          //  "sourceName": "vint",
-          //  "debounce": 200,
-          //  "args": ["--warning", "--neovim-enable"]
-          //},
-          // "languagetool": {
-          // // Use vim-grammarous, instead
-          //   "command": "languagetool",
-          //   "sourceName": "languagetool",
-          //   "debounce": 200,
-          //   "args": ["-"],
-          //   "offsetLine": 0,
-          //   "offsetColumn": 0,
-          //   "formatLines": 2,
-          //   "formatPattern": [
-          //     "^\\d+?\\.\\)\\s+Line\\s+(\\d+),\\s+column\\s+(\\d+),\\s+([^\\n]+)\nMessage:\\s+(.*)$",
-          //     {
-          //       "line": 1,
-          //       "column": 2,
-          //       "message": [4, 3]
-          //     }
-          //   ]
+            // },
+            //"vint": {
+            //  "command": "vint",
+            //  "sourceName": "vint",
+            //  "debounce": 200,
+            //  "args": ["--warning", "--neovim-enable"]
+            //},
+            // "languagetool": {
+            // // Use vim-grammarous, instead
+            //   "command": "languagetool",
+            //   "sourceName": "languagetool",
+            //   "debounce": 200,
+            //   "args": ["-"],
+            //   "offsetLine": 0,
+            //   "offsetColumn": 0,
+            //   "formatLines": 2,
+            //   "formatPattern": [
+            //     "^\\d+?\\.\\)\\s+Line\\s+(\\d+),\\s+column\\s+(\\d+),\\s+([^\\n]+)\nMessage:\\s+(.*)$",
+            //     {
+            //       "line": 1,
+            //       "column": 2,
+            //       "message": [4, 3]
+            //     }
+            //   ]
           }
         },
         "filetypes": {
