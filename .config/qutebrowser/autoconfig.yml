@@ -650,8 +650,8 @@ settings:
       ba: https://wiki.bash-hackers.org/start?do=search&id=start&sf=1&q={}
       bhw: https://wiki.bash-hackers.org/start?do=search&id=start&sf=1&q={}
       bw: https://wiki.bash-hackers.org/start?do=search&id=start&sf=1&q={}
+      d: https://duckduckgo.com/?q={}&df=d&ia=web
       dL: https://www.deepl.com/translator/{}
-      dc: https://www.dictionary.com/browse/{}
       dh: https://hub.docker.com/search?q={}
       dic: https://www.dictionary.com/browse/{}
       dl: https://www.linguee.com/english-japanese/search?query={}
@@ -659,6 +659,7 @@ settings:
       dlje: https://www.linguee.com/japanese-english/search?query={}
       dlse: https://www.linguee.com/spanish-english/translation/{}
       dlsp: https://www.linguee.com/spanish-english/translation/{}
+      dpl: https://www.deepl.com/translator/?q={}
       ga: https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions?query={}
       gc: https://github.com/search?q={}&type=code
       gcal: https://calendar.google.com/calendar/u/0/r/{}
@@ -668,9 +669,15 @@ settings:
       gl: https://golang.org/search?q={}
       gm: https://www.google.co.jp/maps/search/{}
       gma: https://www.google.co.jp/maps/search/{}
+      gmap: https://www.google.co.jp/maps/search/{}
       gt: https://translate.google.co.jp/#view=home&op=translate&sl=auto&tl=ja&text={}
+      gten: https://translate.google.co.jp/?sl=auto&tl=en&text={}
+      gtja: https://translate.google.co.jp/?sl=auto&tl=ja&text={}
+      gtr: https://trends.google.co.jp/trends/explore?date=all&q={}
+      m: https://duckduckgo.com/?q={}&df=m&ia=web
       map: https://www.google.co.jp/maps/search/{}
       mdn: https://developer.mozilla.org/en-US/search?q={}
+      merc: https://www.mercari.com/jp/search/?keyword={}
       mf: https://github.com/search?o=desc&q={}&s=forks&type=Repositories
       mrcr: https://www.mercari.com/jp/search/?keyword={}
       ms: https://github.com/search?o=desc&q={}&s=stars&type=Repositories
@@ -685,6 +692,7 @@ settings:
       qs: https://qiita.com/search?stocked=1&q={}
       ra: https://search.rakuten.co.jp/search/mall/{}
       rd: https://www.reddit.com/search/?q={}
+      ren: https://www.rentio.jp/products?keywords={}&button=
       rgi: https://git-scm.com/search/results?search={}
       rk: https://search.rakuten.co.jp/search/mall/{}
       rpy: https://docs.python.org/3/search.html?q={}
@@ -698,10 +706,13 @@ settings:
       tt: https://teratail.com/search?q={}
       tw: http://twitter.com/search/{}
       uni: https://unicode-table.com/en/search/?q={}
+      w: https://duckduckgo.com/?q={}&df=w&ia=web
       wk: https://en.wikipedia.org/w/index.php?search={}
       wl: https://ejje.weblio.jp/content/{}?erl=true
+      y: https://duckduckgo.com/?q={}&df=y&ia=web
       yt: https://www.youtube.com/results?search_query={}
       yu: https://www.youtube.com/results?search_query={}
       zn: https://zenn.dev/search?q={}
+      類: https://thesaurus.weblio.jp/content/{}
   url.start_pages:
     global: https://ja.wikipedia.org/wiki/
