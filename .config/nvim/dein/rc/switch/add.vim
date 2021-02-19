@@ -134,12 +134,22 @@ let s:definitions['vim'] = [
       \   'ctermbg=': 'guibg=',
       \   'guibg=': 'ctermbg=',
       \ },
+      \
+      \ {
+      \   '\(n\?vim\)-\(\f\+\)': '\2.\1',
+      \   '\(\f\+\)[-.]\(n\?vim\)': '\2-\1',
+      \ },
       \ ]
 
 let s:definitions['toml'] = [
       \ ['hook_add', 'hook_source', 'hook_post_source', 'hook_done_update'],
       \ ['on_map', 'on_cmd', 'on_func'],
       \ ['add/', 'source/', 'post/'],
+      \
+      \ {
+      \   '\(n\?vim\)-\(\f\+\)': '\2.\1',
+      \   '\(\f\+\)[-.]\(n\?vim\)': '\2-\1',
+      \ },
       \ ]
 
 let s:definitions['gitcommit'] = [
