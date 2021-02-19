@@ -28,6 +28,12 @@ let s:save_cpo = &cpo
 set cpo&vim
 "}}}
 
+function! s:notify_error(msg) abort
+  echohl ErrorMsg
+  echo '[SpellTmp]' a:msg
+  echohl None
+endfunction
+
 function! spellTMP#spell_suggestion(mode) "{{{1
   if !s:get_end_of_word(a:mode) | return | endif
 
@@ -89,9 +95,7 @@ function! s:get_end_of_word(mode) "{{{1
   let save_view = winsaveview()
   let save_lnum = line('.')
   if search(modified_boundary, 'ce') != save_lnum
-    echohl ErrorMsg
-    echo '[SpellTmp] cannot find a word for spell check'
-    echohl None
+    call s:notify_error('cannot find a word for spell check')
     call winrestview(save_view)
     return 0
   endif
