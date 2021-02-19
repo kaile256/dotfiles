@@ -178,6 +178,7 @@ settings:
         <Ctrl+u>: fake-key <Shift-Home><Backspace>
         <Ctrl+w>: fake-key <ctrl-backspace>
         <Ctrl+y>: insert-text {primary}
+        <Escape>: fake-key <Esc>
         l: fake-key l;; spawn --detach pgrep fcitx5 && fcitx5-remote -e
       normal:
         '!': set-cmd-text --space :spawn
