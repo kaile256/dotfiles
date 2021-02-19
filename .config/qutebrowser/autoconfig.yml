@@ -253,7 +253,7 @@ settings:
         <Ctrl+w>u: undo
         <Ctrl+w>v: tab-clone
         <Ctrl+w>w: devtools-focus
-        <Ctrl+x>: null
+        <Ctrl+x>: back
         <Ctrl+y>: scroll-px 0 -50
         <Del>: fake-key <Delete>
         <Enter>: mode-enter insert;; fake-key <enter> ;; mode-leave
