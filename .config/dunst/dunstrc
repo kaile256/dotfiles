@@ -50,10 +50,13 @@ word_wrap = yes
 # present (e.g. xcompmgr, compiz, etc.).
 transparency = 25
 
-# Don't remove messages, if the user is idle (no mouse or keyboard input) for
-# longer than idle_threshold seconds.
-# Set to 0 to disable.
-# default 120
+# Padding between text and separator.
+padding = 8
+horizontal_padding = 10
+
+# Don't remove messages while the user is idle, i.e., with no
+# mouse/keyboard inputs for longer than idle_threshold seconds.
+# Default is 120 (2 min).  Set to 0 to disable.
 idle_threshold = 120
 
 # Should a notification popped up from history be sticky or timeout
@@ -62,9 +65,6 @@ sticky_history = yes
 
 # Maximum amount of notifications kept in history
 history_length = 20
-
-# Display indicators for URLs (U) and actions (A).
-show_indicators = yes
 
 # The height of a single line.  If the height is smaller than the
 # font height, it will get raised to the font height.
@@ -75,10 +75,6 @@ line_height = 0
 # notifications.
 # Set to 0 to disable.
 separator_height = 1
-
-# Padding between text and separator.
-padding = 8
-horizontal_padding = 10
 
 # Print a notification on startup.
 # This is mainly for error detection, since dbus (re-)starts dunst
@@ -119,6 +115,8 @@ format = "%s\n%b%p"
 bounce_freq = 5
 # Ignore newlines '\n' in notifications.
 ignore_newline = no
+# Display indicators for URLs (U) and actions (A).
+show_indicators = no
 
 #[ Icon ]
 # Align icons left/right/off
