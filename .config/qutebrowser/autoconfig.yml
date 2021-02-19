@@ -448,6 +448,9 @@ settings:
     global: true
   content.autoplay:
     global: false
+  content.blocking.hosts.lists:
+    global:
+    - www.sejuku.net
   content.cookies.accept:
     global: no-3rdparty
   content.default_encoding:
@@ -457,9 +460,6 @@ settings:
   content.headers.user_agent:
     global: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko)
       Chrome/79.0.3945.88 Safari/537.36
-  content.host_blocking.lists:
-    global:
-    - www.sejuku.net
   content.javascript.alert:
     global: true
   content.javascript.can_access_clipboard:
