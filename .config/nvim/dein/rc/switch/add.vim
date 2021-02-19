@@ -1,6 +1,5 @@
 " TOML: operator.toml
 " Repo: AndrewRadev/switch.vim
-" Another: source/switch.vim
 
 " Excerpt: Regexp support in Dictionary, e.g.,
 " let b:switch_custom_definitions = [{

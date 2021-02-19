@@ -1,6 +1,5 @@
 " TOML: operator.toml
 " Repo: AndrewRadev/switch.vim
-" Another: add/switch.vim
 
 "let g:switch_find_smallest_match = 0
 
