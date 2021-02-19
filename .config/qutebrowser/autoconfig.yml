@@ -170,7 +170,6 @@ settings:
         <Ctrl+n>: fake-key <Down>
         <Ctrl+o>: fake-key <Shift-TAB>
         <Ctrl+p>: fake-key <Up>
-        <Ctrl+q>: open-editor
         <Ctrl+r>0: insert-text {primary}
         <Ctrl+r><Ctrl+0>: insert-text {primary}
         <Ctrl+r><Ctrl+Space>: fake-key <ctrl-v>
@@ -311,7 +310,7 @@ settings:
         Zy: quit
         Zz: session-save --quiet last;; tab-close
         '[': tab-prev
-        \<Space>: record-macro
+        \<Space>: macro-record
         \f: hint links right-click
         \t: hint all right-click
         ']': tab-next
