@@ -315,7 +315,7 @@ settings:
         \f: hint links right-click
         \t: hint all right-click
         ']': tab-next
-        '`': quickmark-save
+        '`': bookmark-add
         a: hint inputs
         b: scroll-page 0 -0.9
         cd: null
@@ -391,7 +391,7 @@ settings:
         zm: set-cmd-text -s :session-save
         zo: set-cmd-text -s :session-load
         zr: set-cmd-text -s :session-load
-        '~': bookmark-add
+        '~': quickmark-save
       passthrough:
         <Alt+x>: 'set-cmd-text :'
         <Ctrl+[>: fake-key <Esc>
