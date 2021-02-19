@@ -150,7 +150,7 @@ timeout = 3
 #icon = /path/to/icon
 
 [urgency_normal]
-background = "#263238"
+background = "#1D1B14"
 foreground = "#F9FAF9"
 #background = "#272727"
 #foreground = "#CACACA"
@@ -159,7 +159,7 @@ timeout = 5
 #icon = /path/to/icon
 
 [urgency_critical]
-# background = "#D62929"
+# background = "#9b0014"
 background = "#eeff00"
 foreground = ""#000F1F
 frame_color = ""#0023E5
