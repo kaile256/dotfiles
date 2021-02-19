@@ -120,13 +120,12 @@ bounce_freq = 5
 # Ignore newlines '\n' in notifications.
 ignore_newline = no
 
+#[ Icon ]
 # Align icons left/right/off
 icon_position = left
-
 # Paths to default icons.
 icon_path = /usr/share/icons/Adwaita/16x16/status/:/usr/share/icons/Adwaita/16x16/devices/
 #icon_folders = /usr/share/icons/gnome/16x16/status/:/usr/share/icons/gnome/16x16/devices/
-
 # Limit icons size.
 max_icon_size=32
 
