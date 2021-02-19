@@ -612,12 +612,22 @@ settings:
     - en-US
   tabs.background:
     global: true
+  tabs.close_mouse_button:
+    global: right
+  tabs.favicons.scale:
+    global: 0.95
+  tabs.indicator.width:
+    global: 0
   tabs.last_close:
     global: close
+  tabs.mousewheel_switching:
+    global: false
   tabs.new_position.unrelated:
     global: next
   tabs.select_on_remove:
     global: next
+  tabs.show_switching_delay:
+    global: 3000
   tabs.title.format_pinned:
     global: '{index}'
   tabs.undo_stack_size:
