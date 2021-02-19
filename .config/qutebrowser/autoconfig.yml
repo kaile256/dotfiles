@@ -99,7 +99,7 @@ settings:
         <Ctrl+c>: mode-leave;; spawn --detach fcitx5-remote -e
         <Ctrl+d>: rl-delete-char
         <Ctrl+g>: completion-item-focus next
-        <Ctrl+j>: spawn fcitx5-remote -s skk
+        <Ctrl+j>: spawn --detach fcitx5-remote -s skk
         <Ctrl+n>: command-history-next
         <Ctrl+o>: completion-item-focus prev
         <Ctrl+p>: command-history-prev
@@ -164,7 +164,7 @@ settings:
         <Ctrl+g>: fake-key <Esc>
         <Ctrl+h>: fake-key <Backspace>
         <Ctrl+i>: fake-key <TAB>
-        <Ctrl+j>: spawn fcitx5-remote -s skk
+        <Ctrl+j>: spawn --detach fcitx5-remote -s skk
         <Ctrl+k>: fake-key <Shift-end><Delete>
         <Ctrl+m>: fake-key <Enter>
         <Ctrl+n>: fake-key <Down>
@@ -178,6 +178,7 @@ settings:
         <Ctrl+u>: fake-key <Shift-Home><Backspace>
         <Ctrl+w>: fake-key <ctrl-backspace>
         <Ctrl+y>: insert-text {primary}
+        l: fake-key l;; spawn --detach pgrep fcitx5 && fcitx5-remote -e
       normal:
         '!': set-cmd-text --space :spawn
         '0': fake-key <Home>
