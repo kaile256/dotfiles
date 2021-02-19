@@ -25,6 +25,10 @@ repo = 'AndrewRadev/splitjoin.vim'
 on_cmd = ['SplitjoinJoin', 'SplitjoinSplit']
 on_map = ['<Plug>SplitjoinJoin', '<Plug>SplitjoinSplit']
 hook_add = 'runtime add/splitjoin.vim'
+[[plugins]]
+repo = 'FooSoft/vim-argwrap'
+# Split/Join arguments between braces, brackets, etc.
+on_cmd = ['Argwrap']
 # [[plugins]]
 # # repo = 'sk1418/Join'
 # # Join with input arguments as separator.
