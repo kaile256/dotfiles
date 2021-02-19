@@ -583,8 +583,6 @@ settings:
     global: hklgdsayutrwncxzjf
   hints.uppercase:
     global: true
-  input.insert_mode.auto_load:
-    global: false
   input.insert_mode.plugins:
     global: true
   input.partial_timeout:
