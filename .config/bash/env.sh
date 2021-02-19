@@ -49,7 +49,7 @@ export COLORTERM=xterm-256color
 # nvr & nvim-qt does NOT work for sudoedit.
 export EDITOR=nvim-qt
 export VISUAL=nvim-qt
-export SUDO_EDITOR=vi
+export SUDO_EDITOR=nvim-qt
 
 # Browser
 export BROWSER=qutebrowser
