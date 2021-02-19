@@ -203,7 +203,7 @@ settings:
           mode-leave
         <Ctrl+a>: forward
         <Ctrl+b>: fake-key <PgUp>
-        <Ctrl+c>: stop;; clear-keychain;; download-clear
+        <Ctrl+c>: stop;; clear-keychain;; download-clear;; search
         <Ctrl+d>: fake-key <Alt-down>
         <Ctrl+e>: scroll-px 0 +50
         <Ctrl+f>: fake-key <PgDown>
