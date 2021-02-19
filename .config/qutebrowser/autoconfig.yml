@@ -291,7 +291,7 @@ settings:
         B: scroll-page 0 -2.0
         D: scroll-page 0 +0.75
         F: scroll-page 0 +2.0
-        H: fake-key <Left>
+        H: scroll-page -0.5 0
         I: hint inputs --first
         J: fake-key <down>
         K: fake-key <Up>
