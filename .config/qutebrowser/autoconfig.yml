@@ -479,6 +479,8 @@ settings:
     https://drive.google.com: true
     https://japan.zdnet.com: false
     https://japanese.engadget.com: false
+    https://kuraneo.jp: false
+    https://mail.google.com: true
     https://news.mynavi.jp: false
     https://ora.pm: true
     https://ostoday.org: false
@@ -487,8 +489,10 @@ settings:
     https://wired.jp: false
     https://www.pcmag.com: false
     https://www.reddit.com: true
+    https://www.sourcenext.com: false
     https://www.tansu-gen.jp: false
     https://www.ticktick.com: true
+    https://www.yamada-denkiweb.com: false
   content.pdfjs:
     global: true
   content.plugins:
