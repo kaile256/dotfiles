@@ -190,9 +190,8 @@ timeout = 8
 # Note: get code names by `xmodmap -pke` or `xev`
 
 ## Notification
-#close = "mod4+bracketleft"
-#close_all = "Shift+mod4+bracketleft"
-#
+close = "ctrl+bracketleft"
+close_all = "ctrl+c"
 ## Redisplay last message(s).
 ## On the US keyboard layout "grave" is normally above TAB and left of "1".
 #history = "mod4+p"
