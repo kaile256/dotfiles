@@ -208,11 +208,11 @@ settings:
         <Ctrl+e>: scroll-px 0 +50
         <Ctrl+f>: fake-key <PgDown>
         <Ctrl+g>: fake-key <Home>
-        <Ctrl+h>: tab-prev
+        <Ctrl+h>: tab-prev;; spawn --detach fcitx5-remote -e
         <Ctrl+i>: forward
         <Ctrl+j>: fake-key <down>
         <Ctrl+k>: fake-key <up>
-        <Ctrl+l>: tab-next
+        <Ctrl+l>: tab-next;; spawn --detach fcitx5-remote -e
         <Ctrl+n>: fake-key <down>
         <Ctrl+o>: back
         <Ctrl+p>: fake-key <up>
