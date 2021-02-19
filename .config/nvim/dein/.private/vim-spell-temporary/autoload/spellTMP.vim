@@ -86,7 +86,7 @@ function! s:detach_spell() abort "{{{1
 endfunction
 
 function! s:get_end_of_word(mode) "{{{1
-  " signs which can be inserted between chars
+  let is_insert_mode = a:mode =~# 'i'
 
   let pats_word_boundary = ['\l\+', '\u\{3,}']
   let word_boundary = '\('. join(pats_word_boundary, '\|') .'\)'
@@ -94,13 +94,19 @@ function! s:get_end_of_word(mode) "{{{1
 
   let save_view = winsaveview()
   let save_lnum = line('.')
-  if search(modified_boundary, 'ce') != save_lnum
+  if is_insert_mode
+      exe "norm! \<C-g>U\<Left>"
+  endif
+
+  if search(word_boundary, 'ceW') != line('.')
     call s:notify_error('cannot find a word for spell check')
     call winrestview(save_view)
     return 0
   endif
 
-  if a:mode =~# '[nx]'
+  if is_insert_mode
+    call feedkeys("\<C-g>U\<Right>", 'n')
+  else
     " startinsert will start at the left of the cursor position
     call feedkeys('a', 'n')
   endif
