@@ -265,6 +265,8 @@ settings:
         <Space>P: open -t {clipboard}
         <Space>T: hint all tab-bg
         <Space>\: macro-record
+        <Space>do: set-cmd-text --space :tab-take
+        <Space>dp: set-cmd-text --space :tab-give
         <Space>f: hint links current
         <Space>gF: hint links window --rapid
         <Space>gR: restart
