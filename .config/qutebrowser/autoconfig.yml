@@ -577,6 +577,8 @@ settings:
     global: 9
   hints.auto_follow:
     global: always
+  hints.auto_follow_timeout:
+    global: 1000
   hints.chars:
     global: hklgdsayutrwncxzjf
   hints.uppercase:
