@@ -432,6 +432,8 @@ settings:
     global: white
   colors.webpage.prefers_color_scheme_dark:
     global: false
+  completion.cmd_history_max_items:
+    global: 10000
   completion.height:
     global: 30%
   completion.open_categories:
