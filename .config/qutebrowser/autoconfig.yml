@@ -716,3 +716,5 @@ settings:
       類: https://thesaurus.weblio.jp/content/{}
   url.start_pages:
     global: https://ja.wikipedia.org/wiki/
+  window.transparent:
+    global: true
