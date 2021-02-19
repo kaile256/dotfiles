@@ -199,6 +199,8 @@ settings:
         <Ctrl+Shift+g>: fake-key <End>
         <Ctrl+Shift+h>: tab-move -
         <Ctrl+Shift+l>: tab-move +
+        <Ctrl+Space>F: hint links tab-bg
+        <Ctrl+Space>f: hint links current
         <Ctrl+[>: mode-enter insert ;; clear-keychain ;; search ;; fullscreen --leave;;
           mode-leave
         <Ctrl+a>: forward
@@ -258,7 +260,9 @@ settings:
         <Ctrl+y>: scroll-px 0 -50
         <Del>: fake-key <Delete>
         <Enter>: mode-enter insert;; fake-key <enter> ;; mode-leave
+        <Shift+Space>F: hint links tab-bg
         <Shift+Space>P: open -t {primary}
+        <Shift+Space>f: hint links current
         <Shift+Space>p: open {primary}
         <Space>1: tab-close
         <Space>2: save
