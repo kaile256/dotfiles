@@ -264,7 +264,7 @@ settings:
         <Space>F: hint links tab-bg
         <Space>P: open -t {clipboard}
         <Space>T: hint all tab-bg
-        <Space>\: record-macro
+        <Space>\: macro-record
         <Space>f: hint links current
         <Space>gF: hint links window --rapid
         <Space>gR: restart
