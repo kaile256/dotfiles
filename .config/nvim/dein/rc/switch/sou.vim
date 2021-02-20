@@ -100,6 +100,10 @@ function! s:set_definitions() abort
         \ ['abs', 'rel'],
         \ ]
 
+  let rules.keys = [
+        \ ['ctrl', 'alt'],
+        \ ]
+
   let rules.opposite = [
         \ ['preceding', 'following'],
         \
