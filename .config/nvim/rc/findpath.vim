@@ -66,8 +66,11 @@ function! s:path.vim() abort
     exe 'setlocal path^='. $DOTFILES_HOME .'/.config/nvim/**'
   endif
 
-  setlocal suffixesadd=_release
+  setlocal suffixesadd=_release,.lua
+  exe 'setlocal path+='. $DEIN_GITHUB_DIR .'/*/*/lua'
+  exe 'setlocal path+='. $DEIN_GITHUB_DIR .'/*/*'
   exe 'setlocal path+='. $DEIN_GITHUB_DIR
+
   exe 'setlocal path+='. $GHQ_ROOT .'/github.com/neovim/neovim'
 
   exe 'setl path-='. &g:path
