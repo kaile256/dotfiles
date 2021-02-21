@@ -1,8 +1,9 @@
 " TOML: operator.toml
 " Repo: AndrewRadev/switch.vim
 
-"let g:switch_find_smallest_match = 0
+let g:switch_no_builtins = 1
 
+"let g:switch_find_smallest_match = 0
 " override to suppress default one
 let g:switch_mapping = ''
 " let g:switch_reverse_mapping = ''
