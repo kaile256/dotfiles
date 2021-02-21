@@ -138,6 +138,11 @@ let s:definitions['vim'] = [
       \   '\(n\?vim\)-\(\f\+\)': '\2.\1',
       \   '\(\f\+\)[-.]\(n\?vim\)': '\2-\1',
       \ },
+      \
+      \ {
+      \   '\<s:\ze\h[a-zA-Z0-9_.]*(': '<SID>',
+      \   '<SID>\ze\h[a-zA-Z0-9_.]*(': 's:',
+      \ },
       \ ]
 
 let s:definitions['toml'] = [
