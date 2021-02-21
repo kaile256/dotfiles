@@ -56,8 +56,8 @@ function! s:set_extra_definitions() abort
   " The patterns would hardly match outside of &ft=vim.
   let rules.vimscript = [
         \ {
-        \   's:\(\h\w\+\)': '<SID>\1',
-        \   '<SID>\(\h\w\+\)': 's:\1',
+        \   '\<s:\ze\h\w\+(': '<SID>',
+        \   '<SID>\ze\h\w\+(': 's:',
         \ },
         \
         \ {
