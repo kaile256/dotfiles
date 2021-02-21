@@ -79,9 +79,16 @@ function! s:set_definitions() abort
         \ ]
 
   let rules.abbriviations = [
-        \ [' is', "'s"],
-        \ [' are', "'re"],
-        \ [' not', "n't"],
+        \ {
+        \   "\\a\\zs's": ' is',
+        \   "\\a\\zs're": ' are',
+        \   "\\a\\zsn't": ' not',
+        \
+        \   '\a\zs is': "'s",
+        \   '\a\zs are': "'re",
+        \   '\a\zs not': "n't",
+        \ },
+        \
         \ ['cannot', "can't"],
         \ ]
 
