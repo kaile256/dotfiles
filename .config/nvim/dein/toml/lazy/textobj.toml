@@ -89,6 +89,11 @@ hook_add = 'runtime add/textobj-keyvalue.vim'
 ## Possibly better on Vimscript, but the name is duplicated to that of amerlyq.
 #hook_add = 'runtime add/textobj-keyvalue.vim'
 #[ on FileType ]
+# [[plugins]]
+# repo = 'guns/vim-sexp'
+# # Edit S-expressions with the textobjcts.
+# on_map = {noxi = '<Plug>(sexp_'}
+# hook_add = 'source $DEIN_RC_DIR/sexp/add.vim'
 [[plugins]]
 repo = 'bps/vim-textobj-python'
 on_ft = 'python'
