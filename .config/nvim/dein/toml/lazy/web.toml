@@ -37,12 +37,7 @@ on_cmd = [
 [[plugins]]
 repo = 'glacambre/firenvim'
 on_func = 'firenvim#'
-build = '''
-npm install
-npm audit fix
-npm run build
-npm run install_manifests # do firenvim#install(0) inside.
-'''
+hook_done_update = 'call firenvim#install(0)'
 hook_source = 'runtime source/firenvim.vim'
 
 #[[plugins]]
