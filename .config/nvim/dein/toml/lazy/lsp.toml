@@ -45,6 +45,11 @@ hook_post_source = 'runtime add/actionmenu.vim'
 #if = 'executable("redis")'
 #on_source = 'denite.nvim'
 #hook_post_source = 'runtime add/redismru.vim'
+[[plugins]]
+repo = 'pwntester/codeql.nvim'
+if = 'has("nvim")'
+# Integrate with 'neovim/nvim-lsp' or 'coc.nvim'.
+on_ft = ['ql']
 
 #[ vim-lsp ]
 #[[plugins]]
