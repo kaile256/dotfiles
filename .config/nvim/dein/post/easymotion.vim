@@ -7,8 +7,8 @@ hi! EasyMotionTarget        ctermfg=Magenta guifg=Magenta cterm=bold gui=bold
 hi! EasyMotionTarget2First  ctermfg=Green   guifg=Green3
 hi! EasyMotionTarget2Second ctermfg=Red     guifg=Red
 
+hi! link EasyMotionMoveHL    EasyMotionTarget
 hi! link EasyMotionShade     Comment
-hi! link EasyMotionMoveHL    ErrorMsg
 hi! link EasyMotionIncSearch Search
 
 " Enable '<' in easymotion
