@@ -9,8 +9,8 @@ set expandtab " Insert spaces, instead of a tab-char
 
 " Affects <TAB> and <BS>
 set tabstop=2 " <TAB> inserts the number of spaces
-set shiftwidth=0 " >>/<< inserts the number of spaces; use &tabstop if 0
-set softtabstop=-1 " <TAB> is replaced by spaces while less than the value; use &shiftwidth if negative
+set shiftwidth=2 " >>/<< inserts the number of spaces; use &tabstop if 0
+set softtabstop=2 " <TAB> is replaced by spaces while less than the value; use &shiftwidth if negative
 
 set smarttab " <BS> deletes spaces as &shiftwidth
 set shiftround " for '</>' indent, insert spaces as &shiftwidth
