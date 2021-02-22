@@ -176,7 +176,7 @@ augroup END
 set number
 set colorcolumn=80
 " signcolumn is the line beside numbers.
-set signcolumn=auto
+set signcolumn=yes
 " Statusbar {{{2
 set title
 set ruler
