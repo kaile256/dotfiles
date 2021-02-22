@@ -5,11 +5,6 @@
 
 let g:quickrun_no_default_key_mappings = 1
 
-nnoremap <expr><silent> <C-c>
-      \ quickrun#is_running()
-      \ ? quickrun#sweep_sessions()
-      \ : "\<C-c>"
-
 let g:quickrun_config = {}
 " Note: runners remarks; either 'system' or 'shell' works on neovim.
 "   'system' is default but too slow.

@@ -3,7 +3,7 @@
 " Another: source/quickrun.vim
 " Ref: source/quickrun-unittest.vim
 
-nmap <space>q <Plug>(quickrun-op)
+nmap \S <Plug>(quickrun-op) | " Mnemonic: Source the buffer
 
 nnoremap <silent> <space>qq :QuickRun -mode n -input =@+<CR>
 xnoremap <silent> <space>qq :QuickRun -mode v -input =@+<CR>
