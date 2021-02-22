@@ -2,6 +2,7 @@
 " Repo: sheerun/vim-polyglot
 
 let g:polyglot_is_disabled = {
+      \ 'autoindent': 1,
       \ 'c++11': 1,
       \ 'c/c++': 1,
       \ 'dockerfile': 1,
