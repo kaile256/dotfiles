@@ -21,6 +21,8 @@ augroup myUltisnipsSo
   au BufWritePost *.snippets call UltiSnips#RefreshSnippets()
 augroup END
 
+let g:UltiSnipsEnableSnipMate = 0 " Without snipmate, let me find a bug easier.
+
 let g:UltiSnipsEditSplit = 'context'
 
 " Note: the variables to map should be filled to suppress unexpected, local
