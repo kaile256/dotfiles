@@ -144,8 +144,8 @@ on_event = ['BufRead']
 [[plugins]]
 repo = 'itchyny/lightline.vim'
 on_event = 'Syntax'
-hook_source = 'runtime source/lightline.vim'
-hook_post_source = 'runtime post/lightline.vim'
+hook_source = 'source $DEIN_RC_DIR/lightline/sou.vim'
+hook_post_source = 'source $DEIN_RC_DIR/lightline/pos.vim'
 # [[plugins]]
 # repo = 'josa42/vim-lightline-coc'
 # on_source = 'lightline.vim'
