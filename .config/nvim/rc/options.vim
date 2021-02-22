@@ -179,6 +179,7 @@ set colorcolumn=80
 set signcolumn=yes
 " Statusbar {{{2
 set title
+set titlelen=30
 set ruler
 " 2: always show the current status.
 set laststatus=2
