@@ -151,6 +151,12 @@ let s:definitions['toml'] = [
       \ ['add/', 'source/', 'post/'],
       \
       \ {
+      \   'runtime \(\f\+\).vim': 'luafile \1.lua',
+      \   'source \(\f\+\).vim':  'luafile \1.lua',
+      \   'luafile \(\f\+\).lua': 'source \1.vim',
+      \ },
+      \
+      \ {
       \   '\(n\?vim\)-\(\f\+\)': '\2.\1',
       \   '\(\f\+\)[-.]\(n\?vim\)': '\2-\1',
       \ },
