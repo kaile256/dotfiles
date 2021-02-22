@@ -11,7 +11,7 @@ if type multilockscreen >/dev/null 2>&1 ; then
   # Repo: jeffmhubbard/multilockscreen
   # Cache an image by `multilockscreen --update "$PATH_TO_IMAGE"`.
   multilockscreen --lock --span --off 600 \
-    -- --nofork
+    -- --nofork --ring-width=5 --radius=50 --indpos='x+w/2:y+h/2'
 else
   i3lock --ignore-empty-password --nofork --image "$IMAGE" && sleep 1
 fi
