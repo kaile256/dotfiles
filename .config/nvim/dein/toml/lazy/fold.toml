@@ -1,11 +1,11 @@
 # From: dein/dein.vim
 
-[[plugins]]
-repo = 'Konfekt/FastFold'
-# Reduce unnecessary updates with automatic toggle between fdm=manual and the
-# other preset &fdm.
-on_event = 'VimEnter' # to init FastFold in the script.
-hook_source = 'runtime source/FastFold.vim'
+# [[plugins]]
+# repo = 'Konfekt/FastFold'
+# # Reduce unnecessary updates with automatic toggle between fdm=manual and the
+# # other preset &fdm.
+# on_event = 'VimEnter' # to init FastFold in the script.
+# hook_source = 'runtime source/FastFold.vim'
 #[[plugins]]
 #repo = 'SwintonStreet/HighlightFoldLevelVimScript'
 # Seems not to work. May not get along with foldCC.
