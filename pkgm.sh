@@ -78,8 +78,8 @@ PACKAGEs=(
   # LSP
   gopls # for go
 
-  # Qutebrowser:
-  hunspell-en_US # Spell checker for Qutebrowser, LibreOffice, Firefox, Chrome, etc.
+  # # Qutebrowser:
+  # hunspell-en_US # Instead, requires to run on command-line `scripts/dictcli.py install en-US`.
 
   # For Vim:
   neovim-nightly-git # Git one is truely the nightly.
