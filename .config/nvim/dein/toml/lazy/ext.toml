@@ -19,6 +19,12 @@ on_cmd =  ['Hexedit']
 #on_cmd = 'Pfp'
 #hook_add = 'runtime add/pfp.vim'
 
+#[ Terminal ]
+[[plugins]]
+repo = 'tyru/notify-changed.vim'
+# Crossplatform. Attach to terminal buffer on Vim/Neovim and notify its change.
+on_cmd = ['NotifyChanged']
+
 #[ Minimap ]
 #[[plugins]]
 #repo = 'severin-lemaignan/vim-minimap'
