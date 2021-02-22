@@ -59,7 +59,6 @@ endfunction
 
 function! s:path.vim() abort
   const path = expand('%:p')
-  if path =~# $GHQ_ROOT | return | endif
 
   if path =~# $DOTFILES_HOME
     " Note: It's required even with dotfiles root path.
