@@ -42,23 +42,22 @@ hook_source = 'runtime source/caw.vim'
 #hook_add = 'runtime add/plugin.vim'
 
 #[ Arrangement ]
-# [[plugins]]
-# repo = 'machakann/vim-swap'
-# # Swap parameters positions. It also includes textobjects.
-# Use AndrewRadev/sideways.vim instead
-# on_map = {nox = '<Plug>(swap-'}
-# hook_add = 'runtime add/swap.vim'
 [[plugins]]
-repo = 'AndrewRadev/sideways.vim'
+repo = 'machakann/vim-swap'
 # Swap parameters positions. It also includes textobjects.
-# Addition to comma-separated parameters, it also detects css declarations
-# which separated by ';', HTML attributes, Cucumber tables components, Go lists
-# surrounded by '{}', etc.
-# Moreover, configurable globally/localy like switch.vim
-on_cmd = 'Sideways'
-on_map = {ox = '<Plug>Sideways'}
-hook_add = 'runtime add/sideways.vim'
-hook_source = 'runtime source/sideways.vim'
+on_map = {nox = '<Plug>(swap-'}
+hook_add = 'runtime add/swap.vim'
+# [[plugins]]
+# # repo = 'AndrewRadev/sideways.vim'
+# # Swap parameters positions. It also includes textobjects.
+# # Addition to comma-separated parameters, it also detects css declarations
+# # which separated by ';', HTML attributes, Cucumber tables components, Go lists
+# # surrounded by '{}', etc.
+# # Moreover, configurable globally/localy like switch.vim
+# on_cmd = 'Sideways'
+# on_map = {ox = '<Plug>Sideways'}
+# hook_add = 'runtime add/sideways.vim'
+# hook_source = 'runtime source/sideways.vim'
 [[plugins]]
 repo = 'AndrewRadev/switch.vim'
 # switch as predefined, such as "true" & "false".
