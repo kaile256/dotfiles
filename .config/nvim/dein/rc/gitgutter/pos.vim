@@ -3,6 +3,6 @@
 
 au! gitgutter CursorHold,CursorHoldI
 augroup myGitgutterPos-AdditionalUpdate
-  au TextChanged,InsertLeave * GitGutter
+  au BufWinEnter,TextChanged,InsertLeave * GitGutter
 augroup END
 
