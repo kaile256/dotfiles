@@ -143,6 +143,11 @@ let s:definitions['vim'] = [
       \   '\<s:\ze\h[a-zA-Z0-9_.]*(': '<SID>',
       \   '<SID>\ze\h[a-zA-Z0-9_.]*(': 's:',
       \ },
+      \
+      \ {
+      \   'extend(.*''\zskeep\ze'')':  'force',
+      \   'extend(.*''\zsforce\ze'')': 'keep',
+      \ },
       \ ]
 
 let s:definitions['toml'] = [
