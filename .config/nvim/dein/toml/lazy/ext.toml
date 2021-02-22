@@ -38,12 +38,12 @@ hook_add = 'runtime $DEIN_RC_DIR/notify-changed/add.vim'
 #write
 #'''
 #
-[[plugins]]
-repo = 'chrisbra/NrrwRgn'
-on_map = '<Plug>NrrwrgnDo'
-hook_add = 'runtime add/NrrwRgn.vim'
-hook_source = 'runtime source/NrrwRgn.vim'
-
+# [[plugins]]
+# repo = 'chrisbra/NrrwRgn'
+# on_map = '<Plug>NrrwrgnDo'
+# # hook_add = 'runtime add/NrrwRgn.vim'
+# hook_source = 'runtime source/NrrwRgn.vim'
+#
 #[[plugins]]
 #repo = 'mtth/scratch.vim'
 #on_cmd =  ['Scratch']
