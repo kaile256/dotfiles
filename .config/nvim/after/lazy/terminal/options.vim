@@ -2,6 +2,8 @@
 " background like with QuickRun apply all the config on non-terminal buffer.
 if &bt !=# 'terminal' | finish | endif
 
+setlocal titlestring=%{matchstr(expand('%:p'),'\\S*')}
+
 setlocal nonumber signcolumn= bufhidden=wipe
 
 norm! 0
