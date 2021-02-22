@@ -11,8 +11,8 @@ map <nowait><buffer><expr> ]m repmo#Key('<Plug>(gitcommitmsg-next)', '<Plug>(git
 sunmap <buffer> [m
 sunmap <buffer> ]m
 
-nnoremap <silent> <Plug>(gitcommitmsg-next) :<C-u>call <SID>search_msg('downward')<CR>
-nnoremap <silent> <Plug>(gitcommitmsg-prev) :<C-u>call <SID>search_msg('upward')<CR>
+noremap <silent> <Plug>(gitcommitmsg-next) :<C-u>call <SID>search_msg('downward')<CR>
+noremap <silent> <Plug>(gitcommitmsg-prev) :<C-u>call <SID>search_msg('upward')<CR>
 
 
 function! s:search_msg(direction) abort
