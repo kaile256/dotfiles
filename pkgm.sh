@@ -82,7 +82,7 @@ PACKAGEs=(
   # hunspell-en_US # Instead, requires to run on command-line `scripts/dictcli.py install en-US`.
 
   # For Vim:
-  neovim-nightly-git # Git one is truely the nightly.
+  neovim-nightly-bin
   neovim-qt-git
   gvim-gtk2
   fvim # Neovim front-end UI built with F# & Avalonia
