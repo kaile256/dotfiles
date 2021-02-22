@@ -54,6 +54,7 @@ lazy = 0
 #on_ft = ['c', 'cpp', 'objc', 'objcpp', 'cc']
 [[plugins]]
 repo = 'bfrg/vim-cpp-modern'
+if = '!has("nvim") || !dein#tap("nvim-treesitter")'
 lazy = 0
 #[[plugins]]
 #repo = 'octol/vim-cpp-enhanced-highlight'
@@ -112,6 +113,7 @@ lazy = 0
 [[plugins]]
 repo = 'neoclide/vim-jsx-improve'
 # includes motion mappings for '[[', '[]' and so on.
+if = '!has("nvim") || !dein#tap("nvim-treesitter")'
 merged = 0
 on_path = ['\.js$', '\.jsx$']
 on_ft = [
@@ -136,6 +138,7 @@ on_ft = [
 # ]
 [[plugins]]
 repo = 'HerringtonDarkholme/yats.vim'
+if = '!has("nvim") || !dein#tap("nvim-treesitter")'
 merged = 0
 on_path = ['\.ts$', '\.tsx$']
 on_ft = [
@@ -157,6 +160,7 @@ on_ft = [
 #[ Javascript.styled-jsx ]
 [[plugins]]
 repo = 'styled-components/vim-styled-components'
+if = '!has("nvim") || !dein#tap("nvim-treesitter")'
 # the indentexpr works wrong.
 merged = 0
 on_path = ['\.js$', '\.jsx$', '\.ts$', '\.tsx$']
