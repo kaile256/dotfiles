@@ -98,7 +98,7 @@ function! s:get_end_of_word(mode) "{{{1
       exe "norm! \<C-g>U\<Left>"
   endif
 
-  if search(word_boundary, 'ceW') != line('.')
+  if search(word_boundary, 'ceW') != save_lnum
     call s:notify_error('cannot find a word for spell check')
     call winrestview(save_view)
     return 0
