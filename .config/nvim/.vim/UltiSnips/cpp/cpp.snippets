@@ -33,6 +33,10 @@ snippet '(/)?\*' "/* ... */" rw
 /*${1:Comment}*/
 endsnippet
 
+snippet do "do {...} while ();" w
+do {$1} while ($2);
+endsnippet
+
 snippet elseif "else if (cond)" A
 else if ($1)
 endsnippet
