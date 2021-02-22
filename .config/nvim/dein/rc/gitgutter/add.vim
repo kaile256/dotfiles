@@ -1,6 +1,5 @@
 " TOML: git.toml
 " Repo: airblade/vim-gitgutter
-" Another: source/gitgutter.vim
 
 command! -bar PreviewHunk :GitGutterPreviewHunk
 
