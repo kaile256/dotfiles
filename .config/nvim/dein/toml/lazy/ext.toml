@@ -24,6 +24,7 @@ on_cmd =  ['Hexedit']
 repo = 'tyru/notify-changed.vim'
 # Crossplatform. Attach to terminal buffer on Vim/Neovim and notify its change.
 on_cmd = ['NotifyChanged']
+hook_add = 'runtime $DEIN_RC_DIR/notify-changed/add.vim'
 
 #[ Minimap ]
 #[[plugins]]
