@@ -64,9 +64,8 @@ hook_source = 'runtime source/quickrun.vim'
 [[plugins]]
 repo = 'heavenshell/vim-quickrun-hook-unittest'
 # Note: g:quickrun_config is loaded on each :QuickRun
-if = "index(['php', 'python', 'ruby', 'go', 'javascript'], &ft) >= 0"
-on_cmd = 'QuickRun'
-on_map = '<Plug>(quickrun'
+on_path = ['test', '_spec.rb$', '\.t$']
+depends = ['vim-quickrun']
 hook_source = 'runtime source/quickrun-unittest.vim'
 #[[plugins]]
 #repo = 'lambdalisue/vim-quickrun-neovim-job'
