@@ -63,8 +63,13 @@ alias tabe '$EDITOR -p'
 
 # Docker {{{1
 balias d 'docker'
-
+balias dk 'docker'
 balias dcm 'docker-compose'
+
+balias db 'docker build'
+balias ds 'docker start'
+balias dr 'docker restart'
+balias da 'docker attach'
 
 balias dps 'docker ps'
 balias drm 'docker rm'
