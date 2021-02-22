@@ -49,11 +49,11 @@ augroup END
 
 function! s:agit_common_keymaps() abort "{{{1
   nmap <buffer> U <Plug>(agit-reload)
-
-  nnoremap <silent><buffer> zr :<C-u>call <SID>agit_fold('r')<CR>
-  nnoremap <silent><buffer> zR :<C-u>call <SID>agit_fold('R')<CR>
-  nnoremap <silent><buffer> zm :<C-u>call <SID>agit_fold('m')<CR>
-  nnoremap <silent><buffer> zM :<C-u>call <SID>agit_fold('M')<CR>
+  "
+  " nnoremap <silent><buffer> zr :<C-u>call <SID>agit_fold('r')<CR>
+  " nnoremap <silent><buffer> zR :<C-u>call <SID>agit_fold('R')<CR>
+  " nnoremap <silent><buffer> zm :<C-u>call <SID>agit_fold('m')<CR>
+  " nnoremap <silent><buffer> zM :<C-u>call <SID>agit_fold('M')<CR>
 endfunction
 
 function! s:agit_fold(arg) abort "{{{1
