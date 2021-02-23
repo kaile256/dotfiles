@@ -85,6 +85,7 @@
  	# Cache ID and password for https in 24 hours on RAM
  	helper = cache --timeout=86400
 [init]
+	defaultBranch = main
 	templateDir = ~/.git-templates/git-secrets
 # [diff-so-fancy]
 # 	# Repo: so-fancy/diff-so-fancy
