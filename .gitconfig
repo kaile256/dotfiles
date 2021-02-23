@@ -22,6 +22,7 @@
 	root = $GHQ_ROOT
 [diff]
 	tool = nvr
+	compactionHeuristic = true
 [difftool "nvr"]
 	cmd = nvr -s -d $LOCAL $REMOTE
 [merge]
