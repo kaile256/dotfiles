@@ -160,6 +160,13 @@ let s:definitions['toml'] = [
       \ },
       \ ]
 
+let s:definitions['lua'] = [
+      \ {
+      \   '\<function \([a-zA-Z_#.]\+\)\s*(': '\1 = function(',
+      \   '\<\([a-zA-Z_#.]\+\) = function\s*(': 'function \1(',
+      \ },
+      \ ]
+
 let s:definitions['gitcommit'] = [
       \ ['feat', 'fix', 'refactor'],
       \ ['style', 'docs'],
