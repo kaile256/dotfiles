@@ -12,7 +12,7 @@ if !exists('*g:switch_extra_definitions')
 endif
 
 function! s:increment() abort
-  silent! call repeat#set("\<Plug>(switch-increment)")
+  silent! call repeat#set("\<Plug>(switch-increment-extra)")
   let line = getline('.')
   call switch#Switch({
         \ 'definitions': g:switch_extra_definitions
@@ -24,7 +24,7 @@ function! s:increment() abort
 endfunction
 
 function! s:decrement() abort
-  silent! call repeat#set("\<Plug>(switch-decrement)")
+  silent! call repeat#set("\<Plug>(switch-decrement-extra)")
   let line = getline('.')
   call switch#Switch({
         \ 'definitions': g:switch_extra_definitions,
@@ -36,10 +36,10 @@ function! s:decrement() abort
   silent! SplitjoinJoin
 endfunction
 
-nnoremap <silent> <Plug>(switch-increment) <Cmd>call <SID>increment()<CR>
-nnoremap <silent> <Plug>(switch-decrement) <Cmd>call <SID>decrement()<CR>
-nmap z<C-a> <Plug>(switch-increment)
-nmap z<C-x> <Plug>(switch-decrement)
+nnoremap <silent> <Plug>(switch-increment-extra) <Cmd>call <SID>increment()<CR>
+nnoremap <silent> <Plug>(switch-decrement-extra) <Cmd>call <SID>decrement()<CR>
+nmap z<C-a> <Plug>(switch-increment-extra)
+nmap z<C-x> <Plug>(switch-decrement-extra)
 
 nmap g<C-a> <Plug>(switch-increment-local)
 nmap g<C-x> <Plug>(switch-increment-local)
