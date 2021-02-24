@@ -1,6 +1,10 @@
 " TOML: appearance.toml
 " Repo: kevinhwang91/nvim-hlslens
 
+hi! link HlSearchLensCur Search
+hi! link HlSearchLens    WildMenu
+hi! link HlSearchCur     Search
+
 nnoremap <SID>(hlslens-on)  <Cmd>lua require('hlslens').start()<CR>
 nnoremap <SID>(hlslens-off) <Cmd>lua require('hlslens').disable()<CR>
 inoremap <SID>(hlslens-off) <Cmd>lua require('hlslens').disable()<CR>
