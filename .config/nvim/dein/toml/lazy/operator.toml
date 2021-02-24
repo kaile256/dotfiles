@@ -63,8 +63,12 @@ repo = 'AndrewRadev/switch.vim'
 # switch as predefined, such as "true" & "false".
 on_cmd = ['Switch', 'SwitchReverse']
 on_func = ['switch#']
+on_map = {n = '<Plug>(switch-'}
 hook_add = 'source $DEIN_RC_DIR/switch/add.vim'
 hook_source = 'source $DEIN_RC_DIR/switch/sou.vim'
+hook_post_source = '''
+  source $DEIN_RC_DIR/switch/local_definitions.vim
+'''
 # [[plugins]]
 # repo = 'nishigori/increment-activator'
 # # almost same as AndrewRadev/switch.vim; configurable in Dict of filetypes.
