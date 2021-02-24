@@ -55,6 +55,11 @@ function! s:set_extra_definitions() abort
 
   " The patterns would hardly match outside of &ft=vim.
   let rules.vimscript = [
+        \ ['ctermfg=', 'guifg='],
+        \ ['guifg=', 'ctermfg='],
+        \ ['ctermbg=', 'guibg='],
+        \ ['guibg=', 'ctermbg='],
+        \
         \ {
         \   '\<s:\ze\h\w\+(': '<SID>',
         \   '<SID>\ze\h\w\+(': 's:',

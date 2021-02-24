@@ -123,16 +123,9 @@ let s:definitions['vim'] = [
       \ {
       \   '\(set\l*\) no\(\l+\)': '\1 \2',
       \ },
-      \ {
-      \   'cterm=': 'gui=',
-      \   'gui=': 'cterm=',
-      \
-      \   'ctermfg=': 'guifg=',
-      \   'guifg=': 'ctermfg=',
-      \
-      \   'ctermbg=': 'guibg=',
-      \   'guibg=': 'ctermbg=',
-      \ },
+      \ ['cterm=',   'gui='],
+      \ ['guifg=',   'guibg='],
+      \ ['ctermfg=', 'ctermbg='],
       \
       \ {
       \   '\(n\?vim\)-\(\f\+\)': '\2.\1',
