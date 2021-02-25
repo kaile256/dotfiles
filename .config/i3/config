@@ -320,6 +320,11 @@ bindsym $SuperS+T layout tabbed; $noid $alert 'Layout: tabbed'
 bindsym $Super+Delete  floating disable
 bindsym $SuperS+Delete floating enable
 
+set $scratchpad_rotate scratchpad show
+set $scratchpad_apply  move to scratchpad
+bindsym $Super+BackSpace  $scratchpad_rotate
+bindsym $SuperS+BackSpace $scratchpad_apply
+
 # Workspace; Focus Switch {{{2
 # [yes|no]: Assume you've moved $ws1 to $ws8, `workspace $ws8` take the focus
 # back to $ws2.
