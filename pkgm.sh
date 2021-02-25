@@ -194,6 +194,7 @@ PACKAGEs=(
   traceroute
   #gdrive # A Google Drive CLI Client; failed to get access token
   blugon # a blue light filter for X
+  xorg-xgamma # optionally used by blugon as the backend.
   #thinkfinger # fprint may be an better alternative. A driver for fingerprint reader on ThinkPad; seems no use on the model
   #fprintd # no device found on thinkpad.
   #fingerprint-gui # No device found on thinkpad
