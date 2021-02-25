@@ -217,7 +217,7 @@ $noid nm-applet
 $always pgrep fcitx5 >/dev/null 2>&1 || fcitx5 &
 
 # Modify bluelight of monitors as time period in a day.
-$noid blugon &
+$noid blugon --backend xgamma &
 
 # bind for SandS on skk
 # FIXME: faster response
