@@ -8,42 +8,59 @@ augroup myRestoreCursor
        \ | endif
 augroup END
 
-augroup myWindowAutoResize
-  " Note: `VimResized` causes agonizing lag to redraw.
-  au WinNew * call s:resize_window()
-augroup END
-function! s:resize_window() abort
-  if &winfixwidth | return | endif
-
-  const min_width = max([&columns / 3, 120])
-  if &columns < min_width * 3 | return | endif
-
-  const winnrs = range(1, winnr('$'))
-  if len(winnrs) == 1 | return | endif
-
-  let save_view = winsaveview()
-  for wn in winnrs[1:-1]
-    let pos = win_screenpos(wn)
-    if pos[1] == 1 | continue | endif
-
-    let winnrs_parallel = filter(deepcopy(winnrs),
-         \ 'v:val < wn && win_screenpos(v:val)[0] == pos[0]')
-    let cnts_para_wins = len(winnrs_parallel)
-    if cnts_para_wins == 0 | continue | endif
-
-    let left_occupied = eval(join(map(deepcopy(winnrs_parallel),
-         \ 'min([min_width, winwidth(v:val)])'), '+')) + 1
-    let col = &columns - left_occupied
-    if col < min_width | continue | endif
-
-    " The window has possibly been deleted just before being resized.
-    if winbufnr(wn) == -1 | continue | endif
-
-    exe 'vertical' wn 'resize' col
-  endfor
-
-  call winrestview(save_view)
-endfunction
+" augroup myWindowAutoResize
+"   " Note: `VimResized` causes agonizing lag to redraw.
+"   au WinNew * call s:resize_window()
+" augroup END
+" function! s:resize_window() abort
+"   if &winfixwidth | return | endif
+"
+"   const min_width = max([&columns / 3, 120])
+"   if &columns < min_width * 3 | return | endif
+"
+"   const winnrs = range(1, winnr('$'))
+"   if len(winnrs) == 1 | return | endif
+"
+"   let save_view = winsaveview()
+"   for wn in winnrs[1:-1]
+"     let pos = win_screenpos(wn)
+"     if pos[1] == 1 | continue | endif
+"
+"     let winnrs_parallel = filter(deepcopy(winnrs),
+"         \ 'v:val < wn && win_screenpos(v:val)[0] == pos[0]')
+"     let cnts_para_wins = len(winnrs_parallel)
+"     if cnts_para_wins == 0 | continue | endif
+"
+"     let left_occupied = eval(join(map(deepcopy(winnrs_parallel),
+"         \ 'min([min_width, winwidth(v:val)])'), '+')) + 1
+"     let col = &columns - left_occupied
+"     if col < min_width | continue | endif
+"
+"     " The window has possibly been deleted just before being resized.
+"     if winbufnr(wn) == -1 | continue | endif
+"
+"     exe 'vertical' wn 'resize' col
+"   endfor
+"
+"   call winrestview(save_view)
+" endfunction
+"
+" function! s:parse_layout(layout, ...) abort
+"   const lo = a:layout
+"   const rest = a:000
+"
+"   if lo[0] ==# 'leaf'
+"     let winid = lo[1]
+"     let winnr = win_id2win(winid)
+"     return {winnr : winnrs}
+"   elseif lo[0] ==# 'col'
+"     return s:parse_layout(lo[1])
+"   elseif lo[0] ==# 'row'
+"     return s:parse_layout(lo[1])
+"   endif
+"
+"   throw 'Invalid arguments: '. string(a:layout)
+" endfunction
 
 augroup mySetReadonly
   au BufWinEnter *.{ico,icns} setlocal readonly nomodifiable
