@@ -55,6 +55,8 @@ function! s:register_keys() abort
   let l:nmaps['Paste Path:'] = {
         \ 'name': '[ local ]',
         \
+        \ "\<C-g>": ["\<C-o>:echo expand('%:p') \<CR>", 'Echo current full-path'],
+        \
         \ 'f': ['<Plug>(paste-fname)', 'Paste current filename'],
         \ 'F': ['<Plug>(paste-fullpath)',  'Paste current full-path'],
         \
