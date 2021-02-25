@@ -317,6 +317,9 @@ bindsym $SuperS+T layout tabbed; $noid $alert 'Layout: tabbed'
 # Sample: bindsym $mod+X move container to workspace 3; workspace 3
 # Sample: for_window [class="^foo$"] floating enable, move container to workspace 4
 
+bindsym $Super+Delete  floating disable
+bindsym $SuperS+Delete floating enable
+
 # Workspace; Focus Switch {{{2
 # [yes|no]: Assume you've moved $ws1 to $ws8, `workspace $ws8` take the focus
 # back to $ws2.
