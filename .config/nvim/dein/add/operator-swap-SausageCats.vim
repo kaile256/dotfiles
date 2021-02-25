@@ -27,7 +27,7 @@ function! s:simple_swap() abort
   endif
 
   let s:is_swapping = 1
-  call s:set_mappings_to_clear()
+  " call s:set_mappings_to_clear()
   return "\<Plug>(operator-swap-area1)"
 endfunction
 
@@ -45,6 +45,7 @@ endfunction
 
 function! s:clear_swapping(key) abort
   let s:is_swapping = 0
+  " TODO: Restore the mapping.
   exe 'nunmap' a:key
 endfunction
 
