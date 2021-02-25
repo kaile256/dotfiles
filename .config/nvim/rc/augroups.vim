@@ -4,7 +4,7 @@ augroup myRestoreCursor
   " Note: `:normal` regards following `| endif` as its argument.
   au BufReadPost * if &bt ==# '' && &ft !~# 'git'
        \ && line("'\"") >= 1 && line("'\"") <= line('$') |
-       \ exe 'norm! g`"'
+       \ exe 'norm! g`"zz'
        \ | endif
 augroup END
 
