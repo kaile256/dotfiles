@@ -51,6 +51,7 @@ augroup mySetReadonly
 augroup END
 
 augroup myAutoUpdateColorColumn
+  au BufWinEnter * if &l:tw != &g:tw | let &colorcolumn = (&tw > 50 ? &tw : &g:tw) + 1 | endif
   au OptionSet textwidth let &colorcolumn = (&tw > 50 ? &tw : &g:tw) + 1
 augroup END
 
