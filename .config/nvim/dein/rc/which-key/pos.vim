@@ -38,6 +38,8 @@ function! s:register_keys() abort
   let l:nmaps['Yank Path:'] = {
         \ 'name': '[ local ]',
         \
+        \ "\<C-g>": [':echo expand("%:p") ', 'Echo current full-path'],
+        \
         \ '0': ['<Plug>(yank-zero)', 'Get current @0'],
         \
         \ 'f': ['<Plug>(yank-fname)', 'Get current filename'],
