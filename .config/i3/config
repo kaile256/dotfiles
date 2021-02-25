@@ -671,11 +671,11 @@ set $termporal alacritty \
     -e fish
 bindsym $Super+Return $once $termporal
 
-$release $Super+P $noid alacritty \
-    --title TMP_python_on_alacritty \
-    --dimensions 85 25 \
+set $calculator alacritty \
+    --title TMP-Calculator \
     --config-file $XDG_CONFIG_HOME/alacritty/temporary.yml \
     -e python
+$release $Super+P $noid $calculator
 
 set $Qutebrowser_bookmarks alacritty \
     --title TMP_border_Qutebrowser_bookmarks \
