@@ -110,7 +110,7 @@ PACKAGEs=(
   xkeysnail # remapping tool for X written in Python
   lua-lcf # formatter for lua
   luacheck # linter for lua, integrating with lua-lsp
-  # lua-lsp-git # rarely updated
+  # lua-lsp-git # rarely updated; no longer supported by coc-lua
   lua-language-server-git
   code # vscode
   stylelint # a linter for CSS
