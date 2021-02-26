@@ -2,6 +2,8 @@ scriptencoding utf-8
 " TOML: appearance.toml
 " Repo: dense-analysis/ale
 
+let g:ale_sign_priority = 10
+
 let g:ale_disable_lsp = 1
 
 let g:ale_sign_warning = ''
