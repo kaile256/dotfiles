@@ -162,7 +162,12 @@ PACKAGEs=(
   #haskell-language-server-git # returns 404
   #haskell-ide-engine # install as the language server; returns 404
   maven # Java's build tool
+
+  # Languagetool
   languagetool # OSS server for spell check
+  # languagetool-ngrams-en # n-gram data to find errors.  Too heavy.
+  languagetool-word2vec-en # neural network rules to find errors.
+
   jdk8-openjdk
   jad # Java Decompiler
   openjdk11-src # includes both jdk11-openjdk and jre11-openjdk
