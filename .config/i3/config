@@ -2,6 +2,9 @@
 # Ref: .xinitrc
 # Else: /etc/lightdm/lightdm.conf
 
+# Note:
+# - Get class name by `xprop`.
+
 # Variables {{{1
 # NOTE: seems no case-sensitive in variable
 # Var; Font {{{2
