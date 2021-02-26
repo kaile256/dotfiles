@@ -42,6 +42,7 @@ HOMEs=(
   .markdownlint.yaml
   .myapi
   .myscripts
+  .pam_environment
   .profile
   .taskrc
   .vim
