@@ -259,16 +259,14 @@ $noid alsactl daemon
 # With `exec_always` disconnect devices every time.
 $noid pulseaudio --kill; sleep 5; pulseaudio --start &
 
-# Only once try to connect earphones.
-$noid $MY_I3_SCRIPTS/connect-earphones --simple >/dev/null 2>&1
-$always $MY_I3_SCRIPTS/connect-keyboard >/dev/null 2>&1
+# Try to connect bluetooth earphones once.
+$noid DEVICE="Earphones" $MY_I3_SCRIPTS/bluetooth.sh --reconnect &
 
 # AutoStart Applications {{{1
 # Ref: specifiy workspace to start in
 #    @ https://ayageman.blogspot.com/2017/02/t510-2.html
-# TODO: open qutebrowser in background
 
-#$noid qutebrowser
+$noid qutebrowser
 #$noid $vivaldi
 #$noid nvim-qt
 
