@@ -102,14 +102,16 @@ on_path = '\.vader'
 hook_source = 'runtime source/vader.vim'
 
 #[ Local ]
-#[[plugins]]
-#repo = 'embear/vim-localvimrc'
-
 [[plugins]]
-repo = 'thinca/vim-localrc'
-# add ".local.vimrc"
-#on_if = "expand('%:p') =~# fnamemodify($MYVIMRC, ':h')"
-on_event = ['VimEnter']
+repo = 'embear/vim-localvimrc'
+# Well documented, and customizable.
+on_event = ['BufWinEnter']
+hook_source = 'source $DEIN_RC_DIR/localvimrc/sou.vim'
+# [[plugins]]
+# # repo = 'thinca/vim-localrc'
+# # add ".local.vimrc"
+# #on_if = "expand('%:p') =~# fnamemodify($MYVIMRC, ':h')"
+# on_event = ['VimEnter']
 #[ Quickfix ]
 #[[plugins]]
 #repo = 'lambdalisue/qfloc.vim'
