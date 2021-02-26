@@ -11,6 +11,14 @@ set -Cue #{{{
 #   an error prevents to boot your system.
 #}}}
 
+SCRIPT_DIR=$(readlink -f "$0" | xargs dirname)
+
+# A symnbolic link of mimeapps.list will be overwritten on the external update
+# as a file, and cannot be simply overwritten as a symbolic link.
+if [ "$USER" = "kaile256" ]; then
+  cp "$SCRIPT_DIR/.config/mimeapps.list" "$XDG_CONFIG_HOME"
+fi
+
 LOCALs=(
   #nvim/swap
   qutebrowser/greasemonkey
@@ -71,7 +79,6 @@ NON_ANDROIDs=(
   fcitx5
   glrnvim.yml
   i3
-  mimeapps.list # for qutebrowser should be the default browser
   nyaovim
   polybar # a status bar
   qutebrowser
