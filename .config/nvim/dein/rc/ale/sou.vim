@@ -15,6 +15,23 @@ let g:ale_linters_ignore = {
       \ ],
       \ }
 
+function! s:disable_some_lints(linters) abort
+  const pat_my_repo = $USER .'/[^/]\+/\.git'
+  if get(b:, 'git_dir', '') !~# pat_my_repo | return | endif
+  let b:ale_linters_ignore = a:linters
+endfunction
+function! s:disable_lints_on_localvimrc(linters) abort
+  if expand('%:t') ==# '.local.vimrc'
+    let b:ale_linters_ignore = a:linters
+  endif
+endfunction
+augroup Ale/Sou-DisableLocalLint
+  au FileType vim call s:disable_some_lints(['vint'])
+  if dein#tap('vim-localvimrc') || dein#tap('vim-localrc')
+    au FileTYpe vim call s:disable_lints_on_localvimrc(['vint'])
+  endif
+augroup END
+
 if dein#tap('repmo-vim')
   map <expr> ]x repmo#Key('<Plug>(ale_next)', '<Plug>(ale_previous)')
   map <expr> [x repmo#Key('<Plug>(ale_previous)', '<Plug>(ale_next)')
