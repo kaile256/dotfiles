@@ -313,6 +313,9 @@ PACKAGEs=(
   #i3-style
   #bluez   # for Bluetooth
   #bluez-utils
+
+  # SKK
+  yaskkserv # Yet Another SKK Server
   skk-jisyo
   libskk
   # fcitx-skk
