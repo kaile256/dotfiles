@@ -47,7 +47,7 @@ PACKAGEs=(
   lshw # removed with `bmenu`
 
   # Fcitx
-  fcitx5-configtool
+  fcitx5-im # A group of fcitx5 packages. Engines should be installed independently.
   fcitx5-mozc
   fcitx5-skk # fcitx5 is written in CPP while fcitx is in C and under maintenance.
   fcitx5-skin-arc # A theme for fcitx5.
@@ -318,7 +318,6 @@ PACKAGEs=(
   yaskkserv # Yet Another SKK Server
   skk-jisyo
   libskk
-  # fcitx-skk
   skk-emoji-jisyo
   skktools
 )
