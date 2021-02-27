@@ -73,7 +73,8 @@ function! s:path.vim() abort
   exe 'setlocal path+='. $DEIN_GITHUB_DIR .'/*'
   exe 'setlocal path+='. $DEIN_GITHUB_DIR
 
-  exe 'setlocal path+='. $GHQ_ROOT .'/github.com/neovim/neovim'
+  const nvim_source_home = $GHQ_ROOT .'/github.com/neovim/neovim'
+  exe 'setlocal path+='. nvim_source_home
 
   exe 'setl path-='. &g:path
 endfunction
