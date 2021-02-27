@@ -39,9 +39,6 @@ if !isdirectory(s:dein_itself)
   exe '!git clone https://github.com/Shougo/dein.vim' shellescape(expand(s:dein_itself))
 endif
 
-" Path for :find {{{1
-"let &path = &path . ',' . g:dein_cache_dir . '**'
-
 " Runtime Path for Dein {{{1
 "let &rtp .= ','. s:dein_itself
 exe 'set rtp +='. s:dein_itself
