@@ -66,6 +66,8 @@ function! s:path.vim() abort
   endif
 
   setlocal suffixesadd=_release,.lua
+  " Note: Upward search by `;` with `lua` path fails to search paths which
+  " doesn't contain 'lua' directory.  Upward search with '*' also also fails.
   exe 'setlocal path+='. $DEIN_GITHUB_DIR .'/*/*/lua'
   exe 'setlocal path+='. $DEIN_GITHUB_DIR .'/*/*'
   exe 'setlocal path+='. $DEIN_GITHUB_DIR
