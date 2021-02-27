@@ -70,6 +70,7 @@ function! s:path.vim() abort
   " doesn't contain 'lua' directory.  Upward search with '*' also also fails.
   exe 'setlocal path+='. $DEIN_GITHUB_DIR .'/*/*/lua'
   exe 'setlocal path+='. $DEIN_GITHUB_DIR .'/*/*'
+  exe 'setlocal path+='. $DEIN_GITHUB_DIR .'/*'
   exe 'setlocal path+='. $DEIN_GITHUB_DIR
 
   exe 'setlocal path+='. $GHQ_ROOT .'/github.com/neovim/neovim'
