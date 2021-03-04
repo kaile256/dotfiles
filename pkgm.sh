@@ -144,7 +144,7 @@ PACKAGEs=(
   cling # cpp's interpretor; required for REPL. Install the default.
   st # a terminal emulater lighter than urxvt/xterm
   compiledb # a generator for clang's JSON
-  deno-bin # a better runtime than node.js which include TypeScript compiler
+  deno # a better runtime than node.js which include TypeScript compiler
   sshfs # mount another filesystem via ssh
   php-fpm # required by nginx to run php
   # nginx-unit-php
