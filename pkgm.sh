@@ -57,7 +57,7 @@ PACKAGEs=(
   q4wine # gui for `wine`
   wine # a layer to run programs for Windows
   wine-mono-bin # Replacement for Microsoft's .NET Framework in Wine.
-  wine-gecko-bin # Replacement for Microsoft's Internet Explorer in Wine.
+  wine-gecko # Replacement for Microsoft's Internet Explorer in Wine.
   winetricks # REdistributable runtime libraries in Wine.
 
   # Screenshot: mouse to select range
