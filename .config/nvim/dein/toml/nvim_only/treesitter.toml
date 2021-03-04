@@ -6,10 +6,10 @@ on_event = 'BufRead'
 hook_done_update = 'TSUpdate'
 hook_source = 'source $DEIN_RC_DIR/treesitter/sou.vim'
 
-[[plugins]]
-repo = 'p00f/nvim-ts-rainbow'
-on_source = 'nvim-treesitter'
-on_event = 'BufRead'
+# [[plugins]]
+# # repo = 'p00f/nvim-ts-rainbow'
+# on_source = 'nvim-treesitter'
+# on_event = 'BufRead'
 [[plugins]]
 repo = 'nvim-treesitter/nvim-treesitter-refactor'
 depends = 'nvim-treesitter'
