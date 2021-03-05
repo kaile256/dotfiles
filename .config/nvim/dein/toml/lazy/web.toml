@@ -6,7 +6,7 @@ repo = 'tyru/open-browser.vim'
 on_map = {nx = '<Plug>(openbrowser-'}
 on_cmd = 'OpenBrowser'
 on_func = 'openbrowser#'
-hook_add = 'runtime add/open-browser.vim'
+# hook_add = 'runtime add/open-browser.vim'
 hook_source = 'runtime source/open-browser.vim'
 
 [[plugins]]
