@@ -2,6 +2,8 @@
 " Repo: tyru/open-browser.vim
 " Another: source/open-browser.vim
 
+if dein#tap('vim-which-key') | finish | endif
+
 function! s:openbrowser_in(engine, ...) abort "{{{1
   let engine = a:engine =~# '/$'
         \ ? a:engine

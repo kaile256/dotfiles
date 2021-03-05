@@ -104,65 +104,43 @@ function! s:register_keys() abort
           \ }
   endif
 
-  " " if dein#tap('open-browser.vim') "{{{1
-  "   let l:nmaps['OpenBrowser:'] = {}
-  "
-  "   function! s:define_mappings() abort
-  "     let prefix_for_openbrowser = '\b'
-  "     let key2engine = {
-  "          \ 'a': 'archwiki@en',
-  "          \ 'b': 'duckduckgo',
-  "          \ 'd': 'duckduckgo',
-  "          \ 'h': 'github.com/',
-  "          \ 'k': 'wikipedia',
-  "          \ 'l': 'gitlab',
-  "          \ 't': 'thesaurus',
-  "          \ 'w': 'weblio',
-  "          \ }
-  "
-  "     function! s:openbrowser(engine, args) abort
-  "       if a:engine =~# '/$'
-  "         let prefix = 'https://'. a:engine
-  "         let url = prefix . a:args
-  "         echo 'OpenBrowser' url
-  "         exe  'OpenBrowser' url
-  "       else
-  "         let engine = '-'. a:engine
-  "         echo 'OpenBrowserSearch' engine a:args
-  "         exe  'OpenBrowserSearch' engine a:args
-  "       endif
-  "     endfunction
-  "
-  "     let which_keys = {}
-  "     for key in keys(key2engine)
-  "       let raw_engine = key2engine[key]
-  "       let description = 'Open in '. raw_engine
-  "       let engine = substitute(raw_engine, '[@/.]', '_', 'g')
-  "
-  "       let s:op = {}
-  "       function! s:op_browser(raw_engine, ...) abort
-  "         if a:0
-  "           let args = getline('.')[col("'[") - 1 : col("']") -1]
-  "         else
-  "           let args = getline('.')[col("'<") - 1 : col("'>") -1]
-  "         endif
-  "         call s:openbrowser(a:raw_engine, args)
-  "       endfunction
-  "       let s:op[engine] = funcref('s:op_browser', [raw_engine])
-  "       let opfunc = '<SID>op.'. engine
-  "
-  "       let Plug = '<Plug>(OpenBrowser-'. engine .')'
-  "       exe 'nnoremap <silent>' Plug ':<C-u>set opfunc='. opfunc .'<CR>g@'
-  "       exe 'xnoremap <silent>' Plug ':call' opfunc .'()<CR>'
-  "
-  "       call extend(which_keys, {key : [Plug, description]})
-  "     endfor
-  "
-  "     return which_keys
-  "   endfunction
-  "   call extend(l:nmaps['OpenBrowser:'], s:define_mappings())
-  " endif
-  "
+  if dein#tap('open-browser.vim') "{{{1
+    function! s:openbrowser_in(engine, ...) abort
+      let engine = a:engine =~# '/$'
+            \ ? a:engine
+            \ : '-'. a:engine .' '
+
+      let words = get(a:, 1, '') ==# 'x'
+            \ ? getline('.')[col("'<") - 1 : col("'>") - 1]
+            \ : engine =~# '/$'
+            \   ? expand('<cfile>')
+            \   : expand('<cword>')
+
+      let args = engine . words
+
+      echo 'OpenBrowserSmartSearch '. args
+      exe  'OpenBrowserSmartSearch '. args
+    endfunction
+
+    let l:nmaps['OpenBrowser:'] = {
+          \ 'H': [funcref('s:openbrowser_in', ['http://github.com/']), 'Search in GitHub'],
+          \
+          \ 'Y': [funcref('s:openbrowser_in', ['duckduckgo&year']),  'Duckduckgo in Year'],
+          \ 'M': [funcref('s:openbrowser_in', ['duckduckgo&month']), 'Duckduckgo in Month'],
+          \ 'W': [funcref('s:openbrowser_in', ['duckduckgo&week']),  'Duckduckgo in Week'],
+          \ 'D': [funcref('s:openbrowser_in', ['duckduckgo&day']),   'Duckduckgo in Day'],
+          \
+          \ 'd': [funcref('s:openbrowser_in', ['duckduckgo']),  'Search in Duckduckgo'],
+          \ 'a': [funcref('s:openbrowser_in', ['archwiki@en']), 'Search in Archwiki in English'],
+          \ 'k': [funcref('s:openbrowser_in', ['wikipedia']),   'Search in Wikipedia'],
+          \ 'h': [funcref('s:openbrowser_in', ['github']),      'Search in GitHub'],
+          \ 'l': [funcref('s:openbrowser_in', ['gitlab']),      'Search in GitLab'],
+          \ 't': [funcref('s:openbrowser_in', ['thesaurus']),   'Search in Thesaurus'],
+          \ 'w': [funcref('s:openbrowser_in', ['weblio']),      'Search in Weblio'],
+          \ }
+
+  endif
+
   if dein#tap('vim-windowswap') "{{{1
     function! s:SwapWindow(direction) abort
       call WindowSwap#MarkWindowSwap()

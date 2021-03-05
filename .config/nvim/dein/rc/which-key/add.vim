@@ -16,3 +16,5 @@ nnoremap <silent> <space>z :<C-u>WhichKey 'FZF:'<CR>
 nnoremap <silent> <space>h :<C-u>WhichKey 'GitHub:'<CR>
 xnoremap <silent> <space>h :<C-u>WhichKey 'GitHub:'<CR>
 
+nnoremap <silent> <space>b :<C-u>WhichKey 'OpenBrowser:'<CR>
+xnoremap <silent> <space>b :<C-u>WhichKey 'OpenBrowser in Visual:'<CR>
