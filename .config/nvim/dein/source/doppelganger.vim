@@ -7,3 +7,14 @@ scriptencoding utf-8
 let g:doppelganger#ego#max_offset = 10
 let g:doppelganger#ego#min_range_of_pairs = 2
 
+let g:doppelganger#format#prefix = [
+        \ [
+        \   [' ', 'DoppelgangerVirtualtextContents'],
+        \   ['{absolute}: ', 'DoppelgangerVirtualtextPrefix'],
+        \ ],
+        \ [
+        \   [' ', 'DoppelgangerVirtualtextReverseContents'],
+        \   ['{absolute}: ', 'DoppelgangerVirtualtextReversePrefix'],
+        \ ],
+        \ ]
+
