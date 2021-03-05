@@ -21,14 +21,18 @@ endfunction
 
 let s:prefix_for_openbrowser = '<space>b'
 let s:key2engine = {
-      \ 'A': 'archwiki@en',
-      \ 'B': 'duckduckgo',
-      \ 'D': 'duckduckgo',
       \ 'H': 'http://github.com/',
-      \ 'K': 'wikipedia',
-      \ 'L': 'gitlab',
-      \ 'T': 'thesaurus',
-      \ 'W': 'weblio',
+      \ 'Y': 'duckduckgo&year',
+      \ 'M': 'duckduckgo&month',
+      \ 'W': 'duckduckgo&week',
+      \ 'D': 'duckduckgo&day',
+      \
+      \ 'd': 'duckduckgo',
+      \ 'a': 'archwiki@en',
+      \ 'k': 'wikipedia',
+      \ 'l': 'gitlab',
+      \ 't': 'thesaurus',
+      \ 'w': 'weblio',
       \ }
 for s:key in keys(s:key2engine)
   exe 'nnoremap <silent>' s:prefix_for_openbrowser . s:key
