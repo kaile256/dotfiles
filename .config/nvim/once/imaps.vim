@@ -1,6 +1,9 @@
 scriptencoding utf-8
 " From: init.vim
 
+inoremap <C-v><Space> <lt>space>
+inoremap <C-v><C-Space> <lt>space>
+
 inoremap <C-f> <C-g>U<Right>
 inoremap <C-b> <C-g>U<Left>
 
