@@ -58,6 +58,7 @@ augroup END
 
 function! s:overwrite_foldexpr() abort
   if &fdm !~# 'manual\|syntax' | return | endif
+  if index(s:filetypes_to_activate, &ft) == -1 | return | endif
   setlocal fdm=expr fde=nvim_treesitter#foldexpr()
 endfunction
 
