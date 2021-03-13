@@ -1,6 +1,5 @@
-finish
+setlocal fdm=expr fde=CppFoldExpr(v:lnum)
 
-setl fdm=expr fde=CppFoldExpr(v:lnum)
 if exists('b:undo_ftplugin')
   let b:undo_ftplugin .= ' | '
 else
