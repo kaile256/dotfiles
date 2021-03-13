@@ -3,7 +3,8 @@
 " Another: post/repmo.vim
 
 " Note:
-" #SelfKey() for non-recursive mappings like <C-y> to <C-y>/<C-e>.
+" You can find the key set by `repmo#Stl()`.
+" repmo#SelfKey() for non-recursive mappings like <C-y> to <C-y>/<C-e>.
 
 noremap <expr> ]s repmo#Key(']s', '[s')
 noremap <expr> [s repmo#Key('[s', ']s')
