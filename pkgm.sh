@@ -115,7 +115,7 @@ PACKAGEs=(
   code # vscode
   stylelint # a linter for CSS
   ueberzug # previewer for some tools
-  python-pyperclip # code_select.py on qutebrowser
+  python-pyperclip # Copy texts with <NL> for LaurenceWarne/qute-code-hint
   xbindkeys # to disable middle to paste, but enable scroll.
   docker-rootless
   docker-compose-bin # includes `docker`
