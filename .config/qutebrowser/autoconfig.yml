@@ -385,7 +385,7 @@ settings:
         wqa: bookmark-del;; bookmark-add;; quit
         yM: :set-cmd-text :config-dict-add --replace url.searchengines {url:pretty}
         yO: set-cmd-text :open -t -r {url:pretty}
-        yc: hint code userscript code_select.py
+        yc: hint code userscript code_hint.py
         yf: hint links yank
         ygc: spawn --detach google-chrome-stable {url:pretty}
         ym: :set-cmd-text :config-dict-add url.searchengines {url:pretty}
