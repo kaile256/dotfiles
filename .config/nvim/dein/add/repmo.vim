@@ -6,6 +6,15 @@
 " You can find the key set by `repmo#Stl()`.
 " repmo#SelfKey() for non-recursive mappings like <C-y> to <C-y>/<C-e>.
 
+noremap <expr> ]] repmo#Key(']]', ']]')
+noremap <expr> [[ repmo#Key('[[', '[[')
+noremap <expr> ][ repmo#Key('][', '[]')
+noremap <expr> [] repmo#Key('[]', '][')
+sunmap ]]
+sunmap [[
+sunmap ][
+sunmap []
+
 noremap <expr> ]s repmo#Key(']s', '[s')
 noremap <expr> [s repmo#Key('[s', ']s')
 
