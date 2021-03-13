@@ -256,7 +256,6 @@ function! s:set_rules() abort
         \ {'char': '<C-h>', 'at': '{\%#}',   'input': '<BS><C-g>U<Del>'},
         \ {'char': '<C-h>', 'at': '\[\%#\]', 'input': '<BS><C-g>U<Del>'},
         \ {'char': '<C-h>', 'at': '<\%#>',   'input': '<BS><C-g>U<Del>'},
-        \ {'char': '<C-h>', 'at': '\W\s\%#\s\W', 'input': '<BS><C-g>U<Del>'},
         \
         \ {'char': '<C-h>', 'at': "'\\%#'", 'input': '<BS><C-g>U<Del>'},
         \ {'char': '<C-h>', 'at': '"\%#"',  'input': '<BS><C-g>U<Del>'},
