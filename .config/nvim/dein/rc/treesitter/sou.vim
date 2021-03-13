@@ -52,9 +52,8 @@ delfunction s:set_filetypes_to_activate
 "}}}1
 
 function! s:overwrite_foldexpr() abort
-  if index(s:filetypes_to_activate, &ft) >= 0
-    setlocal fdm=expr fde=nvim_treesitter#foldexpr()
-  endif
+  if &fdm !~# 'manual\|syntax' | return | endif
+  setlocal fdm=expr fde=nvim_treesitter#foldexpr()
 endfunction
 
 augroup myTreesittter-setFoldExpr
