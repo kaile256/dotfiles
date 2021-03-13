@@ -21,6 +21,7 @@ function! s:set_filetypes_to_activate() abort "{{{1
         \ 'javascript',
         \ 'javascriptreact',
         \ 'json',
+        \ 'jsonc',
         \ 'julia',
         \ 'lua',
         \ 'nix',
