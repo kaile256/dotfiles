@@ -80,14 +80,7 @@ function! s:fzf_maps(prefix, command, ...) abort
 
   for l:key in keys(s:path_dict)
     let lhs = lhs_raw . l:key
-
-    if s:path_dict[l:key] =~# '^:'
-      " To: otherwise, commands to cd.
-      " Note: if E:trainling-character, check if ':command -bar' in plugin's vimscript.
-      let l:cd = s:path_dict[l:key]
-    else
-      let l:cd = ':<c-u>cd '. s:path_dict[l:key]
-    endif
+    let l:cd = ':<c-u>cd '. s:path_dict[l:key]
 
     " TODO: close fzf-window before another starts;
     "   the error statement is 'E16: Invalid range: 2wincmd w'
