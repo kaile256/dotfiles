@@ -17,6 +17,8 @@ sunmap []
 
 noremap <expr> ]s repmo#Key(']s', '[s')
 noremap <expr> [s repmo#Key('[s', ']s')
+sunmap ]s
+sunmap [s
 
 function! s:shot(char) abort
   if dein#tap('vim-easymotion')
