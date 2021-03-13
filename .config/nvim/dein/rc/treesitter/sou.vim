@@ -51,6 +51,11 @@ let s:filetypes_to_activate = s:set_filetypes_to_activate()
 delfunction s:set_filetypes_to_activate
 "}}}1
 
+augroup myTreesitterSou-WithTreesitterActivated,DisableLocalSyntaxDetection
+  exe 'au FileType' join(s:filetypes_to_activate, ',') 'setlocal syntax='
+augroup END
+
+
 function! s:overwrite_foldexpr() abort
   if &fdm !~# 'manual\|syntax' | return | endif
   setlocal fdm=expr fde=nvim_treesitter#foldexpr()
