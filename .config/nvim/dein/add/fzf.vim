@@ -57,7 +57,7 @@ command! -bar -nargs=* -complete=help H :Helptags <args>
 " Keymaps for Files {{{1
 let s:path_dict = {
       \ '.': '.',
-      \ '<space>': ':<C-u>silent Rooter',
+      \ '<space>': '<C-r>=FindRootDirectory()<CR>',
       \ 'c': $DEIN_CACHE_HOME,
       \ 'd': $DOTFILES_HOME,
       \ 'f': $XDG_CONFIG_HOME,
