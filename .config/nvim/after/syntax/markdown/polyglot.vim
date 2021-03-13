@@ -6,3 +6,4 @@ hi! link mkdCodeEnd   Comment
 
 hi! link mkdURL Comment
 hi! link mkdLink htmlLinkText
+hi! link mkdDelimiter NonText
