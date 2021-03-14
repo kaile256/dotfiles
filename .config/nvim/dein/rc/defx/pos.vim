@@ -57,6 +57,4 @@ endfunction
 
 augroup myDefxPost "{{{1
   au FileType defx call s:defx_commands()
-
-  au BufEnter \[defx]* call defx#redraw()
 augroup END

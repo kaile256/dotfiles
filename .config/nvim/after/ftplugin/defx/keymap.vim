@@ -378,3 +378,7 @@ function! s:defx_preview(mods) abort
   return defx_action
 endfunction
 
+augroup myDefxFtplugin-CustomHooks
+  au!
+  au BufEnter <buffer> call defx#redraw()
+augroup END
