@@ -189,3 +189,24 @@ let s:isdir = {dir ->
       \ (!empty($SYSTEMDRIVE) && isdirectory('/'.tolower($SYSTEMDRIVE[0]).a:dir))
       \ )}
 
+
+augroup myDefxAdd-PwdOnDefx
+  " Ref: https://github.com/Shougo/defx.nvim/issues/290
+  function! s:show_cwd_in_defx() abort
+    if &bt !=# '' | return | endif
+    const path = expand('%:p')
+    if !filereadable(path) | return | endif
+
+    Defx `getcwd()` -search=`expand('%:p')`
+          \ -buffer-name=`'cwd-'. tabpagenr()`
+          \ -no-focus
+          \ -no-new
+          \
+          \ -direction=botright
+          \ -split=vertical
+          \ -winwidth=40
+  endfunction
+
+  " TODO: Keep the defx-window after `:only`.
+  au BufEnter,TabNew * call s:show_cwd_in_defx()
+augroup END
