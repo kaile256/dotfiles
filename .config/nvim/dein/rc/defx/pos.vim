@@ -26,6 +26,9 @@ call defx#custom#option('_', {
       \
       \ 'vertical_preview': 1,
       \ 'preview_width': 80,
+      \
+      \ 'floating_preview': 1,
+      \ 'preview_height': 80,
       \ })
 
 call defx#custom#column('filename', {
