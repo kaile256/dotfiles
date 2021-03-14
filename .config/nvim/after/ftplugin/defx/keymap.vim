@@ -90,10 +90,14 @@ nmap <nowait><buffer> <C-w><C-s> <C-w>s
 
 " Explore; Quit {{{2
 " Note: The built-in `quit` hondles something like closing previews of defx.
-nnoremap <silent><nowait><buffer><expr> ZZ defx#do_action('quit')
-nnoremap <silent><nowait><buffer><expr> ZQ defx#do_action('quit')
-nnoremap <silent><nowait><buffer><expr> Zz defx#do_action('quit')
-nnoremap <silent><nowait><buffer><expr> Zq defx#do_action('quit')
+" Note: Without the following `:quit<CR>`, defx trys to keep the window that
+" defx has occupied.
+nnoremap <silent><nowait><expr> <SID>(defx-quit)
+      \ defx#do_action('quit') .':quit<CR>'
+nmap <silent><nowait><buffer> ZZ <SID>(defx-quit)
+nmap <silent><nowait><buffer> ZQ <SID>(defx-quit)
+nmap <silent><nowait><buffer> Zz <SID>(defx-quit)
+nmap <silent><nowait><buffer> Zq <SID>(defx-quit)
 
 " Open File {{{1
 " Edit {{{2
