@@ -23,6 +23,7 @@ call defx#custom#option('_', {
       \ 'show_ignored_files': 1,
       \ 'root_marker': ':',
       \ 'auto_cd': 1,
+      \
       \ 'vertical_preview': 1,
       \ 'preview_width': 80,
       \ })
