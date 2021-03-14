@@ -156,16 +156,17 @@ xnoremap <silent><nowait><buffer><expr> a
       \ ['clear_select_all', 'toggle_select_visual', ['drop', 'bel split']])
       \ .'<c-w>h'
 " Preview {{{3
-" Mnemonic: Insert a preview in actual windows
-" Note: :pclose to change location between vertical/horizontal
-nnoremap <silent><nowait><buffer><expr> <SID>(defx-preview-vertical)
-      \ <SID>defx_preview('vert bot')
-" FIXME: keep cursor on defx after :pedit ANYWHERE
-nnoremap <silent><nowait><buffer><expr> <SID>(defx-preview-horizontal)
-      \ <SID>defx_preview('bot')
+" " Mnemonic: Insert a preview in actual windows
+" " Note: :pclose to change location between vertical/horizontal
+" nnoremap <silent><nowait><buffer><expr> <SID>(defx-preview-vertical)
+"      \ <SID>defx_preview('vert bot')
+" " FIXME: keep cursor on defx after :pedit ANYWHERE
+" nnoremap <silent><nowait><buffer><expr> <SID>(defx-preview-horizontal)
+"      \ <SID>defx_preview('bot')
+"
+" nmap <buffer> I <SID>(defx-preview-vertical)
+" nmap <buffer> i <SID>(defx-preview-horizontal)
 
-nmap <buffer> I <SID>(defx-preview-vertical)
-nmap <buffer> i <SID>(defx-preview-horizontal)
 nnoremap <silent><buffer><expr> P defx#do_action('preview')
 
 " Mnemonic: Zip Preview
