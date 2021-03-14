@@ -80,7 +80,7 @@ nnoremap <silent><nowait><buffer><expr> sn
 "      \ defx#do_action('toggle_columns',
 "      \                'mark:indent:icon:filename:type:size:time')
 
-" Explore; Split Window {{{1
+" Explore; Split Window {{{2
 nnoremap <silent><nowait><buffer><expr> <C-w>v
       \ ":\<C-u>vs ". <SID>get_cwd() ."\<CR>"
 nnoremap <silent><nowait><buffer><expr> <C-w>s
