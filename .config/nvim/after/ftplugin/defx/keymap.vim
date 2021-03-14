@@ -88,6 +88,13 @@ nnoremap <silent><nowait><buffer><expr> <C-w>s
 nmap <nowait><buffer> <C-w><C-v> <C-w>v
 nmap <nowait><buffer> <C-w><C-s> <C-w>s
 
+" Explore; Quit {{{2
+" Note: The built-in `quit` hondles something like closing previews of defx.
+nnoremap <silent><nowait><buffer><expr> ZZ defx#do_action('quit')
+nnoremap <silent><nowait><buffer><expr> ZQ defx#do_action('quit')
+nnoremap <silent><nowait><buffer><expr> Zz defx#do_action('quit')
+nnoremap <silent><nowait><buffer><expr> Zq defx#do_action('quit')
+
 " Open File {{{1
 " Edit {{{2
 nnoremap <silent><nowait><buffer><expr> <C-j>
