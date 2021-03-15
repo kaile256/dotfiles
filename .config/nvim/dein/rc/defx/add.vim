@@ -192,7 +192,7 @@ let s:isdir = {dir ->
 
 augroup myDefxAdd-PwdOnDefx
   " Ref: https://github.com/Shougo/defx.nvim/issues/290
-  function! s:show_cwd_in_defx() abort
+  function! s:pwd_on_defx() abort
     if &bt !=# '' | return | endif
     const path = expand('%:p')
     if !filereadable(path) | return | endif
@@ -208,7 +208,7 @@ augroup myDefxAdd-PwdOnDefx
   endfunction
 
   " TODO: Keep the defx-window after `:only`.
-  au BufEnter,TabNewEntered * call s:show_cwd_in_defx()
+  au BufEnter,TabNewEntered * call s:pwd_on_defx()
 
   " au User defx-preview
   " au User DefxDirChanged
