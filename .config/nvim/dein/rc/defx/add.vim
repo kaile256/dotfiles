@@ -209,4 +209,7 @@ augroup myDefxAdd-PwdOnDefx
 
   " TODO: Keep the defx-window after `:only`.
   au BufEnter,TabNew * call s:show_cwd_in_defx()
+
+  " au User defx-preview
+  " au User DefxDirChanged
 augroup END
