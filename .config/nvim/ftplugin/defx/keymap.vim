@@ -178,7 +178,8 @@ xnoremap <silent><nowait><buffer><expr> a
 " nmap <buffer> I <SID>(defx-preview-vertical)
 " nmap <buffer> i <SID>(defx-preview-horizontal)
 
-nnoremap <silent><buffer><expr> P defx#do_action('preview')
+nnoremap <silent><buffer><expr> P
+      \ defx#do_action('preview')
 
 " Mnemonic: Zip Preview
 nnoremap <silent><nowait><buffer> zp <c-w>z
