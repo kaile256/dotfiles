@@ -212,6 +212,11 @@ nnoremap <silent><nowait><buffer><expr> zc
 "      \ ])
 
 " Register {{{1
+nnoremap <buffer><nowait><silent><expr> <SID>(defx-copy-symbolic-link)
+      \ defx#do_action('link')
+nnoremap <buffer><nowait><silent><script> cl
+      \ <SID>(defx-copy-symbolic-link)
+
 " yank_path: yank in plus register
 nnoremap <nowait><buffer><expr> y<C-g>
       \ defx#do_action('yank_path')
