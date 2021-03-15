@@ -7,13 +7,13 @@ repo = 'dense-analysis/ale'
 on_event = ['BufRead']
 hook_source = 'source $DEIN_RC_DIR/ale/sou.vim'
 
-# [[plugins]]
-# repo = 'wellle/context.vim'
-# # Note: irritative, though very useful plugin.
-# # Show the begining line of block where cursor is, when hidden over window.
-# on_event = 'BufWinEnter'
-# hook_source = 'runtime source/context.vim'
-# hook_post_source = 'runtime post/context.vim'
+[[plugins]]
+repo = 'wellle/context.vim'
+# Note: irritative, though very useful plugin.
+# Show the begining line of block where cursor is, when hidden over window.
+on_event = 'BufWinEnter'
+hook_source = 'source $DEIN_RC_DIR/context/sou.vim'
+hook_post_source = 'source $DEIN_RC_DIR/context/pos.vim'
 
 #[ Indent ]
 # [[plugins]]
