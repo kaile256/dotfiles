@@ -153,6 +153,8 @@ function! s:set_definitions() abort
         \ ['pre', 'post'],
         \
         \ ['head', 'tail'],
+        \
+        \ ['indent', 'outdent'],
         \ ]
 
   let rules.order = [
