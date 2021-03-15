@@ -1,7 +1,14 @@
 " TOML: appearance.toml
 " Repo: wellle/context.vim
 
-nnoremap <silent> zp :<C-u>ContextPeek<CR>
+function! s:context_on_demand() abort
+  ContextEnable
+  augroup myContextAdd-CloseContext
+    au!
+    au CursorMoved * ++once ContextDisable
+  augroup END
+endfunction
+nnoremap <silent> zp :<C-u>call <SID>context_on_demand()<CR>
 
 finish
 

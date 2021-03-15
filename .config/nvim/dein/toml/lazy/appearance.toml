@@ -11,7 +11,7 @@ hook_source = 'source $DEIN_RC_DIR/ale/sou.vim'
 repo = 'wellle/context.vim'
 # Note: irritative, though very useful plugin.
 # Show the begining line of block where cursor is, when hidden over window.
-on_cmd = ['ContextPeek']
+on_cmd = ['ContextEnable']
 hook_add = 'source $DEIN_RC_DIR/context/add.vim'
 hook_source = 'source $DEIN_RC_DIR/context/sou.vim'
 # hook_post_source = 'source $DEIN_RC_DIR/context/pos.vim'
