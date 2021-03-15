@@ -30,15 +30,6 @@ runtime rc/loaded.vim " disturbs to :source vimscripts under $VIMRUNTIME
 " Note: `!` is required to source all the same named files.
 runtime! keymap/*.vim
 runtime rc/lazy.vim
+runtime rc/once.vim
 runtime rc/startpage.vim
 
-augroup myRuntimesSelection
-  au InsertEnter,CmdLineEnter,CmdWinEnter * ++once runtime once/autocorrect.vim
-  " au CmdLineEnter,CmdWinEnter * ++once runtime once/cabbrs.vim
-  au CmdLineEnter,CmdWinEnter * ++once runtime once/commands.vim
-
-  runtime once/omaps.vim
-  au InsertEnter              * ++once runtime once/imaps.vim
-  au CmdLineEnter,CmdWinEnter * ++once runtime once/cmaps.vim
-  exe 'au' TermOpen '* ++once runtime once/tmaps.vim'
-augroup END

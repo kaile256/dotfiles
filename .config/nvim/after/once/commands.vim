@@ -3,13 +3,27 @@
 " Ref: cabbrs.vim
 
 if executable('hub')
+  function! s:hub_complete(A, C, P) abort
+    if !exists('s:hub_opts')
+      const s:hub_opts = systemlist('hub --help | grep -v ''^\S'' | grep  -e ''^\s*[a-z]'' | awk ''{print $1}''')
+    endif
+
+    if a:C =~# '^\S\+\s\+\S\+\s\+'
+      if dein#tap('vim-fugitive')
+        const paths = fugitive#CompleteObject(a:A)
+      else
+        " TODO
+      endif
+      return paths
+    endif
+
+    const matches = filter(deepcopy(s:hub_opts), 'v:val =~# "^". a:A')
+    return matches
+  endfunction
   " Note: !hub with `nvr` often fails to work.
-  command! -nargs=* Hub
+  command! -bar -nargs=* -complete=customlist,s:hub_complete Hub
         \ :!git branch --show-current
-        \ && GIT_EDITOR='nvim-qt' hub -C %:p:h <args>
-  command! -nargs=* PR
-        \ :!git branch --show-current
-        \ && GIT_EDITOR='nvim-qt' hub -C %:p:h pull-request <args>
+        \ && hub -C %:p:h <args>
 endif
 
 command! -bar Cclear :noau cexpr [] " Clear quickfix list

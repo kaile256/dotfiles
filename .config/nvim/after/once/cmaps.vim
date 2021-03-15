@@ -184,6 +184,7 @@ function! s:assign_window(mods) abort
     const cmd =  a:mods .' sp'
   endif
 
+  echo cmd new_line
   return cmd .' '. new_line
 endfunction
 
