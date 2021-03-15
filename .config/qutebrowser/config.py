@@ -9,6 +9,9 @@ import subprocess
 
 from qutebrowser.api import interceptor
 
+c = c
+config = config
+
 config.load_autoconfig()  # load ./autoconfig.yml
 
 
