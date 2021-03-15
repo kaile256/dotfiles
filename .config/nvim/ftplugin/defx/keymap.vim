@@ -181,8 +181,6 @@ xnoremap <silent><nowait><buffer><expr> a
 nnoremap <silent><buffer><expr> p
       \ defx#do_action('preview')
 
-" Mnemonic: Zip Preview
-nnoremap <silent><nowait><buffer> zp <c-w>z
 " in Tree {{{2
 nnoremap <silent><nowait><buffer><expr> za
       \ defx#do_action('open_or_close_tree')
