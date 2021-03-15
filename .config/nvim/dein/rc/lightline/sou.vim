@@ -386,8 +386,7 @@ function! s:specific_buffer() abort "{{{3
 
   if &ft =~# 'help\|man'
     " Return the title.
-    " Use substitute() since matchstr() leaves no string for 'man'.
-    const fname = substitute(expand('%:p:r'), '.*/doc/', '', '')
+    const fname = expand('%:t:r')
     return toupper(&ft) .'['. fname .']'
   endif
 
