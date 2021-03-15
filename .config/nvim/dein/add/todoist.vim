@@ -15,7 +15,3 @@ let g:todoist['icons'] = {
       \ 'error':     '  ',
       \ }
 
-let g:clap_provider_todoist = {
-      \ 'source': {-> Todoist_listProjects()},
-      \ 'sink': 'Todoist',
-      \ }
