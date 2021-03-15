@@ -178,7 +178,7 @@ xnoremap <silent><nowait><buffer><expr> a
 " nmap <buffer> I <SID>(defx-preview-vertical)
 " nmap <buffer> i <SID>(defx-preview-horizontal)
 
-nnoremap <silent><buffer><expr> P
+nnoremap <silent><buffer><expr> p
       \ defx#do_action('preview')
 
 " Mnemonic: Zip Preview
@@ -235,7 +235,7 @@ nnoremap <nowait><buffer><expr> x
 xnoremap <nowait><buffer><expr> x
       \ defx#do_action('multi',
       \ ['clear_select_all', 'toggle_select_visual', 'move'])
-nnoremap <nowait><buffer><expr> p
+nnoremap <nowait><buffer><expr> P
       \ defx#do_action('paste')
 
 " Execute {{{2
