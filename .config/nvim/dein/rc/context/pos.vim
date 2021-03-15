@@ -3,14 +3,22 @@
 " Another: source/context.vim
 " Another: post/context.vim
 
-let g:context_add_mappings = 0
+ContextEnable
 
-nnoremap <silent><expr> H context#util#map_H()
+augroup myContextPost
+  " FIXME: suppress floating context window on opening gitcommit.
+  au BufEnter * call s:disable_context_on_buffer()
+augroup END
 
-nnoremap <silent><expr> zz context#util#map('zz')
-nnoremap <silent><expr> zb context#util#map('zb')
-nnoremap <silent><expr> zt context#util#map_zt()
+function! s:disable_context_on_buffer() abort
+  if index(g:context_filetype_blacklist, &ft) == -1
+        \ && &bt !=# 'terminal'
+    return
+  endif
+  ContextDisableWindow
 
-nnoremap <silent><expr> <c-e> context#util#map('<C-e>')
-nnoremap <silent><expr> <c-y> context#util#map('<C-y>')
+  augroup myContextPost-tmp
+    au! BufWinLeave <buffer> ContextEnableWindow
+  augroup END
+endfunction
 
