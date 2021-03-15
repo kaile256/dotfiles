@@ -25,7 +25,7 @@ call defx#custom#option('_', {
       \ 'auto_cd': 1,
       \
       \ 'vertical_preview': 1,
-      \ 'preview_width': 80,
+      \ 'preview_width': 120,
       \
       \ 'floating_preview': 1,
       \ 'preview_height': 80,
