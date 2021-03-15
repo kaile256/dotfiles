@@ -38,6 +38,9 @@ function! s:set_extra_definitions() abort
   let rules.participle = [
         \ ['being', 'been'],
         \
+        \ ['write', 'written'],
+        \ ['override', 'overridden'],
+        \
         \ {
         \   '\(\a\+\)ing': '\1ed',
         \   '\(\a\+\)ed': '\1ing',
