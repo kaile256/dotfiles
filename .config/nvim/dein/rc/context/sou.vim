@@ -3,6 +3,9 @@
 " Another: add/context.vim
 " Another: post/context.vim
 
+let g:context_add_mappings = 0
+let g:context_add_autocmds = 0
+
 " let g:context_presenter = 'preview' " default: nvim-float or vim-popup
 
 " default: 21
