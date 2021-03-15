@@ -92,8 +92,15 @@ nmap <nowait><buffer> <C-w><C-s> <C-w>s
 " Note: The built-in `quit` hondles something like closing previews of defx.
 " Note: Without the following `:quit<CR>`, defx trys to keep the window that
 " defx has occupied.
-nnoremap <silent><nowait><expr> <SID>(defx-quit)
-      \ defx#do_action('quit') .':quit<CR>'
+function! s:defx_quit() abort
+  if &ft !=# 'defx' | return | endif
+  const wins = len(tabpagebuflist())
+  call defx#call_action('quit')
+  if wins != len(tabpagebuflist()) | return | endif
+  quit
+endfunction
+nnoremap <silent><nowait> <SID>(defx-quit)
+      \ :<C-u>call <SID>defx_quit()<CR>
 nmap <silent><nowait><buffer> ZZ <SID>(defx-quit)
 nmap <silent><nowait><buffer> ZQ <SID>(defx-quit)
 nmap <silent><nowait><buffer> Zz <SID>(defx-quit)
