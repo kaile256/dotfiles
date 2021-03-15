@@ -29,6 +29,7 @@ runtime rc/findpath.vim
 runtime rc/loaded.vim " disturbs to :source vimscripts under $VIMRUNTIME
 " Note: `!` is required to source all the same named files.
 runtime! keymap/*.vim
+runtime rc/lazy.vim
 runtime rc/startpage.vim
 
 augroup myRuntimesSelection
@@ -40,15 +41,4 @@ augroup myRuntimesSelection
   au InsertEnter              * ++once runtime once/imaps.vim
   au CmdLineEnter,CmdWinEnter * ++once runtime once/cmaps.vim
   exe 'au' TermOpen '* ++once runtime once/tmaps.vim'
-
-  exe 'au' TermOpen '* runtime! lazy/terminal/*.vim'
-  au CmdwinEnter * runtime lazy/cmdwin.vim
-  " FIXME: source zenkaku.vim from external terminal, too.
-  au BufNew * ++once runtime lazy/zenkaku.vim
-  au WinNew * runtime lazy/zenkaku.vim
-
-  au BufWinEnter *      if &diff | runtime lazy/diff.vim     | endif
-  au OptionSet diff     if &diff | runtime lazy/diff.vim     | endif
-  au BufWinEnter *      if &ro   | runtime lazy/readonly.vim | endif
-  au OptionSet readonly if &ro   | runtime lazy/readonly.vim | endif
 augroup END
