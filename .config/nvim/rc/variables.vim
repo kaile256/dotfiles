@@ -57,10 +57,6 @@ endif
 " only I use in manjaro: /usr/share/nvim/runtime,~/.config/nvim/after
 set packpath=
 
-" &rtp; "{{{1
-set rtp+=~/.config/nvim/lazy
-set rtp+=~/.config/nvim/keymap
-
 " Provider {{{1
 let g:ruby_host_prog = '/usr/bin/ruby'
 
