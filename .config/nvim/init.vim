@@ -1,6 +1,8 @@
 set encoding=utf-8
 scriptencoding utf-8
 
+" set verbosefile=/tmp/vim.log
+
 " sjis: Shift-JIS
 set fileencodings=ucs-bom,utf-8,euc-jp,sjis,cp932,default,latin1
 
