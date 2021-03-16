@@ -199,7 +199,7 @@ augroup myDefxAdd-PwdOnDefx
 
     const name = 'cwd'
 
-    exe 'Defx' getcwd() '-search='. path
+    exe 'Defx' fnamemodify(path, ':h:h') '-search='. path
           \ '-buffer-name='. name
           \ '-no-focus'
           \ '-no-new'
