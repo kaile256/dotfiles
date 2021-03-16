@@ -198,7 +198,7 @@ augroup myDefxAdd-PwdOnDefx
     if !filereadable(path) | return | endif
 
     Defx `getcwd()` -search=`expand('%:p')`
-          \ -buffer-name=`'cwd-'. tabpagenr()`
+          \ -buffer-name=cwd
           \ -no-focus
           \ -no-new
           \
