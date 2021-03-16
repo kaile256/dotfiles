@@ -200,6 +200,15 @@ augroup myDefxAdd-PwdOnDefx
     const name = 'cwd'
     const root = fnamemodify(path, ':h:h')
 
+    const winnr = bufwinnr(bufnr(name))
+
+    if winnr > 0 && winnr != winnr('$')
+      " Keep the defx-cwd window at the right edge of editor.
+      const id = win_getid()
+      exe winnr 'windo quit'
+      call win_gotoid(id)
+    endif
+
     exe 'Defx' root '-search='. path
           \ '-buffer-name='. name
           \
