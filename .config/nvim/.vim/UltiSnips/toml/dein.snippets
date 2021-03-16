@@ -74,10 +74,8 @@ class Dein(Plugin):
       repos = [ clipboard ]
 
     else :
-      vim.command('echohl ErrorMsg')
-      vim.command('echo "[Invalid Format]: @+ contains no URLs"')
-      vim.command('echohl None')
-      return ''
+      # TODO: Make this position the first tabstop when `@+` contains no URLs.
+      return [ '' ]
 
     return repos
 
