@@ -198,9 +198,11 @@ augroup myDefxAdd-PwdOnDefx
     if !filereadable(path) | return | endif
 
     const name = 'cwd'
+    const root = fnamemodify(path, ':h:h')
 
-    exe 'Defx' fnamemodify(path, ':h:h') '-search='. path
+    exe 'Defx' root '-search='. path
           \ '-buffer-name='. name
+          \
           \ '-no-focus'
           \ '-no-new'
           \
