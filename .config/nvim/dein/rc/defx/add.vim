@@ -197,14 +197,16 @@ augroup myDefxAdd-PwdOnDefx
     const path = expand('%:p')
     if !filereadable(path) | return | endif
 
-    Defx `getcwd()` -search=`expand('%:p')`
-          \ -buffer-name=cwd
-          \ -no-focus
-          \ -no-new
+    const name = 'cwd'
+
+    exe 'Defx' getcwd() '-search='. path
+          \ '-buffer-name='. name
+          \ '-no-focus'
+          \ '-no-new'
           \
-          \ -direction=botright
-          \ -split=vertical
-          \ -winwidth=40
+          \ '-direction=botright'
+          \ '-split=vertical'
+          \ '-winwidth=40'
   endfunction
 
   " TODO: Keep the defx-window after `:only`.
