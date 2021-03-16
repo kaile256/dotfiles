@@ -1,5 +1,8 @@
 " From: init.vim
 
+" The format seems incompatible between Vim and Neovim.
+let s:data_home = $XDG_DATA_HOME . ( has('nvim') ? 'nvim' : 'vim' )
+
 set nobackup
 set nowritebackup
 set noswapfile
@@ -7,14 +10,16 @@ set noswapfile
 "  au! BufWritePre /tmp/* setlocal noundofile
 "augroup END
 
-set undofile undodir=~/.local/share/nvim/undo
-"set swapfile directory=~/.local/share/nvim/swap//
-"set backup writebackup backupdir=~/.local/share/nvim/backup
+exe 'set undofile undodir='. s:data_home .'/undo'
+"exe 'set swapfile directory=' s:data_home .'/swap//'
+"exe 'set backup writebackup backupdir='. s:data_home .'/backup'
 "set backupskip+=
 "set backupcopy=
 "set backupext=
-"set viminfo='1000,n~/.local/share/nvim/info
+"exe 'set viminfo=''1000,n'. s:data_home .'/info'
 
 "augroup NoSimultaniusSwap
 "  au! SwapExists * let v:swapchoice = 'd'
 "augroup END
+
+unlet s:data_home
