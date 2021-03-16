@@ -2,6 +2,14 @@
 
 onoremap <silent> gv :<c-u>norm! gv<cr>
 
+" Exclude the spaces outside of the quotes
+onoremap a' 2i'
+xnoremap a' 2i'
+onoremap a" 2i"
+xnoremap a" 2i"
+onoremap a` 2i`
+xnoremap a` 2i`
+
 " onoremap <expr> ia "\<ESC>". v:operator .'a'
 " onoremap <expr> ai "\<ESC>". v:operator .'a'
 
