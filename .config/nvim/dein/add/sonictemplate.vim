@@ -6,6 +6,8 @@
 augroup mySonicTemplate-autoStart
   au BufRead *tmp* call s:expand_template('')
 
+  au BufRead .themisrc call s:expand_template('themis')
+
   au BufRead *.sh call s:expand_template('shebang')
   au BufRead *.py call s:expand_template('shebang')
 
