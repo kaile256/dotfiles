@@ -1,5 +1,12 @@
 extends vim
 
+snippet '(Describe|Context|It|After|Before) (.*)' "[themis] append `End`" bri
+`!p snip.rv = match.group(1)` ${1:`!p snip.rv = match.group(2)`}
+`!v repeat(" ", &tabstop)`${2}
+End
+endsnippet
+
+
 snippet Describe "[themis] new scope for a suite block" b
 Describe ${1:Unit name}
 End
