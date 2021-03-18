@@ -22,6 +22,7 @@ indent_size = 4
 [*.md]
 trim_trailing_whitespace = false
 indent_style = space
+insert_final_newline = false
 
 [*.snippets]
 # `autocmd FilType` sometimes fails.
