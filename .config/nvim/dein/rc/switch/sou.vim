@@ -155,6 +155,14 @@ function! s:set_definitions() abort
         \ ['head', 'tail'],
         \
         \ ['indent', 'outdent'],
+        \
+        \ {
+        \   'comment out': 'uncomment',
+        \   'Comment out': 'Uncomment',
+        \   'Comment Out': 'Uncomment',
+        \   'uncomment': 'comment out',
+        \   'Uncomment': 'Comment out',
+        \ },
         \ ]
 
   let rules.order = [
