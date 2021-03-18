@@ -11,7 +11,7 @@ augroup myUltisnipsSo
   au FileType snippets setlocal keywordprg=:help
   au FileType snippets let &l:path = join([
         \ $SNIPPETS_HOME,
-        \ $DEIN_GITHUB_DIR .'/**/UltiSnips/',
+        \ $DEIN_GITHUB_DIR .'/*/*/UltiSnips/',
         \ ], '**,') .'**'
   au FileType snippets setlocal suffixesadd=.snippets
   " Note: neosnippet could override default ft.
