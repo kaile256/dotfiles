@@ -98,12 +98,12 @@ hook_post_source = 'runtime post/easymotion.vim'
 #hook_post_source = 'runtime add/incsearch-fuzzy.vim'
 
 #[ Sort of EasyMotion ]
-[[plugins]]
-repo = 'deris/vim-shot-f'
-# Highlight chars which you get directly.
-on_map = {nox = ['<Plug>(shot-f-']}
-# hook_add = 'runtime add/shot-f.vim'
-hook_source = 'runtime source/shot-f.vim'
+# [[plugins]]
+# # repo = 'deris/vim-shot-f'
+# # Highlight chars which you get directly.
+# on_map = {nox = ['<Plug>(shot-f-']}
+# # hook_add = 'runtime add/shot-f.vim'
+# hook_source = 'runtime source/shot-f.vim'
 # [[plugins]]
 # repo = 'justinmk/vim-sneak'
 # # repo = 'kaile256/vim-sneak'
