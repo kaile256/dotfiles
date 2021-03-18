@@ -4,3 +4,44 @@ atom = match.group(1)
 snip.rv = atom * 78
 `
 endsnippet
+
+global !p
+class Plugin():
+  def __init__(self):
+    fname = snip.fn
+    self.name = re.search('(?P<root>.*).txt', fname)['root']
+
+
+  @staticmethod
+  def get_textwidth():
+    return int(vim.eval('&textwidth'))
+
+
+  def set_header(self, subtitle=''):
+    title = subtitle.upper()
+    tag = '*' + self.name + '-' + subtitle + '*'
+    concealed_len = 2 # two of `*` for help-tag.
+    width = self.get_textwidth() - len(title) - len(tag) + concealed_len
+    spaces = vim.eval(f'repeat(" ", {width})')
+
+    return title + spaces + tag
+
+
+endglobal
+
+snippet '(help|vim)' "Init template of vim-help" "snip.line == 0" bre
+`!p
+vim.command('setlocal filetype=help')
+
+plugin = Plugin()
+
+`Author: kaile256 <kaile256acc at gmail.com>
+License: MIT license
+
+===============================================================================
+`!p snip.rv = plugin.set_header('compatibility')`
+===============================================================================
+
+===============================================================================
+vim:ft=help:tw=78:ts=8:sts=8:sw=8:norl:fen:joinspaces
+endsnippet
