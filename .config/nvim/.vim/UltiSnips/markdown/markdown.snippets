@@ -12,14 +12,23 @@ snip.reset_indent()
 endsnippet
 
 snippet '\[(.*)]' "[Title](url)" wr
-[${2:`!p snip.rv = match.group(1)`}](${1:`!p
+`!p
 v_text = snip.v.text
 pat_url = r'://|^/'
 if re.match(pat_url, v_text):
-  snip.rv = v_text
+  url = v_text
 else :
   clipboard = vim.eval('@+')
-  snip.rv = clipboard
+  url = clipboard
+
+`[${2:`!p
+pat_url_until_domain = r'https?://[a-zA-Z0-9_.]+/'
+url_path = re.search(pat_url_until_domain + '(?P<pat_path>.*)', url)['pat_path']
+snip.rv = match.group(1) or url_path
+
+`}](${1:`!p
+snip.rv = url
+
 `})
 endsnippet
 
