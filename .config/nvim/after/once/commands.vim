@@ -76,6 +76,7 @@ augroup myAutoChdir "{{{1
   " esp. for `e./<TAB>`; &autochdir could be incompatible with some plugins.
   au CmdLineEnter,CmdWinEnter * silent! cd %:p:h
 augroup END
+silent! cd %:p:h
 
 "augroup mySwitchToWrittenBuffer "{{{1
 "  au!
