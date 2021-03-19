@@ -194,8 +194,18 @@ augroup myDefxAdd-PwdOnDefx
   " Ref: https://github.com/Shougo/defx.nvim/issues/290
   function! s:pwd_on_defx(path) abort
     if &bt !=# '' | return | endif
-    const path = expand('%:p')
-    if !filereadable(path) | return | endif
+    const path = a:path
+
+    if !filereadable(path)
+      const alt = expand('#:p')
+      if !filereadable(alt) | return | endif
+
+      const winnr = bufwinnr(bufnr(path))
+      const width = winwidth(winnr)
+      call s:pwd_on_defx(alt)
+      exe 'vertical resize' width
+      return
+    endif
 
     const name = 'cwd'
     const root = fnamemodify(path, ':h:h')
