@@ -76,3 +76,11 @@ lazy = 0
 [[plugins]]
 repo = 'kaile256/vim-keep-indent-cont'
 on_ft = 'vim'
+
+#[ Copy ]
+[[plugins]]
+repo = 'kaile256/vim-snatch'
+on_map = {i = ['<Plug>(snatch-']}
+# by `on_map` always fails once.
+hook_add = 'source $DEIN_RC_DIR/snatch/add.vim'
+
