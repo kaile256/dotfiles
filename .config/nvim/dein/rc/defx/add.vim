@@ -230,6 +230,8 @@ augroup myDefxAdd-PwdOnDefx
           \ '-winwidth=40'
   endfunction
 
+  " With BufEnter, the window will be reopened there even after
+  " defx#call_action('quit').
   " TODO: Keep the defx-window after `:only`.
   au BufEnter,TabNewEntered * call s:pwd_on_defx(expand('%:p'))
 
