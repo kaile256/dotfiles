@@ -480,6 +480,32 @@ function! s:set_rules() abort
         \ {'char': ',', 'at': '[^,]\s\%#\S', 'input': '<BS>, '},
         \ ]
 
+  " if dein#tap('vim-table-mode')
+  "   const pat_in_table = '^\s*|.*\%#.*|\s*$'
+  "   const Navigate_in_table = [{
+  "        \ 'char': '<C-p>',
+  "        \ 'at': pat_in_table,
+  "        \ 'input': '<C-o><Plug>(table-mode-motion-up)',
+  "        \ 'noremap': 0,
+  "        \ }, {
+  "        \ 'char': '<C-n>',
+  "        \ 'at': pat_in_table,
+  "        \ 'input': '<C-o><Plug>(table-mode-motion-down)',
+  "        \ 'noremap': 0,
+  "        \ }, {
+  "        \ 'char': '<C-t>',
+  "        \ 'at': pat_in_table,
+  "        \ 'input': '<C-o><Plug>(table-mode-motion-left)',
+  "        \ 'noremap': 0,
+  "        \ }, {
+  "        \ 'char': '<C-g>',
+  "        \ 'at': pat_in_table,
+  "        \ 'input': '<C-o><Plug>(table-mode-motion-right)',
+  "        \ 'noremap': 0,
+  "        \ }]
+  "   let global += Navigate_in_table
+  " endif
+
   " Typo Correction {{{1
   " <C-, <A-, etc., not to insert <C_, <A_
   let global += [
