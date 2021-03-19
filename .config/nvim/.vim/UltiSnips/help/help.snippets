@@ -45,6 +45,32 @@ class Plugin():
 
 endglobal
 
+snippet toc "Generate blueprint of TOC" b
+`!p
+fpath = vim.eval('expand("%:p")')
+with open(fpath, 'r') as file:
+  lines = file.readlines()
+
+pat_subtitle_line = r'^[A-Z]+\s+\*\S+\*'
+subtitle_lines = filter(lambda x: re.match(pat_subtitle_line, x), lines)
+subtitle_lines = filter(lambda x: not re.match(r'^CONTENTS', x), subtitle_lines)
+subtitles = map(lambda x : re.match(r'(^[A-Z]+)', x).groups()[0].lower(), subtitle_lines)
+
+plugin = Plugin.get_name()
+
+first_tbl_len = 24
+
+toc_lines = map(lambda x: x.capitalize()
+              + vim.eval(f'repeat(" ", {first_tbl_len} - {len(x)})')
+              + "|" + plugin + "-" + x + "|",
+              subtitles)
+new_toc = "\n".join(toc_lines)
+
+snip.rv = new_toc
+
+`
+endsnippet
+
 snippet '(help|vim)' "Init template of vim-help" "snip.line == 0" bre
 `!p
 vim.command('setlocal filetype=help')
