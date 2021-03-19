@@ -8,8 +8,14 @@ endsnippet
 global !p
 class Plugin():
   def __init__(self):
+    self.name = self.get_name()
+
+
+  @staticmethod
+  def get_name():
     fname = snip.fn
-    self.name = re.search('(?P<root>.*).txt', fname)['root']
+    root = re.match('(?P<root>.*).txt', fname)['root']
+    return root
 
 
   @staticmethod
