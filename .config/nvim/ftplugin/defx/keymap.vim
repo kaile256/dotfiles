@@ -1,7 +1,6 @@
 " TOML: browse.toml
 " Repo: Shougo/defx.nvim
-" Another: add/defx.vim
-" Another: post/defx.vim
+" Another: rc/defx/
 
 nnoremap <silent><buffer><nowait> U :<C-u> call defx#redraw() <CR>
 
