@@ -88,10 +88,25 @@ nmap <nowait><buffer> <C-w><C-v> <C-w>v
 nmap <nowait><buffer> <C-w><C-s> <C-w>s
 
 " Explore; Quit {{{2
-nmap <silent><nowait><buffer><expr> ZZ defx#do_action('quit')
-nmap <silent><nowait><buffer><expr> ZQ defx#do_action('quit')
-nmap <silent><nowait><buffer><expr> Zz defx#do_action('quit')
-nmap <silent><nowait><buffer><expr> Zq defx#do_action('quit')
+function! s:defx_quit() abort
+  " Note: The built-in `quit` doen't only quit the window, but also hondles
+  " something like closing previews.
+  " Note: Without the following `:quit`, defx trys to keep the window that
+  " defx has occupied.
+  const wins = len(tabpagebuflist())
+  const wn = winnr()
+  call defx#call_action('quit')
+  if wins != len(tabpagebuflist()) | return | endif
+  " TODO: Close even when a new window is opened by some au-events like
+  " `QuitPre`, `BufWinLeave`, or `BufEnter`.
+  exe wn 'quit'
+endfunction
+nnoremap <silent><nowait> <SID>(defx-quit)
+      \ :<C-u>call <SID>defx_quit()<CR>
+nmap <silent><nowait><buffer> ZZ <SID>(defx-quit)
+nmap <silent><nowait><buffer> ZQ <SID>(defx-quit)
+nmap <silent><nowait><buffer> Zz <SID>(defx-quit)
+nmap <silent><nowait><buffer> Zq <SID>(defx-quit)
 
 " Open File {{{1
 " Edit {{{2
