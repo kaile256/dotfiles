@@ -19,6 +19,12 @@ class Plugin():
 
 
   @staticmethod
+  def get_repo():
+    repo = vim.eval('expand("%:p:h:t")')
+    return repo
+
+
+  @staticmethod
   def make_helptag(target):
     return '*' + target + '*'
 
@@ -44,6 +50,20 @@ class Plugin():
 
 
 endglobal
+
+
+snippet 'repo?' "Expand plugin repo name in helptag" wr
+|`!p snip.rv = Plugin.get_repo()`|
+endsnippet
+
+snippet 'name?' "Expand plugin name in helptag" wr
+|`!p snip.rv = Plugin.get_name()`|
+endsnippet
+
+snippet 'Name?' "Expand plugin name, capitalized, in helptag" wr
+|`!p snip.rv = Plugin.get_name().capitalize()`|
+endsnippet
+
 
 snippet toc "Generate blueprint of TOC" b
 `!p
