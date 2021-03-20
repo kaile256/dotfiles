@@ -46,7 +46,7 @@ class Plugin():
     width = int(vim.eval('&textwidth')) - len(title) - len(tag) + concealed_len
     spaces = vim.eval(f'repeat(" ", {width})')
 
-    return title + spaces + tag
+    return title + spaces + tag.lower()
 
 
 endglobal
