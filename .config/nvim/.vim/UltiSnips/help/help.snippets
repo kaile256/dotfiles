@@ -144,7 +144,17 @@ endsnippet
 
 priority -50
 
-snippet '(\S+)' "Append help-tag for option" "snip.line > 0" bre
+snippet '([A-Z]{2,})' "Append help-tag for HEADER" "snip.line > 0" bre
+`!p
+plugin = Plugin()
+snip.rv = plugin.set_header(match.group(1))
+
+`
+endsnippet
+
+priority -80
+
+snippet '(\S{2,})' "Append help-tag for option" "snip.line > 0" bre
 `!p snip.rv = Plugin.append_helptag(match.group(1))`
 endsnippet
 
