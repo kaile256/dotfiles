@@ -131,6 +131,12 @@ hook_post_source = 'source $DEIN_RC_DIR/gitgutter/pos.vim'
 ## works without 'git'
 #on_event = ['BufRead']
 #[ Rebase ]
+[[plugins]]
+repo = 'da-x/depree'
+# Notify conflictions which rebase commands would cause.
+depends = ['ale']
+on_ft = ['gitrebase']
+hook_done_update = 'bash rebuild.sh'
 # [[plugins]]
 # repo = 'hotwatermorning/auto-git-diff'
 # on_ft = ['gitrebase', 'git-rebase-todo']
