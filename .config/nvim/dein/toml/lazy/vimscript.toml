@@ -41,12 +41,12 @@ hook_add = 'runtime add/scriptease.vim'
 repo = 'thinca/vim-scouter'
 on_cmd = 'Scouter'
 hook_add = 'runtime add/scouter.vim'
-[[plugins]]
-repo = 'AndrewRadev/bufferize.vim'
-# Print command output into a tmp buffer (&bt=nofile) instead of vim's console.
-on_cmd = ['Bufferize']
-hook_add = 'runtime add/bufferize.vim'
-
+# [[plugins]]
+# repo = 'AndrewRadev/bufferize.vim'
+# # Print command output into a tmp buffer (&bt=nofile) instead of vim's console.
+# on_cmd = ['Bufferize']
+# hook_add = 'runtime add/bufferize.vim'
+#
 #[ Library ]
 [[plugins]]
 repo = 'vim-jp/vital.vim'
