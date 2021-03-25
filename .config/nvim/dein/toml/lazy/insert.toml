@@ -8,14 +8,14 @@
 # hook_add = 'runtime add/pencil.vim'
 # hook_source = 'runtime source/pencil.vim'
 #
-[[plugins]]
-repo = 'kana/vim-smartchr'
-# Use cohama/lexima.vim instead, one of the plugins that provide almost the
-# same features of vim-smartinput, the author's improved one.
-# Change mappings as count of key typed.
-# For expample, type '>' once, '>'; twice, '>>'; three times '->'.
-on_func = 'smartchr#loop'
-
+# [[plugins]]
+# repo = 'kana/vim-smartchr'
+# # Use cohama/lexima.vim instead, one of the plugins that provide almost the
+# # same features of vim-smartinput, the author's improved one.
+# # Change mappings as count of key typed.
+# # For expample, type '>' once, '>'; twice, '>>'; three times '->'.
+# on_func = 'smartchr#loop'
+# 
 #[ Template ]
 # [[plugins]]
 # repo = 'aperezdc/vim-template'
