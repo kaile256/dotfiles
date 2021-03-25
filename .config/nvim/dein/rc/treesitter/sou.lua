@@ -12,7 +12,8 @@ hlmap["punctuation.bracket"] = nil
 hlmap["punctuation.delimiter"] = "Delimiter"
 
 require'nvim-treesitter.configs'.setup {
-  ensure_installed = "all",
+  -- ensure_installed = "all", -- tree-sitter-lua too frequentry contains bugs.
+  ensure_installed = "maintained",
 
   highlight = {
     enable = true,
