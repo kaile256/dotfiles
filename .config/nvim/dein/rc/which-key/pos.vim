@@ -186,7 +186,7 @@ function! s:register_keys() abort
   endif
 
   for key in keys(l:nmaps)
-    call which_key#register(key, l:nmaps[key])
+    call which_key#register('<Plug>'. key, l:nmaps[key])
   endfor
 endfunction
 call s:register_keys()
@@ -458,9 +458,9 @@ function! s:register_git_keys() abort
           \ })
   endif
 
-  call which_key#register('Git:', git_nmaps)
-  call which_key#register('Git in Visual:', git_xmaps)
-  call which_key#register('GitHub:', github_nmaps)
+  call which_key#register('<Plug>Git:', git_nmaps)
+  call which_key#register('<Plug>Git in Visual:', git_xmaps)
+  call which_key#register('<Plug>GitHub:', github_nmaps)
 endfunction
 call s:register_git_keys()
 delfunction s:register_git_keys
