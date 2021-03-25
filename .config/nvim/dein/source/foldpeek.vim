@@ -1,5 +1,5 @@
 scriptencoding utf-8
-" From: myplug.toml
+" From: public.toml
 " Repo: kaile256/vim-foldpeek
 " Orig: LeafCage/foldCC
 " Ref: source/foldCC.vim
