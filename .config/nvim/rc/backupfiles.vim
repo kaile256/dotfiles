@@ -11,8 +11,8 @@ set noswapfile
 "augroup END
 
 exe 'set undofile undodir='. s:data_home .'/undo'
-"exe 'set swapfile directory=' s:data_home .'/swap//'
-"exe 'set backup writebackup backupdir='. s:data_home .'/backup'
+exe 'set swapfile directory=' s:data_home .'/swap//'
+exe 'set writebackup backupdir='. s:data_home .'/backup//'
 "set backupskip+=
 "set backupcopy=
 "set backupext=
