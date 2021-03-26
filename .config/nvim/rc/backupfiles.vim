@@ -1,7 +1,7 @@
 " From: init.vim
 
 " The format seems incompatible between Vim and Neovim.
-let s:data_home = $XDG_DATA_HOME . ( has('nvim') ? 'nvim' : 'vim' )
+let s:data_home = $XDG_DATA_HOME .'/'. ( has('nvim') ? 'nvim' : 'vim' )
 
 "augroup PersistentUndo
 "  au! BufWritePre /tmp/* setlocal noundofile
