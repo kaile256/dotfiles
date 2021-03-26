@@ -3,15 +3,12 @@
 " The format seems incompatible between Vim and Neovim.
 let s:data_home = $XDG_DATA_HOME . ( has('nvim') ? 'nvim' : 'vim' )
 
-set nobackup
-set nowritebackup
-set noswapfile
 "augroup PersistentUndo
 "  au! BufWritePre /tmp/* setlocal noundofile
 "augroup END
 
 exe 'set undofile undodir='. s:data_home .'/undo'
-exe 'set swapfile directory=' s:data_home .'/swap//'
+exe 'set swapfile directory='. s:data_home .'/swap//'
 exe 'set writebackup backupdir='. s:data_home .'/backup//'
 "set backupskip+=
 "set backupcopy=
