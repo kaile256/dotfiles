@@ -149,10 +149,13 @@ on_func = [
 hook_add = 'runtime add/edit-slack.vim'
 hook_source = 'runtime source/edit-slack.vim'
 build = '''
-  # get the binary of yaasita/edit-slack
+  # Get the required binary from yaasita/edit-slack
   git clone --depth=1 https://github.com/yaasita/edit-slack
-  go build -o ../tmp -pkgdir edit-slack/
+  cd edit-slack
+  go build
 
+  mv edit-slack ../tmp
+  cd ..
   rm -rf edit-slack/
   mv tmp edit-slack
 '''
