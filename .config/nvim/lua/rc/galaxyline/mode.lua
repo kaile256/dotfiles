@@ -59,31 +59,23 @@ local get_mode = function()
   return 'NORMAL'
 end
 
-local Color = colors.bg
-
 local vi_mode = {
   provider = function()
     local fg = colors.bg
     -- Set default value. It's too hard to fix unexpected `nil`.
-    Color = set_color() or colors.fg
-    vim.api.nvim_command('hi GalaxyViMode gui=bold guifg='.. fg .. ' guibg=' .. Color)
+    local bg = set_color() or colors.fg
+    vim.api.nvim_command('hi GalaxyViMode gui=bold guifg='.. fg .. ' guibg=' .. bg)
+    vim.api.nvim_command('hi GalaxyViModeInv gui=bold,reverse guifg='.. fg .. ' guibg=' .. bg)
     local name = get_mode()
     return '  ' .. name .. ' '
   end;
-}
 
-local separator = {
-  -- To apply the same color as vi_mode.
-  provider = function()
-    local bg = colors.bg
-    vim.api.nvim_command('hi GalaxyViModeSep guifg='.. Color .. ' guibg=' .. bg)
-    return icons.filled_separator_left
-  end
+  separator = icons.filled_separator_left,
+  separator_highlight = 'GalaxyViModeInv',
 }
 
 local Mode = {
   ViMode = {ViMode = vi_mode},
-  ViModeSep = {ViModeSep = separator},
 }
 
 return Mode

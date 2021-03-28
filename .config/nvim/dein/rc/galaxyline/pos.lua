@@ -24,21 +24,22 @@ local FileInfo = require('rc.galaxyline.fileinfo')
 
 -- To keep the order, set items line by line.
 gls.left[0] = Mode.ViMode
-gls.left[1] = Mode.ViModeSep
 
-gls.left[2] = VCS.GitIcon
-gls.left[3] = VCS.GitBranch
-gls.left[4] = VCS.DiffAdd
-gls.left[5] = VCS.DiffModified
-gls.left[6] = VCS.DiffRemove
+gls.left[1] = VCS.GitIcon
+gls.left[2] = VCS.GitBranch
+gls.left[3] = VCS.DiffAdd
+gls.left[4] = VCS.DiffModified
+gls.left[5] = VCS.DiffRemove
 
-gls.right[0] = FileInfo.FileIcon
-gls.right[1] = FileInfo.FileName
+gls.left[7] = FileInfo.FileIcon
+gls.left[8] = FileInfo.FileName
+
+gls.right[2] = FileInfo.LineInfo
 
 -- Note: Apply the same name both to the key and to hl_group: FooBar to GalaxyFooBar.
 gls.short_line_left[0] = FileInfo.FileType
 
-gls.short_line_right[1] = FileInfo.FileIcon
-gls.short_line_right[2] = FileInfo.SFileName
+gls.short_line_left[1] = FileInfo.FileIcon
+gls.short_line_left[2] = FileInfo.SFileName
 
 -- vim:path^=./module

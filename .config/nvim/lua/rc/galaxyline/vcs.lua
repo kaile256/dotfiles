@@ -27,6 +27,11 @@ local git_branch = {
     colors.bg,
     'bold'
   },
+  separator = icons.linear_separator_left,
+  separator_highlight = {
+    colors.violet,
+    colors.bg,
+  }
 }
 
 local diff_add = {
