@@ -41,23 +41,20 @@ xnoremap <space>J J
 "      \ })<bar>
 "      \ call feedkeys('H')<cr>
 
-map <silent> K <Cmd>call among_HML#fork#init('K', 25, {
+map <silent> K <Cmd>call among_HML#fork#init_jump('K', 25, {
       \ 'K': '12.5',
       \ 'J': '37.5',
-      \ })<bar>
-      \ call feedkeys('K')<cr>
+      \ })<CR>
 
-map <silent> M <Cmd>call among_HML#fork#init('M', 50, {
+map <silent> M <Cmd>call among_HML#fork#init_jump('M', 50, {
       \ 'K': '37.5',
       \ 'J': '67.5',
-      \ })<bar>
-      \ call feedkeys('M')<cr>
+      \ })<CR>
 
-map <silent> J <Cmd>call among_HML#fork#init('J', 75, {
+map <silent> J <Cmd>call among_HML#fork#init_jump('J', 75, {
       \ 'K': '62.5',
       \ 'J': '87.5',
-      \ })<bar>
-      \ call feedkeys('J')<cr>
+      \ })<CR>
 
 " map <silent> L <Cmd>call among_HML#fork#init('L', '100', {
 "      \ 'K': '87.5',
