@@ -60,13 +60,6 @@ endfunction
 function! s:path.vim() abort
   const path = expand('%:p')
 
-  if path =~# $DOTFILES_HOME
-    " Note: resolve path in dotfiles to keep under git control.
-    const nvim_config_home = $DOTFILES_HOME .'/.config/nvim'
-    exe 'setlocal path^='. nvim_config_home .'/dein/toml/*'
-    exe 'setlocal path^='. nvim_config_home .'/dein'
-  endif
-
   setlocal suffixesadd=_release,.lua
   " Note: Upward search by `;` with `lua` path fails to search paths which
   " doesn't contain 'lua' directory.  Upward search with '*' also also fails.
@@ -77,6 +70,13 @@ function! s:path.vim() abort
 
   const nvim_source_home = $GHQ_ROOT .'/github.com/neovim/neovim'
   exe 'setlocal path+='. nvim_source_home
+
+  if path =~# $DOTFILES_HOME
+    " Note: resolve path in dotfiles to keep under git control.
+    const nvim_config_home = $DOTFILES_HOME .'/.config/nvim'
+    exe 'setlocal path^='. nvim_config_home .'/dein'
+    exe 'setlocal path^='. nvim_config_home .'/dein/toml/*'
+  endif
 
   exe 'setl path-='. &g:path
 

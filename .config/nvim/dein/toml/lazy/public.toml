@@ -3,7 +3,7 @@
 
 [[plugins]]
 repo = 'kaile256/vim-among_HML'
-on_func = ['among_HML#', 'among_HML#fork#']
+on_func = ['among_HML#']
 hook_add = 'source $DEIN_ADD_HOME/among_HML.vim'
 
 # [[plugins]]
