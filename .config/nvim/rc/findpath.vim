@@ -79,6 +79,8 @@ function! s:path.vim() abort
   exe 'setlocal path+='. nvim_source_home
 
   exe 'setl path-='. &g:path
+
+  setlocal keywordprg=:help
 endfunction
 
 function! s:path.ghq() abort
