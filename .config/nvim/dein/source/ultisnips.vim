@@ -32,7 +32,7 @@ let g:UltiSnipsListSnippets = ''
 
 " Note: when g:UltiSnipsExpandTrigger == g:UltiSnipsJumpForwardTrigger, it
 " works as expand-or-jump mapping.
-let g:UltiSnipsExpandTrigger = '<Plug>(nop)'
+let g:UltiSnipsExpandTrigger = '<Ignore>'
 " Note: The Jump-mppings only override keys while UltiSnips working.
 let g:UltiSnipsJumpForwardTrigger = '<C-g>'
 " Note: <Esc> stops working snippets, which often happens inconsiderately.
