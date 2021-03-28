@@ -7,6 +7,10 @@ repo = 'AndrewRadev/id3.vim'
 # When 'flac' package is installed, it also works for FLAC files.
 if = 'executable("id3")'
 #[ Hex Editor ]
+# [[plugins]]
+# # repo = 'Shougo/deorise.nvim'
+# # hook_done_update = 'call remote#host#UpdateRemotePlugins()'
+# on_cmd = ['Deorise']
 [[plugins]]
 repo = 'Shougo/vinarise.vim'
 on_cmd =  ['Vinarise']
