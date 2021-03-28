@@ -143,6 +143,12 @@ hook_source = 'runtime source/rainbow.vim'
 #on_event = ['BufRead']
 
 [[plugins]]
+repo = 'glepnir/galaxyline.nvim'
+# Written in lua, inspired by lightline.
+if = 'has("nvim")'
+on_event = ['BufRead']
+hook_post_source = 'luafile $DEIN_RC_DIR/galaxyline/pos.lua'
+[[plugins]]
 repo = 'itchyny/lightline.vim'
 on_event = 'Syntax'
 hook_source = 'source $DEIN_RC_DIR/lightline/sou.vim'
