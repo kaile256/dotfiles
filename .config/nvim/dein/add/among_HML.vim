@@ -115,6 +115,7 @@ map <silent> J <Cmd>call among_HML#fork#init_jump('J', 75, {
 "nmap <silent> <c-k> :<c-u>call among_HML#scroll#percent(25, 'up')<cr>
 
 " among_HML#jump {{{1
+ounmap M
 omap <silent> K <Cmd>call among_HML#jump(25)<cr>
 omap <silent> J <Cmd>call among_HML#jump(75)<cr>
 " omap <silent> H H
