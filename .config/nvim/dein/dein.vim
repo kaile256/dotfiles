@@ -54,16 +54,8 @@ endif
 " Load plugins by Dein {{{1
 if dein#load_state($DEIN_CACHE_HOME)
   call dein#begin($DEIN_CACHE_HOME)
-  " TODO: make faster to load tomls (it takes 1 sec. or more)
-  call dein#add('Shougo/dein.vim') " Required
-  if !has('nvim')
-    call dein#add('roxma/nvim-yarp')
-    call dein#add('roxma/vim-hug-neovim-rpc')
-  endif
-
   function! s:load_plugins() abort
     " Read all the tomls under specified directories.
-
     let config = {
           \ 'init': {},
           \ 'lazy': { 'lazy': 1 },
