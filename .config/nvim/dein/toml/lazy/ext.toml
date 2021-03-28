@@ -22,7 +22,11 @@ on_cmd =  ['Hexedit']
 #repo = 'd0c-s4vage/pfp-vim'
 #on_cmd = 'Pfp'
 #hook_add = 'runtime add/pfp.vim'
-
+# [[plugins]]
+# repo = 'mattn/vim-xxdcursor'
+# # # Highlight the corresponding ASCII to the hex under cursor.
+# on_ft = ['xxd']
+#
 #[ Terminal ]
 [[plugins]]
 repo = 'tyru/notify-changed.vim'
