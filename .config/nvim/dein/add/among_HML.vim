@@ -1,4 +1,4 @@
-" From: myplug.toml
+" From: public.toml
 " Repo: kaile256/vim-among_HML
 
 let g:among_HML#no_default_mappings = 1
