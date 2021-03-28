@@ -76,6 +76,7 @@ function! s:path.vim() abort
     const nvim_config_home = $DOTFILES_HOME .'/.config/nvim'
     exe 'setlocal path^='. nvim_config_home .'/dein'
     exe 'setlocal path^='. nvim_config_home .'/dein/toml/*'
+    exe 'setlocal path^='. nvim_config_home .'/lua'
   endif
 
   exe 'setl path-='. &g:path
