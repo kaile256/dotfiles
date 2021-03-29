@@ -1,5 +1,6 @@
 local condition = require('galaxyline.condition')
 local colors = require('rc.galaxyline.colors')
+local icons = require('rc.galaxyline.icons')
 
 local FileSize = {
   provider = 'FileSize',
@@ -96,6 +97,6 @@ local M = {
 
   Scrollbar = {Scrollbar=Scrollbar},
   ScrollbarSep = {ScrollbarSep=ScrollbarSep},
-  ColLine = {ColLine=ColLine}
+  ColLine = {ColLine=ColLine},
 }
 return M
