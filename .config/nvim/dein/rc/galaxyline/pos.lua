@@ -24,7 +24,7 @@ local FileInfo = require('rc.galaxyline.fileinfo')
 
 -- To keep the order, set items line by line.
 gls.left[0] = Mode.ViMode
-gls.left[1] = Mode.ViModeSep
+gls.left[1] = Mode.ViModeSepLeft
 
 gls.left[11] = VCS.GitIcon
 gls.left[12] = VCS.GitBranch

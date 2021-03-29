@@ -74,14 +74,32 @@ local vi_mode = {
   -- separator_highlight = 'GalaxyViModeInv',
 }
 
-local ViModeSep = {
+local ViModeSepLeft = {
   provider = function() return icons.filled_separator_left end;
   highlight = 'GalaxyViModeInv',
 }
 
+local ViModeSepRight = {
+  provider = function() return icons.filled_separator_right end;
+  highlight = 'GalaxyViModeInv',
+}
+
+local ViModeLinearSepLeft = {
+  provider = function() return icons.linear_separator_left end;
+  highlight = 'GalaxyViMode',
+}
+local ViModeLinearSepRight = {
+  provider = function() return icons.linear_separator_right end;
+  highlight = 'GalaxyViMode',
+}
+
 local Mode = {
   ViMode = {ViMode = vi_mode},
-  ViModeSep = {ViModeSep = ViModeSep},
+
+  ViModeSepLeft        = { ViModeSepLeft        = ViModeSepLeft },
+  ViModeSepRight       = { ViModeSepRight       = ViModeSepRight },
+  ViModeLinearSepLeft  = { ViModeLinearSepLeft  = ViModeLinearSepLeft },
+  ViModeLinearSepRight = { ViModeLinearSepRight = ViModeLinearSepRight },
 }
 
 return Mode
