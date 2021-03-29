@@ -4,9 +4,8 @@ def autoload_prefix():
   m = re.search(r'(?<=/autoload/)(?P<plugin>[^/]*)(?P<path>.*)', fullpath)
   try:
     plugin = m['plugin']
-    underscored = plugin.replace('-', '_')
-    autoload = path.replace('/', '#').replace('.vim', '')
-    prefix = underscored + '#' + autoload + '#'
+    autoload = plugin.replace('.vim', '').replace('-', '_').replace('/', '')
+    prefix = autoload + '#'
   except TypeError as e:
     prefix = 's:'
 
