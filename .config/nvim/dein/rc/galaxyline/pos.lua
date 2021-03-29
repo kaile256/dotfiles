@@ -39,6 +39,8 @@ gls.right[2] = BufInfo.LineInfo
 
 -- Note: Apply the same name both to the key and to hl_group: FooBar to GalaxyFooBar.
 gls.short_line_left[0] = BufInfo.FileType
+gls.short_line_left[1] = Mode.ViModeSepLeft
+
 gls.short_line_left[3] = BufInfo.FileIcon
 gls.short_line_left[4] = BufInfo.SFileName
 
