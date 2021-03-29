@@ -111,7 +111,10 @@ hook_source = 'runtime source/rainbow.vim'
 # [[plugins]]
 # repo = 'ryanoasis/vim-devicons'
 # on_source = ['denite.nvim', 'vim-airline', 'lightline.vim']
-#
+[[plugins]]
+repo = 'kyazdani42/nvim-web-devicons'
+if = 'has("nvim")'
+on_source = ['galaxyline.nvim']
 #[ Statusline ]
 #[[plugins]]
 #repo = 'vim-airline/vim-airline'
