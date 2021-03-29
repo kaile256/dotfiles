@@ -14,6 +14,7 @@ let $DEIN_ADD_HOME = $DEIN_CONFIG_HOME .'/add'
 let $DEIN_SOURCE_HOME = $DEIN_CONFIG_HOME .'/source'
 let $DEIN_POST_HOME = $DEIN_CONFIG_HOME .'/post'
 let $DEIN_RC_DIR = $DEIN_CONFIG_HOME .'/rc'
+let $DEIN_LUA_DIR = $XDG_CONFIG_HOME .'/nvim/lua/rc'
 
 " set nocompatible for dein {{{1
 if !has('nvim')
