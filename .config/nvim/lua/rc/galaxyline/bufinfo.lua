@@ -83,7 +83,7 @@ local ColLine = {
   highlight = 'GalaxyViMode',
 }
 
-local M = {
+local BufInfo = {
   FileSize = {FileSize = FileSize},
   FileIcon = {FileIcon = FileIcon},
   FileName = {FileName = FileName},
@@ -99,4 +99,4 @@ local M = {
   ScrollbarSep = {ScrollbarSep=ScrollbarSep},
   ColLine = {ColLine=ColLine},
 }
-return M
+return BufInfo
