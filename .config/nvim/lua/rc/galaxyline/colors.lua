@@ -1,3 +1,5 @@
+local vim = vim
+
 local theme = {}
 
 theme.default = {
@@ -14,5 +16,7 @@ theme.default = {
   bg       = '#202328',
   fg       = '#bbc2cf',
 }
+
+vim.api.nvim_command('hi! GalaxyDefault guifg='.. theme.default.fg .. ' guibg=' .. theme.default.bg)
 
 return theme.default

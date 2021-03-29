@@ -32,7 +32,7 @@ balias pg 'ps aux | rg --color always'
 
 balias pk '~/start-kail.sh'
 
-balias pacman-mirrors-update 'sudo pacman-mirrors -f && sudo pacman -Syy'
+balias pacman-mirrors-update 'sudo pacman-mirrors -f -t 2 && sudo pacman -Syy'
 
 balias rwatch 'cd ~/rustlings && rustlings watch'
 
