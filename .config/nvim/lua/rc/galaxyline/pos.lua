@@ -36,6 +36,7 @@ gls.left[20] = BufInfo.FileIcon
 gls.left[21] = BufInfo.FileName
 
 gls.right[2] = BufInfo.LineInfo
+gls.right[99] = BufInfo.Scrollbar
 
 -- Note: Apply the same name both to the key and to hl_group: FooBar to GalaxyFooBar.
 gls.short_line_left[0] = BufInfo.FileType

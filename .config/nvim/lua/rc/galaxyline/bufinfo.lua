@@ -49,6 +49,29 @@ local SFileName = {
   highlight = {colors.fg,colors.bg,'bold'}
 }
 
+local Scrollbar = {
+  -- condition = condition.hide_in_width,
+  provider = function()
+    -- Ref: https://raw.githubusercontent.com/gcavallanti/dotfiles/master/.vimrc
+    -- box: '□', '■', '▭',
+    -- rectangle: '▬'
+    -- hyphen: '―', '⁃', '╍',
+    -- vertical: '┇',
+
+    local hidden = '―'
+    local revealed = '■'
+    local line = vim.fn['noscrollbar#statusline'](20, hidden, revealed)
+    local has_margin = line:find(hidden)
+    return has_margin and line or ''
+  end;
+  highlight = 'GalaxyViMode',
+  -- highlight = {colors.fg, colors.bg},
+
+  -- TODO: Hide separator if scrollbar is hidden.
+  separator = icons.filled_separator_right,
+  separator_highlight = 'GalaxyViModeInv'
+}
+
 local M = {
   FileSize = {FileSize = FileSize},
   FileIcon = {FileIcon = FileIcon},
@@ -60,5 +83,7 @@ local M = {
   FileType = {FileType = FileType},
   BufIcon = {BufIcon = BufIcon},
   SFileName = {SFileName = SFileName},
+
+  Scrollbar = {Scrollbar=Scrollbar},
 }
 return M
