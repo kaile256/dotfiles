@@ -50,6 +50,17 @@ local SFileName = {
   highlight = {colors.fg,colors.bg,'bold'}
 }
 
+local Encoding = {
+  condition = condition.hide_in_width,
+  provider = function()
+    local encode = vim.bo.fenc ~= '' and vim.bo.fenc or vim.o.enc
+    encode = encode:lower()
+    local sep = icons.linear_separator_right
+    return encode == 'utf-8' and '' or sep .. ' enc=' .. encode:lower()
+  end;
+  highlight = 'GalaxyDefault',
+}
+
 local Scrollbar = {
   condition = condition.hide_in_width,
   provider = function()
@@ -97,6 +108,7 @@ local BufInfo = {
 
   LineInfo = {LineInfo = LineInfo},
   Percent = {Percent = Percent},
+  Encoding = {Encoding=Encoding},
 
   FileType = {FileType = FileType},
   BufIcon = {BufIcon = BufIcon},

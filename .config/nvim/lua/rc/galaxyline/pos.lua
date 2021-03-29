@@ -38,6 +38,7 @@ gls.left[21] = BufInfo.FileName
 gls.right[57] = BufInfo.ColLine
 gls.right[58] = BufInfo.Scrollbar
 -- gls.right[99] = BufInfo.ScrollbarSep
+gls.right[59] = BufInfo.Encoding
 
 -- Note: Apply the same name both to the key and to hl_group: FooBar to GalaxyFooBar.
 gls.short_line_left[0] = BufInfo.FileType
