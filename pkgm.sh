@@ -111,7 +111,7 @@ PACKAGEs=(
   lua-lcf # formatter for lua
   luacheck # linter for lua, integrating with lua-lsp
   # lua-lsp-git # rarely updated; no longer supported by coc-lua
-  lua-language-server-git
+  lua-language-server
   code # vscode
   stylelint # a linter for CSS
   ueberzug # previewer for some tools
