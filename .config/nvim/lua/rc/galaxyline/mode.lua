@@ -70,12 +70,18 @@ local vi_mode = {
     return '  ' .. name .. ' '
   end;
 
-  separator = icons.filled_separator_left,
-  separator_highlight = 'GalaxyViModeInv',
+  -- separator = icons.filled_separator_left,
+  -- separator_highlight = 'GalaxyViModeInv',
+}
+
+local ViModeSep = {
+  provider = function() return icons.filled_separator_left end;
+  highlight = 'GalaxyViModeInv',
 }
 
 local Mode = {
   ViMode = {ViMode = vi_mode},
+  ViModeSep = {ViModeSep = ViModeSep},
 }
 
 return Mode
