@@ -4,6 +4,12 @@ local colors = require('rc.galaxyline.colors')
 local condition = require('galaxyline.condition')
 local icons = require('rc.galaxyline.icons')
 
+local sign = {
+  plus  = '',
+  mixed = 'ﰣ',
+  minus = '',
+}
+
 local git_icon = {
   provider = function() return '  ' end,
   condition = condition.check_git_workspace,
@@ -37,7 +43,7 @@ local git_branch = {
 local diff_add = {
   provider = 'DiffAdd',
   condition = condition.hide_in_width,
-  icon = '',
+  icon = sign.plus,
   highlight = {
     colors.green,
     colors.bg
@@ -47,7 +53,7 @@ local diff_add = {
 local diff_modified = {
   provider = 'DiffModified',
   condition = condition.hide_in_width,
-  icon = 'ﰣ',
+  icon = sign.mixed,
   highlight = {
     colors.orange,
     colors.bg
@@ -57,7 +63,7 @@ local diff_modified = {
 local diff_remove = {
   provider = 'DiffRemove',
   condition = condition.hide_in_width,
-  icon = '',
+  icon = sign.minus,
   highlight = {
     colors.red,
     colors.bg
