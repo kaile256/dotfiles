@@ -35,9 +35,7 @@ local Percent = {
 
 local FileType = {
   provider = 'FileTypeName',
-  separator = ' ',
-  separator_highlight = {'NONE',colors.bg},
-  highlight = {colors.blue,colors.bg,'bold'}
+  highlight = 'GalaxyViMode',
 }
 
 local BufIcon = {
