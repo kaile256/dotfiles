@@ -353,3 +353,11 @@ hook_add = 'runtime add/undoquit.vim'
 # on_func = ['quickmenu#toggle']
 # hook_add = 'runtime add/quickmenu.vim'
 # hook_post_source = 'runtime post/quickmenu.vim'
+
+#[ Backup ]
+# [[plugins]]
+# repo = 'chrisbra/Recover.vim'
+# # # Doesn't work. With this plugin, no prompt arises even when a swap file
+# # exists.
+# # Add an option, [C]ompare, which starts diff-mode with detected swap file.
+# on_event = ['SwapExists']
