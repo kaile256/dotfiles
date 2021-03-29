@@ -9,8 +9,8 @@ class Plugin:
 
 
   def _trimmed():
-    prefix = r'^n?vim[-_.]'
-    suffix = r'[-_.]n?vim$'
+    prefix = r'^(lua|n?vim)[-_.]'
+    suffix = r'[-_.](lua|n?vim)$'
 
     plugin = Plugin._raw()
     plugin = re.sub(prefix, '', plugin)
