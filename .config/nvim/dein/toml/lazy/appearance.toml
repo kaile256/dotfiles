@@ -115,6 +115,14 @@ hook_source = 'runtime source/rainbow.vim'
 repo = 'kyazdani42/nvim-web-devicons'
 if = 'has("nvim")'
 on_source = ['galaxyline.nvim']
+
+#[ Tabline ]
+# [[plugins]]
+# repo = 'akinsho/nvim-bufferline.lua'
+# if = 'has("nvim")'
+# on_event = ['BufRead']
+# hook_post_source = 'luafile $DEIN_LUA_DIR/bufferline/pos.lua'
+#
 #[ Statusline ]
 #[[plugins]]
 #repo = 'vim-airline/vim-airline'
