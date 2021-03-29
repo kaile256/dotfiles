@@ -51,7 +51,7 @@ local SFileName = {
 }
 
 local Scrollbar = {
-  -- condition = condition.hide_in_width,
+  condition = condition.hide_in_width,
   provider = function()
     -- Ref: https://raw.githubusercontent.com/gcavallanti/dotfiles/master/.vimrc
     -- box: '□', '■', '▭',
@@ -68,19 +68,26 @@ local Scrollbar = {
   highlight = 'GalaxyViMode',
 }
 
-local ScrollbarSep = {
-  -- TODO: Hide separator if scrollbar is hidden.
-  separator = icons.filled_separator_right,
-  separator_highlight = 'GalaxyViModeInv'
-}
+-- local ScrollbarSep = {
+--   -- TODO: Hide separator if scrollbar is hidden.
+--   separator = icons.filled_separator_right,
+--   separator_highlight = 'GalaxyViModeInv'
+-- }
 
 local ColLine = {
+  condition = condition.hide_in_width,
   provider = function()
     local line = vim.fn.line('.')
-    local column = vim.fn.col('.')
-    return column .. 'C:' .. line .. 'L'
+    local col = vim.fn.col('.')
+    local col_margin = string.rep(' ', 2 - string.len(col))
+    local line_margin = string.rep(' ', math.min(3, string.len(vim.fn.line('$'))) - string.len(line))
+    col = col_margin .. col .. 'C'
+    line = line_margin .. line .. 'L'
+    return col .. ':' .. line
   end;
   highlight = 'GalaxyViMode',
+  separator = icons.filled_separator_right,
+  separator_highlight = 'GalaxyViModeInv'
 }
 
 local BufInfo = {
@@ -96,7 +103,7 @@ local BufInfo = {
   SFileName = {SFileName = SFileName},
 
   Scrollbar = {Scrollbar=Scrollbar},
-  ScrollbarSep = {ScrollbarSep=ScrollbarSep},
   ColLine = {ColLine=ColLine},
+  -- ScrollbarSep = {ScrollbarSep=ScrollbarSep},
 }
 return BufInfo
