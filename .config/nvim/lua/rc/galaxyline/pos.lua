@@ -35,8 +35,9 @@ gls.left[15] = VCS.DiffRemove
 gls.left[20] = BufInfo.FileIcon
 gls.left[21] = BufInfo.FileName
 
-gls.right[2] = BufInfo.LineInfo
-gls.right[99] = BufInfo.Scrollbar
+gls.right[97] = BufInfo.ColLine
+gls.right[98] = BufInfo.Scrollbar
+gls.right[99] = BufInfo.ScrollbarSep
 
 -- Note: Apply the same name both to the key and to hl_group: FooBar to GalaxyFooBar.
 gls.short_line_left[0] = BufInfo.FileType
