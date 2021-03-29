@@ -15,7 +15,7 @@
 # # Change mappings as count of key typed.
 # # For expample, type '>' once, '>'; twice, '>>'; three times '->'.
 # on_func = 'smartchr#loop'
-# 
+#
 #[ Template ]
 # [[plugins]]
 # repo = 'aperezdc/vim-template'
