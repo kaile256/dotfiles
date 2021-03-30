@@ -139,6 +139,79 @@ function! s:register_keys() abort
           \ 'w': [funcref('s:openbrowser_in', ['weblio']),      'Search in Weblio'],
           \ }
 
+    function! s:openbrowser(args) abort
+      let engine = s:opb_engine
+      if engine ==? 'url'
+        echo 'OpenBrowser' a:args
+        exe 'OpenBrowser' a:args
+        return
+      endif
+
+      if engine =~# '/$'
+        const prefix = 'https://'. engine
+        const url = prefix . a:args
+        echo 'OpenBrowser' url
+        exe  'OpenBrowser' url
+      else
+        let engine = '-'. engine
+        echo 'OpenBrowserSearch' engine a:args
+        exe  'OpenBrowserSearch' engine a:args
+      endif
+    endfunction
+
+    function! s:open_browser_op(...) abort
+      if a:0
+        let args = getline('.')[col("'[") - 1 : col("']") -1]
+      else
+        let args = getline('.')[col("'<") - 1 : col("'>") -1]
+      endif
+      call s:openbrowser(args)
+    endfunction
+
+    function! s:OpenBrowserOp(engine) abort
+      let s:opb_engine = a:engine
+      let &operatorfunc = expand('<SID>') .'open_browser_op'
+      call feedkeys('g@', 'n')
+    endfunction
+
+    function! s:OpenBrowserVisual(engine) abort
+      let s:opb_engine = a:engine
+      call s:open_browser_op()
+    endfunction
+
+    let l:nmaps['OpenBrowser in Operator:'] = {
+          \ 'B': [funcref('s:OpenBrowserOp', ['url']), 'Search in URL'],
+          \
+          \ 'd': [funcref('s:OpenBrowserOp', ['duckduckgo']), 'Duckduckgo'],
+          \
+          \ 'w': [funcref('s:OpenBrowserOp', ['weblio']),    'Weblio: English-Japanese'],
+          \ 't': [funcref('s:OpenBrowserOp', ['thesaurus']), 'Thesaurus: English'],
+          \
+          \ 'a': [funcref('s:OpenBrowserOp', ['archwiki@en']), 'ArchWiki@en'],
+          \ 'k': [funcref('s:OpenBrowserOp', ['wikipedia']),   'Wikipedia'],
+          \
+          \ 'h': [funcref('s:OpenBrowserOp', ['github']), 'GitHub'],
+          \ 'l': [funcref('s:OpenBrowserOp', ['gitlab']), 'GitLab'],
+          \
+          \ 'H': [funcref('s:OpenBrowserOp', ['https://github.com/']), 'Open the Repo in GitHub'],
+          \ }
+
+    let l:nmaps['OpenBrowser in Visual:'] = {
+          \ 'B': [funcref('s:OpenBrowserVisual', ['url']), 'Search in URL'],
+          \
+          \ 'd': [funcref('s:OpenBrowserVisual', ['duckduckgo']), 'Duckduckgo'],
+          \
+          \ 'w': [funcref('s:OpenBrowserVisual', ['weblio']), 'Weblio: English-Japanese'],
+          \ 't': [funcref('s:OpenBrowserVisual', ['thesaurus']), 'Thesaurus: English'],
+          \
+          \ 'a': [funcref('s:OpenBrowserVisual', ['archwiki@en']), 'ArchWiki@en'],
+          \ 'k': [funcref('s:OpenBrowserVisual', ['wikipedia']), 'Wikipedia'],
+          \
+          \ 'h': [funcref('s:OpenBrowserVisual', ['github']), 'GitHub'],
+          \ 'l': [funcref('s:OpenBrowserVisual', ['gitlab']), 'GitLab'],
+          \
+          \ 'H': [funcref('s:OpenBrowserVisual', ['https://github.com/']), 'archwiki@en'],
+          \ }
   endif
 
   if dein#tap('vim-windowswap') "{{{1

@@ -18,3 +18,5 @@ xnoremap <silent> <space>h :<C-u>WhichKey '<Plug>GitHub:'<CR>
 
 nnoremap <silent> <space>b :<C-u>WhichKey '<Plug>OpenBrowser:'<CR>
 xnoremap <silent> <space>b :<C-u>WhichKey '<Plug>OpenBrowser in Visual:'<CR>
+nnoremap <silent> \b :<C-u>WhichKey '<Plug>OpenBrowser in Operator:'<CR>
+xnoremap <silent> \b :<C-u>WhichKey '<Plug>OpenBrowser in Visual:'<CR>
