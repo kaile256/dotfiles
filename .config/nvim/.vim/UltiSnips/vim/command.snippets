@@ -1,10 +1,11 @@
 global !p
 def autoload_prefix():
   fullpath = vim.eval('expand("%:p")')
-  m = re.search(r'(?<=/autoload/)(?P<plugin>[^/]*)(?P<path>.*)', fullpath)
+  m = re.search(r'(?<=/autoload/)(?P<path>.*?)\.vim$', fullpath)
+
   try:
-    plugin = m['plugin']
-    autoload = plugin.replace('.vim', '').replace('-', '_').replace('/', '')
+    path = m['path']
+    autoload = path.replace('-', '_').replace('/', '#')
     prefix = autoload + '#'
   except TypeError as e:
     prefix = 's:'
