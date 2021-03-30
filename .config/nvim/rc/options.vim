@@ -222,9 +222,6 @@ set cot+=menu " Enable popup menu for candidates if more than one match.
 set cot+=preview " Only works with 'menu' or 'menuone'.
 set cot+=longest
 
-" 'wildcharm' works exactly like 'wildchar', which is <TAB> in vim as default,
-" but it keeps to work in cnoremap.
-set wildcharm=<c-y>
 " for `:substitute`
 if exists('+inccommand')
   set inccommand=nosplit
