@@ -114,14 +114,14 @@ nnoremap <silent><nowait><buffer><expr> <C-j>
       \ <SID>is_in_wide_window()
       \ ? defx#do_action('open', 'edit')
       \ : defx#do_action('multi', ['drop', 'quit'])
-nnoremap <silent><nowait><buffer><expr> <CR>
+nnoremap <silent><nowait><buffer><expr> <C-m>
       \ <SID>is_in_wide_window()
       \ ? defx#do_action('open', 'edit')
       \ : defx#do_action('multi', ['drop', 'quit'])
 xnoremap <silent><nowait><buffer><expr> <c-j>
       \ defx#async_action('multi',
       \ ['clear_select_all', 'toggle_select_visual', 'drop', 'quit'])
-xnoremap <silent><nowait><buffer><expr> <CR>
+xnoremap <silent><nowait><buffer><expr> <C-m>
       \ defx#async_action('multi',
       \ ['clear_select_all', 'toggle_select_visual', 'drop', 'quit'])
 " Split {{{2
