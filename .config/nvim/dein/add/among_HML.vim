@@ -123,9 +123,23 @@ omap <silent> J <Cmd>call among_HML#jump(75)<cr>
 
 " Evacuations for default {{{1
 if mapcheck('K') !=# ''
+  function! s:show_documentation(...) abort
+    let cmd = &keywordprg
+
+    if cmd !~# '^:'
+      let cmd = '!' . cmd
+    elseif cmd =~# ':Man'
+      silent! const has_hoverred = CocActionAsync('doHover')
+      if has_hoverred | return | endif
+    endif
+
+    const word = a:0 ? getline('.')[col("'<")-1 : col("'>")-1]
+          \ : expand('<cword>')
+    execute cmd word
+  endfunction
   " Mnemonic: Get the Keyword
-  silent! nnoremap <unique> gK K
-  silent! xnoremap <unique> gK K
+  silent! nnoremap <silent><unique> gK :call <SID>show_documentation()<CR>
+  silent! xnoremap <silent><unique> gK :call <SID>show_documentation('v')<CR>
 endif
 
 "if mapcheck('J') !=# ''
