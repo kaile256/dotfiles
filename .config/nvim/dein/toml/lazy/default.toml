@@ -258,6 +258,12 @@ hook_add = 'runtime add/linediff.vim'
 repo = '$VIM_PACK_HOME/cfilter'
 # Get matched named files from quickfix list by ':Cfilter /pat/'.
 on_cmd = ['Cfilter', 'Lfilter']
+[[plugins]]
+repo = 'kevinhwang91/nvim-bqf'
+if = 'has("nvim")'
+# Replace old quickfix window.
+# With fzf, fuzzy search in quickfix window.
+hook_post_source = 'luafile $DEIN_RC_DIR/bqf/pos.lua'
 
 #[ Help ]
 [[plugins]]
