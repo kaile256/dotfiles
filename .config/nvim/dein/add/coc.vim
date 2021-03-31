@@ -6,9 +6,10 @@
 " Another: source/coc.vim
 
 augroup myCoc-Keywordprg
-  let &g:keywordprg = ':silent! call CocActionAsync("showSignatureHelp") | silent! call CocActionAsync("doHover")'
   au BufWinEnter coc-settings.json setlocal keywordprg=:help
 augroup END
+
+nnoremap <silent> zK :<C-u>call CocActionAsync('doHover')<CR>
 
 function! s:CommandList(...) abort
   let list = coc#rpc#request('CommandList', a:000)
