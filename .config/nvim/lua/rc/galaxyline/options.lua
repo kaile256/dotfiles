@@ -7,7 +7,8 @@ local FoldMethod = {
   provider = function()
     local fdm = vim.wo.foldmethod
     if fdm == 'expr' then
-      return 'fdm=expr,'.. vim.wo.foldexpr:gsub('%(.*%)$', '')
+      return 'fde='.. vim.wo.foldexpr:gsub('%(.*%)$', '')
+      -- return 'fdm=expr,'.. vim.wo.foldexpr:gsub('%(.*%)$', '')
     end
     return 'fdm='.. fdm
    end;
