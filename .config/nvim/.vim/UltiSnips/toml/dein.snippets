@@ -92,17 +92,22 @@ class Dein(Plugin):
     return "\n".join(tables_dein)
 
 
-  def expand_hook(idx):
+  def expand_hook(idx, lua=False):
     # Expand `hook_{idx} = 'source $DEIN_RC_DIR/{plugin}/{idx-ommited}.vim'`
-    plugin = Dein._trimmed()
 
-    hook = 'hook_' + idx
-    source = 'source'
+    is_lua = lua == 'l'
+
+    plugin = Dein._trimmed()
 
     identifier = re.sub(r'_.*', '', idx)
     fname = re.search(r'(.{3})', identifier).group(1)
     base_dir = '$DEIN_RC_DIR/'
-    path = base_dir + plugin + '/' + fname + '.vim'
+
+    ext = is_lua and '.lua' or '.vim'
+    path = base_dir + plugin + '/' + fname + ext
+
+    hook = 'hook_' + idx
+    source = is_lua and 'luafile' or 'source'
 
     return hook + " = '" + source + ' ' + path + "'"
 
