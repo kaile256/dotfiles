@@ -102,6 +102,8 @@ PACKAGEs=(
   sshrc # Bring .bashrc, .vimrc, etc., under ~/.sshrc.d on SSH; keep light config.
   rofi # A launcher
   virustotal # CLI client for virustotal.com
+
+  pipenv
   python-gphotos-sync # Sync google photo to local directory.
   notes-cli-git
   gparted # Format SSD/HDD.
@@ -340,7 +342,6 @@ PIP3s=(
   neovim
   # neovim-remote # Install by yay instead.
   pfp # hex editor tool, which is used by vim-pfp
-  pipenv
   pocket-api  # for an userscript on qutebrowser, qute-pocket
   pynvim
   readability # for readability on Qutebrowser
