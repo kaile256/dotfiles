@@ -223,7 +223,7 @@ set cot+=preview " Only works with 'menu' or 'menuone'.
 set cot+=longest
 
 " for `:substitute`
-if exists('+inccommand')
+if exists('+inccommand') && !dein#tap('traces.vim')
   set inccommand=nosplit
 endif
 

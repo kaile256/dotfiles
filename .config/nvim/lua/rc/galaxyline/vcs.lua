@@ -74,7 +74,8 @@ local RootDir = {
     if not success then
         success, root = pcall(vim.fn.FindRootDirectory)
     end
-    return '[' .. root:gsub('.*/', '') .. ']'
+    local short_root = root:gsub('.*/', '')
+    return short_root == '' and '' or '[' .. short_root .. ']'
   end,
   condition = condition.hide_in_width,
   highlight = {
