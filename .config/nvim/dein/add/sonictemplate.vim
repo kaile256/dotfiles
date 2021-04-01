@@ -4,20 +4,20 @@
 " Else: data/sonictemplate
 
 augroup mySonicTemplate-autoStart
-  au BufRead *tmp* call s:expand_template('')
+  au BufNewFile,BufRead *tmp* call s:expand_template('')
 
-  au BufRead .themisrc call s:expand_template('themis')
-  au BufRead *.vimspec call s:expand_template('vimspec')
+  au BufNewFile,BufRead .themisrc call s:expand_template('themis')
+  au BufNewFile,BufRead *.vimspec call s:expand_template('vimspec')
 
-  au BufRead *.sh call s:expand_template('shebang')
-  au BufRead *.py call s:expand_template('shebang')
+  au BufNewFile,BufRead *.sh call s:expand_template('shebang')
+  au BufNewFile,BufRead *.py call s:expand_template('shebang')
 
-  au BufRead *{D,d}ockerfile call s:expand_template('alpine')
+  au BufNewFile,BufRead *{D,d}ockerfile call s:expand_template('alpine')
 
-  au BufRead */doc/*.txt call s:expand_template('help')
-  au BufRead */atcoder**/* call s:expand_template('atcoder')
+  au BufNewFile,BufRead */doc/*.txt call s:expand_template('help')
+  au BufNewFile,BufRead */atcoder**/* call s:expand_template('atcoder')
 
-  au BufRead LICENSE call s:expand_template('LICENSE-mit')
+  au BufNewFile,BufRead LICENSE call s:expand_template('LICENSE-mit')
 augroup END
 
 function! s:expand_template(label) abort
