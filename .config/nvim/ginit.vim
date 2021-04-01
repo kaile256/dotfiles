@@ -1,3 +1,5 @@
+set guicursor=n-v-c-sm:block,i-ci-ve:ver25,r-cr-o:hor20,a:blinkon0
+
 if system('xrandr | grep " connected"') =~# 'HDMI1'
   set guifont=SFMono\ Nerd\ Font\ Mono:h9.3
   " set guifont=JetBrainsMonoMedium\ Nerd\ Font:h9.3
