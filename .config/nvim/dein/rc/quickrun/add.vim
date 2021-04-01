@@ -3,10 +3,10 @@
 " Another: source/quickrun.vim
 " Ref: source/quickrun-unittest.vim
 
-nmap \S <Plug>(quickrun-op) | " Mnemonic: Source the buffer
+nmap \R <Plug>(quickrun-op) | " Mnemonic: Source the buffer
 
-nnoremap <silent> <space>qq :QuickRun -mode n -input =@+<CR>
-xnoremap <silent> <space>qq :QuickRun -mode v -input =@+<CR>
+nnoremap <silent> <space>RR :<C-u> QuickRun -mode n -input =@+<CR>
+xnoremap <silent> <space>R  :QuickRun -mode v -input =@+<CR>
 
 augroup myQuickrunAdd
   au FileType quickrun call s:quickrun_keymaps()
