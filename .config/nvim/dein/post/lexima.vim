@@ -386,19 +386,19 @@ function! s:set_rules() abort
       let pat_after_abbr =
             \ '\v%('. join(abbrs_without_trailing_period, '|') .').%#'
 
-      " let Double_spaces_at_end_OfSentence = {
-      "      \ 'char': space,
-      "      \ 'input': '<space><space>',
-      "      \ 'at': '\S[.?!]\%#', 'except': pat_after_abbr,
-      "      \ }
+      let Double_spaces_at_end_OfSentence = {
+           \ 'char': space,
+           \ 'input': '<space><space>',
+           \ 'at': '\S[.?!]\%#', 'except': pat_after_abbr,
+           \ }
       " let Double_spaces_at_endOfSentence_in_Comment = extend(
-      "      \ deepcopy(Double_spaces_at_end_OfSentence),
-      "      \ {'syntax': ['Comment']}
-      "      \ )
-      " let Double_spaces_at_endOfSentence_as_FileType = extend(
-      "      \ deepcopy(Double_spaces_at_end_OfSentence),
-      "      \ {'filetype': ['help', 'txt']}
-      "      \ )
+      "     \ deepcopy(Double_spaces_at_end_OfSentence),
+      "     \ {'syntax': ['Comment']}
+      "     \ )
+      let Double_spaces_at_endOfSentence_as_FileType = extend(
+           \ deepcopy(Double_spaces_at_end_OfSentence),
+           \ {'filetype': ['help', 'text']}
+           \ )
 
       let Prepare_brackets_at_cond = {
             \ 'char': space,
