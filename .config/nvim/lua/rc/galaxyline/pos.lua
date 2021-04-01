@@ -26,11 +26,7 @@ local BufInfo = require('rc.galaxyline.bufinfo')
 gls.left[0] = Mode.ViMode
 gls.left[1] = Mode.ViModeSepLeft
 
-gls.left[11] = VCS.GitIcon
-gls.left[12] = VCS.GitBranch
-gls.left[13] = VCS.DiffAdd
-gls.left[14] = VCS.DiffModified
-gls.left[15] = VCS.DiffRemove
+gls.left[13] = VCS.GitBranch
 
 gls.left[20] = BufInfo.FileIcon
 gls.left[21] = BufInfo.FileName

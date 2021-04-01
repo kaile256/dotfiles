@@ -1,32 +1,30 @@
 -- Init: $DEIN_RC_DIR/galaxyline/pos.lua
 
+local vim = vim
+
 local colors = require('rc.galaxyline.colors')
 local condition = require('galaxyline.condition')
 local icons = require('rc.galaxyline.icons')
 
 local sign = {
+  branch = '  ',
+
   plus  = '',
   mixed = 'ﰣ',
   minus = '',
-}
 
-local git_icon = {
-  provider = function() return '  ' end,
-  condition = condition.check_git_workspace,
-  separator = '',
-  separator_highlight = {
-    'NONE',
-    colors.bg,
-  },
-  highlight = {
-    colors.violet,
-    colors.bg,
-    'bold'
-  },
+  -- plus  = '',
+  -- mixed = 'ﰣ',
+  -- minus = '',
+  --
+  -- plus  = '',
+  -- mixed = 'f9c9',
+  -- minus = '',
 }
 
 local git_branch = {
   provider = 'GitBranch',
+  icon = sign.branch,
   condition = condition.check_git_workspace,
   highlight = {
     colors.violet,
