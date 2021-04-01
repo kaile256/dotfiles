@@ -46,5 +46,5 @@ hi! link ALEWarningSign Identifier
 hi! ALEWarning cterm=undercurl gui=undercurl
 
 hi! link ALEErrorSign WarningMsg
-hi! ALEError cterm=bold,reverse,undercurl gui=bold,reverse,undercurl
+hi! ALEError cterm=bold,undercurl gui=bold,undercurl
 
