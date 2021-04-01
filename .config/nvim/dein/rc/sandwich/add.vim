@@ -78,10 +78,10 @@ nmap \Y zv<Plug>(operator-sandwich-add)$
 nmap \yy zv<Plug>(operator-sandwich-add)V$
 " Mnemonic: Dispose the bans
 nmap \d zv<Plug>(operator-sandwich-delete)<Plug>(operator-sandwich-release-count)<Plug>(textobj-sandwich-query-a)
-nmap \D zv<Plug>(operator-sandwich-delete)<Plug>(operator-sandwich-release-count)<Plug>(textobj-sandwich-auto-a)
+nmap \dd zv<Plug>(operator-sandwich-delete)<Plug>(operator-sandwich-release-count)<Plug>(textobj-sandwich-auto-a)
 " Mnemonic: Change the bans
 nmap \r zv<Plug>(operator-sandwich-replace)<Plug>(operator-sandwich-release-count)<Plug>(textobj-sandwich-query-a)
-nmap \R zv<Plug>(operator-sandwich-replace)<Plug>(operator-sandwich-release-count)<Plug>(textobj-sandwich-auto-a)
+nmap \rr zv<Plug>(operator-sandwich-replace)<Plug>(operator-sandwich-release-count)<Plug>(textobj-sandwich-auto-a)
 
 xmap \y <Plug>(operator-sandwich-add)
 xmap \d <Plug>(operator-sandwich-delete)
