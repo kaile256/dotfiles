@@ -68,6 +68,26 @@ local diff_remove = {
   },
 }
 
+local RootDir = {
+  provider = function()
+    local success, root = pcall(vim.fn.FugitiveWorkTree)
+    if not success then
+        success, root = pcall(vim.fn.FindRootDirectory)
+    end
+    return '[' .. root:gsub('.*/', '') .. ']'
+  end,
+  condition = condition.hide_in_width,
+  highlight = {
+    colors.fg,
+    colors.bg
+  },
+  -- separator = icons.linear_separator_left,
+  -- separator_highlight = {
+  --   colors.fg,
+  --   colors.bg
+  -- },
+}
+
 local VCS = {
   GitIcon = {GitIcon = git_icon},
   GitBranch = {GitBranch = git_branch},
@@ -75,6 +95,8 @@ local VCS = {
   DiffAdd = {DiffAdd = diff_add},
   DiffModified = {DiffModified = diff_modified},
   DiffRemove = {DiffRemove = diff_remove},
+
+  RootDir={RootDIr=RootDir},
 }
 
 return VCS
