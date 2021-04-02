@@ -67,10 +67,9 @@ local ViMode = {
     vim.api.nvim_command('hi GalaxyViMode gui=bold guifg='.. fg .. ' guibg=' .. bg)
     vim.api.nvim_command('hi GalaxyViModeInv gui=bold,reverse guifg='.. fg .. ' guibg=' .. bg)
     local name = get_mode()
-
     if vim.g.loaded_eskk then
       local eskk_mode = vim.fn['eskk#statusline']():gsub('eskk:', '')
-      if eskk_mode ~= nil and eskk_mode ~= '' then
+      if eskk_mode ~= '' then
         name = name:match('...') .. eskk_mode
       end
     end
