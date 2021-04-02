@@ -97,7 +97,7 @@ local VCS = {
   DiffModified = {DiffModified = diff_modified},
   DiffRemove = {DiffRemove = diff_remove},
 
-  RootDir={RootDIr=RootDir},
+  RootDir={RootDir=RootDir},
 }
 
 return VCS
