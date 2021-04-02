@@ -24,6 +24,7 @@ local BufInfo = require('rc.galaxyline.bufinfo')
 
 -- To keep the order, set items line by line.
 gls.left[2] = Mode.ViMode
+gls.left[3] = Mode.SnatchStatus
 
 gls.left[13] = VCS.GitBranch
 
