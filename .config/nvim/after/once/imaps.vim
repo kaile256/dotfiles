@@ -90,13 +90,7 @@ inoremap <expr> <SID>(ctrl-k) <SID>remove_to_end()
       "\ : '<c-\><C-o>"_D'
 function! s:remove_to_end() abort
   " TODO: make it dot-repeatable independent to line length
-  let line = getline('.')
-  let col = col('.')
-  if col == len(line) + 1
-    return ''
-  endif
-  let len = len(line) - col + 1
-  return repeat("\<Del>", len)
+  return repeat("\<Del>", max([col('$') - col('.'), 1]))
 endfunction
 
 imap <c-k> <SID>(ctrl-k)
