@@ -84,16 +84,12 @@ inoremap <silent> <C-)>   <Esc>:call <SID>jump_out('[\])}]') <CR>
 inoremap <F1> <Nop>
 
 " Tips: i_CTRL-\_CTRL-O keeps cursor position
-inoremap <expr> <SID>(ctrl-k) <SID>remove_to_end()
-      "\ col('.') == len(getline('.')) + 1
-      "\ ? ''
-      "\ : '<c-\><C-o>"_D'
 function! s:remove_to_end() abort
-  " TODO: make it dot-repeatable independent to line length
+  silent! call repeat#set('"_D')
   return repeat("\<Del>", max([col('$') - col('.'), 1]))
 endfunction
-
-imap <c-k> <SID>(ctrl-k)
+inoremap <expr> <SID>(ctrl-k) <SID>remove_to_end()
+imap <C-k> <SID>(ctrl-k)
 
 " TODO: keep the cursor after <c-o>, especially <c-o>yiw
 " Note: default <c-o>yy only inserts 'yy' w/o yank probably because the other
