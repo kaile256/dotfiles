@@ -4,6 +4,7 @@ local cond = require 'galaxyline.condition'
 local colors = require 'rc.galaxyline.colors'
 
 local FoldMethod = {
+  condition = cond.hide_in_width,
   provider = function()
     local fdm = vim.wo.foldmethod
     if fdm == 'expr' then
