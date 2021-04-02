@@ -36,10 +36,10 @@ gls.right[58] = BufInfo.Scrollbar
 gls.right[59] = BufInfo.Encoding
 
 -- Note: Apply the same name both to the key and to hl_group: FooBar to GalaxyFooBar.
-gls.short_line_left[0] = BufInfo.FileType
-gls.short_line_left[1] = Mode.ViModeSepLeft
+gls.short_line_left[2] = BufInfo.FileType
+gls.short_line_left[3] = Mode.ViModeSepLeft
 
-gls.short_line_left[3] = BufInfo.FileIcon
-gls.short_line_left[4] = BufInfo.SFileName
+gls.short_line_left[4] = BufInfo.FileIcon
+gls.short_line_left[5] = BufInfo.SFileName
 
 -- vim:path^=./module
