@@ -3,6 +3,12 @@
 
 local vim = vim
 
+vim.cmd [[
+hi! link HlSearchLensCur Search
+hi! link HlSearchLens    WildMenu
+hi! link HlSearchCur     Search
+]]
+
 require('hlslens').setup({
   -- Enable hlslens on searching
   auto_enable = true,
