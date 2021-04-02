@@ -2,11 +2,11 @@ snippet local "local $1 = $2" b
 local $1 = $2
 endsnippet
 
-snippet '(fun(c(tion)?)?|fu|fn)' "anonymous function" "'=' in snip.buffer[snip.line]" erw
+snippet '(?:fun(?:c(?:tion)?)?|fu|fn)' "anonymous function" "'=' in snip.buffer[snip.line]" erw
 function($1) $2 end
 endsnippet
 
-snippet '(fun(c(tion)?)?|fu|fn)' "includes ref to itself, equivalent to `local $1; $1 = function() $2 end`" "'=' not in snip.buffer[snip.line]" erw
+snippet '(?:fun(?:c(?:tion)?)?|fu|fn)' "includes ref to itself, equivalent to `local $1; $1 = function() $2 end`" "'=' not in snip.buffer[snip.line]" erw
 function ${1:func}(${2:args})
   $3
 end
