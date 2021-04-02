@@ -4,6 +4,18 @@ local vim = vim
 local colors = require('rc.galaxyline.colors')
 local icons = require('rc.galaxyline.icons')
 
+local get_snatch_mode = function()
+  local stat = vim.fn['snatch#status']()
+  if stat.is_sneaking ~= nil and not stat.is_sneaking then
+    return nil
+  end
+
+  local m = stat.prev_mode
+  return (m == 'insert' and 'i')
+  or (m == 'cmdline' and 'c')
+  or nil
+end
+
 local set_color = function()
   -- Change color according the vim mode
 
@@ -17,7 +29,7 @@ local set_color = function()
   local shell = colors.magenta
   local terminal = colors.blue
 
-  local m = vim.fn.mode(1)
+  local m = get_snatch_mode() or vim.fn.mode(1)
 
   if m:find('R') then return replace end
   if m:find('i') then return insert end
@@ -37,7 +49,7 @@ local set_color = function()
 end
 
 local get_mode = function()
-  local m = vim.fn.mode(1)
+  local m = get_snatch_mode() or vim.fn.mode(1)
   if m:find('o') then return 'OPERATOR' end
   if m:find('ni') then return 'TEMPORARY' end
   if m:find('i') then return 'INSERT' end
@@ -97,6 +109,20 @@ local ViModeLinearSepLeft = {
 local ViModeLinearSepRight = {
   provider = function() return icons.linear_separator_right end;
   highlight = 'GalaxyViMode',
+}
+
+local SnatchStatus = {
+  provider = function()
+    local stat = vim.fn['snatch#status']()
+    if stat.is_sneaking ~= nil and not stat.is_sneaking then return end
+
+    local prev_mode = stat.prev_mode
+    local strategies = stat.snatch_by
+    local m = (prev_mode == 'insert' and 'INSERT') or (prev_mode == 'cmdline' and 'COMMAND') or 'ERROR'
+    local s = '[' .. table.concat(strategies, '|') .. ']'
+    return 'SNATCH:' .. s .. ' ' .. icons.linear_separator_left
+  end;
+  highlight = 'GalaxyViModeInv',
 }
 
 local Mode = {
