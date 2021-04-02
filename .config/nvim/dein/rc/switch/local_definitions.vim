@@ -119,8 +119,10 @@ let s:local_definitions['toml'] = [
 
 let s:local_definitions['lua'] = [
       \ {
-      \   '\<function \([a-zA-Z_#.]\+\)\s*(':   '\1 = function(',
-      \   '\<\([a-zA-Z_#.]\+\) = function\s*(': 'function \1(',
+      \   '\%(local \)*\<function \([A-Z][a-zA-Z_#.]\+\)\s*(':    '\1 = function(',
+      \   '\%(local \)*\<function \([a-z_][a-zA-Z_#.]\+\)\s*(':   'local \1 = function(',
+      \   '\%(local \)*\<\([A-Z][a-zA-Z_#.]\+\) = function\s*(':  'function \1(',
+      \   '\%(local \)*\<\([a-z_][a-zA-Z_#.]\+\) = function\s*(': 'local function \1(',
       \ },
       \ ]
 
