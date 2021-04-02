@@ -38,9 +38,8 @@ endfunction
 
 nnoremap <silent> <Plug>(switch-increment-extra) <Cmd>call <SID>increment()<CR>
 nnoremap <silent> <Plug>(switch-decrement-extra) <Cmd>call <SID>decrement()<CR>
-nmap z<C-a> <Plug>(switch-increment-extra)
-nmap z<C-x> <Plug>(switch-decrement-extra)
-
-nmap g<C-a> <Plug>(switch-increment-local)
-nmap g<C-x> <Plug>(switch-increment-local)
+nmap g<C-a> <Plug>(switch-increment-extra)
+nmap g<C-x> <Plug>(switch-decrement-extra)
+nmap z<C-a> <Plug>(switch-increment-local)
+nmap z<C-x> <Plug>(switch-increment-local)
 
