@@ -15,7 +15,7 @@ local FileIcon = {
 }
 
 local FileName = {
-  provider = {'FileName'},
+  provider = 'FileName',
   condition = condition.buffer_not_empty,
   highlight = {colors.magenta,colors.bg,'bold'}
 }
