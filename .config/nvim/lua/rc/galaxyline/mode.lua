@@ -12,7 +12,7 @@ local get_snatch_mode = function()
 
   local m = stat.prev_mode
   return (m == 'insert' and 'i')
-  or (m == 'cmdline' and 'c')
+  or (m:match '^[-:>/?@=]$' and 'c')
   or nil
 end
 
