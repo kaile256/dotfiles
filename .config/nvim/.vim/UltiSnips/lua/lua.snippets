@@ -1,3 +1,16 @@
+global !p
+def insert_props_as_tabstops(ts, snip):
+  snip.rv = ""
+  args = map(lambda a: a.strip(), ts.split(','))
+  args = list(filter(lambda a: a != 'self', args))
+
+  snip >> 1
+  for prop in args:
+    if prop != "":
+      snip += "self.%s = %s" % (prop, prop)
+
+endglobal
+
 snippet local "local $1 = $2" b
 local $1 = $2
 endsnippet
@@ -16,6 +29,8 @@ function `!p
 name = match.group(1)
 snip.rv = name
 `.new(${1:args})
-  local self = setmetatable({}, `!p snip.rv = name`)
-  return self
+  local self = setmetatable({}, `!p snip.rv = name`)`!p
+insert_props_as_tabstops(t[1], snip)
+`
+return self
 endsnippet
