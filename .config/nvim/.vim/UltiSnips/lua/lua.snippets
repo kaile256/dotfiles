@@ -11,3 +11,11 @@ function ${1:func}(${2:args})
 end
 endsnippet
 
+snippet 'function \s*(\S+).new' "Start writing class:new()" br
+function `!p
+name = match.group(1)
+snip.rv = name
+`.new(${1:args})
+  local self = setmetatable({}, `!p snip.rv = name`)
+  return self
+endsnippet
