@@ -23,8 +23,7 @@ local VCS = require('rc.galaxyline.vcs')
 local BufInfo = require('rc.galaxyline.bufinfo')
 
 -- To keep the order, set items line by line.
-gls.left[0] = Mode.ViMode
-gls.left[1] = Mode.ViModeSepLeft
+gls.left[2] = Mode.ViMode
 
 gls.left[13] = VCS.GitBranch
 

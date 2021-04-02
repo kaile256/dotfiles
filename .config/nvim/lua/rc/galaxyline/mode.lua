@@ -59,7 +59,7 @@ local get_mode = function()
   return 'NORMAL'
 end
 
-local vi_mode = {
+local ViMode = {
   provider = function()
     local fg = colors.bg
     -- Set default value. It's too hard to fix unexpected `nil`.
@@ -77,8 +77,8 @@ local vi_mode = {
     return '  ' .. name .. ' '
   end;
 
-  -- separator = icons.filled_separator_left,
-  -- separator_highlight = 'GalaxyViModeInv',
+  separator = icons.filled_separator_left,
+  separator_highlight = 'GalaxyViModeInv',
 }
 
 local ViModeSepLeft = {
@@ -101,12 +101,14 @@ local ViModeLinearSepRight = {
 }
 
 local Mode = {
-  ViMode = {ViMode = vi_mode},
+  ViMode = {ViMode=ViMode},
 
   ViModeSepLeft        = { ViModeSepLeft        = ViModeSepLeft },
   ViModeSepRight       = { ViModeSepRight       = ViModeSepRight },
   ViModeLinearSepLeft  = { ViModeLinearSepLeft  = ViModeLinearSepLeft },
   ViModeLinearSepRight = { ViModeLinearSepRight = ViModeLinearSepRight },
+
+  SnatchStatus = {SnatchStatus=SnatchStatus},
 }
 
 return Mode
