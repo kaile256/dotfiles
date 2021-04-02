@@ -11,7 +11,7 @@ local get_snatch_mode = function()
   end
 
   local m = stat.prev_mode
-  return (m == 'insert' and 'i')
+  return (m == 'i' and 'i')
   or (m:match '^[-:>/?@=]$' and 'c')
   or nil
 end
@@ -118,7 +118,7 @@ local SnatchStatus = {
 
     local prev_mode = stat.prev_mode
     local strategies = stat.snatch_by
-    local m = (prev_mode == 'insert' and 'INSERT') or (prev_mode == 'cmdline' and 'COMMAND') or 'ERROR'
+    local m = (prev_mode == 'i' and 'INSERT') or (prev_mode == 'cmdline' and 'COMMAND') or 'ERROR'
     local s = '[' .. table.concat(strategies, '|') .. ']'
     return 'SNATCH:' .. s .. ' ' .. icons.linear_separator_left
   end;
