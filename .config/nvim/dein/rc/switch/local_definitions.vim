@@ -124,6 +124,11 @@ let s:local_definitions['lua'] = [
       \   '\%(local \)*\<\([A-Z][a-zA-Z_#.]\+\) = function\s*(':  'function \1(',
       \   '\%(local \)*\<\([a-z_][a-zA-Z_#.]\+\) = function\s*(': 'local function \1(',
       \ },
+      \ {
+      \   '&&': 'and',
+      \   '||': 'or',
+      \   '!=': '~=',
+      \ },
       \ ]
 
 let s:local_definitions['gitcommit'] = [
