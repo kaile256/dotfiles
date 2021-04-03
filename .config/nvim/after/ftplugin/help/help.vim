@@ -1,12 +1,11 @@
 " From: filetype.vim
 
-let s:is_editing = &modifiable || !&readonly || @% =~# 'fugitive:\/\/\/'
-if s:is_editing
-  setlocal concealcursor=n
-  setlocal conceallevel=2
-else
+if b:help_readonly
   setlocal signcolumn= nolist foldlevel=0
   " 'wipe' makes it impossible to go back with <C-o> or `:pop`.
   setlocal bufhidden=hide
+else
+  setlocal concealcursor=n
+  setlocal conceallevel=2
 endif
 
