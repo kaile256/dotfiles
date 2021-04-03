@@ -131,11 +131,11 @@ endfunction
 nnoremap <silent><nowait><buffer><expr> <C-j>
       \ <SID>is_in_wide_window()
       \ ? defx#do_action('open', 'edit')
-      \ : defx#do_action('multi', ['drop', 'quit'])
+      \ : ':<C-u>call <SID>pick("edit", "quit")<CR>'
 nnoremap <silent><nowait><buffer><expr> <C-m>
       \ <SID>is_in_wide_window()
       \ ? defx#do_action('open', 'edit')
-      \ : defx#do_action('multi', ['drop', 'quit'])
+      \ : ':<C-u>call <SID>pick("edit", "quit")<CR>'
 xnoremap <silent><nowait><buffer><expr> <c-j>
       \ defx#async_action('multi',
       \ ['clear_select_all', 'toggle_select_visual', 'drop', 'quit'])
@@ -146,8 +146,7 @@ xnoremap <silent><nowait><buffer><expr> <C-m>
 nnoremap <silent><nowait><buffer><expr> o
       \ defx#is_directory()
       \ ? defx#do_action('open')
-      \ : defx#do_action('multi', [['drop', 'bel split'], 'quit'])
-      "\ defx#do_action('drop', 'bel split')
+      \ : ':<C-u>call <SID>pick("bel split", "quit")<CR>'
 xnoremap <silent><nowait><buffer><expr> o
       \ defx#is_directory()
       \ ? '<Esc>'. defx#do_action('open')
@@ -158,8 +157,7 @@ xnoremap <silent><nowait><buffer><expr> o
 nnoremap <silent><nowait><buffer><expr> O
       \ defx#is_directory()
       \ ? defx#do_action('open')
-      \ : defx#do_action('multi', [['open', 'bot vsplit'], 'quit'])
-      "\ defx#do_action('open', 'bot vsplit')
+      \ : ':<C-u>call <SID>pick("bel vsplit", "quit")<CR>'
 " TODO: open multiple buffers in each new windows in visualmode
 xnoremap <silent><nowait><buffer><expr> O
       \ defx#is_directory()
