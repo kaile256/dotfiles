@@ -24,15 +24,31 @@ function ${1:func}(${2:args})
 end
 endsnippet
 
-snippet '(local (\S+) = {})' "define class.new()" br
-`!p snip.rv = match.group(1)`
+snippet '(local (\S+) = {})' "define Class.new()" br
+`!p
+# These snippets for writing Class.new() are derived from the tutorial:
+# http://lua-users.org/wiki/ObjectOrientationTutorial
+
+snip.rv = match.group(1)`
 `!p
 cls = match.group(2)
 
 snip.rv = cls
 `.__index = `!p snip.rv = cls`
 
-function `!p snip.rv = cls`.new${1}
+setmetatable(`!p snip.rv = cls`, {`!p
+snip.rv = ""
+if t[1] != "":
+  snip.rv += "\n"
+  snip.rv += " " * vim.options['shiftwidth']
+  snip.rv += "__index = "
+          `${1:InheritedClass}`!p snip.rv = "" if t[1] == "" else ","`
+  __call = function(cls, ...)
+    return cls.new(...)
+  end,
+})
+
+function `!p snip.rv = cls`.new${2}
 end
 endsnippet
 
