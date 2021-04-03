@@ -110,6 +110,24 @@ nmap <silent><nowait><buffer> Zq <SID>(defx-quit)
 
 " Open File {{{1
 " Edit {{{2
+function! s:pick(open, ...) abort
+  const paths = map(defx#get_selected_candidates(), 'v:val.action__path')
+  const defx_id = win_getid()
+
+  exe 'noautocmd wincmd' (winnr() == winnr('$') ? 'h' : 'l')
+
+  for path in paths
+    exe a:open path
+  endfor
+  const last_id = win_getid()
+  call win_gotoid(defx_id)
+  if a:0
+    call defx#call_action('multi', a:000)
+    if win_getid() == defx_id | return | endif
+    call win_gotoid(last_id)
+  endif
+endfunction
+
 nnoremap <silent><nowait><buffer><expr> <C-j>
       \ <SID>is_in_wide_window()
       \ ? defx#do_action('open', 'edit')
