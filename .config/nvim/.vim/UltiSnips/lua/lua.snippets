@@ -24,6 +24,18 @@ function ${1:func}(${2:args})
 end
 endsnippet
 
+snippet '(local (\S+) = {})' "define class.new()" br
+`!p snip.rv = match.group(1)`
+`!p
+cls = match.group(2)
+
+snip.rv = cls
+`.__index = `!p snip.rv = cls`
+
+function `!p snip.rv = cls`.new${1}
+end
+endsnippet
+
 snippet 'function \s*(\S+).new' "Start writing class:new()" br
 function `!p
 name = match.group(1)
