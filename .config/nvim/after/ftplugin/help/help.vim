@@ -6,6 +6,7 @@ if s:is_editing
   setlocal conceallevel=2
 else
   setlocal signcolumn= nolist foldlevel=0
-  setlocal bufhidden=wipe
+  " 'wipe' makes it impossible to go back with <C-o> or `:pop`.
+  setlocal bufhidden=hide
 endif
 
