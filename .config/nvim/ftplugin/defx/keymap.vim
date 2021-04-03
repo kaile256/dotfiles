@@ -352,14 +352,7 @@ let s:is_loaded = 1
 
 " Boolean: {{{1
 function! s:is_in_wide_window() abort
-  if @% =~# '\[defx]'
-    return winwidth('.') > g:defx_sidebar_width
-  endif
-  return winwidth(bufwinnr('\[defx]')) > g:defx_sidebar_width
-endfunction
-
-function! s:is_in_narrow_window() abort
-  return ! s:is_in_wide_window()
+  return winwidth('.') > 50
 endfunction
 
 function! s:single_window_with_defx() abort
