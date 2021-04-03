@@ -14,12 +14,12 @@ endsnippet
 
 context "is_in_python_code()"
 snippet 'rv\s*' "snip.rv = $1" ri
-snip.rv = ${1}` `
+snip.rv = ${1:${VISUAL}}` `
 endsnippet
 
 context "not is_in_python_code()"
 snippet 'rv\s*' "snip.rv = $1" ri
-\`!p snip.rv = ${1}\`
+\`!p snip.rv = ${1:${VISUAL}}\`
 endsnippet
 
 context "is_in_python_code()"
