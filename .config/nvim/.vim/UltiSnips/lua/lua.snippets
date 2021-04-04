@@ -56,18 +56,25 @@ if t[1] != "":
     return cls.new(...)
   end,
 })
-
-function `!p snip.rv = cls`.new${2}
-end
 endsnippet
 
-snippet 'function \s*(\S+).new' "Start writing class:new()" br
+snippet '(function )?\s*(\S+).new' "Start writing class.new()" br
 function `!p
-name = match.group(1)
+name = match.group(2)
 snip.rv = name
 `.new(${1:args})
   local self = setmetatable({}, `!p snip.rv = name`)`!p
 insert_props_as_tabstops(t[1], snip)
 `
-  return self
+  return self`!p
+
+snip.rv = ""
+funcdef = match.group(1) or ""
+if funcdef == "":
+# if "function " is preceded, assume that the code has been already expanded as
+# a snippet.
+  snip += "end"
+
+
+`
 endsnippet
