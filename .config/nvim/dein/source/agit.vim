@@ -6,7 +6,47 @@ let g:agit_no_default_mappings = 1
 " auto refresh on BufEnter
 let g:agit_enable_auto_refresh = 1
 
-"let g:agit_stat_location = 'topleft' " hopefully
+" Layout: stat under diff, log fills the entire left half of tabpage.
+let g:agit_preset_views = {
+      \ 'default': [
+      \   {'name': 'log'},
+      \   {
+      \     'name': 'stat',
+      \     'layout': 'botright vnew',
+      \   },
+      \   {
+      \     'name': 'diff',
+      \     'layout': 'aboveleft {winheight(".") * 6 / 7} new',
+      \   },
+      \ ],
+      \ 'file': [
+      \   {'name': 'filelog'},
+      \   {
+      \     'name': 'catfile',
+      \     'layout': 'botright vnew',
+      \   },
+      \ ]}
+
+" Layout: stat under log, diff fills the entire right half of tabpage.
+" let g:agit_preset_views = {
+"      \ 'default': [
+"      \   {'name': 'log'},
+"      \   {
+"      \     'name': 'stat',
+"      \     'layout': 'botright {winheight(".") * 1 / 7} new',
+"      \   },
+"      \   {
+"      \     'name': 'diff',
+"      \     'layout': 'botright vnew',
+"      \   },
+"      \ ],
+"      \ 'file': [
+"      \   {'name': 'filelog'},
+"      \   {
+"      \     'name': 'catfile',
+"      \     'layout': 'botright vnew',
+"      \   },
+"      \ ]}
 
 hi! link agitDiffAdd diffAdded
 hi! link agitDiffRemove diffRemoved
