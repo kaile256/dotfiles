@@ -33,17 +33,19 @@ else :
 `end
 endsnippet
 
-snippet '(local (\S+) = {})' "define Class.new()" br
+snippet 'local (\S+) = {}' "define Class.new()" br
 `!p
 # These snippets for writing Class.new() are derived from the tutorial:
 # http://lua-users.org/wiki/ObjectOrientationTutorial
 
-snip.rv = match.group(1)`
-`!p
-cls = match.group(2)
+cls = match.group(1)
+snip.rv = "local " + cls + " = {}"
 
-snip.rv = cls
-`.__index = `!p snip.rv = cls`
+if t[1] == "":
+  snip += cls + ".__index = " + cls
+
+
+`
 
 setmetatable(`!p snip.rv = cls`, {`!p
 snip.rv = ""
