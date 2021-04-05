@@ -6,7 +6,7 @@
 # Note: write XDG-related aliases in 'env.sh'
 
 # Command; ls
-export LS_OPTION="--color=auto"
+export LS_OPTION="--color=auto -F"
 alias ls='ls $LS_OPTION'
 alias la='ls $LS_OPTION -A'
 alias ll='ls $LS_OPTION -l'
