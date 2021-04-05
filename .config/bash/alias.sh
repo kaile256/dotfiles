@@ -9,8 +9,8 @@
 export LS_OPTION="--color=auto -F"
 alias ls='ls $LS_OPTION'
 alias la='ls $LS_OPTION -A'
-alias ll='ls $LS_OPTION -l'
-alias  l='ls $LS_OPTION -lA'
+alias ll='ls $LS_OPTION -lh'
+alias  l='ls $LS_OPTION -Alh'
 # Command; echo
 alias ec='echo'
 alias ech='echo'
