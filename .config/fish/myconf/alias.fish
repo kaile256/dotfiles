@@ -7,9 +7,10 @@ alias tmux 'tmux -2'
 
 balias b 'bash'
 
-balias l 'ls -Alh'
-balias la 'ls -A'
-balias ll 'ls -lh'
+set -x LS_OPTION -F --color=auto
+balias la 'ls $LS_OPTION -A'
+balias ll 'ls $LS_OPTION -lh'
+balias l  'ls $LS_OPTION -Alh'
 
 balias ec 'echo'
 balias ech 'echo'
