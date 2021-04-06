@@ -120,3 +120,10 @@ repo = 'rhysd/vim-textobj-conflict'
 depends = ['vim-textobj-user']
 on_map = {ox = '<Plug>(textobj-conflict-'}
 hook_source = 'source $DEIN_RC_DIR/textobj/conflict/sou.vim'
+
+#[ Visual ]
+[[plugins]]
+repo = 'kana/vim-niceblock'
+# Extend I/A in v/V as in <C-v>.
+on_map = {x = ['<Plug>(niceblock-']}
+hook_add = 'source $DEIN_RC_DIR/niceblock/add.vim'
