@@ -362,6 +362,7 @@ endfunction
 
 " String: {{{1
 function! s:get_cwd() abort
+  " Note: expand('%:p:h') may differ from printed tree.
   return matchstr(getline(1), ':\zs\f\+')
 endfunction
 
