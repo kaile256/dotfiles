@@ -34,9 +34,14 @@ class Plugin():
     tag = '*' + opt_name + '*'
     concealed_len = 2 # two of `*` for help-tag.
     width = int(vim.eval('&textwidth')) - len(opt_name) - len(tag) + concealed_len - 1
-    spaces = vim.eval(f'repeat(" ", {width})')
+    if width > 0 :
+      spaces = vim.eval(f'repeat(" ", {width})')
+      return opt_name + spaces + tag
 
-    return opt_name + spaces + tag
+    # Without enough spaces, insert helptag above instead of appending.
+    indent = int(vim.eval('&textwidth')) - len(tag) + concealed_len - 1
+    spaces = vim.eval(f'repeat(" ", {indent})')
+    return spaces + tag + "\n" + opt_name
 
 
   def set_header(self, subtitle=''):

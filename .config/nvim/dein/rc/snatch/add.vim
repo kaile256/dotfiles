@@ -5,6 +5,6 @@ let g:snatch#no_default_mappings = 1
 
 cmap <C-o> <Plug>(snatch-operator)
 
-imap <C-y> <Plug>(snatch-reg-ctrl-y)
-imap <C-e> <Plug>(snatch-reg-ctrl-e)
+imap <C-y> <Plug>(snatch-reg-horizontal-ctrl-y)
+imap <C-e> <Plug>(snatch-reg-horizontal-ctrl-e)
 
