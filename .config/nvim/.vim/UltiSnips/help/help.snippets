@@ -85,7 +85,9 @@ plugin = Plugin.get_name()
 
 first_tbl_len = 24
 
-toc_lines = map(lambda x: x.capitalize()
+toc_lines = map(lambda x: (x.upper() if x == 'faq'
+              else x.capitalize() if re.search(r'[aeiou]', x)
+              else x.upper())
               + vim.eval(f'repeat(" ", {first_tbl_len} - {len(x)})')
               + "|" + plugin + "-" + x + "|",
               subtitles)
