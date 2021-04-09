@@ -15,8 +15,23 @@ set backupskip=*/tmp/*,*/.git/*
 "set backupext=
 "exe 'set viminfo=''1000,n'. s:data_home .'/info'
 
-"augroup NoSimultaniusSwap
-"  au! SwapExists * let v:swapchoice = 'd'
-"augroup END
+function! s:mk_backupdirs_if_unexisted() abort
+  const dirs = [
+        \ &undodir,
+        \ &directory,
+        \ &backupdir,
+        \ ]
+  for dir in dirs
+    if isdirectory(dir) | continue | endif
+    let confirm = input('backupfiles: creat "' dir '"? [Y]es/[n]o')
+    if confirm !~? 'y\%[es]'
+      echo 'abort'
+      continue
+    endif
+    call mkdir(dir, 'p)
+  endfor
+endfunction
+call s:mk_backupdirs_if_unexisted()
+delfunction s:mk_backupdirs_if_unexisted
 
 unlet s:data_home
