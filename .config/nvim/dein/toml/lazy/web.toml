@@ -53,6 +53,15 @@ on_cmd = ['Qiita']
 #[[plugins]]
 #repo = 'aiya000/vim-webpage'
 #on_cmd =  ['WebpageShow']
+# [[plugins]]
+# repo = 'kkiyama117/zenn-vim'
+# # Use snippets and a markdown previewer instead.
+# # No functions to post articles, books, etc.
+# on_func = ['zenn#']
+# build = '''
+# yarn add -D zenn-cli
+# '''
+# hook_source = 'source $DEIN_RC_DIR/zenn/sou.vim'
 
 #[ APIs ]
 [[plugins]]
