@@ -27,3 +27,11 @@ repo = 'nvim-treesitter/playground'
 # View treesitter's infomation.
 on_cmd = ['TSPlaygroundToggle']
 hook_source = 'luafile $DEIN_RC_DIR/playground/sou.lua'
+
+[[plugins]]
+repo = 'JoosepAlviste/nvim-ts-context-commentstring'
+# Give lua functions to update &cms in some filetypes.
+# Related to Shougo/context_filetype.vim.
+depends = ['nvim-treesitter']
+on_ft = ['javascriptreact', 'typescriptreact', 'vue']
+hook_post_source = 'source $DEIN_RC_DIR/treesitter/context-commentstring/pos.vim'
