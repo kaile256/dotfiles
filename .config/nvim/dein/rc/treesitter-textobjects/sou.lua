@@ -42,8 +42,8 @@ require'nvim-treesitter.configs'.setup {
         ["ao"] = "@loop.outer",
 
         -- Mnemonic: Question
-        ["iq"] = "@conditional.inner",
-        ["aq"] = "@conditional.outer",
+        ["iQ"] = "@conditional.inner",
+        ["aQ"] = "@conditional.outer",
 
         ["i,"] = "@parameter.inner",
         ["a,"] = "@parameter.outer",
