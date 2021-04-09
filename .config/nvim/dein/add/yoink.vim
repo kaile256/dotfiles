@@ -14,8 +14,8 @@ nmap <expr> <SID>(YoinkNewer)
       \ ? '<Plug>(YoinkPostPasteSwapForward)'
       \ : '<Plug>(YoinkRotateForward)'
 
-nnoremap <script> <c-,> <SID>(YoinkOlder)
-nnoremap <script> <c-;> <SID>(YoinkNewer)
+nnoremap <script> [y <SID>(YoinkOlder)
+nnoremap <script> ]y <SID>(YoinkNewer)
 
 nmap <S-space>p <Plug>(YoinkPaste_p)
 nmap <S-space>P <Plug>(YoinkPaste_P)
