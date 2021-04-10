@@ -1,0 +1,52 @@
+global !p
+def is_spec_file():
+  return re.search(r'_spec\.lua$', vim.eval('@%'))
+
+
+endglobal
+
+
+context "is_spec_file()"
+snippet '(b(:?usted)?)?d(:?e(:?s(:?cribe)?)?)?' "describe($1)" br
+`!p
+if match.group(1):
+  snip.rv = 'busted.'
+`describe("${1:description}", function()
+  ${2:${VISUAL}}
+end)
+endsnippet
+
+context "is_spec_file()"
+snippet '(b(:?usted)?)?it' "it($1)" br
+`!p
+if match.group(1):
+  snip.rv = 'busted.'
+`it("${1:description}", function()
+  ${2:${VISUAL}}
+end)
+endsnippet
+
+context "is_spec_file()"
+snippet '(b(:?usted)?)?b(:?e(:?f(:?ore)?)?)?(e|a)' "before_each($1)" br
+`!p
+if match.group(1):
+  snip.rv = 'busted.'
+`before_`!p
+snip.rv = 'each' if match.group(1) == 'e' else 'all'
+`("${2:description}", function()
+  ${3:${VISUAL}}
+end)
+endsnippet
+
+context "is_spec_file()"
+snippet '(b(:?usted)?)?a(:?f(:?t(:?er)?)?)?(e|a)' "after_each($1)" br
+`!p
+if match.group(1):
+  snip.rv = 'busted.'
+`before_`!p
+snip.rv = 'each' if match.group(1) == 'e' else 'all'
+`("${2:description}", function()
+  ${3:${VISUAL}}
+end)
+endsnippet
+
