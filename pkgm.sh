@@ -114,6 +114,8 @@ PACKAGEs=(
   luacheck # linter for lua, integrating with lua-lsp
   # lua-lsp-git # rarely updated; no longer supported by coc-lua
   lua-language-server
+  lua51-busted # Unit test for lua
+
   code # vscode
   stylelint # a linter for CSS
   ueberzug # previewer for some tools
