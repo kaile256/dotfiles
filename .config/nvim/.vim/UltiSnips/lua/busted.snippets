@@ -33,7 +33,7 @@ if match.group(1):
   snip.rv = 'busted.'
 `before_`!p
 snip.rv = 'each' if match.group(1) == 'e' else 'all'
-`("${2:description}", function()
+`(function()
   ${3:${VISUAL}}
 end)
 endsnippet
@@ -45,7 +45,7 @@ if match.group(1):
   snip.rv = 'busted.'
 `before_`!p
 snip.rv = 'each' if match.group(1) == 'e' else 'all'
-`("${2:description}", function()
+`(function()
   ${3:${VISUAL}}
 end)
 endsnippet
