@@ -324,6 +324,8 @@ PACKAGEs=(
   libskk
   skk-emoji-jisyo
   skktools
+
+  fd # an alternative for find
 )
 
 PIP3s=(
