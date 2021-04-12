@@ -27,25 +27,15 @@ end)
 endsnippet
 
 context "is_spec_file()"
-snippet '(b(:?usted)?)?b(:?e(:?f(:?ore)?)?)?(e|a)' "before_each($1)" br
-`!p
-if match.group(1):
-  snip.rv = 'busted.'
-``!p
-snip.rv = 'before_each' if match.group(1) == 'e' else 'teardown'
-`(function()
+snippet 'b(:?e(:?f(:?ore)?)?)?e(:?ach)?' "before_each($1)" br
+before_each(function()
   ${3:${VISUAL}}
 end)
 endsnippet
 
 context "is_spec_file()"
-snippet '(b(:?usted)?)?a(:?f(:?t(:?er)?)?)?(e|a)' "after_each($1)" br
-`!p
-if match.group(1):
-  snip.rv = 'busted.'
-``!p
-snip.rv = 'before_each' if match.group(1) == 'e' else 'setup'
-`(function()
+snippet 'a(:?f(:?t(:?er)?)?)?e(:?ach)?' "after_each($1)" br
+after_each(function()
   ${3:${VISUAL}}
 end)
 endsnippet
