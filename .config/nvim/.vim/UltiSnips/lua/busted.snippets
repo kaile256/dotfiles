@@ -40,3 +40,16 @@ after_each(function()
 end)
 endsnippet
 
+context "is_spec_file()"
+snippet setup "setup($1)" b
+setup(function()
+  ${3:${VISUAL}}
+end)
+endsnippet
+
+context "is_spec_file()"
+snippet teardown "teardown($1)" b
+teardown(function()
+  ${3:${VISUAL}}
+end)
+endsnippet
