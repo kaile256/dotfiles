@@ -41,6 +41,20 @@ end)
 endsnippet
 
 context "is_spec_file()"
+snippet 'b(:?e(:?f(:?ore)?)?)?a(:?ll)?' "setup($1)" br
+setup(function()
+  ${3:${VISUAL}}
+end)
+endsnippet
+
+context "is_spec_file()"
+snippet 'a(:?f(:?t(:?er)?)?)?a(:?ll)?' "teardown($1)" br
+teardown(function()
+  ${3:${VISUAL}}
+end)
+endsnippet
+
+context "is_spec_file()"
 snippet setup "setup($1)" b
 setup(function()
   ${3:${VISUAL}}
