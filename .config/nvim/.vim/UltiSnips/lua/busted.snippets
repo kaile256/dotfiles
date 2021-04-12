@@ -31,8 +31,8 @@ snippet '(b(:?usted)?)?b(:?e(:?f(:?ore)?)?)?(e|a)' "before_each($1)" br
 `!p
 if match.group(1):
   snip.rv = 'busted.'
-`before_`!p
-snip.rv = 'each' if match.group(1) == 'e' else 'all'
+``!p
+snip.rv = 'before_each' if match.group(1) == 'e' else 'teardown'
 `(function()
   ${3:${VISUAL}}
 end)
@@ -43,8 +43,8 @@ snippet '(b(:?usted)?)?a(:?f(:?t(:?er)?)?)?(e|a)' "after_each($1)" br
 `!p
 if match.group(1):
   snip.rv = 'busted.'
-`before_`!p
-snip.rv = 'each' if match.group(1) == 'e' else 'all'
+``!p
+snip.rv = 'before_each' if match.group(1) == 'e' else 'setup'
 `(function()
   ${3:${VISUAL}}
 end)
