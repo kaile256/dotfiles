@@ -1,0 +1,7 @@
+[[plugins]]
+repo = 'nvim-lua/popup.nvim'
+on_lua = ['popup']
+[[plugins]]
+repo = 'nvim-lua/plenary.nvim'
+on_cmd = ['Plenary']
+on_lua = ['plenary']
