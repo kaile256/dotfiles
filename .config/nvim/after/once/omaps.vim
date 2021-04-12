@@ -2,6 +2,11 @@
 
 onoremap <silent> gv :<c-u>norm! gv<cr>
 
+omap iV Vi
+omap aV Va
+omap i<C-v> <C-v>i
+omap a<C-v> <C-v>a
+
 " Exclude the spaces outside of the quotes
 onoremap a' 2i'
 xnoremap a' 2i'
