@@ -362,6 +362,11 @@ hook_add = 'runtime add/undoquit.vim'
 
 #[ Backup ]
 # [[plugins]]
+# repo = 'ralismark/vim-recover'
+# # ??? Just prompt to [o]k, and start editing with an empty buffer.
+# if = 'has("nvim")'
+# on_event = ['SwapExists']
+# [[plugins]]
 # repo = 'chrisbra/Recover.vim'
 # # # Doesn't work. With this plugin, no prompt arises even when a swap file
 # # exists.
