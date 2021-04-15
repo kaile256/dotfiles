@@ -3,5 +3,6 @@ repo = 'nvim-lua/popup.nvim'
 on_lua = ['popup']
 [[plugins]]
 repo = 'nvim-lua/plenary.nvim'
+# Includes a wrapper of busted (a testing flamework for lua)
 on_cmd = ['Plenary']
 on_lua = ['plenary']
