@@ -1,4 +1,5 @@
-set guicursor=n-v-c-sm:block,i-ci-ve:ver25,r-cr-o:hor20,a:blinkon0
+set guicursor=n-v-c-sm-o:block,i-ci-ve:ver25,r-cr:hor20
+set guicursor+=a:blinkon0-Cursor/lCursor
 
 if system('xrandr | grep " connected"') =~# 'HDMI1'
   set guifont=SFMono\ Nerd\ Font\ Mono:h9.3
