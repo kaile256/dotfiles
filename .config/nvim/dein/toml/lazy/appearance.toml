@@ -23,7 +23,15 @@ hook_source = 'source $DEIN_RC_DIR/context/sou.vim'
 # on_ft = 'snippets'
 # hook_source = 'runtime source/indent-guides.vim'
 [[plugins]]
+repo = 'glepnir/indent-guides.nvim'
+# Async. As vim-indent-guides, show indent in color blocks.
+if = 'has("nvim")'
+on_event = ['BufRead']
+hook_post_source = 'luafile $DEIN_RC_DIR/indent-guides/pos.lua'
+[[plugins]]
 repo = 'Yggdroot/indentLine'
+# Show indent levels by characters using vim's conceal feature.
+if = '!has("nvim")'
 on_event = 'BufRead'
 hook_source = 'runtime source/indentLine.vim'
 #[[plugins]]
