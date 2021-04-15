@@ -28,11 +28,13 @@ require('indent_guides').setup {
 
   even_colors = {
     fg = 'NONE',
-    bg = '#5e4990',
+    bg = '#596e83',
+    -- bg = '#5e4990',
   },
 
   odd_colors = {
     fg = 'NONE',
-    bg = '#766e91',
+    bg = '#425c73',
+    -- bg = '#766e91',
   },
 }
