@@ -30,15 +30,6 @@ on_cmd = ['GHInteractive', 'GBInteractive']
 # if = 'has("nvim")'
 # on_source = ['tig-explorer.vim', 'ranger.vim']
 
-#[[ Magit ]]
-# [[plugins]]
-# repo = 'TimUntersberger/neogit'
-# Under development.
-# if = 'has("nvim")'
-# on_cmd = ['Neogit']
-# [[plugins]]
-# repo = 'jreybert/vimagit'
-# on_cmd =  'Magit'
 #[ Commit ]
 [[plugins]]
 repo = 'johngrib/vim-git-msg-wheel'
@@ -114,6 +105,14 @@ on_cmd = ['Gina']
 hook_add = 'runtime add/gina.vim'
 hook_post_source = 'runtime post/gina.vim'
 
+# [[plugins]]
+# repo = 'TimUntersberger/neogit'
+# # Under development.
+# if = 'has("nvim")'
+# on_cmd = ['Neogit']
+# [[plugins]]
+# repo = 'jreybert/vimagit'
+# on_cmd =  'Magit'
 #[ Hunk ]
 [[plugins]]
 repo = 'airblade/vim-gitgutter'
