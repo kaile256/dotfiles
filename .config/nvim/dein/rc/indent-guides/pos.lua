@@ -21,6 +21,7 @@ require('indent_guides').setup {
     'defx',
     'fzf',
     'help',
+    'man',
     'sagahover',
     'twiggy',
     'vista',
