@@ -80,7 +80,7 @@ on_ft = 'vim'
 #[ Copy ]
 [[plugins]]
 repo = 'kaile256/vim-snatch'
-on_map = {ic = ['<Plug>(snatch-']}
+on_map = {icv = ['<Plug>(snatch-']}
 # by `on_map` always fails once.
 hook_add = 'source $DEIN_RC_DIR/snatch/add.vim'
 

@@ -8,3 +8,6 @@ cmap <C-o> <Plug>(snatch-operator)
 imap <C-y> <Plug>(snatch-oneshot-hor-or-reg-ctrl-y)
 imap <C-e> <Plug>(snatch-oneshot-hor-or-reg-ctrl-e)
 
+smap <C-y> <Plug>(snatch-oneshot-hor-or-reg-ctrl-y)
+smap <C-e> <Plug>(snatch-oneshot-hor-or-reg-ctrl-e)
+
