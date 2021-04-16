@@ -165,13 +165,20 @@ hook_post_source = 'luafile $DEIN_LUA_DIR/tabline/pos.lua'
 #type = 'git'
 #depends = 'vim-airline'
 #on_event = ['BufRead']
-
 [[plugins]]
-repo = 'glepnir/galaxyline.nvim'
-# Written in lua, inspired by lightline.
+repo = 'famiu/feline.nvim'
+# Inspired by galaxyline, but intended to be more minimal and customizable.
 if = 'has("nvim")'
+depends = ['nvim-web-devicons']
+on_lua = ['feline']
 on_event = ['BufRead']
-hook_post_source = 'luafile $DEIN_LUA_DIR/galaxyline/pos.lua'
+hook_post_source = 'luafile $DEIN_LUA_DIR/feline/pos.lua'
+# [[plugins]]
+# # repo = 'glepnir/galaxyline.nvim'
+# # Written in lua, inspired by lightline.
+# if = 'has("nvim")'
+# on_event = ['BufRead']
+# hook_post_source = 'luafile $DEIN_LUA_DIR/galaxyline/pos.lua'
 # [[plugins]]
 # repo = 'ojroques/nvim-hardline'
 # # Invalid on theme
