@@ -4,6 +4,7 @@
 local vim = vim
 local lsp = require('feline.providers.lsp')
 local vi_mode_utils = require('feline.providers.vi_mode')
+local inactive = require('rc.feline.components.inactive')
 
 local components = {
   left = {
@@ -168,30 +169,6 @@ components.right.active[6] = {
   }
 }
 
-components.left.inactive[1] = {
-  provider = 'file_type',
-  hl = {
-    fg = 'white',
-    bg = 'oceanblue',
-    style = 'bold'
-  },
-  left_sep = {
-    str = ' ',
-    hl = {
-      fg = 'NONE',
-      bg = 'oceanblue'
-    }
-  },
-  right_sep = {
-    {
-      str = ' ',
-      hl = {
-        fg = 'NONE',
-        bg = 'oceanblue'
-      }
-    },
-    'slant_right'
-  }
-}
+components.left.inactive = inactive.left
 
 return components
