@@ -172,6 +172,13 @@ repo = 'glepnir/galaxyline.nvim'
 if = 'has("nvim")'
 on_event = ['BufRead']
 hook_post_source = 'luafile $DEIN_LUA_DIR/galaxyline/pos.lua'
+# [[plugins]]
+# repo = 'ojroques/nvim-hardline'
+# # Invalid on theme
+# if = 'has("nvim")'
+# on_lua = ['hardline']
+# on_event = ['BufRead']
+# hook_post_source = 'luafile $DEIN_LUA_DIR/hardline/sou.lua'
 [[plugins]]
 repo = 'itchyny/lightline.vim'
 on_event = 'Syntax'
