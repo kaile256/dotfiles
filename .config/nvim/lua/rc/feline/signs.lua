@@ -2,38 +2,46 @@
 -- Repo: famiu/feline.nvim
 
 local signs = {
-  separator = {},
+  separator = {
+    symmetry = {},
+    left = {},
+    right = {},
+  },
 }
 
-signs.separator = {
+signs.separator.symmetry = {
   vertical_bar = '┃',
   vertical_bar_thin = '│',
   block = '█',
   circle = '●',
+}
 
-  left_triangle  = '',
-  right_triangle = '',
+signs.separator.left = {
+  triangle  = '',
+  triangle_thin  = '',
 
-  left_triangle_thin  = '',
-  right_triangle_thin = '',
+  slant  = '',
+  slant_thin  = '',
 
-  left_slant  = '',
-  right_slant = '',
+  slant_upper  = '',
+  slant_upper_thin  = '',
 
-  left_slant_thin  = '',
-  right_slant_thin = '',
+  rounded  = '',
+  rounded_thin  = '',
+}
 
-  left_slant_upper  = '',
-  right_slant_upper = '',
+signs.separator.right = {
+  triangle = '',
+  triangle_thin = '',
 
-  left_slant_upper_thin  = '',
-  right_slant_upper_thin = '',
+  slant = '',
+  slant_thin = '',
 
-  left_rounded  = '',
-  right_rounded = '',
+  slant_upper = '',
+  slant_upper_thin = '',
 
-  left_rounded_thin  = '',
-  right_rounded_thin = '',
+  rounded = '',
+  rounded_thin = '',
 }
 
 return signs
