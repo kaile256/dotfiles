@@ -12,14 +12,17 @@ local properties = {
 properties.force_inactive.filetypes = {
   'NvimTree',
   'dbui',
+  'defx',
+  'fugitive',
+  'fugitiveblame',
+  'fzf',
   'packer',
   'startify',
-  'fugitive',
-  'fugitiveblame'
+  'twiggy',
 }
 
 properties.force_inactive.buftypes = {
-  'terminal'
+  'terminal',
 }
 
 return properties
