@@ -1,3 +1,6 @@
+-- TOML: appearance.toml
+-- Repo: famiu/feline.nvim
+
 local vim = vim
 
 local buffer = {}
