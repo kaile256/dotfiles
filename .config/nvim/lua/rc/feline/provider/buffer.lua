@@ -2,6 +2,7 @@
 -- Repo: famiu/feline.nvim
 
 local vim = vim
+local colors = require('rc.feline.colors')
 
 local buffer = {}
 
@@ -29,8 +30,8 @@ end
 buffer.scrollbar = {
   provider = scroll_bar,
   hl = {
-    fg = 'black',
-    bg = 'skyblue',
+    fg = colors.black,
+    bg = colors.skyblue,
     style = 'bold'
   },
 }
