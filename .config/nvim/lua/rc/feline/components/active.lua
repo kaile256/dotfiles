@@ -4,8 +4,8 @@
 local vim = vim
 
 local lsp = require('feline.providers.lsp')
-local vi_mode_utils = require('feline.providers.vi_mode')
 local buffer = require('rc.feline.provider.buffer')
+local mode = require('rc.feline.provider.mode')
 
 local colors = require('rc.feline.colors')
 
@@ -15,26 +15,13 @@ local active = {
 }
 
 active.left[1] = {
-  provider = '▊ ',
+  provider = '',
   hl = {
     fg = colors.skyblue,
   }
 }
 
-
-active.left[2] = {
-  provider = 'vi_mode',
-  hl = function()
-    local val = {}
-
-    val.name = vi_mode_utils.get_mode_highlight_name()
-    val.fg = vi_mode_utils.get_mode_color()
-    val.style = 'bold'
-
-    return val
-  end,
-  right_sep = ' '
-}
+active.left[2] = mode.vi_mode
 
 active.left[3] = {
   provider = 'file_info',
