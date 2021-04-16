@@ -1,6 +1,12 @@
 -- TOML: appearance.toml
 -- Repo: famiu/feline.nvim
 
+local vim = vim
+
+vim.cmd [[
+setglobal noshowmode
+]]
+
 local vi_mode_colors = {
   NORMAL = 'green',
   OP = 'green',
