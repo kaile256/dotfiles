@@ -188,6 +188,7 @@ hook_post_source = 'luafile $DEIN_LUA_DIR/feline/pos.lua'
 # hook_post_source = 'luafile $DEIN_LUA_DIR/hardline/sou.lua'
 [[plugins]]
 repo = 'itchyny/lightline.vim'
+if = '!has("nvim")'
 on_event = 'Syntax'
 hook_source = 'source $DEIN_RC_DIR/lightline/sou.vim'
 hook_post_source = 'source $DEIN_RC_DIR/lightline/pos.vim'
