@@ -4,8 +4,8 @@
 local vim = vim
 
 local lsp = require('feline.providers.lsp')
-local buffer = require('rc.feline.provider.buffer')
-local mode = require('rc.feline.provider.mode')
+local buffer = require('rc.feline.providers.buffer')
+local mode = require('rc.feline.providers.mode')
 
 local colors = require('rc.feline.colors')
 
