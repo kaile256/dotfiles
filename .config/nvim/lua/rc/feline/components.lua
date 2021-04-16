@@ -5,6 +5,7 @@ local vim = vim
 local lsp = require('feline.providers.lsp')
 local vi_mode_utils = require('feline.providers.vi_mode')
 local inactive = require('rc.feline.components.inactive')
+local buffer = require('rc.feline.provider.buffer')
 
 local components = {
   left = {
@@ -161,13 +162,7 @@ components.right.active[5] = {
   right_sep = ' '
 }
 
-components.right.active[6] = {
-  provider = 'scroll_bar',
-  hl = {
-    fg = 'skyblue',
-    style = 'bold'
-  }
-}
+components.right.active[6] = buffer.scrollbar
 
 components.left.inactive = inactive.left
 
