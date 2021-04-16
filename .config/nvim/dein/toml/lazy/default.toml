@@ -163,7 +163,11 @@ repo = 'vim-scripts/sherlock.vim'
 # Completion mappings in Cmdline.
 on_func = ['sherlock#']
 hook_source = 'runtime source/sherlock.vim'
-
+[[plugins]]
+repo = 'nacro90/numb.nvim'
+# Auto scroll as cmdline range.
+on_event = ['CmdLineChanged']
+hook_post_source = 'luafile $DEIN_RC_DIR/numb/pos.lua'
 #[ Register ]
 [[plugins]]
 repo = 'svermeulen/vim-yoink'
