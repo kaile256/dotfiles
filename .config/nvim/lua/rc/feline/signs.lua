@@ -11,27 +11,28 @@ signs.separator = {
   block = '█',
   circle = '●',
 
-  left = '',
-  right = '',
+  left_triangle  = '',
+  right_triangle = '',
 
-  left_filled = '',
-  right_filled = '',
+  left_triangle_thin  = '',
+  right_triangle_thin = '',
 
-  slant_left = '',
-  slant_left_thin = '',
-  slant_right = '',
-  slant_right_thin = '',
+  left_slant  = '',
+  right_slant = '',
 
-  slant_left_2 = '',
-  slant_left_2_thin = '',
+  left_slant_thin  = '',
+  right_slant_thin = '',
 
-  slant_right_2 = '',
-  slant_right_2_thin = '',
+  left_slant_upper  = '',
+  right_slant_upper = '',
 
-  left_rounded = '',
-  left_rounded_thin = '',
+  left_slant_upper_thin  = '',
+  right_slant_upper_thin = '',
 
+  left_rounded  = '',
   right_rounded = '',
+
+  left_rounded_thin  = '',
   right_rounded_thin = '',
 }
 
