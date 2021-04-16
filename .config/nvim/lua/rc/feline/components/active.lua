@@ -3,9 +3,9 @@
 
 local vim = vim
 
-local lsp = require('feline.providers.lsp')
 local buffer = require('rc.feline.providers.buffer')
 local mode = require('rc.feline.providers.mode')
+local diagnostics = require('rc.feline.providers.diagnostics')
 
 local colors = require('rc.feline.colors')
 
@@ -67,37 +67,16 @@ active.left[5] = {
   }
 }
 
-active.left[6] = {
-  provider = 'diagnostic_errors',
-  enabled = function() return lsp.diagnostics_exist('Error') end,
-  hl = {
-    fg = colors.red,
-  },
+local left_sections = {
+  diagnostics.error,
+  diagnostics.warning,
+  diagnostics.hint,
+  diagnostics.info,
 }
 
-active.left[7] = {
-  provider = 'diagnostic_warnings',
-  enabled = function() return lsp.diagnostics_exist('Warning') end,
-  hl = {
-    fg = colors.yellow,
-  },
-}
-
-active.left[8] = {
-  provider = 'diagnostic_hints',
-  enabled = function() return lsp.diagnostics_exist('Hint') end,
-  hl = {
-    fg = colors.cyan,
-  },
-}
-
-active.left[9] = {
-  provider = 'diagnostic_info',
-  enabled = function() return lsp.diagnostics_exist('Information') end,
-  hl = {
-    fg = colors.skyblue,
-  },
-}
+for _, sec in pairs(left_sections) do
+  table.insert(active.left, sec)
+end
 
 active.right[1] = {
   provider = 'git_branch',
