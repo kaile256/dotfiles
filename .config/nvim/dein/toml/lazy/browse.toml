@@ -154,7 +154,10 @@ hook_post_source = 'runtime post/defx-git.vim'
 repo = 'kristijanhusak/defx-icons'
 on_source = 'defx.nvim'
 hook_source = 'runtime source/defx-icons.vim'
-
+[[plugins]]
+repo = 'matsui54/defx-sftp'
+# Defx source for sftp.
+on_path = ['^sftp://']
 # #[ Filer.Dirvish ]
 # [[plugins]]
 # repo = 'justinmk/vim-dirvish'
