@@ -7,6 +7,8 @@ local lsp = require('feline.providers.lsp')
 local vi_mode_utils = require('feline.providers.vi_mode')
 local buffer = require('rc.feline.provider.buffer')
 
+local colors = require('rc.feline.colors')
+
 local active = {
   left = {},
   right = {},
@@ -15,7 +17,7 @@ local active = {
 active.left[1] = {
   provider = '▊ ',
   hl = {
-    fg = 'skyblue'
+    fg = colors.skyblue,
   }
 }
 
@@ -37,13 +39,13 @@ active.left[2] = {
 active.left[3] = {
   provider = 'file_info',
   hl = {
-    fg = 'white',
-    bg = 'oceanblue',
+    fg = colors.white,
+    bg = colors.oceanblue,
     style = 'bold'
   },
   left_sep = {
     ' ', 'slant_left_2',
-    {str = ' ', hl = {bg = 'oceanblue', fg = 'NONE'}}
+    {str = ' ', hl = {bg = colors.oceanblue, fg = 'NONE'}}
   },
   right_sep = {'slant_right_2', ' '}
 }
@@ -56,8 +58,8 @@ active.left[4] = {
     {
       str = 'slant_left_2_thin',
       hl = {
-        fg = 'fg',
-        bg = 'bg'
+        fg = colors.fg,
+        bg = colors.bg
       }
     },
     ' '
@@ -71,8 +73,8 @@ active.left[5] = {
     {
       str = 'slant_right_2_thin',
       hl = {
-        fg = 'fg',
-        bg = 'bg'
+        fg = colors.fg,
+        bg = colors.bg
       }
     }
   }
@@ -81,36 +83,44 @@ active.left[5] = {
 active.left[6] = {
   provider = 'diagnostic_errors',
   enabled = function() return lsp.diagnostics_exist('Error') end,
-  hl = { fg = 'red' }
+  hl = {
+    fg = colors.red,
+  },
 }
 
 active.left[7] = {
   provider = 'diagnostic_warnings',
   enabled = function() return lsp.diagnostics_exist('Warning') end,
-  hl = { fg = 'yellow' }
+  hl = {
+    fg = colors.yellow,
+  },
 }
 
 active.left[8] = {
   provider = 'diagnostic_hints',
   enabled = function() return lsp.diagnostics_exist('Hint') end,
-  hl = { fg = 'cyan' }
+  hl = {
+    fg = colors.cyan,
+  },
 }
 
 active.left[9] = {
   provider = 'diagnostic_info',
   enabled = function() return lsp.diagnostics_exist('Information') end,
-  hl = { fg = 'skyblue' }
+  hl = {
+    fg = colors.skyblue,
+  },
 }
 
 active.right[1] = {
   provider = 'git_branch',
   hl = {
-    fg = 'white',
-    bg = 'black',
+    fg = colors.white,
+    bg = colors.black,
     style = 'bold'
   },
   right_sep = function()
-    local val = {hl = {fg = 'NONE', bg = 'black'}}
+    local val = {hl = {fg = 'NONE', bg = colors.black}}
     if vim.b.gitsigns_status_dict then val.str = ' ' else val.str = '' end
 
     return val
@@ -120,27 +130,32 @@ active.right[1] = {
 active.right[2] = {
   provider = 'git_diff_added',
   hl = {
-    fg = 'green',
-    bg = 'black'
+    fg = colors.green,
+    bg = colors.black
   }
 }
 
 active.right[3] = {
   provider = 'git_diff_changed',
   hl = {
-    fg = 'orange',
-    bg = 'black'
+    fg = colors.orange,
+    bg = colors.black
   }
 }
 
 active.right[4] = {
   provider = 'git_diff_removed',
   hl = {
-    fg = 'red',
-    bg = 'black'
+    fg = colors.red,
+    bg = colors.black
   },
   right_sep = function()
-    local val = {hl = {fg = 'NONE', bg = 'black'}}
+    local val = {
+      hl = {
+        fg = 'NONE',
+        bg = colors.black,
+      }
+    }
     if vim.b.gitsigns_status_dict then val.str = ' ' else val.str = '' end
 
     return val
