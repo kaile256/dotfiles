@@ -69,5 +69,22 @@ end
 --   utils.add_component_highlight(name_inv, hl.fg, hl.bg, hl.style)
 -- end
 
+vi_mode.colors_for_builtin = {
+  NORMAL = 'green',
+  OP = 'green',
+  INSERT = 'red',
+  VISUAL = 'skyblue',
+  BLOCK = 'skyblue',
+  REPLACE = 'violet',
+  ['V-REPLACE'] = 'violet',
+  ENTER = 'cyan',
+  MORE = 'cyan',
+  SELECT = 'orange',
+  COMMAND = 'green',
+  SHELL = 'green',
+  TERM = 'green',
+  NONE = 'yellow'
+}
+
 return vi_mode
 
