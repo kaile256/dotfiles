@@ -92,7 +92,6 @@ let g:coc_global_extensions = [
       \ 'coc-tag',
       \ 'coc-tailwindcss',
       \ 'coc-texlab',
-      \ 'coc-todolist',
       \ 'coc-translator',
       \ 'coc-tsserver',
       \ 'coc-vetur',
