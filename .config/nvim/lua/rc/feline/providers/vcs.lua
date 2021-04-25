@@ -1,6 +1,14 @@
 local vim = vim
 local builtin_git = require('feline.providers.git')
-local colors = require('rc.feline.colors')
+local signs = require('rc.feline.signs')
+local sep = signs.separator
+
+local colors = {
+  branch = 'magenta',
+  added = 'green',
+  changed = 'orange',
+  removed = 'red',
+}
 
 local vcs = {
   git = {
@@ -9,6 +17,10 @@ local vcs = {
 }
 
 local git = vcs.git
+
+local is_under_git = function()
+  return vim.b.gitsigns_status_dict
+end
 
 git.branch = {
   provider = function(component)
@@ -22,12 +34,28 @@ git.branch = {
   end,
   hl = function()
     local val = {
-      fg = colors.magenta,
-      bg = colors.bg,
+      fg = colors.branch,
+      bg = 'bg',
       style = 'bold'
     }
-    if not vim.b.gitsigns_status_dict then
-      val.fg, val.bg = colors.black, colors.orange
+    if not is_under_git() then
+      val.fg = 'bg'
+      val.bg = colors.changed
+    end
+    return val
+  end,
+  right_sep = function()
+    local val = {
+      str = '',
+      hl = {
+        fg = colors.branch,
+        bg = 'bg',
+      }
+    }
+    if is_under_git() then
+      val.str = sep.left.triangle_broad
+      val.hl.fg = 'bg'
+      val.hl.bg = colors.added
     end
     return val
   end,
@@ -43,35 +71,65 @@ end
 
 git.diff = {
   added = {
+    enabled = function()
+      return is_under_git()
+    end,
     provider = function()
       return get_git_stat('added')
     end,
     hl = {
-      fg = colors.black,
-      bg = colors.green,
+      fg = 'bg',
+      bg = colors.added,
       style = 'bold',
+    },
+    right_sep = {
+      str = signs.separator.left.triangle_broad,
+      hl = {
+        fg = colors.added,
+        bg = colors.changed,
+      }
     },
   },
 
   changed = {
+    enabled = function()
+      return is_under_git()
+    end,
     provider = function()
       return get_git_stat('changed')
     end,
     hl = {
-      fg = colors.black,
-      bg = colors.orange,
+      fg = 'bg',
+      bg = colors.changed,
       style = 'bold',
+    },
+    right_sep = {
+      str = signs.separator.left.triangle_broad,
+      hl = {
+        fg = colors.changed,
+        bg = colors.removed,
+      }
     },
   },
 
   removed = {
+    enabled = function()
+      return is_under_git()
+    end,
     provider = function()
       return get_git_stat('removed')
     end,
     hl = {
-      fg = colors.black,
-      bg = colors.red,
+      fg = 'bg',
+      bg = colors.removed,
       style = 'bold',
+    },
+    right_sep = {
+      str = signs.separator.left.triangle_broad,
+      hl = {
+        fg = colors.removed,
+        bg = 'bg',
+      }
     },
   },
 }
