@@ -53,6 +53,8 @@ active.left[4] = {
   }
 }
 
+active.left[4] = buffer.file_size
+
 active.left[5] = {
   provider = 'position',
   right_sep = {

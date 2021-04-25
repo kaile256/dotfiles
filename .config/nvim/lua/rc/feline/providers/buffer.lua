@@ -3,6 +3,10 @@
 
 local vim = vim
 local colors = require('rc.feline.colors')
+local signs = require('rc.feline.signs')
+local sep = signs.separator
+local sep_left = sep.left
+local default_sep_left = sep_left.rounded_narrow
 
 local buffer = {}
 
@@ -34,6 +38,24 @@ buffer.scrollbar = {
     bg = colors.skyblue,
     style = 'bold'
   },
+}
+
+buffer.file_size = {
+  provider = 'file_size',
+  enabled = function()
+    return vim.fn.getfsize(vim.fn.expand('%:t')) > 0
+  end,
+  right_sep = {
+    ' ',
+    {
+      str = default_sep_left,
+      hl = {
+        fg = colors.fg,
+        bg = colors.bg
+      }
+    },
+    ' '
+  }
 }
 
 return buffer
