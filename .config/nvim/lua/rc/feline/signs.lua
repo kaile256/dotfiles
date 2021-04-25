@@ -45,9 +45,11 @@ signs.separator.right = {
 }
 
 signs.default = {
-  left = signs.separator.left.rounded_narrow,
-  symmetry = signs.separator.symmetry.vertical_bar_broad,
-  right = signs.separator.right.rounded_narrow,
+  separator = {
+    left = signs.separator.left.rounded_narrow,
+    symmetry = signs.separator.symmetry.vertical_bar_broad,
+    right = signs.separator.right.rounded_narrow,
+  },
 }
 
 return signs
