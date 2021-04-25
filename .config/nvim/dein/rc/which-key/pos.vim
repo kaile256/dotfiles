@@ -123,7 +123,7 @@ function! s:register_keys() abort
     endfunction
 
     let l:nmaps['OpenBrowser:'] = {
-          \ 'H': [funcref('s:openbrowser_in', ['http://github.com/']), 'Search in GitHub'],
+          \ 'H': [funcref('s:openbrowser_in', ['github.com/']), 'Search in GitHub'],
           \
           \ 'Y': [funcref('s:openbrowser_in', ['duckduckgo&year']),  'Duckduckgo in Year'],
           \ 'M': [funcref('s:openbrowser_in', ['duckduckgo&month']), 'Duckduckgo in Month'],
@@ -193,7 +193,7 @@ function! s:register_keys() abort
           \ 'h': [funcref('s:OpenBrowserOp', ['github']), 'GitHub'],
           \ 'l': [funcref('s:OpenBrowserOp', ['gitlab']), 'GitLab'],
           \
-          \ 'H': [funcref('s:OpenBrowserOp', ['https://github.com/']), 'Open the Repo in GitHub'],
+          \ 'H': [funcref('s:OpenBrowserOp', ['github.com/']), 'Open the Repo in GitHub'],
           \ }
 
     let l:nmaps['OpenBrowser in Visual:'] = {
@@ -210,7 +210,7 @@ function! s:register_keys() abort
           \ 'h': [funcref('s:OpenBrowserVisual', ['github']), 'GitHub'],
           \ 'l': [funcref('s:OpenBrowserVisual', ['gitlab']), 'GitLab'],
           \
-          \ 'H': [funcref('s:OpenBrowserVisual', ['https://github.com/']), 'archwiki@en'],
+          \ 'H': [funcref('s:OpenBrowserVisual', ['github.com/']), 'archwiki@en'],
           \ }
   endif
 
