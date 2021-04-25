@@ -4,6 +4,7 @@
 local vim = vim
 local colors = require('rc.feline.colors')
 local signs = require('rc.feline.signs')
+local devicons = require('nvim-web-devicons')
 local sep = signs.separator
 local sep_left = sep.left
 local default_sep_left = sep_left.rounded_narrow
@@ -48,28 +49,32 @@ buffer.root_path = {
 
 buffer.file_path = {
   provider = function(component)
-    local extension = vim.fn.expand('%:e')
     local buftype = vim.bo.buftype
     if buftype ~= '' then
       return ''
     end
 
-    local filename = vim.fn.expand('%:t')
-    local modified_str
-
-    local filetype_icon = require('nvim-web-devicons').get_icon(filename, extension, { default = true })
-
-    if filename == '' then filename = 'unnamed' end
-
+    local modified_str = ''
     if vim.bo.modified then
       local modified_icon = ''
       modified_str = modified_icon .. ' '
-    else
-      modified_str = ''
     end
 
-    local filepath = vim.fn.expand('%:~:p')
-    return filetype_icon .. ' ' .. filepath .. ' ' .. modified_str
+    local fpath = vim.fn.expand('%:~:p')
+    return fpath .. ' ' .. modified_str
+  end,
+  left_sep = ' ',
+}
+
+buffer.filetype_icon = {
+  provider = function()
+    local extension = vim.fn.expand('%:e')
+    local fname = vim.fn.expand('%:t')
+    if fname == '' then
+      fname = 'unnamed'
+    end
+    local ft_icon = devicons.get_icon(fname, extension, { default = true })
+    return ft_icon
   end
 }
 
