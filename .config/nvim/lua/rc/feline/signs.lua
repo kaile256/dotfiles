@@ -9,6 +9,20 @@ local signs = {
   },
 }
 
+signs.separator.left = {
+  triangle_broad = '',
+  triangle_narrow = '',
+
+  slant_broad = '',
+  slant_narrow = '',
+
+  slant_upper_broad = '',
+  slant_upper_narrow = '',
+
+  rounded_broad = '',
+  rounded_narrow = '',
+}
+
 signs.separator.symmetry = {
   vertical_bar_broad = '┃',
   vertical_bar_narrow = '│',
@@ -30,24 +44,10 @@ signs.separator.right = {
   rounded_narrow  = '',
 }
 
-signs.separator.left = {
-  triangle_broad = '',
-  triangle_narrow = '',
-
-  slant_broad = '',
-  slant_narrow = '',
-
-  slant_upper_broad = '',
-  slant_upper_narrow = '',
-
-  rounded_broad = '',
-  rounded_narrow = '',
-}
-
 signs.default = {
+  left = signs.separator.left.rounded_narrow,
   symmetry = signs.separator.symmetry.vertical_bar_broad,
   right = signs.separator.right.rounded_narrow,
-  left = signs.separator.left.rounded_narrow,
 }
 
 return signs
