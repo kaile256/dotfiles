@@ -34,15 +34,7 @@ active.right[2] = vcs.git.diff.added
 active.right[3] = vcs.git.diff.changed
 active.right[4] = vcs.git.diff.removed
 
-active.right[5] = {
-  provider = 'line_percentage',
-  hl = {
-    style = 'bold'
-  },
-  left_sep = '  ',
-  right_sep = ' '
-}
-
+active.right[5] = buffer.line_percentage
 active.right[6] = buffer.scrollbar
 
 return active

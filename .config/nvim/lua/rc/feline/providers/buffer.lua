@@ -96,4 +96,13 @@ buffer.cursor_position = {
   }
 }
 
+buffer.line_percentage = {
+  provider = 'line_percentage',
+  hl = {
+    style = 'bold'
+  },
+  left_sep = '  ',
+  right_sep = ' ',
+}
+
 return buffer
