@@ -13,7 +13,7 @@ colors.vivid = {
   skyblue   = '#50B0F0',
   cyan      = '#009090',
   oceanblue = '#0066cc',
-  green     = '#98be65',
+  green     = '#7dbd28',
 
   red     = '#ec5f67',
   magenta = '#C26BDB',
