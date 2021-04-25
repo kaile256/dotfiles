@@ -122,7 +122,10 @@ hook_source = 'runtime source/rainbow.vim'
 [[plugins]]
 repo = 'kyazdani42/nvim-web-devicons'
 if = 'has("nvim")'
-on_source = ['galaxyline.nvim']
+on_source = [
+  'feline.nvim',
+  'galaxyline.nvim',
+]
 
 #[ Tabline ]
 [[plugins]]
