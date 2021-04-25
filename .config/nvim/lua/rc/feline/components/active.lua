@@ -29,12 +29,13 @@ active.left = {
   diagnostics.info,
 }
 
-active.right[1] = vcs.git.branch
-active.right[2] = vcs.git.diff.added
-active.right[3] = vcs.git.diff.changed
-active.right[4] = vcs.git.diff.removed
-
-active.right[5] = buffer.line_percentage
-active.right[6] = buffer.scrollbar
+active.right = {
+  vcs.git.branch,
+  vcs.git.diff.added,
+  vcs.git.diff.changed,
+  vcs.git.diff.removed,
+  buffer.line_percentage,
+  buffer.scrollbar,
+}
 
 return active
