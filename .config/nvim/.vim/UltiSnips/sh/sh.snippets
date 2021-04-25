@@ -7,7 +7,11 @@ snippet '>/(dev(/(null)?)?)?' "discard both stdout & stderr" wr
 endsnippet
 
 snippet SCRIPT_DIR "Get current dir the script running" b
-SCRIPT_DIR=$(readlink -f "\$0" | xargs dirname)
+`!p
+# SCRIPT_DIR=$(readlink -f "\$0" | xargs dirname)
+
+# Snipped from https://devhints.io/bash
+`SCRIPT_DIR="${0%/*}"
 endsnippet
 
 snippet () "function() {$1}" i
