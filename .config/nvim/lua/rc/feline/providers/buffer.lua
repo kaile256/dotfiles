@@ -58,4 +58,18 @@ buffer.file_size = {
   }
 }
 
+buffer.cursor_position = {
+  provider = 'position',
+  right_sep = {
+    ' ',
+    {
+      str = default_sep_left,
+      hl = {
+        fg = colors.fg,
+        bg = colors.bg
+      }
+    }
+  }
+}
+
 return buffer

@@ -55,19 +55,7 @@ active.left[4] = {
 
 active.left[4] = buffer.file_size
 
-active.left[5] = {
-  provider = 'position',
-  right_sep = {
-    ' ',
-    {
-      str = 'slant_right_2_thin',
-      hl = {
-        fg = colors.fg,
-        bg = colors.bg
-      }
-    }
-  }
-}
+active.left[5] = buffer.cursor_position
 
 local left_sections = {
   diagnostics.error,
