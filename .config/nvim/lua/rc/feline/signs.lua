@@ -1,7 +1,7 @@
 -- TOML: appearance.toml
 -- Repo: famiu/feline.nvim
 
-local signs = {
+local icons = {
   separator = {
     symmetry = {},
     left = {},
@@ -9,7 +9,7 @@ local signs = {
   },
 }
 
-signs.separator.left = {
+icons.separator.left = {
   triangle_broad = '',
   triangle_narrow = '',
 
@@ -23,14 +23,14 @@ signs.separator.left = {
   rounded_narrow = '',
 }
 
-signs.separator.symmetry = {
+icons.separator.symmetry = {
   vertical_bar_broad = '┃',
   vertical_bar_narrow = '│',
   block = '█',
   circle = '●',
 }
 
-signs.separator.right = {
+icons.separator.right = {
   triangle_broad  = '',
   triangle_narrow  = '',
 
@@ -44,12 +44,12 @@ signs.separator.right = {
   rounded_narrow  = '',
 }
 
-signs.default = {
+icons.default = {
   separator = {
-    left = signs.separator.left.rounded_narrow,
-    symmetry = signs.separator.symmetry.vertical_bar_broad,
-    right = signs.separator.right.rounded_narrow,
+    left = icons.separator.left.rounded_narrow,
+    symmetry = icons.separator.symmetry.vertical_bar_broad,
+    right = icons.separator.right.rounded_narrow,
   },
 }
 
-return signs
+return icons
