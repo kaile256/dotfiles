@@ -17,10 +17,16 @@ local active = {
 active.left = {
   mode.vi_mode,
 
-  buffer.file_name,
-  buffer.file_size,
-  buffer.cursor_position,
+  vcs.git.branch,
+  vcs.git.diff.added,
+  vcs.git.diff.changed,
+  vcs.git.diff.removed,
 
+  buffer.file_path,
+  buffer.filetype_icon,
+}
+
+active.mid = {
   diagnostics.error,
   diagnostics.warning,
   diagnostics.hint,
@@ -28,10 +34,8 @@ active.left = {
 }
 
 active.right = {
-  vcs.git.branch,
-  vcs.git.diff.added,
-  vcs.git.diff.changed,
-  vcs.git.diff.removed,
+  buffer.cursor_position,
+  buffer.file_size,
   buffer.line_percentage,
   buffer.scrollbar,
 }
