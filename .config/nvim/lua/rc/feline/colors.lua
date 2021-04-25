@@ -19,7 +19,7 @@ colors.vivid = {
   magenta = '#C26BDB',
   violet  = '#9E93E8',
   orange  = '#FF8800',
-  yellow  = '#ECBE7B',
+  yellow  = '#e1d250',
 }
 
 colors.spring_night = {
