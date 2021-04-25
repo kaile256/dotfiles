@@ -1,13 +1,16 @@
+-- Repo: famiu/feline.nvim
+
 local vim = vim
 local builtin_git = require('feline.providers.git')
 local signs = require('rc.feline.signs')
 local sep = signs.separator
+local colors = require('rc.feline.colors')
 
-local colors = {
-  branch = 'magenta',
-  added = 'green',
-  changed = 'orange',
-  removed = 'red',
+local theme = {
+  branch  = colors.magenta,
+  added   = colors.green,
+  changed = colors.yellow,
+  removed = colors.red,
 }
 
 local vcs = {
@@ -34,13 +37,13 @@ git.branch = {
   end,
   hl = function()
     local val = {
-      fg = colors.branch,
-      bg = 'bg',
+      fg = theme.branch,
+      bg = colors.bg,
       style = 'bold'
     }
     if not is_under_git() then
-      val.fg = 'bg'
-      val.bg = colors.changed
+      val.fg = colors.bg
+      val.bg = theme.changed
     end
     return val
   end,
@@ -48,14 +51,14 @@ git.branch = {
     local val = {
       str = '',
       hl = {
-        fg = colors.branch,
-        bg = 'bg',
+        fg = theme.branch,
+        bg = colors.bg,
       }
     }
     if is_under_git() then
       val.str = sep.left.triangle_broad
-      val.hl.fg = 'bg'
-      val.hl.bg = colors.added
+      val.hl.fg = colors.bg
+      val.hl.bg = theme.added
     end
     return val
   end,
@@ -78,15 +81,15 @@ git.diff = {
       return get_git_stat('added')
     end,
     hl = {
-      fg = 'bg',
-      bg = colors.added,
+      fg = colors.bg,
+      bg = theme.added,
       style = 'bold',
     },
     right_sep = {
       str = signs.separator.left.triangle_broad,
       hl = {
-        fg = colors.added,
-        bg = colors.changed,
+        fg = theme.added,
+        bg = theme.changed,
       }
     },
   },
@@ -99,15 +102,15 @@ git.diff = {
       return get_git_stat('changed')
     end,
     hl = {
-      fg = 'bg',
-      bg = colors.changed,
+      fg = colors.bg,
+      bg = theme.changed,
       style = 'bold',
     },
     right_sep = {
       str = signs.separator.left.triangle_broad,
       hl = {
-        fg = colors.changed,
-        bg = colors.removed,
+        fg = theme.changed,
+        bg = theme.removed,
       }
     },
   },
@@ -120,15 +123,15 @@ git.diff = {
       return get_git_stat('removed')
     end,
     hl = {
-      fg = 'bg',
-      bg = colors.removed,
+      fg = colors.bg,
+      bg = theme.removed,
       style = 'bold',
     },
     right_sep = {
       str = signs.separator.left.triangle_broad,
       hl = {
-        fg = colors.removed,
-        bg = 'bg',
+        fg = theme.removed,
+        bg = colors.bg,
       }
     },
   },
