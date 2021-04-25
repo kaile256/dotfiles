@@ -79,7 +79,44 @@ buffer.filetype_icon = {
     end
     local ft_icon = devicons.get_icon(fname, extension, { default = true })
     return ft_icon
-  end
+  end,
+  hl = {
+    fg = colors.white,
+    bg = colors.bg,
+  },
+  left_sep = {
+    {
+      str = sep_left.slant_upper_narrow,
+      hl = {
+        fg = colors.cyan,
+        bg = colors.bg,
+      },
+    },
+    {
+      str = ' ',
+      hl = {
+        fg = colors.cyan,
+        bg = colors.bg,
+      },
+    },
+  },
+  right_sep = {
+    {
+      str = ' ',
+      hl = {
+        fg = colors.cyan,
+        bg = colors.bg,
+      },
+    },
+    {
+      str = sep_left.slant_upper_narrow,
+      hl = {
+        fg = colors.cyan,
+        bg = colors.bg,
+      },
+    },
+    bg = colors.bg, -- Reset bg color in case this component is the last one.
+  }
 }
 
 buffer.file_name = {
