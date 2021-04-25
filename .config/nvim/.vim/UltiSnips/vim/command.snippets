@@ -59,6 +59,10 @@ if ${1}
 endif
 endsnippet
 
+snippet 'com(mand)?!?' "command! $1 $2" b
+command! -bar ${1:-nargs=* }${2:NewCommand} ${3::call}
+endsnippet
+
 post_jump "if snip.tabstop == 0 : Insert.function_call(snip.tabstops[1].current_text + snip.tabstops[2].current_text)"
 snippet 'fu?n?(c(tion)?)?' "function! foo() ... endfunction" br
 function! ${1:`!p snip.rv = autoload_prefix()`}${2:do}(${3:#:args}) abort${4}
