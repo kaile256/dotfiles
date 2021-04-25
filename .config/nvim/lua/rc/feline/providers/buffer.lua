@@ -51,6 +51,7 @@ buffer.file_name = {
     ' ',
     {
       str = ' ',
+      -- str = sep_left.rounded_broad .. ' ',
       hl = {
         bg = colors.oceanblue,
         fg = colors.bg,
