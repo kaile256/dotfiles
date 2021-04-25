@@ -16,7 +16,7 @@ signs.separator.symmetry = {
   circle = '●',
 }
 
-signs.separator.left = {
+signs.separator.right = {
   triangle  = '',
   triangle_thin  = '',
 
@@ -30,7 +30,7 @@ signs.separator.left = {
   rounded_thin  = '',
 }
 
-signs.separator.right = {
+signs.separator.left = {
   triangle = '',
   triangle_thin = '',
 
