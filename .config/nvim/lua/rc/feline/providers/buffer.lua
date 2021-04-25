@@ -53,7 +53,7 @@ buffer.file_name = {
       str = ' ',
       hl = {
         bg = colors.oceanblue,
-        -- bg = 'NONE',
+        fg = colors.bg,
       }
     }
   },
