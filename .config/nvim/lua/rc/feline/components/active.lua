@@ -8,8 +8,6 @@ local mode = require('rc.feline.providers.mode')
 local diagnostics = require('rc.feline.providers.diagnostics')
 local vcs = require('rc.feline.providers.vcs')
 
-local colors = require('rc.feline.colors')
-
 local active = {
   left = {},
   mid = {},
