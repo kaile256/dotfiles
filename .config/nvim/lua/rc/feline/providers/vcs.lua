@@ -1,4 +1,5 @@
 local vim = vim
+local builtin_git = require('feline.providers.git')
 local colors = require('rc.feline.colors')
 
 local vcs = {
@@ -10,22 +11,26 @@ local vcs = {
 local git = vcs.git
 
 git.branch = {
-  provider = 'git_branch',
-  hl = {
-    fg = colors.white,
-    bg = colors.black,
-    style = 'bold'
-  },
-  right_sep = function()
+  provider = function(component)
+    local branch = builtin_git.git_branch(component)
+    if branch == '' then
+      branch = ' [none] '
+    else
+      branch = branch .. ' '
+    end
+    return branch
+  end,
+  hl = function()
     local val = {
-      hl = {
-        fg = 'NONE',
-        bg = colors.black,
-      }
+      fg = colors.magenta,
+      bg = colors.bg,
+      style = 'bold'
     }
-    if vim.b.gitsigns_status_dict then val.str = ' ' else val.str = '' end
+    if not vim.b.gitsigns_status_dict then
+      val.fg, val.bg = colors.black, colors.orange
+    end
     return val
-  end
+  end,
 }
 
 local get_git_stat = function(key)
