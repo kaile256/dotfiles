@@ -7,7 +7,6 @@ local u_vi_mode = require('rc.feline.utils.vi_mode')
 local u_snatch = require('rc.feline.utils.snatch')
 local colors = require('rc.feline.colors')
 local signs = require('rc.feline.signs')
-local sep_right = signs.separator.right
 
 local mode = {
   vi_mode = {},
