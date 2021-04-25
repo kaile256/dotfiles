@@ -20,6 +20,9 @@ require'nvim-treesitter.configs'.setup {
     disable = {
       'toml',
     },
+    -- additional_vim_regex_highlighting = {
+    --   'toml',
+    -- }
   },
 
   -- Repo: p00f/nvim-ts-rainbow
