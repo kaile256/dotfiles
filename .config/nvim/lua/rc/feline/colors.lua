@@ -42,6 +42,6 @@ colors.spring_night = {
 }
 
 setmetatable(colors,{
-  __index = colors.spring_night,
+  __index = colors.vivid,
 })
 return colors

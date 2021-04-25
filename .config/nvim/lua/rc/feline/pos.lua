@@ -16,6 +16,6 @@ require('feline').setup({
   default_fg = colors.fg,
   default_bg = colors.bg,
 
-  colors = colors.spring_night,
+  colors = colors.vivid,
   -- vi_mode_colors = require('rc.feline.utils.vi_mode').colors_for_builtin,
 })
