@@ -95,7 +95,7 @@ class Dein(Plugin):
   def expand_hook(idx, lua=False):
     # Expand `hook_{idx} = 'source $DEIN_RC_DIR/{plugin}/{idx-ommited}.vim'`
 
-    is_lua = lua == 'l'
+    is_lua = lua == 'l' or re.search('nvim', vim.eval("getline(search('^repo = ', 'nb'))"))
 
     plugin = Dein._trimmed()
 
