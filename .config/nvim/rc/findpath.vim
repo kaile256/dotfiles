@@ -35,13 +35,13 @@ augroup myFindPathRc
   au BufNewFile,BufRead */httpd/* setl path^=/etc/httpd/**
   au BufNewFile,BufRead */lampp/* setl path^=/opt/lampp/**
 
-  au BufNewFile,BufRead *{.config,dotfiles}**/* call s:path.dotfiles()
+  au BufNewFile,BufRead */{.config,dotfiles}/*/* call s:path.dotfiles()
 
   exe 'au' TermOpen '* call s:path.vim()'
-  au BufNewFile,BufRead *{*vim,dein}**/* call s:path.vim()
+  au BufNewFile,BufRead */{*vim,dein}/*/* call s:path.vim()
   au FileType startuptime call s:path.vim()
 
-  au BufNewFile,BufRead $GHQ_ROOT**/* call s:path.ghq()
+  au BufNewFile,BufRead $GHQ_ROOT/*/* call s:path.ghq()
 augroup END
 
 let s:path = {} "{{{1
@@ -111,5 +111,5 @@ function! s:project_root(path) abort "{{{2
     let path = fnamemodify(path, ':h')
   endwhile
 
-  return path .'**'
+  return path .'/*'
 endfunction
