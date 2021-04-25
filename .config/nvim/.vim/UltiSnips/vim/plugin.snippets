@@ -42,3 +42,7 @@ let s:helper = themis#helper('assert')
 call themis#helper('command').with(s:helper)
 endsnippet
 
+snippet repmo "[repmo] Initialize" w
+noremap <expr> $1 repmo#Key('$2', '$3')
+noremap <expr> $1 repmo#Key('$3', '$2')
+endsnippet
