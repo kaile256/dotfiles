@@ -6,6 +6,7 @@ local vim = vim
 local buffer = require('rc.feline.providers.buffer')
 local mode = require('rc.feline.providers.mode')
 local diagnostics = require('rc.feline.providers.diagnostics')
+local vcs = require('rc.feline.providers.vcs')
 
 local colors = require('rc.feline.colors')
 
@@ -38,55 +39,10 @@ for _, sec in pairs(left_sections) do
   table.insert(active.left, sec)
 end
 
-active.right[1] = {
-  provider = 'git_branch',
-  hl = {
-    fg = colors.white,
-    bg = colors.black,
-    style = 'bold'
-  },
-  right_sep = function()
-    local val = {hl = {fg = 'NONE', bg = colors.black}}
-    if vim.b.gitsigns_status_dict then val.str = ' ' else val.str = '' end
-
-    return val
-  end
-}
-
-active.right[2] = {
-  provider = 'git_diff_added',
-  hl = {
-    fg = colors.green,
-    bg = colors.black
-  }
-}
-
-active.right[3] = {
-  provider = 'git_diff_changed',
-  hl = {
-    fg = colors.orange,
-    bg = colors.black
-  }
-}
-
-active.right[4] = {
-  provider = 'git_diff_removed',
-  hl = {
-    fg = colors.red,
-    bg = colors.black
-  },
-  right_sep = function()
-    local val = {
-      hl = {
-        fg = 'NONE',
-        bg = colors.black,
-      }
-    }
-    if vim.b.gitsigns_status_dict then val.str = ' ' else val.str = '' end
-
-    return val
-  end
-}
+active.right[1] = vcs.git.branch
+active.right[2] = vcs.git.diff.added
+active.right[3] = vcs.git.diff.changed
+active.right[4] = vcs.git.diff.removed
 
 active.right[5] = {
   provider = 'line_percentage',
