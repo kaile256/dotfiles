@@ -44,4 +44,10 @@ signs.separator.left = {
   rounded_narrow = '',
 }
 
+signs.default = {
+  symmetry = signs.separator.symmetry.vertical_bar_broad,
+  right = signs.separator.right.rounded_narrow,
+  left = signs.separator.left.rounded_narrow,
+}
+
 return signs
