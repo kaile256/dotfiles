@@ -172,7 +172,10 @@ hook_post_source = 'luafile $DEIN_LUA_DIR/tabline/pos.lua'
 repo = 'famiu/feline.nvim'
 # Inspired by galaxyline, but intended to be more minimal and customizable.
 if = 'has("nvim")'
-depends = ['nvim-web-devicons']
+depends = [
+  'nvim-web-devicons',
+  'gitsigns.nvim', # For built-in git providers
+]
 on_lua = ['feline']
 on_event = ['BufRead']
 hook_post_source = 'luafile $DEIN_LUA_DIR/feline/pos.lua'
