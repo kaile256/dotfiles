@@ -40,6 +40,29 @@ buffer.scrollbar = {
   },
 }
 
+buffer.file_name = {
+  provider = 'file_info',
+  hl = {
+    fg = colors.white,
+    bg = colors.oceanblue,
+    style = 'bold'
+  },
+  left_sep = {
+    ' ',
+    {
+      str = ' ',
+      hl = {
+        bg = colors.oceanblue,
+        -- bg = 'NONE',
+      }
+    }
+  },
+  right_sep = {
+    sep_left.rounded_broad,
+    ' ',
+  }
+}
+
 buffer.file_size = {
   provider = 'file_size',
   enabled = function()

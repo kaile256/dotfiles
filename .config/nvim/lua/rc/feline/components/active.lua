@@ -23,38 +23,8 @@ active.left[1] = {
 
 active.left[2] = mode.vi_mode
 
-active.left[3] = {
-  provider = 'file_info',
-  hl = {
-    fg = colors.white,
-    bg = colors.oceanblue,
-    style = 'bold'
-  },
-  left_sep = {
-    ' ', 'slant_left_2',
-    {str = ' ', hl = {bg = colors.oceanblue, fg = 'NONE'}}
-  },
-  right_sep = {'slant_right_2', ' '}
-}
-
-active.left[4] = {
-  provider = 'file_size',
-  enabled = function() return vim.fn.getfsize(vim.fn.expand('%:t')) > 0 end,
-  right_sep = {
-    ' ',
-    {
-      str = 'slant_left_2_thin',
-      hl = {
-        fg = colors.fg,
-        bg = colors.bg
-      }
-    },
-    ' '
-  }
-}
-
+active.left[3] = buffer.file_name
 active.left[4] = buffer.file_size
-
 active.left[5] = buffer.cursor_position
 
 local left_sections = {
