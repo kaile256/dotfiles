@@ -22,7 +22,7 @@ mode.snatch = {
 
 mode.vi_mode = {
   provider = function()
-    local v_bar = signs.separator.symmetry.vertical_bar
+    local v_bar = signs.separator.symmetry.vertical_bar_broad
     return v_bar .. ' ' .. u_vi_mode.get_mode() .. ' ' .. v_bar
   end,
   hl = function()
