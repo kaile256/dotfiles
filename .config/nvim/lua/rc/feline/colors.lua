@@ -13,13 +13,13 @@ colors.vivid = {
   skyblue   = '#50B0F0',
   cyan      = '#009090',
   oceanblue = '#0066cc',
-  green     = '#60A040',
+  green     = '#98be65',
 
-  red     = '#D10000',
+  red     = '#ec5f67',
   magenta = '#C26BDB',
   violet  = '#9E93E8',
-  orange  = '#FF9000',
-  yellow  = '#E1E120',
+  orange  = '#FF8800',
+  yellow  = '#ECBE7B',
 }
 
 colors.spring_night = {
