@@ -40,6 +40,39 @@ buffer.scrollbar = {
   },
 }
 
+buffer.root_path = {
+  provider = function()
+    return vim.fn.expand('%:~:p:h')
+  end,
+}
+
+buffer.file_path = {
+  provider = function(component)
+    local extension = vim.fn.expand('%:e')
+    local buftype = vim.bo.buftype
+    if buftype ~= '' then
+      return ''
+    end
+
+    local filename = vim.fn.expand('%:t')
+    local modified_str
+
+    local filetype_icon = require('nvim-web-devicons').get_icon(filename, extension, { default = true })
+
+    if filename == '' then filename = 'unnamed' end
+
+    if vim.bo.modified then
+      local modified_icon = ''
+      modified_str = modified_icon .. ' '
+    else
+      modified_str = ''
+    end
+
+    local filepath = vim.fn.expand('%:~:p')
+    return filetype_icon .. ' ' .. filepath .. ' ' .. modified_str
+  end
+}
+
 buffer.file_name = {
   provider = 'file_info',
   hl = {
