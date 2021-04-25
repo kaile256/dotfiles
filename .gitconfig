@@ -64,6 +64,7 @@
 [alias]
 	ini = init
 	conf = config
+	ref = reflog
 
 	bi = bisect
 
