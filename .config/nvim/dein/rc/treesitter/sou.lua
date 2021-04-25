@@ -25,6 +25,10 @@ require'nvim-treesitter.configs'.setup {
     -- }
   },
 
+  indent = {
+    enable = true,
+  },
+
   -- Repo: p00f/nvim-ts-rainbow
   -- Edit the colors on p00f/nvim-ts-rainbow/lua/rainbow/colors.lua
   rainbow = {
