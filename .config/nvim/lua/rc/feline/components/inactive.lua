@@ -33,4 +33,8 @@ inactive.left[1] = {
   }
 }
 
+inactive.mid = {
+  buffer.file_path,
+}
+
 return inactive
