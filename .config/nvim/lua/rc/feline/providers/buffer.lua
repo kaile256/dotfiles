@@ -55,6 +55,11 @@ buffer.file_path = {
     end
 
     local fpath = vim.fn.expand('%:~:p')
+    local len_fpath = string.len(fpath)
+    local winwidth = vim.fn.winwidth(0)
+    if winwidth < len_fpath * 3 then
+      fpath = vim.fn.expand('%:t')
+    end
     return fpath
   end,
   hl = {
