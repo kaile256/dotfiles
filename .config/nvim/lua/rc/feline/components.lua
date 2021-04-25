@@ -9,15 +9,22 @@ local components = {
     active = {},
     inactive = {}
   },
+  mid = {
+    active = {},
+    inactive = {},
+  },
   right = {
     active = {},
     inactive = {}
   }
 }
 
-components.left.active = active.left
+components.left.active  = active.left
+components.mid.active   = active.mid
 components.right.active = active.right
 
-components.left.inactive = inactive.left
+components.left.inactive  = inactive.left
+components.mid.inactive   = inactive.mid
+components.right.inactive = inactive.right
 
 return components

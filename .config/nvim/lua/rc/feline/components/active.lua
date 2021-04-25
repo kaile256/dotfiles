@@ -12,6 +12,7 @@ local colors = require('rc.feline.colors')
 
 local active = {
   left = {},
+  mid = {},
   right = {},
 }
 

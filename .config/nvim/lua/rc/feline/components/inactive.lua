@@ -3,6 +3,7 @@
 
 local inactive = {
   left = {},
+  mid = {},
   right = {},
 }
 
