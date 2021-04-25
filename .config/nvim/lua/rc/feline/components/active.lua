@@ -16,29 +16,18 @@ local active = {
   right = {},
 }
 
-active.left[1] = {
-  provider = '',
-  hl = {
-    fg = colors.skyblue,
-  }
-}
+active.left = {
+  mode.vi_mode,
 
-active.left[2] = mode.vi_mode
+  buffer.file_name,
+  buffer.file_size,
+  buffer.cursor_position,
 
-active.left[3] = buffer.file_name
-active.left[4] = buffer.file_size
-active.left[5] = buffer.cursor_position
-
-local left_sections = {
   diagnostics.error,
   diagnostics.warning,
   diagnostics.hint,
   diagnostics.info,
 }
-
-for _, sec in pairs(left_sections) do
-  table.insert(active.left, sec)
-end
 
 active.right[1] = vcs.git.branch
 active.right[2] = vcs.git.diff.added
