@@ -24,6 +24,7 @@ active.left = {
 
   buffer.filetype_icon,
   buffer.file_path,
+  buffer.modified,
 }
 
 active.mid = {

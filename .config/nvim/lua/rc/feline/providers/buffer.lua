@@ -54,14 +54,8 @@ buffer.file_path = {
       return ''
     end
 
-    local modified_str = ''
-    if vim.bo.modified then
-      local modified_icon = ''
-      modified_str = modified_icon .. ' '
-    end
-
     local fpath = vim.fn.expand('%:~:p')
-    return fpath .. ' ' .. modified_str
+    return fpath
   end,
   hl = {
     fg = colors.fg,
@@ -110,6 +104,29 @@ buffer.filetype_icon = {
       },
     },
     bg = colors.bg, -- Reset bg color in case this component is the last one.
+  }
+}
+
+buffer.modified = {
+  provider = function()
+    if vim.bo.modified then
+      local modified_icon = ''
+      -- local modified_icon = ''
+      return ' ' .. modified_icon
+    end
+    return ''
+  end,
+  hl = {
+    fg = colors.orange,
+    bg = colors.bg,
+    style = 'bold',
+  },
+  right_sep = {
+    str = '',
+    hl = {
+      fg = colors.fg,
+      bg = colors.bg,
+    }
   }
 }
 
