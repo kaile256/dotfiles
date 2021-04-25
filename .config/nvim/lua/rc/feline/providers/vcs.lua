@@ -28,39 +28,46 @@ git.branch = {
   end
 }
 
+local get_git_stat = function(key)
+  local gsd = vim.b.gitsigns_status_dict
+  local stat = gsd and gsd[key] or 0
+  return stat > 0
+  and ' ' .. stat ..  ' '
+  or ''
+end
+
 git.diff = {
   added = {
-    provider = 'git_diff_added',
+    provider = function()
+      return get_git_stat('added')
+    end,
     hl = {
-      fg = colors.green,
-      bg = colors.black
-    }
+      fg = colors.black,
+      bg = colors.green,
+      style = 'bold',
+    },
   },
 
   changed = {
-    provider = 'git_diff_changed',
+    provider = function()
+      return get_git_stat('changed')
+    end,
     hl = {
-      fg = colors.orange,
-      bg = colors.black
-    }
+      fg = colors.black,
+      bg = colors.orange,
+      style = 'bold',
+    },
   },
 
   removed = {
-    provider = 'git_diff_removed',
+    provider = function()
+      return get_git_stat('removed')
+    end,
     hl = {
-      fg = colors.red,
-      bg = colors.black
+      fg = colors.black,
+      bg = colors.red,
+      style = 'bold',
     },
-    right_sep = function()
-      local val = {
-        hl = {
-          fg = 'NONE',
-          bg = colors.black,
-        }
-      }
-      val.str = vim.b.gitsigns_status_dict and ' ' or ''
-      return val
-    end
   },
 }
 
