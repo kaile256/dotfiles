@@ -190,51 +190,51 @@ let s:isdir = {dir ->
       \ )}
 
 
-augroup myDefxAdd-PwdOnDefx
-  " Ref: https://github.com/Shougo/defx.nvim/issues/290
-  function! s:pwd_on_defx(path) abort
-    if &bt !=# '' | return | endif
-    const path = a:path
-
-    if !filereadable(path)
-      const alt = expand('#:p')
-      if !filereadable(alt) | return | endif
-
-      const winnr = bufwinnr(bufnr(path))
-      const width = winwidth(winnr)
-      call s:pwd_on_defx(alt)
-      exe 'vertical resize' width
-      return
-    endif
-
-    const name = 'cwd'
-    const root = fnamemodify(path, ':h:h')
-
-    const winnr = bufwinnr(bufnr(name))
-
-    if winnr > 0 && winnr != winnr('$')
-      " Keep the defx-cwd window at the right edge of editor.
-      const id = win_getid()
-      exe winnr 'windo quit'
-      call win_gotoid(id)
-    endif
-
-    exe 'Defx' root '-search='. path
-          \ '-buffer-name='. name
-          \
-          \ '-no-focus'
-          \ '-no-new'
-          \
-          \ '-direction=botright'
-          \ '-split=vertical'
-          \ '-winwidth=40'
-  endfunction
-
-  " With BufEnter, the window will be reopened there even after
-  " defx#call_action('quit').
-  " TODO: Keep the defx-window after `:only`.
-  au BufEnter,TabNewEntered * call s:pwd_on_defx(expand('%:p'))
-
-  " au User defx-preview
-  " au User DefxDirChanged
-augroup END
+" augroup myDefxAdd-PwdOnDefx
+"   " Ref: https://github.com/Shougo/defx.nvim/issues/290
+"   function! s:pwd_on_defx(path) abort
+"     if &bt !=# '' | return | endif
+"     const path = a:path
+"
+"     if !filereadable(path)
+"       const alt = expand('#:p')
+"       if !filereadable(alt) | return | endif
+"
+"       const winnr = bufwinnr(bufnr(path))
+"       const width = winwidth(winnr)
+"       call s:pwd_on_defx(alt)
+"       exe 'vertical resize' width
+"       return
+"     endif
+"
+"     const name = 'cwd'
+"     const root = fnamemodify(path, ':h:h')
+"
+"     const winnr = bufwinnr(bufnr(name))
+"
+"     if winnr > 0 && winnr != winnr('$')
+"       " Keep the defx-cwd window at the right edge of editor.
+"       const id = win_getid()
+"       exe winnr 'windo quit'
+"       call win_gotoid(id)
+"     endif
+"
+"     exe 'Defx' root '-search='. path
+"          \ '-buffer-name='. name
+"          \
+"          \ '-no-focus'
+"          \ '-no-new'
+"          \
+"          \ '-direction=botright'
+"          \ '-split=vertical'
+"          \ '-winwidth=40'
+"   endfunction
+"
+"   " With BufEnter, the window will be reopened there even after
+"   " defx#call_action('quit').
+"   " TODO: Keep the defx-window after `:only`.
+"   au BufEnter,TabNewEntered * call s:pwd_on_defx(expand('%:p'))
+"
+"   " au User defx-preview
+"   " au User DefxDirChanged
+" augroup END
