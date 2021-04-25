@@ -63,6 +63,10 @@ buffer.file_path = {
     local fpath = vim.fn.expand('%:~:p')
     return fpath .. ' ' .. modified_str
   end,
+  hl = {
+    fg = colors.fg,
+    bg = colors.bg,
+  },
   left_sep = ' ',
 }
 
