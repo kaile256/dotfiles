@@ -86,13 +86,6 @@ buffer.filetype_icon = {
   },
   left_sep = {
     {
-      str = sep_left.slant_upper_narrow,
-      hl = {
-        fg = colors.cyan,
-        bg = colors.bg,
-      },
-    },
-    {
       str = ' ',
       hl = {
         fg = colors.cyan,
@@ -109,10 +102,11 @@ buffer.filetype_icon = {
       },
     },
     {
-      str = sep_left.slant_upper_narrow,
+      str = sep_left.triangle_narrow,
       hl = {
         fg = colors.cyan,
         bg = colors.bg,
+        style = 'bold',
       },
     },
     bg = colors.bg, -- Reset bg color in case this component is the last one.
