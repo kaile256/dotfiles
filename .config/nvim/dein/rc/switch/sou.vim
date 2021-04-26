@@ -157,6 +157,9 @@ function! s:set_definitions() abort
         \ ['indent', 'outdent'],
         \ ['active', 'inactive'],
         \
+        \ ['fg', 'bg'],
+        \ ['foreground', 'background'],
+        \
         \ {
         \   'comment out': 'uncomment',
         \   'Comment out': 'Uncomment',
