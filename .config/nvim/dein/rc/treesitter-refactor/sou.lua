@@ -16,7 +16,7 @@ require'nvim-treesitter.configs'.setup {
     smart_rename = {
       enable = { "lua" },
       keymaps = {
-        smart_rename = "cs",
+        smart_rename = "<Plug>(ts-refactor-rename)",
       },
     },
 
@@ -27,8 +27,8 @@ require'nvim-treesitter.configs'.setup {
         list_definitions = "<Plug>(ts-refactor-list-definition)",
         list_definitions_toc = "<Plug>(ts-refactor-toc-definition)",
 
-        goto_next_usage = "]u",
-        goto_previous_usage = "[u",
+        goto_next_usage = "<Plug>(ts-refactor-usage-next)",
+        goto_previous_usage = "<Plug>(ts-refactor-usage-prev)",
       },
     },
 
