@@ -269,6 +269,7 @@ repo = 'PotatoesMaster/i3-vim-syntax'
 # Note: vim-polyglot doesn't have enough syntax for i3.
 # CAUTION: Not Maintained Anymore
 lazy = 0
+merged = 0
 
 #[[plugins]]
 #repo = 'mboughaba/i3config.vim'
