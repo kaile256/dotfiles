@@ -35,9 +35,9 @@ active.mid = {
 }
 
 active.right = {
-  buffer.cursor_position,
-  buffer.file_size,
-  buffer.line_percentage,
+  buffer.right.file_size,
+  buffer.right.cursor_position,
+  buffer.right.line_percentage,
   buffer.scrollbar,
 }
 

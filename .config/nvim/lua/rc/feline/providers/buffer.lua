@@ -7,7 +7,7 @@ local signs = require('rc.feline.signs')
 local devicons = require('nvim-web-devicons')
 local sep = signs.separator
 local sep_left = sep.left
-local default_sep_left = sep_left.rounded_narrow
+local default_sep_right = signs.default.separator.right
 
 local buffer = {
   left = {},
@@ -167,44 +167,55 @@ buffer.file_name = {
   }
 }
 
-buffer.file_size = {
+buffer.right.file_size = {
   provider = 'file_size',
   enabled = function()
     return vim.fn.getfsize(vim.fn.expand('%:t')) > 0
   end,
-  right_sep = {
+  left_sep = {
     ' ',
     {
-      str = default_sep_left,
+      str = default_sep_right,
       hl = {
         fg = colors.fg,
         bg = colors.bg
       }
     },
-    ' '
+    ' ',
   }
 }
 
-buffer.cursor_position = {
+buffer.right.cursor_position = {
   provider = 'position',
-  right_sep = {
+  left_sep = {
     ' ',
     {
-      str = default_sep_left,
+      str = default_sep_right,
       hl = {
         fg = colors.fg,
         bg = colors.bg
       }
-    }
-  }
+    },
+    ' ',
+  },
 }
 
-buffer.line_percentage = {
+buffer.right.line_percentage = {
   provider = 'line_percentage',
   hl = {
     style = 'bold'
   },
-  left_sep = '  ',
+  left_sep = {
+    ' ',
+    {
+      str = default_sep_right,
+      hl = {
+        fg = colors.fg,
+        bg = colors.bg,
+      },
+    },
+    ' ',
+  },
   right_sep = ' ',
 }
 
