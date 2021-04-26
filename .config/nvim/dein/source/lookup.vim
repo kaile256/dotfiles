@@ -27,7 +27,7 @@ function! s:lookup() abort
 
   echohl ErrorMsg
   echo '[lookup] definition not found'
-  echohl Normal
+  echohl None
 endfunction
 
 function! s:split_lookup() abort
@@ -45,5 +45,5 @@ function! s:split_lookup() abort
   quit
   echohl ErrorMsg
   echo '[lookup] definition not found'
-  echohl Normal
+  echohl None
 endfunction

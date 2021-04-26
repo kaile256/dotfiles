@@ -141,13 +141,13 @@ function! s:has_provider()
     endif
   endfor
 
-  echohl Normal
+  echohl None
   echon " The providers below are available on this buffer: \n\n"
   echohl Type
   echon " ======== True ==================================\n\t  "
   echohl Identifier
   echon join(available, "\n\t  ")
-  echohl Normal
+  echohl None
   echohl Type
   echon "\n\n"
   echon " ======== False =================================\n\t  "

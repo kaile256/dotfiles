@@ -213,7 +213,7 @@ function! s:increment() abort
   if !has_key(s:local_definitions, &ft)
     echohl Error
     echo 'You have no definitions for this filetype,' string(&ft)
-    echohl Normal
+    echohl None
     return
   endif
 
@@ -232,7 +232,7 @@ function! s:decrement() abort
   if !has_key(s:local_definitions, &ft)
     echohl Error
     echo 'You have no definitions for this filetype,' string(&ft)
-    echohl Normal
+    echohl None
     return
   endif
 

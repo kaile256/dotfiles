@@ -136,7 +136,7 @@ augroup myDeinRc "{{{1
       echom '[dein.rc] detected repo_line was' string(repo_line)
       echom '[dein.rc] searching pattern was'  string(pat)
       echom '[dein.rc] cannot find repository, `:message` for detail'
-      echohl Normal
+      echohl None
     endif
 
     exe 0

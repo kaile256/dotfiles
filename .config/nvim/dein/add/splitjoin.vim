@@ -15,6 +15,6 @@ function! s:splitjoin() abort
 
   echohl ErrorMsg
   echo '[SplitJoin] no patterns matched'
-  echohl Normal
+  echohl None
 endfunction
 
