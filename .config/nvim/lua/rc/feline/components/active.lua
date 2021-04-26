@@ -25,6 +25,7 @@ active.left = {
   buffer.left.filetype_icon,
   buffer.left.file_path,
   buffer.left.modified,
+  buffer.left.file_size,
 }
 
 active.mid = {
@@ -35,7 +36,6 @@ active.mid = {
 }
 
 active.right = {
-  buffer.right.file_size,
   buffer.right.cursor_position,
   buffer.right.line_percentage,
   buffer.scrollbar,

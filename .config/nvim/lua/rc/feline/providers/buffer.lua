@@ -7,6 +7,7 @@ local signs = require('rc.feline.signs')
 local devicons = require('nvim-web-devicons')
 local sep = signs.separator
 local sep_left = sep.left
+local default_sep_left  = signs.default.separator.left
 local default_sep_right = signs.default.separator.right
 
 local buffer = {
@@ -50,8 +51,7 @@ buffer.root_path = {
     return vim.fn.expand('%:~:p:h')
   end,
 }
-
-buffer.file_path = {
+buffer.left.file_path = {
   provider = function()
     local buftype = vim.bo.buftype
     if buftype ~= '' then
@@ -64,13 +64,16 @@ buffer.file_path = {
     if winwidth < len_fpath * 3 then
       fpath = vim.fn.expand('%:t')
     end
+    -- Note: modified_icon in the same component means to express in the same highlight.
     return fpath
   end,
   hl = {
     fg = colors.fg,
     bg = colors.bg,
   },
-  left_sep = ' ',
+  left_sep = {
+    ' ',
+  },
 }
 
 function buffer.filetype_icon()
@@ -147,6 +150,7 @@ buffer.left.modified = {
         bg = colors.bg,
       },
     },
+    ' ',
     {
       str = '',
       hl = {
@@ -177,6 +181,23 @@ buffer.file_name = {
   },
   right_sep = {
     sep_left.rounded_broad,
+    ' ',
+  }
+}
+
+buffer.left.file_size = {
+  provider = 'file_size',
+  enabled = function()
+    return vim.fn.getfsize(vim.fn.expand('%:t')) > 0
+  end,
+  right_sep = {
+    {
+      str = default_sep_left,
+      hl = {
+        fg = colors.fg,
+        bg = colors.bg
+      },
+    },
     ' ',
   }
 }
