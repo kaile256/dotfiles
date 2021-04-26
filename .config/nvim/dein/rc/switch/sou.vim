@@ -155,6 +155,7 @@ function! s:set_definitions() abort
         \ ['head', 'tail'],
         \
         \ ['indent', 'outdent'],
+        \ ['active', 'inactive'],
         \
         \ {
         \   'comment out': 'uncomment',
