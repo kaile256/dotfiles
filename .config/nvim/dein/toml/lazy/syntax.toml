@@ -252,6 +252,11 @@ on_path = ['\.ron$']
 #repo = 'vmchale/tomlcheck-vim'
 #on_ft = 'toml'
 [[plugins]]
+repo = 'delphinus/vim-toml-dein'
+# syntax highlight for 'hook_add'
+lazy = 0
+merged = 0
+[[plugins]]
 repo = 'cespare/vim-toml'
 lazy = 0
 merged = 0
@@ -259,12 +264,6 @@ merged = 0
 #repo = 'maralla/vim-toml-enhance'
 #depends = 'cespare/vim-toml'
 #on_ft = ['toml', 'markdown']
-[[plugins]]
-repo = 'delphinus/vim-toml-dein'
-# syntax highlight for 'hook_add'
-lazy = 0
-merged = 0
-
 [[plugins]]
 repo = 'PotatoesMaster/i3-vim-syntax'
 # Note: vim-polyglot doesn't have enough syntax for i3.
