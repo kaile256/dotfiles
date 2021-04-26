@@ -95,8 +95,10 @@ class Dein(Plugin):
   def expand_hook(idx, lua=False):
     # Expand `hook_{idx} = 'source $DEIN_RC_DIR/{plugin}/{idx-ommited}.vim'`
     dir_conversion = {
-      'ts-': 'treesitter',
+      'operator-': 'operator',
+      'textobj-': 'textobj',
       'treesitter-': 'treesitter',
+      'ts-': 'treesitter',
     }
 
     is_lua = lua == 'l' or re.search('nvim', vim.eval("getline(search('^repo = ', 'nb'))"))
