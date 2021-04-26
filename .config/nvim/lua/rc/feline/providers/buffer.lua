@@ -9,7 +9,11 @@ local sep = signs.separator
 local sep_left = sep.left
 local default_sep_left = sep_left.rounded_narrow
 
-local buffer = {}
+local buffer = {
+  left = {},
+  mid = {},
+  right = {},
+}
 
 local scroll_bar = function()
   local blocks =  {
@@ -200,7 +204,7 @@ buffer.line_percentage = {
   right_sep = ' ',
 }
 
-buffer.file_type = {
+buffer.left.file_type = {
   provider = 'file_type',
   hl = {
     fg = colors.white,
@@ -234,19 +238,23 @@ buffer.file_type = {
   },
 }
 
-buffer.special_path = {
+function buffer.special_path()
+  local ft = vim.bo.filetype
+  if ft == 'help' or ft == 'man' then
+    return ft .. '://' .. vim.fn.expand('%:t:r')
+  elseif ft == 'defx' then
+    local cwd = vim.fn.matchstr(vim.fn.getline(1), '\\f\\+/')
+    return 'defx://' .. cwd
+  end
+
+  if vim.bo.buftype ~= '' then return '' end
+
+  return vim.fn.expand('%:~:p')
+end
+
+buffer.left.special_path = {
   provider = function()
-    local ft = vim.bo.filetype
-    if ft == 'help' or ft == 'man' then
-      return ft .. '://' .. vim.fn.expand('%:t:r')
-    elseif ft == 'defx' then
-      local cwd = vim.fn.matchstr(vim.fn.getline(1), '\\f\\+/')
-      return 'defx://' .. cwd
-    end
-
-    if vim.bo.buftype ~= '' then return '' end
-
-    return vim.fn.expand('%:~:p')
+    return buffer.special_path()
   end,
   left_sep = {
     ' ',

@@ -10,8 +10,8 @@ local inactive = {
 }
 
 inactive.left = {
-  buffer.file_type,
-  buffer.special_path,
+  buffer.left.file_type,
+  buffer.left.special_path,
 }
 
 return inactive
