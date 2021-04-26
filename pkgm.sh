@@ -124,7 +124,7 @@ PACKAGEs=(
   ueberzug # previewer for some tools
   python-pyperclip # Copy texts with <NL> for LaurenceWarne/qute-code-hint
   xbindkeys # to disable middle to paste, but enable scroll.
-  docker-rootless
+  # docker-rootless # No longer supported.
   docker-compose-bin # includes `docker`
   lazydocker
   eslint-plugin-snakecasejs
