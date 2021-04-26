@@ -23,8 +23,8 @@ active.left = {
   vcs.git.diff.removed,
 
   buffer.left.filetype_icon,
-  buffer.file_path,
-  buffer.modified,
+  buffer.left.file_path,
+  buffer.left.modified,
 }
 
 active.mid = {

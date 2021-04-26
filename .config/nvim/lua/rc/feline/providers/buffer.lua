@@ -120,26 +120,40 @@ buffer.left.filetype_icon = {
   }
 }
 
-buffer.modified = {
+buffer.modified = function()
+  if vim.bo.modified then
+    local modified_icon = ''
+    -- local modified_icon = ''
+    return ' ' .. modified_icon
+  end
+  return ''
+end
+
+buffer.left.modified = {
   provider = function()
-    if vim.bo.modified then
-      local modified_icon = ''
-      -- local modified_icon = ''
-      return ' ' .. modified_icon
-    end
-    return ''
+    return buffer.modified()
   end,
   hl = {
     fg = colors.orange,
     bg = colors.bg,
-    style = 'bold',
+    -- style = 'bold',
   },
   right_sep = {
-    str = '',
-    hl = {
-      fg = colors.fg,
-      bg = colors.bg,
-    }
+    ' ',
+    {
+      str = default_sep_left,
+      hl = {
+        fg = colors.fg,
+        bg = colors.bg,
+      },
+    },
+    {
+      str = '',
+      hl = {
+        fg = colors.fg,
+        bg = colors.bg,
+      },
+    },
   }
 }
 
