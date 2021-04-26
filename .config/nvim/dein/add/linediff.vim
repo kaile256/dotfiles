@@ -8,7 +8,7 @@ nmap <silent> gC <Plug>(linediff-add-operator)
 xnoremap <silent> gc :Linediff<CR>
 xnoremap <silent> gC :LinediffAdd<CR>
 
-nnoremap g<C-c> :<C-u>LinediffReset<cr>
+nnoremap <silent> g<C-c> :<C-u>LinediffReset<cr>
 
 " default: tabnew
 "let g:linediff_first_buffer_command = 'new'
