@@ -52,7 +52,7 @@ buffer.root_path = {
 }
 
 buffer.file_path = {
-  provider = function(component)
+  provider = function()
     local buftype = vim.bo.buftype
     if buftype ~= '' then
       return ''
