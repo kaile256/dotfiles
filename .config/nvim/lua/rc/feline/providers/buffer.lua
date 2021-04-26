@@ -73,15 +73,19 @@ buffer.file_path = {
   left_sep = ' ',
 }
 
-buffer.filetype_icon = {
+function buffer.filetype_icon()
+  local extension = vim.fn.expand('%:e')
+  local fname = vim.fn.expand('%:t')
+  if fname == '' then
+    fname = 'unnamed'
+  end
+  local ft_icon = devicons.get_icon(fname, extension, { default = true })
+  return ft_icon
+end
+
+buffer.left.filetype_icon = {
   provider = function()
-    local extension = vim.fn.expand('%:e')
-    local fname = vim.fn.expand('%:t')
-    if fname == '' then
-      fname = 'unnamed'
-    end
-    local ft_icon = devicons.get_icon(fname, extension, { default = true })
-    return ft_icon
+    return buffer.filetype_icon()
   end,
   hl = {
     fg = colors.white,
