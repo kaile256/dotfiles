@@ -1,5 +1,5 @@
-" From: init.vim
 " Ref: colorscheme.toml
+" From: init.vim
 
 function! s:common() abort
   hi! TermCursor cterm=reverse,underline gui=reverse,underline
