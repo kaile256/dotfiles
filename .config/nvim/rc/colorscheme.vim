@@ -1,9 +1,5 @@
-augroup myColorschemesSo
-  au Colorscheme * set ambiwidth=single
-  au Colorscheme * ++nested call s:common()
-  au Colorscheme * ++nested call s:common_dark()
-  " au Colorscheme * ++nested call s:up_to_environment()
-augroup END
+" From: init.vim
+" Ref: colorscheme.toml
 
 function! s:common() abort
   hi! TermCursor cterm=reverse,underline gui=reverse,underline
@@ -19,6 +15,8 @@ function! s:common() abort
   hi! MatchParen ctermfg=magenta guifg=#e6c50f ctermbg=yellow guibg=#8924ff cterm=bold gui=bold
 
   "hi Folded ctermfg=59 ctermbg=236 guifg=#5f5f5f guibg=#303030
+
+  call s:common_dark()
 endfunction
 
 function! s:common_dark() abort
@@ -31,22 +29,12 @@ function! s:common_dark() abort
   hi! DoppelgangerVirtualTextPairReverse ctermfg=130 guifg=#df5f29 cterm=italic gui=italic
 endfunction
 
-augroup myColorschemesPost
-  au ColorSchemePre * ++nested call s:source_conf(expand('<amatch>'))
-  au VimEnter * ++nested call s:set_colorscheme()
-augroup END
-
-function! s:source_conf(fname) abort
-  " set variables on the colorscheme
-  exe 'runtime source/'. a:fname .'.vim'
-  " overrides original colorschemes
-  exe 'runtime colorscheme_pre/'. a:fname .'.vim'
-
-  let trimmed = matchstr(a:fname, '\S\{-}\ze_')
-  if trimmed ==# '' | return | endif
-  " Also source the scripts trimmed before the first underscore.
-  exe 'runtime source/'. trimmed .'.vim'
-  exe 'runtime colorscheme_pre/'. trimmed .'.vim'
+function! s:source_conf(theme, path) abort
+  const underscored = substitute(a:theme, '-', '_', 'g')
+  const trimmed = matchstr(a:theme, '\S\{-}\ze[-_]')
+  for fname in [ a:theme, underscored, trimmed ]
+    exe 'silent! source $DEIN_RC_DIR/colorscheme/'. fname .'/'. a:path
+  endfor
 endfunction
 
 function! s:set_colorscheme() abort
@@ -56,3 +44,14 @@ function! s:set_colorscheme() abort
     colorscheme slate
   endtry
 endfunction
+
+augroup Colorscheme/OverrideDefault
+  au Colorscheme * set ambiwidth=single
+  " Usually set variables for the colorscheme.
+  au ColorSchemePre * ++nested call s:source_conf(expand('<amatch>'), 'sou.vim')
+  " Usually override original colorscheme's highlights.
+  au Colorscheme * ++nested call s:common()
+  au ColorScheme * ++nested call s:source_conf(expand('<amatch>'), 'pos.vim')
+  au VimEnter * ++nested call s:set_colorscheme()
+augroup END
+
