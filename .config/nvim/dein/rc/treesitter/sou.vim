@@ -8,6 +8,7 @@ function! s:set_filetypes_to_activate() abort "{{{1
   const filetypes_exclude = [
         \ 'json',
         \ 'toml',
+        \ 'yaml',
         \ ]
 
   const filetypes_available = [

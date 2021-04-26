@@ -19,6 +19,7 @@ require'nvim-treesitter.configs'.setup {
     enable = true,
     disable = {
       'toml',
+      'yaml',
     },
     -- additional_vim_regex_highlighting = {
     --   'toml',
