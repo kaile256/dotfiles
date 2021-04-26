@@ -2,6 +2,8 @@
 
 onoremap <silent> gv :<c-u>norm! gv<cr>
 
+omap iv vi
+omap av va
 omap iV Vi
 omap aV Va
 omap i<C-v> <C-v>i
