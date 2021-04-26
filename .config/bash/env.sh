@@ -34,6 +34,9 @@ export CLOUDSDK_GSUTIL_PYTHON=python3
 export CLOUDSDK_BQ_PYTHON=python3
 
 # Apps {{{1
+# Man pages
+export MANWIDTH=100
+
 # Japanese IM
 # Define the values in ~/.pam_environment.  Though the settings are
 # unrecommended to add `.bashrc`, some Qt5 + fcitx apps currently require these
