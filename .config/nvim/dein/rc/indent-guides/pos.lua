@@ -24,7 +24,7 @@ require('indent_guides').setup {
     'man',
     'sagahover',
     'twiggy',
-    'vista',
+    -- 'vista',
   },
 
   even_colors = {
