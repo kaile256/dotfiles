@@ -1,40 +1,17 @@
 -- TOML: appearance.toml
 -- Repo: famiu/feline.nvim
 
+local buffer = require('rc.feline.providers.buffer')
+
 local inactive = {
   left = {},
   mid = {},
   right = {},
 }
 
-inactive.left[1] = {
-  provider = 'file_type',
-  hl = {
-    fg = 'white',
-    bg = 'oceanblue',
-    style = 'bold'
-  },
-  left_sep = {
-    str = ' ',
-    hl = {
-      fg = 'NONE',
-      bg = 'oceanblue'
-    }
-  },
-  right_sep = {
-    {
-      str = ' ',
-      hl = {
-        fg = 'NONE',
-        bg = 'oceanblue'
-      }
-    },
-    'slant_right'
-  }
-}
-
-inactive.mid = {
-  buffer.file_path,
+inactive.left = {
+  buffer.file_type,
+  buffer.special_path,
 }
 
 return inactive

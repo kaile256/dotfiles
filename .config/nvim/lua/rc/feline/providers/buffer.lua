@@ -200,4 +200,67 @@ buffer.line_percentage = {
   right_sep = ' ',
 }
 
+buffer.file_type = {
+  provider = 'file_type',
+  hl = {
+    fg = colors.white,
+    bg = colors.oceanblue,
+    style = 'bold'
+  },
+  left_sep = {
+    {
+      str = ' ',
+      hl = {
+        fg = 'NONE',
+        bg = colors.oceanblue
+      }
+    },
+  },
+  right_sep = {
+    {
+      str = ' ',
+      hl = {
+        fg = 'NONE',
+        bg = colors.oceanblue
+      }
+    },
+    {
+      str = sep_left.rounded_broad,
+      hl = {
+        fg = colors.oceanblue,
+        bg = colors.bg,
+      },
+    },
+  },
+}
+
+buffer.special_path = {
+  provider = function()
+    local ft = vim.bo.filetype
+    if ft == 'help' or ft == 'man' then
+      return ft .. '://' .. vim.fn.expand('%:t:r')
+    elseif ft == 'defx' then
+      local cwd = vim.fn.matchstr(vim.fn.getline(1), '\\f\\+/')
+      return 'defx://' .. cwd
+    end
+
+    if vim.bo.buftype ~= '' then return '' end
+
+    return vim.fn.expand('%:~:p')
+  end,
+  left_sep = {
+    ' ',
+  },
+  right_sep = {
+    ' ',
+    {
+      str = sep_left.rounded_narrow,
+      hl = {
+        fg = colors.fg,
+        bg = colors.bg,
+      },
+    },
+  }
+}
+
 return buffer
