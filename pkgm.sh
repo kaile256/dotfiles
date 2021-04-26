@@ -103,6 +103,9 @@ PACKAGEs=(
   rofi # A launcher
   virustotal # CLI client for virustotal.com
 
+  # Web
+  heroku-cli
+
   pipenv
   python-gphotos-sync # Sync google photo to local directory.
   notes-cli-git
