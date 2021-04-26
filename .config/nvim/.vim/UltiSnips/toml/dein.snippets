@@ -94,6 +94,10 @@ class Dein(Plugin):
 
   def expand_hook(idx, lua=False):
     # Expand `hook_{idx} = 'source $DEIN_RC_DIR/{plugin}/{idx-ommited}.vim'`
+    dir_conversion = {
+      'ts-': 'treesitter',
+      'treesitter-': 'treesitter',
+    }
 
     is_lua = lua == 'l' or re.search('nvim', vim.eval("getline(search('^repo = ', 'nb'))"))
 
@@ -104,7 +108,12 @@ class Dein(Plugin):
     base_dir = '$DEIN_RC_DIR/'
 
     ext = is_lua and '.lua' or '.vim'
-    path = base_dir + plugin + '/' + fname + ext
+
+    for regex in dir_conversion:
+      if re.search(regex, plugin):
+        plugin = dir_conversion[regex] + '/' + re.sub(regex, '', plugin)
+    base_dir += plugin
+    path = base_dir + '/' + fname + ext
 
     hook = 'hook_' + idx
     source = is_lua and 'luafile' or 'source'
