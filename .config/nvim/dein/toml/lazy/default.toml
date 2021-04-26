@@ -264,6 +264,7 @@ repo = '$VIM_PACK_HOME/cfilter'
 on_cmd = ['Cfilter', 'Lfilter']
 [[plugins]]
 repo = 'kevinhwang91/nvim-bqf'
+on_event = ['QuickFixCmdPre']
 if = 'has("nvim")'
 # Replace old quickfix window.
 # With fzf, fuzzy search in quickfix window.
