@@ -3,6 +3,7 @@
 [[plugins]]
 repo = 'kana/vim-operator-user'
 lazy = 0
+hook_add = 'source $DEIN_RC_DIR/operator/user/add.vim'
 [[plugins]]
 repo = 'thinca/vim-operator-sequence'
 lazy = 0
