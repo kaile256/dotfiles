@@ -284,6 +284,11 @@ repo = 'notomo/helpeek.vim'
 on_cmd = ['Helpeek']
 
 #[ Window ]
+[[plugins]]
+repo = 'notomo/wintablib.nvim'
+# Libraries to manipulate windows/tabs.
+on_lua = ['wintablib']
+hook_add = 'source $DEIN_RC_DIR/wintablib/add.vim'
 # [[plugins]]
 # repo = 'gillyb/stable-windows'
 # # Don't scroll windows above when a new window opened below.
