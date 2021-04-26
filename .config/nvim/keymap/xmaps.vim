@@ -5,6 +5,13 @@
 
 xmap <a-space> <Esc><Space>
 
+xmap iv vi
+xmap av va
+xmap iV Vi
+xmap aV Va
+xmap i<C-v> <C-v>i
+xmap a<C-v> <C-v>a
+
 xnoremap <a-a> <esc>a
 xnoremap <a-i> <esc>i
 
