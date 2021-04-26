@@ -78,7 +78,6 @@
   // The properties "diagnostic.foo" is for general config not only for
   // diagnostic-languageserver.
   "diagnostic.displayByAle": true,
-  "diagnostic.refreshAfterSave": true,
   "diagnostic.refreshOnInsertMode": true,
   "diagnostic.checkCurrentLine": true, // show all the errors in current line
   "diagnostic.virtualText": false,
@@ -172,9 +171,6 @@
   "cursors.cancelKey": "<C-c>",
 
   "project.dbpath": "~/.local/share/.coc-project",
-
-  "bookmark.sign": "*",
-  "bookmark.signHl": "Title",
 
   "yank.highlight.enable": false,
   "yank.enableCompletion": false,
