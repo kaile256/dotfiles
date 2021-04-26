@@ -1,6 +1,9 @@
 # From: dein/dein.vim
 
 #[ Colorscheme ]
+[[plugins]]
+repo = 'rhysd/vim-color-spring-night'
+on_event = ['ColorSchemePre']
 # [[plugins]]
 # repo = 'benbusby/vim-earthbound-themes'
 # lazy = 0
@@ -11,43 +14,42 @@
  # [[plugins]]
 # # rep: = 'dracula/vim'
 # lazy = 0
-[[plugins]]
-repo = 'flrnprz/candid.vim'
-# Looks like dracula scheme.
-lazy = 0
-[[plugins]]
-repo = 'joshdick/onedark.vim'
-lazy = 0
-[[plugins]]
-repo = 'drewtempelmeyer/palenight.vim'
-lazy = 0
-[[plugins]]
-repo = 'jonathanfilip/vim-lucius'
-lazy = 0
-[[plugins]]
-repo = 'raphamorim/lucario'
-lazy = 0
-[[plugins]]
-repo = 'sonph/onehalf'
-rtp = 'vim'
-lazy = 0
-[[plugins]]
-repo = 'haishanh/night-owl.vim'
-lazy = 0
-[[plugins]]
-repo = 'connorholyday/vim-snazzy'
-lazy = 0
-[[plugins]]
-repo = 'Rigellute/rigel'
-lazy = 0
-[[plugins]]
-repo = 'wadackel/vim-dogrun'
-lazy = 0
-
+# [[plugins]]
+# repo = 'flrnprz/candid.vim'
+# # Looks like dracula scheme.
+# on_event = ['VimEnter']
+# [[plugins]]
+# repo = 'joshdick/onedark.vim'
+# on_event = ['VimEnter']
+# [[plugins]]
+# repo = 'drewtempelmeyer/palenight.vim'
+# on_event = ['VimEnter']
+# [[plugins]]
+# repo = 'jonathanfilip/vim-lucius'
+# lazy = 0
+# [[plugins]]
+# repo = 'raphamorim/lucario'
+# lazy = 0
+# [[plugins]]
+# repo = 'sonph/onehalf'
+# rtp = 'vim'
+# lazy = 0
+# [[plugins]]
+# repo = 'haishanh/night-owl.vim'
+# lazy = 0
+# [[plugins]]
+# repo = 'connorholyday/vim-snazzy'
+# # lazy = 0
+# [[plugins]]
+# repo = 'Rigellute/rigel'
+# [[plugins]]
+# repo = 'wadackel/vim-dogrun'
+# lazy = 0
+#
 #[ Colorscheme.monokai ]
-[[plugins]]
-repo = 'tomasr/molokai'
-lazy = 0
+# [[plugins]]
+# repo = 'tomasr/molokai'
+# lazy = 0
 #[[plugins]]
 #repo = 'phanviet/vim-monokai-pro'
 ## purple-base monokai.
@@ -62,20 +64,19 @@ lazy = 0
 #[[plugins]]
 #repo = 'fratajczak/one-monokai-vim'
 #on_event = ['VimEnter']
-[[plugins]]
-repo = 'sainnhe/sonokai'
-lazy = 0
-hook_source = 'runtime source/sonokai.vim'
-#hook_post_source = 'runtime post/sonokai.vim'
-
+# [[plugins]]
+# repo = 'sainnhe/sonokai'
+# lazy = 0
+# hook_source = 'runtime source/sonokai.vim'
+# #hook_post_source = 'runtime post/sonokai.vim'
+#
 #[ Colorscheme.Collection ]
-[[plugins]]
-repo = 'flazz/vim-colorschemes'
-# Note: not include airline/lightline's
-# some colorschemes like onedark need another repo to call autoload-functions
-on_event = 'VimEnter'
-hook_source = 'runtime source/colorschemes.vim'
-hook_post_source = 'runtime post/colorschemes.vim'
+# [[plugins]]
+# repo = 'flazz/vim-colorschemes'
+# # Note: no longer maintained.
+# on_event = 'VimEnter'
+# hook_source = 'runtime source/colorschemes.vim'
+# hook_post_source = 'runtime post/colorschemes.vim'
 
 #[[plugins]]
 #repo = 'rafi/awesome-vim-colorschemes'
