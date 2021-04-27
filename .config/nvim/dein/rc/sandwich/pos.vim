@@ -44,7 +44,7 @@ function! s:devise_recipes() abort
         \   'linewise': 0,
         \ },
         \ {
-        \   'buns': ["`", "`"],
+        \   'buns': ['`', '`'],
         \   'quoteescape': 1,
         \   'expand_range': 0,
         \   'nesting': 0,
