@@ -6,7 +6,10 @@ repo = 'dense-analysis/ale'
 # coc.nvim deals with LSP better than ale.
 on_event = ['BufRead']
 hook_source = 'source $DEIN_RC_DIR/ale/sou.vim'
-
+# # [[plugins]]
+# repo = 'mattn/vim-ale-icons'
+# # Emoji icons for ale's diagnostics.
+# on_source = ['ale']
 [[plugins]]
 repo = 'wellle/context.vim'
 # Note: irritative, though very useful plugin.
