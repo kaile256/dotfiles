@@ -97,6 +97,8 @@ PACKAGEs=(
   git-delta-bin # Syntax highlight for git-diff
   git-secrets # type git secrets --install on a repo
   git-revise
+  github-cli
+  gibo # Generate boilerplate of '.gitignore'.
 
   # diff-so-fancy # Better highlight for diff.
   sshrc # Bring .bashrc, .vimrc, etc., under ~/.sshrc.d on SSH; keep light config.
@@ -224,8 +226,6 @@ PACKAGEs=(
   papirus-maia-icon-theme
   paper-gtk-theme
 
-  github-cli
-  gibo # Generate boilerplate of '.gitignore'.
   nitrogen # a browser of wallpaper
   picom-ibhagwan-git # an X compositor, an enhanced fork of compton
   #i3-wm-iconpatch # crashes too often
