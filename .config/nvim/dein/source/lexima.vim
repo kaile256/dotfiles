@@ -46,7 +46,8 @@ function! s:remove_end_of_pairs() abort "{{{1
         \ map(deepcopy(pairs_removeable_at_the_end_of_the_line),
         \ 'substitute(v:val, "$", pat_line_continue, "")')
 
-  let pat_followed_by_symbols = '\\ze[][=+-_|(){}\:;?/>.~`!@#$%^&*"'']'
+  let pat_followed_by_symbols = '\\ze[[({]'
+  " let pat_followed_by_symbols = '\\ze[][=+-_|(){}\:;?/>.~`!@#$%^&*"'']'
   let pairs_removeable_next_to_symbols =
         \ map(deepcopy(pairs_removeable_next_to_symbols),
         \ 'substitute(v:val, "$", pat_followed_by_symbols, "")')
