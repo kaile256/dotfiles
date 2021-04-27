@@ -1,0 +1,19 @@
+snippet setup "setup( ... ) @ setup.py" b
+`!p
+name = vim.eval("expand('%:p:h:t')")
+repo = vim.eval('$USER') + '/' + name
+`
+setup(
+    name="${1:`!p snip.rv = name`}",
+    version="${2:1.0.0}",
+    description="${3:A catch phrase}"
+    url="https://github.com/`!p snip.rv = repo`"
+)
+endsnippet
+
+priority 150
+snippet from "setup( ... ) @ setup.py" "vim.eval('expand(\'%:t\')') == 'setup.py' and snip.line == 0" be
+from setuptools import setup
+
+setup$1
+endsnippet
