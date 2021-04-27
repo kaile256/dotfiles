@@ -328,11 +328,6 @@ PACKAGEs=(
   yarn
   zotero # organize research sources, essays.
   zsh
-  # dmenu-manjaro
-  #i3pystatus
-  #i3-style
-  #bluez   # for Bluetooth
-  #bluez-utils
 
   # SKK
   yaskkserv # Yet Another SKK Server
