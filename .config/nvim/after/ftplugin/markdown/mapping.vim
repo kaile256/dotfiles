@@ -4,15 +4,6 @@
 "   nothing after the replacement.
 "   Ref: markdownlint MD004 ul-style
 
-inoremap <expr><buffer> *
-      \ getline('.') =~# '\s*'
-      \ ? '- [ ] '
-      \ : '*'
-lnoremap <expr><buffer> *
-      \ getline('.') =~# '\s*'
-      \ ? '- [ ] '
-      \ : '*'
-
 function! s:start_new_item(o) abort
   const o = a:o
   const line = getline('.')
