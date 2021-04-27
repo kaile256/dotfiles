@@ -8,10 +8,9 @@ endsnippet
 
 snippet SCRIPT_DIR "Get current dir the script running" b
 `!p
-# SCRIPT_DIR=$(readlink -f "\$0" | xargs dirname)
-
 # Snipped from https://devhints.io/bash
-`SCRIPT_DIR="${0%/*}"
+# SCRIPT_DIR="${0%/*}" <- only returns "."?
+`SCRIPT_DIR=$(readlink -f "\$0" | xargs dirname)
 endsnippet
 
 snippet () "function() {$1}" i
