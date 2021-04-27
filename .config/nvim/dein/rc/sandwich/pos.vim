@@ -100,6 +100,11 @@ function! s:devise_recipes() abort
         \   'nesting': 1,
         \   'filetype': ['vim'],
         \ },
+        \ {
+        \   'input': [']'],
+        \   'buns': ['[[', ']]'],
+        \   'filetype': ['lua'],
+        \ },
         \ ]
 
   " https://github.com/monaqa/dotfiles/blob/32f70b3f92d75eaab07a33f8bf28ee17927476e8/.config/nvim/plugin-settings.vim#L679-L685
