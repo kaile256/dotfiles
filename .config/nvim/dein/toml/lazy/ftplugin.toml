@@ -69,3 +69,20 @@ repo = 'yardnsm/vim-import-cost'
 build = 'npm install'
 on_path = ['*.js', '*.jsx','*.ts','*.tsx']
 hook_source = 'runtime source/import-cost.vim'
+
+#[ Diagram ]
+[[plugins]]
+repo = 'weirongxu/plantuml-previewer.vim'
+depends = ['openbrowser.vim']
+# Depends on Java, Graphviz
+on_cmd = [
+  'PlantumlOpen',
+  'PlantumlStart', # Like PlantumlOpen, but won't open in browser.
+  'PlantumlSave', # Export uml diagram to file path in given format.
+]
+[[plugins]]
+repo = 'skanehira/preview-uml.vim'
+# Preview diagram in cui format on another window.
+if = 'executable("docker")'
+on_cmd = ['PreviewUML']
+hook_post_source = 'source $DEIN_RC_DIR/preview-uml/pos.vim'
