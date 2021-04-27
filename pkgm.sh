@@ -38,8 +38,6 @@ PACKAGEs=(
   # dunst # a notification-tool, notify-send
   qutebrowser-git
   # fcitx-mozc-ut-unified # Input Method in Japanese.
-  i3-wm
-  conky-i3
   xsel
   xclip
   eslint
@@ -59,6 +57,27 @@ PACKAGEs=(
   wine-mono-bin # Replacement for Microsoft's .NET Framework in Wine.
   wine-gecko # Replacement for Microsoft's Internet Explorer in Wine.
   winetricks # REdistributable runtime libraries in Wine.
+
+  # Window Manager
+  i3-wm
+  conky-i3
+  i3-battery-popup-git # alert when battery is running out
+  # i3-volume
+  #i3pystatus
+  #i3-style
+  # dmenu-manjaro
+  #bluez   # for Bluetooth
+  #bluez-utils
+  nitrogen # a browser of wallpaper
+  picom-ibhagwan-git # an X compositor, an enhanced fork of compton
+  #i3-wm-iconpatch # crashes too often
+  multilockscreen # configurable wrapper i3-color, more flexible than i3lock-multimonitor
+  polybar # a substitute of i3-bar
+
+  # Sway: working on Wayland
+  sway # A substitute of i3wm
+  qt5-wayland
+  waybar # Replacement to polybar
 
   # Screenshot: mouse to select range
   # shutter # has broken dependency on perl version.
@@ -226,10 +245,6 @@ PACKAGEs=(
   papirus-maia-icon-theme
   paper-gtk-theme
 
-  nitrogen # a browser of wallpaper
-  picom-ibhagwan-git # an X compositor, an enhanced fork of compton
-  #i3-wm-iconpatch # crashes too often
-  multilockscreen # configurable wrapper i3-color, more flexible than i3lock-multimonitor
   udiskie # a wrapper of udisk2 to mount automatically
   #uzbl # a browser w/ vim-like keybinds. The development ends.
   #doas # an alternative to sudo(1); a port of OpenBSD or try opendoas from 'community'
@@ -283,8 +298,6 @@ PACKAGEs=(
   go
   # googlecl  # google api for cli; dependency is broken.
   hub  # an official wrapper of git
-  i3-battery-popup-git # alert when battery is running out
-  # i3-volume
   luarocks
   multibootusb # to create live usb
   #brew-git # a pkgm for macOS (or Linux)
@@ -295,7 +308,6 @@ PACKAGEs=(
   #pdfarranger # a pdf editor
   pdfjs  # PDF viewer in browser
   peek # a screen recorder
-  polybar # a substitute of i3-bar
   # pyenv
   qemu # for multibootusb
   qtqr # generate/decode QR codes
