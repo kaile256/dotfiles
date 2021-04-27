@@ -4,8 +4,9 @@
 let s:default_pumblend = &g:pumblend
 let s:default_winblend = &g:winblend
 function! s:reset_to_default(opt_name) abort
-  " TODO: Adjust options globally.
-  call setwinvar(0, '&'. a:opt_name, {'s:default_'. a:opt_name})
+  for winnr in [1, winnr('$')]
+    call setwinvar(winnr, '&'. a:opt_name, {'s:default_'. a:opt_name})
+  endfor
 endfunction
 inoremap <expr> <C--> pumvisible() ? '<Cmd>setlocal pumblend+=5<CR>' : lexima#expand('<C-->', 'i')
 inoremap <expr> <C-+> pumvisible() ? '<Cmd>setlocal pumblend-=5<CR>' : lexima#expand('<C-+>', 'i')
