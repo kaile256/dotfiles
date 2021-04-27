@@ -68,8 +68,10 @@ function! s:edit_snippets() abort
   const ls = readdir(dir)
   if !filereadable(path)
     if len(ls)
-      let fname = ls[0]
-      let path = dir .'/'. fname
+      for fname in ls
+        if fname !~# '\.snippets$' | continue | endif
+        let path = dir .'/'. fname
+      endfor
     endif
   endif
 
