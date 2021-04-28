@@ -40,9 +40,9 @@ end
 local diag_format = function (loc)
   local truncatable_if_too_long = '%<'
   return truncatable_if_too_long
-    .. loc.type .. ':'
+    .. '[' .. loc.type
+    .. ':' .. loc.linter_name .. ']'
     .. ' ' .. loc.text
-    .. ' [' .. loc.linter_name .. ']'
 end
 local get_first_diag_msg = function (type, bufnr)
   bufnr = bufnr or vim.fn.bufnr()
