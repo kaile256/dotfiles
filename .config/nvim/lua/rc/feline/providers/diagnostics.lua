@@ -30,19 +30,21 @@ end
 
 diagnostics.error = function (bufnr)
   local dc = diagnostics_counts(bufnr)
-  return (dc.error + dc.style_error) or 0
+  local error = (dc.error > 0 and dc.error or 0) + (dc.style_error > 0 and dc.style_error or 0)
+  return error > 0 and error or ''
 end
 diagnostics.warning = function (bufnr)
   local dc = diagnostics_counts(bufnr)
-  return (dc.warning + dc.style_warning) or 0
+  local warning = (dc.warning > 0 and dc.warning or 0) + (dc.style_warning > 0 and dc.style_warning or 0)
+  return warning > 0 and warning or ''
 end
 diagnostics.hint = function (bufnr)
   local dc = diagnostics_counts(bufnr)
-  return dc.hint or 0
+  return dc.hint > 0 and dc.hint or ''
 end
 diagnostics.info = function (bufnr)
   local dc = diagnostics_counts(bufnr)
-  return dc.info or 0
+  return dc.info > 0 and dc.info or ''
 end
 
 diagnostics.mid.error = {
