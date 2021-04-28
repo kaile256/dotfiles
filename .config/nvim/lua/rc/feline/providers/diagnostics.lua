@@ -38,7 +38,9 @@ local get_diagnostics_loclist = function (bufnr)
   return list
 end
 local diag_format = function (loc)
-  return loc.type .. ':'
+  local truncatable_if_too_long = '%<'
+  return truncatable_if_too_long
+    .. loc.type .. ':'
     .. ' ' .. loc.text
     .. ' [' .. loc.linter_name .. ']'
 end
