@@ -24,6 +24,7 @@
   // source.issues depends on coc-git
   "coc.source.issues.priority": 10,
   "coc.source.issues.filetypes": ["gitcommit"],
+  "coc.source.dictionary.priority": 5,
 
   "signature.preferShownAbove": false,
   "signature.triggerSignatureWait": 300,
