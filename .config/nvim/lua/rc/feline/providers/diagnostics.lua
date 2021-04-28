@@ -1,37 +1,74 @@
-local lsp = require('feline.providers.lsp')
+local vim = vim
 local colors = require('rc.feline.colors')
 
-local diagnostics = {}
+local theme = {
+  error   = colors.red,
+  warning = colors.yellow,
+  hint    = colors.green,
+  info    = colors.skyblue,
+}
 
-diagnostics.error = {
-  provider = 'diagnostic_errors',
-  enabled = function() return lsp.diagnostics_exist('Error') end,
+local diagnostics = {
+  left = {},
+  mid = {},
+  right = {},
+}
+
+local diagnostics_counts = function (bufnr)
+  bufnr = bufnr or vim.fn.bufnr()
+  return vim.fn['ale#statusline#Count'](bufnr) or {}
+end
+
+diagnostics.error = function (bufnr)
+  local dc = diagnostics_counts(bufnr)
+  return (dc.error + dc.style_error) or 0
+end
+diagnostics.warning = function (bufnr)
+  local dc = diagnostics_counts(bufnr)
+  return (dc.warning + dc.style_warning) or 0
+end
+diagnostics.hint = function (bufnr)
+  local dc = diagnostics_counts(bufnr)
+  return dc.hint or 0
+end
+diagnostics.info = function (bufnr)
+  local dc = diagnostics_counts(bufnr)
+  return dc.info or 0
+end
+
+diagnostics.mid.error = {
+  provider = function () return diagnostics.error() end,
+  enabled = function() return diagnostics.error() > 0 end,
   hl = {
-    fg = colors.red,
+    fg = colors.black,
+    bg = theme.error,
   },
 }
 
-diagnostics.warning = {
-  provider = 'diagnostic_warnings',
-  enabled = function() return lsp.diagnostics_exist('Warning') end,
+diagnostics.mid.warning = {
+  provider = function () return diagnostics.warning() end,
+  enabled = function() return diagnostics.warning() > 0 end,
   hl = {
-    fg = colors.yellow,
+    fg = colors.black,
+    bg = theme.warning,
   },
 }
 
-diagnostics.hint = {
-  provider = 'diagnostic_hints',
-  enabled = function() return lsp.diagnostics_exist('Hint') end,
+diagnostics.mid.hint = {
+  provider = function () return diagnostics.hint() end,
+  enabled = function() return diagnostics.hint() > 0 end,
   hl = {
-    fg = colors.cyan,
+    fg = colors.black,
+    bg = theme.hint,
   },
 }
 
-diagnostics.info = {
-  provider = 'diagnostic_info',
-  enabled = function() return lsp.diagnostics_exist('Information') end,
+diagnostics.mid.info = {
+  provider = function () return diagnostics.info() end,
+  enabled = function() return diagnostics.info() > 0 end,
   hl = {
-    fg = colors.skyblue,
+    fg = colors.black,
+    bg = theme.info,
   },
 }
 

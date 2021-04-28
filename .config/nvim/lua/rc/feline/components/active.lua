@@ -34,10 +34,10 @@ active.left = {
 active.mid = {
   utils.reset,
 
-  diagnostics.error,
-  diagnostics.warning,
-  diagnostics.hint,
-  diagnostics.info,
+  diagnostics.mid.error,
+  diagnostics.mid.warning,
+  diagnostics.mid.hint,
+  diagnostics.mid.info,
 
   utils.reset,
 }
