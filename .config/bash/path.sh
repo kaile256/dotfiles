@@ -7,7 +7,7 @@ Path=(
   "$HOME/bin"
   "$CARGO_HOME/bin" # rust
   "$PYENV_ROOT/bin" # python
-  "$HOME/.gem/ruby/2.7.0/bin" # ruby
+  "$HOME/.gem/ruby/3.0.0/bin" # ruby
   "$GOPATH/bin" # go
   "$HOME/.node_modules/bin" # nodejs
   "$HOME/.yarn/bin" # nodejs
