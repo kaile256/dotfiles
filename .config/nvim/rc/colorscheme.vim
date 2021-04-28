@@ -1,6 +1,8 @@
 " Ref: colorscheme.toml
 " From: init.vim
 
+let s:colorscheme = 'spring-night'
+
 function! s:common() abort
   if has('nvim')
     let g:terminal_color_0  = '#2e3436'
@@ -79,7 +81,7 @@ endfunction
 
 function! s:set_colorscheme() abort
   try
-    colorscheme spring-night
+    exe 'colorscheme' s:colorscheme
   catch /E185/
     colorscheme slate
   endtry
@@ -99,4 +101,3 @@ augroup Colorscheme/OverrideDefault
     autocmd WinLeave * setlocal wincolor=NormalNC
   endif
 augroup END
-
