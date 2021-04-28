@@ -49,7 +49,6 @@ end
 
 diagnostics.mid.error = {
   provider = function () return diagnostics.error() end,
-  enabled = function() return diagnostics.error() > 0 end,
   hl = {
     fg = colors.black,
     bg = theme.error,
@@ -58,7 +57,6 @@ diagnostics.mid.error = {
 
 diagnostics.mid.warning = {
   provider = function () return diagnostics.warning() end,
-  enabled = function() return diagnostics.warning() > 0 end,
   hl = {
     fg = colors.black,
     bg = theme.warning,
@@ -67,7 +65,6 @@ diagnostics.mid.warning = {
 
 diagnostics.mid.hint = {
   provider = function () return diagnostics.hint() end,
-  enabled = function() return diagnostics.hint() > 0 end,
   hl = {
     fg = colors.black,
     bg = theme.hint,
@@ -76,7 +73,6 @@ diagnostics.mid.hint = {
 
 diagnostics.mid.info = {
   provider = function () return diagnostics.info() end,
-  enabled = function() return diagnostics.info() > 0 end,
   hl = {
     fg = colors.black,
     bg = theme.info,
