@@ -187,8 +187,11 @@ PACKAGEs=(
   virtualbox # check kernel version by `uname -r`
   # llvm
   podman # a substitute for docker
-  #haskell-language-server-git # returns 404
-  #haskell-ide-engine # install as the language server; returns 404
+
+  # Haskell
+  haskell-language-server-bin
+  ghc # a compiler for haskell
+
   maven # Java's build tool
 
   # Languagetool
@@ -293,7 +296,6 @@ PACKAGEs=(
   # dasht  # help?
   debtap # .deb even in arch!
   fzf
-  ghc # a compiler for haskell
   global # GTAGS
   go
   # googlecl  # google api for cli; dependency is broken.
