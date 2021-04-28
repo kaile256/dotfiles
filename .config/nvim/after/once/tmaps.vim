@@ -17,7 +17,6 @@ tnoremap <silent> <SID>(highlight-off) <C-\><C-n>:<C-u>noh <bar> redraw!<CR>i<C-
 tnoremap <script> <c-l> <SID>(highlight-off)
 
 " Produce no terminfo-sequences
-tnoremap <C--> -
 tnoremap <c-cr> <cr>
 tnoremap <S-Space> <space>
 
