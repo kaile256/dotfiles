@@ -9,18 +9,18 @@ local separators = {
   right = {},
 }
 
+local seps = {}
+-- Note: Automated generation is helpless for LSP completion support.
+for pos, sep in pairs(signs.separator) do
+  seps[pos] = separator.generate(sep)
+end
+
 local sep = {}
 sep.whitespace = separator.format(' ')
 ---Convert args into a table.
 -- @param sep_bg string: hex color for background like #000000
 -- @return hl table
 separators.space = function (bg) return sep.whitespace(colors.fg, bg) end
-
-local seps = {}
--- Note: Automated generation is helpless for LSP completion support.
-for pos, sep in pairs(signs.separator) do
-  seps[pos] = separator.generate(sep)
-end
 
 ---Convert args into a table.
 -- @param sep_fg string: hex color for foreground like #000000
