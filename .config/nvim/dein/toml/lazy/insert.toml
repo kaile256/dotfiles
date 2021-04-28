@@ -131,6 +131,11 @@ on_ft = ['javascript']
 ## Enough w/ lsp and snippets?
 #on_map = '<Plug>(complete_parameter#'
 #hook_add = 'runtime add/CompleteParameter.vim'
+# [[plugins]]
+# repo = 'mattn/googlesuggest-complete-vim'
+# # Complete through https://suggestqueries.google.com/complete/search
+# depends = ['webapi-vim']
+# # on_func = ['googlesuggest#Complete']
 #
 #[ Auto Pair ]
 [[plugins]]
