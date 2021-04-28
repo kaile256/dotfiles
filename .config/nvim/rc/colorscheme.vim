@@ -60,6 +60,8 @@ endfunction
 function! s:common_dark() abort
   if &background !=# 'dark' | return | endif
   hi! TODO ctermfg=15 guifg=#ffffff ctermbg=NONE guibg=NONE cterm=bold gui=bold
+  " NormalNC: Colors for unfocused windows.
+  hi! NormalNC ctermfg=249 guifg=#d2d2d2
 
   " NormalFloat: color for winblend, or floating windows
   hi! NormalFloat ctermfg=236 ctermbg=180 guibg=#3a192c guifg=#9f994a
@@ -91,5 +93,10 @@ augroup Colorscheme/OverrideDefault
   au Colorscheme * ++nested call s:common()
   au ColorScheme * ++nested call s:source_conf(expand('<amatch>'), 'pos.vim')
   au VimEnter * ++nested call s:set_colorscheme()
+  if !has('nvim')
+    " Set the other color than `hl-Normal` on unfocused windows.
+    autocmd WinEnter,BufWinEnter * setlocal wincolor=
+    autocmd WinLeave * setlocal wincolor=NormalNC
+  endif
 augroup END
 
