@@ -2,6 +2,7 @@ local vim = vim
 local colors = require('rc.feline.colors')
 
 local theme = {
+  bg = colors.bg,
   error   = colors.red,
   warning = colors.yellow,
   hint    = colors.green,
