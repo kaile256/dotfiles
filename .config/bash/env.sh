@@ -15,6 +15,7 @@ export DOTFILES_HOME="$HOME/dotfiles"
 export MY_DEV="$HOME/dev"
 export MY_MEMO="$HOME/Memo"
 export MY_SUMMURY="$MY_MEMO/summary"
+export MY_TRASH_HOME="$XDG_DATA_HOME/Trash"
 
 # Locale
 export LC_TIME=en_US.UTF-8
