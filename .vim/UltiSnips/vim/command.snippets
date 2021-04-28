@@ -34,6 +34,11 @@ class Insert:
     pass
 
 
+class Context:
+  def in_augroup():
+    vim.eval("searchpair('aug\%[roup]', '', 'aug\%[roup]', 'nbW')")
+
+
 endglobal
 
 snippet scriptencoding "" b
@@ -42,6 +47,10 @@ endsnippet
 
 snippet 'let (\S+)' "let $1 = get($2, '$3', $4)" rw
 `!p
+"""Split the target for get()
+For example,
+'let g:foo' will be 'let get(g:, 'foo', [])'
+"""
 target = match.group(1)
 
 m = re.match(r'(?P<prefix>.*(?=\.)|[bwtglsav]:)\.?(?P<suffix>.*)', target)
@@ -95,6 +104,10 @@ m = re.match(r'([^(]*)', func)
 func_name = m.group(1)
 `call `!p snip.rv = func`
 delfunction `!p snip.rv = func_name`
+endsnippet
+
+snippet au "au $1 $2" b
+au ${1|FileType,BufRead|} ${3:*} ${4:${VISUAL:command}}
 endsnippet
 
 snippet 'aug(roup)?' "augroup foo ... augroup END" br

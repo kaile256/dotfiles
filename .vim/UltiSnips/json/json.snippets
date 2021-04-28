@@ -1,0 +1,26 @@
+snippet next/babel "presets for babel with NextJS" b
+{
+  "presets": ["next/babel"],
+  "plugins": []
+}
+endsnippet
+
+snippet '([^{}]+)' "$1: $2" br
+"${1:`!p snip.rv = re.sub(r'^"', '', match.group(1))`}": ${2:`!p
+try :
+  default = snip.visual_content
+# except AttributeError:
+#   default = ''
+
+if re.search(^',$', default):
+  snip.rv = "{" + default + "}"
+else :
+  snip.rv =  default
+
+`}`!p
+require_comma = vim.eval("search('\%#\(\s*\n\)*\s*}', 'nW')")
+if require_comma:
+  snip.rv = ','
+vim.command('keepjumps keeppatterns s/"$//e')
+`
+endsnippet
