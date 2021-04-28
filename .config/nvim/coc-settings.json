@@ -396,6 +396,7 @@
   "python.linting.enabled": true,
   "python.linting.flake8Enabled": true,
   "python.linting.pylintEnabled": false,
+  "python.pythonPath": "/home/kaile256/.local/share/virtualenvs/kaile256-OFJn30W5/bin/python",
 
   //"java.import.gradle.enabled": true,
   "java.import.maven.enabled": true,
