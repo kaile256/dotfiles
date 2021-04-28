@@ -8,6 +8,7 @@ local buffer = require('rc.feline.providers.buffer')
 local mode = require('rc.feline.providers.mode')
 local diagnostics = require('rc.feline.providers.diagnostics')
 local vcs = require('rc.feline.providers.vcs')
+local lsp = require('rc.feline.providers.lsp')
 
 local active = {
   left = {},
@@ -33,6 +34,8 @@ active.left = {
 
 active.mid = {
   utils.reset,
+
+  lsp.loading,
 
   utils.reset,
 }
