@@ -70,23 +70,60 @@ end
 diagnostics.error = function (bufnr)
   local dc = diagnostics_counts(bufnr)
   local error = (dc.error > 0 and dc.error or 0) + (dc.style_error > 0 and dc.style_error or 0)
-  return error > 0 and ' ' .. error .. ' ' or ''
+  return error == 0 and ''
+    or ' ' .. error .. ' '
 end
 diagnostics.warning = function (bufnr)
   local dc = diagnostics_counts(bufnr)
   local warning = (dc.warning > 0 and dc.warning or 0) + (dc.style_warning > 0 and dc.style_warning or 0)
-  return warning > 0 and ' ' .. warning .. ' ' or ''
+  return warning == 0 and ''
+    or ' ' .. warning .. ' '
 end
 diagnostics.hint = function (bufnr)
   local dc = diagnostics_counts(bufnr)
-  return dc.hint > 0 and ' ' .. dc.hint .. ' ' or ''
+  return dc.hint == 0 and ''
+    or ' ' .. dc.hint .. ' '
 end
 diagnostics.info = function (bufnr)
   local dc = diagnostics_counts(bufnr)
-  return dc.info > 0 and ' ' .. dc.info .. ' ' or ''
+  return dc.info == 0 and ''
+    or ' ' .. dc.info .. ' '
 end
 
 local sep_right = function(fg, bg) return separators.right.rounded_broad(fg, bg) end
+
+-- TODO: Replace g:ale_echo_cursor.
+diagnostics.right.error_msg = {
+  provider = function () return diagnostics.error_msg() end,
+  hl = {
+    fg = colors.black,
+    bg = theme.error,
+  },
+}
+
+diagnostics.right.warning_msg = {
+  provider = function () return diagnostics.warning_msg() end,
+  hl = {
+    fg = colors.black,
+    bg = theme.warning,
+  },
+}
+
+diagnostics.right.hint_msg = {
+  provider = function () return diagnostics.hint_msg() end,
+  hl = {
+    fg = colors.black,
+    bg = theme.hint,
+  },
+}
+
+diagnostics.right.info_msg = {
+  provider = function () return diagnostics.info_msg() end,
+  hl = {
+    fg = colors.black,
+    bg = theme.info,
+  },
+}
 
 diagnostics.right.error = {
   provider = function () return diagnostics.error() end,
