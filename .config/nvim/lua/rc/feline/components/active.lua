@@ -34,16 +34,16 @@ active.left = {
 active.mid = {
   utils.reset,
 
-  diagnostics.mid.error,
-  diagnostics.mid.warning,
-  diagnostics.mid.hint,
-  diagnostics.mid.info,
-
   utils.reset,
 }
 
 active.right = {
   utils.reset,
+
+  diagnostics.right.error,
+  diagnostics.right.warning,
+  diagnostics.right.hint,
+  diagnostics.right.info,
 
   buffer.right.foldmethod,
   buffer.right.cursor_position,

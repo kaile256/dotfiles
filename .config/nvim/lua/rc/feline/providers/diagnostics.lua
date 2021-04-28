@@ -51,7 +51,7 @@ end
 
 local sep_right = function(fg, bg) return separators.right.rounded_broad(fg, bg) end
 
-diagnostics.mid.error = {
+diagnostics.right.error = {
   provider = function () return diagnostics.error() end,
   hl = {
     fg = colors.black,
@@ -60,7 +60,7 @@ diagnostics.mid.error = {
   left_sep = sep_right(theme.error, theme.bg),
 }
 
-diagnostics.mid.warning = {
+diagnostics.right.warning = {
   provider = function () return diagnostics.warning() end,
   hl = {
     fg = colors.black,
@@ -69,7 +69,7 @@ diagnostics.mid.warning = {
   left_sep = sep_right(theme.warning, theme.error),
 }
 
-diagnostics.mid.hint = {
+diagnostics.right.hint = {
   provider = function () return diagnostics.hint() end,
   hl = {
     fg = colors.black,
@@ -78,7 +78,7 @@ diagnostics.mid.hint = {
   left_sep = sep_right(theme.hint, theme.warning),
 }
 
-diagnostics.mid.info = {
+diagnostics.right.info = {
   provider = function () return diagnostics.info() end,
   hl = {
     fg = colors.black,
