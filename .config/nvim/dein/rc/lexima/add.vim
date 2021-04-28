@@ -25,3 +25,10 @@ nnoremap <C-=> <Cmd>call <SID>reset_to_default("winblend")<CR>
 
 nnoremap <C-0>   <Cmd>setlocal winblend=100<CR>
 nnoremap <C-S-_> <Cmd>setlocal winblend=0<CR>
+
+tnoremap <C--> <Cmd>setlocal winblend+=5<CR>
+tnoremap <C-+> <Cmd>setlocal winblend-=5<CR>
+tnoremap <C-=> <Cmd>call <SID>reset_to_default("winblend")<CR>
+
+tnoremap <C-0>   <Cmd>setlocal winblend=100<CR>
+tnoremap <C-S-_> <Cmd>setlocal winblend=0<CR>
