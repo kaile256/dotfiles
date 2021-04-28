@@ -321,4 +321,18 @@ buffer.left.special_path = {
   }
 }
 
+buffer.foldmethod = function ()
+  local fdm = vim.wo.foldmethod
+  if fdm == 'expr' then
+    local fde = vim.wo.foldexpr
+    fdm = 'expr,' .. fde:gsub('%(.*%)', '')
+  end
+  return 'fdm=' .. fdm
+end
+buffer.right.foldmethod = {
+  provider = function()
+    return buffer.foldmethod()
+  end,
+}
+
 return buffer
