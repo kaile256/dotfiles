@@ -3,6 +3,7 @@
 
 local vim = vim
 
+local utils = require('rc.feline.providers.utils')
 local buffer = require('rc.feline.providers.buffer')
 local mode = require('rc.feline.providers.mode')
 local diagnostics = require('rc.feline.providers.diagnostics')
@@ -26,16 +27,25 @@ active.left = {
   buffer.left.file_path,
   buffer.left.modified,
   buffer.left.file_size,
+
+  utils.reset,
 }
 
 active.mid = {
+  utils.reset,
+
   diagnostics.error,
   diagnostics.warning,
   diagnostics.hint,
   diagnostics.info,
+
+  utils.reset,
 }
 
 active.right = {
+  utils.reset,
+
+  buffer.right.foldmethod,
   buffer.right.cursor_position,
   buffer.right.line_percentage,
   buffer.scrollbar,
