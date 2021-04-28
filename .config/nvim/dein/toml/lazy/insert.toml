@@ -167,7 +167,7 @@ repo = 'cohama/lexima.vim'
 on_event = ['TextChangedI', 'CmdlineEnter']
 # on_func = 'lexima#'
 hook_add = 'source $DEIN_RC_DIR/lexima/add.vim'
-hook_source = 'runtime source/lexima.vim'
+hook_source = 'source $DEIN_RC_DIR/lexima/sou.vim'
 hook_post_source = 'runtime post/lexima.vim'
 #[[plugins]]
 #repo = 'mattn/vim-lexiv'

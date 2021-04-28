@@ -1,7 +1,5 @@
 " TOML: insert.toml
 " Repo: cohama/lexima.vim
-" Another: add/lexima.vim
-" Another: post/lexima.vim
 
 " let g:lexima_map_escape = '<Ignore>'
 let g:lexima_accept_pum_with_enter = 0
@@ -59,3 +57,4 @@ function! s:remove_end_of_pairs() abort "{{{1
   exe 'keeppattern keepjump s/'. pat .'//e'
   call winrestview(save_view)
 endfunction
+
