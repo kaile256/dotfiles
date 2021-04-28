@@ -325,7 +325,7 @@ buffer.foldmethod = function ()
   local fdm = vim.wo.foldmethod
   if fdm == 'expr' then
     local fde = vim.wo.foldexpr
-    fdm = 'expr,' .. fde:gsub('%(.*%)', '')
+    return '%<%(fde=' .. fde:gsub('%(.*%)', '') .. '%)'
   end
   return 'fdm=' .. fdm
 end
