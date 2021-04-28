@@ -333,6 +333,16 @@ buffer.right.foldmethod = {
   provider = function()
     return buffer.foldmethod()
   end,
+  left_sep = {
+    {
+      str = default_sep_right,
+      hl = {
+        fg = colors.fg,
+        bg = colors.bg,
+      }
+    },
+    ' ',
+  }
 }
 
 return buffer
