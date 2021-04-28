@@ -30,6 +30,41 @@ local diagnostics_counts = function (bufnr)
   return counts
 end
 
+local get_diagnostics_loclist = function (bufnr)
+  bufnr = tostring(bufnr or vim.fn.bufnr())
+  local info = vim.g.ale_buffer_info or {}
+  local buf_info = info[bufnr] or {}
+  local list = buf_info.loclist or {}
+  return list
+end
+local diag_format = function (loc)
+  return loc.type .. ':'
+    .. ' ' .. loc.text
+    .. ' [' .. loc.linter_name .. ']'
+end
+local get_first_diag_msg = function (type, bufnr)
+  bufnr = bufnr or vim.fn.bufnr()
+  local loclist = get_diagnostics_loclist(bufnr)
+  for _, loc in pairs(loclist) do
+    if loc.type == type then
+      return diag_format(loc)
+    end
+  end
+  return ''
+end
+diagnostics.error_msg = function (bufnr)
+  return get_first_diag_msg('E')
+end
+diagnostics.warning_msg = function (bufnr)
+  return get_first_diag_msg('W')
+end
+diagnostics.hint_msg = function (bufnr)
+  return get_first_diag_msg('H')
+end
+diagnostics.info_msg = function (bufnr)
+  return get_first_diag_msg('I')
+end
+
 diagnostics.error = function (bufnr)
   local dc = diagnostics_counts(bufnr)
   local error = (dc.error > 0 and dc.error or 0) + (dc.style_error > 0 and dc.style_error or 0)
