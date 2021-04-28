@@ -1,12 +1,13 @@
 local vim = vim
 local colors = require('rc.feline.colors')
+local separators = require('rc.feline.separators')
 
 local theme = {
   bg = colors.bg,
   error   = colors.red,
   warning = colors.yellow,
   hint    = colors.green,
-  info    = colors.skyblue,
+  info    = colors.oceanblue,
 }
 
 local diagnostics = {
@@ -32,21 +33,23 @@ end
 diagnostics.error = function (bufnr)
   local dc = diagnostics_counts(bufnr)
   local error = (dc.error > 0 and dc.error or 0) + (dc.style_error > 0 and dc.style_error or 0)
-  return error > 0 and error or ''
+  return error > 0 and ' ' .. error .. ' ' or ''
 end
 diagnostics.warning = function (bufnr)
   local dc = diagnostics_counts(bufnr)
   local warning = (dc.warning > 0 and dc.warning or 0) + (dc.style_warning > 0 and dc.style_warning or 0)
-  return warning > 0 and warning or ''
+  return warning > 0 and ' ' .. warning .. ' ' or ''
 end
 diagnostics.hint = function (bufnr)
   local dc = diagnostics_counts(bufnr)
-  return dc.hint > 0 and dc.hint or ''
+  return dc.hint > 0 and ' ' .. dc.hint .. ' ' or ''
 end
 diagnostics.info = function (bufnr)
   local dc = diagnostics_counts(bufnr)
-  return dc.info > 0 and dc.info or ''
+  return dc.info > 0 and ' ' .. dc.info .. ' ' or ''
 end
+
+local sep_right = function(fg, bg) return separators.right.rounded_broad(fg, bg) end
 
 diagnostics.mid.error = {
   provider = function () return diagnostics.error() end,
@@ -54,6 +57,7 @@ diagnostics.mid.error = {
     fg = colors.black,
     bg = theme.error,
   },
+  left_sep = sep_right(theme.error, theme.bg),
 }
 
 diagnostics.mid.warning = {
@@ -62,6 +66,7 @@ diagnostics.mid.warning = {
     fg = colors.black,
     bg = theme.warning,
   },
+  left_sep = sep_right(theme.warning, theme.error),
 }
 
 diagnostics.mid.hint = {
@@ -70,6 +75,7 @@ diagnostics.mid.hint = {
     fg = colors.black,
     bg = theme.hint,
   },
+  left_sep = sep_right(theme.hint, theme.warning),
 }
 
 diagnostics.mid.info = {
@@ -77,6 +83,12 @@ diagnostics.mid.info = {
   hl = {
     fg = colors.black,
     bg = theme.info,
+  },
+  left_sep = {
+    sep_right(theme.info, theme.hint),
+  },
+  right_sep = {
+    sep_right(theme.bg, theme.info),
   },
 }
 
