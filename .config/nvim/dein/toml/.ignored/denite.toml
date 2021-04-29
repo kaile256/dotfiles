@@ -12,6 +12,11 @@ repo = 'Shougo/unite.vim'
 on_func = ['unite#']
 on_cmd = ['Unite']
 
+# [[plugins]]
+# repo = 'Shougo/unite.vim'
+# # on_func = ['unite#']
+# # on_cmd = ['Unite']
+#
 [[plugins]]
 repo = 'neoclide/coc-denite'
 on_source = ['denite.nvim']
