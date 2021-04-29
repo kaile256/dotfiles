@@ -1,8 +1,6 @@
 " TOML: public.toml
 " Repo: kaile256/vim-snatch
 
-let g:snatch#no_default_mappings = 1
-
 cmap <C-o> <Plug>(snatch-operator)
 
 inoremap <SID>(C-y) <C-y>
