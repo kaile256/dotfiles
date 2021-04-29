@@ -2,6 +2,7 @@
 " Repo: kaile256/vim-snatch
 
 let g:snatch#no_default_mappings = 1
+let g:snatch#timeoutlen = -1
 
 augroup snatch-notifications
   autocmd User SnatchAbortedPost echohl ErrorMsg
