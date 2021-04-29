@@ -33,6 +33,13 @@ hook_source = 'runtime source/editorconfig.vim'
 repo = 'Shougo/context_filetype.vim'
 lazy = 0
 
+#[ Lua ]
+[[plugins]]
+repo = 'teal-language/vim-teal'
+# Includes ale linter config. On neovim, treesitter will do syntax highlight
+# instead.
+on_path = ['\.tl$']
+
 #[ XML ]
 #[[plugins]]
 #repo = 'tpope/vim-ragtag'
