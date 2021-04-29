@@ -9,7 +9,7 @@ let g:sonictemplate_intelligent_key = '<Ignore>'
 let g:sonictemplate_postfix_key = '<Ignore>'
 
 let g:sonictemplate_vim_template_dir = [
-      \ expand('$VIM_ANOTHER_HOME/sonictemplate'),
+      \ $VIM_TEMPLATE_HOME,
       \ ]
 
 " expand in {{_input_:var}}; when var is unset, prompt ask an input for it

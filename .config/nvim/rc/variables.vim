@@ -44,6 +44,7 @@ let $VIM_CONFIG_HOME = $HOME .'/.vim/'
 let $VIM_ANOTHER_HOME = $VIM_CONFIG_HOME
 let $VIM_PACK_HOME = expand('$VIMRUNTIME/pack/dist/opt')
 let g:my_css_home = '~/Downloads/css'
+let $VIM_TEMPLATE_HOME = expand('$VIM_ANOTHER_HOME/sonictemplate')
 
 " $var; for Vim {{{1
 if isdirectory('~/kaile256')
