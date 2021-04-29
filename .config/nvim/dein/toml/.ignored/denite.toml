@@ -3,14 +3,9 @@
 [[plugins]]
 repo = 'Shougo/denite.nvim'
 on_cmd = 'Denite'
-hook_add = 'runtime add/denite.vim'
+hook_add = 'source $DEIN_RC_DIR/denite/add.vim'
 #hook_source = 'runtime source/denite.vim'
-hook_post_source = 'runtime post/denite.vim'
-
-[[plugins]]
-repo = 'Shougo/unite.vim'
-on_func = ['unite#']
-on_cmd = ['Unite']
+hook_post_source = 'source $DEIN_RC_DIR/denite/pos.vim'
 
 # [[plugins]]
 # repo = 'Shougo/unite.vim'
