@@ -141,15 +141,15 @@ snippet if "if = '$1'" b
 if = '${1:has("nvim")}'
 endsnippet
 
-snippet 'h(?:ook_)?a(?:dd)?(l)?' "hook_add = 'runtime $DEIN_RC_DIR/foo/add.vim'" br
+snippet 'h(?:ook_)?a(?:dd)?(l|v)?' "hook_add = 'runtime $DEIN_RC_DIR/foo/add.vim'" br
 `!p snip.rv = Dein.expand_hook('add', match.group(1))`
 endsnippet
 
-snippet 'h(?:ook_)?s(?:ource)?(l)?' "hook_source = 'runtime $DEIN_RC_DIR/foo/sou.vim" br
+snippet 'h(?:ook_)?s(?:ource)?(l|v)?' "hook_source = 'runtime $DEIN_RC_DIR/foo/sou.vim" br
 `!p snip.rv = Dein.expand_hook('source', match.group(1))`
 endsnippet
 
-snippet 'h(?:ook_)?p(?:ost_)?(?:s(?:ource)?)?(l)?' "hook_post_source = 'runtime $DEIN_RC_DIR/foo/pos.vim'" br
+snippet 'h(?:ook_)?p(?:ost_)?(?:s(?:ource)?)?(l|v)?' "hook_post_source = 'runtime $DEIN_RC_DIR/foo/pos.vim'" br
 `!p snip.rv = Dein.expand_hook('post_source', match.group(1))`
 endsnippet
 
