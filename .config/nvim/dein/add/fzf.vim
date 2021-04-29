@@ -23,7 +23,7 @@ let s:cmd_to_path = {
       \ 'Pictures':  '~/Pictures',
       \ 'Runtimes':   $VIMRUNTIME,
       \ 'Tmps':      '/tmp',
-      \ 'Trash':     g:my_trash_root,
+      \ 'Trash':     $MY_TRASH_HOME,
       \ 'Usrs':      '/usr',
       \ }
 
@@ -57,7 +57,7 @@ command! -bar -nargs=* -complete=help H :Helptags <args>
 " Keymaps for Files {{{1
 let s:path_dict = {
       \ '.': $DOTFILES_HOME,
-      \ '<BS>': g:my_trash_root,
+      \ '<BS>': $MY_TRASH_HOME,
       \ '<space>': '<C-r>=FindRootDirectory()<CR>',
       \ 'c': $DEIN_CACHE_HOME,
       \ 'd': $MY_DEV,
