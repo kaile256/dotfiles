@@ -48,6 +48,8 @@ require('telescope').setup{
 
 
     mappings = {
+      -- Ref: telescope/mappings.lua
+
       -- To disable a keymap, set [map] to false.
       i = {
         ["<C-c>"] = actions.close,
