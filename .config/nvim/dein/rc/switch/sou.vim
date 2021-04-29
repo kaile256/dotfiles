@@ -17,6 +17,13 @@ let g:switch_mapping = ''
 function! s:set_extra_definitions() abort
   let rules = {}
 
+  let rules.assignment = [
+        \ {
+        \   '\(\h\k*\)\s*+=\s*1': '\1 = \1 + 1',
+        \   '\(\h\k*\)\s*-=\s*1': '\1 = \1 - 1',
+        \ },
+        \ ]
+
   " FIXME: get correct match pair to move `while (cond)`.
   let pat_while = '\(while (.*)\) \({\(.*\n\)\{-}\s*}\);'
   let pat_do_while = 'do \({\%(.*\n\)\{-}\s*}\) \(while (.*)\);'
