@@ -12,7 +12,10 @@ augroup snatch-notifications
 augroup END
 
 augroup Snatch/InsertLeaveAfterSnatching
-  let g:snatch_status = {}
+  if !exists('g:snatch_status')
+    " Note: The if-block is to reload for new scripts.
+    let g:snatch_status = {}
+  endif
   autocmd User SnatchInsertPost if g:snatch_status.prev_mode ==# 'i' |
         \   call feedkeys("\<Esc>l")
         \ | endif
