@@ -73,13 +73,7 @@ function! s:remove_to_wordend() abort
   return repeat("\<Del>", len)
 endfunction
 
-cnoremap <expr> <c-k> <SID>remove_to_end()
-function! s:remove_to_end() abort
-  let line = getcmdline()
-  let col  = getcmdpos()
-  let len  = len(line) - col + 1
-  return repeat("\<Del>", len)
-endfunction
+cnoremap <c-k> <C-\>egetcmdline()[:getcmdpos() - 2]<CR>
 
 " Style; vi-like to open cmdwin {{{1
 "cnoremap <a-b> <c-f>B
