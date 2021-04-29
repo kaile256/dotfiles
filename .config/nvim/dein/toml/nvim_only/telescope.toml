@@ -31,3 +31,8 @@ repo = 'fannheyward/telescope-coc.nvim'
 depends = ['coc.nvim']
 on_source = ['telescope.nvim']
 hook_post_source = 'luafile $DEIN_RC_DIR/telescope/coc/pos.lua'
+
+[[plugins]]
+repo = 'DevonMorris/telescope-docker.nvim'
+if = 'executable("docker")'
+hook_post_source = 'luafile $DEIN_RC_DIR/telescope/docker/pos.lua'
