@@ -57,6 +57,7 @@ command! -bar -nargs=* -complete=help H :Helptags <args>
 " Keymaps for Files {{{1
 let s:path_dict = {
       \ '.': $DOTFILES_HOME,
+      \ '<BS>': g:my_trash_root,
       \ '<space>': '<C-r>=FindRootDirectory()<CR>',
       \ 'c': $DEIN_CACHE_HOME,
       \ 'd': $MY_DEV,
@@ -68,7 +69,6 @@ let s:path_dict = {
       \ 'q': $GHQ_ROOT,
       \ 'r': $VIMRUNTIME,
       \ 's': '$SNIPPETS_HOME',
-      \ 't': g:my_trash_root,
       \ 'v': $DOTFILES_HOME .'/.vim',
       \ 'w': '%:p:h',
       \ }
