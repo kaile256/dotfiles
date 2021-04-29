@@ -9,7 +9,10 @@ xmap aq <Plug>(table-mode-cell-text-object-a)
 
 augroup myTableMode/Add
   " au BufRead *.{wiki,md,org,txt} TableModeEnable
-  au InsertLeave *.{wiki,md,org,txt} TableModeRealign
+  au InsertLeave *.{wiki,md,org,txt}
+        \ if getline('.') =~# '^\s*|.*|\s*$'
+        \ | TableModeRealign
+        \ | endif
   " Note: some functions would not work if disabled on `InsertLeave`
   "au InsertLeave *.{wiki,md,org,txt} silent TableModeDisable
 augroup END
