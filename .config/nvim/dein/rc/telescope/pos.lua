@@ -60,9 +60,9 @@ require('telescope').setup{
         ["<C-x>"] = false,
         ["<C-v>"] = false,
         -- ["<C-t>"] = false,
-        ["<A-s>"] = actions.goto_file_selection_split,
-        ["<A-v>"] = actions.goto_file_selection_vsplit,
-        ["<A-t>"] = actions.goto_file_selection_tabedit,
+        ["<A-s>"] = actions.select_horizontal,
+        ["<A-v>"] = actions.select_vertical,
+        ["<A-t>"] = actions.select_tab,
 
         -- ["<Tab>"] = actions.add_selection, -- Not implemented yet.
         -- Disable scrolling in Insert Mode.
@@ -74,14 +74,14 @@ require('telescope').setup{
       n = {
         ["<Esc>"] = actions.close,
 
-        ["<CR>"] = actions.goto_file_selection_edit + actions.center,
+        ["<CR>"] = actions.select_default + actions.center,
 
         ["<C-x>"] = false,
         ["<C-v>"] = false,
         ["<C-t>"] = false,
-        ["o"]  = actions.goto_file_selection_split,
-        ["O"]  = actions.goto_file_selection_vsplit,
-        ["gO"] = actions.goto_file_selection_tabedit,
+        ["o"]  = actions.select_horizontal,
+        ["O"]  = actions.select_vertical,
+        ["gO"] = actions.select_tab,
 
 
         -- Note: This would be weird when we switch the ordering, currently.

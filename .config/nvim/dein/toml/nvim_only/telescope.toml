@@ -26,3 +26,7 @@ repo = 'pwntester/octo.nvim'
 depends = ['plenary.nvim', 'telescope.nvim']
 on_cmd = 'Octo'
 
+[[plugins]]
+repo = 'fannheyward/telescope-coc.nvim'
+depends = ['coc.nvim', 'telescope.nvim']
+hook_post_source = 'luafile $DEIN_RC_DIR/telescope/coc/pos.lua'
