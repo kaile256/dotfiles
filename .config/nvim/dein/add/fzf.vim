@@ -69,6 +69,7 @@ let s:path_dict = {
       \ 'q': $GHQ_ROOT,
       \ 'r': $VIMRUNTIME,
       \ 's': '$SNIPPETS_HOME',
+      \ 't': $VIM_TEMPLATE_HOME,
       \ 'v': $DOTFILES_HOME .'/.vim',
       \ 'w': '%:p:h',
       \ }
