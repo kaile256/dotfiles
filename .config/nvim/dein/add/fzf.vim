@@ -62,7 +62,7 @@ let s:path_dict = {
       \ 'c': $DEIN_CACHE_HOME,
       \ 'd': $MY_DEV,
       \ 'f': $XDG_CONFIG_HOME,
-      \ 'h': '~',
+      \ 'h': $HOME,
       \ 'l': $XDG_DATA_HOME,
       \ 'm': '$MY_MEMO/note',
       \ 'n': '%:p:h',
