@@ -64,13 +64,13 @@ let s:path_dict = {
       \ 'f': $XDG_CONFIG_HOME,
       \ 'h': '~',
       \ 'l': $XDG_DATA_HOME,
-      \ 'm': $MY_MEMO .'/note',
+      \ 'm': '$MY_MEMO/note',
       \ 'n': '%:p:h',
       \ 'q': $GHQ_ROOT,
       \ 'r': $VIMRUNTIME,
       \ 's': '$SNIPPETS_HOME',
       \ 't': $VIM_TEMPLATE_HOME,
-      \ 'v': $DOTFILES_HOME .'/.vim',
+      \ 'v': '$DOTFILES_HOME/.vim',
       \ 'w': '%:p:h',
       \ }
 
