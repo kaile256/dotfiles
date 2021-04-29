@@ -22,11 +22,3 @@ let g:table_mode_add_formula_map = '<Ignore>'
 let g:table_mode_eval_formula_map = '<Ignore>'
 let g:table_mode_echo_cell_map = '<Ignore>'
 let g:table_mode_sort_map = '<Ignore>'
-
-" Ref: see default values for g:var in dhruvasagar/vim-table-mode/plugin/table-mode.vim @17
-" augroup myTableModeSource
-"   " au BufRead *.{wiki,md,org,txt} TableModeEnable
-"   au InsertLeave *.{wiki,md,org,txt} TableModeRealign
-"   " Note: some functions would not work if disabled on `InsertLeave`
-"   "au InsertLeave *.{wiki,md,org,txt} silent TableModeDisable
-" augroup END

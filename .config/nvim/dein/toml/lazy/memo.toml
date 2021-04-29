@@ -31,7 +31,11 @@
 #[ Table-Mode ]
 [[plugins]]
 repo = 'dhruvasagar/vim-table-mode'
-on_cmd = ['Tableize', 'TableAddFormula']
+on_cmd = [
+  'Tableize',
+  'TableAddFormula',
+  'TableModeRealign'
+]
 on_map = {
   ox = '<Plug>(table-mode-cell-text-object-',
   nox = '<Plug>(table-mode-motion-'
