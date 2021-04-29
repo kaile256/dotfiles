@@ -22,6 +22,14 @@ function! s:devise_recipes() abort
   let g:sandwich#recipes = []
   let recipes = {}
 
+  " let recipes.comma = [
+  "      \ {
+  "      \   'buns': ['[,[{(]\s*', ',]})\s*'],
+  "      \   'regex': 1,
+  "      \   'input': [',']
+  "      \ },
+  "      \ ]
+
   let recipes.quote = [
         \ {
         \   'buns': ['^$', '^$'],
