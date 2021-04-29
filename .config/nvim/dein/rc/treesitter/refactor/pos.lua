@@ -14,9 +14,11 @@ require'nvim-treesitter.configs'.setup {
     },
 
     smart_rename = {
-      enable = { "lua" },
+      enable = {
+        "teal"
+      },
       keymaps = {
-        smart_rename = "<Plug>(ts-refactor-rename)",
+        smart_rename = "cs",
       },
     },
 
