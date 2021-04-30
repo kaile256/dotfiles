@@ -60,8 +60,8 @@ local get_git_stat = function(key)
   local gsd = vim.b.gitsigns_status_dict
   local stat = gsd and gsd[key] or 0
   return stat > 0
-  and ' ' .. stat ..  ' '
-  or ''
+    and ' ' .. stat ..  ' '
+    or ''
 end
 
 git.diff = {
