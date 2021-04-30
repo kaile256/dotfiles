@@ -87,11 +87,7 @@ git.diff = {
       style = 'bold',
     },
     right_sep = {
-      str = signs.separator.left.triangle_broad,
-      hl = {
-        fg = theme.added,
-        bg = theme.changed,
-      }
+      separators.left.triangle_broad(theme.added, theme.changed),
     },
   },
 
@@ -108,11 +104,7 @@ git.diff = {
       style = 'bold',
     },
     right_sep = {
-      str = signs.separator.left.triangle_broad,
-      hl = {
-        fg = theme.changed,
-        bg = theme.removed,
-      }
+      separators.left.triangle_broad(theme.changed, theme.removed),
     },
   },
 
