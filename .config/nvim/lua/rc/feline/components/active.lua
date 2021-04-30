@@ -1,8 +1,6 @@
 -- TOML: appearance.toml
 -- Repo: famiu/feline.nvim
 
-local vim = vim
-
 local utils = require('rc.feline.providers.utils')
 local buffer = require('rc.feline.providers.buffer')
 local mode = require('rc.feline.providers.mode')
