@@ -342,6 +342,7 @@ PACKAGEs=(
 )
 
 PIP3s=(
+  notion # Unofficial notion API on python3.
   online-judge-tools # Tools for Codeforces, AtCoder, HackerRanck, etc.
   pygments # for GTAGS
   xkeysnail # remapper for each devices/apps
