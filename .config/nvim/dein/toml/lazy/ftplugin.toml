@@ -33,6 +33,13 @@ hook_source = 'runtime source/editorconfig.vim'
 repo = 'Shougo/context_filetype.vim'
 lazy = 0
 
+#[ Python ]
+[[plugins]]
+repo = 'petobens/poet-v'
+# Support poetry or pipenv project
+on_ft = ['python']
+hook_source = 'luafile $DEIN_RC_DIR/poet-v/sou.lua'
+
 #[ Lua ]
 [[plugins]]
 repo = 'teal-language/vim-teal'
