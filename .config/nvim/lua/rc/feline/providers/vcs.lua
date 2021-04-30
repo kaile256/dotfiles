@@ -5,6 +5,7 @@ local builtin_git = require('feline.providers.git')
 local signs = require('rc.feline.signs')
 local sep = signs.separator
 local colors = require('rc.feline.colors')
+local separators = require('rc.feline.separators')
 
 local theme = {
   branch  = colors.magenta,
@@ -128,11 +129,8 @@ git.diff = {
       style = 'bold',
     },
     right_sep = {
-      str = signs.separator.left.triangle_broad,
-      hl = {
-        fg = theme.removed,
-        bg = colors.bg,
-      }
+      separators.left.triangle_broad(theme.removed, colors.bg),
+      ' ',
     },
   },
 }
