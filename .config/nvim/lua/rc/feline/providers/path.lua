@@ -31,7 +31,12 @@ path.left.file_name = {
 }
 
 path.left.fullpath = {
-  enabled = function() return is_wide_enough_for_root_dir() end,
+  enabled = function()
+    local fpath = vim.fn.expand('%:~:p:h')
+    local len_fpath = string.len(fpath)
+    local winwidth = vim.fn.winwidth(0)
+    return len_fpath < winwidth / 3
+  end,
   provider = function()
     local buftype = vim.bo.buftype
     if buftype ~= '' then
