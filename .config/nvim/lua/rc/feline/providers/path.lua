@@ -3,6 +3,7 @@ local colors = require('rc.feline.colors')
 local signs = require('rc.feline.signs')
 local sep = signs.separator
 local sep_left = sep.left
+local separators = require('rc.feline.separators')
 
 local path = {
   left = {},

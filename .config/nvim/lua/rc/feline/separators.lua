@@ -38,6 +38,17 @@ separators.right.triangle_broad = function (fg, bg) return seps.right.triangle_b
 -- @param sep_fg string: hex color for foreground like #000000
 -- @param sep_bg string: hex color for background like #FFFFFF
 -- @return hl table
+separators.left.triangle_narrow = function (fg, bg) return seps.left.triangle_narrow(fg, bg) end
+
+---Convert args into a table.
+-- @param sep_fg string: hex color for foreground like #000000
+-- @param sep_bg string: hex color for background like #FFFFFF
+-- @return hl table
+separators.right.triangle_narrow = function (fg, bg) return seps.right.triangle_narrow(fg, bg) end
+---Convert args into a table.
+-- @param sep_fg string: hex color for foreground like #000000
+-- @param sep_bg string: hex color for background like #FFFFFF
+-- @return hl table
 separators.left.rounded_broad = function (fg, bg) return seps.left.rounded_broad(fg, bg) end
 
 ---Convert args into a table.
@@ -45,5 +56,17 @@ separators.left.rounded_broad = function (fg, bg) return seps.left.rounded_broad
 -- @param sep_bg string: hex color for background like #FFFFFF
 -- @return hl table
 separators.right.rounded_broad = function (fg, bg) return seps.right.rounded_broad(fg, bg) end
+
+---Convert args into a table.
+-- @param sep_fg string: hex color for foreground like #000000
+-- @param sep_bg string: hex color for background like #FFFFFF
+-- @return hl table
+separators.left.rounded_narrow = function (fg, bg) return seps.left.rounded_narrow(fg, bg) end
+
+---Convert args into a table.
+-- @param sep_fg string: hex color for foreground like #000000
+-- @param sep_bg string: hex color for background like #FFFFFF
+-- @return hl table
+separators.right.rounded_narrow = function (fg, bg) return seps.right.rounded_narrow(fg, bg) end
 
 return separators
