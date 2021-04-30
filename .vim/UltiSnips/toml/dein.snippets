@@ -139,7 +139,7 @@ snippet dein "[dein] init a table of repo" bA
 endsnippet
 
 snippet if "if = '$1'" b
-if = '${1:has("nvim")}'
+if = '${1|has("nvim"),!has("nvim"),executable("")|}'
 endsnippet
 
 snippet 'h(?:ook_)?a(?:dd)?(l|v)?' "hook_add = 'runtime $DEIN_RC_DIR/foo/add.vim'" br
