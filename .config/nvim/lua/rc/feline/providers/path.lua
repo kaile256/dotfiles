@@ -11,19 +11,27 @@ local path = {
   right = {},
 }
 
-path.root_dir = {
-  provider = function()
-    return vim.fn.expand('%:~:p:h')
+path.left.root_dir = {
+  enabled = function()
+    local fpath = vim.fn.expand('%:~:p:h')
+    local len_fpath = string.len(fpath)
+    local winwidth = vim.fn.winwidth(0)
+    return len_fpath < winwidth / 3
   end,
+  provider = function() return vim.fn.expand('%:p:h') end,
+  right_sep = {
+    ' ',
+    separators.left.rounded_narrow(colors.fg, colors.bg),
+    ' ',
+  },
+}
+
+path.left.file_name = {
+  provider = function() return vim.fn.expand('%:t') end,
 }
 
 path.left.fullpath = {
-  enabled = function()
-    local fpath = vim.fn.expand('%:~:p')
-    local len_fpath = string.len(fpath)
-    local winwidth = vim.fn.winwidth(0)
-    return winwidth > len_fpath * 3
-  end,
+  enabled = function() return is_wide_enough_for_root_dir() end,
   provider = function()
     local buftype = vim.bo.buftype
     if buftype ~= '' then
