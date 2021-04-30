@@ -44,22 +44,15 @@ git.branch = {
     }
     if not is_under_git() then
       val.fg = colors.bg
-      val.bg = theme.changed
+      val.bg = theme.branch
     end
     return val
   end,
   right_sep = function()
-    local val = {
-      str = '',
-      hl = {
-        fg = theme.branch,
-        bg = colors.bg,
-      }
-    }
-    if is_under_git() then
-      return separators.left.rounded_broad(colors.bg, theme.added)
-    end
-    return val
+    return is_under_git()
+      and separators.left.rounded_broad(colors.bg, theme.added)
+      -- TODO: Append a space at the end.
+      or separators.left.rounded_broad(theme.branch, colors.bg)
   end,
 }
 
