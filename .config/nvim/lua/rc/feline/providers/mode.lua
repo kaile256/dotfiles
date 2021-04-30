@@ -19,10 +19,23 @@ mode.snatch = {
   provider = u_snatch.get_strategies,
 }
 
+mode.eskk = function()
+  if vim.g.loaded_eskk then
+    local eskk_mode = vim.fn['eskk#statusline']():gsub('eskk:', '')
+    return eskk_mode
+  end
+  return ''
+end
+
 mode.vi_mode = {
   provider = function()
     local v_bar = signs.separator.symmetry.vertical_bar_broad
-    return v_bar .. ' ' .. u_vi_mode.get_mode() .. ' ' .. v_bar
+    local m = u_vi_mode.get_mode()
+    local eskk_mode = mode.eskk()
+    if eskk_mode ~= '' then
+      m = m:match('...') .. eskk_mode
+    end
+    return v_bar .. ' ' .. m .. ' ' .. v_bar
   end,
   hl = function()
     local val = {}
