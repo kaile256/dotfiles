@@ -3,6 +3,7 @@
 
 local utils = require('rc.feline.providers.utils')
 local buffer = require('rc.feline.providers.buffer')
+local path = require('rc.feline.providers.path')
 local mode = require('rc.feline.providers.mode')
 local diagnostics = require('rc.feline.providers.diagnostics')
 local vcs = require('rc.feline.providers.vcs')
@@ -23,7 +24,7 @@ active.left = {
   vcs.git.diff.removed,
 
   buffer.left.filetype_icon,
-  buffer.left.file_path,
+  path.left.fullpath,
   buffer.left.modified,
   buffer.left.file_size,
 

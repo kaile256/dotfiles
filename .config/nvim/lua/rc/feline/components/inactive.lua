@@ -2,6 +2,7 @@
 -- Repo: famiu/feline.nvim
 
 local buffer = require('rc.feline.providers.buffer')
+local path = require('rc.feline.providers.path')
 
 local inactive = {
   left = {},
@@ -11,7 +12,7 @@ local inactive = {
 
 inactive.left = {
   buffer.left.file_type,
-  buffer.left.special_path,
+  path.left.special_path,
 }
 
 return inactive
