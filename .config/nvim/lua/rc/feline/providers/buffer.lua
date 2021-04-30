@@ -104,13 +104,7 @@ buffer.left.filetype_icon = {
     },
   },
   right_sep = {
-    {
-      str = ' ',
-      hl = {
-        fg = colors.cyan,
-        bg = colors.bg,
-      },
-    },
+    ' ',
     {
       str = sep_left.triangle_narrow,
       hl = {
@@ -119,6 +113,7 @@ buffer.left.filetype_icon = {
         style = 'bold',
       },
     },
+    ' ',
     bg = colors.bg, -- Reset bg color in case this component is the last one.
   }
 }
