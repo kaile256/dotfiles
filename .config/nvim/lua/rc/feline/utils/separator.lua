@@ -1,5 +1,11 @@
 local separator = {}
 
+setmetatable(separator, {
+  __concat = function()
+    -- TODO: concat at `hl.str`.
+end
+  })
+
 ---Convert args into a table.
 -- @param sep_fg string: hex color for foreground like #000000
 -- @param sep_bg string: hex color for background like #FFFFFF
