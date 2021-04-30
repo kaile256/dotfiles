@@ -30,6 +30,7 @@ HOMEs=(
   .Xresources
   .Xresources.d
   .bashrc
+  .bin
   .ctags
   .docker
   .doom.d
@@ -50,7 +51,6 @@ HOMEs=(
   .vimspector.json
   .zshenv
   .zshrc
-  bin
 )
 
 CONFIGs=(
