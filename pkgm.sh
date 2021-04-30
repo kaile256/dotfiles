@@ -140,6 +140,11 @@ PACKAGEs=(
   lua-language-server
   lua51-busted # Unit test for lua
 
+  # Python
+  pyenv # cannot install by pip.
+  pipenv # depends on pyenv.
+  python-poetry # Faster, and more informative than pipenv
+
   code # vscode
   stylelint # a linter for CSS
   ueberzug # previewer for some tools
