@@ -57,9 +57,7 @@ git.branch = {
       }
     }
     if is_under_git() then
-      val.str = sep.left.triangle_broad
-      val.hl.fg = colors.bg
-      val.hl.bg = theme.added
+      return separators.left.rounded_broad(colors.bg, theme.added)
     end
     return val
   end,
@@ -87,7 +85,7 @@ git.diff = {
       style = 'bold',
     },
     right_sep = {
-      separators.left.triangle_broad(theme.added, theme.changed),
+      separators.left.rounded_broad(theme.added, theme.changed),
     },
   },
 
@@ -104,7 +102,7 @@ git.diff = {
       style = 'bold',
     },
     right_sep = {
-      separators.left.triangle_broad(theme.changed, theme.removed),
+      separators.left.rounded_broad(theme.changed, theme.removed),
     },
   },
 
@@ -121,7 +119,7 @@ git.diff = {
       style = 'bold',
     },
     right_sep = {
-      separators.left.triangle_broad(theme.removed, colors.bg),
+      separators.left.rounded_broad(theme.removed, colors.bg),
       ' ',
     },
   },
