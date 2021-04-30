@@ -4,7 +4,8 @@ Path=(
   #"/opt/brew/bin" # recommended to set before /bin
   #"/opt/brew/sbin" # recommended to set before /bin
   "$HOME/.local/bin" # local
-  "$HOME/bin"
+  "$HOME/bin" # Some maintainers deploy here.
+  "$HOME/.bin" # Scripts for mine.
   "$CARGO_HOME/bin" # rust
   "$PYENV_ROOT/bin" # python
   "$HOME/.luarocks" # Lua
