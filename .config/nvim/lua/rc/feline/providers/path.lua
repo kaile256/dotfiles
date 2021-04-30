@@ -28,6 +28,9 @@ path.left.root_dir = {
 
 path.left.file_name = {
   provider = function() return vim.fn.expand('%:t') end,
+  right_sep = {
+    ' ',
+  }
 }
 
 path.left.fullpath = {

@@ -94,25 +94,9 @@ buffer.left.filetype_icon = {
     fg = colors.white,
     bg = colors.bg,
   },
-  left_sep = {
-    {
-      str = ' ',
-      hl = {
-        fg = colors.cyan,
-        bg = colors.bg,
-      },
-    },
-  },
   right_sep = {
     ' ',
-    {
-      str = sep_left.triangle_narrow,
-      hl = {
-        fg = colors.cyan,
-        bg = colors.bg,
-        style = 'bold',
-      },
-    },
+    separators.left.rounded_narrow(colors.fg, colors.bg),
     ' ',
     bg = colors.bg, -- Reset bg color in case this component is the last one.
   }
