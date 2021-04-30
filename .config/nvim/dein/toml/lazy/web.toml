@@ -79,7 +79,9 @@ on_event = ['VimEnter']
 # hook_add = 'runtime add/todoist.vim'
 # hook_post_source = 'runtime post/todoist.vim'
 # hook_done_update = 'TodoistInstal'
-
+[[plugins]]
+repo = 'pineapplegiant/vim-to-notion'
+# depends on jamalex/notion-py
 #[ Google ]
 [[plugins]]
 repo = 'itchyny/calendar.vim'
