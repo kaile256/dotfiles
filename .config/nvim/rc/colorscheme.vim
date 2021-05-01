@@ -4,42 +4,31 @@
 let s:colorscheme = 'spring-night'
 
 function! s:common() abort
+  " Converted from Lava schemes in
+  " https://github.com/fish-shell/fish-shell/raw/daa3ae4be1ac6317861bdfab6e1beff80f26201d/share/tools/web_config/js/colorutils.js
+  let g:terminal_ansi_colors = [
+        \ '#232323',
+        \ '#FF9400',
+        \ '#BF8330',
+        \ '#A66000',
+        \ '#FFAE40',
+        \ '#FFC473',
+        \ '#FFC000',
+        \ '#BF9C30',
+        \ '#A67D00',
+        \ '#FFD040',
+        \ '#FFDD73',
+        \ '#FF4C00',
+        \ '#BF5B30',
+        \ '#A63100',
+        \ '#FF7940',
+        \ '#FF9D73',
+        \ ]
   if has('nvim')
-    let g:terminal_color_0  = '#2e3436'
-    let g:terminal_color_1  = '#e73131'
-    let g:terminal_color_2  = '#67c60c'
-    let g:terminal_color_3  = '#ddb812'
-    let g:terminal_color_4  = '#4383d5'
-    let g:terminal_color_5  = '#b859c8'
-    let g:terminal_color_6  = '#43c4cc'
-    let g:terminal_color_7  = '#d3d7cf'
-    let g:terminal_color_8  = '#555753'
-    let g:terminal_color_9  = '#fc6868'
-    let g:terminal_color_10 = '#8ae234'
-    let g:terminal_color_11 = '#fce94f'
-    let g:terminal_color_12 = '#729fcf'
-    let g:terminal_color_13 = '#ad7fa8'
-    let g:terminal_color_14 = '#00f5e9'
-    let g:terminal_color_15 = '#eeeeec'
-  else
-    let g:terminal_ansi_colors = [
-          \ '#2e3436',
-          \ '#e73131',
-          \ '#67c60c',
-          \ '#ddb812',
-          \ '#4383d5',
-          \ '#b859c8',
-          \ '#43c4cc',
-          \ '#d3d7cf',
-          \ '#555753',
-          \ '#fc6868',
-          \ '#8ae234',
-          \ '#fce94f',
-          \ '#729fcf',
-          \ '#ad7fa8',
-          \ '#00f5e9',
-          \ '#eeeeec',
-          \ ]
+    for idx in range(0, 15)
+      let {'g:terminal_color_'. idx} = g:terminal_ansi_colors[idx]
+    endfor
+    unlet g:terminal_ansi_colors
   endif
 
   hi! TermCursor cterm=reverse,underline gui=reverse,underline
