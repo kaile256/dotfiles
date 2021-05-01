@@ -4,33 +4,33 @@
 let s:colorscheme = 'spring-night'
 
 function! s:common() abort
-  " Converted from Lava schemes in
-  " https://github.com/fish-shell/fish-shell/raw/daa3ae4be1ac6317861bdfab6e1beff80f26201d/share/tools/web_config/js/colorutils.js
-  let g:terminal_ansi_colors = [
-        \ '#232323',
-        \ '#FF9400',
-        \ '#BF8330',
-        \ '#A66000',
-        \ '#FFAE40',
-        \ '#FFC473',
-        \ '#FFC000',
-        \ '#BF9C30',
-        \ '#A67D00',
-        \ '#FFD040',
-        \ '#FFDD73',
-        \ '#FF4C00',
-        \ '#BF5B30',
-        \ '#A63100',
-        \ '#FF7940',
-        \ '#FF9D73',
-        \ ]
-  if has('nvim')
-    for idx in range(0, 15)
-      let {'g:terminal_color_'. idx} = g:terminal_ansi_colors[idx]
-    endfor
-    unlet g:terminal_ansi_colors
-  endif
-
+  " " Converted from Lava schemes in
+  " " https://github.com/fish-shell/fish-shell/raw/daa3ae4be1ac6317861bdfab6e1beff80f26201d/share/tools/web_config/js/colorutils.js
+  " let g:terminal_ansi_colors = [
+  "      \ '#232323',
+  "      \ '#FF9400',
+  "      \ '#BF8330',
+  "      \ '#A66000',
+  "      \ '#FFAE40',
+  "      \ '#FFC473',
+  "      \ '#FFC000',
+  "      \ '#BF9C30',
+  "      \ '#A67D00',
+  "      \ '#FFD040',
+  "      \ '#FFDD73',
+  "      \ '#FF4C00',
+  "      \ '#BF5B30',
+  "      \ '#A63100',
+  "      \ '#FF7940',
+  "      \ '#FF9D73',
+  "      \ ]
+  " if has('nvim')
+  "   for idx in range(0, 15)
+  "     let {'g:terminal_color_'. idx} = g:terminal_ansi_colors[idx]
+  "   endfor
+  "   unlet g:terminal_ansi_colors
+  " endif
+  "
   hi! TermCursor cterm=reverse,underline gui=reverse,underline
   hi! TermCursorNC ctermfg=Red guifg=Red ctermbg=NONE guibg=NONE cterm=bold gui=bold
 
