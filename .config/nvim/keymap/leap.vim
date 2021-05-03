@@ -43,10 +43,6 @@ nnoremap <silent> [q :cprev <bar> cwindow<CR>
 nnoremap <silent> ]l :lnext <bar> lwindow<CR>
 nnoremap <silent> [l :lprev <bar> lwindow<CR>
 
-" between Folds {{{1
-nnoremap zJ zjzv
-nnoremap zK zkzv
-
 " Edit Syntax {{{1
 function! s:edit_syntax(open) abort
   let ft_vim = &ft .'.vim'
