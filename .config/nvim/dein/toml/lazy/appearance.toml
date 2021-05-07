@@ -28,7 +28,7 @@ hook_source = 'source $DEIN_RC_DIR/ale/sou.vim'
 [[plugins]]
 repo = 'glepnir/indent-guides.nvim'
 # Async. As vim-indent-guides, show indent in color blocks.
-if = 'has("nvim")'
+if = 'has("nvim") && !exists("g:vscode")'
 on_event = ['BufRead']
 hook_post_source = 'luafile $DEIN_RC_DIR/indent-guides/pos.lua'
 [[plugins]]
@@ -51,7 +51,7 @@ on_event = 'BufAdd'
 hook_post_source = 'runtime add/cursorword.vim'
 [[plugins]]
 repo = 'kevinhwang91/nvim-hlslens'
-if = 'has("nvim")'
+if = 'has("nvim") && !exists("g:vscode")'
 on_lua = ['hlslens']
 hook_add = 'source $DEIN_RC_DIR/hlslens/add.vim'
 hook_post_source = 'luafile $DEIN_RC_DIR/hlslens/pos.lua'
@@ -84,6 +84,7 @@ hook_source = 'runtime source/highlightedyank.vim'
 #[ Rainbow ]
 [[plugins]]
 repo = 'luochen1990/rainbow'
+if = '!exists("g:vscode")'
 # Notice: to activate, either g:rainbow_active or g:rainbow_conf must exists.
 on_func = 'rainbow_main#load'
 hook_add = 'runtime add/rainbow.vim'

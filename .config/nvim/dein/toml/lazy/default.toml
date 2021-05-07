@@ -150,6 +150,7 @@ hook_post_source = 'runtime post/rooter.vim'
 #[ Cmdline ]
 [[plugins]]
 repo = 'tyru/vim-altercmd'
+if = '!exists("g:vscode")'
 on_event = ['CmdLineEnter', 'CmdWinEnter']
 hook_post_source = 'runtime post/altercmd.vim'
 [[plugins]]

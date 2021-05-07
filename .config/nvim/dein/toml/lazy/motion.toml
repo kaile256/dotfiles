@@ -182,6 +182,7 @@ hook_add = 'runtime add/columnskip.vim'
 # hook_source = 'runtime source/comfortable-motion.vim'
 [[plugins]]
 repo = 'psliwka/vim-smoothie'
+if = '!exists("g:vscode")'
 on_map = {n = '<Plug>(Smoothie'}
 hook_add = 'runtime add/smoothie.vim'
 # [[plugins]]

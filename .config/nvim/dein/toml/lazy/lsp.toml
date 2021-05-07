@@ -5,6 +5,7 @@
 repo = 'neoclide/coc.nvim'
 # Branch: neoclide/coc.nvim_release; no src/, but build/.
 rev = 'release'
+if = '!exists("g:vscode")'
 #hook_done_update = 'yarn install --frozen-lockfile'
 on_func  = ['CocAction', 'CocActionAsync']
 on_map  = {nvi = ['<Plug>(coc-']}
