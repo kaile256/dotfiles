@@ -115,6 +115,14 @@ hook_post_source = 'runtime post/gina.vim'
 # on_cmd =  'Magit'
 #[ Hunk ]
 [[plugins]]
+repo = 'lewis6991/gitsigns.nvim'
+# An replacement of gitgutter
+# if = 'has("nvim")'
+depends = ['plenary.nvim']
+# on_lua = ['gitsigns']
+on_event = ['VimEnter']
+hook_source = 'luafile $DEIN_RC_DIR/gitsigns/pos.lua'
+[[plugins]]
 repo = 'airblade/vim-gitgutter'
 on_event = 'BufRead'
 hook_add = 'source $DEIN_RC_DIR/gitgutter/add.vim'
