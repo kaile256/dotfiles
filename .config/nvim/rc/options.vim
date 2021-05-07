@@ -143,8 +143,8 @@ endif
 " Appearance; transparency {{{1
 " Note: it works dum CUI.
 if exists('&pumblend')
-  set pumblend=45
-  set winblend=40
+  set pumblend=25
+  set winblend=20
 endif
 
 " Pmenu {{{2
