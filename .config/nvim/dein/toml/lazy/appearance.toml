@@ -10,15 +10,15 @@ hook_source = 'source $DEIN_RC_DIR/ale/sou.vim'
 # repo = 'mattn/vim-ale-icons'
 # # Emoji icons for ale's diagnostics.
 # on_source = ['ale']
-[[plugins]]
-repo = 'wellle/context.vim'
-# Note: irritative, though very useful plugin.
-# Show the begining line of block where cursor is, when hidden over window.
-on_cmd = ['ContextEnable']
-hook_add = 'source $DEIN_RC_DIR/context/add.vim'
-hook_source = 'source $DEIN_RC_DIR/context/sou.vim'
-# hook_post_source = 'source $DEIN_RC_DIR/context/pos.vim'
-
+# [[plugins]]
+# repo = 'wellle/context.vim'
+# # Note: irritative, though very useful plugin.
+# # Show the begining line of block where cursor is, when hidden over window.
+# on_cmd = ['ContextEnable']
+# hook_add = 'source $DEIN_RC_DIR/context/add.vim'
+# hook_source = 'source $DEIN_RC_DIR/context/sou.vim'
+# # hook_post_source = 'source $DEIN_RC_DIR/context/pos.vim'
+#
 #[ Indent ]
 # [[plugins]]
 # repo = 'nathanaelkane/vim-indent-guides'
