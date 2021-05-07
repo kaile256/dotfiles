@@ -22,6 +22,7 @@ let g:rainbow_conf.separately = {
       \ 'gitcommit': 0,
       \ 'help': 0,
       \ 'man': 0,
+      \ 'qf': 0,
       \ 'ranger': 0,
       \ 'toml': 0,
       \ }
