@@ -8,6 +8,7 @@ hi! PmenuSel   term=NONE guifg=#fedf81 ctermfg=222 guibg=#445c78 ctermbg=238
 hi! PmenuSbar  term=NONE guifg=#fedf81 ctermfg=222 guibg=#4b6077 ctermbg=238
 hi! PmenuThumb term=NONE guifg=#fedf81 ctermfg=222 guibg=#8d9eb2 ctermbg=103
 
+hi! CursorLine ctermbg=235 guibg=#435363
 hi! Quote ctermfg=250 guifg=#bcbcbc
 hi! Visual ctermbg=58 guibg=#89893e
 hi! Folded ctermfg=189 ctermbg=235 guifg=#e7d5ff guibg=#3a4b5c
