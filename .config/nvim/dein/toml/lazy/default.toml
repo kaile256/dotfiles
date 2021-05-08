@@ -70,6 +70,13 @@ on_cmd = [
   'SudoEdit',
 ]
 
+#[ Format ]
+[[plugins]]
+repo = 'sbdchd/neoformat'
+# Preconfigured formatter plugin.
+on_cmd = ['Neoformat']
+hook_add = 'source $DEIN_RC_DIR/neoformat/add.vim'
+
 # [ Comment ]
 [[plugins]]
 repo = 'suy/vim-context-commentstring'
