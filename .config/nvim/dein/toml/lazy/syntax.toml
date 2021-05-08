@@ -280,3 +280,6 @@ merged = 0
 repo = 'CantoroMC/vim-rasi'
 # Rofi Advanced Style Information
 on_path = ['\.rasi$']
+[[plugins]]
+repo = 'smancill/conky-syntax.vim'
+on_ft = ['conkyrc']
