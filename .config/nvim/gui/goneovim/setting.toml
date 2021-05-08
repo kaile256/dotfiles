@@ -1,11 +1,12 @@
+# See akiyosi/goneovim/wiki/Usage#configuration
+
 [Editor]
 # Editor minimum width (>= 800)
 Width = 1600
 # Editor minimum height (>= 600)
 Height = 1024
 # Editor font-family, font-size, linespace.
-#FontFamily = "Courier 10 Pitch"
-FontFamily = "GuiFont! Meslo LG S for Powerline"
+FontFamily = "Noto Sans Mono CJK JP"
 FontSize = 13
 Linespace = 0
 # neovim extend feature
@@ -18,7 +19,7 @@ Clipboard = false
 # Editor cursor blink
 CursorBlink = false
 # Disable IME in Normal mode
-DisableImeInNormal = false
+DisableImeInNormal = true
 # load vimscript after setting of g:gonvim_running=1
 GinitVim = '''
 '''

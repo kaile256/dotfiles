@@ -37,7 +37,6 @@ HOMEs=(
   .editorconfig
   .gitconfig
   .gitignore
-  .goneovim
   .gonvim
   .gvimrc
   .markdownlint.yaml
@@ -58,6 +57,7 @@ CONFIGs=(
   bash
   deadd
   fish
+  goneovim
   kitty
   lynx
   nnn
