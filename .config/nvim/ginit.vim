@@ -10,6 +10,9 @@ else
   set guifontwide=Noto\ Sans\ Mono\ CJK\ JP:h10.0
 endif
 
+" Configure in goneovim/setting.toml for goneovim
+if exists('g:goneovim') | finish | endif
+
 if exists('g:fvim_loaded')
   " Neovim-qt-git will set `g:GuiLoaded = 1` with any gui.  To detect gui
   " currently running on, use GuiName() which neovim-qt-git has added.  It's
