@@ -1,3 +1,5 @@
+// `rofi -dump-config` to get current config.
+
 configuration {
   show-icons: true;
   icon-theme: "Papirus";
