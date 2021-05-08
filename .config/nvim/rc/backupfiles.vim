@@ -23,12 +23,12 @@ function! s:mk_backupdirs_if_unexisted() abort
         \ ]
   for dir in dirs
     if isdirectory(dir) | continue | endif
-    let confirm = input('backupfiles: creat "' dir '"? [Y]es/[n]o')
+    let confirm = input('backupfiles: create "'. dir .'"? [Y]es/[n]o')
     if confirm !~? 'y\%[es]'
       echo 'abort'
       continue
     endif
-    call mkdir(dir, 'p)
+    call mkdir(dir, 'p')
   endfor
 endfunction
 call s:mk_backupdirs_if_unexisted()
