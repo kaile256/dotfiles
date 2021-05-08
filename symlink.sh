@@ -62,7 +62,7 @@ CONFIGs=(
   lynx
   nnn
   nvim
-  picom.conf
+  picom
   starship.toml
   tig
   tmux
