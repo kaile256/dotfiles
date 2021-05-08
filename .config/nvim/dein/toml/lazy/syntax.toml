@@ -78,6 +78,7 @@ lazy = 0
 #[ Haskell ]
 [[plugins]]
 repo = 'neovimhaskell/haskell-vim'
+# Override syntax and indentexpr for haskell/cabal.
 on_ft = ['haskell', 'cabal']
 on_path = ['\.hsc', '\.bpk', '\.hsig']
 hook_source = 'runtime add/haskell.vim'
