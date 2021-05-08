@@ -76,6 +76,7 @@ repo = 'sbdchd/neoformat'
 # Preconfigured formatter plugin.
 on_cmd = ['Neoformat']
 hook_add = 'source $DEIN_RC_DIR/neoformat/add.vim'
+hook_source = 'source $DEIN_RC_DIR/neoformat/sou.vim'
 
 # [ Comment ]
 [[plugins]]
