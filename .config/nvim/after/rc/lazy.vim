@@ -9,7 +9,7 @@ augroup myRuntimesLazy
 
   au BufWinEnter *      if &diff | runtime lazy/diff.vim     | endif
   au OptionSet diff     if &diff | runtime lazy/diff.vim     | endif
-  au BufWinEnter *      if &ro   | runtime lazy/readonly.vim | endif
+  au FileType *         if &ro   | runtime lazy/readonly.vim | endif
   au OptionSet readonly if &ro   | runtime lazy/readonly.vim | endif
 augroup END
 
