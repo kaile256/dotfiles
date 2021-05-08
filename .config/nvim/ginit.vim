@@ -68,12 +68,6 @@ elseif exists('g:GuiLoaded') " if nvim-qt
     GuiWindowOpacity .98
   endif
 
-elseif exists('gonvim_running')
-  let g:gonvim_draw_statusline = 0
-  let g:gonvim_draw_tabline = 0
-  let g:gonvim_draw_lint = 1
-  let g:gonvim_draw_split = 1
-
 elseif exists('g:GtkGuiLoaded')
   call rpcnotify(1, 'Gui', 'Font', 'JetBrainsMonoMedium Nerd Font 12')
 endif
