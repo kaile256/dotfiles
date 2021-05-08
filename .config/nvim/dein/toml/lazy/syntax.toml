@@ -75,15 +75,16 @@ lazy = 0
 #repo = 'udalov/kotlin-vim'
 #on_ft = 'kotlin'
 
-#[[plugins]]
-#repo = 'neovimhaskell/haskell-vim'
-## the development stopped 2 y ago
-#on_ft = 'haskell'
-#hook_post_source = 'runtime add/haskell.vim'
+#[ Haskell ]
 [[plugins]]
-repo = 'goolord/vim2hs'
-on_ft = ['haskell']
-
+repo = 'neovimhaskell/haskell-vim'
+on_ft = ['haskell', 'cabal']
+on_path = ['\.hsc', '\.bpk', '\.hsig']
+hook_source = 'runtime add/haskell.vim'
+# [[plugins]]
+# repo = 'goolord/vim2hs'
+# on_ft = ['haskell']
+#
 [[plugins]]
 repo = 'stevearc/vim-arduino'
 # includes syntax/ Ultisnips/(only extends cpp's)
