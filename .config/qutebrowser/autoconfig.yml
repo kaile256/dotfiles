@@ -477,6 +477,7 @@ settings:
   content.mute:
     global: false
   content.notifications:
+    https://apkmagic.com.ar: false
     https://app.clickup.com: true
     https://app.jooto.com: true
     https://app.slack.com: true
@@ -485,6 +486,7 @@ settings:
     https://drive.google.com: true
     https://japan.zdnet.com: false
     https://japanese.engadget.com: false
+    https://keep.google.com: true
     https://kuraneo.jp: false
     https://mail.google.com: true
     https://news.mynavi.jp: false
@@ -495,8 +497,10 @@ settings:
     https://wired.jp: false
     https://www.pcmag.com: false
     https://www.reddit.com: true
+    https://www.sankeibiz.jp: false
     https://www.sourcenext.com: false
     https://www.tansu-gen.jp: false
+    https://www.taskade.com: true
     https://www.ticktick.com: true
     https://www.yamada-denkiweb.com: false
   content.pdfjs:
