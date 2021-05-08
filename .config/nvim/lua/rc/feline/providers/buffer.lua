@@ -112,6 +112,7 @@ buffer.modified = function()
 end
 
 buffer.left.modified = {
+  enabled = vim.bo.modified == true,
   provider = function()
     return buffer.modified()
   end,
