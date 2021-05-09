@@ -63,6 +63,14 @@ let g:ruby_host_prog = '/usr/bin/ruby'
 if has('python3')
   let g:python3_host_prog = '/usr/bin/python3'
 endif
+
+" Note: According to a `--startuptime` result,
+" `runtime/autoload/provider/python.vim` is the heaviest script. Don't use
+" those plugins that depends on it as `python` is deprecated in favor of
+" `python3`.
+let g:loaded_python_provider = 1
+finish
+
 if has('python')
   let g:python_host_prog = '/usr/bin/python2'
 endif
