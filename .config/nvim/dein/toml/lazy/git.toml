@@ -117,7 +117,7 @@ hook_post_source = 'runtime post/gina.vim'
 [[plugins]]
 repo = 'lewis6991/gitsigns.nvim'
 # An replacement of gitgutter
-# if = 'has("nvim")'
+if = 'has("nvim")'
 depends = ['plenary.nvim']
 # on_lua = ['gitsigns']
 on_event = ['VimEnter']
