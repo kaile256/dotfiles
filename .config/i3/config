@@ -196,9 +196,10 @@ $noid xss-lock -- $locker
 #$noid xautolock -time 5 -locker $locker
 
 # nitrogen: a wallpaper manager
-# picom: an enhanced fork of compton
+$noid nitrogen --restore
+# picom: manage window transparency, etc.
 #   -b: activate on background
-$noid nitrogen --restore; sleep 1; picom -b
+$noid picom -b
 ## TODO: i3-cheat sheet on desktop.
 #$noid "feh --bg-scale $HOME/.config/i3/~~.jpg"
 
