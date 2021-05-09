@@ -801,20 +801,12 @@ mode $Editor {
 }
 
 # Finder {{{2
-# Mnemonic: Finder or File explorer
-set $Finder " Finder: [N]nn [R]anger [H]unter [P]CManFM(lxde) PCManFM-[Q]t(lxqt) [T]hunar(Xfce) (G)ooglePhoto "
+set $Finder " Finder: [R]anger [P]CManFM(lxde) "
 $release $Super+F mode $Finder; $noid $shortmsg 'Finders'
 
 mode $Finder {
     $release P exec pcmanfm; mode default
-    $release Q exec pcmanfm-qt; mode default
-    $release T exec thunar; mode default
-
-    $release N exec terminal -e nnn; mode default
     $release R exec alacritty -e ranger; mode default
-    $release H exec alacritty -e hunter; mode default
-
-    $release G exec google-photo; mode default
 
     bindsym Ctrl+C             mode default
     bindsym Ctrl+bracketleft   mode default
