@@ -726,31 +726,6 @@ mode $Browser {
     bindsym $Super+bracketleft mode default
 }
 
-# Keybind; open Browser {{{2
-set $Qutebrowser " Qutebrowser: Type a Number for workspace to launch "
-
-#$release $Super+Q $noid qutebrowser; $noid $notify 'Qutebrowser: Stand by...'
-#$release $Super+Q mode $Qutebrowser; $noid $shortmsg 'Qutebrowser'
-
-mode $Qutebrowser {
-    # FIXME: make the mode work. If possible, start in background.
-    # Note: cannot include --no-startup-id
-    $release 0 $noid i3-msg 'workspace 0; exec qutebrowser'; mode default
-    $release 1 $noid i3-msg 'workspace 1; exec qutebrowser'; mode default
-    $release 2 $noid i3-msg 'workspace 2; exec qutebrowser'; mode default
-    $release 3 $noid i3-msg 'workspace 3; exec qutebrowser'; mode default
-    $release 4 $noid i3-msg 'workspace 4; exec qutebrowser'; mode default
-    $release 5 $noid i3-msg 'workspace 5; exec qutebrowser'; mode default
-    $release 6 $noid i3-msg 'workspace 6; exec qutebrowser'; mode default
-    $release 7 $noid i3-msg 'workspace 7; exec qutebrowser'; mode default
-    $release 8 $noid i3-msg 'workspace 8; exec qutebrowser'; mode default
-    $release 9 $noid i3-msg 'workspace 9; exec qutebrowser'; mode default
-
-    bindsym Ctrl+C             mode default
-    bindsym Ctrl+bracketleft   mode default
-    bindsym $Super+bracketleft mode default
-}
-
 # Vim {{{2
 set $Vim " Vim: (X)term (U)rxvt (A)lacritty (G)vim "
 $release $Super+V mode $Vim; $noid $shortmsg 'Vim: backends'
