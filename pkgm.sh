@@ -135,6 +135,7 @@ PACKAGEs=(
   odrive-bin # (Open Drive) Google Drive GUI
   xkeysnail # remapping tool for X written in Python
   lua-lcf # formatter for lua
+  lua51-formatter # Formatter for lua5.1 which's used in Neovim.
   luacheck # linter for lua, integrating with lua-lsp
   # lua-lsp-git # rarely updated; no longer supported by coc-lua
   lua-language-server
