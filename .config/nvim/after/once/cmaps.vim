@@ -73,7 +73,9 @@ function! s:remove_to_wordend() abort
   return repeat("\<Del>", len)
 endfunction
 
-cnoremap <c-k> <C-\>egetcmdline()[:getcmdpos() - 2]<CR>
+cnoremap <expr> <c-k> getcmdpos() == 1
+      \ ? '<C-\>e<CR>'
+      \ : '<C-\>egetcmdline()[:getcmdpos() - 2]<CR>'
 
 " Style; vi-like to open cmdwin {{{1
 "cnoremap <a-b> <c-f>B
