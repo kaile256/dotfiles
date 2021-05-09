@@ -161,11 +161,10 @@ set updatetime=300
 "set guicursor
 " Line {{{2
 set cursorline
-" CAUTION: cursorline-highlight causes drawing corruption.
-augroup myAutoToggleCursorLine
-  au WinEnter,InsertLeave * setlocal cursorline
-  au WinLeave,InsertEnter * setlocal nocursorline
-augroup END
+" augroup myAutoToggleCursorLine
+"   au WinEnter,InsertLeave * if &modifiable | setlocal cursorline | endif
+"   au WinLeave,InsertEnter * if &modifiable | setlocal nocursorline | endif
+" augroup END
 "" to highlight only CursorLineNr if not linked.
 "hi CursorLine NONE
 " in diff mode, move cursorline in the other window as the corresponding line of the current window.
