@@ -213,8 +213,8 @@ set virtualedit=block
 set noshowcmd
 set history=100 " default: 10000, history of ':' commands
 " Cmdline; Completion
-set wildmenu wildmode=list:longest
-"set wildmenu wildmode=longest:full
+" set wildmenu wildmode=list:longest
+set wildmenu wildmode=longest:full
 
 set completeopt=
 set cot+=menu " Enable popup menu for candidates if more than one match.
