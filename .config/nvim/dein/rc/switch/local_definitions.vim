@@ -111,6 +111,8 @@ let s:local_definitions['toml'] = [
       \   'luafile \(\f\+\).lua': 'source \1.vim',
       \ },
       \
+      \ ['$DEIN_RC_DIR', '$DEIN_LUA_DIR'],
+      \
       \ {
       \   '\(n\?vim\)-\(\f\+\)': '\2.\1',
       \   '\(\f\+\)[-.]\(n\?vim\)': '\2-\1',
