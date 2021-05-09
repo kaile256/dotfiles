@@ -769,24 +769,12 @@ mode $Vim {
 }
 
 # Neovim {{{2
-set $Neovim " Neovim: (Q)t (F)vim | (A)lacritty "
+set $Neovim " Neovim: (Q)t | (A)lacritty "
 $release $Super+N mode $Neovim; $noid $shortmsg 'Neovim: backends'
 
 mode $Neovim {
-    bindsym E $noid eovim;   mode default
-    bindsym Q $noid nvim-qt; mode default
-    bindsym G $noid gonvim;  mode default
-    bindsym R $noid gnvim;   mode default
-    # bindsym T $noid nyaovim; mode default
-    bindsym L $noid glrnvim; mode default
+    bindsym Q $noid nvim-qt;  mode default
     bindsym A $noid alacritty -e nvim; mode default
-    bindsym F $noid fvim; mode default
-
-    bindsym $Super+D $noid nvim-qt $MY_DEV; mode default
-    bindsym D        $noid nvim-qt $MY_DEV; mode default
-
-    bindsym $Super+M $noid nvim-qt $MY_MEMO/.backlog/in_progress.md; mode default
-    bindsym M        $noid nvim-qt $MY_MEMO/.backlog/todo.md;        mode default
 
     bindsym Ctrl+C             mode default
     bindsym Ctrl+bracketleft   mode default
