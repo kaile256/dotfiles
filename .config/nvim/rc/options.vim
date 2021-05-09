@@ -15,8 +15,7 @@ hi! link EndOfBuffer Ignore
 set modelines=1
 
 " Time in ms to wait for a mapped sequence to complete.
-" For: made me notice if any mappings are in Caleene's way.
-set timeoutlen=3000
+set timeoutlen=2000
 set previewheight=28
 "set nomore
 
