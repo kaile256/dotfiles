@@ -107,7 +107,7 @@ endif
 set nofoldenable
 "set foldclose " when cursor is out of fold, close automatically.
 " setglobal foldminlines=40 " open if the fold block is less than the size
-set foldmethod=syntax
+" set foldmethod=syntax
 " Note: 'foldlevel' is local to window
 set foldlevelstart=1
 set foldnestmax=10
