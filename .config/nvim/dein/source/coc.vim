@@ -154,6 +154,9 @@ function! s:has_provider()
 endfunction
 
 augroup myCocSource "{{{1
+  " Just set syntax of the filetype that languageserver's working on.
+  au BufWinEnter output:///languageserver.* let &syntax = expand('%:e')
+
   au FileType list nnoremap <buffer> <CR> <TAB>
   " " CocNvimInit triggered after coc services have started.
   " au User CocNvimInit call CocAction('runCommand', 'tsserver.watchBuild')
