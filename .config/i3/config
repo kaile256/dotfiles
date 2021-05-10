@@ -676,16 +676,10 @@ mode $Tool {
 # Terminal {{{2
 $release $Super+C $noid kitty; $noid $notify " Kitty "
 
-set $termporal alacritty \
-    --dimensions 170 45 \
-    --title TMP_alacritty \
-    -e fish
-bindsym $Super+Return $once $termporal
+set $tmp_terminal alacritty --title TMP-terminal
+bindsym $Super+Return $noid $tmp_terminal
 
-set $calculator alacritty \
-    --title TMP-Calculator \
-    --config-file $XDG_CONFIG_HOME/alacritty/temporary.yml \
-    -e python
+set $calculator alacritty --title TMP-Calculator -e python
 $release $Super+P $noid $calculator
 
 set $Qutebrowser_bookmarks alacritty \
