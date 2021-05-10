@@ -4,7 +4,7 @@ if &bt !=# 'terminal' | finish | endif
 
 setlocal titlestring=%{matchstr(expand('%:p'),'\\S*')}
 
-setlocal nonumber signcolumn= bufhidden=wipe
+setlocal nonumber signcolumn=
 
 norm! 0
 " startinsert " Some plugin start terminal with inserting 'i'.
