@@ -30,7 +30,7 @@ set cpo&vim
 "}}}
 
 function! opt_check#echo(list) abort
-  echohl Normal
+  echohl None
   for l:val in a:list
     if type(l:val) == type([])
       call s:echo_in_oneline(l:val)
@@ -79,7 +79,7 @@ function! s:echo_partition(val) abort "{{{1
   " regard val as a title/partition
   echohl Statement
   echo a:val
-  echohl Normal
+  echohl None
 endfunction
 
 " restore 'cpoptions' {{{1
