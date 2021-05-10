@@ -19,11 +19,8 @@ if = '!exists("g:vscode")'
 on_func  = ['CocAction', 'CocActionAsync']
 on_map  = {nvi = ['<Plug>(coc-']}
 on_event = 'BufRead'
-hook_add    = '''
-runtime add/coc.vim
-runtime add/coc.jump.vim
-'''
-hook_source = 'runtime source/coc.vim'
+hook_add = 'source $DEIN_RC_DIR/coc/add.vim'
+hook_source = 'source $DEIN_RC_DIR/coc/sou.vim'
 hook_done_update = '''
 e $DEIN_GITHUB_DIR/neoclide/coc.nvim_release/plugin/coc.vim
 " For: vim-fugitive creates invalid id buffer.
