@@ -35,6 +35,13 @@ repo = 'antoinemadec/coc-fzf'
 on_cmd = ['CocFzfList']
 hook_add = 'runtime add/coc-fzf.vim'
 [[plugins]]
+repo = 'neoclide/coc-prettier'
+# Note: `CocInstall coc-prettier` fails and exit 1.
+build = '''
+# Ref: "Unable to install coc-prettier" @ neoclide/coc-prettier/issues/57
+yarn install --frozen-lockfile
+'''
+[[plugins]]
 repo = 'kizza/actionmenu.nvim'
 if = 'has("nvim")'
 # Provides coc.nvim actionmenu features for such as 'codeAction'.
