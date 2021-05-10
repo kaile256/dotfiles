@@ -22,8 +22,12 @@ local vcs = {
 
 local git = vcs.git
 
-local is_under_git = function()
+local git_status = function()
   return vim.b.gitsigns_status_dict
+end
+
+local is_under_git = function()
+  return git_status()
 end
 
 git.branch = {
@@ -57,7 +61,7 @@ git.branch = {
 }
 
 local get_git_stat = function(key)
-  local gsd = vim.b.gitsigns_status_dict
+  local gsd = git_status()
   local stat = gsd and gsd[key] or 0
   return stat > 0
     and ' ' .. stat ..  ' '
