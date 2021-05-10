@@ -106,9 +106,11 @@ PACKAGEs=(
   gvim-gtk2
   fvim # Neovim front-end UI built with F# & Avalonia
   # neovide-git # Neovim GUI written in Rust; cursor moves too slow.
-  ctags # esp. for Vista on Vim
+  goneovim-bin
   sc-im # Spread sheet.  Used by vim-scimark.
   neovim-remote # nvr
+  ctags # esp. for Vista on Vim
+  global # GTAGS
 
   # Git
   git-crypt
@@ -302,7 +304,6 @@ PACKAGEs=(
   # dasht  # help?
   debtap # .deb even in arch!
   fzf
-  global # GTAGS
   go
   # googlecl  # google api for cli; dependency is broken.
   hub  # an official wrapper of git
