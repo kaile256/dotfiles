@@ -590,8 +590,12 @@
       "filetypes": ["hs", "lhs", "haskell", "lhaskell"],
       "initializationOptions": {
         "languageServerHaskell": {
+          // Options are listed, with a prefix `haskell.`, at
+          // https://github.com/haskell/haskell-language-server#language-specific-server-options
           // Not a typo of either hintOn or lintOn
-          "hlintOn": true
+          "hlintOn": true,
+          // "formattingProvider": "brittany"
+          "formattingProvider": "stylish-haskell"
         }
       }
     }
