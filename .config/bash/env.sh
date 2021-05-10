@@ -79,7 +79,6 @@ fi
 # terminal awaits <C-\><C-n>.
 export FZF_DEFAULT_OPTS="
   --reverse
-  --height=80%
   --min-height=20
   --no-mouse
   --multi
