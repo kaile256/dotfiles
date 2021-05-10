@@ -28,7 +28,21 @@ xmap <SID>(textobj-hunk-i) <Plug>(GitGutterTextObjectInnerVisual)
 omap <SID>(textobj-hunk-a) <Plug>(GitGutterTextObjectOuterPending)
 xmap <SID>(textobj-hunk-a) <Plug>(GitGutterTextObjectOuterVisual)
 
-omap ic <SID>(textobj-hunk-i)
-xmap ic <SID>(textobj-hunk-i)
-omap ac <SID>(textobj-hunk-a)
-xmap ac <SID>(textobj-hunk-a)
+if dein#tap('vim-textobj-conflict')
+  function! s:is_conflicted() abort
+    const conflict_marker = '^[=><]\{7} '
+    const is_conflicted = search(conflict_marker, 'cnw')
+    return is_conflicted
+  endfunction
+
+  omap <expr> ic <SID>is_conflicted() ? '<Plug>(textobj-conflict-i)' : '<SID>(textobj-hunk-i)'
+  xmap <expr> ic <SID>is_conflicted() ? '<Plug>(textobj-conflict-i)' : '<SID>(textobj-hunk-i)'
+  omap <expr> ac <SID>is_conflicted() ? '<Plug>(textobj-conflict-a)' : '<SID>(textobj-hunk-a)'
+  xmap <expr> ac <SID>is_conflicted() ? '<Plug>(textobj-conflict-a)' : '<SID>(textobj-hunk-a)'
+else
+  omap ic <SID>(textobj-hunk-i)
+  xmap ic <SID>(textobj-hunk-i)
+  omap ac <SID>(textobj-hunk-a)
+  xmap ac <SID>(textobj-hunk-a)
+endif
+
