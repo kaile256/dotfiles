@@ -75,10 +75,10 @@ on_func = [
 ]
 #hook_add = 'source $DEIN_ADD_HOME/fzf-git.vim'
 
-[[plugins]]
-repo = '$DEIN_PRIVATE_HOME/vim-option-check'
-on_cmd = 'VimOptCheck'
-hook_add = 'source $DEIN_ADD_HOME/option-check.vim'
+# [[plugins]]
+# repo = '$DEIN_PRIVATE_HOME/vim-option-check'
+# on_cmd = 'VimOptCheck'
+# hook_add = 'source $DEIN_ADD_HOME/option-check.vim'
 #[ Memo ]
 # [[plugins]]
 # # repo = '$DEIN_PRIVATE_HOME/vim-private-note'
