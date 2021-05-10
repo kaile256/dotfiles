@@ -50,7 +50,7 @@ endfunction
 
 function! s:common_dark() abort
   if &background !=# 'dark' | return | endif
-  hi! TODO ctermfg=15 guifg=#ffffff ctermbg=NONE guibg=NONE cterm=bold gui=bold
+  hi! TODO ctermfg=15 guifg=#e6e5e5 ctermbg=NONE guibg=NONE cterm=bold gui=bold
   " NormalNC: Colors for unfocused windows.
   hi! NormalNC ctermfg=249 guifg=#d2d2d2
 
