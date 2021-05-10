@@ -42,7 +42,6 @@ hi! CocCodeLens ctermfg=240 guifg=#585858
 let g:coc_global_extensions = [
       \ 'coc-actions',
       \ 'coc-angular',
-      \ 'coc-bookmark',
       \ 'coc-cmake',
       \ 'coc-conjure',
       \ 'coc-cspell-dicts',
@@ -77,7 +76,6 @@ let g:coc_global_extensions = [
       \ 'coc-omni',
       \ 'coc-phpls',
       \ 'coc-post',
-      \ 'coc-prettier',
       \ 'coc-project',
       \ 'coc-pyright',
       \ 'coc-rome',
