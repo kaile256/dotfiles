@@ -52,7 +52,7 @@ function! s:common_dark() abort
   if &background !=# 'dark' | return | endif
   hi! TODO ctermfg=15 guifg=#e6e5e5 ctermbg=NONE guibg=NONE cterm=bold gui=bold
   " NormalNC: Colors for unfocused windows.
-  hi! NormalNC ctermfg=249 guifg=#d2d2d2
+  hi! NormalNC ctermfg=249 guifg=#f0f0f0
 
   " NormalFloat: color for winblend, or floating windows
   hi! NormalFloat ctermfg=236 ctermbg=180 guibg=#3a192c guifg=#c5bf6a
