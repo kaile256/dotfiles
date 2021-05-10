@@ -88,7 +88,8 @@
 
   "session.directory": "~/.local/share/nvim/session/",
 
-  "tabnine.triggers": ["<C-y>"],
+  // "tabnine.triggers": ["<C-y>"],
+  "tabnine.priority": 0,
 
   // "suggest.snippetIndicator": "...",
   "snippets.extends": {
