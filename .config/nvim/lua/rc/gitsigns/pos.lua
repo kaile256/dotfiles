@@ -13,6 +13,7 @@ require('gitsigns').setup {
   watch_index = {
     interval = 1000,
   },
+  -- attach_to_untracked = false,
   update_debounce = 100,
   status_formatter = nil, -- Use default
   use_decoration_api = true,
