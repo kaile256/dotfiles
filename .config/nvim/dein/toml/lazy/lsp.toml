@@ -1,5 +1,14 @@
 # From: dein/dein.vim
 
+#[ built-in LSP ]
+# [[plugins]]
+# repo = 'neovim/nvim-lspconfig'
+# on_ft = ['lua']
+# hook_post_source = 'luafile $DEIN_RC_DIR/lspconfig/pos.lua'
+# [[plugins]]
+# repo = 'kabouzeid/nvim-lspinstall'
+# depends = ['nvim-lspconfig']
+# on_cmd = ['LspInstall', 'LspUninstall']
 #[ coc.nvim ]
 [[plugins]]
 repo = 'neoclide/coc.nvim'
