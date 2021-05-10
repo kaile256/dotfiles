@@ -218,6 +218,7 @@ $noid systemctl --user start docker
 # nm-applet: WiFi Network Manager; use nmcli instead
 $noid nm-applet
 
+set $fcitx fcitx5
 $always fcitx5 -d --keep
 
 # Modify bluelight of monitors as time period in a day.
@@ -791,78 +792,78 @@ mode $Finder {
 
 # Mode; Mozc {{{2
 set $Mozc " Mozc: Activated "
-bindsym $Super+M $noid fcitx5-remote -s mozc; mode $Mozc; $noid $notify 'Mozc: Activated'
+bindsym $Super+M $noid $fcitx-remote -s mozc; mode $Mozc; $noid $notify 'Mozc: Activated'
 
 # TODO: deprecate mode for IME, but use script in while-loop
 mode $Mozc {
-    bindsym L $noid fcitx5-remote -c; mode default; $noid $alert 'Mozc: OFF'
-    # TODO: send-key Ctrl+U and back to the fcitx5-state
-    # bindsym Ctrl+U $noid fcitx5-remote -c; mode default; $noid $notify 'Mozc: OFF'
-    # bindsym Ctrl+W $noid fcitx5-remote -c; mode default; $noid $notify 'Mozc: OFF'
+    bindsym L $noid $fcitx-remote -c; mode default; $noid $alert 'Mozc: OFF'
+    # TODO: send-key Ctrl+U and back to the $fcitx-state
+    # bindsym Ctrl+U $noid $fcitx-remote -c; mode default; $noid $notify 'Mozc: OFF'
+    # bindsym Ctrl+W $noid $fcitx-remote -c; mode default; $noid $notify 'Mozc: OFF'
 
-    bindsym $Super+I $noid fcitx5-remote -s skk; mode $Skk; $noid $alert 'Skk: Activated'
+    bindsym $Super+I $noid $fcitx-remote -s skk; mode $Skk; $noid $alert 'Skk: Activated'
 
-    bindsym $Super+1 $noid fcitx5-remote -c; mode default; $noid $alert 'Mozc: OFF'; workspace $ws1
-    bindsym $Super+2 $noid fcitx5-remote -c; mode default; $noid $alert 'Mozc: OFF'; workspace $ws2
-    bindsym $Super+3 $noid fcitx5-remote -c; mode default; $noid $alert 'Mozc: OFF'; workspace $ws3
-    bindsym $Super+4 $noid fcitx5-remote -c; mode default; $noid $alert 'Mozc: OFF'; workspace $ws4
-    bindsym $Super+5 $noid fcitx5-remote -c; mode default; $noid $alert 'Mozc: OFF'; workspace $ws5
-    bindsym $Super+6 $noid fcitx5-remote -c; mode default; $noid $alert 'Mozc: OFF'; workspace $ws6
-    bindsym $Super+7 $noid fcitx5-remote -c; mode default; $noid $alert 'Mozc: OFF'; workspace $ws7
-    bindsym $Super+8 $noid fcitx5-remote -c; mode default; $noid $alert 'Mozc: OFF'; workspace $ws8
-    bindsym $Super+9 $noid fcitx5-remote -c; mode default; $noid $alert 'Mozc: OFF'; workspace $ws9
-    bindsym $Super+0 $noid fcitx5-remote -c; mode default; $noid $alert 'Mozc: OFF'; workspace $ws0
-    bindsym $Super+H $noid fcitx5-remote -c; mode default; $noid $alert 'Mozc: OFF'; focus left
-    bindsym $Super+J $noid fcitx5-remote -c; mode default; $noid $alert 'Mozc: OFF'; focus down
-    bindsym $Super+K $noid fcitx5-remote -c; mode default; $noid $alert 'Mozc: OFF'; focus up
-    bindsym $Super+L $noid fcitx5-remote -c; mode default; $noid $alert 'Mozc: OFF'; focus right
-    bindsym $Super+O $noid fcitx5-remote -c; mode default; $noid $alert 'Mozc: OFF'; focus mode_toggle; $noid $alert 'Focus: Toggle'
-    bindsym $Super+bracketleft  $noid fcitx5-remote -c; mode default; $noid $alert 'Mozc: OFF'; workspace prev
-    bindsym $Super+bracketright $noid fcitx5-remote -c; mode default; $noid $alert 'Mozc: OFF'; workspace next
+    bindsym $Super+1 $noid $fcitx-remote -c; mode default; $noid $alert 'Mozc: OFF'; workspace $ws1
+    bindsym $Super+2 $noid $fcitx-remote -c; mode default; $noid $alert 'Mozc: OFF'; workspace $ws2
+    bindsym $Super+3 $noid $fcitx-remote -c; mode default; $noid $alert 'Mozc: OFF'; workspace $ws3
+    bindsym $Super+4 $noid $fcitx-remote -c; mode default; $noid $alert 'Mozc: OFF'; workspace $ws4
+    bindsym $Super+5 $noid $fcitx-remote -c; mode default; $noid $alert 'Mozc: OFF'; workspace $ws5
+    bindsym $Super+6 $noid $fcitx-remote -c; mode default; $noid $alert 'Mozc: OFF'; workspace $ws6
+    bindsym $Super+7 $noid $fcitx-remote -c; mode default; $noid $alert 'Mozc: OFF'; workspace $ws7
+    bindsym $Super+8 $noid $fcitx-remote -c; mode default; $noid $alert 'Mozc: OFF'; workspace $ws8
+    bindsym $Super+9 $noid $fcitx-remote -c; mode default; $noid $alert 'Mozc: OFF'; workspace $ws9
+    bindsym $Super+0 $noid $fcitx-remote -c; mode default; $noid $alert 'Mozc: OFF'; workspace $ws0
+    bindsym $Super+H $noid $fcitx-remote -c; mode default; $noid $alert 'Mozc: OFF'; focus left
+    bindsym $Super+J $noid $fcitx-remote -c; mode default; $noid $alert 'Mozc: OFF'; focus down
+    bindsym $Super+K $noid $fcitx-remote -c; mode default; $noid $alert 'Mozc: OFF'; focus up
+    bindsym $Super+L $noid $fcitx-remote -c; mode default; $noid $alert 'Mozc: OFF'; focus right
+    bindsym $Super+O $noid $fcitx-remote -c; mode default; $noid $alert 'Mozc: OFF'; focus mode_toggle; $noid $alert 'Focus: Toggle'
+    bindsym $Super+bracketleft  $noid $fcitx-remote -c; mode default; $noid $alert 'Mozc: OFF'; workspace prev
+    bindsym $Super+bracketright $noid $fcitx-remote -c; mode default; $noid $alert 'Mozc: OFF'; workspace next
 
-    bindsym $Super+M         $noid fcitx5-remote -c; mode default; $noid $alert 'Mozc: OFF'
-    bindsym Ctrl+C           $noid fcitx5-remote -c; mode default; $noid $alert 'Mozc: OFF'
-    bindsym Ctrl+bracketleft $noid fcitx5-remote -c; mode default; $noid $alert 'Mozc: OFF'
+    bindsym $Super+M         $noid $fcitx-remote -c; mode default; $noid $alert 'Mozc: OFF'
+    bindsym Ctrl+C           $noid $fcitx-remote -c; mode default; $noid $alert 'Mozc: OFF'
+    bindsym Ctrl+bracketleft $noid $fcitx-remote -c; mode default; $noid $alert 'Mozc: OFF'
 }
 
 # Mode; Skk {{{2
 set $Skk " Skk: (q) kata/hira (l) ASCII "
-bindsym $Super+I $noid fcitx5-remote -s skk; mode $Skk; $noid $notify 'Skk: Activated'
+bindsym $Super+I $noid $fcitx-remote -s skk; mode $Skk; $noid $notify 'Skk: Activated'
 
 mode $Skk {
-    # TODO: send-key Ctrl+U and back to the fcitx5-state
-    # bindsym Ctrl+U  $noid fcitx5-remote -c; mode default; $noid $alert 'Skk: OFF'
-    # bindsym Ctrl+W  $noid fcitx5-remote -c; mode default; $noid $alert 'Skk: OFF'
-    # bindsym Shift+L $noid fcitx5-remote -c; mode default; $noid $alert 'Skk: OFF'
+    # TODO: send-key Ctrl+U and back to the $fcitx-state
+    # bindsym Ctrl+U  $noid $fcitx-remote -c; mode default; $noid $alert 'Skk: OFF'
+    # bindsym Ctrl+W  $noid $fcitx-remote -c; mode default; $noid $alert 'Skk: OFF'
+    # bindsym Shift+L $noid $fcitx-remote -c; mode default; $noid $alert 'Skk: OFF'
     #
-    bindsym $Super+M $noid fcitx5-remote -s mozc; mode $Mozc; $noid $alert 'Mozc: Activated'
+    bindsym $Super+M $noid $fcitx-remote -s mozc; mode $Mozc; $noid $alert 'Mozc: Activated'
 
-    bindsym $Super+1 $noid fcitx5-remote -c; mode default; $noid $alert 'Skk: OFF'; workspace $ws1
-    bindsym $Super+2 $noid fcitx5-remote -c; mode default; $noid $alert 'Skk: OFF'; workspace $ws2
-    bindsym $Super+3 $noid fcitx5-remote -c; mode default; $noid $alert 'Skk: OFF'; workspace $ws3
-    bindsym $Super+4 $noid fcitx5-remote -c; mode default; $noid $alert 'Skk: OFF'; workspace $ws4
-    bindsym $Super+5 $noid fcitx5-remote -c; mode default; $noid $alert 'Skk: OFF'; workspace $ws5
-    bindsym $Super+6 $noid fcitx5-remote -c; mode default; $noid $alert 'Skk: OFF'; workspace $ws6
-    bindsym $Super+7 $noid fcitx5-remote -c; mode default; $noid $alert 'Skk: OFF'; workspace $ws7
-    bindsym $Super+8 $noid fcitx5-remote -c; mode default; $noid $alert 'Skk: OFF'; workspace $ws8
-    bindsym $Super+9 $noid fcitx5-remote -c; mode default; $noid $alert 'Skk: OFF'; workspace $ws9
-    bindsym $Super+0 $noid fcitx5-remote -c; mode default; $noid $alert 'Skk: OFF'; workspace $ws0
+    bindsym $Super+1 $noid $fcitx-remote -c; mode default; $noid $alert 'Skk: OFF'; workspace $ws1
+    bindsym $Super+2 $noid $fcitx-remote -c; mode default; $noid $alert 'Skk: OFF'; workspace $ws2
+    bindsym $Super+3 $noid $fcitx-remote -c; mode default; $noid $alert 'Skk: OFF'; workspace $ws3
+    bindsym $Super+4 $noid $fcitx-remote -c; mode default; $noid $alert 'Skk: OFF'; workspace $ws4
+    bindsym $Super+5 $noid $fcitx-remote -c; mode default; $noid $alert 'Skk: OFF'; workspace $ws5
+    bindsym $Super+6 $noid $fcitx-remote -c; mode default; $noid $alert 'Skk: OFF'; workspace $ws6
+    bindsym $Super+7 $noid $fcitx-remote -c; mode default; $noid $alert 'Skk: OFF'; workspace $ws7
+    bindsym $Super+8 $noid $fcitx-remote -c; mode default; $noid $alert 'Skk: OFF'; workspace $ws8
+    bindsym $Super+9 $noid $fcitx-remote -c; mode default; $noid $alert 'Skk: OFF'; workspace $ws9
+    bindsym $Super+0 $noid $fcitx-remote -c; mode default; $noid $alert 'Skk: OFF'; workspace $ws0
 
-    bindsym $Super+H $noid fcitx5-remote -c; mode default; $noid $alert 'Skk: OFF'; focus left
-    bindsym $Super+J $noid fcitx5-remote -c; mode default; $noid $alert 'Skk: OFF'; focus down
-    bindsym $Super+K $noid fcitx5-remote -c; mode default; $noid $alert 'Skk: OFF'; focus up
-    bindsym $Super+L $noid fcitx5-remote -c; mode default; $noid $alert 'Skk: OFF'; focus right
-    bindsym $Super+O $noid fcitx5-remote -c; mode default; $noid $alert 'Skk: OFF'; focus mode_toggle; $noid $alert 'Focus: Toggle'
-    bindsym $Super+bracketleft  $noid fcitx5-remote -c; mode default; $noid $alert 'Skk: OFF'; workspace prev
-    bindsym $Super+bracketright $noid fcitx5-remote -c; mode default; $noid $alert 'Skk: OFF'; workspace next
+    bindsym $Super+H $noid $fcitx-remote -c; mode default; $noid $alert 'Skk: OFF'; focus left
+    bindsym $Super+J $noid $fcitx-remote -c; mode default; $noid $alert 'Skk: OFF'; focus down
+    bindsym $Super+K $noid $fcitx-remote -c; mode default; $noid $alert 'Skk: OFF'; focus up
+    bindsym $Super+L $noid $fcitx-remote -c; mode default; $noid $alert 'Skk: OFF'; focus right
+    bindsym $Super+O $noid $fcitx-remote -c; mode default; $noid $alert 'Skk: OFF'; focus mode_toggle; $noid $alert 'Focus: Toggle'
+    bindsym $Super+bracketleft  $noid $fcitx-remote -c; mode default; $noid $alert 'Skk: OFF'; workspace prev
+    bindsym $Super+bracketright $noid $fcitx-remote -c; mode default; $noid $alert 'Skk: OFF'; workspace next
 
     # # TODO: return to skk's japanese input by <c-space>
-    # bindsym L        $noid fcitx5-remote -c; mode default; $noid $alert 'Skk: OFF'
-    # bindsym Shift+L  $noid fcitx5-remote -c; mode default; $noid $alert 'Skk: OFF'
-    # bindsym $Super+I $noid fcitx5-remote -c; mode default; $noid $alert 'Skk: OFF'
+    # bindsym L        $noid $fcitx-remote -c; mode default; $noid $alert 'Skk: OFF'
+    # bindsym Shift+L  $noid $fcitx-remote -c; mode default; $noid $alert 'Skk: OFF'
+    # bindsym $Super+I $noid $fcitx-remote -c; mode default; $noid $alert 'Skk: OFF'
 
-    bindsym Ctrl+C           $noid fcitx5-remote -c; mode default; $noid $alert 'Skk: OFF'
-    bindsym Ctrl+bracketleft $noid fcitx5-remote -c; mode default; $noid $alert 'Skk: OFF'
+    bindsym Ctrl+C           $noid $fcitx-remote -c; mode default; $noid $alert 'Skk: OFF'
+    bindsym Ctrl+bracketleft $noid $fcitx-remote -c; mode default; $noid $alert 'Skk: OFF'
 }
 
 # Keybind for Apps {{{1
