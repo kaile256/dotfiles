@@ -135,8 +135,7 @@ hide_edge_borders both
 # Note: (?i) means case-Insensitive
 #for_window [urgent=latest] focus
 
-no_focus [title="qutebrowser$"]
-no_focus [title="Vivaldi$"]
+no_focus [class="^qutebrowser$"]
 
 #assign [class="^URxvt$"] → 2
 #assign [class="^URxvt$"] → output primary
