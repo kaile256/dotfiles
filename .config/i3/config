@@ -218,7 +218,7 @@ $noid systemctl --user start docker
 # nm-applet: WiFi Network Manager; use nmcli instead
 $noid nm-applet
 
-$always pgrep fcitx5 >/dev/null 2>&1 || fcitx5 &
+$always fcitx5 -d --keep
 
 # Modify bluelight of monitors as time period in a day.
 $noid blugon --backend xgamma &
