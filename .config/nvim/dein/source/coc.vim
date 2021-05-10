@@ -177,7 +177,7 @@ augroup myCocSource "{{{1
   " au FileType coc,list setl laststatus=0
   "     \ | au BufWinEnter,WinLeave,BufLeave * ++once set laststatus=2
   " Snippets on Coc {{{2
-  " au User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
+  au User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
 
   " Highlight {{{2
   " Note: Coc's highlight only activate on symbols while itchyny/vim-cursorword
