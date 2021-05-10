@@ -96,6 +96,13 @@ hook_source = 'runtime source/context-commentstring.vim'
 # hook_source = 'runtime source/UnconditionalPaste.vim'
 #
 #[ Mapping ]
+# [[plugins]]
+# repo = 'skywind3000/vim-quickui'
+# # Hard to set up.
+# # Display dropdown menu like general GUI application.
+# on_func = ['quickui#']
+# hook_add = 'source $DEIN_RC_DIR/quickui/add.vim'
+# hook_post_source = 'source $DEIN_RC_DIR/quickui/pos.vim'
 [[plugins]]
 repo = 'liuchengxu/vim-which-key'
 on_func = 'which_key#register'
