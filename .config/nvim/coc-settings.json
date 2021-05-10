@@ -42,7 +42,7 @@
   "suggest.autoTrigger": "always",
   "suggest.acceptSuggestionOnCommitCharacter": true,
   // "suggest.noselect": false, // true: select the first one from menu with popup
-  "suggest.timeout": 1000,
+  "suggest.timeout": 8000,
   "suggest.triggerAfterInsertEnter": false,
   "suggest.triggerCompletionWait": 300,
 
