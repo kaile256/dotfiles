@@ -162,13 +162,43 @@ font:
 
 draw_bold_text_with_bright_colors: true
 
-# Colors (Tomorrow Night Bright)
-colors:
-  # Default colors
-  primary:
-    background: "0x000000"
-    foreground: "0xeaeaea"
+schemes:
+  neodark: &neodark
+    # Indexed Colors
+    #
+    # The indexed colors include all colors from 16 to 256.
+    # When these are not set, they're filled with sensible defaults.
+    #
+    # Example:
+    #   `- { index: 16, color: '0xff00ff' }`
+    #
+    indexed_colors: []
+    # Default colors
+    primary:
+      foreground: "0xeaeaea"
+      background: "0x000000"
 
+    normal:
+      black: "0x2e3436"
+      red: "0xef1919"
+      green: "0x67c60c"
+      yellow: "0xc4a000"
+      blue: "0x4383d5"
+      magenta: "0x75507b"
+      cyan: "0x43c4cc"
+      white: "0xd3d7cf"
+    bright:
+      black: "0x555753"
+      red: "0xfc6868"
+      green: "0x8ae234"
+      yellow: "0xfce94f"
+      blue: "0x729fcf"
+      magenta: "0xad7fa8"
+      cyan: "0x00f5e9"
+      white: "0xeeeeec"
+
+# Colors (Tomorrow Night Bright)
+colors: *neodark
     # Bright and dim foreground colors
     #
     # The dimmed foreground color is calculated automatically if it is not present.
@@ -269,36 +299,6 @@ colors:
   #  magenta: '0x6c71c4'
   #  cyan:    '0x93a1a1'
   #  white:   '0xfdf6e3'
-
-  # Neodark-like Theme
-  normal:
-    black: "0x2e3436"
-    red: "0xef1919"
-    green: "0x67c60c"
-    yellow: "0xc4a000"
-    blue: "0x4383d5"
-    magenta: "0x75507b"
-    cyan: "0x43c4cc"
-    white: "0xd3d7cf"
-  bright:
-    black: "0x555753"
-    red: "0xfc6868"
-    green: "0x8ae234"
-    yellow: "0xfce94f"
-    blue: "0x729fcf"
-    magenta: "0xad7fa8"
-    cyan: "0x00f5e9"
-    white: "0xeeeeec"
-
-  # Indexed Colors
-  #
-  # The indexed colors include all colors from 16 to 256.
-  # When these are not set, they're filled with sensible defaults.
-  #
-  # Example:
-  #   `- { index: 16, color: '0xff00ff' }`
-  #
-  indexed_colors: []
 
 # Background opacity
 #
