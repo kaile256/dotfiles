@@ -3,6 +3,6 @@
 
 if &filetype !~# 'react$' | finish | endif
 
-let b:doppelganger_pairs = [
+let b:doppelganger_search_pairs = [
       \ [' = styled\..*`$', '^\s*`;\?$']
       \ ]
