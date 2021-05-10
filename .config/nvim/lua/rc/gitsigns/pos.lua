@@ -23,6 +23,7 @@ require('gitsigns').setup {
   sign_priority = 90,
   numhl = false,
   linehl = false,
+  signcolumn = false, -- Unstable to update yet, use gitgutter's.
   signs = {
     add          = {text = '│', hl = 'DiffAdd',    numhl='DiffAddNr',    linehl='DiffAddLn'},
     change       = {text = '│', hl = 'DiffChange', numhl='DiffChangeNr', linehl='DiffChangeLn'},
@@ -50,8 +51,3 @@ require('gitsigns').setup {
     -- ['x ih'] = ':<C-U>lua require"gitsigns".select_hunk()<CR>'
   },
 }
-
--- TODO: Delete the command to disable gitgutter on signcolumn after migration on Neovim.
-vim.cmd [[
-GitGutterSignsDisable
-]]
