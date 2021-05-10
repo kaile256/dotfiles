@@ -395,11 +395,15 @@ function! s:register_git_keys() abort
       endwhile
       call winrestview(save_view)
     endfunction
-    function! s:stage_hunks_op(wise) abort
-      call s:StageHunksOnRange(line("'["), line("']"))
+    function! s:stage_hunks_op(...) abort
+      if a:0
+        call s:StageHunksOnRange(line("'["), line("']"))
+      else
+        call s:StageHunksOnRange(line("'<"), line("'>"))
+      endif
       " Note: because gitgutter set g:repeat_sequence in their functions,
       " `repeat#set()` must be called here.
-      silent! call repeat#set("\<Plug>(GitGutterStageHunksOperator)")
+      " silent! call repeat#set("\<Plug>(GitGutterStageHunksOperator)")
     endfunction
     nnoremap <silent> <Plug>(GitGutterStageHunksOperator)
           \ :<C-u>set operatorfunc=<SID>stage_hunks_op<CR>g@
@@ -407,13 +411,18 @@ function! s:register_git_keys() abort
           \ (foldclosed('.') == -1 ? ':<C-u>' : 'V')
           \ .':GitGutterStageHunk<CR>'
 
+    xnoremap gu u
+    xnoremap gU U
+    xnoremap u <Esc>u
+    xnoremap U <Esc><Plug>(GitGutterUndoHunk)
+
     call extend(git_nmaps, {
           \ 'p': ['<Plug>(GitGutterStageHunksOperator)', 'Operator to stage hunks'],
           \ 'P': ['<Plug>(GitGutterStageHunkAtCursor)', 'Stage the hunk at cursor'],
           \ })
 
     call extend(git_xmaps, {
-          \ 'p': [funcref('s:StageHunksOnRange', [line("'<"), line("'>")]), 'Stage hunks on the visualized area'],
+          \ 'p': [function('s:stage_hunks_op'), 'Stage hunks on the visualized area'],
           \
           \ 'U': ['<Plug>(GitGutterUndoHunk)', 'Reset hunks on the visualized area to HEAD'],
           \ })
