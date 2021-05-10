@@ -108,6 +108,13 @@ on_ft = ['javascript']
 # ]
 
 #[ Completion ]
+# [[plugins]]
+# repo = 'hrsh7th/nvim-compe'
+# if = 'has("nvim")'
+# on_func = ['compe#']
+# on_event = ['InsertEnter']
+# hook_add = 'source $DEIN_RC_DIR/compe/add.vim'
+# hook_post_source = 'luafile $DEIN_RC_DIR/compe/pos.lua'
 #[[plugins]]
 #repo = 'Shougo/deoplete.nvim'
 ## good with eskk.vim
