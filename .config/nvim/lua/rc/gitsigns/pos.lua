@@ -43,3 +43,8 @@ require('gitsigns').setup {
     -- ['x ih'] = ':<C-U>lua require"gitsigns".select_hunk()<CR>'
   },
 }
+
+-- TODO: Delete the command to disable gitgutter on signcolumn after migration on Neovim.
+vim.cmd [[
+GitGutterSignsDisable
+]]
