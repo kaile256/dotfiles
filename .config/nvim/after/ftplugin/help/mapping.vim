@@ -1,8 +1,8 @@
 
 if !b:help_readonly | finish | endif
 
-nnoremap <silent><buffer> <C-p> :silent! pop<CR>
-nnoremap <silent><buffer> <C-n> :silent! tag<CR>
+nnoremap <silent><buffer> <C-o> :silent! pop<CR>
+nnoremap <silent><buffer> <C-i> :silent! tag<CR>
 
 noremap <buffer><silent> <C-]> <C-]>zz
 " Note: g<c-]> jumps via ctags,
