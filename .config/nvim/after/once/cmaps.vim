@@ -56,8 +56,9 @@ cnoremap <a-l> <c-c>
 
 cnoremap <c-a> <Home>
 cnoremap <a-f> <S-Right>
-cnoremap <c-f> <Right>
-cnoremap <c-b> <Left>
+" Note: <space><BS> to straightforwardly <Right>/<Left> even if wildmenumode().
+cnoremap <c-f> <space><BS><Right>
+cnoremap <c-b> <space><BS><Left>
 cnoremap <a-b> <S-Left>
 
 cnoremap <c-d> <Del>
