@@ -12,10 +12,6 @@ nnoremap gk k
 " TODO: make it work
 "xnoremap <silent> gJ :*g/^\( \\|\t\)/norm! 0"_dwgJ<cr>
 
-" Macro "{{{1
-nnoremap \<space> q
-nnoremap <space>\ q
-
 " Write&Quit {{{1
 if mapcheck('q', 'n') ==# ''
   nnoremap q <Nop>
