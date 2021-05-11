@@ -40,7 +40,15 @@ PACKAGEs=(
   # fcitx-mozc-ut-unified # Input Method in Japanese.
   xsel
   xclip
+
+  # Eslint
   eslint
+  # eslint-plugin-snakecasejs
+  # eslint-plugin-node
+  # eslint-plugin-import
+  # eslint-plugin-vue
+  # eslint-plugin-promise
+
   xorg-xinput # removed with `bmenu`
   lshw # removed with `bmenu`
 
@@ -156,11 +164,6 @@ PACKAGEs=(
   # docker-rootless # No longer supported.
   docker-compose-bin # includes `docker`
   lazydocker
-  eslint-plugin-snakecasejs
-  eslint-plugin-node
-  eslint-plugin-import
-  eslint-plugin-vue
-  eslint-plugin-promise
   nodejs-google-clasp # develop Apps Script in cmdline; type `gclasp`
   # lazygit
   lib32-libpulse # for 32 bit programs like Wine
