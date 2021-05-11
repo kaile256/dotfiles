@@ -1,6 +1,8 @@
 " From: init.vim
 " Ref: open_terminal.vim
 
+finish
+
 function! s:term_open(mods, path) abort
   let path = a:path
   if path ==# ''

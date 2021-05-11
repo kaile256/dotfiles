@@ -1,3 +1,4 @@
+finish
 
 nnoremap <SID>(find-file)            <Cmd>cs find f <C-R>=expand('<cfile>')<CR><CR>
 nnoremap <SID>(find-file-included)   <Cmd>cs find i <C-R>=expand('<cfile>')<CR><CR>
