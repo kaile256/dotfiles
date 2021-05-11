@@ -6,8 +6,8 @@ cnoremap <C-v><Space> <lt>space>
 cnoremap <C-v><C-Space> <lt>space>
 
 " Use <C-f>/<C-b> mapped to <Right>/<Left> to select candidate.
-cnoremap <C-p> <Up>
-cnoremap <C-n> <Down>
+cnoremap <expr> <C-p> wildmenumode() ? '<Left>' : '<Up>'
+cnoremap <expr> <C-n> wildmenumode() ? '<Right>' : '<Down>'
 
 cnoremap <silent> <a-space> <esc>:call feedkeys("\<space>")<cr>
 
