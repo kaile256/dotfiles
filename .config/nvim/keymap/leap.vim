@@ -1,6 +1,10 @@
 scriptencoding utf-8
 " From: init.vim
 
+" Jump and open fold.
+nnoremap zK zkzv
+nnoremap zJ zjzv
+
 " TODO: make it work anywhere
 nnoremap <silent> gX :<c-u>call <SID>xdg_open()<cr>
 function! s:xdg_open() abort "{{{1
