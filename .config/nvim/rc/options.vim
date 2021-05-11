@@ -248,6 +248,7 @@ set imcmdline
 
 " Insert; Completion {{{1
 set complete-=i " i: included files
+set complete-=t " t: tag
 
 " Motion {{{1
 set whichwrap=
