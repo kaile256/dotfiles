@@ -27,7 +27,7 @@ hook_post_source = 'luafile $DEIN_RC_DIR/treesitter/refactor/pos.lua'
 repo = 'nvim-treesitter/playground'
 # View treesitter's infomation.
 on_cmd = ['TSPlaygroundToggle']
-hook_source = 'luafile $DEIN_RC_DIR/playground/sou.lua'
+hook_post_source = 'luafile $DEIN_RC_DIR/playground/pos.lua'
 
 [[plugins]]
 repo = 'JoosepAlviste/nvim-ts-context-commentstring'
