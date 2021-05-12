@@ -45,6 +45,7 @@ HOMEs=(
   .pam_environment
   .profile
   .taskrc
+  .tmux.conf
   .vim
   .vimrc
   .vimspector.json
@@ -65,7 +66,7 @@ CONFIGs=(
   picom
   starship.toml
   tig
-  tmux
+  tmux # Keep the directory for the other config like plubins.
   vifm
   w3m
   zsh
