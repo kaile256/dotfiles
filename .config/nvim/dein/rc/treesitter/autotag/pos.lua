@@ -4,6 +4,8 @@
 require'nvim-treesitter.configs'.setup {
   autotag = {
     enable = true,
+    enable_close = false,
+    enable_rename = true,
 
     filetypes = {
       'eco',
