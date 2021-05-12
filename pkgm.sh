@@ -34,6 +34,10 @@ PACKAGEs=(
   ttf-font-icons  # Mix Icon with Awesome & Ionicons without Confliction.
   ttf-twemoji-color # SVG-in-OpenType emoji fonts by Twitter
 
+  # Shell
+  fish
+  tmux
+
   deadd-notification-center-bin # GTK-notifier instead of dunst
   # dunst # a notification-tool, notify-send
   qutebrowser-git
