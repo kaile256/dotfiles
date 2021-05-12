@@ -396,6 +396,7 @@ debug:
   render_timer: false
 
   # Keep the log file after quitting Alacritty.
+  # Log in /tmp/Alacritty-{identifier}.log
   persistent_logging: false
 
   # Log level
