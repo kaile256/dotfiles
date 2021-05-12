@@ -366,10 +366,13 @@ live_config_reload: true
 #   - (macOS) /bin/bash --login
 #   - (Linux) user login shell
 #   - (Windows) powershell
-#shell:
-#  program: /bin/bash
-#  args:
-#    - --login
+shell:
+ program: /usr/bin/fish
+ args:
+    - --login
+  # --command and its argument must be written in two.
+    - --command
+    - "tmux attach || tmux"
 
 # Startup directory
 #
