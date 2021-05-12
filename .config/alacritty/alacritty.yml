@@ -368,11 +368,11 @@ live_config_reload: true
 #   - (Windows) powershell
 shell:
  program: /usr/bin/fish
- args:
-    - --login
-  # --command and its argument must be written in two.
-    - --command
-    - "tmux attach || tmux"
+ # args:
+ #    - --login
+ #  # --command and its argument must be written in two.
+ #    - --command
+ #    - "tmux attach || tmux"
 
 # Startup directory
 #
