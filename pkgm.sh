@@ -110,7 +110,7 @@ PACKAGEs=(
 
   # For Vim:
   neovim-nightly-bin
-  neovim-qt-git
+  neovim-qt
   gvim-gtk2
   fvim # Neovim front-end UI built with F# & Avalonia
   # neovide-git # Neovim GUI written in Rust; cursor moves too slow.
