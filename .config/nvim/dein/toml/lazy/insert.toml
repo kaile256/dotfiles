@@ -145,6 +145,31 @@ on_ft = ['javascript']
 # # on_func = ['googlesuggest#Complete']
 #
 #[ Auto Pair ]
+# [[plugins]]
+# repo = 'windwp/nvim-ts-autotag'
+# # Auto close/rename html tag.
+# # Map to i_> to close tag; InsertLeave to rename tag.
+# if = 'has("nvim")'
+# depends = ['nvim-treesitter']
+# # on_ft = [
+#   'eco',
+#   'ejs',
+#   'eruby',
+#   'html',
+#   'htmldjango',
+#   'javascript',
+#   'javascript.jsx',
+#   'javascriptreact',
+#   'jsx',
+#   'php',
+#   'svelte',
+#   'typescript',
+#   'typescript.tsx',
+#   'typescriptreact',
+#   'vue',
+#   'xml',
+# ]
+# hook_post_source = 'luafile $DEIN_RC_DIR/treesitter/autotag/pos.lua'
 [[plugins]]
 repo = 'AndrewRadev/tagalong.vim'
 # Automatic change the other of tag-pair with nmap to c/i/a.
