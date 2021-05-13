@@ -63,6 +63,7 @@
 	enabled = true
 [alias]
 	ini = init
+	l = log
 	conf = config
 	ref = reflog
 
