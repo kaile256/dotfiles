@@ -78,8 +78,13 @@ PACKAGEs=(
   #i3pystatus
   #i3-style
   # dmenu-manjaro
-  #bluez   # for Bluetooth
-  #bluez-utils
+
+  # Bluetooth
+  bluez   # for Bluetooth
+  bluez-utils
+  bluez-hid2hci
+  bluez-alsa-git # alsa backend with bluetooth
+
   nitrogen # a browser of wallpaper
   picom-ibhagwan-git # an X compositor, an enhanced fork of compton
   #i3-wm-iconpatch # crashes too often
@@ -175,7 +180,6 @@ PACKAGEs=(
   pulseaudio-alsa # alsa config for pulseaudio
   # pacmixer # alsamixer alternative with pulseaudio (GUI)
   pulseaudio-ctl # pulseaudio from shell
-  bluez-alsa-git # alsa backend with bluetooth
   pulseaudio-modules-bt-git # pulseaudio with bluetooth support
   chrony # an alternative to ntp client/server
   # j4-dmenu-desktop # search desktop applications
@@ -194,7 +198,6 @@ PACKAGEs=(
   nginx
   android-emulator
   android-bash-completion
-  # bluez-hid2hci
   # composer # php dependency manager on PHPStorm?
   rxvt-unicode-patched-with-truecolor
   # xcape # Config modifier keys to act as other keys with/without another key
