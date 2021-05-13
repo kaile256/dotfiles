@@ -1,6 +1,11 @@
 -- TOML: insert.toml
 -- Repo: hrsh7th/nvim-compe
 
+vim.cmd [[
+" Note: With `longest`, unexpected deletion happens by <space> with pumvisible().
+set completeopt=menu,preview
+]]
+
 require'compe'.setup {
   enabled = true,
   autocomplete = true,
