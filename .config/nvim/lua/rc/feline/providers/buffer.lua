@@ -273,7 +273,7 @@ function buffer.special_path()
   if ft == 'help' or ft == 'man' then
     return ft .. '://' .. vim.fn.expand('%:t:r')
   elseif ft == 'defx' then
-    local cwd = vim.fn.matchstr(vim.fn.getline(1), '\\f\\+/')
+    local cwd = vim.b.defx.path[1] or vim.fn.matchstr(vim.fn.getline(1), '\\f\\+/')
     return 'defx://' .. cwd
   end
 
