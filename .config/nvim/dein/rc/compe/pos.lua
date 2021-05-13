@@ -20,13 +20,26 @@ require'compe'.setup {
   max_menu_width = 100,
   documentation = true,
 
+  -- Look for available sources in nvim-compe/after/plugin
   source = {
+    spell = true,
+    buffer = {
+      ignored_filetypes = {
+        'gitcommit',
+      },
+    },
     path = true,
-    buffer = true,
-    calc = true,
+    emoji = {
+      filetypes = {
+        'markdown',
+        'gitcommit',
+      },
+    },
+    -- calc = true,
+    -- treesitter = true, -- Possibly slower.
     nvim_lsp = true,
-    nvim_lua = true,
-    vsnip = false,
+    nvim_lua = true, -- like vim.
+    luasnip = true,
     ultisnips = true,
   },
 }
