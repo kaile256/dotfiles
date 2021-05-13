@@ -135,7 +135,12 @@ if mapcheck('K') !=# ''
 
     const word = a:0 ? getline('.')[col("'<")-1 : col("'>")-1]
           \ : expand('<cword>')
-    execute cmd word
+    try
+      execute cmd word
+    catch /^Vim\%((\a\+)\)\=:E149/
+      silent! call dein#recache_runtimepath()
+      execute cmd word
+    endtry
   endfunction
   " Mnemonic: Get the Keyword
   silent! nnoremap <silent><unique> gK :call <SID>show_documentation()<CR>
