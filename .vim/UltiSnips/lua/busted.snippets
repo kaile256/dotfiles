@@ -7,21 +7,15 @@ endglobal
 
 
 context "is_spec_file()"
-snippet '(b(:?usted)?)?d(:?e(:?s(:?cribe)?)?)?' "describe($1)" br
-`!p
-if match.group(1):
-  snip.rv = 'busted.'
-`describe("${1:description}", function()
+snippet 'd(:?e(:?s(:?cribe)?)?)?' "describe($1)" br
+describe("${1:description}", function()
   ${2:${VISUAL}}
 end)
 endsnippet
 
 context "is_spec_file()"
-snippet '(b(:?usted)?)?it' "it($1)" br
-`!p
-if match.group(1):
-  snip.rv = 'busted.'
-`it("${1:description}", function()
+snippet it "it($1)" b
+it("${1:description}", function()
   ${2:${VISUAL}}
 end)
 endsnippet
