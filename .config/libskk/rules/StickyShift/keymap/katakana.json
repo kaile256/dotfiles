@@ -1,0 +1,14 @@
+{
+  "include": [
+    "default/katakana"
+  ],
+  "define": {
+    "keymap": {
+      ";": "start-preedit-no-delete"
+    },
+    "rom-kana": {
+      "xn": ["ン"]
+    }
+  }
+}
+
