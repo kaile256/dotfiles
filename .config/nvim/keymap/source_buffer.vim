@@ -10,7 +10,8 @@ if !exists('*s:source_buffer')
     let save_view = winsaveview()
     if &ft ==# 'vim'
       " Refresh augroups before source the target buffer.
-      let lines_augroup = split(execute('keepj keepp g/aug\%[roup] .\+/keepj keepp v/end\c'), '\n')
+      let pat_augname = 'keepj keepp g/aug\%[roup] \(\cEND\)\@!'
+      let lines_augroup = split(execute(pat_augname), '\n')
       for line in lines_augroup
         let aug_name = matchstr(line, 'aug\%[roup] \zs\S\+')
         exe 'silent! au!' aug_name
