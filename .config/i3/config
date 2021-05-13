@@ -887,7 +887,7 @@ mode $Rofi {
 
 # Start shell {{{2
 bindsym $Super+U $noid $urxvt -e fish
-bindsym $Super+A $noid alacritty -e fish
+bindsym $Super+A $noid alacritty
 
 # Keybind; Sound Volume {{{2
 #bindsym $Super+Ctrl+M exec terminal -e 'alsamixer'
