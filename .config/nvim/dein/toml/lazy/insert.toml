@@ -33,6 +33,10 @@ hook_add = 'runtime add/sonictemplate.vim'
 hook_source = 'runtime source/sonictemplate.vim'
 
 #[ Snippets; Engine ]
+# [[plugins]]
+# repo = 'L3MON4D3/LuaSnip'
+# # # Define snippets in require'luasnip'.snippets table.
+# # hook_post_source = 'luafile $DEIN_RC_DIR/LuaSnip/pos.lua'
 [[plugins]]
 repo = 'SirVer/ultisnips'
 # Note: leave the plugin not to be commented out and set path for document
