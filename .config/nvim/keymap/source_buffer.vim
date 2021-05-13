@@ -14,7 +14,7 @@ if !exists('*s:source_buffer')
       let lines_augroup = split(execute(pat_augname), '\n')
       for line in lines_augroup
         let aug_name = matchstr(line, 'aug\%[roup] \zs\S\+')
-        exe 'silent! au!' aug_name
+        exe 'silent! autocmd!' aug_name
       endfor
     endif
 
