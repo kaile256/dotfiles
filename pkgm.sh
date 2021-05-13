@@ -202,7 +202,12 @@ PACKAGEs=(
   rxvt-unicode-patched-with-truecolor
   # xcape # Config modifier keys to act as other keys with/without another key
   # skypeforlinux-stable-bin
+
+  # Virtual Box
   virtualbox # check kernel version by `uname -r`
+  linux510-virtualbox-host-modules
+  linux510-virtualbox-guest-modules
+
   # llvm
   podman # a substitute for docker
 
