@@ -362,17 +362,18 @@ hook_add = 'runtime add/undoquit.vim'
 #on_cmd = 'FloatermToggle'
 #on_map = '<Plug>(floaterm-'
 #hook_add = 'runtime add/floaterm.vim'
-#[ Session ]
-#[[plugins]]
-#repo = 'xolox/vim-session'
-#depend = 'xolox/vim-misc'
-#on_cmd = ['SessionOpen', 'SessionSave']
-#hook_done_update = '''
-#e $DEIN_GITHUB_DIRxolox/vim-session/plugin/session.vim
-#g/command!/g/Session /norm! ndeBP
-#g/command!/s/RestartVim/SessionVimRestart
-#write
-#'''
+# [ Session ]
+# [[plugins]]
+# repo = 'xolox/vim-session'
+# depends = ['vim-misc']
+# on_cmd = ['SessionOpen', 'SessionSave']
+# on_event = ['VimEnter']
+# hook_done_update = '''
+# e $DEIN_GITHUB_DIRxolox/vim-session/plugin/session.vim
+# g/command!/g/Session /norm! ndeBP
+# g/command!/s/RestartVim/SessionVimRestart
+# write
+# '''
 #[[plugins]]
 #repo = 'thaerkh/vim-workspace'
 #
