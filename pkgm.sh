@@ -114,8 +114,7 @@ PACKAGEs=(
   # LSP
   gopls # for go
 
-  # # Qutebrowser:
-  # hunspell-en_US # Instead, requires to run on command-line `scripts/dictcli.py install en-US`.
+  # Qutebrowser:
 
   # For Vim:
   neovim-nightly-bin
@@ -128,6 +127,7 @@ PACKAGEs=(
   neovim-remote # nvr
   ctags # esp. for Vista on Vim
   global # GTAGS
+  hunspell-en_us # spell dictionaries
 
   # Git
   git-crypt
