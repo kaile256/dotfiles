@@ -1,4 +1,4 @@
-" From: init.vim
+" From: rc/lazy.vim
 
 if expand('%:p') =~# '/\.git/' || &diff
   finish
