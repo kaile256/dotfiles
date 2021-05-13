@@ -220,10 +220,10 @@ set cot+=menu " Enable popup menu for candidates if more than one match.
 set cot+=preview " Only works with 'menu' or 'menuone'.
 set cot+=longest
 
-" for `:substitute`
-if exists('+inccommand') && !dein#tap('traces.vim')
-  set inccommand=nosplit
-endif
+" " for `:substitute`
+" if exists('+inccommand')
+"   set inccommand=nosplit
+" endif
 
 " Edit; Macros {{{1
 " lazyredraw: forbids to redraw screen while executing macros.
