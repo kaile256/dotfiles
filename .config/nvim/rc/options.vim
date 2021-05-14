@@ -186,16 +186,22 @@ set showtabline=2 " 2: always show tabline
 " Invisible Charactars {{{2
 " show space and CR
 set list
-"set list listchars=nbsp:¦_
-"  augroup ListAutoToggle
-"  au!
-"  au BufLeave,CursorMovedI * if &l:list | setl nolist | endif
-"  au BufEnter,CursorHold * if &l:list == 0 | setl list | endif
-"augroup END
-"set listchars=tab:»-,trail:-,eol:↲,extends:»,precedes:«,nbsp:%
-let &listchars = 'tab:  |'
-set listchars+=trail:-,nbsp:+
-set listchars+=extends:~,precedes:«
+
+augroup myOptions/SuppressNoisyListcharsInInserting
+ au InsertLeave * set listchars+=trail:
+ au InsertEnter * set listchars-=trail:
+augroup END
+
+" let &listchars = 'tab:  |'
+" set listchars+=trail:-,nbsp:+
+" set listchars+=extends:~,precedes:«
+" set listchars+=conceal:_
+
+" TODO: Set chars without nerd fonts if unavailable.
+let &listchars = 'tab: '
+set listchars+=nbsp:
+set listchars+=extends:☛
+set listchars+=precedes:☚
 set listchars+=conceal:_
 
 " Split; Multiple Windows {{{1
