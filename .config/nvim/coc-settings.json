@@ -580,12 +580,10 @@
       "args": ["--lsp"],
       "rootPatterns": [
         "*.cabal",
-        "stack.yaml",
         "cabal.project",
-        ".stack.yaml",
-        "cabal.config",
+        "hie.yaml",
         "package.yaml",
-        "hie.yaml"
+        "stack.yaml"
       ],
       "filetypes": ["hs", "lhs", "haskell", "lhaskell"],
       "initializationOptions": {
