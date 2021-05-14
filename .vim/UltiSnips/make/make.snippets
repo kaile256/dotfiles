@@ -1,0 +1,9 @@
+snippet .PHONY "Regard the targets as make commands" b
+.PHONY: ${1:all}
+endsnippet
+
+priority 0
+snippet '(\S+):' "Description" br
+.PHONY: `!p snip.rv = match.group(1)`
+`!p snip.rv = match.group(1)`: ${1:prerequisites}
+endsnippet
