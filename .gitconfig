@@ -80,6 +80,10 @@
 
 	url-update = !"~/dotfiles/.myscripts/git-set-remote-url.sh"
 	update-url = !"~/dotfiles/.myscripts/git-set-remote-url.sh"
+
+	# Run `make` as if at the repo root.
+	make = !"cd $(git rev-parse --show-toplevel) && make"
+
 	# Note: pr and pull-request is a different commands provided by `hub`
 	#   `pr`: List or checkout GitHub pull requests
 	#   `pull-request`: Open a pull request on GitHub
