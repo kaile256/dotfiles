@@ -31,7 +31,7 @@ indent_style = space
 [.gitconfig]
 indent_style = tab
 
-[Makefile]
+[{Makefile,*.mk}]
 indent_style = tab
 indent_size = 4
 
