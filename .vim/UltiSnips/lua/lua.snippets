@@ -84,3 +84,7 @@ if funcdef == "":
 
 `
 endsnippet
+
+snippet 'local self' "Make a constructor" b
+local self = setmetatable({}, ${1:M})
+endsnippet
