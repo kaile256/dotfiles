@@ -2,6 +2,7 @@
 
 [[plugins]]
 repo = 'dense-analysis/ale'
+if = '!exists("g:vscode")'
 # Support more linters than LSP as an interface.  Though ale also supports LSP,
 # coc.nvim deals with LSP better than ale.
 on_event = ['BufRead']
