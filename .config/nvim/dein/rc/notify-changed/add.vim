@@ -2,7 +2,7 @@
 " Repo: tyru/notify-changed.vim
 
 augroup NotifyChanged-autosetNotified
-  au TabLeave,FocusLost   term://* NotifyChanged
-  au TabEnter,FocusGained term://* NotifyChanged -unwatch
+  au TabLeave,FocusLost,InsertLeave   term://* NotifyChanged
+  au TabEnter,FocusGained,InsertEnter term://* NotifyChanged -unwatch
 augroup END
 
