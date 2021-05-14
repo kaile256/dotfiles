@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
 
-Path=(
+PREDECESSORS=(
+)
+
+SUCCESSORS=(
   #"/opt/brew/bin" # recommended to set before /bin
   #"/opt/brew/sbin" # recommended to set before /bin
   "$HOME/.local/bin" # local
@@ -15,7 +18,17 @@ Path=(
   "$HOME/.yarn/bin" # nodejs
 )
 
-appendpath () {
+insert_path () {
+  # Ref: /etc/profile
+  case ":$PATH:" in
+    *:"$1":*)
+      ;;
+    *)
+      PATH="$1${PATH:+:$PATH}"
+  esac
+}
+
+append_path () {
   # Ref: /etc/profile
   case ":$PATH:" in
     *:"$1":*)
@@ -25,10 +38,15 @@ appendpath () {
   esac
 }
 
-for path in "${Path[@]}"; do
-  appendpath "$path"
+for path in "${PREDECESSORS[@]}"; do
+  insert_path "$path"
 done
 
-unset appendpath
+for path in "${SUCCESSORS[@]}"; do
+  append_path "$path"
+done
+
+unset -f insert_path
+unset -f append_path
 
 export PATH
