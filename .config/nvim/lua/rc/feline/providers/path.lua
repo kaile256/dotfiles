@@ -1,4 +1,5 @@
-local vim = vim
+local vim = _G.vim
+local u_git = require('rc.feline.utils.git')
 local colors = require('rc.feline.colors')
 local signs = require('rc.feline.signs')
 local sep = signs.separator
@@ -11,6 +12,8 @@ local path = {
   right = {},
 }
 
+local get_worktree = u_git.get_worktree
+
 path.left.root_dir = {
   enabled = function()
     local fpath = vim.fn.expand('%:~:p:h')
@@ -18,7 +21,9 @@ path.left.root_dir = {
     local winwidth = vim.fn.winwidth(0)
     return len_fpath < winwidth / 3
   end,
-  provider = function() return vim.fn.expand('%:p:h') end,
+  provider = function()
+    return vim.fn.fnamemodify(get_worktree(), ':t') or vim.fn.expand('%:~:p:h')
+    end,
   right_sep = {
     ' ',
     separators.left.rounded_narrow(colors.fg, colors.bg),
@@ -27,7 +32,11 @@ path.left.root_dir = {
 }
 
 path.left.file_name = {
-  provider = function() return vim.fn.expand('%:t') end,
+  ---Return the relative path from repo root, or just return the current file name.
+  provider = function()
+    local wt = get_worktree()
+    return wt and vim.fn.matchstr(vim.fn.expand('%:p'), wt .. [[/\zs.*]]) or vim.fn.expand('%:t')
+  end,
   right_sep = {
     ' ',
   }
