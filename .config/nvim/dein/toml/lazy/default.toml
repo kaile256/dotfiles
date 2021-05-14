@@ -364,6 +364,19 @@ hook_add = 'runtime add/undoquit.vim'
 #hook_add = 'runtime add/floaterm.vim'
 # [ Session ]
 # [[plugins]]
+# repo = 'rmagatti/auto-session'
+# on_event = ['VimEnter']
+# hook_post_source = '''
+# lua << EOF
+# require('auto-session').setup {
+#   auto_session_enable_last_session = true,
+#   auto_session_root_dir = $XDG_DATA_HOME .. '/vim/auto-session/session/',
+#   auto_save_enabled = true,
+#   auto_restore_enabled = true,
+# }
+# EOF
+# '''
+# [[plugins]]
 # repo = 'xolox/vim-session'
 # depends = ['vim-misc']
 # on_cmd = ['SessionOpen', 'SessionSave']
