@@ -56,19 +56,19 @@ endfunction
 nnoremap <buffer> gi i
 nnoremap <buffer> o i
 
-nnoremap <expr><buffer> i <SID>start_insert('')
-nnoremap <expr><buffer> a <SID>start_insert('a')
+" nnoremap <expr><buffer> i <SID>start_insert('')
+" nnoremap <expr><buffer> a <SID>start_insert('a')
 
-nnoremap <expr><buffer> s <SID>start_insert("\<Del>")
-nnoremap <expr><buffer> S <SID>start_insert("\<BS>")
-nnoremap <expr><buffer><silent> x <SID>attach("\<Del>")
-nnoremap <expr><buffer><silent> X <SID>attach("\<BS>", -1)
+" nnoremap <expr><buffer> s <SID>start_insert("\<Del>")
+" nnoremap <expr><buffer> S <SID>start_insert("\<BS>")
+" nnoremap <expr><buffer><silent> x <SID>attach("\<Del>")
+" nnoremap <expr><buffer><silent> X <SID>attach("\<BS>", -1)
 
-nnoremap <expr><buffer> C <SID>start_insert("\<C-k>")
+" nnoremap <expr><buffer> C <SID>start_insert("\<C-k>")
 
-nnoremap <buffer> I i<Home>
-" Note: <End> could complete cmdline on fish.
-nnoremap <buffer> A i<End>
+" nnoremap <buffer> I i<Home>
+" " Note: <End> could complete cmdline on fish.
+" nnoremap <buffer> A i<End>
 
 function! s:truncate_register() abort
   return substitute(getreg(v:register), '^\s*', '', '')
