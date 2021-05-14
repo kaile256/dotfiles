@@ -32,3 +32,8 @@ tnoremap <C-=> <Cmd>call <SID>reset_to_default("winblend")<CR>
 
 tnoremap <C-0>   <Cmd>setlocal winblend=100<CR>
 tnoremap <C-S-_> <Cmd>setlocal winblend=0<CR>
+
+augroup myLexima/BlendReset
+  au CompleteDone,WinClosed * let &pumblend = s:default_pumblend
+  au CompleteDone,WinClosed * let &winblend = s:default_winblend
+augroup END
