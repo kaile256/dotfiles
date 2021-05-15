@@ -56,9 +56,14 @@ cnoremap <a-l> <c-c>
 
 cnoremap <c-a> <Home>
 cnoremap <a-f> <S-Right>
-" Note: <space><BS> to straightforwardly <Right>/<Left> even if wildmenumode().
-cnoremap <c-f> <space><BS><Right>
-cnoremap <c-b> <space><BS><Left>
+if &wildmode =~# 'full'
+  " Note: <space><BS> to straightforwardly <Right>/<Left> even if wildmenumode().
+  cnoremap <C-f> <space><BS><Right>
+  cnoremap <C-b> <space><BS><Left>
+else
+  cnoremap <C-f> <Right>
+  cnoremap <C-b> <Left>
+endif
 cnoremap <a-b> <S-Left>
 
 cnoremap <c-d> <Del>
