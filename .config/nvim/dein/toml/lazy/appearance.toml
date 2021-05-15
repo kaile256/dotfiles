@@ -84,6 +84,12 @@ hook_source = 'runtime source/highlightedyank.vim'
 
 #[ Rainbow ]
 [[plugins]]
+repo = 'p00f/nvim-ts-rainbow'
+if = 'has("nvim")'
+depends = ['nvim-treesitter']
+on_event = ['BufRead']
+hook_post_source = 'luafile $DEIN_RC_DIR/treesitter/rainbow/pos.lua'
+[[plugins]]
 repo = 'luochen1990/rainbow'
 if = '!exists("g:vscode")'
 # Notice: to activate, either g:rainbow_active or g:rainbow_conf must exists.

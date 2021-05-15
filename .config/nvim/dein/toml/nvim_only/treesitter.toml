@@ -7,11 +7,6 @@ hook_done_update = 'TSUpdate'
 hook_source = 'source $DEIN_RC_DIR/treesitter/sou.vim'
 
 [[plugins]]
-repo = 'p00f/nvim-ts-rainbow'
-on_event = ['BufRead']
-depends = ['nvim-treesitter']
-hook_post_source = 'luafile $DEIN_RC_DIR/treesitter/rainbow/pos.lua'
-[[plugins]]
 repo = 'nvim-treesitter/nvim-treesitter-refactor'
 depends = 'nvim-treesitter'
 on_event = 'BufRead'
