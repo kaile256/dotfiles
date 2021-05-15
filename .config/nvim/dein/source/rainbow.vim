@@ -26,6 +26,39 @@ let g:rainbow_conf.separately = {
       \ 'ranger': 0,
       \ 'toml': 0,
       \ }
+
+if has('nvim') && dein#tap('nvim-ts-rainbow')
+  call extend(g:rainbow_conf.separately, {
+        \ 'bash': 0,
+        \ 'c': 0,
+        \ 'clojure': 0,
+        \ 'cpp': 0,
+        \ 'css': 0,
+        \ 'dart': 0,
+        \ 'fish': 0,
+        \ 'haskell': 0,
+        \ 'java': 0,
+        \ 'javascript': 0,
+        \ 'json': 0,
+        \ 'jsonc': 0,
+        \ 'julia': 0,
+        \ 'kotlin': 0,
+        \ 'latex': 0,
+        \ 'lua': 0,
+        \ 'nix': 0,
+        \ 'ocaml': 0,
+        \ 'php': 0,
+        \ 'python': 0,
+        \ 'r': 0,
+        \ 'ruby': 0,
+        \ 'rust': 0,
+        \ 'tsx': 0,
+        \ 'typescript': 0,
+        \ 'yaml': 0,
+        \ })
+endif
+
+
 " let g:rainbow_conf.separately = {
 "      \ 'vim': {
 "      \   'parentheses_options': 'containedin=vimFuncBody,vimExecute',
