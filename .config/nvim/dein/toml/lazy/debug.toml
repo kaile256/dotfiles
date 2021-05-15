@@ -140,6 +140,11 @@ on_cmd = [
 hook_add = 'runtime add/dispatch.vim'
 hook_source = 'runtime source/dispatch.vim'
 [[plugins]]
+repo = 'radenling/vim-dispatch-neovim'
+# `:Start[!]` to run task in built-in terminal.
+if = 'has("nvim")'
+on_source = ['vim-dispatch']
+[[plugins]]
 repo = 'neomake/neomake'
 # as a linter, use LSP plugin instead
 # shows result in Quickfix
