@@ -1,5 +1,9 @@
 # From: dein/dein.vim
 
+# [ Grep ]
+# [[plugins]]
+# repo = 'pechorin/any-jump.vim'
+# on_cmd = ['AnyJump']
 # [[plugins]]
 # repo = 'dyng/ctrlsf.vim'
 # # Get grep-results under project-root, or current directory, into a buffer to
