@@ -8,6 +8,45 @@ augroup myRestoreCursor
        \ | endif
 augroup END
 
+augroup myMarkLastFileAsFileType
+  function! s:mark_last_file_as_rule() abort
+    const fname = expand('%:t')
+    const path = fnamemodify(fname, ':p')
+    if &buftype !=# '' | return | endif
+    if fname ==# '' | return | endif
+    if index(['gitcommit'], &filetype) >= 0
+      return
+    elseif fname =~# '\<spec_'
+         \ || fname =~# '_spec\.'
+         \ || fname =~# 'spec$'
+         \ || fname =~# '\<test_'
+         \ || fname =~# 'test\.'
+         \ || fname =~# '\.t$'
+      mark Q
+      return
+    elseif fname =~? '\.log$'
+         \ || fname =~? '[-.]tmp$'
+         \ || fname =~? '^tmp-'
+         \ || path =~? '\/tmp\/'
+         \ || path =~# '^\/var\/'
+      mark Z
+      return
+    elseif fname =~# '\.'
+      exe 'mark' toupper(matchstr(expand('%'), '.*\.\zs.'))
+      return
+    elseif path =~# $HOME .'\/.bin\/'
+      mark B
+      return
+    endif
+
+    let mark = toupper(expand('%')[0])
+    if mark !~# '\a' | return | endif
+    exe 'mark' mark
+  endfunction
+  " Note: expand('%:e') misses hidden file like .gitignore
+  au BufLeave * call s:mark_last_file_as_rule()
+augroup END
+
 " augroup myWindowAutoResize
 "   " Note: `VimResized` causes agonizing lag to redraw.
 "   au WinNew * call s:resize_window()
