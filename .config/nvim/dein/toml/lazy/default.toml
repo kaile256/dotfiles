@@ -115,7 +115,7 @@ hook_source = 'source $DEIN_RC_DIR/submode/sou.vim'
 #%s/submode-/sbm-/g
 #write
 
-#[ Inline Edit ]
+#[ Refactor ]
 [[plugins]]
 repo = 'AndrewRadev/inline_edit.vim'
 # Edit in another window, like markdown's fenced scripts
