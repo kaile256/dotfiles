@@ -306,11 +306,11 @@ on_map = {n = [
   '<Plug>(ClearBufferList)',
 ]}
 hook_add = 'runtime add/winmanip.vim'
-[[plugins]]
-repo = 'AndrewRadev/undoquit.vim'
-on_func = ['undoquit#SaveWindowQuitHistory']
-on_event = 'QuitPre'
-hook_add = 'runtime add/undoquit.vim'
+# [[plugins]]
+# # repo = 'AndrewRadev/undoquit.vim'
+# on_func = ['undoquit#SaveWindowQuitHistory']
+# on_event = 'QuitPre'
+# hook_add = 'runtime add/undoquit.vim'
 #[[plugins]]
 #repo = 'tyru/undoclosewin.vim'
 ## Doesn't seem to work.
@@ -342,6 +342,12 @@ hook_add = 'runtime add/undoquit.vim'
 #on_map = '<Plug>(floaterm-'
 #hook_add = 'runtime add/floaterm.vim'
 # [ Session ]
+[[plugins]]
+repo = 'chinnkarahoi/vim-session-tree'
+# Save session on closing/opening windows.
+# Undoing session behaves as if undoing windows
+on_cmd = ['SessionUndo', 'SessionRestore', 'SessionRedo']
+hook_add = 'source $DEIN_RC_DIR/session-tree/add.vim'
 # [[plugins]]
 # repo = 'rmagatti/auto-session'
 # on_event = ['VimEnter']
