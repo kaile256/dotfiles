@@ -82,8 +82,6 @@ function! s:_operator_join(wise, shim) abort
   let lines = getline(above, below)
   exe above ',' below 'delete _'
 
-  let sh_like = ['sh', 'zsh', 'fish', 'dockerfile', 'python']
-
   let cms = &cms
   if cms =~# '%s'
     let indicator = split(cms, '%s')[0]
@@ -95,11 +93,10 @@ function! s:_operator_join(wise, shim) abort
     let pat_line_continuation_for_vim = '^\s*\\\s*'
     let Join_continued_lines = 'substitute(v:val, pat_line_continuation_for_vim, "", "")'
     let lines = [ lines[0] ] + map(lines[1:], Join_continued_lines)
-  elseif &ft =~# join(sh_like, '\|')
-    let pat_line_continuation_for_sh = '\s*\\\s*$'
-    let Join_continued_lines = 'substitute(v:val, pat_line_continuation_for_sh, "", "")'
-    let lines = map(lines[: -2], Join_continued_lines) + [ lines[-1] ]
   endif
+  let pat_line_continuation_for_sh = '\s*\\\s*$'
+  let Join_continued_lines = 'substitute(v:val, pat_line_continuation_for_sh, "", "")'
+  let lines = map(lines[: -2], Join_continued_lines) + [ lines[-1] ]
 
   let lines = filter(lines, 'v:val !~# "^\\s*$"')
   let indent = matchstr(lines[0], '^\s*')
