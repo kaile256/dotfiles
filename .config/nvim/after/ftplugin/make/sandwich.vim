@@ -8,4 +8,11 @@ let b:sandwich_recipes = [
       \   'action': ['delete'],
       \   'input': ['f'],
       \ },
+      \ {
+      \   'buns': ['"$(". input("funcname: ") ." "', '")"'],
+      \   'nesting': 1,
+      \   'expr': 1,
+      \   'action': ['add'],
+      \   'input': ['f'],
+      \ },
       \ ]
