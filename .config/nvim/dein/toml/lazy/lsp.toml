@@ -4,11 +4,18 @@
 # [[plugins]]
 # repo = 'neovim/nvim-lspconfig'
 # on_ft = ['lua']
-# hook_post_source = 'luafile $DEIN_RC_DIR/lspconfig/pos.lua'
+# # hook_post_source = 'luafile $DEIN_RC_DIR/lspconfig/pos.lua'
 # [[plugins]]
 # repo = 'kabouzeid/nvim-lspinstall'
 # depends = ['nvim-lspconfig']
 # on_cmd = ['LspInstall', 'LspUninstall']
+# [[plugins]]
+# # repo = 'lspcontainers/lspcontainers.nvim'
+# # Run and connect lsp in docker.
+# depends = ['nvim-lspconfig']
+# on_ft = ['lua']
+# hook_post_source = 'luafile $DEIN_RC_DIR/lspcontainers/pos.lua'
+#
 #[ coc.nvim ]
 [[plugins]]
 repo = 'neoclide/coc.nvim'
