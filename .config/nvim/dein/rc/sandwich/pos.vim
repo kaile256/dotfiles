@@ -30,6 +30,8 @@ function! s:devise_recipes() abort
   "      \ },
   "      \ ]
 
+  const double_single_quotes_head = '\%(\%#\zs''\|''\%#\zs\)''\%(''''\)*[^'']'
+  const double_single_quotes_tail = '[^'']\%(''''\)*\%(\%#\zs''\|''\%#\zs\)'''
   let recipes.quote = [
         \ {
         \   'buns': ['^$', '^$'],
@@ -55,6 +57,15 @@ function! s:devise_recipes() abort
         \   'buns': ['`', '`'],
         \   'quoteescape': 1,
         \   'expand_range': 0,
+        \   'nesting': 0,
+        \   'linewise': 0,
+        \ },
+        \
+        \ {
+        \   'buns': ["'", "'"],
+        \   'filetype': ['vim'],
+        \   'skip_regex_head': [double_single_quotes_head],
+        \   'skip_regex_tail': [double_single_quotes_tail],
         \   'nesting': 0,
         \   'linewise': 0,
         \ },
