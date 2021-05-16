@@ -45,3 +45,16 @@ hook_source = 'luafile $DEIN_LUA_DIR/telescope/octo/sou.lua'
 repo = 'DevonMorris/telescope-docker.nvim'
 if = 'executable("docker")'
 hook_post_source = 'luafile $DEIN_LUA_DIR/telescope/docker/pos.lua'
+
+[[plugins]]
+repo = 'nvim-telescope/telescope-frecency.nvim'
+depends = ['telescope.nvim', 'sql.nvim']
+on_source = ['telescope.nvim']
+hook_post_source = '''
+lua << EOD
+require"telescope".load_extension("frecency")
+EOD
+'''
+[[plugins]]
+repo = 'tami5/sql.nvim'
+# SQLite/LuaJIT binding.
