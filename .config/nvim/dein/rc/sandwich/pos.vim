@@ -60,6 +60,19 @@ function! s:devise_recipes() abort
         \ },
         \ ]
 
+  let recipes.triple_quotes = [
+        \ {
+        \   'buns': ["'''", "'''"],
+        \   'input': ['g"', "g'"],
+        \   'nesting': 0,
+        \ },
+        \ {
+        \   'buns': ['"""', '"""'],
+        \   'input': ['g"', "g'"],
+        \   'nesting': 0,
+        \ },
+        \ ]
+
   let recipes.bracket = [
         \ {
         \   'input': ['('],
@@ -213,6 +226,22 @@ function! s:devise_recipes() abort
         \   'noremap': 0,
         \   'kind': ['delete', 'replace', 'query'],
         \   'input': ['F'],
+        \ },
+        \ {
+        \   'buns': ['$(\h\w*\s*', ')'],
+        \   'filetype': ['make'],
+        \   'nesting': 1,
+        \   'regex': 1,
+        \   'action': ['delete'],
+        \   'input': ['f'],
+        \ },
+        \ {
+        \   'buns': ['"$(". input("funcname: ") ." "', '")"'],
+        \   'filetype': ['make'],
+        \   'nesting': 1,
+        \   'expr': 1,
+        \   'action': ['add'],
+        \   'input': ['f'],
         \ },
         \ ]
 
