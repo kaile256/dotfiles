@@ -138,6 +138,15 @@ on_source = [
   'galaxyline.nvim',
 ]
 
+#[ Font ]
+[[plugins]]
+repo = 'delphinus/artify.nvim'
+# Apply artistic font style in part. Typically, replace some components in
+# statusline/tabline. Find the available styles in README of the original
+# `sainnhe/artify.vim`.
+if = 'has("nvim")'
+on_lua = ['artify']
+
 #[ Tabline ]
 [[plugins]]
 repo = 'seblj/nvim-tabline'
