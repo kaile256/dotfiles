@@ -16,6 +16,13 @@ let $DEIN_POST_HOME = $DEIN_CONFIG_HOME .'/post'
 let $DEIN_RC_DIR = $DEIN_CONFIG_HOME .'/rc'
 let $DEIN_LUA_DIR = $XDG_CONFIG_HOME .'/nvim/lua/rc'
 
+" Dein's options {{{1
+let g:dein#types#git#clone_depth = 1
+let g:dein#install_progress_type = 'tabline'
+if has('unix')
+  let g:dein#enable_notification = 1
+endif
+
 " set nocompatible for dein {{{1
 if !has('nvim')
   " Neovim is always nocompatible.
@@ -44,13 +51,6 @@ endif
 "let &rtp .= ','. s:dein_itself
 exe 'set rtp +='. s:dein_itself
 exe 'set rtp +='. $XDG_CONFIG_HOME .'/nvim/dein'
-
-" Make git clone shallow {{{1
-let g:dein#types#git#clone_depth = 1
-let g:dein#install_progress_type = 'tabline'
-if has('unix')
-  let g:dein#enable_notification = 1
-endif
 
 " Load plugins by Dein {{{1
 if dein#load_state($DEIN_CACHE_HOME)
