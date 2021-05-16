@@ -16,7 +16,11 @@ hook_post_source = 'luafile $DEIN_LUA_DIR/telescope/pos.lua'
 [[plugins]]
 repo = 'nvim-telescope/telescope-github.nvim'
 on_source = 'telescope.nvim'
-hook_post_source = 'luafile $DEIN_LUA_DIR/telescope/github/pos.lua'
+hook_post_source = '''
+lua << EOD
+require"telescope".load_extension("gh")
+EOD
+'''
 [[plugins]]
 repo = 'nvim-telescope/telescope-vimspector.nvim'
 on_source = 'vimspector'
