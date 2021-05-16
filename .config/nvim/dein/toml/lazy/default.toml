@@ -135,16 +135,10 @@ repo = 'notomo/helpeek.vim'
 on_cmd = ['Helpeek']
 
 #[ Floating Window ]
-#[[plugins]]
-#repo = 'ncm2/float-preview.nvim'
-#on_source = ['denite.nvim', 'deolplete.nvim', 'coc.nvim']
-#hook_source = 'runtime source/float-preview.vim'
-#hook_done_update = '''
-#e $DEIN_GITHUB_DIR/ncm2/float-preview.nvim/plugin/float_preview.vim
-#g/au/Complete/norm! i"
-#g/au/InsertLeave/norm! i"
-#write
-#'''
+# [[plugins]]
+# repo = 'ncm2/float-preview.nvim'
+# on_source = ['denite.nvim', 'deoplete.nvim', 'coc.nvim']
+# hook_source = 'runtime source/float-preview.vim'
 #[[plugins]]
 #repo = 'voldikss/vim-floaterm'
 #on_cmd = 'FloatermToggle'
