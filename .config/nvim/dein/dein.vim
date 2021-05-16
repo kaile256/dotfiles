@@ -17,9 +17,10 @@ let $DEIN_RC_DIR = $DEIN_CONFIG_HOME .'/rc'
 let $DEIN_LUA_DIR = $XDG_CONFIG_HOME .'/nvim/lua/rc'
 
 " Dein's options {{{1
-let g:dein#types#git#clone_depth = 1
+let g:dein#lazy_rplugins = 1
 let g:dein#install_progress_type = 'tabline'
 let g:dein#enable_notification = 1
+let g:dein#types#git#clone_depth = 1
 
 " set nocompatible for dein {{{1
 if !has('nvim')
