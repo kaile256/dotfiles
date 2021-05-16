@@ -12,10 +12,12 @@ let g:textobj_sandwich_no_default_key_mappings  = 1
 
 let g:operator#sandwich#timeoutlen = 1500 " default: &timeoutlen (=1000ms).
 
-let g:sandwich#magicchar#f#patterns = [{
+let g:sandwich#magicchar#f#patterns = [
+      \ {
       \   'header' : '\<\%(\h\k*\.\)*\h\k*',
       \   'bra'    : '(',
       \   'ket'    : ')',
       \   'footer' : '',
-      \ }]
+      \ },
+      \ ]
 
