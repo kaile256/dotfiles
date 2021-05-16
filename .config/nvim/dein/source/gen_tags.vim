@@ -22,23 +22,6 @@ let g:gen_tags#gtags_default_map = 0
 let g:gen_tags#use_cache_dir = 1
 " let g:gen_tags#cache_dir = '' " default: '$HOME/.cache/tags_dir/'
 
-function! s:try_jump(mods, path) abort
-  let path =  empty(a:path) ? expand('<cfile>') : a:path
-  let jump = a:mods .' scs find f '. path
-
-  try
-    exe jump
-  catch /E259/
-    GenGTAGS
-    exe jump
-  endtry
-endfunction
-
-command! -bar -nargs=? -complete=file
-      \ GtagsJump
-      \ :call s:try_jump(<q-mods>, <q-args>)
-
 augroup myGenTags
-  au!
-  au BufWinLeave * if &modifiable | GenGTAGS
+  au BufReadPost,BufWritePost {Makefile,*.mk} GenGTAGS
 augroup END
