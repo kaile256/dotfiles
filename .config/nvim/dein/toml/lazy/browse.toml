@@ -82,6 +82,11 @@ hook_source = 'luafile $DEIN_RC_DIR/clap/sou.lua'
 
 #[ Filer ]
 # [[plugins]]
+# repo = 'kyazdani42/nvim-tree.lua'
+# if = "has('nvim')"
+# on_cmd = ['NvimTree']
+# # on_event = ['BufAdd']
+# [[plugins]]
 # repo = 'ms-jpq/chadtree'
 # if = 'has("nvim")'
 # # on_cmd = 'CHADopen'
