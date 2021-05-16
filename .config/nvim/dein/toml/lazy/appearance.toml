@@ -42,7 +42,11 @@ hook_source = 'runtime source/indentLine.vim'
 #repo = 'thaerkh/vim-indentguides'
 #on_event = 'BufRead'
 
-#[ Resonance ]
+#[ Cursor ]
+[[plugins]]
+repo = 'delphinus/vim-auto-cursorline'
+# Just show cursorline after cursor holded for a while.
+on_event = ['WinEnter']
 [[plugins]]
 repo = 'itchyny/vim-cursorword'
 # Underlines appear on every word under the cursor.
