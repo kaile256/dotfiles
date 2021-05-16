@@ -57,7 +57,7 @@ command! -bar -nargs=* -complete=help H :Helptags <args>
 " Keymaps for Files {{{1
 let s:path_dict = {
       \ '.': $DOTFILES_HOME,
-      \ '<BS>': $MY_TRASH_HOME,
+      \ '<C-h>': $MY_TRASH_HOME,
       \ '<space>': '<C-r>=FindRootDirectory()<CR>',
       \ 'c': $DEIN_CACHE_HOME,
       \ 'd': $MY_DEV,
