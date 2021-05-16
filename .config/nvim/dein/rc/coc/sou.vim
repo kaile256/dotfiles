@@ -39,6 +39,8 @@ hi! CocCodeLens ctermfg=240 guifg=#585858
 " Note: coc-stylelintplus requires stylelint-lsp via npm/yarn
 " Note: coc-stylelint only works on css-kind files, i.e., it doesn't work on
 " CSS-in-JS.
+" Note: coc-ultisnips doesn't support Python regex completion: it only inserts
+" the expressions literally.
 let g:coc_global_extensions = [
       \ 'coc-actions',
       \ 'coc-angular',
@@ -72,7 +74,7 @@ let g:coc_global_extensions = [
       \ 'coc-lists',
       \ 'coc-lua',
       \ 'coc-markdownlint',
-      \ 'coc-neosnippet',
+      \ 'coc-snippets',
       \ 'coc-omni',
       \ 'coc-phpls',
       \ 'coc-post',
