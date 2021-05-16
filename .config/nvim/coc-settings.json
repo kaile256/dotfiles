@@ -391,6 +391,8 @@
 
   "Lua.diagnostics.workspaceDelay": -1,
   "Lua.diagnostics.workspaceRate": 20, // available: 0-100 (%)
+  "Lua.diagnostics.globals": ["vim"],
+  "Lua.workspace.preloadFileSize": 500,
 
   "python.formatting.provider": "yapf",
   //"python.formatting.yapfArgs": ["--style google"],
