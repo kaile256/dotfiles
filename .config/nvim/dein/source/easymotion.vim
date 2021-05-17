@@ -21,7 +21,7 @@ let g:EasyMotion_use_upper = 1
 let g:EasyMotion_keys = 'ABCEFGHIJKLMNPQRSTUVWYZ'
 " `g:EasyMotion_use_migemo` is independentt to 'cmigemo'.
 " because Easymotion includes basic regex patterns.
-let g:EasyMotion_use_migemo = 0
+let g:EasyMotion_use_migemo = 1 " it often causes error with 2 chars inputs or more.
 
 " Prompt
 " verbose like 'EasyMotion: Jumping to [l,c]' and 'EasyMotion: Cancelled'.
