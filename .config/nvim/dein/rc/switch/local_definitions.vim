@@ -121,10 +121,15 @@ let s:local_definitions['toml'] = [
 
 let s:local_definitions['lua'] = [
       \ {
-      \   '\%(local \)*\<function \([A-Z][a-zA-Z_#.]\+\)\s*(':    '\1 = function(',
-      \   '\%(local \)*\<function \([a-z_][a-zA-Z_#.]\+\)\s*(':   'local \1 = function(',
-      \   '\%(local \)*\<\([A-Z][a-zA-Z_#.]\+\) = function\s*(':  'function \1(',
-      \   '\%(local \)*\<\([a-z_][a-zA-Z_#.]\+\) = function\s*(': 'local function \1(',
+      \   '^\(\s*\)\%(local \)\?function \(\h\k*\)\s*(':
+      \       '\1local \2 = function(',
+      \   '^\(\s*\)\%(local \)\?\(\h\k*\) = function\s*(':
+      \       '\1local function \2(',
+      \
+      \   '^\(\s*\)\%(local \)\?function \(\h\k*\.\h\k*\%(\.\h\k*\)*\)\s*(':
+      \       '\1\2 = function(',
+      \   '^\(\s*\)\%(local \)\?\(\h\k*\.\h\k*\%(\.\h\k*\)*\) = function\s*(':
+      \       '\1function \2(',
       \ },
       \ {
       \   '&&': 'and',
