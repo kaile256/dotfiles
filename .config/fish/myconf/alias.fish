@@ -2,7 +2,10 @@
 # Ref: bash/alias.sh
 
 # `balias` let us completion
-alias make 'make --jobs 8'
+
+# Note: alias for make will cause Error 2.
+# alias make 'make --jobs 8'
+
 alias tmux 'tmux -2'
 
 balias b 'bash'
