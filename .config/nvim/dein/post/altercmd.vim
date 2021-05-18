@@ -19,8 +19,9 @@ CAlterCommand hgrep helpgrep
 
 CAlterCommand we exe (&modified ? 'up' : 'checktime') '<bar> e'
 
-CAlterCommand g keeppatterns g
-CAlterCommand v keeppatterns v
+CAlterCommand <range> s keeppatterns <range>s
+CAlterCommand <range> g keeppatterns <range>g
+CAlterCommand <range> v keeppatterns <range>v
 
 CAlterCommand pro profile
 CAlterCommand prof profile
