@@ -28,12 +28,6 @@ let s:save_cpo = &cpo
 set cpo&vim
 "}}}
 
-function! s:notify_error(msg) abort
-  echohl ErrorMsg
-  echo '[SpellTmp]' a:msg
-  echohl None
-endfunction
-
 function! spellTMP#spell_suggestion(mode) "{{{1
   if !s:get_end_of_word(a:mode) | return | endif
 
@@ -86,7 +80,7 @@ function! s:detach_spell() abort "{{{1
 endfunction
 
 function! s:get_end_of_word(mode) "{{{1
-  let is_insert_mode = a:mode =~# 'i'
+  " signs which can be inserted between chars
 
   let pats_word_boundary = ['\l\+', '\u\{3,}']
   let word_boundary = '\('. join(pats_word_boundary, '\|') .'\)'
@@ -94,19 +88,15 @@ function! s:get_end_of_word(mode) "{{{1
 
   let save_view = winsaveview()
   let save_lnum = line('.')
-  if is_insert_mode
-      exe "norm! \<C-g>U\<Left>"
-  endif
-
-  if search(word_boundary, 'ceW') != save_lnum
-    call s:notify_error('cannot find a word for spell check')
+  if search(modified_boundary, 'ce') != save_lnum
+    echohl ErrorMsg
+    echo '[SpellTmp] cannot find a word for spell check'
+    echohl None
     call winrestview(save_view)
     return 0
   endif
 
-  if is_insert_mode
-    call feedkeys("\<C-g>U\<Right>", 'n')
-  else
+  if a:mode =~# '[nx]'
     " startinsert will start at the left of the cursor position
     call feedkeys('a', 'n')
   endif
