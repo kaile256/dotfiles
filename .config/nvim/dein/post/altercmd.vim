@@ -17,7 +17,7 @@ CAlterCommand man   Man
 CAlterCommand hg    helpgrep
 CAlterCommand hgrep helpgrep
 
-CAlterCommand we exe (&modified ? 'up' : 'checktime') '<bar> e'
+CAlterCommand <expr> we (&modified ? 'up' : 'checktime') . ' <bar> e'
 
 CAlterCommand <range> s keeppatterns <range>s
 CAlterCommand <range> g keeppatterns <range>g
