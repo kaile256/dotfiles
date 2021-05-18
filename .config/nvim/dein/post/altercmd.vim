@@ -6,8 +6,12 @@ CAlterCommand ch checkhealth <bar> setlocal bt=nofile
 
 CAlterCommand cmd command
 
-CAlterCommand dof exe len(tabpagebuflist()) == 2 ? 'windo diffoff!' : 'diffoff!'
-CAlterCommand dth exe len(tabpagebuflist()) == 2 ? 'windo diffthis' : 'diffthis'
+CAlterCommand <expr> dof len(tabpagebuflist()) == 2
+      \ ? 'windo diffoff!'
+      \ : 'diffoff!'
+CAlterCommand <expr> dth len(tabpagebuflist()) == 2
+      \ ? 'windo diffthis'
+      \ : 'diffthis'
 
 CAlterCommand man   Man
 CAlterCommand hg    helpgrep
