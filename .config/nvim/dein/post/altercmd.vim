@@ -27,7 +27,7 @@ CAlterCommand prof profile
 
 if dein#tap('vim-eunuch')
   " Move: Type `./` for relative path.
-  CAlterCommand mv Move
+  CAlterCommand <expr> mv exists('b:git_dir') ? 'GMove' : 'Move'
 endif
 
 if dein#tap('vim-scriptease')
