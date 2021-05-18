@@ -143,7 +143,14 @@ hook_post_source = 'runtime post/rooter.vim'
 
 #[ Cmdline ]
 [[plugins]]
-repo = 'tyru/vim-altercmd'
+repo = 'notomo/cmdbuf.nvim'
+# Replace cmdline-window.
+on_lua = ['cmdbuf']
+[[plugins]]
+# repo = 'kana/vim-altercmd' # Original
+# repo = 'tyru/vim-altercmd' # Extend it to other modes.
+repo = 'kaile256/vim-altercmd'
+rev = 'develop'
 if = '!exists("g:vscode")'
 on_event = ['CmdLineEnter', 'CmdWinEnter']
 hook_post_source = 'runtime post/altercmd.vim'
