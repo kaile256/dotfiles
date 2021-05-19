@@ -257,15 +257,32 @@ function! s:devise_recipes() abort
         \ ]
 
   function! s:set_for_loop() abort
-    let l:var = input('[for-loop] var for each item: ')
-    let l:list = input('[for-loop] list: ')
+    let raw_var = input('[for-loop] var for each item: ')
+    let raw_list = input('[for-loop] list: ')
 
-    return 'for '. l:var .' in '. l:list
+    let sep = '[ ,]\+'
+    let vars = split(raw_var, sep)
+    let l:var  = join(vars, ', ')
+    if l:var =~# ',' && l:var !~# '^\[.*\]$'
+      let l:var = '['. l:var .']'
+    endif
+
+    " TODO: keep `+`
+    let sep = '[ ,]\+'
+    let lists = split(raw_list, sep)
+    let l:list  = join(lists, ', ')
+    if l:list =~# ',' && l:list !~# '^\[.*\]$'
+      let l:list = '['. l:list .']'
+    endif
+
+    let format = printf('for %s in %s', l:var, l:list)
+
+    return format
   endfunction
   let recipes.for_loop = [
         \ {
         \   'buns': ['call('. string(function('s:set_for_loop')) .', [])', '"endfor"'],
-        \   'kind': ['add'],
+        \   'kind': ['add', 'replace'],
         \   'action': ['add'],
         \   'expr': 1,
         \   'motionwise': ['line'],
@@ -274,13 +291,14 @@ function! s:devise_recipes() abort
         \ },
         \ {
         \   'buns': ['"\n". call('. string(function('s:set_for_loop')) .', []) ."\n"', '"\nendfor\n"'],
-        \   'kind': ['add'],
+        \   'kind': ['add', 'replace'],
         \   'action': ['add'],
         \   'expr': 1,
         \   'motionwise': ['char', 'block'],
         \   'input': ['gf'],
         \   'filetype': ['vim'],
         \ },
+        \
         \ {
         \   'buns': ['"for (". input("for-loop condition: ") .") {"', '"}"'],
         \   'kind': ['add'],
@@ -288,6 +306,14 @@ function! s:devise_recipes() abort
         \   'expr': 1,
         \   'input': ['gf'],
         \   'filetype': ['c', 'cpp', 'java', 'go']
+        \ },
+        \
+        \ {
+        \   'buns': ['for .*', 'endfor'],
+        \   'kind': ['delete', 'replace'],
+        \   'action': ['delete'],
+        \   'input': ['gf'],
+        \   'filetype': ['vim'],
         \ },
         \ ]
 
