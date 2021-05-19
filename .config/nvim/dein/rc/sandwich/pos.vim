@@ -411,19 +411,20 @@ function! s:devise_recipes() abort
         \ },
         \ ]
 
-  let g:sandwich#recipes += [
+  let recipes.newline += [
         \ {
-        \   'input': ['O'],
-        \   'buns': ["\<CR>\\ ", "\<CR>\\ "],
-        \   'action': ['add'],
-        \   'filetype': ['vim'],
-        \ },
-        \ {
-        \   'input': ['O'],
-        \   'buns': ['^\s*\\\s*$', '^\s*\\\s*$'],
-        \   'regex': 1,
+        \   'input': ["\<CR>"],
+        \   'buns': ["\<CR>\\ ", "\\\<CR>"],
         \   'linewise': 1,
         \   'filetype': ['vim'],
+        \   'action': ['add'],
+        \ },
+        \ {
+        \   'input': ["\<CR>"],
+        \   'buns': ["\<CR>\\ ", "\<CR>\\ "],
+        \   'linewise': 0,
+        \   'filetype': ['vim'],
+        \   'action': ['add'],
         \ },
         \ ]
 
