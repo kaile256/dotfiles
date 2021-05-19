@@ -23,3 +23,4 @@ requests # for Uehara25/WeblioSearcher
 # tasklib # py-lib for taskwarrior
 tldextract # for an userscript on qutebrowser, qute-bitwarden
 # togglCli # AuHau/toggl-cli
+poetry # A substitute of pipenv.
