@@ -1,4 +1,6 @@
 augroup myFtDetect
+  au BufNewFile,BufRead PKGBUILD[-.]* setlocal ft=PKGBUILD
+
   au BufNewFile,BufRead */.Xresources.d**/* setlocal ft=xdefaults
   au BufNewFile,BufRead */{xkb,.xkb}/* setlocal ft=xkb
 
