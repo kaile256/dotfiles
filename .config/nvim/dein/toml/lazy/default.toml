@@ -356,6 +356,7 @@ repo = 'chinnkarahoi/vim-session-tree'
 on_event = ['BufRead']
 on_cmd = ['SessionUndo', 'SessionRestore', 'SessionRedo']
 hook_add = 'source $DEIN_RC_DIR/session-tree/add.vim'
+hook_source = 'luafile $DEIN_RC_DIR/session-tree/sou.lua'
 # [[plugins]]
 # repo = 'rmagatti/auto-session'
 # on_event = ['VimEnter']
