@@ -353,6 +353,7 @@ hook_add = 'runtime add/winmanip.vim'
 repo = 'chinnkarahoi/vim-session-tree'
 # Save session on closing/opening windows.
 # Undoing session behaves as if undoing windows
+on_event = ['BufRead']
 on_cmd = ['SessionUndo', 'SessionRestore', 'SessionRedo']
 hook_add = 'source $DEIN_RC_DIR/session-tree/add.vim'
 # [[plugins]]
