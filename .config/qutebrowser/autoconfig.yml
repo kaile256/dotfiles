@@ -194,6 +194,7 @@ settings:
         <Alt+l>: tab-next
         <Alt+q><Alt+b>: set-cmd-text -s :buffer
         <Alt+q><Alt+v>: set-cmd-text -s :open
+        <Backspace>: fake-key <Backspace>
         <Ctrl++>: zoom-in
         <Ctrl+->: zoom-out
         <Ctrl+2>: save
@@ -262,6 +263,8 @@ settings:
         <Ctrl+y>: scroll-px 0 -50
         <Del>: fake-key <Delete>
         <Enter>: mode-enter insert;; fake-key <enter> ;; mode-leave
+        <Shift+Backspace>: back
+        <Shift+Del>: forward
         <Shift+Space>F: hint links tab-bg
         <Shift+Space>P: open -t {primary}
         <Shift+Space>f: hint links current
