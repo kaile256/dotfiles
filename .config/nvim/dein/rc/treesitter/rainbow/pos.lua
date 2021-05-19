@@ -16,7 +16,7 @@ require'nvim-treesitter.configs'.setup {
 local colors = {
   {'#dadada', '253'},
   {'#e7cc3e', 'yellow'},
-  {'#be7cf3', 'purple'},
+  {'#be7cf3', 'magenta'},
   {'#f2b7e2', 'pink'},
   {'#fb9270', 'orange'},
   {'#56cd8e', 'green cterm=bold'},
