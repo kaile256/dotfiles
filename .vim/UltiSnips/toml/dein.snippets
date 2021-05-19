@@ -102,7 +102,7 @@ class Dein(Plugin):
       'ts-': 'treesitter',
     }
 
-    is_lua = lua == 'l' or re.search('nvim', vim.eval("getline(search('^repo = ', 'nb'))"))
+    is_lua = lua != 'v' or re.search('nvim', vim.eval("getline(search('^repo = ', 'nb'))"))
 
     plugin = Dein._trimmed()
 
