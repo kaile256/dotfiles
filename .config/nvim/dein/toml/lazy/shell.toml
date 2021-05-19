@@ -3,6 +3,8 @@
 #[ Wrapper Command ]
 [[plugins]]
 repo = 'tpope/vim-eunuch'
+# Note: Instead of `:SudoWrite`, use lambdalisue/suda.vim to write as a sudoer;
+# cancelling password input freezes for a while, at least, nvim instance.
 on_cmd = [
   'Delete',         # Delete a buffer and the file on disk simultaneously.
   'Unlink',         # Like :Delete, but keeps the now empty buffer.
@@ -21,8 +23,8 @@ on_cmd = [
 
   'Wall',           # Write every open window. Handy for kicking off tools like `guard`.
 
-  'SudoWrite',
-  'SudoEdit',
+  # 'SudoWrite',
+  # 'SudoEdit',
 ]
 [[plugins]]
 repo = 'lambdalisue/suda.vim'
