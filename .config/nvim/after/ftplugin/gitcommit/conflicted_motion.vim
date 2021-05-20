@@ -24,17 +24,17 @@ function! s:search_msg(direction) abort
         \ ]
 
   const pat_msg = '\%('. join(pats_msg, '\|') .'\)'
+  const pat_msg_end = pat_msg .'\%(\s*\n\)\+'
+  const pat_commit_description = pat_msg_end .'\zs\s*[^#]'
 
   const flags = a:direction ==? 'upward' ? 'b' : ''
-  const lnum_adjacent_msg = search(pat_msg, flags)
-
   if a:direction ==? 'upward'
+    call search(pat_commit_description, 'bW')
     " Search upward twice to get out of current msg scope.
-    call search(pat_msg, 'b')
-    exe prevnonblank(lnum_adjacent_msg - 1)
-    return
+    call search(pat_commit_description, 'bW')
+  else
+    echo search(pat_commit_description, 'W')
   endif
 endfunction
 
-call s:search_msg('W')
-
+call s:search_msg('downward')
