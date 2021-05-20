@@ -100,7 +100,7 @@ function! s:fzf_maps(prefix, command, ...) abort
   endfor
 endfunction
 
-call s:fzf_maps('<space>z', 'Fzf')
+call s:fzf_maps('<space>z', 'Files')
 call s:fzf_maps('<space>r', 'Rg')
 call s:fzf_maps('<space>a', 'Ag', 'n')
 
