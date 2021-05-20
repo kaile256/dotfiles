@@ -374,7 +374,7 @@
 
   "json.format.enable": true,
 
-  "html.format.enable": false,
+  "html.format.enable": true,
 
   // From: iamcco/coc-vimlsp
   "vimlsp.debug": false,
