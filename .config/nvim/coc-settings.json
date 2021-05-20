@@ -26,6 +26,9 @@
   "coc.source.issues.filetypes": ["gitcommit"],
   "coc.source.dictionary.priority": 5,
 
+  // hover.autoHide: Hide floating window on CursorMoved or InsertEnter
+  "hover.autoHide": false,
+
   "signature.preferShownAbove": false,
   "signature.triggerSignatureWait": 300,
 
