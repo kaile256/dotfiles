@@ -7,8 +7,18 @@ let s:data_home = $XDG_DATA_HOME .'/'. ( has('nvim') ? 'nvim' : 'vim' )
 "  au! BufWritePre /tmp/* setlocal noundofile
 "augroup END
 
+augroup myBackupfiles-ToggleSwapfile
+  function! s:remove_swapfile() abort
+    if !&swapfile || &modified | return | endif
+    " Turn off &swapfile also remove the existing swapfile.
+    set noswapfile
+  endfunction
+  au BufWritePost * call s:remove_swapfile()
+  au TextChanged,TextChangedI,TextChangedP * set swapfile
+augroup END
+
 exe 'set undofile undodir='. s:data_home .'/undo'
-exe 'set swapfile directory='. s:data_home .'/swap//'
+exe 'set directory='. s:data_home .'/swap//'
 exe 'set writebackup backupdir='. s:data_home .'/backup//'
 set backupskip=*/tmp/*,*/.git/*
 "set backupcopy=
