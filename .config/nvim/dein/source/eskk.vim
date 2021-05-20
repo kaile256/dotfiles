@@ -48,17 +48,9 @@ let g:eskk#marker_jisyo_touroku = '?'
 " Cursor Color {{{1
 " Note: useless on nvim
 let g:eskk#cursor_color = {
-      \ 'ascii':  ['BlueViolet', 'Indigo'],
-      \ 'hira':   ['Fuchsia', 'pink'],
-      \ 'kata':   ['ForestGreen', 'green'],
-      \ 'abbrev': 'RoyalBlue',
-      \ 'zenei':  'gold',
-      \ }
-
-" let g:eskk#cursor_color = {
-"      \ 'ascii':  ['#8b8b83', '#bebebe'],
-"      \ 'hira':   ['#8b3e2f', '#ffc0cb'],
-"      \ 'kata':   ['#228b22', '#00ff00'],
-"      \ 'abbrev': '#4169e1',
-"      \ 'zenei':  '#ffd700',
-"      \ }
+     \ 'ascii':  ['#8b8b83', '#bebebe'],
+     \ 'hira':   ['#8b3e2f', '#ffc0cb'],
+     \ 'kata':   ['#228b22', '#00ff00'],
+     \ 'abbrev': '#4169e1',
+     \ 'zenei':  '#ffd700',
+     \ }
