@@ -39,7 +39,7 @@
   //"refactor.beforeContext": 5,
   //"refactor.afterContext": 5,
 
-  "suggest.highPrioritySourceLimit": 100, // default: 90
+  "suggest.highPrioritySourceLimit": 95, // default: 90
   // "suggest.numberSelect": true, // completion with numbers 0 to 9 to select
   "suggest.enablePreview": true,
   "suggest.detailMaxLength": 20,
@@ -105,7 +105,7 @@
     "typescriptreact": ["typescript"]
   },
   "snippets.userSnippetsDirectory": "~/.vim/UltiSnips",
-  "snippets.priority": 100,
+  "snippets.priority": 98,
   "snippets.autoTrigger": false,
   "snippets.ultisnips.enable": true,
 
