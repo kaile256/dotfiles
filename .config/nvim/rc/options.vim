@@ -266,8 +266,7 @@ set matchpairs+=<:>,「:」,『:』
 
 " nostartofline: keep cursor column on jump, like `gg`, `M`.
 set nostartofline
-" hidden: ignore unwritten buffers to jump.
-set hidden
+" set hidden
 
 " set switchbuf=
 " set swb+=useopen " Use existing buffer if possible without new one.
