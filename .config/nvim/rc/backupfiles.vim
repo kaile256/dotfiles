@@ -25,6 +25,8 @@ set backupskip=*/tmp/*,*/.git/*
 "set backupext=
 "exe 'set viminfo=''1000,n'. s:data_home .'/info'
 
+exe 'set spellfile='. s:data_home .'/spell/en.utf-8.add'
+
 function! s:mk_backupdirs_if_unexisted() abort
   const dirs = [
         \ &undodir,
