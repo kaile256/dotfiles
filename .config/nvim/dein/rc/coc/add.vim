@@ -118,26 +118,26 @@ command! Import :call CocActionAsync('runCommand', 'editor.action.organizeImport
 "command! FormatOnC :call CocAction('format')
 "command! -nargs=? FoldOnC :call CocAction('fold', <f-args>)
 
-" " Mnemonic: Change the lhs of Equal Sign
-" function! s:quick_format() abort
-"   let save_view = winsaveview()
-"
-"   if index(['javascript', 'typescript', 'css', 'json'], &ft) > 0
-"     " TODO: detect if coc-prettier is provided.
-"     CocCommand prettier.formatFile
-"   elseif CocHasProvider('format') && (index(['bash', 'sh'], &ft) < 0)
-"     let num = line('$')
-"     echomsg num 'lines should be indented by COC...'
-"     " keep ':norm' from <bang> to use <Plug>-map.
-"     call CocActionAsync('format')
-"   else
-"     norm! gg=G
-"     " Note: echomsg '<num> line indented' as default
-"   endif
-"
-"   call winrestview(save_view)
-" endfunction
-" command! -bar QuickFormat :call s:quick_format()
+" Mnemonic: Change the lhs of Equal Sign
+function! s:quick_format() abort
+  let save_view = winsaveview()
+
+  if index(['javascript', 'typescript', 'css', 'json'], &ft) > 0
+    " TODO: detect if coc-prettier is provided.
+    CocCommand prettier.formatFile
+  elseif CocHasProvider('format') && (index(['bash', 'sh'], &ft) < 0)
+    let num = line('$')
+    echomsg num 'lines should be indented by COC...'
+    " keep ':norm' from <bang> to use <Plug>-map.
+    call CocActionAsync('format')
+  else
+    norm! gg=G
+    " Note: echomsg '<num> line indented' as default
+  endif
+
+  call winrestview(save_view)
+endfunction
+command! -bar QuickFormat :call s:quick_format()
 
 " TODO: make a fork if prettier is available.
 "omap <expr><silent> =
@@ -150,7 +150,7 @@ command! Import :call CocActionAsync('runCommand', 'editor.action.organizeImport
 " Mnemonic: Change the name in Sync
 nmap cs <Plug>(coc-rename)
 nmap cS <Plug>(coc-rename)
-" nmap <silent> == :<c-u>QuickFormat<cr>
+nmap <silent> == <Cmd>QuickFormat<cr>
 
 augroup myCocPrettier
   au FileType javascript,typescript,css,json call s:prettier()
