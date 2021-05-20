@@ -18,6 +18,9 @@
   // "coc.preferences.floatActions": false,
   "coc.preferences.listOfWorkspaceEdit": "location",
 
+  "coc.preferences.previewAutoClose": false,
+  "coc.preferences.previewMaxHeight": 25,
+
   // see 'source' in coc-list
   "coc.source.tag.enable": false,
   "coc.source.emoji.filetypes": ["markdown", "config", "dosini"],
