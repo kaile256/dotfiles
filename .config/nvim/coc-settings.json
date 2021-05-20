@@ -389,6 +389,10 @@
 
   "rust-analyzer.trace.server": "verbose",
 
+  "Lua.hint.enable": true,
+  "Lua.hint.setType": true,
+  "Lua.completion.callSnippet": "Both",
+  "Lua.completion.keywordSnippet": "Both",
   "Lua.diagnostics.workspaceDelay": -1,
   "Lua.diagnostics.workspaceRate": 20, // available: 0-100 (%)
   "Lua.diagnostics.globals": ["vim"],
