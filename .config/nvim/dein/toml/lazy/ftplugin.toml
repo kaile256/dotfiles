@@ -47,6 +47,18 @@ repo = 'teal-language/vim-teal'
 # instead.
 on_path = ['\.tl$']
 
+# #[ Haskell ]
+# [[plugins]]
+# repo = 'meck/vim-brittany'
+# # Formatter on brittany; use coc.nvim instead.
+# if = 'executable("brittany")'
+# on_ft = ['haskell']
+# [[plugins]]
+# repo = 'alx741/vim-stylishask'
+# # Formatter on stylish-haskell; use coc.nvim instead.
+# if = 'executable("stylish-haskell")'
+# on_ft = ['haskell']
+
 #[ XML ]
 #[[plugins]]
 #repo = 'tpope/vim-ragtag'
