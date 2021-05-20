@@ -372,7 +372,7 @@
 
   "tailwindCSS.emmetCompletions": true,
 
-  "json.format.enable": false,
+  "json.format.enable": true,
 
   "html.format.enable": false,
 
