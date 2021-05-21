@@ -142,9 +142,7 @@ URxvt.background: [80]_black
 ! Font {{{1
 !! Ref for fonts on each system: http://malkalech.com/xresources_magic#i-7
 
-! Note: Meslo inserts wider blanklines within lines.
-!#define FONT_NAME DejaVuSansMono Nerd Font
-#define FONT_NAME JetBrainsMonoMedium Nerd Font
+#define FONT_NAME JetBrainsMonoMedium Nerd Font Mono
 #define FONT_SIZE 12
 #define FONT_OPT  size=FONT_SIZE:antialias=true
 #define FONT      xft:FONT_NAME:FONT_OPT
