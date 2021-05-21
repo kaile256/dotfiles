@@ -274,6 +274,9 @@ $noid qutebrowser
 #$noid $vivaldi
 #$noid nvim-qt
 
+assign [title="^watch-proc"] 1
+$noid alacritty --title "watch-proc" --command "top"
+
 ## Status Bar; use polybar instead {{{1
 ## Note: use polybar instead
 ## Start i3bar to display a workspace bar (plus the system information i3status
