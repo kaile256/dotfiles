@@ -148,10 +148,10 @@ URxvt.background: [80]_black
 #define FONT_OPT  size=FONT_SIZE:antialias=true
 #define FONT      xft:FONT_NAME:FONT_OPT
 
-!#define FONTW_NAME Migu1M
-!#define FONTW_SIZE 15
-!#define FONTW_OPT  size=FONT_SIZEW:antialias=true
-!#define FONTW      xft:FONT_NAMEW:FONT_OPT
+#define FONTW_NAME Noto Sans Mono CJK Nerd Font
+#define FONTW_SIZE 18
+#define FONTW_OPT  size=FONTW_SIZE:antialias=true
+#define FONTW      xft:FONTW_NAME:FONTW_OPT
 
 #ifndef FONTW
   #define FONT_SET FONT
