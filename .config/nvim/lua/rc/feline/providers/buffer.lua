@@ -9,6 +9,7 @@ local sep = signs.separator
 local sep_left = sep.left
 local default_sep_left  = signs.default.separator.left
 local default_sep_right = signs.default.separator.right
+local separators = require('rc.feline.separators')
 
 local buffer = {
   left = {},
