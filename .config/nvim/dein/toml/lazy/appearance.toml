@@ -258,6 +258,13 @@ on_func = 'noscrollbar#statusline'
 # on_event = ['WinEnter']
 # hook_add = 'runtime add/scrollbar.vim'
 #
+#[ Color Visualizer ]
+[[plugins]]
+repo = 'norcalli/nvim-colorizer.lua'
+if = 'has("nvim")'
+on_event = ['BufRead']
+hook_post_source = 'luafile $DEIN_RC_DIR/colorizer/pos.lua'
+
 #[ Color Picker ]
 [[plugins]]
 repo = 'naquad/vim-picker'
