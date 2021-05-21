@@ -6,17 +6,7 @@
 
 Xcursor.theme: Bibata Oil
 
-!#include ".Xresources.d/font"
-
-! Font rendering {{{1
-! Ref: https://wiki.archlinux.jp/index.php/%E3%83%95%E3%82%A9%E3%83%B3%E3%83%88%E8%A8%AD%E5%AE%9A
-Xft.dpi: 96
-Xft.antialias: 1
-Xft.autohint: 1
-Xft.hinting: 1
-Xft.rgba: rgb
-Xft.hintstyle: hintslight
-Xft.lcdfilter: lcddefault
+#include ".Xresources.d/fonts"
 
 ! Colorscheme {{{1
 ! Neodark
@@ -139,59 +129,6 @@ URxvt.background: [80]_black
 
 !URxvt.scrollColor: [90]#504945
 !URxvt.troughColor: [90]#3C3836  ! bg-color for scrollbar.
-
-! Font {{{1
-!! Ref for fonts on each system: http://malkalech.com/xresources_magic#i-7
-
-#define FONT_NAME JetBrainsMonoMedium Nerd Font Mono
-#define FONT_SIZE 12
-#define FONT_OPT  size=FONT_SIZE:antialias=true
-#define FONT      xft:FONT_NAME:FONT_OPT
-
-#define FONTW_NAME Noto Sans Mono CJK Nerd Font
-#define FONTW_SIZE 18
-#define FONTW_OPT  size=FONTW_SIZE:antialias=true
-#define FONTW      xft:FONTW_NAME:FONTW_OPT
-
-#ifndef FONTW
-  #define FONT_SET FONT
-  #define FONTW FONT
-#else
-  #define FONT_SET FONT,FONTW
-#endif
-
-! Font for XTerm {{{1
-XTerm*faceName:           FONT
-XTerm*faceNameDoublesize: FONTW
-XTerm*faceSize:           FONT_SIZE
-
-!URxvt.font: xft:NAME_FONT:size=SIZE_FONTW:antialias=true,NAME_FONTW:size=12:antialias=true
-!XTerm*faceName: xft:MesloLGS Nerd Font:size=14:antialias=true
-!XTerm*faceNameDoublesize: xft:Migu 1M
-!XTerm*faceSize: 14
-
-! scaleHeight: the height between line and line
-!   (available: 0.9 ~ 1.5; default: 1.0)
-XTerm*scaleHeight: 0.9
-
-! Fonts and Encoding
-XTerm*utf8:      true
-XTerm*locale:    true
-XTerm*utf8Title: true
-! cjk: Chinese, Japanese, Korean
-XTerm*cjkWidth : True
-
-! Font for URxvt {{{1
-URxvt.font: FONT_SET
-
-! Note: Set a negative number to reduce whitespace width between characters.
-URxvt.letterSpace: -1
-! Reduce lines between lines.
-URxvt.lineSpace: -1
-
-! Font list and Spacing
-URxvt.allow_bold: true
-URxvt.kanji_encoding: UTF-8
 
 ! Keybinds {{{1
 ! Use Alt-key
