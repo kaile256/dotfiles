@@ -81,6 +81,8 @@
 	# Just echo root path. `cd $(git root)` to cd the root directory.
 	root = rev-parse --show-toplevel
 
+	refresh = !"find .git/objects/ -size 0 -delete && git pull" # https://stackoverflow.com/questions/4111728/how-do-i-deal-with-corrupted-git-object-files
+
 	url-update = !"~/dotfiles/.myscripts/git-set-remote-url.sh"
 	update-url = !"~/dotfiles/.myscripts/git-set-remote-url.sh"
 
