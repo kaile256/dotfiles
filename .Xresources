@@ -1,4 +1,5 @@
 ! Note: read this file by xrdb
+! Note: `xrdb -query -all` to get current config.
 
 !twm &
 !xclock -geometry 50x50-1+1 &
