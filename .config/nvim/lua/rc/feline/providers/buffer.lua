@@ -77,7 +77,7 @@ buffer.left.file_path = {
   },
 }
 
-function buffer.filetype_icon()
+buffer.filetype_icon = function()
   local extension = vim.fn.expand('%:e')
   local fname = vim.fn.expand('%:t')
   if fname == '' then
