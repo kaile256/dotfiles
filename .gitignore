@@ -431,21 +431,6 @@ dkms.conf
 # Dependency directories (remove the comment below to include it)
 # vendor/
 
-
-### https://raw.github.com/github/gitignore/218a941be92679ce67d0484547e3e142b2f5f6f0/CMake.gitignore
-
-CMakeLists.txt.user
-CMakeCache.txt
-CMakeFiles
-CMakeScripts
-Testing
-cmake_install.cmake
-install_manifest.txt
-compile_commands.json
-CTestTestfile.cmake
-_deps
-
-
 ### https://raw.github.com/github/gitignore/218a941be92679ce67d0484547e3e142b2f5f6f0/Android.gitignore
 
 # Built application files
@@ -816,3 +801,4 @@ luac.out
 *.max
 
 
+!*.d/
