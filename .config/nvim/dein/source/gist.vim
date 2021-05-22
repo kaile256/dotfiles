@@ -14,7 +14,7 @@
 "let g:gist_namelength = 20
 
 let g:gist_show_privates = 1
-let g:gist_post_private  = 1
+let g:gist_post_private  = 1 " Post to private (with -p) as default; with -P to public
 "let g:gist_post_anonymous = 1
 
 "let g:gist_extmap = { ".swift": "swift" }
