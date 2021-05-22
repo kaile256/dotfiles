@@ -4,8 +4,11 @@
 
 " Note: all the mappings are dot-repeatable.
 xmap \c <Plug>(Exchange)
-" operator
-nmap \c <Plug>(Exchange)
-nmap \C <Plug>(ExchangeLine)
 
-nmap \cc <Plug>(ExchangeClear)
+" Operator
+nmap \c <Plug>(Exchange)
+nmap \cc <Plug>(ExchangeLine)
+nmap \C <Plug>(Exchange)$
+
+nmap \c<C-h> <Plug>(ExchangeClear)
+xmap \c<C-h> <Plug>(ExchangeClear)
