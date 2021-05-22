@@ -19,6 +19,10 @@ let g:grammarous#default_comments_only_filetypes = {
 
 let g:grammarous#hooks = {}
 function! g:grammarous#hooks.on_check(errs) abort
+  nnoremap <buffer> ]s <Plug>(grammarous-move-to-next-error)
+  nnoremap <buffer> [s <Plug>(grammarous-move-to-previous-error)
 endfunction
 function! g:grammarous#hooks.on_reset(errs) abort
+  nunmap <buffer> ]s
+  nunmap <buffer> [s
 endfunction
