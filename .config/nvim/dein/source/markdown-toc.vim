@@ -4,7 +4,7 @@
 
 "let g:vmt_auto_update_on_save = 0
 
-let g:vmt_include_headings_before
+" let g:vmt_include_headings_before = 1
 
 " list_item_char: one of ['*', '-', '+'] (default: '*')
 let g:vmt_list_item_char = '-'
