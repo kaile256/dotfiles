@@ -59,6 +59,7 @@ hook_post_source = 'runtime add/cursorword.vim'
 repo = 'kevinhwang91/nvim-hlslens'
 if = 'has("nvim") && !exists("g:vscode")'
 on_lua = ['hlslens']
+on_event = ['CmdlineEnter']
 hook_add = 'source $DEIN_RC_DIR/hlslens/add.vim'
 hook_source = 'luafile $DEIN_RC_DIR/hlslens/pos.lua'
 #[ Emphasize ]
