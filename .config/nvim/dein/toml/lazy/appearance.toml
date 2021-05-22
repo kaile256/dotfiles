@@ -60,7 +60,7 @@ repo = 'kevinhwang91/nvim-hlslens'
 if = 'has("nvim") && !exists("g:vscode")'
 on_lua = ['hlslens']
 hook_add = 'source $DEIN_RC_DIR/hlslens/add.vim'
-hook_post_source = 'luafile $DEIN_RC_DIR/hlslens/pos.lua'
+hook_source = 'luafile $DEIN_RC_DIR/hlslens/pos.lua'
 #[ Emphasize ]
 #[[plugins]]
 #repo = 't9md/vim-quickhl'
