@@ -127,25 +127,26 @@ hook_add = 'runtime add/sad.vim'
 #hook_add = 'runtime add/subversive.vim'
 
 #[ Swap ]
-#[[plugins]]
-#repo = 'tommcdo/vim-exchange'
-# # Note: sometimes fails to clear highlight
-#on_map = {nx = ['<Plug>(Exchange']}
-#hook_add = 'runtime add/exchange.vim'
-#hook_source = 'runtime source/exchange.vim'
+[[plugins]]
+repo = 'tommcdo/vim-exchange'
+ # Note: sometimes fails to clear highlight
+on_map = {nx = ['<Plug>(Exchange']}
+hook_add = 'runtime add/exchange.vim'
+hook_source = 'runtime source/exchange.vim'
 #[[plugins]]
 #repo = 'osyo-manga/vim-operator-swap'
 ## Require another plugin to highlight selected area.
 ## Require 2 keys to be mapped.
 #on_map = {nx = ['<Plug>(operator-swap']}
 #hook_add = 'runtime add/operator-swap.vim'
-[[plugins]]
-repo = 'SausageCats/vim-operator-swap'
-# Require 2 keys to be mapped.
-on_map = {nx = ['<Plug>(operator-swap-']}
-hook_add = 'runtime add/operator-swap-SausageCats.vim'
-hook_source = 'runtime source/operator-swap-SausageCats.vim'
-
+# [[plugins]]
+# repo = 'SausageCats/vim-operator-swap'
+# # No linear mapping.
+# # Require 2 keys to be mapped.
+# on_map = {nx = ['<Plug>(operator-swap-']}
+# hook_add = 'runtime add/operator-swap-SausageCats.vim'
+# hook_source = 'runtime source/operator-swap-SausageCats.vim'
+#
 #[ Copy ]
 # [[plugins]]
 # repo = 'emugel/vim-ictrlye'
