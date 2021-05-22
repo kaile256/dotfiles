@@ -1,8 +1,6 @@
 -- TOML: appearance.toml
 -- Repo: kevinhwang91/nvim-hlslens
 
-local vim = vim
-
 vim.cmd [[
 hi! link HlSearchLensCur Search
 hi! link HlSearchLens    WildMenu
