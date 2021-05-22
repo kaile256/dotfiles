@@ -109,7 +109,7 @@ function! s:devise_recipes() abort
         \
         \ {
         \   'input': ['<'],
-        \   'buns': ['\\\@<!".*\zs\\<', '>\ze.*\\\@<!"'],
+        \   'buns': ['\%(\\\@<!".*\zs\\\)\?<', '>\%(\ze.*\\\@<!"\)\?'],
         \   'regex': 1,
         \   'filetype': ['vim'],
         \   'action': ['delete'],
