@@ -26,22 +26,6 @@ URxvt.depth: 32
 !! Fade (in percentage) the other windows, which gets no focus.
 !URxvt.fading: 100
 
-! Keybinds {{{1
-! Use Alt-key
-XTerm*metaSendsEscape: True
-
-! Ctrl+Shift is a shortcut to input any Unicode character like <C-v> in vim
-! https://www.reddit.com/r/urxvt/comments/35x03n/if_youve_been_vexed_by_urxvts_picture_insert_mode/
-URxvt.iso14755: false
-URxvt.iso14755_52: false
-
-! https://unix.stackexchange.com/questions/294337/rebinding-ctrl-alt-cv-to-ctrl-shift-cv-in-urxvt-9-20/329556#329556
-URxvt.keysym.Shift-Control-V: eval:paste_clipboard
-URxvt.keysym.Shift-Control-C: eval:selection_to_clipboard
-! Disable keybinds with `builtin-string:`
-URxvt.keysym.Control-Meta-c: builtin-string:
-URxvt.keysym.Control-Meta-v: builtin-string:
-
 ! Misc. for XTerm {{{1
 XTerm*termName: xterm-256color
 !exec xterm -geometry 80x66+0+0 -name login
