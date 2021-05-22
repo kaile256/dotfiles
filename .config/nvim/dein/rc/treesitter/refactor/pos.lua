@@ -10,7 +10,10 @@ require'nvim-treesitter.configs'.setup {
     },
 
     highlight_current_scope = {
-      enable = false,
+      enable = true,
+      disable = {
+        "toml",
+      }
     },
 
     smart_rename = {
