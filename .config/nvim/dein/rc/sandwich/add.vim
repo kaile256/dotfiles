@@ -63,6 +63,47 @@ xmap i_ <Plug>(textobj-sandwich-query-i)_
 omap a_ <Plug>(textobj-sandwich-query-a)_
 xmap a_ <Plug>(textobj-sandwich-query-a)_
 
+
+omap i( <Plug>(textobj-sandwich-query-i)(
+xmap i( <Plug>(textobj-sandwich-query-i)(
+omap a( <Plug>(textobj-sandwich-query-a)(
+xmap a( <Plug>(textobj-sandwich-query-a)(
+
+omap i) <Plug>(textobj-sandwich-query-i))
+xmap i) <Plug>(textobj-sandwich-query-i))
+omap a) <Plug>(textobj-sandwich-query-a))
+xmap a) <Plug>(textobj-sandwich-query-a))
+
+omap i{ <Plug>(textobj-sandwich-query-i){
+xmap i{ <Plug>(textobj-sandwich-query-i){
+omap a{ <Plug>(textobj-sandwich-query-a){
+xmap a{ <Plug>(textobj-sandwich-query-a){
+
+omap i} <Plug>(textobj-sandwich-query-i)}
+xmap i} <Plug>(textobj-sandwich-query-i)}
+omap a} <Plug>(textobj-sandwich-query-a)}
+xmap a} <Plug>(textobj-sandwich-query-a)}
+
+omap i[ <Plug>(textobj-sandwich-query-i)[
+xmap i[ <Plug>(textobj-sandwich-query-i)[
+omap a[ <Plug>(textobj-sandwich-query-a)[
+xmap a[ <Plug>(textobj-sandwich-query-a)[
+
+omap i] <Plug>(textobj-sandwich-query-i)]
+xmap i] <Plug>(textobj-sandwich-query-i)]
+omap a] <Plug>(textobj-sandwich-query-a)]
+xmap a] <Plug>(textobj-sandwich-query-a)]
+
+omap i< <Plug>(textobj-sandwich-query-i)<
+xmap i< <Plug>(textobj-sandwich-query-i)<
+omap a< <Plug>(textobj-sandwich-query-a)<
+xmap a< <Plug>(textobj-sandwich-query-a)<
+
+omap i> <Plug>(textobj-sandwich-query-i)>
+xmap i> <Plug>(textobj-sandwich-query-i)>
+omap a> <Plug>(textobj-sandwich-query-a)>
+xmap a> <Plug>(textobj-sandwich-query-a)>
+
 " TextObj Literal {{{1
 "" a text surrounded by a pair of literally the same characters as user input
 "" i.e., the text-obj followed by '(' is regarded to be surrounded by '(' and '('
