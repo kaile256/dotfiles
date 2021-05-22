@@ -2,9 +2,10 @@
 -- Repo: kevinhwang91/nvim-hlslens
 
 vim.cmd [[
-hi! link HlSearchLensCur Search
-hi! link HlSearchLens    WildMenu
-hi! link HlSearchCur     Search
+hi! link HlSearchNear     Search    " For the nearest matched text.
+hi! link HlSearchLensNear Search    " For the nearest virtual text.
+hi! link HlSearchLens     WildMenu  " For virtual texts but the nearest one.
+hi! link HlSearchFloat    IncSearch " For the nearest text in the floating window.
 ]]
 
 require('hlslens').setup({
@@ -13,42 +14,43 @@ require('hlslens').setup({
 
   calm_down = true,
 
-  override_line_lens = function(lnum, loc, idx, r_idx, count, namespace)
+  override_lens = function(render, plist, nearest, idx, r_idx)
     -- r_idx: reverse index
 
     local sfw = vim.v.searchforward == 1
     local indicator, text, chunks
-    local a_r_idx = math.abs(r_idx)
+    local abs_r_idx = math.abs(r_idx)
 
     local hl_group = 'HlSearchLens'
     local ind_above = '▲'
     local ind_below = '▼'
 
-    if a_r_idx > 1 then
-      indicator = string.format('%d%s', a_r_idx, sfw == (r_idx > 1) and ind_below or ind_above)
-    elseif a_r_idx == 1 then
+    if abs_r_idx > 1 then
+      indicator = ('%d%s'):format(abs_r_idx, sfw == (r_idx > 1) and ind_below or ind_above)
+    elseif abs_r_idx == 1 then
       indicator = sfw == (r_idx == 1) and ind_below or ind_above
     else
       indicator = ''
     end
 
-    if loc ~= 'c' then
-      text = string.format('[%s %d]', indicator, idx)
-    elseif indicator ~= '' then
-      -- For the other matches around.
-      text = string.format('[%s %d/%d]', indicator, idx, count)
-    else
+    local row, col = unpack(plist[idx])
+    local steps = #plist
+    if not nearest then
+      text = ('[%s %d]'):format(indicator, idx)
+    elseif indicator == '' then
       -- For the match the very beginning of which cursor attaches.
-      text = string.format('[%d/%d]', idx, count)
-      hl_group = 'HlSearchLensCur'
+      text = ('[%d/%d]'):format(idx, steps)
+    else
+      -- For the other matches around.
+      text = ('[%s %d/%d]'):format(indicator, idx, steps)
+      hl_group = 'HlSearchLensNear'
     end
 
-    vim.api.nvim_buf_clear_namespace(0, namespace, lnum - 1, lnum)
-
-    text = ' ' .. text
+    text = text
     chunks = {
+      { ' ', 'Ignore' },
       { text, hl_group },
     }
-    vim.api.nvim_buf_set_virtual_text(0, namespace, lnum - 1, chunks, {})
+    render.set_virt(0, row - 1, col - 1, chunks, {})
   end;
 })
