@@ -6,6 +6,7 @@
 
 Xcursor.theme: Bibata Oil
 
+#include ".Xresources.d/keys"
 #include ".Xresources.d/fonts"
 #include ".Xresources.d/colorschemes"
 

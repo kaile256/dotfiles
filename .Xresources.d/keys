@@ -1,0 +1,6 @@
+! For example, `\033[,` represents `<M-[>,` in vim.
+! Ref: https://stackoverflow.com/questions/23546025/how-can-i-map-ctrl-semicolon-to-add-a-semicolon-to-the-end-of-the-line
+URxvt.keysym.C-comma: \033[,
+URxvt.keysym.C-period: \033[.
+URxvt.keysym.C-semicolon: \033[;
+URxvt.keysym.C-colon: \033[:
