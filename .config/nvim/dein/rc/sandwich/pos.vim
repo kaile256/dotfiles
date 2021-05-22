@@ -106,6 +106,14 @@ function! s:devise_recipes() abort
         \   'buns': ['<', '>'],
         \   'expand_range': 0,
         \ },
+        \
+        \ {
+        \   'input': ['<'],
+        \   'buns': ['\\\@<!".*\zs\\<', '>\ze.*\\\@<!"'],
+        \   'regex': 1,
+        \   'filetype': ['vim'],
+        \   'action': ['delete'],
+        \ },
         \ ]
 
   let recipes.escaped_brackets = [
