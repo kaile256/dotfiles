@@ -1,7 +1,5 @@
 ! From: .Xresources
 
-#include ".Xresources.d/colors"
-
 ! Colorscheme {{{1
 ! Neodark
 #define _fg        #bcbcbc
