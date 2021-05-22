@@ -12,7 +12,8 @@ require('hlslens').setup({
   -- Enable hlslens on searching
   auto_enable = true,
 
-  calm_down = true,
+  -- -- Finish searching as soon as cursor gets out of matched instance.
+  -- calm_down = true,
 
   override_lens = function(render, plist, nearest, idx, r_idx)
     -- r_idx: reverse index
