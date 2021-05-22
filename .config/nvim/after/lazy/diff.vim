@@ -15,6 +15,7 @@ set diffopt=
 "set diffopt=iwhite,iwhiteeol,iblank
 set diffopt+=filler,internal
 set diffopt+=closeoff,hiddenoff
+set diffopt+=followwrap
 set diffopt+=vertical
 set diffopt+=internal,indent-heuristic
 set diffopt+=algorithm:histogram
