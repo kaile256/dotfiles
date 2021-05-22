@@ -11,15 +11,15 @@ let g:openbrowser_browser_commands = [
       \ {'name': 'w3m',         'args': ['{browser}', '{uri}']},
       \ ]
 
-" 0: stay in vim; open browser in background
-"   Note: at 0, vim will freezes while browser is opened which had no process
-"   before openbrowser call it.
-" 1: go to the browser.
-" Note: tyru/open-browser.vim/autoload/vital/__openbrowser__/OpenBrowser/Config.vim @13
-"   " FIXME: 'background' doesn't work now on neovim.
-"   " https://github.com/tyru/open-browser.vim/issues/102
-"   let s:background = has('nvim') ? 0 : 1
-let g:openbrowser_force_foreground_after_open = 1
+" " 0: stay in vim; open browser in background
+" "   Note: at 0, vim will freezes while browser is opened which had no process
+" "   before openbrowser call it.
+" " 1: go to the browser.
+" " Note: tyru/open-browser.vim/autoload/vital/__openbrowser__/OpenBrowser/Config.vim @13
+" "   " FIXME: 'background' doesn't work now on neovim.
+" "   " https://github.com/tyru/open-browser.vim/issues/102
+" "   let s:background = has('nvim') ? 0 : 1
+" let g:openbrowser_force_foreground_after_open = 1
 
 " Let; Search Engine
 let g:openbrowser_default_search = 'duckduckgo'
