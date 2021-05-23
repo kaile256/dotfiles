@@ -346,8 +346,7 @@ function! s:set_rules() abort
           \ ]
 
     const Insert_a_space_before_cursor = [
-          \ {'char': '<C-Space>', 'at': '\%#\a', 'input': '',
-          \     'input_after': '<space>'},
+          \ {'char': '<S-Space>', 'input': '', 'input_after': '<space>'},
           \ ]
 
     let Spread_brackets = []
