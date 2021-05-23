@@ -114,6 +114,7 @@ on_ft = ['javascript']
 #[ Completion ]
 # [[plugins]]
 # repo = 'hrsh7th/nvim-compe'
+# # Often causes unexpected deletion.
 # if = 'has("nvim")'
 # on_func = ['compe#']
 # on_event = ['InsertEnter']
