@@ -34,7 +34,7 @@
 [mergetool "nvr"]
 	cmd = nvr -s -d $LOCAL $BASE $REMOTE $MERGED -c 'wincmd J | wincmd ='
 [mergetool "vim_mergetool"]
-	cmd = vim -f -c "MergetoolStart" "$MERGED" "$BASE" "$LOCAL" "$REMOTE"
+	cmd = "$GIT_EDITOR" -c "MergetoolStart" "$MERGED" "$BASE" "$LOCAL" "$REMOTE"
 	trustExitCode = true
 [mergetool "diffconflicts"]
 	# Repo: whiteinge/diffconflicts
