@@ -91,7 +91,8 @@
 #on_ft = ['python', 'yaml']
 #
 #[ Sign Column ]
-# [[plugins]]
-# # repo = 'lewis6991/foldsigns.nvim'
-# on_source = ['gitsigns.nvim']
-# hook_post_source = 'luafile $DEIN_RC_DIR/foldsigns/pos.lua'
+[[plugins]]
+repo = 'lewis6991/foldsigns.nvim'
+if = 'has("nvim")'
+on_source = ['gitsigns.nvim']
+hook_post_source = 'luafile $DEIN_RC_DIR/foldsigns/pos.lua'
