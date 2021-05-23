@@ -38,3 +38,5 @@ function! s:search_msg(direction) abort
 endfunction
 
 call s:search_msg('downward')
+" At the beginning, twice call it to set cursor at the second commit message.
+call s:search_msg('downward')
