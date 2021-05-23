@@ -78,7 +78,7 @@ hook_add = 'runtime add/fzf-gitswitch..vim'
 repo = 'liuchengxu/vim-clap'
 build = 'bash install.sh'
 on_cmd = 'Clap'
-hook_source = 'source $DEIN_RC_DIR/clap/sou.vim'
+hook_source = 'luafile $DEIN_RC_DIR/clap/sou.lua'
 
 #[ Filer ]
 # [[plugins]]
