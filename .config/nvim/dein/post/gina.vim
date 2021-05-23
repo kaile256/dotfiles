@@ -2,8 +2,6 @@
 " REPO: lambdalisue/gina.vim
 " Another: add/gina.vim
 
-" Status: fugitive's is better than Gina's.
-
 " Alias {{{1
 call gina#custom#command#alias('branch', 'br')
 call gina#custom#action#alias(
@@ -20,26 +18,32 @@ call gina#custom#action#alias(
       \)
 
 " Options {{{1
-call gina#custom#command#option('br', '-v', 'v')
-call gina#custom#command#option(
-      \ '/\%(log\|reflog\)',
-      \ '--opener', 'vsplit'
+call gina#custom#command#option('/\v%(diff)',
+      \ '--opener', 'bot vsplit'
       \)
-call gina#custom#command#option(
-      \ 'log', '--group', 'log-viewer'
+call gina#custom#command#option('/\v%(branch)',
+      \ '--opener', 'bel vsplit'
       \)
-call gina#custom#command#option(
-      \ 'reflog', '--group', 'reflog-viewer'
+call gina#custom#command#option('/\v%(compare)',
+      \ '--opener', 'tabe'
       \)
-call gina#custom#command#option(
-      \ 'commit', '-v|--verbose'
+call gina#custom#command#option('/\v%(log|reflog)',
+      \ '--opener', 'tabe'
       \)
-call gina#custom#command#option(
-      \ '/\%(status\|commit\)',
-      \ '-u|--untracked-files'
+
+call gina#custom#command#option('log',
+      \ '--group', 'log-viewer',
       \)
-call gina#custom#command#option(
-      \ '/\%(status\|changes\)',
+call gina#custom#command#option('reflog',
+      \ '--group', 'reflog-viewer'
+      \)
+call gina#custom#command#option('commit',
+      \ '--verbose',
+      \)
+call gina#custom#command#option('/\v%(status|commit)',
+      \ '--untracked-files'
+      \)
+call gina#custom#command#option('/\v%(status|changes)',
       \ '--ignore-submodules'
       \)
 
