@@ -152,6 +152,10 @@ nmap cs <Plug>(coc-rename)
 nmap cS <Plug>(coc-rename)
 nmap <silent> == <Cmd>QuickFormat<cr>
 
+" " <Plug>(coc-format-selected) doen't work.
+" nmap <expr> = CocHasProvider('format') ? '<Plug>(coc-format-selected)' : '='
+" xmap <expr> = CocHasProvider('format') ? '<Plug>(coc-format-selected)' : '='
+
 augroup myCocPrettier
   au FileType javascript,typescript,css,json call s:prettier()
 augroup END
