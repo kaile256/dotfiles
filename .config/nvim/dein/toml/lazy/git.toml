@@ -88,6 +88,13 @@ hook_source = 'runtime source/blamer.vim'
 #repo = 'RobertAudi/git-blame.vim'
 #on_func = ['gitblame#blame']
 
+#[ Diff ]
+[[plugins]]
+repo = 'sindrets/diffview.nvim'
+# Single tabpage interface to cycle diffs for all modified files at git-revs.
+if = 'has("nvim")'
+on_cmd = ['DiffviewOpen']
+hook_post_source = 'luafile $DEIN_RC_DIR/diffview/pos.lua'
 #[ Log ]
 #[[plugins]]
 #repo = 'junkblocker/git-time-lapse'
