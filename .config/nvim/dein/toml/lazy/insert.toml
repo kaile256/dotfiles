@@ -119,6 +119,10 @@ on_ft = ['javascript']
 # on_event = ['InsertEnter']
 # hook_add = 'source $DEIN_RC_DIR/compe/add.vim'
 # hook_post_source = 'luafile $DEIN_RC_DIR/compe/pos.lua'
+# [[plugins]]
+# repo = 'tzachar/compe-tabnine'
+# build = 'bash install.sh'
+# on_source = ['nvim-compe']
 #[[plugins]]
 #repo = 'Shougo/deoplete.nvim'
 ## good with eskk.vim

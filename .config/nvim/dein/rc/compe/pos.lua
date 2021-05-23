@@ -27,6 +27,12 @@ require'compe'.setup {
       },
     },
     path = true,
+    tabnine = {
+      --  priority = 90,
+      sort = false,
+      show_prediction_strength = true,
+      --  ignore_pattern = '',
+      },
     emoji = {
       filetypes = {
         'markdown',
