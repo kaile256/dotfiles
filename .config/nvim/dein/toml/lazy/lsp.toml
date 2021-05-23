@@ -15,6 +15,13 @@
 # depends = ['nvim-lspconfig']
 # on_ft = ['lua']
 # hook_post_source = 'luafile $DEIN_RC_DIR/lspcontainers/pos.lua'
+# [[plugins]]
+# repo = 'glepnir/lspsaga.nvim'
+# # Deal with built-in LSP in floating window.
+# if = 'has("nvim")'
+# depends = ['nvim-lspconfig']
+# on_lua = ['lspsaga']
+# on_cmd = ['Lspsaga']
 #
 #[ coc.nvim ]
 [[plugins]]
