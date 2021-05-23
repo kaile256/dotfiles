@@ -57,14 +57,10 @@ hook_source = 'runtime source/gitv.vim'
 ## Pros: as default, the date of update is written on top of lines
 #on_cmd = 'Flog'
 #hook_source = 'runtime source/flog.vim'
-
-#[[plugins]]
-#repo = 'junegunn/gv.vim'
-## Cons: no colors on tree of branches as default
-## ':GV!' for the current file; ':GV?' shows in location-list
-#type = 'git'
-#on_cmd = ['GV']
-#
+# [[plugins]]
+# repo = 'junegunn/gv.vim'
+# # ':GV!' for the current file; ':GV?' shows in location-list
+# on_cmd = ['GV']
 #[[plugins]]
 #repo = 'int3/vim-extradite'
 #type = 'git'
