@@ -3,18 +3,15 @@
 #[ built-in LSP ]
 # [[plugins]]
 # repo = 'neovim/nvim-lspconfig'
-# on_ft = ['lua']
-# # hook_post_source = 'luafile $DEIN_RC_DIR/lspconfig/pos.lua'
+# if = 'has("nvim")'
+# on_event = ['BufRead']
+# hook_post_source = 'luafile $DEIN_LUA_DIR/lspconfig/pos.lua'
 # [[plugins]]
-# repo = 'kabouzeid/nvim-lspinstall'
+# repo = 'lspcontainers/lspcontainers.nvim'
+# # Run and connect lsp in docker container(s).
+# if = 'has("nvim")'
 # depends = ['nvim-lspconfig']
-# on_cmd = ['LspInstall', 'LspUninstall']
-# [[plugins]]
-# # repo = 'lspcontainers/lspcontainers.nvim'
-# # Run and connect lsp in docker.
-# depends = ['nvim-lspconfig']
-# on_ft = ['lua']
-# hook_post_source = 'luafile $DEIN_RC_DIR/lspcontainers/pos.lua'
+# on_source = ['nvim-lspconfig']
 # [[plugins]]
 # repo = 'glepnir/lspsaga.nvim'
 # # Deal with built-in LSP in floating window.
@@ -22,6 +19,12 @@
 # depends = ['nvim-lspconfig']
 # on_lua = ['lspsaga']
 # on_cmd = ['Lspsaga']
+# [[plugins]]
+# repo = 'kabouzeid/nvim-lspinstall'
+# # Install binaries into $XDG_DATA_HOME/nvim/lspinstall.
+# if = 'has("nvim")'
+# depends = ['nvim-lspconfig']
+# on_cmd = ['LspInstall', 'LspUninstall']
 #
 #[ coc.nvim ]
 [[plugins]]
