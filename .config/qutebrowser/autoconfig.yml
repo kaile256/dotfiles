@@ -126,6 +126,7 @@ settings:
         <Alt+Shift+i>: fake-key <home>
         <Alt+Shift+o>: fake-key <shift-tab>
         <Alt+Shift+v>: fake-key <home><shift-end>
+        <Alt+Space>: hint inputs
         <Alt+[>: tab-prev
         <Alt+]>: tab-next
         <Alt+a>: fake-key <right>
