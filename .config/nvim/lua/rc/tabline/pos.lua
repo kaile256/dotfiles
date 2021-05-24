@@ -1,8 +1,6 @@
 -- TOML: appearance.toml
 -- Repo: seblj/nvim-tabline
 
-local vim = vim
-
 require('tabline').setup {
   no_name = '[No Name]', -- Name for buffers with no name
 
