@@ -176,6 +176,10 @@ build = '''
 repo = 'mattn/gist-vim'
 on_cmd = 'Gist'
 hook_source = 'runtime source/gist.vim'
+[[plugins]]
+repo = 'lambdalisue/vim-gista'
+if = 'executable("curl") || executable("wget")'
+on_cmd = ['Gista']
 
 #[ AtCoder ]
 [[plugins]]
