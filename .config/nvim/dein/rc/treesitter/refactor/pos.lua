@@ -1,6 +1,10 @@
 -- TOML: treesitter.toml
 -- Repo: nvim-treesitter/nvim-treesitter-refactor
 
+vim.cmd [[
+hi! TSCurrentScope cterm=bold gui=bold guibg=NONE
+]]
+
 require'nvim-treesitter.configs'.setup {
 
   refactor = {
