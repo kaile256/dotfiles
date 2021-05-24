@@ -12,11 +12,10 @@
 "   could be more complicated overwriting some default mappings like 'iW',
 "   'ip', 'i(' which may be already overwritten by other plugins.
 
-" Mnemonic: Global
-omap ig <Plug>(textobj-sandwich-auto-i)
-xmap ig <Plug>(textobj-sandwich-auto-i)
-omap ag <Plug>(textobj-sandwich-auto-a)
-xmap ag <Plug>(textobj-sandwich-auto-a)
+omap i<S-Space> <Plug>(textobj-sandwich-auto-i)
+xmap i<S-Space> <Plug>(textobj-sandwich-auto-i)
+omap a<S-Space> <Plug>(textobj-sandwich-auto-a)
+xmap a<S-Space> <Plug>(textobj-sandwich-auto-a)
 
 omap i<space> <Plug>(textobj-sandwich-query-i)<space>
 xmap i<space> <Plug>(textobj-sandwich-query-i)<space>
