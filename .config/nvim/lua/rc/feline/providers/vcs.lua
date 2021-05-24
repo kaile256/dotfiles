@@ -1,6 +1,5 @@
 -- Repo: famiu/feline.nvim
 
-local vim = vim
 local builtin_git = require('feline.providers.git')
 local signs = require('rc.feline.signs')
 local sep = signs.separator
