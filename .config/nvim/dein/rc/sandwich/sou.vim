@@ -22,3 +22,29 @@ let g:sandwich#magicchar#f#patterns = [
       \ },
       \ ]
 
+function! s:append_global_recipes(bufnr) abort
+  let bufnr = a:bufnr
+  let local_recipes = getbufvar(bufnr, 'sandwich_recipes')
+  if !empty(local_recipes)
+    let new_recipes = g:sandwich#recipes + local_recipes
+    call setbufvar(bufnr, 'sandwich_recipes', new_recipes)
+  endif
+
+  let local_f_patterns = getbufvar(bufnr, 'sandwich_magicchar_f_patterns')
+  if !empty(local_f_patterns)
+    let new_fpats = g:sandwich#magicchar#f#patterns + local_f_patterns
+    call setbufvar(bufnr, 'sandwich_magicchar_f_patterns', new_fpats)
+  endif
+endfunction
+
+" Because of lazy-load, recipes and f_patterns possibly defined such as in
+" ftplugin/ are incomplete; append global ones which are defined just after
+" this plugin has been loaded.
+for s:bufnr in range(1, bufnr('$'))
+  call s:append_global_recipes(s:bufnr)
+endfor
+unlet s:bufnr
+
+augroup mySandwich/appendGlobalRecipes
+  au FileType * call s:append_global_recipes(bufnr())
+augroup END
