@@ -2,6 +2,18 @@ snippet .PHONY "Regard the targets as make commands" b
 .PHONY: ${1:all}
 endsnippet
 
+snippet ifeq "Define if block" b
+ifeq ${1:funcname}
+	${2:${VISUAL}}
+endif
+endsnippet
+
+snippet define "Define function" b
+define ${1:funcname}
+	${2:${VISUAL}}
+endef
+endsnippet
+
 priority 0
 snippet '(\S+):' "Description" br
 .PHONY: `!p snip.rv = match.group(1)`
