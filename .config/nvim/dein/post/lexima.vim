@@ -637,6 +637,21 @@ function! s:set_rules() abort
         \ ]
   let group2rules.Vim += Vim_DescribeMarkPos
 
+  let group2rules.lua = [] "{{{1
+
+  let group2rules.lua += [
+        \ {
+        \   'char': "'",
+        \   'at': 'require\%#',
+        \   'input_after': "'",
+        \ },
+        \ {
+        \   'char': '"',
+        \   'at': 'require\%#',
+        \   'input_after': '"',
+        \ },
+        \ ]
+
   let group2rules.cpp = [] "{{{1
 
   let group2rules.cpp += [

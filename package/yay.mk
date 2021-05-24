@@ -20,6 +20,9 @@ nerd-fonts-jetbrains-mono
 ttf-font-icons  # Mix Icon with Awesome & Ionicons without Confliction.
 ttf-twemoji-color # SVG-in-OpenType emoji fonts by Twitter
 
+# System
+strace
+
 # Shell
 fish
 tmux
