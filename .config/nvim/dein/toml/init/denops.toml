@@ -1,0 +1,12 @@
+# From: dein.vim
+
+# Note: To disable denops plugins, delete dein's cache directly; commenting out
+# these plugins tables won't disable them.
+
+# [[plugins]]
+# repo = 'vim-denops/denops.vim'
+# # VimEnter to manage the modules, and the modules are loaded in other thread.
+#
+# [[plugins]]
+# # repo = 'yukimemi/dps-autocursor'
+# # Auto cursorline/cursorcolumn using `setTimeout`.
