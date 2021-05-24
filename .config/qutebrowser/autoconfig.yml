@@ -246,6 +246,7 @@ settings:
         <Ctrl+w>Q: close
         <Ctrl+w>R: devtools right
         <Ctrl+w>T: tab-give
+        <Ctrl+w>U: undo --window
         <Ctrl+w>Z: close
         <Ctrl+w>c: session-save --quiet last;; tab-close
         <Ctrl+w>f: hint links window
