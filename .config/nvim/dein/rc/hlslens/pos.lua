@@ -15,41 +15,37 @@ require('hlslens').setup({
   -- -- Finish searching as soon as cursor gets out of matched instance.
   -- calm_down = true,
 
-  override_lens = function(render, plist, nearest, idx, r_idx)
-    -- r_idx: reverse index
-
-    local sfw = vim.v.searchforward == 1
-    local indicator, text, chunks
-    local abs_r_idx = math.abs(r_idx)
-
-    local hl_group = 'HlSearchLens'
+  ---@param pos_list table[number]
+  ---@param idx number: an index for pos_list.
+  ---@param r_idx number: the relative index to current cursor position.
+  override_lens = function(render, pos_list, _, idx, r_idx)
     local ind_above = '▲'
     local ind_below = '▼'
 
-    if abs_r_idx > 1 then
-      indicator = ('%d%s'):format(abs_r_idx, sfw == (r_idx > 1) and ind_below or ind_above)
-    elseif abs_r_idx == 1 then
-      indicator = sfw == (r_idx == 1) and ind_below or ind_above
-    else
-      indicator = ''
-    end
-
-    local row, col = unpack(plist[idx])
-    local steps = #plist
-    if not nearest then
-      text = ('[%s %d]'):format(indicator, idx)
-    elseif indicator == '' then
+    local text, hl_group
+    local matches = #pos_list
+    if r_idx == 0 then
       -- For the match the very beginning of which cursor attaches.
-      text = ('[%d/%d]'):format(idx, steps)
+      text = ('[%d/%d]'):format(idx, matches)
+      hl_group = 'HlSearchNear'
     else
-      -- For the other matches around.
-      text = ('[%s %d/%d]'):format(indicator, idx, steps)
-      hl_group = 'HlSearchLensNear'
+      local distance = math.abs(r_idx)
+      local sfw = vim.v.searchforward == 1
+      local ind_direction = sfw == (r_idx > 0) and ind_below or ind_above
+      if distance == 1 then
+        local indicator = ind_direction
+        text = ('[%s %d]'):format(indicator, idx)
+        hl_group = 'HlSearchLensNear'
+      else
+        local indicator = ('%d%s'):format(distance, ind_direction)
+        text = ('[%s %d/%d]'):format(indicator, idx, matches)
+        hl_group = 'HlSearchLens'
+      end
     end
 
-    text = text
-    chunks = {
-      { ' ', 'Ignore' },
+    local row, col = unpack(pos_list[idx])
+    local chunks = {
+      -- { ' ', 'Ignore' },
       { text, hl_group },
     }
     render.set_virt(0, row - 1, col - 1, chunks, {})
