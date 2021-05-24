@@ -802,3 +802,7 @@ luac.out
 
 
 !*.d/
+
+*.tmp
+tmp-*
+tmp/
