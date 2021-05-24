@@ -226,6 +226,15 @@ function! s:devise_recipes() abort
         \ },
         \ ]
 
+  let recipes.generic = [
+        \ {
+        \   'buns': ['\<\%(\h\k*\.\)*\h\k*<', '>'],
+        \   'regex': 1,
+        \   'action': ['delete'],
+        \   'input': ['g'],
+        \ },
+        \ ]
+
   let recipes.function = [
         \ {
         \   'buns': ['sandwich#magicchar#f#fname()', '")"'],
