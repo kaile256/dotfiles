@@ -1,4 +1,4 @@
-LIST_EXT := mk
+LIST_EXT := list
 
 # echo -e '\n' is useless in foreach.
 define \n :=
