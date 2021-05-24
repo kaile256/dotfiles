@@ -77,6 +77,7 @@ function! s:path.vim() abort
     exe 'setlocal path^='. nvim_config_home .'/dein'
     exe 'setlocal path^='. nvim_config_home .'/dein/toml/*'
     exe 'setlocal path^='. nvim_config_home .'/lua'
+    exe 'setlocal path^='. nvim_config_home .'/after'
   endif
 
   exe 'setl path-='. &g:path
