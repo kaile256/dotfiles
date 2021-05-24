@@ -5,6 +5,9 @@ function! s:extend_match_words() abort
         \ ['\\\@<!%(', '\\\@<!)'],
         \ ['\\%(', '\\\@<!\\)'],
         \ ['\\(', '\\\@<!\\)'],
+        \
+        \ ['\c<cmd>', '\c<cr>'],
+        \ ['\c".*\zs\\<cmd>', '\c\\<cr>\ze.*"'],
         \ ]
 
   const pats = map(deepcopy(pairs), 'join(v:val, ":")')
