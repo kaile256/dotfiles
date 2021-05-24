@@ -9,7 +9,7 @@ augroup myCoc-Keywordprg
   au BufWinEnter coc-settings.json setlocal keywordprg=:help
 augroup END
 
-nnoremap <silent> zK :<C-u>call CocActionAsync('doHover')<CR>
+nnoremap <silent> <C-]> :<C-u>call CocActionAsync('doHover')<CR>
 
 function! s:CommandList(...) abort
   let list = coc#rpc#request('CommandList', a:000)
