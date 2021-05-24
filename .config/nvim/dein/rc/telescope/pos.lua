@@ -79,6 +79,7 @@ require('telescope').setup{
       },
 
       n = {
+        ["<C-c>"] = actions.close,
         ["<Esc>"] = actions.close,
 
         ["<CR>"] = actions.select_default + actions.center,
