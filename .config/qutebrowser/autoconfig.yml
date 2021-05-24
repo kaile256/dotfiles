@@ -252,6 +252,7 @@ settings:
         <Ctrl+w>f: hint links window
         <Ctrl+w>gT: tab-clone ;; tab-give
         <Ctrl+w>gc: spawn -d google-chrome-stable {url:pretty}
+        <Ctrl+w>gf: spawn -d firefox {url:pretty}
         <Ctrl+w>h: tab-move -
         <Ctrl+w>l: tab-move +
         <Ctrl+w>n: open -w
