@@ -21,9 +21,12 @@ require('telescope').setup{
     prompt_prefix = ">",
     selection_strategy = "reset", -- reset, row, follow
     sorting_strategy = "ascending",
-    layout_strategy = "horizontal",
-    layout_defaults = {
-      -- TODO add builtin options.
+
+    layout_strategy = "horizontal", -- horizontal, vertical, or flex.
+    layout_default = {
+      horizontal = {
+        mirror = true,
+      },
     },
 
     file_sorter =  require'telescope.sorters'.get_fuzzy_file,
