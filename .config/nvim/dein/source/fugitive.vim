@@ -45,8 +45,6 @@ function! s:fugitive_keymap() abort "{{{3
         \ :<c-u>wincmd p <bar> Gw <bar> GwToDiff HEAD <bar> Gvstatus<cr>
   nnoremap <script><buffer> D <SID>(fugitive:diff-to-HEAD)
 
-  nnoremap <buffer><silent> cc :<c-u>bot 20 Gcommit<cr>
-  nnoremap <buffer><silent> ca :<c-u>bot 20 Gcommit --amend<cr>
   " To: continue to cc/ce/ca.
   xnoremap <buffer> c sc
   nnoremap <silent><buffer> R :<C-u>call <SID>git_reset()<CR>
