@@ -184,6 +184,7 @@ lib32-apulse # for 32 bit programs like Wine
 pulseaudio-alsa # alsa config for pulseaudio
 pulseaudio-ctl # pulseaudio from shell
 pulseaudio-modules-bt-git # pulseaudio with bluetooth support
+pulseaudio-bluetooth # pulseaudio with bluetooth support
 chrony # an alternative to ntp client/server
 # j4-dmenu-desktop # search desktop applications
 google-chrome
