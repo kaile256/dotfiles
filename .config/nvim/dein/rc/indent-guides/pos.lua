@@ -2,8 +2,8 @@
 -- Repo: glepnir/indent-guides.nvim
 
 require('indent_guides').setup {
-  indent_levels = 20, -- the max indent level to detect
-  indent_guide_size = 2,
+  indent_levels = 12, -- the max indent level to detect
+  indent_guide_size = 8, -- Max width to indicate indent.
   indent_start_level = 1,
 
   indent_enable = true,
