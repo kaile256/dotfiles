@@ -2,8 +2,6 @@
 -- Repo: nvim-treesitter/nvim-treesitter
 -- From: source/treesitter.vim
 
-local vim = _G.vim
-
 -- Ref: Use rainbow bracket together with treesitter
 --      https://github.com/luochen1990/rainbow/issues/151
 require'nvim-treesitter.highlight'
