@@ -13,6 +13,9 @@
 # depends = ['nvim-lspconfig']
 # on_source = ['nvim-lspconfig']
 # [[plugins]]
+# repo = 'tamago324/nlsp-settings.nvim'
+# # Let us write config in json like coc.nvim.
+# [[plugins]]
 # repo = 'glepnir/lspsaga.nvim'
 # # Deal with built-in LSP in floating window.
 # if = 'has("nvim")'
