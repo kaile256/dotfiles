@@ -42,20 +42,6 @@ on_map  = {nvi = ['<Plug>(coc-']}
 on_event = 'BufRead'
 hook_add = 'source $DEIN_RC_DIR/coc/add.vim'
 hook_source = 'source $DEIN_RC_DIR/coc/sou.vim'
-hook_done_update = '''
-e $DEIN_GITHUB_DIR/neoclide/coc.nvim_release/plugin/coc.vim
-" For: vim-fugitive creates invalid id buffer.
-" use expand('%:p'), not '<abuf>'
-g;BufEnter;v;\.git/;g;call;norm! niif expand('%:p') !~# '\.git/' |
-g;BufEnter;v;endif;norm! A | endif
-write
-"" For: rename :CocFoo to :Cfoo in the local-repo.
-"" CocFoo is used by the other coc-extentions; should not be replaced.
-"let s:CocUpper2Clower = 'dgnguliC'
-"g/command!/g/Coc/copy. | exe 'norm!' s:CocUpper2Clower
-"unlet s:CocUpper2Clower
-"write
-'''
 [[plugins]]
 repo = 'antoinemadec/coc-fzf'
 # Useless to select another options.
