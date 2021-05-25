@@ -10,4 +10,4 @@ nmap \c <Plug>(Exchange)
 nmap \cc <Plug>(ExchangeLine)
 nmap \C <Plug>(Exchange)$
 
-nmap \c<C-h> <Plug>(ExchangeClear)
+nmap \c<C-c> <Plug>(ExchangeClear)
