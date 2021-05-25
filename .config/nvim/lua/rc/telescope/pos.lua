@@ -5,7 +5,7 @@ local actions = require('telescope.actions')
 
 local action_prefix = '<C-\\>'
 
-require('telescope').setup{
+require('telescope').setup {
   defaults = {
     vimgrep_arguments = {
       'rg',
