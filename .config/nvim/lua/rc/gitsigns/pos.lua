@@ -1,8 +1,6 @@
 -- TOML: git.toml
 -- Repo: lewis6991/gitsigns.nvim
 
-local vim = vim
-
 vim.cmd [[
 source $DEIN_LUA_DIR/gitsigns/keymap.vim
 ]]
