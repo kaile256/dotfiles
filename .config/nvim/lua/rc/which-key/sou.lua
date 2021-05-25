@@ -26,12 +26,12 @@ require("which-key").setup {
   -- to enable all native operators, set the preset / operators plugin above
   operators = { gc = "Comments" },
 
-  key_labels = {
-    -- Override the label used to display some keys. It doesn't effect WK in any other way.
-    ["<Space>"] = "SPC",
-    ["<CR>"]  = "RET",
-    ["<TAB>"] = "TAB",
-  },
+  --  key_labels = {
+  --    -- Override the label used to display some keys. It doesn't effect WK in any other way.
+  --    ["<Space>"] = "SPC",
+  --    ["<CR>"]  = "RET",
+  --    ["<TAB>"] = "TAB",
+  --  },
 
   icons = {
     breadcrumb = "»", -- symbol used in the command line area that shows your active key combo
