@@ -81,6 +81,8 @@ on_cmd = ['Hop']
 hook_add = 'luafile $DEIN_RC_DIR/hop/add.lua'
 [[plugins]]
 repo = 'easymotion/vim-easymotion'
+# Note: As it temporarily replaces characters in buffers for hinting,
+# asynchronous plugins working with lsp or linters find them errors.
 on_map = {nox = '<Plug>(easymotion-'}
 on_func = ['EasyMotion#S', 'EasyMotion#T']
 # hook_add = 'runtime add/easymotion.vim'
