@@ -6,11 +6,13 @@ scriptencoding utf-8
 
 nnoremap <expr> <C-g> eskk#is_enabled() ? eskk#disable() : '<C-g>'
 
-augroup myEskkSo-ToggleCocConfig
-  " Makeshift for `[coc.nvim] error: Some plugin change completeopt on insert mode`
-  au User eskk-enable-pre  call coc#config('suggest', {'autoTrigger': 'trigger'})
-  au User eskk-disable-pre call coc#config('suggest', {'autoTrigger': 'always'})
-augroup END
+if dein#tap('coc.nvim')
+  augroup myEskkSo-ToggleCocConfig
+    " Makeshift for `[coc.nvim] error: Some plugin change completeopt on insert mode`
+    au User eskk-enable-pre  call coc#config('suggest', {'autoTrigger': 'trigger'})
+    au User eskk-disable-pre call coc#config('suggest', {'autoTrigger': 'always'})
+  augroup END
+endif
 
 augroup myEskkSo-ToggleTextwidth
   " Note: eskk with &tw > 0 disturbs `henkan` state.
