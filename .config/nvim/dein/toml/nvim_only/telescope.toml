@@ -2,37 +2,38 @@
 repo = 'nvim-telescope/telescope.nvim'
 on_cmd = 'Telescope'
 depends = ['popup.nvim', 'plenary.nvim']
-hook_add = 'source $DEIN_RC_DIR/telescope/add.vim'
-hook_post_source = 'luafile $DEIN_RC_DIR/telescope/pos.lua'
+hook_add = 'source $DEIN_LUA_DIR/telescope/add.vim'
+hook_post_source = 'luafile $DEIN_LUA_DIR/telescope/pos.lua'
 
 [[plugins]]
 repo = 'nvim-telescope/telescope-github.nvim'
 on_source = 'telescope.nvim'
-hook_post_source = 'luafile $DEIN_RC_DIR/telescope/github/pos.lua'
+hook_post_source = 'luafile $DEIN_LUA_DIR/telescope/github/pos.lua'
 [[plugins]]
 repo = 'nvim-telescope/telescope-vimspector.nvim'
 on_source = 'vimspector'
-hook_post_source = 'luafile $DEIN_RC_DIR/telescope/vimspector/pos.lua'
+hook_post_source = 'luafile $DEIN_LUA_DIR/telescope/vimspector/pos.lua'
 # [[plugins]]
 # repo = 'nvim-telescope/telescope-symbols.nvim'
 # Insert symbols like Emoji which is listed in `data/telescope-sources/*.json`
 # # at &ftp.
 # on_source = ['telescope.nvim']
-# hook_add = 'source $DEIN_RC_DIR/telescope/symbols/add.vim'
+# hook_add = 'source $DEIN_LUA_DIR/telescope/symbols/add.vim'
 
 [[plugins]]
 repo = 'pwntester/octo.nvim'
 # Edit issues, PRs, etc., of GitHub
 depends = ['plenary.nvim', 'telescope.nvim']
 on_cmd = 'Octo'
+hook_post_source = 'luafile $DEIN_LUA_DIR/telescope/octo/pos.lua'
 
 [[plugins]]
 repo = 'fannheyward/telescope-coc.nvim'
 depends = ['coc.nvim']
 on_source = ['telescope.nvim']
-hook_post_source = 'luafile $DEIN_RC_DIR/telescope/coc/pos.lua'
+hook_post_source = 'luafile $DEIN_LUA_DIR/telescope/coc/pos.lua'
 
 [[plugins]]
 repo = 'DevonMorris/telescope-docker.nvim'
 if = 'executable("docker")'
-hook_post_source = 'luafile $DEIN_RC_DIR/telescope/docker/pos.lua'
+hook_post_source = 'luafile $DEIN_LUA_DIR/telescope/docker/pos.lua'
