@@ -1,12 +1,15 @@
 -- TOML: lsp.toml
 -- Repo: neovim/nvim-lspconfig
 
--- local lspcontainers = require'lspcontainers'
--- local lspcontainers = pcall(require, 'lspcontainers') or {}
+---@diagnostic disable-next-line Unused function
+local set_cmd = function()
+  local enabled, lspcontainers = pcall(require, 'lspcontainers')
+  return enabled
+    and lspcontainers.command('sumneko_lua')
+    or { '/usr/bin/lua-language-server' }
+end
 
 local config = {
-  --  cmd = lspcontainers.command'sumneko_lua',
-  --  cmd = pcall(lspcontainers.command, 'sumneko_lua') or { '/usr/bin/lua-language-server' },
   cmd = { '/usr/bin/lua-language-server' },
 
   settings = {
