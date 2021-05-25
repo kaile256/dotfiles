@@ -11,4 +11,3 @@ nmap \cc <Plug>(ExchangeLine)
 nmap \C <Plug>(Exchange)$
 
 nmap \c<C-h> <Plug>(ExchangeClear)
-xmap \c<C-h> <Plug>(ExchangeClear)
