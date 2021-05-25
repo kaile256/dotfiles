@@ -2,6 +2,8 @@
 " Repo: tommcdo/vim-exchange
 " Another: source/exchange.vim
 
+hi! link ExchangeRegion DiffChange
+
 " Note: all the mappings are dot-repeatable.
 xmap \c <Plug>(Exchange)
 
