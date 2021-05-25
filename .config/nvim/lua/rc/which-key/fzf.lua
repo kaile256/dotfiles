@@ -1,8 +1,6 @@
 -- TOML: default.toml
 -- Repo: liuchengxu/vim-which-key
 
-local vim = vim
-
 local fzf = {
   N = {':Nmaps', 'Show Nmaps'},
   I = {':Imaps', 'Show Imaps'},
