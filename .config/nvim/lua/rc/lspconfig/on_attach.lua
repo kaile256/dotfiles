@@ -1,9 +1,6 @@
-local on_attach = function(client, bufnr)
+local set_keymaps = function(client, bufnr)
 
   local buf_set_keymap = function(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
-  local buf_set_option = function(...) vim.api.nvim_buf_set_option(bufnr, ...) end
-
-  buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
 
   local opts = { noremap=true, silent=true, nowait=true }
   buf_set_keymap('n', 'gd', '<Cmd>lua vim.lsp.buf.definition()<CR>', opts)
@@ -32,6 +29,14 @@ local on_attach = function(client, bufnr)
   if client.resolved_capabilities.document_range_formatting then
     buf_set_keymap('n', '=', '<Cmd>lua vim.lsp.buf.range_formatting()<CR>', opts)
   end
+end
+
+
+local on_attach = function(client, bufnr)
+  set_keymaps(client, bufnr)
+
+  local buf_set_option = function(...) vim.api.nvim_buf_set_option(bufnr, ...) end
+  buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
 end
 
 return on_attach
