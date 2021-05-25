@@ -35,7 +35,7 @@ local servers = {
   stylelint_lsp = {},
   sumneko_lua = require'rc.lspconfig.lua',
   tsserver = {},
-  vimls = {},
+  vimls = require'rc.lspconfig.vim',
   yamlls = {},
 }
 
