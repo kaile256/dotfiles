@@ -9,6 +9,7 @@
 # [[plugins]]
 # repo = 'lspcontainers/lspcontainers.nvim'
 # # Run and connect lsp in docker container(s).
+# # Supported LSs: lspcontainers/lspcontainers.nvim/lua/lspcontainers/init.lua
 # if = 'has("nvim")'
 # depends = ['nvim-lspconfig']
 # on_source = ['nvim-lspconfig']
