@@ -73,14 +73,28 @@ function! s:devise_recipes() abort
 
   let recipes.triple_quotes = [
         \ {
+        \   'input': ["'"],
         \   'buns': ["'''", "'''"],
-        \   'input': ["g'"],
         \   'nesting': 0,
+        \   'motionwise': ['line'],
+        \   'linewise': 2,
+        \   'action': ['add'],
         \ },
         \ {
+        \   'input': ['"'],
         \   'buns': ['"""', '"""'],
-        \   'input': ['g"'],
         \   'nesting': 0,
+        \   'motionwise': ['line'],
+        \   'linewise': 2,
+        \   'action': ['add'],
+        \ },
+        \ {
+        \   'input': ['`'],
+        \   'buns': ['```', '```'],
+        \   'nesting': 0,
+        \   'motionwise': ['line'],
+        \   'linewise': 2,
+        \   'action': ['add'],
         \ },
         \ ]
 
