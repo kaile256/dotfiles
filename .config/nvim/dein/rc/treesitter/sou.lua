@@ -50,3 +50,68 @@ require'nvim-treesitter.configs'.setup {
     },
   },
 }
+
+-- TODO: Activate it if neovim installs autocmd handler.
+--  local filetypes_excluded = {
+--    'json',
+--    'toml',
+--    'yaml',
+--  }
+--
+--  local filetypes_available = {
+--    'c',
+--    'cpp',
+--    'css',
+--    'dart',
+--    'go',
+--    'html',
+--    'java',
+--    'javascript',
+--    'javascriptreact',
+--    'json',
+--    'jsonc',
+--    'julia',
+--    'lua',
+--    'nix',
+--    'ocaml',
+--    'php',
+--    'python',
+--    'rst',
+--    'ruby',
+--    'rust',
+--    'scala',
+--    'sh',
+--    'swift',
+--    'toml',
+--    'typescript',
+--    'typescriptreact',
+--    'vue',
+--    'yaml',
+--  }
+--
+--  local filetypes_activated = {}
+--  for _, ft in filetypes_available do
+--    for _, ft_x in filetypes_excluded do
+--      if ft ~= ft_x then
+--        filetypes_activated[ft] = true
+--      end
+--    end
+--  end
+--
+--  local overwrite_foldexpr = function()
+--    local fdm = vim.wo.foldmethod
+--    if fdm == 'manual' or fdm == 'syntax' then return end
+--    if filetypes_activated[vim.bo.filetype] == nil then return end
+--    vim.wo.foldmethod = 'expr'
+--    vim.wo.foldexpr = 'nvim_treesitter#foldexpr()'
+--  end
+--
+--  vim.cmd([[
+--  augroup myTreesitterSou-WithTreesitterActivated,DisableLocalSyntaxDetection
+--  exe 'au FileType' join(]] .. filetypes_activated .. [[, ',') 'setlocal syntax='
+--  augroup END
+--
+--  augroup myTreesittter-setFoldExpr
+--  au FileType * call overwrite_foldexpr()
+--  augroup END
+--  ]])
