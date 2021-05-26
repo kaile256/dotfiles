@@ -372,6 +372,7 @@ function! s:devise_recipes() abort
         \ },
         \ ]
 
+  " Note: `I` to reproduce the last inputs for `i`.
   let recipes.instant = [
         \ {
         \   'buns': 'sandwich#magicchar#i#input("operator")',
