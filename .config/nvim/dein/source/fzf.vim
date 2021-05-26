@@ -62,6 +62,11 @@ let g:fzf_history_dir = '~/.local/share/fzf-history'
 "" args: down/up/left/right
 
 " on Fzf Buffer; Color Config {{{1
+if executable('bat')
+  " The preview color including its cursorline determined by previewer.
+  let $FZF_PREVIEW_COMMAND = "COLORTERM=truecolor bat --theme 'Monokai Extended Bright' --style=numbers --color=always {}"
+endif
+
 let g:fzf_colors = {
       \ 'fg':      ['fg', 'None'],
       \ 'bg':      ['bg', 'None'],
