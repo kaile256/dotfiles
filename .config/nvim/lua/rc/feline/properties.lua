@@ -24,7 +24,13 @@ properties.force_inactive.filetypes = {
 }
 
 properties.force_inactive.buftypes = {
+  'acwrite',
+  'help',
+  'nofile',
+  'nowrite',
+  'quickfix',
   'terminal',
+  'prompt',
 }
 
 return properties
