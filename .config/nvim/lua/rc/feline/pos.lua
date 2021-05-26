@@ -1,8 +1,6 @@
 -- TOML: appearance.toml
 -- Repo: famiu/feline.nvim
 
-local vim = _G.vim
-
 vim.o.showmode = false
 
 local colors = require('rc.feline.colors')
