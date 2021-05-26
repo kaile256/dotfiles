@@ -16,6 +16,8 @@ properties.force_inactive.filetypes = {
   'fugitive',
   'fugitiveblame',
   'fzf',
+  'gitcommit',
+  'gitrebase',
   'packer',
   'startify',
   'twiggy',
