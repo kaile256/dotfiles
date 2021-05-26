@@ -20,8 +20,9 @@ local diagnostics_counts = function (bufnr)
   bufnr = bufnr or vim.fn.bufnr()
   local default = {
     error = 0,
-    hint = 0,
     warning = 0,
+    info = 0,
+    hint = 0,
     style_error = 0,
     style_warning = 0,
   }
