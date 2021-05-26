@@ -1,4 +1,4 @@
-local vim = vim
+local lsp = vim.lsp
 local colors = require('rc.feline.colors')
 local separators = require('rc.feline.separators')
 
@@ -26,8 +26,23 @@ local diagnostics_counts = function (bufnr)
     style_error = 0,
     style_warning = 0,
   }
-  -- Note: Without merging with default, ale#statusline#Count() possibly returns empty dictionary.
-  local counts = vim.tbl_extend('keep', vim.fn['ale#statusline#Count'](bufnr), default)
+  local counts = {}
+  if lsp.buf_get_clients(bufnr) ~= {} then
+    counts.error   = lsp.diagnostic.get_count(bufnr, "Error")
+    counts.warning = lsp.diagnostic.get_count(bufnr, "Warning")
+    counts.info    = lsp.diagnostic.get_count(bufnr, "Information")
+    counts.hint    = lsp.diagnostic.get_count(bufnr, "Hint")
+  else
+    local output
+    _, output = pcall(vim.fn['ale#statusline#Count'], bufnr)
+    if type(output) == "table" then
+      counts = output
+    else
+      -- TODO: show the error message without interruption.
+    end
+  end
+  -- Note: Without merging with default, counts possibly returns empty dictionary.
+  counts = vim.tbl_extend('keep', counts, default)
   return counts
 end
 
