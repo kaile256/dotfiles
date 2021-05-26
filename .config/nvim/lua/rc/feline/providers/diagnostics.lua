@@ -17,7 +17,7 @@ local diagnostics = {
 }
 
 local diagnostics_counts = function (bufnr)
-  bufnr = bufnr or vim.fn.bufnr()
+  bufnr = bufnr or vim.api.nvim_get_current_buf() or vim.fn.bufnr()
   local default = {
     error = 0,
     warning = 0,
