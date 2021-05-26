@@ -1,3 +1,13 @@
+local is_repmo_enabled = vim.fn['dein#tap']('repmo-vim')
+local next_diagnostic = '<Cmd>lua vim.lsp.diagnostic.goto_next()<CR>'
+local prev_diagnostic = '<Cmd>lua vim.lsp.diagnostic.goto_prev()<CR>'
+
+if is_repmo_enabled then
+  next_diagnostic, prev_diagnostic =
+    [[repmo#Key('<Cmd>lua vim.lsp.diagnostic.goto_next()<CR>', '<Cmd>lua vim.lsp.diagnostic.goto_prev()<CR>')]],
+    [[repmo#Key('<Cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', '<Cmd>lua vim.lsp.diagnostic.goto_next()<CR>')]]
+end
+
 local set_keymaps = function(client, bufnr)
 
   local buf_set_keymap = function(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
@@ -17,8 +27,8 @@ local set_keymaps = function(client, bufnr)
   -- buf_set_keymap('n', '<space>wr', '<Cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>', opts)
   -- buf_set_keymap('n', '<space>wl', '<Cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', opts)
 
-  buf_set_keymap('n', '[x', '<Cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', opts)
-  buf_set_keymap('n', ']x', '<Cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
+  buf_set_keymap('n', '[x', prev_diagnostic, { noremap=false, nowait=true, expr=true })
+  buf_set_keymap('n', ']x', next_diagnostic, { noremap=false, nowait=true, expr=true })
   buf_set_keymap('n', 'gx', '<Cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>', opts)
   buf_set_keymap('n', 'gX', '<Cmd>lua vim.lsp.diagnostic.set_loclist()<CR>', opts)
 
