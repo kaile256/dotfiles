@@ -18,7 +18,7 @@ local colors = {
   {'#e7cc3e', 'Yellow'},
   {'#be7cf3', 'Magenta'},
   {'#f2b7e2', 'LightRed'},
-  {'#fb9270', 'Orange'},
+  {'#fb9270', 'Brown'},
   {'#56cd8e', 'Green cterm=bold'},
   {'#e7585b', 'Red'},
   -- {'#558df5', 'Blue cterm=bold'},
