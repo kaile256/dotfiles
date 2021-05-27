@@ -2,6 +2,12 @@
 " Repo: machakann/vim-sandwich
 " Fork: kaile256/vim-sandwich
 
+if dein#tap('vim-repeat')
+  call dein#source('vim-repeat')
+  runtime autoload/repeat.vim
+  nmap . <Plug>(operator-sandwich-predot)<Plug>(RepeatDot)
+endif
+
 " Note: The documentations are splitted into three:
 "   - sandwich
 "   - textobj-sandwich
