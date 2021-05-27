@@ -1,6 +1,7 @@
 -- Ref: lspconfig/diagnosticls.lua
 
 local linters = {
+  -- TODO: Activate markdownlint
   markdownlint = {
     sourceName = "markdownlint",
     command = vim.env.HOME .. '/.yarn/bin/markdownlint',
@@ -8,6 +9,13 @@ local linters = {
     rootPatterns = { ".git" },
     debounce = 100,
   },
+  -- TODO: Activate shellcheck
+  shellcheck = {
+    sourceName = "shellcheck",
+    command = vim.env.HOME .. '/.yarn/bin/shellcheck',
+    --  args = { "--format=gcc", "-" },
+    --  requiredFiles = { ".shellcheck", "shellcheckrc" } -- Only run if these files exist.
+  }
 }
 
 
@@ -17,14 +25,15 @@ local formatters = {
 
 local config = {
   filetypes = {
-    "lua", -- For async formatter
-    "markdown", -- markdownlint
+    "lua",
+    "markdown",
+    "sh",
   },
 
   init_options = {
     linters = linters,
     filetypes = {
-      -- TODO: Activate markdownlint
+      sh = { "shellcheck" },
       markdown = { "markdownlint" },
     },
 
