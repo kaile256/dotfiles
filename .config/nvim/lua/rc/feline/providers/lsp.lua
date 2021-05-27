@@ -2,7 +2,7 @@ local vim = vim
 
 local lsp = {}
 
-lsp.loading = {
+local coc_loading = {
   enabled = vim.g.coc_status ~= nil,
   provider = function ()
     local loading_stat = vim.fn['coc#status']() or '100%'
@@ -12,5 +12,7 @@ lsp.loading = {
     return ''
   end
 }
+
+lsp.loading = coc_loading
 
 return lsp
