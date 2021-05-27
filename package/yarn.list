@@ -18,5 +18,5 @@ vim-language-server
 yaml-language-server
 bash-language-server
 diagnostic-languageserver
-dockerfile-language-server-nodejs
+dockerfile-language-server-nodejs # Run as docker-langserver
 intelephense # a LSP server for php
