@@ -15,13 +15,13 @@ require'nvim-treesitter.configs'.setup {
 -- Only 1 to 7 colors work.
 local colors = {
   {'#dadada', '253'},
-  {'#e7cc3e', 'yellow'},
-  {'#be7cf3', 'magenta'},
-  {'#f2b7e2', 'pink'},
-  {'#fb9270', 'orange'},
-  {'#56cd8e', 'green cterm=bold'},
-  {'#e7585b', 'red'},
-  -- {'#558df5', 'blue cterm=bold'},
+  {'#e7cc3e', 'Yellow'},
+  {'#be7cf3', 'Magenta'},
+  {'#f2b7e2', 'LightRed'},
+  {'#fb9270', 'Orange'},
+  {'#56cd8e', 'Green cterm=bold'},
+  {'#e7585b', 'Red'},
+  -- {'#558df5', 'Blue cterm=bold'},
 }
 
 local override_highlights = ""
