@@ -1,8 +1,4 @@
-local config = {
-  cmd = {
-    "$HOME/.yarn/bin/vim-language-server",
-    "--stdio",
-  },
+-- Ref: lspconfig/vimls.lua
 
   settings = {
     vim = {
