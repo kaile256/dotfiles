@@ -47,6 +47,13 @@ local on_attach = function(client, bufnr)
 
   local buf_set_option = function(...) vim.api.nvim_buf_set_option(bufnr, ...) end
   buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
+
+  -- TOML: lsp.toml
+  -- Repo: ray-x/lsp_signature
+  local enabled, signature = pcall(require, "lsp_signature")
+  if enabled then
+    signature.on_attach()
+  end
 end
 
 return on_attach
