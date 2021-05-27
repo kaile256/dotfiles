@@ -13,9 +13,12 @@ require'compe'.setup {
   throttle_time = 80,
   source_timeout = 200,
   incomplete_delay = 400,
-  max_abbr_width = 100,
-  max_kind_width = 100,
-  max_menu_width = 100,
+
+  -- See *complete-item* for the details.
+  max_abbr_width = 50, -- Truncate text candidates if they are longer than the value.
+  max_kind_width = 15,  -- `kind` like 'Variable', 'Function', etc.
+  max_menu_width = 10, -- `menu` indicates which source supplies the candidate, like [TN], [Buffer], [LSP].
+
   documentation = true,
 
   -- Look for available sources in nvim-compe/after/plugin
