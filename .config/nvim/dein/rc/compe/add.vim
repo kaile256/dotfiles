@@ -17,6 +17,6 @@ endif
 inoremap <silent><expr> <C-f> pumvisible()
       \ ? compe#scroll({ 'delta': +4 })
       \ : '<C-g>U<Right>'
-inoremap <silent><expr> <C-d> pumvisible()
+inoremap <silent><expr> <C-b> pumvisible()
       \ ? compe#scroll({ 'delta': -4 })
       \ : '<C-g>U<Del>'
