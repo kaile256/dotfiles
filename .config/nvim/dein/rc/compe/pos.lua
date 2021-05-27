@@ -41,9 +41,16 @@ require'compe'.setup {
     -- calc = true,
     -- treesitter = true, -- Possibly slower.
     nvim_lsp = true,
-    nvim_lua = true, -- like vim.
-    luasnip = true,
-    ultisnips = true,
+    nvim_lua = {
+      -- Completion support for vim.g.foo, vim.fn[bar], etc.
+      menu = "[vim]",
+    },
+    luasnip = {
+      menu = "[LuaSnip]",
+    },
+    ultisnips = {
+      menu = "[UltiSnips]",
+    },
 
     -- Repo: tzachar/compe-tabnine
     tabnine = {
