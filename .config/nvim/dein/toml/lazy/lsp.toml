@@ -1,11 +1,17 @@
 # From: dein/dein.vim
 
 #[ built-in LSP ]
-# [[plugins]]
-# repo = 'neovim/nvim-lspconfig'
-# if = 'has("nvim")'
-# on_event = ['BufRead']
-# hook_post_source = 'luafile $DEIN_LUA_DIR/lspconfig/pos.lua'
+[[plugins]]
+repo = 'neovim/nvim-lspconfig'
+if = 'has("nvim")'
+on_event = ['BufRead']
+hook_post_source = 'luafile $DEIN_LUA_DIR/lspconfig/pos.lua'
+[[plugins]]
+repo = 'gfanto/fzf-lsp.nvim'
+if = 'executable("fzf") && has("nvim")'
+# The dependency on fzf.vim is to copy its settings.
+depends = ['nvim-lspconfig', 'fzf.vim']
+on_source = ['nvim-lspconfig']
 # [[plugins]]
 # repo = 'lspcontainers/lspcontainers.nvim'
 # # Run and connect lsp in docker container(s).
@@ -13,6 +19,10 @@
 # if = 'has("nvim")'
 # depends = ['nvim-lspconfig']
 # on_source = ['nvim-lspconfig']
+[[plugins]]
+repo = 'ray-x/lsp_signature.nvim'
+depends = ['nvim-lspconfig']
+on_lua = ['lsp_signature']
 # [[plugins]]
 # repo = 'tamago324/nlsp-settings.nvim'
 # # Let us write config in json like coc.nvim.
@@ -31,35 +41,35 @@
 # on_cmd = ['LspInstall', 'LspUninstall']
 #
 #[ coc.nvim ]
-[[plugins]]
-repo = 'neoclide/coc.nvim'
-# Branch: neoclide/coc.nvim_release; no src/, but build/.
-rev = 'release'
-if = '!exists("g:vscode")'
-#hook_done_update = 'yarn install --frozen-lockfile'
-on_func  = ['CocAction', 'CocActionAsync']
-on_map  = {nvi = ['<Plug>(coc-']}
-on_event = 'BufRead'
-hook_add = 'source $DEIN_RC_DIR/coc/add.vim'
-hook_source = 'source $DEIN_RC_DIR/coc/sou.vim'
-[[plugins]]
-repo = 'antoinemadec/coc-fzf'
-# Useless to select another options.
-on_cmd = ['CocFzfList']
-hook_add = 'runtime add/coc-fzf.vim'
-[[plugins]]
-repo = 'neoclide/coc-prettier'
-# Note: `CocInstall coc-prettier` fails and exit 1.
-build = '''
-# Ref: "Unable to install coc-prettier" @ neoclide/coc-prettier/issues/57
-yarn install --frozen-lockfile
-'''
-[[plugins]]
-repo = 'kizza/actionmenu.nvim'
-if = 'has("nvim")'
-# Provides coc.nvim actionmenu features for such as 'codeAction'.
-on_source = 'coc.nvim'
-hook_post_source = 'runtime add/actionmenu.vim'
+# [[plugins]]
+# repo = 'neoclide/coc.nvim'
+# # Branch: neoclide/coc.nvim_release; no src/, but build/.
+# rev = 'release'
+# if = '!exists("g:vscode")'
+# #hook_done_update = 'yarn install --frozen-lockfile'
+# on_func  = ['CocAction', 'CocActionAsync']
+# on_map  = {nvi = ['<Plug>(coc-']}
+# on_event = 'BufRead'
+# # hook_add = 'source $DEIN_RC_DIR/coc/add.vim'
+# # hook_source = 'source $DEIN_RC_DIR/coc/sou.vim'
+# [[plugins]]
+# repo = 'antoinemadec/coc-fzf'
+# # Useless to select another options.
+# on_cmd = ['CocFzfList']
+# hook_add = 'runtime add/coc-fzf.vim'
+# [[plugins]]
+# repo = 'neoclide/coc-prettier'
+# # Note: `CocInstall coc-prettier` fails and exit 1.
+# build = '''
+# # Ref: "Unable to install coc-prettier" @ neoclide/coc-prettier/issues/57
+# yarn install --frozen-lockfile
+# '''
+# [[plugins]]
+# repo = 'kizza/actionmenu.nvim'
+# if = 'has("nvim")'
+# # Provides coc.nvim actionmenu features for such as 'codeAction'.
+# on_source = 'coc.nvim'
+# hook_post_source = 'runtime add/actionmenu.vim'
 #[[plugins]]
 #repo = 'neoclide/redismru.vim'
 # Redis; Remote Dictionary Server
