@@ -6,7 +6,7 @@ local config = {
 
   settings = {
     vim = {
-      initilazationOptions = {
+      init_options = {
         isNeovim = vim.fn.has("nvim") == 1,
         suggest = {
           fromVimruntime = true,
