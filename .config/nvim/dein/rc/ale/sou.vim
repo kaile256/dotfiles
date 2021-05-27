@@ -16,22 +16,14 @@ let g:ale_linters_ignore = {
       \   'languagetool',
       \ ],
       \ }
-
-function! s:disable_some_lints(linters) abort
-  const pat_my_repo = $USER .'/[^/]\+/\.git'
-  if get(b:, 'git_dir', '') !~# pat_my_repo | return | endif
-  let b:ale_linters_ignore = a:linters
-endfunction
-function! s:disable_lints_on_localvimrc(linters) abort
-  if expand('%:t') ==# '.local.vimrc'
-    let b:ale_linters_ignore = a:linters
-  endif
-endfunction
-augroup Ale/Sou-DisableLocalLint
-  au FileType vim call s:disable_some_lints(['vint'])
-  if dein#tap('vim-localvimrc') || dein#tap('vim-localrc')
-    au FileTYpe vim call s:disable_lints_on_localvimrc(['vint'])
-  endif
+augroup Ale/Sou/EnableOnlyIfLanguageServerIsInactive
+  let g:ale_enabled = 0
+  function! s:enable_if_language_server_is_inactive(...) abort
+    if v:lua.vim.lsp.buf.server_ready() | return | endif
+    ALEEnableBuffer
+  endfunction
+  au BufRead * call timer_start(3000,
+        \ expand('<SID>') .'enable_if_language_server_is_inactive')
 augroup END
 
 if dein#tap('repmo-vim')
