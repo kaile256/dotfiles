@@ -8,6 +8,9 @@ lspconfig.util.default_config = vim.tbl_extend('force', lspconfig.util.default_c
   autostart = true,
 })
 
+-- Note: Both efm-langserver and diagnostic-server is a general purpose languageserver, and provides almost same
+-- features. The difference is how to configure linter and formatter: the latter is designed to let users configure as
+-- the other languageservers on coc.nvim. (https://github.com/iamcco/diagnostic-languageserver/issues/31)
 local servers = {
   bashls = {},
   clangd = {},
