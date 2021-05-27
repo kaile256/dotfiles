@@ -1,5 +1,6 @@
 -- Ref: lspconfig/vimls.lua
 
+local config = {
   settings = {
     vim = {
       init_options = {
