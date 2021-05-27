@@ -25,6 +25,7 @@ require'compe'.setup {
   source = {
     spell = true,
     buffer = {
+      menu = "[B]",
       ignored_filetypes = {
         'gitcommit',
       },
