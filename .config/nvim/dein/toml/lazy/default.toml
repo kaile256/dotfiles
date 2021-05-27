@@ -91,7 +91,7 @@ hook_post_source = 'source $DEIN_RC_DIR/which-key/pos.vim'
 # if = 'has("nvim")'
 # on_cmd = ['WhichKey']
 # hook_add = 'luafile $DEIN_LUA_DIR/which-key/add.lua'
-# hook_source = 'luafile $DEIN_RC_DIR/which-key/sou.lua'
+# hook_source = 'luafile $DEIN_LUA_DIR/which-key/sou.lua'
 # hook_post_source = 'luafile $DEIN_LUA_DIR/which-key/pos.lua'
 # [[plugins]]
 # repo = 'hecal3/vim-leader-guide'
