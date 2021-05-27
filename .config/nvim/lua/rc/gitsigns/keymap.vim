@@ -1,5 +1,6 @@
 " TOML: git.toml
 " Repo: lewis6991/gitsigns.nvim
 
-nnoremap <silent> U <Cmd>lua require'gitsigns'.reset_hunk()<CR>
+" Note: Sometimes misses the last commit and do nothing.
+" nnoremap <silent> U <Cmd>lua require'gitsigns'.reset_hunk()<CR>
 
