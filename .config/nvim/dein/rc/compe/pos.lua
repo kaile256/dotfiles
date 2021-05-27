@@ -37,7 +37,7 @@ require'compe'.setup {
       show_prediction_strength = true,
       max_num_results = 6, -- The number of items at most in pum.
       max_line = 50, -- The number of lines around cursor to yield suggestions.
-      --  ignore_pattern = '',
+      ignore_pattern = [[[({]|^['"]| = ?$]], -- Candidates won't include the patterns.
       },
     emoji = {
       filetypes = {
