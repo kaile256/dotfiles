@@ -31,7 +31,6 @@ local servers = {
   jdtls = {},
   jsonls = {},
   kotlin_language_server = {},
-  lspinfo = {},
   pyright = {},
   rust_analyzer = {},
   sqlls = {},
