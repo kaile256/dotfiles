@@ -21,3 +21,4 @@ diagnostic-languageserver
 dockerfile-language-server-nodejs # Run as docker-langserver
 intelephense # a LSP server for php
 vscode-json-languageserver
+typescript-language-server
