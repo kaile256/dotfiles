@@ -2,7 +2,12 @@
 " Repo: machakann/vim-sandwich
 " Fork: kaile256/vim-sandwich
 
-" Except: Undocumented options
+" Note: The documentations are splitted into three:
+"   - sandwich
+"   - textobj-sandwich
+"   - operator-sandwich
+
+" Except: Options for recipes in textobj-sandwich/operation-sandwich
 "   https://github.com/machakann/vim-sandwich/issues/74
 " - The difference between `kind` and `action`
 "   - `kind` consists of two: `operator` and `textobject`.
