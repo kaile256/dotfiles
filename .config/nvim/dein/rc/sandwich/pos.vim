@@ -24,8 +24,9 @@ endif
 "     - `action/add` contains `add` and `replace` of `kind`.
 "     - `action/delete` contains `textobject`, `delete` and `replace` of `kind`.
 " - The difference between `motionwise` and `linewise`:
-"   - `motionwise` is a filter through which a key input produces the buns.
-"   It has four options: 'char', 'line', 'block', and 'all'.
+"   - `motionwise` is a filter, for operator, through which a key input
+"   produces the buns.  It has four options: 'char', 'line', 'block', and
+"   'all'.
 "   - `linewise` is an identifier how to insert or detect the buns. It has
 "   three options: `0`, `1` or `2`.
 "   If 0, detection/insertion won't work over lines, but within a line.
