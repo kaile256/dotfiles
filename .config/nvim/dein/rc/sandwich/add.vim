@@ -22,86 +22,30 @@ xmap i<space> <Plug>(textobj-sandwich-query-i)<space>
 omap a<space> <Plug>(textobj-sandwich-query-a)<space>
 xmap a<space> <Plug>(textobj-sandwich-query-a)<space>
 
-omap i* <Plug>(textobj-sandwich-query-i)*
-xmap i* <Plug>(textobj-sandwich-query-i)*
-omap a* <Plug>(textobj-sandwich-query-a)*
-xmap a* <Plug>(textobj-sandwich-query-a)*
+omap i <Plug>(textobj-sandwich-query-i)
+xmap i <Plug>(textobj-sandwich-query-i)
+omap a <Plug>(textobj-sandwich-query-a)
+xmap a <Plug>(textobj-sandwich-query-a)
 
-omap i\| <Plug>(textobj-sandwich-query-i)\|
-xmap i\| <Plug>(textobj-sandwich-query-i)\|
-omap a\| <Plug>(textobj-sandwich-query-a)\|
-xmap a\| <Plug>(textobj-sandwich-query-a)\|
+onoremap iw iw
+xnoremap iw iw
+onoremap aw aw
+xnoremap aw aw
 
-omap i/ <Plug>(textobj-sandwich-query-i)/
-xmap i/ <Plug>(textobj-sandwich-query-i)/
-omap a/ <Plug>(textobj-sandwich-query-a)/
-xmap a/ <Plug>(textobj-sandwich-query-a)/
+onoremap iW iW
+xnoremap iW iW
+onoremap aW aW
+xnoremap aW aW
 
-omap i# <Plug>(textobj-sandwich-query-i)#
-xmap i# <Plug>(textobj-sandwich-query-i)#
-omap a# <Plug>(textobj-sandwich-query-a)#
-xmap a# <Plug>(textobj-sandwich-query-a)#
+onoremap it it
+xnoremap it it
+onoremap at at
+xnoremap at at
 
-omap i: <Plug>(textobj-sandwich-query-i):
-xmap i: <Plug>(textobj-sandwich-query-i):
-omap a: <Plug>(textobj-sandwich-query-a):
-xmap a: <Plug>(textobj-sandwich-query-a):
-
-omap i; <Plug>(textobj-sandwich-query-i);
-xmap i; <Plug>(textobj-sandwich-query-i);
-omap a; <Plug>(textobj-sandwich-query-a);
-xmap a; <Plug>(textobj-sandwich-query-a);
-
-omap i. <Plug>(textobj-sandwich-query-i).
-xmap i. <Plug>(textobj-sandwich-query-i).
-omap a. <Plug>(textobj-sandwich-query-a).
-xmap a. <Plug>(textobj-sandwich-query-a).
-
-omap i_ <Plug>(textobj-sandwich-query-i)_
-xmap i_ <Plug>(textobj-sandwich-query-i)_
-omap a_ <Plug>(textobj-sandwich-query-a)_
-xmap a_ <Plug>(textobj-sandwich-query-a)_
-
-
-omap i( <Plug>(textobj-sandwich-query-i)(
-xmap i( <Plug>(textobj-sandwich-query-i)(
-omap a( <Plug>(textobj-sandwich-query-a)(
-xmap a( <Plug>(textobj-sandwich-query-a)(
-
-omap i) <Plug>(textobj-sandwich-query-i))
-xmap i) <Plug>(textobj-sandwich-query-i))
-omap a) <Plug>(textobj-sandwich-query-a))
-xmap a) <Plug>(textobj-sandwich-query-a))
-
-omap i{ <Plug>(textobj-sandwich-query-i){
-xmap i{ <Plug>(textobj-sandwich-query-i){
-omap a{ <Plug>(textobj-sandwich-query-a){
-xmap a{ <Plug>(textobj-sandwich-query-a){
-
-omap i} <Plug>(textobj-sandwich-query-i)}
-xmap i} <Plug>(textobj-sandwich-query-i)}
-omap a} <Plug>(textobj-sandwich-query-a)}
-xmap a} <Plug>(textobj-sandwich-query-a)}
-
-omap i[ <Plug>(textobj-sandwich-query-i)[
-xmap i[ <Plug>(textobj-sandwich-query-i)[
-omap a[ <Plug>(textobj-sandwich-query-a)[
-xmap a[ <Plug>(textobj-sandwich-query-a)[
-
-omap i] <Plug>(textobj-sandwich-query-i)]
-xmap i] <Plug>(textobj-sandwich-query-i)]
-omap a] <Plug>(textobj-sandwich-query-a)]
-xmap a] <Plug>(textobj-sandwich-query-a)]
-
-omap i< <Plug>(textobj-sandwich-query-i)<
-xmap i< <Plug>(textobj-sandwich-query-i)<
-omap a< <Plug>(textobj-sandwich-query-a)<
-xmap a< <Plug>(textobj-sandwich-query-a)<
-
-omap i> <Plug>(textobj-sandwich-query-i)>
-xmap i> <Plug>(textobj-sandwich-query-i)>
-omap a> <Plug>(textobj-sandwich-query-a)>
-xmap a> <Plug>(textobj-sandwich-query-a)>
+onoremap ip ip
+xnoremap ip ip
+onoremap ap ap
+xnoremap ap ap
 
 " TextObj Literal {{{1
 "" a text surrounded by a pair of literally the same characters as user input
@@ -142,30 +86,3 @@ xmap \r <Plug>(operator-sandwich-replace)
 " xmap \/ <Plug>(operator-sandwich-add)/
 
 " xmap \\| <Plug>(operator-sandwich-add)\|
-
-" Magic characters {{{1
-" Note: *sandwich-magiccharacters*
-"   t/T (Tag): foo<cr> to <foo>arg</foo>
-"   f/F (Function): foo<cr> to foo(arg)
-"   i/I (Instant): foo<cr>end<cr>  to foo(arg)end
-
-omap if <Plug>(textobj-sandwich-query-i)f
-xmap if <Plug>(textobj-sandwich-query-i)f
-omap af <Plug>(textobj-sandwich-query-a)f
-xmap af <Plug>(textobj-sandwich-query-a)f
-
-omap iF <Plug>(textobj-sandwich-query-i)F
-xmap iF <Plug>(textobj-sandwich-query-i)F
-omap aF <Plug>(textobj-sandwich-query-a)F
-xmap aF <Plug>(textobj-sandwich-query-a)F
-
-omap it <Plug>(textobj-sandwich-query-i)t
-xmap it <Plug>(textobj-sandwich-query-i)t
-omap at <Plug>(textobj-sandwich-query-a)t
-xmap at <Plug>(textobj-sandwich-query-a)t
-
-omap iT <Plug>(textobj-sandwich-query-i)T
-xmap iT <Plug>(textobj-sandwich-query-i)T
-omap aT <Plug>(textobj-sandwich-query-a)T
-xmap aT <Plug>(textobj-sandwich-query-a)T
-
