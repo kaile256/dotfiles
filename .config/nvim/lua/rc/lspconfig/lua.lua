@@ -32,6 +32,7 @@ local config = {
           [ vim.fn.expand('$VIMRUNTIME/lua/vim/lsp') ] = true,
           [ vim.fn.expand('$DEIN_GITHUB_DIR/nvim-lua/plenary.nvim/lua/plenary/busted.lua') ] = true,
         },
+        preloadFileSize = 500,
       },
     }
   }
