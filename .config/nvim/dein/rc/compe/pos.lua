@@ -31,14 +31,7 @@ require'compe'.setup {
       },
     },
     path = true,
-    tabnine = {
-      --  priority = 90,
-      sort = false,
-      show_prediction_strength = true,
-      max_num_results = 6, -- The number of items at most in pum.
-      max_line = 50, -- The number of lines around cursor to yield suggestions.
-      ignore_pattern = [[[({]|^['"]| = ?$]], -- Candidates won't include the patterns.
-      },
+
     emoji = {
       filetypes = {
         'markdown',
@@ -51,5 +44,15 @@ require'compe'.setup {
     nvim_lua = true, -- like vim.
     luasnip = true,
     ultisnips = true,
+
+    -- Repo: tzachar/compe-tabnine
+    tabnine = {
+      --  priority = 90,
+      sort = false,
+      show_prediction_strength = true,
+      max_num_results = 6, -- The number of items at most in pum.
+      max_line = 50, -- The number of lines around cursor to yield suggestions.
+      ignore_pattern = [[[({]|^['"]| = ?$]], -- Candidates won't include the patterns.
+    },
   },
 }
