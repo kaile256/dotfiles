@@ -12,6 +12,7 @@ require'nvim-treesitter.configs'.setup {
 }
 
 
+-- Ref: $VIMRUNTIME/rgb.txt for color names
 -- Only 1 to 7 colors work.
 local colors = {
   {'#dadada', '253'},
