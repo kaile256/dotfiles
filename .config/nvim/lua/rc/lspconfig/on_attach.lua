@@ -38,6 +38,7 @@ local set_keymaps = function(client, bufnr)
   end
   if client.resolved_capabilities.document_range_formatting then
     buf_set_keymap('n', '=', '<Cmd>lua vim.lsp.buf.range_formatting()<CR>', opts)
+    buf_set_keymap('x', '=', '<Cmd>lua vim.lsp.buf.range_formatting()<CR>', opts)
   end
 end
 
