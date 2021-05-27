@@ -323,12 +323,18 @@ function! s:devise_recipes() abort
         \ },
         \ ]
 
-  let recipes.list = [
+  " Note: `s` comes from 'sequence' to get such format as foo[1], bar['baz'].
+  " Instead, `d` from 'dictionary' is troublesome with `\dd` for me to delete
+  " auto-detected buns; `a` from 'array' with text-objects; `v` from 'vector'
+  " with v/V/<C-v> which decides motionwise; `t` from 'table' with tags; `l`
+  " from 'list' is reserved for me by key-value text-object.
+  let recipes.sequence = [
         \ {
         \   'buns': ['\<\%(\h\k*\.\)*\h\k*\[', '\]'],
         \   'regex': 1,
         \   'action': ['delete'],
-        \   'input': ['l']
+        \   'kind': ['query', 'delete', 'replace'],
+        \   'input': ['s'],
         \ },
         \ ]
 
