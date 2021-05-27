@@ -108,8 +108,13 @@ end
 
 local sep_right = function(fg, bg) return separators.right.rounded_broad(fg, bg) end
 
+diagnostics.enabled = function()
+  return vim.lsp.buf.server_ready()
+end
+
 -- TODO: Replace g:ale_echo_cursor.
 diagnostics.right.error_msg = {
+  enabled = diagnostics.enabled,
   provider = function () return diagnostics.error_msg() end,
   hl = {
     fg = colors.black,
@@ -118,6 +123,7 @@ diagnostics.right.error_msg = {
 }
 
 diagnostics.right.warning_msg = {
+  enabled = diagnostics.enabled,
   provider = function () return diagnostics.warning_msg() end,
   hl = {
     fg = colors.black,
@@ -126,6 +132,7 @@ diagnostics.right.warning_msg = {
 }
 
 diagnostics.right.hint_msg = {
+  enabled = diagnostics.enabled,
   provider = function () return diagnostics.hint_msg() end,
   hl = {
     fg = colors.black,
@@ -134,6 +141,7 @@ diagnostics.right.hint_msg = {
 }
 
 diagnostics.right.info_msg = {
+  enabled = diagnostics.enabled,
   provider = function () return diagnostics.info_msg() end,
   hl = {
     fg = colors.black,
@@ -142,6 +150,7 @@ diagnostics.right.info_msg = {
 }
 
 diagnostics.right.error = {
+  enabled = diagnostics.enabled,
   provider = function () return diagnostics.error() end,
   hl = {
     fg = colors.black,
@@ -151,6 +160,7 @@ diagnostics.right.error = {
 }
 
 diagnostics.right.warning = {
+  enabled = diagnostics.enabled,
   provider = function () return diagnostics.warning() end,
   hl = {
     fg = colors.black,
@@ -160,6 +170,7 @@ diagnostics.right.warning = {
 }
 
 diagnostics.right.hint = {
+  enabled = diagnostics.enabled,
   provider = function () return diagnostics.hint() end,
   hl = {
     fg = colors.black,
@@ -169,6 +180,7 @@ diagnostics.right.hint = {
 }
 
 diagnostics.right.info = {
+  enabled = diagnostics.enabled,
   provider = function () return diagnostics.info() end,
   hl = {
     fg = colors.black,
