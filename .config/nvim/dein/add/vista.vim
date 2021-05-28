@@ -2,9 +2,14 @@
 " Repo: liuchengxu/vista.vim
 " Another: source/vista.vim
 
-" :Vista is same as `:Vista ctags`.
+cnoremap <expr> <SID>(target)
+      \ v:lua.vim.lsp.buf.server_ready()
+      \   ? 'nvim_lsp'
+      \   : ''
+nmap <silent> <SID>(vista) :<C-u>Vista <SID>(target)<CR>
+
 " '!' to close vista-buffer
 " '!!' to toggle vista-buffer.
 " Mnemonic: Outline
-nnoremap <silent> <A-x>o     :<C-u>Vista coc<CR>
-nnoremap <silent> <A-x><A-o> :<C-u>Vista coc<CR>
+nmap <A-x>o     <SID>(vista)
+nmap <A-x><A-o> <SID>(vista)
