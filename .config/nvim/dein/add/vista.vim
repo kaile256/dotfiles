@@ -5,6 +5,8 @@
 cnoremap <expr> <SID>(target)
       \ v:lua.vim.lsp.buf.server_ready()
       \   ? 'nvim_lsp'
+      \   : exists('g:did_coc_loaded') && CocAction('ensureDocument')
+      \     ? 'coc'
       \   : ''
 nmap <silent> <SID>(vista) :<C-u>Vista <SID>(target)<CR>
 
