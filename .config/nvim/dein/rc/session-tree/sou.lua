@@ -11,5 +11,5 @@ vim.g.close_unlisted_ignored_filetype = {
   'gitcommit',
   'pullrequest',
   'tagbar',
-  'vista',
+  'vista_kind',
 }
