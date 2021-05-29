@@ -579,6 +579,8 @@ function! s:set_rules() abort
   let group2rules.Vim += [
         \ {'char': '(', 'at': '\\\%#',  'input_after': '\)'},
         \ {'char': '(', 'at': '\\%\%#', 'input_after': '\)'},
+        \ {'char': '<C-h>', 'at': '\\(\%#\\)',  'input': '<C-g>U<Del><C-g>U<Del><BS><BS>'},
+        \ {'char': '<C-h>', 'at': '\\%(\%#\\)', 'input': '<C-g>U<Del><C-g>U<Del><BS><BS><BS>'},
         \ ]
 
   " Insert backslashes when filetype is vim
