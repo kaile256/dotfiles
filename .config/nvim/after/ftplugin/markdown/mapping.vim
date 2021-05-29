@@ -22,6 +22,8 @@ function! s:start_new_item(o) abort
         \ : line =~# pat_list ? Add_list
         \ : o
 endfunction
+
+" TODO: Restore the mappings after leaving eskk mode.
 nnoremap <buffer><expr> o <SID>start_new_item('o')
 nnoremap <buffer><expr> O <SID>start_new_item('O')
 
