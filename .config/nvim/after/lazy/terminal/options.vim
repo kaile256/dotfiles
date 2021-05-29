@@ -8,11 +8,3 @@ setlocal nonumber signcolumn=
 
 norm! 0
 " startinsert " Some plugin start terminal with inserting 'i'.
-
-augroup myTerminalLazy
-  au!
-  " Open Terminal as Startpage
-  "if @% == '' && &ft ==# '' && &bt ==# ''
-  "  au VimEnter * nested call termopen(&shell)
-  "endif
-augroup END
