@@ -12,6 +12,8 @@ neovim
 parcel-bundler # a web-app bundler w/o config
 readability # for userscript on qutebrowser, readability
 
+shellcheck
+
 # LSP
 vim-language-server
 #graphql-language-server # no longer supported
