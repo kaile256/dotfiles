@@ -575,8 +575,10 @@ function! s:set_rules() abort
         \ {'char': '[', 'at': '^\s*\\\s*\%#', 'input_after': '],'},
         \ ]
 
+  " Escaped parentheses pairs
   let group2rules.Vim += [
-        \ {'char': '(', 'at': '\\\%#', 'input_after': '\)'},
+        \ {'char': '(', 'at': '\\\%#',  'input_after': '\)'},
+        \ {'char': '(', 'at': '\\%\%#', 'input_after': '\)'},
         \ ]
 
   " Insert backslashes when filetype is vim
