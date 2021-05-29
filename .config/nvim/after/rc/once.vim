@@ -9,5 +9,6 @@ augroup myRuntimesOnce
   au InsertEnter              * ++once runtime once/imaps.vim
   au CmdLineEnter,CmdWinEnter * ++once runtime once/cmaps.vim
   exe 'au' TermOpen '* ++once runtime once/tmaps.vim'
+  exe 'au' TermOpen '* ++once runtime! once/terminal/*.vim'
 augroup END
 
