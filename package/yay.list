@@ -287,7 +287,6 @@ ripgrep-all-bin # ripgrep in PDFs, E-Books, Office documents, zip, tar.gz, etc.
 # tor-browser
 transset-df # for transparency on xterm
 preload # preload apps on RAM; maybe requires to `systemctl disable preload` before remove the package
-trello-cli
 fwupd # a daemon for firmware update
 dmidecode # installed w/ fwupd? anyway, necessary
 #cadaver	# WebDAV client, of which netrw makes use.
