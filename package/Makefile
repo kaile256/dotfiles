@@ -65,7 +65,7 @@ all: yay yarn pip luarocks gem rustup pecl
 	#
 
 .PHONY: yay
-yay:
+yay: ## Install packages by yay.
 	@type pacman >/dev/null 2>&1 && \
 		type yay >/dev/null 2>&1 || \
 			(echo "You don't have yay. Install its dependencies..." \
@@ -77,38 +77,38 @@ yay:
 	$(call install_packages,yay -S)
 
 .PHONY: yarn
-yarn:
+yarn: ## Install packages by yarn.
 	$(call validate_executable,yarn)
 	$(call update_package_manager,yarn global upgrade)
 	$(call install_packages,yarn global add)
 
 .PHONY: pip
-pip:
+pip: ## Install packages by pip.
 	$(call validate_executable,pip)
 	$(call update_package_manager,pip install --upgrade pip)
 	$(call install_packages,pip install --user)
 
 .PHONY: luarocks
-luarocks:
+luarocks: ## Install packages by luarocks.
 	$(call validate_executable,luarocks)
 	$(call update_package_manager,luarocks install --local luarocks)
 	$(call install_packages,luarocks install --local)
 
 .PHONY: gem
-gem:
+gem: ## Install packages by gem
 	$(call validate_executable,gem)
 	$(call update_package_manager,gem update)
 	$(call install_packages,gem install package)
 
 .PHONY: rustup
-rustup:
+rustup: ## Install packages by rustup.
 	$(call validate_executable,rustup)
 	$(call update_package_manager,rustup install nightly)
 	$(call update_package_manager,rustup default nightly)
 	$(call install_packages,rustup component add)
 
 .PHONY: pecl
-pecl:
+pecl: ## Install packages by pecl.
 	$(call validate_executable,pecl)
 	$(call update_package_manager,pecl upgrade)
 	$(call install_packages,pecl install)
