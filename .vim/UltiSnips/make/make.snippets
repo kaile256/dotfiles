@@ -23,11 +23,11 @@ endsnippet
 snippet help "help for self-documenting Makefile" b
 .PHONY: help
 help: ## Show this help
-  @echo
-  @echo 'Usage:'
-  @echo '  make <target> [flags...]'
-  @echo
-  @echo 'Targets:'
+	@echo
+	@echo 'Usage:'
+	@echo '  make <target> [flags...]'
+	@echo
+	@echo 'Targets:'
 	@egrep -h '^\S+: .*## \S+' $(MAKEFILE_LIST) | sed 's/: .*##/:/' | column -t -c 2 -s ':' | sed 's/^/  /'
 endsnippet
 
