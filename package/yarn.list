@@ -25,3 +25,4 @@ intelephense # a LSP server for php
 vscode-json-languageserver
 typescript-language-server
 markdownlint-cli
+pyright # a LS for python
