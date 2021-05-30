@@ -84,9 +84,21 @@ function! s:_operator_join(wise, shim) abort
 
   let cms = &cms
   if cms =~# '%s'
+    " Trim comment indicator only if the previous line ends with a comment
+    " string; otherwise, just join lines leaving comment indicators.
     let indicator = split(cms, '%s')[0]
-    let Join_comment = 'substitute(v:val, indicator ."\\s*", "", "")'
-    let lines = [ lines[0] ] + map(lines[1:], Join_comment)
+    let pat_comment_start =
+          \ '\%('. indicator .'.*\)\@<!'
+          \ . indicator .
+          \ '\%(.*'. indicator .'\)\@!'
+    let new_lines = [ lines[0] ]
+    for idx in range(1, len(lines) - 1)
+      let is_prev_also_comment = lines[idx - 1] =~# pat_comment_start
+      let new_lines += is_prev_also_comment
+            \ ? [ substitute(lines[idx], pat_comment_start, '', '') ]
+            \ : [ substitute(lines[idx], '^\s*', '', '') ]
+    endfor
+    let lines = new_lines
   endif
 
   if &ft ==# 'vim'
