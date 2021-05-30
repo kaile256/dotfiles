@@ -535,7 +535,9 @@ settings:
     global: 18000000
   editor.command:
     global:
-    - urxvt
+    - alacritty
+    - --title
+    - TMP-qutebrowser-input
     - -e
     - nvim
     - '{file}'
