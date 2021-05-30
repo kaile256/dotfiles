@@ -101,8 +101,4 @@ augroup myFzfSource "{{{1
   au User FzfStatusLine call s:fzf_buffer_keymaps()
 
   au WinLeave term://*#FZF if &ft ==# 'fzf' | quit | endif
-  " Note: Makes no sense but auto-set nonumber on tab-open.
-  "au FileType fzf setl laststatus=0
-  "      \ | au BufEnter * ++once setl laststatus=2
-  "      \ | if &l:number | setl number | endif
 augroup END
