@@ -192,7 +192,7 @@ google-chrome
 #gifcurry # GIF editor; depends on gtk
 supercollider # Programming Language to create sounds
 boost # Cpp source libraries - development headers
-cling # cpp's interpretor; required for REPL. Install the default.
+# cling # cpp's interpretor; required for REPL. It takes too long to compile. cling-bin instead isn't up-to-date and won't set to $PATH.
 st # a terminal emulater lighter than urxvt/xterm
 compiledb # a generator for clang's JSON
 deno # a better runtime than node.js which include TypeScript compiler
