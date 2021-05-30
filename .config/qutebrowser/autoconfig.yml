@@ -535,8 +535,12 @@ settings:
     global: 18000000
   editor.command:
     global:
-    - nvim-qt
+    - urxvt
+    - -e
+    - nvim
     - '{file}'
+    - -c
+    - normal! {line}G{column0}l
   editor.encoding:
     global: utf-8
   fonts.completion.category:
