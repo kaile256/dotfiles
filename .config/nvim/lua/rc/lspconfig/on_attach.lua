@@ -32,6 +32,16 @@ local set_keymaps = function(client, bufnr)
 
       ['='] = client.resolved_capabilities.document_range_formatting and '<Cmd>lua vim.lsp.buf.range_formatting()<CR>',
       ['=='] = client.resolved_capabilities.document_formatting and '<Cmd>lua vim.lsp.buf.formatting()<CR>',
+
+      ['<C-w>d'] = '<Cmd>Telescope lsp_definitions<CR>',
+      ['<C-w>r'] = '<Cmd>Telescope lsp_references<CR>',
+      ['<C-w>R'] = '<Cmd>Telescope lsp_implementations<CR>',
+
+      ['<C-w>x'] = '<Cmd>Telescope lsp_document_diagnostics<CR>',
+      ['<C-w>gx'] = '<Cmd>Telescope lsp_workspace_diagnostics<CR>',
+
+      ['<C-w>]'] = '<Cmd>Telescope lsp_document_symbols<CR>',
+      ['<C-w>g]'] = '<Cmd>Telescope lsp_workspace_symbols<CR>',
     },
 
     x = {
