@@ -46,13 +46,13 @@ let s:wiki_index.nested_syntaxes = {
 let s:wiki_markdown = {
       \ 'syntax': 'markdown',
       \ 'index': 'index',
-      \ 'path': '~/vimwiki/mdwiki/',
+      \ 'path': '~/vimwiki/',
       \ 'ext': '.md',
       \ 'auto_tags': 1,
       \ 'auto_diary_index': 1,
       \ 'list_margin': 4,
       \ 'auto_toc': 1,
-      \ 'path_html': '~/vimwiki/htmlwiki/',
+      \ 'path_html': '~/vimwiki/.html/',
       \ 'custom_wiki2html': 'vimwiki_markdown',
       \ 'html_filename_parameterization': 1,
       \ }
@@ -70,8 +70,7 @@ let s:wiki_markdown.nested_syntaxes = {
 
 let g:vimwiki_global_ext = 0 " 0: regard files as vimwiki as in g:vimwiki_list
 let g:vimwiki_list = [
-      \ {},
-      \ s:wiki_index,
+      \ s:wiki_markdown
       \ ]
 
 "" no use
