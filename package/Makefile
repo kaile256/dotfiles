@@ -62,10 +62,12 @@ endef
 
 # Note: `yay` instead cannot update it because `pkgver` is not updated.
 # Ref: https://aur.archlinux.org/packages/neovim-nightly-bin/
+# Bulk of `$VIMRUNTIME/keymap/*.vim` takes almost 2 econds to be loaded.
 neovim-nightly-bin:  ## Install the latest version of neovim-nightly-bin
 	rm ~/.cache/paru/clone/neovim-nightly-bin -rf
 	paru -S --rebuild --redownload neovim-nightly-bin
-
+	@echo "Disarming keymap/ with backup for neovim startup performance..."
+	cd /usr/share/nvim/runtime && sudo mv keymap keymap.bk
 
 .PHONY: paru
 paru: ## Install packages by paru (a fork of yay).
