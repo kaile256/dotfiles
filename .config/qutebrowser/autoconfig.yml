@@ -535,14 +535,16 @@ settings:
     global: 18000000
   editor.command:
     global:
-    - alacritty
-    - --title
+    - urxvt
+    - -title
     - TMP-qutebrowser-input
     - -e
     - nvim
     - '{file}'
     - -c
     - normal! {line}G{column0}l
+    - -c
+    - set nonumber
   editor.encoding:
     global: utf-8
   fonts.completion.category:
