@@ -60,6 +60,18 @@ define install_packages =
 endef
 
 
+.PHONY: paru
+paru: ## Install packages by paru (a fork of yay).
+	@type pacman >/dev/null 2>&1 && \
+		type paru >/dev/null 2>&1 || \
+			(echo "You don't have paru. Install its dependencies..." \
+			&& pacman -S --needed base-devel \
+			&& git clone --depth=1 https://aur.archlinux.org/paru.git \
+			&& cd paru && makepkg -si)
+	@echo "Synchronizing package databases..."
+	$(call update_package_manager,paru -Syu)
+	$(call install_packages,paru -S)
+
 .PHONY: yay
 yay: ## Install packages by yay.
 	@type pacman >/dev/null 2>&1 && \
