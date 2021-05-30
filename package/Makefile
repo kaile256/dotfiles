@@ -61,7 +61,7 @@ endef
 
 
 .PHONY: all
-all: yay yarn pip luarocks gem rustup pecl
+all-pacakges: yay yarn pip luarocks gem rustup pecl ## Install all packages.
 	#
 
 .PHONY: yay
