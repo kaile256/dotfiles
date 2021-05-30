@@ -1,5 +1,15 @@
 # From: dein/dein.vim
 
+#[ Zettelkasten ]
+# [[plugins]]
+# repo = 'oberblastmeister/neuron.nvim'
+# if = 'executable("neuron")'
+# on_source = ['telescope.nvim']
+# depends = ['telescope.nvim']
+# on_lua = ['neuron']
+# hook_add = 'source $DEIN_RC_DIR/neuron/add.vim'
+# hook_source = 'luafile $DEIN_RC_DIR/neuron/sou.lua'
+#
 #[ Org Mode ]
 # [[plugins]]
 # repo = 'jceb/vim-orgmode'
