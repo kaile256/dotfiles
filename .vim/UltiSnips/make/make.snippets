@@ -28,7 +28,7 @@ help: ## Show this help
   @echo '  make <target> [flags...]'
   @echo
   @echo 'Targets:'
-  @egrep -h '^\S+: .*## \S+' $(MAKEFILE_LIST) | column -t -c 2 -s ':#' | sed 's/^/  /'
+	@egrep -h '^\S+: .*## \S+' $(MAKEFILE_LIST) | sed 's/: .*##/:/' | column -t -c 2 -s ':' | sed 's/^/  /'
 endsnippet
 
 # vim:noet
