@@ -13,18 +13,10 @@ function! s:map_toggle() abort
   const bufnr = bufnr()
 
   if !&modifiable
-    redir => out
-    silent nmap d
-    silent nmap u
-    silent nmap D
-    silent nmap U
-    redir END
-
-    const mappings = split(out, "\n")
-    const pat_buf_local_mapping = '^n\l*\s*d\S*\s*@'
-    const is_buf_local_mapping = 'v:val =~# pat_buf_local_mapping'
-    const buf_local_mappings = filter(deepcopy(mappings), is_buf_local_mapping)
-    if len(buf_local_mappings) > 0 | return | endif
+    for key in ['d', 'u', 'D', 'U']
+      let has_any_buflocal_mapping = get(maparg(key, 'n', 0, 1), 'buffer', 0)
+      if has_any_buflocal_mapping | return | endif
+    endfor
 
     call add(s:mapped_bufnrs, bufnr)
 
