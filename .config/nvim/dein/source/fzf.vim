@@ -107,7 +107,10 @@ augroup myFzfSource "{{{1
   " Note: both :quit and :close causes errors instead.
   if has('nvim')
     " FIXME: hide fzf witout error on Vim
-    au WinLeave,BufLeave term://*#FZF if &ft ==# 'fzf' | hide | silent! !killall fzf
+    au WinLeave,BufLeave term://*#FZF if &ft ==# 'fzf'
+          \ | hide
+          \ | silent! !killall fzf
+          \ | endif
   endif
   " Note: Makes no sense but auto-set nonumber on tab-open.
   "au FileType fzf setl laststatus=0
