@@ -60,6 +60,13 @@ define install_packages =
 endef
 
 
+# Note: `yay` instead cannot update it because `pkgver` is not updated.
+# Ref: https://aur.archlinux.org/packages/neovim-nightly-bin/
+neovim-nightly-bin:  ## Install the latest version of neovim-nightly-bin
+	rm ~/.cache/paru/clone/neovim-nightly-bin -rf
+	paru -S --rebuild --redownload neovim-nightly-bin
+
+
 .PHONY: paru
 paru: ## Install packages by paru (a fork of yay).
 	@type pacman >/dev/null 2>&1 && \
