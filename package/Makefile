@@ -60,10 +60,6 @@ define install_packages =
 endef
 
 
-.PHONY: all
-all-pacakges: yay yarn pip luarocks gem rustup pecl ## Install all packages.
-	#
-
 .PHONY: yay
 yay: ## Install packages by yay.
 	@type pacman >/dev/null 2>&1 && \
@@ -113,5 +109,6 @@ pecl: ## Install packages by pecl.
 	$(call update_package_manager,pecl upgrade)
 	$(call install_packages,pecl install)
 
-test:
-	echo $(PECL)
+.PHONY: all
+all-pacakges: yay yarn pip luarocks gem rustup pecl ## Install all packages.
+	#
