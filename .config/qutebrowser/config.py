@@ -9,10 +9,12 @@ import subprocess
 
 from qutebrowser.api import interceptor
 
-c = c
-config = config
+from qutebrowser.config.configfiles import ConfigAPI
+from qutebrowser.config.config import ConfigContainer
+api = config  # type: ConfigAPI # noqa: F821
+c = c  # type: ConfigContainer # noqa: F821
 
-config.load_autoconfig()  # load ./autoconfig.yml
+api.load_autoconfig()  # load ./autoconfig.yml
 
 
 # Youtube adblock (Interrupt the request)
@@ -72,4 +74,4 @@ c.colors.webpage.darkmode.enabled = SHOULD_BE_DARKMODE
 #       material-darker
 #   - too dim/low contrast to read words:
 #       solarized-dark, Solarized-light, material-vivid
-config.source('theme/nord.py')
+api.source('theme/nord.py')
