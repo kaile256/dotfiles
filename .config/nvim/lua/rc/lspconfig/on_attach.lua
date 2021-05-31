@@ -52,6 +52,7 @@ local set_keymaps = function(client, bufnr)
   local opts = { noremap=true, silent=true, nowait=true }
   for mode, key2command in pairs(maps) do
     local buf_set_keymap = function(...) vim.api.nvim_buf_set_keymap(bufnr, mode, ...) end
+    local was_mapped_locally = function(key) return vim.fn.maparg(key, mode, 0, 1).buffer end
     for key, command in pairs(key2command) do
       if command then
         ---@diagnostic disable-next-line:redefined-local
@@ -60,7 +61,9 @@ local set_keymaps = function(client, bufnr)
           opts = command[2]
           command = command[1]
         end
-        buf_set_keymap(key, command, opts)
+        if was_mapped_locally(key) ~= 1 then
+          buf_set_keymap(key, command, opts)
+        end
       end
     end
   end
