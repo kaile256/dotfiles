@@ -742,12 +742,13 @@ mode $Vim {
 }
 
 # Neovim {{{2
-set $Neovim " Neovim: (Q)t | (A)lacritty "
+set $Neovim " Neovim: (Q)t | (A)lacritty (U)rxvt "
 $release $Super+N mode $Neovim; $noid $shortmsg 'Neovim: backends'
 
 mode $Neovim {
     bindsym Q $noid nvim-qt;  mode default
     bindsym A $noid alacritty -e nvim; mode default
+    bindsym U $noid $urxvt -e nvim; mode default
 
     bindsym Ctrl+C             mode default
     bindsym Ctrl+bracketleft   mode default
