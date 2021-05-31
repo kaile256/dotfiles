@@ -118,6 +118,7 @@ function! s:devise_recipes() abort
         \ },
         \ ]
 
+  " TODO: Implement `linewise` option for textobj to delete at once.
   let recipes.bracket = [
         \ {
         \   'input': ['('],
