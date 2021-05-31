@@ -15,14 +15,15 @@ endif
 
 " Except: Options for recipes in textobj-sandwich/operation-sandwich
 "   https://github.com/machakann/vim-sandwich/issues/74
-" - The difference between `kind` and `action`
-"   - `kind` consists of two: `operator` and `textobject`.
+" - The difference between `kind` and `action`:
+"   - `kind` roughly consists of two: `operator` and `textobj`, and `all`
+"     for both.
 "     - `operator` consists of three: `add`, `delete`, `replace`.
-"     - `textobject` consists of two: `auto`, `query`.
-"   - `action` consists of two: `add` and `delete`
+"     - `textobj` consists of two: `auto`, `query`.
+"   - `action` consists of two: `add` and `delete`:
 "     - `kind/replace` consists both of `add` and `delete`.
 "     - `action/add` contains `add` and `replace` of `kind`.
-"     - `action/delete` contains `textobject`, `delete` and `replace` of `kind`.
+"     - `action/delete` contains `textobj`, `delete` and `replace` of `kind`.
 " - The difference between `motionwise` and `linewise`:
 "   - `motionwise` is a filter, for operator, through which a key input
 "   produces the buns.  It has four options: 'char', 'line', 'block', and
