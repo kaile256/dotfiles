@@ -10,6 +10,10 @@ Xft.rgba: rgb
 Xft.hintstyle: hintslight
 Xft.lcdfilter: lcddefault
 
+! Reduce lines between lines.
+URxvt.lineSpace: -1
+! Note: Set a negative number to reduce whitespace width between characters.
+URxvt.letterSpace: -1
 
 ! Ref for fonts on each system: http://malkalech.com/xresources_magic#i-7
 #define FONT_NAME JetBrainsMonoMedium Nerd Font Mono
@@ -31,11 +35,6 @@ Xft.lcdfilter: lcddefault
 
 
 URxvt.font: FONT_SET
-
-! Note: Set a negative number to reduce whitespace width between characters.
-URxvt.letterSpace: -1
-! Reduce lines between lines.
-URxvt.lineSpace: -1
 
 ! Font list and Spacing
 URxvt.allow_bold: true
