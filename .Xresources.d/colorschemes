@@ -2,24 +2,24 @@
 
 ! Colorscheme {{{1
 ! Neodark
-#define _fg        #bcbcbc
-#define _bg        #AE8785
-#define _black     #263A45
-#define _red       #DC657D
-#define _green     #84B97C
-#define _yellow    #D4B261
-#define _blue      #639EE4
-#define _magenta   #B888E2
-#define _cyan      #72C7D1
-#define _white     #C7C18B
-#define br_black   #af8787
-#define br_red     #d75f87
-#define br_green   #87af87
-#define br_yellow  #d7af5f
-#define br_blue    #5fafd7
-#define br_magenta #af87d7
-#define br_cyan    #5fd7d7
-#define br_white   #d7af87
+#define _fg        #eaeaea
+#define _bg        #000000
+#define _black     #2e3436
+#define _red       #ef1919
+#define _green     #67c60c
+#define _yellow    #c4a000
+#define _blue      #4383d5
+#define _magenta   #75507b
+#define _cyan      #43c4cc
+#define _white     #d3d7cf
+#define br_black   #555753
+#define br_red     #fc6868
+#define br_green   #8ae234
+#define br_yellow  #fce94f
+#define br_blue    #729fcf
+#define br_magenta #ad7fa8
+#define br_cyan    #00f5e9
+#define br_white   #eeeeec
 
 !! Solarized (or flattened)
 !#define _black     #073642
