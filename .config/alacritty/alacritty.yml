@@ -121,6 +121,8 @@ font:
     #   - (Windows) Consolas
     # family: Noto Sans Mono CJK JP
     family: SFMono Nerd Font Mono
+    # family: FiraCode Nerd Font Mono
+    # family: JetBrainsMonoMedium Nerd Font
     style: bold
 
   bold:
