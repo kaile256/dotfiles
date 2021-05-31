@@ -12,8 +12,9 @@ Xft.lcdfilter: lcddefault
 
 ! Reduce lines between lines.
 URxvt.lineSpace: -1
-! Note: Set a negative number to reduce whitespace width between characters.
-URxvt.letterSpace: -1
+! Note: Set a negative number to reduce whitespace width between characters,
+! but it demands bigger font size not to replace wide characters with tofu.
+URxvt.letterSpace: 0
 
 ! Ref for fonts on each system: http://malkalech.com/xresources_magic#i-7
 #define FONT_NAME JetBrainsMonoMedium Nerd Font Mono
