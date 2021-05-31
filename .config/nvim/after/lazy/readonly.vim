@@ -1,8 +1,6 @@
 " From: rc/lazy.vim
 
-if expand('%:p') =~# '/\.git/' || &diff
-  finish
-endif
+if &diff | finish | endif
 
 if filereadable(expand('%:p'))
   setlocal nomodifiable
