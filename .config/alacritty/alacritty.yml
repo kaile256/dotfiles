@@ -510,7 +510,19 @@ debug:
 #   - AppCursor
 #   - ~AppKeypad
 #   - AppKeypad
-#key_bindings:
+#
+# Note: Append ASCII "\x1b" ("\033") for ctrl/alt.
+# Get keycodes by `showkey -a`
+key_bindings:
+  - { mods: Shift,   key: Return, chars: "\x1b[13;2u" }
+  - { mods: Control, key: Return, chars: "\x1b[13;5u" }
+
+  - { mods: Control, key: Comma,  chars: "\x1b[44;5u" } # <C-,>
+  - { mods: Control, key: Period, chars: "\x1b[46;5u" } # <C-.>
+
+  - { mods: Control,       key: Semicolon, chars: "\x1b[59;5u" } # <C-;>
+  - { mods: Control|Shift, key: Colon,     chars: "\x1b[58;5u" } # <C-:>
+
 #  # (Windows/Linux only)
 #  #- { key: V,        mods: Control|Shift, action: Paste            }
 #  #- { key: C,        mods: Control|Shift, action: Copy             }
