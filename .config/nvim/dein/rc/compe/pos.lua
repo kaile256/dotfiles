@@ -1,8 +1,7 @@
 -- TOML: insert.toml
 -- Repo: hrsh7th/nvim-compe
 
--- Note: With `longest`, unexpected deletion happens by <space> with pumvisible().
-vim.o.completeopt = 'menu,preview'
+vim.o.completeopt = 'menuone,noselect'
 
 require'compe'.setup {
   enabled = true,
