@@ -127,6 +127,7 @@ repo = 'tommcdo/vim-exchange'
 on_map = {nx = ['<Plug>(Exchange']}
 hook_add = 'source $DEIN_RC_DIR/exchange/add.vim'
 hook_source = 'source $DEIN_RC_DIR/exchange/sou.vim'
+hook_post_source = 'source $DEIN_RC_DIR/exchange/pos.vim'
 #[[plugins]]
 #repo = 'osyo-manga/vim-operator-swap'
 ## Require another plugin to highlight selected area.
