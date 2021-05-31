@@ -60,6 +60,16 @@ define install_packages =
 endef
 
 
+.PHONY: update
+update: ## Update dotfiles and installed packages
+	git pull
+	$(call update_package_manager,pip install --upgrade pip)
+	$(call update_package_manager,yarn global upgrade)
+	$(call update_package_manager,luarocks install --local luarocks)
+	$(call update_package_manager,gem update)
+	$(call update_package_manager,rustup install nightly)
+	$(call update_package_manager,rustup default nightly)
+
 # Note: `yay` instead cannot update it because `pkgver` is not updated.
 # Ref: https://aur.archlinux.org/packages/neovim-nightly-bin/
 # Bulk of `$VIMRUNTIME/keymap/*.vim` takes almost 2 econds to be loaded.
