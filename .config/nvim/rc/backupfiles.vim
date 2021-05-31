@@ -27,6 +27,10 @@ set backupskip=*/tmp/*,*/.git/*
 
 exe 'set spellfile='. s:data_home .'/spell/en.utf-8.add'
 
+augroup myRc/Backupfiles-NoOldfiles
+  exe 'au BufWinEnter' &undodir .'* setlocal bufhidden=wipe nobuflisted'
+augroup END
+
 function! s:mk_backup_locations_if_unexisted() abort
   const locations = [
         \ &undodir,
