@@ -2,6 +2,7 @@
 # All themes set in `lxappearance`
 
 # Font:
+# xorg-xfontsel # Get X11 font name; no compatible with Nerdfont.
 noto-fonts-cjk # fonts for Chinese, Japanese and Korean
 # ttf-migu # font for Japanese, used in Nerd font, too.
 ttf-junicode # font of runic alphabet, esp. for bluetooth's detection on polybar.
