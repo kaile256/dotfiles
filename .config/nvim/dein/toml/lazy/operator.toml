@@ -125,8 +125,8 @@ hook_add = 'runtime add/sad.vim'
 repo = 'tommcdo/vim-exchange'
  # Note: sometimes fails to clear highlight
 on_map = {nx = ['<Plug>(Exchange']}
-hook_add = 'runtime add/exchange.vim'
-hook_source = 'runtime source/exchange.vim'
+hook_add = 'source $DEIN_RC_DIR/exchange/add.vim'
+hook_source = 'source $DEIN_RC_DIR/exchange/sou.vim'
 #[[plugins]]
 #repo = 'osyo-manga/vim-operator-swap'
 ## Require another plugin to highlight selected area.
