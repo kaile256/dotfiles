@@ -24,6 +24,8 @@ URxvt.letterSpace: 0
 ! #define FONT_NAME DejaVuSansMono Nerd Font Mono:Bold
 #define FONT_SIZE 9
 
+! Note: To precede performance, use X11 font instead of xft font; if you use
+! xft font, set antialias=false.
 #define FONT_OPT  size=FONT_SIZE:antialias=true
 #define FONT      xft:FONT_NAME:FONT_STYLE:FONT_OPT
 
