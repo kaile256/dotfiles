@@ -33,8 +33,7 @@ alias pg='pgrep'
 # App; Linux on Android
 alias pk='~/start-kali.sh'
 
-# TODO: accept arguments to restrict candidates
-alias fzf-fonts='fc-list | fzf'
+alias fzf-fonts='fc-list -f "%{family}:%{style}\n" | fzf'
 
 alias zg=ghq-cd
 alias gz=ghq-cd
