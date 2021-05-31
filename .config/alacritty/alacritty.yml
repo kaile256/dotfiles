@@ -109,7 +109,7 @@ scrolling:
 
 # Font configuration (changes require restart alacritty)
 font:
-  size: 9.8
+  size: 9.0
 
   # Normal (roman) font face
   normal:
