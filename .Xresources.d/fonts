@@ -16,11 +16,16 @@ URxvt.lineSpace: -1
 ! but it demands bigger font size not to replace wide characters with tofu.
 URxvt.letterSpace: 0
 
+#define BOLD_FONT_STYLE Heavy
 ! Ref for fonts on each system: http://malkalech.com/xresources_magic#i-7
-#define FONT_NAME JetBrainsMonoMedium Nerd Font Mono
-#define FONT_SIZE 12
+#define FONT_NAME SFMono Nerd Font Mono
+#define FONT_STYLE Bold
+! #define FONT_NAME FiraCode Nerd Font Mono:Medium
+! #define FONT_NAME DejaVuSansMono Nerd Font Mono:Bold
+#define FONT_SIZE 9
+
 #define FONT_OPT  size=FONT_SIZE:antialias=true
-#define FONT      xft:FONT_NAME:FONT_OPT
+#define FONT      xft:FONT_NAME:FONT_STYLE:FONT_OPT
 
 #define FONTW_NAME Noto Sans Mono CJK Nerd Font
 #define FONTW_SIZE 18
@@ -33,9 +38,18 @@ URxvt.letterSpace: 0
 #else
 #define FONT_SET FONT,FONTW
 #endif
-
-
 URxvt.font: FONT_SET
+
+#define BOLD_FONT  xft:FONT_NAME:BOLD_FONT_STYLE:FONT_OPT
+#define BOLD_FONTW xft:FONTW_NAME:BOLD_FONT_STYLE:FONTW_OPT
+
+#ifndef BOLD_FONTW
+#define BOLD_FONT_SET BOLD_FONT
+#define BOLD_FONTW BOLD_FONT
+#else
+#define BOLD_FONT_SET BOLD_FONT,BOLD_FONTW
+#endif
+URxvt.boldFont: BOLD_FONT_SET
 
 ! Font list and Spacing
 URxvt.allow_bold: true
