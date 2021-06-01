@@ -1,13 +1,9 @@
 set guicursor=n-v-c-sm-o:block,i-ci-ve:ver25,r-cr:hor20
 set guicursor+=a:blinkon0-Cursor/lCursor
 
-if system('xrandr | grep " connected"') =~# 'HDMI1'
-  set guifont=SFMono\ Nerd\ Font\ Mono:h9.3
-  " set guifont=JetBrainsMonoMedium\ Nerd\ Font:h9.3
-  set guifontwide=Noto\ Sans\ Mono\ CJK\ JP:h10.0
-else
-  set guifont=JetBrainsMonoMedium\ Nerd\ Font:h10.0
-  set guifontwide=Noto\ Sans\ Mono\ CJK\ JP:h10.0
+if exists('+guifont')
+  let &guifont     = 'SFMono Nerd Font Mono:h9.3'
+  let &guifontwide = 'Noto Sans Mono CJK JP:h10.0'
 endif
 
 " Configure in goneovim/setting.toml for goneovim
