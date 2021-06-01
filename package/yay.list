@@ -204,7 +204,9 @@ nginx
 android-emulator
 android-bash-completion
 # composer # php dependency manager on PHPStorm?
-rxvt-unicode-patched-with-truecolor
+# rxvt-unicode-patched-with-truecolor
+rxvt-unicode-truecolor-wide-glyphs
+
 # xcape # Config modifier keys to act as other keys with/without another key
 # skypeforlinux-stable-bin
 
