@@ -1,6 +1,11 @@
 -- TOML: appearance.toml
 -- Repo: seblj/nvim-tabline
 
+vim.cmd [[
+" As default, TablineFill contains `reverse` for both cterm and gui.
+hi! TablineFill cterm=NONE gui=NONE
+]]
+
 require('tabline').setup {
   no_name = '[No Name]', -- Name for buffers with no name
 
