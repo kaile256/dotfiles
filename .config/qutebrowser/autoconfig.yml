@@ -677,11 +677,11 @@ settings:
       K: https://www.dictionary.com/browse/{}
       am: https://www.amazon.co.jp/s?k={}
       ar: https://wiki.archlinux.org/?search={}
+      aur: https://aur.archlinux.org/packages/?O=0&K={}
       aw: https://wiki.archlinux.org/?search={}
       ba: https://wiki.bash-hackers.org/start?do=search&id=start&sf=1&q={}
       bhw: https://wiki.bash-hackers.org/start?do=search&id=start&sf=1&q={}
       bw: https://wiki.bash-hackers.org/start?do=search&id=start&sf=1&q={}
-      d: https://duckduckgo.com/?q={}&df=d&ia=web
       dL: https://www.deepl.com/translator/{}
       dh: https://hub.docker.com/search?q={}
       dic: https://www.dictionary.com/browse/{}
@@ -691,6 +691,9 @@ settings:
       dlse: https://www.linguee.com/spanish-english/translation/{}
       dlsp: https://www.linguee.com/spanish-english/translation/{}
       dpl: https://www.deepl.com/translator/?q={}
+      en: https://duckduckgo.com/?kl=us-en&q={}
+      fav: https://www.google.com/s2/favicons?domain={}
+      fr: https://duckduckgo.com/?kl=fr-fr&q={}
       ga: https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions?query={}
       gc: https://github.com/search?q={}&type=code
       gcal: https://calendar.google.com/calendar/u/0/r/{}
@@ -705,7 +708,12 @@ settings:
       gten: https://translate.google.co.jp/?sl=auto&tl=en&text={}
       gtja: https://translate.google.co.jp/?sl=auto&tl=ja&text={}
       gtr: https://trends.google.co.jp/trends/explore?date=all&q={}
+      gtrend: https://trends.google.co.jp/trends/explore?q={}
+      gtrnd: https://trends.google.co.jp/trends/explore?q={}
+      ja: https://duckduckgo.com/?kl=jp-jp&q={}
+      jp: https://duckduckgo.com/?kl=jp-jp&q={}
       m: https://duckduckgo.com/?q={}&df=m&ia=web
+      makuake: https://www.makuake.com/discover/projects/?keyword={}
       map: https://www.google.co.jp/maps/search/{}
       mdn: https://developer.mozilla.org/en-US/search?q={}
       merc: https://www.mercari.com/jp/search/?keyword={}
@@ -720,6 +728,7 @@ settings:
       pyr: https://docs.python.org/3/search.html?q={}
       qb: https://www.reddit.com/r/qutebrowser/search/?q={}
       qi: https://qiita.com/search?q={}&sort=stock
+      qlo: https://www.uniqlo.com/jp/ja/search?q={}
       qs: https://qiita.com/search?stocked=1&q={}
       ra: https://search.rakuten.co.jp/search/mall/{}
       rd: https://www.reddit.com/search/?q={}
