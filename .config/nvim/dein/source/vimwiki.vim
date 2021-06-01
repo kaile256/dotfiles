@@ -144,9 +144,8 @@ augroup AutoFormatVimwiki
   "au VimEnter,BufNewFile,BufRead *.md setl ft=vimwiki syn=vimwiki
   au FileType vimwiki setl tabstop=4 softtabstop=4 shiftwidth=4
   au FileType vimwiki setl nowrap fdl=2
-  "au FileType vimwiki if expand('%:t') ==# 'md\|markdown' | setl ft=markdown | endif
-  au BufWritePre vimwiki/** if &ft  ==# 'vimwiki' | VimwikiTOC
-  au BufWritePre index.* if &ft  ==# 'vimwiki' | VimwikiGenerateLinks
+  au BufWritePre vimwiki/* if &ft  ==# 'vimwiki' | VimwikiTOC | endif
+  au BufWritePre index.* if &ft  ==# 'vimwiki' | VimwikiGenerateLinks | endif
   au FileType vimwiki call s:vimwiki_keymaps()
   au FileType vimwiki call s:vimwiki_abbrs()
 augroup END
