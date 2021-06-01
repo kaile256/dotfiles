@@ -25,28 +25,18 @@ URxvt.letterSpace: 0
 #define FONTW      Noto Sans CJK JP:size=9
 #define BOLD_FONTW Noto Sans CJK JP:Bold:size=9
 
-#ifdef FONT
-#define FONT_SET xft:FONT,xft:FONTW,xft:NERDFONT
-
-#else
 #ifdef FONTW
 #define FONT_SET xft:NERDFONT,xft:FONTW
-
 #else
 #define FONT_SET xft:NERDFONT
-#endif
 #endif
 
 URxvt.font: FONT_SET
 
-#ifdef BOLD_FONT
-#define BOLD_FONT_SET xft:BOLD_FONT,xft:BOLD_FONTW,xft:BOLD_NERDFONT
-#else
 #ifdef BOLD_FONTW
 #define BOLD_FONT_SET xft:BOLD_NERDFONT,xft:BOLD_FONTW
 #else
 #define BOLD_FONT_SET xft:BOLD_NERDFONT
-#endif
 #endif
 
 URxvt.boldFont: BOLD_FONT_SET
