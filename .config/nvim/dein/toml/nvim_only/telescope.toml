@@ -6,6 +6,13 @@ depends = ['popup.nvim', 'plenary.nvim']
 hook_add = 'source $DEIN_LUA_DIR/telescope/add.vim'
 hook_post_source = 'luafile $DEIN_LUA_DIR/telescope/pos.lua'
 
+# [[plugins]]
+# repo = 'nvim-telescope/telescope-fzf-native.nvim'
+# build = 'make'
+# depends = ['telescope.nvim']
+# on_source = ['telescope.nvim']
+# hook_post_source = 'luafile $DEIN_LUA_DIR/telescope/fzf-native/pos.lua'
+
 [[plugins]]
 repo = 'nvim-telescope/telescope-github.nvim'
 on_source = 'telescope.nvim'
