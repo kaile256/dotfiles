@@ -1,5 +1,9 @@
-# Note: Append ASCII "\033" ("\x1b") for ctrl/alt.
-# Get keycodes by `showkey -a`
+! Note: ASCII "\033" in octal ("\x1b" in hex) means `<Esc>`.
+! Get keycodes by `showkey -a`
+! Modifier table:
+! S: 2u | M: 3u | M-S: 4u | C: 5u | C-S: 6u | C-M: 7u | C-M-S: 8u
+! Ref: http://www.leonerd.org.uk/hacks/fixterms/
+
 URxvt.keysym.S-Return: \033[13;2u
 URxvt.keysym.C-Return: \033[13;5u
 
