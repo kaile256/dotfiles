@@ -540,8 +540,8 @@ settings:
     global: 18000000
   editor.command:
     global:
-    - urxvt
-    - -title
+    - alacritty
+    - --title
     - TMP-qutebrowser-input
     - -e
     - nvim
