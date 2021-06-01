@@ -60,7 +60,7 @@ if !exists('*s:source_buffer')
         \ 'vader': ['Vader', 'vader running...'],
         \ 'html': ['silent OpenBrowser %:p', 'open in browser'],
         \ 'xmodmap': ['!xmodmap %:p', 'xmodmap is updated'],
-        \ 'xdefaults': ['!xrdb %:p', 'X is updated'],
+        \ 'xdefaults': ['!xrdb ~/.Xresources', 'X is updated'],
         \ 'i3': ['!i3-msg restart &', 'i3 restarted'],
         \ }
 
