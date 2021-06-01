@@ -46,9 +46,9 @@ URxvt.allow_bold: true
 URxvt.kanji_encoding: UTF-8
 
 
-XTerm*faceName:           FONT
-XTerm*faceNameDoublesize: FONTW
-XTerm*faceSize:           FONT_SIZE
+XTerm*faceName:           SFMono Nerd Font Mono
+XTerm*faceNameDoublesize: Noto Sans CJK JP
+XTerm*faceSize:           9
 
 ! scaleHeight: the height between line and line
 !   (available: 0.9 ~ 1.5; default: 1.0)
