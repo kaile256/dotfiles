@@ -37,6 +37,7 @@ lazy = 0
 [[plugins]]
 repo = 'petobens/poet-v'
 # Support poetry or pipenv project
+if = 'executable("poetry")'
 on_ft = ['python']
 hook_source = 'luafile $DEIN_RC_DIR/poet-v/sou.lua'
 
