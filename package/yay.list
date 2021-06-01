@@ -20,6 +20,7 @@ nerd-fonts-jetbrains-mono
 # nerd-fonts-complete
 ttf-font-icons  # Mix Icon with Awesome & Ionicons without Confliction.
 ttf-twemoji-color # SVG-in-OpenType emoji fonts by Twitter
+ttf-joypixels # Emoji fonts.
 
 # System
 strace
