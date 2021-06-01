@@ -4,8 +4,8 @@ local prev_diagnostic = '<Cmd>lua vim.lsp.diagnostic.goto_prev()<CR>'
 
 if is_repmo_enabled then
   next_diagnostic, prev_diagnostic =
-    [[repmo#Key('<Cmd>lua vim.lsp.diagnostic.goto_next()<CR>', '<Cmd>lua vim.lsp.diagnostic.goto_prev()<CR>')]],
-    [[repmo#Key('<Cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', '<Cmd>lua vim.lsp.diagnostic.goto_next()<CR>')]]
+    "repmo#Key('" .. next_diagnostic .. "', '" .. prev_diagnostic .. "')",
+    "repmo#Key('" .. prev_diagnostic .. "', '" .. next_diagnostic .. "')"
 end
 
 local set_keymaps = function(client, bufnr)
