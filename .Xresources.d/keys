@@ -8,6 +8,9 @@ URxvt.keysym.C-period:    \033[46;5u
 URxvt.keysym.C-semicolon: \033[59;5u
 URxvt.keysym.C-colon:     \033[58;5u
 
+! Disable built-in <M-s> binding
+URxvt.keysym.M-s: \033[115;3u
+
 ! Ctrl+Shift is a shortcut to input any Unicode character like <C-v> in vim
 ! https://www.reddit.com/r/urxvt/comments/35x03n/if_youve_been_vexed_by_urxvts_picture_insert_mode/
 URxvt.iso14755: false
