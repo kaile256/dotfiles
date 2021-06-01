@@ -63,9 +63,10 @@ set $nvim nvim-qt
 set $vim vim
 set $vi alacritty --title vi -e vi
 
-set $urxvt urxvt
+$noid urxvtd --fork --opendisplay
 # urxvtc; add `-k` to kill daemon, too.
-#set $urxvt urxvtc
+set $urxvt urxvtc
+# set $urxvt urxvt
 
 set $restart_polybar $MY_I3_SCRIPTS/polybar-launch
 
@@ -248,9 +249,6 @@ $noid clipit
 #exec_always --no-startup-id ff-theme-util
 #exec_always --no-startup-id setcursor
 #bindsym $mod+Ctrl+M exec pavucontrol
-
-# urxvtd: Daemon of rxvt-unicode. Use urxvtc as a client.
-#$noid "urxvtd -o -f"
 
 $noid alsactl daemon
 # pa-applet (pulseaudio):
