@@ -488,9 +488,11 @@ settings:
     https://app.clickup.com: true
     https://app.jooto.com: true
     https://app.slack.com: true
+    https://blog.csdn.net: false
     https://boxil.jp: false
     https://calendar.google.com: true
     https://drive.google.com: true
+    https://erecipe.woman.excite.co.jp: false
     https://japan.zdnet.com: false
     https://japanese.engadget.com: false
     https://keep.google.com: true
@@ -499,6 +501,8 @@ settings:
     https://news.mynavi.jp: false
     https://ora.pm: true
     https://ostoday.org: false
+    https://otonanswer.jp: false
+    https://pixelbuddha.net: false
     https://ticktick.com: true
     https://web.skype.com: true
     https://wired.jp: false
