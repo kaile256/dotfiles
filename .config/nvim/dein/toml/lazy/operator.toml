@@ -97,7 +97,7 @@ on_map = {
 on_event = ['BufRead']
 hook_add = 'source $DEIN_RC_DIR/sandwich/add.vim'
 hook_source = 'source $DEIN_RC_DIR/sandwich/sou.vim'
-hook_post_source = 'source $DEIN_RC_DIR/sandwich/pos.vim'
+hook_post_source = 'luafile $DEIN_RC_DIR/sandwich/devise_recipes.lua'
 #[[plugins]]
 #repo = 'tpope/vim-surround'
 #on_event = 'BufRead'
