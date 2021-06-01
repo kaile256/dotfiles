@@ -25,21 +25,8 @@ URxvt.letterSpace: 0
 #define CJK_FONT      Noto Sans CJK JP:size=9
 #define BOLD_CJK_FONT Noto Sans CJK JP:Bold:size=9
 
-#ifdef CJK_FONT
-#define FONT_SET xft:NERDFONT,xft:CJK_FONT
-#else
-#define FONT_SET xft:NERDFONT
-#endif
-
-URxvt.font: FONT_SET
-
-#ifdef BOLD_CJK_FONT
-#define BOLD_FONT_SET xft:BOLD_NERDFONT,xft:BOLD_CJK_FONT
-#else
-#define BOLD_FONT_SET xft:BOLD_NERDFONT
-#endif
-
-URxvt.boldFont: BOLD_FONT_SET
+URxvt.font: xft:NERDFONT,xft:CJK_FONT
+URxvt.boldFont: xft:BOLD_NERDFONT,xft:BOLD_CJK_FONT
 
 ! Font list and Spacing
 URxvt.allow_bold: true
