@@ -451,7 +451,9 @@ function! s:set_rules() abort
         \
         \ {'char': '<C-,>', 'at': pat_before_close, 'input': '<C-g>U<Right>, '},
         \ {'char': '<C-:>', 'at': pat_before_close, 'input': '<C-g>U<Right>: '},
-        \ {'char': '<C-.>', 'at': pat_before_close, 'input': '<C-g>U<Right>. '},
+        \
+        \ {'char': '<C-.>', 'at': pat_before_close, 'input': '<C-g>U<Right>.'},
+        \ {'char': '<C-.>', 'at': '\%#[''"][])]', 'input': '<C-g>U<Right><C-g>U<Right>.'},
         \
         \ {'char': '<C-;>', 'at': '\%#.',       'input': '<C-g>U<Right>; ', 'mode': 'c'},
         \ {'char': '<C-;>', 'at': '\%#.*;\s*$', 'input': '<C-g>U<Right>; '},
