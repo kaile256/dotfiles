@@ -175,8 +175,9 @@ settings:
         <Ctrl+p>: fake-key <Up>
         <Ctrl+r>0: insert-text {primary}
         <Ctrl+r><Ctrl+0>: insert-text {primary}
-        <Ctrl+r><Ctrl+Space>: fake-key <ctrl-v>
-        <Ctrl+r><Space>: fake-key <ctrl-v>
+        <Ctrl+r><Ctrl+Space>: :insert-text {primary}
+        <Ctrl+r><Shift+Space>: :insert-text {primary}
+        <Ctrl+r><Space>: :insert-text {clipboard}
         <Ctrl+t>: fake-key <Tab>
         <Ctrl+u>: fake-key <Shift-Home><Backspace>
         <Ctrl+w>: fake-key <ctrl-backspace>
