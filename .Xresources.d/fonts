@@ -22,6 +22,8 @@ URxvt.letterSpace: 0
 
 #define NERDFONT      SFMono Nerd Font Mono:Bold:size=9
 #define BOLD_NERDFONT SFMono Nerd Font Mono:Heavy:size=9
+#define FONTW      Noto Sans CJK JP:size=9
+#define BOLD_FONTW Noto Sans CJK JP:Bold:size=9
 
 #define FONT_SET xft:NERDFONT
 
@@ -30,7 +32,7 @@ URxvt.letterSpace: 0
 
 #else
 #ifdef FONTW
-#define FONT_SET xft:FONTW,xft:NERDFONT
+#define FONT_SET xft:NERDFONT,xft:FONTW
 
 #else
 #define FONT_SET xft:NERDFONT
