@@ -43,3 +43,10 @@ nmap <expr><silent><buffer> zd
       \ ? '<SID>(header-decrement)'
       \ : '<SID>(task-undone)'
 
+
+let g:markdown_first_line_of_section = '^\s*#.*\n\s*\n#\@<!\zs\S'
+let g:markdown_last_line_of_section = '^\s*#.*\n\s*\%(\n#\@<!\S.*\)*\n\zs\S'
+noremap <buffer><silent> ]] :<C-u>call search(g:markdown_first_line_of_section, 'W')<CR>
+noremap <buffer><silent> [[ :<C-u>call search(g:markdown_first_line_of_section, 'bW')<CR>
+noremap <buffer><silent> ][ :<C-u>call search(g:markdown_last_line_of_section, 'W')<CR>
+noremap <buffer><silent> [] :<C-u>call search(g:markdown_last_line_of_section, 'bW')<CR>
