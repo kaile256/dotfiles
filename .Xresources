@@ -53,8 +53,9 @@ URxvt.cursorUnderline:    true
 URxvt.pointerBlank:       true
 
 URxvt.visualBell:         false
-! Note: Lines of scrollback buffer: with tmux, set it to 0.
-URxvt.saveLines:          3000
+! Note: Lines of scrollback buffer
+! With tmux/vim/nvim, you can set it to 0.
+URxvt.saveLines: 0
 
 ! Extentions
 ! CAUTION: spare extra extentions to save RAM.
