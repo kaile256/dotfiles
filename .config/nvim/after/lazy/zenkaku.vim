@@ -13,7 +13,7 @@ let w:syntax_zenkaku = matchadd('Zenkaku', '[ａｂｃｄｅｆｇｈｉｊｋ�
 let w:syntax_zenkaku = matchadd('Zenkaku', '[　０１２３４５６７８９]')
 
 
-hi! operatorNot ctermfg=15 guifg=#ffffff cterm=bold gui=bold
+hi! OperatorNot ctermfg=15 guifg=#ffffff cterm=bold gui=bold
 let w:syntax_operator_not = matchadd('OperatorNot', '\s\zs!\ze\s\=\h')
 " hi! operatorNot cterm=strikethrough gui=strikethrough
 " let w:syntax_operator_not = matchadd('OperatorNot', '\s\zs\%(! \?\|not \)\h.*\ze\%($\|&&\|and\|or\|then\)')
