@@ -16,68 +16,38 @@ URxvt.lineSpace: -1
 ! but it demands bigger font size not to replace wide characters with tofu.
 URxvt.letterSpace: 0
 
-! #define FONT_NAME       DejaVu Sans Mono
-! #define FONT_STYLE      Bold
-! #define BOLD_FONT_STYLE Bold Italic
-! #define FONT_SIZE       9
-! #define FONT_OPT  size=FONT_SIZE:antialias=true
-! #define FONT      xft:FONT_NAME:FONT_STYLE:FONT_OPT
-
-! #define FONTW_NAME Noto Sans Mono CJK JP
-! ! #define FONTW_NAME Source Hans Sans JP
-! #define FONTW_SIZE 9
-! #define FONT_STYLE Bold
-! ! #define BOLD_FONT_STYLE Bold
-! #define FONTW_OPT  size=FONTW_SIZE:antialias=true
-! #define FONTW      xft:FONTW_NAME:FONTW_OPT
-
-! Ref for fonts on each system: http://malkalech.com/xresources_magic#i-7
-#define NERDFONT_NAME       SFMono Nerd Font Mono
-! #define NERDFONT_NAME FiraCode Nerd Font Mono:Medium
-! #define NERDFONT_NAME DejaVuSansMono Nerd Font Mono:Bold
-#define NERDFONT_STYLE      Bold
-#define BOLD_NERDFONT_STYLE Heavy
-#define NERDFONT_SIZE       9
-
 ! Note: To precede performance, use X11 font instead of xft font; if you use
 ! xft font, set antialias=false.
+! Ref for fonts on each system: http://malkalech.com/xresources_magic#i-7
 
-#define NERDFONT_OPT  size=NERDFONT_SIZE:antialias=true
-#define NERDFONT      xft:NERDFONT_NAME:NERDFONT_STYLE:NERDFONT_OPT
-#define BOLD_NERDFONT xft:NERDFONT_NAME:BOLD_NERDFONT_STYLE:NERDFONT_OPT
+#define NERDFONT      SFMono Nerd Font Mono:Bold:size=9
+#define BOLD_NERDFONT SFMono Nerd Font Mono:Heavy:size=9
+
+#define FONT_SET xft:NERDFONT
 
 #ifdef FONT
-
-#define FONT_SET  FONT,FONTW,NERDFONT
-#ifdef BOLD_FONT_STYLE
-#define BOLD_FONT xft:FONT_NAME:BOLD_FONT_STYLE:FONT_OPT
-#endif
+#define FONT_SET xft:FONT,xft:FONTW,xft:NERDFONT
 
 #else
 #ifdef FONTW
-
-#define FONT_SET   FONTW,NERDFONT
-#ifdef BOLD_FONTW_STYLE
-#define BOLD_FONTW xft:FONTW_NAME:BOLD_FONT_STYLE:FONTW_OPT
-#endif
+#define FONT_SET xft:FONTW,xft:NERDFONT
 
 #else
-#define FONT_SET NERDFONT
+#define FONT_SET xft:NERDFONT
 #endif
 #endif
 
 URxvt.font: FONT_SET
 
 #ifdef BOLD_FONT
-#define BOLD_FONT_SET BOLD_FONT,BOLD_FONTW,BOLD_NERDFONT
+#define BOLD_FONT_SET xft:BOLD_FONT,xft:BOLD_FONTW,xft:BOLD_NERDFONT
 #else
 #ifdef BOLD_FONTW
-#define BOLD_FONT_SET BOLD_NERDFONT,BOLD_FONTW
+#define BOLD_FONT_SET xft:BOLD_NERDFONT,xft:BOLD_FONTW
 #else
-#define BOLD_FONT_SET BOLD_NERDFONT
+#define BOLD_FONT_SET xft:BOLD_NERDFONT
 #endif
 #endif
-
 
 URxvt.boldFont: BOLD_FONT_SET
 
