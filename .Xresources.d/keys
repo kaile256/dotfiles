@@ -1,5 +1,8 @@
 # Note: Append ASCII "\033" ("\x1b") for ctrl/alt.
 # Get keycodes by `showkey -a`
+URxvt.keysym.S-Return: \033[13;2u
+URxvt.keysym.C-Return: \033[13;5u
+
 URxvt.keysym.C-comma:     \033[44;5u
 URxvt.keysym.C-period:    \033[46;5u
 URxvt.keysym.C-semicolon: \033[59;5u
