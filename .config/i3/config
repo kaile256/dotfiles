@@ -746,7 +746,8 @@ $release $Super+N mode $Neovim; $noid $shortmsg 'Neovim: backends'
 mode $Neovim {
     bindsym Q $noid nvim-qt;  mode default
     bindsym A $noid alacritty -e nvim; mode default
-    bindsym U $noid $urxvt -e nvim; mode default
+    bindsym U        $noid $urxvt -e nvim; mode default
+    bindsym $Super+U $noid $urxvt -e nvim; mode default
 
     bindsym Ctrl+C             mode default
     bindsym Ctrl+bracketleft   mode default
