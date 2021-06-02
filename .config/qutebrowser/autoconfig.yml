@@ -553,52 +553,55 @@ settings:
   editor.encoding:
     global: utf-8
   fonts.completion.category:
-    global: 11pt JetBrainsMonoMedium Nerd Font, icons, Noto Sans CJK JP
+    global: 11pt JetBrainsMonoMedium Nerd Font, icons, Noto Sans CJK JP, JoyPixels
   fonts.completion.entry:
-    global: 11pt JetBrainsMono Nerd Font, icons, Noto Sans CJK JP
+    global: 11pt JetBrainsMono Nerd Font, icons, Noto Sans CJK JP, JoyPixels
   fonts.contextmenu:
-    global: 11pt JetBrainsMono Nerd Font, icons, 11pt JetBrainsMono Nerd Font, icons
+    global: 11pt JetBrainsMono Nerd Font, icons, 11pt JetBrainsMono Nerd Font, icons,
+      JoyPixels
   fonts.debug_console:
-    global: 12pt JetBrainsMonoMedium Nerd Font, icons, Noto Sans CJK JP
+    global: 12pt JetBrainsMonoMedium Nerd Font, icons, Noto Sans CJK JP, JoyPixels
   fonts.default_family:
     global:
     - JetBrainsMonoMedium Nerd Font
-    - Terminus
+    - icons
+    - Noto Sans CJK JP
+    - JoyPixels
   fonts.default_size:
     global: 11pt
   fonts.downloads:
-    global: 11pt JetBrainsMonoMedium Nerd Font, icons, Noto Sans CJK JP
+    global: 11pt JetBrainsMonoMedium Nerd Font, icons, Noto Sans CJK JP, JoyPixels
   fonts.hints:
-    global: bold 11pt JetBrainsMonoMedium Nerd Font, icons, Noto Sans CJK JP
+    global: bold 11pt JetBrainsMonoMedium Nerd Font, icons, Noto Sans CJK JP, JoyPixels
   fonts.keyhint:
-    global: 11pt JetBrainsMonoMedium Nerd Font, icons, Noto Sans CJK JP
+    global: 11pt JetBrainsMonoMedium Nerd Font, icons, Noto Sans CJK JP, JoyPixels
   fonts.messages.error:
-    global: 11pt JetBrainsMonoMedium Nerd Font, icons, Noto Sans CJK JP
+    global: 11pt JetBrainsMonoMedium Nerd Font, icons, Noto Sans CJK JP, JoyPixels
   fonts.messages.info:
-    global: 11pt JetBrainsMonoMedium Nerd Font, icons, Noto Sans CJK JP
+    global: 11pt JetBrainsMonoMedium Nerd Font, icons, Noto Sans CJK JP, JoyPixels
   fonts.messages.warning:
-    global: 11pt JetBrainsMonoMedium Nerd Font, icons, Noto Sans CJK JP
+    global: 11pt JetBrainsMonoMedium Nerd Font, icons, Noto Sans CJK JP, JoyPixels
   fonts.prompts:
-    global: 11pt JetBrainsMonoMedium Nerd Font, icons, Noto Sans CJK JP
+    global: 11pt JetBrainsMonoMedium Nerd Font, icons, Noto Sans CJK JP, JoyPixels
   fonts.statusbar:
     global: bold 10.5pt JetBrainsMonoMedium Nerd Font, icons, bold 10.5pt JetBrainsMonoMedium
-      Nerd Font, icons, Noto Sans CJK JP
+      Nerd Font, icons, Noto Sans CJK JP, JoyPixels
   fonts.tabs.selected:
-    global: bold 10.5pt JetBrainsMonoMedium Nerd Font, icons, Noto Sans CJK JP
+    global: bold 10.5pt JetBrainsMonoMedium Nerd Font, icons, Noto Sans CJK JP, JoyPixels
   fonts.tabs.unselected:
-    global: bold 10.5pt JetBrainsMonoMedium Nerd Font, icons, Noto Sans CJK JP
+    global: bold 10.5pt JetBrainsMonoMedium Nerd Font, icons, Noto Sans CJK JP, JoyPixels
   fonts.web.family.cursive:
-    global: JetBrainsMonoMedium Nerd Font, icons, Noto Sans CJK JP
+    global: JetBrainsMonoMedium Nerd Font, icons, Noto Sans CJK JP, JoyPixels
   fonts.web.family.fantasy:
-    global: JetBrainsMonoMedium Nerd Font, icons, Noto Sans CJK JP
+    global: JetBrainsMonoMedium Nerd Font, icons, Noto Sans CJK JP, JoyPixels
   fonts.web.family.fixed:
-    global: JetBrainsMonoMedium Nerd Font, icons, Noto Sans CJK JP
+    global: JetBrainsMonoMedium Nerd Font, icons, Noto Sans CJK JP, JoyPixels
   fonts.web.family.sans_serif:
-    global: JetBrainsMonoMedium Nerd Font, icons, Noto Sans CJK JP
+    global: JetBrainsMonoMedium Nerd Font, icons, Noto Sans CJK JP, JoyPixels
   fonts.web.family.serif:
-    global: JetBrainsMonoMedium Nerd Font, icons, Noto Sans CJK JP
+    global: JetBrainsMonoMedium Nerd Font, icons, Noto Sans CJK JP, JoyPixels
   fonts.web.family.standard:
-    global: JetBrainsMonoMedium Nerd Font, icons, Noto Sans CJK JP
+    global: JetBrainsMonoMedium Nerd Font, icons, Noto Sans CJK JP, JoyPixels
   fonts.web.size.default:
     global: 14
   fonts.web.size.default_fixed:
