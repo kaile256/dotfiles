@@ -96,3 +96,13 @@ repo = 'lewis6991/foldsigns.nvim'
 if = 'has("nvim")'
 on_source = ['gitsigns.nvim']
 hook_post_source = 'luafile $DEIN_RC_DIR/foldsigns/pos.lua'
+
+#[ Motion ]
+[[plugins]]
+repo = 'dhazel/next-closed-fold.nvim'
+# Replace zj/zk, and they'll no longer pollute jumplist.
+on_lua = ['next-closed-fold']
+hook_add = '''
+noremap zj <Cmd>lua require'next-closed-fold'.nextClosedFold('j')<cr>
+noremap zk <Cmd>lua require'next-closed-fold'.nextClosedFold('k')<cr>
+'''
