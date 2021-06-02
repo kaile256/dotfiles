@@ -31,8 +31,8 @@ set fo+=l " Don't wrap at start insert mode even when over &textwidth
 
 set fo+=n " Break numbered lists as &formatlistpat; requires &autoindent
 
-" set fo+=r " Insert comment leader by \<CR> in Normal mode
-" set fo+=o " Insert comment leader by o/O in Normal mode
+set fo+=r " Insert comment leader by \<CR> in Normal mode
+set fo+=o " Insert comment leader by o/O in Normal mode
 
 " set fo+=v " Only break a line at a blank
 
