@@ -130,3 +130,7 @@ on_event = ['CmdLineEnter', 'TermEnter']
 # # FIXME: no ideas to manage both count for inserted texts and repeat the
 # # last editing.
 # on_event = 'BufWinEnter'
+
+[[plugins]]
+repo = '$DEIN_PRIVATE_HOME/vim-git-hash2diff'
+on_ft = ['gitrebase']
