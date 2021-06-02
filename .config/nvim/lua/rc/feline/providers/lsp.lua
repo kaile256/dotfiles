@@ -1,5 +1,3 @@
-local vim = vim
-
 local lsp = {}
 
 local coc_loading = {
