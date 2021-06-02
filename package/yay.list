@@ -157,7 +157,8 @@ graphviz # Visualize graph. Used by weirongxu/plantuml-previewer.vim.
 python-gphotos-sync # Sync google photo to local directory.
 notes-cli-git
 gparted # Format SSD/HDD.
-polar-bookshelf-bin
+# polar-bookshelf-bin # A reading list app.
+
 xkeysnail # remapping tool for X written in Python
 lua-lcf # formatter for lua
 lua51-formatter # Formatter for lua5.1 which's used in Neovim.
