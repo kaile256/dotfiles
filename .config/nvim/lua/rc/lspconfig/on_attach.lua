@@ -1,6 +1,15 @@
 local is_repmo_enabled = vim.fn['dein#tap']('repmo-vim')
-local next_diagnostic = '<Cmd>lua vim.lsp.diagnostic.goto_next()<CR>'
-local prev_diagnostic = '<Cmd>lua vim.lsp.diagnostic.goto_prev()<CR>'
+
+local tostring = function(tbl)
+  return vim.inspect(tbl):gsub('\n', '')
+end
+
+local config_goto = {
+  wrap = false,
+}
+
+local next_diagnostic = '<Cmd>lua vim.lsp.diagnostic.goto_next(' .. tostring(config_goto) .. ')<CR>'
+local prev_diagnostic = '<Cmd>lua vim.lsp.diagnostic.goto_prev(' .. tostring(config_goto) .. ')<CR>'
 
 if is_repmo_enabled then
   next_diagnostic, prev_diagnostic =
