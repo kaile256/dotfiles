@@ -73,7 +73,10 @@ git.diff = {
       return is_under_git()
     end,
     provider = function()
-      return get_git_stat('added')
+      local added = get_git_stat('added')
+      local lines = vim.fn.line('$')
+      if tonumber(added) == lines then return " ALL" end
+      return added
     end,
     hl = {
       fg = colors.bg,
