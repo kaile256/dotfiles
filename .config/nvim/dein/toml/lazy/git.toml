@@ -44,11 +44,12 @@ hook_source = 'runtime source/git-msg-wheel.vim'
 # hook_add = 'runtime add/git-messenger.vim'
 #
 #[ Blame ]
-#[[plugins]]
-#repo = 'rhysd/ghpr-blame.vim'
-## Note: Dominant behavior on a tab
-#on_cmd =  'GHPRBlame'
-#hook_source = 'runtime source/ghpr-blame.vim'
+# [[plugins]]
+# repo = 'rhysd/ghpr-blame.vim'
+# # Note: <CR>, or g:ghpr_show_pr_mapping, to show PR detail at the line.
+# Use octo.nvim instead.
+# on_cmd =  'GHPRBlame'
+# hook_source = 'runtime source/ghpr-blame.vim'
 [[plugins]]
 repo = 'APZelos/blamer.nvim'
 # On Visual mode, show blames on every lines at once.
