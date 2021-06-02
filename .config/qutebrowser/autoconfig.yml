@@ -507,6 +507,7 @@ settings:
     https://ticktick.com: true
     https://web.skype.com: true
     https://wired.jp: false
+    https://www.notionwizard.com: false
     https://www.pcmag.com: false
     https://www.reddit.com: true
     https://www.sankeibiz.jp: false
