@@ -91,6 +91,7 @@ endfunction
 
 nnoremap <silent> ZZ :<C-u>call <SID>ignore_floating_windows('ZZ')<CR>
 nnoremap <silent> ZZ :<C-u>call <SID>ignore_floating_windows('ZZ')<CR>
+nnoremap <silent> ZQ :<C-u>q!<CR>
 nmap <c-w>Z ZZ
 nmap <c-w>Q ZQ
 nmap Zz ZZ
