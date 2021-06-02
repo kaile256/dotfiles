@@ -1,7 +1,7 @@
 -- Repo: pwntester/octo.nvim
 -- Toml: telescope.toml
 
-require"octo".setup {
+local config = {
   date_format = "%Y %b %d %I:%M %p %Z";    -- date format
   default_remote = {"upstream", "origin"}; -- order to try remotes
   reaction_viewer_hint_icon = "";         -- marker for user reactions
@@ -32,14 +32,6 @@ require"octo".setup {
       delete_comment = "<space>cd",        -- delete comment
       next_comment = "]c",                 -- go to next comment
       prev_comment = "[c",                 -- go to previous comment
-      react_hooray = "<space>rp",          -- toggle 🎉 reaction
-      react_heart = "<space>rh",           -- toggle ❤️ reaction
-      react_eyes = "<space>re",            -- toggle 👀 reaction
-      react_thumbs_up = "<space>r+",       -- toggle 👍 reaction
-      react_thumbs_down = "<space>r-",     -- toggle 👎 reaction
-      react_rocket = "<space>rr",          -- toggle 🚀 reaction
-      react_laugh = "<space>rl",           -- toggle 😄 reaction
-      react_confused = "<space>rc",        -- toggle 😕 reaction
     },
     pull_request = {
       checkout_pr = "<space>po",           -- checkout PR
@@ -63,14 +55,6 @@ require"octo".setup {
       delete_comment = "<space>cd",        -- delete comment
       next_comment = "]c",                 -- go to next comment
       prev_comment = "[c",                 -- go to previous comment
-      react_hooray = "<space>rp",          -- toggle 🎉 reaction
-      react_heart = "<space>rh",           -- toggle ❤️ reaction
-      react_eyes = "<space>re",            -- toggle 👀 reaction
-      react_thumbs_up = "<space>r+",       -- toggle 👍 reaction
-      react_thumbs_down = "<space>r-",     -- toggle 👎 reaction
-      react_rocket = "<space>rr",          -- toggle 🚀 reaction
-      react_laugh = "<space>rl",           -- toggle 😄 reaction
-      react_confused = "<space>rc",        -- toggle 😕 reaction
     },
     review_thread = {
       goto_issue = "<space>gi",            -- navigate to a local repo issue
@@ -82,14 +66,6 @@ require"octo".setup {
       select_next_entry = "]q",            -- move to previous changed file
       select_prev_entry = "[q",            -- move to next changed file
       close_review_tab = "<C-c>",          -- close review tab
-      react_hooray = "<space>rp",          -- toggle 🎉 reaction
-      react_heart = "<space>rh",           -- toggle ❤️ reaction
-      react_eyes = "<space>re",            -- toggle 👀 reaction
-      react_thumbs_up = "<space>r+",       -- toggle 👍 reaction
-      react_thumbs_down = "<space>r-",     -- toggle 👎 reaction
-      react_rocket = "<space>rr",          -- toggle 🚀 reaction
-      react_laugh = "<space>rl",           -- toggle 😄 reaction
-      react_confused = "<space>rc",        -- toggle 😕 reaction
     },
     submit_win = {
       approve_review = "<C-a>",            -- approve review
@@ -124,3 +100,21 @@ require"octo".setup {
   }
 }
 
+local reactions = {
+  react_hooray      = "<space>rp", -- toggle 🎉 reaction
+  react_heart       = "<space>rh", -- toggle ❤️  reaction
+  react_eyes        = "<space>re", -- toggle 👀 reaction
+  react_thumbs_up   = "<space>r+", -- toggle 👍 reaction
+  react_thumbs_down = "<space>r-", -- toggle 👎 reaction
+  react_rocket      = "<space>rr", -- toggle 🚀 reaction
+  react_laugh       = "<space>rl", -- toggle 😄 reaction
+  react_confused    = "<space>rc", -- toggle 😕 reaction
+}
+
+for _, mode in pairs({ "issue", "pull_request", "review_thread" }) do
+  for k, v in pairs(reactions) do
+    config.mappings[mode][k] = v
+  end
+end
+
+require"octo".setup(config)
