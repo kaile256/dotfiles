@@ -7,6 +7,7 @@ function! autofdm#update()
   " Note: add any guards in plugin/autofdm.vim for the advantage of autoload.
 
   let last_foldmethod = &foldmethod
+  let is_current_line_folded = foldclosed('.') != -1
 
   if &diff && &foldmethod !=# 'diff'
     setlocal foldmethod=diff
@@ -25,6 +26,7 @@ function! autofdm#update()
   if last_foldmethod ==# &foldmethod | return | endif
   call s:update_undo_ftplugin()
 
+  if !is_current_line_folded | return | endif
   " For the time when foldmethod has changed.
   norm! zv
 endfunction
