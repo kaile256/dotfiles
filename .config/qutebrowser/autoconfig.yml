@@ -98,10 +98,10 @@ settings:
         <Alt+i>: fake-key <left>
         <Alt+k>: mode-leave
         <Alt+u>: rl-yank
-        <Ctrl+c>: mode-leave;; spawn --detach fcitx5-remote -e
+        <Ctrl+c>: mode-leave;; spawn --detach fcitx5-remote -c
         <Ctrl+d>: rl-delete-char
         <Ctrl+g>: completion-item-focus next
-        <Ctrl+j>: spawn --detach fcitx5-remote -s skk
+        <Ctrl+j>: spawn fcitx5-remote -s skk
         <Ctrl+n>: command-history-next
         <Ctrl+o>: completion-item-focus prev
         <Ctrl+p>: command-history-prev
@@ -160,7 +160,7 @@ settings:
         <Ctrl+Shift+n>: fake-key <Shift-down>
         <Ctrl+Shift+p>: fake-key <Shift-Up>
         <Ctrl+Shift+x>: fake-key <Ctrl-a><Ctrl-x>
-        <Ctrl+[>: mode-leave;; spawn --detach fcitx5-remote -e
+        <Ctrl+[>: mode-leave;; spawn --detach fcitx5-remote -c
         <Ctrl+a>: fake-key <Home>
         <Ctrl+b>: fake-key <Left>
         <Ctrl+d>: fake-key <Delete>
@@ -186,7 +186,7 @@ settings:
         <Ctrl+w>: fake-key <ctrl-backspace>
         <Ctrl+y>: insert-text {primary}
         <Escape>: fake-key <Esc>
-        l: fake-key l;; spawn --detach pgrep fcitx5 && fcitx5-remote -e
+        l: fake-key l;; spawn --detach pgrep fcitx5 && fcitx5-remote -c
       normal:
         '!': set-cmd-text --space :spawn
         '0': fake-key <Home>
@@ -211,7 +211,7 @@ settings:
         <Ctrl+Space>F: hint links tab-bg
         <Ctrl+Space>f: hint links current
         <Ctrl+[>: mode-enter insert ;; clear-keychain ;; search ;; fullscreen --leave;;
-          mode-leave
+          spawn fcitx5-remote -c ;; mode-leave
         <Ctrl+a>: forward
         <Ctrl+b>: fake-key <PgUp>
         <Ctrl+c>: stop;; clear-keychain;; download-clear;; search
@@ -219,11 +219,11 @@ settings:
         <Ctrl+e>: scroll-px 0 +50
         <Ctrl+f>: fake-key <PgDown>
         <Ctrl+g>: fake-key <Home>
-        <Ctrl+h>: tab-prev;; spawn --detach fcitx5-remote -e
+        <Ctrl+h>: tab-prev;; spawn --detach fcitx5-remote -c
         <Ctrl+i>: forward
         <Ctrl+j>: fake-key <down>
         <Ctrl+k>: fake-key <up>
-        <Ctrl+l>: tab-next;; spawn --detach fcitx5-remote -e
+        <Ctrl+l>: tab-next;; spawn --detach fcitx5-remote -c
         <Ctrl+n>: fake-key <down>
         <Ctrl+o>: back
         <Ctrl+p>: fake-key <up>
