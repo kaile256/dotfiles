@@ -122,9 +122,9 @@ codeql # CLI tool for GitHub's CodeQL.
 # Qutebrowser:
 
 # For Vim:
+# gvim-gtk2
 neovim-nightly-bin
 neovim-qt
-gvim-gtk2
 fvim # Neovim front-end UI built with F# & Avalonia
 # neovide-git # Neovim GUI written in Rust; cursor moves too slow.
 goneovim-bin
