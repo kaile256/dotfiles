@@ -125,7 +125,7 @@ codeql # CLI tool for GitHub's CodeQL.
 # gvim-gtk2
 neovim-nightly-bin
 neovim-qt
-fvim # Neovim front-end UI built with F# & Avalonia
+# fvim # Neovim front-end UI built with F# & Avalonia
 # neovide-git # Neovim GUI written in Rust; cursor moves too slow.
 goneovim-bin
 sc-im # Spread sheet.  Used by vim-scimark.
