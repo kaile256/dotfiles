@@ -195,7 +195,8 @@ google-chrome
 supercollider # Programming Language to create sounds
 boost # Cpp source libraries - development headers
 # cling # cpp's interpretor; required for REPL. It takes too long to compile. cling-bin instead isn't up-to-date and won't set to $PATH.
-st # a terminal emulater lighter than urxvt/xterm
+# st # a terminal emulater. `yay -G st-gt; nvim config.h; makepkg si` to get your own.
+
 compiledb # a generator for clang's JSON
 deno # a better runtime than node.js which include TypeScript compiler
 sshfs # mount another filesystem via ssh
