@@ -94,6 +94,7 @@ settings:
         y: yank selection
       command:
         <Alt+a>: fake-key <right>
+        <Alt+g>e: edit-command
         <Alt+i>: fake-key <left>
         <Alt+k>: mode-leave
         <Alt+u>: rl-yank
@@ -135,6 +136,7 @@ settings:
         <Alt+f>: fake-key <Ctrl-Right>
         <Alt+g><Alt+g>: mode-leave;; scroll-to-perc 0
         <Alt+g><Alt+o>: mode-leave;; hint inputs --first
+        <Alt+g>e: edit-text
         <Alt+g>o: hint inputs --first
         <Alt+h>: mode-enter normal
         <Alt+i>: mode-enter insert
@@ -165,6 +167,7 @@ settings:
         <Ctrl+e>: fake-key <End>
         <Ctrl+f>: fake-key <Right>
         <Ctrl+g>: fake-key <Esc>
+        <Ctrl+g>e: edit-text
         <Ctrl+h>: fake-key <Backspace>
         <Ctrl+i>: fake-key <TAB>
         <Ctrl+j>: spawn --detach fcitx5-remote -s skk
