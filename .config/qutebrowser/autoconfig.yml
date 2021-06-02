@@ -271,6 +271,7 @@ settings:
         <Ctrl+y>: scroll-px 0 -50
         <Del>: fake-key <Delete>
         <Enter>: mode-enter insert;; fake-key <enter> ;; mode-leave
+        <Escape>: clear-keychain ;; search ;; fullscreen --leave;; fake-key <Escape>
         <Shift+Backspace>: back
         <Shift+Del>: forward
         <Shift+Space>F: hint links tab-bg
