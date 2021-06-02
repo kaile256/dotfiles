@@ -144,6 +144,7 @@ recipes.bracket = {
     action =  {'add'},
     kind =  {'add', 'replace'},
     linewise =  1,
+    motionwise = {'line'},
     command =  {"'[+1,']-1 normal! >>"},
   },
   {
@@ -161,6 +162,7 @@ recipes.bracket = {
     action =  {'add'},
     kind =  {'add', 'replace'},
     linewise =  1,
+    motionwise = {'line'},
     command =  {"'[+1,']-1 normal! >>"},
   },
   {
@@ -177,6 +179,7 @@ recipes.bracket = {
     buns =  {'[', ']'},
     action =  {'add'},
     kind =  {'add', 'replace'},
+    motionwise = {'line'},
     linewise =  1,
     command =  {"'[+1,']-1 normal! >>"},
   },
@@ -195,6 +198,7 @@ recipes.bracket = {
     action =  {'add'},
     kind =  {'add', 'replace'},
     linewise =  1,
+    motionwise = {'line'},
     command =  {"'[+1,']-1 normal! >>"},
   },
   {
