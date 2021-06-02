@@ -33,7 +33,7 @@ repo = 'pwntester/octo.nvim'
 # Edit issues, PRs, etc., of GitHub
 depends = ['plenary.nvim', 'telescope.nvim']
 on_cmd = 'Octo'
-hook_post_source = 'luafile $DEIN_LUA_DIR/telescope/octo/pos.lua'
+hook_source = 'luafile $DEIN_LUA_DIR/telescope/octo/sou.lua'
 
 # [[plugins]]
 # repo = 'fannheyward/telescope-coc.nvim'
