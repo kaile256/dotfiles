@@ -5,7 +5,7 @@ let g:autofdm#disable_filetypes = get(g:, 'autofdm#disable_filetypes', [
 
 augroup autofdm
   au!
-  au BufWinEnter * call s:update_foldmethod()
+  au BufWinEnter,InsertLeave,TextChanged * call s:update_foldmethod()
 augroup END
 
 function! s:update_foldmethod()
