@@ -108,7 +108,7 @@ function! s:restore_mappings() abort
     for lhs in keys(lhs2maparg)
       let data = lhs2maparg[lhs]
       if data['buffer'] == 0
-        mode .'unmap <buffer>' lhs
+        exe mode .'unmap <buffer>' lhs
         return
       endif
 
