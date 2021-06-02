@@ -73,7 +73,7 @@ update: ## Update dotfiles and installed packages
 # Note: `yay` instead cannot update it because `pkgver` is not updated.
 # Ref: https://aur.archlinux.org/packages/neovim-nightly-bin/
 # Bulk of `$VIMRUNTIME/keymap/*.vim` takes almost 2 econds to be loaded.
-neovim-nightly-bin:  ## Install the latest version of neovim-nightly-bin
+neovim-nightly-bin: paru ## Install the latest version of neovim-nightly-bin
 	rm ~/.cache/paru/clone/neovim-nightly-bin -rf
 	paru -S --rebuild --redownload neovim-nightly-bin
 	@echo "Disarming keymap/ with backup for neovim startup performance..."
