@@ -121,6 +121,9 @@ function! s:set_definitions() abort
         \
         \ ['absolute', 'relative'],
         \ ['abs', 'rel'],
+        \
+        \ ['inclusive', 'exclusive'],
+        \ ['included', 'excluded'],
         \ ]
 
   let rules.keys = [
