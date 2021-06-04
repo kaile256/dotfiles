@@ -1,0 +1,203 @@
+# From: dein/dein.vim
+
+#[ Repeat ]
+[[plugins]]
+repo = 'tpope/vim-repeat'
+# Note: has no doc/
+on_func = 'repeat#'
+# Notice: mapping under add/ fails to find the autoload/ of vim-repeat
+hook_post_source = 'runtime post/repeat.vim'
+[[plugins]]
+repo = 'inkarkat/vim-visualrepeat'
+# used by easy-align on Visual mode.
+on_func = 'visualrepeat#'
+[[plugins]]
+repo = 'Houl/repmo-vim'
+on_func = 'repmo#'
+hook_add = 'runtime add/repmo.vim'
+hook_post_source = 'runtime post/repmo.vim'
+#[[plugins]]
+#repo = 'vim-scripts/repeatable-motions.vim'
+
+#[ Join ]
+[[plugins]]
+repo = 'AndrewRadev/splitjoin.vim'
+on_cmd = ['SplitjoinJoin', 'SplitjoinSplit']
+on_map = ['<Plug>SplitjoinJoin', '<Plug>SplitjoinSplit']
+hook_add = 'runtime add/splitjoin.vim'
+[[plugins]]
+repo = 'FooSoft/vim-argwrap'
+# Split/Join arguments between braces, brackets, etc.
+on_cmd = ['Argwrap']
+# [[plugins]]
+# # repo = 'sk1418/Join'
+# # Join with input arguments as separator.
+# on_cmd = ['J', 'Join']
+# hook_add = 'runtime add/Join.vim'
+# [[plugins]]
+# repo = 'jeetsukumaran/vim-linearly'
+# on_func = 'linearly#'
+# hook_add = 'runtime add/linearly.vim'
+
+#[ Split ]
+# [[plugins]]
+# repo = 'rhysd/clever-split.vim'
+# on_cmd = 'Clever'
+# hook_add = 'runtime add/clever-split.vim'
+
+#[ Format ]
+# [[plugins]]
+# # repo = 'sbdchd/neoformat'
+# # Preconfigured formatter plugin.
+# # Async format is WIP. Follow sbdchd/neoformat/pull/226.
+# on_cmd = ['Neoformat']
+# hook_add = 'source $DEIN_RC_DIR/neoformat/add.vim'
+# hook_source = 'source $DEIN_RC_DIR/neoformat/sou.vim'
+#
+# [ Comment ]
+[[plugins]]
+repo = 'suy/vim-context-commentstring'
+# modify &commentstring on CursorMoved as g:context#commentstring#table[&ft]
+on_ft = [
+  'php',
+]
+hook_source = 'runtime source/context-commentstring.vim'
+
+#[ Paste ]
+# [[plugins]]
+# # repo = 'inkarkat/vim-UnconditionalPaste'
+# on_source = 'asterisk'
+# on_map = {nx = ['<Plug>UnconditionalPaste']}
+# hook_add = 'runtime add/UnconditionalPaste.vim'
+# hook_source = 'runtime source/UnconditionalPaste.vim'
+#
+#[ Mapping ]
+# [[plugins]]
+# repo = 'skywind3000/vim-quickui'
+# # Hard to set up.
+# # Display dropdown menu like general GUI application.
+# on_func = ['quickui#']
+# hook_add = 'source $DEIN_RC_DIR/quickui/add.vim'
+# hook_post_source = 'source $DEIN_RC_DIR/quickui/pos.vim'
+[[plugins]]
+repo = 'liuchengxu/vim-which-key'
+on_func = 'which_key#register'
+on_cmd = 'WhichKey'
+hook_add = 'source $DEIN_RC_DIR/which-key/add.vim'
+hook_source = 'source $DEIN_RC_DIR/which-key/sou.vim'
+hook_post_source = 'source $DEIN_RC_DIR/which-key/pos.vim'
+# [[plugins]]
+# # repo = 'folke/which-key.nvim'
+# if = 'has("nvim")'
+# on_cmd = ['WhichKey']
+# hook_add = 'luafile $DEIN_LUA_DIR/which-key/add.lua'
+# hook_source = 'luafile $DEIN_LUA_DIR/which-key/sou.lua'
+# hook_post_source = 'luafile $DEIN_LUA_DIR/which-key/pos.lua'
+# [[plugins]]
+# repo = 'hecal3/vim-leader-guide'
+# # Inspired by emacs's kai2nenobu/guide-key.
+# # if = '!has("nvim")'
+# on_cmd = 'LeaderGuide'
+# hook_add = 'runtime add/leader-guide.vim'
+# [[plugins]]
+# # repo = 'spinks/vim-leader-guide'
+# Note: It seems to have no reason to view it on floating window.
+# if = 'has("nvim")'
+# on_cmd = 'LeaderGuide'
+# hook_add = 'runtime add/leader-guide.vim'
+
+#[ Mode ]
+[[plugins]]
+repo = 'kaile256/vim-submode'
+#repo = 'kana/vim-submode'
+# make another mode!
+on_map = {covntl = '<Plug>(submode-'}
+on_func = 'submode#'
+hook_source = 'source $DEIN_RC_DIR/submode/sou.vim'
+#hook_done_update = '''
+#e $DEIN_GITHUB_DIR/kana/vim-submode/autoload/submode.vim
+#%s/submode-/sbm-/g
+#write
+
+#[ Register ]
+[[plugins]]
+repo = 'svermeulen/vim-yoink'
+on_map = {nx = ['<Plug>(Yoink']}
+hook_add = 'runtime add/yoink.vim'
+#hook_source = 'runtime source/yoink.vim'
+#hook_post_source = 'call yoink#onVimEnter()'
+#[[plugins]]
+#repo = 'svermeulen/vim-easyclip'
+#on_event = 'BufWinEnter'
+#hook_add = 'runtime add/easyclip.vim'
+#hook_source = 'runtime source/easyclip.vim'
+[[plugins]]
+repo = 'junegunn/vim-peekaboo'
+on_map = {nxi = ['<Plug>(peekaboo']}
+hook_add = 'runtime add/peekaboo.vim'
+hook_source = 'runtime source/peekaboo.vim'
+#hook_post_source = 'runtime post/peekaboo.vim'
+
+#[ Increment ]
+# [[plugins]]
+# repo = 'tpope/vim-speeddating'
+# # <C-a/x> for dating.
+# on_func = 'speeddating#'
+# on_map = {nx = '<Plug>SpeeDdating'}
+# hook_add = 'runtime add/speeddating.vim'
+# [[plugins]]
+# repo = 'triglav/vim-visual-increment'
+# on_map = {'x' = ['<Plug>VisualIncrement', '<Plug>VisualDecrement']}
+#
+#[ Mark ]
+#[[plugins]]
+#repo = 'Yilin-Yang/vim-markbar'
+## peekaboo for marks
+#on_map = {nx = ['<Plug>OpenMarkbar']}
+
+#[ Window ]
+[[plugins]]
+repo = 'notomo/wintablib.nvim'
+# Libraries to manipulate windows/tabs.
+on_lua = ['wintablib']
+hook_add = 'source $DEIN_RC_DIR/wintablib/add.vim'
+# [[plugins]]
+# repo = 'gillyb/stable-windows'
+# # Don't scroll windows above when a new window opened below.
+# # Issue: It doesn't get along with floating window.
+# on_event = 'WinNew'
+[[plugins]]
+repo = 'wesQ3/vim-windowswap'
+on_func = ['WindowSwap#MarkWindowSwap', 'WindowSwap#EasyWindowSwap']
+hook_add = 'source $DEIN_RC_DIR/windowswap/add.vim'
+[[plugins]]
+repo = 'yaronkh/vim-winmanip'
+on_map = {n = [
+  '<Plug>(MoveBuf',
+  '<Plug>(MoveJumpBuf',
+  '<Plug>(MoveWinTo',
+  '<Plug>(CopyBuf',
+  '<Plug>(CopyJump',
+  '<Plug>(MaximizeWin)',
+  '<Plug>(ClearAllWindows)',
+  '<Plug>(ClearBufferList)',
+]}
+hook_add = 'runtime add/winmanip.vim'
+# [[plugins]]
+# # repo = 'AndrewRadev/undoquit.vim'
+# on_func = ['undoquit#SaveWindowQuitHistory']
+# on_event = 'QuitPre'
+# hook_add = 'runtime add/undoquit.vim'
+#[[plugins]]
+#repo = 'tyru/undoclosewin.vim'
+## Doesn't seem to work.
+#on_cmd = ['UcwRestoreWindow', 'UcwOpenHistoryBuffer']
+#on_map = {n = ['<Plug>(ucw-restore-window)']}
+#[[plugins]]
+#repo = 'camspiers/lens.vim'
+#on_func = ['lens#']
+#hook_source = 'runtime source/lens.vim'
+#[[plugins]]
+#repo = 'camspiers/animate.vim'
+#on_source = ['lens.vim']
+#on_func = ['animate#']
