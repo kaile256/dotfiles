@@ -531,6 +531,13 @@ key_bindings:
   - { mods: Control,       key: Semicolon, chars: "\x1b[59;5u" } # <C-;>
   - { mods: Control|Shift, key: Colon,     chars: "\x1b[58;5u" } # <C-:>
 
+  - { mods: Control,       key: Key0, chars: "\x1b[48;5u" } # <C-0>
+
+  - { mods: Control,       key: Minus,     chars: "\x1b[45;5u" } # <C-->
+  - { mods: Control|Shift, key: Plus,      chars: "\x1b[43;5u" } # <C-+>
+  - { mods: Control,       key: Equals,    chars: "\x1b[61;5u" } # <C-=>
+  - { mods: Control|Shift, key: Underline, chars: "\x1b[95;5u" } # <C-_>
+
 #  # (Windows/Linux only)
 #  #- { key: V,        mods: Control|Shift, action: Paste            }
 #  #- { key: C,        mods: Control|Shift, action: Copy             }
