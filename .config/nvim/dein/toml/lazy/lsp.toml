@@ -12,13 +12,14 @@ if = 'executable("fzf") && has("nvim")'
 # The dependency on fzf.vim is to copy its settings.
 depends = ['nvim-lspconfig', 'fzf.vim']
 on_source = ['nvim-lspconfig']
-# [[plugins]]
-# repo = 'lspcontainers/lspcontainers.nvim'
-# # Run and connect lsp in docker container(s).
-# # Supported LSs: lspcontainers/lspcontainers.nvim/lua/lspcontainers/init.lua
-# if = 'has("nvim")'
-# depends = ['nvim-lspconfig']
-# on_source = ['nvim-lspconfig']
+[[plugins]]
+repo = 'lspcontainers/lspcontainers.nvim'
+# Run and connect LS in docker container(s); thus, neovim won't reduce its
+# performance because of LS.
+# Supported LSs: lspcontainers/lspcontainers.nvim/lua/lspcontainers/init.lua
+if = 'has("nvim")'
+depends = ['nvim-lspconfig']
+on_source = ['nvim-lspconfig']
 [[plugins]]
 repo = 'ray-x/lsp_signature.nvim'
 depends = ['nvim-lspconfig']
