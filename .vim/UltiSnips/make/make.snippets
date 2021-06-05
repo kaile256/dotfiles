@@ -29,6 +29,9 @@ help: ## Show this help
 	@echo
 	@echo 'Targets:'
 	@egrep -h '^\S+: .*## \S+' $(MAKEFILE_LIST) | sed 's/: .*##/:/' | column -t -c 2 -s ':' | sed 's/^/  /'
+	@echo
+
+.DEFAULT_GOAL := help
 endsnippet
 
 # vim:noet
