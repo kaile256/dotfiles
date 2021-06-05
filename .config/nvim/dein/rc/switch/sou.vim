@@ -178,6 +178,9 @@ function! s:set_definitions() abort
         \   'uncomment': 'comment out',
         \   'Uncomment': 'Comment out',
         \ },
+        \
+        \ ['implicit', 'explicit'],
+        \ ['implicitly', 'explicitly'],
         \ ]
 
   let rules.order = [
