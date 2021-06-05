@@ -151,6 +151,7 @@ function! s:set_definitions() abort
         \
         \ ['inc', 'dec'],
         \ ['increment', 'decrement'],
+        \ ['increase', 'decrease'],
         \
         \ ['min', 'max'],
         \ ['minimum', 'maximum'],
