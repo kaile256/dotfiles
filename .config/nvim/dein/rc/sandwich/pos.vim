@@ -91,6 +91,33 @@ function! s:devise_recipes() abort
         \ },
         \ ]
 
+  function! GreedyQuotes(char) abort
+    " Ref: https://github.com/machakann/vim-sandwich/issues/72
+    let n = 0
+
+    while 1
+      let pat = repeat(a:char, n + 1)
+      let pat_s = '\%(^\|[^'. a:char .']\)\zs' . pat
+      let pat_e = pat . '\ze\%([^'. a:char .']\|$\)'
+
+      let [l_s, c_s] = searchpos(pat_s, 'bcnW')
+      let [l_e, c_e] = searchpos(pat_e, 'cnW')
+
+      if !l_s || !l_e
+        return ['', '']
+      endif
+
+      let past_start = getline(l_s)[c_s + n]
+      let before_end = getline(l_e)[c_e - 2]
+
+      if past_start !=# a:char && before_end !=# a:char
+        return [pat, pat]
+      endif
+
+      let n += 1
+    endwhile
+  endfunction
+
   let recipes.triple_quotes = [
         \ {
         \   'input': ["'"],
@@ -115,6 +142,33 @@ function! s:devise_recipes() abort
         \   'motionwise': ['line'],
         \   'linewise': 2,
         \   'action': ['add'],
+        \ },
+        \
+        \ {
+        \   'buns': ['"\%(""\)\?', '"\%(""\)\?'],
+        \   'input': ['"'],
+        \   'action': ['delete'],
+        \   'regex': 1,
+        \   'quoteescape': 1,
+        \   'linewise': 1,
+        \   'nesting': 0,
+        \ },
+        \ {
+        \   'buns': ["'\\%(''\\)\\?", "'\\%(''\\)\\?"],
+        \   'input': ["'"],
+        \   'action': ['delete'],
+        \   'regex': 1,
+        \   'quoteescape': 1,
+        \   'linewise': 1,
+        \   'nesting': 0,
+        \ },
+        \ {
+        \   'buns': 'GreedyQuotes("`")',
+        \   'input': ['`'],
+        \   'action': ['delete'],
+        \   'listexpr': 1,
+        \   'linewise': 1,
+        \   'nesting': 0,
         \ },
         \ ]
 
