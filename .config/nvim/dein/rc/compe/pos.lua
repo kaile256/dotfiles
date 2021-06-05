@@ -39,7 +39,11 @@ require'compe'.setup {
     },
     -- calc = true,
     -- treesitter = true, -- Possibly slower.
-    nvim_lsp = true,
+    nvim_lsp = {
+      ignored_filetypes = {
+        "gitcommit",
+      }
+    },
     nvim_lua = {
       -- Completion support for vim.g.foo, vim.fn[bar], etc.
       menu = "[vim]",
