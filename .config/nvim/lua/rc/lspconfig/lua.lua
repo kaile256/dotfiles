@@ -2,7 +2,6 @@
 -- Repo: neovim/nvim-lspconfig
 -- Ref: lspconfig/sumneko_lua.lua
 
----@diagnostic disable-next-line Unused function
 local set_cmd = function()
   local enabled, lspcontainers = pcall(require, 'lspcontainers')
   return enabled
@@ -11,7 +10,7 @@ local set_cmd = function()
 end
 
 local config = {
-  cmd = { '/usr/bin/lua-language-server' },
+  cmd = set_cmd(),
 
   settings = {
     Lua = {
