@@ -126,10 +126,17 @@ let s:local_definitions['lua'] = [
       \   '^\(\s*\)\%(local \)\?\(\h\k*\) = function\s*(':
       \       '\1local function \2(',
       \
-      \   '^\(\s*\)\%(local \)\?function \(\h\k*\.\h\k*\%(\.\h\k*\)*\)\s*(':
+      \   '^\(\s*\)\%(local \)\?function \(\h\k*\.\h\k*\%(\.\h\k*\)*\)\s*(\%(self\)\@!':
       \       '\1\2 = function(',
-      \   '^\(\s*\)\%(local \)\?\(\h\k*\.\h\k*\%(\.\h\k*\)*\) = function\s*(':
+      \   '^\(\s*\)\%(local \)\?\(\h\k*\.\h\k*\%(\.\h\k*\)*\) = function\s*(\%(self\)\@!':
       \       '\1function \2(',
+      \
+      \   '^\(\s*\)\%(local \)\?function \(\h\k*\):\(\h\k*\%(\.\h\k*\)*\)\s*()':
+      \       '\1\2.\3 = function(self)',
+      \   '^\(\s*\)\%(local \)\?function \(\h\k*\):\(\h\k*\%(\.\h\k*\)*\)\s*(\(\S.*\))':
+      \       '\1\2.\3 = function(self, \4)',
+      \   '^\(\s*\)\%(local \)\?\(\h\k*\).\(\h\k*\%(\.\h\k*\)*\) = function\s*(self,\?\s*':
+      \       '\1function \2:\3(',
       \ },
       \ {
       \   '&&': 'and',
