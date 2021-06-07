@@ -98,6 +98,7 @@ settings:
         <Alt+i>: fake-key <left>
         <Alt+k>: mode-leave
         <Alt+u>: rl-yank
+        <Ctrl+]>: edit-command
         <Ctrl+c>: mode-leave;; spawn --detach fcitx5-remote -c
         <Ctrl+d>: rl-delete-char
         <Ctrl+g>: completion-item-focus next
@@ -161,6 +162,7 @@ settings:
         <Ctrl+Shift+p>: fake-key <Shift-Up>
         <Ctrl+Shift+x>: fake-key <Ctrl-a><Ctrl-x>
         <Ctrl+[>: mode-leave;; spawn --detach fcitx5-remote -c
+        <Ctrl+]>: edit-text;; mode-leave
         <Ctrl+a>: fake-key <Home>
         <Ctrl+b>: fake-key <Left>
         <Ctrl+d>: fake-key <Delete>
@@ -212,6 +214,7 @@ settings:
         <Ctrl+Space>f: hint links current
         <Ctrl+[>: mode-enter insert ;; clear-keychain ;; search ;; fullscreen --leave;;
           spawn fcitx5-remote -c ;; mode-leave
+        <Ctrl+]>: edit-url
         <Ctrl+a>: forward
         <Ctrl+b>: fake-key <PgUp>
         <Ctrl+c>: stop;; clear-keychain;; download-clear;; search
