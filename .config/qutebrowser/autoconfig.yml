@@ -692,6 +692,7 @@ settings:
       bhw: https://wiki.bash-hackers.org/start?do=search&id=start&sf=1&q={}
       bw: https://wiki.bash-hackers.org/start?do=search&id=start&sf=1&q={}
       dL: https://www.deepl.com/translator/{}
+      de: https://duckduckgo.com/?kl=de-de&q={}
       dh: https://hub.docker.com/search?q={}
       dic: https://www.dictionary.com/browse/{}
       dl: https://www.linguee.com/english-japanese/search?query={}
