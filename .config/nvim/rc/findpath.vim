@@ -74,9 +74,10 @@ function! s:path.vim() abort
   if path =~# $DOTFILES_HOME
     " Note: resolve path in dotfiles to keep under git control.
     const nvim_config_home = $DOTFILES_HOME .'/.config/nvim'
-    exe 'setlocal path^='. nvim_config_home .'/dein'
-    exe 'setlocal path^='. nvim_config_home .'/dein/lua'
-    exe 'setlocal path^='. nvim_config_home .'/dein/toml/*'
+    const plugin_config_home = nvim_config_home .'/dein'
+    exe 'setlocal path^='. plugin_config_home
+    exe 'setlocal path^='. plugin_config_home .'/lua'
+    exe 'setlocal path^='. plugin_config_home .'/toml/*'
     exe 'setlocal path^='. nvim_config_home .'/lua'
     exe 'setlocal path^='. nvim_config_home .'/after'
   endif
