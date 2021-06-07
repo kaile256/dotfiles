@@ -124,4 +124,8 @@ git.diff = {
   },
 }
 
+-- ---@todo Return stash count in blue background.
+-- git.stash = function()
+-- end
+
 return vcs
