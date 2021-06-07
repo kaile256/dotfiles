@@ -33,20 +33,15 @@ else :
 `end
 endsnippet
 
-snippet 'local (\S+) = {}' "define Class.new()" br
-`!p
+snippet '(?:local )?(:?function (:?= )?)?(\S+).new' "define Class.new()" br
+local `!p
 # These snippets for writing Class.new() are derived from the tutorial:
 # http://lua-users.org/wiki/ObjectOrientationTutorial
 
 cls = match.group(1)
-snip.rv = "local " + cls + " = {}"
-
-if t[1] == "":
-  snip += cls + ".__index = " + cls
-
-
+snip.rv = cls + " = {}"
+snip += cls + ".__index = " + cls
 `
-
 setmetatable(`!p snip.rv = cls`, {`!p
 snip.rv = ""
 if t[1] != "":
@@ -59,29 +54,26 @@ if t[1] != "":
   end,
 })
 
-${4}
-
-return `!p snip.rv = cls`
-endsnippet
-
-snippet '(function )?\s*(\S+).new' "Start writing class.new()" br
-function `!p
-name = match.group(2)
-snip.rv = name
-`.new(${1:args})
-  local self = setmetatable({}, `!p snip.rv = name`)`!p
-insert_props_as_tabstops(t[1], snip)
+`!p
+snip.rv = cls
+`.new = function(${2:args})
+  local self = setmetatable(`!p
+if t[1] == "":
+  snip.rv = "{}"
+  insert_props_as_tabstops(t[2], snip)
+else :
+  snip.rv = t[1] + ".new(" + t[2] + ")"
+`, `!p snip.rv = cls`)`!p
 `
   return self`!p
 
 snip.rv = ""
-funcdef = match.group(1) or ""
-if funcdef == "":
-# if "function " is preceded, assume that the code has been already expanded as
-# a snippet.
-  snip += "end"
+`
+end
 
-
+return `!p
+if not vim.eval("search('return " + t[1] + "\n*\%$', 'nW')"):
+  snip.rv = cls
 `
 endsnippet
 
