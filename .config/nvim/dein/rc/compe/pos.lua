@@ -57,7 +57,7 @@ require'compe'.setup {
 
     -- Repo: tzachar/compe-tabnine
     tabnine = {
-      --  priority = 90,
+      priority = 80,
       sort = false,
       show_prediction_strength = true,
       max_num_results = 6, -- The number of items at most in pum.
