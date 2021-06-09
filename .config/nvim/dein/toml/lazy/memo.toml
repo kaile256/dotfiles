@@ -1,15 +1,22 @@
 # From: dein/dein.vim
 
 #[ Zettelkasten ]
-# [[plugins]]
-# repo = 'oberblastmeister/neuron.nvim'
-# if = 'executable("neuron")'
-# on_source = ['telescope.nvim']
-# depends = ['telescope.nvim']
-# on_lua = ['neuron']
-# hook_add = 'source $DEIN_RC_DIR/neuron/add.vim'
-# hook_source = 'luafile $DEIN_RC_DIR/neuron/sou.lua'
-#
+[[plugins]]
+repo = 'oberblastmeister/neuron.nvim'
+if = 'executable("neuron")'
+on_source = ['telescope.nvim']
+depends = ['telescope.nvim']
+on_lua = ['neuron']
+hook_add = 'source $DEIN_RC_DIR/neuron/add.vim'
+hook_source = 'luafile $DEIN_RC_DIR/neuron/sou.lua'
+[[plugins]]
+# repo = 'megalithic/zk.nvim'
+repo = 'kaile256/zk.nvim'
+# `go get -u github.com/mickael-menu/zk` to install the binary.
+if = 'has("nvim") && executable("zk")'
+on_path = '^.*/neuron/.*$'
+hook_source = 'luafile $DEIN_RC_DIR/zk/sou.lua'
+
 #[ Org Mode ]
 # [[plugins]]
 # repo = 'jceb/vim-orgmode'
