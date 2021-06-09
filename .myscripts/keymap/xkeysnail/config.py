@@ -47,11 +47,15 @@ define_keymap(
         K("C-m"): K("enter"),
         K("C-j"): K("enter"),
 
-        # Delete
-        K("C-d"): K("delete"),
+        # Backspace
         K("C-h"): K("backspace"),
         K("C-w"): [K("C-Shift-left"), K("backspace")],
         K("C-u"): [K("Shift-home"), K("backspace")],
+
+        # Delete
+        K("C-d"): K("delete"),
+        K("C-w"): [K("C-Shift-right"), K("delete")],
+        K("C-u"): [K("Shift-end"), K("delete")],
     },
     "Equivalent keys (Overwritten on Fcitx)")
 
