@@ -208,8 +208,8 @@ nginx
 android-emulator
 android-bash-completion
 # composer # php dependency manager on PHPStorm?
-rxvt-unicode-patched-with-truecolor
-# rxvt-unicode-truecolor-wide-glyphs # Cannot run `bash` and `zsh` with SEGFAULT.
+# rxvt-unicode-patched-with-truecolor
+rxvt-unicode-truecolor-wide-glyphs # Cannot run `bash` and `zsh` with SEGFAULT.
 libxft-bgra # Improve emoji works on urxvt? Conflicted to `libxft`
 
 # xcape # Config modifier keys to act as other keys with/without another key
