@@ -14,22 +14,26 @@ local fzf = {
 
 -- TODO: Resolve to which-key
 local search_root = {
-  ['.'] = '$DOTFILES_HOME',
-  ['<space>'] = '<C-r>=FindRootDirectory()<CR>',
+  ['.'] = "$DOTFILES_HOME",
+  ['<C-h>'] = "$MY_TRASH_HOME",
+  ['<space>'] = "<C-r>=FindRootDirectory()<CR>",
 
-  c = '$DEIN_CACHE_HOME',
-  d = '$MY_DEV',
-  f = '$XDG_CONFIG_HOME',
-  h = '$HOME',
-  l = '$XDG_DATA_HOME',
-  m = '$MY_MEMO/note',
-  n = '%:p:h',
-  q = '$GHQ_ROOT',
-  r = '$VIMRUNTIME',
-  s = '$SNIPPETS_HOME',
-  t = '$MY_TRASH_HOME',
-  v = '$DOTFILES_HOME/.vim',
-  w = '%:p:h',
+
+  w = "%:p:h",
+  h = "$HOME",
+  l = "$XDG_DATA_HOME",
+  f = "$XDG_CONFIG_HOME",
+
+  q = "$GHQ_ROOT",
+  d = "$MY_DEV",
+  m = "$MY_MEMO/note",
+
+  r = "$VIMRUNTIME",
+  s = "$SNIPPETS_HOME",
+  c = "$DEIN_CACHE_HOME",
+  t = "$VIM_TEMPLATE_HOME",
+  v = "$DOTFILES_HOME/.vim",
+
 }
 
 local fzf_cmds = {
