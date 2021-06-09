@@ -122,6 +122,7 @@ codeql # CLI tool for GitHub's CodeQL.
 # Qutebrowser:
 
 # For Vim:
+neovim-drop-in # Replace vi and vim; it uninstall vi.
 # gvim-gtk2
 neovim-nightly-bin
 neovim-qt
