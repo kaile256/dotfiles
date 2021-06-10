@@ -63,10 +63,7 @@ set $nvim nvim-qt
 set $vim vim
 set $vi alacritty --title vi -e vi
 
-$noid urxvtd --fork --opendisplay
-# urxvtc; add `-k` to kill daemon, too.
-set $urxvt urxvtc
-# set $urxvt urxvt
+set $urxvt (pgrep urxvtd || urxvtd -q -o -f) && urxvtc
 
 set $restart_polybar $MY_I3_SCRIPTS/polybar-launch
 
