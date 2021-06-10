@@ -79,6 +79,7 @@ neovim-nightly-bin: paru ## Install the latest version of neovim-nightly-bin
 	cd /usr/share/nvim/runtime && sudo rm keymap/ -rf
 
 .PHONY: paru
+# Note: To update packages, use yay; paru asks password for each packages.
 paru: ## Install packages by paru (a fork of yay).
 	@type pacman >/dev/null 2>&1 && \
 		type paru >/dev/null 2>&1 || \
@@ -87,7 +88,6 @@ paru: ## Install packages by paru (a fork of yay).
 			&& git clone --depth=1 https://aur.archlinux.org/paru.git \
 			&& cd paru && makepkg -si)
 	@echo "Synchronizing package databases..."
-	$(call update_package_manager,paru -Syu)
 	$(call install_packages,paru -S)
 
 .PHONY: yay
@@ -99,7 +99,7 @@ yay: ## Install packages by yay.
 			&& git clone --depth=1 https://aur.archlinux.org/yay.git \
 			&& cd yay && makepkg -si)
 	@echo "Synchronizing package databases..."
-	# $(call update_package_manager,yay -Syu)
+	$(call update_package_manager,yay -Syu)
 	$(call install_packages,yay -S)
 
 .PHONY: yarn
