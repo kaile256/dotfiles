@@ -60,8 +60,7 @@ define install_packages =
 endef
 
 
-.PHONY: update
-update: ## Update dotfiles and installed packages
+update-pacakges: ## Update dotfiles and installed packages
 	git pull
 	$(call update_package_manager,pip install --upgrade pip)
 	$(call update_package_manager,yarn global upgrade)
