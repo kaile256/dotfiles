@@ -112,7 +112,9 @@ augroup myAutoUpdateColorColumn
 augroup END
 
 augroup myWriteImmidiatelyOnRead
-  au FileReadPost * if filewritable(expand('%:p')) | w | endif
+  au FileReadPost * if filewritable(expand('<amatch>')) |
+       \ exe 'silent! w' fnamemodify(expand('<amatch>'), ':p')
+       \ | endif
 augroup END
 
 augroup myAugroups
