@@ -1,1 +1,1 @@
-setlocal path^=./**
+setlocal path^=./*,./*/*
