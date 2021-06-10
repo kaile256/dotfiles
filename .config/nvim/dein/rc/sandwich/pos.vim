@@ -307,6 +307,13 @@ function! s:devise_recipes() abort
         \   'buns': ['[[', ']]'],
         \   'filetype': ['lua'],
         \ },
+        \ {
+        \   'input': ['%'],
+        \   'buns': ['`![pv]', '`'],
+        \   'regex': 1,
+        \   'action': ['delete'],
+        \   'filetype': ['snippets'],
+        \ },
         \ ]
 
   " https://github.com/monaqa/dotfiles/blob/32f70b3f92d75eaab07a33f8bf28ee17927476e8/.config/nvim/plugin-settings.vim#L679-L685
