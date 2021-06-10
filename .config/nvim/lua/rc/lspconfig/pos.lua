@@ -39,6 +39,7 @@ local servers = {
   tsserver = {},
   vimls = require'rc.lspconfig.vim',
   yamlls = {},
+  zk = require'rc.lspconfig.zk',
 }
 
 for server, config in pairs(servers) do
