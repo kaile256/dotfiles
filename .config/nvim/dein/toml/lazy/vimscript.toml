@@ -103,9 +103,16 @@ on_path = '\.vader'
 hook_source = 'runtime source/vader.vim'
 
 #[ Local ]
+# [[plugins]]
+# repo = 'jenterkin/vim-autosource'
+# # Load also lua files.
+# # Prompt when previously approved file's changed.
+# on_event = ['BufWinEnter']
+# hook_source = 'luafile $DEIN_RC_DIR/autosource/sou.lua'
 [[plugins]]
 repo = 'embear/vim-localvimrc'
 # Well documented, and customizable.
+# Prompt when previously approved file's changed.
 on_event = ['BufWinEnter']
 hook_source = 'source $DEIN_RC_DIR/localvimrc/sou.vim'
 # [[plugins]]
