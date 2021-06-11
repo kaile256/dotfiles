@@ -63,7 +63,9 @@ set $nvim nvim-qt
 set $vim vim
 set $vi alacritty --title vi -e vi
 
-set $urxvt (pgrep urxvtd || urxvtd -q -o -f) && urxvtc
+# Note: `urxvtd` rashes too often.
+# set $urxvt (pgrep urxvtd || urxvtd -q -o -f) && urxvtc
+set $urxvt urxvt
 
 set $restart_polybar $MY_I3_SCRIPTS/polybar-launch
 
