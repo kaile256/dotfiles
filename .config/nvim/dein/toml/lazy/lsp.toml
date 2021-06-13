@@ -47,12 +47,10 @@ on_lua = ['lsp_signature']
 # # Branch: neoclide/coc.nvim_release; no src/, but build/.
 # rev = 'release'
 # if = '!exists("g:vscode")'
-# #hook_done_update = 'yarn install --frozen-lockfile'
-# on_func  = ['CocAction', 'CocActionAsync']
-# on_map  = {nvi = ['<Plug>(coc-']}
+# on_if = "&buftype ==# ''"
 # on_event = 'BufRead'
-# # hook_add = 'source $DEIN_RC_DIR/coc/add.vim'
-# # hook_source = 'source $DEIN_RC_DIR/coc/sou.vim'
+# hook_add = 'source $DEIN_RC_DIR/coc/add.vim'
+# hook_source = 'source $DEIN_RC_DIR/coc/sou.vim'
 # [[plugins]]
 # repo = 'antoinemadec/coc-fzf'
 # # Useless to select another options.
