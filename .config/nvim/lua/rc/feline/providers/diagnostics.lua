@@ -109,7 +109,9 @@ end
 local sep_right = function(fg, bg) return separators.right.rounded_broad(fg, bg) end
 
 diagnostics.enabled = function()
-  return vim.lsp.buf.server_ready()
+  local ale_enabled = (vim.b.ale_enabled or 1) ~= 0 or vim.g.ale_enabled ~= 0
+  local coc_diagnostics_enabled = vim.g.coc_status and (vim.b.coc_diagnostics_disable or 1)
+  return vim.lsp.buf.server_ready() or ale_enabled or coc_diagnostics_enabled
 end
 
 -- TODO: Replace g:ale_echo_cursor.
