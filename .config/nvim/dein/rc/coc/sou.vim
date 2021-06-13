@@ -179,14 +179,14 @@ augroup myCocSource "{{{1
   " Snippets on Coc {{{2
   au User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
 
-  " Highlight {{{2
-  " Note: Coc's highlight only activate on symbols while itchyny/vim-cursorword
-  " sets underlines to all the same words as <cword>.
-  au CursorHold,CursorHoldI * silent call CocActionAsync('highlight')
-  hi! CocHighlightText cterm=undercurl gui=undercurl
-  hi! CocHighlightRead cterm=reverse gui=reverse
-  hi! CocHighlightWrite cterm=bold,italic gui=bold,italic
-  " hi! CocHighlightWrite cterm=undercurl gui=underline guisp=Red
+  " " Highlight {{{2
+  " " Note: Coc's highlight only activate on symbols while itchyny/vim-cursorword
+  " " sets underlines to all the same words as <cword>.
+  " au CursorHold,CursorHoldI * silent call CocActionAsync('highlight')
+  " hi! CocHighlightText cterm=undercurl gui=undercurl
+  " hi! CocHighlightRead cterm=reverse gui=reverse
+  " hi! CocHighlightWrite cterm=bold,italic gui=bold,italic
+  " " hi! CocHighlightWrite cterm=undercurl gui=underline guisp=Red
 
   " Vimspector on Coc {{{2
   " Ref: Override DebugStart of Vimspector @add/vimspector.vim
