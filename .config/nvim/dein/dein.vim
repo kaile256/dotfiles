@@ -63,10 +63,6 @@ if dein#load_state($DEIN_CACHE_HOME)
           \   'lazy': 1,
           \   'if': 'has("nvim")',
           \   },
-          \ 'vim_only': {
-          \   'lazy': 1,
-          \   'if': '!has("nvim")',
-          \   },
           \ }
 
     for label in keys(config)
