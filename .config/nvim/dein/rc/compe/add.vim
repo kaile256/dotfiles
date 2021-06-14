@@ -14,9 +14,20 @@ else
   inoremap <silent><expr> <C-y> compe#confirm('<C-y>')
 endif
 
+function! s:pum_scroll(delta) abort
+  if pumvisible()
+    echom complete_info(['selected'])
+    const idx = complete_info(['selected']).selected
+    call timer_start(0, {->
+          \ nvim_select_popupmenu_item(idx + a:delta, v:true, v:false, {})
+          \ })
+  endif
+  return "\<Ignore>"
+endfunction
+
 inoremap <silent><expr> <C-f> pumvisible()
-      \ ? compe#scroll({ 'delta': +4 })
+      \ ? <SID>pum_scroll(+ &pumheight * 2 / 3)
       \ : '<C-g>U<Right>'
 inoremap <silent><expr> <C-b> pumvisible()
-      \ ? compe#scroll({ 'delta': -4 })
+      \ ? <SID>pum_scroll(- &pumheight * 2 / 3)
       \ : '<C-g>U<Del>'
