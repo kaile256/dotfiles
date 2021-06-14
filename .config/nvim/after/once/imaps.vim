@@ -4,9 +4,8 @@ scriptencoding utf-8
 inoremap <C-v><Space> <lt>space>
 inoremap <C-v><C-Space> <lt>space>
 
-inoremap <C-f> <C-g>U<Right>
-inoremap <C-b> <C-g>U<Left>
-
+silent! inoremap <unique> <C-f> <C-g>U<Right>
+silent! inoremap <unique> <C-b> <C-g>U<Left>
 
 inoremap <C-d> <C-g>U<Del>
 inoremap <C-g><C-d> <C-d>
