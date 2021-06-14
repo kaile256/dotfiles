@@ -10,19 +10,22 @@ local zk_mappings = function()
   end
 end
 
-local default_config = {
-  cmd = {'zk', 'lsp'},
-  filetypes = {'markdown'},
-  root_dir = function()
-    local cwd = vim.loop.cwd()
-    local neuron_root = cwd:match('^.*/neuron/') or cwd
-    return neuron_root
-  end,
-  settings = {},
+local config = {
+  default_config = {
+    cmd = {'zk', 'lsp'},
+    filetypes = {'markdown'},
+    root_dir = function()
+      local cwd = vim.loop.cwd()
+      local neuron_root = cwd:match('^.*/neuron/') or cwd
+      return neuron_root
+    end,
+    settings = {},
+  },
+
   on_attach = function()
     common_on_attach()
     zk_mappings()
   end
 }
 
-return default_config
+return config
