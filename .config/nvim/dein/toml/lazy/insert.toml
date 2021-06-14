@@ -116,7 +116,7 @@ repo = 'hrsh7th/nvim-compe'
 # Often causes unexpected deletion.
 if = 'has("nvim")'
 on_func = ['compe#']
-on_event = ['InsertEnter']
+on_event = ['TextChangedI']
 hook_add = 'source $DEIN_RC_DIR/compe/add.vim'
 hook_post_source = 'luafile $DEIN_RC_DIR/compe/pos.lua'
 [[plugins]]
