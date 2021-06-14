@@ -203,3 +203,13 @@ hook_source = 'luafile $DEIN_RC_DIR/session-tree/sou.lua'
 # # exists.
 # # Add an option, [C]ompare, which starts diff-mode with detected swap file.
 # on_event = ['SwapExists']
+
+#[ Large File ]
+[[plugins]]
+repo = 'vim-scripts/LargeFile'
+# Before editing a large file, disable autocmds or any other options whose
+# processes are too heavy for large files.
+on_event = ['BufReadPre']
+hook_source = """
+let g:LargeFile = 1 " in megabytes to regard a file as a large file.
+"""
