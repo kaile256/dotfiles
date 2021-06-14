@@ -2,6 +2,7 @@
 -- Repo: neovim/nvim-lspconfig
 
 local lspconfig = require'lspconfig'
+local configs = require'lspconfig.configs'
 local on_attach = require'rc.lspconfig.on_attach'
 
 lspconfig.util.default_config = vim.tbl_extend('force', lspconfig.util.default_config, {
@@ -43,6 +44,13 @@ local servers = {
 }
 
 for server, config in pairs(servers) do
-  config.on_attach = config.on_attach or on_attach
-  lspconfig[server].setup(config)
+  local ls = lspconfig[server]
+  if ls then
+    config.on_attach = config.on_attach or on_attach
+    ls.setup(config)
+  else
+    configs[server] = config
+    -- TODO: make it work
+    -- lspconfig[server].setup()
+  end
 end
