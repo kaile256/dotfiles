@@ -107,7 +107,7 @@ augroup myDeinRc "{{{1
           \ 'rc',
           \ 'source',
           \ ]
-    const dirs = '\('. join(dir_list, '\|') .'\)'
+    const dirs = '\%('. join(dir_list, '\|') .'\)'
     const pat_config_file = '/dein/'. dirs .'/'
     if alt_path !~# pat_config_file | return | endif
 
