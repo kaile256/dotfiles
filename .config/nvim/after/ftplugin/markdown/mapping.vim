@@ -23,9 +23,9 @@ function! s:start_new_item(o) abort
         \ : o
 endfunction
 
-" TODO: Restore the mappings after leaving eskk mode.
-nnoremap <buffer><expr> o <SID>start_new_item('o')
-nnoremap <buffer><expr> O <SID>start_new_item('O')
+" " TODO: Restore the mappings after leaving eskk mode.
+" nnoremap <buffer><expr> o <SID>start_new_item('o')
+" nnoremap <buffer><expr> O <SID>start_new_item('O')
 
 nnoremap <buffer><silent><buffer> <SID>(header-increment) :<C-u>silent! undojoin<CR>I#<Esc>
 nnoremap <buffer><silent><buffer> <SID>(header-decrement) :<C-u>silent! undojoin<CR>^"_x
