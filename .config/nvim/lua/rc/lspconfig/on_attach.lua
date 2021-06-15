@@ -17,14 +17,15 @@ if is_repmo_enabled then
     "repmo#Key('" .. prev_diagnostic .. "', '" .. next_diagnostic .. "')"
 end
 
+local is_telescope_enabled = vim.fn["dein#tap"]("telescope.nvim")
 local set_keymaps = function(client, bufnr)
   local maps = {
     n = {
-      gd = '<Cmd>lua vim.lsp.buf.definition()<CR>',
-      gD = '<Cmd>lua vim.lsp.buf.declaration()<CR>',
-      gr = '<Cmd>lua vim.lsp.buf.references()<CR>',
-      gR = '<Cmd>lua vim.lsp.buf.implementation()<CR>',
-      gy = '<Cmd>lua vim.lsp.buf.type_definition()<CR>',
+      gd = is_telescope_enabled and '<Cmd>Telescope lsp_definitions<CR>'     or '<Cmd>lua vim.lsp.buf.definition()<CR>',
+      gD = is_telescope_enabled and '<Cmd>Telescope lsp_declaration<CR>'     or '<Cmd>lua vim.lsp.buf.declaration()<CR>',
+      gr = is_telescope_enabled and '<Cmd>Telescope lsp_references<CR>'      or '<Cmd>lua vim.lsp.buf.references()<CR>',
+      gy = is_telescope_enabled and '<Cmd>Telescope lsp_implementations<CR>' or '<Cmd>lua vim.lsp.buf.implementation()<CR>',
+
       cs = '<Cmd>lua vim.lsp.buf.rename()<CR>',
 
       ['<C-]>'] = '<Cmd>lua vim.lsp.buf.hover()<CR>',
@@ -39,18 +40,13 @@ local set_keymaps = function(client, bufnr)
       gx = '<Cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>',
       gX = '<Cmd>lua vim.lsp.diagnostic.set_loclist()<CR>',
 
+      ["<M-Space>x"]   = is_telescope_enabled and '<Cmd>Telescope lsp_document_diagnostics<CR>'  or '<Cmd>lua vim.lsp.buf.document_diagnostics()<CR>',
+      ["<M-Space>s"]   = is_telescope_enabled and '<Cmd>Telescope lsp_document_symbols<CR>'      or '<Cmd>lua vim.lsp.buf.document_symbols()<CR>',
+      ["<M-S-Space>x"] = is_telescope_enabled and '<Cmd>Telescope lsp_workspace_diagnostics<CR>' or '<Cmd>lua vim.lsp.buf.workspace_diagnostics()<CR>',
+      ["<M-S-Space>s"] = is_telescope_enabled and '<Cmd>Telescope lsp_workspace_symbols<CR>'     or '<Cmd>lua vim.lsp.buf.workspace_symbols()<CR>',
+
       ['='] = client.resolved_capabilities.document_range_formatting and '<Cmd>lua vim.lsp.buf.range_formatting()<CR>',
       ['=='] = client.resolved_capabilities.document_formatting and '<Cmd>lua vim.lsp.buf.formatting()<CR>',
-
-      ['<C-w>d'] = '<Cmd>Telescope lsp_definitions<CR>',
-      ['<C-w>r'] = '<Cmd>Telescope lsp_references<CR>',
-      ['<C-w>R'] = '<Cmd>Telescope lsp_implementations<CR>',
-
-      ['<C-w>x'] = '<Cmd>Telescope lsp_document_diagnostics<CR>',
-      ['<C-w>gx'] = '<Cmd>Telescope lsp_workspace_diagnostics<CR>',
-
-      ['<C-w>]'] = '<Cmd>Telescope lsp_document_symbols<CR>',
-      ['<C-w>g]'] = '<Cmd>Telescope lsp_workspace_symbols<CR>',
     },
 
     x = {
