@@ -9,8 +9,6 @@ let s:commands = {
       \ 'refs!': "'neuron/telescope'.find_backlinks {insert = true}",
       \ 'tags!': "'neuron/telescope'.find_tags()",
       \ 'preview': "'neuron'.rib {address = '127.0.0.1:8200', verbose = true}",
-      \ 'next_link': "'neuron'.goto_next_extmark()",
-      \ 'prev_link': "'neuron'.goto_prev_extmark()",
       \ }
 
 function! s:complete(A, C, P) abort
