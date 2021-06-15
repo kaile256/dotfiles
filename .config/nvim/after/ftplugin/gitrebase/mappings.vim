@@ -5,14 +5,14 @@ function! s:repeatable(cmd) abort
   exe a:cmd
 endfunction
 
-nnoremap <silent> zp :<C-u>call repeatable('Pick')<CR>
-nnoremap <silent> zs :<C-u>call repeatable('Squash')<CR>
-nnoremap <silent> ze :<C-u>call repeatable('Edit')<CR>
-nnoremap <silent> zr :<C-u>call repeatable('Reword')<CR>
-nnoremap <silent> zd :<C-u>call repeatable('Drop')<CR>
+nnoremap <buffer><silent> zp :<C-u>call <SID>repeatable('Pick')<CR>
+nnoremap <buffer><silent> zs :<C-u>call <SID>repeatable('Squash')<CR>
+nnoremap <buffer><silent> ze :<C-u>call <SID>repeatable('Edit')<CR>
+nnoremap <buffer><silent> zr :<C-u>call <SID>repeatable('Reword')<CR>
+nnoremap <buffer><silent> zd :<C-u>call <SID>repeatable('Drop')<CR>
 
-xnoremap <silent> zp :Pick<CR>
-xnoremap <silent> zs :Squash<CR>
-xnoremap <silent> ze :Edit<CR>
-xnoremap <silent> zr :Reword<CR>
-xnoremap <silent> zd :Drop<CR>
+xnoremap <buffer><silent> zp :Pick<CR>
+xnoremap <buffer><silent> zs :Squash<CR>
+xnoremap <buffer><silent> ze :Edit<CR>
+xnoremap <buffer><silent> zr :Reword<CR>
+xnoremap <buffer><silent> zd :Drop<CR>
