@@ -1,7 +1,6 @@
 local vim = vim
 
 local cond = require 'galaxyline.condition'
-local colors = require 'rc.galaxyline.colors'
 
 local FoldMethod = {
   condition = cond.hide_in_width,
@@ -13,8 +12,6 @@ local FoldMethod = {
     end
     return 'fdm='.. fdm
    end;
-
-   condition = cond.hide_in_width,
    highlight = 'GalaxyDefault',
 }
 
