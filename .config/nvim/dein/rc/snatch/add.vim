@@ -11,5 +11,5 @@ if !dein#tap('nvim-compe')
   imap <expr> <C-e> pumvisible() ? '<Plug>(snatch-completion-cancel)' : '<Plug>(snatch-oneshot-hor-or-reg-ctrl-e)'
 endif
 
-imap <C-g><C-y> <Plug>(snatch-by-force)<Plug>(snatch-oneshot-hor-or-reg-ctrl-y)
-imap <C-g><C-e> <Plug>(snatch-by-force)<Plug>(snatch-oneshot-hor-or-reg-ctrl-e)
+imap <C-g><C-y> <Plug>(snatch-oneshot-hor-or-reg-ctrl-y)
+imap <C-g><C-e> <Plug>(snatch-oneshot-hor-or-reg-ctrl-e)
