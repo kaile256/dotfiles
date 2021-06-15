@@ -25,9 +25,7 @@ hook_add = 'runtime add/caser.vim'
 [[plugins]]
 repo = 'andymass/vim-matchup'
 # Better `%`
-# Note: should be source post/ after :colo from other plugin,
-# which :colo after event-ColorScheme.
-on_event = ['BufRead']
+on_event = ['BufWinEnter']
 hook_add = 'runtime add/matchup.vim'
 hook_source = 'runtime source/matchup.vim'
 [[plugins]]
