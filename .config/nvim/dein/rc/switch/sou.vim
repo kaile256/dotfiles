@@ -34,6 +34,20 @@ function! s:set_extra_definitions() abort
         \ },
         \ ]
 
+  let rules.abbriviations = [
+        \ {
+        \   "\\a\\zs's": ' is',
+        \   "\\a\\zs're": ' are',
+        \   "\\a\\zsn't": ' not',
+        \
+        \   '\a\zs is': "'s",
+        \   '\a\zs are': "'re",
+        \   '\a\zs not': "n't",
+        \ },
+        \
+        \ ['cannot', "can't"],
+        \ ]
+
   let rules.access2entry = [
         \ {
         \   '\h\k*\zs\.\(\h\k*\)': '["\1"]',
@@ -91,20 +105,6 @@ function! s:set_definitions() abort
   let rules.auxiliary_verb = [
         \ ['should', 'must'],
         \ ['could', 'would'],
-        \ ]
-
-  let rules.abbriviations = [
-        \ {
-        \   "\\a\\zs's": ' is',
-        \   "\\a\\zs're": ' are',
-        \   "\\a\\zsn't": ' not',
-        \
-        \   '\a\zs is': "'s",
-        \   '\a\zs are': "'re",
-        \   '\a\zs not': "n't",
-        \ },
-        \
-        \ ['cannot', "can't"],
         \ ]
 
   let rules.command = [
