@@ -299,6 +299,15 @@ function! s:devise_recipes() abort
         \ {
         \   'input': ['%'],
         \   'buns': ['\%(', '\)'],
+        \   'action': ['add'],
+        \   'nesting': 1,
+        \   'filetype': ['vim'],
+        \ },
+        \ {
+        \   'input': [')'],
+        \   'buns': ['\\%\?(', '\\)'],
+        \   'action': ['delete'],
+        \   'regex': 1,
         \   'nesting': 1,
         \   'filetype': ['vim'],
         \ },
