@@ -73,8 +73,8 @@ function! s:set_extra_definitions() abort
         \ ]
 
   let rules.reword = [
-        \ ['upward', 'backward'],
-        \ ['downward', 'forward'],
+        \ ['upward', 'forward'],
+        \ ['downward', 'backward'],
         \ ]
 
   " The patterns would hardly match outside of &ft=vim.
