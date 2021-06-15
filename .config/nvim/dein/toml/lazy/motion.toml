@@ -106,6 +106,14 @@ hook_post_source = 'runtime post/easymotion.vim'
 
 #[ Sort of EasyMotion ]
 # [[plugins]]
+# # repo = 'ggandor/lightspeed.nvim'
+# # Repeat f/t/F/T to the next same character; s/S to start mixed input
+# # strategies to search incrementally and to put labels onto duplicated
+# # character sequences.
+# if = "has('nvim')"
+# on_map = {nox = ['<Plug>Lightspeed_']}
+# hook_add = 'source $DEIN_RC_DIR/lightspeed/add.vim'
+# [[plugins]]
 # # repo = 'deris/vim-shot-f'
 # # Highlight chars which you get directly.
 # on_map = {nox = ['<Plug>(shot-f-']}
