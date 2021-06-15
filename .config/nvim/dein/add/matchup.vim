@@ -11,10 +11,6 @@ let g:loaded_matchparen = 1
 nnoremap <silent> z<c-g> :<c-u>MatchupWhereAmI??<cr>
 imap <C-o>g% <plug>(matchup-c_g%)
 
-"omap <silent><expr> a%
-"      \ (v:operator ==# 'd')? '<esc><Plug>(matchup-ds%)':
-"      \ (v:operator ==# 'c')? '<esc><Plug>(matchup-cs%)':
-"      \ '<Nop>'
-"
-"" map i% as provided a%.
-"omap <silent> i% <Plug>(matchup-o_)<Plug>(matchup-a%)
+let g:matchup_surround_enabled = 1
+nmap \d% <plug>(matchup-ds%)
+nmap \c% <plug>(matchup-cs%)
