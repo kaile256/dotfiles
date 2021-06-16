@@ -336,6 +336,11 @@ function! s:register_git_keys() abort
       norm! zz
     endfunction
 
+    function! s:Grebase_interactive() abort
+      const upstream = input('[User] Input a <upstream> for git-rebase-i: ')
+      exe 'G rebase --interactive' upstream
+    endfunction
+
     " Tips: Append a space after `':foo bar()'`; without the trailing space,
     " the command-pattern will be regarded as a function.
     call extend(git_nmaps, {
@@ -370,6 +375,14 @@ function! s:register_git_keys() abort
           \
           \     'B': [':Gbrowse', 'Open current file in browser'],
           \     },
+          \
+          \ 'R': {
+          \     'name': 'Rebase',
+          \     'i': [funcref('s:Grebase_interactive'), 'Run `git-rebase --interactive`'],
+          \     'a': [':G rebase --abort', 'Abort rebase'],
+          \     'r': [':G rebase --continue', 'Continue the current rebase'],
+          \     's': [':G rebase --skip', 'Skip the current rebase'],
+          \ },
           \ })
 
     " Tips: Make delay to show which-key window at &timeoutlen.
