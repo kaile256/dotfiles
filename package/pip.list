@@ -13,8 +13,7 @@ document # for readability on Qutebrowser
 jupyter # for neural network especially for python
 jupytext # for goerz/jupytext.vim #jupyter
 lizard # detect cyclomatic complexity
-# neovim
-pynvim
+git+https://github.com/neovim/pynvim # The latest version of pynvim
 neovim-remote # Install by yay instead.
 pfp # hex editor tool, which is used by vim-pfp
 pocket-api  # for an userscript on qutebrowser, qute-pocket
