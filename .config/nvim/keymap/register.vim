@@ -1,7 +1,7 @@
 " From: init.vim
 
-nmap <space> "_
-xmap <space> "_
+nmap <S-Space> "_
+xmap <S-Space> "_
 
 " nnoremap p p`]
 " nnoremap p ]p`]
@@ -24,26 +24,24 @@ cnoremap <c-r>;     <c-r>:
 "  augroup END
 "endfunction
 "nnoremap <silent> y :call <SID>yank_cursor_keeping(v:register)<cr>
-nnoremap <space>y "+y
-xnoremap <space>y "+y
-nnoremap <space>Y "+y$
-xnoremap <space>Y "+y$
+nnoremap <S-Space>y "+y
+xnoremap <S-Space>y "+y
+nnoremap <S-Space>Y "+y$
+xnoremap <S-Space>Y "+y$
+
 " Plus Register; Put {{{1
-nnoremap <space>p "+]p`]
-xnoremap <space>p "+]p
-nnoremap <space>P "+]P
-xnoremap <space>P "+]P
+nnoremap <S-Space>p "+]p`]
+xnoremap <S-Space>p "+]p
+nnoremap <S-Space>P "+]P
+xnoremap <S-Space>P "+]P
+
 nnoremap <C-Space>p "*]p`]
 xnoremap <C-Space>p "*]p
 nnoremap <C-Space>P "*]P
 xnoremap <C-Space>P "*]P
+
 " Yank Register {{{1
 nnoremap Y y$
-
-" nnoremap <s-space>p "0]p
-xnoremap <s-space>p "0]p
-" nnoremap <s-space>P "0]P
-xnoremap <s-space>P "0]P
 
 " Black-Hole Register {{{1
 nnoremap dD 0d$
