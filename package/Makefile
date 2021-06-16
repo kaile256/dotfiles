@@ -66,8 +66,7 @@ update-pacakges: ## Update dotfiles and installed packages
 	$(call update_package_manager,yarn global upgrade)
 	$(call update_package_manager,luarocks install --local luarocks)
 	$(call update_package_manager,gem update)
-	$(call update_package_manager,rustup install nightly)
-	$(call update_package_manager,rustup default nightly)
+	$(call update_package_manager,cargo update)
 
 # Note: `yay` instead cannot update it because `pkgver` is not updated.
 # Ref: https://aur.archlinux.org/packages/neovim-nightly-bin/
@@ -126,12 +125,12 @@ gem: ## Install packages by gem
 	$(call update_package_manager,gem update)
 	$(call install_packages,gem install package)
 
-.PHONY: rustup
-rustup: ## Install packages by rustup.
-	$(call validate_executable,rustup)
-	$(call update_package_manager,rustup install nightly)
-	$(call update_package_manager,rustup default nightly)
-	$(call install_packages,rustup component add)
+.PHONY: cargo
+cargo: ## (FIXME) Install packages by cargo.
+	$(call validate_executable,cargo)
+	cargo install cargo-update
+	cargo install-update --all
+	$(call install_packages,cargo install)
 
 .PHONY: pecl
 pecl: ## Install packages by pecl.
