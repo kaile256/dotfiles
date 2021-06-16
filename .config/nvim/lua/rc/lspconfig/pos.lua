@@ -23,6 +23,7 @@ local servers = {
   denols = {},
   -- diagnosticls = require'rc.lspconfig.diagnostic',
   dockerls = {},
+  efm = require"rc.lspconfig.efm",
   gopls = {},
   graphql = {},
   hls = {},
