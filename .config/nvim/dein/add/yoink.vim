@@ -1,4 +1,4 @@
-" TOML: default.toml
+" TOML: default_mapping.toml
 " Repo: svermeulen/vim-yoink
 " Another: source/yoink.vim
 
