@@ -1,7 +1,7 @@
 " TOML: public.toml
 " Repo: kaile256/vim-snatch
 
-cmap <C-o> <Plug>(snatch-operator)
+cmap <C-o> <Plug>(snatch-by-register)
 
 smap <C-y> <Plug>(snatch-oneshot-hor-or-reg-ctrl-y)
 smap <C-e> <Plug>(snatch-oneshot-hor-or-reg-ctrl-e)
