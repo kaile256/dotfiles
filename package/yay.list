@@ -29,6 +29,7 @@ strace
 fish
 tmux
 # zsh
+nushell-bin
 
 easystroke-git # Use mouse gestures
 
