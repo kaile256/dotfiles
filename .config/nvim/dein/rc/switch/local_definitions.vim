@@ -52,6 +52,8 @@ let s:local_definitions['vim'] = [
       \
       \ ['nnoremap', 'nmap'],
       \ ['xnoremap', 'xmap'],
+      \ ['snoremap', 'smap'],
+      \ ['vnoremap', 'vmap'],
       \ ['onoremap', 'omap'],
       \ ['inoremap', 'imap'],
       \ ['tnoremap', 'tmap'],
