@@ -107,6 +107,12 @@ yarn: ## Install packages by yarn.
 	$(call update_package_manager,yarn global upgrade)
 	$(call install_packages,yarn global add)
 
+# Go has no update packages command; just overwrite binaries in $GOPATH/bin.
+.PHONY: go
+go: ## Install packages by go.
+	$(call validate_executable,go)
+	$(call install_packages,go get)
+
 .PHONY: pip
 pip: ## Install packages by pip.
 	$(call validate_executable,pip)
