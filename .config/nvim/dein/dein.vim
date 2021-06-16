@@ -107,8 +107,7 @@ augroup myDeinRc "{{{1
           \ 'rc',
           \ 'source',
           \ ]
-    const dirs = '\%('. join(dir_list, '\|') .'\)'
-    const pat_config_file = '/dein/'. dirs .'/'
+    const pat_config_file = '\%('. join(dir_list, '/\)\|\%(') .'/\)'
     if alt_path !~# pat_config_file | return | endif
 
     const alt_lines = readfile(alt_path)
