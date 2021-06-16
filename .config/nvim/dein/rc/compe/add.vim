@@ -25,9 +25,5 @@ function! s:pum_scroll(delta) abort
   return "\<Ignore>"
 endfunction
 
-inoremap <silent><expr> <C-f> pumvisible()
-      \ ? <SID>pum_scroll(+ &pumheight * 2 / 3)
-      \ : '<C-g>U<Right>'
-inoremap <silent><expr> <C-b> pumvisible()
-      \ ? <SID>pum_scroll(- &pumheight * 2 / 3)
-      \ : '<C-g>U<Del>'
+inoremap <expr> <C-S-n> <SID>pum_scroll(+ &pumheight * 2 / 3)
+inoremap <expr> <C-S-p> <SID>pum_scroll(- &pumheight * 2 / 3)
