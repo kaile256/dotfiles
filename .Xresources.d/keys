@@ -19,6 +19,9 @@ URxvt.keysym.C-plus:       \033[43;5u
 URxvt.keysym.C-equal:      \033[61;5u
 URxvt.keysym.C-underscore: \033[95;5u
 
+URxvt.keysym.C-S-N: \033[14;6u
+URxvt.keysym.C-S-P: \033[16;6u
+
 ! Ref: https://unix.stackexchange.com/questions/631241/mapping-otherwise-conflicting-or-unmappable-keys-in-terminal-vim
 ! You can disambiguate <C-i> and <TAB>, and then add corresponding mappings
 ! such as `map[!] <Esc>[105;8u` in vimrc.
