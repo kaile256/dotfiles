@@ -23,4 +23,3 @@ on_event = ['CmdLineEnter']
 hook_add = 'runtime add/fzf.vim'
 hook_source = 'runtime source/fzf.vim'
 hook_post_source = 'runtime post/fzf.vim'
-
