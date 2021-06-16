@@ -540,6 +540,10 @@ key_bindings:
   - { mods: Control,       key: Equals,    chars: "\x1b[61;5u" } # <C-=>
   - { mods: Control|Shift, key: Underline, chars: "\x1b[95;5u" } # <C-_>
 
+  - { mods: Shift,         key: Space, chars: "\x1b[32;2u" } # <S-Space>
+  - { mods: Control|Shift, key: Space, chars: "\x1b[32;6u" } # <C-S-Space>
+  - { mods: Alt|Shift,     key: Space, chars: "\x1b[32;4u" } # <M-S-Space>
+
 #  # (Windows/Linux only)
 #  #- { key: V,        mods: Control|Shift, action: Paste            }
 #  #- { key: C,        mods: Control|Shift, action: Copy             }
