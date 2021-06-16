@@ -744,8 +744,10 @@ bindsym $Super+N mode $Neovim; $noid $shortmsg 'Neovim: backends'
 
 mode $Neovim {
     bindsym Q $noid nvim-qt;  mode default
-    bindsym A        $noid alacritty --option scrolling.history=0 -e nvim; mode default
-    bindsym $Super+A $noid alacritty --option scrolling.history=0 -e nvim; mode default
+    # Neovim sometimes launches in wrong size, smaller than alacritty without
+    # the workaround with `sleep`.
+    bindsym A        $noid alacritty --option scrolling.history=0 -e sh -c "sleep 0.1 && nvim"; mode default
+    bindsym $Super+A $noid alacritty --option scrolling.history=0 -e sh -c "sleep 0.1 && nvim"; mode default
     bindsym U        $noid $urxvt -e nvim; mode default
     bindsym $Super+U $noid $urxvt -e nvim; mode default
 
