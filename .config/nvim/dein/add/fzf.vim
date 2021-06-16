@@ -1,4 +1,4 @@
-" From: browse.toml
+" From: essential.toml
 " Repo: junegunn/fzf.vim
 " Another: source/fzf.vim
 " Another: post/fzf.vim
