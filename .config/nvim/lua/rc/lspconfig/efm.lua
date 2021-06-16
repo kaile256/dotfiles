@@ -18,6 +18,11 @@ local program = {
 
 
 local config = {
+  filetypes = {
+    "lua",
+    "markdown",
+    "sh",
+  },
   --  cmd = { "efm-langserver", "-logfile", "/tmp/efm.log", "-loglevel", "2" },
   init_options = {
     documentFormatting = true,
