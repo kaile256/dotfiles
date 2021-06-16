@@ -1,5 +1,8 @@
 " From: init.vim
 
+nmap <space> "_
+xmap <space> "_
+
 " nnoremap p p`]
 " nnoremap p ]p`]
 nnoremap P ]P
