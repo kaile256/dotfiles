@@ -56,6 +56,13 @@ hook_source = 'runtime source/sherlock.vim'
 # # Auto scroll as cmdline range.
 # on_event = ['CmdLineChanged']
 # hook_post_source = 'luafile $DEIN_RC_DIR/numb/pos.lua'
+
+#[ Paste ]
+# [[plugins]]
+# repo = 'ConradIrwin/vim-bracketed-paste'
+# # Obsolete 'paste' on TUI, but the feature will be built-in.
+# on_event = ['InsertCharPre']
+
 #[ Undo ]
 #[[plugins]]
 #repo = 'machakann/vim-highlightedundo'
