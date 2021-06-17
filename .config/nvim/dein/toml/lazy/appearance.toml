@@ -44,6 +44,11 @@ hook_source = 'runtime source/indentLine.vim'
 
 #[ Cursor ]
 [[plugins]]
+repo = 'edluffy/specs.nvim'
+# Flash cursorline (actually, a popup window) on jumping in a distance.
+on_event = ['BufRead']
+hook_post_source = 'luafile $DEIN_RC_DIR/specs/pos.lua'
+[[plugins]]
 repo = 'delphinus/vim-auto-cursorline'
 # Just show cursorline after cursor holded for a while.
 on_event = ['WinEnter']
