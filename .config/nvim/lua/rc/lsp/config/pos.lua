@@ -4,6 +4,7 @@
 local lspconfig = require'lspconfig'
 local configs = require'lspconfig.configs'
 local on_attach = require'rc.lsp.config.on_attach'
+local containers = require"rc.lsp.containers"
 
 lspconfig.util.default_config = vim.tbl_extend('force', lspconfig.util.default_config, {
   autostart = true,
@@ -44,21 +45,11 @@ local servers = {
   zk = require"rc.lsp.config.ls.zk",
 }
 
---- TOML: lsp.toml
---- Repo: lspcontainers/lspcontainers.nvim
----@note Some languageserver might demand to sync volume mount on particular container. See lspcontainers.nvim/README.md.
-local is_lspcontainers_available, lspcontainers = pcall(require, 'lspcontainers')
-local lspcontainer_or_cmd = function(server, cmd)
-  if not is_lspcontainers_available then return cmd end
-  local enabled, container = pcall(lspcontainers.command, server)
-  return enabled and container or cmd
-end
-
 for server, config in pairs(servers) do
   local ls = lspconfig[server]
   if ls then
     config.on_attach = config.on_attach or on_attach
-    config.cmd = lspcontainer_or_cmd(server, config.cmd)
+    config.cmd = containers.lspcontainer_or_cmd(server, config.cmd)
     ls.setup(config)
   else
     configs[server] = config -- Required to apply default_config.
