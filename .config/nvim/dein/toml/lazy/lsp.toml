@@ -5,7 +5,7 @@
 repo = 'neovim/nvim-lspconfig'
 if = 'has("nvim")'
 on_event = ['BufRead']
-hook_post_source = 'luafile $DEIN_LUA_DIR/lspconfig/pos.lua'
+hook_post_source = 'luafile $DEIN_LUA_DIR/lsp/config/pos.lua'
 [[plugins]]
 repo = 'gfanto/fzf-lsp.nvim'
 if = 'executable("fzf") && has("nvim")'

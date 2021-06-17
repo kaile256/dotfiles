@@ -1,4 +1,4 @@
-local common_on_attach = require"rc.lspconfig.on_attach"
+local common_on_attach = require"rc.lsp.config.on_attach"
 
 local zk_mappings = function()
   if vim.fn['dein#tap']('zk.nvim') then

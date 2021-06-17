@@ -3,7 +3,7 @@
 
 local lspconfig = require'lspconfig'
 local configs = require'lspconfig.configs'
-local on_attach = require'rc.lspconfig.on_attach'
+local on_attach = require'rc.lsp.config.on_attach'
 
 lspconfig.util.default_config = vim.tbl_extend('force', lspconfig.util.default_config, {
   autostart = true,
@@ -21,9 +21,9 @@ local servers = {
   cssls = {},
   dartls = {},
   denols = {},
-  -- diagnosticls = require'rc.lspconfig.ls.diagnostic',
+  -- diagnosticls = require'rc.lsp.config.ls.diagnostic',
   dockerls = {},
-  efm = require"rc.lspconfig.ls.efm",
+  efm = require"rc.lsp.config.ls.efm",
   gopls = {},
   graphql = {},
   hls = {},
@@ -37,11 +37,11 @@ local servers = {
   rust_analyzer = {},
   sqlls = {},
   stylelint_lsp = {},
-  sumneko_lua = require"rc.lspconfig.ls.lua",
+  sumneko_lua = require"rc.lsp.config.ls.lua",
   tsserver = {},
-  vimls = require"rc.lspconfig.ls.vim",
+  vimls = require"rc.lsp.config.ls.vim",
   yamlls = {},
-  zk = require"rc.lspconfig.ls.zk",
+  zk = require"rc.lsp.config.ls.zk",
 }
 
 --- TOML: lsp.toml
