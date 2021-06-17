@@ -24,6 +24,10 @@ on_source = ['nvim-lspconfig']
 repo = 'ray-x/lsp_signature.nvim'
 depends = ['nvim-lspconfig']
 on_lua = ['lsp_signature']
+[[plugins]]
+repo = 'kosayoda/nvim-lightbulb'
+# Notify in signcolumn when code-actions are available on the cursor position.
+on_lua = ['nvim-lightbulb']
 # [[plugins]]
 # repo = 'tamago324/nlsp-settings.nvim'
 # # Let us write config in json like coc.nvim.
