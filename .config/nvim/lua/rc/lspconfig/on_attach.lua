@@ -1,3 +1,5 @@
+-- Ref: $VIMRUNTIME/lua/vim/lsp/buf.lua
+
 local is_repmo_enabled = vim.fn['dein#tap']('repmo-vim')
 
 local tostring = function(tbl)
