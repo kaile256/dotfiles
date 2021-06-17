@@ -242,12 +242,14 @@ let s:registers = {
       \ "'": '"',
       \ }
 
-inoremap <expr> <SID>(literal-paste)
-      \ '<c-g>u<c-r>'.
-      \ (len(split(getreg(v:register), "[\n\m]")) > 1 ? '<c-p>' : '')
-imap <C-r> <SID>(literal-paste)
+function! s:paste() abort
+  set paste
+  autocmd TextChangedI * ++once set nopaste
+  return "\<C-g>u\<C-r>"
+endfunction
+imap <expr> <C-r> <SID>paste()
 for s:reg in keys(s:registers)
-  exe 'imap <c-r>'. s:reg '<SID>(literal-paste)'. s:registers[s:reg]
+  exe 'imap <C-r>'. s:reg '<SID>paste()'. s:registers[s:reg]
 endfor
 unlet s:reg s:registers
 
