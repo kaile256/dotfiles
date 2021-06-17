@@ -61,4 +61,3 @@ nnoremap <expr> g; repmo#Key('g;zv', 'g,zv')
 nnoremap <expr> g, repmo#Key('g,zv', 'g;zv')
 xnoremap <expr> g; repmo#Key('g;zv', 'g,zv')
 xnoremap <expr> g, repmo#Key('g,zv', 'g;zv')
-
