@@ -21,9 +21,9 @@ local servers = {
   cssls = {},
   dartls = {},
   denols = {},
-  -- diagnosticls = require'rc.lspconfig.diagnostic',
+  -- diagnosticls = require'rc.lspconfig.ls.diagnostic',
   dockerls = {},
-  efm = require"rc.lspconfig.efm",
+  efm = require"rc.lspconfig.ls.efm",
   gopls = {},
   graphql = {},
   hls = {},
@@ -37,11 +37,11 @@ local servers = {
   rust_analyzer = {},
   sqlls = {},
   stylelint_lsp = {},
-  sumneko_lua = require'rc.lspconfig.lua',
+  sumneko_lua = require"rc.lspconfig.ls.lua",
   tsserver = {},
-  vimls = require'rc.lspconfig.vim',
+  vimls = require"rc.lspconfig.ls.vim",
   yamlls = {},
-  zk = require'rc.lspconfig.zk',
+  zk = require"rc.lspconfig.ls.zk",
 }
 
 for server, config in pairs(servers) do
