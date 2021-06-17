@@ -1,6 +1,3 @@
-set guicursor=n-v-c-sm-o:block,i-ci-ve:ver25,r-cr:hor20
-set guicursor+=a:blinkon0-Cursor/lCursor
-
 if exists('+guifont')
   let &guifont     = 'SFMono Nerd Font Mono:h9.3'
   let &guifontwide = 'Noto Sans Mono CJK JP:h10.0'

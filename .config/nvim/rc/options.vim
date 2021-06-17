@@ -156,8 +156,10 @@ set pumheight=15
 " Cursor {{{2
 " shorter for CursorHold & CursorHoldI
 set updatetime=300
-"" Cursor; Disable
-"set guicursor
+
+set guicursor=n-v-c-sm-o:block,i-ci-ve:ver25,r-cr:hor20
+set guicursor+=a:blinkon0-Cursor/lCursor
+
 " Line {{{2
 set cursorline
 " augroup myAutoToggleCursorLine
