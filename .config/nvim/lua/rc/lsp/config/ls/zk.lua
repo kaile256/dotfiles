@@ -1,3 +1,4 @@
+local lspconfig = require"lspconfig"
 local common_on_attach = require"rc.lsp.config.on_attach"
 
 local zk_mappings = function()
@@ -14,11 +15,7 @@ local config = {
   default_config = {
     cmd = {'zk', 'lsp'},
     filetypes = {'markdown'},
-    root_dir = function()
-      local cwd = vim.loop.cwd()
-      local neuron_root = cwd:match('^.*/neuron/') or cwd
-      return neuron_root
-    end,
+    root_dir = lspconfig.util.root_pattern(".zk"),
     settings = {},
   },
 
