@@ -242,9 +242,9 @@ schemes:
   #     white:   '0xfdf6e3'
 
   neodark: &neodark
-    #cursor:
-    #  text: '0x000000'
-    #  cursor: '0xffffff'
+    cursor:
+     text: '0x000000'
+     cursor: '0xffffff'
 
     #selection:
     #  text: '0xeaeaea'
