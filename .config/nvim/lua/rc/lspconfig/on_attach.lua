@@ -81,6 +81,24 @@ local additional_actions = {
   lsp_signature = function(_, _)
     require"lsp_signature".on_attach()
   end;
+  -- TOML: lsp.toml
+  -- Repo: kosayoda/nvim-lightbulb
+  ["nvim-lightbulb"] = function(client, bufnr)
+    local is_code_action_unavailable = not client.resolved_capabilities.code_action
+    if is_code_action_unavailable then return end
+    local config = {
+      sign = {
+        priority = 100,
+      };
+    }
+    local autocmds = ([[
+    augroup myLightbulb/CheckIfCodeActionsAreAvailable
+    autocmd!
+    autocmd CursorHold,CursorHoldI <buffer%s> lua require"nvim-lightbulb".update_lightbulb(%s)
+    augroup END
+    ]]):format(bufnr == 0 and "" or "=" .. bufnr, tostring(config))
+    vim.cmd(autocmds)
+  end;
 }
 
 local on_attach = function(client, bufnr)
