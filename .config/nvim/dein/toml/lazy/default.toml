@@ -229,3 +229,10 @@ let g:LargeFile = 1 " in megabytes to regard a file as a large file.
 # # `&visualedit=all`. The command draws a line, or an arrow, when visualized
 # # area width is 1; otherwise, it draws a rectangle as visualized.
 # on_cmd = ['VBox']
+
+#[ Environmental Variable ]
+[[plugins]]
+repo = 'lambdalisue/edita.vim'
+# Overwrite $EDITOR. Useful for git-commit from terminal buffer.
+# FIXME: Find a good trigger for Vim.
+on_event = ['TermEnter']
