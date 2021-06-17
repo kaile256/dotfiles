@@ -53,6 +53,7 @@ for server, config in pairs(servers) do
     ls.setup(config)
   else
     configs[server] = config -- Required to apply default_config.
-    lspconfig[server].setup(config) -- Set up autocmd named as `server` to attach on BufRead/FileType.
+    -- FIXME: Sync the configs in lspconfig.lua; configs[server] here is not the same as that in lspconfig.lua after all.
+    --  lspconfig[server].setup(config) -- Set up autocmd named as `server` to attach on BufRead/FileType.
   end
 end
