@@ -74,6 +74,14 @@ local set_keymaps = function(client, bufnr)
   end
 end
 
+---@type table<string, function> # key represents a dependent module.
+local additional_actions = {
+  -- TOML: lsp.toml
+  -- Repo: ray-x/lsp_signature
+  lsp_signature = function(_, _)
+    require"lsp_signature".on_attach()
+  end;
+}
 
 local on_attach = function(client, bufnr)
   set_keymaps(client, bufnr)
@@ -81,11 +89,11 @@ local on_attach = function(client, bufnr)
   local buf_set_option = function(...) vim.api.nvim_buf_set_option(bufnr, ...) end
   buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
 
-  -- TOML: lsp.toml
-  -- Repo: ray-x/lsp_signature
-  local enabled, signature = pcall(require, "lsp_signature")
-  if enabled then
-    signature.on_attach()
+  for module, induce_action in pairs(additional_actions) do
+    local enabled, _ = pcall(require, module)
+    if enabled then
+      induce_action(client, bufnr)
+    end
   end
 end
 
