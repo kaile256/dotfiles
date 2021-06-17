@@ -50,8 +50,7 @@ for server, config in pairs(servers) do
     config.on_attach = config.on_attach or on_attach
     ls.setup(config)
   else
-    configs[server] = config
-    -- TODO: make it work
-    -- lspconfig[server].setup()
+    configs[server] = config -- Required to apply default_config.
+    lspconfig[server].setup(config) -- Set up autocmd named as `server` to attach on BufRead/FileType.
   end
 end
