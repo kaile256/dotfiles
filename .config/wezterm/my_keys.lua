@@ -17,6 +17,12 @@ local keys = {
 
   { key=";", mods="CTRL", action=send_keys("\x1b[59;5u"), };
   { key=":", mods="CTRL", action=send_keys("\x1b[58;5u"), };
+
+  { key="-", mods="CTRL", action=send_keys("\x1b[45;5u"), };
+  { key="+", mods="CTRL", action=send_keys("\x1b[43;5u"), };
+  { key="=", mods="CTRL", action=send_keys("\x1b[61;5u"), };
+  { key="_", mods="CTRL", action=send_keys("\x1b[95;5u"), };
+
 }
 
 local config = {
