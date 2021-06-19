@@ -79,13 +79,12 @@ hook_source = 'runtime source/asterisk.vim'
 #on_map = {x = '<Plug>(textmanip-'}
 #hook_add = 'runtime add/textmanip.vim'
 #[ Easy Motion ]
-[[plugins]]
-repo = 'phaazon/hop.nvim'
-# Safely show hints without changing buffer as the old tricks easymotion does.
-# Currently, it cannot limit derection to show hints.
-if = 'has("nvim")'
-on_cmd = ['Hop']
-hook_add = 'luafile $DEIN_RC_DIR/hop/add.lua'
+# [[plugins]]
+# repo = 'phaazon/hop.nvim'
+# # Safely show hints without changing buffer as the old tricks easymotion does.
+# # Currently, it cannot limit derection to show hints.
+# if = 'has("nvim")'
+# on_cmd = ['Hop']
 [[plugins]]
 repo = 'easymotion/vim-easymotion'
 # Note: As it temporarily replaces characters in buffers for hinting,
