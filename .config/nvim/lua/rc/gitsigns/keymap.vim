@@ -12,6 +12,12 @@ nnoremap <space>gm <Cmd>call <SID>preview_hunk_or_blame()<CR>
 nnoremap U <Cmd>Gitsigns reset_hunk<CR>
 xnoremap U <Cmd>*Gitsigns reset_hunk<CR><Esc>
 
+function! s:reset_hunks_in_range(...) abort
+  silent! '[,'] Gitsigns reset_hunk
+endfunction
+nnoremap \U <Cmd>set operatorfunc=<SID>reset_hunks_in_range<CR>g@
+
+
 function! s:stage_in_range(...)
   if a:0
     const above = line("'[")
