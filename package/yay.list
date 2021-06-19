@@ -198,7 +198,12 @@ google-chrome
 supercollider # Programming Language to create sounds
 boost # Cpp source libraries - development headers
 # cling # cpp's interpretor; required for REPL. It takes too long to compile. cling-bin instead isn't up-to-date and won't set to $PATH.
+
+# Terminal Emulator
 # st # a terminal emulater. `yay -G st-gt; nvim config.h; makepkg si` to get your own.
+# rxvt-unicode-patched-with-truecolor
+rxvt-unicode-truecolor-wide-glyphs # Cannot run `bash` and `zsh` with SEGFAULT.
+kitty
 
 compiledb # a generator for clang's JSON
 deno # a better runtime than node.js which include TypeScript compiler
@@ -209,8 +214,6 @@ nginx
 android-emulator
 android-bash-completion
 # composer # php dependency manager on PHPStorm?
-# rxvt-unicode-patched-with-truecolor
-rxvt-unicode-truecolor-wide-glyphs # Cannot run `bash` and `zsh` with SEGFAULT.
 libxft-bgra # Improve emoji works on urxvt? Conflicted to `libxft`
 
 # xcape # Config modifier keys to act as other keys with/without another key
@@ -294,7 +297,6 @@ udiskie # a wrapper of udisk2 to mount automatically
 # dialog # used in `wifi-menu` at least
 ripgrep-all-bin # ripgrep in PDFs, E-Books, Office documents, zip, tar.gz, etc.
 # tor-browser
-transset-df # for transparency on xterm
 preload # preload apps on RAM; maybe requires to `systemctl disable preload` before remove the package
 fwupd # a daemon for firmware update
 dmidecode # installed w/ fwupd? anyway, necessary
@@ -309,7 +311,6 @@ dmidecode # installed w/ fwupd? anyway, necessary
 #qrab # grab QR codes from screen to copy as text into clipboard
 #qt5-base-git  # a cross-platform app & UI framework for neovim-qt
 #room-arranger # make a blueprint for room
-#rxvt-unicode-256xresources # Terminal Emulater according to gruvbox.vim
 #ttf-migu
 #xf86-input-synaptics  # use xinput to enable config for Touchpad
 acpi_call # recomended by tlp; select 419, or get the kernel version from manjaro-settings-manager
