@@ -1,6 +1,14 @@
 " TOML: git.toml
 " Repo: lewis6991/gitsigns.nvim
 
+function! s:preview_hunk_or_blame() abort
+  const winnrs = tabpagebuflist()
+  Gitsigns preview_hunk
+  call timer_start(50, {-> tabpagebuflist() == winnrs
+        \ ? luaeval('require"gitsigns".blame_line(true)') : '' })
+endfunction
+nnoremap <space>gm <Cmd>call <SID>preview_hunk_or_blame()<CR>
+
 nnoremap U <Cmd>Gitsigns reset_hunk<CR>
 
 function! s:stage_in_range(...)
