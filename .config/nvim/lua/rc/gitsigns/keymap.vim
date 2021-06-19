@@ -44,11 +44,11 @@ noremap <SID>]c ]c
 map <expr> <Plug>(gitsigns-hunk-raw-next) &diff ? '<SID>]c' : '<Cmd>lua require"gitsigns".next_hunk()<CR>'
 map <expr> <Plug>(gitsigns-hunk-raw-prev) &diff ? '<SID>[c' : '<Cmd>lua require"gitsigns".prev_hunk()<CR>'
 if dein#tap('repmo-vim')
-  map <expr> <Plug>(gitsigns-hunk-next) repmo#Key('<Plug>(gitsigns-hunk-raw-prev)', '<Plug>(gitsigns-hunk-raw-next)')
-  map <expr> <Plug>(gitsigns-hunk-prev) repmo#Key('<Plug>(gitsigns-hunk-raw-next)', '<Plug>(gitsigns-hunk-raw-prev)')
+  map <expr> <Plug>(gitsigns-hunk-next) repmo#Key('<Plug>(gitsigns-hunk-raw-prev)zv', '<Plug>(gitsigns-hunk-raw-next)zv')
+  map <expr> <Plug>(gitsigns-hunk-prev) repmo#Key('<Plug>(gitsigns-hunk-raw-next)zv', '<Plug>(gitsigns-hunk-raw-prev)zv')
 else
-  map <expr> <Plug>(gitsigns-hunk-next) <Plug>(gitsigns-hunk-raw-next)
-  map <expr> <Plug>(gitsigns-hunk-prev) <Plug>(gitsigns-hunk-raw-prev)
+  map <expr> <Plug>(gitsigns-hunk-next) <Plug>(gitsigns-hunk-raw-next)zv
+  map <expr> <Plug>(gitsigns-hunk-prev) <Plug>(gitsigns-hunk-raw-prev)zv
 endif
 map [c <Plug>(gitsigns-hunk-next)
 map ]c <Plug>(gitsigns-hunk-prev)
