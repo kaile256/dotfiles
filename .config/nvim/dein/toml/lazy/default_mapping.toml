@@ -11,13 +11,6 @@ hook_post_source = 'runtime post/repeat.vim'
 repo = 'inkarkat/vim-visualrepeat'
 # used by easy-align on Visual mode.
 on_func = 'visualrepeat#'
-[[plugins]]
-repo = 'Houl/repmo-vim'
-on_func = 'repmo#'
-hook_add = 'runtime add/repmo.vim'
-hook_post_source = 'runtime post/repmo.vim'
-#[[plugins]]
-#repo = 'vim-scripts/repeatable-motions.vim'
 
 #[ Join ]
 [[plugins]]

@@ -1,5 +1,14 @@
 # From: dein/dein.vim
 
+#[ Motion Repeat ]
+[[plugins]]
+repo = 'Houl/repmo-vim'
+on_func = 'repmo#'
+hook_add = 'runtime add/repmo.vim'
+hook_post_source = 'runtime post/repmo.vim'
+#[[plugins]]
+#repo = 'vim-scripts/repeatable-motions.vim'
+
 #[ Charater's Case ]
 # [[plugins]]
 # repo = 'chaoren/vim-wordmotion'

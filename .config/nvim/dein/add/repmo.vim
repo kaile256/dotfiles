@@ -1,4 +1,4 @@
-" TOML: default.toml
+" TOML: motion.toml
 " Repo: Houl/repmo-vim
 " Another: post/repmo.vim
 
