@@ -751,6 +751,12 @@ mode $Neovim {
     bindsym U        $noid $urxvt -e nvim; mode default
     bindsym $Super+U $noid $urxvt -e nvim; mode default
 
+    bindsym K        $noid kitty -e nvim; mode default
+    bindsym $Super+K $noid kitty -e nvim; mode default
+
+    bindsym W        $noid wezterm start -- nvim; mode default
+    bindsym $Super+W $noid wezterm start -- nvim; mode default
+
     bindsym Ctrl+C             mode default
     bindsym Ctrl+bracketleft   mode default
     bindsym $Super+bracketleft mode default
