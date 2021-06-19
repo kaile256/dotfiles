@@ -46,6 +46,9 @@ endfunction
 let s:no_further_mapping_is_to_be_defined = 50
 augroup myReadonlyLazy
   au!
-  au OptionSet modifiable call timer_start(s:no_further_mapping_is_to_be_defined, expand('<SID>') . 'map_toggle')
+  au OptionSet modifiable
+        \ call timer_start(s:no_further_mapping_is_to_be_defined,
+        \   expand('<SID>') .'map_toggle')
 augroup END
-call timer_start(s:no_further_mapping_is_to_be_defined, expand('<SID>') . 'map_toggle')
+call timer_start(s:no_further_mapping_is_to_be_defined,
+      \ expand('<SID>') .'map_toggle')
