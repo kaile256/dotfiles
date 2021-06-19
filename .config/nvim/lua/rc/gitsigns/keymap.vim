@@ -43,32 +43,40 @@ noremap <SID>[c [c
 noremap <SID>]c ]c
 map <expr> <Plug>(gitsigns-hunk-raw-next) &diff ? '<SID>]c' : '<Cmd>lua require"gitsigns".next_hunk()<CR>'
 map <expr> <Plug>(gitsigns-hunk-raw-prev) &diff ? '<SID>[c' : '<Cmd>lua require"gitsigns".prev_hunk()<CR>'
-if dein#tap('repmo-vim')
-  map <expr> <Plug>(gitsigns-hunk-next) repmo#Key('<Plug>(gitsigns-hunk-raw-prev)zv', '<Plug>(gitsigns-hunk-raw-next)zv')
-  map <expr> <Plug>(gitsigns-hunk-prev) repmo#Key('<Plug>(gitsigns-hunk-raw-next)zv', '<Plug>(gitsigns-hunk-raw-prev)zv')
-else
-  map <expr> <Plug>(gitsigns-hunk-next) <Plug>(gitsigns-hunk-raw-next)zv
-  map <expr> <Plug>(gitsigns-hunk-prev) <Plug>(gitsigns-hunk-raw-prev)zv
-endif
-map [c <Plug>(gitsigns-hunk-next)
-map ]c <Plug>(gitsigns-hunk-prev)
+  map <expr> <Plug>(gitsigns-hunk-next)
+        \ dein#tap('repmo-vim')
+        \ ? repmo#Key('<Plug>(gitsigns-hunk-raw-next)zv', '<Plug>(gitsigns-hunk-raw-prev)zv')
+        \ : '<Plug>(gitsigns-hunk-raw-next)zv'
+  map <expr> <Plug>(gitsigns-hunk-prev)
+        \ dein#tap('repmo-vim')
+        \ ? repmo#Key('<Plug>(gitsigns-hunk-raw-prev)zv', '<Plug>(gitsigns-hunk-raw-next)zv')
+        \ : '<Plug>(gitsigns-hunk-raw-prev)zv'
+map ]c <Plug>(gitsigns-hunk-next)
+map [c <Plug>(gitsigns-hunk-prev)
+sunmap [c
+sunmap ]c
 
 
 " Textobj
-if dein#tap('vim-textobj-conflict')
-  function! s:is_conflicted() abort
-    const conflict_marker = '^[=><]\{7} '
-    const is_conflicted = search(conflict_marker, 'cnw')
-    return is_conflicted
-  endfunction
+function! s:is_conflicted() abort
+  const conflict_marker = '^[=><]\{7} '
+  const is_conflicted = search(conflict_marker, 'cnw')
+  return is_conflicted
+endfunction
 
-  omap <expr> ic <SID>is_conflicted() ? '<Cmd>Gitsigns select_hunk<CR>' : '<SID>(textobj-hunk-i)'
-  xmap <expr> ic <SID>is_conflicted() ? '<Cmd>Gitsigns select_hunk<CR>' : '<SID>(textobj-hunk-i)'
-  omap <expr> ac <SID>is_conflicted() ? '<Cmd>Gitsigns select_hunk<CR>' : '<SID>(textobj-hunk-a)'
-  xmap <expr> ac <SID>is_conflicted() ? '<Cmd>Gitsigns select_hunk<CR>' : '<SID>(textobj-hunk-a)'
-else
-  omap ic <SID>(textobj-hunk-i)
-  xmap ic <SID>(textobj-hunk-i)
-  omap ac <SID>(textobj-hunk-a)
-  xmap ac <SID>(textobj-hunk-a)
-endif
+omap <expr> ic
+      \ dein#tap('vim-textobj-conflict') && <SID>is_conflicted()
+      \ ? '<Cmd>Gitsigns select_hunk<CR>'
+      \ : '<SID>(textobj-hunk-i)'
+omap <expr> ac
+      \ dein#tap('vim-textobj-conflict') && <SID>is_conflicted()
+      \ ? '<Cmd>Gitsigns select_hunk<CR>'
+      \ : '<SID>(textobj-hunk-a)'
+xmap <expr> ic
+      \ dein#tap('vim-textobj-conflict') && <SID>is_conflicted()
+      \ ? '<Cmd>Gitsigns select_hunk<CR>'
+      \ : '<SID>(textobj-hunk-i)'
+xmap <expr> ac
+      \ dein#tap('vim-textobj-conflict') && <SID>is_conflicted()
+      \ ? '<Cmd>Gitsigns select_hunk<CR>'
+      \ : '<SID>(textobj-hunk-a)'
