@@ -15,7 +15,9 @@ xnoremap U <Cmd>*Gitsigns reset_hunk<CR><Esc>
 function! s:reset_hunks_in_range(...) abort
   silent! '[,'] Gitsigns reset_hunk
 endfunction
-nnoremap \U <Cmd>set operatorfunc=<SID>reset_hunks_in_range<CR>g@
+nnoremap <SID>(reset-hunks-in-range)
+      \ <Cmd>set operatorfunc=<SID>reset_hunks_in_range<CR>g@
+nmap \U <SID>(reset-hunks-in-range)
 
 
 function! s:stage_in_range(...)
