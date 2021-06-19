@@ -129,6 +129,7 @@ if = 'has("nvim")'
 depends = ['plenary.nvim']
 # on_lua = ['gitsigns']
 on_event = ['VimEnter']
+hook_add = 'source $DEIN_LUA_DIR/gitsigns/keymap.vim'
 hook_source = 'luafile $DEIN_LUA_DIR/gitsigns/pos.lua'
 [[plugins]]
 repo = 'airblade/vim-gitgutter'
