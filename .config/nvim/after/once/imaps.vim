@@ -242,14 +242,15 @@ let s:registers = {
       \ "'": '"',
       \ }
 
-function! s:paste() abort
+function! s:paste(...) abort
+  const reg_key = a:0 ? a:1 : ''
   set paste
   autocmd TextChangedI * ++once set nopaste
-  return "\<C-g>u\<C-r>"
+  return "\<C-g>u\<C-r>". reg_key
 endfunction
 imap <expr> <C-r> <SID>paste()
 for s:reg in keys(s:registers)
-  exe 'imap <C-r>'. s:reg '<SID>paste()'. s:registers[s:reg]
+  exe 'imap <expr> <C-r>'. s:reg '<SID>paste(' string(s:registers[s:reg]) ')'
 endfor
 unlet s:reg s:registers
 
