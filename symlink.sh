@@ -68,6 +68,7 @@ CONFIGs=(
   tig
   tmux # Keep the directory for the other config like plubins.
   vifm
+  wezterm
   w3m
   zsh
 )
