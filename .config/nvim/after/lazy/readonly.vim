@@ -7,7 +7,7 @@ if filereadable(expand('%:p'))
 endif
 
 let s:mapped_bufnrs = []
-function! s:map_toggle() abort
+function! s:map_toggle(_) abort
   const bufnr = bufnr()
 
   if !&modifiable
@@ -43,9 +43,9 @@ function! s:map_toggle() abort
   silent! nunmap <buffer> D
 endfunction
 
+let s:no_further_mapping_is_to_be_defined = 50
 augroup myReadonlyLazy
   au!
-  au OptionSet modifiable call s:map_toggle()
+  au OptionSet modifiable call timer_start(s:no_further_mapping_is_to_be_defined, expand('<SID>') . 'map_toggle')
 augroup END
-call s:map_toggle()
-
+call timer_start(s:no_further_mapping_is_to_be_defined, expand('<SID>') . 'map_toggle')
