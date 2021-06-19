@@ -10,6 +10,8 @@ end
 -- Modifiers: (http://www.leonerd.org.uk/hacks/fixterms/)
 -- S: 2u | M: 3u | M-S: 4u | C: 5u | C-S: 6u | C-M: 7u | C-M-S: 8u
 local keys = {
+  { key="0", mods="CTRL", action=send_keys("\x1b[48;5u"), };
+
   { key=",", mods="CTRL", action=send_keys("\x1b[44;5u"), };
   { key=".", mods="CTRL", action=send_keys("\x1b[46;5u"), };
 
