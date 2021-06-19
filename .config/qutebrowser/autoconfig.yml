@@ -126,7 +126,7 @@ settings:
         <Alt+Shift+b>: fake-key <shift-ctrl-left>
         <Alt+Shift+f>: fake-key <Shift-ctrl-right>
         <Alt+Shift+i>: fake-key <home>
-        <Alt+Shift+o>: fake-key <shift-tab>
+        <Alt+Shift+o>: fake-key <Home><Return><Up>
         <Alt+Shift+v>: fake-key <home><shift-end>
         <Alt+Space>: hint inputs
         <Alt+[>: tab-prev
@@ -144,7 +144,7 @@ settings:
         <Alt+j>: mode-enter normal
         <Alt+k>: mode-enter normal
         <Alt+l>: mode-enter normal
-        <Alt+o>: fake-key <tab>
+        <Alt+o>: fake-key <End><Return>
         <Alt+u>: fake-key <ctrl-z>
         <Alt+v>: fake-key <Shift-left>;; mode-enter caret
         <Alt+y>: yank selection
