@@ -5,6 +5,7 @@ local configs = {
   tab_config = require("my_tabs");
   keys_config = require("my_keys");
   font_config = require("my_font");
+  color_config = require("my_colors");
 }
 
 local config = {}
