@@ -10,6 +10,7 @@ endfunction
 nnoremap <space>gm <Cmd>call <SID>preview_hunk_or_blame()<CR>
 
 nnoremap U <Cmd>Gitsigns reset_hunk<CR>
+xnoremap U <Cmd>*Gitsigns reset_hunk<CR><Esc>
 
 function! s:stage_in_range(...)
   if a:0
