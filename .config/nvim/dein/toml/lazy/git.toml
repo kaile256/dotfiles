@@ -134,7 +134,7 @@ hook_source = 'luafile $DEIN_LUA_DIR/gitsigns/pos.lua'
 [[plugins]]
 repo = 'airblade/vim-gitgutter'
 on_event = 'BufRead'
-hook_add = 'source $DEIN_RC_DIR/gitgutter/add.vim'
+# hook_add = 'source $DEIN_RC_DIR/gitgutter/add.vim'
 hook_source = 'source $DEIN_RC_DIR/gitgutter/sou.vim'
 hook_post_source = 'source $DEIN_RC_DIR/gitgutter/pos.vim'
 #[[plugins]]
