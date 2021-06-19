@@ -3,9 +3,9 @@
 
 if dein#tap('vim-snatch')
   imap <silent><expr> <C-e>
-        \ compe#close("\<lt>Plug>(snatch-oneshot-hor-or-reg-ctrl-e)")
+        \ compe#close("\<lt>Plug>(snatch-by-register-ctrl-e)")
   imap <silent><expr> <C-y>
-        \ compe#confirm("\<lt>Plug>(snatch-oneshot-hor-or-reg-ctrl-y)")
+        \ compe#confirm("\<lt>Plug>(snatch-by-register-ctrl-y)")
 else
   inoremap <silent><expr> <C-e> compe#close('<C-e>')
   inoremap <silent><expr> <C-y> compe#confirm('<C-y>')
