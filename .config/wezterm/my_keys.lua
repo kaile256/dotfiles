@@ -7,6 +7,9 @@ local send_keys = function(key_sequence)
 end
 
 local keys = {
+  { key=",", mods="CTRL", action=send_keys("\x1b[44;5u"), };
+  { key=".", mods="CTRL", action=send_keys("\x1b[46;5u"), };
+
   { key=";", mods="CTRL", action=send_keys("\x1b[59;5u"), };
   { key=":", mods="CTRL", action=send_keys("\x1b[58;5u"), };
 }
