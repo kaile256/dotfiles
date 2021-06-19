@@ -8,7 +8,9 @@ local configs = {
   color_config = require("my_colors");
 }
 
-local config = {}
+local config = {
+  exit_behavior = "Close";
+}
 
 for _, partial_config in pairs(configs) do
   for k, v in pairs(partial_config) do
