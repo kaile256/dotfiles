@@ -23,6 +23,7 @@ local keys = {
   { key="=", mods="CTRL", action=send_keys("\x1b[61;5u"), };
   { key="_", mods="CTRL", action=send_keys("\x1b[95;5u"), };
 
+  { key=" ", mods="SHIFT", action=send_keys("\x1b[32;2u") }; -- <S-Space>
 }
 
 local config = {
