@@ -36,8 +36,12 @@ nnoremap <silent> <SID>(stage-hank-in-range)
       \ :<C-u>set operatorfunc=<SID>stage_in_range<CR>g@
 xnoremap <silent> <SID>(stage-hank-in-range) :call stage_in_range()<CR>
 
-nmap <space>gp <SID>(stage-hank-in-range)
-xmap <space>gp <SID>(stage-hank-in-range)
+nmap <space>gp
+      \ <Cmd>silent! call repeat#set("<SID>(stage-hank-in-range)")
+      \ <CR><SID>(stage-hank-in-range)
+xmap <space>gp
+      \ <Cmd>silent! call repeat#set("<SID>(stage-hank-in-range)")
+      \ <CR><SID>(stage-hank-in-range)
 
 
 " Motions
