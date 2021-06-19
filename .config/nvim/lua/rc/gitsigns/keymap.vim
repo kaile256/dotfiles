@@ -12,7 +12,8 @@ function! s:stage_in_range(...)
     const above = line("'<")
     const below = line("'>")
   endif
-  lua require"gitsigns".stage_hunk({above, below})
+  " lua require"gitsigns".stage_hunk({above, below})
+  execute above ',' below 'Gitsigns stage_hunk'
 endfunction
 
 nnoremap <silent> <SID>(stage-hank-in-range)
