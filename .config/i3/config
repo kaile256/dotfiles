@@ -687,24 +687,23 @@ set $Qutebrowser_bookmarks alacritty \
     -e fzf-qutebrowser-bookmarks qutebrowser
 bindsym $Super+apostrophe $noid $Qutebrowser_bookmarks
 
-#set $Console " Console: (A)lacritty (U)rxvt (X)term | (G)otop "
-#bindsym $Super+C mode $Console; $noid $shortmsg 'Consoles'
+# Terminal Emulator Mode {{{2
+set $Console " Console: (A)lacritty (U)rxvt (X)term | (G)otop "
+bindsym $Super+C mode $Console; $noid $shortmsg 'Consoles'
 
-#mode $Console {
-#bindsym A exec alacritty -e fish;  mode default
-#bindsym U exec $urxvt    -e fish;  mode default
-#bindsym X exec xterm     -e fish;  mode default
-#bindsym G exec alacritty -e gotop; mode default
+mode $Console {
+    bindsym A $noid alacritty;  mode default
+    bindsym U $noid $urxvt   ;  mode default
+    bindsym X $noid xterm    ;  mode default
+    bindsym G $noid alacritty -e gotop; mode default
 
-#bindsym T        exec $termporal; mode default
-#bindsym $Super+T exec $termporal; mode default
-#bindsym C        exec $termporal; mode default
-#bindsym $Super+C exec $termporal; mode default
+    bindsym W $noid wezterm; mode default
+    bindsym K $noid kitty;   mode default
 
-#bindsym Ctrl+C           mode default
-#bindsym bracketleft      mode default
-#bindsym Ctrl+bracketleft mode default
-#}
+    bindsym Ctrl+C           mode default
+    bindsym bracketleft      mode default
+    bindsym Ctrl+bracketleft mode default
+}
 
 # Browser {{{2
 set $Browser " Browser: (F)irefox (C)hrome (Q)utebrowser "
