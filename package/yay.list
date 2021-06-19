@@ -204,6 +204,7 @@ boost # Cpp source libraries - development headers
 # rxvt-unicode-patched-with-truecolor
 rxvt-unicode-truecolor-wide-glyphs # Cannot run `bash` and `zsh` with SEGFAULT.
 kitty
+wezterm # a terminal emulator written in rust; configurable in Lua.
 
 compiledb # a generator for clang's JSON
 deno # a better runtime than node.js which include TypeScript compiler
