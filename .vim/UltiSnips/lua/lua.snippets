@@ -60,7 +60,6 @@ snip.rv = cls
   local self = setmetatable(`!p
 if t[1] == "":
   snip.rv = "{}"
-  insert_props_as_tabstops(t[2], snip)
 else :
   snip.rv = t[1] + ".new(" + t[2] + ")"
 `, `!p snip.rv = cls`)`!p
