@@ -22,3 +22,39 @@ xnoremap <silent> <SID>(stage-hank-in-range) :call stage_in_range()<CR>
 
 nmap <space>gp <SID>(stage-hank-in-range)
 xmap <space>gp <SID>(stage-hank-in-range)
+
+
+" Motions
+noremap <SID>[c [c
+noremap <SID>]c ]c
+map <expr> <Plug>(gitsigns-hunk-raw-next) &diff ? '<SID>]c' : '<Cmd>lua require"gitsigns".next_hunk()<CR>'
+map <expr> <Plug>(gitsigns-hunk-raw-prev) &diff ? '<SID>[c' : '<Cmd>lua require"gitsigns".prev_hunk()<CR>'
+if dein#tap('repmo-vim')
+  map <expr> <Plug>(gitsigns-hunk-next) repmo#Key('<Plug>(gitsigns-hunk-raw-prev)', '<Plug>(gitsigns-hunk-raw-next)')
+  map <expr> <Plug>(gitsigns-hunk-prev) repmo#Key('<Plug>(gitsigns-hunk-raw-next)', '<Plug>(gitsigns-hunk-raw-prev)')
+else
+  map <expr> <Plug>(gitsigns-hunk-next) <Plug>(gitsigns-hunk-raw-next)
+  map <expr> <Plug>(gitsigns-hunk-prev) <Plug>(gitsigns-hunk-raw-prev)
+endif
+map [c <Plug>(gitsigns-hunk-next)
+map ]c <Plug>(gitsigns-hunk-prev)
+
+
+" Textobj
+if dein#tap('vim-textobj-conflict')
+  function! s:is_conflicted() abort
+    const conflict_marker = '^[=><]\{7} '
+    const is_conflicted = search(conflict_marker, 'cnw')
+    return is_conflicted
+  endfunction
+
+  omap <expr> ic <SID>is_conflicted() ? '<Cmd>Gitsigns select_hunk<CR>' : '<SID>(textobj-hunk-i)'
+  xmap <expr> ic <SID>is_conflicted() ? '<Cmd>Gitsigns select_hunk<CR>' : '<SID>(textobj-hunk-i)'
+  omap <expr> ac <SID>is_conflicted() ? '<Cmd>Gitsigns select_hunk<CR>' : '<SID>(textobj-hunk-a)'
+  xmap <expr> ac <SID>is_conflicted() ? '<Cmd>Gitsigns select_hunk<CR>' : '<SID>(textobj-hunk-a)'
+else
+  omap ic <SID>(textobj-hunk-i)
+  xmap ic <SID>(textobj-hunk-i)
+  omap ac <SID>(textobj-hunk-a)
+  xmap ac <SID>(textobj-hunk-a)
+endif
