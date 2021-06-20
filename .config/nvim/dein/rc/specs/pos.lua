@@ -2,7 +2,7 @@
 -- Repo: edluffy/specs.nvim
 
 vim.cmd [[
-hi! SpecsPopup ctermbg=Magenta guibg=Magenta
+hi! SpecsPopup ctermbg=Magenta guibg=#D16CD9
 ]]
 
 local specs = require"specs"
