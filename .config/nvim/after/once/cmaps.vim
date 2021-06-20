@@ -130,7 +130,8 @@ function! s:verbose_in_quickfix() abort "{{{2
   return "lexpr execute(". string(cmd) .") \<bar> bot lopen"
 endfunction
 
-cnoremap <a-q> <c-f>
+cnoremap <SID>(edit-in-cmdwin) <C-f>
+cmap <C-]> <SID>(edit-in-cmdwin)
 
 " Shortcut: instant window-assign {{{1
 cnoremap <silent> <a-t> <C-\>e<SID>assign_window('tab')<CR><CR>
