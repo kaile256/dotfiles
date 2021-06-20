@@ -13,9 +13,10 @@ augroup myBackupfiles-ToggleSwapfile
     if !&swapfile || &modified | return | endif
     " Turn off &swapfile also remove the existing swapfile.
     setlocal noswapfile
+    autocmd TextChanged,TextChangedI,TextChangedP <buffer> ++once silent! setlocal swapfile
   endfunction
   au BufWritePost * call s:remove_swapfile()
-  au TextChanged,TextChangedI,TextChangedP * setlocal swapfile
+  au BufRead * autocmd TextChanged,TextChangedI,TextChangedP <buffer> ++once silent! setlocal swapfile
 augroup END
 
 exe 'set undofile undodir='. s:data_home .'/undo/'
