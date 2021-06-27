@@ -83,6 +83,33 @@ let g:fzf_colors = {
       \ 'header':  ['fg', 'Comment']
       \ }
 
+function! s:diff_width() abort
+  let default = 80
+  let preview_args = get(g:, 'fzf_preview_window', [])
+  if len(preview_args) == 0
+    return default
+  endif
+
+  if len(filter(deepcopy(preview_args), 'v:val =~# "\\v(top|bottom)"'))
+    return &columns
+  endif
+
+  let opt_width = filter(deepcopy(preview_args), 'v:val =~# "\\v(left|right)"')
+  if len(opt_width) == 0
+    return default
+  endif
+
+  let width = matchstr(opt_width[0], '\d\+%\?')
+  if width ==# ''
+    return default
+  endif
+
+  if width =~# '%'
+    let width = &columns * str2nr(matchstr(width, '\d\+')) / 100
+  endif
+  return width
+endfunction
+
 augroup myFzfSource "{{{1
   function! s:resize_preview_window() abort
     let g:fzf_preview_window =
@@ -99,6 +126,8 @@ augroup myFzfSource "{{{1
   endfunction "}}}
   "au User FzfStatusLine call feedkeys('!.git !node_modules ')
   au User FzfStatusLine call s:fzf_buffer_keymaps()
+
+  au User FzfStatusLine let $FZF_PREVIEW_COLUMNS = s:diff_width()
 
   au WinLeave term://*#FZF if &ft ==# 'fzf' | quit | endif
 augroup END
