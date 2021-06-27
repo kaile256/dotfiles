@@ -593,7 +593,7 @@ function! s:devise_recipes() abort
         \   'buns': ['\s\+', '\s\+'],
         \   'regex': 1,
         \   'action': ['delete'],
-        \   'input': [' '],
+        \   'input': ["\<Space>"],
         \ },
         \ ]
 
