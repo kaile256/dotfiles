@@ -10,6 +10,10 @@ local fonts = wezterm.font_with_fallback({
     family = "SFMono Nerd Font Mono",
     weight = "DemiBold",
   };
+  {
+    family = "Source Han Sans JP",
+    weight = "Medium",
+  };
   "JoyPixels";
   "JetBrains Mono";
   "monospace";
