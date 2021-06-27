@@ -295,6 +295,10 @@ udiskie # a wrapper of udisk2 to mount automatically
 #toggl-cli # use python's one instead from github
 #jot # a cli tool to take a note
 #notes-cli-bin # a cli tool to take a note on markdown
+zk # A cli to maintain a plain text Zetelkasten.
+neuron-zettelkasten-bin # A cli tool to publish Zettelkasten on the web.
+obsidian-appimage # A GUI Editor designed for Zettelkasten
+
 # dialog # used in `wifi-menu` at least
 ripgrep-all-bin # ripgrep in PDFs, E-Books, Office documents, zip, tar.gz, etc.
 # tor-browser
