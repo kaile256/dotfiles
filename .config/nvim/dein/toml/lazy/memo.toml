@@ -24,6 +24,11 @@ hook_source = 'luafile $DEIN_RC_DIR/neuron/sou.lua'
 #
 #[ Org Mode ]
 # [[plugins]]
+# repo = 'kristijanhusak/orgmode.nvim'
+# if = "has('nvim')"
+# on_path = ['\.org$', '\.org_archive$']
+# hook_post_source = 'luafile $DEIN_RC_DIR/orgmode/pos.lua'
+# [[plugins]]
 # repo = 'jceb/vim-orgmode'
 # on_path = 'org$'
 # hook_source = 'runtime source/orgmode.vim'

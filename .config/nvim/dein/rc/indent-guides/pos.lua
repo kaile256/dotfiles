@@ -23,6 +23,7 @@ require('indent_guides').setup {
     'help',
     'lspinfo',
     'man',
+    'orghelp',
     'sagahover',
     'twiggy',
     -- 'vista',
