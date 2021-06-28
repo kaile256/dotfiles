@@ -103,6 +103,24 @@ buffer.left.filetype_icon = {
   }
 }
 
+buffer.right.filetype_with_icon = {
+  provider = function()
+    local ft = vim.bo.filetype
+    if ft == "" then ft = "NONE" end
+    return buffer.filetype_icon() .. " " .. ft
+  end,
+  hl = {
+    fg = colors.white,
+    bg = colors.bg,
+  },
+  left_sep = {
+    separators.right.rounded_narrow(colors.fg, colors.bg),
+    ' ',
+    bg = colors.bg, -- Reset bg color in case this component is the last one.
+  },
+  right_sep = " ",
+}
+
 buffer.modified = function()
   if vim.bo.modified then
     local modified_icon = ''
