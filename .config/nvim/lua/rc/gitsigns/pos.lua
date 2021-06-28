@@ -14,7 +14,7 @@ require"gitsigns".setup {
   use_internal_diff = true,  -- If luajit is present
 
   -- Sign
-  sign_priority = 90,
+  sign_priority = 9,
   numhl = false,
   linehl = false,
   signcolumn = true, -- Unstable to update yet, use gitgutter's.
