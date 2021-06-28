@@ -1,19 +1,24 @@
 # From: dein/dein.vim
 
 #[ Zettelkasten ]
-[[plugins]]
-repo = 'fiatjaf/neuron.vim'
-if = "executable('nvim')"
-depends = ['fzf.vim']
-on_path = ['*/neuron/*']
-[[plugins]]
-repo = 'oberblastmeister/neuron.nvim'
-if = 'executable("neuron")'
-depends = ['telescope.nvim']
-on_lua = ['neuron']
-on_path = ['/neuron/.*\.md']
-hook_add = 'source $DEIN_RC_DIR/neuron/add.vim'
-hook_source = 'luafile $DEIN_RC_DIR/neuron/sou.lua'
+# [[plugins]]
+# repo = 'fiatjaf/neuron.vim'
+# if = "executable('nvim')"
+# depends = ['fzf.vim']
+# on_path = ['*/neuron/*']
+# [[plugins]]
+# repo = 'pyrho/nerveux.nvim'
+# depends = ['telescope.nvim']
+# on_path = ['/neuron/.*\.md']
+# hook_post_source = 'luafile $DEIN_RC_DIR/nerveux/pos.lua'
+# [[plugins]]
+# repo = 'oberblastmeister/neuron.nvim'
+# if = 'executable("neuron")'
+# depends = ['telescope.nvim']
+# on_lua = ['neuron']
+# on_path = ['/neuron/.*\.md']
+# hook_add = 'source $DEIN_RC_DIR/neuron/add.vim'
+# hook_source = 'luafile $DEIN_RC_DIR/neuron/sou.lua'
 # [[plugins]]
 # repo = 'megalithic/zk.nvim'
 # # The searcher on telescope is NYI; on fzf depends on nvim-fzf.
