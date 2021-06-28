@@ -1,5 +1,6 @@
 [[plugins]]
 repo = 'nvim-telescope/telescope.nvim'
+on_lua = ['telescope']
 on_cmd = 'Telescope'
 on_map = {c = ['<Plug>(Telescope']}
 depends = ['popup.nvim', 'plenary.nvim']
