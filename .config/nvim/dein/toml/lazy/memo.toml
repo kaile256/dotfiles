@@ -9,9 +9,9 @@ on_path = ['*/neuron/*']
 [[plugins]]
 repo = 'oberblastmeister/neuron.nvim'
 if = 'executable("neuron")'
-on_source = ['telescope.nvim']
 depends = ['telescope.nvim']
 on_lua = ['neuron']
+on_path = ['/neuron/.*\.md']
 hook_add = 'source $DEIN_RC_DIR/neuron/add.vim'
 hook_source = 'luafile $DEIN_RC_DIR/neuron/sou.lua'
 # [[plugins]]
