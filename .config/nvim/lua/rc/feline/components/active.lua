@@ -25,7 +25,6 @@ active.left = {
 
   path.left.root_dir,
   path.left.file_name,
-  buffer.left.filetype_icon,
 
   buffer.left.modified,
   buffer.left.file_size,
@@ -48,6 +47,8 @@ active.right = {
   diagnostics.right.warning,
   diagnostics.right.hint,
   diagnostics.right.info,
+
+  buffer.right.filetype_with_icon,
 
   buffer.right.foldmethod,
   buffer.right.cursor_position,
