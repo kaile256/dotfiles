@@ -64,7 +64,7 @@ let s:path_dict = {
       \ 'f': $XDG_CONFIG_HOME,
       \ 'h': $HOME,
       \ 'l': $XDG_DATA_HOME,
-      \ 'm': '$MY_MEMO/note',
+      \ 'm': $MY_MEMO,
       \ 'n': '%:p:h',
       \ 'q': $GHQ_ROOT,
       \ 'r': $VIMRUNTIME,
