@@ -44,6 +44,7 @@ hook_source = 'runtime source/sonictemplate.vim'
 # hook_post_source = 'luafile $DEIN_LUA_DIR/LuaSnip/pos.lua'
 [[plugins]]
 repo = 'SirVer/ultisnips'
+merged = 0
 # Note: leave the plugin not to be commented out and set path for document
 # Note: coc-snippets doesn't warn at some wrong expressions.
 # Note: coc-snippets independently shows preview in completion.
