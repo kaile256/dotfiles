@@ -30,9 +30,13 @@
 #[ Org Mode ]
 # [[plugins]]
 # repo = 'kristijanhusak/orgmode.nvim'
+# merged = 0
 # if = "has('nvim')"
+# depends = ['nvim-compe'] # Or `<C-x><C-o>` as 'omnifunc'
+# on_lua = ['orgmode']
 # on_path = ['\.org$', '\.org_archive$']
-# hook_post_source = 'luafile $DEIN_RC_DIR/orgmode/pos.lua'
+# hook_add = 'source $DEIN_RC_DIR/orgmode/add.vim'
+# hook_source = 'luafile $DEIN_RC_DIR/orgmode/pos.lua'
 # [[plugins]]
 # repo = 'jceb/vim-orgmode'
 # on_path = 'org$'
