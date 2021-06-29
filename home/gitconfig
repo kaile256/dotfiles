@@ -10,8 +10,8 @@
 
 	quotePath = false # false: show Japanese file without corruption.
 
+	autoCrlf = false # input: keep LF as in repository anyway.
 	safeCrlf = true # true: no conversion of CR-LF to LF at EOL if mixed.
-	autoCrlf = input # input: keep LF as in repository anyway.
 [color]
 	status = auto
 	branch = auto
