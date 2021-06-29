@@ -33,4 +33,3 @@ runtime! keymap/*.vim
 runtime rc/lazy.vim
 runtime rc/once.vim
 runtime rc/startpage.vim
-
