@@ -139,13 +139,21 @@ function! s:vimwiki_keymaps() abort "{{{1
 endfunction
 "}}}1
 
+function! s:setup() abort
+  setlocal tabstop=4 softtabstop=4 shiftwidth=4
+  setlocal nowrap fdl=2
+  call s:vimwiki_keymaps()
+  call s:vimwiki_abbrs()
+  augroup VimwikiBuffer/automation
+    autocmd!
+    autocmd BufWritePre <buffer> VimwikiTOC
+    if expand('%:t') =~# '^index\.'
+      autocmd BufWritePre <buffer> VimwikiGenerateLinks
+    endif
+  augroup END
+endfunction
+
 augroup AutoFormatVimwiki
-  au!
-  "au VimEnter,BufNewFile,BufRead *.md setl ft=vimwiki syn=vimwiki
-  au FileType vimwiki setl tabstop=4 softtabstop=4 shiftwidth=4
-  au FileType vimwiki setl nowrap fdl=2
-  au BufWritePre vimwiki/* if &ft  ==# 'vimwiki' | VimwikiTOC | endif
-  au BufWritePre index.* if &ft  ==# 'vimwiki' | VimwikiGenerateLinks | endif
-  au FileType vimwiki call s:vimwiki_keymaps()
-  au FileType vimwiki call s:vimwiki_abbrs()
+  autocmd!
+  autocmd FileType vimwiki call s:setup()
 augroup END
