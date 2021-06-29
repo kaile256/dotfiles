@@ -146,7 +146,7 @@ function! s:setup() abort
   call s:vimwiki_abbrs()
   augroup VimwikiBuffer/automation
     autocmd!
-    autocmd BufWritePre <buffer> VimwikiTOC
+    " autocmd BufWritePre <buffer> VimwikiTOC
     if expand('%:t') =~# '^index\.'
       autocmd BufWritePre <buffer> VimwikiGenerateLinks
     endif
