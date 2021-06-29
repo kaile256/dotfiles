@@ -1,8 +1,6 @@
 -- TOML: treesitter.toml
 -- Repo: p00f/nvim-ts-rainbow
 
-local vim = _G.vim
-
 require'nvim-treesitter.configs'.setup {
   rainbow = {
     enable = true,
