@@ -7,7 +7,7 @@ require"zk".setup {
   log = false,
 
   default_keymaps = false,
-  default_notebook_path = "~/neuron",
+  default_notebook_path = vim.env.MY_MEMO .. "/neuron",
   fuzzy_finder = "telescope",
   link_format = "markdown",
 }
