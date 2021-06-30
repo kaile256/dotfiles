@@ -1,7 +1,7 @@
 " RUNTIME: $VIMRUNTIME/ftplugin/gitrebase.vim
 
 function! s:repeatable(cmd) abort
-  silent! call repeat#set(':<C-u>'. a:cmd .'<CR>')
+  silent! call repeat#set(":\<C-u>". a:cmd ."\<CR>")
   exe a:cmd
 endfunction
 
