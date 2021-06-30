@@ -1,3 +1,31 @@
+snippet vimspector "WIP: Description" b
+{
+  "adapters": {
+    "${1:adapter name}": {
+      "command": [
+        "${2:shell command}",
+        "${gadgetDir}/${3:path/to/debagger}"
+      ],
+      "variables": {
+        "${4:CapitalizedWords}": {
+          "shell": [ ${5:"commands in array to get a value"} ]
+        }
+      }
+    }
+  },
+  "configurations": {
+    "${6:configuration name}": {
+      "adapter": "$1",
+      "configuration": {
+        "request": ${7|launch,attach|}
+        "name": "${8:Describe as you like}",
+        "type"
+      }
+    }
+  }
+}
+endsnippet
+
 snippet next/babel "presets for babel with NextJS" b
 {
   "presets": ["next/babel"],
