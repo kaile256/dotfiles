@@ -477,7 +477,8 @@ settings:
   content.default_encoding:
     global: utf-8
   content.geolocation:
-    https://ora.pm: true
+    https://jp.msi.com: false
+    https://ora.pm: false
   content.headers.user_agent:
     global: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko)
       Chrome/79.0.3945.88 Safari/537.36
