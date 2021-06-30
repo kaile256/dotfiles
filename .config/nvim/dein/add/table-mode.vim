@@ -7,12 +7,14 @@ xmap iq <Plug>(table-mode-cell-text-object-i)
 omap aq <Plug>(table-mode-cell-text-object-a)
 xmap aq <Plug>(table-mode-cell-text-object-a)
 
+function! s:realign_in_table() abort
+  if getline('.') !~# '^\s*|.*|\s*$' | return | endif
+  TableModeRealign
+endfunction
+
 augroup myTableMode/Add
+  au InsertLeave *.{wiki,md,org,txt} call s:realign_in_table()
   " au BufRead *.{wiki,md,org,txt} TableModeEnable
-  au InsertLeave *.{wiki,md,org,txt}
-        \ if getline('.') =~# '^\s*|.*|\s*$'
-        \ | TableModeRealign
-        \ | endif
   " Note: some functions would not work if disabled on `InsertLeave`
   "au InsertLeave *.{wiki,md,org,txt} silent TableModeDisable
 augroup END
