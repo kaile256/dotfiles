@@ -1,3 +1,10 @@
+augroup myOnce/Terminal/DeleteBufferOnExit
+  if has('nvim')
+    " Note: Instead, `:bwipeout!` here crashes nvim instance.
+    au TermClose * bdelete!
+  endif
+augroup END
+
 augroup myOnce/Terminal/WorkaroundToKeepCursorHighlight
   au FocusLost term://* if mode() !=# 'n' |
         \ call feedkeys("\<C-\>\<C-n>i", 'n')
