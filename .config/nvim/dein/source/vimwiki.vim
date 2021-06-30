@@ -125,9 +125,9 @@ function! s:vimwiki_keymaps() abort "{{{1
   " Modify Marks {{{2
   noremap  <buffer><silent> <a-space>   :<c-u>VimwikiToggleListItem<CR>
   nmap     <silent><buffer> +           <Plug>VimwikiIncrementListItem
-  vmap     <silent><buffer> +           <Plug>VimwikiIncrementListItem
+  xmap     <silent><buffer> +           <Plug>VimwikiIncrementListItem
   nmap     <silent><buffer> _           <Plug>VimwikiDecrementListItem
-  vmap     <silent><buffer> _           <Plug>VimwikiDecrementListItem
+  xmap     <silent><buffer> _           <Plug>VimwikiDecrementListItem
   " jump over links like ctags {{{2
   nnoremap <buffer><silent> <c-t>       :<c-u>VimwikiGoBackLink<cr>
   nnoremap <buffer><silent> <c-]>       :<c-u>VimwikiFollowLink<cr>
