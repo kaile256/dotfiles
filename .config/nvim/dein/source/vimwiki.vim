@@ -119,9 +119,9 @@ function! s:vimwiki_keymaps() abort "{{{1
   noremap <buffer><nowait> <c-i> <c-i>
   noremap <buffer><nowait> <c-o> <c-o>
   " Insert
-  inoremap <buffer><nowait> <c-t> <c-t>
-  inoremap <buffer><nowait> <c-d> <c-d>
-  inoremap <buffer><nowait> <c-u> <c-u>
+  silent! iunmap <buffer> <C-t>
+  silent! iunmap <buffer> <C-d>
+
   " Modify Marks {{{2
   noremap  <buffer><silent> <a-space>   :<c-u>VimwikiToggleListItem<CR>
   nmap     <silent><buffer> +           <Plug>VimwikiIncrementListItem
