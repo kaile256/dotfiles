@@ -46,7 +46,7 @@ let s:wiki_index.nested_syntaxes = {
 let s:wiki_markdown = {
       \ 'syntax': 'markdown',
       \ 'index': 'index',
-      \ 'path': '~/vimwiki/',
+      \ 'path': expand('$MY_MEMO/wiki'),
       \ 'ext': '.md',
       \ 'auto_tags': 1,
       \ 'auto_diary_index': 1,
