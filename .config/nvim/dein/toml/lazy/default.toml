@@ -231,8 +231,8 @@ let g:LargeFile = 1 " in megabytes to regard a file as a large file.
 # on_cmd = ['VBox']
 
 #[ Environmental Variable ]
-[[plugins]]
-repo = 'lambdalisue/edita.vim'
-# Overwrite $EDITOR. Useful for git-commit from terminal buffer.
-# FIXME: Find a good trigger for Vim.
-on_event = ['TermEnter']
+# [[plugins]]
+# repo = 'lambdalisue/edita.vim'
+# # Overwrite $EDITOR. Useful for git-commit from terminal buffer.
+# # FIXME: Find a good trigger for Vim.
+# on_event = ['TermEnter']
