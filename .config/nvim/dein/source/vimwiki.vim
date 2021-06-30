@@ -141,7 +141,8 @@ endfunction
 
 function! s:setup() abort
   setlocal tabstop=4 softtabstop=4 shiftwidth=4
-  setlocal nowrap fdl=2
+  setlocal nowrap foldlevel=2
+  setlocal bufhidden=hide
   call s:vimwiki_keymaps()
   call s:vimwiki_abbrs()
   augroup VimwikiBuffer/automation
