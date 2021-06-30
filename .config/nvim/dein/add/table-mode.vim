@@ -13,7 +13,8 @@ function! s:realign_in_table() abort
 endfunction
 
 augroup myTableMode/Add
-  au InsertLeave *.{wiki,md,org,txt} call s:realign_in_table()
+  au TextChanged,CompleteDone,InsertLeave
+        \ *.{wiki,md,org,txt} call s:realign_in_table()
   " au BufRead *.{wiki,md,org,txt} TableModeEnable
   " Note: some functions would not work if disabled on `InsertLeave`
   "au InsertLeave *.{wiki,md,org,txt} silent TableModeDisable
