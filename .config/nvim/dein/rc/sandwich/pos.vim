@@ -630,6 +630,16 @@ function! s:devise_recipes() abort
         \ },
         \ ]
 
+  " Get `foo` in `"fo|o/bar"`.
+  let recipes.slash = [
+        \ {
+        \   'input': ['/'],
+        \   'buns': ['[''"/]', '[''"/]'],
+        \   'regex': 1,
+        \   'action': ['delete'],
+        \ },
+        \ ]
+
   for r in keys(recipes)
     call extend(g:sandwich#recipes, recipes[r])
   endfor
