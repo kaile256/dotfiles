@@ -119,6 +119,9 @@ hook_post_source = 'runtime post/gina.vim'
 # if = 'has("nvim")'
 # on_cmd = ['Neogit']
 # [[plugins]]
+# repo = 'tanvirtin/vgit.nvim'
+# on_lua = ['vgit']
+# [[plugins]]
 # repo = 'jreybert/vimagit'
 # on_cmd =  'Magit'
 #[ Hunk ]
