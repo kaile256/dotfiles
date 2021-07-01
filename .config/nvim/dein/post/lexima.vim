@@ -370,7 +370,7 @@ function! s:set_rules() abort
             \   'char': space,
             \   'at': '^\s*- \[\%#]',
             \   'input': '<space><C-g>U<Right><space>',
-            \   'filetype': ['markdown'],
+            \   'filetype': ['markdown', 'vimwiki'],
             \ }
             \ ]
 
