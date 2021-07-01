@@ -634,7 +634,7 @@ function! s:devise_recipes() abort
   let recipes.slash = [
         \ {
         \   'input': ['/'],
-        \   'buns': ['[''"/]', '[''"/]'],
+        \   'buns': ['[''"/ \t]', '[''"/ \t]'],
         \   'regex': 1,
         \   'action': ['delete'],
         \ },
