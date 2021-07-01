@@ -126,6 +126,7 @@ function! s:restore_mappings() abort
       exe mode map mapargs lhs rhs
     endfor
   endfor
+  unlet b:conflict_marker_save_mappings
 endfunction
 
 function! s:overwrite_foldmethod() abort
