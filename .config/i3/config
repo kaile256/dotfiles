@@ -271,9 +271,6 @@ $noid qutebrowser
 #$noid $vivaldi
 #$noid nvim-qt
 
-assign [title="^watch-proc"] 1
-$noid alacritty --title "watch-proc" --command "top"
-
 ## Status Bar; use polybar instead {{{1
 ## Note: use polybar instead
 ## Start i3bar to display a workspace bar (plus the system information i3status
@@ -658,6 +655,8 @@ mode $Device {
     bindsym $Super+bracketleft mode default
 }
 # Keybind: Apps {{{1
+bindsym $Super+Tab $noid alacritty --title "TMP-watch-proc" --command "top"
+
 # Tool {{{2
 set $Tool " Tool: (L)ine "
 $release $Super+T mode $Tool; $noid $shortmsg 'Tool'
