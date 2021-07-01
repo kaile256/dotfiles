@@ -1,5 +1,6 @@
 # From: dein/dein.vim
 
+#[ DAP ]
 [[plugins]]
 repo = 'puremourning/vimspector'
 # Note: Debug adapter can be installed in vscode.
