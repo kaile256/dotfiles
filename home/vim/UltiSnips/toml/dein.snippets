@@ -107,7 +107,7 @@ class Dein(Plugin):
     plugin = Dein._trimmed()
 
     identifier = re.sub(r'_.*', '', idx)
-    fname = re.search(r'(.{3})', identifier).group(1)
+    fname = re.search(r'([a-z]+)', identifier).group(1)
     base_dir = '$DEIN_RC_DIR/'
 
     ext = is_lua and '.lua' or '.vim'
