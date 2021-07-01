@@ -17,12 +17,6 @@ command! -bang -nargs=? -range=-1 -addr=tabs
       \ Gull
       \ :<mods> Git pull <args>
 
-" FIXME
-command! -bang -nargs=? -range=-1 -addr=tabs
-      \ -complete=customlist,fugitive#GrepComplete
-      \ Gfunctions
-      \ :Glgrep --show-function --line-number <args>
-
 " Functions: Pretreatment for Windows in Tab {{{1
 let s:std = {}
 let s:std.buftype = ['terminal', '', 'help']
