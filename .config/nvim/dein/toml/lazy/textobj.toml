@@ -37,7 +37,10 @@ on_ft = 'vim'
 hook_source = 'runtime source/textobj-function.vim'
 [[plugins]]
 repo = 'kana/vim-textobj-fold'
-on_map = {ox = '<Plug>(textobj-fold'}
+# Note: Instead, `on_map` won't work as expected: doubly the preceding operator
+# is called.
+# on_map = {ox = '<Plug>(textobj-fold'}
+on_event = ['BufWinEnter']
 hook_add = 'runtime add/textobj-fold.vim'
 [[plugins]]
 repo = 'kana/vim-textobj-entire'
