@@ -2,7 +2,37 @@
 
 #[ DAP ]
 [[plugins]]
+repo = 'mfussenegger/nvim-dap'
+if = "has('nvim')"
+on_lua = ['dap']
+hook_add = 'source $DEIN_LUA_DIR/dap/add.vim'
+hook_post_source = 'luafile $DEIN_LUA_DIR/dap/post.lua'
+[[plugins]]
+repo = 'rcarriga/nvim-dap-ui'
+depends = ['nvim-dap']
+on_source = ['nvim-dap']
+[[plugins]]
+repo = 'theHamsta/nvim-dap-virtual-text'
+# Show results of `nvim-dap` on `@definition.var` defined in `locals.scm`.
+depends = ['nvim-dap', 'nvim-treesitter']
+on_source = ['nvim-dap']
+hook_source = 'luafile $DEIN_LUA_DIR/dap/virtual-text/source.lua'
+[[plugins]]
+repo = 'jbyuki/one-small-step-for-vimkind'
+# Use either nvim-dap or vimspector as a client to interact with the adapter.
+depends = ['nvim-dap']
+# Invoke `require"osv".run_this()`.
+on_lua = ['osv']
+hook_add = """
+augroup myDAPLua/OverrideMapping
+  autocmd!
+  " run_this() is a wrapper which starts a server and require"dap".continue().
+  autocmd FileType lua nnoremap <buffer> <Plug>(dap-continue) <Cmd>lua require"osv".run_this()<CR>
+augroup END
+"""
+[[plugins]]
 repo = 'puremourning/vimspector'
+if = "!has('nvim')"
 # Note: Debug adapter can be installed in vscode.
 #
 # Document: https://puremourning.github.io/vimspector/
