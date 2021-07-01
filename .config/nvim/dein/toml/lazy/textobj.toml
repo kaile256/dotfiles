@@ -75,8 +75,7 @@ on_map = {ox = '<Plug>(textobj-indent-'}
 hook_add = 'source $DEIN_RC_DIR/textobj-indent/add.vim'
 [[plugins]]
 repo = 'saaguero/vim-textobj-pastedtext'
-# Note: no use because it is mapped after the plugin is loaded.
-on_map = {ox = '<Plug>(textobj-pastedtext-text)'}
+on_map = {nox = '<Plug>(textobj-pastedtext-text)'}
 hook_add = 'runtime add/textobj-pastedtext.vim'
 [[plugins]]
 repo = 'amerlyq/vim-textobj-keyvalue'
