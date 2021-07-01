@@ -33,10 +33,10 @@ function! s:stage_in_range(...)
 endfunction
 
 nnoremap <silent> <SID>(stage-hank-in-range)
-      \ :<C-u>silent! call repeat#set("<SID>(stage-hank-in-range)")
+      \ :<C-u>silent! call repeat#set('<SID>(stage-hank-in-range)')
       \ <bar>set operatorfunc=<SID>stage_in_range<CR>g@
 xnoremap <silent> <SID>(stage-hank-in-range)
-      \ :<C-u>silent! call repeat#set("<SID>(stage-hank-in-range)")
+      \ :<C-u>silent! call repeat#set('<SID>(stage-hank-in-range)')
       \ <bar>call <SID>stage_in_range()<CR>
 
 nmap <space>gp <SID>(stage-hank-in-range)
