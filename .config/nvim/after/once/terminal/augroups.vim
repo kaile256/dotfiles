@@ -1,7 +1,7 @@
 augroup myOnce/Terminal/DeleteBufferOnExit
   if has('nvim')
     " Note: Instead, `:bwipeout!` here crashes nvim instance.
-    au TermClose * bdelete!
+    au TermClose * exe 'bdelete!' expand('<abuf>')
   endif
 augroup END
 
