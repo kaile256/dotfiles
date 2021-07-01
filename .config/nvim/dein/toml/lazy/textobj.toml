@@ -8,8 +8,9 @@ lazy = 0
 
 [[plugins]]
 repo = 'osyo-manga/vim-textobj-from_regexp'
-# only has autoload/
-lazy = 0
+# Select the area specifed in vim-regex.
+on_func = ['textobj#from_regexp#']
+hook_add = 'source $DEIN_RC_DIR/textobj/from_regexp/add.vim'
 
 [[plugins]]
 repo = 'glts/vim-textobj-comment'
