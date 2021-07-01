@@ -3,11 +3,13 @@
 " Another: source/deol.vim
 " Another: post/deol.vim
 
-nnoremap <silent> <A-t>e :<C-u>     Deol<CR>
-nnoremap <silent> <A-t>s :<C-u>sp   <bar>   Deol<CR>
-nnoremap <silent> <A-t>v :<C-u>vs   <bar>   Deol<CR>
-nnoremap <silent> <A-t>t :<C-u>tabe <bar>   Deol<CR>
-nnoremap <silent> <A-t>b :<C-u>bot  sp<bar> Deol<CR>
+nnoremap <SID>(deol-insert) <Cmd>Deol <bar> DeolEdit<CR>
+
+nnoremap <script><silent> <A-t>e :<C-u>     <SID>(deol-insert)<CR>
+nnoremap <script><silent> <A-t>s :<C-u>sp   <bar>   <SID>(deol-insert)<CR>
+nnoremap <script><silent> <A-t>v :<C-u>vs   <bar>   <SID>(deol-insert)<CR>
+nnoremap <script><silent> <A-t>t :<C-u>tabe <bar>   <SID>(deol-insert)<CR>
+nnoremap <script><silent> <A-t>b :<C-u>bot  sp<bar> <SID>(deol-insert)<CR>
 
 nmap <A-t><A-e> <A-t>e
 nmap <A-t><A-s> <A-t>s
