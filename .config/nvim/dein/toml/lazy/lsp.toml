@@ -30,6 +30,14 @@ repo = 'kosayoda/nvim-lightbulb'
 # Notify in signcolumn when code-actions are available on the cursor position.
 on_lua = ['nvim-lightbulb']
 # [[plugins]]
+# repo = 'folke/lua-dev.nvim'
+# # Append nvim-lua APIs as LSP sources which can be used by such completion
+# # plugins as nvim-compe.
+# # Note: The EmmyLua documentations are defined in this repository independent
+# # of the # neovim's original source coee, i.e., the sources could be
+# # out-of-date.
+# on_lua = ['lua-dev']
+# [[plugins]]
 # repo = 'tamago324/nlsp-settings.nvim'
 # # Let us write config in json like coc.nvim.
 # [[plugins]]

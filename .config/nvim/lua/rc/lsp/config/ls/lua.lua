@@ -30,4 +30,20 @@ local config = {
   }
 }
 
+-- TOML: lsp.toml
+-- Repo: folke/lua-dev.nvim
+local has_luadev, luadev = pcall(require, "lua-dev")
+if has_luadev then
+  local new_config = luadev.setup {
+    library = {
+      vimruntime = true,
+      types = true,
+      plugins = { "plenary.nvim" },
+    },
+    lspconfig = config,
+  }
+
+  return new_config
+end
+
 return config
