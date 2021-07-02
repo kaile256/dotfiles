@@ -7,9 +7,9 @@ repo = 'tpope/vim-fugitive'
 #          keep such functions private, which close all '.git/' or 'fugitive://'
 # to activate branch feature on airline, load it on VimEnter
 on_event = ['VimEnter']
-hook_add = 'runtime add/fugitive.vim'
-hook_source = 'runtime source/fugitive.vim'
-hook_post_source = 'runtime post/fugitive.vim'
+hook_add = 'source $DEIN_RC_DIR/fugitive/add.vim'
+hook_source = 'source $DEIN_RC_DIR/fugitive/source.vim'
+hook_post_source = 'source $DEIN_RC_DIR/fugitive/post.vim'
 hook_done_update = '''
 e $DEIN_GITHUB_DIR/tpope/vim-fugitive/autoload/fugitive.vim
 g;P for :Git add/reset --patch, 1p for :pedit;s/v:count/1

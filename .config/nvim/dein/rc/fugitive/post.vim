@@ -26,4 +26,3 @@ silent! delcommand Gclog
 silent! delcommand Gllog
 silent! delcommand GcLog
 silent! delcommand GlLog
-
