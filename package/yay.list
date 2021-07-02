@@ -24,6 +24,7 @@ ttf-joypixels # Emoji fonts.
 
 # System
 strace
+htop-vim-git # vim-binding htop.
 
 # Shell
 fish
