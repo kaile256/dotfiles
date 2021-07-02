@@ -94,7 +94,7 @@ function! s:fzf_maps(prefix, command, ...) abort
     let modes = split(modes, '\ze')
 
     for mode in modes
-      exe mode .'map ' lhs rhs
+      exe mode .'noremap ' lhs rhs
     endfor
 
   endfor
@@ -108,17 +108,17 @@ call s:fzf_maps('<space>a', 'Ag', 'n')
 "imap <c-x><c-f> <c-o>:cd ~<cr><plug>(fzf-complete-file-ag)
 "imap <c-x>f     <c-o>:cd ~<cr><plug>(fzf-complete-file-ag)
 
-nmap <silent> <space>zg :<c-u> GFiles?<cr>
-nmap <silent> <space>zG :<c-u> GFiles<cr>
-nmap <silent> <space>zb :<c-u> Buffers<cr>
+nnoremap <silent> <space>zg :<c-u> GFiles?<cr>
+nnoremap <silent> <space>zG :<c-u> GFiles<cr>
+nnoremap <silent> <space>zb :<c-u> Buffers<cr>
 
 " Mnemonic: Search in Current File
-nmap <silent> <space>z/ :<c-u> BLines<cr>
+nnoremap <silent> <space>z/ :<c-u> BLines<cr>
 
 " Mnemonic: 'Old' Buffer
-nmap <silent> <space>zo :<c-u> History<cr>
+nnoremap <silent> <space>zo :<c-u> History<cr>
 
-nmap <silent> <space>z? :<c-u> History/<cr>
+nnoremap <silent> <space>z? :<c-u> History/<cr>
 
-nmap <silent> <space>z; :<c-u> History:<cr>
-nmap <silent> <space>z: :<c-u> History:<cr>
+nnoremap <silent> <space>z; :<c-u> History:<cr>
+nnoremap <silent> <space>z: :<c-u> History:<cr>
