@@ -4,7 +4,7 @@
 
 [[plugins]]
 repo = 'kana/vim-textobj-user'
-lazy = 0
+on_func = ['textobj#user#']
 
 [[plugins]]
 repo = 'osyo-manga/vim-textobj-from_regexp'
@@ -35,12 +35,14 @@ repo = 'kana/vim-textobj-fold'
 # Note: Instead, `on_map` won't work as expected: doubly the preceding operator
 # is called.
 # on_map = {ox = '<Plug>(textobj-fold'}
+depends = ['vim-textobj-user']
 on_event = ['BufWinEnter']
 hook_add = 'runtime add/textobj-fold.vim'
 [[plugins]]
 repo = 'kana/vim-textobj-entire'
 # For: entire lines of current buffer.
 # Note: `on_map` makes no sense in omap.
+depends = ['vim-textobj-user']
 on_map = {ox = ['<Plug>(textobj-entire']}
 hook_add = 'runtime add/textobj-entire.vim'
 hook_post_source = 'runtime post/textobj-entire.vim'
@@ -115,6 +117,7 @@ write
 repo = 'kana/vim-textobj-function'
 # Note: should activates where lsp doesn't provide the kind of textobjects.
 # Note: available on vim/java/c, but coc's are better on java; don't know on c
+depends = ['vim-textobj-user']
 on_ft = 'vim'
 hook_source = 'runtime source/textobj-function.vim'
 # [[plugins]]
