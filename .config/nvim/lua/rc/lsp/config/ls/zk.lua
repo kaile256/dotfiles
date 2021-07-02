@@ -19,8 +19,8 @@ local config = {
     settings = {},
   },
 
-  on_attach = function()
-    common_on_attach()
+  on_attach = function(on_attach, bufnr)
+    common_on_attach(on_attach, bufnr)
     zk_mappings()
   end
 }
