@@ -1,7 +1,18 @@
 augroup myOnce/Terminal/DeleteBufferOnExit
   if has('nvim')
-    " Note: Instead, `:bwipeout!` here crashes nvim instance.
-    au TermClose * exe 'bdelete!' expand('<abuf>')
+    function! s:delete_buf_on_exit(bufnr) abort
+      " Note: Without `:stopinsert`, if it's been in Terminal mode on the
+      " buffer to exit, and the coming buffer is also a terminal one, Terminal
+      " mode would continue.
+      stopinsert
+      " Note: When &bufhidden is set, the following `:bdelete` would crash
+      " another terminal buffer.
+      if &bufhidden !=# '' | return | endif
+      " Note: `:bwipeout!` instead would crash nvim instance; however, the
+      " buffer would be no longer found in `:ls!` as if `:bwipeout`.
+      exe 'bdelete!' a:bufnr
+    endfunction
+    au TermClose * call s:delete_buf_on_exit(expand('<abuf>'))
   endif
 augroup END
 
