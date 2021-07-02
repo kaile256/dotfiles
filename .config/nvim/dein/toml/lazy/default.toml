@@ -41,8 +41,11 @@ hook_post_source = 'runtime post/rooter.vim'
 #[ Cmdline ]
 [[plugins]]
 repo = 'notomo/cmdbuf.nvim'
+if = "has('nvim')"
 # Replace cmdline-window.
 on_lua = ['cmdbuf']
+hook_add = 'luafile $DEIN_RC_DIR/cmdbuf/add.lua'
+hook_source = 'luafile $DEIN_RC_DIR/cmdbuf/source.lua'
 [[plugins]]
 # repo = 'kana/vim-altercmd' # Original
 # repo = 'tyru/vim-altercmd' # Extend it to other modes.
