@@ -2,7 +2,9 @@
 -- Repo: neovim/nvim-lspconfig
 
 local lspconfig = require'lspconfig'
-local configs = require'lspconfig.configs'
+-- Note: As loaded in 'lspconfig/configs' (not 'lspconfig.configs') in nvim-lspconfig, use `/` instead of `.` because
+-- Lua saves loaded packages literally in `package.loaded` to tell the two are different modules.
+local configs = require'lspconfig/configs'
 local on_attach = require'rc.lsp.config.on_attach'
 local containers = require"rc.lsp.containers"
 
@@ -52,8 +54,10 @@ for server, config in pairs(servers) do
     config.cmd = containers.lspcontainer_or_cmd(server, config.cmd)
     ls.setup(config)
   else
-    configs[server] = config -- Required to apply default_config.
-    -- FIXME: Sync the configs in lspconfig.lua; configs[server] here is not the same as that in lspconfig.lua after all.
-    --  lspconfig[server].setup(config) -- Set up autocmd named as `server` to attach on BufRead/FileType.
+    --- Trigger `__newindex`; now, you have `default_config` applied and have a method `setup()`. As `__newindex` is
+    --- only triggered once, you should restart nvim instance to check `lspconfig` contexts.
+    configs[server] = config
+    --- Set up autocmd named as `server` to attach on BufRead/FileType. `setup()` requires an argument.
+    lspconfig[server].setup(config)
   end
 end
