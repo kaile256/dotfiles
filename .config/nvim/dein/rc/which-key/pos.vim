@@ -300,42 +300,6 @@ function! s:register_git_keys() abort
   endif
 
   if dein#tap('vim-fugitive') "{{{1
-    function! s:is_nothing_staged() abort
-      let git_root = shellescape(FindRootDirectory() .'/.git')
-      let git_diff_cached = system('git --git-dir='. git_root .' diff --cached')
-      let is_nothing_staged = len(git_diff_cached) == 0
-      return is_nothing_staged
-    endfunction
-    function! s:CommitAtBottom(...) abort
-      let opts = join(a:000)
-      const is_amending = opts =~# '--amend\>'
-
-      if !is_amending && s:is_nothing_staged()
-        echo '[fugitive] nothing staged yet'
-        return
-      elseif is_amending && opts =~# '--no-edit\>'
-            \ && input('[fugitive] Amend the staged changes? y[es]/n[o] ')
-            \         !~# 'y\%[es]'
-        echo "\nabort"
-        return
-      endif
-
-      exe 'Git commit' opts
-      wincmd J
-      resize 25
-    endfunction
-
-    function! s:Gvstatus() abort
-      vert bot Gstatus
-      if bufwinnr('\.git/index') == -1 | return | endif
-
-      vert resize 70
-      setl winfixwidth
-      let Go_to_Staged_section = 'norm gs'
-      exe Go_to_Staged_section
-      norm! zz
-    endfunction
-
     function! s:Grebase_interactive() abort
       const upstream = input('[User] Input a <upstream> for git-rebase-i: ')
       exe 'G rebase --interactive' upstream
@@ -344,38 +308,6 @@ function! s:register_git_keys() abort
     " Tips: Append a space after `':foo bar()'`; without the trailing space,
     " the command-pattern will be regarded as a function.
     call extend(git_nmaps, {
-          \ 's': [funcref('s:Gvstatus'), 'Show Status in a column'],
-          \ 'S': [':tab Gstatus', 'Show Status in another tab'],
-          \
-          \ 'w': [':Gwrite', ':w | Stage the file'],
-          \
-          \ 'u': [':silent G reset HEAD %', 'Unstage current buffer'],
-          \ 'U': [':silent G reset HEAD',   'Unstage all'],
-          \
-          \ 'c' : {
-          \     'name': 'Commit',
-          \     'c': [funcref('s:CommitAtBottom'), 'Commit'],
-          \     'a': [funcref('s:CommitAtBottom', ['--amend']), 'Amend to the last commit'],
-          \     'e': [funcref('s:CommitAtBottom', ['--amend --no-edit']), 'Amend witout editing commit'],
-          \     'w': [
-          \       ":Gwrite \<bar> call call(". string(funcref('s:CommitAtBottom')) .', [])',
-          \       ':Stage the file and edit a commit message',
-          \     ],
-          \     },
-          \
-          \ 'r': {
-          \     'name': 'Remote',
-          \     'p': [':Git pull', 'Pull'],
-          \     'P': [':Git push', 'Push'],
-          \
-          \     'U': [':exe "Git push -u origin" FugitiveHead() ', 'Set upstream branch to `origin`'],
-          \
-          \     'f': [':Git fetch --all',       'Fetch all the remote commits'],
-          \     'F': [':Git fetch --unshallow', 'Unshallow fetching all the remote history'],
-          \
-          \     'B': [':Gbrowse', 'Open current file in browser'],
-          \     },
-          \
           \ 'R': {
           \     'name': 'Rebase',
           \     'i': [funcref('s:Grebase_interactive'), 'Run `git-rebase --interactive`'],

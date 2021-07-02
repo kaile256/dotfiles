@@ -17,6 +17,64 @@ command! -bang -nargs=? -range=-1 -addr=tabs
       \ Gull
       \ :<mods> Git pull <args>
 
+" Mappings {{{1
+nnoremap <space>gu <Cmd>silent G reset HEAD %<CR>
+nnoremap <space>gU <Cmd>silent G reset HEAD<CR>
+
+nnoremap <space>grf <Cmd>Git fetch --all<CR>
+nnoremap <space>grF <Cmd>Git fetch --unshallow<CR>
+
+nnoremap <space>grp <Cmd>Git pull<CR>
+nnoremap <space>grP <Cmd>Git push<CR>
+
+nnoremap <SID>(copy-to-remote-branch) <Cmd>exe 'Git push -u origin' FugitiveHead()<CR>
+nmap <space>grU <SID>(copy-to-remote-branch)
+
+function! s:Gvstatus() abort
+  vert bot Gstatus
+  if bufwinnr('\.git/index') == -1 | return | endif
+
+  vert resize 70
+  setl winfixwidth
+  let Go_to_Staged_section = 'norm gs'
+  exe Go_to_Staged_section
+  norm! zz
+endfunction
+nnoremap <space>gs <Cmd>call <SID>Gvstatus()<CR>
+nnoremap <space>gS <Cmd>tab Gstatus<CR>
+
+function! s:is_nothing_staged() abort
+  let git_root = shellescape(FindRootDirectory() .'/.git')
+  let git_diff_cached = system('git --git-dir='. git_root .' diff --cached')
+  let is_nothing_staged = len(git_diff_cached) == 0
+  return is_nothing_staged
+endfunction
+function! s:CommitAtBottom(...) abort
+  let opts = join(a:000)
+  const is_amending = opts =~# '--amend\>'
+
+  if !is_amending && s:is_nothing_staged()
+    echo '[fugitive] nothing staged yet'
+    return
+  elseif is_amending && opts =~# '--no-edit\>'
+        \ && input('[fugitive] Amend the staged changes? y[es]/n[o] ')
+        \         !~# 'y\%[es]'
+    echo "\nabort"
+    return
+  endif
+
+  exe 'Git commit' opts
+  wincmd J
+  resize 25
+endfunction
+nnoremap <SID>(git-commit-edit)   <Cmd>call <SID>CommitAtBottom()<CR>
+nnoremap <SID>(git-commit-amend)  <Cmd>call <SID>CommitAtBottom('--amend')<CR>
+nnoremap <SID>(git-commit-squash) <Cmd>call <SID>CommitAtBottom('--amend --no-edit')<CR>
+
+nmap <space>gcc <SID>(git-commit-edit)
+nmap <space>gca <SID>(git-commit-amend)
+nmap <space>gce <SID>(git-commit-squash)
+
 " Functions: Pretreatment for Windows in Tab {{{1
 let s:std = {}
 let s:std.buftype = ['terminal', '', 'help']
