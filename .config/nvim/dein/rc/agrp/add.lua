@@ -6,7 +6,7 @@
 ---@return nil
 U.augroup = function(augroups)
   for old_name, autocmd_args in pairs(augroups) do
-    if old_name:match("^my") then
+    if not old_name:match("^my") then
       augroups[old_name] = nil
       local new_name = "my" .. old_name
       augroups[new_name] = autocmd_args
