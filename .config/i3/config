@@ -655,7 +655,7 @@ mode $Device {
     bindsym $Super+bracketleft mode default
 }
 # Keybind: Apps {{{1
-bindsym $Super+Tab $noid alacritty --title "TMP-watch-proc" --command "top"
+bindsym $Super+Tab $noid alacritty --title "TMP-watch-proc" --command "htop"
 
 # Tool {{{2
 set $Tool " Tool: (L)ine "
