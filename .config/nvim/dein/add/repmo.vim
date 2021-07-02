@@ -23,9 +23,9 @@
   function! s:shot(char) abort
     if dein#tap('lightspeed.nvim')
       const lightspeeds = {
-            \ 'f': "\<Plug>Lightspeed_f",
+            \ 'f': "\<Plug>Lightspeed_s",
             \ 't': "\<Plug>Lightspeed_t",
-            \ 'F': "\<Plug>Lightspeed_F",
+            \ 'F': "\<Plug>Lightspeed_S",
             \ 'T': "\<Plug>Lightspeed_T",
             \ }
       const Plug = lightspeeds[a:char]
