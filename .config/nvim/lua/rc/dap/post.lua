@@ -1,5 +1,5 @@
 -- TOML: debug.toml
--- Repo: mfussenegger/nvim-dap
+-- Repo: Mfussenegger/nvim-dap
 
 local filetypes = {
   "lua",
