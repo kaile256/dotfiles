@@ -20,7 +20,7 @@ repo = 'lspcontainers/lspcontainers.nvim'
 # Supported LSs: lspcontainers/lspcontainers.nvim/lua/lspcontainers/init.lua
 if = 'has("nvim")'
 depends = ['nvim-lspconfig']
-on_source = ['nvim-lspconfig']
+on_lua = ['lspcontainers']
 [[plugins]]
 repo = 'ray-x/lsp_signature.nvim'
 depends = ['nvim-lspconfig']
