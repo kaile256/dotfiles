@@ -21,7 +21,18 @@
   sunmap [s
 
   function! s:shot(char) abort
-    if dein#tap('hop.nvim')
+    if dein#tap('lightspeed.nvim')
+      const lightspeeds = {
+            \ 'f': "\<Plug>Lightspeed_f",
+            \ 't': "\<Plug>Lightspeed_t",
+            \ 'F': "\<Plug>Lightspeed_F",
+            \ 'T': "\<Plug>Lightspeed_T",
+            \ }
+      const Plug = lightspeeds[a:char]
+      const n = "\<Plug>(lightspeed-repeat-as-it-was)"
+      const N = "\<Plug>(lightspeed-repeat-in-opposite)"
+
+    elseif dein#tap('hop.nvim')
       const hops = {
             \ 'f': '<Cmd> HopChar1AC <CR>',
             \ 'F': '<Cmd> HopChar1BC <CR>',

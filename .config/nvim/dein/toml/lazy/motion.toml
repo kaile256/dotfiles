@@ -87,6 +87,7 @@ hook_source = 'runtime source/asterisk.vim'
 # on_cmd = ['Hop']
 [[plugins]]
 repo = 'easymotion/vim-easymotion'
+if = "has('nvim')"
 # Note: As it temporarily replaces characters in buffers for hinting,
 # asynchronous plugins working with lsp or linters find them errors.
 on_map = {nox = '<Plug>(easymotion-'}
@@ -113,14 +114,15 @@ hook_post_source = 'runtime post/easymotion.vim'
 #hook_post_source = 'runtime add/incsearch-fuzzy.vim'
 
 #[ Sort of EasyMotion ]
-# [[plugins]]
-# # repo = 'ggandor/lightspeed.nvim'
-# # Repeat f/t/F/T to the next same character; s/S to start mixed input
-# # strategies to search incrementally and to put labels onto duplicated
-# # character sequences.
-# if = "has('nvim')"
-# on_map = {nox = ['<Plug>Lightspeed_']}
-# hook_add = 'source $DEIN_RC_DIR/lightspeed/add.vim'
+[[plugins]]
+repo = 'ggandor/lightspeed.nvim'
+# Repeat f/t/F/T to the next same character; s/S to start mixed input
+# strategies to search incrementally and to put labels onto duplicated
+# character sequences.
+if = "has('nvim')"
+on_lua = ['lightspeed']
+on_map = {nox = ['<Plug>Lightspeed_']}
+hook_source = 'luafile $DEIN_RC_DIR/lightspeed/source.lua'
 # [[plugins]]
 # # repo = 'deris/vim-shot-f'
 # # Highlight chars which you get directly.
