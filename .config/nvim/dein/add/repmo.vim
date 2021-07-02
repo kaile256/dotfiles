@@ -1,72 +1,72 @@
-  " TOML: motion.toml
-  " Repo: Houl/repmo-vim
-  " Another: post/repmo.vim
+" TOML: motion.toml
+" Repo: Houl/repmo-vim
+" Another: post/repmo.vim
 
-  " Note:
-  " You can find the key set by `repmo#Stl()`.
-  " repmo#SelfKey() for non-recursive mappings like <C-y> to <C-y>/<C-e>.
+" Note:
+" You can find the key set by `repmo#Stl()`.
+" repmo#SelfKey() for non-recursive mappings like <C-y> to <C-y>/<C-e>.
 
-  noremap <expr> ]] repmo#Key(']]zzzv', ']]zzzv')
-  noremap <expr> [[ repmo#Key('[[zzzv', '[[zzzv')
-  noremap <expr> ][ repmo#Key('][zzzv', '[]zzzv')
-  noremap <expr> [] repmo#Key('[]zzzv', '][zzzv')
-  sunmap ]]
-  sunmap [[
-  sunmap ][
-  sunmap []
+noremap <expr> ]] repmo#Key(']]zzzv', ']]zzzv')
+noremap <expr> [[ repmo#Key('[[zzzv', '[[zzzv')
+noremap <expr> ][ repmo#Key('][zzzv', '[]zzzv')
+noremap <expr> [] repmo#Key('[]zzzv', '][zzzv')
+sunmap ]]
+sunmap [[
+sunmap ][
+sunmap []
 
-  noremap <expr> ]s repmo#Key(']s', '[s')
-  noremap <expr> [s repmo#Key('[s', ']s')
-  sunmap ]s
-  sunmap [s
+noremap <expr> ]s repmo#Key(']s', '[s')
+noremap <expr> [s repmo#Key('[s', ']s')
+sunmap ]s
+sunmap [s
 
-  function! s:shot(char) abort
-    if dein#tap('lightspeed.nvim')
-      const lightspeeds = {
-            \ 'f': "\<Plug>Lightspeed_s",
-            \ 't': "\<Plug>Lightspeed_t",
-            \ 'F': "\<Plug>Lightspeed_S",
-            \ 'T': "\<Plug>Lightspeed_T",
-            \ }
-      const Plug = lightspeeds[a:char]
-      const n = "\<Plug>(lightspeed-repeat-as-it-was)"
-      const N = "\<Plug>(lightspeed-repeat-in-opposite)"
+function! s:shot(char) abort
+  if dein#tap('lightspeed.nvim')
+    const lightspeeds = {
+          \ 'f': "\<Plug>Lightspeed_s",
+          \ 't': "\<Plug>Lightspeed_t",
+          \ 'F': "\<Plug>Lightspeed_S",
+          \ 'T': "\<Plug>Lightspeed_T",
+          \ }
+    const Plug = lightspeeds[a:char]
+    const n = "\<Plug>(lightspeed-repeat-as-it-was)"
+    const N = "\<Plug>(lightspeed-repeat-in-opposite)"
 
-    elseif dein#tap('hop.nvim')
-      const hops = {
-            \ 'f': '<Cmd> HopChar1AC <CR>',
-            \ 'F': '<Cmd> HopChar1BC <CR>',
-            \ 't': '',
-            \ 'T': '',
-            \ }
-      const Plug = hops[a:char]
-      const n = "\<Cmd>HopChar1AC\<CR>" " After Cursor
-      const N = "\<Cmd>HopChar1BC\<CR>" " Before Cursor
+  elseif dein#tap('hop.nvim')
+    const hops = {
+          \ 'f': '<Cmd> HopChar1AC <CR>',
+          \ 'F': '<Cmd> HopChar1BC <CR>',
+          \ 't': '',
+          \ 'T': '',
+          \ }
+    const Plug = hops[a:char]
+    const n = "\<Cmd>HopChar1AC\<CR>" " After Cursor
+    const N = "\<Cmd>HopChar1BC\<CR>" " Before Cursor
 
-    elseif dein#tap('vim-easymotion')
-      const Plug = "\<Plug>(easymotion-". a:char .')'
-      const n = "\<Plug>(easymotion-next)"
-      const N = "\<Plug>(easymotion-prev)"
+  elseif dein#tap('vim-easymotion')
+    const Plug = "\<Plug>(easymotion-". a:char .')'
+    const n = "\<Plug>(easymotion-next)"
+    const N = "\<Plug>(easymotion-prev)"
+  endif
+
+  if exists('N')
+    if a:char =~# '\l'
+      const forward = n
+      const backward = N
+    else
+      const forward = N
+      const backward = n
     endif
 
-    if exists('N')
-      if a:char =~# '\l'
-        const forward = n
-        const backward = N
-      else
-        const forward = N
-        const backward = n
-      endif
+    const Repmo = call('repmo#Key', [forward, backward])
+    return Plug
 
-      const Repmo = call('repmo#Key', [forward, backward])
-      return Plug
+  elseif dein#tap('vim-shot-f')
+    return repmo#ZapKey("\<Plug>(shot-f-". a:char .')')
+  endif
 
-    elseif dein#tap('vim-shot-f')
-      return repmo#ZapKey("\<Plug>(shot-f-". a:char .')')
-    endif
-
-    return repmo#ZapKey(a:char)
-  endfunction
+  return repmo#ZapKey(a:char)
+endfunction
 
 map <expr> f <SID>shot('f')
 map <expr> F <SID>shot('F')
