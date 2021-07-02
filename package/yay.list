@@ -295,7 +295,7 @@ udiskie # a wrapper of udisk2 to mount automatically
 #toggl-cli # use python's one instead from github
 #jot # a cli tool to take a note
 #notes-cli-bin # a cli tool to take a note on markdown
-zk # A cli to maintain a plain text Zetelkasten.
+# zk # A cli to maintain a plain text Zetelkasten.
 neuron-zettelkasten-bin # A cli tool to publish Zettelkasten on the web.
 obsidian-appimage # A GUI Editor designed for Zettelkasten
 
