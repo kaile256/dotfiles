@@ -117,11 +117,10 @@ augroup myDeinRc "{{{1
       const repo_line = repo_lines[0]
       const pat_repo = '\S\+/\S\+'
       const repo = matchstr(repo_line, pat_repo)
-    catch /E684/
-      const repo = '/'. matchstr(alt_path, dirs .'/\zs[^./]\+')
-    finally
-      const pat = '^[# ]*repo = .*\zs'. repo
+    catch /^Vim\%((\a\+)\)\=:E684/
+      const repo = '/'. matchstr(alt_path, pat_config_file .'/\zs[^./]\+')
     endtry
+    const pat = '^[# ]*repo = .*\zs'. repo
 
     if repo ==# ''
       echohl ErrorMsg
