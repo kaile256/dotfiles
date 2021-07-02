@@ -15,15 +15,13 @@ require('telescope').setup {
       '--smart-case'
     },
 
-    prompt_position = "top",
-    prompt_prefix = ">",
     selection_strategy = "reset", -- reset, row, follow
     sorting_strategy = "ascending",
 
     layout_strategy = "horizontal", -- horizontal, vertical, or flex.
-    layout_default = {
+    layout_config = {
       horizontal = {
-        mirror = true,
+        prompt_position = "top",
       },
     },
 
@@ -33,10 +31,6 @@ require('telescope').setup {
     shorten_path = true,
 
     winblend = 20,
-    width = 0.85,
-    preview_cutoff = 120,
-    results_height = 1,
-    results_width = 0.8,
     border = {},
     borderchars = { '─', '│', '─', '│', '╭', '╮', '╯', '╰'},
     color_devicons = true,
