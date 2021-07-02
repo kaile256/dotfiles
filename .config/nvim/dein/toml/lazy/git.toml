@@ -106,6 +106,7 @@ repo = 'cohama/agit.vim'
 # git log viewer; faster than the others presently
 # TODO: set each colors on different branch's flow like vim-gitv
 on_cmd = 'Agit'
+hook_add = 'luafile $DEIN_RC_DIR/agit/add.lua'
 hook_source = 'runtime source/agit.vim'
 [[plugins]]
 repo = 'lambdalisue/gina.vim'
