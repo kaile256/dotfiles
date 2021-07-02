@@ -77,7 +77,7 @@ nnoremap <silent> <A-x><space> :<c-u>call <SID>defx({
 
 " in vertical {{{2
 nmap <A-x><A-v> <A-x>v
-nmap <silent> <A-x>v <C-w>v:<C-u>call <SID>defx({
+nnoremap <silent> <A-x>v <C-w>v:<C-u>call <SID>defx({
       \ 'split': 'no',
       \ 'new': 1,
       \ })
@@ -85,7 +85,7 @@ nmap <silent> <A-x>v <C-w>v:<C-u>call <SID>defx({
 
 " in horizontal {{{2
 nmap <A-x><A-s> <A-x>s
-nmap <silent> <A-x>s <C-w>s:<C-u>call <SID>defx({
+nnoremap <silent> <A-x>s <C-w>s:<C-u>call <SID>defx({
       \ 'split': 'no',
       \ 'new': 1,
       \ })<cr>
