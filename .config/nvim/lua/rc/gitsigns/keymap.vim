@@ -42,6 +42,9 @@ xnoremap <silent> <SID>(stage-hank-in-range)
 nmap <space>gp <SID>(stage-hank-in-range)
 xmap <space>gp <SID>(stage-hank-in-range)
 
+nnoremap <space>gP <Cmd>Gitsigns stage_buffer<CR>
+nnoremap <space>gw <Cmd>Gitsigns stage_buffer<CR>
+
 
 " Motions
 noremap <SID>[c [c
