@@ -123,6 +123,7 @@ if = "has('nvim')"
 on_lua = ['lightspeed']
 on_map = {nox = ['<Plug>Lightspeed_']}
 hook_source = 'luafile $DEIN_RC_DIR/lightspeed/source.lua'
+hook_post_source = 'luafile $DEIN_RC_DIR/lightspeed/post.lua'
 # [[plugins]]
 # # repo = 'deris/vim-shot-f'
 # # Highlight chars which you get directly.
