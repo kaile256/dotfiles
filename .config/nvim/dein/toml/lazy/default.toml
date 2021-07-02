@@ -1,5 +1,17 @@
 # From: dein/dein.vim
 
+#[ Define ]
+[[plugins]]
+repo = 'delphinus/mappy.nvim'
+# A wrapper to define mappings in `nnoremap`-like format.
+on_lua = ['mappy']
+hook_add = 'luafile $DEIN_RC_DIR/mappy/add.lua'
+[[plugins]]
+repo = 'delphinus/agrp.nvim'
+# A wrapper to define augroups in lua.
+on_lua = ['agrp']
+hook_add = 'luafile $DEIN_RC_DIR/agrp/add.lua'
+
 #[ Refactor ]
 [[plugins]]
 repo = 'AndrewRadev/inline_edit.vim'

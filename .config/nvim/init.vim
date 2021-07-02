@@ -21,6 +21,7 @@ let g:TermOpen = has('nvim') ? 'TermOpen' :
 runtime rc/variables.vim  " CAUTION: don't comment out; many files depend on it.
 runtime rc/options.vim
 runtime rc/os.vim
+runtime lua/rc/init.lua
 runtime dein/dein.vim  " contains `filetype plugin indent on`
 runtime rc/colorscheme.vim
 " runtime rc/vifm.vim " explore by vifm instead of defx
