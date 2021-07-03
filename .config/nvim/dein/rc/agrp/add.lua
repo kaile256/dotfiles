@@ -2,23 +2,31 @@
 -- Repo: delphinus/agrp.nvim
 
 ---@alias autocmd_args table[au_events, au_patterns, vim_command|function] # augroup name.
----@alias agrp_args table<autocmd_args, augroup_name>[]
+---@alias agrp_args table<string, autocmd_args>[]
 
----@overload fun(augroups: agrp_args|table<string, autocmd_args>): agrp_args
----@param augroup_name augroup_name
----@param autocmd_args autocmd_args
+---@overload fun(augroups: agrp_args): agrp_args
+---@overload fun(augroup_name: string, agrp_args: autocmd_args|table<string, autocmd_args>): agrp_args
 ---@return agrp_args
-local parse_args = function(augroup_name, autocmd_args)
-  local augroups
-  if type(augroup_name) == "table" then
-    if type(augroup_name) == "string" then
-      augroups = { augroup_name }
-    end
-    augroups = augroup_name
-  else
-    augroups = { [augroup_name] = autocmd_args }
+local parse_args = function(...)
+  local first = select(1, ...)
+  if type(first) == "table" then
+      return first
   end
-  return augroups
+
+  local second = select(2, ...)
+  vim.validate({ second_arg = { second, "table" } })
+
+  local augroup_name = first
+  local autocmd_args
+  if type(second[1]) == "table" then
+    autocmd_args = second
+  elseif type(second[1]) == "string" then
+    autocmd_args = { second }
+  else
+    error("The second argument is invalid type: " .. type(second))
+  end
+  local agrp_args = { [augroup_name] = autocmd_args }
+  return agrp_args
 end
 
 --- Generate augroups with prefix "my".
