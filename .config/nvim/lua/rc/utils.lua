@@ -13,3 +13,16 @@ U = {}
 
 
 ---@alias vim_map_function fun(keys: string, command: vim_command) | fun(map_args: vim_map_args, keys: string, command: vim_command): nil
+
+--- Execute `vim.api.nvim_feedkeys()`, interpreting `"<Esc>"`, `"<Plug>"`, ..., as VimL interprets `"\<Esc>"`,
+--- `"\<Plug>"`, etc.
+---@param keys string
+---@param flags? '"m"'|'"n"'
+---|'"t"' # Handle keys as if typed; otherwise, they are handled as if coming from a mapping. This matters for undo, opeing folds, etc.
+---|'"i"'
+---|'"x"' # Execute commands until typehead is empty like using `:normal!`.
+---|'"!"' # With "x", it won't end Insert mode. Useful for testing `CursorHoldI`.
+U.feedkeys = function(keys, flags)
+  local termcodes = vim.api.nvim_replace_termcodes(keys, true, false, true)
+  vim.api.nvim_feedkeys(termcodes, flags, true)
+end
