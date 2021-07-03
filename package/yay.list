@@ -25,6 +25,7 @@ ttf-joypixels # Emoji fonts.
 # System
 strace
 htop-vim-git # vim-binding htop.
+fastfetch # Replacement of neofetch. Print system info in pretty format.
 
 # Shell
 fish
