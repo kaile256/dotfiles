@@ -655,7 +655,7 @@ mode $Device {
     bindsym $Super+bracketleft mode default
 }
 # Keybind: Apps {{{1
-bindsym $Super+Tab $noid alacritty --title "TMP-watch-proc" --command "htop"
+bindsym $Super+backslash $noid alacritty --title "TMP-watch-proc" --command "htop"
 
 # Tool {{{2
 set $Tool " Tool: (L)ine "
@@ -879,7 +879,7 @@ mode $Skk {
 #     --dimensions 70 30 \
 #     -e i3-dmenu-desktop --dmenu=fzf
 # bindsym $Super+backslash $noid $menu
-bindsym $Super+backslash $noid rofi -modi drun -show drun
+bindsym $Super+Tab $noid rofi -modi drun -show drun
 bindsym $Super+slash $noid rofi -show window
 set $Rofi " Rofi: (S)SH "
 $release $SuperS+slash mode $Rofi; $shortmsg 'Rofi'
