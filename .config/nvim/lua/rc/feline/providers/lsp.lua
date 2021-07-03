@@ -1,3 +1,4 @@
+---@diagnostic disable-next-line: unused-local
 local lsp = vim.lsp
 
 local Lsp = {}
@@ -14,8 +15,10 @@ local coc_loading = {
 }
 
 local lsp_loading = {
-  enabled = function() return not vim.tbl_isempty(lsp.buf_get_clients()) end,
-  provider = function() return require"lsp_spinner".status() end,
+  provider = function()
+    local lsp_stat = require"lsp_spinner".status()
+    return lsp_stat == "" and "[none]" or lsp_stat
+  end,
 }
 
 if vim.fn["dein#tap"]("lsp_spinner") then
