@@ -4,8 +4,7 @@
 " Another: post/SQHell.vim
 
 augroup mySQHellAdd
-  au BufRead *
-        \ if getline(1) =~# '^SQLite format '
-        \   | SQHShowDatabases
-        \ | endif
+  au BufRead * exe getline(1) =~# '^SQLite format '
+        \ ? execute('SQHShowDatabases')
+        \ : ''
 augroup END
