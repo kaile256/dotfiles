@@ -2,8 +2,8 @@
 ---@type table
 U = {}
 
----@alias vim_mode "n"|"v"|"x"|"s"|"o"|"i"|"l"|"c"|"t"
----@alias vim_map_args "buffer"|"nowait"|"silent"|"expr"|"unique" # "script" doesn't work in Lua.
+---@alias vim_mode '"n"'|'"v"'|'"x"'|'"s"'|'"o"'|'"i"'|'"l"'|'"c"'|'"t"'
+---@alias vim_map_args '"buffer"'|'"nowait"'|'"silent"'|'"expr"'|'"unique"' # '"script"' doesn't work in Lua.
 ---@alias vim_command string
 
 ---@alias augroup_name string # augroup name. The prefix "my" would be aded if the name don't start by "my".
