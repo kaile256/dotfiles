@@ -84,14 +84,15 @@ hook_source = 'luafile $DEIN_RC_DIR/hlslens/pos.lua'
 # [[plugins]]
 # # repo = 'junegunn/goyo.vim'
 # on_cmd = 'Goyo'
-[[plugins]]
-repo = 'junegunn/limelight.vim'
-# Note: requires &termguicolors = 1
-on_map = {nx = '<Plug>(Limelight'}
-on_cmd = 'Limelight'
-hook_add = 'runtime add/limelight.vim'
-hook_source = 'runtime source/limelight.vim'
-hook_post_source = 'runtime post/limelight.vim'
+# [[plugins]]
+# repo = 'junegunn/limelight.vim'
+# # Apply syntax only on current code block; otherwise shaded.
+# # Note: requires &termguicolors = 1
+# on_map = {nx = '<Plug>(Limelight'}
+# on_cmd = 'Limelight'
+# hook_add = 'runtime add/limelight.vim'
+# hook_source = 'runtime source/limelight.vim'
+# hook_post_source = 'runtime post/limelight.vim'
 [[plugins]]
 repo = 'machakann/vim-highlightedyank'
 # coc's highlight on yank sometimes leaves the highlight after the role.
