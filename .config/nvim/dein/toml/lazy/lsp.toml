@@ -29,6 +29,11 @@ on_lua = ['lsp_signature']
 repo = 'kosayoda/nvim-lightbulb'
 # Notify in signcolumn when code-actions are available on the cursor position.
 on_lua = ['nvim-lightbulb']
+[[plugins]]
+repo = 'folke/lsp-colors.nvim'
+# Add missing highlight groups onto LSP diagnostic in virtual texts.
+if = "has('nvim')"
+on_source = ['nvim-lspconfig']
 # [[plugins]]
 # repo = 'folke/lua-dev.nvim'
 # # Append nvim-lua APIs as LSP sources which can be used by such completion
