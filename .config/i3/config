@@ -140,7 +140,7 @@ no_focus [class="^qutebrowser$"]
 #assign [class="^URxvt$"] → 2
 #assign [class="^URxvt$"] → output primary
 
-for_window [title=^TMP] floating enable, border pixel 2
+for_window [title=^TMP] floating enable, border pixel 1
 for_window [title="^TMP_Bordered"] floating enable border normal
 
 #for_window [class="calamares"] floating enable border normal

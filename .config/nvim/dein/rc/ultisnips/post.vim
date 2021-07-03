@@ -3,7 +3,7 @@
 " Another: add/ultisnips.vim
 " Another: source/ultisnips.vim
 
-" Note: Too heavy; use coc's one instead.
+" Note: Too heavy.
 silent! augroup! UltiSnips_AutoTrigger
 
 augroup myUltisnipsPost

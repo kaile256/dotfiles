@@ -57,9 +57,9 @@ on_func = [
   'UltiSnips#ExpandSnippet',
   'UltiSnips#SaveLastVisualSelection',
 ]
-hook_add = 'runtime add/ultisnips.vim'
-hook_source = 'runtime source/ultisnips.vim'
-hook_post_source = 'runtime post/ultisnips.vim'
+hook_add = 'source $DEIN_RC_DIR/ultisnips/add.vim'
+hook_source = 'source $DEIN_RC_DIR/ultisnips/source.vim'
+hook_post_source = 'source $DEIN_RC_DIR/ultisnips/post.vim'
 # [[plugins]]
 # repo = 'Shougo/neosnippet.vim'
 # # Merged PR: Shougo/neosnippet.vim/pull/486
