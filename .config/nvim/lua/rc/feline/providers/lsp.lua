@@ -1,4 +1,6 @@
-local lsp = {}
+local lsp = vim.lsp
+
+local Lsp = {}
 
 local coc_loading = {
   enabled = vim.g.coc_status ~= nil,
@@ -11,6 +13,15 @@ local coc_loading = {
   end
 }
 
-lsp.loading = coc_loading
+local lsp_loading = {
+  enabled = function() return not vim.tbl_isempty(lsp.buf_get_clients()) end,
+  provider = function() return require"lsp_spinner".status() end,
+}
 
-return lsp
+if vim.fn["dein#tap"]("lsp_spinner") then
+  Lsp.loading = lsp_loading
+else
+  Lsp.loading = coc_loading
+end
+
+return Lsp

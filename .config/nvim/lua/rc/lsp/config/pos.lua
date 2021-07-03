@@ -7,9 +7,13 @@ local lspconfig = require'lspconfig'
 local configs = require'lspconfig/configs'
 local on_attach = require'rc.lsp.config.on_attach'
 local containers = require"rc.lsp.containers"
+local spinner = require"rc.lsp.spinner"
+
+local capabilities = spinner.enable_work_done_progress()
 
 lspconfig.util.default_config = vim.tbl_extend('force', lspconfig.util.default_config, {
   autostart = true,
+  capabilities = capabilities,
 })
 
 -- Note: Both efm-langserver and diagnostic-server is a general purpose languageserver, and provides almost same

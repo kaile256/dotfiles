@@ -34,6 +34,10 @@ repo = 'folke/lsp-colors.nvim'
 # Add missing highlight groups onto LSP diagnostic in virtual texts.
 if = "has('nvim')"
 on_source = ['nvim-lspconfig']
+[[plugins]]
+repo = 'doums/lsp_spinner.nvim'
+# Display running LSs or a spinner on start up.
+on_lua = ['lsp_spinner']
 # [[plugins]]
 # repo = 'folke/lua-dev.nvim'
 # # Append nvim-lua APIs as LSP sources which can be used by such completion

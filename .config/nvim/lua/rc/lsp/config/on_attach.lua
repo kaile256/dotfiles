@@ -83,6 +83,14 @@ local additional_actions = {
   lsp_signature = function(_, _)
     require"lsp_signature".on_attach()
   end;
+
+-- TOML: lsp.toml
+  -- Repo: doums/lsp_spinner.nvim
+  lsp_spinner = function(client, bufnr)
+    local lsp_spinner = require"lsp_spinner"
+    lsp_spinner.on_attach(client, bufnr)
+  end;
+
   -- TOML: lsp.toml
   -- Repo: kosayoda/nvim-lightbulb
   ["nvim-lightbulb"] = function(client, bufnr)
