@@ -22,6 +22,11 @@ hook_source = 'source $DEIN_RC_DIR/ale/sou.vim'
 #
 #[ Indent ]
 # [[plugins]]
+# repo = 'lukas-reineke/indent-blankline.nvim'
+# if = "has('nvim')"
+# on_event = ['BufRead']
+# hook_source = 'luafile $DEIN_RC_DIR/indent-blankline/source.lua'
+# [[plugins]]
 # repo = 'nathanaelkane/vim-indent-guides'
 # # Fill indent by colors
 # on_ft = 'snippets'
