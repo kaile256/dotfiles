@@ -3,10 +3,10 @@
 
 local set_options = function()
   vim.bo.bufhidden = "wipe"
-  U.augroup("CmdbufCloseOnWinLeave", {
+  U.augroup { CmdbufCloseOnWinLeave = {
       { "WinLeave", "<buffer>", "bdelete" }
     }
-  )
+  }
 end
 
 local execute_and_exit = function()
