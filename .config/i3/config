@@ -657,6 +657,7 @@ mode $Device {
 # Keybind: Apps {{{1
 set $watch_proc exec --no-startup-id alacritty \
     --title "TMP-watch-proc" \
+    --option background_opacity=1 \
     --option window.dimensions.columns=200 \
     --option window.dimensions.lines=80 \
     --command "htop"
