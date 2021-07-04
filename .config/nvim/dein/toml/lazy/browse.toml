@@ -15,7 +15,13 @@
 # hook_add = 'runtime add/ctrlsf.vim'
 # hook_source = 'runtime source/ctrlsf.vim'
 # hook_post_source = 'runtime post/ctrlsf.vim'
-
+# [[plugins]]
+# repo = 'windwp/nvim-spectre'
+# # It depends on ripgrep, devicon, and sed.
+# # WARNING: No undo support.
+# if = "has('nvim')"
+# depends = ['plenary.nvim', 'popup.nvim']
+#
 #[ Fuzzy Finder ]
 # [[plugins]]
 # repo = 'junegunn/fzf'
