@@ -6,7 +6,7 @@ repo = 'neovim/nvim-lspconfig'
 if = 'has("nvim")'
 # Note: BufRead kind events could be too late to start LS on the first buffer.
 on_event = ['VimEnter']
-hook_post_source = 'luafile $DEIN_LUA_DIR/lsp/config/pos.lua'
+hook_post_source = 'luafile $DEIN_LUA_DIR/lsp/config/post.lua'
 [[plugins]]
 repo = 'gfanto/fzf-lsp.nvim'
 if = 'executable("fzf") && has("nvim")'
