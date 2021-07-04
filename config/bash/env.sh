@@ -53,11 +53,10 @@ export COLORTERM=xterm-256color
 # for transparency on xterm
 ([ -n "$XTERM_VERSION" ] && transset-df --id "$WINDOWID")>/dev/null
 
-if type nvim-qt >/dev/null 2>&1 ; then
-  # nvr & nvim-qt does NOT work for sudoedit.
-  export EDITOR=nvim-qt
-  export VISUAL=nvim-qt
-  export SUDO_EDITOR=nvim-qt
+if type nvim >/dev/null 2>&1 ; then
+  export EDITOR=nvim
+  export VISUAL=nvim
+  export SUDO_EDITOR=nvim
 fi
 
 # Browser
