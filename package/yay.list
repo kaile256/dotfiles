@@ -211,12 +211,9 @@ wezterm # a terminal emulator written in rust; configurable in Lua.
 compiledb # a generator for clang's JSON
 deno # a better runtime than node.js which include TypeScript compiler
 sshfs # mount another filesystem via ssh
-php-fpm # required by nginx to run php
-# nginx-unit-php
 nginx
 android-emulator
 android-bash-completion
-# composer # php dependency manager on PHPStorm?
 libxft-bgra # Improve emoji works on urxvt? Conflicted to `libxft`
 
 # xcape # Config modifier keys to act as other keys with/without another key
@@ -251,8 +248,13 @@ apache
 wireshark-qt # a packet capture
 ifplugd # for netctl to Ethernet
 # wpa_actiond # for netctl to Wifi
-phpunit # unit test for php
 # xampp # a distro of Apache including MySQL, SQLite PHP, Perl etc.
+# phpunit # unit test for php
+# php-pear # PHP Extension and Application Repository; it includes `pecl`
+# php-fpm # required by nginx to run php
+# nginx-unit-php
+# composer # php dependency manager on PHPStorm?
+
 #wpa_supplicant_gui # wpa_supplicant on GUI, Qt; useless?
 #adb-screen-tools
 android-tools # includes `adb`
@@ -261,7 +263,6 @@ android-tools # includes `adb`
 #intellij-idea-ultimate-edition-jre
 # eclipse-vrapper # provides vim-bind for eclipse
 # eclipse-java # an IDE for java
-php-pear # PHP Extension and Application Repository; it includes `pecl`
 #libreoffice-fresh-ja # returns 404
 #libreoffice-still-ja # returns 404
 gdb # a debugger
