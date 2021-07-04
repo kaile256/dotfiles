@@ -14,6 +14,7 @@ local next_diagnostic = '<Cmd>lua vim.lsp.diagnostic.goto_next(' .. tostring(con
 local prev_diagnostic = '<Cmd>lua vim.lsp.diagnostic.goto_prev(' .. tostring(config_goto) .. ')<CR>'
 
 if is_repmo_enabled then
+  local repeatable_motion = [[repmo#Key(%q, %q)]]
   next_diagnostic, prev_diagnostic =
     "repmo#Key('" .. next_diagnostic .. "', '" .. prev_diagnostic .. "')",
     "repmo#Key('" .. prev_diagnostic .. "', '" .. next_diagnostic .. "')"
