@@ -97,11 +97,11 @@ qt5-wayland
 # sway # A substitute of i3wm
 # waybar # Replacement to polybar
 
-# Xmonad
-xmonad
-xmonad-contrib # Addons
-xmonad-utils # Addons
-xmobar # Status bar written in haskell
+# # Xmonad
+# xmonad
+# xmonad-contrib # Addons
+# xmonad-utils # Addons
+# xmobar # Status bar written in haskell
 
 # Screenshot: mouse to select range
 # shutter # has broken dependency on perl version.
@@ -230,11 +230,11 @@ linux510-virtualbox-guest-modules
 # llvm
 podman # a substitute for docker
 
-# Haskell
-haskell-language-server-bin
-ghc # a compiler for haskell
-stack # package manager for haskell.
-hlint # Linter for haskell
+# # Haskell
+# haskell-language-server-bin
+# ghc # a compiler for haskell
+# stack # package manager for haskell.
+# hlint # Linter for haskell
 
 maven # Java's build tool
 
