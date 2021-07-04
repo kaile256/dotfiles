@@ -56,12 +56,18 @@ for server, config in pairs(servers) do
   if ls then
     config.on_attach = config.on_attach or on_attach
     config.cmd = containers.lspcontainer_or_cmd(server, config.cmd)
-    ls.setup(config)
   else
     --- Trigger `__newindex`; now, you have `default_config` applied and have a method `setup()`. As `__newindex` is
     --- only triggered once, you should restart nvim instance to check `lspconfig` contexts.
     configs[server] = config
     --- Set up autocmd named as `server` to attach on BufRead/FileType. `setup()` requires an argument.
-    lspconfig[server].setup(config)
+    ls = lspconfig[server]
+  end
+
+  local ok, msg = pcall(ls.setup, config)
+  if not ok then
+    error(msg .. [[
+
+    at "]] .. server .. '" in `servers`')
   end
 end
