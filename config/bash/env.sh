@@ -59,6 +59,11 @@ if type nvim >/dev/null 2>&1 ; then
   export SUDO_EDITOR=nvim
 fi
 
+# less
+export LESS='-R'
+type src-hilite-lesspip.sh >/dev/null 2>&1  && \
+  export LESSOPEN='| src-hilite-lesspipe.sh %s'
+
 # Browser
 export BROWSER=qutebrowser
 
