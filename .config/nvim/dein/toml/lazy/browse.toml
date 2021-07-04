@@ -11,8 +11,8 @@ repo = 'dyng/ctrlsf.vim'
 on_map = {nx = ['<Plug>CtrlSF']}
 on_cmd = ['CtrlSF']
 on_func = ['ctrlsf#comp#Completion', 'CtrlSFGetVisualSelection']
-hook_add = 'runtime add/ctrlsf.vim'
-hook_source = 'runtime source/ctrlsf.vim'
+hook_add = 'source $DEIN_RC_DIR/ctrlsf/add.vim'
+hook_source = 'source $DEIN_RC_DIR/ctrlsf/source.vim'
 # [[plugins]]
 # repo = 'windwp/nvim-spectre'
 # # It depends on ripgrep, devicon, and sed.
