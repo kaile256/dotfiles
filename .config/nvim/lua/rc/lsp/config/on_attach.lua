@@ -19,8 +19,8 @@ if is_repmo_enabled then
     "repmo#Key('" .. prev_diagnostic .. "', '" .. next_diagnostic .. "')"
 end
 
-local is_lspsaga_enabled = vim.fn["dein#tap"]("lspsaga.nvim")
-local is_telescope_enabled = vim.fn["dein#tap"]("telescope.nvim")
+local is_lspsaga_enabled = vim.fn["dein#tap"]("lspsaga.nvim") == 1
+local is_telescope_enabled = vim.fn["dein#tap"]("telescope.nvim") == 1
 local set_keymaps = function(client, bufnr)
   local maps = {
     n = {
