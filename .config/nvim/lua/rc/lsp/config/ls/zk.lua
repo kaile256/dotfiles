@@ -11,9 +11,8 @@ end
 
 local config = {
   default_config = {
-    cmd = {'zk', 'lsp'},
-    filetypes = {'markdown'},
-    root_dir = lspconfig.util.root_pattern(".zk"),
+    cmd = { "zk", "lsp" },
+    filetypes = { "markdown" },
     settings = {},
   },
 
