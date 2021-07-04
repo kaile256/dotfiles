@@ -51,11 +51,13 @@ on_lua = ['lsp_spinner']
 # # Let us write config in json like coc.nvim.
 # [[plugins]]
 # repo = 'glepnir/lspsaga.nvim'
+# # Note: It is incompatible with nvim-compe?
 # # Deal with built-in LSP in floating window.
 # if = 'has("nvim")'
 # depends = ['nvim-lspconfig']
 # on_lua = ['lspsaga']
 # on_cmd = ['Lspsaga']
+# hook_post_source = 'luafile $DEIN_LUA_DIR/lsp/saga/post.lua'
 # [[plugins]]
 # repo = 'kabouzeid/nvim-lspinstall'
 # # Install binaries into $XDG_DATA_HOME/nvim/lspinstall.

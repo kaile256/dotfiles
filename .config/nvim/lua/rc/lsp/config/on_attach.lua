@@ -19,6 +19,7 @@ if is_repmo_enabled then
     "repmo#Key('" .. prev_diagnostic .. "', '" .. next_diagnostic .. "')"
 end
 
+local is_lspsaga_enabled = vim.fn["dein#tap"]("lspsaga.nvim")
 local is_telescope_enabled = vim.fn["dein#tap"]("telescope.nvim")
 local set_keymaps = function(client, bufnr)
   local maps = {
@@ -28,7 +29,7 @@ local set_keymaps = function(client, bufnr)
       gr = is_telescope_enabled and '<Cmd>Telescope lsp_references<CR>'      or '<Cmd>lua vim.lsp.buf.references()<CR>',
       gy = is_telescope_enabled and '<Cmd>Telescope lsp_implementations<CR>' or '<Cmd>lua vim.lsp.buf.implementation()<CR>',
 
-      cs = '<Cmd>lua vim.lsp.buf.rename()<CR>',
+      cs = is_lspsaga_enabled and '<Cmd>Lspsaga rename<CR>' or '<Cmd>lua vim.lsp.buf.rename()<CR>',
 
       ['<C-]>'] = '<Cmd>lua vim.lsp.buf.hover()<CR>',
       ['<C-k>'] = '<Cmd>lua vim.lsp.buf.signature_help()<CR>',
