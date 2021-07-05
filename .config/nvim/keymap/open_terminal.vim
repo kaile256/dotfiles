@@ -2,21 +2,15 @@
 " Another: tmaps.vim
 " Another: lazy/terminal.vim
 
-command! -bar -nargs=* -count TermCmd  :exe  s:term_cmd('<count>',  <q-mods>, <f-args>)
-command! -bar -nargs=* -count TermOpen :call s:term_open('<count>', <q-mods>, <f-args>)
-
-command! -bar -nargs=* -count Vifm
-      \ :exe '<mods> <count> TermCmd vifm' (empty(<q-args>)
-      \   ? '--select '. s:set_path(expand('%:p:h'))
-      \   : <q-args>)
-      \ '| startinsert'
+command! -bar -nargs=? -count TermOpen
+      \ :exe s:parse_term_args(<q-mods>, <count>, <q-args>)
 
 " Note: <Space>t would be mapped by some easymotion like plugins.
-nnoremap <silent> <A-t>e :<C-u>TermOpen fish ++curwin<CR>
-nnoremap <silent> <A-t>v :<C-u>vert TermOpen<CR>
-nnoremap <silent> <A-t>s :<C-u>bel  TermOpen<CR>
-nnoremap <silent> <A-t>t :<C-u>tab  TermOpen<CR>
-nnoremap <silent> <A-t>b :<C-u>bot 8 TermOpen<CR>
+nnoremap <silent> <A-t>e :<C-u>     TermOpen <bar> startinsert<CR>
+nnoremap <silent> <A-t>v :<C-u>vert TermOpen <bar> startinsert<CR>
+nnoremap <silent> <A-t>s :<C-u>bel  TermOpen <bar> startinsert<CR>
+nnoremap <silent> <A-t>t :<C-u>tab  TermOpen <bar> startinsert<CR>
+nnoremap <silent> <A-t>b :<C-u>bot 8 TermOpen<bar> startinsert<CR>
 
 nmap <A-t><A-t> <A-t>t
 nmap <A-t><A-e> <A-t>e
@@ -24,78 +18,52 @@ nmap <A-t><A-v> <A-t>v
 nmap <A-t><A-s> <A-t>s
 nmap <A-t><A-b> <A-t>b
 
-if has('nvim')
-  function! s:_term_cmd(count, mods, shell) abort
-    if empty(a:mods)
-      let command = 'term '. a:shell
-      return command
-    endif
-
-    let mods = a:mods
-    if a:count
-      let mods .= ' '. a:count
-    endif
-    let command = mods .' sp term://'. a:shell
-    return command
-  endfunction
-else
-  function! s:_term_cmd(count, mods, shell) abort
-    let opt = ''
-    let opt .= ' ++close'
-    let opt .= ' ++kill=term'
-    if a:0 > 0
-      for arg in a:000
-        if arg =~# '^++'
-          let opt .= ' '. arg
-        endif
-      endfor
-    endif
-    let command = a:mods .' term '. opt .' '. a:shell
-    return command
-  endfunction
-endif
-
-function! s:term_cmd(count, mods, ...) abort
-  let shell = a:0 > 0 ? join(a:000) : ''
-  if shell =~# '^\s*fish'
-    " HACK: Double quotes for fish fails to open terminal with status 1, such
-    " as `sp term://fish -C "cd /"`.
-    let shell = substitute(shell, '"', "'", 'g')
+function! s:deal_with_win_location(mods, count, shell_args) abort
+  if empty(a:mods)
+    const shell_args = 'term '. a:shell_args
+    return shell_args
   endif
 
-  return s:_term_cmd(a:count, a:mods, shell)
+  let mods = a:mods
+  if a:count
+    let mods .= ' '. a:count
+  endif
+  const shell_args = mods .' sp term://'. a:shell_args
+  return shell_args
 endfunction
 
-function! s:set_path(path) abort
-  let path = a:path
-  if empty(path)
-    if &bt ==# 'terminal'
-      let path = getline(1)
-      let path = matchstr(path, '\f\+') " for vertically split view.
-    elseif &ft ==# 'defx'
-      let path = matchstr(getline(1), ':\zs\f\+')
-    endif
+function! s:get_cwd() abort
+  let dir = ''
+  const bt = &bt
+  const ft = &ft
+  if bt ==# 'terminal'
+    const last_cwd_line = search('^[~/].*\%(.*\n\)\{-}\%$', 'cnw')
+    let dir = matchstr(last_cwd_line, '\f\+') " for vertically split view.
+  elseif ft ==# 'defx'
+    let dir = matchstr(getline(1), ':\zs\f\+')
   endif
+  let dir = substitute(dir, '^\s*\~', $HOME, '') " esp. for Vifm or Defx.
 
-  let path = substitute(path, '^\s*\~', $HOME, '') " esp. for Vifm or Defx.
-
-  for p in [expand('%:p:h'), $HOME]
-    if isdirectory(path) | break | endif
-    let path = p
+  const safeties = [ expand('%:p:h'), expand('#:p:h'), $HOME ]
+  for cand in safeties
+    if isdirectory(dir) | break | endif
+    let dir = cand
   endfor
 
-  return path
+  return dir
 endfunction
 
-function! s:term_open(count, mods, ...) abort
-  let path = ''
-  if a:0 > 0
-    let path = a:1 =~# '^++' ? a:000[len(a:000) - 1] : a:1
-  endif
-  let path = s:set_path(path)
-  let shell = 'fish -C "cd '. path .'"'
-
-  exe s:term_cmd(a:count, a:mods, shell)
-  startinsert
+function! s:set_default_shell_args_on_enter() abort
+  let dir = s:get_cwd()
+  let cmd_args = 'cd '. dir
+  const shell_args = 'fish -C '. string(cmd_args)
+  return shell_args
 endfunction
 
+function! s:parse_term_args(mods, count, shell_args) abort
+  let shell_args = empty(a:shell_args)
+        \ ? s:set_default_shell_args_on_enter()
+        \ : s:parse_shell_args(a:shell_args)
+  const term_args = s:deal_with_win_location(a:mods, a:count, shell_args)
+  return term_args
+endfunction
