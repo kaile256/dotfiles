@@ -18,12 +18,6 @@ nnoremap <silent> <A-t>s :<C-u>bel  TermOpen<CR>
 nnoremap <silent> <A-t>t :<C-u>tab  TermOpen<CR>
 nnoremap <silent> <A-t>b :<C-u>bot 8 TermOpen<CR>
 
-nnoremap <silent> <A-t>E :<C-u>     TermOpen $HOME<CR>
-nnoremap <silent> <A-t>V :<C-u>bot vert TermOpen $HOME<CR>
-nnoremap <silent> <A-t>S :<C-u>bot  TermOpen $HOME<CR>
-nnoremap <silent> <A-t>T :<C-u>tab  TermOpen $HOME<CR>
-nnoremap <silent> <A-t>B :<C-u>bot 8 TermOpen $HOME<CR>
-
 nmap <A-t><A-t> <A-t>t
 nmap <A-t><A-e> <A-t>e
 nmap <A-t><A-v> <A-t>v
