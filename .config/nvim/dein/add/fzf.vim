@@ -29,10 +29,12 @@ let s:cmd_to_path = {
 
 " Note: :Ghqs is not actually in ghq
 " TODO: in :Usrs, ignore all the files permission-denied
-for cmd in keys(s:cmd_to_path)
-  exe 'command! -bar -bang -nargs=*' cmd
-        \ ':exe "Files"' string(s:cmd_to_path[cmd])
+for s:cmd in keys(s:cmd_to_path)
+  exe 'command! -bar -bang -nargs=*' s:cmd
+        \ ':exe "Files"' string(s:cmd_to_path[s:cmd])
 endfor
+unlet s:cmd
+unlet s:cmd_to_path
 
 " Command: Maps with keymaps {{{1
 " TODO: set options reverse
