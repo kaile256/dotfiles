@@ -11,6 +11,7 @@ hi! link HlSearchFloat    IncSearch " For the nearest text in the floating windo
 require('hlslens').setup({
   -- Enable hlslens on searching
   auto_enable = true,
+  nearest_float_when = "never",
 
   -- -- Finish searching as soon as cursor gets out of matched instance.
   -- calm_down = true,
