@@ -663,23 +663,7 @@ set $watch_proc exec --no-startup-id alacritty \
     --command "htop"
 bindsym $Super+backslash  $watch_proc
 
-# Tool {{{2
-set $Tool " Tool: (L)ine "
-$release $Super+T mode $Tool; $noid $shortmsg 'Tool'
-mode $Tool {
-    # Install LINE from https://line.me/en-US/download.  It may be more
-    # unstable than the version running on chrome.
-    # bindsym L $noid WINEPREFIX=$HOME/.wine_LINE/ \
-    # wine $HOME/.wine_LINE/drive_c/users/$USER/Local\ Settings/Application\ Data/LINE/bin/LineLauncher.exe
-
-    bindsym Ctrl+C             mode default
-    bindsym Ctrl+bracketleft   mode default
-    bindsym $Super+bracketleft mode default
-}
-
 # Terminal {{{2
-$release $Super+C $noid kitty; $noid $notify " Kitty "
-
 set $tmp_terminal alacritty --title TMP-terminal
 bindsym $Super+Return $noid $tmp_terminal
 
@@ -693,10 +677,10 @@ set $Qutebrowser_bookmarks alacritty \
 bindsym $Super+apostrophe $noid $Qutebrowser_bookmarks
 
 # Terminal Emulator Mode {{{2
-set $Console " Console: (A)lacritty (U)rxvt (X)term | (G)otop "
-bindsym $Super+C mode $Console; $noid $shortmsg 'Consoles'
+set $Terminals " Terminals: (A)lacritty (U)rxvt (X)term | (G)otop "
+bindsym $Super+T mode $Terminals; $noid $shortmsg 'Terminalss'
 
-mode $Console {
+mode $Terminals {
     bindsym A $noid alacritty;  mode default
     bindsym U $noid $urxvt   ;  mode default
     bindsym X $noid xterm    ;  mode default
