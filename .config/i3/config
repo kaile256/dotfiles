@@ -660,14 +660,14 @@ set $watch_proc exec --no-startup-id alacritty \
     --option window.dimensions.columns=200 \
     --option window.dimensions.lines=80 \
     --command "htop"
-bindsym $Super+backslash  $watch_proc
+bindsym $Super+P $watch_proc
 
 # Terminal {{{2
 set $tmp_terminal alacritty --title TMP-terminal
 bindsym $Super+Return $noid $tmp_terminal
 
 set $calculator alacritty --title TMP-Calculator -e python
-$release $Super+P $noid $calculator
+$release $Super+C $noid $calculator
 
 set $Qutebrowser_bookmarks alacritty \
     --title TMP_border_Qutebrowser_bookmarks \
