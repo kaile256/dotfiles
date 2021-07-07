@@ -22,7 +22,7 @@ local lsp_loading = {
   end,
 }
 
-if vim.fn["dein#tap"]("lsp_spinner") then
+if vim.fn["dein#tap"]("lsp_spinner") == 1 then
   Lsp.loading = lsp_loading
 else
   Lsp.loading = coc_loading
