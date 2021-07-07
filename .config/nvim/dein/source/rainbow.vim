@@ -25,6 +25,7 @@ let g:rainbow_conf.separately = {
       \ 'qf': 0,
       \ 'ranger': 0,
       \ 'toml': 0,
+      \ 'vimwiki': 0,
       \ }
 
 if has('nvim') && dein#tap('nvim-ts-rainbow')
