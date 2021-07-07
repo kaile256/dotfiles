@@ -2,6 +2,7 @@
 -- Repo: Mfussenegger/nvim-dap
 
 local filetypes = {
+  "go",
   "lua",
 }
 
