@@ -8,8 +8,9 @@ local filetypes = {
   "lua",
 }
 
+local ft_config_dir = "rc.dap.ft"
 for _, ft in pairs(filetypes) do
-  local path = "rc.dap." .. ft
+  local path = ft_config_dir .. "." .. ft
   require(path)
 end
 
