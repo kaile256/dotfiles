@@ -34,10 +34,17 @@ dap.adapters.go = direct_delve_dap
 dap.configurations.go = {
   {
     type = "go";
-    name = "Debug";
+    name = "Debug a file";
     request = "launch";
     showLog = false;
     program = "${file}";
     dlvToolPath = vim.fn.exepath("dlv")  -- Adjust to where delve is installed
+  },
+  {
+    type = "go",
+    name = "Debug on a Test file",
+    request = "launch",
+    mode = "test",
+    program = "${file}",
   },
 }
