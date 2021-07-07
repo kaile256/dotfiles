@@ -15,6 +15,7 @@ local coc_loading = {
 }
 
 local lsp_loading = {
+  enabled = vim.g.loaded_lsp_spinner ~= nil, -- defined in rc/lsp/spinner/init.lua
   provider = function()
     local lsp_stat = require"lsp_spinner".status()
     return lsp_stat == "" and "[none]" or lsp_stat

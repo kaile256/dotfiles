@@ -1,6 +1,8 @@
 -- TOML: lsp.toml
 -- Repo: doums/lsp_spinner.nvim
 
+vim.g.loaded_lsp_spinner = true
+
 local lsp_spinner = require'lsp_spinner'
 
 -- register an handler for `$/progress` method
