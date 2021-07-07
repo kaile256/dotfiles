@@ -1,5 +1,5 @@
 -- TOML: debug.toml
--- Repo: Mfussenegger/nvim-dap
+-- Repo: mfussenegger/nvim-dap
 
 local filetypes = {
   "go",
