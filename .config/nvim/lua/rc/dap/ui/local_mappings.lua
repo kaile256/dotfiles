@@ -6,6 +6,7 @@ local ui_widgets = require"dap.ui.widgets"
 
 local M = {}
 
+local prefix = "z"
 local local_mappings = {}
 local_mappings.widgets = {
   i = dap.step_into,
@@ -23,13 +24,15 @@ local_mappings.target = {
 
 local enable_local_mappings_to_widgets = function()
   for key, cmd in pairs(local_mappings.widgets) do
+    key = prefix .. key
     U.nnoremap({ "buffer", "nowait" }, key, cmd)
   end
 end
 
 local disable_local_mappings_to_widgets = function()
   for key, _ in pairs(local_mappings.widgets) do
-    vim.cmd("nunmap <buffer> " .. key)
+    key = prefix .. key
+    vim.cmd("silent! nunmap <buffer> " .. key)
   end
 end
 
