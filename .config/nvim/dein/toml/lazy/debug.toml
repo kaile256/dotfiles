@@ -11,6 +11,8 @@ hook_post_source = 'luafile $DEIN_LUA_DIR/dap/post.lua'
 repo = 'rcarriga/nvim-dap-ui'
 depends = ['nvim-dap']
 on_source = ['nvim-dap']
+hook_source = 'luafile $DEIN_LUA_DIR/dap/ui/source.lua'
+hook_post_source = 'luafile $DEIN_LUA_DIR/dap/ui/post.lua'
 [[plugins]]
 repo = 'theHamsta/nvim-dap-virtual-text'
 # Show results of `nvim-dap` on `@definition.var` defined in `locals.scm`.
