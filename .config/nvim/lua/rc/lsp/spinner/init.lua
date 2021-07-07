@@ -3,7 +3,10 @@
 
 vim.g.loaded_lsp_spinner = true
 
-local lsp_spinner = require'lsp_spinner'
+local loaded, lsp_spinner = pcall(require, "lsp_spinner")
+if not loaded then
+  return {}
+end
 
 -- register an handler for `$/progress` method
 -- options are optional
