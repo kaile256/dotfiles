@@ -22,36 +22,36 @@ vim.g.indent_blankline_filetype_exclude = {
 local color_table =
   vim.g.colors_name == "spring-night"
   and {
-    Red    = "#ff6a6f",
-    Orange = "#fd8489",
-    Yellow = "#fedf81",
-    Green  = "#a9dd9d",
-    Blue   = "#7098e6",
-    Indigo = "#a8d2eb",
-    Violet = "#e7d5ff"
+    "#f2c6de",
+    "#f9c6c9",
+    "#faedcb",
+    "#c9e4de",
+    "#c6def1",
+    "#d1d6f1",
+    "#d8cdf0"
   } or {
-    Red    = "#ff0000",
-    Orange = "#ffa500",
-    Yellow = "#ffff00",
-    Green  = "#008000",
-    Blue   = "#0000ff",
-    Indigo = "#4b0082",
-    Violet = "#ee82ee"
+    "#ff0000",
+    "#ffa500",
+    "#ffff00",
+    "#008000",
+    "#0000ff",
+    "#4b0082",
+    "#ee82ee"
   }
 
-for color, hex in pairs(color_table) do
+for idx, hex in pairs(color_table) do
   local prefix = "IndentBlankline"
-  local syntax_name = prefix .. color
+  local syntax_name = prefix .. idx
   local options = "guifg=" .. hex .. " gui=nocombine"
   vim.cmd("highlight! " .. syntax_name .. " " .. options)
 end
 
 vim.g.indent_blankline_char_highlight_list= {
-  "IndentBlanklineRed",
-  "IndentBlanklineOrange",
-  "IndentBlanklineYellow",
-  "IndentBlanklineGreen",
-  "IndentBlanklineBlue",
-  "IndentBlanklinePurple",
-  "IndentBlanklinePink",
+  "IndentBlankline1",
+  "IndentBlankline2",
+  "IndentBlankline3",
+  "IndentBlankline4",
+  "IndentBlankline5",
+  "IndentBlankline6",
+  "IndentBlankline7",
 }
