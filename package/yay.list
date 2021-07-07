@@ -26,6 +26,7 @@ ttf-joypixels # Emoji fonts.
 strace
 htop-vim-git # vim-binding htop.
 fastfetch # Replacement of neofetch. Print system info in pretty format.
+smartmontools # Self-Monitoring, Analysis, and Reporting Technology.
 
 # Shell
 fish
