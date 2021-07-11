@@ -39,14 +39,20 @@ local color_table =
     "#ee82ee"
   }
 
-for idx, hex in pairs(color_table) do
-  local prefix = "IndentBlankline"
-  local syntax_name = prefix .. idx
-  local options = "guifg=" .. hex .. " gui=nocombine"
-  vim.cmd("highlight! " .. syntax_name .. " " .. options)
+local generate_highlight_list = function()
+  local hl_list = {}
+  for idx, hex in pairs(color_table) do
+    local prefix = "IndentBlankline"
+    local syntax_name = prefix .. idx
+    local options = "guibg=" .. hex .. " gui=nocombine"
+    vim.cmd("highlight! " .. syntax_name .. " " .. options)
+    table.insert(hl_list, syntax_name)
+  end
+  return hl_list
 end
-
-vim.g.indent_blankline_char_highlight_list= {}
+local highlight_list = generate_highlight_list()
+vim.g.indent_blankline_char_highlight_list =  {}
+vim.g.indent_blankline_space_char_highlight_list = highlight_list
 
 vim.g.indent_blankline_char = ""
 U.augroup { IndentBlankline_ModifyIndentUnitLengthAsTabstop = {{
@@ -56,14 +62,3 @@ U.augroup { IndentBlankline_ModifyIndentUnitLengthAsTabstop = {{
     vim.g.indent_blankline_space_char_blankline = char
   end}
 }}
-
-
-vim.g.indent_blankline_space_char_highlight_list = {
-  "IndentBlankline1",
-  "IndentBlankline2",
-  "IndentBlankline3",
-  "IndentBlankline4",
-  "IndentBlankline5",
-  "IndentBlankline6",
-  "IndentBlankline7",
-}
