@@ -46,7 +46,19 @@ for idx, hex in pairs(color_table) do
   vim.cmd("highlight! " .. syntax_name .. " " .. options)
 end
 
-vim.g.indent_blankline_char_highlight_list= {
+vim.g.indent_blankline_char_highlight_list= {}
+
+vim.g.indent_blankline_char = ""
+U.augroup { IndentBlankline_ModifyIndentUnitLengthAsTabstop = {{
+  "BufEnter", "*", function()
+    local char = (" "):rep(vim.bo.tabstop)
+    vim.g.indent_blankline_space_char = char
+    vim.g.indent_blankline_space_char_blankline = char
+  end}
+}}
+
+
+vim.g.indent_blankline_space_char_highlight_list = {
   "IndentBlankline1",
   "IndentBlankline2",
   "IndentBlankline3",
