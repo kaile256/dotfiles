@@ -21,22 +21,22 @@ hook_source = 'source $DEIN_RC_DIR/ale/sou.vim'
 # # hook_post_source = 'source $DEIN_RC_DIR/context/pos.vim'
 #
 #[ Indent ]
-# [[plugins]]
-# repo = 'lukas-reineke/indent-blankline.nvim'
-# if = "has('nvim')"
-# on_event = ['BufRead']
-# hook_source = 'luafile $DEIN_RC_DIR/indent-blankline/source.lua'
+[[plugins]]
+repo = 'lukas-reineke/indent-blankline.nvim'
+if = "has('nvim') && !exists('g:vscode')"
+on_event = ['BufRead']
+hook_source = 'luafile $DEIN_RC_DIR/indent-blankline/source.lua'
 # [[plugins]]
 # repo = 'nathanaelkane/vim-indent-guides'
 # # Fill indent by colors
 # on_ft = 'snippets'
 # hook_source = 'runtime source/indent-guides.vim'
-[[plugins]]
-repo = 'glepnir/indent-guides.nvim'
-# Async. As vim-indent-guides, show indent in color blocks.
-if = 'has("nvim") && !exists("g:vscode")'
-on_event = ['BufRead']
-hook_post_source = 'luafile $DEIN_RC_DIR/indent-guides/pos.lua'
+# [[plugins]]
+# repo = 'glepnir/indent-guides.nvim'
+# # Async. As vim-indent-guides, show indent in color blocks.
+# if = 'has("nvim") && !exists("g:vscode")'
+# on_event = ['BufRead']
+# hook_post_source = 'luafile $DEIN_RC_DIR/indent-guides/pos.lua'
 [[plugins]]
 repo = 'Yggdroot/indentLine'
 # Show indent levels by characters using vim's conceal feature.
