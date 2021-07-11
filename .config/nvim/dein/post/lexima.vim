@@ -201,6 +201,7 @@ function! s:set_rules() abort
         \ {'char': '(', 'input_after': ')'},
         \ {'char': '[', 'input_after': ']'},
         \ {'char': '{', 'input_after': '}'},
+        \ {'char': '<', 'input_after': '>', 'at': '\S\%#'},
         \
         \ {'char': '(', 'at': '\%#[[<({]'},
         \ {'char': '[', 'at': '\%#[[<({]'},
