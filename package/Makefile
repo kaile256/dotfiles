@@ -75,7 +75,7 @@ neovim-nightly-bin: paru ## Install the latest version of neovim-nightly-bin
 	rm ~/.cache/paru/clone/neovim-nightly-bin -rf
 	paru -S --rebuild --redownload neovim-nightly-bin
 	@echo "Disarming keymap/ with backup for neovim startup performance..."
-	cd /usr/share/nvim/runtime && sudo rm keymap/ -rf
+	sudo rm /usr/share/nvim/runtime/keymap -rf
 
 .PHONY: paru
 # Note: To update packages, use yay; paru asks password for each packages.
