@@ -405,6 +405,7 @@ settings:
         ygc: spawn --detach google-chrome-stable {url:pretty}
         ym: :set-cmd-text :config-dict-add url.searchengines {url:pretty}
         yo: set-cmd-text :open {url:pretty}
+        yq: set-cmd-text :open {url:domain}{url:path}?q=
         yv: yank selection
         yy: yank
         zH: scroll-to-perc -x 0
