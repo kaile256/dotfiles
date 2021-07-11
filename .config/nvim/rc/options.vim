@@ -6,7 +6,8 @@ runtime! options/*.vim
 " Over the time, `:syntax off` will run.
 set redrawtime=100000
 
-"set verbosefile=/tmp/nvim-log
+" set verbose=1
+" set verbosefile=/tmp/nvim-log
 
 " Note: EndOfBuffer is set of trailing '~' at end of buffer.
 hi! link EndOfBuffer Ignore
@@ -269,6 +270,7 @@ set matchpairs+=<:>,「:」,『:』
 " nostartofline: keep cursor column on jump, like `gg`, `M`.
 set nostartofline
 " set hidden
+set autowriteall
 
 " set switchbuf=
 " set swb+=useopen " Use existing buffer if possible without new one.
